@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58687D47CD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 10:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C1C2D47CD6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 10:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fdlXsIb3PdMdPvOZc+JjP0d3YWvB0BkXsLeAJmnXIwQ=; b=cCIH1YCXlzX+pa+D22l2ox3Cm/
-	M8aLesFeVfP0ueghaoUt+FFQDdTgR31nEDBS7kq94EiUuWXqS7S9Gel0aPXqzqAxOefWqnCDtA4ny
-	nvpe4HF+Myi9lksscG13qID1t5MiD0E2P9i2UsaTrH1FAIrUA6eDhbQEmUZcXBdZphupjFIPSYTmw
-	VKRcehrNWmWn+Nx5+xpwHYt42UgeXAWrQBtfURLGEUeHb8v+UiYH/JLsIvrRxGg0uIWW/PSMnuEab
-	HOSaXNy9WvbQZwaEeNNatUjfGoUSRHIHRGhs14Ncmp+rqjuj6aV97uE+OzVY+sppQrDcg/64eY2zo
-	nN4Pv1Gw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lD3cJI77oDAVpO2sxDq8xYpdJ7xdu1XPSlpOJ/tCeT0=; b=jvaTkSMDFmo+GjWxGq0Q92d6VR
+	eKor/EVOJ+5rEsin5viXDR4mMjTtakSw1lMjL1JQvffhMkVJAOoNZhudp8YVgafQANL9ejM2kiO+E
+	XE51dRuUaibJoDgnQmGBiuzY8zWClyTc5c3LgLd4FGxHNuiogxXol5osZwMw9YPKHB+4FdkZvr89u
+	rZNWl3BLD2AvuVgdgcQKbFnbGHnfH5K4mJyvO2dLeO0mo+9YPUwy8qNdODDQbz3DfL1nY0kqGGP5g
+	7mat+wfxuQOL9+f8ZeP2X/u7BAKeijvTFycHPvUA7AVI4oBELz+weVJ2DAgkXEz11sX9IhidZBSOS
+	ZI3fktsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghPP-0000000DzL3-3waQ;
-	Fri, 16 Jan 2026 10:50:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vghPT-0000000DzMA-10Yb;
+	Fri, 16 Jan 2026 10:50:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghPO-0000000DzKh-3B2U
+	id 1vghPR-0000000DzLK-1L2K
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 10:50:26 +0000
+	Fri, 16 Jan 2026 10:50:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8955760167;
-	Fri, 16 Jan 2026 10:50:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3884C116C6;
-	Fri, 16 Jan 2026 10:50:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7342E601D9;
+	Fri, 16 Jan 2026 10:50:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A538C19423;
+	Fri, 16 Jan 2026 10:50:26 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: soc@lists.linux.dev,
 	soc <soc@kernel.org>
@@ -39,10 +39,12 @@ Cc: Magnus Damm <magnus.damm@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL 0/3] Renesas SoC updates for v6.20 (take two)
-Date: Fri, 16 Jan 2026 11:50:15 +0100
-Message-ID: <cover.1768559762.git.geert+renesas@glider.be>
+Subject: [GIT PULL 2/3] Renesas DT binding updates for v6.20
+Date: Fri, 16 Jan 2026 11:50:17 +0100
+Message-ID: <cover.1768559767.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1768559762.git.geert+renesas@glider.be>
+References: <cover.1768559762.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -59,47 +61,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-	Hi SoC folks,
+The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
 
-This is my second pull request for the inclusion of Renesas SoC updates
-for v6.20.
+  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
 
-It consists of 3 parts:
+are available in the Git repository at:
 
-  [GIT PULL 1/3] Renesas driver updates for v6.20 (take two)
+  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dt-bindings-for-v6.20-tag1
 
-    - Add and use for_each_of_imap_item() iterator,
-    - Add support for the RZ/N1 GPIO Interrupt Multiplexer.
+for you to fetch changes up to f3b795d298a280687ed70211d51043ed5fc7a96a:
 
-  [GIT PULL 2/3] Renesas DT binding updates for v6.20
+  dt-bindings: soc: renesas: Document RZ/N1 GPIO Interrupt Multiplexer (2026-01-15 11:56:09 +0100)
 
-    - Document the RZ/N1 GPIO Interrupt Multiplexer.
+----------------------------------------------------------------
+Renesas DT binding updates for v6.20
 
-  [GIT PULL 3/3] Renesas DTS updates for v6.20 (take two)
+  - Document the RZ/N1 GPIO Interrupt Multiplexer.
 
-    - Add cpufreq, thermal, GPIO IRQ, and CAN-FD support for the RZ/T2H
-      and RZ/N2H SoCs and their EVK boards,
-    - Add more serial (RSCI) and CAN-FD support for the RZ/V2H and RZ/V2N
-      SoCs,
-    - Drop unused .dtsi files,
-    - Add I3C support for the RZ/G3E SMARC SoM,
-    - Add GPIO support for the RZ/N1 SoC,
-    - Miscellaneous fixes and improvements.
+----------------------------------------------------------------
+Herve Codina (Schneider Electric) (1):
+      dt-bindings: soc: renesas: Document RZ/N1 GPIO Interrupt Multiplexer
 
-Note that "[GIT PULL 3/3]" includes DT binding definition updates for
-the RZ/T2H and RZ/N2H SoCs, which are shared by clock driver and DT
-source files.
-
-Thanks for pulling!
-
-Gr{oetje,eeting}s,
-
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
+ .../soc/renesas/renesas,rzn1-gpioirqmux.yaml       | 87 ++++++++++++++++++++++
+ 1 file changed, 87 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/soc/renesas/renesas,rzn1-gpioirqmux.yaml
 
