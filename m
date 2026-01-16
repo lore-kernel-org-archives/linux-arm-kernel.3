@@ -4,73 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863FAD4899D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 13:24:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC888D4899D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 13:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OkE0GM3UlKk2CulWJNx4KPyGxVd6jcoppfmycqlbInc=; b=DnEW2O8CACIr/fRI6E73lCfZRf
-	nPny3zlwm3oIK/DRNeuKtUHC7pLlJUjyRrQeP/uJ0cmxXqYjkfZU5wzaclZ7AIX6kLduB7gqwHEx/
-	pf0LDsyLpiJjobyO/exmFB3pz0zaQeBJ89fZBDYIpM6zWZ4Ey4oqZB3np80Svkpw8hGfMLhIweIc4
-	CrUjPdHcmfUYI6HqURrMcGADSJLjsGfduicn6VqBNq1o5MooddwTOD0jMsdCfeZ0sJhlk/iDuaMfI
-	2d3Z9iYfNQFguZTK79UIBzrRd9JwVUjq0+7hj6M0vkwmPknW+uFZl0k+9gvqVs4OMhfK/DpSKZNPz
-	cn1Nf+JQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uJ0Kd+SlEJxKbaePbsW3EtzVjRrjQZdOLYvse/lYkyc=; b=VifJpVHjyMf+febKbCwNGk4VUw
+	PQDlcnU5DM83u0Ol2J4Ug5+LAFtzhHE5LFlVGeYxzAu8ixW6lTZjH+YFUWNCOShguuknLMMCOYfGg
+	+/MrQlNPBGoVoP0txSYzVqEQzYNTXsdauUdet5A6eiULvFotPHbZpLVlQQEj2yzyaKNFbGZBkvAK4
+	RHewgKUkLWVtW4yIMj7YIhiPa9KBaIYPvWgjHO8guGUnYtbqiand1q/bO3+U4qaMqUsy481Y6py59
+	Reu1Qxabt3+hjr8Rrr4s6Z3l1M+J+N/KAA98Ni46jj/cN1Mnb2Bv38xxoXDjRmPmdexFxjq0rpmV5
+	EUe4Xi8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgjoF-0000000EB3E-1BL4;
-	Fri, 16 Jan 2026 13:24:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vgjxN-0000000EC8z-2nTE;
+	Fri, 16 Jan 2026 13:33:41 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgjoC-0000000EB1G-45Hk;
-	Fri, 16 Jan 2026 13:24:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D5E543458;
-	Fri, 16 Jan 2026 13:24:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88C34C116C6;
-	Fri, 16 Jan 2026 13:24:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768569851;
-	bh=n3iW2Tj+vCxQwVgYlwOE8woENlPxrgCzFts6M+ARsAM=;
-	h=From:Date:Subject:To:Cc:From;
-	b=CR9VgakFnZ32Tn4Bud5kKBJQ4vKOrem9l4rK6FPaU8V4Z/nrOVK+SyU62j9RBSSLq
-	 GnkLaJQC+VXQCK9ZLvUv8ic1ogM8vWNei4y1rGj6ZPHKOQklJulLkeUww+xRkKxJyh
-	 nAa34r76fRvltLMUZ3PBZVd4zIYkvH3JPwkLufsNiSnDxTO1LjBKTufVqH88qI/Epq
-	 bZuFfrAVmRXeBw0VrWSm/VSiDhl9zxN81B2Ntixuck/XcbyK7B7q6gtmFqewykIgmH
-	 Jo70tdHJSEYM6RgSSuPvCcbfERAbqDhA4NpcpHHcPbqykzKo4aieT2fwDtV6g72FhO
-	 afUONp8i4GoYQ==
-From: Mark Brown <broonie@kernel.org>
-Date: Fri, 16 Jan 2026 13:23:40 +0000
-Subject: [PATCH] spi: rockchip: Use plain request_irq()
+	id 1vgjxK-0000000EC8c-3UPO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Jan 2026 13:33:40 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-59b72c87109so135410e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 05:33:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768570416; x=1769175216; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=uJ0Kd+SlEJxKbaePbsW3EtzVjRrjQZdOLYvse/lYkyc=;
+        b=VztGMlv5qAhLlOvO1HeW8Iy6ZTMCAGHQoZX9Dq5L9QH/dkv9m2uqfgEm6OOoBgl+Co
+         4rPDRF35aApptTcH78Ul0eivjj6WytqlSMZfZcE5MlSgdCF4gEU7qH5UENcPVabFnOWh
+         SWd108gR9wl/LyGTKmNCq1NgubYqhFzGOCO356jcoke3k+NLEVzxRPLDt6ll/cLIwUOm
+         lMKPmaKN5VKcM+OG3QLkWaHZLlY1OOxotWirA1Lks1TmDcCIKgXkz9iguXj51Nw093QL
+         2M8flu4cMY62B9w6ajwFIoY23fUKbyQpq0gZ+AJPSG6pmYFD3KDsOcvOWdeYD53Bi50t
+         l8cw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768570416; x=1769175216;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uJ0Kd+SlEJxKbaePbsW3EtzVjRrjQZdOLYvse/lYkyc=;
+        b=IR2WubocfqYbn5eh+xU8aGsOx6DfflMba/9GFBrn/UvcBUrZEubdGaOMZ2Ht5ZCK3Z
+         M30HBGiofjobOqdsjn+/ES/2uconCUJinEtoimN9mSCPkAkh7TJrsRXEJAVIE/noMFNc
+         LNuLwKgRRoMR/qHv5oQHuAr2fr6LUrdoLITImUMGDhw6u3nEFWCL2ayRJJq4v6mgcyBL
+         Mi5wWtrchKzcKPJPUWCrmP+QITCr+u3hveqOsqxfedxVQWFZGk7bQJQE4l4e0QhKlouZ
+         pbSgSoAmBTddRiO84oQAMt5RXJ7CD2PckJMCTAH/BvMGSypuyOHE898o3LrDe9t05SWy
+         JRYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV3ka47uv/bR12VXv1yX43xSqJqJDmp8PLbuGc4ercKK5MoyB91kPUQ07ALZTpie8tjMvB/F7S8YWOt0P2YYokH@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoHMqHOl5KMCAUs3n1tGv/ce+k7ecT1jgc2VkbE0bDCwYFQeLP
+	308UnXogAcmrgpQzVkpxAZGahBrSdlkDmb6p9XKHoV9BT+ruVfsuf/d3
+X-Gm-Gg: AY/fxX5B26YBqwFB5eV9Dnzh4DKd+Ab833dJI5U2imHUidkcH75h2K7canDr9UENi+i
+	vDB00U4KeeRinUdh2HQBqqJ8npa6TfZphh+vzfWlw9n58KO+ym5ZGrSolPDN2bY/y2oVhnpf+Q5
+	pSBG+8/Tq0qqszoaJQXXf7ULUZsZ1+9CxzLykQ8f3avDW/Wgg1LBgCZQ4FxXj+ZE/FfgRLYsklm
+	zRA7NyqIUFpWePOJEjxtwlibKFXwGgItKOh2u8Wvi23lukN0n0/sSMupKNQF5qwWXQ8G2U/g6Xb
+	g4ADZBA7xav9+c2L0NKgCiXjYjW+BuYo8ofklfoM3SCrQmBGrfRopZ2IZT96h2JsVtandc7KWhi
+	vIowXuRJffJqV5NFE7kypXJ/Zpb1c2lpUqWJKwR9fRfRPbKPTrK4+5+h3CL02vzZWFCb79EV9uu
+	Q34D1m7LAbMSS4PtRyTg==
+X-Received: by 2002:a05:6512:6184:b0:59b:9fc6:f66 with SMTP id 2adb3069b0e04-59baeeffec8mr547766e87.4.1768570416127;
+        Fri, 16 Jan 2026 05:33:36 -0800 (PST)
+Received: from [10.214.35.248] ([80.93.240.68])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59baf34d572sm763752e87.24.2026.01.16.05.33.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 16 Jan 2026 05:33:35 -0800 (PST)
+Message-ID: <c9841bb2-b82a-4daf-99fa-17aec157e2c2@gmail.com>
+Date: Fri, 16 Jan 2026 14:32:49 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 02/14] kasan: arm64: x86: Make special tags arch
+ specific
+To: Maciej Wieczor-Retman <m.wieczorretman@pm.me>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+ Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+ linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+References: <cover.1768233085.git.m.wieczorretman@pm.me>
+ <be136bf8d1a6ae9ef98686c3ba0b6a4e2ea2e780.1768233085.git.m.wieczorretman@pm.me>
+Content-Language: en-US
+From: Andrey Ryabinin <ryabinin.a.a@gmail.com>
+In-Reply-To: <be136bf8d1a6ae9ef98686c3ba0b6a4e2ea2e780.1768233085.git.m.wieczorretman@pm.me>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260116-spi-rockchip-threaded-irq-v1-1-c45c3a5a38b1@kernel.org>
-X-B4-Tracking: v=1; b=H4sIANs7amkC/yXMQQ6CQAxA0auQrm0yRSXBqxgXMK1ONYGxBUNCu
- DujLt/i/xVcTMXhUq1g8lHXcSigQwUxdcNDULkY6lA3geiMnhVtjK+YNOOUTDoWRrU39tSciAM
- fW2qh9Nnkrsvvfb397XP/lDh9h7BtO5/Jyf99AAAA
-X-Change-ID: 20260115-spi-rockchip-threaded-irq-b1641d0d3919
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Aishwarya TCV <Aishwarya.TCV@arm.com>, linux-spi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1355; i=broonie@kernel.org;
- h=from:subject:message-id; bh=n3iW2Tj+vCxQwVgYlwOE8woENlPxrgCzFts6M+ARsAM=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpajv5U/lesGnmB76mqSKLV43KjffKXBwaNmwv+
- NzWMRlI02iJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaWo7+QAKCRAk1otyXVSH
- 0CwGB/9/rGyUTjSO6Hyo6yX5Kteocrj34723rjZQgoAAfZzMecwg9BstwYHILNZ7ja/h3JtyN8L
- rmY7/4Vb4FuZPJGYS/62FJxRHpWHEP0GSfZTE+fr1D5RC49x8VkVWetwcgVz2sKJDv1tJJpKmL1
- LSMk3LpP5fhkww3jsZC0STIpIcmqqnJbUKMQPesuXDb5uCiRP3njbLr3MZSr6LwbULqSVh98HVN
- tOxbppgq9jJmXlUb+eB8h1tciMBgcri3899j2dqooCD4fd/kiGOSzmWAbsAKS6OJhdxNwYGtvlR
- uJ7JKz6GHSiCFNH7gQ2z7qjOIR0DjxXBGz+7Wzo+bqrGCwlT
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_052413_049770_F7C4B1A2 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20260116_053338_936212_0E02FC68 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,41 +118,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip driver has since interrupt support was added used
-request_threaded_irq() but not actually supplied a threaded handler,
-handling everything in the primary handler.  This is equivalent to just
-using a plain request_irq(), and since aef30c8d569c (genirq: Warn about
-using IRQF_ONESHOT without a threaded handler) the current behaviour has
-triggered a WARN_ON().  Convert to use request_irq().
+On 1/12/26 6:27 PM, Maciej Wieczor-Retman wrote:
+> From: Samuel Holland <samuel.holland@sifive.com>
+> 
+> KASAN's tag-based mode defines multiple special tag values. They're
+> reserved for:
+> - Native kernel value. On arm64 it's 0xFF and it causes an early return
+>   in the tag checking function.
+> - Invalid value. 0xFE marks an area as freed / unallocated. It's also
+>   the value that is used to initialize regions of shadow memory.
+> - Min and max values. 0xFD is the highest value that can be randomly
+>   generated for a new tag. 0 is the minimal value with the exception of
+>   arm64's hardware mode where it is equal to 0xF0.
+> 
+> Metadata macro is also defined:
+> - Tag width equal to 8.
+> 
+> Tag-based mode on x86 is going to use 4 bit wide tags so all the above
+> values need to be changed accordingly.
+> 
+> Make tag width and native kernel tag arch specific for x86 and arm64.
+> 
+> Base the invalid tag value and the max value on the native kernel tag
+> since they follow the same pattern on both mentioned architectures.
+> 
+> Also generalize KASAN_SHADOW_INIT and 0xff used in various
+> page_kasan_tag* helpers.
+> 
+> Give KASAN_TAG_MIN the default value of zero, and move the special value
+> for hw_tags arm64 to its arch specific kasan-tags.h.
+> 
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> Co-developed-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
+> Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
+> Acked-by: Will Deacon <will@kernel.org> (for the arm part)
+> ---
 
-Reported-by: Aishwarya TCV <Aishwarya.TCV@arm.com>
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- drivers/spi/spi-rockchip.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/spi/spi-rockchip.c b/drivers/spi/spi-rockchip.c
-index 1a6381de6f33..62e1bc08c940 100644
---- a/drivers/spi/spi-rockchip.c
-+++ b/drivers/spi/spi-rockchip.c
-@@ -805,8 +805,8 @@ static int rockchip_spi_probe(struct platform_device *pdev)
- 	if (ret < 0)
- 		goto err_put_ctlr;
- 
--	ret = devm_request_threaded_irq(&pdev->dev, ret, rockchip_spi_isr, NULL,
--					IRQF_ONESHOT, dev_name(&pdev->dev), ctlr);
-+	ret = devm_request_irq(&pdev->dev, ret, rockchip_spi_isr, 0,
-+			       dev_name(&pdev->dev), ctlr);
- 	if (ret)
- 		goto err_put_ctlr;
- 
-
----
-base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
-change-id: 20260115-spi-rockchip-threaded-irq-b1641d0d3919
-
-Best regards,
---  
-Mark Brown <broonie@kernel.org>
-
+Reviewed-by: Andrey Ryabinin <ryabinin.a.a@gmail.com>
 
