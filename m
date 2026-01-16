@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C80D47CD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 11:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 144B8D48981
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 11:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=X6hi2Ng57jOgja0NHfG8qsfVJKsfUIfcFnUYxfdNiuA=; b=qhVv+NdoMdcF20T++lFscTAuhM
-	4sBfhjwSu+W8GMp8KiwrIxK//8JTJkFA86eAF+cX/GXOUzW96D7TySjgg8tyxmjeeDww/VEQGfHIW
-	2YusRmOcYA13+aDrgOWqRhgEJuoLlXY0vEkPO32eIFqZx69KSO364UNJf7Uvf5lNbXYbm06cR9tQ3
-	3rbWP3gMkXsfVIaqi+fToYr8+PjnMVcmxHZkw6WHPpM044s1PFlonJVVWm/Omeft0VCI2e/bAeoLr
-	CFxzDUA9gC7x6wlnStjC79rz+iMMXSLDgkEwEH4ZHKyhoRSwXKujyzSBEdooetiT3JiFL7GFy+cnK
-	7Up+SewQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ko8zW2QcX5C+Au+BA6LOsombT6GjVQNsNcD3Ant5Sa4=; b=2FVip07w44fuIP3ZYa660MWaCl
+	w9fjIcHUYwUyQwQHWjYufv87LVYMETIZrStTrs59VTP92oKRWc6hlCBjyXBaPekWKwOh+triniO1i
+	nxAm2xAOWLfhim0GM/jg8TNSsk41tsVz/WKQt+mIhrK9CBA1fwG0pq/AcGCVRyxrsf+piP7reMjWz
+	9rGK/WnoVDmRkhac5RC8PGfTi4OeJLeq6W1a8gqS5jM6epnzPMHJaEwc9drXrZkWqRIfk9jLYH+OA
+	H3ZvP1Ah/gAC81SEOj12yvAdBNk50pvJQSTm20guK/JxMXWf1QlRwiE+7UXuOMS8mhUBHAFMbfnoj
+	Zam5G6/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghrP-0000000E27w-1JkL;
+	id 1vghrP-0000000E28I-2g8K;
 	Fri, 16 Jan 2026 11:19:23 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+Received: from mail-northeuropeazon11010012.outbound.protection.outlook.com ([52.101.84.12] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghrI-0000000E240-3dpI
+	id 1vghrI-0000000E23t-1WQb
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 16 Jan 2026 11:19:19 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rEZY5CM5ds2fz2msgTPynbHahlzUlAU2mHpCdP47ZE8MgtSaA7Uq0eosBaRtF9fHi7X/rcEF2gRnHfn/fs91kJFJV47Mq1DU+7DehkbFfFQcH9jKDVxyKqe7p75j0H7jQRpfr5Bw06T0va9i73RDBqTIr1IxdJ/gjswIaMMhTQhVZmCMmG8e1m+wsUWuLVCRVqWGhj7FbMTzvch3JQ9L/HRYWK4OQh815L2Uja1tQmXX3at+JP7ys93Vyl5Fe3CkONfjhU2c1Yt1g+30Fi4HuawgT1oVPOpCDZe4NUvd/Fs5D4JSbGDlugW5dVYPl06FrDAumOzGCdSSbJt8i2jqnw==
+ b=Ko9sXIhi0RNWjyVIxl9YRsCOScordwJaFgYj72XXrEWAz8LbQSL8yIVKazjhCGYcFwfx/IXjk8+TikDUrq5IR3P3Kf0PP2528jHzsG4Q3HTIrlknZ5qOzWiUqwVKCFKQ3JtW1dipJkPiVZlIAZyqGHZ2Adfo+Q9WbVaCNeoNF6QkIIBZTzyXX1GF6BaziigJMZmqiz+FtSBxCAqmS+b//kWD/7cNeBzT2w7E6vg3DFH6l+7hiCq8jXGujMpK+hq8Kfyf8u56po1fJKG9i1TQW/nXu4eE5yytxJ5UtUpYC/Iac9t7sQ4IfH9SoUfxg5rGOz1SASKHJ+mYmJt6EKG31Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=X6hi2Ng57jOgja0NHfG8qsfVJKsfUIfcFnUYxfdNiuA=;
- b=s805yd3TK/O+xN9A+XCU74RqpqXNKXnTBCbn5QfL4MQnYqE//w0gEQW5widk4Vx9lmiX1hRtpUm9VYqU41ghiODI6/GhzZNcLeDnIjWbbENPih/XIy2+o5gbv+eMcBIRUzBniar8f/mzYfuxWerQ1ca6sDhCXj1diU5JvMxIWU/VGDR19/NDezmsXhWyEWldL06PNWfR51FXGPe/MhqEi+jO5ggrEQbrttanG6gHHQcrUE7zO2oSX5cqpLIw0ZHcdrg2x7JXk2CZFnbg3/ojpoeGXOfDXXdclzxKpizk1rjQeLFTO5sM7CFNblxposCB45dxc9FFbth9FeLpx4HCug==
+ bh=Ko8zW2QcX5C+Au+BA6LOsombT6GjVQNsNcD3Ant5Sa4=;
+ b=zNrFFC8jyiUWIqqFQGafM19Ya+QgNg68rde+cW++2imxJPIdc2WgfTfEUzavgOC8ul/UbaDBSxUnTB78p2LWSQPmUM29VhpNHWNdfFX1kvwjWMD97Zpn23vmJE7EuD2/cb0C2G5Sc/tNhM2y7oE/aM5DvmNw4qXhmaZJI9L1OvOHZ/iXALD2YFBuSUukKrGS6rNy8OX1gnAW6JzoHDgIb5/RWKPR+g/Q/hnRRACUh1nKMzpfUQMu56A5bQvn4Bu+emANhos0GbmepnsmcMzNKTcCu34rDTbmvk5A5XZAl+dRw7ricaDrJKS0H0wKuoKdzbbOw8pKNQpliHL1F5IMtw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  193.8.40.99) smtp.rcpttodomain=lists.infradead.org
  smtp.mailfrom=leica-geosystems.com.cn; dmarc=pass (p=reject sp=reject
@@ -42,18 +42,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=leica-geosystems.com.cn; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=X6hi2Ng57jOgja0NHfG8qsfVJKsfUIfcFnUYxfdNiuA=;
- b=dINjtcW7MOA9xBOw0SofEPLzyYXcpOOTAwvXBJnjF4PenD3UUDjqhnm1VaK6yRC2SGV0NcGqWqWGQxeFJJl2FDfuxXV6pcwtNjXYJAGQmWhRyRDlh2qeLGaLIy/lAWl4mGBsvtps6WzrWEexlYB2K+X/uB4RtOPNMk9DT/DXwx0=
-Received: from AM8P190CA0011.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:219::16)
- by AM9PR06MB8162.eurprd06.prod.outlook.com (2603:10a6:20b:3a8::23) with
+ bh=Ko8zW2QcX5C+Au+BA6LOsombT6GjVQNsNcD3Ant5Sa4=;
+ b=Zf2EATU0IpDApRD72znQdopMZXtIU5PSngh1zmJU8EW68sreJjQWSA6kAx2xm2NE1grbLJqc5D56AbyCRFDIVYCcgILTnzBdsEZN52xf1/FOnQLJL7XOrus9N7zbIzo+nN0KEqH2vE1iE0yttNbtzBso0JACilZ1WRDnQ5r6mjU=
+Received: from AM8P190CA0010.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:219::15)
+ by PA4PR06MB8545.eurprd06.prod.outlook.com (2603:10a6:102:2a8::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Fri, 16 Jan
- 2026 11:19:10 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.4; Fri, 16 Jan
+ 2026 11:19:11 +0000
 Received: from AMS0EPF000001AF.eurprd05.prod.outlook.com
- (2603:10a6:20b:219:cafe::5e) by AM8P190CA0011.outlook.office365.com
- (2603:10a6:20b:219::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.8 via Frontend Transport; Fri,
- 16 Jan 2026 11:18:59 +0000
+ (2603:10a6:20b:219:cafe::a7) by AM8P190CA0010.outlook.office365.com
+ (2603:10a6:20b:219::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.7 via Frontend Transport; Fri,
+ 16 Jan 2026 11:18:57 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 193.8.40.99)
  smtp.mailfrom=leica-geosystems.com.cn; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=leica-geosystems.com.cn;
@@ -63,7 +63,7 @@ Received-SPF: Pass (protection.outlook.com: domain of leica-geosystems.com.cn
 Received: from hexagon.com (193.8.40.99) by
  AMS0EPF000001AF.mail.protection.outlook.com (10.167.16.155) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9542.4 via Frontend Transport; Fri, 16 Jan 2026 11:19:09 +0000
+ 15.20.9542.4 via Frontend Transport; Fri, 16 Jan 2026 11:19:11 +0000
 Received: from aherlnxbspsrv01.lgs-net.com ([10.61.228.61]) by hexagon.com with Microsoft SMTPSVC(10.0.17763.1697);
 	 Fri, 16 Jan 2026 12:19:09 +0100
 From: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
@@ -79,66 +79,67 @@ To: o.rempel@pengutronix.de,
 	linux-kernel@vger.kernel.org
 Cc: bsp-development.geo@leica-geosystems.com,
 	LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
-Subject: [PATCH V3 0/2] i2c: imx: Fix block read handling for invalid length
-Date: Fri, 16 Jan 2026 11:19:04 +0000
-Message-ID: <20260116111906.3413346-1-Qing-wu.Li@leica-geosystems.com.cn>
+Subject: [PATCH V3 2/2] i2c: imx: add abort path for invalid block length
+Date: Fri, 16 Jan 2026 11:19:06 +0000
+Message-ID: <20260116111906.3413346-3-Qing-wu.Li@leica-geosystems.com.cn>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260116111906.3413346-1-Qing-wu.Li@leica-geosystems.com.cn>
+References: <20260116111906.3413346-1-Qing-wu.Li@leica-geosystems.com.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-OriginalArrivalTime: 16 Jan 2026 11:19:09.0541 (UTC) FILETIME=[EF51C150:01DC86D9]
+X-OriginalArrivalTime: 16 Jan 2026 11:19:09.0572 (UTC) FILETIME=[EF567C40:01DC86D9]
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF000001AF:EE_|AM9PR06MB8162:EE_
+X-MS-TrafficTypeDiagnostic: AMS0EPF000001AF:EE_|PA4PR06MB8545:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: b77dd433-cc0f-4ca5-4e25-08de54f111ed
+X-MS-Office365-Filtering-Correlation-Id: de587672-ef57-41f1-dcbd-08de54f112d4
 X-SET-LOWER-SCL-SCANNER: YES
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700013|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vTeGkHB4dXCbDtU1l8m1nBZgq0rIg3ZiSaQ5zY9wsP2+G6vv6n1UuB8P67lD?=
- =?us-ascii?Q?WGSdJLJZUG3vJMSuQ7kmv9WggdL058YpmtL2GyMIZ54ZGxy/xyOTrPpTE3XO?=
- =?us-ascii?Q?sqEE++OPZI9OKisB944yuqKTky2UDeR+3aVyY/X2KZQwVgkiUceS5G0GHHuT?=
- =?us-ascii?Q?rrrGTIc0Bs6NpyaqVqEBLB9fAEJuSBFMHfZ3r5D6bTbtXX09ciVm6Tbua1at?=
- =?us-ascii?Q?yQUBNPikByOO3KBoScVOQSZalcENkPWwAhzB6wY127dixyW1/zFVbXPb9Lht?=
- =?us-ascii?Q?YDwVv8Yugk3zi19gSPjgHnxolg38fn0dPua24xYVKuGkpNiwQ/zu80jBNfz6?=
- =?us-ascii?Q?EMDtLPOBlkPnxx47KQstUTuQrd1eCqe1oKBGZQkr2wMFGN2atg9jle7OrJML?=
- =?us-ascii?Q?PWnWSftGxpgHg4gEUFrWPllrZ7QCGuqE/5NkVBhyOP8PHHm4+X3W7t2RR9GP?=
- =?us-ascii?Q?t73mnWV+6SPTVudnWw9Sgm9kj9nS52J7MiTRCKlWJJkz/SMqwOnVv0vDUNp9?=
- =?us-ascii?Q?EWiEJyHuTZTHeeFh96spXyxaOsSa/IF8D3Wo+fHQkhY6Fb/apjbFM4Lw54F5?=
- =?us-ascii?Q?/JlEDQivchBGEVZw8aygaxbYw/s1Zb5r6bAL23O7HL5XDBgBYTvUp9Xcaidp?=
- =?us-ascii?Q?o+viKQCU8UXmDSOI+D+18oqNxbrlbU9GGGsW7AcXI9zL59taifKFWOHsOyKN?=
- =?us-ascii?Q?i5zy9lQMlHYPJhwNEXEKJtyMXO0/qAOcl5fRHJC3/9VmLFwVj8J61HlEWHRG?=
- =?us-ascii?Q?e0idhl02NfcstLma40GPSm/VyUKuy5XaHCkLcTgoIETUDhKgIf0Rz+gj4732?=
- =?us-ascii?Q?AkKTyS3bBWfNGtdO6yn8MeRgoWMrC00Z8pmO7uFYdpK/AMICva8W3uVDa//T?=
- =?us-ascii?Q?UoQFCr/QHjw1cmz1S79uwUNvpJo/h/qiNFXlqFUYeOpeYiw9yvrtTjXEgm6i?=
- =?us-ascii?Q?5MtNr7SXt0pRNy8buQOKt6mHMk5xgL2Ew72OUgnhYEJgzBFAQdn84pJNF1yH?=
- =?us-ascii?Q?Jr/Evd54WzS8PKzUxpYZ9nUNQzDVKOP3cqsFzQmvpmUgHL1SGI2E0Ld44TlJ?=
- =?us-ascii?Q?Kef2Sj4uGssV1mUj7mjwzvQ16XjQgeQftNXOXQl8Kru4r1pc4YopGtdsYLQ6?=
- =?us-ascii?Q?54qz4L+gZFj81CyTC0ADy669B7VL6VRydqMORCHfE+sKgg69NEVUrQSA5dVh?=
- =?us-ascii?Q?rKqgGg43oGiwWPZj9p5YMUb2EYS4nz0B8EBZbs2POXmnhaFglpR4shdPNwYO?=
- =?us-ascii?Q?R7N9EvBwOvFKRYruuxotaU26pY+rpH+nwvpyAsYpsNfYIAhW+n5KIo2QmM+U?=
- =?us-ascii?Q?8iTM0PORuUG3ZdZ/141TpXcYPxdyvjY9xWStqBreRKSpZzWpEGqPuo71FKJl?=
- =?us-ascii?Q?Lki5E2zXt06YeQ5RPrCKvZd89CIgtCzOjBu3vCR86wMeP07t1plToGaBVCAw?=
- =?us-ascii?Q?FCfdgvtMtmTOhUMDjoNV5TY3sxL+sK0Fq6vwENPph29MjcSdpKj7BWtd3zB0?=
- =?us-ascii?Q?00tKbOfcCkg+HfmHLV7hcZs53PpuJYp0BvGfsvw1ncihBt9XdDfZ3hwdQx69?=
- =?us-ascii?Q?tLjhvi3tXv9ZmkmTe2Qa9Z3erb8ww4dSisX0gv6nQkyxQAmFHgrIoEVkEFnh?=
- =?us-ascii?Q?gfLipsl3BAfDZC3eRUM+hNpLa4JGv7Bu+wyWfiNnwDsMekmm09x5Gg7pv1YY?=
- =?us-ascii?Q?GtGRiw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:193.8.40.99;CTRY:CH;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:hexagon.com;PTR:ahersrvdom51.leica-geosystems.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700013)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UFr0D15oC6615DuuWDdK4+El0t2kzTHk7gB06EwfRU2wxIr+Yj9b2n27eo0h?=
+ =?us-ascii?Q?ILx7gqC2PatZxNhWwDZ68b807H8kn55EUgbxKcYjhSC+gzhIV9FV7zSS/GEA?=
+ =?us-ascii?Q?BZSzAJNcqID5EbUD4YbzuFd4WOMvnPKAgh46HSWIpYRQFf40sawHq74FBLXI?=
+ =?us-ascii?Q?qlqiYXVaD29YouuVEZf9QjKAOdNXMzmSU3cqzIm0Uk3pT9YkQqKPTQZtRDvX?=
+ =?us-ascii?Q?+mfGZHie2qkssiR+6/XlDsU/HSRZ1bAzVt5A7I0sMu0jf0YCUrMkKD7+8VvG?=
+ =?us-ascii?Q?bBpyuuL/bQ5gWNMfuZcErZzKhn8KrLhfoqtbSCfVTmY1K5pnokemiu72Z0ry?=
+ =?us-ascii?Q?E6AAm5oMFY9gzs1tQptJ8Om+3wWEJsIsxaC2V+BZdpDJq8TKloD1nLrbZIYa?=
+ =?us-ascii?Q?HgzglcwiIHBowYlzGrLMf1njjerLvng3xwd91EhdFe4Hd3NLVex8/5Mgp3Va?=
+ =?us-ascii?Q?bP4NeL1fGRBkMlWSAAmui7CH8yP9k1DCkjqPE4a/HjLk5OA6nRL8HXVFnjQ6?=
+ =?us-ascii?Q?qd+72MvYvoFlavbtN74N2dDtbOGiXRe8FPeglwZydwlPbfddtz7z6GqE6J/D?=
+ =?us-ascii?Q?dJiUDyhPhFDUYLSyyR8unX8CmT/FKaxjhP0H5juVW8rWP6YJuhkTRIC7KmFl?=
+ =?us-ascii?Q?Gcb6mlqUPXBDoNwo2wgAFNb7speO5lXapdwjXPiAYPWZqcy9k6nzhV9AzWwa?=
+ =?us-ascii?Q?HLatRg4mo0scT58xhRjiZerB8Mm7X07TMVW8eVYLwpHVcFM+V6c5xNw5gg6I?=
+ =?us-ascii?Q?PbQfMAzDV6eF86tTW4O7WNBapZKV3WZaKfrS3sjGCKurphs1MeaqCkU0feli?=
+ =?us-ascii?Q?fWg9MYesKeq89gbV9q/AAwp/CeD0iTazTFsuG5RKDB0nTdGz4FPBnIBgEGDd?=
+ =?us-ascii?Q?imW3LJ5xEETjHeoz7nZbRaB/ziwYMKFtCsrAX+/1XBgc1zGWzkCME6Hlhctv?=
+ =?us-ascii?Q?mmrt3qlgPHvETXXeEftrWA5lvcSAeTLQuDM1F8nGDzHgATs1v04+hspOk73E?=
+ =?us-ascii?Q?xfAWhEeYoPFabV4+IEEMGh20Fq7+BW34LiVvDssjOM11K8LB8TExqIZPTYMG?=
+ =?us-ascii?Q?7oYmawtde7qKUPM/xBqWRJn+cKdLR+PdsxxzqEQsiAbIzWw8t+n9Zixe8AeN?=
+ =?us-ascii?Q?QkI7aost7g+rgWQUFMksvQAlLtzQztaxOHT6seuwoXvBe0RLwqNCf5H77PqR?=
+ =?us-ascii?Q?sv6WKY3ronpri36xzyyByJmThejaHZMOydth2cSvtAmWahYRBWi/1LPBROCj?=
+ =?us-ascii?Q?OaTbZZIEVxn7QpaPkLkYBe6DM50qV87D7irmOxEGZgkGFIaaA3JStRjQgXcU?=
+ =?us-ascii?Q?ELUdw7KX49YQFACRAJ31fi8ItvNnPYJq6cdGwDAxZlwYNmOaxVXogY/fkZQw?=
+ =?us-ascii?Q?WfuIIvgFt/0bE6YLXEerd/735J2n4heqF/GiZZsmqvWwO2x909iUjIt5dR3x?=
+ =?us-ascii?Q?ENLYq7REibvOqD4zsCrSjEbQ3lTZds5gtGA8amJvK7a5IvRBg5zNaOwZ5I8D?=
+ =?us-ascii?Q?frhRs99uPi0DLYWUdiVTVOfxXx2thjpP5bpA/FNtvZhhL4WEY9HEAOMLAk9p?=
+ =?us-ascii?Q?eZsItDDi/DLTGa+xOgTPWzJ7xqjjsYqgsj3MMrTsMZbL4XR4J3wlkluWrx9R?=
+ =?us-ascii?Q?kOOWN2/hbUdc4PVGmcK+B63qRZ6IbNjsUeuDO3VkRf/CLKd9tQbUr9+SGcfv?=
+ =?us-ascii?Q?yUIVqyytGbZY4WXqeq0n2TpL7Ic=3D?=
+X-Forefront-Antispam-Report: CIP:193.8.40.99;CTRY:CH;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:hexagon.com;PTR:ahersrvdom51.leica-geosystems.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014)(921020);DIR:OUT;SFP:1101;
 X-OriginatorOrg: leica-geosystems.com.cn
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 11:19:09.7443
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 11:19:11.2632
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b77dd433-cc0f-4ca5-4e25-08de54f111ed
+X-MS-Exchange-CrossTenant-Network-Message-Id: de587672-ef57-41f1-dcbd-08de54f112d4
 X-MS-Exchange-CrossTenant-Id: 1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a;Ip=[193.8.40.99];Helo=[hexagon.com]
 X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001AF.eurprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR06MB8162
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR06MB8545
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_031916_914362_DF4E898C 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260116_031916_842105_E11B80F4 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,23 +154,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes a crash and bus lockup when SMBus block read operations
-encounter invalid length values (zero or greater than I2C_SMBUS_BLOCK_MAX).
+When a block read returns an invalid length (0 or >I2C_SMBUS_BLOCK_MAX),
+the current implementation leaves the bus hanging with SDA held low,
+blocking all further I2C communication on the bus.
 
-Both patches have been tested on i.MX 8M Plus with continuous block read
-operations from battery and keyboard devices sharing the same I2C bus.
+Add a dedicated IMX_I2C_STATE_READ_BLOCK_DATA_ABORT state and ISR
+handler to properly terminate the transfer when an invalid block length
+is detected:
+  - Set TXAK and receive the next byte with NACK
+  - On the following interrupt, generate a Stop condition
+  - Read and discard the final byte
+  - Report -EPROTO to the caller
 
-Changes in v3:
-  - Add trailing comma to IMX_I2C_STATE_READ_BLOCK_DATA_ABORT enum
-  - Clean up reference manual citations
+This ensures the bus is released correctly and allows other devices on
+the bus to continue operating normally.
 
-LI Qingwu (2):
-  i2c: imx: preserve error state in block data length handler
-  i2c: imx: add abort path for invalid block length
+Tested on i.MX 8M Plus with continuous block read operations.
 
- drivers/i2c/busses/i2c-imx.c | 58 ++++++++++++++++++++++++++++++++++--
- 1 file changed, 55 insertions(+), 3 deletions(-)
+Signed-off-by: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
+---
+ drivers/i2c/busses/i2c-imx.c | 55 ++++++++++++++++++++++++++++++++++--
+ 1 file changed, 53 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+index 05ba41144648..d3fbc2df7f04 100644
+--- a/drivers/i2c/busses/i2c-imx.c
++++ b/drivers/i2c/busses/i2c-imx.c
+@@ -232,6 +232,7 @@ enum imx_i2c_state {
+ 	IMX_I2C_STATE_READ_CONTINUE,
+ 	IMX_I2C_STATE_READ_BLOCK_DATA,
+ 	IMX_I2C_STATE_READ_BLOCK_DATA_LEN,
++	IMX_I2C_STATE_READ_BLOCK_DATA_ABORT,
+ };
+ 
+ struct imx_i2c_struct {
+@@ -1053,14 +1054,60 @@ static inline void i2c_imx_isr_read_continue(struct imx_i2c_struct *i2c_imx)
+ 	i2c_imx->msg->buf[i2c_imx->msg_buf_idx++] = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
+ }
+ 
++static inline void i2c_imx_isr_read_block_data_abort(struct imx_i2c_struct *i2c_imx)
++{
++	unsigned int temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
++
++	if (i2c_imx->is_lastmsg) {
++		/*
++		 * Last byte to read.
++		 *
++		 * Ref: IMX8MPRM Rev. 1, 06/2021: 17.1.4.4 Generation of Stop
++		 *
++		 * Ref: IMX8MPRM Rev. 1, 06/2021: Figure 17-5.
++		 * Flowchart of typical I2C interrupt routine
++		 *
++		 * Before the last byte is read, a Stop signal must be generated.
++		 */
++		temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
++		if (!(temp & I2CR_MSTA))
++			i2c_imx->stopped = 1;
++		temp &= ~(I2CR_MSTA | I2CR_MTX);
++		imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
++		imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
++		i2c_imx->state = IMX_I2C_STATE_FAILED;
++		wake_up(&i2c_imx->queue);
++	} else {
++		/*
++		 * Next-to-last byte to read.
++		 *
++		 * Ref: IMX8MPRM Rev. 1, 06/2021: 17.1.4.4 Generation of Stop
++		 *
++		 * Ref: IMX8MPRM Rev. 1, 06/2021: Figure 17-5.
++		 * Flowchart of typical I2C interrupt routine
++		 *
++		 * For a master receiver to terminate a data transfer, it must
++		 * inform the slave transmitter by not acknowledging the last
++		 * data byte. This is done by setting the transmit acknowledge
++		 * bit (I2C_I2CR[TXAK]) before reading the next-to-last byte.
++		 */
++		temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
++		temp |= I2CR_TXAK;
++		imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
++		imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
++		i2c_imx->is_lastmsg = true;
++	}
++}
++
+ static inline void i2c_imx_isr_read_block_data_len(struct imx_i2c_struct *i2c_imx)
+ {
+ 	u8 len = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
+ 
+ 	if (len == 0 || len > I2C_SMBUS_BLOCK_MAX) {
+ 		i2c_imx->isr_result = -EPROTO;
+-		i2c_imx->state = IMX_I2C_STATE_FAILED;
+-		wake_up(&i2c_imx->queue);
++		i2c_imx->state = IMX_I2C_STATE_READ_BLOCK_DATA_ABORT;
++		i2c_imx->is_lastmsg = false;
++		return;
+ 	}
+ 	i2c_imx->msg->len += len;
+ 	i2c_imx->msg->buf[i2c_imx->msg_buf_idx++] = len;
+@@ -1106,6 +1153,10 @@ static irqreturn_t i2c_imx_master_isr(struct imx_i2c_struct *i2c_imx, unsigned i
+ 			i2c_imx->state = IMX_I2C_STATE_READ_CONTINUE;
+ 		break;
+ 
++	case IMX_I2C_STATE_READ_BLOCK_DATA_ABORT:
++		i2c_imx_isr_read_block_data_abort(i2c_imx);
++		break;
++
+ 	case IMX_I2C_STATE_WRITE:
+ 		if (i2c_imx_isr_write(i2c_imx))
+ 			break;
 -- 
 2.43.0
 
