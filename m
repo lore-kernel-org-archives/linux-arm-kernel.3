@@ -4,87 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2356EC982D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 15:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E779C982D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 15:37:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MFDMwcUB+g0lr3+O0uNE+y+KlNYemC0Uyu3/6hhSiCE=; b=OPNkmNyYAXsx/tbiSisakAbcT2
-	E4wcaQdqzuRc1HaRezGZXcKLASbCRq6dfmN2ScL1Yn7hKbk86IroTBXnV4WtaBO49uldyXUBJ9uxK
-	eEZnfZgCAFCriPzCTH/T6ykuRfhBW6WhgMyJ2ncbWXBZonK9QlL6Z+fpedieiOVUCKulodVfaoLgQ
-	s693v6MGMQWhaqMzlDX1STOzTaKUBJFr1hbqmQUEKfxOm9xU8P1ZLrnce4pSwrAFQTdykbsh0iYR/
-	OfRYkfWvtPNwwtH5mcTALyI6eyY7pRHhLYMcfx254v5jsLCOPrWsbs0NyU6j3Eu/rlajM5wWHN+9E
-	Y4uvU9qQ==;
+	bh=OpKuylbwXqt7Z3+CRxtEsnYQ0YTVTu2EgQdA3RMjTkQ=; b=NG7UTKdWMT6+i2RqxcTq8xwnYs
+	dSc7VWBfyXrE8u3pZ9gT07Iz3rkjO39/58Owz+xWATR8A6Yaj+cBz8gs9gmfBW6+QKv8H+2mwwMR2
+	2NToTkW52Sfyvl9swGc9DcEEXaWSGOPp0FWjQaw1oo412sFTH+JTTo64C2MPy1w9vUfWPTwPkz7BL
+	Lck36wJeq1pa07Edh+qzYG565LbB2Z6A7XDh5lVIfLnkdUhRpDPKvYuAPKyWn5Vcni/h48gT7cfsv
+	29iud0rV1xH7bPNXjh6ciSpc36m43/oltoPUf+tQwx1y9q42doLbqfkPb8eW++tdvRdWkX0Eu5+ir
+	8egh9qTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vglpK-0000000EMts-1x1H;
-	Fri, 16 Jan 2026 15:33:30 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1vgltC-0000000ENV5-3u3m;
+	Fri, 16 Jan 2026 15:37:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vglpI-0000000EMst-11ef
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 15:33:29 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-34c213419f5so1416561a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 07:33:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768577606; x=1769182406; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=MFDMwcUB+g0lr3+O0uNE+y+KlNYemC0Uyu3/6hhSiCE=;
-        b=rEcuTnHOWXE+0bznCPKmFJdxOXxH2MsDxckAY5qwABabLEuD4uImgUvK5F4UHAPiKl
-         rJXfskiMDy+fpJPsBYQmGwsGYwz8OrAZS59OCoO6AG/7W4UMOXpJeOYaPD3V80zUXg9s
-         V0rAU05aBtKCydHI/mdGYbNo+DETw6S6BPZNUgucWeWpi068DkyRN4Bn4/Xrm4/OEzGT
-         S8YUrDVvM1nmQ1fcXrE0ROHg6YV6u/ozyJb++YxQNVA1atJ3fWarhU5E3S4OdsnUYsHu
-         f2wgQbHu4Gs1PW9dujPaIY2Om2hu0zK+4VDr6OZkOocKlPFBaK510ITLTEB95J0+5PPi
-         5U7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768577606; x=1769182406;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MFDMwcUB+g0lr3+O0uNE+y+KlNYemC0Uyu3/6hhSiCE=;
-        b=O0wIi50vON91CMVatDsCfiFvTIiyfJr++j9cMZ01TsBwVUaAX+GUcGFpzQp+RgytG7
-         QeyB4ztnkL/BX8+2hftMrjuEpmaHr5CDlKtmCMJacARBOBaqPaQkm49Ec1mzfQnDK+XH
-         49Rb/+C0yTTpQBnImVJoKkjOS2BwJxXh9eAnY2vi8Y+vjxSwyao3e+PDjnfj8SYHreGA
-         1pYu2ftW7cd9/LVwuo/mNllAurRqqb3UaT++agJGQ4elF8izGE8hXFl3/DKKTcMr74Bu
-         wsxFU/T4iwjU8c0tbG2rEdTHp8oXtSHX71Pm9sOgLnVWFT5i/MA/4c4qkoAH94geGZOX
-         1X1g==
-X-Gm-Message-State: AOJu0YzjBC25BDYaIo0Bmfj3IUWsUSxVJdcVBNA3gHgbLL4LiXquBVxO
-	I7bkXSihhe7jKO8UGrWCHXYSo/S2MMzRQ0JpWIzVsfvAMf8jB9kOm8kBgZnO+y3CxpurZBsBYIE
-	yJs2bxw==
-X-Received: from pjbsh12.prod.google.com ([2002:a17:90b:524c:b0:34c:2156:9de7])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5803:b0:32e:3829:a71c
- with SMTP id 98e67ed59e1d1-35272efcc92mr2558426a91.16.1768577606439; Fri, 16
- Jan 2026 07:33:26 -0800 (PST)
-Date: Fri, 16 Jan 2026 07:32:47 -0800
-In-Reply-To: <20251206001720.468579-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20251206001720.468579-1-seanjc@google.com>
-X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <176857711424.940905.14821355548518788463.b4-ty@google.com>
-Subject: Re: [PATCH v6 00/44] KVM: x86: Add support for mediated vPMUs
-From: Sean Christopherson <seanjc@google.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, Mingwei Zhang <mizhang@google.com>, 
-	Xudong Hao <xudong.hao@intel.com>, Sandipan Das <sandipan.das@amd.com>, 
-	Dapeng Mi <dapeng1.mi@linux.intel.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
-	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
-Content-Type: text/plain; charset="utf-8"
+	id 1vgltA-0000000ENUA-1jRv;
+	Fri, 16 Jan 2026 15:37:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A018143362;
+	Fri, 16 Jan 2026 15:37:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09A40C16AAE;
+	Fri, 16 Jan 2026 15:37:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768577847;
+	bh=qiVgr628GGRLF6BCGNE6F1dNfg5w/bvsIxbfkIRZkqk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n7RCDi6ogwDyc0P0xl1DnaT7khpYpVWRlnCeGr4QVmo6ydjHaF8Qh5lThqEdyP3ke
+	 0j9cy0zk9xvtOsyjZDKPdjYCnOCNHpnAR4dUPJPi2dm983LMLA/KR6sjUPqPm6PPFo
+	 66uOKRx9++/BtmbxvmAjUzRUK/roZWEqRH8I4hEWXWbUBZED1yKA0E8f7bNrgwxHVJ
+	 T3zmV8P9r9xsh/WfEoMH7+xIsPybxG79XZJzZ7Hf3MvTnIAaUkV8MZbbDWg3pw61MK
+	 liVO5TNo3NhA4UPFaY+FkvhUStDeVWSZyCF/7FYIdvCckuzrhJVU2DwJmY79p0z9Nz
+	 rFCE2yPwCmG8g==
+Date: Fri, 16 Jan 2026 15:37:23 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Aishwarya TCV <Aishwarya.TCV@arm.com>, linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH] spi: rockchip: Use plain request_irq()
+Message-ID: <a5b6c607-9b8c-4fa6-98c5-6ba848f7f2e2@sirena.org.uk>
+References: <20260116-spi-rockchip-threaded-irq-v1-1-c45c3a5a38b1@kernel.org>
+ <f8658bd7-7381-4770-935a-6a98ea3f652f@rock-chips.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="XPdBLVUHRgYjhzwD"
+Content-Disposition: inline
+In-Reply-To: <f8658bd7-7381-4770-935a-6a98ea3f652f@rock-chips.com>
+X-Cookie: I've only got 12 cards.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_073328_291897_B58A7762 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20260116_073728_471381_A05B8123 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,82 +75,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 05 Dec 2025 16:16:36 -0800, Sean Christopherson wrote:
-> This series is based on 'https://github.com/kvm-x86/linux next', but except
-> for one minor conflict in perf should apply on Linus' tree once the KVM 6.19
-> pull request lands.  I considered waiting until 6.19-rc1 to post this, but
-> I've had this in a "ready" state for a few weeks and want to get it out there.
-> 
-> My hope/plan is that the perf changes will go through the tip tree with a
-> stable tag/branch, and the KVM changes will go the kvm-x86 tree.
-> 
-> [...]
 
-Applied the KVM patches to kvm-x86 pmu, thanks!
+--XPdBLVUHRgYjhzwD
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-[14/44] KVM: Add a simplified wrapper for registering perf callbacks
-        https://github.com/kvm-x86/linux/commit/4b24910c0569
-[15/44] KVM: Add a simplified wrapper for registering perf callbacks
-        [DROPPED - already merged (and then fixed)]
-[16/44] KVM: x86/pmu: Start stubbing in mediated PMU support
-        https://github.com/kvm-x86/linux/commit/3e51822b2fdf
-[17/44] KVM: x86/pmu: Implement Intel mediated PMU requirements and constraints
-        https://github.com/kvm-x86/linux/commit/bfee4f07d880
-[18/44] KVM: x86/pmu: Implement AMD mediated PMU requirements
-        https://github.com/kvm-x86/linux/commit/9ba0bb4ae76a
-[19/44] KVM: x86/pmu: Register PMI handler for mediated vPMU
-        https://github.com/kvm-x86/linux/commit/1c4ba7286afb
-[20/44] KVM: x86/pmu: Disable RDPMC interception for compatible mediated vPMU
-        https://github.com/kvm-x86/linux/commit/80624272129e
-[21/44] KVM: x86/pmu: Load/save GLOBAL_CTRL via entry/exit fields for mediated PMU
-        https://github.com/kvm-x86/linux/commit/d3ba32d1ff2a
-[22/44] KVM: x86/pmu: Disable interception of select PMU MSRs for mediated vPMUs
-        https://github.com/kvm-x86/linux/commit/2904df6692f4
-[23/44] KVM: x86/pmu: Bypass perf checks when emulating mediated PMU counter accesses
-        https://github.com/kvm-x86/linux/commit/0ea0d6314870
-[24/44] KVM: x86/pmu: Introduce eventsel_hw to prepare for pmu event filtering
-        https://github.com/kvm-x86/linux/commit/02918f007792
-[25/44] KVM: x86/pmu: Reprogram mediated PMU event selectors on event filter updates
-        https://github.com/kvm-x86/linux/commit/3db871fe185b
-[26/44] KVM: x86/pmu: Always stuff GuestOnly=1,HostOnly=0 for mediated PMCs on AMD
-        https://github.com/kvm-x86/linux/commit/a2f4ba534cc5
-[27/44] KVM: x86/pmu: Load/put mediated PMU context when entering/exiting guest
-        https://github.com/kvm-x86/linux/commit/56bb27369750
-[28/44] KVM: x86/pmu: Disallow emulation in the fastpath if mediated PMCs are active
-        https://github.com/kvm-x86/linux/commit/f7a65e58d643
-[29/44] KVM: x86/pmu: Handle emulated instruction for mediated vPMU
-        https://github.com/kvm-x86/linux/commit/283a5aa57b22
-[30/44] KVM: nVMX: Add macros to simplify nested MSR interception setting
-        https://github.com/kvm-x86/linux/commit/cb58327c4c8a
-[31/44] KVM: nVMX: Disable PMU MSR interception as appropriate while running L2
-        https://github.com/kvm-x86/linux/commit/88ebc2a3199c
-[32/44] KVM: nSVM: Disable PMU MSR interception as appropriate while running L2
-        https://github.com/kvm-x86/linux/commit/3b36160d9406
-[33/44] KVM: x86/pmu: Expose enable_mediated_pmu parameter to user space
-        https://github.com/kvm-x86/linux/commit/860bcb1021f5
-[34/44] KVM: x86/pmu: Elide WRMSRs when loading guest PMCs if values already match
-        https://github.com/kvm-x86/linux/commit/b0b6a8d3be16
-[35/44] KVM: VMX: Drop intermediate "guest" field from msr_autostore
-        https://github.com/kvm-x86/linux/commit/462f092dc55c
-[36/44] KVM: nVMX: Don't update msr_autostore count when saving TSC for vmcs12
-        https://github.com/kvm-x86/linux/commit/58f21a01417f
-[37/44] KVM: VMX: Dedup code for removing MSR from VMCS's auto-load list
-        https://github.com/kvm-x86/linux/commit/0bd29379114b
-[38/44] KVM: VMX: Drop unused @entry_only param from add_atomic_switch_msr()
-        https://github.com/kvm-x86/linux/commit/84ac00042a28
-[39/44] KVM: VMX: Bug the VM if either MSR auto-load list is full
-        https://github.com/kvm-x86/linux/commit/2ed57bb89976
-[40/44] KVM: VMX: Set MSR index auto-load entry if and only if entry is "new"
-        https://github.com/kvm-x86/linux/commit/0c4ff0866fc1
-[41/44] KVM: VMX: Compartmentalize adding MSRs to host vs. guest auto-load list
-        https://github.com/kvm-x86/linux/commit/2239d137a71d
-[42/44] KVM: VMX: Dedup code for adding MSR to VMCS's auto list
-        https://github.com/kvm-x86/linux/commit/c3d6a7210a4d
-[43/44] KVM: VMX: Initialize vmcs01.VM_EXIT_MSR_STORE_ADDR with list address
-        https://github.com/kvm-x86/linux/commit/9757a5aebcd6
-[44/44] KVM: VMX: Add mediated PMU support for CPUs without "save perf global ctrl"
-        https://github.com/kvm-x86/linux/commit/d374b89edbb9
+On Fri, Jan 16, 2026 at 11:19:39PM +0800, Shawn Lin wrote:
+> =E5=9C=A8 2026/01/16 =E6=98=9F=E6=9C=9F=E4=BA=94 21:23, Mark Brown =E5=86=
+=99=E9=81=93:
 
---
-https://github.com/kvm-x86/linux/tree/next
+> > The Rockchip driver has since interrupt support was added used
+> > request_threaded_irq() but not actually supplied a threaded handler,
+> > handling everything in the primary handler.  This is equivalent to just
+> > using a plain request_irq(), and since aef30c8d569c (genirq: Warn about
+> > using IRQF_ONESHOT without a threaded handler) the current behaviour has
+> > triggered a WARN_ON().  Convert to use request_irq().
+
+> Is it preferred to use threaded version if latency is not a critical
+> concern ? I guess the original intention was to use
+
+> ret =3D devm_request_threaded_irq(&pdev->dev, ret, NULL, rockchip_spi_isr,
+> IRQF_ONESHOT, dev_name(&pdev->dev), ctlr); ?
+
+TBH it looked to me more like there'd been some deferral of more complex
+work at some point but that didn't make it into the final code.  In
+general it's better to handle things in hardirq context if they are
+appropriate for that, and for a SPI controller the end requirements are
+coming from the device so you have to assume they're going to need
+things to complete promptly.  There's overhead from scheduling a task so
+no point in incurring it if it doesn't buy you anything.
+
+--XPdBLVUHRgYjhzwD
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlqWzIACgkQJNaLcl1U
+h9BZEwf9E/UdYem+/snD3D/JY1NMjR4Ze+1L8MvjU4ZY8KuZIFJqMYDOQY6Hb2Ce
+qL6AiwhxKtCZwYpFLT1KAN9QP7aLxEd3wEwSDmOrMrsSUnAntzGMEYIDTh4Nn3pH
+ekSmtMPNFXgLRULZn9IeeNuNxMz+IZCfw6yZvmubmyP9NyMmllZg7UPCVNfXJZfu
+aJiil1rcQI7cLiBU2rGHNNB8Vsq0K6CcpF5z/w2I5FkYTnC7XQ2WiZP/+gCvA52K
+3G4GdhdRfH9bYJgKH2+PU0+fkvJTVNs5QfXp1H/UgAL1CGOM4jedtwBeII4hLh/9
+/2OecQXsuvIE0aH/VcNZqDmaYzNYPw==
+=4SUn
+-----END PGP SIGNATURE-----
+
+--XPdBLVUHRgYjhzwD--
 
