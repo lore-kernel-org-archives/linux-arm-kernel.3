@@ -4,172 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35037D47CD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 11:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91FBDD47CDE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 11:34:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lHp2ytyJ9SQ8FFx9gNxxEPLVRCqePhgtoKW2dGadEEk=; b=c3xyH41Q1ITPPHF/rps6NiTTWR
-	CNSiMM+Ew6jdFmgC6xgpvKG4O99a6JD/Ypj9n9Rh0/rl3jgIqat8H6GauG9bJPGcN/VmbWe+1ihej
-	mvomnIbuz+C+4ubMDJW4Uvo51LqPfOL0dIGEbOmN5jXn+qyga+pjW3Hup2yvI6gPmQ4XBEGIuLtc5
-	a0Rm/JkerPGtJ2FGohLepXDoqfn4pKpqNjlyqC42kkdMow5btrt7f/s+Fb8c3w3itsVzIqzk6B9Nn
-	zvgw5LK2Z6k/kH/RrY7AHO/fnY8Hoy6p3v1rGMBPZUeLm0CXRNT4PxRnEAnZcrxzQodvKOJOIEOwA
-	zbR5sJ0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jR1d80OffUV7uTQEpev81sOA3UFu+1WzvTqmM8RGtaQ=; b=QUqRJ02kGKa3/EQDFObASetgJ8
+	FV3KY/e9n4IL5ZBB8yTu/zvU5GKyK90epjqS2JKq9wGk1qOJOSNoy3yOBnbdcBYRB3WuKPT94c5Ea
+	x2owKfH3yJtWKTm2Ql45v7+ZQWiQbLU5/hmfTVwy0zGFYjr1kWcJEl/uBMLWkj4aj1BKeMt/Cl7gm
+	2U848iL08+MYpRLRUmf7nirUT+0a7WRVNgVNCKfZTjF+0rdHMXNv/+CpbA4A7bzTOZNvFv4HYoiDj
+	D+89OiHIH0ax/GnwVt6oMMRjiJpaT/+lb0B5PUVnfj30Rq2gYt998VYhhHqh83t1BfGwAoYW3onlE
+	DATKHpCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghwh-0000000E2uZ-1FQw;
-	Fri, 16 Jan 2026 11:24:51 +0000
-Received: from mail-northeuropeazon11011003.outbound.protection.outlook.com ([52.101.65.3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vgi62-0000000E3NP-1VTI;
+	Fri, 16 Jan 2026 11:34:30 +0000
+Received: from send58.i.mail.ru ([89.221.237.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghwf-0000000E2tv-2wcU;
-	Fri, 16 Jan 2026 11:24:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=acIQFH8ioh0uaedDnY0UmEu4aHpjnZCYAvSPh226/GeNb6N7kormC7c+TsRXrsLXX6aC52NZ/2DAcd12moKV7oym8lCGCxWj/EIfPAedGaBCBnV9M8TzNeCwoPMj9ujZr9QvG8r1bCdRSWdXRzwTTRksIGMVetOkau+bS8EzCIXI+qYADWWUZw6REgbduFrJmxzHd26t/LWH12YZDtfsiDdh7eSJAFTLlJ5KSSH5walbZG5KlDsAw0Lt4bqn7WAoXiih+BSTqpp6TaDltP6aoNhPPtyksy9b02sfwGjcgm8ze7eiHIBNiCE4RQZQXr7mgHyT3yFlJC6LyLCsNxxJZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lHp2ytyJ9SQ8FFx9gNxxEPLVRCqePhgtoKW2dGadEEk=;
- b=A3XsDnDX0bH7Qc+V9dnKaIH7UZ6gJqFRYjFx8H3E6+s5hIkGUy/W2apC5YQCG4oAJ20dFWmmbWlyYu0kLZ1UjJScWrLR6w52tuVZvd3MzF+Ghe1hiFoSmitWXhHaJOLb3v+mXTIVrLAX4L6fGzCRmE3zUGuFdpOoJT8AK2ZJP+LZTtLRMIkdZR2J738j3V3jmFAgRUIpTYUbSZHZbvrllhjmgt+VZkaB1nvXsQGYiJbYNOBfjhUOvEQ2JSlXK7j9jPkEe7gRh62UFoDmCV0gi1pLl1hJCMXsNGa+ugb2y6mgDghk32rsRT0toJ282ChWMshlDFO8RxayPxtcYSHZXQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lHp2ytyJ9SQ8FFx9gNxxEPLVRCqePhgtoKW2dGadEEk=;
- b=Cxd+umikAkTRBBZYW2MLNVTBTDOkJkBezpa/kYA8V6yyvGnO9Ldbb4e3EnMUoo/dPa+rEVJhh2jC4qyCIKfrLopiv11WyAOE1XlapSsh3P4aTl76y+VBtjV72yygKpGm1y0UPg4hG8WvVvZ9w7CtqAG9tdIL2IHIxBtGYI5ktuk=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from GVXPR04MB12038.eurprd04.prod.outlook.com (2603:10a6:150:2be::5)
- by GVXPR04MB11667.eurprd04.prod.outlook.com (2603:10a6:150:2c1::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Fri, 16 Jan
- 2026 11:24:44 +0000
-Received: from GVXPR04MB12038.eurprd04.prod.outlook.com
- ([fe80::6c04:8947:f2f0:5e78]) by GVXPR04MB12038.eurprd04.prod.outlook.com
- ([fe80::6c04:8947:f2f0:5e78%6]) with mapi id 15.20.9520.005; Fri, 16 Jan 2026
- 11:24:44 +0000
-Message-ID: <880303f0-8f09-406f-8e77-142a0ce15a67@cherry.de>
-Date: Fri, 16 Jan 2026 12:24:41 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/5] arm64: dts: rockchip: Enable pwm1 on
- rk3368-lion-haikou
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
-References: <20260114230707.4175162-1-heiko@sntech.de>
- <20260114230707.4175162-5-heiko@sntech.de>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20260114230707.4175162-5-heiko@sntech.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0243.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:f5::11) To GVXPR04MB12038.eurprd04.prod.outlook.com
- (2603:10a6:150:2be::5)
+	id 1vgi5z-0000000E3Mg-1YZo
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Jan 2026 11:34:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=inbox.ru;
+	s=mail4; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:
+	To:From:From:Sender:Reply-To:To:Cc:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive:
+	X-Cloud-Ids:Disposition-Notification-To;
+	bh=jR1d80OffUV7uTQEpev81sOA3UFu+1WzvTqmM8RGtaQ=; t=1768563267; x=1768653267; 
+	b=pqZbC5kZ6QVG9F4zaRA96ZjLKoeCJw+TCGE5oVH6eekTCEsX4EXM62IlRvW17k2ce2JcMm4uHjZ
+	/ojR1gaprjqLPjKUoyjoeHdpLKaeFYNNZk1s//Oxur0lCrI9VlvqxCL43I8haw6u2jfy+et5fiM3o
+	Q6G9RCOZqKJoKn6ZUWkiIOxfhtDm+jLq3EL0ZmqMfCvxoNC/80yBZKwTi6mLgdyd68qyyZ8tWsfXG
+	NfPai1W6fAvkXliH5Mc5iplwrElu4a/rcAqt9pS7vteHSecLjWWh+KluPhjmNrWmpuZUNrtj+yMey
+	oNctjS6w1ZwfkpnvTMFnGuI4K0GQKhbQDjSA==;
+Received: by exim-smtp-7b4fb89df9-67b2p with esmtpa (envelope-from <fido_max@inbox.ru>)
+	id 1vgi5Q-00000000BD3-2rha; Fri, 16 Jan 2026 14:33:53 +0300
+From: Maxim Kochetkov <fido_max@inbox.ru>
+To: arm-scmi@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonathan.Cameron@huawei.com,
+	cristian.marussi@arm.com,
+	sudeep.holla@arm.com,
+	Maxim Kochetkov <fido_max@inbox.ru>
+Subject: [PATCH 1/1] firmware: arm_scmi: move scmi_channels_setup() after SCMI stack init
+Date: Fri, 16 Jan 2026 14:33:22 +0300
+Message-ID: <20260116113322.29427-1-fido_max@inbox.ru>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12038:EE_|GVXPR04MB11667:EE_
-X-MS-Office365-Filtering-Correlation-Id: f644fdfd-2090-4cae-51f0-08de54f1d92b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|10070799003|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?elFJWUUvSG9VVmp3N3JMSC9lZmErQm9waU9nOU1xN0RDSHBzNXBld0lodEpF?=
- =?utf-8?B?OTlmZVhKQjVxK1hpWGtTdzBTSHZQL3NuQzA0dmdSbHlscmNMVWFabHhyL1hG?=
- =?utf-8?B?VEpydnNJVU1VdmZGejhoK3JOM3dlMzBVNFhvVTRsNlZ2U0k5MVg3VDdkQ3hN?=
- =?utf-8?B?cWk0dTgxaGxIOWdLVVd5Z1FFVGhIdWhMQUtHQ0hCYnJBVkxBMm1Xcy93bUJj?=
- =?utf-8?B?a3pFSm9rYm5OOFByeWVmWUlXWDUzdm8vaVZJUENDdWZIVnFwMXEwUjZIdkI5?=
- =?utf-8?B?RS92SlBZOWVPS3ZkcEZ5U21WeXR0S0U0aHBmYnEyUWM3bTJYTWZjMHFYaWZD?=
- =?utf-8?B?VzhmZnQvRXpNWTNLMi9KYUJZSC9TL1JxaFo4Z3BiRlc0K3oyS2s1Wkxjb1U1?=
- =?utf-8?B?K3Y4dXl2eFBuaUhRYS9Pa2ZFZGFkYWJEckZ3a01iOVpwVDVFN24yRkRtQXZF?=
- =?utf-8?B?cTdiYzdPNTVITTBaeC9zcDU4THl4cXYxS3JENnRQK3FqOXdndGZVMTVGOS9I?=
- =?utf-8?B?RUNxb01JUVVrbmlNd3pFZUJTWVB4dmIrTkdjaGNwakRWMEFzaFJQSnI2Ukdw?=
- =?utf-8?B?M1V5YmFMT3pUNmdjVkRkVTA3aWFyZ3JrOXZnWEh1MTVGL0FGZWZWakRSMllF?=
- =?utf-8?B?U0NROXFYYVIxZUo0eHc1LzBUUlp1bFNneURWY0dxbE9WVk82TnZqNWlLSEI5?=
- =?utf-8?B?RVZrbm1saEFnM2p5cnpiWWJ5ZTJ0OUdOZHN3UktYRWV6cnp6eWF5dlQ4eXVW?=
- =?utf-8?B?bzhlajV4R0tUZWttSFNtb1RLZkVld2dxb212YlZyTW9QdWMva3d6RTV3bHFn?=
- =?utf-8?B?WWk4VUJMNXdIQkRIVUF2emVqME1VNFB6cklTVmRsZ256YW9wU2hHR0tId2tC?=
- =?utf-8?B?WktKZDBCSWpoay85aGdla2ZOT2NuQWRaQURrUW1SK2gvMVdmUUFjejR2U1FM?=
- =?utf-8?B?ZmdibEdmc3RGMGFQRXpMQlN1Z01kaVV2bmlOcXdRQUpIbWM2T1kwSHlLckJ5?=
- =?utf-8?B?eXVXY2pFSXFBYTBuRW52M093L0NscVQvSTBDMWd0U1B1eFdUeUxqa1hhTkgx?=
- =?utf-8?B?TmM2WGRXWnp2aHZGS0NNV2g3TWVyakZiWVRvcHBaRFhsZ0dXRmNmNnppZ2NO?=
- =?utf-8?B?TXp0REwrUTZyM2JZeStYMEM3V3A2TjZPVXFFUEpENEpMb2JNNjNCYXVoRC9U?=
- =?utf-8?B?NVhZbVl5V1lOMEUxRkRxVGU3WjhXWE1nWTdwa0xwZHkzSU1FM21SZm1td3Yx?=
- =?utf-8?B?VGxVNzIzRnpLdmdIVnlwMVo5UkQ2bGpES09FdHpTZ0lRazhhZXByNE5UMHJk?=
- =?utf-8?B?cTN6YzZzbzlWbDE5WFMwa2hXSmRReWlmUGh1UnZmYjdZNmw1bmxHN1E0bS9r?=
- =?utf-8?B?Q0t0WjVKakkzKzlVejRoN0xmYmZjRmtCMTNNcW5FdHpQd2czRW8wdlhmZmY1?=
- =?utf-8?B?ZnFnTXJBMlI2TXovaHNtdDgxMjM3UWRlQndYWU9xWEp5Yk1UUkZ1bGE0WVNK?=
- =?utf-8?B?d2g2Mk8yNUQxMEY5M3VvenJhNGFzWm9MT2R4WE4wOVJUd2VycEtoeWNqek1Y?=
- =?utf-8?B?RC8zanJWd1hMaGVpc3R6cVJtSGpYZGdDbEovWjF6MFBTbW4waTNSTWxBWmI2?=
- =?utf-8?B?K1FKMThRd3ZZbGNIMThSVDlCdjhDY0NxZ2c3MzlOWENQamcxMndhNWd5V1hj?=
- =?utf-8?B?U01rbmRxbktuNDQ2NElNdmxvYlpsSVcyNTJ5NlhzdzlLRG83NmJJQ0VLWFVS?=
- =?utf-8?B?dTdXNmFCWmdSMUJBMkw3ZTB1RDl4TXBWVjJ2Zm4xaUl5M081UkRDRnE2eEh1?=
- =?utf-8?B?NDBNWFZSZGplc3ExT0V5WFJTWnpqeXE2V3FYRi92RldXVTQxa2NyT2RtRjZl?=
- =?utf-8?B?SzlvaFVoWnVObTRkbjRlVzhmZkRHY2JOM3o3ZVNFVFA5VG1XZHJiVWNXMTJV?=
- =?utf-8?B?Q0RjRVBhVEt0MzFzR29sbTN4TXBndjlUbjNibENsOFpRUGVGdC9hSStaRUdi?=
- =?utf-8?B?Z2NrMmVwVDlsTFVOU2lEQ2srTTYraG02RU4wTS9tVUpIY2FQNGZ0VmR6WnpU?=
- =?utf-8?B?V2d0L2dJQlRXMXJBVmJnbzNnRUswd3VLZmo5bGs3QUo2T1A3byszeXVuNjlp?=
- =?utf-8?Q?dqh0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12038.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(10070799003)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZlBqUEluYzhKNHRYMjhvRlk5UUNUNnBZQU1vcUpBd1AxKzFDb2plTTZNbUQw?=
- =?utf-8?B?TXNJd25USkFmNnZvZXpzdkRNWVRyV3JPTW1acXdkZDk0RUJaUUs3K0xKZ2JW?=
- =?utf-8?B?S0NLcTNuUS9xWHFkVkVpY3pjWFdTcmdWSzhpeFoxUXVEbEcyeUFrYm5EanhD?=
- =?utf-8?B?azhFcTV2d3N5ZU82MG1jbDlmVit5bXpIVXVIRStsM3JuL3Y2ZGlNRDBYSVFs?=
- =?utf-8?B?cEVmTG5TZktwWmkyaGdVUk1iUm9LZmxScHplL0VkT09BUkU4OHR6WTlIa1Bk?=
- =?utf-8?B?Q1RpRUdjUHZBRXBFRHVzYTIxRXlvYTJRd0k4ZU96SU5rMUM3U0VOaFBQbmdN?=
- =?utf-8?B?ZzZPZmpaUG8xbjZlRy9SVS9wVDJNYUQvYmxyTVJreVZpUGc4OUM3bHdVdmlI?=
- =?utf-8?B?dWxxODNHVW54SVhYVTRQdlVuS0YyZ0hBQjgraUxlZFVMWkttaysyVXd3NEFW?=
- =?utf-8?B?Y1hWc0VzSXMvL0UzZi9PcDdXM0szdXVmM0lMQlNtSUlZNFFzN1JDNEpFNDdR?=
- =?utf-8?B?WGl4d0dCN2pBellqTlFYWkZiaXZIMC9FZkZpWkd1U2FFUmw1NC8vVlcvZCti?=
- =?utf-8?B?R1NNUFcvWXgyRzJRdHNJVm5OaEJHQllMMXZmU0NqMG1yRGpKQXNBRC9qb0ZN?=
- =?utf-8?B?UmhnalBnTWF2V2NiMXZUQjRKM013TlBYMHc0Sm12MFRKbU01WGlITXBXc2F6?=
- =?utf-8?B?QTRUK1F6T05ZazdmYWdldnV5a1pCb2VDU2tFLzdqQkdycncvTTR3OW9qbCtj?=
- =?utf-8?B?Zm95RnFzWGRhcFBzaThXeG83VjFweDg3NFpWdUZ5RFFkL21ONUhPWjh3UW9Q?=
- =?utf-8?B?aWpodkpuNmVYQ3lpLzBKeXIzTThxM0IwZ2J1UE1OMnFtUVZXZjJFS1pwZUdU?=
- =?utf-8?B?VHVGL2U2dnhjdWlqNzhreGMwWXpxQWxzQXp6Nk0vR1BPSzRxYWtWY1JNeTNI?=
- =?utf-8?B?ZVVIOXJLQkVvTzQyNFZuM2pldDlrYi91R3BIdms2dDNPYS9wOUIrTFdlRTI1?=
- =?utf-8?B?aHEzbVVLMGtmOFZHNWZ6dkxjWXhpUklGeWRIM0xaRG1BTWdZa3FJQno1RDRi?=
- =?utf-8?B?SlJ6VTJzVVVOUWhGUWdPUVY1enVEa3YrUThDNTNTTDRPU1hobnlHMlJmaHF1?=
- =?utf-8?B?SUl1YUN3RVJNNVY1aFdWb3ZyVEE0dmlWQ3VMNEtrdHVWTmlNNlJiYU5tLzhX?=
- =?utf-8?B?V01zUWlxS0RvL0ZINTlCQmFDSzJrd09ZSFpEQ1hZdE1VWFVSWFJhOFJnTFl5?=
- =?utf-8?B?M2V2RmZsNFJ0MjVsMmo1UERvblpyZktZUnh3cWhVNVRyUGVjK3VxeG52cTlX?=
- =?utf-8?B?cnJZOFNtZmJuZERTT1NnOVBUaTRRZlZwSzA2Y1FWWE9yOEF6VHBVckFUeVBS?=
- =?utf-8?B?SjVBTU8rc2w1cDRXNXp3ajBWUUFvcENHSXJwK0hKemlmZkdKZ3JnTlVLMDBr?=
- =?utf-8?B?QUtlcTRrTW44VGhERXhubzJKL05wd1ZORzhXQkcxcGNvVjcyZG1aK25VbFdz?=
- =?utf-8?B?VlRnZ2FVcFgvRWhTN29nZ3lRbmhRQ1Vhb1pWOXEzSTl0aE15aU1ZeDJyeDhC?=
- =?utf-8?B?UWgwU0VWTDBPQTRoWnZJdUlrNTB1NnNGbSszc0tWMlhUbHF3QUJrWnNwYVNW?=
- =?utf-8?B?Q3orQVFTbnVXVWFBM2ZpK3dHem5ZQkFibnl4L0JoSTVjTTIvUXBGWVg4TkU2?=
- =?utf-8?B?eXhtUEd6bjZhc01OQmcvbnNXWlBQV1E1Zk0raitNd20zTzh3azhvTEdHRDlP?=
- =?utf-8?B?YmNXOVVxM3JJbmlmMm80YlBZTVQxN1B1REtHVlFSNGh6d3pteUZxZk5sZEM2?=
- =?utf-8?B?OEpJSWJRUzBnUGJqVkN3TitpWWV1cWlNenhmS3dhQ0xDQVJWWFRsSjBCTXJH?=
- =?utf-8?B?ZDhIVWJKNEI2WVpxRXFrcjFzMHk5UXJiaXpacnZMZk0rWm1BdjlBWG15dTJM?=
- =?utf-8?B?U1BhNURlZ3oyMnBTOWsvOU5keTBrN0RjY0JvcXRkR2d4ai8xT0JlWlUwSWdu?=
- =?utf-8?B?UWUxVk5yZGtkRzNmSzRWT05jUlZ3STJQZm5JWitBL2hkd0VwNnJIamU2M1Ra?=
- =?utf-8?B?OHowVkNzcm1KNzFZWFhkYTQwdXVsVkRHYjNDTjNQSmhxTm9haEpIblZ5amIw?=
- =?utf-8?B?cG5xcXJiYUlObzhFMlRCc2RDMTNZOEJ5bm1SYXhiSC9ENFROcFNqalpzemp3?=
- =?utf-8?B?WUthSTNXU0NyNUR0eHNObCtQaHltSkRSZTh2NE1zTjFEU1ZNdlVOYVN2dXBp?=
- =?utf-8?B?TmwyVlFnWFcxdGRNakRISTVCTnpadjllekJ4TFJTdzJ5dTRVbTlRRGxsdlIz?=
- =?utf-8?B?T0xWSy95VDlWK3F2cmNUNm5BUS9tYVhUY0N3V2ZWS2RSb1ZpMWdjN09CV295?=
- =?utf-8?Q?OWgFMifQ3HyRUCYdyqBmbiHwopQAviOEHoGLP?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: f644fdfd-2090-4cae-51f0-08de54f1d92b
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12038.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 11:24:44.1837
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qG7IJrDs7kzr88sjsPR3zF+tbeeKkDyb+lt73xTUqpBkc5edn6M5TDbW+ZeVMFkho81bzyLJol8JB7IiQa+x3jUVltM4AcMYuOrXaIMDjA4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11667
+Content-Transfer-Encoding: 8bit
+Authentication-Results: exim-smtp-7b4fb89df9-67b2p; auth=pass smtp.auth=fido_max@inbox.ru smtp.mailfrom=fido_max@inbox.ru
+X-Mailru-Src: smtp
+X-7564579A: EEAE043A70213CC8
+X-77F55803: 4F1203BC0FB41BD915CCE24728BE1C659288DDFB45DD09173BC4D529DAC28AFF182A05F5380850404C228DA9ACA6FE27703FF7A2CA780D5C3DE06ABAFEAF6705FDB245181E5689CA1445013257ED8507EA49DAD9745199E0
+X-7FA49CB5: FF5795518A3D127A4AD6D5ED66289B5278DA827A17800CE7F157A19638F32F60EA1F7E6F0F101C67BD4B6F7A4D31EC0BCC500DACC3FED6E28638F802B75D45FF8AA50765F7900637AC83A81C8FD4AD23D82A6BABE6F325AC2E85FA5F3EDFCBAA7353EFBB5533756680939BF45BBEA696D66F1F908B0E0CD669C74E262E6C083C3F5BFD04E3EAC4E88EEF46B7454FC60B9742502CCDD46D0DEDCF5861DED71B2F389733CBF5DBD5E913377AFFFEAFD269176DF2183F8FC7C0AD76BF5943A59ECC8941B15DA834481FCF19DD082D7633A0EF3E4896CB9E6436389733CBF5DBD5E9D5E8D9A59859A8B66EFF71F1B3C06F72CC7F00164DA146DA6F5DAA56C3B73B237318B6A418E8EAB86D1867E19FE14079C09775C1D3CA48CF3D321E7403792E342EB15956EA79C166A417C69337E82CC275ECD9A6C639B01B78DA827A17800CE75A9E79F66F1C28F3731C566533BA786AA5CC5B56E945C8DA
+X-C1DE0DAB: 0D63561A33F958A507FC153A179462395002B1117B3ED69695DD9DF6417A798A250A03108B67251B277AA237ED671D4372AF3B35EA4094CC8ED1AC82D843A2BB9C5DF10A05D560A9D2B5782620B851B7C8C84E951CD0BE2F58C12E6D310A6D53566404C906FA8ADEA71A35648BE338CEED902CAAD3CD6B00BA7CCD254A1CF5E8EBBD898635E49373638A446BE3E5C627BF0CFE790FC11A7261332C5CB50AE517BDAD6C7F3747799A
+X-C8649E89: 1C3962B70DF3F0AD73CAD6646DEDE191716CD42B3DD1D34CA0CBE312C330D7D583CD26C36C883521FC0B9F89525902EE6F57B2FD27647F25E66C117BDB76D65956BCBECC2AB312DD7BF48E4D43E3283106E5567CD68261AC52A66745F672F67FB5A0969D806867DBB8341EE9D5BE9A0A0F93AFFF416A809940775ABDFBE9C0522475EF7FB0E9BB86DABE3362BFED2FD64C41F94D744909CEE921556F0E976A29E6EC0772259F8F8F8815B87D7EC76CB9
+X-D57D3AED: 3ZO7eAau8CL7WIMRKs4sN3D3tLDjz0dLbV79QFUyzQ2Ujvy7cMT6pYYqY16iZVKkSc3dCLJ7zSJH7+u4VD18S7Vl4ZUrpaVfd2+vE6kuoey4m4VkSEu53w8ahmwBjZKM/YPHZyZHvz5uv+WouB9+ObcCpyrx6l7KImUglyhkEat/+ysWwi0gdhEs0JGjl6ggRWTy1haxBpVdbIX1nthFXMZebaIdHP2ghjoIc/363UZI6Kf1ptIMVVt0N+pdRHOZuqP9fAipHsk=
+X-Mailru-Sender: 689FA8AB762F7393DDD5FD59B456EAD27B0D6E5CCDD2C5C297605EEF9BC9CED6EA71D86CE574F84B90DE4A6105A3658D481B2AED7BCCC0A49AE3A01A4DD0D55C6C99E19F044156F45FEEDEB644C299C0ED14614B50AE0675
+X-Mras: Ok
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_032449_752093_BF14E613 
-X-CRM114-Status: UNSURE (   8.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260116_033427_952256_9C4B50DB 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,21 +83,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+scmi_channels_setup() makes channels enabled and ready to receive
+messages immediately. In some cases channel may receive message from
+firmware here (i.e. notification). This message will be passed to
+SCMI RX path scmi_rx_callback(). Then in scmi_handle_notification()
+scmi_xfer_get() is called to get message buffer to unpack.
+scmi_xfer_get() uses xfer_lock spinlock. But xfer_lock init is
+located in scmi_xfer_info_init() which is called after
+scmi_channels_setup() in scmi_probe().
+So here we have trying to access to uninitialized spinlok:
 
-On 1/15/26 12:07 AM, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> 
-> The pwm1 is exposed as BLT_CTRL signal on the MISC I/O pin header of the
-> haikou baseboard and the Qseven  standard specifies this signal is only
-> for PWM (either for a panel backlight or generic PWM).
-> 
-> So enable it in the Haikou baseboard for Lion.
-> 
-> Suggested-by: Quentin Schulz <quentin.schulz@cherry.de>
+[    9.978360] BUG: spinlock bad magic on CPU#0, irq/16-1e200000/123
+[    9.979236]  lock: 0xffffffd6035500c8, .magic: 00000000, .owner: <none>/-1, .owner_cpu: 0
+[    9.980633] CPU: 0 UID: 0 PID: 123 Comm: irq/16-1e200000 Not tainted 6.12.0-01250-g7fb379e5f78e-dirty #2
+[    9.983157] Call Trace:
+[    9.983422] [<ffffffff80007ab4>] dump_backtrace+0x1c/0x24
+[    9.983972] [<ffffffff80b5d380>] show_stack+0x2e/0x38
+[    9.984523] [<ffffffff80b6e58e>] dump_stack_lvl+0x52/0x74
+[    9.985336] [<ffffffff80b6e5c4>] dump_stack+0x14/0x1c
+[    9.985556] [<ffffffff80b5dfa8>] spin_dump+0x62/0x6e
+[    9.985942] [<ffffffff8007df7a>] do_raw_spin_lock+0xd2/0x12c
+[    9.986213] [<ffffffff80b78f16>] _raw_spin_lock_irqsave+0x22/0x2e
+[    9.986585] [<ffffffff80823442>] scmi_rx_callback+0x158/0x7ca
 
-Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+So move scmi_channels_setup() after full SCMI stack init to make
+sure we are ready to receive messages before enabling channels.
 
-Thanks!
-Quentin
+Fixes: 4ebd8f6dea81 ("firmware: arm_scmi: Add receive buffer support for notifications")
+Signed-off-by: Maxim Kochetkov <fido_max@inbox.ru>
+---
+ drivers/firmware/arm_scmi/driver.c | 27 +++++++++++++--------------
+ 1 file changed, 13 insertions(+), 14 deletions(-)
+
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 3e76a3204ba4..0c46a9dfaf80 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -3225,17 +3225,10 @@ static int scmi_probe(struct platform_device *pdev)
+ 	handle->devm_protocol_put = scmi_devm_protocol_put;
+ 	handle->is_transport_atomic = scmi_is_transport_atomic;
+ 
+-	/* Setup all channels described in the DT at first */
+-	ret = scmi_channels_setup(info);
+-	if (ret) {
+-		err_str = "failed to setup channels\n";
+-		goto clear_ida;
+-	}
+-
+ 	ret = bus_register_notifier(&scmi_bus_type, &info->bus_nb);
+ 	if (ret) {
+ 		err_str = "failed to register bus notifier\n";
+-		goto clear_txrx_setup;
++		goto clear_ida;
+ 	}
+ 
+ 	ret = blocking_notifier_chain_register(&scmi_requested_devices_nh,
+@@ -3279,6 +3272,12 @@ static int scmi_probe(struct platform_device *pdev)
+ 		dev_err(dev,
+ 			"Transport is not polling capable. Atomic mode not supported.\n");
+ 
++	ret = scmi_channels_setup(info);
++	if (ret) {
++		err_str = "failed to setup channels\n";
++		goto notification_exit;
++	}
++
+ 	/*
+ 	 * Trigger SCMI Base protocol initialization.
+ 	 * It's mandatory and won't be ever released/deinit until the
+@@ -3291,7 +3290,7 @@ static int scmi_probe(struct platform_device *pdev)
+ 			dev_err(dev, "%s", err_str);
+ 			return 0;
+ 		}
+-		goto notification_exit;
++		goto clear_txrx_setup;
+ 	}
+ 
+ 	mutex_lock(&scmi_list_mutex);
+@@ -3333,6 +3332,8 @@ static int scmi_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ 
++clear_txrx_setup:
++	scmi_cleanup_txrx_channels(info);
+ notification_exit:
+ 	if (IS_ENABLED(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT))
+ 		scmi_raw_mode_cleanup(info->raw);
+@@ -3342,8 +3343,6 @@ static int scmi_probe(struct platform_device *pdev)
+ 					   &info->dev_req_nb);
+ clear_bus_notifier:
+ 	bus_unregister_notifier(&scmi_bus_type, &info->bus_nb);
+-clear_txrx_setup:
+-	scmi_cleanup_txrx_channels(info);
+ clear_ida:
+ 	ida_free(&scmi_id, info->id);
+ 
+@@ -3367,6 +3366,9 @@ static void scmi_remove(struct platform_device *pdev)
+ 	list_del(&info->node);
+ 	mutex_unlock(&scmi_list_mutex);
+ 
++	/* Safe to free channels since no more users */
++	scmi_cleanup_txrx_channels(info);
++
+ 	scmi_notification_exit(&info->handle);
+ 
+ 	mutex_lock(&info->protocols_mtx);
+@@ -3381,9 +3383,6 @@ static void scmi_remove(struct platform_device *pdev)
+ 					   &info->dev_req_nb);
+ 	bus_unregister_notifier(&scmi_bus_type, &info->bus_nb);
+ 
+-	/* Safe to free channels since no more users */
+-	scmi_cleanup_txrx_channels(info);
+-
+ 	ida_free(&scmi_id, info->id);
+ }
+ 
+-- 
+2.51.0
+
 
