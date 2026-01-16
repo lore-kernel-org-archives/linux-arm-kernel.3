@@ -4,87 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E6BD4A61A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:42:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E59A5D4A61A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hVybfYbe8i3MrpO08VfiZkufpjg080yyEME6uzv1ZzY=; b=pxEgwPP19EW/8s2yAEdI55B5lW
-	gg6RbACXJZCAgJV5h4YdNNwLU0kL4lLtLZvY9OCLHXcBh5f8nUY3rk0SPLKPW9h9tgP/JPb8yAV/F
-	T6KCYnsWWodEeMQdMtSCQfMr/gSkKRqsfolui9QNFeE83YKkBqmrbujL0WT2zzcXgc6lMSsEDErZZ
-	lAvP6QNwOXw6BMbLn9fJ3Dsdx/IvGgu2nVsZw7InzWN8Eqqcg/AUNoPTP3etIhePlpQi1Aqok+1Hg
-	aLN6rTdr/HWcvzAY0t4XpxO7iVuKHfZQYgg8R3JUylDvuPy11mEI8z1fOYFrS2T0cun87h3mpoqx2
-	Vm/KHAVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ABv8OdJi32Gg0FcjWxhtSwfXTwcweC/Wx9N7YPA9N0A=; b=OwujhrNp/nJFBygeSEWiN+qn9O
+	lcPBRAJNsUE2+ZdUKF3ZjHKxch6u9yi150RT0NnVn9ctipAUIMHxHHo2PjpOFy5xflNh109yIGAVR
+	Pbza14CZDzKFGnnV5Set9he0V8UsO4S1Y7FhKxmkmKBYHU9j3yr8R/ib8l2Uk+hiWoD+QxDRCn4Xz
+	s9B4aYIq6wkK48s6ibBrvoz8zm+RpjqUiU+ik5iyvpaYb+LtEnWW56H/RWxcQzeVHXAXyll0jcGD+
+	8LvhpYMuMI3l9mODbWJNWSDd02t+N+Eo4qxDxMEiXsHg+iULoxzqwVCpsUhhbpaPcMAzpUmF38MM+
+	jzWThwZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vggLE-0000000DsRl-2wvP;
-	Fri, 16 Jan 2026 09:42:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vggM7-0000000DsXT-0GNf;
+	Fri, 16 Jan 2026 09:42:59 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vggLC-0000000DsRL-0kj3
+	id 1vggM3-0000000DsWc-25b9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 09:42:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 379AC44190
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 09:42:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D218C19421
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 09:42:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768556520;
-	bh=/E8pjL1Rg4kjh10yWKXAfqGFi3+btd20CKL87Qc6xYk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=VPASkmLvCW/t4XmsQcmEBMDBN6Np6o9rMBqRv0awasGACRhWea5bRnd9A+VLI+NCs
-	 dIOhMy0sajBtbGyDu9uVrXkjyIivOBJELkA5/q/4uW2MVZdwif+Sp2+i0XqCrTiY5V
-	 1KA83r7fBXyaU5DDLzRKsGpWG3+5hmKtEVtCmxu1hgjn3vYeSFlJpj5eVFe/Ievqfl
-	 KZgXntrkuNOXkkx9bZH1SNmuZHxxpA2fODGUvnAxdX2bcG0uDEaKicAUoeBrHNqpUs
-	 FNslAZOVGw7n8A5D4kGOULTX8nF3IzRI4xn4R3dZbn8JeuL3MTbn5K967B+ogy3rK7
-	 zdKB3gNFNNE6A==
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-34c71f462d2so1273742a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 01:42:00 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXQwWVQW3JzdyRDM+SMar5YkKgXrkiOxh4na50+ueezXFdAvvjY1wZCLii3RAqXLnZHXJf8g6zQZliBnkLf68AF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzm3VjoFk3XNxNlIweFYqdAl5wz3jehIS6ESTXK3foHnQeBJWMF
-	FaAg/n3d6IGHc44+zDZQH+kfrQyWWhANS0U+fKDU5ONEgINHWtwI2/Oo6jQUgoI9RQ1C0X+OO/m
-	Ivul2TasJQtdesU9l3gY7kx62GF8c6Pg=
-X-Received: by 2002:a17:90b:3dcc:b0:340:c4dc:4b70 with SMTP id
- 98e67ed59e1d1-3527315e60dmr2091280a91.6.1768556519441; Fri, 16 Jan 2026
- 01:41:59 -0800 (PST)
+	Fri, 16 Jan 2026 09:42:57 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-38314d36df7so1922321fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 01:42:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768556573; x=1769161373; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ABv8OdJi32Gg0FcjWxhtSwfXTwcweC/Wx9N7YPA9N0A=;
+        b=BhvX8sPj/eSW8K0yO2gaiWAiMl7Xg0xkXXxXummZEc0Xnh+YJxBulVjgGU4up6NNGH
+         W/ZZOWqi4oBY9WP32kV2vbkBzP5zANNnZXs3Gb2Iy5NOclWARw0xSjloXQ9jDBvNCMCP
+         Jfni+7Yi7XoFk2DCxESA82qudDjYPWF7hW2dQ33w7jUPdaeSx3tt1Z0jMO4k8kKZ6Cew
+         x6Spg+pn8bOOPiQ22k2xhhVQ0wH9miLl+Ijh6+oUTbC5MXnkZ9jiPn2OwinPJNuIdV7d
+         /GdmIFwAmrj/j6Y+FBHa4cggLfggwTHegOTxn5a3uQGgc7d5OHAF2wmhXag0Qz707mpq
+         FQ0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768556573; x=1769161373;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ABv8OdJi32Gg0FcjWxhtSwfXTwcweC/Wx9N7YPA9N0A=;
+        b=ES27dBdw3do1XVptLh1mDXV3XZxB9YFup3+Bzq9bTPL9GtUVfkLnBcBC1eGky67itg
+         cQdT2goaH7vsEzNmzFEFuya+RqBL2PkX3Bt0FZBLVy6BiK151VFM3wGkRpDcS9obRWnO
+         JLdHuqrzHhNcfJ1ZIl8U0hX9WnBut7d8TH6dXMY6bhktKYbeKZvFICxTQWGH6i9FO2fQ
+         l0/7IbZlTVF4CN0w70Z6eO9p3dvmevt+Z5ujq4gi1dPDVry26P4j0EDQg615Kk5/RScV
+         S4LWtBilcHMceIULOSNLHwwX3VU/xAzbMEvQ+U10TUpauwjxqQ7H63rtjv4+IZJqJHSJ
+         B6UQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV5m0OLnPZYgevCqMKcDOTSUjMjjGbGGh2utt78lF2djswYefAsPKFB4RQhjs3QjKOoPRndzzmzN9ca0X131Cd0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAP6NFThdZ9CXcooA8UynajYku1wV7pGZVNOOJXrW9B9EOo916
+	u5Qb1kTFmSxmQTsAIkE+9DRc+lPdjOwyxoClB0upWyNkrlS/EAzb/rVnWpMlndK3uug=
+X-Gm-Gg: AY/fxX4dOsbas3CaTcVeCEAT3bt1qqZBy0geuaMfzioCCd4W+jmdvmhJRiz7PEdsxuX
+	vW43cobi7pu2DaSGsnnxK0hh5z0XdAEX8yfziL28/YlC4m2/ZiAI82FkbN0nP5gU77bnJ1A5YsW
+	RgVwpzaCJC2aUCzwllAYPQNzt6jDHbcO4dCSaGLHMuFkVKebhNylUrtM+mqNfk8fgRbUFByz6Zf
+	ahUyci/1M/FZZI1GN67L5vRn+57CNq5BwKTZogS54SWn+6rzqsYHNIrswiTUY5pilSh01grMytK
+	zSLY2IzawStB54x3clP7/PK/DvR5A1LTP+QGO/rw7XJx8nWIhJgOr/BxrodVvYCVNx09qX3/Lff
+	hwGXWXR+sxRNtY3sX+QBHUmFyzTvvbvXkuPURhMTSRlOoD7KyIii5aSP4aT6q9oCKmrf384HczA
+	ORYWxIDVonP728Fun/Rph3ioh62B/EcGN1qCJmHyEzXbR/j0QdHZ0GbK7yg3BZ6X6bLQ==
+X-Received: by 2002:a05:6512:1514:20b0:597:d790:a1a2 with SMTP id 2adb3069b0e04-59baef18155mr314794e87.8.1768556573145;
+        Fri, 16 Jan 2026 01:42:53 -0800 (PST)
+Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59baf33e82dsm618507e87.11.2026.01.16.01.42.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 16 Jan 2026 01:42:52 -0800 (PST)
+Message-ID: <e081fa74-9e0b-4e54-a51d-eee97ae6f4fa@linaro.org>
+Date: Fri, 16 Jan 2026 11:42:51 +0200
 MIME-Version: 1.0
-References: <20260115004328.194142-1-coxu@redhat.com> <20260115004328.194142-2-coxu@redhat.com>
-In-Reply-To: <20260115004328.194142-2-coxu@redhat.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 16 Jan 2026 10:41:48 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
-X-Gm-Features: AZwV_QjmUt_PmrwfWvkU01-td52KzVOAwQnoeyg_Oar6lj-mB--Ez-fk2UXAfCg
-Message-ID: <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
-Subject: Re: [PATCH 1/3] integrity: Make arch_ima_get_secureboot integrity-wide
-To: Coiby Xu <coxu@redhat.com>
-Cc: linux-integrity@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>, 
-	Mimi Zohar <zohar@linux.ibm.com>, Roberto Sassu <roberto.sassu@huaweicloud.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Roberto Sassu <roberto.sassu@huawei.com>, 
-	Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, Eric Snowberg <eric.snowberg@oracle.com>, 
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
-	"Serge E. Hallyn" <serge@hallyn.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
-	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, 
-	"open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)" <linuxppc-dev@lists.ozlabs.org>, 
-	"open list:S390 ARCHITECTURE" <linux-s390@vger.kernel.org>, 
-	"open list:EXTENSIBLE FIRMWARE INTERFACE (EFI)" <linux-efi@vger.kernel.org>, 
-	"open list:SECURITY SUBSYSTEM" <linux-security-module@vger.kernel.org>, 
-	"open list:KEYS/KEYRINGS_INTEGRITY" <keyrings@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 5/5] arm64: dts: qcom: talos-evk-camera: Add DT overlay
+To: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Robert Foss <rfoss@kernel.org>,
+ Todor Tomov <todor.too@gmail.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-i2c@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20260115-sm6150_evk-v3-0-81526dd15543@oss.qualcomm.com>
+ <20260115-sm6150_evk-v3-5-81526dd15543@oss.qualcomm.com>
+ <3b16ffa2-1580-426c-aa9c-f377d913d49c@linaro.org>
+ <e27deffc-bbcc-48bc-9e4e-ce52698d98f3@oss.qualcomm.com>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <e27deffc-bbcc-48bc-9e4e-ce52698d98f3@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_014202_260951_26FD5FEA 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20260116_014255_565458_C75AA465 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,62 +114,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 Jan 2026 at 01:43, Coiby Xu <coxu@redhat.com> wrote:
->
-> EVM and other LSMs need the ability to query the secure boot status of
-> the system, without directly calling the IMA arch_ima_get_secureboot
-> function. Refactor the secure boot status check into a general,
-> integrity-wide function named arch_integrity_get_secureboot.
->
-> Define a new Kconfig option CONFIG_INTEGRITY_SECURE_BOOT, which is
-> automatically configured by the supported architectures. The existing
-> IMA_SECURE_AND_OR_TRUSTED_BOOT Kconfig loads the architecture specific
-> IMA policy based on the refactored secure boot status code.
->
-> Reported-and-suggested-by: Mimi Zohar <zohar@linux.ibm.com>
-> Suggested-by: Roberto Sassu <roberto.sassu@huaweicloud.com>
-> Signed-off-by: Coiby Xu <coxu@redhat.com>
-> ---
->  arch/arm64/Kconfig                            |  1 +
->  arch/powerpc/Kconfig                          |  1 +
->  arch/powerpc/kernel/Makefile                  |  2 +-
->  arch/powerpc/kernel/ima_arch.c                |  5 --
->  arch/powerpc/kernel/integrity_sb_arch.c       | 13 +++++
->  arch/s390/Kconfig                             |  1 +
->  arch/s390/kernel/Makefile                     |  1 +
->  arch/s390/kernel/ima_arch.c                   |  6 --
->  arch/s390/kernel/integrity_sb_arch.c          |  9 +++
->  arch/x86/Kconfig                              |  1 +
->  arch/x86/include/asm/efi.h                    |  4 +-
->  arch/x86/platform/efi/efi.c                   |  2 +-
->  include/linux/ima.h                           |  7 +--
->  include/linux/integrity.h                     |  8 +++
->  security/integrity/Kconfig                    |  6 ++
->  security/integrity/Makefile                   |  3 +
->  security/integrity/efi_secureboot.c           | 56 +++++++++++++++++++
->  security/integrity/ima/ima_appraise.c         |  2 +-
->  security/integrity/ima/ima_efi.c              | 47 +---------------
->  security/integrity/ima/ima_main.c             |  4 +-
->  security/integrity/platform_certs/load_uefi.c |  2 +-
->  21 files changed, 111 insertions(+), 70 deletions(-)
->  create mode 100644 arch/powerpc/kernel/integrity_sb_arch.c
->  create mode 100644 arch/s390/kernel/integrity_sb_arch.c
->  create mode 100644 security/integrity/efi_secureboot.c
->
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 93173f0a09c7..4c265b7386bb 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2427,6 +2427,7 @@ config EFI
->         select EFI_STUB
->         select EFI_GENERIC_STUB
->         imply IMA_SECURE_AND_OR_TRUSTED_BOOT
-> +       imply INTEGRITY_SECURE_BOOT
+On 1/16/26 11:32, Wenmeng Liu wrote:
+> 
+> 
+> On 1/16/2026 5:12 PM, Vladimir Zapolskiy wrote:
+>> On 1/15/26 12:12, Wenmeng Liu wrote:
+>>> Enable IMX577 via CCI on Taloss EVK Core Kit.
+>>>
+>>> The Talos EVK board does not include a camera sensor
+>>> by default, this DTSO has enabled the Arducam 12.3MP
+>>> IMX577 Mini Camera Module on the CSI-1 interface.
+>>>
+>>> Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
+>>> ---
+>>>    arch/arm64/boot/dts/qcom/Makefile                  |  3 ++
+>>>    .../boot/dts/qcom/talos-evk-camera-imx577.dtso     | 63 ++++++++++++
+>>> ++++++++++
+>>>    2 files changed, 66 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/
+>>> qcom/Makefile
+>>> index
+>>> 00652614e73582fa9bd5fbeff4836b9496721d2d..be9aeff2cd1555bc436e1b8eb78d8e1c9b84f9c4 100644
+>>> --- a/arch/arm64/boot/dts/qcom/Makefile
+>>> +++ b/arch/arm64/boot/dts/qcom/Makefile
+>>> @@ -339,8 +339,11 @@ dtb-$(CONFIG_ARCH_QCOM)    += sm8650-qrd.dtb
+>>>    dtb-$(CONFIG_ARCH_QCOM)    += sm8750-mtp.dtb
+>>>    dtb-$(CONFIG_ARCH_QCOM)    += sm8750-qrd.dtb
+>>>    dtb-$(CONFIG_ARCH_QCOM)    += talos-evk.dtb
+>>> +dtbo-$(CONFIG_ARCH_QCOM)    += talos-evk-camera-imx577.dtbo
+>>
+>> Please remind me, what does dtbo-y Makefile target serve for?
+> Rob mentioned:
+> https://lore.kernel.org/all/20260106192609.GA2581379-robh@kernel.org/
 
-This allows both to be en/disabled individually, which I don't think
-is what we want. It also results in more churn across the
-arch-specific Kconfigs than needed.
+It'd be better to ask Rob about it, I suppose that the concern may be about
+a missing in the qcom/Makefile mechanism to build standalone .dtbo artefacts.
 
-Wouldn't it be better if IMA_SECURE_AND_OR_TRUSTED_BOOT 'select'ed
-INTEGRITY_SECURE_BOOT in its Kconfig definition?
+> I checked, dtbo- is not an upstream usage, it will be updated form
+
+Right, that's why it attracted the attention.
+
+> dtbo-$(CONFIG_ARCH_QCOM) to dtb-$(CONFIG_ARCH_QCOM) in the next version.
+> 
+
+But...
+
+>>> +talos-evk-camera-imx577-dtbs    := talos-evk.dtb talos-evk-camera-
+>>> imx577.dtbo
+>>>    talos-evk-lvds-auo,g133han01-dtbs    := \
+>>>        talos-evk.dtb talos-evk-lvds-auo,g133han01.dtbo
+>>> +dtb-$(CONFIG_ARCH_QCOM)    += talos-evk-camera-imx577.dtb
+
+it's already here and it was here in the previous version.
+
+-- 
+Best wishes,
+Vladimir
 
