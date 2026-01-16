@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB34D4A5E4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 01:59:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3637AD4A5E4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 02:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LkUWOWXKl9G8yXPR1eulHmtakm6kDYpJNDSloOeIcLo=; b=43wIcyet+awgpFyqVGHnXbWEzG
-	SEWqQA2fSI29tSbFTdAJGKzBzuee2nc3xEdD+JakUBjmB0U/tqGhgsU4uG8tDFSo1JkdpMH0eFUzK
-	pGr16oBqaqYDUwLGYCfuAw1x1ea6VudULiu/55XSMCaJdsp7rfnsONW9BzTzqAlnfuGL6+x9OcIu/
-	3GG8MDhJc8jx8cXHZ7VJCXklud7iVak1DauXkvjW7vZ5BBIMdPAmFnZXF5hqjCg+wCxYXFYnmmmSv
-	x05zVKe/Una3aitlexuoAcKqGGtDAs+cUF4UR+KDWPfoLjqBz/1dwzTecIGyf/NFB5+DrSmV7gYai
-	9UGwbzpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n19BO7MPLNwQuRYYioniDrJ0SfDC8NE/pXsgsfX4ako=; b=2ttVPDgF4fDnWsV+K+uwklkbyu
+	6bOa3QtBM2HgeLJo8uygfVRfM/Q74rr7FBByBUMrFCWbGPEGMObuguUMYjR42NZgo5Tkca2D+qK3W
+	VbE3NgtudhGUZrXlLvT/FIDz3q/hxu/dAGWrsniA+dFxqbrvJPrgJFWLsJFbTluCQgx/FJhBF4dAH
+	BJfEJ1SXFKPwS7W9W9aQj0H8IiDi5dEgyZIw3PZ5Kb6+PWt7eHmZuR4CQMDCjCCKEz5dczVk12Avu
+	sG4E7nde3PsSg+py1GuHi6BLV6KKCWhsF/o5L1HCDJhdw6JRgE0kBpB/bM2SldSVtT6K4lsPJwm8+
+	iBWeydNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgZ7T-0000000DRQG-1TBr;
-	Fri, 16 Jan 2026 01:59:23 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1vgZR3-0000000DSnx-3tcR;
+	Fri, 16 Jan 2026 02:19:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgZ7Q-0000000DRPv-3rMi
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 01:59:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1768528758;
-	bh=LkUWOWXKl9G8yXPR1eulHmtakm6kDYpJNDSloOeIcLo=;
-	h=Subject:From:To:Cc:Date;
-	b=XX0w0J9deEUHlWxsecb8zMblx8zHhb6/mQaA0xISVC8twjMGp9EpkcE5Ha3fpLzux
-	 ei6fWRYJbq+6tAt9zgT6Chx4xlOdd/zrhbQRMvsLeiZj8BorHO2o6WgpGWrKpaT+Lk
-	 cDw91RM4RmATTAjlHp6TK8aazLsjiheDhbE8EIJwTKRb9NKjkci7bzkPJz8N/yxU+g
-	 7paOXXPsnblM5+98R/lSa/XyallT62f4oH2LpXPSyM15s8BgaojSJENTF/JOmjubZB
-	 IxYA78cBL5mzLCvMg0aLeU45/XMG/19I7XcPhHmXcDHwxynMh/Zqaosak20U1pwmoE
-	 t1kUznqUKPE4A==
-Received: from [192.168.68.115] (unknown [180.150.112.60])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 78B6A64705;
-	Fri, 16 Jan 2026 09:59:18 +0800 (AWST)
-Message-ID: <c7002883dbeadf44069ef5e8cf573d9f2aefc899.camel@codeconstruct.com.au>
-Subject: [GIT PULL] aspeed: second batch of arm devicetree changes for 6.20
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: soc <soc@lists.linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
-Date: Fri, 16 Jan 2026 12:29:18 +1030
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1vgZR1-0000000DSna-2JuM;
+	Fri, 16 Jan 2026 02:19:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CA20E418DA;
+	Fri, 16 Jan 2026 02:19:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E212C116D0;
+	Fri, 16 Jan 2026 02:19:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768529974;
+	bh=n19BO7MPLNwQuRYYioniDrJ0SfDC8NE/pXsgsfX4ako=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=I9H4UuNdU35Xac09Te+mzVVtGN1Uxd+pVUCpHVhrDvWUSwx+O5WXwVOTXHBo8/Hph
+	 HWKlVc7FRYl771NgNzQGbo4lV/FEstPCEjLPoKE7FIZsdOPZxCw9No9zH5HrNj132/
+	 3nTy7tYP69kz1HM0ZkDYUZVVBg28PDTVmBlNuHkeYYCwk6+vGSkt1URS9qqS3QJH6i
+	 4nDPAT1yT+LM2tq6A3SqkIjyBUM3JhxE6ZKOs1hDmGQ17+Z0YDUZRZj9l9SLPSE2RH
+	 D0+0hp/BVK0wv3XJk+S1p+oRB6FX0DgcZMIoeDWj8hnFneljfBqNPfBCdqjQsjOsut
+	 Y7EsjW6Vb+BDA==
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20251029-mt8189-dt-bindings-spmi-v1-1-fbea12a4ed5e@collabora.com>
+References: <20251029-mt8189-dt-bindings-spmi-v1-1-fbea12a4ed5e@collabora.com>
+Subject: Re: [PATCH] dt-bindings: spmi: spmi-mtk-pmif: Add compatible for MT8189 SoC
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Conor Dooley <conor+dt@kernel.org>, Hsin-Hsiung Wang <hsin-hsiung.wang@mediatek.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh@kernel.org>
+Date: Thu, 15 Jan 2026 20:19:32 -0600
+Message-ID: <176852997268.16445.17842151987828757552@lazor>
+User-Agent: alot/0.11
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_175921_182710_0AE00010 
-X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-CacheID: sfid-20260115_181935_620232_46D24862 
+X-CRM114-Status: UNSURE (   7.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,91 +71,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello SoC maintainers,
+Quoting Louis-Alexis Eyraud (2025-10-29 08:31:16)
+> Add compatible string for the SPMI block on MT8189 SoC, which is
+> compatible with the one used on MT8195.
+>=20
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
 
-The following changes since commit 459a5aa171c0f13fcd78faa9594dc4aa5a95770b=
-:
-
-  ARM: dts: aspeed: bletchley: Fix ADC vref property names (2025-12-17 15:5=
-3:31 +1030)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/aspeed=
--6.20-devicetree-1
-
-for you to fetch changes up to e600933b6e518397b3f256dddd233e5d8e6cff93:
-
-  ARM: dts: aspeed: ibm: Use non-deprecated AT25 properties (2026-01-08 20:=
-04:23 +1030)
-
-----------------------------------------------------------------
-aspeed: second batch of arm devicetree changes for 6.20
-
-New platforms:
-
-- Facebook Anacapa
-
-  The Meta Anacapa BMC is the DC-SCM (Data Center Secure Control
-  Module) controller for the Meta OCP Open Rack Wide (ORW) compute tray.
-  This platform is a key component of the AMD Helios AI rack reference
-  design system, designed for next-generation AI workloads.
-
-  The BMC utilizes the Aspeed AST2600 SoC to manage the compute tray, which
-  contains up to 4 AMD Instinct MI450 Series GPUs (connected via a Broadcom
-  OCP NIC) and host CPUs. Its primary role is to provide essential system
-  control, power sequencing, and telemetry reporting for the compute comple=
-x
-  via the OpenBMC software stack.
-
-  For more detail on the AMD Helios reference design:
-
-  https://www.amd.com/en/blogs/2025/amd-helios-ai-rack-built-on-metas-2025-=
-ocp-design.html
-
-- ASRock Rack ALTRAD8
-
-  The ALTRAD8 BMC is an Aspeed AST2500-based BMC for the ASRock Rack
-  ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q boards.
-
-Significant changes:
-
-- Switch IBM FSI CFAM nodes to use non-deprecated AT25 properties
-
-Updated platforms:
-
-- bletchley (Facebook): USB-C tweaks
-
-----------------------------------------------------------------
-Cosmo Chou (1):
-      ARM: dts: aspeed: bletchley: Remove try-power-role from connectors
-
-Peter Shen (2):
-      dt-bindings: arm: aspeed: Add compatible for Facebook Anacapa BMC
-      ARM: dts: aspeed: Add Facebook Anacapa platform
-
-Rebecca Cran (2):
-      dt-bindings: arm: aspeed: add ASRock Rack ALTRAD8 board
-      ARM: dts: aspeed: add device tree for ASRock Rack ALTRAD8 BMC
-
-Rob Herring (Arm) (1):
-      ARM: dts: aspeed: ibm: Use non-deprecated AT25 properties
-
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml   |    2 +
- arch/arm/boot/dts/aspeed/Makefile                          |    2 +
- arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts     |  637 ++++++++=
-+++++++++++++++++++++++++++++++++++++++++++++++
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts   | 1045 ++++++++=
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
-++++++++
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts |    6 -
- arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts        |  128 ++++++--=
-----
- arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi             |   64 +++---
- arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi             |   64 +++---
- 8 files changed, 1814 insertions(+), 134 deletions(-)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dt=
-s
-
+Applied to spmi-next
 
