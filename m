@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67DBCC982DB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4DA9C982D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ir0CVKUMRv2yB1rebgvkDwl7f00eEDBHBCY9mtzPkFE=; b=ovvRsJVVRlVvSWOe8ot1dz0Uma
-	R44lKTLk5OA7zqZwl68iVzsJCzC6gDOPq20Wt0msruIDc8ubIGagkGMEUDqTvlNGXGjK0h0EY6Z/C
-	R9CMMUzL8bjE8xRrH03kIP8TSKNGQZxojq4+kY6pJUGAbnxFJWR5KRggNeJrypWqSMS3SDqT9M7VY
-	isaThqkdAk7u/gOwFnUsz64e7LgHZFmqXqXk9svp3+iejNRbWuv8PStdBwsAI8AanHbmrQdgo89x9
-	dqwzS3J3jTzoxa5drE76C8dRjQK3pHGzc5gbShLqMWlRpzSGV7MPWWtf8sq8o3V3WfvsVHAn9edcY
-	WUg2V3RA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2qeDaJWkLpO3qxUyIpo4/TvFhIlWEjGwXwi9nucOmHE=; b=XLuBKczf59F7ZwqGQc3B9zFNij
+	ntEB2YXCv4XvhyH1CwWiOzeyrBhWgeRAqsXqc+b5cKVcWmU4h2liaIIEfMcTM0F4kPdOOExZsgDL2
+	SzOjrw0veGoH4iRixbaoGAVsUZeSWFGFJbJ/5qxieiyDn0o1WEsyGQJyTWabMXb+DOvNRJVRuYzQF
+	HA2kYNoUBU7ZC+3VyvWjNfXqLrUxebzLWXLN8OPT/M72vqRdxqxRTxWqWwkuRYzooHNQBtDpHdRrV
+	JWbTIx9hQSXxdlq5h70d4rjA/jARBzWjMPy0Me0dzDadHMJtdcQumvRhX9L2taX32m8oEU1zsGgV7
+	AG9e3Hdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnBx-0000000EVRn-2qjS;
-	Fri, 16 Jan 2026 17:00:57 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vgnC2-0000000EVTx-46RC;
+	Fri, 16 Jan 2026 17:01:02 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnBu-0000000EVQK-2XDi
+	id 1vgnBu-0000000EVQL-2s6h
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 17:00:55 +0000
+	Fri, 16 Jan 2026 17:00:56 +0000
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1768582850;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=ir0CVKUMRv2yB1rebgvkDwl7f00eEDBHBCY9mtzPkFE=;
-	b=oBuaSpEnY0FAZnKcl1nDCO2CbxNqmEdea/3a4UojU0oe2QGrT8lJz2BgDmwSsm8Y6YtHwu
-	p99tgud8WaUJa7EXA8xrt/UfY8Tfn5W7N2iLQRCiigPURbDSXnu0GcxC9u4CHm1yXWlxVG
-	aGjXGE1zyX01n1azCAldJEM6+hI8Xs8i7LaU3KzBu+xQvlsvcsnimCYtJQxf93vW8fzV6T
-	b9q31ySqLF/yxyF1N83j74O8StgQ2gNog2tT5ZyyJTdCpssRNjoEo/2k+RHwbsBqw8oH9V
-	dUNlnZ9Rg90GdO39UggyD0zxUEbfQaGa4fmNNANuYSOEpB8hbxOHoHE1Kl7BFQ==
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2qeDaJWkLpO3qxUyIpo4/TvFhIlWEjGwXwi9nucOmHE=;
+	b=oWAoIzLiZo+HJLUBQ016q/kj04m9mFa3MDfAdyfTHmouC8+xvZkaS3cStpxyxjRQ89nIx0
+	fC9cP5Cjnyn0VO39duLOcPvEvsLICjEti1k9XFplXxs8/CRf6DByVQtexQJecO54S8L7sv
+	2NH0fS9Cur2xP2eRPtDRrstAR119Yv3mxIWjmwlOuvzaCLSaKUaXHANeFdm/5fM/zjwSVL
+	JdliFT91X/YXw1GBPFl5VNYmVO1GKTn09g98kanV9l3RrZZHE4dm3srvjITrId++A1n2mH
+	W7BKdkj86OJcOcLp4Rb0v2WuhvZTeP8/QwgAEb4KxcORl9mMaRm824GaSb/Rhw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1768582850;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=ir0CVKUMRv2yB1rebgvkDwl7f00eEDBHBCY9mtzPkFE=;
-	b=5JzoZReBxbJyKJrqWTaVoEl/TQhXwqsQliA+TyrMfQ697xAQ1ctbDAvgZOgDF8uqWqKOKf
-	Nh+1RToP2BzNJABw==
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2qeDaJWkLpO3qxUyIpo4/TvFhIlWEjGwXwi9nucOmHE=;
+	b=zaK9Yr/cS0PgEIdnPWdrsyb/hlLZUFei+vojpVVvndgS42BnNNNJrWvD/8D1fuz/0D94bJ
+	4lrPHsFv8uKD0OBA==
 To: linux-arm-kernel@lists.infradead.org,
 	linux-rt-devel@lists.linux.dev
 Cc: Russell King <linux@armlinux.org.uk>,
 	Arnd Bergmann <arnd@arndb.de>,
 	Linus Walleij <linus.walleij@linaro.org>,
+	"Yadi.hu" <yadi.hu@windriver.com>,
+	Bryan Brattlof <bb@ti.com>,
 	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: [PATCH v4 0/2] ARM: Remaining PREEMPT_RT bits
-Date: Fri, 16 Jan 2026 18:00:39 +0100
-Message-ID: <20260116170041.1059997-1-bigeasy@linutronix.de>
+Subject: [PATCH v4 1/2] ARM: mm: fault: Enable interrupts before invoking __do_user_fault()
+Date: Fri, 16 Jan 2026 18:00:40 +0100
+Message-ID: <20260116170041.1059997-2-bigeasy@linutronix.de>
+In-Reply-To: <20260116170041.1059997-1-bigeasy@linutronix.de>
+References: <20260116170041.1059997-1-bigeasy@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_090054_790624_CC66D9F6 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260116_090054_863353_A2827CAF 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +81,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-this is the last batch I have to enable PREEMPT_RT on the ARM
-architecture. It is just sending a signal with disabled interrupts and fina=
-lly
-enabling PREEMPT_RT on ARM.
+From: "Yadi.hu" <yadi.hu@windriver.com>
 
-Is this okay?
+A page fault from userland for a kernel address originates from from
+do_sect_fault() (!LPAE) or do_page_fault() and ends in __do_user_fault()
+by sending a signal.
 
-v3=E2=80=A6v4: https://lore.kernel.org/all/20251110145555.2555055-1-bigeasy=
-@linutronix.de
-  - Dropped applied patches
-  - Rebased the remaining one on top of the recent fault handler and branch
-    predictor fixes.
+Sending a signal requires to acquire sighand_struct::siglock which is a
+spinlock_t. On PREEMPT_RT spinlock_t becomes a sleeping spin lock which
+requires interrupts to be enabled. Since the calling context is user
+land, interrupts must have been enabled so it is fine to enable them in
+this case.
 
-v2=E2=80=A6v3: https://lore.kernel.org/all/20251103101545.760243-1-bigeasy@=
-linutronix.de
-  - Collected tags.
+Enable interrupts in do_kernel_address_page_fault() unconditional in the
+user_mode case().
+Enable interrupts in do_sect_fault() if they were previously enabled.
 
-v1=E2=80=A6v2: https://lore.kernel.org/all/20251029155918.503060-1-bigeasy@=
-linutronix.de
-  - Allow to enable jump-labels on UP. The UP build does not involve
-    stop_machine(). Reworked by Arnd.
+[bigeasy: Initial patch/ report by Yadi. Maintained the patch and redid
+          the patch description since]
 
-  - Instead of forbidding HAVE_GUP_FAST with HIGHPTE enabled just
-    disable HIGHPTE on PREEMPT_RT. As Arnd explained, HIGHPTE is rarely
-    needed.
-
-  - Don't let ARCH_SUPPORTS_RT depend on HAVE_POSIX_CPU_TIMERS_TASK_WORK
-    which in turn depends on !KVM. Since KVM has been removed from ARM
-    it is sufficient to unconditionally allow ARCH_SUPPORTS_RT. Noted
-    by Arnd.
-
-Sebastian Andrzej Siewior (1):
-  ARM: Allow to enable RT
-
-Yadi.hu (1):
-  ARM: mm: fault: Enable interrupts before invoking __do_user_fault()
-
- arch/arm/Kconfig    | 1 +
+Signed-off-by: Yadi.hu <yadi.hu@windriver.com>
+Acked-by: Linus Walleij <linus.walleij@linaro.org>
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+Acked-by: Bryan Brattlof <bb@ti.com>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
  arch/arm/mm/fault.c | 4 ++++
- 2 files changed, 5 insertions(+)
+ 1 file changed, 4 insertions(+)
 
+diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+index ed4330cc3f4e6..3f1c73269c126 100644
+--- a/arch/arm/mm/fault.c
++++ b/arch/arm/mm/fault.c
+@@ -270,6 +270,7 @@ do_kernel_address_page_fault(struct mm_struct *mm, unsi=
+gned long addr,
+ 		 * while interrupts are still disabled, then send a SIGSEGV.
+ 		 */
+ 		harden_branch_predictor();
++		local_irq_enable();
+ 		__do_user_fault(addr, fsr, SIGSEGV, SEGV_MAPERR, regs);
+ 	} else {
+ 		/*
+@@ -592,6 +593,9 @@ do_sect_fault(unsigned long addr, unsigned int fsr, str=
+uct pt_regs *regs)
+ 	if (addr >=3D TASK_SIZE && user_mode(regs))
+ 		harden_branch_predictor();
+=20
++	if (interrupts_enabled(regs))
++		local_irq_enable();
++
+ 	do_bad_area(addr, fsr, regs);
+=20
+ 	return 0;
 --=20
 2.51.0
 
