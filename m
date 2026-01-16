@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A241ED4A5ED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 02:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67660D4A5EE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 02:59:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UlAbUUUDz9aGwg93Yg0zKJyC3yzFBT2jO7Toz9lb0lM=; b=HIXnLbMIMuDo15P4AzYADlIMft
-	tiTbgrWqgbpuJSkCzeYNCGjn2lAESmmkK3rZZ/m9HlQPAOQDqdNgbupCFe/Hi5HjwuOFpMvd1c0qK
-	0FMzNOVJtCO/V5zNrDQLrZhWWgtlGYPHakyHIPmIlszd7elPewmWL6oH+qDNNVQdS8i0dWcwB1+yt
-	5Suj4LMw5K3GkDYXEiTrFpG9+eIN9Y4dR2darjgu2mFIGyqujJ049zZ9+l96VHiDAuc5rAsOmnXiF
-	lvV9z+G/oISytMPHF2Lt1r0KqGFpVeG2xhh1eqUzBgVbhbymHicrZLDUmgpQqA9tBtuURDSkCitAA
-	9VkcYIFA==;
+	bh=v8fi6CJhgG3Gt9/Fik90JXM3ELjZRcCcShbma7D2KVo=; b=nX1v2MRPhFMC5L0WBSd5cd0V8P
+	Kbp9Xdc467ZjgD1lU0PBPtOr3pNOAhXY8MB8/E6yY+RVzF9RXvy4JlT5RjTu8yG6Idt4Qxpvl3vki
+	VUhls6ZTMe+MEASXWC+ZvgXC5kT7ut62FjV99NHJRc72yan2qU93bBmMpnWViI1tyDJKEyM39xOmm
+	hjsAkaRTnPFKXQH1VO4QVbJtyq18r8NrEE560oBIKohEy+HtxWSXJUI6Nat1wEwwvwkCwuD9AZhCU
+	4gfiIDvNOaYP2ciQkwtboI1HfMWtOTks2o9RWqQ1nmtibaEisdj5IRPTRSOJgRgpQLckYZpE1YK7N
+	rNScqKlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgZy6-0000000DUlh-0Oe8;
-	Fri, 16 Jan 2026 02:53:46 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vga33-0000000DVGp-46bx;
+	Fri, 16 Jan 2026 02:58:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgZy0-0000000DUhk-0eCN;
-	Fri, 16 Jan 2026 02:53:41 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 16 Jan
- 2026 10:53:26 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 16 Jan 2026 10:53:26 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Fri, 16 Jan 2026 10:53:25 +0800
-Subject: [PATCH v2 2/3] phy: add AST2700 usb3.2 phy driver
+	id 1vga33-0000000DVGg-1cma;
+	Fri, 16 Jan 2026 02:58:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 79DF460167;
+	Fri, 16 Jan 2026 02:58:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5783DC116D0;
+	Fri, 16 Jan 2026 02:58:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768532332;
+	bh=Z8pz7s7wIhRbbyi0eFN+WPj/og6acecvdgN9FzzA8w4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dnytLdQmwn45B3ZBFM/hT5sAyAKdFL8cS0MtmDxP7MsiosPTNfXT0MpvAg4XUmPR1
+	 9ilmf53jlm8YkeMW8Jc00GdC18E/n5VkbyRY35TuR4ZFW3xHmu5MqZhldWLAs9WUSK
+	 /f4lxWwLUTm3EtNqbHTGJ6xq8H/Hbkzv9EYuOXM3dRA+y+BjroCeUguepRPNbHs5bW
+	 HWXDCT8AAsaXSVsydq/roIP7T+Q4pURm9S1g6LaAWJgEtkvJTHu51+NaeveREFBpMY
+	 X9nW+jIvyV1Fwhk/5S6JbWK4h0Vdq7ghGQqgKK9I+Xsmal+MWtXHfobV8mowfGNh2C
+	 Fbshsj4QJPOxg==
+From: Jakub Kicinski <kuba@kernel.org>
+To: rmk+kernel@armlinux.org.uk
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	andrew+netdev@lunn.ch,
+	alexandre.torgue@foss.st.com,
+	hkallweit1@gmail.com,
+	vkoul@kernel.org,
+	mohd.anwar@oss.qualcomm.com,
+	konrad.dybcio@oss.qualcomm.com,
+	andrew@lunn.ch,
+	edumazet@google.com,
+	netdev@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	davem@davemloft.net,
+	linux-arm-msm@vger.kernel.org,
+	neil.armstrong@linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [net-next,05/14] net: stmmac: add stmmac core serdes support
+Date: Thu, 15 Jan 2026 18:57:24 -0800
+Message-ID: <20260116025723.354031-2-kuba@kernel.org>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <E1vg4w2-00000003SG5-2FH5@rmk-PC.armlinux.org.uk>
+References: <E1vg4w2-00000003SG5-2FH5@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260116-upstream_usb3phy-v2-2-0b0c9f3eb6f4@aspeedtech.com>
-References: <20260116-upstream_usb3phy-v2-0-0b0c9f3eb6f4@aspeedtech.com>
-In-Reply-To: <20260116-upstream_usb3phy-v2-0-0b0c9f3eb6f4@aspeedtech.com>
-To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>, Philipp Zabel
-	<p.zabel@pengutronix.de>
-CC: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768532005; l=8999;
- i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=jyw6oDw6XZIYiOpYKMeRBecsl5SUmpxaajHSnz4WIDs=;
- b=L5SeqSOvv4PCaCFASD8x1dqdBZnyYebua2zHBRKLEH63wi+8y+kILP/lvKymE9g+Fo9nFlylM
- ww6vw88+tRPAs8m+01/UcRfEvYBmrmPVfRemgPmxoJlDV7NgRO01WCG
-X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
- pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_185340_204904_9119D982 
-X-CRM114-Status: GOOD (  17.36  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,285 +83,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add AST2700 USB3.2 PHY driver support.
+I haven't investigated too closely if this is legit or too defensive
+TBH but since I'm sending the second one I'll include this as well..
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+This is an AI-generated review of your patch.
+
+For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
 ---
- drivers/phy/aspeed/Kconfig           |  12 ++
- drivers/phy/aspeed/Makefile          |   2 +
- drivers/phy/aspeed/phy-aspeed-usb3.c | 236 +++++++++++++++++++++++++++++++++++
- 3 files changed, 250 insertions(+)
+net: stmmac: add stmmac core serdes support
 
-diff --git a/drivers/phy/aspeed/Kconfig b/drivers/phy/aspeed/Kconfig
-new file mode 100644
-index 000000000000..72b4fc17a85e
---- /dev/null
-+++ b/drivers/phy/aspeed/Kconfig
-@@ -0,0 +1,12 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+#
-+# PHY drivers for ASPEED
-+#
-+
-+config PHY_ASPEED_USB3
-+	tristate "ASPEED USB3 PHY driver"
-+	select GENERIC_PHY
-+	depends on (ARCH_ASPEED || COMPILE_TEST)
-+	help
-+	  Enable driver support for Aspeed AST2700 USB3 PHY.
-diff --git a/drivers/phy/aspeed/Makefile b/drivers/phy/aspeed/Makefile
-new file mode 100644
-index 000000000000..20b5ac7b7e64
---- /dev/null
-+++ b/drivers/phy/aspeed/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_ASPEED_USB3_PHY)		+= phy-aspeed-usb3.o
-diff --git a/drivers/phy/aspeed/phy-aspeed-usb3.c b/drivers/phy/aspeed/phy-aspeed-usb3.c
-new file mode 100644
-index 000000000000..872d2163fcf5
---- /dev/null
-+++ b/drivers/phy/aspeed/phy-aspeed-usb3.c
-@@ -0,0 +1,236 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright 2026 Aspeed Technology Inc.
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/reset.h>
-+
-+#define PHY3S00		0x00
-+#define PHY3S00_INIT_DONE		BIT(15)
-+#define PHY3S00_SRAM_BYPASS		BIT(7)
-+#define PHY3S00_SRAM_EXT_LOAD	BIT(6)
-+#define PHY3S04		0x04
-+#define PHY3C00		0x08
-+#define PHY3C04		0x0C
-+#define PHY3P00		0x10
-+#define PHY3P00_RX_ADAPT_AFE_EN_G1	BIT(0)
-+#define PHY3P00_RX_ADAPT_AFE_EN_G2	BIT(1)
-+#define PHY3P00_RX_ADAPT_DFE_EN_G1	BIT(2)
-+#define PHY3P00_RX_ADAPT_DFE_EN_G2	BIT(3)
-+#define PHY3P00_RX_CDR_VCO_LOWFREQ_G1	BIT(4)
-+#define PHY3P00_RX_CDR_VCO_LOWFREQ_G2	BIT(5)
-+#define PHY3P00_RX_EQ_AFE_GAIN_G1	GENMASK(9, 6)
-+#define PHY3P00_RX_EQ_AFE_GAIN_G2	GENMASK(13, 10)
-+#define PHY3P00_RX_EQ_ATT_LVL_G1	GENMASK(16, 14)
-+#define PHY3P00_RX_EQ_ATT_LVL_G2	GENMASK(19, 17)
-+#define PHY3P00_RX_EQ_CTLE_BOOST_G1	GENMASK(24, 20)
-+#define PHY3P00_RX_EQ_CTLE_BOOST_G2	GENMASK(29, 25)
-+#define PHY3P00_RX_EQ_DELTA_IQ_G1_LO	GENMASK(31, 30)
-+
-+#define PHY3P04		0x14
-+#define PHY3P04_RX_EQ_DELTA_IQ_G1_HI	GENMASK(1, 0)
-+#define PHY3P04_RX_EQ_DELTA_IQ_G2	GENMASK(5, 2)
-+#define PHY3P04_RX_EQ_DFE_TAP1_G1	GENMASK(13, 6)
-+#define PHY3P04_RX_EQ_DFE_TAP1_G2	GENMASK(21, 14)
-+#define PHY3P04_RX_LOS_LFPS_EN		BIT(22)
-+#define PHY3P04_RX_LOS_THRESHOLD	GENMASK(25, 23)
-+#define PHY3P04_RX_TERM_CTRL		GENMASK(28, 26)
-+#define PHY3P04_TX_EQ_MAIN_G1_LO	GENMASK(31, 29)
-+
-+#define PHY3P08		0x18
-+#define PHY3P08_TX_EQ_MAIN_G1_HI	GENMASK(1, 0)
-+#define PHY3P08_TX_EQ_MAIN_G2		GENMASK(6, 2)
-+#define PHY3P08_TX_EQ_OVRD		BIT(7)
-+#define PHY3P08_TX_EQ_POST_G1		GENMASK(12, 9)
-+#define PHY3P08_TX_EQ_POST_G2		GENMASK(16, 13)
-+#define PHY3P08_TX_EQ_PRE_G1		GENMASK(20, 17)
-+#define PHY3P08_TX_EQ_PRE_G2		GENMASK(24, 21)
-+#define PHY3P08_TX_IBOOST_LVL		GENMASK(28, 25)
-+#define PHY3P08_TX_TERM_CTRL		GENMASK(31, 29)
-+
-+#define PHY3P0C		0x1C
-+#define PHY3P0C_TX_VBOOST_EN		BIT(0)
-+
-+#define PHY3CMD		0x40
-+
-+#define PHY3P_RX_EQ_CTLE_BOOST_G1_DEFAULT	0x7
-+#define PHY3P_RX_EQ_CTLE_BOOST_G2_DEFAULT	0x7
-+#define PHY3P_RX_EQ_DELTA_IQ_G1_DEFAULT	0x3
-+#define PHY3P_RX_EQ_DELTA_IQ_G2_DEFAULT	0x5
-+#define PHY3P_RX_LOS_THRESHOLD_DEFAULT		0x3
-+#define PHY3P_RX_TERM_CTRL_DEFAULT		0x2
-+#define PHY3P_TX_EQ_MAIN_G1_DEFAULT		0xa
-+#define PHY3P_TX_EQ_MAIN_G2_DEFAULT		0x9
-+#define PHY3P_TX_EQ_POST_G1_DEFAULT		0x4
-+#define PHY3P_TX_EQ_POST_G2_DEFAULT		0x3
-+#define PHY3P_TX_EQ_PRE_G2_DEFAULT		0x2
-+#define PHY3P_TX_IBOOST_LVL_DEFAULT		0xf
-+#define PHY3P_TX_TERM_CTRL_DEFAULT		0x2
-+
-+#define PHY3P00_DEFAULT ( \
-+	PHY3P00_RX_ADAPT_AFE_EN_G1 | \
-+	PHY3P00_RX_ADAPT_AFE_EN_G2 | \
-+	PHY3P00_RX_ADAPT_DFE_EN_G1 | \
-+	PHY3P00_RX_ADAPT_DFE_EN_G2 | \
-+	FIELD_PREP(PHY3P00_RX_EQ_CTLE_BOOST_G1, PHY3P_RX_EQ_CTLE_BOOST_G1_DEFAULT) | \
-+	FIELD_PREP(PHY3P00_RX_EQ_CTLE_BOOST_G2, PHY3P_RX_EQ_CTLE_BOOST_G2_DEFAULT) | \
-+	FIELD_PREP(PHY3P00_RX_EQ_DELTA_IQ_G1_LO, \
-+		   PHY3P_RX_EQ_DELTA_IQ_G1_DEFAULT & 0x3) \
-+)
-+
-+#define PHY3P04_DEFAULT ( \
-+	FIELD_PREP(PHY3P04_RX_EQ_DELTA_IQ_G1_HI, \
-+		   PHY3P_RX_EQ_DELTA_IQ_G1_DEFAULT >> 2) | \
-+	FIELD_PREP(PHY3P04_RX_EQ_DELTA_IQ_G2, PHY3P_RX_EQ_DELTA_IQ_G2_DEFAULT) | \
-+	PHY3P04_RX_LOS_LFPS_EN | \
-+	FIELD_PREP(PHY3P04_RX_LOS_THRESHOLD, PHY3P_RX_LOS_THRESHOLD_DEFAULT) | \
-+	FIELD_PREP(PHY3P04_RX_TERM_CTRL, PHY3P_RX_TERM_CTRL_DEFAULT) | \
-+	FIELD_PREP(PHY3P04_TX_EQ_MAIN_G1_LO, \
-+		   PHY3P_TX_EQ_MAIN_G1_DEFAULT & 0x7) \
-+)
-+
-+#define PHY3P08_DEFAULT ( \
-+	FIELD_PREP(PHY3P08_TX_EQ_MAIN_G1_HI, PHY3P_TX_EQ_MAIN_G1_DEFAULT >> 3) | \
-+	FIELD_PREP(PHY3P08_TX_EQ_MAIN_G2, PHY3P_TX_EQ_MAIN_G2_DEFAULT) | \
-+	FIELD_PREP(PHY3P08_TX_EQ_POST_G1, PHY3P_TX_EQ_POST_G1_DEFAULT) | \
-+	FIELD_PREP(PHY3P08_TX_EQ_POST_G2, PHY3P_TX_EQ_POST_G2_DEFAULT) | \
-+	FIELD_PREP(PHY3P08_TX_EQ_PRE_G2, PHY3P_TX_EQ_PRE_G2_DEFAULT) | \
-+	FIELD_PREP(PHY3P08_TX_IBOOST_LVL, PHY3P_TX_IBOOST_LVL_DEFAULT) | \
-+	FIELD_PREP(PHY3P08_TX_TERM_CTRL, PHY3P_TX_TERM_CTRL_DEFAULT) \
-+)
-+
-+#define PHY3P0C_DEFAULT \
-+	PHY3P0C_TX_VBOOST_EN
-+
-+struct aspeed_usb3_phy {
-+	void __iomem *regs;
-+	struct reset_control *rst;
-+	struct device *dev;
-+	struct clk *clk;
-+};
-+
-+static int aspeed_usb3_phy_init(struct phy *phy)
-+{
-+	struct aspeed_usb3_phy *aspeed_phy = phy_get_drvdata(phy);
-+	u32 val;
-+	int ret;
-+
-+	ret = clk_prepare_enable(aspeed_phy->clk);
-+	if (ret) {
-+		dev_err(aspeed_phy->dev, "Failed to enable clock %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = reset_control_deassert(aspeed_phy->rst);
-+	if (ret) {
-+		clk_disable_unprepare(aspeed_phy->clk);
-+		return ret;
-+	}
-+
-+	/* Wait for USB3 PHY internal SRAM initialization done */
-+	ret = readl_poll_timeout(aspeed_phy->regs + PHY3S00, val,
-+				 val & PHY3S00_INIT_DONE,
-+				 USEC_PER_MSEC, 10 * USEC_PER_MSEC);
-+	if (ret) {
-+		dev_err(aspeed_phy->dev, "SRAM init timeout\n");
-+		goto err_assert_reset;
-+	}
-+
-+	val = readl(aspeed_phy->regs + PHY3S00);
-+	val |= PHY3S00_SRAM_BYPASS;
-+	writel(val, aspeed_phy->regs + PHY3S00);
-+
-+	/* Set protocol1_ext signals as default PHY3 settings based on SNPS documents.
-+	 * Including PCFGI[54]: protocol1_ext_rx_los_lfps_en for better compatibility
-+	 */
-+	writel(PHY3P00_DEFAULT, aspeed_phy->regs + PHY3P00);
-+	writel(PHY3P04_DEFAULT, aspeed_phy->regs + PHY3P04);
-+	writel(PHY3P08_DEFAULT, aspeed_phy->regs + PHY3P08);
-+	writel(PHY3P0C_DEFAULT, aspeed_phy->regs + PHY3P0C);
-+
-+	return 0;
-+
-+err_assert_reset:
-+	reset_control_assert(aspeed_phy->rst);
-+	clk_disable_unprepare(aspeed_phy->clk);
-+	return ret;
-+}
-+
-+static int aspeed_usb3_phy_exit(struct phy *phy)
-+{
-+	struct aspeed_usb3_phy *aspeed_phy = phy_get_drvdata(phy);
-+
-+	reset_control_assert(aspeed_phy->rst);
-+	clk_disable_unprepare(aspeed_phy->clk);
-+
-+	return 0;
-+}
-+
-+static const struct phy_ops aspeed_usb3_phy_ops = {
-+	.init		= aspeed_usb3_phy_init,
-+	.exit		= aspeed_usb3_phy_exit,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static int aspeed_usb3_phy_probe(struct platform_device *pdev)
-+{
-+	struct aspeed_usb3_phy *aspeed_phy;
-+	struct phy_provider *phy_provider;
-+	struct device *dev = &pdev->dev;
-+	struct phy *phy;
-+
-+	aspeed_phy = devm_kzalloc(dev, sizeof(*aspeed_phy), GFP_KERNEL);
-+	if (!aspeed_phy)
-+		return -ENOMEM;
-+
-+	aspeed_phy->dev = dev;
-+
-+	aspeed_phy->clk = devm_clk_get(dev, NULL);
-+	if (IS_ERR(aspeed_phy->clk))
-+		return PTR_ERR(aspeed_phy->clk);
-+
-+	aspeed_phy->rst = devm_reset_control_get_exclusive(dev, NULL);
-+	if (IS_ERR(aspeed_phy->rst))
-+		return PTR_ERR(aspeed_phy->rst);
-+
-+	aspeed_phy->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(aspeed_phy->regs))
-+		return PTR_ERR(aspeed_phy->regs);
-+
-+	phy = devm_phy_create(dev, NULL, &aspeed_usb3_phy_ops);
-+	if (IS_ERR(phy))
-+		return PTR_ERR(phy);
-+
-+	phy_set_drvdata(phy, aspeed_phy);
-+
-+	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-+	return PTR_ERR_OR_ZERO(phy_provider);
-+}
-+
-+static const struct of_device_id aspeed_usb3_phy_match_table[] = {
-+	{
-+		.compatible = "aspeed,ast2700-usb3-phy",
-+	},
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, aspeed_usb3_phy_match_table);
-+
-+static struct platform_driver aspeed_usb3_phy_driver = {
-+	.probe		= aspeed_usb3_phy_probe,
-+	.driver		= {
-+		.name	= KBUILD_MODNAME,
-+		.of_match_table	= aspeed_usb3_phy_match_table,
-+	},
-+};
-+module_platform_driver(aspeed_usb3_phy_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("ASPEED USB3.0 PHY Driver");
+This commit adds SerDes PHY support to the stmmac core driver, moving it
+from platform glue into the integrated PCS driver. The serdes field in
+platform data is optional and NULL when not provided by platforms.
 
--- 
-2.34.1
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 24a2555ca329..6c515f9efbe7 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 
+[ ... ]
+
+> @@ -3549,12 +3550,16 @@ static void stmmac_safety_feat_configuration(struct stmmac_priv *priv)
+>
+>  static void stmmac_clk_rx_i_require(struct stmmac_priv *priv)
+>  {
+> +	dwmac_serdes_power_on(priv);
+> +	/* Only sets the SerDes mode if it wasn't already configured. */
+> +	dwmac_serdes_init_mode(priv, priv->plat->phy_interface);
+
+When priv->plat->serdes is NULL, dwmac_serdes_init_mode() will call
+phy_get_mode(NULL). Unlike other phy_* functions (phy_power_on,
+phy_power_off, phy_set_mode_ext, phy_init, phy_exit) which handle NULL
+by returning early, phy_get_mode() is an inline that directly
+dereferences the pointer:
+
+    static inline enum phy_mode phy_get_mode(struct phy *phy)
+    {
+        return phy->attrs.mode;
+    }
+
+Can this NULL pointer dereference occur when a platform does not
+populate plat->serdes? The call path stmmac_open() -> dwmac_serdes_init()
+returns 0 (success) when serdes is NULL, allowing __stmmac_open() ->
+stmmac_hw_setup() -> stmmac_clk_rx_i_require() to proceed.
+
+> +	phylink_rx_clk_stop_block(priv->phylink);
+>  }
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c
+> new file mode 100644
+> index 000000000000..3003e1ae38d2
+> --- /dev/null
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c
+
+[ ... ]
+
+> +int dwmac_serdes_init(struct stmmac_priv *priv)
+> +{
+> +	size_t i;
+> +	int ret;
+> +
+> +	if (!priv->plat->serdes)
+> +		return 0;
+
+This returns success when serdes is NULL...
+
+[ ... ]
+
+> +int dwmac_serdes_init_mode(struct stmmac_priv *priv, phy_interface_t interface)
+> +{
+> +	struct phy *serdes = priv->plat->serdes;
+> +
+> +	if (phy_get_mode(serdes) == PHY_MODE_ETHERNET)
+                         ^^^^^^
+
+...but dwmac_serdes_init_mode() has no NULL check before calling
+phy_get_mode(), which will crash when serdes is NULL. Should this
+function also check for NULL serdes before calling phy_get_mode()?
+
+> +		return 0;
+> +
+> +	return dwmac_serdes_set_mode(priv, interface);
+> +}
 
