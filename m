@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5961D47CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 00:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B66D47CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 00:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l1eRiumhwT1jFnEjddrDgH/CWJ+xyyG+XDRoYPOP7Yg=; b=aTSajku3a5+WqkZzLb/wZDQssG
-	vl3MgfYwVRARWDw6nqwyL4YAYLDkUr6Uzj7mdyoUW1A86CfdTyd0HxBWRUW+xvJcEihxCvr4QDTMr
-	WyOOebtjeVTw85Oc5YfoZsomZdGhh3Rf4fflR1s8PKS24NYtvNqv5rSA/zn8ny/3OTpHp7YrvAWAp
-	sCGuppxP2jFon/8N+HXqyfQAagLOf0K27wbrdEgbpGHLPJ3uJaFP9sJCaoypZnQlj/vTYUxI761IF
-	HFhM3B4aLrki9aBmodHv1d56c7pTXEyW3h6UVjoKqPHGV9CGRnG7x4lNpsCtwC+gX/8VsoCswwswj
-	mS5aec7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8dZ9oxt9FWn/F9+lO/IJZ9dkf3WC43EemNdOt09jeRI=; b=ODsbwCxQ1HN4ryeICWOtUbIzqO
+	yRUnTb1gE2FRfVYKW73nc1PEFsupbI6zxJU01Ew7YN+2gaY6y03jDeMbUJ/fEdWRt2sTA/0w8Haxj
+	NVU8ANl1J/iP3GLi5rWHqdj2Q3SHoDXPI2xITrkz7juE6344/3eYtWn0Dduo3PM+g/eOeIwVCLMHo
+	q33MuDFH9rmpkaRcez3QXP5dXkoxyFAP9GXqb0goINw4LuLPbgfeyLoVBt6nyyB2lj1ZO42qe2uYf
+	AvXwpbqDO8gjSLHYufFcKPy/SZp4OLdD+kkOyMETPLTPcInnFY6oIopcBnxkvzmPqwFMesbIednKs
+	vjwN8bGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgXHu-0000000DLoJ-0Qay;
-	Fri, 16 Jan 2026 00:02:02 +0000
+	id 1vgXYM-0000000DMHE-27WA;
+	Fri, 16 Jan 2026 00:19:02 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgXHt-0000000DLo8-0D9N
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 00:02:01 +0000
+	id 1vgXYK-0000000DMGi-2EVp;
+	Fri, 16 Jan 2026 00:19:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 20E0360130;
-	Fri, 16 Jan 2026 00:02:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B599C116D0;
-	Fri, 16 Jan 2026 00:01:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768521719;
-	bh=ymO7TCM2EVQsIwtIh8wgg2R/ryyDXJBI9O2DKENFKG8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S+2DqPG0bGqGe0MRh8MBRcVmQ5ABzYpbZ/pFDfpa7Nvx3L6lKnHeWfRfLLGF2VXR7
-	 VXFB1UQY9aImryNQkQ9qJXAVfIUf5DAuRfp66EePILqltJG5han7pzYINQ7Wcm5+V0
-	 iViof0Lqz571ha0RnDcgwQdLwV86zTMcUgF0+LemQ8vBDLs1r3/a3xWdM+flIK9clH
-	 yhZX1uTT0Ys8b/JUc1Ze109xfnw5Z086OSEVAHqBq8Vmtwpux4JqqR/V4+hmt1HKkN
-	 ftdtJHK0Fn9bq6y/jlO/Q9thFlgKYNaFCdkDVIJx+IQs2r/j9aA3I9FZYQNGhYmkeO
-	 Z/cN/7Onv7Ejw==
-Date: Thu, 15 Jan 2026 18:01:57 -0600
-From: Bjorn Andersson <andersson@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, trilok.soni@oss.qualcomm.com
-Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
-Message-ID: <t4pd72ff2ut4xr7ke3tzn3vxhyxq4kr6m3tublurwchynonouj@y4jgc3zqa5tw>
-References: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
- <aWY6kx8Bwa_2azIl@bogus>
- <86331062-301b-40b1-9df1-78f7751508b4@oss.qualcomm.com>
- <aWgEDAlglnGrzdR4@bogus>
- <4fab824f-8067-49d7-8e6c-dedd67a8454d@oss.qualcomm.com>
- <ebm6tn3swrzqqzp5qnd7zkasqxo4nqcz2gt3w7j6sxqx2ryyn4@pwrkiumm442t>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ebm6tn3swrzqqzp5qnd7zkasqxo4nqcz2gt3w7j6sxqx2ryyn4@pwrkiumm442t>
+	by tor.source.kernel.org (Postfix) with ESMTP id 7FD3D60160;
+	Fri, 16 Jan 2026 00:18:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DBC0C116D0;
+	Fri, 16 Jan 2026 00:18:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1768522739;
+	bh=xmezwQxgXFBOE+WsEI8kzMdBQ/Vtj0ziay1CjIV7d/0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=oTyrgtvfzdS6SXwpo1a618aiclgOz0Sosdc70f8yw78SvJDgJcbGQ4l+n163A+84S
+	 GtOC/DHsdsuWPAUiEYgrvES4udeex059kh0yHGa7HIOVi7c0lI6djZDMrpXSzDE6TI
+	 6esn++KQCSZ991FCXwGinH0epC8qjUoqV4yZ1PiQ=
+Date: Thu, 15 Jan 2026 16:18:57 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Andrew Donnellan <ajd@linux.ibm.com>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Pasha Tatashin
+ <pasha.tatashin@soleen.com>, linux-mm@kvack.org,
+ linuxppc-dev@lists.ozlabs.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Nicholas Piggin <npiggin@gmail.com>, Rohan McLure <rmclure@nvidia.com>,
+ Alexandre Ghiti <alex@ghiti.fr>, x86@kernel.org, Nicholas Miehlbradt
+ <nicholas@linux.ibm.com>, Sweet Tea Dorminy <sweettea-kernel@dorminy.me>,
+ Andrew Donnellan <andrew+kernel@donnellan.id.au>, Srish Srinivasan
+ <ssrish@linux.ibm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v18 00/12] Support page table check on PowerPC
+Message-Id: <20260115161857.ad9952cf1ebd1b37839aa652@linux-foundation.org>
+In-Reply-To: <cc97397d3c75d796ee71081cc842c867a62ce39a.camel@linux.ibm.com>
+References: <20251219-pgtable_check_v18rebase-v18-0-755bc151a50b@linux.ibm.com>
+	<CA+CK2bBjoQmheEstv1MacGev_srdx=m5v=hwxdyfAKogbpG3FA@mail.gmail.com>
+	<bf0def77b07a34c00928cedb46030ea17be4fceb.camel@linux.ibm.com>
+	<b6c39059-faed-41a8-80b2-addaa229c143@kernel.org>
+	<cc97397d3c75d796ee71081cc842c867a62ce39a.camel@linux.ibm.com>
+X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,24 +76,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 10:18:38PM +0200, Dmitry Baryshkov wrote:
-> On Thu, Jan 15, 2026 at 10:42:51AM -0800, Satya Durga Srinivasu Prabhala wrote:
-[..]
+On Thu, 15 Jan 2026 17:13:26 +1100 Andrew Donnellan <ajd@linux.ibm.com> wrote:
+
+> On Wed, 2026-01-14 at 10:34 +0100, Christophe Leroy (CS GROUP) wrote:
+> > What is the merge plan ? I see all powerpc commits are acked by Maddy, 
+> > will the series be merged by Andrew into the mm tree ?
 > 
-> The kernel was never broken, it is not a kernel change that introduced
-> the regression. Why are you trying to change the kernel?
+> This is what I was expecting - this revision is rebased on mm-new as it stood
+> around when I sent it.
 
-I always thought you had one of these per SoC, so assuming a that a
-single-soc system presented one entry would make sense to me.
+Ouch, sorry, I did not understand this.  So we've lost 4 weeks testing :(
 
-The kernel is supposed to abstract away hardware details, that's clearly
-not what we're doing here.
+The core MM and ARM changes are trival, in the if-it-compiles-it-works
+category.  Is the mm tree really the best place for this?  It'll get
+more testing in the powerpc tree?
 
-> If it ain't broken, don't fix it.
-> 
+But if you're OK with it, I'm OK with it.
 
-Get over yourself.
+> By the way it doesn't apply on top of powerpc/merge branch:
 
-Regards,
-Bjorn
+I guess we'll be hearing from Mark when this hits linux-next. 
+Hopefully the resolution isn't horrible.
+
+As I'm adding this to mm.git's mm-new branch, Mark won't actually be
+seeing it.  I'll aim to move this into mm-unstable (and hence
+linux-next) after just a single day.
+
 
