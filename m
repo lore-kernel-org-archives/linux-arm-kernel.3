@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6414DC982D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:02:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81319C982E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9pRdDo0hFTS055NfI0T4ilJaSpXgnD1Q6tcrd1hCPuE=; b=YHaoqIkIiQufn2So0JyhPM9Co/
-	FzfAXY8osIovHLEhKHjzQ4oWuSJKPLeK/co1t72+8ux6j3I7JerCKI9HhFmJIYUVWwFm933LhLZd6
-	CubLbssN1nFsDoaQPEFY1/6BCeLrLR029/QBSVo2fv8kNz7bhZppDAazkbgG1g8gdfSJZuUvMQR9t
-	t1eg5hVLfxGmi6R5jYjuc+xL57LsOi3ordC88gcseMCzhhWjCpuLcVJR21qPEsN4A/BbCVRiddo4T
-	M3Z8O1tmwbA06gbxBgyySBhzu05J5Cof4j8V4t96pWscx6MFijch0NchShve3cbyITlZduuvuEhhY
-	LrFA+s0g==;
+	bh=RJmCdmjf1cJp6uWKepJHYg4mCo27O3rNk6xDNkv07d0=; b=lJmRuCi6r1NetkiH+jVdAA7yYe
+	sAV9G2dlWqSR9D4SiL29fd/UWg2JkQmcvKHAmH17zzs0XWsc8LeEgXMCJiA0WIDMfhlUUnYocnAgb
+	PvRblXQp2TuBtd7FUsf3ZFxnfmlNRI7sUrmgV2WXpsEafYfRaHS3W4LS00pTLiNmB1HCX4HEFoFHt
+	nBghQXjo/P6uL0HzIOl2+7pCtCO/cSo6ioy8T0lRFzaMmuHt+ZoQtrMuFZ8ebd0JAKRhWsbrLXmYG
+	iSd9pzvkwL5GFY0F9sIALViKWA9tXf4m0gJmvM4qBeG7u+3RkD4X8TCtVYbKwaOZur8dtXFXn6CX6
+	xyKWI5SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnDm-0000000EVnO-2gKh;
+	id 1vgnDm-0000000EVnp-3xJC;
 	Fri, 16 Jan 2026 17:02:50 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnDh-0000000EVji-0CDS
+	id 1vgnDh-0000000EVkK-2lio
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 17:02:46 +0000
+	Fri, 16 Jan 2026 17:02:47 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 75CC81A28CC;
-	Fri, 16 Jan 2026 17:02:41 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 503CEC1F1FD;
+	Fri, 16 Jan 2026 17:02:17 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 48889606F9;
-	Fri, 16 Jan 2026 17:02:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AE7C910B68A2A;
-	Fri, 16 Jan 2026 18:02:36 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2262A606F9;
+	Fri, 16 Jan 2026 17:02:44 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1FBC210B68C7A;
+	Fri, 16 Jan 2026 18:02:39 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1768582959; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1768582962; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=9pRdDo0hFTS055NfI0T4ilJaSpXgnD1Q6tcrd1hCPuE=;
-	b=E/dEX/+WUZPsMWadGtiyoveIhRrNsiIs25jH5RTty/c2SbCtRzFC7IjIcqhVYHC0CT6XyH
-	plCBLamnZpQHGXdbTQDl7674XlMhtWLhg8SBDLSJm3AipfMWkkqUPwV4UmXr8mCA+53rSH
-	Byf7Zo0KklxNcEmAwWgZ8b47iOKnH2XFOPWaMVVEXaJn9v0Y6Ais6qJQKUvelyEH+KN9aK
-	Zkn3+S2Ti2oeu7hNTfEOtGGkSIhupby9M6F/4Ruws/hnvmxv64ramLJpPmS2POr7Y4i5Hb
-	HGYgLBCNK+uR8hTzsXUVvjJMhJDLNKN6Ok5dz4UA34e2OK883ADaPwShd5TCHw==
+	bh=RJmCdmjf1cJp6uWKepJHYg4mCo27O3rNk6xDNkv07d0=;
+	b=YB4MFzOwz+vZ6ctw84imDm+14GVCkTHURcPuVU9FyIc3tzjKSkJvSGQePlm46I2nlJoS2E
+	AP3QQlRymoT6XSIOJQZWmV2GhuMU1MFSZrNuyfgHwy/W+W3FZEpX4TgES/U+QEry/2FkQd
+	ZeXxsJqp4JNgROhxGPMVKR1qNJD45ueOsX1SLVBw15IJpEbVr2zFaomwX2w6iUuZFPE98X
+	hK4w6E4AYEthGfwFqchrnxhRZL4OCu0ijdxyYl11u22BxTLxNxi4nSztw12I5LCPhUfILN
+	oDIgEtIZWU/bOTcVpY8hdsunxYhdWOVA3eMgoPT+xiEGCZ+Roxuk955Giw4uCQ==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Fri, 16 Jan 2026 18:02:02 +0100
-Subject: [PATCH v4 02/25] dt-bindings: display: tilcdc: Mark panel binding
- as deprecated
+Date: Fri, 16 Jan 2026 18:02:03 +0100
+Subject: [PATCH v4 03/25] drm/tilcdc: Remove simulate_vesa_sync flag
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260116-feature_tilcdc-v4-2-2c1c22143087@bootlin.com>
+Message-Id: <20260116-feature_tilcdc-v4-3-2c1c22143087@bootlin.com>
 References: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
 In-Reply-To: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -75,14 +74,12 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
  Herve Codina <herve.codina@bootlin.com>, dri-devel@lists.freedesktop.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
- "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_090245_225428_AFDDB381 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260116_090246_006793_BAA5C0EF 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,30 +94,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mark the ti,tilcdc,panel binding as deprecated in the documentation.
-This legacy binding should no longer be used for new designs. Users
-should migrate to the standard DRM panel bindings instead.
+The tilcdc hardware does not generate VESA-compliant sync signals. It
+aligns the vertical sync (VS) on the second edge of the horizontal sync
+(HS) instead of the first edge. To compensate for this hardware
+behavior, the driver applies a timing adjustment in mode_fixup().
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Previously, this adjustment was conditional based on the simulate_vesa_sync
+flag, which was only set when using external encoders. This appears
+problematic because:
+
+1. The timing adjustment seems needed for the hardware behavior regardless
+   of whether an external encoder is used
+2. The external encoder infrastructure is driver-specific and being
+   removed due to design issues
+3. Boards using tilcdc without bridges (e.g., am335x-evm, am335x-evmsk)
+   may not be getting the necessary timing adjustments
+
+Remove the simulate_vesa_sync flag and apply the VESA sync timing
+adjustment unconditionally, ensuring consistent behavior across all
+configurations. While it's unclear if the previous conditional behavior
+was causing actual issues, the unconditional adjustment better reflects
+the hardware's characteristics.
+
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
 
-Change in v2:
-- New patch
+Only few board currently use tilcdc not associated to a bridge like the
+am335x_evm or the am335x-evmsk.
 ---
- Documentation/devicetree/bindings/display/tilcdc/panel.txt | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/tilcdc/tilcdc_crtc.c     | 16 ----------------
+ drivers/gpu/drm/tilcdc/tilcdc_drv.h      |  2 --
+ drivers/gpu/drm/tilcdc/tilcdc_external.c |  1 -
+ 3 files changed, 19 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/tilcdc/panel.txt b/Documentation/devicetree/bindings/display/tilcdc/panel.txt
-index 808216310ea27..b973174d704ed 100644
---- a/Documentation/devicetree/bindings/display/tilcdc/panel.txt
-+++ b/Documentation/devicetree/bindings/display/tilcdc/panel.txt
-@@ -1,4 +1,5 @@
- Device-Tree bindings for tilcdc DRM generic panel output driver
-+This binding is deprecated and should not be used.
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
+index 52c95131af5af..b06b1453db2dd 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
+@@ -47,9 +47,6 @@ struct tilcdc_crtc {
  
- Required properties:
-  - compatible: value should be "ti,tilcdc,panel".
+ 	struct drm_framebuffer *next_fb;
+ 
+-	/* Only set if an external encoder is connected */
+-	bool simulate_vesa_sync;
+-
+ 	int sync_lost_count;
+ 	bool frame_intact;
+ 	struct work_struct recover_work;
+@@ -642,11 +639,6 @@ static bool tilcdc_crtc_mode_fixup(struct drm_crtc *crtc,
+ 		const struct drm_display_mode *mode,
+ 		struct drm_display_mode *adjusted_mode)
+ {
+-	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
+-
+-	if (!tilcdc_crtc->simulate_vesa_sync)
+-		return true;
+-
+ 	/*
+ 	 * tilcdc does not generate VESA-compliant sync but aligns
+ 	 * VS on the second edge of HS instead of first edge.
+@@ -866,14 +858,6 @@ void tilcdc_crtc_set_panel_info(struct drm_crtc *crtc,
+ 	tilcdc_crtc->info = info;
+ }
+ 
+-void tilcdc_crtc_set_simulate_vesa_sync(struct drm_crtc *crtc,
+-					bool simulate_vesa_sync)
+-{
+-	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
+-
+-	tilcdc_crtc->simulate_vesa_sync = simulate_vesa_sync;
+-}
+-
+ void tilcdc_crtc_update_clk(struct drm_crtc *crtc)
+ {
+ 	struct drm_device *dev = crtc->dev;
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.h b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
+index 58b276f82a669..3aba3a1155ba0 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_drv.h
++++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
+@@ -160,8 +160,6 @@ irqreturn_t tilcdc_crtc_irq(struct drm_crtc *crtc);
+ void tilcdc_crtc_update_clk(struct drm_crtc *crtc);
+ void tilcdc_crtc_set_panel_info(struct drm_crtc *crtc,
+ 		const struct tilcdc_panel_info *info);
+-void tilcdc_crtc_set_simulate_vesa_sync(struct drm_crtc *crtc,
+-					bool simulate_vesa_sync);
+ void tilcdc_crtc_shutdown(struct drm_crtc *crtc);
+ void tilcdc_crtc_destroy(struct drm_crtc *crtc);
+ int tilcdc_crtc_update_fb(struct drm_crtc *crtc,
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_external.c b/drivers/gpu/drm/tilcdc/tilcdc_external.c
+index 3b86d002ef62e..da755a411d9ff 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_external.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_external.c
+@@ -80,7 +80,6 @@ int tilcdc_add_component_encoder(struct drm_device *ddev)
+ 		return -ENODEV;
+ 
+ 	/* Only tda998x is supported at the moment. */
+-	tilcdc_crtc_set_simulate_vesa_sync(priv->crtc, true);
+ 	tilcdc_crtc_set_panel_info(priv->crtc, &panel_info_tda998x);
+ 
+ 	return 0;
 
 -- 
 2.43.0
