@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE3FED4899E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 13:22:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863FAD4899D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 13:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TBntYEJyIW5T/g+/Y8hSI0e9Ry2Pdg94pES2EydsjdI=; b=gl945NSMeVhhIfV4OwDFHFQsGQ
-	gb0GsW5M6wi7AJ4zXFkhxqsYEceCIZRGiVUVzx290cJBjxgdBlhWw69YPH3smaiVA9yTS67+u1Jhz
-	6wNmWH1Q3LmaRh6/G1c43TP1P8EkqdJWzF3nOdODROi4U0nkdc7EbqLThCyYbtuJhes9/ZvV/H30N
-	A2Z6qW0fpZ6pq2oLuhpsyG12XJ6QOC+l6sP8WCTp57I+6+wUbnbUBXU6oHwjxFr7D78+yB5VYr0ti
-	IPpFFnBu2wBWgg5zgi4wrrUhMYgz8oyPE9LtX5vR1mCEI8VAFyvO/aztPgzyieMgeqlZWikGtrrzh
-	J99m24bA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OkE0GM3UlKk2CulWJNx4KPyGxVd6jcoppfmycqlbInc=; b=DnEW2O8CACIr/fRI6E73lCfZRf
+	nPny3zlwm3oIK/DRNeuKtUHC7pLlJUjyRrQeP/uJ0cmxXqYjkfZU5wzaclZ7AIX6kLduB7gqwHEx/
+	pf0LDsyLpiJjobyO/exmFB3pz0zaQeBJ89fZBDYIpM6zWZ4Ey4oqZB3np80Svkpw8hGfMLhIweIc4
+	CrUjPdHcmfUYI6HqURrMcGADSJLjsGfduicn6VqBNq1o5MooddwTOD0jMsdCfeZ0sJhlk/iDuaMfI
+	2d3Z9iYfNQFguZTK79UIBzrRd9JwVUjq0+7hj6M0vkwmPknW+uFZl0k+9gvqVs4OMhfK/DpSKZNPz
+	cn1Nf+JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgjmb-0000000EAdk-1cTu;
-	Fri, 16 Jan 2026 13:22:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vgjoF-0000000EB3E-1BL4;
+	Fri, 16 Jan 2026 13:24:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgjma-0000000EAdU-2MDr;
-	Fri, 16 Jan 2026 13:22:32 +0000
+	id 1vgjoC-0000000EB1G-45Hk;
+	Fri, 16 Jan 2026 13:24:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AADCC60150;
-	Fri, 16 Jan 2026 13:22:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A21AC116C6;
-	Fri, 16 Jan 2026 13:22:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0D5E543458;
+	Fri, 16 Jan 2026 13:24:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88C34C116C6;
+	Fri, 16 Jan 2026 13:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768569751;
-	bh=2VEdYo29uWhDiLRP2fq9J98xnEkof/Pep3fKzqyIui4=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=MkQxmtjSLAsRu38Ok5ugheI+luIhbZtgYVTZxIS662au2cdG/G9XcEvn84fHnVa13
-	 B+2NL3xg0PZytmkATpKmzSIzsQwbXZjM6tvl5y5pStCLZq6SKH8sGKwe2uAz2cLSE1
-	 dS4EMm69bYvYHTTJqKnNVpD3aJLO4xiZC6VgNlk08Tgb0YSOViBXvak44NuqFr1zyO
-	 lojMSVY/y3gXI/Kczfm9+vkRvwFkepm4ZZGwFRUo+qsQ1rZIgcUdQ84s9LAnZ31lI5
-	 IYvyPZEMZ7vWirvpsGWy3zid0tyhnITI6wDeUiB6FcDwcUmTlX8ZD242S4o+6ayuLS
-	 L4euapTRhHURA==
+	s=k20201202; t=1768569851;
+	bh=n3iW2Tj+vCxQwVgYlwOE8woENlPxrgCzFts6M+ARsAM=;
+	h=From:Date:Subject:To:Cc:From;
+	b=CR9VgakFnZ32Tn4Bud5kKBJQ4vKOrem9l4rK6FPaU8V4Z/nrOVK+SyU62j9RBSSLq
+	 GnkLaJQC+VXQCK9ZLvUv8ic1ogM8vWNei4y1rGj6ZPHKOQklJulLkeUww+xRkKxJyh
+	 nAa34r76fRvltLMUZ3PBZVd4zIYkvH3JPwkLufsNiSnDxTO1LjBKTufVqH88qI/Epq
+	 bZuFfrAVmRXeBw0VrWSm/VSiDhl9zxN81B2Ntixuck/XcbyK7B7q6gtmFqewykIgmH
+	 Jo70tdHJSEYM6RgSSuPvCcbfERAbqDhA4NpcpHHcPbqykzKo4aieT2fwDtV6g72FhO
+	 afUONp8i4GoYQ==
 From: Mark Brown <broonie@kernel.org>
-To: robh@kernel.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, tudor.ambarus@linaro.org, 
- pratyush@kernel.org, mwalle@kernel.org, miquel.raynal@bootlin.com, 
- richard@nod.at, vigneshr@ti.com, lgirdwood@gmail.com, 
- matthias.bgg@gmail.com, julien.massot@collabora.com, 
- eugen.hristev@linaro.org, jiaxin.yu@mediatek.com, shane.chien@mediatek.com, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-mtd@lists.infradead.org, linux-sound@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- kernel@collabora.com
-In-Reply-To: <20260115125624.73598-1-angelogioacchino.delregno@collabora.com>
-References: <20260115125624.73598-1-angelogioacchino.delregno@collabora.com>
-Subject: Re: (subset) [PATCH 0/4] MediaTek MT8192 dtbs_check fixes
-Message-Id: <176856974724.65310.2260409999915258318.b4-ty@kernel.org>
-Date: Fri, 16 Jan 2026 13:22:27 +0000
+Date: Fri, 16 Jan 2026 13:23:40 +0000
+Subject: [PATCH] spi: rockchip: Use plain request_irq()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260116-spi-rockchip-threaded-irq-v1-1-c45c3a5a38b1@kernel.org>
+X-B4-Tracking: v=1; b=H4sIANs7amkC/yXMQQ6CQAxA0auQrm0yRSXBqxgXMK1ONYGxBUNCu
+ DujLt/i/xVcTMXhUq1g8lHXcSigQwUxdcNDULkY6lA3geiMnhVtjK+YNOOUTDoWRrU39tSciAM
+ fW2qh9Nnkrsvvfb397XP/lDh9h7BtO5/Jyf99AAAA
+X-Change-ID: 20260115-spi-rockchip-threaded-irq-b1641d0d3919
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Aishwarya TCV <Aishwarya.TCV@arm.com>, linux-spi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-47773
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1355; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=n3iW2Tj+vCxQwVgYlwOE8woENlPxrgCzFts6M+ARsAM=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpajv5U/lesGnmB76mqSKLV43KjffKXBwaNmwv+
+ NzWMRlI02iJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaWo7+QAKCRAk1otyXVSH
+ 0CwGB/9/rGyUTjSO6Hyo6yX5Kteocrj34723rjZQgoAAfZzMecwg9BstwYHILNZ7ja/h3JtyN8L
+ rmY7/4Vb4FuZPJGYS/62FJxRHpWHEP0GSfZTE+fr1D5RC49x8VkVWetwcgVz2sKJDv1tJJpKmL1
+ LSMk3LpP5fhkww3jsZC0STIpIcmqqnJbUKMQPesuXDb5uCiRP3njbLr3MZSr6LwbULqSVh98HVN
+ tOxbppgq9jJmXlUb+eB8h1tciMBgcri3899j2dqooCD4fd/kiGOSzmWAbsAKS6OJhdxNwYGtvlR
+ uJ7JKz6GHSiCFNH7gQ2z7qjOIR0DjxXBGz+7Wzo+bqrGCwlT
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260116_052413_049770_F7C4B1A2 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,46 +85,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 Jan 2026 13:56:20 +0100, AngeloGioacchino Del Regno wrote:
-> This series addresses most of the MediaTek MT8192 dtbs_check warnings
-> by adding a missing SPI NOR flash compatible string and fixing both
-> the audsys binding and devicetree node name.
-> 
-> AngeloGioacchino Del Regno (4):
->   dt-bindings: mtd: jedec,spi-nor: Add Winbond W25Q(32/64/128/256)JWM
->   ASoC: dt-bindings: mt8192-afe-pcm: Fix clocks and clock-names
->   dt-bindings: arm: mediatek: audsys: Support mt8192-audsys variant
->   arm64: dts: mediatek: mt8192: Rename mt8192-afe-pcm to
->     audio-controller
-> 
-> [...]
+The Rockchip driver has since interrupt support was added used
+request_threaded_irq() but not actually supplied a threaded handler,
+handling everything in the primary handler.  This is equivalent to just
+using a plain request_irq(), and since aef30c8d569c (genirq: Warn about
+using IRQF_ONESHOT without a threaded handler) the current behaviour has
+triggered a WARN_ON().  Convert to use request_irq().
 
-Applied to
+Reported-by: Aishwarya TCV <Aishwarya.TCV@arm.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ drivers/spi/spi-rockchip.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+diff --git a/drivers/spi/spi-rockchip.c b/drivers/spi/spi-rockchip.c
+index 1a6381de6f33..62e1bc08c940 100644
+--- a/drivers/spi/spi-rockchip.c
++++ b/drivers/spi/spi-rockchip.c
+@@ -805,8 +805,8 @@ static int rockchip_spi_probe(struct platform_device *pdev)
+ 	if (ret < 0)
+ 		goto err_put_ctlr;
+ 
+-	ret = devm_request_threaded_irq(&pdev->dev, ret, rockchip_spi_isr, NULL,
+-					IRQF_ONESHOT, dev_name(&pdev->dev), ctlr);
++	ret = devm_request_irq(&pdev->dev, ret, rockchip_spi_isr, 0,
++			       dev_name(&pdev->dev), ctlr);
+ 	if (ret)
+ 		goto err_put_ctlr;
+ 
 
-Thanks!
+---
+base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
+change-id: 20260115-spi-rockchip-threaded-irq-b1641d0d3919
 
-[2/4] ASoC: dt-bindings: mt8192-afe-pcm: Fix clocks and clock-names
-      commit: 60e8451be1f7af4b51540f2cfd65c9c85af752e9
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
 
