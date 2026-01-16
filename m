@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CEF4D47CD6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 10:52:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DBC1D47CD5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 10:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RTCekCAuKETvEuN9jTbDLB1P7rv4peQ92+oXwOTcp18=; b=u7op/34vge1YJuzjcmt7laNCV9
-	J6jDaxyWMFuG28toMz/zYDp1HFIGhNpMPIjPLdPLvB+YJ3JZN3yfed81GSc+xrDge85/pCzMFCo/Z
-	B/mjOouH6ZdzfYlNSZO0lMUyu9LII8sokS9mrLJqCshMTGmVaNWkqpJr4qRgCs/7HZRvm3NmkE63L
-	QQHNulL0acUE//f9C6GRk0Om46EQNk+E9yMMSdjvDZv2NDaH1A+AE/7fEA2BeU1YUkLu+dwlvDoLU
-	g8AeLiIE2P5Rwlj17PFbR7JG7QMAaWFlA2qv8dxxRWM2vvx8a61xPbBVWVLAw4+Bh71T9jRwlxAFA
-	zwaj9qyQ==;
+	bh=NV8TNyLA+vq93sYgYKnZwfWInb+dSVR8Fu1Wmm+jauI=; b=cngnVgOdvXfZjbzDonutkYBEvk
+	xGblmP50Ypii0SvLC5kWTcQy9bkspxXHjXkZdl6ULQVWYvu6iaxwQKGi6nFpZsuCV6jQo6eHTFNf3
+	Wp7IjhDPd123p1E9acO0shgTcEVqODLFHyuCwH884Liy7lrMZjMlDNaOJTiB4icKH/47wdMUarGpK
+	Ov5tZBxpE5SNNrxyWhp2sCrrt6mlmsoZzbyHH7T3e/uM1qe0+SF+3nZjHrNcQtWmbc/HvrFGMptzp
+	tP9nXwkj2UcKrOt+DLjosCBV2SYRUSFic/NoCiHeUgjbfplo3oytMGFIf5Fg0Qgcbx1evAqPRR5BB
+	9nXSxz4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghRP-0000000Dzmv-3pAe;
-	Fri, 16 Jan 2026 10:52:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vghS9-0000000Dzsa-16gH;
+	Fri, 16 Jan 2026 10:53:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghRO-0000000Dzmp-0twP
+	id 1vghS7-0000000Dzrj-43cv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 10:52:30 +0000
+	Fri, 16 Jan 2026 10:53:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 979CF60193;
-	Fri, 16 Jan 2026 10:52:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BFBEC116C6;
-	Fri, 16 Jan 2026 10:52:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4AA0060193;
+	Fri, 16 Jan 2026 10:53:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27808C116C6;
+	Fri, 16 Jan 2026 10:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768560749;
-	bh=QTTXskRSykOzdUCUBOI186z2skQFb/mpgixxD4CQn7A=;
+	s=k20201202; t=1768560795;
+	bh=qKTpq9+uhZ4goFZnkWfLWoqBjLmId86KT3EVnvQfuJY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RTSTCoOu1dePW9H4OkH93WMmKcmffIRyCILb72Voshdu1/HG1XMdiNqq59tuMyzRQ
-	 IlNlaiHsclaJtcSFl/uFfNGQhfgO2MUfsW50Mm42OZLFQB7/4LnEF/IAPnknF0wggf
-	 yFEvaP2Ec05ad4spLh6+EKgkqbYaPe+qncz/cJSD4rmOrnp5of/WLm21Ng6muXrRjN
-	 yIl27I2S9SQHkI1dFZJ2KxdZP8nmJXZb/pSLq4i2hcDoAI6wvvZVHepRc5BFfOY0bq
-	 kB4b2VAGwIU8l002tGAtNcs9eqvr88ckplfOLsVF5pFhjCq/COhEgcFlP6vNn+ASzZ
-	 QfkQ1oDtMVv4Q==
-Message-ID: <3595c849-6b43-440e-8e15-f51d5de0cad6@kernel.org>
-Date: Fri, 16 Jan 2026 11:52:22 +0100
+	b=lQuoL5YJUc0pvxiwtJNb4htDCSxgTlvl8/COVqMdeZkaEeFGfW19yYmnWcXIXATfz
+	 vLBYa7SEUZWArovHHNYs+1D83E8qc1GAw/fatLTVbT4ZOiNqyG0Uzq9OdziIAebXGV
+	 p3AHG8+3wCFhrjrCCI2K3XE0IrFitbnOzWGVO6d3PM8zEeFBEjMQLbdNYvq5F+Ovcs
+	 dpPiZ7fR2E0rBngfecB5+8MdNxOe+4xSSYBwt+OEXwbYVtDLADRoE5FfBxhpRX7+qv
+	 O5z0+mpE28u/Oy+498yyyZtDHkDuvlEhxsQxf8WAnKZuA4qKofwzEpLxc4CSEU2O6y
+	 rQTn77Yr8Cdng==
+Message-ID: <53899b11-f214-4c51-a430-e5da2bf36401@kernel.org>
+Date: Fri, 16 Jan 2026 11:53:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v5 0/5] support batch checking of references and unmapping
  for large folios
-To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: lorenzo.stoakes@oracle.com, ryan.roberts@arm.com,
- Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
- mhocko@suse.com, riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
- willy@infradead.org, baohua@kernel.org, dev.jain@arm.com,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, will@kernel.org,
+ ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
+ harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
+ baohua@kernel.org, dev.jain@arm.com, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
+ <c285f2fb-b64d-4932-b9ae-ef420097728e@lucifer.local>
 From: "David Hildenbrand (Red Hat)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -102,7 +103,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  cFAM8nBWrEmNU2vvIGJzjJ/NVYYIY0TgOc5bS9wh6jKHL2+chrfDW5neLJjY2x3snF8q7U9G
  EIbBfNHDlOV8SyhEjtX0DyKxQKioTYPOHcW9gdV5fhSz5tEv+ipqt4kIgWqBgzK8ePtDTqRM
  qZq457g1/SXSoSQi4jN+gsneqvlTJdzaEu1bJP0iv6ViVf15+qHuY5iojCz8fa0=
-In-Reply-To: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
+In-Reply-To: <c285f2fb-b64d-4932-b9ae-ef420097728e@lucifer.local>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -119,29 +120,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/26/25 07:07, Baolin Wang wrote:
-> Currently, folio_referenced_one() always checks the young flag for each PTE
-> sequentially, which is inefficient for large folios. This inefficiency is
-> especially noticeable when reclaiming clean file-backed large folios, where
-> folio_referenced() is observed as a significant performance hotspot.
+On 1/16/26 09:41, Lorenzo Stoakes wrote:
+> Andrew -
 > 
-> Moreover, on Arm architecture, which supports contiguous PTEs, there is already
-> an optimization to clear the young flags for PTEs within a contiguous range.
-> However, this is not sufficient. We can extend this to perform batched operations
-> for the entire large folio (which might exceed the contiguous range: CONT_PTE_SIZE).
-> 
-> Similar to folio_referenced_one(), we can also apply batched unmapping for large
-> file folios to optimize the performance of file folio reclamation. By supporting
-> batched checking of the young flags, flushing TLB entries, and unmapping, I can
-> observed a significant performance improvements in my performance tests for file
-> folios reclamation. Please check the performance data in the commit message of
-> each patch.
-> 
-> Run stress-ng and mm selftests, no issues were found.
+> I know this has had a lot of attention, but can we hold off on sending this
+> upstream until either David or I have had a chance to review it?
 
-
-Baolin, I'm intending to review this, but it might still take me a bit 
-until I get to it. (PTO/vacation and other fun)
+Ah, I didn't read your mail before I sent mine. +1 ;)
 
 -- 
 Cheers
