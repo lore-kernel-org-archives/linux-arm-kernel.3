@@ -4,86 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3284EC98302
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 21:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3144C98306
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 23:22:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ma34RY04McdLUFikJCMfVhGXi6rphMQdbOsKxFr4Zac=; b=STreMTkdgCSqccMEaBo4eYdQ8T
-	0hLvPLKq8Fewee1ShIp0G04Iz3WjtiLsPfaqkFaRYyLOALN6T7sf7BZHANAGnJK4gkS4GVxC9hw1U
-	NomM7QLR8O8P2JGOXUuPZnA+46aPkw81wcNBCk8V5GDHV0e5baLjb6whCA/qpkdIGP+miTyAApIal
-	y2YK1ytP9Y+/TlMhbDq4qPz+V/ttF4RwoH5DAe7FWqTcnIygKYFOzNjEbt69WSdMn20z8p5JmFKp4
-	zuw6yDR0v/474bOuJi1NQtRqxCu2jZ2/2p3ZRasq9vMwcdC/8zjdOAngkc/qih1Oo86EQywCnkbBZ
-	TGTvpPAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I0LjCIeuPAwdgtlev8KvuzPXD9fmIY3MFzxNjZLLxnw=; b=xpBYDqjJci/lG/PnxCBCk+501J
+	SdyyicnIb3gkSnoefeEsnDD4KMpJX/OrCMDxjMIlEC3wyf97yS27csBbHBSDuKOS5Rj5umMtNeFJW
+	43IEtLifF1SQu2PK0OB60u2oVScmyKEu5VK1g1+u/VKwJssSXWTDhPkXyVxyFBbs0O6UrsbSmrPHe
+	ZWLT6xCypYskEcMkfw1FyUoukQSRAK6DnbgOiTiQXoGunIfDFgshv1KVGc1s6asSRIEwmLyRaOt0t
+	USm0IDWqXYVdGGKDUSRnUzR0tteamfg3ns8ynEwBlFTS1CHPtRw1utH6GMI5HjGH93ys5iooXQroP
+	XKmI5zJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgrpx-0000000ExML-34AX;
-	Fri, 16 Jan 2026 21:58:33 +0000
-Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
+	id 1vgt8T-0000000F0RB-2dAZ;
+	Fri, 16 Jan 2026 23:21:45 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgrpv-0000000ExLz-22cT
+	id 1vgt8N-0000000F0Qk-1zt6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 21:58:32 +0000
-Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-45c838069e5so1521637b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 13:58:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768600710; x=1769205510; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ma34RY04McdLUFikJCMfVhGXi6rphMQdbOsKxFr4Zac=;
-        b=fCpcYNZBEPHEkZos4Z6k5rmvywzDj9vZoyGNTKoR+O925zetYYb7YEqlkm63+T0orZ
-         8HXpS7iAZFuaXT0wHLC7WQP73kwpOoxhw4CRuteM/1MDuhoDTsGPQ+F1ID4ZLmRCmoc0
-         BEg1EKZiaNwR/m9BmLdKAK7ykKA06zRUuB8FFAdnKtODh0bBWOIYXqQhyHlKQGpzVZEK
-         XAxF9WVCkoegzA2c5N7Lhsydr0a2/hC7auyEffpaRHpVs4PQTRsvldLWnLAsJ588+P7J
-         l9VR3FJWW1b+U6rXB0e+tCPlxFEx4VpK218Ks93+2/X0+48NVU5BMTGNX9zubP+vgCHL
-         qmqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768600710; x=1769205510;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Ma34RY04McdLUFikJCMfVhGXi6rphMQdbOsKxFr4Zac=;
-        b=CZfg0HPH+m0w25MJdMAmz87w3W9vzwKaMlvyzhfz1v8PLNalO4FzVmC8BnG5B+Rb0Q
-         2HSFnIuhYYSoxSuwA1MiJMDlUlV9iEbn2B4C+fYNQ6yPk5FDl8l0hiQk9DejUzphYY3I
-         ZNQlKnFGtvXJmHvNqexPSKK6p8anYx1rRRdOgxZ90QUzWiix5CPpDMJ+RUn4rT01u7d/
-         yjL+o1sfXlGw88ux7+UcGiD8idiB579zghITHbgC1ikAEf8JhDTb46mYYk5UjNWEGz34
-         hpiygDTz6VXJ3rYtjCqL8pwAYV6K8t+bV61jt5SLXJl7c93QZ0ksSstdqoKX5JBEFZiZ
-         keew==
-X-Forwarded-Encrypted: i=1; AJvYcCVpbs6eZGO0KCB34AUhh5zIkX6OsAXB2/B+z4qfAQtdmNZ3+bGUbzgsB+EpqYkShyMgaqo9s4l3Ii965CrMKFbx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4rumH884CwbT32BHkrailw/TZp4VkANpig4ZpoxTUfbzsAChN
-	N1ZeD46DnrQ4NDnFxn6xK+fwtxhoSW69ZFVzleVF0fE3RWdwgr8jvtrY8wysbzi9yfWJ04NRHos
-	zNlqgMmIdRohI719jxHnU4Oy5V0uC2EiguiZml/U=
-X-Gm-Gg: AY/fxX5c4qoOKMjthq7fxEiJzYSIj2xeEeFK2P7iE+OGoWXhxfUV5XV/qK3dpXINVEs
-	ZSmjIx1RnMjWwu2uB52Xs2zeeZLRpWbFtbifXcFhK7fkMEVCdme1ZitEn4WTkTccMkpsb+CGVjE
-	Xn/E3cZftyYrBFZZUzbh7hQIqkFphGVlksa1LlZHnYqvXPyehT5hmpkNMsZ4NJg2e7D3X6w0YdQ
-	/nWB+8/iWRa/CYoUVsFt0ioq3Bane9ykwhsbi8KNE/b1YaPspycW7cEyGowPum9tnANFv6JtzZn
-	rYQfizqFp/FJha0p0IkhqtWze2Acbbu8S8ZipksYP64aoGqLwXp81vBs6/P1L8O4HaU=
-X-Received: by 2002:a05:6808:1246:b0:450:d143:b79f with SMTP id
- 5614622812f47-45c9c1640a1mr1606572b6e.66.1768600709648; Fri, 16 Jan 2026
- 13:58:29 -0800 (PST)
+	Fri, 16 Jan 2026 23:21:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=I0LjCIeuPAwdgtlev8KvuzPXD9fmIY3MFzxNjZLLxnw=; b=uNmvPJQ+P2k4OgB8mxWlVT3Mo7
+	iJia5uWsqTxGGMH6sVLoXn6X6YdcXxaXOI/KNMgkKeYT3u/8Xp0gy6N8FyS3n+IJemRDWFKlJzLe/
+	MJ6NQV1Gqo5TBeJj9PHn+CEEH/h+9QXcU45Bxtqa93FI7sxn7ciRcGkluzgCrKBHTEDSVpylVZuXZ
+	on4ZjHQ6Hyd68MveQuYFl00FLZI5BNxw5EOZIs7v047O4ebunzW4pMaRXR7ZwwfD3hNVDrtiGbz8j
+	UDNiOFpIv/d9wlfeKd7caSQDi9UWo4Ky26LnSmVe0w0BGp/PiXmRV5RD/Ni1HOMaY7kReIHEXYyKQ
+	XdX7rRzA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46954)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vgt8F-000000002lN-3lSf;
+	Fri, 16 Jan 2026 23:21:31 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vgt8C-0000000040s-17Iu;
+	Fri, 16 Jan 2026 23:21:28 +0000
+Date: Fri, 16 Jan 2026 23:21:28 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next] net: stmmac: fix dwmac4 transmit performance
+ regression
+Message-ID: <aWrH-FAuWnqmbSaJ@shell.armlinux.org.uk>
+References: <E1vgY1k-00000003vOC-0Z1H@rmk-PC.armlinux.org.uk>
+ <ab2d7cc9-e7d9-47fb-95ad-90ae4f5f1f67@bootlin.com>
 MIME-Version: 1.0
-References: <20251117160841.334224-1-andrealmeid@igalia.com> <aV1YnOetDHhKe4hz@willie-the-truck>
-In-Reply-To: <aV1YnOetDHhKe4hz@willie-the-truck>
-From: Ryan Houdek <sonicadvance1@gmail.com>
-Date: Fri, 16 Jan 2026 13:58:18 -0800
-X-Gm-Features: AZwV_QgIzlk9Vu0n1w2Ze_uuMZBXHHoLQpZ_jtujJKRM7yjMorufM13CTfXkDCU
-Message-ID: <CABnRqDf5EQUoXu=pJ6mj4-JfwAzEfcAE2cYrNzJANFycx7cMUA@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 0/1] arch: arm64: Implement unaligned atomic emulation
-To: Will Deacon <will@kernel.org>
-Cc: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Mark Brown <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel-dev@igalia.com, 
-	Billy Laws <blaws05@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ab2d7cc9-e7d9-47fb-95ad-90ae4f5f1f67@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_135831_546055_F062CC1F 
-X-CRM114-Status: GOOD (  53.50  )
+X-CRM114-CacheID: sfid-20260116_152139_520752_CBCAD2BF 
+X-CRM114-Status: GOOD (  24.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,216 +88,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey there,
-I'll try and explain some of the requirements here from the FEX side.
+On Fri, Jan 16, 2026 at 08:42:19AM +0100, Maxime Chevallier wrote:
+> Hi Russell,
+> 
+> On 16/01/2026 01:49, Russell King (Oracle) wrote:
+> > dwmac4's transmit performance dropped by a factor of four due to an
+> > incorrect assumption about which definitions are for what. This
+> > highlights the need for sane register macros.
+> > 
+> > Commit 8409495bf6c9 ("net: stmmac: cores: remove many xxx_SHIFT
+> > definitions") changed the way the txpbl value is merged into the
+> > register:
+> > 
+> >         value = readl(ioaddr + DMA_CHAN_TX_CONTROL(dwmac4_addrs, chan));
+> > -       value = value | (txpbl << DMA_BUS_MODE_PBL_SHIFT);
+> > +       value = value | FIELD_PREP(DMA_BUS_MODE_PBL, txpbl);
+> > 
+> > With the following in the header file:
+> > 
+> >  #define DMA_BUS_MODE_PBL               BIT(16)
+> > -#define DMA_BUS_MODE_PBL_SHIFT         16
+> > 
+> > The assumption here was that DMA_BUS_MODE_PBL was the mask for
+> > DMA_BUS_MODE_PBL_SHIFT, but this turns out not to be the case.
+> > 
+> > The field is actually six bits wide, buts 21:16, and is called
+> > TXPBL.
+> > 
+> > What's even more confusing is, there turns out to be a PBLX8
+> > single bit in the DMA_CHAN_CONTROL register (0x1100 for channel 0),
+> > and DMA_BUS_MODE_PBL seems to be used for that. However, this bit
+> > et.al. was listed under a comment "/* DMA SYS Bus Mode bitmap */"
+> > which is for register 0x1004.
+> > 
+> > Fix this up by adding an appropriately named field definition under
+> > the DMA_CHAN_TX_CONTROL() register address definition.
+> > 
+> > Move the RPBL mask definition under DMA_CHAN_RX_CONTROL(), correctly
+> > renaming it as well.
+> > 
+> > Also move the PBL bit definition under DMA_CHAN_CONTROL(), correctly
+> > renaming it.
+> > 
+> > This removes confusion over the PBL fields.
+> > 
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> 
+> Good job finding the problem ! However you need a Fixes tag, even though
+> ths is is for net-next.
 
+I really give up with when fixes should be added or not, because it
+seems quite random when it's needed and when it isn't.
 
-On Tue, Jan 6, 2026 at 10:46=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
-:
->
-> Hi Andre,
->
-> On Mon, Nov 17, 2025 at 01:08:40PM -0300, Andr=C3=A9 Almeida wrote:
-> > This patch proposes adding kernel-side emulation for unaligned atomic
-> > instructions on ARM64. This is intended for x86 emulators (like FEX)
-> > that struggle to effectively handle such operations in userspace alone.
-> > Such handling is required as x86 permits such unaligned accesses (albei=
-t
-> > sometimes with a performance penalty as in the case of split-locks[1])
-> > but ARM64 does not and will raise a bus error.
->
-> As discussed at LPC, I'm not thrilled with the idea of emulating these
-> historical warts of x86 on arm64 and having to carry that code forward
-> forever. The architecture provides a bunch of helpful instructions for
-> emulating x86 code but for esoteric things like split-lock atomics, I
-> think we need to draw a line. After all, you can still buy an x86
-> machine if you want one and they tend to be cheaper and more reliable ;)
+And no, don't quote the stable-kernel-rules nonsense that is
+meaningless ot stable kernel people, when they use AI to analyse
+commits and pick stuff completely randomly.
 
-Indeed.
+> It would also have been nice to be in CC, I spent some time on the bisect...
 
->
-> > User applications that wish to enable support for this can use the new
-> > pctrl() flag `PR_ARM64_UNALIGN_ATOMIC_EMULATE`. Some optimizations and
-> > instructions were left for future revisions of this patchset.
-> >
-> > Emulators like FEX attempt to emulate this in userspace, but with
-> > caveats in two areas:
-> >
-> >  * Performance
-> >
-> > It should first be noted that due to x86's TSO (total store order)
-> > memory model, ARM64 atomic instructions must be used for all memory
-> > accesses.
->
-> Just a nit on terminology because it's getting in the way a bit here and
-> I'm genuinely unsure as to what you're saying. The Arm architecture uses
-> "atomic instructions" to refer to read-modify-write instructions such as
-> CAS and SWP. You presumably don't need to use those for everything;
-> rather I assume you're using LDAPR for plain loads and STLR for plain
-> stores?
+I thought you were, but I see now it was a different Maxime!
 
-Semantics aside, yes, FEX uses all of the LRCPC1/2/3/4 instructions,
-plus atomic memory instructions to emulate the x86 memory model.
-Falling back all the way to ARMv8.0 instructions as required.
+> Besides that, problem solved on an imx8mp setup :)
+> 
+> Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
->
-> > This results in unaligned loads/stores being much more common
-> > than one would expect and the overhead of emulating them significantly
-> > impacting performance.
->
-> FEAT_LSE2 should solve this for LDAPR and STLR in the vast majority of
-> cases, no?
+Thanks.
 
-This is a very sweeping statement. FEAT_LSE2 reduces around 12% of
-unaligned memory accesses,
-but because it only works at a 16B granularity, it doesn't cover the
-vast majority of memory accesses.
-It also means that we have "split-lock" style emulation at both
-cache-line granularity AND 16B granularity;
-unlike x86.
-This means the overhead on systems even with LSE2 is unacceptable.
-
->
-> > For this common case of unaligned loads/stores, code backpatching is us=
-ed
-> > in FEX to avoid repeated overhead from handling the same faulting acces=
-s.
-> > This replaces faulting unaligned atomic ARM64 instructions with regular
-> > load/stores and memory barriers.
->
-> I'm assuming this is only the case on systems without FEAT_LSE2?
-
-We are required to backpatch even on LSE2 systems, as previously
-stated, LSE2 isn't good enough.
-
->
-> > This comes at a cost of introducing significant performance problems if=
- a
-> > function like memcpy ends up being patched because it very infrequently
-> > happens to be used with unaligned memory. This is severe enough to make
-> > games like Mirror's Edge and Assassin's Creed: Origin unplayable withou=
-t
-> > application-specific configuration.
-> >
-> > Microbenchmarks[2] measure a 4x decrease in overhead with kernel-side
-> > handling compared to userspace, and this figure is currently even large=
-r
-> > when FEX is ran under Wine. Such a dramatic decrease would make it
-> > reasonable for FEX to default to the no-backpatching path and provide
-> > consistent performance.
->
-> I wonder if you can defer backpatching until you've got some idea about
-> the likelihood of the access being misaligned? Or is that what you mean
-> by "application-specific configuration"?
-
-Not really. If an access ends up being misaligned once, it's basically
-guaranteed to always
-hit unaligned accesses. The heuristic would do nothing.
-
-Application-specific configuration here means manually inspecting what a ga=
-me
-is doing, seeing if the code requires TSO semantics or not in the general c=
-ase,
-and then having a configuration inside of the emulator to disable TSO
-for that code.
-I have yet to work through the 145,370 games on Steam to quantify which cod=
-e
-requires TSO emulation versus not to make an encompassing set of
-application profiles.
-
-These application profiles are of course a hack because we are then no
-longer emulating
-the memory model fully. So we're throwing away correctness on ARM hardware =
-to
-allow users to have a viable gameplay experience.
-
->
-> >  * Correctness:
-> >
-> > x86 atomic accesses can cross 16-byte (LSE2) granules, but there is no
-> > ARM64 instruction that would allow for direct atomic emulation of this.
->
-> I'm assuming these are relatively rare and apply only to locked
-> instructions so don't, for example, occur in memcpy() as you mentioned
-> above?
-
-These are common, and do easily occur in hand-rolled memcpy/memset
-operations easily.
-FEAT_LRCPC instructions have the same unaligned fault semantics as
-atomic instructions
-with FEAT_LSE2. These are used for even trivial memory accesses like
-`mov rax, [rdx]`.
-
->
-> > As such, a lock must be taken for correctness. While this is easy to
-> > emulate in userspace within a process, correct atomic cross-granule
-> > operations on shared memory mapped into multiple processes would requir=
-e
-> > a lock shared between all FEX instances which cannot be implemented
-> > safely in userspace as is (robust futexes do not work here as they are
-> > under the control of the emulated x86 program). Note, this is a less
-> > coarse restriction than split locks on x86, which are only concerned
-> > with accesses crossing a 64 byte cacheline size.
->
-> Even in the kernel, I'm having a hard time to convince myself that a
-> global lock gives you correctness here because you're _not_ serialising
-> with concurrent aligned accesses that could still be conflicting with
-> the faulting accesses if mixed-size concurrency is in use.
->
-> I've struggled to come up with an example that goes wrong, but if we
-> imagine a 64-bit SWP that straddles a 16-byte boundary and is trying to
-> set each 32-bit half of a zero-initialised location to 2:
->
->         SWP     (2, 2)
->
-> This will trap, but another CPU could concurrently execute a pair of
-> ordered, aligned 32-bit SWPs on each half, which will not trap:
->
->         SWP     (1, _)  // Set the upper 32-bit word to 1
->         DMB     ISH
->         SWP     (_, 1)  // Set the lower 32-bit word to 1
->
-> My reading of the code is that:
->
->   1. The 64-bit SWP reads upper =3D 0, lower =3D 0
->   2. The 64-bit SWP writes upper to 2
->   3. The first 32-bit SWP executes, setting upper to 1 and returning 2
->   4. The second 32-bit SWP executes, setting lower to 1 and returning 0
->   5. The 64-bit SWP fails to write lower as it is no longer zero and so
->      returns (0, 1)
->
-> In which case, the value in memory is (1, 1) but the old value of (0, 1)
-> returned by the 64-bit SWP doesn't make sense in that case.
->
-> What did I miss?
-
-This is fine, as the kernel lock will ensure that all memory accesses that =
-are
-participating are coherently visible.
-
-1) All unaligned accesses participate in the lock
-  - If they cross an alignment granule (16B/64B)
-2) All aligned accesses can not observe a tear
-  - They will only see one half of the atomic straddling the granule
-  - So even if it "tears" because another thread has written an
-aligned half, the same would have happened on real x86 hardware.
-
->
-> I also notice that your patch doesn't implement support for CAS and I
-> worry that letting out partial updates from supposedly atomic stores
-> could cause additional issues there. A CAS that reports failure could
-> actually have mutated memory, which then feeds into the next iteration
-> of the CAS loop in userspace.
-
-I believe that's just because this patch is a simplification of our
-full patch series
-that we are shipping in downstream.
-
->
-> Anyway, my lack of understanding aside, this doesn't look like an ABI we
-> should be committing to on arm64.
->
-> Cheers,
->
-> Will
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
