@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E6BFC98301
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 20:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17714C98301
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 20:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wWaFz2wgfe4zdqlsfrjYk4d5sFBpE0mayxuwBctGAZE=; b=QEe5Jeb+A/mc/4pwjZVF29MHHG
-	UhWF2j73a8V6kqhWbVtm7HmJlDGpfzu02xQz+7wviqZznUygRFmxhJUhF9KnMRSo8DYi+UpXdNLgf
-	b8dA18C1sNmhBPaJPqO8l7KEfyJOdQd5hbp//yDwlTq6gCxeoBXvwWxT5/cHrTusPr3zhv27dOzWd
-	l/ReYHEPJIB42zRDeTteNl2nMCsykM+Lgx9U9obvPkXv2WpyA/aF/P+OQALvGq8RzI9JDaF8FIWsB
-	gdpXaFMF6bJdEZyjCBTFmkrujmM9rbY+3HwqoaL9ysQVWRL7+waJTpRNLEUDdt0LD6SBPXcahIwjp
-	5wIGHNKQ==;
+	bh=gWZzl+ftsLHAloY74GFEoBU/SkzgjWzG3U3eyWhaRKg=; b=upzZTE774RzEKaWSfN/jAJ9gas
+	MXBQeBXtvrn0D5TZDGh068MG8ciNpXDxWtFPB6m1vOWJtkelkJ3Jg5WGXTKoGC/EPelJo5e3sbUtV
+	COzYdZ9CatzJO9X7TlLxcHkNpU/tLlp56JIP1P5XeVHtx66g4KnD1DcsnRP5NBKMCN/UU2B9AHPEa
+	pXk3ZJAHUyemQuBLhFLEgjPSy+4aa346SipA6Md6hsf9GJWgapZMuXlp5DIPEUBmB7TTm00XEYWcz
+	GMvd4ws+is1KuZEAJIZ5MfOUfH/xNgclX0elAhNobm2KRk3Ssvst3sumsc73H5fVhHZ2FH1N4byKv
+	n2fdE2Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgq0h-0000000Ejbo-14LO;
-	Fri, 16 Jan 2026 20:01:31 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vgq6K-0000000Ejuw-0NB1;
+	Fri, 16 Jan 2026 20:07:20 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgq0e-0000000EjbH-1nkc
+	id 1vgq6H-0000000Ejt3-0E6Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 20:01:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=wWaFz2wgfe4zdqlsfrjYk4d5sFBpE0mayxuwBctGAZE=; b=VSy9zeuvnsW2ekUYA3DEa3DICC
-	7TXp13Zr8anfGy0endwSwcwQhSS8PoFxCj15FO5P3J5jNhZXipWvCwWSdpTroBBLY9FquGv+3nBQF
-	M0smljE0hv1RBFINQcL6mt/pWZdjUoH9zOjF3fXK/4EQIwQpCL7kYzLRmgCAAXmgoGoezYsMuUS9/
-	aGIv6n4R5tovr0ZpKZ/qslquF2th9wItC3rt4baUzJ7l6F8YI2yo9WElB5mfC3eIGjOXovXJwuR+l
-	RLDsnwlOMp9UvJpaZ4dBfBwgrvPRl8PSrrMk8mPwBkldwMcDxcwBMleE4FAlF8SILYamdkdJBYwV7
-	p70eEfaw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47948)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vgq0Z-000000002cl-1Ixf;
-	Fri, 16 Jan 2026 20:01:23 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vgq0W-000000003rp-0MPl;
-	Fri, 16 Jan 2026 20:01:20 +0000
-Date: Fri, 16 Jan 2026 20:01:19 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
-	Arnd Bergmann <arnd@arndb.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	"Yadi.hu" <yadi.hu@windriver.com>, Bryan Brattlof <bb@ti.com>
-Subject: Re: [PATCH v4 1/2] ARM: mm: fault: Enable interrupts before invoking
- __do_user_fault()
-Message-ID: <aWqZDwxUtaE1yP28@shell.armlinux.org.uk>
-References: <20260116170041.1059997-1-bigeasy@linutronix.de>
- <20260116170041.1059997-2-bigeasy@linutronix.de>
- <aWp2fKGfIQKJ8wze@shell.armlinux.org.uk>
- <20260116181201.v-z31XJY@linutronix.de>
+	Fri, 16 Jan 2026 20:07:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1768594038; x=1800130038;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=r74+n+MWabdkatGTW9hVYS/1Zc1wfxpGbfVLjpxFHcE=;
+  b=OeCHYuX9e3du6ueKUAEbOVRvXbRlfrz6fxD2zC2u96v1Z6ZZOnH9xzb/
+   dk80h8YSzCALRwCcj+zYpt76AdT2SMk0P3WG0QHh973LXK9RBmoAz5eeQ
+   xriTSuL0vk5I21azZntLxtfChRCUCwYP1NwjhXZMVac1vlsOe29jabWfj
+   89yAQLqI+Vl6SZVlCU5bRjaGBQHQU8aL6kZkey/HAdX6JcZ9DmZaDI+t/
+   NFDlbNQZv/A2N+JbMKWnlcAPV0Gp+ytOMpTCP49CrAr4HASnRqB7YP9S2
+   3lfeDZFzIdSfR9y5g5oA2jXq9wV6qkzYO7FWEOw+3TcDGcR8rv+w+72JC
+   g==;
+X-CSE-ConnectionGUID: +9RSiAtvRY+RhxWEUm06Wg==
+X-CSE-MsgGUID: Ivm3HtRVSTqnn9wEKaMpSw==
+X-IronPort-AV: E=Sophos;i="6.21,232,1763449200"; 
+   d="scan'208";a="283397047"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2026 13:07:15 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.29; Fri, 16 Jan 2026 13:07:04 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Fri, 16 Jan 2026 13:07:04 -0700
+From: <ryan.wanner@microchip.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <bmasney@redhat.com>,
+	<alexander.sverdlin@gmail.com>, <varshini.rajendran@microchip.com>
+CC: <cristian.birsan@microchip.com>,
+	<balamanikandan.gunasundar@microchip.com>, <linux-clk@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v5 06/31] clk: at91: clk-main: switch to clk parent data
+Date: Fri, 16 Jan 2026 13:06:59 -0700
+Message-ID: <1cb33a80d61ee10b77800b9a0535a6b289a84d25.1768512290.git.ryan.wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1768512290.git.ryan.wanner@microchip.com>
+References: <cover.1768512290.git.ryan.wanner@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260116181201.v-z31XJY@linutronix.de>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_120128_735989_2960523D 
-X-CRM114-Status: GOOD (  20.95  )
+X-CRM114-CacheID: sfid-20260116_120717_101881_FAB9B7C2 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,95 +88,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 07:12:01PM +0100, Sebastian Andrzej Siewior wrote:
-> On 2026-01-16 17:33:48 [+0000], Russell King (Oracle) wrote:
-> > On Fri, Jan 16, 2026 at 06:00:40PM +0100, Sebastian Andrzej Siewior wrote:
-> > > From: "Yadi.hu" <yadi.hu@windriver.com>
-> > > 
-> > > A page fault from userland for a kernel address originates from from
-> > > do_sect_fault() (!LPAE) or do_page_fault() and ends in __do_user_fault()
-> > > by sending a signal.
-> > > 
-> > > Sending a signal requires to acquire sighand_struct::siglock which is a
-> > > spinlock_t. On PREEMPT_RT spinlock_t becomes a sleeping spin lock which
-> > > requires interrupts to be enabled. Since the calling context is user
-> > > land, interrupts must have been enabled so it is fine to enable them in
-> > > this case.
-> > > 
-> > > Enable interrupts in do_kernel_address_page_fault() unconditional in the
-> > > user_mode case().
-> > > Enable interrupts in do_sect_fault() if they were previously enabled.
-> > 
-> > Do you need any of this? __do_user_fault() now calls
-> > local_irq_enable() as almost the first thing it does.
-> 
-> Different path(s):
-> 
-> LPAE
-> | BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
-> | in_atomic(): 0, irqs_disabled(): 128, non_block: 0, pid: 639, name: arm-segfault
-> | preempt_count: 0, expected: 0
-> | RCU nest depth: 0, expected: 0
-> | CPU: 0 UID: 0 PID: 639 Comm: arm-segfault3 Tainted: G        W           6.19.0-rc5-dirty #7 PREEMPT_RT
-> | Tainted: [W]=WARN
-> | Hardware name: QEMU QEMU Virtual Machine, BIOS unknown 02/02/2022
-> | Call trace:
-> |  unwind_backtrace from show_stack+0x18/0x1c
-> |  show_stack from dump_stack_lvl+0x34/0x44
-> |  dump_stack_lvl from __might_resched+0x180/0x1c0
-> |  __might_resched from rt_spin_lock+0x3c/0x1f0
-> |  rt_spin_lock from force_sig_info_to_task+0x24/0x184
-> |  force_sig_info_to_task from force_sig_fault+0x50/0x74
-> |  force_sig_fault from do_kernel_address_page_fault+0xa8/0xb4
-> |  do_kernel_address_page_fault from do_DataAbort+0x38/0xac
-> |  do_DataAbort from __dabt_usr+0x50/0x60
-> 
-> !LPAE
-> | BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
-> | in_atomic(): 0, irqs_disabled(): 128, non_block: 0, pid: 622, name: arm-segfault
-> | preempt_count: 0, expected: 0
-> | RCU nest depth: 0, expected: 0
-> | CPU: 0 UID: 0 PID: 622 Comm: arm-segfault Tainted: G        W           6.19.0-rc5-dirty #8 PREEMPT_RT
-> | Tainted: [W]=WARN
-> | Hardware name: QEMU QEMU Virtual Machine, BIOS unknown 02/02/2022
-> | Call trace:
-> |  unwind_backtrace from show_stack+0x18/0x1c
-> |  show_stack from dump_stack_lvl+0x34/0x44
-> |  dump_stack_lvl from __might_resched+0x180/0x1c0
-> |  __might_resched from rt_spin_lock+0x3c/0x1f0
-> |  rt_spin_lock from force_sig_info_to_task+0x24/0x184
-> |  force_sig_info_to_task from force_sig_fault+0x50/0x74
-> |  force_sig_fault from do_sect_fault+0x30/0x80
-> |  do_sect_fault from do_DataAbort+0x44/0xb8
-> |  do_DataAbort from __dabt_usr+0x50/0x60
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
-Right, because I haven't pushed all the patches out. What was pushed out
-was the basic set of fixes during the last merge window:
+Use struct clk_parent_data instead of parent_hw for the main clock.
+So there is less usage of __clk_get_hw() in SoC specific clock drivers and
+simpler conversion of existing SoC specific clock drivers from parent_names to
+modern clk_parent_data structures. This will lead in the end at removing
+__clk_get_hw() in SoC specific drivers
+(that will be solved by subsequent commits).
 
-fd2dee1c6e22 ARM: fix branch predictor hardening (fixes)
-7733bc7d299d ARM: fix hash_name() fault
-40b466db1dff ARM: allow __do_kernel_fault() to report execution of memory faults
-dea20281ac88 ARM: group is_permission_fault() with is_translation_fault()
-edb924a7211c ARM: 9464/1: fix input-only operand modification in load_unaligned_zeropad()
+Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+[ryan.wanner@microchip: Add SAMA7D65 and SAM9X75 SoCs to use parent_data.]
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+---
+ drivers/clk/at91/clk-main.c | 16 ++++++++--------
+ drivers/clk/at91/pmc.h      |  4 ++--
+ drivers/clk/at91/sam9x7.c   | 14 +++++++-------
+ drivers/clk/at91/sama7d65.c | 14 +++++++-------
+ drivers/clk/at91/sama7g5.c  | 10 +++++-----
+ 5 files changed, 29 insertions(+), 29 deletions(-)
 
-which were sent out on the 8th December, but I still have these:
-
-1055c9d604f9 ARM: provide individual is_translation_fault() and is_permission_fault()
-47ce12a37f82 ARM: move FSR fault status definitions before fsr_fs()
-eefbf2e97ad5 ARM: use BIT() and GENMASK() for fault status register fields
-5f1e55bed37f ARM: move is_permission_fault() and is_translation_fault() to fault.h
-ad1c1212ae15 ARM: move vmalloc() lazy-page table population
-92442d814d99 ARM: ensure interrupts are enabled in __do_user_fault()
-
-and, because they weren't fixes, it would've been inappropriate to
-post these. However, I was on vacation from the 11th December through
-to the 2nd January, had the madness of the huge email mountain, and
-been working on stmmac and internal work issues since, I've not had any
-time to look at anything else.
-
-However, these changes will negate the need for your patch 1.
-
+diff --git a/drivers/clk/at91/clk-main.c b/drivers/clk/at91/clk-main.c
+index 9b462becc693..514c5690253f 100644
+--- a/drivers/clk/at91/clk-main.c
++++ b/drivers/clk/at91/clk-main.c
+@@ -402,7 +402,7 @@ struct clk_hw * __init
+ at91_clk_register_rm9200_main(struct regmap *regmap,
+ 			      const char *name,
+ 			      const char *parent_name,
+-			      struct clk_hw *parent_hw)
++			      struct clk_parent_data *parent_data)
+ {
+ 	struct clk_rm9200_main *clkmain;
+ 	struct clk_init_data init = {};
+@@ -412,7 +412,7 @@ at91_clk_register_rm9200_main(struct regmap *regmap,
+ 	if (!name)
+ 		return ERR_PTR(-EINVAL);
+ 
+-	if (!(parent_name || parent_hw))
++	if (!(parent_name || parent_data))
+ 		return ERR_PTR(-EINVAL);
+ 
+ 	clkmain = kzalloc(sizeof(*clkmain), GFP_KERNEL);
+@@ -421,8 +421,8 @@ at91_clk_register_rm9200_main(struct regmap *regmap,
+ 
+ 	init.name = name;
+ 	init.ops = &rm9200_main_ops;
+-	if (parent_hw)
+-		init.parent_hws = (const struct clk_hw **)&parent_hw;
++	if (parent_data)
++		init.parent_data = (const struct clk_parent_data *)parent_data;
+ 	else
+ 		init.parent_names = &parent_name;
+ 	init.num_parents = 1;
+@@ -552,7 +552,7 @@ struct clk_hw * __init
+ at91_clk_register_sam9x5_main(struct regmap *regmap,
+ 			      const char *name,
+ 			      const char **parent_names,
+-			      struct clk_hw **parent_hws,
++			      struct clk_parent_data *parent_data,
+ 			      int num_parents)
+ {
+ 	struct clk_sam9x5_main *clkmain;
+@@ -564,7 +564,7 @@ at91_clk_register_sam9x5_main(struct regmap *regmap,
+ 	if (!name)
+ 		return ERR_PTR(-EINVAL);
+ 
+-	if (!(parent_hws || parent_names) || !num_parents)
++	if (!(parent_data || parent_names) || !num_parents)
+ 		return ERR_PTR(-EINVAL);
+ 
+ 	clkmain = kzalloc(sizeof(*clkmain), GFP_KERNEL);
+@@ -573,8 +573,8 @@ at91_clk_register_sam9x5_main(struct regmap *regmap,
+ 
+ 	init.name = name;
+ 	init.ops = &sam9x5_main_ops;
+-	if (parent_hws)
+-		init.parent_hws = (const struct clk_hw **)parent_hws;
++	if (parent_data)
++		init.parent_data = (const struct clk_parent_data *)parent_data;
+ 	else
+ 		init.parent_names = parent_names;
+ 	init.num_parents = num_parents;
+diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
+index 950a4e570ebe..2d2e7c20d72d 100644
+--- a/drivers/clk/at91/pmc.h
++++ b/drivers/clk/at91/pmc.h
+@@ -198,11 +198,11 @@ struct clk_hw * __init
+ at91_clk_register_rm9200_main(struct regmap *regmap,
+ 			      const char *name,
+ 			      const char *parent_name,
+-			      struct clk_hw *parent_hw);
++			      struct clk_parent_data *parent_data);
+ struct clk_hw * __init
+ at91_clk_register_sam9x5_main(struct regmap *regmap, const char *name,
+ 			      const char **parent_names,
+-			      struct clk_hw **parent_hws, int num_parents);
++			      struct clk_parent_data *parent_data, int num_parents);
+ 
+ struct clk_hw * __init
+ at91_clk_register_master_pres(struct regmap *regmap, const char *name,
+diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
+index a764f2fe0f23..aee1d60492aa 100644
+--- a/drivers/clk/at91/sam9x7.c
++++ b/drivers/clk/at91/sam9x7.c
+@@ -752,7 +752,7 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+ 	struct regmap *regmap;
+ 	struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
+ 	struct clk_hw *td_slck_hw, *md_slck_hw, *usbck_hw;
+-	static struct clk_parent_data parent_data;
++	struct clk_parent_data parent_data[2];
+ 	struct clk_hw *parent_hws[9];
+ 	int i, j;
+ 
+@@ -795,9 +795,9 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(main_osc_hw))
+ 		goto err_free;
+ 
+-	parent_hws[0] = main_rc_hw;
+-	parent_hws[1] = main_osc_hw;
+-	hw = at91_clk_register_sam9x5_main(regmap, "mainck", NULL, parent_hws, 2);
++	parent_data[0] = AT91_CLK_PD_HW(main_rc_hw);
++	parent_data[1] = AT91_CLK_PD_HW(main_osc_hw);
++	hw = at91_clk_register_sam9x5_main(regmap, "mainck", NULL, parent_data, 2);
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+@@ -814,11 +814,11 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+ 			case PLL_TYPE_FRAC:
+ 				switch (sam9x7_plls[i][j].p) {
+ 				case SAM9X7_PLL_PARENT_MAINCK:
+-					parent_data = AT91_CLK_PD_NAME("mainck");
++					parent_data[0] = AT91_CLK_PD_NAME("mainck");
+ 					hw = sam9x7_pmc->chws[PMC_MAIN];
+ 					break;
+ 				case SAM9X7_PLL_PARENT_MAIN_XTAL:
+-					parent_data = AT91_CLK_PD_NAME(main_xtal_name);
++					parent_data[0] = AT91_CLK_PD_NAME(main_xtal_name);
+ 					hw = main_xtal_hw;
+ 					break;
+ 				default:
+@@ -833,7 +833,7 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+ 				hw = sam9x60_clk_register_frac_pll(regmap,
+ 								   &pmc_pll_lock,
+ 								   sam9x7_plls[i][j].n,
+-								   &parent_data, parent_rate, i,
++								   parent_data, parent_rate, i,
+ 								   sam9x7_plls[i][j].c,
+ 								   sam9x7_plls[i][j].l,
+ 								   sam9x7_plls[i][j].f);
+diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
+index 7d99823ec5dc..94e3fe78929d 100644
+--- a/drivers/clk/at91/sama7d65.c
++++ b/drivers/clk/at91/sama7d65.c
+@@ -1101,7 +1101,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+ 	struct regmap *regmap;
+ 	struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
+ 	struct clk_hw *td_slck_hw, *md_slck_hw;
+-	static struct clk_parent_data parent_data;
++	struct clk_parent_data parent_data[2];
+ 	struct clk_hw *parent_hws[10];
+ 	bool bypass;
+ 	int i, j;
+@@ -1146,9 +1146,9 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(main_osc_hw))
+ 		goto err_free;
+ 
+-	parent_hws[0] = main_rc_hw;
+-	parent_hws[1] = main_osc_hw;
+-	hw = at91_clk_register_sam9x5_main(regmap, "mainck", NULL, parent_hws, 2);
++	parent_data[0] = AT91_CLK_PD_HW(main_rc_hw);
++	parent_data[1] = AT91_CLK_PD_HW(main_osc_hw);
++	hw = at91_clk_register_sam9x5_main(regmap, "mainck", NULL, parent_data, 2);
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+@@ -1165,11 +1165,11 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+ 			case PLL_TYPE_FRAC:
+ 				switch (sama7d65_plls[i][j].p) {
+ 				case SAMA7D65_PLL_PARENT_MAINCK:
+-					parent_data = AT91_CLK_PD_NAME("mainck");
++					parent_data[0] = AT91_CLK_PD_NAME("mainck");
+ 					hw = sama7d65_pmc->chws[PMC_MAIN];
+ 					break;
+ 				case SAMA7D65_PLL_PARENT_MAIN_XTAL:
+-					parent_data = AT91_CLK_PD_NAME(main_xtal_name);
++					parent_data[0] = AT91_CLK_PD_NAME(main_xtal_name);
+ 					hw = main_xtal_hw;
+ 					break;
+ 				default:
+@@ -1182,7 +1182,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+ 
+ 				hw = sam9x60_clk_register_frac_pll(regmap,
+ 					&pmc_pll_lock, sama7d65_plls[i][j].n,
+-					&parent_data, parent_rate, i,
++					parent_data, parent_rate, i,
+ 					sama7d65_plls[i][j].c,
+ 					sama7d65_plls[i][j].l,
+ 					sama7d65_plls[i][j].f);
+diff --git a/drivers/clk/at91/sama7g5.c b/drivers/clk/at91/sama7g5.c
+index e4c18b8a5c20..d7fb42166a14 100644
+--- a/drivers/clk/at91/sama7g5.c
++++ b/drivers/clk/at91/sama7g5.c
+@@ -978,7 +978,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 	struct regmap *regmap;
+ 	struct clk_hw *hw, *main_rc_hw, *main_osc_hw, *main_xtal_hw;
+ 	struct clk_hw *td_slck_hw, *md_slck_hw;
+-	static struct clk_parent_data parent_data;
++	struct clk_parent_data parent_data[2];
+ 	struct clk_hw *parent_hws[10];
+ 	bool bypass;
+ 	int i, j;
+@@ -1023,9 +1023,9 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 	if (IS_ERR(main_osc_hw))
+ 		goto err_free;
+ 
+-	parent_hws[0] = main_rc_hw;
+-	parent_hws[1] = main_osc_hw;
+-	hw = at91_clk_register_sam9x5_main(regmap, "mainck", NULL, parent_hws, 2);
++	parent_data[0] = AT91_CLK_PD_HW(main_rc_hw);
++	parent_data[1] = AT91_CLK_PD_HW(main_osc_hw);
++	hw = at91_clk_register_sam9x5_main(regmap, "mainck", NULL, parent_data, 2);
+ 	if (IS_ERR(hw))
+ 		goto err_free;
+ 
+@@ -1060,7 +1060,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 
+ 				hw = sam9x60_clk_register_frac_pll(regmap,
+ 					&pmc_pll_lock, sama7g5_plls[i][j].n,
+-					&parent_data, parent_rate, i,
++					parent_data, parent_rate, i,
+ 					sama7g5_plls[i][j].c,
+ 					sama7g5_plls[i][j].l,
+ 					sama7g5_plls[i][j].f);
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.43.0
+
 
