@@ -4,83 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D14DFC982F0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 19:09:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA5CC982FB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 19:28:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QOIsIzI7WiDlq65gAQN/Rp2PT4RYKGrXr3biwu9dKdk=; b=2pVrzCYWeGyyPtTRu/HvLy8/Zi
-	F/dkm+WA53Yttk9BVAWhM9Nrt7gB1Zpk6lwsxgweF6sIdYJz/qZ4VH+xrT16dK0oAEW14ijDdztUt
-	ZEJFnWJvJhBvhGmzEw3GdVBzztv5SS1N3qIH6ikLUHYbQPKJY3VSN6rHXKNitol1sBiVWM3eYiwoD
-	YU9I6xVU4rqXbWBltHXP4u4rd0DhV0fWKP086cKVrFWn+hyXaosnzFc5QAYlkN0hFv5ww4HaK8SMN
-	nfFGu2JtWWSwYG47T9WEYnRJrIC3IvqlAyu5Fh5eokhog4hO92MQQQdCoEV73xEGG/KnpRDj0JEJB
-	pWPtPlbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LOZsR9wD7hRY1wsccByStwxXmomHMxSESH5uMuO/bAQ=; b=DwvmI/nmRt9QZ9PsRFfFzzrHKO
+	JxkLTjIVNQRP75QAb6uS1iSXtNo/HmTHuEpalXYphk3AW1df6AUM5C1WtkZv0i1PJohy7GFjOAjOQ
+	/fzeyB+H/o5pXs5o3qCTKiVVphc2nDgP33b9q0gktw5T4LV6s6uDlQTlWIHxonQhMM94J38MXueua
+	0PkgOD2ucLsdgkgU6MhLXVvzoPpP7fPge/vDa3PjqPoS0HnFT/SYWOiYDaGZmlp6aLMMcA77iMNIf
+	0Z6DixDMAuFWZ2Uhtq4pfunh84eyl38m5C77EZsMXyLTspyM8Bc/5GGab6G8CpqZyIwDx2ML4cuxX
+	yqKcyX2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgpCQ-0000000EfmS-4AyP;
-	Fri, 16 Jan 2026 19:09:34 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1vgpU5-0000000Egvz-13O0;
+	Fri, 16 Jan 2026 19:27:49 +0000
+Received: from mail-westus3azon11010026.outbound.protection.outlook.com ([52.101.201.26] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgpCN-0000000Eflp-3GGD;
-	Fri, 16 Jan 2026 19:09:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1768590566; x=1769195366; i=wahrenst@gmx.net;
-	bh=QOIsIzI7WiDlq65gAQN/Rp2PT4RYKGrXr3biwu9dKdk=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=ZmLicNzPpp9Zq+xMcgTa3fzvl/oHsZFC/lbxTl8SeJsQclBjpXW2dTAiRMeGQxPo
-	 fYOufzXysxdKcyayRcb7sf3rxyup3CaiT61Xcs+vl0rX1ZeGGCFLJkSnp1g6w77p2
-	 L1/uJ20Td72wAkCQxzqY/UPadfvhv6C+loW/o4zEMxnEB5nkwTcwc75pMclBoXCaj
-	 8VSJx2Ip+wE2ovmqwX+o+jOtS7BY6wWX7pgQhLNwGFGAcc2IBpPm+rL0koFi1LIwP
-	 EVwQ6ilJgrt6/PqppQsrKTeMFF1DmI9zoyMbDfgo1fxdy1RQ3JeI6GzzYUn1T0pvV
-	 LSp/7azxGkMWHnXyVw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.156] ([91.41.209.202]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MHoRA-1vd1ZQ1nAE-00BcpJ; Fri, 16
- Jan 2026 20:09:26 +0100
-Message-ID: <f70c95cf-e048-47b6-aa6d-e65bf47fee47@gmx.net>
-Date: Fri, 16 Jan 2026 20:09:23 +0100
+	id 1vgpU0-0000000EgvE-1GH2
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Jan 2026 19:27:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hDU5CdUYfvM779rqJhcbv7IcskVPcmlnksaOIJ1sLv5BR3HhR7SkpnxmmiuTn8GIqjDnIR4d6geyD8R2iWK0CvqEMtYflg1Uk65HKHWBgv+LCJN6d7itUNTgXb2SJTxace7mg0CjrrpvnrJsJRyCxR9W46UV+g4GzpWWUVJ/j+TOreiKZT4OQ1MpUAvwsZlV7HOzGIhfAC6Jn1M0DPrn9DA5jxGh69JOLXQwcnVeL0YC5Vn7KZgEcRHCntME5ofWMVJmCKY65FzJuM40KOS8F7CytUQixZZRHjTA8wbOXWMuifJlNF0FsGzUdPXS6aw2EAagmd0uytGpaMfhqbUYMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LOZsR9wD7hRY1wsccByStwxXmomHMxSESH5uMuO/bAQ=;
+ b=NWvgYPFYQYfFavcLdQwcjs6P205AmaE3gQxguO/5p+MDQ21Rue6fawf6YGRIHooHjBILWtvy2iIT1aITBwfS8uPatSsGPdgDGKsxxMhNf3ymtUGxXjCF8f1i5izR+dSsL7cgeOt0MsJLafymY17R6HZi3vpTSr+gkevu7Cix/5fmvNuctwURkQujzZ8tTOR9pR755F1za1PeqFwe56CPcDykRR1t9zJo9ipxMY5sy55X5/YHKP+UWunvc3OfBOiM41+sy5wFqt73GpJMUD+uLBBNdT0gquMRdvccAqlILEuit1o4ypREheFo111Gk8wyxrELvzvBiGMF9+N3sDERZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=baylibre.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LOZsR9wD7hRY1wsccByStwxXmomHMxSESH5uMuO/bAQ=;
+ b=ZZgx8W2L3yXeYcufjNSEBvfNdROnhpBazZVKs6lq0UsRm+qvRhh6yGAz7uOhvq9Ekbc6dc7+v4fBGRlzuba75FreofWdE3f+74kV+inIzPkVRuvyjwqFpD8wv9VlYia+xscuYZ1Dib2LQu2lnvCexNY998aXhQYqNFJ0mOrXX4Q=
+Received: from SJ0PR05CA0138.namprd05.prod.outlook.com (2603:10b6:a03:33d::23)
+ by IA1PR12MB9524.namprd12.prod.outlook.com (2603:10b6:208:596::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.8; Fri, 16 Jan
+ 2026 19:27:36 +0000
+Received: from SJ1PEPF00002314.namprd03.prod.outlook.com
+ (2603:10b6:a03:33d:cafe::76) by SJ0PR05CA0138.outlook.office365.com
+ (2603:10b6:a03:33d::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.4 via Frontend Transport; Fri,
+ 16 Jan 2026 19:27:31 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SJ1PEPF00002314.mail.protection.outlook.com (10.167.242.168) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9542.4 via Frontend Transport; Fri, 16 Jan 2026 19:27:36 +0000
+Received: from SATLEXMB03.amd.com (10.181.40.144) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Fri, 16 Jan
+ 2026 13:27:35 -0600
+Received: from satlexmb07.amd.com (10.181.42.216) by SATLEXMB03.amd.com
+ (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 16 Jan
+ 2026 13:27:34 -0600
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Fri, 16 Jan 2026 11:27:30 -0800
+From: Suraj Gupta <suraj.gupta2@amd.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
+	<radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <michal.simek@amd.com>
+CC: <sean.anderson@linux.dev>, <linux@armlinux.org.uk>,
+	<linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<bmasney@redhat.com>
+Subject: [PATCH V3 0/2] Add devm_clk_bulk_get_optional_enable() helper and use in AXI Ethernet driver
+Date: Sat, 17 Jan 2026 00:57:22 +0530
+Message-ID: <20260116192725.972966-1-suraj.gupta2@amd.com>
+X-Mailer: git-send-email 2.49.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: broadcom: bcm2712: Add V3D device node
-To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- kernel-dev@igalia.com
-References: <20260114120610.82531-1-mcanal@igalia.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20260114120610.82531-1-mcanal@igalia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:xVERlNxr39ZJa1OQNlLPowmVSOzZxVIBCwvnSaP0eJVd3KTDm4R
- Yw+ftRybwirOq18wiBFVwOZaouYMdsL+chLL0JyV8JJukA1GHsXA6Oxuu2Sewe8ZhBCO0aB
- mxrr0Kn9R7ejc80AQmQktZMcwNusB7p8EBzoPB7E+3SY0rr3F/k3yBFMf/C4X0SqWOMKJ11
- IMubcEZ0xPYpl/hRyIMwA==
-UI-OutboundReport: notjunk:1;M01:P0:ERruxhv27NQ=;sJ6zhfgSEtO+5BZXPWwNYS/+FT7 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
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB03.amd.com: suraj.gupta2@amd.com does not
+ designate permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002314:EE_|IA1PR12MB9524:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5f004987-2f8a-418d-4aa3-08de55354de6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|7416014|376014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LLoUNtOVcIfGQ/hXHDQRXSirOfdOA5O6v7nWpDjj27w/VBT2T9qw1JHMsGuA?=
+ =?us-ascii?Q?lvM8YE4EMaujg8SrTeJDxXNoORjQJk+Fyv1qQcxr3gNWdZEEVELtxsZpM3PC?=
+ =?us-ascii?Q?D4rOPmdfH5RWo7fmAN3wlDfzzBwkt40RF+blZolkJNbHJfvVbYCFE3kxoSbS?=
+ =?us-ascii?Q?Gsqqn0omygO4h2Kh7o+s0TuAn12Mbefsih9lnRnUJnpVzIpRDAJhYBDQPqfT?=
+ =?us-ascii?Q?mg7JUOEVyIgJG5RofGXMN2PGfIocxg4pvjR/niNTUVqBcJI1bJPw/Y7rsat7?=
+ =?us-ascii?Q?r+DYE1f/eh4J/IUQggxAXWLSVSckV/aQgZljz27eICdStJ5bYjDuZwE+Rfmy?=
+ =?us-ascii?Q?mPvQHHZvpiAQ3ssD9t4KV40121pOLv3N3V4pAOl4SXy8tjEcOkZ7QxeOIpqe?=
+ =?us-ascii?Q?Bk/pv0veoMutLsf1LdKUt8aexK29DQGcbscXmJFGxwCRvmz/Wy2C5soPhOdK?=
+ =?us-ascii?Q?Oykh8tG4Xzem6FTFpwbmPlBXpkTidafOJe4u0nNmPNU6xsxx3XNM3qKtx87K?=
+ =?us-ascii?Q?nZwD4/3vx40PC/JtPUCts8v2sBs5a5+es6q2QTEatqoFokUouZcc1IIs7Rob?=
+ =?us-ascii?Q?m8/gP17mY8ehsPHpXvRHtBRwcW114yu8d7oZV2Emf190EcG/kSelQ+M6dVEW?=
+ =?us-ascii?Q?FjOCHH9F5tdLO8W+o+dOV1RM27yQEnrAOEWyKRKSZ7eb5s6qwafzpGgLYD7M?=
+ =?us-ascii?Q?Psxmp7IUJvmR6LWFDijeNV3RaMECnGy67YTzqx0J3BGCYaexR84MzvvHHD3R?=
+ =?us-ascii?Q?PjaTWyj0RZK8e8hJ3T83IlDPt1So8+auHf+OZeOL+dKshHuw8tGxqdYhKk7q?=
+ =?us-ascii?Q?Rls9imDnRpJMue/vtAeaTkahFSfOQm1I1jAxTcNEPToLn8zoob42bRns2nMO?=
+ =?us-ascii?Q?OLdpBk8WwNATF3vp1uM6XTCDj9Bl6AdpMDVEOonsFRA7Sx53UOrlhR+rKGdj?=
+ =?us-ascii?Q?XUbU3Xi/aWJvhTZK/9gHUzVp5lpUfFsSTt8RNYanfIJcEh3tn3ig5jwyD3v+?=
+ =?us-ascii?Q?l1OQ2AEIKsbA3bnz00YDzsQon3kfbBazxYzsEHDpKCfvp4rXrqNAZ0ehBMTp?=
+ =?us-ascii?Q?iOZGPjsju3sULRpAWgKkgyGB0Hxr9qBMhCBlnOUq/TKbxLowxEMbDgO3QST4?=
+ =?us-ascii?Q?x52vP3/SQ685xiKkC9JnC2xDG7JyrA4Q4Q+BAdpcFqDeD/EbND2ljaV3WYAh?=
+ =?us-ascii?Q?EIgV3OVxmiOodTETPfYNWp8pIrrmWRXRPQTu5DIAjfWka9g/wT4RzBZhehAI?=
+ =?us-ascii?Q?k8MKSVolYHTIRANM+YoCf02o5FDZmdcUeaThHB9vk8ti5zk74MFk46yJDHi+?=
+ =?us-ascii?Q?uWMDuVXH2NxUkYwQQgcrN8PvQ7NT+3MN33vBWmk2Y6XLJNhXvLcOWDf3aXL2?=
+ =?us-ascii?Q?sbXAyiFH68tz2xtZZvkm035U6eUUWFYGrR44xripKtpB8oV4/Dq/n8jIpOf0?=
+ =?us-ascii?Q?nnNbvMeOJWZ3Osi46xVBKwaf8V8Wifvgy+nwbP2AAgQdKYW+oJs+s9CscZTm?=
+ =?us-ascii?Q?vOXKXncHSP4nN6yJMg2byp98rlPjhJkp+uDsB2OENMXkcgZvEbRLtQYP6CbI?=
+ =?us-ascii?Q?+BYXABjwkd7JlTUwgC/ys/z1qkJ7wZUbYJQ1Wfz6VyVoXheSTOk3liMliXnC?=
+ =?us-ascii?Q?j/0jkRFctMQEKQyT+pNmYdi3mrwThlIs7+E0CNlHVvu2sGQGmt8copxwngaP?=
+ =?us-ascii?Q?ord/+GlJC/T9sWMhEmtdNBjfu+o=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(7416014)(376014)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 19:27:36.0936
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5f004987-2f8a-418d-4aa3-08de55354de6
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002314.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB9524
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_110932_189412_A268D64A 
-X-CRM114-Status: UNSURE (   7.14  )
+X-CRM114-CacheID: sfid-20260116_112744_377049_17FEF833 
+X-CRM114-Status: UNSURE (   9.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,15 +156,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 14.01.26 um 13:04 schrieb Ma=C3=ADra Canal:
-> Commits 0ad5bc1ce463 ("drm/v3d: fix up register addresses for V3D 7.x")
-> and 6fd9487147c4 ("drm/v3d: add brcm,2712-v3d as a compatible V3D device=
-")
-> added driver support for V3D on BCM2712, but the corresponding device
-> tree node is still missing.
->
-> Add the V3D device tree node to the BCM2712 DTS.
->
-> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+This patch series introduces a new managed clock framework helper function
+and demonstrates its usage in AXI ethernet driver.
+
+Device drivers frequently need to get optional bulk clocks, prepare them,
+and enable them during probe, while ensuring automatic cleanup on device
+unbind. Currently, this requires three separate operations with manual
+cleanup handling.
+
+The new devm_clk_bulk_get_optional_enable() helper combines these
+operations into a single managed call, eliminating boilerplate code and
+following the established pattern of devm_clk_bulk_get_all_enabled().
+
+Changes in V3:
+- Correct 'Return' format in documentation of
+devm_clk_bulk_get_optional_enable() in patch 1/2.
+
+Changes in V2:
+- Modified commit descriptio and subject of patch 2/2
+
+Note:
+Prepared this series as per mainline discussion here:
+https://lore.kernel.org/all/540737b2-f155-4c55-ab95-b18f113e0031@linux.dev
+
+RFC patch link:
+https://lore.kernel.org/all/20260102085454.3439195-1-suraj.gupta2@amd.com/
+
+
+Sean Anderson (1):
+  net: axienet: Fix resource release ordering
+
+Suraj Gupta (1):
+  clk: Add devm_clk_bulk_get_optional_enable() helper
+
+ drivers/clk/clk-devres.c                      | 50 +++++++++++
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 83 ++++++-------------
+ include/linux/clk.h                           | 23 +++++
+ 3 files changed, 100 insertions(+), 56 deletions(-)
+
+-- 
+2.25.1
+
 
