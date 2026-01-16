@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA7DD48998
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 12:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECF5D48998
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 12:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0rwV5/Y0If2yPwnaZVdHGKfMasuN4iYLD46p7FkT6I0=; b=QsyOQMiWTxk0+UdpX2Pa7dW9ze
-	6dUpmOEiEJ02ZmHzYtQpOtPK6Znkg4rzNkCv09BfUg7VcNUTi8qvuRmbJi6CU9+A2xsHistVhcgyC
-	IESMJp6FYua0hzmUIdw2H97LZJFtjVr1WiaJmRCeoW63e/73qyt/JpN10qVUuDueEtEdcYa/s5c0E
-	wcT6e0rWUTXTAaqAMc81JZeaKLGCarmlXgbtcMAWp6kAjchlHxvXALO/9JzEk4GV0wnvP2F+RQD4E
-	er4Bvzxw6Sez8CllzHjV8+3nCKsRz/Nw0XmWIrYMTRPjy6z5COfpRME0MCWj74rhZ+OrYmGSaWNKl
-	/NlC1Hig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vTytNjErhi1qBQ1WEW6/G3xPtlD/ooItzU34iIyo0X8=; b=qXUjvglf6CA5V8yB9ctYW2ATFG
+	fkNsLcBrghVJ+c3due2VrmlcKK04idmGmoWvDQzrsuDYdyWwAsybRiXCWDMoO0/y/NchpAcvTgaEe
+	aAeUaz2lU6e/ozF5bcBvw80taJ9XUZrrkDfBZYXOiM4/QSgLpUbngJVY6k3ux8tpVkXasGRpFNjzC
+	ZGkizlgxu75zwUslBK3U2kbVu39nJ30ahCKooYifw6KEMohgjzsPAx5U0Pnbl1cTRYjE1XWYhCCM3
+	JLLt917F4gqRbWhGJqPUvmrdZ84E2PwroY/4phUlUQvYQVrqbwTYIn15jX+SXPOQyNQe0mWH6AAtJ
+	eKGSiQkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgifj-0000000E5lJ-1zSj;
-	Fri, 16 Jan 2026 12:11:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgifh-0000000E5kf-3xxw
+	id 1vgihK-0000000E5wp-43dP;
+	Fri, 16 Jan 2026 12:13:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgihJ-0000000E5wS-0Yh5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 12:11:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 192FC6016F;
-	Fri, 16 Jan 2026 12:11:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DF8CC116C6;
-	Fri, 16 Jan 2026 12:11:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768565480;
-	bh=aBdjzpTtcZ0qI5CFPQSxaEtJCSirsILmgGsCZ2lTJWg=;
-	h=Date:From:To:Cc:Subject:From;
-	b=oLnHl6WG/A0nXEAeinmh1XWCBJCoL1jQ+9hP3DCxyQaJBaJjEqohNgOy4PrZa4r2x
-	 g+1MYdXDhI5/fUOtnV3chdzvMX3w9aK1y33uvRUIxXeIE+qkP8FDFE1tbrBYYkRRgu
-	 oM+oVlwf2BoAQv0OyUsPHsrVg4/lDEig6NV8FRPgmsACrEtIrI69VQPcnbNwmRzdZy
-	 G1hd979ucpS0x1Scn8ZQwEPdhG4J5tkm9J1AXtrx9CCYlbQTqXZyxWK2G+BNKw5Fn+
-	 fRGxhFj+L7kmeyM1PANJe1ye3rh+vt1nX4D5BAbLMl980Uai2YkcgqSF9eSoJp5qA4
-	 TWtZJ1hQO9Lng==
-Date: Fri, 16 Jan 2026 12:11:16 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>, soc@kernel.org
-Cc: ARM <linux-arm-kernel@lists.infradead.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>
-Subject: linux-next: Fixes tag needs some work in the arm-soc-fixes tree
-Message-ID: <a28b9f46-c0eb-44da-9555-0534f7ea6eaf@sirena.org.uk>
+	Fri, 16 Jan 2026 12:13:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 20E041515;
+	Fri, 16 Jan 2026 04:12:53 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 012263F694;
+	Fri, 16 Jan 2026 04:12:54 -0800 (PST)
+Message-ID: <c1dcc2a6-ca11-49e7-b7cd-d2ec70fed7f1@arm.com>
+Date: Fri, 16 Jan 2026 12:12:53 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="IUSLUm3ia2TJc8nT"
-Content-Disposition: inline
-X-Cookie: I've only got 12 cards.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 02/47] arm_mpam: Use non-atomic bitops when modifying
+ feature bitmap
+From: Ben Horgan <ben.horgan@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, will@kernel.org,
+ corbet@lwn.net, maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+ suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-3-ben.horgan@arm.com> <aWonpc52-BMzcx8Q@arm.com>
+ <b192241e-1b34-4d6c-bbb4-b53cdd98526f@arm.com>
+Content-Language: en-US
+In-Reply-To: <b192241e-1b34-4d6c-bbb4-b53cdd98526f@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260116_041301_293664_E1515431 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,41 +78,72 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---IUSLUm3ia2TJc8nT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 
-Hi,
+On 1/16/26 12:02, Ben Horgan wrote:
+> Hi Catalin,
+> 
+> On 1/16/26 11:57, Catalin Marinas wrote:
+>> On Mon, Jan 12, 2026 at 04:58:29PM +0000, Ben Horgan wrote:
+>>> In the test__props_mismatch() kunit test we rely on the struct mpam_props
+>>> being packed to ensure memcmp doesn't consider packing. Making it packed
+>>> reduces the alignment of the features bitmap and so breaks a requirement
+>>> for the use of atomics. As we don't rely on the set/clear of these bits
+>>> being atomic, just make them non-atomic.
+>>>
+>>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>>> ---
+>>> Changes since v2:
+>>> Add comment (Jonathan)
+>>> ---
+>>>  drivers/resctrl/mpam_internal.h | 8 ++++++--
+>>>  1 file changed, 6 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+>>> index 17cdc3080d58..e8971842b124 100644
+>>> --- a/drivers/resctrl/mpam_internal.h
+>>> +++ b/drivers/resctrl/mpam_internal.h
+>>> @@ -200,8 +200,12 @@ struct mpam_props {
+>>>  } PACKED_FOR_KUNIT;
+>>>  
+>>>  #define mpam_has_feature(_feat, x)	test_bit(_feat, (x)->features)
+>>> -#define mpam_set_feature(_feat, x)	set_bit(_feat, (x)->features)
+>>> -#define mpam_clear_feature(_feat, x)	clear_bit(_feat, (x)->features)
+>>> +/*
+>>> + * The non-atomic get/set operations are used because if struct mpam_props is
+>>> + * packed, the alignment requirements for atomics aren't met.
+>>> + */
+>>> +#define mpam_set_feature(_feat, x)	__set_bit(_feat, (x)->features)
+>>> +#define mpam_clear_feature(_feat, x)	__clear_bit(_feat, (x)->features)
+>>
+>> After discussing privately, I can see how test__props_mismatch() can
+>> end up with unaligned atomics on the mmap_props::features array. Happy to
+>> pick it up for 6.19 (probably the first patch as well, though that's
+>> harmless).
+> 
+> Yes please.
+> 
+>>
+>> Is there a Fixes tag here for future reference?
+>>
+> 
+> Yes, the mpam_set/clear macros were introduced in
 
-In commit
-
-  2150467fc61dd ("Revert "arm64: tegra: Add interconnect properties for Tegra210"")
-
-Fixes tag
-
-  Fixes: 59a42707a094 ("arm64: tegra: Add interconnect properties for Tegra210")
-
-has these problem(s):
-
-  - Target SHA1 does not exist
-
+The mpam_set_clear() actually comes after in:
+c10ca83a7783 arm_mpam: Merge supported features during mpam_enable() into mpam_class
+but I think the fixes below is still the correct one as it is where we could 
+first start seeing the problem.
+> 
+> Fixes: 8c90dc68a5de ("arm_mpam: Probe the hardware features resctrl supports")
+> 
+> Thanks,
+> 
+> Ben
+> 
+> 
+ 
 Thanks,
-Mark
 
---IUSLUm3ia2TJc8nT
-Content-Type: application/pgp-signature; name="signature.asc"
+Ben
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlqKuQACgkQJNaLcl1U
-h9Acewf/U6NL9jU73dD9EFyIMJR2O8crW//rETggk/uIKDwSoGbHF+Te70MPu5BS
-9tB0wpRmkEFLNE9/UUUD1UfQtEakRzieNuc4vm6HqIYeDPcTDXszIHeWP2W6VCqi
-IPZHIirbWV+3/y4MC/a4Wu5h3d4duWDWMWyC7KnMpwJZJUKTlM6TYsd5FSZFXu29
-aQWqoQwQ3D0cJnNvanPQQ7uCrYBvRu0c1kbXmbYrUpOmfRH1fGxm4Re9jVW968gm
-D1Df6p7SUpDcE14Xf8KDeTBCi9aDBXWB7JC4po0YNNTg4ZW25HsmdkAy172sg/6W
-5nH5ENK1iKWvb0PNAJp+TycADDa4MQ==
-=xXHR
------END PGP SIGNATURE-----
-
---IUSLUm3ia2TJc8nT--
 
