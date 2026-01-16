@@ -4,84 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A8A4C982D4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 16:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA0DC982D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 16:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gtWZWTls5fOJzZ7/HCkTV3sZ8RZyOrzPhtTBtiT5PBg=; b=xFiKIvWyQQkuUXkICnfMLzICUq
-	x824q44Ut1xoZc8IiOO4+zXymOQGaADvXwW4+HIlPs0qupUG25DBmzkC0N7AfTkpmNup9CyJH6ZHP
-	0479ZyoqRzeUDPSBFVqn/iFj1Ut9T22Sxx7hEZPvXT0F8XqLCT3Jvj52YK9MtjCKreSRIVhHheaXj
-	IGHAMsymXtVN6UjzNntbVSR6H1gsN/NEXlVwSQ2Ye98O3jBuKb//dyinfFe/7kmlcjfjn1TGBWZ74
-	DcEaKLHCen9ArxpUQ0mO5sBSMXu/SYespQXC82PFUqWDRFMnAUziZIUB7PxZOzkhpqz3z83Qwz4jP
-	uvSIysTA==;
+	bh=RahEOyQwJocIFS646Fn0CzFq9Wit2v7YAMI5BK2dUO4=; b=P6XhVq0g9CKkgFf1eiBm9l8fss
+	UncMesp5g6gt3Kn/rRlAXPMX5YwRurV2I3aMZEcCJ50/CgxFgIW8hyB62rIO91M19Fg84a46p3FJG
+	zvcXj5+VDUdwquas30X+wBPrFmp4RDhAL1g43yHIqSMcZ14nBt8FMWy1fW6+B7yKFRhgfHgIwoBy/
+	X9rZAdjUT3xlhpElIiQYW1PkWKHbTUSWqdgA0iRFdwol4/IcR2Pfnq/tO3aKOYHsW7Ho0FpwvWUBV
+	CpP/x0/Rs49zqRT+mEtqN/J5JfKpf4T1tVN4qyUj8daF5v5WM2lSu0eWVBE/t/gjasdgkzB/vFrrS
+	ox0BeDtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgmI0-0000000EPYe-176l;
-	Fri, 16 Jan 2026 16:03:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vgmI5-0000000EPbE-4BMT;
+	Fri, 16 Jan 2026 16:03:14 +0000
+Received: from mout.web.de ([217.72.192.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgmHx-0000000EPXt-3wXI
+	id 1vgmI4-0000000EPZG-0bhb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 16:03:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4B17C4451A
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 16:03:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30A10C116C6
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 16:03:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768579385;
-	bh=BhtIab84IdoeMyJM4092ElaZLaK1ny/rkG7xxvHmUy0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=iAOcfHMtlNtYlCHmFfVUnCzaca1bIVX694JckNNVKqYpdHqwWEYtQsK4SV34XUbws
-	 c5to2nDD9XOPqNh+R8/bz3Mm8eixqo2cskf2EIC0WO+yqqsZYz0bjcRPzQ4TtP9XMJ
-	 DOwMhS3K5M+HuaXJy01xByVGFJMncxe+ILm3PgPGAzwFXTD7x0WKCzT6fs1KtmNHi4
-	 bRShYx0G7Jr5r61NzGAxNRXXnSMgjj2N6fumDSO1vLvzpG+/hcrEHHm0sDGlvqVekU
-	 ivhAVNcRS9SgL2a+AbsfwslZ4X9hWpi1y0oTQqpz9XGhsCsJ0/ocDiwNp80qiarrKd
-	 xNYDJ38ARY0Sg==
-Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-b7cf4a975d2so395580566b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 08:03:05 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVCkHvquxyrigNlf26lGxIfCLkJSmLlw/clXz9IgGTLrCzgt188bAEicYAviDSPy9Cfbxd0shzdG6J7npcH9NPk@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBT3D7ujg8Oc5DxlOJpMAH6zjax97EwiVOcsM8si1oRAPRm2Tk
-	4+PXEYY+InSsNxzNZrrIcwasjbrMC7y9C6EzKsSuleM8aNm2qCV7YfmKLUunt3qEH/tvHqR4FHE
-	ybb3Cgyp8qLYdu7TcjP5FSPef7ROQjg==
-X-Received: by 2002:a17:906:fe0a:b0:b87:693:31 with SMTP id
- a640c23a62f3a-b8792feb242mr308189566b.52.1768579383254; Fri, 16 Jan 2026
- 08:03:03 -0800 (PST)
+	Fri, 16 Jan 2026 16:03:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1768579358; x=1769184158; i=markus.elfring@web.de;
+	bh=RahEOyQwJocIFS646Fn0CzFq9Wit2v7YAMI5BK2dUO4=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=g7pqTYztp3NBU9Bx3x4gxHX5baHreRr01dpwB8X+5cImdscHij6muD1ydkMKdb50
+	 zOuXXAzAsToJgjEjRwH2c1F7DuW4DdjuL6q64xeaaN3nkxuz9CZ4nbem6fq7Iz27Q
+	 qczMCRwesJum/oueMRNG0OxC48DzwmHqvphn/g+yK9jF4KPNtlFLvDRK8j+bdIad3
+	 BS6y7Bahw/q4dP3Qit5ff+YRXnKMq+G2e5r/UIqEWlY1OfVsdqq+MXouuaXQoC+bJ
+	 UfzlVWdGFABm6+bgOmkEy90uZK/m8mZB6ws3PfVqYn8HI0OOWrGZhAs3Ni1Y3+IcA
+	 ew29h6tpdrUl3sYOhg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.218]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MGxQX-1vc5SH1gpv-00E5Ui; Fri, 16
+ Jan 2026 17:02:38 +0100
+Message-ID: <fca8f2cd-c3e5-40b0-a793-bded109e37bc@web.de>
+Date: Fri, 16 Jan 2026 17:02:35 +0100
 MIME-Version: 1.0
-References: <20251223-openwrt-one-network-v5-0-7d1864ea3ad5@collabora.com> <20251223-openwrt-one-network-v5-2-7d1864ea3ad5@collabora.com>
-In-Reply-To: <20251223-openwrt-one-network-v5-2-7d1864ea3ad5@collabora.com>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 16 Jan 2026 10:02:51 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqLffH-MY+6frA_kxwifUPskLY8eNqtBoOP0O7Dxs=XHLQ@mail.gmail.com>
-X-Gm-Features: AZwV_QilotzZl5lJNLcliW_LfwPmw5qv0NdDfcdZ6pytb6giOF_8l_TtUZnUaC4
-Message-ID: <CAL_JsqLffH-MY+6frA_kxwifUPskLY8eNqtBoOP0O7Dxs=XHLQ@mail.gmail.com>
-Subject: Re: [PATCH v5 2/8] arm64: dts: mediatek: mt7981b: Add PCIe and USB support
-To: Sjoerd Simons <sjoerd@collabora.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Ryder Lee <ryder.lee@mediatek.com>, Jianjun Wang <jianjun.wang@mediatek.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Chunfeng Yun <chunfeng.yun@mediatek.com>, 
-	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Lee Jones <lee@kernel.org>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>, kernel@collabora.com, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-pci@vger.kernel.org, linux-phy@lists.infradead.org, 
-	netdev@vger.kernel.org, Daniel Golle <daniel@makrotopia.org>, 
-	Bryan Hinton <bryan@bryanhinton.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+To: Daniel Thompson <daniel@riscstar.com>,
+ linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Steven Rostedt <rostedt@goodmis.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Will Deacon <will@kernel.org>
+References: <20260116-iommu-io_page_fault_null_fix-v1-1-6c20c2e62987@riscstar.com>
+Subject: Re: [PATCH] iommu: Fix NULL pointer deref when io_page_fault
+ tracepoint fires
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20260116-iommu-io_page_fault_null_fix-v1-1-6c20c2e62987@riscstar.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:1FTKJkaMi8gpomCx5H3xe7LEvwBiTrFaijdUx2Aj7gfs0+co6kF
+ OydeSJM2HuFgj0Tr6tNwq1E6UHJGg9hJ/MJI1TDJUSIYxb/MMR201BNVS8i1IzpFUXSlNmW
+ B+U2QaEwExvNA3gutCzn9nh+uDvt4Igc4qRMzlAmsfWOa9O5XvUd6iBHfxZEp/pHh/rC/5q
+ LbYIQroeVg7U90mJh8qLw==
+UI-OutboundReport: notjunk:1;M01:P0:Mk6c8yA1AIw=;6vyQr/06AjdgiVjaW9favKvfSoR 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 r73MTZ9iVPuTmmV7wcnXV40pvXQBme99h3qwzT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_080306_010153_1B352E26 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20260116_080312_470480_60BBE01F 
+X-CRM114-Status: UNSURE (   5.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,116 +87,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 23, 2025 at 6:38=E2=80=AFAM Sjoerd Simons <sjoerd@collabora.com=
-> wrote:
->
-> Add device tree nodes for PCIe controller and USB3 XHCI host
-> controller on MT7981B SoC. Both controllers share the USB3 PHY
-> which can be configured for either USB3 or PCIe operation.
->
-> The USB3 XHCI controller supports USB 2.0 and USB 3.0 SuperSpeed
-> operation. The PCIe controller is compatible with PCIe Gen2
-> specifications.
->
-> Also add the topmisc syscon node required for USB/PCIe PHY
-> multiplexing.
->
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
-> ---
-> V1 -> V2: Keep xhci reg and phys properties in single lines
-> ---
->  arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 80 +++++++++++++++++++++++++=
-++++++
->  1 file changed, 80 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/=
-dts/mediatek/mt7981b.dtsi
-> index 416096b80770..d3f37413413e 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-> @@ -2,6 +2,7 @@
->
->  #include <dt-bindings/clock/mediatek,mt7981-clk.h>
->  #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/phy/phy.h>
->  #include <dt-bindings/reset/mt7986-resets.h>
->
->  / {
-> @@ -223,6 +224,55 @@ auxadc: adc@1100d000 {
->                         status =3D "disabled";
->                 };
->
-> +               xhci: usb@11200000 {
-> +                       compatible =3D "mediatek,mt7986-xhci", "mediatek,=
-mtk-xhci";
-> +                       reg =3D <0 0x11200000 0 0x2e00>, <0 0x11203e00 0 =
-0x0100>;
-> +                       reg-names =3D "mac", "ippc";
-> +                       clocks =3D <&infracfg CLK_INFRA_IUSB_SYS_CK>,
-> +                                <&infracfg CLK_INFRA_IUSB_CK>,
-> +                                <&infracfg CLK_INFRA_IUSB_133_CK>,
-> +                                <&infracfg CLK_INFRA_IUSB_66M_CK>,
-> +                                <&topckgen CLK_TOP_U2U3_XHCI_SEL>;
-> +                       clock-names =3D "sys_ck", "ref_ck", "mcu_ck", "dm=
-a_ck", "xhci_ck";
-> +                       interrupts =3D <GIC_SPI 173 IRQ_TYPE_LEVEL_HIGH>;
-> +                       phys =3D <&u2port0 PHY_TYPE_USB2>, <&u3port0 PHY_=
-TYPE_USB3>;
-> +                       status =3D "disabled";
-> +               };
-> +
-> +               pcie: pcie@11280000 {
-> +                       compatible =3D "mediatek,mt7981-pcie",
-> +                                    "mediatek,mt8192-pcie";
-> +                       reg =3D <0 0x11280000 0 0x4000>;
-> +                       reg-names =3D "pcie-mac";
-> +                       ranges =3D <0x82000000 0 0x20000000
-> +                                 0x0 0x20000000 0 0x10000000>;
-> +                       bus-range =3D <0x00 0xff>;
-> +                       clocks =3D <&infracfg CLK_INFRA_IPCIE_CK>,
-> +                                <&infracfg CLK_INFRA_IPCIE_PIPE_CK>,
-> +                                <&infracfg CLK_INFRA_IPCIER_CK>,
-> +                                <&infracfg CLK_INFRA_IPCIEB_CK>;
-> +                       clock-names =3D "pl_250m", "tl_26m", "peri_26m", =
-"top_133m";
-> +                       device_type =3D "pci";
-> +                       phys =3D <&u3port0 PHY_TYPE_PCIE>;
-> +                       phy-names =3D "pcie-phy";
-> +                       interrupts =3D <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
-> +                       interrupt-map-mask =3D <0 0 0 7>;
-> +                       interrupt-map =3D <0 0 0 1 &pcie_intc 0>,
-> +                                       <0 0 0 2 &pcie_intc 1>,
-> +                                       <0 0 0 3 &pcie_intc 2>,
-> +                                       <0 0 0 4 &pcie_intc 3>;
-> +                       #address-cells =3D <3>;
-> +                       #interrupt-cells =3D <1>;
-> +                       #size-cells =3D <2>;
-> +                       status =3D "disabled";
-> +
-> +                       pcie_intc: interrupt-controller {
-> +                               interrupt-controller;
-> +                               #address-cells =3D <0>;
-> +                               #interrupt-cells =3D <1>;
-> +                       };
-> +               };
-> +
->                 pio: pinctrl@11d00000 {
->                         compatible =3D "mediatek,mt7981-pinctrl";
->                         reg =3D <0 0x11d00000 0 0x1000>,
-> @@ -252,6 +302,36 @@ mux {
->                         };
->                 };
->
-> +               topmisc: topmisc@11d10000 {
-> +                       compatible =3D "mediatek,mt7981-topmisc", "syscon=
-";
-> +                       reg =3D <0 0x11d10000 0 0x10000>;
-> +                       #clock-cells =3D <1>;
+=E2=80=A6
+> Fix this by adding logic to the tracepoint to safely propagate NULL.
 
-This is now a warning as the syscon.yaml binding this compatible is
-defined in doesn't allow #clock-cells.
+* How do you think about to add any tags (like =E2=80=9CFixes=E2=80=9D and=
+ =E2=80=9CCc=E2=80=9D) accordingly?
 
-Rob
+* Would a summary phrase like =E2=80=9CPrevent null pointer dereference fo=
+r a tracepoint=E2=80=9D
+  be a bit nicer?
+
+
+Regards,
+Markus
 
