@@ -4,70 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA12C982E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63747C982DB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XYA1/PW/0yIH+JE9voV2k0usAZeLlOr7n78hGG9p8IA=; b=inlf8cEX817Z8UFvBTDbaXOvbM
-	8rtqSPg+wGWTV28bEO6JCttRZnGMyf7+SHSq3CS5q66H1E4h066Zij6HqQUrQdg2AToP1m+5TBDe1
-	P5+apDDN3HtP9/q5QX6H8E+X1JV8PI6rBkCcGm8k8bv2kkWpHteeAyDVq0u+m3UT/LBUlpjDw+80k
-	uFrO8bvZ1H7vwY8RaIl3DB4fyGnCU7XxrlNeJwf0qkXd9QMo4jAboH0tWUcKxBQXzZD60emPmcEdn
-	ngO3SYqmUVw3GsYpG+BCNdVUYCiL/3nkH9gV6+TmaTKOMPlMHH4Rg9f/MxAOd1tuFOfnwSHKXJlWH
-	3YoAIgGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/ogNT9pqt09bNh0fJR5xO0+6zrKZermPre/OJlYebic=; b=BZJGtfFabiE+F0uqjnf/XV/Hse
+	eprKVFP1fIvW0xCbLCpZ7sV55jEPXTy/qsF27GekxA70ZZN63D7STW5IaFpHPmrkZThggm+zsmRku
+	sHsSrKr/4SiAI0D5clEiRZRXQmdhQnwD08LcVbkVjRtDxqAWrnPpXRPwsxMlsFpe9Zt2bEyA5fHR7
+	UORaetl5Y9Ipmz+1ZWoNrfJ12/SVycc8YMmLf8n2amiCA8lZOmO00udz3uKLHi/B3w8k6H5C7FkvE
+	ciifQn21z76XTxqypUeF0bPB5WnNgkwHYwLHaJUiq1/W0pNJ+9quHomH1J2TPcQL5qUstaXK0RC7n
+	G7RBAFwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnhy-0000000EaVs-3lAr;
-	Fri, 16 Jan 2026 17:34:02 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnhv-0000000EaUq-3tIM
+	id 1vgnja-0000000Eah7-2BGR;
+	Fri, 16 Jan 2026 17:35:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgnjX-0000000Eagi-3tqT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 17:34:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=XYA1/PW/0yIH+JE9voV2k0usAZeLlOr7n78hGG9p8IA=; b=QFQLb4DtnGGuGfg6tzYpMSXF/W
-	ue4Jp5++XNHkR2KYLvgIRT7dbompth+qQ+kdEHlX3RYEmuv3XkPzJ19DPeN29oLEl10ve92Sb/rnj
-	Y/GZhWvxaOGeNQW0YF8yBcKLMCEId2mlPlhi1ghGMfixcRWCdW/gWI5ZmuApKMF0fHhDtr+Z/QO6/
-	7yI77qfOwnAu2iaboZeksr9zTCwGy4PUCuxB7yxvWwfl+NZN/Kphh8kF2poxmSjhe1lMbTrH4nJco
-	gZv49PoDsMKt5V3MJ3h0ThE2gsd8pD6nzgE4IEXVC/2PR8uDwXxUsXiQTrx5vpRsW7v58TglFEb5g
-	KAPt3GhA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53306)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vgnhn-000000002YA-3e5e;
-	Fri, 16 Jan 2026 17:33:52 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vgnhk-000000003mL-3E2k;
-	Fri, 16 Jan 2026 17:33:48 +0000
-Date: Fri, 16 Jan 2026 17:33:48 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
-	Arnd Bergmann <arnd@arndb.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	"Yadi.hu" <yadi.hu@windriver.com>, Bryan Brattlof <bb@ti.com>
-Subject: Re: [PATCH v4 1/2] ARM: mm: fault: Enable interrupts before invoking
- __do_user_fault()
-Message-ID: <aWp2fKGfIQKJ8wze@shell.armlinux.org.uk>
-References: <20260116170041.1059997-1-bigeasy@linutronix.de>
- <20260116170041.1059997-2-bigeasy@linutronix.de>
+	Fri, 16 Jan 2026 17:35:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D64011516;
+	Fri, 16 Jan 2026 09:35:31 -0800 (PST)
+Received: from [10.57.49.133] (unknown [10.57.49.133])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BCB053F59E;
+	Fri, 16 Jan 2026 09:35:36 -0800 (PST)
+Message-ID: <d3f008bf-a9cb-43a8-807b-2ba1d6d9ff3c@arm.com>
+Date: Fri, 16 Jan 2026 17:35:34 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260116170041.1059997-2-bigeasy@linutronix.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] Re: imx8 PCI regression since "iommu: Get DT/ACPI
+ parsing into the proper probe path"
+To: Jason Gunthorpe <jgg@nvidia.com>,
+ Nicolas Cavallari <Nicolas.Cavallari@green-communications.fr>
+Cc: iommu@lists.linux.dev, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Bjorn Helgaas <bhelgaas@google.com>, "Rob Herring (Arm)" <robh@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Joerg Roedel <jroedel@suse.de>,
+ regressions@lists.linux.dev
+References: <a1d926f0-4cb5-4877-a4df-617902648d80@green-communications.fr>
+ <eb94b379-6e0b-4beb-aaa7-413a4e7f04b9@green-communications.fr>
+ <3780eb61-68e2-42ce-939e-7458cd3a63cb@green-communications.fr>
+ <20260116171048.GP961588@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260116171048.GP961588@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_093359_968483_84F0A095 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20260116_093540_102390_5E1156D6 
+X-CRM114-Status: GOOD (  27.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,27 +72,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 06:00:40PM +0100, Sebastian Andrzej Siewior wrote:
-> From: "Yadi.hu" <yadi.hu@windriver.com>
+On 2026-01-16 5:10 pm, Jason Gunthorpe wrote:
+> On Fri, Jan 16, 2026 at 05:52:36PM +0100, Nicolas Cavallari wrote:
+>> I debugged it further, it seems to be mostly a PCI issue since the system
+>> does not actually have an IOMMU.
+>>
+>> When examining changes in the PCI configuration (lspci -vvvv), the main
+>> difference is that, with the patch, Access Control Services are enabled on
+>> the PCI switch.
+>>
+>>          Capabilities: [220 v1] Access Control Services
+>>                  ACSCap: SrcValid+ TransBlk+ ReqRedir+ CmpltRedir+
+>> UpstreamFwd+ EgressCtrl+ DirectTrans+
+>> -               ACSCtl: SrcValid- TransBlk- ReqRedir- CmpltRedir-
+>> UpstreamFwd- EgressCtrl- DirectTrans-
+>> +               ACSCtl: SrcValid+ TransBlk- ReqRedir+ CmpltRedir+
+>> UpstreamFwd+ EgressCtrl- DirectTrans-
+>>
+>> If I manually patch the config space in sysfs and re-disable ACS on the port
+>> connected to the LAN7430, I cannot reproduce the problem.  In fact,
+>> disabling only ReqRedir is enough to work around the issue.
 > 
-> A page fault from userland for a kernel address originates from from
-> do_sect_fault() (!LPAE) or do_page_fault() and ends in __do_user_fault()
-> by sending a signal.
+> My guess would be your system has some kind of address alias going on?
 > 
-> Sending a signal requires to acquire sighand_struct::siglock which is a
-> spinlock_t. On PREEMPT_RT spinlock_t becomes a sleeping spin lock which
-> requires interrupts to be enabled. Since the calling context is user
-> land, interrupts must have been enabled so it is fine to enable them in
-> this case.
+> Assuming you are not facing an errata, ACS generally changes the
+> routing of TLPs so if you have a DMA address that could go to two
+> different places then messing with ACS will give you different
+> behaviors.
 > 
-> Enable interrupts in do_kernel_address_page_fault() unconditional in the
-> user_mode case().
-> Enable interrupts in do_sect_fault() if they were previously enabled.
+> In specific when you turn all those ACS settings you cannot do P2P
+> traffic anymore. If your system expects this for some reason then you
+> must use the kernel command line option to disable acs.
+> 
+> If you are just doing normal netdev stuff then it is doubtful that you
+> are doing P2P at all, so I might guess a bug in the microchip ethernet
+> driver doing a wild DMA? Stricter ACS settings cause it to AER and the
+> device cannot recover?
+> 
+> It will be hard to get the bottom of the defect without a PCI trace
+> 
+> I don't know why your bisection landed on bcb8 - the intention was
+> that pci_enable_acs() is always called, and I didn't notice an obvious
+> reason why that wouldn't happen prior to bcb8.. It is called directly
+> from pci_device_add() Maybe investigating that angle would be
+> informative..
 
-Do you need any of this? __do_user_fault() now calls
-local_irq_enable() as almost the first thing it does.
+The difference is that bcb8 moves the pci_request_acs() call on OF 
+systems back early enough to actually have an effect - that's spent the 
+last 6 years being pretty much a no-op since 6bf6c24720d3 ("iommu/of: 
+Request ACS from the PCI core when configuring IOMMU linkage")...
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Thanks,
+Robin.
+
+>> I also read up on AER and I'm surprised that I don't see anything in dmesg
+>> when the problem occurs, even through UERcvd+ start appearing on the root
+>> context and AdvNonFatalErr+ appears on the switch.
+> 
+> Though UE and AdvNonFatalErr sure are weird indications for an
+> addressing error.. Is there some kind of special embedded system thing
+> going on? Vendor messages over PCI perhaps?
+> 
+> Jason
+
 
