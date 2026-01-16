@@ -4,166 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E0BC982DB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 16:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC0A6C982DB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 16:49:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RoN1ojr5MYR8WVOifwR88Ffw20/RJ9UUbBOLTB+iK34=; b=0YAu9t7kWJYaUgrhKk7KZgimks
-	4GIZZ4wKMjDdWmmDE2YXg1lzWMseeBvzTC+Pao9xmeUfoaGRJWItlwhZm00pQqXn0xKT5/HXpRRaL
-	tDFiqXLlT3dnKwzcBKD42zIYrx/KffrVuS0ZQ6c9FV3UrVpMRgUOZUf78wjhh4t7bpWHFtw0H4cQp
-	6zQdO7u2RyPqKBqZ9veek2kGOn4Cof+E8S1SwmBnn9MYYLM64dJCkmqUgfLROYSjdTj7CWFZMNsbs
-	yFWg+hzjCgPxtAMBNLiVvF84komq3dgZYsFJQ5xOwEZvCkoBv165ZcOJ0q5dybK9zCGto0NSgKoy1
-	y3X1IMRw==;
+	bh=yI2XYSwTvVhb9DCV7BJIh+Gsz4vYaSmf6hvMKZExTCo=; b=q6TMHZtX+V9ri+7Rqv/bXmXsYo
+	mf+r6sz9+m63+idrxr29e8D6KFlivYl1Wvvb6HMAzk2XWzPA3HOiHk5XYDald65eFCWZBGirbtbb1
+	2fRjRxX8CViiVY+6CjpcnmeS+iNssXktlRjjCAhgADXEwzz2UZv8WggMn6S6WT0rgcT15ywMlMnZx
+	kktDwtmXVz6kd+UJnkX1z15/yj0tv7UyF626JucMB5TeDcf/XGewXi31VRbgTitVHTXNSjKXvMUtY
+	QWA+WGoYZTXrZxXc9AeruphcgdB8acKpxyBgrpR7zgMCDtyemg6zf5Ax4gxOSGyYL3vn1MTbkKW8D
+	LN/P5YvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgmrI-0000000ETpY-2IX6;
-	Fri, 16 Jan 2026 16:39:36 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vgn18-0000000EUQF-1vtm;
+	Fri, 16 Jan 2026 16:49:46 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgmrG-0000000ETpB-3CP5
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 16:39:36 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60GDHP70029226;
-	Fri, 16 Jan 2026 16:38:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=RoN1oj
-	r5MYR8WVOifwR88Ffw20/RJ9UUbBOLTB+iK34=; b=cUaZQ/mNbLlBHYQafX6HAX
-	qWG95pfUh3Bsl+I0lDUllvwlggKsG7sfH2VDuiC2IJGNO+F7u5OAwOHH3KG+9hs/
-	Vj3qKB08w6tzN97YI0D3u2Xf2bjtor+NV2pyw4r210onY+MwlCOx/qRmQmDtIkVM
-	h4O03p9UPEnvyERn8ZrYCMrhoIG+jRmoxQRTvW2wVToLOEBTF4WZx0D9rpNiFNv7
-	yYqM4c0cprkScOYt1viWMrkhFbjJOcF43XIAwzS0YG/TcGEXcWRBYD7Su1P8lvMV
-	wGqm6tEMQPE7+u4k30Aq/Cy3yM5e36lR+ausjtWI5np+fteyMPJRL4U2M0RVfQLA
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bq9stbr5n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 16 Jan 2026 16:38:46 +0000 (GMT)
-Received: from m0353725.ppops.net (m0353725.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 60GGcj9u016730;
-	Fri, 16 Jan 2026 16:38:45 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bq9stbr5c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 16 Jan 2026 16:38:45 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60GF2S16030126;
-	Fri, 16 Jan 2026 16:38:44 GMT
-Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4bm3ak76ah-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 16 Jan 2026 16:38:44 +0000
-Received: from smtpav05.dal12v.mail.ibm.com (smtpav05.dal12v.mail.ibm.com [10.241.53.104])
-	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60GGcgJT34210378
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 16 Jan 2026 16:38:42 GMT
-Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0A0CF58068;
-	Fri, 16 Jan 2026 16:38:42 +0000 (GMT)
-Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C6E1158065;
-	Fri, 16 Jan 2026 16:38:39 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.160.11])
-	by smtpav05.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 16 Jan 2026 16:38:39 +0000 (GMT)
-Message-ID: <97b69bc79a5d9246f7a399510908c7b95b2e95e7.camel@linux.ibm.com>
-Subject: Re: [PATCH 1/3] integrity: Make arch_ima_get_secureboot
- integrity-wide
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Coiby Xu <coxu@redhat.com>, linux-integrity@vger.kernel.org,
-        Heiko
- Carstens	 <hca@linux.ibm.com>,
-        Roberto Sassu
- <roberto.sassu@huaweicloud.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Madhavan Srinivasan	 <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin	
- <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev
- <agordeev@linux.ibm.com>,
-        Christian Borntraeger	
- <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav
- Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)"	 <x86@kernel.org>,
-        "H.
- Peter Anvin" <hpa@zytor.com>,
-        Roberto Sassu	 <roberto.sassu@huawei.com>,
-        Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
-        Eric Snowberg
- <eric.snowberg@oracle.com>,
-        Paul Moore <paul@paul-moore.com>, James Morris
- <jmorris@namei.org>,
-        "Serge E. Hallyn"	 <serge@hallyn.com>,
-        Jarkko
- Sakkinen <jarkko@kernel.org>,
-        "moderated list:ARM64 PORT (AARCH64
- ARCHITECTURE)"	 <linux-arm-kernel@lists.infradead.org>,
-        open list
- <linux-kernel@vger.kernel.org>,
-        "open list:LINUX FOR POWERPC (32-BIT AND
- 64-BIT)"	 <linuxppc-dev@lists.ozlabs.org>,
-        "open list:S390 ARCHITECTURE"	
- <linux-s390@vger.kernel.org>,
-        "open list:EXTENSIBLE FIRMWARE INTERFACE
- (EFI)"	 <linux-efi@vger.kernel.org>,
-        "open list:SECURITY SUBSYSTEM"	
- <linux-security-module@vger.kernel.org>,
-        "open
- list:KEYS/KEYRINGS_INTEGRITY"	 <keyrings@vger.kernel.org>
-In-Reply-To: <CAMj1kXHsJNZoUEnbD1y=v4Ftuv9d2c08VckRV7ru4k4P83vZbQ@mail.gmail.com>
-References: <20260115004328.194142-1-coxu@redhat.com>
-	 <20260115004328.194142-2-coxu@redhat.com>
-	 <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
-	 <8bfa859ed3a4f1cf0db0ab64d8c1c3b24684582a.camel@linux.ibm.com>
-	 <CAMj1kXHsJNZoUEnbD1y=v4Ftuv9d2c08VckRV7ru4k4P83vZbQ@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 16 Jan 2026 11:38:39 -0500
+	id 1vgn16-0000000EUPp-1l3r;
+	Fri, 16 Jan 2026 16:49:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=yI2XYSwTvVhb9DCV7BJIh+Gsz4vYaSmf6hvMKZExTCo=; b=ChRtAKmFPFgjEj2MJUr5lwxoqR
+	6KHtYVPzSVyn9bFz7rHB0lcpr2sYi5ewutGrLY8qE1juhIvHX/67F94QnlB3wraAH2jbNuNpFg5au
+	IUqv1YSIaYrLzsoah74DeYeyC1CmUwzF7yH9YPP5HtAeBisxSpCTqBnPNmEgNIBOKicSlpmLu1O1y
+	FY2kEU9Bf++OXlUxM8zRYYOKoDsWM6GO0ZOI2Lb3Vm1/at800F8Mj1DJpFupJQn7TYh6twB4eg4a4
+	vkvQRrNNTtUj5LtTcg3HNgxs/XmdZeQ5E6rbcPfIDuWwnTjBPBXkMzka6qXaS9py9cT8jz2tJ3N08
+	kyeM9y5w==;
+Received: from i53875a97.versanet.de ([83.135.90.151] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vgn0l-002eXq-JT; Fri, 16 Jan 2026 17:49:24 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Andy Yan <andyshrk@163.com>
+Cc: hjc@rock-chips.com, mripard@kernel.org, maarten.lankhorst@linux.intel.com,
+ tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH] drm/rockchip: vop2: Add mode valid callback for crtc
+Date: Fri, 16 Jan 2026 17:49:23 +0100
+Message-ID: <6509513.iIbC2pHGDl@diego>
+In-Reply-To: <20260116005953.286225-1-andyshrk@163.com>
+References: <20260116005953.286225-1-andyshrk@163.com>
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=KNRXzVFo c=1 sm=1 tr=0 ts=696a6996 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VnNF1IyMAAAA:8 a=20KFwNOVAAAA:8 a=AiHppB-aAAAA:8 a=zBo5Bit52hmzgxODDfcA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: HDcUgXMqcrTFQcSSHwm55CTcX_zwATbB
-X-Proofpoint-GUID: Ms5Y-J-mUGXOf9HnmbrcFe2dwdu983UI
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE2MDExOCBTYWx0ZWRfX3faEyruqGvQW
- oupyyXcrvAM+R4BJlmjSvcRP4ebLmXZhJFlQva3o6KeDgGEArgdmUS24CbJCiH6jfhxW7FGAGWF
- HHRRx/Syu4McI8VLU2sev/aqwevPbDhZvdSYdhn4Tll/jefhRG3GgwItlQU2iK1yIRw5rsiGLvq
- BCkW4iiA4vxY4jdSO1mQJrvFC9SUavwqfVmK0ZBb3m7d37wDH1hR2ZXXvc6GyLFR5rDzzCoNRq8
- 1Rai+F1uAEtkEelhFGfGM/0D9rHURNdigulpRPDyEn7kdi6FGPMMIIIaXPG2sQAHfPDeE0ojokF
- r350/RtFFrO6ZeMyVfHIj4zRt9LWZzxO3LlXdH+rlBc+LfekgBX7DznlV8vRIljfLt7CF9In3se
- slN0LiKdYvif4zFMLHTKScLdnsFw5VBmbqE/MHE8+quOOB6VVMnP5ANRv5r0sNQLmhiJPdp5NA7
- RrEcybl2m3gHsglFpPA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-16_06,2026-01-15_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 spamscore=0 malwarescore=0
- lowpriorityscore=0 clxscore=1015 impostorscore=0 adultscore=0 phishscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2512120000
- definitions=main-2601160118
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_083934_921285_1992BEC5 
-X-CRM114-Status: GOOD (  31.12  )
+X-CRM114-CacheID: sfid-20260116_084944_501029_B428916E 
+X-CRM114-Status: GOOD (  22.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,94 +72,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2026-01-16 at 14:18 +0100, Ard Biesheuvel wrote:
-> On Fri, 16 Jan 2026 at 14:11, Mimi Zohar <zohar@linux.ibm.com> wrote:
-> >=20
-> > On Fri, 2026-01-16 at 10:41 +0100, Ard Biesheuvel wrote:
-> > > On Thu, 15 Jan 2026 at 01:43, Coiby Xu <coxu@redhat.com> wrote:
-> > > >=20
-> > > > EVM and other LSMs need the ability to query the secure boot status=
- of
-> > > > the system, without directly calling the IMA arch_ima_get_secureboo=
-t
-> > > > function. Refactor the secure boot status check into a general,
-> > > > integrity-wide function named arch_integrity_get_secureboot.
-> > > >=20
-> > > > Define a new Kconfig option CONFIG_INTEGRITY_SECURE_BOOT, which is
-> > > > automatically configured by the supported architectures. The existi=
-ng
-> > > > IMA_SECURE_AND_OR_TRUSTED_BOOT Kconfig loads the architecture speci=
-fic
-> > > > IMA policy based on the refactored secure boot status code.
-> > > >=20
-> > > > Reported-and-suggested-by: Mimi Zohar <zohar@linux.ibm.com>
-> > > > Suggested-by: Roberto Sassu <roberto.sassu@huaweicloud.com>
-> > > > Signed-off-by: Coiby Xu <coxu@redhat.com>
-> > > > ---
-> > > >  arch/arm64/Kconfig                            |  1 +
-> > > >  arch/powerpc/Kconfig                          |  1 +
-> > > >  arch/powerpc/kernel/Makefile                  |  2 +-
-> > > >  arch/powerpc/kernel/ima_arch.c                |  5 --
-> > > >  arch/powerpc/kernel/integrity_sb_arch.c       | 13 +++++
-> > > >  arch/s390/Kconfig                             |  1 +
-> > > >  arch/s390/kernel/Makefile                     |  1 +
-> > > >  arch/s390/kernel/ima_arch.c                   |  6 --
-> > > >  arch/s390/kernel/integrity_sb_arch.c          |  9 +++
-> > > >  arch/x86/Kconfig                              |  1 +
-> > > >  arch/x86/include/asm/efi.h                    |  4 +-
-> > > >  arch/x86/platform/efi/efi.c                   |  2 +-
-> > > >  include/linux/ima.h                           |  7 +--
-> > > >  include/linux/integrity.h                     |  8 +++
-> > > >  security/integrity/Kconfig                    |  6 ++
-> > > >  security/integrity/Makefile                   |  3 +
-> > > >  security/integrity/efi_secureboot.c           | 56 +++++++++++++++=
-++++
-> > > >  security/integrity/ima/ima_appraise.c         |  2 +-
-> > > >  security/integrity/ima/ima_efi.c              | 47 +--------------=
--
-> > > >  security/integrity/ima/ima_main.c             |  4 +-
-> > > >  security/integrity/platform_certs/load_uefi.c |  2 +-
-> > > >  21 files changed, 111 insertions(+), 70 deletions(-)
-> > > >  create mode 100644 arch/powerpc/kernel/integrity_sb_arch.c
-> > > >  create mode 100644 arch/s390/kernel/integrity_sb_arch.c
-> > > >  create mode 100644 security/integrity/efi_secureboot.c
-> > > >=20
-> > > > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > > > index 93173f0a09c7..4c265b7386bb 100644
-> > > > --- a/arch/arm64/Kconfig
-> > > > +++ b/arch/arm64/Kconfig
-> > > > @@ -2427,6 +2427,7 @@ config EFI
-> > > >         select EFI_STUB
-> > > >         select EFI_GENERIC_STUB
-> > > >         imply IMA_SECURE_AND_OR_TRUSTED_BOOT
-> > > > +       imply INTEGRITY_SECURE_BOOT
-> > >=20
-> > > This allows both to be en/disabled individually, which I don't think
-> > > is what we want. It also results in more churn across the
-> > > arch-specific Kconfigs than needed.
-> > >=20
-> > > Wouldn't it be better if IMA_SECURE_AND_OR_TRUSTED_BOOT 'select'ed
-> > > INTEGRITY_SECURE_BOOT in its Kconfig definition?
-> >=20
-> > As much as possible, EVM (and other LSMs) shouldn't be dependent on ano=
-ther LSM,
-> > in this case IMA, being configured.
->=20
-> Sure, but that is not my point.
->=20
-> This arrangement allows for IMA_SECURE_AND_OR_TRUSTED_BOOT to be
-> enabled without INTEGRITY_SECURE_BOOT, resulting in the stub
-> implementation of arch_integrity_get_secureboot() being used, which
-> always returns false.
+Hi Andy,
 
-I understand your concern, but instead of "select"ing INTEGRITY_SECURE_BOOT=
- from
-IMA_SECURE_AND_OR_TRUSTED_BOOT, how making IMA_SECURE_AND_OR_TRUSTED_BOOT
-dependent on both IMA_ARCH_POLICY and INTEGRITY_SECURE_BOOT.
+Am Freitag, 16. Januar 2026, 01:59:49 Mitteleurop=C3=A4ische Normalzeit sch=
+rieb Andy Yan:
+> From: Andy Yan <andy.yan@rock-chips.com>
 
-Including the "imply INTEGRITY_SECURE_BOOT" here in the arch Kconfig allows=
- EVM
-to query the secure boot state without relying on IMA_SECURE_AND_OR_TRUSTED=
-_BOOT
-being configured.
+when resending an unmodified patch, please mark the subject as
+[PATCH RESEND] ....
+
+> Filter the mode that can't output by the crtc.
+
+In commit 8e140cb60270 ("drm/rockchip: vop: limit maximum resolution to
+hardware capabilities") which introduced the similar check on VOP(1), we
+had additional information, in that the VOP1 hardware does not have
+an output height limit. Is the same true for VOP2 ?
+
+Because then I'd like to extend the commit description to something like:
+=3D=3D=3D=3D=3D=3D=3D 8< =3D=3D=3D=3D=3D=3D=3D
+The different VOP variants support different maximum resolutions. Reject
+resolutions that are not supported by a specific variant.
+
+Only the output width is checked because the hardware itself does not
+have a hard output height limit.
+=3D=3D=3D=3D=3D=3D=3D 8< =3D=3D=3D=3D=3D=3D=3D
+
+Because when someone sees the code later they might ask why the height
+is not checked, so having that in the commit description allows us all to
+remember why the check is this specific way :-)
+
+Thanks
+Heiko
+
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> ---
+>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
+>=20
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/d=
+rm/rockchip/rockchip_drm_vop2.c
+> index 498df0ce4680..74fba29bfff3 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> @@ -1439,6 +1439,17 @@ static void vop2_crtc_disable_vblank(struct drm_cr=
+tc *crtc)
+>  	vop2_crtc_disable_irq(vp, VP_INT_FS_FIELD);
+>  }
+> =20
+> +static enum drm_mode_status vop2_crtc_mode_valid(struct drm_crtc *crtc,
+> +						 const struct drm_display_mode *mode)
+> +{
+> +	struct vop2_video_port *vp =3D to_vop2_video_port(crtc);
+> +
+> +	if (mode->hdisplay > vp->data->max_output.width)
+> +		return MODE_BAD_HVALUE;
+> +
+> +	return MODE_OK;
+> +}
+> +
+>  static bool vop2_crtc_mode_fixup(struct drm_crtc *crtc,
+>  				 const struct drm_display_mode *mode,
+>  				 struct drm_display_mode *adj_mode)
+> @@ -1884,6 +1895,7 @@ static void vop2_crtc_atomic_flush(struct drm_crtc =
+*crtc,
+> =20
+>  static const struct drm_crtc_helper_funcs vop2_crtc_helper_funcs =3D {
+>  	.mode_fixup =3D vop2_crtc_mode_fixup,
+> +	.mode_valid =3D vop2_crtc_mode_valid,
+>  	.atomic_check =3D vop2_crtc_atomic_check,
+>  	.atomic_begin =3D vop2_crtc_atomic_begin,
+>  	.atomic_flush =3D vop2_crtc_atomic_flush,
+>=20
+
+
+
+
 
