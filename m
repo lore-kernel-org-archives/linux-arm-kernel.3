@@ -4,74 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E889FD4A613
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 08:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F6FFD4A615
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=o4yyoQg7TPU6EMRTsLcHwaWRZt1QuggHvZk/7M5U4Ao=; b=AbtUVDjoxg4jl7
-	yqfepX6YetVOLmG0KUx/psnVsP/CCkP8pvBK/11Lc4FvNGXMoqPCR2Ob3TCu6n8WSsOl2lJ14iLOS
-	rjGy4JiATGU5DcH6A3Zscfwq6Gzjg8xFrSei9lGRG3pc7muwg/5N72X8WS7FzLcEy40NYpJjzufm3
-	p3TJF+IdUrq8kY+a559KpfAst+ZosO591YsgSTLnRXHs9oDCQtdSOFfEiioJ21qtDP411y/a/DSjp
-	bX5xtJYE07uESQnOQuL64rQfka6yDJoOfVJcfFPFU1NbUejbjKGMtGxhuqy5O9qOSYSstT2IzOX1v
-	e6BAx+WWWB9XaW4Cqvjg==;
+	List-Owner; bh=VsLvk/uvlzhTROwB0KIRWNRS6jWKzjjZx4kYBw5lWyQ=; b=Ctdv9Jg2SAhMmZ
+	0ierUchl6wEI5cW5UZnvo7HjWaAxxFfOYoNpJjwVtTe3vZ22VUxBBrFVcj+oK1BFWr7TcfD8sLQmR
+	u5BsjoLQF1DfvjE6jUkWUcTCjt1355VcGSw/tiNyTO4t0kKG6YnhzCNaWlCWBvyV35f8hUeIEe7D7
+	VpPKEQ9H6SNXJZ9h46F6i+fBxSBmwvzaK4TQs+YrDvxooXwmh1RxGJlcQYDzlbxOS0+HsXCa6QcQ2
+	VtXEaoXlQbz8vnLd3cJSvKkAJc21ocECIb8KFu25GLPw2f5vQ95J2+LKpKo3mkGEdey9pYONPOeDJ
+	aCmqz3iRJYAU6OZmxxQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgfdI-0000000DnZJ-0knm;
-	Fri, 16 Jan 2026 08:56:40 +0000
-Received: from inva020.nxp.com ([92.121.34.13])
+	id 1vgfiP-0000000DoBA-303b;
+	Fri, 16 Jan 2026 09:01:57 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgfdA-0000000DnVr-1gdf
+	id 1vgfiM-0000000DoAJ-2Xku
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 08:56:33 +0000
-Received: from inva020.nxp.com (localhost [127.0.0.1])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id C71901A0BE4;
-	Fri, 16 Jan 2026 09:56:26 +0100 (CET)
-Received: from usswic1srsp001v.us-swic1.nxp.com (unknown [10.114.8.222])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 949561A0884;
-	Fri, 16 Jan 2026 09:56:26 +0100 (CET)
-Received: from lsvm07u0000156.swis.us-west-2.aws.nxp.com (lsvm07u0000156.swis.us-west-2.aws.nxp.com [10.45.140.59])
-	by usswic1srsp001v.us-swic1.nxp.com (Postfix) with ESMTP id 6A0ED1800309;
-	Fri, 16 Jan 2026 00:56:25 -0800 (PST)
-From: Lei Xu <lei.xu@nxp.com>
-Subject: [PATCH v3 0/2] Add device tree support for NXP i.MX95 15x15 FRDM
- board
-Date: Fri, 16 Jan 2026 00:56:12 -0800
-Message-Id: <20260116-127-v3-0-3dc49545a745@nxp.com>
+	Fri, 16 Jan 2026 09:01:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oppUCHzDwVrnfJVXoKzP/NzGQyjqMoktUzykeN1Cb0I5ppT48SeXnoXZvTSMcpdGdbjI8G50GgOpUnyfJIBhV8VjFyp3gdCHVukYT0I/bz3aDejKHtceGJ6nR2Nm4LPp4PWxp5Ot30EZpDFLvnkbNytNw0Wwf/LVe2iehK0mrpUAxFqLxGaQJ34aouXYUAXHtDXQidOagkbVh7BY1uHZG3ixZjrUJfZ4ebLLO+Tl3PNCvenhJfIgZDOfDzw2gKWFmiNli+5mDQobTZxY4W4Twm4M9IdgfvxJV2rWBJLj7HwLHCaAAV9dzctolk4ibr46EtWvGdQ1rzZm6odCz5DQBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VsLvk/uvlzhTROwB0KIRWNRS6jWKzjjZx4kYBw5lWyQ=;
+ b=Yyx1OWtOWKZOrD+BCUpJd7nFOPJ9x6laW0dLZtpn2TTX6/3i1n6bVsrD2MCxEYVkq9EmooUnaVXUTEWoISgzt3dyHuZhr1xMdlNyA7LyNsMmk0Lxk9kLj23l4TBqEVAh1nZ/kQUTKVyGVt3wsb53Bhz5JXORsSpSH/w3FbhGmz4+h48kbSIUfHdGJL+kgTTxMKOLHh80mRZZ1c2v4kkX5hqdUIXBQRAFtjPxMhs2n86nI0W6fgQd+NdfJ9I+e8sQ9XfZfCFLeaRLWxdAYIWlO6e2+HH131h/NJAP5DgR3Ut9LMzG05pKpfgVMHIHQvWN+XtlQ+PK/AN/ykbJNbuPcw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VsLvk/uvlzhTROwB0KIRWNRS6jWKzjjZx4kYBw5lWyQ=;
+ b=djkiWIyqM3t4pYJeB5F4VghKm22pHVDyY1Ghg3KrtopIoGp0Qp8XJd58ICs6SdUtiGdgYSvX3Bovv6hS2993IxG+qiVLUlvcqZmrAWzpG4OLxYGL0/zsr9c6iTMuBF//WtaSiFEJLiJL2HOq49YSDJiaVQgSi/o0+LW/X0ktU/Y=
+Received: from BN1PR13CA0019.namprd13.prod.outlook.com (2603:10b6:408:e2::24)
+ by IA1PR10MB7514.namprd10.prod.outlook.com (2603:10b6:208:44e::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Fri, 16 Jan
+ 2026 09:01:50 +0000
+Received: from BN2PEPF00004FBA.namprd04.prod.outlook.com
+ (2603:10b6:408:e2:cafe::c1) by BN1PR13CA0019.outlook.office365.com
+ (2603:10b6:408:e2::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.4 via Frontend Transport; Fri,
+ 16 Jan 2026 09:01:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN2PEPF00004FBA.mail.protection.outlook.com (10.167.243.180) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9542.4 via Frontend Transport; Fri, 16 Jan 2026 09:01:50 +0000
+Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 16 Jan
+ 2026 03:01:49 -0600
+Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 16 Jan
+ 2026 03:01:49 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 16 Jan 2026 03:01:49 -0600
+Received: from [127.0.1.1] (lcpd911.dhcp.ti.com [172.24.233.130])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60G91iBR3029793;
+	Fri, 16 Jan 2026 03:01:45 -0600
+From: Dhruva Gole <d-gole@ti.com>
+Subject: [PATCH 0/3] cpufreq: ti: Add support for AM62L3 SoC
+Date: Fri, 16 Jan 2026 14:31:05 +0530
+Message-ID: <20260116-am62l-cpufreq-v1-0-63d062317ae9@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACz9aWkC/1XMQQ6CMBCF4auQWVvTGWlBVt7DuIAySBcW0poGQ
- 3p3CzFRl/9kvrdCYG85QFOs4DnaYCeX43QowIytu7OwfW4gSQpJVgKpEiXXSiHXXd8OkD9nz4N
- d9pXrLfdow3Pyr3004nb99xGFFKol5k6fB1Ty4pb5aKYHbDrSj8CPoCx0ZTokVppK+oqU0ht+g
- lH4xgAAAA==
-X-Change-ID: 20251207-127-4e8551e8bdaf
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- justin.jiang@nxp.com, qijian.guo@nxp.com, lei.xu@nxp.com, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Daniel Baluta <daniel.baluta@nxp.com>, 
- Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768553785; l=1381;
- i=lei.xu@nxp.com; s=20251205; h=from:subject:message-id;
- bh=L41wFS2FXO+gmq1auWSbWfGL0NY1XhArgZGklZ9nx3o=;
- b=lMjXEfNbB/R8BTFmceqt+HWx0U93K1cwx5QXC4cak7Gn7K072bwFkN5n3aqbfccAidV2cynIK
- S73pxG7VKNCANYuBky69qB21MtG56DAP0NWzDaFkmM7RukkZaGJ+pI9
-X-Developer-Key: i=lei.xu@nxp.com; a=ed25519;
- pk=faUN/3jfazJOPNYhE9pN+nzvk+lrEm64ZRf42Yeum6U=
-X-Virus-Scanned: ClamAV using ClamSMTP
+X-B4-Tracking: v=1; b=H4sIAFL+aWkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDQ0Mz3cRcM6Mc3eSC0rSi1EJdQ0sL80QDk0SzNDMLJaCegqLUtMwKsHn
+ RsbW1APh9bvVfAAAA
+X-Change-ID: 20260116-am62l-cpufreq-1987a04a6f68
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar
+	<viresh.kumar@linaro.org>, Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>
+CC: Kendall Willis <k-willis@ti.com>, Sebin Francis <sebin.francis@ti.com>,
+	Bryan Brattlof <bb@ti.com>, <linux-pm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, Dhruva Gole <d-gole@ti.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768554104; l=1259;
+ i=d-gole@ti.com; h=from:subject:message-id;
+ bh=ESIa03Uz3TkAXivT8pe7A1X49ed11+CcO8WM4fmeWws=;
+ b=Jkj1u+NLifRAjAmwEeVZ5I//UJiGaiOU9oWSMt0n3pdbq+QJboUBrlT4M1sSYUVsPcrdQryr6
+ RzldAK5iIxzBomf9psTjzG3zVA8EvqgDpu1kNg0XXeknMTbcxwDeNfi
+X-Developer-Key: i=d-gole@ti.com; a=ed25519;
+ pk=k8NnY4RbxVqeqGsYfTHeVn4hPOHkjg7Mii0Ixs4rghM=
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF00004FBA:EE_|IA1PR10MB7514:EE_
+X-MS-Office365-Filtering-Correlation-Id: 633dec68-165a-4947-1a0f-08de54dde2d9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|1800799024|34020700016|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cGR1Ums2bitWM2FQMkNRc3pGaVdEb251OXo3anpNTXc5cmlJcEUvVk04cFc1?=
+ =?utf-8?B?UXhuTlE2bVc2MDZGdnl5YmdNeHVjbE9mdjJSZDduUXE0elZZVjhsNDNBMzcw?=
+ =?utf-8?B?WWNLVEZ6Z2l3aG5nWmtUOHM3Y3JFcHNNZ25zNHg4d3hqZi9IeWFpTm04Rjds?=
+ =?utf-8?B?ZmRtRjVFQkJMSk94aUg0MGROdVJObmFlZks0VlB0MTNBU0YwNzZrYWdWZzJy?=
+ =?utf-8?B?RzZmcnV0ZG1ONjZjZXM3VHhENUJSdVJSZUJndU1DK1dzZE9VV1p3N1NlWFdw?=
+ =?utf-8?B?UXBaaTZ4KzVEREorb3lWK2kzM2tHNUl6d2UxNU5PejJBQzhlUmk1NVlLSkNR?=
+ =?utf-8?B?c1BVR3hHTWZxZjFpV1hQeUptZCtDMWxoS3VETVQxZGl2VitpNUtmd3Zrbk02?=
+ =?utf-8?B?S0IxTW9IMjZDcDc1N0IzZVlxaXMxK29KdmVaMW5JZkRhZTU1OTNjdGpCZXhm?=
+ =?utf-8?B?UDdMM0Z4TWVYa1ZrTytpQlNFaUtabGVMUXBPK0s1Z1A1UkJudlpPOFhTT0Fz?=
+ =?utf-8?B?d2wxaWFwRTF3K0dzY0lkcmhRQnhKa0grSW9odStWa1puc0t3alVKQUZPbTYr?=
+ =?utf-8?B?STk3U2xDOFROQ1Fhd2piRUZIemJWeE9FdEhIVUJZSDZxRGpxc1FRUUpVdWcr?=
+ =?utf-8?B?ektMdzdwSXY0K2lRcXc5ZzB3Z2lkcXVETnVhTXdmcVV2bDl1RDhzemI4Smov?=
+ =?utf-8?B?UGsxem5sVkMwUEN3NzhOUy9Lc0xTR09TdllpNnJsS2FXenNGY2kzUk9IalpN?=
+ =?utf-8?B?TFI4aHp0YjZrMkFpOHI5YW4xdVNPR3R2Q2VIUEJYdk5QVUE3VlRoZXdTOVpy?=
+ =?utf-8?B?bjBhcTlyVzBZQlROTVlVWStZdng3VlJ1Y1JXTG1UM3M1VHRnVmRRWC85VXFE?=
+ =?utf-8?B?VTQ4eSsvTWV3NTBPZjNheDVUanUyczNiTTRDQjI4bWxsNkxsclAxcGdHVmRV?=
+ =?utf-8?B?bCt5SVlsZzRReXJ3UldueEtUNW1obkhFSmtQaVN2em5JUU81eGUxZUpaU0dp?=
+ =?utf-8?B?YWVzTlkxZFlMbTJhdGVDQk1GVmpRMWk1MWdSN3ZPcnNNR1Y2dW5SRTZUNjN0?=
+ =?utf-8?B?Vm84Zmtzb21HOU9TUVlDc0dSUnZYRlNpemEwSUlUNmlOR2ZDYUtGbWtUQ0Iy?=
+ =?utf-8?B?NXZIUnFiR3RQVXAycTB5dWRqMW5PNE02Njgzbm9Qa1FvTkxXY1pOSDNxK2Ja?=
+ =?utf-8?B?czE5M2duVXZKTmJxcU9QMS9wQ2hFS0hlVlJZOG9CQWY1UXJERXhiWnI2bzB2?=
+ =?utf-8?B?K1AzRk02MTZKY25ieVBTM2k5U3J1YTMzaUY1cHRLZWVQblNhNTlvRVA1RzR4?=
+ =?utf-8?B?NldiTlRjS00xN2ZDYXI3eHYwQnN0RDZPZ0xScmpFT3FWZnNLaE4zYzNzYmVL?=
+ =?utf-8?B?WnlGejQyb1ByRTRiYWNvZEJxQXMyVUNQMitVNU5scGJUZG9vTHpCWlRURzEr?=
+ =?utf-8?B?RjFHQlRQMSt0RjQxRmJkQjh3dkZ2U2tza1ZPTVpDbFpaOEF4eE9NVThkRnFu?=
+ =?utf-8?B?Smh5L09NTlBKaTBnNWlreFh4OFlPcDlTK0hVT0tCK3VRb3A4V3VMQ2tRU2pr?=
+ =?utf-8?B?RHJMaTl0R3VsR0l5Sm80QU9yOXV5Qy9aRlBxUnl4ZXA2M2FFRzU0YW12Mm4x?=
+ =?utf-8?B?bjJSRjNCU2M0RENPZ1RpZjBRTXVxQnBDZ3dZYlFtUm8yL2pESUpnRm50bHN6?=
+ =?utf-8?B?K2s2UkxvWnV3bVNacnRiaVJhZXMzaGNXSHNTMXhHWkNyTldselUrUjdSSitM?=
+ =?utf-8?B?Qk52cGlsaWFaa1dXVG1Bbm1SemtHcUdjU0gvcG9rbDFMR3ptREV2ZjIyZk9F?=
+ =?utf-8?B?ZXQrbVR6TEpUQ0VSTGJOU1o4VUZXbEZEUWQxVmxNcUVnaWxCRkVaUGVKWDNE?=
+ =?utf-8?B?S0RKVUZBVGVZeHBkemJ4VlZYYXFDZnNSNjMza3FHNjcrUDRUekcrT1hKbFlr?=
+ =?utf-8?B?SUI4bTkyS1hmZitDZU9kTW9XNldzVFlKWElES2RLcGt4UGRJUWhWYkFxS1Rx?=
+ =?utf-8?B?R2FwV0FMaW15c1BCL1d3QTBSNGhWeDVBemdZMkJNNUZXb2s3a1FwS1BSMkpF?=
+ =?utf-8?B?anNMeEVxZVEyQktON2dScVJaQ3lRV3JRc2sxOUxXYjFISkN3SUlqR3BjekRT?=
+ =?utf-8?B?N29iNlhqUzd5aWlZMnZtUE5YSUkzQ2N3Q01TZFQ3QUdHR3RBTklubWh5NjU1?=
+ =?utf-8?B?SEJaWU5VeGlnSFo1THNmTVdtRlgxSEI2cHVqcHBPaHVCNTJVY2RrTlhzTk1V?=
+ =?utf-8?B?NDg0ZXpLQUhLZ0R3eDdjMnBhMS9BPT0=?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(1800799024)(34020700016)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 09:01:50.2310
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 633dec68-165a-4947-1a0f-08de54dde2d9
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FBA.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB7514
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_005632_576353_7D0DDDC5 
-X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-CacheID: sfid-20260116_010154_650945_DB691556 
+X-CRM114-Status: UNSURE (   9.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,41 +180,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NXP i.MX95 15x15 FRDM board is a compact and cost-effective
-development board based on the i.MX95 applications processor.
+Hello,
 
-This patch set adds device tree support for the board:
- - Patch 1 introduces the DT compatible string.
- - Patch 2 provides the complete device tree description.
+This series adds CPU frequency scaling support for the TI AM62L3 SoC.
 
-Signed-off-by: Lei Xu <lei.xu@nxp.com>
+The AM62L3 is a low-power, low-cost SoC from Texas Instruments. This
+series enables cpufreq support by:
+1. Adding the SoC to the cpufreq-dt-platdev blocklist to prevent the generic driver from probing.
+2. Extending the ti-cpufreq driver to support AM62L3 speed grading by reading the efuse.
+3. Updating the device tree with the necessary operating points and clock configurations.
+
+Tested on AM62L3 EVM [1]
+
+[1] https://gist.github.com/DhruvaG2000/6dcceb80cf7bbd1e624ec210532538cb
+
+Signed-off-by: Dhruva Gole <d-gole@ti.com>
 ---
-Changes in v3:
-- Add a blank line between the cpu and codec node definitions.
-- Link to v2: https://lore.kernel.org/r/20251217-127-v2-0-67cb12e56242@nxp.com
+Dhruva Gole (3):
+      cpufreq: dt-platdev: Add ti,am62l3 to blocklist
+      cpufreq: ti-cpufreq: add support for AM62L3 SoC
+      arm64: dts: ti: k3-am62l: support cpufreq
 
-Changes in v2:
-- Switched from 'xceiver-supply' to CAN PHY nodes using 'phys'.
-- Added CAN PHY nodes for flexcan2/5 with shared silent-gpio, removed reg_can_stby.
-- Updated MSI/IOMMU mapping comment to match the i.MX95 15x15 FRDM board.
-
-Link to v1: https://lore.kernel.org/r/20251207-127-v1-0-5a2eeb69f150@nxp.com
-
+ arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi |  5 +++
+ arch/arm64/boot/dts/ti/k3-am62l3.dtsi       | 47 +++++++++++++++++++++++++++++
+ drivers/cpufreq/cpufreq-dt-platdev.c        |  1 +
+ drivers/cpufreq/ti-cpufreq.c                | 32 ++++++++++++++++++++
+ 4 files changed, 85 insertions(+)
 ---
-Lei Xu (2):
-      dt-bindings: arm: fsl: Add compatible for i.MX95 15x15 FRDM board
-      arm64: dts: freescale: imx95: Add support for i.MX95 15x15 FRDM board
-
- Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
- arch/arm64/boot/dts/freescale/Makefile             |   1 +
- arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts | 964 +++++++++++++++++++++
- 3 files changed, 966 insertions(+)
----
-base-commit: 6987d58a9cbc5bd57c983baa514474a86c945d56
-change-id: 20251207-127-4e8551e8bdaf
+base-commit: 9b7977f9e39b7768c70c2aa497f04e7569fd3e00
+change-id: 20260116-am62l-cpufreq-1987a04a6f68
 
 Best regards,
 -- 
-Lei Xu <lei.xu@nxp.com>
+Dhruva Gole <d-gole@ti.com>
 
 
