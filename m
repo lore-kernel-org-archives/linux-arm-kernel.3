@@ -4,102 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E17C98305
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 21:49:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E997CC98305
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 21:49:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bZPxsf3cKGg5r/sDoaWbUA8YBIi5b4KFRVaME9GKXIs=; b=XsEGnwzH+EudsDEroxJ0NVqEw1
-	unR70PRDx/2NahbwAaYvndQTnHrnH9ABypLv/0wT0RwDa76g33yIuyIGKzQquXKUBfm1yTWV+g9f/
-	Vuw0PMF3p5t7ip5YkMP1F/6J9jTFQH0K1ifNuzvW6qHdPp0t4WoYOBSASb4DrsQaT8VTqnav1fQNj
-	aPPt3+sDMA3Zo2fkFVb+f9euyTigEN6ZzSSPlFWokYOiNvGNEBDBurS1iF+NMl+Qj4/P5nPmtwH6C
-	V6tPc7RyVBL387dKTrcp5IgPUMVwMckwyRpbmgVdQ2Fb3cj3DnkDReZDKubXTWBYIO4+3Cimt9FEH
-	OAkT5SgQ==;
+	bh=1vCA+R5fcMfO5sPq0PNAkA7jYgGsq1t74maw1JK+ZqY=; b=DOjdGANdBP7KySa+82e+9gG8KT
+	8NI0i5Cv6HMMuZq2G7IhYPLmq88xLXNgq+0sqxmJ/bOwwZDS348jhe7sbKDBTACUptpd+9DmBA08G
+	8XxYgnbf1rPv039fcsP6w7PHBa0cjS24IDmJfuwdcS3r13yJlOHHopfti515KgIb/RubDiPApURGF
+	t4NYj53SIAZAbtK9fss0OumSl/0kvmMfUywoovcnhNhErzuJ19HWJuPsNmZbZn0zzELzEjv93pgkI
+	SkLhme0VGGypIkf/RE/hsOjS68tLATTykJL1msYCALFKDQJea++vTV7YQqWVF/8TxiABPQvR8zfrc
+	dHD8aP/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgrhE-0000000EwpD-3boY;
-	Fri, 16 Jan 2026 21:49:32 +0000
-Received: from mail-pf1-x461.google.com ([2607:f8b0:4864:20::461])
+	id 1vgrhR-0000000Ewsh-0XA8;
+	Fri, 16 Jan 2026 21:49:45 +0000
+Received: from mail-ot1-x363.google.com ([2607:f8b0:4864:20::363])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgrhB-0000000Ewo6-3zH5
+	id 1vgrhF-0000000EwpC-1rWO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 21:49:31 +0000
-Received: by mail-pf1-x461.google.com with SMTP id d2e1a72fcca58-81f4e36512aso2456789b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 13:49:29 -0800 (PST)
+	Fri, 16 Jan 2026 21:49:35 +0000
+Received: by mail-ot1-x363.google.com with SMTP id 46e09a7af769-7cfcbe7d176so1692137a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 13:49:33 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768600168; x=1769204968;
+        d=1e100.net; s=20230601; t=1768600172; x=1769204972;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=bZPxsf3cKGg5r/sDoaWbUA8YBIi5b4KFRVaME9GKXIs=;
-        b=RH8RVdRWPpbfg5LvS8PEuTB4ObZgDnGQuzeMzqukzVtwqhscpsfB36B/s/+yOT/ZZJ
-         Zij9cGi/0Ufgr1KIaSX6PORjUA8k5ZRErGzzGfborIRV6GrfLgoKTW3z8NPPA9vhlvxw
-         ptP6nBae/J4/CGcX4/STTP5ZrdY/9lksc+wvpwML/+89dwfMEBQtfclR3B/9RWamkY2T
-         1DZsUeazH5jjlqA60YtR7wHVxhEVMyPCk2cP+dfLRIqV+3E4mi9X8hlJsX2WxpVgzsWM
-         xSwI3Yi9KgOHdgasjEmVoLeq2W040QVvKHMn2c9BclEfLtjyRnYiV+so9JQEv/T7TbEg
-         NLbg==
-X-Forwarded-Encrypted: i=1; AJvYcCWNsatckAQ76at3WdNGBK47tqUVeOHqV3ynwSqKnuMeTg5z3By0aoIBPtH41SuPHDGhlGvDpq+jCSpPLwngUyRs@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdzoOTrtBupwulUNrkFNyTH41ngT/XzuGPBRTqd23eRIfOwLlR
-	80SdZrjdU6T+aM9MMnp+Q36MLJ9gi0bPPCF8PXlGtnOXmfYZo7vrWIHeGmtWTTl+q8NKvywsjnr
-	ETVWxGFoWaX8/nZECxrqFMSvjVgZ1146nm7J6P0a1aiqjiobdNagwZCwUwXTjQiPdFluyZS0kEW
-	f6aFTMAoRwLR3ZNi/CdA4J8W73PCqRyT0HVe9RVbD5Cwr5+ABleh+Vs3TYjMHmZ9LimG1ZkggPU
-	vWXC9JrMZEOA6Ve2O4SVLkmMGrsZ/+P0ok=
-X-Gm-Gg: AY/fxX4O1CwDgi5M3CpOmBovIQzJNANYbvjOKIivut0SGjDdgkHDNoUicUj7UtB0NU9
-	xjMUoVl6kbckh9zikuuqc3Ce4d6hYjJTBSEq+O2z3gkAEgrlbSWyCPN6NJKyCoNTuOZtc4RcvGh
-	KgMqbX6VQP6avI76q3fXHJGSHH9CkW3nl4ukSxHIyNuU/6YOfBka95M5qeaGskSRZWRPA8BqohE
-	aRz2WqFFDQFMfNHGh5CbgINkpqj5lorBO79QG8AXBpmp1p5DjkxVuorKT4J0sZe98fkEabMoBnF
-	fPBia8zIzoLOzw6CWFoBfHQMkDejYvACx1e18XhC0MvaHBT5tOrXo8OV53hsmSJHjewRs2ux7Pf
-	jieZNIYMvBXwlxXQpdQ6gSliI0G0xT8NFeBcEV5rJQMZjf4ZDf9USurZRZWAwNYmaSWW9tW5lN1
-	pqivOH+gPYQXaU8fkx3qiHP9BwXeJuTpnhkMJf9xFv+IbgTKM1wTsf
-X-Received: by 2002:a05:6a00:9289:b0:81e:b2ba:5b36 with SMTP id d2e1a72fcca58-81fa18833b9mr3315000b3a.63.1768600168314;
-        Fri, 16 Jan 2026 13:49:28 -0800 (PST)
+        bh=1vCA+R5fcMfO5sPq0PNAkA7jYgGsq1t74maw1JK+ZqY=;
+        b=Zs19qcVtkskt4H5/0s8rU0ZhX40M+AmAwTb1iPA8KbGjH2ISb6Y/xygtg11pVEZBQq
+         n6aL04jL/JY4a9KlozJkd288mw9d1cklKcRqWBEKvAcBKohcXyha53JeijmITbVG70pr
+         Bj5b9nqxMvj9Ge1z9ZN2iNxWzzHHzK//0o8ZrVj7yq0YGgzQsAGK/KCR3kbCBOX7kZDI
+         N9epv9vhbx5seZDfCpKrrifESycClLpKl6gjHkXAkZO1WsNJs8Bbqe5UZnNG0aoyOfMy
+         g4sz/W9cn5caA3pj6kzHFzuiuPm2VVw2qeKsVVGc+HCmGjyhNu5JEUQbnQDwJ0xxbkch
+         5+4A==
+X-Forwarded-Encrypted: i=1; AJvYcCUQnzxWEH4pdsMcP7u3aUuWEEOys6gG8baw/66X+0KYgU9lN03+KWEGUBOtI6tbmUsu74r7z0XOe4/J6xoa5mIE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxC26pQtj2XXx7L5Vei/6qErM4+C/baJVSXFGfCpgDqz8X510lH
+	d1bDSRQxuDjYNH0zsZS9KjFvi51C4HHEVZUhxYJuQ/XROmalTzKGEW+HZJi1xdqh8iArh8DovDX
+	eKvBFgEeRnQtKzqkH4ppul4Ev3ZkDVvMcR3kgzZR7rmpVXsMWGGZdtp/q96OzGTQfsiU4egMjyR
+	qfNpABnmmEUOPtBcU4a0K4r/r1YGMZD+/+pd83hWgP6POgsuOJlCSkQ0TqiqfWwtVNN26O6+Hvh
+	vj/wJKp2ZNIhZhxH+m27wKRhJM3EE+V0kk=
+X-Gm-Gg: AY/fxX66htXTR1JZ49CweCJ17QsE8iPRJXg+0s+yJjy9Lr39paIny6vvs4i/ps+ocds
+	jac/H1FkTZF4q2a7mOLx752PxDaNLA4OLHabyoSx30g0/q6nmopaJCUECgh0JP1eK+BPog6c0z9
+	PLqWG/fDwCeM8xDX+P7IbzH3OkKZhz64iVU6lduSLB+7I2RRniaBGLawhCzbS77H0TdWfKMVQcn
+	/sFn1d/pCfQvL/Un1cuZU7T2ddDMZ++y0pBO1TgIEKLgsPbJnnk/gs/f5647iJKWMw/zbZrhApI
+	l1KydYDWsIZFxOyHJie972koyuUmT+BFXsGYer8xCg9NHeyHcnT8+Y9eKsg2dcOgXx46/xL2+2c
+	c4W4ngCXM1BxBvAdFvtAlF6jHWDHzQk82x+GKI2Bsb2F2pnM+vXmbf6/O8teFO4atP+zHpHOzW8
+	zPF0z4+5Jr0Y+OhETwX/6X7IAo8dBWZcewotomGHVjjZKo8WBnDSQu
+X-Received: by 2002:a05:6830:dc3:b0:7c7:5f09:879c with SMTP id 46e09a7af769-7cfdee52e12mr2061480a34.26.1768600172393;
+        Fri, 16 Jan 2026 13:49:32 -0800 (PST)
 Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-118.dlp.protect.broadcom.com. [144.49.247.118])
-        by smtp-relay.gmail.com with ESMTPS id d2e1a72fcca58-81fa1275b05sm394547b3a.8.2026.01.16.13.49.27
+        by smtp-relay.gmail.com with ESMTPS id 46e09a7af769-7cfdf2c89fdsm432554a34.8.2026.01.16.13.49.32
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 16 Jan 2026 13:49:28 -0800 (PST)
+        Fri, 16 Jan 2026 13:49:32 -0800 (PST)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-502a4aca949so44824481cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 13:49:27 -0800 (PST)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-502a13e3e55so38435791cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 13:49:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1768600167; x=1769204967; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1768600171; x=1769204971; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=bZPxsf3cKGg5r/sDoaWbUA8YBIi5b4KFRVaME9GKXIs=;
-        b=QDNM+Hk2a13qF2qLEauKP2XBSenuma5QWo37lpolyzpCzNjBuGzRnPHiQWjmRMT9dE
-         1FfQo7z/DBERF7dbSyKYyEDZJcwXrPuLVw59QzyvKuUGh7rboTmmMLCHMsr7+9bVlDph
-         uRkM6d9GQ4NXrS1EQG1FGa2vl20Gi5VT3ZJlA=
-X-Forwarded-Encrypted: i=1; AJvYcCWUQvcMkvrifEJb9oBIBhlD7G77uN0ziu9yW5R5OiXI5cwgX1+dvQzWH4DtBbqT4ioieeXMC8cYRyDUNjAXoq8Q@lists.infradead.org
-X-Received: by 2002:ac8:5949:0:b0:502:9b1f:ca3f with SMTP id d75a77b69052e-502a1f838camr62604141cf.56.1768600167091;
-        Fri, 16 Jan 2026 13:49:27 -0800 (PST)
-X-Received: by 2002:ac8:5949:0:b0:502:9b1f:ca3f with SMTP id d75a77b69052e-502a1f838camr62603981cf.56.1768600166662;
-        Fri, 16 Jan 2026 13:49:26 -0800 (PST)
+        bh=1vCA+R5fcMfO5sPq0PNAkA7jYgGsq1t74maw1JK+ZqY=;
+        b=MTnsuSn4m1Ox8LXfxeu+mLY70yW+of1r56k6eMx1kkmOarlhlvz+wwISh6uta6Z9Fz
+         fYtQtL+vNZNSCmIoHXq+ymIJOBroRhrs09QKrIzIUWO1JV5Ww0G6a26QZlxzZx1Tpuul
+         swRBIEP7aLfD8XpbA2LubrnGsWrhNyLN3O1h0=
+X-Forwarded-Encrypted: i=1; AJvYcCWrhm5fn6k4F/iOFV6016OGTN0JcdO2osq7HEwJI4YlMcCHvnmcakvZ6pVAy6GUXJOpX2SU1uLeyPpHkMRV0eDU@lists.infradead.org
+X-Received: by 2002:ac8:7dc7:0:b0:501:3d25:18e3 with SMTP id d75a77b69052e-502a1714fc5mr74271091cf.46.1768600171658;
+        Fri, 16 Jan 2026 13:49:31 -0800 (PST)
+X-Received: by 2002:ac8:7dc7:0:b0:501:3d25:18e3 with SMTP id d75a77b69052e-502a1714fc5mr74270911cf.46.1768600171268;
+        Fri, 16 Jan 2026 13:49:31 -0800 (PST)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-502a1ed1de6sm29437481cf.17.2026.01.16.13.49.24
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-502a1ed1de6sm29437481cf.17.2026.01.16.13.49.28
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Jan 2026 13:49:25 -0800 (PST)
-Message-ID: <bcb25d4c-1ce1-4b91-8950-66b3ef69deeb@broadcom.com>
-Date: Fri, 16 Jan 2026 13:49:23 -0800
+        Fri, 16 Jan 2026 13:49:30 -0800 (PST)
+Message-ID: <ded7193d-ab5e-4f91-9b64-142a886fd792@broadcom.com>
+Date: Fri, 16 Jan 2026 13:49:27 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/13] arm64: dts: broadcom: bcm2712: Move non simple-bus
- nodes to root level
-To: bcm-kernel-feedback-list@broadcom.com, "Rob Herring (Arm)"
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>, devicetree@vger.kernel.org,
+Subject: Re: [PATCH 02/13] ARM: dts: broadcom: bcm2835-rpi: Move non
+ simple-bus nodes to root level
+To: Rob Herring <robh@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, devicetree@vger.kernel.org,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
 References: <20260106-dt-dtbs-broadcom-fixes-v1-0-ba45874e4553@kernel.org>
- <20260106-dt-dtbs-broadcom-fixes-v1-3-ba45874e4553@kernel.org>
- <20260108173330.3784137-1-florian.fainelli@broadcom.com>
+ <CGME20260109120137eucas1p221b9dd341c2319c0f9d0da1fbd48d1b3@eucas1p2.samsung.com>
+ <20260106-dt-dtbs-broadcom-fixes-v1-2-ba45874e4553@kernel.org>
+ <e98ad883-7ba2-417b-8cd3-19f5f863b03d@samsung.com>
+ <CAL_JsqKNKCOWj_eSTtDwsex3pUhgc+7QwAwLZn4MWVzOkOOHcg@mail.gmail.com>
 Content-Language: en-US, fr-FR
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -134,13 +137,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20260108173330.3784137-1-florian.fainelli@broadcom.com>
+In-Reply-To: <CAL_JsqKNKCOWj_eSTtDwsex3pUhgc+7QwAwLZn4MWVzOkOOHcg@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_134930_183829_206FC444 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260116_134933_516561_3149E3D1 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,21 +158,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/8/26 09:33, Florian Fainelli wrote:
-> From: Florian Fainelli <f.fainelli@gmail.com>
-> 
-> On Tue, 06 Jan 2026 20:09:42 -0600, "Rob Herring (Arm)" <robh@kernel.org> wrote:
->> The 'gpu' and 'firmware' nodes are not MMIO devices, so they should not be
->> under a 'simple-bus'.
+On 1/12/26 10:09, Rob Herring wrote:
+> On Fri, Jan 9, 2026 at 6:01 AM Marek Szyprowski
+> <m.szyprowski@samsung.com> wrote:
 >>
->> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
->> ---
+>> On 07.01.2026 03:09, Rob Herring (Arm) wrote:
+>>> The 'gpu' and 'firmware' nodes are not MMIO devices, so they should not be
+>>> under a 'simple-bus'. Additionally, the "raspberrypi,bcm2835-power" node
+>>> is part of the firmware, so move it under the /firmware node.
+>>>
+>>> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+>>
+>> This breaks operation of all drivers under the firmware node. I'm not
+>> exactly sure why, but they are not properly instantiated. It must be
+>> something specific to "firmware" name, but I didn't dig enough to find
+>> exactly where and why.
+>>
+>> After changing the "/firmware" node name "xfirmware" everything works again:
+>>
+>>
+>> diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
+>> b/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
+>> index 9ab70b519a63..464f032ccb71 100644
+>> --- a/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
+>> +++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi.dtsi
+>> @@ -1,7 +1,7 @@
+>>    #include <dt-bindings/power/raspberrypi-power.h>
+>>
+>>    / {
+>> -       firmware: firmware {
+>> +       firmware: xfirmware {
+>>                   compatible = "raspberrypi,bcm2835-firmware", "simple-mfd";
+>>                   mboxes = <&mailbox>;
+>>
+>>
+>> Same issue occurs with bcm2712 change (patch 3/13).
 > 
-> Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
-> --
-> Florian
+> The issue is how /firmware is handled in drivers/of/platform.c and it
+> doesn't create a device for the /firmware node. I think the fix here
+> is /firmware needs to be just a container node and move
+> "raspberrypi,bcm2835-firmware" down a level. That also allows for
+> different types of firmware such as a TEE or SCMI should those or
+> something similar ever be needed.
+> 
+> I'll see if I can get kernelci to test that change. I don't think my
+> branch boots all boards though...
 
-Also dropped.
+Dropped this patch for now, until your of_platform.c fix lands and I can 
+apply your two other patches.
 -- 
 Florian
 
