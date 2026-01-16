@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 769C4D4A5E4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 02:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A266CD4A5E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 02:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L9EFgctOK7I61NwA7js08sNs8h4/HUg6GstBYjS/NkI=; b=XOGBMdEkobeqhAdKm4m+Q/3n1y
-	6O/LkOCZ1EmDCvgxb/w19gI4kHVlT0FcFeE0g7Mexjpr0LnSjibxWjVYXS9TRV7OMn0k9LTp25RFP
-	zluLKLP9nL4oQY6d2dR+Rydak2BIjSnCFxuiOuwIiyrBdmh6vNM9gJ62EUD+BaeWOYKdg1nIF96wf
-	sELoMEfugWhyAzLtE1YL6aw9HlVdGvPv4cRfVc505gy9JTZXE5+DVYMkGQBTcDVXgKHwJuQ1TyH6D
-	fHiy1GfnxUOwc8xoSr724/zCzg0gO5kkj8SZAgtiSNUJvI6tokA8jgTK41G85CMSN9eDuUSs+dhZa
-	XIYi55JA==;
+	bh=EG1hY4Bj4RYTqTep9iIgJg/7syTPIFuY/17rX6gtjqM=; b=2olSCsR7nHw6/kc7EcOnmuGxdn
+	t+YoHY4i/50W7bQ4Hh1SEqqCgeyY70fozRAlG5+nWx8UM02B2FqfdusQjL5UvPB6fQRE+Aoxyooeg
+	rK7EN7oeSEef/vz3+Ej/MoKwpDhIoOTyyiZoszI8lvmuiB2aYMT0h5TELHsaybRHhQFK577DfSzYH
+	MD3j6S2TdrbKYD7jp63uMWSRlhIRX1DFIoF7C+gZ4i6mb1ddGXZGB0LolvW8wRmfKSL4WB+LpJ8++
+	yuHoPgBmg2fK0xy64msw6slbivp+k1a4UPeCBoLTl4ywJ1dPuacatOF4jEjk2+gEjRdPoppLY7ijF
+	NWM6mJ9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgZRR-0000000DSrh-2CL0;
-	Fri, 16 Jan 2026 02:20:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vgZRt-0000000DSwV-0PgG;
+	Fri, 16 Jan 2026 02:20:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgZRP-0000000DSqu-0rS7;
-	Fri, 16 Jan 2026 02:20:00 +0000
+	id 1vgZRj-0000000DSvq-27uE
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Jan 2026 02:20:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C76534353A;
-	Fri, 16 Jan 2026 02:19:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FFD5C116D0;
-	Fri, 16 Jan 2026 02:19:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A85996016B;
+	Fri, 16 Jan 2026 02:20:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51492C116D0;
+	Fri, 16 Jan 2026 02:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768529998;
-	bh=GCzrQ0j+1QSvMXWCusyN/aVUAD5+b87qrzjsqnsLW9U=;
+	s=k20201202; t=1768530018;
+	bh=EG1hY4Bj4RYTqTep9iIgJg/7syTPIFuY/17rX6gtjqM=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=XA9GmcYwKmthDROkg5o4SXiniwfdMDVdKRqX0dpVVlOhLQGKb/R1hiPaFU0QEYqgl
-	 sCHA/R7QRkZKRN5RRswx5y5MX9BEBFtVuZdifgDPgHSKrIsBjQHd+u+EgxaO/vZEZ4
-	 5hr8lOg7XojqmZQCWtmnV4vWnXNm6ft5jm00yPi/dzNf4RogLHWi+7znAzz5XWaMXG
-	 +vO1buEH1rqgQjJqolyIXJBHUFycnNZiOuwf0CsGD1/0mehSRAm9fV6GtdK+ZEMTAy
-	 G7vdRjFAffWxy2JsSGwlelruZLJYbVcIizBZGnH4pShN/0cq1B9Z0JquHlZ+4QlI8e
-	 il8AKQbNwbxoQ==
+	b=WZnG4dTdOLUw4oTH5wlBwJrxGQDkv9wbhTG6chJsVQKfPL/fBhcLP+HcWvxqnMSGL
+	 Bz0r+4bHtQQhUMzGIk/TAqiwHICLrOJv8hlZaJ7Gzagi2OU1y4xaG1OOfCmhAyFJ8h
+	 nd55Oy+VnZJL+MRibGdirDMLIbk4k7rX1BvBYm8IpjoZ6YxMUt/d+GBEAtfGupHtGg
+	 20YUghOK5FzG3mDbo0poYawJuerdqqlQvLnAMnViPVb7HNrffmpvavYRELx1HY7G6L
+	 pYTMwW9fPJr0rQciKD0aXBBgmscJl3vgtONIRP+hiYFkefHZ/ot5QwWgJBgV+5Pez6
+	 np9RqeS9kiL0Q==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20251024083247.25814-1-angelogioacchino.delregno@collabora.com>
-References: <20251024083247.25814-1-angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v4 0/5] SPMI: MediaTek: Add support for multi-bus
+In-Reply-To: <20251231-spmi-apple-t8103-base-compat-v1-1-98da572086f9@jannau.net>
+References: <20251231-spmi-apple-t8103-base-compat-v1-1-98da572086f9@jannau.net>
+Subject: Re: [PATCH] spmi: apple: Add "apple,t8103-spmi" compatible
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, hsin-hsiung.wang@mediatek.com, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, kernel@collabora.com
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Date: Thu, 15 Jan 2026 20:19:56 -0600
-Message-ID: <176852999687.16445.9363555790881114587@lazor>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org, Janne Grunau <j@jannau.net>
+To: Janne Grunau <j@jannau.net>, Jean-Francois Bortolotti <jeff@borto.fr>, Neal Gompa <neal@gompa.dev>, Sasha Finkelstein <fnkl.kernel@gmail.com>, Sven Peter <sven@kernel.org>
+Date: Thu, 15 Jan 2026 20:20:16 -0600
+Message-ID: <176853001644.16445.12638081232487224512@lazor>
 User-Agent: alot/0.11
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_181959_274058_59F8061B 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,27 +68,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting AngeloGioacchino Del Regno (2025-10-24 03:32:42)
-> Changes in v4:
->  - Refactored IRQ domain handling due to deprecation of function
->    irq_domain_add_tree() to use the new irq_domain_create_tree()
->  - Added .irq_eoi() callback for rcs_irq as that better reflects
->    the actual functionality of this interrupt controller (as its
->    SLV_x_y_EINT registers are really signaling "EOI", not "ACK")
->  - Fixed to use generic_handle_domain_irq_safe() to avoid races
->  - Tested again on MT8196 Chromebook
+Quoting Janne Grunau (2025-12-31 04:41:32)
+> After discussion with the devicetree maintainers we agreed to not extend
+> lists with the generic compatible "apple,spmi" anymore [1]. Use
+> "apple,t8103-spmi" as base compatible as it is the SoC the driver and
+> bindings were written for.
 >=20
-> Changes in v3:
->  - Added Fixes tag to commit 3, collected R-b tag from wenst
+> [1]: https://lore.kernel.org/asahi/12ab93b7-1fc2-4ce0-926e-c8141cfe81bf@k=
+ernel.org/
 >=20
-> Changes in v2:
->  - Fixed indentation error in dt-bindings
->=20
-> This series adds basic support for multi-bus (multi-master) SPMI
-> controllers, as found in the MediaTek MT8196 Chromebook SoC and
-> the MediaTek MT6991 Dimensity 9400 Smartphone SoC, including RCS
-> interrupt handling and per-bus registration.
->=20
+> Fixes: 77ca75e80c71 ("spmi: add a spmi driver for Apple SoC")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Neal Gompa <neal@gompa.dev>
+> Signed-off-by: Janne Grunau <j@jannau.net>
+> ---
 
 Applied to spmi-next
 
