@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5041DD4A5F6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 05:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 557B1D4A5F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 05:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ROun1Ge4WcUyhsLAGIL98asCrX2CHhiOUsQ7993RIuc=; b=Q1DLf2Lql2OU17Q7Q21KshM+js
-	cKa14Yy2/jNaLb6YJOui1CJmFOxkNsqGmaWPiqhae9qGv5oPVXapKVQWqxwQco0pznk2s4rg8J5Oq
-	Z2ACiSUehQKcOpq8i3Tqi7iSZxTiF5UVcGF3ua5AaoioWG2kO/iZDmeGM3DsDoHdtXrg1DKGLjOGc
-	5xTOi8mjmaoqLd/tJBhHsMZADVyNtFRCZMy1+qdg9LtzoJXgi51rdfBbeit0LK3o92StElOMAoSpP
-	4omgy8gBUl3/67+x2igcrhZ6E0a4u0JcB+o/ukcy4vvS6FqQczbts6MmTmH8AYdKYCgEG9De55MR6
-	AuLaxrCA==;
+	bh=xFGQkjrwAalohgIdYfQhgu1b7sQOfgE3m88l1tlBcbg=; b=4B10LEpUH2jPCYN1jgPTNpWA/1
+	h3MWi0ci5MTM7U73blDU+KWB6/qK+3fOhyP9PaRJBufF82ecYuyrwU+sKPIMkZOBU9bdBEvsfC1FS
+	8lUGiOl+oZIZLoZtCosErHV+UekP74irY3rvNZnD0TFRA8tcdtmgP/Kxc0eZ6chHAA2QGlQ65A7cv
+	oDWf6RKzSp3Tfz02HSQ9frUY9dRQg1gYJFmpWkqTiKOO/EukGfBwnYMIJ8junFs0WnR6mAATaZrpe
+	cnSZHgBGEJ/cvc4lW27O0FPeT1/leeSuh+JZCj+gn7tPczLyoSRTxlqUFQ2KrnDLsJSiepuxxd1Kg
+	fgQCaucQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgcQ0-0000000DcmT-0C6O;
-	Fri, 16 Jan 2026 05:30:44 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1vgcR2-0000000DctF-3vVM;
+	Fri, 16 Jan 2026 05:31:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgcPy-0000000Dcm9-03jX
+	id 1vgcR2-0000000Dct8-04zw
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 16 Jan 2026 05:31:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=xFGQkjrwAalohgIdYfQhgu1b7sQOfgE3m88l1tlBcbg=; b=ZySxSAFDUMN1EqnVFCUnrd59Gz
+	DXsCOH90KjsfhDk54stoCXb/zZNx6SlN8BaOqRRY2yxf50lnDIwRhaSCFaOAqolJ6zujCIQ0chaJ7
+	vpcqbx11/pZY/e/80kNbAx5/oAE1KbUNo7QKWS6mt7Wi0JyGcLw/0/D6iUnHYDu1ltiDPExUXWom0
+	5zAT6lk+6l/3Bn3ko4UzKCRZSoztok4Tze6Unq1DNbh4CyNYRA1SKtoq+nPqYcQQgOjQymwnUrajO
+	01no1Cc9nuTnYFHCf6sBA509OnE7PP854ut+qEXX5dv7/+iEf/NSq0sh3Hyq88r86+BOgzeZf3tSz
+	VTPOk+Iw==;
+Received: from mgamail.intel.com ([192.198.163.16])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgcQw-000000086Nb-45rw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 05:30:43 +0000
+	Fri, 16 Jan 2026 05:31:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768541442; x=1800077442;
+  t=1768541503; x=1800077503;
   h=date:from:to:cc:subject:message-id;
-  bh=njMyBOsZ2moVZwiFmimZNXta0zSY8bpOcSJ/jx7iTCU=;
-  b=HPxc7BHvvJ4r54pJllZoEd51JH2G9aH/4LktUSyIQt42JbgIyaWIUBWj
-   BwFhYUjtnqEl8PyNj+oeoki0rE4/iJT1NJ42EzwAqTGBWAVhVejxLRGhi
-   BbO09bUgkUcBaZSE8/x3PZcF7TacfQD1GdY7YfC/3Fxp/hLl0hLJpZ7sI
-   u4BdrIn8FNNZjFWTj5ke1cO0kbleQHrHi7HTIxnKZQf8z1rzUWBpjKxsI
-   d3opi89FRSakQ5R6Nxg6jvxo69/0FW72HTuZ0Ex/1VvLl0eEk4WezRigF
-   USgVUWtbfUm8oRt9G2zEaMd8MTJXJ3aSJkl0z7tQJRrOl7RmTKQxIMQyG
-   g==;
-X-CSE-ConnectionGUID: 2zV57ilJTgSoJa12sr4hZQ==
-X-CSE-MsgGUID: AxdN5VjYRgyU20Hjq/pApA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11672"; a="70021149"
+  bh=H7SAWor7iTXBeW3JMuruIB1PHV/+No2Ntc4Hmpatiw8=;
+  b=CF+hXZ8oqflq4ahvpoRrEjq0efL847Klfx8JZ9cSAHk8L0kYfZsVrIg3
+   ACTgMoIE7rEtQIyUAvFx8riYgpCCxK728sN2BjpddeUXftXlkmS+RydC0
+   iU+B1vsFMz8DlXf2iZioSWwNn07iyEzJM7FCtvpy01yxrHDGE7IZRpqXi
+   5kN1A+jYaIYwwnDVZrzKuLp9ncO4yup4H6wY89gG8P/PVRFdgvbHTBdUe
+   4DY+yM9Ja2JaRP8OOBs3cKsfjJqHC4CfDxcR3w/Dg/3LHdY9ZRtwbEsUj
+   lX2UIpwq93ouRWgHs3LjzIfjbIUB00w5a+ogwVC+539wCMTPjeqE5hErE
+   A==;
+X-CSE-ConnectionGUID: Sdz29hmwTpm2u7m+BCA7hg==
+X-CSE-MsgGUID: dmqiW4caTP2ZxbbJLNv/Ew==
+X-IronPort-AV: E=McAfee;i="6800,10657,11672"; a="57409266"
 X-IronPort-AV: E=Sophos;i="6.21,230,1763452800"; 
-   d="scan'208";a="70021149"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2026 21:30:41 -0800
-X-CSE-ConnectionGUID: MlsEr21ORniZZcREs8XkAw==
-X-CSE-MsgGUID: BYIOnOgAQiq19XQzZA/Ynw==
+   d="scan'208";a="57409266"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jan 2026 21:31:40 -0800
+X-CSE-ConnectionGUID: IkkVgJbgRyWevZCseBq9Bg==
+X-CSE-MsgGUID: W9hsFw2YSrmEsOuh3zhnEA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.21,230,1763452800"; 
-   d="scan'208";a="204766735"
+   d="scan'208";a="210018383"
 Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by fmviesa007.fm.intel.com with ESMTP; 15 Jan 2026 21:30:38 -0800
+  by fmviesa004.fm.intel.com with ESMTP; 15 Jan 2026 21:31:39 -0800
 Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
 	(envelope-from <lkp@intel.com>)
-	id 1vgcPs-00000000KQE-3Rg7;
-	Fri, 16 Jan 2026 05:30:36 +0000
-Date: Fri, 16 Jan 2026 13:29:39 +0800
+	id 1vgcQq-00000000KQM-3gfr;
+	Fri, 16 Jan 2026 05:31:36 +0000
+Date: Fri, 16 Jan 2026 13:31:28 +0800
 From: kernel test robot <lkp@intel.com>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:arm/fixes] BUILD SUCCESS
- 4ead53ba5071334e9c97e0fc358136016531cbd1
-Message-ID: <202601161334.cVwA6TwG-lkp@intel.com>
+Subject: [soc:for-next] BUILD SUCCESS
+ 856a442d38dc3ef59aab008bdd543ac27e5f498c
+Message-ID: <202601161322.Seq16l45-lkp@intel.com>
 User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_213042_125138_65423695 
-X-CRM114-Status: UNSURE (   5.26  )
+X-CRM114-CacheID: sfid-20260116_053144_126658_58F2B852 
+X-CRM114-Status: UNSURE (   5.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,12 +98,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
-branch HEAD: 4ead53ba5071334e9c97e0fc358136016531cbd1  Merge tag 'v6.19-rockchip-dtsfixes1' of git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip into arm/fixes
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: 856a442d38dc3ef59aab008bdd543ac27e5f498c  Merge branch 'arm/fixes' into for-next
 
-elapsed time: 737m
+elapsed time: 738m
 
-configs tested: 198
+configs tested: 208
 configs skipped: 2
 
 The following configs have been built successfully.
@@ -135,16 +150,22 @@ hexagon                          allmodconfig    gcc-15.2.0
 hexagon                           allnoconfig    gcc-15.2.0
 hexagon                             defconfig    gcc-15.2.0
 hexagon               randconfig-001-20260116    clang-20
+hexagon               randconfig-002-20260116    clang-19
 hexagon               randconfig-002-20260116    clang-20
 i386                             allmodconfig    clang-20
 i386                              allnoconfig    gcc-15.2.0
 i386                             allyesconfig    clang-20
 i386        buildonly-randconfig-001-20260116    gcc-12
+i386        buildonly-randconfig-001-20260116    gcc-14
+i386        buildonly-randconfig-002-20260116    clang-20
 i386        buildonly-randconfig-002-20260116    gcc-12
 i386        buildonly-randconfig-003-20260116    gcc-12
+i386        buildonly-randconfig-004-20260116    clang-20
 i386        buildonly-randconfig-004-20260116    gcc-12
+i386        buildonly-randconfig-005-20260116    clang-20
 i386        buildonly-randconfig-005-20260116    gcc-12
 i386        buildonly-randconfig-006-20260116    gcc-12
+i386        buildonly-randconfig-006-20260116    gcc-14
 i386                                defconfig    gcc-15.2.0
 i386                  randconfig-001-20260116    clang-20
 i386                  randconfig-002-20260116    clang-20
@@ -164,7 +185,9 @@ loongarch                        allmodconfig    clang-22
 loongarch                         allnoconfig    gcc-15.2.0
 loongarch                           defconfig    clang-19
 loongarch             randconfig-001-20260116    clang-20
+loongarch             randconfig-001-20260116    gcc-15.2.0
 loongarch             randconfig-002-20260116    clang-20
+loongarch             randconfig-002-20260116    gcc-15.2.0
 m68k                             allmodconfig    gcc-15.2.0
 m68k                              allnoconfig    gcc-15.2.0
 m68k                             allyesconfig    clang-16
@@ -185,7 +208,9 @@ nios2                            allmodconfig    clang-22
 nios2                             allnoconfig    clang-22
 nios2                               defconfig    clang-19
 nios2                 randconfig-001-20260116    clang-20
+nios2                 randconfig-001-20260116    gcc-11.5.0
 nios2                 randconfig-002-20260116    clang-20
+nios2                 randconfig-002-20260116    gcc-11.5.0
 openrisc                         allmodconfig    clang-22
 openrisc                          allnoconfig    clang-22
 openrisc                            defconfig    gcc-15.2.0
