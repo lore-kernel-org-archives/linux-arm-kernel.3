@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E167DC982D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67DBCC982DB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ky8EGhAbwDxSiGd+vPASPYnyZb+Sx+A2spx1YzJQeR4=; b=dN3olNwno56W2gjkxZyWxYAE6G
-	rFBFxxknMliSuZb6gO8fhtneb+FxCYoByEV5US4tViT/fR/t78wwpdfU60del2AtdrDvnNVKDmxnc
-	v4jPkRRZYBG9+eDF063+4mWvEZmgGStTU1KW5JtPtZvMgmFFHgfai+4j4gZrkysMz3zH2yXrrb2BY
-	2JqbPtD25BNkwaO4nrvt4Np/qqs3QAsda/I5uf331KXq7pWUeFnk5ppB/krApdTwoW0PeVU+WQYK/
-	4b3vxp596Nbwlbv28SUk8bFGcvUe7O4rWjx5HtvoIOlxBJdfACa34QSsuMxQmX+pA9d6XlWmdbmRQ
-	9J18cg+g==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ir0CVKUMRv2yB1rebgvkDwl7f00eEDBHBCY9mtzPkFE=; b=ovvRsJVVRlVvSWOe8ot1dz0Uma
+	R44lKTLk5OA7zqZwl68iVzsJCzC6gDOPq20Wt0msruIDc8ubIGagkGMEUDqTvlNGXGjK0h0EY6Z/C
+	R9CMMUzL8bjE8xRrH03kIP8TSKNGQZxojq4+kY6pJUGAbnxFJWR5KRggNeJrypWqSMS3SDqT9M7VY
+	isaThqkdAk7u/gOwFnUsz64e7LgHZFmqXqXk9svp3+iejNRbWuv8PStdBwsAI8AanHbmrQdgo89x9
+	dqwzS3J3jTzoxa5drE76C8dRjQK3pHGzc5gbShLqMWlRpzSGV7MPWWtf8sq8o3V3WfvsVHAn9edcY
+	WUg2V3RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnBx-0000000EVRX-1e40;
+	id 1vgnBx-0000000EVRn-2qjS;
 	Fri, 16 Jan 2026 17:00:57 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnBu-0000000EVQJ-2SJw
+	id 1vgnBu-0000000EVQK-2XDi
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 16 Jan 2026 17:00:55 +0000
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1768582851;
+	s=2020; t=1768582850;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ky8EGhAbwDxSiGd+vPASPYnyZb+Sx+A2spx1YzJQeR4=;
-	b=hRxuxlBeyiIv+XUncVep0DQoBQgJcoCYAUaECGBxUcUKtBlCi42ej+Z9Heu9HtF7AzZxDc
-	2eJ3YGyZjvpnGYITLt2FXvvP1DPVTrNQqbrPFrQrfIVq9vWp88/14KWhi+njibykQMa85Q
-	8vuHq2TtoMWIzzF1R2UpRjkdedxEUVhvzOZL8cm9Wh2Fu7XjwkdHk7qo6MHBqwTUIQY2Oj
-	g2lX0SrgJ0eIcrt4GK0Ktro2zs+k1TqZyj2U4IZjIy5uebZ9ZkMESiipNWFz1N7qlpJtwa
-	JwOzkA8ZyWCxFG7mPEkGh6ZtCSDjo5aJIeshci0AUY1DZVaSD5BFXe3eip/n4A==
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ir0CVKUMRv2yB1rebgvkDwl7f00eEDBHBCY9mtzPkFE=;
+	b=oBuaSpEnY0FAZnKcl1nDCO2CbxNqmEdea/3a4UojU0oe2QGrT8lJz2BgDmwSsm8Y6YtHwu
+	p99tgud8WaUJa7EXA8xrt/UfY8Tfn5W7N2iLQRCiigPURbDSXnu0GcxC9u4CHm1yXWlxVG
+	aGjXGE1zyX01n1azCAldJEM6+hI8Xs8i7LaU3KzBu+xQvlsvcsnimCYtJQxf93vW8fzV6T
+	b9q31ySqLF/yxyF1N83j74O8StgQ2gNog2tT5ZyyJTdCpssRNjoEo/2k+RHwbsBqw8oH9V
+	dUNlnZ9Rg90GdO39UggyD0zxUEbfQaGa4fmNNANuYSOEpB8hbxOHoHE1Kl7BFQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1768582851;
+	s=2020e; t=1768582850;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ky8EGhAbwDxSiGd+vPASPYnyZb+Sx+A2spx1YzJQeR4=;
-	b=CdjdnzXV3vWcZr5Jif5md1pvNn7rA9CQEnxPsdXygk2X3PeRj/aI3CdMqs0QETl1Lb0iEe
-	LGSgaZAxKaNcPyCA==
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ir0CVKUMRv2yB1rebgvkDwl7f00eEDBHBCY9mtzPkFE=;
+	b=5JzoZReBxbJyKJrqWTaVoEl/TQhXwqsQliA+TyrMfQ697xAQ1ctbDAvgZOgDF8uqWqKOKf
+	Nh+1RToP2BzNJABw==
 To: linux-arm-kernel@lists.infradead.org,
 	linux-rt-devel@lists.linux.dev
 Cc: Russell King <linux@armlinux.org.uk>,
 	Arnd Bergmann <arnd@arndb.de>,
 	Linus Walleij <linus.walleij@linaro.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Bryan Brattlof <bb@ti.com>
-Subject: [PATCH v4 2/2] ARM: Allow to enable RT
-Date: Fri, 16 Jan 2026 18:00:41 +0100
-Message-ID: <20260116170041.1059997-3-bigeasy@linutronix.de>
-In-Reply-To: <20260116170041.1059997-1-bigeasy@linutronix.de>
-References: <20260116170041.1059997-1-bigeasy@linutronix.de>
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Subject: [PATCH v4 0/2] ARM: Remaining PREEMPT_RT bits
+Date: Fri, 16 Jan 2026 18:00:39 +0100
+Message-ID: <20260116170041.1059997-1-bigeasy@linutronix.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_090054_773129_F2B4E572 
-X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-CacheID: sfid-20260116_090054_790624_CC66D9F6 
+X-CRM114-Status: UNSURE (   9.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,29 +77,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All known issues have been adressed.
-Allow to select RT.
+this is the last batch I have to enable PREEMPT_RT on the ARM
+architecture. It is just sending a signal with disabled interrupts and fina=
+lly
+enabling PREEMPT_RT on ARM.
 
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-Acked-by: Bryan Brattlof <bb@ti.com>
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
----
- arch/arm/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+Is this okay?
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index fa83c040ee2d4..547df4161e0dd 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -41,6 +41,7 @@ config ARM
- 	select ARCH_SUPPORTS_CFI
- 	select ARCH_SUPPORTS_HUGETLBFS if ARM_LPAE
- 	select ARCH_SUPPORTS_PER_VMA_LOCK
-+	select ARCH_SUPPORTS_RT
- 	select ARCH_USE_BUILTIN_BSWAP
- 	select ARCH_USE_CMPXCHG_LOCKREF
- 	select ARCH_USE_MEMTEST
+v3=E2=80=A6v4: https://lore.kernel.org/all/20251110145555.2555055-1-bigeasy=
+@linutronix.de
+  - Dropped applied patches
+  - Rebased the remaining one on top of the recent fault handler and branch
+    predictor fixes.
+
+v2=E2=80=A6v3: https://lore.kernel.org/all/20251103101545.760243-1-bigeasy@=
+linutronix.de
+  - Collected tags.
+
+v1=E2=80=A6v2: https://lore.kernel.org/all/20251029155918.503060-1-bigeasy@=
+linutronix.de
+  - Allow to enable jump-labels on UP. The UP build does not involve
+    stop_machine(). Reworked by Arnd.
+
+  - Instead of forbidding HAVE_GUP_FAST with HIGHPTE enabled just
+    disable HIGHPTE on PREEMPT_RT. As Arnd explained, HIGHPTE is rarely
+    needed.
+
+  - Don't let ARCH_SUPPORTS_RT depend on HAVE_POSIX_CPU_TIMERS_TASK_WORK
+    which in turn depends on !KVM. Since KVM has been removed from ARM
+    it is sufficient to unconditionally allow ARCH_SUPPORTS_RT. Noted
+    by Arnd.
+
+Sebastian Andrzej Siewior (1):
+  ARM: Allow to enable RT
+
+Yadi.hu (1):
+  ARM: mm: fault: Enable interrupts before invoking __do_user_fault()
+
+ arch/arm/Kconfig    | 1 +
+ arch/arm/mm/fault.c | 4 ++++
+ 2 files changed, 5 insertions(+)
+
 --=20
 2.51.0
 
