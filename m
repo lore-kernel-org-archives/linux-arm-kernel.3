@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12E4AD4A5E2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 02:50:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A76D4A5EB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 02:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9plVu6awmElwcj43jJWhFcDPnkRrV2uQo++mo+YHKp4=; b=NEhJranxTwJM5v7s9oDI3RwB6y
-	QpCk5bYhUCrWdF/R8Ye0zIBuUhPZWNq3YsvVxHs1Md94RoXdYH1F+7UCfXotO57l2nYNIOWSJnJ6p
-	m/KoYBLGCoa39HK346FJDK9bkxsZnZzeJVSu0pI5wfnbgu/bS48vZ/Kbr481q7PFfQBDab1gCQVLs
-	3I3DXpHg9FN/KAixnog8fxDy/lEY3s7LwWN1dki1xv71P6l+gbDN2dx55XNKSWw5IPnrfbaptz/Se
-	7FxBY2NGv9QwzoraiQ3lJRu2W0lLeMRzR/klg0pKlajx15pN/lso/uba/FW1e7pKnn0O/xZxsMLX4
-	FXQsQllg==;
+	bh=mGq6lq6CX8A0vkqW4EaPcUBUnxO3Dn8wywcn5lCiB9Y=; b=20xkWo+eBR0Pzm4g92LE4KApqD
+	oYVlxjpPDiHtFlpGbKc5tL8EfegV7Tw+mpJuZZKI19tyhShF2Lf0nkDTDaxqM+ZMcepMLktFyl9Gq
+	tJeVX7xhr8NaM5hO58wzc2rXx3HZ95PId3r5FwRG2vzIEGi2AKt8yDHPNacHSv7LtAPIIlZyhDfd0
+	9MKZ8WYun8T7m4A3Rdwd0S+8weSQp/mVr1IWY0yJupuNpkVed6v9hAiixq0zjagyWUbZIjmFTE9MG
+	1wKHnkoBm9gsmDt2VKikLWRjQr4ugndeNtAqxmUVaFwjD4A0B+sdgAReyyhLrFd30dlgysN12oHud
+	wFB5CjUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgZug-0000000DUJo-1C0C;
-	Fri, 16 Jan 2026 02:50:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vgZv0-0000000DUP6-2WLa;
+	Fri, 16 Jan 2026 02:50:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgZuf-0000000DUJP-2XTz
+	id 1vgZuz-0000000DUOQ-1nvt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 02:50:13 +0000
+	Fri, 16 Jan 2026 02:50:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 06B4D6016B;
-	Fri, 16 Jan 2026 02:50:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FC22C19421;
-	Fri, 16 Jan 2026 02:50:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 87FB260160;
+	Fri, 16 Jan 2026 02:50:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 301A0C116D0;
+	Fri, 16 Jan 2026 02:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768531810;
-	bh=9plVu6awmElwcj43jJWhFcDPnkRrV2uQo++mo+YHKp4=;
+	s=k20201202; t=1768531832;
+	bh=mGq6lq6CX8A0vkqW4EaPcUBUnxO3Dn8wywcn5lCiB9Y=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=i+LSQMZyRjO6xFTOhFH7DiQPavwQdNcWY6pQllyzHyH2QCl+ZB5nSVgrurf2wno0o
-	 U8oyCyegAJmvzNeEnfzuFRYYDy2mxPSy/OUqurKq4JSjfIk5X3mvxabJfTNR6A9Fy4
-	 qtZ5XkoCmpUcLR7/uFCGTaciyp9NVJNLTKnuIjUHZtEuI7qCnuXpwlL8ejDyRP23JR
-	 pNAjlY/UrhM/d1iC2nQSu9EaTthsNL1GznrCsXVoHLY46wbNcZQqeNXE36u0pkUTE8
-	 6CIwdgPzeN02iFyFhY6QIx8g1x+5do+QywMcfm1/6EfvcBORNMIndJHGYqNfboxeC0
-	 +Cx45gsv2e9fA==
+	b=mPUDrH5m/i7VJ8eJhQMRp0aA8plTZVx1lHaXswg5cxrmD2OUAxcoJRNvorM1c3A25
+	 r+Ojg6h4Th+dS4YtcNFiVXd7ubnvwxwsvC2Rfw1yh6+nQ5SRDyOO1VZ3G2DjK/IMZB
+	 S0ouoLeRU30bhpLpuEf2Cr9msvUMy1HbRFFQJBkuAkT1mcIt2cp8XGagLqpniUbjmb
+	 Q4MQGfd9UL7LehymhT+dlg2oQ1iBxdOX1Lbub96dRiDT40svtEicpP012a2jjfydaS
+	 0mWI8gAX83RrghFMnTVsx9+jiM9ZHFPrA9K7m1CcqNPNCmLz32Ar3Q1VJmGGNfGFZq
+	 I78JHOb4Rcy+g==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20251224112239.83735-4-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20251224112239.83735-4-krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH 1/3] clk: lmk04832: Simplify with scoped for each OF child loop
+In-Reply-To: <20251231-clk-apple-nco-t8103-base-compat-v1-1-6459e65b6299@jannau.net>
+References: <20251231-clk-apple-nco-t8103-base-compat-v1-1-6459e65b6299@jannau.net>
+Subject: Re: [PATCH] clk: clk-apple-nco: Add "apple,t8103-nco" compatible
 From: Stephen Boyd <sboyd@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Linus Walleij <linusw@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Sudeep Holla <sudeep.holla@arm.com>, arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Thu, 15 Jan 2026 19:50:08 -0700
-Message-ID: <176853180892.4027.3113144416442406501@lazor>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org, Janne Grunau <j@jannau.net>
+To: Janne Grunau <j@jannau.net>, Martin =?utf-8?q?Povi=C5=A1er?= <povik+lin@cutebit.org>, Michael Turquette <mturquette@baylibre.com>, Neal Gompa <neal@gompa.dev>, Sven Peter <sven@kernel.org>
+Date: Thu, 15 Jan 2026 19:50:30 -0700
+Message-ID: <176853183042.4027.16837126295266775570@lazor>
 User-Agent: alot/0.11
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,11 +68,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Krzysztof Kozlowski (2025-12-24 04:22:40)
-> Use scoped for-each loop when iterating over device nodes to make code a
-> bit simpler.
+Quoting Janne Grunau (2025-12-31 05:22:00)
+> After discussion with the devicetree maintainers we agreed to not extend
+> lists with the generic compatible "apple,nco" anymore [1]. Use
+> "apple,t8103-nco" as base compatible as it is the SoC the driver and
+> bindings were written for.
 >=20
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> [1]: https://lore.kernel.org/asahi/12ab93b7-1fc2-4ce0-926e-c8141cfe81bf@k=
+ernel.org/
+>=20
+> Fixes: 6641057d5dba ("clk: clk-apple-nco: Add driver for Apple NCO")
+> Cc: stable@vger.kernel.org
+> Acked-by: Stephen Boyd <sboyd@kernel.org>
+> Reviewed-by: Neal Gompa <neal@gompa.dev>
+> Signed-off-by: Janne Grunau <j@jannau.net>
 > ---
 
 Applied to clk-next
