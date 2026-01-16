@@ -4,143 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A16C982FB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 19:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D53F6C98302
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 19:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sRDXY4J/uFGB1yQXyfnnJwWjtcJGqG541JFygF+15PI=; b=cnndUb/82CIKEj+02FV/xzB6Oc
-	iCicTpoXlQoCicOSuzCjxPmEFuojENsD9dLNy4ygHGjfb+Su4gpnKKqvji9GyyYvISru6RchMQ9ne
-	Mi6XmC6H7vkrEYMuceR9YXYJWQRMm/PQfoYpYifb5ZkmzZS0YpQPjruwMzU8CcrFADisxXNABGg73
-	GmKsHwVX+FoEYSyJ0JA0zek3QvulTknElTsi35s7ZhgRkzD8du4KEow2wuJJrh0jQCkpKZdUuj6As
-	toTKWWtKIoXfQDfpI4Kg/HDX5RwmGcZNH6zk6h7UcuTDhjkk28Qaf0V65mCpO8N0nDFdPWAZRZs+K
-	XYG0qYIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aa0+snq05PA6LQZljIwRr0Hddt3kF9aOaEZOA0BQCJo=; b=ah2xG6k+vG/x3UfF7UGlRZJVY7
+	egQKcXcSjROoT3jF5xfrcF7jpLYFPvYaNL0N05+yagbunEEmXm2JHE00fU3TUNjmlrgnVGNPweO3D
+	yW95oV1qya2OrihaeOCQW6v96dBK3cmZDaU4Pw8xrBQA1pT5kn7mDOKaBE1AOMC4JYfGXU/E+DHyS
+	c62Q1fNY8M5UaFTUWLSUzYHMlPzE7gDXzMtf279jZLkwqMSUzHBLvonaoyz/Rr5Lur9MbyQaMuWc4
+	W6i65N6EIPFMjbgXezog+fvd6sPhG9Fjr8+EsNyPxe6f6AWH1XdFJs4UeB+GgLq+xnCk2qehgB8IC
+	bMJiFirA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgpUG-0000000Egyt-0Rc0;
-	Fri, 16 Jan 2026 19:28:00 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vgpvd-0000000Eiyi-3zt8;
+	Fri, 16 Jan 2026 19:56:17 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgpUB-0000000EgxZ-0myT
+	id 1vgpva-0000000EiyF-2U4D
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 19:27:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oEbmx4pP0MrY8jAbjkEXvMySzrSKvhhKYiZo59t8GzB1W2tN3TwOBCV2fwuDlN1AWVZ4lvLj1rx147vEINDRgUAgRBoGA4yPAV2X7CCScXdrJtqSebR93uLjtvwLZGFjXW6+v4QPLjtXUdR4ZRW1uJhcBOtO58bgxtXJGebhqB4BqnFw01JBLIBBauqzBbBajWiPKS5BWnWUSD90XmosW5kycJScOHK45Z6mW5ypvEr8WIPORa0OiuoTVhwrAzToSPt09uheDKn9sngI/ycFEdUfJpM6TMeGyLhg0RUUYtvHsQniZ0SrLJMcnA44E+o+c51TbE5NRxWc0cBJ701Tog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sRDXY4J/uFGB1yQXyfnnJwWjtcJGqG541JFygF+15PI=;
- b=jNNkg0GM5XqgfhwUTc9m46JvnHsdwCUgN9Y03TBuTBlc3Tf4jMrj4imKnBuAuaPjaW+Lk/Q6b3s3wpbZMlEyKfCf2CQ7J8xtR3qqZC3vZ/mdT+oINp5RNKhOzloNsHOHX+IupQ+KXB7yxgI38+/mhqAH7bRDil3Q1Y1FVbLiJUDAvA9r5E5cpK2A8Kj8aEJupsU6NJ1upidwzAS1edP6X5oXkzwNEfUM87VUv9Ro682RaMWcyxjF3dndZIB++49cels7hq5se6acCf6ewvhZJ5xCh/BmLl96gXp8zq6JyPTsVspje0GOXl/JlGR/Plj4RWVwsMu+RlxTWM5+WQWy3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=baylibre.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sRDXY4J/uFGB1yQXyfnnJwWjtcJGqG541JFygF+15PI=;
- b=a7iYQ7bLCmPkg1uC3xD8B6PFXLmexYvpfzn6JaFaM5bdC8w2U88d9tcfGRo36RGd7C7XFMANibBA2QlY+8ZKp2YR/3J0lso6Nxv4XFm1gtYYpYPUqj2Wy7yAnRoe7quqgFoVJOML7Qypdg+7Ofs2WdkbK3Ofj5vXFSZel8XPVnc=
-Received: from BN9PR03CA0455.namprd03.prod.outlook.com (2603:10b6:408:139::10)
- by CH1PR12MB9600.namprd12.prod.outlook.com (2603:10b6:610:2ae::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.7; Fri, 16 Jan
- 2026 19:27:48 +0000
-Received: from BN1PEPF0000468A.namprd05.prod.outlook.com
- (2603:10b6:408:139:cafe::99) by BN9PR03CA0455.outlook.office365.com
- (2603:10b6:408:139::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.8 via Frontend Transport; Fri,
- 16 Jan 2026 19:27:37 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BN1PEPF0000468A.mail.protection.outlook.com (10.167.243.135) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9542.4 via Frontend Transport; Fri, 16 Jan 2026 19:27:44 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 16 Jan
- 2026 13:27:43 -0600
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 16 Jan
- 2026 11:27:43 -0800
-Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Fri, 16 Jan 2026 11:27:39 -0800
-From: Suraj Gupta <suraj.gupta2@amd.com>
-To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
-	<radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
-	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <michal.simek@amd.com>
-CC: <sean.anderson@linux.dev>, <linux@armlinux.org.uk>,
-	<linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<bmasney@redhat.com>
-Subject: [PATCH V3 2/2] net: xilinx: axienet:  Use devres for resource management in probe path
-Date: Sat, 17 Jan 2026 00:57:24 +0530
-Message-ID: <20260116192725.972966-3-suraj.gupta2@amd.com>
-X-Mailer: git-send-email 2.49.1
-In-Reply-To: <20260116192725.972966-1-suraj.gupta2@amd.com>
-References: <20260116192725.972966-1-suraj.gupta2@amd.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF0000468A:EE_|CH1PR12MB9600:EE_
-X-MS-Office365-Filtering-Correlation-Id: 012f6e78-ded2-48ad-af32-08de553552bb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/GYMisNUQG/hNSjmjcTnN1v05ZRydEI+UffXILuceajjLGVCbpdanKfKZJlb?=
- =?us-ascii?Q?Zmi5dIVTYtnwyRwbfoZX2rpunuSRwoU7o5Df0PbBLgUz1KzT2Hjwnd1m1Bz4?=
- =?us-ascii?Q?tF/BurExSsbxYlCREgPbVO1sTpD6RNFfst2v0f7ffvTcyGTsMJ0Jkpz0HyiK?=
- =?us-ascii?Q?GEKeTc8StIyJCBHwjz2SBZKQmheTx4IqQU5XZjSzFUshAsN8qkbxtSGqUO0g?=
- =?us-ascii?Q?aGAyksbmS0AOj7X8gQz41jNDklNhAqBBKDWxmvEoJfDSgQVqG8Mcm668eNUL?=
- =?us-ascii?Q?in64c3R1CbPoGRzeiWSpJWteqbyWUObZV1vtdrmVMUqvlpRhUfGu0Y3LVYE/?=
- =?us-ascii?Q?loKHXNULKTWhNtcSa2PsjK2Wjk0etKETDVvDYSQHLKhA1qhbI470hrGbsXIC?=
- =?us-ascii?Q?Uah5P+doI/PIgy4zpCrhVVe7zu2rwaTyikswdTnh/IS4Z0NAsvgOr21Vb84u?=
- =?us-ascii?Q?1iJRkqxrd9O+bJZ1G0A+uqRHrwtrIpg6uv7MndhsJNeSdz2GnUXI9Nptmx7y?=
- =?us-ascii?Q?rbdmILoNSlFPsm8yDsdCB19vX17qoVkrWAjbmB3n0gzbualVTcEfGCDZ4V3Z?=
- =?us-ascii?Q?1/Z2VMHIb85rWnIc05UQ1fqEgbDB5peQUySDWiZfv8rSJ2aEzhwW6EJsq6ww?=
- =?us-ascii?Q?yCcB5g569+sDRK3WSGh1Ly2U1eItai8Q7cBFZ29QP4NitPxHcNBGYlFPQAm3?=
- =?us-ascii?Q?WdKul4iC4v8YV8ObjzJCKbSC3nU8r//12tFbdnJY6+WaJxK4jQSZtUGq0sEJ?=
- =?us-ascii?Q?qfDl2YKJGBePZf0bjiLEZ+IRHBJh2D3rcQu068ptKBPVjIt+2ALcNS94XL/b?=
- =?us-ascii?Q?UtCAMe10dRT0UmyR1x3CEynWbpPpbm2/nH+2JI7/kuvuLBsiXnDhFzwGWpp5?=
- =?us-ascii?Q?xx2bGX7YZo09SwTxLtEx/LRkWgkZuLbIYk2M4eo1BeVGl+dz1QJOIlMM78OX?=
- =?us-ascii?Q?KKStPUnVGf/fWsoGQzRnnu5i+WTT2hCKM6p+/lnjjXLZf3UaLpS0c+XLe6zS?=
- =?us-ascii?Q?kezu9q/TouPm1WEkiB2+K4kSiCoFfaQ+sxbfk5bSObMT00zDnuap8MEe8Gtu?=
- =?us-ascii?Q?6KEfVrWXSJ5/rfTW3tq2Kq0vzsekL12wdV0WwdcyA7pv96cgW3XRtzUf76Sf?=
- =?us-ascii?Q?MWGIG5mOHL91NffH8zf3uuVVhhJUq9+NkEefGrPyFfFRhGsdsR9sklezkhA2?=
- =?us-ascii?Q?O5jDjvYpwQzb18lv+QpPWAaDY8xQXdEBJpp5CELWYeifwsuJH3L6Zpx5QCZL?=
- =?us-ascii?Q?i1okuOIVfuYW+/Cii3/gAaoCmYt74ifw73vBsmCACh7YRHeo2NdcxSEv9FsP?=
- =?us-ascii?Q?d5HuHANr4lRyOnYy5U9kxZpNNEYDslyfgmI/UfaUnFLENXb9yoihpJfSHHt2?=
- =?us-ascii?Q?hiY30BvAfOCehHWsU9K8M9UjXy2bV4Lzyc9fLDiA5tplGz0EBwFBLe+3PcKN?=
- =?us-ascii?Q?F9ipwbtVz/l+VodSMB7iQ5redit+WPiEIS4/oV3hAIHjtevjHQm8c6qFmwqD?=
- =?us-ascii?Q?UI1bJXtHon61P4Dh0xdaGqyynT3v71H+fC4B7vsWScUqA9dKcthP/c6/lKKT?=
- =?us-ascii?Q?e7L+5SU04DTyR9grSHBWFeQH2f1j1N3lG1xaWk/lMCzGwWEMmLt+h1wc0GoH?=
- =?us-ascii?Q?guepPdOb1iA3DJ4IbRSbYLMQkF+My/EtYEj0nFJ7+EojI2b8T8eBhIKr8ywK?=
- =?us-ascii?Q?eq2JaQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 19:27:44.2428
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 012f6e78-ded2-48ad-af32-08de553552bb
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468A.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PR12MB9600
+	Fri, 16 Jan 2026 19:56:15 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-81f4f4d4822so1089711b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 11:56:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nexthop.ai; s=google; t=1768593373; x=1769198173; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aa0+snq05PA6LQZljIwRr0Hddt3kF9aOaEZOA0BQCJo=;
+        b=VO7jV+IW1q6MehkIsDyrzPOwKAzdDOzauxHczNw2SELHfcghSh/s2BOHW+78N3S5tW
+         XZzTwQ7BeJ1/2s6XXw1lhxelzO1Js+EPM0gUuWMmo1SEnbCBpZdRjqNA8TsS2oAzxeej
+         a8V8Icip8HAp1/UQVz+EvcqqUVQPpWgYXykfA13oCkZ9QPE/uvArfyzDWqKi8dt1Xrsj
+         wHp7sYqVP3Hy1IgVk5sIoR9xnpjTeEIOb4sB4wYsq2aqWYkkuRY33nx8nISt/KiCl8xr
+         0YnVxC7n7D2zxL6/GOVtLjUlCYKW3cQfYsK/hPDHHbOl0OVNEoM8KA+r7cO8wOsDfCzF
+         +RZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768593373; x=1769198173;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=aa0+snq05PA6LQZljIwRr0Hddt3kF9aOaEZOA0BQCJo=;
+        b=Evi0TqdmRlfvQAhro7aH60eQQXCvpvRW5fXmZAgc2djCV4N9kYD07C0u8h5RVLB/he
+         5u4zL2rxpKOofQF5GSdGHS4sOIpOx7rVr2kTU5/wqB+z3hrGq1kxQw1enkqr4m0p/6uq
+         xV8vV4uNRy+Nqh3xCpmJlO4ddsoG2E3Olh9YfylKwTvhjfS1Lb9tkEdZ2x6uIl3k+Tr6
+         6Tak1E4xz4EmfPOBRaR+oA5yzu5a35xPVAwBxeOhAbqA1Y75IJHNYohh/i6Gn2xndUqS
+         fEZHiNNJH3Xqht7LagbA6Bjd0auVjLLhE7ZYvnOVSS5FvWY3hNCG7s1bbuztBK4J+qPw
+         Y8Sg==
+X-Forwarded-Encrypted: i=1; AJvYcCXkZN/KmsPltpIUDxB6TGKa3c2h8bixWjmHOCqHdxLMkhqqFJsH7uccdzzD6qYNElMp+dXMU7pjII1X2HgRvIJK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1EmNlVqjSuLYPzZvzzxe2SGzxuRcu6Ahd3ziahrk2HfOZSnKI
+	mY2chBgEsynqpKCHw9ZoD473VMthn2gtLVG6hePhFZPxdRtanaJ5upsjd7aHynfROD0=
+X-Gm-Gg: AY/fxX6xmYrcoRCqmlAZtBp/BrPSlTC0s198ngy91s2ziWFWksQDhb/F3DNxsIO5bDY
+	tmeKSY77LwdL8t8bh6Of/RAvvz+FIAnV1IGTcaVVZ8prUnwUaYcP9f4r8rcRbTqkRLmEq/FuhUF
+	xmWnBOf6aSxnoXsYaTr7S5AYYB2b/OO7jGju2/3KnBEAoOzC4Y685v+UxNvdZJbtn8408m73Mco
+	5yH4VxONTxYNIe9qhtN7kDM/Jld4w6bl5B6XxQqrrf9x6MOmOi+2DYh+Pe30enLFxtcUqmUfwri
+	i02B0cw6gwhdxdeNLvVOQx5iZe1iBQYXfxtDkCweccde32Hk9fY4zvS4B9VFmK+5Z2saoAphzNZ
+	NMonghsPS9OKVc8VTkI0i+rUtsmlhv0cbF5DWEoPC7XeIp4GX1xMGaASKG7FCZWjVFDUdB76rLk
+	qyA4gtNLao+bU6GfMHTnTWbPjrJUoYvI51NcW5yr41+/fRSqONg8DqPVdzMyL6NIr2p/8JR/8=
+X-Received: by 2002:a05:6a00:2e04:b0:81a:b602:daf6 with SMTP id d2e1a72fcca58-81fa030a989mr3690746b3a.48.1768593372649;
+        Fri, 16 Jan 2026 11:56:12 -0800 (PST)
+Received: from smtpclient.apple (c-24-16-26-157.hsd1.wa.comcast.net. [24.16.26.157])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-81fa1291135sm2705239b3a.47.2026.01.16.11.56.11
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 16 Jan 2026 11:56:12 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
+Subject: Re: [PATCH] spi: xilinx: use device property accessors.
+From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+In-Reply-To: <b3c81793-32f8-4b2c-a32d-bc90024580ca@amd.com>
+Date: Fri, 16 Jan 2026 11:56:01 -0800
+Cc: Mark Brown <broonie@kernel.org>,
+ linux-spi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <E28E6728-2FF2-4AD9-B2EC-89A917A23D6D@nexthop.ai>
+References: <20260115003328.26095-1-abdurrahman@nexthop.ai>
+ <b3c81793-32f8-4b2c-a32d-bc90024580ca@amd.com>
+To: Michal Simek <michal.simek@amd.com>
+X-Mailer: Apple Mail (2.3864.300.41.1.7)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_112757_797863_060DFD83 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20260116_115614_643924_E5351CFC 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,215 +103,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sean Anderson <sean.anderson@linux.dev>
 
-Transition axienet_probe() to managed resource allocation using devm_*
-APIs for network device and clock handling, while improving error paths
-with dev_err_probe(). This eliminates the need for manual resource
-cleanup during probe failures and streamlines the remove() function.
 
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-Co-developed-by: Suraj Gupta <suraj.gupta2@amd.com>
-Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
----
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 83 ++++++-------------
- 1 file changed, 27 insertions(+), 56 deletions(-)
+> On Jan 15, 2026, at 11:51=E2=80=AFPM, Michal Simek =
+<michal.simek@amd.com> wrote:
+>=20
+>=20
+>=20
+> On 1/15/26 01:33, Abdurrahman Hussain wrote:
+>> This makes the driver work on non-OF platforms.
+>> Also, make irq optional, since the driver can already work in
+>> polling mode.
+>> Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+>> ---
+>>  drivers/spi/spi-xilinx.c | 12 ++++++------
+>>  1 file changed, 6 insertions(+), 6 deletions(-)
+>> diff --git a/drivers/spi/spi-xilinx.c b/drivers/spi/spi-xilinx.c
+>> index c86dc56f38b4..9fb1da2fcce4 100644
+>> --- a/drivers/spi/spi-xilinx.c
+>> +++ b/drivers/spi/spi-xilinx.c
+>> @@ -405,11 +405,11 @@ static int xilinx_spi_probe(struct =
+platform_device *pdev)
+>>   bits_per_word =3D pdata->bits_per_word;
+>>   force_irq =3D pdata->force_irq;
+>>   } else {
+>> - of_property_read_u32(pdev->dev.of_node, "xlnx,num-ss-bits",
+>> -   &num_cs);
+>> - ret =3D of_property_read_u32(pdev->dev.of_node,
+>> -    "xlnx,num-transfer-bits",
+>> -    &bits_per_word);
+>> + device_property_read_u32(&pdev->dev, "xlnx,num-ss-bits",
+>> +  &num_cs);
+>> + ret =3D device_property_read_u32(&pdev->dev,
+>> +        "xlnx,num-transfer-bits",
+>> +        &bits_per_word);
+>>   if (ret)
+>>   bits_per_word =3D 8;
+>>   }
+>> @@ -471,7 +471,7 @@ static int xilinx_spi_probe(struct =
+platform_device *pdev)
+>>   xspi->bytes_per_word =3D bits_per_word / 8;
+>>   xspi->buffer_size =3D xilinx_spi_find_buffer_size(xspi);
+>>  - xspi->irq =3D platform_get_irq(pdev, 0);
+>> + xspi->irq =3D platform_get_irq_optional(pdev, 0);
+>>   if (xspi->irq < 0 && xspi->irq !=3D -ENXIO) {
+>>   return xspi->irq;
+>>   } else if (xspi->irq >=3D 0) {
+>=20
+>=20
+> I expect this is another IP which you are using on systems with ACPI.
+> Can you share ASL fragment you use for testing?
+>=20
+> Thanks,
+> Michal
 
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 284031fb2e2c..998bacd508b8 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -2787,7 +2787,7 @@ static int axienet_probe(struct platform_device *pdev)
- 	int addr_width = 32;
- 	u32 value;
- 
--	ndev = alloc_etherdev(sizeof(*lp));
-+	ndev = devm_alloc_etherdev(&pdev->dev, sizeof(*lp));
- 	if (!ndev)
- 		return -ENOMEM;
- 
-@@ -2815,41 +2815,32 @@ static int axienet_probe(struct platform_device *pdev)
- 	seqcount_mutex_init(&lp->hw_stats_seqcount, &lp->stats_lock);
- 	INIT_DEFERRABLE_WORK(&lp->stats_work, axienet_refresh_stats);
- 
--	lp->axi_clk = devm_clk_get_optional(&pdev->dev, "s_axi_lite_clk");
-+	lp->axi_clk = devm_clk_get_optional_enabled(&pdev->dev,
-+						    "s_axi_lite_clk");
- 	if (!lp->axi_clk) {
- 		/* For backward compatibility, if named AXI clock is not present,
- 		 * treat the first clock specified as the AXI clock.
- 		 */
--		lp->axi_clk = devm_clk_get_optional(&pdev->dev, NULL);
--	}
--	if (IS_ERR(lp->axi_clk)) {
--		ret = PTR_ERR(lp->axi_clk);
--		goto free_netdev;
--	}
--	ret = clk_prepare_enable(lp->axi_clk);
--	if (ret) {
--		dev_err(&pdev->dev, "Unable to enable AXI clock: %d\n", ret);
--		goto free_netdev;
-+		lp->axi_clk = devm_clk_get_optional_enabled(&pdev->dev, NULL);
- 	}
-+	if (IS_ERR(lp->axi_clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(lp->axi_clk),
-+				     "could not get AXI clock\n");
- 
- 	lp->misc_clks[0].id = "axis_clk";
- 	lp->misc_clks[1].id = "ref_clk";
- 	lp->misc_clks[2].id = "mgt_clk";
- 
--	ret = devm_clk_bulk_get_optional(&pdev->dev, XAE_NUM_MISC_CLOCKS, lp->misc_clks);
--	if (ret)
--		goto cleanup_clk;
--
--	ret = clk_bulk_prepare_enable(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
-+	ret = devm_clk_bulk_get_optional_enable(&pdev->dev, XAE_NUM_MISC_CLOCKS,
-+						lp->misc_clks);
- 	if (ret)
--		goto cleanup_clk;
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "could not get/enable misc. clocks\n");
- 
- 	/* Map device registers */
- 	lp->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &ethres);
--	if (IS_ERR(lp->regs)) {
--		ret = PTR_ERR(lp->regs);
--		goto cleanup_clk;
--	}
-+	if (IS_ERR(lp->regs))
-+		return PTR_ERR(lp->regs);
- 	lp->regs_start = ethres->start;
- 
- 	/* Setup checksum offload, but default to off if not specified */
-@@ -2918,19 +2909,17 @@ static int axienet_probe(struct platform_device *pdev)
- 			lp->phy_mode = PHY_INTERFACE_MODE_1000BASEX;
- 			break;
- 		default:
--			ret = -EINVAL;
--			goto cleanup_clk;
-+			return -EINVAL;
- 		}
- 	} else {
- 		ret = of_get_phy_mode(pdev->dev.of_node, &lp->phy_mode);
- 		if (ret)
--			goto cleanup_clk;
-+			return ret;
- 	}
- 	if (lp->switch_x_sgmii && lp->phy_mode != PHY_INTERFACE_MODE_SGMII &&
- 	    lp->phy_mode != PHY_INTERFACE_MODE_1000BASEX) {
- 		dev_err(&pdev->dev, "xlnx,switch-x-sgmii only supported with SGMII or 1000BaseX\n");
--		ret = -EINVAL;
--		goto cleanup_clk;
-+		return -EINVAL;
- 	}
- 
- 	if (!of_property_present(pdev->dev.of_node, "dmas")) {
-@@ -2945,7 +2934,7 @@ static int axienet_probe(struct platform_device *pdev)
- 				dev_err(&pdev->dev,
- 					"unable to get DMA resource\n");
- 				of_node_put(np);
--				goto cleanup_clk;
-+				return ret;
- 			}
- 			lp->dma_regs = devm_ioremap_resource(&pdev->dev,
- 							     &dmares);
-@@ -2962,19 +2951,17 @@ static int axienet_probe(struct platform_device *pdev)
- 		}
- 		if (IS_ERR(lp->dma_regs)) {
- 			dev_err(&pdev->dev, "could not map DMA regs\n");
--			ret = PTR_ERR(lp->dma_regs);
--			goto cleanup_clk;
-+			return PTR_ERR(lp->dma_regs);
- 		}
- 		if (lp->rx_irq <= 0 || lp->tx_irq <= 0) {
- 			dev_err(&pdev->dev, "could not determine irqs\n");
--			ret = -ENOMEM;
--			goto cleanup_clk;
-+			return -ENOMEM;
- 		}
- 
- 		/* Reset core now that clocks are enabled, prior to accessing MDIO */
- 		ret = __axienet_device_reset(lp);
- 		if (ret)
--			goto cleanup_clk;
-+			return ret;
- 
- 		/* Autodetect the need for 64-bit DMA pointers.
- 		 * When the IP is configured for a bus width bigger than 32 bits,
-@@ -3001,14 +2988,13 @@ static int axienet_probe(struct platform_device *pdev)
- 		}
- 		if (!IS_ENABLED(CONFIG_64BIT) && lp->features & XAE_FEATURE_DMA_64BIT) {
- 			dev_err(&pdev->dev, "64-bit addressable DMA is not compatible with 32-bit architecture\n");
--			ret = -EINVAL;
--			goto cleanup_clk;
-+			return -EINVAL;
- 		}
- 
- 		ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(addr_width));
- 		if (ret) {
- 			dev_err(&pdev->dev, "No suitable DMA available\n");
--			goto cleanup_clk;
-+			return ret;
- 		}
- 		netif_napi_add(ndev, &lp->napi_rx, axienet_rx_poll);
- 		netif_napi_add(ndev, &lp->napi_tx, axienet_tx_poll);
-@@ -3018,15 +3004,12 @@ static int axienet_probe(struct platform_device *pdev)
- 
- 		lp->eth_irq = platform_get_irq_optional(pdev, 0);
- 		if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO) {
--			ret = lp->eth_irq;
--			goto cleanup_clk;
-+			return lp->eth_irq;
- 		}
- 		tx_chan = dma_request_chan(lp->dev, "tx_chan0");
--		if (IS_ERR(tx_chan)) {
--			ret = PTR_ERR(tx_chan);
--			dev_err_probe(lp->dev, ret, "No Ethernet DMA (TX) channel found\n");
--			goto cleanup_clk;
--		}
-+		if (IS_ERR(tx_chan))
-+			return dev_err_probe(lp->dev, PTR_ERR(tx_chan),
-+					     "No Ethernet DMA (TX) channel found\n");
- 
- 		cfg.reset = 1;
- 		/* As name says VDMA but it has support for DMA channel reset */
-@@ -3034,7 +3017,7 @@ static int axienet_probe(struct platform_device *pdev)
- 		if (ret < 0) {
- 			dev_err(&pdev->dev, "Reset channel failed\n");
- 			dma_release_channel(tx_chan);
--			goto cleanup_clk;
-+			return ret;
- 		}
- 
- 		dma_release_channel(tx_chan);
-@@ -3139,13 +3122,6 @@ static int axienet_probe(struct platform_device *pdev)
- 		put_device(&lp->pcs_phy->dev);
- 	if (lp->mii_bus)
- 		axienet_mdio_teardown(lp);
--cleanup_clk:
--	clk_bulk_disable_unprepare(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
--	clk_disable_unprepare(lp->axi_clk);
--
--free_netdev:
--	free_netdev(ndev);
--
- 	return ret;
- }
- 
-@@ -3163,11 +3139,6 @@ static void axienet_remove(struct platform_device *pdev)
- 		put_device(&lp->pcs_phy->dev);
- 
- 	axienet_mdio_teardown(lp);
--
--	clk_bulk_disable_unprepare(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
--	clk_disable_unprepare(lp->axi_clk);
--
--	free_netdev(ndev);
- }
- 
- static void axienet_shutdown(struct platform_device *pdev)
--- 
-2.25.1
 
+Yes, that=E2=80=99s correct. We are using AMD Ryzen Embedded V3C48 based =
+system with AMD (Xilinx) Artix 7 based FPGA using I2C and SPI IP blocks. =
+The SPI block currently doesn=E2=80=99t have the interrupts working =
+correctly (yet), so we disabled the interrupts. This is what the ASL =
+fragment describing the SPI device looks like:
+
+            Device (SPI0) {
+                Name (_HID, "PRP0001")
+                Name (_CRS, ResourceTemplate () {
+                    Memory32Fixed (ReadWrite, 0x80950000, 0x00000200)
+                })
+                Name (_DSD, Package () {
+                    ToUUID ("daffd814-6eba-4d8c-8a91-bc9bbf4aa301"),
+                    Package () {
+                        Package () { "compatible", =
+"xlnx,axi-quad-spi-1.00.a" },
+                        Package () { "xlnx,num-ss-bits", 5 },
+                        Package () { "xlnx,num-transfer-bits", 8 },
+                    }
+                })
+
+                Device (NOR0) {
+                    Name (_HID, "PRP0001")
+                    Name (_STR, Unicode ("TH5 Boot Flash"))
+                    Name (_CRS, ResourceTemplate () {
+                        SPISerialBus(0, PolarityLow, FourWireMode, 8, =
+ControllerInitiated,
+                            120000000, ClockPolarityHigh, =
+ClockPhaseSecond,
+                            "\\_SB.PCI0.GPP6.FPGA.SPI0")
+                    })
+                    Name (_DSD, Package () {
+                        ToUUID ("daffd814-6eba-4d8c-8a91-bc9bbf4aa301"),
+                        Package () {
+                            Package () { "compatible", "jedec,spi-nor" }
+                        }
+                    })
+                }
+            }
+
+Thanks,
+Abdurrahman=
 
