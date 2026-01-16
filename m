@@ -4,109 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441A4C982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 16:57:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73882C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 16:57:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mDaz8i9mTb7qCnrnibHGtQpqe8uTrCasYNLOLvwd5QQ=; b=MNVrkiBItAGqdA5lMhNrM0SxyI
-	Qhd0gqaPV/zrJVeTOAUkAI/ovn7/RrO0miPfaHz0igql4TjOwhcW70HJht+63mM8rU8pXln+WZE30
-	DbZxFYDlzb72qcja4j6Dif6yhshE2UTXpdb7wiZBrx6aLdvH55/TOy6YrBJfWAJATyGWme/4M6sOQ
-	xWyOMxmNUlDETIyFvFZC5x2amcbAARoXznVZXXdFSytdkembcu1o+6MZdrblCKET7t+YW6Ujvt3H0
-	ZY7VB9s3sI3uf9e6F30tDxN0HjySJdTDCEmHUT44lc7ipJQJOhbdIMOQgWSZATk6XyQz8iSDUPMZz
-	dRkv3UJw==;
+	bh=UCRzFnlL51J3r1v3KtHPuReG0jTDE1cPz5Nk0PllpmI=; b=ckSikqobj9EYWM3TbRk3ZkzamJ
+	VyIdI7QMb6lm4C32WPlmIKik9haSjJwLx1BBNnoOjKHPGLDn4Dl6xVbTwQ+nOOYT7Nxb5xPwqHBa4
+	hBqN7cGp8oKvUdjpJkmpur62llcUnxK5RDyqy2ejg2KT3rTwDI5duq9/n8O7xkgUH7rg07AOazCC+
+	M0qA2IizC7rIchqgm8vER12Qih8axUjSJ2LcSEKmLrp2/s1wk+vVC6xS5S6XkSi/1yAUOB8MJymyB
+	c6vXBdKmGkMjoJmlf34hVebsHCF1lDgAF3hwqJiflh7qQQq+klpITqf1hwhmOimH53cWB9uFT/UYl
+	c1ko85hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgn84-0000000EUvI-1h5l;
-	Fri, 16 Jan 2026 16:56:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vgn8X-0000000EV09-48T4;
+	Fri, 16 Jan 2026 16:57:25 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgn81-0000000EUuq-1vtS;
-	Fri, 16 Jan 2026 16:56:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A84E0442C0;
-	Fri, 16 Jan 2026 16:56:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF145C116C6;
-	Fri, 16 Jan 2026 16:56:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768582611;
-	bh=T5Fbr7AYPGBTy7Ar/+mu/KuikytstoyPsFl1sQFKJXc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZBaxsw7F4CMztiX8K7me98H29yUlLl275y3T977qzvlzfNaZvcbvu2w60u8L5eXLz
-	 0VscokRuOvtgqZ+P7OcPdpokfSBHZQWtB9jyJqNoTmoNoJxJ9U3zVh9wKi1BS2t2kE
-	 k97cPr8uHLAk3ArzbzBfYxl18aN3QaYgPkWZhvt5dEgqMJk46obfSNigxxzPfJyuyA
-	 HmjkRMQ65P6tmLoFTfK7DtRclPY2aA1JtPtcdkfc6ggTnWQAKLKK4lvMpYYHLHOHxT
-	 1XwGN+nTCSuF/LyE8lBPJeRXOOHJMTqGki0eCrnH3FOn4ZqmbgonDDOL0TKqSX05JS
-	 L4LRSAoeJ3Y9Q==
-Message-ID: <bf433ef2-0705-4a21-b84b-321d9f68d805@kernel.org>
-Date: Fri, 16 Jan 2026 17:56:46 +0100
+	id 1vgn8V-0000000EUzB-1cXF;
+	Fri, 16 Jan 2026 16:57:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1768582621; x=1769187421; i=markus.elfring@web.de;
+	bh=UCRzFnlL51J3r1v3KtHPuReG0jTDE1cPz5Nk0PllpmI=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=WEcTJ8NrCXkdhCgtKJ8A+ub0H9dMTILNfgxtpoYFn7ubm/AIyUwKTJc4SbzyOq53
+	 Mw66Q1Z8c8f2iILtRporoy/pVnvaXHPFEVjkRl11ifD9ujv6iWTSPwMQVUj1bQK9b
+	 DuKkPdR+G+50b0Xe+4CqB4LctgAossZAVvFbqdykJo9jR0wVaBJ8kaSWc3p/NA58Q
+	 k34YSf0Rf9g8fm3g59xwF9Y6x92aMbA65WndQ862sf4ehQ86L/AtD3XsFAvskH4MN
+	 Pr8NMC+G5BDH9VME+Gv0ZjGLXgfbS+FAhiQydwFshFBr232OJt8m+FafPDoKW/AoH
+	 IZDKJclmcWI0aKLS7w==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.218]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1N6bCu-1vsNfP1y0M-00r8r9; Fri, 16
+ Jan 2026 17:57:01 +0100
+Message-ID: <d16ff74d-aa01-4b3a-aa76-9ac9a5c6c86b@web.de>
+Date: Fri, 16 Jan 2026 17:56:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] NPU and i2c3 + FUSB302 addition for Radxa Zero 2
-To: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Ricardo Pardini <ricardo@pardini.net>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260114-arm64-dts-amlogic-radxa-zero2-additions-v1-0-8b5cdf328fde@pardini.net>
- <176846437964.1204537.11505642254935473121.b4-ty@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <176846437964.1204537.11505642254935473121.b4-ty@linaro.org>
+To: Zilin Guan <zilin@seu.edu.cn>, linux-wireless@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Felix Fietkau <nbd@nbd.name>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Jianhao Xu <jianhao.xu@seu.edu.cn>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Ryder Lee
+ <ryder.lee@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Shayne Chen <shayne.chen@mediatek.com>
+References: <20260116144919.1482558-1-zilin@seu.edu.cn>
+Subject: Re: [PATCH] wifi: mt76: Fix memory leak after
+ mt76_connac_mcu_alloc_sta_req()
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20260116144919.1482558-1-zilin@seu.edu.cn>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:GhP3f0OmHoEwyzJl8nBiItufgqDkyBKO0l/k/9qznQd195MT7I7
+ S88t/NC9arBrJ2IyFVqH9lHcaBi2Ic0GAYqnFQsbtbyosRCZ7IOh5jDyDW18MOLzQSZI84M
+ YrXMdY715Lgzxilyl+jDmVycI6FoFC8tA104J5120o5fGnYpVc6273zW1jgz158hRhORAf3
+ hF6Mx0crSLV+r6UxNxC/Q==
+UI-OutboundReport: notjunk:1;M01:P0:ENFTm9ZfFjE=;w7K+NAT/CaEQqIzyBRmbmhuFTpS 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_085653_546307_DB49EF3E 
-X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-CacheID: sfid-20260116_085723_784176_968A1350 
+X-CRM114-Status: UNSURE (   4.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,27 +88,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/01/2026 09:06, Neil Armstrong wrote:
-> Hi,
-> 
-> On Wed, 14 Jan 2026 23:48:35 +0100, Ricardo Pardini wrote:
->> This series adds a few things missing from the Radxa Zero 2:
->>
->> 1) NPU (etnaviv), just enable the node, similar to what was done for VIM3
->> 2) i2c3 (also exposed on the 40-pin header) and the FUSB302 at 0x22
->>
->>
-> 
-> Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.20/arm64-dt)
-> 
-> [1/2] arm64: dts: amlogic: Enable the npu node on Radxa Zero 2
->       https://git.kernel.org/amlogic/c/29deec49146162d06b17739c627d062191e03814
-> [2/2] arm64: dts: amlogic: add the type-c controller on Radxa Zero 2
->       https://git.kernel.org/amlogic/c/8f5aa8d444d1d200715c36a8f072054a49bfb410
+=E2=80=A6
+> Fix this by explicitly freeing the skb in these error paths.
+=E2=80=A6
 
+How do you think about to avoid a bit of duplicate source code here?
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/coding-style.rst?h=3Dv6.19-rc5#n526
 
-You went quite fast, but this has warnings. See also Rob's bot response.
-
-Best regards,
-Krzysztof
+Regards,
+Markus
 
