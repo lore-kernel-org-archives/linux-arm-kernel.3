@@ -4,84 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12933D4899D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 12:54:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41798D4899D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 13:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=M9hfnzEF43IHdUY2dVVEA/3BjfGPtqhazX3KdgqvRkw=; b=AFcfhBMv9+rTqN
-	azSf/s8Vo8iY0iKIjlaCtGxwqbaWmRKYgA7ifsROAi/cHtP0iYxd+mLueNQHqIqBZqulyVz02Pd/o
-	np+z1Uu17DoQOPPOViOaIWA4OTTg9MOdWXScJ+cu4NpnK/823SVJBs4HndjqNMmopE0N7dK1u4EK3
-	mHKmdIiy3i0NLQkQcUB3cCsemkVg0RQgWHhRUDu4YkeOLxTjvVGjtKRoJtLsjQ9nxn/JlCDRzI0xJ
-	M/ywYbcTA+PoDaUW9xwJwV1xI2cCb+R4+3naHWXRqk47k/bE6rKCzsYlz6zHkshD0PPMCa6/dsBBW
-	m5nEwqKA+SsX0cZEMpSw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KGw7vMEUHT8PuMdQMtBKn5dSgxAZdONedtGRcRMOsVY=; b=MARuCsgk0Qfk/vyyJ4rXoDG2PU
+	fAPkgyUugB0Xjb8HDCcfzY5+Xue/wDg3welGSIeEM7URUPhQWwgDjeuLzcE0pZy6YAqCVKhZtodRY
+	IkRDY4VAJKizdHFAUXlNZg/QW4iha6cN+Jbg7zlJCxzHLuqjSpPQZ/y1k8MZjS/jlS289aSy8YpLs
+	2lh3nes4M6Ua37WSedVnIJyzIK0dOTbv8cVjuYR+rFo9Yr6PPE8soj6ecnGEjRiLrU/pVxsU1uO+t
+	q0QdBV4mlDLxbs3ZLD8SDM80jqPauBXjiF6qEXLYyzrVxlePYye6sgA7Bg9kxhq1QxXaOtgE+oEqo
+	vNoHly7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgjLk-0000000E87o-3gfI;
-	Fri, 16 Jan 2026 12:54:48 +0000
-Received: from xmbghk7.mail.qq.com ([43.163.128.48])
+	id 1vgjTe-0000000E8Nc-3Won;
+	Fri, 16 Jan 2026 13:02:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgjLg-0000000E87G-2wvO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 12:54:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1768568082; bh=M9hfnzEF43IHdUY2dVVEA/3BjfGPtqhazX3KdgqvRkw=;
-	h=From:Date:Subject:To:Cc;
-	b=ak/WWA8Az/xurRReEvTZjwAjh9Ncv3zUcQYQFjjJBgjZyOuV1TyHrlBMx/a4zAuLo
-	 5SeWJ/W9jpXW3TthU8EVZWnxeYJV63ETwA3uPdzWOaaFvIyW218CBCLeaHYQsEc5hk
-	 NxrJCJ2Kd5KoPPs+q9pQ/XWnZ4yFl9T7aprVEwJ0=
-Received: from junjungu-PC.localdomain ([223.166.246.160])
-	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
-	id DA818077; Fri, 16 Jan 2026 20:54:40 +0800
-X-QQ-mid: xmsmtpt1768568080t7j1nb336
-Message-ID: <tencent_A3E20C513BBE7D268B863A5CE473FBA10B06@qq.com>
-X-QQ-XMAILINFO: OOO9dHjlsLs7QQS1rP69LWQ35Hp/CJV4p/t4Uitp63MkRuS3enNuG6U4eJ4HUA
-	 tSPVgwV52BIS8fRB8wQps4rICSoSkiPAmutE8ShD+9QqZWtHdJ4wmXkPMuKc3pRtMlDXsgYIUqI2
-	 7kv1YCa3yRAW2UpGjk3r+7ZEDHQf0axXBaQfCr+O+ZR2LewawR/DFN6A3aP6+cfEtI/qfh6JcONX
-	 7rYgNbaEtEwiqiLAqtBFbVmVz+5hxSx5qnGi6zcEHhPwJBI8LVidSQzpPM6ASMA+F/z6VtWCCtSF
-	 EfqFN9xXssmguqL9V5UHxlrIbAWKJhAU2awW2upnkkdXeXzzNUm9OfOJv1i+rv4A1JwSolsLafTg
-	 I1Y3hAMCKwA85PYB6bYAfEQXXkAk7EoV+dnbh1ykh4B9qSQvkkYhnfoslB3E5dvQcBkxkLh623Zu
-	 174i99Gm21+Yee9ASCi2WRlQqaBCv527zu+jFFkrXrK0OeW07CKNaYwKF/4fq5+V/EVmviLDm14F
-	 pWFT+IdeSQDqZV3PodY4qN+rC1h8bi2MU8jXcUYTR8g0oVPpx3WT3GUI6diwP2cVQp5CAfMxObAQ
-	 ba7dOid5SFIB2wTODJCesdiI4teF9Q2nbz5qYfOSgCxSHdiXNuujIh63FarEYnicCxvilVhBUZ7n
-	 m/n9s98MgOd/e0iQqsXvLAD05HghEinbgoW2fRPr8W4UvmIhINx8TlLNUM1svPzkROBMjBB3/Nxu
-	 akomwrw6/0V+mynVlG9qpLuiXbNGVV3A5Y/bYGOykzvOBCb0tRCZte0BEYS/mkHI262aF2A5p5uz
-	 4wHQN7VUEK8yvsxcpxURqMEG2P2y7m8bSoD5A5Pt5kw44GHhne/UVWJr0zj3K5+wj8YtnpbVLPJw
-	 5N5umlxXfAM8Q0W8myHVZcjb+qmO9mOnnCARmVxSJozBi7EaoWzcj8jtuCtJEM5lchJIUwTWe1sx
-	 jgpiMTG1umAt2soO4XLKBdwMg6UahZo5gXLtsyYb//tAGEEm+EWGvZMp+htDBGqH3vs8wPgjPzFT
-	 Qv3MWgO9ZFaInFk6qsXNEkXas/dfxkyRcc/4pW/V7NlBhSH6vPbpgpE6Hp+r3VmJIVtf6BUpryCe
-	 GzGYceRyJU6hvOjWyP0OVP+g7S5XlDnWQeSJMAWwliQlBU5T/6MsMWGO8MLfV9ISyUQ/5zgSz48J
-	 9roD8=
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-From: Felix Gu <gu_0233@qq.com>
-Date: Fri, 16 Jan 2026 20:54:39 +0800
-Subject: [PATCH] firmware: arm_scpi: Fix a reference leak on device node
+	id 1vgjTc-0000000E8NE-1y8h;
+	Fri, 16 Jan 2026 13:02:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BE62D416DB;
+	Fri, 16 Jan 2026 13:02:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4F24C16AAE;
+	Fri, 16 Jan 2026 13:02:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768568575;
+	bh=hs23aGA9nPZgg3NP9F7KC1TEBZJku4a9mF8gKyV8IDw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=d9ccm9ahnHfhGsnCiUYRt6BlFDVEDEegtOEWAQ8QicmbZM9XLbhnTm5Z2dA1LRC/v
+	 MrUEaPobAPWN7GGwVH/KlvaArm0KK6FOpWapOxpbHhMX/o7cZz/rdSBcd9DEzSqIpU
+	 FiPDoAouDZ4ik7ugZtCkYWy9d4RwH1OHZvrfp6zbqM5hqy2aEkwB0DwvXImMRVSAf9
+	 aYy4MvgfBkH8DD0LQ1azQyZWOaZtzIlskaQkWm0lsA9WbaV+NVemZRNe10YFu21nI0
+	 ep9eTqh+jCEy6bsBMbM8zCGcd5hI4rSUbpJ/kTn+2C/VRR8nYRMmnRIDyYF0Tt2p9e
+	 rh4tTs06Ayydw==
+Message-ID: <5341693c-12fd-428f-b742-ff24d3c1a0cc@kernel.org>
+Date: Fri, 16 Jan 2026 14:02:50 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: broadcom: bcm2712: Add V3D device node
+To: Peter Robinson <pbrobinson@gmail.com>, =?UTF-8?Q?Ma=C3=ADra_Canal?=
+ <mcanal@igalia.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Stefan Wahren <wahrenst@gmx.net>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
+References: <20260114120610.82531-1-mcanal@igalia.com>
+ <121ede67-dbfc-4b79-8076-04693e9d3d53@gmail.com>
+ <59cdede3-7757-4fe1-bb94-e7a93eea7611@igalia.com>
+ <CALeDE9PGzTe4LXnDJcyhh_ietWkrf8Sp7xX=X6pZvdCWLx2huw@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CALeDE9PGzTe4LXnDJcyhh_ietWkrf8Sp7xX=X6pZvdCWLx2huw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-OQ-MSGID: <20260116-arm_scpi-v1-1-a9692a4b86ef@qq.com>
-X-B4-Tracking: v=1; b=H4sIAA41amkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDQ0Mz3cSi3Pji5IJMXQNDY6NEy9TUVINkIyWg8oKi1LTMCrBR0bG1tQA
- pdV6uWgAAAA==
-X-Change-ID: 20260116-arm_scpi-0132a9eee0c2
-To: Sudeep Holla <sudeep.holla@arm.com>, 
- Cristian Marussi <cristian.marussi@arm.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Felix Gu <gu_0233@qq.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768568080; l=936;
- i=gu_0233@qq.com; h=from:subject:message-id;
- bh=8/Sq8StM0qXW5/FciyUQix3rskELa+xfqwbu9DohIkM=;
- b=UUtDXrPKMygBcY8JVWTKhqAQ4+cB1V3jx2cl42pVNs1JZPzjsRKypTST6kcL/xg7X+m2l69ac
- k1GWZpbePhYDOEgJQaSfe0rmpTvm2dEhjbOdBS1/xgUa6hYK01lfvu2
-X-Developer-Key: i=gu_0233@qq.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_045445_060870_3360DBD9 
-X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-CacheID: sfid-20260116_050256_576935_38B4C1AE 
+X-CRM114-Status: UNSURE (   8.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,36 +126,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When calling of_parse_phandle_with_args(), the caller is responsible
-to call of_node_put() to release the reference of device node.
-In scpi_dev_domain_id, it does not release the reference.
+On 16/01/2026 11:56, Peter Robinson wrote:
+>>>> +
+>>>> +&v3d {
+>>>> +    clocks = <&firmware_clocks 5>;
+>>>
+>>> Looking at the upstream DT [1] I think this also needs a clock-names entry.
+>>
+>> Differently from the `hvs` node [1] you sent (which specifies clock-
+>> names), the `v3d` binding [2] doesn't have a clock-names property.
+>> Therefore, it is not needed.
+> 
+> There's a name in the clk driver [1] so maybe the bindings should be updated?
 
-Fixes: 45ca7df7c345 ("firmware: arm_scpi: add support to populate OPPs and get transition latency")
+That's a clock provider, not consumer.
 
-Signed-off-by: Felix Gu <gu_0233@qq.com>
----
- drivers/firmware/arm_scpi.c | 1 +
- 1 file changed, 1 insertion(+)
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/clk/bcm/clk-raspberrypi.c#n26
 
-diff --git a/drivers/firmware/arm_scpi.c b/drivers/firmware/arm_scpi.c
-index 87c323de17b9..b6233f81ef3e 100644
---- a/drivers/firmware/arm_scpi.c
-+++ b/drivers/firmware/arm_scpi.c
-@@ -665,6 +665,7 @@ static int scpi_dev_domain_id(struct device *dev)
- 				       0, &clkspec))
- 		return -EINVAL;
- 
-+	of_node_put(clkspec.np);
- 	return clkspec.args[0];
- }
- 
 
----
-base-commit: 9b7977f9e39b7768c70c2aa497f04e7569fd3e00
-change-id: 20260116-arm_scpi-0132a9eee0c2
 
 Best regards,
--- 
-Felix Gu <gu_0233@qq.com>
-
+Krzysztof
 
