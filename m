@@ -4,41 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531FDD47CD0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 11:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 479A0D47CD0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 11:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N1FY+dUWtvX0HRM7/z5TmLIxfW22Ib94ALWzE7D4FUw=; b=xZaFzQNooKpmM/Q8DCS2jYxYtC
-	6OD5HBRPKP0SorrA+EFRGsLHFbf6s/C9sA98ay1qqDB4rscJ5j+C4K+hoTBLq33SVMRnSaGCFsa3Y
-	PSVdip0JcWXJrtAN4JryHeYlmxGZsFzxStt7eQUdoVZpWsAizKicplkl2JcNMnDR1xzvRG1vZO7vl
-	kmGqCpPCEgLXTJjAMigQjCbUQvr9BC/U53a59jeErYqTgKH8MjpJv7mSWlcp+4otWiem++Z6W3iYM
-	r4ahs3VQ9fD2TEEeZDxfzTrPQOuSTyjl8nQfNWGtvJDh3ouUeNiOIK5ZxSH2gYhD6TYPr4BVboU1Q
-	OY+coCkw==;
+	bh=ADhGCSUbGhnnkPZ6tbl9eD3Z2jmvwOHSvVQvU3GnKj4=; b=fSgUkQzFYczt4LZ+koPfrb4sPL
+	UPPtt1h62JPKqim0yXnjDWXEKKymX+CPaGDgpdpWulNF60mDmzOj0EUhhKPXRXFfNVdE7i3b0GNNt
+	U3jI/yb/BAJcYRurfD+HmlRwVpk1ViM7SVDz3SseBsBluhKIRGXc4MluJRg/mQozq6cJT4dyxJjHQ
+	FapyOtyylPpGU9smiDm5mQ9mrkSc57YH2kzfxZLv4XjHn9a/SoLVNj4RpY6lbJwmoqO0i65MGsSx4
+	UkkCNBK4NpAhXi2rASWBUbdTd0n3poURweOzREJVOHfOyq48P3rLEDEzvwg6HWxnh5mtux4GWJiDr
+	jOKDmG7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghd4-0000000E0VM-1dna;
-	Fri, 16 Jan 2026 11:04:34 +0000
+	id 1vgheZ-0000000E0e6-3Z2F;
+	Fri, 16 Jan 2026 11:06:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghd2-0000000E0Up-00bQ
+	id 1vgheX-0000000E0dc-0bRZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 11:04:33 +0000
+	Fri, 16 Jan 2026 11:06:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F2EF21515;
-	Fri, 16 Jan 2026 03:04:23 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A1B0E1515;
+	Fri, 16 Jan 2026 03:05:57 -0800 (PST)
 Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CEF0E3F59E;
-	Fri, 16 Jan 2026 03:04:25 -0800 (PST)
-Message-ID: <2ef49c6c-9de8-4aca-9e78-726b8665cdeb@arm.com>
-Date: Fri, 16 Jan 2026 11:04:24 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F6863F59E;
+	Fri, 16 Jan 2026 03:05:59 -0800 (PST)
+Message-ID: <6647ad19-6499-4e7b-9e4d-445e1a7153a4@arm.com>
+Date: Fri, 16 Jan 2026 11:05:57 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 31/47] arm_mpam: resctrl: Pre-allocate assignable
- monitors
+Subject: Re: [PATCH v3 00/47] arm_mpam: Add KVM/arm64 and resctrl glue code
 To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
 Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
  "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
@@ -71,16 +70,16 @@ Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
  "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
  "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>
 References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-32-ben.horgan@arm.com>
- <TYCPR01MB88047C83A1CE49648667437B8B8DA@TYCPR01MB8804.jpnprd01.prod.outlook.com>
+ <TYCPR01MB8804896CC8CF6EC43780F2628B8DA@TYCPR01MB8804.jpnprd01.prod.outlook.com>
 From: Ben Horgan <ben.horgan@arm.com>
 Content-Language: en-US
-In-Reply-To: <TYCPR01MB88047C83A1CE49648667437B8B8DA@TYCPR01MB8804.jpnprd01.prod.outlook.com>
+In-Reply-To: <TYCPR01MB8804896CC8CF6EC43780F2628B8DA@TYCPR01MB8804.jpnprd01.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_030432_175841_82148DCF 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20260116_030605_225522_3601C108 
+X-CRM114-Status: UNSURE (   6.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,53 +96,14 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Shaopeng,
 
-On 1/16/26 10:34, Shaopeng Tan (Fujitsu) wrote:
+On 1/16/26 10:47, Shaopeng Tan (Fujitsu) wrote:
 > Hello Ben,
 > 
->> From: James Morse <james.morse@arm.com>
->>
->> When there are not enough monitors, MPAM is able to emulate ABMC by making
->> a smaller number of monitors assignable. These monitors still need to be
->> allocated from the driver, and mapped to whichever control/monitor group
->> resctrl wants to use them with.
->>
->> Add a second array to hold the monitor values indexed by resctrl's cntr_id.
->>
->> When CDP is in use, two monitors are needed so the available number of
->> counters halves. Platforms with one monitor will have zero monitors when
->> CDP is in use.
->>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-[...]
->> +bool resctrl_arch_mbm_cntr_assign_enabled(struct rdt_resource *r)
->> +{
->> +       if (r != &mpam_resctrl_controls[RDT_RESOURCE_L3].resctrl_res)
->> +               return false;
->> +
->> +       return mpam_resctrl_abmc_enabled();
->> +}
->> +
->> +int resctrl_arch_mbm_cntr_assign_set(struct rdt_resource *r, bool enable)
->> +{
->> +       return -EINVAL;
->> +}
+> I ran the MPAM driver on NVIDIA's Grace machine,  and it seems to be working fine.
 > 
-> $ echo "default" | sudo tee /sys/fs/resctrl/info/L3_MON/mbm_assign_mode
-> default
-> tee: /sys/fs/resctrl/info/L3_MON/mbm_assign_mode:Invalid argument
-> "return  -EOPNOTSUPP;" might be better.
+> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 
-I'll keep this as -EINVAL in the case when 'enable' matches the current mode
-and change it to return 0 when there is nothing to change. This will match the 
-behaviour once this is handled in resctrl. See the outcome of the discussion on
-this resctrl patch [1] Note, that I haven't yet updated the patch to match the 
-discussion. Any objection?
-
-[1] https://lore.kernel.org/lkml/bf8bb682-6a4d-4f39-916c-952719fcf48d@arm.com/
-
-Thanks,
+Thanks for the testing!
 
 Ben
 
