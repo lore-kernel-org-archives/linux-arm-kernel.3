@@ -4,107 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00097D4A61D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:37:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E6BD4A61A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rjevClhNecUKOFoTrhz/ZX3fWZv5rxd0vUGBfcrCQjY=; b=Bw1avFeCQwc6UcItbxthxlV0sp
-	Mn3EaXUvLoZH4wiOugeP4SIqsYU8YZtnvyfhHEApRPGYIZYfK3+/Z7HkbNC0N5zJtJFmFrpOxjqTi
-	44E2LIeKoxe2nkVbuvwFZkmAc4FabmCO/vdwfb55KV01k+3O/G5S3VjiPczE+90x4HqPv82acui0H
-	Fa7D9+LuqGqyGi+8klPzjxWVEcR54JadFJzDbZntmDsmkajNrShcDPAMY4i6v0NO+IN7jgycG5L9x
-	zvd78yxkRtFN4gqwq4qsOhKRor0he+m6wPd8026C5FDBH4LbKMsA90TjMciIbE5EIM78sw2PYR59y
-	gTMdFh3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hVybfYbe8i3MrpO08VfiZkufpjg080yyEME6uzv1ZzY=; b=pxEgwPP19EW/8s2yAEdI55B5lW
+	gg6RbACXJZCAgJV5h4YdNNwLU0kL4lLtLZvY9OCLHXcBh5f8nUY3rk0SPLKPW9h9tgP/JPb8yAV/F
+	T6KCYnsWWodEeMQdMtSCQfMr/gSkKRqsfolui9QNFeE83YKkBqmrbujL0WT2zzcXgc6lMSsEDErZZ
+	lAvP6QNwOXw6BMbLn9fJ3Dsdx/IvGgu2nVsZw7InzWN8Eqqcg/AUNoPTP3etIhePlpQi1Aqok+1Hg
+	aLN6rTdr/HWcvzAY0t4XpxO7iVuKHfZQYgg8R3JUylDvuPy11mEI8z1fOYFrS2T0cun87h3mpoqx2
+	Vm/KHAVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vggGR-0000000Ds22-0U5e;
-	Fri, 16 Jan 2026 09:37:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vggLE-0000000DsRl-2wvP;
+	Fri, 16 Jan 2026 09:42:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vggGQ-0000000Ds1g-0Pa1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Jan 2026 09:37:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=rjevClhNecUKOFoTrhz/ZX3fWZv5rxd0vUGBfcrCQjY=; b=YxzblDOHqEnkLUadIl0KXwxOhf
-	Ng1wzBrXvaq8YMDpROzTxFLsoXMPuCavOl9rg9LTK1tDEOvmz/moKGdRiEo9PYlilWEyq8Few3ELW
-	Mroe8JxSVcv2FnaQIOy5JUI7S6V5vtXKLe63qk5ujROlp/usH5bCdUBpu1phtdYSFakRkmNI2218L
-	R9H3cSpPBRPIF+GNGGLsucdeRzuUn/70HzeuV0wvTfOlhpja8XdTX5kGT4W8DKNqQzRZgy5M7AjW7
-	7oq9jPhKQ6EkTlWLBC35+63pUzbRExyw8hISgV0Ny0NI3lNrZsu7x5fngIHQOoKHsF9w7ZSo54WMp
-	isyVkEtg==;
-Received: from mail-dl1-x1232.google.com ([2607:f8b0:4864:20::1232])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vggGN-00000008Oyc-1FQc
+	id 1vggLC-0000000DsRL-0kj3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 09:37:05 +0000
-Received: by mail-dl1-x1232.google.com with SMTP id a92af1059eb24-11f42e97229so3985794c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 01:37:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768556220; x=1769161020; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rjevClhNecUKOFoTrhz/ZX3fWZv5rxd0vUGBfcrCQjY=;
-        b=YQ0drCcS3kyZeoxHvQhugK7Doqxf1hkq2gL+hB6b2KE9pzpnJ4c63hqEpb43Ocm53K
-         kHUxjqITYOzhOQ9Hs8Pqz1zZTj3DZmSS7GEUCev5KpU5AdpYRervp3n39nObtaX4LXQF
-         xlRb8trq07EuC5gbCqL9VvwjXvFzXZSAa0TEyUFSV4anLIdR2bVH9uxxARBT5hQwZ9rz
-         /96us8qQKyvLPwCDJUD4S/UAy83yLyhRz/g92Fjnvtb1y3docwkNUCTDEsbqqwUWEl5J
-         GBA48WzkzWPnjvPURnhpA56MUadlXutrPVzpXKn86bD1BtHTv5PO9gQhFg2WsvIy9h3N
-         mXqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768556220; x=1769161020;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=rjevClhNecUKOFoTrhz/ZX3fWZv5rxd0vUGBfcrCQjY=;
-        b=WKB+5l145de/SHHTXTUQVB5rnZcBXZ02FIAvEwPFPetpGrcEcsfvzQUIVOuBrsjDHV
-         UbVGnfZ39SdUeg169WgIdywA+81c8X0wfDuTTyMwK0BpSvGL/6wr3WuM7JTMDR+eQ7yH
-         sbyv0h7R+dScoO+sDjjMwRDNXPU30z+gPEnUpu+G+em2KPe0jf4xUUK0kcN34hqZh7de
-         1c7OgfdBJgvIW7x10x4lqwIfvXyHBjasgBNJAhrZnifEh2wUL56WjycI7+qYCCrwwt09
-         UjsfaXQXuwcZgFkeqxWrBeRXBKapJD3v72g3WuxM7yTHh812JyjYS+wWQkFEv8aREBit
-         HpxA==
-X-Forwarded-Encrypted: i=1; AJvYcCVINUS4joWKbHPjr5NarAW2lBfOcVCBrq2t02LOM6E9KjbKbgA7+aHUvCB/fQy67qvbfNGBWT0L6a3g2AhBmqvm@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMvFxoL99725aJYgZO5xftdn43SuzZLPNyyNQ70BvnTJb/ZtVk
-	ZwA56PEGbp9EN5wAOTvfsgdydND4tvewrAhwiLPZh6duxCQ3u/fb2YXyfmkOhP0fpMOdVgJwd0V
-	+ZGuRBvcm5GV+aWOxh4eMe2DQgAMaOio=
-X-Gm-Gg: AY/fxX62cGAP05RVUSUlEkgZDx5cFqgP6SOm2riOFkgOqu+yHMUF+zOVealQru82WfD
-	mnuxVfMvYt90ihJB/Worb/Wp+xWHsAIDBtbAnVCZXBUCS/xXSIGty7Njdku7te0RwvwP7lnv8Qf
-	wAti8YyqB2zmsa5FHvLzP4t1E2oJW+dvMIO/8nxgaUk92TSlbTAGGtX0MQCFEpAf9PXk+vKaW8O
-	/jXVto7ke7fHjW46zN9pMrcr7Cp7E3ESqnyv08cgIkE5odFiwjyJEBOOaLmF/yqpgr+civ1SBGG
-	ETdu57f+jaAb6920cWxHl9iKxQkk5jhcFHVMV9gpdKtXqGf8EFgmTC/lymno05/c+4nQLaKgw2q
-	NJ5gj5To/GETn+gBakovq
-X-Received: by 2002:a05:7022:6182:b0:11d:c91e:3b58 with SMTP id
- a92af1059eb24-1244b381f4fmr1752175c88.39.1768556220218; Fri, 16 Jan 2026
- 01:37:00 -0800 (PST)
+	Fri, 16 Jan 2026 09:42:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 379AC44190
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 09:42:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D218C19421
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 09:42:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768556520;
+	bh=/E8pjL1Rg4kjh10yWKXAfqGFi3+btd20CKL87Qc6xYk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=VPASkmLvCW/t4XmsQcmEBMDBN6Np6o9rMBqRv0awasGACRhWea5bRnd9A+VLI+NCs
+	 dIOhMy0sajBtbGyDu9uVrXkjyIivOBJELkA5/q/4uW2MVZdwif+Sp2+i0XqCrTiY5V
+	 1KA83r7fBXyaU5DDLzRKsGpWG3+5hmKtEVtCmxu1hgjn3vYeSFlJpj5eVFe/Ievqfl
+	 KZgXntrkuNOXkkx9bZH1SNmuZHxxpA2fODGUvnAxdX2bcG0uDEaKicAUoeBrHNqpUs
+	 FNslAZOVGw7n8A5D4kGOULTX8nF3IzRI4xn4R3dZbn8JeuL3MTbn5K967B+ogy3rK7
+	 zdKB3gNFNNE6A==
+Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-34c71f462d2so1273742a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 01:42:00 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXQwWVQW3JzdyRDM+SMar5YkKgXrkiOxh4na50+ueezXFdAvvjY1wZCLii3RAqXLnZHXJf8g6zQZliBnkLf68AF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzm3VjoFk3XNxNlIweFYqdAl5wz3jehIS6ESTXK3foHnQeBJWMF
+	FaAg/n3d6IGHc44+zDZQH+kfrQyWWhANS0U+fKDU5ONEgINHWtwI2/Oo6jQUgoI9RQ1C0X+OO/m
+	Ivul2TasJQtdesU9l3gY7kx62GF8c6Pg=
+X-Received: by 2002:a17:90b:3dcc:b0:340:c4dc:4b70 with SMTP id
+ 98e67ed59e1d1-3527315e60dmr2091280a91.6.1768556519441; Fri, 16 Jan 2026
+ 01:41:59 -0800 (PST)
 MIME-Version: 1.0
-References: <20260116-127-v3-0-3dc49545a745@nxp.com> <20260116-127-v3-1-3dc49545a745@nxp.com>
- <94c920e9-cde0-416e-9b6a-16255eda2b73@kernel.org>
-In-Reply-To: <94c920e9-cde0-416e-9b6a-16255eda2b73@kernel.org>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Fri, 16 Jan 2026 11:39:41 +0200
-X-Gm-Features: AZwV_Qh6ntqhZTGdRL0PXfGXgKQs_rs353EC_4pMNSP4GTlexk3c6guYld7I3zc
-Message-ID: <CAEnQRZDrchcDr51r7HWjq_=S184n2rq1o=XAnvQKVrXLxS+qjA@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] dt-bindings: arm: fsl: Add compatible for i.MX95
- 15x15 FRDM board
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Lei Xu <lei.xu@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, justin.jiang@nxp.com, 
-	qijian.guo@nxp.com, Daniel Baluta <daniel.baluta@nxp.com>, 
-	Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+References: <20260115004328.194142-1-coxu@redhat.com> <20260115004328.194142-2-coxu@redhat.com>
+In-Reply-To: <20260115004328.194142-2-coxu@redhat.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 16 Jan 2026 10:41:48 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
+X-Gm-Features: AZwV_QjmUt_PmrwfWvkU01-td52KzVOAwQnoeyg_Oar6lj-mB--Ez-fk2UXAfCg
+Message-ID: <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
+Subject: Re: [PATCH 1/3] integrity: Make arch_ima_get_secureboot integrity-wide
+To: Coiby Xu <coxu@redhat.com>
+Cc: linux-integrity@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>, 
+	Mimi Zohar <zohar@linux.ibm.com>, Roberto Sassu <roberto.sassu@huaweicloud.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Roberto Sassu <roberto.sassu@huawei.com>, 
+	Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, Eric Snowberg <eric.snowberg@oracle.com>, 
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+	"Serge E. Hallyn" <serge@hallyn.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)" <linuxppc-dev@lists.ozlabs.org>, 
+	"open list:S390 ARCHITECTURE" <linux-s390@vger.kernel.org>, 
+	"open list:EXTENSIBLE FIRMWARE INTERFACE (EFI)" <linux-efi@vger.kernel.org>, 
+	"open list:SECURITY SUBSYSTEM" <linux-security-module@vger.kernel.org>, 
+	"open list:KEYS/KEYRINGS_INTEGRITY" <keyrings@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_093703_429278_8E6C0455 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20260116_014202_260951_26FD5FEA 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,36 +99,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 11:36=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
+On Thu, 15 Jan 2026 at 01:43, Coiby Xu <coxu@redhat.com> wrote:
 >
-> On 16/01/2026 09:56, Lei Xu wrote:
-> > Introduce a new DT compatible string for the NXP i.MX95 15x15 FRDM
-> > development board, a compact and cost-effective platform based on
-> > the i.MX95 applications processor.
-> >
-> > Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> > Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> > Reviewed-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > Signed-off-by: Lei Xu <lei.xu@nxp.com>
-> > ---
-> >  Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documenta=
-tion/devicetree/bindings/arm/fsl.yaml
-> > index 68a2d5fecc43..4b6188d39be6 100644
-> > --- a/Documentation/devicetree/bindings/arm/fsl.yaml
-> > +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-> > @@ -1432,6 +1432,7 @@ properties:
-> >          items:
-> >            - enum:
-> >                - fsl,imx95-15x15-evk       # i.MX95 15x15 EVK Board
-> > +              - fsl,imx95-15x15-frdm      # i.MX95 15x15 FRDM Board
+> EVM and other LSMs need the ability to query the secure boot status of
+> the system, without directly calling the IMA arch_ima_get_secureboot
+> function. Refactor the secure boot status check into a general,
+> integrity-wide function named arch_integrity_get_secureboot.
 >
-> It's always surprising how many people need to review such one liners,
-> but for more complex patches from NXP there are no reviews happening...
+> Define a new Kconfig option CONFIG_INTEGRITY_SECURE_BOOT, which is
+> automatically configured by the supported architectures. The existing
+> IMA_SECURE_AND_OR_TRUSTED_BOOT Kconfig loads the architecture specific
+> IMA policy based on the refactored secure boot status code.
 >
+> Reported-and-suggested-by: Mimi Zohar <zohar@linux.ibm.com>
+> Suggested-by: Roberto Sassu <roberto.sassu@huaweicloud.com>
+> Signed-off-by: Coiby Xu <coxu@redhat.com>
+> ---
+>  arch/arm64/Kconfig                            |  1 +
+>  arch/powerpc/Kconfig                          |  1 +
+>  arch/powerpc/kernel/Makefile                  |  2 +-
+>  arch/powerpc/kernel/ima_arch.c                |  5 --
+>  arch/powerpc/kernel/integrity_sb_arch.c       | 13 +++++
+>  arch/s390/Kconfig                             |  1 +
+>  arch/s390/kernel/Makefile                     |  1 +
+>  arch/s390/kernel/ima_arch.c                   |  6 --
+>  arch/s390/kernel/integrity_sb_arch.c          |  9 +++
+>  arch/x86/Kconfig                              |  1 +
+>  arch/x86/include/asm/efi.h                    |  4 +-
+>  arch/x86/platform/efi/efi.c                   |  2 +-
+>  include/linux/ima.h                           |  7 +--
+>  include/linux/integrity.h                     |  8 +++
+>  security/integrity/Kconfig                    |  6 ++
+>  security/integrity/Makefile                   |  3 +
+>  security/integrity/efi_secureboot.c           | 56 +++++++++++++++++++
+>  security/integrity/ima/ima_appraise.c         |  2 +-
+>  security/integrity/ima/ima_efi.c              | 47 +---------------
+>  security/integrity/ima/ima_main.c             |  4 +-
+>  security/integrity/platform_certs/load_uefi.c |  2 +-
+>  21 files changed, 111 insertions(+), 70 deletions(-)
+>  create mode 100644 arch/powerpc/kernel/integrity_sb_arch.c
+>  create mode 100644 arch/s390/kernel/integrity_sb_arch.c
+>  create mode 100644 security/integrity/efi_secureboot.c
+>
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 93173f0a09c7..4c265b7386bb 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2427,6 +2427,7 @@ config EFI
+>         select EFI_STUB
+>         select EFI_GENERIC_STUB
+>         imply IMA_SECURE_AND_OR_TRUSTED_BOOT
+> +       imply INTEGRITY_SECURE_BOOT
 
-Krzysztof we are just warming up.
+This allows both to be en/disabled individually, which I don't think
+is what we want. It also results in more churn across the
+arch-specific Kconfigs than needed.
+
+Wouldn't it be better if IMA_SECURE_AND_OR_TRUSTED_BOOT 'select'ed
+INTEGRITY_SECURE_BOOT in its Kconfig definition?
 
