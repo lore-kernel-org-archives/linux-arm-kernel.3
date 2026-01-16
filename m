@@ -4,151 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E08D47CC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 10:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C30FED4660C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 10:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=msJ/sTAAbi+tdvtomBkiAx4qwOG74yOXnsgdxm65kEQ=; b=tEBur8nXOlXPLrqDR+27hA0OiY
-	U13ypGF44j21qfEintxhQdj35eGLS37pbiEk15T+X+2prbr0XeSr6lIP30nF2UFMNqbL9fEKU5jt0
-	7pgC3GN56Oy6WvgQRy0CkpS5onlyH8igK9KKU/B8P9ohjp0pw0ym65AdIc8HmkC/E18qaJzFsox3D
-	dJT7Ng/AuTTOFo5T8ZDJpA8P9Cz6yDrO5L15clj8rULiuX+C1uigyqHTJfFgM0qwdx5RINmnbY775
-	L0TWP2eycM7EjwrM/Ni/+lyE7k/W7uQz9ZP2pOpi2z6vWkezsXvsZQlQH/pHiMfIyECvNx+Pk8Q+y
-	DqPgG3gQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qhb2itAHR/LPuSZuQaX3s1nW4R5olgrC14ewg4/ctzg=; b=yXluUtCX7M1770+dHd5y/T50kg
+	EdVdkcdgzt5RR+oS8nTqzg004Zzaz4h+cEI06T2+NN74VzUB76zU9+Yb/oteOpBmdHaPRDkn9B83b
+	KgZv6q8D47feENlRxyNg5obr5+pqA+b73bQR3RiMjEHNR7BdUJyfk91p0kum0lwIKMXOH+VSNEPma
+	PvB66wDUeHPZlp9LdihEnS/UMpjQgKDIH62qhJ+neOBhCog8h4rVP2ozIye3df/fg8+NEGzQ3+w4q
+	XpFe7VQXDnToN71Jf6ea8+NaLjY22H0bKROspjl4mgTkOS+0gwZEox7i7yadyQAJBl87k+Ev+ZKFv
+	0RQOAJIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vggqw-0000000Dv3B-3MR7;
-	Fri, 16 Jan 2026 10:14:50 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vggrs-0000000DvAK-3QCG;
+	Fri, 16 Jan 2026 10:15:48 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vggqt-0000000Dv1q-3SiZ;
-	Fri, 16 Jan 2026 10:14:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Xft01HcL76NYCHSscL2aVGbVnAXXjnfe/54k2oDuppchin5+utW0aNXgThiOmTORkdKXyA6yKaFt9HDV9PoSNhwStWm4OAP3ttPM3kqX7r93xHiQESZoXwCZB9B8mw6PFbF4jOFZySlQMneeMIL6rLpLcEoi5aJgFBTo4MAvslIqQ9xfxb4ch7NAw5p6OBBu3TwcR4E+K6Sv2XqDgedaeGhv8A0amNSmPy6E8+EDKyK5qQ1OyyWpvshg/aB4GsRSfje2F71yk8Iqss2jGPCfW3VDepsmQn1DPYQ0egI/Z8aCQyBxRIQApWb3u1PVvlh5X4mIogSVvfxsYLV5KR/AaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=msJ/sTAAbi+tdvtomBkiAx4qwOG74yOXnsgdxm65kEQ=;
- b=gB1rm/SwG+EFG8QlYqVOpHZX8xNU8lankxxSTjInOh23FSZXpO2A5kvYa/PwareEH8KCR0Gln7UAoDw3ZLPDwAxoE/oXIL/xIfzdkhGWBat6JbqOprHlCbqAfg9TfCU/18h4ii4jy6+kB/1CNZj+q+ZcXt56no3Iv9JvK22FdZAbCVlzeubIkYd0VY9QiyJuyDmrIb6iqhfNFFUn38CyO3uFNi86u1OnsWuUsnK5fQWlmvcVtA7uKvawkL/CoZdc/Xmj9gWl7Vb7urGOj5s8SB1KYlOrCEIsk05hc61uconjkBe3ksJCmk6QQSp43WflIiTN9/qXwA7sWfannXPwyg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=msJ/sTAAbi+tdvtomBkiAx4qwOG74yOXnsgdxm65kEQ=;
- b=Y8QSEoT/vdIUlpx5b5Twyd3Lq3I8PT5e9ECx2H3ohXrEUE/RE/JMJjUaC3M0SDmznAgCkWT7/rHfe2gdi4lESaSslKMVfjRNX7Q9rQJcmPQEzBDspilgMtNKdM+QwqENRny9PHYbmau7c1e6v1OOEBfdQAmN/al26iBOgj5GfFUJ6u2FLVPZJ2k99XJZRyg/IOdubOLxVC3BZSPWZEWstmlT96V8eWQzplsOtY+4fajGV/aj74D4q4AtQ752uRSz94ZdNuouvieMTKTR/hI4MpcN0htGw8czr94AuSuIkbmKQmPh896bitltr1LOH1cNnABJRfd1xbkEwTsdqWdL4g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by PAWPR04MB9837.eurprd04.prod.outlook.com (2603:10a6:102:385::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Fri, 16 Jan
- 2026 10:14:39 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9478.004; Fri, 16 Jan 2026
- 10:14:39 +0000
-Date: Fri, 16 Jan 2026 18:07:20 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: neil.armstrong@linaro.org, shawnguo@kernel.org, kernel@pengutronix.de, 
-	festevam@gmail.com, jun.li@nxp.com, Frank.Li@nxp.com, linux-phy@lists.infradead.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] phy: fsl-imx8mq-usb: enable RxTermination_override_sel
-Message-ID: <luak64ms7n6fxfcozfmnijsdft4dn2ybiegmsiqbaor32vn3bw@2nwx7hohyzmd>
-References: <20251224111807.2925675-1-xu.yang_2@nxp.com>
- <aWe_oNDOqHnQo0X2@vaman>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aWe_oNDOqHnQo0X2@vaman>
-X-ClientProxiedBy: MA5PR01CA0030.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:178::14) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	id 1vggro-0000000Dv9I-2OzV;
+	Fri, 16 Jan 2026 10:15:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=qhb2itAHR/LPuSZuQaX3s1nW4R5olgrC14ewg4/ctzg=; b=WgUtk+lqTuBSeKDUg/K4z3qyil
+	9lux068kvvzabzvbOPjwsManyWJEXJZ0TCxyhPUNrIzzaYampEtcTMua9ancgEEh8ZTHhIyoXy/Pt
+	XKZPIDtqDQcchc+FRLAla63uNEyjL+rIsnQ+4qDcugffSFV1eeXx6cWSJtmco7nvezkDZe4cFC5JU
+	TZ1WtU9EU4zkXkfzlwCGnR3Qiqac6VCh4Yd6kQ5EtaE6bmhMH79HwW1vx+VBkc5x+V0m2yextCViO
+	oHe2NUCnWuZmtAgei1CPNvTJJ4A5CoixxkPvxSVd56P5/HsNAuI6C5+5I2hzaKH4diAmeF//LbtJu
+	ivSdvcqw==;
+Received: from [187.36.210.68] (helo=[192.168.1.103])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1vggrW-0066jU-7n; Fri, 16 Jan 2026 11:15:26 +0100
+Message-ID: <59cdede3-7757-4fe1-bb94-e7a93eea7611@igalia.com>
+Date: Fri, 16 Jan 2026 07:15:18 -0300
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|PAWPR04MB9837:EE_
-X-MS-Office365-Filtering-Correlation-Id: e2d83d33-41c4-46de-aa57-08de54e80f16
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|19092799006|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fgNH7m+FpTL9NaGagayZw7v08AEEBqSC5rgEBzs1JfOC3eKUK6NXn8WcLhpE?=
- =?us-ascii?Q?XwiOyvXW10JcGkEGsuSM1aypaIZ3KbYi55jvGXmdwyrAwtkhQ3rkXPBeVH+r?=
- =?us-ascii?Q?pt6RuwunnG6YpAWuokedRdJ5VvJIq2yzVimNeX8I4w00cbbZZChVH+gTfGRY?=
- =?us-ascii?Q?q/df/CjiY/3BuNs1ltiDaVkJG+vPYP6GQStZ9saWidDzqdFijaucAdTe6r7i?=
- =?us-ascii?Q?0mOC8XM1vDVlUVPpVrQJ/lNmfa73nBsOoTK+hoR1vStyMnytubO+Gr2RW7Ij?=
- =?us-ascii?Q?P5al5XbdZwLpD6KSecGeLPWZfoZ8FOOeuLokKMv86Q3Yr4p3bvczK0gRKqre?=
- =?us-ascii?Q?ATFytv+RNOSbQa2MC5w30QkUl1uQHkVgKGcZMAV6uvkmF8vIwc27wbR5c4z8?=
- =?us-ascii?Q?kIl0aFQvOU8Iy2CP8Q1QvdiQdRM6x5f1UODc6zp/z6iSXDYYHcQRXarFxO73?=
- =?us-ascii?Q?BtWOOcrosT0N4USkTyD1ziOf+mdzZ7In/b3DrZb5KYQDoUTbPsGbHZ0eB2j0?=
- =?us-ascii?Q?sJRJu3v76FtFUbed4hvsnbJsT7/I1ro6eisGb2/L5CR7YU+vHzQtfHQSa2Xm?=
- =?us-ascii?Q?qKiqhTrPjXgm52FziM5VcMeNeFgshEbajcqfWdN0XJis3zpFVlFq43QjGgD+?=
- =?us-ascii?Q?26WyTdOAZjp63shSxSDjuQQmdAyKMSlZfC41BNLA7s/mNS71eY7y2Vg33psN?=
- =?us-ascii?Q?cssm92s8SOhUZurREKACGy2THefu3rrWjOGHIuyELzROMJWydUAF2zQ1nSH3?=
- =?us-ascii?Q?Je/5zdEVOAizEvrZohZtyZTi5zS3C7MsADGt4bgWaxMfwuGbjv1242CC9+MV?=
- =?us-ascii?Q?LUc/EusWUIGn8ozyHVQ0Far7XZ93cS4l6TvZw+OhOItwwcPHjbZHUDiMaoX7?=
- =?us-ascii?Q?mTnur+aYKC5cET35QEDudsXYyya9PfY/1jEX9b2UuI6vYV9VdIo8VbSWq0tV?=
- =?us-ascii?Q?kOrlGqD2ctHD1Dagw1sNlMffxW0NgTEDypaF6IsQsq9oysn9LVruBC/A54i3?=
- =?us-ascii?Q?yeaIbGWPqv83K66pUEw+W7Z7GX2v1IJWXUTcaTMLg0FxUahlkF6Y8NwQGKni?=
- =?us-ascii?Q?/koa2ouIxzGBzQI6GD3SJek8VH9RYGdBXvsa1AuBTg5QAjL0ah/hPA7QtGMF?=
- =?us-ascii?Q?OuFC4+JLGpnio30vRNs9vC/UCcNL8UT1SBhY8Yah9qshZn0hhalyIzAKn9sX?=
- =?us-ascii?Q?lLLQmVP9Uwm57SlJC8pttg1STHHLJvFgVgxwwoNn8sBOwEvB+a+2tBR42dPq?=
- =?us-ascii?Q?m0hJ4qC7xZeQhOdDkB+yFijp/QkhO7nxGD5Ij9WESDsHI0+jedx/x1n3fdl4?=
- =?us-ascii?Q?bmEc1VAmvH0ZBgw1QgNVRkQC10IwzEagMr0+OhW1Ss8NgeksqUzLxutkPdh0?=
- =?us-ascii?Q?bJ9qw+SiRwG/SObnvz5OmypaXC78sqyN5EfyCG9tU5ZXuefQ8Gz8W5+0SH6g?=
- =?us-ascii?Q?yMjmcLQb5W4WRfhB4e2ZlCFXQq+z3QMuYFbKIvwQpkVcQ7QYYsX1IehCaqNU?=
- =?us-ascii?Q?y0cnFT/eQtEkOTdiHkQWUQBi+uqj5DyRkzxoYt+meGoZJzyNZmUK8k+Gg7AJ?=
- =?us-ascii?Q?JWUf1TQ+NXIhWyBYj/gtObJ9NO6vvQSp07l5T0e9v/u10ZGcLexUlM6vtmy2?=
- =?us-ascii?Q?iT8j12ItD+g6Y8hTFKxyc4M=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OqkgLlVZElPt/Ff2yHcpBgWRA4KTW3wlnWhqcMRSnxJysfyrOvyEyWLb0zEa?=
- =?us-ascii?Q?MEieSelSFK/cU/Ev5xcADfoObZZYVX7NSMPt6cC7xRsespXRETiLGC8CkbUI?=
- =?us-ascii?Q?edsIJ2Y04472fH3c2JgJEpxndRV+wx0l8b/vD20Yo5qM7fcJDdWkJOeF9FxG?=
- =?us-ascii?Q?s66ISZ24z4+m9piqjbPIm11K2FyqjuZC60gewBmqwzsBnCzcAlLesDCeQFPg?=
- =?us-ascii?Q?WkwUAKkL7b7TEkbxk7RMyorglhy31rTFHqzO54HkLSuKxIMGOG2Ds7l4x9ja?=
- =?us-ascii?Q?GMiGcp6f+p6d+J4SiDEsmgmT28n941uyuO9fjPxuACM4YAZXiMuXaEqP1jo7?=
- =?us-ascii?Q?q4Yn+DJEZBqSRwfxRwFRcY0jPzbcXaj2v/DRSLA7QI4rsVdpdBekU0r0xo1F?=
- =?us-ascii?Q?VmguVrUemVnVTNFe5yml4J1Z4X8/7srUwyQ5eZTsVhIvnqAbf5K8zETev8xh?=
- =?us-ascii?Q?9DQDEUeLsWF6sriZg5qVIIDsRlrMRk95kw/Kt0rqHrkaSfsC8Y6lQI6fxHAs?=
- =?us-ascii?Q?GtE5K6hDF1Uq1GiprFhd5DSSfjv2Id0gOYQrjX43lv2latbc/+gCkWUKaTyJ?=
- =?us-ascii?Q?1xd4myz4pOY2/kk+v/LXlv5w7U44gVdfpOjMbC/G9hB1INkVu6aGupP/o56a?=
- =?us-ascii?Q?px5y1NGszXp6NBj8TOIoIxoV4m2bz2/fofBYC0vi81MuICWdlHMabIWvEXmf?=
- =?us-ascii?Q?57CyQFTNbGkHP37AXUkN6Jzk4enAmAHVrvfLXpHUUzlEo9PK9PjQUjJ51Gu4?=
- =?us-ascii?Q?UCOCEXzIMTUu6J7sPJSaSQ8yLWoTfne7u2hwFeylXtPFxjkUs0ANROhgpjCK?=
- =?us-ascii?Q?NO4H5nMOAvKajDhyQ3Jpy/8WQAtUJWL/2504vnV3By5Srl5ecClAcyiiCCuD?=
- =?us-ascii?Q?j/CtGUxotsG2XK3X7JPK25UFsTpLuZKCyvw3dwcd7bDez1SKHxSPzpTeX+xc?=
- =?us-ascii?Q?ce3UAitrnHVKB+ZyL9UxiAinu87w03Em5kV0INwEXc7x859OqzsSIMiiWybM?=
- =?us-ascii?Q?QEMmATXPfdMfXx3dkGWvWiP63qT2eNA0fwuA/W0axcOzHVnvhjCEZSsPbVs9?=
- =?us-ascii?Q?auJKifKcf0sEkFfymXZmY/IGsag4uop/HA4aPspz481rhVH1eSQ5MzIuJ32s?=
- =?us-ascii?Q?wPAnVMJDjJx+vbYL+hFQcHHLiZA6wcXQbq6xYNCwTnXkehy1HM7ho4D7drBn?=
- =?us-ascii?Q?swB8IPDoHQ3JfMWVDe8i8VsTGagfQMMuu4Y2hmEPfRmjdkEp65KtNeaY+xqR?=
- =?us-ascii?Q?QDiTDvaJ7Oc3iU1PY/wSpQ+NqyFZn+i9kShR1cbFZumieZWyI/Cl/SKfetsQ?=
- =?us-ascii?Q?duIQKbG6EGqYLAR7oErDlnNvHUJFVWhaQG34f0OLf+Fuh4krKilsvW6l6gjZ?=
- =?us-ascii?Q?SP0/QSYxu7QXzkzin/8Pc9W64oTRESF/oEFu1nDPKTRE3xcgJKl5eJPjON0v?=
- =?us-ascii?Q?VjEtTfzZQboWIwsPogM7IElpK6UmZQOMyv+K5dEoJtWhpdMO0adlKjg7T1zF?=
- =?us-ascii?Q?C+dbQ3FBCx7NpQWHPtkIrj1x7h7K2GN3wH7O1olJHL9DOJ65quwQnuo1F0n/?=
- =?us-ascii?Q?GxQRrcxAyR6WN0t90rzxbfyDQvEfX3iQDEHcdOM83y4J5rRzfVOjgTKEQfyH?=
- =?us-ascii?Q?U1w8HhO0l463Kxr/NDSlYIZr875C/bR8GCBxeXMxho5y0bHo95A+qCj4+fnB?=
- =?us-ascii?Q?8z4aGRPU1iy6i3SdGurQIav0Z+5bol59+3NHWgdR2nIT6UX9uBPR6WCuRlpq?=
- =?us-ascii?Q?RbdpxS7jtQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e2d83d33-41c4-46de-aa57-08de54e80f16
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 10:14:39.7689
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ejt8EhadPtNWfweNbmQtaWaKM8ljKdKokmUObuBCd66hk8K8AuAxmQXgGPtii6L6yhBrgJM38coraE+pB6qWrA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9837
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: broadcom: bcm2712: Add V3D device node
+To: Peter Robinson <pbrobinson@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Stefan Wahren <wahrenst@gmx.net>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ kernel-dev@igalia.com
+References: <20260114120610.82531-1-mcanal@igalia.com>
+ <121ede67-dbfc-4b79-8076-04693e9d3d53@gmail.com>
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Content-Language: en-US
+In-Reply-To: <121ede67-dbfc-4b79-8076-04693e9d3d53@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_021447_870689_920946E7 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20260116_021544_900684_BEDFECA8 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,24 +79,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 09:39:04PM +0530, Vinod Koul wrote:
-> On 24-12-25, 19:18, Xu Yang wrote:
+Hi Peter,
+
+On 16/01/26 00:53, Peter Robinson wrote:
+> Hi Maira,
 > 
-> What is the with the CamelCase on the patch title! We dont do that
-> please
+> On 14/01/2026 12:04, Maíra Canal wrote:
+>> Commits 0ad5bc1ce463 ("drm/v3d: fix up register addresses for V3D 7.x")
+>> and 6fd9487147c4 ("drm/v3d: add brcm,2712-v3d as a compatible V3D 
+>> device")
+>> added driver support for V3D on BCM2712, but the corresponding device
+>> tree node is still missing.
+>>
+>> Add the V3D device tree node to the BCM2712 DTS.
+>>
+>> Signed-off-by: Maíra Canal <mcanal@igalia.com>
+>>
+>> ---
+>> v1 -> v2:
+>>
+>> - Rebased on top of linux-next (Stefan Wahren)
+>> - Fixed node's address (2000000 -> 1002000000) (Stefan Wahren)
+>> - Link to v1: https://lore.kernel.org/linux- 
+>> devicetree/20260113192902.48046-2-mcanal@igalia.com/
+>> ---
+>>   .../boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi    |  4 ++++
+>>   arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 14 ++++++++++++++
+>>   2 files changed, 18 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/ 
+>> arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+>> index 7d4742ebe247..97522c6803c5 100644
+>> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+>> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+>> @@ -247,3 +247,7 @@ &pcie1 {
+>>   &pcie2 {
+>>       status = "okay";
+>>   };
+>> +
+>> +&v3d {
+>> +    clocks = <&firmware_clocks 5>;
+> 
+> Looking at the upstream DT [1] I think this also needs a clock-names entry.
 
-Not on purpose. It's a bit field name. Will fix the title.
+Differently from the `hvs` node [1] you sent (which specifies clock-
+names), the `v3d` binding [2] doesn't have a clock-names property.
+Therefore, it is not needed.
 
-Thanks,
-Xu Yang
+[1] 
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+[2] 
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/gpu/brcm,bcm-v3d.yaml
+
+Best regards,
+- Maíra
 
 > 
-> > This is to resolve the problem of wakeup system by USB3 device insertion
-> > if HSIOMIX on, in that case, the USB3 device detects RX term on so the
-> > USB3 device doesn't downgrade to high-speed, we can't expect CONN wakeup
-> > (for USB3) happen because the 24MHz OSC is required ON to trigger it.
-> > Because the device works at Super-speed so DP/DM wakeup can't happen
-> > either. Then the entire systen can't be waken up by such device attach
-> > event.
-> > 
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/ 
+> tree/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi#n233
+> 
+>> +};
+>> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/ 
+>> boot/dts/broadcom/bcm2712.dtsi
+>> index 330a121ebfcb..661668ef7419 100644
+>> --- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+>> +++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+>> @@ -1,5 +1,6 @@
+>>   // SPDX-License-Identifier: (GPL-2.0 OR MIT)
+>>   #include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +#include <dt-bindings/soc/bcm2835-pm.h>
+>>   / {
+>>       compatible = "brcm,bcm2712";
+>> @@ -642,6 +643,19 @@ mip1: msi-controller@1000131000 {
+>>               msi-ranges = <&gicv2 GIC_SPI 247 IRQ_TYPE_EDGE_RISING 8>;
+>>               brcm,msi-offset = <8>;
+>>           };
+>> +
+>> +        v3d: gpu@1002000000 {
+>> +            compatible = "brcm,2712-v3d";
+>> +            reg = <0x10 0x02000000 0x00 0x4000>,
+>> +                  <0x10 0x02008000 0x00 0x6000>,
+>> +                  <0x10 0x02030800 0x00 0x0700>;
+>> +            reg-names = "hub", "core0", "sms";
+>> +
+>> +            power-domains = <&pm BCM2835_POWER_DOMAIN_GRAFX_V3D>;
+>> +            resets = <&pm BCM2835_RESET_V3D>;
+>> +            interrupts = <GIC_SPI 250 IRQ_TYPE_LEVEL_HIGH>,
+>> +                     <GIC_SPI 249 IRQ_TYPE_LEVEL_HIGH>;
+>> +        };
+>>       };
+>>       vc4: gpu {
+
 
