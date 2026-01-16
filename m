@@ -4,99 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05506D4899D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 12:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12933D4899D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 12:54:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zTkxHu8mh7w4aqi9Nu456ezpUXh108CX0ltHIeT0yH8=; b=F0zpbBqMhYeGyhNiU6ceIf0Mqe
-	3nsjiQneVkIqlCXnrhjLjhEty3RymekI5Gz9n/WErVVKn33VxI1OIqWhzwZZhYiEoxVxbRkXSMckz
-	YXnlpVMVjbwxNmslT9KsHbahJxjoYx/zB6ezChaYBGgawIWsdTlHDq0VTUSZfz6A8Zlz1Glm0E6MB
-	XGZ7+zZWkqOUA1gdKvfbSxJB1FlcidQWsN0H4od6flUVbw6hUje42StldKo6QCyCFjVYENcB8Cxmx
-	mCPhg+zwDa4FL046xOBzS9lZWLiZWbvUDH5oB57ynz2iIOaLfxeFUyadgUyZujsnQKzNOXiTyxcpk
-	zB98WbOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=M9hfnzEF43IHdUY2dVVEA/3BjfGPtqhazX3KdgqvRkw=; b=AFcfhBMv9+rTqN
+	azSf/s8Vo8iY0iKIjlaCtGxwqbaWmRKYgA7ifsROAi/cHtP0iYxd+mLueNQHqIqBZqulyVz02Pd/o
+	np+z1Uu17DoQOPPOViOaIWA4OTTg9MOdWXScJ+cu4NpnK/823SVJBs4HndjqNMmopE0N7dK1u4EK3
+	mHKmdIiy3i0NLQkQcUB3cCsemkVg0RQgWHhRUDu4YkeOLxTjvVGjtKRoJtLsjQ9nxn/JlCDRzI0xJ
+	M/ywYbcTA+PoDaUW9xwJwV1xI2cCb+R4+3naHWXRqk47k/bE6rKCzsYlz6zHkshD0PPMCa6/dsBBW
+	m5nEwqKA+SsX0cZEMpSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgjIC-0000000E7u7-133Q;
-	Fri, 16 Jan 2026 12:51:08 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1vgjLk-0000000E87o-3gfI;
+	Fri, 16 Jan 2026 12:54:48 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgjI8-0000000E7t2-2HOE
+	id 1vgjLg-0000000E87G-2wvO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 12:51:05 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-42fb2314eb0so1589907f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 04:51:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768567862; x=1769172662; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zTkxHu8mh7w4aqi9Nu456ezpUXh108CX0ltHIeT0yH8=;
-        b=KHUOJVnx8NXpaXrSaiVCh0/adK7NWqeBT930k7Th+h1y4pinjZwoQ/+jWlZs0iTzZZ
-         O1wR8KRTQIujuAN2lhFodXquYTlIXyzVmpodxpu1rq6ojya54EgXwzuplxYRBZZEDJV5
-         WrzvUqXtwGy8H9oUTXye/XlxOgcekd56ZypqgPlm/c42DSnoHT2rYgyHM7AdWeFPdjFF
-         iW+//LSOxE+yoLFlcjGfHwUFL9u+ppkBv5eSOviMxaA55JG7wwe9o9euArq8nUrtnGTk
-         aBqMvqDYBXXtqiJOcZVHCFItdjFcEQXz61Yh6vGnOk7YIh1lYKpLNxAiPAZEv91mucRR
-         DZFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768567862; x=1769172662;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zTkxHu8mh7w4aqi9Nu456ezpUXh108CX0ltHIeT0yH8=;
-        b=Ge1dqnSKxl2D+lAd6pxaL6MJMH/f3hvLWqFIHIO8vH0tfhTsfADwUuqX78Sa50XJIq
-         gH7/k99g2YNsVoAcmRYK9ClaAsvO1Mz63DG9QDjKkLb7DOzrnZCd0chrbg2ndYoPCWh8
-         zBtZ3oK9zNSQBZ1jP6qUxj/5bUBjjxEloOrVn3no59YcNo04IOhzGWRjQGwqoDQAl7aF
-         3u1dwFyCf2Qy1oHJOU5e8SgP2k45VtXI/WAAfkQQrWLHTxbpk5Gz07RVTJFtdsKTis3f
-         vTkfaCpOo7HIqL4msFOxjYv/OxTzxsAdWRnINaH+zolJH7p0+MCofpioJFC5uyKaBGaT
-         E5MA==
-X-Forwarded-Encrypted: i=1; AJvYcCVdjzKqJt335vK1n2OVkS2S58CsBk4hML2gId1769ooiE9A7fQ87QHDq5Z2rSGZtZgIsIMwAWq565b/hkWoWTN3@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPhZVTNrzv1b4i42+9zwS4bZAdL3czud7gdE3YT+yFxE4Ien7+
-	RzV9EVVqf6jzgW486+WuwghbvOqcIA4BfP80HcbujmOpOj8Nb/Zjnrsn
-X-Gm-Gg: AY/fxX42IMjlJkMsKgfDzLVze+ZKLSWmfzF81yhtDYqLB4WBJ/pROC42OCxLAzl8pcB
-	GFlWuxolC+oGZeD7bYI1nifdnR3JycK9pV1PLqFFaIGwJIcH7GLHzv93x6gIAj6XgGZGqHYa4R6
-	cXRyJMoJn/GKdyS3IVeM/+oLYx7H2W6NR0bnFTBrC/qAyJtuvNnETwwSpVpLiecap2pDij5879U
-	N4I+eXiuvFXzDL3Qn1xrkNADiFC1NpLVNhpV5l3o3YVHqe68VOafQb9jHdwmhy3Pq7o8x5s0l4Q
-	jUgh6D/eUwuVLgFYC+67aqdv0uhcJLxYhBydEa2Ylv1pw3jCaciZkQKAdM5gdKt2xTpeFa2DDCD
-	NnpftCXBe270hLoahJ6idWtznBIGPuumzlMJoASdjFHJoSFiInsHbUZhQZGQDIlpsLYtdd/wfgh
-	oERmpdaFkmqyjRfjbkg8XNSvM5aSGGh9nv0cC1tzzWl+7A1tJIxg6D8CKM1GVFTbqUMvfKrHDKJ
-	w==
-X-Received: by 2002:a05:6000:2004:b0:433:2f55:7cab with SMTP id ffacd0b85a97d-43569bbafd6mr3570766f8f.37.1768567861918;
-        Fri, 16 Jan 2026 04:51:01 -0800 (PST)
-Received: from orome (p200300e41f0ffa00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f0f:fa00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4356997eb0bsm5012584f8f.34.2026.01.16.04.50.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Jan 2026 04:51:00 -0800 (PST)
-Date: Fri, 16 Jan 2026 13:50:58 +0100
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Linus Walleij <linusw@kernel.org>, Joel Stanley <joel@jms.id.au>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Basavaraj Natikar <Basavaraj.Natikar@amd.com>, Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Steen Hegelund <Steen.Hegelund@microchip.com>, 
-	Daniel Machon <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Patrice Chotard <patrice.chotard@foss.st.com>, linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, linux-tegra@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 08/11] pinctrl: tegra-xusb: Return void in padctl
- enable/disable functions
-Message-ID: <aWo0LESc5bIs1kHi@orome>
-References: <20260114-pinctrl-cleanup-guard-v1-0-a14572685cd3@oss.qualcomm.com>
- <20260114-pinctrl-cleanup-guard-v1-8-a14572685cd3@oss.qualcomm.com>
+	Fri, 16 Jan 2026 12:54:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1768568082; bh=M9hfnzEF43IHdUY2dVVEA/3BjfGPtqhazX3KdgqvRkw=;
+	h=From:Date:Subject:To:Cc;
+	b=ak/WWA8Az/xurRReEvTZjwAjh9Ncv3zUcQYQFjjJBgjZyOuV1TyHrlBMx/a4zAuLo
+	 5SeWJ/W9jpXW3TthU8EVZWnxeYJV63ETwA3uPdzWOaaFvIyW218CBCLeaHYQsEc5hk
+	 NxrJCJ2Kd5KoPPs+q9pQ/XWnZ4yFl9T7aprVEwJ0=
+Received: from junjungu-PC.localdomain ([223.166.246.160])
+	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
+	id DA818077; Fri, 16 Jan 2026 20:54:40 +0800
+X-QQ-mid: xmsmtpt1768568080t7j1nb336
+Message-ID: <tencent_A3E20C513BBE7D268B863A5CE473FBA10B06@qq.com>
+X-QQ-XMAILINFO: OOO9dHjlsLs7QQS1rP69LWQ35Hp/CJV4p/t4Uitp63MkRuS3enNuG6U4eJ4HUA
+	 tSPVgwV52BIS8fRB8wQps4rICSoSkiPAmutE8ShD+9QqZWtHdJ4wmXkPMuKc3pRtMlDXsgYIUqI2
+	 7kv1YCa3yRAW2UpGjk3r+7ZEDHQf0axXBaQfCr+O+ZR2LewawR/DFN6A3aP6+cfEtI/qfh6JcONX
+	 7rYgNbaEtEwiqiLAqtBFbVmVz+5hxSx5qnGi6zcEHhPwJBI8LVidSQzpPM6ASMA+F/z6VtWCCtSF
+	 EfqFN9xXssmguqL9V5UHxlrIbAWKJhAU2awW2upnkkdXeXzzNUm9OfOJv1i+rv4A1JwSolsLafTg
+	 I1Y3hAMCKwA85PYB6bYAfEQXXkAk7EoV+dnbh1ykh4B9qSQvkkYhnfoslB3E5dvQcBkxkLh623Zu
+	 174i99Gm21+Yee9ASCi2WRlQqaBCv527zu+jFFkrXrK0OeW07CKNaYwKF/4fq5+V/EVmviLDm14F
+	 pWFT+IdeSQDqZV3PodY4qN+rC1h8bi2MU8jXcUYTR8g0oVPpx3WT3GUI6diwP2cVQp5CAfMxObAQ
+	 ba7dOid5SFIB2wTODJCesdiI4teF9Q2nbz5qYfOSgCxSHdiXNuujIh63FarEYnicCxvilVhBUZ7n
+	 m/n9s98MgOd/e0iQqsXvLAD05HghEinbgoW2fRPr8W4UvmIhINx8TlLNUM1svPzkROBMjBB3/Nxu
+	 akomwrw6/0V+mynVlG9qpLuiXbNGVV3A5Y/bYGOykzvOBCb0tRCZte0BEYS/mkHI262aF2A5p5uz
+	 4wHQN7VUEK8yvsxcpxURqMEG2P2y7m8bSoD5A5Pt5kw44GHhne/UVWJr0zj3K5+wj8YtnpbVLPJw
+	 5N5umlxXfAM8Q0W8myHVZcjb+qmO9mOnnCARmVxSJozBi7EaoWzcj8jtuCtJEM5lchJIUwTWe1sx
+	 jgpiMTG1umAt2soO4XLKBdwMg6UahZo5gXLtsyYb//tAGEEm+EWGvZMp+htDBGqH3vs8wPgjPzFT
+	 Qv3MWgO9ZFaInFk6qsXNEkXas/dfxkyRcc/4pW/V7NlBhSH6vPbpgpE6Hp+r3VmJIVtf6BUpryCe
+	 GzGYceRyJU6hvOjWyP0OVP+g7S5XlDnWQeSJMAWwliQlBU5T/6MsMWGO8MLfV9ISyUQ/5zgSz48J
+	 9roD8=
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+From: Felix Gu <gu_0233@qq.com>
+Date: Fri, 16 Jan 2026 20:54:39 +0800
+Subject: [PATCH] firmware: arm_scpi: Fix a reference leak on device node
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bhhiv6s43avuu3l7"
-Content-Disposition: inline
-In-Reply-To: <20260114-pinctrl-cleanup-guard-v1-8-a14572685cd3@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-OQ-MSGID: <20260116-arm_scpi-v1-1-a9692a4b86ef@qq.com>
+X-B4-Tracking: v=1; b=H4sIAA41amkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDQ0Mz3cSi3Pji5IJMXQNDY6NEy9TUVINkIyWg8oKi1LTMCrBR0bG1tQA
+ pdV6uWgAAAA==
+X-Change-ID: 20260116-arm_scpi-0132a9eee0c2
+To: Sudeep Holla <sudeep.holla@arm.com>, 
+ Cristian Marussi <cristian.marussi@arm.com>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Felix Gu <gu_0233@qq.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768568080; l=936;
+ i=gu_0233@qq.com; h=from:subject:message-id;
+ bh=8/Sq8StM0qXW5/FciyUQix3rskELa+xfqwbu9DohIkM=;
+ b=UUtDXrPKMygBcY8JVWTKhqAQ4+cB1V3jx2cl42pVNs1JZPzjsRKypTST6kcL/xg7X+m2l69ac
+ k1GWZpbePhYDOEgJQaSfe0rmpTvm2dEhjbOdBS1/xgUa6hYK01lfvu2
+X-Developer-Key: i=gu_0233@qq.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_045104_624699_90118893 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20260116_045445_060870_3360DBD9 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,46 +97,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When calling of_parse_phandle_with_args(), the caller is responsible
+to call of_node_put() to release the reference of device node.
+In scpi_dev_domain_id, it does not release the reference.
 
---bhhiv6s43avuu3l7
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 08/11] pinctrl: tegra-xusb: Return void in padctl
- enable/disable functions
-MIME-Version: 1.0
+Fixes: 45ca7df7c345 ("firmware: arm_scpi: add support to populate OPPs and get transition latency")
 
-On Wed, Jan 14, 2026 at 04:30:09PM +0100, Krzysztof Kozlowski wrote:
-> Make the padctl functions a bit simpler by returning void instead of
-> always '0'.  The callers - phy init/exit - still need to return 0, but
-> these are smaller function without if/branching.
->=20
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->  drivers/pinctrl/tegra/pinctrl-tegra-xusb.c | 14 ++++++++------
->  1 file changed, 8 insertions(+), 6 deletions(-)
+Signed-off-by: Felix Gu <gu_0233@qq.com>
+---
+ drivers/firmware/arm_scpi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Acked-by: Thierry Reding <treding@nvidia.com>
+diff --git a/drivers/firmware/arm_scpi.c b/drivers/firmware/arm_scpi.c
+index 87c323de17b9..b6233f81ef3e 100644
+--- a/drivers/firmware/arm_scpi.c
++++ b/drivers/firmware/arm_scpi.c
+@@ -665,6 +665,7 @@ static int scpi_dev_domain_id(struct device *dev)
+ 				       0, &clkspec))
+ 		return -EINVAL;
+ 
++	of_node_put(clkspec.np);
+ 	return clkspec.args[0];
+ }
+ 
 
---bhhiv6s43avuu3l7
-Content-Type: application/pgp-signature; name="signature.asc"
+---
+base-commit: 9b7977f9e39b7768c70c2aa497f04e7569fd3e00
+change-id: 20260116-arm_scpi-0132a9eee0c2
 
------BEGIN PGP SIGNATURE-----
+Best regards,
+-- 
+Felix Gu <gu_0233@qq.com>
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmlqNDIACgkQ3SOs138+
-s6HKVA//WbWB3AVvEbOYpT8fr129RiWvQ5lRtQceA8fb/1Ep4k0qX0M5cVujq72g
-OFie2IcJyCzuci1ZmKEf7fTaR/cjlzExIrXvmox2TLmtKm5kBAFTu2UcHzvAbRcs
-VbasfUeQ/Wi7dlT6+I6JeNLYaXbstuH2RQV3NQ2BC3zPUsJk27p7DARdqBLUSNTJ
-7jX2sBu0xKu5n0hrBhesTMi/zBLMI3pZvqmMlhGzTU01GSlmPz72GMI5J6YmeeF0
-Midhy4ZCbs40l7nJPghjxdtQoKLhUPG6z+NzTyp9Hfelr7q/cYZ1avlAGkJ/39fI
-ugJEOfjl0ed/HMarlvwrRPSTjF6f2BUKH1Ub2xGxErbhGaGvOsKGJizbjsK0CGzl
-jdVsdFUF/wmzPeX27RIel8DxTdTYnhpUyZoylg7l9thjdhYGceKGJHeHb1DaOOZ+
-OhsSUZlejccTbalvk7OeBxtnujGfE56nEXsSByA0C6kaDRxPZmsH9WWtp4mwIzXg
-rvw2hOERLedWoFTjFynl0+3hazgw2hh21iH/uE+uOEiVwHNhPiEXeb+lJMGQbH/9
-Bm2mL/1gvDYA3KxeFZbTTyNwEiGkZyPFLvwZ4hpapk8AvhFdEu/60sMZWsTRlSgx
-H7CJIWp6MSs4e2ErCXbhjjucu3eJo1lFTm/bGVBosixPjjSZ720=
-=VB+5
------END PGP SIGNATURE-----
-
---bhhiv6s43avuu3l7--
 
