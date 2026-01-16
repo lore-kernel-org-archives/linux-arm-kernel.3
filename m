@@ -4,83 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 481C3C982DF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:04:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC7DC982E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=17sg1MEtS3JEHC+aKMPbN0je70cbqKxiScHC7KFqQ6I=; b=xpPrj9etkzzV3WBeUkeumH76pC
-	a649CJdwmTJnmzZvRmXMguH14lQIw2IIcJhez2HXNQK24Y7qs8tunkFDxxJyXv45DES3630BnhPpO
-	Vja0BH5I794JsF/o1THEjUaW7p9JTJffj6Cajg+jLPa6pkHXb4/c3TZrCZjSm038at1P2TqIzspAX
-	FE2iLOMVIlCGhWbzo52Pq0pS79+Ct9R2aFN40vFYm0NxCLDsPRp2LL5v5fd0Plk6sj44nLBqW4pLJ
-	W3SRDFBLnsOKepmb/FdyyUf5b1npfSElmkllup0jKtXEEIin99hqmjQOOKMObrw3gML1DEkso+E/m
-	OXNiMWww==;
+	bh=HfRJWPNyMdJHKo2akk125gwRYNd7f+UhHFoJMmOUa8s=; b=N5NK2LD2rukDSoNNZjMybLcxFb
+	9ez7sI37Fyos7/2ud4NinCpHJxmfnnp8Fayo4Jdal/7KiSHz5bnA/ASqEPlv9vYhu46RdynQxV7ZT
+	9dj7c9bAJntvJUFQcYgszzZjLqiMukJIXmhxv0Xz2FznLYRpgA4kOLopEjzJOh1C82YXFr7jcicaj
+	BvNZy6XEWrrcFQRdO104weWvz9h0RM4rUV/f8Px19UeZMtRrh2KHHXsZq0JjDFrR49DCchQ0LK8sA
+	WUcE0XmZAzcGkjPkRM3bdgg79dMW0t2xobvgpTsG5zPpYF1ZViB0FjKYpK7qRNkydFliPW5j69fHD
+	rBX+FRRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnF5-0000000EXCm-0WjW;
-	Fri, 16 Jan 2026 17:04:11 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vgnHZ-0000000EY2s-0qNg;
+	Fri, 16 Jan 2026 17:06:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnEz-0000000EX3o-0aDT
+	id 1vgnHX-0000000EY2l-37Wp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 17:04:07 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 9E81E4E42112;
-	Fri, 16 Jan 2026 17:04:03 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 70AC6606F9;
-	Fri, 16 Jan 2026 17:04:03 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0CDBC10B68CC8;
-	Fri, 16 Jan 2026 18:03:58 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1768583042; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=17sg1MEtS3JEHC+aKMPbN0je70cbqKxiScHC7KFqQ6I=;
-	b=SpF4N0bBcN3OLgzywqK54Yy0Qcqn5lCD2SZbtl/jWePDWxYtRlku8fEtsCcs375eOccqgf
-	4FteQFLpdF25i0rFkRoNZtWBldDt34rVGuJeb5bfJPrF6/f5CTdw9i5cgdyJuX4+ZYm0zT
-	cltRWJVdbq6LgTagfdf4qqCx0eujHZaMwyPnNlzLmZYaZU9wfo6xBNSvvzVTL/Owte9AoI
-	QyjHqZ+1xhmtRyUlrnsiqe0QBWPtJwc7rfFQ3evM5ArTXRy2wgiy0YIej7ePUCbQ42196E
-	FpeNeyKKr9t77af3zWahZWEWLQoQMh2hKePv5I3PQnASOgQzsrIRipmEmEe4PA==
-From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Fri, 16 Jan 2026 18:02:25 +0100
-Subject: [PATCH v4 25/25] rm/tilcdc: Add support for
- DRM_BRIDGE_ATTACH_NO_CONNECTOR
+	Fri, 16 Jan 2026 17:06:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DD1E1601AD;
+	Fri, 16 Jan 2026 17:06:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59269C19423;
+	Fri, 16 Jan 2026 17:06:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768583202;
+	bh=JKEmFkYFW4s3s3wijhd1JieDXl5kE+3cp9wD4zvj3+0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OpgCkyziiCRsP7dfrc3qGS2vCtn5X2s5ZakKZxR9NROzT8CTc9cTgMKA+hr8clxeS
+	 VQDZ5VUNN131UbCf16hyGby2EgniI/wsGBd4yzSKBqRZ0U7eNGfeIXZKiiEvsHi/cg
+	 JmylGdn+SZW6TAVJgGlAH+cLtxApSIP2X+rEMh0yitMC7mB6sysxxgszwtUgqNG7p1
+	 pCBodCQH9XXZadM2QMiFBLZ4D/ukqjqOydZRXK/IrleiidIJOHZAnsVhKKo+DpiEQF
+	 LKQPBVGi4f/Jw54CjamzkMiYHLLdiYLahCdrl5Lt35J9qZkaHkkFu5TOX3m8Wbegsw
+	 rsC7Cj+eZDMYQ==
+Message-ID: <c68c778c-5576-47b9-9ed3-2b0fea545c84@kernel.org>
+Date: Fri, 16 Jan 2026 17:06:39 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] nvmem: zynqmp_nvmem: Fix buffer size in DMA and memcpy
+To: Harsh Jain <h.jain@amd.com>, srini@kernel.org,
+ linux-arm-kernel@lists.infradead.org, michal.simek@amd.com
+Cc: Ivan Vera <ivanverasantos@gmail.com>, Ivan Vera
+ <ivan.vera@enclustra.com>, Harish Ediga <harish.ediga@amd.com>
+References: <20260106103748.3993455-1-h.jain@amd.com>
+Content-Language: en-US
+From: Srinivas Kandagatla <srini@kernel.org>
+In-Reply-To: <20260106103748.3993455-1-h.jain@amd.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260116-feature_tilcdc-v4-25-2c1c22143087@bootlin.com>
-References: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
-In-Reply-To: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
-To: Jyri Sarha <jyri.sarha@iki.fi>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren <tony@atomide.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: Markus Schneider-Pargmann <msp@baylibre.com>, 
- Bajjuri Praneeth <praneeth@ti.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Miguel Gazquez <miguel.gazquez@bootlin.com>, 
- Herve Codina <herve.codina@bootlin.com>, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
- "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_090405_440644_D96E0E1E 
-X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,114 +71,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the driver to use the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag when
-attaching bridges. This modernizes the driver by delegating connector
-creation to the bridge subsystem through drm_bridge_connector_init()
-instead of manually searching for connectors created by the bridge.
 
-The custom tilcdc_encoder_find_connector() function is removed and
-replaced with the standard drm_bridge_connector infrastructure, which
-simplifies the code and aligns with current DRM bridge best practices.
 
-This change is safe as there are now no in-tree devicetrees that
-connect tilcdc to bridges which do not support the
-DRM_BRIDGE_ATTACH_NO_CONNECTOR flag.
+On 1/6/26 10:37 AM, Harsh Jain wrote:
+> From: Ivan Vera <ivanverasantos@gmail.com>
+> 
+> Buffer size used in dma allocation and memcpy is wrong.
+> It can lead to undersized DMA buffer access and possible
+> memory corruption. use correct buffer size in dma_alloc_coherent
+> and memcpy.
+> 
+> Fixes: 737c0c8d07b5 ("nvmem: zynqmp_nvmem: Add support to access efuse")
+> Signed-off-by: Ivan Vera <ivan.vera@enclustra.com>
+> Signed-off-by: Harish Ediga <harish.ediga@amd.com>
+> Signed-off-by: Harsh Jain <h.jain@amd.com>
+Missing cc stable
+and
 
-Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
----
+WARNING: From:/Signed-off-by: email address mismatch: 'From: Ivan Vera
+<ivanverasantos@gmail.com>' != 'Signed-off-by: Ivan Vera
+<ivan.vera@enclustra.com>'
 
-Changes in v4:
-- Select missing DRM_BRIDGE_CONNECTOR and DRM_DISPLAY_HELPER config
-  dependency in Kconfig
----
- drivers/gpu/drm/tilcdc/Kconfig          |  2 ++
- drivers/gpu/drm/tilcdc/tilcdc_encoder.c | 37 ++++++++++++++-------------------
- 2 files changed, 18 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/gpu/drm/tilcdc/Kconfig b/drivers/gpu/drm/tilcdc/Kconfig
-index a36e809f984cd..80f53bdd0ace0 100644
---- a/drivers/gpu/drm/tilcdc/Kconfig
-+++ b/drivers/gpu/drm/tilcdc/Kconfig
-@@ -6,9 +6,11 @@ config DRM_TILCDC
- 	select DRM_KMS_HELPER
- 	select DRM_GEM_DMA_HELPER
- 	select DRM_BRIDGE
-+	select DRM_BRIDGE_CONNECTOR
- 	select DRM_PANEL_BRIDGE
- 	select VIDEOMODE_HELPERS
- 	select BACKLIGHT_CLASS_DEVICE
-+	select DRM_DISPLAY_HELPER
- 	help
- 	  Choose this option if you have an TI SoC with LCDC display
- 	  controller, for example AM33xx in beagle-bone, DA8xx, or
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-index 546fe7e6ee815..680a2ac6ab594 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-@@ -8,45 +8,40 @@
- 
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_bridge.h>
-+#include <drm/drm_bridge_connector.h>
- #include <drm/drm_of.h>
- #include <drm/drm_simple_kms_helper.h>
- 
- #include "tilcdc_drv.h"
- #include "tilcdc_encoder.h"
- 
--static
--struct drm_connector *tilcdc_encoder_find_connector(struct drm_device *ddev,
--						    struct drm_encoder *encoder)
--{
--	struct drm_connector *connector;
--
--	list_for_each_entry(connector, &ddev->mode_config.connector_list, head) {
--		if (drm_connector_has_possible_encoder(connector, encoder))
--			return connector;
--	}
--
--	drm_err(ddev, "No connector found for %s encoder (id %d)\n",
--		encoder->name, encoder->base.id);
--
--	return NULL;
--}
--
- static
- int tilcdc_attach_bridge(struct drm_device *ddev, struct drm_bridge *bridge)
- {
- 	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(ddev);
-+	struct drm_connector *connector;
- 	int ret;
- 
- 	priv->encoder->base.possible_crtcs = BIT(0);
- 
--	ret = drm_bridge_attach(&priv->encoder->base, bridge, NULL, 0);
-+	ret = drm_bridge_attach(&priv->encoder->base, bridge, NULL,
-+				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
- 	if (ret)
- 		return ret;
- 
--	priv->connector = tilcdc_encoder_find_connector(ddev, &priv->encoder->base);
--	if (!priv->connector)
--		return -ENODEV;
-+	connector = drm_bridge_connector_init(ddev, &priv->encoder->base);
-+	if (IS_ERR(connector)) {
-+		drm_err(ddev, "bridge_connector create failed\n");
-+		return PTR_ERR(connector);
-+	}
-+
-+	ret = drm_connector_attach_encoder(connector, &priv->encoder->base);
-+	if (ret) {
-+		drm_err(ddev, "attaching encoder to connector failed\n");
-+		return ret;
-+	}
- 
-+	priv->connector = connector;
- 	return 0;
- }
- 
+Pl fix these and send a new version.
 
--- 
-2.43.0
+
+--srini
+
+> ---
+
+>  drivers/nvmem/zynqmp_nvmem.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/nvmem/zynqmp_nvmem.c b/drivers/nvmem/zynqmp_nvmem.c
+> index 7da717d6c7fa..d297ff150dc0 100644
+> --- a/drivers/nvmem/zynqmp_nvmem.c
+> +++ b/drivers/nvmem/zynqmp_nvmem.c
+> @@ -66,7 +66,7 @@ static int zynqmp_efuse_access(void *context, unsigned int offset,
+>  	dma_addr_t dma_buf;
+>  	size_t words = bytes / WORD_INBYTES;
+>  	int ret;
+> -	int value;
+> +	unsigned int value;
+>  	char *data;
+>  
+>  	if (bytes % WORD_INBYTES != 0) {
+> @@ -80,7 +80,7 @@ static int zynqmp_efuse_access(void *context, unsigned int offset,
+>  	}
+>  
+>  	if (pufflag == 1 && flag == EFUSE_WRITE) {
+> -		memcpy(&value, val, bytes);
+> +		memcpy(&value, val, sizeof(value));
+>  		if ((offset == EFUSE_PUF_START_OFFSET ||
+>  		     offset == EFUSE_PUF_MID_OFFSET) &&
+>  		    value & P_USER_0_64_UPPER_MASK) {
+> @@ -100,7 +100,7 @@ static int zynqmp_efuse_access(void *context, unsigned int offset,
+>  	if (!efuse)
+>  		return -ENOMEM;
+>  
+> -	data = dma_alloc_coherent(dev, sizeof(bytes),
+> +	data = dma_alloc_coherent(dev, bytes,
+>  				  &dma_buf, GFP_KERNEL);
+>  	if (!data) {
+>  		ret = -ENOMEM;
+> @@ -134,7 +134,7 @@ static int zynqmp_efuse_access(void *context, unsigned int offset,
+>  	if (flag == EFUSE_READ)
+>  		memcpy(val, data, bytes);
+>  efuse_access_err:
+> -	dma_free_coherent(dev, sizeof(bytes),
+> +	dma_free_coherent(dev, bytes,
+>  			  data, dma_buf);
+>  efuse_data_fail:
+>  	dma_free_coherent(dev, sizeof(struct xilinx_efuse),
 
 
