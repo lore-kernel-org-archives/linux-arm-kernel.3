@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39352D4899A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 12:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BD7D47CDE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 12:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9JqLdOMZ6NZDy2yQcDqX1Cghjb6LFxT47x3f2odxpE8=; b=q6SRiS5DdT/kJP
-	jywCTA03rP1XcxclCk+N6BgSHy+PC2whjMRQeD2dm9NjlyCp0F/TxIut63ty6Y0OVwNyBklJhfK1y
-	WBFQKcB5nloyOvhhSWm/Sq6ZRbOYEd/AUtz/FC/fERMrrkD7Arqq6Ge4bYlfOgbbB37xc6suX7oqa
-	YLJ8ebAHqGOXMcUF89vSQbHSKNY+kTKPrasU/6VyfCoFhQUXTuHMNPCc7K7jboyZFV4Aws3u0JyEj
-	DC1jUP+KrQicQJa0LVZ+N1AZ8AwyuUx12W7+6+T5c9/AyNE7VRk3kvUMb7tHYYd9wAKIh1ZdfZqGk
-	Z8ItSHbB4NhOK4WGNt/A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vH+PgOENTDXlzsxRREXIcCkNdXY313g9kTQGZXo/8ws=; b=Kl4VLoiy8i6OXGeLRSGVCCBQCg
+	K/gKx/JljX6+0lrhaNMEP+qsbY1Z5YcCQRBlGmD01RCv3qZslOsuGjY7Mfkvqb7GOBwcYUDl4z3y4
+	ByencuZs4qR9fVGUdf4Rcak9hlVxKB73Jr+IXcgCe7ZjovqI/pNBcBigacWrLjk2VxDj1aa4llp2s
+	1WEmx35EYhvNbVmWsjTYvbvElr9Br1LJI/No6WDPGDqqweDXUZ7JVTjGvhd7EN9AuT7FIDYDQ7DEB
+	mGv8NN4jx5rJU+StsUd4XcYP5e5Fd7/GMMgvZZNUA8D6fBWKy/nPuitXLHNQYCI20OCUB5llZ1o1f
+	sM1Q5gbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgivr-0000000E6vL-2gea;
-	Fri, 16 Jan 2026 12:28:03 +0000
-Received: from out203-205-221-190.mail.qq.com ([203.205.221.190])
+	id 1vgj9g-0000000E7QK-1qVH;
+	Fri, 16 Jan 2026 12:42:20 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgivn-0000000E6ul-2BEh
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 12:28:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1768566470; bh=9JqLdOMZ6NZDy2yQcDqX1Cghjb6LFxT47x3f2odxpE8=;
-	h=From:Date:Subject:To:Cc;
-	b=RvakPG1SjKnDHGfxyvLRJ7LrB0UgJ6zSZXgsrGgEkerf+flfDv3wzXqT6vEgYV23t
-	 gj2IOn4M3hwWpx/VoMhQx2j/y5PoiX+PNYQZ8bg9L3sZUFYQy7g7NR1OpQftCzYB83
-	 Teqfyq+2itWQ2m5dmTHnUsdzworoiMwYGdhZt9AE=
-Received: from junjungu-PC.localdomain ([223.166.246.160])
-	by newxmesmtplogicsvrszb43-0.qq.com (NewEsmtp) with SMTP
-	id 6F003E91; Fri, 16 Jan 2026 20:27:48 +0800
-X-QQ-mid: xmsmtpt1768566468tccz403jx
-Message-ID: <tencent_E20B88FB4461F8F299301AE67009CF1E8708@qq.com>
-X-QQ-XMAILINFO: NAuAIaytDrXpCJJ5wMPpp00qsHUhboUXzyZi+3PHYECRgaowJjRC7dnOiQ2qFc
-	 ut2jKA2kCI4Kw1LFGJQ7NFSpV9EjSKKUtmCHW/dGzTO8/8haG699rTnqSfpfRo0ulYmqrhp7V+uY
-	 c6Lfy94Wqmw+/Ti1VqswSzv4Kmkjr9Zo+nOoFB1AiXI6gC3F+a2d1f/wENiZj85eygbfKB1GqXfd
-	 14OWp9id//65l8GwEFaCVNSGY+XXkbxcZjOwXB0ErF/Y0T3F7mlCzoJu3eIIKJz0mTzpD2QFQep5
-	 HGe/UOkc2XfYgCMk+wDLl5K9jxeAMrMO3r2T8C3F4y+F1BcNjG9ZqkWp4Sgyy/3NUbaen0/MvIig
-	 9LFDiQmwbkJgLBsVFbSxodM6GcXgVwPVYVKiKGmbMh37UNgNXO1SWiXm1ttKkbNGDmuFydRUQT/5
-	 iKPg3DrA02i9htRbrCI19PxLpb/zYq+1myTfpC8cDJKHTnwAwmJ7hLKksoZSGwCG+HvJfG3FkdSA
-	 9pVICZq+low9ZN2d1tTEiQEbUi6meVYYIOkSB22j1HoV2QfPyr+NWWs8H91AD380pOp23DRI3N+F
-	 Fqr+gpHzpBRQubKNSHSE297Vogzxhq69ttpOv0K/IObD47zpI+TJxdzPQi6NAvTywqjXEGgNCavb
-	 fA68V6bJuevBYGa64BE1wX869jUdTZZBic5vs0kPvlup44eFJuq5l1+Y2/Ag8QZYD0g2xlycGqoB
-	 PuWYA9BUdb6HJ89+HBG2cTqIRPYPbHvR6grxy6ztYSLgGRgYo+NMySAw7lT10jN/cHL8cn4ZiARj
-	 VxNU4Dz3DKGxo44Y8gbFPfCJg4UE2cFL1fH7PlU42Kkvux7z5LzaOGT+Yv9kmY8On5vWSgFtPMc4
-	 whES3ayBrdlxAfmHdjoEyzXI+3Js5kNloEWlafKusjucINK4W9XsTxuc20jO8NBp9BfEWN6UF7Ia
-	 7IAWgjOuqwh+165X4Rdd+emr7jwlzsO19u6oI2Wut6M6EgM5bVzK1nCmqbbqmfSOXwC3SOFth+10
-	 fs/xeLOpFKWBpB/x7IpBMfCr7KsRLUU1wrmmtscOi42xfJAfeTrNGAk40tMbD0Qlpl/Ig1h3a7nY
-	 HsprrXs+L/foqHbSnjmzJ2dAaSDRGza4tpfK3aCHNa777c3YfF+WfxbpJRjumrscOryQ0GVHQ23v
-	 jFMXY=
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-From: Felix Gu <gu_0233@qq.com>
-Date: Fri, 16 Jan 2026 20:27:47 +0800
-Subject: [PATCH] pmdomain: ti: omap_prm: Fix a reference leak on device
- node
+	id 1vgj9d-0000000E7Ps-06XB;
+	Fri, 16 Jan 2026 12:42:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=vH+PgOENTDXlzsxRREXIcCkNdXY313g9kTQGZXo/8ws=; b=kpevwV+wqObPrgd3tM98X8L2yC
+	wMp2fOCeL4BSoevbskuu/MIdLXKwSmaccpQA1EkHWuv0w44WDEv7aR6jDV+2Yy7T6yTaTnqEoOK5s
+	WKFDaBM9PyDiPc2eDTt0nSE8hvi5UY01nXY7Pna7NH2Vn6Au+ocGhnvNDNnaKp7hoaVoyqD2P8EOC
+	Pj2Kr6iR5erFAANuSMdxELq9peHOM6fPxQaWjEIQYSR2KruYdxiv8MLEY5ZJbfRmrRKtwxykadKnh
+	38dPKNcpPWUIzGmG/sXZsjl0Sh/ZJH+FnoumSQPWf8czruT2q+w0f8rKlQl9gfOKK30W2juabcIYJ
+	XO+3TcZw==;
+Received: from [187.36.210.68] (helo=[192.168.1.103])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1vgj9R-0069gt-66; Fri, 16 Jan 2026 13:42:05 +0100
+Message-ID: <5188e604-7952-495b-98e1-a01b8afd87d7@igalia.com>
+Date: Fri, 16 Jan 2026 09:41:59 -0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-OQ-MSGID: <20260116-omap_prm-v1-1-e87c02f296ff@qq.com>
-X-B4-Tracking: v=1; b=H4sIAMIuamkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDQ0Mz3fzcxIL4gqJc3WTzpJQUS3Mjs8SkZCWg8oKi1LTMCrBR0bG1tQC
- V57H4WgAAAA==
-X-Change-ID: 20260116-omap_prm-c7bdd9726abc
-To: Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, 
- Ulf Hansson <ulf.hansson@linaro.org>, Tony Lindgren <tony@atomide.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-pm@vger.kernel.org, Felix Gu <gu_0233@qq.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768566468; l=1073;
- i=gu_0233@qq.com; h=from:subject:message-id;
- bh=31Dg6exoE+spJrdeoYTv5xJGLaB7oDZ0LxPNxr4UNik=;
- b=uSKrSDWvEB2en/PdP1yunwZ+vmz6v73/vtXrQZrbJkruhwSkJjosRhMmEUSUa9WSfcnMTMx8e
- TYAkCzDV6tbB38pBuTvGaK6Y7tG64seYZ9I8YrsPdygrjPX/IoLnt5n
-X-Developer-Key: i=gu_0233@qq.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: broadcom: bcm2712: Add V3D device node
+To: Peter Robinson <pbrobinson@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Stefan Wahren <wahrenst@gmx.net>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
+References: <20260114120610.82531-1-mcanal@igalia.com>
+ <121ede67-dbfc-4b79-8076-04693e9d3d53@gmail.com>
+ <59cdede3-7757-4fe1-bb94-e7a93eea7611@igalia.com>
+ <CALeDE9PGzTe4LXnDJcyhh_ietWkrf8Sp7xX=X6pZvdCWLx2huw@mail.gmail.com>
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Content-Language: en-US
+In-Reply-To: <CALeDE9PGzTe4LXnDJcyhh_ietWkrf8Sp7xX=X6pZvdCWLx2huw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_042759_876857_1C277954 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260116_044217_590079_B202BD1C 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,35 +82,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When calling of_parse_phandle_with_args(), the caller is responsible
-to call of_node_put() to release the reference of device node.
-In omap_prm_domain_attach_dev, it does not release the reference.
+Hi Peter,
 
-Fixes: 58cbff023bfa ("soc: ti: omap-prm: Add basic power domain support")
-Signed-off-by: Felix Gu <gu_0233@qq.com>
----
- drivers/pmdomain/ti/omap_prm.c | 1 +
- 1 file changed, 1 insertion(+)
+On 16/01/26 07:56, Peter Robinson wrote:
+> On Fri, 16 Jan 2026 at 10:15, Maíra Canal <mcanal@igalia.com> wrote:
+>>
+>> Hi Peter,
+>>
+>> On 16/01/26 00:53, Peter Robinson wrote:
+>>> Hi Maira,
+>>>
+>>> On 14/01/2026 12:04, Maíra Canal wrote:
+>>>> Commits 0ad5bc1ce463 ("drm/v3d: fix up register addresses for V3D 7.x")
+>>>> and 6fd9487147c4 ("drm/v3d: add brcm,2712-v3d as a compatible V3D
+>>>> device")
+>>>> added driver support for V3D on BCM2712, but the corresponding device
+>>>> tree node is still missing.
+>>>>
+>>>> Add the V3D device tree node to the BCM2712 DTS.
+>>>>
+>>>> Signed-off-by: Maíra Canal <mcanal@igalia.com>
+>>>>
+>>>> ---
+>>>> v1 -> v2:
+>>>>
+>>>> - Rebased on top of linux-next (Stefan Wahren)
+>>>> - Fixed node's address (2000000 -> 1002000000) (Stefan Wahren)
+>>>> - Link to v1: https://lore.kernel.org/linux-
+>>>> devicetree/20260113192902.48046-2-mcanal@igalia.com/
+>>>> ---
+>>>>    .../boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi    |  4 ++++
+>>>>    arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 14 ++++++++++++++
+>>>>    2 files changed, 18 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/
+>>>> arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+>>>> index 7d4742ebe247..97522c6803c5 100644
+>>>> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+>>>> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+>>>> @@ -247,3 +247,7 @@ &pcie1 {
+>>>>    &pcie2 {
+>>>>        status = "okay";
+>>>>    };
+>>>> +
+>>>> +&v3d {
+>>>> +    clocks = <&firmware_clocks 5>;
+>>>
+>>> Looking at the upstream DT [1] I think this also needs a clock-names entry.
+>>
+>> Differently from the `hvs` node [1] you sent (which specifies clock-
+>> names), the `v3d` binding [2] doesn't have a clock-names property.
+>> Therefore, it is not needed.
+> 
+> There's a name in the clk driver [1] so maybe the bindings should be updated?
 
-diff --git a/drivers/pmdomain/ti/omap_prm.c b/drivers/pmdomain/ti/omap_prm.c
-index 5142f064bf5c..64a187f79a1a 100644
---- a/drivers/pmdomain/ti/omap_prm.c
-+++ b/drivers/pmdomain/ti/omap_prm.c
-@@ -655,6 +655,7 @@ static int omap_prm_domain_attach_dev(struct generic_pm_domain *domain,
- 	if (pd_args.args_count != 0)
- 		dev_warn(dev, "%s: unusupported #power-domain-cells: %i\n",
- 			 prmd->pd.name, pd_args.args_count);
-+	of_node_put(pd_args.np);
- 
- 	genpd_data = dev_gpd_data(dev);
- 	genpd_data->data = NULL;
+Those are two separate concepts. In the DT, clock-names is used by vc4
+to distinguish between multiple clock inputs [1]. In contrast, the v3d
+driver has a single clock input [2], and does not rely on named clock
+lookups.
 
----
-base-commit: 9b7977f9e39b7768c70c2aa497f04e7569fd3e00
-change-id: 20260116-omap_prm-c7bdd9726abc
+Given that, I believe there is no need for a clock-names property in the
+v3d binding, and updating the binding to mandate it would not provide
+any functional benefit at this point.
+
+[1] 
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/vc4/vc4_hvs.c#n1679 
+
+[2] 
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/v3d/v3d_drv.c#n363
 
 Best regards,
--- 
-Felix Gu <gu_0233@qq.com>
+- Maíra
+
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/clk/bcm/clk-raspberrypi.c#n26
+> 
+>> [1]
+>> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+>> [2]
+>> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/gpu/brcm,bcm-v3d.yaml
+>>
+>> Best regards,
+>> - Maíra
+>>
+>>>
+>>> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/
+>>> tree/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi#n233
+>>>
+>>>> +};
+>>>> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/
+>>>> boot/dts/broadcom/bcm2712.dtsi
+>>>> index 330a121ebfcb..661668ef7419 100644
+>>>> --- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+>>>> +++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+>>>> @@ -1,5 +1,6 @@
+>>>>    // SPDX-License-Identifier: (GPL-2.0 OR MIT)
+>>>>    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>>> +#include <dt-bindings/soc/bcm2835-pm.h>
+>>>>    / {
+>>>>        compatible = "brcm,bcm2712";
+>>>> @@ -642,6 +643,19 @@ mip1: msi-controller@1000131000 {
+>>>>                msi-ranges = <&gicv2 GIC_SPI 247 IRQ_TYPE_EDGE_RISING 8>;
+>>>>                brcm,msi-offset = <8>;
+>>>>            };
+>>>> +
+>>>> +        v3d: gpu@1002000000 {
+>>>> +            compatible = "brcm,2712-v3d";
+>>>> +            reg = <0x10 0x02000000 0x00 0x4000>,
+>>>> +                  <0x10 0x02008000 0x00 0x6000>,
+>>>> +                  <0x10 0x02030800 0x00 0x0700>;
+>>>> +            reg-names = "hub", "core0", "sms";
+>>>> +
+>>>> +            power-domains = <&pm BCM2835_POWER_DOMAIN_GRAFX_V3D>;
+>>>> +            resets = <&pm BCM2835_RESET_V3D>;
+>>>> +            interrupts = <GIC_SPI 250 IRQ_TYPE_LEVEL_HIGH>,
+>>>> +                     <GIC_SPI 249 IRQ_TYPE_LEVEL_HIGH>;
+>>>> +        };
+>>>>        };
+>>>>        vc4: gpu {
+>>
 
 
