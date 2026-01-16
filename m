@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B5CC982D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 15:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A8A4C982D4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 16:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IWeI/oFwpL3on1m4ks0olJgkQ/gme5VXb3QYQOKaQ1s=; b=sWh9R49gXRqswNNNgLe+hcJLTT
-	WchQg9NTTRyBvXi6hleDoGZUY2qfKsvh6kxXCiexgQGqTUOFnF4yOjv0zzBka8pRFRRQ2ODb5sZ0E
-	CCpyoXyMclGXxcolHu7zx0/bBDLx6AMedXcuJZGrG3awACmH37HtipN8GbMZUZDWdvVIsyMv+Bw4V
-	vmkJrcyGMSE9F110DcgnSOubwqonotmyEi7X9HTptQmxlmTjt4buhnUYXFQnp/XMrFJjzcSF5bNHd
-	OTO9bAyJlr1oXo5Pynkv2vrS0nLL/ZPwiTkEpr2S8m4eFT5h6OMGveXyGgXTard93eFQLMy18MAoc
-	89CUlOPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gtWZWTls5fOJzZ7/HCkTV3sZ8RZyOrzPhtTBtiT5PBg=; b=xFiKIvWyQQkuUXkICnfMLzICUq
+	x824q44Ut1xoZc8IiOO4+zXymOQGaADvXwW4+HIlPs0qupUG25DBmzkC0N7AfTkpmNup9CyJH6ZHP
+	0479ZyoqRzeUDPSBFVqn/iFj1Ut9T22Sxx7hEZPvXT0F8XqLCT3Jvj52YK9MtjCKreSRIVhHheaXj
+	IGHAMsymXtVN6UjzNntbVSR6H1gsN/NEXlVwSQ2Ye98O3jBuKb//dyinfFe/7kmlcjfjn1TGBWZ74
+	DcEaKLHCen9ArxpUQ0mO5sBSMXu/SYespQXC82PFUqWDRFMnAUziZIUB7PxZOzkhpqz3z83Qwz4jP
+	uvSIysTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgm6V-0000000EOkd-0lhQ;
-	Fri, 16 Jan 2026 15:51:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgm6R-0000000EOkD-1dxE
+	id 1vgmI0-0000000EPYe-176l;
+	Fri, 16 Jan 2026 16:03:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgmHx-0000000EPXt-3wXI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 15:51:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8922B1515;
-	Fri, 16 Jan 2026 07:51:03 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6DC563F59E;
-	Fri, 16 Jan 2026 07:51:05 -0800 (PST)
-Date: Fri, 16 Jan 2026 15:51:02 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
-	baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
-	dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
-	fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
-	jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	peternewman@google.com, punit.agrawal@oss.qualcomm.com,
-	quic_jiles@quicinc.com, reinette.chatre@intel.com,
-	rohit.mathew@arm.com, scott@os.amperecomputing.com,
-	sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com,
-	xhao@linux.alibaba.com, will@kernel.org, corbet@lwn.net,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v3 02/47] arm_mpam: Use non-atomic bitops when modifying
- feature bitmap
-Message-ID: <aWpeZrgvSn2ab4VG@arm.com>
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-3-ben.horgan@arm.com>
- <aWonpc52-BMzcx8Q@arm.com>
- <b192241e-1b34-4d6c-bbb4-b53cdd98526f@arm.com>
- <c1dcc2a6-ca11-49e7-b7cd-d2ec70fed7f1@arm.com>
+	Fri, 16 Jan 2026 16:03:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4B17C4451A
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 16:03:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30A10C116C6
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 16:03:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768579385;
+	bh=BhtIab84IdoeMyJM4092ElaZLaK1ny/rkG7xxvHmUy0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=iAOcfHMtlNtYlCHmFfVUnCzaca1bIVX694JckNNVKqYpdHqwWEYtQsK4SV34XUbws
+	 c5to2nDD9XOPqNh+R8/bz3Mm8eixqo2cskf2EIC0WO+yqqsZYz0bjcRPzQ4TtP9XMJ
+	 DOwMhS3K5M+HuaXJy01xByVGFJMncxe+ILm3PgPGAzwFXTD7x0WKCzT6fs1KtmNHi4
+	 bRShYx0G7Jr5r61NzGAxNRXXnSMgjj2N6fumDSO1vLvzpG+/hcrEHHm0sDGlvqVekU
+	 ivhAVNcRS9SgL2a+AbsfwslZ4X9hWpi1y0oTQqpz9XGhsCsJ0/ocDiwNp80qiarrKd
+	 xNYDJ38ARY0Sg==
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-b7cf4a975d2so395580566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 08:03:05 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVCkHvquxyrigNlf26lGxIfCLkJSmLlw/clXz9IgGTLrCzgt188bAEicYAviDSPy9Cfbxd0shzdG6J7npcH9NPk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBT3D7ujg8Oc5DxlOJpMAH6zjax97EwiVOcsM8si1oRAPRm2Tk
+	4+PXEYY+InSsNxzNZrrIcwasjbrMC7y9C6EzKsSuleM8aNm2qCV7YfmKLUunt3qEH/tvHqR4FHE
+	ybb3Cgyp8qLYdu7TcjP5FSPef7ROQjg==
+X-Received: by 2002:a17:906:fe0a:b0:b87:693:31 with SMTP id
+ a640c23a62f3a-b8792feb242mr308189566b.52.1768579383254; Fri, 16 Jan 2026
+ 08:03:03 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c1dcc2a6-ca11-49e7-b7cd-d2ec70fed7f1@arm.com>
+References: <20251223-openwrt-one-network-v5-0-7d1864ea3ad5@collabora.com> <20251223-openwrt-one-network-v5-2-7d1864ea3ad5@collabora.com>
+In-Reply-To: <20251223-openwrt-one-network-v5-2-7d1864ea3ad5@collabora.com>
+From: Rob Herring <robh@kernel.org>
+Date: Fri, 16 Jan 2026 10:02:51 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqLffH-MY+6frA_kxwifUPskLY8eNqtBoOP0O7Dxs=XHLQ@mail.gmail.com>
+X-Gm-Features: AZwV_QilotzZl5lJNLcliW_LfwPmw5qv0NdDfcdZ6pytb6giOF_8l_TtUZnUaC4
+Message-ID: <CAL_JsqLffH-MY+6frA_kxwifUPskLY8eNqtBoOP0O7Dxs=XHLQ@mail.gmail.com>
+Subject: Re: [PATCH v5 2/8] arm64: dts: mediatek: mt7981b: Add PCIe and USB support
+To: Sjoerd Simons <sjoerd@collabora.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Ryder Lee <ryder.lee@mediatek.com>, Jianjun Wang <jianjun.wang@mediatek.com>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Chunfeng Yun <chunfeng.yun@mediatek.com>, 
+	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Lee Jones <lee@kernel.org>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>, kernel@collabora.com, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-pci@vger.kernel.org, linux-phy@lists.infradead.org, 
+	netdev@vger.kernel.org, Daniel Golle <daniel@makrotopia.org>, 
+	Bryan Hinton <bryan@bryanhinton.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_075111_544700_4F847B49 
-X-CRM114-Status: GOOD (  22.76  )
+X-CRM114-CacheID: sfid-20260116_080306_010153_1B352E26 
+X-CRM114-Status: GOOD (  18.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,65 +96,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 12:12:53PM +0000, Ben Horgan wrote:
-> On 1/16/26 12:02, Ben Horgan wrote:
-> > On 1/16/26 11:57, Catalin Marinas wrote:
-> >> On Mon, Jan 12, 2026 at 04:58:29PM +0000, Ben Horgan wrote:
-> >>> In the test__props_mismatch() kunit test we rely on the struct mpam_props
-> >>> being packed to ensure memcmp doesn't consider packing. Making it packed
-> >>> reduces the alignment of the features bitmap and so breaks a requirement
-> >>> for the use of atomics. As we don't rely on the set/clear of these bits
-> >>> being atomic, just make them non-atomic.
-> >>>
-> >>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> >>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> >>> ---
-> >>> Changes since v2:
-> >>> Add comment (Jonathan)
-> >>> ---
-> >>>  drivers/resctrl/mpam_internal.h | 8 ++++++--
-> >>>  1 file changed, 6 insertions(+), 2 deletions(-)
-> >>>
-> >>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> >>> index 17cdc3080d58..e8971842b124 100644
-> >>> --- a/drivers/resctrl/mpam_internal.h
-> >>> +++ b/drivers/resctrl/mpam_internal.h
-> >>> @@ -200,8 +200,12 @@ struct mpam_props {
-> >>>  } PACKED_FOR_KUNIT;
-> >>>  
-> >>>  #define mpam_has_feature(_feat, x)	test_bit(_feat, (x)->features)
-> >>> -#define mpam_set_feature(_feat, x)	set_bit(_feat, (x)->features)
-> >>> -#define mpam_clear_feature(_feat, x)	clear_bit(_feat, (x)->features)
-> >>> +/*
-> >>> + * The non-atomic get/set operations are used because if struct mpam_props is
-> >>> + * packed, the alignment requirements for atomics aren't met.
-> >>> + */
-> >>> +#define mpam_set_feature(_feat, x)	__set_bit(_feat, (x)->features)
-> >>> +#define mpam_clear_feature(_feat, x)	__clear_bit(_feat, (x)->features)
-> >>
-> >> After discussing privately, I can see how test__props_mismatch() can
-> >> end up with unaligned atomics on the mmap_props::features array. Happy to
-> >> pick it up for 6.19 (probably the first patch as well, though that's
-> >> harmless).
-> > 
-> > Yes please.
-> > 
-> >>
-> >> Is there a Fixes tag here for future reference?
-> >>
-> > 
-> > Yes, the mpam_set/clear macros were introduced in
-> 
-> The mpam_set_clear() actually comes after in:
-> c10ca83a7783 arm_mpam: Merge supported features during mpam_enable() into mpam_class
-> but I think the fixes below is still the correct one as it is where we could 
-> first start seeing the problem.
-> > 
-> > Fixes: 8c90dc68a5de ("arm_mpam: Probe the hardware features resctrl supports")
+On Tue, Dec 23, 2025 at 6:38=E2=80=AFAM Sjoerd Simons <sjoerd@collabora.com=
+> wrote:
+>
+> Add device tree nodes for PCIe controller and USB3 XHCI host
+> controller on MT7981B SoC. Both controllers share the USB3 PHY
+> which can be configured for either USB3 or PCIe operation.
+>
+> The USB3 XHCI controller supports USB 2.0 and USB 3.0 SuperSpeed
+> operation. The PCIe controller is compatible with PCIe Gen2
+> specifications.
+>
+> Also add the topmisc syscon node required for USB/PCIe PHY
+> multiplexing.
+>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+> Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
+> ---
+> V1 -> V2: Keep xhci reg and phys properties in single lines
+> ---
+>  arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 80 +++++++++++++++++++++++++=
+++++++
+>  1 file changed, 80 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/=
+dts/mediatek/mt7981b.dtsi
+> index 416096b80770..d3f37413413e 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+> +++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+> @@ -2,6 +2,7 @@
+>
+>  #include <dt-bindings/clock/mediatek,mt7981-clk.h>
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/phy/phy.h>
+>  #include <dt-bindings/reset/mt7986-resets.h>
+>
+>  / {
+> @@ -223,6 +224,55 @@ auxadc: adc@1100d000 {
+>                         status =3D "disabled";
+>                 };
+>
+> +               xhci: usb@11200000 {
+> +                       compatible =3D "mediatek,mt7986-xhci", "mediatek,=
+mtk-xhci";
+> +                       reg =3D <0 0x11200000 0 0x2e00>, <0 0x11203e00 0 =
+0x0100>;
+> +                       reg-names =3D "mac", "ippc";
+> +                       clocks =3D <&infracfg CLK_INFRA_IUSB_SYS_CK>,
+> +                                <&infracfg CLK_INFRA_IUSB_CK>,
+> +                                <&infracfg CLK_INFRA_IUSB_133_CK>,
+> +                                <&infracfg CLK_INFRA_IUSB_66M_CK>,
+> +                                <&topckgen CLK_TOP_U2U3_XHCI_SEL>;
+> +                       clock-names =3D "sys_ck", "ref_ck", "mcu_ck", "dm=
+a_ck", "xhci_ck";
+> +                       interrupts =3D <GIC_SPI 173 IRQ_TYPE_LEVEL_HIGH>;
+> +                       phys =3D <&u2port0 PHY_TYPE_USB2>, <&u3port0 PHY_=
+TYPE_USB3>;
+> +                       status =3D "disabled";
+> +               };
+> +
+> +               pcie: pcie@11280000 {
+> +                       compatible =3D "mediatek,mt7981-pcie",
+> +                                    "mediatek,mt8192-pcie";
+> +                       reg =3D <0 0x11280000 0 0x4000>;
+> +                       reg-names =3D "pcie-mac";
+> +                       ranges =3D <0x82000000 0 0x20000000
+> +                                 0x0 0x20000000 0 0x10000000>;
+> +                       bus-range =3D <0x00 0xff>;
+> +                       clocks =3D <&infracfg CLK_INFRA_IPCIE_CK>,
+> +                                <&infracfg CLK_INFRA_IPCIE_PIPE_CK>,
+> +                                <&infracfg CLK_INFRA_IPCIER_CK>,
+> +                                <&infracfg CLK_INFRA_IPCIEB_CK>;
+> +                       clock-names =3D "pl_250m", "tl_26m", "peri_26m", =
+"top_133m";
+> +                       device_type =3D "pci";
+> +                       phys =3D <&u3port0 PHY_TYPE_PCIE>;
+> +                       phy-names =3D "pcie-phy";
+> +                       interrupts =3D <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
+> +                       interrupt-map-mask =3D <0 0 0 7>;
+> +                       interrupt-map =3D <0 0 0 1 &pcie_intc 0>,
+> +                                       <0 0 0 2 &pcie_intc 1>,
+> +                                       <0 0 0 3 &pcie_intc 2>,
+> +                                       <0 0 0 4 &pcie_intc 3>;
+> +                       #address-cells =3D <3>;
+> +                       #interrupt-cells =3D <1>;
+> +                       #size-cells =3D <2>;
+> +                       status =3D "disabled";
+> +
+> +                       pcie_intc: interrupt-controller {
+> +                               interrupt-controller;
+> +                               #address-cells =3D <0>;
+> +                               #interrupt-cells =3D <1>;
+> +                       };
+> +               };
+> +
+>                 pio: pinctrl@11d00000 {
+>                         compatible =3D "mediatek,mt7981-pinctrl";
+>                         reg =3D <0 0x11d00000 0 0x1000>,
+> @@ -252,6 +302,36 @@ mux {
+>                         };
+>                 };
+>
+> +               topmisc: topmisc@11d10000 {
+> +                       compatible =3D "mediatek,mt7981-topmisc", "syscon=
+";
+> +                       reg =3D <0 0x11d10000 0 0x10000>;
+> +                       #clock-cells =3D <1>;
 
-Yes, I left the original as that's the one first introducing the atomic
-bitops on this structure.
+This is now a warning as the syscon.yaml binding this compatible is
+defined in doesn't allow #clock-cells.
 
--- 
-Catalin
+Rob
 
