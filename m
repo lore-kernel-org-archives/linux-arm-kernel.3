@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B66D47CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 00:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FEBD47CAD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 00:32:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8dZ9oxt9FWn/F9+lO/IJZ9dkf3WC43EemNdOt09jeRI=; b=ODsbwCxQ1HN4ryeICWOtUbIzqO
-	yRUnTb1gE2FRfVYKW73nc1PEFsupbI6zxJU01Ew7YN+2gaY6y03jDeMbUJ/fEdWRt2sTA/0w8Haxj
-	NVU8ANl1J/iP3GLi5rWHqdj2Q3SHoDXPI2xITrkz7juE6344/3eYtWn0Dduo3PM+g/eOeIwVCLMHo
-	q33MuDFH9rmpkaRcez3QXP5dXkoxyFAP9GXqb0goINw4LuLPbgfeyLoVBt6nyyB2lj1ZO42qe2uYf
-	AvXwpbqDO8gjSLHYufFcKPy/SZp4OLdD+kkOyMETPLTPcInnFY6oIopcBnxkvzmPqwFMesbIednKs
-	vjwN8bGQ==;
+	bh=M5UXOxPjPA+QX/q5RVny3Kc1OeIaWZcna4FhGLRLNu8=; b=xIEpDoJVk4gOCnDimW5e8McVmA
+	7lk2xgwP4Ot+1eJfcjleaYq9G6jECEG/71PiVCWzLjhD9X/0LktqXXbAbQFdhZJR77pMJm/ohWhp5
+	aEc5zqfoNYFNkXT9JDuvdlxHVR7veVfRIvEBEuWD9xBti01u6SK6R134fCvEG8WZ9qZiUrwTZb+j8
+	laLw+FYRYegp5XR8x+A15vgu2lDkmGQyP9cEjkw3LFLfXXVvc9zd+YJOEghHl+GxOuXg5cA03XvYU
+	r4gToC1NJ3/sI2o+ngsH3I+8CNqXv2p8OP8Bpx0XfURXvgaT/NSd+PYeGz0qOtG6RHJbehvbg92+n
+	ZTzlYucw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgXYM-0000000DMHE-27WA;
-	Fri, 16 Jan 2026 00:19:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vgXkx-0000000DN1Y-1JOZ;
+	Fri, 16 Jan 2026 00:32:03 +0000
+Received: from mail-m128115.netease.com ([103.209.128.115])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgXYK-0000000DMGi-2EVp;
-	Fri, 16 Jan 2026 00:19:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7FD3D60160;
-	Fri, 16 Jan 2026 00:18:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DBC0C116D0;
-	Fri, 16 Jan 2026 00:18:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1768522739;
-	bh=xmezwQxgXFBOE+WsEI8kzMdBQ/Vtj0ziay1CjIV7d/0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=oTyrgtvfzdS6SXwpo1a618aiclgOz0Sosdc70f8yw78SvJDgJcbGQ4l+n163A+84S
-	 GtOC/DHsdsuWPAUiEYgrvES4udeex059kh0yHGa7HIOVi7c0lI6djZDMrpXSzDE6TI
-	 6esn++KQCSZ991FCXwGinH0epC8qjUoqV4yZ1PiQ=
-Date: Thu, 15 Jan 2026 16:18:57 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Andrew Donnellan <ajd@linux.ibm.com>
-Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Pasha Tatashin
- <pasha.tatashin@soleen.com>, linux-mm@kvack.org,
- linuxppc-dev@lists.ozlabs.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Nicholas Piggin <npiggin@gmail.com>, Rohan McLure <rmclure@nvidia.com>,
- Alexandre Ghiti <alex@ghiti.fr>, x86@kernel.org, Nicholas Miehlbradt
- <nicholas@linux.ibm.com>, Sweet Tea Dorminy <sweettea-kernel@dorminy.me>,
- Andrew Donnellan <andrew+kernel@donnellan.id.au>, Srish Srinivasan
- <ssrish@linux.ibm.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v18 00/12] Support page table check on PowerPC
-Message-Id: <20260115161857.ad9952cf1ebd1b37839aa652@linux-foundation.org>
-In-Reply-To: <cc97397d3c75d796ee71081cc842c867a62ce39a.camel@linux.ibm.com>
-References: <20251219-pgtable_check_v18rebase-v18-0-755bc151a50b@linux.ibm.com>
-	<CA+CK2bBjoQmheEstv1MacGev_srdx=m5v=hwxdyfAKogbpG3FA@mail.gmail.com>
-	<bf0def77b07a34c00928cedb46030ea17be4fceb.camel@linux.ibm.com>
-	<b6c39059-faed-41a8-80b2-addaa229c143@kernel.org>
-	<cc97397d3c75d796ee71081cc842c867a62ce39a.camel@linux.ibm.com>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	id 1vgXkt-0000000DN14-1J2k;
+	Fri, 16 Jan 2026 00:32:01 +0000
+Received: from [172.16.12.14] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 30d4f9429;
+	Fri, 16 Jan 2026 08:31:47 +0800 (GMT+08:00)
+Message-ID: <e686c919-74b3-4607-ac7d-09c57effb466@rock-chips.com>
+Date: Fri, 16 Jan 2026 08:31:44 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, heiko@sntech.de, ulf.hansson@linaro.org
+Subject: Re: [PATCH v1 0/3] mmc: dw_mmc-rockchip: Add stability quirk for
+ NanoPi R76S
+To: Marco Schirrmeister <mschirrmeister@gmail.com>
+References: <20260110010715.1610159-1-mschirrmeister@gmail.com>
+ <67ccb8f6-f9bd-4266-b79a-b688bd6d030b@rock-chips.com>
+ <8536413c-8687-4d75-befb-8f25e54838bf@rock-chips.com>
+ <6934ae0d-16c5-436f-97f6-c11d304ca51d@rock-chips.com>
+ <CAGJh8eDXT43_PfmUbShL4Hysfkd21R=sCerRNe_AGQANbwvSPA@mail.gmail.com>
+ <b49b223e-e728-4ce9-b972-242ed9b5fa4a@rock-chips.com>
+ <CAGJh8eB0i5UYN=05SfNGQc4dMA5_ffktErY8GjX85JWjDna3Dw@mail.gmail.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <CAGJh8eB0i5UYN=05SfNGQc4dMA5_ffktErY8GjX85JWjDna3Dw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9bc437256e09cckunm3f0c5a6b68da5e
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR9PSFYfGk1OTUpJSkoaTxpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=GHOn1G6MfV1Xs1M+BErAj1YADRFid3RBFb8kV0b2MJROtI9/ZSogWy2otX46eeIPfNtNYaYHvN1S+47yEf+He2bp+4jxB/NQFQhW+8Nu1eIMekSiu8YYduMK7FCnbRYZVSlb+0ZF7YH4ubv8qs4ciReofgTyt5uDX7HuhEXgqKY=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=M5UXOxPjPA+QX/q5RVny3Kc1OeIaWZcna4FhGLRLNu8=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260115_163159_897737_FF31B99D 
+X-CRM114-Status: GOOD (  22.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,30 +78,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 Jan 2026 17:13:26 +1100 Andrew Donnellan <ajd@linux.ibm.com> wrote:
-
-> On Wed, 2026-01-14 at 10:34 +0100, Christophe Leroy (CS GROUP) wrote:
-> > What is the merge plan ? I see all powerpc commits are acked by Maddy, 
-> > will the series be merged by Andrew into the mm tree ?
+在 2026/01/16 星期五 3:39, Marco Schirrmeister 写道:
+> Hello Shawn,
 > 
-> This is what I was expecting - this revision is rebased on mm-new as it stood
-> around when I sent it.
+> On Thu, Jan 15, 2026 at 1:25 AM Shawn Lin <shawn.lin@rock-chips.com> wrote:
+>>>
+>>> Based on this, it makes me believe that power to the sd card is completely cut
+>>> and when it wakes up and knows how to continue, it still must go through the
+>>> retraining phase.
+>>>
+>>
+>> This is another mistake for your NanoPi R76S board. Before sent this
+>> patch, I already checked the dts and saw sdmmc uses vmmc-supply =
+>> <&vcc_3v3_s3> which is marked as regulator-always-on, but it's *NOT*
+>> actually per the shcematic[1][2]. So need another fix for your board
+>> to make it actually gpio-based power controller instaed of function
+>> IO based, as when powering off the power domain, the power control bit
+>> will not be able to maintain.
+>>
+>> [1]
+>> https://wiki.friendlyelec.com/wiki/images/6/60/NanoPi_R76S_LP4X_2411_SCH.pdf
+>> [2]
+>> https://wiki.friendlyelec.com/wiki/images/9/90/NanoPi_R76S_LP5_2411_SCH.pdf
+>>
+>> Except for the patches you have tested, please append the blow patch as
+>> well to test.
+> 
+> Bingo. These DTS additions fixed the power stability for the SD card.
+> I have verified that the card now wakes up instantly with no errors and
+> no retraining delay.
+> 
 
-Ouch, sorry, I did not understand this.  So we've lost 4 weeks testing :(
+Thanks, I will fold these two patches into my thread of V4 to fix all
+these problems.
 
-The core MM and ARM changes are trival, in the if-it-compiles-it-works
-category.  Is the mm tree really the best place for this?  It'll get
-more testing in the powerpc tree?
-
-But if you're OK with it, I'm OK with it.
-
-> By the way it doesn't apply on top of powerpc/merge branch:
-
-I guess we'll be hearing from Mark when this hits linux-next. 
-Hopefully the resolution isn't horrible.
-
-As I'm adding this to mm.git's mm-new branch, Mark won't actually be
-seeing it.  I'll aim to move this into mm-unstable (and hence
-linux-next) after just a single day.
+> I tested this both with and without your driver patch (the save/restore
+> phases logic).
+> 
+> This confirms the issue was indeed the power rail being cut during
+> idle periods. Great find on the schematic!
+> 
+>> --- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
+>> @@ -192,6 +192,18 @@
+>>                   regulator-name = "vcc_3v3_s0";
+>>                   vin-supply = <&vcc_3v3_s3>;
+>>           };
+>> +
+>> +       vcc3v3_sd: regulator-vcc-3v3-sd {
+>> +               compatible = "regulator-fixed";
+>> +               enable-active-high;
+>> +               gpios = <&gpio0 RK_PB6 GPIO_ACTIVE_HIGH>;
+>> +               pinctrl-names = "default";
+>> +               pinctrl-0 = <&sdmmc_pwren>;
+>> +               regulator-name = "vcc3v3_sd";
+>> +               regulator-min-microvolt = <3300000>;
+>> +               regulator-max-microvolt = <3300000>;
+>> +               vin-supply = <&vcc_3v3_s0>;
+>> +       };
+>>    };
+>>
+>>    &combphy0_ps {
+>> @@ -726,6 +738,12 @@
+>>                   };
+>>           };
+>>
+>> +       sdmmc {
+>> +               sdmmc_pwren: sdmmc-pwren {
+>> +                       rockchip,pins = <0 RK_PB6 RK_FUNC_GPIO
+>> &pcfg_pull_none>;
+>> +               };
+>> +       };
+>> +
+>>           usb {
+>>                   usb_otg0_pwren_h: usb-otg0-pwren-h {
+>>                           rockchip,pins = <0 RK_PD1 RK_FUNC_GPIO
+>> &pcfg_pull_none>;
+>> @@ -751,11 +769,14 @@
+>>           bus-width = <4>;
+>>           cap-mmc-highspeed;
+>>           cap-sd-highspeed;
+>> +       cd-gpios = <&gpio0 RK_PA7 GPIO_ACTIVE_LOW>;
+>>           disable-wp;
+>>           no-mmc;
+>>           no-sdio;
+>> +       pinctrl-names = "default";
+>> +       pinctrl-0 = <&sdmmc0_clk &sdmmc0_cmd &sdmmc0_det &sdmmc0_bus4>;
+>>           sd-uhs-sdr104;
+>> -       vmmc-supply = <&vcc_3v3_s3>;
+>> +       vmmc-supply = <&vcc3v3_sd>;
+>>           vqmmc-supply = <&vccio_sd_s0>;
+>>           status = "okay";
+>>
+>>
+>>
+>>
+>>>> --- a/drivers/mmc/host/dw_mmc-rockchip.c
+>>>> +++ b/drivers/mmc/host/dw_mmc-rockchip.c
+>>>> @@ -36,6 +36,8 @@ struct dw_mci_rockchip_priv_data {
+>>>>            int                     default_sample_phase;
+>>>>            int                     num_phases;
+>>>>            bool                    internal_phase;
+>>>> +       int                     sample_phase;
+>>>> +       int                     drv_phase;
+>>>>     };
+>>>>
+>>>>     /*
+>>>> @@ -573,9 +575,43 @@ static void dw_mci_rockchip_remove(struct
+>>>> platform_device *pdev)
+>>>>            dw_mci_pltfm_remove(pdev);
+>>>>     }
+>>>>
+>>>> +static int dw_mci_rockchip_runtime_suspend(struct device *dev)
+>>>> +{
+>>>> +       struct platform_device *pdev = to_platform_device(dev);
+>>>> +       struct dw_mci *host = platform_get_drvdata(pdev);
+>>>> +       struct dw_mci_rockchip_priv_data *priv = host->priv;
+>>>> +
+>>>> +       if (priv->internal_phase) {
+>>>> +               priv->sample_phase = rockchip_mmc_get_phase(host, true);
+>>>> +               priv->drv_phase = rockchip_mmc_get_phase(host, false);
+>>>> +       }
+>>>> +
+>>>> +       return dw_mci_runtime_suspend(dev);
+>>>> +}
+>>>> +
+>>>> +static int dw_mci_rockchip_runtime_resume(struct device *dev)
+>>>> +{
+>>>> +       struct platform_device *pdev = to_platform_device(dev);
+>>>> +       struct dw_mci *host = platform_get_drvdata(pdev);
+>>>> +       struct dw_mci_rockchip_priv_data *priv = host->priv;
+>>>> +       int ret;
+>>>> +
+>>>> +       ret = dw_mci_runtime_resume(dev);
+>>>> +       if (ret)
+>>>> +               return ret;
+>>>> +
+>>>> +       if (priv->internal_phase) {
+>>>> +               rockchip_mmc_set_phase(host, true, priv->sample_phase);
+>>>> +               rockchip_mmc_set_phase(host, false, priv->drv_phase);
+>>>> +               mci_writel(host, MISC_CON, MEM_CLK_AUTOGATE_ENABLE);
+>>>> +       }
+>>>> +
+>>>> +       return ret;
+>>>> +}
+>>>> +
+>>>>     static const struct dev_pm_ops dw_mci_rockchip_dev_pm_ops = {
+>>>>            SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
+>>>> pm_runtime_force_resume)
+>>>> -       RUNTIME_PM_OPS(dw_mci_runtime_suspend, dw_mci_runtime_resume, NULL)
+>>>> +       RUNTIME_PM_OPS(dw_mci_rockchip_runtime_suspend,
+>>>> dw_mci_rockchip_runtime_resume, NULL)
+>>>>     };
+>>>>
+>>>>     static struct platform_driver dw_mci_rockchip_pltfm_driver = {
+>>>
+>>
+> 
 
 
