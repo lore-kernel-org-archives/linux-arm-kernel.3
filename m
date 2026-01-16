@@ -4,95 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F18EC982FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 20:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E10B7C982C0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 20:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iU7NnvOJ9a9r9qIwFHpAEXlxad5Cnya/UDxG8mCUJcE=; b=AywEMvgbDvK39tffnO/zA/tNkR
-	NuZpOChlgvVaNJfq3CGEVBH02aT6d6XOwYSTGCupp/E/egJp+PBolgDwnU0AGVtz8MA3UZ+ZFZRW1
-	Yy5avtZvILH8R96Le20gmSOQOSNmg85DZsKTfQV0fqLocH2mcXvJ61qykc+nGDqZIisJ+5OJulS+J
-	o/wMsIcOyz/hgrLK9KMwC7WVCwam8CzZf7Qs7nqYG/JdNYwVMLE2z4Xni8rpxoK4Yb8ouxBzFGRjQ
-	LrkJe36r9qObQflvxRmdP/nHycMH7DApaLERRNWE6WyQYD8ciLfGsixEUTyKrDLWsuKMl/QtqXbz1
-	l95kuZqA==;
+	bh=dfn0qHAXnC5r2c8zLwOe5UjZPw0lxw0YfKvyjJ/Tws8=; b=ha+zHEEX61QC3ztQ8cR9nyyZsj
+	lPuWKanx46fkqN0pPI36wXBBQOrTvoR14m6+H6lA8/9i4C7TwmF2cLUQiivUDQjXWBnYJLLf56a6h
+	FREQh/35swmZU6utegCnccnKiuuMJDE66lIJsJ/iIaBYKhYFwT6gYvtOvDso8+J0G/csUD+rszcbt
+	y4N3WBrg2+tAL/qcwLIcenoGocKFDFPe68CFnigu/JKj9fx50HH7Az8Tkmjg9Pgqn7tV8btMjNm9w
+	sLlclE/7KnvT9/e6Sehv9gWcOEGuUO6ENAhI9lot++Q66sAwn2UgQ4Z5tMVlVA3k1DH/VK0DAcneb
+	ycrcde6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgqGD-0000000EnJr-0EiT;
-	Fri, 16 Jan 2026 20:17:33 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1vgqId-0000000Enwp-2ee2;
+	Fri, 16 Jan 2026 20:20:03 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgqGA-0000000EnJV-3sQU
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 20:17:32 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-29f30233d8aso16920455ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 12:17:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1768594650; x=1769199450; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iU7NnvOJ9a9r9qIwFHpAEXlxad5Cnya/UDxG8mCUJcE=;
-        b=gj5OMosR3LDV0RTSBV5RvIsxvg7XzgC+MUcNfizzWojdg/DZpSBdaS9+mie8jdYP7q
-         nhps4I9KyaGKW14KAdOMxNqI+Uok6nEMJxYwE7LHCr3T0iI5GHXrh0puH5v93nc4/yeA
-         VMIyHhorr+9i1I4H8H9XpZjKGc+lLUCTMks2rcd65fJjuoty+T8niwmYCYulIDYcfhSx
-         5ADdajYTej1KxYTV2BJ7z7F7OqSFyfE/RVbm2lSmnwdUKaWdJwq3yD5AoA39RAFOHIWd
-         qAnPf2Oq0ObigPFlaeRo5ehqCwnxS2CaIt2iP00vhhTPBnpdXsqyZa02tJG199XAPX0E
-         hAmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768594650; x=1769199450;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iU7NnvOJ9a9r9qIwFHpAEXlxad5Cnya/UDxG8mCUJcE=;
-        b=JsLAm5niacHfXO249QyoErd3mJVHb3G8YHncevekoZqrtvj4oinXRlbIVaiT/sw0L3
-         m7b6tPH1KPXeNYLnB/qIqK3pn8FO8d46ACSOiFafBWjr84lRb1NRh9qqxu8c8ayUx6E6
-         sdkxmihUg8ZDmNnf0n8KWo3ThB7e64/xP9eDIO5NrIPeXlwKz57XpqtP8eN/ZVYpAVn+
-         u2pT2VSwe6dAmoDBFkO4VfzHpMD24rAOst3kjtmiInS1LEC7QO4+tXZN0cNHTx+y8z3j
-         ZV3K1aukyDXHGQlt74wG9riyCKVECghKngLIOK3XM5KIhI5gyeqOn1fyjnY9hkLkiNRL
-         RZXg==
-X-Forwarded-Encrypted: i=1; AJvYcCV1aiB8RAMzRn+UbxN+3Y8MCtjAAseegyB68ewyxS63uUQqC6k4UH70cbFTYSi+JDcCmKyuhRO26IehpRFOfA60@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPBT8hWndSiYOXT/YhAAkoOzT4D0AjLamD1HsVT3JDLiJANrCx
-	j/fB27WsMCUNle7m/MP/8Ywm+IFLo3MDH7xi8IB0/VJC/lM0eeZLJNIuhXWZp1U1VVY=
-X-Gm-Gg: AY/fxX6BPiFcqGKmeZBrr6dFFTW+YqG7Wpu6Rq4aW9e91iUpgs7Gcn3z4rZVsGP5MuO
-	i6QOISqAZ4ooNQUjjhBPiP35reESGDqIoq7GRCV7kFZ0dMmdrsFauYWtBxYgq91HChHMT5qKVk7
-	PvEGQYZg4qluFuoMpIZGth3SQexiZxLVndKuqe86iSlMUdn8hBM9tkmiqQiyM//Q5VCiZ/ejGiN
-	T/v2ljZBYn8hUcFrNyzcgYHsJgZD4AW132WRB1jjI73B9DjzJZfCe0xIbCVxMMzFP3uVXXzpnr8
-	EQXOEOf2rOcr/x9u4XGbP1eLy189OzCINH+APmu4IKu2zh9xwjkI4iQBHixO2ssAurYXj9gn8vk
-	BAGh6YVFS1smlOoeh7M7d6oTFmwJLTqDcXFS/LUtU4Ry+PSTQvfmOh1cy/ZJMU5tYiTXBBTT1LV
-	gFidKsNyr4j+M/wydhci6TBjmC2cAZ5D7Xcw7kCHeG+Fr96x/KZ5FBWUGo4P+M/ISotmx/Q2y8c
-	x2NWevA+A==
-X-Received: by 2002:a17:902:ccc8:b0:2a0:8360:3a74 with SMTP id d9443c01a7336-2a7189713fdmr32122585ad.51.1768594649704;
-        Fri, 16 Jan 2026 12:17:29 -0800 (PST)
-Received: from smtpclient.apple (c-24-16-26-157.hsd1.wa.comcast.net. [24.16.26.157])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a7190e785fsm28043905ad.41.2026.01.16.12.17.28
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 16 Jan 2026 12:17:29 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
-Subject: Re: [PATCH] spi: xilinx: use device property accessors.
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-In-Reply-To: <608a92f1-9403-45c8-b4bf-085f85876aad@lunn.ch>
-Date: Fri, 16 Jan 2026 12:17:18 -0800
-Cc: Mark Brown <broonie@kernel.org>,
- Michal Simek <michal.simek@amd.com>,
- linux-spi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <E82DCAA8-720D-45F5-ABDD-289A06FE7CE5@nexthop.ai>
-References: <20260115003328.26095-1-abdurrahman@nexthop.ai>
- <12f527c6-7728-4512-a4f1-08c778627ea8@lunn.ch>
- <87C51F3B-7770-4BFA-8BBC-5E83A71920E1@nexthop.ai>
- <608a92f1-9403-45c8-b4bf-085f85876aad@lunn.ch>
-To: Andrew Lunn <andrew@lunn.ch>
-X-Mailer: Apple Mail (2.3864.300.41.1.7)
+	id 1vgqIb-0000000EnvX-0AiA;
+	Fri, 16 Jan 2026 20:20:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:In-Reply-To:References:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=dfn0qHAXnC5r2c8zLwOe5UjZPw0lxw0YfKvyjJ/Tws8=; b=PSbglL42p7h0UJKFqJSrrQhHeL
+	NofEs+cXaA3dM5eh1YxhrGG8MBBesY4D9l1p1dPW9AX75ulZetLntTk+JHvdosWtpPSbUQG3CXfGo
+	v7ceEl9YrR5yeJI3dxwbgOPI/6lmoaJKtHNU1CPXcTvirD5/EAmIxw7pJYjx3Pt5E0QCfZdopZGzy
+	ESoLAk7f920kDCUnFPgP7pp/LoAA4KICNk1Q2PbcaI0N2pK1zqD+h+6iPdw/EyApmULq5i4xqivEr
+	zpeisH1fy8DeRFZfbYLmpnF+BEMNsaYFL11SVmH9+PiGu+QO66bZxYAas8SBKh3+dBi91ukk4addb
+	d1dZM3KQ==;
+Received: from [187.36.210.68] (helo=1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa)
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1vgqIQ-006Ixj-4a; Fri, 16 Jan 2026 21:19:50 +0100
+From: =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Date: Fri, 16 Jan 2026 17:19:22 -0300
+Subject: [PATCH v3 1/4] clk: bcm: rpi: Let V3D consumers manage clock rate
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260116-v3d-power-management-v3-1-4e1874e81dd6@igalia.com>
+References: <20260116-v3d-power-management-v3-0-4e1874e81dd6@igalia.com>
+In-Reply-To: <20260116-v3d-power-management-v3-0-4e1874e81dd6@igalia.com>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Stefan Wahren <wahrenst@gmx.net>, Maxime Ripard <mripard@kernel.org>, 
+ Melissa Wen <mwen@igalia.com>, Iago Toral Quiroga <itoral@igalia.com>, 
+ Chema Casanova <jmcasanova@igalia.com>, Dom Cobley <popcornmix@gmail.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ kernel-dev@igalia.com, =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1668; i=mcanal@igalia.com;
+ h=from:subject:message-id; bh=a86ujsJ75WvlFh6AWb20qgMJjaYWLO1/IG/W48O2Xpo=;
+ b=owEBbQGS/pANAwAIAT/zDop2iPqqAcsmYgBpap1c6H41PkO94M8KCrXwgsVZGuQlnnxt4UI0A
+ QzqWL759juJATMEAAEIAB0WIQT45F19ARZ3Bymmd9E/8w6Kdoj6qgUCaWqdXAAKCRA/8w6Kdoj6
+ qr0EB/9pzfAJNi7siaK97trfApJY/wPuh1JEKAD3ceTb3DqBmtPB2bczed8FERUooMEjtQKTQWI
+ 5x3pf+rnTU+9Pypo4eOEa5vR0RMqfymQsDgenaDoqcVdFe4OMMbFDXtWvYlr1iY1qfCmFnF1Huy
+ TGnGnS4J5cG/li/vtVibjQ1edKt71z0hySa8kFysV6Wn3zf5+DeRlVFtohaAur8ZJUoK7XM0d7X
+ j9mDf54CreIWMaHkUlY+rc510TgCPmnjFR5+mcsXAUJEY8duHKCqtxpO69Xlqx2Elvql+mtO2vH
+ CD+U6xTnocfY3vJrBbGU73M4jVLanWtbx85snRVgG3nkeacf
+X-Developer-Key: i=mcanal@igalia.com; a=openpgp;
+ fpr=F8E45D7D0116770729A677D13FF30E8A7688FAAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_121730_987235_24E2A68A 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20260116_122001_462641_266A29F9 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +93,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Remove the `maximize` infrastructure and don't set `minimize` for the
+V3D clock, giving consumers full control over its rate.
 
+On some firmware versions, RPI_FIRMWARE_SET_CLOCK_STATE doesn't
+actually power off the clock. To achieve meaningful power consumption
+reduction, consumers need to set the clock rate to minimum before
+disabling it. Forcing the clock to maximum rate in the clock framework
+prevents this, as consumers don't have any flexibility over the clock
+rate.
 
-> On Jan 16, 2026, at 12:11=E2=80=AFPM, Andrew Lunn <andrew@lunn.ch> =
-wrote:
->=20
-> On Fri, Jan 16, 2026 at 12:00:35PM -0800, Abdurrahman Hussain wrote:
->>=20
->>=20
->>> On Jan 16, 2026, at 7:23=E2=80=AFAM, Andrew Lunn <andrew@lunn.ch> =
-wrote:
->>>=20
->>> On Thu, Jan 15, 2026 at 12:33:28AM +0000, Abdurrahman Hussain wrote:
->>>> This makes the driver work on non-OF platforms.
->>>> Also, make irq optional, since the driver can already work in
->>>> polling mode.
->>>=20
->>> Are you saying ACPI cannot describe interrupts?
->>>=20
->>>   Andrew
->>=20
->=20
->> It can. We have enabled the interrupts through ACPI on Xilinx I2C
->> block and it works great.  For the SPI block we currently have an
->> issue with our FPGA. Luckily the driver works just fine in the
->> polling mode. By just making the interrupts optional makes the same
->> driver usable on a wider range of hardware platforms, with or
->> without the interrupts.
->=20
-> It would be good to split this change into two patches, one making the
-> interrupt optional, and one swapping to device_foo calls. They are
-> logically different changes. And the commit message can then explain
-> you are doing this so the driver works with hardware with broken
-> interrupts.
->=20
-> Actually, you need three patches, you need to change the DT binding,
-> spi-xilinx.yaml, since currently interrupts are required, not
-> optional.
->=20
->       Andrew
+This change enables the v3d driver to control the clock rate directly
+in its suspend/resume callbacks.
 
-Sounds good! I will split this change into three patches and re-submit.
+Fixes: 6526402b9bac ("clk: bcm: rpi: Maximize V3D clock")
+Signed-off-by: Maíra Canal <mcanal@igalia.com>
+---
+ drivers/clk/bcm/clk-raspberrypi.c | 5 -----
+ 1 file changed, 5 deletions(-)
 
-Thanks for your review, Andrew!
+diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
+index 1a9162f0ae31e330c46f6eafdd00350599b0eede..9783385d5859836898683209e320fcc928dfdc71 100644
+--- a/drivers/clk/bcm/clk-raspberrypi.c
++++ b/drivers/clk/bcm/clk-raspberrypi.c
+@@ -68,7 +68,6 @@ struct raspberrypi_clk_variant {
+ 	char		*clkdev;
+ 	unsigned long	min_rate;
+ 	bool		minimize;
+-	bool		maximize;
+ 	u32		flags;
+ };
+ 
+@@ -136,7 +135,6 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 	},
+ 	[RPI_FIRMWARE_V3D_CLK_ID] = {
+ 		.export = true,
+-		.maximize = true,
+ 	},
+ 	[RPI_FIRMWARE_PIXEL_CLK_ID] = {
+ 		.export = true,
+@@ -387,9 +385,6 @@ static struct clk_hw *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
+ 		}
+ 	}
+ 
+-	if (variant->maximize)
+-		variant->min_rate = max_rate;
+-
+ 	if (variant->min_rate) {
+ 		unsigned long rate;
+ 
 
-Regards,
-Abdurrahman=
+-- 
+2.52.0
+
 
