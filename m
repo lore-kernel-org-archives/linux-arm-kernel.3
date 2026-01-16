@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FEBD47CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 00:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC746D47CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 00:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M5UXOxPjPA+QX/q5RVny3Kc1OeIaWZcna4FhGLRLNu8=; b=xIEpDoJVk4gOCnDimW5e8McVmA
-	7lk2xgwP4Ot+1eJfcjleaYq9G6jECEG/71PiVCWzLjhD9X/0LktqXXbAbQFdhZJR77pMJm/ohWhp5
-	aEc5zqfoNYFNkXT9JDuvdlxHVR7veVfRIvEBEuWD9xBti01u6SK6R134fCvEG8WZ9qZiUrwTZb+j8
-	laLw+FYRYegp5XR8x+A15vgu2lDkmGQyP9cEjkw3LFLfXXVvc9zd+YJOEghHl+GxOuXg5cA03XvYU
-	r4gToC1NJ3/sI2o+ngsH3I+8CNqXv2p8OP8Bpx0XfURXvgaT/NSd+PYeGz0qOtG6RHJbehvbg92+n
-	ZTzlYucw==;
+	bh=W7F+wLvP3Vw7utDa4cJUGNtkXuHPdk0wvyOQkNey5i0=; b=Wp/l87TieC2hn1abyG1eRwA/zB
+	ST1hrbQmrnmXJLzhxkptLqjambPh+iCHDFvKhhGqVpWSOGg5yqNMRyH11zR1qTZIJ2rUSyXwHlY35
+	ecJOTvopFcpFqNfXQfzBMjtlcOeiFSjh/qhVgQCM76YrM4xIrZeRRajy4kocEEyAEGfe76IOb98fC
+	rPDKWay4F1tCOD2qcTjXLWOjvn9jiVbadv0eI2jszCVnDC7Pfmg9AenVOXCA69UMJ1P3MlkdHl8Gw
+	zIg/X/1oSxxDAf73gWiDSJMiyB76ntaSdP44d32v+mc+h23j6qTYoXfkzl/vDUmKl+a39v0K4GjH4
+	tdGbns2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgXkx-0000000DN1Y-1JOZ;
-	Fri, 16 Jan 2026 00:32:03 +0000
-Received: from mail-m128115.netease.com ([103.209.128.115])
+	id 1vgXwC-0000000DNMS-1bJP;
+	Fri, 16 Jan 2026 00:43:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgXkt-0000000DN14-1J2k;
-	Fri, 16 Jan 2026 00:32:01 +0000
-Received: from [172.16.12.14] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 30d4f9429;
-	Fri, 16 Jan 2026 08:31:47 +0800 (GMT+08:00)
-Message-ID: <e686c919-74b3-4607-ac7d-09c57effb466@rock-chips.com>
-Date: Fri, 16 Jan 2026 08:31:44 +0800
+	id 1vgXw9-0000000DNLs-1QEj
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Jan 2026 00:43:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 35B6840BC9;
+	Fri, 16 Jan 2026 00:43:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DD27C116D0;
+	Fri, 16 Jan 2026 00:43:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768524216;
+	bh=9keAJjnhw1gCE+azgxtlmJQmRyzmwC1hmC4fiX8WgoU=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=icTY1lTCYROv7LHIqbjbv26JLIe+mgKxBsRtl+WzeTGDbitI8TqW6o1iF+OxMpEnw
+	 rhgF4+ev+C927l9Eg30tA9s+VSZL+yQnw6/aQJDRMYRPqE7DHvITeWD058pqE8v9d/
+	 UyhTU2pNYiBQ5NHPpVaAC3yXdXqE9km5MqXGJq+v+zGRRLpHIBJzXalIr43sqNCsGt
+	 kPWsjTPv4fWvvK4Lb50SXDRxvmGrVcOyDWJ935mrWeC74vxSjcFU7PrlklWkXTGVhx
+	 XBhMGltkz0YMyse4IzrgnMCyb+ni7qP1ufMZfG8YhLfopXnXhxOYtQSiqfIxtvky8W
+	 krHkpY9bnwaww==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3BD0C380AA49;
+	Fri, 16 Jan 2026 00:40:09 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-rockchip@lists.infradead.org,
- linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, heiko@sntech.de, ulf.hansson@linaro.org
-Subject: Re: [PATCH v1 0/3] mmc: dw_mmc-rockchip: Add stability quirk for
- NanoPi R76S
-To: Marco Schirrmeister <mschirrmeister@gmail.com>
-References: <20260110010715.1610159-1-mschirrmeister@gmail.com>
- <67ccb8f6-f9bd-4266-b79a-b688bd6d030b@rock-chips.com>
- <8536413c-8687-4d75-befb-8f25e54838bf@rock-chips.com>
- <6934ae0d-16c5-436f-97f6-c11d304ca51d@rock-chips.com>
- <CAGJh8eDXT43_PfmUbShL4Hysfkd21R=sCerRNe_AGQANbwvSPA@mail.gmail.com>
- <b49b223e-e728-4ce9-b972-242ed9b5fa4a@rock-chips.com>
- <CAGJh8eB0i5UYN=05SfNGQc4dMA5_ffktErY8GjX85JWjDna3Dw@mail.gmail.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <CAGJh8eB0i5UYN=05SfNGQc4dMA5_ffktErY8GjX85JWjDna3Dw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9bc437256e09cckunm3f0c5a6b68da5e
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR9PSFYfGk1OTUpJSkoaTxpWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=GHOn1G6MfV1Xs1M+BErAj1YADRFid3RBFb8kV0b2MJROtI9/ZSogWy2otX46eeIPfNtNYaYHvN1S+47yEf+He2bp+4jxB/NQFQhW+8Nu1eIMekSiu8YYduMK7FCnbRYZVSlb+0ZF7YH4ubv8qs4ciReofgTyt5uDX7HuhEXgqKY=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=M5UXOxPjPA+QX/q5RVny3Kc1OeIaWZcna4FhGLRLNu8=;
-	h=date:mime-version:subject:message-id:from;
+Subject: Re: [PATCHv3 bpf-next 1/2] arm64/ftrace,bpf: Fix partial regs after
+ bpf_prog_run
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176852400806.26467.15167160333849251669.git-patchwork-notify@kernel.org>
+Date: Fri, 16 Jan 2026 00:40:08 +0000
+References: <20260112121157.854473-1-jolsa@kernel.org>
+In-Reply-To: <20260112121157.854473-1-jolsa@kernel.org>
+To: Jiri Olsa <jolsa@kernel.org>
+Cc: mhiramat@kernel.org, rostedt@goodmis.org, will@kernel.org,
+ mahe.tardy@gmail.com, peterz@infradead.org, bpf@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org, yhs@fb.com, songliubraving@fb.com, andrii@kernel.org,
+ mark.rutland@arm.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_163159_897737_FF31B99D 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20260115_164337_397317_E3322532 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,162 +78,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/01/16 星期五 3:39, Marco Schirrmeister 写道:
-> Hello Shawn,
-> 
-> On Thu, Jan 15, 2026 at 1:25 AM Shawn Lin <shawn.lin@rock-chips.com> wrote:
->>>
->>> Based on this, it makes me believe that power to the sd card is completely cut
->>> and when it wakes up and knows how to continue, it still must go through the
->>> retraining phase.
->>>
->>
->> This is another mistake for your NanoPi R76S board. Before sent this
->> patch, I already checked the dts and saw sdmmc uses vmmc-supply =
->> <&vcc_3v3_s3> which is marked as regulator-always-on, but it's *NOT*
->> actually per the shcematic[1][2]. So need another fix for your board
->> to make it actually gpio-based power controller instaed of function
->> IO based, as when powering off the power domain, the power control bit
->> will not be able to maintain.
->>
->> [1]
->> https://wiki.friendlyelec.com/wiki/images/6/60/NanoPi_R76S_LP4X_2411_SCH.pdf
->> [2]
->> https://wiki.friendlyelec.com/wiki/images/9/90/NanoPi_R76S_LP5_2411_SCH.pdf
->>
->> Except for the patches you have tested, please append the blow patch as
->> well to test.
-> 
-> Bingo. These DTS additions fixed the power stability for the SD card.
-> I have verified that the card now wakes up instantly with no errors and
-> no retraining delay.
-> 
+Hello:
 
-Thanks, I will fold these two patches into my thread of V4 to fix all
-these problems.
+This series was applied to bpf/bpf-next.git (master)
+by Andrii Nakryiko <andrii@kernel.org>:
 
-> I tested this both with and without your driver patch (the save/restore
-> phases logic).
+On Mon, 12 Jan 2026 13:11:56 +0100 you wrote:
+> Mahe reported issue with bpf_override_return helper not working when
+> executed from kprobe.multi bpf program on arm.
 > 
-> This confirms the issue was indeed the power rail being cut during
-> idle periods. Great find on the schematic!
+> The problem is that on arm we use alternate storage for pt_regs object
+> that is passed to bpf_prog_run and if any register is changed (which
+> is the case of bpf_override_return) it's not propagated back to actual
+> pt_regs object.
 > 
->> --- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
->> +++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts
->> @@ -192,6 +192,18 @@
->>                   regulator-name = "vcc_3v3_s0";
->>                   vin-supply = <&vcc_3v3_s3>;
->>           };
->> +
->> +       vcc3v3_sd: regulator-vcc-3v3-sd {
->> +               compatible = "regulator-fixed";
->> +               enable-active-high;
->> +               gpios = <&gpio0 RK_PB6 GPIO_ACTIVE_HIGH>;
->> +               pinctrl-names = "default";
->> +               pinctrl-0 = <&sdmmc_pwren>;
->> +               regulator-name = "vcc3v3_sd";
->> +               regulator-min-microvolt = <3300000>;
->> +               regulator-max-microvolt = <3300000>;
->> +               vin-supply = <&vcc_3v3_s0>;
->> +       };
->>    };
->>
->>    &combphy0_ps {
->> @@ -726,6 +738,12 @@
->>                   };
->>           };
->>
->> +       sdmmc {
->> +               sdmmc_pwren: sdmmc-pwren {
->> +                       rockchip,pins = <0 RK_PB6 RK_FUNC_GPIO
->> &pcfg_pull_none>;
->> +               };
->> +       };
->> +
->>           usb {
->>                   usb_otg0_pwren_h: usb-otg0-pwren-h {
->>                           rockchip,pins = <0 RK_PD1 RK_FUNC_GPIO
->> &pcfg_pull_none>;
->> @@ -751,11 +769,14 @@
->>           bus-width = <4>;
->>           cap-mmc-highspeed;
->>           cap-sd-highspeed;
->> +       cd-gpios = <&gpio0 RK_PA7 GPIO_ACTIVE_LOW>;
->>           disable-wp;
->>           no-mmc;
->>           no-sdio;
->> +       pinctrl-names = "default";
->> +       pinctrl-0 = <&sdmmc0_clk &sdmmc0_cmd &sdmmc0_det &sdmmc0_bus4>;
->>           sd-uhs-sdr104;
->> -       vmmc-supply = <&vcc_3v3_s3>;
->> +       vmmc-supply = <&vcc3v3_sd>;
->>           vqmmc-supply = <&vccio_sd_s0>;
->>           status = "okay";
->>
->>
->>
->>
->>>> --- a/drivers/mmc/host/dw_mmc-rockchip.c
->>>> +++ b/drivers/mmc/host/dw_mmc-rockchip.c
->>>> @@ -36,6 +36,8 @@ struct dw_mci_rockchip_priv_data {
->>>>            int                     default_sample_phase;
->>>>            int                     num_phases;
->>>>            bool                    internal_phase;
->>>> +       int                     sample_phase;
->>>> +       int                     drv_phase;
->>>>     };
->>>>
->>>>     /*
->>>> @@ -573,9 +575,43 @@ static void dw_mci_rockchip_remove(struct
->>>> platform_device *pdev)
->>>>            dw_mci_pltfm_remove(pdev);
->>>>     }
->>>>
->>>> +static int dw_mci_rockchip_runtime_suspend(struct device *dev)
->>>> +{
->>>> +       struct platform_device *pdev = to_platform_device(dev);
->>>> +       struct dw_mci *host = platform_get_drvdata(pdev);
->>>> +       struct dw_mci_rockchip_priv_data *priv = host->priv;
->>>> +
->>>> +       if (priv->internal_phase) {
->>>> +               priv->sample_phase = rockchip_mmc_get_phase(host, true);
->>>> +               priv->drv_phase = rockchip_mmc_get_phase(host, false);
->>>> +       }
->>>> +
->>>> +       return dw_mci_runtime_suspend(dev);
->>>> +}
->>>> +
->>>> +static int dw_mci_rockchip_runtime_resume(struct device *dev)
->>>> +{
->>>> +       struct platform_device *pdev = to_platform_device(dev);
->>>> +       struct dw_mci *host = platform_get_drvdata(pdev);
->>>> +       struct dw_mci_rockchip_priv_data *priv = host->priv;
->>>> +       int ret;
->>>> +
->>>> +       ret = dw_mci_runtime_resume(dev);
->>>> +       if (ret)
->>>> +               return ret;
->>>> +
->>>> +       if (priv->internal_phase) {
->>>> +               rockchip_mmc_set_phase(host, true, priv->sample_phase);
->>>> +               rockchip_mmc_set_phase(host, false, priv->drv_phase);
->>>> +               mci_writel(host, MISC_CON, MEM_CLK_AUTOGATE_ENABLE);
->>>> +       }
->>>> +
->>>> +       return ret;
->>>> +}
->>>> +
->>>>     static const struct dev_pm_ops dw_mci_rockchip_dev_pm_ops = {
->>>>            SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
->>>> pm_runtime_force_resume)
->>>> -       RUNTIME_PM_OPS(dw_mci_runtime_suspend, dw_mci_runtime_resume, NULL)
->>>> +       RUNTIME_PM_OPS(dw_mci_rockchip_runtime_suspend,
->>>> dw_mci_rockchip_runtime_resume, NULL)
->>>>     };
->>>>
->>>>     static struct platform_driver dw_mci_rockchip_pltfm_driver = {
->>>
->>
-> 
+> [...]
+
+Here is the summary with links:
+  - [PATCHv3,bpf-next,1/2] arm64/ftrace,bpf: Fix partial regs after bpf_prog_run
+    https://git.kernel.org/bpf/bpf-next/c/276f3b6daf60
+  - [PATCHv3,bpf-next,2/2] selftests/bpf: Add test for bpf_override_return helper
+    https://git.kernel.org/bpf/bpf-next/c/934d9746ed02
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
