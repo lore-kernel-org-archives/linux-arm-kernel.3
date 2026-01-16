@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7929FC982DB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25123C982D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:03:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VSTYR5rD8uZJr/69XSbhWZhicV+2XxA/spuf43LjPJU=; b=cO/3auPV9ZzAhYqIWHbyHPKu63
-	8MZusecjLlheGr3ivcpr1Uye18SukVP45ZcwCvRIG7zbsLHbeNo6/m6Q+CDWVfnAhkVi97Kbnzei3
-	gXx+I48lzy9p+jnVtoGfRuLFp05smmApwnkNnL8C9kTW4uS1w7uhH39oqbiFiZrTivkAsEfPvUBqz
-	qOrG/Y5w6+CqcfXolKRzG7EtCS/ITAkZMBDw06TzBjkmzbs54EMKhVsF/bkcmpA/u5AH1P//JlC+1
-	9pIRyh2ZdlSml+05JKnSJ1x/A23QO4qozO7jI6zvujsex6MONUvUe9WY4gEpILpiBHxdCM0psn+Ra
-	rR3Zt0DA==;
+	bh=p7xtwCCKQuv4dvKzrXBbhEbFPCQTZV+cAc7+TF45XiE=; b=G3B6H8S7ssjxHGe9en2SR7n3D0
+	fm5R0teWOXR1xqjsFDRoifY9p0TR8AZhqtqxt4ud8tYFrBS66YTG5OyweGep1zI4iuk8HDEuV15jn
+	ZhxJ+RZdZEsTzXq6JGGkrLyUl2VXNkCqS2S/Ho7cABsrl3uJDBGnHCZDRxd/UrtQkaxLXjRZNTHV2
+	kccXglwcc96MVwEStMnhI2c+Yn7vNU5b7t8HkLRLsYJKu7GbBv3b2h02a7JRJHUXHBMjozNMJqycB
+	eyparQEyEoqYiz02R7gIPI/Q4bSs0XFPLt9TfjnwGcrF9F5abcXGh6qcz6Z3aWSYdRe2Bi4DNoOBt
+	84OQSWtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnE8-0000000EW6r-3VTg;
-	Fri, 16 Jan 2026 17:03:12 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vgnED-0000000EWBP-1BrU;
+	Fri, 16 Jan 2026 17:03:17 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnE3-0000000EVzm-02LB
+	id 1vgnE6-0000000EW3A-2Evg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 17:03:08 +0000
+	Fri, 16 Jan 2026 17:03:12 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 631144E42113;
-	Fri, 16 Jan 2026 17:03:05 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 23AFD1A28D2;
+	Fri, 16 Jan 2026 17:03:09 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 33FA4606F9;
-	Fri, 16 Jan 2026 17:03:05 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0B72710B68C84;
-	Fri, 16 Jan 2026 18:02:59 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E7C95606F9;
+	Fri, 16 Jan 2026 17:03:08 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E25A310B68C7A;
+	Fri, 16 Jan 2026 18:03:03 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1768582983; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1768582987; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=VSTYR5rD8uZJr/69XSbhWZhicV+2XxA/spuf43LjPJU=;
-	b=rUqlArWCwupXKrZ9N1lQ/M7zROVpenx1ul+15yNLKUzVK89M2WBFDpvHuMItic13QMMoxO
-	4NBICKXWNSYMiKT46vd33bZ7asBG1pdCqhQOSUPNVzcWjdOVfaNvBvZNULYdU/hU7S7g8C
-	KV0cUEr2Mv53z5M589vsA0R7Knh+vb/h2XW0+O4bjjlJD5Q4DZt/kbHSrFJ4iPXQchKcDn
-	z4xXY465hcRZB+J7Jcy0Hby74QXE7cSYQMki0XCfQTx/pdcGQUkiyCuMWayQW3jKHPDHu3
-	Ed2URk7IENKbx+ipNZL71kqTTlv46WgVp1vKl9RKGmvJYe+l+d5CukB2MKQFeA==
+	bh=p7xtwCCKQuv4dvKzrXBbhEbFPCQTZV+cAc7+TF45XiE=;
+	b=E53/yhJW1h4Yqj5FqcAuWpIXs6eb3W30vSB1D1TUm6N1vLUcs6MEH1TjbXzBgrlxanee8v
+	4Zcv98fCWN5AvAqPPbo0jC0pxK+5yP4koOek+22vfquHdZ20szzolzxPOqMSG6ZnBzkBt0
+	LjS43a07C3ovLcIP+IT+Pe1B5kkKp3TtTRrH9g5xFSCLDxwWBSfesyma77w6190I/k44/J
+	ayNnM9Vb41oq7w0vc5hdcYr33EILHFP6SJhikr47r2BWtOc/31yG1HDWv+S3E/fdEPL8NK
+	yXuQOWbCUKFh+6HH+QfPANZYTgy+HpU8gi0K/+SM+6U7YNEQHSQemdvWsthyyA==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Fri, 16 Jan 2026 18:02:09 +0100
-Subject: [PATCH v4 09/25] drm/tilcdc: Remove redundant #endif/#ifdef in
- debugfs code
+Date: Fri, 16 Jan 2026 18:02:10 +0100
+Subject: [PATCH v4 10/25] drm/tilcdc: Remove unused encoder and connector
+ tracking arrays
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260116-feature_tilcdc-v4-9-2c1c22143087@bootlin.com>
+Message-Id: <20260116-feature_tilcdc-v4-10-2c1c22143087@bootlin.com>
 References: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
 In-Reply-To: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -79,9 +79,8 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_090307_221216_5F42E27E 
-X-CRM114-Status: UNSURE (   8.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260116_090310_743242_09FDADA5 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +95,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the unnecessary #endif/#ifdef CONFIG_DEBUG_FS pair that splits
-the debugfs code section. This keeps all debugfs-related code within a
-single preprocessor conditional block, improving code readability.
+The num_encoders/encoders and num_connectors/connectors arrays in
+tilcdc_drm_private are never populated or used by the driver.
 
 Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
- drivers/gpu/drm/tilcdc/tilcdc_drv.c | 3 ---
- 1 file changed, 3 deletions(-)
+ drivers/gpu/drm/tilcdc/tilcdc_drv.c | 3 +--
+ drivers/gpu/drm/tilcdc/tilcdc_drv.h | 6 ------
+ 2 files changed, 1 insertion(+), 8 deletions(-)
 
 diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.c b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-index f865c131dae66..fd6764ce80afa 100644
+index fd6764ce80afa..d911d413682ef 100644
 --- a/drivers/gpu/drm/tilcdc/tilcdc_drv.c
 +++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-@@ -429,9 +429,6 @@ static const struct {
- #undef REG
- };
+@@ -339,8 +339,7 @@ static int tilcdc_init(const struct drm_driver *ddrv, struct device *dev)
+ 	if (ret)
+ 		goto unregister_cpufreq_notif;
  
--#endif
+-	if (!priv->external_connector &&
+-	    ((priv->num_encoders == 0) || (priv->num_connectors == 0))) {
++	if (!priv->external_connector) {
+ 		dev_err(dev, "no encoders/connectors found\n");
+ 		ret = -EPROBE_DEFER;
+ 		goto unregister_cpufreq_notif;
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.h b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
+index 181b9d7a515b6..717529a331009 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_drv.h
++++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
+@@ -75,12 +75,6 @@ struct tilcdc_drm_private {
+ 
+ 	struct drm_crtc *crtc;
+ 
+-	unsigned int num_encoders;
+-	struct drm_encoder *encoders[8];
 -
--#ifdef CONFIG_DEBUG_FS
- static int tilcdc_regs_show(struct seq_file *m, void *arg)
- {
- 	struct drm_info_node *node = (struct drm_info_node *) m->private;
+-	unsigned int num_connectors;
+-	struct drm_connector *connectors[8];
+-
+ 	struct drm_encoder *external_encoder;
+ 	struct drm_connector *external_connector;
+ 
 
 -- 
 2.43.0
