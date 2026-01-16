@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 571C2C982DB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:04:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 505F9C982DB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UsfMF7nWVORJpCYgLZ9qvG2Tz11uw0ogNeHiEinjUHc=; b=W0IrfEJ4TmP1MovJ7QJVCXTo7k
-	RA/5lNYeXnqTZzh28Hx/FXJymL+EC1BCiIzwym1kdl7vVGdmsIMPs+VE2wBicYnTTV37ubmSIHXmL
-	4OoIpeeDVqd7roE/sgDWp9/DGp0QgC+2S5X+Td16qMv87j+DoeN3VVPRI3ZiHyg3ZSobK7MU203OW
-	9UdVbL0fTZBuXjkJbcZxg+cpHPH7lb5DTIIbx7CyvLIkD4EEox//4Mou2XJM2xUv7Ps8NREJYTBH2
-	jwlrIXKaUBZzccL2TKsxZQxP++kKvL+g9kJ38TcSUmlltJt4tRt9C9JwPt1Ln5i3deLLFUCqgyanJ
-	DYcyHbIA==;
+	bh=Xaxir2BF/2AAPP//cTgqSk8YQ/2vo6kmLft9QcIZP28=; b=KV/4flrATJ63oUpjQe/HI6iz/X
+	IVUnT4KeP3iuD9maSWQZk9Mk7b+VfDBMvwFcWhFes6fD0/ggBPLbNMIrzcoLRCOCxk/5hCgEVgrFl
+	NaFiooefJsrn3MjTPG1bHL4uHAli7mF90nddNIJyzTPgjwqDV1aicw+ZVT/UdUzxtil3ICjhpbukp
+	SGpnKJXq82z6XB3Azgcudv4xjCS5JAwtEaULNSU8+bF52WVvGBjTGi40T9+BlQWu3pw3j8EnZmI04
+	zbNrYbit6yePSZuqJ8G2wMHl9xxSy4Faxpez93nPbs2Z8dwf0FCtVUeZI8vUCeoPAS8e8mtnWOdzm
+	DwxTjv+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnEo-0000000EWsu-2X7n;
-	Fri, 16 Jan 2026 17:03:54 +0000
+	id 1vgnEx-0000000EX3m-38rV;
+	Fri, 16 Jan 2026 17:04:04 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnEl-0000000EWnz-0tQ4
+	id 1vgnEr-0000000EWvM-1Tvk
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 16 Jan 2026 17:03:51 +0000
+	Fri, 16 Jan 2026 17:03:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=UsfMF7nWVORJpCYgLZ9qvG2Tz11uw0ogNeHiEinjUHc=; b=ZbORdfaYSPmg3WkpRgtsIyunYv
-	44fcEP3dO/O1vJcATUVg0TO9HmF2eafLMeRX18d4qr9QaWSTDGHLXmTMQXyINrnj1lvOxzf0qFi3+
-	FKlPcV0j5UTOfMafEKCgaDnwgX5lD76dJuRDmVMv1IOjzkcJNqaTab6bodr4QpTFeYd55wtHRFDVB
-	BkYh1UK4rV7oW96PxUn0/HLaoqLXIKzIkK1qO7IFwDBOeh+rATKwXvOHzJWUGJTvER00u4YWCIVof
-	kpd25g6OitultvJg1fS9bwfS/8sg7XKMl60ugcZaXQcGSWqm+9MghuBXnktBG6S2d4w94VlPIHBD/
-	73swrwNw==;
+	bh=Xaxir2BF/2AAPP//cTgqSk8YQ/2vo6kmLft9QcIZP28=; b=CK3s9fgvQHqoK5vQJVmDX4Z9BB
+	TT6L9AOUPoL2KtkrwPE/nWmmyz5P7gcigeNpEO/JvAMORWxfyYn9ss/YVGH+jzqc9iWKdJsbx/bZd
+	dc1l/lvcFbEP2kCv20W3ZFWnySgh3wp93gHcwbfW/FFEpNFgahQYDpd94wvFBIGk/Ad1iSA6Ain49
+	vxVxW9XjsXogNJDn/AxmHWRndLFjnSPn5kTVIABZyHURa8ObAr1hrDVt7aDgumVg/IS4yAFUSXZ2J
+	B4qsNS7lNyTHH0Ak0JjXWg6gUMnm5uOr2lp+0EeNa9NkAOk7dttoZco9RL3dDXYsbO/PKDpYrrfiA
+	oiRPkE+w==;
 Received: from smtpout-02.galae.net ([185.246.84.56])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnEg-00000009CsK-35d8
+	id 1vgnEn-00000009CxA-1bm8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 17:03:49 +0000
+	Fri, 16 Jan 2026 17:03:55 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A689E1A28E3;
-	Fri, 16 Jan 2026 17:03:38 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id C5A601A28EA;
+	Fri, 16 Jan 2026 17:03:52 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7A516606F9;
-	Fri, 16 Jan 2026 17:03:38 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3E5FD10B68CAD;
-	Fri, 16 Jan 2026 18:03:33 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 98A63606F9;
+	Fri, 16 Jan 2026 17:03:52 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F0EA010B68CC3;
+	Fri, 16 Jan 2026 18:03:47 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1768583016; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1768583031; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=UsfMF7nWVORJpCYgLZ9qvG2Tz11uw0ogNeHiEinjUHc=;
-	b=cj3IfjAlnkN2bqGGHSuFUddscSsRiAycpagoAF4vuN6VmmU277wb7cUHYJ/p9P6seLzsiB
-	tWGddOM+XsHS6cBUanQqEtpvhKcwwWq7q0l6U1yLuwS4P5aVbF3a4C4VVB10bTfcK77Uju
-	LxsKDlu2AkIRnGlT0ONcYVwMOQ3cs+2ZWfBbAPHURZZAxJf7M5w/ltf+ynUH1Q7YYqbHrd
-	JLqK3VSPaY3HWNhNpqW8L5I2cVo7CaNi/NkJaXGatNW/DoC9KnOnslraMwJ+1pkeC02Ayi
-	xpTBSzT6hH7IxSQlPDYzR6juQ4jkBCsYXkxcsOnlNl8/z0edS7dE863riOVbCA==
+	bh=Xaxir2BF/2AAPP//cTgqSk8YQ/2vo6kmLft9QcIZP28=;
+	b=FwJb1VcHwY1C2kfl1YwsqPp/Zrlg/buAU1g1jl8FL3/2vpaqq08PtJPJL7CAomIGAkpkSO
+	85vFu4/Fkj2eo98+x1Wm3pM262g8tC+zeftNFugtbHZ8cdWE3OcFfTOlzTNuFgt2YDYGR9
+	NKm53KvhAJBHar0WyPp4gR7Jlv5qZQACxspyLI/w2e+WN/G4NFQrWk/GZDWcK4TDDQxi2l
+	vz6NzrnTIBWHmQdrqmn8j29QeWXsc6uaC5SjzkCcglHuYHlUm04/E3wWqarGfD677O7VXl
+	zzrdnDSOAUJD0HEpwA6vCWSCbUlqxoB+NdORdOt69bCowtNOPwal7l5yoX+2jQ==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Fri, 16 Jan 2026 18:02:18 +0100
-Subject: [PATCH v4 18/25] drm/tilcdc: Convert to DRM managed resources
+Date: Fri, 16 Jan 2026 18:02:22 +0100
+Subject: [PATCH v4 22/25] drm/bridge: tda998x: Move tda998x_create/destroy
+ into probe and remove
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260116-feature_tilcdc-v4-18-2c1c22143087@bootlin.com>
+Message-Id: <20260116-feature_tilcdc-v4-22-2c1c22143087@bootlin.com>
 References: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
 In-Reply-To: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -93,8 +94,8 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_170346_885817_F6527B5C 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20260116_170353_536563_ACFF1DD5 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,338 +110,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the tilcdc driver to use DRM managed resources (drmm_* APIs)
-to eliminate resource lifetime issues, particularly in probe deferral
-scenarios.
+Now that tda998x_create and tda998x_destroy are called only in the probe
+function, there is no need for separate functions.
+Move the code into the tda998x_probe and tda998x_remove functions.
+Rewrite the cleanup path using goto calls in probe and reorder it in the
+remove function.
 
-This conversion addresses potential use-after-free bugs by ensuring
-proper cleanup ordering through the DRM managed resource framework.
-The changes include:
-- Replace drm_crtc_init_with_planes() with drmm_crtc_alloc_with_planes()
-- Replace drm_universal_plane_init() with drmm_universal_plane_alloc()
-- Replace drm_simple_encoder_init() with drmm_simple_encoder_alloc()
-- Remove manual cleanup in tilcdc_crtc_destroy() and error paths
-- Remove drm_encoder_cleanup() from encoder error handling paths
-- Use drmm_add_action_or_reset() for remaining cleanup operations
-
-This approach is recommended by the DRM subsystem for improved resource
-lifetime management and is particularly important for drivers that may
-experience probe deferral.
-
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
----
 
-Change in v4:
-- Newt patch.
 ---
- drivers/gpu/drm/tilcdc/tilcdc_crtc.c    | 54 +++++++++++++++++----------------
- drivers/gpu/drm/tilcdc/tilcdc_drv.c     |  5 +--
- drivers/gpu/drm/tilcdc/tilcdc_drv.h     | 13 ++++++--
- drivers/gpu/drm/tilcdc/tilcdc_encoder.c | 38 ++++++++---------------
- drivers/gpu/drm/tilcdc/tilcdc_plane.c   | 27 ++++++++---------
- 5 files changed, 64 insertions(+), 73 deletions(-)
+Change in v3:
+- Move free_irq() call at the right place in the probe error path.
+---
+ drivers/gpu/drm/bridge/tda998x_drv.c | 99 +++++++++++++++++++-----------------
+ 1 file changed, 51 insertions(+), 48 deletions(-)
 
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
-index 0bd99a2efeeb4..1025643915052 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
-@@ -16,6 +16,7 @@
- #include <drm/drm_fourcc.h>
- #include <drm/drm_framebuffer.h>
- #include <drm/drm_gem_dma_helper.h>
-+#include <drm/drm_managed.h>
- #include <drm/drm_modeset_helper_vtables.h>
- #include <drm/drm_print.h>
- #include <drm/drm_vblank.h>
-@@ -30,7 +31,7 @@
- struct tilcdc_crtc {
- 	struct drm_crtc base;
- 
--	struct drm_plane primary;
-+	struct tilcdc_plane *primary;
- 	struct drm_pending_vblank_event *event;
- 	struct mutex enable_lock;
- 	bool enabled;
-@@ -555,16 +556,15 @@ static void tilcdc_crtc_recover_work(struct work_struct *work)
- 	drm_modeset_unlock(&crtc->mutex);
- }
- 
--void tilcdc_crtc_destroy(struct drm_crtc *crtc)
-+static void tilcdc_crtc_destroy(struct drm_device *dev, void *data)
- {
--	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(crtc->dev);
-+	struct tilcdc_drm_private *priv = (struct tilcdc_drm_private *)data;
- 
--	tilcdc_crtc_shutdown(crtc);
-+	tilcdc_crtc_shutdown(priv->crtc);
- 
- 	flush_workqueue(priv->wq);
- 
--	of_node_put(crtc->port);
--	drm_crtc_cleanup(crtc);
-+	of_node_put(priv->crtc->port);
- }
- 
- int tilcdc_crtc_update_fb(struct drm_crtc *crtc,
-@@ -714,7 +714,6 @@ static void tilcdc_crtc_reset(struct drm_crtc *crtc)
- }
- 
- static const struct drm_crtc_funcs tilcdc_crtc_funcs = {
--	.destroy        = tilcdc_crtc_destroy,
- 	.set_config     = drm_atomic_helper_set_config,
- 	.page_flip      = drm_atomic_helper_page_flip,
- 	.reset		= tilcdc_crtc_reset,
-@@ -960,12 +959,27 @@ int tilcdc_crtc_create(struct drm_device *dev)
- {
- 	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	struct tilcdc_crtc *tilcdc_crtc;
-+	struct tilcdc_plane *primary;
- 	struct drm_crtc *crtc;
- 	int ret;
- 
--	tilcdc_crtc = devm_kzalloc(dev->dev, sizeof(*tilcdc_crtc), GFP_KERNEL);
--	if (!tilcdc_crtc)
--		return -ENOMEM;
-+	primary = tilcdc_plane_init(dev);
-+	if (IS_ERR(primary)) {
-+		dev_err(dev->dev, "Failed to initialize plane: %pe\n", primary);
-+		return PTR_ERR(primary);
-+	}
-+
-+	tilcdc_crtc = drmm_crtc_alloc_with_planes(dev, struct tilcdc_crtc, base,
-+						  &primary->base,
-+						  NULL,
-+						  &tilcdc_crtc_funcs,
-+						  "tilcdc crtc");
-+	if (IS_ERR(tilcdc_crtc)) {
-+		dev_err(dev->dev, "Failed to init CRTC: %pe\n", tilcdc_crtc);
-+		return PTR_ERR(tilcdc_crtc);
-+	}
-+
-+	tilcdc_crtc->primary = primary;
- 
- 	init_completion(&tilcdc_crtc->palette_loaded);
- 	tilcdc_crtc->palette_base = dmam_alloc_coherent(dev->dev,
-@@ -978,10 +992,6 @@ int tilcdc_crtc_create(struct drm_device *dev)
- 
- 	crtc = &tilcdc_crtc->base;
- 
--	ret = tilcdc_plane_init(dev, &tilcdc_crtc->primary);
--	if (ret < 0)
--		goto fail;
--
- 	mutex_init(&tilcdc_crtc->enable_lock);
- 
- 	init_waitqueue_head(&tilcdc_crtc->frame_done_wq);
-@@ -989,20 +999,12 @@ int tilcdc_crtc_create(struct drm_device *dev)
- 	spin_lock_init(&tilcdc_crtc->irq_lock);
- 	INIT_WORK(&tilcdc_crtc->recover_work, tilcdc_crtc_recover_work);
- 
--	ret = drm_crtc_init_with_planes(dev, crtc,
--					&tilcdc_crtc->primary,
--					NULL,
--					&tilcdc_crtc_funcs,
--					"tilcdc crtc");
--	if (ret < 0)
--		goto fail;
--
- 	drm_crtc_helper_add(crtc, &tilcdc_crtc_helper_funcs);
- 
-+	ret = drmm_add_action_or_reset(dev, tilcdc_crtc_destroy, priv);
-+	if (ret)
-+		return ret;
-+
- 	priv->crtc = crtc;
+diff --git a/drivers/gpu/drm/bridge/tda998x_drv.c b/drivers/gpu/drm/bridge/tda998x_drv.c
+index 865285ba2bd8c..e06d8d4c4b875 100644
+--- a/drivers/gpu/drm/bridge/tda998x_drv.c
++++ b/drivers/gpu/drm/bridge/tda998x_drv.c
+@@ -1748,38 +1748,20 @@ static int tda998x_get_audio_ports(struct tda998x_priv *priv,
  	return 0;
+ }
+ 
+-static void tda998x_destroy(struct device *dev)
+-{
+-	struct tda998x_priv *priv = dev_get_drvdata(dev);
 -
+-	drm_bridge_remove(&priv->bridge);
+-
+-	/* disable all IRQs and free the IRQ handler */
+-	cec_write(priv, REG_CEC_RXSHPDINTENA, 0);
+-	reg_clear(priv, REG_INT_FLAGS_2, INT_FLAGS_2_EDID_BLK_RD);
+-
+-	if (priv->audio_pdev)
+-		platform_device_unregister(priv->audio_pdev);
+-
+-	if (priv->hdmi->irq)
+-		free_irq(priv->hdmi->irq, priv);
+-
+-	timer_delete_sync(&priv->edid_delay_timer);
+-	cancel_work_sync(&priv->detect_work);
+-
+-	i2c_unregister_device(priv->cec);
+-
+-	cec_notifier_conn_unregister(priv->cec_notify);
+-}
+-
+-static int tda998x_create(struct device *dev)
++static int
++tda998x_probe(struct i2c_client *client)
+ {
+-	struct i2c_client *client = to_i2c_client(dev);
+ 	struct device_node *np = client->dev.of_node;
++	struct device *dev = &client->dev;
+ 	struct i2c_board_info cec_info;
+ 	struct tda998x_priv *priv;
+-	u32 video;
+ 	int rev_lo, rev_hi, ret;
++	u32 video;
++
++	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C)) {
++		dev_warn(&client->dev, "adapter does not support I2C\n");
++		return -EIO;
++	}
+ 
+ 	priv = devm_drm_bridge_alloc(dev, struct tda998x_priv, bridge, &tda998x_bridge_funcs);
+ 	if (IS_ERR(priv))
+@@ -1814,13 +1796,15 @@ static int tda998x_create(struct device *dev)
+ 	rev_lo = reg_read(priv, REG_VERSION_LSB);
+ 	if (rev_lo < 0) {
+ 		dev_err(dev, "failed to read version: %d\n", rev_lo);
+-		return rev_lo;
++		ret = rev_lo;
++		goto cancel_work;
+ 	}
+ 
+ 	rev_hi = reg_read(priv, REG_VERSION_MSB);
+ 	if (rev_hi < 0) {
+ 		dev_err(dev, "failed to read version: %d\n", rev_hi);
+-		return rev_hi;
++		ret = rev_hi;
++		goto cancel_work;
+ 	}
+ 
+ 	priv->rev = rev_lo | rev_hi << 8;
+@@ -1843,7 +1827,8 @@ static int tda998x_create(struct device *dev)
+ 		break;
+ 	default:
+ 		dev_err(dev, "found unsupported device: %04x\n", priv->rev);
+-		return -ENXIO;
++		ret = -ENXIO;
++		goto cancel_work;
+ 	}
+ 
+ 	/* after reset, enable DDC: */
+@@ -1887,7 +1872,7 @@ static int tda998x_create(struct device *dev)
+ 		if (ret) {
+ 			dev_err(dev, "failed to request IRQ#%u: %d\n",
+ 				client->irq, ret);
+-			goto err_irq;
++			goto cancel_work;
+ 		}
+ 
+ 		/* enable HPD irq */
+@@ -1897,7 +1882,7 @@ static int tda998x_create(struct device *dev)
+ 	priv->cec_notify = cec_notifier_conn_register(dev, NULL, NULL);
+ 	if (!priv->cec_notify) {
+ 		ret = -ENOMEM;
+-		goto fail;
++		goto free_irq;
+ 	}
+ 
+ 	priv->cec_glue.parent = dev;
+@@ -1924,7 +1909,7 @@ static int tda998x_create(struct device *dev)
+ 	priv->cec = i2c_new_client_device(client->adapter, &cec_info);
+ 	if (IS_ERR(priv->cec)) {
+ 		ret = PTR_ERR(priv->cec);
+-		goto fail;
++		goto notifier_conn_unregister;
+ 	}
+ 
+ 	/* enable EDID read irq: */
+@@ -1941,7 +1926,7 @@ static int tda998x_create(struct device *dev)
+ 
+ 		ret = tda998x_get_audio_ports(priv, np);
+ 		if (ret)
+-			goto fail;
++			goto unregister_dev;
+ 
+ 		if (priv->audio_port_enable[AUDIO_ROUTE_I2S] ||
+ 		    priv->audio_port_enable[AUDIO_ROUTE_SPDIF])
+@@ -1956,26 +1941,44 @@ static int tda998x_create(struct device *dev)
+ 
+ 	return 0;
+ 
 -fail:
--	tilcdc_crtc_destroy(crtc);
--	return ret;
+-	tda998x_destroy(dev);
+-err_irq:
++unregister_dev:
++	i2c_unregister_device(priv->cec);
++notifier_conn_unregister:
++	cec_notifier_conn_unregister(priv->cec_notify);
++free_irq:
++	if (client->irq) {
++		cec_write(priv, REG_CEC_RXSHPDINTENA, 0);
++		reg_clear(priv, REG_INT_FLAGS_2, INT_FLAGS_2_EDID_BLK_RD);
++		free_irq(client->irq, priv);
++	}
++cancel_work:
++	timer_delete_sync(&priv->edid_delay_timer);
++	cancel_work_sync(&priv->detect_work);
+ 	return ret;
  }
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.c b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-index 1a238a22309f4..3b11d296a7e91 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-@@ -392,7 +392,7 @@ static int tilcdc_pdev_probe(struct platform_device *pdev)
- 	if (ret) {
- 		dev_err(dev, "failed to register cpufreq notifier\n");
- 		priv->freq_transition.notifier_call = NULL;
--		goto destroy_crtc;
-+		goto disable_pm;
- 	}
- #endif
  
-@@ -442,9 +442,7 @@ static int tilcdc_pdev_probe(struct platform_device *pdev)
- #ifdef CONFIG_CPU_FREQ
- 	cpufreq_unregister_notifier(&priv->freq_transition,
- 				    CPUFREQ_TRANSITION_NOTIFIER);
--destroy_crtc:
- #endif
--	tilcdc_crtc_destroy(priv->crtc);
- disable_pm:
- 	pm_runtime_disable(dev);
- 	clk_put(priv->clk);
-@@ -466,7 +464,6 @@ static void tilcdc_pdev_remove(struct platform_device *pdev)
- 	cpufreq_unregister_notifier(&priv->freq_transition,
- 				    CPUFREQ_TRANSITION_NOTIFIER);
- #endif
--	tilcdc_crtc_destroy(priv->crtc);
- 	pm_runtime_disable(&pdev->dev);
- 	clk_put(priv->clk);
- 	destroy_workqueue(priv->wq);
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.h b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
-index c69e279a2539d..17d152f9f0b69 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_drv.h
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
-@@ -77,7 +77,7 @@ struct tilcdc_drm_private {
- 
- 	struct drm_crtc *crtc;
- 
--	struct drm_encoder *encoder;
-+	struct tilcdc_encoder *encoder;
- 	struct drm_connector *connector;
- 
- 	bool irq_enabled;
-@@ -91,11 +91,18 @@ int tilcdc_crtc_create(struct drm_device *dev);
- irqreturn_t tilcdc_crtc_irq(struct drm_crtc *crtc);
- void tilcdc_crtc_update_clk(struct drm_crtc *crtc);
- void tilcdc_crtc_shutdown(struct drm_crtc *crtc);
--void tilcdc_crtc_destroy(struct drm_crtc *crtc);
- int tilcdc_crtc_update_fb(struct drm_crtc *crtc,
- 		struct drm_framebuffer *fb,
- 		struct drm_pending_vblank_event *event);
- 
--int tilcdc_plane_init(struct drm_device *dev, struct drm_plane *plane);
-+struct tilcdc_plane {
-+	struct drm_plane base;
-+};
-+
-+struct tilcdc_encoder {
-+	struct drm_encoder base;
-+};
-+
-+struct tilcdc_plane *tilcdc_plane_init(struct drm_device *dev);
- 
- #endif /* __TILCDC_DRV_H__ */
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-index d42be3e16c536..1ee5761757a8c 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-@@ -37,13 +37,13 @@ int tilcdc_attach_bridge(struct drm_device *ddev, struct drm_bridge *bridge)
- 	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(ddev);
- 	int ret;
- 
--	priv->encoder->possible_crtcs = BIT(0);
-+	priv->encoder->base.possible_crtcs = BIT(0);
- 
--	ret = drm_bridge_attach(priv->encoder, bridge, NULL, 0);
-+	ret = drm_bridge_attach(&priv->encoder->base, bridge, NULL, 0);
- 	if (ret)
- 		return ret;
- 
--	priv->connector = tilcdc_encoder_find_connector(ddev, priv->encoder);
-+	priv->connector = tilcdc_encoder_find_connector(ddev, &priv->encoder->base);
- 	if (!priv->connector)
- 		return -ENODEV;
- 
-@@ -53,6 +53,7 @@ int tilcdc_attach_bridge(struct drm_device *ddev, struct drm_bridge *bridge)
- int tilcdc_encoder_create(struct drm_device *ddev)
+-static int
+-tda998x_probe(struct i2c_client *client)
++static void tda998x_remove(struct i2c_client *client)
  {
- 	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(ddev);
-+	struct tilcdc_encoder *encoder;
- 	struct drm_bridge *bridge;
- 	struct drm_panel *panel;
- 	int ret;
-@@ -64,33 +65,20 @@ int tilcdc_encoder_create(struct drm_device *ddev)
- 	else if (ret)
- 		return ret;
- 
--	priv->encoder = devm_kzalloc(ddev->dev, sizeof(*priv->encoder), GFP_KERNEL);
--	if (!priv->encoder)
--		return -ENOMEM;
--
--	ret = drm_simple_encoder_init(ddev, priv->encoder,
--				      DRM_MODE_ENCODER_NONE);
--	if (ret) {
--		dev_err(ddev->dev, "drm_encoder_init() failed %d\n", ret);
--		return ret;
-+	encoder = drmm_simple_encoder_alloc(ddev, struct tilcdc_encoder,
-+					    base, DRM_MODE_ENCODER_NONE);
-+	if (IS_ERR(encoder)) {
-+		dev_err(ddev->dev, "drm_encoder_init() failed %pe\n", encoder);
-+		return PTR_ERR(encoder);
- 	}
-+	priv->encoder = encoder;
- 
- 	if (panel) {
- 		bridge = devm_drm_panel_bridge_add_typed(ddev->dev, panel,
- 							 DRM_MODE_CONNECTOR_DPI);
--		if (IS_ERR(bridge)) {
--			ret = PTR_ERR(bridge);
--			goto err_encoder_cleanup;
--		}
-+		if (IS_ERR(bridge))
-+			return PTR_ERR(bridge);
- 	}
- 
--	ret = tilcdc_attach_bridge(ddev, bridge);
--	if (ret)
--		goto err_encoder_cleanup;
--
--	return 0;
--
--err_encoder_cleanup:
--	drm_encoder_cleanup(priv->encoder);
--	return ret;
-+	return tilcdc_attach_bridge(ddev, bridge);
- }
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_plane.c b/drivers/gpu/drm/tilcdc/tilcdc_plane.c
-index a77a5b22ebd96..d98a1ae0e31f8 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_plane.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_plane.c
-@@ -14,7 +14,6 @@
- static const struct drm_plane_funcs tilcdc_plane_funcs = {
- 	.update_plane	= drm_atomic_helper_update_plane,
- 	.disable_plane	= drm_atomic_helper_disable_plane,
--	.destroy	= drm_plane_cleanup,
- 	.reset		= drm_atomic_helper_plane_reset,
- 	.atomic_duplicate_state = drm_atomic_helper_plane_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_plane_destroy_state,
-@@ -98,22 +97,20 @@ static const struct drm_plane_helper_funcs plane_helper_funcs = {
- 	.atomic_update = tilcdc_plane_atomic_update,
- };
- 
--int tilcdc_plane_init(struct drm_device *dev,
--		      struct drm_plane *plane)
-+struct tilcdc_plane *tilcdc_plane_init(struct drm_device *dev)
- {
- 	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
--	int ret;
--
--	ret = drm_universal_plane_init(dev, plane, 1, &tilcdc_plane_funcs,
--				       priv->pixelformats,
--				       priv->num_pixelformats,
--				       NULL, DRM_PLANE_TYPE_PRIMARY, NULL);
--	if (ret) {
--		dev_err(dev->dev, "Failed to initialize plane: %d\n", ret);
--		return ret;
+-	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C)) {
+-		dev_warn(&client->dev, "adapter does not support I2C\n");
+-		return -EIO;
 -	}
-+	struct tilcdc_plane *plane;
++	struct tda998x_priv *priv = dev_get_drvdata(&client->dev);
  
--	drm_plane_helper_add(plane, &plane_helper_funcs);
-+	plane = drmm_universal_plane_alloc(dev, struct tilcdc_plane, base,
-+					   1, &tilcdc_plane_funcs,
-+					   priv->pixelformats,
-+					   priv->num_pixelformats,
-+					   NULL, DRM_PLANE_TYPE_PRIMARY, NULL);
-+	if (IS_ERR(plane))
-+		return plane;
+-	return tda998x_create(&client->dev);
+-}
++	drm_bridge_remove(&priv->bridge);
  
--	return 0;
-+	drm_plane_helper_add(&plane->base, &plane_helper_funcs);
+-static void tda998x_remove(struct i2c_client *client)
+-{
+-	tda998x_destroy(&client->dev);
++	if (priv->audio_pdev)
++		platform_device_unregister(priv->audio_pdev);
 +
-+	return plane;
++	i2c_unregister_device(priv->cec);
++
++	cec_notifier_conn_unregister(priv->cec_notify);
++
++	/* disable all IRQs and free the IRQ handler */
++	if (client->irq) {
++		cec_write(priv, REG_CEC_RXSHPDINTENA, 0);
++		reg_clear(priv, REG_INT_FLAGS_2, INT_FLAGS_2_EDID_BLK_RD);
++		free_irq(priv->hdmi->irq, priv);
++	}
++
++	timer_delete_sync(&priv->edid_delay_timer);
++	cancel_work_sync(&priv->detect_work);
  }
+ 
+ #ifdef CONFIG_OF
 
 -- 
 2.43.0
