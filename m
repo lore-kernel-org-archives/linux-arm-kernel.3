@@ -4,106 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC888D4899D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 13:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8D63D4899D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 13:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uJ0Kd+SlEJxKbaePbsW3EtzVjRrjQZdOLYvse/lYkyc=; b=VifJpVHjyMf+febKbCwNGk4VUw
-	PQDlcnU5DM83u0Ol2J4Ug5+LAFtzhHE5LFlVGeYxzAu8ixW6lTZjH+YFUWNCOShguuknLMMCOYfGg
-	+/MrQlNPBGoVoP0txSYzVqEQzYNTXsdauUdet5A6eiULvFotPHbZpLVlQQEj2yzyaKNFbGZBkvAK4
-	RHewgKUkLWVtW4yIMj7YIhiPa9KBaIYPvWgjHO8guGUnYtbqiand1q/bO3+U4qaMqUsy481Y6py59
-	Reu1Qxabt3+hjr8Rrr4s6Z3l1M+J+N/KAA98Ni46jj/cN1Mnb2Bv38xxoXDjRmPmdexFxjq0rpmV5
-	EUe4Xi8Q==;
+	bh=EvrREMVcoin1aUmPfjax1pm/y4+d7N4QUPIHb4WCA/s=; b=Rem8/+PgPDbDwx2qQVU4oV1FQq
+	L09M6viDpkbZjIFk7/xa9Bk/hM/dPohCCE9PBjRVT7F7KYdnr1i5W2DxYQ9uLmf4THmkDkpgbbcoE
+	xJp7CgGCSBBTsAKinBuO2xnFWrDJo9kDguL0i8FS7hJq0KSoAAS0opmgvi9MP/8ifrioSE1A8lTyA
+	IGjfYlralO/Jbf4H2xX+mhjKhYsUB0yUh+gI3beyt8gJG9DKVf8y54pJrcxgiLZnTIPNgd8mtD7QH
+	xrwdbgW5jTQ0gA+471PZd8qu1FEg9VTUwUnlZzTavPO+5Cnm9PQxQJjWCCi/mUQkTg2ylMf2fxBdN
+	waMzKFXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgjxN-0000000EC8z-2nTE;
-	Fri, 16 Jan 2026 13:33:41 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgjxK-0000000EC8c-3UPO
+	id 1vgjyx-0000000ECH4-0Egn;
+	Fri, 16 Jan 2026 13:35:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgjyt-0000000ECGH-2vyN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 13:33:40 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-59b72c87109so135410e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 05:33:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768570416; x=1769175216; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=uJ0Kd+SlEJxKbaePbsW3EtzVjRrjQZdOLYvse/lYkyc=;
-        b=VztGMlv5qAhLlOvO1HeW8Iy6ZTMCAGHQoZX9Dq5L9QH/dkv9m2uqfgEm6OOoBgl+Co
-         4rPDRF35aApptTcH78Ul0eivjj6WytqlSMZfZcE5MlSgdCF4gEU7qH5UENcPVabFnOWh
-         SWd108gR9wl/LyGTKmNCq1NgubYqhFzGOCO356jcoke3k+NLEVzxRPLDt6ll/cLIwUOm
-         lMKPmaKN5VKcM+OG3QLkWaHZLlY1OOxotWirA1Lks1TmDcCIKgXkz9iguXj51Nw093QL
-         2M8flu4cMY62B9w6ajwFIoY23fUKbyQpq0gZ+AJPSG6pmYFD3KDsOcvOWdeYD53Bi50t
-         l8cw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768570416; x=1769175216;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uJ0Kd+SlEJxKbaePbsW3EtzVjRrjQZdOLYvse/lYkyc=;
-        b=IR2WubocfqYbn5eh+xU8aGsOx6DfflMba/9GFBrn/UvcBUrZEubdGaOMZ2Ht5ZCK3Z
-         M30HBGiofjobOqdsjn+/ES/2uconCUJinEtoimN9mSCPkAkh7TJrsRXEJAVIE/noMFNc
-         LNuLwKgRRoMR/qHv5oQHuAr2fr6LUrdoLITImUMGDhw6u3nEFWCL2ayRJJq4v6mgcyBL
-         Mi5wWtrchKzcKPJPUWCrmP+QITCr+u3hveqOsqxfedxVQWFZGk7bQJQE4l4e0QhKlouZ
-         pbSgSoAmBTddRiO84oQAMt5RXJ7CD2PckJMCTAH/BvMGSypuyOHE898o3LrDe9t05SWy
-         JRYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV3ka47uv/bR12VXv1yX43xSqJqJDmp8PLbuGc4ercKK5MoyB91kPUQ07ALZTpie8tjMvB/F7S8YWOt0P2YYokH@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoHMqHOl5KMCAUs3n1tGv/ce+k7ecT1jgc2VkbE0bDCwYFQeLP
-	308UnXogAcmrgpQzVkpxAZGahBrSdlkDmb6p9XKHoV9BT+ruVfsuf/d3
-X-Gm-Gg: AY/fxX5B26YBqwFB5eV9Dnzh4DKd+Ab833dJI5U2imHUidkcH75h2K7canDr9UENi+i
-	vDB00U4KeeRinUdh2HQBqqJ8npa6TfZphh+vzfWlw9n58KO+ym5ZGrSolPDN2bY/y2oVhnpf+Q5
-	pSBG+8/Tq0qqszoaJQXXf7ULUZsZ1+9CxzLykQ8f3avDW/Wgg1LBgCZQ4FxXj+ZE/FfgRLYsklm
-	zRA7NyqIUFpWePOJEjxtwlibKFXwGgItKOh2u8Wvi23lukN0n0/sSMupKNQF5qwWXQ8G2U/g6Xb
-	g4ADZBA7xav9+c2L0NKgCiXjYjW+BuYo8ofklfoM3SCrQmBGrfRopZ2IZT96h2JsVtandc7KWhi
-	vIowXuRJffJqV5NFE7kypXJ/Zpb1c2lpUqWJKwR9fRfRPbKPTrK4+5+h3CL02vzZWFCb79EV9uu
-	Q34D1m7LAbMSS4PtRyTg==
-X-Received: by 2002:a05:6512:6184:b0:59b:9fc6:f66 with SMTP id 2adb3069b0e04-59baeeffec8mr547766e87.4.1768570416127;
-        Fri, 16 Jan 2026 05:33:36 -0800 (PST)
-Received: from [10.214.35.248] ([80.93.240.68])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59baf34d572sm763752e87.24.2026.01.16.05.33.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Jan 2026 05:33:35 -0800 (PST)
-Message-ID: <c9841bb2-b82a-4daf-99fa-17aec157e2c2@gmail.com>
-Date: Fri, 16 Jan 2026 14:32:49 +0100
+	Fri, 16 Jan 2026 13:35:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E2CDA1515;
+	Fri, 16 Jan 2026 05:35:00 -0800 (PST)
+Received: from [10.57.66.155] (unknown [10.57.66.155])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3FB0B3F59E;
+	Fri, 16 Jan 2026 05:35:03 -0800 (PST)
+Message-ID: <c720119f-0991-4112-a080-829a7b2de908@arm.com>
+Date: Fri, 16 Jan 2026 13:35:00 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 02/14] kasan: arm64: x86: Make special tags arch
- specific
-To: Maciej Wieczor-Retman <m.wieczorretman@pm.me>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
- <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>
-Cc: Samuel Holland <samuel.holland@sifive.com>,
- Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
- linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
-References: <cover.1768233085.git.m.wieczorretman@pm.me>
- <be136bf8d1a6ae9ef98686c3ba0b6a4e2ea2e780.1768233085.git.m.wieczorretman@pm.me>
+Subject: Re: [PATCH v2 12/17] firmware: arm_scmi: Add Telemetry components
+ view
+To: Cristian Marussi <cristian.marussi@arm.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ arm-scmi@vger.kernel.org, linux-fsdevel@vger.kernel.org
+Cc: sudeep.holla@arm.com, james.quinlan@broadcom.com, f.fainelli@gmail.com,
+ vincent.guittot@linaro.org, etienne.carriere@st.com, peng.fan@oss.nxp.com,
+ michal.simek@amd.com, dan.carpenter@linaro.org, d-gole@ti.com,
+ jonathan.cameron@huawei.com, lukasz.luba@arm.com, philip.radford@arm.com,
+ souvik.chakravarty@arm.com, elif.topuz@arm.com
+References: <20260114114638.2290765-1-cristian.marussi@arm.com>
+ <20260114114638.2290765-13-cristian.marussi@arm.com>
 Content-Language: en-US
-From: Andrey Ryabinin <ryabinin.a.a@gmail.com>
-In-Reply-To: <be136bf8d1a6ae9ef98686c3ba0b6a4e2ea2e780.1768233085.git.m.wieczorretman@pm.me>
+From: Elif Topuz <elif.topuz@arm.com>
+In-Reply-To: <20260114114638.2290765-13-cristian.marussi@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_053338_936212_0E02FC68 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20260116_053515_827912_08353552 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,41 +71,758 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/12/26 6:27 PM, Maciej Wieczor-Retman wrote:
-> From: Samuel Holland <samuel.holland@sifive.com>
-> 
-> KASAN's tag-based mode defines multiple special tag values. They're
-> reserved for:
-> - Native kernel value. On arm64 it's 0xFF and it causes an early return
->   in the tag checking function.
-> - Invalid value. 0xFE marks an area as freed / unallocated. It's also
->   the value that is used to initialize regions of shadow memory.
-> - Min and max values. 0xFD is the highest value that can be randomly
->   generated for a new tag. 0 is the minimal value with the exception of
->   arm64's hardware mode where it is equal to 0xF0.
-> 
-> Metadata macro is also defined:
-> - Tag width equal to 8.
-> 
-> Tag-based mode on x86 is going to use 4 bit wide tags so all the above
-> values need to be changed accordingly.
-> 
-> Make tag width and native kernel tag arch specific for x86 and arm64.
-> 
-> Base the invalid tag value and the max value on the native kernel tag
-> since they follow the same pattern on both mentioned architectures.
-> 
-> Also generalize KASAN_SHADOW_INIT and 0xff used in various
-> page_kasan_tag* helpers.
-> 
-> Give KASAN_TAG_MIN the default value of zero, and move the special value
-> for hw_tags arm64 to its arch specific kasan-tags.h.
-> 
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> Co-developed-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
-> Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
-> Acked-by: Will Deacon <will@kernel.org> (for the arm part)
-> ---
 
-Reviewed-by: Andrey Ryabinin <ryabinin.a.a@gmail.com>
+Hi Cristian,
+
+On 14/01/2026 11:46, Cristian Marussi wrote:
+> Add an alternative filesystem view for the discovered Data Events, where
+> the tree of DEs is laid out following the discovered topological order
+> instead of the existing flat layout.
+> 
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> ---
+> v1 --> v2
+>  - Use new FS API
+>  - Introduce new stlmfs_lookup_by_name helper
+> ---
+>  .../firmware/arm_scmi/scmi_system_telemetry.c | 684 ++++++++++++++++++
+>  1 file changed, 684 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_scmi/scmi_system_telemetry.c b/drivers/firmware/arm_scmi/scmi_system_telemetry.c
+> index 721de615bec3..1221520356fd 100644
+> --- a/drivers/firmware/arm_scmi/scmi_system_telemetry.c
+> +++ b/drivers/firmware/arm_scmi/scmi_system_telemetry.c
+> @@ -174,6 +174,7 @@ struct scmi_tlm_inode {
+>   * @top_dentry: A reference to the top dentry for this instance.
+>   * @des_dentry: A reference to the DES dentry for this instance.
+>   * @grps_dentry: A reference to the groups dentry for this instance.
+> + * @compo_dentry: A reference to the components dentry for this instance.
+>   * @info: A handy reference to this instance SCMI Telemetry info data.
+>   *
+>   */
+> @@ -188,6 +189,7 @@ struct scmi_tlm_instance {
+>  	struct dentry *top_dentry;
+>  	struct dentry *des_dentry;
+>  	struct dentry *grps_dentry;
+> +	struct dentry *compo_dentry;
+>  	const struct scmi_telemetry_info *info;
+>  };
+>  
+> @@ -196,6 +198,526 @@ static int scmi_telemetry_instance_register(struct super_block *sb,
+>  
+>  static LIST_HEAD(scmi_telemetry_instances);
+>  
+> +#define TYPES_ARRAY_SZ		256
+> +
+> +static const char *compo_types[TYPES_ARRAY_SZ] = {
+> +	"unspec",
+> +	"cpu",
+> +	"cluster",
+> +	"gpu",
+> +	"npu",
+> +	"interconnnect",
+> +	"mem_cntrl",
+> +	"l1_cache",
+> +	"l2_cache",
+> +	"l3_cache",
+> +	"ll_cache",
+> +	"sys_cache",
+> +	"disp_cntrl",
+> +	"ipu",
+> +	"chiplet",
+> +	"package",
+> +	"soc",
+> +	"system",
+> +	"smcu",
+> +	"accel",
+> +	"battery",
+> +	"charger",
+> +	"pmic",
+> +	"board",
+> +	"memory",
+> +	"periph",
+> +	"periph_subc",
+> +	"lid",
+> +	"display",
+> +	"res_29",
+> +	"res_30",
+> +	"res_31",
+> +	"res_32",
+> +	"res_33",
+> +	"res_34",
+> +	"res_35",
+> +	"res_36",
+> +	"res_37",
+> +	"res_38",
+> +	"res_39",
+> +	"res_40",
+> +	"res_41",
+> +	"res_42",
+> +	"res_43",
+> +	"res_44",
+> +	"res_45",
+> +	"res_46",
+> +	"res_47",
+> +	"res_48",
+> +	"res_49",
+> +	"res_50",
+> +	"res_51",
+> +	"res_52",
+> +	"res_53",
+> +	"res_54",
+> +	"res_55",
+> +	"res_56",
+> +	"res_57",
+> +	"res_58",
+> +	"res_59",
+> +	"res_60",
+> +	"res_61",
+> +	"res_62",
+> +	"res_63",
+> +	"res_64",
+> +	"res_65",
+> +	"res_66",
+> +	"res_67",
+> +	"res_68",
+> +	"res_69",
+> +	"res_70",
+> +	"res_71",
+> +	"res_72",
+> +	"res_73",
+> +	"res_74",
+> +	"res_75",
+> +	"res_76",
+> +	"res_77",
+> +	"res_78",
+> +	"res_79",
+> +	"res_80",
+> +	"res_81",
+> +	"res_82",
+> +	"res_83",
+> +	"res_84",
+> +	"res_85",
+> +	"res_86",
+> +	"res_87",
+> +	"res_88",
+> +	"res_89",
+> +	"res_90",
+> +	"res_91",
+> +	"res_92",
+> +	"res_93",
+> +	"res_94",
+> +	"res_95",
+> +	"res_96",
+> +	"res_97",
+> +	"res_98",
+> +	"res_99",
+> +	"res_100",
+> +	"res_101",
+> +	"res_102",
+> +	"res_103",
+> +	"res_104",
+> +	"res_105",
+> +	"res_106",
+> +	"res_107",
+> +	"res_108",
+> +	"res_109",
+> +	"res_110",
+> +	"res_111",
+> +	"res_112",
+> +	"res_113",
+> +	"res_114",
+> +	"res_115",
+> +	"res_116",
+> +	"res_117",
+> +	"res_118",
+> +	"res_119",
+> +	"res_120",
+> +	"res_121",
+> +	"res_122",
+> +	"res_123",
+> +	"res_124",
+> +	"res_125",
+> +	"res_126",
+> +	"res_127",
+> +	"res_128",
+> +	"res_129",
+> +	"res_130",
+> +	"res_131",
+> +	"res_132",
+> +	"res_133",
+> +	"res_134",
+> +	"res_135",
+> +	"res_136",
+> +	"res_137",
+> +	"res_138",
+> +	"res_139",
+> +	"res_140",
+> +	"res_141",
+> +	"res_142",
+> +	"res_143",
+> +	"res_144",
+> +	"res_145",
+> +	"res_146",
+> +	"res_147",
+> +	"res_148",
+> +	"res_149",
+> +	"res_150",
+> +	"res_151",
+> +	"res_152",
+> +	"res_153",
+> +	"res_154",
+> +	"res_155",
+> +	"res_156",
+> +	"res_157",
+> +	"res_158",
+> +	"res_159",
+> +	"res_160",
+> +	"res_161",
+> +	"res_162",
+> +	"res_163",
+> +	"res_164",
+> +	"res_165",
+> +	"res_166",
+> +	"res_167",
+> +	"res_168",
+> +	"res_169",
+> +	"res_170",
+> +	"res_171",
+> +	"res_172",
+> +	"res_173",
+> +	"res_174",
+> +	"res_175",
+> +	"res_176",
+> +	"res_177",
+> +	"res_178",
+> +	"res_179",
+> +	"res_180",
+> +	"res_181",
+> +	"res_182",
+> +	"res_183",
+> +	"res_184",
+> +	"res_185",
+> +	"res_186",
+> +	"res_187",
+> +	"res_188",
+> +	"res_189",
+> +	"res_190",
+> +	"res_191",
+> +	"res_192",
+> +	"res_193",
+> +	"res_194",
+> +	"res_195",
+> +	"res_196",
+> +	"res_197",
+> +	"res_198",
+> +	"res_199",
+> +	"res_200",
+> +	"res_201",
+> +	"res_202",
+> +	"res_203",
+> +	"res_204",
+> +	"res_205",
+> +	"res_206",
+> +	"res_207",
+> +	"res_208",
+> +	"res_209",
+> +	"res_210",
+> +	"res_211",
+> +	"res_212",
+> +	"res_213",
+> +	"res_214",
+> +	"res_215",
+> +	"res_216",
+> +	"res_217",
+> +	"res_218",
+> +	"res_219",
+> +	"res_220",
+> +	"res_221",
+> +	"res_222",
+> +	"res_223",
+> +	"oem_224",
+> +	"oem_225",
+> +	"oem_226",
+> +	"oem_227",
+> +	"oem_228",
+> +	"oem_229",
+> +	"oem_230",
+> +	"oem_231",
+> +	"oem_232",
+> +	"oem_233",
+> +	"oem_234",
+> +	"oem_235",
+> +	"oem_236",
+> +	"oem_237",
+> +	"oem_238",
+> +	"oem_239",
+> +	"oem_240",
+> +	"oem_241",
+> +	"oem_242",
+> +	"oem_243",
+> +	"oem_244",
+> +	"oem_245",
+> +	"oem_246",
+> +	"oem_247",
+> +	"oem_248",
+> +	"oem_249",
+> +	"oem_250",
+> +	"oem_251",
+> +	"oem_252",
+> +	"oem_253",
+> +	"oem_254",
+> +	"oem_255",
+> +};
+> +
+> +static const char *unit_types[TYPES_ARRAY_SZ] = {
+> +	"none",
+> +	"unspec",
+> +	"celsius",
+> +	"fahrenheit",
+> +	"kelvin",
+> +	"volts",
+> +	"amps",
+> +	"watts",
+> +	"joules",
+> +	"coulombs",
+> +	"va",
+> +	"nits",
+> +	"lumens",
+> +	"lux",
+> +	"candelas",
+> +	"kpa",
+> +	"psi",
+> +	"newtons",
+> +	"cfm",
+> +	"rpm",
+> +	"hertz",
+> +	"seconds",
+> +	"minutes",
+> +	"hours",
+> +	"days",
+> +	"weeks",
+> +	"mils",
+> +	"inches",
+> +	"feet",
+> +	"cubic_inches",
+> +	"cubic_feet",
+> +	"meters",
+> +	"cubic_centimeters",
+> +	"cubic_meters",
+> +	"liters",
+> +	"fluid_ounces",
+> +	"radians",
+> +	"steradians",
+> +	"revolutions",
+> +	"cycles",
+> +	"gravities",
+> +	"ounces",
+> +	"pounds",
+> +	"foot_pounds",
+> +	"ounce_inches",
+> +	"gauss",
+> +	"gilberts",
+> +	"henries",
+> +	"farads",
+> +	"ohms",
+> +	"siemens",
+> +	"moles",
+> +	"becquerels",
+> +	"ppm",
+> +	"decibels",
+> +	"dba",
+> +	"dbc",
+> +	"grays",
+> +	"sieverts",
+> +	"color_temp_kelvin",
+> +	"bits",
+> +	"bytes",
+> +	"words",
+> +	"dwords",
+> +	"qwords",
+> +	"percentage",
+> +	"pascals",
+> +	"counts",
+> +	"grams",
+> +	"newton_meters",
+> +	"hits",
+> +	"misses",
+> +	"retries",
+> +	"overruns",
+> +	"underruns",
+> +	"collisions",
+> +	"packets",
+> +	"messages",
+> +	"chars",
+> +	"errors",
+> +	"corrected_err",
+> +	"uncorrectable_err",
+> +	"square_mils",
+> +	"square_inches",
+> +	"square_feet",
+> +	"square_centimeters",
+> +	"square_meters",
+> +	"radians_per_secs",
+> +	"beats_per_minute",
+> +	"meters_per_secs_squared",
+> +	"meters_per_secs",
+> +	"cubic_meter_per_secs",
+> +	"millimeters_mercury",
+> +	"radians_per_secs_squared",
+> +	"state",
+> +	"bps",
+> +	"res_96",
+> +	"res_97",
+> +	"res_98",
+> +	"res_99",
+> +	"res_100",
+> +	"res_101",
+> +	"res_102",
+> +	"res_103",
+> +	"res_104",
+> +	"res_105",
+> +	"res_106",
+> +	"res_107",
+> +	"res_108",
+> +	"res_109",
+> +	"res_110",
+> +	"res_111",
+> +	"res_112",
+> +	"res_113",
+> +	"res_114",
+> +	"res_115",
+> +	"res_116",
+> +	"res_117",
+> +	"res_118",
+> +	"res_119",
+> +	"res_120",
+> +	"res_121",
+> +	"res_122",
+> +	"res_123",
+> +	"res_124",
+> +	"res_125",
+> +	"res_126",
+> +	"res_127",
+> +	"res_128",
+> +	"res_129",
+> +	"res_130",
+> +	"res_131",
+> +	"res_132",
+> +	"res_133",
+> +	"res_134",
+> +	"res_135",
+> +	"res_136",
+> +	"res_137",
+> +	"res_138",
+> +	"res_139",
+> +	"res_140",
+> +	"res_141",
+> +	"res_142",
+> +	"res_143",
+> +	"res_144",
+> +	"res_145",
+> +	"res_146",
+> +	"res_147",
+> +	"res_148",
+> +	"res_149",
+> +	"res_150",
+> +	"res_151",
+> +	"res_152",
+> +	"res_153",
+> +	"res_154",
+> +	"res_155",
+> +	"res_156",
+> +	"res_157",
+> +	"res_158",
+> +	"res_159",
+> +	"res_160",
+> +	"res_161",
+> +	"res_162",
+> +	"res_163",
+> +	"res_164",
+> +	"res_165",
+> +	"res_166",
+> +	"res_167",
+> +	"res_168",
+> +	"res_169",
+> +	"res_170",
+> +	"res_171",
+> +	"res_172",
+> +	"res_173",
+> +	"res_174",
+> +	"res_175",
+> +	"res_176",
+> +	"res_177",
+> +	"res_178",
+> +	"res_179",
+> +	"res_180",
+> +	"res_181",
+> +	"res_182",
+> +	"res_183",
+> +	"res_184",
+> +	"res_185",
+> +	"res_186",
+> +	"res_187",
+> +	"res_188",
+> +	"res_189",
+> +	"res_190",
+> +	"res_191",
+> +	"res_192",
+> +	"res_193",
+> +	"res_194",
+> +	"res_195",
+> +	"res_196",
+> +	"res_197",
+> +	"res_198",
+> +	"res_199",
+> +	"res_200",
+> +	"res_201",
+> +	"res_202",
+> +	"res_203",
+> +	"res_204",
+> +	"res_205",
+> +	"res_206",
+> +	"res_207",
+> +	"res_208",
+> +	"res_209",
+> +	"res_210",
+> +	"res_211",
+> +	"res_212",
+> +	"res_213",
+> +	"res_214",
+> +	"res_215",
+> +	"res_216",
+> +	"res_217",
+> +	"res_218",
+> +	"res_219",
+> +	"res_220",
+> +	"res_221",
+> +	"res_222",
+> +	"res_223",
+> +	"res_224",
+> +	"res_225",
+> +	"res_226",
+> +	"res_227",
+> +	"res_228",
+> +	"res_229",
+> +	"res_230",
+> +	"res_231",
+> +	"res_232",
+> +	"res_233",
+> +	"res_234",
+> +	"res_235",
+> +	"res_236",
+> +	"res_237",
+> +	"res_238",
+> +	"res_239",
+> +	"res_240",
+> +	"res_241",
+> +	"res_242",
+> +	"res_243",
+> +	"res_244",
+> +	"res_245",
+> +	"res_246",
+> +	"res_247",
+> +	"res_248",
+> +	"res_249",
+> +	"res_250",
+> +	"res_251",
+> +	"res_252",
+> +	"res_253",
+> +	"res_254",
+> +	"oem_unit",
+> +};
+> +
+>  static struct inode *stlmfs_get_inode(struct super_block *sb)
+>  {
+>  	struct inode *inode = new_inode(sb);
+> @@ -815,6 +1337,18 @@ DEFINE_TLM_CLASS(persistent_tlmo, "persistent", 0,
+>  DEFINE_TLM_CLASS(value_tlmo, "value", 0,
+>  		 S_IFREG | S_IRUSR, &de_read_fops, NULL);
+>  
+> +static inline struct dentry *
+> +stlmfs_lookup_by_name(struct dentry *parent, const char *dname)
+> +{
+> +	struct qstr qstr;
+> +
+> +	qstr.name = dname;
+> +	qstr.len = strlen(dname);
+> +	qstr.hash = full_name_hash(parent, qstr.name, qstr.len);
+> +
+> +	return d_lookup(parent, &qstr);
+> +}
+> +
+>  static int scmi_telemetry_de_populate(struct super_block *sb,
+>  				      struct scmi_tlm_setup *tsp,
+>  				      struct dentry *parent,
+> @@ -1659,6 +2193,150 @@ static struct dentry *stlmfs_create_root_dentry(struct super_block *sb)
+>  	return dentry;
+>  }
+>  
+> +static int scmi_telemetry_de_subdir_symlink(struct super_block *sb,
+> +					    struct scmi_tlm_setup *tsp,
+> +					    const struct scmi_telemetry_de *de,
+> +					    struct dentry *parent)
+> +{
+> +	struct dentry *dentry;
+> +	struct inode *inode;
+> +	int ret;
+I notice that ret isn't assigned a value and the function returns ret without
+initialising.
+
+> +
+> +	if (IS_ERR(parent))
+> +		return 0;
+> +
+> +	char *name __free(kfree) = kasprintf(GFP_KERNEL, "0x%08X", de->info->id);
+> +	if (!name)
+> +		return -ENOMEM;
+> +
+> +	char *link __free(kfree) =
+> +		kasprintf(GFP_KERNEL, "../../../../../des/0x%08X", de->info->id);
+> +	if (!link)
+> +		return -ENOMEM;
+> +
+> +	dentry = simple_start_creating(parent, name);
+> +	if (IS_ERR(dentry))
+> +		return PTR_ERR(dentry);
+> +
+> +	inode = stlmfs_get_inode(sb);
+> +	if (unlikely(!inode)) {
+> +		dev_err(tsp->dev,
+> +			"out of free dentries, cannot create '%s'", name);
+> +		return stlmfs_failed_creating(dentry);
+> +	}
+> +
+> +	inode->i_mode = S_IFLNK | 0777;
+> +	inode->i_op = &simple_symlink_inode_operations;
+> +	inode_init_owner(&nop_mnt_idmap, inode, NULL, inode->i_mode);
+> +	inode->i_link = no_free_ptr(link);
+> +
+> +	//d_add(dentry, inode);
+> +	d_make_persistent(dentry, inode);
+> +
+> +	simple_done_creating(dentry);
+> +
+> +	return ret;
+> +}
+> +
+> +static struct dentry *
+> +scmi_telemetry_topology_path_get(struct super_block *sb,
+> +				 struct scmi_tlm_setup *tsp,
+> +				 struct dentry *parent, const char *dname)
+> +{
+> +	struct dentry *dentry;
+> +
+> +	dentry = stlmfs_lookup_by_name(parent, dname);
+> +	if (!dentry) {
+> +		struct scmi_tlm_class *dir_tlm_cls __free(kfree) =
+> +			kzalloc(sizeof(*dir_tlm_cls), GFP_KERNEL);
+> +		if (!dir_tlm_cls)
+> +			return NULL;
+> +
+> +		dir_tlm_cls->name = kasprintf(GFP_KERNEL, "%s", dname);
+> +		if (!dir_tlm_cls->name)
+> +			return NULL;
+> +
+> +		dir_tlm_cls->mode = S_IFDIR | S_IRWXU;
+> +		dir_tlm_cls->flags = TLM_IS_DYNAMIC;
+> +
+> +		dentry = stlmfs_create_dentry(sb, tsp, parent,
+> +					      dir_tlm_cls, NULL);
+> +		if (!IS_ERR(dentry))
+> +			retain_and_null_ptr(dir_tlm_cls);
+> +	}
+> +
+> +	return dentry;
+> +}
+> +
+> +static int scmi_telemetry_topology_add_node(struct super_block *sb,
+> +					    struct scmi_tlm_instance *ti,
+> +					    const struct scmi_telemetry_de *de)
+> +{
+> +	struct dentry *ctype, *cinst, *cunit, *dinst;
+> +	struct scmi_tlm_de_info *dei = de->info;
+> +	char inst_str[32];
+> +	int ret;
+> +
+> +	/* by_compo_type/<COMPO_TYPE_STR>/ */
+> +	ctype = scmi_telemetry_topology_path_get(sb, ti->tsp, ti->compo_dentry,
+> +						 compo_types[dei->compo_type]);
+> +	if (!ctype)
+> +		return -ENOMEM;
+> +
+> +	/* by_compo_type/<COMPO_TYPE_STR>/<N>/ */
+> +	snprintf(inst_str, 32, "%u", dei->compo_instance_id);
+> +	cinst = scmi_telemetry_topology_path_get(sb, ti->tsp, ctype, inst_str);
+> +	dput(ctype);
+> +	if (!cinst)
+> +		return -ENOMEM;
+> +
+> +	/* by_compo_type/<COMPO_TYPE_STR>/<N>/<DE_UNIT_TYPE_STR>/ */
+> +	cunit = scmi_telemetry_topology_path_get(sb, ti->tsp, cinst,
+> +						 unit_types[dei->unit]);
+> +	dput(cinst);
+> +	if (!cunit)
+> +		return -ENOMEM;
+> +
+> +	/* by_compo_type/<COMPO_TYPE_STR>/<N>/<DE_UNIT_TYPE_STR>/<N> */
+> +	snprintf(inst_str, 32, "%u", dei->instance_id);
+> +	dinst = scmi_telemetry_topology_path_get(sb, ti->tsp, cunit, inst_str);
+> +	dput(cunit);
+> +	if (!dinst)
+> +		return -ENOMEM;
+> +
+> +	ret = scmi_telemetry_de_subdir_symlink(sb, ti->tsp, de, dinst);
+> +	dput(dinst);
+> +
+> +	return ret;
+> +}
+> +
+> +DEFINE_TLM_CLASS(compo_dir_cls, "components", 0, S_IFDIR | S_IRWXU, NULL, NULL);
+> +
+> +static int scmi_telemetry_topology_view_add(struct scmi_tlm_instance *ti)
+> +{
+> +	const struct scmi_telemetry_res_info *rinfo;
+> +	struct scmi_tlm_setup *tsp = ti->tsp;
+> +	struct device *dev = tsp->dev;
+> +
+> +	rinfo = scmi_telemetry_res_info_get(tsp);
+> +	if (!rinfo || !rinfo->fully_enumerated)
+> +		return -ENODEV;
+> +
+> +	ti->compo_dentry =
+> +		stlmfs_create_dentry(ti->sb, tsp, ti->top_dentry, &compo_dir_cls, NULL);
+> +
+> +	for (int i = 0; i < rinfo->num_des; i++) {
+> +		int ret;
+> +
+> +		ret = scmi_telemetry_topology_add_node(ti->sb, ti, rinfo->des[i]);
+> +		if (ret)
+> +			dev_err(dev, "Fail to add node %s to topology. Skip.\n",
+> +				rinfo->des[i]->info->name);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static int scmi_tlm_root_dentries_initialize(struct scmi_tlm_instance *ti)
+>  {
+>  	struct scmi_tlm_setup *tsp = ti->tsp;
+> @@ -1712,6 +2390,12 @@ static int scmi_telemetry_instance_register(struct super_block *sb,
+>  			 ti->top_cls.name);
+>  	}
+>  
+> +	ret = scmi_telemetry_topology_view_add(ti);
+> +	if (ret)
+> +		dev_warn(ti->tsp->dev,
+> +			 "Failed to create topology view for instance %s.\n",
+> +			 ti->top_cls.name);
+> +
+>  	return 0;
+>  }
+>  
+
+I will continue reviewing,
+Thanks,
+Elif
 
