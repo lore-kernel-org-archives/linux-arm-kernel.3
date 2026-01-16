@@ -4,92 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A3EC98303
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 20:00:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E6BFC98301
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 20:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DGbPPoXy/VbK4qXGtABm8Nu2UOw6xSYC7oeE8YmhQMI=; b=MnwEia4tGeqOTJK5thEnjLTamy
-	5sFbEWzxYFWaaydWGqHgl++JCyukXDB5O/Tilp4piPYeyXn6T62GNqKhyG6zzNNtorqs5or7r5svJ
-	/rlQvHY6mwXCmxmvssobQeTUwfNqGQrqqZyA3W0Cayfwo6h8jcmBIQqa5kcP7n5Tp0wj2GshyC1BY
-	FJ1TnCi+u9jKhEekE9LO5MVh8Cf6osYQCWRGOayUxR79sDMBFt65eGKagdSljj/UMGJMT6N4JTA/J
-	Z1CkjSxB1zHsPbtiHHN5iB60/w8BEy+VD2bLsEEO7ERp6v4UMTUY1j49ZasKQSChmrRUK3VrWhVwz
-	B5ZC8/1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wWaFz2wgfe4zdqlsfrjYk4d5sFBpE0mayxuwBctGAZE=; b=QEe5Jeb+A/mc/4pwjZVF29MHHG
+	UhWF2j73a8V6kqhWbVtm7HmJlDGpfzu02xQz+7wviqZznUygRFmxhJUhF9KnMRSo8DYi+UpXdNLgf
+	b8dA18C1sNmhBPaJPqO8l7KEfyJOdQd5hbp//yDwlTq6gCxeoBXvwWxT5/cHrTusPr3zhv27dOzWd
+	l/ReYHEPJIB42zRDeTteNl2nMCsykM+Lgx9U9obvPkXv2WpyA/aF/P+OQALvGq8RzI9JDaF8FIWsB
+	gdpXaFMF6bJdEZyjCBTFmkrujmM9rbY+3HwqoaL9ysQVWRL7+waJTpRNLEUDdt0LD6SBPXcahIwjp
+	5wIGHNKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgq01-0000000EjQX-3Yoa;
-	Fri, 16 Jan 2026 20:00:49 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1vgq0h-0000000Ejbo-14LO;
+	Fri, 16 Jan 2026 20:01:31 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgpzz-0000000EjPw-2csG
+	id 1vgq0e-0000000EjbH-1nkc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 20:00:48 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c47ee987401so1010886a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 12:00:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1768593647; x=1769198447; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DGbPPoXy/VbK4qXGtABm8Nu2UOw6xSYC7oeE8YmhQMI=;
-        b=DwEZtprTlyFsDYJhx4F6B9BNnTNjZtYdwdeE2vHgYpL6cpen64vmMPOHcjTiTt9Db9
-         mo2SFkdYBwhBVBmIu+dhbgtDP5tPRbrEhzMUkZkWIZIgfeEgjZrUPC0n+E4x/Aa8xIJx
-         inNZv72UG0yOfRa3dvEnQkOz9p627zURczDuklyfzf4UWTL9vdYushOcPN47eaxS3tLR
-         HzQ45ErdSmis0NSUKN8XSS985TBsW7gUj/F2jo10jLAM5fpQBZr9GDD0qR6Sz4d8TbNo
-         TFPcpxCO/7vKf+B0uzuQ/S39SAD8f9+LrrEhi1+Ri9KveyZa331EjUDJlpyKFVGX6804
-         ze3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768593647; x=1769198447;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DGbPPoXy/VbK4qXGtABm8Nu2UOw6xSYC7oeE8YmhQMI=;
-        b=ZBj725T2QWxU7D37k6IyZCokePGlsPTyYrKXs0pun1OAEU/Sl7f35TQoiA/lyCsaKp
-         bGE5cMAoeMc3UUMJpIUi2B4wOsdk6D9IeHW3MRnx+g/z2LNTVDf4FuX1aVg7Vky3KTNV
-         Yo8Go2dkDb7wvZAZoCWWkdgjfFRBQR+CtDS3yx3B8lyzn1KiiChiYNht8B0fF+MqLIXF
-         3iI0V13r7I9KcZMHxEfcwfunN6Hymb4Ht6PM6wkOR3HuItuAkyvBRQyJRZGZ//9RKIpz
-         i2mwK7Fps2ob8GhDvDWsOu5h5r5UNuCt+PAeKQ69xY7f3Ecoku8a7JmqXkq9z6LJ2rRK
-         n4WQ==
-X-Forwarded-Encrypted: i=1; AJvYcCULYczVppbRPlTXs5hlmG9rwgYg7sXVt+WEF1mDDUuPXBcxVwj2icaCoh/15EWjSZ+zp6aGrQkeaLxreySMf64Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmVEFLJUiaKBSkPOV+tu2f/YeVDUsA19QG2H8/MPEGCFZi+wH1
-	CoAHnROP2r2GiQclfBg/zaaD3hdya22RU6qntBTplpDfZiMba7FwsptA/fZTMa2Foec=
-X-Gm-Gg: AY/fxX6PQrpVcxto6BUPtYC3mggHHXJA0nYt0snimNozayf8z6/MrZ0CsqAUBDo58zF
-	DyprjmA/OVE7sJTSE8QE6yQnSvo+bfsFbMDA5Ac41LoHv3N5JCG+E6krz5rnAkAOj2y1Ue9bKn0
-	9Pmv8yWoeIG+sBOApoJ2UZGNSbMitBMiNhu7RpU0kJSLTm5VA5hHQeES0V678/CM+raI9RANHPR
-	4yN/Oa2C4dKC3VDoCVUgOI7SOY2cxRbOJvjutMU6JqM81wpjtsktLm42qB4oFFZjs5bkBIOGrR4
-	GvQOhkXyQI+ZbssLO3DPFYbkR56uHqCiajO3+2AyXx0b98DFyxWAnvYc8HhmJpDdBHI1usiRlJy
-	8L6/hIULq0Yf2FuHCYwA4hRY6Jt1c9ESUuo6JZKmDk0QkK84ddfSMBiSqWudbEw8VUX6qYxqKU7
-	rSXM5d6W550X5quR7veIT8sejOySvmBufls+bolDY1kkrd82TMWgT78RPfJT9lMqkyHm1oBRc=
-X-Received: by 2002:a17:90b:4d09:b0:343:747e:2ca4 with SMTP id 98e67ed59e1d1-35272c8de8dmr3516213a91.9.1768593646505;
-        Fri, 16 Jan 2026 12:00:46 -0800 (PST)
-Received: from smtpclient.apple (c-24-16-26-157.hsd1.wa.comcast.net. [24.16.26.157])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3527312381dsm2750075a91.14.2026.01.16.12.00.45
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 16 Jan 2026 12:00:45 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
-Subject: Re: [PATCH] spi: xilinx: use device property accessors.
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-In-Reply-To: <12f527c6-7728-4512-a4f1-08c778627ea8@lunn.ch>
-Date: Fri, 16 Jan 2026 12:00:35 -0800
-Cc: Mark Brown <broonie@kernel.org>,
- Michal Simek <michal.simek@amd.com>,
- linux-spi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <87C51F3B-7770-4BFA-8BBC-5E83A71920E1@nexthop.ai>
-References: <20260115003328.26095-1-abdurrahman@nexthop.ai>
- <12f527c6-7728-4512-a4f1-08c778627ea8@lunn.ch>
-To: Andrew Lunn <andrew@lunn.ch>
-X-Mailer: Apple Mail (2.3864.300.41.1.7)
+	Fri, 16 Jan 2026 20:01:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=wWaFz2wgfe4zdqlsfrjYk4d5sFBpE0mayxuwBctGAZE=; b=VSy9zeuvnsW2ekUYA3DEa3DICC
+	7TXp13Zr8anfGy0endwSwcwQhSS8PoFxCj15FO5P3J5jNhZXipWvCwWSdpTroBBLY9FquGv+3nBQF
+	M0smljE0hv1RBFINQcL6mt/pWZdjUoH9zOjF3fXK/4EQIwQpCL7kYzLRmgCAAXmgoGoezYsMuUS9/
+	aGIv6n4R5tovr0ZpKZ/qslquF2th9wItC3rt4baUzJ7l6F8YI2yo9WElB5mfC3eIGjOXovXJwuR+l
+	RLDsnwlOMp9UvJpaZ4dBfBwgrvPRl8PSrrMk8mPwBkldwMcDxcwBMleE4FAlF8SILYamdkdJBYwV7
+	p70eEfaw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47948)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vgq0Z-000000002cl-1Ixf;
+	Fri, 16 Jan 2026 20:01:23 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vgq0W-000000003rp-0MPl;
+	Fri, 16 Jan 2026 20:01:20 +0000
+Date: Fri, 16 Jan 2026 20:01:19 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
+	Arnd Bergmann <arnd@arndb.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	"Yadi.hu" <yadi.hu@windriver.com>, Bryan Brattlof <bb@ti.com>
+Subject: Re: [PATCH v4 1/2] ARM: mm: fault: Enable interrupts before invoking
+ __do_user_fault()
+Message-ID: <aWqZDwxUtaE1yP28@shell.armlinux.org.uk>
+References: <20260116170041.1059997-1-bigeasy@linutronix.de>
+ <20260116170041.1059997-2-bigeasy@linutronix.de>
+ <aWp2fKGfIQKJ8wze@shell.armlinux.org.uk>
+ <20260116181201.v-z31XJY@linutronix.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260116181201.v-z31XJY@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_120047_670058_C959AEC3 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20260116_120128_735989_2960523D 
+X-CRM114-Status: GOOD (  20.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,27 +84,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jan 16, 2026 at 07:12:01PM +0100, Sebastian Andrzej Siewior wrote:
+> On 2026-01-16 17:33:48 [+0000], Russell King (Oracle) wrote:
+> > On Fri, Jan 16, 2026 at 06:00:40PM +0100, Sebastian Andrzej Siewior wrote:
+> > > From: "Yadi.hu" <yadi.hu@windriver.com>
+> > > 
+> > > A page fault from userland for a kernel address originates from from
+> > > do_sect_fault() (!LPAE) or do_page_fault() and ends in __do_user_fault()
+> > > by sending a signal.
+> > > 
+> > > Sending a signal requires to acquire sighand_struct::siglock which is a
+> > > spinlock_t. On PREEMPT_RT spinlock_t becomes a sleeping spin lock which
+> > > requires interrupts to be enabled. Since the calling context is user
+> > > land, interrupts must have been enabled so it is fine to enable them in
+> > > this case.
+> > > 
+> > > Enable interrupts in do_kernel_address_page_fault() unconditional in the
+> > > user_mode case().
+> > > Enable interrupts in do_sect_fault() if they were previously enabled.
+> > 
+> > Do you need any of this? __do_user_fault() now calls
+> > local_irq_enable() as almost the first thing it does.
+> 
+> Different path(s):
+> 
+> LPAE
+> | BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
+> | in_atomic(): 0, irqs_disabled(): 128, non_block: 0, pid: 639, name: arm-segfault
+> | preempt_count: 0, expected: 0
+> | RCU nest depth: 0, expected: 0
+> | CPU: 0 UID: 0 PID: 639 Comm: arm-segfault3 Tainted: G        W           6.19.0-rc5-dirty #7 PREEMPT_RT
+> | Tainted: [W]=WARN
+> | Hardware name: QEMU QEMU Virtual Machine, BIOS unknown 02/02/2022
+> | Call trace:
+> |  unwind_backtrace from show_stack+0x18/0x1c
+> |  show_stack from dump_stack_lvl+0x34/0x44
+> |  dump_stack_lvl from __might_resched+0x180/0x1c0
+> |  __might_resched from rt_spin_lock+0x3c/0x1f0
+> |  rt_spin_lock from force_sig_info_to_task+0x24/0x184
+> |  force_sig_info_to_task from force_sig_fault+0x50/0x74
+> |  force_sig_fault from do_kernel_address_page_fault+0xa8/0xb4
+> |  do_kernel_address_page_fault from do_DataAbort+0x38/0xac
+> |  do_DataAbort from __dabt_usr+0x50/0x60
+> 
+> !LPAE
+> | BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
+> | in_atomic(): 0, irqs_disabled(): 128, non_block: 0, pid: 622, name: arm-segfault
+> | preempt_count: 0, expected: 0
+> | RCU nest depth: 0, expected: 0
+> | CPU: 0 UID: 0 PID: 622 Comm: arm-segfault Tainted: G        W           6.19.0-rc5-dirty #8 PREEMPT_RT
+> | Tainted: [W]=WARN
+> | Hardware name: QEMU QEMU Virtual Machine, BIOS unknown 02/02/2022
+> | Call trace:
+> |  unwind_backtrace from show_stack+0x18/0x1c
+> |  show_stack from dump_stack_lvl+0x34/0x44
+> |  dump_stack_lvl from __might_resched+0x180/0x1c0
+> |  __might_resched from rt_spin_lock+0x3c/0x1f0
+> |  rt_spin_lock from force_sig_info_to_task+0x24/0x184
+> |  force_sig_info_to_task from force_sig_fault+0x50/0x74
+> |  force_sig_fault from do_sect_fault+0x30/0x80
+> |  do_sect_fault from do_DataAbort+0x44/0xb8
+> |  do_DataAbort from __dabt_usr+0x50/0x60
 
+Right, because I haven't pushed all the patches out. What was pushed out
+was the basic set of fixes during the last merge window:
 
-> On Jan 16, 2026, at 7:23=E2=80=AFAM, Andrew Lunn <andrew@lunn.ch> =
-wrote:
->=20
-> On Thu, Jan 15, 2026 at 12:33:28AM +0000, Abdurrahman Hussain wrote:
->> This makes the driver work on non-OF platforms.
->> Also, make irq optional, since the driver can already work in
->> polling mode.
->=20
-> Are you saying ACPI cannot describe interrupts?
->=20
->    Andrew
+fd2dee1c6e22 ARM: fix branch predictor hardening (fixes)
+7733bc7d299d ARM: fix hash_name() fault
+40b466db1dff ARM: allow __do_kernel_fault() to report execution of memory faults
+dea20281ac88 ARM: group is_permission_fault() with is_translation_fault()
+edb924a7211c ARM: 9464/1: fix input-only operand modification in load_unaligned_zeropad()
 
-It can. We have enabled the interrupts through ACPI on Xilinx I2C block =
-and it works great.
-For the SPI block we currently have an issue with our FPGA. Luckily the =
-driver works just fine in the polling mode. By just making the =
-interrupts optional makes the same driver usable on a wider range of =
-hardware platforms, with or without the interrupts.
+which were sent out on the 8th December, but I still have these:
 
-Thanks,
-Abdurrahman=20=
+1055c9d604f9 ARM: provide individual is_translation_fault() and is_permission_fault()
+47ce12a37f82 ARM: move FSR fault status definitions before fsr_fs()
+eefbf2e97ad5 ARM: use BIT() and GENMASK() for fault status register fields
+5f1e55bed37f ARM: move is_permission_fault() and is_translation_fault() to fault.h
+ad1c1212ae15 ARM: move vmalloc() lazy-page table population
+92442d814d99 ARM: ensure interrupts are enabled in __do_user_fault()
+
+and, because they weren't fixes, it would've been inappropriate to
+post these. However, I was on vacation from the 11th December through
+to the 2nd January, had the madness of the huge email mountain, and
+been working on stmmac and internal work issues since, I've not had any
+time to look at anything else.
+
+However, these changes will negate the need for your patch 1.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
