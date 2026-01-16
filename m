@@ -4,61 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED5CBD47CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 01:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A385D47CAE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 01:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LGiSUz37N9ovSZPw34TwWstspblmqZbHN8iTZJ4qCGU=; b=DhAi+t9TWbixBuLj0w5kAjZY+u
-	kdBx+ICG2ERVjcPfBqQ1Djr8AS3uGzSrzYefxnBGVcBi4LZpDr3eTMBLyZc1epAQ5IJUqnttMWuA0
-	5gWUqoxCUzUjmmGpKbLyOBLzH2HR1Re0iwWSh3xwJ2XH07WrJrS4vdYy7tKIW+0c/IVij7PFZ0Bha
-	hxsdzqgwsL8dWvztRoisjDi4UHcWwwGBl6SazqElsvK1odlooPcENvrNcRaAq/RRJVXiG3lSu0XYU
-	phewfOk1G1tACLuyOoxfeegL/oN5YMP7EjevqH+TRR82GGgnF6ibjT7IpC4ndVwKtvky7Io9W0zYC
-	sqQe2zdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8v/THlnoXVHvcH673OA27G5X5V3+koupdlMYV2m+jOw=; b=gQ3YVw0NDK0Nbtv84/+JbzBa6y
+	AIcY1bQhmv9og1Dl0YaEILHU74d9nLyRxIkbG0NGkIVw5uXIYP6FYOxvX5LoDTcEUH+2kVp+h8Zj8
+	l78pmR0UCV78ffpJYQccbwYFbbEBsaP1SwmRW31xgcJQZ+r2tJQ7S3Kq7XBs350Kawxt8nYTFtjzR
+	Fc8DqysYv7r0FFvGynRCQHBN+R8ThmVl86p4WYQQkgDv89SeVv8YLPczcAsum6RBjXas4+5QFGWN8
+	OnrdbCucAAz6/BMTXRTw48EaZr2px1l56TuRZ8QAOK2zVuEp7RxxbnOAsCsYtTiTJ0c02p6hjQY5M
+	sJE5vBLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgYKJ-0000000DP30-38gX;
-	Fri, 16 Jan 2026 01:08:35 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vgYPJ-0000000DPFr-3KXO;
+	Fri, 16 Jan 2026 01:13:45 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgYKH-0000000DP2W-1f3j;
-	Fri, 16 Jan 2026 01:08:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=LGiSUz37N9ovSZPw34TwWstspblmqZbHN8iTZJ4qCGU=; b=JUkH8GxV7ehKt+YzFs1LPmF3J7
-	yZJdJP7NGpfeasSHg/nkXKNVRrqOa62ZUUCz5s/di26PwMOxmtS8V5mWv6RJbYPLTrfMU3NeiTTuy
-	lzQYzN4FqZrFBU1XAWDJopXBwEitl44YxBUAh0kScCYJdOm1EypPoGBEomkMYpww5xKc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vgYKB-0030eW-2r; Fri, 16 Jan 2026 02:08:27 +0100
-Date: Fri, 16 Jan 2026 02:08:27 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Benjamin Larsson <benjamin.larsson@genexis.eu>
-Cc: Sayantan Nandy <sayantann11@gmail.com>, lorenzo@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	sayantan.nandy@airoha.com, bread.hsu@airoha.com,
-	kuldeep.malik@airoha.com, aniket.negi@airoha.com,
-	rajeev.kumar@airoha.com
-Subject: Re: [PATCH] net: airoha_eth: increase max mtu to 9220 for DSA jumbo
- frames
-Message-ID: <ce42ade7-acd9-4e6f-8e22-bf7b34261ad9@lunn.ch>
-References: <20260115084837.52307-1-sayantann11@gmail.com>
- <e86cea28-1495-4b1a-83f1-3b0f1899b85f@lunn.ch>
- <c69e5d8d-5f2b-41f5-a8e9-8f34f383f60c@genexis.eu>
+	id 1vgYPH-0000000DPFT-00CL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Jan 2026 01:13:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1768526018;
+	bh=8v/THlnoXVHvcH673OA27G5X5V3+koupdlMYV2m+jOw=;
+	h=Subject:From:To:Cc:Date;
+	b=llyvELKSiIznZFW2NMeR6N9UUpuMCbNG5eZ6NMYA4qKlLjDmjmignOGD8GbWRNYv4
+	 sFXxCPIzeM/fWBcLbmmYM1v3fpQSqi3JvkS1FIW1D63OhQXIzSgtjMUlR+v3/6ZC0O
+	 RRACwGPLcHw0sVQIxHcWvdPpyo6UZ/+gUZ/mPR1MBIYOghg0Mx+m83v6/uIukXIAMG
+	 cYmA3Cl/6Ek4v7wLoorSmvF/+RoeP49KrRSUKQ1J1Z92QxTYWNr65kCik1JYjLavm8
+	 IwvKa72cO1dqks7sMNL9vU8D16BxrNnzmlT+wIUKau8jWH2MNv3sPMfISTVrPLdwaP
+	 SDEFLCB0xHvKQ==
+Received: from [192.168.68.115] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 1D5BC7A005;
+	Fri, 16 Jan 2026 09:13:38 +0800 (AWST)
+Message-ID: <392d9247f7c15d11b115c86cba762568f37cd10f.camel@codeconstruct.com.au>
+Subject: [GIT PULL] nuvoton: First batch of arm fixes for v6.19
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: soc <soc@lists.linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
+Date: Fri, 16 Jan 2026 11:43:37 +1030
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c69e5d8d-5f2b-41f5-a8e9-8f34f383f60c@genexis.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_170833_443457_36CFA977 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20260115_171343_232513_BCDE1BE8 
+X-CRM114-Status: UNSURE (   4.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,28 +69,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 08:10:20PM +0100, Benjamin Larsson wrote:
-> On 15/01/2026 18:41, Andrew Lunn wrote:
-> > On Thu, Jan 15, 2026 at 02:18:37PM +0530, Sayantan Nandy wrote:
-> > > The Industry standard for jumbo frame MTU is 9216 bytes. When using DSA
-> > > sub-system, an extra 4 byte tag is added to each frame. To allow users
-> > > to set the standard 9216-byte MTU via ifconfig,increase AIROHA_MAX_MTU
-> > > to 9220 bytes (9216+4).
-> > What does the hardware actually support? Is 9220 the real limit? 10K?
-> > 16K?
-> > 
-> > 	Andrew
-> > 
-> Hi, datasheets say 16k and I have observed packet sizes close to that on the
-> previous SoC generation EN7523 on the tx path.
+Hello SoC maintainers,
 
-Can you test 16K?
+The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8=
+:
 
-Does it make any difference to the memory allocation? Some drivers
-allocate receive buffers based on the MAX MTU, not the current MTU, so
-can eat up a lot of memory which is unlikely to be used. We should try
-to avoid that.
+  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
 
-Thanks
-	Andrew
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/nuvoto=
+n-arm-6.19-fixes-0
+
+for you to fetch changes up to 70b8c45d8621c4d77b5659270e9a26ce7b1123cf:
+
+  arm: npcm: drop unused Kconfig ERRATA symbol (2026-01-08 17:11:35 +1030)
+
+----------------------------------------------------------------
+Nuvoton NPCM Arm fixes for v6.19
+
+Just the one change from Randy dropping an unused Kconfig symbol.
+
+----------------------------------------------------------------
+Randy Dunlap (1):
+      arm: npcm: drop unused Kconfig ERRATA symbol
+
+ arch/arm/mach-npcm/Kconfig | 1 -
 
