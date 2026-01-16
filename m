@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 046D4D47CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 01:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B54C7D47CAB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 01:00:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MEf0DHBWe9wPAEndIy61oCPwiRgDkfJY9Tvwbfp9TWI=; b=msJ7mmWoaNgOZ1DyzhvcCGYmzX
-	tamropJti44exNLVU7URkA4owbNW5lFg0wTQFCDNdNmcZ2hggaOYIUsdhYF39lIDWH5f0/9o1Ct44
-	HyEk3reJ/Fp4EKOUB2O14UTAAiS0wkZdU9ySN1Sh+X1yVX/a4LwolSwR2veCQvfHwovgWbcyGS7cV
-	4a4X5IdZV6OCCd2nsbl6NkT0GsLeYLlWw6soDxKtsLG1KdvxqvabZ/uJ35D/WGBxcwKEwrpbb8t4F
-	/SNRD5mVhOwn0jtoATtf0czhIqvC9fur18gf3MP3ykPwpzL8VFGyZHxOJOaG8JkHnnmYp4k09vjMJ
-	LU6Zg/bA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9xbT2i8fqJH2rLQlvMGk1gEUzId66wSa+fF/0n0f5hY=; b=tsRfoYc3d7GUG7bwM7ca0LSguv
+	1LU8KBHW/i9Mwx+dKGjHl1y+NMICRkuc1iQciIG6b+Ie++1T2ipBph6XWix7mfzzNhLEpts5rsDhl
+	xA+gdm/5rjTYJ22wl4OR8Qk6Ng0IiSF27fpAfe5DOlktJoJE1rwZW30PZ2jmatQy8KJhc4aSOEg8P
+	IuQPQWrJwhxWUxVM1SvdczU3KX/mjls5uxz2lNKZK1caB+ifacG+IyEmA7JcSks5G6d874spuX5eP
+	3Ktnx7fxA5PxUN/m1NHKet6SPN/ScL9c88VraPUTB/nUvIv7nu9aArPXi2pyttG7hxF9f4GFApn3c
+	Dc1CfjZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgYCa-0000000DNyx-0jx8;
-	Fri, 16 Jan 2026 01:00:36 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1vgYCh-0000000DO1I-37vu;
+	Fri, 16 Jan 2026 01:00:43 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgYCX-0000000DNyY-04ZV;
-	Fri, 16 Jan 2026 01:00:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=ME
-	f0DHBWe9wPAEndIy61oCPwiRgDkfJY9Tvwbfp9TWI=; b=galtRY90/scvUYiiqi
-	R1/BDctSZsJyCULal6+W/axAI5CMzUGIw3sof82uUF7JrrmZTlZZC1d2ALOQ39YI
-	BvCNy19aIN90CRYfdMxBTXkQPwuZiOxDUmkTI2YR5aSvvuGQ/DE8/sWUpRQje9Hz
-	im+5Wk0Juf7PIlHwhyZFRVxA8=
-Received: from ProDesk-480.. (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wDXRJeKjWlpWfAVGQ--.9426S2;
-	Fri, 16 Jan 2026 08:59:59 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: hjc@rock-chips.com,
-	mripard@kernel.org,
-	maarten.lankhorst@linux.intel.com,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH] drm/rockchip: vop2: Add mode valid callback for crtc
-Date: Fri, 16 Jan 2026 08:59:49 +0800
-Message-ID: <20260116005953.286225-1-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1vgYCb-0000000DNys-0LDo
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Jan 2026 01:00:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1768525228;
+	bh=9xbT2i8fqJH2rLQlvMGk1gEUzId66wSa+fF/0n0f5hY=;
+	h=From:Date:Subject:To:Cc;
+	b=hxaJYLndCX4NJhTsf2cfDjNuNgmYMI87temjx6NsSu4bO+h2QK4jz6WA1TtuaaNYT
+	 oIMifC5wmJJ1V+MeH/I/4DP+1sSq88xhsws/t8E7CUcHbMYV6VhX9Iph8e/ECKBcW/
+	 Xdo8tcB/4eClxUUhuJQSXWMCZK3IPde3kisaBViGQBEizyfNsXjo/VDbb/MeAYBi1T
+	 BrqSCqBYBIy7v1dzOsuOLdNAAevpQ/N7xM3ERCqwhimcOBO9Qx/AGALX4OxeKgMBcJ
+	 X1Em3LC67U773H+yWht/BDRjQz5MhYGIvbF/DC9GlAuolBVJ8Oq1qrrmgfeCxFQOCh
+	 5mA/buaRZZIag==
+Received: from [127.0.1.1] (unknown [180.150.112.60])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 2FB3D7A005;
+	Fri, 16 Jan 2026 09:00:26 +0800 (AWST)
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+Date: Fri, 16 Jan 2026 11:29:56 +1030
+Subject: [PATCH] MAINTAINERS: Add Andrew as M: to ARM/NUVOTON NPCM
+ ARCHITECTURE
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDXRJeKjWlpWfAVGQ--.9426S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7WFykGr1kGFy5KF1DtryUAwb_yoW8XF15pa
-	17ArWYgr4rKFZFgFn7JF4DCw1akw1ayayxJrs3Ww13uFyftr4DX3WrC34DCry3XFy7Ga43
-	KrnFyFW5AF1I9w7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jrl1kUUUUU=
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbC7Q87mWlpjY+34wAA3W
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260116-npcm-arch-maintainer-v1-1-4abecbe1dc15@codeconstruct.com.au>
+X-B4-Tracking: v=1; b=H4sIAIuNaWkC/4WNMQ6DMBAEv4KuziHbQghS5R8RhTmO4AIbnY2VC
+ PH3OHwgxRaz0s4eEFkcR7hXBwhnF13wBfStAlqsfzG6qTAYZVqlVY9+oxWt0IKrdT6VsGA3qn5
+ sOjam6aBMN+HZvS/tcyi8uJiCfK6XrH/tH2HWqNEqptZysc7jg8LEFHxMslOqKay13WE4z/MLb
+ xfPwMMAAAA=
+X-Change-ID: 20260109-npcm-arch-maintainer-8b09b48e2248
+To: soc@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org, joel@jms.id.au
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2311;
+ i=andrew@codeconstruct.com.au; h=from:subject:message-id;
+ bh=ULS2g1USi1UgEpnVvldhHZzdHluYIrLyf0ttduLSiwE=;
+ b=owGbwMvMwCW22PjiTL8dD5cxnlZLYsjM7F3GyfbuylfH8mgv1QsOs9wl53xenPnt+TwDBT6J+
+ eIRSxNzOkpZGMS4GGTFFFlWBNoW3t08Kf7ngexjMHNYmUCGMHBxCsBE2I0ZGX6VqWybo/TQ/oKB
+ 14wlmqK/A2wnqfsz5d2XKtTOr1qWb8zwP6V2+Z2sW0/q32VU3ORtSoucZHW8T3a1VlmzuunRjFf
+ pjAA=
+X-Developer-Key: i=andrew@codeconstruct.com.au; a=openpgp;
+ fpr=C0F5E25A7D30ECBBF3BE3CEC3B837651FC0D8CF4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_170033_427798_EDCA5479 
-X-CRM114-Status: UNSURE (   8.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260115_170037_325356_5B4B2C40 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,46 +82,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+Nuvoton's NPCM SoCs are part of their iBMC product line[1]. NPCM arch
+patches have historically gone through Joel's tree along with ASPEED
+changes due to their relevance to OpenBMC. Commit df5e674c7a99
+("MAINTAINERS: Switch ASPEED tree to shared BMC repository") does what
+it says on the tin - we now have bmc/linux.git on git.kernel.org, and
+I've picked up the maintainer role for it.
 
-Filter the mode that can't output by the crtc.
+Document that I'm continuing to apply NPCM arch patches from the
+openbmc@ list to the BMC tree for PRs to the SoC tree.
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Avi Fishman <avifishman70@gmail.com>
+Cc: Drew Fustini <fustini@kernel.org>
+Cc: Joel Stanley <joel@jms.id.au>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Tali Perry <tali.perry1@gmail.com>
+Cc: Tomer Maimon <tmaimon77@gmail.com>
+Link: https://www.nuvoton.com/products/cloud-computing/ibmc/ [1]
+Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+This is a resend of the previously posted patch[1], but this time to soc@
+with the intent that it's applied.
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 498df0ce4680..74fba29bfff3 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1439,6 +1439,17 @@ static void vop2_crtc_disable_vblank(struct drm_crtc *crtc)
- 	vop2_crtc_disable_irq(vp, VP_INT_FS_FIELD);
- }
+[1]: https://patch.msgid.link/20260109-npcm-arch-maintainer-v1-1-a0ec6aee22fb@codeconstruct.com.au
+---
+ MAINTAINERS | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 5b11839cba9d..cd9d18083d8d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3130,6 +3130,7 @@ F:	drivers/*/*ma35*
+ K:	ma35d1
  
-+static enum drm_mode_status vop2_crtc_mode_valid(struct drm_crtc *crtc,
-+						 const struct drm_display_mode *mode)
-+{
-+	struct vop2_video_port *vp = to_vop2_video_port(crtc);
-+
-+	if (mode->hdisplay > vp->data->max_output.width)
-+		return MODE_BAD_HVALUE;
-+
-+	return MODE_OK;
-+}
-+
- static bool vop2_crtc_mode_fixup(struct drm_crtc *crtc,
- 				 const struct drm_display_mode *mode,
- 				 struct drm_display_mode *adj_mode)
-@@ -1884,6 +1895,7 @@ static void vop2_crtc_atomic_flush(struct drm_crtc *crtc,
- 
- static const struct drm_crtc_helper_funcs vop2_crtc_helper_funcs = {
- 	.mode_fixup = vop2_crtc_mode_fixup,
-+	.mode_valid = vop2_crtc_mode_valid,
- 	.atomic_check = vop2_crtc_atomic_check,
- 	.atomic_begin = vop2_crtc_atomic_begin,
- 	.atomic_flush = vop2_crtc_atomic_flush,
+ ARM/NUVOTON NPCM ARCHITECTURE
++M:	Andrew Jeffery <andrew@codeconstruct.com.au>
+ M:	Avi Fishman <avifishman70@gmail.com>
+ M:	Tomer Maimon <tmaimon77@gmail.com>
+ M:	Tali Perry <tali.perry1@gmail.com>
+@@ -3138,6 +3139,7 @@ R:	Nancy Yuen <yuenn@google.com>
+ R:	Benjamin Fair <benjaminfair@google.com>
+ L:	openbmc@lists.ozlabs.org (moderated for non-subscribers)
+ S:	Supported
++T:	git git://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git
+ F:	Documentation/devicetree/bindings/*/*/*npcm*
+ F:	Documentation/devicetree/bindings/*/*npcm*
+ F:	Documentation/devicetree/bindings/rtc/nuvoton,nct3018y.yaml
+
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260109-npcm-arch-maintainer-8b09b48e2248
+
+Best regards,
 -- 
-2.43.0
+Andrew Jeffery <andrew@codeconstruct.com.au>
 
 
