@@ -4,96 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3108FC79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 14:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A3FC79FBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 14:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vJZhOtWSnvNeJfPOYlm5h+k1E6qPCeJAW52vKXZm4D4=; b=qWPWKBmVVArfZGsiG1Fyk160mC
-	L30lmfAmUKh+c00BBuMkZtIIJISf+IzJ2Wl16j3jdlrmql2TdeOtGaDndV5b6mEunyBOOKko/nJa4
-	WBiQkCpI7Saj6/0li+4E2XpUALfw9HmUWdLh9Y/NrQ/4v4Rn2nXNjf4ERsxvlbLIPyLJZXjZAfET7
-	6h16ixaag600WSi4ce2Nb5TFf0C+dtcLf23Irqgvxk6tXETzW2oFCjfLs4bhf6q2AZjf8ODLCxih8
-	/LO3++xgqcNB9SFOgS9SSWwOLAuOgUy8i6lMpg145KuUAyj6E9pK72MAyjSm04NlcNgE9jcfSYXoF
-	TKAYDmmQ==;
+	bh=ZaHsD/0AD7lBzKkvh6XVMrU+9amfBPvv7vVc2iCwtKs=; b=2fjsnGqFnHKxIeOZBaJgbney+S
+	PYr/Q7atd4V30JynmOfZkZJMG4zGbbqLY24dkimxhxDTBOMwDVycUUmsd3MAV0dZOQtNTmr9HW+HV
+	s9NSW2K0stbJ9orrDaU42sVMHdqKZF8xyXTKlpDqJlk54OM0p4w3ZPrq/kCiTLGyDT2C/zclzdWY6
+	mfn8t+Iv0sO4UqNq0gfsNWEF6r7r4hdGKWU+chK9KWiDL/R3N8UD642fqYGhCRlcMYW9z2qu8Y/Xh
+	FWHEzfbrFh+Sc3HpRU7GiltGF0rAy5wi+1JkD4htUNT7cm2HHJTUiW+a4H3gLbjHy8rvK7TOLxPXP
+	bMTC0dJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgktZ-0000000EGQi-2bSH;
-	Fri, 16 Jan 2026 14:33:49 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1vgkte-0000000EGSl-32LP;
+	Fri, 16 Jan 2026 14:33:54 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgktX-0000000EGPZ-0Obm
+	id 1vgktY-0000000EGPc-0XaG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 14:33:48 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-47f3b7ef761so11505045e9.0
+	Fri, 16 Jan 2026 14:33:49 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60G80l5F3582472
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 14:33:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ZaHsD/0AD7lBzKkvh6XVMrU+9amfBPvv7vVc2iCwtKs=; b=UC5E7DrkZ1z5Uv+7
+	FycRnXLQwY+1rTM48xRK/1J9gd975UbMQ7qofeEm5VskxtcczMF7hiwiuMVqgkeY
+	8b/wVYSI+64va092l0RCPEsFiALYYQdESd4Y9DPP7MUioGHQ/2dYHI94XMdNpQJH
+	/TZIUpqhnUIV0zDoZEqhfDoFclr5MM8EGfxx5I+7lTk2ykOip31lmlz6tCT+cc8Z
+	dHSNqnS5rFpw60M0v4gbAfWrQN4EwMJdRMRX0TAia5dJJ1cC/zZcrgv26y6UMYjj
+	4mJfQAVG0Vq34USJCP3DRvs9BhQvn+lakWgQa8MZTpQsgu8vF8E+MKM3CyVpPHLQ
+	/BbdXA==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bq9aytebf-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 14:33:46 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8ba026720eeso600783785a.1
         for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 06:33:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768574025; x=1769178825; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=vJZhOtWSnvNeJfPOYlm5h+k1E6qPCeJAW52vKXZm4D4=;
-        b=TgH+VLqswoSWiZCGIz5rmQd1PArP+WXsWvvkypKJsTKVKGiMa0N1k1TQBX1m5Pn89/
-         Xbbgcqno/UaAu71l/MC0dP/1KIH7oBBzwNlaeZ8zj7GO0bp+9SmGAwVS2az1ei+OYpmb
-         eyWG7kEow1Vh76DACp5IW947inZvbFFN7kNnpmujKhI/NHxK0JxuZRqPFt2LCQxNPCqP
-         Yzni1AQ0QEJu73osi2n6anFrSOjldEv+RWExuWYt7ck2pudkSBB998l2gdtoJeGBzvTw
-         H2wO1a/2Wh64CJ0RN10CQA1Le47KzAyUAF2aUL+f2z1oEC2ddw599q0sU0Zg7h8lrzaj
-         SG2A==
+        d=oss.qualcomm.com; s=google; t=1768574025; x=1769178825; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZaHsD/0AD7lBzKkvh6XVMrU+9amfBPvv7vVc2iCwtKs=;
+        b=UY1z3EQL5AoYEH7cnB/1sSG4N892pQemBXaQ6SLEbnZUs8g9RkoCC9O2VSiLbuy4fn
+         Aj8OM2U7f37ndcUh3/AX5ULTlx28tcvHV13/AB9oKFPCCzgG8JSE+0uwbmG1Ha76pKf0
+         8TPKDQ9vQ0HpnSwzBiV5TbISWqMTvnMq+96VDe3YNVn1dJJ+skAuBAR5tGPo41uRECXo
+         ywt9emQBoFGpOP90r064iL6dD9YRRhxCZ6/9wswIv44lnmEaRsL5+/mixGeMj067x01X
+         Mcf3XUPcdX0rAogEaXxQ4T05CwUT2NrEBJ1S3IOx17D4sOIQEH+442/vmAjKazkgJXdP
+         J7Bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1768574025; x=1769178825;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vJZhOtWSnvNeJfPOYlm5h+k1E6qPCeJAW52vKXZm4D4=;
-        b=iGyh5g8ryCDLiPe1snJsVlSnyapmBx1ES3v9c/mNFtoPJZZyRqMEKcQkQP8K/KZB7M
-         FBlL117j3ghVRNFK72VZCVbNBZjPs7rakvgZqLLUFFxnFdA0t9lZ4vhemCY9ht53lLz4
-         8oVNUh9byWnUVq8eUWz14OHeeFE/E9UJEgyMPcASVCQHpCimUoSYJtQtO3lZPd9QXeqM
-         V6TQeGaP9y0sc2zZSM1aJzPB/aYJqwqpCYtOhWIxiSoUT1fTM/7bLwd6iqi8PZzEg6bF
-         dwdwC3U4coOH3LavgK46t24egnPc2eISMrj8l8iDmzBWjNMn6EvgApb7I9DJWojqnzRT
-         07JA==
-X-Forwarded-Encrypted: i=1; AJvYcCUvsLGC1GZD3mZadod4R942gc5hP1rld+AIlnLwZvOVRytcgEhm6JL0EVyobj3HHycQkc9itf1maLzUcOr74R7n@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqVN2OiidAbvKIj5yyBxl37k6LGwLLV0yUByj67ZNsvcvT5Ox/
-	0bwJc8S9i4y7ldsofxdf1X/G7M0PHkFjrZwZwkWZ2a2V4uMyICJlW7ov
-X-Gm-Gg: AY/fxX5oj6sodcCPHjgjXb286I9rnb9Uny0M4Dcsq0jY3muSXpCx86aY1Vje6cf5mTy
-	I6vNFXYyiyNuIhTCaue106at4QITRNFFzVf66ke7rxdVKxndSkPSca2elFBjSFG1+5af7Y3jMzG
-	WlYVQWDqPbfA7y38zL4RDTuyJ5qtu+9yWFW8jA40QnmhKzuI/7QUPDIiULURcyWUlYqWPvDqxGs
-	OKSQMI5SGgdpvZDHWoEapUXVi2JFMjVi9Um5oas5uJpFxRV+MgjEmcFTVp8yYDSyDnYazthg8y1
-	5OEXHitgJAa50Bj447FS2UJYRmrE3QZ4KScm5kWgmShTZxhLGKHpvtTLbUVVh60giQ9PP0pEz13
-	ekz+69+fYTrzs1g4xN5Za9w1OhBFvkQO3ZQAaSQ2lBjvKF6AwNItLsjDw0t2Iv5klmUAxPSUhi4
-	tguXD3eVXec3zJkzZ+TcrArVcGMVHywnwk
-X-Received: by 2002:a05:600c:4e50:b0:47e:e946:3a59 with SMTP id 5b1f17b1804b1-4801e3503fbmr36347905e9.34.1768574024397;
-        Fri, 16 Jan 2026 06:33:44 -0800 (PST)
-Received: from [10.24.66.74] ([15.248.2.234])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801fe6307asm17912065e9.7.2026.01.16.06.33.42
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZaHsD/0AD7lBzKkvh6XVMrU+9amfBPvv7vVc2iCwtKs=;
+        b=QGQIfgrHjlxjqCdgzCj7AGlQZ28nTVGt1/1i7m1Iw3cBI20cEKO5fR5g/hj/Ee4H4O
+         YuQdvQaMBwzMShRhcH/3YNyl5VpS5WGZYlcS/tnWcg7QIjDg3K68DF6Azx4d1p7bj+TP
+         Ljs8w+ki7ufNueUWE3E3ltaHCgnKer0+T0aCV2pTD7uXtzAgwgyutF95u2dMkRDcLfur
+         fwuGfLFldkNLIhY0U/0VAXdPTxik4MShsrtShTsnoMdBa+rZ7A8nZlXfl4LWjtAPU4Yu
+         YlE87QfillC1Ae+CVc+D9Nzb/dOH65dh2taTgP7Icnb58DYl9+eIHEyaDYZCAOBG5fLC
+         CWfg==
+X-Forwarded-Encrypted: i=1; AJvYcCVn1hWn3oFtEnK+wfhzjdbLun7zn+jus69/Xc0YyysDrgdO0DdQz7nFB+29NAfY/tGOnynvsiExK32F9MhDLWf4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+i1988UteuiwXB/H4NyMoUY/GMSqphmcZiNvOwYu2tQfpBBNE
+	O6C3efRHjfuFB0qNlD/ytSJtE+IfTzZrqLxuieYKLlVurtRMax1nEyEOAZKBj3nGjTI4oOX/osZ
+	pySGJKJUoc7te2QT2YwS/CZyhWt8jTqc2bHQrv37udFm6/b1FbVx1HLd1E4lfP1CNAx+BOAZG/8
+	l+Vw==
+X-Gm-Gg: AY/fxX7GgoTtpVLn0d+trTtib0NCwPsGq4xujv/kUQm1eq5KxDD0wgBMuEtwh8RLVon
+	1n7HUtONGW289hRblH1SRSt67OhtgmLTn4kx5IVRuUa2oXGZH9KiYeA36GrTB6xeG8hnoc3fyvc
+	OJrWr/fkZ68LTEJjlHYtmtySx80cApIXz2Zzfix9qQQ8pSrN9ekIAucTZQ5qVEdoNxyRJ+J+oJU
+	LfJcRjsVoGIUkyDmB1VNE0TOm9KL55zBNU4weZQvP6+CYlCsd4Alf8qNoDnfQP/EM/QlrqzSB2Q
+	Q66ADsWc0j9LRSxMW7ABNrwT61DS54HZl3Q4Kino6wFxPvZYBGdGXOrSKjXNVnPZ1753I3ko8tl
+	sEeTl27kLs3eASfFFfkclBhh1AJFovZcyh7F49g==
+X-Received: by 2002:a05:620a:28c5:b0:8c5:3045:3e7b with SMTP id af79cd13be357-8c6a66f1e53mr472487085a.26.1768574025484;
+        Fri, 16 Jan 2026 06:33:45 -0800 (PST)
+X-Received: by 2002:a05:620a:28c5:b0:8c5:3045:3e7b with SMTP id af79cd13be357-8c6a66f1e53mr472482485a.26.1768574025035;
+        Fri, 16 Jan 2026 06:33:45 -0800 (PST)
+Received: from [192.168.1.29] ([178.197.218.229])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43569921dedsm5623880f8f.9.2026.01.16.06.33.43
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
         Fri, 16 Jan 2026 06:33:44 -0800 (PST)
-Message-ID: <ea7786e4-8b67-4a9f-b2c6-c0e4cd325cc3@gmail.com>
-Date: Fri, 16 Jan 2026 14:33:42 +0000
+Message-ID: <49ebb3b2-128c-4fe8-abea-51a3d47cce73@oss.qualcomm.com>
+Date: Fri, 16 Jan 2026 15:33:42 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] KVM: arm64: Add pre_fault_memory implementation
-To: Marc Zyngier <maz@kernel.org>
-Cc: oliver.upton@linux.dev, pbonzini@redhat.com, joey.gouly@arm.com,
- suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
- will@kernel.org, shuah@kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, isaku.yamahata@intel.com,
- xmarcalx@amazon.co.uk, kalyazin@amazon.co.uk, jackabt@amazon.com,
- Vladimir Murzin <vladimir.murzin@arm.com>
-References: <20260113152643.18858-1-jackabt.amazon@gmail.com>
- <20260113152643.18858-2-jackabt.amazon@gmail.com>
- <86jyxjkxus.wl-maz@kernel.org>
+Subject: Re: [PATCH v6 0/3] media: rockchip: add driver for the rockchip mipi
+ csi-2 receiver
+To: michael.riesch@collabora.com, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+        Kever Yang <kever.yang@rock-chips.com>, Frank Li <Frank.li@nxp.com>,
+        Mehdi Djait <mehdi.djait@linux.intel.com>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+        Hans Verkuil <hverkuil@kernel.org>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Sebastian Reichel <sebastian.reichel@collabora.com>,
+        Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+        Collabora Kernel Team <kernel@collabora.com>,
+        Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251114-rockchip-mipi-receiver-v6-0-b7ce6e68b3fa@collabora.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Content-Language: en-US
-From: "Thomson, Jack" <jackabt.amazon@gmail.com>
-In-Reply-To: <86jyxjkxus.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzysztof.kozlowski@oss.qualcomm.com; keydata=
+ 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
+ cwzYbmi/Et7T2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20251114-rockchip-mipi-receiver-v6-0-b7ce6e68b3fa@collabora.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: _PjUECXvQyl_IbfPtOyw519-3qNZiiO7
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE2MDEwMiBTYWx0ZWRfX2klNLeRvj5oV
+ GChm5xnj573nYaHMjZFhp6SqNedwPh9YY788/340zABvZlCZ1GNihI5Irrk3jSyA1BcYngFQhSM
+ C5vIBtq8bWC4xgJvkMvYmInJwbJ1dT/YpjGTIO3kpJEMQ9DqhHGpkLBSC3snsGmRfMyIxFQI8uG
+ br72nGkCrclskYyP+phy7nRte8BCk5aWk932s3FPIV4du+EZggCj7ayVyNHd2FUD2J0SoQOHwrV
+ 0vda1ij1goByNEPqrCyFFktJ3win9IUJU/GGPQgHQPzl1PchdImI38ccKPUi3+OyDM19R3Mt45v
+ 6d+j35Nvg/24nthLrPXJKTVHA4Aa3voXKcwGL+MV/5nkJYGhpK04IJJPyUZPxrmRu4xNv50YPKv
+ yNzO8pAgY2IEF0Ez7RxMu4T55Z41grIdp0i5r9M0hcV34Zd49teljJzDhw3TTOsMJj0rFiSaBmf
+ u3ZLUoG785Ozm+ssIpw==
+X-Proofpoint-GUID: _PjUECXvQyl_IbfPtOyw519-3qNZiiO7
+X-Authority-Analysis: v=2.4 cv=NfDrFmD4 c=1 sm=1 tr=0 ts=696a4c4a cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=Eb9f15NH/cHKzfGOmZSO4Q==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=etG1dv-_i460GIfEFeoA:9 a=QEXdDO2ut3YA:10
+ a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-16_05,2026-01-15_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 malwarescore=0 impostorscore=0 suspectscore=0 spamscore=0
+ phishscore=0 clxscore=1015 priorityscore=1501 lowpriorityscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601160102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_063347_221210_52091889 
-X-CRM114-Status: GOOD (  39.62  )
+X-CRM114-CacheID: sfid-20260116_063348_277104_1991C3DF 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,224 +205,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Hey Marc,
-
-Thanks for the review.
-
-On 15/01/2026 9:51 am, Marc Zyngier wrote:
-> [+ Vladimir, who was also looking at this patch]
+On 16/01/2026 14:54, Michael Riesch via B4 Relay wrote:
+> Habidere,
 > 
-> On Tue, 13 Jan 2026 15:26:40 +0000,
-> Jack Thomson <jackabt.amazon@gmail.com> wrote:
->>
->> From: Jack Thomson <jackabt@amazon.com>
->>
->> Add kvm_arch_vcpu_pre_fault_memory() for arm64. The implementation hands
->> off the stage-2 faulting logic to either gmem_abort() or
->> user_mem_abort().
->>
->> Add an optional page_size output parameter to user_mem_abort() to
->> return the VMA page size, which is needed when pre-faulting.
->>
->> Update the documentation to clarify x86 specific behaviour.
->>
->> Signed-off-by: Jack Thomson <jackabt@amazon.com>
->> ---
->>   Documentation/virt/kvm/api.rst |  3 +-
->>   arch/arm64/kvm/Kconfig         |  1 +
->>   arch/arm64/kvm/arm.c           |  1 +
->>   arch/arm64/kvm/mmu.c           | 79 ++++++++++++++++++++++++++++++++--
->>   4 files changed, 79 insertions(+), 5 deletions(-)
->>
->> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
->> index 01a3abef8abb..44cfd9e736bb 100644
->> --- a/Documentation/virt/kvm/api.rst
->> +++ b/Documentation/virt/kvm/api.rst
->> @@ -6493,7 +6493,8 @@ Errors:
->>   KVM_PRE_FAULT_MEMORY populates KVM's stage-2 page tables used to map memory
->>   for the current vCPU state.  KVM maps memory as if the vCPU generated a
->>   stage-2 read page fault, e.g. faults in memory as needed, but doesn't break
->> -CoW.  However, KVM does not mark any newly created stage-2 PTE as Accessed.
->> +CoW.  However, on x86, KVM does not mark any newly created stage-2 PTE as
->> +Accessed.
->>   
->>   In the case of confidential VM types where there is an initial set up of
->>   private guest memory before the guest is 'finalized'/measured, this ioctl
->> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
->> index 4f803fd1c99a..6872aaabe16c 100644
->> --- a/arch/arm64/kvm/Kconfig
->> +++ b/arch/arm64/kvm/Kconfig
->> @@ -25,6 +25,7 @@ menuconfig KVM
->>   	select HAVE_KVM_CPU_RELAX_INTERCEPT
->>   	select KVM_MMIO
->>   	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
->> +	select KVM_GENERIC_PRE_FAULT_MEMORY
->>   	select VIRT_XFER_TO_GUEST_WORK
->>   	select KVM_VFIO
->>   	select HAVE_KVM_DIRTY_RING_ACQ_REL
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 4f80da0c0d1d..19bac68f737f 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -332,6 +332,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->>   	case KVM_CAP_COUNTER_OFFSET:
->>   	case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
->>   	case KVM_CAP_ARM_SEA_TO_USER:
->> +	case KVM_CAP_PRE_FAULT_MEMORY:
->>   		r = 1;
->>   		break;
->>   	case KVM_CAP_SET_GUEST_DEBUG2:
->> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->> index 48d7c372a4cd..499b131f794e 100644
->> --- a/arch/arm64/kvm/mmu.c
->> +++ b/arch/arm64/kvm/mmu.c
->> @@ -1642,8 +1642,8 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->>   
->>   static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->>   			  struct kvm_s2_trans *nested,
->> -			  struct kvm_memory_slot *memslot, unsigned long hva,
->> -			  bool fault_is_perm)
->> +			  struct kvm_memory_slot *memslot, unsigned long *page_size,
->> +			  unsigned long hva, bool fault_is_perm)
->>   {
->>   	int ret = 0;
->>   	bool topup_memcache;
->> @@ -1923,6 +1923,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->>   	kvm_release_faultin_page(kvm, page, !!ret, writable);
->>   	kvm_fault_unlock(kvm);
->>   
->> +	if (page_size)
->> +		*page_size = vma_pagesize;
->> +
->>   	/* Mark the page dirty only if the fault is handled successfully */
->>   	if (writable && !ret)
->>   		mark_page_dirty_in_slot(kvm, memslot, gfn);
->> @@ -2196,8 +2199,8 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->>   		ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
->>   				 esr_fsc_is_permission_fault(esr));
->>   	else
->> -		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
->> -				     esr_fsc_is_permission_fault(esr));
->> +		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, NULL,
->> +				     hva, esr_fsc_is_permission_fault(esr));
->>   	if (ret == 0)
->>   		ret = 1;
->>   out:
->> @@ -2573,3 +2576,71 @@ void kvm_toggle_cache(struct kvm_vcpu *vcpu, bool was_enabled)
->>   
->>   	trace_kvm_toggle_cache(*vcpu_pc(vcpu), was_enabled, now_enabled);
->>   }
->> +
->> +long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
->> +				    struct kvm_pre_fault_memory *range)
->> +{
->> +	struct kvm_vcpu_fault_info *fault_info = &vcpu->arch.fault;
->> +	struct kvm_s2_trans nested_trans, *nested = NULL;
->> +	unsigned long page_size = PAGE_SIZE;
->> +	struct kvm_memory_slot *memslot;
->> +	phys_addr_t ipa = range->gpa;
->> +	phys_addr_t end;
->> +	hva_t hva;
->> +	gfn_t gfn;
->> +	int ret;
->> +
->> +	if (vcpu_is_protected(vcpu))
->> +		return -EOPNOTSUPP;
-> 
-> This feels pretty odd. If you have advertised the capability, then
-> saying "not supported" at this stage is not on.
+> This series adds support for the Rockchip MIPI CSI-2 Receiver that is
+> integrated into recent Rockchip SoCs, such as the RK3568 and the RK3588.
 > 
 
-Thanks good point, I think I can actually just drop this completely since
-kvm_pvm_ext_allowed() would already exclude this as a capacility.
+Please slow down and post it once per 24h or 2-3 days. Not every 50
+minutes. Allow people to actually review your code.
 
->> +
->> +	/*
->> +	 * We may prefault on a shadow stage 2 page table if we are
->> +	 * running a nested guest.  In this case, we have to resolve the L2
->> +	 * IPA to the L1 IPA first, before knowing what kind of memory should
->> +	 * back the L1 IPA.
->> +	 *
->> +	 * If the shadow stage 2 page table walk faults, then we return
->> +	 * -EFAULT
->> +	 */
->> +	if (kvm_is_nested_s2_mmu(vcpu->kvm, vcpu->arch.hw_mmu) &&
->> +	    vcpu->arch.hw_mmu->nested_stage2_enabled) {
->> +		ret = kvm_walk_nested_s2(vcpu, ipa, &nested_trans);
->> +		if (ret)
->> +			return -EFAULT;
-> 
-> And then what? Userspace is completely screwed here, with no way to
-> make any forward progress, because the L1 is in charge of that S2, and
-> L1 is not running. What's the outcome? Light a candle and pray?
-> 
-> Also, the IPA you are passing as a parameter means absolutely nothing
-> in the context of L2. Userspace doesn't have the faintest clue about
-> the memory map presented to L2, as that's L1 business. L1 can
-> absolutely present to L2 a memory map that doesn't have a single
-> address in common with its own.
-> 
-> So this really doesn't work at all.
-> 
-Would just returning -EOPNOTSUPP in this case like:
-
-   if (kvm_is_nested_s2_mmu(vcpu->kvm, vcpu->arch.hw_mmu) &&
-       vcpu->arch.hw_mmu->nested_stage2_enabled)
-     return -EOPNOTSUPP;
-
-be the best way to continue for now?
->> +
->> +		ipa = kvm_s2_trans_output(&nested_trans);
->> +		nested = &nested_trans;
->> +	}
->> +
->> +	if (ipa >= kvm_phys_size(vcpu->arch.hw_mmu))
->> +		return -ENOENT;
->> +
->> +	/* Generate a synthetic abort for the pre-fault address */
->> +	fault_info->esr_el2 = (ESR_ELx_EC_DABT_LOW << ESR_ELx_EC_SHIFT) |
->> +		ESR_ELx_FSC_FAULT_L(KVM_PGTABLE_LAST_LEVEL);
-> 
-> Why level 3? You must present a fault that matches the level at which
-> the emulated fault would actually occur, because the rest of the
-> infrastructure relies on that (at least on the permission path, and
-> more to come).
-> 
-
-Ack, thanks I was relying on the fact `fault_is_perm` was hardcoded to
-false. I'll replace with something like:
-
-   pgt = vcpu->arch.hw_mmu->pgt;
-   ret = kvm_pgtable_get_leaf(pgt, gpa, &pte, &level);
-   if (ret)
-     return ret;
-
-   fault_info->esr_el2 = (ESR_ELx_EC_DABT_LOW << ESR_ELx_EC_SHIFT) |
-     ESR_ELx_FSC_FAULT_L(level);
-   fault_info->hpfar_el2 = HPFAR_EL2_NS |
-     FIELD_PREP(HPFAR_EL2_FIPA, gpa >> 12);
-
-> Taking a step back on all this, 90% of the problems are there because
-> you are trying to support prefaulting a guest that is already running.
-> If you limited this to actually *pre*-faulting the guest, it would be
-> the easiest thing ever, and wouldn't suffer from any of the above (you
-> can't be in a nested context if you haven't run).
-> 
-> What prevents you from doing so? I'm perfectly happy to make this a
-> separate API if this contradicts other implementations. Or are you
-> relying on other side effects of the "already running" state?
-
-We would need this to work on an already running guest.
-
-> 
-> Thanks,
-> 
-> 	M.
-
-Thanks again for taking a look!
-
--- 
-Thanks,
-Jack
+Best regards,
+Krzysztof
 
