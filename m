@@ -4,59 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC0BEC982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:25:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B648CC982DB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=crvtFoSSf1pJ/8ytC325QwTRj4uYdG2Mu4jqSpqZJqk=; b=JNUp/k9tDDDKX8Rcs2/wUUXN+B
-	dcUXTS5OBFiZLYtUPrgz1cre71RN25TZ31lM/I41TjiFtCrG+UG3/avkL0BIwmGW0LAjdHEcQnWyr
-	htOUeObF337gPY/4qdLAYlBZszdlafm29gpDq3UoGQoVONO64oFJCGOgBIF0O4gjPgiCbnDVToolJ
-	xkUwUI5kivf6EtHV1OB+UpoXtuId0LFdyqPGHADtL/LIVB795WDTjJl0zn5MRfiGbAjIxcZyFRsyO
-	l4A7SancXvTTKe92k5w/eTlzEKJLq2aJwFrDpihoLYLphtu90To4GYiGZsVjh/PedtuUOLQ0yHzk6
-	T/pDV1sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JC36QHZorXv8FcwWEAnaZ+uE61dEQEM7MKy0rl4DIQo=; b=yP4yfKSmfv4E8N+tPim5T+H89i
+	vkM8OnkPRwBjNLnYEoHNMToeEVAfMea3hiaZHafcAMH5DC7UvGIw7F21EO0kjHAwEl0JD/w8M6JdS
+	Emif9MCeyfcbV5itF11sKQA6Q8fZy4F6iOuSxPAwsMATUILAEstE6hrDnb8VxIdNvKjoO1J8opjDl
+	KE12Ba43bmz5b/AQK/aRMMbS4v7FaW4anrMf0F8GaDgsr4ZaJbbEUHpXBBc+tP8ndPdDXYsvxsuAH
+	ewJOT6n6J3A0kqe6m8W9vyPJfdENtgM65vYUK31RMYe4LuiHVsigo0GGdlQY0+6BXLNjMhLfQJHTd
+	hZXX/bAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnZC-0000000EZbL-0jTv;
-	Fri, 16 Jan 2026 17:24:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnZ9-0000000EZZH-2TYh
+	id 1vgnbX-0000000EZov-3usV;
+	Fri, 16 Jan 2026 17:27:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgnbV-0000000EZoX-1LYn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 17:24:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E51CA1515;
-	Fri, 16 Jan 2026 09:24:44 -0800 (PST)
-Received: from [10.57.49.133] (unknown [10.57.49.133])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 416DE3F59E;
-	Fri, 16 Jan 2026 09:24:49 -0800 (PST)
-Message-ID: <4da29d46-9a80-4ec4-b6b8-6c9457eed481@arm.com>
-Date: Fri, 16 Jan 2026 17:24:46 +0000
+	Fri, 16 Jan 2026 17:27:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 42CA74453E
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 17:27:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24EBFC2BCAF
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 17:27:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768584440;
+	bh=vXVwCg3KjnOR9p1kVLMGAnoWPMTaqhAgSkTPdcaX44w=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=knzP861gITsD7dSH2OTufz7RuEMShCMheE0tEOLOcr7QNKZqatwxSUytX/MdYcWAw
+	 F6smFawSdxuwqrQHm1zLeELFkvRfhcjJXkRgyxrh0syHY/d/FMAoLtDWiRi+kQFJMf
+	 oaivFEEYD9DVOeRyeWA8xOJCX8pqi4wRcZ0fjzZr8T7vAfy5Wighog6qrJYuI8EAz3
+	 dERnUS9aFFY//41dYgI0PA81xDiLkEzsjh5YuFBMZslnjvKP1+w6I2SOj0OQvuMpNi
+	 hTXG/xbjaJUSD0ABvYM5VESZl22prwm59C0e8T28EpQcmopOkZjbfod2slIhX35PLx
+	 xHSsuRVwP+2Yw==
+Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-34ccb7ad166so1191357a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 09:27:20 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWzRvGm9ATC0JXio2CZ6q6+8VQ1YNbAdutWpWBPAHoE0Djcl6SZ6rT3B8LHWP1TbjGhXTlbVvCQK0fxubRLlvlc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1z/CiVPlon/3KD5hhrIQYpQID0P5fON2I1hCp1XkZZ/5AsWfH
+	n401SZXqrA6QhKzyamM4SmM/WHIATYni0deIC83nrwZci33JfTQk0jyM01NiMHYcmFiS5xczzd3
+	PTjxDLl6efTklSWWDw2I0rvle4zgfnnw=
+X-Received: by 2002:a17:90b:3d8d:b0:343:e2ba:e8be with SMTP id
+ 98e67ed59e1d1-3527316560bmr2913371a91.10.1768584439303; Fri, 16 Jan 2026
+ 09:27:19 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] Re: imx8 PCI regression since "iommu: Get DT/ACPI
- parsing into the proper probe path"
-To: Nicolas Cavallari <Nicolas.Cavallari@green-communications.fr>,
- iommu@lists.linux.dev, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Bjorn Helgaas <bhelgaas@google.com>, "Rob Herring (Arm)"
- <robh@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Jason Gunthorpe <jgg@nvidia.com>, Joerg Roedel <jroedel@suse.de>,
- regressions@lists.linux.dev
-References: <a1d926f0-4cb5-4877-a4df-617902648d80@green-communications.fr>
- <eb94b379-6e0b-4beb-aaa7-413a4e7f04b9@green-communications.fr>
- <3780eb61-68e2-42ce-939e-7458cd3a63cb@green-communications.fr>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <3780eb61-68e2-42ce-939e-7458cd3a63cb@green-communications.fr>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20260115004328.194142-1-coxu@redhat.com> <20260115004328.194142-2-coxu@redhat.com>
+ <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
+ <8bfa859ed3a4f1cf0db0ab64d8c1c3b24684582a.camel@linux.ibm.com>
+ <CAMj1kXHsJNZoUEnbD1y=v4Ftuv9d2c08VckRV7ru4k4P83vZbQ@mail.gmail.com> <97b69bc79a5d9246f7a399510908c7b95b2e95e7.camel@linux.ibm.com>
+In-Reply-To: <97b69bc79a5d9246f7a399510908c7b95b2e95e7.camel@linux.ibm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 16 Jan 2026 18:27:08 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXGx4ebaK87W7k0SNUNQnO9+=z1nmYxXC7retmp3OqRRFg@mail.gmail.com>
+X-Gm-Features: AZwV_Qi45ik2p_K9-Rag0B961-yA4Y3UeYMV2L3X0YVNxAN3PGD7hZw7XikMDoE
+Message-ID: <CAMj1kXGx4ebaK87W7k0SNUNQnO9+=z1nmYxXC7retmp3OqRRFg@mail.gmail.com>
+Subject: Re: [PATCH 1/3] integrity: Make arch_ima_get_secureboot integrity-wide
+To: Mimi Zohar <zohar@linux.ibm.com>
+Cc: Coiby Xu <coxu@redhat.com>, linux-integrity@vger.kernel.org, 
+	Heiko Carstens <hca@linux.ibm.com>, Roberto Sassu <roberto.sassu@huaweicloud.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Roberto Sassu <roberto.sassu@huawei.com>, 
+	Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, Eric Snowberg <eric.snowberg@oracle.com>, 
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+	"Serge E. Hallyn" <serge@hallyn.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)" <linuxppc-dev@lists.ozlabs.org>, 
+	"open list:S390 ARCHITECTURE" <linux-s390@vger.kernel.org>, 
+	"open list:EXTENSIBLE FIRMWARE INTERFACE (EFI)" <linux-efi@vger.kernel.org>, 
+	"open list:SECURITY SUBSYSTEM" <linux-security-module@vger.kernel.org>, 
+	"open list:KEYS/KEYRINGS_INTEGRITY" <keyrings@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_092455_761998_7006AEDE 
-X-CRM114-Status: GOOD (  23.48  )
+X-CRM114-CacheID: sfid-20260116_092721_399671_D9242C66 
+X-CRM114-Status: GOOD (  33.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,98 +102,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-01-16 4:52 pm, Nicolas Cavallari wrote:
-> +cc regressions ML
-> 
-> Le 13/01/2026 à 10:17, Nicolas Cavallari a écrit :
->> +cc patch author & reviewers
->>
->> On 1/9/26 17:22, Nicolas Cavallari wrote:
->>> When upgrading from 6.12 to a 6.18 kernel, I noticed that a PCI
->>> Ethernet adapter (Microchip LAN7430) would hang under load and not
->>> recover.  When that happens, some of its registers indicate it is
->>> failing to do DMA reads, so cannot reclaim entries on its ring buffer.
->>>
->>> I bisected the problem into this commit:
->>>
->>> commit bcb81ac6ae3c2ef95b44e7b54c3c9522364a245c
->>> Author: Robin Murphy <robin.murphy@arm.com>
->>> Date:   Fri Feb 28 15:46:33 2025 +0000
->>>
->>>       iommu: Get DT/ACPI parsing into the proper probe path
->>>
->>> The problem still exists on 6.19-rc1, on pci/next (29a77b4897f1) and on
->>> iommu/master (360e85353769) trees.  Reverting the commit fixes the 
->>> issue.
-> 
-> The problem persists on 6.19-rc5
-> 
->>> The system is a Gateworks GW7200, which is a i.MX 8 Mini connected to a
->>> Pericom
->>> PI7C9X2G404 4-port switch connected to the LAN7430 chip.
->>>
->>> -[0000:00]---00.0-[01-ff]----00.0-[02-05]--+-01.0-[03]----00.0
->>>                                              +-02.0-[04]--
->>>                                              \-03.0-[05]----00.0
->>>
->>> The problem only occurs when there is at least another PCI device in use
->>> on the
->>> switch.  It does not happen if the LAN7430 is the only PCI device, or if
->>> the
->>> other devices are not actively used.  For example i can reproduce it
->>> with an
->>> ath9k wireless network adapter when it is up and running, but not when
->>> it is
->>> down or its driver is not loaded.
->>>
->>> I suspect that other PCI devices have similar issues, but the LAN7430 is
->>> the
->>> easiest one to diagnose, as it hangs within seconds with an iperf3 --
->>> bidir -u
->>> -b 200M and its register map are public.
->>>
->>> I couldn't find an way to dump the PCI address translation mapping from
->>> userspace.
->>> I would be happy to provide more information or test patches.
-> 
-> I debugged it further, it seems to be mostly a PCI issue since the 
-> system does not actually have an IOMMU.
+On Fri, 16 Jan 2026 at 17:39, Mimi Zohar <zohar@linux.ibm.com> wrote:
+>
+> On Fri, 2026-01-16 at 14:18 +0100, Ard Biesheuvel wrote:
+> > On Fri, 16 Jan 2026 at 14:11, Mimi Zohar <zohar@linux.ibm.com> wrote:
+> > >
+> > > On Fri, 2026-01-16 at 10:41 +0100, Ard Biesheuvel wrote:
+> > > > On Thu, 15 Jan 2026 at 01:43, Coiby Xu <coxu@redhat.com> wrote:
+> > > > >
+> > > > > EVM and other LSMs need the ability to query the secure boot status of
+> > > > > the system, without directly calling the IMA arch_ima_get_secureboot
+> > > > > function. Refactor the secure boot status check into a general,
+> > > > > integrity-wide function named arch_integrity_get_secureboot.
+> > > > >
+> > > > > Define a new Kconfig option CONFIG_INTEGRITY_SECURE_BOOT, which is
+> > > > > automatically configured by the supported architectures. The existing
+> > > > > IMA_SECURE_AND_OR_TRUSTED_BOOT Kconfig loads the architecture specific
+> > > > > IMA policy based on the refactored secure boot status code.
+> > > > >
+> > > > > Reported-and-suggested-by: Mimi Zohar <zohar@linux.ibm.com>
+> > > > > Suggested-by: Roberto Sassu <roberto.sassu@huaweicloud.com>
+> > > > > Signed-off-by: Coiby Xu <coxu@redhat.com>
+> > > > > ---
+> > > > >  arch/arm64/Kconfig                            |  1 +
+> > > > >  arch/powerpc/Kconfig                          |  1 +
+> > > > >  arch/powerpc/kernel/Makefile                  |  2 +-
+> > > > >  arch/powerpc/kernel/ima_arch.c                |  5 --
+> > > > >  arch/powerpc/kernel/integrity_sb_arch.c       | 13 +++++
+> > > > >  arch/s390/Kconfig                             |  1 +
+> > > > >  arch/s390/kernel/Makefile                     |  1 +
+> > > > >  arch/s390/kernel/ima_arch.c                   |  6 --
+> > > > >  arch/s390/kernel/integrity_sb_arch.c          |  9 +++
+> > > > >  arch/x86/Kconfig                              |  1 +
+> > > > >  arch/x86/include/asm/efi.h                    |  4 +-
+> > > > >  arch/x86/platform/efi/efi.c                   |  2 +-
+> > > > >  include/linux/ima.h                           |  7 +--
+> > > > >  include/linux/integrity.h                     |  8 +++
+> > > > >  security/integrity/Kconfig                    |  6 ++
+> > > > >  security/integrity/Makefile                   |  3 +
+> > > > >  security/integrity/efi_secureboot.c           | 56 +++++++++++++++++++
+> > > > >  security/integrity/ima/ima_appraise.c         |  2 +-
+> > > > >  security/integrity/ima/ima_efi.c              | 47 +---------------
+> > > > >  security/integrity/ima/ima_main.c             |  4 +-
+> > > > >  security/integrity/platform_certs/load_uefi.c |  2 +-
+> > > > >  21 files changed, 111 insertions(+), 70 deletions(-)
+> > > > >  create mode 100644 arch/powerpc/kernel/integrity_sb_arch.c
+> > > > >  create mode 100644 arch/s390/kernel/integrity_sb_arch.c
+> > > > >  create mode 100644 security/integrity/efi_secureboot.c
+> > > > >
+> > > > > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> > > > > index 93173f0a09c7..4c265b7386bb 100644
+> > > > > --- a/arch/arm64/Kconfig
+> > > > > +++ b/arch/arm64/Kconfig
+> > > > > @@ -2427,6 +2427,7 @@ config EFI
+> > > > >         select EFI_STUB
+> > > > >         select EFI_GENERIC_STUB
+> > > > >         imply IMA_SECURE_AND_OR_TRUSTED_BOOT
+> > > > > +       imply INTEGRITY_SECURE_BOOT
+> > > >
+> > > > This allows both to be en/disabled individually, which I don't think
+> > > > is what we want. It also results in more churn across the
+> > > > arch-specific Kconfigs than needed.
+> > > >
+> > > > Wouldn't it be better if IMA_SECURE_AND_OR_TRUSTED_BOOT 'select'ed
+> > > > INTEGRITY_SECURE_BOOT in its Kconfig definition?
+> > >
+> > > As much as possible, EVM (and other LSMs) shouldn't be dependent on another LSM,
+> > > in this case IMA, being configured.
+> >
+> > Sure, but that is not my point.
+> >
+> > This arrangement allows for IMA_SECURE_AND_OR_TRUSTED_BOOT to be
+> > enabled without INTEGRITY_SECURE_BOOT, resulting in the stub
+> > implementation of arch_integrity_get_secureboot() being used, which
+> > always returns false.
+>
+> I understand your concern, but instead of "select"ing INTEGRITY_SECURE_BOOT from
+> IMA_SECURE_AND_OR_TRUSTED_BOOT, how making IMA_SECURE_AND_OR_TRUSTED_BOOT
+> dependent on both IMA_ARCH_POLICY and INTEGRITY_SECURE_BOOT.
+>
 
-Indeed, I was figuring this had to be another case of a switch with 
-wonky ACS - do Mani's patches adjusting ACS enablement make any difference?
+Given that INTEGRITY_SECURE_BOOT has no dependencies of its own,
+afaict, selecting it is the least disruptive option, as otherwise,
+existing configs will disable IMA_SECURE_AND_OR_TRUSTED_BOOT as the
+kernel is being upgraded. But conceptually, I agree that they are
+equivalent.
 
-https://lore.kernel.org/all/20260102-pci_acs-v3-1-72280b94d288@oss.qualcomm.com/
+> Including the "imply INTEGRITY_SECURE_BOOT" here in the arch Kconfig allows EVM
+> to query the secure boot state without relying on IMA_SECURE_AND_OR_TRUSTED_BOOT
+> being configured.
 
-Although in this case I guess the issue is arguably more that we're 
-requesting ACS at all, before we know that there's actually an IOMMU 
-present to warrant it. Clearly the best option would be to figure out if 
-the switch behaviour itself can be fixed somehow, but perhaps something 
-like this might help paper over the issue for now (but I'd have to test 
-it to make sure it doesn't break IOMMUs again...)
-
------>8-----
-diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
-index 6b989a62def2..837cc0b5ace4 100644
---- a/drivers/iommu/of_iommu.c
-+++ b/drivers/iommu/of_iommu.c
-@@ -141,10 +141,12 @@ int of_iommu_configure(struct device *dev, struct 
-device_node *master_np,
-  			.np = master_np,
-  		};
-
--		pci_request_acs();
-  		err = pci_for_each_dma_alias(to_pci_dev(dev),
-  					     of_pci_iommu_init, &info);
--		of_pci_check_device_ats(dev, master_np);
-+		if (!err) {
-+			pci_request_acs();
-+			of_pci_check_device_ats(dev, master_np);
-+		}
-  	} else {
-  		err = of_iommu_configure_device(master_np, dev, id);
-  	}
------8<-----
-
-Thanks,
-Robin.
+Yes, I understand that this is the whole point of the exercise. But
+'imply' should be used with care, and in this case, implying both from
+CONFIG_EFI really makes little sense. INTEGRITY_SECURE_BOOT should be
+selected by options that need the functionality, not 'implied' by
+options that might provide it.
 
