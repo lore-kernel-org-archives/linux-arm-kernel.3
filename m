@@ -4,109 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7458D4A615
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C619D4A616
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z+AGXRtrMXkyrXKzRmoE9z026WTEqpV4D7gQD8MxXK4=; b=ZtsdmbObe2Kl8u6ilbLIrl7DxI
-	JQpaeZ5/B0w5PoFwSUIQhqmSaTfqEEGDdC3Zhm2FKvGS6tFNwlJ37/kbzRvClb217wuIyNPJvLieH
-	XqvTpStVXtTz5pUb3D684H09JjR3rkI6Gj0JD6WmivOVQJG3fje7+QcuRqq30P9NxI4fxqt/uz2YQ
-	awXpWRUXu54FOY1bIIMB8rexVI0qO3FoBCjGsjmBJkhBByQ/UXi7SoQ/H7j1F/Ls18crkOZJQMc++
-	FMnjbptxmOCXnVhk9nToet8HzENem8HzIBVAshkvJlNR2t/3Xtqwtc1Zy6fNafb84rZb6kozZ3LUI
-	VzmI6vdQ==;
+	bh=1gVkLjFWXdsLXhZXMgSkslb6Gc2W6vyzdGMqF3LNrLk=; b=YPjWaYkADOoXfOzpkj0QvbkaTF
+	kv30ImHg4jm7hkKPGyDg1ezTaxRbKfjlF6RLAPphZI0EGOhlUkWBQ/4Q0EfqwyknjySklLLJbY6ZX
+	EQ0od69EQWKCx5OTQHVwSJCDyTsqkWXvVhCLSCof4r62J6Y1EbcrnL51KHzKOrp2fps8BtwZ+cvH0
+	Li8Tq9KnKQaMdBB6Y2b/zKVQk2GWCy+OhxCFAyTaSrFg+8f65AHI1hdqvy5GjpaX46sEC3UQvyzjh
+	YHNc3tAzG1wy9s+0JynxXWYgyQPQ8uVv79mOlnlTNoks/ObNaJakhDPcoP+HHgy76tOsiZyanq1mC
+	B8pPYNTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgfyR-0000000DqVE-2maa;
-	Fri, 16 Jan 2026 09:18:31 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1vgg53-0000000DrEF-2HO2;
+	Fri, 16 Jan 2026 09:25:23 +0000
+Received: from mail-dl1-f42.google.com ([74.125.82.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgfyN-0000000DqU2-3Dl3
+	id 1vgg50-0000000DrDn-1Huv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 09:18:30 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-47d1d8a49f5so10718135e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 01:18:27 -0800 (PST)
+	Fri, 16 Jan 2026 09:25:19 +0000
+Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-12448c4d404so912627c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 01:25:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768555517; cv=none;
+        d=google.com; s=arc-20240605;
+        b=JyjOlnylN4ADXjIsDMp9tzYrzwuCa4xRsWEheJlC+dJyDRc5bJGCj2r2amftW+ydx2
+         LrRh/nbj/8eeoqqlJ8q8Lj2gOLEOW0csdyIluVowdpDUSIgg+RyzEbUTE/9XQ6u/aCH0
+         xxF4gimD5jOtRmo1bnSdEkk/hy0rO9iDPOw0qnayRTW+JowsYm8PDwns1cZ18ZUu5jtb
+         ZdGbpqKv8VIspOUsYWMGnLfOwJp7PZt3UoCvh3HfZ6zx6NUpv8FbP92rILRF23WMLZgH
+         KxKYOIgm2PxjZ43JAxPdmGvOTaNt1mUGx0t/MHzy7gJ8YRiS06KRWAKqmwfRdNp81ksR
+         0Nvg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=1gVkLjFWXdsLXhZXMgSkslb6Gc2W6vyzdGMqF3LNrLk=;
+        fh=WPXJj4cOuCW4fuZA0PzbCY6lSunGdDgzvtjQQ5YpSlU=;
+        b=FgjkFY1oApJC4W9aPB8FMkVv8hUjS+K35ZshcYWeAKDLaNVfvNc4kE+erVEYYbEdI/
+         Tom/kciLQzPj3GZAkGR+jfqVDhy835l4Rn0MDxrgh6/p93yWRbFkqYVYOEADfHvJezSV
+         x7WRdJ5ufDMutut4CwPRLSPRfiDra1BJ4TWn8tb8loMaG9PvMVfBX26/lZ2OC4r2aTF0
+         SUWaM+ISYtdujKzowO7F9e9nPDoBRDmM4Fonxu3OTmG7JhP/nuVRRP1zU9EtPrtSMRLR
+         VaeKeJGRHK94wvqgJe49xZGEEUDWTCE18KldAL4ypKLfwW2NM/gQFlGeP5gaY37Pew8W
+         tmuQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768555106; x=1769159906; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Z+AGXRtrMXkyrXKzRmoE9z026WTEqpV4D7gQD8MxXK4=;
-        b=i2A0MzGi6MTP9VmY4hT0pGuFygV+CZmQhd1P7cO6opMi1eiy15BVBVWZMonh54Hhyg
-         HVuWOWm7ExgPn0a1/bmFjx4F+9viHPiJKloB7yiPDe/HuVNA6SXDcfGQyETXPBMddwiB
-         vJ0hj4+oF2klPksfmZ851CLHAu+wucnA5vUoBn62F0OrXymTRtsdMO+w4RlLI9/kl+sS
-         uOzXkYkBQ6lAnU6UrcqKtYQCD61i3kEdzEoxNfHgDxiKrX7SBDpuApHSyPmSxbNb3Jw5
-         S5xoCWRL8VgKXiIwJd34PwDEj2KsJ13nhep7cxMlYxBzG8JwiGyKaEES2rpC1/zKUr8x
-         tUXg==
+        d=gmail.com; s=20230601; t=1768555517; x=1769160317; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1gVkLjFWXdsLXhZXMgSkslb6Gc2W6vyzdGMqF3LNrLk=;
+        b=jfdCV0kuQu/0Zn6yXxe2OqAXQS9LlPfi6ilDn6nV+71QMJtfDQnZMUsE0vgMhtldK6
+         7vzbl6PFJgkpJTxtQQgis6iIClIwsCvgBAs7AueVTbPSdB4rzjcqPprTy9IimyY8HqKl
+         P/fgOJ9q40f6AE95gZfSWeNS2cF5J7AP38rOJkCRwjjprasu+S86b1ewKRcg8ju8K6WQ
+         qdIZNP7oMk3RcGeXTXfQp2kGPfxxAipSGpuatvKscOm1fnGPclxaNHpfdtWpGHmgmRL8
+         G8X7DZNAVcfZ4bSGc5A2/A8+2lvFUJuYc7o/QOnXvja3MelwhNHBnl68REBynrjg3LxX
+         Emgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768555106; x=1769159906;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Z+AGXRtrMXkyrXKzRmoE9z026WTEqpV4D7gQD8MxXK4=;
-        b=KR+YxrW0RthvakGddShGz446kPk7akJSa8N58wXFuA1NYN3Xdxkhnii9SLU9gIuYaU
-         6QXuXb4iDZJZlEJM4EhdjLxnKfJIIuTz9Kz/OR34fEehxsoQCR30DtKic8jSPcapC3S3
-         ulpoLXHdt7djPomnqfxuQd3lNjQBX4/COBMZtI9IKSN8JasPZycGutOYkgXubDuhtSRg
-         sO+Nmm1oWn69zVcFTxdQqqJKM6p79A6krmUpKvWirxaBSj/SzI0LxbgMMq/2lZvN+OKN
-         PDso0Tl0Hmr+20MLJXLPiDNvvK2MoOJOMvEyvxlJF6pXMwwLQIxa+LRtHa+fehBNK028
-         HZsg==
-X-Forwarded-Encrypted: i=1; AJvYcCXd2jNrnNiPY7busQrwc0enV4fLh4WH1FMBrv80j0eLYrUnP1zVZqHCZUAYl08lcVlkVBH7wiy3OAGgiJwpA4n2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZcZqGeMOl/ylI9cbRf1N1m8NjvvPMLgOXU/66bHPyaW2re75s
-	x01BkQrJwO04HV7DGuF9loeby4JVnZxedzTP2iFKhMQOkRuIsXeAHZ6FytySzkdwpvU=
-X-Gm-Gg: AY/fxX5jh/kxKgEawQ46W+74SSneO7RD/DkX2xDYDKRDHIqYEhkdrF5gm+DWcxuKUwH
-	3T306k/xHjSHmyZu/v8MaBlwaIcNMFs1T0xKJFRQylOP2gXAyEzFxXHNQtnXOE+5kFxRsZkQt8U
-	WSAlnpxh8jx/aHDdvqsms1X2I7qSyRH/CCHwMBz5i8om0eon6P7kVSG0+XotrnPmrRJYW76kerF
-	0SjgkP3gVhXHttnukqGFnWliUUy/tjysUTc75DR4EUj2r1gly41EGCDrBvZVxzVV973PqffnnnG
-	f/iVQdAolIlrjgAmx4KJdx+izznChScZtyGuDHs3Da9GACN+EDo/3k+gEm26xr1wutCNd7afq93
-	UxFPmKtOPmGNqt6OyU4n6Gj7l5Fb8x8z/sK9XoHEUWPgBg+AnqBC8JoPOpddDRpqdu/fxlZcvfp
-	nX1OgLKJwNp24CcRvZtA==
-X-Received: by 2002:a05:600c:6209:b0:477:641a:1402 with SMTP id 5b1f17b1804b1-48023ea2fc7mr6725565e9.4.1768555105706;
-        Fri, 16 Jan 2026 01:18:25 -0800 (PST)
-Received: from [10.11.12.107] ([86.127.43.8])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47f429071besm87551575e9.10.2026.01.16.01.18.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Jan 2026 01:18:25 -0800 (PST)
-Message-ID: <d3dedf5e-ada3-4d33-b1a5-7556ba80ffb1@linaro.org>
-Date: Fri, 16 Jan 2026 11:18:22 +0200
+        d=1e100.net; s=20230601; t=1768555517; x=1769160317;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=1gVkLjFWXdsLXhZXMgSkslb6Gc2W6vyzdGMqF3LNrLk=;
+        b=eEb8+3G0qDnVyJv8P/s0DdAG2d1bgBSOCPyWk3c4Em3IVp9KNuXcqhqnmsrB0Keyxx
+         Eg3VcKSnC4ValNhdnfZC7i3BbQOtZFwrHRunGnN9aMoOvJzEbno+Bl0hbNdSIB7wX5yg
+         17BGFamtpQYOtuADRwrAZg3zjS+2LKIF/gfjjtY26BXeKd5bi7miHYG0mjCmjMg8hJiG
+         C2wD3uyKxgHZbWXqCL8nC0Br0MFxiDgwUQoqBIg7eCf0844jdiIae2OvmX+wofTYSbWD
+         l1jNkVhvm9S33BMqJy8SvkzEFT3w1dGgG9yuJFffk8TzqtSWVmmdIk0DHbQxZQXG5hQw
+         HuqA==
+X-Forwarded-Encrypted: i=1; AJvYcCVlJkOsU5qL4aNfIWFLMx2XN2uLP8O7eX0vzl/IQ4ugwvaKof9ug4EuzoxFbPhFZrtZJerKwtZ+YUwtYFyvr1Mw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsKhvAGAP116Z4tWBL+Tb7TSAcfnuF+TLwf04QuIRktiPW7Ydl
+	C8LGRkzKKAo+ckUP1eLbLVyBLBXVgvh+ltVHe23iFAtPGfPcUyNHKcbuK6jOFiCBaxVT5i0YRqA
+	56mrEgHqp3jEj+Vg3wRnXJyvac/ge7yc=
+X-Gm-Gg: AY/fxX44ao89e1ipZjNjSl5/86UG2/tjYSTnFu0rhn1srO++b/QIkMyWMISJrDu1P5f
+	+PhGD2HHdBaVT5dKdf1OLYoSHxOpBytSw8achvut3hvALBuQgkkZ/DAq3Bl+oOW4JmtAXkGnxjq
+	m8gGG3ES0pMclneMvyh7Jxa2pULVjtog5iFHJrBd+pJsCicPKb1hIIdlKZxFGqzBQ1YrtrmIMvj
+	AgwRruyKvu9/G9dV4h+59eBKiyCI8pxE1wm08KRyFpnAuhalFiCKA03LE2Jm+E2dZW9HZ7g0etb
+	ZjieyOxJTusi2k2/tnQjGtHZx6D4mHLq6bG/EeXzjEXgqxp6Y3FAAXA47n7H+HLiywxtYYQB7oN
+	szMOiXfjko8eIe2u4jPUK
+X-Received: by 2002:a05:7022:128e:b0:11f:3483:bbb2 with SMTP id
+ a92af1059eb24-1244a72e2c6mr2287226c88.12.1768555516713; Fri, 16 Jan 2026
+ 01:25:16 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] dt-bindings: mfd: Add Google GS101 TMU Syscon
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>, willmcvicker@google.com,
- jyescas@google.com, shin.son@samsung.com, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-hardening@vger.kernel.org
-References: <20260114-acpm-tmu-v1-0-cfe56d93e90f@linaro.org>
- <20260114-acpm-tmu-v1-3-cfe56d93e90f@linaro.org>
- <20260115-slim-denim-potoo-cad9cb@quoll>
- <200d34bf-150e-4f8a-b400-2f54863502ac@linaro.org>
- <e2f028d6-774f-4773-889f-7d56b833067e@kernel.org>
- <fcc5405e-189d-4195-8db0-3acf35bbc0a9@linaro.org>
- <26d86470-aaa2-46e3-9940-010a903df4fd@linaro.org>
- <0176a63a-6b04-4e30-b718-847133882050@kernel.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <0176a63a-6b04-4e30-b718-847133882050@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260116091704.3399142-1-Qing-wu.Li@leica-geosystems.com.cn> <20260116091704.3399142-3-Qing-wu.Li@leica-geosystems.com.cn>
+In-Reply-To: <20260116091704.3399142-3-Qing-wu.Li@leica-geosystems.com.cn>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Fri, 16 Jan 2026 11:27:58 +0200
+X-Gm-Features: AZwV_Qhvgz-kbrRItIaZk0_yMWKQZjkC3dhXXrMaQSnI1xaVYEnm76i5Ds3FryY
+Message-ID: <CAEnQRZAz_-S29L66a_ySxGAX-SKAeAvHfKqjanLsGNCZ7_zsAw@mail.gmail.com>
+Subject: Re: [PATCH V2 2/2] i2c: imx: add abort path for invalid block length
+To: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
+Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, andi.shyti@kernel.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, 
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	bsp-development.geo@leica-geosystems.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_011829_496646_A959866A 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260116_012518_382230_6E24305B 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,34 +120,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jan 16, 2026 at 11:19=E2=80=AFAM LI Qingwu
+<Qing-wu.Li@leica-geosystems.com.cn> wrote:
+>
+> When a block read returns an invalid length (0 or >I2C_SMBUS_BLOCK_MAX),
+> the current implementation leaves the bus hanging with SDA held low,
+> blocking all further I2C communication on the bus.
+>
+> Add a dedicated IMX_I2C_STATE_READ_BLOCK_DATA_ABORT state and ISR
+> handler to properly terminate the transfer when an invalid block length
+> is detected:
+>   - Set TXAK and receive the next byte with NACK
+>   - On the following interrupt, generate a Stop condition
+>   - Read and discard the final byte
+>   - Report -EPROTO to the caller
+>
+> This ensures the bus is released correctly and allows other devices on
+> the bus to continue operating normally.
+>
+> Tested on i.MX 8M Plus with continuous block read operations.
+>
+> Signed-off-by: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
+> ---
+>  drivers/i2c/busses/i2c-imx.c | 55 ++++++++++++++++++++++++++++++++++--
+>  1 file changed, 53 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+> index 85f554044cf1..71457dbffb7a 100644
+> --- a/drivers/i2c/busses/i2c-imx.c
+> +++ b/drivers/i2c/busses/i2c-imx.c
+> @@ -233,6 +233,7 @@ enum imx_i2c_state {
+>         IMX_I2C_STATE_READ_CONTINUE,
+>         IMX_I2C_STATE_READ_BLOCK_DATA,
+>         IMX_I2C_STATE_READ_BLOCK_DATA_LEN,
+> +       IMX_I2C_STATE_READ_BLOCK_DATA_ABORT
 
-
-On 1/16/26 11:14 AM, Krzysztof Kozlowski wrote:
-> On 16/01/2026 09:50, Tudor Ambarus wrote:
->>
->> Because of the hybrid approach I'm arguing the ACPM child node does not
->> fully describe the hardware, and it's just a firmware abstraction.
->> So option 2/ would be to have just the TMU IP block described with a
->> phandle to the ACPM IPC:
->>
->> soc: soc@0 {
->>     tmu@100a0000 {
->>         compatible = "google,gs101-tmu-top";
->>         reg = <0x100a0000 0x800>;
->>         clocks = <&cmu_misc CLK_GOUT_MISC_TMU_TOP_PCLK>;
->>         interrupts = <GIC_SPI 769 IRQ_TYPE_LEVEL_HIGH 0>;
->>         
->>         /* The "Firmware Phandle" approach */
->>         samsung,acpm-ipc = <&acpm_ipc>;
->>         
->>         #thermal-sensor-cells = <1>;
-> 
-> Yes, this one, I think it's the best representation.
-
-I was leaning towards this as well. Thank you! I'll start reworking the
-patches.
-
-Cheers,
-ta
-
+Please add the comma at the end of the last line so that we still have
+nice diffs
+next time we add an element at the end of the enum.
 
