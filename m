@@ -4,100 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7AE4D4A615
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2149D4A609
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pqAbJs5DEIYF5QCBGJfgcurtZvGAMM7ELYVo8ENiu9M=; b=2CXNn4FH9BXYZSdIuH6Zb/xbrg
-	bzO9ommc79xJ8ocwEMchiv/PXD6SWMvUFeVzsUbV6jzZddMJmrbHGpTDVIWkD81HxBUq2dqQ2/pCD
-	GdW6kPqm7zCUVPdBmflZczSgdWKa07wlpZASdrPhSECRWMREg//t8bToij01OhTJJuHxdm/A572jK
-	Wuye64Oi/kIm7ZLUOIFFgvDPieykS9akOkLEngdkLymDRct8jsHmhStdZjVyPKLeYJJLY20ssM3hp
-	IeOv5qYCUOnm/0qo0kEMH0DruCjKXjsPktVSu6s3Q12pnh3++8T51SM3PByltbmVRac6668mIUAs7
-	Y+2m0UzQ==;
+	bh=o137xVrjcYhOPmuHdumOW7Bflcn/KK30dt06zXLz2Qg=; b=eHKWlU6eok/+Y+6V2W8EI9WyNk
+	hjdS5mSH8jhbag/3mjTPrwbqDgZ/CqR8lasS/JB1i/YkaHyP11e69AEMczgagsV6qr1maKDJfAaYu
+	xnc0Of+TgP6Nv2W7EGge0ZD2EX9Hf6+YzjF8xhi7nD5OIKQaQb6yzak3s2b8vdV/2b/MoxcP2Oogk
+	kMSI8hwlmTUjHYcuHIruOpzsJvXYUhdnoVx51rK0C9BfWPK1JAwxfJZoNfZ7x7hiCYSq0D4JxQQ5P
+	UFHXd4ySQfZX65E626JM+jVgOkX3yZt/o3bVLJxoW0fZOmADyMXFMVxanSAVwR2j3+YvxdYyVizMs
+	3c8FqW4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgfsN-0000000DpgF-2Vot;
-	Fri, 16 Jan 2026 09:12:15 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1vgfug-0000000Dpph-17NQ;
+	Fri, 16 Jan 2026 09:14:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgfsK-0000000DpfW-1jIs
+	id 1vgfue-0000000Dppa-2XCn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 09:12:14 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-38316b89455so2576681fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 01:12:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768554729; x=1769159529; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pqAbJs5DEIYF5QCBGJfgcurtZvGAMM7ELYVo8ENiu9M=;
-        b=ku97Jno0o22/9fYMHX+DVhGIRCrdokTmOqLQyNqltJ6tqFtBCTYLtVHzapJzHl2pKE
-         6uQLKKH8h2+u38FBwa7jnw+FriyiYNpzHNJAiAI+f9krq4a7J6Snp4M9zBcv+h+S0Ztb
-         9Gw5W4HrEsJfF6u56i9wVNJBVwkpUHBQ9FVVU8MlCgtemXiHSxPsHcKHhfTuJ4Be8YxG
-         DkGH3XZIftBGC2jtJyCnQ2QfiACqJDVbflteE9C7rdrJezWoUJZWiY8BSPtJfUFtM/lF
-         kV4wueMrlxrhTfCDANzzb5YzG5r72J53Y/jyz1tw60WEbN8awaOqug7klQFZIU3MQkRL
-         apwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768554729; x=1769159529;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=pqAbJs5DEIYF5QCBGJfgcurtZvGAMM7ELYVo8ENiu9M=;
-        b=K6QXavbIpEXJMXTOTsTnxxmJhYqnKYLq4ps+rYDK19LeCIPs63zeK4JylR7BcBgWJ9
-         PYGSo62MyQJ2F2mOXYc839oIINzmE000ay8qvgpHx1B4SueExGOIXu/84nnFv0PuJPQO
-         ZDa0GCeLMIyZ4uV+iWw4k3idUivWc9YHVtD0ioNxeXQdO5166MB29mWl6EyfHxhx8pWZ
-         3e4w/y7+v6vi59yG0mGuQ2s2zMLTq09QLdJdN2RfiWXJtIszRHUsm37pc+yaG6ueFHYK
-         FkAG7kAjdR6APZyGuhtOAwqRH8zkO099hS/MZQY0qAbzKN42YgASKveZm+0NEsrVN0gK
-         /XJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXf7GpxVu5ZcgFAbS5cvbZ6ABwMwlwKs8p21NjYq3YGpoiOTyJJGA6EVVKJtHhXiSFTs9rxRCruI4yhDso5rojR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXjB1asulbw2G7JNGWBUavthwW48z+W1DxRkiopvPU6VvjK9Oh
-	2qzHv2YZ2Wq7UWOCa+WkTkhqyUn/FtQsvuiTp4MJNESz2f54uaebX+p7alEi5wO6oGg=
-X-Gm-Gg: AY/fxX75UA4DtIDgIaSWP6OT2wKQUB7twnzcTmudAAlGaeUedDb9/iE1CyVLyfNCdPy
-	ZTUOuccIrN6wvyS/fdeogy6hIQDtli56o3KMKmVjz8/FPs488TyuMCPlcBAgx+MPFJshmqIdwSZ
-	W2g+N9cwPkVfB7I+SpZG+s3YyF6Bi1IdaMwPuM0UVYrmrs2vx17eJpaqd3irgaKWEF3qs8JWNba
-	QRKXNaFu777/7pE7Cw6Omi0yTjvy7VEktk4b4SCe+CxEGEdNmtp1RKQvJYxsauKdV1aH2vU0FlU
-	vUQp6qVdd5O+Lh+rdqEX99pExBgkP3UQJkcppiRcz4ABHQO4NTvZcZ5xrwUpQOxCvQrzHLfjRtR
-	GKq4mZgiBnm2DJ9hj35MsDijquOPGp1lVmyJtPQ5c4wIQCFZGt+ZqfhZo6HXhZ3KK+HQyzHasvx
-	UjXdt8GVEnhDpmfMbTTET946gOnH8+zYLExxLiNUpxt0OukExxTJyRdTCBuQSb2zEfDw==
-X-Received: by 2002:a05:651c:991:b0:380:a1c:7039 with SMTP id 38308e7fff4ca-38383fe5fbemr4683611fa.0.1768554729185;
-        Fri, 16 Jan 2026 01:12:09 -0800 (PST)
-Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38384d8e0e5sm5608701fa.17.2026.01.16.01.12.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Jan 2026 01:12:08 -0800 (PST)
-Message-ID: <3b16ffa2-1580-426c-aa9c-f377d913d49c@linaro.org>
-Date: Fri, 16 Jan 2026 11:12:07 +0200
+	Fri, 16 Jan 2026 09:14:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B43D860167;
+	Fri, 16 Jan 2026 09:14:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97816C19421;
+	Fri, 16 Jan 2026 09:14:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768554875;
+	bh=38VJjEOBybxvpA5oM4E2ds0CLpavJo1u9OUC5LqR17s=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iIdiTAhLPedoyWD6OHq9eN6g1Eo5hGac+89ismIW8zO9oufZsUeYNrgE0f0LcAUav
+	 TNGxRKkZy+aOxgIgc2YMrrkKNYnK9Z/C2GgCmDjzCoYuk5ZsOtB8kFo7VyWEkoooKF
+	 MKBAZZGVdgXuidxIdeulEPGqfz92b4SWsxjCUMldXnlf+TIvWmdAXkRIWdBwqBdKWR
+	 mt2Yoa3FcYUr2+E41sSADqLYQtVTqQgaX5lBu75WoX12v2XkEkrKjkniY060AMVmf5
+	 TANYRWq3j59mvkAEpVHGqcftLg/1Esf6Rk4oPeA8hMeWGVB9mwhtT/U+k9KEhv4oS6
+	 4kxyqFpY+emeQ==
+Message-ID: <0176a63a-6b04-4e30-b718-847133882050@kernel.org>
+Date: Fri, 16 Jan 2026 10:14:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/5] arm64: dts: qcom: talos-evk-camera: Add DT overlay
-To: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>,
- Loic Poulain <loic.poulain@oss.qualcomm.com>,
- Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH 3/8] dt-bindings: mfd: Add Google GS101 TMU Syscon
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Robert Foss <rfoss@kernel.org>,
- Todor Tomov <todor.too@gmail.com>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-i2c@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>, willmcvicker@google.com,
+ jyescas@google.com, shin.son@samsung.com, linux-pm@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20260115-sm6150_evk-v3-0-81526dd15543@oss.qualcomm.com>
- <20260115-sm6150_evk-v3-5-81526dd15543@oss.qualcomm.com>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <20260115-sm6150_evk-v3-5-81526dd15543@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20260114-acpm-tmu-v1-0-cfe56d93e90f@linaro.org>
+ <20260114-acpm-tmu-v1-3-cfe56d93e90f@linaro.org>
+ <20260115-slim-denim-potoo-cad9cb@quoll>
+ <200d34bf-150e-4f8a-b400-2f54863502ac@linaro.org>
+ <e2f028d6-774f-4773-889f-7d56b833067e@kernel.org>
+ <fcc5405e-189d-4195-8db0-3acf35bbc0a9@linaro.org>
+ <26d86470-aaa2-46e3-9940-010a903df4fd@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <26d86470-aaa2-46e3-9940-010a903df4fd@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_011212_491656_21B6486E 
-X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,112 +131,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/15/26 12:12, Wenmeng Liu wrote:
-> Enable IMX577 via CCI on Taloss EVK Core Kit.
+On 16/01/2026 09:50, Tudor Ambarus wrote:
 > 
-> The Talos EVK board does not include a camera sensor
-> by default, this DTSO has enabled the Arducam 12.3MP
-> IMX577 Mini Camera Module on the CSI-1 interface.
+> Because of the hybrid approach I'm arguing the ACPM child node does not
+> fully describe the hardware, and it's just a firmware abstraction.
+> So option 2/ would be to have just the TMU IP block described with a
+> phandle to the ACPM IPC:
 > 
-> Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
-> ---
->   arch/arm64/boot/dts/qcom/Makefile                  |  3 ++
->   .../boot/dts/qcom/talos-evk-camera-imx577.dtso     | 63 ++++++++++++++++++++++
->   2 files changed, 66 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-> index 00652614e73582fa9bd5fbeff4836b9496721d2d..be9aeff2cd1555bc436e1b8eb78d8e1c9b84f9c4 100644
-> --- a/arch/arm64/boot/dts/qcom/Makefile
-> +++ b/arch/arm64/boot/dts/qcom/Makefile
-> @@ -339,8 +339,11 @@ dtb-$(CONFIG_ARCH_QCOM)	+= sm8650-qrd.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-mtp.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-qrd.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk.dtb
-> +dtbo-$(CONFIG_ARCH_QCOM)	+= talos-evk-camera-imx577.dtbo
+> soc: soc@0 {
+>     tmu@100a0000 {
+>         compatible = "google,gs101-tmu-top";
+>         reg = <0x100a0000 0x800>;
+>         clocks = <&cmu_misc CLK_GOUT_MISC_TMU_TOP_PCLK>;
+>         interrupts = <GIC_SPI 769 IRQ_TYPE_LEVEL_HIGH 0>;
+>         
+>         /* The "Firmware Phandle" approach */
+>         samsung,acpm-ipc = <&acpm_ipc>;
+>         
+>         #thermal-sensor-cells = <1>;
 
-Please remind me, what does dtbo-y Makefile target serve for?
+Yes, this one, I think it's the best representation.
 
-> +talos-evk-camera-imx577-dtbs	:= talos-evk.dtb talos-evk-camera-imx577.dtbo
->   talos-evk-lvds-auo,g133han01-dtbs	:= \
->   	talos-evk.dtb talos-evk-lvds-auo,g133han01.dtbo
-> +dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-camera-imx577.dtb
->   dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-lvds-auo,g133han01.dtb
->   x1e001de-devkit-el2-dtbs	:= x1e001de-devkit.dtb x1-el2.dtbo
->   dtb-$(CONFIG_ARCH_QCOM)	+= x1e001de-devkit.dtb x1e001de-devkit-el2.dtb
-> diff --git a/arch/arm64/boot/dts/qcom/talos-evk-camera-imx577.dtso b/arch/arm64/boot/dts/qcom/talos-evk-camera-imx577.dtso
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..53006a861878f9112673b9a0ad954bed7a5fdca5
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/qcom/talos-evk-camera-imx577.dtso
-> @@ -0,0 +1,63 @@
-> +// SPDX-License-Identifier: BSD-3-Clause
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include <dt-bindings/clock/qcom,qcs615-camcc.h>
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +&camss {
-> +	vdd-csiphy-1p2-supply = <&vreg_l11a>;
-> +	vdd-csiphy-1p8-supply = <&vreg_l12a>;
-> +
-> +	status = "okay";
-> +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		port@1 {
-> +			reg = <1>;
-> +
-> +			csiphy1_ep: endpoint {
-> +				data-lanes = <0 1 2 3>;
-> +				remote-endpoint = <&imx577_ep1>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
-> +&cci {
-> +	status = "okay";
-> +};
-> +
-> +&cci_i2c1 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	camera@1a {
-> +		compatible = "sony,imx577";
-> +		reg = <0x1a>;
-> +
-> +		reset-gpios = <&tlmm 29 GPIO_ACTIVE_LOW>;
-> +		pinctrl-0 = <&cam2_default>;
-> +		pinctrl-names = "default";
-> +
-> +		clocks = <&camcc CAM_CC_MCLK2_CLK>;
-> +		assigned-clocks = <&camcc CAM_CC_MCLK2_CLK>;
-> +		assigned-clock-rates = <24000000>;
-> +
-> +		avdd-supply = <&vreg_s4a>;
-> +
-> +		port {
-> +			imx577_ep1: endpoint {
-> +				link-frequencies = /bits/ 64 <600000000>;
-> +				data-lanes = <1 2 3 4>;
-> +				remote-endpoint = <&csiphy1_ep>;
-> +			};
-> +		};
-> +	};
-> +};
-> 
-
-Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-
--- 
-Best wishes,
-Vladimir
+Best regards,
+Krzysztof
 
