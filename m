@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2149D4A609
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:14:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75CBAD4A615
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o137xVrjcYhOPmuHdumOW7Bflcn/KK30dt06zXLz2Qg=; b=eHKWlU6eok/+Y+6V2W8EI9WyNk
-	hjdS5mSH8jhbag/3mjTPrwbqDgZ/CqR8lasS/JB1i/YkaHyP11e69AEMczgagsV6qr1maKDJfAaYu
-	xnc0Of+TgP6Nv2W7EGge0ZD2EX9Hf6+YzjF8xhi7nD5OIKQaQb6yzak3s2b8vdV/2b/MoxcP2Oogk
-	kMSI8hwlmTUjHYcuHIruOpzsJvXYUhdnoVx51rK0C9BfWPK1JAwxfJZoNfZ7x7hiCYSq0D4JxQQ5P
-	UFHXd4ySQfZX65E626JM+jVgOkX3yZt/o3bVLJxoW0fZOmADyMXFMVxanSAVwR2j3+YvxdYyVizMs
-	3c8FqW4g==;
+	bh=W3uIBDHJV1P9Eaqok3k16zYP8lpyxl1CY6tw+oh23kI=; b=y6ZcKav99ovXjJHpwdk/ypDiEv
+	HC9XJoZYfSZ7LcBnyS2YnIBPwksrnzC6Zum1ud7MQqPMvsBZ+fc+QXMIMpsCzWufQqwBUizmKqZxq
+	dzok4avCsoo5tIG6obgRdqLmaRne034BYvPiYE+QbrKdUJbLX1yk+NFiTfe/46Dnqs/WFlo/8hPiK
+	GatCq/gO8D5AWwqtVHXYg9M9hDVysRhJQJc2rRfP6u8+2yhfLZ5ygUFR4pIm9xLTcCL+5JL3bMAAO
+	QY9fYgxE7vabamVPELu/WC3I7y1PPkdxAlZx8ov660eZ2ZhHNEz0MB8i6AaOPB6R75QXNQNqCtu8i
+	un2CGGKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgfug-0000000Dpph-17NQ;
-	Fri, 16 Jan 2026 09:14:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vgfwF-0000000DpxZ-2pRh;
+	Fri, 16 Jan 2026 09:16:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgfue-0000000Dppa-2XCn
+	id 1vgfwE-0000000DpxB-0O3L
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 09:14:36 +0000
+	Fri, 16 Jan 2026 09:16:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B43D860167;
-	Fri, 16 Jan 2026 09:14:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97816C19421;
-	Fri, 16 Jan 2026 09:14:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 838D6416D2;
+	Fri, 16 Jan 2026 09:16:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 021C3C116C6;
+	Fri, 16 Jan 2026 09:16:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768554875;
-	bh=38VJjEOBybxvpA5oM4E2ds0CLpavJo1u9OUC5LqR17s=;
+	s=k20201202; t=1768554973;
+	bh=5ruNkvaF+Rmg+5LyMC70XNPVeJyuhzT/pkBC8YQs/fo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iIdiTAhLPedoyWD6OHq9eN6g1Eo5hGac+89ismIW8zO9oufZsUeYNrgE0f0LcAUav
-	 TNGxRKkZy+aOxgIgc2YMrrkKNYnK9Z/C2GgCmDjzCoYuk5ZsOtB8kFo7VyWEkoooKF
-	 MKBAZZGVdgXuidxIdeulEPGqfz92b4SWsxjCUMldXnlf+TIvWmdAXkRIWdBwqBdKWR
-	 mt2Yoa3FcYUr2+E41sSADqLYQtVTqQgaX5lBu75WoX12v2XkEkrKjkniY060AMVmf5
-	 TANYRWq3j59mvkAEpVHGqcftLg/1Esf6Rk4oPeA8hMeWGVB9mwhtT/U+k9KEhv4oS6
-	 4kxyqFpY+emeQ==
-Message-ID: <0176a63a-6b04-4e30-b718-847133882050@kernel.org>
-Date: Fri, 16 Jan 2026 10:14:28 +0100
+	b=siH4yiqU+brTnXZCX3bMd8TTQy+U2jEfv8Qh7QYDBSF1h9gwZcOsIGjmeJ8cm7kQK
+	 Yyh4gt046Jfj+X8n+dVRvekd5KW4C6IMHlyvHYeRumOEG2yMuZFXua4lPjc0vz3vH5
+	 PFFL2Yk5LQOtfmlQ9okrqhkNa92ieTWmyuBiON8b7Eg0eJRSjQvLjaCI73r5bDO8yB
+	 i1SWwm/Szud0WaWqYxPbOTPaK4ylQ5cGUowFx986/i4YkjrxTi3YbfGVrU2yP+rCnK
+	 9ToHCtGwGJDSOQ/wqyUL7fQmShj9ZBzfsk2eaSeXucEumXh+6ZUgBoqlcgfJYdyIWf
+	 8LP+OXtDTlNQg==
+Message-ID: <d479060c-6b47-456c-abb6-9c5139bbd36d@kernel.org>
+Date: Fri, 16 Jan 2026 10:16:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] dt-bindings: mfd: Add Google GS101 TMU Syscon
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>, willmcvicker@google.com,
- jyescas@google.com, shin.son@samsung.com, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-hardening@vger.kernel.org
-References: <20260114-acpm-tmu-v1-0-cfe56d93e90f@linaro.org>
- <20260114-acpm-tmu-v1-3-cfe56d93e90f@linaro.org>
- <20260115-slim-denim-potoo-cad9cb@quoll>
- <200d34bf-150e-4f8a-b400-2f54863502ac@linaro.org>
- <e2f028d6-774f-4773-889f-7d56b833067e@kernel.org>
- <fcc5405e-189d-4195-8db0-3acf35bbc0a9@linaro.org>
- <26d86470-aaa2-46e3-9940-010a903df4fd@linaro.org>
+Subject: Re: [PATCH 1/3] cpufreq: dt-platdev: Add ti,am62l3 to blocklist
+To: Dhruva Gole <d-gole@ti.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>, Nishanth Menon <nm@ti.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Kendall Willis <k-willis@ti.com>, Sebin Francis <sebin.francis@ti.com>,
+ Bryan Brattlof <bb@ti.com>, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org
+References: <20260116-am62l-cpufreq-v1-0-63d062317ae9@ti.com>
+ <20260116-am62l-cpufreq-v1-1-63d062317ae9@ti.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -114,9 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <26d86470-aaa2-46e3-9940-010a903df4fd@linaro.org>
+In-Reply-To: <20260116-am62l-cpufreq-v1-1-63d062317ae9@ti.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260116_011614_200055_B0FA71F3 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,26 +123,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/01/2026 09:50, Tudor Ambarus wrote:
+On 16/01/2026 10:01, Dhruva Gole wrote:
+> Add AM62L3 SoC to the dt-platdev blocklist to ensure proper handling
+> of CPUFreq functionality. The AM62L3 will use its native TI CPUFreq
+> driver implementation instead of the generic dt-platdev driver.
 > 
-> Because of the hybrid approach I'm arguing the ACPM child node does not
-> fully describe the hardware, and it's just a firmware abstraction.
-> So option 2/ would be to have just the TMU IP block described with a
-> phandle to the ACPM IPC:
+> This follows the same pattern as other TI SoCs like AM62A7, AM62D2,
+> and AM62P5 which have been previously added to this blocklist.
 > 
-> soc: soc@0 {
->     tmu@100a0000 {
->         compatible = "google,gs101-tmu-top";
->         reg = <0x100a0000 0x800>;
->         clocks = <&cmu_misc CLK_GOUT_MISC_TMU_TOP_PCLK>;
->         interrupts = <GIC_SPI 769 IRQ_TYPE_LEVEL_HIGH 0>;
->         
->         /* The "Firmware Phandle" approach */
->         samsung,acpm-ipc = <&acpm_ipc>;
->         
->         #thermal-sensor-cells = <1>;
+> Signed-off-by: Dhruva Gole <d-gole@ti.com>
+> ---
+>  drivers/cpufreq/cpufreq-dt-platdev.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
+> index 1708179b2610bca6035d10f0f4766eee6f73912e..29122bac2e22f6e7a8e8294cc01923c8a13d53c1 100644
+> --- a/drivers/cpufreq/cpufreq-dt-platdev.c
+> +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
+> @@ -194,6 +194,7 @@ static const struct of_device_id blocklist[] __initconst = {
+>  	{ .compatible = "ti,am62a7", },
+>  	{ .compatible = "ti,am62d2", },
+>  	{ .compatible = "ti,am62p5", },
+> +	{ .compatible = "ti,am62l3", },
 
-Yes, this one, I think it's the best representation.
+p > l
+
 
 Best regards,
 Krzysztof
