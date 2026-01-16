@@ -4,108 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DBC1D47CD5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 10:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B642D47CDA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 10:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NV8TNyLA+vq93sYgYKnZwfWInb+dSVR8Fu1Wmm+jauI=; b=cngnVgOdvXfZjbzDonutkYBEvk
-	xGblmP50Ypii0SvLC5kWTcQy9bkspxXHjXkZdl6ULQVWYvu6iaxwQKGi6nFpZsuCV6jQo6eHTFNf3
-	Wp7IjhDPd123p1E9acO0shgTcEVqODLFHyuCwH884Liy7lrMZjMlDNaOJTiB4icKH/47wdMUarGpK
-	Ov5tZBxpE5SNNrxyWhp2sCrrt6mlmsoZzbyHH7T3e/uM1qe0+SF+3nZjHrNcQtWmbc/HvrFGMptzp
-	tP9nXwkj2UcKrOt+DLjosCBV2SYRUSFic/NoCiHeUgjbfplo3oytMGFIf5Fg0Qgcbx1evAqPRR5BB
-	9nXSxz4A==;
+	bh=s7DoksDpFPnlJ6YY9IWEVIqBsN/FrhlIGvYVSfP8/oE=; b=y0FbG9ybyNKVLaR++DGnowyR+s
+	83/caI2PPPPCXUw5rm1iwJ/GbrrlgEqBvucYa7trcv4NHAsfLaSii6j2SR9Ai9aUxMbVTEQEzxdn4
+	zz+FuJsQgNMY5UZhhKB+mZr8cTeqop5+aiXYGscVrad7D1XiWf1KvahLQPEgzeXNUi6l7kuU+BzD0
+	poxddyZDel1syhqZ8GRBHzgiTquOhIcLI/546l4WOVMJQCv4isDCefcwl2EVtBuvx6wcTryCQE5Ti
+	6agZN7P/z8eZs0dDH57qRyIQhWXyYplqI9lZrI2diypx6/0JLIgXSmUNSQf2T6JzhRl2UaL0fVnur
+	jUuLqPcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghS9-0000000Dzsa-16gH;
-	Fri, 16 Jan 2026 10:53:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vghV5-0000000E04C-3Qrt;
+	Fri, 16 Jan 2026 10:56:19 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghS7-0000000Dzrj-43cv
+	id 1vghV3-0000000E03K-0ADC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 10:53:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4AA0060193;
-	Fri, 16 Jan 2026 10:53:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27808C116C6;
-	Fri, 16 Jan 2026 10:53:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768560795;
-	bh=qKTpq9+uhZ4goFZnkWfLWoqBjLmId86KT3EVnvQfuJY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lQuoL5YJUc0pvxiwtJNb4htDCSxgTlvl8/COVqMdeZkaEeFGfW19yYmnWcXIXATfz
-	 vLBYa7SEUZWArovHHNYs+1D83E8qc1GAw/fatLTVbT4ZOiNqyG0Uzq9OdziIAebXGV
-	 p3AHG8+3wCFhrjrCCI2K3XE0IrFitbnOzWGVO6d3PM8zEeFBEjMQLbdNYvq5F+Ovcs
-	 dpPiZ7fR2E0rBngfecB5+8MdNxOe+4xSSYBwt+OEXwbYVtDLADRoE5FfBxhpRX7+qv
-	 O5z0+mpE28u/Oy+498yyyZtDHkDuvlEhxsQxf8WAnKZuA4qKofwzEpLxc4CSEU2O6y
-	 rQTn77Yr8Cdng==
-Message-ID: <53899b11-f214-4c51-a430-e5da2bf36401@kernel.org>
-Date: Fri, 16 Jan 2026 11:53:07 +0100
+	Fri, 16 Jan 2026 10:56:18 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b87677a8abeso334714866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 02:56:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768560975; x=1769165775; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=s7DoksDpFPnlJ6YY9IWEVIqBsN/FrhlIGvYVSfP8/oE=;
+        b=Rf4ojtr+kLRLTzmT4CaX13DhLqg76pAUsPVwCdXaOvM5rul3bcmS/HJRRMCZEoCZna
+         g9VrrcIG+qzn8WpDjAvu0LZeu1t2lZqiKfLDmJrhNiTtOcRZto+YtS9yLyLZp6YfaKvG
+         0r9V0pCwoNNEAZjBBgfO+4oG+RiJzK0MH7fv631Mudt+uXNUVYWHKltfd72DTExrJsqy
+         TB0z0ErbgO/sEm9mx9X7bNQRi9gQT/Ys88zXGTS6QbwIknIzPDnIjG2cQCXEBJoXOM51
+         x785RXOcim/aI3i8xmvVkQLK7BxKKLp4pAA5R31++rK17x5PNaKYSx6aeHNwHX5FLNbA
+         xTDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768560975; x=1769165775;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=s7DoksDpFPnlJ6YY9IWEVIqBsN/FrhlIGvYVSfP8/oE=;
+        b=iZ6UY48lIDolgIY3INRymV1Qlgixnta/eX+VeyungBZu+W2Slbi71HeZ4V0XyloQVV
+         AG0KDljeUk1twB/YDX2cUbfJYTO1h6/3xUEvAUOADUjVdGZ0utPAggFV4X4rHbsUSYIG
+         20QT29U/J770/7JSi/5W0NyS79JFk4MAGYlzYLCPRoLL0agUZ8B96n3baWgC8vlaRtV8
+         Mnr4A7lZmM3CP3tkxI3W2u62GkuVq2GtaAXZohHXdgsKSOqGZGBa/ImnQFW4nYP9GJf3
+         GW7e4hFxxk71ogMcKn2hWJZr76wFsgpMRxiXLWQFhsaTORQ4FBfVU87pezPvitExdSJ8
+         zKQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV6tKT9IRLgKfQYSD/tEXchqPgf8K/7mjG2Dmza9fOmqpkait9A/iQ9vj3m6cRgtSPRi12JAAD3FmZBgiNZReII@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTK7KAGIWMsR8aOfe5qidzch9IUdGehv258PxO45QuZGDtmy+W
+	2Iz3GkQ7Faq6ZFoc+A62CJFdHyCPSXERJsFUDjRfvOWKgalkN7jwhSzEkRZv6F0arn9HCQI3NUo
+	oLGHEbBejBXruSCkuVfzDV7aoEkzxDUg=
+X-Gm-Gg: AY/fxX4BmgvXs2gSjn07UNsz//noHieupSBAZyeyttlncl9Fxec53TU6t+fN44SrRm6
+	5i5ZWnE/AnuLZ5x6ybqHFMMLZpJIcTAKoNKV4nYuyv0ratE4JoaRWBBOpu0IkT+HoAB0caa+pQb
+	AwLE0gzxJSkey20subiIvCST/TPAmLu9PHuQdn9nwDEtHPwrXZF9EwzRhrZ/15KLDN+u2q5Z34J
+	7zGuxnqM8pwyucjyOovfO/hydqMF/SjQgUzI521PMxsG7n7oYH0yZrTZYi1cZGu0cnuipzCsYVb
+	xOyOfYK0RwfvJu99jHh5+JxfieJWixcsvc/g4/Wk/31wf+U4Nu0ipdpDPS7r7UUh+tt+gwGgHdz
+	1lVNQh7Lqmd10pcUL+RfpTKIw/J35+Xd6CZLW
+X-Received: by 2002:a17:907:724d:b0:b87:124c:5f54 with SMTP id
+ a640c23a62f3a-b87932b6908mr228135666b.59.1768560974807; Fri, 16 Jan 2026
+ 02:56:14 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/5] support batch checking of references and unmapping
- for large folios
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>
-Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, will@kernel.org,
- ryan.roberts@arm.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, dev.jain@arm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
- <c285f2fb-b64d-4932-b9ae-ef420097728e@lucifer.local>
-From: "David Hildenbrand (Red Hat)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
-In-Reply-To: <c285f2fb-b64d-4932-b9ae-ef420097728e@lucifer.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260114120610.82531-1-mcanal@igalia.com> <121ede67-dbfc-4b79-8076-04693e9d3d53@gmail.com>
+ <59cdede3-7757-4fe1-bb94-e7a93eea7611@igalia.com>
+In-Reply-To: <59cdede3-7757-4fe1-bb94-e7a93eea7611@igalia.com>
+From: Peter Robinson <pbrobinson@gmail.com>
+Date: Fri, 16 Jan 2026 10:56:03 +0000
+X-Gm-Features: AZwV_Qh3vURpqiUWdDMv2MS1A-8fDyVxPzhEs3rm4JOXQLN-4xJ2oEQjFFmdjQk
+Message-ID: <CALeDE9PGzTe4LXnDJcyhh_ietWkrf8Sp7xX=X6pZvdCWLx2huw@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: broadcom: bcm2712: Add V3D device node
+To: =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Stefan Wahren <wahrenst@gmx.net>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260116_025617_107985_F08BCFF7 
+X-CRM114-Status: GOOD (  22.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,16 +101,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/16/26 09:41, Lorenzo Stoakes wrote:
-> Andrew -
-> 
-> I know this has had a lot of attention, but can we hold off on sending this
-> upstream until either David or I have had a chance to review it?
+On Fri, 16 Jan 2026 at 10:15, Ma=C3=ADra Canal <mcanal@igalia.com> wrote:
+>
+> Hi Peter,
+>
+> On 16/01/26 00:53, Peter Robinson wrote:
+> > Hi Maira,
+> >
+> > On 14/01/2026 12:04, Ma=C3=ADra Canal wrote:
+> >> Commits 0ad5bc1ce463 ("drm/v3d: fix up register addresses for V3D 7.x"=
+)
+> >> and 6fd9487147c4 ("drm/v3d: add brcm,2712-v3d as a compatible V3D
+> >> device")
+> >> added driver support for V3D on BCM2712, but the corresponding device
+> >> tree node is still missing.
+> >>
+> >> Add the V3D device tree node to the BCM2712 DTS.
+> >>
+> >> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
+> >>
+> >> ---
+> >> v1 -> v2:
+> >>
+> >> - Rebased on top of linux-next (Stefan Wahren)
+> >> - Fixed node's address (2000000 -> 1002000000) (Stefan Wahren)
+> >> - Link to v1: https://lore.kernel.org/linux-
+> >> devicetree/20260113192902.48046-2-mcanal@igalia.com/
+> >> ---
+> >>   .../boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi    |  4 ++++
+> >>   arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 14 ++++++++++++=
+++
+> >>   2 files changed, 18 insertions(+)
+> >>
+> >> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/
+> >> arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+> >> index 7d4742ebe247..97522c6803c5 100644
+> >> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+> >> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+> >> @@ -247,3 +247,7 @@ &pcie1 {
+> >>   &pcie2 {
+> >>       status =3D "okay";
+> >>   };
+> >> +
+> >> +&v3d {
+> >> +    clocks =3D <&firmware_clocks 5>;
+> >
+> > Looking at the upstream DT [1] I think this also needs a clock-names en=
+try.
+>
+> Differently from the `hvs` node [1] you sent (which specifies clock-
+> names), the `v3d` binding [2] doesn't have a clock-names property.
+> Therefore, it is not needed.
 
-Ah, I didn't read your mail before I sent mine. +1 ;)
+There's a name in the clk driver [1] so maybe the bindings should be update=
+d?
 
--- 
-Cheers
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/dri=
+vers/clk/bcm/clk-raspberrypi.c#n26
 
-David
+> [1]
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/D=
+ocumentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
+> [2]
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/D=
+ocumentation/devicetree/bindings/gpu/brcm,bcm-v3d.yaml
+>
+> Best regards,
+> - Ma=C3=ADra
+>
+> >
+> > [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/
+> > tree/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi#n233
+> >
+> >> +};
+> >> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/
+> >> boot/dts/broadcom/bcm2712.dtsi
+> >> index 330a121ebfcb..661668ef7419 100644
+> >> --- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+> >> +++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+> >> @@ -1,5 +1,6 @@
+> >>   // SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> >>   #include <dt-bindings/interrupt-controller/arm-gic.h>
+> >> +#include <dt-bindings/soc/bcm2835-pm.h>
+> >>   / {
+> >>       compatible =3D "brcm,bcm2712";
+> >> @@ -642,6 +643,19 @@ mip1: msi-controller@1000131000 {
+> >>               msi-ranges =3D <&gicv2 GIC_SPI 247 IRQ_TYPE_EDGE_RISING =
+8>;
+> >>               brcm,msi-offset =3D <8>;
+> >>           };
+> >> +
+> >> +        v3d: gpu@1002000000 {
+> >> +            compatible =3D "brcm,2712-v3d";
+> >> +            reg =3D <0x10 0x02000000 0x00 0x4000>,
+> >> +                  <0x10 0x02008000 0x00 0x6000>,
+> >> +                  <0x10 0x02030800 0x00 0x0700>;
+> >> +            reg-names =3D "hub", "core0", "sms";
+> >> +
+> >> +            power-domains =3D <&pm BCM2835_POWER_DOMAIN_GRAFX_V3D>;
+> >> +            resets =3D <&pm BCM2835_RESET_V3D>;
+> >> +            interrupts =3D <GIC_SPI 250 IRQ_TYPE_LEVEL_HIGH>,
+> >> +                     <GIC_SPI 249 IRQ_TYPE_LEVEL_HIGH>;
+> >> +        };
+> >>       };
+> >>       vc4: gpu {
+>
 
