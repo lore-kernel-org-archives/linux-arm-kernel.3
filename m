@@ -4,74 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91BECD4A5EB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 02:59:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7695FD4A5EA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 03:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c5XnZyBpiVU2BOlXpcurb1ARqpeXDPRQUjGZUJrhSfo=; b=L7HYPeQbaCs3AlX7hg4GBIuIls
-	h2gQ/pQ9eWB6NHWpOXHkRNjCqqFSkeRr1Se9FaYhfyHjTiCBxFzp6eWJMRMyxrBQGu1OYurt+Orig
-	H0f+PL/Y/VmqggZn6P01H1D+pEZ66pInPmI7QKZAFIlWMLFfWI4CnoAOZYRhp2YPNKSTuzPi1avUG
-	H3P0VJjH+r8e4NFMxJOp/jIV7VSp7HTmg1OPRJwSLmJh18L5SYyP06AOWUw2oeR+TvtcOEiv5yaKZ
-	dlGQVhwco0a2Oj7QvVBdeOl/HyC42zTZ9IvaJWGNxDRD28SZmmk74EJfGlYQFbtXCnnoK//MIPE8p
-	w3n8U0wg==;
+	bh=Y/Dkyj6XQc3q9kwRLC+eOQBUTpahy9oV06Yp+kzaqXc=; b=YyIAhyb6wuL8XPmj+zSXPeZpt7
+	guvCxj5HOi7gkFh2qoeQ7TPXkNrcDkouR4i7loiWwnmm6cCshfqfG9wUpCfDjmbL+uacFgqNPOUfm
+	e5EoTylcL0Z2WG85wmybpBALtVa9ME2xVq/JSZ0oaj+HxA1VNzgg7fnQVPo4dv+CTuAXgyuVZQiJr
+	uW3zPngOBfgOMgEBX36IIR66z5tglU5Xypr31BUEgalp+XH5htA23wAJkBvxHV4jzP5xiNz7m/b1z
+	5Q9rgwpjtWYmddPVdi8jID4tksRG6RyLGt6E0bA3WO4QTECTdSnj2i59o7uZCLKuu9IUQrh58O+VE
+	t5TsIabw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vga38-0000000DVIf-28RS;
-	Fri, 16 Jan 2026 02:58:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vga9n-0000000DVZX-2WSB;
+	Fri, 16 Jan 2026 03:05:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vga35-0000000DVHJ-3wX2;
-	Fri, 16 Jan 2026 02:58:57 +0000
+	id 1vga9k-0000000DVZ6-3yYh;
+	Fri, 16 Jan 2026 03:05:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C331C43300;
-	Fri, 16 Jan 2026 02:58:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4182C116D0;
-	Fri, 16 Jan 2026 02:58:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E00534338D;
+	Fri, 16 Jan 2026 03:05:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EA59C116D0;
+	Fri, 16 Jan 2026 03:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768532334;
-	bh=J/VRZLz5Y13tzcUGlFZbC7tPCdmM0aLjt2QZN4qLbrg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FdOT9TPHU+LhbSrLGTtlmmXFRb1e6bgdCDXom0+7F83Nhzdx6GFQHbHoylT0WRGhY
-	 3vMt2nNaJi45xR+kJ2+XJtImNvh78p9oakYeN86wlMKpA7MvPvL4uo+5mrEJhJ6Lul
-	 /OUfOOLRHeEZZgXKS1wojHxAezR6vin9l7vDm6r693cNm9+oUpKs2qUO5/8pjyJkyK
-	 rTHvDrxtGqo9p/M3HlKefCnRkiqpfb8QFjA08pSNQ+aDQKMTmKqjdYN731LjtAe09N
-	 f8rpw+Bqo1v9arayO+ZjUyuMTbvS3iKqICfyMJXr6Jz6m4NZmOrUnfR8ffVqWuQ6oY
-	 zkDxxmGBLUocQ==
+	s=k20201202; t=1768532747;
+	bh=U3Aoti0YPoxifwNh7V0YYpw1gTTxaBib3ervHQ0XypE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=L1QYiDqKnDOSSq+xNu+85WqFwC8Qoq9llFdwS+6br3L3Q5qGCwSBH4tzlpuO3mq3r
+	 vaEOV8686ZZIri8oA4Plxr8THRmQ6eDgQHLdKqOoGFF2BrIk6eOieq1eiChchXjgAE
+	 ND1QawHZH0QXhocxN9ghOzjhfneolngOFAQMz6fg0slaJUtuiMZLk7PnFhHoZkJ7Tm
+	 3wUSihRl3EyFF5DahJf+HsOKeV7ufvwsJ44HfcS9VcYQYRHdeOm7IR4w+ouPDkIUG4
+	 sMH810M6wuXKRoJEovwOxYpa2C3grmqrC5EPFCP2x8zuUc7moPv5lg+OVTZ+vQQ6V+
+	 +R/3912fAVxfQ==
+Date: Thu, 15 Jan 2026 19:05:46 -0800
 From: Jakub Kicinski <kuba@kernel.org>
-To: rmk+kernel@armlinux.org.uk
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	andrew+netdev@lunn.ch,
-	alexandre.torgue@foss.st.com,
-	hkallweit1@gmail.com,
-	vkoul@kernel.org,
-	mohd.anwar@oss.qualcomm.com,
-	konrad.dybcio@oss.qualcomm.com,
-	andrew@lunn.ch,
-	edumazet@google.com,
-	netdev@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	davem@davemloft.net,
-	linux-arm-msm@vger.kernel.org,
-	neil.armstrong@linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [net-next,12/14] net: stmmac: add support for reading inband SGMII status
-Date: Thu, 15 Jan 2026 18:58:52 -0800
-Message-ID: <20260116025852.354716-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <E1vg4wc-00000003SGl-1dZi@rmk-PC.armlinux.org.uk>
-References: <E1vg4wc-00000003SGl-1dZi@rmk-PC.armlinux.org.uk>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Sayantan Nandy <sayantann11@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, sayantan.nandy@airoha.com, bread.hsu@airoha.com,
+ kuldeep.malik@airoha.com, aniket.negi@airoha.com, rajeev.kumar@airoha.com
+Subject: Re: [PATCH] net: airoha_eth: increase max mtu to 9220 for DSA jumbo
+ frames
+Message-ID: <20260115190546.5ede6750@kernel.org>
+In-Reply-To: <aWjuM3Ov0e45QyW4@lore-desk>
+References: <20260115084837.52307-1-sayantann11@gmail.com>
+	<aWjuM3Ov0e45QyW4@lore-desk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260115_185856_008015_83C25DC3 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20260115_190549_039497_7670E790 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,57 +74,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
+On Thu, 15 Jan 2026 14:40:03 +0100 Lorenzo Bianconi wrote:
+> > The Industry standard for jumbo frame MTU is 9216 bytes. When using DSA
+> > sub-system, an extra 4 byte tag is added to each frame. To allow users
+> > to set the standard 9216-byte MTU via ifconfig,increase AIROHA_MAX_MTU
+> > to 9220 bytes (9216+4).
+> > 
+> > Signed-off-by: Sayantan Nandy <sayantann11@gmail.com>  
+> 
+> I think the patch is fine, but here you are missing to specify this is v2
+> and this patch targets net-next. Moreover, please wait 24h before reposting
+> a new version of the same patch.
 
-For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
----
-net: stmmac: add support for reading inband SGMII status
+FWIW this is a good reminder for Sayantan for the future but it doesn't
+merit a repost in itself. net-next is our default tree, and pw bot
+guessed correctly.
 
-This commit adds support for reading link status, speed, and duplex for
-SGMII links from the RGSMII status register.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-> index 73fc56ce5e55..12fc5038d913 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-
-[ ... ]
-
-> @@ -97,7 +107,7 @@ static void dwmac_integrated_pcs_get_state(struct phylink_pcs *pcs,
->  					   struct phylink_link_state *state)
->  {
->  	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
-> -	u32 status, lpa;
-> +	u32 status, lpa, rgsmii;
->
->  	status = readl(spcs->base + GMAC_AN_STATUS);
->
-> @@ -111,7 +121,35 @@ static void dwmac_integrated_pcs_get_state(struct phylink_pcs *pcs,
->
->  		phylink_mii_c22_pcs_decode_state(state, neg_mode, status, lpa);
->  	} else {
-> -		state->link = false;
-> +		rgsmii = field_get(spcs->rgsmii_status_mask,
-> +				   readl(spcs->rgsmii));
-> +		state->link = !!(status & GMAC_RGSMIII_LNKSTS);
-                            ^^^^^^
-
-Should this be checking rgsmii instead of status here? The status
-variable contains the GMAC_AN_STATUS register which is equivalent to
-MII_BMSR according to the comment at line 7. In BMSR, the link status
-bit is BMSR_LSTATUS (bit 2), not bit 3.
-
-GMAC_RGSMIII_LNKSTS is defined as BIT(3), which is the correct bit
-position for the RGSMII status register (matching GMAC_RGSMIIIS_LNKSTS
-in dwmac1000.h), but it appears to be applied to the wrong register
-variable.
-
-The code later uses rgsmii correctly for speed and duplex extraction.
-Was the intent to use rgsmii for the link status check as well?
-
-> +
-> +		if (state->link && neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED) {
-
-[ ... ]
+That said I think Andrews request warrants some extra testing here so:
+-- 
+pw-bot: cr
 
