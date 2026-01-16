@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4DA9C982D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB136C982D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 17:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2qeDaJWkLpO3qxUyIpo4/TvFhIlWEjGwXwi9nucOmHE=; b=XLuBKczf59F7ZwqGQc3B9zFNij
-	ntEB2YXCv4XvhyH1CwWiOzeyrBhWgeRAqsXqc+b5cKVcWmU4h2liaIIEfMcTM0F4kPdOOExZsgDL2
-	SzOjrw0veGoH4iRixbaoGAVsUZeSWFGFJbJ/5qxieiyDn0o1WEsyGQJyTWabMXb+DOvNRJVRuYzQF
-	HA2kYNoUBU7ZC+3VyvWjNfXqLrUxebzLWXLN8OPT/M72vqRdxqxRTxWqWwkuRYzooHNQBtDpHdRrV
-	JWbTIx9hQSXxdlq5h70d4rjA/jARBzWjMPy0Me0dzDadHMJtdcQumvRhX9L2taX32m8oEU1zsGgV7
-	AG9e3Hdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Mlrkt2Cy4qV+9kwAUK6c/QgVVoDWCENjPhDBijpvPxM=; b=wTEdQmwn5/RHVc
+	sKJ+NAryLTN5kmP1f4SXqWrrKALEiUcEbd3Fq4kYp4zWpuGO4xCnoFsHsVi/fLzCtoqN4U3uE4rI6
+	TlZbDJmftU5tYYkKevmscFjLxyJLzHytdD69MiLHmgs+edfH2Th/aqC8UidJukAF+h9FiS7XjrPNf
+	9byJNhpfCgWuFscFXvawpVSCu0n8KLCVfQswpfu9qFKrszVyELozYi3N+nhceitwJd9clUYIX5/LT
+	q7BnrCeaA5KcPvURqU2mE7GQZEEgSs6e/WagX/6KA9zbPuKDlYNX0/SokCnLktaLr2zBMPLLkH1DG
+	UDBFLBIhQjmvqHvdJiag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnC2-0000000EVTx-46RC;
-	Fri, 16 Jan 2026 17:01:02 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vgnDf-0000000EVjk-1vwp;
+	Fri, 16 Jan 2026 17:02:43 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgnBu-0000000EVQL-2s6h
+	id 1vgnDb-0000000EViR-18Wu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 17:00:56 +0000
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1768582850;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2qeDaJWkLpO3qxUyIpo4/TvFhIlWEjGwXwi9nucOmHE=;
-	b=oWAoIzLiZo+HJLUBQ016q/kj04m9mFa3MDfAdyfTHmouC8+xvZkaS3cStpxyxjRQ89nIx0
-	fC9cP5Cjnyn0VO39duLOcPvEvsLICjEti1k9XFplXxs8/CRf6DByVQtexQJecO54S8L7sv
-	2NH0fS9Cur2xP2eRPtDRrstAR119Yv3mxIWjmwlOuvzaCLSaKUaXHANeFdm/5fM/zjwSVL
-	JdliFT91X/YXw1GBPFl5VNYmVO1GKTn09g98kanV9l3RrZZHE4dm3srvjITrId++A1n2mH
-	W7BKdkj86OJcOcLp4Rb0v2WuhvZTeP8/QwgAEb4KxcORl9mMaRm824GaSb/Rhw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1768582850;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2qeDaJWkLpO3qxUyIpo4/TvFhIlWEjGwXwi9nucOmHE=;
-	b=zaK9Yr/cS0PgEIdnPWdrsyb/hlLZUFei+vojpVVvndgS42BnNNNJrWvD/8D1fuz/0D94bJ
-	4lrPHsFv8uKD0OBA==
-To: linux-arm-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev
-Cc: Russell King <linux@armlinux.org.uk>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	"Yadi.hu" <yadi.hu@windriver.com>,
-	Bryan Brattlof <bb@ti.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: [PATCH v4 1/2] ARM: mm: fault: Enable interrupts before invoking __do_user_fault()
-Date: Fri, 16 Jan 2026 18:00:40 +0100
-Message-ID: <20260116170041.1059997-2-bigeasy@linutronix.de>
-In-Reply-To: <20260116170041.1059997-1-bigeasy@linutronix.de>
-References: <20260116170041.1059997-1-bigeasy@linutronix.de>
+	Fri, 16 Jan 2026 17:02:42 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id C41E2C1F1FD;
+	Fri, 16 Jan 2026 17:02:07 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7FC7E606F9;
+	Fri, 16 Jan 2026 17:02:34 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D0C8610B68C84;
+	Fri, 16 Jan 2026 18:02:24 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1768582952; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=Mlrkt2Cy4qV+9kwAUK6c/QgVVoDWCENjPhDBijpvPxM=;
+	b=a/mfLc4OEHY3xgw9VM0zD2WVgbQshIuD30TJK1roQBoDb6kMOfzTnqmvKtMCvXBZ1T6W/9
+	Wmxqw+Et88L82ZK3VmsI11zCjEPC0AQphtTPpB/ZOzXYoimuUwBr7/Hh8EZP2kknNO4K2a
+	64oeqOpHd2janyen4xUEokaVJAnK0XcPeCgTDljMLRZ7+ggBpprMuy+bsJNquSxr0/zWi1
+	rN/FIAbUSZRITUEBWg0IcKIgaqHL5HtCtPhqzqYGLKsg4ljYjt7zVEsM47dSmLVz49UzOH
+	3/pzWuUkp14tJgJBrMq6UMBvtaFzLrkcbTTCouL9TztQ0xmY5QVvdhwMOBeUTQ==
+From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
+Subject: [PATCH v4 00/25] Clean and update tilcdc driver to support
+ DRM_BRIDGE_ATTACH_NO_CONNECTOR
+Date: Fri, 16 Jan 2026 18:02:00 +0100
+Message-Id: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAhvamkC/2XOTQrCMBCG4auUrI1kktgaV95DRPIzsQFtJK1FK
+ b27aUVEu3w/mIcZSIspYEt2xUAS9qENsckhVwWxtW7OSIPLTTjjG2AgqUfd3ROeunCxztJKWSc
+ VlpXxiuSjW0IfHjN4OOauQ9vF9Jz9Hqb1TQEv/6keKKNSGYWeo9Ca7U2M3SU0axuvZMJ6/gU4w
+ ALgGfBya7QV1gmBS0B8gJIBW34gMqCMdsxXkkMpf4FxHF+uY0lBMAEAAA==
+X-Change-ID: 20251014-feature_tilcdc-79cd49e67bf9
+To: Jyri Sarha <jyri.sarha@iki.fi>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren <tony@atomide.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: Markus Schneider-Pargmann <msp@baylibre.com>, 
+ Bajjuri Praneeth <praneeth@ti.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Miguel Gazquez <miguel.gazquez@bootlin.com>, 
+ Herve Codina <herve.codina@bootlin.com>, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
+ "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_090054_863353_A2827CAF 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20260116_090239_592292_147B5679 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,59 +98,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Yadi.hu" <yadi.hu@windriver.com>
+The starting point for this work was adding support for the HDMI cape:
+https://www.seeedstudio.com/Seeed-Studio-BeagleBone-Green-HDMI-Cape.html
+This will be sent in a later series.
 
-A page fault from userland for a kernel address originates from from
-do_sect_fault() (!LPAE) or do_page_fault() and ends in __do_user_fault()
-by sending a signal.
+Initially, Miguel proposed modifying the ite-it66121 bridge to support
+the legacy behavior without the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag:
+https://lore.kernel.org/lkml/20250909-it66121-fix-v1-1-bc79ca83df17@bootlin.com/
+This patch was NAK'd as we don't want to add more legacy code. Maxime
+requested that the tilcdc driver be updated to use
+DRM_BRIDGE_ATTACH_NO_CONNECTOR instead.
 
-Sending a signal requires to acquire sighand_struct::siglock which is a
-spinlock_t. On PREEMPT_RT spinlock_t becomes a sleeping spin lock which
-requires interrupts to be enabled. Since the calling context is user
-land, interrupts must have been enabled so it is fine to enable them in
-this case.
+While working on this update, I discovered that the tilcdc driver
+contained significant amounts of legacy code that needed cleaning.
+Since this driver was developed alongside the tda998x driver for
+several AM335x boards, the tda998x driver also required cleanup and
+support for the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag.
 
-Enable interrupts in do_kernel_address_page_fault() unconditional in the
-user_mode case().
-Enable interrupts in do_sect_fault() if they were previously enabled.
+A new tilcdc_panel_legacy driver replaces the old tilcdc_panel driver.
+It modifies the devicetree at boot time to properly bind the tilcdc driver
+with the standard panel-simple driver.
 
-[bigeasy: Initial patch/ report by Yadi. Maintained the patch and redid
-          the patch description since]
+This series is based on the tilcdc fix sent to mainline:
+https://lore.kernel.org/lkml/20251125090546.137193-1-kory.maincent@bootlin.com/
 
-Signed-off-by: Yadi.hu <yadi.hu@windriver.com>
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-Acked-by: Bryan Brattlof <bb@ti.com>
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+This series has been tested on:
+- BeagleBone Black (tilcdc + tda998x bridge)
+- BeagleBone Black with LCD cape (tilcdc + ti,tilcdc,panel binding)
+- BeagleBone Green Eco with HDMI cape (tilcdc + it66121 bridge)
+
+The following mainline devicetrees still use ti,tilcdc,panel binding.
+I believe this series maintains compatibility, but I cannot test without
+hardware:
+- da850-evm.dts
+- am335x-guardian.dts
+- am335x-pdu001.dts
+- am335x-pepper.dts
+- am335x-sbc-t335.dts
+- am335x-sl50.dts
+
+Patches 1-2: Convert tilcdc binding to YAML and set the ti,tilcdc,panel
+	     sub-binding as legacy.
+Patches 3-6: Replace tilcdc_panel driver to the new tilcdc_panel_legacy
+	     driver which is tweaking the devicetree at boot time.
+Patches 7-20: Clean up tilcdc driver.
+Patches 21-23: Clean up tda998x driver.
+Patch 24: Add DRM_BRIDGE_ATTACH_NO_CONNECTOR support for tda998x driver.
+Patch 25: Add DRM_BRIDGE_ATTACH_NO_CONNECTOR support for tilcdc driver.
+
+Changes in v4:
+- Use device_get_match_data instead of of_match_node.
+- Convert the driver to use DRM managed resources to avoid lifetime
+  resources issue.
+- Add a patch to convert to drm_device-based logging helpers.
+- Replace drm_of_find_panel_or_bridge() with the newer
+  devm_drm_of_get_bridge() helper.
+- Link to v3: https://lore.kernel.org/r/20260106-feature_tilcdc-v3-0-9bad0f742164@bootlin.com
+
+Changes in v3:
+- Split patch 13 and patch 14 into two for better readability and git
+  history clarity.
+- Update patch 5 to use OF changeset and __free() macro. Made also few
+  small improvements as requested by Luca.
+- Rename binding file to ti,am33xx-tilcdc.yaml, use generic node name and
+  drop unused label.
+- Link to v2: https://lore.kernel.org/r/20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com
+
+Changes in v2:
+- Remove patch 2 that add fifo-threshold property. Use FIFO threshold
+  value from SoC id instead.
+- Remove the part that breaks DTB compatibility.
+- Add tilcdc_panel_legacy to modify the devicetree at boot time to properly
+  bind the tilcdc driver with the standard panel-simple driver.
+- Link to v1: https://lore.kernel.org/r/20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com
+
+Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
- arch/arm/mm/fault.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Kory Maincent (TI.com) (25):
+      dt-bindings: display: tilcdc: Convert to DT schema
+      dt-bindings: display: tilcdc: Mark panel binding as deprecated
+      drm/tilcdc: Remove simulate_vesa_sync flag
+      drm/tilcdc: Add support for DRM bus flags and simplify panel config
+      drm/tilcdc: Convert legacy panel binding via DT overlay at boot time
+      drm/tilcdc: Remove tilcdc panel driver
+      drm/tilcdc: Remove component framework support
+      drm/tilcdc: Remove tilcdc_panel_info structure
+      drm/tilcdc: Remove redundant #endif/#ifdef in debugfs code
+      drm/tilcdc: Remove unused encoder and connector tracking arrays
+      drm/tilcdc: Rename external_encoder and external_connector to encoder and connector
+      drm/tilcdc: Rename tilcdc_external to tilcdc_encoder
+      drm/tilcdc: Remove the useless module list support
+      drm/tilcdc: Use drm_module_platform_driver() helper
+      drm/tilcdc: Move tilcdc_init/fini closer to probe/remove
+      drm/tilcdc: Modernize driver initialization and cleanup paths
+      drm/tilcdc: Remove the use of drm_device private_data
+      drm/tilcdc: Convert to DRM managed resources
+      drm/tilcdc: Convert to drm_device-based logging helpers
+      drm/tilcdc: Use devm_drm_of_get_bridge() helper
+      drm/bridge: tda998x: Remove component support
+      drm/bridge: tda998x: Move tda998x_create/destroy into probe and remove
+      drm/bridge: tda998x: Remove useless tda998x_connector_destroy wrapper
+      drm/bridge: tda998x: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR
+      rm/tilcdc: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR
 
-diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index ed4330cc3f4e6..3f1c73269c126 100644
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -270,6 +270,7 @@ do_kernel_address_page_fault(struct mm_struct *mm, unsi=
-gned long addr,
- 		 * while interrupts are still disabled, then send a SIGSEGV.
- 		 */
- 		harden_branch_predictor();
-+		local_irq_enable();
- 		__do_user_fault(addr, fsr, SIGSEGV, SEGV_MAPERR, regs);
- 	} else {
- 		/*
-@@ -592,6 +593,9 @@ do_sect_fault(unsigned long addr, unsigned int fsr, str=
-uct pt_regs *regs)
- 	if (addr >=3D TASK_SIZE && user_mode(regs))
- 		harden_branch_predictor();
-=20
-+	if (interrupts_enabled(regs))
-+		local_irq_enable();
-+
- 	do_bad_area(addr, fsr, regs);
-=20
- 	return 0;
---=20
-2.51.0
+ .../devicetree/bindings/display/tilcdc/panel.txt   |   1 +
+ .../bindings/display/tilcdc/ti,am33xx-tilcdc.yaml  | 100 +++++
+ .../devicetree/bindings/display/tilcdc/tilcdc.txt  |  82 ----
+ drivers/gpu/drm/bridge/tda998x_drv.c               | 251 +++++------
+ drivers/gpu/drm/tilcdc/Kconfig                     |  18 +
+ drivers/gpu/drm/tilcdc/Makefile                    |   5 +-
+ drivers/gpu/drm/tilcdc/tilcdc_crtc.c               | 189 +++-----
+ drivers/gpu/drm/tilcdc/tilcdc_drv.c                | 486 ++++++++-------------
+ drivers/gpu/drm/tilcdc/tilcdc_drv.h                |  99 +----
+ drivers/gpu/drm/tilcdc/tilcdc_encoder.c            |  69 +++
+ .../tilcdc/{tilcdc_external.h => tilcdc_encoder.h} |   5 +-
+ drivers/gpu/drm/tilcdc/tilcdc_external.c           | 179 --------
+ drivers/gpu/drm/tilcdc/tilcdc_panel.c              | 408 -----------------
+ drivers/gpu/drm/tilcdc/tilcdc_panel.h              |  15 -
+ drivers/gpu/drm/tilcdc/tilcdc_panel_legacy.c       | 185 ++++++++
+ drivers/gpu/drm/tilcdc/tilcdc_panel_legacy.dtso    |  29 ++
+ drivers/gpu/drm/tilcdc/tilcdc_plane.c              |  37 +-
+ drivers/gpu/drm/tilcdc/tilcdc_regs.h               |   8 +-
+ 18 files changed, 811 insertions(+), 1355 deletions(-)
+---
+base-commit: e10a789098f56fe8e1c1c320fe25d739f836eeaf
+change-id: 20251014-feature_tilcdc-79cd49e67bf9
+
+Best regards,
+-- 
+Köry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
 
