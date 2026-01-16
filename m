@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401E5C9830C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 23:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7AECC9830C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 23:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Q0sRttI86mEpJh7BtqYPvvcOCP+5t2tb7f6cBrMGu8=; b=BZvbzB3ljrBG+1PN8oahd0J+0g
-	/2kix0fJG+/emuWEBuxENi/A3llcb/3drECaOa+laRbq0pmOoO9rOP1pDjCKZTD22jJAE0r8nDp4V
-	bXeDQrnd7V0D1v++oZLu0yc0Af2HNxYd7GU34H9ye0Tuk7qKJOWPRy0EV0QIPXItijpkocBBvgOsG
-	+hJosRvmgMSBYBbaIpIpPefjZKB9nHgf7QSLckK7LJGCT2D/r8Jn/QWJHrRH7m4s+gUrJ7Kf5HMgA
-	8FWgAtOFsisUu2ZdTFFa0FCW8X3JP7ozQuLQbf3G14kBsPVNhHdD6VWjsJFj51t4a2WnTnlmsnSfH
-	A/3XYzTg==;
+	bh=BrErDogymc+1QBf5WlgcxlP49fo756YQqZ8IekTnlxI=; b=AfrwMfj53BER9ofOuvCqjGCCUn
+	8yVhvdGhmhGQAu3yBhllzAIPMoEGI+moLcjhki8YSwSTjqUqnneO00ptJsHtBjvphrY+UdoEQ+KFT
+	7MHc4ehmsUXfk4F65BHqekKcB6LuXlLAo+cb306XPmhCCH77VAds3LQiWlFtNcIZU82/eFqYNEesL
+	PkR68VpdFmPWSWeA1ctSWxJd6YzrUeXcDZs4J83ZjbaDp8UGgUpfjtdR5N3Ds+CClr9HBsSFzriSy
+	UvY5dUxALkywJXK0jzer+0D/OT8eqrblvEk3ZhblVedAXKBaiYLYjlh1Yos/TJ9X3cuZq86wjH1PW
+	MM0Q4d/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgtMD-0000000F19A-0pBd;
-	Fri, 16 Jan 2026 23:35:57 +0000
-Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
+	id 1vgtMH-0000000F1B1-2Afr;
+	Fri, 16 Jan 2026 23:36:01 +0000
+Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgtMA-0000000F18U-2Yux
+	id 1vgtME-0000000F19p-3Thh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 23:35:55 +0000
-Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-11f3a10dcbbso2663512c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 15:35:54 -0800 (PST)
+	Fri, 16 Jan 2026 23:35:59 +0000
+Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-2b4520f6b32so3702655eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 15:35:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1768606554; x=1769211354; darn=lists.infradead.org;
+        d=nexthop.ai; s=google; t=1768606558; x=1769211358; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9Q0sRttI86mEpJh7BtqYPvvcOCP+5t2tb7f6cBrMGu8=;
-        b=CxBsJOHiBmVTRgZQ+VUjzdVWbEVQvHjiSORqZ8f3k3Y3W+BFcoS/NcUe8EHl6cFbl+
-         vk2mSxA0rek3iVpq9MeZbbsNqdVE16CFelIqCatmwjs2Pj00nRQzglUPLeJSiMJaX29k
-         24/4y9twIaHEkzImy0ieHCjPoPJeoNj5XtkSpJglu2+6wmBdZkd4N63NkpbgNBXv3t9C
-         3MW2it6hTzXHemAO3zLOdVSwwr0L8QyFuxv6feE12+svMcoOvbTtT+CQ2WbHG6GpYBC/
-         m4pSDDTGZHkFA/tJ6g4nG5IyJc9mijpGsJOTnSm8Lrh1xA7C5txKdvCZrnNhGT5RWJsT
-         F+Fg==
+        bh=BrErDogymc+1QBf5WlgcxlP49fo756YQqZ8IekTnlxI=;
+        b=OKKkDLV3NTJeY3RJzxO8O/Ru9QYdzr+Xy/h6stvPlr+C5SjbsfULqCo55XL5it3rxy
+         bRb8dusvnxtPMUMs5GyrYlTMwu+0J2fWAYsY5cH+3vtyISL/BkmnZlA/t6w0VWwgtFC4
+         4tnGgUh2JeplYkQRQwAtXi4vQw1PStgUOzkl0SAvEugzyZK9Ri3nWBMpN08R4n6pWz/t
+         Jd2OG8vhoMuKiatG08KnXULkIst/2c1jKVC7ZPLTq1vTAYNV8BPH0x3Z/WsqYU5PQs1l
+         bHDnjd4fhhL5QTBQH/Sxka7JDhYDM8MrSHGZzMdqZVD8n26icmeV+dqwgalxMpx405Ue
+         exFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768606554; x=1769211354;
+        d=1e100.net; s=20230601; t=1768606558; x=1769211358;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=9Q0sRttI86mEpJh7BtqYPvvcOCP+5t2tb7f6cBrMGu8=;
-        b=pHcbi/yyE7G6tQxjXkBIHXGgkRjZew55zdPu+jOkfYXfsS17l/+klk84Sv0eGTiJuW
-         dXKSi7+Q9te0xIzAdCCPw2UBPqGjkgeCa+vDwB0A4ju8GMW9PWXy8Ol1J7Qe+dJJf3Qc
-         +Kp6r20xseGQjjhPNr/A2W9ZYM8whD26q5Wgjv6YcAz6E04iVP2xJ3XWQWluG+kHvq2w
-         DswyB8dJfUPhO4HWdadL+eW6xqo617euqkfgfSVFJxUzEdUyQPPUTiqxML7aLjQNOJ0v
-         hbX/jx9KkQ/lKHiIUqQLoOr5ItXWcH5AQ9Z7cMVgy0dOXmTB581AQ3rg0yLNzZia6uaN
-         Cggg==
-X-Forwarded-Encrypted: i=1; AJvYcCUp1Q9E/XLRs/E9qyW/No8ylGoytZkxJYIKldGg5XilmYm8M7f+UfcZq/x5A44BREOauY3SabYPvk3xEPs9Yk3f@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxyx0F4hlNe0tYErcbrb8a+rJESzOPkfYH8XLB62ShX0W7KSFZN
-	EZkknSuyoGqE5pyXUEvVKQmDnWLDWEI2OMDIJ+Blon3d5wkEpFbbz798Hnf7Qkt2O1Or/iSlgw5
-	tdCNV
-X-Gm-Gg: AY/fxX6jCdMfpBSqvlypctqmKHtyZRKSh4hD+18GzQaajAkhPnLt7Ksyk7zrYGNlf88
-	CT0zVXUMJwvbafekF6ZmefcyHNA953S5KjvYdNv2es+oyw7cVAdXBV0N83vnu5GWkiYZEBhrkqK
-	Je2c+pHaanEjJ8zDXgQUAta1KeKz2QTmuBHr40pf9EQaNCb9Tf9f3bH0KHXU1XJfdq8McC5I+zN
-	Sp9TH29XwKIsGsrRc/khGu/pMEDgWSzQxupJfbYXH4jbbKH5HjjPJAc8uhZuOi5vcbIe2trkFQz
-	bTxKyi3e6AgJ2LMqOcb3/h9TZki4jPXUpsvOdXS8hs1CFv6wos+lqWB85dus/RASUgmPaSh2EDX
-	lIhpd53TLZ2C8j/pwHFgnOFrx6s7MSvnvONHdDKeeGdsmBq+kEwt9C/FfnKjRjT1UnsNI+TMxdB
-	U60tqqhmqpno6UK7QOcVQyxg==
-X-Received: by 2002:a05:7022:221b:b0:11d:c04a:dc5b with SMTP id a92af1059eb24-1244b35b987mr3230415c88.30.1768606553966;
-        Fri, 16 Jan 2026 15:35:53 -0800 (PST)
+        bh=BrErDogymc+1QBf5WlgcxlP49fo756YQqZ8IekTnlxI=;
+        b=M93g4VHIabFKxmy17puXtbX0YE/+6bSurnbpgBZU/hnzVlCeCZyaEY76nyNbH56/ss
+         WbG7KaSO6Z2hm/039DHXk+SIkPukUzcRixG9+Tpo5YD57zQJCk12KwuDB0VKqj4PDVA8
+         kJPhO0Hu+W4Kqy90VCbBkvQ9nGh6ILiDv4EnrkQeSErG4xRBi2G1Pb0izzu8qSW6ZrfP
+         5uqTTqy9WWLEUkMDEaFfpo5+3gA3FIgbDb4hCOjJULG53ymvABml/9wuJ/f1b7mIwwgV
+         IlAfeoleaMHyoQ6uNjq1rvR3JF1cKNWvMsLrkch+loW89W102cR+TafjEvnN1t1+ljsP
+         gf6g==
+X-Forwarded-Encrypted: i=1; AJvYcCV8Amo/831L/zF30JwsMc6Mdb0T5KIqa8u8U7rGM1pclGWH5/4oD/VQ06R1NJJUwCZPAyQFMpHEpIQMpkgdR16W@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQn/4nfKtr9ywMbJpoh2x1PWivrOWFDXMugVyJFGJU8xhMGKOf
+	RlzhT7cyZIZP94AFfiZFc/qkOah/Ks3+0lk+J0IQDW7A+uTxOvOcdJLvqxDdokNZzuo=
+X-Gm-Gg: AY/fxX42mZ9B+iB3/lIJDt1hSVC/XxhsUG9Xcyfq/NOF4gJVnalqTEgoKLUq+h3EcQ/
+	iNlpJjo+IMWFhffeNu/hZg5nb45eWgvJXGUBH8njBGvmVXSZgEYUuD0lEe8PPjrIC8RJM/c0hFh
+	E3gnIjbF6QVtjZdEhKE+4vpHA3tO0GwES8+3wS3mKkNuLeBRIRgQCfEPgl+r0iNdJ4D2dZGEwvq
+	lfzZokHvz/chNT3ZGh9bEgLiXpmtrhIeG9hQ02EAMpl32LGnGeYEYwRD4PiVME4j9tg/glXzZcQ
+	hsbvs935NNoBo1QeQi1NG4C8SRIHd2NzCXJxg4uC6VSOqqJClB0FIYAUWEFWd46Kyxndw17ob7m
+	LuRwMy+q5iJ+ciXvIVFqVD7boqBRn3bRvPT1J+gVStckeaFDuPLvdL1kO7zdE3PfHJapqk0vPSt
+	WwSfi1PrSbGcc=
+X-Received: by 2002:a05:7300:5712:b0:2ac:1506:c781 with SMTP id 5a478bee46e88-2b6b3ef90a8mr2941587eec.10.1768606557892;
+        Fri, 16 Jan 2026 15:35:57 -0800 (PST)
 Received: from localhost ([50.145.100.178])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1244af22aaasm3877513c88.17.2026.01.16.15.35.53
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b6beeb4b9csm3269419eec.30.2026.01.16.15.35.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Jan 2026 15:35:53 -0800 (PST)
+        Fri, 16 Jan 2026 15:35:57 -0800 (PST)
 From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 To: Mark Brown <broonie@kernel.org>,
 	Michal Simek <michal.simek@amd.com>,
@@ -78,17 +77,18 @@ Cc: linux-spi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Subject: [PATCH 2/3] spi: xilinx: make irq optional
-Date: Fri, 16 Jan 2026 23:35:34 +0000
-Message-ID: <20260116233535.260114-2-abdurrahman@nexthop.ai>
+Subject: [PATCH 3/3] spi: dt-bindings: xilinx: make interrupts optional
+Date: Fri, 16 Jan 2026 23:35:35 +0000
+Message-ID: <20260116233535.260114-3-abdurrahman@nexthop.ai>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260116233535.260114-1-abdurrahman@nexthop.ai>
 References: <20260116233535.260114-1-abdurrahman@nexthop.ai>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_153554_651733_36451C57 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20260116_153558_867893_7B627C13 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,27 +103,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver can work in polling mode in cases where interrupts are either
-not available or broken.
+This makes the driver work on platforms where interrupts are either not
+provided or broken.
 
 Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 ---
- drivers/spi/spi-xilinx.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/devicetree/bindings/spi/spi-xilinx.yaml | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/drivers/spi/spi-xilinx.c b/drivers/spi/spi-xilinx.c
-index c4b70e95b695..9fb1da2fcce4 100644
---- a/drivers/spi/spi-xilinx.c
-+++ b/drivers/spi/spi-xilinx.c
-@@ -471,7 +471,7 @@ static int xilinx_spi_probe(struct platform_device *pdev)
- 	xspi->bytes_per_word = bits_per_word / 8;
- 	xspi->buffer_size = xilinx_spi_find_buffer_size(xspi);
+diff --git a/Documentation/devicetree/bindings/spi/spi-xilinx.yaml b/Documentation/devicetree/bindings/spi/spi-xilinx.yaml
+index 4beb3af0416d..8296edde61b0 100644
+--- a/Documentation/devicetree/bindings/spi/spi-xilinx.yaml
++++ b/Documentation/devicetree/bindings/spi/spi-xilinx.yaml
+@@ -23,7 +23,7 @@ properties:
+     maxItems: 1
  
--	xspi->irq = platform_get_irq(pdev, 0);
-+	xspi->irq = platform_get_irq_optional(pdev, 0);
- 	if (xspi->irq < 0 && xspi->irq != -ENXIO) {
- 		return xspi->irq;
- 	} else if (xspi->irq >= 0) {
+   interrupts:
+-    maxItems: 1
++    maxItems: 1 # optional
+ 
+   xlnx,num-ss-bits:
+     description: Number of chip selects used.
+@@ -38,7 +38,6 @@ properties:
+ required:
+   - compatible
+   - reg
+-  - interrupts
+ 
+ unevaluatedProperties: false
+ 
 -- 
 2.52.0
 
