@@ -4,70 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BD7D47CDE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 12:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC651D47CDE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 12:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vH+PgOENTDXlzsxRREXIcCkNdXY313g9kTQGZXo/8ws=; b=Kl4VLoiy8i6OXGeLRSGVCCBQCg
-	K/gKx/JljX6+0lrhaNMEP+qsbY1Z5YcCQRBlGmD01RCv3qZslOsuGjY7Mfkvqb7GOBwcYUDl4z3y4
-	ByencuZs4qR9fVGUdf4Rcak9hlVxKB73Jr+IXcgCe7ZjovqI/pNBcBigacWrLjk2VxDj1aa4llp2s
-	1WEmx35EYhvNbVmWsjTYvbvElr9Br1LJI/No6WDPGDqqweDXUZ7JVTjGvhd7EN9AuT7FIDYDQ7DEB
-	mGv8NN4jx5rJU+StsUd4XcYP5e5Fd7/GMMgvZZNUA8D6fBWKy/nPuitXLHNQYCI20OCUB5llZ1o1f
-	sM1Q5gbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3ZCf9q4Eq3f7Zk60HL0G320nGRoPqD1TASM4Kn6lCNs=; b=Yp2TvH84kl5EqKYBNENtZxU+8f
+	nlOs7oPipwFGi+fVNvFC6uEdI07TNb2apsI2b8h0SuwYXGq69GTytVjCaBPhMQTO/xv2t/TtUHLhI
+	3EmsV0JGn4XpTNqhhPhI8LfArTVH0HKvR82OH6GqO4SWM3OUOqPjR+28CGjEe5IKBZMOt1TqjUIy9
+	9ADJ/HHYfDNJZ43JyzQRyl8awtO84X7kRKoIgUW5u/nTeZTd+O125P9AIVmd8j2aaKuWN0obUxZlt
+	bHg2x6AZ+pKFwrrSD3es1W5eFDUHHBulD5GP5sH+mGcDqg4/EWkl/OKMtUsRz/BGeamUs5X4RoiEY
+	iV9boBwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgj9g-0000000E7QK-1qVH;
-	Fri, 16 Jan 2026 12:42:20 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1vgjBS-0000000E7Xt-2AB6;
+	Fri, 16 Jan 2026 12:44:10 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgj9d-0000000E7Ps-06XB;
-	Fri, 16 Jan 2026 12:42:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=vH+PgOENTDXlzsxRREXIcCkNdXY313g9kTQGZXo/8ws=; b=kpevwV+wqObPrgd3tM98X8L2yC
-	wMp2fOCeL4BSoevbskuu/MIdLXKwSmaccpQA1EkHWuv0w44WDEv7aR6jDV+2Yy7T6yTaTnqEoOK5s
-	WKFDaBM9PyDiPc2eDTt0nSE8hvi5UY01nXY7Pna7NH2Vn6Au+ocGhnvNDNnaKp7hoaVoyqD2P8EOC
-	Pj2Kr6iR5erFAANuSMdxELq9peHOM6fPxQaWjEIQYSR2KruYdxiv8MLEY5ZJbfRmrRKtwxykadKnh
-	38dPKNcpPWUIzGmG/sXZsjl0Sh/ZJH+FnoumSQPWf8czruT2q+w0f8rKlQl9gfOKK30W2juabcIYJ
-	XO+3TcZw==;
-Received: from [187.36.210.68] (helo=[192.168.1.103])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1vgj9R-0069gt-66; Fri, 16 Jan 2026 13:42:05 +0100
-Message-ID: <5188e604-7952-495b-98e1-a01b8afd87d7@igalia.com>
-Date: Fri, 16 Jan 2026 09:41:59 -0300
+	id 1vgjBP-0000000E7XL-3H7o
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Jan 2026 12:44:09 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4801ea9bafdso2877925e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 04:44:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768567445; x=1769172245; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3ZCf9q4Eq3f7Zk60HL0G320nGRoPqD1TASM4Kn6lCNs=;
+        b=YCDeinvPT6Q9/sBS4ytwWw3KXwHmM34QSkPKJPz86zlAbmtzVv7C6EdXCFurB3Fn9D
+         j8kyDN7pXbOZrvTJm8yk0MGW4AAX0isIMCy6hJHvQmvhyquCpWJiNUmhMKGfHXRnu6Ss
+         1x56rNzh+kETe2+MTRFwtxNAxKM+L9eADz9WQqrQb/HI+aVzWGieDK3ifo9kBjNpdfZ7
+         CWCfJrkuAZzGbmlpLlAm5uR5kQG4QwjgKeztYpvz6oWZzHLV0EqVtdsnz+KbdQGb74CM
+         Xc08V85LSQ0UX+NpDBxg6IF9Ew44ujZP6GsCPTZAnFOZ4K+sf612kK8ZFrhtUPMCEM32
+         Abeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768567445; x=1769172245;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3ZCf9q4Eq3f7Zk60HL0G320nGRoPqD1TASM4Kn6lCNs=;
+        b=iS5cqh8Iki8Tq9z5KdxYqlv4W99cxHzYUbNuipHsdca6hKg3V6zjCC+2sxa/aCWbWN
+         4JZmnsAWauGgYYFwexDXmZB4sJJ8sfNT//3r99GY+7ptjvio9fZJAcpu/OFX+cXJqhmd
+         TNUHJRlw/KICmCcmortC+PitBXGhSqA3kBD0wsLW8MXXM8Tvk6Ri4GzycLDZErukJelr
+         jFMyrz3x1moGytikrwAAZpLejRE2Zq+6eC9ARHTazu5HXDLvx/7VNJDQbB5a1af45HbZ
+         RF1peac2ceXPFIm3eYNJW6/pK95xqkH7igTsboIZXTUcPi/KcddfG1rDJqCF6jKqonBr
+         zWYA==
+X-Forwarded-Encrypted: i=1; AJvYcCXzSznPiotXFX33gnJ/6slk/VoWef0+7r/1v1GDyUSOdIkSVRcJBps9GpWhiuRfrLgKD6DsAsc6n5p4g7j3PpMh@lists.infradead.org
+X-Gm-Message-State: AOJu0YypcF8yhxqC10inMvF4DPl6uOWKhzxJZEwwTWnBIqbUI2WeAV4b
+	k8QSm7mq0+LCweGjU+Qt7Iy5nUuZiJ/1OiEPDFi62un7SXn/qYHlPQQZ
+X-Gm-Gg: AY/fxX7ONVC+TDe32XS/gi2Z2eKaU5MlXwkZIv4c8NFeeACfnKtDrLGVBCLaUuaJdPh
+	yEBwC4gnvi79qkLlqMAR6/bwB926UCzGJ2S9USMDbtReZMiQo28OVMlplTTQIettxKxCWrheb30
+	3u9EyFAnI9bnqH4RCTY1YikgVG7M0Mo9tckp4+zngJTQ2NWkpFWLDiE6DoJ0LxE5lkhR2ds2rLy
+	luPZa5yVZxN69c1P1yQQK2GTmOB+MdZBRnh6gAsAWd35H6wIwCUWVFopLcC3Mxnk3cEKaBEiOSL
+	SanB5wT/aJJWJjnHAETvEF+R6nGNyjSYfQyWqj6PU8aQpVJxrHYX9TQFqLyL1yj2zWd16mO+3ss
+	3igi7oczUFCZfdzxR2HgAGd2yUp1m8jzpIZlz7TE5rfp8trpcfJvXHV/5nAs9Wn2ofCuiReOMjc
+	HbM7CdQR0w1fbfrl/LwR/ekozq99mEEBV0OVLViuabtxaOh2uiZ1AnylUbSe1SM3zBovTbObBHu
+	Q==
+X-Received: by 2002:a05:600c:8b56:b0:477:79f8:daa8 with SMTP id 5b1f17b1804b1-4801e34307emr39892975e9.17.1768567445526;
+        Fri, 16 Jan 2026 04:44:05 -0800 (PST)
+Received: from orome (p200300e41f0ffa00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f0f:fa00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801e886834sm42518255e9.7.2026.01.16.04.44.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 Jan 2026 04:44:04 -0800 (PST)
+Date: Fri, 16 Jan 2026 13:44:02 +0100
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Ashish Mhetre <amhetre@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nicolinc@nvidia.com, 
+	jonathanh@nvidia.com, vdumpa@nvidia.com, jgg@ziepe.ca, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
+Subject: Re: [PATCH V8 3/4] dt-bindings: iommu: Add NVIDIA Tegra CMDQV support
+Message-ID: <aWoyh0e2ncSsNW9y@orome>
+References: <20260113054935.1945785-1-amhetre@nvidia.com>
+ <20260113054935.1945785-4-amhetre@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: broadcom: bcm2712: Add V3D device node
-To: Peter Robinson <pbrobinson@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Stefan Wahren <wahrenst@gmx.net>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
-References: <20260114120610.82531-1-mcanal@igalia.com>
- <121ede67-dbfc-4b79-8076-04693e9d3d53@gmail.com>
- <59cdede3-7757-4fe1-bb94-e7a93eea7611@igalia.com>
- <CALeDE9PGzTe4LXnDJcyhh_ietWkrf8Sp7xX=X6pZvdCWLx2huw@mail.gmail.com>
-From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Content-Language: en-US
-In-Reply-To: <CALeDE9PGzTe4LXnDJcyhh_ietWkrf8Sp7xX=X6pZvdCWLx2huw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uf7gopu5xawojzkn"
+Content-Disposition: inline
+In-Reply-To: <20260113054935.1945785-4-amhetre@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_044217_590079_B202BD1C 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20260116_044407_836023_A21AC216 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,124 +103,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
 
-On 16/01/26 07:56, Peter Robinson wrote:
-> On Fri, 16 Jan 2026 at 10:15, Maíra Canal <mcanal@igalia.com> wrote:
->>
->> Hi Peter,
->>
->> On 16/01/26 00:53, Peter Robinson wrote:
->>> Hi Maira,
->>>
->>> On 14/01/2026 12:04, Maíra Canal wrote:
->>>> Commits 0ad5bc1ce463 ("drm/v3d: fix up register addresses for V3D 7.x")
->>>> and 6fd9487147c4 ("drm/v3d: add brcm,2712-v3d as a compatible V3D
->>>> device")
->>>> added driver support for V3D on BCM2712, but the corresponding device
->>>> tree node is still missing.
->>>>
->>>> Add the V3D device tree node to the BCM2712 DTS.
->>>>
->>>> Signed-off-by: Maíra Canal <mcanal@igalia.com>
->>>>
->>>> ---
->>>> v1 -> v2:
->>>>
->>>> - Rebased on top of linux-next (Stefan Wahren)
->>>> - Fixed node's address (2000000 -> 1002000000) (Stefan Wahren)
->>>> - Link to v1: https://lore.kernel.org/linux-
->>>> devicetree/20260113192902.48046-2-mcanal@igalia.com/
->>>> ---
->>>>    .../boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi    |  4 ++++
->>>>    arch/arm64/boot/dts/broadcom/bcm2712.dtsi          | 14 ++++++++++++++
->>>>    2 files changed, 18 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/
->>>> arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
->>>> index 7d4742ebe247..97522c6803c5 100644
->>>> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
->>>> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
->>>> @@ -247,3 +247,7 @@ &pcie1 {
->>>>    &pcie2 {
->>>>        status = "okay";
->>>>    };
->>>> +
->>>> +&v3d {
->>>> +    clocks = <&firmware_clocks 5>;
->>>
->>> Looking at the upstream DT [1] I think this also needs a clock-names entry.
->>
->> Differently from the `hvs` node [1] you sent (which specifies clock-
->> names), the `v3d` binding [2] doesn't have a clock-names property.
->> Therefore, it is not needed.
-> 
-> There's a name in the clk driver [1] so maybe the bindings should be updated?
+--uf7gopu5xawojzkn
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH V8 3/4] dt-bindings: iommu: Add NVIDIA Tegra CMDQV support
+MIME-Version: 1.0
 
-Those are two separate concepts. In the DT, clock-names is used by vc4
-to distinguish between multiple clock inputs [1]. In contrast, the v3d
-driver has a single clock input [2], and does not rely on named clock
-lookups.
+On Tue, Jan 13, 2026 at 05:49:34AM +0000, Ashish Mhetre wrote:
+> The Command Queue Virtualization (CMDQV) hardware is part of the
+> SMMUv3 implementation on NVIDIA Tegra SoCs. It assists in
+> virtualizing the command queue for the SMMU.
+>=20
+> Add a new device tree binding document for nvidia,tegra264-cmdqv.
+>=20
+> Also update the arm,smmu-v3 binding to include an optional nvidia,cmdqv
+> property. This property is a phandle to the CMDQV device node, allowing
+> the SMMU driver to associate with its corresponding CMDQV instance.
+> Restrict this property usage to Nvidia Tegra264 only.
+>=20
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Acked-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+> ---
+>  .../bindings/iommu/arm,smmu-v3.yaml           | 27 +++++++++++-
+>  .../bindings/iommu/nvidia,tegra264-cmdqv.yaml | 42 +++++++++++++++++++
+>  2 files changed, 68 insertions(+), 1 deletion(-)
+>  create mode 100644 Documentation/devicetree/bindings/iommu/nvidia,tegra2=
+64-cmdqv.yaml
 
-Given that, I believe there is no need for a clock-names property in the
-v3d binding, and updating the binding to mandate it would not provide
-any functional benefit at this point.
+Applied, thanks.
 
-[1] 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/vc4/vc4_hvs.c#n1679 
+Thierry
 
-[2] 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/v3d/v3d_drv.c#n363
+--uf7gopu5xawojzkn
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Best regards,
-- Maíra
+-----BEGIN PGP SIGNATURE-----
 
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/clk/bcm/clk-raspberrypi.c#n26
-> 
->> [1]
->> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/display/brcm,bcm2835-hvs.yaml
->> [2]
->> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/gpu/brcm,bcm-v3d.yaml
->>
->> Best regards,
->> - Maíra
->>
->>>
->>> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/
->>> tree/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi#n233
->>>
->>>> +};
->>>> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/
->>>> boot/dts/broadcom/bcm2712.dtsi
->>>> index 330a121ebfcb..661668ef7419 100644
->>>> --- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
->>>> +++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
->>>> @@ -1,5 +1,6 @@
->>>>    // SPDX-License-Identifier: (GPL-2.0 OR MIT)
->>>>    #include <dt-bindings/interrupt-controller/arm-gic.h>
->>>> +#include <dt-bindings/soc/bcm2835-pm.h>
->>>>    / {
->>>>        compatible = "brcm,bcm2712";
->>>> @@ -642,6 +643,19 @@ mip1: msi-controller@1000131000 {
->>>>                msi-ranges = <&gicv2 GIC_SPI 247 IRQ_TYPE_EDGE_RISING 8>;
->>>>                brcm,msi-offset = <8>;
->>>>            };
->>>> +
->>>> +        v3d: gpu@1002000000 {
->>>> +            compatible = "brcm,2712-v3d";
->>>> +            reg = <0x10 0x02000000 0x00 0x4000>,
->>>> +                  <0x10 0x02008000 0x00 0x6000>,
->>>> +                  <0x10 0x02030800 0x00 0x0700>;
->>>> +            reg-names = "hub", "core0", "sms";
->>>> +
->>>> +            power-domains = <&pm BCM2835_POWER_DOMAIN_GRAFX_V3D>;
->>>> +            resets = <&pm BCM2835_RESET_V3D>;
->>>> +            interrupts = <GIC_SPI 250 IRQ_TYPE_LEVEL_HIGH>,
->>>> +                     <GIC_SPI 249 IRQ_TYPE_LEVEL_HIGH>;
->>>> +        };
->>>>        };
->>>>        vc4: gpu {
->>
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmlqMpIACgkQ3SOs138+
+s6F4CRAAs/LaZnTRigpuhM/Lhm5MOiVhksuu5bLPcQ++2uSJQtflBIADQkopKC3r
+xfOY31m01LUKx75CeQGi7ekB6+wgtvMbIpX1Hr1caTIH3MLxrkgOumZJHKyclrYZ
+vl3Ztc2CdmzUwSOXvNxtH/HwIzTXPOfMme+eBDZjT2iV2BxNMJc2KPuFI0HruduH
+B/QqVO8FLcmIvPGqtneO8oaXtF/xrxiUojjxPdJmVNxUvdl/EIDf+VvQcEnhR+P0
+YYFgMfEk493Vhi/XMhXAg9zKwm+1yhoC7vXdklGW8IMezknR79HxrzjXx/Z9DUK6
+YFhItt0501jfhq+dqNWl7NaYDQtm/b2GxXHQ//cN2N+jEUSJDxbEec8YRPFJVlTL
++dlwu3GYvSatPHYP9tRzGuq13EK8EXtH9y5XYxl7+K314jo1kfv1YE/Acjva2hwu
+kycXUDVl3ryPFeJuZX41H5jDGtbkh+cWdfm2hDdhwR93xBl4gMfQ96krMNwmfCJn
+g1aIIQJDGg91F+17Bc4TkCIEscdp9026BmBJ8XzismHOM/uFw0hB+K4+dAX1TpvL
+7uNCBSgP8MoXEN1i0tCaSq8N9zXvzp59DoCM99F8tpg8JLHR/oD3nYfqNS7rNwQn
+JI9Gam81/Bg1MWrwgwqtKlN+oi3k0OvZfFyIEzEyavI45jDBk4k=
+=ntP8
+-----END PGP SIGNATURE-----
 
+--uf7gopu5xawojzkn--
 
