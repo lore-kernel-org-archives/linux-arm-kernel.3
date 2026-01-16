@@ -4,57 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C9FD4899D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 13:11:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A80ADD4899D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 13:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VUy6Z0nl3UN06uLRlgqbdTzfRq3/0KilXmceKHyT+FA=; b=UDW8RZRcBfqgCio/PCESw5DxAD
-	Fd+Qoh2cB78ac1ABoPsLn7A2bXYxfLyQKBrX/49XATYzj719B5JUvx2l8ikO5YqzgTsd8/N7Siheg
-	GHOwp72TbKWWsFYtijE54quNyf2xQ2Ka7HqtVSnwKxll3Fzh3Nzk0EcAMnvhLLX6OWJfmxUYDKNkw
-	XrsHLYMyYXy6dXGxCUhWmx5uAEDaEgrO2VUlF67xsirhZtd5yylxgvnwTT27Ko6fICiCxniTVrmBh
-	m5daDaN6O0Ndis4EmRDtQJvWu359RUgA3eqVAXYTz81mnER2Suhpr1l35KVSRkf6MN3cgLVojaejb
-	6yvHgFww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WbwuyU9tQePUO/CMKRNoOm3c7S3e/lfcNNheLhV3Jek=; b=o0wHAtRVdHlNTNK0LUeyEO7B4o
+	5Ss9mOVygyzIqagW9cNro9R8qxjdbf0VVn2Yv6T5hlw2sXef651NL1GdyeKIILQr6btmaS/Boa85P
+	yBYhnY3rhvwZ/rNvgx1frn45q9Mv3AwI4G2haStrJ/M3/n9F2zUSLCbWSdMzRARAriDNaiuyNrkAQ
+	YG01jY2N0JqOSjqBIcwAl4lwBBLN8tLIJwuj+1Bk6Ae4KxEyGGM0kbvUOtLtcca2Nu5OOu8zP6e0b
+	OOPPcfNtyPOJNqMXIduRJ6O8aS/Nzmzdk5hxol1b/NUDrzTCRr/n+r6LKsMLc0JlbFmhC/dY6j4/A
+	MC+kKMyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgjc9-0000000E9cm-2yBV;
-	Fri, 16 Jan 2026 13:11:45 +0000
-Received: from mail-43102.protonmail.ch ([185.70.43.102])
+	id 1vgjcc-0000000E9ng-0EUm;
+	Fri, 16 Jan 2026 13:12:14 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgjc7-0000000E9ah-3YCT
+	id 1vgjcZ-0000000E9mL-1CPt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 13:11:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
-	s=protonmail3; t=1768569098; x=1768828298;
-	bh=VUy6Z0nl3UN06uLRlgqbdTzfRq3/0KilXmceKHyT+FA=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=NsW4vNWI+sy+jtCwGEepBnQnhkRgbVqOJ8bQNyN7XOu/Bmiv5eUFHRTgDUqIkkZCL
-	 3+CCEPXQsQCOIr68mCMChffW/v/xa4NXARE65ARAC1tUdbbVCR0YM/VVD87fT5Hnf4
-	 g7uTiInwCUmOnfHiNaRH18bYdqK3XZUA8thcmHVBaNFZ6vrtQYXmnYyJGmjtUTL/eI
-	 FeJuldGwl9Kv2xapCx8JUTWPf6JHyDRUjGnR9+bb0IaoSyvCU0fdqXQw8ZvrndtD8c
-	 iztvGbaWNit1drtUSc0hgFnX7xkOB7r9nmg0mEFIctA/zk1M/dLih3b+MPcDkmHT6E
-	 fi3T+X+l0xZ7Q==
-Date: Fri, 16 Jan 2026 13:11:32 +0000
-To: Andrey Ryabinin <ryabinin.a.a@gmail.com>
-From: Maciej Wieczor-Retman <m.wieczorretman@pm.me>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, Andrew Morton <akpm@linux-foundation.org>, Jan Kiszka <jan.kiszka@siemens.com>, Kieran Bingham <kbingham@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, Samuel Holland <samuel.holland@sifive.com>, Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, linux-mm@kvack.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v8 01/14] kasan: sw_tags: Use arithmetic shift for shadow computation
-Message-ID: <aWo31aytvelldfiE@wieczorr-mobl1.localdomain>
-In-Reply-To: <2592f303-05f5-4646-b59f-38cb7549834e@gmail.com>
-References: <cover.1768233085.git.m.wieczorretman@pm.me> <4f31939d55d886f21c91272398fe43a32ea36b3f.1768233085.git.m.wieczorretman@pm.me> <2592f303-05f5-4646-b59f-38cb7549834e@gmail.com>
-Feedback-ID: 164464600:user:proton
-X-Pm-Message-ID: 3ed341666d06b561ea7c217cda5b5d4311dd5d20
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Fri, 16 Jan 2026 13:12:12 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60GCUwxq032372;
+	Fri, 16 Jan 2026 13:11:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=WbwuyU
+	9tQePUO/CMKRNoOm3c7S3e/lfcNNheLhV3Jek=; b=tLl0nkgxjak7tFve2ZBcGQ
+	+VHDE/VryxJxnm90DezyF4/7JH75ENlgiTRn3E8EkXh8KM3m17MObnHRG87BxqjH
+	k+evfLvwl1ahkXgvytlmcUBkGmk/mos7XW4ZP9h3Rq2117CFWY2t+cyBMjhZY0wJ
+	aG8/bczwhjW0Q4HUCaLHC2RnaDbZh2Ymy/ULnmCdAh/YNx6O5+QBc1iIyi7J1ohT
+	VdwqPFpmrNYzhx3eQ2GUiRMVNwLcgcnnZyDVHRYy4K0fwFavechuxyDPlqLguRTY
+	NNq2h8OkdnZNvf4fFOpTEqc/1G0ny01yPGQpvh7okGX2NsHgxwMFcxjAfEK/UHxQ
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bq9bmjwwj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 16 Jan 2026 13:11:20 +0000 (GMT)
+Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 60GD0DSZ005091;
+	Fri, 16 Jan 2026 13:11:19 GMT
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bq9bmjwwc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 16 Jan 2026 13:11:19 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60GBkbdq025848;
+	Fri, 16 Jan 2026 13:11:18 GMT
+Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4bm2kkxc2a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 16 Jan 2026 13:11:18 +0000
+Received: from smtpav05.dal12v.mail.ibm.com (smtpav05.dal12v.mail.ibm.com [10.241.53.104])
+	by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60GDBGtJ66191638
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 16 Jan 2026 13:11:16 GMT
+Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A8F5858052;
+	Fri, 16 Jan 2026 13:11:16 +0000 (GMT)
+Received: from smtpav05.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 6EAA658065;
+	Fri, 16 Jan 2026 13:11:14 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.160.11])
+	by smtpav05.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 16 Jan 2026 13:11:14 +0000 (GMT)
+Message-ID: <8bfa859ed3a4f1cf0db0ab64d8c1c3b24684582a.camel@linux.ibm.com>
+Subject: Re: [PATCH 1/3] integrity: Make arch_ima_get_secureboot
+ integrity-wide
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Ard Biesheuvel <ardb@kernel.org>, Coiby Xu <coxu@redhat.com>
+Cc: linux-integrity@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
+        Roberto Sassu <roberto.sassu@huaweicloud.com>,
+        Catalin Marinas
+ <catalin.marinas@arm.com>,
+        Will Deacon	 <will@kernel.org>,
+        Madhavan
+ Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman	 <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)"
+ <chleroy@kernel.org>,
+        Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev	
+ <agordeev@linux.ibm.com>,
+        Christian Borntraeger
+ <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Thomas
+ Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav
+ Petkov	 <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)"	 <x86@kernel.org>,
+        "H.
+ Peter Anvin" <hpa@zytor.com>,
+        Roberto Sassu	 <roberto.sassu@huawei.com>,
+        Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
+        Eric Snowberg
+ <eric.snowberg@oracle.com>,
+        Paul Moore <paul@paul-moore.com>, James Morris
+ <jmorris@namei.org>,
+        "Serge E. Hallyn"	 <serge@hallyn.com>,
+        Jarkko
+ Sakkinen <jarkko@kernel.org>,
+        "moderated list:ARM64 PORT (AARCH64
+ ARCHITECTURE)"	 <linux-arm-kernel@lists.infradead.org>,
+        open list
+ <linux-kernel@vger.kernel.org>,
+        "open list:LINUX FOR POWERPC (32-BIT AND
+ 64-BIT)"	 <linuxppc-dev@lists.ozlabs.org>,
+        "open list:S390 ARCHITECTURE"	
+ <linux-s390@vger.kernel.org>,
+        "open list:EXTENSIBLE FIRMWARE INTERFACE
+ (EFI)"	 <linux-efi@vger.kernel.org>,
+        "open list:SECURITY SUBSYSTEM"	
+ <linux-security-module@vger.kernel.org>,
+        "open
+ list:KEYS/KEYRINGS_INTEGRITY"	 <keyrings@vger.kernel.org>
+In-Reply-To: <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
+References: <20260115004328.194142-1-coxu@redhat.com>
+	 <20260115004328.194142-2-coxu@redhat.com>
+	 <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Date: Fri, 16 Jan 2026 08:11:14 -0500
+MIME-Version: 1.0
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: vGdqorSMqwb3kfh44Ul4iXT26HLJtcVL
+X-Proofpoint-ORIG-GUID: UaTnshlSl9OsQUsBt9h9DQB_j9bEWwZm
+X-Authority-Analysis: v=2.4 cv=TrvrRTXh c=1 sm=1 tr=0 ts=696a38f8 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=20KFwNOVAAAA:8 a=VnNF1IyMAAAA:8 a=AiHppB-aAAAA:8 a=s9zCHZ8PhMmpDcaTpq8A:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE2MDA4OSBTYWx0ZWRfX8WIBwnwlCAo9
+ Hx4erRu2DFykOazn7aixjrnZiK/y/mXNVaRMcKFpxf8sytT7MjrqnJuXITCSRHKaBo0NUqoqwN2
+ NcwbpNvz7yE8ky8CYSr33LamfHlTuEs+vDn6BU+strZSfGddxkbHtvASz4Q0KOfRsLfKYLSqPSo
+ sehjiaPCx4/Uylwg5IoNQWa4XSaIX1BeIE4wNVjD4if6jhdH6dV2i3zxguivqtDlcE6lybtMgr7
+ Q3/8EAP6LFmRK+L5rXJgBcmXXCCw80YP2qfhfxfSle57agm8I8k6JA0ca6TeLHTDBjWoPK2lnR0
+ 6cBvhh/Y0E1FyzRnUiv5Ju+hn75fqho04+41hKgW/vSeWHV2VszlPlH7hegotzZnFlCzUnnU6h7
+ GirUlCgk1R3VQz6ZEnBGJnEui1HJ90c9dZR4mV1ogE+Jp5VOPWrmqkZ9+RYVaTYQjpjkp/dFFFJ
+ 83ZnKksO+pMJswjZbqA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-16_05,2026-01-15_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 priorityscore=1501 lowpriorityscore=0 phishscore=0 clxscore=1015
+ bulkscore=0 impostorscore=0 malwarescore=0 suspectscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2512120000 definitions=main-2601160089
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_051144_034184_93092F24 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20260116_051211_349891_B4ADDD24 
+X-CRM114-Status: GOOD (  24.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,102 +174,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for looking at the patches :)
+On Fri, 2026-01-16 at 10:41 +0100, Ard Biesheuvel wrote:
+> On Thu, 15 Jan 2026 at 01:43, Coiby Xu <coxu@redhat.com> wrote:
+> >=20
+> > EVM and other LSMs need the ability to query the secure boot status of
+> > the system, without directly calling the IMA arch_ima_get_secureboot
+> > function. Refactor the secure boot status check into a general,
+> > integrity-wide function named arch_integrity_get_secureboot.
+> >=20
+> > Define a new Kconfig option CONFIG_INTEGRITY_SECURE_BOOT, which is
+> > automatically configured by the supported architectures. The existing
+> > IMA_SECURE_AND_OR_TRUSTED_BOOT Kconfig loads the architecture specific
+> > IMA policy based on the refactored secure boot status code.
+> >=20
+> > Reported-and-suggested-by: Mimi Zohar <zohar@linux.ibm.com>
+> > Suggested-by: Roberto Sassu <roberto.sassu@huaweicloud.com>
+> > Signed-off-by: Coiby Xu <coxu@redhat.com>
+> > ---
+> >  arch/arm64/Kconfig                            |  1 +
+> >  arch/powerpc/Kconfig                          |  1 +
+> >  arch/powerpc/kernel/Makefile                  |  2 +-
+> >  arch/powerpc/kernel/ima_arch.c                |  5 --
+> >  arch/powerpc/kernel/integrity_sb_arch.c       | 13 +++++
+> >  arch/s390/Kconfig                             |  1 +
+> >  arch/s390/kernel/Makefile                     |  1 +
+> >  arch/s390/kernel/ima_arch.c                   |  6 --
+> >  arch/s390/kernel/integrity_sb_arch.c          |  9 +++
+> >  arch/x86/Kconfig                              |  1 +
+> >  arch/x86/include/asm/efi.h                    |  4 +-
+> >  arch/x86/platform/efi/efi.c                   |  2 +-
+> >  include/linux/ima.h                           |  7 +--
+> >  include/linux/integrity.h                     |  8 +++
+> >  security/integrity/Kconfig                    |  6 ++
+> >  security/integrity/Makefile                   |  3 +
+> >  security/integrity/efi_secureboot.c           | 56 +++++++++++++++++++
+> >  security/integrity/ima/ima_appraise.c         |  2 +-
+> >  security/integrity/ima/ima_efi.c              | 47 +---------------
+> >  security/integrity/ima/ima_main.c             |  4 +-
+> >  security/integrity/platform_certs/load_uefi.c |  2 +-
+> >  21 files changed, 111 insertions(+), 70 deletions(-)
+> >  create mode 100644 arch/powerpc/kernel/integrity_sb_arch.c
+> >  create mode 100644 arch/s390/kernel/integrity_sb_arch.c
+> >  create mode 100644 security/integrity/efi_secureboot.c
+> >=20
+> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> > index 93173f0a09c7..4c265b7386bb 100644
+> > --- a/arch/arm64/Kconfig
+> > +++ b/arch/arm64/Kconfig
+> > @@ -2427,6 +2427,7 @@ config EFI
+> >         select EFI_STUB
+> >         select EFI_GENERIC_STUB
+> >         imply IMA_SECURE_AND_OR_TRUSTED_BOOT
+> > +       imply INTEGRITY_SECURE_BOOT
+>=20
+> This allows both to be en/disabled individually, which I don't think
+> is what we want. It also results in more churn across the
+> arch-specific Kconfigs than needed.
+>=20
+> Wouldn't it be better if IMA_SECURE_AND_OR_TRUSTED_BOOT 'select'ed
+> INTEGRITY_SECURE_BOOT in its Kconfig definition?
 
-On 2026-01-15 at 23:42:02 +0100, Andrey Ryabinin wrote:
->
->
->On 1/12/26 6:27 PM, Maciej Wieczor-Retman wrote:
-> =20
->> diff --git a/mm/kasan/report.c b/mm/kasan/report.c
->> index 62c01b4527eb..b5beb1b10bd2 100644
->> --- a/mm/kasan/report.c
->> +++ b/mm/kasan/report.c
->> @@ -642,11 +642,39 @@ void kasan_non_canonical_hook(unsigned long addr)
->>  =09const char *bug_type;
->> =20
->>  =09/*
->> -=09 * All addresses that came as a result of the memory-to-shadow mappi=
-ng
->> -=09 * (even for bogus pointers) must be >=3D KASAN_SHADOW_OFFSET.
->> +=09 * For Generic KASAN, kasan_mem_to_shadow() uses the logical right s=
-hift
->> +=09 * and never overflows with the chosen KASAN_SHADOW_OFFSET values (o=
-n
->> +=09 * both x86 and arm64). Thus, the possible shadow addresses (even fo=
-r
->> +=09 * bogus pointers) belong to a single contiguous region that is the
->> +=09 * result of kasan_mem_to_shadow() applied to the whole address spac=
-e.
->>  =09 */
->> -=09if (addr < KASAN_SHADOW_OFFSET)
->> -=09=09return;
->> +=09if (IS_ENABLED(CONFIG_KASAN_GENERIC)) {
->> +=09=09if (addr < (unsigned long)kasan_mem_to_shadow((void *)(0ULL)) ||
->> +=09=09    addr > (unsigned long)kasan_mem_to_shadow((void *)(~0ULL)))
->> +=09=09=09return;
->> +=09}
->> +
->> +=09/*
->> +=09 * For Software Tag-Based KASAN, kasan_mem_to_shadow() uses the
->> +=09 * arithmetic shift. Normally, this would make checking for a possib=
-le
->> +=09 * shadow address complicated, as the shadow address computation
->> +=09 * operation would overflow only for some memory addresses. However,=
- due
->> +=09 * to the chosen KASAN_SHADOW_OFFSET values and the fact the
->> +=09 * kasan_mem_to_shadow() only operates on pointers with the tag rese=
-t,
->> +=09 * the overflow always happens.
->> +=09 *
->> +=09 * For arm64, the top byte of the pointer gets reset to 0xFF. Thus, =
-the
->> +=09 * possible shadow addresses belong to a region that is the result o=
-f
->> +=09 * kasan_mem_to_shadow() applied to the memory range
->> +=09 * [0xFF000000000000, 0xFFFFFFFFFFFFFFFF]. Despite the overflow, the
->                  ^ Missing couple 00 here
->
->> +=09 * resulting possible shadow region is contiguous, as the overflow
->> +=09 * happens for both 0xFF000000000000 and 0xFFFFFFFFFFFFFFFF.
->                                  ^ same as above
-
-Hah, right, thank you!
-
->
->> +=09 */
->> +=09if (IS_ENABLED(CONFIG_KASAN_SW_TAGS) && IS_ENABLED(CONFIG_ARM64)) {
->> +=09=09if (addr < (unsigned long)kasan_mem_to_shadow((void *)(0xFFULL <<=
- 56)) ||
->
->This will not work for inline mode because compiler uses logical shift.
->Consider NULL-ptr derefernce. Compiler will calculate shadow address for 0=
- as:
->      (((0x0 | 0xffULL) << 56) >> 4)+0xffff800000000000ULL =3D 0x0fef8000.=
-...0
->Which is less than ((0xFF00...00LL) >> 4) +  0xffff800000000000ULL =3D 0xf=
-fff800...0
->So we will bail out here.
->Perhaps we could do addr |=3D 0xFFLL to fix this
-
-I suppose it should work; tried it in a python script by shoving various
-addresses into this check. Pushing addresses through a logical shift
-memory_to_shadow normally would return early as you noticed, and after 'add=
-r |=3D
-0xFFLL' it seems to work as expected. And I didn't really catch any incorre=
-ct
-address slipping by this scheme either. Thanks, I'll correct it.
-
->
->> +=09=09    addr > (unsigned long)kasan_mem_to_shadow((void *)(~0ULL)))
->> +=09=09=09return;
->> +=09}
->> =20
->>  =09orig_addr =3D (unsigned long)kasan_shadow_to_mem((void *)addr);
->> =20
-
---=20
-Kind regards
-Maciej Wiecz=C3=B3r-Retman
-
+As much as possible, EVM (and other LSMs) shouldn't be dependent on another=
+ LSM,
+in this case IMA, being configured.
 
