@@ -4,121 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85120D4A619
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 10:00:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C5A3D47CCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 10:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ik7nBSUvqjiZji8p0UMpcxyJ9CmKYvj/STnQwZRmw6o=; b=t+oYUgNUEaKKVsl05i9725GFfs
-	VwrunqX1KOkzM8g5fCIJ6KCEq394W1R3A+0KZeTudjgveYFhxEoBRiN5LScbiqEZSc2+jHg20sXgL
-	yBASQzY7Ie+eMu3jmFehvN9Ev4/rIErmMK2H1VzxSwEbamkeZStnNfqrhE6NMpleHO44AThKrqOU9
-	tuIgzHBUsP7caBMadYCr7Xvm0QDqTEDGOaXks0NvcOIkzGngakbYA2oQBJVHKoG5qXs+/x3thSEl1
-	DPc/fQPCOLo59tO7uhvUMGUINv/HgdoGxeDOY5P9+hGK9Z0bntM8rswLMTMPUeuTxWG25hgE7Ohe+
-	aVNTs9oQ==;
+	bh=TPjXmy1xHBrNjdyBSRWzNyBvjUZ6ThBNFLMbBPnLLqc=; b=URUiyJ/Cn00CIVCkhoT4pn9EZy
+	U7yC94l9utFQkfBNhRnA9TGQrZY7FwGFLjfaj2rpqIkGePUOStrOZw/xVxWl+DrQxEHSJIJu5JtKF
+	CkFGJTeNQrq0ESYWG/UeEJ+nKt5kA1WgeUumGXRpOQAhpZ0Rnc46DbHBR7AF2qozMI/BEM9CE7NUK
+	snq2YVBbCihpqlX+SXheALXGhQc0vFWIXrD1QfmomOWKFZcSnllggfo2eDL970W67V1PmNuoxd5Jr
+	3IG2pKcqofnKn/ZxajteTBYMhsSHX8usfti5hEKw8AslN6xqshRxt+8dkvXldQbLgZFaKw7ThtKdE
+	GgZGe9cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vggcf-0000000Dtb3-3ppc;
-	Fri, 16 Jan 2026 10:00:05 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1vggiq-0000000Du2v-1fCa;
+	Fri, 16 Jan 2026 10:06:28 +0000
+Received: from mail-westusazon11010028.outbound.protection.outlook.com ([52.101.85.28] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vggcd-0000000DtaI-0egR
+	id 1vggin-0000000Du2Z-2omv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 10:00:04 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-432d2c7dd52so1639861f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 02:00:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1768557601; x=1769162401; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ik7nBSUvqjiZji8p0UMpcxyJ9CmKYvj/STnQwZRmw6o=;
-        b=JoBu5zCR6FdA5kbNQ3kSepmkEdiS1UPyNuh9LVnIdNdBp8dZZ90qiPbCf6VJLjp6CG
-         Wqf4i+Ehw20RnzsrUXGxQgu1NFw5sXXx0NQBMokxK9hfXH6hcX/XNlu+tkYghpQUpByS
-         hgox4/peyljp+Om8t3QZvci7RqwjK6P+NCBs02vXAxiUw9CfqoG3nHoi6VeXblzeMEhb
-         957YSGx4Hol5uJDhmC3EmgNkxLjy1KUtCJf9Af4t5yZr9mB2udLXVQDO1invdSPCbpOV
-         rvKGKrs3IwTEu9q1H8wZ2161hkY91/73YO5d11hPAJqtqkNoCApBkSfokNDN20lFa2ax
-         Gumw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768557601; x=1769162401;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ik7nBSUvqjiZji8p0UMpcxyJ9CmKYvj/STnQwZRmw6o=;
-        b=eXntwK0imIC8q/dKP3GJR+7lh93k9/4WFqx0M1BoDC85UZjKgpRj6ySjMqR7Y96OS2
-         rDx8qELta82r8XmIbyAP5D73XXQ87ESF0B5iw4R1co7JdOQCHadVz78/TjB9BL7QoP1V
-         HHXhKgiQDuVx1gUrK3UYqO6X2NaZSZwyqvFswIx730y9jv6OCSW1kJiHwcM49woJfeF8
-         AqY9nt82EOL7ZM9N2psBtm9zuMgM7q0UIeph+G1DwoV7RSln0LSd5+rWWW9Oq+WLLx/N
-         FyHJIEjcnoRpIl7chc0Gk/rYyGn0M1wzhODtTn2YdJ5L4PWViXiX1FHfHKCM4Md/rHK0
-         IIVg==
-X-Forwarded-Encrypted: i=1; AJvYcCU+cR6K6T0aDGt2h/ndsD1VL2A5zE/UZvTgz9m4Fpxm0fbYoEi4PQpLuhmmtf52VwFkJWzqRKJ3AHzPT4Z7QiQK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfWKEsQSbmsFHQ0o7EuwY9tmqeH2HG3RdL28jR5ONtVGRthn3c
-	ZrF1AbcX70zz8SBQtJfNPGSY3pjJ3hQTxXAMsoKDEWEfJT5yZZQuPyDn/szYTJS6QdE=
-X-Gm-Gg: AY/fxX6tF1vowdZO7QH3p+3UWQuC85dO219uK51HQmtgIIKdXmY+7V+pmkhZJ4z4IR6
-	pwLHoVDqCeVGdDh9u0YvOKDFsJOE0rMCrud8j5RKbacBw7ogJ2yfaKlP+KsJEAIhJQ7wGqZojT4
-	/cq1hxiMM80QM5Is4lvGKfwRz0R32dBBQ9Q+qoNJkNDGp6F3+MrPI9tA3wDWDxFcE0cto9fxIcy
-	5m+M1WaGSijbi4NGkNQaLR6nzojeIlhkQUBnuMk0n2tLw4MawCxeBR/DShjbd4QUx+imZsQCn3f
-	EvJ4T60F/sh1jujBUqnLP8hV2acmouvL9kzqV2VDteiWXTDWXEmRwnRXjfa0iDp4Fkhrc+ZUZqW
-	h6sJAo8zK2oEu6AsE6NfFxt2et+hzLhpG4bY2Qy1K5bZskQiQ0M5Rj/flCPJeiHE7bmav8Qf7ML
-	oJbu7wrRlOnAwvOw==
-X-Received: by 2002:a05:6000:26ce:b0:432:dfea:1fa8 with SMTP id ffacd0b85a97d-43569bc5767mr3019291f8f.45.1768557601174;
-        Fri, 16 Jan 2026 02:00:01 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43569921f6esm4337797f8f.4.2026.01.16.01.59.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Jan 2026 02:00:00 -0800 (PST)
-Date: Fri, 16 Jan 2026 10:59:57 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Marcos Paulo de Souza <mpdesouza@suse.com>
-Cc: Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jason Wessel <jason.wessel@windriver.com>,
-	Daniel Thompson <danielt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
-	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
-	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 15/19] drivers: tty: serial: mux.c: Migrate to
- register_console_force helper
-Message-ID: <aWoMHbbn-BmmbZMg@pathway.suse.cz>
-References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
- <20251227-printk-cleanup-part3-v1-15-21a291bcf197@suse.com>
+	Fri, 16 Jan 2026 10:06:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mknMf7DqzsWCl9L6WkJ5J3RZiXgD0u0MkLax2UMluCXPEYVhXPxuw/3fWeg4HA4+EPUjachuktPnGvrnKC8hVFaHWXYNhW1LFXGca9VtqRkdpr/a17Jfgex8AMFVHloZJdSRUoebVpqJYuA2Qdx4X7ncIhTh0teBizz2f1fQq5Hv7oB4spGgUJ4vuQTQLWZ4KTiJr6TvE0J1Ze6B9s8B9Sikj6XMK2fHgYDtGvErwz1ofGSxojvk/xNoUa7SEwDn/9SK0EvWershb4fhJKtvZOPlUN/uKT0Tz52+IPqb04iWoCEHAP7HvLBIwb5eN3JE2bPHlE6cybai2zYm2xnxNQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TPjXmy1xHBrNjdyBSRWzNyBvjUZ6ThBNFLMbBPnLLqc=;
+ b=B8Eu6kgm9EBygXAKSswf3pZWaS34ZZoGhW0ucuAM36b0f4JsRuhzArKP8SL+pHJWEPaCuEZRrVoFZMslkNVa1Gm2CnqzrHkVhc5pgAK60LhsWlAQY2JHR3NdH9oHTSL9RaswrsK3CJiK2vAfuiIGhGpw0R8Ob+92g2xrVy+KH+RK0wIuIr3YIEq4G1OWcPSw9+OZgP333zBcPaXkJ6nLrg3fyimxqSa1ry0cnDfvpHCF0Yk8EcpNpV3D2GHOmumM+a7aogaoyQf4CeBE+DxkpK4uUTRmx2zdtGVXBM1cveV4CWB4j1zX9fLYcCVvV8yRirtyFlvtbCq73XVMSYzI9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TPjXmy1xHBrNjdyBSRWzNyBvjUZ6ThBNFLMbBPnLLqc=;
+ b=S2ZUqB1MsRRRd14AlXAqcM6ClqlCva2bVi55+LjUZP1tjNmZSc2f5fjn3DCF6CAGu47K/bdywG/AD6730nKvjDl+e7cJeaWnfVJ54l+fGqMxe8vM4f7+mZ1AX9g6RmtbpGoyYGR8k1zlRhxvZFE5FyxopF1KRl8ucFF02RDA+V8=
+Received: from BY5PR16CA0007.namprd16.prod.outlook.com (2603:10b6:a03:1a0::20)
+ by PH0PR10MB4709.namprd10.prod.outlook.com (2603:10b6:510:3d::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.6; Fri, 16 Jan
+ 2026 10:06:21 +0000
+Received: from SJ1PEPF00002325.namprd03.prod.outlook.com
+ (2603:10b6:a03:1a0:cafe::54) by BY5PR16CA0007.outlook.office365.com
+ (2603:10b6:a03:1a0::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.6 via Frontend Transport; Fri,
+ 16 Jan 2026 10:06:21 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ SJ1PEPF00002325.mail.protection.outlook.com (10.167.242.88) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9542.4 via Frontend Transport; Fri, 16 Jan 2026 10:06:20 +0000
+Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 16 Jan
+ 2026 04:06:18 -0600
+Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 16 Jan
+ 2026 04:06:17 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 16 Jan 2026 04:06:17 -0600
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60GA6FUm2975025;
+	Fri, 16 Jan 2026 04:06:16 -0600
+Date: Fri, 16 Jan 2026 15:36:14 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar
+	<viresh.kumar@linaro.org>, Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Kendall Willis <k-willis@ti.com>, Sebin Francis
+	<sebin.francis@ti.com>, Bryan Brattlof <bb@ti.com>,
+	<linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+Subject: Re: [PATCH 1/3] cpufreq: dt-platdev: Add ti,am62l3 to blocklist
+Message-ID: <20260116100614.k2loytoywr4vqihu@lcpd911>
+References: <20260116-am62l-cpufreq-v1-0-63d062317ae9@ti.com>
+ <20260116-am62l-cpufreq-v1-1-63d062317ae9@ti.com>
+ <d479060c-6b47-456c-abb6-9c5139bbd36d@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20251227-printk-cleanup-part3-v1-15-21a291bcf197@suse.com>
+In-Reply-To: <d479060c-6b47-456c-abb6-9c5139bbd36d@kernel.org>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002325:EE_|PH0PR10MB4709:EE_
+X-MS-Office365-Filtering-Correlation-Id: edae4070-841a-4363-7ff1-08de54e6e56d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|34020700016|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3RfDxqTUaOj4skOioqmM4I5RApG7Bh1Zx7+wWbRiaA3pNTHWDG17AKdoiL20?=
+ =?us-ascii?Q?Y1Cf8V9LhFj4V9eGuKL7PoameDnMdonUJDbpnPbZxLfvR2WoKE078DK+qMlb?=
+ =?us-ascii?Q?/+hUMi/PEYZd+k+nB4+FD3Dft6FpvOUPKJqSuUUrNqar3dQ+oI7izIl5nNkC?=
+ =?us-ascii?Q?l/HpF87Bx7M2m+FkyufHNwqZxyEvpc4pLtlhWhRp23rkQncNSS7DJrm8Xgb3?=
+ =?us-ascii?Q?W30fO+5ULjR5tvjNj5S4d8GE1Khf4GKCKObHEpiRNF/C7jDeZoY71BcTcCHW?=
+ =?us-ascii?Q?cONYRrLfokaqeUIsKKVcbgSwx1tpGVAZO/hfyefmS1Op7UilmHB3jxdBhVih?=
+ =?us-ascii?Q?6ktipWYwCdWFjCzc5zs53A5dDlSIot2BVpo3Gmbl6yLj447QzD1zzNg6dsjd?=
+ =?us-ascii?Q?DY6P8zUkelhBsMGv9xc9vCZlSG9OCvRujCdubIynd97LTvN23jPy0U1pdMft?=
+ =?us-ascii?Q?63Y6xcX3a96KZO23V8Uq62qL2H1ICq3Ypf1UyQFe7xvIC9czkN9B7kgaiajb?=
+ =?us-ascii?Q?waFceJims7XKunl7LbPBjqDuVR3Qah9dEXkB4M6tH3yEU1SfJzaEERDF1w8Q?=
+ =?us-ascii?Q?NLdfN2VCS8FZKyoD2Gc+SGuccbCirHbSmE9YgREw61dcbm3ej+ENZP7u9s3X?=
+ =?us-ascii?Q?OPEQhAAKdnHT/MuvcelwBTrRkpPkj5nFxxqS+6D/ZL2l5rTuM+/yKNPuGCyd?=
+ =?us-ascii?Q?uasGh1gHzN9B09tXiHy3bUs1c30lQ7d+aGxuYZ9rrdSLMlWl5gelaHyLE3Z2?=
+ =?us-ascii?Q?tjrZXbFaXFPxiqNc9RDMIBVGscEZdIA7oAFFk+gB+/9ndbT+SFHqKQrLxBwN?=
+ =?us-ascii?Q?F1G8cTXXG27/NPU5sdQXctZyG/ew/Xed4PS+Z7UVmty+Qan4WxZDB8mERIAj?=
+ =?us-ascii?Q?WEdIy8v+4Rjz13SsWtwu3I4T8zELwo2YeRj1nEjnzjF0iMKVC11SY9Bq1frL?=
+ =?us-ascii?Q?S4WXJti8e12JkhvoUdzJ+7ZANjuwdfmhXRKc7TbxGcD4/J4GK+d9g7ClPKeS?=
+ =?us-ascii?Q?T+BbVFLwkVaZbvmwAmKl+H+2qPH0QpAhVBa59mZMTTx1nHziBaDWuZAImIko?=
+ =?us-ascii?Q?Mc78qUhFR3VSvBPzUwtuhVMeW3JcRITPuH5jrkI5bfuNLXSqt9UDkQdEUuD2?=
+ =?us-ascii?Q?I4SlLGjZSrKP3SmX/mTk/ClJtYRCvUYQ/wSqe9C7mV/0pWpvPobNNHwPRFpz?=
+ =?us-ascii?Q?laDzMRqQTdiLfcZmlivl0C66rYJqPwlfj23hKm5e23Uhh3JRKHMJCUCOJ6cd?=
+ =?us-ascii?Q?7edCP3WtbDFC2tf5iOIUVEnNTvr32BGzvAPIxpIzppplsTElMy5WrCbTw/iy?=
+ =?us-ascii?Q?ZicPuz1METP7qEZ5HEAsQQLuSZKHgzM3M8eLbUyCESf6PbXQL/8V+tkudXyk?=
+ =?us-ascii?Q?Ia1Qf1eifXf7/Sxw87uPQb5f7n1ffoP+C5Afy86p/u/jDsLAO4flFBm5QNxb?=
+ =?us-ascii?Q?wOOI/5PKW2Y+mqieiDlBsr5A8YHUXNE6uAXD1QVcTu4mTKBNg81wUhrjtZqz?=
+ =?us-ascii?Q?FRUOV+2PPZMJDb7TKVG1OeWz271NlgE3Lpwi8wRYKQmMFM4L2b9LyQLrFUV1?=
+ =?us-ascii?Q?QGzLoSIFvSrM6ZMeB7jE0l5NsJy8HcymyZJN13lLlq1yaCvxefXeLUlpeKua?=
+ =?us-ascii?Q?AR94szCN12te+HnnVDwH9zEXMKWIG1lgKuZne/GzZincW9aKHgwrR2gIv6lI?=
+ =?us-ascii?Q?n3eQOA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(34020700016)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 10:06:20.0181
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: edae4070-841a-4363-7ff1-08de54e6e56d
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002325.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB4709
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_020003_231272_7B7B8081 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20260116_020625_716120_1F246F11 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,57 +162,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat 2025-12-27 09:16:22, Marcos Paulo de Souza wrote:
-> The register_console_force function was introduced to register consoles
-> even on the presence of default consoles, replacing the CON_ENABLE flag
-> that was forcing the same behavior.
+On Jan 16, 2026 at 10:16:08 +0100, Krzysztof Kozlowski wrote:
+> On 16/01/2026 10:01, Dhruva Gole wrote:
+> > Add AM62L3 SoC to the dt-platdev blocklist to ensure proper handling
+> > of CPUFreq functionality. The AM62L3 will use its native TI CPUFreq
+> > driver implementation instead of the generic dt-platdev driver.
+> > 
+> > This follows the same pattern as other TI SoCs like AM62A7, AM62D2,
+> > and AM62P5 which have been previously added to this blocklist.
+> > 
+> > Signed-off-by: Dhruva Gole <d-gole@ti.com>
+> > ---
+> >  drivers/cpufreq/cpufreq-dt-platdev.c | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
+> > index 1708179b2610bca6035d10f0f4766eee6f73912e..29122bac2e22f6e7a8e8294cc01923c8a13d53c1 100644
+> > --- a/drivers/cpufreq/cpufreq-dt-platdev.c
+> > +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
+> > @@ -194,6 +194,7 @@ static const struct of_device_id blocklist[] __initconst = {
+> >  	{ .compatible = "ti,am62a7", },
+> >  	{ .compatible = "ti,am62d2", },
+> >  	{ .compatible = "ti,am62p5", },
+> > +	{ .compatible = "ti,am62l3", },
 > 
-> --- a/drivers/tty/serial/mux.c
-> +++ b/drivers/tty/serial/mux.c
-> @@ -390,7 +390,7 @@ static struct console mux_console = {
->  	.write =	mux_console_write,
->  	.device =	uart_console_device,
->  	.setup =	mux_console_setup,
-> -	.flags =	CON_ENABLED | CON_PRINTBUFFER,
-> +	.flags =	CON_PRINTBUFFER,
->  	.index =	0,
->  	.data =		&mux_driver,
->  };
-> @@ -547,7 +547,7 @@ static int __init mux_init(void)
->  		mod_timer(&mux_timer, jiffies + MUX_POLL_DELAY);
->  
->  #ifdef CONFIG_SERIAL_MUX_CONSOLE
-> -	        register_console(&mux_console);
-> +		register_console_force(&mux_console);
+> p > l
 
-The situation here is the same as in 16th patch for
-ma35d1serial_console().
+Fair point, I thought more from a "latest SOC" point of view but the
+standard here is alphabetical, will re-spin.
 
-Also "mux_console" is assigned to
+> 
+> 
+> Best regards,
+> Krzysztof
 
-static int __init mux_probe(struct parisc_device *dev)
-{
-[...]
-		mux_driver.cons = MUX_CONSOLE;
-
-		status = uart_register_driver(&mux_driver);
-[...]
-		status = uart_add_one_port(&mux_driver, port);
-[...]
-}
-
-So, that it can get registered also by:
-
-  + mux_probe()
-    + uart_add_one_port()
-      + serial_ctrl_register_port()
-	+ serial_core_register_port()
-	  + serial_core_add_one_port()
-	    + uart_configure_port()
-	      + register_console()
-
-And we would need to pass the "force" information via CON_FORCE flag.
-
-Best Regards,
-Petr
+-- 
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
