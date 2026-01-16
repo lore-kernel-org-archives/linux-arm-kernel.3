@@ -4,142 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 144B8D48981
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 11:19:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FFE9D47CD0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 11:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ko8zW2QcX5C+Au+BA6LOsombT6GjVQNsNcD3Ant5Sa4=; b=2FVip07w44fuIP3ZYa660MWaCl
-	w9fjIcHUYwUyQwQHWjYufv87LVYMETIZrStTrs59VTP92oKRWc6hlCBjyXBaPekWKwOh+triniO1i
-	nxAm2xAOWLfhim0GM/jg8TNSsk41tsVz/WKQt+mIhrK9CBA1fwG0pq/AcGCVRyxrsf+piP7reMjWz
-	9rGK/WnoVDmRkhac5RC8PGfTi4OeJLeq6W1a8gqS5jM6epnzPMHJaEwc9drXrZkWqRIfk9jLYH+OA
-	H3ZvP1Ah/gAC81SEOj12yvAdBNk50pvJQSTm20guK/JxMXWf1QlRwiE+7UXuOMS8mhUBHAFMbfnoj
-	Zam5G6/w==;
+	bh=ZPvr4EScowsQmnJ9F4XIdMB/KSzLBPyp4C2t6IR/I9s=; b=BBwZFJ694acZheNSlUdUTNMjZl
+	XPeuh0NkocNCUCRCfV3jLmn1Vhr/LGwvc9TMhG+/32YEsSlfZ8M4L3IVNzI7ltuIqc29zlXSKPaFy
+	nLTDp8OlbWknIHT1wvQlpcmbJI4HznHjKIPIQ0DoA+zxguV319wMPrYz/h6v7x03i5TwinUMOf0dR
+	QjL0MJ3o9ZkNgZ9Hg+uOnycVCVjMWnsS/UKkMi0ioFnYm46JK6wDQG3ciAaZFP8q6A3+iLeH+yFUC
+	ZSz0ntt+oVdoS3P+un6caTIMw7/to44n/0zv38SISK3k9Td/XXTFVIJIWoqSJNnjh192GaVfAIRn2
+	uReOmAww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghrP-0000000E28I-2g8K;
-	Fri, 16 Jan 2026 11:19:23 +0000
-Received: from mail-northeuropeazon11010012.outbound.protection.outlook.com ([52.101.84.12] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vghwA-0000000E2pJ-43gx;
+	Fri, 16 Jan 2026 11:24:19 +0000
+Received: from mail-westeuropeazon11011039.outbound.protection.outlook.com ([52.101.70.39] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vghrI-0000000E23t-1WQb
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 11:19:19 +0000
+	id 1vghw7-0000000E2ou-12ij;
+	Fri, 16 Jan 2026 11:24:17 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ko9sXIhi0RNWjyVIxl9YRsCOScordwJaFgYj72XXrEWAz8LbQSL8yIVKazjhCGYcFwfx/IXjk8+TikDUrq5IR3P3Kf0PP2528jHzsG4Q3HTIrlknZ5qOzWiUqwVKCFKQ3JtW1dipJkPiVZlIAZyqGHZ2Adfo+Q9WbVaCNeoNF6QkIIBZTzyXX1GF6BaziigJMZmqiz+FtSBxCAqmS+b//kWD/7cNeBzT2w7E6vg3DFH6l+7hiCq8jXGujMpK+hq8Kfyf8u56po1fJKG9i1TQW/nXu4eE5yytxJ5UtUpYC/Iac9t7sQ4IfH9SoUfxg5rGOz1SASKHJ+mYmJt6EKG31Q==
+ b=iWSyfkYlINTXVWvyuffqbPlGrzAWNmrMobkpe4GDfsyltU01BwvQDLih09zLKj4lM5inA91RjpiaYDvNw6CYP6nNpVC5ylDYUj/40Op6rJ7/h6kWCO0BgIFTJgYaw6HWEpLNnugmw7GyEqNCBnJezbHmY+HhMtYkhiSfZAEm1a6XpXDugl8zZ1cW1ba9mdATEowwtl3mHBtPlqHAZXUnA7ud6pzg3yaJkrAfQQZRH9u2/SL7AXC3J/PxBF/5G+QJ7c6e2hm36Pr3tnpYw/yp1LRzFAxZjnqMeG5fWW0BxvajgYU0LZt0nreUOO5/xWWGTrIdLL0MCHW1TqeYzNEC3g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ko8zW2QcX5C+Au+BA6LOsombT6GjVQNsNcD3Ant5Sa4=;
- b=zNrFFC8jyiUWIqqFQGafM19Ya+QgNg68rde+cW++2imxJPIdc2WgfTfEUzavgOC8ul/UbaDBSxUnTB78p2LWSQPmUM29VhpNHWNdfFX1kvwjWMD97Zpn23vmJE7EuD2/cb0C2G5Sc/tNhM2y7oE/aM5DvmNw4qXhmaZJI9L1OvOHZ/iXALD2YFBuSUukKrGS6rNy8OX1gnAW6JzoHDgIb5/RWKPR+g/Q/hnRRACUh1nKMzpfUQMu56A5bQvn4Bu+emANhos0GbmepnsmcMzNKTcCu34rDTbmvk5A5XZAl+dRw7ricaDrJKS0H0wKuoKdzbbOw8pKNQpliHL1F5IMtw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 193.8.40.99) smtp.rcpttodomain=lists.infradead.org
- smtp.mailfrom=leica-geosystems.com.cn; dmarc=pass (p=reject sp=reject
- pct=100) action=none header.from=leica-geosystems.com.cn; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=leica-geosystems.com.cn; s=selector1;
+ bh=ZPvr4EScowsQmnJ9F4XIdMB/KSzLBPyp4C2t6IR/I9s=;
+ b=kLAW96hbTk0lfoOfIrZXyuI6hl3Blvaoc4/219CGt1dS2kv6R6ldRA4BwL23WIP7asWG+Zw4S1IN3bCstw+93/NRxUbzS0kHvgIC5qCL0VdCghFFS/w9p2Jszcijg4Q4ZysBLNzr7uTpYwyoAY4F/pA4oqs5HHkFMvqdX9v2WfMnKxSuO8VtBGS6oAKen8Zz1Pwn0GgD2MbFGiph2aKXzM+vERTSRzA1Qo7DezVNx8J+g4G25KwluLGEW7agjga1xsO8SFY/ZmCyjTj5H+xDmsGQQMPcHtEk3dtBc8TsyYiSEA3dJqabDUZ+8MDglEI8yI6J3fn/Ho44a4PDBEk18w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ko8zW2QcX5C+Au+BA6LOsombT6GjVQNsNcD3Ant5Sa4=;
- b=Zf2EATU0IpDApRD72znQdopMZXtIU5PSngh1zmJU8EW68sreJjQWSA6kAx2xm2NE1grbLJqc5D56AbyCRFDIVYCcgILTnzBdsEZN52xf1/FOnQLJL7XOrus9N7zbIzo+nN0KEqH2vE1iE0yttNbtzBso0JACilZ1WRDnQ5r6mjU=
-Received: from AM8P190CA0010.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:219::15)
- by PA4PR06MB8545.eurprd06.prod.outlook.com (2603:10a6:102:2a8::20) with
+ bh=ZPvr4EScowsQmnJ9F4XIdMB/KSzLBPyp4C2t6IR/I9s=;
+ b=EQhyuwBl1Jl6Roxm8x/dO6VJJb57kQghyEHA1V5cHvUzOni+6JDWW82poWJqkp3o+mMIH5hIgmrq9WlNHVVM7KLIr5leekgcyPndbLV1P9McwXFkD+tbyuXAkn9Sfe613IE6nARbiRkeYz/SL2l1twmKjJosx//nrJyWp+SrRkU=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from GVXPR04MB12038.eurprd04.prod.outlook.com (2603:10a6:150:2be::5)
+ by GVXPR04MB11541.eurprd04.prod.outlook.com (2603:10a6:150:2c3::10) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.4; Fri, 16 Jan
- 2026 11:19:11 +0000
-Received: from AMS0EPF000001AF.eurprd05.prod.outlook.com
- (2603:10a6:20b:219:cafe::a7) by AM8P190CA0010.outlook.office365.com
- (2603:10a6:20b:219::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.7 via Frontend Transport; Fri,
- 16 Jan 2026 11:18:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 193.8.40.99)
- smtp.mailfrom=leica-geosystems.com.cn; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=leica-geosystems.com.cn;
-Received-SPF: Pass (protection.outlook.com: domain of leica-geosystems.com.cn
- designates 193.8.40.99 as permitted sender) receiver=protection.outlook.com;
- client-ip=193.8.40.99; helo=hexagon.com; pr=C
-Received: from hexagon.com (193.8.40.99) by
- AMS0EPF000001AF.mail.protection.outlook.com (10.167.16.155) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9542.4 via Frontend Transport; Fri, 16 Jan 2026 11:19:11 +0000
-Received: from aherlnxbspsrv01.lgs-net.com ([10.61.228.61]) by hexagon.com with Microsoft SMTPSVC(10.0.17763.1697);
-	 Fri, 16 Jan 2026 12:19:09 +0100
-From: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
-To: o.rempel@pengutronix.de,
-	kernel@pengutronix.de,
-	andi.shyti@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com,
-	linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: bsp-development.geo@leica-geosystems.com,
-	LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
-Subject: [PATCH V3 2/2] i2c: imx: add abort path for invalid block length
-Date: Fri, 16 Jan 2026 11:19:06 +0000
-Message-ID: <20260116111906.3413346-3-Qing-wu.Li@leica-geosystems.com.cn>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260116111906.3413346-1-Qing-wu.Li@leica-geosystems.com.cn>
-References: <20260116111906.3413346-1-Qing-wu.Li@leica-geosystems.com.cn>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Fri, 16 Jan
+ 2026 11:24:06 +0000
+Received: from GVXPR04MB12038.eurprd04.prod.outlook.com
+ ([fe80::6c04:8947:f2f0:5e78]) by GVXPR04MB12038.eurprd04.prod.outlook.com
+ ([fe80::6c04:8947:f2f0:5e78%6]) with mapi id 15.20.9520.005; Fri, 16 Jan 2026
+ 11:24:06 +0000
+Message-ID: <458b2789-dfea-47b9-8146-377fcc70cb74@cherry.de>
+Date: Fri, 16 Jan 2026 12:24:03 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] arm64: dts: rockchip: Enable HDMI output on
+ RK3368-Lion-Haikou
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20260114230707.4175162-1-heiko@sntech.de>
+ <20260114230707.4175162-4-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20260114230707.4175162-4-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0255.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:f5::18) To GVXPR04MB12038.eurprd04.prod.outlook.com
+ (2603:10a6:150:2be::5)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-OriginalArrivalTime: 16 Jan 2026 11:19:09.0572 (UTC) FILETIME=[EF567C40:01DC86D9]
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF000001AF:EE_|PA4PR06MB8545:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: de587672-ef57-41f1-dcbd-08de54f112d4
-X-SET-LOWER-SCL-SCANNER: YES
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12038:EE_|GVXPR04MB11541:EE_
+X-MS-Office365-Filtering-Correlation-Id: 26ed4ffc-1e93-40bd-77b6-08de54f1c292
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UFr0D15oC6615DuuWDdK4+El0t2kzTHk7gB06EwfRU2wxIr+Yj9b2n27eo0h?=
- =?us-ascii?Q?ILx7gqC2PatZxNhWwDZ68b807H8kn55EUgbxKcYjhSC+gzhIV9FV7zSS/GEA?=
- =?us-ascii?Q?BZSzAJNcqID5EbUD4YbzuFd4WOMvnPKAgh46HSWIpYRQFf40sawHq74FBLXI?=
- =?us-ascii?Q?qlqiYXVaD29YouuVEZf9QjKAOdNXMzmSU3cqzIm0Uk3pT9YkQqKPTQZtRDvX?=
- =?us-ascii?Q?+mfGZHie2qkssiR+6/XlDsU/HSRZ1bAzVt5A7I0sMu0jf0YCUrMkKD7+8VvG?=
- =?us-ascii?Q?bBpyuuL/bQ5gWNMfuZcErZzKhn8KrLhfoqtbSCfVTmY1K5pnokemiu72Z0ry?=
- =?us-ascii?Q?E6AAm5oMFY9gzs1tQptJ8Om+3wWEJsIsxaC2V+BZdpDJq8TKloD1nLrbZIYa?=
- =?us-ascii?Q?HgzglcwiIHBowYlzGrLMf1njjerLvng3xwd91EhdFe4Hd3NLVex8/5Mgp3Va?=
- =?us-ascii?Q?bP4NeL1fGRBkMlWSAAmui7CH8yP9k1DCkjqPE4a/HjLk5OA6nRL8HXVFnjQ6?=
- =?us-ascii?Q?qd+72MvYvoFlavbtN74N2dDtbOGiXRe8FPeglwZydwlPbfddtz7z6GqE6J/D?=
- =?us-ascii?Q?dJiUDyhPhFDUYLSyyR8unX8CmT/FKaxjhP0H5juVW8rWP6YJuhkTRIC7KmFl?=
- =?us-ascii?Q?Gcb6mlqUPXBDoNwo2wgAFNb7speO5lXapdwjXPiAYPWZqcy9k6nzhV9AzWwa?=
- =?us-ascii?Q?HLatRg4mo0scT58xhRjiZerB8Mm7X07TMVW8eVYLwpHVcFM+V6c5xNw5gg6I?=
- =?us-ascii?Q?PbQfMAzDV6eF86tTW4O7WNBapZKV3WZaKfrS3sjGCKurphs1MeaqCkU0feli?=
- =?us-ascii?Q?fWg9MYesKeq89gbV9q/AAwp/CeD0iTazTFsuG5RKDB0nTdGz4FPBnIBgEGDd?=
- =?us-ascii?Q?imW3LJ5xEETjHeoz7nZbRaB/ziwYMKFtCsrAX+/1XBgc1zGWzkCME6Hlhctv?=
- =?us-ascii?Q?mmrt3qlgPHvETXXeEftrWA5lvcSAeTLQuDM1F8nGDzHgATs1v04+hspOk73E?=
- =?us-ascii?Q?xfAWhEeYoPFabV4+IEEMGh20Fq7+BW34LiVvDssjOM11K8LB8TExqIZPTYMG?=
- =?us-ascii?Q?7oYmawtde7qKUPM/xBqWRJn+cKdLR+PdsxxzqEQsiAbIzWw8t+n9Zixe8AeN?=
- =?us-ascii?Q?QkI7aost7g+rgWQUFMksvQAlLtzQztaxOHT6seuwoXvBe0RLwqNCf5H77PqR?=
- =?us-ascii?Q?sv6WKY3ronpri36xzyyByJmThejaHZMOydth2cSvtAmWahYRBWi/1LPBROCj?=
- =?us-ascii?Q?OaTbZZIEVxn7QpaPkLkYBe6DM50qV87D7irmOxEGZgkGFIaaA3JStRjQgXcU?=
- =?us-ascii?Q?ELUdw7KX49YQFACRAJ31fi8ItvNnPYJq6cdGwDAxZlwYNmOaxVXogY/fkZQw?=
- =?us-ascii?Q?WfuIIvgFt/0bE6YLXEerd/735J2n4heqF/GiZZsmqvWwO2x909iUjIt5dR3x?=
- =?us-ascii?Q?ENLYq7REibvOqD4zsCrSjEbQ3lTZds5gtGA8amJvK7a5IvRBg5zNaOwZ5I8D?=
- =?us-ascii?Q?frhRs99uPi0DLYWUdiVTVOfxXx2thjpP5bpA/FNtvZhhL4WEY9HEAOMLAk9p?=
- =?us-ascii?Q?eZsItDDi/DLTGa+xOgTPWzJ7xqjjsYqgsj3MMrTsMZbL4XR4J3wlkluWrx9R?=
- =?us-ascii?Q?kOOWN2/hbUdc4PVGmcK+B63qRZ6IbNjsUeuDO3VkRf/CLKd9tQbUr9+SGcfv?=
- =?us-ascii?Q?yUIVqyytGbZY4WXqeq0n2TpL7Ic=3D?=
-X-Forefront-Antispam-Report: CIP:193.8.40.99;CTRY:CH;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:hexagon.com;PTR:ahersrvdom51.leica-geosystems.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: leica-geosystems.com.cn
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 11:19:11.2632
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bzQ2U09mL0xaWXdhcnNzY3dwazV3bWRseUYveStGK3FnTVFDQUkvMkdQaXdo?=
+ =?utf-8?B?aHVZVkNRWFdkZ1dCMlBua1Nrd0JhSWp4MHl5L3J6cys5TEpnbHdXLy84clJT?=
+ =?utf-8?B?Vnk3U1BNN2JhbnNYUTVyTGNpWjVaZ3k4Q3VsMkdCRFU0bWZYODZZUTc4TThW?=
+ =?utf-8?B?NnBzWTIxd2JpWWdGSWtmWVhnLytLYTN2a3ZQWms1bXh3N3MvUWxJUHdraS9s?=
+ =?utf-8?B?ZWd0VE8yYThRVWpjcmkvZkU2a08wZFlSUmNNeko1czJIQXVwWEpBWlA4d3Q3?=
+ =?utf-8?B?YXlSdXpNckdqcXFMZnNSZTZzdEhId2ZPZWdlYktYNGdhbDFGTG5xaitDMmIr?=
+ =?utf-8?B?TWRXT3VsQmdpWWhaQ014RGdmTmNoa2NUOVFOT3pLaExzSWZ6WlVZMXEzYkhF?=
+ =?utf-8?B?MUYxR3NWZ2pJWGZ4dWpIWnRQaHlrWHUxSTBBdjgrNG5Ta1BvRlZTbzhXeXdy?=
+ =?utf-8?B?WUFMbEdTdEJKYXpJMXc3L0N2dHo4YzZlbVJEQmZPODdXWGlQeWdSYlZIWVg3?=
+ =?utf-8?B?TFBNcDdwVGJJQWkvVy91MzVjYXVhbUI5dEcvdWtwRXZDallIenN3eEpLZ3U5?=
+ =?utf-8?B?MCtPTUtuZjd4K2VBN2tkUFRMbXR5NE9PMzNqV3dicElxT0Y4MmxoKzFQWnA5?=
+ =?utf-8?B?dW84TUljbmpHQXo0aUEwcWx3VkwyVWlRZ05OYU5vTkNRWC81NUs1K0ZTZ01P?=
+ =?utf-8?B?bWs0NDNNNEdKZzA2RzVMRGpDdDBSZ0FrZ0Y0a1IwcTc1RTJUNVZOMjdQRkRH?=
+ =?utf-8?B?T2grNkNWb3pWTkhmaGpMWnN3Tm5JL0svZjFBUXpLK0FDRVJaUWNtYjcvSXNu?=
+ =?utf-8?B?RUZ0TU16YklwdjZjZGxzTk90UkoxVXpYbHpQT2xxVWhwRnBrY2E2cXd2bUFm?=
+ =?utf-8?B?ZVpPRCtZTVpzNVlsN0VIOXl6cTF5N1lVV0RLM21xcHlUdUpSL1FhVzZia3M1?=
+ =?utf-8?B?b0grbzRzR01VczZtdTZvcG9TaUR1MXNIRDdCVlUrMklhK1ZGVE1rOGZmeDVG?=
+ =?utf-8?B?Uk5jTnIwTDhTWG1BNEt6NXpsUWsyY2lUZzRCcmh1Y2xwbmdGYjRkb1BTeWxx?=
+ =?utf-8?B?RE8xdUQ0d0dYbEVpUnRudUMvUVRiWlFpd3VrWCs3SkdHVElwdllnV1VJNDVT?=
+ =?utf-8?B?UlZ1ZUZLWmJ5aG8rRmk2QVYrM2RYU3lYbFp1RFVsZ0kvVy9mNkEvZHA5M1dj?=
+ =?utf-8?B?M0hlTis2YjJsWGFsci9YUnM4aStVNjZ0SFdleTZINXZuTjR0UzZMQ1Z3dTFs?=
+ =?utf-8?B?U2dHMTFhQ0kxMGhzZXR1YmljSWZ0SGQ0aUVzZUJYNGY0UFVJTmNXSUNxelFz?=
+ =?utf-8?B?bzZtTFFIeXRpSDdKMnBueEVDOWUvcHBWSTMxYjJEMmg2eFVNRTM5R1VUWmNX?=
+ =?utf-8?B?bnlCYkpFUVR6MTV0K2RZQnBkaHdFTkhPRXFCc1ZWNmoxTmVuS2dIRTU5UnNs?=
+ =?utf-8?B?L1Fjd0hCdWlDTEYydUV1a3NUa0dCaU0welNhcFlldkp0WTE0L2ZDdDVrQWx1?=
+ =?utf-8?B?ckxKdzFyMUpEa0VYZTQzSURVWk5WekFHTGgzdDhycXhhSHhuQlZUMGxxc24v?=
+ =?utf-8?B?eFk1WmFscEx4UVFiZER3RlBzdkNwSkMzRXE1cEZRT2pJYlJDak5tQTVRa3Q3?=
+ =?utf-8?B?NmwyS0NENFNBNitGMDRLZk1zd1RkUWFwcVQ0ckhtV0U0dkVJYUlieGZIaW0z?=
+ =?utf-8?B?UFJYK25ocEFVS0xjVytKaHA3Tkp0NDFCRUNDMXpsU2JtUW1BTzZJRUdLNktj?=
+ =?utf-8?B?NWEyc0JZd0lqSnNWejJZSDJqSndvRFdvVStYMmc4eUZFdCtPVjVsaUNUZVpr?=
+ =?utf-8?B?WXZoZHdLcXY5bEF3R0EvT2NHNDN2OTZBbHZMenpEelhlWGNBREg4VkFIWnQr?=
+ =?utf-8?B?SnlORXF5WUNBSnJVdnNmaFNJS0R0ZzA1dlZVcXlVL0daSU8yMnBiMlRNK3hs?=
+ =?utf-8?B?b1lrNWk3b0dHaXlyaVBZTWlzR2xmV1ltYWs0ZkwrcHVMcE9EZk9yckp4b2Rm?=
+ =?utf-8?B?Y2VWQ0NEck12cjU2OWNFOGo1ZzhQU1R1WmxoM2NRRlI4SnBWbTNrY1pHL2pk?=
+ =?utf-8?B?WXowRGhGbUUweVZHUUlDU3JnWk5MalZ6ZlgvdHNiWkZGVkpRUE4yQ0ZrdWdM?=
+ =?utf-8?Q?MjTI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12038.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZWpDdEdwcDJnYmRXcWtOUUN2akc0QTV0ODJta1hJL0hhTDNIRUs5ZGFSWTMr?=
+ =?utf-8?B?OGZrVHVYbDB3ZDA4ZE5qUzhlNFp5MEgvMW43b04wa01aeEU1U01ibTNrczdU?=
+ =?utf-8?B?RHZLcmNuWlRFNmI3Lzd0NW96K3pFbkVCUVduZ2R4TUVmdzB1cUtPUWY5cGQy?=
+ =?utf-8?B?RUZ3c3RBQU05L3YvUUJTVStrbWJncmdGejhWMnUxQ1JkSlc0bmFmV3k4WnlV?=
+ =?utf-8?B?amFnYytXR0tNeUE3eG1DbTlzZFNybHZRL3RnZ1F4a0djYnhXRW1Bemh6WEsr?=
+ =?utf-8?B?V0UwcDhXRUtKQlIyVXI4Ylg5VG0wTW5TYjhXQUhwK1loQTl1ZkFvd3RqNVE3?=
+ =?utf-8?B?MUVSUGZMaTk3aGZrZ0J5STlVK2hyYktSL0gwWnlxMkdxY1ZBZjJaaGFrMGRE?=
+ =?utf-8?B?ZG8rUlhFTUZxc1ZLZFA5RkVUZk5qOGV4K1ZET1VWOXRTdDJ0QkJlQXpaalVv?=
+ =?utf-8?B?aHlZOHVIVzBBellyY0JsRG9ISDhjaUJGSzhKQ2RoOUhvM3RWVFkzZ0lUVktm?=
+ =?utf-8?B?Yi80UElwV2NBWCtxZFZydWRDaHplWTIyR1FaL1lZRG5SOUFWVU42dFhqY3V0?=
+ =?utf-8?B?MllrUWpjN09KUDVPc3VyN21IT3ByRzFoTnVsWlZvZTVYMXB3UVhabEtJd0Yr?=
+ =?utf-8?B?b3JvVFFRbVJXc0V6S1VGQndReEtEb1J5M2l3Nml6MWFMSThYRFJNQm9sdHJk?=
+ =?utf-8?B?SEYzaTkrc0ZPNDI3VGloL2l6ZjlJU2FSSklpZTBNRHdIUlI3ckVzRnh5eDJt?=
+ =?utf-8?B?L1YzQzRFUWdOU0Q4ZjZydHZNMjFWZWlLRnRUZXladjl3eTIxQXkxdWp1cXFB?=
+ =?utf-8?B?ZThmZHdtNDhEL0JmNkxTR1JxWnhmN1d1NjYyUnJFOWZ0RFlsWEJsd25zb1Bu?=
+ =?utf-8?B?RllsdTdUVno1TTVpMWVpNjZNaFFzNnRueHZobTdmaitNaUhPRnQzSlBvOGxU?=
+ =?utf-8?B?U3NoWGFSci9SaUdsQ0tpM05TTm1mRG84TzR2QXRLa1RqMU1haDdIenpjUkk0?=
+ =?utf-8?B?Rncrb001Y2hnMVJwYzdZcXIwNmtvdXZDMjZ4dHU5SHJvb1lHTk45WWpYem0w?=
+ =?utf-8?B?SFliYWJPYlIySDFKL0dub0ZVZGpRdEhBcDVmMm10aDlXNlQ0S2V3SVhPUkF1?=
+ =?utf-8?B?MzJuMzR6OU92Z1Y0cGpHalVhUHI4RUl0ZXFkeHdCazZXaTVuNVlxZ002ZlRI?=
+ =?utf-8?B?YU54MWtPRDdhWVdQeG15SW5rWUsxS3FlbWloSnovbko4cU9hMkpqa3RhMzMy?=
+ =?utf-8?B?cHZnV3BXWVdpTnF0TW8xZ2pWVXBiMUE3QjNqOVQ5MjF1eFlnN2d0b2FzSjZ2?=
+ =?utf-8?B?TUZUSUplV0N2dXpzTW9sRDhmNnYzVGRsWVJpdzFSbnNwRkNXTTZVa3FiOUNV?=
+ =?utf-8?B?ZFpWaCtIR1lZdnVKUGcrdWhZOTlGUDE3ZW5jZCsyQkNsM1JHNVVuTWx5Q1ht?=
+ =?utf-8?B?RmFEWTFqUzFIZzRTNEJRTWg2bGgvejI0M2ZveDFRSTd6bVJjNzNVOE5LZE5x?=
+ =?utf-8?B?dVNFTWVTa2RsRTBBd0xoLyt0ejdwNDB1TW5scHE5QWsvTW0rdTlWeENnNXpT?=
+ =?utf-8?B?RTlmTklaZnFHeitUMGRkdVk4L3REb1pERHZ5V2JsRTBCQnJySUZ3UGJobURi?=
+ =?utf-8?B?ckVVNnBFeERaMU1teHNNQWc0a2xkTDd5NnRwWjR1dWdYMVJBZElqYVE3dGU4?=
+ =?utf-8?B?SXB1czBZMEhTaXlJWlBPRVJwem9PUW9SbElaMkF6RGVCNlRkemZLNlplOHZO?=
+ =?utf-8?B?QjJiU1Z5STdCMEFsZkdPSnJwZHUwMlhES2U1bHhjWlFpVHJVbGRRTVMyMlB5?=
+ =?utf-8?B?akJpR09oUFNiQThscWhkaGZnS3JFaUY1aHp4bVlvWjlaSzJGMGJ5V2dqZjla?=
+ =?utf-8?B?N2wyaHFMalpSc3ZIQzNvZTduV3Q1TW1DV0QvMTFEYW9VYXlONlNxd0lDVWFP?=
+ =?utf-8?B?R0lMS0ZYdFFQc2xKZUkyaVlMMDdicGdkdTBpTDFYYVZiQ01MZmxIQitnbWRO?=
+ =?utf-8?B?MXdzRDZEY04wM0kzcjdHR1A2VXcra0lLR2dBQ0p3ZFkyMGM1bnQxSmFXUDhk?=
+ =?utf-8?B?VzVLVTFadVNpd3FCL2R4WFpyY3YrajU0NXhZZGxpUTdGMytlSms3cGZzdjNh?=
+ =?utf-8?B?VlZUMDM4MFJDSGtjZVo0UGNuRmxseDdHZTBGTTlKOTVsMjlHUGhOSzhkeTVW?=
+ =?utf-8?B?OXdaRGVnUXd0UmZZNlpHdnVMUmkxN2JLQmVEV043TlM2UXhmWFdoajlqZ0pV?=
+ =?utf-8?B?R0pINWNHZjZncVJib0VNUGZJQW5zNXlqOWxOMEErYmJKSWJJelJYU09hbVlz?=
+ =?utf-8?B?TFVVUXg3aDBWR0VaWnc1ZjJsVEw4TVB4d09qdDdGd3piSmZLMzJvZVRWQzRs?=
+ =?utf-8?Q?s2PsxmPeSBE6OauypPJfxAPA2jgBCJz/zrEoZ?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 26ed4ffc-1e93-40bd-77b6-08de54f1c292
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12038.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 11:24:06.2828
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: de587672-ef57-41f1-dcbd-08de54f112d4
-X-MS-Exchange-CrossTenant-Id: 1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a;Ip=[193.8.40.99];Helo=[hexagon.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001AF.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR06MB8545
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kJMSKVv6O13DN5f71s/8tIZlUaoaCrAyCPi8NRlTXHDKlsLLKj2z9sk2ORjFn8rOu1Gh5MgN/MiIvjl4Ox2EnkTTwF85G1bmyfkkYA4lnEY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11541
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_031916_842105_E11B80F4 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20260116_032415_337419_B7262746 
+X-CRM114-Status: UNSURE (   7.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,115 +184,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a block read returns an invalid length (0 or >I2C_SMBUS_BLOCK_MAX),
-the current implementation leaves the bus hanging with SDA held low,
-blocking all further I2C communication on the bus.
+Hi Heiko,
 
-Add a dedicated IMX_I2C_STATE_READ_BLOCK_DATA_ABORT state and ISR
-handler to properly terminate the transfer when an invalid block length
-is detected:
-  - Set TXAK and receive the next byte with NACK
-  - On the following interrupt, generate a Stop condition
-  - Read and discard the final byte
-  - Report -EPROTO to the caller
+On 1/15/26 12:07 AM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> 
+> Enable the VOP and HDMI controller on the Lion-Haikou board.
+> 
 
-This ensures the bus is released correctly and allows other devices on
-the bus to continue operating normally.
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
 
-Tested on i.MX 8M Plus with continuous block read operations.
-
-Signed-off-by: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
----
- drivers/i2c/busses/i2c-imx.c | 55 ++++++++++++++++++++++++++++++++++--
- 1 file changed, 53 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-index 05ba41144648..d3fbc2df7f04 100644
---- a/drivers/i2c/busses/i2c-imx.c
-+++ b/drivers/i2c/busses/i2c-imx.c
-@@ -232,6 +232,7 @@ enum imx_i2c_state {
- 	IMX_I2C_STATE_READ_CONTINUE,
- 	IMX_I2C_STATE_READ_BLOCK_DATA,
- 	IMX_I2C_STATE_READ_BLOCK_DATA_LEN,
-+	IMX_I2C_STATE_READ_BLOCK_DATA_ABORT,
- };
- 
- struct imx_i2c_struct {
-@@ -1053,14 +1054,60 @@ static inline void i2c_imx_isr_read_continue(struct imx_i2c_struct *i2c_imx)
- 	i2c_imx->msg->buf[i2c_imx->msg_buf_idx++] = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
- }
- 
-+static inline void i2c_imx_isr_read_block_data_abort(struct imx_i2c_struct *i2c_imx)
-+{
-+	unsigned int temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
-+
-+	if (i2c_imx->is_lastmsg) {
-+		/*
-+		 * Last byte to read.
-+		 *
-+		 * Ref: IMX8MPRM Rev. 1, 06/2021: 17.1.4.4 Generation of Stop
-+		 *
-+		 * Ref: IMX8MPRM Rev. 1, 06/2021: Figure 17-5.
-+		 * Flowchart of typical I2C interrupt routine
-+		 *
-+		 * Before the last byte is read, a Stop signal must be generated.
-+		 */
-+		temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
-+		if (!(temp & I2CR_MSTA))
-+			i2c_imx->stopped = 1;
-+		temp &= ~(I2CR_MSTA | I2CR_MTX);
-+		imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
-+		imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
-+		i2c_imx->state = IMX_I2C_STATE_FAILED;
-+		wake_up(&i2c_imx->queue);
-+	} else {
-+		/*
-+		 * Next-to-last byte to read.
-+		 *
-+		 * Ref: IMX8MPRM Rev. 1, 06/2021: 17.1.4.4 Generation of Stop
-+		 *
-+		 * Ref: IMX8MPRM Rev. 1, 06/2021: Figure 17-5.
-+		 * Flowchart of typical I2C interrupt routine
-+		 *
-+		 * For a master receiver to terminate a data transfer, it must
-+		 * inform the slave transmitter by not acknowledging the last
-+		 * data byte. This is done by setting the transmit acknowledge
-+		 * bit (I2C_I2CR[TXAK]) before reading the next-to-last byte.
-+		 */
-+		temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
-+		temp |= I2CR_TXAK;
-+		imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
-+		imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
-+		i2c_imx->is_lastmsg = true;
-+	}
-+}
-+
- static inline void i2c_imx_isr_read_block_data_len(struct imx_i2c_struct *i2c_imx)
- {
- 	u8 len = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
- 
- 	if (len == 0 || len > I2C_SMBUS_BLOCK_MAX) {
- 		i2c_imx->isr_result = -EPROTO;
--		i2c_imx->state = IMX_I2C_STATE_FAILED;
--		wake_up(&i2c_imx->queue);
-+		i2c_imx->state = IMX_I2C_STATE_READ_BLOCK_DATA_ABORT;
-+		i2c_imx->is_lastmsg = false;
-+		return;
- 	}
- 	i2c_imx->msg->len += len;
- 	i2c_imx->msg->buf[i2c_imx->msg_buf_idx++] = len;
-@@ -1106,6 +1153,10 @@ static irqreturn_t i2c_imx_master_isr(struct imx_i2c_struct *i2c_imx, unsigned i
- 			i2c_imx->state = IMX_I2C_STATE_READ_CONTINUE;
- 		break;
- 
-+	case IMX_I2C_STATE_READ_BLOCK_DATA_ABORT:
-+		i2c_imx_isr_read_block_data_abort(i2c_imx);
-+		break;
-+
- 	case IMX_I2C_STATE_WRITE:
- 		if (i2c_imx_isr_write(i2c_imx))
- 			break;
--- 
-2.43.0
-
+Thanks!
+Quentin
 
