@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98266C79FBF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 14:04:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 187D4C79FBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 14:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZU6BM+w6eML1aaICueqOwGlIiWXfWBW5ZubqN3svxA0=; b=yywcaDelxgqT/UMoN4pCzSyZ23
-	cw1g6aHZu6pQ0yJLYH1fGBL3mhNg0+KqRvoebbaVz0VyARS6XuMAmELAGZcUNAHTodmt5I6Vr+zBB
-	tDkCwrvnlMXzB51biuTtSUm+xwv0yGdf2ZAGAL8QEDzCvbfQ563o7enAPWWJGdDEtbyQXjNoGYTw4
-	vULkffZTX2Zk6OoaRsqiU+aATQC3+86GIL8+7boqKQ37/3mjwOVApthq2PtUICXesIzZUnXDVv7h5
-	0GknjkuCs8aRmgPBKJxhZ4ExJi0G6PxkS3bk/HH1ZHgpMuJSOoVMZkZfRJoe98LTipKNNbD+ziUaT
-	lQdJeMCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mBPzmlCg+pA1yBRm8LZsOW5MfSNjVeQLA5Whqc6P6wM=; b=Ebxetcn91Qu+Qut6knrkYljXl+
+	ddtFxyFp05+kaBC6Nt8/C+PCjanZt8O+byH92wqmtNCdTLMXTcClM3FKbY8SxD2mbyHPjPanlMDbZ
+	I5PH5/+gTvtlLiw7jUQV2MCufxoKBOC3M5MHLdrJxqcyGSroOsAb+8hFjP5gBs3hcXYXD0WrtACdt
+	kaQPYGPuyYeSon9AG3dgKzVVplOFwksLI5ITRiENuxPaPfZv0pdT/CbbeK1faYsPytTyhsGhnwXOJ
+	onZgKV20XwcvB/lo2ZXd5L48oCG4sGIX1uu3SE7ZNEtCFVP2M/Tr6rN00iJWrkTb7W8bDP7TOYIYr
+	8d8p6jQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgkRF-0000000EEPc-0jOy;
-	Fri, 16 Jan 2026 14:04:33 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vgkhO-0000000EFSo-0m3k;
+	Fri, 16 Jan 2026 14:21:14 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgkRD-0000000EEP8-0i8w;
-	Fri, 16 Jan 2026 14:04:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=ZU6BM+w6eML1aaICueqOwGlIiWXfWBW5ZubqN3svxA0=; b=XIRPFCJl9mULxF8qJnYOv6N00X
-	dpNc1GdyE0HIQPf/uaVTMuGfz8VDm2gcvAW/YusJvxgvhFRiqnihcKUiDaylBn3ZrObHZDFsXZR4k
-	RYje3iyKb0OXnJVtnRP1gz/NjcsDmH/L/zoxEJUBqNuONCaZkrYIwJGTeL92edBjlDkewKbETGBIX
-	MeRW1eA/b6La1K3xWbJEautWt/49ilfe6LUXIohVg/hUTFMQPUTPL/VPiWVHZWBzyStSFtoOEJNs4
-	dAdwNh837+xr2pOzed/8wWXj59xBDppDPrySDc4PCK7caGHw5LKXaODChkElI/5YpplIX113d56jk
-	mypDaMVQ==;
-Received: from i53875a97.versanet.de ([83.135.90.151] helo=phil..)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vgkR9-002dRO-Mr; Fri, 16 Jan 2026 15:04:28 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: quentin.schulz@cherry.de,
+	id 1vgkhL-0000000EFSG-3K03;
+	Fri, 16 Jan 2026 14:21:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=mBPzmlCg+pA1yBRm8LZsOW5MfSNjVeQLA5Whqc6P6wM=; b=iDkurxCPyzhBsZsmRZU8E6OPGm
+	/GRhjBxf63ELXOLdG09Kd2N3VvDk1xqq38gwGuNRGX0O5IXMUCPA3TivAJAAJCVLjvo863aUmCgGt
+	55IahhnhJdM9vo+A8Zc4aj1b3xvXPbHwCJCob11sXv35xdeZMH6Jv6UJRQkAp+/Y+WIk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vgkhE-00359Y-5p; Fri, 16 Jan 2026 15:21:04 +0100
+Date: Fri, 16 Jan 2026 15:21:04 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Benjamin Larsson <benjamin.larsson@genexis.eu>
+Cc: Sayantan Nandy <sayantann11@gmail.com>, lorenzo@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/5] General RK3368 HDMI support and 2 outputs for RK3368-Lion
-Date: Fri, 16 Jan 2026 15:04:24 +0100
-Message-ID: <176857210195.116631.16665150473922790004.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20260114230707.4175162-1-heiko@sntech.de>
-References: <20260114230707.4175162-1-heiko@sntech.de>
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	sayantan.nandy@airoha.com, bread.hsu@airoha.com,
+	kuldeep.malik@airoha.com, aniket.negi@airoha.com,
+	rajeev.kumar@airoha.com
+Subject: Re: [PATCH] net: airoha_eth: increase max mtu to 9220 for DSA jumbo
+ frames
+Message-ID: <f0683837-73cd-4478-9f00-044875a0da75@lunn.ch>
+References: <20260115084837.52307-1-sayantann11@gmail.com>
+ <e86cea28-1495-4b1a-83f1-3b0f1899b85f@lunn.ch>
+ <c69e5d8d-5f2b-41f5-a8e9-8f34f383f60c@genexis.eu>
+ <ce42ade7-acd9-4e6f-8e22-bf7b34261ad9@lunn.ch>
+ <aded81ea-2fca-4e5b-a3a1-011ec036b26b@genexis.eu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aded81ea-2fca-4e5b-a3a1-011ec036b26b@genexis.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_060431_232721_2CD2BBA8 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20260116_062111_852761_740F91FC 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,32 +75,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 15 Jan 2026 00:07:02 +0100, Heiko Stuebner wrote:
-> This series adds the necessary bits for HDMI output on RK3368 and enables
-> this on RK3368-Lion. At the same time, use the recently added DSI support
-> to enable the generic Video-Demo-adapter as an overlay on Lion as well.
+On Fri, Jan 16, 2026 at 11:48:30AM +0100, Benjamin Larsson wrote:
+> Hi.
 > 
+> On 16/01/2026 02:08, Andrew Lunn wrote:
+> > On Thu, Jan 15, 2026 at 08:10:20PM +0100, Benjamin Larsson wrote:
+> > > On 15/01/2026 18:41, Andrew Lunn wrote:
+> > > > On Thu, Jan 15, 2026 at 02:18:37PM +0530, Sayantan Nandy wrote:
+> > > > > The Industry standard for jumbo frame MTU is 9216 bytes. When using DSA
+> > > > > sub-system, an extra 4 byte tag is added to each frame. To allow users
+> > > > > to set the standard 9216-byte MTU via ifconfig,increase AIROHA_MAX_MTU
+> > > > > to 9220 bytes (9216+4).
+> > > > What does the hardware actually support? Is 9220 the real limit? 10K?
+> > > > 16K?
+> > > > 
+> > > > 	Andrew
+> > > > 
+> > > Hi, datasheets say 16k and I have observed packet sizes close to that on the
+> > > previous SoC generation EN7523 on the tx path.
+> > Can you test 16K?
 > 
-> The reason I'm shaving this Yak is that the recently added DSI support
-> created DTC warnings about a single endpoint with an address.
+> I probably can but it would take some time (weeks) as I dont have any
+> current setup with AN7581.
 > 
-> [...]
+> > 
+> > Does it make any difference to the memory allocation? Some drivers
+> > allocate receive buffers based on the MAX MTU, not the current MTU, so
+> > can eat up a lot of memory which is unlikely to be used. We should try
+> > to avoid that.
+> > 
+> > Thanks
+> > 	Andrew
+> 
+> Larger packets will consume more dma descriptors (a larger packet will be
+> split into several dma descriptors). So you dont allocate more memory to be
+> able to send jumbo frames.
 
-Applied, thanks!
+So it 'costs' nothing to declare the actual maximum.
 
-[1/5] arm64: dts: rockchip: Use phandle for i2c_lvds_blc on rk3368-lion haikou
-      commit: 4f3df9abf44bd92ecd5d8c3018ddefa7f5bf74d0
-[2/5] arm64: dts: rockchip: Add HDMI node to RK3368
-      commit: 6d60168c6d2f76917b3f71d2a6807c6d8dd24363
-[3/5] arm64: dts: rockchip: Enable HDMI output on RK3368-Lion-Haikou
-      commit: 385430244e85e245f071ab158f7e4c7b2b5d99cb
-[4/5] arm64: dts: rockchip: Enable pwm1 on rk3368-lion-haikou
-      commit: f03f3e0a77a72f6f6284aff0da6d21d6508e57ac
-[5/5] arm64: dts: rockchip: Add the Video-Demo overlay for Lion Haikou
-      commit: 7f43ac104af7d3d4158ec306d4ca1c897ecce78c
+For the moment, 9220 seems acceptable, but please include in the
+commit message that the real maximum is higher, probably somewhere
+around 16K.
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+	Andrew
 
