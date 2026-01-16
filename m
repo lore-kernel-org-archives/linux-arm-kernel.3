@@ -4,65 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECF5D48998
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 12:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9FE2D48994
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 12:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vTytNjErhi1qBQ1WEW6/G3xPtlD/ooItzU34iIyo0X8=; b=qXUjvglf6CA5V8yB9ctYW2ATFG
-	fkNsLcBrghVJ+c3due2VrmlcKK04idmGmoWvDQzrsuDYdyWwAsybRiXCWDMoO0/y/NchpAcvTgaEe
-	aAeUaz2lU6e/ozF5bcBvw80taJ9XUZrrkDfBZYXOiM4/QSgLpUbngJVY6k3ux8tpVkXasGRpFNjzC
-	ZGkizlgxu75zwUslBK3U2kbVu39nJ30ahCKooYifw6KEMohgjzsPAx5U0Pnbl1cTRYjE1XWYhCCM3
-	JLLt917F4gqRbWhGJqPUvmrdZ84E2PwroY/4phUlUQvYQVrqbwTYIn15jX+SXPOQyNQe0mWH6AAtJ
-	eKGSiQkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qO9luZDIaDN2E1/3owFBQyqDXIAHSTOGorsDH4oOkcg=; b=rvYCSILLKlRxj/gFRLJqxQs1MI
+	+6ZMxDg2GYUsxLKMBY2NMtsH9i8XXvs6lhf6hYchFtGm9L84LKmyQLLk5H3Rfh9rx1rMtgnZVyCbj
+	sYlm2t8dZkJaMf8jU++fs2MgonE2aUpx+ghX4HkR4KX72BFi5BWSHFYYJC/Fezni1QuoTU24vE+O1
+	G4ZHOu2556nIlW7LrvE7VfCwo982je/BJbAmn/HTGOm4NmJR3iIINTEsIqT5GRcJyRMS4kU+DSyF4
+	Md3egrZuLBzanBak2Wdd0HY+5oiQAHLc5EJBeaLFOaIwfs743+4T6Z5ENQ2dm3tlB5bKY63+zWp7H
+	Mol2cxkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgihK-0000000E5wp-43dP;
-	Fri, 16 Jan 2026 12:13:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgihJ-0000000E5wS-0Yh5
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 12:13:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 20E041515;
-	Fri, 16 Jan 2026 04:12:53 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 012263F694;
-	Fri, 16 Jan 2026 04:12:54 -0800 (PST)
-Message-ID: <c1dcc2a6-ca11-49e7-b7cd-d2ec70fed7f1@arm.com>
-Date: Fri, 16 Jan 2026 12:12:53 +0000
+	id 1vgijp-0000000E66T-2Tsn;
+	Fri, 16 Jan 2026 12:15:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgijn-0000000E66J-2Nmf;
+	Fri, 16 Jan 2026 12:15:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=qO9luZDIaDN2E1/3owFBQyqDXIAHSTOGorsDH4oOkcg=; b=Qzn6WcLO20QmvJCMb5waauLG/9
+	SrjAB/F4c2HtkG1/RgBqLU0wk0w9XHsOyUCHBSAfLOdEVv+PAgck9lF11CAMbPIGI7rZAF/fZdXqe
+	JQ1NLbrOTL6aJfqRBlzA7F1eZbuoyB5dYuX2DsGvI5Pymtq2ylrspjBRmICTkq5dRX3a5n/gh2Rzg
+	1nQYjVFZ0gIoopWzh2MG/6WWcaxQC+CCHWNOWVy6AGP0VuP4ly0eJXX2kBK/U56x8meHWHX2k1E2+
+	EgLgNROW+4wjAXX6MvugZsHXBmPIR4O21RwSZ598WZlB/yqs2GLQI5vaUn5FceTrU9tMWtMCbm2xS
+	OURCi3gA==;
+Received: from mgamail.intel.com ([198.175.65.20])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vgijk-00000008gUm-17c3;
+	Fri, 16 Jan 2026 12:15:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768565732; x=1800101732;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=OIr+6UCiu8PtyDY3DO1T3eeJXV/4Zp3ip7vINaVaq1c=;
+  b=nPn4wKez5CE7Fbvw2zq4kNUKmDi4/6NDe3y90yMDWJt1crUKotD7MXvP
+   4Lwyd+zumB7cRkQA3dZZdkWeJhNNbie5iDXcoXDjmUraPom4J7GdROBZe
+   DwwX0Z4CVt3TXErbFHwDVEA8hTle3h4m4Gn5yR/iJb7X5IuO1wIfm+kbx
+   7YkBckUu44n4afy/OfXhF701rFD3dK1/qmvA8KJMwtW5m971tm3X1wFoG
+   tdI0x5baQCxEkjGTelYKWoUGU+zv2vPSs3UDBcxpF72vOY+g+0QMEDVDA
+   Qj446WRXc/PprHg7m9jr6mp51FqfSRSYEypLYwy4SQ1rBsCqRhAsWBsKU
+   g==;
+X-CSE-ConnectionGUID: HnfBWq62Rv+XFx0iD6wF/w==
+X-CSE-MsgGUID: vutFZJI+Sja2uLnAKQsFWQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11672"; a="69610998"
+X-IronPort-AV: E=Sophos;i="6.21,231,1763452800"; 
+   d="scan'208";a="69610998"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2026 04:15:25 -0800
+X-CSE-ConnectionGUID: bQYu/FcJQzSKCczeSozK8Q==
+X-CSE-MsgGUID: SZtPAKbWReGUT8lHnDMIYQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,231,1763452800"; 
+   d="scan'208";a="236491879"
+Received: from abityuts-desk.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.150])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jan 2026 04:15:22 -0800
+Received: from kekkonen.localdomain (localhost [IPv6:::1])
+	by kekkonen.fi.intel.com (Postfix) with ESMTP id 1866111F726;
+	Fri, 16 Jan 2026 14:15:22 +0200 (EET)
+Date: Fri, 16 Jan 2026 14:15:22 +0200
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Michael Riesch <michael.riesch@collabora.com>
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] media: rockchip: add driver for the rockchip mipi
+ csi-2 receiver
+Message-ID: <aWor2m3TNJ-kHJha@kekkonen.localdomain>
+References: <20251114-rockchip-mipi-receiver-v3-0-16e83aa7f395@collabora.com>
+ <20251114-rockchip-mipi-receiver-v3-2-16e83aa7f395@collabora.com>
+ <aWdjGuhk9g1iaJuN@kekkonen.localdomain>
+ <fc15b8e5-c7ae-4e0e-b3b7-7ce5b5139455@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/47] arm_mpam: Use non-atomic bitops when modifying
- feature bitmap
-From: Ben Horgan <ben.horgan@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
- jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, will@kernel.org,
- corbet@lwn.net, maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
- suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-3-ben.horgan@arm.com> <aWonpc52-BMzcx8Q@arm.com>
- <b192241e-1b34-4d6c-bbb4-b53cdd98526f@arm.com>
-Content-Language: en-US
-In-Reply-To: <b192241e-1b34-4d6c-bbb4-b53cdd98526f@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <fc15b8e5-c7ae-4e0e-b3b7-7ce5b5139455@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_041301_293664_E1515431 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20260116_121532_741720_2DD074EA 
+X-CRM114-Status: GOOD (  19.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,73 +119,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Michael,
 
+On Thu, Jan 15, 2026 at 03:50:59PM +0100, Michael Riesch wrote:
+> >> +	/* set mult and div to 0, thus completely rely on V4L2_CID_LINK_FREQ */
+> >> +	link_freq = v4l2_get_link_freq(source_pad, 0, 0);
+> >> +	if (link_freq <= 0)
+> >> +		return -EINVAL;
+> > 
+> > Could you return link_freq here?
+> 
+> Ack.
 
-On 1/16/26 12:02, Ben Horgan wrote:
-> Hi Catalin,
-> 
-> On 1/16/26 11:57, Catalin Marinas wrote:
->> On Mon, Jan 12, 2026 at 04:58:29PM +0000, Ben Horgan wrote:
->>> In the test__props_mismatch() kunit test we rely on the struct mpam_props
->>> being packed to ensure memcmp doesn't consider packing. Making it packed
->>> reduces the alignment of the features bitmap and so breaks a requirement
->>> for the use of atomics. As we don't rely on the set/clear of these bits
->>> being atomic, just make them non-atomic.
->>>
->>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->>> ---
->>> Changes since v2:
->>> Add comment (Jonathan)
->>> ---
->>>  drivers/resctrl/mpam_internal.h | 8 ++++++--
->>>  1 file changed, 6 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
->>> index 17cdc3080d58..e8971842b124 100644
->>> --- a/drivers/resctrl/mpam_internal.h
->>> +++ b/drivers/resctrl/mpam_internal.h
->>> @@ -200,8 +200,12 @@ struct mpam_props {
->>>  } PACKED_FOR_KUNIT;
->>>  
->>>  #define mpam_has_feature(_feat, x)	test_bit(_feat, (x)->features)
->>> -#define mpam_set_feature(_feat, x)	set_bit(_feat, (x)->features)
->>> -#define mpam_clear_feature(_feat, x)	clear_bit(_feat, (x)->features)
->>> +/*
->>> + * The non-atomic get/set operations are used because if struct mpam_props is
->>> + * packed, the alignment requirements for atomics aren't met.
->>> + */
->>> +#define mpam_set_feature(_feat, x)	__set_bit(_feat, (x)->features)
->>> +#define mpam_clear_feature(_feat, x)	__clear_bit(_feat, (x)->features)
->>
->> After discussing privately, I can see how test__props_mismatch() can
->> end up with unaligned atomics on the mmap_props::features array. Happy to
->> pick it up for 6.19 (probably the first patch as well, though that's
->> harmless).
-> 
-> Yes please.
-> 
->>
->> Is there a Fixes tag here for future reference?
->>
-> 
-> Yes, the mpam_set/clear macros were introduced in
+You should also test for < 0; v4l2_get_link_freq() returns the frequency or
+an error (and 0 isn't valid).
 
-The mpam_set_clear() actually comes after in:
-c10ca83a7783 arm_mpam: Merge supported features during mpam_enable() into mpam_class
-but I think the fixes below is still the correct one as it is where we could 
-first start seeing the problem.
-> 
-> Fixes: 8c90dc68a5de ("arm_mpam: Probe the hardware features resctrl supports")
-> 
-> Thanks,
-> 
-> Ben
-> 
-> 
- 
-Thanks,
+...
 
-Ben
+> >> +static int rkcsi_register(struct rkcsi_device *csi_dev)
+> >> +{
+> >> +	struct media_pad *pads = csi_dev->pads;
+> >> +	struct v4l2_subdev *sd = &csi_dev->sd;
+> >> +	int ret;
+> >> +
+> >> +	ret = rkcsi_register_notifier(csi_dev);
+> >> +	if (ret)
+> >> +		goto err;
+> >> +
+> >> +	v4l2_subdev_init(sd, &rkcsi_ops);
+> >> +	sd->dev = csi_dev->dev;
+> >> +	sd->entity.ops = &rkcsi_media_ops;
+> >> +	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
+> >> +	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE | V4L2_SUBDEV_FL_STREAMS;
+> >> +	sd->internal_ops = &rkcsi_internal_ops;
+> >> +	sd->owner = THIS_MODULE;
+> >> +	snprintf(sd->name, sizeof(sd->name), "rockchip-mipi-csi %s",
+> >> +		 dev_name(csi_dev->dev));
+> > 
+> > Do you need to give it an explicit name? (v4l2_i2c_subdev_init() already
+> > does that.)
+> 
+> I do, actually. I don't call the _i2c_ variant. This is a platform device.
 
+Ah, I somehow thought this would be an I²C device. Please ignore the
+comment then.
+
+...
+
+> >> +	pm_runtime_enable(dev);
+> > 
+> > You're not resuming the device in probe(). I guess you depend on CONFIG_PM?
+> 
+> I do depend on CONFIG_PM.
+> 
+> I don't think there is need to resume in probe -> resume in
+> _enable_streams should do the trick, right?
+
+Ack; that's fine with CONFIG_PM.
+
+-- 
+Kind regards,
+
+Sakari Ailus
 
