@@ -4,108 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C619D4A616
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C707D4A617
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1gVkLjFWXdsLXhZXMgSkslb6Gc2W6vyzdGMqF3LNrLk=; b=YPjWaYkADOoXfOzpkj0QvbkaTF
-	kv30ImHg4jm7hkKPGyDg1ezTaxRbKfjlF6RLAPphZI0EGOhlUkWBQ/4Q0EfqwyknjySklLLJbY6ZX
-	EQ0od69EQWKCx5OTQHVwSJCDyTsqkWXvVhCLSCof4r62J6Y1EbcrnL51KHzKOrp2fps8BtwZ+cvH0
-	Li8Tq9KnKQaMdBB6Y2b/zKVQk2GWCy+OhxCFAyTaSrFg+8f65AHI1hdqvy5GjpaX46sEC3UQvyzjh
-	YHNc3tAzG1wy9s+0JynxXWYgyQPQ8uVv79mOlnlTNoks/ObNaJakhDPcoP+HHgy76tOsiZyanq1mC
-	B8pPYNTA==;
+	bh=w5nXkknwo+0TmPQcwS99jRHRtVkofZG2b6gSRD8S0lE=; b=ByEnTOgQpnBq+1eAGolUXisBcW
+	a0IsshfvHTPIm7HWUvgZSq+3QxBCZ+KvDO7LnDVGylMIH6I8BZRi9Kb5Nq2RdQvxxnPoccBXFv9qQ
+	8wo1Dz7PDQJAC14wH78P8h1DDARFCgROtHjQ/JlA2NV3xaKxvJUhm3+fTZqkv2Eu7wF0e+AdwHSUn
+	d24u4VNzCQi8KTUgWWOs5vDNBDRGVGvBHtvnYs3oocULcVRevPiTcBUwDvvCn8AtgLTWRHAk+EUcO
+	bUsCibX00q8cGTpnXmspnLHwViDZmAHSyQ7drdtQP+jj95Qsv9miz3VQ8CDSUJJqyleB1+M0NLFb9
+	VhRj6u6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgg53-0000000DrEF-2HO2;
-	Fri, 16 Jan 2026 09:25:23 +0000
-Received: from mail-dl1-f42.google.com ([74.125.82.42])
+	id 1vgg6q-0000000DrMw-3DFw;
+	Fri, 16 Jan 2026 09:27:12 +0000
+Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgg50-0000000DrDn-1Huv
+	id 1vgg6a-0000000DrLF-1Zzo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 09:25:19 +0000
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-12448c4d404so912627c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 01:25:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768555517; cv=none;
-        d=google.com; s=arc-20240605;
-        b=JyjOlnylN4ADXjIsDMp9tzYrzwuCa4xRsWEheJlC+dJyDRc5bJGCj2r2amftW+ydx2
-         LrRh/nbj/8eeoqqlJ8q8Lj2gOLEOW0csdyIluVowdpDUSIgg+RyzEbUTE/9XQ6u/aCH0
-         xxF4gimD5jOtRmo1bnSdEkk/hy0rO9iDPOw0qnayRTW+JowsYm8PDwns1cZ18ZUu5jtb
-         ZdGbpqKv8VIspOUsYWMGnLfOwJp7PZt3UoCvh3HfZ6zx6NUpv8FbP92rILRF23WMLZgH
-         KxKYOIgm2PxjZ43JAxPdmGvOTaNt1mUGx0t/MHzy7gJ8YRiS06KRWAKqmwfRdNp81ksR
-         0Nvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=1gVkLjFWXdsLXhZXMgSkslb6Gc2W6vyzdGMqF3LNrLk=;
-        fh=WPXJj4cOuCW4fuZA0PzbCY6lSunGdDgzvtjQQ5YpSlU=;
-        b=FgjkFY1oApJC4W9aPB8FMkVv8hUjS+K35ZshcYWeAKDLaNVfvNc4kE+erVEYYbEdI/
-         Tom/kciLQzPj3GZAkGR+jfqVDhy835l4Rn0MDxrgh6/p93yWRbFkqYVYOEADfHvJezSV
-         x7WRdJ5ufDMutut4CwPRLSPRfiDra1BJ4TWn8tb8loMaG9PvMVfBX26/lZ2OC4r2aTF0
-         SUWaM+ISYtdujKzowO7F9e9nPDoBRDmM4Fonxu3OTmG7JhP/nuVRRP1zU9EtPrtSMRLR
-         VaeKeJGRHK94wvqgJe49xZGEEUDWTCE18KldAL4ypKLfwW2NM/gQFlGeP5gaY37Pew8W
-         tmuQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 16 Jan 2026 09:27:04 +0000
+Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-1232d9f25e9so3391801c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 01:26:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768555517; x=1769160317; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1768555615; x=1769160415; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1gVkLjFWXdsLXhZXMgSkslb6Gc2W6vyzdGMqF3LNrLk=;
-        b=jfdCV0kuQu/0Zn6yXxe2OqAXQS9LlPfi6ilDn6nV+71QMJtfDQnZMUsE0vgMhtldK6
-         7vzbl6PFJgkpJTxtQQgis6iIClIwsCvgBAs7AueVTbPSdB4rzjcqPprTy9IimyY8HqKl
-         P/fgOJ9q40f6AE95gZfSWeNS2cF5J7AP38rOJkCRwjjprasu+S86b1ewKRcg8ju8K6WQ
-         qdIZNP7oMk3RcGeXTXfQp2kGPfxxAipSGpuatvKscOm1fnGPclxaNHpfdtWpGHmgmRL8
-         G8X7DZNAVcfZ4bSGc5A2/A8+2lvFUJuYc7o/QOnXvja3MelwhNHBnl68REBynrjg3LxX
-         Emgw==
+        bh=w5nXkknwo+0TmPQcwS99jRHRtVkofZG2b6gSRD8S0lE=;
+        b=DyMokJN3jGggpaSlrheQJMy2CLvGRi0Q6lEnAjyV2cVbljX/PNSbqrCYU3xulPPGTw
+         S6xvCLR5+5ZkZdum5dcz8LgcwkYG0DxZIDoGuc3wNVg4sTwG27v+FfaxbqAyxTMjGeCv
+         qpYr4/f3X8qhTswdOFDqyEmp/a2ZodTNDlfzj/bNvaooEoBUea5LpOh3tWWBcIK1cMyf
+         30B+1j3pywmIUrajmjXcim7WuRsnUvsy/IVmjG9/nQFD8lVKR+jIbhoI1/Ot9lvaj4KY
+         lSiqgd/Za44IyiZoTp+tHaajasBzaLI/U98j4OoxyKyWCqF+M/uGcUiMhyFwMXYKXe9T
+         4l0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768555517; x=1769160317;
+        d=1e100.net; s=20230601; t=1768555615; x=1769160415;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=1gVkLjFWXdsLXhZXMgSkslb6Gc2W6vyzdGMqF3LNrLk=;
-        b=eEb8+3G0qDnVyJv8P/s0DdAG2d1bgBSOCPyWk3c4Em3IVp9KNuXcqhqnmsrB0Keyxx
-         Eg3VcKSnC4ValNhdnfZC7i3BbQOtZFwrHRunGnN9aMoOvJzEbno+Bl0hbNdSIB7wX5yg
-         17BGFamtpQYOtuADRwrAZg3zjS+2LKIF/gfjjtY26BXeKd5bi7miHYG0mjCmjMg8hJiG
-         C2wD3uyKxgHZbWXqCL8nC0Br0MFxiDgwUQoqBIg7eCf0844jdiIae2OvmX+wofTYSbWD
-         l1jNkVhvm9S33BMqJy8SvkzEFT3w1dGgG9yuJFffk8TzqtSWVmmdIk0DHbQxZQXG5hQw
-         HuqA==
-X-Forwarded-Encrypted: i=1; AJvYcCVlJkOsU5qL4aNfIWFLMx2XN2uLP8O7eX0vzl/IQ4ugwvaKof9ug4EuzoxFbPhFZrtZJerKwtZ+YUwtYFyvr1Mw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsKhvAGAP116Z4tWBL+Tb7TSAcfnuF+TLwf04QuIRktiPW7Ydl
-	C8LGRkzKKAo+ckUP1eLbLVyBLBXVgvh+ltVHe23iFAtPGfPcUyNHKcbuK6jOFiCBaxVT5i0YRqA
-	56mrEgHqp3jEj+Vg3wRnXJyvac/ge7yc=
-X-Gm-Gg: AY/fxX44ao89e1ipZjNjSl5/86UG2/tjYSTnFu0rhn1srO++b/QIkMyWMISJrDu1P5f
-	+PhGD2HHdBaVT5dKdf1OLYoSHxOpBytSw8achvut3hvALBuQgkkZ/DAq3Bl+oOW4JmtAXkGnxjq
-	m8gGG3ES0pMclneMvyh7Jxa2pULVjtog5iFHJrBd+pJsCicPKb1hIIdlKZxFGqzBQ1YrtrmIMvj
-	AgwRruyKvu9/G9dV4h+59eBKiyCI8pxE1wm08KRyFpnAuhalFiCKA03LE2Jm+E2dZW9HZ7g0etb
-	ZjieyOxJTusi2k2/tnQjGtHZx6D4mHLq6bG/EeXzjEXgqxp6Y3FAAXA47n7H+HLiywxtYYQB7oN
-	szMOiXfjko8eIe2u4jPUK
-X-Received: by 2002:a05:7022:128e:b0:11f:3483:bbb2 with SMTP id
- a92af1059eb24-1244a72e2c6mr2287226c88.12.1768555516713; Fri, 16 Jan 2026
- 01:25:16 -0800 (PST)
+        bh=w5nXkknwo+0TmPQcwS99jRHRtVkofZG2b6gSRD8S0lE=;
+        b=HNaDLG20HUi1Fygnlnebap++f5stKs+w/1C1YdPcWAG6ebAYseyv4bznXB3vFOh52j
+         99yAeazSMFTOwk0d+F1EvUFUICvKeepIaqavkK8zLZ67pq3kLwZw01FZsuVigH61zhoS
+         0jVBg9/zuVw3bVe6uuQZHZOmDAhumIOEQru1bx6Fusi+s3Ih62PtOVtJCZ0HwjYo1ioj
+         dN+9aBz6SMc/yRfKyrjXnjoifDgvOoz8C+1Jyl70HY4pjY3kWLYs7ysXtHZPl+KfHXHy
+         djTUx/v59j2LEnw5nVue+ly2JNL5PuvrqhKQTILn/95Q9jFPxD2+FedBZdsxbJZfUF9G
+         vC7w==
+X-Forwarded-Encrypted: i=1; AJvYcCXHzLi1aO1zJ9VSozq2YB62af87O0z592cp1lNFIdN71Vp81BpmiHdcy5mfLlGrcKcVKUGHMVFz6ROVt7ScajRY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yysw1DS7MqhaztbUEiIeyRIUCd2Fw0XuYKTcrywK/bta5CqZkxd
+	JJihcU6AN/yyAabSVX1BOaKGP/vRXPXqrYB+hd8k1bk8ogjouCYJYWF2OwpDeCXI1PJkj5p3DdE
+	cKC+kLiWD6jRgT07dhzUApiCY3j6jyDc=
+X-Gm-Gg: AY/fxX5HzYg06h8US6PxUGQ1avpVrKAE7hv1LNxY2a+LssEFkOg1ztF1nMa4PB8LG0C
+	P+Lxeqi4I69sfgZ/763Qw2b1AsrUmtAeQ1olfA/zb8YWOO2waMz6TfmiKfJXvKVbdAE49bHtn8M
+	QRexagvu4ximg56MqTbaAIQ/jTk0TL28COGe+fmD3EpEiGhuDAsXedH/h5bnAtHEJCxlFz7JkUZ
+	C7W03vmn/vFZUhu5oI16MZeYOC2dHc2YtR34+ixJiBLAow0FZ1Riddd5gjYZzUF9eTdQe4R0lJS
+	qve4s9QsNOln9GnmU+MGTEBBFsxcC2nR29VHCHd4+dlS4molXqYONyuVxcIVQyVdXHLd24OpxrJ
+	YF0kITH8KWQ==
+X-Received: by 2002:a05:7022:b8d:b0:11a:3734:3db3 with SMTP id
+ a92af1059eb24-1244a769e03mr2330673c88.32.1768555615390; Fri, 16 Jan 2026
+ 01:26:55 -0800 (PST)
 MIME-Version: 1.0
-References: <20260116091704.3399142-1-Qing-wu.Li@leica-geosystems.com.cn> <20260116091704.3399142-3-Qing-wu.Li@leica-geosystems.com.cn>
-In-Reply-To: <20260116091704.3399142-3-Qing-wu.Li@leica-geosystems.com.cn>
+References: <20260116-imx91s-frdm-v3-0-98671de64925@nxp.com> <20260116-imx91s-frdm-v3-1-98671de64925@nxp.com>
+In-Reply-To: <20260116-imx91s-frdm-v3-1-98671de64925@nxp.com>
 From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Fri, 16 Jan 2026 11:27:58 +0200
-X-Gm-Features: AZwV_Qhvgz-kbrRItIaZk0_yMWKQZjkC3dhXXrMaQSnI1xaVYEnm76i5Ds3FryY
-Message-ID: <CAEnQRZAz_-S29L66a_ySxGAX-SKAeAvHfKqjanLsGNCZ7_zsAw@mail.gmail.com>
-Subject: Re: [PATCH V2 2/2] i2c: imx: add abort path for invalid block length
-To: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
-Cc: o.rempel@pengutronix.de, kernel@pengutronix.de, andi.shyti@kernel.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com, 
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	bsp-development.geo@leica-geosystems.com
+Date: Fri, 16 Jan 2026 11:29:37 +0200
+X-Gm-Features: AZwV_QifTzULMtGjkjSS3S8CC5_mhR_1WSH4xBiT1nAYE-It9I2PKynf_0a8WPk
+Message-ID: <CAEnQRZA0TsOdttpZA3DGb7xrDXuEJp8PQTC3d1tXFQGqdY3SJQ@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: arm: fsl: Add FRDM-IMX91S board
+To: Yanan Yang <yanan.yang@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, qijian.guo@nxp.com, 
+	justin.jiang@nxp.com, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_012518_382230_6E24305B 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20260116_012659_605751_4366BF53 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,42 +103,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 11:19=E2=80=AFAM LI Qingwu
-<Qing-wu.Li@leica-geosystems.com.cn> wrote:
+On Fri, Jan 16, 2026 at 5:46=E2=80=AFAM Yanan Yang <yanan.yang@nxp.com> wro=
+te:
 >
-> When a block read returns an invalid length (0 or >I2C_SMBUS_BLOCK_MAX),
-> the current implementation leaves the bus hanging with SDA held low,
-> blocking all further I2C communication on the bus.
+> Add DT compatible string for NXP FRDM-IMX91S board
 >
-> Add a dedicated IMX_I2C_STATE_READ_BLOCK_DATA_ABORT state and ISR
-> handler to properly terminate the transfer when an invalid block length
-> is detected:
->   - Set TXAK and receive the next byte with NACK
->   - On the following interrupt, generate a Stop condition
->   - Read and discard the final byte
->   - Report -EPROTO to the caller
+> The FRDM-IMX91S is a low-cost, compact development board based on the
+> i.MX91 applications processor. It is a cost-optimized variant of the
+> FRDM-IMX91 board, with notable hardware differences requiring a separate
+> DTS:
+> - 512MB LPDDR4 (FRDM-IMX91 uses 1GB)
+> - 256MB FlexSPI-NAND (FRDM-IMX91 uses 8GB eMMC)
+> - Single GbE port (FRDM-IMX91 has dual GbE)
+> - PMIC PF9453 (FRDM-IMX91 uses PCA9451A)
 >
-> This ensures the bus is released correctly and allows other devices on
-> the bus to continue operating normally.
->
-> Tested on i.MX 8M Plus with continuous block read operations.
->
-> Signed-off-by: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
-> ---
->  drivers/i2c/busses/i2c-imx.c | 55 ++++++++++++++++++++++++++++++++++--
->  1 file changed, 53 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> index 85f554044cf1..71457dbffb7a 100644
-> --- a/drivers/i2c/busses/i2c-imx.c
-> +++ b/drivers/i2c/busses/i2c-imx.c
-> @@ -233,6 +233,7 @@ enum imx_i2c_state {
->         IMX_I2C_STATE_READ_CONTINUE,
->         IMX_I2C_STATE_READ_BLOCK_DATA,
->         IMX_I2C_STATE_READ_BLOCK_DATA_LEN,
-> +       IMX_I2C_STATE_READ_BLOCK_DATA_ABORT
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Yanan Yang <yanan.yang@nxp.com>
 
-Please add the comma at the end of the last line so that we still have
-nice diffs
-next time we add an element at the end of the enum.
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
