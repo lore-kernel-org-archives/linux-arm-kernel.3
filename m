@@ -4,76 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73882C982DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 16:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40065C982DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 16:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UCRzFnlL51J3r1v3KtHPuReG0jTDE1cPz5Nk0PllpmI=; b=ckSikqobj9EYWM3TbRk3ZkzamJ
-	VyIdI7QMb6lm4C32WPlmIKik9haSjJwLx1BBNnoOjKHPGLDn4Dl6xVbTwQ+nOOYT7Nxb5xPwqHBa4
-	hBqN7cGp8oKvUdjpJkmpur62llcUnxK5RDyqy2ejg2KT3rTwDI5duq9/n8O7xkgUH7rg07AOazCC+
-	M0qA2IizC7rIchqgm8vER12Qih8axUjSJ2LcSEKmLrp2/s1wk+vVC6xS5S6XkSi/1yAUOB8MJymyB
-	c6vXBdKmGkMjoJmlf34hVebsHCF1lDgAF3hwqJiflh7qQQq+klpITqf1hwhmOimH53cWB9uFT/UYl
-	c1ko85hQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RHrj+slmuwBcxNipILWZH8iJJcwjimoF9S0n+pe/LTA=; b=3u4sjZpNdJ5LHiuEIj46Ere402
+	fUqRI8qIp3GXJ5dEBARY2N1Q08yrWX8Wv2cOmXDd+nYAirAFK4nPjG0tWGYj3d1fEFia5/HMdVf0S
+	IGgHmQcJncVsLuPxGyEDBq6GFXYF2KtmC7gcTuiR4mYc+LN+Kqvlgt19ykG/yL6WOlqp+nxvMRmV2
+	wbTlDO+m1/h3xwFsInocDH1T0a2uiXOgyTvDz4hW8lQ5D332da1ax0KGfjaiAK90KEVQdcl9tjP58
+	rvu9LL+tLCp9F3pOChzbx1RFWzAPCems/RhECikUni6zhOYzj23GfgtJhpzk6dcmVYVl579nrBbuF
+	2vhV7MNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgn8X-0000000EV09-48T4;
-	Fri, 16 Jan 2026 16:57:25 +0000
-Received: from mout.web.de ([212.227.17.11])
+	id 1vgn9S-0000000EVAw-3lPM;
+	Fri, 16 Jan 2026 16:58:22 +0000
+Received: from mail-northcentralusazon11012057.outbound.protection.outlook.com ([40.107.200.57] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgn8V-0000000EUzB-1cXF;
-	Fri, 16 Jan 2026 16:57:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1768582621; x=1769187421; i=markus.elfring@web.de;
-	bh=UCRzFnlL51J3r1v3KtHPuReG0jTDE1cPz5Nk0PllpmI=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=WEcTJ8NrCXkdhCgtKJ8A+ub0H9dMTILNfgxtpoYFn7ubm/AIyUwKTJc4SbzyOq53
-	 Mw66Q1Z8c8f2iILtRporoy/pVnvaXHPFEVjkRl11ifD9ujv6iWTSPwMQVUj1bQK9b
-	 DuKkPdR+G+50b0Xe+4CqB4LctgAossZAVvFbqdykJo9jR0wVaBJ8kaSWc3p/NA58Q
-	 k34YSf0Rf9g8fm3g59xwF9Y6x92aMbA65WndQ862sf4ehQ86L/AtD3XsFAvskH4MN
-	 Pr8NMC+G5BDH9VME+Gv0ZjGLXgfbS+FAhiQydwFshFBr232OJt8m+FafPDoKW/AoH
-	 IZDKJclmcWI0aKLS7w==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.218]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1N6bCu-1vsNfP1y0M-00r8r9; Fri, 16
- Jan 2026 17:57:01 +0100
-Message-ID: <d16ff74d-aa01-4b3a-aa76-9ac9a5c6c86b@web.de>
-Date: Fri, 16 Jan 2026 17:56:58 +0100
+	id 1vgn9R-0000000EVAL-1RJn
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 16 Jan 2026 16:58:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CaRWeDfcLuTADo82qEeyy98LMtQKA2ZjxYm/dQRhgiFJ1JXTbismGs5yQ9LLAWlcVQmrFbEyjFLKJZDfgAWh8k8/w+jbKmN679Wh5aNz+ZVq/dvJ8ekZ9iY3Vcu3k7ceUtu8+6SBqF9x93b8XQKlQ9iYkEiUr42gtMugMutXdA7lPPPFJ6aHi7VNj2vxj6O8/dDUPXLtmXLvdr9a4BM3s33/JIBmT1BBE8knD+HCJr57H7S/JlTqYh3GzAR0j61ZpwTOrzexTeDO0Zyhfdrrp58injxIXVPNu5P1sI/+CVH7W6IZn9S4hFG6jZpR3ZNhEte910X6einOWtUdLlIHrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RHrj+slmuwBcxNipILWZH8iJJcwjimoF9S0n+pe/LTA=;
+ b=mRwcVObdxNryfWtfDwMEocVx4Sf85S0Ok1QUAldV3rZA+DUv70S8S7vqJuaBSSOmO/lkSMxs5YUqq9YIFnU4z8it61tOL0PiqiKN8ZFDB5X+/K/mH9wdpwzSx9/L0T796KEPrlcp/LDVGqtqv789l7C5qxvD3qy9xg0Q3CZl3ms8O45eOKXvnOUpf4MceNVdqt67hN3DzXPDEniASbt1bs46HyIpiOUM5ERwpb8GVBIuxPzHTjwd6kQPypxg7tlimcXXe0X5PSLpqitygS28Zj77H2ziab62nviYw+CRfmkcPp/YbZjYl+Ft0W0X+J53xNCDbV9KmYXDPx18BmaU/Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RHrj+slmuwBcxNipILWZH8iJJcwjimoF9S0n+pe/LTA=;
+ b=RMIX9TX8HDDDKvnWGRsvJxkSQkSB1uFUKs3kJJ1wRbHpjYWtEdpfe/vJSdVPv74MgzgBK+aLsi93dsQVPrRHn8jXP+WPtxLnCA9SVqn865QD9KOszpdRQ0OKDukmP2x90ToWb2L3P0dtvvC2RAFah1AXz/wUjsQrWfV8KkfVf1ZjDgTiQ+kLmS2boYINn7PkRXCePVJ76VEqRkXHZHeJHXrMXawQAryayIKev2jyGihexY1YJ/DhgLuJoYUyqdeQJitEhliUYbY5MYKCDt+dCVD2wKssPtmCYGp6PBhR4rrW3VtutOIhrUCDe8V2cxslXwPdoMPn+QPY1w1kOAURzw==
+Received: from SN7PR04CA0208.namprd04.prod.outlook.com (2603:10b6:806:126::33)
+ by LV2PR12MB999074.namprd12.prod.outlook.com (2603:10b6:408:351::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Fri, 16 Jan
+ 2026 16:58:16 +0000
+Received: from SA2PEPF0000150B.namprd04.prod.outlook.com
+ (2603:10b6:806:126:cafe::a4) by SN7PR04CA0208.outlook.office365.com
+ (2603:10b6:806:126::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.7 via Frontend Transport; Fri,
+ 16 Jan 2026 16:58:11 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SA2PEPF0000150B.mail.protection.outlook.com (10.167.242.43) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9542.4 via Frontend Transport; Fri, 16 Jan 2026 16:58:15 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 16 Jan
+ 2026 08:58:04 -0800
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Fri, 16 Jan 2026 08:58:04 -0800
+Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 16 Jan 2026 08:58:04 -0800
+Date: Fri, 16 Jan 2026 08:58:02 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jpb@kernel.org>, <praan@google.com>, <miko.lenczewski@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v1 2/9] iommu/arm-smmu-v3: Add alloc_id/free_id functions
+ to arm_smmu_invs
+Message-ID: <aWpuGsnyZJWTmgrf@Asurada-Nvidia>
+References: <cover.1766088962.git.nicolinc@nvidia.com>
+ <1541ea4a9e9c935c2f907c0c5f13a4af2bdc2114.1766088962.git.nicolinc@nvidia.com>
+ <20251219170551.GF254720@nvidia.com>
+ <aVQfhaqfvfLFNZqe@Asurada-Nvidia>
+ <20260102155715.GC125162@nvidia.com>
+ <aWnI3Ii3KCFmJV3/@Asurada-Nvidia>
+ <20260116144120.GM961588@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Zilin Guan <zilin@seu.edu.cn>, linux-wireless@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Felix Fietkau <nbd@nbd.name>
-Cc: LKML <linux-kernel@vger.kernel.org>,
- Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Jianhao Xu <jianhao.xu@seu.edu.cn>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, Ryder Lee
- <ryder.lee@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
- Shayne Chen <shayne.chen@mediatek.com>
-References: <20260116144919.1482558-1-zilin@seu.edu.cn>
-Subject: Re: [PATCH] wifi: mt76: Fix memory leak after
- mt76_connac_mcu_alloc_sta_req()
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20260116144919.1482558-1-zilin@seu.edu.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:GhP3f0OmHoEwyzJl8nBiItufgqDkyBKO0l/k/9qznQd195MT7I7
- S88t/NC9arBrJ2IyFVqH9lHcaBi2Ic0GAYqnFQsbtbyosRCZ7IOh5jDyDW18MOLzQSZI84M
- YrXMdY715Lgzxilyl+jDmVycI6FoFC8tA104J5120o5fGnYpVc6273zW1jgz158hRhORAf3
- hF6Mx0crSLV+r6UxNxC/Q==
-UI-OutboundReport: notjunk:1;M01:P0:ENFTm9ZfFjE=;w7K+NAT/CaEQqIzyBRmbmhuFTpS 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
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260116144120.GM961588@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF0000150B:EE_|LV2PR12MB999074:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1ba05f26-d5e0-4e81-4b84-08de5520714a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|82310400026|36860700013|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NJaeOjYI+uuaj6h5f7AQPxc/Mh/72c7lLwMbaM1azyJrLA0FQ5b3YdZ7bMod?=
+ =?us-ascii?Q?jPF0h8SuvtADu4elsEaiq85pI46njF0eD8FBfLog0S4rjEkgSC9cdVY+V7hy?=
+ =?us-ascii?Q?SW6U0NunLADCsC+LmzFKgEiwlopxmY5AmDA+c1QrDTsnJUmKEjK3dlmT+/ok?=
+ =?us-ascii?Q?MmKpl37xt1FRZWf7fVpDmcbL+fWhBQu8pyD+t3eFcJ0EJUnvkSbR1c/CYoIL?=
+ =?us-ascii?Q?w4gqhnJH/ut0Gj5urW7+yTEtOGVt+jqZe04IASRjKZ3Y5/Rb38AM1/V3NuUl?=
+ =?us-ascii?Q?Hrr9Le4Wivu2B8DZ3Xq/k+28uaoTlDniHBRQq7a3p46t77jvZuPnKjwQjRii?=
+ =?us-ascii?Q?FS1XAPfmFvzO4yr//bPoTvzhF6qvQN2ziCxvv7cHecFJdiHv7fiUdoOnqJ+4?=
+ =?us-ascii?Q?9uScrLIGyeNkFPVPH2eUBdX+KdqABdzo6mqS2ldld/fwgbO32gWI3tUCtwH0?=
+ =?us-ascii?Q?5/C8EVmTKU6RU5UIgBBGPgzIbbLc1S92SOFfIRWy+oeP2vStz6PgmpN82Cr9?=
+ =?us-ascii?Q?Z9M5IqS1o5f/ia0pdeswuqjINRvctg3GXIkV9YBapHDwPyOKZGlakf7RIWqt?=
+ =?us-ascii?Q?HAmOcC/5Sqp1MnhnknOZBu16u65rumCAyvCVpgF08VRw8CRcPOgwS9ysSj2U?=
+ =?us-ascii?Q?/nnIgzxUHNpAno80NaUhuk4LDWXg8TTKwhl2iwYGMRR6vRYL+/EtTafU/RpW?=
+ =?us-ascii?Q?3pgm3P5/Yo11LOQSlFTf9K8XLr3ngYj9pODUeO6W6BEzGRhgsvDgyrQPpE6U?=
+ =?us-ascii?Q?Jdv7n7EC7Ed9tWecV2/SppiHNzudbwEjZITLUCh6iO1IBj9GuPsCzt5vnFoF?=
+ =?us-ascii?Q?TUjePcyBI7KsrlZgh+DDCtiBieabmGrm+h31Q6PGlhH5U/fmCGUL3TRWvwKJ?=
+ =?us-ascii?Q?RAIkjewkxM51USb9zfF2dXC3PNHEAb3i+FC9T0WLgd5DdmPCOsmLKUr1A4rD?=
+ =?us-ascii?Q?Njwzd7Ahw3g8C1B+7OlKZKmYedgoRn0vMf+rCK9IXsqLVPCZw8P+fK34O5Dy?=
+ =?us-ascii?Q?LRYfAHcIqbTAd1Em2NGxfOJV6XWpxVM8YMKS5BPLSYyxbO3wLAeZsgQrWwm2?=
+ =?us-ascii?Q?PxK+b/UgMr536xerLbi7xauglVYNa3CHazeSAdxiKXletauYeb28E3c8M4xh?=
+ =?us-ascii?Q?aKbIQDBTcrDNTaGo6cwxWv7yj/GL6SU6MF6X6Ej26UngN9fzmgRjTab3tb+H?=
+ =?us-ascii?Q?Rb3+/Z/UbM5booPmeAfIdtP4GgNy/HfYpoFqtaOCA7JculbQijZnJxos3IfE?=
+ =?us-ascii?Q?PwBGYbL5PtycxDrjT5MQrbremekxYu90lvpl1OR84kspNA9hKryaZaypWXAH?=
+ =?us-ascii?Q?t+m73nOsevYx+yFoLUocIgUpawCWjQZjTak9e5myeEQ2v/HB3+RlxzM2w7PD?=
+ =?us-ascii?Q?y4fQu+Yw6QLj6SJOAzDiHH+1D2MLnjh8TTsgtGprroNiwaYEeN0Cs7rTSFWM?=
+ =?us-ascii?Q?HA6jAqw8HD8AgiH85ScobMs1hUEWvM7rj8U6ouaabVGiVFhCSW/PFwLPXVhM?=
+ =?us-ascii?Q?BDHHkc2kjcpW8lQhImn9zDORTUQFjSZ0Xg1OdRYvh+VMAvHGJBf9y/5ofwDA?=
+ =?us-ascii?Q?luRsnaXBuLgupVYPwBJkxC9MUC4XpXVGn4lEsNRTQ4C6NYABoDDn61T/k2AG?=
+ =?us-ascii?Q?G+96HLhegfNSiGdY+yi3CyTeJ/js2czu7OGVrEDEdCXLTPLbU7fO29KuGhte?=
+ =?us-ascii?Q?hvLaAg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(82310400026)(36860700013)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jan 2026 16:58:15.9961
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1ba05f26-d5e0-4e81-4b84-08de5520714a
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF0000150B.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB999074
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_085723_784176_968A1350 
-X-CRM114-Status: UNSURE (   4.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260116_085821_405677_723C06AE 
+X-CRM114-Status: GOOD (  27.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,14 +161,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> Fix this by explicitly freeing the skb in these error paths.
-=E2=80=A6
+On Fri, Jan 16, 2026 at 10:41:20AM -0400, Jason Gunthorpe wrote:
+> On Thu, Jan 15, 2026 at 09:13:00PM -0800, Nicolin Chen wrote:
+> > On Fri, Jan 02, 2026 at 11:57:15AM -0400, Jason Gunthorpe wrote:
+> > > On Tue, Dec 30, 2025 at 10:52:53AM -0800, Nicolin Chen wrote:
+> > > > Hi Jason,
+> > > > 
+> > > > On Fri, Dec 19, 2025 at 01:05:51PM -0400, Jason Gunthorpe wrote:
+> > > > > +static int arm_smmu_get_tag(struct arm_smmu_domain *smmu_domain,
+> > > > > +			    struct arm_smmu_master *master,
+> > > > > +			    struct arm_vsmmu *vsmmu,
+> > > > > +			    struct arm_smmu_iotlb_tag *tag, bool no_alloc)
+> > > > [...]
+> > > > > +	case ARM_SMMU_DOMAIN_S2:
+> > > > > +		if (smmu_domain->nest_parent) {
+> > > > > +			/* FIXME we can support attaching a nest_parent without
+> > > > > +			 * a vsmmu, but to do that we need to fix
+> > > > > +			 * arm_smmu_get_id_from_invs() to never return the vmid
+> > > > > +			 * of a vsmmu. Probably by making a
+> > > > > +			 * INV_TYPE_S2_VMID_VSMMU */
+> > > > > +			id = vsmmu->vmid;
+> > > > > +			return 0;
+> > > > > +		}
+> > > > 
+> > > > Would you mind elaborating why arm_smmu_get_id_from_invs() can't
+> > > > return vsmmu->vmid to share with a naked S2 STE?
+> > > 
+> > > A "naked" S2 domain doesn't have a pointer to the vsmmu, so it is
+> > > impossible to get vsmmu->vmid.
+> > 
+> > An S2 parent domain should be per VM. And a vSMMU on top of an S2
+> > should be per SMMU. So, it could have stored a list of vSMMUs and
+> > device attaching to a naked S2 could match its master->smmu with
+> > vSMMU->smmu in the list?
+> 
+> That would cause lifecycle problems if the vSMMU is destroyed
+> while the nake S2 is still attached and trying to use the vSMMU's
+> VMID.
 
-How do you think about to avoid a bit of duplicate source code here?
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
-cumentation/process/coding-style.rst?h=3Dv6.19-rc5#n526
+Well, if vSMMU code does the same get-build-merge in vsmmu_init()
+and build-unref in vsmmu_destroy(), VMID is basically managed by
+the invalidation array. Yes, a naked S2 attachment would still use
+the shared VMID, but I think that's fine for a nesting parent?
 
-Regards,
-Markus
+That being said, the implementation isn't going to be as clean as
+your approach.
+
+Nicolin
 
