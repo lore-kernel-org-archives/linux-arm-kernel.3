@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75CBAD4A615
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F38AD4A613
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 16 Jan 2026 09:17:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W3uIBDHJV1P9Eaqok3k16zYP8lpyxl1CY6tw+oh23kI=; b=y6ZcKav99ovXjJHpwdk/ypDiEv
-	HC9XJoZYfSZ7LcBnyS2YnIBPwksrnzC6Zum1ud7MQqPMvsBZ+fc+QXMIMpsCzWufQqwBUizmKqZxq
-	dzok4avCsoo5tIG6obgRdqLmaRne034BYvPiYE+QbrKdUJbLX1yk+NFiTfe/46Dnqs/WFlo/8hPiK
-	GatCq/gO8D5AWwqtVHXYg9M9hDVysRhJQJc2rRfP6u8+2yhfLZ5ygUFR4pIm9xLTcCL+5JL3bMAAO
-	QY9fYgxE7vabamVPELu/WC3I7y1PPkdxAlZx8ov660eZ2ZhHNEz0MB8i6AaOPB6R75QXNQNqCtu8i
-	un2CGGKg==;
+	bh=0f8myjv7TmjFH6zMbfVU4xwJfWaIPMTSELmoVrJW9Lo=; b=ujiCEDcr2TV0L2UbeG7ZM0ZV1/
+	Pkh1Ljo0LDd8oJLQCxlubmTTvNVMJngX8Fw9nCtMH3+n0gh+euX2vcuzKq/tDTdcBpjaOKI3bXwfv
+	fNVlge8vhTHpBE+bvmBjB9O494oerB24d40WQNqiAq2RNnPbQ3VLKr94XjjVTwZtzBClf1lfgqW5T
+	KZZWeqBSzdhg/OgrPNxA39WYkYRfx8wxMf454/itDfIICLt9rWkaItXWgKkWP93n/OpUKzMKiI5fJ
+	so8JLgswkU+/EcBJjOi49WQQp/VsEzZ4cNlge/7CWOewvWAa63WcIEyMdhIR62wNPGkoZCIm6X4xj
+	yaR/kNEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgfwF-0000000DpxZ-2pRh;
-	Fri, 16 Jan 2026 09:16:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vgfx2-0000000Dq5p-2DK0;
+	Fri, 16 Jan 2026 09:17:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgfwE-0000000DpxB-0O3L
+	id 1vgfwz-0000000Dq54-1iug
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 16 Jan 2026 09:16:15 +0000
+	Fri, 16 Jan 2026 09:17:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 838D6416D2;
-	Fri, 16 Jan 2026 09:16:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 021C3C116C6;
-	Fri, 16 Jan 2026 09:16:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B985844046;
+	Fri, 16 Jan 2026 09:17:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 620A9C116C6;
+	Fri, 16 Jan 2026 09:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768554973;
-	bh=5ruNkvaF+Rmg+5LyMC70XNPVeJyuhzT/pkBC8YQs/fo=;
+	s=k20201202; t=1768555020;
+	bh=yVX7441AwNWpwo7n7A35edDx9OckAgwgwNXHR/OVQZk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=siH4yiqU+brTnXZCX3bMd8TTQy+U2jEfv8Qh7QYDBSF1h9gwZcOsIGjmeJ8cm7kQK
-	 Yyh4gt046Jfj+X8n+dVRvekd5KW4C6IMHlyvHYeRumOEG2yMuZFXua4lPjc0vz3vH5
-	 PFFL2Yk5LQOtfmlQ9okrqhkNa92ieTWmyuBiON8b7Eg0eJRSjQvLjaCI73r5bDO8yB
-	 i1SWwm/Szud0WaWqYxPbOTPaK4ylQ5cGUowFx986/i4YkjrxTi3YbfGVrU2yP+rCnK
-	 9ToHCtGwGJDSOQ/wqyUL7fQmShj9ZBzfsk2eaSeXucEumXh+6ZUgBoqlcgfJYdyIWf
-	 8LP+OXtDTlNQg==
-Message-ID: <d479060c-6b47-456c-abb6-9c5139bbd36d@kernel.org>
-Date: Fri, 16 Jan 2026 10:16:08 +0100
+	b=KNBgk0XQGXAxynsirvfB3jsyVKiqctWzYXwetbTMD8gLGWjrmXSRM0fD1rZGQYcxf
+	 zyFdl6n7AKA9W4mKlXGJpDqArtoVFGim0AERe3kitaOMqv7eOybZVcaGl8OV16BuEr
+	 9WBmX/5h7PsfZ8mUFeNU/Pdx5Q+iKYlOv32B+8IhlHyi3IutknIcKqE2gQwuSDTdPT
+	 bFyDdmvicUMrrwFbLcHozLaon2SG2xQefobm2Bb/Q5aodQJU0KFpJX7BWqWffs3N3h
+	 GB0j6lanOrx7GWRsC/PFXtSYDt6Pg88GgynojxtT+5TiJE9YbUQG5ANrA7eiwt//T+
+	 9lQxX2uV4JWew==
+Message-ID: <79d0f072-80f9-4757-b25d-84260551e217@kernel.org>
+Date: Fri, 16 Jan 2026 10:16:55 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] cpufreq: dt-platdev: Add ti,am62l3 to blocklist
+Subject: Re: [PATCH 2/3] cpufreq: ti-cpufreq: add support for AM62L3 SoC
 To: Dhruva Gole <d-gole@ti.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
  Viresh Kumar <viresh.kumar@linaro.org>, Nishanth Menon <nm@ti.com>,
  Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
@@ -57,7 +57,7 @@ Cc: Kendall Willis <k-willis@ti.com>, Sebin Francis <sebin.francis@ti.com>,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org
 References: <20260116-am62l-cpufreq-v1-0-63d062317ae9@ti.com>
- <20260116-am62l-cpufreq-v1-1-63d062317ae9@ti.com>
+ <20260116-am62l-cpufreq-v1-2-63d062317ae9@ti.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260116-am62l-cpufreq-v1-1-63d062317ae9@ti.com>
+In-Reply-To: <20260116-am62l-cpufreq-v1-2-63d062317ae9@ti.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_011614_200055_B0FA71F3 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20260116_011701_504786_C930C063 
+X-CRM114-Status: GOOD (  19.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,29 +124,98 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 16/01/2026 10:01, Dhruva Gole wrote:
-> Add AM62L3 SoC to the dt-platdev blocklist to ensure proper handling
-> of CPUFreq functionality. The AM62L3 will use its native TI CPUFreq
-> driver implementation instead of the generic dt-platdev driver.
+> Add CPUFreq support for the AM62L3 SoC with the appropriate
+> AM62L3 speed grade constants according to the datasheet [1].
 > 
-> This follows the same pattern as other TI SoCs like AM62A7, AM62D2,
-> and AM62P5 which have been previously added to this blocklist.
+> This follows the same architecture-specific implementation pattern
+> as other TI SoCs in the AM6x family.
+> 
+> [1] https://www.ti.com/lit/pdf/SPRSPA1
 > 
 > Signed-off-by: Dhruva Gole <d-gole@ti.com>
 > ---
->  drivers/cpufreq/cpufreq-dt-platdev.c | 1 +
->  1 file changed, 1 insertion(+)
+>  drivers/cpufreq/ti-cpufreq.c | 32 ++++++++++++++++++++++++++++++++
+>  1 file changed, 32 insertions(+)
 > 
-> diff --git a/drivers/cpufreq/cpufreq-dt-platdev.c b/drivers/cpufreq/cpufreq-dt-platdev.c
-> index 1708179b2610bca6035d10f0f4766eee6f73912e..29122bac2e22f6e7a8e8294cc01923c8a13d53c1 100644
-> --- a/drivers/cpufreq/cpufreq-dt-platdev.c
-> +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
-> @@ -194,6 +194,7 @@ static const struct of_device_id blocklist[] __initconst = {
->  	{ .compatible = "ti,am62a7", },
->  	{ .compatible = "ti,am62d2", },
->  	{ .compatible = "ti,am62p5", },
-> +	{ .compatible = "ti,am62l3", },
+> diff --git a/drivers/cpufreq/ti-cpufreq.c b/drivers/cpufreq/ti-cpufreq.c
+> index 6ee76f5fe9c567b0b88797ddb51764a2a5606b16..8d8fdb068dcdc2caa0b656405f38a072c0700f71 100644
+> --- a/drivers/cpufreq/ti-cpufreq.c
+> +++ b/drivers/cpufreq/ti-cpufreq.c
+> @@ -48,6 +48,12 @@
+>  #define AM625_SUPPORT_S_MPU_OPP			BIT(1)
+>  #define AM625_SUPPORT_T_MPU_OPP			BIT(2)
+>  
+> +#define AM62L3_EFUSE_E_MPU_OPP			5
+> +#define AM62L3_EFUSE_O_MPU_OPP			15
+> +
+> +#define AM62L3_SUPPORT_E_MPU_OPP		BIT(0)
+> +#define AM62L3_SUPPORT_O_MPU_OPP		BIT(1)
+> +
+>  enum {
+>  	AM62A7_EFUSE_M_MPU_OPP =		13,
+>  	AM62A7_EFUSE_N_MPU_OPP,
+> @@ -213,6 +219,22 @@ static unsigned long am625_efuse_xlate(struct ti_cpufreq_data *opp_data,
+>  	return calculated_efuse;
+>  }
+>  
+> +static unsigned long am62l3_efuse_xlate(struct ti_cpufreq_data *opp_data,
+> +				       unsigned long efuse)
+> +{
+> +	unsigned long calculated_efuse = AM62L3_SUPPORT_E_MPU_OPP;
+> +
+> +	switch (efuse) {
+> +	case AM62L3_EFUSE_O_MPU_OPP:
+> +		calculated_efuse |= AM62L3_SUPPORT_O_MPU_OPP;
+> +		fallthrough;
+> +	case AM62L3_EFUSE_E_MPU_OPP:
+> +		calculated_efuse |= AM62L3_SUPPORT_E_MPU_OPP;
+> +	}
+> +
+> +	return calculated_efuse;
+> +}
+> +
+>  static struct ti_cpufreq_soc_data am3x_soc_data = {
+>  	.efuse_xlate = amx3_efuse_xlate,
+>  	.efuse_fallback = AM33XX_800M_ARM_MPU_MAX_FREQ,
+> @@ -315,6 +337,7 @@ static const struct soc_device_attribute k3_cpufreq_soc[] = {
+>  	{ .family = "AM62AX", },
+>  	{ .family = "AM62PX", },
+>  	{ .family = "AM62DX", },
+> +	{ .family = "AM62LX", },
 
-p > l
+So you just stuff at the end in every commit leading to unnecessary risk
+of conflicts.
+
+>  	{ /* sentinel */ }
+>  };
+>  
+> @@ -327,6 +350,14 @@ static struct ti_cpufreq_soc_data am625_soc_data = {
+>  	.quirks = TI_QUIRK_SYSCON_IS_SINGLE_REG,
+>  };
+>  
+> +static struct ti_cpufreq_soc_data am62l3_soc_data = {
+> +	.efuse_xlate = am62l3_efuse_xlate,
+> +	.efuse_offset = 0x0,
+> +	.efuse_mask = 0x07c0,
+> +	.efuse_shift = 0x6,
+> +	.multi_regulator = false,
+> +};
+> +
+>  static struct ti_cpufreq_soc_data am62a7_soc_data = {
+>  	.efuse_xlate = am62a7_efuse_xlate,
+>  	.efuse_offset = 0x0,
+> @@ -463,6 +494,7 @@ static const struct of_device_id ti_cpufreq_of_match[]  __maybe_unused = {
+>  	{ .compatible = "ti,am625", .data = &am625_soc_data, },
+>  	{ .compatible = "ti,am62a7", .data = &am62a7_soc_data, },
+>  	{ .compatible = "ti,am62d2", .data = &am62a7_soc_data, },
+> +	{ .compatible = "ti,am62l3", .data = &am62l3_soc_data, },
+
+Oh no, here it is correct. Random choices?
+
+>  	{ .compatible = "ti,am62p5", .data = &am62p5_soc_data, },
+>  	/* legacy */
+>  	{ .compatible = "ti,omap3430", .data = &omap34xx_soc_data, },
+> 
 
 
 Best regards,
