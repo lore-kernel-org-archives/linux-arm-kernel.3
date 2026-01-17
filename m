@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D405C982C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 05:29:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99531C98312
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 05:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:Mime-Version:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1/DlDzZKFpcROxVmgO7qkeA6G7xHNFkkZDHlcU3Uce8=; b=xsyFYAXqKAbay5wwKwqGOcCz6a
-	bEeoltkWaqjLMec4vEqJwTBmW56bcHkDwlt65mAD1puir7Y5q3D/dRuGCtKaK6xWqT8JjZzqtIup9
-	4AxBVZjLCoFIscfYJ116CJZGWU97m1a00shy4tFATMYYk+Ztfuw4m+mBji941IUEE4D5PFPSDUqIU
-	Z0aMkBwE0LYjgwGVnnIU3A2Yfw4PgI/BGZZ4fCCTqN3LjvLoduPeO9FlsAbYI3m2ajoVLDrNWj5Zd
-	MfSzUDIHP0roLo6+U3j3KlxqQ5a0tLA2pCjd/D5qvGPHoY/s4S9Z4F1xwLfMBV9swkhbkRxzKNhjv
-	WIRjMKVA==;
+	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mz2w6bSYQtg03VDKQBBKJWoE2q+Ly0vxb+x/N3KKFNE=; b=ltQYvIsgZMdvtdIVUbs9bQsS6F
+	hVgRViu4LtcgiGFUxgn+N+YaKTPREGvmgNXQnouh+JHAO8O/h6Dgbw9P/bAKveVvFPLEh0Ivq8h04
+	d9yZGbIdRMq/Va91KJSLrESr7wsdPG1Yhy5VBKuUKZquywTBz5m8Myh7qy5CZbhSuMzR9W/jkJOMA
+	KEenUkDdDArXXJTGVkLec4IkoswgLZ+bKWHGLMHTk8BmIlpG+nW6t/pp6Y3vBunt6Znbfnl1OUR0o
+	7eKkf0UsjCdARpVZ1i8UDFlNuB31rc3OvnqrPpA7Z7KkNEkTZOVaVKeUBNvCcE5Dymjysj1K2zzea
+	9244V/Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgysF-0000000FEJx-26E9;
-	Sat, 17 Jan 2026 05:29:23 +0000
-Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
+	id 1vgysM-0000000FEPV-3tkY;
+	Sat, 17 Jan 2026 05:29:30 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgysD-0000000FEIk-0fzc
+	id 1vgysH-0000000FEKp-3kqJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 05:29:22 +0000
-Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-1233b81a92dso3186505c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 21:29:20 -0800 (PST)
+	Sat, 17 Jan 2026 05:29:27 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2ae26a77b76so4880921eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 21:29:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768627759; x=1769232559; darn=lists.infradead.org;
-        h=to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=1/DlDzZKFpcROxVmgO7qkeA6G7xHNFkkZDHlcU3Uce8=;
-        b=JHPjdiNEMMCIWE4ol20b+4FY/7YPGTKozCFXRTlGOkYv4XTLWG0FRjkGiuKBiziUkW
-         aEwQW4GcZd2FwLX6leLievmJENoD8aNQZcHOrsC3a6D4emQM4nmd7FE5/bgY5oZygQVL
-         ShqoeJJRIAOAmHf3pLOlj3wvAQ+ED1MTC0U55xdBSppDF90S1RsVkbOxRj86XOM4VXYu
-         xZVXEBJNyCKwhda/glt3JKg0ZHz7Lp1qUxpSyUnpr7eCvK+la5YCpVck2ESCVYHqZdpF
-         fIkm48gJ/ST877qXI921/FfELxevrU+38LpZaH5GIl4sRaU42U0DNZi/aYVY/16UBVLl
-         yfUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768627759; x=1769232559;
-        h=to:from:subject:message-id:mime-version:date:x-gm-message-state
+        d=google.com; s=20230601; t=1768627764; x=1769232564; darn=lists.infradead.org;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=1/DlDzZKFpcROxVmgO7qkeA6G7xHNFkkZDHlcU3Uce8=;
-        b=FgHMTBKwddYV8yQEX2SS+mm2aP2jRkuYlznkJhjfy1qyDIi0OYFCQD2jY0Qu8oVzcl
-         C5/EHuOj8oVCcXyfV6JscEn9n97UIcrJ7ia988QNuYRS8gSXQth8IW0lZsVb0QSoSM/3
-         OTNqLU6+5HTQMVkpb4lmE0Ays75IdLKTSF1fowuR+4zyveeTk2hNuldyCVkyDygtUSOX
-         Sy3eBp0D9L5BBeeyzyrTcEYoC4DBuCTSA0C86veSxPgA8s74/J8C0E9mzjg3/yiIJQaj
-         YLqgg6GYzoMa/yYJ8skQP9mzJ+T90pYYooqh2s4ThLLBw84dPQ4dnJ4DQPpw2eMQHeom
-         z9qA==
-X-Forwarded-Encrypted: i=1; AJvYcCVT/CWlW+2EIyijqP0jqO4x9V+miITFJBTNQf/pCaGYfFMWAqtMXH4MDKH5OU/yWl8hhjtAGDxVphkOaOn7vGRh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+VpT0GryLMvJkxLi+PYjKG11PhyAUEgQetNyATUBchJRfsrRz
-	TX3eS5glP4/m5iRpewYuHuOFcD63DKGOpxzzZI+9g9997Noz4lD5X+lrMEmOoAueRxaI86Nq2j8
-	fx50IxUs1sA==
-X-Received: from dlbto2.prod.google.com ([2002:a05:7022:3b02:b0:119:9f33:34ae])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:458d:b0:123:3b91:fbe8
- with SMTP id a92af1059eb24-1233ce7a8acmr9381417c88.0.1768627759274; Fri, 16
- Jan 2026 21:29:19 -0800 (PST)
-Date: Fri, 16 Jan 2026 21:28:26 -0800
+        bh=Mz2w6bSYQtg03VDKQBBKJWoE2q+Ly0vxb+x/N3KKFNE=;
+        b=3+t0Lx+YybBFlgdZA/NfOu7TJFHdQLBXD3KB1Y66B4w/DDjeDPhs8oHdgdXY2J4vnm
+         EVqzwVcu9FsHzU8uHmHXTtDAjLYMTHfGouA1GVc7OoJABtAfbFbdpi3M0hUSJ63xHIyk
+         IElFyp4kMu6HPxnlYCHLTWTH4D/VRp7tUOwWgHmGJygHJvHpwxk9ApoZgnE4GWOhDxDB
+         5y86auqzoCmi0vWPvf1TQ2VltTjB/XkW1kSXcmcDKsoguIGF4cbAkx3DnPjA4EOxx9Wz
+         yNp67TOJHARuNEf09bStG2ICBa9Pni8OES+go937UCm9drKP1pzhWxgtX/K2qOyOwVq/
+         FMow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768627764; x=1769232564;
+        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Mz2w6bSYQtg03VDKQBBKJWoE2q+Ly0vxb+x/N3KKFNE=;
+        b=oXNpmbRTjNz1rnDQ/xmLq9yDCjN9VKLJVVu9OY4081GolVQKH5PkbeZ1rbnebMcz4R
+         td7EzctsWATjoNYKhH9Ds9deQXXcYye3c0efXF3gAdbS2Khs9ZAznGyGiZGKIivkCPBu
+         A3XQB2sLMJi80Q9gsfjaXSdgSxVLx+avKs7auLRXLi5166U0Ha/SJtwS5XlkPGAgx8FL
+         Ch2wU6rIKJfTQI/AnV1pKrj/7VW7vtILVDOU9VPM15BI8Kn84El2mprMu/omoaVbVPvV
+         x8fcBZkyXudA5l9oKJS2zlauAsDbacY4B4n8hFzpGCCvRe2JmG9Y17OH+YVrG/MZ0WOv
+         DR4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU6i9xlguvA5g9jKFnKgcuF7EIrWa8+9UbFw2dVhMpFPzazAn8raUuB23haqNI8fQi5uzkYqzFK9fmz/d7nQurt@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJKrX3uWxy1hV/EqbXSrePYyWnk2AsWHuW6gEMuqxbnX+jh9Kw
+	Y3lt3dpQv/yvau6aF8O/QOCSkZX89sPGgWtcEMRX20sqHz2o4I3qTK45o08D2IIc4IbgepxI1NZ
+	m5HxQCqrmhA==
+X-Received: from dlad13.prod.google.com ([2002:a05:701b:220d:b0:11f:330d:ed15])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:1e01:b0:123:2d38:928e
+ with SMTP id a92af1059eb24-1244b36d491mr3478584c88.35.1768627764374; Fri, 16
+ Jan 2026 21:29:24 -0800 (PST)
+Date: Fri, 16 Jan 2026 21:28:29 -0800
+In-Reply-To: <20260117052849.2205545-1-irogers@google.com>
 Mime-Version: 1.0
+References: <20260117052849.2205545-1-irogers@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260117052849.2205545-1-irogers@google.com>
-Subject: [PATCH v1 00/23] perf dwarf/libdw extra support, speed and clean ups
+Message-ID: <20260117052849.2205545-4-irogers@google.com>
+Subject: [PATCH v1 03/23] perf record: Disable inline frames when marking
+ build IDs
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
@@ -84,8 +87,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	Mark Wielaard <mark@klomp.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_212921_210963_96BCFA3C 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20260116_212925_958761_E0CC753D 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,150 +103,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The first 6 patches are minor tweaks addressing a memory leak,
-correctness and performance. Patch 5 incorportes the reviewed patch by
-Shimin Guo [1] that makes the libdw unwinding support cross
-architecture. The cross architecture files will be refactored in this
-series.
+Marking DSOs doesn't need inline frames traversing as the inline
+frames are all part of the same DSO. Disable to improve performance
+and also to avoid potential issues with dwarf information.
 
-Patch 7 unifies the dwfl for dsos and addr2line with that for the
-powerpc skip-callchain-idx. An issue described in:
-https://lore.kernel.org/lkml/CAP-5=fX+zw-CUEYEtrPA6vYUKqpp4LZp-p==QsbZaNwLcX0Whw@mail.gmail.com/
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ tools/perf/builtin-record.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Patch 8 migrates the perf regs code away from using an architecture
-substring to using the ELF machine, which is both more efficient and
-more accurate.
-
-Patches 9 to 21 clean up the libdw and dwarf register code removing
-the need for different libdw dwarf register initialization routines by
-introducing a perf reg to dwarf register mapping function. This
-function is added for all perf register supporting architectures.
-
-Patch 22 avoids discarding the dwfl for every libdw unwind, it can
-speed up perf report by amounts like 18x.
-
-Patch 23 adds inline information for frame pointers, an issue
-described here:
-https://lore.kernel.org/lkml/CAP-5=fWh5=AWq_Mav7B9nsuZ0TS2qPMMAwYhQKpt_BYFJRnf2w@mail.gmail.com/
-
-[1] https://lore.kernel.org/lkml/20260107-cross-arch-unwind-v3-1-db0e37c8a652@skydio.com/
-
-Ian Rogers (22):
-  perf symbol-elf: Fix leak of ELF files with GNU debugdata
-  perf dso: Extra validity checks that e_machine is valid
-  perf record: Disable inline frames when marking build IDs
-  perf libdw_addr2line: Fixes to srcline memory allocation
-  perf unwind-libdw: Correct argument to dwfl_attach_state
-  perf powerpc: Unify the skip-callchain-idx libdw with that for
-    addr2line
-  perf perf_regs: Switch from arch string to int e_machine
-  perf dwarf-regs: Add util/dwarf-regs-arch for consistency with
-    perf-regs
-  perf dwarf-regs: Remove get_arch_regnum
-  perf dwarf-regs: Clean up x86 dwarf_regnum code
-  perf dwarf-regs: Add get_dwarf_regnum_for_perf_regnum and use for x86
-    unwinding
-  perf dwarf-regs: Add basic get_dwarf_regnum for most architectures
-  perf dwarf-regs: Add ARM perf to dwarf register number mapping
-    functions
-  perf dwarf-regs: Add csky perf to dwarf register number mapping
-    functions
-  perf dwarf-regs: Add loongarch perf to dwarf register number mapping
-    functions
-  perf dwarf-regs: Add powerpc perf to dwarf register number mapping
-    functions
-  perf dwarf-regs: Add RISC-V perf to dwarf register number mapping
-    functions
-  perf dwarf-regs: Add S390 perf to dwarf register number mapping
-    functions
-  perf dwarf-regs: Add MIPS perf to dwarf register number mapping
-    functions
-  perf build: Remove NO_LIBDW_DWARF_UNWIND option
-  perf unwind-libdw: Don't discard loaded ELF/Dwarf after every unwind
-  perf machine: Add inline information to frame pointer and LBR
-    callchains
-
-Shimin Guo (1):
-  perf unwind-libdw: fix a cross-arch unwinding bug
-
- tools/perf/Makefile.config                    |  19 +-
- tools/perf/arch/arm/util/Build                |   1 -
- tools/perf/arch/arm/util/unwind-libdw.c       |  39 ---
- tools/perf/arch/arm64/util/Build              |   1 -
- tools/perf/arch/arm64/util/unwind-libdw.c     |  61 ----
- tools/perf/arch/csky/util/Build               |   2 -
- tools/perf/arch/csky/util/unwind-libdw.c      |  78 ------
- tools/perf/arch/loongarch/util/unwind-libdw.c |  57 ----
- tools/perf/arch/powerpc/util/Build            |   1 -
- .../arch/powerpc/util/skip-callchain-idx.c    |  52 +---
- tools/perf/arch/powerpc/util/unwind-libdw.c   |  76 -----
- tools/perf/arch/riscv/util/Build              |   1 -
- tools/perf/arch/riscv/util/unwind-libdw.c     |  58 ----
- tools/perf/arch/s390/util/Build               |   2 -
- tools/perf/arch/s390/util/unwind-libdw.c      |  65 -----
- tools/perf/arch/x86/util/Build                |   1 -
- tools/perf/arch/x86/util/unwind-libdw.c       |  54 ----
- tools/perf/builtin-record.c                   |   3 +-
- tools/perf/builtin-script.c                   |  17 +-
- tools/perf/tests/make                         |   3 +-
- tools/perf/tests/shell/addr2line_inlines.sh   |  31 ++-
- tools/perf/util/Build                         |   6 +-
- tools/perf/util/dso.c                         |  33 ++-
- tools/perf/util/dso.h                         |  23 +-
- tools/perf/util/dwarf-regs-arch/Build         |   9 +
- .../util/dwarf-regs-arch/dwarf-regs-arm.c     |  12 +
- .../util/dwarf-regs-arch/dwarf-regs-arm64.c   |  12 +
- .../util/dwarf-regs-arch/dwarf-regs-csky.c    | 126 +++++++++
- .../dwarf-regs-arch/dwarf-regs-loongarch.c    |  12 +
- .../util/dwarf-regs-arch/dwarf-regs-mips.c    |  14 +
- .../util/dwarf-regs-arch/dwarf-regs-powerpc.c | 136 +++++++++
- .../util/dwarf-regs-arch/dwarf-regs-riscv.c   |  12 +
- .../util/dwarf-regs-arch/dwarf-regs-s390.c    |  53 ++++
- .../util/dwarf-regs-arch/dwarf-regs-x86.c     | 260 ++++++++++++++++++
- tools/perf/util/dwarf-regs-csky.c             |  50 ----
- tools/perf/util/dwarf-regs-powerpc.c          |  61 ----
- tools/perf/util/dwarf-regs-x86.c              |  50 ----
- tools/perf/util/dwarf-regs.c                  | 151 +++++++++-
- tools/perf/util/evsel.c                       |  14 +-
- tools/perf/util/include/dwarf-regs.h          |  28 +-
- tools/perf/util/libdw.c                       | 115 ++++----
- tools/perf/util/libdw.h                       |  12 +-
- tools/perf/util/machine.c                     | 104 ++++---
- tools/perf/util/maps.c                        |  36 ++-
- tools/perf/util/maps.h                        |   4 +
- tools/perf/util/perf_regs.c                   | 105 ++++---
- tools/perf/util/perf_regs.h                   |  10 +-
- .../scripting-engines/trace-event-python.c    |  21 +-
- tools/perf/util/session.c                     |  65 +++--
- tools/perf/util/session.h                     |   1 +
- tools/perf/util/srcline.c                     |   2 +-
- tools/perf/util/symbol-elf.c                  |   2 +-
- tools/perf/util/unwind-libdw.c                | 154 +++++++++--
- tools/perf/util/unwind-libdw.h                |  10 +-
- tools/perf/util/unwind-libunwind-local.c      |   7 +-
- 55 files changed, 1347 insertions(+), 985 deletions(-)
- delete mode 100644 tools/perf/arch/arm/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/arm64/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/csky/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/loongarch/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/powerpc/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/riscv/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/s390/util/unwind-libdw.c
- delete mode 100644 tools/perf/arch/x86/util/unwind-libdw.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/Build
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-arm.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-arm64.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-csky.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-loongarch.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-mips.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-powerpc.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-riscv.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-s390.c
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-x86.c
- delete mode 100644 tools/perf/util/dwarf-regs-csky.c
- delete mode 100644 tools/perf/util/dwarf-regs-powerpc.c
- delete mode 100644 tools/perf/util/dwarf-regs-x86.c
-
+diff --git a/tools/perf/builtin-record.c b/tools/perf/builtin-record.c
+index 003e47a4fc1d..663ca3a03396 100644
+--- a/tools/perf/builtin-record.c
++++ b/tools/perf/builtin-record.c
+@@ -1509,6 +1509,8 @@ static int process_buildids(struct record *rec)
+ 	if (perf_data__size(&rec->data) == 0)
+ 		return 0;
+ 
++	/* A single DSO is needed and not all inline frames. */
++	symbol_conf.inline_name = false;
+ 	/*
+ 	 * During this process, it'll load kernel map and replace the
+ 	 * dso->long_name to a real pathname it found.  In this case
+@@ -1519,7 +1521,6 @@ static int process_buildids(struct record *rec)
+ 	 *   $HOME/.debug/.build-id/f0/6e17aa50adf4d00b88925e03775de107611551
+ 	 */
+ 	symbol_conf.ignore_vmlinux_buildid = true;
+-
+ 	/*
+ 	 * If --buildid-all is given, it marks all DSO regardless of hits,
+ 	 * so no need to process samples. But if timestamp_boundary is enabled,
 -- 
 2.52.0.457.g6b5491de43-goog
 
