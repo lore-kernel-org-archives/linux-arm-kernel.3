@@ -4,80 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444A5C98306
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 00:24:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CDCC9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 00:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Db/w/ndP0/YmMrTixmEW0XL65vVvpJoSOBjEcS/pWrI=; b=Tl2JmD/o92fuav5nlG1Vszp36+
-	on558nxh+Ld7J6unvjzx/+d00Ru63DkBwr4VSYZwPTEE6JUGytvOuNSEJuIl2n7nJbQiaCyuhGl7c
-	poshl6Zv8Yoc5c29I16ZGE296Oa4W88DtklN6LYlHfVu8lqOp6T4w2w8XxStSWIdxAjgYoFu2AiIK
-	wucocZaatzOwVFngRTwaiSB0xUmL+Q7VoQ2K2XbPHGrCrIE4OFe8l5h54h+dZshiAduI6dX3Yldhv
-	o9P+1JThA7VcT7BWvO71R5wWkju6Go+KdBbzRU98t+Rc1//9PrlWvBVq/pRngbYgqFxkh+Uu2g3Aj
-	Eb42sngA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6uvymewojZryJCsLththt6b69bwDDih6ton1Gz+XXhM=; b=BuBb70Uh66d6zrI3DJ2kpc4c2V
+	EkiSmERPVVYVjWdCdYXkV37spq9BxEmMB2KlIJ3hAGatOZz4sVtrjKUGWdbXq+APwdaYTpDnoW2B/
+	jxBOz1imbxv3TXwRWkmFmcw1xqj6AiPKH9ZwBN/XJyQtSIm0l5bxvmltmvMUjrOGmmguIiGMudMgU
+	Fhu+KtMp9yv+N9maVa1Vb3CLL5ZJ2gQt/XwCF3nDP9x9HeCuXC2GXQVC9rP8dHThhY7O0izB2Zo6P
+	0Nja7IxweDnAgYpFQ2KZGye+uGMqU1zViESRVjigNyH6s/mwxebeUinzpX/34/8jHBbiX86ik5hf5
+	rBIZ/y3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgu6z-0000000F37u-2inU;
-	Sat, 17 Jan 2026 00:24:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vguNc-0000000F3qK-3KBC;
+	Sat, 17 Jan 2026 00:41:28 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgu6x-0000000F36s-0Mke
+	id 1vguNa-0000000F3px-2ZUj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 00:24:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D878E4447A
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Jan 2026 00:24:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA619C2BCB4
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 17 Jan 2026 00:24:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768609453;
-	bh=U6A5F66/8wNeQzB5YOqAPM9qiLWuTBzYGYXMcYaBqBA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=fBqqNAYi7nbIuYUiNgJZmh1dgDVoDnmqPByeNNo6Jrxv5usPZVXBqNftzLuWkuhdJ
-	 FTm2LhOrFL2n9Fb69gD7wTUf8eptdKImIga8BEup3eUnssoWIR6l1HcHV8cLoChtL6
-	 02wAcTOzNnBq1TmCU13cJbzBffcj7xAaXqNXA7KsGp7FTuddHl28cOkCgcvlw1nbF1
-	 3E5AueiSveP62C3hwfxxKrKQY6TSdoPgO2eFw5yAmJU30G71ngdO0yRS2Cibgr5QZF
-	 g8koAqI0Uu0kvmYzwEOjKslKwN0HXIfHXaAA9YnUlvDY9mYKC/rgG6YmDEk6xl1HVK
-	 PNjFP/PPiZkog==
-Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-121a0bcd376so1786770c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 16:24:13 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCU9jfjT54UHlAcSAyQb5ipazkP3nDuuh0J0mbiSOgwqF3W4MKo/Si80zJXvDmJZHlqmIq1tNBmWRdQt4pMk0Jlj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxS0aKvFzb/jKJ+v+5VEFCMwcRkDMU6kdFbvlPwdma/ADntJr7Z
-	I572sfSroJJqVb1pqzhmGz9rlf/N5OK6Fcwu+yDkW6RRyZBIIdRnhmXIj1D/zcVO/rNen3CbglF
-	j0Dc2EYcAyfcIo3rtaVIlTDbmb5/F1g==
-X-Received: by 2002:a05:7022:221a:b0:119:e56b:c73d with SMTP id
- a92af1059eb24-1244a6d7e40mr4659486c88.2.1768609452861; Fri, 16 Jan 2026
- 16:24:12 -0800 (PST)
+	Sat, 17 Jan 2026 00:41:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=6uvymewojZryJCsLththt6b69bwDDih6ton1Gz+XXhM=; b=IVr8PxaPV0S8d/tCWJCIHIvCtL
+	z4nImASU68m5coDgg52WNKzv2WpuM4+tjujlJ+4ucL0/fz1sHQHBFQOH4EYHfmBTDuSYk52ATY2MR
+	MOFpt7YzNUGs/N2jWCfxHzBo9/6/zMCPkDkv+QnNOsUgPB7gfWn/S4JJbBKjH08zhDbs=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vguNT-0038Gv-Gk; Sat, 17 Jan 2026 01:41:19 +0100
+Date: Sat, 17 Jan 2026 01:41:19 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Cc: Mark Brown <broonie@kernel.org>, Michal Simek <michal.simek@amd.com>,
+	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] spi: dt-bindings: xilinx: make interrupts optional
+Message-ID: <0b4904fa-ae9f-44e0-96a8-f5f1ef57f36c@lunn.ch>
+References: <20260116233535.260114-1-abdurrahman@nexthop.ai>
+ <20260116233535.260114-3-abdurrahman@nexthop.ai>
 MIME-Version: 1.0
-References: <20251217-mtk-genio-evk-hdmi-support-v2-0-a994976bb39a@collabora.com>
- <20251217-mtk-genio-evk-hdmi-support-v2-1-a994976bb39a@collabora.com>
-In-Reply-To: <20251217-mtk-genio-evk-hdmi-support-v2-1-a994976bb39a@collabora.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Sat, 17 Jan 2026 00:24:00 +0000
-X-Gmail-Original-Message-ID: <CAAOTY__5MX0bsuW2r4V3Chg4H=_HqNJLCLQkzL7EhYgHmp94cA@mail.gmail.com>
-X-Gm-Features: AZwV_QhrVWk7cGaynTa_jr48veRrDR3eq9SxYYQUvBNFuYXcjhmjYCg6uHpV0TE
-Message-ID: <CAAOTY__5MX0bsuW2r4V3Chg4H=_HqNJLCLQkzL7EhYgHmp94cA@mail.gmail.com>
-Subject: Re: [PATCH v2 01/12] dt-bindings: phy: mediatek,hdmi-phy: Fix clock
- output names for MT8195
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Guillaume Ranquet <granquet@baylibre.com>, kernel@collabora.com, 
-	Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260116233535.260114-3-abdurrahman@nexthop.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_162415_171989_0C6AD7FE 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20260116_164126_653082_D0F28BB5 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,65 +69,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Louis:
+On Fri, Jan 16, 2026 at 11:35:35PM +0000, Abdurrahman Hussain wrote:
+> This makes the driver work on platforms where interrupts are either not
+> provided or broken.
+> 
+> Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com> =E6=96=BC 2025=E5=B9=
-=B412=E6=9C=8817=E6=97=A5=E9=80=B1=E4=B8=89
-=E4=B8=8A=E5=8D=8810:19=E5=AF=AB=E9=81=93=EF=BC=9A
->
-> From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com=
->
->
-> For all of the HDMI PHYs compatible with the one found on MT8195
-> the output clock has a different datasheet name and specifically
-> it is called "hdmi_txpll", differently from the older HDMI PHYs
-> which output block is called "hdmitx_dig_cts".
->
-> Replace clock output name string check by max item number one to allow
-> the new name on all of the HDMI PHY IPs that are perfectly compatible
-> with MT8195.
->
-> [Louis-Alexis Eyraud: split patch, addressed previous feedback from
-> mailing list, and reworded description]
+To get a Reviewed-by: for this patch you will need to Cc:the device
+tree Maintainers.
 
-Applied the binding patches of this series to mediatek-drm-next [1], thanks=
-.
+https://docs.kernel.org/devicetree/bindings/submitting-patches.html
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-next
+This is also version 2 of the patch, so you should of marked this as v2.
 
-Regards,
-Chun-Kuang.
+https://docs.kernel.org/process/submitting-patches.html
 
->
-> Fixes: c78fe548b062 ("dt-bindings: phy: mediatek: hdmi-phy: Add mt8195 co=
-mpatible")
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 > ---
->  Documentation/devicetree/bindings/phy/mediatek,hdmi-phy.yaml | 3 +--
+>  Documentation/devicetree/bindings/spi/spi-xilinx.yaml | 3 +--
 >  1 file changed, 1 insertion(+), 2 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/phy/mediatek,hdmi-phy.yaml=
- b/Documentation/devicetree/bindings/phy/mediatek,hdmi-phy.yaml
-> index f3a8b0b745d13ffc55d391570bff20830d925ed3..10f1d9326f18dba85b92b4c88=
-f4c0f6cdddc4c25 100644
-> --- a/Documentation/devicetree/bindings/phy/mediatek,hdmi-phy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/mediatek,hdmi-phy.yaml
-> @@ -42,8 +42,7 @@ properties:
->        - const: pll_ref
->
->    clock-output-names:
-> -    items:
-> -      - const: hdmitx_dig_cts
-> +    maxItems: 1
->
->    "#phy-cells":
->      const: 0
->
-> --
-> 2.52.0
->
+> 
+> diff --git a/Documentation/devicetree/bindings/spi/spi-xilinx.yaml b/Documentation/devicetree/bindings/spi/spi-xilinx.yaml
+> index 4beb3af0416d..8296edde61b0 100644
+> --- a/Documentation/devicetree/bindings/spi/spi-xilinx.yaml
+> +++ b/Documentation/devicetree/bindings/spi/spi-xilinx.yaml
+> @@ -23,7 +23,7 @@ properties:
+>      maxItems: 1
+>  
+>    interrupts:
+> -    maxItems: 1
+> +    maxItems: 1 # optional
+
+I suspect the DT Maintainer won't link this comment. All properties
+are optional unless they are listed in the required: section.
+
+	Andrew
 
