@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB079C9830C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 01:56:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A0BBC9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 02:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gjdnOMYxgl/vjGXQ/n7IzHf/1ofnjBUGIsptN+NVRLI=; b=p1Y7XwYskPEi0Oxvx5wStf9rL9
-	b1sdRwEhoNYrnAOwHEaeCNKkRB1eI9V28TQToZCS3RV7K0vcAk7Tge0/BZxitd+vuW/lqzcKcLZJn
-	7ryWqzw6Trq3qCPMgUDObbIKB/nOhxZrOFuBO8IbZgZzPVDsQERNtMej1du0ElOW+c34tFFQZnbvn
-	OaPTvFq3EbkDCEAVVcAEi/4rFk9mrBzEPYWBUPU1bVnd/WBUPRBIgEO7VGsqfsiS3EAve3cXCh6Cd
-	qgg+5MjHytvxgQr0Pl5kejiCtTh6zWqfnnPobFt2PWvSLks8mNiD6VEVIrGE4Cr61BKoMebp/4drU
-	ZTCTRSKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kzAShONMxakgZx0sMYCMguuiF9B/PMQXpLKQ0x5T1IA=; b=EPHBKIOzidLtYwWqhKPBzB9E17
+	lFJFfPByeaSfooYT0+fYatW8zcLHCJxhkqHgS09P8J5m9XSxx1m6VIFFcC4AhqOkdotnk/QdFde48
+	yHCh/TElSeOeAqyokAfQC+7t67Y8GPjPZ5lYFiSV+Aek/pyBnES0S+7ZtBCisaPflOtWGOnimvAM9
+	XyDkdXvoQi3MVTOElUqWoqPoBFLUbqNrkBdy+FtBP678xIoI3LXDkwwkmK2GJeY6mIBb7CX38MnCk
+	kDSDGoVNQWN7wLypvsABZidSOU1eJCzTXn0tCEhjJeXCPxZLZ1VF5tsM/abOjIUoBcs93t6QVuO65
+	DC1qNcgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgvXh-0000000F6sI-3VNO;
-	Sat, 17 Jan 2026 01:55:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vgvk9-0000000F7BG-0QWx;
+	Sat, 17 Jan 2026 02:08:50 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgvXf-0000000F6rz-1H1e
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 01:55:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2652B43461;
-	Sat, 17 Jan 2026 01:55:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5812EC116C6;
-	Sat, 17 Jan 2026 01:55:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768614953;
-	bh=/ndufQu+5ufz1nSWIQD0PSCXNtfxZ4UB7J4iOp1rMug=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oIF+kQRqUNRgSz3CUmtB4HrLAyXh0CrtZdIqpO2CaMoZVT+f975ZW5QOHy90xPQ3S
-	 ly1eqMia8GAedMwQX3/9nW7RImllHgacShWL+fmAu1C4xgdYMsZB6zQCKO2wCfKzIN
-	 T14lRFEwLsX/6lpsVtNjC0K6m28/jsgoiJzFlIs8r5OLYdczXAv0E+fHYWO2U7aMUf
-	 k7Y2wTsj/Ah/HV334CTdejsRACZf8Isg20RGef9an8tilKsLjgGCIbN2gOBWTMS0a/
-	 cqg0Ju+OZa+jQSQSRfoSjkt5mwhpc3/AaEi1TgpKgI6omPnmSfUP8v0I+yR6VTXsEn
-	 OlcN5M1TqwkyQ==
-Date: Sat, 17 Jan 2026 09:55:44 +0800
-From: Shawn Guo <shawnguo@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengfei Li <pengfei.li_1@nxp.com>,
-	Marco Felsch <m.felsch@pengutronix.de>, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ye.li@nxp.com, joy.zou@nxp.com
-Subject: Re: [PATCH v7 3/3] arm64: dts: imx91: Add thermal-sensor and
- thermal-zone support
-Message-ID: <aWrsIIAVgZrcSCtq@dragon>
-References: <20251020-imx91tmu-v7-0-48d7d9f25055@nxp.com>
- <20251020-imx91tmu-v7-3-48d7d9f25055@nxp.com>
+	id 1vgvk5-0000000F7Ao-2tB9;
+	Sat, 17 Jan 2026 02:08:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=kz
+	AShONMxakgZx0sMYCMguuiF9B/PMQXpLKQ0x5T1IA=; b=gb+09gFiNvV18PWSlk
+	VqTY1i2FJ54L0Lea7/OtUu8wuFTH9Gp4NnrmyAump/wnoIuvnnHCMQd4kiRi/1Vh
+	L55S/vpsLoSnHR9oc7iytM0C8Qk/21OzCEFFxe+Ms2LNLXzZ/bbK54eTMNdjoxCy
+	z5MEYxaVaoOS87xEfFAZspMXM=
+Received: from ProDesk-480.. (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wDn8vbr7mpp2WGKGA--.116S2;
+	Sat, 17 Jan 2026 10:07:44 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: hjc@rock-chips.com,
+	mripard@kernel.org,
+	maarten.lankhorst@linux.intel.com,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v2] drm/rockchip: vop2: Add mode valid callback for crtc
+Date: Sat, 17 Jan 2026 10:07:30 +0800
+Message-ID: <20260117020738.294825-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251020-imx91tmu-v7-3-48d7d9f25055@nxp.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDn8vbr7mpp2WGKGA--.116S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7urWrGw1UXrWDZr43uF15Arb_yoW8CF4xpa
+	17JFWYgr48WFZFgF1kJF1DCr1Ykw1ayayxJrs3W3W3Zas3tr4DX3WrCryUCry3XFy7Ga43
+	KrnrAFW5AFWI9F7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jOb18UUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbCxhDsS2lq7vBudAAA32
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_175555_382686_CF144A05 
-X-CRM114-Status: UNSURE (   6.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260116_180846_158832_761A4AF3 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,10 +78,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 20, 2025 at 03:00:42PM -0400, Frank Li wrote:
-> Add thermal-sensor and thermal-zone support.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+From: Andy Yan <andy.yan@rock-chips.com>
 
-Applied, thanks!
+The different Video Ports support different maximum resolutions.
+Reject resolutions that are not supported by a specific VP.
+
+Only the output width is checked because the hardware itself does
+not have a hard output height limit.
+
+Filter the mode that can't output by the VP/crtc.
+
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+
+---
+
+Changes in v2:
+- Add more detailed commit message
+
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 498df0ce4680..74fba29bfff3 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1439,6 +1439,17 @@ static void vop2_crtc_disable_vblank(struct drm_crtc *crtc)
+ 	vop2_crtc_disable_irq(vp, VP_INT_FS_FIELD);
+ }
+ 
++static enum drm_mode_status vop2_crtc_mode_valid(struct drm_crtc *crtc,
++						 const struct drm_display_mode *mode)
++{
++	struct vop2_video_port *vp = to_vop2_video_port(crtc);
++
++	if (mode->hdisplay > vp->data->max_output.width)
++		return MODE_BAD_HVALUE;
++
++	return MODE_OK;
++}
++
+ static bool vop2_crtc_mode_fixup(struct drm_crtc *crtc,
+ 				 const struct drm_display_mode *mode,
+ 				 struct drm_display_mode *adj_mode)
+@@ -1884,6 +1895,7 @@ static void vop2_crtc_atomic_flush(struct drm_crtc *crtc,
+ 
+ static const struct drm_crtc_helper_funcs vop2_crtc_helper_funcs = {
+ 	.mode_fixup = vop2_crtc_mode_fixup,
++	.mode_valid = vop2_crtc_mode_valid,
+ 	.atomic_check = vop2_crtc_atomic_check,
+ 	.atomic_begin = vop2_crtc_atomic_begin,
+ 	.atomic_flush = vop2_crtc_atomic_flush,
+-- 
+2.43.0
+
+base-commit: 1613a67b5360d6ff78f62143a1cf123414a1b4d9
+branch: rk3576-dp-upstream
+
 
