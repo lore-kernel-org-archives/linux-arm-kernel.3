@@ -4,69 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA3A6C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 11:03:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D442C98318
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 11:04:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f5K99/trExvpAf7KoxmDVfjMJhpr+FPqIPC+4L/MFc8=; b=mM/afao9FMU5w4erzUTtcQCjFw
-	ZYeQj3XbCCBVABjZGpKY+OaPSqJBsTciRvRwARSzYRJpTvw5vfzD5DFBuZ9BKdJBpWqSiU4TKlHyp
-	nkMQUOECb3qzJZrKYWBFNIe4nX0J64mJiphWC4IjCD+8Z4Gja9WGG3qLoAVkKhNBE8gyXphT8k8UI
-	oJogLEvXD7Zhb1qkIg5HOHZ+GFatk5ItHQ4VKr/evAiD3ELXTqMkGvUVCljIvJcrNAFRuPKYEWYya
-	qSEIlXU7leUNiyjC8nreRN9bK6IwlVjSOfDIHLdLIInETGS/F3JgZLMt/zgT5rjVFYtQshmvlfYrm
-	yh0GyhHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XDvKYaYz98lp48r4tSL8nq/4jDewbWfQ6P2SUHpua8I=; b=CDn8YPY7DJnpAgef+Lh9/V3f0D
+	V3seAjxIifmauXxCOvM/ZPTUWs/pdobfWfWzf/2wH1i+R3uoZzOxZuCMU30JfJkxV3Ei/ZbhVaRRR
+	pQ+AGFpuq9zNnQShl1KAB4LMPKfZa9O59+3JyjFu2r+3UnT7KsRuOTPQR0bJobS6E7LhOyXsJ0BO0
+	fZ4uNKRbH6VjyzkA4rCwYvCwIwmoY7X9Eo6VsToINsSIOVcBPR34m01bKkH8VP6vpCkvmVEObHo7v
+	9x4RHjW6/x0xOyK/71CXHnVXZ0WWdWxtwuxpfpftmbRi7jC2jQ/qPb0NIVhM2OVE+rPosZ8Co3Td2
+	L/3tdz2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh45Z-0000000FT2c-2npG;
-	Sat, 17 Jan 2026 11:03:29 +0000
+	id 1vh46P-0000000FTA7-1HzJ;
+	Sat, 17 Jan 2026 11:04:21 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh45W-0000000FT2C-2u4Z;
-	Sat, 17 Jan 2026 11:03:27 +0000
+	id 1vh46N-0000000FT9g-0GNb
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 17 Jan 2026 11:04:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 269D8437A3;
-	Sat, 17 Jan 2026 11:03:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B213C4CEF7;
-	Sat, 17 Jan 2026 11:03:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B2882437A3;
+	Sat, 17 Jan 2026 11:04:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26620C4CEF7;
+	Sat, 17 Jan 2026 11:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768647805;
-	bh=O+duQ4JNA7Nott7rAhBuH0I1nT89hCgeyNw0mpwEzjg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CM7IEuumCuUr8tQUn1mAa4brRyWwMxEit3KmPILt6x24ftoLF98QlqWD5qfVxIR/r
-	 cHrq2Uu+a46tPnQs+qKfKkWpXfb6Ql5sciUqUPASd9K/XM9CjkaJbepmQ9U6aj2jIr
-	 3Y5AWv6plm78hBx7NmUyVSJxTyeVEaXn4B3/5ULcT3j7Sq7NJZ1kWtl/wa2qEJxquW
-	 v1ewSD7+Ee05NqQg9++H3A74uX4sMuDnVIz/YxWP2mwF0WpwaNp/ERXIuCjIxCZXxs
-	 qnSpVTY5KwIKiflyZiodClza/H/dMqzzFXeNASuTK8FT8lDjhXcWAUDADrTV20u8DS
-	 wXdSRp5nOVZFg==
-Date: Sat, 17 Jan 2026 16:33:09 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
-	Chaitanya Kulkarni <kch@nvidia.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Koichiro Den <den@valinux.co.jp>, Niklas Cassel <cassel@kernel.org>, dmaengine@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org, 
-	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH v3 8/9] PCI: epf-mhi: Use dmaengine_prep_config_single()
- to simplify code
-Message-ID: <lsvjhgxkpk3drbu4nvika5rj7yvc3dqvu6fhibj4nlsuq7fulx@odbkesxm377n>
-References: <20260105-dma_prep_config-v3-0-a8480362fd42@nxp.com>
- <20260105-dma_prep_config-v3-8-a8480362fd42@nxp.com>
+	s=k20201202; t=1768647858;
+	bh=iZd2WGtrz4K8KwtyPmoe1KVkdpbYnxbodZlqLJbQQCU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=V6gld+WTQqx7VOm6Xa19G8HK7HCroMTwPP7Uoro0lB79dXT7tkILtU50ZCC9H1D2z
+	 qe3HWmnz/D6uif8qRqUjqF725ZgXs6mvzg6EeJ9+aPzqdftCJH0rnGo3vmTpVroUPL
+	 82mv7HSJo2FHr4zr72c5RnYjt3WOCsR+j2tqKsl/S8RHtMyRDEXQwaalfJNHYvrWYA
+	 PVAtFMYLpCfdkuCRbnNuvp+jOUVRP9aC2ZY6CDvFmONcYeKL6gaM6hNhuzy7RHhjyD
+	 +82hu5W1FeDNa/yWXwc8VZUU+SG9+x6wOTTVrKm+T8RkwE+bS+q6YbpwJXjbuMg/bB
+	 bURo0N4DPuLQA==
+Message-ID: <642dde91-1e68-4d53-84ff-e5535d37be67@kernel.org>
+Date: Sat, 17 Jan 2026 12:04:15 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260105-dma_prep_config-v3-8-a8480362fd42@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] arm64: defconfig: enable TPS6594 power button module
+To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260115132558.1522169-1-mwalle@kernel.org>
+ <20260115132558.1522169-3-mwalle@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260115132558.1522169-3-mwalle@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260117_030326_775522_2763DC4E 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20260117_030419_145412_51169531 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,142 +118,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 05, 2026 at 05:46:58PM -0500, Frank Li wrote:
-> Use dmaengine_prep_config_single() to simplify
-> pci_epf_mhi_edma_read[_sync]() and pci_epf_mhi_edma_write[_sync]().
+On 15/01/2026 14:24, Michael Walle wrote:
+> To enable the power button on Kontron SMARC-sAM67 modules, enable the
+> driver for it.
 > 
-> No functional change.
-> 
-> Tested-by: Niklas Cassel <cassel@kernel.org>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-
-Acked-by: Manivannan Sadhasivam <mani@kernel.org>
-
-- Mani
-
+> Signed-off-by: Michael Walle <mwalle@kernel.org>
 > ---
-> Keep mutex lock because sync with other function.
-> ---
->  drivers/pci/endpoint/functions/pci-epf-mhi.c | 52 +++++++++-------------------
->  1 file changed, 16 insertions(+), 36 deletions(-)
-> 
-> diff --git a/drivers/pci/endpoint/functions/pci-epf-mhi.c b/drivers/pci/endpoint/functions/pci-epf-mhi.c
-> index 6643a88c7a0ce38161bc6253c09d29f1c36ba394..0bf51fd467395182161555f83aa78f3839e36773 100644
-> --- a/drivers/pci/endpoint/functions/pci-epf-mhi.c
-> +++ b/drivers/pci/endpoint/functions/pci-epf-mhi.c
-> @@ -328,12 +328,6 @@ static int pci_epf_mhi_edma_read(struct mhi_ep_cntrl *mhi_cntrl,
->  	config.direction = DMA_DEV_TO_MEM;
->  	config.src_addr = buf_info->host_addr;
->  
-> -	ret = dmaengine_slave_config(chan, &config);
-> -	if (ret) {
-> -		dev_err(dev, "Failed to configure DMA channel\n");
-> -		goto err_unlock;
-> -	}
-> -
->  	dst_addr = dma_map_single(dma_dev, buf_info->dev_addr, buf_info->size,
->  				  DMA_FROM_DEVICE);
->  	ret = dma_mapping_error(dma_dev, dst_addr);
-> @@ -342,9 +336,10 @@ static int pci_epf_mhi_edma_read(struct mhi_ep_cntrl *mhi_cntrl,
->  		goto err_unlock;
->  	}
->  
-> -	desc = dmaengine_prep_slave_single(chan, dst_addr, buf_info->size,
-> -					   DMA_DEV_TO_MEM,
-> -					   DMA_CTRL_ACK | DMA_PREP_INTERRUPT);
-> +	desc = dmaengine_prep_config_single(chan, dst_addr, buf_info->size,
-> +					    DMA_DEV_TO_MEM,
-> +					    DMA_CTRL_ACK | DMA_PREP_INTERRUPT,
-> +					    &config);
->  	if (!desc) {
->  		dev_err(dev, "Failed to prepare DMA\n");
->  		ret = -EIO;
-> @@ -399,12 +394,6 @@ static int pci_epf_mhi_edma_write(struct mhi_ep_cntrl *mhi_cntrl,
->  	config.direction = DMA_MEM_TO_DEV;
->  	config.dst_addr = buf_info->host_addr;
->  
-> -	ret = dmaengine_slave_config(chan, &config);
-> -	if (ret) {
-> -		dev_err(dev, "Failed to configure DMA channel\n");
-> -		goto err_unlock;
-> -	}
-> -
->  	src_addr = dma_map_single(dma_dev, buf_info->dev_addr, buf_info->size,
->  				  DMA_TO_DEVICE);
->  	ret = dma_mapping_error(dma_dev, src_addr);
-> @@ -413,9 +402,10 @@ static int pci_epf_mhi_edma_write(struct mhi_ep_cntrl *mhi_cntrl,
->  		goto err_unlock;
->  	}
->  
-> -	desc = dmaengine_prep_slave_single(chan, src_addr, buf_info->size,
-> -					   DMA_MEM_TO_DEV,
-> -					   DMA_CTRL_ACK | DMA_PREP_INTERRUPT);
-> +	desc = dmaengine_prep_config_single(chan, src_addr, buf_info->size,
-> +					    DMA_MEM_TO_DEV,
-> +					    DMA_CTRL_ACK | DMA_PREP_INTERRUPT,
-> +					    &config);
->  	if (!desc) {
->  		dev_err(dev, "Failed to prepare DMA\n");
->  		ret = -EIO;
-> @@ -502,12 +492,6 @@ static int pci_epf_mhi_edma_read_async(struct mhi_ep_cntrl *mhi_cntrl,
->  	config.direction = DMA_DEV_TO_MEM;
->  	config.src_addr = buf_info->host_addr;
->  
-> -	ret = dmaengine_slave_config(chan, &config);
-> -	if (ret) {
-> -		dev_err(dev, "Failed to configure DMA channel\n");
-> -		goto err_unlock;
-> -	}
-> -
->  	dst_addr = dma_map_single(dma_dev, buf_info->dev_addr, buf_info->size,
->  				  DMA_FROM_DEVICE);
->  	ret = dma_mapping_error(dma_dev, dst_addr);
-> @@ -516,9 +500,10 @@ static int pci_epf_mhi_edma_read_async(struct mhi_ep_cntrl *mhi_cntrl,
->  		goto err_unlock;
->  	}
->  
-> -	desc = dmaengine_prep_slave_single(chan, dst_addr, buf_info->size,
-> -					   DMA_DEV_TO_MEM,
-> -					   DMA_CTRL_ACK | DMA_PREP_INTERRUPT);
-> +	desc = dmaengine_prep_config_single(chan, dst_addr, buf_info->size,
-> +					    DMA_DEV_TO_MEM,
-> +					    DMA_CTRL_ACK | DMA_PREP_INTERRUPT,
-> +					    &config);
->  	if (!desc) {
->  		dev_err(dev, "Failed to prepare DMA\n");
->  		ret = -EIO;
-> @@ -581,12 +566,6 @@ static int pci_epf_mhi_edma_write_async(struct mhi_ep_cntrl *mhi_cntrl,
->  	config.direction = DMA_MEM_TO_DEV;
->  	config.dst_addr = buf_info->host_addr;
->  
-> -	ret = dmaengine_slave_config(chan, &config);
-> -	if (ret) {
-> -		dev_err(dev, "Failed to configure DMA channel\n");
-> -		goto err_unlock;
-> -	}
-> -
->  	src_addr = dma_map_single(dma_dev, buf_info->dev_addr, buf_info->size,
->  				  DMA_TO_DEVICE);
->  	ret = dma_mapping_error(dma_dev, src_addr);
-> @@ -595,9 +574,10 @@ static int pci_epf_mhi_edma_write_async(struct mhi_ep_cntrl *mhi_cntrl,
->  		goto err_unlock;
->  	}
->  
-> -	desc = dmaengine_prep_slave_single(chan, src_addr, buf_info->size,
-> -					   DMA_MEM_TO_DEV,
-> -					   DMA_CTRL_ACK | DMA_PREP_INTERRUPT);
-> +	desc = dmaengine_prep_config_single(chan, src_addr, buf_info->size,
-> +					    DMA_MEM_TO_DEV,
-> +					    DMA_CTRL_ACK | DMA_PREP_INTERRUPT,
-> +					    &config);
->  	if (!desc) {
->  		dev_err(dev, "Failed to prepare DMA\n");
->  		ret = -EIO;
-> 
-> -- 
-> 2.34.1
-> 
+>  arch/arm64/configs/defconfig | 1 +
 
--- 
-மணிவண்ணன் சதாசிவம்
+
+All these three is one change, you do everything for the same purpose -
+specific upstream board.
+
+Do not split commits per line but per logical changes. Change here is:
+enable defconfig options so your board will work fine.
+
+Best regards,
+Krzysztof
 
