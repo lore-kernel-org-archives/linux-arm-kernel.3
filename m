@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99531C98312
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 05:29:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4FF0C98311
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 05:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
 	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mz2w6bSYQtg03VDKQBBKJWoE2q+Ly0vxb+x/N3KKFNE=; b=ltQYvIsgZMdvtdIVUbs9bQsS6F
-	hVgRViu4LtcgiGFUxgn+N+YaKTPREGvmgNXQnouh+JHAO8O/h6Dgbw9P/bAKveVvFPLEh0Ivq8h04
-	d9yZGbIdRMq/Va91KJSLrESr7wsdPG1Yhy5VBKuUKZquywTBz5m8Myh7qy5CZbhSuMzR9W/jkJOMA
-	KEenUkDdDArXXJTGVkLec4IkoswgLZ+bKWHGLMHTk8BmIlpG+nW6t/pp6Y3vBunt6Znbfnl1OUR0o
-	7eKkf0UsjCdARpVZ1i8UDFlNuB31rc3OvnqrPpA7Z7KkNEkTZOVaVKeUBNvCcE5Dymjysj1K2zzea
-	9244V/Dw==;
+	bh=kK4WpTbjYTQ30LMox0FYXGUlgDkXshdRvemGVnSiQqs=; b=DcUu7SVDut/h0e8ZyBrmn36rvB
+	uvqenCJ3EP1CTyxv5coEGH/reSIOC2jVieJwEayFzF6WVd62au9V1rp/7cWeSzKM/J92xKcEg4NKN
+	snFHCNGifsx3AMT+gnmrR2vA8FXlf0DCK7I6fIkCNc4bdmO9A8fpQF9Smml+rZ+O990/nIbfyFHx0
+	Pbdgp2/KapEhAmS3NSdxcLFdSL9whS84tP064Gzta9iwmCrS6jswBIBvXxtgS2WiplvUe8bPG59HV
+	psu9fdrodR2BezSoYuHPYFPzHoKpzCG/gawnQYO06EGWmz1YX8KoLQyexD65PuxQ51ABy9nOpjaVL
+	uJ6bZtYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgysM-0000000FEPV-3tkY;
+	id 1vgysM-0000000FEP9-2gUy;
 	Sat, 17 Jan 2026 05:29:30 +0000
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgysH-0000000FEKp-3kqJ
+	id 1vgysG-0000000FEJw-3IsF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 05:29:27 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2ae26a77b76so4880921eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 21:29:25 -0800 (PST)
+	Sat, 17 Jan 2026 05:29:25 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2a0fe4ade9eso25319835ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 21:29:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768627764; x=1769232564; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1768627763; x=1769232563; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=Mz2w6bSYQtg03VDKQBBKJWoE2q+Ly0vxb+x/N3KKFNE=;
-        b=3+t0Lx+YybBFlgdZA/NfOu7TJFHdQLBXD3KB1Y66B4w/DDjeDPhs8oHdgdXY2J4vnm
-         EVqzwVcu9FsHzU8uHmHXTtDAjLYMTHfGouA1GVc7OoJABtAfbFbdpi3M0hUSJ63xHIyk
-         IElFyp4kMu6HPxnlYCHLTWTH4D/VRp7tUOwWgHmGJygHJvHpwxk9ApoZgnE4GWOhDxDB
-         5y86auqzoCmi0vWPvf1TQ2VltTjB/XkW1kSXcmcDKsoguIGF4cbAkx3DnPjA4EOxx9Wz
-         yNp67TOJHARuNEf09bStG2ICBa9Pni8OES+go937UCm9drKP1pzhWxgtX/K2qOyOwVq/
-         FMow==
+        bh=kK4WpTbjYTQ30LMox0FYXGUlgDkXshdRvemGVnSiQqs=;
+        b=SHVRBc/qvKqs70Juc9Z+vgS4OrlDgZWUXQ3xhdAPx0eRpJByXiLcuWP5FErulpfOpb
+         xge38Mn8HSgfW49s6+w291MzvTp2bMxGgn2eit/qAV86K09ZtuQ0FvT7rherWjNDXThK
+         oXiyJE1/6q0j74LduitieEovRVwp7OLKJxApY9XsSV/inO7uoLMP0IyEsMGF4vcWpXs6
+         10KCPgXeIhNDaNKR9f8ull90OF5yFvhdAeRoUg0HOWYHYDSOosrLEBb8iZaxGrDeC08k
+         HQM9kGiBgpmtMHGoJlxisnNRO8qTMcf3N1xeeNIO4YSpzUQVy5zox/YgDUpecfa5q7PR
+         rY9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768627764; x=1769232564;
+        d=1e100.net; s=20230601; t=1768627763; x=1769232563;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Mz2w6bSYQtg03VDKQBBKJWoE2q+Ly0vxb+x/N3KKFNE=;
-        b=oXNpmbRTjNz1rnDQ/xmLq9yDCjN9VKLJVVu9OY4081GolVQKH5PkbeZ1rbnebMcz4R
-         td7EzctsWATjoNYKhH9Ds9deQXXcYye3c0efXF3gAdbS2Khs9ZAznGyGiZGKIivkCPBu
-         A3XQB2sLMJi80Q9gsfjaXSdgSxVLx+avKs7auLRXLi5166U0Ha/SJtwS5XlkPGAgx8FL
-         Ch2wU6rIKJfTQI/AnV1pKrj/7VW7vtILVDOU9VPM15BI8Kn84El2mprMu/omoaVbVPvV
-         x8fcBZkyXudA5l9oKJS2zlauAsDbacY4B4n8hFzpGCCvRe2JmG9Y17OH+YVrG/MZ0WOv
-         DR4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU6i9xlguvA5g9jKFnKgcuF7EIrWa8+9UbFw2dVhMpFPzazAn8raUuB23haqNI8fQi5uzkYqzFK9fmz/d7nQurt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJKrX3uWxy1hV/EqbXSrePYyWnk2AsWHuW6gEMuqxbnX+jh9Kw
-	Y3lt3dpQv/yvau6aF8O/QOCSkZX89sPGgWtcEMRX20sqHz2o4I3qTK45o08D2IIc4IbgepxI1NZ
-	m5HxQCqrmhA==
-X-Received: from dlad13.prod.google.com ([2002:a05:701b:220d:b0:11f:330d:ed15])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:1e01:b0:123:2d38:928e
- with SMTP id a92af1059eb24-1244b36d491mr3478584c88.35.1768627764374; Fri, 16
- Jan 2026 21:29:24 -0800 (PST)
-Date: Fri, 16 Jan 2026 21:28:29 -0800
+        bh=kK4WpTbjYTQ30LMox0FYXGUlgDkXshdRvemGVnSiQqs=;
+        b=FycR/JXBr1t+CrITWky148tWh6vUqm3zr6JXQ6+uo1oo5D95DJAiabwWVaehval6fq
+         LI3wAcrezBW6tZ5fjiOSIcS1004haPZ9CKFbf76YwVXqxbgyqStl1xwe19BzrWce6wtW
+         p489Y7F1KsShT84qOm/aGzRQTTcXhPLsGiov6+EH0jZvrVg77dHc1XTu4iJj9kDkBxOK
+         o0hJOCod1Xq3FRjg+gGZlC9TcdQDVV79HioqXOR2BCZEimGITMxcZKKXMvUuypkSrZgB
+         RO/CM7lHNixlGqJqrYPaBE9MJTi3QRrKGoiTDlquaZx6fD/0Y4otjlzx8nTw7VG9dv4B
+         XFjg==
+X-Forwarded-Encrypted: i=1; AJvYcCU/CfNfV0liV+zO2jRXrG2NOcCx+X5745lx7F1smZgwyGE8SEvnbP0i+4HZc/KQsytcG/dBOpHzkZ7ZIv7OA39s@lists.infradead.org
+X-Gm-Message-State: AOJu0YymtaYUDCvQuzyGL+CgOhfIVNYPqtiUrd6Umreuuid8pr0/WF1t
+	IG6wcdkfyYB4asAXMCGoI/9Sbhl5tctA4RseWmWVA0a6Ja96mRp7Tb5qQDhNVWcoljpcHTZAKJt
+	njy742oFBHQ==
+X-Received: from plov5.prod.google.com ([2002:a17:902:8d85:b0:29d:7778:2d65])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2f8a:b0:2a2:f0cb:dfa2
+ with SMTP id d9443c01a7336-2a71754509fmr50340175ad.13.1768627762755; Fri, 16
+ Jan 2026 21:29:22 -0800 (PST)
+Date: Fri, 16 Jan 2026 21:28:28 -0800
 In-Reply-To: <20260117052849.2205545-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260117052849.2205545-1-irogers@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260117052849.2205545-4-irogers@google.com>
-Subject: [PATCH v1 03/23] perf record: Disable inline frames when marking
- build IDs
+Message-ID: <20260117052849.2205545-3-irogers@google.com>
+Subject: [PATCH v1 02/23] perf dso: Extra validity checks that e_machine is valid
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
@@ -87,8 +86,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	Mark Wielaard <mark@klomp.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_212925_958761_E0CC753D 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20260116_212924_843572_D474DB0F 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,36 +102,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marking DSOs doesn't need inline frames traversing as the inline
-frames are all part of the same DSO. Disable to improve performance
-and also to avoid potential issues with dwarf information.
+Better ensure a read e_machine is valid by checking the file appears
+like an ELF file and the read e_machine value is less than
+EM_NUM. This better avoids spurious e_machine values when looking for
+an e_machine in say a thread.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/builtin-record.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ tools/perf/util/dso.c | 31 +++++++++++++++++++++----------
+ 1 file changed, 21 insertions(+), 10 deletions(-)
 
-diff --git a/tools/perf/builtin-record.c b/tools/perf/builtin-record.c
-index 003e47a4fc1d..663ca3a03396 100644
---- a/tools/perf/builtin-record.c
-+++ b/tools/perf/builtin-record.c
-@@ -1509,6 +1509,8 @@ static int process_buildids(struct record *rec)
- 	if (perf_data__size(&rec->data) == 0)
- 		return 0;
- 
-+	/* A single DSO is needed and not all inline frames. */
-+	symbol_conf.inline_name = false;
- 	/*
- 	 * During this process, it'll load kernel map and replace the
- 	 * dso->long_name to a real pathname it found.  In this case
-@@ -1519,7 +1521,6 @@ static int process_buildids(struct record *rec)
- 	 *   $HOME/.debug/.build-id/f0/6e17aa50adf4d00b88925e03775de107611551
- 	 */
- 	symbol_conf.ignore_vmlinux_buildid = true;
+diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
+index 18e656712f5a..143720d1ecb1 100644
+--- a/tools/perf/util/dso.c
++++ b/tools/perf/util/dso.c
+@@ -1236,17 +1236,28 @@ uint16_t dso__e_machine(struct dso *dso, struct machine *machine)
+ 	try_to_open_dso(dso, machine);
+ 	fd = dso__data(dso)->fd;
+ 	if (fd >= 0) {
+-		_Static_assert(offsetof(Elf32_Ehdr, e_machine) == 18, "Unexpected offset");
+-		_Static_assert(offsetof(Elf64_Ehdr, e_machine) == 18, "Unexpected offset");
+-		if (dso__needs_swap(dso) == DSO_SWAP__UNSET) {
+-			unsigned char eidata;
 -
- 	/*
- 	 * If --buildid-all is given, it marks all DSO regardless of hits,
- 	 * so no need to process samples. But if timestamp_boundary is enabled,
+-			if (pread(fd, &eidata, sizeof(eidata), EI_DATA) == sizeof(eidata))
+-				dso__swap_init(dso, eidata);
++		unsigned char e_ident[EI_NIDENT];
++
++		_Static_assert(offsetof(Elf32_Ehdr, e_ident) == 0, "Unexpected offset");
++		_Static_assert(offsetof(Elf64_Ehdr, e_ident) == 0, "Unexpected offset");
++		if (pread(fd, &e_ident, sizeof(e_ident), 0) == sizeof(e_ident) &&
++		    memcmp(e_ident, ELFMAG, SELFMAG) == 0 &&
++		    e_ident[EI_CLASS] > ELFCLASSNONE && e_ident[EI_CLASS] < ELFCLASSNUM &&
++		    e_ident[EI_DATA] > ELFDATANONE && e_ident[EI_DATA] < ELFDATANUM &&
++		    e_ident[EI_VERSION] == EV_CURRENT) {
++			_Static_assert(offsetof(Elf32_Ehdr, e_machine) == 18, "Unexpected offset");
++			_Static_assert(offsetof(Elf64_Ehdr, e_machine) == 18, "Unexpected offset");
++
++			if (dso__needs_swap(dso) == DSO_SWAP__UNSET)
++				dso__swap_init(dso, e_ident[EI_DATA]);
++
++			if (dso__needs_swap(dso) != DSO_SWAP__UNSET &&
++			    pread(fd, &e_machine, sizeof(e_machine), 18) == sizeof(e_machine) &&
++			    e_machine < EM_NUM)
++				e_machine = DSO__SWAP(dso, uint16_t, e_machine);
++			else
++				e_machine = EM_NONE;
+ 		}
+-		if (dso__needs_swap(dso) != DSO_SWAP__UNSET &&
+-		    pread(fd, &e_machine, sizeof(e_machine), 18) == sizeof(e_machine))
+-			e_machine = DSO__SWAP(dso, uint16_t, e_machine);
+ 	}
+ 	mutex_unlock(dso__data_open_lock());
+ 	return e_machine;
 -- 
 2.52.0.457.g6b5491de43-goog
 
