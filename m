@@ -4,78 +4,206 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A03BC9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 04:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32A0CC982C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 04:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6rR9JsRh30UnjkfcYuSMIm4M+lpASZyWpuoBsT91C4Y=; b=WtfTWfFnzDeFqvhfEQ1Myozldp
-	1YVmvzYkhIRtPzKbElJPBE4CQBw40tV0ipkDVeqqcM/iz0oVu5tkvZyerPqObopZ2H4WJiwxOp+8q
-	1k/33Fr0OOv+wYV0jJ4fxkYMWsyV8v/OTBMTMm+TddSfQtyj5/l+JTJmenVPWh5GEg1z1dO011eW/
-	eb6XAoNxwoYynnbiAing4CD/KmmdrlRgEV3NyPiYB4cKD3sjmds2a58TVhTtfl3E0WbnSRCil3KNF
-	odXeurDDO1O0yFXPztRNPyQNQQuP+MleEJbUOEiv/qkJR6qS04Tim664sAVrhlfeJUo/g3p6VtZN4
-	v3BF/LgA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Date:References:Message-ID:In-Reply-To:From:Subject:Cc:To:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0IFgEPE+p+QfKSchorAzCzLqft6iCUA23TIOyo2J4Oc=; b=gISyG7ab6ROwErvq+W8RFEbeII
+	HREI9aCo/7FywnMPX/FyUOF9q17ebj3FVWSUn8YCf9w1I1OfQ8yVPKUkXVF/7AijuGlLQmkmJ7jO5
+	jpy0TleI21SC3SAEqknadSTyJS5K+r1sgm13FJjctH4MPBAq/8qW+FETj+WE6Ezrp6PprnANsf4bB
+	H2N3YjivEuXMwAWF+9VNmDlD6bZqoQ+cnN5FI4WB7jKg+9gSqbfxR38ddDvBDfUbFlUiQ8WsWDWHO
+	l2V4gf+8oO8HDTmiz4Dtie8rp/zoDo2Z3dbgJorOm+3AAjREKUFp0eE1dAo2w5jjQ2zBypi9Gpwie
+	/bYd01Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgxWd-0000000FAlb-2WTQ;
-	Sat, 17 Jan 2026 04:02:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vgxYJ-0000000FAu8-4C4F;
+	Sat, 17 Jan 2026 04:04:44 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgxWc-0000000FAky-04sI;
-	Sat, 17 Jan 2026 04:02:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0EAD860131;
-	Sat, 17 Jan 2026 04:02:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B207EC4CEF7;
-	Sat, 17 Jan 2026 04:02:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768622576;
-	bh=50TUX+3d5K0vnVqShqXZBJO+XBBciVmNK+6gK3etOaQ=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=aPf53Vx+dHa60p3bH0ImYYM5dOUMCHI5w4g3rIEzFiA/9M27/KlveqvQX3WYd6yT6
-	 /2H53PSK/+lMRGjHSiYtkGgBj1Tf4TXWAZy2jYHL0GeT/ft5SbfsOcC/Zgr62UX3dW
-	 gfZXQiCX/lohMdnS4nvf4YWZbk81oEsQNOj/XMod1wzV1HTmBtnNPagxsuFcziHqye
-	 5dwWjW+X8kWs31tmY6KfUeZrwwIX3/2EOqv84eVSD7BEokjjof2x0zC6St3F9F4RGj
-	 8yjt/53yVyZxNj8cjV1nKfqWS2jG9yhYiUCWrvVY0PYBOTOAdCAe6GVy3jzWVXtcUW
-	 VBGw34tLy48fA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9E3A5C982C5;
-	Sat, 17 Jan 2026 04:02:56 +0000 (UTC)
-From: Eric Neulight via B4 Relay <devnull+Eric.Neulight.linuxdev.slmail.me@kernel.org>
-Date: Fri, 16 Jan 2026 23:02:20 -0500
-Subject: [PATCH] Eliminate Odroid HC4 power glitches during boot.
+	id 1vgxYE-0000000FAtf-3lon
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 17 Jan 2026 04:04:42 +0000
+Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60H1Xb4S208667;
+	Sat, 17 Jan 2026 04:04:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=0IFgEPE+p+QfKSchor
+	AzCzLqft6iCUA23TIOyo2J4Oc=; b=GTlXBrtH2I4zfi6y/HUN+91rP5pE5ykWtP
+	xcfNd9yEWEPekCTANfVt/8HE3sHABS1kQhJsYxYCnL1IQ+ZSf18FAA+1hwPVKjCO
+	YUtwe4wjwo381hNK8clCsB/P9mMKL/JmzcOXYZhYxx5LgWzk+JkvpB5z/2uAanow
+	B5o+OGn9lTOxJe+tm7QkVI8b5XU6pcUgLqwoT/AOiN5G3q7OtqYgkUKTT3AggZen
+	DvoNk48Lxt0HxuNwtSVUSUp6OFYALqR1IWVHvdNxJhB4TNSA6uw7AUzyYaW6sEVy
+	TB0Kcpd0p+Pbn/qlY69Q3RRr7cIu+3NobERK7HS9DPX0ZUwqU82Q==
+Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4br0u9g399-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sat, 17 Jan 2026 04:04:29 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 60H1XsfN018020;
+	Sat, 17 Jan 2026 04:04:28 GMT
+Received: from bn1pr04cu002.outbound.protection.outlook.com (mail-eastus2azon11010025.outbound.protection.outlook.com [52.101.56.25])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4br0v6b02n-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sat, 17 Jan 2026 04:04:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OfvYFdk8WRR9FF1aWulqLsJOskEiyKbE5z9uoThzoUzzev6+Cjiv/MxsfYUJC/yAcW4hvczzNBM3RfV7Rjbk0WCkJhMTkJHhJPfFdfxWzAWtAjwrigyWWy3z4fxG9/ZqqaPhCWK3M0q0SohHtlBcWO3x+7kJZIDwa53yMMpRpmgenTQU4n4qKpWV/7ADCngghpeeF8Nh7oqeVPyayDsxqgjfxa2nN3Clqkam0MECrrVttJImXb/d18EvSpJAt0eUxJUyCs2xc7pqLie/Qen2SnOlP11YBYON1Ne+n89GaYb+p/EhTUgm7s9aH0T4NSDMpq5NznGPDdMWKxF67UNbpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0IFgEPE+p+QfKSchorAzCzLqft6iCUA23TIOyo2J4Oc=;
+ b=uD9EUFSu8l0S80Fyw+8hWL3wHost/GuTEzIH+MvPDI7s85Een0MNFeB/v++rtzJSLAZuckkf9cdYrMd0KMjz0fcnKyqM5+6OJdVQXJEmocOJD1zezgxkMYoXWISlG/WRnIphxDwAd5UZ05NVxPIGBhaersUFiouivkWjUhF3CRdGpQ4f4/GvGfNLXg6shIel2bYlgxrT+x/CoKWRnDhL7i57jD2C6YgciMEyI24tloR6/M43aMvSqLvBjEc+8LqqnMsrS00Yoxyh3ByIRfryo0ppSXjUZ0jnjOivh5FYitjszrsHdOCISSFGBJK05svjgiDWAyzeFRBMC7IcxEg51w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0IFgEPE+p+QfKSchorAzCzLqft6iCUA23TIOyo2J4Oc=;
+ b=agqg38pHp8vHEqaw0OE5qY498YzojEW21bLm8xv2h5aEA7kldVf7I0oPD5Mla4Yx+T3vt4mG1rvfzH1Kyn4AX25bwRecIPwiNnTjq/DZwuJvuNDNkbM4hb789JlTEI24+UcQVHjla65anrQN7cr2hGRSoAXXnCE7hYCG3EfMeCI=
+Received: from CH0PR10MB5338.namprd10.prod.outlook.com (2603:10b6:610:cb::8)
+ by PH7PR10MB7718.namprd10.prod.outlook.com (2603:10b6:510:30d::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.9; Sat, 17 Jan
+ 2026 04:04:25 +0000
+Received: from CH0PR10MB5338.namprd10.prod.outlook.com
+ ([fe80::e525:dd71:b002:6ad5]) by CH0PR10MB5338.namprd10.prod.outlook.com
+ ([fe80::e525:dd71:b002:6ad5%6]) with mapi id 15.20.9520.006; Sat, 17 Jan 2026
+ 04:04:24 +0000
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+        "James E.J. Bottomley"
+ <James.Bottomley@HansenPartnership.com>,
+        "Martin K. Petersen"
+ <martin.petersen@oracle.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>, linux-scsi@vger.kernel.org,
+        linux-samsung-soc@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        kernel-team@android.com, andre.draszik@linaro.org,
+        willmcvicker@google.com, tudor.ambarus@linaro.org, jyescas@google.com,
+        bvanassche@acm.org
+Subject: Re: [PATCH v3] scsi: ufs: exynos: call phy_notify_state() from
+ hibern8 callbacks
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+In-Reply-To: <20260109-ufs-exynos-phy_notify_pmstate-v3-1-7eb692e271af@linaro.org>
+	(Peter Griffin's message of "Fri, 09 Jan 2026 11:40:14 +0000")
+Organization: Oracle Corporation
+Message-ID: <yq1v7h0j35s.fsf@ca-mkp.ca.oracle.com>
+References: <20260109-ufs-exynos-phy_notify_pmstate-v3-1-7eb692e271af@linaro.org>
+Date: Fri, 16 Jan 2026 23:04:22 -0500
+Content-Type: text/plain
+X-ClientProxiedBy: YT4PR01CA0109.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d7::29) To CH0PR10MB5338.namprd10.prod.outlook.com
+ (2603:10b6:610:cb::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260116-odroid-hc4-dts-v1-1-459b601cd5cf@linuxdev.slmail.me>
-X-B4-Tracking: v=1; b=H4sIAMsJa2kC/x3MMQqAMAxA0atIZgNtSUW8ijhIk2qWVloRQby7x
- fEN/z9QpahUmLoHilxaNacG23cQ9jVtgsrN4IwbjLUDZi5ZGfdAyGdFT5GcJx69J2jRUSTq/Q/
- n5X0/vDgxLGAAAAA=
-X-Change-ID: 20260116-odroid-hc4-dts-54f4254d8554
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Eric Neulight <Eric.Neulight@linuxdev.slmail.me>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4323;
- i=Eric.Neulight@linuxdev.slmail.me; h=from:subject:message-id;
- bh=D6GTcwhfX7GFqFVPwCE7THDsRVZibUMqyLB6SBdfMzo=;
- b=owGbwMvMwCX22yMi/F2X5g7G02pJDJnZnB8enpnGXpJYs7jxUr1Do5TgrreOtnuYrpx221HuN
- VXAb/HfjlIWBjEuBlkxRZaPK29Nn6k9Ta3o5frVMHNYmUCGMHBxCsBEMqcy/OHf9XHK1h/+L0r0
- b7JEbVJ8ffiJZs7ChQ5GLzak/j50r3IKw1/hswYaNlEiNcxbN0ibTuCw2i7Zl3JRq9XkRlZihHH
- gCx4A
-X-Developer-Key: i=Eric.Neulight@linuxdev.slmail.me; a=openpgp;
- fpr=F1A9DA97992B962672E9AFABFB485857EE8A29B8
-X-Endpoint-Received: by B4 Relay for
- Eric.Neulight@linuxdev.slmail.me/default with auth_id=606
-X-Original-From: Eric Neulight <Eric.Neulight@linuxdev.slmail.me>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR10MB5338:EE_|PH7PR10MB7718:EE_
+X-MS-Office365-Filtering-Correlation-Id: a09d2268-db44-4edd-f221-08de557d7fef
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?L+cHtpf0YQh61ya0hN6j3lBziKSwUeG0MvqZjzTuxFna58JlBJUK5qMThTdZ?=
+ =?us-ascii?Q?viHB8OisE5fwZFisT5MxzEpNSHd0bkTWwKqEGAmyhfbf+DfgnNy2pBSB/lmd?=
+ =?us-ascii?Q?IBvnZFQrEREGR0kA2i8gO5s1Wm3ZRPj8HLuIyVGIYApnIaTO9THbGE3nMrVl?=
+ =?us-ascii?Q?PdVD8XJ54pWRaadZkbtDFp9IdRWGmNzDhRJAdhxnzKPJhIdtRAVMBveQZp5U?=
+ =?us-ascii?Q?pO3gASOcewMWZTZ4isH+66S/CBvgFKFcYv0KL/A2CiX0Vo/HaceZoyk4aa6z?=
+ =?us-ascii?Q?SqwudjBhy67dLGtyjAo7OLuvh1YZCftAeIEmT+if+Z0ibHh0RYuwrfthb06I?=
+ =?us-ascii?Q?7Z1auDvD/x68CeZqHL0M4SU2AGsD4WE8t+yZch3xWysKdFEBj5ug5ZThLA0k?=
+ =?us-ascii?Q?UoJIr9BjczHhgJ1nnZ7UrSi9G9g0hBhkO85M7sX6h6bykAn+576ihLZk+z7s?=
+ =?us-ascii?Q?spU1RnsImdvb/6oTUsBLydhE6i2Co8OCc+gA+K85XXvGj4wZIifIeUWbiS4x?=
+ =?us-ascii?Q?n3uzYAwwVfFrknTvNVNujnrKmvuKVNbXU9mvHh0UbCSKicyK0ufim8d36msE?=
+ =?us-ascii?Q?Od/tTmIWw1Z1tuYxf+Cl4DbQKE+iKkREhsJ4PtMmhevmkvs+omBAazkItRfD?=
+ =?us-ascii?Q?W2WlCV4KVOLfBblxkLA4h+iJdyxdwJZnV+Au8Y5IOus2KjYHfi67obg7zze3?=
+ =?us-ascii?Q?04PU+vBfoQHODecVtS176shYIGud6ADCUU53hhnf4bKBedpzuUqe+HQ+PJbK?=
+ =?us-ascii?Q?DkWmkVptLz+HZxXo6gcSlvB8UcjVSn08mKuVnVLJVgObs0ycO/eaeU38amdr?=
+ =?us-ascii?Q?lTvko4Cv0wNqnsoNY9Xx7xlmWXiU1iCmbChDqxKPIMBTqykt6Aa82W+XO3/N?=
+ =?us-ascii?Q?ErmZvY//7ha8WTK2JgKERYW277A2bxow4PbvXd7Vo2C8jBxDIpGtNrZZhY1M?=
+ =?us-ascii?Q?FKnY8yizVzGnE3JSO2C3ms+pwCAOVzykFCCApP/SJLTPCHZo5UeVnwV9OsoZ?=
+ =?us-ascii?Q?BmQFrBJLUAhAHx/feoMvS/uuFEfVi0oOe5oGITuSGFMMKWRIC36QgD2pgQsH?=
+ =?us-ascii?Q?aLLgKUbJheUFpmKshtmkgGI5aXobUWR6cAcojLfTer9BWpxdJPZ+/gAPVYSb?=
+ =?us-ascii?Q?P6WSVp61OGB6hwH+tFFKZ7BawZ+0MyyeoiqqnKzM28H7Q0bKQWqFGR+Ua9pP?=
+ =?us-ascii?Q?wW8Yi78TDTZGK69Zm5FWqU8j7Kx8tBrKmXFYujs9k9dGnd5hmm5JCb20QXB9?=
+ =?us-ascii?Q?G82I6NyAjP2VqUcG4C4FDEeSSmXI+fY34Fz4ats/58Te3Mo2NXBRgDeyuglq?=
+ =?us-ascii?Q?Kkg+Gn1wt7a8CuCXBKHux+hqdimPLYG/ZhaBgWDy/TsnuDbz1yqAJwCGtXnQ?=
+ =?us-ascii?Q?j3tAMMWc+siBROEMNrGUzdwjbwpzSWgFyfUpCAU8QntsspuF9wq7dQHbIqDI?=
+ =?us-ascii?Q?9wosi7LhJCpfkOA7JuBUuq4lhlZDWpChGFqFeaKCR71exUXAp56SKrvzD28/?=
+ =?us-ascii?Q?PeYxjEPD3fFLf0TwHgMW4SHTAgbqjxYxjaLCPKs4mAEQ9+TVkuBa/z5y8YGO?=
+ =?us-ascii?Q?6qg1cUku25WJb2T09EI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR10MB5338.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Uq86yqQH9/ogxqsqPCBzJPtV96pLZ9XUR2bDaxcHtGM/GbEW8UcZ+7qrJ+TC?=
+ =?us-ascii?Q?KHJwpeC6SFQXXizhXYf922XC88x3/mRUfyyLKXdGtoLAT+FNIAKbegDrkFQi?=
+ =?us-ascii?Q?W1FkUOABS1T3vPgmdK2wTk9aN/uQAPSA/pZpX4GGOuXvWnsuB4HZtG3HqvQ2?=
+ =?us-ascii?Q?+t+uRHcNlAbiHS6w9peYPQnnrClNSgTytJExicAtGHMUou4xhGRIbWQ+/lor?=
+ =?us-ascii?Q?6Uq1t1sEdMFNvj1HnYbowGe2S1dnzU2QLe2fC20oJMRg1SxH0/KE4feTI41l?=
+ =?us-ascii?Q?HXAx/YoOrqZR1kwYXEdn/vUIRJUSN0MOIh9AyTySFLZZTBx7jSrudI23agBT?=
+ =?us-ascii?Q?sDzCobH0UuK4D62n+/zjrkdzjEjtAbJiJQ+WSjk+wrnwdroqEae9KVEuvlAY?=
+ =?us-ascii?Q?HdBq8pzp0nj7+wRfB00WWCYpSf986xvq+j4pk4XJL4C3rT61p1J4CKPJAXbj?=
+ =?us-ascii?Q?T2z5+/bkw0rcCwzXAzqvwSWmz6Vz1ro6ivn9ubc9gRG7VuPH0vbDUP7Z23Tv?=
+ =?us-ascii?Q?dp/ezz1Jy5yhNuUJA3VqcERBkWOAdhhVK/jXGuE+wdQc/bSE70MwhcTNIGFM?=
+ =?us-ascii?Q?tyifA++1aeS1mZLs0VY3BjXz01c2WnsJqsIHvJCeu6mm17Uncg5NSeUV1YxF?=
+ =?us-ascii?Q?p4MXpU7URWpIQZEtPFE5YgFUFbAfZQjgIyIkocOGUyFHvf+JMyoq5rRRo5yV?=
+ =?us-ascii?Q?ftyahaZOFh3qC7z84OBkRfFBA/6DRcoiVn7yUTJu+JcCzq46i7OgE399KCPd?=
+ =?us-ascii?Q?FfLoTtFPkcw67oxGgBHxYiipUVgcRc9r3E46ijxQY80SF3NLjuo3mLlPOEmc?=
+ =?us-ascii?Q?njHJCdqjCrRv0PW/GG1su4r7V4IkupZEJXKSk4xNJCkYfNW/kSvCrKqEOwVT?=
+ =?us-ascii?Q?EOPntHRLh2KCaZiP9m51tCOZJ72Rp5/IUoq2FBmtZ+xX9z65yaz7ZymWjPpW?=
+ =?us-ascii?Q?XTgulHb46OonDD3LdYvb9AEXGYmqh440cQLbqrF5CsClZkYkUzyQkIvR0mF9?=
+ =?us-ascii?Q?ZvWELpcTqRNYQGkbdns9MEGMI44RIcuBYjEtCpl/JPdasNozLp2VlfucEGh/?=
+ =?us-ascii?Q?PUJe0IUmlf592S7/eGqCaB4/jhB/L6J6FsJ/9f/dcoKOpc/m3xUYe++A7QOi?=
+ =?us-ascii?Q?ag94Py/6rfPE1ozQfghc19h4ho8mtjDPti+ijv72SnEPm4yKCA6klAubAMDQ?=
+ =?us-ascii?Q?p2LwbeK6vVQRI3aptIoVnqE5/30B3BkpkV3GcSoGXTG52xW6iCqAjMIb1CC9?=
+ =?us-ascii?Q?Y3VO82jXg2ecmcFHyBmxjL4qrfjeaMI5/408ZtATxx8db0HIHuDF/tKhe34M?=
+ =?us-ascii?Q?sb+Yedcm4VeGPnnvI8ajQh2unTYdBVRgN2Voi2RvJ3ENXBEMCawO8LgYYp7L?=
+ =?us-ascii?Q?qaN2ohcJlxPrQtwGHOjDTrHUl6J0eYH+f7Lx3yItKcoYJj73uDnh/+/P1mJu?=
+ =?us-ascii?Q?9RH8hZFyFjacAGuWL3Dp6eR6bL0z80Uu0G1JDh3d70MouzM4V9HZUcd0qK4U?=
+ =?us-ascii?Q?D2nlnF1xvVrXspvCUqPfVkfdXbUG+mMoFkbJtFBC65ZVm4AzVOM/Is2zS6Ll?=
+ =?us-ascii?Q?kyHgaGzk7OiPM8McDJVDiaPaymic5ACHUNeVkUXFSQINXdT9Okra4m3ZIUi/?=
+ =?us-ascii?Q?nqgeCJ+Mh3bAiJqGt2gyBErWBOOWHQvON7V7T7//4rtEfjotFTsFdFrddwL8?=
+ =?us-ascii?Q?/HnuRUenlWZA2fijX6jyKQJeAyr0GT7mn92E6lNXj7ZMVCaVx/6vrrC6aTWL?=
+ =?us-ascii?Q?dJ/R5YZQDUXgmzSIz91Vw/WCykwPj5Q=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 1K5tN7E28QR93bBV3u6sQAPNpXjnnbHqymvMQaNYE/Tsv4kJoqgcJwcrtF5RB95LmGhfDeN1WeuQ+Qc/kck1m6mB/1VOuBMZJzIkcbc9pyOmaZNkwvFZPnGWwmkRaPKzmlGhqJ+oFXyabPhHTRWimFdAlsD/2f3IpkV3RHkD4qT+wf0zO3eYPgs3V237wDm0zOe71wneFUMBLuMP34WQ2DQlpBPrE1LiEqCq10MvlPiFgHNc5BgDMCan0wzM/3dAHvOf1/Yt6imVRQVEn5ao/mgBSN/NHIWSKyyhjFNAFfmujI2sNmusJzmW7qeCJpk6vNY6iuSdePIlnXxk5sT/eMGFBPiJiORgtu62tdvia7kxckJSlkThftx+P98HwLdiLcZUeBdRzAn3Ull7BpNmW7QiOSgBGgwVnPk1X7Mi2PQhfOp707t8UgPpSlY8FPRrCRXmimn5iWDHq/grv0jzm8SCrX/XKSl/QOs5xZSVdbPjR6UoqDCmAf6zbs9kFHdRIFqponM5UuvdvxNM9UcZyXk0XAiQC+pAB0HlBOMslxjqeO/xOVzTgahD1ECnuOHkFi2gMSEaXDfkw31ZuJVxD9b2dSdqKMwwyGfGTKzDSdY=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a09d2268-db44-4edd-f221-08de557d7fef
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR10MB5338.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2026 04:04:24.0256
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: v77i9XAtLgdxv/CyJjFeDjIDBRhRkXWGyWAlaY+GK3wbYml37EJY0dCE6Tx1DLFNqLFOQAT2qDq/+RXDZzZufAe6rTyZI9wdJvE7x8mVQjc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB7718
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-16_09,2026-01-15_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0 mlxscore=0 adultscore=0
+ phishscore=0 suspectscore=0 spamscore=0 mlxlogscore=999 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2601150000
+ definitions=main-2601170030
+X-Authority-Analysis: v=2.4 cv=OJUqHCaB c=1 sm=1 tr=0 ts=696b0a4d cx=c_pps
+ a=XiAAW1AwiKB2Y8Wsi+sD2Q==:117 a=XiAAW1AwiKB2Y8Wsi+sD2Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=vUbySO9Y5rIA:10
+ a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=4UmxapGgOvRovlyjj6YA:9
+X-Proofpoint-GUID: WdMeLkDrECubmco2fPPdXUZQG0SBiRxz
+X-Proofpoint-ORIG-GUID: WdMeLkDrECubmco2fPPdXUZQG0SBiRxz
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE3MDAzMCBTYWx0ZWRfX+ggyYCy4ubBP
+ 7rdQszcMomPVOcITyIy0y0WMYhaEOa9AiazWsJ4YsXKKdW0hBd9udPAdZ5gBsFPY0IpmThCxckM
+ d+w/sjlvB7lPRW6SJlpgfrmgbhQRl2biOpiFRFGop7ddFYtU4ds/gx8zNc1AXvT8ls8+pJ3NuKX
+ 4elUl80EiJtZ1fLsa5t9Lxs+eB4uaZcrohQ6nJ0oGaHtxQ6iSMRw/p0lTL8ibXikfaO7ZbZikIv
+ 45CwgilfmXvx66EnWu/mY4fupOCdml8JjvpCU42I6GqBWFqndvfSVrM5Fpe/qJi5Oz37IJ3LxZW
+ kj5qahg/0I+2tTtnPr4e6o1oI6jzBJBckWH0kUvGaFXXSJOcxPl9jgBNYZOPMxoNT8HD+k+olvS
+ 0Oxuf6QMjvVmfPSEdEjPtR4A1UkcjWrZrTq3ROnlFh5hM72rtpEKw9MHAfnIZ4R3bCmnhdSPedm
+ wsbNqNsajCKbSiHFMDg==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260116_200439_552190_5A6CB513 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,109 +215,17 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Eric.Neulight@linuxdev.slmail.me
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Neulight <Eric.Neulight@linuxdev.slmail.me>
 
-Fix issue with Odroid HC4 (and all meson-sm1-odroid) DTS that causes
-regulator power to momentarily glitch OFF-ON during boot.  Add
-regulator-boot-on to all regulator-fixed and regulator-gpio entries
-that (1) define a gpio AND (2) define regulator-always-on.
+Peter,
 
-U-boot powers on devices necessary for boot then hands off the DTB to
-the kernel.  During probe, linux drivers/regulator/fixed.c and
-gpio-regulator.c both first set the regulator control gpio (that U-boot
-already turned ON) to default OFF before then setting it to the defined
-(ON) state. This glitches the power to the affected devices, unless
-regulator-boot-on is specified with it.  In fact, U-boot has the same
-behavior.  So, during reboot, a power glitch can actually happen twice:
-once when U-boot reads the DTB and probes the gpio and again when the
-kernel reads the DTB and probes the gpio.
+> Notify the ufs phy of the hibern8 link state so that it can program the
+> appropriate values.
 
-Problem this fixes: On the Odroid HC4, power to the SATA ports glitches
-during boot and causes some HDDs to do emergency head retract, which
-should be avoided.  On the HC4, power glitches to the SD card, USB,
-SATA, and HDMI interfaces during boot.  These are all boot devices.
-A power glitch can potentially cause a problem for any sensitive devices
-during boot.
+Applied to 6.20/scsi-staging, thanks!
 
-NOTE: This is not limited to just the HC4, likely an issue with ALL DTS
-with regulator-fixed or regulator-gpio entries that (1) define a gpio
-AND (2) define regulator-always-on.  All such entries should also
-include regulator-boot-on in order to avoid potential power glitches.
-At worst, adding regulator-boot-on in such cases is harmless because of
-regulator-always-on, and, at best, it eliminates detrimental power
-glitches during boot.  So, this is best-practice.
-
-Fixes: 164147f094ec5d0fc2c2098a888f4b50cf3096a7 ("arm64: dts: meson-sm1-odroid-hc4: add regulators controlled by GPIOH_8")
-Fixes: 45d736ab17b44257e15e75e0dba364139fdb0983 ("arm64: dts: meson-sm1-odroid: add 5v regulator gpio")
-Fixes: 1f80a5cf74a60997b92d2cde772edec093bec4d9 ("arm64: dts: meson-sm1-odroid: add missing enable gpio and supply for tf_io regulator")
-Fixes: 88d537bc92ca035e2a9920b0abc750dd62146520 ("arm64: dts: meson: convert meson-sm1-odroid-c4 to dtsi")
-
-Signed-off-by: Eric Neulight <Eric.Neulight@linuxdev.slmail.me>
----
- arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts | 2 ++
- arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi    | 3 +++
- 2 files changed, 5 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-index 0170139b8d32f4274ad991b0f3d9a0f6c67969ce..3ece30a0a1fff736c544cf89ed0a8cca0890f128 100644
---- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-+++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-@@ -52,6 +52,7 @@ p12v_0: regulator-p12v-0 {
- 
- 		gpio = <&gpio GPIOH_8 GPIO_OPEN_DRAIN>;
- 		enable-active-high;
-+		regulator-boot-on;
- 		regulator-always-on;
- 	};
- 
-@@ -65,6 +66,7 @@ p12v_1: regulator-p12v-1 {
- 
- 		gpio = <&gpio GPIOH_8 GPIO_OPEN_DRAIN>;
- 		enable-active-high;
-+		regulator-boot-on;
- 		regulator-always-on;
- 	};
- 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi
-index c4524eb4f0996dfbccec16ca5b936a5c3b2663a5..0bce4e8d965f2c83e6ba677fef2ede2726de6ed1 100644
---- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi
-@@ -37,6 +37,7 @@ tflash_vdd: regulator-tflash-vdd {
- 
- 		gpio = <&gpio_ao GPIOAO_3 GPIO_OPEN_DRAIN>;
- 		enable-active-high;
-+		regulator-boot-on;
- 		regulator-always-on;
- 	};
- 
-@@ -50,6 +51,7 @@ tf_io: gpio-regulator-tf-io {
- 
- 		enable-gpios = <&gpio_ao GPIOE_2 GPIO_OPEN_DRAIN>;
- 		enable-active-high;
-+		regulator-boot-on;
- 		regulator-always-on;
- 
- 		gpios = <&gpio_ao GPIOAO_6 GPIO_OPEN_SOURCE>;
-@@ -81,6 +83,7 @@ vcc_5v: regulator-vcc-5v {
- 		regulator-name = "5V";
- 		regulator-min-microvolt = <5000000>;
- 		regulator-max-microvolt = <5000000>;
-+		regulator-boot-on;
- 		regulator-always-on;
- 		vin-supply = <&main_12v>;
- 		gpio = <&gpio GPIOH_8 GPIO_OPEN_DRAIN>;
-
----
-base-commit: b71e635feefc852405b14620a7fc58c4c80c0f73
-change-id: 20260116-odroid-hc4-dts-54f4254d8554
-
-Best regards,
 -- 
-Eric Neulight <Eric.Neulight@linuxdev.slmail.me>
-
-
+Martin K. Petersen
 
