@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AFFD4A5F5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 05:31:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E2EC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 05:31:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
 	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CCYe3hHM7B67Bwgfqfhfq46zBLS+3DmzwV+DSyW0kMs=; b=upN9GcBGgxEokCSeBSAw0y91BE
-	1wZYEPvKEYqWHuAN5ZcD5RHWF/SHi5ei7QPy8gaJjhfYdlgLC3wGdhHXmXh1/FypSMyICMScFTsa4
-	dv/TPji6HIJk6sNXv70pjPrx3U8iiOaVNEojGVQFa5JPpIB48B4pYUg6fTWp0E1LXHK8c2s7SmPjc
-	FHKiLB1u37vxvIn69B0p+yb8vXB1tg0R1sIpR8tnA+ufOoiRXPwFlToLTME5V2lG1VmBteA5vuSmP
-	yxCafuS8dxch5iGD/Pb2bx1CblowrNVadi2mEzw5Brsk/8kBnlF/iktgfDzdN5p7ig7pXcmHTd49i
-	DAT7sMNQ==;
+	bh=Ovty9hx/OhrSFGFh9FSlYP45sCJ4K4eUavVfI0lVQ/E=; b=FgqdRnO+9UJ9O0aHe/FQPXA+SC
+	0nczxFw/gzL19uOebrUBmMblZ1hLupK9XN+ieQGSpJrqKnOZVJkPZibPPTUUC/N+oiP4jSeQd0zNM
+	IQN68ySl5W556yeQKR2ggEMii1ZdxByJD9ttNCICeP/9vczDyuEwMfdOIe6mHffdWrHL4icP8m1KQ
+	YgzRWdsbzIP94cCmqotKm0LbUuAVPwNa2RGn98G3m2xEZ9co2JvjGh18q72kWT8pTy4QdEqDERIxa
+	rjZhWGwRgpmtOXQSFYHMtDq/my61b83N9yo2x+vOsqKdRMS96gHgS5JPbQo6zvIcA8z/bdtByg1Q6
+	TA8Jrzug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgyts-0000000FGD9-2AqL;
-	Sat, 17 Jan 2026 05:31:04 +0000
-Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
+	id 1vgyty-0000000FGOa-3loa;
+	Sat, 17 Jan 2026 05:31:10 +0000
+Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgysm-0000000FEsh-3y77
+	id 1vgyss-0000000FF0L-49Dc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 05:30:05 +0000
-Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-123377038f9so1363658c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 21:29:55 -0800 (PST)
+	Sat, 17 Jan 2026 05:30:06 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b6b9c1249fso2179632eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 21:30:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768627795; x=1769232595; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1768627801; x=1769232601; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=CCYe3hHM7B67Bwgfqfhfq46zBLS+3DmzwV+DSyW0kMs=;
-        b=HPhjobWjtRLm40ZWM9GSrtJewygH1Rj4jMpZsxWlcXhSOq/Vq3Cgh5QBmRbaHYo19V
-         um8NTNq59kCZftbXGt4Kf6/PGUYSwZ9cYWeemgDZRsqVhpmJYdDiDkEjfgqzvFIi+pRu
-         ZCACSg/5YnmDCm43ePIi/W/3MYFqYqEpEeD+3Q2JZW0ipgb0tuvrFhPWP2xu7Y/0bSyT
-         zrzBqfu1AqdtU3WEcekyMQl/3bXNu7pWmDUE7A4PQR+TnMta0GnebxR9Hc/RGWrS6t46
-         LwWKM8lntKD9+1GpP0VR+ZP0ff9tXl4cOl4Bnuysd7QDzmq4zf8gB7m8EVaQS8HJ2v3n
-         2v3g==
+        bh=Ovty9hx/OhrSFGFh9FSlYP45sCJ4K4eUavVfI0lVQ/E=;
+        b=ztso92aemexxutCRyIokGKViyER3DSYZOgbREBvgAZHKRXTiMrjlL7F9LIUmT/BdwR
+         URpbCTZE1K883PcslEfONJndN6TyH9zSzFUvRwsxXfkyLviigubSj470AOQEdWXjuksy
+         zzYbPKlpfzMYV1sgE3iFYJ5YbY7VuwfrgXCKXbqPHrsizqiOqyulwAuOKaDuykpPVYNR
+         ABazsGuvdc6WJ/1gP3EAlL3cVohwBWK/NS9FpmAHA4r6LHKToZAEL8+w9W7xpTo73UJu
+         l3nxps05NKTaUZ6TfJJji86EZggguk3leOJCUUfrfWA76X23sGO/oNKieNDjSPTIQoA2
+         9wXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768627795; x=1769232595;
+        d=1e100.net; s=20230601; t=1768627801; x=1769232601;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CCYe3hHM7B67Bwgfqfhfq46zBLS+3DmzwV+DSyW0kMs=;
-        b=soKDrcl7rz581KSxdkozPP7od5YTulRWAxvEQVrjVatLf2EzNaQmgenPXucvmmg02E
-         UJUXBv4ANhWauNPjg89QBI4NBzqNVoa0pN0esg1e9RfYX2674NquahMaBOmf7fw5p8EG
-         9o9Td96h6meU2j6I0B0R0uBKvJQrORD5X23Ouu5vEC62wImNu2vq5QllXYCGZlKHVQuv
-         /g25yPTL5Rx7dpFGW9L2apqNmIiCuwMTKplrZaMVBECQlqUHdl/Sx3kddgQ66ZPPRQDg
-         JNWSEf6BQ584p/gZ2NV1Rru+Kw+7/8KWD/ACiAn55NRSFGsOp3uNHJFehJRNAkeuVm8x
-         vH8w==
-X-Forwarded-Encrypted: i=1; AJvYcCXHuMpn7JRnt8JszDn0OvreGB5Wq2KwxXijQxX9aY/GkWigqb3nUtvLsnigPLL9j8SwhTuGLShbImxE4m8r+tea@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy21bBGAOj1NjEj0wqeQaBVYJxtfWcqvGalbYqv2k8FGDMAi2i5
-	8PO8A5swyEoFCAPKyX4lMRL93tg/i8oOM63bJ03oE9wVFGtAvlHdRDT6FFchUaNi5u8TI68Ms9G
-	1GtrrLJRAeQ==
-X-Received: from dlbvv6.prod.google.com ([2002:a05:7022:5f06:b0:11b:1a9a:d2e8])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:2387:b0:11b:c1ab:bdd4
- with SMTP id a92af1059eb24-1244a74fe9amr4162959c88.38.1768627794473; Fri, 16
- Jan 2026 21:29:54 -0800 (PST)
-Date: Fri, 16 Jan 2026 21:28:45 -0800
+        bh=Ovty9hx/OhrSFGFh9FSlYP45sCJ4K4eUavVfI0lVQ/E=;
+        b=cNUO3IIWttmcfec0uLo1XqWXsBVCIyhvALIjClBaK6t2iIUiqmNuWjC38NWVHO9NNZ
+         sQNNcTc8St+ASeRoH3Y/4v8/OP8p+gWJXVr66V1tm32tMZI5Oa+JctCKESNmmi0jnyu9
+         +FAbTNrh7p9ReO44fLx/gZhb5EwboBCxm1hkovuViGBBMXN4nj6EU153hHiUxF7hZ/x9
+         Bvw2JqwngFc/KXrzawutn8QfGS1SPfvOUn9wpmFid8D14zXT3WKbnM2Rsv80r9+G0YXa
+         HjyEfarwmVlKS1l1Cfnx3TowSclJT3PLWjUlqgWbuRsg/1MxpVVdiVm3mpx1PgT/iiZF
+         uNKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXaFC3oBA/NfebWxnnp7cpwANk9WF62A9tX0ZeP1KF5FUPLznNRRItexwwWK/8O9A6gtb866SryHmuSY+eHkBEx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8aWy1v1JIuSmHSFKUkwkdp4vq6yqXl8O/kdv9bHSMVuYn+7nO
+	prFf8203mf7R9gJ3xqUrCo/m28DWQk+05KKyYx6hbTCgj/CI+zu4BWswc8L2aAHJSQh5ibvzCHY
+	lHOX523kHpQ==
+X-Received: from dybpi1.prod.google.com ([2002:a05:7301:4201:b0:2b6:bfef:23fa])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:a883:b0:2ae:5424:e5a4
+ with SMTP id 5a478bee46e88-2b6b4eade90mr4086553eec.37.1768627800651; Fri, 16
+ Jan 2026 21:30:00 -0800 (PST)
+Date: Fri, 16 Jan 2026 21:28:48 -0800
 In-Reply-To: <20260117052849.2205545-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260117052849.2205545-1-irogers@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260117052849.2205545-20-irogers@google.com>
-Subject: [PATCH v1 19/23] perf dwarf-regs: Add S390 perf to dwarf register
- number mapping functions
+Message-ID: <20260117052849.2205545-23-irogers@google.com>
+Subject: [PATCH v1 22/23] perf unwind-libdw: Don't discard loaded ELF/Dwarf
+ after every unwind
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
@@ -87,8 +87,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	Mark Wielaard <mark@klomp.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_212957_262381_28BF2F82 
-X-CRM114-Status: GOOD (  22.58  )
+X-CRM114-CacheID: sfid-20260116_213003_387600_7ECEE063 
+X-CRM114-Status: GOOD (  31.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,279 +103,336 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These functions allow the generic initial register state code in
-unwind-libdw to be used. Now the non-generic code in unwind-libdw has
-no uses remove it.
+The unwind-libdw dwfl has ELF binaries associated with mmap
+addresses. Experimenting with using the per dso dwfl it is required to
+alter the address to be 0 based variant. Unfortunately libdwfl doesn't
+allow a single unwind and then an update to the return address to be 0
+based as there are assertions that registers aren't updated once an
+unwind has started, etc.
+
+As removing the dwfl didn't prove possible, an alternative is to just
+not discard the dwfl when the unwind ends. The dwfl is valid for a
+process unless a dso is loaded at the same address as a previous
+one. So keep the dwfl with the maps, invalidate it if a map is removed
+(in case a new map replaces it) and recycle the dwfl in the unwinding
+code. A wrinkly in the implementation of this is that the attached
+thread argument is remembered by the dwfl and so it needs to be a
+pointer to memory that also persists with the dwfl (struct
+dwfl_ui_thread_info in the code).
+
+Recording 10 seconds of system wide data with --call-graph=dwarf and
+then processing with perf report shows a total runtime improvement
+from 41.583s to 2.279s (an 18x speedup).
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/dwarf-regs-arch/Build         |  1 +
- .../util/dwarf-regs-arch/dwarf-regs-s390.c    | 53 +++++++++++++++
- tools/perf/util/dwarf-regs.c                  |  3 +
- tools/perf/util/include/dwarf-regs.h          |  1 +
- tools/perf/util/unwind-libdw-arch/Build       |  1 -
- .../unwind-libdw-arch/unwind-libdw-s390.c     | 65 -------------------
- tools/perf/util/unwind-libdw.c                | 31 ++-------
- tools/perf/util/unwind-libdw.h                |  1 -
- 8 files changed, 62 insertions(+), 94 deletions(-)
- create mode 100644 tools/perf/util/dwarf-regs-arch/dwarf-regs-s390.c
- delete mode 100644 tools/perf/util/unwind-libdw-arch/Build
- delete mode 100644 tools/perf/util/unwind-libdw-arch/unwind-libdw-s390.c
+ tools/perf/util/maps.c         | 36 +++++++++++++-
+ tools/perf/util/maps.h         |  4 ++
+ tools/perf/util/unwind-libdw.c | 90 +++++++++++++++++++++++++---------
+ tools/perf/util/unwind-libdw.h |  9 +++-
+ 4 files changed, 112 insertions(+), 27 deletions(-)
 
-diff --git a/tools/perf/util/dwarf-regs-arch/Build b/tools/perf/util/dwarf-regs-arch/Build
-index 94e4dfceb4d1..10c2af3d933a 100644
---- a/tools/perf/util/dwarf-regs-arch/Build
-+++ b/tools/perf/util/dwarf-regs-arch/Build
-@@ -4,4 +4,5 @@ perf-util-$(CONFIG_LIBDW) += dwarf-regs-csky.o
- perf-util-$(CONFIG_LIBDW) += dwarf-regs-loongarch.o
- perf-util-$(CONFIG_LIBDW) += dwarf-regs-powerpc.o
- perf-util-$(CONFIG_LIBDW) += dwarf-regs-riscv.o
-+perf-util-$(CONFIG_LIBDW) += dwarf-regs-s390.o
- perf-util-$(CONFIG_LIBDW) += dwarf-regs-x86.o
-diff --git a/tools/perf/util/dwarf-regs-arch/dwarf-regs-s390.c b/tools/perf/util/dwarf-regs-arch/dwarf-regs-s390.c
-new file mode 100644
-index 000000000000..310a37451bdc
---- /dev/null
-+++ b/tools/perf/util/dwarf-regs-arch/dwarf-regs-s390.c
-@@ -0,0 +1,53 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <errno.h>
-+#include <dwarf-regs.h>
-+#include "../../../arch/s390/include/uapi/asm/perf_regs.h"
-+
-+int __get_dwarf_regnum_for_perf_regnum_s390(int perf_regnum)
-+{
-+	static const int dwarf_s390_regnums[] = {
-+		[PERF_REG_S390_R0] = 0,
-+		[PERF_REG_S390_R1] = 1,
-+		[PERF_REG_S390_R2] = 2,
-+		[PERF_REG_S390_R3] = 3,
-+		[PERF_REG_S390_R4] = 4,
-+		[PERF_REG_S390_R5] = 5,
-+		[PERF_REG_S390_R6] = 6,
-+		[PERF_REG_S390_R7] = 7,
-+		[PERF_REG_S390_R8] = 8,
-+		[PERF_REG_S390_R9] = 9,
-+		[PERF_REG_S390_R10] = 10,
-+		[PERF_REG_S390_R11] = 11,
-+		[PERF_REG_S390_R12] = 12,
-+		[PERF_REG_S390_R13] = 13,
-+		[PERF_REG_S390_R14] = 14,
-+		[PERF_REG_S390_R15] = 15,
-+		[PERF_REG_S390_FP0] = 16,
-+		[PERF_REG_S390_FP1] = 20,
-+		[PERF_REG_S390_FP2] = 17,
-+		[PERF_REG_S390_FP3] = 21,
-+		[PERF_REG_S390_FP4] = 18,
-+		[PERF_REG_S390_FP5] = 22,
-+		[PERF_REG_S390_FP6] = 19,
-+		[PERF_REG_S390_FP7] = 23,
-+		[PERF_REG_S390_FP8] = 24,
-+		[PERF_REG_S390_FP9] = 28,
-+		[PERF_REG_S390_FP10] = 25,
-+		[PERF_REG_S390_FP11] = 29,
-+		[PERF_REG_S390_FP12] = 26,
-+		[PERF_REG_S390_FP13] = 30,
-+		[PERF_REG_S390_FP14] = 27,
-+		[PERF_REG_S390_FP15] = 31,
-+		[PERF_REG_S390_MASK] = 64,
-+		[PERF_REG_S390_PC] = 65,
-+	};
-+
-+	if (perf_regnum == 0)
-+		return 0;
-+
-+	if (perf_regnum <  0 || perf_regnum > (int)ARRAY_SIZE(dwarf_s390_regnums) ||
-+	    dwarf_s390_regnums[perf_regnum] == 0)
-+		return -ENOENT;
-+
-+	return dwarf_s390_regnums[perf_regnum];
-+}
-diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
-index 137568e15018..f86f76547592 100644
---- a/tools/perf/util/dwarf-regs.c
-+++ b/tools/perf/util/dwarf-regs.c
-@@ -212,6 +212,9 @@ int get_dwarf_regnum_for_perf_regnum(int perf_regnum, unsigned int machine,
- 	case EM_RISCV:
- 		reg = __get_dwarf_regnum_for_perf_regnum_riscv(perf_regnum);
- 		break;
-+	case EM_S390:
-+		reg = __get_dwarf_regnum_for_perf_regnum_s390(perf_regnum);
-+		break;
- 	case EM_LOONGARCH:
- 		reg = __get_dwarf_regnum_for_perf_regnum_loongarch(perf_regnum);
- 		break;
-diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
-index ae76608da110..b95cf2d7b5b3 100644
---- a/tools/perf/util/include/dwarf-regs.h
-+++ b/tools/perf/util/include/dwarf-regs.h
-@@ -112,6 +112,7 @@ int __get_dwarf_regnum_for_perf_regnum_csky(int perf_regnum, unsigned int flags)
- int __get_dwarf_regnum_for_perf_regnum_loongarch(int perf_regnum);
- int __get_dwarf_regnum_for_perf_regnum_powerpc(int perf_regnum);
- int __get_dwarf_regnum_for_perf_regnum_riscv(int perf_regnum);
-+int __get_dwarf_regnum_for_perf_regnum_s390(int perf_regnum);
+diff --git a/tools/perf/util/maps.c b/tools/perf/util/maps.c
+index c321d4f4d846..8ccc46d515b6 100644
+--- a/tools/perf/util/maps.c
++++ b/tools/perf/util/maps.c
+@@ -10,6 +10,7 @@
+ #include "thread.h"
+ #include "ui/ui.h"
+ #include "unwind.h"
++#include "unwind-libdw.h"
+ #include <internal/rc_check.h>
  
  /*
-  * get_dwarf_regnum - Returns DWARF regnum from register name
-diff --git a/tools/perf/util/unwind-libdw-arch/Build b/tools/perf/util/unwind-libdw-arch/Build
-deleted file mode 100644
-index 6d6e319e1201..000000000000
---- a/tools/perf/util/unwind-libdw-arch/Build
-+++ /dev/null
-@@ -1 +0,0 @@
--perf-util-y += unwind-libdw-s390.o
-diff --git a/tools/perf/util/unwind-libdw-arch/unwind-libdw-s390.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-s390.c
-deleted file mode 100644
-index 1e05e9d9d95f..000000000000
---- a/tools/perf/util/unwind-libdw-arch/unwind-libdw-s390.c
-+++ /dev/null
-@@ -1,65 +0,0 @@
--#include <linux/kernel.h>
--#include <elfutils/libdwfl.h>
--#include "util/unwind-libdw.h"
--#include "util/perf_regs.h"
--#include "util/event.h"
--#include "util/sample.h"
--#include "../arch/s390/include/dwarf-regs-table.h"
--#include "../arch/s390/include/uapi/asm/perf_regs.h"
--
--
--bool libdw_set_initial_registers_s390(Dwfl_Thread *thread, void *arg)
--{
--	struct unwind_info *ui = arg;
--	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
--	Dwarf_Word dwarf_regs[ARRAY_SIZE(s390_dwarf_regs)];
--
--#define REG(r) ({						\
--	Dwarf_Word val = 0;					\
--	perf_reg_value(&val, user_regs, PERF_REG_S390_##r);	\
--	val;							\
--})
--	/*
--	 * For DWARF register mapping details,
--	 * see also perf/arch/s390/include/dwarf-regs-table.h
--	 */
--	dwarf_regs[0]  = REG(R0);
--	dwarf_regs[1]  = REG(R1);
--	dwarf_regs[2]  = REG(R2);
--	dwarf_regs[3]  = REG(R3);
--	dwarf_regs[4]  = REG(R4);
--	dwarf_regs[5]  = REG(R5);
--	dwarf_regs[6]  = REG(R6);
--	dwarf_regs[7]  = REG(R7);
--	dwarf_regs[8]  = REG(R8);
--	dwarf_regs[9]  = REG(R9);
--	dwarf_regs[10] = REG(R10);
--	dwarf_regs[11] = REG(R11);
--	dwarf_regs[12] = REG(R12);
--	dwarf_regs[13] = REG(R13);
--	dwarf_regs[14] = REG(R14);
--	dwarf_regs[15] = REG(R15);
--
--	dwarf_regs[16] = REG(FP0);
--	dwarf_regs[17] = REG(FP2);
--	dwarf_regs[18] = REG(FP4);
--	dwarf_regs[19] = REG(FP6);
--	dwarf_regs[20] = REG(FP1);
--	dwarf_regs[21] = REG(FP3);
--	dwarf_regs[22] = REG(FP5);
--	dwarf_regs[23] = REG(FP7);
--	dwarf_regs[24] = REG(FP8);
--	dwarf_regs[25] = REG(FP10);
--	dwarf_regs[26] = REG(FP12);
--	dwarf_regs[27] = REG(FP14);
--	dwarf_regs[28] = REG(FP9);
--	dwarf_regs[29] = REG(FP11);
--	dwarf_regs[30] = REG(FP13);
--	dwarf_regs[31] = REG(FP15);
--
--	dwarf_regs[64] = REG(MASK);
--	dwarf_regs[65] = REG(PC);
--
--	dwfl_thread_state_register_pc(thread, dwarf_regs[65]);
--	return dwfl_thread_state_registers(thread, 0, 32, dwarf_regs);
--}
+@@ -39,6 +40,9 @@ DECLARE_RC_STRUCT(maps) {
+ #ifdef HAVE_LIBUNWIND_SUPPORT
+ 	void		*addr_space;
+ 	const struct unwind_libunwind_ops *unwind_libunwind_ops;
++#endif
++#ifdef HAVE_LIBDW_SUPPORT
++	void		*libdw_addr_space_dwfl;
+ #endif
+ 	refcount_t	 refcnt;
+ 	/**
+@@ -203,6 +207,17 @@ void maps__set_unwind_libunwind_ops(struct maps *maps, const struct unwind_libun
+ 	RC_CHK_ACCESS(maps)->unwind_libunwind_ops = ops;
+ }
+ #endif
++#ifdef HAVE_LIBDW_SUPPORT
++void *maps__libdw_addr_space_dwfl(const struct maps *maps)
++{
++	return RC_CHK_ACCESS(maps)->libdw_addr_space_dwfl;
++}
++
++void maps__set_libdw_addr_space_dwfl(struct maps *maps, void *dwfl)
++{
++	RC_CHK_ACCESS(maps)->libdw_addr_space_dwfl = dwfl;
++}
++#endif
+ 
+ static struct rw_semaphore *maps__lock(struct maps *maps)
+ {
+@@ -218,6 +233,9 @@ static void maps__init(struct maps *maps, struct machine *machine)
+ #ifdef HAVE_LIBUNWIND_SUPPORT
+ 	RC_CHK_ACCESS(maps)->addr_space = NULL;
+ 	RC_CHK_ACCESS(maps)->unwind_libunwind_ops = NULL;
++#endif
++#ifdef HAVE_LIBDW_SUPPORT
++	RC_CHK_ACCESS(maps)->libdw_addr_space_dwfl = NULL;
+ #endif
+ 	refcount_set(maps__refcnt(maps), 1);
+ 	RC_CHK_ACCESS(maps)->nr_maps = 0;
+@@ -240,6 +258,9 @@ static void maps__exit(struct maps *maps)
+ 	zfree(&maps_by_address);
+ 	zfree(&maps_by_name);
+ 	unwind__finish_access(maps);
++#ifdef HAVE_LIBDW_SUPPORT
++	libdw__invalidate_dwfl(maps, maps__libdw_addr_space_dwfl(maps));
++#endif
+ }
+ 
+ struct maps *maps__new(struct machine *machine)
+@@ -549,6 +570,9 @@ void maps__remove(struct maps *maps, struct map *map)
+ 	__maps__remove(maps, map);
+ 	check_invariants(maps);
+ 	up_write(maps__lock(maps));
++#ifdef HAVE_LIBDW_SUPPORT
++	libdw__invalidate_dwfl(maps, maps__libdw_addr_space_dwfl(maps));
++#endif
+ }
+ 
+ bool maps__empty(struct maps *maps)
+@@ -604,18 +628,26 @@ int maps__for_each_map(struct maps *maps, int (*cb)(struct map *map, void *data)
+ void maps__remove_maps(struct maps *maps, bool (*cb)(struct map *map, void *data), void *data)
+ {
+ 	struct map **maps_by_address;
++	bool removed = false;
+ 
+ 	down_write(maps__lock(maps));
+ 
+ 	maps_by_address = maps__maps_by_address(maps);
+ 	for (unsigned int i = 0; i < maps__nr_maps(maps);) {
+-		if (cb(maps_by_address[i], data))
++		if (cb(maps_by_address[i], data)) {
+ 			__maps__remove(maps, maps_by_address[i]);
+-		else
++			removed = true;
++		} else {
+ 			i++;
++		}
+ 	}
+ 	check_invariants(maps);
+ 	up_write(maps__lock(maps));
++	if (removed) {
++#ifdef HAVE_LIBDW_SUPPORT
++		libdw__invalidate_dwfl(maps, maps__libdw_addr_space_dwfl(maps));
++#endif
++	}
+ }
+ 
+ struct symbol *maps__find_symbol(struct maps *maps, u64 addr, struct map **mapp)
+diff --git a/tools/perf/util/maps.h b/tools/perf/util/maps.h
+index d9aa62ed968a..20c52084ba9e 100644
+--- a/tools/perf/util/maps.h
++++ b/tools/perf/util/maps.h
+@@ -52,6 +52,10 @@ void maps__set_addr_space(struct maps *maps, void *addr_space);
+ const struct unwind_libunwind_ops *maps__unwind_libunwind_ops(const struct maps *maps);
+ void maps__set_unwind_libunwind_ops(struct maps *maps, const struct unwind_libunwind_ops *ops);
+ #endif
++#ifdef HAVE_LIBDW_SUPPORT
++void *maps__libdw_addr_space_dwfl(const struct maps *maps);
++void maps__set_libdw_addr_space_dwfl(struct maps *maps, void *dwfl);
++#endif
+ 
+ size_t maps__fprintf(struct maps *maps, FILE *fp);
+ 
 diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
-index b3c4380d40b6..e0321043af88 100644
+index e0321043af88..c1646ef5f971 100644
 --- a/tools/perf/util/unwind-libdw.c
 +++ b/tools/perf/util/unwind-libdw.c
-@@ -226,7 +226,7 @@ static bool memory_read(Dwfl *dwfl __maybe_unused, Dwarf_Addr addr, Dwarf_Word *
- 	return true;
+@@ -20,6 +20,17 @@
+ #include "callchain.h"
+ #include "util/env.h"
+ 
++/*
++ * The dwfl thread argument passed to functions like memory_read. Memory has to
++ * be allocated to persist of multiple uses of the dwfl.
++ */
++struct dwfl_ui_thread_info {
++	/* Back link to the dwfl. */
++	Dwfl *dwfl;
++	/* The current unwind info, only 1 is supported. */
++	struct unwind_info *ui;
++};
++
+ static char *debuginfo_path;
+ 
+ static int __find_debuginfo(Dwfl_Module *mod __maybe_unused, void **userdata,
+@@ -35,6 +46,19 @@ static int __find_debuginfo(Dwfl_Module *mod __maybe_unused, void **userdata,
+ 	return -1;
  }
  
--static bool libdw_set_initial_registers_generic(Dwfl_Thread *thread, void *arg)
-+static bool libdw_set_initial_registers(Dwfl_Thread *thread, void *arg)
++void libdw__invalidate_dwfl(struct maps *maps, void *arg)
++{
++	struct dwfl_ui_thread_info *dwfl_ui_ti = arg;
++
++	if (!dwfl_ui_ti)
++		return;
++
++	assert(dwfl_ui_ti->ui == NULL);
++	maps__set_libdw_addr_space_dwfl(maps, NULL);
++	dwfl_end(dwfl_ui_ti->dwfl);
++	free(dwfl_ui_ti);
++}
++
+ static const Dwfl_Callbacks offline_callbacks = {
+ 	.find_debuginfo		= __find_debuginfo,
+ 	.debuginfo_path		= &debuginfo_path,
+@@ -187,7 +211,8 @@ static int access_dso_mem(struct unwind_info *ui, Dwarf_Addr addr,
+ static bool memory_read(Dwfl *dwfl __maybe_unused, Dwarf_Addr addr, Dwarf_Word *result,
+ 			void *arg)
  {
- 	struct unwind_info *ui = arg;
+-	struct unwind_info *ui = arg;
++	struct dwfl_ui_thread_info *dwfl_ui_ti = arg;
++	struct unwind_info *ui = dwfl_ui_ti->ui;
+ 	uint16_t e_machine = thread__e_machine(ui->thread, ui->machine);
+ 	struct stack_dump *stack = &ui->sample->user_stack;
+ 	u64 start, end;
+@@ -228,7 +253,8 @@ static bool memory_read(Dwfl *dwfl __maybe_unused, Dwarf_Addr addr, Dwarf_Word *
+ 
+ static bool libdw_set_initial_registers(Dwfl_Thread *thread, void *arg)
+ {
+-	struct unwind_info *ui = arg;
++	struct dwfl_ui_thread_info *dwfl_ui_ti = arg;
++	struct unwind_info *ui = dwfl_ui_ti->ui;
  	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
-@@ -279,29 +279,12 @@ static bool libdw_set_initial_registers_generic(Dwfl_Thread *thread, void *arg)
- 	return ret;
- }
- 
--#define DEFINE_DWFL_THREAD_CALLBACKS(arch)                           \
--static const Dwfl_Thread_Callbacks callbacks_##arch = {              \
--	.next_thread           = next_thread,                        \
--	.memory_read           = memory_read,                        \
--	.set_initial_registers = libdw_set_initial_registers_##arch, \
--}
--
--static const Dwfl_Thread_Callbacks callbacks_generic = {
-+static const Dwfl_Thread_Callbacks callbacks = {
- 	.next_thread           = next_thread,
- 	.memory_read           = memory_read,
--	.set_initial_registers = libdw_set_initial_registers_generic,
-+	.set_initial_registers = libdw_set_initial_registers,
- };
- 
--DEFINE_DWFL_THREAD_CALLBACKS(s390);
--
--static const Dwfl_Thread_Callbacks *get_thread_callbacks(const char *arch)
--{
--	if (!strcmp(arch, "s390"))
--		return &callbacks_s390;
--
--	return &callbacks_generic;
--}
--
- static int
- frame_callback(Dwfl_Frame *state, void *arg)
+ 	Dwarf_Word *dwarf_regs;
+ 	int max_dwarf_reg = 0;
+@@ -320,33 +346,50 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+ 			int max_stack,
+ 			bool best_effort)
  {
-@@ -349,10 +332,8 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
- 		.e_machine	= e_machine,
- 		.best_effort    = best_effort
- 	};
--	const char *arch = perf_env__arch(machine->env);
+-	struct machine *machine = maps__machine(thread__maps(thread));
++	struct maps *maps = thread__maps(thread);
++	struct machine *machine = maps__machine(maps);
+ 	uint16_t e_machine = thread__e_machine(thread, machine);
+-	struct unwind_info *ui, ui_buf = {
+-		.sample		= data,
+-		.thread		= thread,
+-		.machine	= machine,
+-		.cb		= cb,
+-		.arg		= arg,
+-		.max_stack	= max_stack,
+-		.e_machine	= e_machine,
+-		.best_effort    = best_effort
+-	};
++	struct dwfl_ui_thread_info *dwfl_ui_ti;
++	static struct unwind_info *ui;
++	Dwfl *dwfl;
  	Dwarf_Word ip;
  	int err = -EINVAL, i;
--	const Dwfl_Thread_Callbacks *callbacks;
  
  	if (!data->user_regs || !data->user_regs->regs)
  		return -EINVAL;
-@@ -375,11 +356,7 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
- 	if (err)
- 		goto out;
  
--	callbacks = get_thread_callbacks(arch);
--	if (!callbacks)
+-	ui = zalloc(sizeof(ui_buf) + sizeof(ui_buf.entries[0]) * max_stack);
++	ui = zalloc(sizeof(*ui) + sizeof(ui->entries[0]) * max_stack);
+ 	if (!ui)
+ 		return -ENOMEM;
+ 
+-	*ui = ui_buf;
++	*ui = (struct unwind_info){
++		.sample		= data,
++		.thread		= thread,
++		.machine	= machine,
++		.cb		= cb,
++		.arg		= arg,
++		.max_stack	= max_stack,
++		.e_machine	= e_machine,
++		.best_effort    = best_effort
++	};
+ 
+-	ui->dwfl = dwfl_begin(&offline_callbacks);
+-	if (!ui->dwfl)
 -		goto out;
--
--	err = !dwfl_attach_state(ui->dwfl, /*elf=*/NULL, thread__tid(thread), callbacks, ui);
-+	err = !dwfl_attach_state(ui->dwfl, /*elf=*/NULL, thread__tid(thread), &callbacks, ui);
++	dwfl_ui_ti = maps__libdw_addr_space_dwfl(maps);
++	if (dwfl_ui_ti) {
++		dwfl = dwfl_ui_ti->dwfl;
++	} else {
++		dwfl_ui_ti = zalloc(sizeof(*dwfl_ui_ti));
++		dwfl = dwfl_begin(&offline_callbacks);
++		if (!dwfl)
++			goto out;
++
++		dwfl_ui_ti->dwfl = dwfl;
++		maps__set_libdw_addr_space_dwfl(maps, dwfl_ui_ti);
++	}
++	assert(dwfl_ui_ti->ui == NULL);
++	assert(dwfl_ui_ti->dwfl == dwfl);
++	assert(dwfl_ui_ti == maps__libdw_addr_space_dwfl(maps));
++	dwfl_ui_ti->ui = ui;
++	ui->dwfl = dwfl;
+ 
+ 	err = perf_reg_value(&ip, data->user_regs, perf_arch_reg_ip(e_machine));
+ 	if (err)
+@@ -356,11 +399,12 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
  	if (err)
  		goto out;
  
+-	err = !dwfl_attach_state(ui->dwfl, /*elf=*/NULL, thread__tid(thread), &callbacks, ui);
+-	if (err)
+-		goto out;
++	dwfl_attach_state(dwfl, /*elf=*/NULL, thread__tid(thread), &callbacks,
++			  /* Dwfl thread function argument*/dwfl_ui_ti);
++	// Ignore thread already attached error.
+ 
+-	err = dwfl_getthread_frames(ui->dwfl, thread__tid(thread), frame_callback, ui);
++	err = dwfl_getthread_frames(dwfl, thread__tid(thread), frame_callback,
++				    /* Dwfl frame function argument*/ui);
+ 
+ 	if (err && ui->max_stack != max_stack)
+ 		err = 0;
+@@ -384,7 +428,7 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+ 	for (i = 0; i < ui->idx; i++)
+ 		map_symbol__exit(&ui->entries[i].ms);
+ 
+-	dwfl_end(ui->dwfl);
++	dwfl_ui_ti->ui = NULL;
+ 	free(ui);
+ 	return 0;
+ }
 diff --git a/tools/perf/util/unwind-libdw.h b/tools/perf/util/unwind-libdw.h
-index 5c23080cb6c1..20d63d881dff 100644
+index 9c5b5fcaaae8..3dec0ab8bd50 100644
 --- a/tools/perf/util/unwind-libdw.h
 +++ b/tools/perf/util/unwind-libdw.h
-@@ -10,7 +10,6 @@ struct perf_sample;
+@@ -2,15 +2,17 @@
+ #ifndef __PERF_UNWIND_LIBDW_H
+ #define __PERF_UNWIND_LIBDW_H
+ 
+-#include <elfutils/libdwfl.h>
++#include <stdint.h>
+ #include "unwind.h"
+ 
+ struct machine;
+ struct perf_sample;
  struct thread;
  
- bool libdw_set_initial_registers_mips(Dwfl_Thread *thread, void *arg);
--bool libdw_set_initial_registers_s390(Dwfl_Thread *thread, void *arg);
- 
++#ifdef HAVE_LIBDW_SUPPORT
++
  struct unwind_info {
- 	Dwfl			*dwfl;
+-	Dwfl			*dwfl;
++	void			*dwfl;
+ 	struct perf_sample      *sample;
+ 	struct machine          *machine;
+ 	struct thread           *thread;
+@@ -23,4 +25,7 @@ struct unwind_info {
+ 	struct unwind_entry	entries[];
+ };
+ 
++void libdw__invalidate_dwfl(struct maps *maps, void *dwfl);
++#endif
++
+ #endif /* __PERF_UNWIND_LIBDW_H */
 -- 
 2.52.0.457.g6b5491de43-goog
 
