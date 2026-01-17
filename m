@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E830ACA5FE1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 21:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B04FCCA5FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 22:19:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I1PliijQM6d2RaOQmu7YBFJk6r5mmdWAyzqOF7mUGUw=; b=uFscACTZavZb7uVOUdmnp/BOrY
-	CC6+tG5adOsyQuAT8XmNElboJnweoVU4uzQ+g85dwarySPZTs8RpIPAcg91t2sd7JBlVKqg1xqpaS
-	wuvFmoAHngqA+3y+NdZti9CCeiuEDq5pTCql1r/CW2QP7rgaf9jZIf1z3i11wMO+woWVFjwr46Z3N
-	bYFp9KTA/TFnIOWu4hvuTgfqkZLuAPbdAugvofbBFqu+0HBYTy54IYCURPnq3I4i5YcIEgAmPTyle
-	O9JBpUvSBI5NR0zvuFEVnfAyeRP1atzOqB0ijv1gpSrvk/EMzaILu4ZtWS2mXyXF3reTsqVxGm6qC
-	ymSiP+hw==;
+	bh=kgw4BVFnePM/0mIVJpR9dLoyHods82vVO/5jAlQl624=; b=VDWv7LLCsUj7APp6EFy0xr/lck
+	hFQyf7r3EHdRj+e0tYAgLbFEyWy64y8A5h3FaSWP3GohLOEIXXZB6ioB6MXzPJQaiTffYN13ojJ/2
+	Yx6z2KG+Li6x+J1UgNMu98QIhGD+Mg4GsXc22r3JTCTNO96kr+QRRFYZhoTziqN7r6YtAxxhS0Jou
+	JtLSnvorFLk0OLk0gP2R4EArf0AK+0c/UJBlOS0H5UiM+NgR3J52y84v0GYP3hPEov7yjpoWALobf
+	tbkW1B1TcXybMhAM8bGlprPtosbIqyeAkKVHrHo7ASEfxFMKmZTROjmzUEPrB4D4Xs6Hf3g+x1Ovu
+	8axD+AMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhECv-0000000G2Wp-2MTa;
-	Sat, 17 Jan 2026 21:51:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vhEdA-0000000G5db-35Ye;
+	Sat, 17 Jan 2026 22:18:52 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhECt-0000000G2WF-2P00
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 21:51:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C4B3143BD5;
-	Sat, 17 Jan 2026 21:51:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12997C4CEF7;
-	Sat, 17 Jan 2026 21:51:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768686702;
-	bh=b/0coEcvYCaguhsk+YDhiScezyJeihutu1g5DzC6wDU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z5dyYsaB11Qm+4R8fcqD9BQARxzQihhkx8AO77fVZ+c2YZam2ctzR3ILV8wDYT+4j
-	 Qxt5AlavAN3bX8OSanlR4wyUwV3lgqd1W/nLLRzMsGaRBWEfEhgBUk/3li9hXxfuTz
-	 SCu16f+op8gFzDUl4kgqyGeDfvuEQ9eSH4tfYqQQM1rdS5r754YqTq0K40Z2wxKu93
-	 XftjVvFxzwObGG8whMqfWeRt8mZGK2RewkHfdQoiSguebIsvkjCh758Hm/lfD6z4Fc
-	 z26lD77qUn7Tvqxcb3Ef092hvC/LfRN5wEty/YAFsWzQs533Tq8AiA4zgoJdRHSczh
-	 oEN0xajDq2SZw==
-Date: Sat, 17 Jan 2026 15:51:40 -0600
-From: Bjorn Andersson <andersson@kernel.org>
-To: Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, trilok.soni@oss.qualcomm.com
-Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
-Message-ID: <mty6ycfsugaheljicomeucsak7ziakftf22cnikinla7hvthax@f6yu4pmrpuvp>
-References: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
- <aWY6kx8Bwa_2azIl@bogus>
- <86331062-301b-40b1-9df1-78f7751508b4@oss.qualcomm.com>
- <aWgEDAlglnGrzdR4@bogus>
- <4fab824f-8067-49d7-8e6c-dedd67a8454d@oss.qualcomm.com>
- <aWoVR4oNdIHnksJQ@bogus>
- <92d90a1e-e993-4044-b152-83a8700f7b63@oss.qualcomm.com>
+	id 1vhEd8-0000000G5cj-086p;
+	Sat, 17 Jan 2026 22:18:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=kgw4BVFnePM/0mIVJpR9dLoyHods82vVO/5jAlQl624=; b=shDWFC/jxIS90nsHE82y9XVXeO
+	Dz6fi7Zllpw98ScdUTLxGMycleoz3ab9ehFnuPy2lMM2DtbH3+jut5U6A67wfkXeawZrZ3uRlWTdq
+	n3Led52P0xD3yponWtchsV6ctTmjWLnXZRxxVyu0FkL8wVZytTWAb36qI8AuaBDHKb5Y=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vhEcn-003GDV-It; Sat, 17 Jan 2026 23:18:29 +0100
+Date: Sat, 17 Jan 2026 23:18:29 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Christian Marangi <ansuelsmth@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next v2 1/2] dt-bindings: net: airoha: npu: Add
+ EN7581-7996 support
+Message-ID: <30f44777-776f-49b1-b2f5-e1918e8052fd@lunn.ch>
+References: <69677256.5d0a0220.2dc5a5.fad0@mx.google.com>
+ <76bbffa8-e830-4d02-a676-b494616568a2@lunn.ch>
+ <6967c46a.5d0a0220.1ba90b.393c@mx.google.com>
+ <9340a82a-bae8-4ef6-9484-3d2842cf34aa@lunn.ch>
+ <aWfdY53PQPcqTpYv@lore-desk>
+ <e8b48d9e-f5ba-400b-8e4a-66ea7608c9ae@lunn.ch>
+ <aWgaHqXylN2eyS5R@lore-desk>
+ <13947d52-b50d-425e-b06d-772242c75153@lunn.ch>
+ <aWoAnwF4JhMshN1H@lore-desk>
+ <aWvMhXIy5Qpniv39@lore-desk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <92d90a1e-e993-4044-b152-83a8700f7b63@oss.qualcomm.com>
+In-Reply-To: <aWvMhXIy5Qpniv39@lore-desk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260117_135143_658344_07B31F40 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20260117_141850_073890_AF163201 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,22 +85,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 12:53:18PM -0800, Satya Durga Srinivasu Prabhala wrote:
-> Hello Sudeep,
-> 
-> Thanks for the discussion & feedback.
-> 
-> Wanted to check on below possibilities to disable the SMCCC SOC ID at the
-> vendor end, can you help comment?
-> 1. Introduce cmdline option
->    We are trying to pursue that in Android Kernel -
-> https://android-review.googlesource.com/c/kernel/common/+/3912874
-> 2. Mark SMCCC SMC ID driver as tristate & module as suggested by Dmitry
+> Airoha folks reported the NPU hw can't provide the PCIe Vendor/Device ID info
+> of the connected WiFi chip.
+> I guess we have the following options here:
+> - Rely on the firmware-name property as proposed in v1
+> - Access the PCIe bus from the NPU driver during probe in order to enumerate
+>   the PCIe devices and verify WiFi chip PCIe Vendor/Device ID
+> - During mt76 probe trigger the NPU fw reload if required. This approach would
+>   require adding a new callback in airoha_npu ops struct (please note I have
+>   not tested this approach and I not sure this is really doable).
 
-What happens when I boot a system with module autoloading?
+What i'm wondering about is if the PCIe slots are hard coded in the
+firmware.  If somebody builds a board using different slots, they
+would then have different firmware? Or if they used the same slots,
+but swapped around the Ethernet and the WiFi, would it need different
+firmware?
 
-What is the expected behavior of userspace when it faces two soc nodes?
+So is the firmware name a property of the board?
 
-Regards,
-Bjorn
+If the PCIe slots are actually hard coded in the NPU silicon, cannot
+be changed, then we might have a different solution, the firmware name
+might be placed into a .dtsi file, or even hard coded in the driver?
+
+> What do you think? Which one do you prefer?
+
+I prefer to try to extract more information for the Airoha folks. What
+actually defines the firmware? Does the slots used matter? Does it
+matter what device goes in what slots? Is it all hard coded in
+silicon? Is there only one true hardware design and if you do anything
+else your board design is FUBAR, never to be supported?
+
+     Andrew
 
