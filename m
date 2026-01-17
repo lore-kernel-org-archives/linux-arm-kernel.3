@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17141C9830C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 02:10:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F34BC9830C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 02:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cm5Wp8stDwRLzC/ClhKyPOEbBhpVhy/nTFwwMOc004U=; b=ig1cgh+CwAyd5iNNmtKDa39wdi
-	/WKyyk0aWVEmgK7ibTY+X9DLmopk5eVxkBm8HNxELdr45O6G35x9HPYMyuy8Et0MS9GsiPm+U3XpW
-	s81OHYtEZwJixRFL6wbOpA1iRZdcdpoFafkM5r+OH5DtM94C13JbV1W4MBj7uZ65+nUJ4QhPlEcej
-	w6/iuZgHBnqn6nEnEyz3YvqqnvmMIVGth7hOrhlU0SebFYD9DYbRyurQhDEkbfLPN1f+J7ATCLFpn
-	TPlUB36GH/gzjq2HtXPK61yBTrASy08AypEJGfLFyxgZBRm+0NJG5Q7atMkKU1pv/nrVSoxL6Ex00
-	16GWnLaw==;
+	bh=mX+pKglcUGalsnXrao4pZyIC4YLVUK9HfhdJDPeAPw0=; b=oVroAy2Kq5sHcVZfDkiQS8bAxw
+	ahesgQ0qf0oB/g8Dsn5GkXpYJ/yWtRu9mCFhirvoUnO/iHtY8FSfgmJI6GgoM6koO27cfSXbe7adR
+	RIvHE7qXJKXH5fmc+Dyez/iG1MiHKoSn2Cc6adoGLCK0NLsH2R9042i3eQqtYQQtjec6XiAqjDipv
+	GsN2pe+CCN+A29Z5A+Uei1bQCXzArM2wP3a6+NANebQnghr60m5C0WCnV0ZDeHu7Rc0v7P+2BJCxd
+	atVnwlD+624VPglzUTsh+TUhvfI7cn2nmEFy5iWqDO/XL/44lR/U5E29Nb+g1hPjdjhcQSzsPrQtH
+	KTar+Nfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgvlg-0000000F7Lo-29cx;
-	Sat, 17 Jan 2026 02:10:24 +0000
-Received: from mail-m81206.netease.com ([47.88.81.206])
+	id 1vgvmA-0000000F7Qn-0arE;
+	Sat, 17 Jan 2026 02:10:54 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgvlb-0000000F7L1-3qp8;
-	Sat, 17 Jan 2026 02:10:22 +0000
-Received: from [172.16.12.14] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 30f8e2691;
-	Sat, 17 Jan 2026 10:10:09 +0800 (GMT+08:00)
-Message-ID: <9c9d2fa3-46f3-43e6-95d0-6b5ec6b6ea78@rock-chips.com>
-Date: Sat, 17 Jan 2026 10:10:09 +0800
+	id 1vgvm4-0000000F7PU-0vMP;
+	Sat, 17 Jan 2026 02:10:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=mX+pKglcUGalsnXrao4pZyIC4YLVUK9HfhdJDPeAPw0=; b=O
+	WKwXoBWKRqUPFNSa1evtIxzarIzwBKxN71haE4VjEtyWif7u8nWsG6HSio3xi1TO
+	uFDbAa3UmpZo+lKbDeTfjKdHBiIoG7nv0DlvgT1gpBuxAlZRHRb55ammLKVcW5qc
+	bSYyEzp2D21FkPrNfxBbUGu7gc4nAL5DzBtyxvUVNM=
+Received: from andyshrk$163.com ( [58.22.7.114] ) by
+ ajax-webmail-wmsvr-40-108 (Coremail) ; Sat, 17 Jan 2026 10:09:55 +0800
+ (CST)
+X-Originating-IP: [58.22.7.114]
+Date: Sat, 17 Jan 2026 10:09:55 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: hjc@rock-chips.com, mripard@kernel.org,
+	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de,
+	airlied@gmail.com, simona@ffwll.ch, dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	"Andy Yan" <andy.yan@rock-chips.com>
+Subject: Re:Re: [PATCH] drm/rockchip: vop2: Add mode valid callback for crtc
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20251222(83accb85) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <6509513.iIbC2pHGDl@diego>
+References: <20260116005953.286225-1-andyshrk@163.com>
+ <6509513.iIbC2pHGDl@diego>
+X-CM-CTRLMSGS: EPOSPXBsdXM9MTc2ODYxNTc5NDQyMF80MDY1OTUwMzdiOGQzZDMzMTQ0Yjk5M
+ DNmNTYwYjIzZg==
+X-NTES-SC: AL_Qu2dCvqauk8i4ymaZOkfmUgWjuw/WsG1v/Ul1YBSP556jCLpyxkmREZKAWnx882oLiKGsAS2YBV818lzcYV9RqYJwAQrkcPC+qrH09Zm5SyxFA==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Aishwarya TCV <Aishwarya.TCV@arm.com>,
- linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Heiko Stuebner <heiko@sntech.de>,
- "xuhui.lin@rock-chips.com" <xuhui.lin@rock-chips.com>
-Subject: Re: [PATCH] spi: rockchip: Use plain request_irq()
-To: Mark Brown <broonie@kernel.org>
-References: <20260116-spi-rockchip-threaded-irq-v1-1-c45c3a5a38b1@kernel.org>
- <f8658bd7-7381-4770-935a-6a98ea3f652f@rock-chips.com>
- <a5b6c607-9b8c-4fa6-98c5-6ba848f7f2e2@sirena.org.uk>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <a5b6c607-9b8c-4fa6-98c5-6ba848f7f2e2@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9bc9b7932709cckunm71430622777bb9
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQh4fS1ZPSU4ZSBlMHUJPSh9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=AEEmPEne5H2CrfSGk3MDyhTd86aNBKC5JSFR7RBvuYjSennkbK3awJVCTgx8pT9ednbNr/KvuS6Vxo5OXdio86J7dws1sFFjvBTooExUQK3bD7bPA5UJUCm/G5gxCse/2SQF6NJakFZsK9pctoB9jlXtFnkxWaeB7Y9Ikgz522M=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=Cm5Wp8stDwRLzC/ClhKyPOEbBhpVhy/nTFwwMOc004U=;
-	h=date:mime-version:subject:message-id:from;
+Message-ID: <5e931108.71d.19bc9b75cdf.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: bCgvCgD3H5Rz72pp7HZYAA--.3213W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbCxRMNa2lq73N8bQAA3+
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_181020_810987_901F64A7 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20260116_181049_664948_2B1A02A0 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +80,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ Xuhui from rockchip who may keep an eye on spi-rockchip related topic
-
-在 2026/01/16 星期五 23:37, Mark Brown 写道:
-> On Fri, Jan 16, 2026 at 11:19:39PM +0800, Shawn Lin wrote:
->> 在 2026/01/16 星期五 21:23, Mark Brown 写道:
-> 
->>> The Rockchip driver has since interrupt support was added used
->>> request_threaded_irq() but not actually supplied a threaded handler,
->>> handling everything in the primary handler.  This is equivalent to just
->>> using a plain request_irq(), and since aef30c8d569c (genirq: Warn about
->>> using IRQF_ONESHOT without a threaded handler) the current behaviour has
->>> triggered a WARN_ON().  Convert to use request_irq().
-> 
->> Is it preferred to use threaded version if latency is not a critical
->> concern ? I guess the original intention was to use
-> 
->> ret = devm_request_threaded_irq(&pdev->dev, ret, NULL, rockchip_spi_isr,
->> IRQF_ONESHOT, dev_name(&pdev->dev), ctlr); ?
-> 
-> TBH it looked to me more like there'd been some deferral of more complex
-> work at some point but that didn't make it into the final code.  In
-
-Ah, indeed，rockchip_spi_isr() directly performs R/W pio in hardirq
-context which doesn't seem advisable, so probably some better
-improvement is needed in the furture. Anyway, fix the warning right
-now as $subject patch looks sensible:
-
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
-
-- Thanks.
-
-> general it's better to handle things in hardirq context if they are
-> appropriate for that, and for a SPI controller the end requirements are
-> coming from the device so you have to assume they're going to need
-> things to complete promptly.  There's overhead from scheduling a task so
-> no point in incurring it if it doesn't buy you anything.
-
+CkhlbGxvIEhlaWtv77yMCgrlnKggMjAyNi0wMS0xNyAwMDo0OToyM++8jCJIZWlrbyBTdMO8Ym5l
+ciIgPGhlaWtvQHNudGVjaC5kZT4g5YaZ6YGT77yaCj5IaSBBbmR5LAo+Cj5BbSBGcmVpdGFnLCAx
+Ni4gSmFudWFyIDIwMjYsIDAxOjU5OjQ5IE1pdHRlbGV1cm9ww6Rpc2NoZSBOb3JtYWx6ZWl0IHNj
+aHJpZWIgQW5keSBZYW46Cj4+IEZyb206IEFuZHkgWWFuIDxhbmR5LnlhbkByb2NrLWNoaXBzLmNv
+bT4KPgo+d2hlbiByZXNlbmRpbmcgYW4gdW5tb2RpZmllZCBwYXRjaCwgcGxlYXNlIG1hcmsgdGhl
+IHN1YmplY3QgYXMKPltQQVRDSCBSRVNFTkRdIC4uLi4KPgoKClNvcnJ5LCBJIGZvcmdvdCB0aGF0
+IHRoaXMgcGF0Y2ggaGFkIGFscmVhZHkgYmVlbiBzZW50IG91dCBvbmNlIGJlZm9yZQoKPj4gRmls
+dGVyIHRoZSBtb2RlIHRoYXQgY2FuJ3Qgb3V0cHV0IGJ5IHRoZSBjcnRjLgo+Cj5JbiBjb21taXQg
+OGUxNDBjYjYwMjcwICgiZHJtL3JvY2tjaGlwOiB2b3A6IGxpbWl0IG1heGltdW0gcmVzb2x1dGlv
+biB0bwo+aGFyZHdhcmUgY2FwYWJpbGl0aWVzIikgd2hpY2ggaW50cm9kdWNlZCB0aGUgc2ltaWxh
+ciBjaGVjayBvbiBWT1AoMSksIHdlCj5oYWQgYWRkaXRpb25hbCBpbmZvcm1hdGlvbiwgaW4gdGhh
+dCB0aGUgVk9QMSBoYXJkd2FyZSBkb2VzIG5vdCBoYXZlCj5hbiBvdXRwdXQgaGVpZ2h0IGxpbWl0
+LiBJcyB0aGUgc2FtZSB0cnVlIGZvciBWT1AyID8KPgo+QmVjYXVzZSB0aGVuIEknZCBsaWtlIHRv
+IGV4dGVuZCB0aGUgY29tbWl0IGRlc2NyaXB0aW9uIHRvIHNvbWV0aGluZyBsaWtlOgo+PT09PT09
+PSA4PCA9PT09PT09Cj5UaGUgZGlmZmVyZW50IFZPUCB2YXJpYW50cyBzdXBwb3J0IGRpZmZlcmVu
+dCBtYXhpbXVtIHJlc29sdXRpb25zLiBSZWplY3QKPnJlc29sdXRpb25zIHRoYXQgYXJlIG5vdCBz
+dXBwb3J0ZWQgYnkgYSBzcGVjaWZpYyB2YXJpYW50Lgo+Cj5Pbmx5IHRoZSBvdXRwdXQgd2lkdGgg
+aXMgY2hlY2tlZCBiZWNhdXNlIHRoZSBoYXJkd2FyZSBpdHNlbGYgZG9lcyBub3QKPmhhdmUgYSBo
+YXJkIG91dHB1dCBoZWlnaHQgbGltaXQuCj49PT09PT09IDg8ID09PT09PT0KPgo+QmVjYXVzZSB3
+aGVuIHNvbWVvbmUgc2VlcyB0aGUgY29kZSBsYXRlciB0aGV5IG1pZ2h0IGFzayB3aHkgdGhlIGhl
+aWdodAo+aXMgbm90IGNoZWNrZWQsIHNvIGhhdmluZyB0aGF0IGluIHRoZSBjb21taXQgZGVzY3Jp
+cHRpb24gYWxsb3dzIHVzIGFsbCB0bwo+cmVtZW1iZXIgd2h5IHRoZSBjaGVjayBpcyB0aGlzIHNw
+ZWNpZmljIHdheSA6LSkKCkRvbmUgaW4gVjIKCgo+Cj5UaGFua3MKPkhlaWtvCj4KPj4gU2lnbmVk
+LW9mZi1ieTogQW5keSBZYW4gPGFuZHkueWFuQHJvY2stY2hpcHMuY29tPgo+PiAtLS0KPj4gIGRy
+aXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jIHwgMTIgKysrKysrKysr
+KysrCj4+ICAxIGZpbGUgY2hhbmdlZCwgMTIgaW5zZXJ0aW9ucygrKQo+PiAKPj4gZGlmZiAtLWdp
+dCBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jIGIvZHJpdmVy
+cy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMKPj4gaW5kZXggNDk4ZGYwY2U0
+NjgwLi43NGZiYTI5YmZmZjMgMTAwNjQ0Cj4+IC0tLSBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hp
+cC9yb2NrY2hpcF9kcm1fdm9wMi5jCj4+ICsrKyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9y
+b2NrY2hpcF9kcm1fdm9wMi5jCj4+IEBAIC0xNDM5LDYgKzE0MzksMTcgQEAgc3RhdGljIHZvaWQg
+dm9wMl9jcnRjX2Rpc2FibGVfdmJsYW5rKHN0cnVjdCBkcm1fY3J0YyAqY3J0YykKPj4gIAl2b3Ay
+X2NydGNfZGlzYWJsZV9pcnEodnAsIFZQX0lOVF9GU19GSUVMRCk7Cj4+ICB9Cj4+ICAKPj4gK3N0
+YXRpYyBlbnVtIGRybV9tb2RlX3N0YXR1cyB2b3AyX2NydGNfbW9kZV92YWxpZChzdHJ1Y3QgZHJt
+X2NydGMgKmNydGMsCj4+ICsJCQkJCQkgY29uc3Qgc3RydWN0IGRybV9kaXNwbGF5X21vZGUgKm1v
+ZGUpCj4+ICt7Cj4+ICsJc3RydWN0IHZvcDJfdmlkZW9fcG9ydCAqdnAgPSB0b192b3AyX3ZpZGVv
+X3BvcnQoY3J0Yyk7Cj4+ICsKPj4gKwlpZiAobW9kZS0+aGRpc3BsYXkgPiB2cC0+ZGF0YS0+bWF4
+X291dHB1dC53aWR0aCkKPj4gKwkJcmV0dXJuIE1PREVfQkFEX0hWQUxVRTsKPj4gKwo+PiArCXJl
+dHVybiBNT0RFX09LOwo+PiArfQo+PiArCj4+ICBzdGF0aWMgYm9vbCB2b3AyX2NydGNfbW9kZV9m
+aXh1cChzdHJ1Y3QgZHJtX2NydGMgKmNydGMsCj4+ICAJCQkJIGNvbnN0IHN0cnVjdCBkcm1fZGlz
+cGxheV9tb2RlICptb2RlLAo+PiAgCQkJCSBzdHJ1Y3QgZHJtX2Rpc3BsYXlfbW9kZSAqYWRqX21v
+ZGUpCj4+IEBAIC0xODg0LDYgKzE4OTUsNyBAQCBzdGF0aWMgdm9pZCB2b3AyX2NydGNfYXRvbWlj
+X2ZsdXNoKHN0cnVjdCBkcm1fY3J0YyAqY3J0YywKPj4gIAo+PiAgc3RhdGljIGNvbnN0IHN0cnVj
+dCBkcm1fY3J0Y19oZWxwZXJfZnVuY3Mgdm9wMl9jcnRjX2hlbHBlcl9mdW5jcyA9IHsKPj4gIAku
+bW9kZV9maXh1cCA9IHZvcDJfY3J0Y19tb2RlX2ZpeHVwLAo+PiArCS5tb2RlX3ZhbGlkID0gdm9w
+Ml9jcnRjX21vZGVfdmFsaWQsCj4+ICAJLmF0b21pY19jaGVjayA9IHZvcDJfY3J0Y19hdG9taWNf
+Y2hlY2ssCj4+ICAJLmF0b21pY19iZWdpbiA9IHZvcDJfY3J0Y19hdG9taWNfYmVnaW4sCj4+ICAJ
+LmF0b21pY19mbHVzaCA9IHZvcDJfY3J0Y19hdG9taWNfZmx1c2gsCj4+IAo+Cj4KPgo+Cg==
 
