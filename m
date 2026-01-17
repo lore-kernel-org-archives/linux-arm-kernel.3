@@ -4,67 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC15C98303
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 02:43:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52BBBC98303
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 03:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SNNQIe+zL0h/HI/LHONU+gkJLEjREbUKUSNPPiaoEeo=; b=IMmK+5Aswh1qD/w3xjlsFYrDPh
-	En0SXnJN4VgqS2DLr4O52TnSGjke7ggZiFdaC0Qzr0XwWVhGwMgyymIX7nNtV/Cj2JqPnCQI+cXut
-	ggo6KHcHBJ7JcSZAC0O0ObXdvQUz2ImoT75mePRqzlZLPlsbycXyx+yJRtHEpOtdsNZlK85oRttMO
-	oBtqZEnWgJ95N0Hy6i60PA1Keu/zY159d4f/WRjVQnRC/Fov48t1+E6jU+sfir96T+lqldr6+eYOu
-	S3m/P5QARZ8lmeLvpfmEMsNjaB3mdmFFA3D27gvnhdf0xOd1afAsvH9XmsIRSQNjzQ22CqvDDimdA
-	NQPiUcxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UGMpGMqaNGWxqcwdjn1ROPnyxiXTVg4xGt3yGKLuYME=; b=zxfMX1lzD4A8PIQdJjcbGJlnDk
+	QK0Bqa6X8rS/qzb6syZQmf8aPnktBbtbNHIUBuBIBzQYdZSRNu23HnZ35eA2HEci8eMPPVTD8J7/b
+	L8vfWo9jQS0Iz5ChGDPka6BT/Lo36tzq6SqPkye/MMBIBm0nIDe9ERPdQrx8i1fDGIP8Bl/u4q2Gt
+	0EEqBjS1tOFc4g/Snl9iWwQ25Uch6H1IVpqwAkZ+Uc4Z38d5dpz+6y0p6YKb7dZjiy1GAEMQ4vDbQ
+	xX4gPmmql/oP9SyEmov3QYBpval3Oc5xOKVZMEkCi92rN/hM8WYAu87Onbw4UEnnklnPvaLEyRvlX
+	OdLZGe8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgwHi-0000000F8pz-23FH;
-	Sat, 17 Jan 2026 02:43:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vgwct-0000000F9J4-0mca;
+	Sat, 17 Jan 2026 03:05:23 +0000
+Received: from mail-japanwestazolkn19011011.outbound.protection.outlook.com ([52.103.66.11] helo=OS0P286CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgwHh-0000000F8ps-0Xn7
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 02:43:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 37AC160127;
-	Sat, 17 Jan 2026 02:43:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E4B3C116C6;
-	Sat, 17 Jan 2026 02:43:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768617807;
-	bh=M8I0P+6+kQfZVYRfMsIkrT3kwJeTYt5m5hoJ5qwOuIY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iOdeCkWMhN9WnWZxErtm5Hm2SO6e1OYgFzVOxSN5IwSyO5pmzbdapo5Ot+4c+GrEQ
-	 Gmz0C5eQ9AhCq/BwZUiQuR9rDqfDU+c3GXVEzbaF8ZfEIMSK2bu1t4jknRu9w8WEzs
-	 QRt8BGWgiSvF7JAlWXRxe74aEhVWlPuaMVOi0w/9jdqrg9+/2goye6UcPfFrhMZb/z
-	 K60GAcMWsyJyMSuKTSMZUiSg1pG65aOBDHLM5z7lbPHsq6mx8xTFigMuJo5RYSugYR
-	 UFlV7ePveLsp1zwHmtlj/WxSl9XTi22n6BKfTEuhkE6KHE4p/9TKrTLgBL+Lbv14Jh
-	 WHq6jtURQ5ckA==
-Date: Sat, 17 Jan 2026 10:43:19 +0800
-From: Shawn Guo <shawnguo@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Sherry Sun <sherry.sun@nxp.com>, Li Jun <jun.li@nxp.com>,
-	Fugang Duan <fugang.duan@nxp.com>
-Subject: Re: [PATCH 0/9] arm64: dts: imx8m*: misc update
-Message-ID: <aWr3R-phzjSS9GL-@dragon>
-References: <20251110-misc_dts-v1-0-7564b9f69a18@nxp.com>
- <aVwWnAMqVqE7jtCy@lizhi-Precision-Tower-5810>
+	id 1vgwcn-0000000F9IS-3Hz0;
+	Sat, 17 Jan 2026 03:05:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uvVjE8HRlu4As4OUnKqNebbz7yiTcDvIgIvHrxmXn1EEGsuw9drT4DHcttScqo97jvvcUhQ6GJsfDW2tnUhEyug1YUCmB/EQ44XT36ghEf7yznkBMf6wrZamAw9gOlLRi965W5pR/1kHN/SICjUe81w1ehIlhYgI79s0NWinTgdzkeI99Oc/LZpHbvzNk2klxVGgXtDuOZCUzrHNZ9QEaYpZnePyh5uRxr281m84manBxVSeOID/Ja0EszwvAupZbZUMOPpdx1XYX6zqdDTlZD9Ns+jf3Wq0hJ8hr/i9PtwdCCrWQiixVc+97wuHCGCHMfOSph8j3bn6gUFAFk4vTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UGMpGMqaNGWxqcwdjn1ROPnyxiXTVg4xGt3yGKLuYME=;
+ b=qA6mHS23+vs3quA65laOd+46xBfF285yMrKTv64JLtrIyviWyso7p2qHQdKEW+6q7YPuVWLkb01MohklknbZILn/t7n/f05HVWgTIu6Lm0SRwkLS8+EiKqOPlPCiyElfuGHZVr/06xCoxnzo0FDWOSTkdKuu4rAjN6F2RR1b16yIAob54X0LYvKwUHub81sXQZ6gM3JBlwGRBCzIheJjIwhMlYlFTJwu1IdAfdVIznalCADXREMk9MQ6m9htf1wFcBxMCVr8nPHGiOd822Rat3SWvuxVsC7f250GtIQ0zQqGj0JVLyQj1eO3QdHcqlo2/QEj+e2FOIk2TL+eN/Q+yQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UGMpGMqaNGWxqcwdjn1ROPnyxiXTVg4xGt3yGKLuYME=;
+ b=l5ZHVXMmdMbuX04mTIfmvnyaufeJOz2IPBTKc6vZF2NLBHQUow0Gh2LXP/pamJ4fy8OPHaWSLGKXi/TE2NvOP8gKy1WFerqs6m81OvSdNrsVFgDOkDbmKJS6fcjLQaZU93MruIXOx+Ny6MzfY+fRTSlmwdZOiHYK8NeDypRREhk4ODILAxrIsDz3Q/PIXtzJR7xyR3MpC2V2mzvGZcLcEhohy9FIxyR+PeQAaZPD3b+ZtyZUCA5lUXV9lQ6qKIgLqHDGaPM6gY1ptkmfH2zwViRVXyQaXnM/HmgZRccn8QNXWjqDWa+KA22PJorP/oNfIg5B15T4A6kBWssFkahULw==
+Received: from OS7PR01MB13834.jpnprd01.prod.outlook.com
+ (2603:1096:604:36a::14) by TY7PR01MB13652.jpnprd01.prod.outlook.com
+ (2603:1096:405:1eb::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.9; Sat, 17 Jan
+ 2026 03:05:07 +0000
+Received: from OS7PR01MB13834.jpnprd01.prod.outlook.com
+ ([fe80::6e58:e4b5:3405:28d6]) by OS7PR01MB13834.jpnprd01.prod.outlook.com
+ ([fe80::6e58:e4b5:3405:28d6%4]) with mapi id 15.20.9520.006; Sat, 17 Jan 2026
+ 03:05:07 +0000
+From: Shiji Yang <yangshiji66@outlook.com>
+To: linux-mediatek@lists.infradead.org,
+	linux-gpio@vger.kernel.org
+Cc: Sean Wang <sean.wang@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sam Shih <sam.shih@mediatek.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Shiji Yang <yangshiji66@outlook.com>
+Subject: [PATCH] pinctrl: mediatek: enable ies_present flag for MT798x
+Date: Sat, 17 Jan 2026 11:04:37 +0800
+Message-ID: <OS7PR01MB13834D5838A90C138C62CD817BC8AA@OS7PR01MB13834.jpnprd01.prod.outlook.com>
+X-Mailer: git-send-email 2.51.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SGXP274CA0001.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::13)
+ To OS7PR01MB13834.jpnprd01.prod.outlook.com (2603:1096:604:36a::14)
+X-Microsoft-Original-Message-ID: <20260117030437.11947-1-yangshiji66@outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aVwWnAMqVqE7jtCy@lizhi-Precision-Tower-5810>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OS7PR01MB13834:EE_|TY7PR01MB13652:EE_
+X-MS-Office365-Filtering-Correlation-Id: 90a8533f-4fde-413b-2eb0-08de557537de
+X-MS-Exchange-SLBlob-MailProps: rYPt1fhvLTWbGL9eyGW7/UVWGVQcj2SHtQO8DbLb9vVjKF95PDehsUQhm0Y7q0LjB4hHKfjS0I3JQfnmlmyJjjL9zz4SPt3H7c2dRR2Nf5lKBY4510ET8FagdpBaocbCYiISs9ROn4Nh66DXldWO7Qw5ELTXgx4nEGlYCZUBwHXArB23MAVE6Mti5cUHpgoImrM0SNMZXb2xire+wwuEDo1dDfd+WLeNlWL7m83ufJWPsI+jbKVVqYPeklSqRwexdKAA/p0PqCFDgDzrUS5/AS+iaJI2Pm8zhdxCDqvuBy+EDZ2cS8vQna1wp7K6eU04Jzh4Cx8RNVbyTgsLUpkxvQBIPxH6jXCOwkcS5JOhMpfvJxf2PiXXOjSL7vBKcfvg1p60Fbn/xmW1OfUvAh23u78Al6gq4M0N3MjXK0rT3SZEz1DRH82GTSCNsJwcnCW1DyhKpV6KGqozC7bBmHyIxhbRunNzjR6/KH+G4l+cTjlklKkF/rVydkJVdl5GvbL4SxLtMjWDicl2oLBDy7g1074U+g9iflV3gvunZcWhvigdD2Llu3lUj8kGJatY88X4zpVGBcLomxsobSBpm2RPBv3P2I7YJOwjUImxHk22KmXNCzYr0qJssMh2GtemWn40OxKqFwCQ5RvYcbn7n7ytKF22WpuDX51X8gAaW21R2P59xHZCYFNlOJsodXLbDcKueqNv15QTkJePDUIQma0j1w==
+X-Microsoft-Antispam: BCL:0;ARA:14566002|23021999003|8060799015|19110799012|5062599005|15080799012|5072599009|461199028|3412199025|440099028|53005399003|40105399003|1710799026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JOcTOoDgDXguyW92oAoVn5r13fOPOKb/hDSsByrXGZsUtDhQ6UzrCWPNx9Pu?=
+ =?us-ascii?Q?/d/p8u8tsb4ggmraJLAF3259U5L1FhlTOT5632GAw2Kr+wot/glNgz0CbXp9?=
+ =?us-ascii?Q?SrB5KOkzbXJ6aSL+6S/B+JGHKMLyJIPDenV4o9kj0+KguzhBQohhD/uZN7Zn?=
+ =?us-ascii?Q?drteUtpIEgDpYewzqd54eSEe6to1hh9XEnsL53WdafQ3pXoj89CDjUPVpP7+?=
+ =?us-ascii?Q?dLeDUnh0J1VagmXj+/5+TL7ZuLOt+fQxVUwieCOZ+fF2ZuikYCnHuqqZdMsO?=
+ =?us-ascii?Q?aeEBMEiXSJVogGzWAINYkLUhw82uKBsGKUGFHS02SPHdYV7N+iFDyxOl5IWT?=
+ =?us-ascii?Q?nch9A3N8uu1JEOeeuI9eCJXT0NycF5jEugDSnWGliI5/4aF6ArxCe4zjmlnl?=
+ =?us-ascii?Q?+BqVJReIdP3ccY1GMyBoDCFke2JdmtPFpTvjeDtL91injBH1QGbTJmXzhF0I?=
+ =?us-ascii?Q?6aVtVQ0k4sRWtM17wgl+FAncyKvFnxNRSD8I0chRc3HxXdlh2DqfVHe+QWH2?=
+ =?us-ascii?Q?ck3QU5DdU4oc6KDr1jvyodrnEdfZ1gDe+Tp2tdiZoXu6O6zIPzTOs4n6A89T?=
+ =?us-ascii?Q?WMpy6ilgiwNxvm9wYkGKZ5Xwnq9c8IGWiR5dTqDbDqC28JMHEJhcAza2qmiK?=
+ =?us-ascii?Q?rBs2xEDJCrD6MMSYd158rvHVatkFolzJOzRVjZGZ5SIMGBd+JgyYhIhNlLMk?=
+ =?us-ascii?Q?F4peTxvfSGv8f2RCR0V0UmHw+awby7qet9tteZ8XxfPBIX0ooE0IGlHx5ACc?=
+ =?us-ascii?Q?oBf4N+1wpfmf78DI+pqEVcge+G8385kMEygX0idlebsy7UwhvIEBbdNPauvz?=
+ =?us-ascii?Q?HILnBdythUF3QugGSuMVUoLpxElF3rSq8wHkJRbHbgx9p/NRMA69tQDKdccZ?=
+ =?us-ascii?Q?bizl7icUBDkwXHfAEvS8E45znnUCydCmekEdGYhxrkuYdhxtENdUz2EoVjHQ?=
+ =?us-ascii?Q?Rhn5WJ4A5L8R0P6HiWM4nlw9zmzAVF//ssTHxIEcu0YAzA89OGz5y2zvJxrH?=
+ =?us-ascii?Q?LqcSNFuTJmBKlOibymKlb16tqoYNBNwstYZxdn8o8cTRzIPGoyQq2DC4xLep?=
+ =?us-ascii?Q?wEisH9fHvVm0C5aFWbuDM4HIANfeD2AlGADBQN4s6rTFtOaPkUDiY8A8JZUm?=
+ =?us-ascii?Q?rqbL4wWSOvywF5gSVFNHAa2otlrqaqLPc6B/QusOZuClLuHxMLhYJJ7zmvw0?=
+ =?us-ascii?Q?midUXH0Mq0fObqmTiXp3giXvbkWO+nc18p86reXlEgJXSyI3gzNw2sxxptI?=
+ =?us-ascii?Q?=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0jtY5QkXTlzuWXxCoiclY+ZAm/pKA63j6YnsHCEH7MTQ0AgwOZnzPPTabjEO?=
+ =?us-ascii?Q?vNyVL9Y0OCUgrEDJjy16KyPlkEj0FsK3DQxQx8M8P2iZ7cq7XN75LMyi2dIE?=
+ =?us-ascii?Q?d9zJgrslb0Xiv1QQTqOriXvXFGRL3SR8FF94CkgKvpukKATz/v11BVacW6d1?=
+ =?us-ascii?Q?4oPsnD0LJKS+vaox4Ldqi+8xtfrDBL9vQeM1GQfsPOtWwFnHQ62/kQIXI6eh?=
+ =?us-ascii?Q?AQAYxut3dqb+OIkOW4bShtbhfKkWnMmQYuAVH/EGA6881ro2AHCIkpGLccHc?=
+ =?us-ascii?Q?hwu2JosrwFI2FUJ5tdzdIECT6NjatAdtTmDnPxyjavYavxWFmFTVQHrk2bfG?=
+ =?us-ascii?Q?1YkaJac3+I09yxJf8TkeyESMaINITb5C0mCip/noNDNR6Lt03l9ptPwNY6GE?=
+ =?us-ascii?Q?EAFwskl7TQupgGA93RTyq/yCoz9SdlYPUTvlYlFwLlURYaWbf0Mtm+IAIctm?=
+ =?us-ascii?Q?i+Lo4upjvnGXu9TAd/6xudS3KdnMeUoFIZBTBSAS7uA+GShfZdiJ5tDbOlfz?=
+ =?us-ascii?Q?uL6CX+wHrPHnsz8yJpR//LFfGnrTB6mtEDZ2fMtOmulfglD41ZJsB0XF49gj?=
+ =?us-ascii?Q?zTPjDo+Pj2zJN6v+we0SHY/Jtkpnr/+lganLOoPCfZ9aoMbvjJcChc/i8R/R?=
+ =?us-ascii?Q?IZBWNBnEEx8yl4F70+LxdWRvcyJv2uDGdb3NSt0aBSDVRQAp6BJzvYMmCQNp?=
+ =?us-ascii?Q?lQBCnaahrcB9cIWTwsOVWzXHJ3Fxpf6ng2LwwsCD2txCpIXKkIWo0H2fbxAy?=
+ =?us-ascii?Q?51vFzTczwbi4I3DNnyrAu4i1dJdTCduzOtf88hOW1ZdZA5fYbKfQW1DPRZJU?=
+ =?us-ascii?Q?MppMasedtybZjsr+am+zjNsSKxOet/DwkKU8/wZCS+B2ykyb1g4nj+EyEnJp?=
+ =?us-ascii?Q?kbcvYEsHMDITtUilOyPXj4K5NZH5rqno7NYvR0JqRbaHiakitSm7mXDKR+jC?=
+ =?us-ascii?Q?IbJVapXRU584pqu5ngnyC4tV7OMmGHLqFgYrJFIxGENE3iC14HMYy++P5P2g?=
+ =?us-ascii?Q?KmHh/P1bz60se8Et/TKMpJKBvMZLw1HLlqykQGhuXh33PA3S43w8lvozPdmD?=
+ =?us-ascii?Q?O2uVcs2iEA2GDYIr34kvJiVcNOfAJmORlS1W6kKgTQ2iYZPf2pbZ4xEKAKYm?=
+ =?us-ascii?Q?u3O64D11slKY+k1BbiNgseZ7HW/1ULKIHQDdIuzY9y9+Acw/T2gToZtnOeRj?=
+ =?us-ascii?Q?iecXz36d2waliNVGXTcLUO3tXpZrb/wdFhnp3aD2on+mGb/1yvig2ITzhcW+?=
+ =?us-ascii?Q?s/Y3K0ZE5CPAQxVhk5wvEh+2JLGq+2VauxEuthqeFDYD0vMNFopntpopf5eD?=
+ =?us-ascii?Q?cv4o0zBIoXS6L2LNY2kf6YpGwGVYUSJ9n8wDS0wX2/+pQEkcpIZi/cKZopTt?=
+ =?us-ascii?Q?m5uUXjwl5n0syiO0HFalI6RjP4it?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 90a8533f-4fde-413b-2eb0-08de557537de
+X-MS-Exchange-CrossTenant-AuthSource: OS7PR01MB13834.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2026 03:05:07.5145
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY7PR01MB13652
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260116_190517_844053_F90657F8 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,47 +151,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 05, 2026 at 02:53:00PM -0500, Frank Li wrote:
-> On Mon, Nov 10, 2025 at 03:54:40PM -0500, Frank Li wrote:
-> > Some misc update for imx8m* dts
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> > Frank Li (2):
-> >       arm64: dts: imx8mm-evk: replace space with tab
-> >       arm64: dts: imx8mp-evk: replace space with tab
-> >
-> > Fugang Duan (1):
-> >       arm64: dts: imx8mm-evk: add uart3 port
-> >
-> > Li Jun (2):
-> >       arm64: dts: imx8mm-evk: add wakeup-source for usb phy
-> >       arm64: dts: imx8mn: add wakeup-source for usb phy
-> >
-> > Shengjiu Wang (1):
-> >       arm64: dts: imx8mm-evk: correct the spdif compatible string
-> >
-> > Sherry Sun (3):
-> >       arm64: dts: imx8mm-evk: add uart1 and bluetooth node
-> >       arm64: dts: imx8mn-evk: add bluetooth dts node
-> >       arm64: dts: imx8mp-evk: add bluetooth dts node
-> >
-> >  arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi | 78 ++++++++++++++++++++-------
-> >  arch/arm64/boot/dts/freescale/imx8mm.dtsi     |  4 +-
-> >  arch/arm64/boot/dts/freescale/imx8mn-evk.dtsi |  4 ++
-> >  arch/arm64/boot/dts/freescale/imx8mn.dtsi     |  1 +
-> >  arch/arm64/boot/dts/freescale/imx8mp-evk.dts  | 32 ++++++-----
-> >  5 files changed, 85 insertions(+), 34 deletions(-)
-> > ---
-> 
-> Shawn:
-> 
-> 	Can you help check these patches?  only patch 4 need remove "evk"
-> at subject, do you need me respin it?
+The MT798x series SoCs have IES regiter definitions. I think we
+must enable the ies_present flag to correctly configure the pin
+input mode.
 
-It doesn't apply to my tree.
+Signed-off-by: Shiji Yang <yangshiji66@outlook.com>
+---
+ drivers/pinctrl/mediatek/pinctrl-mt7981.c | 2 +-
+ drivers/pinctrl/mediatek/pinctrl-mt7986.c | 4 ++--
+ drivers/pinctrl/mediatek/pinctrl-mt7988.c | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
 
-  Patch failed at 0008 arm64: dts: imx8mp-evk: replace space with tab
+diff --git a/drivers/pinctrl/mediatek/pinctrl-mt7981.c b/drivers/pinctrl/mediatek/pinctrl-mt7981.c
+index 6216c2e05..22c8f2480 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-mt7981.c
++++ b/drivers/pinctrl/mediatek/pinctrl-mt7981.c
+@@ -1019,7 +1019,7 @@ static struct mtk_pin_soc mt7981_data = {
+ 	.nfuncs = ARRAY_SIZE(mt7981_functions),
+ 	.eint_hw = &mt7981_eint_hw,
+ 	.gpio_m = 0,
+-	.ies_present = false,
++	.ies_present = true,
+ 	.base_names = mt7981_pinctrl_register_base_names,
+ 	.nbase_names = ARRAY_SIZE(mt7981_pinctrl_register_base_names),
+ 	.bias_disable_set = mtk_pinconf_bias_disable_set,
+diff --git a/drivers/pinctrl/mediatek/pinctrl-mt7986.c b/drivers/pinctrl/mediatek/pinctrl-mt7986.c
+index 2a762ade9..5dda4b746 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-mt7986.c
++++ b/drivers/pinctrl/mediatek/pinctrl-mt7986.c
+@@ -919,7 +919,7 @@ static struct mtk_pin_soc mt7986a_data = {
+ 	.nfuncs = ARRAY_SIZE(mt7986_functions),
+ 	.eint_hw = &mt7986a_eint_hw,
+ 	.gpio_m = 0,
+-	.ies_present = false,
++	.ies_present = true,
+ 	.base_names = mt7986_pinctrl_register_base_names,
+ 	.nbase_names = ARRAY_SIZE(mt7986_pinctrl_register_base_names),
+ 	.bias_disable_set = mtk_pinconf_bias_disable_set,
+@@ -945,7 +945,7 @@ static struct mtk_pin_soc mt7986b_data = {
+ 	.nfuncs = ARRAY_SIZE(mt7986_functions),
+ 	.eint_hw = &mt7986b_eint_hw,
+ 	.gpio_m = 0,
+-	.ies_present = false,
++	.ies_present = true,
+ 	.base_names = mt7986_pinctrl_register_base_names,
+ 	.nbase_names = ARRAY_SIZE(mt7986_pinctrl_register_base_names),
+ 	.bias_disable_set = mtk_pinconf_bias_disable_set,
+diff --git a/drivers/pinctrl/mediatek/pinctrl-mt7988.c b/drivers/pinctrl/mediatek/pinctrl-mt7988.c
+index 9569e8c0c..fd3a7ff0a 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-mt7988.c
++++ b/drivers/pinctrl/mediatek/pinctrl-mt7988.c
+@@ -1505,7 +1505,7 @@ static const struct mtk_pin_soc mt7988_data = {
+ 	.nfuncs = ARRAY_SIZE(mt7988_functions),
+ 	.eint_hw = &mt7988_eint_hw,
+ 	.gpio_m = 0,
+-	.ies_present = false,
++	.ies_present = true,
+ 	.base_names = mt7988_pinctrl_register_base_names,
+ 	.nbase_names = ARRAY_SIZE(mt7988_pinctrl_register_base_names),
+ 	.bias_disable_set = mtk_pinconf_bias_disable_set,
+-- 
+2.51.0
 
-Shawn
 
