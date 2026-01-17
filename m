@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B54C98322
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0705C98318
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 11:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,21 +12,21 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FN6aQXtkPGvwJazEWBzSB+8oekQEJp9xSMmX+sFap5o=; b=F62XxdLCZXknK2+kuCtrLOYV4e
-	tA9KwrLT36UkwiPVh8yk5UdZRIKNex76qkkgJIiZNRvzZpgeW/tll4XtGNwZbneefFINONBZ0OHI2
-	eIvEXwNevcQOqndWk7Gs3XrgTRA9xvedMSaivTRVfKEMoXn/EmVsMbROaIrkP+58xhrZ1+qPE73bg
-	XQoFjC5Xv18stt4cAJ2DRj3OW8R6n+jblP4QCFzH/al2nFP8D7nASIbYgpDljPb8k3jm/DAkZLQzR
-	BcEkIBJ4QW6pOet8K5LaUKL/qUqY2QiU0lxKGDCJyIVRvIOkDHAVD3cy98IGZg2ZQP7ZWB8FSbMJN
-	QwfXW/kg==;
+	bh=Qe5WHk5Lt+SC9UFCtPHMhwcHSmlnOnzq6fDKq8CKL/E=; b=0M7l3qLsH7UKEXk7Pghefo9FMr
+	Uvil2nhZnpAnF4dTgs8u/lVQTG4tlbTwBZ6f9/Z9kRTBonvdSfLmVorWfF7BQxiSakZ+8M2RcbEvZ
+	RxjLv9Cxi+9MtoSkXE2k7nbelu3YOm29Tk/e+0i6qFO16dSHzC/6Aj+AvND+5qXvmzNdmXyWfUQuJ
+	I/W2JEesCzz8F6iVRh8c3Kwa3hNTuqQt7ax5AVP1r/U8ArT05bMZV8L/iIuuG+wQJEONDR5gsRjrX
+	etMXVllMaj1PSfWd57g6m4los6kpt0yFwkY0QsOlHYMs8Vj997g15JqUwxVryUB3nSO/Ua/CfXpkp
+	itggj8lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh4JM-0000000FU6f-1wEN;
+	id 1vh4JM-0000000FU6w-37DK;
 	Sat, 17 Jan 2026 11:17:44 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh4JH-0000000FU1Y-0Srd
+	id 1vh4JI-0000000FU1Y-3IUw
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 11:17:40 +0000
+	Sat, 17 Jan 2026 11:17:41 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Sat, 17 Jan
@@ -35,12 +35,13 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Sat, 17 Jan 2026 19:17:17 +0800
 From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Sat, 17 Jan 2026 19:17:11 +0800
-Subject: [PATCH 4/5] dt-bindings: gpio: aspeed,sgpio: Support ast2700
+Date: Sat, 17 Jan 2026 19:17:12 +0800
+Subject: [PATCH 5/5] gpio: aspeed-sgpio: Support G7 Aspeed sgpiom
+ controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260117-upstream_sgpio-v1-4-850ef3ffb680@aspeedtech.com>
+Message-ID: <20260117-upstream_sgpio-v1-5-850ef3ffb680@aspeedtech.com>
 References: <20260117-upstream_sgpio-v1-0-850ef3ffb680@aspeedtech.com>
 In-Reply-To: <20260117-upstream_sgpio-v1-0-850ef3ffb680@aspeedtech.com>
 To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
@@ -52,17 +53,16 @@ CC: <linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
  Jeffery" <andrew@aj.id.au>, <devicetree@vger.kernel.org>,
 	<bmc-sw@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768648637; l=1334;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768648637; l=6430;
  i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=XG7pFsnR1EluRR+EFdEVQzRXxWGFIGc/mPiruNMQ0xs=;
- b=fBUpqWXZ3gZbvVmGZDnwQESir3BVUnInQZVNigV+6h1dREc3oa9lSK1yJ/gLlHqEIx3FesdjB
- wD22J7LklN4BMVLJoVCp4EMHEn3ZEOSfWnSTK3dZGETbOg7O5CMSz5d
+ bh=7Fu2o997lanr8Aykv8Nr8m2+OkvdinLwokWjAcgDTaQ=;
+ b=gMBbmy9iHd2sG7jfiVUJa54edrL9tfbnS070gbokV3OCF06CNh2XPTWutGMCgFTG5PSZ5UTUD
+ M8fNNAbsTKNDPQEj2lwbnlOGwFOM2ADZR1zjAymioUfKmJDTRo+YxZl
 X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
  pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260117_031739_157164_C06F2777 
-X-CRM114-Status: UNSURE (   8.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260117_031740_838212_E3595229 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +77,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AST2700 is the 7th generation SoC from Aspeed, featuring two SGPIO
-master controllers: both with 256 serial inputs and outputs.
+In the 7th generation of the SoC from Aspeed, the control logic of the
+SGPIO controller has been updated to support per-pin control. Each pin now
+has its own 32-bit register, allowing for individual control of the pin's
+value, interrupt type, and other settings.
 
 Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 ---
- Documentation/devicetree/bindings/gpio/aspeed,sgpio.yaml | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/gpio/gpio-aspeed-sgpio.c | 115 +++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 111 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/gpio/aspeed,sgpio.yaml b/Documentation/devicetree/bindings/gpio/aspeed,sgpio.yaml
-index 1046f0331c09..974185e3478f 100644
---- a/Documentation/devicetree/bindings/gpio/aspeed,sgpio.yaml
-+++ b/Documentation/devicetree/bindings/gpio/aspeed,sgpio.yaml
-@@ -10,7 +10,8 @@ maintainers:
-   - Andrew Jeffery <andrew@aj.id.au>
+diff --git a/drivers/gpio/gpio-aspeed-sgpio.c b/drivers/gpio/gpio-aspeed-sgpio.c
+index a2401f4e8e37..840a2486e3de 100644
+--- a/drivers/gpio/gpio-aspeed-sgpio.c
++++ b/drivers/gpio/gpio-aspeed-sgpio.c
+@@ -19,7 +19,31 @@
+ #include <linux/spinlock.h>
+ #include <linux/string.h>
  
- description:
--  This SGPIO controller is for ASPEED AST2400, AST2500 and AST2600 SoC,
-+  This SGPIO controller is for ASPEED AST2400, AST2500, AST2600 and AST2700 SoC,
-+  AST2700 have two sgpio master both with 256 pins,
-   AST2600 have two sgpio master one with 128 pins another one with 80 pins,
-   AST2500/AST2400 have one sgpio master with 80 pins. Each of the Serial
-   GPIO pins can be programmed to support the following options
-@@ -27,6 +28,7 @@ properties:
-       - aspeed,ast2400-sgpio
-       - aspeed,ast2500-sgpio
-       - aspeed,ast2600-sgpiom
-+      - aspeed,ast2700-sgpiom
+-#define ASPEED_SGPIO_CTRL		0x54
++#define SGPIO_G7_IRQ_STS_BASE 0x40
++#define SGPIO_G7_IRQ_STS_OFFSET(x) (SGPIO_G7_IRQ_STS_BASE + (x) * 0x4)
++#define SGPIO_G7_CTRL_REG_BASE 0x80
++#define SGPIO_G7_CTRL_REG_OFFSET(x) (SGPIO_G7_CTRL_REG_BASE + (x) * 0x4)
++#define SGPIO_G7_OUT_DATA BIT(0)
++#define SGPIO_G7_PARALLEL_OUT_DATA BIT(1)
++#define SGPIO_G7_IRQ_EN BIT(2)
++#define SGPIO_G7_IRQ_TYPE0 BIT(3)
++#define SGPIO_G7_IRQ_TYPE1 BIT(4)
++#define SGPIO_G7_IRQ_TYPE2 BIT(5)
++#define SGPIO_G7_RST_TOLERANCE BIT(6)
++#define SGPIO_G7_INPUT_MASK BIT(9)
++#define SGPIO_G7_HW_BYPASS_EN BIT(10)
++#define SGPIO_G7_HW_IN_SEL BIT(11)
++#define SGPIO_G7_IRQ_STS BIT(12)
++#define SGPIO_G7_IN_DATA BIT(13)
++#define SGPIO_G7_PARALLEL_IN_DATA BIT(14)
++#define SGPIO_G7_SERIAL_OUT_SEL GENMASK(17, 16)
++#define SGPIO_G7_PARALLEL_OUT_SEL GENMASK(19, 18)
++#define SELECT_FROM_CSR 0
++#define SELECT_FROM_PARALLEL_IN 1
++#define SELECT_FROM_SERIAL_IN 2
++
++#define ASPEED_SGPIO_G4_CFG_OFFSET 0x54
++#define ASPEED_SGPIO_G7_CFG_OFFSET 0x0
  
-   reg:
-     maxItems: 1
+ #define ASPEED_SGPIO_CLK_DIV_MASK	GENMASK(31, 16)
+ #define ASPEED_SGPIO_ENABLE		BIT(0)
+@@ -28,6 +52,7 @@
+ struct aspeed_sgpio_pdata {
+ 	const u32 pin_mask;
+ 	const struct aspeed_sgpio_llops *llops;
++	const u32 cfg_offset;
+ };
+ 
+ struct aspeed_sgpio {
+@@ -135,6 +160,30 @@ static void __iomem *aspeed_sgpio_g4_bank_reg(struct aspeed_sgpio *gpio,
+ 	}
+ }
+ 
++static u32 aspeed_sgpio_g7_reg_mask(const enum aspeed_sgpio_reg reg)
++{
++	switch (reg) {
++	case reg_val:
++	case reg_rdata:
++		return SGPIO_G7_OUT_DATA;
++	case reg_irq_enable:
++		return SGPIO_G7_IRQ_EN;
++	case reg_irq_type0:
++		return SGPIO_G7_IRQ_TYPE0;
++	case reg_irq_type1:
++		return SGPIO_G7_IRQ_TYPE1;
++	case reg_irq_type2:
++		return SGPIO_G7_IRQ_TYPE2;
++	case reg_irq_status:
++		return SGPIO_G7_IRQ_STS;
++	case reg_tolerance:
++		return SGPIO_G7_RST_TOLERANCE;
++	default:
++		WARN_ON_ONCE(1);
++		return 0;
++	}
++}
++
+ #define GPIO_BANK(x)    ((x) >> 6)
+ #define GPIO_OFFSET(x)  ((x) & GENMASK(5, 0))
+ #define GPIO_BIT(x)     BIT(GPIO_OFFSET(x) >> 1)
+@@ -319,12 +368,13 @@ static void aspeed_sgpio_irq_handler(struct irq_desc *desc)
+ 	struct gpio_chip *gc = irq_desc_get_handler_data(desc);
+ 	struct irq_chip *ic = irq_desc_get_chip(desc);
+ 	struct aspeed_sgpio *gpio = gpiochip_get_data(gc);
+-	unsigned int i, p;
++	unsigned int i, p, banks;
+ 	unsigned long reg;
+ 
+ 	chained_irq_enter(ic, desc);
+ 
+-	for (i = 0; i < ARRAY_SIZE(aspeed_sgpio_banks); i++) {
++	banks = DIV_ROUND_UP(gpio->chip.ngpio, 64);
++	for (i = 0; i < banks; i++) {
+ 		reg = gpio->pdata->llops->reg_bank_get(gpio, i << 6, reg_irq_status);
+ 
+ 		for_each_set_bit(p, &reg, 32)
+@@ -456,6 +506,7 @@ static const struct aspeed_sgpio_llops aspeed_sgpio_g4_llops = {
+ static const struct aspeed_sgpio_pdata ast2400_sgpio_pdata = {
+ 	.pin_mask = GENMASK(9, 6),
+ 	.llops = &aspeed_sgpio_g4_llops,
++	.cfg_offset = ASPEED_SGPIO_G4_CFG_OFFSET,
+ };
+ 
+ static int aspeed_sgpio_reset_tolerance(struct gpio_chip *chip,
+@@ -485,12 +536,68 @@ static int aspeed_sgpio_set_config(struct gpio_chip *chip, unsigned int offset,
+ static const struct aspeed_sgpio_pdata ast2600_sgpiom_pdata = {
+ 	.pin_mask = GENMASK(10, 6),
+ 	.llops = &aspeed_sgpio_g4_llops,
++	.cfg_offset = ASPEED_SGPIO_G4_CFG_OFFSET,
++};
++
++static void aspeed_sgpio_g7_reg_bit_set(struct aspeed_sgpio *gpio, unsigned int offset,
++					const enum aspeed_sgpio_reg reg, bool val)
++{
++	u32 mask = aspeed_sgpio_g7_reg_mask(reg);
++	void __iomem *addr = gpio->base + SGPIO_G7_CTRL_REG_OFFSET(offset >> 1);
++	u32 write_val;
++
++	if (mask) {
++		write_val = (ioread32(addr) & ~(mask)) | field_prep(mask, val);
++		iowrite32(write_val, addr);
++	}
++}
++
++static bool aspeed_sgpio_g7_reg_bit_get(struct aspeed_sgpio *gpio, unsigned int offset,
++					const enum aspeed_sgpio_reg reg)
++{
++	u32 mask = aspeed_sgpio_g7_reg_mask(reg);
++	void __iomem *addr;
++
++	addr = gpio->base + SGPIO_G7_CTRL_REG_OFFSET(offset >> 1);
++	if (reg == reg_val)
++		mask = SGPIO_G7_IN_DATA;
++
++	if (mask)
++		return field_get(mask, ioread32(addr));
++	else
++		return 0;
++}
++
++static int aspeed_sgpio_g7_reg_bank_get(struct aspeed_sgpio *gpio, unsigned int offset,
++					const enum aspeed_sgpio_reg reg)
++{
++	void __iomem *addr;
++
++	if (reg == reg_irq_status) {
++		addr = gpio->base + SGPIO_G7_IRQ_STS_OFFSET(offset >> 6);
++		return ioread32(addr);
++	} else {
++		return -EOPNOTSUPP;
++	}
++}
++
++static const struct aspeed_sgpio_llops aspeed_sgpio_g7_llops = {
++	.reg_bit_set = aspeed_sgpio_g7_reg_bit_set,
++	.reg_bit_get = aspeed_sgpio_g7_reg_bit_get,
++	.reg_bank_get = aspeed_sgpio_g7_reg_bank_get,
++};
++
++static const struct aspeed_sgpio_pdata ast2700_sgpiom_pdata = {
++	.pin_mask = GENMASK(11, 6),
++	.llops = &aspeed_sgpio_g7_llops,
++	.cfg_offset = ASPEED_SGPIO_G7_CFG_OFFSET,
+ };
+ 
+ static const struct of_device_id aspeed_sgpio_of_table[] = {
+ 	{ .compatible = "aspeed,ast2400-sgpio", .data = &ast2400_sgpio_pdata, },
+ 	{ .compatible = "aspeed,ast2500-sgpio", .data = &ast2400_sgpio_pdata, },
+ 	{ .compatible = "aspeed,ast2600-sgpiom", .data = &ast2600_sgpiom_pdata, },
++	{ .compatible = "aspeed,ast2700-sgpiom", .data = &ast2700_sgpiom_pdata, },
+ 	{}
+ };
+ 
+@@ -561,7 +668,7 @@ static int aspeed_sgpio_probe(struct platform_device *pdev)
+ 
+ 	gpio_cnt_regval = ((nr_gpios / 8) << ASPEED_SGPIO_PINS_SHIFT) & pin_mask;
+ 	iowrite32(FIELD_PREP(ASPEED_SGPIO_CLK_DIV_MASK, sgpio_clk_div) | gpio_cnt_regval |
+-		  ASPEED_SGPIO_ENABLE, gpio->base + ASPEED_SGPIO_CTRL);
++		  ASPEED_SGPIO_ENABLE, gpio->base + gpio->pdata->cfg_offset);
+ 
+ 	raw_spin_lock_init(&gpio->lock);
+ 
 
 -- 
 2.34.1
