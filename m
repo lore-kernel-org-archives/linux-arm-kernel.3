@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE15DC98321
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 11:44:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8494C98328
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 12:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bIlCLy3H9h7XtPhvsaV8aA4QnxgU7tAWxH9CgTKOEW8=; b=qTvU+g9A4471oopnxrwaapSAhv
-	cxxCBAUQuLqzvfPOUj0iqxxQKZxPHZ6PaIsx0+y5ubNYZM0j6sGCopcro9OYKDgq/QnN0Tt3ycBeY
-	gcgLH+AzSpkiVvuGm6gzUj4PSxLNkOV9Co42ftLJX4/eoapX8E4rQJuOkOAAUNLpgn/caQNfAWdD7
-	c05sqPXaySSh2EqczjUd2eGDIQIMaxJ/cI/rcYGjOq2BJRQNa/wqCKdVLeRfwsY2W8OojwtBNIcCI
-	+5A22rENXYdaFLUmqrk3tDmWb4isSo7pXA3lYTi3eCvFrKrWEe5pzxQky70td9HNsxQnP8FFR24CV
-	8tbkTmuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7pZbocGTMgY94paPsqEdYZfVZVkCswiG2GfnqKlVzrM=; b=vDDv4iQRltTnOxaPd8OtHU0u11
+	CdwduziJWBkJhFiIubZuViWoKlnzXJtADr/vJe+LKTBQ5SFglDD6RPDN4I9YZfSE0kVjtgTbjEDh+
+	EoRD3SYCIII8cS3F3SkZCt4OKZbsZ5Gy+z9M6YjB9gpOzVt27HAuY8C/OrEuypEN4wMoZSpimLZSW
+	rvC2zWxlLSe5spMp73TWoo3bMNSHeVRWsFG8ozwWn3W3tXcs7jiQSLOU4uQylbt4xd87w4hB75pA1
+	1Ml01CemZeJ4f8mLZgqm6Trc6BhdfHl1UBjfS9a6tWQwp39Vm3r50vnCmM9f4FvcQXbEkwSp/yjcN
+	HlsXarrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh4iy-0000000FVvp-2R4N;
-	Sat, 17 Jan 2026 11:44:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vh58x-0000000FWaY-0WZO;
+	Sat, 17 Jan 2026 12:11:03 +0000
+Received: from todd.t-8ch.de ([2a01:4f8:c010:41de::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh4iw-0000000FVvU-1aRE
+	id 1vh58u-0000000FWa9-0dzK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 11:44:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B5886438D0;
-	Sat, 17 Jan 2026 11:44:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B1EEC4CEF7;
-	Sat, 17 Jan 2026 11:44:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768650249;
-	bh=7lknc6FIsN8kTaQ3hRHqL8L6jIldGI7xwi+wz3k2pVU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cUrkHI3TVz80ah/2V2OAa3YVWKUKlfBKTjrVaFB4AvpYJLenjYw9sIIbogSR970f8
-	 cvGB31uAzYakxyaHsj1BFcCz55w8Mz/hymC0nr0RrfpvsMeLZdfb5ZxTU2A9814g5j
-	 t1loXK3qayAfqBwBD4uwBn/HIh14LsGlngm/Wwm7DzHcqI8DGBM3giqP1+TjCTwFEX
-	 SqlVmei7xQ2O9BMJZFQXZQ75mvE1uaGLhMEdvvTUHmRXhSM7CovoKwl/Hi4f4WaWEO
-	 MGLT1KHJBv3T7Wk0UQgD5CBJ84TbxroJ9OcVHNYDcH4QkIx2XPUzMCWo0FHWVuIaQQ
-	 wK0e+49RC5ceA==
-Date: Sat, 17 Jan 2026 12:44:07 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com, 
-	nicoleotsuka@gmail.com, lgirdwood@gmail.com, broonie@kernel.org, perex@perex.cz, 
-	tiwai@suse.com, linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	devicetree@vger.kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] ASoC: dt-bindings: fsl,audmix: Add support for
- i.MX952 platform
-Message-ID: <20260117-versed-proficient-pigeon-bd0b2a@quoll>
-References: <20260116101648.377952-1-shengjiu.wang@nxp.com>
- <20260116101648.377952-2-shengjiu.wang@nxp.com>
+	Sat, 17 Jan 2026 12:11:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1768651856;
+	bh=xV++OX5BruJPiGUB+6BtsUIpwLf98Tp7WflSyeVyANw=;
+	h=From:Date:Subject:To:Cc:From;
+	b=AC8x14DEnUIOTHuVlIaPow5UJBc7qm85ukk3aR536MgBtgFdb18tS7k/KwW+4jjIs
+	 NuMM1uPIxz8O52L44JEC1Fl7wofWQsfblw2WUu5jIMdEfhLdoDYN3daRxdJvuUJzp4
+	 4+MTSPzoRu3D3aDRTdduejnG5+Pvlw0hw6fFfehk=
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Date: Sat, 17 Jan 2026 13:10:51 +0100
+Subject: [PATCH] kselftest/arm64: Use syscall() macro over nolibc
+ my_syscall()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260116101648.377952-2-shengjiu.wang@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260117-nolibc-mysyscall-arm64-v1-1-f70266a3db15@weissschuh.net>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQrDIBBA0auEWWcgWlHoVUoXE520A8YUB0KC5
+ O6VLN/i/wbKVVjhOTSovIvKVjrMOED8UvkwSuoGO1k/GROwbFnmiOupp0bKGamu3qFjitY90hw
+ SQY9/lRc57vHrfV1/RnlZI2gAAAA=
+X-Change-ID: 20260117-nolibc-mysyscall-arm64-4eac243db7da
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768651855; l=5998;
+ i=linux@weissschuh.net; s=20221212; h=from:subject:message-id;
+ bh=xV++OX5BruJPiGUB+6BtsUIpwLf98Tp7WflSyeVyANw=;
+ b=92OTViQiCo/kZDfONPWVG9BjDJR6sqNznXHJze+SrWLwBb76kdsRzaRZc1xd4FxCvACQ8BtTE
+ zPOxwnTPOcCD03KruZdxU5rBlura12YKcni+DCKnZIrqQVnztqQIbGb
+X-Developer-Key: i=linux@weissschuh.net; a=ed25519;
+ pk=KcycQgFPX2wGR5azS7RhpBqedglOZVgRPfdFSPB1LNw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260117_034410_455145_D7D882E6 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20260117_041100_373072_80887414 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,86 +76,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 06:16:47PM +0800, Shengjiu Wang wrote:
-> The specific feature for AUDMIX on i.MX952 is that it can be bypassed,
-> so add fsl,amix-bypass property for this feature, besides this there is
-> no power domain defined on i.MX952, so make power-domains to be
-> dedicated to i.MX8QM.
-> 
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> ---
->  .../devicetree/bindings/sound/fsl,audmix.yaml | 35 +++++++++++++++++--
->  1 file changed, 33 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/sound/fsl,audmix.yaml b/Documentation/devicetree/bindings/sound/fsl,audmix.yaml
-> index 3ad197b3c82c..50fb08460b4f 100644
-> --- a/Documentation/devicetree/bindings/sound/fsl,audmix.yaml
-> +++ b/Documentation/devicetree/bindings/sound/fsl,audmix.yaml
-> @@ -34,7 +34,9 @@ description: |
->  
->  properties:
->    compatible:
-> -    const: fsl,imx8qm-audmix
-> +    enum:
-> +      - fsl,imx8qm-audmix
-> +      - fsl,imx952-audmix
->  
->    reg:
->      maxItems: 1
-> @@ -75,12 +77,41 @@ properties:
->          unevaluatedProperties: false
->          description: Output port to SAI RX
->  
-> +  fsl,amix-bypass:
-> +    type: boolean
-> +    description:
-> +      The audmix module is bypassed from hardware.
+The my_syscall*() macros are internal implementation details of nolibc.
+Nolibc also provides the regular syscall(2), which is also a macro
+and directly expands to the correct my_syscall().
 
-I don't understand why device AUDMIX would have property saying AUDMIX
-(so itself) can by bypassed. If you bypass the device itself, what do
-you configure here?
+Use syscall() instead.
 
+As a side-effect this fixes some return value checks, as my_syscall()
+returns the raw value as set by the kernel and does not set errno.
 
-> +
->  required:
->    - compatible
->    - reg
->    - clocks
->    - clock-names
-> -  - power-domains
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - fsl,imx8qm-audmix
-> +    then:
-> +      required:
-> +        - power-domains
-> +      not:
-> +        required:
-> +          - fsl,amix-bypass
+Signed-off-by: Thomas Weißschuh <linux@weissschuh.net>
+---
+Compile-tested only.
+For the arm64 tree.
 
-fsl,amix-bypass: false
+I want to rename those macros at some point.
+---
+ tools/testing/selftests/arm64/abi/tpidr2.c    |  3 +-
+ tools/testing/selftests/arm64/gcs/basic-gcs.c | 40 +++++++++++----------------
+ 2 files changed, 17 insertions(+), 26 deletions(-)
 
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - fsl,imx952-audmix
-> +    then:
-> +      not:
-> +        required:
-> +          - power-domains
+diff --git a/tools/testing/selftests/arm64/abi/tpidr2.c b/tools/testing/selftests/arm64/abi/tpidr2.c
+index 1703543fb7c7..ce4550fb7224 100644
+--- a/tools/testing/selftests/arm64/abi/tpidr2.c
++++ b/tools/testing/selftests/arm64/abi/tpidr2.c
+@@ -128,8 +128,7 @@ static int sys_clone(unsigned long clone_flags, unsigned long newsp,
+ 		     int *parent_tidptr, unsigned long tls,
+ 		     int *child_tidptr)
+ {
+-	return my_syscall5(__NR_clone, clone_flags, newsp, parent_tidptr, tls,
+-			   child_tidptr);
++	return syscall(__NR_clone, clone_flags, newsp, parent_tidptr, tls, child_tidptr);
+ }
+ 
+ #define __STACK_SIZE (8 * 1024 * 1024)
+diff --git a/tools/testing/selftests/arm64/gcs/basic-gcs.c b/tools/testing/selftests/arm64/gcs/basic-gcs.c
+index 250977abc398..ae4cce6afe2b 100644
+--- a/tools/testing/selftests/arm64/gcs/basic-gcs.c
++++ b/tools/testing/selftests/arm64/gcs/basic-gcs.c
+@@ -22,7 +22,7 @@ static size_t page_size = 65536;
+ static  __attribute__((noinline)) void valid_gcs_function(void)
+ {
+ 	/* Do something the compiler can't optimise out */
+-	my_syscall1(__NR_prctl, PR_SVE_GET_VL);
++	syscall(__NR_prctl, PR_SVE_GET_VL);
+ }
+ 
+ static inline int gcs_set_status(unsigned long mode)
+@@ -36,12 +36,10 @@ static inline int gcs_set_status(unsigned long mode)
+ 	 * other 3 values passed in registers to the syscall are zero
+ 	 * since the kernel validates them.
+ 	 */
+-	ret = my_syscall5(__NR_prctl, PR_SET_SHADOW_STACK_STATUS, mode,
+-			  0, 0, 0);
++	ret = syscall(__NR_prctl, PR_SET_SHADOW_STACK_STATUS, mode, 0, 0, 0);
+ 
+ 	if (ret == 0) {
+-		ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
+-				  &new_mode, 0, 0, 0);
++		ret = syscall(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &new_mode, 0, 0, 0);
+ 		if (ret == 0) {
+ 			if (new_mode != mode) {
+ 				ksft_print_msg("Mode set to %lx not %lx\n",
+@@ -49,7 +47,7 @@ static inline int gcs_set_status(unsigned long mode)
+ 				ret = -EINVAL;
+ 			}
+ 		} else {
+-			ksft_print_msg("Failed to validate mode: %d\n", ret);
++			ksft_print_msg("Failed to validate mode: %d\n", errno);
+ 		}
+ 
+ 		if (enabling != chkfeat_gcs()) {
+@@ -69,10 +67,9 @@ static bool read_status(void)
+ 	unsigned long state;
+ 	int ret;
+ 
+-	ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
+-			  &state, 0, 0, 0);
++	ret = syscall(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &state, 0, 0, 0);
+ 	if (ret != 0) {
+-		ksft_print_msg("Failed to read state: %d\n", ret);
++		ksft_print_msg("Failed to read state: %d\n", errno);
+ 		return false;
+ 	}
+ 
+@@ -188,9 +185,8 @@ static bool map_guarded_stack(void)
+ 	int elem;
+ 	bool pass = true;
+ 
+-	buf = (void *)my_syscall3(__NR_map_shadow_stack, 0, page_size,
+-				  SHADOW_STACK_SET_MARKER |
+-				  SHADOW_STACK_SET_TOKEN);
++	buf = (void *)syscall(__NR_map_shadow_stack, 0, page_size,
++			      SHADOW_STACK_SET_MARKER | SHADOW_STACK_SET_TOKEN);
+ 	if (buf == MAP_FAILED) {
+ 		ksft_print_msg("Failed to map %lu byte GCS: %d\n",
+ 			       page_size, errno);
+@@ -257,8 +253,7 @@ static bool test_fork(void)
+ 		valid_gcs_function();
+ 		get_gcspr();
+ 
+-		ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
+-				  &child_mode, 0, 0, 0);
++		ret = syscall(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &child_mode, 0, 0, 0);
+ 		if (ret == 0 && !(child_mode & PR_SHADOW_STACK_ENABLE)) {
+ 			ksft_print_msg("GCS not enabled in child\n");
+ 			ret = -EINVAL;
+@@ -321,8 +316,7 @@ static bool test_vfork(void)
+ 		valid_gcs_function();
+ 		get_gcspr();
+ 
+-		ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
+-				  &child_mode, 0, 0, 0);
++		ret = syscall(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &child_mode, 0, 0, 0);
+ 		if (ret == 0 && !(child_mode & PR_SHADOW_STACK_ENABLE)) {
+ 			ksft_print_msg("GCS not enabled in child\n");
+ 			ret = EXIT_FAILURE;
+@@ -390,17 +384,15 @@ int main(void)
+ 	if (!(getauxval(AT_HWCAP) & HWCAP_GCS))
+ 		ksft_exit_skip("SKIP GCS not supported\n");
+ 
+-	ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS,
+-			  &gcs_mode, 0, 0, 0);
++	ret = syscall(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &gcs_mode, 0, 0, 0);
+ 	if (ret != 0)
+-		ksft_exit_fail_msg("Failed to read GCS state: %d\n", ret);
++		ksft_exit_fail_msg("Failed to read GCS state: %d\n", errno);
+ 
+ 	if (!(gcs_mode & PR_SHADOW_STACK_ENABLE)) {
+ 		gcs_mode = PR_SHADOW_STACK_ENABLE;
+-		ret = my_syscall5(__NR_prctl, PR_SET_SHADOW_STACK_STATUS,
+-				  gcs_mode, 0, 0, 0);
++		ret = syscall(__NR_prctl, PR_SET_SHADOW_STACK_STATUS, gcs_mode, 0, 0, 0);
+ 		if (ret != 0)
+-			ksft_exit_fail_msg("Failed to enable GCS: %d\n", ret);
++			ksft_exit_fail_msg("Failed to enable GCS: %d\n", errno);
+ 	}
+ 
+ 	ksft_set_plan(ARRAY_SIZE(tests));
+@@ -410,9 +402,9 @@ int main(void)
+ 	}
+ 
+ 	/* One last test: disable GCS, we can do this one time */
+-	ret = my_syscall5(__NR_prctl, PR_SET_SHADOW_STACK_STATUS, 0, 0, 0, 0);
++	ret = syscall(__NR_prctl, PR_SET_SHADOW_STACK_STATUS, 0, 0, 0, 0);
+ 	if (ret != 0)
+-		ksft_print_msg("Failed to disable GCS: %d\n", ret);
++		ksft_print_msg("Failed to disable GCS: %d\n", errno);
+ 
+ 	ksft_finished();
+ 
 
-Not sure what you want to say here, but disallowing properties is shown
-in example-schema (:false).
+---
+base-commit: db81cecbeb215e764413dfc25489c30220f7241c
+change-id: 20260117-nolibc-mysyscall-arm64-4eac243db7da
 
 Best regards,
-Krzysztof
+-- 
+Thomas Weißschuh <linux@weissschuh.net>
 
 
