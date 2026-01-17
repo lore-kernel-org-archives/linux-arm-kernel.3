@@ -4,83 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D10F7C9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 01:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 173C3C9830D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 01:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BIMy8yDIZFc3vCLph+L6vr3OpFe2zAoNw7tBRg23UQo=; b=fOCi2jB7/hNzfr8fDss+mgDuaA
-	1fKKeiTzpOz0i/nyg2THlCGuY4FBPIJ6i2pxeQlbkw1GRA9ezHLrCm0+z14tpS1VQc9edcpNbdGap
-	Gq70+S9Bj2kH0eh3oMqjiKnjd9V5f9Q7njHxOKzGj73PqzluYS8Oh5e/mE/Cg0VqcXIXBuj061BPL
-	j2vCvr3AdhAWLY6YqWBOdA34d5bkbQMbPVGkCWx/UKADTKm8I3pwlJe7Hb3XCITn5XS/vEz8txCyK
-	g9lldLTAAEbF4IFdLQFeWYqqq8EaosT5ezILdERtLGa8pFrW+iLYw88kwQO9lIsLEwxvZFyMVDDF9
-	bLg1VlgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6PVYW1TEBqYTY5hmcl+QZWk59Aw3aVEuNdt4442W4MM=; b=pjVTwLj1MEP78dAx0zrEwhyIok
+	U/EqmgVgCrzJ/FDKA23iQYCtyMqkFSKminDlHI8+rAb4OakD0HUuTFM5cm35IWPtGwK9helWZ5n2B
+	iv0E7CPAxTUhSMacBqwmUf1LgJOUXum/C6J2gqmv0lig2ooUpLg/80kf85Rne/SJRW8UPh7WyOXCl
+	idUcqI84NrXgzi6k1kvU56MwynSSCShT4IViipy97vhFwxNA0kMmfLfNOCtbWmJcGAsA5R4rL6n1d
+	3t6hqDPWGRkySjPz+Xl4lKLM2izLO7P8+fqP/qGYAVvlrkxH8vEfMYLq/rEQ7HqQSuXUSmJCeJItN
+	yfoYGeTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vguiV-0000000F4TJ-0RzW;
-	Sat, 17 Jan 2026 01:03:03 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1vguqU-0000000F4o5-2FM3;
+	Sat, 17 Jan 2026 01:11:18 +0000
+Received: from mail-centralusazon11011023.outbound.protection.outlook.com ([52.101.62.23] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vguiP-0000000F4Rn-2MTP
+	id 1vguqR-0000000F4nk-2rn2
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 01:02:58 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4dtJNr5XH4z9twH;
-	Sat, 17 Jan 2026 02:02:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1768611772;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BIMy8yDIZFc3vCLph+L6vr3OpFe2zAoNw7tBRg23UQo=;
-	b=yWW6bQ22rNO399AsGIyNquA/5yUDhjk4871WbI0ndxjI21zX/U/20JfowCPr30lOKN5Ezn
-	xkp9zGD76rJkjnXhtSJ7hfF8tg0KciyCcpHwuGqmlVaKmu4UdV7aGuKcl45dORVWAwpVit
-	b/s1lNY+TOGe8kzgakW2th0S2l79M+nBsDD8S5l7AcWoyRy3DUmvI7/9QKpqvSfqrHEDnS
-	CaKSptbCBYy51jFlnJjFtOyphFS5s+glQPkuL/ehlj4rvPeENdFoS2Y6DoqTVnINcpGAnx
-	dEr+CWT1DI7gvh2WcHOZOCXW8Ef4K2C6k65GFJBCKoj1DYjTK4C18S352Re8ZA==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1768611770;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BIMy8yDIZFc3vCLph+L6vr3OpFe2zAoNw7tBRg23UQo=;
-	b=ipvjzjmmdftndG9XdlrNtvIj6v/mK/pfvyPRJF3yQV2htLpt5LWS6I0zNjCZSP3/3Pua1v
-	9GXbaJdGb68ouG4aIsMCHvkqeKg6u+1QYi4cXXt8IMswIW6O0wBJIuZxdItyqWJYhcWDXz
-	2TXRZvT5RbqmpH7O/E8DL87pbQEZoK46UHQpOLIKzkvm6EmQ9z63A4xa5X3gUn9nKlzfpN
-	NGm7XVz3uMVul2p4tB2c0BoujEKzLqkNTwerdvLDaMMlC6aAM5TC6eeUiXbFYlDzuOyLBO
-	1sy4UfaDQwN7dnZTz10N0eYvFR1zf0cT5PKwLSTWQvGENPvhgCuQLaryImUhSA==
-To: arm-scmi@vger.kernel.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v4 2/2] firmware: arm_scmi: Implement arm,no-completion-irq property
-Date: Sat, 17 Jan 2026 02:02:29 +0100
-Message-ID: <20260117010241.186685-2-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
-References: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
+	Sat, 17 Jan 2026 01:11:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YCOb10sEgTgkmbmBllNoz2dMp4Fa+m/LDaZBR/v1/gXXq/g2THIimzIlC9zSyJWo3hg6odPpf2dA11SC5Wk4R4D2k+lsJ445n1YRD1q/AgiEAxVYD52ZY34/rIykY4BPK1vHtWUMA8mFlZQvO+65ohOEN5ZvYULAvP8aRVWD5EYqCIXgVvAlLt6Lu5TxNV7oTSw0780A0wj0Pa3uiQeH6sGtVXlfqK2UqE6o79kUzi2I0abHwJIs5HiHXvH70R1yIdrxGXV6IA3SACwePkD3rq5dHMGnJG9L2i82K1YZGcu4mZBYXupEobNY9WC+4P9dK3V05raQ1MgWCuNxGAw/gQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6PVYW1TEBqYTY5hmcl+QZWk59Aw3aVEuNdt4442W4MM=;
+ b=aPrY4jFDXvNAJqef1Cr86UBZxYoVsMbH4mx1fk54bHHX/Crjo3kkzjwCoFZ9ByLWfPztiQw7+cw5e2muk1J/pv1OhrDH+H7c//l2OOk++n+VoN65VeZkGB/g2QzIaVIvTzB51mDVs/oIlrVGc8d2mCrNyUFQt4QnDIiv5OrO2GdQPEkDExqiMEJDVCZGnBQjsf0d7y/34E+i72zi/BGDVybN9GT0XuOFGy8N63F24YEypV416fMx28GGMSFzj6OtDDnCwdCBmllUt5TmIfpnei7f7wD0wAKm2l2RcP7ytXlfAjBCoEkjc4FS5Y6vYJaZvinO13jOalVIFP/1IjZ7oA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6PVYW1TEBqYTY5hmcl+QZWk59Aw3aVEuNdt4442W4MM=;
+ b=qgJaKKd57ZBCzMJQPBH6Tcejdan8KN3uGLIJ3O9V1lOAdUnvMKpS+enxBFmvRkgZRNZLFK5aBDDdTTCl3orkusx82hKcga7ZGpUZc1YTbFwS1szE7AcwWQILC56SEl6hDIPHm4toN1agBNT/gpzTXObVsL8Ne1nzXq5PIgmshLlrcyli1X1c23PRwB1eS25mADp8VtVapinFTrLgH0dgql0CeFYpU/tCjCAgv/va7ljX9Uz5OqvVX5sd02B0bYmbGL2Yo2nafyfddN2WPQvFKHYHKSBnnhWnDp1BbqV1CbEPxew08bwqjyh2zl3O19AaqGUX5ovTpiR2DBMfbL5tMw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by SN7PR12MB8791.namprd12.prod.outlook.com (2603:10b6:806:32a::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Sat, 17 Jan
+ 2026 01:11:09 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9520.005; Sat, 17 Jan 2026
+ 01:11:09 +0000
+Date: Fri, 16 Jan 2026 21:11:08 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
+	praan@google.com, miko.lenczewski@arm.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, patches@lists.linux.dev
+Subject: Re: [PATCH v1 2/9] iommu/arm-smmu-v3: Add alloc_id/free_id functions
+ to arm_smmu_invs
+Message-ID: <20260117011108.GE1134360@nvidia.com>
+References: <cover.1766088962.git.nicolinc@nvidia.com>
+ <1541ea4a9e9c935c2f907c0c5f13a4af2bdc2114.1766088962.git.nicolinc@nvidia.com>
+ <20251219170551.GF254720@nvidia.com>
+ <aVQfhaqfvfLFNZqe@Asurada-Nvidia>
+ <20260102155715.GC125162@nvidia.com>
+ <aWnI3Ii3KCFmJV3/@Asurada-Nvidia>
+ <20260116144120.GM961588@nvidia.com>
+ <aWpuGsnyZJWTmgrf@Asurada-Nvidia>
+ <20260116171158.GQ961588@nvidia.com>
+ <aWqDDRTz5mB1Iumf@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aWqDDRTz5mB1Iumf@Asurada-Nvidia>
+X-ClientProxiedBy: MN2PR18CA0009.namprd18.prod.outlook.com
+ (2603:10b6:208:23c::14) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 25a0f1a54ec24069373
-X-MBO-RS-META: qfujatekmmsnu1b9r7pn4z7uf37ihcqt
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SN7PR12MB8791:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6412d264-930c-494e-ec4c-08de55654c0f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?j8q9RodyXtqf8es9Rat9i/bgu3F5wyx0CSp+FfmFOFXOFzTwFiRAl5zDEYmp?=
+ =?us-ascii?Q?bvGOJ/BQaRgsr0L3SPYUthp9Z2O8zT3h/alS4lFpvmiMZAb0sJHtEo/wxw8B?=
+ =?us-ascii?Q?LXLdozzRb+2btBkX8U8nZK0onsfu+EakEVoTP/j96hMvLYj/bijK9uKvZ1jn?=
+ =?us-ascii?Q?fuxUdugGoPnmamElM1u11zXx3ls/AIBvq4M+XP8KIOT3ZMjDJZZSstYRWFTq?=
+ =?us-ascii?Q?UijUTBF/gg7A9p3+Z76SRgRSX1VUenPbcu/VovmqBDyId8BSHW/xn7gp9I+Y?=
+ =?us-ascii?Q?8KC+IJ4557S99A23CqE0vin7fYMqfymenAnqjQhDGZLRSZJ+6YKJUnOBB2GB?=
+ =?us-ascii?Q?RubM86hCD5tBdop6eCL+9sbDHU9yIT8twAZe9t04kE0T5z5BcCxha7957G4f?=
+ =?us-ascii?Q?R5RbFp8VbG92DddUVO3pdebVKtKrZ8W5O146GeJeEGSEoKSEW9eNoS950G+z?=
+ =?us-ascii?Q?86KmOFhdgBGtXrzRxnpV+d7/NhITOi4IZFZuFNySnpiUGbpYIIFoxPL9ThPm?=
+ =?us-ascii?Q?z3ESEKhzwy7Db0maVsLjurN+YwkImgo4jquE6+MNNrh8hCUBZvg2uIRKVVi3?=
+ =?us-ascii?Q?LN0YN+WOoG7fR3gpW+9c/J6p1mcH1J+QQHumGlybgpi0mxK/3VCd4f/DfWdZ?=
+ =?us-ascii?Q?uGV6jw2k1Oiw4V6unZxuG0RLTrGQxjHH4tmKocKFiuRDOB8eHW+hdsNWl0mg?=
+ =?us-ascii?Q?TVZoeoYp3nJZYx41DCQ5V2hcPpDI8oxNtEkuCt7H9FJ5NfYOoqgh041pN/g5?=
+ =?us-ascii?Q?nBhy6r4lEq/RKAYEtI2o0gsQnmnQLGE5v1rYUIdqWVBYStq30ujntjvXjMdc?=
+ =?us-ascii?Q?wPgdcPAoQjJ+aqm8MNxhQYBEGPUqjDvEJPfRCj4BfYukjipStyNI47ZV6EFR?=
+ =?us-ascii?Q?tp7PaHP0EhLNVqMggU2XwBeRidON6fcevNuM/vkEh+MjuPxezD8D5KUGt+81?=
+ =?us-ascii?Q?ZoQHj5stx5JphCAPXeMLsoLzKZ9HOnTBaNjvOPB9F8+0iaEWoTQcvC5MdUc/?=
+ =?us-ascii?Q?jRiRkmz3QQdMV4IkrJL6y7/YPqS04fkSIEGIAnb7psLYGTmR53mMG6x/2KEN?=
+ =?us-ascii?Q?q+05aCtAGi/r0yMKpErBVCrL4M+YDvjBheMX28WIPRDKvRYqDohKxt3AsE3H?=
+ =?us-ascii?Q?Z2vUXzv94JA3825xtl3ucF8fmcS6lxjL4kIznHbB/2lvKG+ngp6n4IY14tPW?=
+ =?us-ascii?Q?wilC5aaLaIh0f5NtPU9HzRq5Qnnv7tkR28RtpKZRfPrWqMhsPiV/DG/w05V/?=
+ =?us-ascii?Q?V5b7CTTe6EfVQMgg+lcy8Jhq8UrPnsUraJmbLGEVkrwL0ldwobHX+SebRXmg?=
+ =?us-ascii?Q?rM8pGzTVL4RnuEQp0rZtoPZA1094nH+DcD0krNIjgYdZqMXHdhX+lI1XkXgV?=
+ =?us-ascii?Q?cavMSrhVlL9TBA4RxLXVBcGlG2AG7YD9n4Uw48RUV88gotwwmu0fUpRPjdbL?=
+ =?us-ascii?Q?SpOwh+3NTD8Q+AGAB2qRnYV37HtXB0YNITjCt/4iPUjnlPNSm2/8Abs4B+Qb?=
+ =?us-ascii?Q?8UBPVa95Bo9yQGUwH1f33fWzqm/VIxdTErDkHuaqeSXbelDMiItNw/80eKON?=
+ =?us-ascii?Q?dAWijTtRGHA5ZacY8U0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?e97khJ9L7oic06z+Jk/TGsVKrCwW4zvsRlaxCHoefrjCRFLDn6m4Bsofu7PG?=
+ =?us-ascii?Q?14xtkXV1BkQEX6EO6q1WxxD4Ez8eHQuqcNCdRXFI5d6QWujLHwiqT8oe35mq?=
+ =?us-ascii?Q?OqlckeZoD/VfAYwXjyUbLMppG1Ne3qHcXupTxZ1PFVDCRoyddV/WJ3E09eSR?=
+ =?us-ascii?Q?HkH5U3jCiua5dUSl096sAYgGaozA3qsS+wBhdCCal0PT1mnDXFlg6W5rBddL?=
+ =?us-ascii?Q?tLOK9iEwUbCkR6OTm7oA6jMAveX9V76gyOueMnht24lwDcuyAtyOxPeVI/Lc?=
+ =?us-ascii?Q?5b6OHQyxFJcT1J34RTufGEnfvJm56pE9NEVOMCumis9JIkvg4H9PfMHi0u8B?=
+ =?us-ascii?Q?7QvraffC0+4SblvS8w5kKi9DOsQ4ya7BHTQSsIUzL7G0Wv8C7i3x4Dp+9qfd?=
+ =?us-ascii?Q?BRVbwAJCKurADpXR3idRBApcO9xGgvJgzBu2tR/Fb1KeEbEOb2/kcmb0A8I7?=
+ =?us-ascii?Q?WQWS2BJZj2ZizT4nMjoBqNB6TNFsJyvlLvzGxxGaLsRogA2AajATu6oGFPJv?=
+ =?us-ascii?Q?6XfailjBDQ6RadRBgknDAR/Ls49GC8WojXih5ULCQyyJ2QxZ2COWG776p5sy?=
+ =?us-ascii?Q?sqn4b1CREYoGwVokSnI6Qkzvy0IqqbEcbuH8/Hw70w/fe6wkUNGMTMoknFUT?=
+ =?us-ascii?Q?L0GjCfAWPk9JGs+6zHywsb8UwHAh+OLZKlXXNDj/nuO0OOB0Vy3lVK1e6JjK?=
+ =?us-ascii?Q?+bkBxN7el+S/j3b9vLwFvfJNTiItqTYW20WAP+OJr9xPNPy9GM3ORoc7Y1u9?=
+ =?us-ascii?Q?cRY5/S1nFb9vLwHusVknQlQrwAo0F47tdGBQUr+bawUSL0LjKS24RtGG6B2s?=
+ =?us-ascii?Q?Vmz+MpxN8tUoN/iEWPj3kaqlvx5naSC9/nfVlyvdgwYJu+3SGvYdOma2bi3J?=
+ =?us-ascii?Q?sfH64UMzK8UxaOAKMsl5V3L2bwnE/ldTkm5RZqN+V8Cxd0d+gqeBdH5xlLtf?=
+ =?us-ascii?Q?YnIw6HiyLCZmJ6HYsbo6mmD1wDpsh6yO+JR4tEOqHB73sjMUIj56HZipIC7a?=
+ =?us-ascii?Q?WGvqFK4tZRPPrA1ulimCb8vvxs81AicTJ1hBa/ZhT9BPHicP9z5AShbE4PGL?=
+ =?us-ascii?Q?3UNbV4clAMbG9LqpllKky0w3+hFXOUO9vHO6qWBtFYCsBAJGBu4AgVQ3H6il?=
+ =?us-ascii?Q?fHo+RKvH5Jn4VmqyNNmSJxD27NktQmkWACxnMN2GseSFuRxZ9xlYgizfp85a?=
+ =?us-ascii?Q?Fd+p3h1/qbKpXP6fIRtzF0NPyukQR6iqbbJvgpAJhZ6WroY3TDSn3VnWnaRE?=
+ =?us-ascii?Q?TVxBEmeLgJ6biMPddZLB7b31iLdD12JqV6KJ/WZMNcJQlvQV9rigwD+Ks97q?=
+ =?us-ascii?Q?LGCZMn9UTO5Bgttp7Ec7wY24glKAhuZArLU0Z8T2pa+0Nb0L0brgrHfi3xl7?=
+ =?us-ascii?Q?xOQmqwavmBU3ChhZylYI4UPYNg98YzbwysTYnpw+BHNYQ63KMQC82YkVRdjo?=
+ =?us-ascii?Q?vU+x/ynIaIfTIqikTJx9Bt6J9baUXBq+Cnu31qBvW/n501rNH/dBNRuba3gE?=
+ =?us-ascii?Q?CM8exepbx2ahp8nxy5Xlhb3cJjDW5UWWtH3kDXEn2YlDjwSWrsgV7vygdKH5?=
+ =?us-ascii?Q?lFpfcLYwdo62GwxiQv9cUBB/GPf57U5cM87HaYJEqDZPQuT8QgWrIWLCtApe?=
+ =?us-ascii?Q?fN+KI7zYisNXBTcriyReLq1AtDavk6Oj1BWOeY7CZH1s84VBrU2YKsVlM62a?=
+ =?us-ascii?Q?3VxY27mR3jGnfjPvhdBAi6shZ4ufg+QGFZ1pgyHxGPO7Q6jGTc1ptDqlp6D0?=
+ =?us-ascii?Q?+xiv6pqRQw=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6412d264-930c-494e-ec4c-08de55654c0f
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jan 2026 01:11:09.0901
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hNUjYDH2AL+2mdQ+jxqhkEeqYat+G5OVM9LJL4dg3Sfx38ZEv03LSqqHyuKMiZBf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB8791
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_170257_741892_A41344E0 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20260116_171115_746577_E51D3294 
+X-CRM114-Status: GOOD (  36.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,81 +173,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement new property arm,no-completion-irq, which sets all SCMI
-operation into poll mode. This is meant to work around uncooperative
-SCP implementations, which do not generate completion interrupts.
-This applies to mbox/shmem based implementations.
+On Fri, Jan 16, 2026 at 10:27:25AM -0800, Nicolin Chen wrote:
+> On Fri, Jan 16, 2026 at 01:11:58PM -0400, Jason Gunthorpe wrote:
+> > On Fri, Jan 16, 2026 at 08:58:02AM -0800, Nicolin Chen wrote:
+> > > On Fri, Jan 16, 2026 at 10:41:20AM -0400, Jason Gunthorpe wrote:
+> > > > On Thu, Jan 15, 2026 at 09:13:00PM -0800, Nicolin Chen wrote:
+> > > > > On Fri, Jan 02, 2026 at 11:57:15AM -0400, Jason Gunthorpe wrote:
+> > > > > > On Tue, Dec 30, 2025 at 10:52:53AM -0800, Nicolin Chen wrote:
+> > > > > > > Hi Jason,
+> > > > > > > 
+> > > > > > > On Fri, Dec 19, 2025 at 01:05:51PM -0400, Jason Gunthorpe wrote:
+> > > > > > > > +static int arm_smmu_get_tag(struct arm_smmu_domain *smmu_domain,
+> > > > > > > > +			    struct arm_smmu_master *master,
+> > > > > > > > +			    struct arm_vsmmu *vsmmu,
+> > > > > > > > +			    struct arm_smmu_iotlb_tag *tag, bool no_alloc)
+> > > > > > > [...]
+> > > > > > > > +	case ARM_SMMU_DOMAIN_S2:
+> > > > > > > > +		if (smmu_domain->nest_parent) {
+> > > > > > > > +			/* FIXME we can support attaching a nest_parent without
+> > > > > > > > +			 * a vsmmu, but to do that we need to fix
+> > > > > > > > +			 * arm_smmu_get_id_from_invs() to never return the vmid
+> > > > > > > > +			 * of a vsmmu. Probably by making a
+> > > > > > > > +			 * INV_TYPE_S2_VMID_VSMMU */
+> > > > > > > > +			id = vsmmu->vmid;
+> > > > > > > > +			return 0;
+> > > > > > > > +		}
+> > > > > > > 
+> > > > > > > Would you mind elaborating why arm_smmu_get_id_from_invs() can't
+> > > > > > > return vsmmu->vmid to share with a naked S2 STE?
+> > > > > > 
+> > > > > > A "naked" S2 domain doesn't have a pointer to the vsmmu, so it is
+> > > > > > impossible to get vsmmu->vmid.
+> > > > > 
+> > > > > An S2 parent domain should be per VM. And a vSMMU on top of an S2
+> > > > > should be per SMMU. So, it could have stored a list of vSMMUs and
+> > > > > device attaching to a naked S2 could match its master->smmu with
+> > > > > vSMMU->smmu in the list?
+> > > > 
+> > > > That would cause lifecycle problems if the vSMMU is destroyed
+> > > > while the nake S2 is still attached and trying to use the vSMMU's
+> > > > VMID.
+> > > 
+> > > Well, if vSMMU code does the same get-build-merge in vsmmu_init()
+> > > and build-unref in vsmmu_destroy(), VMID is basically managed by
+> > > the invalidation array. Yes, a naked S2 attachment would still use
+> > > the shared VMID, but I think that's fine for a nesting parent?
+> > 
+> > The VMID has to be managed by the vsmmu itself, it would be a big
+> > confusing mess any other way. There are multiple invalidation lists,
+> > so you can't rely on that to refcount things.
+> 
+> Hmm, in which case will we have multiple invalidation lists? And,
+> why can't we rely on the refcount? (for learning purpose here)
 
-With this property set, such implementations which do not generate
-interrupts can be interacted with, until they are fixed to generate
-interrupts properly.
+Well, you could have multiple S2s floating around the system, you'd
+need to have some way to figure out which S2 is which nesting parent
+for which viommu.
 
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>
-Cc: arm-scmi@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-renesas-soc@vger.kernel.org
----
-V2: Drop no IRQ handling from SMC transport and update commit message
-V3: Rename property from arm,poll-transport to arm,no-completion-irq
-V4: No change
----
- drivers/firmware/arm_scmi/common.h | 4 ++++
- drivers/firmware/arm_scmi/driver.c | 4 ++++
- 2 files changed, 8 insertions(+)
+> My view is that VM has one big beautiful invalidation list on the
+> S2 parent domain, which manages all the VMIDs. So, basically VMIDs
+> could be still tied to the S2 parent domain on attachments. And a
+> VMID must be one per SMMU instance, whether initially allocated by
+> a naked or a nested attachment. A second user would just increase
+> the refcount.
 
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index 7c35c95fddbaf..7c9617d080a02 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -235,6 +235,9 @@ struct scmi_transport_ops {
-  *		      to have an execution latency lesser-equal to the threshold
-  *		      should be considered for atomic mode operation: such
-  *		      decision is finally left up to the SCMI drivers.
-+ * @no_completion_irq: Flag to indicate that this transport has no completion
-+ *		       interrupt and has to be polled. This is similar to the
-+ *		       force_polling below, except this is set via DT property.
-  * @force_polling: Flag to force this whole transport to use SCMI core polling
-  *		   mechanism instead of completion interrupts even if available.
-  * @sync_cmds_completed_on_ret: Flag to indicate that the transport assures
-@@ -254,6 +257,7 @@ struct scmi_desc {
- 	int max_msg;
- 	int max_msg_size;
- 	unsigned int atomic_threshold;
-+	bool no_completion_irq;
- 	const bool force_polling;
- 	const bool sync_cmds_completed_on_ret;
- 	const bool atomic_enabled;
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 3e76a3204ba4f..f167194f7cf67 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2735,6 +2735,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
- 	cinfo->is_p2a = !tx;
- 	cinfo->rx_timeout_ms = info->desc->max_rx_timeout_ms;
- 	cinfo->max_msg_size = info->desc->max_msg_size;
-+	cinfo->no_completion_irq = info->desc->no_completion_irq;
- 
- 	/* Create a unique name for this transport device */
- 	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
-@@ -3150,6 +3151,9 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
- 	if (ret && ret != -EINVAL)
- 		dev_err(dev, "Malformed arm,max-msg DT property.\n");
- 
-+	trans->desc.no_completion_irq = of_property_read_bool(dev->of_node,
-+							      "arm,no-completion-irq");
-+
- 	dev_info(dev,
- 		 "SCMI max-rx-timeout: %dms / max-msg-size: %dbytes / max-msg: %d\n",
- 		 trans->desc.max_rx_timeout_ms, trans->desc.max_msg_size,
--- 
-2.51.0
+I guess that could work but it makes it much more complicated IMHO.
 
+It would be simpler if there is only ever one refcount on the VMID for
+the vsmmu in the S2's list and that goes away when the VSMMU is
+destroyed.
+
+Jason
 
