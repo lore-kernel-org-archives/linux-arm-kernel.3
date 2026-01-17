@@ -4,57 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CDCC9830D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 00:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F0DAC9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 01:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6uvymewojZryJCsLththt6b69bwDDih6ton1Gz+XXhM=; b=BuBb70Uh66d6zrI3DJ2kpc4c2V
-	EkiSmERPVVYVjWdCdYXkV37spq9BxEmMB2KlIJ3hAGatOZz4sVtrjKUGWdbXq+APwdaYTpDnoW2B/
-	jxBOz1imbxv3TXwRWkmFmcw1xqj6AiPKH9ZwBN/XJyQtSIm0l5bxvmltmvMUjrOGmmguIiGMudMgU
-	Fhu+KtMp9yv+N9maVa1Vb3CLL5ZJ2gQt/XwCF3nDP9x9HeCuXC2GXQVC9rP8dHThhY7O0izB2Zo6P
-	0Nja7IxweDnAgYpFQ2KZGye+uGMqU1zViESRVjigNyH6s/mwxebeUinzpX/34/8jHBbiX86ik5hf5
-	rBIZ/y3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BBh+2qgbpQUHoDdDr6BIlnP2VoX2nm99cWm8zX7p714=; b=KNwVg3RDyVdrV4HsD8vQXbBdmt
+	7zMg5R9t4iJ6uZINPHHMEdcVEmL4ifcYsqf4b2+UuLHt4ed6XEUGcNCR4vSp/K6SQWjDVvMRzEP2W
+	eBnzSSIowQ15CQFswPYqhAhY2f4IzD11yWHdLqun2f9uHRcoUyY99XU/7aMD+fcjCAC3EpEJ4ZgRf
+	a/h1I92OEXXw9iDvHhIvgZAyCzzwSpnYPRdlRd0EEGqxHKiuCD0zJ4nKUhLyWG3uCiPMofR4anKgX
+	CGsEEs4xalFNkj6DtkzcC1UqM87rLGRkoo7mYM2kPiDjoVsWI84kwM6rsIszu1xgPtmOAG/QOgh6W
+	xDR4utlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vguNc-0000000F3qK-3KBC;
-	Sat, 17 Jan 2026 00:41:28 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vguiQ-0000000F4SQ-3MOw;
+	Sat, 17 Jan 2026 01:02:58 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vguNa-0000000F3px-2ZUj
+	id 1vguiO-0000000F4Rm-3aBR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 00:41:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=6uvymewojZryJCsLththt6b69bwDDih6ton1Gz+XXhM=; b=IVr8PxaPV0S8d/tCWJCIHIvCtL
-	z4nImASU68m5coDgg52WNKzv2WpuM4+tjujlJ+4ucL0/fz1sHQHBFQOH4EYHfmBTDuSYk52ATY2MR
-	MOFpt7YzNUGs/N2jWCfxHzBo9/6/zMCPkDkv+QnNOsUgPB7gfWn/S4JJbBKjH08zhDbs=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vguNT-0038Gv-Gk; Sat, 17 Jan 2026 01:41:19 +0100
-Date: Sat, 17 Jan 2026 01:41:19 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Cc: Mark Brown <broonie@kernel.org>, Michal Simek <michal.simek@amd.com>,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] spi: dt-bindings: xilinx: make interrupts optional
-Message-ID: <0b4904fa-ae9f-44e0-96a8-f5f1ef57f36c@lunn.ch>
-References: <20260116233535.260114-1-abdurrahman@nexthop.ai>
- <20260116233535.260114-3-abdurrahman@nexthop.ai>
+	Sat, 17 Jan 2026 01:02:58 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4dtJNp5FL3z9vD5;
+	Sat, 17 Jan 2026 02:02:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1768611770;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=BBh+2qgbpQUHoDdDr6BIlnP2VoX2nm99cWm8zX7p714=;
+	b=Xhm6N6mks76A6Ov3xkJC7dgJ2MaVbO/mcUgNfLKkhv+OYaQ3KYOTmNU4meJysCwax3VpRq
+	gDKtj/fCwdU1xFEVvt6YO8Mp3+6GElrTpJJs0lnXo7yBvWBQs2xVILZXxo7d8FgZprxFgo
+	4gvm1N6qag5VOqgv8xdpESVwwtQZXFRzsNfFUhzIu8wLBEpO6TqE97KQBJ4U4GEeC/Hrx/
+	fRoFY0bQfNAjGuE1sNMP6XUej7cImeQUsbBeMU8dqu80WDjqXimK695kT0isrFvyrn3LtM
+	Fa+tl1tIKckLUk0HMf9kA/ay8WPHzAhcoR35KcV86V0nX6SrgqPY6lSwASglDw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=RRFxTyQv;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1768611768;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=BBh+2qgbpQUHoDdDr6BIlnP2VoX2nm99cWm8zX7p714=;
+	b=RRFxTyQvLLwFd3nQlZ1ju6DXpJUsakpguv9UKXuBeSlLlsLr9tRFI/kMXZnPY+G4rtxoyA
+	Eltx80J9LBOE6DknwbRjO3/PsxNzD1gCerh57es3ddI/5PAPj7/CNnyGJ6RR6J2hr1Unef
+	yO86pwm1B29Vx0UFv+0TunRkq5bCYceVgWMYqIFsdz2RGZE19MPKRGkWh/wLNRg/WWkOhc
+	xW9mn0TPKnnaucFSKIzFqlzXUDHtGw0Zq/y86lhYKS53mB2CwP87tt2qgiA2rUpNoNwWWg
+	YIvQIRHV0fvtpK/1wE9b2YW5RFDNriXPltmyfo/AQeJGx3RJ+lvJgcEjdhq8hw==
+To: arm-scmi@vger.kernel.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH v4 1/2] dt-bindings: firmware: arm,scmi: Document arm,no-completion-irq property
+Date: Sat, 17 Jan 2026 02:02:28 +0100
+Message-ID: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260116233535.260114-3-abdurrahman@nexthop.ai>
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: qc7wgykt7qnp4aab8fxq11e6mrj3judq
+X-MBO-RS-ID: 55b7f5a610ad4e19108
+X-Rspamd-Queue-Id: 4dtJNp5FL3z9vD5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_164126_653082_D0F28BB5 
-X-CRM114-Status: GOOD (  15.06  )
+X-CRM114-CacheID: sfid-20260116_170257_036388_D1CEEE7D 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,38 +95,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 11:35:35PM +0000, Abdurrahman Hussain wrote:
-> This makes the driver work on platforms where interrupts are either not
-> provided or broken.
-> 
-> Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Document new property arm,no-completion-irq . This optional property
+is intended for hardware that does not generate completion interrupts
+and can be used to unconditionally enable forced polling mode of
+operation.
 
-To get a Reviewed-by: for this patch you will need to Cc:the device
-tree Maintainers.
+With this property set, such implementations which do not generate
+interrupts can be interacted with, until they are fixed to generate
+interrupts properly.
 
-https://docs.kernel.org/devicetree/bindings/submitting-patches.html
+Note that, because the original base protocol exchange also requires
+some sort of completion mechanism, it is not possible to query SCMI
+itself for this property and it must be described in DT. While this
+does look a bit like policy, the SCMI provider is part of the
+hardware, hence DT.
 
-This is also version 2 of the patch, so you should of marked this as v2.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>
+Cc: arm-scmi@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+V2: s@mean@&t and limit poll transport to mailbox/shmem only
+V3: - Reformat the commit message, expand property description to
+      explicitly spell out this is hardware description.
+    - Rename property from arm,poll-transport to arm,no-completion-irq
+V4: - Update first paragraph of commit message and property description
+    - Add RB from Rob
+---
+ .../devicetree/bindings/firmware/arm,scmi.yaml         | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-https://docs.kernel.org/process/submitting-patches.html
+diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+index be817fd9cc34b..d06cca9273c48 100644
+--- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
++++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+@@ -146,6 +146,13 @@ properties:
+       this platform. If set, the value should be non-zero.
+     minimum: 1
+ 
++  arm,no-completion-irq:
++    type: boolean
++    description:
++      This optional property is intended for hardware that does not generate
++      completion interrupts and can be used to unconditionally enable forced
++      polling mode of operation.
++
+   arm,smc-id:
+     $ref: /schemas/types.yaml#/definitions/uint32
+     description:
+@@ -379,6 +386,9 @@ then:
+     - shmem
+ 
+ else:
++  properties:
++    arm,no-completion-irq: false
++
+   if:
+     properties:
+       compatible:
+-- 
+2.51.0
 
-> ---
->  Documentation/devicetree/bindings/spi/spi-xilinx.yaml | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/spi/spi-xilinx.yaml b/Documentation/devicetree/bindings/spi/spi-xilinx.yaml
-> index 4beb3af0416d..8296edde61b0 100644
-> --- a/Documentation/devicetree/bindings/spi/spi-xilinx.yaml
-> +++ b/Documentation/devicetree/bindings/spi/spi-xilinx.yaml
-> @@ -23,7 +23,7 @@ properties:
->      maxItems: 1
->  
->    interrupts:
-> -    maxItems: 1
-> +    maxItems: 1 # optional
-
-I suspect the DT Maintainer won't link this comment. All properties
-are optional unless they are listed in the required: section.
-
-	Andrew
 
