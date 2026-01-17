@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B0DC9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 01:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 049A3C9830E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 01:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cxRAE+6J1/VR0TMOgZgPO8SPeLk5GzHQqIi3etGBIWY=; b=DebLyccA+UU3l/CiUPFYfcd0GP
-	6DRxxh3wRhe5TOxqL2DIC3GinDFCSxnDM/3+APCut0ZqeqAC+REYrXyttxfAy9cMdArQDiOzqt1qC
-	LK+kdM+zgK4QCqTLsqozISFU3LEhQ8k2DTCrf2Kgdmva518fR9/86uAFOmUChhhkvXdx8m6nou2H5
-	NJ7ZFhk81rE69F4HxWKoukRO5J5NH7KFt3OcWVZnm59UA1Nxm9MlZzS19JcNSy6P21xvmCTafYLsV
-	LTsZRMEvxEjFDUkMg45xkmwk1NdDtv8LbP/uJ3wAlW607fPQcM2AXZfZJD6+sHRT2X+hBMS3cGJ3Y
-	l6yVKwjw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rr1twA4iZh+FcXu79e86gzYn/j7DQvtF/WDnxVBdvpQ=; b=ScT8qOHPu2fWDc3Dg+bwSDY6Rh
+	/IwJlYsEdzcGMae7Aitttnvs3M1twxuYoq8zn0OeA5k5bryKDR/gDE8iaAlfhtyYM8pIIGTntzFUk
+	xAPgZ1FRas9o8ar99WYsosG9FhCMMiL9jwHIXCxe/2pI5j2DCeoRHmxxt1F9PYn7E8gqNSZiSOgZg
+	HpIcD2uBaPom+3ujeKuf4s1jboLd5IGT91Zemdvw71+2RGh9nW8A+xKt4TRbDh9NzYrja2On4eijj
+	eWl/sob10awj4kZXiFzw0rbGysNR8xoIVfvL4IqrXA2WqHrgxIF5CdZjYq7aHQsw+lXRGCnENx4tV
+	1GvtTlPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgv0m-0000000F5Zo-30zL;
-	Sat, 17 Jan 2026 01:21:56 +0000
-Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
+	id 1vgv0q-0000000F5b6-2Djw;
+	Sat, 17 Jan 2026 01:22:00 +0000
+Received: from mail-dy1-x1334.google.com ([2607:f8b0:4864:20::1334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgv0k-0000000F5ZK-0mJV
+	id 1vgv0n-0000000F5Zu-1xRa
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 01:21:55 +0000
-Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-11f1fb91996so6262487c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 17:21:53 -0800 (PST)
+	Sat, 17 Jan 2026 01:21:58 +0000
+Received: by mail-dy1-x1334.google.com with SMTP id 5a478bee46e88-2ae38f81be1so3395204eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 17:21:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1768612913; x=1769217713; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=cxRAE+6J1/VR0TMOgZgPO8SPeLk5GzHQqIi3etGBIWY=;
-        b=kq4K8WWkyPv2UXxMTZqCRtC39JbGdw49gcw+N53dq7aT8shQ3f3XdQwkiSG1+31Z/4
-         TCdUNgyLLzf+kEAswAMwXySELTJTSET/wNAOEj9QhUIRIM3vcqmkHFwK2COtdryRl0B5
-         oV9Umf+WE6cTD/rtAdH+mS134AHV1w4DeJQ/jel5+/Ztcqasi//x6T+rYYrTyk1Q2FGF
-         NaFlnkxQoRe9bXNjMYDj5u2+vKObY4IXW4eIL6f/jVbtbacUDJm96v/50hq2Fu5R/lKH
-         hsE6qXXhS4y4Xjls9Hy4yniFRV2Ys1O2xNx3vMQUmmzUyh7CZTp7lRKZIPZeqguOj6/l
-         JOfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768612913; x=1769217713;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=nexthop.ai; s=google; t=1768612916; x=1769217716; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=cxRAE+6J1/VR0TMOgZgPO8SPeLk5GzHQqIi3etGBIWY=;
-        b=fvlPWGzvdF/Irbyr56EzMOrZgytssKn2oin0fD6CH0sTpKggbprqLyJIfrNyZ4QFjI
-         ulRkIr1hYiUprV1lnwaZvtijSF1tvboi/3GKdwHtSsKqaYotnMLFt/4ruU7P6NGRv/ll
-         1Ha54CfaZviAHHhueNy9o3HbWOvvJGyo8gwA3b3GXaKErBUvO2hPXggc3YzRTnVx8dkJ
-         V9aXJUOKaCw/BdJqDjSR/oU22/BbZV17ONgF1U1LE4kf6uNrHoBjMQ2iMsctFEwbMgz1
-         K4zDgnts3dA5OYDqihyBG3aw1WuDpQVsB4X5uotA8r3K4hml6CtcTqpr3wfKsOyU7u9V
-         Q67w==
-X-Forwarded-Encrypted: i=1; AJvYcCU0ArTCTWnP/t0SbVN4ktdVJ+byZ5McInEl9imtwtzhls7QDL8gZG3T1efu9zOrjHrhJX+RplubS0oSCoLWlCny@lists.infradead.org
-X-Gm-Message-State: AOJu0YwabIADudePZdW1n9nsExG7QVMVj067wAPsyO+agtI8niq2pheL
-	XzcbWVntsL/AdLtE0fQ7gAdiJFL/RFnBQRKM91PeUYDy3Zh2mDw3ksBrXOOBjpln+AI=
-X-Gm-Gg: AY/fxX4jLT7P9GyJpJNJG+eo2lbVzyhbXX1L5/7fa2RG1wmZVH6cBrLtfDRqOIYkNSd
-	+E61VQw0HEzVUvQfDZRsHv6UE7BbVwqcATvu7gvI3k6vOSTztP6DoyN7uImeyZIyjjTmcM5TnyV
-	4DxJ22ncg6lXYeAPlmllOak39TqNSwzDKrE30DJKdjVvHudpUZ5jGb3iqYkleho7NK4Gdo+vlEF
-	9wCkFrdCZYd6hsbPlheeUYz+Xg0p1c795XrPoDk5qACu6NzVOdCQRhSZVPjJStxJbHLrXT5OABl
-	N7hD2GKk7L80htngCuGgzJQjxPkEbEcab4+CisfpLtqdiyCKNP7uFScCOID4PgsXsUWU7NPKX9s
-	8oBrhEQQpfkvSR8fRUy256yMHpvR+SnTSJbM346tUD0mtDiLPXTLjhnVWa+ygokCiTJTVjNfZYw
-	yx1KcJZZgIKyI=
-X-Received: by 2002:a05:7022:322:b0:119:e569:f279 with SMTP id a92af1059eb24-1244b3802e2mr4430875c88.34.1768612913075;
-        Fri, 16 Jan 2026 17:21:53 -0800 (PST)
+        bh=Rr1twA4iZh+FcXu79e86gzYn/j7DQvtF/WDnxVBdvpQ=;
+        b=PN9ZRlabA44lPtUCEf9hEJj7pDUhN8OJfFb6J3pXzn5ST1JjsmQ6SkIKpxN+FhrJnF
+         EGJTMefTkTRQFrH4afWrYPJq7qBvecPjZxTYWuRYUa9j1Nku83boNMr9EzmtWHu8wGYf
+         tmEPMvPykmpN1XVbtWsCp5sMK1rit2dxpVGqjbw6HlnrmFRd1/GemAKAamTjKstexCd8
+         VWUUvnTf3DlHtLAQPL6csyvRIi3B/ZDBSADEA6WGEzfh6BCi6fKpjzllaNNFyXZQ92ww
+         fBqEjsnEa4EH3afoCTRIpMxxWoHxT9J7B3Y2rbN6UnmYTpxURiDrhzVsYa5LifHTi0Ac
+         S+Cw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768612916; x=1769217716;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Rr1twA4iZh+FcXu79e86gzYn/j7DQvtF/WDnxVBdvpQ=;
+        b=Ab6vwTfhAEr1t2Z5B7IYPkfcPYRPwtJxydup72A+4ZyejNH1gbwJbSyKQS0tS/8M/8
+         2LecAle4ihap1Uc2VBhigWTEOArWFxn2FLaNbornc5BavRkmfqbNcoYqkmdiUqDMDLo1
+         UeJyDfPQAZuWr5OsBY9WOMzJd11ljiU/P3bWqx7MPU5zE9MTCUMSjbOTuNeE1OS1ODq2
+         huPzD4ec9Ue1EcBGo9pFHbnbWd2BiM2qH4YLENqJIYp4NTKD/KA/ogZ4TlePe173zSdY
+         zwRfx399c69Sk1zWl5cHetwSuNOIUOrP6CJEA9gblpiQkFv8XUgq+i49UQ4ViyTHkOYM
+         PnQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXwfh+1YBCjwDE3exVcYBlTgKyVa+GykiczvNVwRugRdHmCiNJP64Tf/9xSPAWqvqrITdgM5m2WshhWtIOfWlOX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDp+u/fJe5q5Qv29USrlZ6f5Tfpp+tcAu28U0egrIOM+RN4DWk
+	3i9N7r+FxC66g17ZM62TYmv+dqSYuCjPPeGm4yA8AfnsOIMstO1HTIwFYsCjLa13Fng=
+X-Gm-Gg: AY/fxX4tTNSMVEmQzItcVrzLWcKle94O1ublS1izwHto7tLBuHRYpsG+70NNb6WT1w8
+	+8ZXsGWIIRb4d5QzAWqY3UriVymlgOvwvqWEzb20CeBuSK9LmKfWOgOx72iTFSk+y/Y2tn+583j
+	kCrKVt9qJSlJ1/jyApsIEnwq8IZZl4rJcDEGaO75z2ES7zSubnrkcJn/YJNHJLW3EdHCKflYroc
+	5Ivav3pfcRsrbLdu5XqHXkQh0+AsZjPXESle0a6qpmB3CEMvmdKxsPpwReWXhP0Gnnag5B6TUt0
+	a/b+Aq3WZX1ntKAKgQo59m5OW7sPc9vGi3lsWZnjEuRdGhC0HYwXkLtXmEhMV9vlQYu0NKPOeW1
+	SIcC0foWXH7RPhzGEMAdyJ9AdgOQ20Zz7VoyresDXpym8jHf2g82L2+JzweSijsZBiXfu2R+eoi
+	u2QTrhxddsDzQ=
+X-Received: by 2002:a05:7301:1687:b0:2ae:5b32:774 with SMTP id 5a478bee46e88-2b6b46d2a6bmr4932689eec.7.1768612916322;
+        Fri, 16 Jan 2026 17:21:56 -0800 (PST)
 Received: from localhost ([50.145.100.178])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1244ac6c2besm5370810c88.5.2026.01.16.17.21.52
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b6b3651f39sm4128837eec.24.2026.01.16.17.21.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Jan 2026 17:21:52 -0800 (PST)
+        Fri, 16 Jan 2026 17:21:55 -0800 (PST)
 From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 To: Mark Brown <broonie@kernel.org>,
 	Michal Simek <michal.simek@amd.com>,
@@ -80,16 +81,17 @@ Cc: linux-spi@vger.kernel.org,
 	Conor Dooley <conor+dt@kernel.org>,
 	devicetree@vger.kernel.org,
 	Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Subject: [PATCH v2 0/3] spi: xilinx: make it work on non-OF platforms
-Date: Sat, 17 Jan 2026 01:21:33 +0000
-Message-ID: <20260117012136.265220-1-abdurrahman@nexthop.ai>
+Subject: [PATCH v2 1/3] spi: xilinx: use device property accessors.
+Date: Sat, 17 Jan 2026 01:21:34 +0000
+Message-ID: <20260117012136.265220-2-abdurrahman@nexthop.ai>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260117012136.265220-1-abdurrahman@nexthop.ai>
+References: <20260117012136.265220-1-abdurrahman@nexthop.ai>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_172154_255353_2F131568 
-X-CRM114-Status: UNSURE (   8.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260116_172157_500465_596F043D 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,21 +106,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These changes make the driver work on ACPI based systems.
-Making the interrupt optional makes work on systems where interrupts are
-not available or broken.
+This makes the driver work on non-OF platforms.
 
-Abdurrahman Hussain (3):
-  spi: xilinx: use device property accessors.
-  spi: xilinx: make irq optional
-  spi: dt-bindings: xilinx: make interrupts optional
+Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+---
+ drivers/spi/spi-xilinx.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
- .../devicetree/bindings/spi/spi-xilinx.yaml          |  1 -
- drivers/spi/spi-xilinx.c                             | 12 ++++++------
- 2 files changed, 6 insertions(+), 7 deletions(-)
-
-
-base-commit: 944aacb68baf7624ab8d277d0ebf07f025ca137c
+diff --git a/drivers/spi/spi-xilinx.c b/drivers/spi/spi-xilinx.c
+index c86dc56f38b4..c4b70e95b695 100644
+--- a/drivers/spi/spi-xilinx.c
++++ b/drivers/spi/spi-xilinx.c
+@@ -405,11 +405,11 @@ static int xilinx_spi_probe(struct platform_device *pdev)
+ 		bits_per_word = pdata->bits_per_word;
+ 		force_irq = pdata->force_irq;
+ 	} else {
+-		of_property_read_u32(pdev->dev.of_node, "xlnx,num-ss-bits",
+-					  &num_cs);
+-		ret = of_property_read_u32(pdev->dev.of_node,
+-					   "xlnx,num-transfer-bits",
+-					   &bits_per_word);
++		device_property_read_u32(&pdev->dev, "xlnx,num-ss-bits",
++					 &num_cs);
++		ret = device_property_read_u32(&pdev->dev,
++					       "xlnx,num-transfer-bits",
++					       &bits_per_word);
+ 		if (ret)
+ 			bits_per_word = 8;
+ 	}
 -- 
 2.52.0
 
