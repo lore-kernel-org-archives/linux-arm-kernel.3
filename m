@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF3F9C9830E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 05:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93724C98311
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 05:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
 	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZVnccFhyVIdPmX1GN08af1KDJO30zSaL9HTGsky0Apo=; b=ntJALRAl5tW0TwE4I3v0lNrZCR
-	+O6qkiPZLMIi3Qvp5BDwrPxMCeFf6bFXJabQxKwodXdhB99Jm+RBwOwaAcpTM8j7cvn+5xefO6yCN
-	TASISn1Y9vIi/FPygNb/2PY9nEtWYwFoUUiP4hmUqbq9/RdcD65wuZ54+bqwha2vSF6muUWnDbGLH
-	Blccsg8zkhI2aLDC4O23SRskrHa6Tt2EDjGVhe/kdVHrVwgwgByVXkrJTLPTRm6JDkDO6jRsufi8t
-	lc9WH14L2snX8oKm9slX/7UrkSl7HVeWhJ4kK+EhEie0ZIJscgm6c28+WwppejDlCM+NDWDi/TVl3
-	8A5zl4TA==;
+	bh=1S66FILKRfXMvRmBPDp7wjeWNFb1HGCJm/Z2kIzT3UE=; b=EHXHyfrJQlyG6K6UpLvFc9lkXo
+	fn8gj+hLNbio1BaQ8HbTl5KnEjxTQg5PxjCVUMdxjXkmx6Nm32Z4l8FeXsq1dIS3Ad4hdFf8r6cY0
+	iZ1WjDd2wuH2iN5E0ZHUEK3VvB1PGDENA6ITYMNtHF/GffOlLNROXAfudqXDcQnc4FlHEnEi6XZAa
+	Dy2vevcO8T/IzjzctWx23bTXmT9eP9o9C93jTnxQyqoa90Y9NaKDT5/6rJOxQQ5SGNjzv4VrQwWHj
+	WxVYpOxd/BjKXdE5TyHN9cV9eYzfTvZAMWulbO3w9GGlSzid27xQPNELeK0AmjcLTCAMbDzmMM7jX
+	2ClBWDNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgyt2-0000000FFD3-2me4;
-	Sat, 17 Jan 2026 05:30:12 +0000
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	id 1vgysi-0000000FEp1-2MvY;
+	Sat, 17 Jan 2026 05:29:52 +0000
+Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgysW-0000000FEYO-3Wn0
+	id 1vgysR-0000000FETp-22Xl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 05:29:41 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2ae25c02e7bso5178906eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 21:29:40 -0800 (PST)
+	Sat, 17 Jan 2026 05:29:36 +0000
+Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-12337114f3fso4529071c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 16 Jan 2026 21:29:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768627779; x=1769232579; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1768627774; x=1769232574; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=ZVnccFhyVIdPmX1GN08af1KDJO30zSaL9HTGsky0Apo=;
-        b=qlseyCsGXgrDdYdUl+gWspZW9PcPNLFjyXhnauCyh6ZL1HveiSqMNFYvr21CK4Uh8L
-         gBk+UfHK3M0fq8dUUlY38nKlYxFzBzRLejP1HI4Zfujf1+1/OSwd3EIghdKgiHwwHeHh
-         8MXGpxXNEEklvNOu2sre/JvJZVEBjYa3tHaudWjYCPUv7n80hN0O9LMGrFcY9kTZu8mu
-         b2zobzTkKAa6k6AqAb92wystX4LpFOZ88/nNb9CpI/F669UlhUxsgFJJuGGJcec15lFi
-         z+gmG606M3eWKa8jDjWkOwXCRJ0ei+RSar1XVxCseryzZTREXcTOoj8K101dIbcS7nmd
-         MAGg==
+        bh=1S66FILKRfXMvRmBPDp7wjeWNFb1HGCJm/Z2kIzT3UE=;
+        b=Eo6x574uznS11bKuuyj2SQxKIo0CHWgjdXz4Ei51uAPZHmi4PAgXHVwf/DJo2bhex2
+         pP79wUxd34V7clRl7IVi6xWEiz9oh/KmFqP3hsDob42v5RGWtG3eDqu7+aQnBCMhwozQ
+         sJtszo6EfJpwWG6iK0iHqhtX2MUNOWN5XB/NLF2aiC6UuWJYEXFdZucEHgIqfQsu+hxL
+         adhxjXzs/EYqbgk9wsXw9w6oimduaVLDAQN0jUL3YZhhutK/cQIBdxcSMqvGqvHsSITQ
+         4vcBxRtAfPcp75nvTfiL8g+hWfPD/T+bl7PNJXGa7HzphKMrz+4qUNwt79eHgaOgIrMh
+         Db8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768627779; x=1769232579;
+        d=1e100.net; s=20230601; t=1768627774; x=1769232574;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZVnccFhyVIdPmX1GN08af1KDJO30zSaL9HTGsky0Apo=;
-        b=YmYFwvLAGjyS4fQ6LikXwEX53A5ADBJKbhTpf173bqkk5gOOungIMOV06ZrpNXe7UK
-         7D2gPfr9hTtlxNIpc3QV5ge3/IePvaete/k9wyKg/6iWuiZy5b/mZBDntNFBC2xtiKnN
-         CAIsygkqrEjFoVV4IfHHXho09mtU2UqdXOVhpu7hkvUseNfnWYAqFeMQFfW2hS0IiucJ
-         7/8bqkDTwFmAv+Ah8Jupev5Kum2jHWOVwK9iXtDe92Jk28fqe0uGpYInRbaSBG+H+f2q
-         yn6KFdFwha0UboI68Fd+y7zEQg0o6eX3sUoQpxbleFf84P3zZyqorQFMpJliD8zgxpx+
-         /TLg==
-X-Forwarded-Encrypted: i=1; AJvYcCWGBgAasrpr7Z0jz/y2EA+39rwJRdla6Wml2MG7uR2w72NdtwtcZwXve9HnZg5rsBaGveGNpro8/1kEWSb2HFOv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxf1MggJYGtP9TXYKbjca2lEzoZBsBDJ9R9hVuBitBEnAw5LJ+O
-	pOWeBx0RCNbBJKPg7suyhMA47OFdT985FgF/qujDi57RkuIenAs2muMUYVAnoZvES2wCH7xSXRJ
-	T5TvgsQBkPw==
-X-Received: from dybqu3.prod.google.com ([2002:a05:7301:6583:b0:2b6:b139:8515])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:cc14:b0:2b0:5696:26c0
- with SMTP id 5a478bee46e88-2b6b4e28165mr5422981eec.2.1768627779350; Fri, 16
- Jan 2026 21:29:39 -0800 (PST)
-Date: Fri, 16 Jan 2026 21:28:37 -0800
+        bh=1S66FILKRfXMvRmBPDp7wjeWNFb1HGCJm/Z2kIzT3UE=;
+        b=vAfEW1F9BRcZqimKGn31mzSO6Vnl0rgA50gPW0Bg+piT0YcObifARbLgUWUyhazW4e
+         IyUv/JLQ6wJW3U7wVigw7O5X28Xavx97acnKDtn6106TxofXiCN34kl0u4yDlQ7ikYNA
+         JV6fkyFcVY+mFZQhUQ9wLFkGLYLAFQDw4iaQ4KYbchORY45EXFZP2rXt2/4Ykr4GH6Zw
+         SCa5eXOvZWJDas5JOmsJN6POwiKbfblE6yD7mdjQJ4CyouIKc7WZNcLGNG7sW0Cc3vDU
+         asADW7gdKEFUH10ig0XGYXpqOF9YjUtoyHO781Sz13Mvko8VhQdc1N/9xnmK2N3TRb1P
+         miog==
+X-Forwarded-Encrypted: i=1; AJvYcCUJKkOGISYoUBI+CH4J763ZbPwbBQeYarOqcCvz1jTA/m78HB1UMQwHA5+fiafodPFacquvliFT3Y1tRSl4MZRJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyyFsCK2TRAHtxGB6AXf7u7ASSKnn4LxyUJYw5K/evzoSfBJgFO
+	1d76QcGVLnGNpnQxQ1eXhipH+0eY7xKZ52mdm1zJLfKAdzcf//6rRi7ovGDMohhWUwuqsZdKVi5
+	hXIrUMTNr8Q==
+X-Received: from dlag7.prod.google.com ([2002:a05:701b:2507:b0:11f:3043:2c7f])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:b93:b0:123:3508:893f
+ with SMTP id a92af1059eb24-1244a765c10mr3680068c88.31.1768627774218; Fri, 16
+ Jan 2026 21:29:34 -0800 (PST)
+Date: Fri, 16 Jan 2026 21:28:34 -0800
 In-Reply-To: <20260117052849.2205545-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260117052849.2205545-1-irogers@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260117052849.2205545-12-irogers@google.com>
-Subject: [PATCH v1 11/23] perf dwarf-regs: Clean up x86 dwarf_regnum code
+Message-ID: <20260117052849.2205545-9-irogers@google.com>
+Subject: [PATCH v1 08/23] perf perf_regs: Switch from arch string to int e_machine
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
@@ -86,8 +86,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	Mark Wielaard <mark@klomp.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_212940_914691_344E6EB0 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20260116_212935_551324_99C215D4 
+X-CRM114-Status: GOOD (  22.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,208 +102,674 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The i386 and x86-64 register numbers differ on x86, but previously x86
-was a single arch string and so this couldn't be handled. The
-transition to using ELF EM_* values means we can translate x86
-registers correctly for either the x86-64 dwarf register mappings
-(from the System V ABI) or i386 register mappings. Correct the mappings.
+The arch string requires multiple strcmp to identify things like the
+IP and SP. Switch to passing in an e_machine that in the bulk of cases
+is computed using a current thread load. The e_machine also allows
+identification of 32-bit vs 64-bit processes.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- .../util/dwarf-regs-arch/dwarf-regs-x86.c     | 133 ++++++++++++++++--
- tools/perf/util/dwarf-regs.c                  |   5 +-
- tools/perf/util/include/dwarf-regs.h          |   3 +-
- 3 files changed, 129 insertions(+), 12 deletions(-)
+ tools/perf/builtin-script.c                   |  17 ++-
+ tools/perf/util/evsel.c                       |  14 ++-
+ tools/perf/util/perf_regs.c                   | 105 +++++++++++-------
+ tools/perf/util/perf_regs.h                   |  10 +-
+ .../scripting-engines/trace-event-python.c    |  21 ++--
+ tools/perf/util/session.c                     |  65 ++++++++---
+ tools/perf/util/session.h                     |   1 +
+ tools/perf/util/unwind-libdw.c                |  12 +-
+ tools/perf/util/unwind-libunwind-local.c      |   7 +-
+ 9 files changed, 164 insertions(+), 88 deletions(-)
 
-diff --git a/tools/perf/util/dwarf-regs-arch/dwarf-regs-x86.c b/tools/perf/util/dwarf-regs-arch/dwarf-regs-x86.c
-index 7a55c65e8da6..f0c42e4d7423 100644
---- a/tools/perf/util/dwarf-regs-arch/dwarf-regs-x86.c
-+++ b/tools/perf/util/dwarf-regs-arch/dwarf-regs-x86.c
-@@ -13,10 +13,65 @@
+diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
+index 62e43d3c5ad7..372bede30230 100644
+--- a/tools/perf/builtin-script.c
++++ b/tools/perf/builtin-script.c
+@@ -717,7 +717,7 @@ static int perf_session__check_output_opt(struct perf_session *session)
+ 	return 0;
+ }
  
- struct dwarf_regs_idx {
- 	const char *name;
--	int idx;
-+	int dwarf_regnum;
- };
- 
--static const struct dwarf_regs_idx x86_regidx_table[] = {
-+static const struct dwarf_regs_idx i386_regidx_table[] = {
-+	{ "eax", 0 }, { "ax", 0 }, { "al", 0 },
-+	{ "ecx", 1 }, { "cx", 1 }, { "cl", 1 },
-+	{ "edx", 2 }, { "dx", 2 }, { "dl", 2 },
-+	{ "ebx", 3 }, { "bx", 3 }, { "bl", 3 },
-+	{ "esp", 4 }, { "sp", 4 }, { "$stack", 4},
-+	{ "ebp", 5 }, { "bp", 5 },
-+	{ "esi", 6 }, { "si", 6 },
-+	{ "edi", 7 }, { "di", 7 },
-+	// 8 - Return Address RA
-+	{ "eflags", 9}, { "flags", 9},
-+	// 10 - reserved
-+	{ "st0", 11},
-+	{ "st1", 12},
-+	{ "st2", 13},
-+	{ "st3", 14},
-+	{ "st4", 15},
-+	{ "st5", 16},
-+	{ "st6", 17},
-+	{ "st7", 18},
-+	// 19-20 - reserved
-+	{ "xmm0", 21},
-+	{ "xmm1", 22},
-+	{ "xmm2", 23},
-+	{ "xmm3", 24},
-+	{ "xmm4", 25},
-+	{ "xmm5", 26},
-+	{ "xmm6", 27},
-+	{ "xmm7", 28},
-+	{ "mm0", 29},
-+	{ "mm1", 30},
-+	{ "mm2", 31},
-+	{ "mm3", 32},
-+	{ "mm4", 33},
-+	{ "mm5", 34},
-+	{ "mm6", 35},
-+	{ "mm7", 36},
-+	// 37-38 - unknown
-+	{ "mxcsr", 39}, // 128-bit Media Control and Status
-+	{ "es", 40},
-+	{ "cs", 41},
-+	{ "ss", 42},
-+	{ "ds", 43},
-+	{ "fs", 44},
-+	{ "gs", 45},
-+	// 46-47 - reserved
-+	{ "tr", 48}, // Task Register
-+	{ "ldtr", 49}, // LDT Register
-+	// 50-92 - reserved
-+	{ "fs.base", 92},
-+	{ "gs.base", 93},
-+	// End of regular dwarf registers.
-+	{ "eip", DWARF_REG_PC }, { "ip", DWARF_REG_PC },
-+};
-+
-+static const struct dwarf_regs_idx x86_64_regidx_table[] = {
- 	{ "rax", 0 }, { "eax", 0 }, { "ax", 0 }, { "al", 0 },
- 	{ "rdx", 1 }, { "edx", 1 }, { "dx", 1 }, { "dl", 1 },
- 	{ "rcx", 2 }, { "ecx", 2 }, { "cx", 2 }, { "cl", 2 },
-@@ -33,18 +88,78 @@ static const struct dwarf_regs_idx x86_regidx_table[] = {
- 	{ "r13", 13 }, { "r13d", 13 }, { "r13w", 13 }, { "r13b", 13 },
- 	{ "r14", 14 }, { "r14d", 14 }, { "r14w", 14 }, { "r14b", 14 },
- 	{ "r15", 15 }, { "r15d", 15 }, { "r15w", 15 }, { "r15b", 15 },
--	{ "rip", DWARF_REG_PC },
-+	// 16 - Return Address RA
-+	{ "xmm0", 17},
-+	{ "xmm1", 18},
-+	{ "xmm2", 19},
-+	{ "xmm3", 20},
-+	{ "xmm4", 21},
-+	{ "xmm5", 22},
-+	{ "xmm6", 23},
-+	{ "xmm7", 24},
-+	{ "xmm8", 25},
-+	{ "xmm9", 26},
-+	{ "xmm10", 27},
-+	{ "xmm11", 28},
-+	{ "xmm12", 29},
-+	{ "xmm13", 30},
-+	{ "xmm14", 31},
-+	{ "xmm15", 32},
-+	{ "st0", 33},
-+	{ "st1", 34},
-+	{ "st2", 35},
-+	{ "st3", 36},
-+	{ "st4", 37},
-+	{ "st5", 38},
-+	{ "st6", 39},
-+	{ "st7", 40},
-+	{ "mm0", 41},
-+	{ "mm1", 42},
-+	{ "mm2", 43},
-+	{ "mm3", 44},
-+	{ "mm4", 45},
-+	{ "mm5", 46},
-+	{ "mm6", 47},
-+	{ "mm7", 48},
-+	{ "rflags", 49}, { "eflags", 49}, { "flags", 49},
-+	{ "es", 50},
-+	{ "cs", 51},
-+	{ "ss", 52},
-+	{ "ds", 53},
-+	{ "fs", 54},
-+	{ "gs", 55},
-+	// 56-47 - reserved
-+	{ "fs.base", 58},
-+	{ "gs.base", 59},
-+	// 60-61 - reserved
-+	{ "tr", 62}, // Task Register
-+	{ "ldtr", 63}, // LDT Register
-+	{ "mxcsr", 64}, // 128-bit Media Control and Status
-+	{ "fcw", 65}, // x87 Control Word
-+	{ "fsw", 66}, // x87 Status Word
-+	// End of regular dwarf registers.
-+	{ "rip", DWARF_REG_PC }, { "eip", DWARF_REG_PC }, { "ip", DWARF_REG_PC },
- };
- 
--int get_x86_regnum(const char *name)
-+static int get_regnum(const struct dwarf_regs_idx *entries, size_t num_entries, const char *name)
+-static int perf_sample__fprintf_regs(struct regs_dump *regs, uint64_t mask, const char *arch,
++static int perf_sample__fprintf_regs(struct regs_dump *regs, uint64_t mask, uint16_t e_machine,
+ 				     FILE *fp)
  {
--	unsigned int i;
--
- 	if (*name != '%')
- 		return -EINVAL;
+ 	unsigned i = 0, r;
+@@ -730,7 +730,7 @@ static int perf_sample__fprintf_regs(struct regs_dump *regs, uint64_t mask, cons
  
--	for (i = 0; i < ARRAY_SIZE(x86_regidx_table); i++)
--		if (!strcmp(x86_regidx_table[i].name, name + 1))
--			return x86_regidx_table[i].idx;
-+	name++;
-+	for (size_t i = 0; i < num_entries; i++) {
-+		if (!strcmp(entries[i].name, name))
-+			return entries[i].dwarf_regnum;
+ 	for_each_set_bit(r, (unsigned long *) &mask, sizeof(mask) * 8) {
+ 		u64 val = regs->regs[i++];
+-		printed += fprintf(fp, "%5s:0x%"PRIx64" ", perf_reg_name(r, arch), val);
++		printed += fprintf(fp, "%5s:0x%"PRIx64" ", perf_reg_name(r, e_machine), val);
+ 	}
+ 
+ 	return printed;
+@@ -787,23 +787,23 @@ tod_scnprintf(struct perf_script *script, char *buf, int buflen,
+ }
+ 
+ static int perf_sample__fprintf_iregs(struct perf_sample *sample,
+-				      struct perf_event_attr *attr, const char *arch, FILE *fp)
++				      struct perf_event_attr *attr, uint16_t e_machine, FILE *fp)
+ {
+ 	if (!sample->intr_regs)
+ 		return 0;
+ 
+ 	return perf_sample__fprintf_regs(perf_sample__intr_regs(sample),
+-					 attr->sample_regs_intr, arch, fp);
++					 attr->sample_regs_intr, e_machine, fp);
+ }
+ 
+ static int perf_sample__fprintf_uregs(struct perf_sample *sample,
+-				      struct perf_event_attr *attr, const char *arch, FILE *fp)
++				      struct perf_event_attr *attr, uint16_t e_machine, FILE *fp)
+ {
+ 	if (!sample->user_regs)
+ 		return 0;
+ 
+ 	return perf_sample__fprintf_regs(perf_sample__user_regs(sample),
+-					 attr->sample_regs_user, arch, fp);
++					 attr->sample_regs_user, e_machine, fp);
+ }
+ 
+ static int perf_sample__fprintf_start(struct perf_script *script,
+@@ -2418,7 +2418,6 @@ static void process_event(struct perf_script *script,
+ 	struct evsel_script *es = evsel->priv;
+ 	FILE *fp = es->fp;
+ 	char str[PAGE_SIZE_NAME_LEN];
+-	const char *arch = perf_env__arch(machine->env);
+ 
+ 	if (output[type].fields == 0)
+ 		return;
+@@ -2506,10 +2505,10 @@ static void process_event(struct perf_script *script,
+ 	}
+ 
+ 	if (PRINT_FIELD(IREGS))
+-		perf_sample__fprintf_iregs(sample, attr, arch, fp);
++		perf_sample__fprintf_iregs(sample, attr, thread__e_machine(thread, machine), fp);
+ 
+ 	if (PRINT_FIELD(UREGS))
+-		perf_sample__fprintf_uregs(sample, attr, arch, fp);
++		perf_sample__fprintf_uregs(sample, attr, thread__e_machine(thread, machine), fp);
+ 
+ 	if (PRINT_FIELD(BRSTACK))
+ 		perf_sample__fprintf_brstack(sample, thread, evsel, fp);
+diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+index 6d324141588c..5ac1a05601b1 100644
+--- a/tools/perf/util/evsel.c
++++ b/tools/perf/util/evsel.c
+@@ -34,6 +34,7 @@
+ #include "callchain.h"
+ #include "cgroup.h"
+ #include "counts.h"
++#include "dwarf-regs.h"
+ #include "event.h"
+ #include "evsel.h"
+ #include "time-utils.h"
+@@ -1007,6 +1008,13 @@ int evsel__group_desc(struct evsel *evsel, char *buf, size_t size)
+ 	return ret;
+ }
+ 
++static uint16_t evsel__e_machine(struct evsel *evsel)
++{
++	struct perf_session *session = evsel__session(evsel);
++
++	return session ? perf_session__e_machine(session) : EM_HOST;
++}
++
+ static void __evsel__config_callchain(struct evsel *evsel, struct record_opts *opts,
+ 				      struct callchain_param *param)
+ {
+@@ -1042,13 +1050,13 @@ static void __evsel__config_callchain(struct evsel *evsel, struct record_opts *o
+ 
+ 	if (param->record_mode == CALLCHAIN_DWARF) {
+ 		if (!function) {
+-			const char *arch = perf_env__arch(evsel__env(evsel));
++			uint16_t e_machine = evsel__e_machine(evsel);
+ 
+ 			evsel__set_sample_bit(evsel, REGS_USER);
+ 			evsel__set_sample_bit(evsel, STACK_USER);
+ 			if (opts->sample_user_regs &&
+-			    DWARF_MINIMAL_REGS(arch) != arch__user_reg_mask()) {
+-				attr->sample_regs_user |= DWARF_MINIMAL_REGS(arch);
++			    DWARF_MINIMAL_REGS(e_machine) != arch__user_reg_mask()) {
++				attr->sample_regs_user |= DWARF_MINIMAL_REGS(e_machine);
+ 				pr_warning("WARNING: The use of --call-graph=dwarf may require all the user registers, "
+ 					   "specifying a subset with --user-regs may render DWARF unwinding unreliable, "
+ 					   "so the minimal registers set (IP, SP) is explicitly forced.\n");
+diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
+index 44b90bbf2d07..b58d59b84fb1 100644
+--- a/tools/perf/util/perf_regs.c
++++ b/tools/perf/util/perf_regs.c
+@@ -1,4 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0
++#include <elf.h>
+ #include <errno.h>
+ #include <string.h>
+ #include "perf_regs.h"
+@@ -30,30 +31,48 @@ const struct sample_reg * __weak arch__sample_reg_masks(void)
+ 	return sample_reg_masks;
+ }
+ 
+-const char *perf_reg_name(int id, const char *arch)
++const char *perf_reg_name(int id, uint16_t e_machine)
+ {
+ 	const char *reg_name = NULL;
+ 
+-	if (!strcmp(arch, "csky"))
++	switch (e_machine) {
++	case EM_ARM:
++		reg_name = __perf_reg_name_arm(id);
++		break;
++	case EM_AARCH64:
++		reg_name = __perf_reg_name_arm64(id);
++		break;
++	case EM_CSKY:
+ 		reg_name = __perf_reg_name_csky(id);
+-	else if (!strcmp(arch, "loongarch"))
++		break;
++	case EM_LOONGARCH:
+ 		reg_name = __perf_reg_name_loongarch(id);
+-	else if (!strcmp(arch, "mips"))
++		break;
++	case EM_MIPS:
+ 		reg_name = __perf_reg_name_mips(id);
+-	else if (!strcmp(arch, "powerpc"))
++		break;
++	case EM_PPC:
++	case EM_PPC64:
+ 		reg_name = __perf_reg_name_powerpc(id);
+-	else if (!strcmp(arch, "riscv"))
++		break;
++	case EM_RISCV:
+ 		reg_name = __perf_reg_name_riscv(id);
+-	else if (!strcmp(arch, "s390"))
++		break;
++	case EM_S390:
+ 		reg_name = __perf_reg_name_s390(id);
+-	else if (!strcmp(arch, "x86"))
++		break;
++	case EM_386:
++	case EM_X86_64:
+ 		reg_name = __perf_reg_name_x86(id);
+-	else if (!strcmp(arch, "arm"))
+-		reg_name = __perf_reg_name_arm(id);
+-	else if (!strcmp(arch, "arm64"))
+-		reg_name = __perf_reg_name_arm64(id);
++		break;
++	default:
++		break;
 +	}
- 	return -ENOENT;
++	if (reg_name)
++		return reg_name;
+ 
+-	return reg_name ?: "unknown";
++	pr_debug("Failed to find register %d for ELF machine type %u\n", id, e_machine);
++	return "unknown";
+ }
+ 
+ int perf_reg_value(u64 *valp, struct regs_dump *regs, int id)
+@@ -83,52 +102,60 @@ int perf_reg_value(u64 *valp, struct regs_dump *regs, int id)
+ 	return 0;
+ }
+ 
+-uint64_t perf_arch_reg_ip(const char *arch)
++uint64_t perf_arch_reg_ip(uint16_t e_machine)
+ {
+-	if (!strcmp(arch, "arm"))
++	switch (e_machine) {
++	case EM_ARM:
+ 		return __perf_reg_ip_arm();
+-	else if (!strcmp(arch, "arm64"))
++	case EM_AARCH64:
+ 		return __perf_reg_ip_arm64();
+-	else if (!strcmp(arch, "csky"))
++	case EM_CSKY:
+ 		return __perf_reg_ip_csky();
+-	else if (!strcmp(arch, "loongarch"))
++	case EM_LOONGARCH:
+ 		return __perf_reg_ip_loongarch();
+-	else if (!strcmp(arch, "mips"))
++	case EM_MIPS:
+ 		return __perf_reg_ip_mips();
+-	else if (!strcmp(arch, "powerpc"))
++	case EM_PPC:
++	case EM_PPC64:
+ 		return __perf_reg_ip_powerpc();
+-	else if (!strcmp(arch, "riscv"))
++	case EM_RISCV:
+ 		return __perf_reg_ip_riscv();
+-	else if (!strcmp(arch, "s390"))
++	case EM_S390:
+ 		return __perf_reg_ip_s390();
+-	else if (!strcmp(arch, "x86"))
++	case EM_386:
++	case EM_X86_64:
+ 		return __perf_reg_ip_x86();
+-
+-	pr_err("Fail to find IP register for arch %s, returns 0\n", arch);
+-	return 0;
++	default:
++		pr_err("Failed to find IP register for ELF machine type %u\n", e_machine);
++		return 0;
++	}
+ }
+ 
+-uint64_t perf_arch_reg_sp(const char *arch)
++uint64_t perf_arch_reg_sp(uint16_t e_machine)
+ {
+-	if (!strcmp(arch, "arm"))
++	switch (e_machine) {
++	case EM_ARM:
+ 		return __perf_reg_sp_arm();
+-	else if (!strcmp(arch, "arm64"))
++	case EM_AARCH64:
+ 		return __perf_reg_sp_arm64();
+-	else if (!strcmp(arch, "csky"))
++	case EM_CSKY:
+ 		return __perf_reg_sp_csky();
+-	else if (!strcmp(arch, "loongarch"))
++	case EM_LOONGARCH:
+ 		return __perf_reg_sp_loongarch();
+-	else if (!strcmp(arch, "mips"))
++	case EM_MIPS:
+ 		return __perf_reg_sp_mips();
+-	else if (!strcmp(arch, "powerpc"))
++	case EM_PPC:
++	case EM_PPC64:
+ 		return __perf_reg_sp_powerpc();
+-	else if (!strcmp(arch, "riscv"))
++	case EM_RISCV:
+ 		return __perf_reg_sp_riscv();
+-	else if (!strcmp(arch, "s390"))
++	case EM_S390:
+ 		return __perf_reg_sp_s390();
+-	else if (!strcmp(arch, "x86"))
++	case EM_386:
++	case EM_X86_64:
+ 		return __perf_reg_sp_x86();
+-
+-	pr_err("Fail to find SP register for arch %s, returns 0\n", arch);
+-	return 0;
++	default:
++		pr_err("Failed to find SP register for ELF machine type %u\n", e_machine);
++		return 0;
++	}
+ }
+diff --git a/tools/perf/util/perf_regs.h b/tools/perf/util/perf_regs.h
+index f2d0736d65cc..7bfc6a34c02b 100644
+--- a/tools/perf/util/perf_regs.h
++++ b/tools/perf/util/perf_regs.h
+@@ -28,10 +28,10 @@ uint64_t arch__intr_reg_mask(void);
+ uint64_t arch__user_reg_mask(void);
+ const struct sample_reg *arch__sample_reg_masks(void);
+ 
+-const char *perf_reg_name(int id, const char *arch);
++const char *perf_reg_name(int id, uint16_t e_machine);
+ int perf_reg_value(u64 *valp, struct regs_dump *regs, int id);
+-uint64_t perf_arch_reg_ip(const char *arch);
+-uint64_t perf_arch_reg_sp(const char *arch);
++uint64_t perf_arch_reg_ip(uint16_t e_machine);
++uint64_t perf_arch_reg_sp(uint16_t e_machine);
+ const char *__perf_reg_name_arm64(int id);
+ uint64_t __perf_reg_ip_arm64(void);
+ uint64_t __perf_reg_sp_arm64(void);
+@@ -60,9 +60,9 @@ const char *__perf_reg_name_x86(int id);
+ uint64_t __perf_reg_ip_x86(void);
+ uint64_t __perf_reg_sp_x86(void);
+ 
+-static inline uint64_t DWARF_MINIMAL_REGS(const char *arch)
++static inline uint64_t DWARF_MINIMAL_REGS(uint16_t e_machine)
+ {
+-	return (1ULL << perf_arch_reg_ip(arch)) | (1ULL << perf_arch_reg_sp(arch));
++	return (1ULL << perf_arch_reg_ip(e_machine)) | (1ULL << perf_arch_reg_sp(e_machine));
+ }
+ 
+ #endif /* __PERF_REGS_H */
+diff --git a/tools/perf/util/scripting-engines/trace-event-python.c b/tools/perf/util/scripting-engines/trace-event-python.c
+index 6655c0bbe0d8..b90edc147796 100644
+--- a/tools/perf/util/scripting-engines/trace-event-python.c
++++ b/tools/perf/util/scripting-engines/trace-event-python.c
+@@ -50,6 +50,7 @@
+ #include "../thread-stack.h"
+ #include "../trace-event.h"
+ #include "../call-path.h"
++#include "dwarf-regs.h"
+ #include "map.h"
+ #include "symbol.h"
+ #include "thread_map.h"
+@@ -713,7 +714,7 @@ static void set_sample_datasrc_in_dict(PyObject *dict,
+ 			_PyUnicode_FromString(decode));
+ }
+ 
+-static void regs_map(struct regs_dump *regs, uint64_t mask, const char *arch, char *bf, int size)
++static void regs_map(struct regs_dump *regs, uint64_t mask, uint16_t e_machine, char *bf, int size)
+ {
+ 	unsigned int i = 0, r;
+ 	int printed = 0;
+@@ -731,7 +732,7 @@ static void regs_map(struct regs_dump *regs, uint64_t mask, const char *arch, ch
+ 
+ 		printed += scnprintf(bf + printed, size - printed,
+ 				     "%5s:0x%" PRIx64 " ",
+-				     perf_reg_name(r, arch), val);
++				     perf_reg_name(r, e_machine), val);
+ 	}
+ }
+ 
+@@ -739,10 +740,10 @@ static void regs_map(struct regs_dump *regs, uint64_t mask, const char *arch, ch
+ 
+ static int set_regs_in_dict(PyObject *dict,
+ 			     struct perf_sample *sample,
+-			     struct evsel *evsel)
++			     struct evsel *evsel,
++			     uint16_t e_machine)
+ {
+ 	struct perf_event_attr *attr = &evsel->core.attr;
+-	const char *arch = perf_env__arch(evsel__env(evsel));
+ 
+ 	int size = (__sw_hweight64(attr->sample_regs_intr) * MAX_REG_SIZE) + 1;
+ 	char *bf = NULL;
+@@ -752,7 +753,7 @@ static int set_regs_in_dict(PyObject *dict,
+ 		if (!bf)
+ 			return -1;
+ 
+-		regs_map(sample->intr_regs, attr->sample_regs_intr, arch, bf, size);
++		regs_map(sample->intr_regs, attr->sample_regs_intr, e_machine, bf, size);
+ 
+ 		pydict_set_item_string_decref(dict, "iregs",
+ 					_PyUnicode_FromString(bf));
+@@ -764,7 +765,7 @@ static int set_regs_in_dict(PyObject *dict,
+ 			if (!bf)
+ 				return -1;
+ 		}
+-		regs_map(sample->user_regs, attr->sample_regs_user, arch, bf, size);
++		regs_map(sample->user_regs, attr->sample_regs_user, e_machine, bf, size);
+ 
+ 		pydict_set_item_string_decref(dict, "uregs",
+ 					_PyUnicode_FromString(bf));
+@@ -834,6 +835,8 @@ static PyObject *get_perf_sample_dict(struct perf_sample *sample,
+ 					 PyObject *callchain)
+ {
+ 	PyObject *dict, *dict_sample, *brstack, *brstacksym;
++	struct machine *machine;
++	uint16_t e_machine = EM_HOST;
+ 
+ 	dict = PyDict_New();
+ 	if (!dict)
+@@ -920,7 +923,11 @@ static PyObject *get_perf_sample_dict(struct perf_sample *sample,
+ 			PyLong_FromUnsignedLongLong(sample->cyc_cnt));
+ 	}
+ 
+-	if (set_regs_in_dict(dict, sample, evsel))
++	if (al->thread) {
++		machine = maps__machine(thread__maps(al->thread));
++		e_machine = thread__e_machine(al->thread, machine);
++	}
++	if (set_regs_in_dict(dict, sample, evsel, e_machine))
+ 		Py_FatalError("Failed to setting regs in dict");
+ 
+ 	return dict;
+diff --git a/tools/perf/util/session.c b/tools/perf/util/session.c
+index 922ef6577bbb..d7b28cb4e672 100644
+--- a/tools/perf/util/session.c
++++ b/tools/perf/util/session.c
+@@ -17,6 +17,7 @@
+ #include "map_symbol.h"
+ #include "branch.h"
+ #include "debug.h"
++#include "dwarf-regs.h"
+ #include "env.h"
+ #include "evlist.h"
+ #include "evsel.h"
+@@ -942,7 +943,7 @@ static void branch_stack__printf(struct perf_sample *sample,
+ 	}
+ }
+ 
+-static void regs_dump__printf(u64 mask, u64 *regs, const char *arch)
++static void regs_dump__printf(u64 mask, u64 *regs, uint16_t e_machine)
+ {
+ 	unsigned rid, i = 0;
+ 
+@@ -950,7 +951,7 @@ static void regs_dump__printf(u64 mask, u64 *regs, const char *arch)
+ 		u64 val = regs[i++];
+ 
+ 		printf(".... %-5s 0x%016" PRIx64 "\n",
+-		       perf_reg_name(rid, arch), val);
++		       perf_reg_name(rid, e_machine), val);
+ 	}
+ }
+ 
+@@ -968,7 +969,7 @@ static inline const char *regs_dump_abi(struct regs_dump *d)
+ 	return regs_abi[d->abi];
+ }
+ 
+-static void regs__printf(const char *type, struct regs_dump *regs, const char *arch)
++static void regs__printf(const char *type, struct regs_dump *regs, uint16_t e_machine)
+ {
+ 	u64 mask = regs->mask;
+ 
+@@ -977,10 +978,10 @@ static void regs__printf(const char *type, struct regs_dump *regs, const char *a
+ 	       mask,
+ 	       regs_dump_abi(regs));
+ 
+-	regs_dump__printf(mask, regs->regs, arch);
++	regs_dump__printf(mask, regs->regs, e_machine);
+ }
+ 
+-static void regs_user__printf(struct perf_sample *sample, const char *arch)
++static void regs_user__printf(struct perf_sample *sample, uint16_t e_machine)
+ {
+ 	struct regs_dump *user_regs;
+ 
+@@ -990,10 +991,10 @@ static void regs_user__printf(struct perf_sample *sample, const char *arch)
+ 	user_regs = perf_sample__user_regs(sample);
+ 
+ 	if (user_regs->regs)
+-		regs__printf("user", user_regs, arch);
++		regs__printf("user", user_regs, e_machine);
+ }
+ 
+-static void regs_intr__printf(struct perf_sample *sample, const char *arch)
++static void regs_intr__printf(struct perf_sample *sample, uint16_t e_machine)
+ {
+ 	struct regs_dump *intr_regs;
+ 
+@@ -1003,7 +1004,7 @@ static void regs_intr__printf(struct perf_sample *sample, const char *arch)
+ 	intr_regs = perf_sample__intr_regs(sample);
+ 
+ 	if (intr_regs->regs)
+-		regs__printf("intr", intr_regs, arch);
++		regs__printf("intr", intr_regs, e_machine);
+ }
+ 
+ static void stack_user__printf(struct stack_dump *dump)
+@@ -1092,21 +1093,28 @@ char *get_page_size_name(u64 size, char *str)
+ 	return str;
+ }
+ 
+-static void dump_sample(struct evsel *evsel, union perf_event *event,
+-			struct perf_sample *sample, const char *arch)
++static void dump_sample(struct machine *machine, struct evsel *evsel, union perf_event *event,
++			struct perf_sample *sample)
+ {
+ 	u64 sample_type;
+ 	char str[PAGE_SIZE_NAME_LEN];
++	uint16_t e_machine = EM_NONE;
+ 
+ 	if (!dump_trace)
+ 		return;
+ 
++	sample_type = evsel->core.attr.sample_type;
++
++	if (sample_type & (PERF_SAMPLE_REGS_USER | PERF_SAMPLE_REGS_INTR)) {
++		struct thread *thread = machine__find_thread(machine, sample->pid, sample->pid);
++
++		e_machine = thread__e_machine(thread, machine);
++	}
++
+ 	printf("(IP, 0x%x): %d/%d: %#" PRIx64 " period: %" PRIu64 " addr: %#" PRIx64 "\n",
+ 	       event->header.misc, sample->pid, sample->tid, sample->ip,
+ 	       sample->period, sample->addr);
+ 
+-	sample_type = evsel->core.attr.sample_type;
+-
+ 	if (evsel__has_callchain(evsel))
+ 		callchain__printf(evsel, sample);
+ 
+@@ -1114,10 +1122,10 @@ static void dump_sample(struct evsel *evsel, union perf_event *event,
+ 		branch_stack__printf(sample, evsel);
+ 
+ 	if (sample_type & PERF_SAMPLE_REGS_USER)
+-		regs_user__printf(sample, arch);
++		regs_user__printf(sample, e_machine);
+ 
+ 	if (sample_type & PERF_SAMPLE_REGS_INTR)
+-		regs_intr__printf(sample, arch);
++		regs_intr__printf(sample, e_machine);
+ 
+ 	if (sample_type & PERF_SAMPLE_STACK_USER)
+ 		stack_user__printf(&sample->user_stack);
+@@ -1432,10 +1440,10 @@ static int machines__deliver_event(struct machines *machines,
+ 		}
+ 		if (machine == NULL) {
+ 			++evlist->stats.nr_unprocessable_samples;
+-			dump_sample(evsel, event, sample, perf_env__arch(NULL));
++			dump_sample(machine, evsel, event, sample);
+ 			return 0;
+ 		}
+-		dump_sample(evsel, event, sample, perf_env__arch(machine->env));
++		dump_sample(machine, evsel, event, sample);
+ 		if (sample->deferred_callchain && tool->merge_deferred_callchains) {
+ 			struct deferred_event *de = malloc(sizeof(*de));
+ 			size_t sz = event->header.size;
+@@ -2928,3 +2936,28 @@ struct perf_env *perf_session__env(struct perf_session *session)
+ {
+ 	return &session->header.env;
  }
 +
-+int __get_dwarf_regnum_i386(const char *name)
++static int perf_session__e_machine_cb(struct thread *thread,
++				      void *arg __maybe_unused)
 +{
-+	return get_regnum(i386_regidx_table, ARRAY_SIZE(i386_regidx_table), name);
++	uint16_t *result = arg;
++	struct machine *machine = maps__machine(thread__maps(thread));
++
++	*result = thread__e_machine(thread, machine);
++	return *result != EM_NONE ? 1 : 0;
 +}
 +
-+int __get_dwarf_regnum_x86_64(const char *name)
++/*
++ * Note, a machine may have mixed 32-bit and 64-bit processes and so mixed
++ * e_machines. Use thread__e_machine when this matters.
++ */
++uint16_t perf_session__e_machine(struct perf_session *session)
 +{
-+	return get_regnum(x86_64_regidx_table, ARRAY_SIZE(x86_64_regidx_table), name);
++	uint16_t e_machine = EM_NONE;
++
++	machines__for_each_thread(&session->machines,
++					 perf_session__e_machine_cb,
++					 &e_machine);
++
++	return e_machine == EM_NONE ? EM_HOST : e_machine;
 +}
-diff --git a/tools/perf/util/dwarf-regs.c b/tools/perf/util/dwarf-regs.c
-index b2f37299147e..ef249dd589e3 100644
---- a/tools/perf/util/dwarf-regs.c
-+++ b/tools/perf/util/dwarf-regs.c
-@@ -92,9 +92,10 @@ int get_dwarf_regnum(const char *name, unsigned int machine, unsigned int flags
+diff --git a/tools/perf/util/session.h b/tools/perf/util/session.h
+index 22d3ff877e83..eddc4c630b33 100644
+--- a/tools/perf/util/session.h
++++ b/tools/perf/util/session.h
+@@ -211,5 +211,6 @@ int perf_event__process_finished_round(const struct perf_tool *tool,
+ 				       struct ordered_events *oe);
+ 
+ struct perf_env *perf_session__env(struct perf_session *session);
++uint16_t perf_session__e_machine(struct perf_session *session);
+ 
+ #endif /* __PERF_SESSION_H */
+diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
+index dc882f17f52d..c25190cdceb4 100644
+--- a/tools/perf/util/unwind-libdw.c
++++ b/tools/perf/util/unwind-libdw.c
+@@ -187,7 +187,7 @@ static bool memory_read(Dwfl *dwfl __maybe_unused, Dwarf_Addr addr, Dwarf_Word *
+ 			void *arg)
+ {
+ 	struct unwind_info *ui = arg;
+-	const char *arch = perf_env__arch(ui->machine->env);
++	uint16_t e_machine = thread__e_machine(ui->thread, ui->machine);
+ 	struct stack_dump *stack = &ui->sample->user_stack;
+ 	u64 start, end;
+ 	int offset;
+@@ -197,7 +197,7 @@ static bool memory_read(Dwfl *dwfl __maybe_unused, Dwarf_Addr addr, Dwarf_Word *
+ 		return false;
+ 
+ 	ret = perf_reg_value(&start, ui->sample->user_regs,
+-			     perf_arch_reg_sp(arch));
++			     perf_arch_reg_sp(e_machine));
+ 	if (ret)
+ 		return false;
+ 
+@@ -300,16 +300,18 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+ 			int max_stack,
+ 			bool best_effort)
+ {
++	struct machine *machine = maps__machine(thread__maps(thread));
+ 	struct unwind_info *ui, ui_buf = {
+ 		.sample		= data,
+ 		.thread		= thread,
+-		.machine	= maps__machine((thread__maps(thread))),
++		.machine	= machine,
+ 		.cb		= cb,
+ 		.arg		= arg,
+ 		.max_stack	= max_stack,
+ 		.best_effort    = best_effort
+ 	};
+-	const char *arch = perf_env__arch(ui_buf.machine->env);
++	uint16_t e_machine = thread__e_machine(thread, machine);
++	const char *arch = perf_env__arch(machine->env);
+ 	Dwarf_Word ip;
+ 	int err = -EINVAL, i;
+ 	const Dwfl_Thread_Callbacks *callbacks;
+@@ -327,7 +329,7 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+ 	if (!ui->dwfl)
+ 		goto out;
+ 
+-	err = perf_reg_value(&ip, data->user_regs, perf_arch_reg_ip(arch));
++	err = perf_reg_value(&ip, data->user_regs, perf_arch_reg_ip(e_machine));
+ 	if (err)
+ 		goto out;
+ 
+diff --git a/tools/perf/util/unwind-libunwind-local.c b/tools/perf/util/unwind-libunwind-local.c
+index 0b037e7389a0..a24b45106acd 100644
+--- a/tools/perf/util/unwind-libunwind-local.c
++++ b/tools/perf/util/unwind-libunwind-local.c
+@@ -572,7 +572,6 @@ static int access_mem(unw_addr_space_t __maybe_unused as,
+ 		      int __write, void *arg)
+ {
+ 	struct unwind_info *ui = arg;
+-	const char *arch = perf_env__arch(ui->machine->env);
+ 	struct stack_dump *stack = &ui->sample->user_stack;
+ 	u64 start, end;
+ 	int offset;
+@@ -585,7 +584,7 @@ static int access_mem(unw_addr_space_t __maybe_unused as,
  	}
- 	switch (machine) {
- 	case EM_X86_64:
--		fallthrough;
-+		reg = __get_dwarf_regnum_x86_64(name);
-+		break;
- 	case EM_386:
--		reg = get_x86_regnum(regname);
-+		reg = __get_dwarf_regnum_i386(name);
- 		break;
- 	default:
- 		pr_err("ELF MACHINE %x is not supported.\n", machine);
-diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
-index 015d1ade645f..bb5413b0fee4 100644
---- a/tools/perf/util/include/dwarf-regs.h
-+++ b/tools/perf/util/include/dwarf-regs.h
-@@ -99,7 +99,8 @@ const char *get_csky_regstr(unsigned int n, unsigned int flags);
-  */
- const char *get_dwarf_regstr(unsigned int n, unsigned int machine, unsigned int flags);
  
--int get_x86_regnum(const char *name);
-+int __get_dwarf_regnum_i386(const char *name);
-+int __get_dwarf_regnum_x86_64(const char *name);
+ 	ret = perf_reg_value(&start, perf_sample__user_regs(ui->sample),
+-			     perf_arch_reg_sp(arch));
++			     perf_arch_reg_sp(thread__e_machine(ui->thread, ui->machine)));
+ 	if (ret)
+ 		return ret;
  
- /*
-  * get_dwarf_regnum - Returns DWARF regnum from register name
+@@ -734,7 +733,7 @@ static void _unwind__finish_access(struct maps *maps)
+ static int get_entries(struct unwind_info *ui, unwind_entry_cb_t cb,
+ 		       void *arg, int max_stack)
+ {
+-	const char *arch = perf_env__arch(ui->machine->env);
++	uint16_t e_machine = thread__e_machine(ui->thread, ui->machine);
+ 	u64 val;
+ 	unw_word_t ips[max_stack];
+ 	unw_addr_space_t addr_space;
+@@ -742,7 +741,7 @@ static int get_entries(struct unwind_info *ui, unwind_entry_cb_t cb,
+ 	int ret, i = 0;
+ 
+ 	ret = perf_reg_value(&val, perf_sample__user_regs(ui->sample),
+-			     perf_arch_reg_ip(arch));
++			     perf_arch_reg_ip(e_machine));
+ 	if (ret)
+ 		return ret;
+ 
 -- 
 2.52.0.457.g6b5491de43-goog
 
