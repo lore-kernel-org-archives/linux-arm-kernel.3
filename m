@@ -4,73 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B04FCCA5FE1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 22:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D075ECA5FE7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 23:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kgw4BVFnePM/0mIVJpR9dLoyHods82vVO/5jAlQl624=; b=VDWv7LLCsUj7APp6EFy0xr/lck
-	hFQyf7r3EHdRj+e0tYAgLbFEyWy64y8A5h3FaSWP3GohLOEIXXZB6ioB6MXzPJQaiTffYN13ojJ/2
-	Yx6z2KG+Li6x+J1UgNMu98QIhGD+Mg4GsXc22r3JTCTNO96kr+QRRFYZhoTziqN7r6YtAxxhS0Jou
-	JtLSnvorFLk0OLk0gP2R4EArf0AK+0c/UJBlOS0H5UiM+NgR3J52y84v0GYP3hPEov7yjpoWALobf
-	tbkW1B1TcXybMhAM8bGlprPtosbIqyeAkKVHrHo7ASEfxFMKmZTROjmzUEPrB4D4Xs6Hf3g+x1Ovu
-	8axD+AMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xBCCK4YiYlil7mdtloinVQAo6Jd0Tmjjp4MJCr/7Cqo=; b=nYUng2ooTXsSHIgTBh+qp5rDFH
+	21qIlvyDNuCM8qYp+jsGyld6XSCLrKGsnTwHxonl+93hrjOGJqIsDiBumIlBna1iurfX7ZnrpRKqp
+	OVTNGw+fHWS6cIVK8bD/24GyPneMBbv6EkdBZGkCYPbXQ00bcZZZIGQpaJv0w69GdYVQ4fnnAc3kk
+	/Ma85D3kd0l6AQOk8SjdS790xWRoPCF3Fyt2e2q7zHU5IUGZP1ujXfFuJ2AFP8aJHQaF+e3SYrg4+
+	CgwjidI0VCxKjlufRs2eUEop1BB7c5f3K1ZHwBEY4aEA/d3E1Bsqx3Fg07RCVLKgPS4pgGpnbBV8W
+	an4r1kwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhEdA-0000000G5db-35Ye;
-	Sat, 17 Jan 2026 22:18:52 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vhG1g-0000000GEyz-1bbS;
+	Sat, 17 Jan 2026 23:48:16 +0000
+Received: from mx3.molgen.mpg.de ([141.14.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhEd8-0000000G5cj-086p;
-	Sat, 17 Jan 2026 22:18:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=kgw4BVFnePM/0mIVJpR9dLoyHods82vVO/5jAlQl624=; b=shDWFC/jxIS90nsHE82y9XVXeO
-	Dz6fi7Zllpw98ScdUTLxGMycleoz3ab9ehFnuPy2lMM2DtbH3+jut5U6A67wfkXeawZrZ3uRlWTdq
-	n3Led52P0xD3yponWtchsV6ctTmjWLnXZRxxVyu0FkL8wVZytTWAb36qI8AuaBDHKb5Y=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vhEcn-003GDV-It; Sat, 17 Jan 2026 23:18:29 +0100
-Date: Sat, 17 Jan 2026 23:18:29 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next v2 1/2] dt-bindings: net: airoha: npu: Add
- EN7581-7996 support
-Message-ID: <30f44777-776f-49b1-b2f5-e1918e8052fd@lunn.ch>
-References: <69677256.5d0a0220.2dc5a5.fad0@mx.google.com>
- <76bbffa8-e830-4d02-a676-b494616568a2@lunn.ch>
- <6967c46a.5d0a0220.1ba90b.393c@mx.google.com>
- <9340a82a-bae8-4ef6-9484-3d2842cf34aa@lunn.ch>
- <aWfdY53PQPcqTpYv@lore-desk>
- <e8b48d9e-f5ba-400b-8e4a-66ea7608c9ae@lunn.ch>
- <aWgaHqXylN2eyS5R@lore-desk>
- <13947d52-b50d-425e-b06d-772242c75153@lunn.ch>
- <aWoAnwF4JhMshN1H@lore-desk>
- <aWvMhXIy5Qpniv39@lore-desk>
+	id 1vhG1d-0000000GEwV-1QXj
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 17 Jan 2026 23:48:15 +0000
+Received: from [10.0.57.151] (unknown [62.214.191.67])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: pmenzel)
+	by mx.molgen.mpg.de (Postfix) with ESMTPSA id 30E864C4430066;
+	Sun, 18 Jan 2026 00:47:01 +0100 (CET)
+Message-ID: <ccb6b5b3-84cd-4197-a770-7e626c1ddcf3@molgen.mpg.de>
+Date: Sun, 18 Jan 2026 00:46:57 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aWvMhXIy5Qpniv39@lore-desk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] spi: spi-mem: Protect dirmap_create() with
+ spi_mem_access_start/end
+To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+References: <20260117134216.595436-1-chin-ting_kuo@aspeedtech.com>
+ <20260117134216.595436-2-chin-ting_kuo@aspeedtech.com>
+Content-Language: en-US
+Cc: clg@kaod.org, broonie@kernel.org, boris.brezillon@bootlin.com,
+ joel@jms.id.au, andrew@codeconstruct.com.au, linux-aspeed@lists.ozlabs.org,
+ openbmc@lists.ozlabs.org, linux-spi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ BMC-SW@aspeedtech.com
+From: Paul Menzel <pmenzel@molgen.mpg.de>
+In-Reply-To: <20260117134216.595436-2-chin-ting_kuo@aspeedtech.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260117_141850_073890_AF163201 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260117_154813_544287_619C0140 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +70,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Airoha folks reported the NPU hw can't provide the PCIe Vendor/Device ID info
-> of the connected WiFi chip.
-> I guess we have the following options here:
-> - Rely on the firmware-name property as proposed in v1
-> - Access the PCIe bus from the NPU driver during probe in order to enumerate
->   the PCIe devices and verify WiFi chip PCIe Vendor/Device ID
-> - During mt76 probe trigger the NPU fw reload if required. This approach would
->   require adding a new callback in airoha_npu ops struct (please note I have
->   not tested this approach and I not sure this is really doable).
+Dear Chin-Ting,
 
-What i'm wondering about is if the PCIe slots are hard coded in the
-firmware.  If somebody builds a board using different slots, they
-would then have different firmware? Or if they used the same slots,
-but swapped around the Ethernet and the WiFi, would it need different
-firmware?
 
-So is the firmware name a property of the board?
+Thank you for your patch.
 
-If the PCIe slots are actually hard coded in the NPU silicon, cannot
-be changed, then we might have a different solution, the firmware name
-might be placed into a .dtsi file, or even hard coded in the driver?
+Am 17.01.26 um 14:42 schrieb Chin-Ting Kuo:
+> spi_mem_dirmap_create() may reconfigure controller-wide settings,
+> which can interfere with concurrent transfers to other devices
+> sharing the same SPI controller but using different chip selects.
+> 
+> Wrap the ->dirmap_create() callback with spi_mem_access_start() and
+> spi_mem_access_end() to serialize access and prevent cross-CS
+> interference during dirmap creation.
 
-> What do you think? Which one do you prefer?
+Do you have a reproducer for this issue to test your patch? If yes, it’d 
+be great, if you documented it.
 
-I prefer to try to extract more information for the Airoha folks. What
-actually defines the firmware? Does the slots used matter? Does it
-matter what device goes in what slots? Is it all hard coded in
-silicon? Is there only one true hardware design and if you do anything
-else your board design is FUBAR, never to be supported?
+> Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+> ---
+>   drivers/spi/spi-mem.c | 11 ++++++++++-
+>   1 file changed, 10 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/spi/spi-mem.c b/drivers/spi/spi-mem.c
+> index c8b2add2640e..85702a77b3c8 100644
+> --- a/drivers/spi/spi-mem.c
+> +++ b/drivers/spi/spi-mem.c
+> @@ -708,9 +708,18 @@ spi_mem_dirmap_create(struct spi_mem *mem,
+>   
+>   	desc->mem = mem;
+>   	desc->info = *info;
+> -	if (ctlr->mem_ops && ctlr->mem_ops->dirmap_create)
+> +	if (ctlr->mem_ops && ctlr->mem_ops->dirmap_create) {
+> +		ret = spi_mem_access_start(mem);
+> +		if (ret) {
+> +			kfree(desc);
+> +			return ERR_PTR(ret);
+> +		}
+> +
+>   		ret = ctlr->mem_ops->dirmap_create(desc);
+>   
+> +		spi_mem_access_end(mem);
+> +	}
+> +
+>   	if (ret) {
+>   		desc->nodirmap = true;
+>   		if (!spi_mem_supports_op(desc->mem, &desc->info.op_tmpl))
 
-     Andrew
+Reviewed-by: Paul Menzel <pmenzel@molgen.mpg.de>
+
+
+Kind regards,
+
+Paul
 
