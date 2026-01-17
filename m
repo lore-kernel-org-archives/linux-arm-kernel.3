@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987F0C98327
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 15:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADAB7C98315
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 17:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gF8+Zq1qK4nUISuq8ZYKam6dKSKTtWo9A81RsKUSatk=; b=UnpCQOTF8HxjvNkZaHa3r3V1Xt
-	dfHlXseFEAPerryGLhwbccw1wsdKD44dQPh1DkWCpXM8cyXXPjA+CKU5FGOMr3AJHWA127QyuN7jM
-	jAiIoFfC9Kud7QcRFybmlFx7MaOgDwHBZeRiIqcYfsL834iPTq38buVIhnIVF4c2VAuPdwLvREVIz
-	xpaLjpq4AoPYoiIghhoOi3MLw7Vsj/F93pMWRjtpJENOXGFpXwHvRRE0nhQ48dZVL8MvAiCRfOY9G
-	ywPcbn5N5veWEkjTu+IyfdRX7dNWQIC36eoH/RjddabQX+R23kkMD1td63ipuwkhrutQzIWgp5nv1
-	trH1Wqgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cxISlIhm7gSBpMUbI/5WtnEB8etoBlNTQSgHaKMUruw=; b=XV1b+LJp1jYwIpkHgFMF4vFWVL
+	vH8OR7L+BfcOZkcln8s4LrWH+PZ7WOlDo3xa646NLJVUkk3aKPMH2rjiSGKHNC/O+RAWLq/Bn57f/
+	yYDXOmjMlk0doT2gazw11Rqz5SLFTTFKDpDdwkwXkoKK6FmB+5bbMrLTZXodIEYy+q/NY62Sp4/EZ
+	cDPJ3B0nHLY4L2k9hYJzhoSIVrv60XwCD1WQ8qQQCM0ug2uEJB//qhuyBvb//aRVYbKrt04BdnTiS
+	GViRFemJ+wKpgQF5W1flZicLEyIynBukwb9VGpWxInO90Ta4hgrqvU/vKDRSCpnLBNRGhapU/bbOZ
+	1USq4lpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh8Vm-0000000FdVc-3Pg7;
-	Sat, 17 Jan 2026 15:46:50 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vhA3J-0000000Fgg5-3BZP;
+	Sat, 17 Jan 2026 17:25:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh8Vk-0000000FdV4-0XOx
+	id 1vhA3I-0000000Fgfu-2uks
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 15:46:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=gF8+Zq1qK4nUISuq8ZYKam6dKSKTtWo9A81RsKUSatk=; b=fFxoiG5ouamEjvJWtIjJJqiZmZ
-	ETa+cz75RUWA6SQbZuAAIwaD6U7YvThjuoYnJld2ETo7MDh6SNe9ENtr/+MUgD8W/Uslb4wpbD/cS
-	W2Lsc2ZEzRzEUtD2Uv1FZ22e+IlEGXE28W+koektM/uK/4g4nlGqQni5usy4HXoir3zA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vh8VU-003DhI-R8; Sat, 17 Jan 2026 16:46:32 +0100
-Date: Sat, 17 Jan 2026 16:46:32 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, Andrew Jeffery <andrew@aj.id.au>,
-	devicetree@vger.kernel.org, bmc-sw@aspeedtech.com
-Subject: Re: [PATCH 3/5] gpio: aspeed-sgpio: Create llops to handle hardware
- access
-Message-ID: <55fbb766-12b5-441a-b06c-d807097e5476@lunn.ch>
-References: <20260117-upstream_sgpio-v1-0-850ef3ffb680@aspeedtech.com>
- <20260117-upstream_sgpio-v1-3-850ef3ffb680@aspeedtech.com>
+	Sat, 17 Jan 2026 17:25:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 738C760127;
+	Sat, 17 Jan 2026 17:25:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A7E1C4CEF7;
+	Sat, 17 Jan 2026 17:25:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768670730;
+	bh=4V35tKqw5KQHMXyZcaINOZDMyewJrJBwf6xXsdEQV0I=;
+	h=From:Date:Subject:To:Cc:From;
+	b=rYz3D+erMRpxk2pzST5vBLjNjFsQ9n9O/kXyFNR0KhOOY+mSG6am/Bu7MJcEPJZYZ
+	 VfUT2bB6u975c0AWASxTa7LwldPKj/2xE3cLyMzDUlVSPH52wRsCopTM/8o4E+Cd7p
+	 O9cD5ppR5uLf/pchTFgnXJBGgv60qOl9UWgFK5B/XqNVucfDociJWjH8tHVagitYF9
+	 U8iW8F22l717GV3JBi7IZGYblnr1GLjrQtH153+BqlRbhpWG9Hi0yqtOTfePfhJe7s
+	 ySqK7jh9wA5P7BYerhLGNYl1Y0dt+VP6VFEp0DqU5EWNUct+elIiOW2sPMF72aHIbS
+	 LVCBmfVsdKFSA==
+From: Sven Peter <sven@kernel.org>
+Date: Sat, 17 Jan 2026 18:24:44 +0100
+Subject: [PATCH] soc: apple: rtkit: Add function to poweroff
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260117-upstream_sgpio-v1-3-850ef3ffb680@aspeedtech.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260117_074648_168190_36ABCE8C 
-X-CRM114-Status: GOOD (  20.24  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260117-apple-rtkit-poweroff-v1-1-6fbe8145e965@kernel.org>
+X-B4-Tracking: v=1; b=H4sIANvFa2kC/x3MTQqEMAxA4atI1gYaf2GuMrhoNZ0Jii2pqCDe3
+ eLyW7x3QWIVTvApLlDeJUlYM6gsYPzb9ccoUzZUpuoMUY82xoVRt1k2jOFgDd6jG2vnyDeWTAs
+ 5jcpeznf7He77ASauEJlmAAAA
+X-Change-ID: 20260117-apple-rtkit-poweroff-bc3bb1f4a105
+To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Sven Peter <sven@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2139; i=sven@kernel.org;
+ h=from:subject:message-id; bh=4V35tKqw5KQHMXyZcaINOZDMyewJrJBwf6xXsdEQV0I=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ2b20QfzzgRv9XyvfZBHuLLr8W49fSX1nNralIkzZdapP
+ /x95nxvRykLgxgXg6yYIsv2/famTx6+EVy66dJ7mDmsTCBDGLg4BWAi0f8Z/sr1/tt3XveogtnL
+ WZ/K352YGJHudSp2l/hPzgDDbq/iD+wM/13cZAsua2o5bDA8YvBA6bm8GZPeBM/2UJdPwbmxiSl
+ LuAA=
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,81 +79,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 17, 2026 at 07:17:10PM +0800, Billy Tsai wrote:
-> Add low-level operations (llops) to abstract the register access for SGPIO
-> registers. With this abstraction layer, the driver can separate the
-> hardware and software logic, making it easier to extend the driver to
-> support different hardware register layouts.
+Add a function to put a co-processor into the lowest possible power
+state from which recovery usually isn't possible without a full SoC
+reset. This is required for the USB4/Thunderbolt co-processors which
+can be restarted since the entire USB4 root complex can be completely
+reset independently of the rest of the SoC.
 
-With a quick look at the code, it appears the register numbers stay
-the same? Is that true?
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/soc/apple/rtkit.c       | 17 +++++++++++++++++
+ include/linux/soc/apple/rtkit.h |  7 +++++++
+ 2 files changed, 24 insertions(+)
 
-I think you have reinvented regmap.
+diff --git a/drivers/soc/apple/rtkit.c b/drivers/soc/apple/rtkit.c
+index b8d4da147d23f7e99e76eea314e4d976cddbd1c6..381faaf74d5982163d2c44d1e2c6e0ddad07bd73 100644
+--- a/drivers/soc/apple/rtkit.c
++++ b/drivers/soc/apple/rtkit.c
+@@ -851,6 +851,23 @@ int apple_rtkit_shutdown(struct apple_rtkit *rtk)
+ }
+ EXPORT_SYMBOL_GPL(apple_rtkit_shutdown);
+ 
++int apple_rtkit_poweroff(struct apple_rtkit *rtk)
++{
++	int ret;
++
++	ret = apple_rtkit_set_ap_power_state(rtk,
++					     APPLE_RTKIT_PWR_STATE_OFF);
++	if (ret)
++		return ret;
++
++	ret = apple_rtkit_set_iop_power_state(rtk, APPLE_RTKIT_PWR_STATE_OFF);
++	if (ret)
++		return ret;
++
++	return apple_rtkit_reinit(rtk);
++}
++EXPORT_SYMBOL_GPL(apple_rtkit_poweroff);
++
+ int apple_rtkit_idle(struct apple_rtkit *rtk)
+ {
+ 	int ret;
+diff --git a/include/linux/soc/apple/rtkit.h b/include/linux/soc/apple/rtkit.h
+index 736f530180179bd144cf85eb0f0bd93844d7188a..bda3c528b51553c13f7fe5685ab60f7fc675361b 100644
+--- a/include/linux/soc/apple/rtkit.h
++++ b/include/linux/soc/apple/rtkit.h
+@@ -125,6 +125,13 @@ int apple_rtkit_wake(struct apple_rtkit *rtk);
+  */
+ int apple_rtkit_shutdown(struct apple_rtkit *rtk);
+ 
++/*
++ * Put the co-processor into the lowest power state. Note that it usually
++ * is not possible to recover from this state without a full SoC reset.
++ */
++
++int apple_rtkit_poweroff(struct apple_rtkit *rtk);
++
+ /*
+  * Put the co-processor into idle mode
+  */
 
-> @@ -318,30 +278,25 @@ static int aspeed_sgpio_set_type(struct irq_data *d, unsigned int type)
->  	u32 type0 = 0;
->  	u32 type1 = 0;
->  	u32 type2 = 0;
-> -	u32 bit, reg;
-> -	const struct aspeed_sgpio_bank *bank;
->  	irq_flow_handler_t handler;
-> -	struct aspeed_sgpio *gpio;
-> -	void __iomem *addr;
-> -	int offset;
-> -
-> -	irqd_to_aspeed_sgpio_data(d, &gpio, &bank, &bit, &offset);
-> +	struct aspeed_sgpio *gpio = irq_data_get_irq_chip_data(d);
-> +	int offset = irqd_to_hwirq(d);
->  
->  	switch (type & IRQ_TYPE_SENSE_MASK) {
->  	case IRQ_TYPE_EDGE_BOTH:
-> -		type2 |= bit;
-> +		type2 = 1;
->  		fallthrough;
->  	case IRQ_TYPE_EDGE_RISING:
-> -		type0 |= bit;
-> +		type0 = 1;
->  		fallthrough;
->  	case IRQ_TYPE_EDGE_FALLING:
->  		handler = handle_edge_irq;
->  		break;
->  	case IRQ_TYPE_LEVEL_HIGH:
-> -		type0 |= bit;
-> +		type0 = 1;
->  		fallthrough;
->  	case IRQ_TYPE_LEVEL_LOW:
-> -		type1 |= bit;
-> +		type1 = 1;
->  		handler = handle_level_irq;
->  		break;
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260117-apple-rtkit-poweroff-bc3bb1f4a105
 
-This change is not obviously correct to me. It is not about
-abstracting register accesses, what you actually write to the
-registers appears to of changed. Maybe you could add a refactoring
-patch first which does this change, with a commit message explaining
-it, and then insert the register abstraction?
+Best regards,
+-- 
+Sven Peter <sven@kernel.org>
 
-
-> @@ -374,16 +318,14 @@ static void aspeed_sgpio_irq_handler(struct irq_desc *desc)
->  {
->  	struct gpio_chip *gc = irq_desc_get_handler_data(desc);
->  	struct irq_chip *ic = irq_desc_get_chip(desc);
-> -	struct aspeed_sgpio *data = gpiochip_get_data(gc);
-> +	struct aspeed_sgpio *gpio = gpiochip_get_data(gc);
-
-This rename does not belong in this patch. You want lots of small
-patches, each doing one logical thing, with a good commit message, and
-obviously correct. Changes like this make it a lot less obviously
-correct.
-
->  	/* Disable IRQ and clear Interrupt status registers for all SGPIO Pins. */
-> -	for (i = 0; i < ARRAY_SIZE(aspeed_sgpio_banks); i++) {
-> -		bank =  &aspeed_sgpio_banks[i];
-> +	for (i = 0; i < gpio->chip.ngpio; i += 2) {
-
-Why are ARRAY_SIZE() gone? There probably is a good reason, so doing
-this in a patch of its own, with a commit message explaining "Why?"
-would make this easier to review.
-
-      Andrew
 
