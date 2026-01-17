@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F34BC9830C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 02:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7F1C9830C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 02:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mX+pKglcUGalsnXrao4pZyIC4YLVUK9HfhdJDPeAPw0=; b=oVroAy2Kq5sHcVZfDkiQS8bAxw
-	ahesgQ0qf0oB/g8Dsn5GkXpYJ/yWtRu9mCFhirvoUnO/iHtY8FSfgmJI6GgoM6koO27cfSXbe7adR
-	RIvHE7qXJKXH5fmc+Dyez/iG1MiHKoSn2Cc6adoGLCK0NLsH2R9042i3eQqtYQQtjec6XiAqjDipv
-	GsN2pe+CCN+A29Z5A+Uei1bQCXzArM2wP3a6+NANebQnghr60m5C0WCnV0ZDeHu7Rc0v7P+2BJCxd
-	atVnwlD+624VPglzUTsh+TUhvfI7cn2nmEFy5iWqDO/XL/44lR/U5E29Nb+g1hPjdjhcQSzsPrQtH
-	KTar+Nfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=74AVlVtuHA5i97H3qZM2mmYtcOm3G5d9tH8VDO5jhzQ=; b=JZIzU+LmSapmpxDqSmlbkUiTzf
+	H49pEb5ldi+BNNWw3MuWG/3EtHfUv2a+7aywTAY8l4aU0Vd8IcLEDnqA/iKR9y8HFq3x2VbUbpTTn
+	f7sWn9TxaDj+0PUIGHjLv2bN/lXjUZqQmzdvM45frCdVMS5FuEuqK3zRzUfQ/D+EkVrxuKi62W0eX
+	l65m/AELBuHxJLo5qZ8WD8N+gfprExAlbuevDclYqN7KQ81Vf4b4BVoBT/47BaP+RX2i8VJuPCRfJ
+	dj8FiblWQFBg7PtkkY4jNb80sflm8E+zhkoAdfrqtv3zx9xDzh2xCX6ccUhcUhnLqfX9BnFaMTIqe
+	+Gm/9RMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgvmA-0000000F7Qn-0arE;
-	Sat, 17 Jan 2026 02:10:54 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1vgw8o-0000000F8VJ-0F4N;
+	Sat, 17 Jan 2026 02:34:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vgvm4-0000000F7PU-0vMP;
-	Sat, 17 Jan 2026 02:10:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=mX+pKglcUGalsnXrao4pZyIC4YLVUK9HfhdJDPeAPw0=; b=O
-	WKwXoBWKRqUPFNSa1evtIxzarIzwBKxN71haE4VjEtyWif7u8nWsG6HSio3xi1TO
-	uFDbAa3UmpZo+lKbDeTfjKdHBiIoG7nv0DlvgT1gpBuxAlZRHRb55ammLKVcW5qc
-	bSYyEzp2D21FkPrNfxBbUGu7gc4nAL5DzBtyxvUVNM=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-108 (Coremail) ; Sat, 17 Jan 2026 10:09:55 +0800
- (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Sat, 17 Jan 2026 10:09:55 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: hjc@rock-chips.com, mripard@kernel.org,
-	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de,
-	airlied@gmail.com, simona@ffwll.ch, dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	"Andy Yan" <andy.yan@rock-chips.com>
-Subject: Re:Re: [PATCH] drm/rockchip: vop2: Add mode valid callback for crtc
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20251222(83accb85) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <6509513.iIbC2pHGDl@diego>
-References: <20260116005953.286225-1-andyshrk@163.com>
- <6509513.iIbC2pHGDl@diego>
-X-CM-CTRLMSGS: EPOSPXBsdXM9MTc2ODYxNTc5NDQyMF80MDY1OTUwMzdiOGQzZDMzMTQ0Yjk5M
- DNmNTYwYjIzZg==
-X-NTES-SC: AL_Qu2dCvqauk8i4ymaZOkfmUgWjuw/WsG1v/Ul1YBSP556jCLpyxkmREZKAWnx882oLiKGsAS2YBV818lzcYV9RqYJwAQrkcPC+qrH09Zm5SyxFA==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1vgw8m-0000000F8VC-1tJw
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 17 Jan 2026 02:34:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 922A660127;
+	Sat, 17 Jan 2026 02:34:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E53A8C116C6;
+	Sat, 17 Jan 2026 02:34:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768617253;
+	bh=ZHT4FwSvrHdlntgWg5o2UVfQ6X6/Gh/zS5tYKlScw1Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tC7y9fZ5aRK2X9vNDw+oI3NCnw4kxydoc5EG2VkM88gAy00E8qAjKNe/zlGryz880
+	 syEhxs3UPHJF3n7gN4Bc5KOmzerb4LphNpime1WjRZLl/8nqHFXfkz06nYfVBB6246
+	 RI5ZOaWXIDbpXiI4kq8xWJHLVmWSexG5OFDLhV+IFOBe5DGLsP+JzlvSvjlz1XL6ow
+	 5jInDfwoi1PNURRVEmqPBpviqK4cIXf9KYytV//DQmk5ljMDYSCBgPjs/LILaKxSQW
+	 QwN8jSwb213CQK2z8HeAejcS0u9aDm75JCXuAXvQiM+YpCWzpHMTcM9jBLOXFvrTBD
+	 j9HbnE5WNbe7A==
+Date: Sat, 17 Jan 2026 10:34:06 +0800
+From: Shawn Guo <shawnguo@kernel.org>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Peng Fan <peng.fan@oss.nxp.com>, Peng Fan <peng.fan@nxp.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] firmware: arm_scmi/imx: Support dump syslog
+Message-ID: <aWr1Hgw26ZKW3k2S@dragon>
+References: <20251029-sm-syslog-v3-v3-0-64e14a6e3f87@nxp.com>
+ <aUCy5+vAPzDGeux3@shlinux89>
+ <aVuzVNmG2l-igiEB@nxa18884-linux.ap.freescale.net>
+ <aV0uVXXbxKQ5qzLD@bogus>
+ <aV24N72FoGeGwgqm@shlinux89>
+ <aWTiC78PXRoadeJy@bogus>
 MIME-Version: 1.0
-Message-ID: <5e931108.71d.19bc9b75cdf.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: bCgvCgD3H5Rz72pp7HZYAA--.3213W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbCxRMNa2lq73N8bQAA3+
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260116_181049_664948_2B1A02A0 
-X-CRM114-Status: GOOD (  15.72  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aWTiC78PXRoadeJy@bogus>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,52 +78,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhlbGxvIEhlaWtv77yMCgrlnKggMjAyNi0wMS0xNyAwMDo0OToyM++8jCJIZWlrbyBTdMO8Ym5l
-ciIgPGhlaWtvQHNudGVjaC5kZT4g5YaZ6YGT77yaCj5IaSBBbmR5LAo+Cj5BbSBGcmVpdGFnLCAx
-Ni4gSmFudWFyIDIwMjYsIDAxOjU5OjQ5IE1pdHRlbGV1cm9ww6Rpc2NoZSBOb3JtYWx6ZWl0IHNj
-aHJpZWIgQW5keSBZYW46Cj4+IEZyb206IEFuZHkgWWFuIDxhbmR5LnlhbkByb2NrLWNoaXBzLmNv
-bT4KPgo+d2hlbiByZXNlbmRpbmcgYW4gdW5tb2RpZmllZCBwYXRjaCwgcGxlYXNlIG1hcmsgdGhl
-IHN1YmplY3QgYXMKPltQQVRDSCBSRVNFTkRdIC4uLi4KPgoKClNvcnJ5LCBJIGZvcmdvdCB0aGF0
-IHRoaXMgcGF0Y2ggaGFkIGFscmVhZHkgYmVlbiBzZW50IG91dCBvbmNlIGJlZm9yZQoKPj4gRmls
-dGVyIHRoZSBtb2RlIHRoYXQgY2FuJ3Qgb3V0cHV0IGJ5IHRoZSBjcnRjLgo+Cj5JbiBjb21taXQg
-OGUxNDBjYjYwMjcwICgiZHJtL3JvY2tjaGlwOiB2b3A6IGxpbWl0IG1heGltdW0gcmVzb2x1dGlv
-biB0bwo+aGFyZHdhcmUgY2FwYWJpbGl0aWVzIikgd2hpY2ggaW50cm9kdWNlZCB0aGUgc2ltaWxh
-ciBjaGVjayBvbiBWT1AoMSksIHdlCj5oYWQgYWRkaXRpb25hbCBpbmZvcm1hdGlvbiwgaW4gdGhh
-dCB0aGUgVk9QMSBoYXJkd2FyZSBkb2VzIG5vdCBoYXZlCj5hbiBvdXRwdXQgaGVpZ2h0IGxpbWl0
-LiBJcyB0aGUgc2FtZSB0cnVlIGZvciBWT1AyID8KPgo+QmVjYXVzZSB0aGVuIEknZCBsaWtlIHRv
-IGV4dGVuZCB0aGUgY29tbWl0IGRlc2NyaXB0aW9uIHRvIHNvbWV0aGluZyBsaWtlOgo+PT09PT09
-PSA4PCA9PT09PT09Cj5UaGUgZGlmZmVyZW50IFZPUCB2YXJpYW50cyBzdXBwb3J0IGRpZmZlcmVu
-dCBtYXhpbXVtIHJlc29sdXRpb25zLiBSZWplY3QKPnJlc29sdXRpb25zIHRoYXQgYXJlIG5vdCBz
-dXBwb3J0ZWQgYnkgYSBzcGVjaWZpYyB2YXJpYW50Lgo+Cj5Pbmx5IHRoZSBvdXRwdXQgd2lkdGgg
-aXMgY2hlY2tlZCBiZWNhdXNlIHRoZSBoYXJkd2FyZSBpdHNlbGYgZG9lcyBub3QKPmhhdmUgYSBo
-YXJkIG91dHB1dCBoZWlnaHQgbGltaXQuCj49PT09PT09IDg8ID09PT09PT0KPgo+QmVjYXVzZSB3
-aGVuIHNvbWVvbmUgc2VlcyB0aGUgY29kZSBsYXRlciB0aGV5IG1pZ2h0IGFzayB3aHkgdGhlIGhl
-aWdodAo+aXMgbm90IGNoZWNrZWQsIHNvIGhhdmluZyB0aGF0IGluIHRoZSBjb21taXQgZGVzY3Jp
-cHRpb24gYWxsb3dzIHVzIGFsbCB0bwo+cmVtZW1iZXIgd2h5IHRoZSBjaGVjayBpcyB0aGlzIHNw
-ZWNpZmljIHdheSA6LSkKCkRvbmUgaW4gVjIKCgo+Cj5UaGFua3MKPkhlaWtvCj4KPj4gU2lnbmVk
-LW9mZi1ieTogQW5keSBZYW4gPGFuZHkueWFuQHJvY2stY2hpcHMuY29tPgo+PiAtLS0KPj4gIGRy
-aXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jIHwgMTIgKysrKysrKysr
-KysrCj4+ICAxIGZpbGUgY2hhbmdlZCwgMTIgaW5zZXJ0aW9ucygrKQo+PiAKPj4gZGlmZiAtLWdp
-dCBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jIGIvZHJpdmVy
-cy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMKPj4gaW5kZXggNDk4ZGYwY2U0
-NjgwLi43NGZiYTI5YmZmZjMgMTAwNjQ0Cj4+IC0tLSBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hp
-cC9yb2NrY2hpcF9kcm1fdm9wMi5jCj4+ICsrKyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9y
-b2NrY2hpcF9kcm1fdm9wMi5jCj4+IEBAIC0xNDM5LDYgKzE0MzksMTcgQEAgc3RhdGljIHZvaWQg
-dm9wMl9jcnRjX2Rpc2FibGVfdmJsYW5rKHN0cnVjdCBkcm1fY3J0YyAqY3J0YykKPj4gIAl2b3Ay
-X2NydGNfZGlzYWJsZV9pcnEodnAsIFZQX0lOVF9GU19GSUVMRCk7Cj4+ICB9Cj4+ICAKPj4gK3N0
-YXRpYyBlbnVtIGRybV9tb2RlX3N0YXR1cyB2b3AyX2NydGNfbW9kZV92YWxpZChzdHJ1Y3QgZHJt
-X2NydGMgKmNydGMsCj4+ICsJCQkJCQkgY29uc3Qgc3RydWN0IGRybV9kaXNwbGF5X21vZGUgKm1v
-ZGUpCj4+ICt7Cj4+ICsJc3RydWN0IHZvcDJfdmlkZW9fcG9ydCAqdnAgPSB0b192b3AyX3ZpZGVv
-X3BvcnQoY3J0Yyk7Cj4+ICsKPj4gKwlpZiAobW9kZS0+aGRpc3BsYXkgPiB2cC0+ZGF0YS0+bWF4
-X291dHB1dC53aWR0aCkKPj4gKwkJcmV0dXJuIE1PREVfQkFEX0hWQUxVRTsKPj4gKwo+PiArCXJl
-dHVybiBNT0RFX09LOwo+PiArfQo+PiArCj4+ICBzdGF0aWMgYm9vbCB2b3AyX2NydGNfbW9kZV9m
-aXh1cChzdHJ1Y3QgZHJtX2NydGMgKmNydGMsCj4+ICAJCQkJIGNvbnN0IHN0cnVjdCBkcm1fZGlz
-cGxheV9tb2RlICptb2RlLAo+PiAgCQkJCSBzdHJ1Y3QgZHJtX2Rpc3BsYXlfbW9kZSAqYWRqX21v
-ZGUpCj4+IEBAIC0xODg0LDYgKzE4OTUsNyBAQCBzdGF0aWMgdm9pZCB2b3AyX2NydGNfYXRvbWlj
-X2ZsdXNoKHN0cnVjdCBkcm1fY3J0YyAqY3J0YywKPj4gIAo+PiAgc3RhdGljIGNvbnN0IHN0cnVj
-dCBkcm1fY3J0Y19oZWxwZXJfZnVuY3Mgdm9wMl9jcnRjX2hlbHBlcl9mdW5jcyA9IHsKPj4gIAku
-bW9kZV9maXh1cCA9IHZvcDJfY3J0Y19tb2RlX2ZpeHVwLAo+PiArCS5tb2RlX3ZhbGlkID0gdm9w
-Ml9jcnRjX21vZGVfdmFsaWQsCj4+ICAJLmF0b21pY19jaGVjayA9IHZvcDJfY3J0Y19hdG9taWNf
-Y2hlY2ssCj4+ICAJLmF0b21pY19iZWdpbiA9IHZvcDJfY3J0Y19hdG9taWNfYmVnaW4sCj4+ICAJ
-LmF0b21pY19mbHVzaCA9IHZvcDJfY3J0Y19hdG9taWNfZmx1c2gsCj4+IAo+Cj4KPgo+Cg==
+On Mon, Jan 12, 2026 at 11:59:07AM +0000, Sudeep Holla wrote:
+> On Wed, Jan 07, 2026 at 09:34:47AM +0800, Peng Fan wrote:
+> > On Tue, Jan 06, 2026 at 03:46:29PM +0000, Sudeep Holla wrote:
+> > >On Mon, Jan 05, 2026 at 08:49:24PM +0800, Peng Fan wrote:
+> > >> Hi Sudeep,
+> > >> 
+> > >> Hope you're doing well. Apologies for following up again, but this v3 patchset
+> > >> has been pending for quite some time. I wanted to check if everything looks
+> > >> good on your end.
+> > >> 
+> > >
+> > >Yes overall it looks good to me.
+> > 
+> > Thanks a lot.
+> > 
+> > >
+> > ...
+> > >> Alternatively, I can ask Shawn to pick patch 2 if you only intend to take patch 1.
+> > >
+> > >I think that would break build or need to wait for another cycle.
+> > >I can ack if it can be routed via i.MX tree or need ACK to pick it up myself.
+> > 
+> > Shawn,
+> > 
+> > Do you plan to pick the two patches with Sudeep's Ack in patch 1? Or
+> > you prefer to route the patches via SCMI tree with your Ack?
+> 
+> I noticed this morning we are already at -rc5, which is later than my usual PR
+> timing (I generally aim to send to the SoC team between -rc4 and -rc5). I have
+> already sent the SCMI PR.
+> 
+> For these changes, would it be acceptable to route them via the i.MX tree if
+> they are still intended for v7.0/v6.20? If not, I am happy to defer and pick
+> them up for the merge window after next.
+
+I picked them up for v7.0/v6.20, thanks!
+
+Shawn
 
