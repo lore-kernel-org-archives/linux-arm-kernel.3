@@ -4,54 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C25C9832D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 13:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FDC1C98329
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 13:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xKtUyifitIkEXPRW40qDJ2YzDU6EsDoS47Ix88VzPqc=; b=APD18E/QUSzJFFFqiiOiNvFrXj
-	3mgn5iC9fEP+6XbkwSRsJNORfz76owzmBD+5aUMbcgAA9BX3aqiS4qvOCNCmuh3PCmHoPymat5t+m
-	2eGPIRT0wW4D6UgO8uzEOTULBDrQlkiHMNWf+6WQiBWjikF6eBONy/2efMoBRsbtjfCYnIKiTJYZc
-	+em9A5nCPPl8vpmHZp28CH6zihxE9QhD1PEmbIhcq87PQvbyY5AtGbcxjObkWkM8jOwBhYYLwPhIE
-	3A6NEzWlJ/QKy2dfMy7P/BnsQi5cLzKz0r6iVtI6bXUTYOKJOx1qM74evrmDxm2GtcP+Dij1NVFyG
-	JfZKOcUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5gDixT1C1g9aXGEdjl/pZkav3MxrZ1blNqQfJLK1BvE=; b=Hwj153pNEEceqHXkk+JSitvj19
+	mancRBPy0hNHR9/XyJFFktylm4+KIt4Zl1u0ZvtfgdSfzwlhI5bIT3mWD1GNpSh50yjxcH+Zb+zrr
+	0ifvZWdHGbT7yQ8UPD2QHbiF9Db7R22VBLTi2a2ES5Fqt9GLodE4AGrYDxuY958AOuJF+23nD+wlY
+	TRyPQdqURcqwwWYaFLur48A6vKan1be/YE3EXVSc10OdJuBKMBJwUQ9jWaUxmLQ907Oo+LX1q87iO
+	fk5SP/Npp/txaRkHsOaXWumSkNx+9tIc/TDtLPQ6bKL4/PNsS2f/XZ/nvJTbOrZZCIWM7RRVqY5dR
+	EnSlL/bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh6ZR-0000000FZSL-1ZPy;
-	Sat, 17 Jan 2026 13:42:29 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vh6jW-0000000FZs3-44MG;
+	Sat, 17 Jan 2026 13:52:54 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh6ZO-0000000FZQa-2jhV
+	id 1vh6jT-0000000FZrf-1Fu8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 17 Jan 2026 13:42:27 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Sat, 17 Jan
- 2026 21:42:16 +0800
-Received: from aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Sat, 17 Jan 2026 21:42:16 +0800
-From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-To: <clg@kaod.org>, <broonie@kernel.org>, <boris.brezillon@bootlin.com>,
-	<joel@jms.id.au>, <andrew@codeconstruct.com.au>,
-	<linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
-	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <BMC-SW@aspeedtech.com>
-Subject: [PATCH v2 2/2] spi: aspeed: Add support for non-spi-mem devices
-Date: Sat, 17 Jan 2026 21:42:16 +0800
-Message-ID: <20260117134216.595436-3-chin-ting_kuo@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260117134216.595436-1-chin-ting_kuo@aspeedtech.com>
-References: <20260117134216.595436-1-chin-ting_kuo@aspeedtech.com>
+	Sat, 17 Jan 2026 13:52:53 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 87D20C2030D;
+	Sat, 17 Jan 2026 13:52:20 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 40F5B60708;
+	Sat, 17 Jan 2026 13:52:47 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 892EF10B69083;
+	Sat, 17 Jan 2026 14:52:40 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1768657966; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=5gDixT1C1g9aXGEdjl/pZkav3MxrZ1blNqQfJLK1BvE=;
+	b=WKcU6NrvukifFmQkh8Va7m7KICHp61NXtJxizqM8LdcErwoE6rzE6E54u19h1ifDeJPIxI
+	4mqKwlC3c0cA+f6Qj6CGlzfvbLaRWhgzLGLjkIE1OT70IQBYXzMzbzzNYGsPmuDrfAXdba
+	rAHuSNuxHb3pNuARUDSg2t+VTtm4RwQt4yNc0/cMjTvJA0QgFwLYRRD6EqFtwYacSPXK6M
+	02Bbkt09P7mNAA+lKnonX9NqJKinXZzdd6VJyBl3daHersl+UcO3yoTyp5rqI2+ssqU7iF
+	KrsYy34nmQRZvReF0srgsRxMadFk9pXF4o7+q9Qkl/FdfmrCfYSn/Hh8iEahsg==
+Message-ID: <194679cb-f8e0-4195-b85b-8726b9f5b4f6@bootlin.com>
+Date: Sat, 17 Jan 2026 14:52:39 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC net-next] net: stmmac: enable RPS and RBU interrupts
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>
+References: <E1vgtBc-00000005D6v-040n@rmk-PC.armlinux.org.uk>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <E1vgtBc-00000005D6v-040n@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260117_054226_696931_7A15CDFF 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20260117_055251_898068_EB086274 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,284 +82,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ASPEED FMC/SPI controller may be shared by spi-mem devices and
-other SPI peripherals that do not use the spi-mem framework.
+Hi Russell,
 
-The driver currently assumes spi-mem semantics for all devices,
-while the controller also supports direct user mode access commonly
-used by non-spi-mem devices. This mismatch can result in incorrect
-behavior when different types of devices share the same controller.
+On 17/01/2026 00:25, Russell King (Oracle) wrote:
+> Enable receive process stopped and receive buffer unavailable
+> interrupts, so that the statistic counters can be updated.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+> 
+> Maxime,
+> 
+> You may find this patch useful, as it makes the "rx_buf_unav_irq"
+> and "rx_process_stopped_irq" ethtool statistic counters functional.
+> This means that the lack of receive descriptors can still be detected
+> even if the receive side doesn't actually stall.
 
-Update the driver to properly handle non-spi-mem devices, allowing
-them to operate correctly in pure user mode alongside spi-mem
-devices on a shared SPI controller.
+Nice ! I'll give a test and take a deeper look after the weekend :)
 
-Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
----
- drivers/spi/spi-aspeed-smc.c | 134 +++++++++++++++++++++++++++++++++--
- 1 file changed, 128 insertions(+), 6 deletions(-)
+Thanks,
 
-diff --git a/drivers/spi/spi-aspeed-smc.c b/drivers/spi/spi-aspeed-smc.c
-index db3e096f2eb0..3949f94b6667 100644
---- a/drivers/spi/spi-aspeed-smc.c
-+++ b/drivers/spi/spi-aspeed-smc.c
-@@ -48,6 +48,8 @@
- /* CEx Address Decoding Range Register */
- #define CE0_SEGMENT_ADDR_REG		0x30
- 
-+#define FULL_DUPLEX_RX_DATA		0x1e4
-+
- /* CEx Read timing compensation register */
- #define CE0_TIMING_COMPENSATION_REG	0x94
- 
-@@ -81,6 +83,7 @@ struct aspeed_spi_data {
- 	u32	hclk_mask;
- 	u32	hdiv_max;
- 	u32	min_window_size;
-+	bool	full_duplex;
- 
- 	phys_addr_t (*segment_start)(struct aspeed_spi *aspi, u32 reg);
- 	phys_addr_t (*segment_end)(struct aspeed_spi *aspi, u32 reg);
-@@ -105,6 +108,7 @@ struct aspeed_spi {
- 
- 	struct clk		*clk;
- 	u32			 clk_freq;
-+	u8			 cs_change;
- 
- 	struct aspeed_spi_chip	 chips[ASPEED_SPI_MAX_NUM_CS];
- };
-@@ -280,7 +284,8 @@ static ssize_t aspeed_spi_write_user(struct aspeed_spi_chip *chip,
- }
- 
- /* support for 1-1-1, 1-1-2 or 1-1-4 */
--static bool aspeed_spi_supports_op(struct spi_mem *mem, const struct spi_mem_op *op)
-+static bool aspeed_spi_supports_mem_op(struct spi_mem *mem,
-+				       const struct spi_mem_op *op)
- {
- 	if (op->cmd.buswidth > 1)
- 		return false;
-@@ -305,7 +310,8 @@ static bool aspeed_spi_supports_op(struct spi_mem *mem, const struct spi_mem_op
- 
- static const struct aspeed_spi_data ast2400_spi_data;
- 
--static int do_aspeed_spi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
-+static int do_aspeed_spi_exec_mem_op(struct spi_mem *mem,
-+				     const struct spi_mem_op *op)
- {
- 	struct aspeed_spi *aspi = spi_controller_get_devdata(mem->spi->controller);
- 	struct aspeed_spi_chip *chip = &aspi->chips[spi_get_chipselect(mem->spi, 0)];
-@@ -367,11 +373,12 @@ static int do_aspeed_spi_exec_op(struct spi_mem *mem, const struct spi_mem_op *o
- 	return ret;
- }
- 
--static int aspeed_spi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
-+static int aspeed_spi_exec_mem_op(struct spi_mem *mem,
-+				  const struct spi_mem_op *op)
- {
- 	int ret;
- 
--	ret = do_aspeed_spi_exec_op(mem, op);
-+	ret = do_aspeed_spi_exec_mem_op(mem, op);
- 	if (ret)
- 		dev_err(&mem->spi->dev, "operation failed: %d\n", ret);
- 	return ret;
-@@ -773,8 +780,8 @@ static ssize_t aspeed_spi_dirmap_read(struct spi_mem_dirmap_desc *desc,
- }
- 
- static const struct spi_controller_mem_ops aspeed_spi_mem_ops = {
--	.supports_op = aspeed_spi_supports_op,
--	.exec_op = aspeed_spi_exec_op,
-+	.supports_op = aspeed_spi_supports_mem_op,
-+	.exec_op = aspeed_spi_exec_mem_op,
- 	.get_name = aspeed_spi_get_name,
- 	.dirmap_create = aspeed_spi_dirmap_create,
- 	.dirmap_read = aspeed_spi_dirmap_read,
-@@ -843,6 +850,110 @@ static void aspeed_spi_enable(struct aspeed_spi *aspi, bool enable)
- 		aspeed_spi_chip_enable(aspi, cs, enable);
- }
- 
-+static int aspeed_spi_user_prepare_msg(struct spi_controller *ctlr,
-+				       struct spi_message *msg)
-+{
-+	struct aspeed_spi *aspi =
-+		(struct aspeed_spi *)spi_controller_get_devdata(ctlr);
-+	const struct aspeed_spi_data *data = aspi->data;
-+	struct spi_device *spi = msg->spi;
-+	u32 cs = spi_get_chipselect(spi, 0);
-+	struct aspeed_spi_chip *chip = &aspi->chips[cs];
-+	u32 ctrl_val;
-+	u32 clk_div = data->get_clk_div(chip, spi->max_speed_hz);
-+
-+	ctrl_val = chip->ctl_val[ASPEED_SPI_BASE];
-+	ctrl_val &= ~CTRL_IO_MODE_MASK & data->hclk_mask;
-+	ctrl_val |= clk_div;
-+	chip->ctl_val[ASPEED_SPI_BASE] = ctrl_val;
-+
-+	if (aspi->cs_change == 0)
-+		aspeed_spi_start_user(chip);
-+
-+	return 0;
-+}
-+
-+static int aspeed_spi_user_unprepare_msg(struct spi_controller *ctlr,
-+					 struct spi_message *msg)
-+{
-+	struct aspeed_spi *aspi =
-+		(struct aspeed_spi *)spi_controller_get_devdata(ctlr);
-+	struct spi_device *spi = msg->spi;
-+	u32 cs = spi_get_chipselect(spi, 0);
-+	struct aspeed_spi_chip *chip = &aspi->chips[cs];
-+
-+	if (aspi->cs_change == 0)
-+		aspeed_spi_stop_user(chip);
-+
-+	return 0;
-+}
-+
-+static void aspeed_spi_user_transfer_tx(struct aspeed_spi *aspi,
-+					struct spi_device *spi,
-+					const u8 *tx_buf, u8 *rx_buf,
-+					void *dst, u32 len)
-+{
-+	const struct aspeed_spi_data *data = aspi->data;
-+	bool full_duplex_transfer = data->full_duplex && tx_buf == rx_buf;
-+	u32 i;
-+
-+	if (full_duplex_transfer &&
-+	    !!(spi->mode & (SPI_TX_DUAL | SPI_TX_QUAD |
-+			    SPI_RX_DUAL | SPI_RX_QUAD))) {
-+		dev_err(aspi->dev,
-+			"full duplex is only supported for single IO mode\n");
-+		return;
-+	}
-+
-+	for (i = 0; i < len; i++) {
-+		writeb(tx_buf[i], dst);
-+		if (full_duplex_transfer)
-+			rx_buf[i] = readb(aspi->regs + FULL_DUPLEX_RX_DATA);
-+	}
-+}
-+
-+static int aspeed_spi_user_transfer(struct spi_controller *ctlr,
-+				    struct spi_device *spi,
-+				    struct spi_transfer *xfer)
-+{
-+	struct aspeed_spi *aspi =
-+		(struct aspeed_spi *)spi_controller_get_devdata(ctlr);
-+	u32 cs = spi_get_chipselect(spi, 0);
-+	struct aspeed_spi_chip *chip = &aspi->chips[cs];
-+	void __iomem *ahb_base = aspi->chips[cs].ahb_base;
-+	const u8 *tx_buf = xfer->tx_buf;
-+	u8 *rx_buf = xfer->rx_buf;
-+
-+	dev_dbg(aspi->dev,
-+		"[cs%d] xfer: width %d, len %u, tx %p, rx %p\n",
-+		cs, xfer->bits_per_word, xfer->len,
-+		tx_buf, rx_buf);
-+
-+	if (tx_buf) {
-+		if (spi->mode & SPI_TX_DUAL)
-+			aspeed_spi_set_io_mode(chip, CTRL_IO_DUAL_DATA);
-+		else if (spi->mode & SPI_TX_QUAD)
-+			aspeed_spi_set_io_mode(chip, CTRL_IO_QUAD_DATA);
-+
-+		aspeed_spi_user_transfer_tx(aspi, spi, tx_buf, rx_buf,
-+					    (void *)ahb_base, xfer->len);
-+	}
-+
-+	if (rx_buf && rx_buf != tx_buf) {
-+		if (spi->mode & SPI_RX_DUAL)
-+			aspeed_spi_set_io_mode(chip, CTRL_IO_DUAL_DATA);
-+		else if (spi->mode & SPI_RX_QUAD)
-+			aspeed_spi_set_io_mode(chip, CTRL_IO_QUAD_DATA);
-+
-+		ioread8_rep(ahb_base, rx_buf, xfer->len);
-+	}
-+
-+	xfer->error = 0;
-+	aspi->cs_change = xfer->cs_change;
-+
-+	return 0;
-+}
-+
- static int aspeed_spi_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -899,6 +1010,9 @@ static int aspeed_spi_probe(struct platform_device *pdev)
- 	ctlr->cleanup = aspeed_spi_cleanup;
- 	ctlr->num_chipselect = of_get_available_child_count(dev->of_node);
- 	ctlr->dev.of_node = dev->of_node;
-+	ctlr->prepare_message = aspeed_spi_user_prepare_msg;
-+	ctlr->unprepare_message = aspeed_spi_user_unprepare_msg;
-+	ctlr->transfer_one = aspeed_spi_user_transfer;
- 
- 	aspi->num_cs = ctlr->num_chipselect;
- 
-@@ -1455,6 +1569,7 @@ static const struct aspeed_spi_data ast2400_fmc_data = {
- 	.hclk_mask     = 0xfffff0ff,
- 	.hdiv_max      = 1,
- 	.min_window_size = 0x800000,
-+	.full_duplex   = false,
- 	.calibrate     = aspeed_spi_calibrate,
- 	.get_clk_div   = aspeed_get_clk_div_ast2400,
- 	.segment_start = aspeed_spi_segment_start,
-@@ -1471,6 +1586,7 @@ static const struct aspeed_spi_data ast2400_spi_data = {
- 	.timing	       = 0x14,
- 	.hclk_mask     = 0xfffff0ff,
- 	.hdiv_max      = 1,
-+	.full_duplex   = false,
- 	.get_clk_div   = aspeed_get_clk_div_ast2400,
- 	.calibrate     = aspeed_spi_calibrate,
- 	/* No segment registers */
-@@ -1485,6 +1601,7 @@ static const struct aspeed_spi_data ast2500_fmc_data = {
- 	.hclk_mask     = 0xffffd0ff,
- 	.hdiv_max      = 1,
- 	.min_window_size = 0x800000,
-+	.full_duplex   = false,
- 	.get_clk_div   = aspeed_get_clk_div_ast2500,
- 	.calibrate     = aspeed_spi_calibrate,
- 	.segment_start = aspeed_spi_segment_start,
-@@ -1502,6 +1619,7 @@ static const struct aspeed_spi_data ast2500_spi_data = {
- 	.hclk_mask     = 0xffffd0ff,
- 	.hdiv_max      = 1,
- 	.min_window_size = 0x800000,
-+	.full_duplex   = false,
- 	.get_clk_div   = aspeed_get_clk_div_ast2500,
- 	.calibrate     = aspeed_spi_calibrate,
- 	.segment_start = aspeed_spi_segment_start,
-@@ -1520,6 +1638,7 @@ static const struct aspeed_spi_data ast2600_fmc_data = {
- 	.hclk_mask     = 0xf0fff0ff,
- 	.hdiv_max      = 2,
- 	.min_window_size = 0x200000,
-+	.full_duplex   = false,
- 	.get_clk_div   = aspeed_get_clk_div_ast2600,
- 	.calibrate     = aspeed_spi_ast2600_calibrate,
- 	.segment_start = aspeed_spi_segment_ast2600_start,
-@@ -1538,6 +1657,7 @@ static const struct aspeed_spi_data ast2600_spi_data = {
- 	.hclk_mask     = 0xf0fff0ff,
- 	.hdiv_max      = 2,
- 	.min_window_size = 0x200000,
-+	.full_duplex   = false,
- 	.get_clk_div   = aspeed_get_clk_div_ast2600,
- 	.calibrate     = aspeed_spi_ast2600_calibrate,
- 	.segment_start = aspeed_spi_segment_ast2600_start,
-@@ -1556,6 +1676,7 @@ static const struct aspeed_spi_data ast2700_fmc_data = {
- 	.hclk_mask     = 0xf0fff0ff,
- 	.hdiv_max      = 2,
- 	.min_window_size = 0x10000,
-+	.full_duplex   = true,
- 	.get_clk_div   = aspeed_get_clk_div_ast2600,
- 	.calibrate     = aspeed_spi_ast2600_calibrate,
- 	.segment_start = aspeed_spi_segment_ast2700_start,
-@@ -1573,6 +1694,7 @@ static const struct aspeed_spi_data ast2700_spi_data = {
- 	.hclk_mask     = 0xf0fff0ff,
- 	.hdiv_max      = 2,
- 	.min_window_size = 0x10000,
-+	.full_duplex   = true,
- 	.get_clk_div   = aspeed_get_clk_div_ast2600,
- 	.calibrate     = aspeed_spi_ast2600_calibrate,
- 	.segment_start = aspeed_spi_segment_ast2700_start,
--- 
-2.34.1
+Maxime
+
+> 
+> I'm not sure why we publish these statistic counters if we don't
+> enable the interrupts to allow them to ever be non-zero.
+> 
+>  drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
+> index 9d9077a4ac9f..d7f86b398abe 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.h
+> @@ -99,6 +99,8 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
+>  #define DMA_CHAN_INTR_ENA_NIE_4_10	BIT(15)
+>  #define DMA_CHAN_INTR_ENA_AIE_4_10	BIT(14)
+>  #define DMA_CHAN_INTR_ENA_FBE		BIT(12)
+> +#define DMA_CHAN_INTR_ENA_RPS		BIT(8)
+> +#define DMA_CHAN_INTR_ENA_RBU		BIT(7)
+>  #define DMA_CHAN_INTR_ENA_RIE		BIT(6)
+>  #define DMA_CHAN_INTR_ENA_TIE		BIT(0)
+>  
+> @@ -107,6 +109,8 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
+>  					 DMA_CHAN_INTR_ENA_TIE)
+>  
+>  #define DMA_CHAN_INTR_ABNORMAL		(DMA_CHAN_INTR_ENA_AIE | \
+> +					 DMA_CHAN_INTR_ENA_RPS | \
+> +					 DMA_CHAN_INTR_ENA_RBU | \
+>  					 DMA_CHAN_INTR_ENA_FBE)
+>  /* DMA default interrupt mask for 4.00 */
+>  #define DMA_CHAN_INTR_DEFAULT_MASK	(DMA_CHAN_INTR_NORMAL | \
+> @@ -119,6 +123,8 @@ static inline u32 dma_chanx_base_addr(const struct dwmac4_addrs *addrs,
+>  					 DMA_CHAN_INTR_ENA_TIE)
+>  
+>  #define DMA_CHAN_INTR_ABNORMAL_4_10	(DMA_CHAN_INTR_ENA_AIE_4_10 | \
+> +					 DMA_CHAN_INTR_ENA_RPS | \
+> +					 DMA_CHAN_INTR_ENA_RBU | \
+>  					 DMA_CHAN_INTR_ENA_FBE)
+>  /* DMA default interrupt mask for 4.10a */
+>  #define DMA_CHAN_INTR_DEFAULT_MASK_4_10	(DMA_CHAN_INTR_NORMAL_4_10 | \
 
 
