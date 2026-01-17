@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9421C98321
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 11:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F23FC98324
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 17 Jan 2026 11:17:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4pcnz3lctmFczRJJMAFshsMy/gHswYLO7hT0cfwF2No=; b=YkkKzhlxcyZ77SL/0yBqEZRIhJ
-	K2bRpo4WuF4Dy5JGNlXg3uVUbnTifLpy9Tf7T0Wi/GJ53G4SlJRg5DMNpak4KuCM2BdVkUVzxvta7
-	b2gdjFGU7bFnjVyspmuDkhBxkvgPF4weSL1YLivp459H8BOVlROTDlDTxEragpdiHXjBHw0YtS8+i
-	t15vZRLxvOvRt2tlaX4rd7NvL+tpAxadaXi18DlC+Ud80zEbQdwEmpZPDZs44pKXZETbWpO+/mcoH
-	ZNlo4jTs3NVaDk5A04rKXFK4q3R5ZZ09wiTTf+JCtJf6W3mURy3DvccuJOuqsryCWS3WYzZv4yrT3
-	ehD/yn4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UqXmybD3x03P7F050HBrnsOHdBxZN/YeJhML1v7mXgs=; b=Rp5xv2XIKfNctH
+	3cV9Oo3KtxDwDu6oVLe/RpGkAxH4LuR7yE8nr4q9AhB9MdWUC5lnKGa28Uclq2PGHqg/l0Y6VHSIu
+	lw62PLmJ5gSatPTPaRpWRzgqYRgiJWDej3hW69964Bxkfsz96eGJz0yUJ2YafKmpCo4adp2XVb6pO
+	GfIrMjP8A4dbfo+gBy8wZwjnKMB4Bv3RUzpJgU/f8JYBhyqIS/LNiO5FYAWEf4HgNwYMPbw+9T7zX
+	Ws2ZfNi1nDI4Zgk64xdtDeclL25dAuVLSYkFVUDOEvHKNO/U+mgqUE8Z85XntwSngwS861R2KHB8W
+	uE8bCFOWoSEjpLlZmzww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh480-0000000FTPZ-0Tco;
-	Sat, 17 Jan 2026 11:06:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vh4JC-0000000FU2N-0ggL;
+	Sat, 17 Jan 2026 11:17:34 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vh47z-0000000FTPO-0Ubh;
-	Sat, 17 Jan 2026 11:05:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B0F760127;
-	Sat, 17 Jan 2026 11:05:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73A15C4CEF7;
-	Sat, 17 Jan 2026 11:05:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768647957;
-	bh=6d45T7HhrZc5jUsPEswloktiujk+9zSyGqQrcH8upas=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I86gXbHeAPG5z+dNCmXJ4LzPzpH1PCM9BMOypcZ2cxCY/yMSDbRsNkPlf5LbxMsxm
-	 y7L2XvpK1gqFYoOXMQaqCWoEggzXM6r98tqKl/C9yGzOItSVhO80a/C01Pzec+8grg
-	 L/sa/1/sozRCc7xvT0+dX12N0V1lojo7vJ4wp95WbsxJTIgmr/2IGQTFOBmTDxEsUA
-	 dW+u/3Jga8l8y8JLdh41y+M+YNFkwtEo/qwxRPUcsDYo7U9l4H4IrDImfHPxpl04bC
-	 /PpApDyKyiJI8iYLzTbgdwC037qC/cJNyNRl7j+4iocl7R2M3UNfcYYWFa9ciYQPGg
-	 9D+mCvRF6/HUw==
-Date: Sat, 17 Jan 2026 16:35:40 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Frank Li <Frank.Li@nxp.com>, Vinod Koul <vkoul@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
-	Chaitanya Kulkarni <kch@nvidia.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Koichiro Den <den@valinux.co.jp>, dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org, mhi@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, Damien Le Moal <dlemoal@kernel.org>
-Subject: Re: [PATCH v3 0/9] dmaengine: Add new API to combine configuration
- and descriptor preparation
-Message-ID: <6f4elcu5iql65jeqfeqhmllquv253xh4gb37ivef2kyvsj5lps@w35ciehuwxym>
-References: <20260105-dma_prep_config-v3-0-a8480362fd42@nxp.com>
- <aWTwrOOXX3AR8Ght@ryzen>
+	id 1vh4J9-0000000FU1Y-2Ri6
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 17 Jan 2026 11:17:33 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Sat, 17 Jan
+ 2026 19:17:17 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Sat, 17 Jan 2026 19:17:17 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+Subject: [PATCH 0/5] Add Aspeed G7 sgpio support
+Date: Sat, 17 Jan 2026 19:17:07 +0800
+Message-ID: <20260117-upstream_sgpio-v1-0-850ef3ffb680@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aWTwrOOXX3AR8Ght@ryzen>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALNva2kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDIyNj3dKC4pKi1MTc+OL0gsx8XXODFAtD02Qzk0RDSyWgpoKi1LTMCrC
+ B0bG1tQBUzvydYAAAAA==
+X-Change-ID: 20251223-upstream_sgpio-70d815c64a19
+To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+CC: <linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, "Andrew
+ Jeffery" <andrew@aj.id.au>, <devicetree@vger.kernel.org>,
+	<bmc-sw@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768648637; l=1293;
+ i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
+ bh=syKloVSJGr/1yuFRDdDYloNrIqJLgRzrsOb/bxn/5bY=;
+ b=72wgdRhf4CDRIKM/L9ALE3tUal9GCgSr0Cm0kA96rAZOo2xGE3onq/yk0CwAszlTsr6znYAYR
+ z2pPD9SNsdMCltfNKlV45uuE9G7UfKwWHVtooaYXto0ujaarpHgbHY8
+X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
+ pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260117_031731_628630_A87CF39F 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 02:01:32PM +0100, Niklas Cassel wrote:
-> Frank,
-> 
-> Thanks a lot for your work on this series!
-> 
-> On Mon, Jan 05, 2026 at 05:46:50PM -0500, Frank Li wrote:
-> >  Documentation/driver-api/dmaengine/client.rst |   9 ++
-> >  drivers/crypto/atmel-aes.c                    |  10 +--
-> >  drivers/dma/dmaengine.c                       |   3 +
-> >  drivers/dma/dw-edma/dw-edma-core.c            |  41 ++++++---
-> >  drivers/nvme/target/pci-epf.c                 |  21 ++---
-> >  drivers/pci/endpoint/functions/pci-epf-mhi.c  |  52 ++++--------
-> >  drivers/pci/endpoint/functions/pci-epf-test.c |   8 +-
-> >  include/linux/dmaengine.h                     | 117 ++++++++++++++++++++++++--
-> >  8 files changed, 177 insertions(+), 84 deletions(-)
-> 
-> Is the plan to merge this series via the dmaengine tree?
-> 
+The Aspeed 7th generation SoC features two SGPIO master controllers: both
+with 256 serial inputs and outputs. The main difference from the previous
+generation is that the control logic has been updated to support
+per-pin control, allowing each pin to have its own 32-bit register for
+configuring value, interrupt type, and more.
+This patch serial also add low-level operations (llops) to abstract the
+register access for SGPIO registers making it easier to extend the driver
+to support different hardware register layouts.
 
-It makes sense to take it through dmaengine tree given that the changes in PCI
-and other drivers are straightforward.
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+---
+Billy Tsai (5):
+      gpio: aspeed-sgpio: Change the macro to support deferred probe
+      gpio: aspeed-sgpio: Remove unused bank name field
+      gpio: aspeed-sgpio: Create llops to handle hardware access
+      dt-bindings: gpio: aspeed,sgpio: Support ast2700
+      gpio: aspeed-sgpio: Support G7 Aspeed sgpiom controller
 
-> If so, we might need an Ack from Mani on the pci-epf-mhi.c and
-> pci-epf-test.c patch.
-> 
+ .../devicetree/bindings/gpio/aspeed,sgpio.yaml     |   4 +-
+ drivers/gpio/gpio-aspeed-sgpio.c                   | 364 +++++++++++++--------
+ 2 files changed, 228 insertions(+), 140 deletions(-)
+---
+base-commit: dd9b004b7ff3289fb7bae35130c0a5c0537266af
+change-id: 20251223-upstream_sgpio-70d815c64a19
 
-Just did.
-
-- Mani
-
+Best regards,
 -- 
-மணிவண்ணன் சதாசிவம்
+Billy Tsai <billy_tsai@aspeedtech.com>
+
 
