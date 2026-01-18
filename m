@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B508DCA5FEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 02:16:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89F57CA5FEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 02:34:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IPNX+Ya5M9FrrNq/ZOGEeDs8/xwAkhI8Qs4LnaxGt/U=; b=sMSQZZVgszuU1LKauppqlW9HZq
-	EfCRBH26hhEFlboecUe5o4zmZFiPG5TVS3jPkpK4YKjEKsTIkDgYdjmkGgJcWxg/0CHDlCsi1yTSO
-	SRl7pVGWgwcKtNSNVpM6qa+vRx2Me2SLk8xS5WAWE0rGtaO1DApC3UV9NqEJlNjmzx3l8acOTP00K
-	2oF27ewPihqvXI3BU6q26asZTsWiFZGAMm4xKfevheSSEehLzMffEIGMyn+WhrJhbuzEE9A9H51KA
-	msvVGE6GIRkhPAjVaF6lMjkkYTlZ/JR03+V+lwJRbXsSB0rYskf+mMTwkITuR8FMy/BDg4DsyagHv
-	vN0fS+3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xkvF2P6gjgd+qyME+B7YSCy6zerTBBjn3yMwdHKmKiY=; b=D1So9ywYRY6bMswAfJUxpc8GYl
+	zt5WmcwuZ4niumhPmfNHgQ3C1hdT/6ieOi1onRC+aUyYrAAmH3sYyAI7frQopwnctkvw1bdbMpiiK
+	rm0/U+VTbslRDy2th5gMTzEDS142ymYHiX7M48VuFsFNDuB5qPhLvjyAIjNMPOXfQsNDSfTxpduim
+	9/fIyZB4HEb9GJS8WW+O/BfZ93RgGa/AdaIAPrtCgcEipeEwA6kNsu1k6EllVHN2UvDd8tE4HaRok
+	mK6HP/mSIyvNLEXp52hVhtIIhuocNLkRNvnGxBbGCjpCZuRgRO8vkWNSQRelreUsdgJ58PSBn/n21
+	BD6hyGbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhIKa-0000000GTav-315j;
-	Sun, 18 Jan 2026 02:15:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vhIcR-0000000GVoW-3H7s;
+	Sun, 18 Jan 2026 02:34:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhIKZ-0000000GTaM-0e2q;
-	Sun, 18 Jan 2026 02:15:56 +0000
+	id 1vhIcO-0000000GVnp-25bK
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 18 Jan 2026 02:34:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3145842A2F;
-	Sun, 18 Jan 2026 02:15:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A52B3C4CEF7;
-	Sun, 18 Jan 2026 02:15:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B27F143A8A;
+	Sun, 18 Jan 2026 02:34:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 813BEC4CEF7;
+	Sun, 18 Jan 2026 02:34:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768702554;
-	bh=DkTAVOtDgAavmOBCWkEODfmCCxIZofGnZrL0HRHr1+Q=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=JkC0leqUxhwYx7c9VgSjbs4pehA7gDWJipY4nOB3v8Lj7P/i+eC5nHVlv320j9GT3
-	 BfDGXuRszKLv6NkMGgyPybmhjCvSb1EKn11Lm/LMxbMpFRRT3KtE8TSaFoR7DfwxSu
-	 0aMaCFYCQM3WGigDPntTsfXhQc5J57gW3z5Unee0nMISfGB9pXPbxUb4Z0p0ENQ/g1
-	 91y95gJ2R5G44VmxP9Xvdl56Y1Ez4PAwdvoljSlOWK3Zg++D6K66bK4YtpG1ovXI0q
-	 ZiE5bQm5MjqCXDJjFFKv+g5qIRCxEon/tTHgp9iw3YpIt0NWjvnPNVAmyKodfJJlrj
-	 VcJY0r6o2ENoQ==
-Date: Sat, 17 Jan 2026 18:15:51 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Breno Leitao <leitao@debian.org>
-Cc: Ajit Khaparde <ajit.khaparde@broadcom.com>, Sriharsha Basavapatna
- <sriharsha.basavapatna@broadcom.com>, Somnath Kotur
- <somnath.kotur@broadcom.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
- Abeni <pabeni@redhat.com>, Felix Fietkau <nbd@nbd.name>, Sean Wang
- <sean.wang@mediatek.com>, Lorenzo Bianconi <lorenzo@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Shay Agroskin
- <shayagr@amazon.com>, Arthur Kiyanovski <akiyano@amazon.com>, David Arinzon
- <darinzon@amazon.com>, Saeed Bishara <saeedb@amazon.com>, Bryan Whitehead
- <bryan.whitehead@microchip.com>, UNGLinuxDriver@microchip.com, Shyam Sundar
- S K <Shyam-sundar.S-k@amd.com>, Raju Rangoju <Raju.Rangoju@amd.com>,
- Potnuri Bharat Teja <bharat@chelsio.com>, Nicolas Ferre
- <nicolas.ferre@microchip.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Jiawen Wu <jiawenwu@trustnetic.com>, Mengyuan Lou
- <mengyuanlou@net-swift.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next 1/9] net: benet: convert to use
- .get_rx_ring_count
-Message-ID: <20260117181551.0b139ca1@kernel.org>
-In-Reply-To: <20260115-grxring_big_v2-v1-1-b3e1b58bced5@debian.org>
-References: <20260115-grxring_big_v2-v1-0-b3e1b58bced5@debian.org>
-	<20260115-grxring_big_v2-v1-1-b3e1b58bced5@debian.org>
+	s=k20201202; t=1768703659;
+	bh=apwvLBDBISFrwUMw2VgWLrYuwUjiJ3bx+VoBhh7dTMo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jGmwWkgjpUyKdcNrcUoPywQrBgW3lbY8UYEn5OQMVNQTRt/KdOKXbQnwRi7fP2w/8
+	 vsQrRTPWeSuU0tNASu3EH5ZNnhKYFDR9V38zUmKPTITCfNrfNxZpfMHWrzGaf/cG7Y
+	 MXgh7iIm1pHObYItQg7LhcPl7rHEcwcX+4FiFnaFW/kPjS3vV13mgFTJm2vMm04N55
+	 xkLj2AO5BjIN7AwGf1rKQN2flk+EJp9MfqjQILAeh8hs4zgWt4780Hxw8DPYx+nT0T
+	 oHBVo2K7THeODc3o88uIKuiGbTsHCqZwnz89SVO4nD8rr+a2r+YnT3wXWJWwDH4qrI
+	 /gi870EGpopnQ==
+Date: Sun, 18 Jan 2026 10:34:13 +0800
+From: Shawn Guo <shawnguo@kernel.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Marco Felsch <m.felsch@pengutronix.de>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>, kernel test robot <lkp@intel.com>,
+	Dan Carpenter <error27@gmail.com>
+Subject: Re: [PATCH] soc: imx8m: Fix error handling for clk_prepare_enable()
+Message-ID: <aWxGpYwRYMI4dN5D@dragon>
+References: <20260114-fix-soc-imx8m-v1-1-143de91ef077@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260114-fix-soc-imx8m-v1-1-143de91ef077@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260117_181555_242344_510C125F 
-X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-CacheID: sfid-20260117_183420_577327_4F2477FD 
+X-CRM114-Status: UNSURE (   7.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,21 +77,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 Jan 2026 06:37:48 -0800 Breno Leitao wrote:
-> -static int be_get_rxnfc(struct net_device *netdev, struct ethtool_rxnfc *cmd,
-> -			u32 *rule_locs)
-> -{
-> -	struct be_adapter *adapter = netdev_priv(netdev);
-> -
-> -	if (!be_multi_rxq(adapter)) {
-> -		dev_info(&adapter->pdev->dev,
-> -			 "ethtool::get_rxnfc: RX flow hashing is disabled\n");
-> -		return -EINVAL;
-> -	}
+On Wed, Jan 14, 2026 at 06:12:41AM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> imx8m_soc_prepare() directly returns the result of clk_prepare_enable(),
+> which skips proper cleanup if the clock enable fails. Check the return
+> value of clk_prepare_enable() and release resources if failure.
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+> Reported-by: Dan Carpenter <error27@gmail.com>
+> Closes: https://lore.kernel.org/r/202601111406.ZVV3YaiU-lkp@intel.com/
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-I think we need to add this check to set_rxfh now. The error coming
-from get_rxnfc/GRXRINGS effectively shielded the driver from set_rxfh
-calls ever happening when there's only 1 ring. Now they will happen.
-
-Applied the rest
+Applied, thanks!
 
