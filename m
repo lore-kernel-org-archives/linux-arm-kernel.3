@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3240BC98315
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 21:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C511CA5FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 22:02:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FYYxd4tqCi8l89aZHiK/UBdTWSc77z7Y0jNX9tpFvRI=; b=4LiL8m0/gKj9C44JFMASlu77Jd
-	C5Xx682D4KQG69MOpy9IQxVPa3RKv4Qc5uHz3gqPnkLu0bm8X21PLlHA9V3wrt570SuQoroEX4DUt
-	m96dZlhth/1V8kHPTk4kAja1sclzxPNYul6WkiDgxrM+q/UodHCQKSJ5wyGIV0Z//OnAqNfOBttb5
-	6Cv4Ygrz24hq+pvDJ0ZrQ8SuE3y5Cp+MXMH0xFnfErBUAiZPXgtW4U0ShBAdaB+F03K1dh/dq6GL8
-	4hF9MSpJxl8y+IsGMkhKbzJ4G44tueNEU+UPriOqv71YHfEtI8ri6w6ha64PQtIvpG5JsXLcmrRrV
-	MVeaXriw==;
+	bh=SQ8B0Yt6Va8HzIheRo7JMVoIqE6kY1lJxfsLjUT9N60=; b=Z6fBbhe7ZfmPe2dHxVmtsZIMIU
+	EWmlQrFagekA9f0anR9tGYsde7KEaFHEHhHICdlFs1Df2jrgyb/VmKiUviD/ipEJAm5oKs48cphlO
+	FUlzXsU+eG8jH4u3BmTleKkaD3CeOng4IF3mMY2CKa9A8J+wKtZNh13pBJq4B+BNXjx9kS592mXBd
+	2MV1O3eExZAMS/AOKK8XTt5+ktEdhW05QZT30pAJ9j972e4svFUUDuzJqiYQTw9/JC9U+AbFPUUh1
+	vy7bi/bGuH20mW2bf6juz268/8SF3pSBS32ZnNKPrA4OQrgA4IHQE8izCNvCuusPT/ZYQv4QFEN9p
+	MMTQCTvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhaly-000000013h6-48C7;
-	Sun, 18 Jan 2026 21:57:26 +0000
+	id 1vhaqr-00000001434-2lmA;
+	Sun, 18 Jan 2026 22:02:29 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhalv-000000013gi-43jI;
-	Sun, 18 Jan 2026 21:57:25 +0000
+	id 1vhaqp-0000000142V-2XhP;
+	Sun, 18 Jan 2026 22:02:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1768773440;
-	bh=SkoDb3XsdPpTEIo43TlFFcbIq9dvFL3Zt2nSK5wZs/k=;
+	s=mail; t=1768773744;
+	bh=0dtGY6Yhs5B5dKLaU9vAVR77d7xoXb5sm/ulCI4orSo=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=Lonf9www44IfHE6Qzysbz11D9Q3NJ7nLg73IuZ08XSJkv7B1dpnINi1gLfqib5Omx
-	 uD6NQsdE6dMd9F/2oxf130d99OxFzqmkp0IijICaYdZsMLgdAHOUgOPpqombrAen0j
-	 jKjg0crS3Uu9gJcC20wUkRzUVlqB2B7Kha7/f9C6+GY4K703XIWiFM39AC4H8JTxDN
-	 DSx6K2B1QfHg+LuFG49bOvY7TMiEgYDMulzeTRl+0cVo544mhdGOSf6D+sfAQByoZz
-	 Iwn6hYOm3TXPA7JVyhmLhYHXhxyMM4jrMAWwagsG3Zas3ZWIIXd906y6RGWi5X6gv9
-	 ou+LzTnHauYkg==
+	b=YMfThh1vdndZdTQbHVK70vmBmYX5n4Ypai/+40mZLSN715qe9OcNlxuK5kjYtBNZg
+	 ZgbWEN7sI3C6bhp4qZpzme6n2LY8hIrkr3UluS0qKyg/RbJg2K4E7yEzYuyaZ26C2w
+	 FK54EI+GCkhVXcFwgpDsS//r5gfghuxE5u6gVfCRMJaLjFEXmjHs5frL7dfVB8s56s
+	 twFL+7hff81nkBcFD4FMYgh0owZGdEFvgFnkMtSdmcUaCU6gmDbTYNMIVJWE4f5NIq
+	 psWjtX4TjQJQwvcJv7o6js9M7EM4ys9vNng8oo4ZlIC8oXar74g4aYUpMW3jvZvamN
+	 9tyawMVhp82wg==
 Received: from [IPv6:2606:6d00:17:7b4b::c41] (unknown [IPv6:2606:6d00:17:7b4b::c41])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0EF8017E0222;
-	Sun, 18 Jan 2026 22:57:17 +0100 (CET)
-Message-ID: <9a579e2269a1f038e3b32fbf060211717b7a557a.camel@collabora.com>
-Subject: Re: [PATCH v8 03/17] media: visl: Add HEVC short and long term RPS
- sets
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6320517E1274;
+	Sun, 18 Jan 2026 23:02:22 +0100 (CET)
+Message-ID: <457055556a7d7df2c5e1dc7d924982da73f9c1c1.camel@collabora.com>
+Subject: Re: [PATCH v8 09/17] media: rkvdec: Add variant specific coded
+ formats list
 From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 To: Detlev Casanova <detlev.casanova@collabora.com>, 
 	linux-kernel@vger.kernel.org
@@ -59,10 +59,10 @@ Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Ezequiel Garcia
  linux-rockchip@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
  kernel@collabora.com, Jonas Karlman	 <jonas@kwiboo.se>, Diederik de Haas
  <didi.debian@cknow.org>
-Date: Sun, 18 Jan 2026 16:57:15 -0500
-In-Reply-To: <20260109161538.1294449-4-detlev.casanova@collabora.com>
+Date: Sun, 18 Jan 2026 17:02:20 -0500
+In-Reply-To: <20260109161538.1294449-10-detlev.casanova@collabora.com>
 References: <20260109161538.1294449-1-detlev.casanova@collabora.com>
-	 <20260109161538.1294449-4-detlev.casanova@collabora.com>
+	 <20260109161538.1294449-10-detlev.casanova@collabora.com>
 Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
  keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
  /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
@@ -78,12 +78,12 @@ Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
  bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
 Organization: Collabora Canada
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-kVootli7QnlYJLgUtppV"
+	protocol="application/pgp-signature"; boundary="=-FALApNwo4B5f7hHCaJGW"
 User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_135724_170268_96509FB4 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20260118_140227_805409_9BA57224 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,186 +99,228 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-kVootli7QnlYJLgUtppV
+--=-FALApNwo4B5f7hHCaJGW
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
 Le vendredi 09 janvier 2026 =C3=A0 11:15 -0500, Detlev Casanova a =C3=A9cri=
 t=C2=A0:
-> Log the recently added v4l2 controls to set HEVC short and long term RPS
-> sets with 2 new ftrace entries.
+> Prepare for adding new variants of the decoder and support specific
+> formats and format ops per variant.
 >=20
+> This removes the need of capability flags for variants, so remove them.
+>=20
+> Tested-by: Diederik de Haas <didi.debian@cknow.org>=C2=A0 # Rock 5B
 > Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
 > ---
-> =C2=A0drivers/media/test-drivers/visl/visl-dec.c=C2=A0=C2=A0=C2=A0 |=C2=
-=A0 7 +++
-> =C2=A0drivers/media/test-drivers/visl/visl-dec.h=C2=A0=C2=A0=C2=A0 |=C2=
-=A0 3 +
-> =C2=A0.../media/test-drivers/visl/visl-trace-hevc.h | 59 ++++++++++++++++=
-+++
-> =C2=A03 files changed, 69 insertions(+)
+> =C2=A0.../media/platform/rockchip/rkvdec/rkvdec.c=C2=A0=C2=A0 | 68 ++++++=
+++++---------
+> =C2=A0.../media/platform/rockchip/rkvdec/rkvdec.h=C2=A0=C2=A0 |=C2=A0 8 +=
+--
+> =C2=A02 files changed, 39 insertions(+), 37 deletions(-)
 >=20
-> diff --git a/drivers/media/test-drivers/visl/visl-dec.c b/drivers/media/t=
-est-drivers/visl/visl-dec.c
-> index d90b79de8384..6bbf93757047 100644
-> --- a/drivers/media/test-drivers/visl/visl-dec.c
-> +++ b/drivers/media/test-drivers/visl/visl-dec.c
-> @@ -547,6 +547,9 @@ static void visl_trace_ctrls(struct visl_ctx *ctx, st=
-ruct visl_run *run)
-> =C2=A0			trace_v4l2_hevc_dpb_entry(&run->hevc.dpram->dpb[i]);
-> =C2=A0
-> =C2=A0		trace_v4l2_hevc_pred_weight_table(&run->hevc.spram->pred_weight_t=
-able);
-> +		trace_v4l2_ctrl_hevc_ext_sps_lt_rps(run->hevc.rps_lt);
-> +		trace_v4l2_ctrl_hevc_ext_sps_st_rps(run->hevc.rps_st);
-> +
-> =C2=A0		break;
-> =C2=A0	case VISL_CODEC_AV1:
-> =C2=A0		trace_v4l2_ctrl_av1_sequence(run->av1.seq);
-> @@ -611,6 +614,10 @@ void visl_device_run(void *priv)
-> =C2=A0		run.hevc.spram =3D visl_find_control_data(ctx, V4L2_CID_STATELESS=
-_HEVC_SLICE_PARAMS);
-> =C2=A0		run.hevc.sm =3D visl_find_control_data(ctx, V4L2_CID_STATELESS_HE=
-VC_SCALING_MATRIX);
-> =C2=A0		run.hevc.dpram =3D visl_find_control_data(ctx, V4L2_CID_STATELESS=
-_HEVC_DECODE_PARAMS);
-> +		run.hevc.rps_lt =3D visl_find_control_data(ctx,
-> +							 V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS);
-> +		run.hevc.rps_st =3D visl_find_control_data(ctx,
-> +							 V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS);
-> =C2=A0		break;
-> =C2=A0	case VISL_CODEC_AV1:
-> =C2=A0		run.av1.seq =3D visl_find_control_data(ctx, V4L2_CID_STATELESS_AV=
-1_SEQUENCE);
-> diff --git a/drivers/media/test-drivers/visl/visl-dec.h b/drivers/media/t=
-est-drivers/visl/visl-dec.h
-> index c2c2ef3a8798..6e7562e555bb 100644
-> --- a/drivers/media/test-drivers/visl/visl-dec.h
-> +++ b/drivers/media/test-drivers/visl/visl-dec.h
-> @@ -7,6 +7,7 @@
-> =C2=A0#ifndef _VISL_DEC_H_
-> =C2=A0#define _VISL_DEC_H_
-> =C2=A0
-> +#include "linux/v4l2-controls.h"
-> =C2=A0#include "visl.h"
-> =C2=A0
-> =C2=A0struct visl_fwht_run {
-> @@ -43,6 +44,8 @@ struct visl_hevc_run {
-> =C2=A0	const struct v4l2_ctrl_hevc_slice_params *spram;
-> =C2=A0	const struct v4l2_ctrl_hevc_scaling_matrix *sm;
-> =C2=A0	const struct v4l2_ctrl_hevc_decode_params *dpram;
-> +	const struct v4l2_ctrl_hevc_ext_sps_lt_rps *rps_lt;
-> +	const struct v4l2_ctrl_hevc_ext_sps_st_rps *rps_st;
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/me=
+dia/platform/rockchip/rkvdec/rkvdec.c
+> index 776149f871b0..92b1c7b62bd2 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -328,7 +328,6 @@ static const struct rkvdec_coded_fmt_desc rkvdec_code=
+d_fmts[] =3D {
+> =C2=A0		.ops =3D &rkvdec_hevc_fmt_ops,
+> =C2=A0		.num_decoded_fmts =3D ARRAY_SIZE(rkvdec_hevc_decoded_fmts),
+> =C2=A0		.decoded_fmts =3D rkvdec_hevc_decoded_fmts,
+> -		.capability =3D RKVDEC_CAPABILITY_HEVC,
+> =C2=A0	},
+> =C2=A0	{
+> =C2=A0		.fourcc =3D V4L2_PIX_FMT_H264_SLICE,
+> @@ -345,7 +344,6 @@ static const struct rkvdec_coded_fmt_desc rkvdec_code=
+d_fmts[] =3D {
+> =C2=A0		.num_decoded_fmts =3D ARRAY_SIZE(rkvdec_h264_decoded_fmts),
+> =C2=A0		.decoded_fmts =3D rkvdec_h264_decoded_fmts,
+> =C2=A0		.subsystem_flags =3D VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF,
+> -		.capability =3D RKVDEC_CAPABILITY_H264,
+> =C2=A0	},
+> =C2=A0	{
+> =C2=A0		.fourcc =3D V4L2_PIX_FMT_VP9_FRAME,
+> @@ -361,27 +359,38 @@ static const struct rkvdec_coded_fmt_desc rkvdec_co=
+ded_fmts[] =3D {
+> =C2=A0		.ops =3D &rkvdec_vp9_fmt_ops,
+> =C2=A0		.num_decoded_fmts =3D ARRAY_SIZE(rkvdec_vp9_decoded_fmts),
+> =C2=A0		.decoded_fmts =3D rkvdec_vp9_decoded_fmts,
+> -		.capability =3D RKVDEC_CAPABILITY_VP9,
+> =C2=A0	}
 > =C2=A0};
 > =C2=A0
-> =C2=A0struct visl_av1_run {
-> diff --git a/drivers/media/test-drivers/visl/visl-trace-hevc.h b/drivers/=
-media/test-drivers/visl/visl-trace-hevc.h
-> index 837b8ec12e97..963914c463db 100644
-> --- a/drivers/media/test-drivers/visl/visl-trace-hevc.h
-> +++ b/drivers/media/test-drivers/visl/visl-trace-hevc.h
-> @@ -1,4 +1,5 @@
-> =C2=A0/* SPDX-License-Identifier: GPL-2.0+ */
-> +#include "linux/v4l2-controls.h"
-> =C2=A0#if !defined(_VISL_TRACE_HEVC_H_) || defined(TRACE_HEADER_MULTI_REA=
-D)
-> =C2=A0#define _VISL_TRACE_HEVC_H_
+> -static bool rkvdec_is_capable(struct rkvdec_ctx *ctx, unsigned int capab=
+ility)
+> -{
+> -	return (ctx->dev->variant->capabilities & capability) =3D=3D capability=
+;
+> -}
+> +static const struct rkvdec_coded_fmt_desc rk3288_coded_fmts[] =3D {
+> +	{
+> +		.fourcc =3D V4L2_PIX_FMT_HEVC_SLICE,
+> +		.frmsize =3D {
+> +			.min_width =3D 64,
+> +			.max_width =3D 4096,
+> +			.step_width =3D 64,
+> +			.min_height =3D 64,
+> +			.max_height =3D 2304,
+> +			.step_height =3D 16,
+> +		},
+> +		.ctrls =3D &rkvdec_hevc_ctrls,
+> +		.ops =3D &rkvdec_hevc_fmt_ops,
+> +		.num_decoded_fmts =3D ARRAY_SIZE(rkvdec_hevc_decoded_fmts),
+> +		.decoded_fmts =3D rkvdec_hevc_decoded_fmts,
+> +	}
+> +};
 > =C2=A0
-> @@ -343,6 +344,54 @@ DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_decode_params_tmp=
-l,
-> =C2=A0	))
-> =C2=A0);
+> =C2=A0static const struct rkvdec_coded_fmt_desc *
+> =C2=A0rkvdec_enum_coded_fmt_desc(struct rkvdec_ctx *ctx, int index)
+> =C2=A0{
+> +	const struct rkvdec_variant *variant =3D ctx->dev->variant;
+> =C2=A0	int fmt_idx =3D -1;
+> =C2=A0	unsigned int i;
 > =C2=A0
-> +DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_ext_sps_lt_rps_tmpl,
-> +	TP_PROTO(const struct v4l2_ctrl_hevc_ext_sps_lt_rps *lt),
-> +	TP_ARGS(lt),
-> +	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_hevc_ext_sps_lt_rps, l=
-t)),
-> +	TP_fast_assign(__entry->lt =3D *lt),
-> +	TP_printk("\nflags %s\n"
-> +		=C2=A0 "lt_ref_pic_poc_lsb_sps %x\n",
-> +		=C2=A0 __print_flags(__entry->lt.flags, "|",
-> +		=C2=A0 {V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_USED_LT, "USED_LT"}
-> +		=C2=A0 ),
-> +		=C2=A0 __entry->lt.lt_ref_pic_poc_lsb_sps
-> +	)
-> +)
-> +
-> +DECLARE_EVENT_CLASS(v4l2_ctrl_hevc_ext_sps_st_rps_tmpl,
-> +	TP_PROTO(const struct v4l2_ctrl_hevc_ext_sps_st_rps *st),
-> +	TP_ARGS(st),
-> +	TP_STRUCT__entry(__field_struct(struct v4l2_ctrl_hevc_ext_sps_st_rps, s=
-t)),
-> +	TP_fast_assign(__entry->st =3D *st),
-> +	TP_printk("\nflags %s\n"
-> +		=C2=A0 "delta_idx_minus1: %u\n"
-> +		=C2=A0 "delta_rps_sign: %u\n"
-> +		=C2=A0 "abs_delta_rps_minus1: %u\n"
-> +		=C2=A0 "num_negative_pics: %u\n"
-> +		=C2=A0 "num_positive_pics: %u\n"
-> +		=C2=A0 "used_by_curr_pic: %08x\n"
-> +		=C2=A0 "use_delta_flag: %08x\n"
-> +		=C2=A0 "delta_poc_s0_minus1: %s\n"
-> +		=C2=A0 "delta_poc_s1_minus1: %s\n",
-> +		=C2=A0 __print_flags(__entry->st.flags, "|",
-> +		=C2=A0 {V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_INTER_REF_PIC_SET_PRED, "INTER_R=
-EF_PIC_SET_PRED"}
-> +		=C2=A0 ),
-> +		=C2=A0 __entry->st.delta_idx_minus1,
-> +		=C2=A0 __entry->st.delta_rps_sign,
-> +		=C2=A0 __entry->st.abs_delta_rps_minus1,
-> +		=C2=A0 __entry->st.num_negative_pics,
-> +		=C2=A0 __entry->st.num_positive_pics,
-> +		=C2=A0 __entry->st.used_by_curr_pic,
-> +		=C2=A0 __entry->st.use_delta_flag,
-> +		=C2=A0 __print_array(__entry->st.delta_poc_s0_minus1,
-> +				ARRAY_SIZE(__entry->st.delta_poc_s0_minus1),
-> +				sizeof(__entry->st.delta_poc_s0_minus1[0])),
-> +		=C2=A0 __print_array(__entry->st.delta_poc_s1_minus1,
-> +				ARRAY_SIZE(__entry->st.delta_poc_s1_minus1),
-> +				sizeof(__entry->st.delta_poc_s1_minus1[0]))
-> +	)
-> +)
-> +
+> -	for (i =3D 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+> -		if (!rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability))
+> -			continue;
+> +	for (i =3D 0; i < variant->num_coded_fmts; i++) {
+> =C2=A0		fmt_idx++;
+> =C2=A0		if (index =3D=3D fmt_idx)
+> -			return &rkvdec_coded_fmts[i];
+> +			return &variant->coded_fmts[i];
+> =C2=A0	}
 > =C2=A0
-> =C2=A0DECLARE_EVENT_CLASS(v4l2_hevc_dpb_entry_tmpl,
-> =C2=A0	TP_PROTO(const struct v4l2_hevc_dpb_entry *e),
-> @@ -391,6 +440,16 @@ DEFINE_EVENT(v4l2_ctrl_hevc_decode_params_tmpl, v4l2=
-_ctrl_hevc_decode_params,
-> =C2=A0	TP_ARGS(d)
-> =C2=A0);
+> =C2=A0	return NULL;
+> @@ -390,12 +399,12 @@ rkvdec_enum_coded_fmt_desc(struct rkvdec_ctx *ctx, =
+int index)
+> =C2=A0static const struct rkvdec_coded_fmt_desc *
+> =C2=A0rkvdec_find_coded_fmt_desc(struct rkvdec_ctx *ctx, u32 fourcc)
+> =C2=A0{
+> +	const struct rkvdec_variant *variant =3D ctx->dev->variant;
+> =C2=A0	unsigned int i;
 > =C2=A0
-> +DEFINE_EVENT(v4l2_ctrl_hevc_ext_sps_lt_rps_tmpl, v4l2_ctrl_hevc_ext_sps_=
-lt_rps,
-> +	TP_PROTO(const struct v4l2_ctrl_hevc_ext_sps_lt_rps *lt),
-> +	TP_ARGS(lt)
-> +);
-> +
-> +DEFINE_EVENT(v4l2_ctrl_hevc_ext_sps_st_rps_tmpl, v4l2_ctrl_hevc_ext_sps_=
-st_rps,
-> +	TP_PROTO(const struct v4l2_ctrl_hevc_ext_sps_st_rps *st),
-> +	TP_ARGS(st)
-> +);
-> +
-> =C2=A0DEFINE_EVENT(v4l2_hevc_dpb_entry_tmpl, v4l2_hevc_dpb_entry,
-> =C2=A0	TP_PROTO(const struct v4l2_hevc_dpb_entry *e),
-> =C2=A0	TP_ARGS(e)
+> -	for (i =3D 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+> -		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability) &&
+> -		=C2=A0=C2=A0=C2=A0 rkvdec_coded_fmts[i].fourcc =3D=3D fourcc)
+> -			return &rkvdec_coded_fmts[i];
+> +	for (i =3D 0; i < variant->num_coded_fmts; i++) {
+> +		if (variant->coded_fmts[i].fourcc =3D=3D fourcc)
+> +			return &variant->coded_fmts[i];
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	return NULL;
+> @@ -1014,21 +1023,19 @@ static int rkvdec_add_ctrls(struct rkvdec_ctx *ct=
+x,
+> =C2=A0
+> =C2=A0static int rkvdec_init_ctrls(struct rkvdec_ctx *ctx)
+> =C2=A0{
+> +	const struct rkvdec_variant *variant =3D ctx->dev->variant;
+> =C2=A0	unsigned int i, nctrls =3D 0;
+> =C2=A0	int ret;
+> =C2=A0
+> -	for (i =3D 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++)
+> -		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability))
+> -			nctrls +=3D rkvdec_coded_fmts[i].ctrls->num_ctrls;
+> +	for (i =3D 0; i < variant->num_coded_fmts; i++)
+> +		nctrls +=3D variant->coded_fmts[i].ctrls->num_ctrls;
+> =C2=A0
+> =C2=A0	v4l2_ctrl_handler_init(&ctx->ctrl_hdl, nctrls);
+> =C2=A0
+> -	for (i =3D 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+> -		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability)) {
+> -			ret =3D rkvdec_add_ctrls(ctx, rkvdec_coded_fmts[i].ctrls);
+> -			if (ret)
+> -				goto err_free_handler;
+> -		}
+> +	for (i =3D 0; i < variant->num_coded_fmts; i++) {
+> +		ret =3D rkvdec_add_ctrls(ctx, variant->coded_fmts[i].ctrls);
+> +		if (ret)
+> +			goto err_free_handler;
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	ret =3D v4l2_ctrl_handler_setup(&ctx->ctrl_hdl);
+> @@ -1242,22 +1249,21 @@ static void rkvdec_watchdog_func(struct work_stru=
+ct *work)
+> =C2=A0
+> =C2=A0static const struct rkvdec_variant rk3288_rkvdec_variant =3D {
+> =C2=A0	.num_regs =3D 68,
+> -	.capabilities =3D RKVDEC_CAPABILITY_HEVC,
+> +	.coded_fmts =3D rk3288_coded_fmts,
+> +	.num_coded_fmts =3D ARRAY_SIZE(rk3288_coded_fmts),
+> =C2=A0};
+> =C2=A0
+> =C2=A0static const struct rkvdec_variant rk3328_rkvdec_variant =3D {
+> =C2=A0	.num_regs =3D 109,
+> -	.capabilities =3D RKVDEC_CAPABILITY_HEVC |
+> -			RKVDEC_CAPABILITY_H264 |
+> -			RKVDEC_CAPABILITY_VP9,
+> +	.coded_fmts =3D rkvdec_coded_fmts,
+> +	.num_coded_fmts =3D ARRAY_SIZE(rkvdec_coded_fmts),
+> =C2=A0	.quirks =3D RKVDEC_QUIRK_DISABLE_QOS,
+> =C2=A0};
+> =C2=A0
+> =C2=A0static const struct rkvdec_variant rk3399_rkvdec_variant =3D {
+> =C2=A0	.num_regs =3D 78,
+> -	.capabilities =3D RKVDEC_CAPABILITY_HEVC |
+> -			RKVDEC_CAPABILITY_H264 |
+> -			RKVDEC_CAPABILITY_VP9,
+> +	.coded_fmts =3D rkvdec_coded_fmts,
+> +	.num_coded_fmts =3D ARRAY_SIZE(rkvdec_coded_fmts),
+> =C2=A0};
+> =C2=A0
+> =C2=A0static const struct of_device_id of_rkvdec_match[] =3D {
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/me=
+dia/platform/rockchip/rkvdec/rkvdec.h
+> index f35f6e80ea2e..8c4f96ba5cde 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> @@ -22,10 +22,6 @@
+> =C2=A0#include <media/videobuf2-core.h>
+> =C2=A0#include <media/videobuf2-dma-contig.h>
+> =C2=A0
+> -#define RKVDEC_CAPABILITY_HEVC		BIT(0)
+> -#define RKVDEC_CAPABILITY_H264		BIT(1)
+> -#define RKVDEC_CAPABILITY_VP9		BIT(2)
+> -
+> =C2=A0#define RKVDEC_QUIRK_DISABLE_QOS	BIT(0)
+> =C2=A0
+> =C2=A0struct rkvdec_ctx;
+> @@ -71,7 +67,8 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
+> =C2=A0
+> =C2=A0struct rkvdec_variant {
+> =C2=A0	unsigned int num_regs;
+> -	unsigned int capabilities;
+> +	const struct rkvdec_coded_fmt_desc *coded_fmts;
+> +	size_t num_coded_fmts;
+> =C2=A0	unsigned int quirks;
+> =C2=A0};
+> =C2=A0
+> @@ -110,7 +107,6 @@ struct rkvdec_coded_fmt_desc {
+> =C2=A0	unsigned int num_decoded_fmts;
+> =C2=A0	const struct rkvdec_decoded_fmt_desc *decoded_fmts;
+> =C2=A0	u32 subsystem_flags;
+> -	unsigned int capability;
+> =C2=A0};
+> =C2=A0
+> =C2=A0struct rkvdec_dev {
 
---=-kVootli7QnlYJLgUtppV
+--=-FALApNwo4B5f7hHCaJGW
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaW1XOwAKCRDZQZRRKWBy
-9PvjAP4mmVlS0S0FlhUxKz3/pGk0KFqABCa5V5n9+A8acMhFWQEA1hj1S6gjbtbE
-oHOqNjHoSW/Bopo+as+AvPD1ppBCQg4=
-=l77h
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaW1YbQAKCRDZQZRRKWBy
+9PKoAP9blyG76IURGuJQDsnXvY68FS4CTzaBsBCt96rxC8GNuQD+MqOKUtxjU4H8
+FSDKxY6G/H2oTHFnUE0bm0qJid+BzgE=
+=FJDj
 -----END PGP SIGNATURE-----
 
---=-kVootli7QnlYJLgUtppV--
+--=-FALApNwo4B5f7hHCaJGW--
 
