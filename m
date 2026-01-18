@@ -4,106 +4,244 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3447DC9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 12:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 511A8C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 12:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EIrtRDzUCsIcv+cXJ2ii4UIhy257jrQnZhJ5DnszFqI=; b=VSNAyiI34Q0JQpXbfoCICWidrU
-	h3/6/890scXpM/kMWUe9chDVMc/jyop4QeB6kzocq4tIzVgQwYvmZWuTKR5Ipr+F4YF13bXdR/4Zm
-	U9bQJrjSHaWnKg9ddULR2lfXsSTrTxrEAnIkRZvXP/kDp5w3ZJKqmN95fyo67PYHJCYoYS1s8pGNw
-	xeWKGKc/D71DmET16GwiUuFHctj5xS6wCvMYcASg3kzE7YHjvpBpqaiPN2fQW61V57vqIQpZ/AICh
-	zb1A0Y/4Y+m45RV63fB4yCIn3Fh3rer6hleIVLFZw3NC89z+Dia6AbzJWCRRQVc409S1xd5hIuTg5
-	FD4KlBOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fqNbS73L/My0xkAHFh0AWgsjDUDmQqLF1pOjzN7+ebk=; b=35Al9QxAUsBJL0vmHtJ6S/fqHT
+	dpA/zaMOzYDlEd2QCUedzCmN64i6LkCsVZd/V5M7DnFqV0BrNP+uiQt9PeUyFvvJQiyt9rwCIWunF
+	mG8avJXvrJyKmtfHfnvvM0nZOGTtTDiFcbUxnBBNo29O37TvbKBy75AbR92XaOAK4u3EMNhx+nwho
+	GYG7A9ImnViF7x780xLkG1130qSpzKd1z3c/8ywqXvGzdMoUietiR57ste72IKB4TfE3j0zTvrBgz
+	+LwmzqrJNeis5ZepmEIjxIefqe1RGDJHXy9tnZSo//oDLhZkTUdPNld7082WDa+pPAl1uyfiJtKka
+	qGok5haw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhSE6-000000001Pk-3hxY;
-	Sun, 18 Jan 2026 12:49:54 +0000
-Received: from fout-a4-smtp.messagingengine.com ([103.168.172.147])
+	id 1vhSG9-000000001h4-1i6B;
+	Sun, 18 Jan 2026 12:52:01 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhSE2-000000001Oe-3ran
+	id 1vhSG6-000000001g8-1dzn
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Jan 2026 12:49:52 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id 2CF12EC0514;
-	Sun, 18 Jan 2026 07:49:47 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-04.internal (MEProxy); Sun, 18 Jan 2026 07:49:47 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm1; t=1768740587; x=1768826987; bh=EIrtRDzUCs
-	Icv+cXJ2ii4UIhy257jrQnZhJ5DnszFqI=; b=TEChiSp55WvVAEcZW/mX80l8ek
-	dSduueouoxmBk/8F5XG8J2qkuHV/lRozsl0uvTNYg4TXx2W9PBDKNZLHky34zU6I
-	gk3Onqd+5TxRLZSXF3lxaBrjUyoKV7Pcheo91OnVGvvbadFycJt2mjc32iqGVZOV
-	Ahx8v/cx6dpxLv9aURxuQqvGk43HL6fznhKwUNPj7AOdKJWGIz20Tw2oWTn9wL7M
-	BUon5y+4gTcXf93Tfef18+wU4kilUylNEYI3h6CG11tCSo9XcTlHUGQb2Sx94c6w
-	/C5qoUj0SZ+w8JAdLM3ByhdVNol0bxlOIDN9DQHNbwf1xVS68+FcHGcqp+XA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1768740587; x=1768826987; bh=EIrtRDzUCsIcv+cXJ2ii4UIhy257jrQnZhJ
-	5DnszFqI=; b=GD+pLgX77MfZrmN4zctZIdSx4x2zgnPGM+cjeLj3kGUSfhcWAP0
-	f2IETepg+RyVQ8rGZfoUGJOW4CnwfQTloH6kPkMBxBVYXEAnOw8ekAuo5WUQJtbu
-	kg5194yxX6iWHmrhW0ZqdgHIskBzpTttk1K9IOFPT2Aw6xGEJbR9K+99GBjHacMY
-	SX5QuN0WeW+6OSV6ZQzekzVuO4yE/hKfBZMV/yLuOYS1nDh+HVKArv0cVTnsio+0
-	L3qIIuEyk2wMqnV1dHO0DkkbjsKMMYWSQKHxcmExWiLaGTSwHSEcsuD72jdjjg6t
-	Ft1aeplrfyClbOpsNvEbb+rzaOitlxzzNrA==
-X-ME-Sender: <xms:6tZsaYBEwPLNFXMosvlMhab6yFyW1LCHMscZABANcVJrvD4IQIkipQ>
-    <xme:6tZsae5juQc_JZiQEtHCe-nCuBbGhGNSfeoiFnrqGnlORl8lDXK9Q52nDJjwUUxcJ
-    YxMPAVxFfGW9rTAVZUt55DPR1ZBjyFoifBMYd-QlCwYU2Fo6k6WB_g>
-X-ME-Received: <xmr:6tZsaZedzY8tEYlcj3zYTCgGfoOh_vEBMQu1Eujzc1Bx5YHWGhNYjJZY-_TJpkriqdzkeWsQsQEW_5G7NrSolaXVxug5VY8zRgc>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddufeegjeefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
-    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgvd
-    ffveelgedujeeffeehheekheelheefgfejffeftedugeethfeuudefheefteenucevlhhu
-    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
-    drnhgvthdpnhgspghrtghpthhtohepuddupdhmohguvgepshhmthhpohhuthdprhgtphht
-    thhopehtohifihhntghhvghnmhhisehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhhitg
-    hhrggvlhdrrhgvvghvvghstdejjeesghhmrghilhdrtghomhdprhgtphhtthhopehsrhgv
-    sehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpd
-    hrtghpthhtohepnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtoheplhgvvgeskhgv
-    rhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkh
-    gvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqphhmsehvghgvrhdrkhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlhhinhhugidruggvvh
-X-ME-Proxy: <xmx:6tZsactZ4HWaomlkGmbWNa_mCHfP337rrbc2bp9CdtvRBMkHs4fLRA>
-    <xmx:6tZsaRlvVb0VvsqdV908cwjLSgW-PNm6zxWiAHFz9HRcGx036MdwkA>
-    <xmx:6tZsaXTR1UGarEGXwiQ0hY-mQ7Hh6Vp6EbSR8OesNoBfOANfD7FMAA>
-    <xmx:6tZsafLkkiMtCQqp-jyFxv6jxiluGSMcXWiSySB-UVF85gxvlGVkXg>
-    <xmx:69ZsabMpkF9PSitWVIzhv6tMCzvcnYoDN7fa0O33DZtulev2DJlQ3z8r>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 18 Jan 2026 07:49:45 -0500 (EST)
-Date: Sun, 18 Jan 2026 13:49:41 +0100
-From: Janne Grunau <j@jannau.net>
-To: Nick Chan <towinchenmi@gmail.com>
-Cc: michael.reeves077@gmail.com, Sebastian Reichel <sre@kernel.org>,
-	Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Lee Jones <lee@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Hector Martin <marcan@marcan.st>
-Subject: Re: [PATCH v3 1/2] power: supply: Add macsmc-power driver for Apple
- Silicon
-Message-ID: <20260118124941.GB55832@robin.jannau.net>
-References: <20260115-b4-macsmc-power-v3-0-c236e09874be@gmail.com>
- <20260115-b4-macsmc-power-v3-1-c236e09874be@gmail.com>
- <20260117122634.GA58217@robin.jannau.net>
- <42645fb0-3ae1-4ded-91db-f1435fa79a72@gmail.com>
+	Sun, 18 Jan 2026 12:52:00 +0000
+ARC-Seal: i=3; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=i7rUDrnEQk/7XImfctPVwuMJf2bskHT4MbM+qkff3TUWkL0Roh+pY0dJ9DLDzBrIdiEM3KPFrc5L3ZKw3+GUun36D4UMaGKpC7S1T8ZsjuJF3dGWgGBlazbxavln6ES67iMoKdbfFT1hZlZG6D8OP4xR4bwwwgqGthmMxFWt+iCNS7RyU7eOeR5xJwJS8XEnxF288E6VaMiDJhTqkyd1yNPeXEzSehIIrXY2s4i4/rr4y+75oBaVEWSyUcl3vOnnU8+8Ct9rQk8h4U09SU7HkIPuad5oPOdjC3N+X27ELPg4vrnZDSTZy8551FWKpVm4yfKnq2ocrcVEzm9ueoPopg==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fqNbS73L/My0xkAHFh0AWgsjDUDmQqLF1pOjzN7+ebk=;
+ b=jlOmREXmcJ948v5bSS1P2LRMlECtK19tKOdWaYskyXcvo2QkFBLbhJiruXWcmnaB5pEfkAtAGIvVnfGwvVpkjGl+JZF7Bs7rXz1Y22l7xnlf11e9uB4stVBlgrGxxV9dAZ961hMKbYGnvPc/H/9tORtFb1kDf2m9W2iHCuehrBOqsN2e0924g5Hxo/Y7DKnjpZeZUMo/OVeMGJkZlYkuMKCq/XhaiNH/u1/EKLuKJD5xzI+1fX4IehGPbgt69b9GXotql8rpXz6WYOvwgmVRHcpw1S9zwe6YSHbx+OyOQ7o5Oc5Pesbm9dpTstXCpclJfKTXgzBMxxbPIyg2off5zg==
+ARC-Authentication-Results: i=3; mx.microsoft.com 1; spf=fail (sender ip is
+ 52.17.62.50) smtp.rcpttodomain=gmail.com smtp.mailfrom=solid-run.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=solid-run.com;
+ dkim=pass (signature was verified) header.d=solidrn.onmicrosoft.com; arc=pass
+ (0 oda=1 ltdi=1 spf=[1,1,smtp.mailfrom=solid-run.com]
+ dkim=[1,1,header.d=solid-run.com] dmarc=[1,1,header.from=solid-run.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fqNbS73L/My0xkAHFh0AWgsjDUDmQqLF1pOjzN7+ebk=;
+ b=B2OlsDPdN7VLmYiiaN0R3QlOsDJjK7oqvwJjrEZzxQuEEmf8Dx+aNPK2YyiQE4oSmk+ygcRBMbMIlStozBo/4CCIPNo2H5wPw9svWWqau11ZbPlOVcrOZBWvCIA6mALuprVdgFbNWUIBe9+qJEg6vcM98gVRrFlgPOG7/1LC4no=
+Received: from AS4P192CA0015.EURP192.PROD.OUTLOOK.COM (2603:10a6:20b:5da::10)
+ by DB9PR04MB8124.eurprd04.prod.outlook.com (2603:10a6:10:246::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.10; Sun, 18 Jan
+ 2026 12:51:54 +0000
+Received: from AM4PEPF00027A68.eurprd04.prod.outlook.com
+ (2603:10a6:20b:5da:cafe::53) by AS4P192CA0015.outlook.office365.com
+ (2603:10a6:20b:5da::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.11 via Frontend Transport; Sun,
+ 18 Jan 2026 12:51:50 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 52.17.62.50)
+ smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
+ header.d=solidrn.onmicrosoft.com;dmarc=fail action=none
+ header.from=solid-run.com;
+Received-SPF: Fail (protection.outlook.com: domain of solid-run.com does not
+ designate 52.17.62.50 as permitted sender) receiver=protection.outlook.com;
+ client-ip=52.17.62.50; helo=eu-dlp.cloud-sec-av.com;
+Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
+ AM4PEPF00027A68.mail.protection.outlook.com (10.167.16.85) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.4
+ via Frontend Transport; Sun, 18 Jan 2026 12:51:53 +0000
+Received: from emails-8521323-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-5-103.eu-west-1.compute.internal [10.20.5.103])
+	by mta-outgoing-dlp-670-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id 801DB8015B;
+	Sun, 18 Jan 2026 12:51:53 +0000 (UTC)
+ARC-Authentication-Results: i=2; mx.checkpointcloudsec.com;
+ arc=pass;
+ dkim=none header.d=none
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed;
+ d=checkpointcloudsec.com; s=arcselector01; t=1768740713; h=from : to :
+ subject : date : message-id : content-type : mime-version;
+ bh=fqNbS73L/My0xkAHFh0AWgsjDUDmQqLF1pOjzN7+ebk=;
+ b=fWEJ/NcuBGjndKhSQOoGCGe4LL5nJvbNp01ZQZlUB6q5p5wT1YK1T0bniFnSLl0E8yWYT
+ SRC16D4QxWC/eypBVXPJvU9+xZQiJTidh3g4HeNxk43PEYvYz4M5nIgm2XniHewS+82+cyq
+ E+UFVW/4r1OC1/mgIRxvXeHrHWGxZxw=
+ARC-Seal: i=2; cv=pass; a=rsa-sha256; d=checkpointcloudsec.com;
+ s=arcselector01; t=1768740713;
+ b=Bhw+4Z94fiGxJGg4fkK3j64h+MDuQ6PgmIxnRf2ycAyX0sHB/kKEF1JtOs+NW0tNl8R3B
+ QVb6YESvvut940/grayfxlfLz3/IKb9/BRbMzlU2zpCoC9DPGdyUNrZ5qZGFXSABDTXg0wG
+ GRC/sI74E6RBcDhT3W/bF1WvnKwCJ0g=
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=W3kqxwmuhZVKnxfCs41/JoGp0UlxaabNWrA1+WTxjBm4EYxAnz6M+uDjNeIlYvVnkC0NE4yQzTmaPT8XQRZ4maa6zNye/b6xI8J7xQN1ir1pVbwN4A3rbBHyCPQ29R/s3/XCPLN1LTYZz7keewPmPolheS2877n7shtNw6Cqb2i1lSLzETb2bHSsL0NUE5+JNbepBjiiUWXAlSgJy2dkWkj2t0Gq/GsI86JIHVuLgJkZ8i77YzROuNMLRVUetTHuCTlydJU9Onsytz35qvAiH0yfIUxqSytr2ADXAaYXi0M2xlqGsm5LHR+kFsFvAkkJSOXQbVu4WL0fPOKCm6qQ0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fqNbS73L/My0xkAHFh0AWgsjDUDmQqLF1pOjzN7+ebk=;
+ b=glyB7smtjpOMs2KI62crVZhMtSRY+JhF+1H/ShOuzGgaGmWP+N1iNhQBeFPRy7nPUF6GdaRotkfOZaNQB/1bIVSJrV7Bb8vso3G0EENBOwm0lPJEYRSSzAFNANVGZ2TKxjK2aH/ltft7MZFiht5VL4XF18Dyanr+eVaIUTq+uOvPrfDRJd6Cy4p+ZxAULQwLng6p+hU1y4Hv5gE6aTBTD4qBRipBgXhmuhoTwriSaHEd8hnMpzIRv0xi6UiBgt4P4i945k7wAWEm/UBU0YENmLun5pFVjRvBeekkLA4D669pX6QL6MPwv0D5MG94sBFauFGSRWohH43bSxuQ8KIm4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=solidrn.onmicrosoft.com; s=selector1-solidrn-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fqNbS73L/My0xkAHFh0AWgsjDUDmQqLF1pOjzN7+ebk=;
+ b=B2OlsDPdN7VLmYiiaN0R3QlOsDJjK7oqvwJjrEZzxQuEEmf8Dx+aNPK2YyiQE4oSmk+ygcRBMbMIlStozBo/4CCIPNo2H5wPw9svWWqau11ZbPlOVcrOZBWvCIA6mALuprVdgFbNWUIBe9+qJEg6vcM98gVRrFlgPOG7/1LC4no=
+Received: from PAXPR04MB8749.eurprd04.prod.outlook.com (2603:10a6:102:21f::22)
+ by DB9PR04MB11694.eurprd04.prod.outlook.com (2603:10a6:10:60f::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.11; Sun, 18 Jan
+ 2026 12:51:43 +0000
+Received: from PAXPR04MB8749.eurprd04.prod.outlook.com
+ ([fe80::aa83:81a0:a276:51f6]) by PAXPR04MB8749.eurprd04.prod.outlook.com
+ ([fe80::aa83:81a0:a276:51f6%4]) with mapi id 15.20.9520.005; Sun, 18 Jan 2026
+ 12:51:43 +0000
+From: Josua Mayer <josua@solid-run.com>
+Subject: [PATCH v7 0/8] arm64: dts: add description for solidrun imx8mp
+ hummingboard-iiot
+Date: Sun, 18 Jan 2026 14:51:37 +0200
+Message-Id: <20260118-imx8mp-hb-iiot-v7-0-ef1176119a8e@solid-run.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFnXbGkC/6XOQWrDMBCF4asErauiGVmy3FXvUbKwpFEtqO0gp
+ SYh+O6VAyGl1q7L/8F8zI1lSpEyezvcWKIl5jhPJdqXA3NDP30Sj740Q4EKBGoex4sZT3ywPMb
+ 5zBUqK6Ql6jWycnRKFOLlDn4cSw8xn+d0vfsLbOuDav9SC3DBtZHBaKlaA+Y9z1/R8/Q9vbp5Z
+ Bu34JMAsSewEN6glJ5813VUI+QvAvaELIQN0DcuqNCbKtE8CRSwI5pCKFkErx2CDTVCPQgtoEK
+ o7QupO4sknGirhP4fsa7rD79GDGb/AQAA
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Mikhail Anikin <mikhail.anikin@solid-run.com>,
+ Yazan Shhady <yazan.shhady@solid-run.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Josua Mayer <josua@solid-run.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: b4 0.13.0
+X-ClientProxiedBy: TLZP290CA0009.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:9::18) To PAXPR04MB8749.eurprd04.prod.outlook.com
+ (2603:10a6:102:21f::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <42645fb0-3ae1-4ded-91db-f1435fa79a72@gmail.com>
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8749:EE_|DB9PR04MB11694:EE_|AM4PEPF00027A68:EE_|DB9PR04MB8124:EE_
+X-MS-Office365-Filtering-Correlation-Id: 03d2932e-9dcf-4b8c-8a4b-08de56905b3a
+X-CLOUD-SEC-AV-Info: solidrun,office365_emails,sent,inline
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?UG1ZY0ZIbWx5aTE2U3RoQ0pHMUhmZDYyUmNxVmNFWHh3cEZzUVZlL0xReE8y?=
+ =?utf-8?B?VUd2eVlGcUhraENhSzdjdEdKaW44K0kvLzh2a0hEM2Vnb25TdHd2aUdDSi9j?=
+ =?utf-8?B?ak0vcWFYZkFCTEdQRjJiQWhjdkNoK0pzSU5iRUs1ZW1MZ1Vveno4MithR3Rs?=
+ =?utf-8?B?ZCtxajNjMzVzeWFyVXJFblNiZ0doSWF3RE13cXdodU1FY1hCWkw3NzN3Sm9h?=
+ =?utf-8?B?QXV5dEI0U0JGbUYxRzl0TlY3N2QwMmpPT3FWc01XZDV1RXRUTDlpOVdiK1U5?=
+ =?utf-8?B?RVBSRHc0TGNOYzVGSWoxYitmWkdYWklQN25iUEpacmhvQWRVZ2UvVlltck41?=
+ =?utf-8?B?M0xNb1FsYks5VmhyTk5NVy9UQzByM0gwQWNVa1E5anFmWDRnME4xTTVvNnJS?=
+ =?utf-8?B?WVNQR1lCS0ZGc1djZ3phT1pVc3k1dFkzQ3hrRTRaU01vWnlqVnpOOHBpTGlm?=
+ =?utf-8?B?ZXo4MHMyQ2NjL1h3SWhFcWpOVFJXRytSWmhaZWtibWh6SUFOSkhsa0NFNktK?=
+ =?utf-8?B?UWVrTVh5dW1QZm1STFFjR1V4VDFnbnlaU3haa3RENkdyUlVKWk1xbmtPa01y?=
+ =?utf-8?B?Q0ExWkpSTXNlTnU1SVJ4dE45YmxFR0wrWVl3b1c4SXFyblVwUjlkMDBlam5h?=
+ =?utf-8?B?RjUxTmJWNjBUTVd4QXl5WkxocXpLREpVMit6Nm9YSDFPcVcweTF0dFREbEwz?=
+ =?utf-8?B?aEkxN01iWmNDRzdRclRhZjdtUkR2aDlHSURSVE5VdGhWRmNRWmgvcGJRVjA1?=
+ =?utf-8?B?Y1Q4ZU55Ni9SY0tLYjRLK1JSUDIyempYbjhDS09vbWd4bS85T2xvdlBrU3k4?=
+ =?utf-8?B?Q21EMGQ2cDBVQ3JuTHJXT0cyb1ZxZlpPTlFMc3VPWk9TWmZtZmsvbVhRMllN?=
+ =?utf-8?B?aTMyK1llbDlDeU84Y2tnc2RXelhEOVdXK2tKYmJTM2pqQVZnUTFaT3c2Rlhz?=
+ =?utf-8?B?NmNkSldBRzhlSDgrbytLWE95UlRocWNWR3pLNjdpenFRNnVCbjZ1b0NiaGwz?=
+ =?utf-8?B?eHNiblpra2I5ZmpucGFpc3lQRHM3US91eE1TWFVQZTJFTE82NmtERGFId1FG?=
+ =?utf-8?B?RFdrM3lVc0lzNENWakVHVUs3UHdwRUd1Ty96WmU1Z0p5YkNJY001RklBQWRD?=
+ =?utf-8?B?dDJ4aSsxUldJcGRmeUhvdm1UdEFTS3htcTNyNzN6SHJLcFBCVFFydmlKcGcx?=
+ =?utf-8?B?V1A2NWpreVpSZG9TQzJOYkxHNXhOeC9iMnFCTThjTEZwRFh1WlVRakRyMjY0?=
+ =?utf-8?B?WFV0T29BMW83L2tHYUgwNDZ1eXpaTGF1eVFnNGMzZ0gwZWdJaGphdEJiT0ov?=
+ =?utf-8?B?dHpzaDhNYUJxc3ZrQjFhMVFWaVozcFJjR2EyUVJIVkg4bk1sdzBkdFVJVG9T?=
+ =?utf-8?B?QUsyS2YxWGFEck1mamtNWmNudmVqVWJONE10L2F3QUdVMmVTb3JaTWRBSTlZ?=
+ =?utf-8?B?MndjN1dkNXJnZ2k5OFdYay9wcCtyNXU1U1ZSYU9zU0luSml0MUFLbTFFdGVm?=
+ =?utf-8?B?cHFwcERIM3RhMnlYSldhblFHMVVUUTJuTGRpR2dtNDBtL2hxU2U2Mng1M0hz?=
+ =?utf-8?B?WHRvMHRTV255eGM1S2FlM3E5SFhlNlBqTE13V015VUc0UjE0c0ZlYzdvbWFG?=
+ =?utf-8?B?Ri9uTGJiemlUUzdNMXdwYTgrWVQ2eEFleDZKSnJndW1wOXIyTjVYRFgvRG4r?=
+ =?utf-8?B?YjJJbGdXZnVWeHJlemZQSnRWRTY4b2x2cUVkbEFHQThweDE3Mkl1ejZScmZK?=
+ =?utf-8?B?bkVKOWcyc252U3VRWkt0b1N0WGx1S2xWbXVlV2NBQyt5WU92dWRkQ2p5S3Ra?=
+ =?utf-8?B?SFhJVW5jb3ZnZndhUUVsZXZ6M00yUHdGRmo4TTdIbWJRazJzOTRYYzVBNnRG?=
+ =?utf-8?B?MERqOVZVYktZOFZTSnlsYVNUSzJ4c0w2Tjc2dHJWOUpTSXBpRGgwQTk4Nlgz?=
+ =?utf-8?B?a1V3cDJtOFhhVXhINFdlS1FBblZuSFNzMEZRWHhwOHRjWGJMM2xESXIvdllm?=
+ =?utf-8?B?Y1RyTlg2eUNLcHdiL0JZNXJvYStXSGtzTkRNY0ZreEJ2b0wxZ1dIQXlXZ0RW?=
+ =?utf-8?B?TTM0clU5Ynp6NVAxMVF1OEV3VmxtQzB5RVpENnVHa1BQcXlnR2J1djRLZXRs?=
+ =?utf-8?B?TjJhM2pYRUhoU3YrTEdWUDcrbXY1Y3drbVRiTTFHQ2VIaU0yNkw1SFpMRmlB?=
+ =?utf-8?Q?3fFBUAyywFciPZ4CQeRWFpM=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8749.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB11694
+X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
+X-CLOUD-SEC-AV-UUID: d8c8fcbef09f432f91cdfb46617e5923:solidrun,office365_emails,sent,inline:c4bf7be8fb70a9865d1ad9d7a64d2454
+Authentication-Results-Original: mx.checkpointcloudsec.com; arc=pass;
+ dkim=none header.d=none
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00027A68.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 69b66a0e-1d47-4639-af38-08de5690549d
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|14060799003|82310400026|35042699022;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Rk9GL1hFN2pMbkRVdTBoTnV5Q2M3eWkzNGNqR3d2Y3NSa29Ebm5aY2VvbjNK?=
+ =?utf-8?B?SCs0UG41UFBEWWVLQ3VHT1UySitBMm9hTVdkRW01eDk5akZkZEpuRDJFSXlq?=
+ =?utf-8?B?MDcwUWxFbnh5bkNDczc5WEI0T0FoMkExMmI4blRUVjdrYkx1NTJEamdTWk93?=
+ =?utf-8?B?VExaT2NqRjdoQmdoL013MmxwMitqQ2llNThtcjVzZ1N2TUpPSnIrTXVTcHR0?=
+ =?utf-8?B?WFNoTUJrSlVkK1B1K2dhdjF3VzhHOWtSeURKbkJ5czhMSitHWFozZmJ3VStp?=
+ =?utf-8?B?WVVlMk91M2xvYk1VR0VIWW9TRFVpQW5zbGd6T3VJL0xJR2gwVnRVNWRkNm1n?=
+ =?utf-8?B?cVUwL0d4QmhWVGlBeTFJelY4UGRTbHJhZTFrMGVmRXdQcVQ0R0FDUlk1RFBV?=
+ =?utf-8?B?Z09Pc3hMemZyMk9ka3pWTmpuMCtZYkZEMTdzVTlYeFRhb04rbUpwN3ZrYXZ6?=
+ =?utf-8?B?eG9KRWFVd3VyR2NkTXdBenVhY2Jidkx5bUtjQ3lRV2hWNnV0Yml0LzIzMjRt?=
+ =?utf-8?B?OElVdkZNMEFOakg5OUFvQkhRRHJ0Z3AzMURabk01SVJjZzdpVFhDZzQrYlJl?=
+ =?utf-8?B?SDY3TTUwQ1R2akVzQWdqdDdOYW1iNi9DUFZHeFkrTDliSUkwLzNWeklBN1B0?=
+ =?utf-8?B?U2s1VmZPQXZ0ai93WktzUnE3dXBhNTZFTFlGSDZNa3M4U0NZTUhTRk5Vem9Y?=
+ =?utf-8?B?aEVSYTFlL2pyQkN0NHgvK3NFU1NKOHRwWjhBUDJxdEtVL2k3alNtdkMxaHNE?=
+ =?utf-8?B?NzBjVDBkcEtDNjVxZjlxbTZMZm8zYjNlaFc5U2hJZEJNeUk0T0dDSDBKcWhE?=
+ =?utf-8?B?S0RzeFlOTHAwMlVFRm44U3h5OVVKaGVTekkvWUJFdTg2UmFWai9TQkpQdllq?=
+ =?utf-8?B?dmtBOXBKYVl3WlRFTjFlOFpQbUFEdEV5UnhBYVFuNS8xZHlER2RhbWtrdXV3?=
+ =?utf-8?B?ZkFlc2MvTEhvZ3UyTWU2YnNFUHZKUC9ENDZNUG40cUh1djJ3em5iN3JyMmti?=
+ =?utf-8?B?bU0wRENZN29lRWpRK3hGSjBoZ0xXNkpQbFpIWlFLdkZWSG5lRlhxSnpjZStu?=
+ =?utf-8?B?WEJJbXZvNi91Zkg4TXVaeE5yOWtJbHZhVDVja2hCcVIrejRhQTgzVTVsZUpL?=
+ =?utf-8?B?bUpJdHJCNEdFbE9sTnZFM0RBZWRGQTdMOW5FVnoyK3JoeHpoY1BmdlJSR0Vz?=
+ =?utf-8?B?RzNlZVZxaW9FWXBjajQzODFBejhmREFYRENPZWlTdklXamdXMXArblV2cEpE?=
+ =?utf-8?B?Zms5UlpTQVBVZmJ1VFhlWVBZOU9pOW9qQlFSaC9MWit6WlMvWXEzM0VKNUN2?=
+ =?utf-8?B?WFkzUDdBNzlGdnJSTVpLRURQQWpHZTk0WmFyazgvb0FiTzd1eHFGWkcwMXVX?=
+ =?utf-8?B?U1QraXdSTE82dHFUdnRIYUtMbExIRXUrcDZGWWJiRHF2bVk5ai9kYllMVGpk?=
+ =?utf-8?B?YkEwZHgrSTR2KzNXSkJyYXNQSXNXSVo3VWtzbHdtYjA4b3NQOU5aZGw2cTY5?=
+ =?utf-8?B?RHBMemJOSDZwYVMxL3JUb2tLbTVkVHpHUmpLZzZsQ09NaWZjQkticXVSazJ0?=
+ =?utf-8?B?U3ROdG9uSnphYVkweEtmQ0JlYk5adzNodHlvM2k3Y29tbnhKbE40bEJ6amt5?=
+ =?utf-8?B?dWltNVN2TytLdDVIQk1NaFNtMWpIck5wbDc3NEhXWFdmUkR3Ly9FUjFsR0hk?=
+ =?utf-8?B?dXc2YWFNNGVrK0wyTWoxSU52eHQra0VVQU1tOU1PQkJjeTlkVHVZclZLN0dG?=
+ =?utf-8?B?amtKUjJpK0tpODVVcmIxYTZtWk9YQnZDRE5tUkJ1emU2Z1IrWm94VWMvTG9Y?=
+ =?utf-8?B?RkZWenVnMWU3UzFhRUhYK0RCa3dYYzNzZ0xGK1V4NytVRlBBMDBaSVZnVDdP?=
+ =?utf-8?B?K0o5UVRTWmNKM1FNZGhKK1ppTklDYnRKMkl3RTNrNzZ4ZlVqblRHc29wclda?=
+ =?utf-8?B?Nkl0aHY2Vm12M3pQa0ZPRHVrSWdtQlRkbjlDamhlQ2dWT1grZzVUUjZhVkdn?=
+ =?utf-8?B?b25YVHdvQUxUdjlPUWpUVE9YenZqTW1pRlQ4djA4dGgvVjVmeUZhZmI3Ujha?=
+ =?utf-8?B?OVlKdmk0cm9Kcy9WRFVnVkFlYXlLTVdsYnYvem52aEljYnRLK0F5TVJ5U09n?=
+ =?utf-8?B?M1ZYZEZ4czlpZEo1Q1hmbVdSUkhCWklXSGszUng0YmJQTGNLaEtIcG9kc2Fl?=
+ =?utf-8?B?UCs3WTgzUStEWHB6TWNPTEpVdmlNT01uS1Z5M0hFSXgrc09vS3J1VGVaUGYv?=
+ =?utf-8?B?Q25PejNlQzY5dm5WUU4weWpyMFFBPT0=?=
+X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(14060799003)(82310400026)(35042699022);DIR:OUT;SFP:1102;
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jan 2026 12:51:53.7982
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 03d2932e-9dcf-4b8c-8a4b-08de56905b3a
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A68.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8124
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_044951_571339_B7802938 
-X-CRM114-Status: GOOD (  33.28  )
+X-CRM114-CacheID: sfid-20260118_045158_583329_F9666F1B 
+X-CRM114-Status: UNSURE (   5.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,117 +256,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 18, 2026 at 08:19:38PM +0800, Nick Chan wrote:
-> 
-> 
-> On 17/1/2026 20:26, Janne Grunau wrote:
-> > On Thu, Jan 15, 2026 at 06:08:15PM +1100, Michael Reeves via B4 Relay wrote:
-> >> From: Michael Reeves <michael.reeves077@gmail.com>
-> > 
-> > I think the driver is overall similar to the downstream AsahiLinux
-> > driver so please keep Hector as author.
-> > 
-> >> This driver provides battery and AC status monitoring for Apple Silicon
-> >> Macs via the SMC (System Management Controller). It supports
-> >> reporting capacity, voltage, current, and charging status.
-> >>
-> >> Co-developed-by: Hector Martin <marcan@marcan.st>
-> >> Signed-off-by: Hector Martin <marcan@marcan.st>
-> > 
-> > The downstream driver a quite a few more Co-developed-by:/Sobs. When I
-> > squashed the commits I decided to err on the safe side and included
-> > commit authors from incremental patches as Co-developed-by: Why did you
-> > drop those?
-> > 
-> >> Reviewed-by: Neal Gompa <neal@gompa.dev>
-> >> Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
-> >> ---
-> >>  MAINTAINERS                         |   1 +
-> >>  drivers/power/supply/Kconfig        |  11 +
-> >>  drivers/power/supply/Makefile       |   1 +
-> >>  drivers/power/supply/macsmc-power.c | 834 ++++++++++++++++++++++++++++++++++++
-> >>  4 files changed, 847 insertions(+)
-> >>
-> >> diff --git a/drivers/power/supply/macsmc-power.c b/drivers/power/supply/macsmc-power.c
-> >> new file mode 100644
-> >> index 000000000000..9b3faefe7a45
-> >> --- /dev/null
-> >> +++ b/drivers/power/supply/macsmc-power.c
-> >> @@ -0,0 +1,834 @@
+This patchset mainly adds description for 3 SolidRun boards:
+- i.MX8MP Hummingboard IIoT
+- SolidSense N8 Compact
+- i.MX8MM Hummingboard Ripple
 
-...
+This includes dt bindings and a range of bug-fixes:
 
-> >> +static int macsmc_power_probe(struct platform_device *pdev)
-> >> +{
-> >> +	struct device *dev = &pdev->dev;
-> >> +	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
-> >> +	struct power_supply_config psy_cfg = {};
-> >> +	struct macsmc_power *power;
-> >> +	bool has_battery = false;
-> >> +	bool has_ac_adapter = false;
-> >> +	int ret = -ENODEV;
-> >> +	bool flag;
-> >> +	u16 vu16;
-> >> +	u32 val32;
-> >> +	enum power_supply_property *props;
-> >> +	size_t nprops;
-> >> +
-> >> +	if (!smc)
-> >> +		return -ENODEV;
-> >> +
-> >> +	power = devm_kzalloc(dev, sizeof(*power), GFP_KERNEL);
-> >> +	if (!power)
-> >> +		return -ENOMEM;
-> >> +
-> >> +	power->dev = dev;
-> >> +	power->smc = smc;
-> >> +	dev_set_drvdata(dev, power);
-> >> +
-> >> +	INIT_WORK(&power->critical_work, macsmc_power_critical_work);
-> >> +	ret = devm_work_autocancel(dev, &power->critical_work, macsmc_power_critical_work);
-> >> +	if (ret)
-> >> +		return ret;
-> >> +
-> >> +	/*
-> >> +	 * Check for battery presence.
-> >> +	 * B0AV is a fundamental key.
-> >> +	 */
-> >> +	if (apple_smc_read_u16(power->smc, SMC_KEY(B0AV), &vu16) == 0 &&
-> >> +	    macsmc_battery_get_status(power) > POWER_SUPPLY_STATUS_UNKNOWN)
-> >> +		has_battery = true;
-> >> +
-> >> +	/*
-> >> +	 * Check for AC adapter presence.
-> >> +	 * CHIS is a fundamental key.
-> >> +	 */
-> >> +	if (apple_smc_key_exists(smc, SMC_KEY(CHIS)))
-> >> +		has_ac_adapter = true;
-> >> +
-> > 
-> > I think a short circuit check for !(has_battery || has_ac_adapter) would
-> > make sense here. The setup code for props is quite long. It should
-> > return -ENODEV. ret is not -ENODEV. anymore since it was overwritten
-> > with the return value of devm_work_autocancel()
-> > 
-> >> +	if (has_battery) {
-> >> +		power->batt_desc = macsmc_battery_desc_template;
-> >> +		props = devm_kcalloc(dev, MACSMC_MAX_BATT_PROPS,
-> >> +				     sizeof(enum power_supply_property),
-> >> +				     GFP_KERNEL);
-> > 
-> > I don't like the dynamic allocation for the props. I think we can
-> > currently get way with static property arrays and so we should do that.
-> > See my comments below
-> 
-> Dynamic allocation is needed to properly add support pre-M1 support,
-> as the SMCs in them misses a few keys, yet in iOS 16 the charge limit
-> (CHWA) keys are added. In a similar way, there really is no sane way
-> to add any new properties for M1/M2/M3 with static allocation. So I
-> would prefer if dynamic allocation is kept.
+- dt bindings for the boards
+- fix to dsi panel bindings referncing panel-common and adding port
+  property
+- cosmetic fix to some  solidrun imx8mp boards for regulator gpio
+   polarity
+- fix dsi hdmi bridge on hummingboard pulse
+- compile dtbs with symbols to support overlays
+- gpiod_set_value _can_sleep conversion for panel and touchscreen
+   drivers
 
-ack, I wasn't really thinking beyond the code in front of me. Let's go
-with dynamic allocations. A check that nprops doesn't exceed
-MACSMC_MAX_BATT_PROPS should be added then.
+Open Questions:
 
-Janne
+- How to describe HX3 USB-2.0/3.0 Hub placed on a USB-2.0-only Bus
+  (affects imx8mm-hummingboard-ripple.dts)
+- Is "description for" implied not only on dt-bindings patches, but also
+  dts? E.g. is this commit subject acceptable?:
+  "arm64: dts: add solidrun solidsense-n8 board"
+
+Signed-off-by: Josua Mayer <josua@solid-run.com>
+---
+Changes in v7:
+- updated Makefile to apply each addon to the base dtb, for better
+  coverage at build-time and dtbs_check.
+  Fixes Rob Hering bot warnings.
+- Fixed subject version prefix (v6 was prefixed with v5)
+- Link to v6: https://lore.kernel.org/r/20260101-imx8mp-hb-iiot-v5-0-b369b2e0c07f@solid-run.com
+
+Changes in v6:
+- imx8mm-hb-ripple: sorted i2c devices by address;
+  removed unnecessary newline.
+  (Reported-by: Shawn Guo <shawnguo@kernel.org>)
+- hb-iiot dts: sorted aliases alphabetically;
+  fixed gpio flags for vmmc regulator;
+  specified led@3 reg field in hexadecimal.
+  (Reported-by: Shawn Guo <shawnguo@kernel.org>)
+- Link to v5: https://lore.kernel.org/r/20251221-imx8mp-hb-iiot-v5-0-4a4dad916348@solid-run.com
+
+Changes in v5:
+- rebased on v6.19-rc1
+- dropped ilitek-ts patch already picked into input-next
+- solidsense-n8 / imx8mm-sr-som: drop untested wake-on-lan support
+- hb-iiot: disable software unsupported rtc timer irq
+- hb-iiot: fix wrong pins selected for uart4
+- Link to v4: https://lore.kernel.org/r/20251201-imx8mp-hb-iiot-v4-0-53a4cd6c21bf@solid-run.com
+
+Changes in v4:
+- dropped patches already picked into drm-misc-next
+- ronbo panel: picked up reviewed-by tag
+  (Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>)
+- ilitek-ts: changed mdelay calls on reset path to fsleep
+  (Note Dmitry requested msleep/usleep_range)
+  (Reported-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>)
+- changed hummingboard-iiot tpm irq type to level
+- Link to v3: https://lore.kernel.org/r/20251117-imx8mp-hb-iiot-v3-0-bf1a4cf5fa8e@solid-run.com
+
+Changes in v3:
+- sinmplified language in gpiod_can_sleep patches.
+  (Reported-By: Frank Li <Frank.li@nxp.com>)
+- collected ack on winstar lvds panel binding
+  (Acked-by: Conor Dooley <conor.dooley@microchip.com>)
+- Link to v2: https://lore.kernel.org/r/20251107-imx8mp-hb-iiot-v2-0-d8233ded999e@solid-run.com
+
+Changes in v2:
+- fix spelling mistakes in commit descriptions.
+- remove redundant "binding for" from subject:
+  https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst
+  (Reported-by: Krzysztof Kozlowski <krzk@kernel.org>)
+- remove one useless comment from imx8mm-sr-som.dtsi to fix long line
+  warning.
+- change ronbo panel binding to inherit panel-common and switch
+  additionalProperties to unevaluatedProperties.
+  (Reported-by: Krzysztof Kozlowski <krzk@kernel.org>)
+- add dt binding for winstar lvds panel
+- fix dtbs_check for dsi & lvds panel addons
+- change n8 board dts comment-style in header
+- collected ack on solidrun boards bindings patch (patch 1 in the series)
+  (Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>)
+- added standard led label property to hb-iiot multi-purpose leds
+  ensuring consistent names in case lp5562 driver starts using it.
+- Link to v1: https://lore.kernel.org/r/20251027-imx8mp-hb-iiot-v1-0-683f86357818@solid-run.com
+
+---
+Josua Mayer (8):
+      dt-bindings: arm: fsl: Add various solidrun i.mx8m boards
+      arm64: dts: imx8mp-hummingboard-pulse/cubox-m: fix vmmc gpio polarity
+      arm64: dts: imx8mp-hummingboard-pulse: fix mini-hdmi dsi port reference
+      arm64: dts: imx8mp-sr-som: build dtbs with symbols for overlay support
+      arm64: dts: add description for solidrun imx8mp hummingboard-iiot
+      arm64: dts: imx8mp-hummingboard-iiot: add dt overlays for muxable ports
+      arm64: dts: add description for solidrun solidsense-n8 board
+      arm64: dts: add description for solidrun i.mx8mm som and evb
+
+ Documentation/devicetree/bindings/arm/fsl.yaml     |   9 +
+ arch/arm64/boot/dts/freescale/Makefile             |  23 +
+ .../dts/freescale/imx8mm-hummingboard-ripple.dts   | 335 ++++++++
+ arch/arm64/boot/dts/freescale/imx8mm-sr-som.dtsi   | 393 ++++++++++
+ .../dts/freescale/imx8mn-solidsense-n8-compact.dts | 851 +++++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8mp-cubox-m.dts   |   2 +-
+ ...hummingboard-iiot-panel-dsi-WJ70N3TYJHMNG0.dtso |  69 ++
+ ...ummingboard-iiot-panel-lvds-WF70A8SYJHLNGA.dtso | 105 +++
+ .../imx8mp-hummingboard-iiot-rs485-a.dtso          |  18 +
+ .../imx8mp-hummingboard-iiot-rs485-b.dtso          |  18 +
+ .../dts/freescale/imx8mp-hummingboard-iiot.dts     | 719 +++++++++++++++++
+ .../imx8mp-hummingboard-pulse-common.dtsi          |   2 +-
+ .../imx8mp-hummingboard-pulse-mini-hdmi.dtsi       |  11 +-
+ 13 files changed, 2546 insertions(+), 9 deletions(-)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20251026-imx8mp-hb-iiot-525b03beea62
+
+Best regards,
+-- 
+Josua Mayer <josua@solid-run.com>
+
+
 
