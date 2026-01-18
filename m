@@ -4,110 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF387C98315
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 23:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B0CC98315
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 23:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qj9+bs6cuOoBlqZWY25mJTqCjRNyWKyN1e3Xy+xHVDE=; b=BS62ZfMtsvyBGuHjPfGwFV9JeC
-	/KMigpLQBOrh7Wl1IDqmCVbgppa3iUpb6FKX40YPf/RzXyjiQVoUj1YF8oZQOSP8Uplzw6IwFAWIV
-	e66cSlvNv3u84PY3c1fGywpLe8yeqcntRX48asQRoFZvfWfa8xtxelFU7TW+q3qyna0N9mzHZCzXO
-	6EjAG7ZyPcPjMLY6gSvJ1WJyrQXyufXO9uVUp3ZWE4Jj3H098wXBliZ8M8T+lhU5TeRqH2ycCu387
-	wyO6Eq9hkjfweTHKkHp4sbLhypZuQSKwMDmNNOhckjxSX3cSHuw3/WkE1whz7yetq2quGtqWSnz5t
-	7Ckq01Hg==;
+	bh=7PeYGSEV+pCKpmP5h4ZswQhQtI60VPCBnNh4a2KURQg=; b=Od0uB6/Ot9rmgE92QqdN2bSAVJ
+	EDlOccQ5ccZVyEzER24iJ7tckazj+BtTHFfIn+b4aJ/Gn1/rV0ObxPokJxmbk1uy6+bTBUIwTH3Nt
+	VH9IEyZOJTzWzerBCL/oI4IqavY0XWvkPu14JTAWIzQtI9QUHDUebb1+T22JdebcB9AatsEluzhI0
+	kEQaHRvteBBIyuMoyfXUVjCaKOrCVJiYTbGwGo1Mo/7Mqswx4RVCus/sQfGXBUgHb/hkeE/CVvkwL
+	covR3X3KlEJQLu6sQomOB2xFkvKkfX8+aAkJTrs8iBF0IouSTzsCqqeuW/r7+FRUZeDprSIxif6zI
+	T8MaIlGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhc72-000000019Bb-1qmZ;
-	Sun, 18 Jan 2026 23:23:16 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1vhcMI-000000019vK-11m8;
+	Sun, 18 Jan 2026 23:39:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhc70-000000019BD-1CAW
+	id 1vhcMF-000000019un-48J0
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Jan 2026 23:23:15 +0000
-Received: by mail-wm1-x342.google.com with SMTP id 5b1f17b1804b1-47ee4539adfso30878295e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Jan 2026 15:23:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768778591; cv=none;
-        d=google.com; s=arc-20240605;
-        b=GxOb6TT0jOyUH7hmC8geLvFdEGbUEE2wqUBFIvxcpO+st8srpx2Wz2l1EolkLewtoS
-         19e0q46KEpeSQWHNRFfH3oI+g2WztoVwjcMMH8wzXciivPNe/yy40gHqRvuyaSphu7RU
-         4yHiN/Ens1rBync0oEUmlBeN7yWDXqhDPBx5DkNo3DB/tWglUj9JS9Cy4kIvZpe35h7s
-         AWxIOKwN+uVFQa/yUlX+UpCF3DbRk2JK1w8RhAKXZHsuJRJwj4mVC3Kua7ywSGvZOumv
-         carkgpvRmORKL/b3T6vCTHX/z8BEjA4LQ/M86H4Be3+FByylLh8FsTAHeOiJCLwBR6XD
-         /Whw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Qj9+bs6cuOoBlqZWY25mJTqCjRNyWKyN1e3Xy+xHVDE=;
-        fh=xMqHdk03pKtB4Mb4vRLXGWT2QHEcKtgxJiyVuzp9Ecg=;
-        b=iDWj6yx2G1iljkbef154JhaFjzyuNX+XhofQrdGB7aLTcZjh9/+twd/Lxxg1f07GrK
-         5GShcTGgq7XfXV0q0FalRexBLOGZuyQe5U6JtGb7ZU1L1ITz+rgivFKuN1Vmhg47CCfH
-         GBsKpp5hsYiHzpGhxPzvbMAx2mP53dK8/HOphPTmO0cweoM0y4NFRkx/r5aCHCG21HhG
-         A5unnyfIUOtrrqsqSeoa18N7vOYDOTWfgHMmDUiAZF3qnND153JY+OLylDqNRXkK6PFP
-         yUPLdo0g9CH8sm7xyCyuwdV6NRosdPQ7jtIU5ox2Q1H5CCcIPcH64bvv23xJ7Z9BzfmY
-         +r3Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768778591; x=1769383391; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Qj9+bs6cuOoBlqZWY25mJTqCjRNyWKyN1e3Xy+xHVDE=;
-        b=ZJVTogp1f4IuBJY1HsCNsC7HPwkwT7jZhE3lZ0Et/nF239aJDeBcivxaZzlCTJa1rV
-         l7rcgnACoi2DsjP9BoVlqM/Qn4sUdwSzIZoRYXu3CtJFk/hvwEBRBk6tGjAVORRGWq7x
-         JdfDZwcpybaZD3bAGOM7MkVMThO2ZZKJo2WOK+Oay3gWO6hq2Y28GXtuGJQX7QhcbvnX
-         76haTopXOuVfFKNc+HRmaxUnkj5xmdVyuRl4ZukmMhdYOxYHAux1g6A4jsYsqpbDrBko
-         YCA1EJDmD81vrOCo2EgRxs/hS63Tq9QdA6d9D4kLaJonH0fpHaYGhl3d96d7aZPLUFPE
-         /O2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768778591; x=1769383391;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Qj9+bs6cuOoBlqZWY25mJTqCjRNyWKyN1e3Xy+xHVDE=;
-        b=mdfdn+4URiPNoQ2QCUGBOTPziMmo2pmhjxSmW9YtCYxec1+/VmmK0T3RIfQGewNZb0
-         DkX0BVknxpY4xSkQzpIf7kQBAqraP0uw5E75rUL6U1/H/tEnUAcl1eqUYDl6l8cRCghJ
-         5B+Lwlc6pWThzYHQiEyE09+B4H2dKjDKY0WblnX00e9qEwAUlBoU94OKbVLuUQqyMZ0F
-         S8+EXOrjlUSEFS8ft/lDY9u+ZtaGNHIK64FmzTSGwS+qurCSyyfdH6TDZRojRjWMd1AT
-         935wjUmNh++UocJdyItmZSiLH66/3iTTSibTbd9fD7l+jyruzFff+6cT9usxPKhqcGFE
-         wGAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVz4z6fEpVe09tpi3U6YaKimJkg8lQR4mXFe5C018Hp5bkBbbjHmaDpd8x96MHRzbFuzNNPyEUlK1lrUQG3LAvH@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywg0uXPshabYtmwJ5hkJDJ5FQa4CiODuOTLUq2vP3+PDZ+pxTfi
-	F+02AsLnR2tKzxBoM+uyT4EnCIcx1nNvXwKuOFP+KXURkBlrEMwzDXpQC5tMNiaEn94i7B3mY35
-	14sHuDgHRAWS/Fvn/TloRY4LRenpOC5M=
-X-Gm-Gg: AY/fxX52nonF82yHNWvXQoK/vls8xsetMfJgJ1G685RAnVKn5EYuZK3rnOZ9ouCOLy4
-	7IIfdrme108h4R7FMlG1Tsdrl1W4xEmet2BUBm1CwzcY4bdVQiEKpLGqGqN/QHp9+RUFgCLm49a
-	h5qbISnB04MKNMxeqQJpZsj+ySUMMkUx3HnlZItDbi9xsJbq7jj1MwApsSAXhjK0dsBnEuoyIrK
-	IVLQeoGHjmxrcOLYgozILg7VIdTTaQACdk6g4JhtHOGfLpbDKjhMg8VILhhrpryMQqsooSutztJ
-	46ONPnD7rhy5WXHn3pTlqSs3D9Yi8mN+RlxTaaG5
-X-Received: by 2002:a05:600c:4e50:b0:47d:18b0:bb9a with SMTP id
- 5b1f17b1804b1-4801e34dafbmr115818315e9.33.1768778591376; Sun, 18 Jan 2026
- 15:23:11 -0800 (PST)
+	Sun, 18 Jan 2026 23:39:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0D5E260010
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Jan 2026 23:38:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6333AC116D0
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Jan 2026 23:38:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768779538;
+	bh=+vxkml/INomGVyZkkGO6Hqx4toau09AAIjsxs2+Q7rc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=noEdgNVrT6pVkwprb4ltXn5Jg6NAi0NXpnTws17lln9TPUsZ+QUNYyUi+c0W8BJ0F
+	 9rAapkgXGAR/Jb7uLFAI0bkllKrfnOykgHLzi79gpaT4kjbojPVkXufHcHUCEMbiGn
+	 LyVmjSn0ZFfnDkBh5Vu7CzBKBpaqDp9rm6ebK4PQQdf6LxhxS4Q2dbKUzsgeAsikoj
+	 VDetUbLldqskmN5hrSKS2MhZpy7Sw1Y/Tu+GwSyz4RqIVbR2WI+Poe3fO+ZCVx16TP
+	 zb57+e11J5c4tbSgy2jCdhIW4jsA38PHsfpkRhfH2imaBL9o+hMyHOUYvQJR95WAIh
+	 SH4X2WRGyY9iA==
+Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-1233b953bebso2466549c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Jan 2026 15:38:58 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVFJ5kAUC/hMRlwfP3dUiPjCmut0h7cmNmiDBvV0LTGyChRN881LLB1KSc0j6DkTumnpuW9rjsLj9sVtsAxrYKk@lists.infradead.org
+X-Gm-Message-State: AOJu0YyM1nV3xLYAKvDe7Knt5tVVr+hI3rpQLVylNGe9PNpiFaxR3yH7
+	M6l2Uf+IskpECbNaq6bl3PNPHuZn7OFKOrm3Jq8eNtpjgEIoCFWcQlnUCgq3AMYoyLuDENhCciM
+	AbZxg43Qy+ZLxG6RXtEnmh2ULgV0+sw==
+X-Received: by 2002:a05:7022:6984:b0:11b:9386:7ecd with SMTP id
+ a92af1059eb24-1244a74e3c1mr7505842c88.42.1768779537763; Sun, 18 Jan 2026
+ 15:38:57 -0800 (PST)
 MIME-Version: 1.0
-References: <20260114093914.2403982-1-xukuohai@huaweicloud.com>
- <20260114093914.2403982-3-xukuohai@huaweicloud.com> <2e5ed01463ae8f79780a42c4e7f93baeafd2565a.camel@gmail.com>
- <21aec5e1-4152-4d51-ad25-91524c544b66@huaweicloud.com> <CAADnVQLha64x_LQ1Ph+0dEdP2sNms71k41pwEVMwxrbBG78M5Q@mail.gmail.com>
-In-Reply-To: <CAADnVQLha64x_LQ1Ph+0dEdP2sNms71k41pwEVMwxrbBG78M5Q@mail.gmail.com>
-From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Date: Mon, 19 Jan 2026 00:22:35 +0100
-X-Gm-Features: AZwV_QhXNCnBfXpzOxaenytG-TJEPUUqlLt6PeHTKFkO5S-gYxj3GjU0W9a_p0E
-Message-ID: <CAP01T76vdqFAa4zYBsDdijY==CrSJ=Qh7iki+y=2_G_EUBr+PQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v4 2/4] bpf: Add helper to detect indirect jump targets
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Xu Kuohai <xukuohai@huaweicloud.com>, Eduard Zingerman <eddyz87@gmail.com>, 
-	bpf <bpf@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Yonghong Song <yonghong.song@linux.dev>, 
-	Puranjay Mohan <puranjay@kernel.org>, Anton Protopopov <a.s.protopopov@gmail.com>
+References: <20260114092243.3914836-1-wenst@chromium.org>
+In-Reply-To: <20260114092243.3914836-1-wenst@chromium.org>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Sun, 18 Jan 2026 23:38:37 +0000
+X-Gmail-Original-Message-ID: <CAAOTY__4eBE9bmhe5vmDUpdny1BKfCWEhK_=8n-NWDzdrPLYog@mail.gmail.com>
+X-Gm-Features: AZwV_QhVwsuXi4uDMwqFDraK5VDZQKOv7seycuWeLGpQl6fpPRNw1o9mQdzmUj0
+Message-ID: <CAAOTY__4eBE9bmhe5vmDUpdny1BKfCWEhK_=8n-NWDzdrPLYog@mail.gmail.com>
+Subject: Re: [PATCH] drm/mediatek: dpi: Find next bridge during probe
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	linux-mediatek@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_152314_353899_335C2D91 
-X-CRM114-Status: GOOD (  33.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,87 +82,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 18 Jan 2026 at 18:20, Alexei Starovoitov
-<alexei.starovoitov@gmail.com> wrote:
->
-> On Wed, Jan 14, 2026 at 11:47=E2=80=AFPM Xu Kuohai <xukuohai@huaweicloud.=
-com> wrote:
-> >
-> > On 1/15/2026 4:46 AM, Eduard Zingerman wrote:
-> > > On Wed, 2026-01-14 at 17:39 +0800, Xu Kuohai wrote:
-> > >> From: Xu Kuohai <xukuohai@huawei.com>
-> > >>
-> > >> Introduce helper bpf_insn_is_indirect_target to determine whether a =
-BPF
-> > >> instruction is an indirect jump target. This helper will be used by
-> > >> follow-up patches to decide where to emit indirect landing pad instr=
-uctions.
-> > >>
-> > >> Add a new flag to struct bpf_insn_aux_data to mark instructions that=
- are
-> > >> indirect jump targets. The BPF verifier sets this flag, and the help=
-er
-> > >> checks it to determine whether an instruction is an indirect jump ta=
-rget.
-> > >>
-> > >> Since bpf_insn_aux_data is only available before JIT stage, add a ne=
-w
-> > >> field to struct bpf_prog_aux to store a pointer to the bpf_insn_aux_=
-data
-> > >> array, making it accessible to the JIT.
-> > >>
-> > >> For programs with multiple subprogs, each subprog uses its own priva=
-te
-> > >> copy of insn_aux_data, since subprogs may insert additional instruct=
-ions
-> > >> during JIT and need to update the array. For non-subprog, the verifi=
-er's
-> > >> insn_aux_data array is used directly to avoid unnecessary copying.
-> > >>
-> > >> Signed-off-by: Xu Kuohai <xukuohai@huawei.com>
-> > >> ---
-> > >
-> > > Hm, I've missed the fact insn_aux_data is not currently available to =
-jit.
-> > > Is it really necessary to copy this array for each subprogram?
-> > > Given that we still want to free insn_aux_data after program load,
-> > > I'd expect that it should be possible just to pass a pointer with an
-> > > offset pointing to a start of specific subprogram. Wdyt?
-> > >
-> >
-> > I think it requires an additional field in struct bpf_prog to record th=
-e length
-> > of the global insn_aux_data array. If a subprog inserts new instruction=
-s during
-> > JIT (e.g., due to constant blinding), all entries in the array, includi=
-ng those
-> > of the subsequent subprogs, would need to be adjusted. With per-subprog=
- copying,
-> > only the local insn_aux_data needs to be updated, reducing the amount o=
-f copying.
-> >
-> > However, if you prefer a global array, I=E2=80=99m happy to switch to i=
-t.
->
-> iirc we struggled with lack of env/insn_aux in JIT earlier.
->
-> func[i]->aux->used_maps =3D env->used_maps;
-> is one such example.
->
-> Let's move bpf_prog_select_runtime() into bpf_check() and
-> consistently pass 'env' into bpf_int_jit_compile() while
-> env is still valid.
-> Close to jit_subprogs().
-> Or remove bpf_prog_select_runtime() and make jit_subprogs()
-> do the whole thing. tbd.
->
-> This way we can remove used_maps workaround and don't need to do
-> this insn_aux copy.
-> Errors during JIT can be printed into the verifier log too.
->
-> Kumar,
-> what do you think about it from modularization pov ?
+Hi, Chen-yu:
 
-Makes sense to do it, I don't think it would cause any problems for
-modularization.
+Chen-Yu Tsai <wenst@chromium.org> =E6=96=BC 2026=E5=B9=B41=E6=9C=8814=E6=97=
+=A5=E9=80=B1=E4=B8=89 =E4=B8=8A=E5=8D=889:23=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> Trying to find the next bridge and deferring probe in the bridge attach
+> callback is much too late. At this point the driver has already finished
+> probing and is now running the component bind code path. What's even
+> worse is that in the specific case of the DSI host being the last
+> component to be added as part of the dsi_host_attach callback, the code
+> path that this is in:
+>
+>  -> devm_drm_of_get_bridge()
+>     mtk_dpi_bridge_attach()
+>     drm_bridge_attach()
+>     mtk_dpi_bind()
+>     ...
+>     component_add()
+>     mtk_dsi_host_attach()
+>     anx7625_attach_dsi()
+>     anx7625_link_bridge() - done_probing callback for of_dp_aux_populate_=
+bus()
+>     of_dp_aux_populate_bus()
+>     anx7625_i2c_probe()
+>
+> _cannot_ return probe defer:
+>
+>     anx7625 4-0058: [drm:anx7625_bridge_attach] drm attach
+>     mediatek-drm mediatek-drm.15.auto: bound 14014000.dsi (ops mtk_dsi_co=
+mponent_ops)
+>     mediatek-drm mediatek-drm.15.auto: error -EPROBE_DEFER: failed to att=
+ach bridge /soc/dpi@14015000 to encoder TMDS-37
+>     [drm:mtk_dsi_host_attach] *ERROR* failed to add dsi_host component: -=
+517
+>     anx7625 4-0058: [drm:anx7625_link_bridge] *ERROR* fail to attach dsi =
+to host.
+>     panel-simple-dp-aux aux-4-0058: DP AUX done_probing() can't defer
+>     panel-simple-dp-aux aux-4-0058: probe with driver panel-simple-dp-aux=
+ failed with error -22
+>     anx7625 4-0058: [drm:anx7625_i2c_probe] probe done
+>
+> This results in the whole display driver failing to probe.
+>
+> Perhaps this was an attempt to mirror the structure in the DSI driver;
+> but in the DSI driver the next bridge is retrieved in the DSI attach
+> callback, not the bridge attach callback.
+>
+> Move the code finding the next bridge back to the probe function so that
+> deferred probing works correctly. Also rework the fallback to the old OF
+> graph endpoint numbering scheme so that deferred probing logs in both
+> cases.
+>
+> This issue was found on an MT8183 Jacuzzi device with an extra patch
+> enabling the DPI-based external display pipeline. Also tested on an
+> MT8192 Hayato device with both DSI and DPI display pipelines enabled.
+
+Applied to mediatek-drm-fixes [1], thanks.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-fixes
+
+Regards,
+Chun-Kuang.
+
+>
+> Fixes: 4c932840db1d ("drm/mediatek: Implement OF graphs support for displ=
+ay paths")
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
+>  drivers/gpu/drm/mediatek/mtk_dpi.c | 23 +++++++++--------------
+>  1 file changed, 9 insertions(+), 14 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediate=
+k/mtk_dpi.c
+> index 61cab32e213a..53360b5d12ba 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_dpi.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
+> @@ -836,20 +836,6 @@ static int mtk_dpi_bridge_attach(struct drm_bridge *=
+bridge,
+>                                  enum drm_bridge_attach_flags flags)
+>  {
+>         struct mtk_dpi *dpi =3D bridge_to_dpi(bridge);
+> -       int ret;
+> -
+> -       dpi->next_bridge =3D devm_drm_of_get_bridge(dpi->dev, dpi->dev->o=
+f_node, 1, -1);
+> -       if (IS_ERR(dpi->next_bridge)) {
+> -               ret =3D PTR_ERR(dpi->next_bridge);
+> -               if (ret =3D=3D -EPROBE_DEFER)
+> -                       return ret;
+> -
+> -               /* Old devicetree has only one endpoint */
+> -               dpi->next_bridge =3D devm_drm_of_get_bridge(dpi->dev, dpi=
+->dev->of_node, 0, 0);
+> -               if (IS_ERR(dpi->next_bridge))
+> -                       return dev_err_probe(dpi->dev, PTR_ERR(dpi->next_=
+bridge),
+> -                                            "Failed to get bridge\n");
+> -       }
+>
+>         return drm_bridge_attach(encoder, dpi->next_bridge,
+>                                  &dpi->bridge, flags);
+> @@ -1319,6 +1305,15 @@ static int mtk_dpi_probe(struct platform_device *p=
+dev)
+>         if (dpi->irq < 0)
+>                 return dpi->irq;
+>
+> +       dpi->next_bridge =3D devm_drm_of_get_bridge(dpi->dev, dpi->dev->o=
+f_node, 1, -1);
+> +       if (IS_ERR(dpi->next_bridge) && PTR_ERR(dpi->next_bridge) =3D=3D =
+-ENODEV) {
+> +               /* Old devicetree has only one endpoint */
+> +               dpi->next_bridge =3D devm_drm_of_get_bridge(dpi->dev, dpi=
+->dev->of_node, 0, 0);
+> +       }
+> +       if (IS_ERR(dpi->next_bridge))
+> +               return dev_err_probe(dpi->dev, PTR_ERR(dpi->next_bridge),
+> +                                    "Failed to get bridge\n");
+> +
+>         platform_set_drvdata(pdev, dpi);
+>
+>         dpi->bridge.of_node =3D dev->of_node;
+> --
+> 2.52.0.457.g6b5491de43-goog
+>
 
