@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C43AC9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 17:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEAA3D4A5F4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 17:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F5lMrwCrr+usS2XlyeSrtptRjeKCbqrRkh9wc0Evtrw=; b=lt8bVsgAIGOMWzSW1cqiQJdhe/
-	otQ662kOCvUUBSajHUAeHAy2dKVNwO2ta+hfpD76SGWldkxML34TBehLl4JHSDOGngwwUnS1W8TVD
-	jZ4xkEs0zBgir+nNpxXeKoj3oG6o/5y4sNyP2Nfm6MAHRyBMdNyRt0q36RRvTlKdIGEQLscLmwn0m
-	1DvMzjwJ3N47k7hFxY+0akL6PR2zyqqZoEODlf1THY6yZGfjmL0T7xqA5AhFpxBllLnV3cxDIU2RV
-	3q845RtgOxOcOV9Jg3X4clZWWP0pkDpykUpeh6ErkHYn7YFnFEt0QlgDfKaz91wXk6e7AMBMJ6+va
-	AWfC8y5g==;
+	bh=3P5fF1LrTbyd5r4Sh1YV+6ITuZC5Mert54cn0Rdade0=; b=hEwLmaZiVXjuHqPDpIj8/Qq19j
+	ALqSlr3ljRAWRbjK6V6EGGOi/aX29FjErD7JWG2qr72fw1lXFiM0ajAlGZesACXK82qqaUil+pQWJ
+	Gigbc6owulIwzaz5/Qs97RHRyF9EWeqg5/ZwuRxP/opfcNFOjDhGSktQiLWrxxekh4vXic3PGwDiG
+	wVBnLOE5yO+QGbilkcwSbFgxkFFSPgT5mTDPg4IH2CrulaOSOjUuvmrQTKPCh0VlErhGa2d+LyAYc
+	lIA+OLqNScPTwmPNDoJtkSUkaWhFWZUrPfGnGUU96VtMZ+h5Yxbbk7JseCuxC0HsV/wfRQyJlzw+Q
+	BADvE4zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhWbF-00000000bDI-2FNu;
-	Sun, 18 Jan 2026 17:30:05 +0000
+	id 1vhWbb-00000000bJ7-3WMx;
+	Sun, 18 Jan 2026 17:30:27 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhWbB-00000000bCP-3YW0
+	id 1vhWbZ-00000000bIH-3kx5
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Jan 2026 17:30:04 +0000
+	Sun, 18 Jan 2026 17:30:27 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <mfe@pengutronix.de>)
-	id 1vhWax-0007el-F1; Sun, 18 Jan 2026 18:29:47 +0100
+	id 1vhWbL-0007kc-OA; Sun, 18 Jan 2026 18:30:11 +0100
 Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <mfe@pengutronix.de>)
-	id 1vhWax-001HJm-1U;
-	Sun, 18 Jan 2026 18:29:46 +0100
+	id 1vhWbM-001HJq-0P;
+	Sun, 18 Jan 2026 18:30:11 +0100
 Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
 	(envelope-from <mfe@pengutronix.de>)
-	id 1vhWaw-001bIa-27;
-	Sun, 18 Jan 2026 18:29:46 +0100
-Date: Sun, 18 Jan 2026 18:29:46 +0100
+	id 1vhWbL-001bIr-17;
+	Sun, 18 Jan 2026 18:30:11 +0100
+Date: Sun, 18 Jan 2026 18:30:11 +0100
 From: Marco Felsch <m.felsch@pengutronix.de>
 To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org, Fabio Estevam <festevam@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>,
-	imx@lists.linux.dev,
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Nicolas Schier <nsc@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, Li Jun <jun.li@nxp.com>
-Subject: Re: [PATCH v2 4/9] arm64: dts: imx8mm: add wakeup-source for usb phy
-Message-ID: <20260118172946.zsqokjhp76trijq3@pengutronix.de>
+	Fabio Estevam <festevam@gmail.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nsc@kernel.org>, devicetree@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 8/9] arm64: dts: imx8mp-evk: replace space with tab
+Message-ID: <20260118173011.qcl6rgxoo4444eaj@pengutronix.de>
 References: <20260117-misc_dts-v2-0-0f319c7e9b55@nxp.com>
- <20260117-misc_dts-v2-4-0f319c7e9b55@nxp.com>
- <20260118172208.h7yts2yuf2lkhd4n@pengutronix.de>
+ <20260117-misc_dts-v2-8-0f319c7e9b55@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260118172208.h7yts2yuf2lkhd4n@pengutronix.de>
+In-Reply-To: <20260117-misc_dts-v2-8-0f319c7e9b55@nxp.com>
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
 X-SA-Exim-Mail-From: mfe@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_093001_897128_E4D4110B 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20260118_093025_928490_C36550B6 
+X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +84,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-01-18, Marco Felsch wrote:
-> On 26-01-17, Frank Li wrote:
-> > From: Li Jun <jun.li@nxp.com>
-> > 
-> > USB phy can be wakeup source to support wakeup system from USB.
+On 26-01-17, Frank Li wrote:
+> Replace spaces with tabs to follow the coding style.
 > 
-> Was USB wakeup tested? That beeing said, marking the device as
-> wakeup-src is fine.
-> 
-> > Signed-off-by: Li Jun <jun.li@nxp.com>
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> 
-> Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Just noticed that this targets the base soc.dtsi. IMHO this is board
-desicion to make and therefore belongs to the real board.dts(i) or dtso.
-
-Therefore please drop my r-b.
-
-Regards,
-  Marco
-
-
--- 
-#gernperDu 
-#CallMeByMyFirstName
-
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
 
