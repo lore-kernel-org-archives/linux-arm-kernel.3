@@ -4,167 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 193C6C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 18:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04757C9830C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 19:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jGVjL+2PB0QkiOp/por4+gCaTzAeutoSiNEWB+3nLQ0=; b=0hcsQedauHY6NtrVqaHLPY+HPC
-	JtdT/MlBo3z89RTm3yuXC6c+RuiX9qYEYzpCtv7XwHDQ0BqVgI5MxHZ5DwXuyQPc7JABpRwIL+xwj
-	ZjhxtzAAGTbuQyLNh9yM8h9Sz+bvbi0kFwbTRDObfloZslvjrqBen6v+8IOruq8pakpsbAVDp0pWb
-	jc9hNN719PtQuaXEhKUR/n39IOSZefhrv5+SC6Y78QURVsDYH7ceg0tWuyY4DyF+gp7gX07Nbp36a
-	9bABp56egmdX5z9xdMXT6D+TOg0Pdx0MVEm1b1UQxzdlbj+cVi/tYFC55XByJx8Sf7PQYPG6clTA6
-	3Hn14YJg==;
+	bh=g7eq9NZWv+jfQYvwT7GWinc/1t08cW4LlGcRYfwgt1M=; b=fyAcbt/QEGvSTdp9slEg8kOwP3
+	j3Webtzfh+waOpqptUFgbhkg6TFA3FwDh+1IN6kMZZtIhf/PZrMQiK7e+xqj0cjA1IykoLHWHXXNP
+	u+0FL6bzsCbfefl83pn/ZkusLOkWFQ8F3LpPbtrOwYNlmaSqsLpNhfO6KH1ByheXXnUh1N7acvWoo
+	3EuHsFTU35G4H5jpXQk1aqYJoldk+naaU03l6fmh01OVU6P5okalb2sBajyJE84NaQJXPEATHY7JG
+	V4rMRUi9owBEAKfh0dP78xUO+ukahqNip6gf9hfiYQM3zGby+MIoQhq2Vp5/jJyKG8NtUvh7hI0Mz
+	QGcTtrRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhXUX-00000000iyG-00Ve;
-	Sun, 18 Jan 2026 18:27:13 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vhYFW-00000000mto-0cJ1;
+	Sun, 18 Jan 2026 19:15:46 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhXUS-00000000ixY-1ruf
+	id 1vhYFT-00000000msw-2zHR
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Jan 2026 18:27:11 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60I4egOg016747;
-	Sun, 18 Jan 2026 18:25:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=jGVjL+
-	2PB0QkiOp/por4+gCaTzAeutoSiNEWB+3nLQ0=; b=fNrh8df0yEqtIqqZ8/EUoa
-	+/E7/gAoDcZjjIUtIu/jx+k/4Nb9PE0VMqN3WmgmFFtnglemCbPGNWKUL928zWNi
-	LeiHfB90hOhAFJPIcgbPIksSzHl//gO61X99S5ESRWltq4oNhsUbyV9io0wGdViY
-	QQkMntgj+2sNUt3KMdJ7Z81Wd8xdNy7WaDVQjoBpql5mBB57F5BsMHmwdjg1Buh+
-	mbi62vDhD/nGBHS7vBAHF0OTUIwyjiU/BuXq9Eo+WKZtRxD6vXf1RimUslOP1p8r
-	oDpyNxPT41bKQZHSgCXzPM5TnJzXHr0/lZD3FdXVeD35yWy7NNKOdGqpKPIzCzOg
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bqyujvtqn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 18 Jan 2026 18:25:58 +0000 (GMT)
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 60IIPv9m027439;
-	Sun, 18 Jan 2026 18:25:57 GMT
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bqyujvtqj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 18 Jan 2026 18:25:57 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60IFY2o7024583;
-	Sun, 18 Jan 2026 18:25:56 GMT
-Received: from smtprelay02.dal12v.mail.ibm.com ([172.16.1.4])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4brxar9ady-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 18 Jan 2026 18:25:56 +0000
-Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
-	by smtprelay02.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60IIPtiM28705424
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 18 Jan 2026 18:25:55 GMT
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 58D9658055;
-	Sun, 18 Jan 2026 18:25:55 +0000 (GMT)
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 517EC58043;
-	Sun, 18 Jan 2026 18:25:53 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.77.99])
-	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Sun, 18 Jan 2026 18:25:53 +0000 (GMT)
-Message-ID: <ac5e5e45c12e9b0bda19807e60b06057d74be0b3.camel@linux.ibm.com>
-Subject: Re: [PATCH 1/3] integrity: Make arch_ima_get_secureboot
- integrity-wide
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Coiby Xu <coxu@redhat.com>, linux-integrity@vger.kernel.org,
-        Heiko
- Carstens	 <hca@linux.ibm.com>,
-        Roberto Sassu
- <roberto.sassu@huaweicloud.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Madhavan Srinivasan	 <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin	
- <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev
- <agordeev@linux.ibm.com>,
-        Christian Borntraeger	
- <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav
- Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)"	 <x86@kernel.org>,
-        "H.
- Peter Anvin" <hpa@zytor.com>,
-        Roberto Sassu	 <roberto.sassu@huawei.com>,
-        Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
-        Eric Snowberg
- <eric.snowberg@oracle.com>,
-        Paul Moore <paul@paul-moore.com>, James Morris
- <jmorris@namei.org>,
-        "Serge E. Hallyn"	 <serge@hallyn.com>,
-        Jarkko
- Sakkinen <jarkko@kernel.org>,
-        "moderated list:ARM64 PORT (AARCH64
- ARCHITECTURE)"	 <linux-arm-kernel@lists.infradead.org>,
-        open list
- <linux-kernel@vger.kernel.org>,
-        "open list:LINUX FOR POWERPC (32-BIT AND
- 64-BIT)"	 <linuxppc-dev@lists.ozlabs.org>,
-        "open list:S390 ARCHITECTURE"	
- <linux-s390@vger.kernel.org>,
-        "open list:EXTENSIBLE FIRMWARE INTERFACE
- (EFI)"	 <linux-efi@vger.kernel.org>,
-        "open list:SECURITY SUBSYSTEM"	
- <linux-security-module@vger.kernel.org>,
-        "open
- list:KEYS/KEYRINGS_INTEGRITY"	 <keyrings@vger.kernel.org>
-In-Reply-To: <CAMj1kXGx4ebaK87W7k0SNUNQnO9+=z1nmYxXC7retmp3OqRRFg@mail.gmail.com>
-References: <20260115004328.194142-1-coxu@redhat.com>
-	 <20260115004328.194142-2-coxu@redhat.com>
-	 <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
-	 <8bfa859ed3a4f1cf0db0ab64d8c1c3b24684582a.camel@linux.ibm.com>
-	 <CAMj1kXHsJNZoUEnbD1y=v4Ftuv9d2c08VckRV7ru4k4P83vZbQ@mail.gmail.com>
-	 <97b69bc79a5d9246f7a399510908c7b95b2e95e7.camel@linux.ibm.com>
-	 <CAMj1kXGx4ebaK87W7k0SNUNQnO9+=z1nmYxXC7retmp3OqRRFg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Sun, 18 Jan 2026 13:25:52 -0500
+	Sun, 18 Jan 2026 19:15:44 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4308d81fdf6so1956756f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Jan 2026 11:15:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768763741; x=1769368541; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=g7eq9NZWv+jfQYvwT7GWinc/1t08cW4LlGcRYfwgt1M=;
+        b=GqyYHaPe42rty5eTU4X7AXCgzA+qogGHOKcbGI5XROqaH2i3ZFtmXo2gZZygniSia6
+         49XN1B9HaEqN/D8oC4+0TMChhVqp2Xpivyq772GU6hOsk/MNHC2NhF3VrkrvoJdLRfMq
+         RxW2b7NN4FleXoPeaH+OjA30yUfX53J9YPv+15buDOhxfxQrcTlVcr3nirg4H82vXvqc
+         yWE6UdKMDK8RWAJzZhpyGsSrVMhnJMolMuh16e9pMJHa5XZOi63EEdJUVoOLDzfV8cbC
+         sEXjwIIKlev8FM6pQqkJgxJS15Z2VbHA6jU7iaMfZRlpSMtfC+0Z7Qbsr5qSW/SZTjbV
+         bebQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768763741; x=1769368541;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=g7eq9NZWv+jfQYvwT7GWinc/1t08cW4LlGcRYfwgt1M=;
+        b=Lr2BiXhNiR7RkoYmv5xF5V+xmdXdZTS6MrEtOSOMy+qNcpzRlmhVWlvwsTzp1BaI/q
+         0xtGmIWouR5zvplLgBB4F84kK5LZfJAPNP13mZkcheENwM7tfcdlvhtQCAPLjgdykFpF
+         qgAfKsivn0VV5Wv6cUYYyiomAyLX85aR1FGaUW9e29mxZ0TqIvIImGGrrI/IiBuQH9ZY
+         yVygFdd+8mokivY2+9p06NIineIPaZUiLGifu5wXB8yOLe7wfX8jInChn0WnmvC8ifUI
+         Vk+XXv2RnxZhb6NkIZoJ63PJcBbuWOcnU1iintBdWOtT0GWcclDahVcJoRlpISJwvnQs
+         TC2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWzHNb0j7EFVHtVR2eov9XT82Ieew74ayDI+GRyk+ziuqRHdUJUYq3ZICrjgNDUlMDbzBhAVP0AVrGcLIFrkOyw@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaeUCOdszjx41WOCcqC8mmjKTMFjnZ0jgQTOm8Bbl2poRWei7g
+	pDb+2UTa2cUJHe8t3HzgzPvwyJXIzAL4eJgrNe3jAQ7PdF9dZKFBiEbnHUSam81Zi7c=
+X-Gm-Gg: AY/fxX4HC9NI4n9llxa0BPgThqbO0Rgid3gGqh7VPea7lRzwCzeABORzUcWMLL9VASk
+	IXf0sTbHbuTSvFch8UIN86aePTE0MADNz2RcFFqBKDLErNVB+ArCEZy6R+cIJsgvVrsYIUGnAV8
+	syQjWCvKm0FodF4E0atC5fw3m7WS0wCGBNg6ZGXs22LOsOYzQG0yfTRdzugcWmgxLPw+R1Djvk4
+	9kMHKLc7UhPZT1U2u8rGW4uIeroZ9KTF9Plde48TGxeghCHM9Xk+976XWOqlXydKy6HchAWBSI3
+	e5iw/lL6+zvy3Nq69Pxz+S9gBLmrDMnejCu7opNIcdk7FYVcFgrcXiL4zUZYOj6t2hn7ZtZ/rRk
+	oKcQL7ABQ8TKB1a94cgUvW7cd8H+Xa9UObJBuzkFwnnyPKju563hlM0s27tAxs/jXI/KvfX8dTT
+	R6hKuvW8lvjL9oIk7d
+X-Received: by 2002:a05:600c:4fd2:b0:46e:506b:20c5 with SMTP id 5b1f17b1804b1-4801e34c9b4mr122573745e9.26.1768763741271;
+        Sun, 18 Jan 2026 11:15:41 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801e8d77besm158279375e9.14.2026.01.18.11.15.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Jan 2026 11:15:40 -0800 (PST)
+Date: Sun, 18 Jan 2026 22:15:37 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Felix Gu <gu_0233@qq.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] firmware: arm_scpi: Fix a reference leak on device node
+Message-ID: <aW0xWZ-KylipPF7M@stanley.mountain>
+References: <tencent_A3E20C513BBE7D268B863A5CE473FBA10B06@qq.com>
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE4MDE2MSBTYWx0ZWRfX0g2BmEfR84xp
- /uTTHELidZ/mQL1q0KSq1uwEu3J0TBmjili4JJnfxqu7yZxVZkMyr6UmIvqH+0I7n7uFtD4iucy
- DScx6BAVdVNcI/GfD6V0wraMD9LX6waG3fI6dvTcsSvfp3w6Nufa2RvSm0QUkNWg4HdYrbQOmGp
- T5VeeX2Lfp48bQVu4rlH6lyRn57ZyFP2nAbHoouzkcmnaUVbbKweYr+TJKfjhA0WVbP4rfCngDu
- oISOEpArAPdOR887OxMP5menJoDuECqBhEX0LniAf2HdVZRMPn5YpcfHWc28/E+ivsYrfCpy300
- 5b7CE2RzCYZqL761ZaB6FY/ZN0uJhdphsCO1fIFiSZRToBCMWKOf7eCnwKUSyG+DBn+Iosbh2iy
- 8JKmjMnLFfTO9BJVfXgZJl/q2rZEYyrPwq3M0HDSKgxRcerwt2QQ27fwbsyXQIhiyRtSkmKNBXh
- aOmA/AXw2CO1pT3z0xw==
-X-Authority-Analysis: v=2.4 cv=bsBBxUai c=1 sm=1 tr=0 ts=696d25b6 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VnNF1IyMAAAA:8 a=20KFwNOVAAAA:8 a=AiHppB-aAAAA:8 a=NGAx97edFhLKIqwmpgIA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: 6d0Yn0yd2RHIADtSz6qKVUUNVM3t80Ng
-X-Proofpoint-GUID: g5bmud6ki9cH3-4uThB0p-gq08CkPdWy
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-17_03,2026-01-15_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0
- impostorscore=0 malwarescore=0 clxscore=1015 adultscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2601150000 definitions=main-2601180161
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <tencent_A3E20C513BBE7D268B863A5CE473FBA10B06@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_102708_942337_69A85CAA 
-X-CRM114-Status: GOOD (  37.02  )
+X-CRM114-CacheID: sfid-20260118_111543_777136_3E27E520 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,130 +99,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2026-01-16 at 18:27 +0100, Ard Biesheuvel wrote:
-> On Fri, 16 Jan 2026 at 17:39, Mimi Zohar <zohar@linux.ibm.com> wrote:
-> >=20
-> > On Fri, 2026-01-16 at 14:18 +0100, Ard Biesheuvel wrote:
-> > > On Fri, 16 Jan 2026 at 14:11, Mimi Zohar <zohar@linux.ibm.com> wrote:
-> > > >=20
-> > > > On Fri, 2026-01-16 at 10:41 +0100, Ard Biesheuvel wrote:
-> > > > > On Thu, 15 Jan 2026 at 01:43, Coiby Xu <coxu@redhat.com> wrote:
-> > > > > >=20
-> > > > > > EVM and other LSMs need the ability to query the secure boot st=
-atus of
-> > > > > > the system, without directly calling the IMA arch_ima_get_secur=
-eboot
-> > > > > > function. Refactor the secure boot status check into a general,
-> > > > > > integrity-wide function named arch_integrity_get_secureboot.
-> > > > > >=20
-> > > > > > Define a new Kconfig option CONFIG_INTEGRITY_SECURE_BOOT, which=
- is
-> > > > > > automatically configured by the supported architectures. The ex=
-isting
-> > > > > > IMA_SECURE_AND_OR_TRUSTED_BOOT Kconfig loads the architecture s=
-pecific
-> > > > > > IMA policy based on the refactored secure boot status code.
-> > > > > >=20
-> > > > > > Reported-and-suggested-by: Mimi Zohar <zohar@linux.ibm.com>
-> > > > > > Suggested-by: Roberto Sassu <roberto.sassu@huaweicloud.com>
-> > > > > > Signed-off-by: Coiby Xu <coxu@redhat.com>
-> > > > > > ---
-> > > > > >  arch/arm64/Kconfig                            |  1 +
-> > > > > >  arch/powerpc/Kconfig                          |  1 +
-> > > > > >  arch/powerpc/kernel/Makefile                  |  2 +-
-> > > > > >  arch/powerpc/kernel/ima_arch.c                |  5 --
-> > > > > >  arch/powerpc/kernel/integrity_sb_arch.c       | 13 +++++
-> > > > > >  arch/s390/Kconfig                             |  1 +
-> > > > > >  arch/s390/kernel/Makefile                     |  1 +
-> > > > > >  arch/s390/kernel/ima_arch.c                   |  6 --
-> > > > > >  arch/s390/kernel/integrity_sb_arch.c          |  9 +++
-> > > > > >  arch/x86/Kconfig                              |  1 +
-> > > > > >  arch/x86/include/asm/efi.h                    |  4 +-
-> > > > > >  arch/x86/platform/efi/efi.c                   |  2 +-
-> > > > > >  include/linux/ima.h                           |  7 +--
-> > > > > >  include/linux/integrity.h                     |  8 +++
-> > > > > >  security/integrity/Kconfig                    |  6 ++
-> > > > > >  security/integrity/Makefile                   |  3 +
-> > > > > >  security/integrity/efi_secureboot.c           | 56 +++++++++++=
-++++++++
-> > > > > >  security/integrity/ima/ima_appraise.c         |  2 +-
-> > > > > >  security/integrity/ima/ima_efi.c              | 47 +----------=
------
-> > > > > >  security/integrity/ima/ima_main.c             |  4 +-
-> > > > > >  security/integrity/platform_certs/load_uefi.c |  2 +-
-> > > > > >  21 files changed, 111 insertions(+), 70 deletions(-)
-> > > > > >  create mode 100644 arch/powerpc/kernel/integrity_sb_arch.c
-> > > > > >  create mode 100644 arch/s390/kernel/integrity_sb_arch.c
-> > > > > >  create mode 100644 security/integrity/efi_secureboot.c
-> > > > > >=20
-> > > > > > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > > > > > index 93173f0a09c7..4c265b7386bb 100644
-> > > > > > --- a/arch/arm64/Kconfig
-> > > > > > +++ b/arch/arm64/Kconfig
-> > > > > > @@ -2427,6 +2427,7 @@ config EFI
-> > > > > >         select EFI_STUB
-> > > > > >         select EFI_GENERIC_STUB
-> > > > > >         imply IMA_SECURE_AND_OR_TRUSTED_BOOT
-> > > > > > +       imply INTEGRITY_SECURE_BOOT
-> > > > >=20
-> > > > > This allows both to be en/disabled individually, which I don't th=
-ink
-> > > > > is what we want. It also results in more churn across the
-> > > > > arch-specific Kconfigs than needed.
-> > > > >=20
-> > > > > Wouldn't it be better if IMA_SECURE_AND_OR_TRUSTED_BOOT 'select'e=
-d
-> > > > > INTEGRITY_SECURE_BOOT in its Kconfig definition?
-> > > >=20
-> > > > As much as possible, EVM (and other LSMs) shouldn't be dependent on=
- another LSM,
-> > > > in this case IMA, being configured.
-> > >=20
-> > > Sure, but that is not my point.
-> > >=20
-> > > This arrangement allows for IMA_SECURE_AND_OR_TRUSTED_BOOT to be
-> > > enabled without INTEGRITY_SECURE_BOOT, resulting in the stub
-> > > implementation of arch_integrity_get_secureboot() being used, which
-> > > always returns false.
-> >=20
-> > I understand your concern, but instead of "select"ing INTEGRITY_SECURE_=
-BOOT from
-> > IMA_SECURE_AND_OR_TRUSTED_BOOT, how making IMA_SECURE_AND_OR_TRUSTED_BO=
-OT
-> > dependent on both IMA_ARCH_POLICY and INTEGRITY_SECURE_BOOT.
-> >=20
->=20
-> Given that INTEGRITY_SECURE_BOOT has no dependencies of its own,
-> afaict, selecting it is the least disruptive option, as otherwise,
-> existing configs will disable IMA_SECURE_AND_OR_TRUSTED_BOOT as the
-> kernel is being upgraded. But conceptually, I agree that they are
-> equivalent.
->=20
-> > Including the "imply INTEGRITY_SECURE_BOOT" here in the arch Kconfig al=
-lows EVM
-> > to query the secure boot state without relying on IMA_SECURE_AND_OR_TRU=
-STED_BOOT
-> > being configured.
->=20
-> Yes, I understand that this is the whole point of the exercise. But
-> 'imply' should be used with care, and in this case, implying both from
-> CONFIG_EFI really makes little sense. INTEGRITY_SECURE_BOOT should be
-> selected by options that need the functionality, not 'implied' by
-> options that might provide it.
+On Fri, Jan 16, 2026 at 08:54:39PM +0800, Felix Gu wrote:
+> When calling of_parse_phandle_with_args(), the caller is responsible
+> to call of_node_put() to release the reference of device node.
+> In scpi_dev_domain_id, it does not release the reference.
+> 
+> Fixes: 45ca7df7c345 ("firmware: arm_scpi: add support to populate OPPs and get transition latency")
+> 
 
-As not all arch's implement arch_integrity_get_secureboot, the definition i=
-n
-include/linux/integrity.h would need to be updated.  Something like:
+nit: delete the blank line after the Fixes tag.
 
--#ifdef CONFIG_INTEGRITY_SECURE_BOOT
-+#if (defined(CONFIG_INTEGRITY_SECURE_BOOT) && \
-+       (defined(CONFIG_X86) && defined(CONFIG_EFI)) || defined(CONFIG_S390=
-) \
-+        || defined(CONFIG_PPC_SECURE_BOOT))
+> Signed-off-by: Felix Gu <gu_0233@qq.com>
 
-Then IMA_SECURE_AND_OR_TRUSTED_BOOT and EVM could select INTEGRITY_SECURE_B=
-OOT,
-as suggested.
+Did you find this issue just by reviewing the code?  I read the comments
+and then looked at a sample of four other callers and none of them
+called of_node_put().  So it's a weird thing.  If this is really the rule
+then we should have a static checker heuristic to enforce it.
 
-Mimi
+regards,
+dan carpenter
+
 
