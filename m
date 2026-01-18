@@ -4,107 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1969ED4A5F4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 13:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 953B6CA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 13:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/HcqovNmS0C1WNUKztsxWUJLDiXtrL2QTXBBC/kxEI4=; b=F8m0VcAmu+imJ+2tjSSOGpTvS5
-	rzF8nGKj1zOZvCm+VcyMo6PBjz928EbKqN6mCdPv/kHGLgmGKjKKYuG+8n6fn48fz5OS9xqbptitm
-	157jK0As1sUEX98UiQ1Im6LtYcoMhh/w4oshxU7UtOBtCEQe8qeRZ31x6ZroQQhjTpRJ1Yh8q6hFK
-	UHRxAuef4Pj/ohoHOi336QdV4NyaN0OeeD1UABAlbHfjoN8QNEbQc+0l4gXj2swJp4m2OkT+giBoh
-	ux1hAqcnDiJGmcuL9XQ/iRhLzlZoLtVaLu1jjNZNeOizdp52NQuvZmJPsbTnAbACVb6lyEgMMJn+V
-	BMKodEyQ==;
+	bh=j9NWfNLMXfGmHPrhiqbEiqJKeYZj3TN2WzPDL/gZWhI=; b=hn+YvP3YZixZE+2iXr+dxtySMw
+	7SJHCBRRX/ozy24qc0RVDg0U/UG/6dpIUNS9RdfNvKd8JL1L1i/NFX5QSFzbupU0tWKQ1yZDToKWT
+	iNeDnIL3uyR+nAAGP0lPhk5D7sgpINXwtcOHYHhaS+jx0NgUhVMEajaKubXTlAqHpTKW5erxSzJ1J
+	3hdjXWD1kPcFBqjImL44Q6CIfUrT+0lpfhpPOSssTpswWhL7WR6AfYI22FaiU6cg6TqXMannDB7P2
+	bPhJfshuelfDW6Prvi4PPcaskceR/8YrEo52saz1DmSCXbu4ftEB+KfYch7+E+pXVvBDix4OTId0h
+	KXAhMtFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhSPA-000000003kL-0ZnN;
-	Sun, 18 Jan 2026 13:01:20 +0000
-Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
+	id 1vhSov-000000006mv-1Zbw;
+	Sun, 18 Jan 2026 13:27:57 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhSP6-000000003jd-0ude
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Jan 2026 13:01:19 +0000
-Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-78fb6c7874cso36883517b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Jan 2026 05:01:15 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768741275; cv=none;
-        d=google.com; s=arc-20240605;
-        b=huBrz5DBgrMM0K5Aw1hs3NnFTrwb3A/eXgo5mPb1YzqjusTPNKSimzgkk85wEgMNmA
-         yFHbsnXmqYa/Bfb5NeBPle70+1nRoGhynty0RhpPpCFxZc8XnpciXZu5tQLEdLjwY3aS
-         ALGl1b/3dLUknEOc8wceVnrC++rRJCTNFegkqDhhGZwJO4nXEUu6pysYUlMOTAg/FxF3
-         J5k8mbiwEx8HH46W9SW1UGcQK2z62KiC6I/HOY1et6IfDr1k3BVUtYbGriOxVeVu59FV
-         QMxRvrlZ1s+dVEhhKNVUwMtFwgcez3WETMa3UE8ldehV0QtXtFO2v6xZQj9gPS5GqoDa
-         GTJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=/HcqovNmS0C1WNUKztsxWUJLDiXtrL2QTXBBC/kxEI4=;
-        fh=YiL20BUh4CVBMi3Mib0oMhdt9ahiyzkmFdWeOH5IDjQ=;
-        b=b8HDRnzoFJfrvB56VJwMLuS48xQHCiyQeCze+cBK7hd/3Z+PlzulFTEsn/ztiDl5iI
-         57iXDLCcISG8YUNsYXK+wU+R+M+Vqn/3soLy6MJRFtuh0FOsPGZBnBfLiq41bO+k59uX
-         IkuQwjIyZ3JuWRJAGVMgKsBi2OEeuHWIweDG4lshgAnfPKcpJ/WdUuuLeIRw9aRACAnC
-         Vlc0YE85YpboCjanFvS4zj4qFbEtctek8k/dvYjYcOMvEBYSfG1e8niOpPV/qBA/j+Fx
-         4c6oBlRnFV28Ve31mhTrccAxQnBJrDZDwYcOpWZUhoX+jTjQeNDyuLiIHYf3Vo7cQceU
-         7b/A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768741275; x=1769346075; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/HcqovNmS0C1WNUKztsxWUJLDiXtrL2QTXBBC/kxEI4=;
-        b=XtPW49ZXPh8Uh2gcxBBd0x9MKgy7peYjsIM8/fxRTBxRTdXFveMlBuQtTE5pqoiUKP
-         ykXYcEVHyd2CP6fA9PQQ2LjfN5gPk2p9eC3hMtzYklUh7nRvnE7R+vuLT++EcE5aT0ex
-         1qE2o8AhJFZudlXCywix02yLDTU3cfNMIWFp1nb9dKqLWy7R0PXeCdFegAwlUITPuuOu
-         5GSYGRhW5EcwlwL4dMitQGaSxkGmzYfiQeKFjlt29iWl254GrYcR1moTtB5P79F7I90H
-         KpZlWKfV1RdLVxprIP5FRgERaG19/ALza5nuU7KfTYATpIjp8VWjbmoRZUXZP3bN4/TF
-         agqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768741275; x=1769346075;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/HcqovNmS0C1WNUKztsxWUJLDiXtrL2QTXBBC/kxEI4=;
-        b=eGY4F0acaHYkrE+KzV4xkXYp6xqWi8AJmQ/A41zDqzYf06d7HTSOLzav79wT0A74WH
-         Oxqx9MxAChLkeraH+9uQbvFMwi7ElGnpRuhyfy4rJ5ro/xcPAtXr4mxAUKiSaHgA3sNS
-         DESP/jzrk1y3X4DNfk2VZvbQ1Ojdd1wC53+AHgvGOs8DCo2aa02iN3VrszLNy8Fs3C44
-         tWTU+YrQElUN+GEArqt4IR+zzQVvFsxgKLx+LUuol+3dhvWciwfIXa+uroW+W4HKdlmK
-         7E0pb9msLfM4npZZYnot5lm0m3H1mglM0QbBR2mkHHo/vrqc0TTL2zm8cH5IK8qZFJUr
-         nScg==
-X-Forwarded-Encrypted: i=1; AJvYcCUm0mrHkHaTbZJLVKkMqrwPMSjcSZtGB+QpLTOmjEId/tXB1c0/i/cGm0uBCkYaWlhAGUkkei1THU8Na2u6Wxdp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/ANo1+QQ1wEyDCTwdJO5OUEd9NO8v3RGNdm7guqKqYnSqM3wy
-	7LaUQNQBpR5oMrVdvWMSxWCMclI5MjHyeQ81YCozmj/aPLZ8E9uTNWpgnQVbhvM8TkZxRiVr3Oh
-	KSUBToO23nvjlmMmr6tfDqZtyPLn/oEg=
-X-Gm-Gg: AY/fxX4DsSkHIjfBXAA8kw6KmtubaFVWoOaq0ki7AnLfpX2jOKyG1GsBIrgVjcc8Mcl
-	amA44QPaAq2hoGDrhJmzac1b7jqRLDP0Kf3qwPSh53iZcTohvmjmptQ8uXvGaSX3Ee+iyBKeF4w
-	HJC84mN06BknhRrex3ad5bKNTefv22OxPyw/BNfgXxbvrJ0ssutK39pKRTqe/94wJqv9+CfOhlP
-	H5r24cTUkONdhzMpqWKS/yqZYgCsf0mz0uUIGdWUJJdPmhyF8O7+moy1x8K4zpAQo1C0tsZ9NpD
-	oI9XCkVSW5fLoTW9Fd+j7pigUuMb
-X-Received: by 2002:a05:690c:9c0b:b0:793:b353:9dd7 with SMTP id
- 00721157ae682-793c683524bmr71951307b3.53.1768741274889; Sun, 18 Jan 2026
- 05:01:14 -0800 (PST)
+	id 1vhSor-000000006k9-380Q;
+	Sun, 18 Jan 2026 13:27:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=j9NWfNLMXfGmHPrhiqbEiqJKeYZj3TN2WzPDL/gZWhI=;
+	b=YrYP8roGqofgIqAVcaNc940Qub9UHHLMiANIrDKfmbiUMqFshjCXo3/Medm7Td
+	y7kWOIYVzjIUkgfbE4gXUTVDFDaKEgFuitq+lyWf8YQkeWrznysDRaInK2paKuIH
+	D9XNUmIqDsXRkjNgOa2ZFFZsdmT5D4AL8e5dZmqCrwyl4=
+Received: from [IPV6:240e:b8f:927e:1000:e94b:3b22:e2ce:7986] (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgDnuOCV32xpJgqjLw--.141S2;
+	Sun, 18 Jan 2026 21:26:48 +0800 (CST)
+Message-ID: <1ff0d069-14f0-439a-afca-4ecc1b569834@163.com>
+Date: Sun, 18 Jan 2026 21:26:45 +0800
 MIME-Version: 1.0
-References: <20260115-b4-macsmc-power-v3-0-c236e09874be@gmail.com>
- <20260115-b4-macsmc-power-v3-2-c236e09874be@gmail.com> <20260117123247.GB58217@robin.jannau.net>
-In-Reply-To: <20260117123247.GB58217@robin.jannau.net>
-From: Michael Reeves <michael.reeves077@gmail.com>
-Date: Mon, 19 Jan 2026 00:01:03 +1100
-X-Gm-Features: AZwV_Qg0kRBEifh1Sp_fpTXxWriqblhk8t3g8YtA9hXlnvyNjUGbX9JPXHLuelA
-Message-ID: <CANpmGNuZjYVEu-0mGezuy0mLpnu9Cg1aBooJV=hAr+-BJW0yiw@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] mfd: macsmc: Wire up Apple SMC power driver
-To: Janne Grunau <j@jannau.net>
-Cc: Sebastian Reichel <sre@kernel.org>, Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
-	Lee Jones <lee@kernel.org>, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Hector Martin <marcan@marcan.st>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 0/2] PCI: Configure Root Port MPS during host probing
+To: Ricardo Pardini <ricardo@pardini.net>, lpieralisi@kernel.org,
+ kwilczynski@kernel.org, bhelgaas@google.com, helgaas@kernel.org,
+ heiko@sntech.de, mani@kernel.org, yue.wang@Amlogic.com
+Cc: pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
+ jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com, cassel@kernel.org,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20251127170908.14850-1-18255117159@163.com>
+ <f5322597-c6dd-494a-863b-2caf24363f2d@pardini.net>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <f5322597-c6dd-494a-863b-2caf24363f2d@pardini.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PigvCgDnuOCV32xpJgqjLw--.141S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxZF1UAr48WFyktF4rtr13Jwb_yoW5Xr18pF
+	WYganIyFs3GFyfC34qqw4kCFW5Za4kKF43GryvqwnxJan8uF1DWFy8tws5twnFgrn3A3WS
+	vF1qg3WxZwn0vaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UxPEhUUUUU=
+X-Originating-IP: [240e:b8f:927e:1000:e94b:3b22:e2ce:7986]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCwxiTN2ls35hqSAAA3f
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_050118_257247_8271EA6D 
-X-CRM114-Status: GOOD (  25.26  )
+X-CRM114-CacheID: sfid-20260118_052754_440160_A75C0691 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,60 +80,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Janne,
 
-Thank you again for your feedback!
 
-On Sat, Jan 17, 2026 at 11:32=E2=80=AFPM Janne Grunau <j@jannau.net> wrote:
->
-> On Thu, Jan 15, 2026 at 06:08:16PM +1100, Michael Reeves via B4 Relay wro=
-te:
-> > From: Michael Reeves <michael.reeves077@gmail.com>
-> >
-> > Add the cell for the macsmc-power driver so it is probed by the
-> > MFD core.
-> >
-> > Co-developed-by: Hector Martin <marcan@marcan.st>
-> > Signed-off-by: Hector Martin <marcan@marcan.st>
->
-> Co-developed-by: for a single line change as simple as this is silly.
-> Please just keep Hector as author and just add your SOB
->
-Will fix in v4, thanks for pointing it out!
-> > Reviewed-by: Neal Gompa <neal@gompa.dev>
-> > Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
-> > ---
-> >  drivers/mfd/macsmc.c | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
-> > index 1b7e7b3e785f..358feec2d088 100644
-> > --- a/drivers/mfd/macsmc.c
-> > +++ b/drivers/mfd/macsmc.c
-> > @@ -46,6 +46,7 @@
-> >
-> >  static const struct mfd_cell apple_smc_devs[] =3D {
-> >       MFD_CELL_NAME("macsmc-input"),
-> > +     MFD_CELL_NAME("macsmc-power"),
-> >       MFD_CELL_OF("macsmc-gpio", NULL, NULL, 0, 0, "apple,smc-gpio"),
-> >       MFD_CELL_OF("macsmc-hwmon", NULL, NULL, 0, 0, "apple,smc-hwmon"),
-> >       MFD_CELL_OF("macsmc-reboot", NULL, NULL, 0, 0, "apple,smc-reboot"=
-),
->
-> This patch does not apply on top of v6.19-rc1. The base-commit helpfully
-> provided by b4 does not exists in my tree. I assume it's either a mfd or
-> linux-next commit? Please note the branch/tag this series applies to in
-> the cover letter if it is not the most recent -rc1 from Linus
->
-It's based on-top of the latest linux-next, I will mention this in the
-cover letter
-body for v4 (i only put it in 'Changes in v3' for this one), thank you for =
-the
-pickup!
-> Janne
+On 2025/12/31 10:58, Ricardo Pardini wrote:
+> On 27/11/2025 18:09, Hans Zhang wrote:
+>> Current PCIe initialization exhibits a key optimization gap: Root Ports
+>> may operate with non-optimal Maximum Payload Size (MPS) settings. While
+>> downstream device configuration is handled during bus enumeration, Root
+>> Port MPS values inherited from firmware or hardware defaults often fail
+>> to utilize the full capabilities supported by controller hardware. This
+>> results in suboptimal data transfer efficiency throughout the PCIe
+>> hierarchy.
+>>
+>> This patch series addresses this by:
+>>
+>> 1. Core PCI enhancement (Patch 1):
+>> - Proactively configures Root Port MPS during host controller probing
+>> - Sets initial MPS to hardware maximum (128 << dev->pcie_mpss)
+>> - Conditional on PCIe bus tuning being enabled (PCIE_BUS_TUNE_OFF unset)
+>>    and not in PCIE_BUS_PEER2PEER mode (which requires default 128 bytes)
+>> - Maintains backward compatibility via PCIE_BUS_TUNE_OFF check
+>> - Preserves standard MPS negotiation during downstream enumeration
+>>
+>> 2. Driver cleanup (Patch 2):
+>> - Removes redundant MPS configuration from Meson PCIe controller driver
+>> - Functionality is now centralized in PCI core
+>> - Simplifies driver maintenance long-term
+>>
+>> ---
+>> Changes in v7:
+>> - Exclude PCIE_BUS_PEER2PEER mode from Root Port MPS configuration
+>> - Remove redundant check for upstream bridge (Root Ports don't have one)
+>> - Improve commit message and code comments as per Bjorn.
+> Hi Hans,
+> 
+> I've tested on an Odroid-HC4 with a SATA SSD (via an ASM1061) by 
+> applying your v7 on v6.19-rc3 + Bjorn's 20251103221930.1831376-1- 
+> helgaas@kernel.org ("PCI: meson: Remove meson_pcie_link_up() timeout, 
+> message, speed check" which is required to get the meson PCIe to work at 
+> all since 6.18). With that setup I get:
+> 
+> # hdparm --direct -t /dev/sda
+>   Timing O_DIRECT disk reads: 832 MB in  3.00 seconds = 277.33 MB/sec
+> 
+> I've an identical machine, with a similar disk (even slightly faster, on 
+> paper), running plain 6.12.y and there I get:
+> 
+> # hdparm --direct -t /dev/sda
+>   Timing O_DIRECT disk reads: 764 MB in  3.00 seconds = 254.26 MB/sec
+> 
+> I repeated those a few times, not very scientific, I know; but anyway:
+> 
+> Tested-by: Ricardo Pardini <ricardo@pardini.net> # on Odroid-HC4
+> 
+> I've also feedback from another user running with this series with 
+> success on a different meson PCIe machine, will ask them to TB as well; 
+> they had reported a significant drop in performance since v6.18 without 
+> this.
+Hi,
 
-Thank you again!
+Thank you very much for your test. Let's wait for Bjorn's reply.
 
 Best regards,
-Michael
+Hans
+
+> 
+> Thanks,
+> Ricardo
+
 
