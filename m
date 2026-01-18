@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EBA6C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 10:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B58D4A5F4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 11:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qUERdZDHl1sOuHw/SPVp3jloOWvkcnnuLtYt8dC1BJM=; b=E+MA3bB+ikko1y+Ltz+Mc9EAjZ
-	4dNyfH1dckB/LR7Z9KkstXZcrUzaawekKud91S/OC13p1HbjYg0rOzpQwgMUApX/6AwGgXkH++dy2
-	W0D/E8cCWn5WQYoLuVMD8Ws1MOICPx4KyFmaaPviiSIczjMU6LyV9jV7htfd6AnHViwySuzd/VWKl
-	DeUPIAWvuqSQVp7EqMspnsIpxPNL5AHzz5519tgGJ0T+JFasWkItaBnrgX3WwQF+1xpDvkxNpqjKN
-	J7eG/hn5vmEmrg5G3G3734b/OGq0kR8xuDFdj7j5CpSoThmKP0QzwH1ZGPE4NAyYxMMhDGGKMhfam
-	WQOcZQeQ==;
+	bh=HFFFcDemYLzgisk57W1AA75EE04yImmIqnWREmnhQm0=; b=zXdKkvHXOElGbTp6n8BvHxZWJ7
+	OGmkcAsQhvUT2RW5/Ho/VP4mZKfQhDDIojylreltptCj/b0DNoTbK8mHeFmnUvCFhKx89oFzFS5AA
+	dotF1tmrQ9tCF0iQYCbi5C+Vd1bK1AtSCTkgkR3eAIK7KbazY0WUeS/BrfJ6l1fVK55LIPif2oAGA
+	mBdeFvvZIzCW9q5EG/2JJmcjgvUf70Lj74Sza2QJi/xofBxhwDpCwu4HNXr3h+WaKxVLPauBBVXpA
+	fzG7bu4ynGPVEMRvVBTQcHQH49smdQTND3oPSLVwNt66/0+WH22Mx1+s9C1pcrVAX9/Toh8lc0hiW
+	+6o8YSZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhQ2R-0000000HKym-0fgH;
-	Sun, 18 Jan 2026 10:29:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vhQWQ-0000000HOTl-3Ztu;
+	Sun, 18 Jan 2026 11:00:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhQ2O-0000000HKxZ-1Dsf
+	id 1vhQWN-0000000HOSz-3u4m
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Jan 2026 10:29:41 +0000
+	Sun, 18 Jan 2026 11:00:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2B3674441E;
-	Sun, 18 Jan 2026 10:29:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8EB4C116D0;
-	Sun, 18 Jan 2026 10:29:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 16DF344431;
+	Sun, 18 Jan 2026 11:00:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D2DDC2BC86;
+	Sun, 18 Jan 2026 11:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768732179;
-	bh=gveXft6/1suUPTPK6+A5Xp+d6HUxC5Rum+LnGx54Z34=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=PAg8SQ34N7V5zfoeO5GtoEL9UQifKC7eLdMV2frsoTrL8LU4axpA8CeiRRhKTvq0m
-	 oaA7gw0kzauZOCwu7oub2ydchUcB95crLuKOdu+NimK0ZISO1gvmweNctcNJ0MbVGP
-	 4QrUX0iKOzH070KN41Ag79BznCu67CanxXYthxrHsOcxtTOc+f/7PeCdmMcOWqBR+P
-	 PnMNVg2phw3srLl9lmct5H0JQy/dK21KKHO1zP3JceVCkr+HV+i4wd7PVYH8eKYGQW
-	 3kXWnap2jurM+o8iuPDNECi52Oi2vguIsyk/IUQtsTr2XSn1RiPRq20u6y0MCoNO8x
-	 KOOD8zahmrgYQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vhQ2K-00000003I58-1NCe;
-	Sun, 18 Jan 2026 10:29:36 +0000
-Date: Sun, 18 Jan 2026 10:29:35 +0000
-Message-ID: <87ldhvdxio.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: "Thomson, Jack" <jackabt.amazon@gmail.com>
-Cc: oliver.upton@linux.dev,
-	pbonzini@redhat.com,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	isaku.yamahata@intel.com,
-	xmarcalx@amazon.co.uk,
-	kalyazin@amazon.co.uk,
-	jackabt@amazon.com,
-	Vladimir Murzin <vladimir.murzin@arm.com>
-Subject: Re: [PATCH v4 1/3] KVM: arm64: Add pre_fault_memory implementation
-In-Reply-To: <ea7786e4-8b67-4a9f-b2c6-c0e4cd325cc3@gmail.com>
-References: <20260113152643.18858-1-jackabt.amazon@gmail.com>
-	<20260113152643.18858-2-jackabt.amazon@gmail.com>
-	<86jyxjkxus.wl-maz@kernel.org>
-	<ea7786e4-8b67-4a9f-b2c6-c0e4cd325cc3@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: jackabt.amazon@gmail.com, oliver.upton@linux.dev, pbonzini@redhat.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, isaku.yamahata@intel.com, xmarcalx@amazon.co.uk, kalyazin@amazon.co.uk, jackabt@amazon.com, vladimir.murzin@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1768734038;
+	bh=ckRbPlV/dNYcRGTMbUnR2/FtLqhLVon9hSop/7dGzKw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gLfpnukQteg9gXxZAA5U22BLRPHRZf5n1G0LRszlaEIYFLLcBeZ5LBU4FTmlgpcc5
+	 e81VAkSqwpQdfLeIG2dYmoQRP1Bv2/dhin0F6HdhXKwV4RL8gfqCBKlLKI8xqOcLnr
+	 GseLEL1A3gdCjXBQA04tP2Rz+1pcDha+sNdp364A24ii9zzEaYG3byU+MojhKEchAP
+	 rOPjDP6tt97QuesvpZBqs99r2pxqH4n2BD9h118jHjq4m5Wsp2QtaIvNLH6MkyzcTU
+	 ZsIdYcp6sdoPyH1FfbVn/MxQ8tNTLw9H836ZWNsOk0/DCl9/KDv+tWRvVhkJjLvcSx
+	 FWxtauzLnWHBw==
+Date: Sun, 18 Jan 2026 12:00:31 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Robert Moore <robert.moore@intel.com>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org
+Subject: Re: [PATCH v3 0/6] irqchip/gic-v5: Code first ACPI boot support
+Message-ID: <aWy9T3VDyXpVG41z@lpieralisi>
+References: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_022940_414922_4C5BB5F8 
-X-CRM114-Status: GOOD (  57.49  )
+X-CRM114-CacheID: sfid-20260118_030040_014157_988C3F04 
+X-CRM114-Status: GOOD (  36.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,246 +78,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 16 Jan 2026 14:33:42 +0000,
-"Thomson, Jack" <jackabt.amazon@gmail.com> wrote:
+On Thu, Jan 15, 2026 at 10:50:46AM +0100, Lorenzo Pieralisi wrote:
+> The ACPI and ACPI IORT specifications were updated to support bindings
+> required to describe GICv5 based systems.
 > 
+> The ACPI specification GICv5 bindings ECR [1] were approved and the
+> required changes merged in the ACPICA upstream repository[5].
 > 
-> Hey Marc,
+> The Arm IORT specification [2] has been updated to include GICv5 IWB
+> specific bindings in revision E.g.
 > 
-> Thanks for the review.
+> Implement kernel code that - based on the aforementioned bindings - adds
+> support for GICv5 ACPI probing.
 > 
-> On 15/01/2026 9:51 am, Marc Zyngier wrote:
-> > [+ Vladimir, who was also looking at this patch]
-> > 
-> > On Tue, 13 Jan 2026 15:26:40 +0000,
-> > Jack Thomson <jackabt.amazon@gmail.com> wrote:
-> >> 
-> >> From: Jack Thomson <jackabt@amazon.com>
-> >> 
-> >> Add kvm_arch_vcpu_pre_fault_memory() for arm64. The implementation hands
-> >> off the stage-2 faulting logic to either gmem_abort() or
-> >> user_mem_abort().
-> >> 
-> >> Add an optional page_size output parameter to user_mem_abort() to
-> >> return the VMA page size, which is needed when pre-faulting.
-> >> 
-> >> Update the documentation to clarify x86 specific behaviour.
-> >> 
-> >> Signed-off-by: Jack Thomson <jackabt@amazon.com>
-> >> ---
-> >>   Documentation/virt/kvm/api.rst |  3 +-
-> >>   arch/arm64/kvm/Kconfig         |  1 +
-> >>   arch/arm64/kvm/arm.c           |  1 +
-> >>   arch/arm64/kvm/mmu.c           | 79 ++++++++++++++++++++++++++++++++--
-> >>   4 files changed, 79 insertions(+), 5 deletions(-)
-> >> 
-> >> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> >> index 01a3abef8abb..44cfd9e736bb 100644
-> >> --- a/Documentation/virt/kvm/api.rst
-> >> +++ b/Documentation/virt/kvm/api.rst
-> >> @@ -6493,7 +6493,8 @@ Errors:
-> >>   KVM_PRE_FAULT_MEMORY populates KVM's stage-2 page tables used to map memory
-> >>   for the current vCPU state.  KVM maps memory as if the vCPU generated a
-> >>   stage-2 read page fault, e.g. faults in memory as needed, but doesn't break
-> >> -CoW.  However, KVM does not mark any newly created stage-2 PTE as Accessed.
-> >> +CoW.  However, on x86, KVM does not mark any newly created stage-2 PTE as
-> >> +Accessed.
-> >>     In the case of confidential VM types where there is an initial
-> >> set up of
-> >>   private guest memory before the guest is 'finalized'/measured, this ioctl
-> >> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> >> index 4f803fd1c99a..6872aaabe16c 100644
-> >> --- a/arch/arm64/kvm/Kconfig
-> >> +++ b/arch/arm64/kvm/Kconfig
-> >> @@ -25,6 +25,7 @@ menuconfig KVM
-> >>   	select HAVE_KVM_CPU_RELAX_INTERCEPT
-> >>   	select KVM_MMIO
-> >>   	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
-> >> +	select KVM_GENERIC_PRE_FAULT_MEMORY
-> >>   	select VIRT_XFER_TO_GUEST_WORK
-> >>   	select KVM_VFIO
-> >>   	select HAVE_KVM_DIRTY_RING_ACQ_REL
-> >> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> >> index 4f80da0c0d1d..19bac68f737f 100644
-> >> --- a/arch/arm64/kvm/arm.c
-> >> +++ b/arch/arm64/kvm/arm.c
-> >> @@ -332,6 +332,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
-> >>   	case KVM_CAP_COUNTER_OFFSET:
-> >>   	case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
-> >>   	case KVM_CAP_ARM_SEA_TO_USER:
-> >> +	case KVM_CAP_PRE_FAULT_MEMORY:
-> >>   		r = 1;
-> >>   		break;
-> >>   	case KVM_CAP_SET_GUEST_DEBUG2:
-> >> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> >> index 48d7c372a4cd..499b131f794e 100644
-> >> --- a/arch/arm64/kvm/mmu.c
-> >> +++ b/arch/arm64/kvm/mmu.c
-> >> @@ -1642,8 +1642,8 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-> >>     static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t
-> >> fault_ipa,
-> >>   			  struct kvm_s2_trans *nested,
-> >> -			  struct kvm_memory_slot *memslot, unsigned long hva,
-> >> -			  bool fault_is_perm)
-> >> +			  struct kvm_memory_slot *memslot, unsigned long *page_size,
-> >> +			  unsigned long hva, bool fault_is_perm)
-> >>   {
-> >>   	int ret = 0;
-> >>   	bool topup_memcache;
-> >> @@ -1923,6 +1923,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-> >>   	kvm_release_faultin_page(kvm, page, !!ret, writable);
-> >>   	kvm_fault_unlock(kvm);
-> >>   +	if (page_size)
-> >> +		*page_size = vma_pagesize;
-> >> +
-> >>   	/* Mark the page dirty only if the fault is handled successfully */
-> >>   	if (writable && !ret)
-> >>   		mark_page_dirty_in_slot(kvm, memslot, gfn);
-> >> @@ -2196,8 +2199,8 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
-> >>   		ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
-> >>   				 esr_fsc_is_permission_fault(esr));
-> >>   	else
-> >> -		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
-> >> -				     esr_fsc_is_permission_fault(esr));
-> >> +		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, NULL,
-> >> +				     hva, esr_fsc_is_permission_fault(esr));
-> >>   	if (ret == 0)
-> >>   		ret = 1;
-> >>   out:
-> >> @@ -2573,3 +2576,71 @@ void kvm_toggle_cache(struct kvm_vcpu *vcpu, bool was_enabled)
-> >>     	trace_kvm_toggle_cache(*vcpu_pc(vcpu), was_enabled,
-> >> now_enabled);
-> >>   }
-> >> +
-> >> +long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-> >> +				    struct kvm_pre_fault_memory *range)
-> >> +{
-> >> +	struct kvm_vcpu_fault_info *fault_info = &vcpu->arch.fault;
-> >> +	struct kvm_s2_trans nested_trans, *nested = NULL;
-> >> +	unsigned long page_size = PAGE_SIZE;
-> >> +	struct kvm_memory_slot *memslot;
-> >> +	phys_addr_t ipa = range->gpa;
-> >> +	phys_addr_t end;
-> >> +	hva_t hva;
-> >> +	gfn_t gfn;
-> >> +	int ret;
-> >> +
-> >> +	if (vcpu_is_protected(vcpu))
-> >> +		return -EOPNOTSUPP;
-> > 
-> > This feels pretty odd. If you have advertised the capability, then
-> > saying "not supported" at this stage is not on.
-> > 
+> ACPICA changes supporting the bindings were posted [6] - this series
+> depends on [6] to work and should not be merged stand alone.
+
+Hi Thomas, Rafael,
+
+I have noticed you pulled this seris into tip (thanks !) - there
+is a strict dependency on ACPICA patches in [6] though as I tried
+to convey with the paragraph above and dependencies below:
+
+prerequisite-message-id: <12822121.O9o76ZdvQC@rafael.j.wysocki>
+
+I don't know what's best/easier to handle this dependency but it is there,
+I don't want it to cause you any trouble so I reported it as soon
+as I noticed.
+
+Thanks !
+Lorenzo
+
+> The ACPI bindings were prototyped in edk2 - code available in these
+> branches [3][4].
 > 
-> Thanks good point, I think I can actually just drop this completely since
-> kvm_pvm_ext_allowed() would already exclude this as a capacility.
->
-
-I think you still need some runtime handling, just in case userspace
-is acting silly.
-
-> >> +
-> >> +	/*
-> >> +	 * We may prefault on a shadow stage 2 page table if we are
-> >> +	 * running a nested guest.  In this case, we have to resolve the L2
-> >> +	 * IPA to the L1 IPA first, before knowing what kind of memory should
-> >> +	 * back the L1 IPA.
-> >> +	 *
-> >> +	 * If the shadow stage 2 page table walk faults, then we return
-> >> +	 * -EFAULT
-> >> +	 */
-> >> +	if (kvm_is_nested_s2_mmu(vcpu->kvm, vcpu->arch.hw_mmu) &&
-> >> +	    vcpu->arch.hw_mmu->nested_stage2_enabled) {
-> >> +		ret = kvm_walk_nested_s2(vcpu, ipa, &nested_trans);
-> >> +		if (ret)
-> >> +			return -EFAULT;
-> > 
-> > And then what? Userspace is completely screwed here, with no way to
-> > make any forward progress, because the L1 is in charge of that S2, and
-> > L1 is not running. What's the outcome? Light a candle and pray?
-> > 
-> > Also, the IPA you are passing as a parameter means absolutely nothing
-> > in the context of L2. Userspace doesn't have the faintest clue about
-> > the memory map presented to L2, as that's L1 business. L1 can
-> > absolutely present to L2 a memory map that doesn't have a single
-> > address in common with its own.
-> > 
-> > So this really doesn't work at all.
-> > 
-> Would just returning -EOPNOTSUPP in this case like:
-
-Absolutely *not*. Userspace has no idea what the guest is doing, and
-cannot influence it (other than disabling nesting altogether). This is
-just as bad a -EFAULT.
-
+> ===========================
+> Kernel implementation notes
+> ===========================
 > 
->   if (kvm_is_nested_s2_mmu(vcpu->kvm, vcpu->arch.hw_mmu) &&
->       vcpu->arch.hw_mmu->nested_stage2_enabled)
->     return -EOPNOTSUPP;
->
-> be the best way to continue for now?
-
-We both know that what you actually mean is "this doesn't match my use
-case, let someone else deal with it". To which my answer is that you
-either fully support pre-faulting, or you don't at all. There is no
-middle ground.
-
-> >> +
-> >> +		ipa = kvm_s2_trans_output(&nested_trans);
-> >> +		nested = &nested_trans;
-> >> +	}
-> >> +
-> >> +	if (ipa >= kvm_phys_size(vcpu->arch.hw_mmu))
-> >> +		return -ENOENT;
-> >> +
-> >> +	/* Generate a synthetic abort for the pre-fault address */
-> >> +	fault_info->esr_el2 = (ESR_ELx_EC_DABT_LOW << ESR_ELx_EC_SHIFT) |
-> >> +		ESR_ELx_FSC_FAULT_L(KVM_PGTABLE_LAST_LEVEL);
-> > 
-> > Why level 3? You must present a fault that matches the level at which
-> > the emulated fault would actually occur, because the rest of the
-> > infrastructure relies on that (at least on the permission path, and
-> > more to come).
-> > 
+> IRS and ITS probing is triggered using the standard irqchip ACPI probing
+> mechanism - there is no significant difference compared to previous GIC
+> versions other.
 > 
-> Ack, thanks I was relying on the fact `fault_is_perm` was hardcoded to
-> false. I'll replace with something like:
+> The only difference that is worth noting is that GICv3/4 systems include a
+> single MADT component describing the interrupt controller (ie GIC distributor)
+> whereas GICv5 systems include one or more IRSes. The probing code is
+> implemented so that an MADT IRS detection triggers probing for all IRSes
+> in one go.
 > 
->   pgt = vcpu->arch.hw_mmu->pgt;
->   ret = kvm_pgtable_get_leaf(pgt, gpa, &pte, &level);
->   if (ret)
->     return ret;
->
->   fault_info->esr_el2 = (ESR_ELx_EC_DABT_LOW << ESR_ELx_EC_SHIFT) |
->     ESR_ELx_FSC_FAULT_L(level);
->   fault_info->hpfar_el2 = HPFAR_EL2_NS |
->     FIELD_PREP(HPFAR_EL2_FIPA, gpa >> 12);
-
-If a mapping exists, you probably don't want to replay the fault. And
-this needs to occur while the mmu_lock is held.
-
+> The IWB driver probes like any other ACPI device. IORT code is updated so
+> that a deviceID for the IWB can be detected.
 > 
-> > Taking a step back on all this, 90% of the problems are there because
-> > you are trying to support prefaulting a guest that is already running.
-> > If you limited this to actually *pre*-faulting the guest, it would be
-> > the easiest thing ever, and wouldn't suffer from any of the above (you
-> > can't be in a nested context if you haven't run).
-> > 
-> > What prevents you from doing so? I'm perfectly happy to make this a
-> > separate API if this contradicts other implementations. Or are you
-> > relying on other side effects of the "already running" state?
+> The only major change compared to GICv3/4 systems is the GSI namespace that
+> is split between PPI/SPI IRQs and IWB backed IRQs.
 > 
-> We would need this to work on an already running guest.
-
-Then you need to fully support pre-faulting the guest even when it is
-in a nested context, without resorting to coping-out in situations
-that do not match your narrow use-case. Which means populating the
-canonical s2_mmu even when you're not in that particular context.
-
-Thanks,
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+> The main GSI handle - to map an IRQ - has to detect whether to look-up
+> using the top level GSI domain or an IWB domain in that the two IRQ
+> namespaces are decoupled.
+> 
+> IORT code implements the logic to retrieve an IWB domain by looking up its
+> IWB frame id, as described in [1].
+> 
+> Most important implementation detail worth noting is that - at this stage -
+> ACPI code is not capable of handling devices probe order IRQ dependency on
+> the interrupt controller driver their IRQ is routed to.
+> 
+> This is not an issue on GICv3/4 systems in that the full GIC hierarchy
+> probes earlier than any other device, so by the time IRQs mappings have to
+> be carried out (ie acpi_register_gsi()) the GIC drivers have already
+> probed.
+> 
+> On GICv5 systems, the IWB is modelled as a device and its device driver
+> probes at device_initcall time. That's when the IWB IRQ domain is actually
+> registered - which poses problems for devices whose IRQs are IWB routed and
+> require to resolve the IRQ mapping before the IWB driver has a chance to
+> probe.
+> 
+> Work on resolving devices<->IWB probe order dependency has started in
+> parallel with this series and will be posted shortly.
+> 
+> For PPI/SPI/LPI backed IRQs the probe dependency is not a problem because
+> in GICv5 systems the IRSes and ITSes probe early so their IRQ domain are
+> set in place before devices require IRQ mappings.
+> 
+> [1] https://github.com/tianocore/edk2/issues/11148
+> [2] https://developer.arm.com/documentation/den0049/eg
+> [3] https://github.com/LeviYeoReum/edk2/tree/levi/gicv5_patch
+> [4] https://github.com/LeviYeoReum/edk2-platforms/tree/levi/gicv5_patch
+> [5] https://github.com/acpica/acpica/commits/master/
+> [6] https://lore.kernel.org/linux-acpi/12822121.O9o76ZdvQC@rafael.j.wysocki/
+> 
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> ---
+> Changes in v3:
+> - Dropped ACPICA patches
+> - Split IRS OF refactoring into a separate patch
+> - Renamed new fwnode interface according to review
+> - Applied minor review comments
+> - Rebased on v6.19-rc5
+> - Link to v2: https://lore.kernel.org/r/20251218-gicv5-host-acpi-v2-0-eec76cd1d40b@kernel.org
+> 
+> Changes in v2:
+> - Cherry-picked ACPICA upstream changes
+> - Minor editorial changes
+> - Removed the "not for merging" tag because now ACPI specs are approved
+> - Rebased against v6.19-rc1
+> - Link to v1: https://lore.kernel.org/r/20251028-gicv5-host-acpi-v1-0-01a862feb5ca@kernel.org
+> 
+> ---
+> Lorenzo Pieralisi (6):
+>       irqdomain: Add parent field to struct irqchip_fwid
+>       PCI/MSI: Make the pci_msi_map_rid_ctlr_node() interface firmware agnostic
+>       irqchip/gic-v5: Split IRS probing into OF and generic portions
+>       irqchip/gic-v5: Add ACPI IRS probing
+>       irqchip/gic-v5: Add ACPI ITS probing
+>       irqchip/gic-v5: Add ACPI IWB probing
+> 
+>  drivers/acpi/arm64/iort.c                | 193 +++++++++++++++++++-----
+>  drivers/acpi/bus.c                       |   3 +
+>  drivers/irqchip/irq-gic-its-msi-parent.c |  43 +++---
+>  drivers/irqchip/irq-gic-v5-irs.c         | 247 ++++++++++++++++++++++++-------
+>  drivers/irqchip/irq-gic-v5-its.c         | 132 ++++++++++++++++-
+>  drivers/irqchip/irq-gic-v5-iwb.c         |  42 ++++--
+>  drivers/irqchip/irq-gic-v5.c             | 138 ++++++++++++++---
+>  drivers/pci/msi/irqdomain.c              |  23 ++-
+>  include/linux/acpi.h                     |   1 +
+>  include/linux/acpi_iort.h                |  11 +-
+>  include/linux/irqchip/arm-gic-v5.h       |   8 +
+>  include/linux/irqdomain.h                |  30 +++-
+>  include/linux/msi.h                      |   3 +-
+>  kernel/irq/irqdomain.c                   |  14 +-
+>  14 files changed, 734 insertions(+), 154 deletions(-)
+> ---
+> base-commit: d0e305301e82474223bf26185e86e7dc2eb85350
+> change-id: 20251022-gicv5-host-acpi-d59d6c1d3d07
+> prerequisite-message-id: <12822121.O9o76ZdvQC@rafael.j.wysocki>
+> prerequisite-patch-id: 9f722bfc7e4861af40637017a83826401b3958e4
+> prerequisite-patch-id: f619b4724a25a5c2b95032ef4c6d0b53dde45142
+> prerequisite-patch-id: 3738d015d93d77b3d381ba8de056be533df48794
+> prerequisite-patch-id: 50b1ee01b2ee63f6db21276ec24dadd645f8931e
+> prerequisite-patch-id: 6671f1c96dc89d5e375196e545c9750c2378f010
+> prerequisite-patch-id: b5d91dce8f61ab75796ba6a766d499d7321c0231
+> prerequisite-patch-id: 1f433eeb8848ce51c2b2fe601813939a042c6c0e
+> prerequisite-patch-id: 4f9aab64e4f4a75c18ae692bd903266069100d34
+> prerequisite-patch-id: 793a7b3fab40b903ffa0855e0db5336acb69505b
+> prerequisite-patch-id: 3eeebe1df8abadc1606cc6dadd15031ad46ff64f
+> prerequisite-patch-id: 3477bb220e91c9cdb4d778ce15e44babbefddf23
+> prerequisite-patch-id: 153be22f930d0c05bc04b37006bdb1e286883a92
+> prerequisite-patch-id: 1a7dcfd7e1317aeec52c772f3150c115e965af52
+> prerequisite-patch-id: 43a604c0109163e51a892d888c728794bca8a0a3
+> prerequisite-patch-id: 580debc0f26b7c301160504e2360de6765e7a179
+> prerequisite-patch-id: 15f2c86c557c835e4aed0cb914c23e04da1392ed
+> prerequisite-patch-id: 00986721db8da2e52c733971b482b9cf0c32910e
+> prerequisite-patch-id: 9d0607df90015bac8768549cbb0a19580f0b2661
+> prerequisite-patch-id: f478f56f3ded4d0ce43254418deb5e10f49555ef
+> prerequisite-patch-id: 6f9563683e92392564935f24cc5e8be23301790c
+> prerequisite-patch-id: 4d701f77a597391e0d04c5da3d6f1cb24d1e40d0
+> prerequisite-patch-id: d70577c2355648acbc7c857c5512df21280e917f
+> prerequisite-patch-id: 8c6408293baa1a758b0b0b4f078eaf7dbe1404e0
+> prerequisite-patch-id: 84008a72aa67b54af8a294a0fc07d2b6eaede597
+> prerequisite-patch-id: 97acab35d513bc6b091efa4185a9826262d5ed79
+> prerequisite-patch-id: 04652a3bfdf9f4fa2ba829631c899ea3569f11a2
+> 
+> Best regards,
+> -- 
+> Lorenzo Pieralisi <lpieralisi@kernel.org>
+> 
 
