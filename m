@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B82C4D4A5F4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 13:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EC2EC9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 13:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tf+2LW/K7uHWYSeL+4oc/nXbmfZwSn0ljbgPq5lr9nc=; b=y8wClDzRXcQdzd67FPI+Z/ecXW
-	cYAFQ1Cy6RP/SgVKKu/32UQdkbBk9fVDUZmnufi/jPujHAHlTLwwLXGl9prjeChHqCl95TPOe/Wgf
-	PjNB60l7Voj7VEH2ly2bKM3V5NpaW9PHsjApD22lHxHlqmi3i0h25UFNRvvNHAPElAY3qzteELz+P
-	DPOvxB04tzVOR7GuYlX23UfK6i6lMKX8TtrpgZqv8FM0CqatcpCzLQnC6psPIu/7a86QoBRiju+Ql
-	r/FHzD5mO8ncLe5kXTFfjp/pBHEU3+7OTnDQEosBXy2kJTeedEvWvIr4YkkELcsXUppEoA87in5HB
-	hwBg45UA==;
+	bh=v0bVHsCY7UsPDUQ9Hr2u2yyp6GJ/5zKUxBjM//vPrbo=; b=TzDOMNcoY2hL8PNwkY4UBOoHU+
+	cdwh3epPYiPaR+Y/lZGBQJbuea+/KIAEcXBch7xEz/ZfQw68wddFC3hF4LD60+7L9zyvw03av319c
+	PT7rMPW1Pgk5hyQy6ApA1wq6ZGbpXZHXxwNzdhJdMyOnuLHs46oC0tWUN8+d7Z0WZMCIk4IaG7k7x
+	fDjHQGcmU9Jo0Qd7O0hJX0O/n5nlSZxq5zw5/w5lOeeE5ENHivJHfbzv2KDUL57UE0uaUEdoscc6a
+	uDUE4wmm5ZZeMSKavlrVPcw5pw4USedWzEPVaqlDdTD9/Z1ViFAl/ixKlJNzmu3mmEwVLmFOYKt88
+	nIwSY/Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhTC1-000000009cU-47N8;
-	Sun, 18 Jan 2026 13:51:50 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1vhTC5-000000009gE-1yTn;
+	Sun, 18 Jan 2026 13:51:53 +0000
+Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhTBg-000000009NA-276U;
-	Sun, 18 Jan 2026 13:51:31 +0000
+	id 1vhTBl-000000009Rs-0nfv;
+	Sun, 18 Jan 2026 13:51:41 +0000
 Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4dvFP96dfhz9sTb;
-	Sun, 18 Jan 2026 14:51:25 +0100 (CET)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4dvFPG6ys1z9tj6;
+	Sun, 18 Jan 2026 14:51:30 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1768744286;
+	t=1768744291;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=tf+2LW/K7uHWYSeL+4oc/nXbmfZwSn0ljbgPq5lr9nc=;
-	b=KltbS8z2UEUWyS/OrIFlivEeczmhECPTvUBYry8ue/epTrtftY1DN252uOO7oP3o4WDkJu
-	L/HPXzoCU+cOm4kbYYsQqMPw4tRcrKfxzr7toCO/cCihxRcUvq5JKVcAe3CsNoPsxI9HWa
-	xXg53iRVvdcyUNv217BMnxiuFll/kcUTXZd4gWNIw8Oppmc4yb32ncxTHFLSV+0tcFMyuD
-	2cbNAOowSZ30L+G19qSmYoENy/mVA0QpXX83CD5AfArm05/LYEdLSgD+DYcFmoRY/R+BCs
-	6nYEa6SmEr75qPysRbHgNIAOgGLUygQpmb0MO5mhiojaeOMbsf90xLmQ5ek9Kg==
+	bh=v0bVHsCY7UsPDUQ9Hr2u2yyp6GJ/5zKUxBjM//vPrbo=;
+	b=QSv8kLzXK9KZRHM3j8MfBt8VIdXiBxvF3nwBSi2HCF7FyuDq2ULfNPj+1t4l5eghZ9gB/4
+	8ILD8YlAMUBimjUtES6RRoV0fWuOJ+f+IEHV7/aduMN0Kd1Swkrv+PQ0W30KIzg1tW6KXd
+	keJnIoZGVEn8ySom3nVaP6V3Avh4r+KC1HGpbdncSbUZr6Xo89Zjx6RLgSGISlwKTaKVt0
+	f2XvAoyrVIrMW0KN15bZNeeeP9p4jPYn4roJRyLNcVpQUr/RWdpAvAKpG7ebXT+3mhQ1zq
+	2B/QCkb1i6OsclPFuuBLFFePG7lQH2JSDk39soJrWeIdTXYozIskZhrOKqnhDA==
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1768744284;
+	t=1768744289;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=tf+2LW/K7uHWYSeL+4oc/nXbmfZwSn0ljbgPq5lr9nc=;
-	b=t7YPvZtya0/YEvtYi/dcX+XBA3rIOt2EjZAplBZYkrqmaV4ODBxpY3JR8xtvGD15zC4T/i
-	gwOYDFUsn2xJ46/p0RL6CAtZENo3xKYr8QjWBvKbit1uVWBzib03lJmS8uDym3tUAn9qzx
-	Ha6ynlhIBF6fE7W4HXyV2jIhPr9M2G2kXoAt9fHE20POChs1X39T8uppc4cD9uf45lrljr
-	c0ObZe166kiXJtKe+/qg6RY9688lYMXfP+kC5DVTCtqJVOrE71SO+OVIYvCEg6i3EM+8Hp
-	8GMeA6otwHvsGiPBPuL/HIAyxeGV22LQeruhha5uoqEpmv/rHFLiu9zBcegLow==
+	bh=v0bVHsCY7UsPDUQ9Hr2u2yyp6GJ/5zKUxBjM//vPrbo=;
+	b=WtM8NSEVVCbKS6WvOG1bENI1MqfnvIZmhe3KCYOKaahoTP4U/5EGlH4bMPX7V1gV7hgoiN
+	cQk34t+EbsbvlPL959vD3t8j30g9A4eoqpzNRMAgNsyKRYRyXMEP9wpX8JWcJrPmTT6xQw
+	CO6VazpkXlzMRAWr14f/UxOqXpqWOQaesLEizhWag7b0aJjCuvdw2plwii3InB3yDVcGQy
+	kX4hXhBLnXMx3ec1JH+p24YTJWS7y1X9bdVK56duZcABTX463d0UVHcyQGge5P5PXovFo8
+	HMQu18nTfD5ltvct9ttKjgaUZhZKwpJovaH8xv89x4pbUblwN2iN+ijCU9x8dQ==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -70,18 +70,19 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	devicetree@vger.kernel.org,
 	linux-phy@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2 5/9] arm64: dts: renesas: r8a77990: Describe PCIe root port
-Date: Sun, 18 Jan 2026 14:49:53 +0100
-Message-ID: <20260118135038.8033-6-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH v2 7/9] arm64: dts: renesas: salvator-common: Describe PCIe/USB3.0 clock generator
+Date: Sun, 18 Jan 2026 14:49:55 +0100
+Message-ID: <20260118135038.8033-8-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20260118135038.8033-1-marek.vasut+renesas@mailbox.org>
 References: <20260118135038.8033-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: 68jt9cumd8exuazkag4goauxrgq5qoa1
-X-MBO-RS-ID: 31b220a7fad67fb80eb
+X-MBO-RS-ID: 802bed468735546f758
+X-MBO-RS-META: q1cajjbnhxwxp63mhgpyfhh6eqo8t83j
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_055128_862461_8AAC0E84 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20260118_055135_786072_44B92678 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,9 +97,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add node which describes the root port in the PCIe controller DT node.
-This can be used together with the pwrctrl driver to control clock and
-power supply to a PCIe slot.
+Describe the 9FGV0841 PCIe and USB3.0 clock generator present on both
+Salvator-X and Salvator-XS boards. The clock generator supplies 100 MHz
+differential clock for both PCIe ports, as well as for the USB 3.0 PHY.
 
 Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 ---
@@ -116,30 +117,82 @@ Cc: linux-renesas-soc@vger.kernel.org
 ---
 V2: No change
 ---
- arch/arm64/boot/dts/renesas/r8a77990.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ .../boot/dts/renesas/salvator-common.dtsi     | 26 +++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a77990.dtsi b/arch/arm64/boot/dts/renesas/r8a77990.dtsi
-index 97a7cf675efa7..82e9ab458b05b 100644
---- a/arch/arm64/boot/dts/renesas/r8a77990.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a77990.dtsi
-@@ -1929,6 +1929,16 @@ pciec0: pcie@fe000000 {
- 			iommu-map = <0 &ipmmu_hc 0 1>;
- 			iommu-map-mask = <0>;
- 			status = "disabled";
-+
-+			/* PCIe bridge, Root Port */
-+			pciec0_rp: pci@0,0 {
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				reg = <0x0 0x0 0x0 0x0 0x0>;
-+				compatible = "pciclass,0604";
-+				device_type = "pci";
-+				ranges;
-+			};
- 		};
+diff --git a/arch/arm64/boot/dts/renesas/salvator-common.dtsi b/arch/arm64/boot/dts/renesas/salvator-common.dtsi
+index d4a921bed4c39..9a8c569484c03 100644
+--- a/arch/arm64/boot/dts/renesas/salvator-common.dtsi
++++ b/arch/arm64/boot/dts/renesas/salvator-common.dtsi
+@@ -75,6 +75,12 @@ backlight: backlight {
+ 		enable-gpios = <&gpio6 7 GPIO_ACTIVE_HIGH>;
+ 	};
  
- 		vspb0: vsp@fe960000 {
++	pcie_usb_refclk: clk-x7 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <25000000>;
++	};
++
+ 	cvbs-in {
+ 		compatible = "composite-video-connector";
+ 		label = "CVBS IN";
+@@ -523,6 +529,13 @@ pca9654: gpio@20 {
+ 		#gpio-cells = <2>;
+ 	};
+ 
++	pcie_usb_clk: clk@68 {
++		compatible = "renesas,9fgv0841";
++		reg = <0x68>;
++		clocks = <&pcie_usb_refclk>;
++		#clock-cells = <1>;
++	};
++
+ 	video-receiver@70 {
+ 		compatible = "adi,adv7482";
+ 		reg = <0x70 0x71 0x72 0x73 0x74 0x75
+@@ -641,16 +654,27 @@ &ohci1 {
+ 
+ &pcie_bus_clk {
+ 	clock-frequency = <100000000>;
++	status = "disabled";
+ };
+ 
+ &pciec0 {
++	clocks = <&cpg CPG_MOD 319>, <&pcie_usb_clk 1>;
+ 	status = "okay";
+ };
+ 
++&pciec0_rp {
++	clocks = <&pcie_usb_clk 3>;
++};
++
+ &pciec1 {
++	clocks = <&cpg CPG_MOD 318>, <&pcie_usb_clk 2>;
+ 	status = "okay";
+ };
+ 
++&pciec1_rp {
++	clocks = <&pcie_usb_clk 4>;
++};
++
+ &pfc {
+ 	pinctrl-0 = <&scif_clk_pins>;
+ 	pinctrl-names = "default";
+@@ -1038,11 +1062,13 @@ &usb3_peri0 {
+ };
+ 
+ &usb3_phy0 {
++	clocks = <&cpg CPG_MOD 328>, <&pcie_usb_clk 6>, <&usb_extal_clk>;
+ 	status = "okay";
+ };
+ 
+ &usb3s0_clk {
+ 	clock-frequency = <100000000>;
++	status = "disabled";
+ };
+ 
+ &vin0 {
 -- 
 2.51.0
 
