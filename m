@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89C93D4A5F4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 05:47:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 555EBD4A5F4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 05:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UcdqeoBShezB1UdnhKKlQizEDAfruq6bLrpoq6KJU2g=; b=lzw5zed5GPLub/ItxngwhQbZ6W
-	8R230viZM3N8IRt03EDlXcW2ldedXuqtrpn5sq5VBgpsS6jOzWpVEe5iCe11Tfik11SB0UUfzDArt
-	8HPCEYthoQLis1mqvzRKMYBdmXuuftPuc4Jsga+bXdEWfzr/mWcOPfrcLs+YZRP2CMlNvXNwL+mGF
-	a0WjVbgctK6Dva1fXhkKEqrk6GknXDt/kxEan9l5soDspjG6/dgE1iqWCMQ/w/MXL29/S3xHTv7x3
-	ezOYarxzmb0J7xFxsL6w0guGKF5dLZGmn3h3U2YwMYFm/kwh9r43AL11z5pVoD4IgWz3bn7+7hTin
-	DjV+kXiQ==;
+	bh=nN7mk/B18u5vi4ZbP3jpCZ2+drO4Ozs0PMf/ZFASc2M=; b=KFguFddUj/hj5XQ0JW1dRV44Mi
+	RUJMR965XO/0yRSTp/TZO6Krc4WAM4U8R+73r1yGjNjk2aZo2CZgvCHMOAF0TrfTr+i0tuYMwFwAU
+	8vgE9CyhpJrvt4C0mTpoy+2D4JCsfijF6z0yGOh4suVLSILJtiPtDpDmPeEwdslhm+GVvMsoXx6ya
+	ngcloZlUO6F5K3Lhzs+EnX9KPRIm0Xy7hzXzRmJVdJTXU/U3PTSkaj74OqGfgaBaGCq1q4K+Vx+ni
+	diDMfIMrky4CfgQ0WLeC1Z2/ChFWQ7sod4le7Q89XhkRqmXbUFLQ7uPtodcN7YUqMIv7BmbXeYs2h
+	cZsOGD4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhLco-0000000Gq6Z-17er;
-	Sun, 18 Jan 2026 05:46:58 +0000
+	id 1vhLeH-0000000GqJX-2wVo;
+	Sun, 18 Jan 2026 05:48:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhLck-0000000Gq5w-13Vg
+	id 1vhLeF-0000000GqIg-1jVp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Jan 2026 05:46:56 +0000
+	Sun, 18 Jan 2026 05:48:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8CE31517;
-	Sat, 17 Jan 2026 21:46:42 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A3D2F1650;
+	Sat, 17 Jan 2026 21:48:18 -0800 (PST)
 Received: from [10.164.10.251] (unknown [10.164.10.251])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5155F3F632;
-	Sat, 17 Jan 2026 21:46:43 -0800 (PST)
-Message-ID: <ccce0551-489a-4612-ab5d-2dd8a5cae66c@arm.com>
-Date: Sun, 18 Jan 2026 11:16:40 +0530
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 45E733F632;
+	Sat, 17 Jan 2026 21:48:19 -0800 (PST)
+Message-ID: <467ab4d7-1ce2-48d4-bff6-6579216569e2@arm.com>
+Date: Sun, 18 Jan 2026 11:18:16 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v5 5/5] mm: rmap: support batched unmapping for file large
@@ -54,15 +54,15 @@ References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
  <CAGsJ_4yKRtyADU2ZxUMgvqdrhAEL4SpZxCMRt28gNJfUf--5zQ@mail.gmail.com>
  <20260107014601.dxvq6b7ljgxwg7iu@master>
  <db4d0a19-598b-48ff-accc-f5940a481035@arm.com>
- <CAGsJ_4yo-EE__1VzHqxE8ehDOFQuxqP9GXcskkeZ-WTTyz12_A@mail.gmail.com>
+ <CAGsJ_4zAxhSDqvN5tzSeHR-kifaxm_GbPhHCeSkYsRJk=uHN-Q@mail.gmail.com>
 Content-Language: en-US
 From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <CAGsJ_4yo-EE__1VzHqxE8ehDOFQuxqP9GXcskkeZ-WTTyz12_A@mail.gmail.com>
+In-Reply-To: <CAGsJ_4zAxhSDqvN5tzSeHR-kifaxm_GbPhHCeSkYsRJk=uHN-Q@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260117_214654_448843_B2F3B401 
-X-CRM114-Status: GOOD (  31.83  )
+X-CRM114-CacheID: sfid-20260117_214827_491472_5B654BB1 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,124 +78,7 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 16/01/26 7:58 pm, Barry Song wrote:
-> On Fri, Jan 16, 2026 at 5:53 PM Dev Jain <dev.jain@arm.com> wrote:
->>
->> On 07/01/26 7:16 am, Wei Yang wrote:
->>> On Wed, Jan 07, 2026 at 10:29:25AM +1300, Barry Song wrote:
->>>> On Wed, Jan 7, 2026 at 2:22 AM Wei Yang <richard.weiyang@gmail.com> wrote:
->>>>> On Fri, Dec 26, 2025 at 02:07:59PM +0800, Baolin Wang wrote:
->>>>>> Similar to folio_referenced_one(), we can apply batched unmapping for file
->>>>>> large folios to optimize the performance of file folios reclamation.
->>>>>>
->>>>>> Barry previously implemented batched unmapping for lazyfree anonymous large
->>>>>> folios[1] and did not further optimize anonymous large folios or file-backed
->>>>>> large folios at that stage. As for file-backed large folios, the batched
->>>>>> unmapping support is relatively straightforward, as we only need to clear
->>>>>> the consecutive (present) PTE entries for file-backed large folios.
->>>>>>
->>>>>> Performance testing:
->>>>>> Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and try to
->>>>>> reclaim 8G file-backed folios via the memory.reclaim interface. I can observe
->>>>>> 75% performance improvement on my Arm64 32-core server (and 50%+ improvement
->>>>>> on my X86 machine) with this patch.
->>>>>>
->>>>>> W/o patch:
->>>>>> real    0m1.018s
->>>>>> user    0m0.000s
->>>>>> sys     0m1.018s
->>>>>>
->>>>>> W/ patch:
->>>>>> real   0m0.249s
->>>>>> user   0m0.000s
->>>>>> sys    0m0.249s
->>>>>>
->>>>>> [1] https://lore.kernel.org/all/20250214093015.51024-4-21cnbao@gmail.com/T/#u
->>>>>> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->>>>>> Acked-by: Barry Song <baohua@kernel.org>
->>>>>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
->>>>>> ---
->>>>>> mm/rmap.c | 7 ++++---
->>>>>> 1 file changed, 4 insertions(+), 3 deletions(-)
->>>>>>
->>>>>> diff --git a/mm/rmap.c b/mm/rmap.c
->>>>>> index 985ab0b085ba..e1d16003c514 100644
->>>>>> --- a/mm/rmap.c
->>>>>> +++ b/mm/rmap.c
->>>>>> @@ -1863,9 +1863,10 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
->>>>>>       end_addr = pmd_addr_end(addr, vma->vm_end);
->>>>>>       max_nr = (end_addr - addr) >> PAGE_SHIFT;
->>>>>>
->>>>>> -      /* We only support lazyfree batching for now ... */
->>>>>> -      if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
->>>>>> +      /* We only support lazyfree or file folios batching for now ... */
->>>>>> +      if (folio_test_anon(folio) && folio_test_swapbacked(folio))
->>>>>>               return 1;
->>>>>> +
->>>>>>       if (pte_unused(pte))
->>>>>>               return 1;
->>>>>>
->>>>>> @@ -2231,7 +2232,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
->>>>>>                        *
->>>>>>                        * See Documentation/mm/mmu_notifier.rst
->>>>>>                        */
->>>>>> -                      dec_mm_counter(mm, mm_counter_file(folio));
->>>>>> +                      add_mm_counter(mm, mm_counter_file(folio), -nr_pages);
->>>>>>               }
->>>>>> discard:
->>>>>>               if (unlikely(folio_test_hugetlb(folio))) {
->>>>>> --
->>>>>> 2.47.3
->>>>>>
->>>>> Hi, Baolin
->>>>>
->>>>> When reading your patch, I come up one small question.
->>>>>
->>>>> Current try_to_unmap_one() has following structure:
->>>>>
->>>>>     try_to_unmap_one()
->>>>>         while (page_vma_mapped_walk(&pvmw)) {
->>>>>             nr_pages = folio_unmap_pte_batch()
->>>>>
->>>>>             if (nr_pages = folio_nr_pages(folio))
->>>>>                 goto walk_done;
->>>>>         }
->>>>>
->>>>> I am thinking what if nr_pages > 1 but nr_pages != folio_nr_pages().
->>>>>
->>>>> If my understanding is correct, page_vma_mapped_walk() would start from
->>>>> (pvmw->address + PAGE_SIZE) in next iteration, but we have already cleared to
->>>>> (pvmw->address + nr_pages * PAGE_SIZE), right?
->>>>>
->>>>> Not sure my understanding is correct, if so do we have some reason not to
->>>>> skip the cleared range?
->>>> I don’t quite understand your question. For nr_pages > 1 but not equal
->>>> to nr_pages, page_vma_mapped_walk will skip the nr_pages - 1 PTEs inside.
->>>>
->>>> take a look:
->>>>
->>>> next_pte:
->>>>                do {
->>>>                        pvmw->address += PAGE_SIZE;
->>>>                        if (pvmw->address >= end)
->>>>                                return not_found(pvmw);
->>>>                        /* Did we cross page table boundary? */
->>>>                        if ((pvmw->address & (PMD_SIZE - PAGE_SIZE)) == 0) {
->>>>                                if (pvmw->ptl) {
->>>>                                        spin_unlock(pvmw->ptl);
->>>>                                        pvmw->ptl = NULL;
->>>>                                }
->>>>                                pte_unmap(pvmw->pte);
->>>>                                pvmw->pte = NULL;
->>>>                                pvmw->flags |= PVMW_PGTABLE_CROSSED;
->>>>                                goto restart;
->>>>                        }
->>>>                        pvmw->pte++;
->>>>                } while (pte_none(ptep_get(pvmw->pte)));
->>>>
->>> Yes, we do it in page_vma_mapped_walk() now. Since they are pte_none(), they
->>> will be skipped.
->>>
+On 16/01/26 8:44 pm, Barry Song wrote:
 >>> I mean maybe we can skip it in try_to_unmap_one(), for example:
 >>>
 >>> diff --git a/mm/rmap.c b/mm/rmap.c
@@ -214,47 +97,25 @@ On 16/01/26 7:58 pm, Barry Song wrote:
 >>>  walk_abort:
 >>>               ret = false;
 >> I am of the opinion that we should do something like this. In the internal pvmw code,
-> I am still not convinced that skipping PTEs in try_to_unmap_one()
-> is the right place. If we really want to skip certain PTEs early,
-> should we instead hint page_vma_mapped_walk()? That said, I don't
-> see much value in doing so, since in most cases nr is either 1 or
-> folio_nr_pages(folio).
->
 >> we keep skipping ptes till the ptes are none. With my proposed uffd-fix [1], if the old
 >> ptes were uffd-wp armed, pte_install_uffd_wp_if_needed will convert all ptes from none
 >> to not none, and we will lose the batching effect. I also plan to extend support to
 >> anonymous folios (therefore generalizing for all types of memory) which will set a
+> I posted an RFC on anon folios quite some time ago [1].
+> It’s great to hear that you’re interested in taking this over.
+>
+> [1] https://lore.kernel.org/all/20250513084620.58231-1-21cnbao@gmail.com/
+
+Great! Now I have a reference to look at :)
+
+>
 >> batch of ptes as swap, and the internal pvmw code won't be able to skip through the
 >> batch.
-> Thanks for catching this, Dev. I already filter out some of the more
-> complex cases, for example:
-> if (pte_unused(pte))
->         return 1;
->
-> Since the userfaultfd write-protection case is also a corner case,
-> could we filter it out as well?
->
-> diff --git a/mm/rmap.c b/mm/rmap.c
-> index c86f1135222b..6bb8ba6f046e 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -1870,6 +1870,9 @@ static inline unsigned int
-> folio_unmap_pte_batch(struct folio *folio,
->         if (pte_unused(pte))
->                 return 1;
->
-> +       if (userfaultfd_wp(vma))
-> +               return 1;
-> +
->         return folio_pte_batch(folio, pvmw->pte, pte, max_nr);
-> }
->
-> Just offering a second option — yours is probably better.
-
-No. This is not an edge case. This is a case which gets exposed by your work, and
-I believe that if you intend to get the file folio batching thingy in, then you
-need to fix the uffd stuff too.
-
+> Interesting — I didn’t catch this issue in the RFC earlier. Back then,
+> we only supported nr == 1 and nr == folio_nr_pages(folio). When
+> nr == nr_pages, page_vma_mapped_walk() would break entirely. With
+> Lance’s commit ddd05742b45b08, arbitrary nr in [1, nr_pages] is now
+> supported, which means we have to handle all the complexity. :-)
 >
 > Thanks
 > Barry
