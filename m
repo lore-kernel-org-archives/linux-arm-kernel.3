@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B58D4A5F4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 11:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8531C9832F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 12:20:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HFFFcDemYLzgisk57W1AA75EE04yImmIqnWREmnhQm0=; b=zXdKkvHXOElGbTp6n8BvHxZWJ7
-	OGmkcAsQhvUT2RW5/Ho/VP4mZKfQhDDIojylreltptCj/b0DNoTbK8mHeFmnUvCFhKx89oFzFS5AA
-	dotF1tmrQ9tCF0iQYCbi5C+Vd1bK1AtSCTkgkR3eAIK7KbazY0WUeS/BrfJ6l1fVK55LIPif2oAGA
-	mBdeFvvZIzCW9q5EG/2JJmcjgvUf70Lj74Sza2QJi/xofBxhwDpCwu4HNXr3h+WaKxVLPauBBVXpA
-	fzG7bu4ynGPVEMRvVBTQcHQH49smdQTND3oPSLVwNt66/0+WH22Mx1+s9C1pcrVAX9/Toh8lc0hiW
-	+6o8YSZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iVP/VZKXoY7D29oCc0bA7HweioYACUSJKazWJX7WARM=; b=GMfoqA+aUFEqUZIR/nptQ3T+yA
+	paUfy4wvAJr2q+MPJKwqTuZ/T6t3cVtSSHkXYuEgGism0XFzYykB4mOicrwEpQcYnp1vVqli2iXwH
+	bpTPgcVkdShQqGmVoW+zYI4Yu8OjSRt4E+nsk7zK0hAtk09GThqHvcZVVP1ivfHMa1oQ7ZwloawCn
+	7WCqHaMFXwvj/lj9AC6oBuIQOJXk8yrec9lrc0Fe7v571J5L6VndWSNxzQZlVhg1G2I3WjN9AhGla
+	6RnV4o7zhdC6NrcWdsGEMxzMxArQ1oRIZOOFgzDIYJ5rB8u8Kufpez95iPPUdUni0IkgBiTA8CRRy
+	N2wPu3Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhQWQ-0000000HOTl-3Ztu;
-	Sun, 18 Jan 2026 11:00:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vhRky-0000000HYc7-2x7R;
+	Sun, 18 Jan 2026 12:19:49 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhQWN-0000000HOSz-3u4m
+	id 1vhRku-0000000HYb2-1tQo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Jan 2026 11:00:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 16DF344431;
-	Sun, 18 Jan 2026 11:00:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D2DDC2BC86;
-	Sun, 18 Jan 2026 11:00:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768734038;
-	bh=ckRbPlV/dNYcRGTMbUnR2/FtLqhLVon9hSop/7dGzKw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gLfpnukQteg9gXxZAA5U22BLRPHRZf5n1G0LRszlaEIYFLLcBeZ5LBU4FTmlgpcc5
-	 e81VAkSqwpQdfLeIG2dYmoQRP1Bv2/dhin0F6HdhXKwV4RL8gfqCBKlLKI8xqOcLnr
-	 GseLEL1A3gdCjXBQA04tP2Rz+1pcDha+sNdp364A24ii9zzEaYG3byU+MojhKEchAP
-	 rOPjDP6tt97QuesvpZBqs99r2pxqH4n2BD9h118jHjq4m5Wsp2QtaIvNLH6MkyzcTU
-	 ZsIdYcp6sdoPyH1FfbVn/MxQ8tNTLw9H836ZWNsOk0/DCl9/KDv+tWRvVhkJjLvcSx
-	 FWxtauzLnWHBw==
-Date: Sun, 18 Jan 2026 12:00:31 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org
-Subject: Re: [PATCH v3 0/6] irqchip/gic-v5: Code first ACPI boot support
-Message-ID: <aWy9T3VDyXpVG41z@lpieralisi>
-References: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
+	Sun, 18 Jan 2026 12:19:46 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-7b22ffa2a88so1403393b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Jan 2026 04:19:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768738783; x=1769343583; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iVP/VZKXoY7D29oCc0bA7HweioYACUSJKazWJX7WARM=;
+        b=IL1Hr9L091qBChIfIhh0pVjVqCGOEffkocMVzc8diB4Wy9lzgBU09zT1twO6eWHUwI
+         h+SanVWiSkJsjiBAgYFa7pO90+GBALSXalxFaPU5PJhwpTcphjA1pmP1R4+spUKwZrh5
+         7oRizvsaxXbv5nGlXnGCB7eU2VNNBkuOq1kHIYIlEeoF7A26mTP9pBv4nRuosLbw3Eal
+         jp5tkPA39iq1IWAPWYZZVbeXM7LqytD2mB0Cdb5cWiY3eDeP2pqjAIEmg/fMKF6c3w1j
+         4JRKO9tWOQwoagRqHiefe7phvkUerfOsJmBWxr99hZc4ztegQMQDrSXcVDHq66HZ4FR2
+         3o9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768738783; x=1769343583;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iVP/VZKXoY7D29oCc0bA7HweioYACUSJKazWJX7WARM=;
+        b=U5kMVp3e7hwQ0I4GYwYWGZzEcRhHfNCUtip6nRw/iR3hZ9tNfRJXE7gZoWn+Kzw1y1
+         L+LJPHJwNzjAilfOoTVzkQP9yITa5kKkWiD44n6B9IHyTEOhQS2+8ZMruqQ9IcBoJ99f
+         kz+0pdYJOe0ShNbmOIXyltwMiN37SUz9VpRlIO/AQn2EQLCozPVHo1uHlSqP9L0z0FA9
+         FbDO2T37tXQeKth7FGikfatmJp2u+zHh1waNi//6SF/83fmnWAmWK5dJQr0ryBcq/Xy5
+         3ZHHJE1qOJJrfgdHIin5tFzMhXT8rIsljvU/ZnwL9T6s9XkBaelQmYpQ1lKKmXv8zCv4
+         ZdGA==
+X-Forwarded-Encrypted: i=1; AJvYcCVos9VoKGwrxkCh2Ug9GnROtcKme9JJMrA9DeVi85VWL9tM5HFiHqRUwgzpXcuJTcvsusTQO0m6aNIL+9aAutOS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzR0hbvfFGd7HwxgqvngTqeOabyn1MwOWD+/8F2jxtHISkzTVT3
+	AkjTVWuHYKstxRZZM5Kz4gHsLhSKaY9cEmrIKLZLRGtSga9JIhmXrhH1
+X-Gm-Gg: AY/fxX6QhmwQoTb33ArDToJmng7EssZu33QpTDfashmriifiCIy2/3RSGJ1S6zVD5bG
+	JKkaEiUshnEuM3MwSGidzm/yVIY8JHFQ8JkaSzHE7bTW+K1oZbU6wabGMnhbWVh+ZkVsarj5b+S
+	N3hov8pW41BY7s8uA8AM8HmU9n95IjySzEu/GOmeLVHReeH0W8qF5hW1NxJGnJC5auzlxP6yr5u
+	5wP6OExqmOciUN3xAHxmTGHfUBp1xA6zAlC0wH7G1MM66W8GlPwFzeOu9MLqRqXEyY2R1BOUPkr
+	Nxmc73Ti/7hI6uKnVVtVttXAstiswxV95ovq0GcwGs+Z268yiCcViSKz6jdlb5VBDdAiX5H9+h9
+	G4R4LC0vnJ8Pwyt6jBxnWlbTKxTScskmjFmhm1mK5+TD7BogQBuGIgWLFVST0tWl6+xx7PBxY41
+	+hi4NKws35DxZtDo/AFw==
+X-Received: by 2002:a05:6a00:1311:b0:81f:521c:b645 with SMTP id d2e1a72fcca58-81fa186243fmr7992305b3a.51.1768738782840;
+        Sun, 18 Jan 2026 04:19:42 -0800 (PST)
+Received: from [192.168.1.116] ([59.188.211.98])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-81fa12b50fasm6492301b3a.64.2026.01.18.04.19.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 18 Jan 2026 04:19:42 -0800 (PST)
+Message-ID: <42645fb0-3ae1-4ded-91db-f1435fa79a72@gmail.com>
+Date: Sun, 18 Jan 2026 20:19:38 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] power: supply: Add macsmc-power driver for Apple
+ Silicon
+To: Janne Grunau <j@jannau.net>, michael.reeves077@gmail.com
+Cc: Sebastian Reichel <sre@kernel.org>, Sven Peter <sven@kernel.org>,
+ Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Hector Martin <marcan@marcan.st>
+References: <20260115-b4-macsmc-power-v3-0-c236e09874be@gmail.com>
+ <20260115-b4-macsmc-power-v3-1-c236e09874be@gmail.com>
+ <20260117122634.GA58217@robin.jannau.net>
+Content-Language: en-MW
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <20260117122634.GA58217@robin.jannau.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_030040_014157_988C3F04 
-X-CRM114-Status: GOOD (  36.38  )
+X-CRM114-CacheID: sfid-20260118_041944_587320_E8D1D54A 
+X-CRM114-Status: GOOD (  36.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,170 +107,991 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 10:50:46AM +0100, Lorenzo Pieralisi wrote:
-> The ACPI and ACPI IORT specifications were updated to support bindings
-> required to describe GICv5 based systems.
-> 
-> The ACPI specification GICv5 bindings ECR [1] were approved and the
-> required changes merged in the ACPICA upstream repository[5].
-> 
-> The Arm IORT specification [2] has been updated to include GICv5 IWB
-> specific bindings in revision E.g.
-> 
-> Implement kernel code that - based on the aforementioned bindings - adds
-> support for GICv5 ACPI probing.
-> 
-> ACPICA changes supporting the bindings were posted [6] - this series
-> depends on [6] to work and should not be merged stand alone.
 
-Hi Thomas, Rafael,
 
-I have noticed you pulled this seris into tip (thanks !) - there
-is a strict dependency on ACPICA patches in [6] though as I tried
-to convey with the paragraph above and dependencies below:
+On 17/1/2026 20:26, Janne Grunau wrote:
+> On Thu, Jan 15, 2026 at 06:08:15PM +1100, Michael Reeves via B4 Relay wrote:
+>> From: Michael Reeves <michael.reeves077@gmail.com>
+> 
+> I think the driver is overall similar to the downstream AsahiLinux
+> driver so please keep Hector as author.
+> 
+>> This driver provides battery and AC status monitoring for Apple Silicon
+>> Macs via the SMC (System Management Controller). It supports
+>> reporting capacity, voltage, current, and charging status.
+>>
+>> Co-developed-by: Hector Martin <marcan@marcan.st>
+>> Signed-off-by: Hector Martin <marcan@marcan.st>
+> 
+> The downstream driver a quite a few more Co-developed-by:/Sobs. When I
+> squashed the commits I decided to err on the safe side and included
+> commit authors from incremental patches as Co-developed-by: Why did you
+> drop those?
+> 
+>> Reviewed-by: Neal Gompa <neal@gompa.dev>
+>> Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
+>> ---
+>>  MAINTAINERS                         |   1 +
+>>  drivers/power/supply/Kconfig        |  11 +
+>>  drivers/power/supply/Makefile       |   1 +
+>>  drivers/power/supply/macsmc-power.c | 834 ++++++++++++++++++++++++++++++++++++
+>>  4 files changed, 847 insertions(+)
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 6c7bd06dec7c..f776996121c9 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -2513,6 +2513,7 @@ F:	drivers/nvmem/apple-spmi-nvmem.c
+>>  F:	drivers/phy/apple/
+>>  F:	drivers/pinctrl/pinctrl-apple-gpio.c
+>>  F:	drivers/power/reset/macsmc-reboot.c
+>> +F:	drivers/power/supply/macsmc-power.c
+>>  F:	drivers/pwm/pwm-apple.c
+>>  F:	drivers/rtc/rtc-macsmc.c
+>>  F:	drivers/soc/apple/*
+>> diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
+>> index 92f9f7aae92f..3a5b7d9234c2 100644
+>> --- a/drivers/power/supply/Kconfig
+>> +++ b/drivers/power/supply/Kconfig
+>> @@ -1132,4 +1132,15 @@ config FUEL_GAUGE_MM8013
+>>  	  the state of charge, temperature, cycle count, actual and design
+>>  	  capacity, etc.
+>>  
+>> +config MACSMC_POWER
+>> +	tristate "Apple SMC Battery and Power Driver"
+>> +	depends on MFD_MACSMC
+>> +	help
+>> +	  This driver provides support for the battery and AC adapter on
+>> +	  Apple Silicon machines. It exposes battery telemetry (voltage,
+>> +	  current, health) and AC adapter status through the standard Linux
+>> +	  power supply framework.
+>> +
+>> +	  Say Y or M here if you have an Apple Silicon based Mac.
+>> +
+>>  endif # POWER_SUPPLY
+>> diff --git a/drivers/power/supply/Makefile b/drivers/power/supply/Makefile
+>> index 4b79d5abc49a..d14420b606d8 100644
+>> --- a/drivers/power/supply/Makefile
+>> +++ b/drivers/power/supply/Makefile
+>> @@ -128,3 +128,4 @@ obj-$(CONFIG_CHARGER_SURFACE)	+= surface_charger.o
+>>  obj-$(CONFIG_BATTERY_UG3105)	+= ug3105_battery.o
+>>  obj-$(CONFIG_CHARGER_QCOM_SMB2)	+= qcom_smbx.o
+>>  obj-$(CONFIG_FUEL_GAUGE_MM8013)	+= mm8013.o
+>> +obj-$(CONFIG_MACSMC_POWER)	+= macsmc-power.o
+>> diff --git a/drivers/power/supply/macsmc-power.c b/drivers/power/supply/macsmc-power.c
+>> new file mode 100644
+>> index 000000000000..9b3faefe7a45
+>> --- /dev/null
+>> +++ b/drivers/power/supply/macsmc-power.c
+>> @@ -0,0 +1,834 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+>> +/*
+>> + * Apple SMC Power/Battery Management Driver
+>> + *
+>> + * This driver exposes battery telemetry (voltage, current, temperature, health)
+>> + * and AC adapter status provided by the Apple SMC (System Management Controller)
+>> + * on Apple Silicon systems.
+>> + *
+>> + * Copyright The Asahi Linux Contributors
+>> + */
+>> +
+>> +#include <linux/ctype.h>
+>> +#include <linux/delay.h>
+>> +#include <linux/devm-helpers.h>
+>> +#include <linux/limits.h>
+>> +#include <linux/module.h>
+>> +#include <linux/mfd/macsmc.h>
+>> +#include <linux/notifier.h>
+>> +#include <linux/of.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/power_supply.h>
+>> +#include <linux/reboot.h>
+>> +#include <linux/workqueue.h>
+>> +
+>> +#define MAX_STRING_LENGTH 256
+>> +
+>> +/*
+>> + * The SMC reports charge in mAh (Coulombs) but energy in mWh (Joules).
+>> + * We lack a register for "Nominal Voltage" or "Energy Accumulator".
+>> + * We use a fixed 3.8V/cell constant to approximate energy stats for userspace,
+>> + * derived from empirical data across supported MacBook models.
+>> + */
+>> +#define MACSMC_NOMINAL_CELL_VOLTAGE_MV 3800
+>> +
+>> +/* SMC Key Flags */
+>> +#define CHNC_BATTERY_FULL	BIT(0)
+>> +#define CHNC_NO_CHARGER		BIT(7)
+>> +#define CHNC_NOCHG_CH0C		BIT(14)
+>> +#define CHNC_NOCHG_CH0B_CH0K	BIT(15)
+>> +#define CHNC_BATTERY_FULL_2	BIT(18)
+>> +#define CHNC_BMS_BUSY		BIT(23)
+>> +#define CHNC_CHLS_LIMIT		BIT(24)
+>> +#define CHNC_NOAC_CH0J		BIT(53)
+>> +#define CHNC_NOAC_CH0I		BIT(54)
+>> +
+>> +#define CH0R_LOWER_FLAGS	GENMASK(15, 0)
+>> +#define CH0R_NOAC_CH0I		BIT(0)
+>> +#define CH0R_NOAC_DISCONNECTED	BIT(4)
+>> +#define CH0R_NOAC_CH0J		BIT(5)
+>> +#define CH0R_BMS_BUSY		BIT(8)
+>> +#define CH0R_NOAC_CH0K		BIT(9)
+>> +#define CH0R_NOAC_CHWA		BIT(11)
+>> +
+>> +#define CH0X_CH0C		BIT(0)
+>> +#define CH0X_CH0B		BIT(1)
+>> +
+>> +#define ACSt_CAN_BOOT_AP	BIT(2)
+>> +#define ACSt_CAN_BOOT_IBOOT	BIT(1)
+>> +
+>> +#define CHWA_CHLS_FIXED_START_OFFSET	5
+>> +#define CHLS_MIN_END_THRESHOLD		10
+>> +#define CHLS_FORCE_DISCHARGE		0x100
+>> +#define CHWA_FIXED_END_THRESHOLD	80
+>> +#define CHWA_PROP_WRITE_THRESHOLD	95
+>> +
+>> +#define MACSMC_MAX_BATT_PROPS		50
+>> +#define MACSMC_MAX_AC_PROPS		10
+>> +
+>> +struct macsmc_power {
+>> +	struct device *dev;
+>> +	struct apple_smc *smc;
+>> +
+>> +	struct power_supply_desc ac_desc;
+>> +	struct power_supply_desc batt_desc;
+>> +
+>> +	struct power_supply *batt;
+>> +	struct power_supply *ac;
+>> +
+>> +	char model_name[MAX_STRING_LENGTH];
+>> +	char serial_number[MAX_STRING_LENGTH];
+>> +	char mfg_date[MAX_STRING_LENGTH];
+>> +
+>> +	bool has_chwa;
+>> +	bool has_chls;
+>> +	bool has_ch0i;
+>> +	bool has_ch0c;
+>> +	bool has_chte;
+> 
+> I think comments what these keys do and in which firmware version the
+> appeared or vanished would be helpful here. I can Help with digging
+> through the history.
+> 
+>> +
+>> +	u8 num_cells;
+>> +	int nominal_voltage_mv;
+>> +
+>> +	struct notifier_block nb;
+>> +	struct work_struct critical_work;
+>> +	bool shutdown_started;
+>> +};
+>> +
+>> +static int macsmc_battery_get_status(struct macsmc_power *power)
+>> +{
+>> +	u64 nocharge_flags;
+>> +	u32 nopower_flags;
+>> +	u16 ac_current;
+>> +	int charge_limit = 0;
+>> +	bool limited = false;
+>> +	bool flag;
+>> +	int ret;
+>> +
+>> +	/*
+>> +	 * Fallbacks exist for keys that may disappear in future hardware.
+>> +	 * CHCE/CHCC/BSFC/CHSC are considered fundamental; absence is an error.
+>> +	 */
+> 
+> Why did you rewrite this (and many other) comments? I don't think this
+> is an improvement over the comment in the downstream driver.
+> 
+>> +	/* Check if power input is inhibited (e.g. BMS balancing cycle) */
+>> +	ret = apple_smc_read_u32(power->smc, SMC_KEY(CH0R), &nopower_flags);
+>> +	if (!ret && (nopower_flags & CH0R_LOWER_FLAGS & ~CH0R_BMS_BUSY))
+>> +		return POWER_SUPPLY_STATUS_DISCHARGING;
+>> +
+>> +	/* Check if charger is present */
+>> +	ret = apple_smc_read_flag(power->smc, SMC_KEY(CHCE), &flag);
+>> +	if (ret < 0)
+>> +		return ret;
+>> +	if (!flag)
+>> +		return POWER_SUPPLY_STATUS_DISCHARGING;
+>> +
+>> +	/* Check if AC is charge capable */
+>> +	ret = apple_smc_read_flag(power->smc, SMC_KEY(CHCC), &flag);
+>> +	if (ret < 0)
+>> +		return ret;
+>> +	if (!flag)
+>> +		return POWER_SUPPLY_STATUS_DISCHARGING;
+>> +
+>> +	/* Check if AC input limit is too low */
+>> +	ret = apple_smc_read_u16(power->smc, SMC_KEY(AC-i), &ac_current);
+>> +	if (!ret && ac_current < 100)
+>> +		return POWER_SUPPLY_STATUS_DISCHARGING;
+>> +
+>> +	/* Check if battery is full */
+>> +	ret = apple_smc_read_flag(power->smc, SMC_KEY(BSFC), &flag);
+>> +	if (ret < 0)
+>> +		return ret;
+>> +	if (flag)
+>> +		return POWER_SUPPLY_STATUS_FULL;
+>> +
+>> +	/* Check for user-defined charge limits */
+>> +	if (power->has_chls) {
+>> +		u16 vu16;
+>> +
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(CHLS), &vu16);
+>> +		if (ret == 0 && (vu16 & 0xff) >= CHLS_MIN_END_THRESHOLD)
+>> +			charge_limit = (vu16 & 0xff) - CHWA_CHLS_FIXED_START_OFFSET;
+>> +	} else if (power->has_chwa) {
+>> +		ret = apple_smc_read_flag(power->smc, SMC_KEY(CHWA), &flag);
+>> +		if (ret == 0 && flag)
+>> +			charge_limit = CHWA_FIXED_END_THRESHOLD - CHWA_CHLS_FIXED_START_OFFSET;
+>> +	}
+>> +
+>> +	if (charge_limit > 0) {
+>> +		u8 buic = 0;
+>> +
+>> +		if (apple_smc_read_u8(power->smc, SMC_KEY(BUIC), &buic) >= 0 &&
+>> +		    buic >= charge_limit)
+>> +			limited = true;
+>> +	}
+>> +
+>> +	/* Check charging inhibitors */
+>> +	ret = apple_smc_read_u64(power->smc, SMC_KEY(CHNC), &nocharge_flags);
+>> +	if (!ret) {
+>> +		if (nocharge_flags & CHNC_BATTERY_FULL)
+>> +			return POWER_SUPPLY_STATUS_FULL;
+>> +		/* BMS busy shows up as inhibit, but we treat it as charging */
+>> +		else if (nocharge_flags == CHNC_BMS_BUSY && !limited)
+>> +			return POWER_SUPPLY_STATUS_CHARGING;
+>> +		else if (nocharge_flags)
+>> +			return POWER_SUPPLY_STATUS_NOT_CHARGING;
+>> +		else
+>> +			return POWER_SUPPLY_STATUS_CHARGING;
+>> +	}
+>> +
+>> +	/* Fallback: System charging flag */
+>> +	ret = apple_smc_read_flag(power->smc, SMC_KEY(CHSC), &flag);
+>> +	if (ret < 0)
+>> +		return ret;
+>> +	if (!flag)
+>> +		return POWER_SUPPLY_STATUS_NOT_CHARGING;
+>> +
+>> +	return POWER_SUPPLY_STATUS_CHARGING;
+>> +}
+>> +
+>> +static int macsmc_battery_get_charge_behaviour(struct macsmc_power *power)
+>> +{
+>> +	int ret;
+>> +	u8 val8;
+>> +	u8 chte_buf[4];
+>> +
+>> +	if (power->has_ch0i) {
+>> +		ret = apple_smc_read_u8(power->smc, SMC_KEY(CH0I), &val8);
+>> +		if (ret)
+>> +			return ret;
+>> +		if (val8 & CH0R_NOAC_CH0I)
+>> +			return POWER_SUPPLY_CHARGE_BEHAVIOUR_FORCE_DISCHARGE;
+>> +	}
+>> +
+>> +	if (power->has_chte) {
+>> +		ret = apple_smc_read(power->smc, SMC_KEY(CHTE), chte_buf, 4);
+>> +		if (ret < 0)
+>> +			return ret;
+>> +
+>> +		if (chte_buf[0] == 0x01)
+>> +			return POWER_SUPPLY_CHARGE_BEHAVIOUR_INHIBIT_CHARGE;
+>> +	} else if (power->has_ch0c) {
+>> +		ret = apple_smc_read_u8(power->smc, SMC_KEY(CH0C), &val8);
+>> +		if (ret)
+>> +			return ret;
+>> +		if (val8 & CH0X_CH0C)
+>> +			return POWER_SUPPLY_CHARGE_BEHAVIOUR_INHIBIT_CHARGE;
+>> +	}
+>> +
+>> +	return POWER_SUPPLY_CHARGE_BEHAVIOUR_AUTO;
+>> +}
+>> +
+>> +static int macsmc_battery_set_charge_behaviour(struct macsmc_power *power, int val)
+>> +{
+>> +	int ret;
+>> +
+>> +	/* First, reset all inhibitors to a known-good 'auto' state */
+> 
+> why? I wouldn't expect this function to make any if `val` is not
+> supported. If has_ch0i is not true
+> POWER_SUPPLY_CHARGE_BEHAVIOUR_FORCE_DISCHARGE will reset inhibit charge
+> and return -EOPNOTSUPP which is unexpected.
+> Resetting the values first and then change them to the actual desired
+> values doesn't make much sense either.
+> Yes, it's a little annoying to make the same calls in multiple cases of
+> the switch statement but you could move the `power->has_*` checks and
+> the smc writes to a single line.
+> 
+>> +	if (power->has_ch0i) {
+>> +		ret = apple_smc_write_u8(power->smc, SMC_KEY(CH0I), 0);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+>> +
+>> +	if (power->has_chte) {
+>> +		ret = apple_smc_write_u32(power->smc, SMC_KEY(CHTE), 0);
+>> +		if (ret)
+>> +			return ret;
+>> +	} else if (power->has_ch0c) {
+>> +		ret = apple_smc_write_u8(power->smc, SMC_KEY(CH0C), 0);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+>> +
+>> +	switch (val) {
+>> +	case POWER_SUPPLY_CHARGE_BEHAVIOUR_AUTO:
+>> +		return 0;
+>> +
+>> +	case POWER_SUPPLY_CHARGE_BEHAVIOUR_INHIBIT_CHARGE:
+>> +		if (power->has_chte)
+>> +			return apple_smc_write_u32(power->smc, SMC_KEY(CHTE), 1);
+>> +		else if (power->has_ch0c)
+>> +			return apple_smc_write_u8(power->smc, SMC_KEY(CH0C), 1);
+>> +		else
+>> +			return -EOPNOTSUPP;
+>> +		break;
+>> +
+>> +	case POWER_SUPPLY_CHARGE_BEHAVIOUR_FORCE_DISCHARGE:
+>> +		if (!power->has_ch0i)
+>> +			return -EOPNOTSUPP;
+>> +		return apple_smc_write_u8(power->smc, SMC_KEY(CH0I), 1);
+>> +
+>> +	default:
+>> +		return -EINVAL;
+>> +	}
+>> +}
+>> +
+>> +static int macsmc_battery_get_date(const char *s, int *out)
+>> +{
+>> +	if (!isdigit(s[0]) || !isdigit(s[1]))
+>> +		return -EOPNOTSUPP;
+>> +
+>> +	*out = (s[0] - '0') * 10 + s[1] - '0';
+>> +	return 0;
+>> +}
+>> +
+>> +static int macsmc_battery_get_capacity_level(struct macsmc_power *power)
+>> +{
+>> +	bool flag;
+>> +	u32 val;
+>> +	int ret;
+>> +
+>> +	/* Check for emergency shutdown condition */
+>> +	if (apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &val) >= 0 && val)
+>> +		return POWER_SUPPLY_CAPACITY_LEVEL_CRITICAL;
+>> +
+>> +	/* Check AC status for whether we could boot in this state */
+>> +	if (apple_smc_read_u32(power->smc, SMC_KEY(ACSt), &val) >= 0) {
+>> +		if (!(val & ACSt_CAN_BOOT_IBOOT))
+>> +			return POWER_SUPPLY_CAPACITY_LEVEL_CRITICAL;
+>> +
+>> +		if (!(val & ACSt_CAN_BOOT_AP))
+>> +			return POWER_SUPPLY_CAPACITY_LEVEL_LOW;
+>> +	}
+>> +
+>> +	ret = apple_smc_read_flag(power->smc, SMC_KEY(BSFC), &flag);
+> 
+> the comment in the downstream driver what the flag is helpful
+> 
+>> +	if (ret < 0)
+>> +		return POWER_SUPPLY_CAPACITY_LEVEL_UNKNOWN;
+>> +
+>> +	if (flag)
+>> +		return POWER_SUPPLY_CAPACITY_LEVEL_FULL;
+>> +	else
+>> +		return POWER_SUPPLY_CAPACITY_LEVEL_NORMAL;
+>> +}
+>> +
+>> +static int macsmc_battery_get_property(struct power_supply *psy,
+>> +				       enum power_supply_property psp,
+>> +				       union power_supply_propval *val)
+>> +{
+>> +	struct macsmc_power *power = power_supply_get_drvdata(psy);
+>> +	int ret = 0;
+>> +	u8 vu8;
+>> +	u16 vu16;
+>> +	s16 vs16;
+>> +	s32 vs32;
+>> +	s64 vs64;
+>> +	bool flag;
+>> +
+>> +	switch (psp) {
+>> +	case POWER_SUPPLY_PROP_STATUS:
+>> +		val->intval = macsmc_battery_get_status(power);
+>> +		ret = val->intval < 0 ? val->intval : 0;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_PRESENT:
+>> +		val->intval = 1;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_CHARGE_BEHAVIOUR:
+>> +		val->intval = macsmc_battery_get_charge_behaviour(power);
+>> +		ret = val->intval < 0 ? val->intval : 0;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_TIME_TO_EMPTY_NOW:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0TE), &vu16);
+>> +		val->intval = vu16 == 0xffff ? 0 : vu16 * 60;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_TIME_TO_FULL_NOW:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0TF), &vu16);
+>> +		val->intval = vu16 == 0xffff ? 0 : vu16 * 60;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_CAPACITY:
+>> +		ret = apple_smc_read_u8(power->smc, SMC_KEY(BUIC), &vu8);
+>> +		val->intval = vu8;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_CAPACITY_LEVEL:
+>> +		val->intval = macsmc_battery_get_capacity_level(power);
+>> +		ret = val->intval < 0 ? val->intval : 0;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_VOLTAGE_NOW:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0AV), &vu16);
+>> +		val->intval = vu16 * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_CURRENT_NOW:
+>> +		ret = apple_smc_read_s16(power->smc, SMC_KEY(B0AC), &vs16);
+>> +		val->intval = vs16 * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_POWER_NOW:
+>> +		ret = apple_smc_read_s32(power->smc, SMC_KEY(B0AP), &vs32);
+>> +		val->intval = vs32 * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_VOLTAGE_MIN_DESIGN:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(BITV), &vu16);
+>> +		val->intval = vu16 * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_VOLTAGE_MAX_DESIGN:
+>> +		/* Calculate total max design voltage from per-cell maximum voltage */
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(BVVN), &vu16);
+>> +		val->intval = vu16 * 1000 * power->num_cells;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_VOLTAGE_MIN:
+>> +		/* Lifetime min */
+>> +		ret = apple_smc_read_s16(power->smc, SMC_KEY(BLPM), &vs16);
+>> +		val->intval = vs16 * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_VOLTAGE_MAX:
+>> +		/* Lifetime max */
+>> +		ret = apple_smc_read_s16(power->smc, SMC_KEY(BLPX), &vs16);
+>> +		val->intval = vs16 * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_CHARGE_TERM_CURRENT:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0RC), &vu16);
+>> +		val->intval = vu16 * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT_MAX:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0RI), &vu16);
+>> +		val->intval = vu16 * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_CONSTANT_CHARGE_VOLTAGE:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0RV), &vu16);
+>> +		val->intval = vu16 * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0DC), &vu16);
+>> +		val->intval = vu16 * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_CHARGE_FULL:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0FC), &vu16);
+>> +		val->intval = vu16 * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_CHARGE_NOW:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0RM), &vu16);
+>> +		/* B0RM is Big Endian, likely pass through from TI gas gauge */
+>> +		val->intval = (s16)swab16(vu16) * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_ENERGY_FULL_DESIGN:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0DC), &vu16);
+>> +		val->intval = vu16 * power->nominal_voltage_mv;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_ENERGY_FULL:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0FC), &vu16);
+>> +		val->intval = vu16 * power->nominal_voltage_mv;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_ENERGY_NOW:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0RM), &vu16);
+>> +		/* B0RM is Big Endian, likely pass through from TI gas gauge */
+>> +		val->intval = (s16)swab16(vu16) * power->nominal_voltage_mv;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_TEMP:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0AT), &vu16);
+>> +		val->intval = vu16 - 2732; /* Kelvin x10 to Celsius x10 */
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_CHARGE_COUNTER:
+>> +		ret = apple_smc_read_s64(power->smc, SMC_KEY(BAAC), &vs64);
+>> +		val->intval = vs64;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_CYCLE_COUNT:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(B0CT), &vu16);
+>> +		val->intval = vu16;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_SCOPE:
+>> +		val->intval = POWER_SUPPLY_SCOPE_SYSTEM;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_HEALTH:
+>> +		flag = false;
+>> +		ret = apple_smc_read_flag(power->smc, SMC_KEY(BBAD), &flag);
+>> +		val->intval = flag ? POWER_SUPPLY_HEALTH_DEAD : POWER_SUPPLY_HEALTH_GOOD;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_MODEL_NAME:
+>> +		val->strval = power->model_name;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_SERIAL_NUMBER:
+>> +		val->strval = power->serial_number;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_MANUFACTURE_YEAR:
+>> +		ret = macsmc_battery_get_date(&power->mfg_date[0], &val->intval);
+>> +		/* The SMC reports the manufacture year as an offset from 1992. */
+>> +		val->intval += 1992;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_MANUFACTURE_MONTH:
+>> +		ret = macsmc_battery_get_date(&power->mfg_date[2], &val->intval);
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_MANUFACTURE_DAY:
+>> +		ret = macsmc_battery_get_date(&power->mfg_date[4], &val->intval);
+>> +		break;
+>> +	default:
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static int macsmc_battery_set_property(struct power_supply *psy,
+>> +				       enum power_supply_property psp,
+>> +				       const union power_supply_propval *val)
+>> +{
+>> +	struct macsmc_power *power = power_supply_get_drvdata(psy);
+>> +
+>> +	switch (psp) {
+>> +	case POWER_SUPPLY_PROP_CHARGE_BEHAVIOUR:
+>> +		return macsmc_battery_set_charge_behaviour(power, val->intval);
+>> +	default:
+>> +		return -EINVAL;
+>> +	}
+>> +}
+>> +
+>> +static int macsmc_battery_property_is_writeable(struct power_supply *psy,
+>> +						enum power_supply_property psp)
+>> +{
+>> +	switch (psp) {
+>> +	case POWER_SUPPLY_PROP_CHARGE_BEHAVIOUR:
+>> +		return true;
+>> +	default:
+>> +		return false;
+>> +	}
+>> +}
+>> +
+>> +static const struct power_supply_desc macsmc_battery_desc_template = {
+>> +	.name			= "macsmc-battery",
+>> +	.type			= POWER_SUPPLY_TYPE_BATTERY,
+>> +	.get_property		= macsmc_battery_get_property,
+>> +	.set_property		= macsmc_battery_set_property,
+>> +	.property_is_writeable	= macsmc_battery_property_is_writeable,
+>> +};
+>> +
+>> +static int macsmc_ac_get_property(struct power_supply *psy,
+>> +				  enum power_supply_property psp,
+>> +				  union power_supply_propval *val)
+>> +{
+>> +	struct macsmc_power *power = power_supply_get_drvdata(psy);
+>> +	int ret = 0;
+>> +	u16 vu16;
+>> +	u32 vu32;
+>> +
+>> +	switch (psp) {
+>> +	case POWER_SUPPLY_PROP_ONLINE:
+>> +		ret = apple_smc_read_u32(power->smc, SMC_KEY(CHIS), &vu32);
+>> +		val->intval = !!vu32;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_VOLTAGE_NOW:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(AC-n), &vu16);
+>> +		val->intval = vu16 * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_INPUT_CURRENT_LIMIT:
+>> +		ret = apple_smc_read_u16(power->smc, SMC_KEY(AC-i), &vu16);
+>> +		val->intval = vu16 * 1000;
+>> +		break;
+>> +	case POWER_SUPPLY_PROP_INPUT_POWER_LIMIT:
+>> +		ret = apple_smc_read_u32(power->smc, SMC_KEY(ACPW), &vu32);
+>> +		val->intval = vu32 * 1000;
+>> +		break;
+>> +	default:
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static const struct power_supply_desc macsmc_ac_desc_template = {
+>> +	.name			= "macsmc-ac",
+>> +	.type			= POWER_SUPPLY_TYPE_MAINS,
+>> +	.get_property		= macsmc_ac_get_property,
+>> +};
+>> +
+>> +static void macsmc_power_critical_work(struct work_struct *wrk)
+>> +{
+>> +	struct macsmc_power *power = container_of(wrk, struct macsmc_power, critical_work);
+>> +	u16 bitv, b0av;
+>> +	u32 bcf0;
+>> +
+>> +	if (!power->batt)
+>> +		return;
+>> +
+>> +	/*
+>> +	 * EMERGENCY: Check voltage vs design minimum.
+>> +	 * If we are below BITV, the battery is physically exhausted.
+>> +	 * We must shut down NOW to protect the filesystem.
+>> +	 */
+>> +	if (apple_smc_read_u16(power->smc, SMC_KEY(BITV), &bitv) >= 0 &&
+>> +	    apple_smc_read_u16(power->smc, SMC_KEY(B0AV), &b0av) >= 0 &&
+>> +	    b0av < bitv) {
+>> +		dev_emerg(power->dev,
+>> +			  "Battery voltage (%d mV) below design minimum (%d mV)! Emergency shutdown.\n",
+>> +			  b0av, bitv);
+>> +		kernel_power_off();
+>> +		return;
+> 
+> I don't think we should return here. kernel_power_off() may do
+> nothing in which case the orderly_poweroff(true) might save data.
+> I would protect it as well via power->shutdown_started like in the
+> downstream driver to avoid calling kernel_power_off() once per second
+> until the battery dies or the system shutsdown.
+> 
+>> +	}
+>> +
+>> +	/*
+>> +	 * Avoid duplicate attempts at orderly shutdown.
+>> +	 * Voltage check is above this as we may want to
+>> +	 * "upgrade" an orderly shutdown to a critical power
+>> +	 * off if voltage drops.
+>> +	 */
+>> +	if (power->shutdown_started || system_state > SYSTEM_RUNNING)
+>> +		return;
+>> +
+>> +	/*
+>> +	 * Check if SMC flagged the battery as empty.
+>> +	 * We trigger a graceful shutdown to let the OS save data.
+>> +	 */
+>> +	if (apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &bcf0) == 0 && bcf0 != 0) {
+>> +		power->shutdown_started = true;
+>> +		dev_crit(power->dev, "Battery critical (empty flag set). Triggering orderly shutdown.\n");
+>> +		orderly_poweroff(true);
+>> +	}
+>> +}
+>> +
+>> +static int macsmc_power_event(struct notifier_block *nb, unsigned long event, void *data)
+>> +{
+>> +	struct macsmc_power *power = container_of(nb, struct macsmc_power, nb);
+>> +
+>> +	/*
+>> +	 * SMC Event IDs are reverse-engineered.
+>> +	 * 0x71... indicates power/battery events.
+>> +	 */
+>> +	if ((event & 0xffffff00) == 0x71010100 || /* Charger status change */
+>> +	    (event & 0xffff0000) == 0x71060000 || /* Port charge state change */
+>> +	    (event & 0xffff0000) == 0x71130000) { /* Connector insert/remove event */
+>> +		if (power->batt)
+>> +			power_supply_changed(power->batt);
+>> +		if (power->ac)
+>> +			power_supply_changed(power->ac);
+>> +		return NOTIFY_OK;
+>> +	} else if (event == 0x71020000) {
+>> +		/* Critical battery warning */
+>> +		if (power->batt)
+>> +			schedule_work(&power->critical_work);
+>> +		return NOTIFY_OK;
+>> +	}
+>> +
+>> +	return NOTIFY_DONE;
+>> +}
+>> +
+>> +static int macsmc_power_probe(struct platform_device *pdev)
+>> +{
+>> +	struct device *dev = &pdev->dev;
+>> +	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
+>> +	struct power_supply_config psy_cfg = {};
+>> +	struct macsmc_power *power;
+>> +	bool has_battery = false;
+>> +	bool has_ac_adapter = false;
+>> +	int ret = -ENODEV;
+>> +	bool flag;
+>> +	u16 vu16;
+>> +	u32 val32;
+>> +	enum power_supply_property *props;
+>> +	size_t nprops;
+>> +
+>> +	if (!smc)
+>> +		return -ENODEV;
+>> +
+>> +	power = devm_kzalloc(dev, sizeof(*power), GFP_KERNEL);
+>> +	if (!power)
+>> +		return -ENOMEM;
+>> +
+>> +	power->dev = dev;
+>> +	power->smc = smc;
+>> +	dev_set_drvdata(dev, power);
+>> +
+>> +	INIT_WORK(&power->critical_work, macsmc_power_critical_work);
+>> +	ret = devm_work_autocancel(dev, &power->critical_work, macsmc_power_critical_work);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	/*
+>> +	 * Check for battery presence.
+>> +	 * B0AV is a fundamental key.
+>> +	 */
+>> +	if (apple_smc_read_u16(power->smc, SMC_KEY(B0AV), &vu16) == 0 &&
+>> +	    macsmc_battery_get_status(power) > POWER_SUPPLY_STATUS_UNKNOWN)
+>> +		has_battery = true;
+>> +
+>> +	/*
+>> +	 * Check for AC adapter presence.
+>> +	 * CHIS is a fundamental key.
+>> +	 */
+>> +	if (apple_smc_key_exists(smc, SMC_KEY(CHIS)))
+>> +		has_ac_adapter = true;
+>> +
+> 
+> I think a short circuit check for !(has_battery || has_ac_adapter) would
+> make sense here. The setup code for props is quite long. It should
+> return -ENODEV. ret is not -ENODEV. anymore since it was overwritten
+> with the return value of devm_work_autocancel()
+> 
+>> +	if (has_battery) {
+>> +		power->batt_desc = macsmc_battery_desc_template;
+>> +		props = devm_kcalloc(dev, MACSMC_MAX_BATT_PROPS,
+>> +				     sizeof(enum power_supply_property),
+>> +				     GFP_KERNEL);
+> 
+> I don't like the dynamic allocation for the props. I think we can
+> currently get way with static property arrays and so we should do that.
+> See my comments below
 
-prerequisite-message-id: <12822121.O9o76ZdvQC@rafael.j.wysocki>
+Dynamic allocation is needed to properly add support pre-M1 support,
+as the SMCs in them misses a few keys, yet in iOS 16 the charge limit
+(CHWA) keys are added. In a similar way, there really is no sane way
+to add any new properties for M1/M2/M3 with static allocation. So I
+would prefer if dynamic allocation is kept.
 
-I don't know what's best/easier to handle this dependency but it is there,
-I don't want it to cause you any trouble so I reported it as soon
-as I noticed.
+> 
+>> +		if (!props)
+>> +			return -ENOMEM;
+>> +
+>> +		nprops = 0;
+>> +
+>> +		/* Fundamental properties */
+>> +		props[nprops++] = POWER_SUPPLY_PROP_STATUS;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_PRESENT;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_VOLTAGE_NOW;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_CURRENT_NOW;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_POWER_NOW;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_CAPACITY;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_CAPACITY_LEVEL;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_TEMP;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_CYCLE_COUNT;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_HEALTH;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_SCOPE;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_MODEL_NAME;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_SERIAL_NUMBER;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_MANUFACTURE_YEAR;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_MANUFACTURE_MONTH;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_MANUFACTURE_DAY;
+>> +
+>> +		/* Extended properties usually present */
+>> +		props[nprops++] = POWER_SUPPLY_PROP_TIME_TO_EMPTY_NOW;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_TIME_TO_FULL_NOW;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_VOLTAGE_MIN_DESIGN;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_VOLTAGE_MAX_DESIGN;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_VOLTAGE_MIN;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_VOLTAGE_MAX;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_CHARGE_TERM_CURRENT;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_CONSTANT_CHARGE_CURRENT_MAX;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_CONSTANT_CHARGE_VOLTAGE;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_CHARGE_FULL_DESIGN;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_CHARGE_FULL;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_CHARGE_NOW;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_ENERGY_FULL_DESIGN;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_ENERGY_FULL;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_ENERGY_NOW;
+>> +		props[nprops++] = POWER_SUPPLY_PROP_CHARGE_COUNTER;
+>> +
+>> +		/* Detect features based on key availability */
+>> +		if (apple_smc_key_exists(smc, SMC_KEY(CHTE)))
+>> +			power->has_chte = true;
+>> +		if (apple_smc_key_exists(smc, SMC_KEY(CH0C)))
+>> +			power->has_ch0c = true;
+>> +		if (apple_smc_key_exists(smc, SMC_KEY(CH0I)))
+>> +			power->has_ch0i = true;
+>> +
+>> +		/* Reset "Optimised Battery Charging" flags to default state */
+>> +		if (power->has_chte)
+>> +			apple_smc_write_u32(smc, SMC_KEY(CHTE), 0);
+>> +		else if (power->has_ch0c)
+>> +			apple_smc_write_u8(smc, SMC_KEY(CH0C), 0);
+>> +
+>> +		if (power->has_ch0i)
+>> +			apple_smc_write_u8(smc, SMC_KEY(CH0I), 0);
+>> +
+>> +		apple_smc_write_u8(smc, SMC_KEY(CH0K), 0);
+>> +		apple_smc_write_u8(smc, SMC_KEY(CH0B), 0);
+>> +
+>> +		/* Configure charge behaviour if supported */
+>> +		if (power->has_ch0i || power->has_ch0c || power->has_chte) {
+>> +			props[nprops++] = POWER_SUPPLY_PROP_CHARGE_BEHAVIOUR;
+> 
+> This is the only dynamic battery prop. With a static array we can simply
+> put it at the end of the array and set batt_desc.num_properties to array
+> size - 1 if none of the keys are available.
 
-Thanks !
-Lorenzo
+See my comment above.
 
-> The ACPI bindings were prototyped in edk2 - code available in these
-> branches [3][4].
 > 
-> ===========================
-> Kernel implementation notes
-> ===========================
+>> +
+>> +			power->batt_desc.charge_behaviours =
+>> +				BIT(POWER_SUPPLY_CHARGE_BEHAVIOUR_AUTO);
+>> +
+>> +			if (power->has_ch0i)
+>> +				power->batt_desc.charge_behaviours |=
+>> +					BIT(POWER_SUPPLY_CHARGE_BEHAVIOUR_FORCE_DISCHARGE);
+>> +
+>> +			if (power->has_chte || power->has_ch0c)
+>> +				power->batt_desc.charge_behaviours |=
+>> +					BIT(POWER_SUPPLY_CHARGE_BEHAVIOUR_INHIBIT_CHARGE);
+>> +		}
+>> +
+>> +		/* Detect charge limit method (CHWA vs CHLS) */
+>> +		if (apple_smc_read_flag(power->smc, SMC_KEY(CHWA), &flag) == 0)
+>> +			power->has_chwa = true;
+>> +		else if (apple_smc_read_u16(power->smc, SMC_KEY(CHLS), &vu16) >= 0)
+>> +			power->has_chls = true;
+>> +
+>> +		power->batt_desc.properties = props;
+>> +		power->batt_desc.num_properties = nprops;
+>> +
+>> +		/* Fetch identity strings */
+>> +		apple_smc_read(smc, SMC_KEY(BMDN), power->model_name,
+>> +			       sizeof(power->model_name) - 1);
+>> +		apple_smc_read(smc, SMC_KEY(BMSN), power->serial_number,
+>> +			       sizeof(power->serial_number) - 1);
+>> +		apple_smc_read(smc, SMC_KEY(BMDT), power->mfg_date,
+>> +			       sizeof(power->mfg_date) - 1);
+>> +
+>> +		apple_smc_read_u8(power->smc, SMC_KEY(BNCB), &power->num_cells);
+>> +		power->nominal_voltage_mv = MACSMC_NOMINAL_CELL_VOLTAGE_MV * power->num_cells;
+>> +
+>> +		/* Enable critical shutdown notifications by reading status once */
+>> +		apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &val32);
+>> +
+>> +		psy_cfg.drv_data = power;
+>> +		power->batt = devm_power_supply_register(dev, &power->batt_desc, &psy_cfg);
+>> +		if (IS_ERR(power->batt)) {
+>> +			dev_err_probe(dev, PTR_ERR(power->batt),
+>> +				      "Failed to register battery\n");
+>> +			/* Don't return failure yet; try AC registration first */
+>> +			power->batt = NULL;
+>> +		}
+>> +	} else {
+>> +		dev_dbg(dev, "No battery detected.\n");
 > 
-> IRS and ITS probing is triggered using the standard irqchip ACPI probing
-> mechanism - there is no significant difference compared to previous GIC
-> versions other.
+> I would drop this
 > 
-> The only difference that is worth noting is that GICv3/4 systems include a
-> single MADT component describing the interrupt controller (ie GIC distributor)
-> whereas GICv5 systems include one or more IRSes. The probing code is
-> implemented so that an MADT IRS detection triggers probing for all IRSes
-> in one go.
+>> +	}
+>> +
+>> +	if (has_ac_adapter) {
+>> +		power->ac_desc = macsmc_ac_desc_template;
+>> +		props = devm_kcalloc(dev, MACSMC_MAX_AC_PROPS,
+>> +				     sizeof(enum power_supply_property),
+>> +				     GFP_KERNEL);
+>> +		if (!props)
+>> +			return -ENOMEM;
+>> +
+>> +		nprops = 0;
+>> +
+>> +		/* Online status is fundamental */
+>> +		props[nprops++] = POWER_SUPPLY_PROP_ONLINE;
+>> +
+>> +		/* Input power limits are usually available */
+>> +		if (apple_smc_key_exists(power->smc, SMC_KEY(ACPW)))
+>> +			props[nprops++] = POWER_SUPPLY_PROP_INPUT_POWER_LIMIT;
+>> +
+>> +		/* macOS 15.4+ firmware dropped legacy AC keys (AC-n, AC-i) */
+>> +		if (apple_smc_read_u16(power->smc, SMC_KEY(AC-n), &vu16) >= 0) {
+>> +			props[nprops++] = POWER_SUPPLY_PROP_VOLTAGE_NOW;
+>> +			props[nprops++] = POWER_SUPPLY_PROP_INPUT_CURRENT_LIMIT;
+>> +		}
 > 
-> The IWB driver probes like any other ACPI device. IORT code is updated so
-> that a deviceID for the IWB can be detected.
+> we can do the same trick here assuming AC-n and AC-i are only present if
+> ACPW is present.
+
+See my comment above.
+
 > 
-> The only major change compared to GICv3/4 systems is the GSI namespace that
-> is split between PPI/SPI IRQs and IWB backed IRQs.
+>> +		power->ac_desc.properties = props;
+>> +		power->ac_desc.num_properties = nprops;
+>> +
+>> +		psy_cfg.drv_data = power;
+>> +		power->ac = devm_power_supply_register(dev, &power->ac_desc, &psy_cfg);
+>> +		if (IS_ERR(power->ac)) {
+>> +			dev_err_probe(dev, PTR_ERR(power->ac),
+>> +				      "Failed to register AC adapter\n");
+>> +			power->ac = NULL;
+>> +		}
+>> +	} else {
+>> +		dev_dbg(dev, "No A/C adapter detected.\n");
 > 
-> The main GSI handle - to map an IRQ - has to detect whether to look-up
-> using the top level GSI domain or an IWB domain in that the two IRQ
-> namespaces are decoupled.
+> same here
+>> +	}
+>> +
+>> +	/* Final check: did we register anything? */
+>> +	if (!power->batt && !power->ac)
+>> +		return ret;
 > 
-> IORT code implements the logic to retrieve an IWB domain by looking up its
-> IWB frame id, as described in [1].
+> See my comment about the changed value of ret above
 > 
-> Most important implementation detail worth noting is that - at this stage -
-> ACPI code is not capable of handling devices probe order IRQ dependency on
-> the interrupt controller driver their IRQ is routed to.
+>> +
+>> +	power->nb.notifier_call = macsmc_power_event;
+>> +	blocking_notifier_chain_register(&smc->event_handlers, &power->nb);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static void macsmc_power_remove(struct platform_device *pdev)
+>> +{
+>> +	struct macsmc_power *power = dev_get_drvdata(&pdev->dev);
+>> +
+>> +	blocking_notifier_chain_unregister(&power->smc->event_handlers, &power->nb);
+>> +}
+>> +
+>> +static const struct platform_device_id macsmc_power_id[] = {
+>> +	{ "macsmc-power" },
+>> +	{ /* sentinel */ }
+>> +};
+>> +MODULE_DEVICE_TABLE(platform, macsmc_power_id);
+>> +
+>> +static struct platform_driver macsmc_power_driver = {
+>> +	.driver = {
+>> +		.name = "macsmc-power",
+>> +	},
+>> +	.id_table = macsmc_power_id,
+>> +	.probe = macsmc_power_probe,
+>> +	.remove = macsmc_power_remove,
+>> +};
+>> +module_platform_driver(macsmc_power_driver);
+>> +
+>> +MODULE_LICENSE("Dual MIT/GPL");
+>> +MODULE_DESCRIPTION("Apple SMC battery and power management driver");
+>> +MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
+>> +MODULE_AUTHOR("Michael Reeves <michael.reeves077@gmail.com>");
+>>
+>> -- 
+>> 2.51.2
 > 
-> This is not an issue on GICv3/4 systems in that the full GIC hierarchy
-> probes earlier than any other device, so by the time IRQs mappings have to
-> be carried out (ie acpi_register_gsi()) the GIC drivers have already
-> probed.
+> Janne
 > 
-> On GICv5 systems, the IWB is modelled as a device and its device driver
-> probes at device_initcall time. That's when the IWB IRQ domain is actually
-> registered - which poses problems for devices whose IRQs are IWB routed and
-> require to resolve the IRQ mapping before the IWB driver has a chance to
-> probe.
-> 
-> Work on resolving devices<->IWB probe order dependency has started in
-> parallel with this series and will be posted shortly.
-> 
-> For PPI/SPI/LPI backed IRQs the probe dependency is not a problem because
-> in GICv5 systems the IRSes and ITSes probe early so their IRQ domain are
-> set in place before devices require IRQ mappings.
-> 
-> [1] https://github.com/tianocore/edk2/issues/11148
-> [2] https://developer.arm.com/documentation/den0049/eg
-> [3] https://github.com/LeviYeoReum/edk2/tree/levi/gicv5_patch
-> [4] https://github.com/LeviYeoReum/edk2-platforms/tree/levi/gicv5_patch
-> [5] https://github.com/acpica/acpica/commits/master/
-> [6] https://lore.kernel.org/linux-acpi/12822121.O9o76ZdvQC@rafael.j.wysocki/
-> 
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> ---
-> Changes in v3:
-> - Dropped ACPICA patches
-> - Split IRS OF refactoring into a separate patch
-> - Renamed new fwnode interface according to review
-> - Applied minor review comments
-> - Rebased on v6.19-rc5
-> - Link to v2: https://lore.kernel.org/r/20251218-gicv5-host-acpi-v2-0-eec76cd1d40b@kernel.org
-> 
-> Changes in v2:
-> - Cherry-picked ACPICA upstream changes
-> - Minor editorial changes
-> - Removed the "not for merging" tag because now ACPI specs are approved
-> - Rebased against v6.19-rc1
-> - Link to v1: https://lore.kernel.org/r/20251028-gicv5-host-acpi-v1-0-01a862feb5ca@kernel.org
-> 
-> ---
-> Lorenzo Pieralisi (6):
->       irqdomain: Add parent field to struct irqchip_fwid
->       PCI/MSI: Make the pci_msi_map_rid_ctlr_node() interface firmware agnostic
->       irqchip/gic-v5: Split IRS probing into OF and generic portions
->       irqchip/gic-v5: Add ACPI IRS probing
->       irqchip/gic-v5: Add ACPI ITS probing
->       irqchip/gic-v5: Add ACPI IWB probing
-> 
->  drivers/acpi/arm64/iort.c                | 193 +++++++++++++++++++-----
->  drivers/acpi/bus.c                       |   3 +
->  drivers/irqchip/irq-gic-its-msi-parent.c |  43 +++---
->  drivers/irqchip/irq-gic-v5-irs.c         | 247 ++++++++++++++++++++++++-------
->  drivers/irqchip/irq-gic-v5-its.c         | 132 ++++++++++++++++-
->  drivers/irqchip/irq-gic-v5-iwb.c         |  42 ++++--
->  drivers/irqchip/irq-gic-v5.c             | 138 ++++++++++++++---
->  drivers/pci/msi/irqdomain.c              |  23 ++-
->  include/linux/acpi.h                     |   1 +
->  include/linux/acpi_iort.h                |  11 +-
->  include/linux/irqchip/arm-gic-v5.h       |   8 +
->  include/linux/irqdomain.h                |  30 +++-
->  include/linux/msi.h                      |   3 +-
->  kernel/irq/irqdomain.c                   |  14 +-
->  14 files changed, 734 insertions(+), 154 deletions(-)
-> ---
-> base-commit: d0e305301e82474223bf26185e86e7dc2eb85350
-> change-id: 20251022-gicv5-host-acpi-d59d6c1d3d07
-> prerequisite-message-id: <12822121.O9o76ZdvQC@rafael.j.wysocki>
-> prerequisite-patch-id: 9f722bfc7e4861af40637017a83826401b3958e4
-> prerequisite-patch-id: f619b4724a25a5c2b95032ef4c6d0b53dde45142
-> prerequisite-patch-id: 3738d015d93d77b3d381ba8de056be533df48794
-> prerequisite-patch-id: 50b1ee01b2ee63f6db21276ec24dadd645f8931e
-> prerequisite-patch-id: 6671f1c96dc89d5e375196e545c9750c2378f010
-> prerequisite-patch-id: b5d91dce8f61ab75796ba6a766d499d7321c0231
-> prerequisite-patch-id: 1f433eeb8848ce51c2b2fe601813939a042c6c0e
-> prerequisite-patch-id: 4f9aab64e4f4a75c18ae692bd903266069100d34
-> prerequisite-patch-id: 793a7b3fab40b903ffa0855e0db5336acb69505b
-> prerequisite-patch-id: 3eeebe1df8abadc1606cc6dadd15031ad46ff64f
-> prerequisite-patch-id: 3477bb220e91c9cdb4d778ce15e44babbefddf23
-> prerequisite-patch-id: 153be22f930d0c05bc04b37006bdb1e286883a92
-> prerequisite-patch-id: 1a7dcfd7e1317aeec52c772f3150c115e965af52
-> prerequisite-patch-id: 43a604c0109163e51a892d888c728794bca8a0a3
-> prerequisite-patch-id: 580debc0f26b7c301160504e2360de6765e7a179
-> prerequisite-patch-id: 15f2c86c557c835e4aed0cb914c23e04da1392ed
-> prerequisite-patch-id: 00986721db8da2e52c733971b482b9cf0c32910e
-> prerequisite-patch-id: 9d0607df90015bac8768549cbb0a19580f0b2661
-> prerequisite-patch-id: f478f56f3ded4d0ce43254418deb5e10f49555ef
-> prerequisite-patch-id: 6f9563683e92392564935f24cc5e8be23301790c
-> prerequisite-patch-id: 4d701f77a597391e0d04c5da3d6f1cb24d1e40d0
-> prerequisite-patch-id: d70577c2355648acbc7c857c5512df21280e917f
-> prerequisite-patch-id: 8c6408293baa1a758b0b0b4f078eaf7dbe1404e0
-> prerequisite-patch-id: 84008a72aa67b54af8a294a0fc07d2b6eaede597
-> prerequisite-patch-id: 97acab35d513bc6b091efa4185a9826262d5ed79
-> prerequisite-patch-id: 04652a3bfdf9f4fa2ba829631c899ea3569f11a2
-> 
-> Best regards,
-> -- 
-> Lorenzo Pieralisi <lpieralisi@kernel.org>
-> 
+
 
