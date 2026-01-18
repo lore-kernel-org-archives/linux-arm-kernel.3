@@ -4,55 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD42C9830C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 19:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B197C9830C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 19:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hxyAvMTcHHto031sNzZ/j0WEQMy0xJsZ90oPvWIz30s=; b=MlsTePnKk6bFdTCk8T5y6mTSg5
-	m5GPRygc2cGEyXSBhq2m24m/bPYJsFxxbdLPVwzdH7SjB1LacqKSeYPFpOu6nTT4KPVw5CjJpRRSA
-	euHNgVnkf4i2fTE8MUSOvUCldF73lqssDgBugwqfg8tw6tiv+qYbAnSIIkPl99MeOiijBMHwWswkL
-	ERJj0lrM/Iw1PlVaq2J7AstRP9BnzUgRMWIpj//ef8F6lPg1Fsw1q+Eit+rcJTeSnB7OUfKNzXNR5
-	eJkI5B91+MnGF/ARsw+Lk4bzacHwpYXc7eR2Cm9+c3SZKgis6AtLZkjDP3dkmr48y2RrYkCJlYzey
-	3rq/yWTQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eUWLBkf43DI1bsO7dEfoZo/teJeMsvm7UKWdG6qHzZY=; b=rlX3rOpqEZLgs08LWHgXgURQ3m
+	ix4qIe8xTHMh91MOLxKQoyZ/WiP07Pfgozrm0XSDeW5ou4k9aWkGgzC+ACT8eOaKRmpReNcY8lee3
+	6cFILEiEoTuwt8O4zPxeit9N9Mecl/PjB1iu0R0gtp+9SppLFP8YqxAKDMUupGXnwH7iuue5MeRdL
+	UfT8oHK5PblhYpD6pvHxz1itWN2VcMbcErypHNKqOU23pelNuaE9xrU37TmMsAYXyKWf1Brz8XKWG
+	Gyb1WMcE2X8EObeCQGWRtsNJqtoR9K26kYL6xnQ/RWT8EWiO6J3/VtR780h0rH22K15xKXJxrNMnI
+	MT7gWfoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhYV9-00000000oho-3Ymd;
-	Sun, 18 Jan 2026 19:31:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vhYXR-00000000ozF-1sW2;
+	Sun, 18 Jan 2026 19:34:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhYV9-00000000ohF-0qkW
+	id 1vhYXP-00000000oyp-03Ui
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Jan 2026 19:31:55 +0000
+	Sun, 18 Jan 2026 19:34:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0F3D060010
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Jan 2026 19:31:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AF80C116D0;
-	Sun, 18 Jan 2026 19:31:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8797E43DC0;
+	Sun, 18 Jan 2026 19:34:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2C9EC19424;
+	Sun, 18 Jan 2026 19:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768764713;
-	bh=ZJedKhor0hFbcWQnMqk/6K7m0yqpBrQQok7RTBYTaoU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=axsolNavCdqf9ppVhMPvMGnZmspNCyHIZhWXJCUp1/mcE8rOyxfjTIVPwX+gxRPoK
-	 bPq8tiYdHv8Ud631oNMTkQZ6e/T4nZyC5a578GyfenG5iyajIRF8UhS6na898wSMIO
-	 mDPC5fJbD3Spbv4Gq9tuFmmemmEVbHkO3G37//ZhYFhAe3GuJwINtcTOnsHTs8LrNe
-	 GZOQhixHE93qlvurUiEces+qMqq5wl2G3cY8n3Q0EAfYAYWNtJWaEasvQECjq63Qfz
-	 jwPTAwnFO82OrRqIBmwKHu+Ei2Y/NbePvyts1Is4MwtyzJfChBNlHMwjDt/3534tld
-	 5ZJ07YL9DbPDg==
+	s=k20201202; t=1768764853;
+	bh=EAKf7Yk7D6bJXNYB0UoN3nvCauwO9tiIU/vivFjwIJo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=hgvWHJCX5yZWdp6Xl1Ced+MtQ8b5Nx16i3z6/u/15k+W7NCzdmhfSrcWKk0hanfOt
+	 h707XcK8mHcuaE8w+0zhbg7xx8fLwhQ07ANtM8+0YRmHiO5aG4YWZQpyO4VwJo4GKH
+	 PGQg51JcoTkJlkkjvpMgzhpTEnrpFDyYZOvgULy6gRwweU41RBnEA8QRrnoiNtv0nL
+	 cjeCNoBCJHBQSHFkexNCCT37P5oEIBi4iojzhe3NjpSUgo/xJ4LSZONh6begzCg3DB
+	 QzAkv8zLiR6V9LVbB4RzLc4jaRZq5LjD8uO7zHMVPvCW+0uHU534a/6nCjmO1LpLox
+	 BzjwBlml8eWJQ==
 From: Sven Peter <sven@kernel.org>
-To: soc@lists.linux.dev
+To: Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Sven Peter <sven@kernel.org>
 Cc: asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] Apple SoC defconfig changes for v6.20
-Date: Sun, 18 Jan 2026 20:31:26 +0100
-Message-ID: <20260118193134.64343-1-sven@kernel.org>
+Subject: Re: [PATCH v2] soc: apple: rtkit: Add function to poweroff
+Date: Sun, 18 Jan 2026 20:33:58 +0100
+Message-ID: <176876480547.64728.18291427124643428920.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260117-apple-rtkit-poweroff-v2-1-b882a180e44d@kernel.org>
+References: <20260117-apple-rtkit-poweroff-v2-1-b882a180e44d@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260118_113415_069790_AD4F3522 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,34 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+On Sat, 17 Jan 2026 18:59:10 +0100, Sven Peter wrote:
+> Add a function to put a co-processor into the lowest possible power
+> state from which recovery usually isn't possible without a full SoC
+> reset. This is required for the USB4/Thunderbolt co-processors which
+> can be restarted since the entire USB4 root complex can be completely
+> reset independently of the rest of the SoC.
+> 
+> 
+> [...]
 
-  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+Applied to sven/linux (apple-soc/drivers-6.20), thanks!
 
-are available in the Git repository at:
+[1/1] soc: apple: rtkit: Add function to poweroff
+      https://github.com/AsahiLinux/linux/commit/ba99035bf16e
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux.git tags/apple-soc-defconfig-6.20
+Best regards,
+-- 
+Sven Peter <sven@kernel.org>
 
-for you to fetch changes up to 8c7a1d258d88b5d8e5b78f86d59cfac8eb361a61:
-
-  arm64: defconfig: Enable Apple Silicon drivers (2026-01-08 21:19:14 +0100)
-
-----------------------------------------------------------------
-Apple SoC defconfig update for 6.20
-
-- Enable most drivers required for Apple Silicon as module inside
-  defconfig
-- Enable the power-domain driver when ARCH_APPLE and PM is selected
-  since it's critical for booting these systems
-
-----------------------------------------------------------------
-Janne Grunau (1):
-      arm64: select APPLE_PMGR_PWRSTATE for ARCH_APPLE
-
-Sven Peter (1):
-      arm64: defconfig: Enable Apple Silicon drivers
-
- arch/arm64/Kconfig.platforms |  1 +
- arch/arm64/configs/defconfig | 27 +++++++++++++++++++++++++++
- 2 files changed, 28 insertions(+)
 
