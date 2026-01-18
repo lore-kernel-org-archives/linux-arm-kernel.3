@@ -4,62 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0796CA5FE9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 02:12:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B508DCA5FEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 02:16:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MZA10SLKG1bxLcqqknXHfPrOAkGw9dRwvCvAY2fh5Kg=; b=XEPKSd94wFaKPQr/sWijN3QTKr
-	pebqK9AC7SvutUjzR6O2bPZQ9amvob8M8o7gaZcQ+EVkn88jBgXhRJDgF3gq9Pe0TwynsCmjSWP3K
-	pbYVaUasR/v4DtOyrT7xPfB+sLyCfXSZUcMje6BW8bIz55Z2D6qkq7Bm/abtOKPvqIxHyI/cz5cFg
-	LsUQnYf0fnMF2TVv206Pcn54qNWTRyvuyTEZHYo2tK6OnF838dEitJcQKdFUopnDLUux7hzRlwIuN
-	ni8j0zD40lOZfcun0fF/6u4Yk8ngXC5xpEliXEse0xS6UhFSY3JADxnCCLYZBMWEZxkgstt/OgHzA
-	HPpXlFsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IPNX+Ya5M9FrrNq/ZOGEeDs8/xwAkhI8Qs4LnaxGt/U=; b=sMSQZZVgszuU1LKauppqlW9HZq
+	EfCRBH26hhEFlboecUe5o4zmZFiPG5TVS3jPkpK4YKjEKsTIkDgYdjmkGgJcWxg/0CHDlCsi1yTSO
+	SRl7pVGWgwcKtNSNVpM6qa+vRx2Me2SLk8xS5WAWE0rGtaO1DApC3UV9NqEJlNjmzx3l8acOTP00K
+	2oF27ewPihqvXI3BU6q26asZTsWiFZGAMm4xKfevheSSEehLzMffEIGMyn+WhrJhbuzEE9A9H51KA
+	msvVGE6GIRkhPAjVaF6lMjkkYTlZ/JR03+V+lwJRbXsSB0rYskf+mMTwkITuR8FMy/BDg4DsyagHv
+	vN0fS+3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhIGw-0000000GTCB-0Swc;
-	Sun, 18 Jan 2026 02:12:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vhIKa-0000000GTav-315j;
+	Sun, 18 Jan 2026 02:15:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhIGu-0000000GTBx-2FKX
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Jan 2026 02:12:08 +0000
+	id 1vhIKZ-0000000GTaM-0e2q;
+	Sun, 18 Jan 2026 02:15:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B57686000A;
-	Sun, 18 Jan 2026 02:12:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B0ABC4CEF7;
-	Sun, 18 Jan 2026 02:12:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3145842A2F;
+	Sun, 18 Jan 2026 02:15:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A52B3C4CEF7;
+	Sun, 18 Jan 2026 02:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768702325;
-	bh=M0zEiZONb5Cqp7BvBz5QafxzPpNTVAMF+5FojoxCvUY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Wn/9aonW34wkqORoUULndtMn1sU65BOVXkG+yXpMdGOLcnkaqlGG3rxCjZJ8ElJ4U
-	 i9f7n2hjLeiHG7F12FuGaKh9sCZ7wgN75zQ9mlEhTi+fz723w/fFiQ3acrt5Uq3k8/
-	 N7/4EHqAjXdoeuoUQnTzG1l8RHXyjZbulpnslZvHwwZEVjNisT5eMolYwxCgchbtx7
-	 0a/PMwls2U+DSCuFGxkytvMgoxVCEYavU44SIS3JN2t//O1O+7oEZgz62n7906xbEG
-	 QHOOU1iSlJGEaiHwbVxPsN8f8f/144FQKGOUsXcPymgwdJrhshPbCchXiYTvJ19uRi
-	 45giCk1t7v+IA==
-Date: Sun, 18 Jan 2026 10:11:58 +0800
-From: Shawn Guo <shawnguo@kernel.org>
-To: Andreas Kemnade <andreas@kemnade.info>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Josua Mayer <josua.mayer@jm0.eu>
-Subject: Re: [PATCH 0/3] ARM: dts: imx: wire up the TPS65185 for various
- ereaders
-Message-ID: <aWxBbnO028gYWvlm@dragon>
-References: <20260113-tps65185-dt-v1-0-66d376ba5f65@kemnade.info>
+	s=k20201202; t=1768702554;
+	bh=DkTAVOtDgAavmOBCWkEODfmCCxIZofGnZrL0HRHr1+Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=JkC0leqUxhwYx7c9VgSjbs4pehA7gDWJipY4nOB3v8Lj7P/i+eC5nHVlv320j9GT3
+	 BfDGXuRszKLv6NkMGgyPybmhjCvSb1EKn11Lm/LMxbMpFRRT3KtE8TSaFoR7DfwxSu
+	 0aMaCFYCQM3WGigDPntTsfXhQc5J57gW3z5Unee0nMISfGB9pXPbxUb4Z0p0ENQ/g1
+	 91y95gJ2R5G44VmxP9Xvdl56Y1Ez4PAwdvoljSlOWK3Zg++D6K66bK4YtpG1ovXI0q
+	 ZiE5bQm5MjqCXDJjFFKv+g5qIRCxEon/tTHgp9iw3YpIt0NWjvnPNVAmyKodfJJlrj
+	 VcJY0r6o2ENoQ==
+Date: Sat, 17 Jan 2026 18:15:51 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: Ajit Khaparde <ajit.khaparde@broadcom.com>, Sriharsha Basavapatna
+ <sriharsha.basavapatna@broadcom.com>, Somnath Kotur
+ <somnath.kotur@broadcom.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
+ S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
+ Abeni <pabeni@redhat.com>, Felix Fietkau <nbd@nbd.name>, Sean Wang
+ <sean.wang@mediatek.com>, Lorenzo Bianconi <lorenzo@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Shay Agroskin
+ <shayagr@amazon.com>, Arthur Kiyanovski <akiyano@amazon.com>, David Arinzon
+ <darinzon@amazon.com>, Saeed Bishara <saeedb@amazon.com>, Bryan Whitehead
+ <bryan.whitehead@microchip.com>, UNGLinuxDriver@microchip.com, Shyam Sundar
+ S K <Shyam-sundar.S-k@amd.com>, Raju Rangoju <Raju.Rangoju@amd.com>,
+ Potnuri Bharat Teja <bharat@chelsio.com>, Nicolas Ferre
+ <nicolas.ferre@microchip.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Jiawen Wu <jiawenwu@trustnetic.com>, Mengyuan Lou
+ <mengyuanlou@net-swift.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next 1/9] net: benet: convert to use
+ .get_rx_ring_count
+Message-ID: <20260117181551.0b139ca1@kernel.org>
+In-Reply-To: <20260115-grxring_big_v2-v1-1-b3e1b58bced5@debian.org>
+References: <20260115-grxring_big_v2-v1-0-b3e1b58bced5@debian.org>
+	<20260115-grxring_big_v2-v1-1-b3e1b58bced5@debian.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260113-tps65185-dt-v1-0-66d376ba5f65@kemnade.info>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260117_181555_242344_510C125F 
+X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,21 +89,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 13, 2026 at 04:31:33PM +0100, Andreas Kemnade wrote:
-> As the driver is now upstream, wire it up for various ebook readers
-> containing imx6sl/6sll/50 SoCs.
-> 
-> The driver for the EPD itself (not included) still needs polishing
-> which would be the consumer for these regulators.
-> 
-> Signed-off-by: Andreas Kemnade <andreas@kemnade.info>
-> ---
-> Andreas Kemnade (2):
->       ARM: dts: imx: tolino-shine2: add tps65185
->       ARM: dts: imx: e60k02: add tps65185
-> 
-> Josua Mayer (1):
->       ARM: dts: imx50-kobo-aura: add epd pmic description
+On Thu, 15 Jan 2026 06:37:48 -0800 Breno Leitao wrote:
+> -static int be_get_rxnfc(struct net_device *netdev, struct ethtool_rxnfc *cmd,
+> -			u32 *rule_locs)
+> -{
+> -	struct be_adapter *adapter = netdev_priv(netdev);
+> -
+> -	if (!be_multi_rxq(adapter)) {
+> -		dev_info(&adapter->pdev->dev,
+> -			 "ethtool::get_rxnfc: RX flow hashing is disabled\n");
+> -		return -EINVAL;
+> -	}
 
-Applied all, thanks!
+I think we need to add this check to set_rxfh now. The error coming
+from get_rxnfc/GRXRINGS effectively shielded the driver from set_rxfh
+calls ever happening when there's only 1 ring. Now they will happen.
+
+Applied the rest
 
