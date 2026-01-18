@@ -4,68 +4,187 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E70BAD4A5F4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 15:57:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 414B1D4A5F4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 16:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Content-Transfer-Encoding:Mime-Version:To:From:Subject:Cc:Message-Id:Date:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ABgVdweYWnojo/0/vbQ5PCIHpjC4QGW/+p3bJL9oPSA=; b=e1Ws6lTVQxFhnbHI4s8xTPuXCl
-	e5CWwGC/7O1FRtkoogvQrVNprFh/dY1aUalaZEGfE0GdFolHZKbOPVP04MPSs3Ma3uqNnl4vMiyPc
-	hdez8EGXRgSzzTEH/7CFGh92IGgacnRNm1N/vHuQXh56gDTduPvDytsLuzlZF0j+CGrqKZkTtpBbA
-	+mWW+Ju4zVgHf8cOWMJDQmTVe3Wcy+1zNu9c3S5/Z20uCJirbv+VrJzqN+lU3EA6OB9msfVyTlPaj
-	AWdq9wIjK9AAxDsI4SjVa0VOVt/73OCw9IXbRpOYsMiSD1reuNSHmq9WOo4ruA4sHkfx1uIHVvHhs
-	Kb6QKNbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ff4rCTjnl4oJ9IWB894Cu3+MQXIEJIQiPwuH4sTZ008=; b=bbhNwYcbhWcVNQbM4Zsyt6+8GQ
+	7XlXeP7R+t3Xcx+vUegvHpWzK7WmNu/Wdsb7bO6jNVmaryKMQhRCaUblOuOfzp1NWgoD9VUCk9nHv
+	51MjumvsmpSlzGO8D94ym8g8ZeGi72HGERDqfVnszIX2yN1ImIUfRCqW11wTxWN4pgDhyKUZecOdV
+	z5/1+Hi5xKDFLU4F+3MqA9/n5WYUX86G4WkzDthIWokgeaH3AMWU0YlJcr3FLpun/BzfPF46plkqM
+	uCxOK2e83aeibVVcolBoVWeZgPrZhOIg30qB+yKWzaT6HIfvjiwUgVuQ5T7JaVFDZPCYH3R3c4qlv
+	/k+71T8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhV97-00000000PFV-2CmR;
-	Sun, 18 Jan 2026 15:56:58 +0000
-Received: from out-174.mta0.migadu.com ([91.218.175.174])
+	id 1vhVdh-00000000TCa-0Lsc;
+	Sun, 18 Jan 2026 16:28:33 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhV93-00000000PEA-3Alg;
-	Sun, 18 Jan 2026 15:56:55 +0000
-Content-Type: text/plain; charset=UTF-8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1768751806;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ABgVdweYWnojo/0/vbQ5PCIHpjC4QGW/+p3bJL9oPSA=;
-	b=iqxRD7qWNwPe7m7/GzbPYD8LR3NtXFoCDtrZ1qn/pUoFqWLTqW0FELymu7uDUZRfMQWqDN
-	o0rXB2+dC0e+Eb8+EVGNi+iS8S59J3XLUoS+R+yH7hxxH9g6M8dp5siyNnPSU6dFJSM/N6
-	T5rPLP4Q2Qh1QXjNs01xzldCDHfo+sQPe8GiLsUBfl5pjaZPcfkYum86moLNJ6U4cYlOg/
-	Ds+ruNaxXbHv5HUl2SY6IxUFwwjvH2BpbFzHoSfF/D35pHFexjrKmRA22VgvFDa+oLCnLL
-	zFFtn5M/eJabNgDtbbaP5SU7yAH9Wz+ZsiStE5SnxH02KylwzoT79i207CSX/w==
-Date: Sun, 18 Jan 2026 16:56:41 +0100
-Message-Id: <DFRU6ODDM71P.3NQGLRK8IVDUY@cknow-tech.com>
-Cc: =?utf-8?q?Olivier_Cr=C3=AAte?= <olivier.crete@collabora.com>, "Ezequiel
- Garcia" <ezequiel@vanguardiasur.com.ar>, "Diederik de Haas"
- <diederik@cknow-tech.com>, "Dmitry Osipenko"
- <dmitry.osipenko@collabora.com>, "Thomas Gleixner" <tglx@linutronix.de>,
- "Dragan Simic" <dsimic@manjaro.org>, "Chukun Pan" <amadeus@jmu.edu.cn>,
- "Andy Yan" <andyshrk@163.com>, <linux-media@vger.kernel.org>,
- <linux-rockchip@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 0/3] media: rockchip: rkvdec: add support for the
- VDPU346 variant
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Christian Hewitt" <christianshewitt@gmail.com>, "Detlev Casanova"
- <detlev.casanova@collabora.com>, "Mauro Carvalho Chehab"
- <mchehab@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Heiko Stuebner" <heiko@sntech.de>
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-References: <20260110053727.2295260-1-christianshewitt@gmail.com>
-In-Reply-To: <20260110053727.2295260-1-christianshewitt@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+	id 1vhVde-00000000TBf-2Bcj
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 18 Jan 2026 16:28:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wNFl9gEIQ66BYhr6Prl4rgvbH/VtTCXbl0JcYOawKZN7FP74qHCw/oeXsV78dpqobopmrp8PZDCRsjMan6ysmpMeFvOx/w4vxA1r2/QLmW+M4gxcLxBL5qIU3SsiXlNYWsSTyOslVJhdYbOmUQogWTqqgKSd8sdJC8Gh0BfzUrrZSxuCC9JzEmVgjSSirzFU3IINTJYBMFJzPWk8cM5iB6AKMr7DJ9L0Fnk9gENBryt7gCgzAHqjIzvTlxlGk2WZJ6JlJJjohIRYEJ4pge+yh5ln4W9N9SLx9HOX1oi45yRBhiC7Zml5956Zrm1CZvG79lwHS8Aj+RPAAcf1t3hDjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ff4rCTjnl4oJ9IWB894Cu3+MQXIEJIQiPwuH4sTZ008=;
+ b=O0KXAsCiYIlbJL7bGdT9Orl3Ie2BxRxy4xI3gpK28DH2obItEAKA7D0+ED7nrNyewXwfZeLuz8mkQFsDuPmI3pnAsKiMDSGFolkeb6z3bkofibIvzpL1sYGcolh2dzrK9lp5B2OGQ1QW2vUMo8X7vUBsvQpjE/GCNErhQChgLr3xhcmViTZKr+1Y7o/U9IP47Wh8cyaivMZg4PnL0QHLxKmvUMsPOCeAW8LkEs3+g3NlHHNVjFAw5gg8hazCv+JAcLsphT8O4nsMdfsxIjxiSHvaM5MVCme0HxkExJaIEMKMLPGM/3aaEx6pfcbLZdNXbGNLef1sxPDq7fe0NjN9DA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ff4rCTjnl4oJ9IWB894Cu3+MQXIEJIQiPwuH4sTZ008=;
+ b=mhemEvsyW1RwRI1v5a+NlsF+KyjHx+nxUDKjAxplhAhY7IsLIR+ZlOxIITPKCN7zO3JqIRYZkN3C0G1i1z/BKikQZwym9zP7ZMQv7p7xsVF0bHG3jrxhyPjF0MF6XLPruEdlD6+UVZ+UMkrlv84eEb6ebKwkhhUBVpaW6YAsWPZKYn6+TCuMkiQ8skYhDz2C9/J3hmdsQwQliQxEmCr/gl0O2UmmxL4ixMxSriV23iQDAPj7zwUlQl7MPVxVMG47Q0khC5qEbFJ4lCsrGkxGLLARVzrQklEUiccHGEygXOOxZgIxCuhqo7BzqrKF+9FqaqPURyTQG5ygPjLSql24cQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by AS5PR04MB11348.eurprd04.prod.outlook.com (2603:10a6:20b:6ca::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.11; Sun, 18 Jan
+ 2026 16:28:25 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9520.006; Sun, 18 Jan 2026
+ 16:28:25 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v3 0/9] arm64: dts: imx8m*: misc update
+Date: Sun, 18 Jan 2026 11:27:57 -0500
+Message-Id: <20260118-misc_dts-v3-0-d3564716cbf6@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAA0KbWkC/02NzQqDMBAGX0Vybko2GjWe+h6lFF2Tugd/SCRYx
+ HdvlBZ7nI+d2ZV548h4ViUrcyaQp3GIkF4Shl09vAynNjKTQioAUfCePD7b2XPMEMvMQm2UZfF
+ 8csbScqTuj8gd+Xl076McYF+/ERBnJAAXvFB51mib6xrK27BMVxx7tieC/Gm5APj7HWTUhE1BY
+ 2F0o9Spbdv2AW+UQifVAAAA
+X-Change-ID: 20251107-misc_dts-c4cc84f1ae5f
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
+ Nicolas Schier <nsc@kernel.org>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-kbuild@vger.kernel.org, Frank Li <Frank.Li@nxp.com>, 
+ Shengjiu Wang <shengjiu.wang@nxp.com>, Sherry Sun <sherry.sun@nxp.com>, 
+ Li Jun <jun.li@nxp.com>, Fugang Duan <fugang.duan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768753702; l=1586;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=VRNTmLmlDH0+BY2FccVI7c6bdZnuONPexTAhn2WNxBQ=;
+ b=OHVhdldC05ETsoeAeqt+FUqx6hIeK17pWGRR9QejMXTY4qbbAtRLdWL1em88+iVh2v5URx613
+ 5NgAfx+kpnBAaXw6KFZGLYuZN4KubzaIBKrHxYSeAIg6yLS0/Gkigk3
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: PH7P220CA0158.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:33b::34) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|AS5PR04MB11348:EE_
+X-MS-Office365-Filtering-Correlation-Id: 096a0c88-c8de-4e47-28df-08de56ae9adb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|19092799006|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OUkyZENPeXFFYVVqZWZVY1ZXcHFwTGxWeW9YazVwc2wxSllaNWl3Skk0Nlo4?=
+ =?utf-8?B?S0NndGNJeDVLRWRSSlhVTlprZ1VvckpSRVFDUEh6dEFpQXA3UDgzdHYxNlkr?=
+ =?utf-8?B?WDJhNnVlMTZ2QkkrNmV1MklsQkNnbUxzU2p0Q3lFN1krZnRJbi9ld0tWNXdu?=
+ =?utf-8?B?WWUzMTVjVUd4YkZWTk5mcDNDcERsS0dQZXdKT214UUtHcTJXTnlDVzloK20z?=
+ =?utf-8?B?cDNPczNlckt3RVlkV2RYZzVrdDZEUGFpTTJEYldqdHR0VUswc2g5aGtjQU9V?=
+ =?utf-8?B?MXMvaFJFRUtVSEJEZXdJQ0JmV3NyQmJTWklweEszdDdMQThkSFhNMHlMWE52?=
+ =?utf-8?B?aTZyQ01Yenc1ak1JWW15NlZxK0phRHpTT2tqWlhibGZsbzNIUzVCdHl3bWlt?=
+ =?utf-8?B?ZTFqN01FeEdSS2s2elBVTGpMWjRvamM2d1dselRMOElrVU5XSWpTTWF3YUdE?=
+ =?utf-8?B?amtpK2ZnQjg1aEsrTFRLeUpKdWxrMzJDYUEybVc1MjFIcVFjdElpNDRaSHpv?=
+ =?utf-8?B?YXZiZ0J0dno2UUJiQjJiQ0s2VjAzVFRqWTJjSEpLN2JsSWgwYk8xdDdEdEFL?=
+ =?utf-8?B?TittTzdEZkpZWjduU2NPeE00NXJmZUxvQkNyMytKL0xBaU4reHBwcU96SjJZ?=
+ =?utf-8?B?T3BLcVZWZXhGWVVjT2JoSVVEZkh3eHRDVzNmUmFFb0lGRkFLM3hBc25hQ2xm?=
+ =?utf-8?B?Unl3NEVacWFEcUZ5VWFXTWZrQ3ZBMExHRjQ1d2lURmNaNmx5OW1TV1JvNkIz?=
+ =?utf-8?B?bTlyWU9LaTZualNCZkpZM01qTkE3QkU2Nk81dmR4NkhwbFJoMitudVd6aHda?=
+ =?utf-8?B?aTdkODR1QnVvdjNLUUdFQ25Ub1Fac3N2Z3hRWklSS0hkNnVyQU14Q3NGd1lD?=
+ =?utf-8?B?M05RQ2NUa3pxaE51NEo4OGFZSnI4Yi9SejBIWGdvZDB0ZTd5R0llRHErell3?=
+ =?utf-8?B?Y3lvbGJGUDRNWE1nUklOVlF5V0pwUFljL0hFTm03ZjJRcDF1U0FoRUtlVVhP?=
+ =?utf-8?B?TExiOGJQZEo5U2tHeEJIaEVOcDJCbFZ3dmMrNG1VemdnQTVVb1hkeExkcXpS?=
+ =?utf-8?B?OVRxUmlqcDRIR1RjL3NXcHBGM0lnbWExMW1ycGxtaTczRXJGVlJIdEVDWVRT?=
+ =?utf-8?B?UExSc1pnTjg5a2toTnNGMWRHaC90dG9QZnR6Yk43UFBrQzBWYjZqY3l3SU9x?=
+ =?utf-8?B?OUg0dVJzd0pkUXRtZWlybWZYbGRGRFhPOTVZNkRRMHk3dXB5Uks0bC81YWN1?=
+ =?utf-8?B?QW1EQUUwUStVRWxndTMvbDVUWGtQYmJFZlV1OUk5YXBkZUI1ZnVUam82TitZ?=
+ =?utf-8?B?ckt3UE5UYmJOZTQ0aWp0NFc4QUlvRndXWGw1TExRS2h2TlJHOFdvMmx1U1VQ?=
+ =?utf-8?B?Z0huSDRYQWtwRmh6Vzg4eUFRY2gwUCtxdGpwUnRNaDh3UG9OZGgxYUYzVHZC?=
+ =?utf-8?B?TVdFNk9jbnNULzFacmhRWTNaSWYxWFBMeTZnb1ozcGRDN0NTRU1iWWlMV1Yw?=
+ =?utf-8?B?czhFY2NVTWhZZndHODVRS29udjJpQ0V2Y1J0aE5yZ2ErTDV6bTVJeWxMa2p4?=
+ =?utf-8?B?UXdsaHF0MG94bTdZR2x3bUxyYkxRUjZkMVdqUHcwbWkzQkdFNU9XZVFYa1Q5?=
+ =?utf-8?B?K0NUU3dKQnFrdkQyaHBlSmVzaVJpZm1JcjZXYk9GSmxZYjZYRjdUcUdBdzVJ?=
+ =?utf-8?B?cGlxd084WDg2YWE3Wmg0VFovbUxESy9KQUFidG51UTZLRjVMWHJOUnVId054?=
+ =?utf-8?B?YWl6aENHYUx6cDFjTGtSNitYd0pVSVhqR3NKajU1Z2t3a1EvZ0xURENvdkRG?=
+ =?utf-8?B?K0ZNMDViQnB1bmhUVjRoZkV3QzUvUGNwZGpBVUkvN0xFK2JGK3hndzZ2SVdS?=
+ =?utf-8?B?YmhMK1BvVi90YWRFUmM0VUFiZDIvM3NaWlVSY0ZpSUcrY3B1OGZWL1krN0dj?=
+ =?utf-8?B?SmVrMXlrMzhEeDdsbWNobUFOVlAvOVREV2xNaC9xVGFqczBiMGtMWGRZSXhU?=
+ =?utf-8?B?cU1oQTR5cUdRbjVnY1FtRDgyeXNPcDB2OG0xMTBZOW54UTR1KzJ3eU9HMExa?=
+ =?utf-8?B?MCtMdFE2cUMvcFI2dkZwellydWh5NTF6QzdlYWtWSEY5Znc5MlhOMFVlK01l?=
+ =?utf-8?B?S1l4NnI2aHQ0Mm1kSnVZSDlZdmw0bkdPaVBhTjFaSzAwZEMzUXJXRXhrT0xE?=
+ =?utf-8?Q?ULIBOKDBBA4q0btNbtIknq0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dnY3RkMwSTZyTzFVeDNlYk05QXVxRmh4KzRjQUh0akNMWjNEL1k1eE5TV25P?=
+ =?utf-8?B?bmZhUmcyTHo2NW1VMW1zK1FZNVhrQW12bVdXWHllUVp0VVh6YXpHenEza0FC?=
+ =?utf-8?B?cldTNHc1NVlSRjJjRzBXdmR6Q09EZlZ2MkVMSDZXQStKdUs4Y3VmZlJLYndQ?=
+ =?utf-8?B?RnUzK09FOFZobkZBcDlvdWFRcGxSazdMbDhRS3hXZUw0K0tRUi9zaURKemNm?=
+ =?utf-8?B?MjNuMFVsTU5EcTBMVmpLNjBEdFNWZ2NWMDE3cGtHclMvVUlHd3I1VmtESCtj?=
+ =?utf-8?B?WFB4Q1lRdmNaRjV3Yi9uQ3VQcU01Zy9lTHBic3dLTm15VW9hZzdxaDQxTi9P?=
+ =?utf-8?B?b3ZEK0pnWTJ2cnJnanJHQzRsRDlFNEdmSEY1Wnlzd0NDLzdhMm1KVlZpWDJE?=
+ =?utf-8?B?UklHVkFJYzFrL3FsaUpZWmJaRXBZZTR1THI2YTBORENEOFd2bjNKUHRZY2NM?=
+ =?utf-8?B?VXhJSU0vaVlvM2gwMlE1VnAvVjdJL3pTcDRwUTY4RWMwdU55WnNSTTVha1Jt?=
+ =?utf-8?B?dEpBNFBOcGlWNEJNNmo3S2NEMnpPVzgxSDRrdWtNTGRpMHdDcmd6TEd4MzVY?=
+ =?utf-8?B?TTRkWFFzTmhQVk5teHJ1SGh3Z1A4NkxFMFVoRTNHOEoxNWg4SU9Ob3dlMmV5?=
+ =?utf-8?B?Y3RqeGc0TW5teG5zVFlkZ1k4MENsYytGVUszSUtoSEF3a3hNVDFNSkhMdkND?=
+ =?utf-8?B?ejhzcUVKaHUwaXVCNTVVaThCKzJGV2tWRm1QaU1jb0dCeUY0Z3BMemZtODFp?=
+ =?utf-8?B?bENqSzYxckJYN29BbStoYlpPWVNLTVlvWmdWdUppcnVMeWQwREpabTZRdmUw?=
+ =?utf-8?B?RWI0SW1YMG1CbGdiSDRRL2k2QlFKK05CS2tkZFFpSXBRWXFFRURwa3Rsa0Zs?=
+ =?utf-8?B?MjQyWkd3ellHZklmZERCRk01QlBWZ0dlRnNUVjBsR2hRa3JyVjJPcUVVV0o1?=
+ =?utf-8?B?Tjhpa1NXN0NJeE1EYmpneklMeEhHenZtMW9OOFdUZUszWEVlVnVIdTY2VXRG?=
+ =?utf-8?B?RWdzb0ZJelhZRjZzZStVV0U2N2JVdzIybDdCeGhvTGJkOURKT3BNeWRmOEY0?=
+ =?utf-8?B?eExIa0ZTUmlVUVFhSE1xbmxOVFJ6aExmM3psUUdoWDVKSllyUmpBUVRwYy9S?=
+ =?utf-8?B?SHZvZlFWazJ6b0dSWFU4bFlFRFBrTHNiRk00c0NJY1hWVkEzSU1COVB2WEdK?=
+ =?utf-8?B?SS83bnB4ZnlWVnpPQ09uWUFlTURIUUFVU0p6UnNFbkxTcW1XUHJNMGNJanVS?=
+ =?utf-8?B?QzZiYldZY3pBWFF0NmQzYzZncldyZ1EyMHdaVUVjeTdUbFgvL0tGdG9MTjg0?=
+ =?utf-8?B?RXArQTFGcW5WUzZEWHRZb3NJVkdLd3pvY2oxS3V2cXEzNEhBR1hQRVI1MlVY?=
+ =?utf-8?B?M3AxZWxwVFZVaU0yeGdYekNnWGtnZ1FvOWlGSHl0cjNRbzI3U2o2dWlWVEQv?=
+ =?utf-8?B?bXRSZTlZWUZ1UzR2U0g3dkU5clllSS9QcnV4SnFESzBwMVRpYi9WbzBLakI4?=
+ =?utf-8?B?S3craUxYUVlHdHpSYWhmUWNXYXBVSVBLM0E4Wm80c3F3VjY1ejFNOFYzWG5i?=
+ =?utf-8?B?K1Z6VVVlTXc2MS9VZ0lrT1pNT09KK01JNkViQ0VnTlpic0diRnJtdmJzVkQv?=
+ =?utf-8?B?WlRXME1PSUhHZWpVZUZrclVGMU9LVk11NHFUdDdBQk9kbFNCWTNoZEpOVFhW?=
+ =?utf-8?B?UElnUCtYanpXbHUwYldzYWRpOTJjL3BlOEZyUkhwblJSUWl1eVNoWm1lSmVQ?=
+ =?utf-8?B?NXVveUtoa1lRTWJlQzlNWDU5a2Q2aXlwUG5wL01zczNsd2RnS0hnT2lhUDlK?=
+ =?utf-8?B?ckxlRkFkVk9yclJDdDBnMXNEZDlKOEx5UTM0RE5walJqemFoYVhnaTZLZmQ3?=
+ =?utf-8?B?bWlSdFFrZVRmNkd5d0JWRkVLRnNGekVJUVJLVHJIUHpEd1g3RDVVWUV3b01T?=
+ =?utf-8?B?UTlFaTFXVnBpcjhpZGtma3kyV0IrNVVSM3k3d0htSkV5VDJBTU8raFRVcTRX?=
+ =?utf-8?B?aUVxVTlsNW0yc3UycEloaXZYV0tZak9oMkFsNStrN3NsaVJJbFM2RUpNYlNB?=
+ =?utf-8?B?Rk1QYzBYNUZ6VDlhVjk2RXJBM0RzWmJTR0JOMVY3OFg3YUhXSXFjdTAxd21n?=
+ =?utf-8?B?RlQ3by9QNXVHVHk2cjFNYjlvMVJtZXoxQTBTVnhML0xudVQ3TTdyOTFweHMv?=
+ =?utf-8?B?TVNMR0xoanNnY0prRS9vTzdvVmVPbzZHeDNJdm1Tdlh5N01UeGF3TVFKQTlR?=
+ =?utf-8?B?NmVyQkpiUEtpQk1QaVFrSlZjbU5HS0E2ZWtBSHREbXJOY2Ira1p6ZU1ucDBT?=
+ =?utf-8?Q?KR+MBf3ASvYGeoqOaV?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 096a0c88-c8de-4e47-28df-08de56ae9adb
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Jan 2026 16:28:25.6981
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ic8r5VIMa9dyM04tUekLVK1/p/J8xXXDMt5txFDpuJtMg6yyQkefgOxg3wr7J1IFbH4V+LiyL2wDyB2BkkQPng==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB11348
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_075654_485924_02331CA5 
-X-CRM114-Status: GOOD (  28.30  )
+X-CRM114-CacheID: sfid-20260118_082830_704361_5F334985 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,147 +199,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
+Some misc update for imx8m* dts
 
-On Sat Jan 10, 2026 at 6:37 AM CET, Christian Hewitt wrote:
-> This series depends upon Detlev Casanova's current v8 series for VDPU381 =
-and
-> VDPU383 support [0]. It adds support for the VDPU346 IP block used for H2=
-64,
-> HEVC and (in active work) VP9 on the RK356X boards. VDPU346 appears to be=
- a
-> close relation to VDPU381 used with RK3588, except with a single core, ou=
-tput
-> limited to 4K, and minor feature differences, e.g. HEVC level 5.1 on VDPU=
-346
-> vs 6.1 on VDPU381. To handle differences we declare a new compatible.
-> ...
-> NB: Testing with the v1 series showed lower mbps bitrate performance. Thi=
-s
-> appears to be resolved though it's unclear to me whether this results fro=
-m
-> kernel changes or the ongoing reworking of ffmpeg v4l2_request support [2=
-].
-> However with my current Linux 6.19-rc4 test branch [3] I'm now able to pl=
-ay
-> Jellyfish H264 and HEVC test media over 100mbps.
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v3:
+- 8mp-evk bluetooth change to nxp,88w8987-bt
+- Link to v2: https://lore.kernel.org/r/20260117-misc_dts-v2-0-0f319c7e9b55@nxp.com
 
-I've now done quite a bit of testing on 3 separate devices: TL;DR:
+Changes in v2:
+- rebase to guoshawn/dt/dt64
+- fix typo, should be imx8mm in patch
+      arm64: dts: imx8mm-evk: add wakeup-source for usb phy
+- Link to v1: https://lore.kernel.org/r/20251110-misc_dts-v1-0-7564b9f69a18@nxp.com
 
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # PineTab2, Quartz64=
--A, NanoPi R5S
+---
+Frank Li (2):
+      arm64: dts: imx8mm-evk: replace space with tab
+      arm64: dts: imx8mp-evk: replace space with tab
 
-My main test setup was with Sway and mpv, which was based on a
-self-compiled ffmpeg from [2] (commit: ea34873176, [4]) and mpv PR 14690
-[5] (commit: 307d2a8 [6]).
-That all ran on a Debian Forky system with my own 6.19-rc5 kernel ([7]).
-Detlev's v8 series made things quite a bit better vs previous versions.
+Fugang Duan (1):
+      arm64: dts: imx8mm-evk: add uart3 port
 
-I also did a quick test with that same mpv and kernel, but then on KDE
-Plasma and only on the PineTab2.
+Li Jun (2):
+      arm64: dts: imx8mm: add wakeup-source for usb phy
+      arm64: dts: imx8mn: add wakeup-source for usb phy
 
-Finally, I did some tests with custom LibreELEC builds [8], which also
-uses the code from this patch set.
+Shengjiu Wang (1):
+      arm64: dts: imx8mm-evk: correct the spdif compatible string
 
-While using the ``--vo=3Ddmabuf-wayland`` parameter with mpv wasn't needed
-on Rock 5B (RK3588) with most of my test files, it was absolutely needed
-for all my test files on RK3566/RK3568.
+Sherry Sun (3):
+      arm64: dts: imx8mm-evk: add uart1 and bluetooth node
+      arm64: dts: imx8mn-evk: add bluetooth dts node
+      arm64: dts: imx8mp-evk: add bluetooth dts node
 
-Playing 1080p (or lower) media was either perfect or quite good, meaning
-sometimes little artifacts were visible. This was on the PineTab2's
-(RK3566) own screen or on my 1080p monitor with the Q64-A (RK3566) or
-the NanoPi R5S (RK3568). Using the 'i'/'I' keyboard shortcut to display
-an overlay with display statistics or enabling subtitles was generally a
-'way' to get more artifacts. With 'i'/'I' you'd then also see the frame
-drop count rise.
-This was the case with both H264 and HEVC files, where I got the
-'feeling' that HEVC worked (just) a bit better. Dunno if that's because
-of the codec or that the video bitrate is lower with HEVC. Quite a few
-of my test files are in both H264 as HEVC.
+ arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi | 78 ++++++++++++++++++++-------
+ arch/arm64/boot/dts/freescale/imx8mm.dtsi     |  4 +-
+ arch/arm64/boot/dts/freescale/imx8mn-evk.dtsi |  4 ++
+ arch/arm64/boot/dts/freescale/imx8mn.dtsi     |  1 +
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts  | 32 ++++++-----
+ 5 files changed, 85 insertions(+), 34 deletions(-)
+---
+base-commit: 3e315c88a3362a1fc92302710eca20b865d28226
+change-id: 20251107-misc_dts-c4cc84f1ae5f
 
-Testing with the 'Jellyfin' files was generally perfect. The maximum
-bitrate I have is 30M though. There were some artifacts visible on the
-PineTab2 though. With Jellyfin's HEVC files, but not my own HEVC files,
-I did see the following warnings in dmesg:
-
-  rkvdec_hevc_run: 291 callbacks suppressed
-  rkvdec fdf80200.video-codec: Long an short term RPS not set
-
-But I think that's expected? (given Detlev's remark on v8 cover page)
-
-Playing 4K media on a 1080p (or lower) screen resulted in severe audio
-sync issues. It seems the video rendering actually works, but in 'slow
-motion'. Hearing 2 secs of audio for 1 sec of video was not uncommon.
-Even with 4K media files, the CPU utilization was still around 15-25% on
-all cores.
-
-When testing on KDE Plasma, the display results were quite a bit worse.
-I primarily mention this as I suspect that the 'display pipeline'
-(possibly not the correct technical term), plays an (important) factor.
-CPU utilization often around 40% on all cores.
-
-I then connected the Q64-A or NanoPi R5S to my 4K TV. Displaying 1080
-media was generally 'reasonable', meaning artifacts were visible several
-times during playback. 4K media files still had severe 'audio sync'
-issues.
-
-I then went on to try LibreELEC's builds. The artifacts I (sometimes)
-saw, were gone :-D OTOH, I did get several major issues 'in return',
-like rk_iommu Page fault resulting in a black screen and the only way to
-'recover' from it, was a reboot. I also got a kernel oops.
-Some dmesg logs available at [9].
-
-Then I tried something ... for 'shits and giggles'.
-I recently learned about a Costa Rica 'test video' in 4K HDR (YT ID:
-``LXb3EKWsInQ``) and I converted that to H264 and HEVC. The H264 version
-was identified by MediaInfo as 'High 10@L6' and the HEVC version as
-'Main 10@L5.1@Main'.
-I tried to play that on the Q64-A (RK3566) ... and saw my TV show a
-'popup' indicating it recognized it as HDR :-O And it actually played
-them. It seems it couldn't completely keep up as it seems too slow at
-some points and then appear to make a 'jump' to the then current time
-spot. I think it worked a bit better with the HEVC version then the H264
-one. But proper viewing/testing was always interrupted by a rk_iommu
-Page fault and thus a black screen.
-It worked even better on the NanoPi R5S (RK3568) and may even have
-played it correctly; otherwise it came *really* close. But here too, the
-fun was interrrupted by a black screen at some point.
-
-So it seems it may be able to play video files/formats which, according
-to the TRM, it isn't supposed to be able to play?
-Too early to tell, but seeing the 'HDR popup' was a really cool surprise.
-
-So, it's not perfect and I suspect various elements in the 'display
-pipeline' can/should/need to be improved. I have no idea which though.
-But the current state is good enough for me to give my Tested-by tag.
-
-HTH,
-  Diederik
-
-> [0] https://patchwork.kernel.org/project/linux-rockchip/list/?series=3D10=
-40540
-> [1] https://github.com/rockchip-linux/kernel/blob/develop-6.6/arch/arm64/=
-boot/dts/rockchip/rk356x.dtsi#L1539
-> [2] https://code.ffmpeg.org/Kwiboo/FFmpeg/commits/branch/v4l2request-v3
-> [3] https://github.com/chewitt/linux/commits/rockchip-6.19.y
-
-[4] https://salsa.debian.org/diederik/ffmpeg/-/tree/v4l2request-v3-n8.1
-[5] https://github.com/mpv-player/mpv/pull/14690
-[6] https://salsa.debian.org/diederik/mpv/-/tree/v4l2request-support
-[7] https://salsa.debian.org/diederik/linux/-/tree/cknow/master-next
-[8] https://chewitt.libreelec.tv/testing/
-[9] https://paste.sr.ht/~diederik/1d9468cbc52c49ec210b4b29754486608a9efea2
-    https://paste.sr.ht/~diederik/214eb00f6ac634d16f54f25b2ec578ca27dc5134
-    https://paste.sr.ht/~diederik/669c3731a108f650f9e0bdc03df848a69355d56f
-
-> Christian Hewitt (3):
->   media: dt-bindings: rockchip: Add RK3568 Video Decoder bindings
->   media: rkvdec: Add support for the VDPU346 variant
->   arm64: dts: rockchip: Add the vdpu346 Video Decoders on RK356X
->
->  .../bindings/media/rockchip,vdec.yaml         |   2 +
->  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |  49 +++++++++
->  .../media/platform/rockchip/rkvdec/rkvdec.c   | 103 ++++++++++++++++++
->  3 files changed, 154 insertions(+)
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
 
