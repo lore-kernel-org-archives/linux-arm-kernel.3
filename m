@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 079B3C9832F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 15:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E70BAD4A5F4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 18 Jan 2026 15:57:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zbjFQf142QTPll+HlFBxgXdPxx+czptb9ll+AkDvzCI=; b=3GIk9YP3Rvb1tHzyrc21W7Hko6
-	0r5CkrbbjkcHVTutacr6BS9bFW1r/CsalxymzSDmyAIjSaXc/n3gBOx7B3Jy18AGc1QzPMW9/QQ26
-	0fJV0swT2Ydzx9kR0oBtqhInUAZ0gBcWryySDtNfPVLwZxFDTDd6xTl1slPBFsosde9KjzTwWeRAZ
-	b6PH4v5Ge7OHDTW4/2cHbB1cTn0vDotJ+nzUn0yDLpgJwZ2xbw7tuxJ168jvVDnLS0ccWgyPa+fa6
-	LI91xSkYuCQZY88WvxXITHKEcYMf4VEhwj3Nfz3FsRWfbtsmKH9jFf72SS56s5NnBIVOU0NK3B+IC
-	7Gtea2qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Content-Transfer-Encoding:Mime-Version:To:From:Subject:Cc:Message-Id:Date:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ABgVdweYWnojo/0/vbQ5PCIHpjC4QGW/+p3bJL9oPSA=; b=e1Ws6lTVQxFhnbHI4s8xTPuXCl
+	e5CWwGC/7O1FRtkoogvQrVNprFh/dY1aUalaZEGfE0GdFolHZKbOPVP04MPSs3Ma3uqNnl4vMiyPc
+	hdez8EGXRgSzzTEH/7CFGh92IGgacnRNm1N/vHuQXh56gDTduPvDytsLuzlZF0j+CGrqKZkTtpBbA
+	+mWW+Ju4zVgHf8cOWMJDQmTVe3Wcy+1zNu9c3S5/Z20uCJirbv+VrJzqN+lU3EA6OB9msfVyTlPaj
+	AWdq9wIjK9AAxDsI4SjVa0VOVt/73OCw9IXbRpOYsMiSD1reuNSHmq9WOo4ruA4sHkfx1uIHVvHhs
+	Kb6QKNbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhUWM-00000000Ksm-0YZI;
-	Sun, 18 Jan 2026 15:16:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vhV97-00000000PFV-2CmR;
+	Sun, 18 Jan 2026 15:56:58 +0000
+Received: from out-174.mta0.migadu.com ([91.218.175.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhUWK-00000000KsF-0dQK
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 18 Jan 2026 15:16:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 83A8540A71;
-	Sun, 18 Jan 2026 15:16:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AD0EC116D0;
-	Sun, 18 Jan 2026 15:16:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768749410;
-	bh=zbjFQf142QTPll+HlFBxgXdPxx+czptb9ll+AkDvzCI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AvzTtIl5xA9be4QGgqfj+yT7GFOYPBw5BtgESqPxxNbcwzrvWLC/qhdg4u+Y6BLJZ
-	 zMF9SnrkRcMyPRuK0sTrX6u0zzxTE2bKrCllzsofmie9OYL0UkYDvF6rNoh811kWbw
-	 b53CKhMMj7pxRvg38b63g5Dt/Ft12VE0osis/258rMIUnF7BvZbb/+WnDyhI5UHQ/R
-	 anrb0HUDpIpA8da4rlDW7q9KM1Q8+i4FfTQYF9pVblCpFzT9T8kmh3Yacx/ZjDSkl4
-	 IQlT9dljin/kV3PAUU7TZ14TFar1o0LvTtFeawufg1a2hMX/BLUsYcSZk/V3FcrsCH
-	 ddaN+YFFAd8PA==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 0C11D1AC56A1; Mon, 19 Jan 2026 00:16:37 +0900 (JST)
-Date: Sun, 18 Jan 2026 15:16:36 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] kselftest/arm64: Use syscall() macro over nolibc
- my_syscall()
-Message-ID: <aWz5VDoGPiOrfsTN@sirena.co.uk>
-References: <20260117-nolibc-mysyscall-arm64-v1-1-f70266a3db15@weissschuh.net>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="0YxDK5bhyWkoEAQo"
-Content-Disposition: inline
-In-Reply-To: <20260117-nolibc-mysyscall-arm64-v1-1-f70266a3db15@weissschuh.net>
-X-Cookie: Think big.  Pollute the Mississippi.
+	id 1vhV93-00000000PEA-3Alg;
+	Sun, 18 Jan 2026 15:56:55 +0000
+Content-Type: text/plain; charset=UTF-8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1768751806;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ABgVdweYWnojo/0/vbQ5PCIHpjC4QGW/+p3bJL9oPSA=;
+	b=iqxRD7qWNwPe7m7/GzbPYD8LR3NtXFoCDtrZ1qn/pUoFqWLTqW0FELymu7uDUZRfMQWqDN
+	o0rXB2+dC0e+Eb8+EVGNi+iS8S59J3XLUoS+R+yH7hxxH9g6M8dp5siyNnPSU6dFJSM/N6
+	T5rPLP4Q2Qh1QXjNs01xzldCDHfo+sQPe8GiLsUBfl5pjaZPcfkYum86moLNJ6U4cYlOg/
+	Ds+ruNaxXbHv5HUl2SY6IxUFwwjvH2BpbFzHoSfF/D35pHFexjrKmRA22VgvFDa+oLCnLL
+	zFFtn5M/eJabNgDtbbaP5SU7yAH9Wz+ZsiStE5SnxH02KylwzoT79i207CSX/w==
+Date: Sun, 18 Jan 2026 16:56:41 +0100
+Message-Id: <DFRU6ODDM71P.3NQGLRK8IVDUY@cknow-tech.com>
+Cc: =?utf-8?q?Olivier_Cr=C3=AAte?= <olivier.crete@collabora.com>, "Ezequiel
+ Garcia" <ezequiel@vanguardiasur.com.ar>, "Diederik de Haas"
+ <diederik@cknow-tech.com>, "Dmitry Osipenko"
+ <dmitry.osipenko@collabora.com>, "Thomas Gleixner" <tglx@linutronix.de>,
+ "Dragan Simic" <dsimic@manjaro.org>, "Chukun Pan" <amadeus@jmu.edu.cn>,
+ "Andy Yan" <andyshrk@163.com>, <linux-media@vger.kernel.org>,
+ <linux-rockchip@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 0/3] media: rockchip: rkvdec: add support for the
+ VDPU346 variant
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Christian Hewitt" <christianshewitt@gmail.com>, "Detlev Casanova"
+ <detlev.casanova@collabora.com>, "Mauro Carvalho Chehab"
+ <mchehab@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Heiko Stuebner" <heiko@sntech.de>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+References: <20260110053727.2295260-1-christianshewitt@gmail.com>
+In-Reply-To: <20260110053727.2295260-1-christianshewitt@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_071652_206237_C05A5DFE 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20260118_075654_485924_02331CA5 
+X-CRM114-Status: GOOD (  28.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,42 +80,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Christian,
 
---0YxDK5bhyWkoEAQo
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Sat Jan 10, 2026 at 6:37 AM CET, Christian Hewitt wrote:
+> This series depends upon Detlev Casanova's current v8 series for VDPU381 =
+and
+> VDPU383 support [0]. It adds support for the VDPU346 IP block used for H2=
+64,
+> HEVC and (in active work) VP9 on the RK356X boards. VDPU346 appears to be=
+ a
+> close relation to VDPU381 used with RK3588, except with a single core, ou=
+tput
+> limited to 4K, and minor feature differences, e.g. HEVC level 5.1 on VDPU=
+346
+> vs 6.1 on VDPU381. To handle differences we declare a new compatible.
+> ...
+> NB: Testing with the v1 series showed lower mbps bitrate performance. Thi=
+s
+> appears to be resolved though it's unclear to me whether this results fro=
+m
+> kernel changes or the ongoing reworking of ffmpeg v4l2_request support [2=
+].
+> However with my current Linux 6.19-rc4 test branch [3] I'm now able to pl=
+ay
+> Jellyfish H264 and HEVC test media over 100mbps.
 
-On Sat, Jan 17, 2026 at 01:10:51PM +0100, Thomas Wei=DFschuh wrote:
-> The my_syscall*() macros are internal implementation details of nolibc.
-> Nolibc also provides the regular syscall(2), which is also a macro
-> and directly expands to the correct my_syscall().
->=20
-> Use syscall() instead.
->=20
-> As a side-effect this fixes some return value checks, as my_syscall()
-> returns the raw value as set by the kernel and does not set errno.
+I've now done quite a bit of testing on 3 separate devices: TL;DR:
 
-Acked-by: Mark Brown <broonie@kernel.org>
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # PineTab2, Quartz64=
+-A, NanoPi R5S
 
-Looking at the history the nolibc syscall() was added after we started
-doing this in the arm64 selftests, it was 2023 while the tpidr2 test
-is from 2022.
+My main test setup was with Sway and mpv, which was based on a
+self-compiled ffmpeg from [2] (commit: ea34873176, [4]) and mpv PR 14690
+[5] (commit: 307d2a8 [6]).
+That all ran on a Debian Forky system with my own 6.19-rc5 kernel ([7]).
+Detlev's v8 series made things quite a bit better vs previous versions.
 
---0YxDK5bhyWkoEAQo
-Content-Type: application/pgp-signature; name="signature.asc"
+I also did a quick test with that same mpv and kernel, but then on KDE
+Plasma and only on the PineTab2.
 
------BEGIN PGP SIGNATURE-----
+Finally, I did some tests with custom LibreELEC builds [8], which also
+uses the code from this patch set.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmls+VIACgkQJNaLcl1U
-h9CfBAf/SeWySUzi4DWG7/eYfuh0UqSkZ9GVeLEaP6CQVEBfhdQfDA+rdN/1fkGH
-zzTWSCk8oMSQv1BTNnkREcYZQOh2M6YB1gk0ZPHcTdIjOKwxhZ73fiLrOnMzAtgQ
-SHydTuSJeNJh1hZhl9DNGZmYrvHSaOBDWi5vFKeKIdnOlhZQyCR6gfrsN7JkzJjO
-9Lnt9Q+Yy38sgyJJeks0dtCqyXUPaCFCg6q0Ybpm6tHrv0g3LXGByArkFxEGGdgr
-i+ODI3vne00/mmkukr1sCjxyfrWTGeD+lLFy5nnsYGzWpTrC4Pa7lCnIzNYUmOll
-+mForHW+scEwEHpSM5nKFhdLjo+bog==
-=8Im9
------END PGP SIGNATURE-----
+While using the ``--vo=3Ddmabuf-wayland`` parameter with mpv wasn't needed
+on Rock 5B (RK3588) with most of my test files, it was absolutely needed
+for all my test files on RK3566/RK3568.
 
---0YxDK5bhyWkoEAQo--
+Playing 1080p (or lower) media was either perfect or quite good, meaning
+sometimes little artifacts were visible. This was on the PineTab2's
+(RK3566) own screen or on my 1080p monitor with the Q64-A (RK3566) or
+the NanoPi R5S (RK3568). Using the 'i'/'I' keyboard shortcut to display
+an overlay with display statistics or enabling subtitles was generally a
+'way' to get more artifacts. With 'i'/'I' you'd then also see the frame
+drop count rise.
+This was the case with both H264 and HEVC files, where I got the
+'feeling' that HEVC worked (just) a bit better. Dunno if that's because
+of the codec or that the video bitrate is lower with HEVC. Quite a few
+of my test files are in both H264 as HEVC.
+
+Testing with the 'Jellyfin' files was generally perfect. The maximum
+bitrate I have is 30M though. There were some artifacts visible on the
+PineTab2 though. With Jellyfin's HEVC files, but not my own HEVC files,
+I did see the following warnings in dmesg:
+
+  rkvdec_hevc_run: 291 callbacks suppressed
+  rkvdec fdf80200.video-codec: Long an short term RPS not set
+
+But I think that's expected? (given Detlev's remark on v8 cover page)
+
+Playing 4K media on a 1080p (or lower) screen resulted in severe audio
+sync issues. It seems the video rendering actually works, but in 'slow
+motion'. Hearing 2 secs of audio for 1 sec of video was not uncommon.
+Even with 4K media files, the CPU utilization was still around 15-25% on
+all cores.
+
+When testing on KDE Plasma, the display results were quite a bit worse.
+I primarily mention this as I suspect that the 'display pipeline'
+(possibly not the correct technical term), plays an (important) factor.
+CPU utilization often around 40% on all cores.
+
+I then connected the Q64-A or NanoPi R5S to my 4K TV. Displaying 1080
+media was generally 'reasonable', meaning artifacts were visible several
+times during playback. 4K media files still had severe 'audio sync'
+issues.
+
+I then went on to try LibreELEC's builds. The artifacts I (sometimes)
+saw, were gone :-D OTOH, I did get several major issues 'in return',
+like rk_iommu Page fault resulting in a black screen and the only way to
+'recover' from it, was a reboot. I also got a kernel oops.
+Some dmesg logs available at [9].
+
+Then I tried something ... for 'shits and giggles'.
+I recently learned about a Costa Rica 'test video' in 4K HDR (YT ID:
+``LXb3EKWsInQ``) and I converted that to H264 and HEVC. The H264 version
+was identified by MediaInfo as 'High 10@L6' and the HEVC version as
+'Main 10@L5.1@Main'.
+I tried to play that on the Q64-A (RK3566) ... and saw my TV show a
+'popup' indicating it recognized it as HDR :-O And it actually played
+them. It seems it couldn't completely keep up as it seems too slow at
+some points and then appear to make a 'jump' to the then current time
+spot. I think it worked a bit better with the HEVC version then the H264
+one. But proper viewing/testing was always interrupted by a rk_iommu
+Page fault and thus a black screen.
+It worked even better on the NanoPi R5S (RK3568) and may even have
+played it correctly; otherwise it came *really* close. But here too, the
+fun was interrrupted by a black screen at some point.
+
+So it seems it may be able to play video files/formats which, according
+to the TRM, it isn't supposed to be able to play?
+Too early to tell, but seeing the 'HDR popup' was a really cool surprise.
+
+So, it's not perfect and I suspect various elements in the 'display
+pipeline' can/should/need to be improved. I have no idea which though.
+But the current state is good enough for me to give my Tested-by tag.
+
+HTH,
+  Diederik
+
+> [0] https://patchwork.kernel.org/project/linux-rockchip/list/?series=3D10=
+40540
+> [1] https://github.com/rockchip-linux/kernel/blob/develop-6.6/arch/arm64/=
+boot/dts/rockchip/rk356x.dtsi#L1539
+> [2] https://code.ffmpeg.org/Kwiboo/FFmpeg/commits/branch/v4l2request-v3
+> [3] https://github.com/chewitt/linux/commits/rockchip-6.19.y
+
+[4] https://salsa.debian.org/diederik/ffmpeg/-/tree/v4l2request-v3-n8.1
+[5] https://github.com/mpv-player/mpv/pull/14690
+[6] https://salsa.debian.org/diederik/mpv/-/tree/v4l2request-support
+[7] https://salsa.debian.org/diederik/linux/-/tree/cknow/master-next
+[8] https://chewitt.libreelec.tv/testing/
+[9] https://paste.sr.ht/~diederik/1d9468cbc52c49ec210b4b29754486608a9efea2
+    https://paste.sr.ht/~diederik/214eb00f6ac634d16f54f25b2ec578ca27dc5134
+    https://paste.sr.ht/~diederik/669c3731a108f650f9e0bdc03df848a69355d56f
+
+> Christian Hewitt (3):
+>   media: dt-bindings: rockchip: Add RK3568 Video Decoder bindings
+>   media: rkvdec: Add support for the VDPU346 variant
+>   arm64: dts: rockchip: Add the vdpu346 Video Decoders on RK356X
+>
+>  .../bindings/media/rockchip,vdec.yaml         |   2 +
+>  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |  49 +++++++++
+>  .../media/platform/rockchip/rkvdec/rkvdec.c   | 103 ++++++++++++++++++
+>  3 files changed, 154 insertions(+)
+
 
