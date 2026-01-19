@@ -4,111 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4347FCA5FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 07:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA276CA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 07:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eqxWhu0VWM9at+haFIaR6ob51pqTkmuJjlVh8fQ3wu4=; b=yOWT0+45hIU3Bod/gYktDNNLjq
-	GVFB/LN5ScPry1MqhK0+Fj6i46MhNpsIQTfNZkrOWQxX2bA1FB37n1AwTa6FFLflxU/atbfHMFxsB
-	sYV3VW35GrnaavliX6hCLsgEwAZQeqG8Uk3EgFG/I74ogwyV0SCjlWIvli3Gr2SxN8ioGrnp0Bck1
-	gZSaOhBKrArQoHrP5ji5IRSAVtDYoRy9X6KSB32IFyqj/G8u1Wgjilgnr7WjS9fbhgn/SnUvpdjBF
-	rmt4T67rPTmB09x3QH7GRPG7Rw/02wP9RbM6LqSs7anx7DyQctPyzM1GKK+QXNQp+obCJAmkP9zun
-	uLcZJhkQ==;
+	bh=UiQ+cxmVNau4z+karizH0FDcMDsn/Cs3rk+K8ty0T4w=; b=g0ugz+4IUc7A0sJHlJz3H3Ya3/
+	GcC0EXLA+PzMDTH/M3rIxrOFHiPrmz4ZUZP/PCEJUOqvxoEaQX2j7KwaHRJps2TeT+2RU2KFDabdD
+	+0Zs6wNXEwCyX7U7Cn1/oNE9Cj1qXyyWG7LpmLmabrGeGTKjscWd2CU+dZZKRz1YpzX+rpzk/adZw
+	TYnpLX0zH9cgW2iyblnzGZyuA1ZNLqLjVF2mui30ZfvhewQr/5IW0548PA8T6hakRw2KxrJbu3gBf
+	ASBMWPBkDSbian0ZYmNrjabMiPrNv2bxTPRuOTs2F+PZ3SdlXXjsw+99/Ja7sAQB32Y5uwRJ7a/8g
+	ipfGKOXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhjM6-00000001Rze-3dMg;
-	Mon, 19 Jan 2026 07:07:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vhjNx-00000001SIS-1UIL;
+	Mon, 19 Jan 2026 07:09:13 +0000
+Received: from mail-m3270.qiye.163.com ([220.197.32.70])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhjM5-00000001RzJ-2W3G
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 07:07:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A57A160140;
-	Mon, 19 Jan 2026 07:07:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 063DAC16AAE;
-	Mon, 19 Jan 2026 07:07:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768806436;
-	bh=Hk8NxqcbidEUwJE3pLOiALsK8b78kr73krUklb2X43o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LSGyhXLN9k/avbWu71arIFgPvT78GvEjn/g6Qftx/J1rnd7fWZHkJ4tCn30v/O/op
-	 8wtn1qWmqhwIogMUEru1+5/Ije5KF7u/slxtzdQPqUcDGDF9YmLUNqmYCYt9UrXvMv
-	 rYVlHsjQr1NC5u7QP3nEZGs3kP9jqsSo32epi89PqgL+DvlKTw0fto8iixn1WgU5nz
-	 FFWcRV0E5J5RDlq1t2uMpKcxGKSc8/ykwf3ouraoSm5nnfxzc7x6X04/Le/Dk0Imzr
-	 /JX8jaiRUIs6AFv5QxUmL40eHXMWfNAjlC6VU5/JvREZ2TannDg7eCUcYSxtraIUdG
-	 OH/LqufQav/yA==
-Message-ID: <2be56ba8-5659-4d03-a886-ad32a32f6b44@kernel.org>
-Date: Mon, 19 Jan 2026 08:07:10 +0100
+	id 1vhjNs-00000001SGK-2dem;
+	Mon, 19 Jan 2026 07:09:12 +0000
+Received: from [172.16.12.14] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 311f4d8f4;
+	Mon, 19 Jan 2026 15:08:57 +0800 (GMT+08:00)
+Message-ID: <c4c17773-1146-4db9-bf2f-a7500a8bd734@rock-chips.com>
+Date: Mon, 19 Jan 2026 15:08:56 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] ASoC: dt-bindings: fsl,audmix: Add support for
- i.MX952 platform
-To: Shengjiu Wang <shengjiu.wang@gmail.com>
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, Xiubo.Lee@gmail.com,
- festevam@gmail.com, nicoleotsuka@gmail.com, lgirdwood@gmail.com,
- broonie@kernel.org, perex@perex.cz, tiwai@suse.com,
- linux-sound@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, devicetree@vger.kernel.org, shawnguo@kernel.org,
- s.hauer@pengutronix.de, kernel@pengutronix.de, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20260116101648.377952-1-shengjiu.wang@nxp.com>
- <20260116101648.377952-2-shengjiu.wang@nxp.com>
- <20260117-versed-proficient-pigeon-bd0b2a@quoll>
- <CAA+D8ANrcjvOCfRN7gGGW+7YzvVieU7P2uexUpVYTw6MEHAKYQ@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CAA+D8ANrcjvOCfRN7gGGW+7YzvVieU7P2uexUpVYTw6MEHAKYQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Cc: shawn.lin@rock-chips.com, robh@kernel.org, conor+dt@kernel.org,
+ krzk+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, heiko@sntech.de
+Subject: Re: [PATCH v1] ARM: dts: rockchip: rk3036: remove mshc aliases
+To: Johan Jonker <jbx6244@gmail.com>
+References: <c6feab79-5b73-413b-a94f-9d1b2fa6df43@gmail.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <c6feab79-5b73-413b-a94f-9d1b2fa6df43@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9bd515d81509cckunmaf6f77109404f8
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk9CQlZOSh8ZGkIfGE4fGEhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	xVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=VZzSwM/5kKzi1RZ/Zqt2LYEt8GQ3mWzthhHNV+B100czzDfBwEdOpLu3cHiiNHhSXQrIMbHEI5+Olbuj7OSAShZCiLQEZ/DaQTkYYtyGDm0SUsl5JDYdVgJEGr1fwW38iSrAYqT14q2uF7HazulWXXrvd9IoFDWdCX5PFeru7LQ=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=UiQ+cxmVNau4z+karizH0FDcMDsn/Cs3rk+K8ty0T4w=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260118_230909_214273_A52F23C7 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,61 +71,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/01/2026 07:27, Shengjiu Wang wrote:
-> On Sat, Jan 17, 2026 at 7:44 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On Fri, Jan 16, 2026 at 06:16:47PM +0800, Shengjiu Wang wrote:
->>> The specific feature for AUDMIX on i.MX952 is that it can be bypassed,
->>> so add fsl,amix-bypass property for this feature, besides this there is
->>> no power domain defined on i.MX952, so make power-domains to be
->>> dedicated to i.MX8QM.
->>>
->>> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
->>> ---
->>>  .../devicetree/bindings/sound/fsl,audmix.yaml | 35 +++++++++++++++++--
->>>  1 file changed, 33 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/sound/fsl,audmix.yaml b/Documentation/devicetree/bindings/sound/fsl,audmix.yaml
->>> index 3ad197b3c82c..50fb08460b4f 100644
->>> --- a/Documentation/devicetree/bindings/sound/fsl,audmix.yaml
->>> +++ b/Documentation/devicetree/bindings/sound/fsl,audmix.yaml
->>> @@ -34,7 +34,9 @@ description: |
->>>
->>>  properties:
->>>    compatible:
->>> -    const: fsl,imx8qm-audmix
->>> +    enum:
->>> +      - fsl,imx8qm-audmix
->>> +      - fsl,imx952-audmix
->>>
->>>    reg:
->>>      maxItems: 1
->>> @@ -75,12 +77,41 @@ properties:
->>>          unevaluatedProperties: false
->>>          description: Output port to SAI RX
->>>
->>> +  fsl,amix-bypass:
->>> +    type: boolean
->>> +    description:
->>> +      The audmix module is bypassed from hardware.
->>
->> I don't understand why device AUDMIX would have property saying AUDMIX
->> (so itself) can by bypassed. If you bypass the device itself, what do
->> you configure here?
-> 
-> The case is that the SAI interface is connected to AUDMIX,  but AUDMIX can also
-> be bypassed by hardware configuration.
-> 
-> Yes, adding this property in the AUDMIX module looks strange.  Another
-> choice is to
-> add this property in the SAI binding document.  Is this better?
+Hi Johan,
+
+在 2026/01/17 星期六 5:05, Johan Jonker 写道:
+> The use of mshc aliases is deprecated for some while,
+> so remove them from the rk3036.dtsi file.
 > 
 
-Not sure, but certainly it does not look like a property of AUDMIX.
+I noticed that the alias property is still listed in the
+documentation[1]. Could you please share where it has been formally
+marked as deprecated? I may have missed the update.
 
-I assume you acknowledge all other comments.
+[1] Documentation/devicetree/bindings/mmc/mmc-controller.yaml
 
+> Signed-off-by: Johan Jonker <jbx6244@gmail.com>
+> ---
+>   arch/arm/boot/dts/rockchip/rk3036.dtsi | 3 ---
+>   1 file changed, 3 deletions(-)
+> 
+> diff --git a/arch/arm/boot/dts/rockchip/rk3036.dtsi b/arch/arm/boot/dts/rockchip/rk3036.dtsi
+> index fca21ebb224b..78afae42f8b2 100644
+> --- a/arch/arm/boot/dts/rockchip/rk3036.dtsi
+> +++ b/arch/arm/boot/dts/rockchip/rk3036.dtsi
+> @@ -23,9 +23,6 @@ aliases {
+>   		i2c0 = &i2c0;
+>   		i2c1 = &i2c1;
+>   		i2c2 = &i2c2;
+> -		mshc0 = &emmc;
+> -		mshc1 = &sdmmc;
+> -		mshc2 = &sdio;
+>   		serial0 = &uart0;
+>   		serial1 = &uart1;
+>   		serial2 = &uart2;
+> --
+> 2.39.5
+> 
+> 
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+> 
 
-Best regards,
-Krzysztof
 
