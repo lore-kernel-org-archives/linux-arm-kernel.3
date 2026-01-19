@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80946C9830C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 01:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DDE5CA5FE1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 01:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=icmFEkvGmO6/Ja++vZelqbWCf/Yf71OKFAdhqjynVoI=; b=1cDpqrT2V/oxnxE9cJGQMFsImD
-	eTGfwj4CpyzsSLmtn0jIhUK9W4jAbQlymOOyEH42evMnJox9x89M6kO8bYEohEubxyUhac55Tf12b
-	GoxMc55Dpzys3xIWunlgMq0G7vbnxPZiGmWtVqMDNqEXvonz7m/ACCRsisb6AyduKsY2g0qfSTf9j
-	NXP6MgJQQHqTXJF8YgHWYejrCsF+CWURjhR6frmTqXuaISSFyH8t7+L2qgXMw+biAkR+6KA9D6f51
-	R+12B6b0NlQyoyAi95xvmHHQtu0MAJ+i7M+39NiEAnn9lAxMoSvOLGZiznxx6toVNwDxqjTvtBasZ
-	cwSxwZ3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=otSGC1NbT4lpD0YXFnJQnyST9MeX9IHnqJKr6J2X5EY=; b=FVybExF/GrIupi5IrNLaOhT/m/
+	wG79E+J3k3fA0QXktcOz5sLEP+oGkPNqnzhk2eH0kEST6JnrD/Vv+lFLLXwhDJx/n6jJNpYrJFRaz
+	etPQElKp4urXuYTqyBnFkpAmcGncejxTpQlKVjjgXCITzE3edTPyDR0pFFvcrCNk9S5pUFAU0Gf6t
+	6AXaCLI2Sd8zrVTa9AShMhxDHi4K1Q7Y859372rQlh4QUhoKZDLiEXZhRx1dkfDUQOYRm6m9Stsqk
+	9EAuMxkePt23LXJWpt54W53VZ2wtA9xj8e5aBSt40TWeGkQAU+N6HjCv12LThqUH3rYCJMMjwhTfD
+	TtQ5HyZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhdjE-00000001Dae-1MNV;
-	Mon, 19 Jan 2026 01:06:48 +0000
-Received: from mail-108-mta47.mxroute.com ([136.175.108.47])
+	id 1vhdxN-00000001E9K-1eu4;
+	Mon, 19 Jan 2026 01:21:26 +0000
+Received: from inva021.nxp.com ([92.121.34.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhdjC-00000001DaI-1MZv
+	id 1vhdxI-00000001E89-3f99
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 01:06:47 +0000
-Received: from filter006.mxroute.com ([136.175.111.3] filter006.mxroute.com)
- (Authenticated sender: mN4UYu2MZsgR)
- by mail-108-mta47.mxroute.com (ZoneMTA) with ESMTPSA id 19bd3ca26450009140.002
- for <linux-arm-kernel@lists.infradead.org>
- (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
- Mon, 19 Jan 2026 01:06:39 +0000
-X-Zone-Loop: 0ea5691bcc456babc74f74b3236d9ac6f699ecfe3ebc
-X-Originating-IP: [136.175.111.3]
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=luigi311.com; s=x; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID; bh=icmFEkvGmO6/Ja++vZelqbWCf/Yf71OKFAdhqjynVoI=; b=lJO80M
-	2eBX6QSmsSlEbBLrbF/bl1XOcdBXea0eFw6ShzyyRrrNTY2TJbReyMR4GSevV+uxjaQqQu6s4qvaP
-	X3sLQs3Xt4yg8kbVtUEQfg9JspkYMYHTD4Q8DkMIxR221066qdqIfOxDPD7g9yfGFXXXXR/icLFJ6
-	wVkcM7igI8GtQmBs3uGaB0U8PBd9q7YwOyz7Cba3B0YhP+7Ir+Z6yjQMN47kcoaUaECLIXFrQW3Py
-	keYl+87qQmzUr6XAvyKoHrDzKXboFBdLtEFDIyJoUQNFhoPY14p5xbYW0GUzcj5JPa6tlhflJZo4b
-	NBiD0XEDV1y3Ccv0jRm3KexzkPEA==;
-From: Luis Garcia <git@luigi311.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Olivier Benjamin <olivier.benjamin@bootlin.com>,
-	megi@xff.cz,
-	Luis Garcia <git@luigi311.com>
-Subject: [PATCH v2] arm64: dts: rockchip: Fix imx258 variant on pinephone pro
-Date: Sun, 18 Jan 2026 18:06:33 -0700
-Message-ID: <20260119010633.3447863-1-git@luigi311.com>
-In-Reply-To: <20260118214620.3319040-1-git@luigi311.com>
-References: <20260118214620.3319040-1-git@luigi311.com>
+	Mon, 19 Jan 2026 01:21:22 +0000
+Received: from inva021.nxp.com (localhost [127.0.0.1])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id EA269201E9F;
+	Mon, 19 Jan 2026 02:21:16 +0100 (CET)
+Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id A3D1620138A;
+	Mon, 19 Jan 2026 02:21:16 +0100 (CET)
+Received: from lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com (lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com [10.52.9.11])
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id 7FD341800096;
+	Mon, 19 Jan 2026 09:21:14 +0800 (+08)
+Date: Mon, 19 Jan 2026 10:21:13 +0900
+From: Yanan Yang <yanan.yang@nxp.com>
+To: Daniel Baluta <daniel.baluta@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, qijian.guo@nxp.com,
+	justin.jiang@nxp.com, Lei Xu <lei.xu@nxp.com>,
+	Xiaofeng Wei <xiaofeng.wei@nxp.com>
+Subject: Re: [PATCH v3 2/2] arm64: dts: freescale: add NXP FRDM-IMX91S board
+ support
+Message-ID: <aW2HCTuwNEQkG8UC@lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com>
+References: <20260116-imx91s-frdm-v3-0-98671de64925@nxp.com>
+ <20260116-imx91s-frdm-v3-2-98671de64925@nxp.com>
+ <CAEnQRZDtE+0gDxAnu9vWGhj3rYEv6CmMNjQLWnKu=ud9Yo9XcQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Authenticated-Id: git@luigi311.com
+In-Reply-To: <CAEnQRZDtE+0gDxAnu9vWGhj3rYEv6CmMNjQLWnKu=ud9Yo9XcQ@mail.gmail.com>
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_170646_487285_887CD277 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20260118_172121_044246_A2853443 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx258 had the driver updated a while back and it introduced
-two variants, the imx258 and imx258-pdaf. The pinephone pro
-is using the pdaf variant so this switches it to the correct
-variant and eliminates the pdaf pixels from the sensor output
-resulting in a much cleaner image.
+On Fri, Jan 16, 2026 at 11:33:59AM +0200, Daniel Baluta wrote:
+> On Fri, Jan 16, 2026 at 5:45 AM Yanan Yang <yanan.yang@nxp.com> wrote:
+> >
+> > Add DeviceTree support for the NXP FRDM-IMX91S development board based
+> > on the i.MX91 SoC. FRDM-IMX91S is a cost-optimized variant of FRDM-IMX91
+> > and differs in memory, storage, Ethernet, and PMIC configuration:
+> >
+> > - 512MB LPDDR4 (FRDM-IMX91 uses 1GB)
+> > - 256MB FlexSPI-NAND (FRDM-IMX91 uses 8GB eMMC)
+> > - Single GbE port (FRDM-IMX91 has dual GbE)
+> > - PMIC PF9453 (FRDM-IMX91 uses PCA9451A)
+> >
+> 
+> <snip>
+> 
+> 
+> > +       sound-mqs {
+> > +               compatible = "fsl,imx6sx-sdb-mqs", "fsl,imx-audio-mqs";
+> 
+> There is little sense to have compatible = ""fsl,imx6sx-sdb-mqs". Just
+> use
+> 
+> compatible = "fsl,imx-audio-mqs";
+> 
+> Move model property after compatible as per already existing code practice.
 
-Signed-off-by: Luis Garcia <git@luigi311.com>
----
- arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 2dca1dca20b8..fd6facf1da2b 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -451,7 +451,7 @@ &i2c1 {
- 	status = "okay";
- 
- 	wcam: camera@1a {
--		compatible = "sony,imx258";
-+		compatible = "sony,imx258-pdaf";
- 		reg = <0x1a>;
- 		clocks = <&cru SCLK_CIF_OUT>; /* MIPI_MCLK0, derived from CIF_CLKO */
- 		lens-focus = <&wcam_lens>;
--- 
-2.50.1
-
+I will fix it in v4. Thanks
 
