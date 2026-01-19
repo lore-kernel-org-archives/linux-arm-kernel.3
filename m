@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE80ACCF2DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:28:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD34CA5FEC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EsuevJkgsl5C8dp30TcVS68HeqiqukUtd3I4/TFexqc=; b=VwwFPBa2LJ3afRCdqEeRPeIZbl
-	fT2K26KWdBFidwitfliS+L9QsXfF7bYx2E9hD3QHsad6rRSvTJBv4p9iGz+Xs2OCXxy2xs1x6HHIR
-	IxcrFSFB4DIBDCDKzJ0cL5XZYCb3j8TS1fdQds5jl7Ph3E9wZsfz9raNrcWL5SeS117cjZbWAJJPh
-	x+6a9lIxdPeCpO0UmPxl+Mczx2qXbhmRmHUNiitTLh5I1m6HdBMgOJn1mdwYA8cKW9Gw9GNoDuCzf
-	GYLN68XYvtjwrkR4/ken5OzI+F0ExoAH4oofgY7wahmrWdmnL42Qe154sC1Bu9Wn/GgLCsRx17xx0
-	pgb47Ybg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wHYYYEHkaavFzc9JB6CtumJUwbAhau1BEoORQW5BAZ0=; b=NNVRfwtNw0mR7q1JLv8Zzo7Emp
+	Wujijix2UY8EGPTgDMtzkHDQKK+wmSPOHfN4Pb+48ZEdIMk3vxFkTDF6Vn8SUzGSL0CWwmO5jO4yr
+	DBbm2hqSVM5x0dndMfMGRIQrfQwxRz4tbwIRy4VrJJSz0e6iKEYwU0+2lc50dBYMnEmwu0bxII/PB
+	7zxq0H1vQRhYhe1guJIZXkccjMYX5EuoE0deF7sBNEK/nU68z9AaUSdShrl7adaIeSjvrme2KnV9b
+	CKsKLBGbuAox/LLe+hQ1ZJXWFLvwfybQhGOuzce4pdU3gxd+fSLe5Aeqx9CLgEfQLP6Lcvx/Vnh+q
+	ooN+lvfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmUs-00000001m60-3SEh;
-	Mon, 19 Jan 2026 10:28:34 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vhmab-00000001mL9-3coP;
+	Mon, 19 Jan 2026 10:34:29 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmUq-00000001m5X-1Mnl;
-	Mon, 19 Jan 2026 10:28:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1768818497; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=c2+Oc9wLMk54ge9fXvqUDFJyAAT7ec7rGEzKziR5QaN+z1z+rYOLC4VTelqvmOGmxAWYdKRr6O6s6MNKpwLXDhlL5lcGObgtP0rdHil9Vb0BGdsnIs4YglM6IDmVEaxWfWUQUdSpnEvc+N1CvCq+b7wf0NJz67YVdzuQZegORwk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1768818497; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=EsuevJkgsl5C8dp30TcVS68HeqiqukUtd3I4/TFexqc=; 
-	b=PCpgNlj7n6I5+jp2Tf7Tr7dHfDi1tCAjsYDvdzMx5yFgbzZX6WT/h8sBwDUjW/hCqwYF0Ev65ozoN4kome1DuU0c3HYx8O/Q3KClOtdpMKpcdvH15iWcsAngNGweP3xIAGbiJSVfDmHKROVyhsDbXAFuGlYofF0jcARnDjD9J1M=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768818497;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=EsuevJkgsl5C8dp30TcVS68HeqiqukUtd3I4/TFexqc=;
-	b=IzMYIQ9xcILSyPL5IEgFBFGVo7j1D7ZBB9+pLkD8TJou1OhxL5m2aeY0mUG8sBsv
-	Wv1ahwlZ/JxKsdyJ4LI5HiTSJL64r53/U8Kqgk1RJy/0aMnZ+lBkwQr9s8a6uXe7Fe1
-	Ncr7UNildBZ9+LxfW3aXn6Ywt29jhDAL6JPF1W+g=
-Received: by mx.zohomail.com with SMTPS id 1768818497079716.4924558723245;
-	Mon, 19 Jan 2026 02:28:17 -0800 (PST)
-Message-ID: <d81c0f26-ab36-42a9-bc40-b9767aea038a@collabora.com>
-Date: Mon, 19 Jan 2026 11:28:11 +0100
+	id 1vhmaX-00000001mKO-24x5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 10:34:26 +0000
+Received: from francesco-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
+	by mail11.truemail.it (Postfix) with ESMTPA id 973101FB96;
+	Mon, 19 Jan 2026 11:34:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1768818859;
+	bh=wHYYYEHkaavFzc9JB6CtumJUwbAhau1BEoORQW5BAZ0=; h=From:To:Subject;
+	b=QAgxHRjuUsjwozQGL0H3ogk6wYVKNXePVQLKLYDqUnqi6ArDN1f2azQ/c8AgoLiF2
+	 7OfASJKoFmIntgAiUPUO+uSGlTRaPUdz//OOY8TNjtWQVzzgmhXVcaoCbvNeHvC5/v
+	 MT320Wj+UDq2+arC+OxldskKwOtMMitL8b2yEQh6bxLaI/784h1RglievMVKg1mTSB
+	 Rz/4MyHTfrgEbjdfZ7sxTcVqEfTFZNBwmbGSVv46Dq/U9NYXoYgDWExJUoca55Q/xr
+	 MFwSGm+sHGiuuHW6gSnLq5hh+ZAaxlDmpq3e4bWsaK3gRufio1J6CBN4w3hE4NRXX1
+	 +PHrEoHhq1fRw==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] arm64: dts: imx8-apalis: Fix LEDs name collision
+Date: Mon, 19 Jan 2026 11:34:09 +0100
+Message-ID: <20260119103411.50397-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 3/7] iommu: Add verisilicon IOMMU driver
-To: =?UTF-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>,
- Will Deacon <will@kernel.org>
-Cc: robin.murphy@arm.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, heiko@sntech.de, nicolas.dufresne@collabora.com,
- p.zabel@pengutronix.de, mchehab@kernel.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-media@vger.kernel.org, kernel@collabora.com
-References: <20260107101005.84039-1-benjamin.gaignard@collabora.com>
- <20260107101005.84039-4-benjamin.gaignard@collabora.com>
- <aWZui-rn5RDPwpEO@willie-the-truck>
- <eqv7yfdagt2axkj5xbtmrtkaakhq63ywf2q5tjo33exumhfrc5@7ghelrz6yt2d>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <eqv7yfdagt2axkj5xbtmrtkaakhq63ywf2q5tjo33exumhfrc5@7ghelrz6yt2d>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_022832_424923_03159957 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20260119_023425_697531_60B16EDE 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +76,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Le 18/01/2026 à 10:41, Jörg Rödel a écrit :
-> Benjamin,
->
-> On Tue, Jan 13, 2026 at 04:10:51PM +0000, Will Deacon wrote:
->> I took another look at this to see whether it had changed significantly
->> from v6 when compared to the rockchip driver. Sadly, they still look
->> very similar to me and I continue to suspect that the hardware is a
->> derivative. I really don't understand why having a shared implementation
->> of the default domain ops is difficult or controversial. Have you tried
->> to write it?
-> When updating for v12, can you please put an explanatory comment at the top of
-> the file explaining the relationship of the IP this driver is for to the
-> RockChip IOMMU and the rationale for having it as a separate driver? I want
-> this part of the discussion documented in the code in case it comes up again.
+Ixora boards have multiple instances of status leds, to avoid a name
+collision add the function-enumerator property.
 
-Does the follow wording summarize the situation correctly for you if I put it
-in header comment ?
+This fixes the following Linux kernel warnings:
 
-  * This hardware block is using a 2 pages tables allocation structure.
-  * That make very similar to Rockhip iommu hardware blocks but it has
-  * it own driver because the registers offset and configuration bits
-  * are completely different. An additional raison is that this hardware
-  * has been developped by Verisilicon to be used by their hardware video
-  * decoders and for a general purpose like Rockchip iommus.
+  leds-gpio leds: Led green:status renamed to green:status_1 due to name collision
+  leds-gpio leds: Led red:status renamed to red:status_1 due to name collision
 
-Regards,
-Benjamin
+Fixes: c083131c9021 ("arm64: dts: freescale: add apalis imx8 aka quadmax carrier board support")
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+ arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi | 4 ++++
+ arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi | 4 ++++
+ 2 files changed, 8 insertions(+)
 
->
->
-> -Joerg
->
+diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi
+index 7022de46b8bf..abb131d247c3 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi
+@@ -21,6 +21,7 @@ led-1 {
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			default-state = "off";
+ 			function = LED_FUNCTION_STATUS;
++			function-enumerator = <1>;
+ 			gpios = <&lsio_gpio5 27 GPIO_ACTIVE_HIGH>;
+ 		};
+ 
+@@ -29,6 +30,7 @@ led-2 {
+ 			color = <LED_COLOR_ID_RED>;
+ 			default-state = "off";
+ 			function = LED_FUNCTION_STATUS;
++			function-enumerator = <1>;
+ 			gpios = <&lsio_gpio5 29 GPIO_ACTIVE_HIGH>;
+ 		};
+ 
+@@ -37,6 +39,7 @@ led-3 {
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			default-state = "off";
+ 			function = LED_FUNCTION_STATUS;
++			function-enumerator = <2>;
+ 			gpios = <&lsio_gpio5 20 GPIO_ACTIVE_HIGH>;
+ 		};
+ 
+@@ -45,6 +48,7 @@ led-4 {
+ 			color = <LED_COLOR_ID_RED>;
+ 			default-state = "off";
+ 			function = LED_FUNCTION_STATUS;
++			function-enumerator = <2>;
+ 			gpios = <&lsio_gpio5 21 GPIO_ACTIVE_HIGH>;
+ 		};
+ 	};
+diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi
+index 12732ed7f811..a0b452b92b3e 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi
+@@ -21,6 +21,7 @@ led-1 {
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			default-state = "off";
+ 			function = LED_FUNCTION_STATUS;
++			function-enumerator = <1>;
+ 			gpios = <&lsio_gpio5 27 GPIO_ACTIVE_HIGH>;
+ 		};
+ 
+@@ -29,6 +30,7 @@ led-2 {
+ 			color = <LED_COLOR_ID_RED>;
+ 			default-state = "off";
+ 			function = LED_FUNCTION_STATUS;
++			function-enumerator = <1>;
+ 			gpios = <&lsio_gpio5 29 GPIO_ACTIVE_HIGH>;
+ 		};
+ 
+@@ -37,6 +39,7 @@ led-3 {
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			default-state = "off";
+ 			function = LED_FUNCTION_STATUS;
++			function-enumerator = <2>;
+ 			gpios = <&lsio_gpio5 20 GPIO_ACTIVE_HIGH>;
+ 		};
+ 
+@@ -45,6 +48,7 @@ led-4 {
+ 			color = <LED_COLOR_ID_RED>;
+ 			default-state = "off";
+ 			function = LED_FUNCTION_STATUS;
++			function-enumerator = <2>;
+ 			gpios = <&lsio_gpio5 21 GPIO_ACTIVE_HIGH>;
+ 		};
+ 	};
+-- 
+2.47.3
+
 
