@@ -4,97 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA02AD29C4C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:47:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FAE9D29C43
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mb7EXkVeeyYYPDZluNCIirhlK7FHyduzjPpO6/F/48I=; b=iAKwG7IstS3ElsIi9dUU1s2j1V
-	Vq0afxbzxoI9/JG+CdPjGAJXejkvxpo/33u6sNmY7umI81Ug3PycM6r6r4+CdKyfxrZGDWqzRCkaR
-	MJpclq5ElHWEYo1tE5M8ImcTtL5Av075cgv7TaiNmKdFF66XBJ6fwe/TQjrE76cfso4Oj67mcHHAD
-	kJAt1XcAykTz6k6gwn8CGWltGg8+Tsymj3SyqOff4r3sSwYtw6Uvl8CZPg+TtHkeVQzEEMXjUJ0hV
-	QjU4td9wDp3uo4Bi2PDyqJ8uA1Q1s28MpVNKKe9gIjQNkIEDIFeELyeInNaf+Qt0BhwIeSFE6DAFj
-	/a52nVlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=72+10Ixt2YN1uJV/0g27u9Am1AksESQAqb8mf1rCGTU=; b=3MXEeLq60bRgbQ0osNf0e7Jxz6
+	0RwAXb4deVqSXILIraX0uoU7i773DOVQG74dL/T46ikoMtBGQCEEwXbNqHM4hLdQgVgYSpwfMNCln
+	Y4Vy+NpoJTmVm9PjWyvgN4yGBSwAhPdtvSebBwnGZZxHVxiQSKsXL1dEZI1InmaxKWAYhrGdHxdee
+	r8iFsBvow35XfxCV5h6IM3+QDlhKsO83jtNkWxAXokjeRl+VwvwaStiaWFSD5CqYMjaMQ0Fd6u8Gk
+	iuRaD1DYcu0KoGRH+o4XVH8l5/2j8XbWuVU6TNdm9upivudlKxQWBeSox8yVxM15X99sZIkA5Yda4
+	9Aildzjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsPc-00000002Xlo-3f30;
-	Mon, 19 Jan 2026 16:47:32 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1vhsSM-00000002Y8e-1Y9g;
+	Mon, 19 Jan 2026 16:50:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsPa-00000002XlS-1upf
+	id 1vhsSJ-00000002Y8S-1ZL1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 16:47:31 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-29f1bc40b35so45440145ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 08:47:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1768841249; x=1769446049; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mb7EXkVeeyYYPDZluNCIirhlK7FHyduzjPpO6/F/48I=;
-        b=KBoOJarG8wD6cSwJ2B/eS+/jdHHzf0HnW3yQpkxXGsGObUFWhXatmE/wiJPK8lCSSQ
-         qMPJrMYD4xev+G3GADjdN1y61pPQyRki4IHFudUhZ8Kib7dhZrEsSv8JBlwydB2CyjLi
-         RkBdL/EYaBGHIXr78c9zxH6AuWdgVS9Ia7d32em7ULTV6py0XHMGrIckabl3waqTRXZm
-         JgpRdZNmPGMe2E8bcIwYZ12e87/wik44/G9Tyz3KDEY92FnHlYCKyMnAaBFIrGD4o++J
-         0g/hMaxNLdMQiAVDxfZvFHauphmO5FIAVMHLS6dgyl8OApxThy6xwMt1/XcTgZnSwWic
-         ztPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768841249; x=1769446049;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=mb7EXkVeeyYYPDZluNCIirhlK7FHyduzjPpO6/F/48I=;
-        b=MgszisdLmr2YQ8ppEUh2jQPu0M8c7NJOqlfe8jJl6W+YF7lGXk51SfT0E3py7mVBCb
-         IJbz+mW4tN9m8MK53juRlr1N+sZEF2VhY/qV4UCwZdvjOKg6MyodyJDFFsmbxBHwEtBn
-         vkOuATVk2Y71rkvCbTOjsUWZOUSK9GObrX6iU4SF/Kx8ftOYhcGAAxIRRy00FnxNq0PR
-         nD+L1umGCVlqwBD15fv/QtrV2W0G1zNaUhoqOb6r0obbDvGe5ZOQ8PMK5LcSchl168qw
-         6yzragYFFASpX8iRuCmRW3BAAJ11+2UOVanTYcbVDu7DHFzRncDHR8mtyfEWOzYM5r7S
-         55wA==
-X-Forwarded-Encrypted: i=1; AJvYcCXWwI+a+z59/B0PfwuMZrtoU164oKcsF13e/XvKpBqT+RYZng/LWc4qzHC1xBEe/eMpuoW/7yDzKO+5UjtZXaOw@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUcB0eHGPXlQmzdLVcc0EjdDd9U9Ah7pzJ6ME653DwhLFDpCz2
-	vRp9XGroghmm83msmCVYLdjsM3rjwO6p9EXWZg7p1DCOMUryPEFNR2YOjwqgTFlQHu8=
-X-Gm-Gg: AZuq6aLUF0+lohIkSMzTq2fdZ3DwEBBDl8j3087NmbIoZLS0RjLC95QxnxE5rzA7elz
-	+WRduKrsonr2JTSeO/n4PvHrZwUMadhFpKlrfqdtSkM66DQtUo0yISoPBhJanhh+/Y74ZNmHGLF
-	stgArpoS57EP9J3ewL731QdMDEv14vNdk1c7+M+KDM+ox/TDDetmX7nsLXjnd+L5bhoscjuZ0Ox
-	AuYcEFeNKpUztnpNTdCnJGLKkU0nx6POzGTIxkmodrnu4GxPcELfAf18GQsLT0CNUo1shhTzLMZ
-	HNLBxwcT0ReYGcX5yN4dQ0+kydLzEp7HqjIfLCpgoXSdHY5oRMOsuKUQUOs151dQt3q88iv2+a+
-	/6z6Y65jx2hIfvfKwvHdWG105f2NSgnSiyeJheGzkoqNKhl6m0yB55MLfP+ouNmlBfykEvD3Y8V
-	wmMBkyk2VAapCI6HhjhgbdNKlfFrR47PH8GWbUtInbId3p+9FM/gpWIf5p3VsMb+4cZg==
-X-Received: by 2002:a17:903:138a:b0:29e:fd60:2cf9 with SMTP id d9443c01a7336-2a7177e0b55mr115393845ad.54.1768841249474;
-        Mon, 19 Jan 2026 08:47:29 -0800 (PST)
-Received: from smtpclient.apple (c-24-16-26-157.hsd1.wa.comcast.net. [24.16.26.157])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a7194164dfsm96897605ad.88.2026.01.19.08.47.28
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 19 Jan 2026 08:47:29 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
+	Mon, 19 Jan 2026 16:50:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C793160055;
+	Mon, 19 Jan 2026 16:50:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6C13C16AAE;
+	Mon, 19 Jan 2026 16:50:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768841418;
+	bh=rPWmfChoR053x8YbR76MXS2rElz2473/KngimqQn/+8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gYGzGmcTHl/9m3KQrOWQB0stmXVeQ1bEmfqlV7uuRs6dl9dVw9iu+oLJibSWQ7h6S
+	 QewF3isn5jbP84x1ii2sRPH2Ljmx/Zxbtz4n1cUFcTGwjWFvGwD8PIpcYbepzTEO2l
+	 54oMd2e2SIRFjH1sriHCFhOjyS6/MAPl/+pk1XQAsDto/y99qJgHjGMA6iE6ffw56C
+	 m/BhJB9qcYlLKhOWzx8jYKPGVJRBWqH6QO3NrLC8+Uy8a5n5Tww1onuVT5Mt1PiOu0
+	 oGLRg9YLgdldGrucTUEmLxjUaFZAtFITUbIKgxtpoZOdJ2pmmehGp/kdssJrQusTkt
+	 i+3MU49l2cp5g==
+Date: Mon, 19 Jan 2026 16:50:13 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
 Subject: Re: [PATCH v3 3/3] spi: xilinx: use device property accessors.
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-In-Reply-To: <8436e914-429f-40b9-8e6f-ec3b02702cad@sirena.org.uk>
-Date: Mon, 19 Jan 2026 08:47:17 -0800
-Cc: Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Michal Simek <michal.simek@amd.com>,
- linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <69F83558-4675-4FC2-8656-BC6E3481AD65@nexthop.ai>
+Message-ID: <9e559e33-4f2f-40d4-a15f-584548bd6057@sirena.org.uk>
 References: <20260119-spi-xilinx-v3-0-4566c33bac0d@nexthop.ai>
  <20260119-spi-xilinx-v3-3-4566c33bac0d@nexthop.ai>
  <8436e914-429f-40b9-8e6f-ec3b02702cad@sirena.org.uk>
-To: Mark Brown <broonie@kernel.org>
-X-Mailer: Apple Mail (2.3864.300.41.1.7)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_084730_507404_99B6AD44 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+ <69F83558-4675-4FC2-8656-BC6E3481AD65@nexthop.ai>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="HLyi8ks42a9EJ3mR"
+Content-Disposition: inline
+In-Reply-To: <69F83558-4675-4FC2-8656-BC6E3481AD65@nexthop.ai>
+X-Cookie: Does not include installation.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,27 +77,50 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--HLyi8ks42a9EJ3mR
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> On Jan 19, 2026, at 8:32=E2=80=AFAM, Mark Brown <broonie@kernel.org> =
-wrote:
->=20
-> On Mon, Jan 19, 2026 at 07:06:24AM +0000, Abdurrahman Hussain via B4 =
-Relay wrote:
->=20
->> -		of_property_read_u32(pdev->dev.of_node, =
-"xlnx,num-ss-bits",
->> -					  &num_cs);
->> -		ret =3D of_property_read_u32(pdev->dev.of_node,
->> -					   "xlnx,num-transfer-bits",
->> -					   &bits_per_word);
->> +		device_property_read_u32(&pdev->dev, "xlnx,num-ss-bits",
->> +					 &num_cs);
->> +		ret =3D device_property_read_u32(&pdev->dev,
->> +					       "xlnx,num-transfer-bits",
->> +					       &bits_per_word);
->=20
-> Are these bindings appropraite for ACPI systems?
+On Mon, Jan 19, 2026 at 08:47:17AM -0800, Abdurrahman Hussain wrote:
+> > On Jan 19, 2026, at 8:32=E2=80=AFAM, Mark Brown <broonie@kernel.org> wr=
+ote:
+> > On Mon, Jan 19, 2026 at 07:06:24AM +0000, Abdurrahman Hussain via B4 Re=
+lay wrote:
 
-Yes, the Xilinx IP blocks are memory mapped and work exactly the same on =
-ACPI as they do on DT.=
+> >> -		of_property_read_u32(pdev->dev.of_node, "xlnx,num-ss-bits",
+> >> -					  &num_cs);
+> >> -		ret =3D of_property_read_u32(pdev->dev.of_node,
+> >> -					   "xlnx,num-transfer-bits",
+> >> -					   &bits_per_word);
+> >> +		device_property_read_u32(&pdev->dev, "xlnx,num-ss-bits",
+> >> +					 &num_cs);
+> >> +		ret =3D device_property_read_u32(&pdev->dev,
+> >> +					       "xlnx,num-transfer-bits",
+> >> +					       &bits_per_word);
+
+> > Are these bindings appropraite for ACPI systems?
+
+> Yes, the Xilinx IP blocks are memory mapped and work exactly the same on =
+ACPI as they do on DT.
+
+That does not answer the question at all.  Is it appropriate to
+configure an ACPI system in this way?
+
+--HLyi8ks42a9EJ3mR
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmluYMUACgkQJNaLcl1U
+h9ABagf/aoghp1Y6Y854M8RhICiNGe+by6Pr/V/BxZb241odrfLyn/7nAHxdjKtS
+TqqQAB4HaML+bxNyrPCuJOgu67pCdCvkT4BZB5BS83c1dbZZJE/Exd9+Z8NJzXIT
+YBc6VLlXIf941weUZIN3FRZpd6PFEDp/cXr5R6iHpf+TDFJgiXW0MD/ENHiT7px2
+WAsjyICgxGzc7BYKwlVzhl1MPQvFSbQIDJ62DVxNb7tTR85SgX5nsoyupZHXbIWI
+lXziReTXcXd7zNdaTbBN2kglpHzFSzS73ye/d01/OYCfqnFeEg+KOSb5kV/8rsVK
+vU0Ep4TkNfhK+8Cra/h1Ep5Q+xs1IQ==
+=JOTa
+-----END PGP SIGNATURE-----
+
+--HLyi8ks42a9EJ3mR--
 
