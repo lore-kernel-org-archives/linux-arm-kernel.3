@@ -4,60 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E752CCF2D9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:08:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E37CCF2D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GW5y5JyizHyML3aevhNNUvy0qMgIhQU77uGp6dID1Rc=; b=YlcYd4tIXKk2n5oCTMUf00rOSk
-	3KU76mKanzvrwgsO/NoC11X28K02aIHStkvpKzXJ7fXZ9tQDN4IP4w46+S8IdVBVinHwDIDgjIoKA
-	+sCVBoF6h2hbR+bD5K3fJFJz+5oIbwWOmVTGqKkvu1NHi++pvpJMQi7MW4b6jXQfnMCdUZ8NeFwKf
-	+VvFYbRZ4I+yhCwTt7xyTTNtR0Q0uMHcezaPY27UezhfMQqIJJ2wARYAz9282n9ZSbK0/moI9suln
-	x2Pqx/UK4pOZv48/nbeWi7b41qafkVttvwktiSF3OevQR18fGU98n8ZkpbDh6XWmFFGy5vMqBQjzZ
-	gkMUxmVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=19Tlxmtj1wgd7c/Wqw3aq86mSes++ziMKVUPZDLOdm4=; b=xxFoQzI9ivSZsO
+	XXVEHnn6qvRdZyQlHr7ecT8ruGKC0D2CzDNH9G8OmEhYQt+uzWfcQ1gGAUrRWJyU/M0acKHFbtfEf
+	vo2agQrTZt8uuSM3jUic3z6QEoPogZokH4V8pdNYo3MkBRRZ9+sQHBWF9Slad1rvY63b/U8wXorfh
+	8CpwCyXD4KIb7jpwLkO7rWSjSP+dykaU+iU8G9iX+5beTHSptoZ7m1a/gE4rY5x5/0hGzuMsQdFvY
+	Yxp4srZiQyGuguQ1I2PrHGcN/reqLg4A2nSqCnHL81n1ljO45JH3ayTo6SLQzVGMZEh7Rt+rIL0pl
+	WeKxbtCxboW8ZuYeKWYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmBR-00000001id6-1p4S;
-	Mon, 19 Jan 2026 10:08:29 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vhmCF-00000001ikq-48DD;
+	Mon, 19 Jan 2026 10:09:19 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmBO-00000001icj-1MZR
+	id 1vhmCE-00000001ijn-0MzF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 10:08:27 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <l.stach@pengutronix.de>)
-	id 1vhmB0-0001Mu-T6; Mon, 19 Jan 2026 11:08:02 +0100
-Message-ID: <f31eef1eb99542e99486f3df84c90c304b7f2c9c.camel@pengutronix.de>
-Subject: Re: [PATCH 1/2] Fix the imx8mm gpu hang due to adb400 reset wrongly
-From: Lucas Stach <l.stach@pengutronix.de>
-To: Jacky Bai <ping.bai@nxp.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
- <festevam@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: imx@lists.linux.dev, devicetree@vger.kernel.org,
- linux-pm@vger.kernel.org,  linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Date: Mon, 19 Jan 2026 11:08:01 +0100
-In-Reply-To: <20260119-imx8mm_gpu_power_domain-v1-1-34d81c766916@nxp.com>
-References: <20260119-imx8mm_gpu_power_domain-v1-0-34d81c766916@nxp.com>
-	 <20260119-imx8mm_gpu_power_domain-v1-1-34d81c766916@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+	Mon, 19 Jan 2026 10:09:19 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-42fbc3056afso2472514f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 02:09:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768817356; x=1769422156; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=19Tlxmtj1wgd7c/Wqw3aq86mSes++ziMKVUPZDLOdm4=;
+        b=MoEU/VKm9E5ePjjCpzDx63Dsb2LgcQoSJKYaYKtPdNCATIPhUgZRzjsAasma1LLeDG
+         ResSLYu8htKwnmaoAaF2Q6PmZrOfOa7JLuQW+ojqXhWeP93pcwlMQs3PgcIeO12Eu20r
+         BAxUNERYCghC0teKijPd5ZhALYZyQcCw1t4JXPtSsG0EJLnpAajgT2O64HKhXwr4ghvD
+         svbX/fyf27qa3IbBIf7eEf7eiiho6HQx7682jdlkh6VBL15iHQJv285OfLtCwIptc9X1
+         dXAZ5WzE04e4aqgPPejoRLtvtUzDZv5NH/iTCpkdw+Vkh8t0QEYlq5nkPg6NlrYCN7Ym
+         Gveg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768817356; x=1769422156;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=19Tlxmtj1wgd7c/Wqw3aq86mSes++ziMKVUPZDLOdm4=;
+        b=i47ptTX2Pd175hfJ9cUwpqJUKnrcII31SkauwPqZvLBOnMaFs1fQ3r4A6/q7WHmX9G
+         nUhYMhfOeUeoFmDydnT5j15i2WJFKcG2/faQHzficP1iYNxZ7yq1dW31OqOQIrLImaNN
+         +jSetVtGTl8nqbZx1w81fB3k7Lnf2p+kh9egr4m92DKwwY7Dd03J0G1H+XfZ28tpeoa8
+         QdwoUznU67hDL802aVduS9l4213WtYWOE422ZlQTpS90bD7MTzxGlOECe9BA/8mdfboG
+         0IckA/1X+yJlIoFDIsodthVMKkq9CXjTwFWRyuA1WsPaRPKdNByNLbWTYC6ebTHsg4q7
+         oyDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW9gA2yDfgK2sZq85Q9nh+YTurfFuFH0x8OVh7L6YvvYb3kIe93fxBAcwvW51ja5sNEtqLHYlqC0W/Ju7uOyaFq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzM13PuoRkSLCYrCACywRGCnF8YNEO8Fhqhf40ICX3TXrIjN+Kh
+	vicsCWt35q+SMUK4G38AzoQO5s7s+ko3o2zAbpcwtTPo0yfJwgtp8ov0y0FpK2yGvzk=
+X-Gm-Gg: AZuq6aL2jWFYcl//MYUFx2MP6RFutwz2jLMISu6d7lJ8ul+3dqQQ/yb2EHjMgZFMgvc
+	rOPGGfFvOGXRqw2zqruHZKnIkNhPMV9pooC56j/toK+EMOgO0SyOC9yqvY22KsyNJ9rQ6PPVwct
+	KyBQZO6Kjzk8THSgu6pYvNLl3tdE8I6Yk9A7jvs2RI7g6WnJfGCSKlEchar6yMp7X5fFqcZaxC8
+	dzE7BBqGqmFjnKMRNpFhXZcPKiVdfwsBtP+Netb7vESxFtD2AImMm5gExLwNZPXXueA06twh5zK
+	wPA7CCuc+AEfqJJILpKpmtG4HAj3nZBDlsgiJT6/pTz3wPTw78Q87Hj9zbhqMFWCVXqwP0wvNGw
+	mQumXinCwVzyhgjTh2eRM5pqFocEQlULhILo402yrfu9MBu0cTqaSUtouYT/sGDTLO1ueAP/RCp
+	ZIpPin+/+kVuYJnj8r6hC2
+X-Received: by 2002:a05:6000:25c7:b0:432:dfa8:e1b6 with SMTP id ffacd0b85a97d-4356a053748mr14605338f8f.39.1768817355664;
+        Mon, 19 Jan 2026 02:09:15 -0800 (PST)
+Received: from ho-tower-lan.lan ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4356997e6cdsm23234802f8f.31.2026.01.19.02.09.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Jan 2026 02:09:15 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH 0/2] (no cover subject)
+Date: Mon, 19 Jan 2026 10:08:15 +0000
+Message-Id: <20260119-james-perf-coresight-cpu-map-segfault-v1-0-a9cfd67653ae@linaro.org>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: l.stach@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAI8CbmkC/x3NwQqDMAyA4VeRnBdoC51jrzJ2CF1aM6aWRGUgv
+ rvF43f5/x2MVdjg2e2gvInJPDX4WwdpoKkwyqcZggt3533EL41sWFkzplnZpAwLprriSBWNS6b
+ 1tyCH6ChHor5/QGtV5Sz/6/N6H8cJgYXI4HcAAAA=
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>, 
+ Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, 
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ Thomas Falcon <thomas.falcon@intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_020826_537348_DF551CB9 
-X-CRM114-Status: GOOD (  30.43  )
+X-CRM114-CacheID: sfid-20260119_020918_141448_A277E3E8 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,209 +110,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, dem 19.01.2026 um 16:53 +0800 schrieb Jacky Bai:
-> Due to the HW limitation on i.MX8MM, the gpumix, gpu2d and
-> gpu3d share the same reset domain, that means when gpu2d/3d
-> go through the power off/on cycle, the gpu2d/3d reset will
-> also reset the gpumix domain, The GPUMIX ADB400 port also be
-> reset. But the ADB400 must be put into power down before reset
-> it.
->=20
-> currently, gpumix, gpu2d/3d power domain use the pm runtime_pm
-> to handle these power domain dependency, but in some corner case,
-> the gpumix power off will be skipped, then the ADB400 port will
-> be in active while gpu2d/3d doing the reset. The GPUMIX the ADB400
-> port will be reset wrongly, so lead to unpredictable bus behavior.
->=20
-> To simplify these domain on/off order & dependency, refine the
-> code to directly handle GPUMIX domain on/off along with the
-> gpu2d/3d power on/off flow.
->=20
-I don't like that we are adding quite a bit of code to this driver just
-to work around a issue on a single domain on a single SoC.
 
-Wouldn't it be much easier and produce much the same results if we just
-move the ADB hsk bits from the gpumix to the gpu domain? This would
-mean we don't trigger the handshake when the gpumix domain is powered
-up/down, but I guess that should be fine.
+---
+James Clark (2):
+      perf cs-etm: Fix decoding for sparse CPU maps
+      perf cs-etm: Test sparse CPU maps
 
-Regards,
-Lucas
+ tools/perf/tests/shell/test_arm_coresight.sh | 54 ++++++++++++++++++++++++++++
+ tools/perf/util/cs-etm.c                     |  3 +-
+ 2 files changed, 56 insertions(+), 1 deletion(-)
+---
+base-commit: 571d29baa07e83e637075239f379f91353c24ec9
+change-id: 20260115-james-perf-coresight-cpu-map-segfault-e250af5aa778
 
-> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-> ---
->  drivers/pmdomain/imx/gpcv2.c | 100 ++++++++++++++++++++++++++++++++++++-=
-------
->  1 file changed, 84 insertions(+), 16 deletions(-)
->=20
-> diff --git a/drivers/pmdomain/imx/gpcv2.c b/drivers/pmdomain/imx/gpcv2.c
-> index b7cea89140ee8923f32486eab953c0e1a36bf06d..3a13aa7f1888863048106c243=
-2eec80c7364c462 100644
-> --- a/drivers/pmdomain/imx/gpcv2.c
-> +++ b/drivers/pmdomain/imx/gpcv2.c
-> @@ -53,8 +53,7 @@
->  #define IMX8MM_VPUG1_A53_DOMAIN			BIT(13)
->  #define IMX8MM_DISPMIX_A53_DOMAIN		BIT(12)
->  #define IMX8MM_VPUMIX_A53_DOMAIN		BIT(10)
-> -#define IMX8MM_GPUMIX_A53_DOMAIN		BIT(9)
-> -#define IMX8MM_GPU_A53_DOMAIN			(BIT(8) | BIT(11))
-> +#define IMX8MM_GPU_A53_DOMAIN			(BIT(8) | BIT(9) | BIT(11))
->  #define IMX8MM_DDR1_A53_DOMAIN			BIT(7)
->  #define IMX8MM_OTG2_A53_DOMAIN			BIT(5)
->  #define IMX8MM_OTG1_A53_DOMAIN			BIT(4)
-> @@ -292,6 +291,13 @@ struct imx_pgc_domain {
->  		u32 hskack;
->  	} bits;
-> =20
-> +	const struct {
-> +		u32 pxx;
-> +		u32 hskreq;
-> +		u32 hskack;
-> +		unsigned long pgc;
-> +	} parent_bits;
-> +
->  	const int voltage;
->  	const bool keep_clocks;
->  	struct device *dev;
-> @@ -335,6 +341,30 @@ static int imx_pgc_power_up(struct generic_pm_domain=
- *genpd)
->  		}
->  	}
-> =20
-> +	/* Need to do special handling for parent domain like GPUMIX on i.MX8MM=
- */
-> +	if (domain->parent_bits.pxx) {
-> +			/* request the domain to power up */
-> +		regmap_update_bits(domain->regmap, domain->regs->pup,
-> +				   domain->parent_bits.pxx, domain->parent_bits.pxx);
-> +		/*
-> +		 * As per "5.5.9.4 Example Code 4" in IMX7DRM.pdf wait
-> +		 * for PUP_REQ/PDN_REQ bit to be cleared
-> +		 */
-> +		ret =3D regmap_read_poll_timeout(domain->regmap,
-> +					       domain->regs->pup, reg_val,
-> +					       !(reg_val & domain->parent_bits.pxx),
-> +					       0, USEC_PER_MSEC);
-> +		if (ret)
-> +			dev_err(domain->dev, "failed to command parent PGC\n");
-> +
-> +		/* disable power control */
-> +		for_each_set_bit(pgc, &domain->parent_bits.pgc, 32) {
-> +			regmap_clear_bits(domain->regmap, GPC_PGC_CTRL(pgc),
-> +					  GPC_PGC_CTRL_PCR);
-> +		}
-> +
-> +	}
-> +
->  	reset_control_assert(domain->reset);
-> =20
->  	/* Enable reset clocks for all devices in the domain */
-> @@ -376,6 +406,11 @@ static int imx_pgc_power_up(struct generic_pm_domain=
- *genpd)
-> =20
->  	reset_control_deassert(domain->reset);
-> =20
-> +	/* request parent ADB400 to power up */
-> +	if (domain->parent_bits.hskreq)
-> +		regmap_update_bits(domain->regmap, domain->regs->hsk,
-> +				   domain->parent_bits.hskreq, domain->parent_bits.hskreq);
-> +
->  	/* request the ADB400 to power up */
->  	if (domain->bits.hskreq) {
->  		regmap_update_bits(domain->regmap, domain->regs->hsk,
-> @@ -438,6 +473,21 @@ static int imx_pgc_power_down(struct generic_pm_doma=
-in *genpd)
->  		}
->  	}
-> =20
-> +	/* request the Parent domain ADB400 to power down */
-> +	if (domain->parent_bits.hskreq) {
-> +		regmap_clear_bits(domain->regmap, domain->regs->hsk,
-> +				  domain->parent_bits.hskreq);
-> +
-> +		ret =3D regmap_read_poll_timeout(domain->regmap, domain->regs->hsk,
-> +					       reg_val,
-> +					       !(reg_val & domain->parent_bits.hskack),
-> +					       0, USEC_PER_MSEC);
-> +		if (ret) {
-> +			dev_err(domain->dev, "failed to power down parent ADB400\n");
-> +			goto out_clk_disable;
-> +		}
-> +	}
-> +
->  	/* request the ADB400 to power down */
->  	if (domain->bits.hskreq) {
->  		regmap_clear_bits(domain->regmap, domain->regs->hsk,
-> @@ -477,6 +527,30 @@ static int imx_pgc_power_down(struct generic_pm_doma=
-in *genpd)
->  		}
->  	}
-> =20
-> +	if (domain->parent_bits.pxx) {
-> +		/* enable power control */
-> +		for_each_set_bit(pgc, &domain->parent_bits.pgc, 32) {
-> +			regmap_update_bits(domain->regmap, GPC_PGC_CTRL(pgc),
-> +					   GPC_PGC_CTRL_PCR, GPC_PGC_CTRL_PCR);
-> +		}
-> +
-> +		/* request the domain to power down */
-> +		regmap_update_bits(domain->regmap, domain->regs->pdn,
-> +				   domain->parent_bits.pxx, domain->parent_bits.pxx);
-> +		/*
-> +		 * As per "5.5.9.4 Example Code 4" in IMX7DRM.pdf wait
-> +		 * for PUP_REQ/PDN_REQ bit to be cleared
-> +		 */
-> +		ret =3D regmap_read_poll_timeout(domain->regmap,
-> +					       domain->regs->pdn, reg_val,
-> +					       !(reg_val & domain->parent_bits.pxx),
-> +					       0, USEC_PER_MSEC);
-> +		if (ret) {
-> +			dev_err(domain->dev, "failed to command Parent PGC\n");
-> +			goto out_clk_disable;
-> +		}
-> +	}
-> +
->  	/* Disable reset clocks for all devices in the domain */
->  	clk_bulk_disable_unprepare(domain->num_clks, domain->clks);
-> =20
-> @@ -787,20 +861,6 @@ static const struct imx_pgc_domain imx8mm_pgc_domain=
-s[] =3D {
->  		.pgc   =3D BIT(IMX8MM_PGC_OTG2),
->  	},
-> =20
-> -	[IMX8MM_POWER_DOMAIN_GPUMIX] =3D {
-> -		.genpd =3D {
-> -			.name =3D "gpumix",
-> -		},
-> -		.bits  =3D {
-> -			.pxx =3D IMX8MM_GPUMIX_SW_Pxx_REQ,
-> -			.map =3D IMX8MM_GPUMIX_A53_DOMAIN,
-> -			.hskreq =3D IMX8MM_GPUMIX_HSK_PWRDNREQN,
-> -			.hskack =3D IMX8MM_GPUMIX_HSK_PWRDNACKN,
-> -		},
-> -		.pgc   =3D BIT(IMX8MM_PGC_GPUMIX),
-> -		.keep_clocks =3D true,
-> -	},
-> -
->  	[IMX8MM_POWER_DOMAIN_GPU] =3D {
->  		.genpd =3D {
->  			.name =3D "gpu",
-> @@ -811,6 +871,14 @@ static const struct imx_pgc_domain imx8mm_pgc_domain=
-s[] =3D {
->  			.hskreq =3D IMX8MM_GPU_HSK_PWRDNREQN,
->  			.hskack =3D IMX8MM_GPU_HSK_PWRDNACKN,
->  		},
-> +
-> +		.parent_bits =3D {
-> +			.pxx =3D IMX8MM_GPUMIX_SW_Pxx_REQ,
-> +			.hskreq =3D IMX8MM_GPUMIX_HSK_PWRDNREQN,
-> +			.hskack =3D IMX8MM_GPUMIX_HSK_PWRDNACKN,
-> +			.pgc =3D BIT(IMX8MM_PGC_GPUMIX),
-> +		},
-> +
->  		.pgc   =3D BIT(IMX8MM_PGC_GPU2D) | BIT(IMX8MM_PGC_GPU3D),
->  	},
-> =20
->=20
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
 
 
