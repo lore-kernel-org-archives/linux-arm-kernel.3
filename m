@@ -4,68 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD16D29C46
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 603E8D29C46
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:41:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zR3hXrsdA23HCbxuCDqvBpqjZqfGhl8Jg3eZduIzPR4=; b=bjIs+3ZWD9EUDcXNvyQ09tjBJn
-	B5o26FaR33TPir+5LqI74tx4gJ56pTejVGpZ7KtZhy4QLaAzXvYv997pFunPdRykfkFRqDbcJ69ot
-	VeLFQ2LOYf4HEy3J7XfNo2DuEnn0gJdkTlFtAw7WkZfYrtLxgcvUYJtljLJ33PuSJfvp1P9SP5R8K
-	Nh6o3LOI1FMm8giZOYU6kVBTXH5HjtHPZgpS42vQPodpVfk/gt1eiocjSr0z3ESg8bmyeetXeXrS2
-	zt84sFGEunJCE/voWZU6X+nCn4/nGy1MX0Ztq8W+jstPIBRzdH0jBqtUsAFpDVUm4LNTOVR5jvxhV
-	SqXXmqBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j2p0AHOQZEuoBbAgCZ4gKs6YPtuRLmN7+BED0YtHcJ4=; b=xlZhgVWtqfaKDlgvwpYwTBQW/0
+	irum3XB1xZWHVkCIVah31NQAeqcDxSH7Q9vxVZnNT70Z+I0GDzqv7NsZwXwJxm1x/0/939lcfDvw0
+	aMJeHnFxCFBPUkQ4rynfKqsRIDef8rewHmqiyaf1uSeG9F2mN1yKPJus1siHKRPZRVK4nD/uY3EDh
+	LyUgB/UKmPaaaqiJFfC2S1YszWxLB07LMmJrNdrJlYA2BfRWdnXElvc5rVt/MHt1cBKbOkqGhmsWX
+	pjtJUaiM//2jWzghXP1i+lgJ0dwVItCKVDYEj6UU5ch8bO10kTxXDmcznL+N59GUTIZqUiEmwB6w2
+	cKAeOdjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsG8-00000002WSD-0y5d;
-	Mon, 19 Jan 2026 16:37:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsG6-00000002WRh-0GLU
+	id 1vhsJv-00000002WnW-3MfW;
+	Mon, 19 Jan 2026 16:41:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhsJs-00000002Wlv-2dOU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 16:37:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7538143E3B;
-	Mon, 19 Jan 2026 16:37:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FE2FC116C6;
-	Mon, 19 Jan 2026 16:37:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768840661;
-	bh=oSn6eeMjVt0BdckSdLlrBsRGgN6O4ooWNqYJ4Q6NUyQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Zj1i8k90WEUW6SxcQ/g4vVNC85cl4uQEQOL0Ob6m3v6FIChZ2NAPoVxjf5hiyhxFe
-	 U+vnzci8BY8Lw0ecSrqIa+cIlqJjcyMlaXkFuGs179r2uOAmVEw3Tw0va566yEsSH2
-	 im0reOy9tcxZFXztZnzcFy/DY+B/1XqxdgJbN4SuA4wn3u45qnjdq3NHqijYEgktHu
-	 xPdul4mSnLMbjXq3CLvgDsX3hvgRekot1zqBe6jKQ/8c0hQat91jimlcxIfd0QjeZK
-	 87DaOV/B+WLHEs9IJsOBBYsuV7YFci0h9sJlUBJAlBmh8E5HDy4vzMFErHpTHmKvtN
-	 kFK0j5cnDGzPw==
-Date: Mon, 19 Jan 2026 16:37:33 +0000
-From: Will Deacon <will@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, maz@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, miko.lenczewski@arm.com,
-	kevin.brodsky@arm.com, ardb@kernel.org, suzuki.poulose@arm.com,
-	lpieralisi@kernel.org, yangyicong@hisilicon.com,
-	scott@os.amperecomputing.com, joey.gouly@arm.com,
-	yuzenghui@huawei.com, pbonzini@redhat.com, shuah@kernel.org,
-	mark.rutland@arm.com, arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v11 RESEND 6/9] arm64: futex: support futex with FEAT_LSUI
-Message-ID: <aW5dzb0ldp8u8Rdm@willie-the-truck>
-References: <20251214112248.901769-1-yeoreum.yun@arm.com>
- <20251214112248.901769-7-yeoreum.yun@arm.com>
+	Mon, 19 Jan 2026 16:41:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09C97497;
+	Mon, 19 Jan 2026 08:41:26 -0800 (PST)
+Received: from [10.57.8.47] (unknown [10.57.8.47])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 65C323F632;
+	Mon, 19 Jan 2026 08:41:29 -0800 (PST)
+Message-ID: <7cb5b5a7-90aa-4b78-aff3-f88073e72b60@arm.com>
+Date: Mon, 19 Jan 2026 16:41:27 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251214112248.901769-7-yeoreum.yun@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] firmware: smccc: add support for Live Firmware
+ Activation (LFA)
+To: kernel test robot <lkp@intel.com>, Salman Nabi <salman.nabi@arm.com>,
+ vvidwans@nvidia.com, sudeep.holla@arm.com, mark.rutland@arm.com,
+ lpieralisi@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, ardb@kernel.org, chao.gao@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-coco@lists.linux.dev,
+ linux-kernel@vger.kernel.org, sdonthineni@nvidia.com, vsethi@nvidia.com,
+ vwadekar@nvidia.com
+References: <20260119122729.287522-2-salman.nabi@arm.com>
+ <202601200007.GVZIjoCx-lkp@intel.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <202601200007.GVZIjoCx-lkp@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_083742_141254_2858A91D 
-X-CRM114-Status: GOOD (  36.73  )
+X-CRM114-CacheID: sfid-20260119_084136_844363_67EDF107 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,252 +70,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 14, 2025 at 11:22:45AM +0000, Yeoreum Yun wrote:
-> Current futex atomic operations are implemented with ll/sc instructions
-> and clearing PSTATE.PAN.
+Hi,
+
+On 19/01/2026 16:29, kernel test robot wrote:
+> Hi Salman,
 > 
-> Since Armv9.6, FEAT_LSUI supplies not only load/store instructions but
-> also atomic operation for user memory access in kernel it doesn't need
-> to clear PSTATE.PAN bit anymore.
+> kernel test robot noticed the following build warnings:
 > 
-> With theses instructions some of futex atomic operations don't need to
-> be implmented with ldxr/stlxr pair instead can be implmented with
-> one atomic operation supplied by FEAT_LSUI.
+> [auto build test WARNING on soc/for-next]
+> [also build test WARNING on linus/master v6.19-rc6 next-20260116]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
 > 
-> However, some of futex atomic operation don't have matched
-> instructuion i.e) eor or cmpxchg with word size.
-> For those operation, uses cas{al}t to implement them.
+> url:    https://github.com/intel-lab-lkp/linux/commits/Salman-Nabi/firmware-smccc-add-support-for-Live-Firmware-Activation-LFA/20260119-203221
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+> patch link:    https://lore.kernel.org/r/20260119122729.287522-2-salman.nabi%40arm.com
+> patch subject: [PATCH 1/1] firmware: smccc: add support for Live Firmware Activation (LFA)
+> config: arm-sp7021_defconfig (https://download.01.org/0day-ci/archive/20260120/202601200007.GVZIjoCx-lkp@intel.com/config)
+> compiler: arm-linux-gnueabi-gcc (GCC) 15.2.0
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260120/202601200007.GVZIjoCx-lkp@intel.com/reproduce)
 > 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->  arch/arm64/include/asm/futex.h | 180 ++++++++++++++++++++++++++++++++-
->  1 file changed, 178 insertions(+), 2 deletions(-)
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202601200007.GVZIjoCx-lkp@intel.com/
 > 
-> diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-> index f8cb674bdb3f..6778ff7e1c0e 100644
-> --- a/arch/arm64/include/asm/futex.h
-> +++ b/arch/arm64/include/asm/futex.h
-> @@ -9,6 +9,8 @@
->  #include <linux/uaccess.h>
->  #include <linux/stringify.h>
+> All warnings (new ones prefixed by >>):
 > 
-> +#include <asm/alternative.h>
-> +#include <asm/alternative-macros.h>
->  #include <asm/errno.h>
+>     drivers/firmware/smccc/lfa_fw.c: In function 'get_nr_lfa_components':
+>     drivers/firmware/smccc/lfa_fw.c:179:16: error: variable 'reg' has initializer but incomplete type
+>       179 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                ^~~~~~~~~~~~~~~~~~
+>>> drivers/firmware/smccc/lfa_fw.c:179:43: warning: excess elements in struct initializer
+
+Ah, yes, arm_smccc_1_2_regs is only defined for arm64. We rely on v1.2, 
+and the LFA spec actually means that this means AArch64 only right at 
+the beginning (chapter 2).
+So we need an additional dependency on ARM64 in the Kconfig entry.
+
+Cheers,
+Andre
+
+
+
+>       179 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                           ^
+>     drivers/firmware/smccc/lfa_fw.c:179:43: note: (near initialization for 'reg')
+>     drivers/firmware/smccc/lfa_fw.c:179:35: error: storage size of 'reg' isn't known
+>       179 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                   ^~~
+>     drivers/firmware/smccc/lfa_fw.c:184:9: error: implicit declaration of function 'arm_smccc_1_2_invoke'; did you mean 'arm_smccc_1_1_invoke'? [-Wimplicit-function-declaration]
+>       184 |         arm_smccc_1_2_invoke(&reg, &reg);
+>           |         ^~~~~~~~~~~~~~~~~~~~
+>           |         arm_smccc_1_1_invoke
+>>> drivers/firmware/smccc/lfa_fw.c:179:35: warning: unused variable 'reg' [-Wunused-variable]
+>       179 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                   ^~~
+>     drivers/firmware/smccc/lfa_fw.c: In function 'lfa_cancel':
+>     drivers/firmware/smccc/lfa_fw.c:194:16: error: variable 'reg' has initializer but incomplete type
+>       194 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                ^~~~~~~~~~~~~~~~~~
+>     drivers/firmware/smccc/lfa_fw.c:194:43: warning: excess elements in struct initializer
+>       194 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                           ^
+>     drivers/firmware/smccc/lfa_fw.c:194:43: note: (near initialization for 'reg')
+>     drivers/firmware/smccc/lfa_fw.c:194:35: error: storage size of 'reg' isn't known
+>       194 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                   ^~~
+>     drivers/firmware/smccc/lfa_fw.c:194:35: warning: unused variable 'reg' [-Wunused-variable]
+>     drivers/firmware/smccc/lfa_fw.c: In function 'call_lfa_activate':
+>     drivers/firmware/smccc/lfa_fw.c:220:16: error: variable 'reg' has initializer but incomplete type
+>       220 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                ^~~~~~~~~~~~~~~~~~
+>     drivers/firmware/smccc/lfa_fw.c:220:43: warning: excess elements in struct initializer
+>       220 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                           ^
+>     drivers/firmware/smccc/lfa_fw.c:220:43: note: (near initialization for 'reg')
+>     drivers/firmware/smccc/lfa_fw.c:220:35: error: storage size of 'reg' isn't known
+>       220 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                   ^~~
+>     drivers/firmware/smccc/lfa_fw.c:220:35: warning: unused variable 'reg' [-Wunused-variable]
+>     drivers/firmware/smccc/lfa_fw.c: In function 'prime_fw_image':
+>     drivers/firmware/smccc/lfa_fw.c:290:16: error: variable 'reg' has initializer but incomplete type
+>       290 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                ^~~~~~~~~~~~~~~~~~
+>     drivers/firmware/smccc/lfa_fw.c:290:43: warning: excess elements in struct initializer
+>       290 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                           ^
+>     drivers/firmware/smccc/lfa_fw.c:290:43: note: (near initialization for 'reg')
+>     drivers/firmware/smccc/lfa_fw.c:290:35: error: storage size of 'reg' isn't known
+>       290 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                   ^~~
+>     drivers/firmware/smccc/lfa_fw.c:290:35: warning: unused variable 'reg' [-Wunused-variable]
+>     drivers/firmware/smccc/lfa_fw.c: In function 'activation_pending_show':
+>     drivers/firmware/smccc/lfa_fw.c:360:16: error: variable 'reg' has initializer but incomplete type
+>       360 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                ^~~~~~~~~~~~~~~~~~
+>     drivers/firmware/smccc/lfa_fw.c:360:43: warning: excess elements in struct initializer
+>       360 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                           ^
+>     drivers/firmware/smccc/lfa_fw.c:360:43: note: (near initialization for 'reg')
+>     drivers/firmware/smccc/lfa_fw.c:360:35: error: storage size of 'reg' isn't known
+>       360 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                   ^~~
+>     drivers/firmware/smccc/lfa_fw.c:360:35: warning: unused variable 'reg' [-Wunused-variable]
+>     drivers/firmware/smccc/lfa_fw.c: In function 'pending_version_show':
+>     drivers/firmware/smccc/lfa_fw.c:434:16: error: variable 'reg' has initializer but incomplete type
+>       434 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                ^~~~~~~~~~~~~~~~~~
+>     drivers/firmware/smccc/lfa_fw.c:434:43: warning: excess elements in struct initializer
+>       434 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                           ^
+>     drivers/firmware/smccc/lfa_fw.c:434:43: note: (near initialization for 'reg')
+>     drivers/firmware/smccc/lfa_fw.c:434:35: error: storage size of 'reg' isn't known
+>       434 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                   ^~~
+>     drivers/firmware/smccc/lfa_fw.c:434:35: warning: unused variable 'reg' [-Wunused-variable]
+>     drivers/firmware/smccc/lfa_fw.c: In function 'update_fw_images_tree':
+>     drivers/firmware/smccc/lfa_fw.c:586:16: error: variable 'reg' has initializer but incomplete type
+>       586 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                ^~~~~~~~~~~~~~~~~~
+>     drivers/firmware/smccc/lfa_fw.c:586:43: warning: excess elements in struct initializer
+>       586 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                           ^
+>     drivers/firmware/smccc/lfa_fw.c:586:43: note: (near initialization for 'reg')
+>     drivers/firmware/smccc/lfa_fw.c:586:35: error: storage size of 'reg' isn't known
+>       586 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                   ^~~
+>     drivers/firmware/smccc/lfa_fw.c:586:35: warning: unused variable 'reg' [-Wunused-variable]
+>     drivers/firmware/smccc/lfa_fw.c: In function 'lfa_init':
+>     drivers/firmware/smccc/lfa_fw.c:619:16: error: variable 'reg' has initializer but incomplete type
+>       619 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                ^~~~~~~~~~~~~~~~~~
+>     drivers/firmware/smccc/lfa_fw.c:619:43: warning: excess elements in struct initializer
+>       619 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                           ^
+>     drivers/firmware/smccc/lfa_fw.c:619:43: note: (near initialization for 'reg')
+>     drivers/firmware/smccc/lfa_fw.c:619:35: error: storage size of 'reg' isn't known
+>       619 |         struct arm_smccc_1_2_regs reg = { 0 };
+>           |                                   ^~~
+>     drivers/firmware/smccc/lfa_fw.c:619:35: warning: unused variable 'reg' [-Wunused-variable]
 > 
->  #define FUTEX_MAX_LOOPS	128 /* What's the largest number you can think of? */
-> @@ -86,11 +88,185 @@ __llsc_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
->  	return ret;
->  }
 > 
-> +#ifdef CONFIG_AS_HAS_LSUI
-> +
-> +/*
-> + * When the LSUI feature is present, the CPU also implements PAN, because
-> + * FEAT_PAN has been mandatory since Armv8.1. Therefore, there is no need to
-> + * call uaccess_ttbr0_enable()/uaccess_ttbr0_disable() around each LSUI
-> + * operation.
-> + */
+> vim +179 drivers/firmware/smccc/lfa_fw.c
+> 
+>     176	
+>     177	static unsigned long get_nr_lfa_components(void)
+>     178	{
+>   > 179		struct arm_smccc_1_2_regs reg = { 0 };
+>     180	
+>     181		reg.a0 = LFA_1_0_FN_GET_INFO;
+>     182		reg.a1 = 0; /* lfa_info_selector = 0 */
+>     183	
+>     184		arm_smccc_1_2_invoke(&reg, &reg);
+>     185		if (reg.a0 != LFA_SUCCESS)
+>     186			return reg.a0;
+>     187	
+>     188		return reg.a1;
+>     189	}
+>     190	
+> 
 
-I'd prefer not to rely on these sorts of properties because:
-
-  - CPU bugs happen all the time
-  - Virtualisation and idreg overrides mean illegal feature combinations
-    can show up
-  - The architects sometimes change their mind
-
-So let's either drop the assumption that we have PAN if LSUI *or* actually
-test that someplace during feature initialisation.
-
-> +
-> +#define __LSUI_PREAMBLE	".arch_extension lsui\n"
-> +
-> +#define LSUI_FUTEX_ATOMIC_OP(op, asm_op, mb)				\
-> +static __always_inline int						\
-> +__lsui_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
-> +{									\
-> +	int ret = 0;							\
-> +	int oldval;							\
-> +									\
-> +	asm volatile("// __lsui_futex_atomic_" #op "\n"			\
-> +	__LSUI_PREAMBLE							\
-> +"1:	" #asm_op #mb "	%w3, %w2, %1\n"					\
-
-What's the point in separating the barrier suffix from the rest of the
-instruction mnemonic? All the callers use -AL.
-
-> +"2:\n"									\
-> +	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)				\
-> +	: "+r" (ret), "+Q" (*uaddr), "=r" (oldval)			\
-> +	: "r" (oparg)							\
-> +	: "memory");							\
-> +									\
-> +	if (!ret)							\
-> +		*oval = oldval;						\
-> +									\
-> +	return ret;							\
-> +}
-> +
-> +LSUI_FUTEX_ATOMIC_OP(add, ldtadd, al)
-> +LSUI_FUTEX_ATOMIC_OP(or, ldtset, al)
-> +LSUI_FUTEX_ATOMIC_OP(andnot, ldtclr, al)
-> +LSUI_FUTEX_ATOMIC_OP(set, swpt, al)
-> +
-> +static __always_inline int
-> +__lsui_cmpxchg64(u64 __user *uaddr, u64 *oldval, u64 newval)
-> +{
-> +	int ret = 0;
-> +
-> +	asm volatile("// __lsui_cmpxchg64\n"
-> +	__LSUI_PREAMBLE
-> +"1:	casalt	%x2, %x3, %1\n"
-
-
-How bizarre, they changed the order of the AL and T compared to SWPTAL.
-Fair enough...
-
-Also, I don't think you need the 'x' prefix on the 64-bit variables.
-
-> +"2:\n"
-> +	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)
-> +	: "+r" (ret), "+Q" (*uaddr), "+r" (*oldval)
-> +	: "r" (newval)
-> +	: "memory");
-
-Don't you need to update *oldval here if the CAS didn't fault?
-
-> +
-> +	return ret;
-> +}
-> +
-> +static __always_inline int
-> +__lsui_cmpxchg32(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-> +{
-> +	u64 __user *uaddr64;
-> +	bool futex_on_lo;
-> +	int ret = -EAGAIN, i;
-> +	u32 other, orig_other;
-> +	union {
-> +		struct futex_on_lo {
-> +			u32 val;
-> +			u32 other;
-> +		} lo_futex;
-> +
-> +		struct futex_on_hi {
-> +			u32 other;
-> +			u32 val;
-> +		} hi_futex;
-> +
-> +		u64 raw;
-> +	} oval64, orig64, nval64;
-> +
-> +	uaddr64 = (u64 __user *) PTR_ALIGN_DOWN(uaddr, sizeof(u64));
-> +	futex_on_lo = (IS_ALIGNED((unsigned long)uaddr, sizeof(u64)) ==
-> +			IS_ENABLED(CONFIG_CPU_LITTLE_ENDIAN));
-
-Just make LSUI depend on !CPU_BIG_ENDIAN in Kconfig. The latter already
-depends on BROKEN and so we'll probably drop it soon anyway. There's
-certainly no need to care about it for new features and it should simplify
-the code you have here if you can assume little-endian.
-
-> +
-> +	for (i = 0; i < FUTEX_MAX_LOOPS; i++) {
-> +		if (get_user(oval64.raw, uaddr64))
-> +			return -EFAULT;
-
-Since oldval is passed to us as an argument, can we get away with a
-32-bit get_user() here?
-
-> +
-> +		nval64.raw = oval64.raw;
-> +
-> +		if (futex_on_lo) {
-> +			oval64.lo_futex.val = oldval;
-> +			nval64.lo_futex.val = newval;
-> +		} else {
-> +			oval64.hi_futex.val = oldval;
-> +			nval64.hi_futex.val = newval;
-> +		}
-> +
-> +		orig64.raw = oval64.raw;
-> +
-> +		if (__lsui_cmpxchg64(uaddr64, &oval64.raw, nval64.raw))
-> +			return -EFAULT;
-> +
-> +		if (futex_on_lo) {
-> +			oldval = oval64.lo_futex.val;
-> +			other = oval64.lo_futex.other;
-> +			orig_other = orig64.lo_futex.other;
-> +		} else {
-> +			oldval = oval64.hi_futex.val;
-> +			other = oval64.hi_futex.other;
-> +			orig_other = orig64.hi_futex.other;
-> +		}
-> +
-> +		if (other == orig_other) {
-> +			ret = 0;
-> +			break;
-> +		}
-> +	}
-> +
-> +	if (!ret)
-> +		*oval = oldval;
-
-Shouldn't we set *oval to the value we got back from the CAS?
-
-> +
-> +	return ret;
-> +}
-> +
-> +static __always_inline int
-> +__lsui_futex_atomic_and(int oparg, u32 __user *uaddr, int *oval)
-> +{
-> +	return __lsui_futex_atomic_andnot(~oparg, uaddr, oval);
-
-Please a comment about the bitwise negation of oparg here as we're undoing
-the one from the caller.
-
-> +}
-> +
-> +static __always_inline int
-> +__lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
-> +{
-> +	u32 oldval, newval, val;
-> +	int ret, i;
-> +
-> +	/*
-> +	 * there are no ldteor/stteor instructions...
-> +	 */
-> +	for (i = 0; i < FUTEX_MAX_LOOPS; i++) {
-> +		if (get_user(oldval, uaddr))
-> +			return -EFAULT;
-> +
-> +		newval = oldval ^ oparg;
-> +
-> +		ret = __lsui_cmpxchg32(uaddr, oldval, newval, &val);
-> +		if (ret)
-> +			return ret;
-> +
-> +		if (val == oldval) {
-> +			*oval = val;
-> +			return 0;
-> +		}
-> +	}
-> +
-> +	return -EAGAIN;
-> +}
-> +
-> +static __always_inline int
-> +__lsui_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-> +{
-> +	return __lsui_cmpxchg32(uaddr, oldval, newval, oval);
-> +}
-> +
-> +#define __lsui_llsc_body(op, ...)					\
-> +({									\
-> +	alternative_has_cap_likely(ARM64_HAS_LSUI) ?			\
-
-This doesn't seem like it should be the "likely" case just yet?
-
-Will
 
