@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF9E9D29C4D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 20:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1FFCA5FFA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 20:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pSuKFtKC7s877XSHGuWqoUFYp2mwqb5QifpnPHtPG7k=; b=WmQ3dsJeIYYGUMzgRwMeope+SS
-	wltA/kss/UW24UyCijtv/CxJCNUVy3JJeLJXr6WYLZqAErDdZvtV5vjYXg1NUjINY6fkekY4mfvcc
-	++eng1OwqLfbdbWKWibHx5A1PJaP5Nax6X+ZeBtGU2suolpcRkxZy19c8LPMCBDEq6MuBHmO/5tgU
-	Bm/4RYyeW+mMAeZy3tLncV2xyaVdnziKsxjX6afwlbDF5YNwAq01tdeiDYFhrQHYpzDjMUkHKUbEr
-	JNklwy/OyXfo80dRCkYdoCXlAeAKZtUB8iaD732nKzbiTuA+XqouXP0S4EwOU1LNhqi2LzfiZikSS
-	yKSqrXNw==;
+	bh=V52liaQoYSsyOMHGnA59jYIkT3ox2fudyI/iSOpM/oo=; b=dpP/Sw2WYBxZy4+qG+/JDFNwJ0
+	5M0qtvCqfKkHwa0OMNBRi54fI4Wm3KsSxMTJfqB1X5b01As1/L8pSajdVr0rNbmV+HY/b+eZdLnY4
+	liws9bV4RQKr2DYJKVnZlmfiVBenR20ATSZ5Zqn8W09q8WwZbFSeBdJySPDuC9mbJ8TXJGHUmT2z1
+	u9pF53ejDhdYVOMIzNLOGuP+bFj8Nd6DihhqOQQgqywfoUpChDyY9Vc+6CIblEhXgfkzsOREgRPWt
+	thCGYNxOKj65JHK+InZ92V1kv5al87o7lHbMhIreIEZSlbXwclqwlkILBxJx4NM6v8VYMIWRJSpMy
+	/q2yoefw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhvo4-00000002pRO-1332;
-	Mon, 19 Jan 2026 20:25:00 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vhvol-00000002pWi-3QjW;
+	Mon, 19 Jan 2026 20:25:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhvo2-00000002pQy-1uDO;
-	Mon, 19 Jan 2026 20:24:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=pSuKFtKC7s877XSHGuWqoUFYp2mwqb5QifpnPHtPG7k=; b=357irtbs3pVaYVLBLR2G2/geJR
-	xYtOgg3pEf9t/wgDJUcJ0/aqqVfW/bHNBCTjYon1tSUE9DHBmzJINV9WWbjRUZ9Vc824vvNnNSPiW
-	rtlTueQkF3+MqwVL+Y9snLQusadysyFu4NfJCFa+Dk3a0pWa/gpP8rcDSX5TA2LLIt+c=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vhvnq-003YtS-E8; Mon, 19 Jan 2026 21:24:46 +0100
-Date: Mon, 19 Jan 2026 21:24:46 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next v3 1/2] dt-bindings: net: airoha: npu: Add
- firmware-name property
-Message-ID: <a19efb66-e90d-4a11-ac26-923a1f3714ba@lunn.ch>
-References: <20260119-airoha-npu-firmware-name-v3-0-cba88eed96cc@kernel.org>
- <20260119-airoha-npu-firmware-name-v3-1-cba88eed96cc@kernel.org>
+	id 1vhvoj-00000002pVx-2seE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 20:25:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E45CC402E8;
+	Mon, 19 Jan 2026 20:25:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17376C116C6;
+	Mon, 19 Jan 2026 20:25:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768854340;
+	bh=8d3W0K4c8D26haPLNtGJkI7Gi+VMOP9nhNsuB6f8Ybs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WeU6eD9Io4nLlYEbk5smaUpvQaQd2qHv0p10DtuEmfGpwBznIAqfnh59UR0X/hvKU
+	 iJXW8HPPF7RT/DqECRw2MYujG5qAufNIUczrpd4oR+pLj39kxFQ0pKDciGSRR3ycYl
+	 ft5bRGDPO6wCCsNXoK9+8Dn7+1Bces/pKT12OpYeuNjCUPy6qAQhehoJpeFun5uSre
+	 6TYlpzQuuS0e/e5cyeikQozZUNTcxm6MPDDHHVFr6xCjI9T+SwpG+0z9oJsNH7eYuQ
+	 PytEpmDHMn3/gASmL0gOy7acPBJevU3cieHq9dD2TZt2njOPtuslboKAHEJe+IFE4C
+	 pv8ISjWpvuYJA==
+Date: Mon, 19 Jan 2026 14:25:38 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, 
+	Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, trilok.soni@oss.qualcomm.com
+Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
+Message-ID: <ta63kpklakanlc6dnmsqgr7u2o3ghdnt7uyyu3obbjask2voyv@eu6rhwhqzeyv>
+References: <92d90a1e-e993-4044-b152-83a8700f7b63@oss.qualcomm.com>
+ <cb7326b9-91d9-44a3-b9f0-9d2e6ab5fa42@oss.qualcomm.com>
+ <aWzuuwQi_nsHoj_5@bogus>
+ <mzs5vq2jsrmb6kdriuxawbamyim6dhgy34ne6tucnhlalt5y3w@ghckxur3cn6m>
+ <aW5Fdjag_w7i0zWN@bogus>
+ <vvvq5rnbzs7ngtahqrar4iqinizthyrv3ipqnjp6ln34di365j@bbwdyda6gw3u>
+ <aW5iQABCRukZXpZH@bogus>
+ <3ldzdsyspd3s6on3cwyanjeheegoeba6kn6qaybojtqeca7335@cyemyxk6kck4>
+ <i4zd3jesjrbljym7xuhwo5v7gwbsbuesuarnxr462eeuosevij@64hcfdzht6w3>
+ <2fmnaxj2ma2bb5iuuu4yzmenp3tsxjko6rziwuaaqr6rqvegbw@s4x6eiwhlkcm>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260119-airoha-npu-firmware-name-v3-1-cba88eed96cc@kernel.org>
+In-Reply-To: <2fmnaxj2ma2bb5iuuu4yzmenp3tsxjko6rziwuaaqr6rqvegbw@s4x6eiwhlkcm>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_122458_756395_0C81D0E6 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260119_122541_767544_6F592A10 
+X-CRM114-Status: GOOD (  40.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,18 +83,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 04:32:40PM +0100, Lorenzo Bianconi wrote:
-> Add firmware-name property in order to introduce the capability to
-> specify the firmware names used for 'RiscV core' and 'Data section'
-> binaries. This patch is needed because NPU firmware binaries are board
-> specific since they depend on the MediaTek WiFi chip used on the board
-> (e.g. MT7996 or MT7992) and the WiFi chip version info is not available
-> in the NPU driver. This is a preliminary patch to enable MT76 NPU
-> offloading if the Airoha SoC is equipped with MT7996 (Eagle) WiFi chipset.
+On Mon, Jan 19, 2026 at 09:46:08PM +0200, Dmitry Baryshkov wrote:
+> On Mon, Jan 19, 2026 at 11:25:31AM -0600, Bjorn Andersson wrote:
+> > On Mon, Jan 19, 2026 at 07:20:09PM +0200, Dmitry Baryshkov wrote:
+> > > On Mon, Jan 19, 2026 at 04:56:32PM +0000, Sudeep Holla wrote:
+> > > > On Mon, Jan 19, 2026 at 06:44:23PM +0200, Dmitry Baryshkov wrote:
+> > > > > On Mon, Jan 19, 2026 at 02:53:42PM +0000, Sudeep Holla wrote:
+> > > > > > On Sun, Jan 18, 2026 at 03:16:50PM -0600, Bjorn Andersson wrote:
+> > > > > > > On Sun, Jan 18, 2026 at 02:31:23PM +0000, Sudeep Holla wrote:
+> > > > > > > 
+> > > > > > > To me, when you decided to add a second caller to soc_device_register()
+> > > > > > > you created a regression in the userspace interface. If nothing else
+> > > > > > > it's a leaky abstraction.
+> > > > > > > 
+> > > > > > 
+> > > > > > In that case, shouldn't soc_device_register() made to give error when an
+> > > > > > attempt to call it more that one time then ? Also should be change the
+> > > > > > ABI documents to refer it as soc0 and not socX ?
+> > > > > 
+> > > > > Then the whole SoC bus is an overkill. But I have a strange question
+> > > > > here. Consider the device having the "BT / WiFi SoC" next to the main
+> > > > > SoC. Is that SoC a legit target to export informaiton through sysfs /
+> > > > > soc bus?
+> > > > > 
+> > > > 
+> > > > Just for clarity, I agree with you and there could be duplication of
+> > > > information if there are multiple source for that information. E.g.,
+> > > > the setup in this discussion where the EL3 firmware provides SOC_ID
+> > > > information via SMCCC SOC_ID and DT providing vendor specific information
+> > > > about the platform. Both are getting exported via sysfs but the problem
+> > > > here is SOC_ID has displaced vendor specific DT info from soc0 to soc1.
+> > > 
+> > > I understand the context and I understand that we ended up having two
+> > > soc devices for the main SoC. And that's exactly why I'm asking about
+> > > the WCN SoC exporting the information through the same interface. If it
+> > > is a legit user, then it is a possible outcome that WCN binds to soc0
+> > > while the main core gets bound to soc1 (even without SMCCC_ID in place).
+> > > 
+> > > Likewise if WCN if a legit user of soc_device_register(), then we can't
+> > > make it fail after registering the first entry.
+> > > 
+> > 
+> > But by this definition, a vast variety of discrete IP should register
+> > with this interface - instead of providing such information in their
+> > respective functional interface.
 > 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> I *suppose* that was the intention. Otherwise there is little point in
+> having socX defined in the ABI.
+> 
+> > 
+> > My interpretation is that the soc_device_register() related to the
+> > entity which is represented as /soc in your DeviceTree.
+> > 
+> > For a broader "dumping ground for different IP to register their
+> > version information", we'd need some way to associate each entity with
+> > the related component - which I believe there is none, because then you
+> > could have used the specific driver interface in the first place.
+> 
+> We can be using of_node / fwnode pointers for that (where available).
+> However, I guess, there would be no fwnode for SMCCC SOC_ID.
+> 
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+I prefer a model where the kernel abstracts the hardware and firmware
+away from userspace, and presents useful and purposeful information to
+the applications.
 
-    Andrew
+
+When I cat /proc/cpuinfo I get an abstract representation of the CPU
+cores that are visible to the current system, I don't have to
+cross-reference the output against some hardware/firmware description
+table to make sense of the data.
+
+It could have told me about the CPU core(s?) in the WCN chip dangling
+off that PCIe link...but it would also have made the output absolutely
+useless.
+
+> > (I.e. there's no representation of the WCN SoC in our system, we have
+> > representations for the PMU, the WiFi, and the BT core, but not the
+> > whole).
+> 
+> The mapping is really a separate topic. I can imagine "just an
+> enumeration" kind of ABI.
+> 
+
+Let's imagine a more concrete example. I'm implementing some service and
+I want to use the value from the "serial_number" soc attribute to
+identify the device. I read soc[012]/serial_number and get 3 different
+answers (in "random" order!).
+
+Would that interface be useful to you without any form of means to
+determine which set of attributes is representing which "SoC"?
+
+Regards,
+Bjorn
 
