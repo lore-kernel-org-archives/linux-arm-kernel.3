@@ -4,47 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 851B3D489AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C0AD489AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:Subject:From:References:Cc:To:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h0kdT4P0ApWbkRJqPvt+OpZGEkxR90oC17bDHLKK8EY=; b=dUFH25ruBq7R0Yfyhl3LcCnXyg
-	rQMTj6i6M6zo/RIAutmkCey6MAwj+n1H+IHJiai/Orm3AF9FepOAVIIpxVBoaSvod7L9m7dRbKPqT
-	1vSfrEyX+7jmIMKowUYDgCXFWp3RNAVqWt1uiue9DTcKzQsIer2ZgLwSwpnEXrcXrRiMYRUn9JqLF
-	3w0epg+ebrLI9mpdzpV4gXngAJ5lvyDQd6a2KolFxvXjY6NJlhWSMEzksbTg1C2aIH/NAZs3cB4s8
-	2U2+/jV2kL8L5omh72anNvxxhaOiwgo4XHWMTGMZzywB20x8F47XKWJKqa2tJ54tQvgb3HPo/apIz
-	B8tojshQ==;
+	bh=5BKEJSbQqm0XcnAkEvIEBpS5wjgQPQm9TQO45dq1oQc=; b=IEDIhBTZc/LUSVnUB5PETk94Tp
+	c9ub+gx3UIcDJsj2YirWR+5MHYkdt34+LvCm0blp0rZVH/doqNT/Q5WvIBEpxwQnwOAUlt1+mxdho
+	mVQL2T1MiA4AErdxKAOdunXpNnVdNGaITQFX60MQeV/qk6K30S8ljq/aupdcGIFodk3E/SU+cRSPD
+	GdgZS/8hBWWrUzvY01I280AdMtKSK8oaZpGSHZLrn3p3xICkbGDhCD9ML3nQ5wAX69ue78NkvE1J3
+	D/ii11LehbS/LvvKEvhx2SSYrW/NzMxys3xn4BAK4El+MSxz6y20yU/BX3jK27/nBd9Zi/rsEi/O8
+	87VIqp4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhojw-0000000266o-1NdR;
-	Mon, 19 Jan 2026 12:52:16 +0000
-Received: from mout.kundenserver.de ([212.227.17.10])
+	id 1vhol7-000000026Fc-147L;
+	Mon, 19 Jan 2026 12:53:29 +0000
+Received: from mout.kundenserver.de ([217.72.192.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhojt-00000002656-2dPD
+	id 1vhol2-000000026Ex-2KLF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 12:52:15 +0000
+	Mon, 19 Jan 2026 12:53:26 +0000
 Received: from [192.168.0.66] ([88.171.60.104]) by mrelayeu.kundenserver.de
- (mreue108 [213.165.67.119]) with ESMTPSA (Nemesis) id
- 1N6KQZ-1vtGwY2aMb-00w7w0; Mon, 19 Jan 2026 13:51:43 +0100
-Message-ID: <87fb14ce-d708-414c-8b38-4195b7dd65a3@green-communications.fr>
-Date: Mon, 19 Jan 2026 13:51:42 +0100
+ (mreue106 [213.165.67.119]) with ESMTPSA (Nemesis) id
+ 1M3lLh-1vhXll1nPv-00BvaZ; Mon, 19 Jan 2026 13:53:02 +0100
+Message-ID: <154d0ccb-00d8-4e7b-ab6e-c798c86c5e96@green-communications.fr>
+Date: Mon, 19 Jan 2026 13:53:01 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Bjorn Helgaas <bhelgaas@google.com>, "Rob Herring (Arm)" <robh@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Joerg Roedel <joro@8bytes.org>,
- regressions@lists.linux.dev
+To: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Bjorn Helgaas <bhelgaas@google.com>, "Rob Herring (Arm)"
+ <robh@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Jason Gunthorpe <jgg@nvidia.com>, regressions@lists.linux.dev
 References: <a1d926f0-4cb5-4877-a4df-617902648d80@green-communications.fr>
  <eb94b379-6e0b-4beb-aaa7-413a4e7f04b9@green-communications.fr>
  <3780eb61-68e2-42ce-939e-7458cd3a63cb@green-communications.fr>
- <20260116171048.GP961588@nvidia.com>
+ <4da29d46-9a80-4ec4-b6b8-6c9457eed481@arm.com>
 Content-Language: en-US
 From: Nicolas Cavallari <Nicolas.Cavallari@green-communications.fr>
 Autocrypt: addr=Nicolas.Cavallari@green-communications.fr; keydata=
@@ -93,42 +92,43 @@ Autocrypt: addr=Nicolas.Cavallari@green-communications.fr; keydata=
  XMjIkcCihY9vSksnm5C7d6wGxy2/Mju8s0J1tRaXkjbj
 Subject: Re: [REGRESSION] Re: imx8 PCI regression since "iommu: Get DT/ACPI
  parsing into the proper probe path"
-In-Reply-To: <20260116171048.GP961588@nvidia.com>
+In-Reply-To: <4da29d46-9a80-4ec4-b6b8-6c9457eed481@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Provags-ID: V03:K1:gOhvnN7z0uHCNgwQGGM9CIBM1Oz3un92068MxFN97zndh8SR9CX
- IVySgViSQp9kfyE4gyZLmhHtfTvcByvw5XKHFUU91+b4AaSmk8UfKA1YXEhAOx9EWF3AQFy
- d5/tQ+t9+F+UfAsQvH8KFSikCHokx9DPzqqhBvMFc8CZ7siK2OF5xiKdJ4am7OSzA7vimug
- TxBH6gHAI8vEi50TcHDMg==
-UI-OutboundReport: notjunk:1;M01:P0:3eTKXoM5C8s=;QdAjAqnEeRrgERg2zvsdwwDjkWj
- a1F6llPxzqpxRYaFh3byfPckq9gSqUbC8Zj+kgxuyDmcB8KcGN5MLGxaG3IIs5q+ZL8moU3d5
- HDQZx/yja7JTKCbOfu0AyesgLcO+syw5BtnzQ1NuOkWP8M4kMJw4/sOELS4qc2j5toaLnPEMS
- PcH/5Ua5eC8WDUX3Zsi5tR8pcK+EvqWieko7iOREVMN1JhWkj8FKbsdYCIxJcpk7c2qvXi0ue
- piTru8zkGa0rOTrjcb+eWMm0Mz1QsgjsPLgwPC81fx0OIm5Nc4acg/n1FAC4FkQqxqWCud8zx
- knzaHsXQ8DES6yFW5u/IsPwmuD3tK6CehGJs35n2oTDcVn2IN20NPhehld8dtjaTTzePVTc7x
- GMCMOiemkKTR5JsEX+KR76Xzk7Cfa5b42wWmJZ9IEMX0C5ole5VIhwXE+YbUo+sDDsaPLVzan
- 11lptVGh6E35jMOYAE2tzBpkLstWXg2wGjS4Zs4d/ZknC+Kcr97xqwMVQelLTxCjqoFMKy1BQ
- EEax5cqwiSQ0YbAUWEmy7zkeKBrkhmu9imRXgp+idHN+XTnZcAhU+oLZO8hEHiYLFxx7jLA62
- y+yP2tdcsugTJFU6Sc3lRpCXSDCt1IgCETtywq7Z7NM85qISGXzE+hh7IelvGhiMCVlznWqSr
- S6cDjay75meyvzWBstd05QRvurXYkLzc/38LJXamVqztl/bqBKK0tiKHl9Fz02awjnXKmCzhB
- UTLOM4gK9AKNZL+s5SPnRZjSZnoPZf3+yfT9izO2x+HVUU4Crh0oWidRFsU+3Ex2OM5QhBgdC
- HnbcRgfGH6VZuFC+hXaDwoI9/9ldUwdV3EJcB2BvCIng5e3+cpU+H5n2iYMCHwCvRoAJ0RvOO
- eyfmG2LeGTBM3PB4/SGtN/m5Qo/76Vo3pwZp4qJ2E92hOyXD2H6520cNaa7IbKHMejEFamVcM
- //Meb1SSq3xgmMk3v90qrWh5DAnyK/5DGjCVdJG7Cxtp0KmxsUr2Vkuq9jkPNArApsWO3xaOO
- jEa+2U6mrcUzdVyRTAPbTQUclogU3/2Kt3dgnkJ8f0cP64bENrzaJyWGyEwVmQcBbJ6v4jRc6
- O4We04mxwwR3qGSjld6MwklXxsrqVGt/lGZzrinU0/UHbjp92r+VgeQHwQhku5fawBlhnmKDp
- NI1I6pXgyFeo7CO0u47vnxhdYB29ZAM35cERsRF7UEmSB3PaOSydIv5o/2XDzGknGT1OKQewR
- pRKKjFR77gxsY9BnUEEi9o+A0QirCNg6Dp8+lgYPR8oCWGgu/W3pVDhSiWcTcpath1QCszsKy
- dEvI9h6XJMlutYDFi7VOE5iqtAzQ29Abrz6q4Jc8li0g/xJ4HZAymXs6qOCBqZBulCQDRd8a6
- oPlU1plG+iXPZpYVDEGY2UFza+lGYHADVyE62IxKOGN+e9a1Sva6h9xK0ZBnOv502j1Q524Oy
- +alQrR/1i4bW6IOWoUNYAtO/UKEJMHnz3F1VoqgvilckQs0lqAWf11qKPmX6y2B/SKqssyZM0
- upKAWvGJgZB2BrjOOishXXyVK1Qzp1cX3V+9bvYgIJRsgUvn4XE10T4RRWoT1XtmFHMPWhdoi
- V2qXK5moIXEhQl6RMvi6Hhi5Oc/arfZ1LPywxbxH/Zk5YsfrBNZ92ERrif44DcPIjHnBXUFZ9
- g0eu0ZupuzWruWLY1dAxD5g5zjjm5S51u1t+pyO5zAGSIZ1MD0UrJ6ksC5D6a4nBFT99ktQS7
- aDrQHwQ9woIsN2Q950Et65dg29GnEu2e8j/pmeA99AiB2n2ABjSqdGcc=
+X-Provags-ID: V03:K1:qvKrgniDhCDttoq4hx/KpwZ7wvT16Hg+QjDEhqguqFoZvTWbYYU
+ TAdm6qt5OYVkrkzIV5BNU900bXM0nA2ibuHysJmVsMFcS3Dg0a4BXevHAaml5stE7+brjh3
+ G4BzfnZqu694rkvzCdqJNoOeJi8QMlhuL9ygtzBVxeOTgA/J20A8OqLub9ESDr49En8OwaK
+ +/xqqWg7onaVG+Ll/CRpQ==
+UI-OutboundReport: notjunk:1;M01:P0:EzNrFn9xkI4=;8DWpBIhuMNpzgSwAxfQ7dLLhNe9
+ rJznxzuVIOeaoZU+8zdc6bMAZaWOX191m6YuvJF5zlTkEmbgVD76qPgO2Y1+coVr+LuwZ7JnS
+ vWk0I9WuOlH+m1ytpblAoqYRY96llCe8Pzci9ZO5u1kt1mBzaXWEMUW+eHPPHvvm4cSRd/JXv
+ ah4YpGGGRpYevF3UGKuYeVBPCSL1qwF0iA4n3tRK+B9nx2MHdGv06+qTWpErTQCTYvQy7yok4
+ gdkp/Ee6x25tSvq77PZnH2qECgCo1ZJK7lkeJgCwmtlREFQ0Bnhu8jnkseS6K2SXEinx1v2hf
+ SmZRjmJZQ058ec6scJu2PqT2n3HQq77r41V4DfU+krCzqwEVajaS8roagNgmgcDA1MrzI/bG2
+ UQBgtjxbXPlRYbTf+s4QCcPDfXBSn9NN2gQZLM5L6Uq00VcdMD7ddzpLKIenPuWkA7gIJ6K/x
+ agvLGJ8nCORN15CgDuHgfbh/y2il346tDwqB5nvxV/R1SfZX4JUBBGLCpkmrhYY9rGdNLYAQG
+ roa/daAv/oxjZ4Tvek6wb/Mz7MwDrjQG93OxqqtaTdKGjnTK5ySOEVf+igyeCP9fpfA+AK7oa
+ sSYgMYB0tYEGZVwMXI+NqxaamqdrtpyjpWHHDYF1wfZ/H6qWkIDmYqmIAMeeYZMsmjFeODxtz
+ VGJmFV9wwn75kCh+EbzZ3Fz19QtoKTBD8ozTOUfoYVJkXdwYV9rbTdRTCg4EImIUH4c/KDrhT
+ S7wllpqjgmIWJMkRlIKRwhwMghd8Us8Cyibhid1SnTJwVxh8RGhy/xzqhCpqObd+1TALqC4t/
+ RvHHBbe2TMKQvDM5YKb7idT9v9u4NxABJnzrj2ergxqCnhy+QqsE6yXaEiKA56jbJ+oC7dkcz
+ IESEsG8o1x/twrNAYL1vWJ92u/xPAlfjPn6nb3zFeT2U7ohRnZ6ggzFl6ckw+1mX8lDJXgl2Y
+ F4xyRlSgc6Obeo3vXuF7K+lIfkiWOXILcOQIBec7VzgRmdLKxJ73BdNuG0FMpQ7oD+8Nq3krC
+ +1hR2NDLjxYnvTotm0+fW9PPWIud2zy5I7DT8YImSXU1wK2vFBfj6x9WZXb/2PshORP4fECPi
+ WodrPNUNlqFRPVKI6F50ZHUHZUqJpZpNyBKOG+BEKybe6TH9x/nMy3YSl/HvLf0lb2CqHb8tY
+ KunLjb+t/RYsMZTzWCxqTwKbqyb9L4mm+S3sPyztpRu3Y5wkBOnO8AGJkA1WsSFZcAVwIcWZG
+ JkVlZW3t5a3LBU6y0p8aSU0V723JuuewIFxWJ+nfdsOU2yeKlyIg4PVeeWgzmez+OVMI9k81I
+ dymPt+Cbi4LKFwE2rNpcP/m39WetK5OxfAjAb42vnG6ZGZlVmdm7Z/4sHpXBtXyThpm99aTzX
+ Ett3mzhWu6Wf3B61dj08mRdMuNJWlC9VxeGO1cIOChKqEGGKkhGiaAzUaaIgDakSURwIURcFF
+ ePlfCCSyvVNrywAEcPG8i9zJ7glah4NRtSXEswqJqfieME0kgE4k2qhwRXI+4wnWlWjfqDVPq
+ XRbp+KH4wfyRdQCXXJeh7i11vrZWRNfa8a3E+gH0Xj/jRe9D8d80h5OXHpzKXGUuPPPQoZI/a
+ njzlisWadfTYQDLM6Z4xZhCXxsouGvGNld9dXQji/2C1NWCpSLmAnXP1vj2E9rGGoJ41GXA/8
+ o0d+fXB7Lzn7lioyi0zaeWREgrmHOHgWsxvOc7WkP+8yrij30gT8zTp8TZp5B6SSVBTbnVLTR
+ 3A+45Nf6RjQgu1oaPsoP/Dd9+Ao7WG9EY07XFd4J9JRPvzEsXsUgCqQqy7X5jiodVkYqg1mqB
+ Sjcp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_045213_947930_41A66E06 
-X-CRM114-Status: GOOD (  24.23  )
+X-CRM114-CacheID: sfid-20260119_045325_128144_DEDBDC59 
+X-CRM114-Status: GOOD (  30.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,68 +143,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 16/01/2026 à 18:10, Jason Gunthorpe a écrit :
-> On Fri, Jan 16, 2026 at 05:52:36PM +0100, Nicolas Cavallari wrote:
->> I debugged it further, it seems to be mostly a PCI issue since the system
->> does not actually have an IOMMU.
+Le 16/01/2026 à 18:24, Robin Murphy a écrit :
+> On 2026-01-16 4:52 pm, Nicolas Cavallari wrote:
+>> +cc regressions ML
 >>
->> When examining changes in the PCI configuration (lspci -vvvv), the main
->> difference is that, with the patch, Access Control Services are enabled on
->> the PCI switch.
+>> Le 13/01/2026 à 10:17, Nicolas Cavallari a écrit :
+>>> +cc patch author & reviewers
+>>>
+>>> On 1/9/26 17:22, Nicolas Cavallari wrote:
+>>>> When upgrading from 6.12 to a 6.18 kernel, I noticed that a PCI
+>>>> Ethernet adapter (Microchip LAN7430) would hang under load and not
+>>>> recover.  When that happens, some of its registers indicate it is
+>>>> failing to do DMA reads, so cannot reclaim entries on its ring buffer.
+>>>>
+>>>> I bisected the problem into this commit:
+>>>>
+>>>> commit bcb81ac6ae3c2ef95b44e7b54c3c9522364a245c
+>>>> Author: Robin Murphy <robin.murphy@arm.com>
+>>>> Date:   Fri Feb 28 15:46:33 2025 +0000
+>>>>
+>>>>        iommu: Get DT/ACPI parsing into the proper probe path
+>>>>
+>>>> The problem still exists on 6.19-rc1, on pci/next (29a77b4897f1) and on
+>>>> iommu/master (360e85353769) trees.  Reverting the commit fixes the
+>>>> issue.
 >>
->>          Capabilities: [220 v1] Access Control Services
->>                  ACSCap: SrcValid+ TransBlk+ ReqRedir+ CmpltRedir+
->> UpstreamFwd+ EgressCtrl+ DirectTrans+
->> -               ACSCtl: SrcValid- TransBlk- ReqRedir- CmpltRedir-
->> UpstreamFwd- EgressCtrl- DirectTrans-
->> +               ACSCtl: SrcValid+ TransBlk- ReqRedir+ CmpltRedir+
->> UpstreamFwd+ EgressCtrl- DirectTrans-
+>> The problem persists on 6.19-rc5
 >>
->> If I manually patch the config space in sysfs and re-disable ACS on the port
->> connected to the LAN7430, I cannot reproduce the problem.  In fact,
->> disabling only ReqRedir is enough to work around the issue.
+>>>> The system is a Gateworks GW7200, which is a i.MX 8 Mini connected to a
+>>>> Pericom
+>>>> PI7C9X2G404 4-port switch connected to the LAN7430 chip.
+>>>>
+>>>> -[0000:00]---00.0-[01-ff]----00.0-[02-05]--+-01.0-[03]----00.0
+>>>>                                               +-02.0-[04]--
+>>>>                                               \-03.0-[05]----00.0
+>>>>
+>>>> The problem only occurs when there is at least another PCI device in use
+>>>> on the
+>>>> switch.  It does not happen if the LAN7430 is the only PCI device, or if
+>>>> the
+>>>> other devices are not actively used.  For example i can reproduce it
+>>>> with an
+>>>> ath9k wireless network adapter when it is up and running, but not when
+>>>> it is
+>>>> down or its driver is not loaded.
+>>>>
+>>>> I suspect that other PCI devices have similar issues, but the LAN7430 is
+>>>> the
+>>>> easiest one to diagnose, as it hangs within seconds with an iperf3 --
+>>>> bidir -u
+>>>> -b 200M and its register map are public.
+>>>>
+>>>> I couldn't find an way to dump the PCI address translation mapping from
+>>>> userspace.
+>>>> I would be happy to provide more information or test patches.
+>>
+>> I debugged it further, it seems to be mostly a PCI issue since the
+>> system does not actually have an IOMMU.
 > 
-> My guess would be your system has some kind of address alias going on?
+> Indeed, I was figuring this had to be another case of a switch with
+> wonky ACS - do Mani's patches adjusting ACS enablement make any difference?
 > 
-> Assuming you are not facing an errata, ACS generally changes the
-> routing of TLPs so if you have a DMA address that could go to two
-> different places then messing with ACS will give you different
-> behaviors.
+> https://lore.kernel.org/all/20260102-pci_acs-v3-1-72280b94d288@oss.qualcomm.com/
+
+With this series, ACS is still enabled and eth1 is still failing under load.
+
+> Although in this case I guess the issue is arguably more that we're
+> requesting ACS at all, before we know that there's actually an IOMMU
+> present to warrant it. Clearly the best option would be to figure out if
+> the switch behaviour itself can be fixed somehow, but perhaps something
+> like this might help paper over the issue for now (but I'd have to test
+> it to make sure it doesn't break IOMMUs again...)
 > 
-> In specific when you turn all those ACS settings you cannot do P2P
-> traffic anymore. If your system expects this for some reason then you
-> must use the kernel command line option to disable acs.
+> ----->8-----
+> diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
+> index 6b989a62def2..837cc0b5ace4 100644
+> --- a/drivers/iommu/of_iommu.c
+> +++ b/drivers/iommu/of_iommu.c
+> @@ -141,10 +141,12 @@ int of_iommu_configure(struct device *dev, struct
+> device_node *master_np,
+>    			.np = master_np,
+>    		};
 > 
-> If you are just doing normal netdev stuff then it is doubtful that you
-> are doing P2P at all, so I might guess a bug in the microchip ethernet
-> driver doing a wild DMA? Stricter ACS settings cause it to AER and the
-> device cannot recover?
+> -		pci_request_acs();
+>    		err = pci_for_each_dma_alias(to_pci_dev(dev),
+>    					     of_pci_iommu_init, &info);
+> -		of_pci_check_device_ats(dev, master_np);
+> +		if (!err) {
+> +			pci_request_acs();
+> +			of_pci_check_device_ats(dev, master_np);
+> +		}
+>    	} else {
+>    		err = of_iommu_configure_device(master_np, dev, id);
+>    	}
+> -----8<-----
 
-Yes, i'm just running network throughput tests (iperf3) on eth1 while wlan0 is 
-idling, and those are the only two peripheral on the PCI bus. I don't think 
-there are anything unusual going on (P2P or vendor commands).
-
-Bit it turns out there is an errata for the Pericom PI7C9X2G404 switch that 
-matches my problem, and there is already a workaround in the kernel, but it does 
-not match my PCI ids:
-
-   DECLARE_PCI_FIXUP_ENABLE(PCI_VENDOR_ID_PERICOM, 0x2404,
-                            pci_fixup_pericom_acs_store_forward);
-   DECLARE_PCI_FIXUP_RESUME(PCI_VENDOR_ID_PERICOM, 0x2404,
-                            pci_fixup_pericom_acs_store_forward);
-   DECLARE_PCI_FIXUP_ENABLE(PCI_VENDOR_ID_PERICOM, 0x2304,
-                            pci_fixup_pericom_acs_store_forward);
-   DECLARE_PCI_FIXUP_RESUME(PCI_VENDOR_ID_PERICOM, 0x2304,
-                            pci_fixup_pericom_acs_store_forward);
-   DECLARE_PCI_FIXUP_ENABLE(PCI_VENDOR_ID_PERICOM, 0x2303,
-                            pci_fixup_pericom_acs_store_forward);
-   DECLARE_PCI_FIXUP_RESUME(PCI_VENDOR_ID_PERICOM, 0x2303,
-                            pci_fixup_pericom_acs_store_forward);
-
-While my device is 12d8:b404 and lspci still identifies it as PI7C9X2G404:
-
-01:00.0 PCI bridge [0604]: Pericom Semiconductor PI7C9X2G404 EV/SV PCIe2 
-4-Port/4-Lane Packet Switch [12d8:b404] (rev 01) (prog-if 00 [Normal decode])
-
-Adding this ID to the quirks.c list fixes the issue. I'll send a patch.
+With this, ACS is indeed disabled and eth1 no longer fails under load, but I 
+have also identified an errata on the PCIe switch that causes ACS to fail. I've 
+sent another message in this thread.
 
