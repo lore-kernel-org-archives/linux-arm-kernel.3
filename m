@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C146FCCF2E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF2ECCF2DF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:57:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aj44Cjaz9R9OPW1RgimSvrpPaKyBllGsZktqE05MO9A=; b=3nM12wKxf/t2B/Plx+zO4hdU9c
-	8KKMf2sI4TvdZi4tlhDKmvT9XzaadmXbXTZEPe6oE8dOhXhjZwlna+pzCeowY9OWUEd/5HXgiqhjE
-	PxJUJ8Y6lpvaOVaf4amtLdSaqODyFGWZcQQi8s4I9W267LhtFQMwV+UIw5sRohjrpCnI0Pa6y9F90
-	9QEC6XuxcDD16JmGBSp4fprEII6iMED+DCrXuNJx3e5av1/UoF63ichpLpT2/23aYs1dGJTtv/b+0
-	VJNgqMX7RYw6/2Szq8MkPyNM8qhgVFyZoYc1/QInleb4fwEvVRWo0MI93DfavSqdeBdzsggpuCbRo
-	1BEM3Waw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sIBC3t87Yu7qPE6Nv2qbCt4k1GkXsZsoRdGLr380cJA=; b=q+ajYyeRJysMDuQO240WhSbYv3
+	PiLSi7ABu1DPvDfWJyrY61ILBtl1bk+5BpHi6A2KdEnFuTZfWy3NCPeWAqeSz9qdKO3UxvawKAIFe
+	ZglHDQpeRuRra9jRfZHGsuzYl2HewSzvPZdNHfygwMfr7+6gqenCK33WYnMHpJwr3INbNi+C/zS++
+	Vm0efpUYsoMwBU6xeSEvl5nptYseWzTYpHBYfv1K7jjDrRampziy4iiQDZSzJbRe66BF8wpH5HC7R
+	wGpyl8fbkyyhGE45P/YA9jdxVAGy2u1AFCuA0BsgaUKd1qKngFkiTJ3pOApPQeUhX0xdIr6oCsFjS
+	3WJeDbCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmsk-00000001p7H-3D8e;
-	Mon, 19 Jan 2026 10:53:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmse-00000001p6O-0vr0;
-	Mon, 19 Jan 2026 10:53:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD4E31517;
-	Mon, 19 Jan 2026 02:53:00 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7ABD13F740;
-	Mon, 19 Jan 2026 02:53:02 -0800 (PST)
-Date: Mon, 19 Jan 2026 10:52:59 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>, Kees Cook <kees@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Jeremy Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 0/3] Fix bugs and performance of kstack offset
- randomisation
-Message-ID: <aW4NC9P3K7Ab_e8j@J2N7QTR9R3>
-References: <20260102131156.3265118-1-ryan.roberts@arm.com>
+	id 1vhmwM-00000001pVM-41lv;
+	Mon, 19 Jan 2026 10:56:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhmwM-00000001pTp-0TRq
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 10:56:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 35B6460140;
+	Mon, 19 Jan 2026 10:56:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE7BEC116C6;
+	Mon, 19 Jan 2026 10:56:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768820216;
+	bh=+At1IbBtGnJKCQBdyPPtACTjJjP82alOLGMVRxdUrr0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=rCUFcs26jIdaWZm/OTN5XSTR9tpmwDaxhoEsRrCNvkWPQdFXacysw5XnLc+1OhPmo
+	 QHHnRh6RqaEsmztkORXUVD55Df8kg36waWLOFB0SdOEe1q1HPGTZ1ErjD3qZ/do0J/
+	 5kIpBIYs3b4TOv3XHWvSCsXE1kIF99pflt8uFCD2sIe9XAm39ZY/6I23fnl3L6OWE2
+	 0WcbndlGfzW3nle+qBsou6IrulrgUWd85+9pJh2uGxei8xz7FDKL9Na/sz52L9HeQL
+	 JtFQBAJvvoUmtUWeFpJBiwq07qg2cYun7whpe1EazgQTD9LfMv4W48QDQKMMJqvoqe
+	 QrWafwSnvpY3w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vhmwI-00000003YVK-2yfA;
+	Mon, 19 Jan 2026 10:56:54 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH 0/6] KVM: arm64: ... and FWB for all
+Date: Mon, 19 Jan 2026 10:56:45 +0000
+Message-ID: <20260119105651.255693-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260102131156.3265118-1-ryan.roberts@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_025310_138829_8413E82B 
-X-CRM114-Status: GOOD (  29.87  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, qperret@google.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,140 +82,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 02, 2026 at 01:11:51PM +0000, Ryan Roberts wrote:
-> Hi All,
+[Yes, you can tell what I was listening to]
 
-Hi Ryan,
+Today, running in protected mode puts the host under it's own S2 with
+FWB=0, even if the rest of the guests are running with FWB=1. The
+rationale for this special-casing of the host is that we want the
+combined attributes to actually reflect the ones exposed by S1.
 
-> As I reported at [1], kstack offset randomisation suffers from a couple of bugs
-> and, on arm64 at least, the performance is poor. This series attempts to fix
-> both; patch 1 provides back-portable fixes for the functional bugs. Patches 2-3
-> propose a performance improvement approach.
-> 
-> I've looked at a few different options but ultimately decided that Jeremy's
-> original prng approach is the fastest. I made the argument that this approach is
-> secure "enough" in the RFC [2] and the responses indicated agreement.
+We therefore use NormalCacheable (which is the weakest memory type) as
+the default attributes at S2 so that S1 can only strengthen the final
+memory type.
 
-FWIW, the series all looks good to me. I understand you're likely to
-spin a v4 with a couple of minor tweaks (fixing typos and adding an
-out-of-line wrapper for a prandom function), but I don't think there's
-anything material that needs to change.
+But there is no reason why we cannot achieve the same effect with
+FWB. We normally use FWB to enforce cacheable memory from S2,
+irrespective of S1. But it is possible to configure the S2 attributes
+as "pass-through", so that the S1 attributes are always used.
 
-I've given my Ack on all three patches. I've given the series a quick
-boot test (atop v6.19-rc4) with a bunch of debug options enabled, and
-all looks well.
+This small series implements that change, adding a flag that actually
+describes what we are trying to do (instead of the NOFWB flag which is
+pretty obscure), and fixes an interesting gotcha with CMOs.
+Interestingly, CMOs never actually worked with NOFWB on an FWB-aware
+platform...
 
-Kees, do you have any comments? It would be nice if we could queue this
-up soon.
+Patches on top of 6.19-rc5.
 
-Mark.
+Marc Zyngier (6):
+  arm64: Add MT_S2{,_FWB}_AS_S1 encodings
+  KVM: arm64: Add KVM_PGTABLE_S2_AS_S1 flag
+  KVM: arm64: Make stage2_pte_cacheable() return false when S2_AS_S1 is
+    set
+  KVM: arm64: Switch pKVM host S2 over to KVM_PGTABLE_S2_AS_S1
+  KVM: arm64: Kill KVM_PGTABLE_S2_NOFWB
+  KVM: arm64: Simplify PAGE_S2_MEMATTR
 
-> More details in the commit logs.
-> 
-> 
-> Performance
-> ===========
-> 
-> Mean and tail performance of 3 "small" syscalls was measured. syscall was made
-> 10 million times and each individually measured and binned. These results have
-> low noise so I'm confident that they are trustworthy.
-> 
-> The baseline is v6.18-rc5 with stack randomization turned *off*. So I'm showing
-> performance cost of turning it on without any changes to the implementation,
-> then the reduced performance cost of turning it on with my changes applied.
-> 
-> **NOTE**: The below results were generated using the RFC patches but there is no
-> meaningful change, so the numbers are still valid.
-> 
-> arm64 (AWS Graviton3):
-> +-----------------+--------------+-------------+---------------+
-> | Benchmark       | Result Class |   v6.18-rc5 | per-task-prng |
-> |                 |              | rndstack-on |               |
-> |                 |              |             |               |
-> +=================+==============+=============+===============+
-> | syscall/getpid  | mean (ns)    |  (R) 15.62% |     (R) 3.43% |
-> |                 | p99 (ns)     | (R) 155.01% |     (R) 3.20% |
-> |                 | p99.9 (ns)   | (R) 156.71% |     (R) 2.93% |
-> +-----------------+--------------+-------------+---------------+
-> | syscall/getppid | mean (ns)    |  (R) 14.09% |     (R) 2.12% |
-> |                 | p99 (ns)     | (R) 152.81% |         1.55% |
-> |                 | p99.9 (ns)   | (R) 153.67% |         1.77% |
-> +-----------------+--------------+-------------+---------------+
-> | syscall/invalid | mean (ns)    |  (R) 13.89% |     (R) 3.32% |
-> |                 | p99 (ns)     | (R) 165.82% |     (R) 3.51% |
-> |                 | p99.9 (ns)   | (R) 168.83% |     (R) 3.77% |
-> +-----------------+--------------+-------------+---------------+
-> 
-> Because arm64 was previously using get_random_u16(), it was expensive when it
-> didn't have any buffered bits and had to call into the crng. That's what caused
-> the enormous tail latency.
-> 
-> 
-> x86 (AWS Sapphire Rapids):
-> +-----------------+--------------+-------------+---------------+
-> | Benchmark       | Result Class |   v6.18-rc5 | per-task-prng |
-> |                 |              | rndstack-on |               |
-> |                 |              |             |               |
-> +=================+==============+=============+===============+
-> | syscall/getpid  | mean (ns)    |  (R) 13.32% |     (R) 4.60% |
-> |                 | p99 (ns)     |  (R) 13.38% |    (R) 18.08% |
-> |                 | p99.9 (ns)   |      16.26% |    (R) 19.38% |
-> +-----------------+--------------+-------------+---------------+
-> | syscall/getppid | mean (ns)    |  (R) 11.96% |     (R) 5.26% |
-> |                 | p99 (ns)     |  (R) 11.83% |     (R) 8.35% |
-> |                 | p99.9 (ns)   |  (R) 11.42% |    (R) 22.37% |
-> +-----------------+--------------+-------------+---------------+
-> | syscall/invalid | mean (ns)    |  (R) 10.58% |     (R) 2.91% |
-> |                 | p99 (ns)     |  (R) 10.51% |     (R) 4.36% |
-> |                 | p99.9 (ns)   |  (R) 10.35% |    (R) 21.97% |
-> +-----------------+--------------+-------------+---------------+
-> 
-> I was surprised to see that the baseline cost on x86 is 10-12% since it is just
-> using rdtsc. But as I say, I believe the results are accurate.
-> 
-> 
-> Changes since v2 (RFC) [3]
-> ==========================
-> 
-> - Moved late_initcall() to initialize kstack_rnd_state out of
->   randomize_kstack.h and into main.c. (issue noticed by kernel test robot)
-> 
-> Changes since v1 (RFC) [2]
-> ==========================
-> 
-> - Introduced patch 2 to make prandom_u32_state() __always_inline (needed since
->   its called from noinstr code)
-> - In patch 3, prng is now per-cpu instead of per-task (per Ard)
-> 
-> 
-> [1] https://lore.kernel.org/all/dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com/
-> [2] https://lore.kernel.org/all/20251127105958.2427758-1-ryan.roberts@arm.com/
-> [3] https://lore.kernel.org/all/20251215163520.1144179-1-ryan.roberts@arm.com/
-> 
-> Thanks,
-> Ryan
-> 
-> 
-> Ryan Roberts (3):
->   randomize_kstack: Maintain kstack_offset per task
->   prandom: Convert prandom_u32_state() to __always_inline
->   randomize_kstack: Unify random source across arches
-> 
->  arch/Kconfig                         |  5 ++-
->  arch/arm64/kernel/syscall.c          | 11 ------
->  arch/loongarch/kernel/syscall.c      | 11 ------
->  arch/powerpc/kernel/syscall.c        | 12 -------
->  arch/riscv/kernel/traps.c            | 12 -------
->  arch/s390/include/asm/entry-common.h |  8 -----
->  arch/x86/include/asm/entry-common.h  | 12 -------
->  include/linux/prandom.h              | 19 +++++++++-
->  include/linux/randomize_kstack.h     | 54 +++++++++++-----------------
->  init/main.c                          |  9 ++++-
->  kernel/fork.c                        |  1 +
->  lib/random32.c                       | 19 ----------
->  12 files changed, 49 insertions(+), 124 deletions(-)
-> 
-> --
-> 2.43.0
-> 
+ arch/arm64/include/asm/kvm_pgtable.h  |  7 +++---
+ arch/arm64/include/asm/memory.h       | 11 ++++++---
+ arch/arm64/include/asm/pgtable-prot.h |  4 ++--
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c |  4 +++-
+ arch/arm64/kvm/hyp/pgtable.c          | 32 +++++++++++++++++++--------
+ 5 files changed, 39 insertions(+), 19 deletions(-)
+
+-- 
+2.47.3
+
 
