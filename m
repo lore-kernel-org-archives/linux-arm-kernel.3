@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53133D29C43
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA6AD29C46
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ey93INS060xp59cljOsib2mU2TZmeYKGtq0Zyyk7uA=; b=e3qIz4WEZi0iccXLd6Xe2mLG7x
-	ovDN/EOXyB/HIHl44bOg3JQ4L4yyWkjBI5PEmc+lZJ4RGMfG8PhfVo9OQQRQoCzdZBzYOscIJZzHg
-	3+IuAfYGT5QNVC9TFaBjN9iPqlXbgrvUJOffX72uA8tjtgqv9CHBGPdpflZp6/mJF7ZM+dDctapH6
-	+grTggqwQvnKkSOxVFw/4CvlngFS8nkDnTeNLO83DaB3I0Lzi/EVXhhS5idxv4Ig/Zf8bpXt+xwm0
-	AQ/rcD3twocuKVV6BGEHWxW4JeGq05QEuWpYU1Yo980sAZsroliVD5M3kDnENN0tR2RTyzOsYxt0Y
-	p20h2fyQ==;
+	bh=LYzWrHN2Tb1+sOzqvSgFkFnU6zAOyR4NYaLGjHgj3Gc=; b=EcZVgEsdmQq+LP2hQr/7eccnIL
+	VBxhRoN/cwqy/mI4UErupxjs/jTa9EFZqdqTXQD3aOB349TWXeyxCSj5OXvE1g9dK/TG6qSzt2jSB
+	PhhESYkG4djXoZTk9FhzRdaoD/56XY3Mro7w4KpuFQxDdE2uCgtbvKiQwGC3+QGQpfxLXQfvSqLG4
+	+bk5pL50j1V9CBcSdNVYsZJER5KHRKhm0ql7yaVRvyu4Hu6rl7KUFRip2bMSG9jIj8ELEzkHXXnAX
+	GaMQqasCE6wpyDCXsYrieLXSHG6OACtXnmXso3RaGLtaFBLXcs5lw8Hkiy8FItv3WKYTbI3Bi355s
+	URk7kFBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsVr-00000002Ywl-3NLc;
-	Mon, 19 Jan 2026 16:53:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vhsYD-00000002ZO3-2ek9;
+	Mon, 19 Jan 2026 16:56:25 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsVn-00000002YvE-45OM
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 19 Jan 2026 16:53:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=8ey93INS060xp59cljOsib2mU2TZmeYKGtq0Zyyk7uA=; b=Ns5uPjYYuisNpWVl/jrQL0tvD8
-	cOd0N10pBKJixWJsZknI3wkhlR9cBOsqKYFiHVmRk95ctFWOFmpBx0ebOLQaXpKr+195TgBprPNFw
-	juh6rfEbZQf1oeXfAMn01hHZKRa1a7gUJ16x+YWv4n5eKqFRIjTb74yF8Ar1xp5Jzwq7w08uvNG46
-	f3b8N1UYOWxLtVRYgnjHWYYKqJtL5n6jniLVn3qZ9xbvyflvT9LS5PnNXxkH2UszXNbPjlI8Dir49
-	I4E7i+kg7BPwakblNXac1LlwR6CjRuE2vH1QvkWUBiBlwa9kVmshqbznOCEal18F1J0U5qJoP37Uw
-	/BlXY7gw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsVj-0000000Capq-3miO
+	id 1vhsYA-00000002ZMf-2Up1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 16:53:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8EE1F497;
-	Mon, 19 Jan 2026 08:53:42 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CC76C3F632;
-	Mon, 19 Jan 2026 08:53:47 -0800 (PST)
-Date: Mon, 19 Jan 2026 16:53:45 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: arm-scmi@vger.kernel.org, "Rob Herring (Arm)" <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] dt-bindings: firmware: arm,scmi: Document
- arm,no-completion-irq property
-Message-ID: <aW5hmb9tyw1Gv388@pluto>
-References: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
+	Mon, 19 Jan 2026 16:56:23 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4801da6f5c9so39059595e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 08:56:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1768841780; x=1769446580; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LYzWrHN2Tb1+sOzqvSgFkFnU6zAOyR4NYaLGjHgj3Gc=;
+        b=283jacTOlpavCzepsFgl4lcqRE9HHIuCK0rV+A6pYg9QRfrVzbz4Qrrkbx0BBA4kbF
+         pOKRRIXEKyg6ARq41gBwnx+s7HmGIncxe02eJA9+hrG3tSIC+Ogh4bgk4XmYj5YA6KAG
+         MJXmDh1/RgDZ4XvJXe8St9pX/H6nRS3iKorzqQJzvbqX8Gq6RFtQaF+WqrgfALB9Ul5d
+         XAc+CFoSxJ5UhyeqWongkdTqPUYY/2sYY/FUpjg3BaBO/iZHE7oi5PvZnI0aZfm5EV3k
+         vzMSAJASGldRtqvwWbLsgj1Q5tCYeceSgZ3GNAaZHhYh+0HJJrbdRRQYl4pEke40Mnp7
+         9hyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768841780; x=1769446580;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LYzWrHN2Tb1+sOzqvSgFkFnU6zAOyR4NYaLGjHgj3Gc=;
+        b=DyoBTktezaR8E/iH63qozukEd4naQjwvzS63Zjiz/OjszaVPcsb+JHm6Kcx/i84H1q
+         4gxo5O4wyAZsV1JYAZgPqm0uGyliiQQQcbEQYgGl8/MMkh2QQZx9wpoDY44KXzTK4GlS
+         V7tuBiUBLCXrbcC8cUbdVvLH77BfdZRKwPfO7R/Q1JAwnq6WdqdUPozbs3Xmiuz7I4G4
+         ftbTr+WLcqYN7omqUYhZPhOz1DkmgrwHOtPt7wUOk8H1C3LW8iRBbRedY8yK6KkA1+TO
+         Z9YocwBlSbEudCBtwus/aucq99xIsJfA1qhFf8JKk+zXMRfOWVHEuu5RjpHKUYkztcb/
+         cQtg==
+X-Gm-Message-State: AOJu0YyYGnmi6ryPk6ZflZx6c6VC3e9UcrLKJSvrcqClwHwZF4GZrh4H
+	5oKmuYSfqrx5B24kCJzfiV2k3n+C6yk57xNdmWKgRu6y9XEQ8f6HAuz5FDbfi+vLzv1JAllCCg=
+	=
+X-Received: from wmpb25.prod.google.com ([2002:a05:600c:4a99:b0:47b:d5ad:dd7f])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:e41a:b0:46e:4b79:551
+ with SMTP id 5b1f17b1804b1-48024b8a77bmr128214125e9.31.1768841780129; Mon, 19
+ Jan 2026 08:56:20 -0800 (PST)
+Date: Mon, 19 Jan 2026 17:47:49 +0100
+In-Reply-To: <20260119164747.1402434-6-ardb+git@google.com>
+Mime-Version: 1.0
+References: <20260119164747.1402434-6-ardb+git@google.com>
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1953; i=ardb@kernel.org;
+ h=from:subject; bh=pH0qhntASVe+teACB8I8uAP7qr08zJ3z+pk5XF62igc=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JITMvweSMgsuupXxNr0PWybb8ujf3yOU1itoSQq7c0065f
+ Z8VkBnSUcrCIMbFICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACaybQojw2m+xOC8P0r+H/tO
+ 6zxuMe87bfe0y1tx/vpp52vmpfLeE2RkOGF3SK/uxKbJNStMdZZUq29ym8Bp9G+XeKXTBb0f3fn yPAA=
+X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
+Message-ID: <20260119164747.1402434-7-ardb+git@google.com>
+Subject: [PATCH 1/4] arm64: Move fixmap page tables to end of kernel image
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org, 
+	catalin.marinas@arm.com, mark.rutland@arm.com, 
+	Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>, 
+	Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_165352_244408_FF0D848D 
-X-CRM114-Status: GOOD (  22.67  )
+X-CRM114-CacheID: sfid-20260119_085622_648503_F13869AE 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,86 +96,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 17, 2026 at 02:02:28AM +0100, Marek Vasut wrote:
-> Document new property arm,no-completion-irq . This optional property
-> is intended for hardware that does not generate completion interrupts
-> and can be used to unconditionally enable forced polling mode of
-> operation.
-> 
-> With this property set, such implementations which do not generate
-> interrupts can be interacted with, until they are fixed to generate
-> interrupts properly.
-> 
-> Note that, because the original base protocol exchange also requires
-> some sort of completion mechanism, it is not possible to query SCMI
-> itself for this property and it must be described in DT. While this
-> does look a bit like policy, the SCMI provider is part of the
-> hardware, hence DT.
-> 
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> ---
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Cristian Marussi <cristian.marussi@arm.com>
-> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Sudeep Holla <sudeep.holla@arm.com>
-> Cc: arm-scmi@vger.kernel.org
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-renesas-soc@vger.kernel.org
-> ---
-> V2: s@mean@&t and limit poll transport to mailbox/shmem only
-> V3: - Reformat the commit message, expand property description to
->       explicitly spell out this is hardware description.
->     - Rename property from arm,poll-transport to arm,no-completion-irq
-> V4: - Update first paragraph of commit message and property description
->     - Add RB from Rob
-> ---
->  .../devicetree/bindings/firmware/arm,scmi.yaml         | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> index be817fd9cc34b..d06cca9273c48 100644
-> --- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> +++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> @@ -146,6 +146,13 @@ properties:
->        this platform. If set, the value should be non-zero.
->      minimum: 1
->  
-> +  arm,no-completion-irq:
-> +    type: boolean
-> +    description:
+From: Ard Biesheuvel <ardb@kernel.org>
 
-Shouldn't these two points have to be swapped as per Sudeep and Rob
-suggestions ?
+Move the fixmap page tables out of the BSS section, and place them at
+the end of the image, right before the init_pg_dir section where some of
+the other statically allocated page tables live.
 
-    description:
-	....
-    type: boolean
+These page tables are currently the only data objects in vmlinux that
+are meant to be accessed via the kernel image's linear alias, and so
+placing them together allows the remainder of the data/bss section to be
+remapped read-only or unmapped entirely.
 
-> +      This optional property is intended for hardware that does not generate
-> +      completion interrupts and can be used to unconditionally enable forced
-> +      polling mode of operation.
-> +
->    arm,smc-id:
->      $ref: /schemas/types.yaml#/definitions/uint32
->      description:
-> @@ -379,6 +386,9 @@ then:
->      - shmem
->  
->  else:
-> +  properties:
-> +    arm,no-completion-irq: false
-> +
->    if:
->      properties:
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ arch/arm64/kernel/vmlinux.lds.S | 5 +++++
+ arch/arm64/mm/fixmap.c          | 7 ++++---
+ 2 files changed, 9 insertions(+), 3 deletions(-)
 
-With the above corrected, LGTM.
+diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+index ad6133b89e7a..df530e6f3e53 100644
+--- a/arch/arm64/kernel/vmlinux.lds.S
++++ b/arch/arm64/kernel/vmlinux.lds.S
+@@ -334,6 +334,11 @@ SECTIONS
+ 	__pi___bss_start = __bss_start;
+ 
+ 	. = ALIGN(PAGE_SIZE);
++	.pgdir : {
++		__pgdir_start = .;
++		*(.fixmap_bss)
++	}
++
+ 	__pi_init_pg_dir = .;
+ 	. += INIT_DIR_SIZE;
+ 	__pi_init_pg_end = .;
+diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+index c5c5425791da..b649ea1a46e4 100644
+--- a/arch/arm64/mm/fixmap.c
++++ b/arch/arm64/mm/fixmap.c
+@@ -31,9 +31,10 @@ static_assert(NR_BM_PMD_TABLES == 1);
+ 
+ #define BM_PTE_TABLE_IDX(addr)	__BM_TABLE_IDX(addr, PMD_SHIFT)
+ 
+-static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __page_aligned_bss;
+-static pmd_t bm_pmd[PTRS_PER_PMD] __page_aligned_bss __maybe_unused;
+-static pud_t bm_pud[PTRS_PER_PUD] __page_aligned_bss __maybe_unused;
++#define __fixmap_bss	__section(".fixmap_bss") __aligned(PAGE_SIZE)
++static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __fixmap_bss;
++static pmd_t bm_pmd[PTRS_PER_PMD] __fixmap_bss __maybe_unused;
++static pud_t bm_pud[PTRS_PER_PUD] __fixmap_bss __maybe_unused;
+ 
+ static inline pte_t *fixmap_pte(unsigned long addr)
+ {
+-- 
+2.52.0.457.g6b5491de43-goog
 
-Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
-
-Thanks,
-Cristian
 
