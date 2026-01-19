@@ -4,149 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E67DD29C5D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 18:44:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCF52CCF2DD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 18:45:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zKECmkuPwX+F8UZg6BGN+maBcP9/nnlpdtL/BV8kDgI=; b=1UjffRE8EfmA6zsXfG0a+qBN4v
-	IQ+tBRNySwDrYTPvDFRXhU5kItS2H+Ij70N7Fy9FyHmrjePPspUujvEs6pgrsYSvjMRRYGVW+jxZY
-	Qg2Fj56MtsLM518yT3GNdFb+LK3WQHF8W93DVxTHyL2yU3/cAF7xpHc94o7eG7KOrCHm8kMdu0N8Y
-	V6+S2o2OUdOWUCmkhU/0MfhDoSa5sLuMl5vrwJq7kVE5jZkMtvmqxFXLvnbzJtV0/pctU2FhmeKpH
-	OGD7bZ5eWRNNfDWguFAGFAuO/qGI6hpHsIK0hWz1tow9EHMZtcZcw/MPMA8QEjrZxUJaZZ/z9z3dK
-	121XnF6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xd19iBrzMdVGEeafBzO56LEMolluLa+EOtluiswiFOE=; b=RL2dvsUTbDMBct4mx1Ul7tS64x
+	UQ0xgbnDHLMbPo/vF/F01Gij0Mk0QdyVZZnSSaMiRAq7iBO3nLSSJ9MjCdiguD8Yw+JjA4Is8EnxJ
+	He35XUORwu/+cB8GePZxDcjZpXxvVVcZbBnh/nTxIiya6y+t3O/Yy+8uq1H6dEEDVVWeInP3LMzQd
+	r7nPKf2N9HUrLRDzfl6s/b5qXRi001jL8lDQMsSd3VrCP2HnE//hhjabfuUucUbrE1+uKOw1+gBdz
+	Au/AmksuwX7n7wgDeEt4LA/cF0X4neWzhpnqaZys11WwElJzFiwj70QdcDbPuMpbO0JjayKkgPmhz
+	WPL+HZAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhuEY-00000002jNX-1mni;
-	Mon, 19 Jan 2026 18:44:14 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1vhuFz-00000002jXX-1hlk;
+	Mon, 19 Jan 2026 18:45:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhuEW-00000002jN9-1289
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 18:44:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768848252; x=1800384252;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=BMldLl77NMD8cmCWSX1A1dU6NeqpUmWsQbs3YjsAVhs=;
-  b=XceDiyGj1ri69lz6FZpA4TKGmac2DUJmkb7vmbSTtcuLRs7rRDu+29gd
-   N/wpnWMwsp99kZUoD6c28pbTN5THEa9G0wF6IR8ugMD+i0IJHX3sZ0VNc
-   GqqyLt5CvUP9N2K00pQdWMAzdUD/QC3guaXhLrTajsEjSUoUa0cl2XB7F
-   gH9TNXly0cBdbHq/P9ScOlg55RQBzpzzLf2fmyJlgsTY29JpieMkVFFDJ
-   1zSSdy3SjFVof2Xw/+K5QhETl0uDT+uzEMAbGA/xAI0dgl4bVpRkxBgc7
-   YXbVzy0vnoMBFg4eqIdxXYBhDFmYbg77czA7wrfD9K9Md5dGxGxlyKdRu
-   Q==;
-X-CSE-ConnectionGUID: nlC87jPQT/ylVmCW0Ovk2Q==
-X-CSE-MsgGUID: IlzMnZzBTKGE2/fPNb/uMw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11676"; a="69074321"
-X-IronPort-AV: E=Sophos;i="6.21,238,1763452800"; 
-   d="scan'208";a="69074321"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 10:44:11 -0800
-X-CSE-ConnectionGUID: tVjDHPwBRL6Hp+CAFZtr/w==
-X-CSE-MsgGUID: CYQx7FCnQ0uvk61ZGqxr9g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,238,1763452800"; 
-   d="scan'208";a="210416095"
-Received: from jmaxwel1-mobl.amr.corp.intel.com (HELO [10.125.111.250]) ([10.125.111.250])
-  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 10:44:09 -0800
-Message-ID: <79185163-bf8f-4490-9396-3fd73b7a0c73@intel.com>
-Date: Mon, 19 Jan 2026 10:44:08 -0800
+	id 1vhuFr-00000002jUp-3YKz;
+	Mon, 19 Jan 2026 18:45:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7D33A4350C;
+	Mon, 19 Jan 2026 18:45:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E93C6C116C6;
+	Mon, 19 Jan 2026 18:45:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768848335;
+	bh=jxu3eTAwyA2NAtvN2VNWTO4OGoQkK4jbDsTaUMknlus=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
+	b=aLjDWbAZdWltMpcE4zLG1u/iOOMI+ZSMLlNhrJjHget/74Dcqrt8yJ5KfW8SQ2/C/
+	 gknsRai814YABrFEGJZPKfyOZ6DB9si2gCySknq4CVl72xp1H6ahTlQ4bptnZNU2xT
+	 3XdxO1gkcPr+o/qrL9SNoiYTRID6RKtVlv+nbjbA6v/7VjcItwNT61BdZQclR1+6/O
+	 jO41R6ZZSRxD1pHF0tC8RkXrA5i+GEBhMNbpXQuntauAeKK+KSI/Ko58LfWrB60G+e
+	 AA3pWRlH+UJ3a3wCNPzPfHkY367j2Dlst7rZ2Qil4kQBF9bAorBk8gZYCZBJFQ1mQx
+	 ZQ3eDNygL4EWA==
+Content-Type: multipart/mixed; boundary="===============7696574795954163466=="
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] integrity: Make arch_ima_get_secureboot
- integrity-wide
-To: Mimi Zohar <zohar@linux.ibm.com>, Ard Biesheuvel <ardb@kernel.org>
-Cc: Coiby Xu <coxu@redhat.com>, linux-integrity@vger.kernel.org,
- Heiko Carstens <hca@linux.ibm.com>,
- Roberto Sassu <roberto.sassu@huaweicloud.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Roberto Sassu <roberto.sassu@huawei.com>,
- Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
- Eric Snowberg <eric.snowberg@oracle.com>, Paul Moore <paul@paul-moore.com>,
- James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>,
- Jarkko Sakkinen <jarkko@kernel.org>,
- "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>,
- "open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)"
- <linuxppc-dev@lists.ozlabs.org>,
- "open list:S390 ARCHITECTURE" <linux-s390@vger.kernel.org>,
- "open list:EXTENSIBLE FIRMWARE INTERFACE (EFI)" <linux-efi@vger.kernel.org>,
- "open list:SECURITY SUBSYSTEM" <linux-security-module@vger.kernel.org>,
- "open list:KEYS/KEYRINGS_INTEGRITY" <keyrings@vger.kernel.org>
-References: <20260115004328.194142-1-coxu@redhat.com>
- <20260115004328.194142-2-coxu@redhat.com>
- <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
- <8bfa859ed3a4f1cf0db0ab64d8c1c3b24684582a.camel@linux.ibm.com>
- <CAMj1kXHsJNZoUEnbD1y=v4Ftuv9d2c08VckRV7ru4k4P83vZbQ@mail.gmail.com>
- <97b69bc79a5d9246f7a399510908c7b95b2e95e7.camel@linux.ibm.com>
- <CAMj1kXGx4ebaK87W7k0SNUNQnO9+=z1nmYxXC7retmp3OqRRFg@mail.gmail.com>
- <ac5e5e45c12e9b0bda19807e60b06057d74be0b3.camel@linux.ibm.com>
-Content-Language: en-US
-From: Dave Hansen <dave.hansen@intel.com>
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <ac5e5e45c12e9b0bda19807e60b06057d74be0b3.camel@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Message-Id: <2d40ab992df9466e9d09c1132deda3b362de58b3b22f938cf4beae7d6398bf18@mail.kernel.org>
+In-Reply-To: <20260119032424.10781-12-piliu@redhat.com>
+References: <20260119032424.10781-12-piliu@redhat.com>
+Subject: Re: [PATCHv6 11/13] arm64/kexec: Select KEXEC_BPF to support UEFI-style kernel image
+From: bot+bpf-ci@kernel.org
+To: piliu@redhat.com,linux-arm-kernel@lists.infradead.org
+Cc: piliu@redhat.com,davem@davemloft.net,ast@kernel.org,daniel@iogearbox.net,john.fastabend@gmail.com,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,song@kernel.org,yonghong.song@linux.dev,jeremy.linton@arm.com,catalin.marinas@arm.com,will@kernel.org,ardb@kernel.org,horms@kernel.org,kraxel@redhat.com,vkuznets@redhat.com,prudo@redhat.com,vmalik@redhat.com,kernel@jfarr.cc,bhe@redhat.com,dyoung@redhat.com,akpm@linux-foundation.org,kexec@lists.infradead.org,bpf@vger.kernel.org,systemd-devel@lists.freedesktop.org,linux-kernel@vger.kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Mon, 19 Jan 2026 18:45:34 +0000 (UTC)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_104412_326504_A93C29BF 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20260119_104538_221520_9B1FE342 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,33 +69,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/18/26 10:25, Mimi Zohar wrote:
-> As not all arch's implement arch_integrity_get_secureboot, the definition in
-> include/linux/integrity.h would need to be updated.  Something like:
-> 
-> -#ifdef CONFIG_INTEGRITY_SECURE_BOOT
-> +#if (defined(CONFIG_INTEGRITY_SECURE_BOOT) && \
-> +       (defined(CONFIG_X86) && defined(CONFIG_EFI)) || defined(CONFIG_S390) \
-> +        || defined(CONFIG_PPC_SECURE_BOOT))
-> 
-> Then IMA_SECURE_AND_OR_TRUSTED_BOOT and EVM could select INTEGRITY_SECURE_BOOT,
-> as suggested.
+--===============7696574795954163466==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-This seems to be going a wee bit sideways. :)
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 93173f0a09c7..922d58abbbd6 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1587,6 +1587,7 @@ config ARCH_SELECTS_KEXEC_FILE
+>  	def_bool y
+>  	depends on KEXEC_FILE
+>  	select HAVE_IMA_KEXEC if IMA
+> +	select KEXEC_BPF if DEBUG_INFO_BTF && BPF_SYSCALL
+                          ^^^
 
-This kind of CONFIG complexity really should be left to Kconfig. C
-macros really aren't a great place to do it.
+Should this condition also include KEEP_DECOMPRESSOR?
 
-The other idiom we use a lot is this in generic code:
+In kernel/Kconfig.kexec, KEXEC_BPF has:
 
-#ifndef arch_foo
-static inline void arch_foo(void) {}
-#endif
+    depends on DEBUG_INFO_BTF && BPF_SYSCALL && KEEP_DECOMPRESSOR
 
-Then all you have to do is make sure the arch header that #defines it is
-included before the generic code. I'm not a super huge fan of these
-because it can be hard to tell (for humans at least) _if_ the
-architecture has done the #define.
+Since Kconfig's select statement forces a symbol's value without visiting
+the dependencies, this select will enable KEXEC_BPF even when
+KEEP_DECOMPRESSOR is not set, creating an inconsistent configuration.
 
-But it sure beats that #ifdef maze.
+KEEP_DECOMPRESSOR defaults to n and nothing selects it, so this appears
+to be a missing condition in the select statement.
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/21147860407
+
+--===============7696574795954163466==--
 
