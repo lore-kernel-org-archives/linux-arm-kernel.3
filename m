@@ -4,65 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A1BACCF2D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 08:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C71CCF2C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 09:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oz4fq/2gZmrr4eM2bJ/JqRO0I42RpevbXQK1bWur0vM=; b=EF5vVbyPu1+bV76+hKIN63V4i4
-	HxfwZgP+2iFb1fCuCmYOcGVED5LwUYGMwGY4ZqEUQNxmGtw5K0BLx0IWeboX/q8+i9j84vStD8Tqu
-	fACx0rbgfZcWWqCFnarqctAJ3tYmfzKiWot+br/I1M0R5qxbGtdsqPP7VE/dQGbsrMybz7V0Jz9Gn
-	u/XU0ZPMH6IDJ9OpXw85uhiXqSe9ph/Kd/sRvBTqkZlNswk1EhixF3gd+AzRWZcn19E+3ZR2zn5L0
-	DxKEDEjoEN8dVNBJLab4JGdk5UW8rD5Pdk2MPpkJGp55xYEmyyCV681LMZiaIPklRzJ1y+PqFKt/q
-	ERelkM0Q==;
+	bh=jpBoFpPJWze1XjHnD2RjmJmPMWanDN2B4sDltQKPLag=; b=2J/dKDdlLzn3KPccqpnmoKfALu
+	+i6pzdd8oxCrCtv7xpfeBQYGgc9QLyrfLMDhicbk+y5gBdLuqR0lKv1nmls/So4HIfcvyb8kF1wMq
+	3uAvs3F7xDFzZbL8W4u72hSfrIlS2VXbDRuR2Bw+WnzQGqobG+bq5AIkEJcRHqrU0EkBSaXy6N1sy
+	zC07z4s/Vh7FRG0WOgEedEcTzDsnTbuaiC/s+Ll+KJO/TptFnh4CX9K5NXIDnjyfz6uy0CjZyw5qu
+	8/aaBkyUPQ0btojj++3Y37edXANbF6CGTGKXa/sj682gCP09euEsb25N/JIzU4yQyRYjCOVh2S6r4
+	efBC0QzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhl63-00000001at1-24NW;
-	Mon, 19 Jan 2026 08:58:51 +0000
-Received: from mail.8bytes.org ([85.214.250.239])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhl60-00000001asE-12wP;
-	Mon, 19 Jan 2026 08:58:49 +0000
-Received: from 8bytes.org (p4ffe051a.dip0.t-ipconnect.de [79.254.5.26])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id B65D85FD8D;
-	Mon, 19 Jan 2026 09:58:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1768813126;
-	bh=Lo8mZoaaii8JRD26jt3FCJPkfvZqzRGPmpdFFjziTNs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KlZN88K30kX5xY42fu7pSaEAKeJHxEGY2cNJniqi84AxkUGHPHeBS6TAY5zmygyOM
-	 J45FU/+v4Ebje9id3gPMEGEcx+JGmFMB+7b2/0rUkLpBIVYnn8roF4n9Sfnqcgrlum
-	 khdtzpIN0iWDXUwsvy8uYVsEnQiCTz6kwdewROxCqevdX9vTtGkyIjSAIeSZMWd8tU
-	 qcAvUDDx/0Q5jgi3iHGBD/6SmfmltU+831vv65eFcqx/fx86YmOAOZCvn8MMzrR/8Y
-	 0FFmoN8xOtzCtrTogxk6yERoo4TTSZdTHstpzIfa7GOChmAiwxkZjLHCoIZhVPX3B5
-	 VU389lM1p7vtg==
-Date: Mon, 19 Jan 2026 09:58:45 +0100
-From: =?utf-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Cc: will@kernel.org, robin.murphy@arm.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, 
-	nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org, 
-	iommu@lists.linux.dev, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org, 
-	kernel@collabora.com
-Subject: Re: [PATCH v12 3/6] iommu: Add verisilicon IOMMU driver
-Message-ID: <62w3kf2jmjoswnjvhszu4zl4sc7e4ut7qzmdkkiifkrzah5qhm@vaujr4wa4ozm>
-References: <20260114100922.149187-1-benjamin.gaignard@collabora.com>
- <20260114100922.149187-4-benjamin.gaignard@collabora.com>
- <3082a454-31dc-42a2-85a6-0fd0c87bf31b@collabora.com>
+	id 1vhlBM-00000001bHD-3XGN;
+	Mon, 19 Jan 2026 09:04:22 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhlBJ-00000001bGV-40EQ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 09:04:19 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-47ee4539adfso33430565e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 01:04:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768813455; x=1769418255; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jpBoFpPJWze1XjHnD2RjmJmPMWanDN2B4sDltQKPLag=;
+        b=Hi1m1Z6UAwSwH5x+Lcg7FkpOn3SpwpcJLypHn8oHCogGixZVIVbAncnW1aMDNKhL6b
+         SyNGAAeG79lPgM/oQyGceVBZwNkatKz9rCpwWZSslaQu62FHXLx7OG2qrkfm9DCqRJiY
+         boXklZK4or38ycx2hcVcR7SQSaMxu+6042EurB/QwVni5ZEv4Zz7R1KUBX35aBjYJMas
+         lp8ndVYwbeHPmPIyTB30efZX2MQ8gglGTAi9RGIMLpAfyGVLZVuz1uN8U+Kaptii23Cd
+         4Khj0Z9WgCAwCURTa5aLIluVxIOyJ4ijRYgozCX4I1nmCe4gHnUBbUKulfO0czeD6FOa
+         pZuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768813455; x=1769418255;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jpBoFpPJWze1XjHnD2RjmJmPMWanDN2B4sDltQKPLag=;
+        b=lxjaFgEqpRp2WEY+tmAJHJVbpBXjA2uH1a5RUM9zg21JwBrayzONxnG/WIhgo7LVZ8
+         BeLmebF1+xxWSaZtZo9wDgkgFOV6o+kUc7t/jo4kPIwXkMhXsqdsS8dsHC+R4caXZHoL
+         aRqtl4oHxPU+OCAKuthphhSvckEsmLWFCofMBmOJcmfZl0HKtp96iL9/s63qQZ0qpCNJ
+         JPKbsJ40+oEWr1c9kzSJwDLn3RBrohz29EBqTApfyMema4BlRv9tPpK+NBiCSrgegkyk
+         na7iqxyEnbEwt7NcMhSoPon0d48cRCUoTDBe0aaeXHjXhP4zc2PTMX9xTUmmTd0VyVhb
+         yrIg==
+X-Forwarded-Encrypted: i=1; AJvYcCWflzZJWH+9HZh18hIda1B3K0EEsjt2mzMsuN8PYbB0Izm5MqQpgpXFDUjpTWxKAg6CNDyzaIirGx/UzSKZR/8j@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOuHe4msnoSJmqIW6lJJe6b8JlDuR8seKXgk1kvNgBqEtvTeMM
+	J93oIVltZ1glSf62V1EHyLI3664iLX0ta8k+nYicbR/uV83NYOXZ1uMeXFJAlRmZCZE=
+X-Gm-Gg: AY/fxX4Dr08CkS5rD6+GLJIjW8wwE/f63KCVZajBOsbDfkyfQyPnfyYnLfqGzbScCuh
+	dXNjxsZOgQPVdcpYbp+UbHCM1qLWQ+5wSFwEhLdcxtMyKRV6UvCrRxWf5nfVXBu0JZN/sT0IXEC
+	Tid76GeuhZlDhRGn3IeLhFonn6bN+8vrIn44H5bfEs5+m3vOCrfl4DbOujJuLH2de6gWkC7Amcv
+	CkdxfKyGu/kT3kpEx9Uk6a51TtOhpgdeq5kllXDWq+rH29wo4PoF+Ramkm4iFk/JvmqXlh0rngQ
+	Mc+jJExLG6ou7p97zArU2HLMxzLuYQTFZUwwVpoOITClv34+kVwZ7/k2AH9sUDNUIIGVn2ssCe2
+	nwTIoCJvrDzglEsZS62vCEYiOuK9kEMkH5/NR6PRQc/OTF+zvMciBzvZR7wSYOGEa5Q/UatnoMW
+	q0NYhkDYzv27w8sQJ2ERL1iOr9rILWxozznD2WY8dhnQT5jFxntz/tZlOpjVq4EBk=
+X-Received: by 2002:a05:600c:138d:b0:475:e067:f23d with SMTP id 5b1f17b1804b1-4801e3432fbmr121695545e9.25.1768813455316;
+        Mon, 19 Jan 2026 01:04:15 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:3d9:2080:a458:3e86:7822:1c2c? ([2a01:e0a:3d9:2080:a458:3e86:7822:1c2c])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801e8d77besm186692035e9.14.2026.01.19.01.04.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Jan 2026 01:04:14 -0800 (PST)
+Message-ID: <bde806a2-5c8e-48f9-aded-2a9d811b5627@linaro.org>
+Date: Mon, 19 Jan 2026 10:04:13 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3082a454-31dc-42a2-85a6-0fd0c87bf31b@collabora.com>
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 0/2] NPU and i2c3 + FUSB302 addition for Radxa Zero 2
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Ricardo Pardini <ricardo@pardini.net>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260114-arm64-dts-amlogic-radxa-zero2-additions-v1-0-8b5cdf328fde@pardini.net>
+ <176846437964.1204537.11505642254935473121.b4-ty@linaro.org>
+ <bf433ef2-0705-4a21-b84b-321d9f68d805@kernel.org>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <bf433ef2-0705-4a21-b84b-321d9f68d805@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_005848_484023_88E5C6CF 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20260119_010418_000361_B5D53B2A 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,24 +131,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 08:58:37AM +0100, Benjamin Gaignard wrote:
-> If needed I could add a patch or send a new version to add the following comment
-> for vsi_iommu_restore_ctx()
-> /**
->  * vsi_iommu_restore_ctx - Restore iommu context for AV1 decoder
->  *
->  * @domain: iommu domain attached to AV1 video decoder
->  *
->  * AV1 stateless decoder could decode multiple bistreams at same
->  * time and before decoding a frame it is needed to restore the iommu
->  * table to avoid mixing decode contexts.
->  */
+On 1/16/26 17:56, Krzysztof Kozlowski wrote:
+> On 15/01/2026 09:06, Neil Armstrong wrote:
+>> Hi,
+>>
+>> On Wed, 14 Jan 2026 23:48:35 +0100, Ricardo Pardini wrote:
+>>> This series adds a few things missing from the Radxa Zero 2:
+>>>
+>>> 1) NPU (etnaviv), just enable the node, similar to what was done for VIM3
+>>> 2) i2c3 (also exposed on the 40-pin header) and the FUSB302 at 0x22
+>>>
+>>>
+>>
+>> Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.20/arm64-dt)
+>>
+>> [1/2] arm64: dts: amlogic: Enable the npu node on Radxa Zero 2
+>>        https://git.kernel.org/amlogic/c/29deec49146162d06b17739c627d062191e03814
+>> [2/2] arm64: dts: amlogic: add the type-c controller on Radxa Zero 2
+>>        https://git.kernel.org/amlogic/c/8f5aa8d444d1d200715c36a8f072054a49bfb410
+> 
+> 
+> You went quite fast, but this has warnings. See also Rob's bot response.
 
-Good idea. Please add that with the other comment I requested and send a v13.
+I dropped the patch almost immediately
 
--Joerg
+> 
+> Best regards,
+> Krzysztof
 
 
