@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A830CD29C32
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 17:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F05FD29C4C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 17:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UC7XA/MARGvKJ3ISG5mIeYett0pmou4aKSG7eK9igqc=; b=4BHnnogIOHVZIEFftLoskN4ToO
-	WrmGdAeupppDaxCYIAtlkZfLoJcADtYrfCa6pcim6TfFKe+eS5oBtMVF57wqpBQBbgHl6lxskQo4W
-	G/3i1K1bFg7cFVzqPPQgmQjt7z8ruuJDDw56gCCqeo5NVUOfeSoF8jJnkG7QzgHeS7sGzuI4hyCeS
-	RdRzGgryMNwedrMZ5KC6zVEMFCMFO+LBE8UZLmK7MPuM83T3PViuFAZ3JaCNnEyYnJuFw7yRk8zuW
-	qO2k4romD/m0gwhiOGZDQHQWK7yX3IzAfCg6QTPDP51HOgJfH162DYSy4gcKWDpMR8pmkTrBruChl
-	2uXLcN8w==;
+	bh=P8hUAQGe9WzHFrGctjM3f8nV/a56tXHP2sNdbESX5lk=; b=OZMC3iGWEPMxG9xDUy0RJifThK
+	p+vSfstjDl5oKpxEB99qVj10dy5lnf+mmXWaFIdzuHGGalW/rnlQbXMsHQxLM8QOm42d85KRJKwud
+	gaYecr3XfQnVaqSNe2JAGe7bnjWRWFMeZ5hyUQ35nz4FWQmo8XrXJZnRhT6S+4uEoM2priaHl0bSB
+	Tu9AmyJ+j7jKf5qaLeUJyH8FyaEtDKfRFGxqbMlbHaS5qrbMkRwxhJ09vqfB1R3jTmoQOe4f5iuYi
+	nNQdc+rR/6OBafHpH0egoqeT3U5XNUK2n79Z5wgYxaaH15EbB08P7Q/WXZnVRm0nEut12nd6mQ9v3
+	iGfMTKaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vht6W-00000002eOt-1AP2;
-	Mon, 19 Jan 2026 17:31:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vht70-00000002eT4-2VnY;
+	Mon, 19 Jan 2026 17:32:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vht6U-00000002eOZ-0i89
+	id 1vht6x-00000002eSr-2Nmx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 17:31:51 +0000
+	Mon, 19 Jan 2026 17:32:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5AB6243A6C;
-	Mon, 19 Jan 2026 17:31:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57323C116C6;
-	Mon, 19 Jan 2026 17:31:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9D7D560054;
+	Mon, 19 Jan 2026 17:32:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82A54C116C6;
+	Mon, 19 Jan 2026 17:32:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768843909;
-	bh=05zscD5VFLw9poBWpM3GKQq1zp3KfSkLbp1GatELe+w=;
+	s=k20201202; t=1768843938;
+	bh=A/iKdKMRrQFaSFIv/yti57gG3uCmwDCA4fPwEwIAd2s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QFRB3+XeQWq5bsyig93pQzFUB8JfoKBfpHnb/5C9iaywScMH36rSqm1TYkRlS9pIb
-	 j2rPlm1E+e6h6nF1HCipQC3QEexcTLpvJmVa/rFxHzo670Tvw7KdgrhsfMBhZrB/k2
-	 9xmsqvibvmm2T34zYT6Qa+czaeWjbOe+MWB1QWDKCjesMpKzB6b5nco7QlO79pwCO8
-	 KYn/G7D6FaOL9JyakbgCZD34eEOHrvxYYVM2soeoGWOSTpn6+tvGKALNEpkaK5CJad
-	 vmYH87wAmoZ7xPOOgTUvEdAOdIT0NybE/a3fTM8pmJlWo/vKTHXI81gkyuBYPGUAWA
-	 PqKOetDve4wng==
-Date: Mon, 19 Jan 2026 17:31:42 +0000
-From: Will Deacon <will@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev, catalin.marinas@arm.com,
-	ryan.roberts@arm.com, akpm@linux-oundation.org, david@kernel.org,
-	kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com, dev.jain@arm.com,
-	yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
-	bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
-	lorenzo.stoakes@oracle.com, ardb@kernel.org, jackmanb@google.com,
-	vbabka@suse.cz, mhocko@suse.com
-Subject: Re: [PATCH v5 3/3] arm64: mmu: avoid allocating pages while
- installing ng-mapping for KPTI
-Message-ID: <aW5qfh_bsGNRd0Vd@willie-the-truck>
-References: <20260105202328.2418990-1-yeoreum.yun@arm.com>
- <20260105202328.2418990-4-yeoreum.yun@arm.com>
+	b=m1vWA/ThbDmFYpj53E77IY+FYA+F0yn5aBqz5KyYfgnJelVf181ZB4hOccmOIFuUS
+	 0N/LfNhrBCyEeN49ROHXJ0Cxq/HFTVkk/UQE2sAC+DvHh79frOoyqnklHQnaZsWodZ
+	 kf8GGoyccKhVGXxpMbn3AadPkYd61ra5NXXMvRMxG3bLP/Ghn1FKClRuQrUisqK//6
+	 OuYcHNz2ZKoQXFTFZI6HIa6w+7dDZF0mljbLzVtaEQly+gXbBNIsF/1H+N31mk7u6y
+	 nuSKbm9K4xWHHGACuiqGCWpWNAgz/K0f734F6RkynRZVZz2DVhxROlC7LXAKLeW5Zf
+	 1aTcUGxCkpMLg==
+Date: Mon, 19 Jan 2026 17:32:13 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] spi: xilinx: use device property accessors.
+Message-ID: <b1b79de0-a078-486d-b3e9-96899354407c@sirena.org.uk>
+References: <20260119-spi-xilinx-v3-0-4566c33bac0d@nexthop.ai>
+ <20260119-spi-xilinx-v3-3-4566c33bac0d@nexthop.ai>
+ <8436e914-429f-40b9-8e6f-ec3b02702cad@sirena.org.uk>
+ <69F83558-4675-4FC2-8656-BC6E3481AD65@nexthop.ai>
+ <9e559e33-4f2f-40d4-a15f-584548bd6057@sirena.org.uk>
+ <05D2CC15-DD6B-40F0-BFF0-3264D4FF96ED@nexthop.ai>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="FuAS2eueGrIYKRNf"
 Content-Disposition: inline
-In-Reply-To: <20260105202328.2418990-4-yeoreum.yun@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_093150_275214_D85663F0 
-X-CRM114-Status: GOOD (  23.48  )
+In-Reply-To: <05D2CC15-DD6B-40F0-BFF0-3264D4FF96ED@nexthop.ai>
+X-Cookie: Does not include installation.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,94 +78,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 05, 2026 at 08:23:28PM +0000, Yeoreum Yun wrote:
-> The current __kpti_install_ng_mappings() allocates a temporary PGD
-> while installing the NG mapping for KPTI under stop_machine(),
-> using GFP_ATOMIC.
-> 
-> This is fine in the non-PREEMPT_RT case. However, it becomes a problem
-> under PREEMPT_RT because generic memory allocation/free APIs
-> (e.g., pgtable_alloc(), __get_free_pages(), etc.) cannot be invoked
-> in a non-preemptible context, except for the *_nolock() variants.
-> These generic allocators may sleep due to their use of spin_lock().
-> 
-> In other words, calling __get_free_pages(), even with GFP_ATOMIC,
-> is not allowed in __kpti_install_ng_mappings(), which is executed by
-> the stopper thread where preemption is disabled under PREEMPT_RT.
-> 
-> To address this, preallocate the page needed for the temporary PGD
-> before invoking __kpti_install_ng_mappings() via stop_machine().
-> 
-> Fixes: 47546a1912fc ("arm64: mm: install KPTI nG mappings with MMU enabled")
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  arch/arm64/mm/mmu.c | 21 ++++++++++++---------
->  1 file changed, 12 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 120874a2d35b..6ea5b80ab54f 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1360,7 +1360,7 @@ static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
->  	return kpti_ng_temp_alloc;
->  }
->  
-> -static int __init __kpti_install_ng_mappings(void *__unused)
-> +static int __init __kpti_install_ng_mappings(void *data)
->  {
->  	typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
->  	extern kpti_remap_fn idmap_kpti_install_ng_mappings;
-> @@ -1368,10 +1368,9 @@ static int __init __kpti_install_ng_mappings(void *__unused)
->  
->  	int cpu = smp_processor_id();
->  	int levels = CONFIG_PGTABLE_LEVELS;
-> -	int order = order_base_2(levels);
->  	u64 kpti_ng_temp_pgd_pa = 0;
->  	pgd_t *kpti_ng_temp_pgd;
-> -	u64 alloc = 0;
-> +	u64 alloc = *(u64 *)data;
->  
->  	if (levels == 5 && !pgtable_l5_enabled())
->  		levels = 4;
-> @@ -1382,8 +1381,6 @@ static int __init __kpti_install_ng_mappings(void *__unused)
->  
->  	if (!cpu) {
->  		int ret;
-> -
-> -		alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
->  		kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
->  		kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
->  
-> @@ -1414,16 +1411,16 @@ static int __init __kpti_install_ng_mappings(void *__unused)
->  	remap_fn(cpu, num_online_cpus(), kpti_ng_temp_pgd_pa, KPTI_NG_TEMP_VA);
->  	cpu_uninstall_idmap();
->  
-> -	if (!cpu) {
-> -		free_pages(alloc, order);
-> +	if (!cpu)
->  		arm64_use_ng_mappings = true;
-> -	}
->  
->  	return 0;
->  }
->  
->  void __init kpti_install_ng_mappings(void)
->  {
-> +	int order = order_base_2(CONFIG_PGTABLE_LEVELS);
-> +	u64 alloc;
->  	/* Check whether KPTI is going to be used */
->  	if (!arm64_kernel_unmapped_at_el0())
->  		return;
-> @@ -1436,8 +1433,14 @@ void __init kpti_install_ng_mappings(void)
->  	if (arm64_use_ng_mappings)
->  		return;
->  
-> +	alloc = __get_free_pages(GFP_KERNEL | __GFP_ZERO, order);
-> +	if (!alloc)
-> +		panic("Failed to alloc page tables\n");
 
-Why are you adding this panic?
+--FuAS2eueGrIYKRNf
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Will
+On Mon, Jan 19, 2026 at 09:15:40AM -0800, Abdurrahman Hussain wrote:
+> > On Jan 19, 2026, at 8:50=E2=80=AFAM, Mark Brown <broonie@kernel.org> wr=
+ote:
+> > On Mon, Jan 19, 2026 at 08:47:17AM -0800, Abdurrahman Hussain wrote:
+
+> >>> Are these bindings appropraite for ACPI systems?
+
+> >> Yes, the Xilinx IP blocks are memory mapped and work exactly the same =
+on ACPI as they do on DT.
+
+> > That does not answer the question at all.  Is it appropriate to
+> > configure an ACPI system in this way?
+
+> I am not sure I understood your question. What do you mean by =E2=80=9Cap=
+propriate=E2=80=9D?
+> This is following the same guidelines as outlined in=20
+> https://www.kernel.org/doc/html/v6.7/firmware-guide/acpi/enumeration.html
+
+You are just bindly making the DT properties available as _DSD
+properties on ACPI systems, ACPI is a completely different firmware
+interface with it's own idioms.  Does this interface make any sense on
+ACPI?
+
+--FuAS2eueGrIYKRNf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmluapwACgkQJNaLcl1U
+h9CZjQf/Ur8a5p0+EIw+7xw/rnSoaY0p0ub/FutvHYMSJWOUbUQQAOMQWR9gjK4A
+dXzC6bUPBn8sJ7rv1lPArhLiRIV3LJTZc8zZqnkA3ilaU+6YHbFWTaZKRiJYhAXc
+5GhvbBr8CSVm4eUIzAHvleXcvTYo5jV99EF6z0rlq59yCz3WsB6FaEPOlsVkE3jB
+PnrCpdS44my7aEAJ+Z0LFefUsrSP/LSeWEYmT/rMs/QP3rifhX3tTPuggRKI8ym+
+oGqMAq4OqN7hikNnxiUEA5KU8S2s/ejBjE9qJzmgc1ZsFhctwadnLv0w5rIShhfv
+JPTUWw49fOmWds3OJkAfdnuqAyHx8Q==
+=hAAM
+-----END PGP SIGNATURE-----
+
+--FuAS2eueGrIYKRNf--
 
