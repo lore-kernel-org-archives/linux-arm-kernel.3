@@ -4,71 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 653CACCF2DD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 19:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0B14D29C4D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 19:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TOsjEhreO0APPeruvSXc7Jn/YuDsCPYoUcURxTGok2g=; b=3KtHHvDDfvf0XZfde0nV8NPhnJ
-	s+OfD3kdI1DpzqHp50s9Kv1WJ9pxHtCXJLY9rOArWmNMdnk7qrsq+AzB4d8LJbN8NIFPNP2lkSbPY
-	CfcYfxUBBuuRGIgBQm9Rp9tjMF37JapvSlBgVtovypVOmepWDKGYPtoeJDetzhnJ+fpJ5YrHi8ft/
-	7IqYEUXRnE2vn0A5yrNdMvXcLKdbNoITFPELct7AzoLXFXFMynjuFsigxEPdIrSnS/vujFPtqaNly
-	0ITsYLkyqlKUsjKOkzFrj8JOZV875HBttrKlinY1c3D+rSLc+7Z8t5GSvBOITngVcndpInripE/Pq
-	2MnOhUYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0dvSu5ccU1F4Z9nQL+zQkeOxm1ryjb0GT3i/t3vBeJY=; b=W3vQZk1gbDJNl6XLxat+cz47hu
+	dMVRwXhlOgmRLdXqenxisiyXCO1VnR4QqYTow+7USyBxR3otM/hcSed0ti732nAHRz0m5HQ9OrFnV
+	4xnP6jwJxr63BpJbqae7mtL6dG75i/nvigIju+SVH57bQolwd0cQzZjefCjw4fdcIfateIHmarxQm
+	b5kDMzQkvscQwp2y82fBlCyd9Vq8k8wbRyEuNaf0s36MVwr15IQGWtYfzoOIVkoilmAuUvbwKJE+i
+	7auqS42D4BT2ICi2nDYgTV1K5G2zDfoAoMkdqmTG3e97GoU71GT6Lee3WJgVuWYubTU072JpWHq8P
+	wd1lztXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhuq1-00000002lnj-0uK3;
-	Mon, 19 Jan 2026 19:22:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vhuqL-00000002lrm-3aOT;
+	Mon, 19 Jan 2026 19:23:17 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhupy-00000002lnV-3N1X;
-	Mon, 19 Jan 2026 19:22:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E3B856014A;
-	Mon, 19 Jan 2026 19:22:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF5C3C116C6;
-	Mon, 19 Jan 2026 19:22:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768850573;
-	bh=2LdEtzd4yY/cOLWnRNwnA2H0y8xNK5Tws6k5kwhhDHw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=I7N09X08cA5BT8y2j+GVNAp0K6LCAHFqyyYBiJdDWO/rzKGZlm1JfL6QYjE+TK9m0
-	 y60IDssQIheI3yyf+58W8t8wtwGr8N1xJmWq9HjoijJpJmm6uk2Fo+nAjYfgsJTeyI
-	 G1C7UTub7M3prpafX8BysuxFLyfE4tOpWGbyQiWRP47OWEsBKmnFCPPfIYPRmcuOUK
-	 XcL5zXHSAPMCVdW+WSmTP1kQAzCe1dyjqJlnp+Z0EH1bOxmCRj+H4nJn6Pk9MK4DPS
-	 S7ZaOxegEty1GYlo6RSKlcrJtOaOdMxE9u6tBPDI55j8JkUuldjCyaMmbSK6K/RqEq
-	 NEJb1Ik5WTe5Q==
-From: Jakub Kicinski <kuba@kernel.org>
-To: rmk+kernel@armlinux.org.uk
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	linux-phy@lists.infradead.org,
-	davem@davemloft.net,
-	maxime.chevallier@bootlin.com,
-	alexandre.torgue@foss.st.com,
-	mohd.anwar@oss.qualcomm.com,
-	neil.armstrong@linaro.org,
-	hkallweit1@gmail.com,
-	mcoquelin.stm32@gmail.com,
-	netdev@vger.kernel.org,
-	edumazet@google.com,
-	linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	vkoul@kernel.org,
-	andrew@lunn.ch,
-	pabeni@redhat.com,
-	andrew+netdev@lunn.ch,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [net-next,12/14] net: stmmac: add support for reading inband SGMII status
-Date: Mon, 19 Jan 2026 11:21:35 -0800
-Message-ID: <20260119192135.1245138-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <E1vhoSr-00000005H2N-2H2L@rmk-PC.armlinux.org.uk>
-References: <E1vhoSr-00000005H2N-2H2L@rmk-PC.armlinux.org.uk>
+	id 1vhuqJ-00000002lrC-3y80
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 19:23:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AiZLE6ZQ2hDZ/JALWAdmhvN0dRMPtjgx3sHRIMm7nZJNh6GPi6KLbzOePcc+K+d9rLrNws8MWdkcWZh239j99wQ/hPmW4wp9md5t8XK1MW4Dhx8uVumaC8i9CyTjIid1yjuReY8T77jMveG2ukj3Xo6XaHMV/n0Ce5r7WN852Jg3AHNlhY6MKEJRAatFNtP448nGwd82vpN8j83YMV+3ZXXhGP3O1+EI8G79DisaUAEy0GBYforYj1tPysFGWPrH+duguJSNt40v4hw5xufAVrsTyeO3915+XxzouBfU0uqqDemEKuYCRep3274Yp8GKyy79mfLuYC7mc35gQFM91Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0dvSu5ccU1F4Z9nQL+zQkeOxm1ryjb0GT3i/t3vBeJY=;
+ b=R7IWzhFt8OAQmQpaT56rhodaJJn5CyI8Q4YqcDGEQ3mX1Vr/bjtIrgTY50KVqu7L4vhgsErqa0o0XgYs/bAWK3WYQsXWD/fMl5MMQUadGmw5HKgopXN6F01d1BZ0Dli6uyeJPbF5knXwKSDYkXzvVZcVoDsjR8fyT2whaHlVZla8ZnajA5adUkMcZL9d47MPi+J6SIP2IrM+sZ0K+yVGBgeWCs4mX/05+pJLVLsZyxZwdKwtc05/qKo+MzLL1aux6MUvPIiM1xcHXAZEeUDbVyKjbyohejLk2oZ+hqF0Mt8uQFZpJ7w2PoTvD9BBWvjGwvIIci3dI9OKzjlRwIBMig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0dvSu5ccU1F4Z9nQL+zQkeOxm1ryjb0GT3i/t3vBeJY=;
+ b=CqGZi31Yq+M+1aMddqBMaaDFOdBnW5nsB04Bvy4JLqrA3SbB6ZmIHq/xEdd8fXNBeGhrzU52cjSVedUQDXqKLS1gbc9Th7FeNjSjUfX1GrEB8ojXBBhwu8OoJhgm7hhq6NkxPONubEgaxfw8wkuXi6VEfQHTA861Z+AYO4+ulkCWNjkHoWQreZ7jyZ+PmeifkFr56fqEBkI1qyqYo6SbXRAVjTdYbNHrR8DUkoHc7uBCMop/DlzWQfGsaq7jQku3YLAhONV3VS4mZa0BNwUJT621wUuIgEmC611nqHkxdxHdnmExW2fpP4scbN4AVLpECB/UdAKwPhDQBKGz9X53aA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by PAXPR04MB8733.eurprd04.prod.outlook.com (2603:10a6:102:21d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Mon, 19 Jan
+ 2026 19:23:11 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9520.006; Mon, 19 Jan 2026
+ 19:23:11 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH RESEND v2 0/3] ARM: dts: imx6: cleanup imx6/7 CCM related
+ CHECK_DTBS warnings
+Date: Mon, 19 Jan 2026 14:22:55 -0500
+Message-Id: <20260119-ccm_dts-v2-0-efcf9155941a@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768850586; l=1616;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=x6husQekcpXhosQxH0CHMl9jLy+fxC8r9A+JFy3GzPo=;
+ b=G02U8wetsDqzcIjDRKVoZ586ElYJTeiu5dm8/p37M3aumYmr/dfLRQm68UGjjiXTW2dsu3LPO
+ baOnKU52G3tDTTFdJcUW9cst6v74HF0E9haLdpX0YPNHSVdYB+CMUiV
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SJ0PR05CA0135.namprd05.prod.outlook.com
+ (2603:10b6:a03:33d::20) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|PAXPR04MB8733:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3e7705f1-6ad9-40b5-43e0-08de57902ef0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|52116014|366016|1800799024|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VUp3QVFqbXdHSnBtQWp5Y1dtTUltblcwdTZsL1RFMjgyWlV0TlFabjNVWHZX?=
+ =?utf-8?B?eU5za1l6eW9rdFF3T0YyRkhPQ3ROL1kyZTFWUUJxcjJOdzlDeU1JTEhrR0hs?=
+ =?utf-8?B?VjYwSmx4NjVKVENrdytyYjdkMjEvVCt2WlhYVGxyMVhXUGhlWkNiU3pjb1Fx?=
+ =?utf-8?B?N1psbzk1SnhwVDRvUTVyalNSUUppQzJmTUgwV1BNdFo2YWJhSmJTQ01Uamto?=
+ =?utf-8?B?TzltSGNRZWhxRll2Q1ZWeGZiRVJYRlhqOVg5NTgya20zRXBNY2lRTGRxZ0lx?=
+ =?utf-8?B?NU43Y2htTmRodzUxajJVQWI5bXpLd21Dbnlza3VyTEhIdlpVSVNEYTVIeVVD?=
+ =?utf-8?B?eUpiZGV5RmluZTBEbWVRQlJjSEMrUnhPcEVWT2FNd0tRU0EreVlRbnVQckFM?=
+ =?utf-8?B?ajBkcTkra251eVgvT0lDRFdESm81VG1qU05majlQakJDdXFldk5pMEpRY2lt?=
+ =?utf-8?B?SVBzM2FYVHA2MkJNaWw3R1VIYmRITFRLelRqZjlDQXZwR3NtU3lRUEo4dUhF?=
+ =?utf-8?B?WktmbVM2NjFFRkF3S3FTZWd4MHFoTUR0R0lUYjU2WFJzUzY2K2JUdUtSMlps?=
+ =?utf-8?B?U1dHSDRxUEZaNDdFZ2x1cEhWdkxKMTk3VzQrTnd3UWVaVC9xeFAwYms5cTFU?=
+ =?utf-8?B?d0w4MnU5Q1p6Q3VvNlFPSzNQc1VvVWtwWVZqNjh6OG1lUExPZkhwVHNlQXhC?=
+ =?utf-8?B?Wk9uZzdjaU1sRHdEc0ZMSUZqc2N1UkpLbFk4dC9KWnJBOFBCL21CclJlbWR4?=
+ =?utf-8?B?NGtucDR5NENLcEhNQS90a0YrU2hGVEJVTkM2dE5xNFFOZkg0RzlxR1daTm4x?=
+ =?utf-8?B?WDZMOUdiTTQvZWRZL3JiVUxjS0t6ck9FdndycGkrU3g0TUl4ZWxoTiszaGVj?=
+ =?utf-8?B?WnZkNlhEK1BNRHZJMUhIOEEwZEZuMGdHQnVLdW1WYVpyUTBoS0RuRE1ZcnFX?=
+ =?utf-8?B?ME1hbFFOb2czZDAwOVEzSHdwT1RjdHowUEl3azVXR3RZeTl2aG1sNXFidDZy?=
+ =?utf-8?B?RkxCanpjYUJoNCtwR0lwZ21BWVh2RXdpbDhQUWt2RTdWaEZIRkUyUHA1UmpU?=
+ =?utf-8?B?djBDanFKUHhTRStjUHFjMTI5QndmdWl5Rk9YTVZTVXpydTJ0RXhLcmRhR2h2?=
+ =?utf-8?B?LzdCTGhvUVFPdEpjU2FjSTBHdE9uSjBxVkdmOENuZDBUYWlCZGx0UFN3OExK?=
+ =?utf-8?B?RWRRbEFsY3ozeGcwMGJYRjlKeHo1V1RVaEswZjJhaEZlbU9VNFMzMDJrTmdJ?=
+ =?utf-8?B?Z0ZLN1E1YmdsOUFXSHlKVVRCUDkreEI0cVQ3Rjg0RWMvL3BHMWVtWURWRVR4?=
+ =?utf-8?B?TVNtRVVZMHhzTFR6L3RZVTRXQnhiY3c5MStENUN2anNCckZoM2Zkc0VmZnhL?=
+ =?utf-8?B?bVE0K2Y4ZVNjdWlYVXBlaDdzNFR3bGI1bThsbmJoOXJIcW1pUFVIdHhIYzVq?=
+ =?utf-8?B?OXd0U0VxZjVERk41NzJBZGhzSkR3MEJBSWF4SndxUGtadWpMUm0rdU9vL3dC?=
+ =?utf-8?B?aldFNFNsanhiMFpZak5hUlE4ZlF4ekZHR2djZFJsd1hSVVUwU2dmL1NINS9n?=
+ =?utf-8?B?c3dmd3FqdEFydWVmT2c3cXRiUDVkZW82K1V2N2Z5b0JnN200RmpoNkxyb2ZE?=
+ =?utf-8?B?SC8wYkR1WGhoSzZhTm1nSFFXcWJrWUJqaS8rNlJHRndLejZzWU42SFZ5Tzlw?=
+ =?utf-8?B?UzdYdEwxbEp4UVNhQnoydG52QUwzWmNlM2Q5eWc0NkhVQjhLQmhJeGUrNGFR?=
+ =?utf-8?B?SHNWVzZnVVVndmRWcGZGSk4rS3pxMWY1QlJ1eDh5NFlXV2pUd2U3VU93RTJU?=
+ =?utf-8?B?ZEZ4NEJoYXVEcVBFM1NaRHFDYlZtNk1iZVV0OC9YNXoxeUxSbkg2dGFrYmFQ?=
+ =?utf-8?B?eW9VRkwvT0FTWDYzVkwvWlA4SVJVWWN0MFkvQXFSc2JmTUdVR2Rqb3krdkg5?=
+ =?utf-8?B?S2I2czR1VjBodjN1dlZGMi9iSVdxUno2bWFhdndzVXBXMXhXalJINVhzN2pP?=
+ =?utf-8?B?OEF6eHIyNVpHY2YrdjhiTm5QdE1JT05GY1Q0L2pRM2kxUXZ5UCtORFgvQnh4?=
+ =?utf-8?B?eUZVQ2hsempZY280VzJ4L2ZJdVgvTC90MVhiL1ZPbHZYckFmdkRqSWdNY2pm?=
+ =?utf-8?B?Vitqb2RNY1Q5SUFyWnBYY2plNDJ0dUVNYzB1RkJVdlFydmVha0I5dE45VDVo?=
+ =?utf-8?Q?filtQ59RyoqxiLwaGplNiYwp1pwC8wIjrXwNnHaJS4dt?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(52116014)(366016)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b2RuQUhCY0JVMTF5ZmRjdlphbERrWkpheFdHNVEwNk5UNnJQYUxDTTczdFlZ?=
+ =?utf-8?B?UytLY0k5cFJZSk9QQy9XNVp0RXBrbkFjcWxVZkt6M3VnNTlOKzhTekJRdUJV?=
+ =?utf-8?B?c1JJeHlnNXFibUdGajYxb0F1QjhrMkEvVEowVXhmamtDb29xSDdIVXE5b1o4?=
+ =?utf-8?B?ck90RDBhOHQ4ZUhWRG5MUnFyNEIrbGZMWkF6cnNpQTZrNnhTOUhoSnJ6UHI3?=
+ =?utf-8?B?cjYyQ2ozVWY2dUFibHdPNlU4YjJ2WkpOS1IyamFIMldsRWs5RjhjcUJ2aEFV?=
+ =?utf-8?B?YmRrSlZtdy9iZmZSdUJJbjZnTkNLdExlQVBPWDZlWkZQNDZWTUJZdGZkdmtx?=
+ =?utf-8?B?eVlLQnBTdkprYWZqdm9OVVA4UTRhSHowT2VucUpPUDUyaEZqTEhYUFVCQnda?=
+ =?utf-8?B?R2xreXoyQkN6eGN5KzVPUXNVS0ZRKzUrQnk2ZFhWRVFEZTJlS2JXcDFaTm9o?=
+ =?utf-8?B?YWpaaGszMmpxVjlqOTB3blZaY1ovSUpUNis1YXZtRWxlTTJMNUltQlhLUHFt?=
+ =?utf-8?B?eUtpWUdrSG5zMU5hMVhCUXBqOHlKYStqZ0lOaWhKMzQ3bzN1QlRRRk9iNEJW?=
+ =?utf-8?B?R2RqQjFYeUZyUVYrRDJSQ1NIWHJDajA3UEpmQ2RHazdqdkU2K216RU9SYWl4?=
+ =?utf-8?B?R1dJQ2Z4V1p6SUYrU1RpYmtsTFRyZjFoblo0RDlQRlZ6QzVKTEppTUIvWW04?=
+ =?utf-8?B?enI3aklZUC9IN21vT2RYdFpEUFdBVzNVSUNPZDZ5alBPcm9xVi9mRGh1SWYr?=
+ =?utf-8?B?aVExM3IzSCtIZXhJbXZPUXNTMXJ3bEREM3plRXRFZjBHK2hyZFQ1R1BnQWZM?=
+ =?utf-8?B?bXBpZmdMZTMwci91RDhIZk9aV2xpeUlQSjNmODBmVjdlYlo3VGhZZ1VtRVhN?=
+ =?utf-8?B?U1pIMHhZQXRZL1RFVFRMMk9GZy9BMWRnNGZlNEtPc0xtWE5BbzBrQnFzSFFI?=
+ =?utf-8?B?bVV4SE5WWFkwRm9NRXkycHBVOTgxV3RaUTQrVVErMWplaWhLSVBoMHd2OHJq?=
+ =?utf-8?B?TEJFcWtzbW9WZXF1cFBRVjRHc0ozRitJc1h3L3ovL1U0ekR6dFBqRE5XVTI1?=
+ =?utf-8?B?cnZLSmNXVVhzdlVFd0hJN3dRTWpxSHpVV1V0UmRtK2F0S0R1Y3Vza0phV2di?=
+ =?utf-8?B?dnl0T25zSnFNT013MHFDci9GY0crMGZPdlByMDNKRWVLSmx1R1FKaFFFZUlw?=
+ =?utf-8?B?aFVNWjFWZXF2YWR0VmZrbnh2dDdXOXhPRTFwcm0rZlAvT3EvYm10OU5OaXlp?=
+ =?utf-8?B?VWhUQVBWTW9IRWpYNlBPMUJHd2VrZzJNM1BRN2swbW1FclZ3VDZOcklCUXl6?=
+ =?utf-8?B?dkRUV2lDVllWSXFKc3hCa1d1c3NaUTJtKzlBSHg5UGlGK25SeEJxWWdnYnUv?=
+ =?utf-8?B?SnFrc1gxUHU4TDJNcUZEZ0JzK3JMQkR3d0VkNVhEY0l1WmV6eUczMFZqL29H?=
+ =?utf-8?B?SjBTMVYwSlVMYzBLaG9tUSt4WjcrOWEvYXovNGZWRThicVJpSUFYWDgyY3lJ?=
+ =?utf-8?B?cGlOT3RxRHRBYTZMOVlIclBTVk4rc0dIeVcyWFptZHhvUjNwdXhzeHd2TEdO?=
+ =?utf-8?B?eFBFU3NoZzRqUGdUL0tzcFovUEJzMi91YUk3cXByaVB1Nm9oM2xDU0h3YVNq?=
+ =?utf-8?B?RnVvVSsvRUs2Z2o0dlV0Qi9kdWhuMS9oK0s1NGR5QWtQS0I3UjNEaFFqR1I0?=
+ =?utf-8?B?bUY3cXZ1d0F2ZUN2MDVvSFlBVTVBdHl6SEo2RzFmdlhLUGZVbi9wNHcwdzR0?=
+ =?utf-8?B?WjhyT21PaEk5OTRmYWNoOVFlSUN6ZjhqaS9IL2s4SEF4QXlZdFpaTkx1Nk5s?=
+ =?utf-8?B?cXo3bDVXclpBSWd3WHZ2ZkpaRSttQlFiUmdxcDNMQThvRXJXWkFZY0lzOU03?=
+ =?utf-8?B?OWI2aWljU2h2TW1JNGIwNkw5eFhJQXd6M1ZTdG43cExvNzFiT1VTWW9Ra213?=
+ =?utf-8?B?bUJXcFE2MTg1MlFKVFNDVjB2VWxNc3JxMFh2d0dLRjhGQnVRTW1HRUpIMDdu?=
+ =?utf-8?B?SDd6VjNKU01zNURIOHVVT1E5ZFBudFBKbXpzRW1qOG5sYkhFZzNIUjVXeEEy?=
+ =?utf-8?B?UFJ2b0E0VkFPT0pDbkIzWlR5eVBTWG1FWkZ5Z2lhMHUxWnNsVVQrcVFHR1kw?=
+ =?utf-8?B?d28zMm9hVUV0bUd5MUZHaEIwS0xBRDlhL25iL3VkNHRaT29ZakN4VDFiK3Bn?=
+ =?utf-8?B?Wnk2U2M0bURDekZBV3V5M2Q5Yi9ZUUcvM0EvUWo2WlZWUkZENkRUQmRFRDQw?=
+ =?utf-8?B?OHA5Wk5xRWVZMnhjUXRoUmVQRDR0a0pxL1NNenVmVTBVZFFCTHZoZmtZRzNT?=
+ =?utf-8?Q?RjEBNMcPZXuOiApm/X?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e7705f1-6ad9-40b5-43e0-08de57902ef0
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jan 2026 19:23:10.9242
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: v3bhaFUxFpPXJqJMZ8CkPPAfp9frvlzVkHpxEtmN6Y7/L35lxMt8oFiwosaxYhY8zyXZ13LLQ3sk1b6FU+TlwQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8733
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260119_112316_287971_40421297 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,78 +196,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
+cleanup imx6/7 CCM related CHECK_DTBS warnings
 
-For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-net: stmmac: add support for reading inband SGMII status
+Changes in v2:
+- rename enet_ref_pad from enet1_ref_pad (only 6ul use this name).
+- Link to v1: https://lore.kernel.org/r/20251105-ccm_dts-v1-0-6aadcdf97cb8@nxp.com
 
-This patch adds support for reading link status, speed, and duplex for
-SGMII links from the RGSMII status register. New fields are added to
-stmmac_pcs_info and stmmac_pcs structures for the register offset and mask.
+---
+Frank Li (3):
+      dt-bindings: clock: imx6q[ul]-clock: add optional clock enet[1]_ref_pad
+      ARM: dts: imx6qdl: add label for system clocks
+      ARM: dts: imx: add required clocks and clock-names for ccm
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-> index 73fc56ce5e55..9dd7e78cfbc4 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
+ .../devicetree/bindings/clock/imx6q-clock.yaml         |  4 ++++
+ .../devicetree/bindings/clock/imx6ul-clock.yaml        |  4 ++++
+ arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dts            |  4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6dl-eckelmann-ci4x10.dts  |  4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6dl-lanmcu.dts            |  4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6dl-plybas.dts            |  4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts            |  4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6dl-prtmvt.dts            |  4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6dl-qmx6.dtsi             |  5 +++--
+ arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts            |  4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6q-prtwd2.dts             |  4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi        |  4 ++--
+ arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi                 | 18 +++++++++++++++---
+ 13 files changed, 44 insertions(+), 23 deletions(-)
+---
+base-commit: d1d799fccb5002df8cd355c0a849cf4efcda4ac1
+change-id: 20251104-ccm_dts-504ea501251b
 
-[ ... ]
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
+-- 
+Frank Li <Frank.Li@nxp.com>
 
-> @@ -111,7 +121,37 @@ static void dwmac_integrated_pcs_get_state(struct phylink_pcs *pcs,
->
->  		phylink_mii_c22_pcs_decode_state(state, neg_mode, status, lpa);
->  	} else {
-> -		state->link = false;
-> +		rgsmii = field_get(spcs->rgsmii_status_mask,
-> +				   readl(spcs->rgsmii));
-                                   ^^^^
-
-When dwmac1000_pcs_init() or dwmac4_pcs_init() is used, the pcs_info
-structures do not initialize the new rgsmii_offset and rgsmii_status_mask
-fields. For example, dwmac4_pcs_info in dwmac4_core.c only sets:
-
-    static const struct stmmac_pcs_info dwmac4_pcs_info = {
-        .pcs_offset = GMAC_PCS_BASE,
-        .int_mask = GMAC_INT_PCS_LINK | GMAC_INT_PCS_ANE,
-    };
-
-This leaves rgsmii_status_mask implicitly zero. Calling field_get() with a
-mask of zero violates its API contract (mask must be non-zero) and results
-in undefined behavior from __ffs(0).
-
-Should the existing dwmac1000_pcs_info and dwmac4_pcs_info structures be
-updated to provide proper values for the new fields? Or should there be a
-guard check before calling field_get() when rgsmii_status_mask is zero?
-
-> +
-> +		state->link = status & BMSR_LSTATUS &&
-> +			      rgsmii & GMAC_RGSMIII_LNKSTS;
-
-[ ... ]
-
-> @@ -205,6 +245,8 @@ int stmmac_integrated_pcs_init(struct stmmac_priv *priv,
->
->  	spcs->priv = priv;
->  	spcs->base = priv->ioaddr + pcs_info->pcs_offset;
-> +	spcs->rgsmii = priv->ioaddr + pcs_info->rgsmii_offset;
-> +	spcs->rgsmii_status_mask = pcs_info->rgsmii_status_mask;
-
-The values are copied from pcs_info here, but dwmac1000_pcs_info and
-dwmac4_pcs_info do not initialize these fields.
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
-> index a7c71f40f952..f9e7a7ed840b 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
-> @@ -29,12 +29,16 @@ struct stmmac_priv;
->
->  struct stmmac_pcs_info {
->  	unsigned int pcs_offset;
-> +	unsigned int rgsmii_offset;
-> +	u32 rgsmii_status_mask;
->  	u32 int_mask;
->  };
-
-These new fields need to be initialized by all users of stmmac_pcs_info.
 
