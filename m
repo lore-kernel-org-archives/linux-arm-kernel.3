@@ -4,88 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25451CCF2F7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:43:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93AC8CCF2F7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:43:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OHtPJU0DUMKO1F2sqGZCMsKmvXgpAwApi+pqfSny0WY=; b=LQJ1kKQfGMPcmbteG5NSsuZ/a7
-	1AEPBoGEwU+0XdSRfTJcRSAetG+bhDiVv8JVFMbjm7j9GQ91swFKLZ5UW39+XTbykodynmm/K8S2f
-	iUy9jEQJ1lZvKZx7NEnlj9gKCLUoZVZKM03oYABzdfuKo78zcfBrsrDlHDA30m7Yz3TYkRNaTq/z0
-	08ngt6PsmTHA7c0w6tWBCSCuiB1YXzZw96QmWrimPpZIjFTYqtXIggX/kYPi5oVkFF9a48kpTObVn
-	UP5R3IsBVOY75/sgsly8UvB3KIhtELD7mzj2HE5ARs6M1JoxG017krhLsBkke6nUiPWHeVS9fk8HB
-	J711cnhA==;
+	bh=rVE0ichfCCZBPxaV5iFEVGkv6qOUUWRLscyvBIVG1Cw=; b=Qg7En31osAc3IQ9T4RsGv8+r0m
+	zYBmcWmUdBcQY6SUjRrAtChjJrKGDnoBBcHSiV1iu0o54a9s4Zy8EoZJ34LCczZdIPaoC/+UOA1sy
+	/Xh18QxRm5jCUxGzcs8DzQDAJrYbqnm0Q+psRn2O8wa/k3AjZ2pyGu0dP095WxQA4gM0T8lFOXUUd
+	U9G+G31WYa6/S3QZ8+z9pRFcfFLNT5YyaA0agRIAUbyHheDKolQieBfXCFDzbUX/UxmiCntmGpo/b
+	R7o/Jkleqoz5Hsnqz2EIeJgeMj8xBjOr5TMmCBWeDWItc8FDlQzVHWyaA8R5ZOH1CuT4zs1UYk2CU
+	1KkyI5pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhobb-000000022We-1DTA;
-	Mon, 19 Jan 2026 12:43:41 +0000
-Received: from mail-dl1-x122b.google.com ([2607:f8b0:4864:20::122b])
+	id 1vhobn-000000022ai-1uYf;
+	Mon, 19 Jan 2026 12:43:51 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhobV-000000022Sz-4BzY
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 12:43:35 +0000
-Received: by mail-dl1-x122b.google.com with SMTP id a92af1059eb24-12332910300so5540788c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 04:43:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768826613; x=1769431413; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OHtPJU0DUMKO1F2sqGZCMsKmvXgpAwApi+pqfSny0WY=;
-        b=TIGcRJSCqTRp1kE8RfYAwh21MXw25KGYRS5PbipcFaN5FSB2FYcHx/uQWeTaSz+zhG
-         MEyfX4TDxdzDC3dtDu3Z0qu0ycNbC91Ap4E8Ju7lH/yWi3Q6iD+HTVjlV6URK8mU3Fer
-         bm+KaHYVpYabigSNHZNf3ueobChgYntaiolHgAMc3r653oxoZwkk4dZiwq6/E/qtYhgq
-         COouwLTL6Q3ba80X+DlMH154TS8ywt38hdu0SPMfsoSoNhiFiHdNRviaxfjgY7SsNYFB
-         0DYtoRKzZQfu2x87/cB6lRdp5pxheX7EAfETaqbJqldAfoIOu09VQ0zaAf2bgFmxGfvh
-         +ndQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768826613; x=1769431413;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=OHtPJU0DUMKO1F2sqGZCMsKmvXgpAwApi+pqfSny0WY=;
-        b=E6Ug2a+4+6QvMd8f6nKwIa0o4K20LR/EBzHammti3yKLWlaUWiMWgVx6iu3AR+OcWm
-         MWweGXq9hGWH9aTBam6e7H97rs+ggg7YAcJmzc5nLgM4aFzRvcZPZOV2zCA5bkyFnCiO
-         8TXqgciQae4nQ+Pqlpz6il8AqxEN+fx/Z5sV7mK5aR9h4doZdYgC4BszAV6qRxPEblv3
-         TlRxJyvYGQeeNfavNuEPI40stRYwbOX9mYSDcxUxT/HDotd7bENNpcf7wp+aUc5KtbQa
-         Q/YvVzqHuW2U4JwrK9EWQw7VeWNSLRW7tYD/dZpucHjdpud+1kRGogHGHME8U0BhJARH
-         EKTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWyf/wBu+uUyb5Np3OyTfC+X4l9D3hAeXX1OxX7pTB7YFDT5ukSdcI2nwmrUtRe96rOKxlXFZzXwltp533Kd1PT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yze0OxpuJ6omLgxuR9MgSYX8z85ikrqs7mbnX135xeaC9v5lGPJ
-	1AGZDb6b/61bL6G/Q3IDzax2tFqvoSrO+iz1zM8R7csUOUkd42Py+iJ6nVZZpu8hFH+KiVwRhfQ
-	hpO3V4MPOAdQoj35tyLOYF3NI1H+U7ro=
-X-Gm-Gg: AY/fxX72F/uLW93r7qytHyWZ0h8XYX9GIpGYuMNokOkJKZRP342RYV8HA6pehdbAuwE
-	C4RA+fVjqr/zWXdRlqdztRnOynxpxOHJs7c7Ri72Xm6VrPihSdQpYLibj0vnffhNDjmUbZKAXwq
-	EbVgrVPnihCGdmmMhbV0MueClMJtTtzD6lXRX3uPn3Rj6B0x5y94VnwsUDcvdu3SSoxLsc4TsfJ
-	kmEK2nGjxz6iGSPVhMNYPLUmAN+npqZSCCsCa5mddHaypWXw5bzg6BBjlIOZBLWzwuVaRiP6IV4
-	UU60gNPXCK7+mWY5ZHzRlreJkDY0LsrHeXTbeXaUXcqnLHZbj7pFa95+kkfySNA+60+8UBTPYfC
-	r/8U8/DzAjA==
-X-Received: by 2002:a05:7022:222:b0:11b:ade6:45bd with SMTP id
- a92af1059eb24-1244a6fa90amr8867693c88.8.1768826613054; Mon, 19 Jan 2026
- 04:43:33 -0800 (PST)
+	id 1vhobj-000000022Yv-0fHj;
+	Mon, 19 Jan 2026 12:43:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=rVE0ichfCCZBPxaV5iFEVGkv6qOUUWRLscyvBIVG1Cw=; b=VXD9XtlTrwqp2iFObc8SpvyvfD
+	qK3o/iLfigIhubYNhujRW8xr+T9v/Q8wNHNoc2WN8zrMClJnPtJuk3HAGIR9HTmLX5gnfNpupHAEj
+	6c55NoRjc7iTYCrSah8LTL0MyXBfvJgNZtaJJVP4PLzyO7JrBTpaV38y9VZRUt3ZAbgJfkVii+E8P
+	FJKfRoKym2PzBiuRTuIpYb7JqtFYcTnMzSBuwBnsrEaiEZJ9GTuohK48ffot9zQvdqERnb/LR0e81
+	n7WXt9H9JBCLQiFTrt4QxQ5D+0wGteUgMWq4lq7kzb1jZjJTcFVdzZj71A0H60NDfw4J25263Q1hk
+	gd5qY7vQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36892 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vhoT2-0000000055D-3PEm;
+	Mon, 19 Jan 2026 12:34:48 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vhoT1-00000005H2a-3EnB;
+	Mon, 19 Jan 2026 12:34:47 +0000
+In-Reply-To: <aW4kakF3Ly7VaxN6@shell.armlinux.org.uk>
+References: <aW4kakF3Ly7VaxN6@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH net-next 14/14] net: stmmac: report PCS configuration changes
 MIME-Version: 1.0
-References: <20260119103411.50397-1-francesco@dolcini.it>
-In-Reply-To: <20260119103411.50397-1-francesco@dolcini.it>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Mon, 19 Jan 2026 14:46:13 +0200
-X-Gm-Features: AZwV_QjtNyiBHeLdUkjbl18_ROfadpDkB4z74sf-P-WeirXN-mnvQRL6Snmf3Zw
-Message-ID: <CAEnQRZA9yHGs4xodNZrYP2oto2QhOJXtiX4BFkgNM7RydkJ4YQ@mail.gmail.com>
-Subject: Re: [PATCH v1] arm64: dts: imx8-apalis: Fix LEDs name collision
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Francesco Dolcini <francesco.dolcini@toradex.com>, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vhoT1-00000005H2a-3EnB@rmk-PC.armlinux.org.uk>
+Date: Mon, 19 Jan 2026 12:34:47 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_044334_071660_4D938593 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20260119_044347_197794_83646C67 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,24 +94,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 12:35=E2=80=AFPM Francesco Dolcini <francesco@dolci=
-ni.it> wrote:
->
-> From: Francesco Dolcini <francesco.dolcini@toradex.com>
->
-> Ixora boards have multiple instances of status leds, to avoid a name
-> collision add the function-enumerator property.
->
-> This fixes the following Linux kernel warnings:
->
->   leds-gpio leds: Led green:status renamed to green:status_1 due to name =
-collision
->   leds-gpio leds: Led red:status renamed to red:status_1 due to name coll=
-ision
->
-> Fixes: c083131c9021 ("arm64: dts: freescale: add apalis imx8 aka quadmax =
-carrier board support")
-> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+Report if/when qcom-ethqos changes the PCS configuration. With phylink
+now setting the PCS configuration, there should be no need for drivers
+to change this.
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
+index f9e7a7ed840b..6a1e30b10740 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
+@@ -71,6 +71,7 @@ static inline void dwmac_ctrl_ane(void __iomem *ioaddr, u32 reg, bool ane,
+ 				  bool srgmi_ral)
+ {
+ 	u32 value = readl(ioaddr + GMAC_AN_CTRL(reg));
++	u32 old = value, diff;
+ 
+ 	/* Enable and restart the Auto-Negotiation */
+ 	if (ane)
+@@ -84,6 +85,20 @@ static inline void dwmac_ctrl_ane(void __iomem *ioaddr, u32 reg, bool ane,
+ 	if (srgmi_ral)
+ 		value |= GMAC_AN_CTRL_SGMRAL;
+ 
++	diff = old ^ value;
++	if (diff & ~GMAC_AN_CTRL_RAN) {
++		pr_warn("dwmac: PCS configuration changed from phylink by glue, please report: 0x%08x -> 0x%08x\n",
++			old & ~GMAC_AN_CTRL_RAN, value & ~GMAC_AN_CTRL_RAN);
++#define REPORT_BIT(x) \
++		if (diff & GMAC_AN_CTRL_##x) \
++			pr_warn("dwmac: %8s %u -> %u\n", #x, \
++				!!(old & GMAC_AN_CTRL_##x), \
++				!!(value & GMAC_AN_CTRL_##x))
++		REPORT_BIT(ANE);
++		REPORT_BIT(SGMRAL);
++#undef REPORT_BIT
++	}
++
+ 	writel(value, ioaddr + GMAC_AN_CTRL(reg));
+ }
+ #endif /* __STMMAC_PCS_H__ */
+-- 
+2.47.3
+
 
