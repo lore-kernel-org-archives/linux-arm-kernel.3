@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C26CCF2E6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 993A1CCF2DF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mTCKCT93GI9EdzPMoHVhr+p8JOi+wBNYKIOD9w0jDOA=; b=NoUT8ssz5ckZwHjvlc35SNXebn
-	6ScpJSf4wTGXR8EwiS34LuX16p81TV/fKqJ8MQhM0NIZqEpTLlzNc6bDYpul4AaUy5imb9a4vtdev
-	Nr0kbO1dzubw4ma0HXxkrNegZJ8Ji7ltAskJMPf17DKRpiwLwWtCvJoC894vZv+Wwr+DXyJ/jSErX
-	q5kWu/CCXFTm84nHNiqvnPvcuTpIJY8FOvJHpGzzky0En9iYacGtOvAI0PJH9guL/67dN5ZOnR4Ya
-	x06t6vrq1r/0Sxj4i9WN6qnA/ajN71dDWXe52bzHHA182bUzyfBWWOiu/JLFSFLg+ZIOuKY8Hgbb/
-	mOojhTKQ==;
+	bh=tG2tbwvXoCZNYOOUFlBlhS6ihOyFKxVFh3nuuXiKJmU=; b=4x7rWyTWmdZHFUQ0Q1I31HS+4+
+	UAf9BTE7lP9eFZWxO47RTswXRF/gzq9WnMTzxSYRdi594oNU0Dn8r40PJLCFaGO+eEvrRxQHSUXze
+	fYmLyl8AHh9DWFfG4OXPmIQ5wB6pT7S84f/XXG7npuksox89dLP894+kRoz9ISrayvt2mOggJ/mrO
+	YDZax5TkLGkJjHjXNeTIYm7dsSFUygfmEtn5YI01Nnjhl42QZZyQfiHs1Hozvza93/tYAHnOlpKeE
+	W7azCiud2AH/kr84cJtsGB6xAsxSWWyC80lqNnPCsLr1Uul2jkityP7dd9PG6nkUcRSlMK+ddl7z+
+	iK6J74sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmwN-00000001pVT-1GpL;
-	Mon, 19 Jan 2026 10:56:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vhmwQ-00000001pXf-1y63;
+	Mon, 19 Jan 2026 10:57:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmwM-00000001pTq-1FZK
+	id 1vhmwM-00000001pUJ-3ETE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 10:56:58 +0000
+	Mon, 19 Jan 2026 10:57:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 599DD6014E;
+	by sea.source.kernel.org (Postfix) with ESMTP id CD57444421;
 	Mon, 19 Jan 2026 10:56:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09132C4AF09;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8C23C19424;
 	Mon, 19 Jan 2026 10:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1768820217;
-	bh=Dm/szfHimmX0FDqaxAVh9kHmntpiqJjHXOSsKyz6SVc=;
+	bh=uTXpYO5WtXclYdggoann9HiinQtNq2ANggCc1hfRfek=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WPn17J6Tvl8EoN2zKl/y/GPQ/6B2Z2EQ2ZtlBkv9lAnBF9Nv1APoQ1zz8iq5ZWXK/
-	 eAyIsYZEAkqgbUNwUbgO9PgSSaJLJ41qXMowyfYevnklhe4pBpQKMJ1Olhvz4NMGtN
-	 taP7ECFW6I85rjGNOvzlC1kmf+3GdPkVd/s3fhpQ7rnmNuyKJsbp8mhV1VBIe0AlfN
-	 S2mwRBMiAEfHZ+IHaOAIe6C+g7PpTGKHKj30c8yEQqj9UgkYiF9G92yyEBnnIGdx+R
-	 nn0AdE93UbCXIe3GiZhGt2iv0L7d2VS3eZI02A/5+gcCh4UbHSkzfPl1srLIPOVqWZ
-	 bMLa3WHr036xg==
+	b=IwsATEUp/4Lvgj/M1nAevcyTnGN18Kcx878AvV6kkj8rKrRmCTfiJqizx21mVFM8A
+	 zQVR5QGIZSVrwpYNUKpE82eCdzFDxLvWl8YCIs+ukHArSxCfJ1YG/YjMyWXBGJvNYg
+	 DsaKVFunRHdvkghInB8lp9iZdAigCJe8yI/oxaNtby5MNItaNdP6161qy/iXE55S05
+	 EaWVI/SjlguW12PLgnlM1kJIHuC2dz1nrvoAE9XUKLOfcrKSD0AQdaES07uWQJmV/7
+	 otUDVgAyREspLQvu1yqjOCq45M3BWwMy3PtvRj8ONaJ2tx1hedeDnodWGDJ67chd0S
+	 B76A+j/b5m5rQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vhmwI-00000003YVK-3zmM;
+	id 1vhmwJ-00000003YVK-1gB3;
 	Mon, 19 Jan 2026 10:56:55 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Quentin Perret <qperret@google.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH 1/6] arm64: Add MT_S2{,_FWB}_AS_S1 encodings
-Date: Mon, 19 Jan 2026 10:56:46 +0000
-Message-ID: <20260119105651.255693-2-maz@kernel.org>
+Subject: [PATCH 3/6] KVM: arm64: Make stage2_pte_cacheable() return false when S2_AS_S1 is set
+Date: Mon, 19 Jan 2026 10:56:48 +0000
+Message-ID: <20260119105651.255693-4-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260119105651.255693-1-maz@kernel.org>
 References: <20260119105651.255693-1-maz@kernel.org>
@@ -70,6 +70,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, qperret@google.com, tabba@google.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260119_025658_835130_1A5797E3 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,59 +87,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pKVM usage of S2 translation on the host is purely for isolation
-purposes, not translation. To that effect, the memory attributes
-being used must be that of S1.
+We cannot tell from the S2 attributes whether what we map is memory
+or not when S2_AS_S1 is set, and issuing a CMO on device memory may
+not be the best idea.
 
-With FWB=0, this is easily achieved by using the Normal Cacheable
-type (which is the weakest possible memory type) at S2, and let S1
-pick something stronger as required.
-
-With FWB=1, the attributes are combined in a different way, and we
-cannot arbitrarily use Normal Cacheable. We can, however, use a
-memattr encoding that indicates that the final attributes are that
-of Stage-1.
-
-Add these encoding and a few pointers to the relevant parts of the
-specification. It might come handy some day.
+In this particular case, pretend that the mapping isn't cacheable.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/memory.h | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/hyp/pgtable.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memory.h
-index 9d54b2ea49d66..a2b7a33966ff1 100644
---- a/arch/arm64/include/asm/memory.h
-+++ b/arch/arm64/include/asm/memory.h
-@@ -175,19 +175,24 @@
- #define MT_DEVICE_nGnRE		4
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 3c5f399b1b986..07561a227f75e 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -911,6 +911,14 @@ static void stage2_unmap_put_pte(const struct kvm_pgtable_visit_ctx *ctx,
+ static bool stage2_pte_cacheable(struct kvm_pgtable *pgt, kvm_pte_t pte)
+ {
+ 	u64 memattr = pte & KVM_PTE_LEAF_ATTR_LO_S2_MEMATTR;
++
++	/*
++	 * With S2_AS_S1, we have no idea whether the OA is actual memory or
++	 * a device. Don't even try a CMO on that.
++	 */
++	if (pgt->flags & KVM_PGTABLE_S2_AS_S1)
++		return false;
++
+ 	return kvm_pte_valid(pte) && memattr == KVM_S2_MEMATTR(pgt, NORMAL);
+ }
  
- /*
-- * Memory types for Stage-2 translation
-+ * Memory types for Stage-2 translation when HCR_EL2.FWB=0. See R_HMNDG,
-+ * R_TNHFM, R_GQFSF and I_MCQKW for the details on how these attributes get
-+ * combined with Stage-1.
-  */
- #define MT_S2_NORMAL		0xf
- #define MT_S2_NORMAL_NC		0x5
- #define MT_S2_DEVICE_nGnRE	0x1
-+#define MT_S2_AS_S1		MT_S2_NORMAL
- 
- /*
-- * Memory types for Stage-2 translation when ID_AA64MMFR2_EL1.FWB is 0001
-- * Stage-2 enforces Normal-WB and Device-nGnRE
-+ * Memory types for Stage-2 translation when HCR_EL2.FWB=1. Stage-2 enforces
-+ * Normal-WB and Device-nGnRE, unless we actively say that S1 wins. See
-+ * R_VRJSW and R_RHWZM for details.
-  */
- #define MT_S2_FWB_NORMAL	6
- #define MT_S2_FWB_NORMAL_NC	5
- #define MT_S2_FWB_DEVICE_nGnRE	1
-+#define MT_S2_FWB_AS_S1		7
- 
- #ifdef CONFIG_ARM64_4K_PAGES
- #define IOREMAP_MAX_ORDER	(PUD_SHIFT)
 -- 
 2.47.3
 
