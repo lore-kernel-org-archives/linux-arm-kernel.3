@@ -4,81 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A70D2ECE6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 21:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83FB2D2ECEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 21:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+zd79SvLMG1hly2QtcgDamJi4UDVLpEodKvpOQbHx3E=; b=NlhIvhex9Y0m3KUe0grD4zMKj0
-	SCdy5btzRxKsJOLksSpu4AJNRYiSo9HVhuRKGXk7CfrFIcg9Dyyqkp49jPrhTe+s3fw08MkSof052
-	ZdFB6CSwwWmePtn5QhArW1+Lssw4Z3VE29yR37XXbcTR/YLDuVZYDE+1HcZ1vUL01nrWNtlm5ixto
-	7v0bnNgMhcHDmNnxSMZuBxecc8/2emQ0r/o+KtFeQ7y7Hm4MX70GjJ+jfVYCnrBavkZn1YyLABsGW
-	xpn8D5Ximy5z63E71q0wT2S2CJ9HxMO++k6nkZSXP48USCAiQOFY+sspufrrmOzQoDPzOk6SlrHaC
-	NYlDMfOA==;
+	bh=AP5uij4auzaarNTMKGDAE5deLZectmAWZbcZ2tCl4Wo=; b=DZ57QdHJk0VmSJwZKUpelIr9ol
+	NOpYwxOB/FSAlF0QRWrTjprKKsKfPoSm2kdZ3I6TQRnVhHEv2Z82qn5+N5GNmEusvX6lt0VjZuKlf
+	cOIaFzArk69yrrW7pyFQfNMqWPXoP/6Ha7tmC3xS+ZIU9su5fyPHbYqlNXWbDNUnzkqsXkDPrD9lZ
+	W+Gtk8eBakdsYF9LwWpJAZTkHcIAWnqv9AqDKzW+9XgucyVAUeBDCOjZkLYTIRXJ+qK5FwjWQFs8i
+	wPUlqAtuoOeqAJnZIHfVNLOLWauv2LGykhqaYZJ9JIXpWS5W4/X4mHh3UWLpxixyJ9Prp5UfxuUc1
+	4lk3otHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhwf1-00000002sl7-3OLR;
-	Mon, 19 Jan 2026 21:19:43 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vhwjj-00000002tVW-3MXR;
+	Mon, 19 Jan 2026 21:24:35 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhweu-00000002sjG-3bYu
+	id 1vhwjf-00000002tTo-07aQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 21:19:39 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 80F661A29A6;
-	Mon, 19 Jan 2026 21:19:34 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5349460731;
-	Mon, 19 Jan 2026 21:19:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CB8AB10B68B40;
-	Mon, 19 Jan 2026 22:19:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1768857572; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=+zd79SvLMG1hly2QtcgDamJi4UDVLpEodKvpOQbHx3E=;
-	b=Cx1fTB/anyFkJSlJojV05GGAUS8Rrrj2qHPs3Cw9BTX1xfq2a0z1psGb46PsIiLjSWtdXG
-	6+3qiW2HEbVTQTvxQBBE+UuWJuWhvGMc0vYGoiYgklXHi2JgcgD3fJBWDdqGnWRU9npwcB
-	uR9urfBFw0wc2ShFmN9TPUAEcUf75mOjPy+SAjkkxHLu2EEwWt7Ywsodvqg7brBq/xl5D+
-	QURco2CNWXdR/C5VD8fo+1LMcE4l2zvNGfgv+QK/3Oluj1JCCC0ShO+jUu7Io0ignMKtJt
-	FkC+Jtrtqmhen15CTNLMjNxnMDBMqo3AIZrivQFMN0DcBqeELvnb+y4R9SVkGA==
-Mime-Version: 1.0
+	Mon, 19 Jan 2026 21:24:33 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2a3e76d0f64so28631875ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 13:24:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768857867; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DrBeOxXQynWG7XETP6qCiqvwM74scwjxcqw3bObReKTfD8UpPwr+Puw4PW2CRucQNt
+         qsl1IOoVkOWNotFi2jY2IgJFNsBrVOhBmTJ9QYogOh5OF0jsC/+wNxkjIDvhT9HersJ8
+         ZfQt34QVSyk0iuHVHvdldbc26vqfBX9VoXjcEa/YVi9KEC8iU94nMvybD63fn2tlnAjK
+         6VpCCsNMYWHi0Yfi4denvl1CRcjD/ylPd7xhrmHBNKOFDuErCv3zbPPmv29OTmT8KNKE
+         kdMYCV98umM2a0mRcP2RV579faP0CIgX3KLXgtqaqalUgCr60YH69PG9ntMMaBecyD3E
+         IeeQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=AP5uij4auzaarNTMKGDAE5deLZectmAWZbcZ2tCl4Wo=;
+        fh=oC1GR3btYAekOasoZKPayQCG6F7sszFISHiCIi3XsjQ=;
+        b=QP7V9N3prvr39y07DVM6rK85p2ukFW+WDCIYuBC/9b2HyBwxmopWYRCSJHES9dPOZH
+         Fx/JcccooY+f8xvqeSub0N9J825+ymErT5G2hw41+GgRgoe5SKj0QgEMsHZWqkfCmvk4
+         15DYDNjh85qVKzRUro+mUiHnS197EkX7ROK0rjUCJYcLab47eJSDMKoEXMr54ti5q1ZD
+         2a/7tMd8b5v3QaO0ja0NITWj86kxAZdwRZDWtcCmurhD47qCFoFN5a4hHTQD45/YQ+pl
+         rHoHIjfngew29IgvCO3YLhjoc+LO5DuK1A7PxN1T6qzcMHhRmb1Pdd0qWdMMrlTuAW0W
+         OCJg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20230601; t=1768857867; x=1769462667; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AP5uij4auzaarNTMKGDAE5deLZectmAWZbcZ2tCl4Wo=;
+        b=bJsohoTfefURwT4UVYR0lJQBNYYu1hVH+p8KqAlo1l/ChyobZoQzV0EI46XSh2y8cb
+         OY780fP/He9iHngLaX/tNeg8fJCQvicEZnrgUIO8Q4HSn7RI+tElLY1AKfu8yRpkIx9b
+         qM/xJIhbo55FUaghSfY8oyi5PGqbH5TxHpXuKwnQ45YNfybkewxw6vFLMeZnGiuOMqgs
+         0ylmd8tueA4b8qSIJHPZRhgxAfyCRgRb8kJ/xkMf5brYOsdA9I50ZElprXWWa9RIFY17
+         +1GvGKzfd3lU5lzpvdJUc/A2Xs5kkC57vSifgK7XAN6d7w9+8Am65FuTEvmaMpxRTlog
+         xJQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768857867; x=1769462667;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=AP5uij4auzaarNTMKGDAE5deLZectmAWZbcZ2tCl4Wo=;
+        b=Jbr1ARF/P9gOMtWAtc7jfXIkEM1H2PMvXuYkGqmDQ+OA5dgVFRekqXhjcwxncPRHkh
+         urTrPL+f8qS4KjWJqDCWuPbBEX9LkAXOm1jBHj20G46+Fd6bmxQ0lZn/IPTnA2XfuaxP
+         jo1PQnPV6xIBV9TA+OQRGo47EBWOSu1pnzrXfyW1+nCkHGFPYqtxyAsepIcFu9xCfTQy
+         er1d5HJzqmOvcHHTqVsB8Yfr74+IhAAUV9eYQ3mRHp0QgSHpY5rTOiF8LOeS2emeNTtv
+         qIeY2+yfDq7GlS/Jrcdu6E0qREjRq7kFOB30ZkQna0PvEKM26uNdj1Qsw8LkuDeq1vAd
+         VC6g==
+X-Forwarded-Encrypted: i=1; AJvYcCWeZmesEkC98uByeMiiwEVuRBRCtjTxXo9L7ozbajTmP4O54pMnG+zzx5BmuLmRPODZ7DsXqWBATUMoJ43cFvZ4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDtKX6/dJswYufREgObMmdT53VZbotDbYKC6tk9tPwg1/7LPYn
+	MnsVcvm1zuN53L4c2u7DHi18492l67Oz+wFMhnfHNCjDVcAUTzT/ah9HKKBmE83CtrFJGdKKNM6
+	OxT9ICH3TKzb/oWRCDNjjw3CdZjznB7k=
+X-Gm-Gg: AZuq6aK/QprZ3GIDQ4Dk59jzo4etXWIXZSW8gKHcXN2Yf3WlMUV+BhpVEjjq6GlCiAY
+	SRx2KIL66ZpyPVRgMm/Bibv2FnAMe2DsUYZ7SHkeqEDoEkys3elHO1SkLx/V12ZUi1jnl5NArzQ
+	g/NRWZ5kvzUdnaYLC2HfvaVx7iT6cgfZGGnGzQzapD4FGrN35Oh8rGz7Vzta99Po5kCirJQmjFJ
+	qVlrQn1mJx9JSq79fYrvwKaaBfSH1jZsH3yhdJjUj4d85PgrWzq/317peUsvVa+OUoMY/o++rhz
+	5+6pSuU5c6O/IExwPLo6x2Rh+VyxT7BrUc647Pw=
+X-Received: by 2002:a17:902:e787:b0:2a0:fb1c:144e with SMTP id
+ d9443c01a7336-2a700990c98mr136201155ad.7.1768857866821; Mon, 19 Jan 2026
+ 13:24:26 -0800 (PST)
+MIME-Version: 1.0
+References: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-3-v2-0-8d7a3dbacdf4@bootlin.com>
+ <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-3-v2-2-8d7a3dbacdf4@bootlin.com>
+ <CAFBinCBWUXNwEDCJNEmdCtOcGO9eVFfZFC9p9fpdRTesZ7xBSQ@mail.gmail.com> <DFNN251V4JL9.2ECEDGOKN8I4F@bootlin.com>
+In-Reply-To: <DFNN251V4JL9.2ECEDGOKN8I4F@bootlin.com>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Mon, 19 Jan 2026 22:24:15 +0100
+X-Gm-Features: AZwV_QgxI3L9klOeJM7lsCljCRIK_bf05uJfhQMd5VWt4KtGJ4pArfXR_EjKQn4
+Message-ID: <CAFBinCCz+MobtXYdiyWRBBFBDo77iULLOZ1p2i4fAVnpJ1NzJw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/6] drm/meson/dw-hdmi: convert to of_drm_find_and_get_bridge()
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux-mediatek@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 19 Jan 2026 22:19:26 +0100
-Message-Id: <DFSVOBV5UY37.3HTQHOJT3A40N@bootlin.com>
-Subject: Re: [PATCH v4 18/25] drm/tilcdc: Convert to DRM managed resources
-Cc: "Markus Schneider-Pargmann" <msp@baylibre.com>, "Bajjuri Praneeth"
- <praneeth@ti.com>, "Louis Chauvet" <louis.chauvet@bootlin.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
- <miguel.gazquez@bootlin.com>, "Herve Codina" <herve.codina@bootlin.com>,
- <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-omap@vger.kernel.org>
-To: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, "Jyri Sarha"
- <jyri.sarha@iki.fi>, "Tomi Valkeinen" <tomi.valkeinen@ideasonboard.com>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Russell King"
- <linux@armlinux.org.uk>, "Bartosz Golaszewski" <brgl@bgdev.pl>, "Tony
- Lindgren" <tony@atomide.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>,
- "Neil Armstrong" <neil.armstrong@linaro.org>, "Robert Foss"
- <rfoss@kernel.org>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
- "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.20.1
-References: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
- <20260116-feature_tilcdc-v4-18-2c1c22143087@bootlin.com>
-In-Reply-To: <20260116-feature_tilcdc-v4-18-2c1c22143087@bootlin.com>
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_131938_058976_1D92F9DC 
-X-CRM114-Status: GOOD (  22.76  )
+X-CRM114-CacheID: sfid-20260119_132431_136121_2D201915 
+X-CRM114-Status: GOOD (  24.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,154 +122,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Jan 16, 2026 at 6:02 PM CET, Kory Maincent (TI.com) wrote:
-> Convert the tilcdc driver to use DRM managed resources (drmm_* APIs)
-> to eliminate resource lifetime issues, particularly in probe deferral
-> scenarios.
->
-> This conversion addresses potential use-after-free bugs by ensuring
-> proper cleanup ordering through the DRM managed resource framework.
-> The changes include:
-> - Replace drm_crtc_init_with_planes() with drmm_crtc_alloc_with_planes()
-> - Replace drm_universal_plane_init() with drmm_universal_plane_alloc()
-> - Replace drm_simple_encoder_init() with drmm_simple_encoder_alloc()
-> - Remove manual cleanup in tilcdc_crtc_destroy() and error paths
-> - Remove drm_encoder_cleanup() from encoder error handling paths
-> - Use drmm_add_action_or_reset() for remaining cleanup operations
->
-> This approach is recommended by the DRM subsystem for improved resource
-> lifetime management and is particularly important for drivers that may
-> experience probe deferral.
->
-> Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
-> ---
->
-> Change in v4:
-> - Newt patch.
+Hi Luca,
 
-Why? Adding patches along the way does not help getting your series merged
-timely. If there's a good reason for adding a new patch, please mention it
-here.
+On Tue, Jan 13, 2026 at 6:31=E2=80=AFPM Luca Ceresoli <luca.ceresoli@bootli=
+n.com> wrote:
+[...]
+> >> @@ -789,8 +789,12 @@ static void meson_dw_hdmi_unbind(struct device *d=
+ev, struct device *master,
+> >>                                    void *data)
+> >>  {
+> >>         struct meson_dw_hdmi *meson_dw_hdmi =3D dev_get_drvdata(dev);
+> >> +       struct platform_device *pdev =3D to_platform_device(dev);
+> >> +       int irq =3D platform_get_irq(pdev, 0);
+> >>
+> >> +       devm_free_irq(dev, irq, meson_dw_hdmi);
+> > I have one question (so I can understand things better):
+> > is there a particular reason why you went with free'ing the IRQ
+> > instead of "just" masking it (so the hardware won't fire anymore of
+> > those IRQs)?
+>
+> One reason is symmetry: _bind requests the irq, so _unbind does the
+> reverse.
+>
+> Another is I don't have the hardware, so I wanted my changes to be as sma=
+ll
+> and clear as possible.
+Understood, thanks!
 
-> -void tilcdc_crtc_destroy(struct drm_crtc *crtc)
-> +static void tilcdc_crtc_destroy(struct drm_device *dev, void *data)
->  {
-> -	struct tilcdc_drm_private *priv =3D ddev_to_tilcdc_priv(crtc->dev);
-> +	struct tilcdc_drm_private *priv =3D (struct tilcdc_drm_private *)data;
+> In principle one could request/free the irq in probe/remove and then
+> enable/disable it in bind/unbind. Whether it would be a good or bad idea =
+I
+> don't know, but surely it would be more complex and I wouldn't want to do
+> it without any chance to test it on hardware.
 >
-> -	tilcdc_crtc_shutdown(crtc);
-> +	tilcdc_crtc_shutdown(priv->crtc);
+> Also, that would only optimize the case of multiple bind/unbind cycles,
+> which are not quite realistic without bridge hotplug. And brigde hotplug
+> does not exist yet in mainline, and when it will arrive it will be used
+> only for a few use cases.
 >
->  	flush_workqueue(priv->wq);
->
-> -	of_node_put(crtc->port);
-> -	drm_crtc_cleanup(crtc);
-> +	of_node_put(priv->crtc->port);
->  }
->
->  int tilcdc_crtc_update_fb(struct drm_crtc *crtc,
-> @@ -714,7 +714,6 @@ static void tilcdc_crtc_reset(struct drm_crtc *crtc)
->  }
->
->  static const struct drm_crtc_funcs tilcdc_crtc_funcs =3D {
-> -	.destroy        =3D tilcdc_crtc_destroy,
->  	.set_config     =3D drm_atomic_helper_set_config,
->  	.page_flip      =3D drm_atomic_helper_page_flip,
->  	.reset		=3D tilcdc_crtc_reset,
-> @@ -960,12 +959,27 @@ int tilcdc_crtc_create(struct drm_device *dev)
->  {
->  	struct tilcdc_drm_private *priv =3D ddev_to_tilcdc_priv(dev);
->  	struct tilcdc_crtc *tilcdc_crtc;
-> +	struct tilcdc_plane *primary;
->  	struct drm_crtc *crtc;
->  	int ret;
->
-> -	tilcdc_crtc =3D devm_kzalloc(dev->dev, sizeof(*tilcdc_crtc), GFP_KERNEL=
-);
-> -	if (!tilcdc_crtc)
-> -		return -ENOMEM;
-> +	primary =3D tilcdc_plane_init(dev);
-> +	if (IS_ERR(primary)) {
-> +		dev_err(dev->dev, "Failed to initialize plane: %pe\n", primary);
-> +		return PTR_ERR(primary);
-> +	}
-> +
-> +	tilcdc_crtc =3D drmm_crtc_alloc_with_planes(dev, struct tilcdc_crtc, ba=
-se,
-> +						  &primary->base,
-> +						  NULL,
-> +						  &tilcdc_crtc_funcs,
-> +						  "tilcdc crtc");
-> +	if (IS_ERR(tilcdc_crtc)) {
-> +		dev_err(dev->dev, "Failed to init CRTC: %pe\n", tilcdc_crtc);
-> +		return PTR_ERR(tilcdc_crtc);
-> +	}
-> +
-> +	tilcdc_crtc->primary =3D primary;
+> I hope this answers your question.
+Yes, I was curious whether you considered devm_free_irq() as the only
+"correct" approach (in this case I would have recommended a comment)
+or whether other approaches are fine too.
+This is useful knowledge for me in case we ever need to restructure the dri=
+ver.
 
-(*) see below
 
->
->  	init_completion(&tilcdc_crtc->palette_loaded);
->  	tilcdc_crtc->palette_base =3D dmam_alloc_coherent(dev->dev,
-> @@ -978,10 +992,6 @@ int tilcdc_crtc_create(struct drm_device *dev)
->
->  	crtc =3D &tilcdc_crtc->base;
->
-> -	ret =3D tilcdc_plane_init(dev, &tilcdc_crtc->primary);
-> -	if (ret < 0)
-> -		goto fail;
-> -
->  	mutex_init(&tilcdc_crtc->enable_lock);
->
->  	init_waitqueue_head(&tilcdc_crtc->frame_done_wq);
-> @@ -989,20 +999,12 @@ int tilcdc_crtc_create(struct drm_device *dev)
->  	spin_lock_init(&tilcdc_crtc->irq_lock);
->  	INIT_WORK(&tilcdc_crtc->recover_work, tilcdc_crtc_recover_work);
->
-> -	ret =3D drm_crtc_init_with_planes(dev, crtc,
-> -					&tilcdc_crtc->primary,
-> -					NULL,
-> -					&tilcdc_crtc_funcs,
-> -					"tilcdc crtc");
-> -	if (ret < 0)
-> -		goto fail;
-> -
->  	drm_crtc_helper_add(crtc, &tilcdc_crtc_helper_funcs);
->
-> +	ret =3D drmm_add_action_or_reset(dev, tilcdc_crtc_destroy, priv);
-> +	if (ret)
-> +		return ret;
-
-Not related to your patch, but if the dmam_alloc_coherent() (not visible in
-the diff) fails, tilcdc_crtc_destroy() won't be called. Is this intended?
-At first sight this drmm_add_action_or_reset() should be moved at (*), just
-after the allocation.
-
-However being not related to your patch I'd leave this for another series
-anyway, to avoid making this series a moving target.
-
-> +
->  	priv->crtc =3D crtc;
->  	return 0;
-> -
-> -fail:
-> -	tilcdc_crtc_destroy(crtc);
-> -	return ret;
->  }
-
-I find this patch hard to read and I think because it is converting
-multiple things at once. Splitting it in small steps would have been nice,
-even thought I'm not 100% sure it would have been doable.
-
-Nevertheless it looks correct, so:
-
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Best regards,
+Martin
 
