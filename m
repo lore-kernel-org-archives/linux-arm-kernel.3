@@ -4,70 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 020FCCA5FFB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 07:59:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E02ACA5FFB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 08:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=odYBAmI7A1xND3F1CEHiSfm0O9SF/F6FESR3WxalRZE=; b=vIykUwEwUUQKRTykxDxMRET7mV
-	tmjIMsXHDaTZgEGCSrTPcQVmbtENPGC1/f1PdRnx75Ea7zjTWoDHz7BscCWF3J8TL8U9v29KNUb8a
-	x3BCgBG/lg63rl/E12w1/g7AuxqiGeaFRAmf1TbBuD2kmtN8qGTT1RUzDHkcXUl78oGwL1u0Zl4AV
-	vqulRqEIE+KuRge9NW7ldpPFViNnjXPA8ZdOtgBrWj+zo374cb4vVfi2cbS8f90tnUVf0fSK8pMSn
-	NR3uIeIpfyKtGr/Ci8sEdQ6vBwfC0qYjMDARDTLBN4CCEirPqXGGXE1WLg2ydGJkTUKWiAdZwhHw7
-	gmReMMbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E5gMLbV/jw9kkirryyuOIwhlWMMVSVE/lAczumiLD0w=; b=Yj5G1P4wOMpXonH3e0Yzv+YN28
+	qMUG7OlSyWZVpXwSMRaMaFZIhTnzu8TheXGTrT8oNCJz0MWy05WMYADHkBLuvCmhOhdmRpD5fV3jy
+	cEBb805PG9Or4PPbh9U0EieSdTTtZH78tslNJ4I2FZFxD/Rns61VcTx6BHo9EVqQf/KRhpr1PUOzx
+	8HSFuPWd+1oFpNGV5tGgJLnPs84f2rJaQzYyfL3ksyWW+JmsKv3W3bW145jo7czteX6YoL2N+sfMn
+	X++Zb608xVME5RTMDFI2TalN/QEKztij3HoLGgT1bkAvT/1ddEyuntm3LIPatdatIN71bR/OPvENW
+	E40tc7vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhkAJ-00000001WtQ-3OOR;
-	Mon, 19 Jan 2026 07:59:13 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vhkDn-00000001X8T-0TXO;
+	Mon, 19 Jan 2026 08:02:47 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhkAD-00000001Wsz-07XR;
-	Mon, 19 Jan 2026 07:59:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1768809527; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=H4kbl8H5S0JYFUDLjASD8X6Dn99KuP+VgvZUhqXluUkB4+6JP0ndYFdhsdFYrOnlkQIBX13yLatpPSj6jLNltAmPwFxrTUOa6zlRAowTttZSF+3GYkX88y3SyHdNpnmvXG2xR1s98THAsLoaHA5ZiA84jjef9Ojdme/g7eY0kX0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1768809527; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=odYBAmI7A1xND3F1CEHiSfm0O9SF/F6FESR3WxalRZE=; 
-	b=I9+nEuzk8tZuhQysnv/repVxMhmk7VswwvpGT8FR4Hhp48vQUod093WIAV83Ox3qnQ6Q7KlsVO9AG7ZwlEVFbZEYn+wh7EJFAFL+RR6YT8JXvEaoCdlLviIew2nclU1YWuks6L2xvk3Cvt8itHwMTnBBEZwthcmKlG2BMNt8USU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768809527;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=odYBAmI7A1xND3F1CEHiSfm0O9SF/F6FESR3WxalRZE=;
-	b=ECLI3JB68OUyQfs8QQVSfPh7llzdfCfAXHIFPXHPPDMwdkl6NFMyOv0ICmQUbUFk
-	wBDd4kSAdJ/31mMo4wD4jvL3r/i9cI7oUOw9XmeN42ybRfnnWkxRT3yipwaYDCTfCzV
-	wfmKf7uIx9RfJ+K8AVoS2XQYhqgMtSUP49Q2BKW0=
-Received: by mx.zohomail.com with SMTPS id 1768809524878371.4482502788244;
-	Sun, 18 Jan 2026 23:58:44 -0800 (PST)
-Message-ID: <3082a454-31dc-42a2-85a6-0fd0c87bf31b@collabora.com>
-Date: Mon, 19 Jan 2026 08:58:37 +0100
+	id 1vhkDj-00000001X7j-3cFH
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 08:02:46 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-64b9cb94ff5so5848810a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 00:02:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768809761; cv=none;
+        d=google.com; s=arc-20240605;
+        b=fy3QC4/YTl8UIRwpvPvn6eIhugGYsGRmghtiGtEAp2JtzK4/XQ5VJHpcJEBoEXbIyz
+         Sf7hKdrbK+Trc7fISydpnB/+XOwqRzmFMYTx81NFeN4jhEjnpgDAj9+RFC4kHDccrv2Y
+         VWLn2lHlGeGrHSGjssTcGRUxdbjcO9nve8x9JBcGDNG2lctqZlttLMOF2VExXN1CSHqs
+         Ef/5/+iCTkVvRGDrU0/rDGOVmtsodOZyPgg+4dR3PeEt4+GOvrriS82EBEE2TrQNxqaS
+         /Aqg2dXMqkQI88BHq78AV7zJ0TH1WfBsRsuFfXN1CDapbOu5WYscbNSLg2vEmF+HOo/1
+         Qp+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=E5gMLbV/jw9kkirryyuOIwhlWMMVSVE/lAczumiLD0w=;
+        fh=MZ/NOTP2z1yK6XpVovTDVhA61IeBKWPTvrkjXfer/a8=;
+        b=Z8p49wd9fZVm1KCla3stqFoGOg7kvMCyxQ3s4cx40iFWVykvkvp8b8iz/BOENEurmI
+         UYC2JgpS7Q+mwYYyrU/qab4Arl8/Hek9dGy9uWhxeuWpz+aqNlWkp9HOs4upVI15F62Z
+         Qd7EZmkXTU9j4OJXRLEWyDg5bsQ3CKGB1ITDajb06BM3OeWebHdkGd3AYJSok8XL6ged
+         3NcL7Y0XLN2+lGdI0TOqxxSsHUD2KKh8wWZZOaZeWePxRBUpsbAjbRCU67Ni8/Jm2bw3
+         TdlLIqzGZsFDkCdFozAaALsdTC4oPv9naKryrhgKwjlUD2F+akRO566YB3+UqkmNAGpo
+         vqqg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768809761; x=1769414561; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=E5gMLbV/jw9kkirryyuOIwhlWMMVSVE/lAczumiLD0w=;
+        b=QQVFHD5PxlaK8bBj1JqD3H7bQR1RDit13SYtFOM3AWHr56VQnYWQz0sxF+/A7XHu8+
+         jZU7SU1VlqO0YKG0O4Dj9emU58A7DL3ph2BCHzV75rduSIpEXxr06ErtFQD9oGj4R3fm
+         BBDaQJ+YrgnmbMX1FLXseLHCm1kDC9y1Mjnc+DChI+GJxJzdhVYTb3bksewIN1Y3dUyx
+         zWIjU7C3bVS/qyufL7j7k5+HsLSFrhWD69za3PO83YLGS9Z3hFRcNO0y18D7hGIUABmU
+         idr2h49iA/+uGWtDJp1cRc2wyfzHwWn7boowdiad2xNrR2AnhProybjy2z0bKf4YTEk6
+         cJ7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768809761; x=1769414561;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=E5gMLbV/jw9kkirryyuOIwhlWMMVSVE/lAczumiLD0w=;
+        b=BvL5mAIa5sPNSjnq79HLHNnmPvpzeF5ZhGYkmrzTwddaLZ/+DcSzyQqG4M7gsLTrUG
+         NXLEF8jrpLGAxSck85M3PIPps42KqmF/vuv1rsG14LgL+zQSMLNtP194jei0tg3KXXLo
+         1V3vo4K9MmP1nYW2P2SBK6w8OfggU+UfjzAWN0Tpci8+lLNe3BTpsu8x6BBBgytn5orp
+         jrzBRKbbEArMZx9Vk5yF4lX8iI0b9ZtG46SyVv71aT6nvd2b7DNhsoMEMaCRa3GGQL86
+         bgiMaVzRa7e9c5afXr4ftzqRqMq1J4UsR88j+4rWJptE3cvkDkKPnK781KTDGOQQ07+V
+         Nw7w==
+X-Forwarded-Encrypted: i=1; AJvYcCUtNxVbroI7GjUb0e0R/qhgXCKimQMwB9w8v8CU44eXjilZMacGdrOn0XnB6vxJHQigukMbao4QzL2B7rF37PIb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqReLP0tNprGSNUHBrpqEfpE9Vm5rwTlC2ZWRNT12wfj/QHEqc
+	PUagnpodUKVzAYuK6chY+zJfi2NLewSxeZhq1YZLK7JkuoZwtNKVBn0JatqJ3onTGsRP5PH9+uH
+	Xjghu14mE9FuGa0IRThQyYpJUkH7jovo=
+X-Gm-Gg: AY/fxX4WWAKIGoAUzlrs5uot/jtfxpSeRm5fJrL6PtbNGmsjAAjyLBJM/DMwhVQLNRn
+	72LlwuvgxhnjwDkX8oCY37idZGzAz5JBEXNv+uInj18HHVgukNva6CmHcB+2j6xarvQYxcBNBD0
+	4mXuAS+tp5BRpreLdWh5rl+9Jcv60lDXcz1bXYTXOTzPM1LmiRval5oJusdD/uhStCbOrujBuuD
+	Hpojk2acl0FzrnTC3N1x2urCkpCFHSs6wF2m45QrRjw6bP65pKy15tQ2kD0gDRsj332DmPEDohl
+	uOy1Cf7rHdLtyfogvf1UPbm/BEL/Btq3W7T5Lvl/fUua4fLJd8bvxB9G3EK5JcJ7IvTCzljKZEX
+	Ck5oBN2mKkDBo6CNZQM/VpsgHIrder7RQG3M9hQ==
+X-Received: by 2002:a05:6402:2549:b0:64b:993f:ce05 with SMTP id
+ 4fb4d7f45d1cf-65452bd116fmr7271933a12.24.1768809761107; Mon, 19 Jan 2026
+ 00:02:41 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 3/6] iommu: Add verisilicon IOMMU driver
-To: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org
-Cc: iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
- kernel@collabora.com
-References: <20260114100922.149187-1-benjamin.gaignard@collabora.com>
- <20260114100922.149187-4-benjamin.gaignard@collabora.com>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <20260114100922.149187-4-benjamin.gaignard@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20260116151253.9223-1-jerrysteve1101@gmail.com>
+In-Reply-To: <20260116151253.9223-1-jerrysteve1101@gmail.com>
+From: Peter Robinson <pbrobinson@gmail.com>
+Date: Mon, 19 Jan 2026 08:02:29 +0000
+X-Gm-Features: AZwV_QjD9hcUQzta7ih2I8JDpblRClcNe5NlO_infM0IaHOPiePu7HjjLZlFx5U
+Message-ID: <CALeDE9OC7p6XMMwPk8_vsBe09RJHBK8KED=YAcykYqpQXzVfyQ@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: rockchip: Do not enable hdmi_sound node on
+ Pinebook Pro
+To: Jun Yan <jerrysteve1101@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, heiko@sntech.de, dsimic@manjaro.org, 
+	didi.debian@cknow.org, conor+dt@kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_235905_141299_99BAB5FB 
-X-CRM114-Status: GOOD (  32.00  )
+X-CRM114-CacheID: sfid-20260119_000243_906925_EBA48189 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,904 +117,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Le 14/01/2026 à 11:09, Benjamin Gaignard a écrit :
-> The Verisilicon IOMMU hardware block can be found in combination
-> with Verisilicon hardware video codecs (encoders or decoders) on
-> different SoCs.
-> Enable it will allow us to use non contiguous memory allocators
-> for Verisilicon video codecs.
-> If both decoder and this iommu driver are compiled has modules
-> there is undefined symboles issues so this iommu driver could
-> only be compiled has built-in.
+On Fri, 16 Jan 2026 at 15:13, Jun Yan <jerrysteve1101@gmail.com> wrote:
 >
-> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> Remove the redundant enabling of the hdmi_sound node in the Pinebook Pro
+> board dts file, because the HDMI output is unused on this device. [1][2]
+>
+> This change also eliminates the following kernel log warning, which is
+> caused by the unenabled dependent node of hdmi_sound that ultimately
+> results in the node's probe failure:
+>
+>   platform hdmi-sound: deferred probe pending: asoc-simple-card: parse error
+>
+> [1] https://files.pine64.org/doc/PinebookPro/pinebookpro_v2.1_mainboard_schematic.pdf
+> [2] https://files.pine64.org/doc/PinebookPro/pinebookpro_schematic_v21a_20220419.pdf
+>
+> Cc: stable@vger.kernel.org
+> Fixes: 5a65505a69884 ("arm64: dts: rockchip: Add initial support for Pinebook Pro")
+> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+Reviewed-by: Peter Robinson <pbrobinson@gmail.com>
+
+Looks good to me.
+
+>
 > ---
-> changes in version 12:
-> - Remove useless vsi_iommu_flush_tlb_all()
-> - Merge MAINTAINERS changes in the patch introducing VSI iommu driver
 >
->   MAINTAINERS               |   8 +
->   drivers/iommu/Kconfig     |  11 +
->   drivers/iommu/Makefile    |   1 +
->   drivers/iommu/vsi-iommu.c | 778 ++++++++++++++++++++++++++++++++++++++
->   include/linux/vsi-iommu.h |  21 +
->   5 files changed, 819 insertions(+)
->   create mode 100644 drivers/iommu/vsi-iommu.c
->   create mode 100644 include/linux/vsi-iommu.h
+> Changes in v2:
+> - Rewrite the description of change
+> - Link to v1: https://lore.kernel.org/linux-rockchip/20260112141300.332996-1-jerrysteve1101@gmail.com/
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts | 4 ----
+>  1 file changed, 4 deletions(-)
 >
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 0d044a58cbfe..d1d07f8de394 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -27320,6 +27320,14 @@ F:	drivers/media/v4l2-core/v4l2-isp.c
->   F:	include/media/v4l2-isp.h
->   F:	include/uapi/linux/media/v4l2-isp.h
->   
-> +VERISILICON IOMMU DRIVER
-> +M:	Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> +L:	iommu@lists.linux.dev
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
-> +F:	drivers/iommu/vsi-iommu.c
-> +F:	include/linux/vsi-iommu.h
-> +
->   VF610 NAND DRIVER
->   M:	Stefan Agner <stefan@agner.ch>
->   L:	linux-mtd@lists.infradead.org
-> diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
-> index 99095645134f..cfa712d2d035 100644
-> --- a/drivers/iommu/Kconfig
-> +++ b/drivers/iommu/Kconfig
-> @@ -384,6 +384,17 @@ config SPRD_IOMMU
->   
->   	  Say Y here if you want to use the multimedia devices listed above.
->   
-> +config VSI_IOMMU
-> +	bool "Verisilicon IOMMU Support"
-> +	depends on (ARCH_ROCKCHIP && ARM64) || COMPILE_TEST
-> +	select IOMMU_API
-> +	help
-> +	  Support for IOMMUs used by Verisilicon sub-systems like video
-> +	  decoders or encoder hardware blocks.
-> +
-> +	  Say Y here if you want to use this IOMMU in front of these
-> +	  hardware blocks.
-> +
->   endif # IOMMU_SUPPORT
->   
->   source "drivers/iommu/generic_pt/Kconfig"
-> diff --git a/drivers/iommu/Makefile b/drivers/iommu/Makefile
-> index 8e8843316c4b..f4043350d023 100644
-> --- a/drivers/iommu/Makefile
-> +++ b/drivers/iommu/Makefile
-> @@ -36,3 +36,4 @@ obj-$(CONFIG_IOMMU_SVA) += iommu-sva.o
->   obj-$(CONFIG_IOMMU_IOPF) += io-pgfault.o
->   obj-$(CONFIG_SPRD_IOMMU) += sprd-iommu.o
->   obj-$(CONFIG_APPLE_DART) += apple-dart.o
-> +obj-$(CONFIG_VSI_IOMMU) += vsi-iommu.o
-> diff --git a/drivers/iommu/vsi-iommu.c b/drivers/iommu/vsi-iommu.c
-> new file mode 100644
-> index 000000000000..aeb407047b95
-> --- /dev/null
-> +++ b/drivers/iommu/vsi-iommu.c
-> @@ -0,0 +1,778 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/* Copyright (C) 2025 Collabora Ltd.
-> + *
-> + * IOMMU API for Verisilicon
-> + *
-> + * Module Authors:	Yandong Lin <yandong.lin@rock-chips.com>
-> + *			Simon Xue <xxm@rock-chips.com>
-> + *			Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/compiler.h>
-> +#include <linux/delay.h>
-> +#include <linux/device.h>
-> +#include <linux/dma-mapping.h>
-> +#include <linux/errno.h>
-> +#include <linux/init.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/iommu.h>
-> +#include <linux/list.h>
-> +#include <linux/mm.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_iommu.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/slab.h>
-> +#include <linux/spinlock.h>
-> +#include <linux/vsi-iommu.h>
-> +
-> +#include "iommu-pages.h"
-> +
-> +struct vsi_iommu {
-> +	struct device *dev;
-> +	void __iomem *regs;
-> +	struct clk_bulk_data *clocks;
-> +	int num_clocks;
-> +	struct iommu_device iommu;
-> +	struct list_head node; /* entry in vsi_iommu_domain.iommus */
-> +	struct iommu_domain *domain; /* domain to which iommu is attached */
-> +	spinlock_t lock; /* lock to protect vsi_iommu fields */
-> +	int irq;
-> +};
-> +
-> +struct vsi_iommu_domain {
-> +	struct list_head iommus;
-> +	struct device *dev;
-> +	u32 *dt;
-> +	dma_addr_t dt_dma;
-> +	struct iommu_domain domain;
-> +	u64 *pta;
-> +	dma_addr_t pta_dma;
-> +	spinlock_t lock; /* lock to protect vsi_iommu_domain fields */
-> +};
-> +
-> +static struct iommu_domain vsi_identity_domain;
-> +
-> +#define NUM_DT_ENTRIES	1024
-> +#define NUM_PT_ENTRIES	1024
-> +#define PT_SIZE		(NUM_PT_ENTRIES * sizeof(u32))
-> +
-> +#define SPAGE_SIZE	BIT(12)
-> +
-> +/* vsi iommu regs address */
-> +#define VSI_MMU_CONFIG1_BASE			0x1ac
-> +#define VSI_MMU_AHB_EXCEPTION_BASE		0x380
-> +#define VSI_MMU_AHB_CONTROL_BASE		0x388
-> +#define VSI_MMU_AHB_TLB_ARRAY_BASE_L_BASE	0x38C
-> +
-> +/* MMU register offsets */
-> +#define VSI_MMU_FLUSH_BASE		0x184
-> +#define VSI_MMU_BIT_FLUSH		BIT(4)
-> +
-> +#define VSI_MMU_PAGE_FAULT_ADDR		0x380
-> +#define VSI_MMU_STATUS_BASE		0x384	/* IRQ status */
-> +
-> +#define VSI_MMU_BIT_ENABLE		BIT(0)
-> +
-> +#define VSI_MMU_OUT_OF_BOUND		BIT(28)
-> +/* Irq mask */
-> +#define VSI_MMU_IRQ_MASK		0x7
-> +
-> +#define VSI_DTE_PT_ADDRESS_MASK		0xffffffc0
-> +#define VSI_DTE_PT_VALID		BIT(0)
-> +
-> +#define VSI_PAGE_DESC_LO_MASK		0xfffff000
-> +#define VSI_PAGE_DESC_HI_MASK		GENMASK_ULL(39, 32)
-> +#define VSI_PAGE_DESC_HI_SHIFT		(32 - 4)
-> +
-> +static inline phys_addr_t vsi_dte_pt_address(u32 dte)
-> +{
-> +	return (phys_addr_t)dte & VSI_DTE_PT_ADDRESS_MASK;
-> +}
-> +
-> +static inline u32 vsi_mk_dte(u32 dte)
-> +{
-> +	return (phys_addr_t)dte | VSI_DTE_PT_VALID;
-> +}
-> +
-> +#define VSI_PTE_PAGE_WRITABLE		BIT(2)
-> +#define VSI_PTE_PAGE_VALID		BIT(0)
-> +
-> +static inline phys_addr_t vsi_pte_page_address(u64 pte)
-> +{
-> +	return ((pte << VSI_PAGE_DESC_HI_SHIFT) & VSI_PAGE_DESC_HI_MASK) |
-> +	       (pte & VSI_PAGE_DESC_LO_MASK);
-> +}
-> +
-> +static u32 vsi_mk_pte(phys_addr_t page, int prot)
-> +{
-> +	u32 flags = 0;
-> +
-> +	flags |= (prot & IOMMU_WRITE) ? VSI_PTE_PAGE_WRITABLE : 0;
-> +
-> +	page = (page & VSI_PAGE_DESC_LO_MASK) |
-> +	       ((page & VSI_PAGE_DESC_HI_MASK) >> VSI_PAGE_DESC_HI_SHIFT);
-> +
-> +	return page | flags | VSI_PTE_PAGE_VALID;
-> +}
-> +
-> +#define VSI_DTE_PT_VALID	BIT(0)
-> +
-> +static inline bool vsi_dte_is_pt_valid(u32 dte)
-> +{
-> +	return dte & VSI_DTE_PT_VALID;
-> +}
-> +
-> +static inline bool vsi_pte_is_page_valid(u32 pte)
-> +{
-> +	return pte & VSI_PTE_PAGE_VALID;
-> +}
-> +
-> +static u32 vsi_mk_pte_invalid(u32 pte)
-> +{
-> +	return pte & ~VSI_PTE_PAGE_VALID;
-> +}
-> +
-> +#define VSI_MASTER_TLB_MASK	GENMASK_ULL(31, 10)
-> +/* mode 0 : 4k */
-> +#define VSI_PTA_4K_MODE	0
-> +
-> +static u64 vsi_mk_pta(dma_addr_t dt_dma)
-> +{
-> +	u64 val = (dt_dma & VSI_MASTER_TLB_MASK) | VSI_PTA_4K_MODE;
-> +
-> +	return val;
-> +}
-> +
-> +static struct vsi_iommu_domain *to_vsi_domain(struct iommu_domain *dom)
-> +{
-> +	return container_of(dom, struct vsi_iommu_domain, domain);
-> +}
-> +
-> +static inline void vsi_table_flush(struct vsi_iommu_domain *vsi_domain, dma_addr_t dma,
-> +				   unsigned int count)
-> +{
-> +	size_t size = count * sizeof(u32); /* count of u32 entry */
-> +
-> +	dma_sync_single_for_device(vsi_domain->dev, dma, size, DMA_TO_DEVICE);
-> +}
-> +
-> +#define VSI_IOVA_DTE_MASK	0xffc00000
-> +#define VSI_IOVA_DTE_SHIFT	22
-> +#define VSI_IOVA_PTE_MASK	0x003ff000
-> +#define VSI_IOVA_PTE_SHIFT	12
-> +#define VSI_IOVA_PAGE_MASK	0x00000fff
-> +#define VSI_IOVA_PAGE_SHIFT	0
-> +
-> +static u32 vsi_iova_dte_index(u32 iova)
-> +{
-> +	return (iova & VSI_IOVA_DTE_MASK) >> VSI_IOVA_DTE_SHIFT;
-> +}
-> +
-> +static u32 vsi_iova_pte_index(u32 iova)
-> +{
-> +	return (iova & VSI_IOVA_PTE_MASK) >> VSI_IOVA_PTE_SHIFT;
-> +}
-> +
-> +static u32 vsi_iova_page_offset(u32 iova)
-> +{
-> +	return (iova & VSI_IOVA_PAGE_MASK) >> VSI_IOVA_PAGE_SHIFT;
-> +}
-> +
-> +static irqreturn_t vsi_iommu_irq(int irq, void *dev_id)
-> +{
-> +	struct vsi_iommu *iommu = dev_id;
-> +	unsigned long flags;
-> +	dma_addr_t iova;
-> +	u32 status;
-> +
-> +	if (pm_runtime_resume_and_get(iommu->dev) < 0)
-> +		return IRQ_NONE;
-> +
-> +	spin_lock_irqsave(&iommu->lock, flags);
-> +
-> +	status = readl(iommu->regs + VSI_MMU_STATUS_BASE);
-> +	if (status & VSI_MMU_IRQ_MASK) {
-> +		dev_err(iommu->dev, "unexpected int_status=%08x\n", status);
-> +		iova = readl(iommu->regs + VSI_MMU_PAGE_FAULT_ADDR);
-> +		report_iommu_fault(iommu->domain, iommu->dev, iova, status);
-> +	}
-> +	writel(0, iommu->regs + VSI_MMU_STATUS_BASE);
-> +
-> +	spin_unlock_irqrestore(&iommu->lock, flags);
-> +	pm_runtime_put_autosuspend(iommu->dev);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static struct vsi_iommu *vsi_iommu_get_from_dev(struct device *dev)
-> +{
-> +	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
-> +	struct device *iommu_dev = bus_find_device_by_fwnode(&platform_bus_type,
-> +							     fwspec->iommu_fwnode);
-> +
-> +	put_device(iommu_dev);
-> +
-> +	return iommu_dev ? dev_get_drvdata(iommu_dev) : NULL;
-> +}
-> +
-> +static struct iommu_domain *vsi_iommu_domain_alloc_paging(struct device *dev)
-> +{
-> +	struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
-> +	struct vsi_iommu_domain *vsi_domain;
-> +
-> +	vsi_domain = kzalloc(sizeof(*vsi_domain), GFP_KERNEL);
-> +	if (!vsi_domain)
-> +		return NULL;
-> +
-> +	vsi_domain->dev = iommu->dev;
-> +	spin_lock_init(&vsi_domain->lock);
-> +
-> +	/*
-> +	 * iommu use a 2 level pagetable.
-> +	 * Each level1 (dt) and level2 (pt) table has 1024 4-byte entries.
-> +	 * Allocate one 4 KiB page for each table.
-> +	 */
-> +	vsi_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32,
-> +					      SPAGE_SIZE);
-> +	if (!vsi_domain->dt)
-> +		goto err_free_domain;
-> +
-> +	vsi_domain->dt_dma = dma_map_single(vsi_domain->dev, vsi_domain->dt,
-> +					    SPAGE_SIZE, DMA_TO_DEVICE);
-> +	if (dma_mapping_error(vsi_domain->dev, vsi_domain->dt_dma)) {
-> +		dev_err(dev, "DMA map error for DT\n");
-> +		goto err_free_dt;
-> +	}
-> +
-> +	vsi_domain->pta = iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32,
-> +					       SPAGE_SIZE);
-> +	if (!vsi_domain->pta)
-> +		goto err_unmap_dt;
-> +
-> +	vsi_domain->pta[0] = vsi_mk_pta(vsi_domain->dt_dma);
-> +	vsi_domain->pta_dma = dma_map_single(vsi_domain->dev, vsi_domain->pta,
-> +					     SPAGE_SIZE, DMA_TO_DEVICE);
-> +	if (dma_mapping_error(vsi_domain->dev, vsi_domain->pta_dma)) {
-> +		dev_err(dev, "DMA map error for PTA\n");
-> +		goto err_free_pta;
-> +	}
-> +
-> +	INIT_LIST_HEAD(&vsi_domain->iommus);
-> +
-> +	vsi_domain->domain.geometry.aperture_start = 0;
-> +	vsi_domain->domain.geometry.aperture_end   = DMA_BIT_MASK(32);
-> +	vsi_domain->domain.geometry.force_aperture = true;
-> +	vsi_domain->domain.pgsize_bitmap	   = SZ_4K;
-> +
-> +	return &vsi_domain->domain;
-> +
-> +err_free_pta:
-> +	iommu_free_pages(vsi_domain->pta);
-> +err_unmap_dt:
-> +	dma_unmap_single(vsi_domain->dev, vsi_domain->dt_dma,
-> +			 SPAGE_SIZE, DMA_TO_DEVICE);
-> +err_free_dt:
-> +	iommu_free_pages(vsi_domain->dt);
-> +err_free_domain:
-> +	kfree(vsi_domain);
-> +
-> +	return NULL;
-> +}
-> +
-> +static phys_addr_t vsi_iommu_iova_to_phys(struct iommu_domain *domain,
-> +					  dma_addr_t iova)
-> +{
-> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-> +	phys_addr_t pt_phys, phys = 0;
-> +	unsigned long flags;
-> +	u32 dte, pte;
-> +	u32 *page_table;
-> +
-> +	spin_lock_irqsave(&vsi_domain->lock, flags);
-> +	dte = vsi_domain->dt[vsi_iova_dte_index(iova)];
-> +	if (!vsi_dte_is_pt_valid(dte))
-> +		goto unlock;
-> +
-> +	pt_phys = vsi_dte_pt_address(dte);
-> +	page_table = (u32 *)phys_to_virt(pt_phys);
-> +	pte = page_table[vsi_iova_pte_index(iova)];
-> +	if (!vsi_pte_is_page_valid(pte))
-> +		goto unlock;
-> +
-> +	phys = vsi_pte_page_address(pte) + vsi_iova_page_offset(iova);
-> +
-> +unlock:
-> +	spin_unlock_irqrestore(&vsi_domain->lock, flags);
-> +	return phys;
-> +}
-> +
-> +static size_t vsi_iommu_unmap_iova(struct vsi_iommu_domain *vsi_domain,
-> +				   u32 *pte_addr, dma_addr_t pte_dma,
-> +				   size_t size)
-> +{
-> +	unsigned int pte_count;
-> +	unsigned int pte_total = size / SPAGE_SIZE;
-> +
-> +	for (pte_count = 0;
-> +	     pte_count < pte_total && pte_count < NUM_PT_ENTRIES; pte_count++) {
-> +		u32 pte = pte_addr[pte_count];
-> +
-> +		if (!vsi_pte_is_page_valid(pte))
-> +			break;
-> +
-> +		pte_addr[pte_count] = vsi_mk_pte_invalid(pte);
-> +	}
-> +
-> +	vsi_table_flush(vsi_domain, pte_dma, pte_total);
-> +
-> +	return pte_count * SPAGE_SIZE;
-> +}
-> +
-> +static int vsi_iommu_map_iova(struct vsi_iommu_domain *vsi_domain, u32 *pte_addr,
-> +			      dma_addr_t pte_dma, dma_addr_t iova,
-> +			      phys_addr_t paddr, size_t size, int prot)
-> +{
-> +	unsigned int pte_count;
-> +	unsigned int pte_total = size / SPAGE_SIZE;
-> +
-> +	for (pte_count = 0;
-> +	     pte_count < pte_total && pte_count < NUM_PT_ENTRIES; pte_count++) {
-> +		u32 pte = pte_addr[pte_count];
-> +
-> +		if (vsi_pte_is_page_valid(pte))
-> +			return (pte_count - 1) * SPAGE_SIZE;
-> +
-> +		pte_addr[pte_count] = vsi_mk_pte(paddr, prot);
-> +
-> +		paddr += SPAGE_SIZE;
-> +	}
-> +
-> +	vsi_table_flush(vsi_domain, pte_dma, pte_total);
-> +
-> +	return 0;
-> +}
-> +
-> +static size_t vsi_iommu_unmap(struct iommu_domain *domain, unsigned long _iova,
-> +			      size_t size, size_t count, struct iommu_iotlb_gather *gather)
-> +{
-> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-> +	dma_addr_t pte_dma, iova = (dma_addr_t)_iova;
-> +	unsigned long flags;
-> +	phys_addr_t pt_phys;
-> +	u32 dte;
-> +	u32 *pte_addr;
-> +	size_t unmap_size = 0;
-> +
-> +	spin_lock_irqsave(&vsi_domain->lock, flags);
-> +
-> +	dte = vsi_domain->dt[vsi_iova_dte_index(iova)];
-> +	/* Just return 0 if iova is unmapped */
-> +	if (!vsi_dte_is_pt_valid(dte))
-> +		goto unlock;
-> +
-> +	pt_phys = vsi_dte_pt_address(dte);
-> +	pte_addr = (u32 *)phys_to_virt(pt_phys) + vsi_iova_pte_index(iova);
-> +	pte_dma = pt_phys + vsi_iova_pte_index(iova) * sizeof(u32);
-> +	unmap_size = vsi_iommu_unmap_iova(vsi_domain, pte_addr, pte_dma, size);
-> +
-> +unlock:
-> +	spin_unlock_irqrestore(&vsi_domain->lock, flags);
-> +
-> +	return unmap_size;
-> +}
-> +
-> +static u32 *vsi_dte_get_page_table(struct vsi_iommu_domain *vsi_domain,
-> +				   dma_addr_t iova, gfp_t gfp)
-> +{
-> +	u32 *page_table, *dte_addr;
-> +	u32 dte_index, dte;
-> +	phys_addr_t pt_phys;
-> +	dma_addr_t pt_dma;
-> +	gfp_t flags;
-> +
-> +	dte_index = vsi_iova_dte_index(iova);
-> +	dte_addr = &vsi_domain->dt[dte_index];
-> +	dte = *dte_addr;
-> +	if (vsi_dte_is_pt_valid(dte))
-> +		goto done;
-> +
-> +	/* Do not allow to sleep while allocating the buffer */
-> +	flags = (gfp & ~GFP_KERNEL) | GFP_ATOMIC | GFP_DMA32;
-> +	page_table = iommu_alloc_pages_sz(flags, PAGE_SIZE);
-> +	if (!page_table)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	pt_dma = dma_map_single(vsi_domain->dev, page_table, PAGE_SIZE, DMA_TO_DEVICE);
-> +	if (dma_mapping_error(vsi_domain->dev, pt_dma)) {
-> +		dev_err(vsi_domain->dev, "DMA mapping error while allocating page table\n");
-> +		iommu_free_pages(page_table);
-> +		return ERR_PTR(-ENOMEM);
-> +	}
-> +
-> +	dte = vsi_mk_dte(pt_dma);
-> +	*dte_addr = dte;
-> +
-> +	vsi_table_flush(vsi_domain,
-> +			vsi_domain->dt_dma + dte_index * sizeof(u32), 1);
-> +done:
-> +	pt_phys = vsi_dte_pt_address(dte);
-> +	return (u32 *)phys_to_virt(pt_phys);
-> +}
-> +
-> +static int vsi_iommu_map(struct iommu_domain *domain, unsigned long _iova,
-> +			 phys_addr_t paddr, size_t size, size_t count,
-> +			 int prot, gfp_t gfp, size_t *mapped)
-> +{
-> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-> +	dma_addr_t pte_dma, iova = (dma_addr_t)_iova;
-> +	u32 *page_table, *pte_addr;
-> +	u32 dte, pte_index;
-> +	unsigned long flags;
-> +	int ret;
-> +
-> +	spin_lock_irqsave(&vsi_domain->lock, flags);
-> +
-> +	page_table = vsi_dte_get_page_table(vsi_domain, iova, gfp);
-> +	if (IS_ERR(page_table)) {
-> +		spin_unlock_irqrestore(&vsi_domain->lock, flags);
-> +		return PTR_ERR(page_table);
-> +	}
-> +
-> +	dte = vsi_domain->dt[vsi_iova_dte_index(iova)];
-> +	pte_index = vsi_iova_pte_index(iova);
-> +	pte_addr = &page_table[pte_index];
-> +	pte_dma = vsi_dte_pt_address(dte) + pte_index * sizeof(u32);
-> +	ret = vsi_iommu_map_iova(vsi_domain, pte_addr, pte_dma, iova,
-> +				 paddr, size, prot);
-> +	if (!ret)
-> +		*mapped = size;
-> +	spin_unlock_irqrestore(&vsi_domain->lock, flags);
-> +
-> +	return ret;
-> +}
-> +
-> +static void vsi_iommu_disable(struct vsi_iommu *iommu)
-> +{
-> +	writel(0, iommu->regs + VSI_MMU_AHB_CONTROL_BASE);
-> +}
-> +
-> +static int vsi_iommu_identity_attach(struct iommu_domain *domain,
-> +				     struct device *dev, struct iommu_domain *old)
-> +{
-> +	struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
-> +	unsigned long flags;
-> +	int ret;
-> +
-> +	ret = pm_runtime_resume_and_get(iommu->dev);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	spin_lock_irqsave(&iommu->lock, flags);
-> +	if (iommu->domain == domain)
-> +		goto unlock;
-> +
-> +	vsi_iommu_disable(iommu);
-> +	list_del_init(&iommu->node);
-> +
-> +	iommu->domain = domain;
-> +
-> +unlock:
-> +	spin_unlock_irqrestore(&iommu->lock, flags);
-> +	pm_runtime_put_autosuspend(iommu->dev);
-> +	return 0;
-> +}
-> +
-> +static const struct iommu_domain_ops vsi_identity_ops = {
-> +	.attach_dev = vsi_iommu_identity_attach,
-> +};
-> +
-> +static struct iommu_domain vsi_identity_domain = {
-> +	.type = IOMMU_DOMAIN_IDENTITY,
-> +	.ops = &vsi_identity_ops,
-> +};
-> +
-> +static void vsi_iommu_enable(struct vsi_iommu *iommu, struct iommu_domain *domain)
-> +{
-> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-> +
-> +	if (domain == &vsi_identity_domain)
-> +		return;
-> +
-> +	writel(vsi_domain->pta_dma, iommu->regs + VSI_MMU_AHB_TLB_ARRAY_BASE_L_BASE);
-> +	writel(VSI_MMU_OUT_OF_BOUND, iommu->regs + VSI_MMU_CONFIG1_BASE);
-> +	writel(VSI_MMU_BIT_ENABLE, iommu->regs + VSI_MMU_AHB_EXCEPTION_BASE);
-> +	writel(VSI_MMU_BIT_ENABLE, iommu->regs + VSI_MMU_AHB_CONTROL_BASE);
-> +}
-> +
-
-If needed I could add a patch or send a new version to add the following comment
-for vsi_iommu_restore_ctx()
-/**
-  * vsi_iommu_restore_ctx - Restore iommu context for AV1 decoder
-  *
-  * @domain: iommu domain attached to AV1 video decoder
-  *
-  * AV1 stateless decoder could decode multiple bistreams at same
-  * time and before decoding a frame it is needed to restore the iommu
-  * table to avoid mixing decode contexts.
-  */
-
-> +void vsi_iommu_restore_ctx(struct iommu_domain *domain)
-> +{
-> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-> +	struct list_head *pos;
-> +	unsigned long flags;
-> +
-> +	spin_lock_irqsave(&vsi_domain->lock, flags);
-> +
-> +	list_for_each(pos, &vsi_domain->iommus) {
-> +		struct vsi_iommu *iommu;
-> +
-> +		iommu = list_entry(pos, struct vsi_iommu, node);
-> +		if (!iommu)
-> +			continue;
-> +
-> +		spin_lock(&iommu->lock);
-> +
-> +		writel(VSI_MMU_BIT_FLUSH, iommu->regs + VSI_MMU_FLUSH_BASE);
-> +		writel(0, iommu->regs + VSI_MMU_FLUSH_BASE);
-> +
-> +		spin_unlock(&iommu->lock);
-> +	}
-> +
-> +	spin_unlock_irqrestore(&vsi_domain->lock, flags);
-> +}
-> +EXPORT_SYMBOL_GPL(vsi_iommu_restore_ctx);
-> +
-> +static int vsi_iommu_attach_device(struct iommu_domain *domain,
-> +				   struct device *dev, struct iommu_domain *old)
-> +{
-> +	struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
-> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-> +	unsigned long flags, flags2;
-> +	int ret = 0;
-> +
-> +	ret = pm_runtime_resume_and_get(iommu->dev);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	spin_lock_irqsave(&vsi_domain->lock, flags);
-> +	spin_lock_irqsave(&iommu->lock, flags2);
-> +
-> +	vsi_iommu_enable(iommu, domain);
-> +	writel(VSI_MMU_BIT_FLUSH, iommu->regs + VSI_MMU_FLUSH_BASE);
-> +	writel(0, iommu->regs + VSI_MMU_FLUSH_BASE);
-> +
-> +	list_del_init(&iommu->node);
-> +	list_add_tail(&iommu->node, &vsi_domain->iommus);
-> +
-> +	iommu->domain = domain;
-> +
-> +	spin_unlock_irqrestore(&iommu->lock, flags2);
-> +	spin_unlock_irqrestore(&vsi_domain->lock, flags);
-> +	pm_runtime_put_autosuspend(iommu->dev);
-> +	return ret;
-> +}
-> +
-> +static void vsi_iommu_domain_free(struct iommu_domain *domain)
-> +{
-> +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-> +	unsigned long flags;
-> +	int i;
-> +
-> +	spin_lock_irqsave(&vsi_domain->lock, flags);
-> +
-> +	WARN_ON(!list_empty(&vsi_domain->iommus));
-> +
-> +	for (i = 0; i < NUM_DT_ENTRIES; i++) {
-> +		u32 dte = vsi_domain->dt[i];
-> +
-> +		if (vsi_dte_is_pt_valid(dte)) {
-> +			phys_addr_t pt_phys = vsi_dte_pt_address(dte);
-> +			u32 *page_table = phys_to_virt(pt_phys);
-> +
-> +			dma_unmap_single(vsi_domain->dev, pt_phys,
-> +					 SPAGE_SIZE, DMA_TO_DEVICE);
-> +			iommu_free_pages(page_table);
-> +		}
-> +	}
-> +
-> +	dma_unmap_single(vsi_domain->dev, vsi_domain->dt_dma,
-> +			 SPAGE_SIZE, DMA_TO_DEVICE);
-> +	iommu_free_pages(vsi_domain->dt);
-> +
-> +	dma_unmap_single(vsi_domain->dev, vsi_domain->pta_dma,
-> +			 SPAGE_SIZE, DMA_TO_DEVICE);
-> +	iommu_free_pages(vsi_domain->pta);
-> +
-> +	spin_unlock_irqrestore(&vsi_domain->lock, flags);
-> +
-> +	kfree(vsi_domain);
-> +}
-> +
-> +static struct iommu_device *vsi_iommu_probe_device(struct device *dev)
-> +{
-> +	struct vsi_iommu *iommu = vsi_iommu_get_from_dev(dev);
-> +	struct device_link *link;
-> +
-> +	link = device_link_add(dev, iommu->dev,
-> +			       DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME);
-> +	if (!link)
-> +		dev_err(dev, "Unable to link %s\n", dev_name(iommu->dev));
-> +
-> +	dev_iommu_priv_set(dev, iommu);
-> +	return &iommu->iommu;
-> +}
-> +
-> +static void vsi_iommu_release_device(struct device *dev)
-> +{
-> +	struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
-> +
-> +	device_link_remove(dev, iommu->dev);
-> +}
-> +
-> +static int vsi_iommu_of_xlate(struct device *dev, const struct of_phandle_args *args)
-> +{
-> +	return iommu_fwspec_add_ids(dev, args->args, 1);
-> +}
-> +
-> +static const struct iommu_ops vsi_iommu_ops = {
-> +	.identity_domain = &vsi_identity_domain,
-> +	.release_domain = &vsi_identity_domain,
-> +	.domain_alloc_paging = vsi_iommu_domain_alloc_paging,
-> +	.of_xlate = vsi_iommu_of_xlate,
-> +	.probe_device = vsi_iommu_probe_device,
-> +	.release_device = vsi_iommu_release_device,
-> +	.device_group = generic_single_device_group,
-> +	.owner = THIS_MODULE,
-> +	.default_domain_ops = &(const struct iommu_domain_ops) {
-> +		.attach_dev		= vsi_iommu_attach_device,
-> +		.map_pages		= vsi_iommu_map,
-> +		.unmap_pages		= vsi_iommu_unmap,
-> +		.iova_to_phys		= vsi_iommu_iova_to_phys,
-> +		.free			= vsi_iommu_domain_free,
-> +	}
-> +};
-> +
-> +static const struct of_device_id vsi_iommu_dt_ids[] = {
-> +	{
-> +		.compatible = "verisilicon,iommu-1.2",
-> +	},
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, vsi_iommu_dt_ids);
-> +
-> +static int vsi_iommu_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct vsi_iommu *iommu;
-> +	int err;
-> +
-> +	iommu = devm_kzalloc(dev, sizeof(*iommu), GFP_KERNEL);
-> +	if (!iommu)
-> +		return -ENOMEM;
-> +
-> +	iommu->dev = dev;
-> +	spin_lock_init(&iommu->lock);
-> +	INIT_LIST_HEAD(&iommu->node);
-> +
-> +	iommu->regs = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(iommu->regs))
-> +		return -ENOMEM;
-> +
-> +	iommu->num_clocks = devm_clk_bulk_get_all(dev, &iommu->clocks);
-> +	if  (iommu->num_clocks < 0)
-> +		return iommu->num_clocks;
-> +
-> +	err = clk_bulk_prepare(iommu->num_clocks, iommu->clocks);
-> +	if (err)
-> +		return err;
-> +
-> +	iommu->irq = platform_get_irq(pdev, 0);
-> +	if (iommu->irq < 0)
-> +		return iommu->irq;
-> +
-> +	err = devm_request_irq(iommu->dev, iommu->irq, vsi_iommu_irq,
-> +			       IRQF_SHARED, dev_name(dev), iommu);
-> +	if (err)
-> +		goto err_unprepare_clocks;
-> +
-> +	dma_set_mask_and_coherent(dev, DMA_BIT_MASK(32));
-> +	platform_set_drvdata(pdev, iommu);
-> +
-> +	pm_runtime_set_autosuspend_delay(dev, 100);
-> +	pm_runtime_use_autosuspend(dev);
-> +	pm_runtime_enable(dev);
-> +
-> +	err = iommu_device_sysfs_add(&iommu->iommu, dev, NULL, dev_name(dev));
-> +	if (err)
-> +		goto err_runtime_disable;
-> +
-> +	err = iommu_device_register(&iommu->iommu, &vsi_iommu_ops, dev);
-> +	if (err)
-> +		goto err_remove_sysfs;
-> +
-> +	return 0;
-> +
-> +err_remove_sysfs:
-> +	iommu_device_sysfs_remove(&iommu->iommu);
-> +err_runtime_disable:
-> +	pm_runtime_disable(dev);
-> +err_unprepare_clocks:
-> +	clk_bulk_unprepare(iommu->num_clocks, iommu->clocks);
-> +	return err;
-> +}
-> +
-> +static void vsi_iommu_shutdown(struct platform_device *pdev)
-> +{
-> +	struct vsi_iommu *iommu = platform_get_drvdata(pdev);
-> +
-> +	disable_irq(iommu->irq);
-> +	pm_runtime_force_suspend(&pdev->dev);
-> +}
-> +
-> +static int __maybe_unused vsi_iommu_suspend(struct device *dev)
-> +{
-> +	struct vsi_iommu *iommu = dev_get_drvdata(dev);
-> +
-> +	vsi_iommu_disable(iommu);
-> +
-> +	clk_bulk_disable(iommu->num_clocks, iommu->clocks);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __maybe_unused vsi_iommu_resume(struct device *dev)
-> +{
-> +	struct vsi_iommu *iommu = dev_get_drvdata(dev);
-> +	unsigned long flags, flags2;
-> +	int ret;
-> +
-> +	ret = clk_bulk_enable(iommu->num_clocks, iommu->clocks);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (iommu->domain) {
-> +		struct vsi_iommu_domain *vsi_domain = to_vsi_domain(iommu->domain);
-> +
-> +		spin_lock_irqsave(&vsi_domain->lock, flags);
-> +		spin_lock_irqsave(&iommu->lock, flags2);
-> +		vsi_iommu_enable(iommu, iommu->domain);
-> +		spin_unlock_irqrestore(&iommu->lock, flags2);
-> +		spin_unlock_irqrestore(&vsi_domain->lock, flags);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static DEFINE_RUNTIME_DEV_PM_OPS(vsi_iommu_pm_ops,
-> +				 vsi_iommu_suspend, vsi_iommu_resume,
-> +				 NULL);
-> +
-> +static struct platform_driver rockchip_vsi_iommu_driver = {
-> +	.probe = vsi_iommu_probe,
-> +	.shutdown = vsi_iommu_shutdown,
-> +	.driver = {
-> +		   .name = "vsi_iommu",
-> +		   .of_match_table = vsi_iommu_dt_ids,
-> +		   .pm = pm_sleep_ptr(&vsi_iommu_pm_ops),
-> +		   .suppress_bind_attrs = true,
-> +	},
-> +};
-> +module_platform_driver(rockchip_vsi_iommu_driver);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_AUTHOR("Benjamin Gaignard <benjamin.gaignard@collabora.com>");
-> +MODULE_DESCRIPTION("Verisilicon IOMMU driver");
-> diff --git a/include/linux/vsi-iommu.h b/include/linux/vsi-iommu.h
-> new file mode 100644
-> index 000000000000..81a80f9219f4
-> --- /dev/null
-> +++ b/include/linux/vsi-iommu.h
-> @@ -0,0 +1,21 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * verisilicon iommu: simple virtual address space management
-> + *
-> + * Copyright (c) 2025, Collabora
-> + *
-> + * Written by Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> + */
-> +
-> +#ifndef _VSI_IOMMU_H_
-> +#define _VSI_IOMMU_H_
-> +
-> +struct iommu_domain;
-> +
-> +#if IS_ENABLED(CONFIG_VSI_IOMMU)
-> +void vsi_iommu_restore_ctx(struct iommu_domain *domain);
-> +#else
-> +static inline void vsi_iommu_restore_ctx(struct iommu_domain *domain) {}
-> +#endif
-> +
-> +#endif
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+> index 810ab6ff4e67..753d51344954 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
+> @@ -421,10 +421,6 @@ &gpu {
+>         status = "okay";
+>  };
+>
+> -&hdmi_sound {
+> -       status = "okay";
+> -};
+> -
+>  &i2c0 {
+>         clock-frequency = <400000>;
+>         i2c-scl-falling-time-ns = <4>;
+> --
+> 2.52.0
+>
 
