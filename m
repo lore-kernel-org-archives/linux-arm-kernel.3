@@ -4,65 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67F57D29C2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 14:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DACFD29C33
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 15:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aZl/3LBRGuygrsMUesz1uv7oRbCzQ9IRvv+zt7DRgeU=; b=H4nS6ldiZrvAYq8iutvNRt7yvn
-	rFJHHSLyqIHomSnCZNIN97CcsdCjG+yOXsB+Yqtj2HsBufvX7bpVlRECir2DK//ObXyKLPoJc4a6w
-	VPNcy480h297H8PYdvj4grj+LzH0jl0ZWvyDi3Z38D+90snasKQNfRBSlFDv60RzGTAQUKyuXAc5n
-	IfHRDiYRWVgfhK1hsDSmMKMiGNsNVJ4s4nsX4mAbpRxeSs1vRo9qrfMyrbq9va55QJVqlIZ0dgIgR
-	cScNGXNHb9+U4H3KRflWw8DBRTd8ojnyJZfP8ttzXv1UEyvza69nCpocqS+cFZMrPrMjxQafOdHHy
-	9jNKyXAw==;
+	bh=2IbXNhWIbZbrbqZXRIFNlWrdzKYdRYk3QnEEbv0798c=; b=33OHBmoSzApzNQncd2CW/r7tU8
+	/diXB5eEy2OBMO4MKmOE3LeWGPIG+BmyUdslCb30GV2Fx/TdIepeUtdUAbNiRWl8LqJNfqUT2Kwo3
+	JM/wt6OcHldqZtBYZ4QYecfVYfvYH56LU7doLEvJoEwFJmcmNy3LmTgkNuPFyw5LscMp7h3yBk9nD
+	eh4zzzoJLimYGIc0aVNAr0zwVZEb/N5GZCi23kKMXi7O29x0qvSV17Elbw+s5O4QRv4midlfZGBzE
+	iFZWGYuUxm8937zy35Pryc+lqV36GGgpl5RvoJWOyXL8V/4uRdodVpPBu85syp+zPd/Bgr36UueJ/
+	9bShD49w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhqda-00000002IZ1-2uKy;
-	Mon, 19 Jan 2026 14:53:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhqdY-00000002IYS-1qbR
+	id 1vhqkd-00000002IyB-2HJB;
+	Mon, 19 Jan 2026 15:01:07 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhqkZ-00000002IxA-0cGM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 14:53:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C89AFFEC;
-	Mon, 19 Jan 2026 06:53:40 -0800 (PST)
-Received: from bogus (e124108.arm.com [10.1.32.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 68D453F694;
-	Mon, 19 Jan 2026 06:53:45 -0800 (PST)
-Date: Mon, 19 Jan 2026 14:53:42 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: Trilok Soni <trilokkumar.soni@oss.qualcomm.com>,
-	Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, trilok.soni@oss.qualcomm.com
-Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
-Message-ID: <aW5Fdjag_w7i0zWN@bogus>
-References: <20260112-disable_smccc_soc_id-v1-1-a5bee24befb4@oss.qualcomm.com>
- <aWY6kx8Bwa_2azIl@bogus>
- <86331062-301b-40b1-9df1-78f7751508b4@oss.qualcomm.com>
- <aWgEDAlglnGrzdR4@bogus>
- <4fab824f-8067-49d7-8e6c-dedd67a8454d@oss.qualcomm.com>
- <aWoVR4oNdIHnksJQ@bogus>
- <92d90a1e-e993-4044-b152-83a8700f7b63@oss.qualcomm.com>
- <cb7326b9-91d9-44a3-b9f0-9d2e6ab5fa42@oss.qualcomm.com>
- <aWzuuwQi_nsHoj_5@bogus>
- <mzs5vq2jsrmb6kdriuxawbamyim6dhgy34ne6tucnhlalt5y3w@ghckxur3cn6m>
+	Mon, 19 Jan 2026 15:01:06 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-81ed3e6b8e3so2054514b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 07:01:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768834860; x=1769439660; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=2IbXNhWIbZbrbqZXRIFNlWrdzKYdRYk3QnEEbv0798c=;
+        b=imI39eN5PebfjVJkZH1IHzSUFtWpz4NjvyvaWJwirmdnkW7cbSzNQlsBGtSfsu0L2i
+         lfsC2SAU5ZCIzBqndS41JN6O1ZiNQRxw4nYH5IfYQHD5m33sch4EkVw0CWOyjL0dRPCc
+         NQimm7346wm34tIxwuqiRLU1O6H1jrdhj/2o6SqGgylzK8ay2WiaqwbB86kefcZov3WF
+         KskdWQbn7a6mJl1muzdGfP5cEHdv+NzcBA1qhl7eFj7u2lvjUvq5AKR8+rxyo2KXCquT
+         ZlEC5nMUFAt3WSapIatwuFXKgTAYvpmgP2rqvjBgZTBVzeLp+eUJs8Z8ob2nLRC9oGuO
+         DOlA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768834860; x=1769439660;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2IbXNhWIbZbrbqZXRIFNlWrdzKYdRYk3QnEEbv0798c=;
+        b=cwsdNMyLuYiXxDBJEg/oFc4pC8v61eOTuLG71fWDSpFk0aVZxtAz8t7zF/x52QAu5t
+         zbOt60bjMJS5mZZ4lZzDyHREqWOTRU9jdjH6LFSyCyoW4pJmkYF+PUPWzchvSXwhdEv8
+         YPG4u5GX27ZZkOfccy+nxRRKR7TYnpY3pa56SFALqWI+yh8Ga9CqpjHFtbCfI8KGleWA
+         q3kXRqmQlxckNM/bcO7rRMRZ5pf3Z8dfVDE2TM5Cw9HheH4eLVyKQjEu/f8M1g8l3zqg
+         NMonHe6AvA3YsTk2XDqnwZI4z4fh2fbRlULBKNWe8bg7u/saqtFe3Q4Q47O1WHHNnExw
+         2DXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVxx+ML4c2iHbx52IxHLk2X93eCS2tsdCoWZBbFo6SUEC3bfVeSIPDNIOGDMh8jSsPY+al9Rw8r2v3/4rgxuTsp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgEQQjookMGk/K75ph0fZbzca4mU2BH5K3zVwGBi8wP8vE+Vao
+	6qfAJBJ55nO9Z9Np3fH0kHe7dbc+rmj2ez3SZ8v1wxWJBQLtZY4KqeTZvUhWgrthMR8=
+X-Gm-Gg: AY/fxX6lskPG9RS8cly9qrRI9zoAVLYBzRkuYipl8DHqIIShRpa9eQoxftAu021QtK4
+	gNKQVzDhv2DKCbjAznZ6BUgabUDc8rRi8ZpJUO8So48QwvD45cf/yUymeiaDDGs2ff6XKDW6Key
+	JbLM4mEFY+Jl5YstfmdY6sOLsyO1OLSgGnH8t3L1Wt++pvrPVPVPCfCZNmJVjVB7wzxXuP1ahT5
+	g7LWT69767XL9rvnlhH9CoeZIBjVySTZuLfLbOS71N9w9zlSL3F0/j+pNadWCGp5PeXCffeT7iu
+	aHfCgLc48fGqmxVJICCCfai5thG3YRgv6AFpPi6srKjyuV4xYqv3xKFl027At8oSqlH2zE0ag7Z
+	rMdQF3Jx3QNVYKVKeygSX2eL/aetcumCHt3Hmk2sbTNFVF1vSgqSrS5TUHAcnyy+k5qQjhG7W/m
+	T4Gey+hDxYX91SzXj4cw==
+X-Received: by 2002:a05:6a21:1505:b0:38d:fad1:cf2a with SMTP id adf61e73a8af0-38e00bb969bmr10563241637.13.1768834858332;
+        Mon, 19 Jan 2026 07:00:58 -0800 (PST)
+Received: from draszik.lan ([212.129.73.116])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c5edf130f1csm9530167a12.0.2026.01.19.07.00.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Jan 2026 07:00:57 -0800 (PST)
+Message-ID: <6dde4f443be88d6fc412c08feb3e1f082c088118.camel@linaro.org>
+Subject: Re: [PATCH 3/3] clk: samsung: allow runtime PM with auto clock
+ gating
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki	
+ <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar
+	 <alim.akhtar@samsung.com>, Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus	
+ <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, Juan
+ Yescas <jyescas@google.com>, linux-samsung-soc@vger.kernel.org,
+ linux-clk@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Date: Mon, 19 Jan 2026 15:00:53 +0000
+In-Reply-To: <dfc3f6ee-08c8-4673-91c2-e9c863105753@kernel.org>
+References: <20260109-clk-samsung-autoclk-updates-v1-0-2394dcf242a9@linaro.org>
+	 <20260109-clk-samsung-autoclk-updates-v1-3-2394dcf242a9@linaro.org>
+	 <dfc3f6ee-08c8-4673-91c2-e9c863105753@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-2+build3 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <mzs5vq2jsrmb6kdriuxawbamyim6dhgy34ne6tucnhlalt5y3w@ghckxur3cn6m>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_065348_572535_6B5E8E27 
-X-CRM114-Status: GOOD (  44.41  )
+X-CRM114-CacheID: sfid-20260119_070103_448502_E380B04C 
+X-CRM114-Status: GOOD (  35.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,94 +108,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 18, 2026 at 03:16:50PM -0600, Bjorn Andersson wrote:
-> On Sun, Jan 18, 2026 at 02:31:23PM +0000, Sudeep Holla wrote:
-> > On Fri, Jan 16, 2026 at 03:53:57PM -0800, Trilok Soni wrote:
-> > > 
-> > > I believe that point(s) we have not touched upon are following:
-> > > 
-> > > There will be thousands of Android applications using the native interfaces
-> > > in the playstore in various regions like US and China and so on, which relies
-> > > on getting the SOC_ID to understand the product and enable / disable some features.
-> > > 
-> > > For example, benchmarks like GeekBench or Antutu may also be reading these
-> > > interfaces.
-> > > 
-> > > There are apps. in certain regions which are still not updated from "32-bit"
-> > > to 64-bit on Android yet as an example and there may be no way to reach out
-> > > to those developers to fix but apps. are still used by many users.  
-> > > 
-> > 
-> > Fair enough, but apps get updated on Android phones every day. So sorry if I
-> > don’t consider this as something impossible. I do understand many apps are not
-> > actively developed, yet that is no reason to say the wrong assumptions made by
-> > these apps are correct.
-> > 
-> 
-> It might be what you're saying is true, at least for the top-10
-> applications in the app store. But that is not how we manage or maintain
-> the userspace interface in the Linux kernel - we don't break userspace.
-> 
+Hi Krzysztof,
 
-Agreed, but I still think socX != soc0 and that is wrong assumption by the
-application. Anyways, if more people think it is user-space break, I accept
-it.
+On Sat, 2026-01-17 at 20:25 +0100, Krzysztof Kozlowski wrote:
+> On 09/01/2026 18:27, Andr=C3=A9 Draszik wrote:
+> > When automatic clock gating is enabled, runtime PM (RPM) isn't entered
+> > even if enabled for a CMU if a sysreg clock exists and is provided by
+> > this CMU (as is generally the case).
+> >=20
+> > The reason is that this driver acquires a CMU's sysreg registers using
+> > syscon_regmap_lookup_by_phandle() which ends up preparing the sysreg
+> > clock. Given the sysreg clock is provided by this CMU, this CMU's usage
+> > count is therefore bumped and RPM can not be entered as this CMU never
+> > becomes idle.
+> >=20
+> > Switch to using device_node_to_regmap() which doesn't handle resources
+> > (the clock), leaving the CMU's usage count unaffected.
+> >=20
+> > Note1: sysreg clock handling is completely removed with this commit
+>=20
+> I miss where do you remove in this commit the sysreg clock handling?
 
-> > > If we need to move all of these third-party applications to this new interface
-> > > then we have to "break them" before we fix them. Do we want to have such approach?
-> > > 
-> > 
-> > Sorry, which new interface are you referring to?
-> > Are we still talking about /sys/devices/socX/?
-> > If so, are you suggesting that X=0 and X=1 represent two different interfaces?
-> > If that’s the case, I honestly have no words.
-> > 
-> 
-> Please do have words, because I really would like to understand what the
-> expectation of userspace is in the even that there's both soc0 and soc1,
-> regardless of which is which.
-> 
+The CMU driver originally used syscon_regmap_lookup_by_phandle() for sysreg=
+,
+which does clk_get() and clk_prepare(), and then implicitly and for each
+register access clk_enable()/disable() for the clock specified in DT for th=
+e
+(sysreg) node.
 
-OK if we are going there, can we blame the firmware for exposing this
-information which is standard ? Sorry to repeat by firmware is exporting
-that info in OS agnostic way and other OSes use that as the information as
-it is standard way. Why can't we make Linux use or work with that information
-as that removes all these vendor specific fragmentation created over years.
-This point is orthogonal to user-space break.
+This commit changes it to using device_node_to_regmap(), which does nothing
+with the clock (or any other resources). I opted to have the CMU driver sti=
+ll
+do a clk_get(), so that the relationship is still visible, e.g. in
+$debugfs/clk/clk_summary.
 
-> What does it even mean to have two different socs presented here? How
-> would userspace know which one to refer to? Should it refer to both and
-> guess which one makes more sense to it?
-> 
+> > because sysreg register access is only required during suspend/resume.
+> > In the runtime suspend case, we would have to enable the clock to read
+> > the registers, but we can not do that as that would cause a resume of
+> > this driver which is not allowed. This is not a problem because we
+> > would only need to handle the clock manually if automatic clock gating
+> > wasn't enabled in the first. This code is only relevant if automatic
+> > clock gating is enabled, though.
+> >=20
+> > Fixes: 298fac4f4b96 ("clk: samsung: Implement automatic clock gating mo=
+de for CMUs")
+> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> > ---
+> > =C2=A0drivers/clk/samsung/clk.c | 92 ++++++++++++++++++++++++++++++++++=
++------------
+> > =C2=A0drivers/clk/samsung/clk.h |=C2=A0 2 ++
+> > =C2=A02 files changed, 71 insertions(+), 23 deletions(-)
+> >=20
+> > diff --git a/drivers/clk/samsung/clk.c b/drivers/clk/samsung/clk.c
+> > index 9f68f079fd552f8dfb6898dbfb47dec0e84c626c..6515df81fcbc79b90f52628=
+43e67575f6a4e0dda 100644
+> > --- a/drivers/clk/samsung/clk.c
+> > +++ b/drivers/clk/samsung/clk.c
+> > @@ -9,11 +9,13 @@
+> > =C2=A0 */
+> > =C2=A0
+> > =C2=A0#include <linux/slab.h>
+> > +#include <linux/clk.h>
+> > =C2=A0#include <linux/clkdev.h>
+> > =C2=A0#include <linux/clk-provider.h>
+> > =C2=A0#include <linux/io.h>
+> > =C2=A0#include <linux/mfd/syscon.h>
+> > =C2=A0#include <linux/mod_devicetable.h>
+> > +#include <linux/of.h>
+> > =C2=A0#include <linux/of_address.h>
+> > =C2=A0#include <linux/regmap.h>
+> > =C2=A0#include <linux/syscore_ops.h>
+> > @@ -489,6 +491,50 @@ void __init samsung_cmu_register_clocks(struct sam=
+sung_clk_provider *ctx,
+> > =C2=A0		samsung_clk_register_cpu(ctx, cmu->cpu_clks, cmu->nr_cpu_clks);
+> > =C2=A0}
+> > =C2=A0
+> > +static int samsung_get_sysreg_regmap(struct device_node *np,
+> > +				=C2=A0=C2=A0=C2=A0=C2=A0 struct samsung_clk_provider *ctx)
+> > +{
+> > +	struct device_node *sysreg_np;
+> > +	struct clk *sysreg_clk;
+> > +	struct regmap *regmap;
+> > +	int ret;
+> > +
+> > +	sysreg_np =3D of_parse_phandle(np, "samsung,sysreg", 0);
+> > +	if (!sysreg_np)
+> > +		return -ENODEV;
+> > +
+> > +	sysreg_clk =3D of_clk_get(sysreg_np, 0);
+>=20
+> I don't think you should be poking clock of some other device. This
+> clearly breaks encapsulation. What sysreg is needs to do to access
+> registers, is only business of sysreg. No other drivers should
+> re-implement this.
 
-Yes, the standard interface doesn't have much info though, so it could be
-union of it if the applications prefer that way.
+Similarly, to how other drivers (like UFS and peric/USI) also poke in
+the sysreg region in a similar way, the CMU related parts of sysreg are
+handled in this driver, though, as only the CMU driver knows how to
+configure them based on the gating (auto vs. manual).
 
-> 
-> To me, when you decided to add a second caller to soc_device_register()
-> you created a regression in the userspace interface. If nothing else
-> it's a leaky abstraction.
-> 
+No separate driver was sysreg was added when this code was introduced.
+The clk_get() used to be part of syscon_regmap_lookup_by_phandle(), and
+I chose to keep only that, as per above.
 
-In that case, shouldn't soc_device_register() made to give error when an
-attempt to call it more that one time then ? Also should be change the
-ABI documents to refer it as soc0 and not socX ?
+I propose to add an actual sysreg driver once the need arises, then
+this can also move, but for now keeping it here seems straight forward.
 
-> > > We should not have enabled this feature as "default y" in the first place and should
-> > > have kept it as "tristate" or kept it disabled in my opinion.
-> > > 
-> > 
-> > Sorry, but how do you envision this working with a single defconfig? Please
-> > consider the issues on platforms beyond the ones you’re focused on as well.
-> > 
-> 
-> Glad that we're on the same page regarding both defconfig and
-> our considerations.
-> 
+Is that OK with you?
 
-Thanks.
-
--- 
-Regards,
-Sudeep
+Cheers,
+Andre'
 
