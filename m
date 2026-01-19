@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E3CD29C54
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 17:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6914AD29C50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 18:00:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
 	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
 	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YR6+2Itn40lkRnr+OAS9zREnR4405rvByb0P/AItP0E=; b=GFwoG4iHyUy3EkcpvwmtkV8oSx
-	Z0kgvMyY9YnKXCkTNGF9q6nxOgSrOd5XxcpqSf+UK73vpj75e2Jx2BXjOYzbpfKfsWq3KuYfnYuMO
-	lUodmSISAM2C64JZmSfhXkmbw51IrSviA1K/Dd7q1eyu7fq1AlQamLFoaMCjIV6CNEqoXvQKHAvSo
-	4PVqbnzuN2kcie0N/snxSRVHTUOnOg8Vy810LX52WP+UHJIOmJQuspXlGAwn9SQ88GPwrrFGBYIx0
-	n6A8VklEPSBmLfbbHy4+OYi2Eh6wFcnxr0XmYxza4GTbiPiDYNW1Hd2uiPx148lnVPcL00OzZQYWS
-	jmfIdDpQ==;
+	bh=WBf2lasmqqjrfsbF6WKQjkm17EIQ2p9rHE9R1xVmfv4=; b=o85NIWwOzB+ESH63K+fFfyTP6V
+	MJQEOKQVhAjxeOdBfvr/jvFBQ61B8lY9u508MHXlGCKa967kF9z3e5xWiscKMnuNqE2rx7UgCiAJm
+	+fvs0+MFpaZM+qEZD30miFNbSFgcN1ACe+027Xnr0pWOYtpUre6LlI1nzw4E5UU76AAq3a8bNsj3o
+	WtS6cg2fiKhtb9In3dVuQBxRh9hzUzX97ClhFV8n5+mmz7d7F47LgrzOTPlHQqBEaUMABbOIHa6tI
+	NfYApmu4fr28qui9TfpBNMkFVq1xdAumY/i9cUiIvuUSBLTYNavlEh+XraCHSKHTyaFr0roFJqOt3
+	/eJp9veA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhtWV-00000002fyQ-3IgK;
-	Mon, 19 Jan 2026 17:58:43 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vhtYH-00000002gBb-1Ayg;
+	Mon, 19 Jan 2026 18:00:33 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhtWO-00000002fvB-24JK
+	id 1vhtYE-00000002gB4-0FHc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 17:58:39 +0000
+	Mon, 19 Jan 2026 18:00:31 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 06CE21A2998;
-	Mon, 19 Jan 2026 17:58:33 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id E7CCFC214D8;
+	Mon, 19 Jan 2026 17:59:59 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BC08160731;
-	Mon, 19 Jan 2026 17:58:32 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6D05710B682D3;
-	Mon, 19 Jan 2026 18:58:23 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6905960731;
+	Mon, 19 Jan 2026 18:00:26 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CA3D810B682D3;
+	Mon, 19 Jan 2026 19:00:18 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1768845511; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1768845624; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=YR6+2Itn40lkRnr+OAS9zREnR4405rvByb0P/AItP0E=;
-	b=ViZZYN+8ZA6EeG7KsC3ELuWixrmDwmHDTXz3U+7SrA4LgjdSwWjXCPqNp8XIowdvv677da
-	5Jp7DO+6d+qjAAJhuoeAWI2KZcoOwfKv/Y8v0GBENrBvc/VwUAgPp9+Ji+1G2u3tXANlqR
-	s0/8m4tHi49V9k/wLLPeluE1LdlNGllup5ozlTR4jiQUMyiCemL/PBcTg/LSgpNBeUeKn1
-	F38GQo9ntcGj3KoGFl8a42yZiwjavj0bZdGv4cHQpS0XmeH6Mmq+2YSnQNWjJYyRyxVkKT
-	qPkX1FWjDoDEQmh4uRlXSHBYL0MF3DEVVEFsQQO4q9e2t3Sn0eaHYjvdKdiaOQ==
+	bh=WBf2lasmqqjrfsbF6WKQjkm17EIQ2p9rHE9R1xVmfv4=;
+	b=GJLz99FuROhVPQbODGQoBmS8mQkJhHWgqwlB4dozNcQWeCn/sgZRLtTpvY1LDTWNwJs2Rk
+	Q+XON3cIQ+yRX282TPZuXCbz7bIyLua5y6Scd4xEcjwJ06TYhC/GWP+A0al5xyhsygUfSc
+	Suius3yeo98RjQHO1C7bVOYI6pwgJ2eKp4h8ub91LXxE/6q1XlcwDIVrg3i6FZcCTa1kSS
+	pIeYCVaCaD/GP2lcbshIEzNpQWfS0SQLQkYGNNCuoSQIuhaiIYB2vObKV70l9D4esLxKaX
+	OjKFHkZze15koeCsKB2EGcFkERJaoWpYrgDeEnLDV+3gtXrHXlDCr+FG7Vhr5Q==
 Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Date: Mon, 19 Jan 2026 18:58:22 +0100
-Message-Id: <DFSREDMLBHB0.30X5TCHNLAZ9B@bootlin.com>
-Subject: Re: [PATCH v4 25/25] rm/tilcdc: Add support for
- DRM_BRIDGE_ATTACH_NO_CONNECTOR
+Date: Mon, 19 Jan 2026 19:00:18 +0100
+Message-Id: <DFSRFUYPL99P.WTKNJRWA36F7@bootlin.com>
+Subject: Re: [PATCH v4 19/25] drm/tilcdc: Convert to drm_device-based
+ logging helpers
 Cc: "Markus Schneider-Pargmann" <msp@baylibre.com>, "Bajjuri Praneeth"
  <praneeth@ti.com>, "Louis Chauvet" <louis.chauvet@bootlin.com>, "Thomas
  Petazzoni" <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
@@ -74,12 +74,13 @@ To: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, "Jyri Sarha"
 From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
 X-Mailer: aerc 0.20.1
 References: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
- <20260116-feature_tilcdc-v4-25-2c1c22143087@bootlin.com>
-In-Reply-To: <20260116-feature_tilcdc-v4-25-2c1c22143087@bootlin.com>
+ <20260116-feature_tilcdc-v4-19-2c1c22143087@bootlin.com>
+In-Reply-To: <20260116-feature_tilcdc-v4-19-2c1c22143087@bootlin.com>
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_095837_455831_B15D1664 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20260119_100030_594823_5E2C34E2 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,53 +96,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Fri Jan 16, 2026 at 6:02 PM CET, Kory Maincent (TI.com) wrote:
-> Convert the driver to use the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag when
-> attaching bridges. This modernizes the driver by delegating connector
-> creation to the bridge subsystem through drm_bridge_connector_init()
-> instead of manually searching for connectors created by the bridge.
->
-> The custom tilcdc_encoder_find_connector() function is removed and
-> replaced with the standard drm_bridge_connector infrastructure, which
-> simplifies the code and aligns with current DRM bridge best practices.
->
-> This change is safe as there are now no in-tree devicetrees that
-> connect tilcdc to bridges which do not support the
-> DRM_BRIDGE_ATTACH_NO_CONNECTOR flag.
+> Replace dev_* logging calls with their DRM equivalents.
+> This aligns with the DRM subsystem's logging infrastructure and provides
+> better integration with DRM debugging mechanisms. The drm_* helpers
+> automatically include device information and integrate with DRM's
+> debug category filtering.
 >
 > Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 > ---
 >
-> Changes in v4:
-> - Select missing DRM_BRIDGE_CONNECTOR and DRM_DISPLAY_HELPER config
->   dependency in Kconfig
-> ---
->  drivers/gpu/drm/tilcdc/Kconfig          |  2 ++
->  drivers/gpu/drm/tilcdc/tilcdc_encoder.c | 37 ++++++++++++++-------------=
-------
->  2 files changed, 18 insertions(+), 21 deletions(-)
->
-> diff --git a/drivers/gpu/drm/tilcdc/Kconfig b/drivers/gpu/drm/tilcdc/Kcon=
-fig
-> index a36e809f984cd..80f53bdd0ace0 100644
-> --- a/drivers/gpu/drm/tilcdc/Kconfig
-> +++ b/drivers/gpu/drm/tilcdc/Kconfig
-> @@ -6,9 +6,11 @@ config DRM_TILCDC
->  	select DRM_KMS_HELPER
->  	select DRM_GEM_DMA_HELPER
->  	select DRM_BRIDGE
-> +	select DRM_BRIDGE_CONNECTOR
->  	select DRM_PANEL_BRIDGE
->  	select VIDEOMODE_HELPERS
->  	select BACKLIGHT_CLASS_DEVICE
-> +	select DRM_DISPLAY_HELPER
-
-It looks more logical to put DRM_DISPLAY_HELPER just before
-DRM_BRIDGE_CONNECTOR.
-
-Other than that this patch is de facto the same as v2 which I had already
-reviewed, so:
+> Change in v4:
+> - New patch.
 
 Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+
+But please avoid adding more patches to a v2+ series unless there is a
+specific need. It does not help getting it applied.
+
+Luca
 
 --
 Luca Ceresoli, Bootlin
