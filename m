@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD15CCF2E8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 11:26:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DEDCCF2E8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 11:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
+	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KzxmvniV3PmcTwS+Q39kTCoibmIgDO8OCYrkpr5hM6M=; b=FH6u0/cOoyfS7DgsdXhSEw5iku
-	ESDVIDT/jN5LR9LDiiXvD8N9uUb3IcMQOtjJn4ScWX4PgC0JCzvy36xYBKvjYWVSoeCxt61rVPe/v
-	vH//0UotADp7KdLwqgN138oiJGwFzOPVIVASEHG7nratBMcYWgN/gQnrubLBAp7JJ+r2F1t/umAi+
-	T/bwiZMZpWVFSwdMCB09IKyswLH9ZIBeR3jhuo4r0nxAfpzvzcaenuvnimtuc90DDThL4YG4rm+o4
-	z1sWQR0mMrOIUly+IsObSS+XRzIeuM23+/UvWfco0SbuyfvxiIBqaVQEgohZF5Rf+H4owZH4b+7g4
-	EZ94Kq6w==;
+	bh=jJFCPZlfc2d0XP2YZvhE7/lV60DrBLW++wy0oKt7axQ=; b=SqSmFaSNO4XZqxIWLvH8Amh72t
+	6aM3mjiV9up3xbMZckEg8Kdko2RAuPvdkyqzEMOMelMFx4jMzmba0T8tpATTYIbAroWQ3jI2B8ZOI
+	TQ8+s7sG5JGtQDQqqZj3v25jOnDulaM/bogqG6UX4pYY448JLI0bJDl/LiH9V7xL9x+tLsq4qs/k6
+	epeY0/lCthpz3LC6Dd5aBW4WYU885vbAytzV+Kf5r1oMcZecOIGSGymDcWJarYRWD5YgLqvExpMxA
+	juLmyRhu9La21wzw2W4LD60AlXp7YNrswSoZOFWQa7srYmmfrkyzuhnHUfg9QKVBoXACX/6tGLj05
+	Q64SOpGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhnOi-00000001tLp-1lrx;
-	Mon, 19 Jan 2026 11:26:16 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vhnP8-00000001tUD-1kCQ;
+	Mon, 19 Jan 2026 11:26:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhnOf-00000001tKm-0vev;
-	Mon, 19 Jan 2026 11:26:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1768821969;
-	bh=9xXr2PPFCbMYAU/BCfJhTb7zo31zXr8jOcsm9o5sKxo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=b68qylH5vYrHcYmu7kZWSePqZ4NRlzquFL65A1+lZ1jhUxXyiFEB6n4X/L15R7W6U
-	 GGB6Rxn0iF6qitYrxB2ZROwW4n/OK6/4xRXgK4ed/iqEIy8GgKLbp2FDjbCOvH+WVc
-	 B313y6B4FaM83UAlEd1EG10pnHev4fPaeeecvtyQnRFc2rJY7p+HlGT5eGfgaeEbie
-	 u/eGzD//9iUidd9lbN68WNVPa9i8sbGzc8tC1p+hHNVFD2pcGpKU8W3o8zKhTjD4SO
-	 +G/7u0SxygvY9scLKSUbLBpBfQObGc2HxflceTr7o8HFeFLwd3jQxLWCtMkX8Y4lBG
-	 NmsiIF2cqs2pw==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BE2BB17E1013;
-	Mon, 19 Jan 2026 12:26:08 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: robh@kernel.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, tudor.ambarus@linaro.org, 
- pratyush@kernel.org, mwalle@kernel.org, miquel.raynal@bootlin.com, 
- richard@nod.at, vigneshr@ti.com, lgirdwood@gmail.com, broonie@kernel.org, 
- matthias.bgg@gmail.com, julien.massot@collabora.com, 
- eugen.hristev@linaro.org, jiaxin.yu@mediatek.com, shane.chien@mediatek.com, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-mtd@lists.infradead.org, linux-sound@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- kernel@collabora.com
-In-Reply-To: <20260115125624.73598-1-angelogioacchino.delregno@collabora.com>
-References: <20260115125624.73598-1-angelogioacchino.delregno@collabora.com>
-Subject: Re: (subset) [PATCH 0/4] MediaTek MT8192 dtbs_check fixes
-Message-Id: <176882196871.27177.1302852396696042530.b4-ty@collabora.com>
-Date: Mon, 19 Jan 2026 12:26:08 +0100
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+	id 1vhnP2-00000001tR5-3TfB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 11:26:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3117B41996;
+	Mon, 19 Jan 2026 11:26:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE914C116C6;
+	Mon, 19 Jan 2026 11:26:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768821991;
+	bh=TRoYFafhv6XYbtQkSQrDP1VuW/VHQIo2+i4Os6bLwHs=;
+	h=Date:To:From:Subject:Cc:References:In-Reply-To:From;
+	b=l5ZSURRT9nh/iNJP+CEEkjm7D6tFTPPkk6CKCVRdP2iiQf85uUvxe3+WZYtnyIFk9
+	 rpI5wivHag132WVnVHOYItMfj1s1t2M6bJM6MqF/VIaQUI74kAWww9I1X0uScXLGIA
+	 QuLJaY7iyJ1ghVoNbJVvO1jAeakYmazsiAtd99FuayT/yWM70YaAV9ZBM7AbmgShUw
+	 uhCBzpfV2sVtxNg1R/IxbZx6hlPkoEXnBjj4LkatT2DEIQxIT/6hBWvUWH4gySFxc3
+	 S3qWf7aJsJ4gkrmhF0iJa0enabfTojzMWOvehsLySEGIH9rYKpCRT601kLyQtvBbyy
+	 ElAwngxihO8cg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 19 Jan 2026 12:26:25 +0100
+Message-Id: <DFSJ2AD562CP.1ZX1JO1F0Y1UU@kernel.org>
+To: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+Subject: Re: [PATCH 1/8] of: provide of_machine_get_compatible()
+Cc: "Rob Herring" <robh@kernel.org>, "Saravana Kannan"
+ <saravanak@kernel.org>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, "Christophe Leroy (CS GROUP)"
+ <chleroy@kernel.org>, "Shawn Guo" <shawnguo@kernel.org>, "Sascha Hauer"
+ <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Geert
+ Uytterhoeven" <geert+renesas@glider.be>, "Magnus Damm"
+ <magnus.damm@gmail.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linuxppc-dev@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
+ <imx@lists.linux.dev>, <linux-renesas-soc@vger.kernel.org>,
+ <linux-sunxi@lists.linux.dev>
+References: <20260119-soc-of-root-v1-0-32a0fa9a78b4@oss.qualcomm.com>
+ <20260119-soc-of-root-v1-1-32a0fa9a78b4@oss.qualcomm.com>
+In-Reply-To: <20260119-soc-of-root-v1-1-32a0fa9a78b4@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_032614_052550_E728EB10 
-X-CRM114-Status: UNSURE (   5.51  )
+X-CRM114-CacheID: sfid-20260119_032636_913256_7110B2E9 
+X-CRM114-Status: UNSURE (   9.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,29 +84,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 Jan 2026 13:56:20 +0100, AngeloGioacchino Del Regno wrote:
-> This series addresses most of the MediaTek MT8192 dtbs_check warnings
-> by adding a missing SPI NOR flash compatible string and fixing both
-> the audsys binding and devicetree node name.
-> 
-> AngeloGioacchino Del Regno (4):
->   dt-bindings: mtd: jedec,spi-nor: Add Winbond W25Q(32/64/128/256)JWM
->   ASoC: dt-bindings: mt8192-afe-pcm: Fix clocks and clock-names
->   dt-bindings: arm: mediatek: audsys: Support mt8192-audsys variant
->   arm64: dts: mediatek: mt8192: Rename mt8192-afe-pcm to
->     audio-controller
-> 
-> [...]
+On Mon Jan 19, 2026 at 11:40 AM CET, Bartosz Golaszewski wrote:
+> +/**
+> + * of_machine_get_compatible - Get the compatible string of this machine
+> + * @compatible: address at which the compatible string will be stored
+> + *
+> + * Returns:
+> + * 0 on success, negative error number on failure.
+> + */
+> +int of_machine_get_compatible(const char **compatible)
 
-Applied to v6.19-next/dts64, thanks!
+I think the name of this function is not ideal. 'get' usually indicates tha=
+t a
+reference count will be taken, but this is not the case here.
 
-[3/4] dt-bindings: arm: mediatek: audsys: Support mt8192-audsys variant
-      commit: a8e3d66ff5c0c37e7c10b3e486d2c5047bf9cf2b
-[4/4] arm64: dts: mediatek: mt8192: Rename mt8192-afe-pcm to audio-controller
-      commit: 25556c12f4d3edc2f614f752f204c3941697b30a
+I'm also not sure about the machine prefix. If we really want this helper I=
+'d
+suggest something along the lines of e.g. of_root_read_compatible().
 
-Cheers,
-Angelo
-
-
+> +{
+> +	return of_property_read_string(of_root, "compatible", compatible);
+> +}
+> +EXPORT_SYMBOL_GPL(of_machine_get_compatible);
 
