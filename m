@@ -4,80 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4202D29C41
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 509ACD29C43
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Adoni7U+JW+6kxJbdBVTTUo4httHbZfwZ7r5Q7Hb+3k=; b=AeYONehk55t1s7tL6S/8mOIP2M
-	REv57k5RSNyRYR6uhGarSlA6KwTCh23kBqyZLfibsCdVL0PZ8rjH1ztPbJzzX0S2PAzNixn0MOF+u
-	piR1RhqVTzQlSpcy6wWZ6MO1fjCTOwOpWJ3d07skjOWI33r2X+7pLEagj/gCDLGr2oWU3Okib3ZLA
-	yowP1i4knWpcURmkHJJlRcBsA6nzpFr0sISFISKb7+Y8+BHNp/lGlXab+NOHQZjIlZhAcdlXy4P3P
-	ewwne2C2oci2cwmnV1pBJFl6uAh9iYzyYfCP3hQqzoGL+80X97NkGquHIxw8TFCcSHFpwjVTB96ac
-	6MsVi+hA==;
+	bh=vI50eQf6ZTJwp39eVn8OjBLJTDVevhzLKKiHH1rRJpA=; b=Hb2hufLAN77n8N5vIKH3cgFhXI
+	Z0Ne9FiKqNCRZIOIe3EYYkUUdOQrzYW900zkysOoojqUkElpUpAOXdsKTZ2MeW6t/b2intvkxQr/2
+	pvRUS/Ykr+nZb+meUlV+xF0xh6TS+f5L01g/+ranTCPEfDAVhD9inczhOagxGOtCrCrueObSyCH9o
+	3n+Y8HsFWIkn+vdQr9hk8PezH9+eK0hzUDf4lNoKk7iv3V2HPDSVKs6EK/oIdnACqa/jHJuH5hOS3
+	rYAK8ueDwTJv9AdT2Bm2YqvIqeAjP0a4NXTY+hF73Pi9/5a7lr5ww/2nY5GbdaCN2u1z4AzPiq72Q
+	t8/ukk0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhs4C-00000002SqN-2cfI;
-	Mon, 19 Jan 2026 16:25:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vhs4n-00000002SwO-0xAj;
+	Mon, 19 Jan 2026 16:26:01 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhs49-00000002Spq-0riN;
-	Mon, 19 Jan 2026 16:25:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Adoni7U+JW+6kxJbdBVTTUo4httHbZfwZ7r5Q7Hb+3k=; b=JL8WPY7PEAqqGVghwhfEYiwWrd
-	s7NsOacr2rsNLKYDp+X/zzYW5h04Y+qd1XsTOHPYv1+hateqfuv5P0r45Jcr32MUHQyctqDJ5NZ64
-	qMfkRMdUuFRS813BlrIJylPgUkB0qPwl+ia5Ml6l6lXZCGNzbeukgt6EjbGfo44WIopPzZutDsvnu
-	VlCWHmNVrZw9z8+DExW561p+z0hR6ThWR05rH2knHopSKnhRDQwZEXUm1TJWvwxDrhHcgnOblmWMx
-	vAhJzlYIAi5nELcGuRLb0gYglQrfJZcL/3nbP1EPFtCDkrzTVB4E4ymeYEF/ExXxxJ/M7y5JMAcWc
-	nfFU3McQ==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhs46-0000000CVXD-11oo;
-	Mon, 19 Jan 2026 16:25:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C7137409B5;
-	Mon, 19 Jan 2026 16:25:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 194ABC116C6;
-	Mon, 19 Jan 2026 16:25:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768839916;
-	bh=j/bkmTbmdLODJy0m+kOcEDtfSshRy8Al7VaLx1xfKJM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rzbJZ/sqPK8LZRcCfK51VFqYITs/eIxzmFOUtQilWMFyOJ00K3WUpz8ZAoHulGn6K
-	 H/TElTzNjkmK0Z+BGhA3Qxikhtkcn5P8hKn+BWHZrSiv3XzttLCKldRlxTkRAboz0I
-	 ETo22/0US7qS+tlmH0kSyT8OQK6DK7dCO9/mPjxBm5SNzRT5Mb2oNnrkGePvbVLb64
-	 SPwpB5BGGNRUeE3tajkVVwOgQzvoUXcPzm/pn6KvB+85TgxQ2ay/4813PIzwl8Dp6t
-	 y394XHTa2lUY/StJ7Bi32OhsKOSLwCM20ci6cyN4xUNjpqdkcbDisJN9bwu5Jitlx+
-	 WrgtroedJn2TQ==
-Date: Mon, 19 Jan 2026 16:25:12 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Shawn Lin <shawn.lin@rock-chips.com>
-Cc: Aishwarya TCV <Aishwarya.TCV@arm.com>, linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko@sntech.de>,
-	"xuhui.lin@rock-chips.com" <xuhui.lin@rock-chips.com>
-Subject: Re: [PATCH] spi: rockchip: Use plain request_irq()
-Message-ID: <4406022b-11b5-4622-9662-5c3ba054e5ea@sirena.org.uk>
-References: <20260116-spi-rockchip-threaded-irq-v1-1-c45c3a5a38b1@kernel.org>
- <f8658bd7-7381-4770-935a-6a98ea3f652f@rock-chips.com>
- <a5b6c607-9b8c-4fa6-98c5-6ba848f7f2e2@sirena.org.uk>
- <9c9d2fa3-46f3-43e6-95d0-6b5ec6b6ea78@rock-chips.com>
+	id 1vhs4j-00000002Svk-24bc;
+	Mon, 19 Jan 2026 16:26:00 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60JABVF1011431;
+	Mon, 19 Jan 2026 16:25:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=vI50eQf6ZTJwp39eVn8OjBLJTDVevh
+	zLKKiHH1rRJpA=; b=GpyRMipc8yYPLPTgqrXJezDBYOkzvL0Q335Uc9doMYt0l6
+	RCp4tH1gLkjEwD0IWjg4uwExLBUZfCoTwq2d78ndn1vt1l6xdvy0TVsAGcFamnJh
+	UimomRxFamNzS7cQYb99IqDOLuuDRbgpuQLwgAfqSfxmXXN3RMUQko2/1n6OCy3J
+	bTW8gdQBX/DMyQFEkWmA0S3k417/86BKP2wAZDgSpVs58s99QVEiMtnRJO8MNpzi
+	Z0LxYj7qmAAsERtb74xUrAhDsPQjp8VDO9YwbPz5Ly7t//sKiyofk/5Aj5WPU0sw
+	qAugav10w5sXRP3ep1A84Dhyc9AZs44vFujE42QA==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4br1x51ae0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 19 Jan 2026 16:25:33 +0000 (GMT)
+Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 60JGPW64025324;
+	Mon, 19 Jan 2026 16:25:32 GMT
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4br1x51adv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 19 Jan 2026 16:25:32 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60JEPmPo001168;
+	Mon, 19 Jan 2026 16:25:31 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4brpyjfk5v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 19 Jan 2026 16:25:31 +0000
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60JGPR3B59769098
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 19 Jan 2026 16:25:27 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 500BD20040;
+	Mon, 19 Jan 2026 16:25:27 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 288A120043;
+	Mon, 19 Jan 2026 16:25:26 +0000 (GMT)
+Received: from osiris (unknown [9.87.131.46])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 19 Jan 2026 16:25:26 +0000 (GMT)
+Date: Mon, 19 Jan 2026 17:25:24 +0100
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Huacai Chen <chenhuacai@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+        "Jason A. Donenfeld" <Jason@zx2c4.com>,
+        Ard Biesheuvel <ardb@kernel.org>,
+        Jeremy Linton <jeremy.linton@arm.com>,
+        David Laight <david.laight.linux@gmail.com>,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v4 0/3] Fix bugs and performance of kstack offset
+ randomisation
+Message-ID: <20260119162524.28375Cf0-hca@linux.ibm.com>
+References: <20260119130122.1283821-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hDOzrXk8FzfWLT2w"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <9c9d2fa3-46f3-43e6-95d0-6b5ec6b6ea78@rock-chips.com>
-X-Cookie: Does not include installation.
+In-Reply-To: <20260119130122.1283821-1-ryan.roberts@arm.com>
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=R8AO2NRX c=1 sm=1 tr=0 ts=696e5afd cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VnNF1IyMAAAA:8 a=QVAD7q_TPxDeD0yiNCkA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: -kAVzvWzx4W2sBkw8LnTwcy6JfSLKstR
+X-Proofpoint-GUID: 2PAk8_huQTvYPwQqoxCEB_kXiirSTVWi
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE5MDEzNiBTYWx0ZWRfX0vwiAVnh0m8o
+ TN1OJE286oIsOfMdMqtyqliX72hzZM+QYqyDf55xO/ZDC7fpzaxev28IH+GQBhvKLnxp9o5+8RV
+ vFZCod14fsPV2mStukEkpQxASpqU4gIL2yizEB3LVeiulLuampK1tPr+aRybb7YY/XIFWiW6E0s
+ 9Jyd47KmspujIKQf0AlfacjdPuzdFrhvpf642lxg2B55NZNTTBvteTtXTj2KDjNJ+Ypbn94EV6M
+ N+wUpPaUtTNafOLP0E7Zlkfm0PcT9yoJ47jFIOfNR5DBBITH/qvRSR2pVLekOXIXB0b8VrwkX7N
+ dNKIZ+0P0+sOHeq5K0PeNLnVnOOW71+4ucnWBEEc0HEGVZsF1EsIx8spTyLJrNU7KOmnUW9uuLI
+ fXURsg2FxaYQOA6WN2q4VVvTaTTKbor317ib6c0hZC5KdFMjNCGOhBw0jFp+HmK/de6NFYUzLjo
+ 2B+B+1of2LNZXkJ6Xgw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-19_04,2026-01-19_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 priorityscore=1501 bulkscore=0 lowpriorityscore=0 adultscore=0
+ spamscore=0 phishscore=0 malwarescore=0 suspectscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2601150000 definitions=main-2601190136
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_162518_565699_43474A4D 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20260119_082557_542421_F74E25B3 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,45 +140,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 19, 2026 at 01:01:07PM +0000, Ryan Roberts wrote:
+> As I reported at [1], kstack offset randomisation suffers from a couple of bugs
+> and, on arm64 at least, the performance is poor. This series attempts to fix
+> both; patch 1 provides back-portable fixes for the functional bugs. Patches 2-3
+> propose a performance improvement approach.
+> 
+> I've looked at a few different options but ultimately decided that Jeremy's
+> original prng approach is the fastest. I made the argument that this approach is
+> secure "enough" in the RFC [2] and the responses indicated agreement.
+> 
+> More details in the commit logs.
+> 
+> 
+> Performance
+> ===========
+> 
+> Mean and tail performance of 3 "small" syscalls was measured. syscall was made
+> 10 million times and each individually measured and binned. These results have
+> low noise so I'm confident that they are trustworthy.
+> 
+> The baseline is v6.18-rc5 with stack randomization turned *off*. So I'm showing
+> performance cost of turning it on without any changes to the implementation,
+> then the reduced performance cost of turning it on with my changes applied.
 
---hDOzrXk8FzfWLT2w
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This adds 16 instructions to the system call fast path on s390, however
+some quick measurements show that executing this extra code is within
+noise ratio performance wise.
 
-On Sat, Jan 17, 2026 at 10:10:09AM +0800, Shawn Lin wrote:
-> =E5=9C=A8 2026/01/16 =E6=98=9F=E6=9C=9F=E4=BA=94 23:37, Mark Brown =E5=86=
-=99=E9=81=93:
-
-> > TBH it looked to me more like there'd been some deferral of more complex
-> > work at some point but that didn't make it into the final code.  In
-
-> Ah, indeed=EF=BC=8Crockchip_spi_isr() directly performs R/W pio in hardirq
-> context which doesn't seem advisable, so probably some better
-> improvement is needed in the furture. Anyway, fix the warning right
-> now as $subject patch looks sensible:
-
-Generally the best pattern with this stuff is to do PIO in process
-context - it looks like the driver already has a copybreak to use DMA
-for larger transfers on systems that have DMA support so this should
-only be happening for very short transfers in which case the context
-thrashing from going to interrupt context is probably hurting
-performance anyway.
-
---hDOzrXk8FzfWLT2w
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmluWucACgkQJNaLcl1U
-h9BGTAf8DqPxL9iRh4yImrQOrl1QKw9rS96zsLVc8Wb0wPJLTBUwuc+vX24CW1qG
-VbTXj7VulzvEMMLPPVu6MVFlOnUIeblYoyqIhvBx1BwBT6glaHECSlA/aoofxURZ
-QBKQxeTpqT1kJXz4BUnh9XPAwKc9rkDbLs849tvzFvuvq0Z9xk27Zq1U96YQCYgO
-8O4pShgAfU19mJUrSWltRw6EDMuNO2fCfPquUC3mqswLijINccPM9F0B71AhYAyb
-/vLRsZuI+TUpLwy7oNa7iZH97+gR3sIV/eunD24GgC1fAt91pFU2YTpxzsl6bdcw
-VPMiZK4jJxbF8PsPUVpZFtazIyswog==
-=+Uas
------END PGP SIGNATURE-----
-
---hDOzrXk8FzfWLT2w--
+Acked-by: Heiko Carstens <hca@linux.ibm.com> # s390
 
