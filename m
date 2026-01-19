@@ -4,79 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F98ECCF2D4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 09:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74523CCF2D4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 09:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWiUwsxWQVse/0dFHc7TFcpGZCdD9nBQalYokQPwvHY=; b=J2jD1rB89pb78aCS+GShL6OWVR
-	/UvZvqlc0DEpHnvUhVUo0ZAhsPtV0i7o6SW11kt0Z6U539gaZcgsERj2eqOu94WY0ZfDiWA+9W7qE
-	3oqZsacf/xTOLdoLlJjpFMMYlsXPO30a1scW4x5RIvNdWJiu9X8g8EEuSE6IJEYGcAltKsR9jPEhj
-	o55Bfo/opfAC9ZioX5Hbxgeybc9BDvHaCDp08gyijCWwL6PrG0HWr6ZS3NUK0Zq2FQQUe+vhkGfq9
-	EF3PBRKssIv25MfYu7WbHO4OE/CBz2vYGxkO7iG2P8Ja9XprDLFtC0ApmWLmmB8uACOw72zO0Tqrv
-	CegenhXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EPzEsRMbnQVQLXhpBp0Gdgel7pFOuyddfchCgCGUSRM=; b=I808w0wOOzzuIf+iXyEc6lwz6h
+	IeMmcJ2fXwTyR/FJzg6X7VYPZV+wkt8imYF94GSTesk+VBol04qM96eDhOVUbftSua0IYuF8LaOps
+	mfso1TLAoCYBFsLEOGTIlXzwgX8c1WpRgrhVOPMn+KsdRI2KbLcMdsvmgrIiuTLDaurZkF3EKWUBP
+	N4kYtEheFeRs2QqU4U98Agpo7iwV9JTlzHSjaJ6DDktfySXhEViK9Qin8Q9DH4pfLEUlGMi9Bw4Ln
+	Je5lT+4OmlWYLgPdO+a+vY5D8sUYbMCM1bHu+ij9CUj5g+2zGxq40FgETnmtivLepXIl6MOaOhwJr
+	K11TAYOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhlt5-00000001fHd-3QiG;
-	Mon, 19 Jan 2026 09:49:31 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vhlvS-00000001fVj-2u0I;
+	Mon, 19 Jan 2026 09:51:58 +0000
+Received: from mail-westeuropeazon11023075.outbound.protection.outlook.com ([52.101.72.75] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhlt0-00000001fGd-0hrg;
-	Mon, 19 Jan 2026 09:49:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1768816162;
-	bh=vfGiGmp2PdH5f0tFUDU3+Qm9AzHUk5W1M/IoRoNUp9Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=X1wOWmk+HqZ3o+yuvnz4zoLINLy96fjhwfx20qnTnvazW3q/Df+Z0mpBFK79I/MDi
-	 yCWeoYmhsN4Gcpkk7TZi4qyKp6r571c+roXjFVEYahJTKAmJM4HdOVMefL436d1lqj
-	 RQyUcp3ItKvQ8KsBwRWRzxx4FJ9VS0kYOSwBMk5BL4/moqujy4fY3WYwsD6Mwr2roX
-	 aofBRNG2hYn9T4LHdSfNNnI8UhrOqgIdwB1pfrWYjtz8ogt5wFVzHjZ3/JW5p29Ax+
-	 DkBjGZXK09vky3kBNYKiFTuXMmooZfLSq2Eav4IGkykh++ZOHyVCQo4hc6Flnc7HUA
-	 YR9jjoS/z01xA==
-Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2483017E1013;
-	Mon, 19 Jan 2026 10:49:21 +0100 (CET)
-Message-ID: <db2f0c20-ca7e-41c9-be08-67fd1f92c2af@collabora.com>
-Date: Mon, 19 Jan 2026 10:49:20 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] media: synopsys: add driver for the designware
- mipi csi-2 receiver
-To: Frank Li <Frank.li@nxp.com>
-Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
- Kever Yang <kever.yang@rock-chips.com>,
- Mehdi Djait <mehdi.djait@linux.intel.com>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Hans Verkuil <hverkuil@kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Collabora Kernel Team <kernel@collabora.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251114-rockchip-mipi-receiver-v5-0-45aa117f190a@collabora.com>
- <20251114-rockchip-mipi-receiver-v5-2-45aa117f190a@collabora.com>
- <aWpil6jI1Ad0DcEI@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <aWpil6jI1Ad0DcEI@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
+	id 1vhlvO-00000001fUG-3v4A
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 09:51:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kiviekS0vbG+TtNZ69mYRlbk/kklC+b/nNsx3/AsgahXoL/TzC8niJ6HNugaZHPlN2CklfdPFXGUNtrKNesqEydC8AsY7OZuucwJ4DJ48GdbXqu12GlYPkcMkAZ/dH/qBc18HIupi6YH0gsfnxfrRG6CcwMEskPRXOvnmgKXpCYwZTI7jC3OKtmdnI5xt+zlxQkxB+HqhDMI/OzCbRK4aUbXPYRqLheSYsgqmqLQYXroC+6gs4K4QSjPnJqF8OBAIX3HK9JV9aj89/n3W/gYEztxOkbTJpvMkrF9PU88lg++wV0DIeoyCjOnGp5oUkfYGXM64+QwvS0oZ48PNDmKbw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EPzEsRMbnQVQLXhpBp0Gdgel7pFOuyddfchCgCGUSRM=;
+ b=zLEuHToe/nbvrNRwnGbAOjp4DgEaDBj9PUERzdgn+63yRWqeSHFN58BirPS8yrLe48yR7ok+kYrIAmgKjZSGGlQQxG+VSyI8RDh4V1+5x8+inZZdMKv4bcCyzg6WQ3/mE5hEmKheL1kr4tTtaDPLmkSvJptBJENpLffurpP/iKtrHKl6u150/pgp3LOUPbcVvCe/wDOp14GL+zorlzOJcaUO1CLtHwtjmF/aidP7wXb8suvwbGHpcjixVLrFJ23yHCo9nPe54w/5bCr0J9Ekdd2Ntn76kgsDc97KnqpvBAIu9XV4Ar8g5w1BIoKajAD1trW1AMT01YBAan7AKdl3fw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vaisala.com; dmarc=pass action=none header.from=vaisala.com;
+ dkim=pass header.d=vaisala.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vaisala.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EPzEsRMbnQVQLXhpBp0Gdgel7pFOuyddfchCgCGUSRM=;
+ b=ZQfq6R4NgpDofOzIDQjP7ofSs9U8m5L0b87hSQUYMAym3iKNTkORVdFdg257ivvdRYFkHh09ZXMx7bZFK/oP3RoDG6FkfPKpmXTpneiZTtkN+at7UgZofj7yYzizoVu/1X3D8SZ88GF9uZRKkmqy0KzS72sJTcYaE3hgdas7eAcKGuIzVnBsNwRcWW2GBQpfxNY1Laeqd/COoF2O+ZFn9HYhIEENvHEA3SuNvQ365jC/nj4AgGDAjiaeXt6KTVft+wm9QGs2WYOqAV2d4XfIrZH8n1v9cKqi+Lv6Tx+Rq1mEXUlMsJ5wC+R+Ick6Ftli6gbCORsLofoG1EMaY9G/Gw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vaisala.com;
+Received: from AMBPR06MB10365.eurprd06.prod.outlook.com (2603:10a6:20b:6f0::7)
+ by VI1PR06MB8902.eurprd06.prod.outlook.com (2603:10a6:800:1dd::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Mon, 19 Jan
+ 2026 09:51:49 +0000
+Received: from AMBPR06MB10365.eurprd06.prod.outlook.com
+ ([fe80::4606:8e25:96e6:bede]) by AMBPR06MB10365.eurprd06.prod.outlook.com
+ ([fe80::4606:8e25:96e6:bede%5]) with mapi id 15.20.9520.009; Mon, 19 Jan 2026
+ 09:51:48 +0000
+From: Tomas Melin <tomas.melin@vaisala.com>
+Date: Mon, 19 Jan 2026 09:51:28 +0000
+Subject: [PATCH v3 2/6] rtc: zynqmp: correct frequency value
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260119-zynqmp-rtc-updates-v3-2-acd902fdeab1@vaisala.com>
+References: <20260119-zynqmp-rtc-updates-v3-0-acd902fdeab1@vaisala.com>
+In-Reply-To: <20260119-zynqmp-rtc-updates-v3-0-acd902fdeab1@vaisala.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Michal Simek <michal.simek@amd.com>
+Cc: linux-rtc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Tomas Melin <tomas.melin@vaisala.com>, 
+ Harini T <harini.t@amd.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768816307; l=910;
+ i=tomas.melin@vaisala.com; s=20251125; h=from:subject:message-id;
+ bh=3b3yY5Ig1J+IimHefHjVyESti/NVRS/8WygLbnbciQw=;
+ b=0CERSLCq5t7zdWtxt35tDKyDT5sjG+9ByjqmH1fWaqwJujsk+fgHbuMf8Bl8jVv877krUU6Vh
+ 5ip1lCBHD/ABynqEIKvEQrGNz8kE/sfd0iQ9YP35daTMn3GuM9VZR/s
+X-Developer-Key: i=tomas.melin@vaisala.com; a=ed25519;
+ pk=6lMiecjZ+OeyZuxYsDm/ADy9D1JKvYrKdsYv58PMepU=
+X-ClientProxiedBy: GV2PEPF00003827.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:144:1:0:5:0:6) To AMBPR06MB10365.eurprd06.prod.outlook.com
+ (2603:10a6:20b:6f0::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMBPR06MB10365:EE_|VI1PR06MB8902:EE_
+X-MS-Office365-Filtering-Correlation-Id: a26149d1-e2ff-4831-b8e2-08de57405d4f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?QVd5U1hXdWgxUElnMmhXTXlQQldWUkp6cTBickRDbjI1WkovVTM4Y3ZEV3h5?=
+ =?utf-8?B?ZGNud21tQlRBQzBJdnVZbGNuQnJaK1ZxMzQwNFozZTBKcTF3WjJYalRTanhj?=
+ =?utf-8?B?QWdNdHV2Vjl6dm1nemtRa2pLSS9RNFFGRWd2Zm9tVWxoMnV4Z254SC90K0E5?=
+ =?utf-8?B?TTQzcVNMZjVWbzNMd2xCQUhXYlBZbVpCcCtlbXNoUkIxaldHNjJwY2h4d0Rp?=
+ =?utf-8?B?SGpkZGg5M2dneVE0KzRyOElsNUlTWXUzSDUydFJ3SW5XSFg0UDIxVDcrQWcr?=
+ =?utf-8?B?Z2d6eDNXNkpoZjZSUDNKOC9UOHRrVlRwNXF2WllCSFFaWndFcmlMQnZ1QVFa?=
+ =?utf-8?B?Q3JXNGZaYy91OFcxQkt4b0xIdTFDN2w4bjlJSTlMQ0Z0LzYrNFZwSmh4TXMz?=
+ =?utf-8?B?T1B4WCtYZGlnbkNzLzdESTIwNmxENVRKRFZZa1NDTitqdW5zdGUrTTlmN0pu?=
+ =?utf-8?B?THNFZXdhUit1ZlZrVXQ1WGhXRC9qUUhjQ3drQjFkSmVNRS9QSWZ1NjNic1p3?=
+ =?utf-8?B?MnBWNTFJUmZXckZTS0gwdERlc2hRUXpRM0tSUzQ0UUtEVVlUOFlQNTVqUWFY?=
+ =?utf-8?B?aXVRR2pZRE1mODdXZkxqVDBnN2k4SmsrT045K1FRQnZPZUNOdnNjVUdkSlEv?=
+ =?utf-8?B?dmRPZ3ZZTng4OHN0R3Z2aWFUSGlUYWdEaytxVVlVd3JGMFBJYzBubU5xY0hG?=
+ =?utf-8?B?b2hac0JUczdRdmY5WnJNcFBSckxxaEZxcit1dk9aczMwV3graEpkWFZOYktX?=
+ =?utf-8?B?aW0rUWlXY1VTcHZYanh5MXg2OW85elJQbWFpU3BRa1FHWlh3REJXUG1PZFcx?=
+ =?utf-8?B?QVYwMzZwMmVhSWJXUUUzWUFMYnlHdE5KTVhGOXhFeTAxU1VuVDc5ZFkwb0dw?=
+ =?utf-8?B?OXk1WlVoTDZVb0k0VnY3OVJSeVFVQmNUQkZhZENuMVpLS3gvb3IzMmJjWU5G?=
+ =?utf-8?B?WUIrcUxDaXpCRGVwbkZhWFUrVklKVm1kL0k4bE1zNi94YjY4aXJLOVlBWVda?=
+ =?utf-8?B?cldkNytwQUtuYjlTdkdpTnFVL3ZkTzNvNEZhd0sxNHV4VWY4bEZaWGl5TVcv?=
+ =?utf-8?B?U25YVEhMOW5DTDlrOEdPSC96S2xiRnRoanRDS3Nva3c4TEwyVldvNUtMRHpS?=
+ =?utf-8?B?MDFYYnllSEFOTGYvaFBGYVZpUTBmRm96N21aWWNPZDhPaCtydTNabzZOWE91?=
+ =?utf-8?B?YjltNWtrYW55eUs3NnRUUmtUUHI4STJaaGlmc2YwTW9xRi9LU0NmdGcveWdn?=
+ =?utf-8?B?czNUcGxwYTNCMTllalZBa3hSZVlCNi9ud2JVRVJIMjV6OGNZMm9UaFhYa2Vo?=
+ =?utf-8?B?cjRxelRnVTdnS2liVmo1TmZEdFNTUnprRWlxNnZqYVdYUDdIUHZMMUVpSHhV?=
+ =?utf-8?B?aE5MQUVPUVFFMVFuZlpkU1F5VnBpQzlidUtKNERLZFMvZ2c2QnN5blZCb1Fn?=
+ =?utf-8?B?dFNmNXFZK0NXZkszcm1qbDFoZll4RGZvUGdrVGJsMVovZi81TUhraVN3RE8x?=
+ =?utf-8?B?eEZPWVpsNGFLb2ZuWmIyYVZyVC8wa3RCMWZhUENtN1R2S2ZPenZEY1l6OHda?=
+ =?utf-8?B?NlM0MFNFR1ljV1dGbGIxeFRKSDJrYUNmYk5hNS93R3o0VW8vNHgweW1ZcjJn?=
+ =?utf-8?B?YWNxc0FJZ3FZT3ZHWmVqYUMrdjVuRk1SYUJFVER0d2I3ZDlxamkrR290bUdo?=
+ =?utf-8?B?alZPVmUxcTVuYWhpbU0rai9GNTdHc3licnh0T25rUTFNbUxSU2Y4dVo1YVlz?=
+ =?utf-8?B?M2w0MmMwWlJWZ0ZCcnlmaVVHZkpWakJsV20zNnYvWDBNMDZYYXNldUc4bUNq?=
+ =?utf-8?B?eHFmL2dWTlB6RmcyRDlyOGFVOW5Xd21KQ3diR29OUEdLSnBDdEVhNE9HYW94?=
+ =?utf-8?B?bmVIbk1ESEV1MUJOMU1KSlNtVnFYbUhqM3J5UmxtSmlaZUwrTnhLODZoVEVm?=
+ =?utf-8?B?a2ZFcjlJU29Dd1ZQOXJFbEpVVUhXcVZGd2Roc29ZNkxhQ0tDQVpqOVQzandJ?=
+ =?utf-8?B?UmJ1NUw0WkNFWTJvUkRHM1lKY0hCMjQvWGxrcC8zWTVBeEZ0bTkzaDc5bkdH?=
+ =?utf-8?B?Y25OQ0RrUmZOTForRkF2SU9sWmhwRk52TG1JQmtoY1V5dHg2TTR1Y0R4dHFG?=
+ =?utf-8?B?SU1mN2hNTHc5ZTRNTzZYVklHUS9Qb2xpUDdXdSt5clhDWWRWVUtJQWlNWWV6?=
+ =?utf-8?Q?8dMnvNCjYmpxWM2PPrcQq48=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR06MB10365.eurprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WGNnZHpOSDlDY1l3OHkvN2l4aCs0Ym5jL3RjaTFQcHZROXRPaDFDRGIwVXZX?=
+ =?utf-8?B?S1ozVzNYU3l2d3pOdjc3WDdZQU1QNHJyZzdoYzBTZjZOQTRJb0wyc3REZWVa?=
+ =?utf-8?B?bU1XTDIvWk05R2VrOHNsVC9LNkJjWktlY05aOFJVdWR3TW1Oc0xWVDBRYnB4?=
+ =?utf-8?B?NWpvcHJxSTErMWlIaCtidFcxdGhSSEs2MG9rdXppUUUvZGRNRkNUcktnN3Fj?=
+ =?utf-8?B?T2VjM1h0OElYMlB5NEdla0c4RVZGalBNNlJMWkdmai9DK2RleFdBTGd3VVhh?=
+ =?utf-8?B?bzdOTm1Pd0VzVTNvang2THNzLytoTHBVTTdKQ3lZQnhiUlpRRnNtVjQ5TDJl?=
+ =?utf-8?B?eWUzMXplNUxrSDgvbHg1aS9JSmE3RFFFRkFCc21qemNGZStGN3BCNWEzb28w?=
+ =?utf-8?B?ZUZPV3dLcVVQNlNrL2szYnRUcE1KeDhLVlN4R3pCQ2ZQTno3Q09rMmo2eUIz?=
+ =?utf-8?B?SU9MQWpuNDZCZzJXV3JWeHgvQ2gycmk4Tmh0eDdqUCtET2cvWnMxVFQ0TnVY?=
+ =?utf-8?B?U09LSFJvNmNXZy85Q2h1aWZDcmpTQ0x3ZnVIZlJPT0dxVXBJYnpWSHJXYzc4?=
+ =?utf-8?B?a2tvUVdsUFRIbnpycndmbmQ4b3lpZHFDVk4rNW01QUNKQ1RtUjdSM3BnQjlB?=
+ =?utf-8?B?TmhUSVovTGRRSS9OZGI3VVJ2cHlWTHZ6dlh3TmN3VkxTNU9pMmtTVXBnU3Vj?=
+ =?utf-8?B?QjM0WjVrTTdGWElXZkJWZ0s5ai9TTXpXZVE0MTNHM2FFS3ZSUm9aTldZUzNI?=
+ =?utf-8?B?aGJRcy9Jd1ZiRWdQdFNSRENKTUd4cTNtSTZ4bDA5c3VUd0JaSXIyTmJ3ZERs?=
+ =?utf-8?B?M2ZrdVFQUUh4M1VnQzU3RUxsaEg0RlNYZ1ZlcXZYWUcxZVNmVFN0RWNLTVdN?=
+ =?utf-8?B?ZG1qOXRjTEJUL3lXNXo1c3l4ZFVVOXAwN3VULzRVUU53MERXVm1BM1JndGxv?=
+ =?utf-8?B?ZlZzT2pCWkRRRExxTTRodXZZMjN4dkgrcTFJTWdQK1QxYWlzWWxuVzNCcmlX?=
+ =?utf-8?B?Z0tydXFyRDgweW0xNGgxQzJHbFBkcGFGL1hpY29KSUFrdTNMeGVXVGNXV3lH?=
+ =?utf-8?B?MmNDSlVrSmwyU3pUWnRzcHVqNmlHbitQd1IvQUhmSXlCWDZGRHNmd1ovK3Nv?=
+ =?utf-8?B?MjU3WkpFVWMxanV0cjNsaDFEd25uZ201aGF6ZFVHSjBPeTdzaDQ2S3hYMlpF?=
+ =?utf-8?B?NitDK1pNWGdETEhUSER3LzJabzUzQjN5ejg0SFBQWUtSb3pUdEVsNGVRZlg0?=
+ =?utf-8?B?Z2VOdkNRZFVCVFRwUS9YaStWQ3ZyZmNuNUFvNTJKVjhnMkhPRVRVeC9QdkRX?=
+ =?utf-8?B?d09zbW5PZFZJNTJiY0NuemM0YVZPTTJuRkFZNjhqUFhxbW5zVDJOcWFCZFlh?=
+ =?utf-8?B?QjNmMXVDTituY1dOL2VkM2wzTk1PT0FTemZ4ZnpsL3laM3hGR3hxdjJVYXhJ?=
+ =?utf-8?B?d1hZOUcrOW9QTG5NNXJlbDJwdkpOOFNPT25OeUFsbjB2OU9od2JIV044UDdU?=
+ =?utf-8?B?c0dIV2R0Y0RROUZCTzlpcHBEOFA2dVM4WmpRTmRjeXJxb2k0bTI3T2JGWExJ?=
+ =?utf-8?B?bEhEQmFBYjRBdUJjZEJWRy9oMEg1L0FVSnlvSlZiS2NCbWZEY2xqY0l1aXgv?=
+ =?utf-8?B?YXVBaG13eGJDUXRlZjVCT0taeG5ZNkNDS2c1MVFSRndYSkd0UEFqak1ETG5h?=
+ =?utf-8?B?QXowZU1pNUdBK2Z0L2YzcWJKNWxNTDBrdElQRm8zZ056MnJQVmhidEE0LzI1?=
+ =?utf-8?B?bzJpdEVqRzEwNnlHMlI3cWx6L09IMVJ1WGRwRUJmQ3M5T2RQOU1UbzZJaTBR?=
+ =?utf-8?B?c3JQN1hNMTMxL1QxNG52Sk5BT2VCSFBJYW9oY1BXMDZXSFBzRGRRamtXU204?=
+ =?utf-8?B?Yk5lWEwwalNTVExGNGN1NHRHUEIycmZWc2lSOXJLKzZpc3c2L3Z1UDgwWGRO?=
+ =?utf-8?B?YzF0elJpVWwyWFJvNVg5SFhVSGVpdlNvZEFJdXNJN0FZVzUwSlVLMUo4Rkhp?=
+ =?utf-8?B?MEpjSjIyMklFNGxtQXkzMDlQVmczRENpZUpsRXg1UVJPVVU4MzMvajhhUnda?=
+ =?utf-8?B?MHVMZG9ydUsvTHNJcGJzQXJieVBtSC9kMkRGU2gvNG40UXVTOHd3MzVCQmlT?=
+ =?utf-8?B?aUtTYU90d0RTa3FJbDY4UXN6b1BJQjNLdXJ0RDg1RTZwYXpORFFjOW1ZQlNn?=
+ =?utf-8?B?ZXR3Vnp2TGFvRlYwaENHS2g5VUpodHYxV2pydVhxUU96QTRsckk2Tkptdi9V?=
+ =?utf-8?B?WlRKaFpSOHd6T01yQjRoeGo4Qm9nRDVGbEw0VnFFOGtXdnpBZStPbVVpZGZ2?=
+ =?utf-8?B?NUxEWkM1TkhoRHRobWczWlN2cmQra2RQRlFJazhmYUhBWjBtRERxd2I1TFIr?=
+ =?utf-8?Q?41GPG0JPL/b8mU1I=3D?=
+X-OriginatorOrg: vaisala.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a26149d1-e2ff-4831-b8e2-08de57405d4f
+X-MS-Exchange-CrossTenant-AuthSource: AMBPR06MB10365.eurprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jan 2026 09:51:48.9325
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 6d7393e0-41f5-4c2e-9b12-4c2be5da5c57
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: m4zYtnwJElms7gQNMyG4Btot2zjWSJhQRFquEXKTHevdLE17SdWUBvYEUE2+wN9diwGRQklhp3txQUVw1NiDZg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR06MB8902
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_014926_409625_A4665901 
-X-CRM114-Status: GOOD (  26.20  )
+X-CRM114-CacheID: sfid-20260119_015154_981054_9A26B31F 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,244 +191,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+Fix calibration value in case a clock reference is provided.
+The actual calibration value written into register is
+frequency - 1.
 
-Thanks for your review.
+Reviewed-by: Harini T <harini.t@amd.com>
+Tested-by: Harini T <harini.t@amd.com>
+Signed-off-by: Tomas Melin <tomas.melin@vaisala.com>
+---
+ drivers/rtc/rtc-zynqmp.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-On 1/16/26 17:08, Frank Li wrote:
-> On Fri, Jan 16, 2026 at 02:02:47PM +0100, Michael Riesch wrote:
->> The Synopsys DesignWare MIPI CSI-2 Receiver is a CSI-2 bridge with
->> one input port and one output port. It receives the data with the
->> help of an external MIPI PHY (C-PHY or D-PHY) and passes it to e.g.,
->> the Rockchip Video Capture (VICAP) block on recent Rockchip SoCs.
->>
->> Add a V4L2 subdevice driver for this unit.
->>
->> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
->> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
->> Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
->> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
->> ---
-> ...
->> +
->> +static inline struct dw_mipi_csi2_device *to_csi2(struct v4l2_subdev *sd)
->> +{
->> +	return container_of(sd, struct dw_mipi_csi2_device, sd);
->> +}
->> +
->> +static inline __maybe_unused void
-> 
-> why need '__maybe_unused', needn't inline. compiler can auto decide and
-> report unused function if no 'inline'.
+diff --git a/drivers/rtc/rtc-zynqmp.c b/drivers/rtc/rtc-zynqmp.c
+index 3baa2b481d9f2008750046005283b98a0d546c5c..856bc1678e7d31144f320ae9f75fc58c742a2a64 100644
+--- a/drivers/rtc/rtc-zynqmp.c
++++ b/drivers/rtc/rtc-zynqmp.c
+@@ -345,7 +345,10 @@ static int xlnx_rtc_probe(struct platform_device *pdev)
+ 					   &xrtcdev->freq);
+ 		if (ret)
+ 			xrtcdev->freq = RTC_CALIB_DEF;
++	} else {
++		xrtcdev->freq--;
+ 	}
++
+ 	ret = readl(xrtcdev->reg_base + RTC_CALIB_RD);
+ 	if (!ret)
+ 		writel(xrtcdev->freq, (xrtcdev->reg_base + RTC_CALIB_WR));
 
-The __maybe_unused was helpful during development and is not really
-required now. It doesn't hurt either, so I left it in. I can remove it
-if you wish.
-
-> 
->> +dw_mipi_csi2_write(struct dw_mipi_csi2_device *csi2, unsigned int addr, u32 val)
->> +{
->> +	writel(val, csi2->base_addr + addr);
->> +}
->> +
->> +static inline __maybe_unused u32
->> +dw_mipi_csi2_read(struct dw_mipi_csi2_device *csi2, unsigned int addr)
->> +{
->> +	return readl(csi2->base_addr + addr);
->> +}
->> +
->> +static const struct dw_mipi_csi2_format *
->> +dw_mipi_csi2_find_format(struct dw_mipi_csi2_device *csi2, u32 mbus_code)
->> +{
->> +	WARN_ON(csi2->formats_num == 0);
->> +
->> +	for (unsigned int i = 0; i < csi2->formats_num; i++) {
->> +		const struct dw_mipi_csi2_format *format = &csi2->formats[i];
->> +
->> +		if (format->code == mbus_code)
->> +			return format;
->> +	}
->> +
->> +	return NULL;
->> +}
->> +
->> +static int dw_mipi_csi2_start(struct dw_mipi_csi2_device *csi2)
->> +{
->> +	struct media_pad *source_pad;
->> +	union phy_configure_opts opts;
->> +	s64 link_freq;
->> +	u32 control = 0;
->> +	u32 lanes = csi2->lanes_num;
->> +	int ret;
-> 
-> try keep reverise christmas tree order.
-
-Ack.
-
-> 
->> +
->> +	if (lanes < 1 || lanes > 4)
->> +		return -EINVAL;
->> +
-> ...
->> +
->> +static int dw_mipi_csi2_register_notifier(struct dw_mipi_csi2_device *csi2)
->> +{
->> +	struct v4l2_async_connection *asd;
->> +	struct v4l2_async_notifier *ntf = &csi2->notifier;
->> +	struct v4l2_fwnode_endpoint vep;
->> +	struct v4l2_subdev *sd = &csi2->sd;
->> +	struct device *dev = csi2->dev;
->> +	struct fwnode_handle *ep;
->> +	int ret;
->> +
->> +	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
-> 
-> use  struct fwnode_handle *ep __free(fwnode_handle) can simplify err
-> handler.
-
-Sorry, I don't see the benefit of that.
-
-> 
->> +	if (!ep)
->> +		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
->> +
-> ...
->> +{
->> +	struct media_pad *pads = csi2->pads;
->> +	struct v4l2_subdev *sd = &csi2->sd;
->> +	int ret;
->> +
->> +	ret = dw_mipi_csi2_register_notifier(csi2);
->> +	if (ret)
->> +		goto err;
->> +
->> +	v4l2_subdev_init(sd, &dw_mipi_csi2_ops);
->> +	sd->dev = csi2->dev;
->> +	sd->entity.ops = &dw_mipi_csi2_media_ops;
->> +	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
->> +	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE | V4L2_SUBDEV_FL_STREAMS;
->> +	sd->internal_ops = &dw_mipi_csi2_internal_ops;
->> +	sd->owner = THIS_MODULE;
-> 
-> I remeber needn't set owner, v4l2_async_register_subdev() do it for you.
-
-Indeed, nice catch.
-
-> 
->> +	snprintf(sd->name, sizeof(sd->name), "dw-mipi-csi2 %s",
->> +		 dev_name(csi2->dev));
->> +
-> ...
->> +
->> +static int dw_mipi_csi2_probe(struct platform_device *pdev)
->> +{
->> +	struct device *dev = &pdev->dev;
->> +	struct dw_mipi_csi2_device *csi2;
->> +	int ret;
->> +
->> +	csi2 = devm_kzalloc(dev, sizeof(*csi2), GFP_KERNEL);
->> +	if (!csi2)
->> +		return -ENOMEM;
->> +	csi2->dev = dev;
->> +	dev_set_drvdata(dev, csi2);
->> +
->> +	csi2->base_addr = devm_platform_ioremap_resource(pdev, 0);
->> +	if (IS_ERR(csi2->base_addr))
->> +		return PTR_ERR(csi2->base_addr);
->> +
->> +	ret = devm_clk_bulk_get_all(dev, &csi2->clks);
->> +	if (ret != DW_MIPI_CSI2_CLKS_MAX)
->> +		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
->> +	csi2->clks_num = ret;
->> +
->> +	csi2->phy = devm_phy_get(dev, NULL);
->> +	if (IS_ERR(csi2->phy))
->> +		return dev_err_probe(dev, PTR_ERR(csi2->phy),
->> +				     "failed to get MIPI CSI-2 PHY\n");
->> +
->> +	csi2->reset = devm_reset_control_get_exclusive(dev, NULL);
->> +	if (IS_ERR(csi2->reset))
->> +		return dev_err_probe(dev, PTR_ERR(csi2->reset),
->> +				     "failed to get reset\n");
->> +
->> +	csi2->formats = formats;
->> +	csi2->formats_num = ARRAY_SIZE(formats);
->> +
->> +	pm_runtime_enable(dev);
-> 
-> devm_pm_runtime_enable() will simple error handle.
-
-Ack.
-
-> 
->> +
->> +	ret = phy_init(csi2->phy);
->> +	if (ret) {
->> +		ret = dev_err_probe(dev, ret,
->> +				    "failed to initialize MIPI CSI-2 PHY\n");
->> +		goto err_pm_runtime_disable;
->> +	}
->> +
-> ...
->> +
->> +static int dw_mipi_csi2_runtime_resume(struct device *dev)
->> +{
->> +	struct dw_mipi_csi2_device *csi2 = dev_get_drvdata(dev);
->> +	int ret;
->> +
->> +	reset_control_assert(csi2->reset);
->> +	udelay(5);
-> 
-> Now prefer use fsleep(), which auto choose difference sleep function
-> according to delay number.
-
-I'll keep that in mind, but here the first thing that fsleep does is to
-check whether the parameter is <= 10 and (since this is true) call
-udelay. So here I don't see the point really.
-
-> 
->> +	reset_control_deassert(csi2->reset);
->> +
->> +	ret = clk_bulk_prepare_enable(csi2->clks_num, csi2->clks);
->> +	if (ret) {
->> +		dev_err(dev, "failed to enable clocks\n");
->> +		return ret;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static DEFINE_RUNTIME_DEV_PM_OPS(dw_mipi_csi2_pm_ops,
->> +				 dw_mipi_csi2_runtime_suspend,
->> +				 dw_mipi_csi2_runtime_resume, NULL);
->> +
->> +static struct platform_driver dw_mipi_csi2_drv = {
->> +	.driver = {
->> +		.name = "dw-mipi-csi2",
->> +		.of_match_table = dw_mipi_csi2_of_match,
->> +		.pm = &dw_mipi_csi2_pm_ops,
-> 
-> pm_ptr( &dw_mipi_csi2_pm_ops)
-
-Shouldn't make a difference here since this driver depends on CONFIG_PM.
-
-Best regards,
-Michael
-
-> 
-> Frank
->> +	},
->> +	.probe = dw_mipi_csi2_probe,
->> +	.remove = dw_mipi_csi2_remove,
->> +};
->> +module_platform_driver(dw_mipi_csi2_drv);
->> +
->> +MODULE_DESCRIPTION("Synopsys DesignWare MIPI CSI-2 Receiver platform driver");
->> +MODULE_LICENSE("GPL");
->>
->> --
->> 2.39.5
->>
+-- 
+2.47.3
 
 
