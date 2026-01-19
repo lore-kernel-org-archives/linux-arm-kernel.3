@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F176FD29C2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 14:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFAEFD29C2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 14:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PsIX3u4w9+httQ+LGpB1LDno1ynrqB16GAnr0HIddWg=; b=QHiqNdR12z23HcZC0tg+taYzio
-	w9tenx6DOiXMDRPsx6O1x8SlESiRNHhFM1tdwA/CvfSZ+sj94eikuJm/AzGUMws9l3EElbiEccC/C
-	ni2qX/VV89PM0UI9iQWPaRUiODsqxNGCX05c5wY56tIlUlotg3gTd320OSZ++biNg7PUKUzlRhCZO
-	1WwqLuYZMUjHyU7b4xPPOe0+pDzaRTZupEvRUeBnc+shg78Nbx2OJYDitJirIjK5Ig7LMsJzBV12W
-	sVv8+R0pAg7Gy03mLxjyV4Bi3/gEp/E5axOm7784ExxyGc+UdRQUwX6i57JANAUBgCgVv1icsF34a
-	XgB2NMbQ==;
+	bh=H9QkcPpjDy8u+QLA0YmdH9TnxrqhsJKIiLdwqcuEWgQ=; b=P9x5/cbBY22MAlmMhElpa3yN0r
+	S5CMgsxJXmjaCSqcvZd8YAD7JpMcZHp/uWLIstwMprq70BSTrxUnXrq2IL/iHHoFFoLoWjuzvE/Nk
+	PQM2ggnJForxI/auEL5OrZBSaDCyhvIS15xUhlbNXK5oPeApgTyrGq4BSMfropt/+wcTQ31gjOMPZ
+	R24mzo7dBlooxfl32MyQMyktw0hpojdPB+V6pCO2LNfy/0duIle0MQG2eTD2iBP/206kCAXuSkzrY
+	UrYCuwY7AkpkFdAMDtQRSzrVhLcjts/GcUpDOTKAVpytbzbjZ99coBUPuZ5+aZRC9Td7wI3/FsfMv
+	wfl+RWwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhq9g-00000002F4r-1TGv;
-	Mon, 19 Jan 2026 14:22:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vhq9o-00000002F8I-2kXj;
+	Mon, 19 Jan 2026 14:23:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhq9b-00000002F43-2oHJ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 14:22:54 +0000
+	id 1vhq9l-00000002F6E-2tla;
+	Mon, 19 Jan 2026 14:23:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C38C46014E;
-	Mon, 19 Jan 2026 14:22:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77E53C116C6;
-	Mon, 19 Jan 2026 14:22:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 223BA44314;
+	Mon, 19 Jan 2026 14:22:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F27D3C19423;
+	Mon, 19 Jan 2026 14:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768832570;
-	bh=iel0DGd+o7YdAm/0CQY6DbLhXg4Ch8q2C+sIyw5cVsc=;
+	s=k20201202; t=1768832579;
+	bh=fiqL2210uT1qUhHAJ17YtkjmIE+maRxzVtmI/uPQI3M=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=pmUW/8TuBqOMdEh45Xlya+A5LFhiUXZft+YkLYZz4MX4TTLLgBukSekW26UUGCdkX
-	 qfIn6ICpmnU59KzLoU2ByoGuW6poqy/zlv/SpaKB4T0Um/6RZ9vdGfFy5EeZQD0JhP
-	 mm9x6VxltaUS7QnJ8v++HTqT8EYHEMKgxuMLsGbYTAyrI0mYLU91wXq89X1VzT3/LE
-	 fcjZ/XowaofkMOrgURSQlr6CRWBHZq5GRuAGsADPX9WvlvKAgKu763o3oQ4TPM8twP
-	 rQ+ziX0YQ2wCJh7uFYWF4sQM0U2ybqAFvhr5TpmUDL+cSustp0arkyYD81hX7RJUMo
-	 Vo5eGNM5rFnVA==
+	b=oWo/1RstEV3QGFIHLofwpXfSlzA18z/g+p0TFR6bZeSqWafgyI9QJKAvTvVUlVMCd
+	 +SqHpeYukNxFS1oR0pv8Z2vk6oNlxkQJ3KRSsVrlRR9ASslMvw82/G6E10pim7A1OP
+	 acLPnWHbo8jSQjKRrOgUyxQztN+XC6UVMMOhCUpN8tljKtDyxeb1+1gE/xO04Cjf4g
+	 dSp9cLkVihm9sTBCU7upA6tXsa+5iwB47ZqOn34XEDXTirYbSigxo3A8pRQB28KMW/
+	 se1nrHUJ7FubjkzSG3vdfm7/vg0PQmaS6AQJyUtJ6Ytat9QB5w5WdDO6KYLG7aDmKj
+	 rPW4sOwcKr7Mg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7891E3A55FAF;
-	Mon, 19 Jan 2026 14:19:21 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F29BD3A55FAF;
+	Mon, 19 Jan 2026 14:19:29 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: stmmac: fix dwmac4 transmit performance
- regression
+Subject: Re: [PATCH net-next 0/9] net: convert drivers to .get_rx_ring_count
+ (part 2)
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176883236002.1426077.3751892963025257662.git-patchwork-notify@kernel.org>
-Date: Mon, 19 Jan 2026 14:19:20 +0000
-References: <E1vgY1k-00000003vOC-0Z1H@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1vgY1k-00000003vOC-0Z1H@rmk-PC.armlinux.org.uk>
-To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
- netdev@vger.kernel.org, pabeni@redhat.com
+Message-Id: <176883236852.1426077.755495066523870761.git-patchwork-notify@kernel.org>
+Date: Mon, 19 Jan 2026 14:19:28 +0000
+References: <20260115-grxring_big_v2-v1-0-b3e1b58bced5@debian.org>
+In-Reply-To: <20260115-grxring_big_v2-v1-0-b3e1b58bced5@debian.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: ajit.khaparde@broadcom.com, sriharsha.basavapatna@broadcom.com,
+ somnath.kotur@broadcom.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, nbd@nbd.name,
+ sean.wang@mediatek.com, lorenzo@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, shayagr@amazon.com,
+ akiyano@amazon.com, darinzon@amazon.com, saeedb@amazon.com,
+ bryan.whitehead@microchip.com, UNGLinuxDriver@microchip.com,
+ Shyam-sundar.S-k@amd.com, Raju.Rangoju@amd.com, bharat@chelsio.com,
+ nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev,
+ jiawenwu@trustnetic.com, mengyuanlou@net-swift.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260119_062301_809000_FE453E82 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,23 +87,38 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This patch was applied to netdev/net-next.git (main)
+This series was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Fri, 16 Jan 2026 00:49:24 +0000 you wrote:
-> dwmac4's transmit performance dropped by a factor of four due to an
-> incorrect assumption about which definitions are for what. This
-> highlights the need for sane register macros.
+On Thu, 15 Jan 2026 06:37:47 -0800 you wrote:
+> Commit 84eaf4359c36 ("net: ethtool: add get_rx_ring_count callback to
+> optimize RX ring queries") added specific support for GRXRINGS callback,
+> simplifying .get_rxnfc.
 > 
-> Commit 8409495bf6c9 ("net: stmmac: cores: remove many xxx_SHIFT
-> definitions") changed the way the txpbl value is merged into the
-> register:
+> Remove the handling of GRXRINGS in .get_rxnfc() by moving it to the new
+> .get_rx_ring_count().
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next] net: stmmac: fix dwmac4 transmit performance regression
-    https://git.kernel.org/netdev/net-next/c/5ccde4c81e84
+  - [net-next,1/9] net: benet: convert to use .get_rx_ring_count
+    (no matching commit)
+  - [net-next,2/9] net: tsnep: convert to use .get_rx_ring_count
+    https://git.kernel.org/netdev/net-next/c/efa375c44090
+  - [net-next,3/9] net: mediatek: convert to use .get_rx_ring_count
+    https://git.kernel.org/netdev/net-next/c/e33bd8dd7f1f
+  - [net-next,4/9] net: ena: convert to use .get_rx_ring_count
+    https://git.kernel.org/netdev/net-next/c/289f714a084c
+  - [net-next,5/9] net: lan743x: convert to use .get_rx_ring_count
+    https://git.kernel.org/netdev/net-next/c/05ba3044865d
+  - [net-next,6/9] net: xgbe: convert to use .get_rx_ring_count
+    https://git.kernel.org/netdev/net-next/c/507353bf84fc
+  - [net-next,7/9] net: cxgb4: convert to use .get_rx_ring_count
+    https://git.kernel.org/netdev/net-next/c/ceec168d03db
+  - [net-next,8/9] net: macb: convert to use .get_rx_ring_count
+    https://git.kernel.org/netdev/net-next/c/d1c7ed5dfa35
+  - [net-next,9/9] net: txgbe: convert to use .get_rx_ring_count
+    https://git.kernel.org/netdev/net-next/c/c4279332f479
 
 You are awesome, thank you!
 -- 
