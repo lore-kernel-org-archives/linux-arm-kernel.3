@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460C8CCF2D2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:26:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE80ACCF2DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:28:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TALkvixOUrwnLVLpRliu44Wlgj95HW9GXrQjGXa7a9o=; b=XBHVRe6ryIl0Z8o/LN0JqWbVH4
-	INbfusnMlD1RdZlhZqiKp5YK5mOwcAP7Uqz5wNMk7heYXsU92QPceuADtSloDyiHLfZe8DrwK7rV8
-	JV/Oo+M5M/32ef+TR4NKXvVYVXegpggTSn+WHhvulqAkHVFwqKFQN/S3fEQ6RmZK3nGGzEbLoOVFq
-	fnvG4bJcgYFalF6f6CBr5JpSuKgWHnUlUgwqa/7OEzLdcGGP4BS8p76mP8yxg6F6lywwPxrTiycTH
-	gQOTaqCOeml7J2scNTuE+lmPKjOtGjDfwN/HC0lLuCuP1EvrIs5382I7N36qLGdEyV14pW1LzOOTp
-	IktS/bvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EsuevJkgsl5C8dp30TcVS68HeqiqukUtd3I4/TFexqc=; b=VwwFPBa2LJ3afRCdqEeRPeIZbl
+	fT2K26KWdBFidwitfliS+L9QsXfF7bYx2E9hD3QHsad6rRSvTJBv4p9iGz+Xs2OCXxy2xs1x6HHIR
+	IxcrFSFB4DIBDCDKzJ0cL5XZYCb3j8TS1fdQds5jl7Ph3E9wZsfz9raNrcWL5SeS117cjZbWAJJPh
+	x+6a9lIxdPeCpO0UmPxl+Mczx2qXbhmRmHUNiitTLh5I1m6HdBMgOJn1mdwYA8cKW9Gw9GNoDuCzf
+	GYLN68XYvtjwrkR4/ken5OzI+F0ExoAH4oofgY7wahmrWdmnL42Qe154sC1Bu9Wn/GgLCsRx17xx0
+	pgb47Ybg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmSy-00000001lsL-0YQP;
-	Mon, 19 Jan 2026 10:26:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmSv-00000001lrn-0hUc;
-	Mon, 19 Jan 2026 10:26:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1246C153B;
-	Mon, 19 Jan 2026 02:26:25 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B17E53F632;
-	Mon, 19 Jan 2026 02:26:26 -0800 (PST)
-Date: Mon, 19 Jan 2026 10:26:24 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Jeremy Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] prandom: Convert prandom_u32_state() to
- __always_inline
-Message-ID: <aW4G0PBEwx1RjbOl@J2N7QTR9R3>
-References: <20260102131156.3265118-1-ryan.roberts@arm.com>
- <20260102131156.3265118-3-ryan.roberts@arm.com>
+	id 1vhmUs-00000001m60-3SEh;
+	Mon, 19 Jan 2026 10:28:34 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhmUq-00000001m5X-1Mnl;
+	Mon, 19 Jan 2026 10:28:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1768818497; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=c2+Oc9wLMk54ge9fXvqUDFJyAAT7ec7rGEzKziR5QaN+z1z+rYOLC4VTelqvmOGmxAWYdKRr6O6s6MNKpwLXDhlL5lcGObgtP0rdHil9Vb0BGdsnIs4YglM6IDmVEaxWfWUQUdSpnEvc+N1CvCq+b7wf0NJz67YVdzuQZegORwk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1768818497; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=EsuevJkgsl5C8dp30TcVS68HeqiqukUtd3I4/TFexqc=; 
+	b=PCpgNlj7n6I5+jp2Tf7Tr7dHfDi1tCAjsYDvdzMx5yFgbzZX6WT/h8sBwDUjW/hCqwYF0Ev65ozoN4kome1DuU0c3HYx8O/Q3KClOtdpMKpcdvH15iWcsAngNGweP3xIAGbiJSVfDmHKROVyhsDbXAFuGlYofF0jcARnDjD9J1M=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
+	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768818497;
+	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=EsuevJkgsl5C8dp30TcVS68HeqiqukUtd3I4/TFexqc=;
+	b=IzMYIQ9xcILSyPL5IEgFBFGVo7j1D7ZBB9+pLkD8TJou1OhxL5m2aeY0mUG8sBsv
+	Wv1ahwlZ/JxKsdyJ4LI5HiTSJL64r53/U8Kqgk1RJy/0aMnZ+lBkwQr9s8a6uXe7Fe1
+	Ncr7UNildBZ9+LxfW3aXn6Ywt29jhDAL6JPF1W+g=
+Received: by mx.zohomail.com with SMTPS id 1768818497079716.4924558723245;
+	Mon, 19 Jan 2026 02:28:17 -0800 (PST)
+Message-ID: <d81c0f26-ab36-42a9-bc40-b9767aea038a@collabora.com>
+Date: Mon, 19 Jan 2026 11:28:11 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260102131156.3265118-3-ryan.roberts@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 3/7] iommu: Add verisilicon IOMMU driver
+To: =?UTF-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>
+Cc: robin.murphy@arm.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, heiko@sntech.de, nicolas.dufresne@collabora.com,
+ p.zabel@pengutronix.de, mchehab@kernel.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-media@vger.kernel.org, kernel@collabora.com
+References: <20260107101005.84039-1-benjamin.gaignard@collabora.com>
+ <20260107101005.84039-4-benjamin.gaignard@collabora.com>
+ <aWZui-rn5RDPwpEO@willie-the-truck>
+ <eqv7yfdagt2axkj5xbtmrtkaakhq63ywf2q5tjo33exumhfrc5@7ghelrz6yt2d>
+Content-Language: en-US
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+In-Reply-To: <eqv7yfdagt2axkj5xbtmrtkaakhq63ywf2q5tjo33exumhfrc5@7ghelrz6yt2d>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_022633_356936_8FAF918B 
-X-CRM114-Status: GOOD (  20.82  )
+X-CRM114-CacheID: sfid-20260119_022832_424923_03159957 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,88 +85,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 02, 2026 at 01:11:53PM +0000, Ryan Roberts wrote:
-> We will shortly use prandom_u32_state() to implement kstack offset
-> randomization and some arches need to call it from non-instrumentable
-> context. Given the function is just a handful of operations and doesn't
-> call out to any other functions, let's take the easy path and make it
-> __always_inline.
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
-I see there were some comments about keeping an out-of-line wrapper.
-With or without that, this looks good to me, and either way:
+Le 18/01/2026 à 10:41, Jörg Rödel a écrit :
+> Benjamin,
+>
+> On Tue, Jan 13, 2026 at 04:10:51PM +0000, Will Deacon wrote:
+>> I took another look at this to see whether it had changed significantly
+>> from v6 when compared to the rockchip driver. Sadly, they still look
+>> very similar to me and I continue to suspect that the hardware is a
+>> derivative. I really don't understand why having a shared implementation
+>> of the default domain ops is difficult or controversial. Have you tried
+>> to write it?
+> When updating for v12, can you please put an explanatory comment at the top of
+> the file explaining the relationship of the IP this driver is for to the
+> RockChip IOMMU and the rationale for having it as a separate driver? I want
+> this part of the discussion documented in the code in case it comes up again.
 
-Acked-by: Mark Rutland <mark.rutland@arm.com>
+Does the follow wording summarize the situation correctly for you if I put it
+in header comment ?
 
-Mark.
+  * This hardware block is using a 2 pages tables allocation structure.
+  * That make very similar to Rockhip iommu hardware blocks but it has
+  * it own driver because the registers offset and configuration bits
+  * are completely different. An additional raison is that this hardware
+  * has been developped by Verisilicon to be used by their hardware video
+  * decoders and for a general purpose like Rockchip iommus.
 
-> ---
->  include/linux/prandom.h | 19 ++++++++++++++++++-
->  lib/random32.c          | 19 -------------------
->  2 files changed, 18 insertions(+), 20 deletions(-)
-> 
-> diff --git a/include/linux/prandom.h b/include/linux/prandom.h
-> index ff7dcc3fa105..e797b3709f5c 100644
-> --- a/include/linux/prandom.h
-> +++ b/include/linux/prandom.h
-> @@ -17,7 +17,24 @@ struct rnd_state {
->  	__u32 s1, s2, s3, s4;
->  };
->  
-> -u32 prandom_u32_state(struct rnd_state *state);
-> +/**
-> + * prandom_u32_state - seeded pseudo-random number generator.
-> + * @state: pointer to state structure holding seeded state.
-> + *
-> + * This is used for pseudo-randomness with no outside seeding.
-> + * For more random results, use get_random_u32().
-> + */
-> +static __always_inline u32 prandom_u32_state(struct rnd_state *state)
-> +{
-> +#define TAUSWORTHE(s, a, b, c, d) ((s & c) << d) ^ (((s << a) ^ s) >> b)
-> +	state->s1 = TAUSWORTHE(state->s1,  6U, 13U, 4294967294U, 18U);
-> +	state->s2 = TAUSWORTHE(state->s2,  2U, 27U, 4294967288U,  2U);
-> +	state->s3 = TAUSWORTHE(state->s3, 13U, 21U, 4294967280U,  7U);
-> +	state->s4 = TAUSWORTHE(state->s4,  3U, 12U, 4294967168U, 13U);
-> +
-> +	return (state->s1 ^ state->s2 ^ state->s3 ^ state->s4);
-> +}
-> +
->  void prandom_bytes_state(struct rnd_state *state, void *buf, size_t nbytes);
->  void prandom_seed_full_state(struct rnd_state __percpu *pcpu_state);
->  
-> diff --git a/lib/random32.c b/lib/random32.c
-> index 24e7acd9343f..d57baf489d4a 100644
-> --- a/lib/random32.c
-> +++ b/lib/random32.c
-> @@ -42,25 +42,6 @@
->  #include <linux/slab.h>
->  #include <linux/unaligned.h>
->  
-> -/**
-> - *	prandom_u32_state - seeded pseudo-random number generator.
-> - *	@state: pointer to state structure holding seeded state.
-> - *
-> - *	This is used for pseudo-randomness with no outside seeding.
-> - *	For more random results, use get_random_u32().
-> - */
-> -u32 prandom_u32_state(struct rnd_state *state)
-> -{
-> -#define TAUSWORTHE(s, a, b, c, d) ((s & c) << d) ^ (((s << a) ^ s) >> b)
-> -	state->s1 = TAUSWORTHE(state->s1,  6U, 13U, 4294967294U, 18U);
-> -	state->s2 = TAUSWORTHE(state->s2,  2U, 27U, 4294967288U,  2U);
-> -	state->s3 = TAUSWORTHE(state->s3, 13U, 21U, 4294967280U,  7U);
-> -	state->s4 = TAUSWORTHE(state->s4,  3U, 12U, 4294967168U, 13U);
-> -
-> -	return (state->s1 ^ state->s2 ^ state->s3 ^ state->s4);
-> -}
-> -EXPORT_SYMBOL(prandom_u32_state);
-> -
->  /**
->   *	prandom_bytes_state - get the requested number of pseudo-random bytes
->   *
-> -- 
-> 2.43.0
-> 
+Regards,
+Benjamin
+
+>
+>
+> -Joerg
+>
 
