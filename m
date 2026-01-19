@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D41D29C39
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 15:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87035D29C33
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 15:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NNv/WLjmhXxPRgxWPo8o1cLUblJ9y9GcvZHWBnP0Vno=; b=mNrdbNaFuHj3nlaUtlf4hmOvg8
-	/SzwrjYuIZopD7L2YWzAkFvBYBXUGdgk1kISHfwlXxdS+YxT/r2G1BUSmIG3nY5TssXFdZmLO1cpX
-	7RwBpgrZeOPQKYJTj2IOpwFl+O8N2UBT53mOKK/hjsuAiwHFZ7ARqDgYSFysMhR6ofxru5zC2r3MN
-	PlLQDb4awM7LZsORsZqD+TQrby73N03A7jv/FvPmpr8Ugz+yqSDNKPr7vdF42Dnkg2OTPXImRUjnP
-	rfISWT/JtTUXh+29B6xg25XwMG9uA7WIUt//fL0cvlxovVb1dnxS3KrYyUWCkm+6utqeyIzsWIErW
-	vpl2EgDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6DUV0vbeK4FJC4V+/glh7sb9LW92myK4KqpO0eP9+S8=; b=TDlf/SGZRo9SGtpKk3H8vA4khN
+	EGm41CnvJPloqbVgZ7753WsIhPu8roSXkptMchaRVwFVZZfknjfQlAHfPzlrnGmF+BAbaRymY/BSy
+	lD/KDP8APGwFDSKMKYd//jW5TvgH3nx7M9Rw+EWEnmtCgd6Odn5BkMO9a5MqESt9O9OcrRJnja6Lu
+	ILnMRuvWcgRTrpOGY8jxGEakO55q8lTDr9J35S2Ozu9UDhirqCvtlP9bZxdyZov71fsYV1EGInV4c
+	zbcFzlxQIfURr1UiqxsmefGCErTZo4G9x5YUTaH77nTWfyXreMVNzqDxXHyHgVmtM8FTi65SNwGex
+	cLQnt2bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhrVE-00000002OJR-01My;
-	Mon, 19 Jan 2026 15:49:16 +0000
+	id 1vhrVa-00000002OMz-1c0T;
+	Mon, 19 Jan 2026 15:49:38 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhrVB-00000002OIy-1gJ1
+	id 1vhrVV-00000002OLZ-1EwC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 15:49:14 +0000
+	Mon, 19 Jan 2026 15:49:37 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 322B1FEC;
-	Mon, 19 Jan 2026 07:49:05 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F2FA93F694;
-	Mon, 19 Jan 2026 07:49:06 -0800 (PST)
-Message-ID: <a48e749d-fdeb-4306-9324-0f62fc72b589@arm.com>
-Date: Mon, 19 Jan 2026 15:49:05 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43489FEC;
+	Mon, 19 Jan 2026 07:49:25 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 986073F694;
+	Mon, 19 Jan 2026 07:49:29 -0800 (PST)
+Date: Mon, 19 Jan 2026 15:49:27 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	sudeep.holla@arm.com, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	dan.carpenter@linaro.org, d-gole@ti.com, elif.topuz@arm.com,
+	lukasz.luba@arm.com, philip.radford@arm.com,
+	souvik.chakravarty@arm.com
+Subject: Re: [PATCH v2 03/17] firmware: arm_scmi: Allow protocols to register
+ for notifications
+Message-ID: <aW5Sh1lIS0n_2Fyr@pluto>
+References: <20260114114638.2290765-1-cristian.marussi@arm.com>
+ <20260114114638.2290765-4-cristian.marussi@arm.com>
+ <20260119113326.00005902@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 11/47] arm64: mpam: Add helpers to change a task or
- cpu's MPAM PARTID/PMG values
-To: Gavin Shan <gshan@redhat.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, james.morse@arm.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-12-ben.horgan@arm.com>
- <57a015c3-9a4b-478b-8cb6-6c61f84c0b74@redhat.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <57a015c3-9a4b-478b-8cb6-6c61f84c0b74@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260119113326.00005902@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_074913_525102_99A0CAB9 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20260119_074934_024440_6EBCE45A 
+X-CRM114-Status: GOOD (  22.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,118 +72,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin,
+On Mon, Jan 19, 2026 at 11:33:26AM +0000, Jonathan Cameron wrote:
+> On Wed, 14 Jan 2026 11:46:07 +0000
+> Cristian Marussi <cristian.marussi@arm.com> wrote:
+> 
+> > Allow protocols themselves to register for their own notifications and
+> 
+> and provide their own notifier callbacks.
+> 
+> > providing their own notifier callbacks. While at that, allow for a protocol
+> > to register events with compilation-time unknown report/event sizes: such
+> > events will use the maximum transport size.
+> 
+> I'm not keen on the 'while at that' part of the patch. In an ideal
+> world that's a separate patch.
 
-On 1/19/26 07:01, Gavin Shan wrote:
-> Hi Ben,
-> 
-> On 1/13/26 12:58 AM, Ben Horgan wrote:
->> From: James Morse <james.morse@arm.com>
->>
->> Care must be taken when modifying the PARTID and PMG of a task in any
->> per-task structure as writing these values may race with the task being
->> scheduled in, and reading the modified values.
->>
->> Add helpers to set the task properties, and the CPU default value.  These
->> use WRITE_ONCE() that pairs with the READ_ONCE() in mpam_get_regval() to
->> avoid causing torn values.
->>
->> CC: Dave Martin <Dave.Martin@arm.com>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since rfc:
->> Keep comment attached to mpam_get_regval()
->> Add internal helper, __mpam_regval() (Jonathan)
->> ---
->>   arch/arm64/include/asm/mpam.h | 28 ++++++++++++++++++++++++++++
->>   1 file changed, 28 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/
->> mpam.h
->> index 7b3d3abad162..c9b73f1af7ce 100644
->> --- a/arch/arm64/include/asm/mpam.h
->> +++ b/arch/arm64/include/asm/mpam.h
->> @@ -4,6 +4,7 @@
->>   #ifndef __ASM__MPAM_H
->>   #define __ASM__MPAM_H
->>   +#include <linux/bitfield.h>
->>   #include <linux/jump_label.h>
->>   #include <linux/percpu.h>
->>   #include <linux/sched.h>
->> @@ -22,6 +23,22 @@ DECLARE_PER_CPU(u64, arm64_mpam_current);
->>    */
->>   extern u64 arm64_mpam_global_default;
->>   +static inline u64 __mpam_regval(u16 partid_d, u16 partid_i, u8
->> pmg_d, u8 pmg_i)
->> +{
->> +    return FIELD_PREP(MPAM0_EL1_PARTID_D, partid_d) |
->> +        FIELD_PREP(MPAM0_EL1_PARTID_I, partid_i) |
->> +        FIELD_PREP(MPAM0_EL1_PMG_D, pmg_d) |
->> +        FIELD_PREP(MPAM0_EL1_PMG_I, pmg_i);
->> +}
-> 
-> Nitpick: Alignment issues in the lines for 2nd/3rd/4th FIELD_PREP().
-> 
->     return FIELD_PREP(...) |
->            FIELD_PREP(...) |
->                FIELD_PREP(...) |
->                FIELD_PREP(...);
+Yes indeed...it was tempting to do it together with the rework since it
+was the only usecase that triggered the 'while-at' change...
 
-Sure, I'll align these.
+...but this series in general needs more splitting both at the protocol
+level and at the FS level (once I get some feedback from FS guys) so I
+will split this out too.
 
 > 
->> +
->> +static inline void mpam_set_cpu_defaults(int cpu, u16 partid_d, u16
->> partid_i,
->> +                     u8 pmg_d, u8 pmg_i)
->> +{
->> +    u64 default_val = __mpam_regval(partid_d, partid_i, pmg_d, pmg_i);
->> +
->> +    WRITE_ONCE(per_cpu(arm64_mpam_default, cpu), default_val);
->> +}
->> +
+> One other comment inline.
 > 
-> per_cpu(arm64_mpam_default) won't be reachable until CONFIG_ARM64_MPAM
-> is set.
-> So I think both mpam_set_cpu_defaults() and __mpam_regval() need to be
-> protected
-> by '#ifdef CONFIG_ARM64_MPAM ... #endif'.
+> Jonathan
+> p.s. You get to my review victim whilst I run a particularly annoying
+> bisection on the other screen (completely unrelated!) :)
+> 
+> > 
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> > ---
+> > v1-->v2
+> >  - Fixed multiline comment format
+> > ---
+> >  drivers/firmware/arm_scmi/common.h    |  4 ++++
+> >  drivers/firmware/arm_scmi/driver.c    | 12 ++++++++++++
+> >  drivers/firmware/arm_scmi/notify.c    | 28 ++++++++++++++++++++-------
+> >  drivers/firmware/arm_scmi/notify.h    |  8 ++++++--
+> >  drivers/firmware/arm_scmi/protocols.h |  6 ++++++
+> >  5 files changed, 49 insertions(+), 9 deletions(-)
+> > 
+> 
+> 
+> > diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
+> > index 78e9e27dc9ec..e84b4dbefe82 100644
+> > --- a/drivers/firmware/arm_scmi/notify.c
+> > +++ b/drivers/firmware/arm_scmi/notify.c
+> 
+> 
+> > @@ -779,8 +787,13 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
+> >  	}
+> >  
+> >  	evt = ee->evts;
+> > -	for (i = 0; i < ee->num_events; i++)
+> > +	for (i = 0; i < ee->num_events; i++) {
+> > +		if (evt[i].max_payld_sz == 0) {
+> > +			payld_sz = max_msg_sz;
+> > +			break;
+> > +		}
+> >  		payld_sz = max_t(size_t, payld_sz, evt[i].max_payld_sz);
+> 
+> Everything here seems to already be a size_t.  It is rare that we actually need max_t over
+> max, and definitely not when all the types match.
+> 		payld_sz = max(payl_sz, evt[i].max_payld_sz);
 
-I'll move the #ifdef CONFIG_ARM64_MPAM up to cover these.
-
-> 
->>   /*
->>    * The resctrl filesystem writes to the partid/pmg values for
->> threads and CPUs,
->>    * which may race with reads in mpam_thread_switch(). Ensure only
->> one of the old
->> @@ -36,6 +53,17 @@ static inline u64 mpam_get_regval(struct
->> task_struct *tsk)
->>       return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);
->>   }
->>   +static inline void mpam_set_task_partid_pmg(struct task_struct *tsk,
->> +                        u16 partid_d, u16 partid_i,
->> +                        u8 pmg_d, u8 pmg_i)
->> +{
->> +#ifdef CONFIG_ARM64_MPAM
->> +    u64 regval = __mpam_regval(partid_d, partid_i, pmg_d, pmg_i);
->> +
->> +    WRITE_ONCE(task_thread_info(tsk)->mpam_partid_pmg, regval);
->> +#endif
->> +}
->> +
->>   static inline void mpam_thread_switch(struct task_struct *tsk)
->>   {
->>       u64 oldregval;
-> 
-> Thanks,
-> Gavin
-> 
+...indeed...I will fix.
 
 Thanks,
-
-Ben
-
+Cristian
 
