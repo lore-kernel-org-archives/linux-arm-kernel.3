@@ -4,80 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A3B0D29C43
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:56:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9692D29C43
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zQWG2HKTXRlYlj1nWNlXrh/UtqyothTKCprgHuC7xy4=; b=VTTyK/0XAA6vwT/t3Y/m93l6EF
-	QnJ6Y1CbOIlu9gyYo9YF6dMT1KhJtht75HAPrtcciS1GNxJpfGBQyJGbp8otaUQELI+V9jvwwjzlC
-	N88o3S083XdsNoc1kQzvY61dKbmoI9EEyljpv3Y76rBsSqG5HSLDFrtGJDXbAgo+T9m/TH93an839
-	A0i+HKa9JXGpNz2Yu+S6eGLISs/P9yWBGEqxXec+fnNHWN0tL6z5iEBuzyvt6f1pYcWfGM9H0sJTg
-	LF2RyGOo7FO7+qvN7bGtN5eruEsYNcQJ6h/4xp4yRpDJe+C2XxybXQEIQuq+HloZMQ3ZVtqH295lV
-	Upb8ns7Q==;
+	bh=r0Vpui6leoEhfMBnUWDnqlKqZUgbF/PusmCIMJXs/rM=; b=CGkxGzLA4fp1BN88Wu4Rb256wj
+	RyMuFoe/biY+HEIZzMxHPfSH/+RJNOcBnPFTo9l8dxfzZ5scaDlOWd+/wRauXQ5cP8LwMTGaxDaPg
+	hvUx0y/W/JzIxqoallD82kjy9njPsYSz4lYcXBCn5idOD5F0V2xtcp9BB85mBFFrYhR9iXfOXQsPS
+	lyUSvGl2x7qwqJYmgw2ZVW9tah/QZBomPVDfWZ6ZtnzVPXclLWkcSngMkQv0FTxJ0Hr2P/szRcKRA
+	g/bbsxQOIdkYzmgH43OqLtbHDrBt1GCQF63MIKCojsHvddekVN6zlncpKoKcuGF+nhmRg/1/nDCJz
+	VwSLqqkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsYY-00000002ZXz-20Uz;
-	Mon, 19 Jan 2026 16:56:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsYU-00000002ZWG-3tKv
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 19 Jan 2026 16:56:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=zQWG2HKTXRlYlj1nWNlXrh/UtqyothTKCprgHuC7xy4=; b=nyvdKjPqqXnAtylpFxnifZMmNJ
-	38E6MCreq2EUQkn3X0oiEEDFU1hiTp+c7Gu0gwrBrxAo7jAXzo74L0YveIEvIBm0GciQwiEh0XT+a
-	Tw55DP/KuQQUbxwvIIuhN/v2wi08ltqHuJxhN+wcDKTCsJ8gtUxAH16MI8PWZj9l6mbsIRk0JGB33
-	RhdsCaW2AuAaSVa9J6uec+q/eGpqnIqoQCgU1hbS1uVulpi3nPSB/QXh1KDGQzlm28IOyrCqpXBc9
-	vj0Qn5ORQfRjjwBDZZWqtqaAJ+GNO1VjmRo/hBN8lZVWdshFQJtlH0qqVOnvU5fzP4bMwKdvaLue4
-	/Zatlpog==;
+	id 1vhsZU-00000002Zr1-3h5M;
+	Mon, 19 Jan 2026 16:57:44 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsYS-0000000CbWe-0FDk
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhsZQ-00000002Zpb-0SEo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 16:56:41 +0000
+	Mon, 19 Jan 2026 16:57:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07BD2497;
-	Mon, 19 Jan 2026 08:56:31 -0800 (PST)
-Received: from bogus (e124108.arm.com [10.1.32.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1C3153F632;
-	Mon, 19 Jan 2026 08:56:35 -0800 (PST)
-Date: Mon, 19 Jan 2026 16:56:32 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Trilok Soni <trilokkumar.soni@oss.qualcomm.com>,
-	Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, trilok.soni@oss.qualcomm.com
-Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
-Message-ID: <aW5iQABCRukZXpZH@bogus>
-References: <86331062-301b-40b1-9df1-78f7751508b4@oss.qualcomm.com>
- <aWgEDAlglnGrzdR4@bogus>
- <4fab824f-8067-49d7-8e6c-dedd67a8454d@oss.qualcomm.com>
- <aWoVR4oNdIHnksJQ@bogus>
- <92d90a1e-e993-4044-b152-83a8700f7b63@oss.qualcomm.com>
- <cb7326b9-91d9-44a3-b9f0-9d2e6ab5fa42@oss.qualcomm.com>
- <aWzuuwQi_nsHoj_5@bogus>
- <mzs5vq2jsrmb6kdriuxawbamyim6dhgy34ne6tucnhlalt5y3w@ghckxur3cn6m>
- <aW5Fdjag_w7i0zWN@bogus>
- <vvvq5rnbzs7ngtahqrar4iqinizthyrv3ipqnjp6ln34di365j@bbwdyda6gw3u>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8495F497;
+	Mon, 19 Jan 2026 08:57:31 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B1C73F632;
+	Mon, 19 Jan 2026 08:57:36 -0800 (PST)
+Date: Mon, 19 Jan 2026 16:57:33 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: arm-scmi@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v4 2/2] firmware: arm_scmi: Implement
+ arm,no-completion-irq property
+Message-ID: <aW5ifVcxVf6uux3m@pluto>
+References: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
+ <20260117010241.186685-2-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <vvvq5rnbzs7ngtahqrar4iqinizthyrv3ipqnjp6ln34di365j@bbwdyda6gw3u>
+In-Reply-To: <20260117010241.186685-2-marek.vasut+renesas@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_165640_280896_2AC567D9 
-X-CRM114-Status: GOOD (  18.93  )
+X-CRM114-CacheID: sfid-20260119_085740_293327_B63636AB 
+X-CRM114-Status: GOOD (  22.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,36 +69,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 06:44:23PM +0200, Dmitry Baryshkov wrote:
-> On Mon, Jan 19, 2026 at 02:53:42PM +0000, Sudeep Holla wrote:
-> > On Sun, Jan 18, 2026 at 03:16:50PM -0600, Bjorn Andersson wrote:
-> > > On Sun, Jan 18, 2026 at 02:31:23PM +0000, Sudeep Holla wrote:
-> > > 
-> > > To me, when you decided to add a second caller to soc_device_register()
-> > > you created a regression in the userspace interface. If nothing else
-> > > it's a leaky abstraction.
-> > > 
-> > 
-> > In that case, shouldn't soc_device_register() made to give error when an
-> > attempt to call it more that one time then ? Also should be change the
-> > ABI documents to refer it as soc0 and not socX ?
+On Sat, Jan 17, 2026 at 02:02:29AM +0100, Marek Vasut wrote:
+> Implement new property arm,no-completion-irq, which sets all SCMI
+> operation into poll mode. This is meant to work around uncooperative
+> SCP implementations, which do not generate completion interrupts.
+> This applies to mbox/shmem based implementations.
 > 
-> Then the whole SoC bus is an overkill. But I have a strange question
-> here. Consider the device having the "BT / WiFi SoC" next to the main
-> SoC. Is that SoC a legit target to export informaiton through sysfs /
-> soc bus?
+> With this property set, such implementations which do not generate
+> interrupts can be interacted with, until they are fixed to generate
+> interrupts properly.
 > 
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> ---
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Cristian Marussi <cristian.marussi@arm.com>
+> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Sudeep Holla <sudeep.holla@arm.com>
+> Cc: arm-scmi@vger.kernel.org
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+> V2: Drop no IRQ handling from SMC transport and update commit message
+> V3: Rename property from arm,poll-transport to arm,no-completion-irq
+> V4: No change
+> ---
+>  drivers/firmware/arm_scmi/common.h | 4 ++++
+>  drivers/firmware/arm_scmi/driver.c | 4 ++++
+>  2 files changed, 8 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+> index 7c35c95fddbaf..7c9617d080a02 100644
+> --- a/drivers/firmware/arm_scmi/common.h
+> +++ b/drivers/firmware/arm_scmi/common.h
+> @@ -235,6 +235,9 @@ struct scmi_transport_ops {
+>   *		      to have an execution latency lesser-equal to the threshold
+>   *		      should be considered for atomic mode operation: such
+>   *		      decision is finally left up to the SCMI drivers.
+> + * @no_completion_irq: Flag to indicate that this transport has no completion
+> + *		       interrupt and has to be polled. This is similar to the
+> + *		       force_polling below, except this is set via DT property.
+>   * @force_polling: Flag to force this whole transport to use SCMI core polling
+>   *		   mechanism instead of completion interrupts even if available.
+>   * @sync_cmds_completed_on_ret: Flag to indicate that the transport assures
+> @@ -254,6 +257,7 @@ struct scmi_desc {
+>  	int max_msg;
+>  	int max_msg_size;
+>  	unsigned int atomic_threshold;
+> +	bool no_completion_irq;
+>  	const bool force_polling;
+>  	const bool sync_cmds_completed_on_ret;
+>  	const bool atomic_enabled;
+> diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+> index 3e76a3204ba4f..f167194f7cf67 100644
+> --- a/drivers/firmware/arm_scmi/driver.c
+> +++ b/drivers/firmware/arm_scmi/driver.c
+> @@ -2735,6 +2735,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+>  	cinfo->is_p2a = !tx;
+>  	cinfo->rx_timeout_ms = info->desc->max_rx_timeout_ms;
+>  	cinfo->max_msg_size = info->desc->max_msg_size;
+> +	cinfo->no_completion_irq = info->desc->no_completion_irq;
+>  
+>  	/* Create a unique name for this transport device */
+>  	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
+> @@ -3150,6 +3151,9 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
+>  	if (ret && ret != -EINVAL)
+>  		dev_err(dev, "Malformed arm,max-msg DT property.\n");
+>  
+> +	trans->desc.no_completion_irq = of_property_read_bool(dev->of_node,
+> +							      "arm,no-completion-irq");
+> +
+>  	dev_info(dev,
+>  		 "SCMI max-rx-timeout: %dms / max-msg-size: %dbytes / max-msg: %d\n",
+>  		 trans->desc.max_rx_timeout_ms, trans->desc.max_msg_size,
 
-Just for clarity, I agree with you and there could be duplication of
-information if there are multiple source for that information. E.g.,
-the setup in this discussion where the EL3 firmware provides SOC_ID
-information via SMCCC SOC_ID and DT providing vendor specific information
-about the platform. Both are getting exported via sysfs but the problem
-here is SOC_ID has displaced vendor specific DT info from soc0 to soc1.
+LGTM.
 
-We are exploring ways to see how user space can survive this.
+Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
 
--- 
-Regards,
-Sudeep
+Thanks,
+Cristian
 
