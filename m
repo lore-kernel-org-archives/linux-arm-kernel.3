@@ -4,65 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8FDAD29C49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:29:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EF6DD29C40
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PzETODdJgGGkeI+IpUhBVGS6shSqfBqZKaCZ4ZIVXZA=; b=Nz2zOnEGvn/RzotsCpcVJaJND+
-	LC9GP/+fzyZrOJLsdGaSJg3Ws8xJad2L8Nq3lLvmUT/ChsU4EPf9gXuEMI1PfdFjo7cJmQ1oueusB
-	GPn00mVPFDph6qmg0RGEiIK97HH7GyDmX4XJSYwN+i9KQPcvVZGwuVvPqWXq6fzbmtv56jyWGq+Ko
-	q88hj8D8Puc9/o5W7eK1IQ9KY8tEPZ4Aa8qsqX++oS+qpo2W4RzEPzK7nhm3HZL3UGuLuNKUPUabw
-	HFwX15lwldVOq94V4jCCaDugihtW2ikhcfPVEO27o0Gkv1bHpdxo5egnb3OSrmvlLOc+kVk4pMeiK
-	ZIN3+njQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JEJs+kG8d7MjZxyP8mypHO1W2O8XDB9lUndZKDt7V1g=; b=RBDnKGEJtdZK7fpsAgaS3nAfc2
+	Rk0Caqm3+qk19N6RYi0DOztK6xefJ7TYcTxorzDx7fVS8hF7BWCgfD5EUuNzeN39Ggl+PmJNa8wJX
+	kQCqBpQf5BQwlJr4xvrw1M8jGV7afnmM4DxvjD/DmKHUe5gvpgWQIu3CBdp9k0H5ltFZDhkBWd8fU
+	ARLtbrDoiJvIZVbMES727r/nHCGSj9jFG91VzW6VYH29YuM29AM9F6g5n3lCOCh5aw2X+mPOSz0b/
+	F04IO0+rltXHNvctBpcmdKLpDmj87bNhXJq16LzNNX58OTAfbDedYmKNEl7XcBAcoc88Z77HaexBs
+	3JhAPHyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhs8R-00000002ULN-0UTU;
-	Mon, 19 Jan 2026 16:29:47 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vhs8l-00000002UZx-1aZc;
+	Mon, 19 Jan 2026 16:30:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhs8K-00000002UG2-1biA
+	id 1vhs8j-00000002UXk-3NTh
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 19 Jan 2026 16:30:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=JEJs+kG8d7MjZxyP8mypHO1W2O8XDB9lUndZKDt7V1g=; b=oS2fsO5IjYQNxdqQNRvn1+4VzF
+	KLutw1agYAU3hz3sLo6pFGqVOYJEGu9qC32OVKSmC46VTrd+bpGKX4ARKHX+FSpi5zJrPugwIQVA6
+	dLUspXgBYg76yfydU6jlrjv8bMJRIcLUVbWRuYCI6flMNPypXMkU7VosK1Mfy4QFTz+GIWcOP3E91
+	r2V24PzahUvx9DoV+o9z2hyJ5RyFdAPkFMq9DzTwx1UWl1P/KFmPU5vJTVWEpaCu4jVm7JrOwI/op
+	hZQJ3SPX5Vuz3IS7KUqDDphonABJViy0gcnpJwScAJ5P1oD8Rn9KpLhPiW84yWuboims4DhXWvao1
+	ozeel3Mg==;
+Received: from mgamail.intel.com ([198.175.65.17])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhs8f-0000000CWRT-1rmM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 16:29:45 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dvwrl22S9zJ46F1;
-	Tue, 20 Jan 2026 00:29:11 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id 57D8940570;
-	Tue, 20 Jan 2026 00:29:34 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 19 Jan
- 2026 16:29:33 +0000
-Date: Mon, 19 Jan 2026 16:29:32 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<arm-scmi@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
-	<sudeep.holla@arm.com>, <james.quinlan@broadcom.com>, <f.fainelli@gmail.com>,
-	<vincent.guittot@linaro.org>, <etienne.carriere@st.com>,
-	<peng.fan@oss.nxp.com>, <michal.simek@amd.com>, <dan.carpenter@linaro.org>,
-	<d-gole@ti.com>, <elif.topuz@arm.com>, <lukasz.luba@arm.com>,
-	<philip.radford@arm.com>, <souvik.chakravarty@arm.com>
-Subject: Re: [PATCH v2 05/17] firmware: arm_scmi: Add Telemetry protocol
- support
-Message-ID: <20260119162932.00006e6c@huawei.com>
-In-Reply-To: <20260114114638.2290765-6-cristian.marussi@arm.com>
-References: <20260114114638.2290765-1-cristian.marussi@arm.com>
- <20260114114638.2290765-6-cristian.marussi@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Mon, 19 Jan 2026 16:30:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768840202; x=1800376202;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=PQgX3xK9PxUWzI8W+Ln2fHiKBKt9LrU58IY+O/+5QZc=;
+  b=Dnf56+Y1lSMVjnb48z1z7Gbg5W5WvXCt+i4eYb7MFR/HoZuVmOo0VZfk
+   VqCcCTUnSEwXVzqhKttx7xrD5wEfV55vAlQKFFIR6PR9wkmcXhllJ1Z0N
+   SWCaaeS8hM5ZDb3P9r5wX4XVGjvXpkZEu1srd3sOkH7kAq/ZoNrMJFXGk
+   UYUlWTpmAAHhQAFnOxAe+u9O6yJomHkiTb43d7W4iYsEOXFV9q5P8i2Gw
+   Q8ji6LWSDXVjEg+maxbLCnLjGGSR928mY+qoT55rQd+Q9KTpAzCGlO6Ib
+   wsCZXTJKbAKHZUxsbA/5I80DpTYjMR3qvRH2SLHsPd7cMI6fg9nIgeElk
+   Q==;
+X-CSE-ConnectionGUID: 0aWQLDSmQxCXHQEQMIcHfQ==
+X-CSE-MsgGUID: EZedGCg0T22MD+umFT/QTQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11676"; a="70026127"
+X-IronPort-AV: E=Sophos;i="6.21,238,1763452800"; 
+   d="scan'208";a="70026127"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 08:30:00 -0800
+X-CSE-ConnectionGUID: DbpoI6/wS8Oar4gvnCOpvA==
+X-CSE-MsgGUID: 0K+PNzA7TxGXhkJBCuaHkg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,238,1763452800"; 
+   d="scan'208";a="205809043"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 19 Jan 2026 08:29:56 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vhs8X-00000000O2b-2jWL;
+	Mon, 19 Jan 2026 16:29:53 +0000
+Date: Tue, 20 Jan 2026 00:29:20 +0800
+From: kernel test robot <lkp@intel.com>
+To: Salman Nabi <salman.nabi@arm.com>, vvidwans@nvidia.com,
+	andre.przywara@arm.com, sudeep.holla@arm.com, mark.rutland@arm.com,
+	lpieralisi@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, ardb@kernel.org, chao.gao@intel.com,
+	linux-arm-kernel@lists.infradead.org, linux-coco@lists.linux.dev,
+	linux-kernel@vger.kernel.org, sdonthineni@nvidia.com,
+	vsethi@nvidia.com, vwadekar@nvidia.com
+Subject: Re: [PATCH 1/1] firmware: smccc: add support for Live Firmware
+ Activation (LFA)
+Message-ID: <202601200007.GVZIjoCx-lkp@intel.com>
+References: <20260119122729.287522-2-salman.nabi@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260119122729.287522-2-salman.nabi@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_082944_248083_5EF7CE35 
-X-CRM114-Status: GOOD (  40.25  )
+X-CRM114-CacheID: sfid-20260119_163001_860660_E83F6619 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,725 +107,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 14 Jan 2026 11:46:09 +0000
-Cristian Marussi <cristian.marussi@arm.com> wrote:
-
-> Add basic support for SCMI V4.0 Telemetry protocol including SHMTI,
-> FastChannels, Notifications and Single Sample Reads collection methods.
-> 
-> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> ---
-> v1 --> v2
->  - Add proper ioread accessors for TDCF areas
->  - Rework resource allocation logic and lifecycle
->  - Introduce new resources accessors and res_get() operation to
->    implement lazy enumeration
->  - Support boot-on telemetry:
->    + Add DE_ENABLED_LIST cmd support
->    + Add CONFIG_GET cmd support
->    + Add TDCF_SCAN for best effort enumeration
->    + Harden driver against out-of-spec FW with out of spec cmds
->  - Use FCs list
->  - Rework de_info_lookup to a moer general de_lookup
->  - Fixed reset to use CONFIG_GET and DE_ENABLED_LIST to gather initial
->    state
->  - Using sign_extend32 helper
->  - Added counted_by marker where appropriate
-> ---
->  drivers/firmware/arm_scmi/Makefile    |    2 +-
->  drivers/firmware/arm_scmi/driver.c    |    2 +
->  drivers/firmware/arm_scmi/protocols.h |    1 +
->  drivers/firmware/arm_scmi/telemetry.c | 2671 +++++++++++++++++++++++++
-
-Ouch. Might be worth splitting this up into more bite sized pieces.
-
-It's a bit of a take a deep breath before diving in patch at the moment.
-So the following is rather superficial.
-
->  include/linux/scmi_protocol.h         |  188 +-
->  5 files changed, 2862 insertions(+), 2 deletions(-)
->  create mode 100644 drivers/firmware/arm_scmi/telemetry.c
-> 
-
-
-
-> diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
-> new file mode 100644
-> index 000000000000..16bcdcdc1dc3
-> --- /dev/null
-> +++ b/drivers/firmware/arm_scmi/telemetry.c
-> @@ -0,0 +1,2671 @@
-
-> +static void scmi_telemetry_free_tde_put(struct telemetry_info *ti,
-> +					struct telemetry_de *tde)
-> +{
-> +	guard(mutex)(&ti->free_mtx);
-> +
-> +	list_add_tail(&tde->item, &ti->free_des);
-> +}
-
-> +static int iter_de_descr_update_state(struct scmi_iterator_state *st,
-> +				      const void *response, void *priv)
-> +{
-> +	const struct scmi_msg_resp_telemetry_de_description *r = response;
-> +	struct scmi_tlm_de_priv *p = priv;
-> +
-> +	st->num_returned = le32_get_bits(r->num_desc, GENMASK(15, 0));
-> +	st->num_remaining = le32_get_bits(r->num_desc, GENMASK(31, 16));
-> +
-> +	/* Initialized to first descriptor */
-> +	p->next = (void *)r->desc;
-
-No need to cast to a void *
-C always lets you do this implicitly if the target type is a void *.
-
-> +
-> +	return 0;
-> +}
-> +
-
-
-> +static int scmi_telemetry_initial_state_lookup(struct telemetry_info *ti)
-> +{
-> +	struct device *dev = ti->ph->dev;
-> +	int ret;
-> +
-> +	ret = scmi_telemetry_config_lookup(ti, SCMI_TLM_GRP_INVALID,
-> +					   &ti->info.enabled,
-> +					   &ti->info.active_update_interval);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (ti->info.enabled) {
-
-I'd flip logic to reduce indent
-	if (!ti->info.enabled)
-		return 0;
-
-	/*
-	 *...
-
-> +		/*
-> +		 * When Telemetry is found already enabled on the platform,
-> +		 * proceed with passive discovery using DE_ENABLED_LIST and
-> +		 * TCDF scanning: note that this CAN only discover DEs exposed
-> +		 * via SHMTIs.
-> +		 * FastChannel DEs need a proper DE_DESCRIPTION enumeration,
-> +		 * while, even though incoming Notifications could be used for
-> +		 * passive discovery too, it would carry a considerable risk
-> +		 * of assimilating trash as DEs.
-> +		 */
-> +		dev_info(dev,
-> +			 "Telemetry found enabled with update interval %ux10^%d\n",
-> +			 SCMI_TLM_GET_UPDATE_INTERVAL_SECS(ti->info.active_update_interval),
-> +			 SCMI_TLM_GET_UPDATE_INTERVAL_EXP(ti->info.active_update_interval));
-> +		/*
-> +		 * Query enabled DEs list: collect states.
-> +		 * It will include DEs from any interface.
-> +		 * Enabled groups still NOT enumerated.
-> +		 */
-> +		ret = scmi_telemetry_enumerate_des_enabled_list(ti);
-> +		if (ret)
-> +			dev_warn(dev, FW_BUG "Cannot query enabled DE list. Carry-on.\n");
-> +
-> +		/* Discover DEs on SHMTis: collect states/offsets/values */
-> +		for (int id = 0; id < ti->num_shmti; id++) {
-> +			ret = scmi_telemetry_shmti_scan(ti, id, 0, SCAN_DISCOVERY);
-> +			if (ret)
-> +				dev_warn(dev, "Failed discovery-scan of SHMTI ID:%d\n", id);
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-}
-
-> +static int iter_intervals_update_state(struct scmi_iterator_state *st,
-> +				       const void *response, void *priv)
-> +{
-> +	const struct scmi_msg_resp_telemetry_update_intervals *r = response;
-> +
-> +	st->num_returned = le32_get_bits(r->flags, GENMASK(11, 0));
-> +	st->num_remaining = le32_get_bits(r->flags, GENMASK(31, 16));
-> +
-> +	/*
-> +	 * total intervals is not declared previously anywhere so we
-> +	 * assume it's returned+remaining on first call.
-> +	 */
-> +	if (!st->max_resources) {
-> +		struct scmi_tlm_ivl_priv *p = priv;
-> +		bool discrete;
-> +		int inum;
-> +
-> +		discrete = INTERVALS_DISCRETE(r->flags);
-> +		/* Check consistency on first call */
-> +		if (!discrete && (st->num_returned != 3 || st->num_remaining != 0))
-> +			return -EINVAL;
-> +
-> +		inum = st->num_returned + st->num_remaining;
-> +		struct scmi_tlm_intervals *intrvs __free(kfree) =
-> +			kzalloc(sizeof(*intrvs) + inum * sizeof(__u32), GFP_KERNEL);
-
-Unless this is going to get more complex, the __free() isn't doing anything useful
-as there are no other error paths before the no_free_ptr().
-
-> +		if (!intrvs)
-> +			return -ENOMEM;
-> +
-> +		intrvs->num = inum;
-> +		intrvs->discrete = discrete;
-> +		st->max_resources = intrvs->num;
-> +
-> +		*p->intrvs = no_free_ptr(intrvs);
-> +	}
-> +
-> +	return 0;
-
-> +static int
-> +scmi_tlm_enumerate_update_intervals(struct telemetry_info *ti,
-> +				    struct scmi_tlm_intervals **intervals,
-> +				    int grp_id, unsigned int flags)
-> +{
-> +	struct scmi_iterator_ops ops = {
-> +		.prepare_message = iter_intervals_prepare_message,
-> +		.update_state = iter_intervals_update_state,
-> +		.process_response = iter_intervals_process_response,
-> +	};
-> +	const struct scmi_protocol_handle *ph = ti->ph;
-> +	struct scmi_tlm_ivl_priv ipriv = {
-> +		.dev = ph->dev,
-> +		.grp_id = grp_id,
-> +		.intrvs = intervals,
-> +		.flags = flags,
-> +	};
-> +	void *iter;
-> +
-> +	iter = ph->hops->iter_response_init(ph, &ops, 0,
-> +					    TELEMETRY_LIST_UPDATE_INTERVALS,
-> +			     sizeof(struct scmi_msg_telemetry_update_intervals),
-This alignment is unusual.  Given the length of that type name I'd do this as:
-
-	iter = ph->hops->iter_response_init(ph, &ops, 0,
-		TELEMETRY_LIST_UPDATE_INTERVALS,
-		sizeof(struct scmi_msg_telemetry_update_intervals),
-		&ipriv);
-
-> +					    &ipriv);
-> +	if (IS_ERR(iter))
-> +		return PTR_ERR(iter);
-> +
-> +	return ph->hops->iter_response_run(iter);
-> +}
-
-> +static const struct scmi_telemetry_de *
-> +scmi_telemetry_de_lookup(const struct scmi_protocol_handle *ph, u32 id)
-> +{
-> +	struct telemetry_info *ti = ph->get_priv(ph);
-> +	struct scmi_telemetry_de *de;
-> +
-> +	ti->res_get(ti);
-> +	de = xa_load(&ti->xa_des, id);
-> +	if (!de)
-> +		return NULL;
-> +
-> +	return de;
-
-	return xa_load(&ti->xa_des, id);
-
-> +}
-
-
-> +static struct payload *
-> +scmi_telemetry_nearest_blk_ts(struct telemetry_shmti *shmti,
-> +			      struct payload *last_payld)
-> +{
-> +	struct payload *payld, *bts_payld = NULL;
-> +	struct tdcf __iomem *tdcf = shmti->base;
-> +	u32 *next;
-> +
-> +	/* Scan from start of TDCF payloads up to last_payld */
-> +	payld = (struct payload *)tdcf->payld;
-
-casting away the __iomem is usualy a bad idea.
-Shouldn't a readl or similar be used to get next below.
-
-
-> +	next = (u32 *)payld;
-> +	while (payld < last_payld) {
-> +		if (IS_BLK_TS(payld))
-> +			bts_payld = payld;
-> +
-> +		next += USE_LINE_TS(payld) ?
-> +			TS_LINE_DATA_PAYLD_WORDS : LINE_DATA_PAYLD_WORDS;
-> +		payld = (struct payload *)next;
-> +	}
-> +
-> +	return bts_payld;
-> +}
-> +
-> +static struct telemetry_block_ts *
-> +scmi_telemetry_blkts_lookup(struct device *dev, struct xarray *xa_bts,
-> +			    struct payload *payld)
-> +{
-> +	struct telemetry_block_ts *bts;
-> +
-> +	bts = xa_load(xa_bts, (unsigned long)payld);
-> +	if (!bts) {
-> +		int ret;
-> +
-> +		bts = devm_kzalloc(dev, sizeof(*bts), GFP_KERNEL);
-
-I'd not normally expect to see xa_insert using devm allocated memory
-because you sort of hand ownership to the xa with that call so I'd expect
-on exist we'd see a walk of the xa clearing out everything it is tracking.
-
-> +		if (!bts)
-> +			return NULL;
-> +
-> +		refcount_set(&bts->users, 1);
-> +		bts->payld = payld;
-> +		bts->xa_bts = xa_bts;
-> +		mutex_init(&bts->mtx);
-> +		ret = xa_insert(xa_bts, (unsigned long)payld, bts, GFP_KERNEL);
-> +		if (ret) {
-> +			devm_kfree(dev, bts);
-> +			return NULL;
-> +		}
-> +	}
-> +
-> +	return bts;
-> +}
-
-> +
-> +static void scmi_telemetry_tdcf_data_parse(struct telemetry_info *ti,
-> +					   struct payload __iomem *payld,
-> +					   struct telemetry_shmti *shmti,
-> +					   enum scan_mode mode)
-> +{
-> +	bool ts_valid = TS_VALID(payld);
-> +	struct telemetry_de *tde;
-> +	bool discovered = false;
-> +	u64 val, tstamp = 0;
-> +	u32 de_id;
-> +
-> +	de_id = PAYLD_ID(payld);
-> +	/* Is thi DE ID know ? */
-
-That comment needs a rewrite.
-
-> +	tde = scmi_telemetry_tde_lookup(ti, de_id);
-> +	if (!tde) {
-> +		if (mode != SCAN_DISCOVERY)
-> +			return;
-> +
-> +		/* In SCAN_DISCOVERY mode we allocate new DEs for unknown IDs */
-> +		tde = scmi_telemetry_tde_get(ti, de_id);
-> +		if (IS_ERR(tde))
-> +			return;
-> +
-> +		tde->de.info->id = de_id;
-> +		tde->de.enabled = true;
-> +		tde->de.tstamp_enabled = ts_valid;
-> +		discovered = true;
-> +	}
-> +
-> +	/* Update DE location refs if requested: normally done only on enable */
-> +	if (mode >= SCAN_UPDATE) {
-> +		tde->base = shmti->base;
-> +		tde->eplg = SHMTI_EPLG(shmti);
-> +		tde->offset = (void *)payld - (void *)shmti->base;
-> +
-> +		dev_dbg(ti->ph->dev,
-> +			"TDCF-updated DE_ID:0x%08X - shmti:%pX  offset:%u\n",
-> +			tde->de.info->id, tde->base, tde->offset);
-> +	}
-> +
-> +	if (discovered) {
-> +		if (scmi_telemetry_tde_register(ti, tde)) {
-> +			scmi_telemetry_free_tde_put(ti, tde);
-> +			return;
-> +		}
-> +	}
-> +
-> +	scoped_guard(mutex, &tde->mtx) {
-> +		if (tde->last_magic == shmti->last_magic)
-> +			return;
-> +	}
-> +
-> +	/* Data is always valid since we are NOT handling BLK TS lines here */
-> +	val = LINE_DATA_GET(&payld->l);
-> +	/* Collect the right TS */
-> +	if (ts_valid) {
-> +		if (USE_LINE_TS(payld)) {
-> +			tstamp = LINE_TSTAMP_GET(&payld->tsl);
-> +		} else if (USE_BLK_TS(payld)) {
-> +			if (!tde->bts) {
-> +				/*
-> +				 * Scanning a TDCF looking for the nearest
-> +				 * previous valid BLK_TS, after having found a
-> +				 * USE_BLK_TS() payload, MUST succeed.
-> +				 */
-> +				tde->bts = scmi_telemetry_blkts_bind(ti->ph->dev,
-> +								     shmti, payld,
-> +								     &ti->xa_bts);
-> +				if (WARN_ON(!tde->bts))
-> +					return;
-> +			}
-> +
-> +			tstamp = scmi_telemetry_blkts_read(tde->last_magic,
-> +							   tde->bts);
-> +		}
-> +	}
-> +
-> +	guard(mutex)(&tde->mtx);
-> +	tde->last_magic = shmti->last_magic;
-> +	tde->last_val = val;
-> +	if (tde->de.tstamp_enabled)
-
-ternary perhaps
-	tde->last_ts = tde->de.tstamp_enabled ? tstamp : 0;
-
-
-> +		tde->last_ts = tstamp;
-> +	else
-> +		tde->last_ts = 0;
-> +}
-
-
-
-
-> +static inline void scmi_telemetry_de_data_fc_read(struct telemetry_de *tde,
-> +						  u64 *tstamp, u64 *val)
-> +{
-> +	struct fc_tsline __iomem *fc = tde->base + tde->offset;
-> +
-> +	*val = LINE_DATA_GET(fc);
-> +	if (tstamp) {
-> +		if (tde->de.tstamp_support)
-> +			*tstamp = LINE_TSTAMP_GET(fc);
-> +		else
-> +			*tstamp = 0;
-
-		*tstamp = tde->de.tstam_support ? LINE_TIMESTAMP_GET(fc) : 0;
-
-> +	}
-> +}
-> +
-> +static void scmi_telemetry_scan_update(struct telemetry_info *ti, u64 ts)
-> +{
-> +	struct telemetry_de *tde;
-> +
-> +	/* Scan all SHMTIs ... */
-> +	for (int id = 0; id < ti->num_shmti; id++) {
-> +		int ret;
-> +
-> +		ret = scmi_telemetry_shmti_scan(ti, id, ts, SCAN_LOOKUP);
-> +		if (ret)
-
-Might as well simplify given value of ret only used here.
-
-		if (scmi_telemetry_shmti_scan(ti, id, ts, SCAN_LOOKUP)) {
-			dev_warn();
-
-> +			dev_warn(ti->ph->dev,
-> +				 "Failed update-scan of SHMTI ID:%d\n", id);
-> +	}
-> +
-> +	if (!ti->info.fc_support)
-> +		return;
-> +
-> +	/* Need to enumerate resources to access fastchannels */
-> +	ti->res_get(ti);
-> +	list_for_each_entry(tde, &ti->fcs_des, item) {
-> +		u64 val, tstamp;
-> +
-> +		if (!tde->de.enabled)
-> +			continue;
-> +
-> +		scmi_telemetry_de_data_fc_read(tde, &tstamp, &val);
-> +
-> +		guard(mutex)(&tde->mtx);
-> +		tde->last_val = val;
-> +		if (tde->de.tstamp_enabled)
-> +			tde->last_ts = tstamp;
-> +		else
-> +			tde->last_ts = 0;
-> +	}
-> +}
-> +
-> +/*
-> + * TDCF and TS Line Management Notes
-> + * ---------------------------------
-> + *  (from a chat with ATG)
-
-That's probably not a detail we want in the long term record, nice
-and helpful as they are :)
-
-
-> + *
-> + * TCDF Payload Metadata notable bits:
-> + *  - Bit[3]: USE BLK Tstamp
-> + *  - Bit[2]: USE LINE Tstamp
-> + *  - Bit[1]: Tstamp VALID
-> + *
-> + * CASE_1:
-...
-
-
-> +static int
-> +scmi_telemetry_samples_collect(struct telemetry_info *ti, int grp_id,
-> +			       int *num_samples,
-> +			       struct scmi_telemetry_de_sample *samples)
-> +{
-> +	struct scmi_telemetry_res_info *rinfo;
-> +	int max_samples;
-> +
-> +	max_samples = *num_samples;
-> +	*num_samples = 0;
-> +
-> +	rinfo = ti->res_get(ti);
-> +	for (int i = 0; i < rinfo->num_des; i++) {
-> +		struct scmi_telemetry_de *de;
-> +		u64 val, tstamp;
-> +		int ret;
-> +
-> +		de = rinfo->des[i];
-> +		if (grp_id != SCMI_TLM_GRP_INVALID &&
-> +		    (!de->grp || de->grp->info->id != grp_id))
-> +			continue;
-> +
-> +		ret = scmi_telemetry_de_cached_read(ti, de, &tstamp, &val);
-> +		if (ret)
-> +			continue;
-> +
-> +		if (*num_samples == max_samples)
-> +			return -ENOSPC;
-> +
-> +		samples[*num_samples].tstamp = tstamp;
-> +		samples[*num_samples].val = val;
-> +		samples[*num_samples].id = de->info->id;
-Maybe worth doing
-		samples[(*num_samples)++] = (struct scmi_telemetry_de_sample) {
-			.tstamp = tstamp,
-			.val = val,
-			.id = de->info->id,
-		};
-so that it is immediately obvious you are filling whole record in (or zeroing
-any other fields though not relevant here)
-
-> +
-> +		(*num_samples)++;
-> +	}
-> +
-> +	return 0;
-> +}
-
-> +
-> +static int scmi_telemetry_des_sample_get(const struct scmi_protocol_handle *ph,
-> +					 int grp_id, int *num_samples,
-> +					 struct scmi_telemetry_de_sample *samples)
-> +{
-> +	struct telemetry_info *ti = ph->get_priv(ph);
-> +	struct scmi_msg_telemetry_config_set *msg;
-> +	struct scmi_xfer *t;
-> +	bool grp_ignore;
-> +	int ret;
-> +
-> +	if (!ti->info.enabled || !num_samples || !samples)
-> +		return -EINVAL;
-> +
-> +	grp_ignore = grp_id == SCMI_TLM_GRP_INVALID ? true : false;
-> +	if (!grp_ignore && grp_id >= ti->info.base.num_groups)
-> +		return -EINVAL;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, TELEMETRY_CONFIG_SET,
-> +				      sizeof(*msg), 0, &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	msg = t->tx.buf;
-> +	msg->grp_id = grp_id;
-> +	msg->control = TELEMETRY_ENABLE;
-> +	msg->control |= grp_ignore ? TELEMETRY_SET_SELECTOR_ALL :
-> +		TELEMETRY_SET_SELECTOR_GROUP;
-> +	msg->control |= TELEMETRY_MODE_SINGLE;
-> +	msg->sampling_rate = 0;
-> +
-> +	ret = ph->xops->do_xfer_with_response(ph, t);
-> +	if (!ret) {
-> +		struct scmi_msg_resp_telemetry_reading_complete *r = t->rx.buf;
-
-Feels like that type might benefit form a shorter name
-		struct scmi_msg_resp_telemetry_rd_comp
-maybe?
-
-> +
-> +		/* Update cached DEs values from payload */
-> +		if (r->num_dwords)
-> +			scmi_telemetry_msg_payld_process(ti, r->num_dwords,
-> +							 r->dwords, 0);
-> +		/* Scan and update SMHTIs and FCs */
-> +		scmi_telemetry_scan_update(ti, 0);
-> +
-> +		/* Collect all last cached values */
-> +		ret = scmi_telemetry_samples_collect(ti, grp_id, num_samples,
-> +						     samples);
-> +	}
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-
-> +
-> +static int scmi_telemetry_reset(const struct scmi_protocol_handle *ph)
-> +{
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, TELEMETRY_RESET, sizeof(u32), 0, &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	put_unaligned_le32(0, t->tx.buf);
-> +	ret = ph->xops->do_xfer(ph, t);
-> +	if (!ret) {
-> +		struct telemetry_info *ti = ph->get_priv(ph);
-> +
-> +		scmi_telemetry_local_resources_reset(ti);
-> +		/* Fetch agaon states state from platform.*/
-
-Not sure what that comment means.
-
-> +		ret = scmi_telemetry_initial_state_lookup(ti);
-> +		if (ret)
-> +			dev_warn(ph->dev,
-> +				 FW_BUG "Cannot retrieve initial state after reset.\n");
-> +	}
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-
-> +static void *
-> +scmi_telemetry_fill_custom_report(const struct scmi_protocol_handle *ph,
-> +				  u8 evt_id, ktime_t timestamp,
-> +				  const void *payld, size_t payld_sz,
-> +				  void *report, u32 *src_id)
-> +{
-> +	const struct scmi_telemetry_update_notify_payld *p = payld;
-> +	struct scmi_telemetry_update_report *r = report;
-> +
-> +	/* At least sized as an empty notification */
-> +	if (payld_sz < sizeof(*p))
-> +		return NULL;
-> +
-> +	r->timestamp = timestamp;
-> +	r->agent_id = le32_to_cpu(p->agent_id);
-> +	r->status = le32_to_cpu(p->status);
-> +	r->num_dwords = le32_to_cpu(p->num_dwords);
-> +	/*
-> +	 * Allocated dwords and report are sized as max_msg_size, so as
-> +	 * to allow for the maximum payload permitted by the configured
-> +	 * transport. Overflow is not possible since out-of-size messages
-> +	 * are dropped at the transport layer.
-> +	 */
-> +	if (r->num_dwords)
-> +		memcpy(r->dwords, p->array, r->num_dwords * sizeof(u32));
-
-This needs le32 magic as you are copying from an array of those to an array
-of unsigned int (if you do this as a memcpy that should be u32 to make the
-size explicit).
-
-memcpy_from_le32() should do what you need here.
-
-
-> +
-> +	*src_id = 0;
-> +
-> +	return r;
-> +}
-
-
-> diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-> index c6efe4f371ac..d58b81ffd81e 100644
-> --- a/include/linux/scmi_protocol.h
-> +++ b/include/linux/scmi_protocol.h
-
-> +
-> +/**
-> + * struct scmi_telemetry_proto_ops - represents the various operations provided
-> + *	by SCMI Telemetry Protocol
-> + *
-> + * @info_get: get the general Telemetry information.
-> + * @de_lookup: get a specific DE descriptor from the DE id.
-> + * @res_get: get a reference to the Telemetry resources descriptor.
-> + * @state_get: retrieve the specific DE or GROUP state.
-> + * @state_set: enable/disable the specific DE or GROUP with or without timestamps.
-> + * @all_disable: disable ALL DEs or GROUPs.
-> + * @collection_configure: choose a sampling rate and enable SHMTI/FC sampling
-> + *			  for on demand collection via @de_data_read or async
-> + *			  notificatioins for all the enabled DEs.
-> + * @de_data_read: on-demand read of a single DE and related optional timestamp:
-> + *		  the value will be retrieved at the proper SHMTI offset OR
-> + *		  from the dedicated FC area (if supported by that DE).
-> + * @des_bulk_read: on-demand read of all the currently enabled DEs, or just
-> + *		   the ones belonging to a specific group when provided.
-> + * @des_sample_get: on-demand read of all the currently enabled DEs, or just
-> + *		    the ones belonging to a specific group when provided.
-> + *		    This causes an immediate update platform-side of all the
-> + *		    enabled DEs.
-> + * @config_get: retrieve current telemetry configuration.
-> + * @reset: reset configuration and telemetry data.
-> + */
-> +struct scmi_telemetry_proto_ops {
-> +	const struct scmi_telemetry_info __must_check *(*info_get)
-> +		(const struct scmi_protocol_handle *ph);
-> +	const struct scmi_telemetry_de __must_check *(*de_lookup)
-> +		(const struct scmi_protocol_handle *ph, u32 id);
-> +	const struct scmi_telemetry_res_info __must_check *(*res_get)
-> +		(const struct scmi_protocol_handle *ph);
-> +	int (*state_get)(const struct scmi_protocol_handle *ph,
-> +			 u32 id, bool *enabled, bool *tstamp_enabled);
-> +	int (*state_set)(const struct scmi_protocol_handle *ph,
-> +			 bool is_group, u32 id, bool *enable, bool *tstamp);
-> +	int (*all_disable)(const struct scmi_protocol_handle *ph, bool group);
-> +	int (*collection_configure)(const struct scmi_protocol_handle *ph,
-> +				    unsigned int res_id, bool grp_ignore,
-> +				    bool *enable,
-> +				    unsigned int *update_interval_ms,
-> +				    enum scmi_telemetry_collection *mode);
-> +	int (*de_data_read)(const struct scmi_protocol_handle *ph,
-> +			    struct scmi_telemetry_de_sample *sample);
-> +	int __must_check (*des_bulk_read)(const struct scmi_protocol_handle *ph,
-
-I'm curious. What about this one makes it suitable for a __must_check?
-Seems a bit random.
-
-> +					  int grp_id, int *num_samples,
-> +					  struct scmi_telemetry_de_sample *samples);
-> +	int __must_check (*des_sample_get)(const struct scmi_protocol_handle *ph,
-> +					   int grp_id, int *num_samples,
-> +					   struct scmi_telemetry_de_sample *samples);
-> +	int (*config_get)(const struct scmi_protocol_handle *ph, bool *enabled,
-> +			  int *mode, u32 *update_interval);
-> +	int (*reset)(const struct scmi_protocol_handle *ph);
-> +};
-
-> +
-> +struct scmi_telemetry_update_report {
-> +	ktime_t		timestamp;
-> +	unsigned int	agent_id;
-> +	int		status;
-> +	unsigned int	num_dwords;
-> +	unsigned int	dwords[];
-
-__counted_by not appropriate?
-
-> +};
->  #endif /* _LINUX_SCMI_PROTOCOL_H */
-
-> +	put_unaligned_le32(0, t->tx.buf);
-> +	ret = ph->xops->do_xfer(ph, t);
+Hi Salman,
+
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on soc/for-next]
+[also build test WARNING on linus/master v6.19-rc6 next-20260116]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Salman-Nabi/firmware-smccc-add-support-for-Live-Firmware-Activation-LFA/20260119-203221
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/20260119122729.287522-2-salman.nabi%40arm.com
+patch subject: [PATCH 1/1] firmware: smccc: add support for Live Firmware Activation (LFA)
+config: arm-sp7021_defconfig (https://download.01.org/0day-ci/archive/20260120/202601200007.GVZIjoCx-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260120/202601200007.GVZIjoCx-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601200007.GVZIjoCx-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   drivers/firmware/smccc/lfa_fw.c: In function 'get_nr_lfa_components':
+   drivers/firmware/smccc/lfa_fw.c:179:16: error: variable 'reg' has initializer but incomplete type
+     179 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+>> drivers/firmware/smccc/lfa_fw.c:179:43: warning: excess elements in struct initializer
+     179 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:179:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:179:35: error: storage size of 'reg' isn't known
+     179 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:184:9: error: implicit declaration of function 'arm_smccc_1_2_invoke'; did you mean 'arm_smccc_1_1_invoke'? [-Wimplicit-function-declaration]
+     184 |         arm_smccc_1_2_invoke(&reg, &reg);
+         |         ^~~~~~~~~~~~~~~~~~~~
+         |         arm_smccc_1_1_invoke
+>> drivers/firmware/smccc/lfa_fw.c:179:35: warning: unused variable 'reg' [-Wunused-variable]
+     179 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_cancel':
+   drivers/firmware/smccc/lfa_fw.c:194:16: error: variable 'reg' has initializer but incomplete type
+     194 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:194:43: warning: excess elements in struct initializer
+     194 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:194:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:194:35: error: storage size of 'reg' isn't known
+     194 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:194:35: warning: unused variable 'reg' [-Wunused-variable]
+   drivers/firmware/smccc/lfa_fw.c: In function 'call_lfa_activate':
+   drivers/firmware/smccc/lfa_fw.c:220:16: error: variable 'reg' has initializer but incomplete type
+     220 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:220:43: warning: excess elements in struct initializer
+     220 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:220:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:220:35: error: storage size of 'reg' isn't known
+     220 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:220:35: warning: unused variable 'reg' [-Wunused-variable]
+   drivers/firmware/smccc/lfa_fw.c: In function 'prime_fw_image':
+   drivers/firmware/smccc/lfa_fw.c:290:16: error: variable 'reg' has initializer but incomplete type
+     290 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:290:43: warning: excess elements in struct initializer
+     290 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:290:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:290:35: error: storage size of 'reg' isn't known
+     290 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:290:35: warning: unused variable 'reg' [-Wunused-variable]
+   drivers/firmware/smccc/lfa_fw.c: In function 'activation_pending_show':
+   drivers/firmware/smccc/lfa_fw.c:360:16: error: variable 'reg' has initializer but incomplete type
+     360 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:360:43: warning: excess elements in struct initializer
+     360 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:360:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:360:35: error: storage size of 'reg' isn't known
+     360 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:360:35: warning: unused variable 'reg' [-Wunused-variable]
+   drivers/firmware/smccc/lfa_fw.c: In function 'pending_version_show':
+   drivers/firmware/smccc/lfa_fw.c:434:16: error: variable 'reg' has initializer but incomplete type
+     434 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:434:43: warning: excess elements in struct initializer
+     434 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:434:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:434:35: error: storage size of 'reg' isn't known
+     434 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:434:35: warning: unused variable 'reg' [-Wunused-variable]
+   drivers/firmware/smccc/lfa_fw.c: In function 'update_fw_images_tree':
+   drivers/firmware/smccc/lfa_fw.c:586:16: error: variable 'reg' has initializer but incomplete type
+     586 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:586:43: warning: excess elements in struct initializer
+     586 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:586:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:586:35: error: storage size of 'reg' isn't known
+     586 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:586:35: warning: unused variable 'reg' [-Wunused-variable]
+   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_init':
+   drivers/firmware/smccc/lfa_fw.c:619:16: error: variable 'reg' has initializer but incomplete type
+     619 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:619:43: warning: excess elements in struct initializer
+     619 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:619:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:619:35: error: storage size of 'reg' isn't known
+     619 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:619:35: warning: unused variable 'reg' [-Wunused-variable]
+
+
+vim +179 drivers/firmware/smccc/lfa_fw.c
+
+   176	
+   177	static unsigned long get_nr_lfa_components(void)
+   178	{
+ > 179		struct arm_smccc_1_2_regs reg = { 0 };
+   180	
+   181		reg.a0 = LFA_1_0_FN_GET_INFO;
+   182		reg.a1 = 0; /* lfa_info_selector = 0 */
+   183	
+   184		arm_smccc_1_2_invoke(&reg, &reg);
+   185		if (reg.a0 != LFA_SUCCESS)
+   186			return reg.a0;
+   187	
+   188		return reg.a1;
+   189	}
+   190	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
