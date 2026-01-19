@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17B5ED29C2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 13:38:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57504D29C2D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 13:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hUAVyNbnXZWCQBjg+zyhay+XC6IH/G0IgORJeud/DK0=; b=jdAFX+xM3GpyrrxGdPFo8YGhrp
-	vjoNAkd6pNSStE4HhM/8cZg84WKhzx9Fsg2RrVeNoqkj2BE0TSE0FJBXcHHKyqRb6U5/s4zvhSTBk
-	5g3pVozVECc3Bbaz9TiYVxKDXJJQCknjq+ef9jUP939Ex+IhfCIWp+/YvkXTOj1JAMXQ+RIAMt1Yc
-	vQkZBrHolonNC9rPaJMa6NxtiHerXNyCooPeguDWFc01hhr6CUFWsFbHrP5aQ5SobUGh0V+TfAkre
-	PtzN+6ma14ikbCXA6FiA7w6v0wVe2CSXOl5b1RNq0ccVvb6i95pv/21U4c0UI8pywDMMSkw0hh1OG
-	o1oF7d+w==;
+	bh=IC8dmyXUgGXJkFzck0emBpMKcZH6nFfGmpejhPsMbGA=; b=dK0v6/4G5d4Vzb1OoC5j/Ya0ex
+	/S85wh9KHFBW9Y7iKoVzOxAPhxT9+xOW9mmpUv+qkfn9IGEqIPv/MoZRni74/NbHex6E/iC2D9Jsr
+	ol/TOf91JrPQlqz9xzda9beRTve6YDmR8iJK/PBbH8YnhZDSli0RWX/KFgfrdUxac/cxr5ezvpGzq
+	JWQV9yj5sMl+bXrhYxRyf1FSsJuzO4w4XJTQb3I2noZYyohRJo77oUHwz9ms1voVVaN/kqCk+Ki2C
+	n6NMby+Gu2xt6zvjifGT6VCOf/uXdroVE7QYF/1BxfU+K9TeT8A6GvfAg9gVv02CLATe5/Ri0/BqC
+	VEcvCGhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhpSY-00000002Azq-0vDN;
-	Mon, 19 Jan 2026 13:38:22 +0000
+	id 1vhpUc-00000002B8z-3Ojw;
+	Mon, 19 Jan 2026 13:40:30 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhpSV-00000002AzD-24QT
+	id 1vhpUX-00000002B8U-0iBT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 13:38:20 +0000
+	Mon, 19 Jan 2026 13:40:26 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1DF7C497;
-	Mon, 19 Jan 2026 05:38:11 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D454B497;
+	Mon, 19 Jan 2026 05:40:17 -0800 (PST)
 Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF8193F694;
-	Mon, 19 Jan 2026 05:38:12 -0800 (PST)
-Message-ID: <d603ad9c-18a0-40fe-9d0b-2ff31eaf8f30@arm.com>
-Date: Mon, 19 Jan 2026 13:38:11 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A07073F694;
+	Mon, 19 Jan 2026 05:40:19 -0800 (PST)
+Message-ID: <d673a478-0f8f-4122-b49a-cd30213f1b5f@arm.com>
+Date: Mon, 19 Jan 2026 13:40:18 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 07/47] arm64: mpam: Re-initialise MPAM regs when CPU
- comes online
+Subject: Re: [PATCH v3 10/47] arm64: mpam: Initialise and context switch the
+ MPAMSM_EL1 register
 To: Catalin Marinas <catalin.marinas@arm.com>
 Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
@@ -53,15 +53,16 @@ Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  corbet@lwn.net, maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
  suzuki.poulose@arm.com, kvmarm@lists.linux.dev
 References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-8-ben.horgan@arm.com> <aWkucXgE6g2lwvkj@arm.com>
+ <20260112165914.4086692-11-ben.horgan@arm.com> <aWk7Pyai4AcoQc_J@arm.com>
 From: Ben Horgan <ben.horgan@arm.com>
 Content-Language: en-US
-In-Reply-To: <aWkucXgE6g2lwvkj@arm.com>
+In-Reply-To: <aWk7Pyai4AcoQc_J@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_053819_612172_C1F1A0F3 
-X-CRM114-Status: GOOD (  29.74  )
+X-CRM114-CacheID: sfid-20260119_054025_257880_A2A0E07B 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,107 +79,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Catalin,
 
-On 1/15/26 18:14, Catalin Marinas wrote:
-> On Mon, Jan 12, 2026 at 04:58:34PM +0000, Ben Horgan wrote:
->> From: James Morse <james.morse@arm.com>
->>
->> Now that the MPAM system registers are expected to have values that change,
->> reprogram them based on the previous value when a CPU is brought online.
->>
->> Previously MPAM's 'default PARTID' of 0 was always used for MPAM in
->> kernel-space as this is the PARTID that hardware guarantees to
->> reset. Because there are a limited number of PARTID, this value is exposed
->> to user-space, meaning resctrl changes to the resctrl default group would
->> also affect kernel threads.  Instead, use the task's PARTID value for
->> kernel work on behalf of user-space too. The default of 0 is kept for both
->> user-space and kernel-space when MPAM is not enabled.
->>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since rfc:
->> CONFIG_MPAM -> CONFIG_ARM64_MPAM
->> Check mpam_enabled
->> Comment about relying on ERET for synchronisation
->> Update commit message
->> ---
->>  arch/arm64/kernel/cpufeature.c | 19 ++++++++++++-------
->>  1 file changed, 12 insertions(+), 7 deletions(-)
->>
+On 1/15/26 19:08, Catalin Marinas wrote:
+> On Mon, Jan 12, 2026 at 04:58:37PM +0000, Ben Horgan wrote:
 >> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index c840a93b9ef9..0cdfb3728f43 100644
+>> index 0cdfb3728f43..2ede543b3eeb 100644
 >> --- a/arch/arm64/kernel/cpufeature.c
 >> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -86,6 +86,7 @@
->>  #include <asm/kvm_host.h>
->>  #include <asm/mmu.h>
->>  #include <asm/mmu_context.h>
->> +#include <asm/mpam.h>
->>  #include <asm/mte.h>
->>  #include <asm/hypervisor.h>
->>  #include <asm/processor.h>
->> @@ -2483,13 +2484,17 @@ test_has_mpam(const struct arm64_cpu_capabilities *entry, int scope)
->>  static void
->>  cpu_enable_mpam(const struct arm64_cpu_capabilities *entry)
->>  {
->> -	/*
->> -	 * Access by the kernel (at EL1) should use the reserved PARTID
->> -	 * which is configured unrestricted. This avoids priority-inversion
->> -	 * where latency sensitive tasks have to wait for a task that has
->> -	 * been throttled to release the lock.
->> -	 */
->> -	write_sysreg_s(0, SYS_MPAM1_EL1);
+>> @@ -2491,6 +2491,8 @@ cpu_enable_mpam(const struct arm64_cpu_capabilities *entry)
+>>  		regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
+>>  
+>>  	write_sysreg_s(regval, SYS_MPAM1_EL1);
+>> +	if (system_supports_sme())
+>> +		write_sysreg_s(regval & (MPAMSM_EL1_PARTID_D | MPAMSM_EL1_PMG_D), SYS_MPAMSM_EL1);
+>>  	isb();
 > 
-> Is this comment about priority inversion no longer valid?
-
-Yes, will drop it.
-
- I see thread
-> switching sets the same value for both MPAM0 and MPAM1 registers but I
-> couldn't find an explanation why this is now better when it wasn't
-> before.
-
-I touch on it in the cover letter. It is the way it is done for x86 and
-so sensible to make it the default. All partids are usable from
-user-space and user-space can't bypass MPAM controls by doing the work
-in the kernel.
-
-There is a proposal from Babu at AMD, PLZA, which he presented at LPC
-which would give a new interface to  have different configuration,
-closid, for userspace and kernel space. We should be able to use this
-with MPAM too.
-
-> 
-> MPAM1 will also be inherited by IRQ handlers AFAICT.
-
-Yes, this is a disadvantage of having MPAM1 and MPAM0 change together.
-
-> 
->> +	int cpu = smp_processor_id();
->> +	u64 regval = 0;
->> +
->> +	if (IS_ENABLED(CONFIG_ARM64_MPAM) && static_branch_likely(&mpam_enabled))
->> +		regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
->> +
->> +	write_sysreg_s(regval, SYS_MPAM1_EL1);
->> +	isb();
->> +
->> +	/* Synchronising the EL0 write is left until the ERET to EL0 */
->> +	write_sysreg_s(regval, SYS_MPAM0_EL1);
-> 
-> I mentioned before, is it worth waiting until ERET?
-
-Just for documentation. I can change it if you prefer.
-
-> 
-> Related to this, do LDTR/STTR use MPAM0 or MPAM1? I couldn't figure out
-> from the Arm ARM. If they use MPAM0, then we need the ISB early for the
-> uaccess routines, at least in the thread switching path (an earlier
-> patch).
+> Do we know for sure that system_supports_sme() returns true at this
+> point (if SME supported)? Digging into the code, system_supports_sme()
+> uses alternative_has_cap_unlikely() which relies on instruction
+> patching. setup_system_capabilities(), IIUC, patches the alternatives
+> after enable_cpu_capabilities(). I think you better use cpus_have_cap().
 > 
 
-They use LDTR/STTR. MPAM doesn't care about which instruction is running.
+I'll switch to cpus_have_cap().
 
 Thanks,
 
