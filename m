@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56EFBD29C36
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 15:31:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF70BD29C36
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 15:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5cSOVFfVGe7a7wCYZBldxRsxOVY7rfby1STQDoEXXL8=; b=TatexFJRCQr8/UB2LzWB27o6+o
-	bEVal6fZG4nhE/+xBQxx9ZqQjrM4qqKZZ87Fh5nBDLVr7rzcbouEK/xzCwt4C6vCZTJGVj86+G3Cb
-	KdhHnCRCUxhvUmLqEbtrBaxl3caoO1UeQOZ6sk8HKTtAGzF7IF+QX1oNjnTe+yiJ6KvtZ2JruiG97
-	XevksNnvX+BU4zYd2SvJnJNw9q2dDH5mRD48Ah+Ah6p0aUyc51aBRloTGflb1rAleNZglYQYKCbQj
-	o9Gh+bbu8REsOxq8kVTkPNuItoCc0QOsjUqDQ+tc8Q2PZj6J6lv59Njneds1rSLjtCq/D5Q997RUN
-	R03vSIFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Mc75eeKcOhuOxEB+mH7yhfNNnBNqnhdYpGNBwRPdppM=; b=wLL4goI5JPizbG
+	5YPfkE2oFYo5B7eVZssNs8Ep2Vgn3YQKTBWc24AWUxSXmnJSAO7jF5ZR/K6JA1wRbO+7SFq1KbgMI
+	Eb4rNdjf+iB1NBjzRPEjuvzgu9GOMuhZW1ux2c0nn7jY65T2Fg7U+8KFSIVGUcLvHO5fyl54vkOLu
+	INb5+Dxxd+Tj2XKge0TTCIji5MeZG37h8wh8bUWMBJsaEV3uxASImY24Jkqo1EfKa/jw84tgah0pt
+	UWGIc8lmJxBADBJf/WGoAKYgvyhEwOoHBW4WrT6YNQYMJMQhdC0pA3a0PvpBl685RLTQ+mSgL5UDy
+	IDnYaWT55LyemZ+ZQM2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhrEH-00000002M1V-1WYr;
-	Mon, 19 Jan 2026 15:31:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhrEF-00000002M19-0EXI
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 15:31:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1ACDF497;
-	Mon, 19 Jan 2026 07:31:34 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DBC2F3F694;
-	Mon, 19 Jan 2026 07:31:35 -0800 (PST)
-Message-ID: <22b2f36f-80c2-49b7-9e8a-4528a5113ede@arm.com>
-Date: Mon, 19 Jan 2026 15:31:34 +0000
+	id 1vhrFe-00000002MA2-39LL;
+	Mon, 19 Jan 2026 15:33:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhrFc-00000002M8v-0byt;
+	Mon, 19 Jan 2026 15:33:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DC25640875;
+	Mon, 19 Jan 2026 15:33:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68535C116C6;
+	Mon, 19 Jan 2026 15:33:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768836784;
+	bh=qCOlgkLkBdIOO3vDqA1UxzM+1Hg8d2IVWg/s4RzhgoI=;
+	h=From:Subject:Date:To:Cc:From;
+	b=XpN06rJVi7+SvkWosx9xeQnxKLhUcZJ72DnQjIdXkU1eQ8Z+C5bJDAzfHqDm22jre
+	 73wvZWs3v8+SmRW7J5e0bGrHHe0sn53anNLctBNXWSwy33i9n7vd+7MP4MAsIVGdLO
+	 GkQg0qlURR9ZiqGJfMZ/yVzxvtYFslxk05FKj8ob5yl+rr2QGoEAUEtZefD7yEdsXQ
+	 8LvfQgL0mhUslduSbsnha7g5X+xhT/dwLMtHCeq+lrgSTpFc5wlnAFR1whD9hCLUZ0
+	 IqGo6OxpPEf5w0alHlRv1ruCTluliBU9uajmFzQZOoiOcYap0yF9NU26P8xUQ8nYes
+	 FDETolMeEDdzA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH net-next v3 0/2] airoha: Add the capability to read
+ firmware binary names from dts for Airoha NPU driver
+Date: Mon, 19 Jan 2026 16:32:39 +0100
+Message-Id: <20260119-airoha-npu-firmware-name-v3-0-cba88eed96cc@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 10/47] arm64: mpam: Initialise and context switch the
- MPAMSM_EL1 register
-To: Gavin Shan <gshan@redhat.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, james.morse@arm.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-11-ben.horgan@arm.com>
- <08172e9b-37d6-4e90-a5a9-b8a083a5a3c6@redhat.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <08172e9b-37d6-4e90-a5a9-b8a083a5a3c6@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33NQQ6CMBCF4auQrq2ZThGIK+9hXBSYQqMUMmjVE
+ O5uIS50ocv/JfPNJEZiR6PYJ5NgCm50vY+hN4moWuMbkq6OLRAwAwW5NI771kg/3KR13N0Nk/S
+ mI6lT2gGgUUZbEc8HJuseK308xW7deO35uX4KalnfqMLfaFASZA2lSosyyxXYw5nY02XbcyMWN
+ eCnpP9IGCUsqlLXqAEh+5LmeX4BTtcbywsBAAA=
+X-Change-ID: 20260107-airoha-npu-firmware-name-34e5002a1a3f
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_073143_193036_D8BA0049 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20260119_073308_205612_B3F3F641 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,119 +80,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin,
+This patch is needed because NPU firmware binaries are board specific since
+they depend on the MediaTek WiFi chip used on the board (e.g. MT7996 or
+MT7992). This is a preliminary patch to enable MT76 NPU offloading if
+the Airoha SoC is equipped with MT7996 (Eagle) WiFi chipset.
 
-On 1/19/26 06:51, Gavin Shan wrote:
-> Hi Ben,
-> 
-> On 1/13/26 12:58 AM, Ben Horgan wrote:
->> The MPAMSM_EL1 sets the MPAM labels, PMG and PARTID, for loads and stores
->> generated by a shared SMCU. Disable the traps so the kernel can use it
->> and
->> set it to the same configuration as the per-EL cpu MPAM configuration.
->>
->> If an SMCU is not shared with other cpus then it is implementation
->> defined whether the configuration from MPAMSM_EL1 is used or that from
->> the appropriate MPAMy_ELx. As we set the same, PMG_D and PARTID_D,
->> configuration for MPAM0_EL1, MPAM1_EL1 and MPAMSM_EL1 the resulting
->> configuration is the same regardless.
->>
->> The range of valid configurations for the PARTID and PMG in MPAMSM_EL1 is
->> not currently specified in Arm Architectural Reference Manual but the
->> architect has confirmed that it is intended to be the same as that for
->> the
->> cpu configuration in the MPAMy_ELx registers.
->>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since v2:
->> Mention PMG_D and PARTID_D specifically int he commit message
->> Add paragraph in commit message on range of MPAMSM_EL1 fields
->> ---
->>   arch/arm64/include/asm/el2_setup.h | 3 ++-
->>   arch/arm64/include/asm/mpam.h      | 2 ++
->>   arch/arm64/kernel/cpufeature.c     | 2 ++
->>   arch/arm64/kernel/mpam.c           | 3 +++
->>   4 files changed, 9 insertions(+), 1 deletion(-)
->>
-> 
-> One nitpick below...
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> 
->> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/
->> asm/el2_setup.h
->> index cacd20df1786..d37984c09799 100644
->> --- a/arch/arm64/include/asm/el2_setup.h
->> +++ b/arch/arm64/include/asm/el2_setup.h
->> @@ -504,7 +504,8 @@
->>       check_override id_aa64pfr0,
->> ID_AA64PFR0_EL1_MPAM_SHIFT, .Linit_mpam_\@, .Lskip_mpam_\@, x1, x2
->>     .Linit_mpam_\@:
->> -    msr_s    SYS_MPAM2_EL2, xzr        // use the default partition
->> +    mov    x0, #MPAM2_EL2_EnMPAMSM_MASK
->> +    msr_s    SYS_MPAM2_EL2, x0        // use the default partition,
->>                           // and disable lower traps
->>       mrs_s    x0, SYS_MPAMIDR_EL1
->>       tbz    x0, #MPAMIDR_EL1_HAS_HCR_SHIFT, .Lskip_mpam_\@  // skip
->> if no MPAMHCR reg
->> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/
->> mpam.h
->> index 14011e5970ce..7b3d3abad162 100644
->> --- a/arch/arm64/include/asm/mpam.h
->> +++ b/arch/arm64/include/asm/mpam.h
->> @@ -53,6 +53,8 @@ static inline void mpam_thread_switch(struct
->> task_struct *tsk)
->>           return;
->>         write_sysreg_s(regval, SYS_MPAM1_EL1);
->> +    if (system_supports_sme())
->> +        write_sysreg_s(regval & (MPAMSM_EL1_PARTID_D |
->> MPAMSM_EL1_PMG_D), SYS_MPAMSM_EL1);
->>       isb();
->>         /* Synchronising the EL0 write is left until the ERET to EL0 */
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/
->> cpufeature.c
->> index 0cdfb3728f43..2ede543b3eeb 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -2491,6 +2491,8 @@ cpu_enable_mpam(const struct
->> arm64_cpu_capabilities *entry)
->>           regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
->>         write_sysreg_s(regval, SYS_MPAM1_EL1);
->> +    if (system_supports_sme())
->> +        write_sysreg_s(regval & (MPAMSM_EL1_PARTID_D |
->> MPAMSM_EL1_PMG_D), SYS_MPAMSM_EL1);
->>       isb();
->>         /* Synchronising the EL0 write is left until the ERET to EL0 */
->> diff --git a/arch/arm64/kernel/mpam.c b/arch/arm64/kernel/mpam.c
->> index dbe0a2d05abb..6ce4a36469ce 100644
->> --- a/arch/arm64/kernel/mpam.c
->> +++ b/arch/arm64/kernel/mpam.c
->> @@ -28,6 +28,9 @@ static int mpam_pm_notifier(struct notifier_block
->> *self,
->>            */
->>           regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
->>           write_sysreg_s(regval, SYS_MPAM1_EL1);
->> +        if (system_supports_sme())
->> +            write_sysreg_s(regval & (MPAMSM_EL1_PARTID_D |
->> MPAMSM_EL1_PMG_D),
->> +                       SYS_MPAMSM_EL1);
-> 
-> { } is missed here.
+---
+Changes in v3:
+- Roll-back to approach proposed in v1 using firmware-name property
+- Link to v2: https://lore.kernel.org/r/20260113-airoha-npu-firmware-name-v2-0-28cb3d230206@kernel.org
 
-Addded.
+Changes in v2:
+- Introduce "airoha,en7581-npu-7996" compatible string to specify the
+  firmware and drop "firmware-name" property
+- Link to v1: https://lore.kernel.org/r/20260112-airoha-npu-firmware-name-v1-0-d0b148b6710f@kernel.org
 
-> 
->>           isb();
->>             write_sysreg_s(regval, SYS_MPAM0_EL1);
-> 
-> Thanks,
-> Gavin
-> 
+---
+Lorenzo Bianconi (2):
+      dt-bindings: net: airoha: npu: Add firmware-name property
+      net: airoha: npu: Add the capability to read firmware names from dts
 
-Thanks,
+ .../devicetree/bindings/net/airoha,en7581-npu.yaml |  7 ++++
+ drivers/net/ethernet/airoha/airoha_npu.c           | 42 ++++++++++++++++++----
+ 2 files changed, 43 insertions(+), 6 deletions(-)
+---
+base-commit: b4e486e2c46f754a515571a8ca1238fa567396dd
+change-id: 20260107-airoha-npu-firmware-name-34e5002a1a3f
 
-Ben
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
