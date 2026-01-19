@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F05FD29C4C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 17:32:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C32D29C4F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 17:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P8hUAQGe9WzHFrGctjM3f8nV/a56tXHP2sNdbESX5lk=; b=OZMC3iGWEPMxG9xDUy0RJifThK
-	p+vSfstjDl5oKpxEB99qVj10dy5lnf+mmXWaFIdzuHGGalW/rnlQbXMsHQxLM8QOm42d85KRJKwud
-	gaYecr3XfQnVaqSNe2JAGe7bnjWRWFMeZ5hyUQ35nz4FWQmo8XrXJZnRhT6S+4uEoM2priaHl0bSB
-	Tu9AmyJ+j7jKf5qaLeUJyH8FyaEtDKfRFGxqbMlbHaS5qrbMkRwxhJ09vqfB1R3jTmoQOe4f5iuYi
-	nNQdc+rR/6OBafHpH0egoqeT3U5XNUK2n79Z5wgYxaaH15EbB08P7Q/WXZnVRm0nEut12nd6mQ9v3
-	iGfMTKaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b8FG3iu4VXIYK2ixIxL6D4XbULtxT3YQRepQf0YaUAA=; b=oGGLyTLbJPwfIRzRRB4zINF2Wa
+	ifCskSdmbjy1A0hun7OaFKxDCmA9yi+Vk3ZM5wneKnM29ek92keNFXxCeY+MoWO91OhfdQi82nMKZ
+	VCL5UBRH23xt9xoSymuoAjh/A+4HWrkMUQnXfzUnqf/MRUimt78C196UoEH2pSuBe84QI0Sif/tyH
+	MQu3dR8cgyBhiWZu9GL94boTJ00SE+Lc8jNqlb97NpK4Xnrc+RWOBK75Lu6uz3WFMGoUlN1z6xfdG
+	EgiCZ4QZ6s+vlhcEIinxm6QqWJFdqIB5ghk+HuojkVB2S7Xk+8yXVbFyc/+G7tviiSj9Pn0lm6fJN
+	EX8+ByCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vht70-00000002eT4-2VnY;
-	Mon, 19 Jan 2026 17:32:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vhtJY-00000002fBs-0XKl;
+	Mon, 19 Jan 2026 17:45:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vht6x-00000002eSr-2Nmx
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 17:32:20 +0000
+	id 1vhtJW-00000002fBi-0lfi;
+	Mon, 19 Jan 2026 17:45:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9D7D560054;
-	Mon, 19 Jan 2026 17:32:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82A54C116C6;
-	Mon, 19 Jan 2026 17:32:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2D7CB60054;
+	Mon, 19 Jan 2026 17:45:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 907E0C116C6;
+	Mon, 19 Jan 2026 17:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768843938;
-	bh=A/iKdKMRrQFaSFIv/yti57gG3uCmwDCA4fPwEwIAd2s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m1vWA/ThbDmFYpj53E77IY+FYA+F0yn5aBqz5KyYfgnJelVf181ZB4hOccmOIFuUS
-	 0N/LfNhrBCyEeN49ROHXJ0Cxq/HFTVkk/UQE2sAC+DvHh79frOoyqnklHQnaZsWodZ
-	 kf8GGoyccKhVGXxpMbn3AadPkYd61ra5NXXMvRMxG3bLP/Ghn1FKClRuQrUisqK//6
-	 OuYcHNz2ZKoQXFTFZI6HIa6w+7dDZF0mljbLzVtaEQly+gXbBNIsF/1H+N31mk7u6y
-	 nuSKbm9K4xWHHGACuiqGCWpWNAgz/K0f734F6RkynRZVZz2DVhxROlC7LXAKLeW5Zf
-	 1aTcUGxCkpMLg==
-Date: Mon, 19 Jan 2026 17:32:13 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] spi: xilinx: use device property accessors.
-Message-ID: <b1b79de0-a078-486d-b3e9-96899354407c@sirena.org.uk>
-References: <20260119-spi-xilinx-v3-0-4566c33bac0d@nexthop.ai>
- <20260119-spi-xilinx-v3-3-4566c33bac0d@nexthop.ai>
- <8436e914-429f-40b9-8e6f-ec3b02702cad@sirena.org.uk>
- <69F83558-4675-4FC2-8656-BC6E3481AD65@nexthop.ai>
- <9e559e33-4f2f-40d4-a15f-584548bd6057@sirena.org.uk>
- <05D2CC15-DD6B-40F0-BFF0-3264D4FF96ED@nexthop.ai>
+	s=k20201202; t=1768844716;
+	bh=QZppzWwMaxmLDfvLc0EL4sJUn0FxeL+jQ+zzwKRWA+s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=WB+bXX/2wcQQZczTXvNBPixTycuoTgDFwCzKDyue0qGjEdd9b8ONdUpO2GxVnn1fr
+	 1O05KLhgXPr12NR2L3PqTQSRcOnr4OMi6MrkEkc1cxj60aeKmRFMoYK2qTZ1/h3yxS
+	 goAmTmr7kPJhQzlPiGbnEZ7PbyM03xP1ai7o6m+m2Jpfj9PRNup+qlCNsAH5s2SNHj
+	 CoorInrneQKQGQQm1K7A4uVbQaOBF+sEG5B3CGcmzTN6g/1Ktg3RoShBk2AKAKJ254
+	 /lFdKrjjxKSQfYMEjXeS+DG9eqoQP0yixST+O8fgbr2j7PDkGqyZECXlq3cYS0ATpY
+	 rC6W4TmQK42Zw==
+Date: Mon, 19 Jan 2026 09:45:14 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: Ajit Khaparde <ajit.khaparde@broadcom.com>, Sriharsha Basavapatna
+ <sriharsha.basavapatna@broadcom.com>, Somnath Kotur
+ <somnath.kotur@broadcom.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
+ S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
+ Abeni <pabeni@redhat.com>, Felix Fietkau <nbd@nbd.name>, Sean Wang
+ <sean.wang@mediatek.com>, Lorenzo Bianconi <lorenzo@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Shay Agroskin
+ <shayagr@amazon.com>, Arthur Kiyanovski <akiyano@amazon.com>, David Arinzon
+ <darinzon@amazon.com>, Saeed Bishara <saeedb@amazon.com>, Bryan Whitehead
+ <bryan.whitehead@microchip.com>, UNGLinuxDriver@microchip.com, Shyam Sundar
+ S K <Shyam-sundar.S-k@amd.com>, Raju Rangoju <Raju.Rangoju@amd.com>,
+ Potnuri Bharat Teja <bharat@chelsio.com>, Nicolas Ferre
+ <nicolas.ferre@microchip.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Jiawen Wu <jiawenwu@trustnetic.com>, Mengyuan Lou
+ <mengyuanlou@net-swift.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next 1/9] net: benet: convert to use
+ .get_rx_ring_count
+Message-ID: <20260119094514.5b12a097@kernel.org>
+In-Reply-To: <l66l2ijd45fkwniaesgau5jdzoxrdyt4t7tnsd6dpo4dlefytf@tugyhkn2th36>
+References: <20260115-grxring_big_v2-v1-0-b3e1b58bced5@debian.org>
+	<20260115-grxring_big_v2-v1-1-b3e1b58bced5@debian.org>
+	<20260117181551.0b139ca1@kernel.org>
+	<ziyd3327jr7miqgv2e252w4wpizphomkvxxge6nbjwtg4pyvf4@gvwwi2r7rykl>
+	<l66l2ijd45fkwniaesgau5jdzoxrdyt4t7tnsd6dpo4dlefytf@tugyhkn2th36>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="FuAS2eueGrIYKRNf"
-Content-Disposition: inline
-In-Reply-To: <05D2CC15-DD6B-40F0-BFF0-3264D4FF96ED@nexthop.ai>
-X-Cookie: Does not include installation.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,49 +88,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 19 Jan 2026 04:56:49 -0800 Breno Leitao wrote:
+> > > I think we need to add this check to set_rxfh now. The error coming
+> > > from get_rxnfc/GRXRINGS effectively shielded the driver from set_rxfh
+> > > calls ever happening when there's only 1 ring. Now they will happen.  
+> > 
+> > You are absolutely correct. The ethtool core calls
+> > get_rxnfc(ETHTOOL_GRXRINGS) _before_ allowing RSS configuration via
+> > set_rxfh, and if it fails, ethtool_set_rxfh() will fail as well. And
+> > with the current change, ethtool_set_rxfh() will not fail if the adapter
+> > is not multi-queue.  
+> 
+> Upon further consideration, should we implement this limitation directly within
+> the ethtool infrastructure?
 
---FuAS2eueGrIYKRNf
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+That may cause some regressions, we're getting the number of currently
+configured Rx rings. If we were to check how many Rx rings the device
+has that'd make sense. But since we can only access currently
+configured rings, in theory, if the device has multiple rings,
+just only one is active now - changing config for the RSS key or
+function should work just fine. IOW
 
-On Mon, Jan 19, 2026 at 09:15:40AM -0800, Abdurrahman Hussain wrote:
-> > On Jan 19, 2026, at 8:50=E2=80=AFAM, Mark Brown <broonie@kernel.org> wr=
-ote:
-> > On Mon, Jan 19, 2026 at 08:47:17AM -0800, Abdurrahman Hussain wrote:
+ # change key
+ # increase ring count to make they key meaningful
 
-> >>> Are these bindings appropraite for ACPI systems?
-
-> >> Yes, the Xilinx IP blocks are memory mapped and work exactly the same =
-on ACPI as they do on DT.
-
-> > That does not answer the question at all.  Is it appropriate to
-> > configure an ACPI system in this way?
-
-> I am not sure I understood your question. What do you mean by =E2=80=9Cap=
-propriate=E2=80=9D?
-> This is following the same guidelines as outlined in=20
-> https://www.kernel.org/doc/html/v6.7/firmware-guide/acpi/enumeration.html
-
-You are just bindly making the DT properties available as _DSD
-properties on ACPI systems, ACPI is a completely different firmware
-interface with it's own idioms.  Does this interface make any sense on
-ACPI?
-
---FuAS2eueGrIYKRNf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmluapwACgkQJNaLcl1U
-h9CZjQf/Ur8a5p0+EIw+7xw/rnSoaY0p0ub/FutvHYMSJWOUbUQQAOMQWR9gjK4A
-dXzC6bUPBn8sJ7rv1lPArhLiRIV3LJTZc8zZqnkA3ilaU+6YHbFWTaZKRiJYhAXc
-5GhvbBr8CSVm4eUIzAHvleXcvTYo5jV99EF6z0rlq59yCz3WsB6FaEPOlsVkE3jB
-PnrCpdS44my7aEAJ+Z0LFefUsrSP/LSeWEYmT/rMs/QP3rifhX3tTPuggRKI8ym+
-oGqMAq4OqN7hikNnxiUEA5KU8S2s/ejBjE9qJzmgc1ZsFhctwadnLv0w5rIShhfv
-JPTUWw49fOmWds3OJkAfdnuqAyHx8Q==
-=hAAM
------END PGP SIGNATURE-----
-
---FuAS2eueGrIYKRNf--
+Used to work.
 
