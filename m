@@ -4,119 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 543EAC98315
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 04:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBCADD4A5EB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 05:51:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rQ/pt5veFEgJZqTxKk8ueI9Za/xjDVCyikH3Hycx4Iw=; b=XedoDsyQW4pVxOsjxPHrnl3jgs
-	KT+8WYgkEPcnUc7ei6wqmvS63QUBe5ZwxlhxAkxUiLLSxYRJHA+/3Sq5RYqp9yUER4ziFQeT6iWe5
-	LP4k+M80iIDGsSdFv6AE7P6rZwKN/3JfiEKnmxITCSMsauIFkNGA/PtfZE04/4v/n9uqRfQ93gcpi
-	Cxj2UujRnLNHZU6MKdk41dF4tbrfBg/k7gKUJsdlSxkssCdhwSVPMYFLXaBStU7bXkvm5N3bIRKde
-	QsFZ5F+sbgFY0eACyxtiiI+8OZf4ZhKfRMrcrdnqLlyqbD6C76EL/uPba70lTSbleSnLY88eav2vK
-	bTkOZHIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y8PdWrFDBIYyEs7h2YW96ncFY4ig9Q0IvOWU6B+OmJQ=; b=A+NHMLwvomMSpQP70yWwNjYHSk
+	XrF1EADLiTzwaBrGaGI/GqxcmsyBYO3N712vJshH5/vxE5lJPBa1PPv1mSI7O4RGjJVFknLTLGb6w
+	E1TBEGAFfqO0cbs5HDDWHup285EArFPBsmYwWTSq1qkxc2G4Tvoi9YNmXUN9KpxhqxeQpE4vOpcJZ
+	2sw0K564zI10HNhLRDlzIHFu3RhBSeGplGwf8mN5HOb4eDiESAYcK3uFvzfz+cj/eOPD7wjQdNGTP
+	pEmF+8rOHQQuMOyJQK4Er4NwSfer0hvVxItAWJ09nshlIPLgjkQrhVEw6mJfrZC5jHw+xW3zxi1Bz
+	rR2t8e4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhgWk-00000001L6I-0nEH;
-	Mon, 19 Jan 2026 04:06:06 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vhiAU-00000001Nhf-2cli;
+	Mon, 19 Jan 2026 05:51:14 +0000
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhgWg-00000001L5b-0RU0
+	id 1vhiAP-00000001Ngv-3jd5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 04:06:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1768795559;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rQ/pt5veFEgJZqTxKk8ueI9Za/xjDVCyikH3Hycx4Iw=;
-	b=OQYZ+/M7g5n3Y1TTim3LE4V+cYUN47AIZzzJlweKJNdoH+HvVlkjwfA+PPaQj+nT9bbm7G
-	gAaXjfMGMWl//H8XrzprKdBdsmbBeFk7l7jlMwK6cHfq2S+XgCi8npX804mdCvGbmsmsre
-	o3BKnTRdRVhjzPizvWn8LgZuPZLVzLc=
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com
- [209.85.210.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-657-Hx8kqRNDMfWM2-JGzN4Gtw-1; Sun, 18 Jan 2026 23:05:56 -0500
-X-MC-Unique: Hx8kqRNDMfWM2-JGzN4Gtw-1
-X-Mimecast-MFC-AGG-ID: Hx8kqRNDMfWM2-JGzN4Gtw_1768795555
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-7fc82eff4adso3227023b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Jan 2026 20:05:55 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768795555; x=1769400355;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rQ/pt5veFEgJZqTxKk8ueI9Za/xjDVCyikH3Hycx4Iw=;
-        b=J/nof4ZF4gLr2ytJ+VIE7HE+Bt2fd/th8kTXIFEWMzDrYuCBzkoYJr4GXsqka9f9Vy
-         rdMoEw89+s9j1l1gsl3XstV5pAbMulGoWBpIjLcZDVhw/iAkVYuhntn01PH0RPfgqt08
-         1EZX12Q1K0aBjQJCxCQki3url9MDF84gdBi1VXSK7CkQrX/kyXixZylyKiEOZp1R6VQT
-         BX0q7NqWauGjlQHCLP7RxrVqs/HCrRZuaVKzFiPO2fnVqjOL9z9QrzSAn++ecO2bag8U
-         tt52pjDk3gQ0sVRVsNzRKRO7p5XTxPhpMjPSC6jLMf/dULDHunvQBNV38OChHWPNzVAO
-         xcBw==
-X-Forwarded-Encrypted: i=1; AJvYcCUTo+7ZM9Y1bxnySSdQbZrYfnTNNqdS3krhInK7dbacv4WPMttTPz9Pk6gxqDBhsh/1yBcMjolrnoBOZJf3e+pe@lists.infradead.org
-X-Gm-Message-State: AOJu0YwH13lzKT4y2Kjk3ObWwLVuzD1X/Lj5NDjqtUvZ9dqkbP1rt8Ji
-	2byznwB6wu9cU1JLXKx2DGGusGh6ZHOJ+NOQ1hu6NKodSxw2l0wBltUeKZcFf50ADhU4aNADcUG
-	2mQ4Mv872BzVjuc/RBb3eYKcjRhzUugWEnfR3OUP586EEsjFZbJBoa2V65EGk+CCXBirUVghRAw
-	ci
-X-Gm-Gg: AY/fxX6ERBXMGpWiQ5aOnO27WISxa96I/cm4rnuCaVzJ2W60Q0d3VMBpfR++Y907lVs
-	cSW0DEZyixq/dUF6SK/hzm2ksux+iQpNieS8fKgiYvg7tfzy72RnhnRSZWrWc1+MOwe3oScn0N0
-	9YU8zK1qqMbiCVyXN/G4R7sihH7z/dQOWg7OVFpT9m5vmDzssFlrYzUiWGZZdAlpLutrebYdaTX
-	lCx5x3y+bnTA3yNUv/u2doeg/QkbpDNEnVEUgQv/fjNvYJE9PwMoEQzK/XJBIXdryXEJ5oisH67
-	h8aTNUz/VfcQQm7rVPoUaRLtbM20k1KTGbJ2I3U4cz57bqNEcXVtxu2bgBMDXyoLt+UG2iyLlNY
-	w
-X-Received: by 2002:aa7:888b:0:b0:81e:b93a:ab09 with SMTP id d2e1a72fcca58-81f8efbbe1amr10668398b3a.1.1768795554638;
-        Sun, 18 Jan 2026 20:05:54 -0800 (PST)
-X-Received: by 2002:aa7:888b:0:b0:81e:b93a:ab09 with SMTP id d2e1a72fcca58-81f8efbbe1amr10668347b3a.1.1768795553931;
-        Sun, 18 Jan 2026 20:05:53 -0800 (PST)
-Received: from localhost ([209.132.188.88])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-81fa10bdc65sm7831738b3a.21.2026.01.18.20.05.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 18 Jan 2026 20:05:53 -0800 (PST)
-Date: Mon, 19 Jan 2026 12:04:04 +0800
-From: Coiby Xu <coxu@redhat.com>
-To: Ard Biesheuvel <ardb@kernel.org>, Mimi Zohar <zohar@linux.ibm.com>
-Cc: linux-integrity@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>, 
-	Roberto Sassu <roberto.sassu@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Roberto Sassu <roberto.sassu@huawei.com>, Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, 
-	Eric Snowberg <eric.snowberg@oracle.com>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, 
-	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)" <linuxppc-dev@lists.ozlabs.org>, "open list:S390 ARCHITECTURE" <linux-s390@vger.kernel.org>, 
-	"open list:EXTENSIBLE FIRMWARE INTERFACE (EFI)" <linux-efi@vger.kernel.org>, 
-	"open list:SECURITY SUBSYSTEM" <linux-security-module@vger.kernel.org>, "open list:KEYS/KEYRINGS_INTEGRITY" <keyrings@vger.kernel.org>
-Subject: Re: [PATCH 1/3] integrity: Make arch_ima_get_secureboot
- integrity-wide
-Message-ID: <aW2i3yacr5TvWU-m@Rk>
-References: <20260115004328.194142-1-coxu@redhat.com>
- <20260115004328.194142-2-coxu@redhat.com>
- <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
- <8bfa859ed3a4f1cf0db0ab64d8c1c3b24684582a.camel@linux.ibm.com>
- <CAMj1kXHsJNZoUEnbD1y=v4Ftuv9d2c08VckRV7ru4k4P83vZbQ@mail.gmail.com>
- <97b69bc79a5d9246f7a399510908c7b95b2e95e7.camel@linux.ibm.com>
- <CAMj1kXGx4ebaK87W7k0SNUNQnO9+=z1nmYxXC7retmp3OqRRFg@mail.gmail.com>
- <ac5e5e45c12e9b0bda19807e60b06057d74be0b3.camel@linux.ibm.com>
+	Mon, 19 Jan 2026 05:51:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1768801855; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=y8PdWrFDBIYyEs7h2YW96ncFY4ig9Q0IvOWU6B+OmJQ=;
+	b=UImTvg+jW7zNY8+DLZcHxHu1xPDeBE6VPBitFNdjen6WFSNiaQ+ypinagSFYq3V32gDT1ujK/qrZPMeeWxISc1oeGsximcxLsOjV0+AWTIgHBXseglNI+HO92v+u/I51Lm73aesPchwIU+ACFQMlZ8kUPFHT2eClW5iQVWObJ1k=
+Received: from 30.74.144.151(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WxIhExM_1768801849 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 19 Jan 2026 13:50:49 +0800
+Message-ID: <29634bee-18c6-42c2-ac7f-703d4dfed867@linux.alibaba.com>
+Date: Mon, 19 Jan 2026 13:50:47 +0800
 MIME-Version: 1.0
-In-Reply-To: <ac5e5e45c12e9b0bda19807e60b06057d74be0b3.camel@linux.ibm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: fq_5d2VTPtmYVZidJl0SS17w5bG9jumqB6XXOh7d3Ss_1768795555
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 5/5] mm: rmap: support batched unmapping for file large
+ folios
+To: Dev Jain <dev.jain@arm.com>, Barry Song <21cnbao@gmail.com>
+Cc: Wei Yang <richard.weiyang@gmail.com>, akpm@linux-foundation.org,
+ david@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, Liam.Howlett@oracle.com,
+ vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
+ willy@infradead.org, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
+ <142919ac14d3cf70cba370808d85debe089df7b4.1766631066.git.baolin.wang@linux.alibaba.com>
+ <20260106132203.kdxfvootlkxzex2l@master>
+ <CAGsJ_4yKRtyADU2ZxUMgvqdrhAEL4SpZxCMRt28gNJfUf--5zQ@mail.gmail.com>
+ <20260107014601.dxvq6b7ljgxwg7iu@master>
+ <db4d0a19-598b-48ff-accc-f5940a481035@arm.com>
+ <CAGsJ_4yo-EE__1VzHqxE8ehDOFQuxqP9GXcskkeZ-WTTyz12_A@mail.gmail.com>
+ <ccce0551-489a-4612-ab5d-2dd8a5cae66c@arm.com>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <ccce0551-489a-4612-ab5d-2dd8a5cae66c@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_200602_299466_322CB32B 
-X-CRM114-Status: GOOD (  47.22  )
+X-CRM114-CacheID: sfid-20260118_215111_609368_2B0DD228 
+X-CRM114-Status: GOOD (  29.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,184 +78,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 18, 2026 at 01:25:52PM -0500, Mimi Zohar wrote:
->On Fri, 2026-01-16 at 18:27 +0100, Ard Biesheuvel wrote:
 
-Hi Ard and Mimi,
 
-Thanks for your discussion on improving the patch!
-
->> On Fri, 16 Jan 2026 at 17:39, Mimi Zohar <zohar@linux.ibm.com> wrote:
->> >
->> > On Fri, 2026-01-16 at 14:18 +0100, Ard Biesheuvel wrote:
->> > > On Fri, 16 Jan 2026 at 14:11, Mimi Zohar <zohar@linux.ibm.com> wrote:
->> > > >
->> > > > On Fri, 2026-01-16 at 10:41 +0100, Ard Biesheuvel wrote:
->> > > > > On Thu, 15 Jan 2026 at 01:43, Coiby Xu <coxu@redhat.com> wrote:
->> > > > > >
->> > > > > > EVM and other LSMs need the ability to query the secure boot status of
->> > > > > > the system, without directly calling the IMA arch_ima_get_secureboot
->> > > > > > function. Refactor the secure boot status check into a general,
->> > > > > > integrity-wide function named arch_integrity_get_secureboot.
->> > > > > >
->> > > > > > Define a new Kconfig option CONFIG_INTEGRITY_SECURE_BOOT, which is
->> > > > > > automatically configured by the supported architectures. The existing
->> > > > > > IMA_SECURE_AND_OR_TRUSTED_BOOT Kconfig loads the architecture specific
->> > > > > > IMA policy based on the refactored secure boot status code.
->> > > > > >
->> > > > > > Reported-and-suggested-by: Mimi Zohar <zohar@linux.ibm.com>
->> > > > > > Suggested-by: Roberto Sassu <roberto.sassu@huaweicloud.com>
->> > > > > > Signed-off-by: Coiby Xu <coxu@redhat.com>
->> > > > > > ---
->> > > > > >  arch/arm64/Kconfig                            |  1 +
->> > > > > >  arch/powerpc/Kconfig                          |  1 +
->> > > > > >  arch/powerpc/kernel/Makefile                  |  2 +-
->> > > > > >  arch/powerpc/kernel/ima_arch.c                |  5 --
->> > > > > >  arch/powerpc/kernel/integrity_sb_arch.c       | 13 +++++
->> > > > > >  arch/s390/Kconfig                             |  1 +
->> > > > > >  arch/s390/kernel/Makefile                     |  1 +
->> > > > > >  arch/s390/kernel/ima_arch.c                   |  6 --
->> > > > > >  arch/s390/kernel/integrity_sb_arch.c          |  9 +++
->> > > > > >  arch/x86/Kconfig                              |  1 +
->> > > > > >  arch/x86/include/asm/efi.h                    |  4 +-
->> > > > > >  arch/x86/platform/efi/efi.c                   |  2 +-
->> > > > > >  include/linux/ima.h                           |  7 +--
->> > > > > >  include/linux/integrity.h                     |  8 +++
->> > > > > >  security/integrity/Kconfig                    |  6 ++
->> > > > > >  security/integrity/Makefile                   |  3 +
->> > > > > >  security/integrity/efi_secureboot.c           | 56 +++++++++++++++++++
->> > > > > >  security/integrity/ima/ima_appraise.c         |  2 +-
->> > > > > >  security/integrity/ima/ima_efi.c              | 47 +---------------
->> > > > > >  security/integrity/ima/ima_main.c             |  4 +-
->> > > > > >  security/integrity/platform_certs/load_uefi.c |  2 +-
->> > > > > >  21 files changed, 111 insertions(+), 70 deletions(-)
->> > > > > >  create mode 100644 arch/powerpc/kernel/integrity_sb_arch.c
->> > > > > >  create mode 100644 arch/s390/kernel/integrity_sb_arch.c
->> > > > > >  create mode 100644 security/integrity/efi_secureboot.c
->> > > > > >
->> > > > > > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> > > > > > index 93173f0a09c7..4c265b7386bb 100644
->> > > > > > --- a/arch/arm64/Kconfig
->> > > > > > +++ b/arch/arm64/Kconfig
->> > > > > > @@ -2427,6 +2427,7 @@ config EFI
->> > > > > >         select EFI_STUB
->> > > > > >         select EFI_GENERIC_STUB
->> > > > > >         imply IMA_SECURE_AND_OR_TRUSTED_BOOT
->> > > > > > +       imply INTEGRITY_SECURE_BOOT
->> > > > >
->> > > > > This allows both to be en/disabled individually, which I don't think
->> > > > > is what we want. It also results in more churn across the
->> > > > > arch-specific Kconfigs than needed.
->> > > > >
->> > > > > Wouldn't it be better if IMA_SECURE_AND_OR_TRUSTED_BOOT 'select'ed
->> > > > > INTEGRITY_SECURE_BOOT in its Kconfig definition?
->> > > >
->> > > > As much as possible, EVM (and other LSMs) shouldn't be dependent on another LSM,
->> > > > in this case IMA, being configured.
->> > >
->> > > Sure, but that is not my point.
->> > >
->> > > This arrangement allows for IMA_SECURE_AND_OR_TRUSTED_BOOT to be
->> > > enabled without INTEGRITY_SECURE_BOOT, resulting in the stub
->> > > implementation of arch_integrity_get_secureboot() being used, which
->> > > always returns false.
-
-Since both INTEGRITY_SECURE_BOOT and IMA_SECURE_AND_OR_TRUSTED_BOOT
-don't define a prompt, they are not user-configurable and will always be
-enable/disabled together with arch-specific secure boot feature. So
-despite the "imply" key word, the case where
-IMA_SECURE_AND_OR_TRUSTED_BOOT is enabled whereas INTEGRITY_SECURE_BOOT
-is disabled won't happen.
-
-But I agree an arch may not care much about INTEGRITY_SECURE_BOOT so it
-may be a churn. So limiting it to the scope of the integrity subsystem
-can be a better idea.
-
->> >
->> > I understand your concern, but instead of "select"ing INTEGRITY_SECURE_BOOT from
->> > IMA_SECURE_AND_OR_TRUSTED_BOOT, how making IMA_SECURE_AND_OR_TRUSTED_BOOT
->> > dependent on both IMA_ARCH_POLICY and INTEGRITY_SECURE_BOOT.
->> >
+On 1/18/26 1:46 PM, Dev Jain wrote:
+> 
+> On 16/01/26 7:58 pm, Barry Song wrote:
+>> On Fri, Jan 16, 2026 at 5:53 PM Dev Jain <dev.jain@arm.com> wrote:
+>>>
+>>> On 07/01/26 7:16 am, Wei Yang wrote:
+>>>> On Wed, Jan 07, 2026 at 10:29:25AM +1300, Barry Song wrote:
+>>>>> On Wed, Jan 7, 2026 at 2:22 AM Wei Yang <richard.weiyang@gmail.com> wrote:
+>>>>>> On Fri, Dec 26, 2025 at 02:07:59PM +0800, Baolin Wang wrote:
+>>>>>>> Similar to folio_referenced_one(), we can apply batched unmapping for file
+>>>>>>> large folios to optimize the performance of file folios reclamation.
+>>>>>>>
+>>>>>>> Barry previously implemented batched unmapping for lazyfree anonymous large
+>>>>>>> folios[1] and did not further optimize anonymous large folios or file-backed
+>>>>>>> large folios at that stage. As for file-backed large folios, the batched
+>>>>>>> unmapping support is relatively straightforward, as we only need to clear
+>>>>>>> the consecutive (present) PTE entries for file-backed large folios.
+>>>>>>>
+>>>>>>> Performance testing:
+>>>>>>> Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and try to
+>>>>>>> reclaim 8G file-backed folios via the memory.reclaim interface. I can observe
+>>>>>>> 75% performance improvement on my Arm64 32-core server (and 50%+ improvement
+>>>>>>> on my X86 machine) with this patch.
+>>>>>>>
+>>>>>>> W/o patch:
+>>>>>>> real    0m1.018s
+>>>>>>> user    0m0.000s
+>>>>>>> sys     0m1.018s
+>>>>>>>
+>>>>>>> W/ patch:
+>>>>>>> real   0m0.249s
+>>>>>>> user   0m0.000s
+>>>>>>> sys    0m0.249s
+>>>>>>>
+>>>>>>> [1] https://lore.kernel.org/all/20250214093015.51024-4-21cnbao@gmail.com/T/#u
+>>>>>>> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+>>>>>>> Acked-by: Barry Song <baohua@kernel.org>
+>>>>>>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+>>>>>>> ---
+>>>>>>> mm/rmap.c | 7 ++++---
+>>>>>>> 1 file changed, 4 insertions(+), 3 deletions(-)
+>>>>>>>
+>>>>>>> diff --git a/mm/rmap.c b/mm/rmap.c
+>>>>>>> index 985ab0b085ba..e1d16003c514 100644
+>>>>>>> --- a/mm/rmap.c
+>>>>>>> +++ b/mm/rmap.c
+>>>>>>> @@ -1863,9 +1863,10 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+>>>>>>>        end_addr = pmd_addr_end(addr, vma->vm_end);
+>>>>>>>        max_nr = (end_addr - addr) >> PAGE_SHIFT;
+>>>>>>>
+>>>>>>> -      /* We only support lazyfree batching for now ... */
+>>>>>>> -      if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
+>>>>>>> +      /* We only support lazyfree or file folios batching for now ... */
+>>>>>>> +      if (folio_test_anon(folio) && folio_test_swapbacked(folio))
+>>>>>>>                return 1;
+>>>>>>> +
+>>>>>>>        if (pte_unused(pte))
+>>>>>>>                return 1;
+>>>>>>>
+>>>>>>> @@ -2231,7 +2232,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+>>>>>>>                         *
+>>>>>>>                         * See Documentation/mm/mmu_notifier.rst
+>>>>>>>                         */
+>>>>>>> -                      dec_mm_counter(mm, mm_counter_file(folio));
+>>>>>>> +                      add_mm_counter(mm, mm_counter_file(folio), -nr_pages);
+>>>>>>>                }
+>>>>>>> discard:
+>>>>>>>                if (unlikely(folio_test_hugetlb(folio))) {
+>>>>>>> --
+>>>>>>> 2.47.3
+>>>>>>>
+>>>>>> Hi, Baolin
+>>>>>>
+>>>>>> When reading your patch, I come up one small question.
+>>>>>>
+>>>>>> Current try_to_unmap_one() has following structure:
+>>>>>>
+>>>>>>      try_to_unmap_one()
+>>>>>>          while (page_vma_mapped_walk(&pvmw)) {
+>>>>>>              nr_pages = folio_unmap_pte_batch()
+>>>>>>
+>>>>>>              if (nr_pages = folio_nr_pages(folio))
+>>>>>>                  goto walk_done;
+>>>>>>          }
+>>>>>>
+>>>>>> I am thinking what if nr_pages > 1 but nr_pages != folio_nr_pages().
+>>>>>>
+>>>>>> If my understanding is correct, page_vma_mapped_walk() would start from
+>>>>>> (pvmw->address + PAGE_SIZE) in next iteration, but we have already cleared to
+>>>>>> (pvmw->address + nr_pages * PAGE_SIZE), right?
+>>>>>>
+>>>>>> Not sure my understanding is correct, if so do we have some reason not to
+>>>>>> skip the cleared range?
+>>>>> I don’t quite understand your question. For nr_pages > 1 but not equal
+>>>>> to nr_pages, page_vma_mapped_walk will skip the nr_pages - 1 PTEs inside.
+>>>>>
+>>>>> take a look:
+>>>>>
+>>>>> next_pte:
+>>>>>                 do {
+>>>>>                         pvmw->address += PAGE_SIZE;
+>>>>>                         if (pvmw->address >= end)
+>>>>>                                 return not_found(pvmw);
+>>>>>                         /* Did we cross page table boundary? */
+>>>>>                         if ((pvmw->address & (PMD_SIZE - PAGE_SIZE)) == 0) {
+>>>>>                                 if (pvmw->ptl) {
+>>>>>                                         spin_unlock(pvmw->ptl);
+>>>>>                                         pvmw->ptl = NULL;
+>>>>>                                 }
+>>>>>                                 pte_unmap(pvmw->pte);
+>>>>>                                 pvmw->pte = NULL;
+>>>>>                                 pvmw->flags |= PVMW_PGTABLE_CROSSED;
+>>>>>                                 goto restart;
+>>>>>                         }
+>>>>>                         pvmw->pte++;
+>>>>>                 } while (pte_none(ptep_get(pvmw->pte)));
+>>>>>
+>>>> Yes, we do it in page_vma_mapped_walk() now. Since they are pte_none(), they
+>>>> will be skipped.
+>>>>
+>>>> I mean maybe we can skip it in try_to_unmap_one(), for example:
+>>>>
+>>>> diff --git a/mm/rmap.c b/mm/rmap.c
+>>>> index 9e5bd4834481..ea1afec7c802 100644
+>>>> --- a/mm/rmap.c
+>>>> +++ b/mm/rmap.c
+>>>> @@ -2250,6 +2250,10 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+>>>>                 */
+>>>>                if (nr_pages == folio_nr_pages(folio))
+>>>>                        goto walk_done;
+>>>> +             else {
+>>>> +                     pvmw.address += PAGE_SIZE * (nr_pages - 1);
+>>>> +                     pvmw.pte += nr_pages - 1;
+>>>> +             }
+>>>>                continue;
+>>>>   walk_abort:
+>>>>                ret = false;
+>>> I am of the opinion that we should do something like this. In the internal pvmw code,
+>> I am still not convinced that skipping PTEs in try_to_unmap_one()
+>> is the right place. If we really want to skip certain PTEs early,
+>> should we instead hint page_vma_mapped_walk()? That said, I don't
+>> see much value in doing so, since in most cases nr is either 1 or
+>> folio_nr_pages(folio).
 >>
->> Given that INTEGRITY_SECURE_BOOT has no dependencies of its own,
->> afaict, selecting it is the least disruptive option, as otherwise,
->> existing configs will disable IMA_SECURE_AND_OR_TRUSTED_BOOT as the
->> kernel is being upgraded. But conceptually, I agree that they are
->> equivalent.
-
-As already pointed out on by Mimi, INTEGRITY_SECURE_BOOT depend on
-arch-specific secure boot feature. So we can't say INTEGRITY_SECURE_BOOT
-has no dependencies. 
-
+>>> we keep skipping ptes till the ptes are none. With my proposed uffd-fix [1], if the old
+>>> ptes were uffd-wp armed, pte_install_uffd_wp_if_needed will convert all ptes from none
+>>> to not none, and we will lose the batching effect. I also plan to extend support to
+>>> anonymous folios (therefore generalizing for all types of memory) which will set a
+>>> batch of ptes as swap, and the internal pvmw code won't be able to skip through the
+>>> batch.
+>> Thanks for catching this, Dev. I already filter out some of the more
+>> complex cases, for example:
+>> if (pte_unused(pte))
+>>          return 1;
 >>
->> > Including the "imply INTEGRITY_SECURE_BOOT" here in the arch Kconfig allows EVM
->> > to query the secure boot state without relying on IMA_SECURE_AND_OR_TRUSTED_BOOT
->> > being configured.
+>> Since the userfaultfd write-protection case is also a corner case,
+>> could we filter it out as well?
 >>
->> Yes, I understand that this is the whole point of the exercise. But
->> 'imply' should be used with care, and in this case, implying both from
->> CONFIG_EFI really makes little sense. INTEGRITY_SECURE_BOOT should be
->> selected by options that need the functionality, not 'implied' by
->> options that might provide it.
+>> diff --git a/mm/rmap.c b/mm/rmap.c
+>> index c86f1135222b..6bb8ba6f046e 100644
+>> --- a/mm/rmap.c
+>> +++ b/mm/rmap.c
+>> @@ -1870,6 +1870,9 @@ static inline unsigned int
+>> folio_unmap_pte_batch(struct folio *folio,
+>>          if (pte_unused(pte))
+>>                  return 1;
+>>
+>> +       if (userfaultfd_wp(vma))
+>> +               return 1;
+>> +
+>>          return folio_pte_batch(folio, pvmw->pte, pte, max_nr);
+>> }
+>>
+>> Just offering a second option — yours is probably better.
+> 
+> No. This is not an edge case. This is a case which gets exposed by your work, and
+> I believe that if you intend to get the file folio batching thingy in, then you
+> need to fix the uffd stuff too.
 
-But again I agree INTEGRITY_SECURE_BOOT should "not 'implied' by options
-that might provide it".
+Barry’s point isn’t that this is an edge case. I think he means that 
+uffd is not a common performance-sensitive scenario in production. Also, 
+we typically fall back to per-page handling for uffd cases (see 
+finish_fault() and alloc_anon_folio()). So I perfer to follow Barry’s 
+suggestion and filter out the uffd cases until we have test case to show 
+performance improvement.
 
->
->As not all arch's implement arch_integrity_get_secureboot, the definition in
->include/linux/integrity.h would need to be updated.  Something like:
->
->-#ifdef CONFIG_INTEGRITY_SECURE_BOOT
->+#if (defined(CONFIG_INTEGRITY_SECURE_BOOT) && \
->+       (defined(CONFIG_X86) && defined(CONFIG_EFI)) || defined(CONFIG_S390) \
->+        || defined(CONFIG_PPC_SECURE_BOOT))
->
->Then IMA_SECURE_AND_OR_TRUSTED_BOOT and EVM could select INTEGRITY_SECURE_BOOT,
->as suggested.
+I also think you can continue iterating your patch[1] to support batched 
+unmapping for uffd VMAs, and provide data to evaluate its value.
 
-Since INTEGRITY_SECURE_BOOT has a dependency, select doesn't seem to be
-a good choice. If EVM does select INTEGRITY_SECURE_BOOT,
-INTEGRITY_SECURE_BOOT will be enabled even if arch-specific secure boot
-feature is disabled and this can lead to a building failure. How about
-always enabling INTEGRITY_SECURE_BOOT when secure boot feature is
-enabled and also making IMA_SECURE_AND_OR_TRUSTED_BOOT depend on
-INTEGRITY_SECURE_BOOT?
-
-diff --git a/security/integrity/Kconfig b/security/integrity/Kconfig
-index 916d4f2bfc44..cd44b46d0325 100644
---- a/security/integrity/Kconfig
-+++ b/security/integrity/Kconfig
-@@ -97,6 +97,13 @@ config INTEGRITY_CA_MACHINE_KEYRING_MAX
-           will not be loaded. The remaining MOK keys are loaded into the
-           .platform keyring.
-  
-+config INTEGRITY_SECURE_BOOT
-+       def_bool y
-+       depends on EFI || PPC_SECURE_BOOT || S390
-+       help
-+         Provide secure boot related helper functions like querying the
-+         secure boot status.
-+
-
-diff --git a/security/integrity/ima/Kconfig b/security/integrity/ima/Kconfig
-index 976e75f9b9ba..5dce572192d6 100644
---- a/security/integrity/ima/Kconfig
-+++ b/security/integrity/ima/Kconfig
-@@ -311,6 +311,7 @@ config IMA_QUEUE_EARLY_BOOT_KEYS
-  config IMA_SECURE_AND_OR_TRUSTED_BOOT
-         bool
-         depends on IMA_ARCH_POLICY
-+       depends on INTEGRITY_SECURE_BOOT
-
-
-Another idea is make a tree-wide arch_get_secureboot i.e. to move
-current arch_ima_get_secureboot code to arch-specific secure boot
-implementation. By this way, there will no need for a new Kconfig option
-INTEGRITY_SECURE_BOOT. But I'm not sure if there is any unforeseen
-concern.
-
--- 
-Best regards,
-Coiby
-
+[1] 
+https://lore.kernel.org/linux-mm/20260116082721.275178-1-dev.jain@arm.com/
 
