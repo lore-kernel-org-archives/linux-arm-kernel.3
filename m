@@ -4,141 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9335CCF2DD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 19:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417D3CCF2DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 19:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KjLqg4NCZW5HVeSGJD2IDu7KY/jOeFMsx7bzNX3Cq+4=; b=l9S3XM+gqV2IAHk52TrExbvTMV
-	SDXukl7HwFK4TwzI0jO/hwCz+iHy2oH0UrdttSyIg1ssveYoelUwPVhSjBL62vn+lzgEPhcALMPTf
-	q3mmpxOv9FUS3tv3SEbKsU78cuAQYFvu6Gy05nSM3MT/JDdVf2EY3di8DraPNn4Rctzln23z+Adan
-	1zEFCWlCTCrqkDDkolQQdX9YjtcGRX+q8jeySf9F9enn8E6nJQfgh6UOx0uO8V10s1oeFd+k8LT38
-	Bhk9k/ZFpDveRAy1GmizsbcZ6cC/29cidjRviXK33P5sMkknMUEtFImUUixpurG9SoR3Y7ZqihN/c
-	AsE4GWgw==;
+	bh=L2HtxC+veEZ9mwWdOmiUySl0Lz+8mgxeeMwmAd1Iktk=; b=ngDyNpAIUfXl2FfU6gmUHB3Sbi
+	TNcjikCnEwDU7MPTGWmdyKOlTMbQLzMmHf2/3/VTuF9R5b8zAXBzvGE6cc9WTuOScIhPW8k3jZ1hn
+	gJ3pc96AoMsRNJ2uKGhuEomFyT71oeRoy/MMKuGn7IEHbiexRvNwIG7bFn8ZWxyLaOAicWJh787IA
+	XY7h822jC1eNHHJRXcGT8qMT2sUyjT1fp3bzQi0iq9oSuS7w0aWP5YGGqOlYpx0XM9TfFwfufMXHP
+	1d4fw/Tz2GBXzdywYb1ry7IMxRzq2YK56C9yl8VFK3xRxhkA7wie5QY9fSBRGNu6mNTMqgNL1xK4g
+	D/g7audQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhvCa-00000002n5t-3YAz;
-	Mon, 19 Jan 2026 19:46:16 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vhvEp-00000002nH8-3jh8;
+	Mon, 19 Jan 2026 19:48:35 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhvCX-00000002n5Y-3WAq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 19:46:15 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60JIooQL2966239
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 19:46:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=KjLqg4NCZW5HVeSGJD2IDu7K
-	Y/jOeFMsx7bzNX3Cq+4=; b=mbAt42zCnE2LHYfx94GGHwF/iecPPZ7e0bX59MPE
-	8pgi7v7ShqAvBHkJWoUGfeFqGGEuWmU0UI0F81LaY/j5EQEzZH9okL8yJlbkZiKg
-	gRBzcrWvPtR9eUqxbERBJzRXBnaqCVWH0QUaLgq9o0aVzW+uIUmbopMsQjyGkoXw
-	hfuaX9CHH1lPVXQGPZzgQ3F11Mnjd3a0ZXofTq2Um4tfOZbskgvuayZE7JJU1EsK
-	Zx9w0aG5ZbQ4edPwkCQgLb9CifBRoNMYnIOrb0LpJrlGObnmMKj6AHkpXPSGq3L1
-	TjQ/Es1XeS6+YPlyBQTESK6iXp1XTDbl9swni0KqapgoJQ==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bsjaa9muk-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 19:46:12 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8c6a291e7faso590868685a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 11:46:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1768851972; x=1769456772; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KjLqg4NCZW5HVeSGJD2IDu7KY/jOeFMsx7bzNX3Cq+4=;
-        b=eMDyBd96Sbqui1RLcQWmCJdx3U1z1ofuP70CiX/7+QzpJQdieX6pJ7M67K61sgBmrX
-         jdboS/6g2usO7krHGoqojCx+OTwmXz/ZV0/J8bwZHt0qosWfF3aomLCqvwz2flp3Zj8p
-         wVz1tIbfwBWdsh3zjSuS/9CSYol3sYTzdDdSrauKA3mWNfLhs2COhcnBMSJAvAA79pAG
-         A4kL3TQ84EIJaRQCAMgQIMbsVb9XHjc+IzMTwbV3f9F67jquTMLuBbRYf36bHfCmdkOo
-         ePpA4WCuPbbBYkMTrYvhbrTqgFjwCaJZmnv1ST32AL8A9dpSnZI5WKa3vpGnu3Dicc3F
-         KTXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768851972; x=1769456772;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KjLqg4NCZW5HVeSGJD2IDu7KY/jOeFMsx7bzNX3Cq+4=;
-        b=I4+rwcZKRqykmbSjwaOMdyv/JFyt8ARZZjGSJLtXDS8BfpKgW82qmrTgHWHwGOmeVx
-         Uc/CyHbqDZftEIET+ph1IvmFlO0B5qxtTNaABcbYrStjK8qChh/yIrVGoqiqfy28YzWk
-         HNRZct2EKWp+iu7S3zoJbv67vN79ugeFU3BOBqWuJFGsEfRk45TnuRk6Jg8077khUHCY
-         2xQzfzuEuI1NyQf15Mp/LaHeMOXJHaPRRtiCzgdFoj0Yn91eL31Btt+gdx3xszmag7nP
-         qhhmxR0GO0KuefUlxyD0KSk/mDTBAz8LiPnfD434LHPb6KRtoVvgX4etYXnIvKqMO/qf
-         ri/g==
-X-Forwarded-Encrypted: i=1; AJvYcCWQlt1Tv/MbydrZsoLqYhlIPWyYpLLBVAiDlj8JN5KYn08naWilCh32gL0YtIaKzHPtDeRR7iRGXvJVCjLO37vk@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUWjmDcnHLzOBLkPCRxPmiZrIue5atukvY0AnBJa0aptIxBKvc
-	KdYEYRu8wZ3FsQ/+KHBfrFDT9cl7AfKmjP+B4a42SLhJzTlCbMD9DiZJXaVxRrpdZ5ImSw/JNo6
-	/V76Ml7O/YE8OjXZbZlMZ68zAFDsuuTK/wlLr+n6mM9p8ASGlVZVxoJYeBROYmllo76I5X4liZI
-	ijOQ==
-X-Gm-Gg: AY/fxX5aDysdlaN9eSGxwcK0j+wqdo5dhOyZGPuuXvDK26qaLuz5OZmkpKD7YzSkRJS
-	eU3a5QOeg80B57C6SryKPOTcOVjJdgP9uyW3NPwKdBD1Xit7I8h+vO3CJP8XVlMrYHIKvN2dCb0
-	0WQ3YZP9FkX+V9x0KE/G35zBO22wDdF/kBkxKiqWnXzUW+1s+hxXU+OOkmYGCiian0D/5ExMJJ9
-	1JXbE/U8xDXIjt8sG4JPsScBa0CKo0t5Dha8mK2VY+DKmGxTe521xb+ovJJt+/fL+I8uDSO4ogH
-	55g5ID0vo/lyZE8kJ1E6Z9uddbnW0gwW9YGkCxfC5Bz5AdKN6LfNLCEx/nZOdGqv7SYT9z4PF9t
-	14utICrl+ZecF5tbymzoBaLG3ne1FFMVePpkJLBf/MguWWhusPSz0Cc/hZMJWC+fGab1g6FKyAA
-	y+ymhIbrCyiL3ANmXSuL+ETs4=
-X-Received: by 2002:a05:620a:2805:b0:8b6:1877:3689 with SMTP id af79cd13be357-8c6a6919d3dmr1637943885a.35.1768851971558;
-        Mon, 19 Jan 2026 11:46:11 -0800 (PST)
-X-Received: by 2002:a05:620a:2805:b0:8b6:1877:3689 with SMTP id af79cd13be357-8c6a6919d3dmr1637940085a.35.1768851971054;
-        Mon, 19 Jan 2026 11:46:11 -0800 (PST)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59baf39bc5csm3636078e87.67.2026.01.19.11.46.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jan 2026 11:46:10 -0800 (PST)
-Date: Mon, 19 Jan 2026 21:46:08 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-        Trilok Soni <trilokkumar.soni@oss.qualcomm.com>,
-        Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, trilok.soni@oss.qualcomm.com
-Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
-Message-ID: <2fmnaxj2ma2bb5iuuu4yzmenp3tsxjko6rziwuaaqr6rqvegbw@s4x6eiwhlkcm>
-References: <aWoVR4oNdIHnksJQ@bogus>
- <92d90a1e-e993-4044-b152-83a8700f7b63@oss.qualcomm.com>
- <cb7326b9-91d9-44a3-b9f0-9d2e6ab5fa42@oss.qualcomm.com>
- <aWzuuwQi_nsHoj_5@bogus>
- <mzs5vq2jsrmb6kdriuxawbamyim6dhgy34ne6tucnhlalt5y3w@ghckxur3cn6m>
- <aW5Fdjag_w7i0zWN@bogus>
- <vvvq5rnbzs7ngtahqrar4iqinizthyrv3ipqnjp6ln34di365j@bbwdyda6gw3u>
- <aW5iQABCRukZXpZH@bogus>
- <3ldzdsyspd3s6on3cwyanjeheegoeba6kn6qaybojtqeca7335@cyemyxk6kck4>
- <i4zd3jesjrbljym7xuhwo5v7gwbsbuesuarnxr462eeuosevij@64hcfdzht6w3>
-MIME-Version: 1.0
+	id 1vhvEo-00000002nGl-0Pir;
+	Mon, 19 Jan 2026 19:48:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ml6Aye4roxlC/oP2eNS1EqbYW5ygBJGLIz6mB7JEVl8MOtKfroXej0OW49fBKaYbPtDKAgBNFz+PeXkqKzBCBbDxGz44tDszK50i8XAaqd0WKWZHDLxUI8fufdCxXve4n3o1hwzG6DY55nCwfnhmighb+VQAwIyYwECrhJGoftvyhD50Sl4xrF5mUWZJmiUTYB8OD/Y2db6ZyOn4L4TZH5UO6JstBXU38YrHne3eQ2sKPu524h4ifLXby9opAw+7/+HxiB2ei1uhqHBH6XWkSiJfsP4u7d3dYLnZLWO9OcJi6HDPSgn3LUqHfPRxecOtDX9nNjkdBhZ10SlZKoPxkw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L2HtxC+veEZ9mwWdOmiUySl0Lz+8mgxeeMwmAd1Iktk=;
+ b=Mee0VzRcaKERiBAInBMTSP4ywClWRQiLf1pmUVFl2IDAtotN8hUR8FAXPY5eo2WYbvZxsptN2wRfq8m1757mqj5JriZeIvJD5b39UO4jlI8RUiLZfVL4msKxAaPQCUqAhZif8DyQqOikmZqZ7Y1rI5IeiBssKahTVHQfDCKpbF6hJg7nNHryVONBHWAIFdPsh5X+6z4RsCJS4XSc3DIXmdleQmwWXqVO4rcFXjg/4ekHyHQd11kIgXf9pdmT9NFKyaj3P+vrDAbtE2a52s43ZMI1Y0SKbVMKCFEFsyf3YUmF3e+I0Me/UVvoZ+Sd/vEg8mQaXaau1wvvjEcXqK2ocQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L2HtxC+veEZ9mwWdOmiUySl0Lz+8mgxeeMwmAd1Iktk=;
+ b=jeI9vTYQQK6H5rFv37H6Zn0/8Z6LOSo5jQ+LZk6NO6L2H41i3qHYt4X4O3nKkAn8VRWKZQNtzWV3Py9DvANW+tkV6YBm0Lsxvcfopzfo0BtfDfMOXIOdUj2wTULHp9ASzG/Mc3I/wz5D1/t48oB8VN4EvJP2bum94gEqZ+LSrBqEs9U4XodxxD2ymhyRuVqIFID/EviFSfcqA5fNqftxCWyGHJGCDub0j+FieTafjKlra3klJChkiIvpJ9TogwAB2mSPYDxr0J5cqQNxuQSsMQay/VhAC/kEJVXDgElV4ROfxsX56P0a3niOotPh6GXV7sZZOE5pJUol9FNCW4C2pg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PRASPRMB0004.eurprd04.prod.outlook.com (2603:10a6:102:29b::6)
+ by PAXPR04MB8125.eurprd04.prod.outlook.com (2603:10a6:102:1cc::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Mon, 19 Jan
+ 2026 19:48:29 +0000
+Received: from PRASPRMB0004.eurprd04.prod.outlook.com
+ ([fe80::6ab3:f427:606a:1ecd]) by PRASPRMB0004.eurprd04.prod.outlook.com
+ ([fe80::6ab3:f427:606a:1ecd%4]) with mapi id 15.20.9520.009; Mon, 19 Jan 2026
+ 19:48:29 +0000
+Date: Mon, 19 Jan 2026 14:48:20 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: michael.riesch@collabora.com
+Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 2/3] media: synopsys: add driver for the designware
+ mipi csi-2 receiver
+Message-ID: <aW6KhD9UsHNUPdVl@lizhi-Precision-Tower-5810>
+References: <20251114-rockchip-mipi-receiver-v7-0-42ff419f9b51@collabora.com>
+ <20251114-rockchip-mipi-receiver-v7-2-42ff419f9b51@collabora.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <i4zd3jesjrbljym7xuhwo5v7gwbsbuesuarnxr462eeuosevij@64hcfdzht6w3>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE5MDE2NSBTYWx0ZWRfX8OIDk9vDywHg
- hNBmmRaFnU7Qmr3FtCNBPAGuNpFMKu3rIX+7Xs84Xxx355arqAMUodvadRBNSi+EBO5bLYRBmuj
- sxBaWtLnIJZZirrLgZ7lssl9mePosf7NG+/mt28XSDlICs+ONA+V/tduhoX+UxOYP6W+d4mVFZX
- zzqY3LVTHfawhWzKBeyRBjW92p/2uTd3ADUd/PWRtgOx/wFbdoW4YMoigkdmgiinK3R8ap/sV1J
- 1NBmdGCgl6TJ+YMVluhYmTokqKIeFhP4D6/3PBoiwp6eF+FK5nrSlB3kX3ORJds9yStbN6B65I5
- QVz7JoL16mPbNVF/7YHSmE6sD4gwRo7hCz+EH6me/OurjuNJmjERsm8Rccal6fFGqG+Fv3GtmZU
- KQtvE4iz6jvRk5PGOLNjdTbQ99PyFEXAjptSGdT/C4Nt8oFqEU574UXhZbTd+/yDE3g89pdNEBC
- t+r+/Jnjgj6FFAubzLQ==
-X-Proofpoint-ORIG-GUID: wG0opBdxZxeDd5RDpZM5tygNSGh3vtpk
-X-Proofpoint-GUID: wG0opBdxZxeDd5RDpZM5tygNSGh3vtpk
-X-Authority-Analysis: v=2.4 cv=L8gQguT8 c=1 sm=1 tr=0 ts=696e8a04 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=f3c_A7qAZzxDW3Z421kA:9 a=CjuIK1q_8ugA:10 a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-19_05,2026-01-19_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 impostorscore=0 suspectscore=0 phishscore=0 spamscore=0
- clxscore=1015 priorityscore=1501 lowpriorityscore=0 bulkscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601190165
+In-Reply-To: <20251114-rockchip-mipi-receiver-v7-2-42ff419f9b51@collabora.com>
+X-ClientProxiedBy: PH8PR05CA0005.namprd05.prod.outlook.com
+ (2603:10b6:510:2cc::14) To PRASPRMB0004.eurprd04.prod.outlook.com
+ (2603:10a6:102:29b::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PRASPRMB0004:EE_|PAXPR04MB8125:EE_
+X-MS-Office365-Filtering-Correlation-Id: ef964987-3e63-4b66-c8da-08de5793b815
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|19092799006|376014|366016|1800799024|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fkE9VkKZ2eUG7GNtVnP6+HbSuWc19mg7khva5rgt09zxg3Jb2wSfQ8BJxSxX?=
+ =?us-ascii?Q?SXPMoGHlzLYRITi/XZa31OW1AwnrQrU+E+6ZcMTe/CVIPQf8g6aQiAYvvPJH?=
+ =?us-ascii?Q?hbYcx4i2L4/24e/EggtKbLBZn3XOJBkZWKaMbtVO1nmj6OPwrp78AXxWXfnQ?=
+ =?us-ascii?Q?4saOPZMbQ4Gf+fcfQoQilOq3ZqESYqrmV6V+XWMPNdVclpa2WKbHgC7lbnxH?=
+ =?us-ascii?Q?/LVjDPNXslrcUB+l+0u7bMStJyx83IbKk/fU0mqljj9rfnD0mKysDZXlf3kS?=
+ =?us-ascii?Q?GdZ7tr/cH/Vn6SPO9egjSh5nyTZaPdd522zxmIxLOq27G7ZgAjwsmoVrcG0/?=
+ =?us-ascii?Q?5o+QYaRMLW4fmdGTK5Hkn66S59NIgp/bvKIfL2iTYxlE5//osSU51eglCdEt?=
+ =?us-ascii?Q?nUBbXhgpinOsIU9Pen0rxca015Ny2AjI1oIxT4WOdJkFzzYtrs2spvQm3nbF?=
+ =?us-ascii?Q?1gUvc9vlgePnai9BtQb72B9qY/YnYF6Ao/Pe7EgkFT9FT3yd0HsvAHBVptQS?=
+ =?us-ascii?Q?H1jaTicdxum30O0jxmXe4hZJkEQOBNBAhF0tI6w4r4pYnnhQRJGNjUhriTT5?=
+ =?us-ascii?Q?iHyQk1iczvZPmM7h7XMJZEkMQ8vqWgHn0OGL1WkyiBfeFbzEDjx8CELgKU6t?=
+ =?us-ascii?Q?vRHUIhsA0q1no/AMwFxTayya65DysX7X5P9jJ3DdSeYX3af3vTSkda4LQlqZ?=
+ =?us-ascii?Q?Gyncxmn8fO+T5YOQxYVBsmWswPyaoqervHpZCqjTa9c9V/2F29pNkTzCJhdt?=
+ =?us-ascii?Q?zdTZidED61aCSKGl0lcRstyzXeaY++t2js+p/7IFfCIru4dVVomJXWvUh5Ii?=
+ =?us-ascii?Q?/W2T94mq4Z4Xaoi5KjkLf8p+yHZ+u9Dq0SwHCWIJ9kDT+dzbAmlO1Sn0BeAQ?=
+ =?us-ascii?Q?fUQRot7ACnzIsimXpjDM/E4g7z5mz5hdVeNYtinP4zR0GujBAUq4883uWTs3?=
+ =?us-ascii?Q?5/fkj6vz/mKLh7jg5+jJ7HOIwUTdi1+F2wEhOcJA2hO1oXxXIMZad79nvN/D?=
+ =?us-ascii?Q?1vGPKogveBuYuCYvOBXUibMv0hoJ5YFqFdul6wqAfF6L9qOvN7wnH4UPvR6/?=
+ =?us-ascii?Q?uBDsmfMh9gJOMvGKmNR909Tp9ThP6XkghM1kgp9XCQvkVRgHm/vi0OC26BUB?=
+ =?us-ascii?Q?2ZSDDriiczQ52Yo8V5bFn2oGQxRVHfKDDPSvGBhTnaSzKlSaSRlOLGKjJCFp?=
+ =?us-ascii?Q?/AEtnnLkOK+PdcHKvJiu680wXObwCk2IRv6mFZit0bdW9dUqBCi5q9feeCBj?=
+ =?us-ascii?Q?/vy3yA5E9a8JcuqzvHFq1qWiNK6RcGPUYCuIutn0GIMTJqIb2APO2hOSQKWa?=
+ =?us-ascii?Q?UcMFMn4UnuV3GZ5HVZP10EVi+kf60RfMVJ+eggvMu1QDVRwK5RLUdpEIB3gw?=
+ =?us-ascii?Q?XXPo7GSvZlpEZwfkjqxgbO6TAdg17pRW4+VowQpcAJLKHJAcYRHMnmluocAV?=
+ =?us-ascii?Q?0uRiNopzzAIvex2uKSFtnrR3NX589wGkKh0Rpbt/d+I5DHHUB4Y7r9uaAdEZ?=
+ =?us-ascii?Q?iO1oW7Sm/bUp1Ikp8jRjqaqBbivY2rma1HwGJFcyA9T8WvvQVOyvGRMnW4Fr?=
+ =?us-ascii?Q?Asfk0L3NenI9vT7Ok4xajrcYWCrflM1rGABAvHbC1yRwxZZ2Gn8I7BKJcJPh?=
+ =?us-ascii?Q?0vHtZv5FwfRi0wg5w5hrl6M=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PRASPRMB0004.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(19092799006)(376014)(366016)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?B5iaRiyCiRs+wpb0EGnUVhBZvho9kpd5on8fA98USQbsYmoOoT94zO+ozCqu?=
+ =?us-ascii?Q?csU90ZTNI59VSSgLFh5d3rbsnOyJRzQ/rinFmYF8qggUlKwBCPZiyyU4dX83?=
+ =?us-ascii?Q?5NPTVChnIH0uAm7e4bFffWpKkx7MoIzlc7+hVZjiOFJzq0xfv7APl9I8Tk8+?=
+ =?us-ascii?Q?HXBLDE72misKzmmdb1vtgRrCH5WaAn8JYQbsbN4bPe/HZyLwwD/GLBZSLDdV?=
+ =?us-ascii?Q?QiQP/Pv8oODmmqrMVh0ReIsvITbSxQBWsbyValj51H2smW6ssRbmKVvCfjvJ?=
+ =?us-ascii?Q?DHmh3ffhXrD9hS+S81yz/tnk6qLioX58FmSrpYhSmU0Syvy3wt6AoHEaFkIS?=
+ =?us-ascii?Q?AF7lUDKk0V+5OAIPTGKz+XDVEcRamvFH2K1kPTtPyhyyevwahXXuzfdDJsoh?=
+ =?us-ascii?Q?L/ynnh3BKhOR1ZelWImhUsMP8LGIuPxzXhUhFJ7AhkRyOzXCtpKIDlI0uyzc?=
+ =?us-ascii?Q?+VNopYu1P/1DB5kfhIt9D+ht6x/KdzhIdEiiAp6TqAHzGjC0HOKa3r3bpej/?=
+ =?us-ascii?Q?m1I2HD3qFPcoY/74a34SWZ/7971fwt8I9f2gzFLJr1dQsDLmDLiYFwjMNb+0?=
+ =?us-ascii?Q?OXTLcVf7gMiqUGGtJrLauBYD8r9TkRbxn5AbNdo4Uh6a//D2BfNNrcB3stwd?=
+ =?us-ascii?Q?QmoemjIdchOdr+8LBdC9kYSC4K9GHhe3ZxHm3iwa4ks4efQc0oDCaiS5Xc6a?=
+ =?us-ascii?Q?e62yqkKP8Cj8hlsLvKGsYy3HwFrO6Hj9KkEvrjCoxA7tgsUsBVVe+AF6/If1?=
+ =?us-ascii?Q?kjV+7YReVPA041ShJFZncKUWTTBRUBthTLi7XKzIb2PjzbYpacpP5fl6vmPH?=
+ =?us-ascii?Q?HyjVZSElWbrGZ9a7CSYJXyvBiVgw+4uWoVCpXu91xjMZFdWuYQTdb2UFvoLA?=
+ =?us-ascii?Q?liSM+XoMFjVRasWGVHbPN96XKNYMQK8EENxtw17HTuwMa29r9u50a4ELg+R8?=
+ =?us-ascii?Q?dycqw3KLoKvR4kMMTqfuSkqCIQakBOCnKg4wwxKbii43pO6ecTpyCesEkXoS?=
+ =?us-ascii?Q?FX6Fi7k4mejjIkumTM4jrIC0n3MgPfhQAgT06CaGYlfBgXUQRYZYgEfKZsu8?=
+ =?us-ascii?Q?k8HBazCZArCZatF9MqtcqkY6Y0j9pCHnEKwy/mNyHlKf8qRF3Mt714XSMYLo?=
+ =?us-ascii?Q?TBmmdYfP8oQhagelb0cGRqpQlNzXJ8XZFr17xAsgSp3oeCB0xx67dIrYY2LK?=
+ =?us-ascii?Q?wDgQDPzZGudKCKJOY2stDW6rSKrXN1q/qIgc4fBphRmakRzg5IojA88KAxVY?=
+ =?us-ascii?Q?V861fwXD9tvDRX2vg0tYqqRiZHLkg6L43RzvDEs+YE/A4lb5Cl2mUwWYN/gY?=
+ =?us-ascii?Q?sZWI4iQXpI/XmKO7hUiJMf7afo0nmzF4N7YsLJmf07vtwYKfOCvgCtre63oI?=
+ =?us-ascii?Q?G5jAhoSjm2ChR+MEcQxTWBwSH/j+D8K0xClzPhQjzIuqtM9krUOmecZ4MbY7?=
+ =?us-ascii?Q?nxjpJLX+f8DX4Kk/L2z+A9BRUlp0VODhel1PEIqL+9LviP8TSPmohl0KD8wa?=
+ =?us-ascii?Q?oDHfoLo00xv9sThj71ehYN/xajChdRSL6WQqsuzicvH/tQiufWAq9nP7zCwW?=
+ =?us-ascii?Q?0QpFf93O3kITNxP2ctgvjjz6JKyMnJSZhntX0KRTPmHviRgt6veCh/VbYESX?=
+ =?us-ascii?Q?G4RLWJS4l7E+nb4s9yGqANc5ZfuYk52S4hj6SVmsW2GSFmY8Gp1+jD7bDnGI?=
+ =?us-ascii?Q?SLZ+rXWfRc3co440vCUebq+EsYISO9JaWUQSbwiPS0/nse0qZhqoHWYcyRdP?=
+ =?us-ascii?Q?D79XYpadTw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ef964987-3e63-4b66-c8da-08de5793b815
+X-MS-Exchange-CrossTenant-AuthSource: PRASPRMB0004.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jan 2026 19:48:29.6338
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YxlBXo65+mGXw0kcjZoK9g7wEjAk7nVQ0MxMpma4EZZiPQd1fy7b4WWMadPrbyBr700U+zKJeC1ZbcTmWcnykw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_114613_886217_E98E6F32 
-X-CRM114-Status: GOOD (  36.81  )
+X-CRM114-CacheID: sfid-20260119_114834_145611_5A35CC5B 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,73 +180,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 11:25:31AM -0600, Bjorn Andersson wrote:
-> On Mon, Jan 19, 2026 at 07:20:09PM +0200, Dmitry Baryshkov wrote:
-> > On Mon, Jan 19, 2026 at 04:56:32PM +0000, Sudeep Holla wrote:
-> > > On Mon, Jan 19, 2026 at 06:44:23PM +0200, Dmitry Baryshkov wrote:
-> > > > On Mon, Jan 19, 2026 at 02:53:42PM +0000, Sudeep Holla wrote:
-> > > > > On Sun, Jan 18, 2026 at 03:16:50PM -0600, Bjorn Andersson wrote:
-> > > > > > On Sun, Jan 18, 2026 at 02:31:23PM +0000, Sudeep Holla wrote:
-> > > > > > 
-> > > > > > To me, when you decided to add a second caller to soc_device_register()
-> > > > > > you created a regression in the userspace interface. If nothing else
-> > > > > > it's a leaky abstraction.
-> > > > > > 
-> > > > > 
-> > > > > In that case, shouldn't soc_device_register() made to give error when an
-> > > > > attempt to call it more that one time then ? Also should be change the
-> > > > > ABI documents to refer it as soc0 and not socX ?
-> > > > 
-> > > > Then the whole SoC bus is an overkill. But I have a strange question
-> > > > here. Consider the device having the "BT / WiFi SoC" next to the main
-> > > > SoC. Is that SoC a legit target to export informaiton through sysfs /
-> > > > soc bus?
-> > > > 
-> > > 
-> > > Just for clarity, I agree with you and there could be duplication of
-> > > information if there are multiple source for that information. E.g.,
-> > > the setup in this discussion where the EL3 firmware provides SOC_ID
-> > > information via SMCCC SOC_ID and DT providing vendor specific information
-> > > about the platform. Both are getting exported via sysfs but the problem
-> > > here is SOC_ID has displaced vendor specific DT info from soc0 to soc1.
-> > 
-> > I understand the context and I understand that we ended up having two
-> > soc devices for the main SoC. And that's exactly why I'm asking about
-> > the WCN SoC exporting the information through the same interface. If it
-> > is a legit user, then it is a possible outcome that WCN binds to soc0
-> > while the main core gets bound to soc1 (even without SMCCC_ID in place).
-> > 
-> > Likewise if WCN if a legit user of soc_device_register(), then we can't
-> > make it fail after registering the first entry.
-> > 
-> 
-> But by this definition, a vast variety of discrete IP should register
-> with this interface - instead of providing such information in their
-> respective functional interface.
+On Mon, Jan 19, 2026 at 11:43:36AM +0100, Michael Riesch via B4 Relay wrote:
+> From: Michael Riesch <michael.riesch@collabora.com>
+>
+> The Synopsys DesignWare MIPI CSI-2 Receiver is a CSI-2 bridge with
+> one input port and one output port. It receives the data with the
+> help of an external MIPI PHY (C-PHY or D-PHY) and passes it to e.g.,
+> the Rockchip Video Capture (VICAP) block on recent Rockchip SoCs.
+>
+> Add a V4L2 subdevice driver for this unit.
+>
+> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+> ---
+...
+> +
+> +static int dw_mipi_csi2rx_register_notifier(struct dw_mipi_csi2rx_device *csi2)
+> +{
+> +	struct fwnode_handle *ep __free(fwnode_handle) = NULL;
+> +	struct v4l2_async_notifier *ntf = &csi2->notifier;
+> +	struct v4l2_async_connection *asd;
+> +	struct v4l2_fwnode_endpoint vep;
+> +	struct v4l2_subdev *sd = &csi2->sd;
+> +	struct device *dev = csi2->dev;
+> +	int ret;
+> +
+> +	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
 
-I *suppose* that was the intention. Otherwise there is little point in
-having socX defined in the ABI.
+cleanup.h prefer set value at declear.
+	struct fwnode_handle *ep __free(fwnode_handle) =
+		fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
 
-> 
-> My interpretation is that the soc_device_register() related to the
-> entity which is represented as /soc in your DeviceTree.
-> 
-> For a broader "dumping ground for different IP to register their
-> version information", we'd need some way to associate each entity with
-> the related component - which I believe there is none, because then you
-> could have used the specific driver interface in the first place.
+Krzysztof Kozlowski did many work to cleanup pattern '__free(*) = NULL',
+ref https://lore.kernel.org/all/20251208020844.5310-4-krzysztof.kozlowski@oss.qualcomm.com/
 
-We can be using of_node / fwnode pointers for that (where available).
-However, I guess, there would be no fwnode for SMCCC SOC_ID.
+> +	if (!ep)
+> +		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
+> +
+> +	vep.bus_type = V4L2_MBUS_UNKNOWN;
+> +	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to parse endpoint\n");
+> +
+...
+> +
+> +static int dw_mipi_csi2rx_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct dw_mipi_csi2rx_device *csi2;
+> +	int ret;
+> +
+> +	csi2 = devm_kzalloc(dev, sizeof(*csi2), GFP_KERNEL);
+> +	if (!csi2)
+> +		return -ENOMEM;
+> +	csi2->dev = dev;
+> +	dev_set_drvdata(dev, csi2);
+> +
+> +	csi2->base_addr = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(csi2->base_addr))
+> +		return PTR_ERR(csi2->base_addr);
+> +
+> +	ret = devm_clk_bulk_get_all(dev, &csi2->clks);
+> +	if (ret != DW_MIPI_CSI2RX_CLKS_MAX)
+> +		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
+> +	csi2->clks_num = ret;
+> +
+> +	csi2->phy = devm_phy_get(dev, NULL);
+> +	if (IS_ERR(csi2->phy))
+> +		return dev_err_probe(dev, PTR_ERR(csi2->phy),
+> +				     "failed to get MIPI CSI-2 PHY\n");
+> +
+> +	csi2->reset = devm_reset_control_get_exclusive(dev, NULL);
+> +	if (IS_ERR(csi2->reset))
+> +		return dev_err_probe(dev, PTR_ERR(csi2->reset),
+> +				     "failed to get reset\n");
+> +
+> +	csi2->formats = formats;
+> +	csi2->formats_num = ARRAY_SIZE(formats);
+> +
+> +	devm_pm_runtime_enable(dev);
 
-> (I.e. there's no representation of the WCN SoC in our system, we have
-> representations for the PMU, the WiFi, and the BT core, but not the
-> whole).
+Need check return value
 
-The mapping is really a separate topic. I can imagine "just an
-enumeration" kind of ABI.
+> +
+> +	ret = phy_init(csi2->phy);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "failed to initialize MIPI CSI-2 PHY\n");
+> +
+> +	ret = dw_mipi_csi2rx_register(csi2);
+> +	if (ret)
+> +		goto err_phy_exit;
+> +
+> +	return 0;
+> +
+> +err_phy_exit:
+> +	phy_exit(csi2->phy);
+> +
+> +	return ret;
+> +}
+> +
+...
+> +
+> +static DEFINE_RUNTIME_DEV_PM_OPS(dw_mipi_csi2rx_pm_ops,
+> +				 dw_mipi_csi2rx_runtime_suspend,
+> +				 dw_mipi_csi2rx_runtime_resume, NULL);
+> +
+> +static struct platform_driver dw_mipi_csi2rx_drv = {
+> +	.driver = {
+> +		.name = "dw-mipi-csi2rx",
+> +		.of_match_table = dw_mipi_csi2rx_of_match,
+> +		.pm = &dw_mipi_csi2rx_pm_ops,
 
--- 
-With best wishes
-Dmitry
+still prefer add pm_ptr() to avoid some static scan tool report problem,
+or some contributor send out small patches, which just add pm_ptr()
+
+Frank
+
+> +	},
+> +	.probe = dw_mipi_csi2rx_probe,
+> +	.remove = dw_mipi_csi2rx_remove,
+> +};
+> +module_platform_driver(dw_mipi_csi2rx_drv);
+> +
+> +MODULE_DESCRIPTION("Synopsys DesignWare MIPI CSI-2 Receiver platform driver");
+> +MODULE_LICENSE("GPL");
+>
+> --
+> 2.39.5
+>
+>
 
