@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B65ACA5FF6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 11:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7543DCCF2EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 11:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jL+VhK/kN7g7Ujc/6hg5xJ5Iz3Hxoqc8dIX27qk3etM=; b=a677pK86+sLyI0tXObMTj2z6EW
-	i/d/KsU+U1VXoY+0+8UoOW4BiTmUvEm+dWFER4SZ/zI+0Ma0KSSccdxn12oPBRL9TX56q1wD5G4AL
-	TqXTeo1MA56+jQkzFoZ7OdlHDIc2MyXcvchQFG+N4ElX4uBGr4y+Ra3iUcR4y7xFb107t7yBYFsH2
-	Zy/dEZ2W6iy9edLsDpt7JO2qxw7PiPHPT1wNJud+Z/YBqDwTyZnd/qcfGiVDGaPG13f+YbOvYxprA
-	FDXN0cN+58C6708S1y38JjnuWgGjrfX8M70do1gf/twGFU6BTDFVC8D0Zrs8GOd7XpkEVdsPeE8hv
-	pUyBNINw==;
+	bh=jxSm0RT6/vS5ISeDyalVPSvK3rwkjosRSSjTO13ynmg=; b=QmRSW91llTgt658WS1Vzecbm+H
+	fcLJZmVi/LBBJIRd/AotGaplTVfA2MF++AM8I8iCGh1gFk1FUcDHU06X0tzFtygKjWvKO+8alOvGD
+	JDTCIj6gJxjPCyhfx1LFawceik21jXbEA/WKi5vzBM4ZjSU9ZujBZBFcH/El9Tswb+xKRwgXxvyUw
+	oAFU7NCZDffGB+0zaaxymq6XB9V96cq3qi+50EAocTz+QMA5Gd6oPOd8PwHdi9pMqB1IFxGVTQpps
+	kcUJTjST9No4DgyAPkJmTbedRpn9IYU3rhjODDkxc+0Re1+Lo0NkoljcKnSr9r5h7NmHKmzE4lGt7
+	SSgt/pFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhnVp-00000001uBP-0rLw;
-	Mon, 19 Jan 2026 11:33:39 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vhnYR-00000001uU5-0m5Q;
+	Mon, 19 Jan 2026 11:36:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhnVn-00000001u90-0IXZ
+	id 1vhnYN-00000001uTU-3gUz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 11:33:36 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dvpH56bBJzJ46q8;
-	Mon, 19 Jan 2026 19:33:05 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id A4A9240570;
-	Mon, 19 Jan 2026 19:33:28 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 19 Jan
- 2026 11:33:27 +0000
-Date: Mon, 19 Jan 2026 11:33:26 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<arm-scmi@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
-	<sudeep.holla@arm.com>, <james.quinlan@broadcom.com>, <f.fainelli@gmail.com>,
-	<vincent.guittot@linaro.org>, <etienne.carriere@st.com>,
-	<peng.fan@oss.nxp.com>, <michal.simek@amd.com>, <dan.carpenter@linaro.org>,
-	<d-gole@ti.com>, <elif.topuz@arm.com>, <lukasz.luba@arm.com>,
-	<philip.radford@arm.com>, <souvik.chakravarty@arm.com>
-Subject: Re: [PATCH v2 03/17] firmware: arm_scmi: Allow protocols to
- register for notifications
-Message-ID: <20260119113326.00005902@huawei.com>
-In-Reply-To: <20260114114638.2290765-4-cristian.marussi@arm.com>
-References: <20260114114638.2290765-1-cristian.marussi@arm.com>
-	<20260114114638.2290765-4-cristian.marussi@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
- dubpeml500005.china.huawei.com (7.214.145.207)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_033335_254918_E9DE0668 
-X-CRM114-Status: GOOD (  16.20  )
+	Mon, 19 Jan 2026 11:36:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3CFC760140;
+	Mon, 19 Jan 2026 11:36:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD9E3C116C6;
+	Mon, 19 Jan 2026 11:36:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768822574;
+	bh=OQinx1qBrX1pwq31acCG+L+3NgEjuiriHQfON/AY/rg=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
+	b=Q7rEkfzGjUkdkLUMw2ZzG/zLwSm9pxB9UUK4Zq2Vvsh765XsoyJRENkSFrQycIObl
+	 UjIhmRCXCsiKzSUo7mxsWiC3hBoe/LJfFTWvwXQwDC7XwSmACPI06b4qv+pSNrhOgl
+	 09sixcXOxnbd7EGd20DKDKUmMchA9DpWntHdNA3XJaawRA65n/PaisNRh2vKd4JbFd
+	 VYTqzJgFLx6mpYG4nfUQWGVtU4TAP1eEIdjwAYR/gcD/J52wMH26ARBt4Pqea5KzNP
+	 3nz7ojLpYAQLVFUuiR90PbSI5WZ4SCKH/F3KkgIByMQSEUSMAwyA4bNzSqwQli6vie
+	 prijfAz8KLjCA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 19 Jan 2026 12:36:09 +0100
+Message-Id: <DFSJ9QN6U81W.19R0VFKTEFZKR@kernel.org>
+Subject: Re: [PATCH 3/8] base: soc: export soc_device_get_machine()
+Cc: "Rob Herring" <robh@kernel.org>, "Saravana Kannan"
+ <saravanak@kernel.org>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, "Christophe Leroy (CS GROUP)"
+ <chleroy@kernel.org>, "Shawn Guo" <shawnguo@kernel.org>, "Sascha Hauer"
+ <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Geert
+ Uytterhoeven" <geert+renesas@glider.be>, "Magnus Damm"
+ <magnus.damm@gmail.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linuxppc-dev@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
+ <imx@lists.linux.dev>, <linux-renesas-soc@vger.kernel.org>,
+ <linux-sunxi@lists.linux.dev>
+To: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20260119-soc-of-root-v1-0-32a0fa9a78b4@oss.qualcomm.com>
+ <20260119-soc-of-root-v1-3-32a0fa9a78b4@oss.qualcomm.com>
+In-Reply-To: <20260119-soc-of-root-v1-3-32a0fa9a78b4@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,64 +80,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 14 Jan 2026 11:46:07 +0000
-Cristian Marussi <cristian.marussi@arm.com> wrote:
+On Mon Jan 19, 2026 at 11:40 AM CET, Bartosz Golaszewski wrote:
+> -static void soc_device_get_machine(struct soc_device_attribute *soc_dev_=
+attr)
+> +int soc_device_get_machine(struct soc_device_attribute *soc_dev_attr)
+>  {
+> -	struct device_node *np;
+> -
+>  	if (soc_dev_attr->machine)
+> -		return;
+> +		return -EBUSY;
+> +
+> +	struct device_node *np __free(device_node) =3D of_find_node_by_path("/"=
+);
+> +	if (!np)
+> +		return -ENOENT;
 
-> Allow protocols themselves to register for their own notifications and
+This should never fail at this point, no? Also, can't we just use of_root?
 
-and provide their own notifier callbacks.
+> =20
+> -	np =3D of_find_node_by_path("/");
+> -	of_property_read_string(np, "model", &soc_dev_attr->machine);
+> -	of_node_put(np);
+> +	return of_property_read_string(np, "model", &soc_dev_attr->machine);
+>  }
+> +EXPORT_SYMBOL_GPL(soc_device_get_machine);
 
-> providing their own notifier callbacks. While at that, allow for a protocol
-> to register events with compilation-time unknown report/event sizes: such
-> events will use the maximum transport size.
+If we want to export this, we shouldn't reuse the existing name, which is
+misleading.
 
-I'm not keen on the 'while at that' part of the patch. In an ideal
-world that's a separate patch.
+soc_device_get_machine() reads as if we return a reference count of somethi=
+ng.
+Additionally, it operates on struct soc_device_attribute instead of struct
+soc_device, where the name suggests the latter.
 
-One other comment inline.
-
-Jonathan
-p.s. You get to my review victim whilst I run a particularly annoying
-bisection on the other screen (completely unrelated!) :)
-
-> 
-> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> ---
-> v1-->v2
->  - Fixed multiline comment format
-> ---
->  drivers/firmware/arm_scmi/common.h    |  4 ++++
->  drivers/firmware/arm_scmi/driver.c    | 12 ++++++++++++
->  drivers/firmware/arm_scmi/notify.c    | 28 ++++++++++++++++++++-------
->  drivers/firmware/arm_scmi/notify.h    |  8 ++++++--
->  drivers/firmware/arm_scmi/protocols.h |  6 ++++++
->  5 files changed, 49 insertions(+), 9 deletions(-)
-> 
-
-
-> diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
-> index 78e9e27dc9ec..e84b4dbefe82 100644
-> --- a/drivers/firmware/arm_scmi/notify.c
-> +++ b/drivers/firmware/arm_scmi/notify.c
-
-
-> @@ -779,8 +787,13 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
->  	}
->  
->  	evt = ee->evts;
-> -	for (i = 0; i < ee->num_events; i++)
-> +	for (i = 0; i < ee->num_events; i++) {
-> +		if (evt[i].max_payld_sz == 0) {
-> +			payld_sz = max_msg_sz;
-> +			break;
-> +		}
->  		payld_sz = max_t(size_t, payld_sz, evt[i].max_payld_sz);
-
-Everything here seems to already be a size_t.  It is rare that we actually need max_t over
-max, and definitely not when all the types match.
-		payld_sz = max(payl_sz, evt[i].max_payld_sz);
-
-> +	}
->  	payld_sz += sizeof(struct scmi_event_header);
-
+Instead this should be soc_device_attribute_read_machine() or if we want a
+shorter name, just soc_attr_read_machine().
 
