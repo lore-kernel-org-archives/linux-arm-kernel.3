@@ -4,168 +4,214 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417D3CCF2DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 19:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9708FCCF2DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 19:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L2HtxC+veEZ9mwWdOmiUySl0Lz+8mgxeeMwmAd1Iktk=; b=ngDyNpAIUfXl2FfU6gmUHB3Sbi
-	TNcjikCnEwDU7MPTGWmdyKOlTMbQLzMmHf2/3/VTuF9R5b8zAXBzvGE6cc9WTuOScIhPW8k3jZ1hn
-	gJ3pc96AoMsRNJ2uKGhuEomFyT71oeRoy/MMKuGn7IEHbiexRvNwIG7bFn8ZWxyLaOAicWJh787IA
-	XY7h822jC1eNHHJRXcGT8qMT2sUyjT1fp3bzQi0iq9oSuS7w0aWP5YGGqOlYpx0XM9TfFwfufMXHP
-	1d4fw/Tz2GBXzdywYb1ry7IMxRzq2YK56C9yl8VFK3xRxhkA7wie5QY9fSBRGNu6mNTMqgNL1xK4g
-	D/g7audQ==;
+	bh=YosyeWIcnRiejhCm6gbVmX8hsxi4ImTcWjp7a6W8Sss=; b=EdJ6vck3ftJa478XnXIiye2O1v
+	0kdw0xlA74BkYZ1b6mtOjcO5YRHFTnIxbJlcg+owf7IwdewPZ+i3Rt2GWPp2hHp9zmbTHQp0Gj317
+	UEy2XwZAFOJD4F1CcNq6mPT37e7OCLdNOpbCv7EhLibBsD1MaIuOyuVs8eA0lpndINhgcYqK5Vxlx
+	r9c/GoawGIabR/dYll3frwjO/bBwjOoJYE8afXGMTqqsFCYiDGGbfAf7v+91TDVmpXkdHrKrrdKaF
+	25tYUfaE7m1fxmq+VLZq16Jx4xAG31aHSl3AePC044APguQklY/9nUGJaLcyMJUOxB05JJTXlnLFg
+	3HXAPSZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhvEp-00000002nH8-3jh8;
-	Mon, 19 Jan 2026 19:48:35 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vhvHu-00000002nSQ-2a0Z;
+	Mon, 19 Jan 2026 19:51:46 +0000
+Received: from mail-francesouthazon11011028.outbound.protection.outlook.com ([40.107.130.28] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhvEo-00000002nGl-0Pir;
-	Mon, 19 Jan 2026 19:48:35 +0000
+	id 1vhvHq-00000002nRn-2Yue
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 19:51:44 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=NMmumHjOXLGWU7Z6odGjB8rdpm1Dwstb7L81Ug7PSchpHizUU48slEtviFtok24mq1J5pe+lQpB4fP61R9NIQHl1+Lrxz37h8mBwSSJVj/lZIq2vXsVUYCBnEOpjF5/JecgJU918gy3wyktkCjwa4cTc7d+yHwXtopLZ5XQjfF1GVXFheFjfqedWQ9aTr8apk9qH/ctuQXhcLxH9iAOaFnlH0LZpAd+lqUeSxI8CqBGGEXLdbAp5zOH5+zE1u5xevTwivX7CvVDGYPxJNMPITJ2+hoYuRk8EnjbdBP3qQSpvyYj4pFWV1Q1ZwKxcnBva1bkVIwxQNm+0RAmwjuZemA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YosyeWIcnRiejhCm6gbVmX8hsxi4ImTcWjp7a6W8Sss=;
+ b=LHIJcXt9NBqJvkczPVpcfvY25rI5GbK+Xk6feXSPSNYUyp0LiULf9zTgk/OeD88WT8rpYJTl0OJ4TyISVoWwvImmulh6KDfVlAdnfvWnr5JOpcgu1VF5jp8ewtf+F0EdZzRu7Ql3v4gSQOqqWdx331j/QcUTjxgK6CHUhXRbc2+SezW+Aq5r41sDkjpOi3y2ZVGqx8yzuNB915osq7yoj5bhGxb6iOgp0wTfQUT8pz6m67BT8jcH1BEdcN35IEX5/mBKHelKd2gRsahptelL5k8fpkTbKw1R90KmJGXGg8BGV6HzpaTujRJbWH0HCayNhZzgM8wH7SrieROvM8xkwg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YosyeWIcnRiejhCm6gbVmX8hsxi4ImTcWjp7a6W8Sss=;
+ b=OajS5UBrTL2u5odYOkQP4QgVhtrjCd9ZGv3fqIalViNmFAhOyn1wcNOUWy1VrNa8jRQdUM8kulr8e8XqYMiMYSqGErN7tXtjH1p9hm05pORVU7e8Je+ho4rWZeYWyugW5jJXs3v9EA1GpwzI1rnb3doJY6Or1MeqaKc4TYega2g=
+Received: from AS8PR07CA0041.eurprd07.prod.outlook.com (2603:10a6:20b:459::31)
+ by DU2PR08MB10106.eurprd08.prod.outlook.com (2603:10a6:10:46d::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.7; Mon, 19 Jan
+ 2026 19:51:31 +0000
+Received: from AM3PEPF00009B9F.eurprd04.prod.outlook.com
+ (2603:10a6:20b:459:cafe::a8) by AS8PR07CA0041.outlook.office365.com
+ (2603:10a6:20b:459::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.8 via Frontend Transport; Mon,
+ 19 Jan 2026 19:51:31 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM3PEPF00009B9F.mail.protection.outlook.com (10.167.16.24) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.4
+ via Frontend Transport; Mon, 19 Jan 2026 19:51:31 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ml6Aye4roxlC/oP2eNS1EqbYW5ygBJGLIz6mB7JEVl8MOtKfroXej0OW49fBKaYbPtDKAgBNFz+PeXkqKzBCBbDxGz44tDszK50i8XAaqd0WKWZHDLxUI8fufdCxXve4n3o1hwzG6DY55nCwfnhmighb+VQAwIyYwECrhJGoftvyhD50Sl4xrF5mUWZJmiUTYB8OD/Y2db6ZyOn4L4TZH5UO6JstBXU38YrHne3eQ2sKPu524h4ifLXby9opAw+7/+HxiB2ei1uhqHBH6XWkSiJfsP4u7d3dYLnZLWO9OcJi6HDPSgn3LUqHfPRxecOtDX9nNjkdBhZ10SlZKoPxkw==
+ b=OxrpQMPXE0knczqjkcPVd2+S56FPWazu5xmvl5qHYk3kAc8WXaSx4gFPnzjm1lwX3nEv25Y9wd/713QNDGhd4uSFuMN/NLgbs4d15OxlQyFN/VI+sJ4OUjPJBQBDAk6tmNLlSw+m0rmZmPA5AInCCobpKoCIEYGxzthH2yTTOpgPeP7Ts7Qa3SHEy4hH90mDLazh9g9ssSJroP9hEQ/8lXCmCuBiO/7MP6/zLzyhOtFg1WXRH8hUYssLSb/Vk3whO7ISgCtVDqO92ITChvgELn4xKaWh/tMVPYb1RkPSxIFxBbbqIeBNtWziB8hmOe/ACDuToI0EnrGTvpK09AVF1Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L2HtxC+veEZ9mwWdOmiUySl0Lz+8mgxeeMwmAd1Iktk=;
- b=Mee0VzRcaKERiBAInBMTSP4ywClWRQiLf1pmUVFl2IDAtotN8hUR8FAXPY5eo2WYbvZxsptN2wRfq8m1757mqj5JriZeIvJD5b39UO4jlI8RUiLZfVL4msKxAaPQCUqAhZif8DyQqOikmZqZ7Y1rI5IeiBssKahTVHQfDCKpbF6hJg7nNHryVONBHWAIFdPsh5X+6z4RsCJS4XSc3DIXmdleQmwWXqVO4rcFXjg/4ekHyHQd11kIgXf9pdmT9NFKyaj3P+vrDAbtE2a52s43ZMI1Y0SKbVMKCFEFsyf3YUmF3e+I0Me/UVvoZ+Sd/vEg8mQaXaau1wvvjEcXqK2ocQ==
+ bh=YosyeWIcnRiejhCm6gbVmX8hsxi4ImTcWjp7a6W8Sss=;
+ b=ijywu/LE1QqcFmPCVDQA8WFZNBkotmkTD8gkICPmWEN/FPB8e7O7uimhhTW+xqJucVpcRHQgLDt4eU+6/GK872yz9EzGSowgugfbzuqCE+k5ctwPt3MGT2uHVNS3va2t1dVQTTNUsGleYc/sAdAEO+lH3IX1kVWCNelk7BB/UzAK+TRltCVYSAQ8XJq+U6C/G9LSVFsDWVtshaWSy1Jc6PBZEKZoWHir6Z0hM0uPidfHMZL6WDyCLOd+lH1mVPwB0sFGq5h2mPT0C3/gjS1ciYpiRfA4oEx9WCUwAKXrx+rbXp0ykkaxsTZnU7gfYVfPZ7NouVwwAtsfkJxRMJ6Ceg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=L2HtxC+veEZ9mwWdOmiUySl0Lz+8mgxeeMwmAd1Iktk=;
- b=jeI9vTYQQK6H5rFv37H6Zn0/8Z6LOSo5jQ+LZk6NO6L2H41i3qHYt4X4O3nKkAn8VRWKZQNtzWV3Py9DvANW+tkV6YBm0Lsxvcfopzfo0BtfDfMOXIOdUj2wTULHp9ASzG/Mc3I/wz5D1/t48oB8VN4EvJP2bum94gEqZ+LSrBqEs9U4XodxxD2ymhyRuVqIFID/EviFSfcqA5fNqftxCWyGHJGCDub0j+FieTafjKlra3klJChkiIvpJ9TogwAB2mSPYDxr0J5cqQNxuQSsMQay/VhAC/kEJVXDgElV4ROfxsX56P0a3niOotPh6GXV7sZZOE5pJUol9FNCW4C2pg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PRASPRMB0004.eurprd04.prod.outlook.com (2603:10a6:102:29b::6)
- by PAXPR04MB8125.eurprd04.prod.outlook.com (2603:10a6:102:1cc::18) with
+ bh=YosyeWIcnRiejhCm6gbVmX8hsxi4ImTcWjp7a6W8Sss=;
+ b=OajS5UBrTL2u5odYOkQP4QgVhtrjCd9ZGv3fqIalViNmFAhOyn1wcNOUWy1VrNa8jRQdUM8kulr8e8XqYMiMYSqGErN7tXtjH1p9hm05pORVU7e8Je+ho4rWZeYWyugW5jJXs3v9EA1GpwzI1rnb3doJY6Or1MeqaKc4TYega2g=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DB4PR08MB9214.eurprd08.prod.outlook.com (2603:10a6:10:3fa::12)
+ by AM8PR08MB6388.eurprd08.prod.outlook.com (2603:10a6:20b:36b::12) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Mon, 19 Jan
- 2026 19:48:29 +0000
-Received: from PRASPRMB0004.eurprd04.prod.outlook.com
- ([fe80::6ab3:f427:606a:1ecd]) by PRASPRMB0004.eurprd04.prod.outlook.com
- ([fe80::6ab3:f427:606a:1ecd%4]) with mapi id 15.20.9520.009; Mon, 19 Jan 2026
- 19:48:29 +0000
-Date: Mon, 19 Jan 2026 14:48:20 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: michael.riesch@collabora.com
-Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Collabora Kernel Team <kernel@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 2/3] media: synopsys: add driver for the designware
- mipi csi-2 receiver
-Message-ID: <aW6KhD9UsHNUPdVl@lizhi-Precision-Tower-5810>
-References: <20251114-rockchip-mipi-receiver-v7-0-42ff419f9b51@collabora.com>
- <20251114-rockchip-mipi-receiver-v7-2-42ff419f9b51@collabora.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251114-rockchip-mipi-receiver-v7-2-42ff419f9b51@collabora.com>
-X-ClientProxiedBy: PH8PR05CA0005.namprd05.prod.outlook.com
- (2603:10b6:510:2cc::14) To PRASPRMB0004.eurprd04.prod.outlook.com
- (2603:10a6:102:29b::6)
+ 2026 19:50:28 +0000
+Received: from DB4PR08MB9214.eurprd08.prod.outlook.com
+ ([fe80::92b8:ca99:9d64:9921]) by DB4PR08MB9214.eurprd08.prod.outlook.com
+ ([fe80::92b8:ca99:9d64:9921%5]) with mapi id 15.20.9520.011; Mon, 19 Jan 2026
+ 19:50:28 +0000
+Message-ID: <6c6d0e84-f371-42fd-b51b-dc5dcbea2a45@arm.com>
+Date: Mon, 19 Jan 2026 19:50:26 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 5/5] firmware: smccc: lfa: refresh fw details
+To: Vedashree Vidwans <vvidwans@nvidia.com>, sudeep.holla@arm.com,
+ andre.przywara@arm.com, lpieralisi@kernel.org, mark.rutland@arm.com
+Cc: ardb@kernel.org, chao.gao@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-coco@lists.linux.dev,
+ linux-kernel@vger.kernel.org, sdonthineni@nvidia.com, vsethi@nvidia.com,
+ vwadekar@nvidia.com
+References: <20251208221319.1524888-1-vvidwans@nvidia.com>
+ <20251208221319.1524888-6-vvidwans@nvidia.com>
+Content-Language: en-US
+From: Salman Nabi <salman.nabi@arm.com>
+In-Reply-To: <20251208221319.1524888-6-vvidwans@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO2P265CA0191.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:a::35) To DB4PR08MB9214.eurprd08.prod.outlook.com
+ (2603:10a6:10:3fa::12)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PRASPRMB0004:EE_|PAXPR04MB8125:EE_
-X-MS-Office365-Filtering-Correlation-Id: ef964987-3e63-4b66-c8da-08de5793b815
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-TrafficTypeDiagnostic: DB4PR08MB9214:EE_|AM8PR08MB6388:EE_|AM3PEPF00009B9F:EE_|DU2PR08MB10106:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7ecf5af6-daa6-4da7-02c0-08de57942479
+x-checkrecipientrouted: true
+NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|19092799006|376014|366016|1800799024|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fkE9VkKZ2eUG7GNtVnP6+HbSuWc19mg7khva5rgt09zxg3Jb2wSfQ8BJxSxX?=
- =?us-ascii?Q?SXPMoGHlzLYRITi/XZa31OW1AwnrQrU+E+6ZcMTe/CVIPQf8g6aQiAYvvPJH?=
- =?us-ascii?Q?hbYcx4i2L4/24e/EggtKbLBZn3XOJBkZWKaMbtVO1nmj6OPwrp78AXxWXfnQ?=
- =?us-ascii?Q?4saOPZMbQ4Gf+fcfQoQilOq3ZqESYqrmV6V+XWMPNdVclpa2WKbHgC7lbnxH?=
- =?us-ascii?Q?/LVjDPNXslrcUB+l+0u7bMStJyx83IbKk/fU0mqljj9rfnD0mKysDZXlf3kS?=
- =?us-ascii?Q?GdZ7tr/cH/Vn6SPO9egjSh5nyTZaPdd522zxmIxLOq27G7ZgAjwsmoVrcG0/?=
- =?us-ascii?Q?5o+QYaRMLW4fmdGTK5Hkn66S59NIgp/bvKIfL2iTYxlE5//osSU51eglCdEt?=
- =?us-ascii?Q?nUBbXhgpinOsIU9Pen0rxca015Ny2AjI1oIxT4WOdJkFzzYtrs2spvQm3nbF?=
- =?us-ascii?Q?1gUvc9vlgePnai9BtQb72B9qY/YnYF6Ao/Pe7EgkFT9FT3yd0HsvAHBVptQS?=
- =?us-ascii?Q?H1jaTicdxum30O0jxmXe4hZJkEQOBNBAhF0tI6w4r4pYnnhQRJGNjUhriTT5?=
- =?us-ascii?Q?iHyQk1iczvZPmM7h7XMJZEkMQ8vqWgHn0OGL1WkyiBfeFbzEDjx8CELgKU6t?=
- =?us-ascii?Q?vRHUIhsA0q1no/AMwFxTayya65DysX7X5P9jJ3DdSeYX3af3vTSkda4LQlqZ?=
- =?us-ascii?Q?Gyncxmn8fO+T5YOQxYVBsmWswPyaoqervHpZCqjTa9c9V/2F29pNkTzCJhdt?=
- =?us-ascii?Q?zdTZidED61aCSKGl0lcRstyzXeaY++t2js+p/7IFfCIru4dVVomJXWvUh5Ii?=
- =?us-ascii?Q?/W2T94mq4Z4Xaoi5KjkLf8p+yHZ+u9Dq0SwHCWIJ9kDT+dzbAmlO1Sn0BeAQ?=
- =?us-ascii?Q?fUQRot7ACnzIsimXpjDM/E4g7z5mz5hdVeNYtinP4zR0GujBAUq4883uWTs3?=
- =?us-ascii?Q?5/fkj6vz/mKLh7jg5+jJ7HOIwUTdi1+F2wEhOcJA2hO1oXxXIMZad79nvN/D?=
- =?us-ascii?Q?1vGPKogveBuYuCYvOBXUibMv0hoJ5YFqFdul6wqAfF6L9qOvN7wnH4UPvR6/?=
- =?us-ascii?Q?uBDsmfMh9gJOMvGKmNR909Tp9ThP6XkghM1kgp9XCQvkVRgHm/vi0OC26BUB?=
- =?us-ascii?Q?2ZSDDriiczQ52Yo8V5bFn2oGQxRVHfKDDPSvGBhTnaSzKlSaSRlOLGKjJCFp?=
- =?us-ascii?Q?/AEtnnLkOK+PdcHKvJiu680wXObwCk2IRv6mFZit0bdW9dUqBCi5q9feeCBj?=
- =?us-ascii?Q?/vy3yA5E9a8JcuqzvHFq1qWiNK6RcGPUYCuIutn0GIMTJqIb2APO2hOSQKWa?=
- =?us-ascii?Q?UcMFMn4UnuV3GZ5HVZP10EVi+kf60RfMVJ+eggvMu1QDVRwK5RLUdpEIB3gw?=
- =?us-ascii?Q?XXPo7GSvZlpEZwfkjqxgbO6TAdg17pRW4+VowQpcAJLKHJAcYRHMnmluocAV?=
- =?us-ascii?Q?0uRiNopzzAIvex2uKSFtnrR3NX589wGkKh0Rpbt/d+I5DHHUB4Y7r9uaAdEZ?=
- =?us-ascii?Q?iO1oW7Sm/bUp1Ikp8jRjqaqBbivY2rma1HwGJFcyA9T8WvvQVOyvGRMnW4Fr?=
- =?us-ascii?Q?Asfk0L3NenI9vT7Ok4xajrcYWCrflM1rGABAvHbC1yRwxZZ2Gn8I7BKJcJPh?=
- =?us-ascii?Q?0vHtZv5FwfRi0wg5w5hrl6M=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PRASPRMB0004.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(19092799006)(376014)(366016)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?B5iaRiyCiRs+wpb0EGnUVhBZvho9kpd5on8fA98USQbsYmoOoT94zO+ozCqu?=
- =?us-ascii?Q?csU90ZTNI59VSSgLFh5d3rbsnOyJRzQ/rinFmYF8qggUlKwBCPZiyyU4dX83?=
- =?us-ascii?Q?5NPTVChnIH0uAm7e4bFffWpKkx7MoIzlc7+hVZjiOFJzq0xfv7APl9I8Tk8+?=
- =?us-ascii?Q?HXBLDE72misKzmmdb1vtgRrCH5WaAn8JYQbsbN4bPe/HZyLwwD/GLBZSLDdV?=
- =?us-ascii?Q?QiQP/Pv8oODmmqrMVh0ReIsvITbSxQBWsbyValj51H2smW6ssRbmKVvCfjvJ?=
- =?us-ascii?Q?DHmh3ffhXrD9hS+S81yz/tnk6qLioX58FmSrpYhSmU0Syvy3wt6AoHEaFkIS?=
- =?us-ascii?Q?AF7lUDKk0V+5OAIPTGKz+XDVEcRamvFH2K1kPTtPyhyyevwahXXuzfdDJsoh?=
- =?us-ascii?Q?L/ynnh3BKhOR1ZelWImhUsMP8LGIuPxzXhUhFJ7AhkRyOzXCtpKIDlI0uyzc?=
- =?us-ascii?Q?+VNopYu1P/1DB5kfhIt9D+ht6x/KdzhIdEiiAp6TqAHzGjC0HOKa3r3bpej/?=
- =?us-ascii?Q?m1I2HD3qFPcoY/74a34SWZ/7971fwt8I9f2gzFLJr1dQsDLmDLiYFwjMNb+0?=
- =?us-ascii?Q?OXTLcVf7gMiqUGGtJrLauBYD8r9TkRbxn5AbNdo4Uh6a//D2BfNNrcB3stwd?=
- =?us-ascii?Q?QmoemjIdchOdr+8LBdC9kYSC4K9GHhe3ZxHm3iwa4ks4efQc0oDCaiS5Xc6a?=
- =?us-ascii?Q?e62yqkKP8Cj8hlsLvKGsYy3HwFrO6Hj9KkEvrjCoxA7tgsUsBVVe+AF6/If1?=
- =?us-ascii?Q?kjV+7YReVPA041ShJFZncKUWTTBRUBthTLi7XKzIb2PjzbYpacpP5fl6vmPH?=
- =?us-ascii?Q?HyjVZSElWbrGZ9a7CSYJXyvBiVgw+4uWoVCpXu91xjMZFdWuYQTdb2UFvoLA?=
- =?us-ascii?Q?liSM+XoMFjVRasWGVHbPN96XKNYMQK8EENxtw17HTuwMa29r9u50a4ELg+R8?=
- =?us-ascii?Q?dycqw3KLoKvR4kMMTqfuSkqCIQakBOCnKg4wwxKbii43pO6ecTpyCesEkXoS?=
- =?us-ascii?Q?FX6Fi7k4mejjIkumTM4jrIC0n3MgPfhQAgT06CaGYlfBgXUQRYZYgEfKZsu8?=
- =?us-ascii?Q?k8HBazCZArCZatF9MqtcqkY6Y0j9pCHnEKwy/mNyHlKf8qRF3Mt714XSMYLo?=
- =?us-ascii?Q?TBmmdYfP8oQhagelb0cGRqpQlNzXJ8XZFr17xAsgSp3oeCB0xx67dIrYY2LK?=
- =?us-ascii?Q?wDgQDPzZGudKCKJOY2stDW6rSKrXN1q/qIgc4fBphRmakRzg5IojA88KAxVY?=
- =?us-ascii?Q?V861fwXD9tvDRX2vg0tYqqRiZHLkg6L43RzvDEs+YE/A4lb5Cl2mUwWYN/gY?=
- =?us-ascii?Q?sZWI4iQXpI/XmKO7hUiJMf7afo0nmzF4N7YsLJmf07vtwYKfOCvgCtre63oI?=
- =?us-ascii?Q?G5jAhoSjm2ChR+MEcQxTWBwSH/j+D8K0xClzPhQjzIuqtM9krUOmecZ4MbY7?=
- =?us-ascii?Q?nxjpJLX+f8DX4Kk/L2z+A9BRUlp0VODhel1PEIqL+9LviP8TSPmohl0KD8wa?=
- =?us-ascii?Q?oDHfoLo00xv9sThj71ehYN/xajChdRSL6WQqsuzicvH/tQiufWAq9nP7zCwW?=
- =?us-ascii?Q?0QpFf93O3kITNxP2ctgvjjz6JKyMnJSZhntX0KRTPmHviRgt6veCh/VbYESX?=
- =?us-ascii?Q?G4RLWJS4l7E+nb4s9yGqANc5ZfuYk52S4hj6SVmsW2GSFmY8Gp1+jD7bDnGI?=
- =?us-ascii?Q?SLZ+rXWfRc3co440vCUebq+EsYISO9JaWUQSbwiPS0/nse0qZhqoHWYcyRdP?=
- =?us-ascii?Q?D79XYpadTw=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ef964987-3e63-4b66-c8da-08de5793b815
-X-MS-Exchange-CrossTenant-AuthSource: PRASPRMB0004.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jan 2026 19:48:29.6338
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?VC9ZYjJUQWk2cHNGLzd5dnJjMkFoYS8xbjJjMWh3TDBjbTBVU1p5MzlkSjRN?=
+ =?utf-8?B?Q0ZGaFVWZXN0ZXJ4T2Y1Ykt4Wlk3OHY2cTUyVWZocUlXS2J4bnVNK1FOSGcz?=
+ =?utf-8?B?VE5zK3FHZEQrWlpSMDhVaEtBTkZJWHpZN2xRQklBUjlhL21DaGI3TEc5K3dU?=
+ =?utf-8?B?VytTRnpISUU5WWNxZ2JlbW1IU3Mwb3BROWxIRTA0cGorTFBmblRsQXFiclgx?=
+ =?utf-8?B?b1dPcWQ1bzJxS3I3NkJZNks4ajhwdGJ5NWtXTWVXcmNXaUNBSVdpWTNRdndo?=
+ =?utf-8?B?cjlqR1ZkbjFXWUE0SGt5SlFpUFE3cmFrQjZYa3Mya2srdk9LN2R6U1hmTGNG?=
+ =?utf-8?B?aC8waDEyOFBHejdLblkwMDc3aUpuakNVK2lNYno2NGRYTGNUOXhiRXExWWN3?=
+ =?utf-8?B?NERQYkJEU1M5dDFwVEtLMTRUdWtTT2JLZUtGRVZuTVdpOENyM1V2QXdPa0x5?=
+ =?utf-8?B?aEdMOFk5UForOEU3WEZ5V0lMcE8vWm90MkpMa2hzeTg4VGZKWjM2b04wZExP?=
+ =?utf-8?B?dlV4Z2s1aU1NeFVBcWwvTmhjczgzWXErSHhmODAyRGtScXJLKzhMUDNqQ2tz?=
+ =?utf-8?B?VHVPVUUxamI4eXZSK29pSTgranVZbmpNZmJCSUUyRFJueVIzUzhRRWRvRlBH?=
+ =?utf-8?B?b0ZyQ0tuYlZHQW42UTdJM2czc2NYdUVvYURHRUlSNzFHUExicWwwcmdvTkJq?=
+ =?utf-8?B?UEk1dnVETGdHUVBLYW84S0N2ZWpTSkU0SEZzVnNMOGJZdVFobU1sVEpWdjBM?=
+ =?utf-8?B?Z0dDUUZaOEJnMFMrRW4wUmlkR1Y2WnBZSUNLWTRLK0lTMmRRbmxpcTBva1h1?=
+ =?utf-8?B?NnZMQ1ZRVWQrL2t5VlZ1OEZGMlJ1Umx4NHVYeDVsL244dUludHN1a0tqL2dB?=
+ =?utf-8?B?dG1YSWlwR1I5MUpNRHZTNGkwWmpVT05HaWhPaGYrdU9KcTI0bWRhdEJuckVs?=
+ =?utf-8?B?MGQwbjhDZzh4RUFxcnAxZFE0b00rdk10NzhHVnh0c3g1V2RlMytCNGlYRUJw?=
+ =?utf-8?B?T0xFcXQzVjVDdDlva2NKbHRlK3dVclROcUVsU2luYXE5MEZDNDAwY3ljQlpi?=
+ =?utf-8?B?QlVnZXVxbnpSdmIyeTJ0ODdoVnMxcE9xY0piSm1KY3VFUllwd3BNajYvUzJU?=
+ =?utf-8?B?bXQ1aVhmUWNRc0ZCSDhhTlFsVzNZMXQ2dUg0OGlVRDZCOXJmak5NQU4yTGt1?=
+ =?utf-8?B?YnNIMGtnR214WEZ5SUNIdG5OU0l6Snh4RndxM2wraitKbzFlbENOKy9rWFRn?=
+ =?utf-8?B?NWY1ZFpSV3FvdWo1ZXVPN3I0bEJFakFrTGpxYlFGTEMxYkdwTlJ3YTNDTFl6?=
+ =?utf-8?B?Sk8vNW8vY2F5dDNGeFZGeXNwNVJRUkhMZ3cwSFJMN2YxR3cxSGZrNWlvOWdq?=
+ =?utf-8?B?OU1ENTlwUTF1NkpNb3FjVldhc2hNOVFjL20wWURiM3VCVVA5RnNRZnRXYUxM?=
+ =?utf-8?B?dnRmcW9lY0tXS2V0TjVQU2pHcVpLSnBwYVVaakFNTi9BZG5rNDgyUTdxQ29B?=
+ =?utf-8?B?YnprejliYWdZSTJDQ1o5TE84b2tuOGtxMFNpeUFvTXkwKzloR0hjb1RvemFu?=
+ =?utf-8?B?WGMvaGpZY1JxaitqUlNZN0NMMzg4WlhMWU9sS1lzTTgvbVlha2pmalMzRUVL?=
+ =?utf-8?B?S2tWMkhQb1h4QlRlZFhLWVYxOUJmbjNMbmtwSDArcGhiQzhjdWxKZTVWZlhP?=
+ =?utf-8?B?NEhSVnBPeHlJSkN2U0svZDVEblpFc042dk5hTGtXZ3BmeG1RUDZ4RmNFT3Bj?=
+ =?utf-8?B?K0hCNU9ldmhNR1YxUFM1TmxkYTV2OCsrVjhqR1B0WjdYaDhuM0tZMHQ4WERI?=
+ =?utf-8?B?NGFPTlhIUGk0K0lkZEJmQjZDU3NNVE9BMk5RRS9ONnFKYlFqWWZBRWxGTUdm?=
+ =?utf-8?B?UXlnQ1EzM0FoVlVTTnV3cjBYbXppcFFlbklTa2xqR2pzVnNnRHF2aGtPUkl6?=
+ =?utf-8?B?QkZVVm9MMjBWMzVTUU43VW1JVUk3UlJyVEltQklCRGVwTTA5Zk9lWVl6Ykty?=
+ =?utf-8?B?QzQ0eXUvVVhwb2h4TWVUTERxMVJzNGtZV3JGaG00UjE5bWVidnBVWHh6cll2?=
+ =?utf-8?B?b0pneHJKZGFVZnpuQUZYTHNkSG8zUVJQU2p0Y3BrK2oxQnYydVI4di9PVlQw?=
+ =?utf-8?Q?1Yo2BdUGg4NoXP7lJlJA6sLS2?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB4PR08MB9214.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB6388
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF00009B9F.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 459df78c-6e5a-47dd-02d3-08de5793febd
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|1800799024|35042699022|82310400026|36860700013|7416014|376014|7053199007|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SFk5SHpUU0ZwRlRneCtiS3FwMVZEV2xaWHlXRnQwcjJTY3BHZzE0aThLNVVF?=
+ =?utf-8?B?Z1pwdDZmRWdhSVpyYytDOXA1QVZuazVHWmlSUGJzOFg3bFA3and2L29sdU5L?=
+ =?utf-8?B?RVpPVEhrcVRtU3hmd3Z3bXczbVJ3bVhlSzhoSzAzcC9udWFiWmgyaHRxSXVE?=
+ =?utf-8?B?QU51RVdGc24xTGRDNFhCcDZ5YjJOTnZmM1ZTN1AyaFl6eGswbjh5THdIUUpW?=
+ =?utf-8?B?M3dGT0JoMTlmb2E0LzNUMHJPSzlkUVY1YnJtL1NSdHU5a1dieUZPbVp0bDV4?=
+ =?utf-8?B?Sk1hOG9WWm02a3I0amtmTVB5bWpEM2VwTlRycnlZeFR0R0JIaThBSjlYN0NK?=
+ =?utf-8?B?MXo0RU93aEhLbHdqd2hiMndHdXZXRGw0S2N4SCtqaGI0KzRRYTlicm5BdGo5?=
+ =?utf-8?B?WVpFc2g0eGNmeTJNY2NsNmdGTWxRU2JESWMyVEhWUzVKMWZqRUY3V2tDY2lx?=
+ =?utf-8?B?T1lENERlaTY1U24yRnlWSW9zUndMTldOWTBMNkRFSTNzVlpRdkRyZ1hYa3gz?=
+ =?utf-8?B?aTZ1Nk9TQnVMZkNES2V3c25TbFozTFlqSnJzcG9LTlplc1FpcWtxWk4wTUxF?=
+ =?utf-8?B?MUUyVkdpTko5ZGtma1h2WE84NTEwVUxiSklvYk9xTVVLSlBXRzNTNnUrb1cw?=
+ =?utf-8?B?WHBnYWd4bExrWHdJdHpORXJQMTlUbGtRT2FlODZEK1hNYXB0QnhEVWVmc2J6?=
+ =?utf-8?B?ZDlUM1A5cFdhVDdSUW5LNWZCWWlVaHhKeVNtUHJNUDlqTS8vTmhHTW5aTTFU?=
+ =?utf-8?B?NnpqeEdHZlk5RDVNVk5zY21mRmV3OEJUWGJ1NGxXcnZ3UytJcXRxd2IxdkZS?=
+ =?utf-8?B?TStTWXJZQTBkQWkrZnlRcE02YXdXZ21VN2pmNEhUTko4UlZhSE9MRXZSbEtL?=
+ =?utf-8?B?cm1jdjQ5OGEyWFBrdjUvMThpYXVaSm1lT2VienZETTFWYVlxdDdVckZWSEFG?=
+ =?utf-8?B?RlAzc2dveTUzbm1TUkhUTUdITkdyZUJXNUs3b1ZCaXpYV3l1WHpHREpwaXc0?=
+ =?utf-8?B?c3Z2WURNV1JianR1VEZ3RkNWbGxoUzc3SlZmOXdBaklHY25zV1pZemNqUDFi?=
+ =?utf-8?B?a0daZFdDeUhkTThqdWFzVkdzd0lqZm5tc0hxOFl2c2NzQ1lkdVkwUG9IZHFQ?=
+ =?utf-8?B?VGRiS1FaMFluVnJSY0JmRmJQOWVNNk1UUWJ3azBaUjQ2SjJhTjBsK0czWk5R?=
+ =?utf-8?B?UTR4b1FRVU1NNTlTcWRodEYwWXM5V1ZSdzdHN2Vxa21lK3lNS01mbnJ4b3d0?=
+ =?utf-8?B?SmV3dzFyMExleXI5VUxpU09tMUVCN1hkYmRQQTU4WkdpRWdZaWJ5QnNNV3lE?=
+ =?utf-8?B?aG9OTGVoR1RhU2FRM3ErK1dNVDY3Mm16SGRQZStJWXNjd1poUFpKZWQrYmpD?=
+ =?utf-8?B?Nngvc2VSaENKaFNNWFk0d0dtWm4vZUZ5TW5MSEM5QWRCdU1xS0N1Yll5QUdB?=
+ =?utf-8?B?SVRVYWhEVkVrUzYvd000bWFUekxkc3E1d2IrNVZ3VHJSelZKaE5XMTZqbUtq?=
+ =?utf-8?B?Q29KYVdkaHpESEh4U3FzM3FITlhYN2N2SnlLSFh3TXpVR1lHc1NRb0dZVFZn?=
+ =?utf-8?B?Y2pWbDRoeU4wSWQvTmZoQXN3eG9RbGdiOThyejNaNXdxczdSSDRtMG41S1ND?=
+ =?utf-8?B?TDBWWi92OTVCWXAyUDlIMmoxT1Z6cnZhMHdoVEdVeTlRM2VheUR4WXlGZVp4?=
+ =?utf-8?B?bVFqeVVJMjREZGhkY3o1K2hyNDBDUFVZeFlPYllrWmxLVEhzaXAvT0VPVGdB?=
+ =?utf-8?B?MTJaMm95UElIL2RaU05SNW1Kdnl2a21lMU1wLzJpOWVDT0xKa2dERE1NOXlF?=
+ =?utf-8?B?bk9xQ3Z6eFh6dmJLcUFtalIxbm5sMmE0bnBINHJnaDZXNlI4MnQveHl6VXQ2?=
+ =?utf-8?B?OGdXOGpPbmd0cTVjWlFGOE5QL1NpMjJuS0ZRLzZqU240MVhIVEVPZndURGY1?=
+ =?utf-8?B?eXEwUHVSUEt1cS9abUVzQ01WWVJIRmZzdFlWSUV2YWszMkptS0p0MW1tS2Zz?=
+ =?utf-8?B?S01nMW84ZGJZNlJZMDlQMEgyMUJITnVXZUljd1BoTzByTFhLeERUZ2xPaW9k?=
+ =?utf-8?B?WWdVbVhpQ0lIYyt2V2lnT3V6eHVrQmRCejRrNkJlbFd1NjVPMWNoSDJiMUlo?=
+ =?utf-8?B?c1ROTzh5MktXd1JteWlFcDhwQVhLVXRKelJIa3FlRmpRWno2eVMxb3NYdTVt?=
+ =?utf-8?B?VWtZSnYvLzYvbXc0UkZMV2FJWmJEYUdSWkY0RlZDQ0tPY3hOUWF6TjRLT1Rv?=
+ =?utf-8?B?UDk2NG1RT1llQ3E4aUVnSThiczRnPT0=?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(1800799024)(35042699022)(82310400026)(36860700013)(7416014)(376014)(7053199007)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jan 2026 19:51:31.0960
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YxlBXo65+mGXw0kcjZoK9g7wEjAk7nVQ0MxMpma4EZZiPQd1fy7b4WWMadPrbyBr700U+zKJeC1ZbcTmWcnykw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8125
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7ecf5af6-daa6-4da7-02c0-08de57942479
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009B9F.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR08MB10106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_114834_145611_5A35CC5B 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20260119_115142_926052_C7C49463 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,136 +226,293 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 11:43:36AM +0100, Michael Riesch via B4 Relay wrote:
-> From: Michael Riesch <michael.riesch@collabora.com>
+Hi Veda,
+
+First of all sorry for the delay in responding back to you. You may have already seen my patch submission, following the RFC, here: https://lore.kernel.org/all/20260119122729.287522-2-salman.nabi@arm.com/
+
+I have incorporated all the bug fixes and code refactor/cleanup suggestions from the RFC. It also includes changes to the LFA spec, mainly current and pending firmware version retrieval. I did not include your work and am hoping you would submit follow-up patches to include the updated ACPI table, IRQ handling, and platform driver registration etc.
+
+I would also like to point a few issues here, this would also act as additional justification to some of the code changes I have introduced, for example, a work_queue() for updating firmware images from the activate_store handler.
+
+On 12/8/25 22:13, Vedashree Vidwans wrote:
+> FW image details are querried with a SMC call. Currently, these FW
+> details are added as nodes in a linked list. This patch updates the
+> FW node creation and update functions. Now the linked list is updated
+> based on the current value of num_lfa_components.
+> As per spec [1], FW inventory is updated after each activation.
 >
-> The Synopsys DesignWare MIPI CSI-2 Receiver is a CSI-2 bridge with
-> one input port and one output port. It receives the data with the
-> help of an external MIPI PHY (C-PHY or D-PHY) and passes it to e.g.,
-> the Rockchip Video Capture (VICAP) block on recent Rockchip SoCs.
+> [1] https://developer.arm.com/documentation/den0147/latest/
 >
-> Add a V4L2 subdevice driver for this unit.
->
-> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
-> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
-> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+> Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
 > ---
-...
-> +
-> +static int dw_mipi_csi2rx_register_notifier(struct dw_mipi_csi2rx_device *csi2)
+>  drivers/firmware/smccc/lfa_fw.c | 148 +++++++++++++++++++++-----------
+>  1 file changed, 100 insertions(+), 48 deletions(-)
+>
+> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
+> index 24916fc53420..334090708405 100644
+> --- a/drivers/firmware/smccc/lfa_fw.c
+> +++ b/drivers/firmware/smccc/lfa_fw.c
+> @@ -133,6 +133,7 @@ static const struct fw_image_uuid {
+>  	},
+>  };
+>  
+> +static int update_fw_images_tree(void);
+>  static struct kobject *lfa_dir;
+>  static DEFINE_MUTEX(lfa_lock);
+>  
+> @@ -282,17 +283,6 @@ static int activate_fw_image(struct image_props *attrs)
+>  	return ret;
+>  }
+>  
+> -static void set_image_flags(struct image_props *attrs, int seq_id,
+> -			    u32 image_flags)
+> -{
+> -	attrs->fw_seq_id = seq_id;
+> -	attrs->activation_capable = !!(image_flags & BIT(0));
+> -	attrs->activation_pending = !!(image_flags & BIT(1));
+> -	attrs->may_reset_cpu = !!(image_flags & BIT(2));
+> -	/* cpu_rendezvous_optional bit has inverse logic in the spec */
+> -	attrs->cpu_rendezvous = !(image_flags & BIT(3));
+> -}
+> -
+>  static ssize_t name_show(struct kobject *kobj, struct kobj_attribute *attr,
+>  			 char *buf)
+>  {
+> @@ -395,7 +385,9 @@ static ssize_t activate_store(struct kobject *kobj, struct kobj_attribute *attr,
+>  
+>  	pr_info("Firmware activation succeeded\n");
+>  
+> -	/* TODO: refresh image flags here*/
+> +	ret = update_fw_images_tree();
+
+Part of the firmware images update process, there is a potential of a firmware component and its attributes being deleted following activation. The to-be-removed component could very well be the one where the activate call has been triggered from. This results in a deadlock as removing a sysfs attribute from within its _store handler results in kernfs to wait for the in-flight store() operation to finish before it can remove itself.
+
+To cater for this scenario in my patch I am differing the firmware images update process, triggered from the _store handler, to a workqueue().
+
+> +	if (ret)
+> +		pr_err("Failed to update FW images tree");
+>  	mutex_unlock(&lfa_lock);
+>  	return count;
+>  }
+> @@ -425,20 +417,41 @@ static struct kobj_attribute image_attrs_group[LFA_ATTR_NR_IMAGES] = {
+>  	[LFA_ATTR_CANCEL]		= __ATTR_WO(cancel)
+>  };
+>  
+> +static void delete_fw_image_node(struct image_props *attrs)
 > +{
-> +	struct fwnode_handle *ep __free(fwnode_handle) = NULL;
-> +	struct v4l2_async_notifier *ntf = &csi2->notifier;
-> +	struct v4l2_async_connection *asd;
-> +	struct v4l2_fwnode_endpoint vep;
-> +	struct v4l2_subdev *sd = &csi2->sd;
-> +	struct device *dev = csi2->dev;
-> +	int ret;
+> +	int i;
 > +
-> +	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
-
-cleanup.h prefer set value at declear.
-	struct fwnode_handle *ep __free(fwnode_handle) =
-		fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
-
-Krzysztof Kozlowski did many work to cleanup pattern '__free(*) = NULL',
-ref https://lore.kernel.org/all/20251208020844.5310-4-krzysztof.kozlowski@oss.qualcomm.com/
-
-> +	if (!ep)
-> +		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
+> +	for (i = 0; i < LFA_ATTR_NR_IMAGES; i++)
+> +		sysfs_remove_file(attrs->image_dir, &attrs->image_attrs[i].attr);
 > +
-> +	vep.bus_type = V4L2_MBUS_UNKNOWN;
-> +	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to parse endpoint\n");
-> +
-...
-> +
-> +static int dw_mipi_csi2rx_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct dw_mipi_csi2rx_device *csi2;
-> +	int ret;
-> +
-> +	csi2 = devm_kzalloc(dev, sizeof(*csi2), GFP_KERNEL);
-> +	if (!csi2)
-> +		return -ENOMEM;
-> +	csi2->dev = dev;
-> +	dev_set_drvdata(dev, csi2);
-> +
-> +	csi2->base_addr = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(csi2->base_addr))
-> +		return PTR_ERR(csi2->base_addr);
-> +
-> +	ret = devm_clk_bulk_get_all(dev, &csi2->clks);
-> +	if (ret != DW_MIPI_CSI2RX_CLKS_MAX)
-> +		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
-> +	csi2->clks_num = ret;
-> +
-> +	csi2->phy = devm_phy_get(dev, NULL);
-> +	if (IS_ERR(csi2->phy))
-> +		return dev_err_probe(dev, PTR_ERR(csi2->phy),
-> +				     "failed to get MIPI CSI-2 PHY\n");
-> +
-> +	csi2->reset = devm_reset_control_get_exclusive(dev, NULL);
-> +	if (IS_ERR(csi2->reset))
-> +		return dev_err_probe(dev, PTR_ERR(csi2->reset),
-> +				     "failed to get reset\n");
-> +
-> +	csi2->formats = formats;
-> +	csi2->formats_num = ARRAY_SIZE(formats);
-> +
-> +	devm_pm_runtime_enable(dev);
-
-Need check return value
-
-> +
-> +	ret = phy_init(csi2->phy);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret,
-> +				     "failed to initialize MIPI CSI-2 PHY\n");
-> +
-> +	ret = dw_mipi_csi2rx_register(csi2);
-> +	if (ret)
-> +		goto err_phy_exit;
-> +
-> +	return 0;
-> +
-> +err_phy_exit:
-> +	phy_exit(csi2->phy);
-> +
-> +	return ret;
+> +	kobject_put(attrs->image_dir);
+> +	attrs->image_dir = NULL;
+> +	list_del(&attrs->image_node);
+> +	kfree(attrs);
 > +}
 > +
-...
+>  static void clean_fw_images_tree(void)
+>  {
+>  	struct image_props *attrs, *tmp;
+>  
+> -	list_for_each_entry_safe(attrs, tmp, &lfa_fw_images, image_node) {
+> -		kobject_put(attrs->image_dir);
+> -		list_del(&attrs->image_node);
+> -		kfree(attrs);
+> -	}
+> +	list_for_each_entry_safe(attrs, tmp, &lfa_fw_images, image_node)
+> +		delete_fw_image_node(attrs);
+> +}
 > +
-> +static DEFINE_RUNTIME_DEV_PM_OPS(dw_mipi_csi2rx_pm_ops,
-> +				 dw_mipi_csi2rx_runtime_suspend,
-> +				 dw_mipi_csi2rx_runtime_resume, NULL);
+> +static void update_fw_image_node(struct image_props *attrs, int seq_id,
+> +			    char *fw_uuid, u32 image_flags)
+> +{
+> +	attrs->fw_seq_id = seq_id;
+> +	attrs->image_name = fw_uuid;
+We introduced a C struct "fw_image_uuid" to provide names for each firmware component in the LFA driver rather than using the UUID for a name which is non-intuitive. If UUIDs are desired for comparison then "attrs->image_dir->name" could be used.
+> +	attrs->activation_capable = !!(image_flags & BIT(0));
+> +	attrs->activation_pending = !!(image_flags & BIT(1));
+> +	attrs->may_reset_cpu = !!(image_flags & BIT(2));
+> +	/* cpu_rendezvous_optional bit has inverse logic in the spec */
+> +	attrs->cpu_rendezvous = !(image_flags & BIT(3));
+>  }
+>  
+> -static int create_fw_inventory(char *fw_uuid, int seq_id, u32 image_flags)
+> +static int create_fw_image_node(int seq_id, char *fw_uuid, u32 image_flags)
+>  {
+> -	const char *image_name = "(unknown)";
+>  	struct image_props *attrs;
+>  	int ret;
+>  
+> @@ -446,21 +459,12 @@ static int create_fw_inventory(char *fw_uuid, int seq_id, u32 image_flags)
+>  	if (!attrs)
+>  		return -ENOMEM;
+>  
+> -	for (int i = 0; i < ARRAY_SIZE(fw_images_uuids); i++) {
+> -		if (!strcmp(fw_images_uuids[i].uuid, fw_uuid))
+> -			image_name = fw_images_uuids[i].name;
+> -		else
+> -			image_name = fw_uuid;
+> -	}
+> -
+>  	attrs->image_dir = kobject_create_and_add(fw_uuid, lfa_dir);
+>  	if (!attrs->image_dir)
+>  		return -ENOMEM;
+>  
+> -	INIT_LIST_HEAD(&attrs->image_node);
+> -	attrs->image_name = image_name;
+> -	attrs->cpu_rendezvous_forced = 1;
+> -	set_image_flags(attrs, seq_id, image_flags);
+> +	/* Update FW attributes */
+> +	update_fw_image_node(attrs, seq_id, fw_uuid, image_flags);
+>  
+>  	/*
+>  	 * The attributes for each sysfs file are constant (handler functions,
+> @@ -485,17 +489,19 @@ static int create_fw_inventory(char *fw_uuid, int seq_id, u32 image_flags)
+>  			return ret;
+>  		}
+>  	}
+> -	list_add(&attrs->image_node, &lfa_fw_images);
+> +	list_add_tail(&attrs->image_node, &lfa_fw_images);
+>  
+>  	return ret;
+>  }
+>  
+> -static int create_fw_images_tree(void)
+> +static int update_fw_images_tree(void)
+>  {
+>  	struct arm_smccc_1_2_regs reg = { 0 };
+>  	struct uuid_regs image_uuid;
+> +	struct image_props *attrs, *tmp;
+>  	char image_id_str[40];
+>  	int ret, num_of_components;
+> +	int node_idx = 0;
+>  
+>  	num_of_components = get_nr_lfa_components();
+>  	if (num_of_components <= 0) {
+> @@ -503,22 +509,67 @@ static int create_fw_images_tree(void)
+>  		return -ENODEV;
+>  	}
+>  
+> -	for (int i = 0; i < num_of_components; i++) {
+> -		reg.a0 = LFA_1_0_FN_GET_INVENTORY;
+> -		reg.a1 = i; /* fw_seq_id under consideration */
+> -		arm_smccc_1_2_invoke(&reg, &reg);
+> -		if (reg.a0 == LFA_SUCCESS) {
+> +	/*
+> +	 * Pass 1:
+> +	 *    For nodes < num_of_components, update fw_image_node
+> +	 *    For nodes >= num_of_components, delete
+> +	 */
+> +	list_for_each_entry_safe(attrs, tmp, &lfa_fw_images, image_node) {
+> +		if (attrs->fw_seq_id < num_of_components) {
+> +			/* Update this FW image node */
 > +
-> +static struct platform_driver dw_mipi_csi2rx_drv = {
-> +	.driver = {
-> +		.name = "dw-mipi-csi2rx",
-> +		.of_match_table = dw_mipi_csi2rx_of_match,
-> +		.pm = &dw_mipi_csi2rx_pm_ops,
-
-still prefer add pm_ptr() to avoid some static scan tool report problem,
-or some contributor send out small patches, which just add pm_ptr()
-
-Frank
-
-> +	},
-> +	.probe = dw_mipi_csi2rx_probe,
-> +	.remove = dw_mipi_csi2rx_remove,
-> +};
-> +module_platform_driver(dw_mipi_csi2rx_drv);
+> +			/* Get FW details */
+> +			reg.a0 = LFA_1_0_FN_GET_INVENTORY;
+> +			reg.a1 = attrs->fw_seq_id;
+> +			arm_smccc_1_2_invoke(&reg, &reg);
 > +
-> +MODULE_DESCRIPTION("Synopsys DesignWare MIPI CSI-2 Receiver platform driver");
-> +MODULE_LICENSE("GPL");
->
-> --
-> 2.39.5
->
->
+> +			if (reg.a0 != LFA_SUCCESS)
+> +				return -EINVAL;
+> +
+> +			/* Build image name with UUID */
+>  			image_uuid.uuid_lo = reg.a1;
+>  			image_uuid.uuid_hi = reg.a2;
+> +			snprintf(image_id_str, sizeof(image_id_str), "%pUb", &image_uuid);
+>  
+> -			snprintf(image_id_str, sizeof(image_id_str), "%pUb",
+> -				 &image_uuid);
+> -			ret = create_fw_inventory(image_id_str, i, reg.a3);
+> -			if (ret)
+> -				return ret;
+> +			if (strcmp(attrs->image_name, image_id_str)) {
+attrs->image_name is supposed to be the name of the firmware image e.g. "TF-RMM" and not the UUID. If we need to compare the UUIDs I think we should use the specified firmware's directory name instead.
+> +				/* UUID doesn't match previous UUID for given FW, not expected */
+
+This is an expected behavior per the LFA spec. For example, firmware seq_ids get scrambled following an activation, the firmware image with seq_id 0 before activation has now a seq_id 1 following the activation in the LFA agent. When you attempt to request information for the firmware image using its old seq_id stored in the driver, the UUIDs would not match and thus the driver would bail out. We can't bail out for an expected behavior.
+
+Just to confirm, my recent submission includes work on update of firmware images list following an activation.
+
+Many thanks,
+Salman
+
+> +				pr_err("FW seq id %u: Previous UUID %s doesn't match current %s",
+> +					attrs->fw_seq_id, attrs->image_name, image_id_str);
+> +				return -EINVAL;
+> +			}
+> +
+> +			/* Update FW attributes */
+> +			update_fw_image_node(attrs, attrs->fw_seq_id, image_id_str, reg.a3);
+> +			node_idx++;
+> +		} else {
+> +			/* This node is beyond valid FW components list */
+> +			delete_fw_image_node(attrs);
+>  		}
+>  	}
+>  
+> +	/*
+> +	 * Pass 2:
+> +	 *    If current FW components number is more than previous list, add new component nodes.
+> +	 */
+> +	for (node_idx; node_idx < num_of_components; node_idx++) {
+> +		/* Get FW details */
+> +		reg.a0 = LFA_1_0_FN_GET_INVENTORY;
+> +		reg.a1 = node_idx;
+> +		arm_smccc_1_2_invoke(&reg, &reg);
+> +
+> +		if (reg.a0 != LFA_SUCCESS)
+> +			return -EINVAL;
+> +
+> +		/* Build image name with UUID */
+> +		image_uuid.uuid_lo = reg.a1;
+> +		image_uuid.uuid_hi = reg.a2;
+> +		snprintf(image_id_str, sizeof(image_id_str), "%pUb", &image_uuid);
+> +
+> +		ret = create_fw_image_node(node_idx, image_id_str, reg.a3);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+>  	return 0;
+>  }
+>  
+> @@ -538,8 +589,9 @@ static irqreturn_t lfa_irq_thread(int irq, void *data)
+>  	 */
+>  
+>  	do {
+> -		/* TODO: refresh image flags here */
+> -		/* If refresh fails goto exit_unlock */
+> +		ret = update_fw_images_tree();
+> +		if (ret)
+> +			goto exit_unlock;
+>  
+>  		/* Initialize counters to track list traversal  */
+>  		num_of_components = get_nr_lfa_components();
+> @@ -561,13 +613,13 @@ static irqreturn_t lfa_irq_thread(int irq, void *data)
+>  			}
+>  
+>  			pr_info("Firmware %s activation succeeded", attrs->image_name);
+> -			/* Refresh FW component details */
+>  			break;
+>  		}
+>  	} while (curr_component < num_of_components);
+>  
+> -	/* TODO: refresh image flags here */
+> -	/* If refresh fails goto exit_unlock */
+> +	ret = update_fw_images_tree();
+> +	if (ret)
+> +		goto exit_unlock;
+>  
+>  exit_unlock:
+>  	mutex_unlock(&lfa_lock);
+> @@ -657,7 +709,7 @@ static int __init lfa_init(void)
+>  		return -ENOMEM;
+>  
+>  	mutex_lock(&lfa_lock);
+> -	err = create_fw_images_tree();
+> +	err = update_fw_images_tree();
+>  	if (err != 0)
+>  		kobject_put(lfa_dir);
+>  
 
