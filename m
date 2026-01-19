@@ -4,93 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE90CCF2DB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:44:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB91CCF2DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:44:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FcCgRc2wc+vB5SGprZ8bm0/0lG+FAclRfKMgJDBeFms=; b=pDBhtH2mi7rXzyY+j1Piy/lbMb
-	xpYcnHiqSbxtWk9cAP6/4kAztc0Vv+gVYsjGhgPc+XUT8bufGdX+6e3AJUdrQVjyWmncA6zmT2lQt
-	zEzcAIpnYDxhH8XKKQg63gSHJLQPZO6MVSwXiWAVYXJs4/K9r48rUOKPCBru5UXLu+G3BAvk8hOmQ
-	xBCIarQN5nXe6KM/yiWj+bf/eKYIV8Qg2xaCujDLkcYz1/SkEfsN55qXozS2FpAO8xrgdIQ5kUSUm
-	5fsYfl4N7/ZbbFM8amedrachgi53u5jE3Cw9UlWVfp9fcL8IWlEnEMDAhfV8HugBZjZgoea0bWhAk
-	zXn7DvOQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rxI6gJrq2FL8Px7oECSMbsgNnQ9Jnllpf1H+z4cLrRY=; b=QOJhxTq9G++TScPZAx76To7Dyd
+	7ww1W4JY8GqlfIWN9WLkorq5/sIrF7+NfBwb6940HZnH5t5TrwTz23Dpiv9bD1iu3Bs9VjX5lh5f0
+	TIm/kclnalb52jCmZDMowlvwWSib1607kiq7WpBjNwGjTuVEnwBr8EtjwqtjtiGPoJZoze3gOfcOh
+	P/qxGgHKCzaiLu2WbRXNPIfGjz1YTasln+p1XsBL0830qHfl1EgP17Lh9LNeait9pz8gr6AT5Q6YI
+	eyrS8x6nZO9IMXxwrRF9De2HPxsj90d4QK7P32ZoKZG6Hu1MQMK++adNsXrVaLBKlg/JYPhae25lA
+	3tc683qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmjk-00000001nsQ-3rlk;
-	Mon, 19 Jan 2026 10:43:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vhmjo-00000001nvm-2kd9;
+	Mon, 19 Jan 2026 10:44:02 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmjT-00000001niQ-1AV8;
-	Mon, 19 Jan 2026 10:43:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A365743384;
-	Mon, 19 Jan 2026 10:43:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 78E03C116C6;
-	Mon, 19 Jan 2026 10:43:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768819417;
-	bh=fzNshCl/IElhoDVxXDq8bpq8eyZl50ZRx9miKtubih4=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=W9pIo1dzAwZFNOdM9EhAAjrK4RyemitZbif9hwlUTRC0T1K0bM24d8JU+afwf2po2
-	 qF5ik+e7ON7NK+undHW/yF9fQD2Wm073zKH21G30jCToDtI5PXJWZLlrpih/CJ4GbR
-	 GWTGvZqY6iIuJMB5e2MNWZtU2Qg853daJ3iZdd6LBA6MT0nOjZFFMdxgqxMZIlYUbp
-	 X3DoiTCH6uGP5kAduG8e872SWvsnXBjiXNsgF9SbW11CidgG2CucUEMQrzrQ3NOmIH
-	 iXBY1s7IMF6qny2wtCjaLU65zSc7lyxd3/PtXbh1ZR2eZMiiPURxKVjQtW+npqJ1wZ
-	 4INZp8zgxNxvA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6388FCA5FF6;
-	Mon, 19 Jan 2026 10:43:37 +0000 (UTC)
-From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Subject: [PATCH v7 0/3] media: rockchip: add driver for the rockchip mipi
- csi-2 receiver
-Date: Mon, 19 Jan 2026 11:43:34 +0100
-Message-Id: <20251114-rockchip-mipi-receiver-v7-0-42ff419f9b51@collabora.com>
+	id 1vhmjj-00000001nqn-1zD7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 10:43:58 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-b87124c6295so570143066b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 02:43:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768819433; x=1769424233; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rxI6gJrq2FL8Px7oECSMbsgNnQ9Jnllpf1H+z4cLrRY=;
+        b=PkmWMA9FAvcm1WnuDZqLQ4bF0bmN8qa3BipHE+tAIZAxLUYLkumD/0WKXZkjKrjE+W
+         e2PWFcuE1EG4nHV35TEMbwaP4kGek3DuBckR9y9cYnQvrEku47u+5qR5mQy9FEWDP266
+         vyvG6LbnmSSxap9cYAkWhgnYB1tu/VaNwfu4zsSE0/kLRj/t/B4gu4Ie6cu/4h50oewG
+         amVgIUai2Yk9yCMBnQm71yvn2QerG3Gu8dnjbZYBZGd9KjPa45Tff4RB1tY7ASm77zZ3
+         0vIRpqp2PmkGljJyuFK5fmqqBVUxQtDCpmXp7ob7/mzAak/oDvv1uBgHEGV84ZU7AneH
+         xAAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768819433; x=1769424233;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rxI6gJrq2FL8Px7oECSMbsgNnQ9Jnllpf1H+z4cLrRY=;
+        b=rX2xwQJpNWZnRr5ruB+pAGP3mDpThwguslS+BKr8QQqm9Js0SbM71PUGWFFZyzAuPy
+         RG4qa9x2Ym5BR/qYEKIli9u5zKlg6E3CrXvSAuKieV3CkyV0LcJeEp9pYD99uyYdi7I5
+         4VMMtz//Ga3irGe37GcGsPi0Bvf/nitIED4pL/udrwYPlHFfDfPq6F1aflQH5ywgcQDV
+         rasmAA+pEJ7XPv04qCzPcJEJjK1q5ECpxH2hEeWaLaZrOUVBs+j8NbPkhWoAB0UAc6zR
+         rIpm95lORXUuhuRDwJzXn8OVyspMq23anMMQLWe4gcrq2Zh/C+kEViYO38x1ASMf9Yzr
+         Ijyg==
+X-Forwarded-Encrypted: i=1; AJvYcCUX/i/a/RuvvxmZaBSj6LfnwcEat7cujTg32dSWRRGsIlg5aCKBiXMPpzzf/kvMvDlMu3L+QNOcnElRxWWV68XF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwcTHbRohqgq6jQT0yJ0vMefigEwBfSCJASXBhCZvZ69iuSnTC
+	cq9+aa1rt27NAJhlwskOzYqcx4U00WLW0Fp88PaVFUk9j35J2yoahgk/
+X-Gm-Gg: AY/fxX6owXJ+qA0zm68TeklTavjYSyvZhGPimsulqHdMl9jAcc4MVp91KxxOxmTfNmf
+	fIQEvUDnP9el8w0nZOLvg9+O0/hy0qoRS7DVZhE5h0HhLuK8VaWfrji1rD5bmWAv/rcuGPiR/RO
+	REB4R82CilPxh0HX4rulpQZNc2BTy/09C8OE3pA+uiGh8ZCLCzMfu/lbpZbDvAl8p83evkzIHyr
+	nzhxmvOSRm8eYmCSJw6r24CshUxfBgoDxoiZZ3ZHDWjOqCP0vTcnLta5Xyb+xKE1rhvv/DKC9AG
+	lXc+nzWv676316PvoZVrx+yj+CatHuyUYdaIXfw2+JSBQzsg/uqxqBxlyg4u07NppFZHceIVDHV
+	GpLDnvwZQI7Ql62im4wA9uvvUHSkT1zVz/WeAvUHeev3x1wmPQSgAIWEmiVN8kDgiUVmIJ8TdlO
+	ipvM6x3h5xaM5bmNMfxHaAptnDVd3iQwHysPqDjfwRwz5bj/UUMNtLaeZilo1Nj0z7ozglmPX1P
+	iLD2VCNc3TZVHXr7qYpxGj+sF4p8N8xVRQBVJFHoVZw+lsohg==
+X-Received: by 2002:a17:907:930b:b0:b7d:3728:7d11 with SMTP id a640c23a62f3a-b879327f46fmr849354566b.50.1768819432497;
+        Mon, 19 Jan 2026 02:43:52 -0800 (PST)
+Received: from ?IPV6:2a01:5a8:51e:a2d5:41ab:52ed:e3e9:4896? ([2a01:5a8:51e:a2d5:41ab:52ed:e3e9:4896])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b879528dcc7sm1076503966b.29.2026.01.19.02.43.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Jan 2026 02:43:52 -0800 (PST)
+Message-ID: <ce6d0f29-6ce0-4c31-af9a-522335b0979b@gmail.com>
+Date: Mon, 19 Jan 2026 12:43:50 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANYKbmkC/43QTU7EMAwF4KuMsiYo/2lnxT0QC8d1aESnqVKoQ
- KO5O57ZUokunyV/z/JVrNQKreJ8uopGW1lLnTnEp5PAEeZ3kmXgLIwyXmvtZKv4gWNZ5KUsRTZ
- CKhs1qRJk4xz22JHg5QQrydRgxpHX569p4uHSKJfvR9vrG+exrJ+1/TzKN32f/tuzaankoK3qA
- nVaDcML1mmCVBs8Y72IO7uZY5RhilKfnLUxZnR7lD1GWaY0X2QBYra936PcMcoxBfzGkAkH5c0
- e5Y9RninnAbSOWfcK9qhwjApMpYgUKHTJ5j/U7Xb7BfRwe49MAgAA
-To: Michael Riesch <michael.riesch@collabora.com>, 
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
- Kever Yang <kever.yang@rock-chips.com>, Frank Li <Frank.li@nxp.com>, 
- Mehdi Djait <mehdi.djait@linux.intel.com>, 
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Hans Verkuil <hverkuil@kernel.org>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Collabora Kernel Team <kernel@collabora.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Michael Riesch <michael.riesch@collabora.com>
-X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768819415; l=3473;
- i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=fzNshCl/IElhoDVxXDq8bpq8eyZl50ZRx9miKtubih4=;
- b=/h4J5W6AhmYcf3MKRvPQx8UtpfEDalNhD5tZ3xREcJw0YXNXhX6sH9F9TmbDbhgTNZv/ADYk0
- XRJuG3ZgLxZCyXBIac6H8VeV0YRq8go6pTjEfns2VXEmZfg/yojwsgd
-X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
- pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
-X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
- with auth_id=371
-X-Original-From: Michael Riesch <michael.riesch@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] dt-bindings: clock: add exynos8890 SoC
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251017161334.1295955-1-ivo.ivanov.ivanov1@gmail.com>
+ <20251017161334.1295955-2-ivo.ivanov.ivanov1@gmail.com>
+ <20251022-affable-arrogant-coucal-3f7fbc@kuoka>
+Content-Language: en-US
+From: Ivaylo Ivanov Ivanov <ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20251022-affable-arrogant-coucal-3f7fbc@kuoka>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_024340_601621_B0A7EA44 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20260119_024355_585222_71F53824 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,91 +106,107 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Habidere,
+On 22.10.25 10:44, Krzysztof Kozlowski wrote:
+> On Fri, Oct 17, 2025 at 07:13:29PM +0300, Ivaylo Ivanov wrote:
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: samsung,exynos8890-cmu-aud
+>> +
+>> +    then:
+>> +      properties:
+>> +        clocks:
+>> +          items:
+>> +            - description: External reference clock (76.8 MHz)
+>> +            - description: CMU_AUD PLL clock (from CMU_TOP)
+>> +
+>> +        clock-names:
+>> +          items:
+>> +            - const: oscclk
+>> +            - const: pll
+>> +
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: samsung,exynos8890-cmu-bus0
+>> +
+>> +    then:
+>> +      properties:
+>> +        clocks:
+>> +          items:
+>> +            - description: External reference clock (76.8 MHz)
+>> +            - description: CMU_BUS0 ACLK 528MHz clock (from CMU_TOP)
+>> +            - description: CMU_BUS0 ACLK 200MHz clock (from CMU_TOP)
+>> +            - description: CMU_BUS0 PCLK 132MHz clock (from CMU_TOP)
+>> +
+>> +        clock-names:
+>> +          items:
+>> +            - const: oscclk
+>> +            - const: "528"
+>> +            - const: "200"
+>> +            - const: "132"
+> 
+> We do not want the frequency here, for sure not frequency alone. There
+> is no such code/syntax. Really.  Please do not invent your own style.
+> That's just pclk. You describe here the logical name of this clock
+> input.
+> 
+> ACLK is AXI bus clock, so if this block receives only one ACLK, then
+> this is just "axi" or "bus". Recently we were calling this "bus".
+> 
+> Same in other places. If two AXI bus clocks come in, they could be named
+> bus0 and bus1, or in this case - because these are sources for
+> generating further ACLKs - bus_528 and bus_200, to indicate that one
+> will be for AXI bus clocked 528 MHz and other for 200 MHz.
+> 
+> Please wait for some other opinions, because same rule I would like to
+> apply to ExynosAuto, Artpec and Google GS.
+> 
+> @Raghav Sharma, @Alim Akhtar, @Sam Protsenko, @Peter Griffin, @André
+> Draszik  - share your thoughs please?
+> 
+> And to clarify in simple terms for others or for the future:
+> 1. HCLK would be the AHB bus, so also bus. Both ACLK and HCLK are for
+> memory accesses.
+> 2. PCLK is APB bus, for registers.
+> 3. SCLK is for main operation of the block (called special clock, but no
+> clue what is so special about it).
+> 
 
-This series adds support for the Rockchip MIPI CSI-2 Receiver that is
-integrated into recent Rockchip SoCs, such as the RK3568 and the RK3588.
+So the consensus is to do something like this..
 
-According to Rockchip, this core is NOT the Synopsys MIPI CSI-2 Host, but
-it features a compatible register layout (thanks Chaoyi for the
-clarification).
+- const: oscclk
+    - const: bus_528
+    - const: bus_200
+    - const: pclk
 
-As pointed out by Frank, we should thus rename the driver and place it
-under drivers/media/platform/synopsys to facilitate re-use of this code
-for similar IP cores.
+.., right?
 
-As has been discussed in [0], it would be beneficial to add support 
-for the split mode (a feature of the Rockchip CSI-2 DPHY) before
-integrating the MIPI CSI-2 Receiver into the respective SoC device tree
-includes. However, we can readily add the DT binding and the driver
-as I am positive they will not need to be changed significantly when this
-feature is introduced.
+Mentioned people haven't replied. I'm asking because I think it'd be more
+straightforward to go with just aclk_528 pclk_132 sclk_... or axi_528 apb_132.
 
-This constitutes a small step towards mainline video capture and camera
-support on the Rockchip RK3588.
-
-Looking forward to your comments!
-
-Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-
-[0] https://lore.kernel.org/r/20240220-rk3568-vicap-v14-0-b38b6da0fc80@collabora.com
-
----
-Changes in v7:
-- fixed several cosmetic issues (Frank)
-- Link to v6: https://lore.kernel.org/r/20251114-rockchip-mipi-receiver-v6-0-b7ce6e68b3fa@collabora.com
-
-Changes in v6:
-- renamed driver to dw-mipi-csi2rx (Sakari)
-- fixed return value of v4l2_get_link_freq (this time, really) (Sakari)
-- Link to v5: https://lore.kernel.org/r/20251114-rockchip-mipi-receiver-v5-0-45aa117f190a@collabora.com
-
-Changes in v5:
-- fixed indentation in struct platform_driver ... (Sakari)
-- fixed return value in case v4l2_get_link_freq returns 0 (Sakari)
-- switched from pm_runtime_put_sync() to pm_runtime_put() (Sakari)
-- Link to v4: https://lore.kernel.org/r/20251114-rockchip-mipi-receiver-v4-0-a9c86fecd052@collabora.com
-
-Changes in v4:
-- moved driver to drivers/media/platform/synopsys and renamed it (Frank)
-- addresse review comments by Sakari
-- Link to v3: https://lore.kernel.org/r/20251114-rockchip-mipi-receiver-v3-0-16e83aa7f395@collabora.com
-
-Changes in v3:
-- rebased onto v6.19/recent media-committers/next
-- Link to v2: https://lore.kernel.org/r/20251114-rockchip-mipi-receiver-v2-0-eb9b43377fc4@collabora.com
-
-Changes in v2:
-- dropped one R-b by Bryan, as there were two of them on the same patch
-  (Krzysztof)
-- Link to v1: https://lore.kernel.org/r/20251114-rockchip-mipi-receiver-v1-0-d13086e810dd@collabora.com
-
----
-Michael Riesch (3):
-      media: dt-bindings: add rockchip mipi csi-2 receiver
-      media: synopsys: add driver for the designware mipi csi-2 receiver
-      arm64: defconfig: enable designware mipi csi-2 receiver
-
- .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  | 141 ++++
- MAINTAINERS                                        |   7 +
- arch/arm64/configs/defconfig                       |   1 +
- drivers/media/platform/synopsys/Kconfig            |   1 +
- drivers/media/platform/synopsys/Makefile           |   1 +
- .../media/platform/synopsys/dw-mipi-csi2/Kconfig   |  17 +
- .../media/platform/synopsys/dw-mipi-csi2/Makefile  |   2 +
- .../synopsys/dw-mipi-csi2/dw-mipi-csi2rx.c         | 724 +++++++++++++++++++++
- 8 files changed, 894 insertions(+)
----
-base-commit: eb4ee870747c3a77a9c3c84d84efb64bd481013a
-change-id: 20251114-rockchip-mipi-receiver-0baf244c9c8e
+What do you think?
 
 Best regards,
--- 
-Michael Riesch <michael.riesch@collabora.com>
+Ivaylo
 
+>> +
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: samsung,exynos8890-cmu-bus1
+>> +
+
+...
+
+> Best regards,
+> Krzysztof
+> 
 
 
