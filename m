@@ -4,108 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 592DBD2ECE6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 21:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C80D2ECEB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 21:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WYt6AqzlDCpX/kL4Ld5TnPmJOih6jU/LzjugOjIWs5w=; b=fwADCHZ9T0BXsW3KkbzW++JI7u
-	hwzTr8ZsFS73IBINqUs+WH+qtYc9f9cRK6mnyX5s7XHnwf7kO3zYrA4qu41jCDhcnCCFxKaiP/HUT
-	quGbUlFT16lpEcIZCu+9CHJXuLqLkPvS+HADNsRFqB27PhPWPhOWmCPEJTb7YBkBkzhO3lmgAPcI/
-	80/xLxKifFc1zhYmC/B35fWUXkrLLYdQ/hnh1Z0yiUaoG4Vn3l8FBte35AjjhBBPxkU/MKjPtnYNU
-	Xthy5OkPkE/6WOg0dVISdLcF+oW8+vNeWmEA/oIIRVbZYcRdPoCqpCsOv5tJFnQXZxMdCakW9mxmv
-	H68YNQNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dHGPd6YJF7jj5mxAdaK7bHlwa6dZP2Ce2pKrDk9NAnE=; b=AUvAcph5N9tc3l4ql/rRI6Kon+
+	9boOeuY/kvZ5r4zDmmGdAAkhJU9RIYjZah8Ar47MEuDx313QRn5jPjr4Q4r6i0qkWldmwvHjyUzDk
+	wOePhbMx8IJKL7vw5B6nOPZVb4Edr2Wu522FN14tsX1ChU2rU2Bn9CJiMHP+W1+36+gt6DVQRqx8r
+	5n6cmUS++GMeDmfWLoheJsX4PB90tHJz0KFCJ23JvOdhR0jCgQ3WLS/BH1SoowzaT3+5BKZyHzeoF
+	tH18wniZJsj5yiTksWt1xKxaZrSbOPfMIgedLHKJvw0o3VolN/BW2+jfmwNZeIUH4fLv8Sx0hbfxQ
+	toGBWFDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhwsN-00000002u53-47pi;
-	Mon, 19 Jan 2026 21:33:31 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1vhwvD-00000002uKG-3Qb7;
+	Mon, 19 Jan 2026 21:36:29 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhwsL-00000002u49-3WxO
+	id 1vhwvA-00000002uJt-0Q7H
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 21:33:30 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2a09d981507so35660015ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 13:33:29 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768858409; cv=none;
-        d=google.com; s=arc-20240605;
-        b=aUErRxV1CbFgUzTDQnZwdvJsqrAsTB1s+YuXsWA20I+JvbDvP6Wzp0jBYopvyLVy2i
-         eut+H33njUM/2LD5WHjySx7e4551VLRKz62W+ErUQDdby0J4/i/lh1SPXLzgF2GDHlsC
-         LqYQhKM9s8bhXFp7k9CFh1tglOUTh/uVWMA2HArR5iMHmbZH56D/hI+OJKH6LAec/YyR
-         mQ2wa3lXDExOlcwftVVT6+EpdzHGQBplIgJUpqqBHsW/ug7ijbQ8BktPJLe5woXOljQd
-         geRKyxgyeSqOAeeJQLMfKT89U8BrMgycjjeauk9s7986ZU/759c9ldU6Bb10SVwJpK76
-         5+Gg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=WYt6AqzlDCpX/kL4Ld5TnPmJOih6jU/LzjugOjIWs5w=;
-        fh=zE6itO+mLjJ112ODp+7WKLsTECFSzOEFp4JDug3X3/c=;
-        b=cyy5ujPFH71YpVDXLVfUosdGtI6AXkg3EztMZzGlAg9yFFFORkrz7Ky2aKHCt+VOSi
-         qRi/cvYCuJTgB63DYDfDZBSzkQ+eRraOaWHJHB16F8ICTipmkxsioGgVOptpbvIpkjRV
-         7X76aXC6BdtZOF4l7sK2snfzqLgS0DMN2f7qKOIUWCmult0n0InQSC659NsyQG7gHZVl
-         IlNEzBTghAOVX017V2nFe+I7il6XUX4JbIUCcwJhZIGlCm8JiKdRug/VYc8BLe/Zslhw
-         OgSgphnxhH3LObaX1AAfIVk3pwy7AJCHCZyy/C/bitMlX+Be7ruK2FpQLXlLrgwYeGgb
-         1dBg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1768858409; x=1769463209; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WYt6AqzlDCpX/kL4Ld5TnPmJOih6jU/LzjugOjIWs5w=;
-        b=BNVIAX8gnjjFdsKu6le6zv+wtZSLrlEXxVMeHbNyWXTAuVcEG4IOQEGaXntyjWbcoI
-         BJFfmMtwXoHnyOx48+xjYQ/inWQoIo+9jWmAsyXJEvUQICPZ74kZGRHHvLHTejxmUrqa
-         v9qsSGEIwHvZC76jpwhB7iqQ72rNoDPboBDHjSZPTCUp94MTRov6rz3bwYfdVG+4rz5H
-         OiC+1AEVD2cAJ2WxbILzQiklme4glxzTfAZY7fS/mhpmwXDMgCJLyAvsV/MuZQPDQZmA
-         HC/76kjCh0XfvbeBn+Avm1IKxpE7hk9yn1S8v1Qi8/VWX1n8DUx++yS7DdPS9ZT5mo01
-         FFsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768858409; x=1769463209;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=WYt6AqzlDCpX/kL4Ld5TnPmJOih6jU/LzjugOjIWs5w=;
-        b=fmCxumUrqNuOqNuwcP/XrNJorspPisCXfBFAP4/7ocXjTN2SsOBhkmzeEv/X3Pvcj8
-         5/2DdorHxdfZiuewspmOEHy1FiHNVd4sZqMF8ML5dfhGXlCzt9EM9IETQ3k3HNVJuBBA
-         zvmCvJ1csBmNaJOc4mVPIi5hTzBq1kgvqzV8L5JkPPMtdRa1g4BHbnfgA2NorPLnnsVn
-         oH/U6NZoAllw/TDQ15lWeOMw96arN+UI39+rQpvDwTH5K2YaaujcDO9MDT6MmqEHZq6q
-         MVocUobVfGj0pYX3kbjFPORIG1uWTzKHlxbQ4NTyJXwFuVW21vGx0OAdHkGBodmW8FiD
-         VZYw==
-X-Forwarded-Encrypted: i=1; AJvYcCVFr7YzHeIFu4UcwUqStY+fdnm0KhvzxHEirs0T/M7D5idLsJMgkus/75laLaEVMdMPXnW7aLpIkF5gFoVUSN7o@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQeoMSnQahg68B3bHfbRJ09PUb14gx1LSF565k/YVbNvEzlQPF
-	B9msKVe0fIWzDO32AHFn0cRzl7jRjEQG5wKg/FPWo73HW8Qa2jVNihB/B/dXGowHPsas9XVlRJT
-	k3Idq/dnQ7xim1NDRBh5z0ZoiqHPHQ7A=
-X-Gm-Gg: AZuq6aIXD6uDu18LgfrB9/nCJJE8eLuASG2YLtbK0SH7c88v/FRg+EJggw8PBtzsxra
-	t8NWx1WhGRGwBlR61c0/ThqNcXMAxJY+QqfoyLE8uYX2iCGqtcNTNkwU1jgipoydeVMthTJU/3I
-	1vk/ZaKyKOn3IhE6Q0wZKUktXdvwIcpPL7+k1At0cRmCeEQ6KULArg0WsXk9bQbvkAM/al/gCUM
-	YRQ3lxaauWyXW6GscAijENbOnOMjd6Mj6gp1XLHtxN4kzgbMOV6cy9cQjJE2Im3wTsNqycHHGNJ
-	OsxlsfniXYihqwVz8dok29PxgewI
-X-Received: by 2002:a17:903:2341:b0:2a1:3ad6:fab3 with SMTP id
- d9443c01a7336-2a700978ecbmr132238185ad.1.1768858408931; Mon, 19 Jan 2026
- 13:33:28 -0800 (PST)
+	Mon, 19 Jan 2026 21:36:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768858584; x=1800394584;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=S69053zsak1P+OIMtzj+DlKHfixButumiqXBgHvfCPc=;
+  b=MffgRLvaPYCi0yWmZfcGq7e6cQsQwbx3/ra3w94vDkE3Zqx2ucnG72Du
+   Y/EnwZt2JEev5eQHMRCHkvzun7aaOH7prH2ibo8qF2I27ySxNyFDM3QTz
+   nCB7P/wUsE63dMDyEAJdZL5pAw3hFKtlJ1zrAvYVT22WhPB0qYf8zP+1t
+   IYjJalJb5hFy2MMdVJ8Ntrmia0QQj1//yMElBtBNiS4f50AFn+lUVRTp3
+   5DroV2s0ENwjpWqzbRIwIlX72DOn7u2GYAo/R28Qh9MBg+H8cHZK82Rx8
+   1oz8WWO3J4FvEHgZjx5iHFlXXoj7nNJx9643vHPGEOAO90QYyPDdH0ciN
+   Q==;
+X-CSE-ConnectionGUID: 1zG11I/ET06eO9A/km4P/A==
+X-CSE-MsgGUID: cXmxtkPRQHWh/Zv6D4JlhA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11676"; a="73925434"
+X-IronPort-AV: E=Sophos;i="6.21,239,1763452800"; 
+   d="scan'208";a="73925434"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 13:36:21 -0800
+X-CSE-ConnectionGUID: VUY++yKKRLK+o5q5BOsoQQ==
+X-CSE-MsgGUID: TN9LgT8zTzewUbXVCru1mg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,239,1763452800"; 
+   d="scan'208";a="228885257"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 19 Jan 2026 13:36:17 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vhwv1-00000000OK5-04mS;
+	Mon, 19 Jan 2026 21:36:15 +0000
+Date: Tue, 20 Jan 2026 05:35:57 +0800
+From: kernel test robot <lkp@intel.com>
+To: Salman Nabi <salman.nabi@arm.com>, vvidwans@nvidia.com,
+	andre.przywara@arm.com, sudeep.holla@arm.com, mark.rutland@arm.com,
+	lpieralisi@kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, ardb@kernel.org,
+	chao.gao@intel.com, linux-arm-kernel@lists.infradead.org,
+	linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org,
+	sdonthineni@nvidia.com, vsethi@nvidia.com, vwadekar@nvidia.com
+Subject: Re: [PATCH 1/1] firmware: smccc: add support for Live Firmware
+ Activation (LFA)
+Message-ID: <202601200543.EKFOBfnW-lkp@intel.com>
+References: <20260119122729.287522-2-salman.nabi@arm.com>
 MIME-Version: 1.0
-References: <20260116023611.2033078-1-nick@khadas.com>
-In-Reply-To: <20260116023611.2033078-1-nick@khadas.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Mon, 19 Jan 2026 22:33:17 +0100
-X-Gm-Features: AZwV_QhxR4hX4a4tHQP2LMf0jRGW7iOKBC1pnItltQ9JPA2FUwNRfeUXWKlm2I8
-Message-ID: <CAFBinCDcyH3bFbqy4WspipzBbf-ym_1vJrTA_ecB1rP1WABG2g@mail.gmail.com>
-Subject: Re: [PATCH v1] arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s:
- enable eMMC storage
-To: Nick Xie <nick@khadas.com>
-Cc: neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org, xieqinick@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260119122729.287522-2-salman.nabi@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_133329_882488_99F07A7E 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260119_133624_238897_D920AFD4 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,13 +92,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 3:36=E2=80=AFAM Nick Xie <nick@khadas.com> wrote:
->
-> Enable the on-board eMMC storage for Khadas VIM1S.
->
-> The VIM1S features a 16GB eMMC 5.1 module. This patch adds the
-> necessary regulators and the eMMC controller node.
->
-> Signed-off-by: Nick Xie <nick@khadas.com>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Hi Salman,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on soc/for-next]
+[also build test ERROR on linus/master v6.19-rc6 next-20260116]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Salman-Nabi/firmware-smccc-add-support-for-Live-Firmware-Activation-LFA/20260119-203221
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/20260119122729.287522-2-salman.nabi%40arm.com
+patch subject: [PATCH 1/1] firmware: smccc: add support for Live Firmware Activation (LFA)
+config: arm-defconfig (https://download.01.org/0day-ci/archive/20260120/202601200543.EKFOBfnW-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 9b8addffa70cee5b2acc5454712d9cf78ce45710)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260120/202601200543.EKFOBfnW-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601200543.EKFOBfnW-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/firmware/smccc/lfa_fw.c:179:28: error: variable has incomplete type 'struct arm_smccc_1_2_regs'
+     179 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^
+   drivers/firmware/smccc/lfa_fw.c:179:9: note: forward declaration of 'struct arm_smccc_1_2_regs'
+     179 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^
+>> drivers/firmware/smccc/lfa_fw.c:184:2: error: call to undeclared function 'arm_smccc_1_2_invoke'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     184 |         arm_smccc_1_2_invoke(&reg, &reg);
+         |         ^
+   drivers/firmware/smccc/lfa_fw.c:194:28: error: variable has incomplete type 'struct arm_smccc_1_2_regs'
+     194 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^
+   drivers/firmware/smccc/lfa_fw.c:194:9: note: forward declaration of 'struct arm_smccc_1_2_regs'
+     194 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^
+   drivers/firmware/smccc/lfa_fw.c:198:2: error: call to undeclared function 'arm_smccc_1_2_invoke'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     198 |         arm_smccc_1_2_invoke(&reg, &reg);
+         |         ^
+   drivers/firmware/smccc/lfa_fw.c:220:28: error: variable has incomplete type 'struct arm_smccc_1_2_regs'
+     220 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^
+   drivers/firmware/smccc/lfa_fw.c:220:9: note: forward declaration of 'struct arm_smccc_1_2_regs'
+     220 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^
+   drivers/firmware/smccc/lfa_fw.c:234:3: error: call to undeclared function 'arm_smccc_1_2_invoke'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     234 |                 arm_smccc_1_2_invoke(&reg, &reg);
+         |                 ^
+   drivers/firmware/smccc/lfa_fw.c:290:28: error: variable has incomplete type 'struct arm_smccc_1_2_regs'
+     290 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^
+   drivers/firmware/smccc/lfa_fw.c:290:9: note: forward declaration of 'struct arm_smccc_1_2_regs'
+     290 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^
+   drivers/firmware/smccc/lfa_fw.c:318:3: error: call to undeclared function 'arm_smccc_1_2_invoke'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     318 |                 arm_smccc_1_2_invoke(&reg, &reg);
+         |                 ^
+   drivers/firmware/smccc/lfa_fw.c:360:28: error: variable has incomplete type 'struct arm_smccc_1_2_regs'
+     360 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^
+   drivers/firmware/smccc/lfa_fw.c:360:9: note: forward declaration of 'struct arm_smccc_1_2_regs'
+     360 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^
+   drivers/firmware/smccc/lfa_fw.c:368:2: error: call to undeclared function 'arm_smccc_1_2_invoke'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     368 |         arm_smccc_1_2_invoke(&reg, &reg);
+         |         ^
+   drivers/firmware/smccc/lfa_fw.c:434:28: error: variable has incomplete type 'struct arm_smccc_1_2_regs'
+     434 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^
+   drivers/firmware/smccc/lfa_fw.c:434:9: note: forward declaration of 'struct arm_smccc_1_2_regs'
+     434 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^
+   drivers/firmware/smccc/lfa_fw.c:443:2: error: call to undeclared function 'arm_smccc_1_2_invoke'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     443 |         arm_smccc_1_2_invoke(&reg, &reg);
+         |         ^
+   drivers/firmware/smccc/lfa_fw.c:586:28: error: variable has incomplete type 'struct arm_smccc_1_2_regs'
+     586 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^
+   drivers/firmware/smccc/lfa_fw.c:586:9: note: forward declaration of 'struct arm_smccc_1_2_regs'
+     586 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^
+   drivers/firmware/smccc/lfa_fw.c:600:3: error: call to undeclared function 'arm_smccc_1_2_invoke'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     600 |                 arm_smccc_1_2_invoke(&reg, &reg);
+         |                 ^
+   drivers/firmware/smccc/lfa_fw.c:619:28: error: variable has incomplete type 'struct arm_smccc_1_2_regs'
+     619 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^
+   drivers/firmware/smccc/lfa_fw.c:619:9: note: forward declaration of 'struct arm_smccc_1_2_regs'
+     619 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^
+   drivers/firmware/smccc/lfa_fw.c:623:2: error: call to undeclared function 'arm_smccc_1_2_invoke'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     623 |         arm_smccc_1_2_invoke(&reg, &reg);
+         |         ^
+   16 errors generated.
+
+
+vim +179 drivers/firmware/smccc/lfa_fw.c
+
+   176	
+   177	static unsigned long get_nr_lfa_components(void)
+   178	{
+ > 179		struct arm_smccc_1_2_regs reg = { 0 };
+   180	
+   181		reg.a0 = LFA_1_0_FN_GET_INFO;
+   182		reg.a1 = 0; /* lfa_info_selector = 0 */
+   183	
+ > 184		arm_smccc_1_2_invoke(&reg, &reg);
+   185		if (reg.a0 != LFA_SUCCESS)
+   186			return reg.a0;
+   187	
+   188		return reg.a1;
+   189	}
+   190	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
