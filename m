@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA54D29C24
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 13:01:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B12B8D29C26
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 13:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SRiqYM3jk38SNVDdGTWvhOoxAdz87tQ9o5v3/qDk3+A=; b=ULMRj4d/kz9IDbS63MEId7vRAT
-	J/iTq+ISD0rCHsPLfMWfo1bjXxbmHoZHnAxZ9FsQzm9bTEdCtjYmiBZ7DOXQLUxQFq4Gw7BxHLdZz
-	u8QIa9KBaUzR1apzLQNZtm4yWLNz5FZvgHnkbHXNSFQzQlASPjQ/+cqdjViRqEd2aW4l/Q8ioE7aa
-	DiXt+enQ2eDhQeYiDVLgJDVBezfVM+fAMEu+gqZ+JT6j7nEsQhLrsziOohXtGEdAkyGv7uJdolPj3
-	8DJLiwPa+hAmI+nCCqmZNxFwI++ZUw3LmtkT8oVbUACaETU+g+0HWu1RXHYap+mAstsUA9SqGQCKY
-	WVwYgTHw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R7ig3Va+cgJWyxLk2AjzSNcEnc0SV+kvjb8+9+gGOlY=; b=xMRbbQplywBY746DKtAejs4YHw
+	RNHtNPxx8UEyQ7bMj0yKQWgqdiNBNTJHtqw719No03Ku8mSoDZNpTVkWIXu895vqj0TZ7+VuxR9CW
+	xuTarcLK2SiphLpKmlGAWFVpPinvXGAm+5n+2uh4lQrLcTDI9+CV3TU/xVAnzgCR9eU0YOkh+Ae2t
+	t6paloiPXDs//fDeAxFnZjfYXqey4ztoE8c1hnXiRZFhQVz7ZNcCfKLqr2Znwsn6112y3E/Racqi6
+	ja27c6IyCE2/siwhn88vh+p4RuOirRvfmE+b7LjuQHETt4hmH37IXKXVugz+OmEkrGZ0sxqycgRYe
+	p9bmElOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhot9-000000027SF-3z56;
-	Mon, 19 Jan 2026 13:01:48 +0000
+	id 1vhotK-000000027WG-0i4i;
+	Mon, 19 Jan 2026 13:01:58 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhosx-000000027Q3-1SpO;
-	Mon, 19 Jan 2026 13:01:46 +0000
+	id 1vhot4-000000027Qd-1rLd;
+	Mon, 19 Jan 2026 13:01:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA896497;
-	Mon, 19 Jan 2026 05:01:27 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 431E11517;
+	Mon, 19 Jan 2026 05:01:35 -0800 (PST)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ECD0C3F740;
-	Mon, 19 Jan 2026 05:01:30 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 74ECD3F740;
+	Mon, 19 Jan 2026 05:01:38 -0800 (PST)
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -64,15 +64,17 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	linux-hardening@vger.kernel.org
-Subject: [PATCH v4 0/3] Fix bugs and performance of kstack offset randomisation
-Date: Mon, 19 Jan 2026 13:01:07 +0000
-Message-ID: <20260119130122.1283821-1-ryan.roberts@arm.com>
+Subject: [PATCH v4 2/3] prandom: Add __always_inline version of prandom_u32_state()
+Date: Mon, 19 Jan 2026 13:01:09 +0000
+Message-ID: <20260119130122.1283821-3-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260119130122.1283821-1-ryan.roberts@arm.com>
+References: <20260119130122.1283821-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_050135_487513_B253BB28 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20260119_050146_820116_00F7437C 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,135 +89,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[Kees; I'm hoping this is now good-to-go via your hardening tree? Please shout
-if you think there is more work to be done here!]
+We will shortly use prandom_u32_state() to implement kstack offset
+randomization and some arches need to call it from non-instrumentable
+context. So let's implement prandom_u32_state() as an out-of-line
+wrapper around a new __always_inline prandom_u32_state_inline(). kstack
+offset randomization will use this new version.
 
-Hi All,
+Acked-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+---
+ include/linux/prandom.h | 20 ++++++++++++++++++++
+ lib/random32.c          |  8 +-------
+ 2 files changed, 21 insertions(+), 7 deletions(-)
 
-As I reported at [1], kstack offset randomisation suffers from a couple of bugs
-and, on arm64 at least, the performance is poor. This series attempts to fix
-both; patch 1 provides back-portable fixes for the functional bugs. Patches 2-3
-propose a performance improvement approach.
-
-I've looked at a few different options but ultimately decided that Jeremy's
-original prng approach is the fastest. I made the argument that this approach is
-secure "enough" in the RFC [2] and the responses indicated agreement.
-
-More details in the commit logs.
-
-
-Performance
-===========
-
-Mean and tail performance of 3 "small" syscalls was measured. syscall was made
-10 million times and each individually measured and binned. These results have
-low noise so I'm confident that they are trustworthy.
-
-The baseline is v6.18-rc5 with stack randomization turned *off*. So I'm showing
-performance cost of turning it on without any changes to the implementation,
-then the reduced performance cost of turning it on with my changes applied.
-
-**NOTE**: The below results were generated using the RFC patches but there is no
-meaningful change, so the numbers are still valid.
-
-arm64 (AWS Graviton3):
-+-----------------+--------------+-------------+---------------+
-| Benchmark       | Result Class |   v6.18-rc5 | per-task-prng |
-|                 |              | rndstack-on |               |
-|                 |              |             |               |
-+=================+==============+=============+===============+
-| syscall/getpid  | mean (ns)    |  (R) 15.62% |     (R) 3.43% |
-|                 | p99 (ns)     | (R) 155.01% |     (R) 3.20% |
-|                 | p99.9 (ns)   | (R) 156.71% |     (R) 2.93% |
-+-----------------+--------------+-------------+---------------+
-| syscall/getppid | mean (ns)    |  (R) 14.09% |     (R) 2.12% |
-|                 | p99 (ns)     | (R) 152.81% |         1.55% |
-|                 | p99.9 (ns)   | (R) 153.67% |         1.77% |
-+-----------------+--------------+-------------+---------------+
-| syscall/invalid | mean (ns)    |  (R) 13.89% |     (R) 3.32% |
-|                 | p99 (ns)     | (R) 165.82% |     (R) 3.51% |
-|                 | p99.9 (ns)   | (R) 168.83% |     (R) 3.77% |
-+-----------------+--------------+-------------+---------------+
-
-Because arm64 was previously using get_random_u16(), it was expensive when it
-didn't have any buffered bits and had to call into the crng. That's what caused
-the enormous tail latency.
-
-
-x86 (AWS Sapphire Rapids):
-+-----------------+--------------+-------------+---------------+
-| Benchmark       | Result Class |   v6.18-rc5 | per-task-prng |
-|                 |              | rndstack-on |               |
-|                 |              |             |               |
-+=================+==============+=============+===============+
-| syscall/getpid  | mean (ns)    |  (R) 13.32% |     (R) 4.60% |
-|                 | p99 (ns)     |  (R) 13.38% |    (R) 18.08% |
-|                 | p99.9 (ns)   |      16.26% |    (R) 19.38% |
-+-----------------+--------------+-------------+---------------+
-| syscall/getppid | mean (ns)    |  (R) 11.96% |     (R) 5.26% |
-|                 | p99 (ns)     |  (R) 11.83% |     (R) 8.35% |
-|                 | p99.9 (ns)   |  (R) 11.42% |    (R) 22.37% |
-+-----------------+--------------+-------------+---------------+
-| syscall/invalid | mean (ns)    |  (R) 10.58% |     (R) 2.91% |
-|                 | p99 (ns)     |  (R) 10.51% |     (R) 4.36% |
-|                 | p99.9 (ns)   |  (R) 10.35% |    (R) 21.97% |
-+-----------------+--------------+-------------+---------------+
-
-I was surprised to see that the baseline cost on x86 is 10-12% since it is just
-using rdtsc. But as I say, I believe the results are accurate.
-
-
-Changes since v3 (RFC) [4]
-==========================
-
-- Patch 1: Fixed typo in commit log (per David L)
-- Patch 2: Reinstated prandom_u32_state() as out-of-line function, which
-  forwards to inline version (per David L)
-- Patch 3: Added supplementary info about benefits of removing
-  choose_random_kstack_offset() (per Mark R)
-
-Changes since v2 (RFC) [3]
-==========================
-
-- Moved late_initcall() to initialize kstack_rnd_state out of
-  randomize_kstack.h and into main.c. (issue noticed by kernel test robot)
-
-Changes since v1 (RFC) [2]
-==========================
-
-- Introduced patch 2 to make prandom_u32_state() __always_inline (needed since
-  its called from noinstr code)
-- In patch 3, prng is now per-cpu instead of per-task (per Ard)
-
-
-[1] https://lore.kernel.org/all/dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com/
-[2] https://lore.kernel.org/all/20251127105958.2427758-1-ryan.roberts@arm.com/
-[3] https://lore.kernel.org/all/20251215163520.1144179-1-ryan.roberts@arm.com/
-[4] https://lore.kernel.org/all/20260102131156.3265118-1-ryan.roberts@arm.com/
-
-Thanks,
-Ryan
-
-Ryan Roberts (3):
-  randomize_kstack: Maintain kstack_offset per task
-  prandom: Add __always_inline version of prandom_u32_state()
-  randomize_kstack: Unify random source across arches
-
- arch/Kconfig                         |  5 ++-
- arch/arm64/kernel/syscall.c          | 11 ------
- arch/loongarch/kernel/syscall.c      | 11 ------
- arch/powerpc/kernel/syscall.c        | 12 -------
- arch/riscv/kernel/traps.c            | 12 -------
- arch/s390/include/asm/entry-common.h |  8 -----
- arch/x86/include/asm/entry-common.h  | 12 -------
- include/linux/prandom.h              | 20 +++++++++++
- include/linux/randomize_kstack.h     | 54 +++++++++++-----------------
- init/main.c                          |  9 ++++-
- kernel/fork.c                        |  1 +
- lib/random32.c                       |  8 +----
- 12 files changed, 52 insertions(+), 111 deletions(-)
-
---
+diff --git a/include/linux/prandom.h b/include/linux/prandom.h
+index ff7dcc3fa105..801188680a29 100644
+--- a/include/linux/prandom.h
++++ b/include/linux/prandom.h
+@@ -17,6 +17,26 @@ struct rnd_state {
+ 	__u32 s1, s2, s3, s4;
+ };
+ 
++/**
++ * prandom_u32_state_inline - seeded pseudo-random number generator.
++ * @state: pointer to state structure holding seeded state.
++ *
++ * This is used for pseudo-randomness with no outside seeding.
++ * For more random results, use get_random_u32().
++ * For use only where the out-of-line version, prandom_u32_state(), cannot be
++ * used (e.g. noinstr code).
++ */
++static __always_inline u32 prandom_u32_state_inline(struct rnd_state *state)
++{
++#define TAUSWORTHE(s, a, b, c, d) ((s & c) << d) ^ (((s << a) ^ s) >> b)
++	state->s1 = TAUSWORTHE(state->s1,  6U, 13U, 4294967294U, 18U);
++	state->s2 = TAUSWORTHE(state->s2,  2U, 27U, 4294967288U,  2U);
++	state->s3 = TAUSWORTHE(state->s3, 13U, 21U, 4294967280U,  7U);
++	state->s4 = TAUSWORTHE(state->s4,  3U, 12U, 4294967168U, 13U);
++
++	return (state->s1 ^ state->s2 ^ state->s3 ^ state->s4);
++}
++
+ u32 prandom_u32_state(struct rnd_state *state);
+ void prandom_bytes_state(struct rnd_state *state, void *buf, size_t nbytes);
+ void prandom_seed_full_state(struct rnd_state __percpu *pcpu_state);
+diff --git a/lib/random32.c b/lib/random32.c
+index 24e7acd9343f..2a02d82e91bc 100644
+--- a/lib/random32.c
++++ b/lib/random32.c
+@@ -51,13 +51,7 @@
+  */
+ u32 prandom_u32_state(struct rnd_state *state)
+ {
+-#define TAUSWORTHE(s, a, b, c, d) ((s & c) << d) ^ (((s << a) ^ s) >> b)
+-	state->s1 = TAUSWORTHE(state->s1,  6U, 13U, 4294967294U, 18U);
+-	state->s2 = TAUSWORTHE(state->s2,  2U, 27U, 4294967288U,  2U);
+-	state->s3 = TAUSWORTHE(state->s3, 13U, 21U, 4294967280U,  7U);
+-	state->s4 = TAUSWORTHE(state->s4,  3U, 12U, 4294967168U, 13U);
+-
+-	return (state->s1 ^ state->s2 ^ state->s3 ^ state->s4);
++	return prandom_u32_state_inline(state);
+ }
+ EXPORT_SYMBOL(prandom_u32_state);
+ 
+-- 
 2.43.0
 
 
