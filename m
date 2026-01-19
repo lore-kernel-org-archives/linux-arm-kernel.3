@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23166CA6008
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 08:24:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51962CA6007
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 08:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bKJijYo++8zcbEKhMHwvqGK3GQboq6DGUl0Qp8eOuZ4=; b=TQy9YHvWnHSSLpCxz6XcH21E+I
-	CyfogTgHq3+Glfok9zeGSHz77FHAH54lYvX7fvEqE6v7RSbR7ChmbIdhvknvfBLijHht4ztd84tSo
-	7l7Ww4UwIQrhaVIzFAuMKXmIsTGp85h0Ue5nmUqmL2wQXD0nyQnzEYEHWd9DzBxu17nZ8N2ITIjeH
-	cKkfdvuWurKR3y771LvmUTG8hXbe4NQ69yM+DiYEa0bfcmiCUsmL0y3hzassgHT+CyMfRLj3a5juG
-	gyvL9mKPXkfTmTuQha6P/4hlTrvkmWrgMOdK+h82MTjHpt30Rb2AiH4XvHNuMHX1PI73G3zTjWXKL
-	aaamPqdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qGF3kXNpuFGfHRZ/a4i+Y3oSMznaAZtKKSwOANieht4=; b=0GqOP8q0+20SyWtbaHpIe81HoF
+	U4vb/zXoCIZ/Ix5Ed0w0WbpJ1+i8ECHAhrpKop7D5sd/1DlJSWp3MpH2Vtlv05Rluy/NQfMnSXz74
+	qHwuETJsyIrY0iHXt5ahlRS6MqUcaW71tKufEUD08L/tZonvtCeqID07rAW4M7S4oZ7xeA5L/0UM5
+	r+dlL0QV0q3HjaeXQNi2AeF4RwVv82QgOiEGvKU+sbmRNXeKr+3UJc541kpShpk0j4f2Zu3nT4hTo
+	J6UJdl6avrOnFudaGmAVEUZOXY6mgKqFoc5+zEYHMvuMmQ/vdWS9xd0dQIQ5eT2utQ8Jk3BKnCuII
+	rvMX4bTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhkYq-00000001YR7-3Wc2;
-	Mon, 19 Jan 2026 08:24:32 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1vhkaN-00000001YfG-1WnT;
+	Mon, 19 Jan 2026 08:26:07 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhkYl-00000001YPL-27cf;
-	Mon, 19 Jan 2026 08:24:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768811068; x=1800347068;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=3UoClJcJDW2uoWng1yw1//FZOmo69ZVnggpsjcysDfk=;
-  b=UvhcB2TI6UTD1Jhf0M6lvgRbZDb/cVyiE87WvM13Ehwkk7bqb8jMOfcL
-   bjP2vjLVHPqcE4koG4dh0tBHY05JlEOYqarlC2cNDiwh3l8JfGTP7YpKO
-   lKpRURiv1wShUOP82D39tiqrri2WYpz5BuXF9LetRtUC5bRsCbTB7HLaa
-   a8+wmGQcNMWuTX+gcKwx6VgN19kbuZHr7YuTZ/fWr8SilCvttnfjZzMiL
-   1GqXmF3YMvCDHWriowPc0PZ8M8UhmmtnDx7E+ipxOcjoDftAU6S2nUZNS
-   105qLFsuxYwHgzcO1Jfm5HGo7XKtHkLiegpgowvCTqjpjj+0QgAUba4ZY
-   w==;
-X-CSE-ConnectionGUID: F4N5sY8+RzC4tIwrfGONiw==
-X-CSE-MsgGUID: kKIFfQt9QfSjGhEtoa11kQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11675"; a="69217488"
-X-IronPort-AV: E=Sophos;i="6.21,237,1763452800"; 
-   d="scan'208";a="69217488"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 00:24:25 -0800
-X-CSE-ConnectionGUID: 6JrKYD8FQiOuYUMvH+ySjQ==
-X-CSE-MsgGUID: qEu6BI5JSmWE3xRAdt9Yxw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,237,1763452800"; 
-   d="scan'208";a="228742759"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 19 Jan 2026 00:24:18 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vhkYa-00000000Naz-080r;
-	Mon, 19 Jan 2026 08:24:16 +0000
-Date: Mon, 19 Jan 2026 16:23:31 +0800
-From: kernel test robot <lkp@intel.com>
-To: Pingfan Liu <piliu@redhat.com>, linux-arm-kernel@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Pingfan Liu <piliu@redhat.com>, Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Simon Horman <horms@kernel.org>, Gerd Hoffmann <kraxel@redhat.com>,
-	Vitaly Kuznetsov <vkuznets@redhat.com>,
-	Philipp Rudo <prudo@redhat.com>, Viktor Malik <vmalik@redhat.com>,
-	Jan Hendrik Farr <kernel@jfarr.cc>, Baoquan He <bhe@redhat.com>,
-	Dave Young <dyoung@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	kexec@lists.infradead.org, bpf@vger.kernel.org,
-	systemd-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCHv6 11/13] arm64/kexec: Select KEXEC_BPF to support
- UEFI-style kernel image
-Message-ID: <202601191626.CUD61tIS-lkp@intel.com>
-References: <20260119032424.10781-12-piliu@redhat.com>
+	id 1vhkaH-00000001YeO-3Hql
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 08:26:06 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2a09a3bd9c5so30195615ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 00:26:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768811160; x=1769415960; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qGF3kXNpuFGfHRZ/a4i+Y3oSMznaAZtKKSwOANieht4=;
+        b=AjC9nxYbsk4c2I7ox1fuJRZTXfX1s68D2z24HxgZs/fWNyCg1PDqrcqknV5z+czcVF
+         gEmKjX4IMDqK59W/KikAJ8XcSKJKsdpogxVpFnNvXST32a8aiR754R4SEj1nhgjs7RQ5
+         y9zVRwiRdTFGq+hbV5aVyFV0XV16P6ORHcHj4xcqbgeJHDG4ye3kMOJl+qGqUoABiCua
+         kmYMgmEw7Wl0HoP/yt6ud0BMvWyHwOzAUsVTZ5Ok57L4ijT9zaH6kwKm5HMeIVpsWXMB
+         F7dakTV6MfmTsH2d6uqUT3uUrifHTNFnrzliJC9mcTeMjOu3cEhkytzdJo87y2XQPeDp
+         JPzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768811160; x=1769415960;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qGF3kXNpuFGfHRZ/a4i+Y3oSMznaAZtKKSwOANieht4=;
+        b=dLRy0+CTqsabdrFxQ2QOUzw7VVNWkyd62CZAof1qWc/kRtl+/eQN1eTBbK2P+FAFo1
+         cwHgngAVyLI4qHrdFWwYiLx2Q0HjDRNKelJNk6Byxb31d7mY/Lv8nfbZuSSOZNekrpJX
+         0gu5us/r8xd3qxxinZA0NDC0OmZy2E5tKXMl07W+kZEnJrGZXx4NjrtroU5nVKwtIYO/
+         kD30+/cRAqC1eJmqbFCnQqjr6YAmJ5j11S5TrYlZpS1mNXe5vvB/sTri75rBXUZCjk4y
+         5SjABf1KR4yYlWp1hPMMTw2Rkdikys6RG3qQ52Y8sydmtNt+IQjIqPAcxPLbivefuAz+
+         Togw==
+X-Forwarded-Encrypted: i=1; AJvYcCW/LWfCIZX3E3FfbBJ8o79LlKHE2dNdlRTvchWlhsIRg3p1Biq40CJacext3WIGpjo9JPGG3wq/EvPDjb2XhNTF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1ccZE8PRpRJm4ojn/PtBfGPd3RUy6a93PAdqWacbGPKLl1qC0
+	7tKxjHWZFQpwptCTfsaOc5TIF9RCtuYDK4cLBS+ONiGPnx0NLag4+yJ4
+X-Gm-Gg: AZuq6aK/bNM0Em0+msefFT7aq+L8nIZcob6QoJqfoMz75FSfhRqHAkcExi8EDvT1tfl
+	dCq7Nd97ntGasZwce7P3aJ6WIGqIpv94pqxj1fcdtA817u0lWCcMsACO9SV6XbX6nqFlR6FJWVf
+	C3M00Pb5CjiRuuMlNlJAIJoSZ/iyi9A+/8fKFC2hDPfDpiHtrce3kQjva/J1QmNELXA8LWvAWQM
+	OtU1J+xmtVRarqSoRFzxGd2+PWU6EXWFStKBCrgCQiioSyxpJZHMx3ZCi7vEsiapnQYF7X4d7gU
+	HrvV0AaTBQvtAr3X/1FRB55ZvCZSMfC4PCYGETTpTl9lB9Cvvd11yAJOXfckHlHGH4dnHTDB7CG
+	QXSq9q9brdnN4gJkD3wAY2gfjWWVIhJK3y9RwIFS+Byj1iJOvPak2iaCEeLKSa7qIXnlXH8Tlb+
+	QvxZXLVg8zPsvB5DDYpau6KmHE9jzn3Kkb6m+FNqIqqBg9kWRW
+X-Received: by 2002:a17:903:2282:b0:2a0:de4f:cad with SMTP id d9443c01a7336-2a718954195mr91095305ad.60.1768811160125;
+        Mon, 19 Jan 2026 00:26:00 -0800 (PST)
+Received: from name2965-Precision-7820-Tower.. ([121.185.186.233])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a7190ce534sm85699645ad.27.2026.01.19.00.25.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Jan 2026 00:25:59 -0800 (PST)
+From: Jeongjun Park <aha310510@gmail.com>
+To: Inki Dae <inki.dae@samsung.com>,
+	Seung-Woo Kim <sw0312.kim@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>
+Cc: David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Jeongjun Park <aha310510@gmail.com>
+Subject: [PATCH 0/3 RESEND] drm/exynos: vidi: fix various memory corruption bugs
+Date: Mon, 19 Jan 2026 17:25:50 +0900
+Message-Id: <20260119082553.195181-1-aha310510@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260119032424.10781-12-piliu@redhat.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_002427_554614_A077F751 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20260119_002601_823990_565F985C 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,70 +106,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pingfan,
+This is a series of patches that address several memory bugs that occur
+in the Exynos Virtual Display driver.
 
-kernel test robot noticed the following build warnings:
+Jeongjun Park (3):
+  drm/exynos: vidi: use priv->vidi_dev for ctx lookup in vidi_connection_ioctl()
+  drm/exynos: vidi: fix to avoid directly dereferencing user pointer
+  drm/exynos: vidi: use ctx->lock to protect struct vidi_context member variables related to memory alloc/free
 
-[auto build test WARNING on bpf-next/net]
-[also build test WARNING on bpf-next/master bpf/master akpm-mm/mm-nonmm-unstable linus/master v6.19-rc6 next-20260116]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Pingfan-Liu/bpf-Introduce-kfuncs-to-parser-buffer-content/20260119-112939
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git net
-patch link:    https://lore.kernel.org/r/20260119032424.10781-12-piliu%40redhat.com
-patch subject: [PATCHv6 11/13] arm64/kexec: Select KEXEC_BPF to support UEFI-style kernel image
-config: arm64-randconfig-004-20260119 (https://download.01.org/0day-ci/archive/20260119/202601191626.CUD61tIS-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260119/202601191626.CUD61tIS-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601191626.CUD61tIS-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> kernel/kexec_bpf_loader.c:103:22: warning: unknown attribute 'optimize' ignored [-Wunknown-attributes]
-     103 | __attribute__((used, optimize("O0"))) void kexec_image_parser_anchor(
-         |                      ^~~~~~~~~~~~~~
-   1 warning generated.
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for KEXEC_BPF
-   Depends on [n]: KEXEC_FILE [=y] && DEBUG_INFO_BTF [=y] && BPF_SYSCALL [=y] && KEEP_DECOMPRESSOR [=n]
-   Selected by [y]:
-   - ARCH_SELECTS_KEXEC_FILE [=y] && KEXEC_FILE [=y] && DEBUG_INFO_BTF [=y] && BPF_SYSCALL [=y]
-
-
-vim +/optimize +103 kernel/kexec_bpf_loader.c
-
-e683ae405ea0458 Pingfan Liu 2026-01-19   93  
-e683ae405ea0458 Pingfan Liu 2026-01-19   94  void kexec_image_parser_anchor(struct kexec_context *context,
-e683ae405ea0458 Pingfan Liu 2026-01-19   95  		unsigned long parser_id);
-e683ae405ea0458 Pingfan Liu 2026-01-19   96  
-e683ae405ea0458 Pingfan Liu 2026-01-19   97  /*
-e683ae405ea0458 Pingfan Liu 2026-01-19   98   * optimize("O0") prevents inline, compiler constant propagation
-e683ae405ea0458 Pingfan Liu 2026-01-19   99   *
-e683ae405ea0458 Pingfan Liu 2026-01-19  100   * Let bpf be the program context pointer so that it will not be spilled into
-e683ae405ea0458 Pingfan Liu 2026-01-19  101   * stack.
-e683ae405ea0458 Pingfan Liu 2026-01-19  102   */
-e683ae405ea0458 Pingfan Liu 2026-01-19 @103  __attribute__((used, optimize("O0"))) void kexec_image_parser_anchor(
-e683ae405ea0458 Pingfan Liu 2026-01-19  104  		struct kexec_context *context,
-e683ae405ea0458 Pingfan Liu 2026-01-19  105  		unsigned long parser_id)
-e683ae405ea0458 Pingfan Liu 2026-01-19  106  {
-e683ae405ea0458 Pingfan Liu 2026-01-19  107  	/*
-e683ae405ea0458 Pingfan Liu 2026-01-19  108  	 * To prevent linker from Identical Code Folding (ICF) with kexec_image_parser_anchor,
-e683ae405ea0458 Pingfan Liu 2026-01-19  109  	 * making them have different code.
-e683ae405ea0458 Pingfan Liu 2026-01-19  110  	 */
-e683ae405ea0458 Pingfan Liu 2026-01-19  111  	volatile int dummy = 0;
-e683ae405ea0458 Pingfan Liu 2026-01-19  112  
-e683ae405ea0458 Pingfan Liu 2026-01-19  113  	dummy += 1;
-e683ae405ea0458 Pingfan Liu 2026-01-19  114  }
-e683ae405ea0458 Pingfan Liu 2026-01-19  115  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+ drivers/gpu/drm/exynos/exynos_drm_drv.h  |  1 +
+ drivers/gpu/drm/exynos/exynos_drm_vidi.c | 74 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-----------
+ 2 files changed, 64 insertions(+), 11 deletions(-)
 
