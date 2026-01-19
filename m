@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 870FBD29C3D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 15:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83996D29C3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 15:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eTBglWBnTynV6ai1tS9WQOcWN4D6jkFL54SYLkFOA+g=; b=0VqRkaZgjb7MZJsAxTEumxy3gM
-	058+j0jOoHiS8PNebkWCynj9hQJwE1FaSV7BuPP7vYcHNtS4DHpNHochxcvjzPnT5ZN3bo2TU++78
-	RO2BCtDv9dEnhh8O1Q3qMvEaBkD7bRbr+qs+v+gz4VlQz6Te2sif2lT2/8bQ5uswUrgbyJkbbLkXJ
-	u8vf/WQ+B+3PLF7U6s5TwE+7lW1mjFDpDZxDGErQvrCLbLB29Gsx5rdzhN2b0oQFwVofajmjj8SLJ
-	to3tdZC6swdwjZcDzxr/G8r6+1bY8fleL4nG3JRKqyn8XCpqvO+NOv+cJ3BKXElXifAkdnVo4jkgE
-	sb84JC8w==;
+	bh=kwYpB7OUoD7RGVXAKZghgG2fL8VsvMsrJb3SXVA7oO4=; b=CzahdtvGPY6qF+lqChp4u/gT8J
+	c1cf4/iW8ax8aSznurodw7cv0Ju1y5run5geUk4uWMFUX7nStj+bHwb2kWz9saD2RChj3aKF6Ganl
+	altox1X6/TVRxK0QnRegck+egnGpEAhGFQbCPKZY82aDFaaqFmceldvA1bby43/952Fl29UiZpZET
+	PIuOjNWeFv1IifhRCbxoLxHslqcEKFs8F/VTlZrg3ObAlcsqLdMJ6m7ZMSfqY20uTIm4jP0uDynF0
+	1NdSMEFWDfai9au3bz8ZFS94EI51dIpp1nc7HIrjQO3VhfJoXoJu5IKP5q1LXQKxUd7L3uUj4DEue
+	ZvIrZwdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhrd8-00000002P8p-35MN;
-	Mon, 19 Jan 2026 15:57:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vhrea-00000002PIz-3IEb;
+	Mon, 19 Jan 2026 15:58:56 +0000
+Received: from mail-vk1-f180.google.com ([209.85.221.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhrd6-00000002P7z-4Bu0
+	id 1vhreW-00000002PIB-2pU5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 15:57:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1F66B600C3;
-	Mon, 19 Jan 2026 15:57:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A002EC116C6;
-	Mon, 19 Jan 2026 15:57:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768838243;
-	bh=bEBSCZfXLR1tJf1vwoAqITNqg+ipt9Ps9iqCK6K38wU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o/vIYDzJ2uTrb2kbHa5FfDunUeBlmLEU0PhnTOPodO4bYqwWwlCiUTlpv+80WfWJE
-	 bon8nQLNe5/SVPp8zumiJiuIkFH9371fc3BqrS4WlvBjS9HpQEiYwArT/7hKvIA96P
-	 mPfUUBxcgFIaPk7pIdu4badTWfKPkkqwn7eVsHo4loM16n+/E6BTmxBjtuWqYBNBuq
-	 ++s+W/ZXUqHX79XVEvxb0znwB1Ehhbwe234Zas1r2hFcGNzTHdlHHvAmDyMkll/bkn
-	 7v9M9QTsm0cJspiTgu4gU7vzhTnEm1oQDLIgRmBdb0fBvqFQAnZ5md3wsyNdJCi7ap
-	 w6PCbttDE3tQg==
-Date: Mon, 19 Jan 2026 15:57:16 +0000
-From: Will Deacon <will@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, maz@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, miko.lenczewski@arm.com,
-	kevin.brodsky@arm.com, ardb@kernel.org, suzuki.poulose@arm.com,
-	lpieralisi@kernel.org, yangyicong@hisilicon.com,
-	scott@os.amperecomputing.com, joey.gouly@arm.com,
-	yuzenghui@huawei.com, pbonzini@redhat.com, shuah@kernel.org,
-	mark.rutland@arm.com, arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v11 RESEND 5/9] arm64: futex: refactor futex atomic
- operation
-Message-ID: <aW5UXFz-TykfkGpV@willie-the-truck>
-References: <20251214112248.901769-1-yeoreum.yun@arm.com>
- <20251214112248.901769-6-yeoreum.yun@arm.com>
+	Mon, 19 Jan 2026 15:58:55 +0000
+Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-56367b39e3eso3832589e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 07:58:51 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768838331; x=1769443131;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kwYpB7OUoD7RGVXAKZghgG2fL8VsvMsrJb3SXVA7oO4=;
+        b=pzzERpTe6IcPmnwQmQr3JUGMAVt3/juLUDhZe0t2gMmhGeEF0I4RKXfsp3HRquKhDl
+         zNOIYFT0cnR6gOIxV7JsXFizguSrlSpVE5jel2ePsVPG7HNOxCDDCaljd8CFg8KIOPQ9
+         JPtkCrNwXJ2vTezApEEhmWUy5aVRXnfY6T417mMPTfqKtaKBjMe+hubgCiYT0Q6EAXNs
+         lcdfgFBVFJs/DJbh58INAQRrR2/MMtCuIvxD4v5ymelxDVwaCR7wKXZB/wlwRfB+Iowk
+         d6ItbdSN6OMHTy4JQS+zf2FDPdb6ksdXqythLTd+XDTwYaoPZOKo/xXhXlQfObZrh2yE
+         SNMw==
+X-Gm-Message-State: AOJu0YzQ/wqaHPQpCKwnsdVNdUway9FLp0KDQXWqckyoduamIklM6b+K
+	6vfRU5aI7IQuUiUlyO2tWfAHdRXB8xkyrVSVLtzSa9YdJu4T+uqvQh3lsnNkh0Uc
+X-Gm-Gg: AY/fxX7QMxsR54tunC9u/pnvkwtsbUtpCN6FCARgwBio/wp4FqQ5phQRulB0mRARBcP
+	UzawgZQG0gAtI0NSDe3N0pzGTVZsms3CCFj91GgDl+r/N5ai6EhfdVwc90LxLp6BVd8F/TtQd53
+	e5hhlzRxI727OJR+wsK912hjyPW1gn7bJZdx6/w46a+YCrFRsnndhpD15ECs0+kyZ1oft2IsvBD
+	PuLH8OvoLDZv3w+Wr8mZEaEQo+z+31pV9vQSuFvubgfXTQ1WT8ZluGOYqtZHRLmNbLtyEA8PSYQ
+	eYVg1/hlJ/aEtr6ul0uhx5zhOHle+vZrFwHDzBd5W/j/9a+LVXB6sNQiRRqa//vLQrfGLPFWXbG
+	+HE0UuE+XbSRbM3VzZv/urRgtHpPdiuZBntGz3nIeu8fVg7G9pVTxfg36rC2gCfzXnB7m4vhUh7
+	70VpZPcD2VHrZCKzAhfo2+5iLYasfCz0GJ55FvwCEGAf5n663k
+X-Received: by 2002:a05:6122:3b81:b0:55c:be5e:e9e9 with SMTP id 71dfb90a1353d-563b6307edamr3827493e0c.1.1768838330639;
+        Mon, 19 Jan 2026 07:58:50 -0800 (PST)
+Received: from mail-ua1-f51.google.com (mail-ua1-f51.google.com. [209.85.222.51])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-563b6ffda3csm3035773e0c.7.2026.01.19.07.58.49
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Jan 2026 07:58:49 -0800 (PST)
+Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-93f63c8592cso3756876241.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 07:58:49 -0800 (PST)
+X-Received: by 2002:a05:6102:3e96:b0:5ef:b32c:dff8 with SMTP id
+ ada2fe7eead31-5f1923fb2c1mr5628745137.5.1768838329404; Mon, 19 Jan 2026
+ 07:58:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251214112248.901769-6-yeoreum.yun@arm.com>
+References: <20260101203938.159161-1-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdVyQpOBT+Ho+mXY07fndFN9bKJdaaWGn91WOFnnYErLyg@mail.gmail.com> <2b6f19f3-aaf9-4fb7-bef7-f38e19f94351@mailbox.org>
+In-Reply-To: <2b6f19f3-aaf9-4fb7-bef7-f38e19f94351@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 19 Jan 2026 16:58:38 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUfinX6K622_ThmX-srfq2Mb3CTHD-LdAR3YgDTZq51oA@mail.gmail.com>
+X-Gm-Features: AZwV_QiA0q5O-g1daJUkKfsigh6f9aOP9tnmWWUeAh4TC3ZblJYVL42xTYixBq0
+Message-ID: <CAMuHMdUfinX6K622_ThmX-srfq2Mb3CTHD-LdAR3YgDTZq51oA@mail.gmail.com>
+Subject: Re: [PATCH 00/11] Describe PCIe/USB3.0 clock generator on R-Car Gen3
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Vinod Koul <vkoul@kernel.org>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
+	devicetree@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260119_075852_711783_C288301F 
+X-CRM114-Status: GOOD (  23.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,65 +97,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 14, 2025 at 11:22:44AM +0000, Yeoreum Yun wrote:
-> Refactor futex atomic operations using ll/sc method with
-> clearing PSTATE.PAN to prepare to apply FEAT_LSUI on them.
-> 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> ---
->  arch/arm64/include/asm/futex.h | 128 +++++++++++++++++++++------------
->  1 file changed, 82 insertions(+), 46 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-> index bc06691d2062..f8cb674bdb3f 100644
-> --- a/arch/arm64/include/asm/futex.h
-> +++ b/arch/arm64/include/asm/futex.h
-> @@ -7,17 +7,21 @@
-> 
->  #include <linux/futex.h>
->  #include <linux/uaccess.h>
-> +#include <linux/stringify.h>
-> 
->  #include <asm/errno.h>
-> 
->  #define FUTEX_MAX_LOOPS	128 /* What's the largest number you can think of? */
-> 
-> -#define __futex_atomic_op(insn, ret, oldval, uaddr, tmp, oparg)		\
-> -do {									\
-> +#define LLSC_FUTEX_ATOMIC_OP(op, insn)					\
-> +static __always_inline int						\
-> +__llsc_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
-> +{									\
->  	unsigned int loops = FUTEX_MAX_LOOPS;				\
-> +	int ret, oldval, tmp;						\
->  									\
->  	uaccess_enable_privileged();					\
-> -	asm volatile(							\
-> +	asm volatile("// __llsc_futex_atomic_" #op "\n"			\
->  "	prfm	pstl1strm, %2\n"					\
->  "1:	ldxr	%w1, %2\n"						\
->  	insn "\n"							\
-> @@ -35,45 +39,103 @@ do {									\
->  	: "r" (oparg), "Ir" (-EAGAIN)					\
->  	: "memory");							\
->  	uaccess_disable_privileged();					\
-> -} while (0)
-> +									\
-> +	if (!ret)							\
-> +		*oval = oldval;						\
-> +									\
-> +	return ret;							\
-> +}
-> +
-> +LLSC_FUTEX_ATOMIC_OP(add, "add	%w3, %w1, %w5")
-> +LLSC_FUTEX_ATOMIC_OP(or,  "orr	%w3, %w1, %w5")
-> +LLSC_FUTEX_ATOMIC_OP(and, "and	%w3, %w1, %w5")
-> +LLSC_FUTEX_ATOMIC_OP(eor, "eor	%w3, %w1, %w5")
-> +LLSC_FUTEX_ATOMIC_OP(set, "mov	%w3, %w5")
+Hi Marek,
 
-Since you're reworking this code, how about we take the opportunity to
-use named arguments instead of the numbers?
+On Sun, 18 Jan 2026 at 14:54, Marek Vasut <marek.vasut@mailbox.org> wrote:
+> On 1/13/26 3:19 PM, Geert Uytterhoeven wrote:
+> > I do not know what is the actual issue.  Adding debug prints to
+> > rs9_suspend() and rs9_resume() shows these functions are not called,
+> > while adding 'status = "disabled"' to the renesas,9fgv0841 clock node
+> > in arch/arm64/boot/dts/renesas/salvator-common.dtsi does fix the issue.
+> >
+> > Perhaps you have pending patches for the rs9 or PCIe drivers?
+> > Do you have a clue?
+> I believe this one should address the problem:
+>
+> [PATCH] clk: rs9: Reserve 8 struct clk_hw slots for for 9FGV0841
+>
+> https://lore.kernel.org/linux-clk/20260118025756.96377-1-marek.vasut+renesas@mailbox.org/
 
-Will
+Yes it does, thanks!
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
