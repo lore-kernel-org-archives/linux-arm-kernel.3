@@ -4,203 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F64D2ECEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 22:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3DECD2ECF5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 23:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6w7JHsMMaDwjhcDLxhKAh5ROor25JsuI07VVGuXZGm4=; b=3b1bHXxB4YnnAYL0QgyEueyhdK
-	HpcNv9SiEteSEzEvDmBURIQl/AdraPbYOrL/SldtH9hcQfL+2zapb7bNWyjAq2xvV9BFPDaXZ1BVk
-	Amc4ddcOfERI7ky+D89Ln11ej5+oAmQSQecKQv4Mx7Oi1JZW4qTb911iFfRa1qWdHFZx7M+3KtxvW
-	SB2q7ZVF+Wxi8xYKpxs/C/gmbkWN/31wi8IwZA8pzcjwfXHxPBqvKEqFH403hQZrNk6dIMgh+l84x
-	DZoCl+qgI5d3VMgJ4e1xvkuB+Ob7cwxB+VNVn+MvAO1aoW/wFg4QUfyNkzHkwH/VPTNiJwvlU3Yt5
-	MlNq8mpw==;
+	bh=zFdZ5kA/H7KeO7tGMO9tzAeDqOyh1/30PUTDg3PSJls=; b=iA3lQpbMGtiEkJZyt0sXQ2M8iI
+	BD+khXZD205A2/Ty1guYf0W8xKb7I+UJ8jW1jh/086xDazufKmQPgOUP4r8SkbDspEyY3CLHm6nwp
+	vmg5gTIp0ywXXn+5wg4tGgvbg8ORATCpO+t+oMXK0kFTTvbgnD3JaFsWMXxlfzTig/zXuLIX5QP7c
+	2Y5VBQGbCVxhFy8BJYA/Zztwvb6Trj4phCNx9k2ercAROr0cW5tLNGL1foF2jz0rBF793Z89jFQ0g
+	bdJxpC1h9ntUUTHJeMHOrp1zchVdtU0OYD9Y0AGDgqHmbS+vlFxNCnPyXybAJUq1ntQUlhJcgjBEM
+	qZA5jClg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhxoT-00000002wKf-0dre;
-	Mon, 19 Jan 2026 22:33:33 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vhyYx-00000002xxD-0C2M;
+	Mon, 19 Jan 2026 23:21:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhxoN-00000002wKE-2OSI
+	id 1vhyYv-00000002xx5-3sJj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 22:33:31 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=odNLrCCWFi9xNJtGQbBtVqAkn/W+/jhQYG/Eh3Bnik7DBcNPlcAxc7LRb0WMz2taEvASSZyr+t/J9+AUAEZU6avs6/gFM6hS0/SKdmkMzZGib52Jf/38ANAbrNzDTMgh7fhM4fCWA5Z8c3kinQSx8V4CiPO0bTaZz2/zFMkPBKn0PtlTVe+ssMbqc1R+24jEaeUDtxIXJmyToKkNPQH0hVzQ5fESyBneXG9DH7bWchilmj0Blit5qwmJwD0Um9JYs/YEay4BD6NfERIkNSLoRNgU/8cOYHN+BPvlQlqPUJ7wo8mdw0vcsb5y7JM5CF3uF+rP2a5XyAsNquFUIEqS/A==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6w7JHsMMaDwjhcDLxhKAh5ROor25JsuI07VVGuXZGm4=;
- b=B3skOy0YE3GzsKp2Zrym4Aa9wFAD5DIqgnJurAjkCId+ykM5/IkpZxx/mQul7chJ3sRgI4wkTa+kGEI7+HrjdWsTlYnVLR1sCmupQeLEXXXkXknL0ZKRB00ye8G1SP5LujkfabZGJQ2f0j9J+f+Q0z8T1agaZIX1g0i5en/9XDzcUt7Brdmjx/1dhUyNd1P5JE63oBVP3eIY6LNWRZRl85egrXAKAYkfISZCtz37N6V/Ns5jwIHZydfNLjuBJPEUKKIIQtEBejkG7+UkkE1PEnoiwZ/rw1dytXgvbwW8GPyj+fILw8TqyH+MUsZY7s5Gluz/+FgnOk/qhK7hyrnXjA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6w7JHsMMaDwjhcDLxhKAh5ROor25JsuI07VVGuXZGm4=;
- b=VbnkoyZ2sJ6PjQy7N0grw31MlDjHgKahMjF31xp3gv1VM3cfHEwZEThAm7DfbDx48qLTqy5ej3Gr9A/vntzgz+/orFa6AFMeT0LmdfbJ8WuyBdCqTHloVu0saTH9DAxYbz33DShrfFxgDFIZyueQv+ySTmNmOgMpaz2oycIuZE0=
-Received: from DUZPR01CA0025.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:46b::13) by AS8PR08MB7942.eurprd08.prod.outlook.com
- (2603:10a6:20b:53a::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Mon, 19 Jan
- 2026 22:33:21 +0000
-Received: from DB5PEPF00014B9C.eurprd02.prod.outlook.com
- (2603:10a6:10:46b:cafe::da) by DUZPR01CA0025.outlook.office365.com
- (2603:10a6:10:46b::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.12 via Frontend Transport; Mon,
- 19 Jan 2026 22:33:24 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB5PEPF00014B9C.mail.protection.outlook.com (10.167.8.170) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.4
- via Frontend Transport; Mon, 19 Jan 2026 22:33:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yJoy6VnYtjnRm8onT9rWvMA5sd6ncx6lq7lUrASQgpPLxxTCKC9yf5FQwizT/eWZM7YqDhTk4621FVYkFQcwC9PBGyIDXazSkHhvbxJiWH9KZ5FcyGy+J9Ntt4+1f7K7oF2c11kE0R/uPtXyLL6EJWNa5vAOCJGw4HAppXSHg29YjLLHaX4/5M/4DvQuCq/HCwQLMpFn7SaHfOl75hEGbGY4cwejcGqeTGoXAw7j/Hl1qXeOz4HFKsLoxE8AqRgmsPYbVoylgwlsDOSMAnzvnMaYefJkbUckdJLqzFhqj2oQApYTD6VrJqCHnH+aJLRsqHNRBPjeGSoDx6/1BPqu+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6w7JHsMMaDwjhcDLxhKAh5ROor25JsuI07VVGuXZGm4=;
- b=sEGPTygts2oYWI3vu6C5iZo5xABmNoAoyrXQAWHbVG87Ol5gxsDLeGvSlWaFg4eN2RIb8NcS3U6Tj+jFMaXj1lBFZrpzFawxRKjsqoSBOtYvpH3GmzpvuOOGqqaA2LDY4y2OUsowl+00F6RUcS48yTktY6cp1arm/yA0WVsIiqqmHEfS2JtyyjIXmWbgbM4Nuzl5a/vlSkWTGE6mE8zGrk3OtPFz1m2BV+7BxM6GMZDnObNsM5KqQWrmcMKAvY/focUkAkibJ2cnCa29K+zIrdDkM2H0D2QW/oYRXjRgEJVyQwvhegjsfDSZPxeltHLVAop33A5JzRfrurQ4zBWvSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6w7JHsMMaDwjhcDLxhKAh5ROor25JsuI07VVGuXZGm4=;
- b=VbnkoyZ2sJ6PjQy7N0grw31MlDjHgKahMjF31xp3gv1VM3cfHEwZEThAm7DfbDx48qLTqy5ej3Gr9A/vntzgz+/orFa6AFMeT0LmdfbJ8WuyBdCqTHloVu0saTH9DAxYbz33DShrfFxgDFIZyueQv+ySTmNmOgMpaz2oycIuZE0=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by GV2PR08MB8365.eurprd08.prod.outlook.com
- (2603:10a6:150:bd::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Mon, 19 Jan
- 2026 22:32:14 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98%3]) with mapi id 15.20.9520.011; Mon, 19 Jan 2026
- 22:32:14 +0000
-Date: Mon, 19 Jan 2026 22:32:11 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, catalin.marinas@arm.com,
-	broonie@kernel.org, oliver.upton@linux.dev, miko.lenczewski@arm.com,
-	kevin.brodsky@arm.com, ardb@kernel.org, suzuki.poulose@arm.com,
-	lpieralisi@kernel.org, yangyicong@hisilicon.com,
-	scott@os.amperecomputing.com, joey.gouly@arm.com,
-	yuzenghui@huawei.com, pbonzini@redhat.com, shuah@kernel.org,
-	mark.rutland@arm.com, arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v11 RESEND 9/9] arm64: armv8_deprecated: apply FEAT_LSUI
- for swpX emulation.
-Message-ID: <aW6w6+B21NbUuszA@e129823.arm.com>
-References: <20251214112248.901769-1-yeoreum.yun@arm.com>
- <20251214112248.901769-10-yeoreum.yun@arm.com>
- <86ms3knl6s.wl-maz@kernel.org>
- <aT/bNLQyKcrAZ6Fb@e129823.arm.com>
- <aW5O714hfl7DCl04@willie-the-truck>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aW5O714hfl7DCl04@willie-the-truck>
-X-ClientProxiedBy: LO2P265CA0311.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:a5::35) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Mon, 19 Jan 2026 23:21:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 604D5600CB;
+	Mon, 19 Jan 2026 23:21:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3BEAC116C6;
+	Mon, 19 Jan 2026 23:20:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768864861;
+	bh=ldLjdaVRt8rwNaafRAJAtJekxk0qF4a8CqmI6RgXLP0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QufClxowfNM78ARGXteTtwI1/Bk6k5rols0Y9Rvf+gshIOGPFMZ3/kfTOMJlC+V29
+	 U3d+BFii0ggeRi8TgHIYCjM6Wa6nhwPRa5azSaJIkLlGkoj2F32T7a22MN8HW7iJRP
+	 NkHRskFPa1mihS5fi0NsajP3YPOZOwWe6ehaiPkLhAkE5gT3aB9cb8OI+bG73NggTU
+	 DDYeIdIWzBcDov0gRzYnGtGC/87wlFLOQGe3yalZOahhjnRhfVe7DMn5fBOYGx9Cl2
+	 xpmFm23InrF5Deh86XaTwz8oPs1nuNDse1M6atJXR9lKljiJdfjPiTggG/LhD0TLNo
+	 Pf1BPxKGQFyEg==
+Date: Mon, 19 Jan 2026 23:20:56 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Cc: Michal Simek <michal.simek@amd.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] spi: xilinx: use device property accessors.
+Message-ID: <6e06696e-09a4-46e0-98fa-252690b888e0@sirena.org.uk>
+References: <9e559e33-4f2f-40d4-a15f-584548bd6057@sirena.org.uk>
+ <05D2CC15-DD6B-40F0-BFF0-3264D4FF96ED@nexthop.ai>
+ <b1b79de0-a078-486d-b3e9-96899354407c@sirena.org.uk>
+ <3D1B59A7-6E57-4C8C-AA95-EA7AA115264F@nexthop.ai>
+ <b9ad8ab8-7985-4c89-a82b-c7f31d32c167@sirena.org.uk>
+ <a6d57890-89c1-445e-836c-d8239d20c621@amd.com>
+ <b03307f7-93f6-4680-9241-cf28b5456fd0@sirena.org.uk>
+ <a3fcef3a-d1e9-4b46-b114-3a82575e052e@amd.com>
+ <980ad372-a2c7-417c-91f9-4958d3d1aaca@sirena.org.uk>
+ <4831B269-DFC1-40E0-96B7-67981AC72562@nexthop.ai>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|GV2PR08MB8365:EE_|DB5PEPF00014B9C:EE_|AS8PR08MB7942:EE_
-X-MS-Office365-Filtering-Correlation-Id: a9863143-3882-4c40-5834-08de57aabfe2
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?pE2XD2lzNWeZH069oKrRCW6ZGYWbiCVFkJbPMVJr/Ik33p1WZktQ14nA3tLE?=
- =?us-ascii?Q?2chLQfUt+iE0j6gMhh0xEUhD6vHAcpF1FSR4P6gvs0shnhd+o6m5KlFAkQVs?=
- =?us-ascii?Q?774TSmCvlNFfZBSFt0aBAiqRZ8N+bBko9pWl5GuB8RLeGm07hri/RlWriwzZ?=
- =?us-ascii?Q?YdEGUC0Dacetw3VLJV4RC5Zp+6/0Mhgbm+yIG+nWhky65DJkNgXRg/q5b116?=
- =?us-ascii?Q?o9FT/5zfEdeP1aI77A4hpADfkfWHyqQyyKgSAmd/zavi5G3ccRrx+D0czFpp?=
- =?us-ascii?Q?0Hh2vBkHHXqhAwV5FD4CaBgWU4Jjq9+Ub3UuHYq+AkeMrr9jStsGqWQszKOG?=
- =?us-ascii?Q?QCE//beeu8S/b/SoGYCAkOsgaHmFFG+ymj5Akk/7pmuTmZUr9ZzKooR0INxk?=
- =?us-ascii?Q?U1/hew69elTHqweCDx3d5zZo/5waEEdgwepBHfOP+PhA0Lf70uoNAYLF7tLE?=
- =?us-ascii?Q?xOfloAvk23X7koTKz+JmKUFPTHd7P7j2MrLgS8OJVOaD164U7cTy1Ww1vai0?=
- =?us-ascii?Q?X1LAFemNlDvNo3AI/+lHH4zz0HnNrsL3wkwS4FJjrvcjf8YE73asfBkAI/ve?=
- =?us-ascii?Q?88SD+WpC2XkorerY8nMkCqrb1hBb6q6fm6U3Ct0SkLUxwbJChljzN1vPQF3i?=
- =?us-ascii?Q?XHHEdbDpJD1aKoZ27UyqpZLyIkmtKMpY0nQDsGvbK+V2++gaxcwoR5vNilYt?=
- =?us-ascii?Q?4vxX9QcCKC8mZ5N1vr7WkSxV2r+5P6zYPJlcVN25wZKEckPyNE+uumShaYWO?=
- =?us-ascii?Q?xKsJQBHx+Yuw7bX72Fu8cOnt1GKDrJktU8oN+zhQNOhe320J42mM2EiWrkub?=
- =?us-ascii?Q?wtS/DBumYcGLf/IKM5ePFYRHCUIexuc3ckH+dNRhqDEpF2oCCfoXfhhajPI5?=
- =?us-ascii?Q?lbNZC2dj9+xboHCsGi+UDcwwkBHmXyCOXNdzGp9yRDrrCpbEw+fTfBJd7IfE?=
- =?us-ascii?Q?EMes9n1E546uNyLdXh00l5/XzmRop5YeiXHxXBg6kJodzUZ0DoUtgJcxh6ST?=
- =?us-ascii?Q?0BbjUqmRrt7TGAYHs8bMx+/+ywCUIn0C1IJ38cpjz/0PLRhIGO7ww2eq1Z2g?=
- =?us-ascii?Q?FIvJqSl2CXEeWEl7p7eF87npLzqwSfSeCsX/ZKmVeIH0FhawuklJ5FrkHEYl?=
- =?us-ascii?Q?ehFGfvUvIsl4lHiRIOPX1UwhFBiV9/gLi+TsWamDCILWvA9y6HZkVrmM/YQT?=
- =?us-ascii?Q?QgBpbNydIFEjL+FFjfVyT4JsYaaCTKPuy2tzJ5hGKHiTT5kgChfJa3DXXHMB?=
- =?us-ascii?Q?QduNPhx3JkxcXzPG68KetDnE4FPzgr6JxW+tT6TOMnDN504Y98qo2Dily/2R?=
- =?us-ascii?Q?9rWMvmXz1Tjv29Kya4LHKlmI9AnviZfmvAlpyx2G3MYrgJZFNaFROSP+q2s1?=
- =?us-ascii?Q?M2sslX8qWcAMgvcUv7lWuSem1MGEgHDV97NbGK1I4TPHv50woE7+XcYY8BQC?=
- =?us-ascii?Q?7k/TLotXQn8zubI981FewvVwNFY7wz4c51oCuw0bLYlCEJJ6Km041KiuwH2i?=
- =?us-ascii?Q?W08Cc0f4nqGXrLIqq6XGaSJdPhErlpCmZXAitVCWh+hknfdNbC8JUaMcZP3u?=
- =?us-ascii?Q?kJ8kc8CoTXUJpaeaDd8=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8365
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B9C.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 9bbf514d-69cf-4034-798e-08de57aa986d
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|82310400026|7416014|376014|14060799003|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vNcE/BwbqkmM6S+3NU0hcO7drbyLFeZf+r604vTnFpYy0GUVU/epqmssYOAX?=
- =?us-ascii?Q?LcAsxqwSHKlM5n2nxC1yMfp6UMwPOqit+rGfr18g+f0/UFT7eXUzK480euYT?=
- =?us-ascii?Q?c6+sfRTdUxM63j6jY6j3Z+Jh7rfaLFpDtaCaWbTKGESu5M7UW86gNURK2J8+?=
- =?us-ascii?Q?Fl4ZYeMElBpzGOLKdvOCAeIMHCg5qqx1HXm7dt18V279xeKWwZkh/AjjEi7O?=
- =?us-ascii?Q?K3P/aK5V/b7dagAA/giD1qXtsGrNCp5fTo5BX+WtCVqyjQOnJb9z/rQ3TH+F?=
- =?us-ascii?Q?RmRs5Y2+9vf94G+vvsLxnbSTZVQJ0kgEOYEO7ZnxoUwYlNSAPNXdsn45A3Sw?=
- =?us-ascii?Q?3v+vZL4b4P4V90HlZPilNagFl4060UVY9oq7AFPOJCrRlkO7pWdxkEdvJ7tL?=
- =?us-ascii?Q?iYX0CJbFYHRiO3OT/z/353pZ4HTqxmqDzk73Abwy7syEkFfVNAlKqmUTgXMb?=
- =?us-ascii?Q?GTcF3LIzK3vdgi1vAnQ8dNWGqh3NPfkE1bpJWwDUZ0jVnVvyPJGBwukiuM6l?=
- =?us-ascii?Q?sc54gNgFu0QWhRYYutyO5LEAFwPxwd3iruxH8Fabe/C2rMoK0Pyadp2xPia5?=
- =?us-ascii?Q?1/pp/k9mtZwX3GRZsd9upOOtyAy/maetKhW0ZX/l9IAjF+k+157bKF/3lTgj?=
- =?us-ascii?Q?0Fp+2sjbdM6QmrSDi8XMN4Lll28AW6aSZSj968zAqRn5lPTOiQZSNMsOoqic?=
- =?us-ascii?Q?62OmlZDyhVJgTgvJriN9EjI8muyzFyV8tU8+vgEHKMwYdwkYKjR1VhfYWozK?=
- =?us-ascii?Q?PnUyH3lXvHaUtHUrwi2hT8Kiz1Y6Q52MGRniVbnvtB8aICEEdhd1+y6Qgnqs?=
- =?us-ascii?Q?Y1GN7z+WA7+KmAvfg5KWcBkUbckoUo5NSb7AGELMU98KqIraQSBftah71ITr?=
- =?us-ascii?Q?GeTHB68htRCkxOPdA4W2Te84KgtVKYWjupikKFpOrVyYlPtLBF99uLL2OcWu?=
- =?us-ascii?Q?kC7jUnzS/FeOewMudxo/jf6897ZdBuYa2z1sq2/Wc3roVDjby6T5Tt4aJSU8?=
- =?us-ascii?Q?RQ/vpQSMZF6OSDpI71zeXdxoJYEBvUD5OcYfBX7Q66cIfgiXGEihMfvfc/+/?=
- =?us-ascii?Q?2gWQGtldr1STTA2HZ7glngFGv5/tXQxkhnku1u1Zp5m/psIyH814bWRIp2no?=
- =?us-ascii?Q?39jl4To+XjzVvo52HCkdpFdZX0BNRE0dssy3c5sIDBLdVZ+fEOvGnBcMk4fu?=
- =?us-ascii?Q?j4cVGPUvhKzrj87I9FsK22XnmFINJZ2yE4Sp3oyCvbK2Cm9dO+7KUghNUIGD?=
- =?us-ascii?Q?0sxgL4ps6PdNas05TFG8KOUELPbvlNoXKleufeZNu5oxxyJ/uXEzSM7ZjxgB?=
- =?us-ascii?Q?GLpRKvhY2Bv/ddfHuXZ1hruuTanb+Ha2bLSL5jZ84HhU+VDm2vEaFHUi+Wj1?=
- =?us-ascii?Q?RcZe5BEvnmmZ9vbr3wEk7Ql+deMVUefXDGILB44ClsOYZR7WdGMwsngso875?=
- =?us-ascii?Q?JY2GfgfYu7uCR7lUQ6v+nfFp+eHaOwNCr1rscnVaB3GR1OBlrw7UAi9i0Yuq?=
- =?us-ascii?Q?xKsqSZgnXQKSJE9zEiOMLoVWQQScbM4tLgyFN+uYMyp6w0n5JH30WjT4HXEj?=
- =?us-ascii?Q?YSeu8a77KknSKXka+kpOuyJafQvP3dxVPQS6PYZ/9QouYCw6p8a8DxUxoy5r?=
- =?us-ascii?Q?JrHymnLojVCH2pM+vhzs7wX2O6fcVpI+XBNjJH0c7g8gKnw+OJQ16wEzh6Pe?=
- =?us-ascii?Q?mFFa7w=3D=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(82310400026)(7416014)(376014)(14060799003)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jan 2026 22:33:20.7503
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a9863143-3882-4c40-5834-08de57aabfe2
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B9C.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB7942
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_143328_009893_F876AA36 
-X-CRM114-Status: GOOD (  28.36  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="atl+bvCru4JN8H0k"
+Content-Disposition: inline
+In-Reply-To: <4831B269-DFC1-40E0-96B7-67981AC72562@nexthop.ai>
+X-Cookie: Does not include installation.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -215,64 +84,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
 
-> On Mon, Dec 15, 2025 at 09:56:04AM +0000, Yeoreum Yun wrote:
-> > Hi,
-> >
-> > > On Sun, 14 Dec 2025 11:22:48 +0000,
-> > > Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> > > >
-> > > > Apply the FEAT_LSUI instruction to emulate the deprecated swpX
-> > > > instruction, so that toggling of the PSTATE.PAN bit can be removed when
-> > > > LSUI-related instructions are used.
-> > > >
-> > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > >
-> > > It really begs the question: what are the odds of ever seeing a CPU
-> > > that implements both LSUI and AArch32?
-> > >
-> > > This seems extremely unlikely to me.
-> >
-> > Well, I'm not sure how many CPU will have
-> > both ID_AA64PFR0_EL1.EL0 bit as 0b0010 and FEAT_LSUI
-> > (except FVP currently) -- at least the CPU what I saw,
-> > most of them set ID_AA64PFR0_EL1.EL0 as 0b0010.
->
-> Just to make sure I understand you, you're saying that you have seen
-> a real CPU that implements both 32-bit EL0 *and* FEAT_LSUI?
->
-> > If you this seems useless, I don't have any strong comments
-> > whether drop patches related to deprecated swp instruction parts
-> > (patch 8-9 only) or not.
-> > (But, I hope to pass this decision to maintaining perspective...)
->
-> I think it depends on whether or not the hardware exists. Marc thinks
-> that it's extremely unlikely whereas you appear to have seen some (but
-> please confirm).
->
+--atl+bvCru4JN8H0k
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-What I meant was not a 32-bit CPU with LSUI, but a CPU that supports
-32-bit EL0 compatibility (i.e. ID_AA64PFR0_EL1.EL0 = 0b0010).
-My point was that if CPUs implementing LSUI do appear, most of them will likely
-continue to support the existing 32-bit EL0 compatibility that
-the majority of current CPUs already have.
+On Mon, Jan 19, 2026 at 12:30:43PM -0800, Abdurrahman Hussain wrote:
 
-For that reason, I think it also makes sense to apply LSUI to SWPx emulation.
-That said, since there are currently no real CPUs that actually implement LSUI,
-it is hard to say that this is particularly useful right now.
-I do not have a strong opinion on whether this patch should be applied or
-dropped at this point.
-Personally, given that most CPUs released so far support 32-bit compatibility,
-I expect that future CPUs with LSUI will also retain 32-bit compatibility.
-However, it is difficult to say with certainty which approach
-is correct at this time.
+To repeat what I previously said:
 
-I would therefore like to defer the final decision on this to the maintainers
+| Please fix your mail client to word wrap within paragraphs at something
+| substantially less than 80 columns.  Doing this makes your messages much
+| easier to read and reply to.
 
-Am I missing something?
+> > On Jan 19, 2026, at 11:56=E2=80=AFAM, Mark Brown <broonie@kernel.org> w=
+rote:
+> > On Mon, Jan 19, 2026 at 08:17:46PM +0100, Michal Simek wrote:
+> >> On 1/19/26 20:01, Mark Brown wrote:
+> >>> On Mon, Jan 19, 2026 at 07:52:35PM +0100, Michal Simek wrote:
 
---
-Sincerely,
-Yeoreum Yun
+> > None of this looks like something intended to add ACPI bindings,
+> > it's not clear to me how we'd even get the device instantiated on a
+> > normal ACPI system.  There's no ACPI IDs defined (and there aren't any
+> > existing ones), just a conversion of the property parsing code.
+
+> These "random" cleanups make the spi-xilinx.c driver work on non-DT platf=
+orms.
+> Which is what the cover letter says.
+
+The cover letter just says:
+
+| Transition the driver to use the generic device property API.
+
+| Additionally, make interrupts optional to allow the driver to fall back
+| to its existing polling mode on systems where interrupts are either missi=
+ng
+| or broken.
+
+which doesn't mention any motivation for this, it's just a statement of
+what the patches do.  It's very unclear why this is a series TBH, the
+interrupts changes have no visible relationship to the device properties
+conversion and should have been submitted separately.
+
+> We are trying NOT to introduce new ACPI IDS, or fork the existing drivers.
+> But rather, to re-use the existing drivers as much as possible by relying=
+ on the
+> special DT namespace link "PRP0001":
+
+What is the goal in avoiding using native ACPI bindings?  PRP0001 is a
+workaround for cases where you have things that ACPI has never dreamed
+of and can't abstract well but which have already been handled by DT,
+it is not something we're aiming.  The hardware you have described
+seems like fairly normal server style hardware and like it should fit
+well with normal ACPI.  Adding ACPI IDs to existing drivers is pretty
+common and standard, I'd class that as reuse.
+
+As far as I can see from the example you posted the devices are all
+fairly standard and just need IDs assigning to work naturally with ACPI.
+There's possibly an argument for using PRP0001 for the flash given that
+it's not especially idiomatic to have OS visible flash on ACPI systems,
+usually flash would only be visible to UEFI, but equally the description
+would trivial and systems wouldn't have to use it.
+
+> > You should use whatever firmware interface is sensible for the platform,
+> > if that's x86 that's always ACPI.  For other architectures there's a
+> > split with servers using ACPI and more embedded platforms using DT.
+
+> Which is exactly what we are doing - using ACPI on x86 to describe the ha=
+rdware.
+
+There is the bit where there's a PCI bus in the way and you don't use
+ACPI particularly idiomatically...  I can see the dodging out on the PCI
+bus description, but the way the devices behind the PCI bus are
+described seems confusing.
+
+--atl+bvCru4JN8H0k
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmluvFcACgkQJNaLcl1U
+h9C/sAf8D/AWHIpwscNsYjs1nRd2HhBRgc22hUt7u4LRBmLMxi+3HBMCvum4Z9kd
+y6BPE0bKqyoxv4xk0dF/dsYTGD6bg8awUFlxyBF2hzvooAmQrFqzz5N5y/WqJRSB
+mB4MJ25kI3628smmPFgi5TPOoSmANs+cyyWNsVo5MK4KmISEyLfYkre59cg49jUY
+KAmiSFBjQoslcaOREtPAhybgifHIzIPgmmieX8owbmyziUpO77XKHQ57OweE0W0z
+nlY9HhDDMTu/pQMHjfmUwpCPNUIeKFSedWw039j97Jq2oOUGTLSO0eI5PyG8XZ0B
+S/7YhqqpYF+ND2oz6iZf9JmYzq8P4A==
+=mcAY
+-----END PGP SIGNATURE-----
+
+--atl+bvCru4JN8H0k--
 
