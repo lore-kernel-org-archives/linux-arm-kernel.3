@@ -4,86 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A7BFCCF2D2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 09:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC99CCF2D2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 09:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NXcdWG287LzF08jF155k+OwAYqGcwl1txjLdu6FJhII=; b=iyhgo4XJfhFYZsoX0BJzdmmpgm
-	a7ShU00jDgroiaclLkHFpm71Q53fKVeV3F/1XJk/rOj5Ute/X+Fm+S/w6X3qYxsOe0bZzccrz73LH
-	tsoR772Cne+hRjxWeoBHVq6cZi81UW8RuS5MQcvd9z2Oizs6kyTx6/I9Ab9t0BhlKKuOgKp1O/6wU
-	ZcUvxXV2g9G8dPPSrjRLjCTfXx0rCFJeJhbW36sYDmKWpGEYwltY22kbESgTS6h90SV4YIFQRADcY
-	Fh4w1eXIkZdXk0rkBj0gkenF9S1PT2OkB+G1YXN8cYsPym2Sug5gHO80UaVuWxsD7oWRpquwJbGqf
-	G9oCL12g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g0tFE/AVqw6l7os+M3C9eO0i9mKqrHAbantht9EwqFA=; b=wl5G3YYW5nFpEz6MKviPJHLvNJ
+	dOfC0sU7dG/88V8+99dztdbP3ZzeS3bZxob5S78vkZrQl7lAKfg5s4wtidGfp6WYcToQFCrNrjJut
+	pzG1r2mYGRsG2BH/YXIL6nMdb/VXsnrTXOOpGeZSm3Lh9q/8tGWzfRDvHsVQhUAv7a7OTT29OSArg
+	2oqy3/t5Fz4Q/m4qe3FX2GCudCfafaxXjX/bjNs+hXmM+D0u2mt1fVEPuUU1haaGU5EUjO9FgJLF2
+	zmZTxwFGM2vaVQ5iXg7ic+LblNZGR3G1T49Mk371tb8DYbcmmU/9893yTWo998gFSlwJFeLVn1cy7
+	BANzKcag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhlXe-00000001dSo-0FhX;
-	Mon, 19 Jan 2026 09:27:22 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1vhldm-00000001dtj-0nGv;
+	Mon, 19 Jan 2026 09:33:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhlXb-00000001dS8-0OmJ;
-	Mon, 19 Jan 2026 09:27:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1768814838; x=1800350838;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=FnDqYCqY4eMQu1KfJO2diG09+hGAQVkPBUCJXUeIZ0A=;
-  b=mkG5skaIOQjYosZQq4bgzYL0Rt0GVK3ebTWZCHg5B+cflS6ijPVqOBXZ
-   grB8oWmyGLUPvo8R+1rycaZkA8m5pD4lCBdxw1jaUpVCLFdWxv2EAAlA4
-   TA9wYvP36+exx/UHAgevKKMEZad7wSTuHo8Bu2RnFXcx5W+wdx4kEYUf2
-   2dII6Zq5Ge3hgTL4VW2nYm/Q4feTSjPKuGJUHULMH6CHuGZFkCd6AWrqw
-   FUuSi3LR7ren20az831WLjBeJQMiaj8D7dZVRpsQMGXAHrW/t8vdlkXRe
-   6Irsup9Et0uoksqGMOptvS0Nh867qAgkAYC/QHKDn3yX569ujtAB+mfVj
-   Q==;
-X-CSE-ConnectionGUID: i0zijf1nTfiJcIl2a1rGow==
-X-CSE-MsgGUID: 5Vc33klYRPeu5OUwKZF+zg==
-X-IronPort-AV: E=Sophos;i="6.21,237,1763449200"; 
-   d="scan'208";a="219379894"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 Jan 2026 02:27:15 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 19 Jan 2026 02:26:44 -0700
-Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 19 Jan 2026 02:26:40 -0700
-Message-ID: <bc019bd8-34d3-420e-8519-09700437fb01@microchip.com>
-Date: Mon, 19 Jan 2026 10:26:39 +0100
+	id 1vhldg-00000001dtM-3dkF
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 09:33:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8CBCF416F2;
+	Mon, 19 Jan 2026 09:33:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBC1BC116C6;
+	Mon, 19 Jan 2026 09:33:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1768815214;
+	bh=/4SR4V4CxGLt5YZR1VuSCKd7opFB3UpRFapIrS+K6Qc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OQMc4otX7TzNsUxgq+3vqJY7WADVUcOotynEgop6JKkAftaKHNK9pzTlY1I5chFPy
+	 v0HJ1TWzaYSLOcHJ18dG7RFBE7nmtuiTWwAVSSsGniFgNdcJ3QEQadNVArH6WKynGB
+	 xvEVfJiREpj9USkaJP00p/xit4+UD9/vMMnoL9dM=
+Date: Mon, 19 Jan 2026 10:33:31 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Abhash Kumar Jha <a-kumar2@ti.com>
+Cc: pawell@cadence.com, peter.chen@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org, rogerq@kernel.org, u-kumar1@ti.com,
+	p-mantena@ti.com, theo.lebrun@bootlin.com
+Subject: Re: [PATCH] usb: cdns3: host: Add null check for host_device before
+ accessing its members
+Message-ID: <2026011935-ransack-unworldly-7cf5@gregkh>
+References: <20260119082242.1922599-1-a-kumar2@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 9/9] crypto: atmel: Use dmaengine_prep_config_single()
- API
-To: Frank Li <Frank.Li@nxp.com>, Vinod Koul <vkoul@kernel.org>, Manivannan
- Sadhasivam <mani@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
-	<kwilczynski@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Bjorn
- Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>, Sagi Grimberg
-	<sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>, Herbert Xu
-	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, Koichiro Den <den@valinux.co.jp>, Niklas Cassel
-	<cassel@kernel.org>
-CC: <dmaengine@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <linux-nvme@lists.infradead.org>,
-	<mhi@lists.linux.dev>, <linux-arm-msm@vger.kernel.org>,
-	<linux-crypto@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<imx@lists.linux.dev>
-References: <20260105-dma_prep_config-v3-0-a8480362fd42@nxp.com>
- <20260105-dma_prep_config-v3-9-a8480362fd42@nxp.com>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Content-Language: en-US, fr
-Organization: microchip
-In-Reply-To: <20260105-dma_prep_config-v3-9-a8480362fd42@nxp.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260119082242.1922599-1-a-kumar2@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_012719_427968_581B9AF6 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20260119_013337_669426_4FEEE3E5 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,55 +71,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/01/2026 at 23:46, Frank Li wrote:
-> Using new API dmaengine_prep_config_single() to simple code.
+On Mon, Jan 19, 2026 at 01:52:42PM +0530, Abhash Kumar Jha wrote:
+> In cases when the xhci device is not populated, we see a nullptr
+> exception when resuming.
+
+How can that happen?  What changed to cause this?
+
+> Add a nullptr check for the host_dev before accessing its private data.
 > 
-> No functional change.
-> 
-> Tested-by: Niklas Cassel <cassel@kernel.org>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Fixes: 3a85c1011540 ("usb: host: cdns3: forward lost power information to xhci")
 
-Looks good to me:
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+No cc: stable?
 
-Thanks, best regards,
-   Nicolas
-
+> Signed-off-by: Abhash Kumar Jha <a-kumar2@ti.com>
 > ---
->   drivers/crypto/atmel-aes.c | 10 +++-------
->   1 file changed, 3 insertions(+), 7 deletions(-)
+>  drivers/usb/cdns3/host.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
 > 
-> diff --git a/drivers/crypto/atmel-aes.c b/drivers/crypto/atmel-aes.c
-> index 3a2684208dda9ee45d71b4bc2958be293a4fb6fe..e300672ffd7185b0f5bf356c2376681537047def 100644
-> --- a/drivers/crypto/atmel-aes.c
-> +++ b/drivers/crypto/atmel-aes.c
-> @@ -795,7 +795,6 @@ static int atmel_aes_dma_transfer_start(struct atmel_aes_dev *dd,
->          struct dma_slave_config config;
->          dma_async_tx_callback callback;
->          struct atmel_aes_dma *dma;
-> -       int err;
-> 
->          memset(&config, 0, sizeof(config));
->          config.src_addr_width = addr_width;
-> @@ -820,12 +819,9 @@ static int atmel_aes_dma_transfer_start(struct atmel_aes_dev *dd,
->                  return -EINVAL;
->          }
-> 
-> -       err = dmaengine_slave_config(dma->chan, &config);
-> -       if (err)
-> -               return err;
-> -
-> -       desc = dmaengine_prep_slave_sg(dma->chan, dma->sg, dma->sg_len, dir,
-> -                                      DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
-> +       desc = dmaengine_prep_config_sg(dma->chan, dma->sg, dma->sg_len, dir,
-> +                                       DMA_PREP_INTERRUPT | DMA_CTRL_ACK,
-> +                                       &config);
->          if (!desc)
->                  return -ENOMEM;
-> 
-> 
-> --
-> 2.34.1
-> 
+> diff --git a/drivers/usb/cdns3/host.c b/drivers/usb/cdns3/host.c
+> index f0df114c2b53b..8cc7fc1de6193 100644
+> --- a/drivers/usb/cdns3/host.c
+> +++ b/drivers/usb/cdns3/host.c
+> @@ -141,9 +141,12 @@ static void cdns_host_exit(struct cdns *cdns)
+>  static int cdns_host_resume(struct cdns *cdns, bool power_lost)
+>  {
+>  	struct usb_hcd *hcd = platform_get_drvdata(cdns->host_dev);
+> -	struct xhci_plat_priv *priv = hcd_to_xhci_priv(hcd);
+> +	struct xhci_plat_priv *priv;
+>  
+> -	priv->power_lost = power_lost;
+> +	if (hcd) {
+> +		priv = hcd_to_xhci_priv(hcd);
+> +		priv->power_lost = power_lost;
+> +	}
 
+Shouldn't you be returning an error if something went wrong?
+
+And what protects hcd from changing right after you tested it?
+
+thanks,
+
+greg k-h
 
