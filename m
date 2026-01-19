@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14120CA5FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 07:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4366CA5FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 07:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QdqXJQ9SD4mBVfDw4jh15uw9xK6Rmy9YzEWN76DUozM=; b=YkxbrsQycPy/e8VXst/PYQdAWV
-	jOVJvsr7F/EiA6OuruUXaGOYdxxAfLNySJqPF96K0wKsKLlm6+SCtS5Kv3vERTAa1+wCaspJT8lEK
-	urJA0T1KfoCSk1NrU02FAuBAovwbQirGjT+bU4i0EWjVxKT9SOZplYdrOWJIkG+lCxLF3eH4Kb+Ir
-	OfWOkJ9v6vWPGKRdIyr4WNCuOopJ9yDT4lLsaIJDwsEsXAMJMm9F5rRP2d0F3f7dMxJiX9XP4tbES
-	eh1MCbBrsdCIA9jtNfc07Ju/6fnTeH4KP/ywLmkvt0US1YXvfjnh8sqs910UGOsU4JZKopaibHkUl
-	Y0/BXpJA==;
+	bh=6kMyqcpJJP2P08zzKIVj02gHaGo8sAGB5aCenicHDwI=; b=sASvfqJu/PJG1bOK5ZclWMck3i
+	wXVyadRgBpBkSfIplU0dAjYrPP6MtC/lCLcFIaIe72piazoQ47aDk1SEKEIRZDHm+VJ+Xdqp7DKKl
+	DoojFYHwxk6n+hV6vVj2RxdjuoDJaFwninSHKmM6n5bdcKaa8HWVrSl2Db8EprWuCNS8bVtUO0V/C
+	EKRi2tDAz1Th7wLZOTS9HIxrXPwVNoc8Uijeb0KCLMgV/YCO81UB/pYIbRiOWKu+xHhwDfyr6BeaU
+	KpPl/bgc1Gpi5uQxQGGYZuyTdHsTO6tcD1Wmfsk477eakipmi+PBt4j7fCVU/CE9CLEmMV2s/+1lQ
+	KuX5I06g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhjLc-00000001Rpc-26v9;
+	id 1vhjLc-00000001RpC-0dlh;
 	Mon, 19 Jan 2026 07:06:48 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhjLP-00000001RlS-2fxn
+	id 1vhjLP-00000001RlT-2k5Y
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 19 Jan 2026 07:06:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 727CF444FC;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7CC9C44502;
 	Mon, 19 Jan 2026 07:06:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 41A10C19425;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4CD08C2BC87;
 	Mon, 19 Jan 2026 07:06:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1768806394;
-	bh=CBGg3x/vucOg+TkQQF7Y4KAwGgR2HgDde7MgFS6bYuU=;
+	bh=u3K96sn3kaP5ZMu4Inbphv8OWU2bjFbfkLD6u/MxeC4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=GKaEAnEzMyE//jpsjeXOcE6qOtEjh43DlkPb5Oe5wx1PBj9OqvR9phWxtx1J4q9Ne
-	 BjmC9oYHA1u25xgWaj2+W0ca9rSJbCfvOdNrn3Cr5DzAUVCyLFgKFD2+qmmqktSEGx
-	 qBFX3DF8Hkm2Sy0an6lUuLNjFpK5M8bOuTDwmL2m+O5x+nao3y60a4keuF31roDt8Q
-	 FcfMElVJqUyYm4wHmTKrfjjaDpDZbGm9L4Wmy0fz+KiDVmyD5rvSQ6hXmU8st1cLQ9
-	 7Xbs+ApJDEbxwfhucvvKigqXIABH7sc2IasZaPT1gvSSqMABpo8A7L49svLShS44Rz
-	 WXXKsOnZDaqcA==
+	b=gw3yHfoTaTPrAyMvnzd1S/99WaaupLVOWze2HSvrDL4JJLbfS0XdP4bNwVwprQCIH
+	 akDLUMOpG/TuA7XVdSsbgdLydSSm+JULAgHADdZH+Tkr8x3QMfB1L2ZPPoU7fDcHIf
+	 qOTNngttO7Weo3TXir/tj5LeqYUqbLPKSrjcM/oYduFieXA6JZhERiqX6RIG3XlUYW
+	 a0KHWDIkwuasI8u/Hap3SjHIzEP5IG+4H8O+pf/yRf4o8k5x1y39yk/v2uV71mFrv3
+	 gdWbdRjNj2XMJuPBvX+ynOuEQTi9OKa1lajQi8BXbUdwAL8Y0pxOctn7rIISqFqgD6
+	 gzbcLg/PSG0BA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 331D1CA5FF5;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 44547CA5FF7;
 	Mon, 19 Jan 2026 07:06:34 +0000 (UTC)
 From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
-Date: Mon, 19 Jan 2026 07:06:23 +0000
-Subject: [PATCH v3 2/3] spi: xilinx: make irq optional
+Date: Mon, 19 Jan 2026 07:06:24 +0000
+Subject: [PATCH v3 3/3] spi: xilinx: use device property accessors.
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260119-spi-xilinx-v3-2-4566c33bac0d@nexthop.ai>
+Message-Id: <20260119-spi-xilinx-v3-3-4566c33bac0d@nexthop.ai>
 References: <20260119-spi-xilinx-v3-0-4566c33bac0d@nexthop.ai>
 In-Reply-To: <20260119-spi-xilinx-v3-0-4566c33bac0d@nexthop.ai>
 To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -61,19 +61,19 @@ Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768806393; l=964;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768806393; l=996;
  i=abdurrahman@nexthop.ai; s=20260119; h=from:subject:message-id;
- bh=PBkRm5i7Y71sKWBVU/SvixzOItjnO8vO5sXpyGOffJs=;
- b=t9iSVOWCuMCe/7ZCazYCqmZGC83AcNhDLXOidgKbHtDmZUNA4H01/V6Cssev3nPLdV91x4NKb
- dHwdG/Wva74CZjpS75S7uc1856hxqJ4fpb/I9gkcrFRmn7CmUsyzhWw
+ bh=5Z9Lfw4Ms5TcSIWQwUqr5lvpEWwq7CP+Bn9jodMd2/I=;
+ b=b2d156WBDJn95t3Soo/2/DM72vaW8XXHo3TSPZhHT46rJH8In8ygdUXGPL58qNn052PIiR7/E
+ eygipSy8BSwAJaNyL3HRid4K04WCK1lspGGY5DooTVfKb1F+Pks67El
 X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
  pk=S+ysnf+NwMcBdHBlyKIUEAtaFGSIhQwcJcgcXhq0osg=
 X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/20260119 with
  auth_id=608
 X-Original-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_230635_701949_2764647E 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20260118_230635_717322_6DB48A53 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,29 +91,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 
-Both the hardware and driver already support polling mode. By removing
-the mandatory IRQ requirement during probe, the driver can now fall
-back to polling when an interrupt is unavailable, ensuring
-compatibility with a wider range of systems.
+Make the driver work on non-OF platforms.
 
 Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 ---
- drivers/spi/spi-xilinx.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/spi/spi-xilinx.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/spi/spi-xilinx.c b/drivers/spi/spi-xilinx.c
-index c86dc56f38b4..4aa67fc61cb6 100644
+index 4aa67fc61cb6..9fb1da2fcce4 100644
 --- a/drivers/spi/spi-xilinx.c
 +++ b/drivers/spi/spi-xilinx.c
-@@ -471,7 +471,7 @@ static int xilinx_spi_probe(struct platform_device *pdev)
- 	xspi->bytes_per_word = bits_per_word / 8;
- 	xspi->buffer_size = xilinx_spi_find_buffer_size(xspi);
- 
--	xspi->irq = platform_get_irq(pdev, 0);
-+	xspi->irq = platform_get_irq_optional(pdev, 0);
- 	if (xspi->irq < 0 && xspi->irq != -ENXIO) {
- 		return xspi->irq;
- 	} else if (xspi->irq >= 0) {
+@@ -405,11 +405,11 @@ static int xilinx_spi_probe(struct platform_device *pdev)
+ 		bits_per_word = pdata->bits_per_word;
+ 		force_irq = pdata->force_irq;
+ 	} else {
+-		of_property_read_u32(pdev->dev.of_node, "xlnx,num-ss-bits",
+-					  &num_cs);
+-		ret = of_property_read_u32(pdev->dev.of_node,
+-					   "xlnx,num-transfer-bits",
+-					   &bits_per_word);
++		device_property_read_u32(&pdev->dev, "xlnx,num-ss-bits",
++					 &num_cs);
++		ret = device_property_read_u32(&pdev->dev,
++					       "xlnx,num-transfer-bits",
++					       &bits_per_word);
+ 		if (ret)
+ 			bits_per_word = 8;
+ 	}
 
 -- 
 2.52.0
