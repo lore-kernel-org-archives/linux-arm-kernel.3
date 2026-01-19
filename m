@@ -4,112 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5437D4A5F4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 07:33:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64806D4A5F4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 07:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U0ahzAOwsK3I30DVXt7Ne0dyRxyxzPxU5WVcboIAjPU=; b=LOWO++DLKMZWL9BTxyMo0qHsBK
-	b+iPJfh5iw/6mC2jxyQQ/S+lWuGwt+NYHlVwA6X9vdGOkvMFndbNsYhC2w88Vbm7B8maD8Vurw9oh
-	EzjFucsUSY9dMN5uc2j5qtjr3kK+VE6fFtN7e+z/5y/eFYFan6vJzZ8VEKhuBklmqZUZPMolP0FCz
-	zsaiFzN8Iy1psXHQWt2mqh4kIYBlPqXWs6Bg0C6DPZYWRQRQyxtPO6yDEB9w5geGzcA3FGWV9q2n9
-	uwrKZ+aXeP6KQoQ5DWP1CLAuKap9DgAgMPxcfDHF1FPpSe4mLMRHOqasezjGfneeWtNADkfT++pES
-	YnscXoug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T+Mp2cAzIjQk/XVhc3r0i+qdUMWj/sYGX5LNPwYnZpE=; b=kDvcRHslyJo8qwEdjqHEdu8R9w
+	+L4aJIZg5fjAwjn/LjcgNXLbgvy/rn7cshYH+z05jRTkapwg0us8K9CrHNN/gBmiGT/aC/p8yJ2NJ
+	BsXf66/eeM4he0Bf0CSEVeaXCpJTYwE8ceN1nRH2TppLnmHKGnMU6WbVfoN5enkkgb/2oM4WONod4
+	8kNiBmx16DxNJc/gWBjxRG3q1WixjU2CffYhvQEVx4gbtAugCtwkPINucyWCsaXjwRm/AuYQEs2Dd
+	dodUhsWiDMvOvQ0SychWHKKT5k9xvkcIGvzVN/4pLmO8rYbR+Yfqx500d9ibEdmZQHQeM/t+M6qQ0
+	tudb5QTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhjll-00000001Ung-21tQ;
-	Mon, 19 Jan 2026 07:33:49 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1vhjlt-00000001Uuz-2WcR;
+	Mon, 19 Jan 2026 07:33:57 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhjlU-00000001UP0-2qre;
-	Mon, 19 Jan 2026 07:33:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1768807950;
-	bh=U0ahzAOwsK3I30DVXt7Ne0dyRxyxzPxU5WVcboIAjPU=;
-	h=From:To:Subject:Date:Message-Id;
-	b=Q6mUX+wVLrVsI4jJNLhtM4SCRBdXuVHZ72yPsoQfDBg1CJIUDsQEB0Ga+fTgpzHd+
-	 KNGRiiLwAv5Vg5oeNsqDpAh5Xoc6cXLcXMTDMAErpkvZ/21q5ZVzPjYNywzW1F1kfV
-	 MLvQpcZ6WxzB8FqlZ1sioMeiCcQx93CFDw2WRJbg=
-X-QQ-mid: esmtpsz17t1768807947t6c620025
-X-QQ-Originating-IP: 4/DQe9zBJPz+u7arfEakRzgFkkH4PMCGXrVkOz+gmz8=
-Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 19 Jan 2026 15:32:21 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 9088237500228411525
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Peter Chen <hzpeterchen@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Yubing Zhang <yubing.zhang@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Amit Sunil Dhamne <amitsd@google.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Johan Jonker <jbx6244@gmail.com>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Peter Robinson <pbrobinson@gmail.com>
-Cc: linux-usb@vger.kernel.org,
+	id 1vhjln-00000001UoX-0ftT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 07:33:53 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2a110548cdeso26632745ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 18 Jan 2026 23:33:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768808030; x=1769412830; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=T+Mp2cAzIjQk/XVhc3r0i+qdUMWj/sYGX5LNPwYnZpE=;
+        b=dS6pbTYLxWmXZXevd2CPmCT19gPdGkPhfter6G0E5T3NBLJ+YNaqr9H4Pq653XKApL
+         CfGenGYkcCknvdIcOQJDy4dorzhjngh5yHTXadjHkBMzOSNFr7lpvKPRCRGaJFmB+jXX
+         /2WSplvch1P9czcinhlEbZlW2RoTAkApl6gCjWy1Ri2RwX1kacciLd4/g/GhYOPRdxJc
+         VTAT7mhTp/41+s1QqyZviXlvGNnLdc/iLLiEYZmJKNb2fw1/XbQgBsDWPv51ePyi9CFs
+         E+x1iRXHze00cQkUAD3kVbTQIHMqz/OWXlG7VVopjUQcHDjHnXjeLLyi3Rvt+sTOhjug
+         jtaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768808030; x=1769412830;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=T+Mp2cAzIjQk/XVhc3r0i+qdUMWj/sYGX5LNPwYnZpE=;
+        b=aOiYKArO5O3wHcEqxcPYdX6Hxdk2S5cg1+FRB4wMbaW2jqHfGjSuODoIUNYrn3llHC
+         E/Bms/6lgkScpETSpUdDO8WuoYHV9kWZLSGPLfkt0wFt76L8+IyjMRUzsRmLf/KJr62V
+         JuMejNEZwFaJ10tZsh6GM4iAIK17r5vhr2zM9U8G+FoCwEUh0FnBJaGhIdyNN+AksFj1
+         D46TmpatgVvcksaX0cAox9iOzZKsw63sRmhlODgusV2/zzat4meYCQ8F4NDk5qRPPHu6
+         f/7UDdc8Fl4MyP65jIJuvYmgod1fdcj2Uta1REXhI7YpAe1IVFIZwV/i41df5zHBSZid
+         /lFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVdX1pawCQzAXQET5swE4422ux/MNxG41sgNMstzzKQTlaoy+rOfehXq+WwDvLWjSJtEUW0kpP7Y13BGnDMkxuq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMc+u5fXQsVOuJ+HO5KOeIdQggdsgfFklNjOMx1cYJNi8GOrd8
+	jJ2L6SHU5yIJg0IEPqX5QynuX9Soh3fSTIx3fFxz53+QI+VWq6NyZBkh
+X-Gm-Gg: AZuq6aIdXXhnWoZZBO00QP8+EuZqr398c3RzhURNi0uDcCCCJSjGCjyP8wRl2xR8xOe
+	rPvy6d8eHMTgCigvhkwjpCopGThz3oBFAMxHP7N+Ne7oBObcMITQEn11ZwFw/mvFhY9lRDSElgq
+	RqbHP5p1FB5G/AkRC6peB7xmUsyASwAEThrs5ZbWKQRpc1QFZu8WJxHmYGtG1huDs/mD8DDUC4A
+	yGSIeSha7gr5Z2aTdObMggMBKEyaOTE53gX2mT+tPWB6CxUOZWxD4KXJ2hTvBRZM+2g4z/sSMeY
+	GszQ/XxflihcBdY+kXl5Hl/ZVkkPfFgbyfT+vsUBiLNzWKDc2PgFjKkRwcoH0fpAb1TlUqhPJT3
+	XO7RU1vv01DKmGChBkQdDvUh76LSvxk2llqV58BxhNE+FSDXqDdfaChM27p8MBsL3tvUSANdGyq
+	Z+9qbf5KUMTpHt3tiG41JWXYU7AIc42in7X4p0N98ZiZxF7B9yhNPOvdVfvLLeYYf3RSOW+SII
+X-Received: by 2002:a17:903:350c:b0:29e:9c82:a918 with SMTP id d9443c01a7336-2a717535134mr90244535ad.22.1768808029614;
+        Sun, 18 Jan 2026 23:33:49 -0800 (PST)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a71941e3cdsm84863325ad.100.2026.01.18.23.33.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Jan 2026 23:33:49 -0800 (PST)
+From: Joey Lu <a0987203069@gmail.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	richardcochran@gmail.com
+Cc: alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com,
+	ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	yclu4@nuvoton.com,
+	peppe.cavallaro@st.com,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	dri-devel@lists.freedesktop.org
-Subject: [PATCH v14 9/9] arm64: dts: rockchip: rk3399-evb-ind: Add support for DisplayPort
-Date: Mon, 19 Jan 2026 15:31:00 +0800
-Message-Id: <20260119073100.143-10-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260119073100.143-1-kernel@airkyi.com>
-References: <20260119073100.143-1-kernel@airkyi.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: M5aCtjAndv5Ol5FLO3J3TqWga1Oj9byK4wkJwddQ91zPJ+97rNFPtkSw
-	Pid6Hy8eq7mylRII3WctLd5t9HGo1JzrPe51pKruS1vmmiheX1QUis2HKJv6RCR8Qqn80Ib
-	2IwF/FAhlSbChvjloLFZPS4tI2lIwJjIdKRmAp1munqvY2Z457AJsRPhYmtMurYhpJZVgSa
-	7geJoHMUjTMZjf4prcKnyJgBBz+ZdgatobeTFjPlfmCo7GiMXokI34FuQSCuNnhgmFTlU67
-	wldgQmZ1UamyqP70K0PONvNtfg+VdYokqx4TAtDUPr8XIRTFN83w1hgZjus1Idgk60sA2AK
-	3YHOQ+Onb2UUFmr69vsbd1ABQagyDx8neC3AEF1CnUkig024OLkOboyBuY7JqnghsonfqNn
-	FqWxyAc/fg3yThamKUk+ApEK6cJX3YUkd9fwv2FqqDfoT/emATXOrjvhEBJR16GF1V+qKkm
-	Ait+0mmZKK+WA4aM/tDQs8V/bi80VqnfWhebuWfo8ueOvSDXGiUxXx+YkFDzZt7bASqvXUi
-	N+GfEx0pStO1czzZS0Tl2jP/opAlrGtXFZpUvJZpCx0yFubCWteDYc+S7RmWW6VeyyO/JXz
-	k+CSg+6dnMtmsEef9fKx5Ot9NwLhQpFw9vB1tdMYLQuvgSIEsDn/cAga02l0m8aK4i/83a0
-	gvD+rGCNg7uovowal65e/8/2tS9yka1YS/bSwii0dFcm29q741PREvHxvmTGm0/FHhg0QbS
-	ppI9wuwDXZHPdWjVRB7lFNKZcsb8ymLQhO6dn2F+Hx2vvCydl1cL4FBQ9H+G59lWGzJq1D4
-	u2gfoMDgmsX048wmD3HsI/8b9nG7IcFk3GAu3YVhrXbbHaCsUqfkZTebrcOa5g8zVDKjclm
-	zVFQ9fVJfL76BwOXpF2nnET9eINMuvkKo6DmVeunLjzD+XGsr7hqF6OAM4VOecmBUakdHO2
-	DJWlK3Zy1djGxMZX8KczGmgVuESmLilpCKJ5QH5qbpxREy+8ZJOHGFXuNbazf3b9/8vHvy1
-	YmFUVlVJ7u22pP4ohH
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-RECHKSPAM: 0
+	openbmc@lists.ozlabs.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Joey Lu <a0987203069@gmail.com>
+Subject: [PATCH net-next v8 0/3] Add support for Nuvoton MA35D1 GMAC
+Date: Mon, 19 Jan 2026 15:33:38 +0800
+Message-ID: <20260119073342.3132502-1-a0987203069@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_233338_278748_C7C930A1 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20260118_233351_314404_C160E693 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,249 +115,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+This patch series is submitted to add GMAC support for Nuvoton MA35D1
+SoC platform. This work involves implementing a GMAC driver glue layer
+based on Synopsys DWMAC driver framework to leverage MA35D1's dual GMAC
+interface capabilities.
 
-The RK3399 EVB IND board has a Type-C interface DisplayPort.
-It use fusb302 chip as Type-C controller.
+Overview:
+  1. Added a GMAC driver glue layer for MA35D1 SoC, providing support for
+  the platform's two GMAC interfaces.
+  2. Added device tree settings, with specific configurations for our
+  development boards:
+    a. SOM board: Configured for two RGMII interfaces.
+    b. IoT board: Configured with one RGMII and one RMII interface.
+  3. Added dt-bindings for the GMAC interfaces.
 
-fusb302 chip ---> USB/DP PHY0 <----> CDN-DP controller
+v8:
+  Changes since v7:
+  - Rebased onto the latest net-next.
+  - Removed unused symbol.
+  - stmmac parent driver now reads hardware features directly to support
+    Wake-on-LAN via magic packet, so PMT-related overrides in this driver
+    have been removed.
+  - Update dwmac-nuvoton driver:
+      - Update the license to GPL.
+      - Improve the description in Kconfig.
 
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
----
+v7:
+  - Update dwmac-nuvoton driver
+    - Update probe function to use stmmac_pltfr_probe instead.
 
-(no changes since v10)
+v6:
+  - Update dwmac-nuvoton driver
+    - Use NVT as the previx for all functions, structs, and defines.
+    - Remove unnecessary comments.
 
-Changes in v9:
-- Add usb role switch for Type-C.
-- Remove USB2 PHY in Type-C connection.
+v5:
+  - Update yaml
+    - Remove the properties already defined in snps dwmac.
+  - Update dwmac-nuvoton driver
+    - Add a comment to explain the override of PMT flag.
 
-(no changes since v4)
+v4:
+  - Update yaml
+    - Remove unnecessary property 'select'.
+    - Remove unnecessary compatible entries and fix items.
+    - Specify number of entries for 'reg'.
+    - Remove already defined property 'phy-handle'.
+    - Update example.
+    - Modify the property internal path delay to match the driver.
+  - Update dtsi
+    - Move 'status' to be the last property.
+  - Update dwmac-nuvoton driver
+    - Use remove instead of remove_new.
+    - Use dev_err_probe instead.
 
-Changes in v3:
-- Fix wrong vdo value.
-- Fix port node in usb-c-connector.
+v3:
+  - Update yaml
+    - Fix for dt_binding_check warnings & errors.
+    - Add compatible in snps dwmac.
+  - Update dtsi
+    - Update dtsi to follow examples in yaml.
+  - Update dwmac-nuvoton driver
+    - Fix for auto build test warnings.
+    - Invalid path delay arguments will be returned.
 
-Changes in v2:
-- Add endpoint to link DP PHY and DP controller.
-- Fix devicetree coding style.
----
+v2:
+  - Update yaml
+    - Rename file to align with the compatible property.
+    - Add an argument to syscon to replace mac-id,
+      with corresponding descriptions.
+    - Use tx-internal-delay-ps and rx-internal-delay-ps properties for
+      configurable path delay with corresponding descriptions,
+      allowing selection between GMAC internal and PHY.
+    - Add all supported phy-mode options.
+    - Remove unused properties.
+  - Update dtsi
+    - Modify syscon configuration to include an argument for
+      GMAC interface selection.
+  - Update dwmac-nuvoton driver
+    - Remove redundant device information print statements.
+    - Remove non-global parameters.
+    - Retrieve GMAC interface selection from the syscon argument.
+    - Parse Tx and Rx path delays by correct properties.
+    - Update configurations to support Wake-on-LAN.
 
- .../boot/dts/rockchip/rk3399-evb-ind.dts      | 147 ++++++++++++++++++
- 1 file changed, 147 insertions(+)
+yclu4 (3):
+  dt-bindings: net: nuvoton: Add schema for Nuvoton MA35 family GMAC
+  arm64: dts: nuvoton: Add Ethernet nodes
+  net: stmmac: dwmac-nuvoton: Add dwmac glue for Nuvoton  MA35 family
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-index 70aee1ab904c..be1e90f7a453 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-@@ -4,6 +4,7 @@
-  */
- 
- /dts-v1/;
-+#include <dt-bindings/usb/pd.h>
- #include "rk3399.dtsi"
- 
- / {
-@@ -19,6 +20,21 @@ chosen {
- 		stdout-path = "serial2:1500000n8";
- 	};
- 
-+	sound: sound {
-+		compatible = "rockchip,rk3399-gru-sound";
-+		rockchip,cpu = <&i2s0 &spdif>;
-+	};
-+
-+	vbus_typec: regulator-vbus-typec {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&gpio1 RK_PC2 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_typec0_en>;
-+		regulator-name = "vbus_typec";
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
- 	vcc5v0_sys: regulator-vcc5v0-sys {
- 		compatible = "regulator-fixed";
- 		enable-active-high;
-@@ -31,6 +47,11 @@ vcc5v0_sys: regulator-vcc5v0-sys {
- 	};
- };
- 
-+&cdn_dp {
-+	phys = <&tcphy0_dp>;
-+	status = "okay";
-+};
-+
- &cpu_b0 {
- 	cpu-supply = <&vdd_cpu_b>;
- };
-@@ -55,6 +76,12 @@ &cpu_l3 {
- 	cpu-supply = <&vdd_cpu_l>;
- };
- 
-+&dp_out {
-+	dp_controller_output: endpoint {
-+		remote-endpoint = <&dp_phy_in>;
-+	};
-+};
-+
- &emmc_phy {
- 	status = "okay";
- };
-@@ -341,6 +368,71 @@ regulator-state-mem {
- 	};
- };
- 
-+&i2c4 {
-+	i2c-scl-rising-time-ns = <475>;
-+	i2c-scl-falling-time-ns = <26>;
-+	status = "okay";
-+
-+	usbc0: typec-portc@22 {
-+		compatible = "fcs,fusb302";
-+		reg = <0x22>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <RK_PA2 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usbc0_int>;
-+		vbus-supply = <&vbus_typec>;
-+
-+		usb_con: connector {
-+			compatible = "usb-c-connector";
-+			label = "USB-C";
-+			data-role = "dual";
-+			power-role = "dual";
-+			try-power-role = "sink";
-+			op-sink-microwatt = <1000000>;
-+			sink-pdos =
-+				<PDO_FIXED(5000, 2500, PDO_FIXED_USB_COMM)>;
-+			source-pdos =
-+				<PDO_FIXED(5000, 1500, PDO_FIXED_USB_COMM)>;
-+
-+			altmodes {
-+				displayport {
-+					svid = /bits/ 16 <0xff01>;
-+					vdo = <0x00001c46>;
-+				};
-+			};
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					usbc0_orien_sw: endpoint {
-+						remote-endpoint = <&tcphy0_orientation_switch>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					usbc0_role_sw: endpoint {
-+						remote-endpoint = <&dwc3_0_role_switch>;
-+					};
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+
-+					dp_altmode_mux: endpoint {
-+						remote-endpoint = <&tcphy0_typec_dp>;
-+					};
-+				};
-+			};
-+		};
-+	};
-+};
-+
- &i2s2 {
- 	status = "okay";
- };
-@@ -354,6 +446,16 @@ &io_domains {
- };
- 
- &pinctrl {
-+	usb-typec {
-+		usbc0_int: usbc0-int {
-+			rockchip,pins = <1 RK_PA2 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+
-+		vcc5v0_typec0_en: vcc5v0-typec0-en {
-+			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	pmic {
- 		pmic_int_l: pmic-int-l {
- 			rockchip,pins = <1 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
-@@ -400,10 +502,48 @@ &sdmmc {
- 	status = "okay";
- };
- 
-+&sound {
-+	rockchip,codec = <&cdn_dp>;
-+	status = "okay";
-+};
-+
-+&spdif {
-+	status = "okay";
-+};
-+
- &tcphy0 {
- 	status = "okay";
- };
- 
-+&tcphy0_dp {
-+	mode-switch;
-+
-+	port {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		tcphy0_typec_dp: endpoint@0 {
-+			reg = <0>;
-+			remote-endpoint = <&dp_altmode_mux>;
-+		};
-+
-+		dp_phy_in: endpoint@1 {
-+			reg = <1>;
-+			remote-endpoint = <&dp_controller_output>;
-+		};
-+	};
-+};
-+
-+&tcphy0_usb3 {
-+	orientation-switch;
-+
-+	port {
-+		tcphy0_orientation_switch: endpoint {
-+			remote-endpoint = <&usbc0_orien_sw>;
-+		};
-+	};
-+};
-+
- &tcphy1 {
- 	status = "okay";
- };
-@@ -461,7 +601,14 @@ &usb_host1_ohci {
- };
- 
- &usbdrd_dwc3_0 {
-+	usb-role-switch;
- 	status = "okay";
-+
-+	port {
-+		dwc3_0_role_switch: endpoint {
-+			remote-endpoint = <&usbc0_role_sw>;
-+		};
-+	};
- };
- 
- &usbdrd3_0 {
+ .../bindings/net/nuvoton,ma35d1-dwmac.yaml    | 126 +++++++++++++
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
+ .../boot/dts/nuvoton/ma35d1-iot-512m.dts      |  12 ++
+ .../boot/dts/nuvoton/ma35d1-som-256m.dts      |  10 +
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       |  54 ++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-nuvoton.c   | 174 ++++++++++++++++++
+ 8 files changed, 390 insertions(+)
+ create mode 100755 Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
+ mode change 100644 => 100755 arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
+ mode change 100644 => 100755 arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
+ mode change 100644 => 100755 arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+ create mode 100755 drivers/net/ethernet/stmicro/stmmac/dwmac-nuvoton.c
+
 -- 
-2.51.1
+2.43.0
 
 
