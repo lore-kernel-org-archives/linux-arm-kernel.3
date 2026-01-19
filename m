@@ -4,52 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5EC3D29C4F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 17:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1900BD29C54
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 17:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GGgjfCn0loK6ZMHUjA4NYLANnUEetVOw+8W1/ulY+3s=; b=S35bdVm+ahc6HRv3gvnee4p1po
-	hyOIz7Ie7w5RqsbAX5O4dMR3bYcjWgXkSrGGjy/1hter6AgU/qutCp/srmNAMDq1XpovXq1Ki0/8N
-	gckCUP7MP6usqkxJKY9mqH1thtAEBoVVVQ/LxupPawLKpma+Pk/DSD4IkqPmIcxNrtKQ2vRyYVnCi
-	cvl4zKHU3jfnFdcTO+vn+YHD5Btu16+y9Cz4qCNMz0cef18C9qlnARlRE2yNzxNUydupmHm1ZiG1s
-	WGqlRH6146Ex7O+FudvQuLTDqiB/RkuCiD7M71WQ5C36PdLZBIUFK5JsqBxWUF3czAg27mcZZJcdF
-	fpvrjL1g==;
+	bh=rpeHolm045HSXMoKHVAKhsTZ+TtNNnZMrsJjjCgBeC4=; b=d+2H3TeDVm+XEy7QE937oSQXEv
+	TmYLFA5Bost62piSZyu+W9cFPUir/gFOD53mMRuT0goOGrBeopwezkEpyxuR5p2XQ4pomwZDvvj4h
+	B30blbeMum19wR1eM7UyCCkWQUJR7JkYD57GwKSxYZ3MrID6hcBQlrhOysp8JuzBQUCgAEF8cr60l
+	7dkNKkD45lrEQ/hJOjr7bPyS3Dvc/7IjRbhsdgIikMiwci2URfLpX1jI8H5cG9SxTJTVJBWVollzO
+	eyuF2OSa8JUL/2LnzD7nu9e7t/AeXoE/fjyoiFS66VUEhIRUDlY8AyVyV22O6GSUs8EWqFEGGO3d7
+	QhNMqgtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhtVp-00000002fqA-2dzs;
-	Mon, 19 Jan 2026 17:58:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhtVm-00000002fpA-0YrO
+	id 1vhtWQ-00000002fwC-46cN;
+	Mon, 19 Jan 2026 17:58:38 +0000
+Received: from mail-westus2azon11010061.outbound.protection.outlook.com ([52.101.46.61] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhtWN-00000002fvC-1rcw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 17:57:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A5E6497;
-	Mon, 19 Jan 2026 09:57:48 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A3333F694;
-	Mon, 19 Jan 2026 09:57:54 -0800 (PST)
-Date: Mon, 19 Jan 2026 17:57:51 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Carl Worth <carl@os.amperecomputing.com>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Taehyun Noh <taehyun@utexas.edu>
-Subject: Re: [PATCH v2 2/2] arm64: mte: Set TCMA1 whenever MTE is present in
- the kernel
-Message-ID: <aW5wnxDDVn2KoriB@arm.com>
-References: <20251030-mte-tighten-tco-v2-0-e259dda9d5b3@os.amperecomputing.com>
- <20251030-mte-tighten-tco-v2-2-e259dda9d5b3@os.amperecomputing.com>
-MIME-Version: 1.0
+	Mon, 19 Jan 2026 17:58:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dfB2zIsyO1Qw8DsnxJvWzJ7m++25VUVF6hReILs4EAI5YGURxQgGiZbA54X9hAiTKs5H5UBMefiP5Xae6LBCsQN4OkYKMWMIod9lyltG1R/DoajJ+b9txK4U2bkqz1JSjX1ByRDo7fg3cA5A+2wBUtFoUo/b3hFuH6bBoCNJOJ0G120uUqu6/+8NArX7hfCSiqW8b3f8VMdgEFUkneFJKtZPqqkHA441aLxTApwg7FLP5RcHkXgqPHhlTNQb4NRq5GXbcd64MfkwIWgbMuCbcgOPuCTE2gvmNVlQT9TSrmUfl8E6SSgEp3+MBr3dZPwj6+tTD0MgL4YI7pmiaqEOxA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rpeHolm045HSXMoKHVAKhsTZ+TtNNnZMrsJjjCgBeC4=;
+ b=WgC0Kiq7tejgfkt0jpLYZ8U6nIzGeFo7xUTumV9JzUQtHPOWvHbGHgh3zfjztbn3KEwq8834XGmaQ5q0xW+pmlnc1yvNdTptXgVx9CmO+1IW9kKLtZq6I8A87R7HkAmDi15Q9Sn71X7u2FWt1761nL4t7g8GqLolmOEhJpzOQJ+o1reNhtJ/0ABsliJcSuhK9SQFeKsjkr6XagnlTTNYaKye5QmERrZEDVa6KNUGxNuHCDn0yK2CywLZrvmQ9oy0ShT71UFPX2sccQSeVohMyL5bGNjAHwPcbAQIMFSmOarm6bMcfnWA9NBybhdUHXf5O6tF9mgV9nIQOVyjINv4vg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rpeHolm045HSXMoKHVAKhsTZ+TtNNnZMrsJjjCgBeC4=;
+ b=ae24E7/mlIEYd0cSlQ8gAezJdRIttwpYof7B4rPKjbRRmZhlSWbbtim+pzaZFCXKp5nWbq2y4XoSe5Hfe2w7bdw+bS04vYQerCzE1NefuBXpdnj0n/srgGvnUoygpE/C3fVa8dunvzL4rZ3L9yh8nVRAIyPkeoHhX/aFfc3LdvWENlUDH95XDgMohci9sYGHfakIVboAg3W38RVgntB0uJMfLRR8PHiqegyVlJlRvw+TouPLNfeMko4VVhkCImldJEJ8/RYJ5ztyRs+ya/6mGJ97JwMzDQx1dAzUHK6U6yAcwVpZAAoI/o6r4XKItSeHN2YoAfdKFbGY7btrUeBvaQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CH2PR12MB4182.namprd12.prod.outlook.com (2603:10b6:610:ae::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Mon, 19 Jan
+ 2026 17:58:27 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9520.011; Mon, 19 Jan 2026
+ 17:58:27 +0000
+Date: Mon, 19 Jan 2026 13:58:26 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, bhelgaas@google.com,
+	joro@8bytes.org, praan@google.com, baolu.lu@linux.intel.com,
+	kevin.tian@intel.com, miko.lenczewski@arm.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org
+Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Message-ID: <20260119175826.GM1134360@nvidia.com>
+References: <cover.1768624180.git.nicolinc@nvidia.com>
+ <d1768bb6384050a23769f20ca28216f520f77e26.1768624181.git.nicolinc@nvidia.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251030-mte-tighten-tco-v2-2-e259dda9d5b3@os.amperecomputing.com>
+In-Reply-To: <d1768bb6384050a23769f20ca28216f520f77e26.1768624181.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: BLAP220CA0004.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:208:32c::9) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH2PR12MB4182:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3aa01a93-40f5-4a7d-036d-08de5784591e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?o/eollQGlXD9VJJHoM7TlTFNed30QMlaIm/ZqjquEtfWRLnzIGnsHAWD0XNS?=
+ =?us-ascii?Q?iB70ifEgpHKLvo9iKROT12mm3OR2F46rA1rlUbaci9IdPM011l1LfQ92KMcE?=
+ =?us-ascii?Q?+pFN3DO3Vsu6oPv57TB58RljaXkrlSTHBYjcKxMKntoJWVI384QGfy3B4vMa?=
+ =?us-ascii?Q?/xrXWyUK74PItV1YJGgSB8ux6Cd14PDlKDNP3sb/L3EgKjWkmdeL7stykYnC?=
+ =?us-ascii?Q?HQjtHBKJKKNUZmq9VKrfA/LBxCSqDHasJcBDmbvzv9TSOyzGRVmfXRUCGlp8?=
+ =?us-ascii?Q?5gcPJBEZvX6CAEuiUA1Bij6OqW1eN3IxoylZxNpgMZctR+XElygggj4J9UCV?=
+ =?us-ascii?Q?dP4uXGnRt0l11j3Pr1U0kRub5ixcTePmIpyvxq3lrbkzqtjvvyn1LM0va7Pw?=
+ =?us-ascii?Q?wMwHoLNS4TEdSL6ICv3FCBs0InmiR3wBKmu4dVcVaaZCBBqSN+vgCjholMeN?=
+ =?us-ascii?Q?dGcb9bKjGI1iyR/t9PG/8Jf7NT5GSuiwxR/mXOx2JVRgNfDupU5rMLN6NKEh?=
+ =?us-ascii?Q?tuEdHo9xGayJY+Oj/7iLprNf7CEDmHxEifM6y3vB5e5MrrWTkzCjVw8ali9d?=
+ =?us-ascii?Q?DG7V55ROQPaopWZW/DZ/tnCV5XeGaTe1DpW9sQyPSJFzrrI64rT+6WcZ4/ym?=
+ =?us-ascii?Q?QE+l7aEuykBTlFDu0+D0YHdWUW4fjljO9nWa5rpcefflYyxkNQV+IGT0C504?=
+ =?us-ascii?Q?A1qCsyGH7z9xsxyDDKr7SnpeSPzLzbGJKV/zxbqQ02+aFPZT6DUfye2tFKKp?=
+ =?us-ascii?Q?CR6MFoRSU6c5aaiNkDDmw9SnZcwHgTX8W301IHYY/fcATgXr2EvWKcJe6X5b?=
+ =?us-ascii?Q?TO7EPFZebxI5KKCvU253ivi28aBH5NDrbcA+Yw3qMSj0vSqBmJIvTSzqVBvB?=
+ =?us-ascii?Q?KcFMa1BnHI6U/2/+28qa0AfjKtwlzctdS4HuYqfYkpBLVEVGRBTZHvFWNxJ4?=
+ =?us-ascii?Q?bkfuyprk/8SW9gYHNLYQdrFo2lYZcewdvoSj+1AiXNiEKO+2BFVUMOYE6pLo?=
+ =?us-ascii?Q?Ciz0z7eb51v2kev15WoiVtftQoEXAc1dNFTyRfEbyy80LLhjq1Ltu2BSOqBX?=
+ =?us-ascii?Q?iP09WEL7pVOvcGwNohBWm/FwPL8SostB7EyokYz/nexXIwfWztAn7kotIJFW?=
+ =?us-ascii?Q?rhtm3fvX3z+t/iBAyUEN8aFV/uRk3yruznHfQZ66CK27ZugbFcafGFLo1R9A?=
+ =?us-ascii?Q?vtxAqtknPjGZP7Im2edZI0KmRnejmE32znLUH86GiIv1LVes9NZ2UXc9pTJh?=
+ =?us-ascii?Q?azS6gjp38q7ABwBXek4yCzrXceYuJ9uRpjCkXYGmUCzATh27IuLhRW5almp2?=
+ =?us-ascii?Q?EghznSxx8TYUtzj948TxDfFVAAdhN98oNsR/RwnfpPx7EIESmmCs5WunKnrF?=
+ =?us-ascii?Q?TuXdX1Iocyjcw8Xh5HIXeI8aQLXy382eecBslDGgE+MTScBORKTH/ZIO/RXv?=
+ =?us-ascii?Q?3cOOhXpYe5UPtgcoUx64Urh+ByHkYLEqikjNkfs2Dmzn7iFDQT101DD0ySRw?=
+ =?us-ascii?Q?XMcI2oISIzbJaIEyky2ALWUWGN1sMzoE1ZPJVYg1fjvc/rFpsmi9RkN2H6Rn?=
+ =?us-ascii?Q?DrhYzC6G8oIcLYaYBQM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?B/icAHrfbwIt8iUp4K79CULpDPpOu2b5ysKuisKJGJ+UEoRAGmaeOqPTLhf1?=
+ =?us-ascii?Q?ewVw2SKtKv5zh7BoqJaW+eDwnnxEqvRTKSzAvYN069HICitFS50nlP71F03q?=
+ =?us-ascii?Q?jwL4GbK7ITPbbP4JLWsXUlZl/FVuQ7RPDWlD5a9VlaJf62D9iII70+WzwT+4?=
+ =?us-ascii?Q?53rJ1VJEs1CyLSA8/nICknycMv0Bo8m/NCZWphDfEl5t9XTpZnOdcnMRHg8Q?=
+ =?us-ascii?Q?yffHMDduBqcRWfyzK/mGi5J3mg1Mm9pRch4xyabuYSpF/Az0fdZGL1A5vk7X?=
+ =?us-ascii?Q?uAWAE+ly62cOCVdMPeyq21PvgZlkobcdBGGbEpIvkxE78gu2QLvC0tkJvVjR?=
+ =?us-ascii?Q?PfBq6sQavWtV8Asb+mzjJUumpWOuSe7a5rBxKauUa6oDhdsbNieO4F8jxfYS?=
+ =?us-ascii?Q?TVwncYwSxML6aZzyoZ4loPjn9EBQZb3yby6oEM8EYivPDN6rA5HZO890ZYA5?=
+ =?us-ascii?Q?Ooeo5pDJi3GBy5mJ+Shq/dx835CUltM0TfBwOI8eTAB46Zb8jfziT9ecgg68?=
+ =?us-ascii?Q?RrturVPken/25Axibi8wQMUkz7eavcRpK3ZdETjln/s5+D8/0Xc5JEhI9T0o?=
+ =?us-ascii?Q?KYyLynfe3KS1H9Y1D1VlwUhyuxuOupZ6v49DfxnwLBS4UHa98MBIfYUZXBo0?=
+ =?us-ascii?Q?vq8shIuGP2PokQcqfN9HBRkuAJ6ynHE3jMGObk+4l4Bu4rWWY/PocjYr7v/I?=
+ =?us-ascii?Q?VslJi3uKd52snz9ONuSRE630TJ1mI3Wdlrc7uxC+VOwi6CSYgLlb74nittnF?=
+ =?us-ascii?Q?sdukdpJi6zlSDAvJ5HWSrItMQbpziP8LGosgKpHEBeLGGMNg+VRILlUEwy/r?=
+ =?us-ascii?Q?dTDqdnQhik0BPqa44jw/plsBfYE+bClpUqTewrTUK5O6/dwFjIdpr0cagBWd?=
+ =?us-ascii?Q?zzPKwEkj503YBknBx7/Ky9ARBDdFT+LsLe75m/z3bZsVs9Gp/pTIZkuBLJEl?=
+ =?us-ascii?Q?RYqNFFA+HEo400YNcGVXpvqH4GDR4L33/NPIsoC9st3B1QTz6+teajTv6Swd?=
+ =?us-ascii?Q?AUmzmQXiJ2iiQjjv/937WKBAL2v3VHfgJ32SCR7jjER4ckqDyvob0ugvGHFM?=
+ =?us-ascii?Q?vWcJeUESx9afXRu1wZQTh7oi7REDlGa/DeKqwRnrI2TqOq9LivgF6U99W5vX?=
+ =?us-ascii?Q?in98P5Mnx+S1NWmS6O4bsshzqDGgw+5dkpuDt6BGudSJnzWj4yMUtt9wdyE+?=
+ =?us-ascii?Q?VftRVixvf1WcWStNkqObG33jEC2+96q3fqQG4gDUtiHDuGM71EwkC8lTFoRP?=
+ =?us-ascii?Q?CrXS//xcwmVFCNHs7KY+RCnz3DcgG7HLi8BzEJGcIit+w0rvR98U7teqEvNs?=
+ =?us-ascii?Q?uFV9IV/UP+ydEyXAkR9iaLmv4+K2WTn3QRUXKQ/9OhiFflfh8rNSeoEx6vkD?=
+ =?us-ascii?Q?bjUd0Dv0gUTaF/eFloVPuBrsQ3OLdRWCaijQVTWygm+KDLpCWXJCxoiLYhAZ?=
+ =?us-ascii?Q?aPTpX88dPT37f/YWHCETfAiU4+txjqgxlyqQBEDYLwmobrT1bQgh3WgHGJjl?=
+ =?us-ascii?Q?KC0wTNoziJQ6KPSYCV/AJP2KG7uIK7RsVmjmTk6CFYrZ0DhqdiMF3oeU7Flz?=
+ =?us-ascii?Q?Kw8j8zDQmEy9a9j2ZRQbQtQHnzJrURKKGe6tIue6SeXlXg6l9CodSTc1O0d1?=
+ =?us-ascii?Q?rh2luPsK8OUuE9uNi2A1Pxnk6F9AhgCkw++F9igjikkX9OxGYYci9ngNP9vo?=
+ =?us-ascii?Q?8yKEAQc57VdO7J+hKmBSlCClGRamH3QRG4mGnjvPFvyoTJeQ?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3aa01a93-40f5-4a7d-036d-08de5784591e
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Jan 2026 17:58:27.7199
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rjdcdLJDap8dKDnzlcgLLoovt4FfHDByE619iYR9w2btDgIT1oKQawAVzEZJSiSU
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4182
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_095758_205754_8C3E4B65 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20260119_095835_481844_68FECFEF 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,34 +165,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 03:07:18PM -0800, Carl Worth wrote:
-> Set the TCMA1 bit so that access to TTBR1 addresses with 0xf in their
-> tag bits will be treated as tag unchecked.
-> 
-> This is important to avoid unwanted tag checking on some
-> systems. Specifically, SCTLR_EL1.TCF can be set to indicate that no
-> tag check faults are desired. But the architecture doesn't guarantee
-> that in this case the system won't still perform tag checks.
-> 
-> Use TCMA1 to ensure that undesired tag checks are not performed. This
-> bit was already set in the KASAN case. Adding it to the non-KASAN case
-> prevents tag checking since all TTBR1 address will have a value of 0xf
-> in their tag bits.
-> 
-> This patch has been measured on an Ampere system to improve the following:
-> 
-> * Eliminate over 98% of kernel-side tag checks during "perf bench
->   futex hash", as measured with "perf stat".
-> 
-> * Eliminate all MTE overhead (was previously a 25% performance
->   penalty) from the Phoronix pts/memcached benchmark (1:10 Set:Get
->   ration with 96 cores).
-> 
-> Reported-by: Taehyun Noh <taehyun@utexas.edu>
-> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: Carl Worth <carl@os.amperecomputing.com>
+On Fri, Jan 16, 2026 at 08:56:40PM -0800, Nicolin Chen wrote:
+> Controlled by the IOMMU driver, ATS is usually enabled "on demand", when a
+> device requests a translation service from its associated IOMMU HW running
+> on the channel of a given PASID. This is working even when a device has no
+> translation on its RID, i.e. RID is IOMMU bypassed.
 
-Thanks for testing an sending this.
+I would add here that this is done to allow optimizing devices running
+in IDENTITY translation as there is no point to using ATS to return
+the same value as it already has.
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> For instance, the CXL spec notes in "3.2.5.13 Memory Type on CXL.cache":
+> "To source requests on CXL.cache, devices need to get the Host Physical
+>  Address (HPA) from the Host by means of an ATS request on CXL.io."
+> In other word, the CXL.cache capability relies on ATS. Otherwise, it won't
+> have access to the host physical memory.
+> 
+> Introduce a new pci_ats_always_on() for IOMMU driver to scan a PCI device,
+> to shift ATS policies between "on demand" and "always on".
+> 
+> Add the support for CXL.cache devices first. Non-CXL devices will be added
+> in quirks.c file.
+> 
+> Suggested-by: Vikram Sethi <vsethi@nvidia.com>
+> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  include/linux/pci-ats.h       |  3 +++
+>  include/uapi/linux/pci_regs.h |  5 ++++
+>  drivers/pci/ats.c             | 44 +++++++++++++++++++++++++++++++++++
+>  3 files changed, 52 insertions(+)
+
+This implementation looks OK to me
+
+Thanks,
+Jason
 
