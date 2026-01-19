@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59C30CCF2F9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FC14CCF2FA
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:48:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fP3IPuDNWsHICTJlLd0+JB4HNX6ySifc0+GwdnNMsAw=; b=SEzLZOkZryJwHebCRrzDRw24S/
-	dpjAYMHa5daEDz6xKFa0t1cbPm5v9ldMr7qhEHFKKDOp+0yVRIjAujultIYYfXA4z+JxytCnk0Wnj
-	AVEXg1vodq0rf6EHZjg1vDGwhbuvMajHgnJ1910g8R+PO045nUuOtLKDYjlcPJEqXqPACh1Xd2UrJ
-	BbvxxWxhncj1LuM6EGh4g6ZfDyohRgzahgzMiTpiamkHLZKS4cvSmte4UBF0002Zb0GQOBV4qOrZf
-	LTAzWyQ5zUTWOiVQZnTYu47VYBCE9K+AfVnM9r6s/xkGlShU1CRdRZvrkEYNczw5pgOlwPmdYpPi0
-	LY8nKnHQ==;
+	bh=XJEYRMQB3iZVJoOx8vdCNmRc/PJo05YN1ZTJiC328YI=; b=I4JbHOjC7OES1YJn+1WMbunEPX
+	Gnr/R8CnMeSo+RMLRZdviOpphugHcosW03V/KKHVG9X+x9vGE4rlI6FaC51USFWf3fXMd+8wot0Ds
+	4KTaCD1lLHpYMOa/TckOvsKYbEpzwPxfZLwHESY1hhtnJNDb/fFbNb9Z3ruL39g3T0nKwy25j8NuW
+	pax5m0FPsnJ0qykGhFc4++rG77aRceFMWcYoHGelKSePLvI9jceT56Ofz6zNTZLO6uWsGFclQUeXT
+	2LUBvwp6Iob9NztMdj0P9ttODh8GWZGgpJQPR2F43VgGfEYrE2T5VX0x4cnrpLJnHyw+Ww+KJwvJ7
+	Q4Bx0ZqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhofg-000000023dB-24qW;
-	Mon, 19 Jan 2026 12:47:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vhofl-000000023gw-2sRK;
+	Mon, 19 Jan 2026 12:47:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhofQ-000000023Po-3fJT
+	id 1vhofN-000000023Mi-35dT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 12:47:43 +0000
+	Mon, 19 Jan 2026 12:47:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6FD2544230;
-	Mon, 19 Jan 2026 12:47:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C00B8C116C6;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5D78740877;
 	Mon, 19 Jan 2026 12:47:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD18FC19424;
+	Mon, 19 Jan 2026 12:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768826856;
-	bh=yYkwoz6p2c9KJC10PuGWPN5cZRUoVCbtirTqbhv0Lyg=;
+	s=k20201202; t=1768826853;
+	bh=QIytrQ+JfCPY7Q3YwnW8a4Og7XxTsWbx3KsFumlCxiQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tCXvcM+UPjydjBb7u9K2GDWhb0T7Ct7MbAEc+RUEZpgLApY0F3PlGvfbda3Gnr68s
-	 Jrjl8eFFLhS7G1wI4x9We4GchP2uVsAi+VlI1g9YrXC4o6+FKGZO4QjutkvMWpuBJS
-	 IbwRRSxJww9SGEJSOp40u3/8pXCoQmPbgwTtbvjqBaVVGLr9b8BGSjYukDi4H1CGKd
-	 w9rBh3zr0bKg2bgW/AuErb+t5RL7h/y1iNRLtKfHbHvKz+/wFjdZFSCAy3OQZXn8Me
-	 uCfWUCdrO0ENTWOuotboqwV55aUplbhNk9YN6A8xDIkXLQWOYQXQldme1JkHdFNJpK
-	 Yunxj8aZcRkrw==
+	b=NiF+0H2bfF2Qb1ajGj1R+aEucc0tewjwIKdkT9f6PXgO2wIc2D4pTk5epyHp1dGE1
+	 gAkKapugTSt3Six+tATtLeRqtkuQRHCJT8Q/GFwHOGHJlDaYmwYDxU0ZyAXSWC1xh6
+	 PZB67fdHdxHbPrshnN6RQhTao0gibntg1WgTacs7nidGkNt+Eedv399yZtL2M97o9D
+	 sPMruWov3HvdfxDfmesVGvzYQWzNVOYN0LCYyWMu095yCiBlbFwffSa1BHJmLONoj6
+	 D904AWlQ4Ydkcytv7oAdVbJD4eHaZ0/9n4SCYmQ8L0Wvo2Onv3DiZa0KBP2MYqpvvA
+	 shv16tzAYoz6A==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -56,17 +56,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Fuad Tabba <tabba@google.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH v2 14/35] KVM: arm64: Handle aborts from protected VMs
-Date: Mon, 19 Jan 2026 12:46:07 +0000
-Message-ID: <20260119124629.2563-15-will@kernel.org>
+Subject: [PATCH v2 13/35] KVM: arm64: Hook up donation hypercall to pkvm_pgtable_stage2_map()
+Date: Mon, 19 Jan 2026 12:46:06 +0000
+Message-ID: <20260119124629.2563-14-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260119124629.2563-1-will@kernel.org>
 References: <20260119124629.2563-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_044737_075504_AE260E8C 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20260119_044735_548878_8314DEF8 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,124 +81,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new abort handler for resolving stage-2 page faults from
-protected VMs by pinning and donating anonymous memory. This is
-considerably simpler than the infamous user_mem_abort() as we only have
-to deal with translation faults at the pte level.
+Mapping pages into a protected guest requires the donation of memory
+from the host.
+
+Extend pkvm_pgtable_stage2_map() to issue a donate hypercall when the
+target VM is protected. Since the hypercall only handles a single page,
+the splitting logic used for the share path is not required.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/mmu.c | 89 ++++++++++++++++++++++++++++++++++++++++----
- 1 file changed, 81 insertions(+), 8 deletions(-)
+ arch/arm64/kvm/pkvm.c | 58 ++++++++++++++++++++++++++++++-------------
+ 1 file changed, 41 insertions(+), 17 deletions(-)
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index a23a4b7f108c..b21a5bf3d104 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1641,6 +1641,74 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	return ret != -EAGAIN ? ret : 0;
- }
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index a39dacd1d617..1814e17d600e 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -373,31 +373,55 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 	struct kvm_hyp_memcache *cache = mc;
+ 	u64 gfn = addr >> PAGE_SHIFT;
+ 	u64 pfn = phys >> PAGE_SHIFT;
++	u64 end = addr + size;
+ 	int ret;
  
-+static int pkvm_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-+		struct kvm_memory_slot *memslot, unsigned long hva)
-+{
-+	unsigned int flags = FOLL_HWPOISON | FOLL_LONGTERM | FOLL_WRITE;
-+	struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
-+	struct mm_struct *mm = current->mm;
-+	struct kvm *kvm = vcpu->kvm;
-+	void *hyp_memcache;
-+	struct page *page;
-+	int ret;
+-	if (size != PAGE_SIZE && size != PMD_SIZE)
+-		return -EINVAL;
+-
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
++	mapping = pkvm_mapping_iter_first(&pgt->pkvm_mappings, addr, end - 1);
+ 
+-	/*
+-	 * Calling stage2_map() on top of existing mappings is either happening because of a race
+-	 * with another vCPU, or because we're changing between page and block mappings. As per
+-	 * user_mem_abort(), same-size permission faults are handled in the relax_perms() path.
+-	 */
+-	mapping = pkvm_mapping_iter_first(&pgt->pkvm_mappings, addr, addr + size - 1);
+-	if (mapping) {
+-		if (size == (mapping->nr_pages * PAGE_SIZE))
++	if (kvm_vm_is_protected(kvm)) {
++		/* Protected VMs are mapped using RWX page-granular mappings */
++		if (WARN_ON_ONCE(size != PAGE_SIZE))
++			return -EINVAL;
 +
-+	ret = prepare_mmu_memcache(vcpu, true, &hyp_memcache);
-+	if (ret)
-+		return -ENOMEM;
++		if (WARN_ON_ONCE(prot != KVM_PGTABLE_PROT_RWX))
++			return -EINVAL;
 +
-+	ret = account_locked_vm(mm, 1, true);
-+	if (ret)
-+		return ret;
-+
-+	mmap_read_lock(mm);
-+	ret = pin_user_pages(hva, 1, flags, &page);
-+	mmap_read_unlock(mm);
-+
-+	if (ret == -EHWPOISON) {
-+		kvm_send_hwpoison_signal(hva, PAGE_SHIFT);
-+		ret = 0;
-+		goto dec_account;
-+	} else if (ret != 1) {
-+		ret = -EFAULT;
-+		goto dec_account;
-+	} else if (!folio_test_swapbacked(page_folio(page))) {
 +		/*
-+		 * We really can't deal with page-cache pages returned by GUP
-+		 * because (a) we may trigger writeback of a page for which we
-+		 * no longer have access and (b) page_mkclean() won't find the
-+		 * stage-2 mapping in the rmap so we can get out-of-whack with
-+		 * the filesystem when marking the page dirty during unpinning
-+		 * (see cc5095747edf ("ext4: don't BUG if someone dirty pages
-+		 * without asking ext4 first")).
-+		 *
-+		 * Ideally we'd just restrict ourselves to anonymous pages, but
-+		 * we also want to allow memfd (i.e. shmem) pages, so check for
-+		 * pages backed by swap in the knowledge that the GUP pin will
-+		 * prevent try_to_unmap() from succeeding.
++		 * We raced with another vCPU.
 +		 */
-+		ret = -EIO;
-+		goto unpin;
-+	}
++		if (mapping)
+ 			return -EAGAIN;
+ 
+-		/* Remove _any_ pkvm_mapping overlapping with the range, bigger or smaller. */
+-		ret = __pkvm_pgtable_stage2_unshare(pgt, addr, addr + size);
+-		if (ret)
+-			return ret;
+-		mapping = NULL;
++		ret = kvm_call_hyp_nvhe(__pkvm_host_donate_guest, pfn, gfn);
++	} else {
++		if (WARN_ON_ONCE(size != PAGE_SIZE && size != PMD_SIZE))
++			return -EINVAL;
 +
-+	write_lock(&kvm->mmu_lock);
-+	ret = pkvm_pgtable_stage2_map(pgt, fault_ipa, PAGE_SIZE,
-+				      page_to_phys(page), KVM_PGTABLE_PROT_RWX,
-+				      hyp_memcache, 0);
-+	write_unlock(&kvm->mmu_lock);
-+	if (ret) {
-+		if (ret == -EAGAIN)
-+			ret = 0;
-+		goto unpin;
-+	}
++		/*
++		 * We either raced with another vCPU or we're changing between
++		 * page and block mappings. As per user_mem_abort(), same-size
++		 * permission faults are handled in the relax_perms() path.
++		 */
++		if (mapping) {
++			if (size == (mapping->nr_pages * PAGE_SIZE))
++				return -EAGAIN;
 +
-+	return 0;
-+unpin:
-+	unpin_user_pages(&page, 1);
-+dec_account:
-+	account_locked_vm(mm, 1, false);
-+	return ret;
-+}
++			/*
++			 * Remove _any_ pkvm_mapping overlapping with the range,
++			 * bigger or smaller.
++			 */
++			ret = __pkvm_pgtable_stage2_unshare(pgt, addr, end);
++			if (ret)
++				return ret;
 +
- static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 			  struct kvm_s2_trans *nested,
- 			  struct kvm_memory_slot *memslot, unsigned long hva,
-@@ -2190,15 +2258,20 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
- 		goto out_unlock;
++			mapping = NULL;
++		}
++
++		ret = kvm_call_hyp_nvhe(__pkvm_host_share_guest, pfn, gfn,
++					size / PAGE_SIZE, prot);
  	}
  
--	VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
--			!write_fault && !kvm_vcpu_trap_is_exec_fault(vcpu));
-+	if (kvm_vm_is_protected(vcpu->kvm)) {
-+		ret = pkvm_mem_abort(vcpu, fault_ipa, memslot, hva);
-+	} else {
-+		VM_WARN_ON_ONCE(kvm_vcpu_trap_is_permission_fault(vcpu) &&
-+				!write_fault &&
-+				!kvm_vcpu_trap_is_exec_fault(vcpu));
+-	ret = kvm_call_hyp_nvhe(__pkvm_host_share_guest, pfn, gfn, size / PAGE_SIZE, prot);
+ 	if (WARN_ON(ret))
+ 		return ret;
  
--	if (kvm_slot_has_gmem(memslot))
--		ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
--				 esr_fsc_is_permission_fault(esr));
--	else
--		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
--				     esr_fsc_is_permission_fault(esr));
-+		if (kvm_slot_has_gmem(memslot))
-+			ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
-+					 esr_fsc_is_permission_fault(esr));
-+		else
-+			ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
-+					     esr_fsc_is_permission_fault(esr));
-+	}
- 	if (ret == 0)
- 		ret = 1;
- out:
 -- 
 2.52.0.457.g6b5491de43-goog
 
