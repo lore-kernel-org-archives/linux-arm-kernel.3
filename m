@@ -4,128 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 509ACD29C43
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8FDAD29C49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vI50eQf6ZTJwp39eVn8OjBLJTDVevhzLKKiHH1rRJpA=; b=Hb2hufLAN77n8N5vIKH3cgFhXI
-	Z0Ne9FiKqNCRZIOIe3EYYkUUdOQrzYW900zkysOoojqUkElpUpAOXdsKTZ2MeW6t/b2intvkxQr/2
-	pvRUS/Ykr+nZb+meUlV+xF0xh6TS+f5L01g/+ranTCPEfDAVhD9inczhOagxGOtCrCrueObSyCH9o
-	3n+Y8HsFWIkn+vdQr9hk8PezH9+eK0hzUDf4lNoKk7iv3V2HPDSVKs6EK/oIdnACqa/jHJuH5hOS3
-	rYAK8ueDwTJv9AdT2Bm2YqvIqeAjP0a4NXTY+hF73Pi9/5a7lr5ww/2nY5GbdaCN2u1z4AzPiq72Q
-	t8/ukk0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PzETODdJgGGkeI+IpUhBVGS6shSqfBqZKaCZ4ZIVXZA=; b=Nz2zOnEGvn/RzotsCpcVJaJND+
+	LC9GP/+fzyZrOJLsdGaSJg3Ws8xJad2L8Nq3lLvmUT/ChsU4EPf9gXuEMI1PfdFjo7cJmQ1oueusB
+	GPn00mVPFDph6qmg0RGEiIK97HH7GyDmX4XJSYwN+i9KQPcvVZGwuVvPqWXq6fzbmtv56jyWGq+Ko
+	q88hj8D8Puc9/o5W7eK1IQ9KY8tEPZ4Aa8qsqX++oS+qpo2W4RzEPzK7nhm3HZL3UGuLuNKUPUabw
+	HFwX15lwldVOq94V4jCCaDugihtW2ikhcfPVEO27o0Gkv1bHpdxo5egnb3OSrmvlLOc+kVk4pMeiK
+	ZIN3+njQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhs4n-00000002SwO-0xAj;
-	Mon, 19 Jan 2026 16:26:01 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1vhs8R-00000002ULN-0UTU;
+	Mon, 19 Jan 2026 16:29:47 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhs4j-00000002Svk-24bc;
-	Mon, 19 Jan 2026 16:26:00 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60JABVF1011431;
-	Mon, 19 Jan 2026 16:25:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=vI50eQf6ZTJwp39eVn8OjBLJTDVevh
-	zLKKiHH1rRJpA=; b=GpyRMipc8yYPLPTgqrXJezDBYOkzvL0Q335Uc9doMYt0l6
-	RCp4tH1gLkjEwD0IWjg4uwExLBUZfCoTwq2d78ndn1vt1l6xdvy0TVsAGcFamnJh
-	UimomRxFamNzS7cQYb99IqDOLuuDRbgpuQLwgAfqSfxmXXN3RMUQko2/1n6OCy3J
-	bTW8gdQBX/DMyQFEkWmA0S3k417/86BKP2wAZDgSpVs58s99QVEiMtnRJO8MNpzi
-	Z0LxYj7qmAAsERtb74xUrAhDsPQjp8VDO9YwbPz5Ly7t//sKiyofk/5Aj5WPU0sw
-	qAugav10w5sXRP3ep1A84Dhyc9AZs44vFujE42QA==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4br1x51ae0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 19 Jan 2026 16:25:33 +0000 (GMT)
-Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 60JGPW64025324;
-	Mon, 19 Jan 2026 16:25:32 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4br1x51adv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 19 Jan 2026 16:25:32 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60JEPmPo001168;
-	Mon, 19 Jan 2026 16:25:31 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4brpyjfk5v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 19 Jan 2026 16:25:31 +0000
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60JGPR3B59769098
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 19 Jan 2026 16:25:27 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 500BD20040;
-	Mon, 19 Jan 2026 16:25:27 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 288A120043;
-	Mon, 19 Jan 2026 16:25:26 +0000 (GMT)
-Received: from osiris (unknown [9.87.131.46])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon, 19 Jan 2026 16:25:26 +0000 (GMT)
-Date: Mon, 19 Jan 2026 17:25:24 +0100
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Huacai Chen <chenhuacai@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
-        "Jason A. Donenfeld" <Jason@zx2c4.com>,
-        Ard Biesheuvel <ardb@kernel.org>,
-        Jeremy Linton <jeremy.linton@arm.com>,
-        David Laight <david.laight.linux@gmail.com>,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v4 0/3] Fix bugs and performance of kstack offset
- randomisation
-Message-ID: <20260119162524.28375Cf0-hca@linux.ibm.com>
-References: <20260119130122.1283821-1-ryan.roberts@arm.com>
+	id 1vhs8K-00000002UG2-1biA
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 16:29:45 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.107])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dvwrl22S9zJ46F1;
+	Tue, 20 Jan 2026 00:29:11 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id 57D8940570;
+	Tue, 20 Jan 2026 00:29:34 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 19 Jan
+ 2026 16:29:33 +0000
+Date: Mon, 19 Jan 2026 16:29:32 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<arm-scmi@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+	<sudeep.holla@arm.com>, <james.quinlan@broadcom.com>, <f.fainelli@gmail.com>,
+	<vincent.guittot@linaro.org>, <etienne.carriere@st.com>,
+	<peng.fan@oss.nxp.com>, <michal.simek@amd.com>, <dan.carpenter@linaro.org>,
+	<d-gole@ti.com>, <elif.topuz@arm.com>, <lukasz.luba@arm.com>,
+	<philip.radford@arm.com>, <souvik.chakravarty@arm.com>
+Subject: Re: [PATCH v2 05/17] firmware: arm_scmi: Add Telemetry protocol
+ support
+Message-ID: <20260119162932.00006e6c@huawei.com>
+In-Reply-To: <20260114114638.2290765-6-cristian.marussi@arm.com>
+References: <20260114114638.2290765-1-cristian.marussi@arm.com>
+ <20260114114638.2290765-6-cristian.marussi@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260119130122.1283821-1-ryan.roberts@arm.com>
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=R8AO2NRX c=1 sm=1 tr=0 ts=696e5afd cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VnNF1IyMAAAA:8 a=QVAD7q_TPxDeD0yiNCkA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: -kAVzvWzx4W2sBkw8LnTwcy6JfSLKstR
-X-Proofpoint-GUID: 2PAk8_huQTvYPwQqoxCEB_kXiirSTVWi
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE5MDEzNiBTYWx0ZWRfX0vwiAVnh0m8o
- TN1OJE286oIsOfMdMqtyqliX72hzZM+QYqyDf55xO/ZDC7fpzaxev28IH+GQBhvKLnxp9o5+8RV
- vFZCod14fsPV2mStukEkpQxASpqU4gIL2yizEB3LVeiulLuampK1tPr+aRybb7YY/XIFWiW6E0s
- 9Jyd47KmspujIKQf0AlfacjdPuzdFrhvpf642lxg2B55NZNTTBvteTtXTj2KDjNJ+Ypbn94EV6M
- N+wUpPaUtTNafOLP0E7Zlkfm0PcT9yoJ47jFIOfNR5DBBITH/qvRSR2pVLekOXIXB0b8VrwkX7N
- dNKIZ+0P0+sOHeq5K0PeNLnVnOOW71+4ucnWBEEc0HEGVZsF1EsIx8spTyLJrNU7KOmnUW9uuLI
- fXURsg2FxaYQOA6WN2q4VVvTaTTKbor317ib6c0hZC5KdFMjNCGOhBw0jFp+HmK/de6NFYUzLjo
- 2B+B+1of2LNZXkJ6Xgw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-19_04,2026-01-19_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 priorityscore=1501 bulkscore=0 lowpriorityscore=0 adultscore=0
- spamscore=0 phishscore=0 malwarescore=0 suspectscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2601150000 definitions=main-2601190136
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_082557_542421_F74E25B3 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20260119_082944_248083_5EF7CE35 
+X-CRM114-Status: GOOD (  40.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,33 +77,725 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 01:01:07PM +0000, Ryan Roberts wrote:
-> As I reported at [1], kstack offset randomisation suffers from a couple of bugs
-> and, on arm64 at least, the performance is poor. This series attempts to fix
-> both; patch 1 provides back-portable fixes for the functional bugs. Patches 2-3
-> propose a performance improvement approach.
-> 
-> I've looked at a few different options but ultimately decided that Jeremy's
-> original prng approach is the fastest. I made the argument that this approach is
-> secure "enough" in the RFC [2] and the responses indicated agreement.
-> 
-> More details in the commit logs.
-> 
-> 
-> Performance
-> ===========
-> 
-> Mean and tail performance of 3 "small" syscalls was measured. syscall was made
-> 10 million times and each individually measured and binned. These results have
-> low noise so I'm confident that they are trustworthy.
-> 
-> The baseline is v6.18-rc5 with stack randomization turned *off*. So I'm showing
-> performance cost of turning it on without any changes to the implementation,
-> then the reduced performance cost of turning it on with my changes applied.
+On Wed, 14 Jan 2026 11:46:09 +0000
+Cristian Marussi <cristian.marussi@arm.com> wrote:
 
-This adds 16 instructions to the system call fast path on s390, however
-some quick measurements show that executing this extra code is within
-noise ratio performance wise.
+> Add basic support for SCMI V4.0 Telemetry protocol including SHMTI,
+> FastChannels, Notifications and Single Sample Reads collection methods.
+> 
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> ---
+> v1 --> v2
+>  - Add proper ioread accessors for TDCF areas
+>  - Rework resource allocation logic and lifecycle
+>  - Introduce new resources accessors and res_get() operation to
+>    implement lazy enumeration
+>  - Support boot-on telemetry:
+>    + Add DE_ENABLED_LIST cmd support
+>    + Add CONFIG_GET cmd support
+>    + Add TDCF_SCAN for best effort enumeration
+>    + Harden driver against out-of-spec FW with out of spec cmds
+>  - Use FCs list
+>  - Rework de_info_lookup to a moer general de_lookup
+>  - Fixed reset to use CONFIG_GET and DE_ENABLED_LIST to gather initial
+>    state
+>  - Using sign_extend32 helper
+>  - Added counted_by marker where appropriate
+> ---
+>  drivers/firmware/arm_scmi/Makefile    |    2 +-
+>  drivers/firmware/arm_scmi/driver.c    |    2 +
+>  drivers/firmware/arm_scmi/protocols.h |    1 +
+>  drivers/firmware/arm_scmi/telemetry.c | 2671 +++++++++++++++++++++++++
 
-Acked-by: Heiko Carstens <hca@linux.ibm.com> # s390
+Ouch. Might be worth splitting this up into more bite sized pieces.
+
+It's a bit of a take a deep breath before diving in patch at the moment.
+So the following is rather superficial.
+
+>  include/linux/scmi_protocol.h         |  188 +-
+>  5 files changed, 2862 insertions(+), 2 deletions(-)
+>  create mode 100644 drivers/firmware/arm_scmi/telemetry.c
+> 
+
+
+
+> diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
+> new file mode 100644
+> index 000000000000..16bcdcdc1dc3
+> --- /dev/null
+> +++ b/drivers/firmware/arm_scmi/telemetry.c
+> @@ -0,0 +1,2671 @@
+
+> +static void scmi_telemetry_free_tde_put(struct telemetry_info *ti,
+> +					struct telemetry_de *tde)
+> +{
+> +	guard(mutex)(&ti->free_mtx);
+> +
+> +	list_add_tail(&tde->item, &ti->free_des);
+> +}
+
+> +static int iter_de_descr_update_state(struct scmi_iterator_state *st,
+> +				      const void *response, void *priv)
+> +{
+> +	const struct scmi_msg_resp_telemetry_de_description *r = response;
+> +	struct scmi_tlm_de_priv *p = priv;
+> +
+> +	st->num_returned = le32_get_bits(r->num_desc, GENMASK(15, 0));
+> +	st->num_remaining = le32_get_bits(r->num_desc, GENMASK(31, 16));
+> +
+> +	/* Initialized to first descriptor */
+> +	p->next = (void *)r->desc;
+
+No need to cast to a void *
+C always lets you do this implicitly if the target type is a void *.
+
+> +
+> +	return 0;
+> +}
+> +
+
+
+> +static int scmi_telemetry_initial_state_lookup(struct telemetry_info *ti)
+> +{
+> +	struct device *dev = ti->ph->dev;
+> +	int ret;
+> +
+> +	ret = scmi_telemetry_config_lookup(ti, SCMI_TLM_GRP_INVALID,
+> +					   &ti->info.enabled,
+> +					   &ti->info.active_update_interval);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (ti->info.enabled) {
+
+I'd flip logic to reduce indent
+	if (!ti->info.enabled)
+		return 0;
+
+	/*
+	 *...
+
+> +		/*
+> +		 * When Telemetry is found already enabled on the platform,
+> +		 * proceed with passive discovery using DE_ENABLED_LIST and
+> +		 * TCDF scanning: note that this CAN only discover DEs exposed
+> +		 * via SHMTIs.
+> +		 * FastChannel DEs need a proper DE_DESCRIPTION enumeration,
+> +		 * while, even though incoming Notifications could be used for
+> +		 * passive discovery too, it would carry a considerable risk
+> +		 * of assimilating trash as DEs.
+> +		 */
+> +		dev_info(dev,
+> +			 "Telemetry found enabled with update interval %ux10^%d\n",
+> +			 SCMI_TLM_GET_UPDATE_INTERVAL_SECS(ti->info.active_update_interval),
+> +			 SCMI_TLM_GET_UPDATE_INTERVAL_EXP(ti->info.active_update_interval));
+> +		/*
+> +		 * Query enabled DEs list: collect states.
+> +		 * It will include DEs from any interface.
+> +		 * Enabled groups still NOT enumerated.
+> +		 */
+> +		ret = scmi_telemetry_enumerate_des_enabled_list(ti);
+> +		if (ret)
+> +			dev_warn(dev, FW_BUG "Cannot query enabled DE list. Carry-on.\n");
+> +
+> +		/* Discover DEs on SHMTis: collect states/offsets/values */
+> +		for (int id = 0; id < ti->num_shmti; id++) {
+> +			ret = scmi_telemetry_shmti_scan(ti, id, 0, SCAN_DISCOVERY);
+> +			if (ret)
+> +				dev_warn(dev, "Failed discovery-scan of SHMTI ID:%d\n", id);
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+}
+
+> +static int iter_intervals_update_state(struct scmi_iterator_state *st,
+> +				       const void *response, void *priv)
+> +{
+> +	const struct scmi_msg_resp_telemetry_update_intervals *r = response;
+> +
+> +	st->num_returned = le32_get_bits(r->flags, GENMASK(11, 0));
+> +	st->num_remaining = le32_get_bits(r->flags, GENMASK(31, 16));
+> +
+> +	/*
+> +	 * total intervals is not declared previously anywhere so we
+> +	 * assume it's returned+remaining on first call.
+> +	 */
+> +	if (!st->max_resources) {
+> +		struct scmi_tlm_ivl_priv *p = priv;
+> +		bool discrete;
+> +		int inum;
+> +
+> +		discrete = INTERVALS_DISCRETE(r->flags);
+> +		/* Check consistency on first call */
+> +		if (!discrete && (st->num_returned != 3 || st->num_remaining != 0))
+> +			return -EINVAL;
+> +
+> +		inum = st->num_returned + st->num_remaining;
+> +		struct scmi_tlm_intervals *intrvs __free(kfree) =
+> +			kzalloc(sizeof(*intrvs) + inum * sizeof(__u32), GFP_KERNEL);
+
+Unless this is going to get more complex, the __free() isn't doing anything useful
+as there are no other error paths before the no_free_ptr().
+
+> +		if (!intrvs)
+> +			return -ENOMEM;
+> +
+> +		intrvs->num = inum;
+> +		intrvs->discrete = discrete;
+> +		st->max_resources = intrvs->num;
+> +
+> +		*p->intrvs = no_free_ptr(intrvs);
+> +	}
+> +
+> +	return 0;
+
+> +static int
+> +scmi_tlm_enumerate_update_intervals(struct telemetry_info *ti,
+> +				    struct scmi_tlm_intervals **intervals,
+> +				    int grp_id, unsigned int flags)
+> +{
+> +	struct scmi_iterator_ops ops = {
+> +		.prepare_message = iter_intervals_prepare_message,
+> +		.update_state = iter_intervals_update_state,
+> +		.process_response = iter_intervals_process_response,
+> +	};
+> +	const struct scmi_protocol_handle *ph = ti->ph;
+> +	struct scmi_tlm_ivl_priv ipriv = {
+> +		.dev = ph->dev,
+> +		.grp_id = grp_id,
+> +		.intrvs = intervals,
+> +		.flags = flags,
+> +	};
+> +	void *iter;
+> +
+> +	iter = ph->hops->iter_response_init(ph, &ops, 0,
+> +					    TELEMETRY_LIST_UPDATE_INTERVALS,
+> +			     sizeof(struct scmi_msg_telemetry_update_intervals),
+This alignment is unusual.  Given the length of that type name I'd do this as:
+
+	iter = ph->hops->iter_response_init(ph, &ops, 0,
+		TELEMETRY_LIST_UPDATE_INTERVALS,
+		sizeof(struct scmi_msg_telemetry_update_intervals),
+		&ipriv);
+
+> +					    &ipriv);
+> +	if (IS_ERR(iter))
+> +		return PTR_ERR(iter);
+> +
+> +	return ph->hops->iter_response_run(iter);
+> +}
+
+> +static const struct scmi_telemetry_de *
+> +scmi_telemetry_de_lookup(const struct scmi_protocol_handle *ph, u32 id)
+> +{
+> +	struct telemetry_info *ti = ph->get_priv(ph);
+> +	struct scmi_telemetry_de *de;
+> +
+> +	ti->res_get(ti);
+> +	de = xa_load(&ti->xa_des, id);
+> +	if (!de)
+> +		return NULL;
+> +
+> +	return de;
+
+	return xa_load(&ti->xa_des, id);
+
+> +}
+
+
+> +static struct payload *
+> +scmi_telemetry_nearest_blk_ts(struct telemetry_shmti *shmti,
+> +			      struct payload *last_payld)
+> +{
+> +	struct payload *payld, *bts_payld = NULL;
+> +	struct tdcf __iomem *tdcf = shmti->base;
+> +	u32 *next;
+> +
+> +	/* Scan from start of TDCF payloads up to last_payld */
+> +	payld = (struct payload *)tdcf->payld;
+
+casting away the __iomem is usualy a bad idea.
+Shouldn't a readl or similar be used to get next below.
+
+
+> +	next = (u32 *)payld;
+> +	while (payld < last_payld) {
+> +		if (IS_BLK_TS(payld))
+> +			bts_payld = payld;
+> +
+> +		next += USE_LINE_TS(payld) ?
+> +			TS_LINE_DATA_PAYLD_WORDS : LINE_DATA_PAYLD_WORDS;
+> +		payld = (struct payload *)next;
+> +	}
+> +
+> +	return bts_payld;
+> +}
+> +
+> +static struct telemetry_block_ts *
+> +scmi_telemetry_blkts_lookup(struct device *dev, struct xarray *xa_bts,
+> +			    struct payload *payld)
+> +{
+> +	struct telemetry_block_ts *bts;
+> +
+> +	bts = xa_load(xa_bts, (unsigned long)payld);
+> +	if (!bts) {
+> +		int ret;
+> +
+> +		bts = devm_kzalloc(dev, sizeof(*bts), GFP_KERNEL);
+
+I'd not normally expect to see xa_insert using devm allocated memory
+because you sort of hand ownership to the xa with that call so I'd expect
+on exist we'd see a walk of the xa clearing out everything it is tracking.
+
+> +		if (!bts)
+> +			return NULL;
+> +
+> +		refcount_set(&bts->users, 1);
+> +		bts->payld = payld;
+> +		bts->xa_bts = xa_bts;
+> +		mutex_init(&bts->mtx);
+> +		ret = xa_insert(xa_bts, (unsigned long)payld, bts, GFP_KERNEL);
+> +		if (ret) {
+> +			devm_kfree(dev, bts);
+> +			return NULL;
+> +		}
+> +	}
+> +
+> +	return bts;
+> +}
+
+> +
+> +static void scmi_telemetry_tdcf_data_parse(struct telemetry_info *ti,
+> +					   struct payload __iomem *payld,
+> +					   struct telemetry_shmti *shmti,
+> +					   enum scan_mode mode)
+> +{
+> +	bool ts_valid = TS_VALID(payld);
+> +	struct telemetry_de *tde;
+> +	bool discovered = false;
+> +	u64 val, tstamp = 0;
+> +	u32 de_id;
+> +
+> +	de_id = PAYLD_ID(payld);
+> +	/* Is thi DE ID know ? */
+
+That comment needs a rewrite.
+
+> +	tde = scmi_telemetry_tde_lookup(ti, de_id);
+> +	if (!tde) {
+> +		if (mode != SCAN_DISCOVERY)
+> +			return;
+> +
+> +		/* In SCAN_DISCOVERY mode we allocate new DEs for unknown IDs */
+> +		tde = scmi_telemetry_tde_get(ti, de_id);
+> +		if (IS_ERR(tde))
+> +			return;
+> +
+> +		tde->de.info->id = de_id;
+> +		tde->de.enabled = true;
+> +		tde->de.tstamp_enabled = ts_valid;
+> +		discovered = true;
+> +	}
+> +
+> +	/* Update DE location refs if requested: normally done only on enable */
+> +	if (mode >= SCAN_UPDATE) {
+> +		tde->base = shmti->base;
+> +		tde->eplg = SHMTI_EPLG(shmti);
+> +		tde->offset = (void *)payld - (void *)shmti->base;
+> +
+> +		dev_dbg(ti->ph->dev,
+> +			"TDCF-updated DE_ID:0x%08X - shmti:%pX  offset:%u\n",
+> +			tde->de.info->id, tde->base, tde->offset);
+> +	}
+> +
+> +	if (discovered) {
+> +		if (scmi_telemetry_tde_register(ti, tde)) {
+> +			scmi_telemetry_free_tde_put(ti, tde);
+> +			return;
+> +		}
+> +	}
+> +
+> +	scoped_guard(mutex, &tde->mtx) {
+> +		if (tde->last_magic == shmti->last_magic)
+> +			return;
+> +	}
+> +
+> +	/* Data is always valid since we are NOT handling BLK TS lines here */
+> +	val = LINE_DATA_GET(&payld->l);
+> +	/* Collect the right TS */
+> +	if (ts_valid) {
+> +		if (USE_LINE_TS(payld)) {
+> +			tstamp = LINE_TSTAMP_GET(&payld->tsl);
+> +		} else if (USE_BLK_TS(payld)) {
+> +			if (!tde->bts) {
+> +				/*
+> +				 * Scanning a TDCF looking for the nearest
+> +				 * previous valid BLK_TS, after having found a
+> +				 * USE_BLK_TS() payload, MUST succeed.
+> +				 */
+> +				tde->bts = scmi_telemetry_blkts_bind(ti->ph->dev,
+> +								     shmti, payld,
+> +								     &ti->xa_bts);
+> +				if (WARN_ON(!tde->bts))
+> +					return;
+> +			}
+> +
+> +			tstamp = scmi_telemetry_blkts_read(tde->last_magic,
+> +							   tde->bts);
+> +		}
+> +	}
+> +
+> +	guard(mutex)(&tde->mtx);
+> +	tde->last_magic = shmti->last_magic;
+> +	tde->last_val = val;
+> +	if (tde->de.tstamp_enabled)
+
+ternary perhaps
+	tde->last_ts = tde->de.tstamp_enabled ? tstamp : 0;
+
+
+> +		tde->last_ts = tstamp;
+> +	else
+> +		tde->last_ts = 0;
+> +}
+
+
+
+
+> +static inline void scmi_telemetry_de_data_fc_read(struct telemetry_de *tde,
+> +						  u64 *tstamp, u64 *val)
+> +{
+> +	struct fc_tsline __iomem *fc = tde->base + tde->offset;
+> +
+> +	*val = LINE_DATA_GET(fc);
+> +	if (tstamp) {
+> +		if (tde->de.tstamp_support)
+> +			*tstamp = LINE_TSTAMP_GET(fc);
+> +		else
+> +			*tstamp = 0;
+
+		*tstamp = tde->de.tstam_support ? LINE_TIMESTAMP_GET(fc) : 0;
+
+> +	}
+> +}
+> +
+> +static void scmi_telemetry_scan_update(struct telemetry_info *ti, u64 ts)
+> +{
+> +	struct telemetry_de *tde;
+> +
+> +	/* Scan all SHMTIs ... */
+> +	for (int id = 0; id < ti->num_shmti; id++) {
+> +		int ret;
+> +
+> +		ret = scmi_telemetry_shmti_scan(ti, id, ts, SCAN_LOOKUP);
+> +		if (ret)
+
+Might as well simplify given value of ret only used here.
+
+		if (scmi_telemetry_shmti_scan(ti, id, ts, SCAN_LOOKUP)) {
+			dev_warn();
+
+> +			dev_warn(ti->ph->dev,
+> +				 "Failed update-scan of SHMTI ID:%d\n", id);
+> +	}
+> +
+> +	if (!ti->info.fc_support)
+> +		return;
+> +
+> +	/* Need to enumerate resources to access fastchannels */
+> +	ti->res_get(ti);
+> +	list_for_each_entry(tde, &ti->fcs_des, item) {
+> +		u64 val, tstamp;
+> +
+> +		if (!tde->de.enabled)
+> +			continue;
+> +
+> +		scmi_telemetry_de_data_fc_read(tde, &tstamp, &val);
+> +
+> +		guard(mutex)(&tde->mtx);
+> +		tde->last_val = val;
+> +		if (tde->de.tstamp_enabled)
+> +			tde->last_ts = tstamp;
+> +		else
+> +			tde->last_ts = 0;
+> +	}
+> +}
+> +
+> +/*
+> + * TDCF and TS Line Management Notes
+> + * ---------------------------------
+> + *  (from a chat with ATG)
+
+That's probably not a detail we want in the long term record, nice
+and helpful as they are :)
+
+
+> + *
+> + * TCDF Payload Metadata notable bits:
+> + *  - Bit[3]: USE BLK Tstamp
+> + *  - Bit[2]: USE LINE Tstamp
+> + *  - Bit[1]: Tstamp VALID
+> + *
+> + * CASE_1:
+...
+
+
+> +static int
+> +scmi_telemetry_samples_collect(struct telemetry_info *ti, int grp_id,
+> +			       int *num_samples,
+> +			       struct scmi_telemetry_de_sample *samples)
+> +{
+> +	struct scmi_telemetry_res_info *rinfo;
+> +	int max_samples;
+> +
+> +	max_samples = *num_samples;
+> +	*num_samples = 0;
+> +
+> +	rinfo = ti->res_get(ti);
+> +	for (int i = 0; i < rinfo->num_des; i++) {
+> +		struct scmi_telemetry_de *de;
+> +		u64 val, tstamp;
+> +		int ret;
+> +
+> +		de = rinfo->des[i];
+> +		if (grp_id != SCMI_TLM_GRP_INVALID &&
+> +		    (!de->grp || de->grp->info->id != grp_id))
+> +			continue;
+> +
+> +		ret = scmi_telemetry_de_cached_read(ti, de, &tstamp, &val);
+> +		if (ret)
+> +			continue;
+> +
+> +		if (*num_samples == max_samples)
+> +			return -ENOSPC;
+> +
+> +		samples[*num_samples].tstamp = tstamp;
+> +		samples[*num_samples].val = val;
+> +		samples[*num_samples].id = de->info->id;
+Maybe worth doing
+		samples[(*num_samples)++] = (struct scmi_telemetry_de_sample) {
+			.tstamp = tstamp,
+			.val = val,
+			.id = de->info->id,
+		};
+so that it is immediately obvious you are filling whole record in (or zeroing
+any other fields though not relevant here)
+
+> +
+> +		(*num_samples)++;
+> +	}
+> +
+> +	return 0;
+> +}
+
+> +
+> +static int scmi_telemetry_des_sample_get(const struct scmi_protocol_handle *ph,
+> +					 int grp_id, int *num_samples,
+> +					 struct scmi_telemetry_de_sample *samples)
+> +{
+> +	struct telemetry_info *ti = ph->get_priv(ph);
+> +	struct scmi_msg_telemetry_config_set *msg;
+> +	struct scmi_xfer *t;
+> +	bool grp_ignore;
+> +	int ret;
+> +
+> +	if (!ti->info.enabled || !num_samples || !samples)
+> +		return -EINVAL;
+> +
+> +	grp_ignore = grp_id == SCMI_TLM_GRP_INVALID ? true : false;
+> +	if (!grp_ignore && grp_id >= ti->info.base.num_groups)
+> +		return -EINVAL;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, TELEMETRY_CONFIG_SET,
+> +				      sizeof(*msg), 0, &t);
+> +	if (ret)
+> +		return ret;
+> +
+> +	msg = t->tx.buf;
+> +	msg->grp_id = grp_id;
+> +	msg->control = TELEMETRY_ENABLE;
+> +	msg->control |= grp_ignore ? TELEMETRY_SET_SELECTOR_ALL :
+> +		TELEMETRY_SET_SELECTOR_GROUP;
+> +	msg->control |= TELEMETRY_MODE_SINGLE;
+> +	msg->sampling_rate = 0;
+> +
+> +	ret = ph->xops->do_xfer_with_response(ph, t);
+> +	if (!ret) {
+> +		struct scmi_msg_resp_telemetry_reading_complete *r = t->rx.buf;
+
+Feels like that type might benefit form a shorter name
+		struct scmi_msg_resp_telemetry_rd_comp
+maybe?
+
+> +
+> +		/* Update cached DEs values from payload */
+> +		if (r->num_dwords)
+> +			scmi_telemetry_msg_payld_process(ti, r->num_dwords,
+> +							 r->dwords, 0);
+> +		/* Scan and update SMHTIs and FCs */
+> +		scmi_telemetry_scan_update(ti, 0);
+> +
+> +		/* Collect all last cached values */
+> +		ret = scmi_telemetry_samples_collect(ti, grp_id, num_samples,
+> +						     samples);
+> +	}
+> +
+> +	ph->xops->xfer_put(ph, t);
+> +
+> +	return ret;
+> +}
+
+> +
+> +static int scmi_telemetry_reset(const struct scmi_protocol_handle *ph)
+> +{
+> +	struct scmi_xfer *t;
+> +	int ret;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, TELEMETRY_RESET, sizeof(u32), 0, &t);
+> +	if (ret)
+> +		return ret;
+> +
+> +	put_unaligned_le32(0, t->tx.buf);
+> +	ret = ph->xops->do_xfer(ph, t);
+> +	if (!ret) {
+> +		struct telemetry_info *ti = ph->get_priv(ph);
+> +
+> +		scmi_telemetry_local_resources_reset(ti);
+> +		/* Fetch agaon states state from platform.*/
+
+Not sure what that comment means.
+
+> +		ret = scmi_telemetry_initial_state_lookup(ti);
+> +		if (ret)
+> +			dev_warn(ph->dev,
+> +				 FW_BUG "Cannot retrieve initial state after reset.\n");
+> +	}
+> +
+> +	ph->xops->xfer_put(ph, t);
+> +
+> +	return ret;
+> +}
+
+> +static void *
+> +scmi_telemetry_fill_custom_report(const struct scmi_protocol_handle *ph,
+> +				  u8 evt_id, ktime_t timestamp,
+> +				  const void *payld, size_t payld_sz,
+> +				  void *report, u32 *src_id)
+> +{
+> +	const struct scmi_telemetry_update_notify_payld *p = payld;
+> +	struct scmi_telemetry_update_report *r = report;
+> +
+> +	/* At least sized as an empty notification */
+> +	if (payld_sz < sizeof(*p))
+> +		return NULL;
+> +
+> +	r->timestamp = timestamp;
+> +	r->agent_id = le32_to_cpu(p->agent_id);
+> +	r->status = le32_to_cpu(p->status);
+> +	r->num_dwords = le32_to_cpu(p->num_dwords);
+> +	/*
+> +	 * Allocated dwords and report are sized as max_msg_size, so as
+> +	 * to allow for the maximum payload permitted by the configured
+> +	 * transport. Overflow is not possible since out-of-size messages
+> +	 * are dropped at the transport layer.
+> +	 */
+> +	if (r->num_dwords)
+> +		memcpy(r->dwords, p->array, r->num_dwords * sizeof(u32));
+
+This needs le32 magic as you are copying from an array of those to an array
+of unsigned int (if you do this as a memcpy that should be u32 to make the
+size explicit).
+
+memcpy_from_le32() should do what you need here.
+
+
+> +
+> +	*src_id = 0;
+> +
+> +	return r;
+> +}
+
+
+> diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+> index c6efe4f371ac..d58b81ffd81e 100644
+> --- a/include/linux/scmi_protocol.h
+> +++ b/include/linux/scmi_protocol.h
+
+> +
+> +/**
+> + * struct scmi_telemetry_proto_ops - represents the various operations provided
+> + *	by SCMI Telemetry Protocol
+> + *
+> + * @info_get: get the general Telemetry information.
+> + * @de_lookup: get a specific DE descriptor from the DE id.
+> + * @res_get: get a reference to the Telemetry resources descriptor.
+> + * @state_get: retrieve the specific DE or GROUP state.
+> + * @state_set: enable/disable the specific DE or GROUP with or without timestamps.
+> + * @all_disable: disable ALL DEs or GROUPs.
+> + * @collection_configure: choose a sampling rate and enable SHMTI/FC sampling
+> + *			  for on demand collection via @de_data_read or async
+> + *			  notificatioins for all the enabled DEs.
+> + * @de_data_read: on-demand read of a single DE and related optional timestamp:
+> + *		  the value will be retrieved at the proper SHMTI offset OR
+> + *		  from the dedicated FC area (if supported by that DE).
+> + * @des_bulk_read: on-demand read of all the currently enabled DEs, or just
+> + *		   the ones belonging to a specific group when provided.
+> + * @des_sample_get: on-demand read of all the currently enabled DEs, or just
+> + *		    the ones belonging to a specific group when provided.
+> + *		    This causes an immediate update platform-side of all the
+> + *		    enabled DEs.
+> + * @config_get: retrieve current telemetry configuration.
+> + * @reset: reset configuration and telemetry data.
+> + */
+> +struct scmi_telemetry_proto_ops {
+> +	const struct scmi_telemetry_info __must_check *(*info_get)
+> +		(const struct scmi_protocol_handle *ph);
+> +	const struct scmi_telemetry_de __must_check *(*de_lookup)
+> +		(const struct scmi_protocol_handle *ph, u32 id);
+> +	const struct scmi_telemetry_res_info __must_check *(*res_get)
+> +		(const struct scmi_protocol_handle *ph);
+> +	int (*state_get)(const struct scmi_protocol_handle *ph,
+> +			 u32 id, bool *enabled, bool *tstamp_enabled);
+> +	int (*state_set)(const struct scmi_protocol_handle *ph,
+> +			 bool is_group, u32 id, bool *enable, bool *tstamp);
+> +	int (*all_disable)(const struct scmi_protocol_handle *ph, bool group);
+> +	int (*collection_configure)(const struct scmi_protocol_handle *ph,
+> +				    unsigned int res_id, bool grp_ignore,
+> +				    bool *enable,
+> +				    unsigned int *update_interval_ms,
+> +				    enum scmi_telemetry_collection *mode);
+> +	int (*de_data_read)(const struct scmi_protocol_handle *ph,
+> +			    struct scmi_telemetry_de_sample *sample);
+> +	int __must_check (*des_bulk_read)(const struct scmi_protocol_handle *ph,
+
+I'm curious. What about this one makes it suitable for a __must_check?
+Seems a bit random.
+
+> +					  int grp_id, int *num_samples,
+> +					  struct scmi_telemetry_de_sample *samples);
+> +	int __must_check (*des_sample_get)(const struct scmi_protocol_handle *ph,
+> +					   int grp_id, int *num_samples,
+> +					   struct scmi_telemetry_de_sample *samples);
+> +	int (*config_get)(const struct scmi_protocol_handle *ph, bool *enabled,
+> +			  int *mode, u32 *update_interval);
+> +	int (*reset)(const struct scmi_protocol_handle *ph);
+> +};
+
+> +
+> +struct scmi_telemetry_update_report {
+> +	ktime_t		timestamp;
+> +	unsigned int	agent_id;
+> +	int		status;
+> +	unsigned int	num_dwords;
+> +	unsigned int	dwords[];
+
+__counted_by not appropriate?
+
+> +};
+>  #endif /* _LINUX_SCMI_PROTOCOL_H */
+
+> +	put_unaligned_le32(0, t->tx.buf);
+> +	ret = ph->xops->do_xfer(ph, t);
 
