@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5533CD29C2D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 14:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E91A5D29C2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 14:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9QpAp4QkWR9PBHqqIXcZgHZKXXztp+I8Ih4YTO98MnY=; b=gz5nHOMjgvlliHzBnDBQHGMEwv
-	WuVBQemBSGNhxpJErfVdUnH3Y2h+aBqB/PTz1v2si0Ey+1u5YKFv5h8WGQK/Mrq63DMil4gQDgOQu
-	608w7Jb13SVSJOVNzNi/8JatEWL2mp1lmihAT8eKlX+2vf78O8Tl6saAo8zLt7nwiOTKyk8/g84sQ
-	t9xkoXAP0lE+dELhf1K/FXaCMU0TWeoIDHApr4C88w+30gvmb7eklEGlYkh2oFE9ThOMvfLNerJre
-	Mf6ivIdJYDD8edszoqLxEr+0EqnFDecjzRBANO5to5DePyQ4CjEt9M1ug7LuxR0NPmFYzgERdR0gw
-	8a+xjIDQ==;
+	bh=c7Ep0GD4eG911kODoOvUPprYM2xLb7geaPpEU8Rcz+g=; b=svLY4WU/224/qNNzGJrskJ0zx6
+	zaXMBLhf0Kdipdgq9bqXFry9t7n+l02jSKUIKUN16vq5C+Ho/ZG4L8sw/hb5pWgaKiFAokcN2NvSn
+	uv7ROcxoWYr0DJxdXi6yA+jdMkJYGOhqvzXWrpCdOlbtRVY1tle0TBAkuJDpU9j/4f4fZycs32YhT
+	hrlcdBbku8rPxVMh7DCls+GKIIgsBCoGPu7gbf+iOX55W/LKUGW+0XTVt6h9wEi+EJ+Nar41WFKbn
+	pGC2bgW6TY5qKWfB0gEFySHgQa7A0Pp6BFvHYHXMTRbd9MlK738M7m7O+d9cKQDWTAgsyTwd+NIDF
+	imPWKqnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhptc-00000002Dqx-3vCx;
-	Mon, 19 Jan 2026 14:06:20 +0000
-Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhpta-00000002DqB-2GyU;
-	Mon, 19 Jan 2026 14:06:19 +0000
-Received: from 8bytes.org (p4ffe051a.dip0.t-ipconnect.de [79.254.5.26])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id A8A165FE3B;
-	Mon, 19 Jan 2026 15:06:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1768831573;
-	bh=8fE/fVBEgdOLpzuob5JArOL9qUED4Igf5P6wZV9E7zc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=xPgVoupCZJ21WG/9NetjaYmj37rlGXT0p1h01g/8PJf/5BIF/sDss8wVY7EBEuCxc
-	 o50eZsGy06uMek/GekduYUc5aIaus/KwqqpL5mNJlrZYYzH6u0UJGE6jqYJfgw5HpX
-	 8WyvB+OC36TmRRvmPVpg870uPg62YqoWwjrbQOPPl+TGMMS5Xbkd990Qq0zpCe+C05
-	 5PynYXLJG2n+yhU6JGOenybtrAbQIEXemWff2IbFUZkGoVVtb2tNqkcJoPSthab6Np
-	 B8buqRrGdK6s8V3FOkjRGjak08I9MEp0uu6DMJoleA/1Y1Ld380PutUAMZhAOYKicD
-	 UZqqaTazCQs1Q==
-Date: Mon, 19 Jan 2026 15:06:12 +0100
-From: =?utf-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Cc: Will Deacon <will@kernel.org>, robin.murphy@arm.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, 
-	nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org, 
-	iommu@lists.linux.dev, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org, 
-	kernel@collabora.com
-Subject: Re: [PATCH v11 3/7] iommu: Add verisilicon IOMMU driver
-Message-ID: <f2v4y2fi6dw44zfp4uxn6d5v5hq4sukwds4hxn4btn6zxr7vrp@b4qbub57vgft>
-References: <20260107101005.84039-1-benjamin.gaignard@collabora.com>
- <20260107101005.84039-4-benjamin.gaignard@collabora.com>
- <aWZui-rn5RDPwpEO@willie-the-truck>
- <eqv7yfdagt2axkj5xbtmrtkaakhq63ywf2q5tjo33exumhfrc5@7ghelrz6yt2d>
- <d81c0f26-ab36-42a9-bc40-b9767aea038a@collabora.com>
+	id 1vhq7r-00000002Eib-3Bbh;
+	Mon, 19 Jan 2026 14:21:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhq7o-00000002Ehb-07mZ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 19 Jan 2026 14:21:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=c7Ep0GD4eG911kODoOvUPprYM2xLb7geaPpEU8Rcz+g=; b=CdKV+M276T3j8WIj/XFiLDjice
+	yeYQ+M108mNqXuxXkbfPoGmJ0d9OLuZenHGUChxM6oxtGngj7dzXzL8/Ke6teXfI/15wHdV3HaXif
+	mCVSXLviDx5cpwbGmrLC/U6ow2gmdZd07sCjWqDEZxWtcUlOBumTSHaVmmgmmKVOMVUJmtV09gAm/
+	Lg5jNxehBqjoBsmr6pcGaxC/yr+4D3x17IxF5cS+o5wLpjR6//5ZcWmZuIKj+VwYDKZrQG4OR0DId
+	NrvkLvXns6W2BBNSZrVtF77yrhlUlPvNqNqlvmF/8pZaESnwNNADHbvaRzB5KnRU8id5isJPffCkn
+	rSDBs0Xw==;
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhq7l-0000000CFOx-03HP
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 14:20:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=c7Ep0GD4eG911kODoOvUPprYM2xLb7geaPpEU8Rcz+g=; b=CA3py8ftIBYki7YqehhBkcUCAE
+	Jq7C+1KCwjIrVDFC+GK3VKxuTunuovVb/OOJLH4mvTDrjY9ZYAsq64o/VUCK+zUCJVX18CKCiZgwJ
+	nlEuzXZNNYKP51fFNdGzccFRUqUQ3D7Cv9ycIXAkCOtHHRr9Ap3iqOw2o8Cp1r46+4wU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vhq7T-003VPQ-Ln; Mon, 19 Jan 2026 15:20:39 +0100
+Date: Mon, 19 Jan 2026 15:20:39 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Andrew Jeffery <andrew@aj.id.au>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	BMC-SW <BMC-SW@aspeedtech.com>
+Subject: Re: [PATCH 3/5] gpio: aspeed-sgpio: Create llops to handle hardware
+ access
+Message-ID: <bb5bdcf2-6bd3-49c7-b3e5-210b7f332137@lunn.ch>
+References: <20260117-upstream_sgpio-v1-0-850ef3ffb680@aspeedtech.com>
+ <20260117-upstream_sgpio-v1-3-850ef3ffb680@aspeedtech.com>
+ <55fbb766-12b5-441a-b06c-d807097e5476@lunn.ch>
+ <OSQPR06MB725219B6ED261DBB4E8BC33D8B88A@OSQPR06MB7252.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <d81c0f26-ab36-42a9-bc40-b9767aea038a@collabora.com>
+In-Reply-To: <OSQPR06MB725219B6ED261DBB4E8BC33D8B88A@OSQPR06MB7252.apcprd06.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_060618_797018_DE9217C4 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20260119_142057_181452_90F52DB0 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,16 +99,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 11:28:11AM +0100, Benjamin Gaignard wrote:
->  * This hardware block is using a 2 pages tables allocation structure.
->  * That make very similar to Rockhip iommu hardware blocks but it has
->  * it own driver because the registers offset and configuration bits
->  * are completely different. An additional raison is that this hardware
->  * has been developped by Verisilicon to be used by their hardware video
->  * decoders and for a general purpose like Rockchip iommus.
+> We did consider regmap. However, llops is intended to abstract not only
+> register
+> 
+> access but also layout-specific bit mapping, which is difficult to express
+> 
+> cleanly with a flat regmap interface.
 
-Please run a spell checker on this (e.g. raion -> reason, developped ->
-developed) and I think the last sentence lacks a "not". Looks good otherwise.
+O.K. I was just thinking, if you can swap to regmap, you could maybe
+then go one step further and use gpio_regmap_register(). But if you
+have extra logic in here, that will not work.
 
--Joerg
+     Andrew
 
