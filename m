@@ -4,99 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24659D29C4B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 17:16:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EEC0D29C32
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 17:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dKh5VhKWJDfvZ+/kW792nGDNCXhsqOgN8MgniXfKmm4=; b=KiUilnLR7k+CC4gkj6YnN39n/f
-	3IWLnprFvmu+3f2GcAtyBskQBIA5RTfhOC5ms+dqdLV5nfF2gwrkWGesdagrJRjXPZOd4hIolxz4B
-	RX13v0LSN4lCdpdqQtveat2xDWmgk25cnu5wBURCIxdrPqh/GYIpvbpDMEKCYLEu0o8o1qtf0NSOp
-	3q0x3X066vX5FQrmBE/XH7zsmnlItMR6xkjF6h28CC5s654NVUycK4cSDP4rcSwujqC9j2I+i0EPR
-	DXsYLCHDzF7BDSYw+opT/YVVYsbFtRA8LAO3quNkQnYYUmh4WA3UonY9A3DOvAqaA/NrzKhpJSzr+
-	4oANKWzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5dCKnQqgcn4FwURv24c36V1b4GyaBk0u3IWkPTU4lJY=; b=wqleDh/HlYk1f8RfxJDU0w1Gq0
+	x53EYk7IBM2TgtkUCDYXeWGuHaVtCgfop7s6B4KytbwPER8NYBSewy3geHCfHsFjZLDG37O5nbigQ
+	7oGLRgUVVxmJneA2QzKAvWaGRerJu5R2Hxup265rNxDJltv2oWh2OnSjL0jnFAnqAXvjWsdo1a2zO
+	qfNSecE0y3BJUDmbdSCVzT6GEk2YQ2zkK3/4W56wnqBwqPFSEX9ZOK67UjVkJJBvjwZir/GgIgAvf
+	IjmLwU9PvJ9DdmCIU3itvb7UgYTMgyMu1HNgCxuX9WC+xP3QcARq02CL5ibi7ILqhGMBLbPghieLm
+	wK7j2jlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsr6-00000002bmd-0u20;
-	Mon, 19 Jan 2026 17:15:56 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1vhsvK-00000002c9G-0fBJ;
+	Mon, 19 Jan 2026 17:20:18 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsr2-00000002bmE-433W
+	id 1vhsvG-00000002c8f-3Pw7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 17:15:54 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2a0c20ee83dso41084565ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 09:15:52 -0800 (PST)
+	Mon, 19 Jan 2026 17:20:16 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60JBDKnK1440810
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 17:20:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=5dCKnQqgcn4FwURv24c36V1b
+	4GyaBk0u3IWkPTU4lJY=; b=LbMW0k8UwfxPriKgy8ReMoO7YrURp4bkQP38ghT7
+	P6oe2A0+AVOmmezfIk8mDsXVl5bDwGhoS4lSciJ12Blzj2muRsmaUP2Q/7seAUro
+	gwMM9OWcj6KaJo9oc4gw0b4IHph2cRNvfIAjMZwMwmg/mAIt8i3Q07M2goJaWVkx
+	MsHpMRhxdNFP4Y4BVzhSZSYBt7QyWau4qBW2psGJvUGoE7dxfoSB6Ic+4AfCubfO
+	OtH3bgm67dkpaJJlgQ2kYj5a6B8I7ZDiX7si/8jjEJ6k4oo7FrsWCyAeNRplcCFa
+	vhpwEktHNpfrhAumczF/SnoKFOoww0GT+FqoR12hMMfYjA==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bskj3h272-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 17:20:13 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8c2a3a614b5so1095939285a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 09:20:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1768842952; x=1769447752; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dKh5VhKWJDfvZ+/kW792nGDNCXhsqOgN8MgniXfKmm4=;
-        b=G4MMtQc3z/BHnGEelaPUlGvD83p7BcI/llSnUhD84P/XqL99mi5K3jn7jiy/cAzIQ7
-         TvRkTgRGdznPdWhKaU01NbGfjg6f4aLRKevc4B0N8oEYxyWl1iXiWNuvHIdIlVDYekyB
-         z1C3Ysi07whXwja7PkBgymku4uMsd+LpvM2+RdAsVvAP3x0skpCNXO5xnbenRW1LlqET
-         qLRZ8O6T7kztUdaEYgD2ynnwz7mB3HGAlnYupAKf+zyJyaYOKeq1SOOiqIfONY0rWYYZ
-         9y2/DcjKz+g3xfW3AH0kf7/wbvDLi+vct8SuRpQTSY31mV3L1N1Dk3tKdp5HPE1amUbR
-         HrjA==
+        d=oss.qualcomm.com; s=google; t=1768843212; x=1769448012; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=5dCKnQqgcn4FwURv24c36V1b4GyaBk0u3IWkPTU4lJY=;
+        b=iz02teGbWmTbY/Y/GiMQwDiRo0nqaqK++YK1+QrZRO9vfIc4VjHchR6eRZZc5WyZmB
+         lUS+Kq+79GVi69E1liNINSJ4lgmHkUlgJrghmjY+BoC+T0y9TPJ9QJ6aytt44GjO5Aw/
+         avLn0JLaTrHUrrqhj0ORJcnmuQD1H471Yn2XoYqHY0NJRrhtiBmtajagRH7L93UTsVbU
+         j9I0tnDyLZ62cQyulC4MlNMffWyxpebMjQRHsggY0NAz8VcubjBMg6Rej3Z6SsrYpaDQ
+         hmsTmFU6eTOuv9VN5nWLAvqeOGX7K5KJANaTEvtLQfUxr8cSdD+CRI9o4gofRa+viu/C
+         32vw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768842952; x=1769447752;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=dKh5VhKWJDfvZ+/kW792nGDNCXhsqOgN8MgniXfKmm4=;
-        b=FRSRmTWGRMV5YNFWbtNc+/nTKVEBB+isveY8llMP6qdDNqCVQDzbv92hcNeNVXPhwy
-         aQdtF7A6x9e+yqw/7pIX/j2ef3liKbOTy39+3v/sZcfJnyrx1+fwCKE/WyeBybqxtR3d
-         5Zq8dY5iLXlch2Ow0RS9pXvbkF6kypHAuOnJ8XeNdZcG80G2coUwmcr3TvvaKg8zhfaI
-         Lo3EOOutwvCLaxRIwbcNuCj3ViJ3ddpyvzTSNSXv5/7Zs8ASyUKMAHq+XIfVkZdA4/v6
-         3/nfo9ObCnoAGAZtbAHgjMNs2jt2ko44TSo3LjO6/9lgvr1iav7x0Qhe+RcEV72hfgGF
-         HUNw==
-X-Forwarded-Encrypted: i=1; AJvYcCUuhmvaRLeMD6g6aHHtOXE0M/z7i7WZYBB3NKm5Z01TcDbkDFL1Ev8I/daB84Mkv6mW3XVT7vcXeHXjoab4v5hC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz11rfv3Y2hhoPDRO3dXtV1R+HdzPlHWMSmOKNblKPfR5tnfQUV
-	NNkMp/XfV/F7qlspp4nCEHysKFrWgfAlhtdxgKtfnYvcBLsaG0CPf7zFU7Se1qKy88d+GpdGWUv
-	lx6CAiww=
-X-Gm-Gg: AZuq6aLKsaHWcL8l3Rx4sAtJa4hqaKlftMt/a3J/lr48Mc4QzwV2eaI2J+sEHlWHTqm
-	JmKSscYbdveIXGP7n+G3psA+tzCoMUEEcWLdGRVWRwmwZx4OUSeuFf/GGI//7H+sw9NJ5efMbEa
-	1vB+dRr7UvpEevFYa0BpQKnlBppx8GXw6cWMdXtuj9HiIcJyREZy8ARxzNaB//xvWUmeCEFtE8U
-	xl0hAqCR/4e4n75NqqzzGXgpm7bypYny7EapxrxU+bjl+IciV2SqjA/ICzfGHIHE2KftLrLrJJ1
-	EdWMRSQynDXHKIkDUp6Bd0y3YBj2prLJIB4uJP9jpKEv3aSHsageXf46VNmSXLORLwgeARpRD6g
-	zTF90e7aUvvdZAYTPMvUqLIeiS8tKq2A2VgwAAbqBWSUMYtGHZaPvCYjEA5NNj50Ia0zCLQTAn0
-	ewD24qs2SOajgUCJ7K92FBt6pFfeEgVd/uE+jK6fsL6QYyrju/lalRBtsX+gBE+UEJTLRCbOA=
-X-Received: by 2002:a17:903:24e:b0:2a1:4c31:335 with SMTP id d9443c01a7336-2a71753513fmr115578615ad.26.1768842951841;
-        Mon, 19 Jan 2026 09:15:51 -0800 (PST)
-Received: from smtpclient.apple (c-24-16-26-157.hsd1.wa.comcast.net. [24.16.26.157])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a7190aa334sm46857445ad.5.2026.01.19.09.15.51
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 19 Jan 2026 09:15:51 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
-Subject: Re: [PATCH v3 3/3] spi: xilinx: use device property accessors.
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-In-Reply-To: <9e559e33-4f2f-40d4-a15f-584548bd6057@sirena.org.uk>
-Date: Mon, 19 Jan 2026 09:15:40 -0800
-Cc: Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Michal Simek <michal.simek@amd.com>,
- linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <05D2CC15-DD6B-40F0-BFF0-3264D4FF96ED@nexthop.ai>
-References: <20260119-spi-xilinx-v3-0-4566c33bac0d@nexthop.ai>
- <20260119-spi-xilinx-v3-3-4566c33bac0d@nexthop.ai>
- <8436e914-429f-40b9-8e6f-ec3b02702cad@sirena.org.uk>
- <69F83558-4675-4FC2-8656-BC6E3481AD65@nexthop.ai>
- <9e559e33-4f2f-40d4-a15f-584548bd6057@sirena.org.uk>
-To: Mark Brown <broonie@kernel.org>
-X-Mailer: Apple Mail (2.3864.300.41.1.7)
+        d=1e100.net; s=20230601; t=1768843212; x=1769448012;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5dCKnQqgcn4FwURv24c36V1b4GyaBk0u3IWkPTU4lJY=;
+        b=DAvEx1DYt9Km83opc2TOxkoUQIXnD80BJ/+ItmCxEyujPhZ5KSgkG4k5+eJbItBr7L
+         6JVTKFyu9PEGeabPDCGnCH4w2GTDjYBtTmhR/94GOdWUXtv8C4zF8e7Fl4FlOfAf4nHX
+         LIwmMNL4QxCCPcAfoF4tg2Uk42lKlIqN4wgQPd7W6uTnvzhoh2oCZ4IBR9ghXNLx6GEa
+         CiJMKZIFAlr6YdRJsUAxQdIXJRqsaKsj7Csf9/w0l2cLrrChZ45pu5T0OUsuFaAqsMhs
+         O9MD4goxW3KlKY3WaDCJxnNoqqq/BP40o4a9TMvlKuD1nGW9poL3e6sh18LQCRfI6lw1
+         GQBA==
+X-Forwarded-Encrypted: i=1; AJvYcCUa2WC2pqsbvHyFeEnNfH4a7E+S2tRBmJAweLWbE2kTvPTBE0ZnykYQnkdeIN4OlWOE2mRRMMLg3JYmg9xuceko@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmNFl5pAX8qrDq13g9EWNDATaDM5BBTPpX2V+EcZ1ODlzNve5O
+	p1/SBZI2ROkiO98Nv52PThAymZaMP+V9AkJesA2Pcj062B4Dstt7gbc6MKiFvXWXhe96KrJ8jfH
+	g/DjvIGZoAT/6PDpv9pBgGpf0r0vNJiZxYP0ZNg3GYu9DSQcGZCJZJADrnh7B/i8pfhPa5Kl0QM
+	6TLmXQ0/1AT0Ll
+X-Gm-Gg: AY/fxX6b1sP6wDjiUbmQt9JegsnfvbNvXrtt+cUdrpWav10btWU+XyLV4dSUsdAgrk5
+	Jk+9A/FNLlN/MAISmxVcgZEfgTvU9DCidBk2reov8T30pzESf8bNOdT0mtnqNLsgeSDnZnXFZrT
+	BbzTXKeAyIRwQLVzEz7FrMULNCVcD4tGh6Uc5IBtGLrKQ7x+XqAPkUI+g8igM+ty1MNnc8rPz4B
+	IxqjL2pWadDuJfqqdY0fqCW7NrTCFKk8Jf7GQ9gX9DylO4In6UUJ6xUcFt8cuAKFOZ81+0Hst9L
+	buwziLC3fVMtt6zTrDnwgAKdLWvfeoYaP4CbEjUGxndrml/eT1SpoxW03To6bgZoevIoFYB0yvN
+	YsKXmmpTKfP5B/+w1Z9ieHBcwuDkiGnT/5qoZuidBzvq+MmKNMPHQWvaWNfbUt3JhjILgnmPxh3
+	mv0WYVUyJqDHuWPd3Pwny4ZWI=
+X-Received: by 2002:a05:620a:4446:b0:89d:b480:309f with SMTP id af79cd13be357-8c589b85a2amr1894324585a.7.1768843212291;
+        Mon, 19 Jan 2026 09:20:12 -0800 (PST)
+X-Received: by 2002:a05:620a:4446:b0:89d:b480:309f with SMTP id af79cd13be357-8c589b85a2amr1894320885a.7.1768843211804;
+        Mon, 19 Jan 2026 09:20:11 -0800 (PST)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59baf33ecc7sm3436162e87.3.2026.01.19.09.20.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Jan 2026 09:20:11 -0800 (PST)
+Date: Mon, 19 Jan 2026 19:20:09 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Trilok Soni <trilokkumar.soni@oss.qualcomm.com>,
+        Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, trilok.soni@oss.qualcomm.com
+Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
+Message-ID: <3ldzdsyspd3s6on3cwyanjeheegoeba6kn6qaybojtqeca7335@cyemyxk6kck4>
+References: <aWgEDAlglnGrzdR4@bogus>
+ <4fab824f-8067-49d7-8e6c-dedd67a8454d@oss.qualcomm.com>
+ <aWoVR4oNdIHnksJQ@bogus>
+ <92d90a1e-e993-4044-b152-83a8700f7b63@oss.qualcomm.com>
+ <cb7326b9-91d9-44a3-b9f0-9d2e6ab5fa42@oss.qualcomm.com>
+ <aWzuuwQi_nsHoj_5@bogus>
+ <mzs5vq2jsrmb6kdriuxawbamyim6dhgy34ne6tucnhlalt5y3w@ghckxur3cn6m>
+ <aW5Fdjag_w7i0zWN@bogus>
+ <vvvq5rnbzs7ngtahqrar4iqinizthyrv3ipqnjp6ln34di365j@bbwdyda6gw3u>
+ <aW5iQABCRukZXpZH@bogus>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aW5iQABCRukZXpZH@bogus>
+X-Authority-Analysis: v=2.4 cv=ds7Wylg4 c=1 sm=1 tr=0 ts=696e67cd cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=654gc9IM5QJH5ztBADMA:9 a=CjuIK1q_8ugA:10 a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE5MDE0MyBTYWx0ZWRfX2DTDI1qnKA8P
+ fdfz2oYQNX6FCzuZXpfwDqI7UAw9ilOPQ3YfIHxnLsgh1+WgayW7rrg3fr0bvIGTCih0LRqglda
+ TYTkPbSP2zkgY8G+MVJXL/du8KvDbiRLae7+SYfSNGBIbIoLwFEuVuh89IZPHFi63Wmd+0b9lPy
+ WxMiXaEp3LoUrhau88avLdFERZBohTzUXSBDi9emki+jNNek0VfqQlEWUdooyK2JJGMzftssQ0/
+ ZAvlNdAQhvKW/RBcOKhUaxfHAGaebVtJYmbpl+3q0cIsxyLZNy87wwQmi3s90ti5NPe/yauP5pF
+ ERs+1sPG1eZ2070DLhSD2+ENGUBNyXckLzimJGAJfbwKZiFVBz7NOTRQj5wTbUuw6N+epa1CnI0
+ mutK8fdJx3VSQQJ0vs/9qsVpnAjLoDBQjs4MVzqeiqjVvghZnuEZXiXqGh0LbfDbVvVPbritdbt
+ pYKhx0V3L+ex6IpY58A==
+X-Proofpoint-ORIG-GUID: ymDK5WBGpaS7DQjh07FmEkVwHLWqsrnM
+X-Proofpoint-GUID: ymDK5WBGpaS7DQjh07FmEkVwHLWqsrnM
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-19_04,2026-01-19_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 impostorscore=0 phishscore=0 priorityscore=1501 spamscore=0
+ clxscore=1015 adultscore=0 malwarescore=0 lowpriorityscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601190143
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_091553_129700_EF08D769 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20260119_092014_882762_B0820B54 
+X-CRM114-Status: GOOD (  28.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,40 +153,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 19, 2026 at 04:56:32PM +0000, Sudeep Holla wrote:
+> On Mon, Jan 19, 2026 at 06:44:23PM +0200, Dmitry Baryshkov wrote:
+> > On Mon, Jan 19, 2026 at 02:53:42PM +0000, Sudeep Holla wrote:
+> > > On Sun, Jan 18, 2026 at 03:16:50PM -0600, Bjorn Andersson wrote:
+> > > > On Sun, Jan 18, 2026 at 02:31:23PM +0000, Sudeep Holla wrote:
+> > > > 
+> > > > To me, when you decided to add a second caller to soc_device_register()
+> > > > you created a regression in the userspace interface. If nothing else
+> > > > it's a leaky abstraction.
+> > > > 
+> > > 
+> > > In that case, shouldn't soc_device_register() made to give error when an
+> > > attempt to call it more that one time then ? Also should be change the
+> > > ABI documents to refer it as soc0 and not socX ?
+> > 
+> > Then the whole SoC bus is an overkill. But I have a strange question
+> > here. Consider the device having the "BT / WiFi SoC" next to the main
+> > SoC. Is that SoC a legit target to export informaiton through sysfs /
+> > soc bus?
+> > 
+> 
+> Just for clarity, I agree with you and there could be duplication of
+> information if there are multiple source for that information. E.g.,
+> the setup in this discussion where the EL3 firmware provides SOC_ID
+> information via SMCCC SOC_ID and DT providing vendor specific information
+> about the platform. Both are getting exported via sysfs but the problem
+> here is SOC_ID has displaced vendor specific DT info from soc0 to soc1.
 
+I understand the context and I understand that we ended up having two
+soc devices for the main SoC. And that's exactly why I'm asking about
+the WCN SoC exporting the information through the same interface. If it
+is a legit user, then it is a possible outcome that WCN binds to soc0
+while the main core gets bound to soc1 (even without SMCCC_ID in place).
 
-> On Jan 19, 2026, at 8:50=E2=80=AFAM, Mark Brown <broonie@kernel.org> =
-wrote:
->=20
-> On Mon, Jan 19, 2026 at 08:47:17AM -0800, Abdurrahman Hussain wrote:
->>> On Jan 19, 2026, at 8:32=E2=80=AFAM, Mark Brown <broonie@kernel.org> =
-wrote:
->>> On Mon, Jan 19, 2026 at 07:06:24AM +0000, Abdurrahman Hussain via B4 =
-Relay wrote:
->=20
->>>> - of_property_read_u32(pdev->dev.of_node, "xlnx,num-ss-bits",
->>>> -  &num_cs);
->>>> - ret =3D of_property_read_u32(pdev->dev.of_node,
->>>> -   "xlnx,num-transfer-bits",
->>>> -   &bits_per_word);
->>>> + device_property_read_u32(&pdev->dev, "xlnx,num-ss-bits",
->>>> + &num_cs);
->>>> + ret =3D device_property_read_u32(&pdev->dev,
->>>> +       "xlnx,num-transfer-bits",
->>>> +       &bits_per_word);
->=20
->>> Are these bindings appropraite for ACPI systems?
->=20
->> Yes, the Xilinx IP blocks are memory mapped and work exactly the same =
-on ACPI as they do on DT.
->=20
-> That does not answer the question at all.  Is it appropriate to
-> configure an ACPI system in this way?
+Likewise if WCN if a legit user of soc_device_register(), then we can't
+make it fail after registering the first entry.
 
-I am not sure I understood your question. What do you mean by =
-=E2=80=9Cappropriate=E2=80=9D?
-This is following the same guidelines as outlined in=20
-=
-https://www.kernel.org/doc/html/v6.7/firmware-guide/acpi/enumeration.html
+> 
+> We are exploring ways to see how user space can survive this.
 
+-- 
+With best wishes
+Dmitry
 
