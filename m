@@ -4,100 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD16D29C4F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 17:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C368D29C4F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 17:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P9vmCqAtGysKfxxBfNQvQzZYtQZW3BMU6u0QIwzm6DI=; b=ftFV1p8YUvjqINbUW1ivvkpYL9
-	EDc0nmVvyEfry4ieNCyYdKtF1JoXu/PHBJri53P7mSwCy66d1xyLLf0ZlXNixUZ4NVmmk1hgh+WA4
-	myxK+Pz/PgQIX6ilRjKtCZDN2q1rim+VbZDhLwSGANaOXhXM8bG4fhw0oZ/rQIULRLWR1e+dQVWNq
-	+2DObSbFMfwoh/6mZSJzJhpIXrSytur+CkcNslxf8M02LbozQDy9jaV6sDEgY5DTJXpe8xzx4+bOW
-	kxk7QhyZ0Y7b8KIOgqW9FJ5qbU0jCULwcFGrEcbrGOoEMPmeDQ4p3L9MAJgNavmBFVgnFnETQ/dHR
-	pcfZZXmQ==;
+	bh=gyt7EEhoh5NwywEG1rYGsyZMG2+eh5CF/4sT3e6waB8=; b=euUIGQjMdeJAZreGvms5Ot6/eQ
+	LOsVuXdvjSbZfiKDhUF8yUs3P2GKTTgZ1W93Qgt+hi8dikM0ujJ9+92AneYQVp/3Ft+xdHm5K4i/V
+	iB4DEXZZ6p8zoUI1DSSFI49PeZFVd2AtrgXaZg3W1j8Op7eeK6nS41BYdHaYCnx/ggSu6Vzo4y4GD
+	f6nYoSPjZp9+llwDPdhONivzt0QfR0bY6zGaLG7hqcY7CwJkwbmvp6Sp+SryWIKzPutL7wcG3hWyo
+	921/Io/tVycB+DbQy/0gKWqPmF20onj+JZPeDjnr5GFFDEjAGYU+hJKcWgscfwQwDBlYf1n1HUwcC
+	ZGMrBg3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhtLa-00000002fOo-1E7d;
-	Mon, 19 Jan 2026 17:47:26 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1vhtUc-00000002fk2-17As;
+	Mon, 19 Jan 2026 17:56:46 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhtLX-00000002fOU-1ZM7
+	id 1vhtUa-00000002fjs-2xua
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 19 Jan 2026 17:56:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=gyt7EEhoh5NwywEG1rYGsyZMG2+eh5CF/4sT3e6waB8=; b=DZs2y7HiHBgSOF565KSUtsyxuk
+	8YZ+RhoDa7uSeBwS4X3cAz2kUkmow3xTug62/sX/SP4OBdXulbMldZWpomptT+qvXejHvxTL3Ejzm
+	fy98JRTVnX2Ne2pIsdUrxeN43r10OTtTOXAia2i5eouk+KW4vSSFz+LktX9TZdQOlHBCL5KpDZxuz
+	9wVjTLfzTLAppr1SPg5OTy3+pIM/YxJI5WV5o1cx9pFv6U1siEQygEQ77jNzOUSch88QgR5QCt984
+	vpXGM/S9p99s1QUReAs05rgIODzQmtc0jAhhc6d7G7ujqDYahkth6mzRFz7D8mtTxISkDH9MaOwHz
+	5E1W9hXg==;
+Received: from xmbghk7.mail.qq.com ([43.163.128.48])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhtUW-0000000DeHV-1BJu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 17:47:24 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a09757004cso40592325ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 09:47:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1768844842; x=1769449642; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=P9vmCqAtGysKfxxBfNQvQzZYtQZW3BMU6u0QIwzm6DI=;
-        b=Ttw84rUN+tEf/6TlhaDhEP75OGNV2Rjet+cuOW5YOGT82QNeVgrvlZoQQbmU+D0q7I
-         TS554ZqXBTv4PttQNekRpV1uHwfWOfoArKkvoGmGUgH7TzOg6FVI+lir+pqTktTTQCHh
-         XN532LPP5ZFOW30tZmiTfr55ivl7kZ9zqbaI+OSaXqqS0d6l5H6M0QnEJAbjT7255KwS
-         9wbwYIkAjLWRhkzepievU2gu/yLO1/hzMv+bQMfNFdtFq9MZIEHqEmaTSBAitb/eXSDF
-         HX40mP+3fwym7HnmN+V/jUiiYEZEHirW+u9ze0jUeXDoQMDjikGs6mKMQVUTNkgsev9B
-         /2dA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768844842; x=1769449642;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=P9vmCqAtGysKfxxBfNQvQzZYtQZW3BMU6u0QIwzm6DI=;
-        b=kXKiqjS3HElHZEy6586TvD/RqwC7NZFN7fih12IjF7fEm/lIjizMlYD8xS6ILLYdHq
-         u8pU77tHpTpPM1Uh1dRCYXXLFaO6AfYHv2Uxy83p+EZMRY0/qv/7GcYfKjbMzICzmeAi
-         g2eYDSShIorWsg9CAkIfuHiK1dQCrDKmQ5ScZkVlGbBKQAVY5b9MPhDWd/5llS3e+Juf
-         qDmUtL9/552de4IjUqsbPPHN38CzjdF7IzBB6tmML9AzEk1mDyluNq+mm6BHeTpH+OuN
-         GHWWSeaYbpb2EuTF4bPSMMSW3wRm9t+1T1FyEbET/LFPAyLG27wVgDb7SGCTGyCKJYP/
-         Q9Gw==
-X-Forwarded-Encrypted: i=1; AJvYcCWsq9Qj0wx6f1z1w0MPnTs4WX8SWp6TnLUYRcnKh7kE3xC9H30O8byks4LF9ouqTd+bfhsMBSk+9NW9l2zXNIYE@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTC1ZlqG2ui8sXbYtcOubHHITj0kWu3Q4fVY9l1M63UoatLlsh
-	1qhdNfy/zct9Qy4zrxoCl31vysvtKOLQpEhn6xR7+2YVNNCbD8BsTIusZBF4hdVhYiA=
-X-Gm-Gg: AZuq6aK73ywncXVKaTWUkIO+ZhhVrvXnEmqAVAeV2DI/YnlYoRshJPUtq3QCM15k7U/
-	r5O0Kwg3owEQjoSEZqAAidWuTZePgmIpcOMyRLzWr5LfLtd5/J1usbULfbqD+KxR9z2CmiDl5xV
-	LhfBgrQ//Ah02t/kStT2WyHlMyqcPoUfFZKxUcKUYo1qAmwlAAkGUYRxnUh+5NCKAYztisbXzbU
-	M7tbTcjTvGzcmFg9i+KKakEQoIqCQpWrunkqxYdrZaAynHG4EOMobTKF3jBP48So2vw6qXjszM7
-	XPfFPSvMGioejyUYq3Qo4A+MqB0Bl+57h5eaSz3MGgcZdD1xtTIJUp67izM4we9Fmg/TGkB6dF0
-	rjHE2eXNMafQnL8VaBOWeSHXdJ2XuJ7kvZ/A+PQF8CBUfN0Y3wHWnSnL/LEEVcdlJfgKsD3K9mX
-	7G8LE4Z+C+hdxDT3muCMXD7748brHHlVYuulNHWck31TjYy4CEesDUuklSziItKfPEv7pjaMs=
-X-Received: by 2002:a17:902:cf07:b0:2a0:ad09:750b with SMTP id d9443c01a7336-2a7174efc3fmr85950055ad.9.1768844842261;
-        Mon, 19 Jan 2026 09:47:22 -0800 (PST)
-Received: from smtpclient.apple (c-24-16-26-157.hsd1.wa.comcast.net. [24.16.26.157])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a7193dca71sm98315145ad.48.2026.01.19.09.47.21
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 19 Jan 2026 09:47:21 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
-Subject: Re: [PATCH v3 3/3] spi: xilinx: use device property accessors.
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-In-Reply-To: <b1b79de0-a078-486d-b3e9-96899354407c@sirena.org.uk>
-Date: Mon, 19 Jan 2026 09:47:11 -0800
-Cc: Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Michal Simek <michal.simek@amd.com>,
- linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <3D1B59A7-6E57-4C8C-AA95-EA7AA115264F@nexthop.ai>
-References: <20260119-spi-xilinx-v3-0-4566c33bac0d@nexthop.ai>
- <20260119-spi-xilinx-v3-3-4566c33bac0d@nexthop.ai>
- <8436e914-429f-40b9-8e6f-ec3b02702cad@sirena.org.uk>
- <69F83558-4675-4FC2-8656-BC6E3481AD65@nexthop.ai>
- <9e559e33-4f2f-40d4-a15f-584548bd6057@sirena.org.uk>
- <05D2CC15-DD6B-40F0-BFF0-3264D4FF96ED@nexthop.ai>
- <b1b79de0-a078-486d-b3e9-96899354407c@sirena.org.uk>
-To: Mark Brown <broonie@kernel.org>
-X-Mailer: Apple Mail (2.3864.300.41.1.7)
+	Mon, 19 Jan 2026 17:56:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1768845392; bh=gyt7EEhoh5NwywEG1rYGsyZMG2+eh5CF/4sT3e6waB8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Zc9Jr3QSFlMGFY9FJ9Ks7n8LskUc7uT5f5XMrApX36B7Sp2XQ5VizBxB/qhNKpS90
+	 Ju6n3zJC1QmGPu9F/wks30Cx2pGa/KjI9cdDK9HerSAyBEH2be3nKkFhH3FVNvncup
+	 QuPkK66zWTPYNgPt4UsrK43u6onVNRbGdElOM1PE=
+Received: from [198.18.0.1] ([2408:820c:9008:ba52:1551:afdc:1b7d:4912])
+	by newxmesmtplogicsvrszc41-0.qq.com (NewEsmtp) with SMTP
+	id DD43F682; Tue, 20 Jan 2026 01:55:20 +0800
+X-QQ-mid: xmsmtpt1768845320teerxm2ak
+Message-ID: <tencent_C06105A21611283E4866B846091CE7B3CF06@qq.com>
+X-QQ-XMAILINFO: MFA3rFz8fXqr/mX5GUxKxvLf+e1/bhLKl7TDMrAZaAVlbNzk6Fr12ePNH3N6I5
+	 wTHlHYFAoiCkBjOt/FVboZGsnUblYZM1EALPwQKlnlITHynGPfuxPV92AqKWs94/r4fUiZ4fX2M7
+	 OReeKjkkU+aBkocSzJJcyEzVR/bfhDMSr/Y0If2+kH7+IyZpjzbUWgnj5ouuAPdWIlIr/hjviXIb
+	 bDUmrIEkgvaWKUJeguZAhT+/3LG/WEfdIJ0xhviKTTJRHBGvaWXoMElHlj53CwCAefYQZfog+iNJ
+	 UExe7kGCh0wERvt/EcVif3fxM7fBc+3NQoSgu8uG/jxsJeYk1r2x/sifw9LEMiRJo+FjR5H9BoSK
+	 g9WEYxLv5vZmdZZ2Oy1m+bIavE4gF/iKXT+oIvNtTNBXQeJ9wPQdmvKtWogTozpkNoIlbVp8ENYq
+	 dFkMDJwMsVYjnOXjCW7OCmJnSRF/EijUEPpvOErK0NJ5Cz0om/GGsRy6OkICEInX4N+t42Xe49t2
+	 js46zUp4JLen2Eb5KhDwDZNYXfmrfg5AseV82YazUXnCGJRezGms9g1t4kQiwegpaiHcGXcqg/3k
+	 thvxyZZNQ+ZcGukRW+epUEFqmAGF/dygt3RwEgGmQidrZcT7WJT+HgXSyDjqyRagIq2CDCxtpkos
+	 P2XNXLJduo3SDwQQivhqexLe1TRFxYZDRH2MtA5khZghw0hyo8qBmMhQPYwq6LiOIZGerDeC4EdO
+	 al+6c0rImhqw/Xuw5uRF0ckjCiGOVJHQm4Xdb1RWDC6Ux8daYVUSNachvifQTDN80JJXGACo6929
+	 UBfx49qN+UGuG9Cy21auKqwdsFRMkFnIKrvInG1e8lzEWHWqTdku+QF/ChuIxnyEyHkaMVV9nMlj
+	 DhqbFr2Qk7pZwFAReIqVdo+sWKeC4hzwTy7fnGCxKCZG1ykMzJR40AN6+aEBg4W2NOVowYlFAnkC
+	 oLWc8uL7Mxcbm/P+oWRhqI+DHvazqGvXDuyOiLx+lOX/++28ebuDMCDH0LtpGkaZDypUcnU3qjnT
+	 gr9gvpr6NCdg94qSzn/wZ1qumlx9bYZrdWiNJU6aWzxg0gkllaecX2pW5X+hLJjDyUKSynGwqJx1
+	 wMc7icUWXBVJxkZGZ6sMaGuWJ7h0Vkk5r52XMb
+X-QQ-XMRINFO: Mp0Kj//9VHAxdQrPcxjHCuGmF+tfZ5sAWg==
+X-OQ-MSGID: <4ff968a4-a71e-42b3-af44-6365e37a5afa@qq.com>
+Date: Tue, 20 Jan 2026 01:55:19 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: arm_scpi: Fix a reference leak on device node
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+ Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <tencent_A3E20C513BBE7D268B863A5CE473FBA10B06@qq.com>
+ <aW0xWZ-KylipPF7M@stanley.mountain>
+From: Felix Gu <gu_0233@qq.com>
+In-Reply-To: <aW0xWZ-KylipPF7M@stanley.mountain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_094723_439722_234E8D8D 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20260119_175640_801355_48060468 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,63 +102,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Dan,
+
+Thanks for the review.
+
+I found this issue through code review.
+
+ From the comments and implementation, I believe this is a problem.
+
+The caller often misses calling of_node_put(), and I have found a lot of
+
+similar issues in the driver code.
 
 
-> On Jan 19, 2026, at 9:32=E2=80=AFAM, Mark Brown <broonie@kernel.org> =
-wrote:
->=20
-> On Mon, Jan 19, 2026 at 09:15:40AM -0800, Abdurrahman Hussain wrote:
->>> On Jan 19, 2026, at 8:50=E2=80=AFAM, Mark Brown <broonie@kernel.org> =
-wrote:
->>> On Mon, Jan 19, 2026 at 08:47:17AM -0800, Abdurrahman Hussain wrote:
->=20
->>>>> Are these bindings appropraite for ACPI systems?
->=20
->>>> Yes, the Xilinx IP blocks are memory mapped and work exactly the =
-same on ACPI as they do on DT.
->=20
->>> That does not answer the question at all.  Is it appropriate to
->>> configure an ACPI system in this way?
->=20
->> I am not sure I understood your question. What do you mean by =
-=E2=80=9Cappropriate=E2=80=9D?
->> This is following the same guidelines as outlined in=20
->> =
-https://www.kernel.org/doc/html/v6.7/firmware-guide/acpi/enumeration.html
->=20
-> You are just bindly making the DT properties available as _DSD
-> properties on ACPI systems, ACPI is a completely different firmware
-> interface with it's own idioms.  Does this interface make any sense on
-> ACPI?
+Best regards,
 
+Felix Gu
 
-=46rom the above link:
-
-"The special DT namespace link device ID, PRP0001, provides a means to =
-use the existing DT-compatible device identification in ACPI=E2=80=A6"
-
-The following is an excerpt from=20
-=
-https://www.kernel.org/doc/html/v6.7/firmware-guide/acpi/DSD-properties-ru=
-les.html
-
-The _DSD (Device Specific Data) configuration object, introduced in ACPI =
-5.1, allows any type of device configuration data to be provided via the =
-ACPI namespace. In principle, the format of the data may be arbitrary, =
-but it has to be identified by a UUID which must be recognized by the =
-driver processing the _DSD output. However, there are generic UUIDs =
-defined for _DSD recognized by the ACPI subsystem in the Linux kernel =
-which automatically processes the data packages associated with them and =
-makes those data available to device drivers as "device properties=E2=80=9D=
-.
-
-The two settings are just configuration data for the spi-xilinx driver. =
-By switching to generic device_property_ APIs we can re-use the same =
-driver on ACPI based systems where the properties are passed as _DSD.
-
-Is this not appropriate?
-
-Regards,
-Abdurrahman
+在 2026/1/19 3:15, Dan Carpenter 写道:
+> On Fri, Jan 16, 2026 at 08:54:39PM +0800, Felix Gu wrote:
+>> When calling of_parse_phandle_with_args(), the caller is responsible
+>> to call of_node_put() to release the reference of device node.
+>> In scpi_dev_domain_id, it does not release the reference.
+>>
+>> Fixes: 45ca7df7c345 ("firmware: arm_scpi: add support to populate OPPs and get transition latency")
+>>
+> nit: delete the blank line after the Fixes tag.
+>
+>> Signed-off-by: Felix Gu <gu_0233@qq.com>
+> Did you find this issue just by reviewing the code?  I read the comments
+> and then looked at a sample of four other callers and none of them
+> called of_node_put().  So it's a weird thing.  If this is really the rule
+> then we should have a static checker heuristic to enforce it.
+>
+> regards,
+> dan carpenter
 
 
