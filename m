@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A25CCF2FA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A751CCF2FE
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QHV/dPvGZBZ44sa5GnoSXNDciOQ97S0XQR8oaYyRWik=; b=Q/daqPL4kDYsS/AeqHr+921iy7
-	IiM1fD2cvyYvwF1Nm7e88uZB6FyIUox/0T7PQIOhXxaYnUpxRMYEfk2OfxFABAfXPFEvMVv6FzV0/
-	BJkROGmjp6xnQ9u+ia6HyxlWWcYsjE23FdyMn91ukunfja/18iuqLO2GXRWsUTha4xpE8MA41GGB+
-	J7EfT6E1j80sXBopbkzGlIMYc1+aBRQeImqeoHjRgCS/tlpmjtrlSMe6QCaowRP2N6iSZmASKyCS0
-	ez7+o+w2ZR61KZ/gngESJ8bve4mZO1sFa9obxy15BpnOgJE0iy+0LQ+oMiktp6irGyfRK2aFjUP4d
-	bpEGiwJA==;
+	bh=owReMfd7fUHGoY7wGCtA7Sg0DGWt3iNxaocNGZdM+eo=; b=Msod6sgh3fTHmTTz6M+xw1CKeP
+	IBF5XOiFwlxv9BatJZGRDLgKE6cfp2lEEYYnQIRi5uiMGrBferNr3TUSa99A+TrzJmu4TA1IQVFK3
+	SCAw7AsREOjYJuwjAcGljYLw23EJivh0y9AlOvaQ/VFyeg4e6M1gVoE6cZyei9XeWvFMwbApSduAs
+	C7QD5RSRxfMjQs54P5QAI3dbBWZbC4XLkRtswg7r0YK+JVvJxTb8dcJqkZIsxvJXDOP2WLvQt/Ko9
+	KX3HeUlPrzUkl4hqXZPA37wf0sbID0qSyZyeXTwQMz0WgGPFu20gAtNFA+S2H4vTqlBez7zKRw50C
+	TLsfIBow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhohS-00000002505-157n;
-	Mon, 19 Jan 2026 12:49:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vhohW-0000000256F-2b4P;
+	Mon, 19 Jan 2026 12:49:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhog4-000000023wF-3oTi
+	id 1vhogQ-000000024Es-2ukt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 12:48:26 +0000
+	Mon, 19 Jan 2026 12:48:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7E66940671;
-	Mon, 19 Jan 2026 12:48:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF63DC19424;
-	Mon, 19 Jan 2026 12:48:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1A7406016C;
+	Mon, 19 Jan 2026 12:48:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44187C116C6;
+	Mon, 19 Jan 2026 12:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768826896;
-	bh=tKUZCWGr3FuK7gXLAtk5AO5IsKzLGm0ZPhIWm+pvo4U=;
+	s=k20201202; t=1768826917;
+	bh=kQcy7tZbHLnHu83JmogDffTHHwCWfmsWUHO+FmDCzzY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Y+V6I0sr2GOpkNlyv9ugWoM3PsKQ6lrMNbFkJ1YdIzjce1O/VlJSOpEYF4hJwn3M5
-	 DviIxehxZiKSklGZ1Eih9CuUdGO0Naz1WdKXz0w+wYmnSm6FVhAbvcuCBpNMUaG9L/
-	 KyCPqzjBO/6d4i7tL0RSc7ebKAsuSGoI8axRG4kohuX2L6wuiqDFFb4Mg5MQ+5EdrQ
-	 e2ckMMiY2gZLCNrqGrF732SAzlG9mA3lgSbIa1DGgkk7jnIKyxg157JMZgTP0vNnW0
-	 9VpI2wQqYbTi2t/Aua2QyytoKs25/empzy+ZdCy8xIisxKz1fBNsLvKHg+z5nS0Yr+
-	 Hc0InBiW/pGSw==
+	b=HMXFTSprX7EZ9/BSDIk0pC4Bcr/3BG+tyJIXFYB1oOSidh4y8JnJwUlQjEpjRLGtu
+	 yOlQuzGCntTVei76DuTyBba5NFp5z23b1PgbmKkPFdXDGm1B/Goj1xzwSJ34mL+VP9
+	 8S1kiZ11+2pddF6G3oYeyjA76W5McY5m31bK/3WWzy0Xdx1ROdUkBGWzLGETT3vklG
+	 vuGxHiKYUPmNlzOnJdx91/zG2sLLh4gFZs/1s1T/1+6w5Nu/DD53+rknaHhEQ2W0ct
+	 flmytL71DDZYT2HD2fKzWO4indfWP9NXUs2rpbhkckLwOdNUjKKyU8TX1z+McHRJsG
+	 Iliq52SXeTr7w==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -56,17 +56,14 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Fuad Tabba <tabba@google.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH v2 27/35] KVM: arm64: Add hvc handler at EL2 for hypercalls from protected VMs
-Date: Mon, 19 Jan 2026 12:46:20 +0000
-Message-ID: <20260119124629.2563-28-will@kernel.org>
+Subject: [PATCH v2 34/35] KVM: arm64: Extend pKVM page ownership selftests to cover forced reclaim
+Date: Mon, 19 Jan 2026 12:46:27 +0000
+Message-ID: <20260119124629.2563-35-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260119124629.2563-1-will@kernel.org>
 References: <20260119124629.2563-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_044817_049142_3CED42CF 
-X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,97 +78,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a hypercall handler at EL2 for hypercalls originating from protected
-VMs. For now, this implements only the FEATURES and MEMINFO calls, but
-subsequent patches will implement the SHARE and UNSHARE functions
-necessary for virtio.
+Extend the pKVM page ownership selftests to forcefully reclaim a donated
+page and check that it cannot be re-donated at the same IPA.
 
-Unhandled hypercalls (including PSCI) are passed back to the host.
-
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  1 +
- arch/arm64/kvm/hyp/nvhe/pkvm.c         | 37 ++++++++++++++++++++++++++
- arch/arm64/kvm/hyp/nvhe/switch.c       |  1 +
- 3 files changed, 39 insertions(+)
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-index a5a7bb453f3e..c904647d2f76 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-@@ -88,6 +88,7 @@ struct pkvm_hyp_vm *get_pkvm_hyp_vm(pkvm_handle_t handle);
- struct pkvm_hyp_vm *get_np_pkvm_hyp_vm(pkvm_handle_t handle);
- void put_pkvm_hyp_vm(struct pkvm_hyp_vm *hyp_vm);
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index f36f81f75fdf..a7d880701933 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -1821,8 +1821,20 @@ void pkvm_ownership_selftest(void *base)
+ 	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
  
-+bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code);
- bool kvm_handle_pvm_sysreg(struct kvm_vcpu *vcpu, u64 *exit_code);
- bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
- void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 2836c68c1ea5..64171e04ea82 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -4,6 +4,8 @@
-  * Author: Fuad Tabba <tabba@google.com>
-  */
+ 	selftest_state.host = PKVM_PAGE_OWNED;
+-	selftest_state.guest[0] = PKVM_NOPAGE;
+-	assert_transition_res(0,	__pkvm_host_reclaim_page_guest, gfn, vm);
++	selftest_state.guest[0] = PKVM_POISON;
++	assert_transition_res(0,	__pkvm_host_force_reclaim_page_guest, phys);
++	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn, vcpu);
++	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
++
++	selftest_state.host = PKVM_NOPAGE;
++	selftest_state.guest[1] = PKVM_PAGE_OWNED;
++	assert_transition_res(0,	__pkvm_host_donate_guest, pfn, gfn + 1, vcpu);
++
++	selftest_state.host = PKVM_PAGE_OWNED;
++	selftest_state.guest[1] = PKVM_NOPAGE;
++	assert_transition_res(0,	__pkvm_host_reclaim_page_guest, gfn + 1, vm);
++	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn, vcpu);
++	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
  
-+#include <kvm/arm_hypercalls.h>
-+
- #include <linux/kvm_host.h>
- #include <linux/mm.h>
- 
-@@ -935,3 +937,38 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
- 	hyp_spin_unlock(&vm_table_lock);
- 	return err;
- }
-+/*
-+ * Handler for protected VM HVC calls.
-+ *
-+ * Returns true if the hypervisor has handled the exit (and control
-+ * should return to the guest) or false if it hasn't (and the handling
-+ * should be performed by the host).
-+ */
-+bool kvm_handle_pvm_hvc64(struct kvm_vcpu *vcpu, u64 *exit_code)
-+{
-+	u64 val[4] = { SMCCC_RET_INVALID_PARAMETER };
-+	bool handled = true;
-+
-+	switch (smccc_get_function(vcpu)) {
-+	case ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID:
-+		val[0] = BIT(ARM_SMCCC_KVM_FUNC_FEATURES);
-+		val[0] |= BIT(ARM_SMCCC_KVM_FUNC_HYP_MEMINFO);
-+		break;
-+	case ARM_SMCCC_VENDOR_HYP_KVM_HYP_MEMINFO_FUNC_ID:
-+		if (smccc_get_arg1(vcpu) ||
-+		    smccc_get_arg2(vcpu) ||
-+		    smccc_get_arg3(vcpu)) {
-+			break;
-+		}
-+
-+		val[0] = PAGE_SIZE;
-+		break;
-+	default:
-+		/* Punt everything else back to the host, for now. */
-+		handled = false;
-+	}
-+
-+	if (handled)
-+		smccc_set_retval(vcpu, val[0], val[1], val[2], val[3]);
-+	return handled;
-+}
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index d3b9ec8a7c28..b62e25e8bb7e 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -190,6 +190,7 @@ static const exit_handler_fn hyp_exit_handlers[] = {
- 
- static const exit_handler_fn pvm_exit_handlers[] = {
- 	[0 ... ESR_ELx_EC_MAX]		= NULL,
-+	[ESR_ELx_EC_HVC64]		= kvm_handle_pvm_hvc64,
- 	[ESR_ELx_EC_SYS64]		= kvm_handle_pvm_sys64,
- 	[ESR_ELx_EC_SVE]		= kvm_handle_pvm_restricted,
- 	[ESR_ELx_EC_FP_ASIMD]		= kvm_hyp_handle_fpsimd,
+ 	selftest_state.host = PKVM_NOPAGE;
+ 	selftest_state.hyp = PKVM_PAGE_OWNED;
 -- 
 2.52.0.457.g6b5491de43-goog
 
