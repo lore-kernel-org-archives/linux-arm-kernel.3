@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DACBFCCF2E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 11:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 022E7CCF2E6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 11:18:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5r9gb7E4aaeu5qGCVYzf1lsVzuhXz7l7Gcf0eTaAlaY=; b=cld8LD7Ypo9Xo+OIkUw1IO+wqt
-	LkTOjKOeXeHqrAfXxdZqLKdEzrqHYA6m8owAcJUSIchIrwgVrOvG/+27fyo26aWSKv93oj8jZsX79
-	k5l0BDMyDI2E7HtwxnImudeNKvorNfrzh1v5cMgtd1KY3EYvO7b7zzAEEdzQ0RrSr8LEBoU9PGVN3
-	ol+EaxPPiOyYe1D83jqkEMFFkaDDeQGmXeU8L2ArZFC7q5KHDd6IjjUUq4l6Fav8MQxQMYTn04Gbv
-	b4bD89PXFewyQIIxHOP8QLSZyx9crEELK9IgT9n1nYFvlk6aGwN32lCs5VMvXBs/oxIu5Q5WjjT+e
-	Y0jMSO/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qrt8Pc2QUAYXx+nK9SbBMDpSB00S5AE1V+9Iq+T3JoE=; b=JONT/+bN9FD3DgmCMm809iwd/a
+	pmXLP9sTaArqYsOtKOessoRk0JUrSk1kgpRrbXuLjTaYlrshhIxLx8xWa4MihxVioaqF+yInoJ5jq
+	sH4exnkloOFRUfAGzHEaAU6JHtm3H0tnHmDbCkb3ii+O0ZrKuyNEX3isYlT1EAfvle1yyDNsjFmKY
+	BAziGmOMjZJhfeTfnaaxgyPviHOgBk/xTUz/sLZSJx6uZFSP5YLCJSh4YQwc/8QaVdxyaKVe+//Mz
+	3s1zc8TECbt19bxprCFwZRytw2jHYrabRWLVlPHgmlag+73tiwLbpoBRgENsewlCm+iG7bUCBNOJF
+	OaOkY0tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhnE5-00000001rxk-3qbO;
-	Mon, 19 Jan 2026 11:15:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhnE3-00000001rxN-2eAG
+	id 1vhnGn-00000001s8g-2M3V;
+	Mon, 19 Jan 2026 11:18:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhnGm-00000001s8C-1EgP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 11:15:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 74FFB1517;
-	Mon, 19 Jan 2026 03:15:05 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A11043F740;
-	Mon, 19 Jan 2026 03:15:11 -0800 (PST)
-Date: Mon, 19 Jan 2026 11:15:09 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Thomas Falcon <thomas.falcon@intel.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] perf cs-etm: Fix decoding for sparse CPU maps
-Message-ID: <20260119111509.GD1286628@e132581.arm.com>
-References: <20260119-james-perf-coresight-cpu-map-segfault-v2-0-56b956a629ee@linaro.org>
- <20260119-james-perf-coresight-cpu-map-segfault-v2-1-56b956a629ee@linaro.org>
+	Mon, 19 Jan 2026 11:18:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5090960159
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 11:18:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08B99C19423
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 11:18:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768821483;
+	bh=Qrt8Pc2QUAYXx+nK9SbBMDpSB00S5AE1V+9Iq+T3JoE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=QAecoarNHChls3V/koML1MoTCmcSstaYu6upGx1rM+y2j9tIJYU4WTCmdLhQZYH4h
+	 a4/BwXPwDJJAVFiOUjFL94sLogU6+CewqpY1d2U7WGQtBh5UxNkp3sSwB8mZLTUy/h
+	 aIXwVLQ/TsMOaytrWRvocvl4GxT7Q3f51HgfKLpxD7gMkaRqIdlsjTnOJQhlZZnycE
+	 swC9Stg16nZ8vSF/dX47WLNuytsZiPXn4T7iNJ/6r6z+t9yogQ7iJSWp6hF7KzuUfk
+	 P3RyHi+AUOyAGxk+e9lBkvwbkmYunPIGftM/YgflqYAooqm8QfGwSgrT4Xibf3DWdv
+	 +PSVXMc4/1OuQ==
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-59b77f2e43aso6487178e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 03:18:02 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVZDTvXWUTxk3UglmSA5oNMJt1g0ydNHuviymgF9Ja6KfnSSflPvsZGuMVvmvpYEpnJ6YcBv7XhhlCOQ+nJ4KdY@lists.infradead.org
+X-Gm-Message-State: AOJu0YyO3VJAz7G//+XZnXuiVqlZLhBYeDHE6WsKnpy4KtFrgjMdd8s9
+	qaah4evY0pWcR/J7B/1QWz25Tk/U9hYaTr58f93yp4HFNtjrYhrTcdPuMJE7TZtCXXywd2Po4y7
+	pM4Dne3doCwf+Qwt3fz5m+a63IZlwPmyCc2Y+PNgQqQ==
+X-Received: by 2002:a05:6512:234a:b0:59b:73b9:1f49 with SMTP id
+ 2adb3069b0e04-59ba71a21a4mr5663497e87.26.1768821481438; Mon, 19 Jan 2026
+ 03:18:01 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260119-james-perf-coresight-cpu-map-segfault-v2-1-56b956a629ee@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_031515_824471_6D96D308 
-X-CRM114-Status: GOOD (  30.16  )
+References: <20251223-i2c-printk-helpers-v1-0-46a08306afdb@oss.qualcomm.com>
+ <aUql_tZisfH8E1bq@hovoldconsulting.com> <CAMRc=MeHL5=s=ciUjHGw_poKpeVMWVi_2LBDFY_ugvXBaaE0vA@mail.gmail.com>
+ <aW4PajoKqmyjkciY@hovoldconsulting.com>
+In-Reply-To: <aW4PajoKqmyjkciY@hovoldconsulting.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Mon, 19 Jan 2026 12:17:49 +0100
+X-Gmail-Original-Message-ID: <CAMRc=McfiKGT9RSJqZtCtHHHjwDLGPkNwA4Kot9-9frfpCGVmQ@mail.gmail.com>
+X-Gm-Features: AZwV_QhTOAeF1zNPvjVLJF6GJlUC44HwEM3vIZ8FNKt6qikN3ueMCqdY3a7S--s
+Message-ID: <CAMRc=McfiKGT9RSJqZtCtHHHjwDLGPkNwA4Kot9-9frfpCGVmQ@mail.gmail.com>
+Subject: Re: [PATCH 00/12] i2c: add and start using i2c_adapter-specific
+ printk helpers
+To: Johan Hovold <johan@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, Andi Shyti <andi.shyti@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Khalil Blaiech <kblaiech@nvidia.com>, 
+	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	=?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+	Manivannan Sadhasivam <mani@kernel.org>, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-actions@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,112 +91,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 10:18:35AM +0000, Coresight ML wrote:
-> The ETM decoder incorrectly assumed that auxtrace queue indices were
-> equivalent to CPU number. This assumption is used for inserting records
-> into the queue, and for fetching queues when given a CPU number. This
-> assumption held when Perf always opened a dummy event on every CPU, even
-> if the user provided a subset of CPUs on the commandline, resulting in
-> the indices aligning.
-> 
-> For example:
-> 
->   # event : name = cs_etm//u, , id = { 2451, 2452 }, type = 11 (cs_etm), size = 136, config = 0x4010, { sample_period, samp>
->   # event : name = dummy:u, , id = { 2453, 2454, 2455, 2456 }, type = 1 (PERF_TYPE_SOFTWARE), size = 136, config = 0x9 (PER>
-> 
->   0 0 0x200 [0xd0]: PERF_RECORD_ID_INDEX nr: 6
->   ... id: 2451  idx: 2  cpu: 2  tid: -1
->   ... id: 2452  idx: 3  cpu: 3  tid: -1
->   ... id: 2453  idx: 0  cpu: 0  tid: -1
->   ... id: 2454  idx: 1  cpu: 1  tid: -1
->   ... id: 2455  idx: 2  cpu: 2  tid: -1
->   ... id: 2456  idx: 3  cpu: 3  tid: -1
-> 
-> Since commit 811082e4b668 ("perf parse-events: Support user CPUs mixed
-> with threads/processes") the dummy event no longer behaves in this way,
-> making the ETM event indices start from 0 on the first CPU recorded
-> regardless of its ID:
-> 
->   # event : name = cs_etm//u, , id = { 771, 772 }, type = 11 (cs_etm), size = 144, config = 0x4010, { sample_period, sample>
->   # event : name = dummy:u, , id = { 773, 774 }, type = 1 (PERF_TYPE_SOFTWARE), size = 144, config = 0x9 (PERF_COUNT_SW_DUM>
-> 
->   0 0 0x200 [0x90]: PERF_RECORD_ID_INDEX nr: 4
->   ... id: 771  idx: 0  cpu: 2  tid: -1
->   ... id: 772  idx: 1  cpu: 3  tid: -1
->   ... id: 773  idx: 0  cpu: 2  tid: -1
->   ... id: 774  idx: 1  cpu: 3  tid: -1
+On Mon, Jan 19, 2026 at 12:03=E2=80=AFPM Johan Hovold <johan@kernel.org> wr=
+ote:
+>
+> On Tue, Dec 23, 2025 at 04:11:08PM +0100, Bartosz Golaszewski wrote:
+> > On Tue, Dec 23, 2025 at 3:24=E2=80=AFPM Johan Hovold <johan@kernel.org>=
+ wrote:
+> > >
+> > > On Tue, Dec 23, 2025 at 11:02:22AM +0100, Bartosz Golaszewski wrote:
+> > > > It's been another year of discussing the object life-time problems =
+at
+> > > > conferences. I2C is one of the offenders and its problems are more
+> > > > complex than those of some other subsystems. It seems the revocable=
+[1]
+> > > > API may make its way into the kernel this year but even with it in
+> > > > place, I2C won't be able to use it as there's currently nothing to
+> > > > *revoke*. The struct device is embedded within the i2c_adapter stru=
+ct
+> > > > whose lifetime is tied to the provider device being bound to its dr=
+iver.
+> > > >
+> > > > Fixing this won't be fast and easy but nothing's going to happen if=
+ we
+> > > > don't start chipping away at it. The ultimate goal in order to be a=
+ble
+> > > > to use an SRCU-based solution (revocable or otherwise) is to conver=
+t the
+> > > > embedded struct device in struct i2c_adapter into an __rcu pointer =
+that
+> > > > can be *revoked*. To that end we need to hide all dereferences of
+> > > > adap->dev in drivers.
+> > >
+> > > No, this is not the way to do it. You start with designing and showin=
+g
+> > > what the end result will look like *before* you start rewriting world
+> > > like you are doing here.
+> >
+> > The paragraph you're commenting under explains exactly what I propose
+> > to do: move struct device out of struct i2c_adapter and protect the
+> > pointer storing its address with SRCU. This is a well-known design
+> > that's being generalized to a common "revocable" API which will
+> > possibly be available upstream by the time we're ready to use it.
+>
+> Revocable, as presented in plumbers, is not going upstream.
+>
 
-Seems to me that this patch works around the issue by using the CPU ID
-instead, but event->auxtrace.idx is broken.
+Oh really? :)
 
-Should we store the correct index in event->auxtrace.idx (e.g., in the
-__perf_event__synthesize_id_index()) ?
+https://lore.kernel.org/all/2026011607-canister-catalyst-9fdd@gregkh/
 
-Thanks,
-Leo
+> > You know I can't possibly *show* the end result in a single series
+> > because - as the paragraph before explains - we need to first hide all
+> > direct dereferences of struct device in struct i2c_adapter behind
+> > dedicated interfaces so that we when do the conversion, it'll affect
+> > only a limited number of places. It can't realistically be done at
+> > once.
+>
+> You can post an RFC converting one driver with a proper description of
+> the problem you're trying to solve.
+>
 
-> This causes the following segfault when decoding:
-> 
->   $ perf record -e cs_etm//u -C 2,3 -- true
->   $ perf report
-> 
->   perf: Segmentation fault
->   -------- backtrace --------
->   #0 0xaaaabf9fd020 in ui__signal_backtrace setup.c:110
->   #1 0xffffab5c7930 in __kernel_rt_sigreturn [vdso][930]
->   #2 0xaaaabfb68d30 in cs_etm_decoder__reset cs-etm-decoder.c:85
->   #3 0xaaaabfb65930 in cs_etm__get_data_block cs-etm.c:2032
->   #4 0xaaaabfb666fc in cs_etm__run_per_cpu_timeless_decoder cs-etm.c:2551
->   #5 0xaaaabfb6692c in (cs_etm__process_timeless_queues cs-etm.c:2612
->   #6 0xaaaabfb63390 in cs_etm__flush_events cs-etm.c:921
->   #7 0xaaaabfb324c0 in auxtrace__flush_events auxtrace.c:2915
->   #8 0xaaaabfaac378 in __perf_session__process_events session.c:2285
->   #9 0xaaaabfaacc9c in perf_session__process_events session.c:2442
->   #10 0xaaaabf8d3d90 in __cmd_report builtin-report.c:1085
->   #11 0xaaaabf8d6944 in cmd_report builtin-report.c:1866
->   #12 0xaaaabf95ebfc in run_builtin perf.c:351
->   #13 0xaaaabf95eeb0 in handle_internal_command perf.c:404
->   #14 0xaaaabf95f068 in run_argv perf.c:451
->   #15 0xaaaabf95f390 in main perf.c:558
->   #16 0xffffaab97400 in __libc_start_call_main libc_start_call_main.h:74
->   #17 0xffffaab974d8 in __libc_start_main@@GLIBC_2.34 libc-start.c:128
->   #18 0xaaaabf8aa8f0 in _start perf[7a8f0]
-> 
-> Fix it by inserting into the queues based on CPU number, rather than
-> using the index.
-> 
-> Fixes: 811082e4b668 ("perf parse-events: Support user CPUs mixed with threads/processes")
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  tools/perf/util/cs-etm.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-> index 25d56e0f1c07..12b55c2bc2ca 100644
-> --- a/tools/perf/util/cs-etm.c
-> +++ b/tools/perf/util/cs-etm.c
-> @@ -3086,7 +3086,7 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
->  
->  	if (aux_offset >= auxtrace_event->offset &&
->  	    aux_offset + aux_size <= auxtrace_event->offset + auxtrace_event->size) {
-> -		struct cs_etm_queue *etmq = etm->queues.queue_array[auxtrace_event->idx].priv;
-> +		struct cs_etm_queue *etmq = cs_etm__get_queue(etm, auxtrace_event->cpu);
->  
->  		/*
->  		 * If this AUX event was inside this buffer somewhere, create a new auxtrace event
-> @@ -3095,6 +3095,7 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
->  		auxtrace_fragment.auxtrace = *auxtrace_event;
->  		auxtrace_fragment.auxtrace.size = aux_size;
->  		auxtrace_fragment.auxtrace.offset = aux_offset;
-> +		auxtrace_fragment.auxtrace.idx = etmq->queue_nr;
->  		file_offset += aux_offset - auxtrace_event->offset + auxtrace_event->header.size;
->  
->  		pr_debug3("CS ETM: Queue buffer size: %#"PRI_lx64" offset: %#"PRI_lx64
-> 
-> -- 
-> 2.34.1
-> 
-> _______________________________________________
-> CoreSight mailing list -- coresight@lists.linaro.org
-> To unsubscribe send an email to coresight-leave@lists.linaro.org
+It's not a one-driver problem. It's a subsystem-wide problem requiring
+a subsystem-wide solution. Wolfram explained it really well in his
+summary, I'm not going to repeat it here.
+
+I also don't agree that i2c-specific helpers make code harder to read.
+Is device_set_node() harder to read than
+
+dev->fwnode =3D fwnode;
+dev->of_node =3D to_of_node(fwnode);
+
+?
+
+Even if you answer yes - it at least helps hide the implementation
+details of the OF layer where fwnode-level is preferred. We do it all
+the time in the kernel. This kind of helpers allows easier transitions
+when some implementation detail needs to change - as is the case here.
+
+Bartosz
 
