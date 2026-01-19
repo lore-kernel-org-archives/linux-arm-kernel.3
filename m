@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A60B8D29C2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 14:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD038D29C2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 14:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WLfbaqa3d2RIC22i8TmnmUPFBEHPxR7tC+yfFZI/mQA=; b=1Z1fEAL1N05XDUnd6xm+IkxcR1
-	z2tFNHOyCJQnp/SeEyqS+r04hnV72epO6kq3JMzJ3zVR3iq2gIJENfUDobX7Y30hjk1EziMXCmD+k
-	bGtX/+KuTDwz1dEBvi9Jdr66adHWGvr5SnDCwjcSS68Wslz6XgF6f7MYzYtCeQ7Ac+mxBcb9EWBto
-	SLomqTy3MU7f9SweLYjj0AkbVwVg9rBN34AR6g7SUh6VByCilj3z3vl/OVfh8yfm1TvrHOImKRCFt
-	8icverCpCPpPQ9EQdnnFgwcnoin9saKFZhLq8UxNKKiNWNDz+GAhotAc6HBgp8CgXy7bX54a9WuA4
-	81OyuZog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nNTJfPbd1YV6us6RVjuHf5jxYqDR5Sbvdeb3Dsc1xvI=; b=b3OPRRkw/fc6zSFjRop2v334Kr
+	DX7s7NWsBb1AHIdcZOXDuPpnvE/LsHH1kiGKv8Sut6FH03ZpMNWRazkbiCQeGTJcaySiqkezqhkrn
+	bspvVLJybKlc/NKOG878XTw9j6EAzZ7blGZIqELReIzUgC5vYMtPGmnTE46owDHa/HYvs5UOUkM6I
+	fr1ALqcVDf3p3yIPD1eUkJcOg33UOYSzt1bn8hrEU3UYECgdCLkOukeZVNFuwyxvE0OVqIBPhHM8/
+	TsfPETotsY4QYBVH1VYbXwUOhG1mXet6ML6DgY53WL7aIsBxraW+mDbefxuIhpzQrJ8n6cxG8PkCJ
+	NgVMPBnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhpno-00000002CkU-0VVd;
-	Mon, 19 Jan 2026 14:00:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhpnj-00000002CjM-1ZBW
+	id 1vhpnz-00000002CnD-1IVY;
+	Mon, 19 Jan 2026 14:00:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhpnw-00000002Cma-0O1q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 14:00:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 12EC6FEC;
-	Mon, 19 Jan 2026 06:00:07 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D68CB3F632;
-	Mon, 19 Jan 2026 06:00:08 -0800 (PST)
-Message-ID: <eba5f35c-2edc-47e4-9c74-e60aaf7ab4ec@arm.com>
-Date: Mon, 19 Jan 2026 14:00:07 +0000
+	Mon, 19 Jan 2026 14:00:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 863E460054
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 14:00:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BCBDC4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 14:00:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768831227;
+	bh=nNTJfPbd1YV6us6RVjuHf5jxYqDR5Sbvdeb3Dsc1xvI=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=r/yXWD0ncsL2nyj0HdwR3sH/Th7Kg/j5/M3SisKCKyBMwdLtzXqvEWLvtqcxGuVa1
+	 kUrswwItcjh0YT/v+N+4EogiYiD2tKkVBc1Vjux1Fvx6MOFcEuVrIe0ebUHSZr7Loh
+	 bcblPCxkN7qFc9o0+nlW60HhdWA/LUf+O6d1xq4dHPr+EB0cxhSGhOCBNJHLSSHUkw
+	 IKgqimkhjoiouLXZ3v/z1Bv9pKIG9H9+YbVclnB57aFmmj95YNA7FllRPz0vFlfZ3z
+	 MEy58VFZcdA2Rp+WCM16+c5x6yObn0yRQrbwgJ1rPK/iEMd4U7sNfLfWle36jE9poS
+	 yGa2VHpzM+zKQ==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-59b6c905a46so4407531e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 06:00:27 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWsIrWS5D12mCcxUeso7Al1afAjQiZK5IKruqqFlwRlt86fJxsIZlwyS1gFd2JdW7ccl2aAPiydAXhxFt/7tnRA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpkOlIuYXGFNqYN/BrBjClH0OTAiVhm9D/KLp7I5W6R6oJGk2z
+	ShxxekFPgFtGDYVuSEid02i9GS3lBVMFZFwzAHKR91wi7z8vT7SqO/jNEQyV5VrzFyxRx3frC65
+	3BBJSREXyvhtj9JoON2VmnyBN4qXTcZcU8FPdytunSw==
+X-Received: by 2002:a05:6512:3c90:b0:59b:809c:f659 with SMTP id
+ 2adb3069b0e04-59baef00064mr3462366e87.40.1768831225908; Mon, 19 Jan 2026
+ 06:00:25 -0800 (PST)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 19 Jan 2026 14:00:24 +0000
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 19 Jan 2026 14:00:24 +0000
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <E1vhoS2-00000005H1N-12dx@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/47] arm64: mpam: Context switch the MPAM registers
-To: Jonathan Cameron <jonathan.cameron@huawei.com>,
- Gavin Shan <gshan@redhat.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, james.morse@arm.com, kobak@nvidia.com,
- lcherian@marvell.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, peternewman@google.com,
- punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com,
- reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-7-ben.horgan@arm.com>
- <12779ebc-1928-42db-8a44-ee97e2a58fd1@redhat.com>
- <20260115120923.000079fa@huawei.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20260115120923.000079fa@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_060015_504872_4C4D84D6 
-X-CRM114-Status: GOOD (  28.75  )
+References: <aW4kakF3Ly7VaxN6@shell.armlinux.org.uk> <E1vhoS2-00000005H1N-12dx@rmk-PC.armlinux.org.uk>
+Date: Mon, 19 Jan 2026 14:00:24 +0000
+X-Gmail-Original-Message-ID: <CAMRc=Me9wAstONC60jdu0z1QrADZ01_2+goZ1pOXbAx04W5LDA@mail.gmail.com>
+X-Gm-Features: AZwV_QiictzFqKNrCGHQtJGJYIyDzY-qHcNhS9W5nbIYTCl5UyVNn5jCiAv_d8c
+Message-ID: <CAMRc=Me9wAstONC60jdu0z1QrADZ01_2+goZ1pOXbAx04W5LDA@mail.gmail.com>
+Subject: Re: [PATCH net-next 02/14] net: stmmac: qcom-ethqos: convert to
+ set_clk_tx_rate() method
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
+	Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,151 +90,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin, Jonathan,
+On Mon, 19 Jan 2026 13:33:46 +0100, "Russell King (Oracle)"
+<rmk+kernel@armlinux.org.uk> said:
+> Set the RGMII link clock using the set_clk_tx_rate() method rather than
+> coding it into the .fix_mac_speed() method. This simplifies ethqos's
+> ethqos_fix_mac_speed().
+>
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
 
-On 1/15/26 12:09, Jonathan Cameron wrote:
-> On Thu, 15 Jan 2026 14:47:28 +0800
-> Gavin Shan <gshan@redhat.com> wrote:
-> 
->> Hi Ben,
->>
->> On 1/13/26 12:58 AM, Ben Horgan wrote:
->>> From: James Morse <james.morse@arm.com>
->>>
->>> MPAM allows traffic in the SoC to be labeled by the OS, these labels are
->>> used to apply policy in caches and bandwidth regulators, and to monitor
->>> traffic in the SoC. The label is made up of a PARTID and PMG value. The x86
->>> equivalent calls these CLOSID and RMID, but they don't map precisely.
->>>
->>> MPAM has two CPU system registers that is used to hold the PARTID and PMG
->>> values that traffic generated at each exception level will use. These can
->>> be set per-task by the resctrl file system. (resctrl is the defacto
->>> interface for controlling this stuff).
->>>
->>> Add a helper to switch this.
->>>
->>> struct task_struct's separate CLOSID and RMID fields are insufficient to
->>> implement resctrl using MPAM, as resctrl can change the PARTID (CLOSID) and
->>> PMG (sort of like the RMID) separately. On x86, the rmid is an independent
->>> number, so a race that writes a mismatched closid and rmid into hardware is
->>> benign. On arm64, the pmg bits extend the partid.
->>> (i.e. partid-5 has a pmg-0 that is not the same as partid-6's pmg-0).  In
->>> this case, mismatching the values will 'dirty' a pmg value that resctrl
->>> believes is clean, and is not tracking with its 'limbo' code.
->>>
->>> To avoid this, the partid and pmg are always read and written as a
->>> pair. This requires a new u64 field. In struct task_struct there are two
->>> u32, rmid and closid for the x86 case, but as we can't use them here do
->>> something else. Add this new field, mpam_partid_pmg, to struct thread_info
->>> to avoid adding more architecture specific code to struct task_struct.
->>> Always use READ_ONCE()/WRITE_ONCE() when accessing this field.
->>>
->>> Resctrl allows a per-cpu 'default' value to be set, this overrides the
->>> values when scheduling a task in the default control-group, which has
->>> PARTID 0. The way 'code data prioritisation' gets emulated means the
->>> register value for the default group needs to be a variable.
->>>
->>> The current system register value is kept in a per-cpu variable to avoid
->>> writing to the system register if the value isn't going to change.  Writes
->>> to this register may reset the hardware state for regulating bandwidth.
->>>
->>> Finally, there is no reason to context switch these registers unless there
->>> is a driver changing the values in struct task_struct. Hide the whole thing
->>> behind a static key. This also allows the driver to disable MPAM in
->>> response to errors reported by hardware. Move the existing static key to
->>> belong to the arch code, as in the future the MPAM driver may become a
->>> loadable module.
->>>
->>> All this should depend on whether there is an MPAM driver, hide it behind
->>> CONFIG_ARM64_MPAM.
->>>
->>> CC: Amit Singh Tomar <amitsinght@marvell.com>
->>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->>> Signed-off-by: James Morse <james.morse@arm.com>
->>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->>> ---
->>> Changes since rfc:
->>> CONFIG_MPAM -> CONFIG_ARM64_MPAM in commit message
->>> Remove extra DECLARE_STATIC_KEY_FALSE
->>> Function name in comment, __mpam_sched_in() -> mpam_thread_switch()
->>> Remove unused headers
->>> Expand comment (Jonathan)
->>>
->>> Changes since v2:
->>> Tidy up ifdefs
->>> ---
->>>   arch/arm64/Kconfig                   |  2 +
->>>   arch/arm64/include/asm/mpam.h        | 67 ++++++++++++++++++++++++++++
->>>   arch/arm64/include/asm/thread_info.h |  3 ++
->>>   arch/arm64/kernel/Makefile           |  1 +
->>>   arch/arm64/kernel/mpam.c             | 13 ++++++
->>>   arch/arm64/kernel/process.c          |  7 +++
->>>   drivers/resctrl/mpam_devices.c       |  2 -
->>>   drivers/resctrl/mpam_internal.h      |  4 +-
->>>   8 files changed, 95 insertions(+), 4 deletions(-)
->>>   create mode 100644 arch/arm64/include/asm/mpam.h
->>>   create mode 100644 arch/arm64/kernel/mpam.c
->>>   
->>
->> With the following nitpick addressed:
->>
-> 
-> I commented on the nitpick.
-> 
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> 
->>> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
->>> index 76f32e424065..15979f366519 100644
->>> --- a/arch/arm64/kernel/Makefile
->>> +++ b/arch/arm64/kernel/Makefile
->>> @@ -67,6 +67,7 @@ obj-$(CONFIG_CRASH_DUMP)		+= crash_dump.o
->>>   obj-$(CONFIG_VMCORE_INFO)		+= vmcore_info.o
->>>   obj-$(CONFIG_ARM_SDE_INTERFACE)		+= sdei.o
->>>   obj-$(CONFIG_ARM64_PTR_AUTH)		+= pointer_auth.o
->>> +obj-$(CONFIG_ARM64_MPAM)		+= mpam.o
->>>   obj-$(CONFIG_ARM64_MTE)			+= mte.o
->>>   obj-y					+= vdso-wrap.o
->>>   obj-$(CONFIG_COMPAT_VDSO)		+= vdso32-wrap.o
->>> diff --git a/arch/arm64/kernel/mpam.c b/arch/arm64/kernel/mpam.c
->>> new file mode 100644
->>> index 000000000000..9866d2ca0faa
->>> --- /dev/null
->>> +++ b/arch/arm64/kernel/mpam.c
->>> @@ -0,0 +1,13 @@
->>> +// SPDX-License-Identifier: GPL-2.0
->>> +/* Copyright (C) 2025 Arm Ltd. */
->>> +
->>> +#include <asm/mpam.h>
->>> +
->>> +#include <linux/jump_label.h>
->>> +#include <linux/percpu.h>
->>> +  
->>
->> Nitpick: Needn't include those two header files since they have been included
->> to <asm/mpam.h>
-> 
-> That is a non obvious include chain that we should not rely on.
-> Please keep the headers and continue to follow include what you use
-> style (with exceptions when a given header is clearly documented as always including
-> another like some of the bit map stuff.) It is more obviously correct and
-> causes less grief if headers get refactored in future.
-
-Keeping the includes here makes sense to me too. Gavin, are you ok with
-keeping this as is?
-
-> 
->>   
->>> +DEFINE_STATIC_KEY_FALSE(mpam_enabled);
->>> +DEFINE_PER_CPU(u64, arm64_mpam_default);
->>> +DEFINE_PER_CPU(u64, arm64_mpam_current);
->>> +
->>> +u64 arm64_mpam_global_default;
-> 
->>
-> 
-
-Thanks,
-
-Ben
-
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
