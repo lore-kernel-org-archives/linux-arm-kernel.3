@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FEBBCCF2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DFCECCF2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:47:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fGiT6Rw1DyAULFudLn3VaEOfgw67B0gQn+NWTU0j5mI=; b=0fMzgSyzC4UZH/tHUmCs24jKtC
-	f/inE4EROoQO8ju9M6yYQp86BCrwIVJgBypRzQ64xECzsEiW+FIWKwrB165dQzdxEBVNZhkMVKvWf
-	BBuhlhOeHfHixMEOJtcw4aUgFo4Nj3U3xY37vpFLiZb98idWLQyUBQ3+Cksfry+z3hI1083Beu+e1
-	DntC3rIyo78iPbl14jNIn8rWByYVJLrGIzw7o4Txj5RWS4OExpjNl80O5Vu5t6GI3/JGZwK9FBVsL
-	0qeWHxgOIpcd+eRQc52mnaDdggX7kKmyh7o6Etglov/ejygtcFfLoiwOsKA0g+ii3TUi4k8Rv74O5
-	Qm5TmHyw==;
+	bh=5KdhsdJDk8SIToeoTJ04bKGX01lJQDTSPOhBJqAzOfE=; b=INHyu0pwR8y7Ml8A25Bub717vb
+	0wiRE/Cg/ctzii1QB2daYYb9jG49gB8n1XR7Uc67MOTc05zlOfK+M+0nNgaRdQInhgkDfnc9nqsZs
+	piwiefR80G43q+HO4d//QXH1wma7VKudrkd35b5pfetWpExGigVcq9V9cI6ZY4aH7VCVoWeRHLFIN
+	s97PexpUpz3XNgbhAGS72RfAB5jWLI82xqQXo2EPy8xweBDQHqannDKFbuXcY8vfO9c/ApI2gVtFR
+	Ieb8lZzupfuvk9MEKLY8Zm1Lg3HK1xBo8PXOuHnlcvD9iHJ5rzGH2y37QKJ174ziXzFwNNglMGS/B
+	KluW3J8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhof1-0000000236t-1Pa6;
-	Mon, 19 Jan 2026 12:47:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vhof9-000000023E7-18ez;
+	Mon, 19 Jan 2026 12:47:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhoet-0000000233C-0wkp
+	id 1vhof2-00000002389-27HF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 12:47:04 +0000
+	Mon, 19 Jan 2026 12:47:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8798E43DB0;
-	Mon, 19 Jan 2026 12:47:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9CEFC19423;
-	Mon, 19 Jan 2026 12:46:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EC93460131;
+	Mon, 19 Jan 2026 12:47:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 222CBC116C6;
+	Mon, 19 Jan 2026 12:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768826822;
-	bh=Xla0EE0EqHreutQ1jfO5kxNb3sYx2UrdMxQNpU9siy8=;
+	s=k20201202; t=1768826831;
+	bh=Ci8Yc7ndwDlszED/Qx1HGsS3eO9VUT9SMiftdYGNQu0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bZi+Ot5nUMovxcGhzAfN6vlS+gsXjPikIAh2pOzdZQgYXnpEKjCYbfDVGGnOJz/qm
-	 Eotcok8jIdkys8NSCeA54BpAxxhU9Z1R2Nc22wwvKKzh1gE2mLN15YcAUmJpTR1zUf
-	 1frm3QKvvP8hKJcQyhUxM6uFAfm2tdML0gZKqs6GwEsQFjXW+hMXhw3tgVIL8XoOhm
-	 JZYwjWCJHwCeBNOtGELHKWvNot6SapKju6B4s5iJAUYd+PyxSUPH3IB3ImxxoJDNoh
-	 i4267bysFRykLsNNDNjl+ZOL+NiE5JofXFmLx8CNZzIbwo0NMfxaK3WmZF9mnV4/Cx
-	 CAyXACEtxojQg==
+	b=L+kax+mFuRN3ESDhczlAuyD1l3SxYTvc0LuBJJvNxSL9yW0Tmwni1tTupHx0CRQag
+	 2ZUPTwTToR9s9KbzvtArqerdYpOdalYAD77fPrj5Ubpet1iEMLGKhd4m2vvm5Vhoty
+	 4Ise9kfMx92nTCCN28VIngy4Vq8Yr7OLh0X2wg9uu7zH/1niw5c7B3LC/TfyVQtdUe
+	 wPfrxH4y8FfwKjw41yUL7+B40vcOxgggBIAGFrh2HLJr6FxzkFov5DAX5Sw5s6HZj5
+	 EFxiHU8ceqqFbpA5XxE0tRcFBOcextPcLnPrIh7SFL3FGPDcrw6DIqUEw9pkp5AbcI
+	 LG06VOagfk4bQ==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -56,17 +56,14 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Fuad Tabba <tabba@google.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH v2 03/35] KVM: arm64: Move handle check into pkvm_pgtable_stage2_destroy_range()
-Date: Mon, 19 Jan 2026 12:45:56 +0000
-Message-ID: <20260119124629.2563-4-will@kernel.org>
+Subject: [PATCH v2 06/35] KVM: arm64: Expose self-hosted debug regs as RAZ/WI for protected guests
+Date: Mon, 19 Jan 2026 12:45:59 +0000
+Message-ID: <20260119124629.2563-7-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260119124629.2563-1-will@kernel.org>
 References: <20260119124629.2563-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_044703_973962_59F06FEB 
-X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,49 +78,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When pKVM is enabled, a VM has a 'handle' allocated by the hypervisor
-in kvm_arch_init_vm() and released later by kvm_arch_destroy_vm().
+From: Fuad Tabba <tabba@google.com>
 
-Consequently, the only time __pkvm_pgtable_stage2_unmap() can run into
-an uninitialised 'handle' is on the kvm_arch_init_vm() failure path,
-where we destroy the empty stage-2 page-table if we fail to allocate a
-handle.
+Debug and trace are not currently supported for protected guests, so
+trap accesses to the related registers and emulate them as RAZ/WI for
+now. Although this isn't strictly compatible with the architecture, it's
+sufficient for Linux guests and means that debug support can be added
+later on.
 
-Move the handle check into pkvm_pgtable_stage2_destroy_range(), which
-will additionally handle protected VMs in subsequent patches.
-
+Signed-off-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/pkvm.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index d7a0f69a9982..7797813f4dbe 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -329,9 +329,6 @@ static int __pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 start, u64 e
- 	struct pkvm_mapping *mapping;
- 	int ret;
+diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+index 3108b5185c20..c106bb796ab0 100644
+--- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
++++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+@@ -372,6 +372,14 @@ static const struct sys_reg_desc pvm_sys_reg_descs[] = {
+ 	/* Cache maintenance by set/way operations are restricted. */
  
--	if (!handle)
--		return 0;
--
- 	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
- 		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
- 					mapping->nr_pages);
-@@ -347,6 +344,12 @@ static int __pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 start, u64 e
- void pkvm_pgtable_stage2_destroy_range(struct kvm_pgtable *pgt,
- 					u64 addr, u64 size)
- {
-+	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
-+	pkvm_handle_t handle = kvm->arch.pkvm.handle;
-+
-+	if (!handle)
-+		return;
-+
- 	__pkvm_pgtable_stage2_unmap(pgt, addr, addr + size);
- }
+ 	/* Debug and Trace Registers are restricted. */
++	RAZ_WI(SYS_DBGBVRn_EL1(0)),
++	RAZ_WI(SYS_DBGBCRn_EL1(0)),
++	RAZ_WI(SYS_DBGWVRn_EL1(0)),
++	RAZ_WI(SYS_DBGWCRn_EL1(0)),
++	RAZ_WI(SYS_MDSCR_EL1),
++	RAZ_WI(SYS_OSLAR_EL1),
++	RAZ_WI(SYS_OSLSR_EL1),
++	RAZ_WI(SYS_OSDLR_EL1),
  
+ 	/* Group 1 ID registers */
+ 	HOST_HANDLED(SYS_REVIDR_EL1),
 -- 
 2.52.0.457.g6b5491de43-goog
 
