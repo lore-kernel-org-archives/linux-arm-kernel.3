@@ -4,57 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2A7CA5FFA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 20:16:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF9E9D29C4D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 20:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eqvrFruQVGysPe04b1ZHJuuKGsH/PtmOxsv2cj3oH+Y=; b=q31BGsq6G8ZCXWkL9HGXHY4tkG
-	177cM4V8uw58RgrGw8jM5Z/CCoMThWLD6Pg4njZJbaOJpbAeio6Eg6ZpLr/GKQUGJ7ySSPrqutkNE
-	ZnfSR83ekRWDUi2qss7zkCLKq/8Km/u+49Qj6xIlzUZf0+1zfzLiJtqqL1hb8xcQTX/2sOMGM6tjn
-	1Wo3w04FQxwiwaorfdlEH+2DRp60An8IuM3knBPcAbXwhAiuZZAj3DCNL6c99xCX1h+bPfOnxp11r
-	fOsyO+auoq527pWJcYDehQGf8ztLNRQop5DOvrpQ86T+ZXwT+y9e6G8+x4yXX8KLCwZ1Xki05roXf
-	1WPf3XZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pSuKFtKC7s877XSHGuWqoUFYp2mwqb5QifpnPHtPG7k=; b=WmQ3dsJeIYYGUMzgRwMeope+SS
+	wltA/kss/UW24UyCijtv/CxJCNUVy3JJeLJXr6WYLZqAErDdZvtV5vjYXg1NUjINY6fkekY4mfvcc
+	++eng1OwqLfbdbWKWibHx5A1PJaP5Nax6X+ZeBtGU2suolpcRkxZy19c8LPMCBDEq6MuBHmO/5tgU
+	Bm/4RYyeW+mMAeZy3tLncV2xyaVdnziKsxjX6afwlbDF5YNwAq01tdeiDYFhrQHYpzDjMUkHKUbEr
+	JNklwy/OyXfo80dRCkYdoCXlAeAKZtUB8iaD732nKzbiTuA+XqouXP0S4EwOU1LNhqi2LzfiZikSS
+	yKSqrXNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhvff-00000002or3-1UIb;
-	Mon, 19 Jan 2026 20:16:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vhvo4-00000002pRO-1332;
+	Mon, 19 Jan 2026 20:25:00 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhvfc-00000002oqx-3H5O
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 20:16:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C368D600CB;
-	Mon, 19 Jan 2026 20:16:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFAB4C116C6;
-	Mon, 19 Jan 2026 20:16:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768853775;
-	bh=r+lnFo9qZeEary3vJZbx0ODSSfcyPTnIWTCVuJs92dg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=LGFzFYKbYh/RKOtiPm/dKkJJeJuwcAn6CP0LXRZDFxW5oGtKMmf6b3DX5rnE6MkH1
-	 88SrP2ZZcrykDp3fG+5O1Wl3MzvUgkldFeDIfsWlR22EgCBXj+CKKsqkhm+oLiHvSE
-	 BXAAOPUZGnzSTLlsgf11jTPm/tSm0rOOhbaQxIebT1WI7DlxPXFu6ehD6PGX6DHUEG
-	 w7FRDv5q0uiExGa8eOjKaxE74nX6d4LJmHzOjYhAkU8REmtrKxlVKtMAh56G2XUQNR
-	 Y9IMKF/zqaQsEuPcVAKy63LVG8OXc3BB1obGOqEs0mJ2W/LWuQNng/kDSN8gkVkUcq
-	 opQsxVN+umY7A==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Marc Zyngier <maz@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] irqchip: gic-v3-its: avoid truncating memory addresses
-Date: Mon, 19 Jan 2026 21:15:12 +0100
-Message-Id: <20260119201603.2713066-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	id 1vhvo2-00000002pQy-1uDO;
+	Mon, 19 Jan 2026 20:24:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=pSuKFtKC7s877XSHGuWqoUFYp2mwqb5QifpnPHtPG7k=; b=357irtbs3pVaYVLBLR2G2/geJR
+	xYtOgg3pEf9t/wgDJUcJ0/aqqVfW/bHNBCTjYon1tSUE9DHBmzJINV9WWbjRUZ9Vc824vvNnNSPiW
+	rtlTueQkF3+MqwVL+Y9snLQusadysyFu4NfJCFa+Dk3a0pWa/gpP8rcDSX5TA2LLIt+c=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vhvnq-003YtS-E8; Mon, 19 Jan 2026 21:24:46 +0100
+Date: Mon, 19 Jan 2026 21:24:46 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next v3 1/2] dt-bindings: net: airoha: npu: Add
+ firmware-name property
+Message-ID: <a19efb66-e90d-4a11-ac26-923a1f3714ba@lunn.ch>
+References: <20260119-airoha-npu-firmware-name-v3-0-cba88eed96cc@kernel.org>
+ <20260119-airoha-npu-firmware-name-v3-1-cba88eed96cc@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260119-airoha-npu-firmware-name-v3-1-cba88eed96cc@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260119_122458_756395_0C81D0E6 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,72 +75,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Mon, Jan 19, 2026 at 04:32:40PM +0100, Lorenzo Bianconi wrote:
+> Add firmware-name property in order to introduce the capability to
+> specify the firmware names used for 'RiscV core' and 'Data section'
+> binaries. This patch is needed because NPU firmware binaries are board
+> specific since they depend on the MediaTek WiFi chip used on the board
+> (e.g. MT7996 or MT7992) and the WiFi chip version info is not available
+> in the NPU driver. This is a preliminary patch to enable MT76 NPU
+> offloading if the Airoha SoC is equipped with MT7996 (Eagle) WiFi chipset.
+> 
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-On 32-bit machines with CONFIG_ARM_LPAE, it is possible for lowmem
-allocations to be backed by addresses physical memory above the 32-bit
-address limit, as I found while experimenting with larger VMSPLIT
-configurations.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-This caused the qemu virt model to crash in the GICv3 driver, which
-allocates the 'itt' object using GFP_KERNEL. Since all memory below
-the 4GB physical address limit is in ZONE_DMA in this configuration,
-kmalloc defaults to higher addresses for ZONE_NORMAL, and the
-its driver stores the physical address in a 32-bit 'unsigned long'
-variable.
-
-Change the itt_addr variable to the correct phys_addr_t type instead,
-along with all other variables in this driver that hold a physical
-address.
-
-I checked the gicv5 driver for the same problem, and it correctly
-uses u64 variables, while all other irqchip drivers don't call
-virt_to_phys or similar interfaces. I expect other drivers to
-have similar issues, but fixing this one is sufficient for
-booting a virtio based guest.
-
-Fixes: cc2d3216f53c ("irqchip: GICv3: ITS command queue")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- drivers/irqchip/irq-gic-v3-its.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-index ada585bfa451..2988def30972 100644
---- a/drivers/irqchip/irq-gic-v3-its.c
-+++ b/drivers/irqchip/irq-gic-v3-its.c
-@@ -709,7 +709,7 @@ static struct its_collection *its_build_mapd_cmd(struct its_node *its,
- 						 struct its_cmd_block *cmd,
- 						 struct its_cmd_desc *desc)
- {
--	unsigned long itt_addr;
-+	phys_addr_t itt_addr;
- 	u8 size = ilog2(desc->its_mapd_cmd.dev->nr_ites);
- 
- 	itt_addr = virt_to_phys(desc->its_mapd_cmd.dev->itt);
-@@ -879,7 +879,7 @@ static struct its_vpe *its_build_vmapp_cmd(struct its_node *its,
- 					   struct its_cmd_desc *desc)
- {
- 	struct its_vpe *vpe = valid_vpe(its, desc->its_vmapp_cmd.vpe);
--	unsigned long vpt_addr, vconf_addr;
-+	phys_addr_t vpt_addr, vconf_addr;
- 	u64 target;
- 	bool alloc;
- 
-@@ -2477,10 +2477,10 @@ static int its_setup_baser(struct its_node *its, struct its_baser *baser,
- 	baser->psz = psz;
- 	tmp = indirect ? GITS_LVL1_ENTRY_SIZE : esz;
- 
--	pr_info("ITS@%pa: allocated %d %s @%lx (%s, esz %d, psz %dK, shr %d)\n",
-+	pr_info("ITS@%pa: allocated %d %s @%llx (%s, esz %d, psz %dK, shr %d)\n",
- 		&its->phys_base, (int)(PAGE_ORDER_TO_SIZE(order) / (int)tmp),
- 		its_base_type_string[type],
--		(unsigned long)virt_to_phys(base),
-+		(u64)virt_to_phys(base),
- 		indirect ? "indirect" : "flat", (int)esz,
- 		psz / SZ_1K, (int)shr >> GITS_BASER_SHAREABILITY_SHIFT);
- 
--- 
-2.39.5
-
+    Andrew
 
