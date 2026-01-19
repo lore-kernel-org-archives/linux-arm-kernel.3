@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C883DD29C2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 13:23:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3546BD29C2C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 13:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KxedpuQaJ1XVwtqrotV402P4SEf92fFjf3lBHShSz7o=; b=SKOCwrm35NyYsummNbBL2NleFg
-	tP+H538cPW7OGOYM5yZlRJn6Fw1A3RmIXK+PfYDuxIPtBmjFedDSVEuHJdlpqb4GjwbED+L6+92Tm
-	/zdu+bXD9t6CW71MuGvetNqR1YuZZRJgiNbNwaNAz/Io0Ry9Cv5L7bKV/INNCZethOwKvlZ5FgKJP
-	t8cKnprOLyJZSpn7h/ANbWZb1ydbjB9RzhP2mk+7MLzLu5GQLw+ZM+fhr/i52ao/5bO/tI++ZIZm/
-	S922iqgaB9QyCByVqsu2vCMSNYG7ywmQM17jIyGJD3OsuFfCi9kT7rmbQl+hcabsnTOYudOwAuwCJ
-	Ae0Oq0Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pDP7dsmJ7ERvTMrFlDtRRpKve4jutlnVW9r0kkMr+Xs=; b=PSTWLy5n54gYvf
+	DT5hqlzSY1MxlbcN8zfUWDf9v1YuLJfHAcPZyKsCL8BZhMQEomHKJW76F5Bh5gMPObk7D2x2eyGke
+	dpBGPRZzgfkfJJxSH+YcakITSu8V8PWFheIkC1WaGqZ1NeEIBUk7WIaJuEv3ClvFqKCYI/oHjy26h
+	Z/F0+YyncVQrj+JBsEg+DLhA1Q6xF2y6bNwOAKf0zbIgEadnK87sJ3eceAiw19kuKgAxnmlIuWN24
+	lDoU8F+ZlE2IaMVHLwGy8BhEXyDuamcEESroSrHc9ONF0qkV2vfp7Ywr8f1w5QZkZ+Of6CRba5Fq1
+	UDwVMBcvxA0yN9qP6WaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhpEC-000000029iI-2eWa;
-	Mon, 19 Jan 2026 13:23:32 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vhpGj-000000029yD-3oNC;
+	Mon, 19 Jan 2026 13:26:09 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhpE9-000000029hr-0hXF;
-	Mon, 19 Jan 2026 13:23:30 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 046A4C214CA;
-	Mon, 19 Jan 2026 13:23:00 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0CEAD60731;
-	Mon, 19 Jan 2026 13:23:27 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8E70110B6AFE5;
-	Mon, 19 Jan 2026 14:23:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1768829005; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=KxedpuQaJ1XVwtqrotV402P4SEf92fFjf3lBHShSz7o=;
-	b=ESSnzD+eNodO3pGQ2VSksmhDzLtD7Haf02tWs6UM3s/aJs+45FX3aI+D3WUocDRTjKq7Md
-	8QGsn5A52b5/RW7IDBhL914t4h1n2Z/srz32S8oyBhriGrlU+VjUZSirqC0AJmnvg92bRl
-	BzuT/6IaT9Hz2v9w4Sen77kLVMmJnVn+scvXb/5Hum5EiJCM8o07ElwOV8p2eGGfIpi0+9
-	+lbbbKgtI4C53cf/Irpq2USu1GgbzJPfcqrvdKgsX+w7uNE5nPEoJMKC06UcyQNhELg26X
-	XeqYLxf8d1c8+pvLsbp6FFEorRAqk8M1gd4aocJcRV7DCpLu53w+fHmBpJ+Fxg==
-Message-ID: <2c5a7b0c-b58f-4b6a-9669-fde434f995e6@bootlin.com>
-Date: Mon, 19 Jan 2026 14:23:22 +0100
+	id 1vhpGe-000000029x2-1AlN;
+	Mon, 19 Jan 2026 13:26:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1768829159;
+	bh=sqfQDshehqB1xMQVflYLdFdf0im+HgX16id1D1XuhGA=;
+	h=From:Subject:Date:To:Cc:From;
+	b=jqV9Qe0BxvrMoVgNxRaEVH+SP6bxkzyDX7XEU7WG+LBEtQhMzm17p89B6t0oOvDHv
+	 9HLQMgom53Ao11Uwjn4+TcyEeCJWdjBnmeLTMiR5clxqJsx5PsMDHAbwg6G7JR7FEu
+	 CrupbsODbkc3g4qADK7PII3aNL498ji74SGfFrnKfgVBJMwaCp2Au2ItvizHFQmHMI
+	 QAVGXe2VO7w8m41hqE9yx5RmAepUIkcPf6rcWQbKK5NkCvwGyc4xHmKnqnEIBsMF2P
+	 o81aKui/k+6TcKa5dZnK2XAJAwe0idtIqRXIAlhf5lqigI8VRZx4wHS3orrMvUlEWF
+	 ex+aEnWq3g+eA==
+Received: from localhost (unknown [82.79.138.145])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B9AC117E0117;
+	Mon, 19 Jan 2026 14:25:59 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: [PATCH v3 0/4] Add HDMI 2.0 support to DW HDMI QP TX
+Date: Mon, 19 Jan 2026 15:25:56 +0200
+Message-Id: <20260119-dw-hdmi-qp-scramb-v3-0-bd8611730fc1@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 11/14] net: stmmac: add struct stmmac_pcs_info
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-References: <aW4kakF3Ly7VaxN6@shell.armlinux.org.uk>
- <E1vhoSm-00000005H2F-1mve@rmk-PC.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <E1vhoSm-00000005H2F-1mve@rmk-PC.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-B4-Tracking: v=1; b=H4sIAOQwbmkC/33NTQrCMBCG4auUrB1Jpr+68h7iIpmkNtA2NZGol
+ N7dtOBGxOX7wTwzs2C8NYEds5l5E22wbkyR7zJGnRyvBqxOzZBjKZDnoB/Q6cHCbYJAXg4KSCv
+ dqLImag8s3U3etPa5medL6s6Gu/Ov7UUU6/pPiwI4NHnVmrrgQlaHE7m+l8p5uSc3sFWM+FEqL
+ sRPBZMiTa2QykZjob+VZVneOnAAbfwAAAA=
+X-Change-ID: 20251203-dw-hdmi-qp-scramb-cdbd8b57ccf9
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Diederik de Haas <diederik@cknow-tech.com>, 
+ Maud Spierings <maud_spierings@hotmail.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_052329_348275_7F00C2F9 
-X-CRM114-Status: UNSURE (   5.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260119_052604_487723_5C59CF54 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,17 +88,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch series provides the missing support for high TMDS clock ratio
+and scrambling to DW HDMI QP TX library, required for handling HDMI 2.0
+display modes on RK3576 & RK3588 SoCs.
 
+In order to allow addressing the SCDC status lost on sink disconnects,
+it adds an atomic variant of the drm_bridge_funcs.detect callback and a
+new drm_bridge_detect_ctx() helper, which is further used in
+drm_bridge_connector to switch to ->detect_ctx hook.
 
-On 19/01/2026 13:34, Russell King (Oracle) wrote:
-> We need to describe one more register (offset and field bitmask) to
-> the PCS code. Move the existing PCS offset and interrupt enable bits
-> to a new struct and pass that in to stmmac_integrated_pcs_init().
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Furthermore, it optimizes HPD event handling in dw_hdmi_qp Rockchip
+platform driver to run the detect cycle on the affected connector only.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+Changes in v3:
+- Used drm_bridge_helper_reset_crtc() helper to reset the display
+  pipeline and got rid of some boilerplate code (Maxime)
+- Rebased onto latest drm-misc-next
+- Link to v2: https://lore.kernel.org/r/20260113-dw-hdmi-qp-scramb-v2-0-ae7b2c58d24d@collabora.com
 
-Maxime
+Changes in v2:
+- Collected Tested-by tags from Diederik and Maud
+- Rebased onto latest drm-misc-next
+- Ensured the recently introduced 'no-hpd' support for dealing with
+  unconnected/repurposed/broken HPD pin is limited to HDMI 1.4 rates
+- Link to v1: https://lore.kernel.org/r/20251203-dw-hdmi-qp-scramb-v1-0-836fe7401a69@collabora.com
+
+---
+Cristian Ciocaltea (4):
+      drm/bridge: Add ->detect_ctx hook and drm_bridge_detect_ctx()
+      drm/bridge-connector: Switch to using ->detect_ctx hook
+      drm/bridge: dw-hdmi-qp: Add high TMDS clock ratio and scrambling support
+      drm/rockchip: dw_hdmi_qp: Do not send HPD events for all connectors
+
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c   | 167 ++++++++++++++++++++++---
+ drivers/gpu/drm/display/drm_bridge_connector.c |  73 +++++------
+ drivers/gpu/drm/drm_bridge.c                   |  58 +++++++++
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c |  44 +++----
+ include/drm/drm_bridge.h                       |  30 +++++
+ 5 files changed, 296 insertions(+), 76 deletions(-)
+---
+base-commit: 1c21f240fbc1e47b94e68abfa2da2c01ed29a74d
+change-id: 20251203-dw-hdmi-qp-scramb-cdbd8b57ccf9
 
 
