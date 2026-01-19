@@ -4,66 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB38CCF2F9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 851B3D489AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:Subject:From:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dlhyux3x+YR7wopo5K6C9Ezvq+DkfrgfSI0oQQbymkU=; b=H6AnDW6rLrf+yfq5RV6YEtrnZF
-	vFEbvheekGJz8fNVqXMESK+IBHQZTtMphzYzbm0cPT3Vabc6vhEPCgUSyWfthnL4JNkcewGAyGNR/
-	gu2lyt3JVA3SyUPGuwVfGz1jGVMXrqTBJf+0CtyPgg6aK5PlfPQdJtFsJwE1cn+l8Ky0dO2knU+uL
-	U9IiP0OmPdO2owR4d52N+dGj5mJVud3uY2ZQGfprlrHULa9WahBCf1ihgmbF4H7BH+nNSB5/yL1OQ
-	glPAxgM4Ud7aFaUOX0lpjFLOFIBm7uQh94gIm5ft6LSnJI8uDzqAXJGYEzLYGv1Xga0vwFiuHUzQb
-	qjt+og0g==;
+	bh=h0kdT4P0ApWbkRJqPvt+OpZGEkxR90oC17bDHLKK8EY=; b=dUFH25ruBq7R0Yfyhl3LcCnXyg
+	rQMTj6i6M6zo/RIAutmkCey6MAwj+n1H+IHJiai/Orm3AF9FepOAVIIpxVBoaSvod7L9m7dRbKPqT
+	1vSfrEyX+7jmIMKowUYDgCXFWp3RNAVqWt1uiue9DTcKzQsIer2ZgLwSwpnEXrcXrRiMYRUn9JqLF
+	3w0epg+ebrLI9mpdzpV4gXngAJ5lvyDQd6a2KolFxvXjY6NJlhWSMEzksbTg1C2aIH/NAZs3cB4s8
+	2U2+/jV2kL8L5omh72anNvxxhaOiwgo4XHWMTGMZzywB20x8F47XKWJKqa2tJ54tQvgb3HPo/apIz
+	B8tojshQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhohV-0000000254Z-24kb;
-	Mon, 19 Jan 2026 12:49:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vhojw-0000000266o-1NdR;
+	Mon, 19 Jan 2026 12:52:16 +0000
+Received: from mout.kundenserver.de ([212.227.17.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhogT-000000024GA-39iH
+	id 1vhojt-00000002656-2dPD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 12:48:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 34C9E60131;
-	Mon, 19 Jan 2026 12:48:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56E28C116C6;
-	Mon, 19 Jan 2026 12:48:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768826920;
-	bh=XtjaNjYBSzXtUDXYEYlzOYWEqBLFkdzbmK8msawMA4I=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tD57yHSrjT61I+3b+qGXsz4c8cbH3DbsLVC7YK/crkzPjska1HS6+EUNnoN6+cXxr
-	 TCqkuAyIcHLBSbYHdMbj7WfTzLpliVOR04Glf6ZmNY0Gz1I2jmI1kL0aa76gQXisyj
-	 PlE4lS1rL74EFed3ncy2433lx2noj3Y75eynUq55TzqFgtUYBRVviSa1E7HJeo/c1A
-	 BWngPFnoKYCk3GBRdBZdCz+P+gl89rlpvDqIOIadc8QKDAJVhP4PBtF51OUur7sVpZ
-	 9o8UTWtmKbcK6QRl/JjWEIWTHvMZbIHCO8W7M/F8OirtkL1MnOjGKcHqF9OuDF9czs
-	 3pk/U6/OvM8NA==
-From: Will Deacon <will@kernel.org>
-To: kvmarm@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH v2 35/35] KVM: arm64: Extend pKVM page ownership selftests to cover guest hvcs
-Date: Mon, 19 Jan 2026 12:46:28 +0000
-Message-ID: <20260119124629.2563-36-will@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260119124629.2563-1-will@kernel.org>
-References: <20260119124629.2563-1-will@kernel.org>
+	Mon, 19 Jan 2026 12:52:15 +0000
+Received: from [192.168.0.66] ([88.171.60.104]) by mrelayeu.kundenserver.de
+ (mreue108 [213.165.67.119]) with ESMTPSA (Nemesis) id
+ 1N6KQZ-1vtGwY2aMb-00w7w0; Mon, 19 Jan 2026 13:51:43 +0100
+Message-ID: <87fb14ce-d708-414c-8b38-4195b7dd65a3@green-communications.fr>
+Date: Mon, 19 Jan 2026 13:51:42 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Bjorn Helgaas <bhelgaas@google.com>, "Rob Herring (Arm)" <robh@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+ regressions@lists.linux.dev
+References: <a1d926f0-4cb5-4877-a4df-617902648d80@green-communications.fr>
+ <eb94b379-6e0b-4beb-aaa7-413a4e7f04b9@green-communications.fr>
+ <3780eb61-68e2-42ce-939e-7458cd3a63cb@green-communications.fr>
+ <20260116171048.GP961588@nvidia.com>
+Content-Language: en-US
+From: Nicolas Cavallari <Nicolas.Cavallari@green-communications.fr>
+Autocrypt: addr=Nicolas.Cavallari@green-communications.fr; keydata=
+ xsFNBFKGRC0BEAC+nMoqcTXudlSZXH9EwSbOQuiIXTAxeVSX7WXxUvH5gqBamTSgBN+G7rvD
+ UtTCSAbKkTG01rBZbbhwRl2vM0oi8Hg5sOvJ6OskKzIU4MWMzi0qNaKk2RPSE2wI7xo4N/M4
+ aiJcmqhmzwLrr4FvuvTNDC+mX43/uFFQeWs4DiIRhwthO7WQmzvmmpwZIGBQxgfaveEZgzVR
+ HMVVMTS1tlJntMgeb1JgYWMDUbZTRbigegrM08hrG5deK08uD9djGI9Mdu9WR1S4PCVXMVqI
+ WROX4AQTCl9pgQEtnxnYeB4VvA9iInYpsg9gSR6QhZxluK0A4OFQF2HfqIwT0Z4K4xFl+9v/
+ EcZRK3d5Lry9GEinFCf2H6tRDFRxxK3m3/D2UAR601Y/buIK0sCMNwcpc5yYHmBSyAxM2j2s
+ 29gEnhDMQbLn93cHSERaRk3lExJM7vtTxBMSPm+7DrOmIF358IHQXqrY1xYl4eBG+R2aGS30
+ pH5cGycCL+VxWg8K9pSF5w4XT+XvRsaAmkvQ1GApkTjOhjDDXzWxX5w1DMKW8io3GM28lf8z
+ mE156/FOlG6SQBHZZjJ22+5TiZRKO5HK+bJav8L/NeqavmZ9evNLVpr1BYiG1Ph769laSpbi
+ Zt3Dar8hc+IQvR9ig7tWPbSmha95gMJP35Kwy45M+u97hAZOBwARAQABzUROaWNvbGFzIENh
+ dmFsbGFyaSAobWFpbCkgPG5pY29sYXMuY2F2YWxsYXJpQGdyZWVuLWNvbW11bmljYXRpb25z
+ LmZyPsLBlQQTAQgAPwIbAwYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AWIQTEcT9CxhYiex4F
+ Htv4pX245AdyAgUCZvF3TwUJHdE0ogAKCRD4pX245AdyAlq5D/9+BfuYe3tXms6xJyxBe7PJ
+ guDeQL5p5a/kTT3cwesRt61sA8t+iRAVuEH5kBREAPbcX7iXMtqQ5OXfWSD6pk5uBSi/vnj6
+ kAlbReP9qYBq70XecEccqXP/N4MBsV8nulmyWyx37ARkqOgRPPgyCQkijpV8oHA+SMxHDyYi
+ WGoOY5HdztaLCU5rpTe4+izjmLcyzPiAfNowv9DSVwU8TRsqIRoxzm4sxkU1Pe3AN0OuTiH7
+ aIjirRpaXbD56YtF9ExPEoEpUvAWkWCcnCstTovqh0LasALc7l3prG+88n0nKf2yRh5rfBhm
+ tQHGBiZiLholIiv4PJi9K4hM8nvzSjJnBhQwLQsedzjeXse7h0vSZGNYB9mJN1fuYOOZI7Go
+ PdHddyuARe/zezU5h+tz7l6glaHpOztiHPaCgWldRpH/JqIrvDVZjBj9u719+N7J21K5BFDA
+ h0PSoEjMuQU8pQJmjTuzJZzYv6Nyp/a+p6I4i4UWRNpM+B8wVl8G0HcHur7SO5MOG+YBtz3N
+ MqZUZjTjoeLCJM4A48EvUiTI6igyN6KcAINjbO1eLgaBEJO9j5CLNS/n6krHxd97rRC0KB4L
+ ZVghxYw9xcBNOwkLW6LmIDwuTzB8J+X3K5IKRPIPffNLHLh340A5U1Oj5jilvoaCO8rn7RVU
+ /FlfmP6l6WH1T87BTQRShkQtARAAsdhjcnSDMT+Y0m9MnQ13dAe8TLW/79f7SjDN0V5L/oxM
+ EhlTX9/1Qc9iTUv6ZCVwo9xK6EPvB7jXEHdwyW2Lc5PNgAYPIhIPpPemC1+HuZDQxjpHAELD
+ 8uMann0Jgogl9lyYPGDkWa9L0Aurd9AuCeMBX8MIiBMxKhwHrhnpU2T/DaPBwP0EcKrXd/Gr
+ TNcS/C55odNsqBQ4/vYdJAVz25byMlppMAxEendO2oiUump3oyvpk9BmHBWTIGyA2xsIQKu/
+ +sm12m16FqH8ppMw27te1dlMTaa+akmi59l/XFPgdARQ3UNXbNLm+pf86POtVdGhVrX8KfDJ
+ r2H17IpS7jC++pp4TAagfEeaqtD5erHrRHg8UqxDYnRxB8gJbqTgFQu1MxHYyNodeDw1oJG6
+ wGd0XEVswCPr1Fmeht/QRNJ1wZzB6i8/oo5X/TgYJiMGFYTPz5t6aWFp7yJZHBzLuE1JcMlN
+ bcdFn60QSGI5R9RgCqcHXtxxvUXjYLIuelQl+OdPmV49Wjzknu0l9Uw3CmRGlG6vQKlWOsUz
+ z32o3x+zPkLw+ciz6tNEQ6s45MUmGl2Fr+OOaYD4jc8PlRTvqj0IwVnXwCIQ28sh4FbJwsoU
+ xrcINmEmYCpSIZEKR2Y7YnlVmW4fb3b3xez3pjb/jDBNDt5Dw4IFwcqT8zpIkXcAEQEAAcLB
+ fAQYAQgAJgIbDBYhBMRxP0LGFiJ7HgUe2/ilfbjkB3ICBQJm8Xc4BQkd0TSLAAoJEPilfbjk
+ B3ICue8P/0mjR9Hyx2MPhyNhRRsCeFpqZMUSPeBh7o8+2MShWIHLt1XurDJod4oJqIEoFZYQ
+ 9zzGD23up5oS84WQCb5G0EXy7tdpLLKImrKqa8xt1sLj0popUCH+A2w7B/kAOyU4HbNE2ZBx
+ jX3ir1ecFIqskaOegl4ulv7As1hCvp1JxbCehgAnKphHV6yast16lhfvwt3TKUA0WmtzrA5F
+ mqnIxNSQY5gWxIfGmXXceQelZ6MhZm/SYFQyDrBh+XmIhNrg3r4/rKaLSeDbeJks2Dd7ArnD
+ T5n4gq87tOHQBS15Riw7uqfkUPuzkGrf6wI/L1SitHgqFkQ1fXq+fU6OwckaTvgVe82+s5oL
+ xnMEywFi1zReL/r50afTnz0YWNGJ+svUGeu8/sl7Zgh++NDHpTQCqe0Xu6Q+6H9SRiSmyS1G
+ sZhjWwFjk6s/RjmPhZcJ0LCYSKRSYXMgg8Pm6Z/woLFWQRt/4wc3ZvzI2zTgBgEyeu+o86cZ
+ KTFSx1sD0GSkFa+SRcOMdr5L/qQ8vuFeV7LYOUFw1LIPEToJtv+K6RdTQ7avzLBWZOrmqE2r
+ RppToNOj/ihnpeDsnAmdJG3/8TInGXPgWP8cEJ892///fl4Ejm1KePuro3M0qENUtY5Z6LSt
+ XMjIkcCihY9vSksnm5C7d6wGxy2/Mju8s0J1tRaXkjbj
+Subject: Re: [REGRESSION] Re: imx8 PCI regression since "iommu: Get DT/ACPI
+ parsing into the proper probe path"
+In-Reply-To: <20260116171048.GP961588@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-Provags-ID: V03:K1:gOhvnN7z0uHCNgwQGGM9CIBM1Oz3un92068MxFN97zndh8SR9CX
+ IVySgViSQp9kfyE4gyZLmhHtfTvcByvw5XKHFUU91+b4AaSmk8UfKA1YXEhAOx9EWF3AQFy
+ d5/tQ+t9+F+UfAsQvH8KFSikCHokx9DPzqqhBvMFc8CZ7siK2OF5xiKdJ4am7OSzA7vimug
+ TxBH6gHAI8vEi50TcHDMg==
+UI-OutboundReport: notjunk:1;M01:P0:3eTKXoM5C8s=;QdAjAqnEeRrgERg2zvsdwwDjkWj
+ a1F6llPxzqpxRYaFh3byfPckq9gSqUbC8Zj+kgxuyDmcB8KcGN5MLGxaG3IIs5q+ZL8moU3d5
+ HDQZx/yja7JTKCbOfu0AyesgLcO+syw5BtnzQ1NuOkWP8M4kMJw4/sOELS4qc2j5toaLnPEMS
+ PcH/5Ua5eC8WDUX3Zsi5tR8pcK+EvqWieko7iOREVMN1JhWkj8FKbsdYCIxJcpk7c2qvXi0ue
+ piTru8zkGa0rOTrjcb+eWMm0Mz1QsgjsPLgwPC81fx0OIm5Nc4acg/n1FAC4FkQqxqWCud8zx
+ knzaHsXQ8DES6yFW5u/IsPwmuD3tK6CehGJs35n2oTDcVn2IN20NPhehld8dtjaTTzePVTc7x
+ GMCMOiemkKTR5JsEX+KR76Xzk7Cfa5b42wWmJZ9IEMX0C5ole5VIhwXE+YbUo+sDDsaPLVzan
+ 11lptVGh6E35jMOYAE2tzBpkLstWXg2wGjS4Zs4d/ZknC+Kcr97xqwMVQelLTxCjqoFMKy1BQ
+ EEax5cqwiSQ0YbAUWEmy7zkeKBrkhmu9imRXgp+idHN+XTnZcAhU+oLZO8hEHiYLFxx7jLA62
+ y+yP2tdcsugTJFU6Sc3lRpCXSDCt1IgCETtywq7Z7NM85qISGXzE+hh7IelvGhiMCVlznWqSr
+ S6cDjay75meyvzWBstd05QRvurXYkLzc/38LJXamVqztl/bqBKK0tiKHl9Fz02awjnXKmCzhB
+ UTLOM4gK9AKNZL+s5SPnRZjSZnoPZf3+yfT9izO2x+HVUU4Crh0oWidRFsU+3Ex2OM5QhBgdC
+ HnbcRgfGH6VZuFC+hXaDwoI9/9ldUwdV3EJcB2BvCIng5e3+cpU+H5n2iYMCHwCvRoAJ0RvOO
+ eyfmG2LeGTBM3PB4/SGtN/m5Qo/76Vo3pwZp4qJ2E92hOyXD2H6520cNaa7IbKHMejEFamVcM
+ //Meb1SSq3xgmMk3v90qrWh5DAnyK/5DGjCVdJG7Cxtp0KmxsUr2Vkuq9jkPNArApsWO3xaOO
+ jEa+2U6mrcUzdVyRTAPbTQUclogU3/2Kt3dgnkJ8f0cP64bENrzaJyWGyEwVmQcBbJ6v4jRc6
+ O4We04mxwwR3qGSjld6MwklXxsrqVGt/lGZzrinU0/UHbjp92r+VgeQHwQhku5fawBlhnmKDp
+ NI1I6pXgyFeo7CO0u47vnxhdYB29ZAM35cERsRF7UEmSB3PaOSydIv5o/2XDzGknGT1OKQewR
+ pRKKjFR77gxsY9BnUEEi9o+A0QirCNg6Dp8+lgYPR8oCWGgu/W3pVDhSiWcTcpath1QCszsKy
+ dEvI9h6XJMlutYDFi7VOE5iqtAzQ29Abrz6q4Jc8li0g/xJ4HZAymXs6qOCBqZBulCQDRd8a6
+ oPlU1plG+iXPZpYVDEGY2UFza+lGYHADVyE62IxKOGN+e9a1Sva6h9xK0ZBnOv502j1Q524Oy
+ +alQrR/1i4bW6IOWoUNYAtO/UKEJMHnz3F1VoqgvilckQs0lqAWf11qKPmX6y2B/SKqssyZM0
+ upKAWvGJgZB2BrjOOishXXyVK1Qzp1cX3V+9bvYgIJRsgUvn4XE10T4RRWoT1XtmFHMPWhdoi
+ V2qXK5moIXEhQl6RMvi6Hhi5Oc/arfZ1LPywxbxH/Zk5YsfrBNZ92ERrif44DcPIjHnBXUFZ9
+ g0eu0ZupuzWruWLY1dAxD5g5zjjm5S51u1t+pyO5zAGSIZ1MD0UrJ6ksC5D6a4nBFT99ktQS7
+ aDrQHwQ9woIsN2Q950Et65dg29GnEu2e8j/pmeA99AiB2n2ABjSqdGcc=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260119_045213_947930_41A66E06 
+X-CRM114-Status: GOOD (  24.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +143,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the guest can share and unshare memory with the host using
-hypercalls, extend the pKVM page ownership selftest to exercise these
-new transitions.
+Le 16/01/2026 à 18:10, Jason Gunthorpe a écrit :
+> On Fri, Jan 16, 2026 at 05:52:36PM +0100, Nicolas Cavallari wrote:
+>> I debugged it further, it seems to be mostly a PCI issue since the system
+>> does not actually have an IOMMU.
+>>
+>> When examining changes in the PCI configuration (lspci -vvvv), the main
+>> difference is that, with the patch, Access Control Services are enabled on
+>> the PCI switch.
+>>
+>>          Capabilities: [220 v1] Access Control Services
+>>                  ACSCap: SrcValid+ TransBlk+ ReqRedir+ CmpltRedir+
+>> UpstreamFwd+ EgressCtrl+ DirectTrans+
+>> -               ACSCtl: SrcValid- TransBlk- ReqRedir- CmpltRedir-
+>> UpstreamFwd- EgressCtrl- DirectTrans-
+>> +               ACSCtl: SrcValid+ TransBlk- ReqRedir+ CmpltRedir+
+>> UpstreamFwd+ EgressCtrl- DirectTrans-
+>>
+>> If I manually patch the config space in sysfs and re-disable ACS on the port
+>> connected to the LAN7430, I cannot reproduce the problem.  In fact,
+>> disabling only ReqRedir is enough to work around the issue.
+> 
+> My guess would be your system has some kind of address alias going on?
+> 
+> Assuming you are not facing an errata, ACS generally changes the
+> routing of TLPs so if you have a DMA address that could go to two
+> different places then messing with ACS will give you different
+> behaviors.
+> 
+> In specific when you turn all those ACS settings you cannot do P2P
+> traffic anymore. If your system expects this for some reason then you
+> must use the kernel command line option to disable acs.
+> 
+> If you are just doing normal netdev stuff then it is doubtful that you
+> are doing P2P at all, so I might guess a bug in the microchip ethernet
+> driver doing a wild DMA? Stricter ACS settings cause it to AER and the
+> device cannot recover?
 
-Signed-off-by: Will Deacon <will@kernel.org>
----
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 30 +++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+Yes, i'm just running network throughput tests (iperf3) on eth1 while wlan0 is 
+idling, and those are the only two peripheral on the PCI bus. I don't think 
+there are anything unusual going on (P2P or vendor commands).
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index a7d880701933..2a75b5649289 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -1820,11 +1820,41 @@ void pkvm_ownership_selftest(void *base)
- 	assert_transition_res(-EPERM,	__pkvm_host_unshare_hyp, pfn);
- 	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
- 
-+	selftest_state.host = PKVM_PAGE_SHARED_BORROWED;
-+	selftest_state.guest[0] = PKVM_PAGE_SHARED_OWNED;
-+	assert_transition_res(0,	__pkvm_guest_share_host, vcpu, gfn);
-+	assert_transition_res(-EPERM,	__pkvm_guest_share_host, vcpu, gfn);
-+	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn, vcpu);
-+	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn + 1, vcpu);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn + 1, 1, vcpu, prot);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
-+	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
-+	assert_transition_res(-EPERM,	__pkvm_host_unshare_hyp, pfn);
-+	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
-+
-+	selftest_state.host = PKVM_NOPAGE;
-+	selftest_state.guest[0] = PKVM_PAGE_OWNED;
-+	assert_transition_res(0,	__pkvm_guest_unshare_host, vcpu, gfn);
-+	assert_transition_res(-EPERM,	__pkvm_guest_unshare_host, vcpu, gfn);
-+	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn, vcpu);
-+	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn + 1, vcpu);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn + 1, 1, vcpu, prot);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_ffa, pfn, 1);
-+	assert_transition_res(-EPERM,	__pkvm_host_donate_hyp, pfn, 1);
-+	assert_transition_res(-EPERM,	__pkvm_host_share_hyp, pfn);
-+	assert_transition_res(-EPERM,	__pkvm_host_unshare_hyp, pfn);
-+	assert_transition_res(-EPERM,	__pkvm_hyp_donate_host, pfn, 1);
-+
- 	selftest_state.host = PKVM_PAGE_OWNED;
- 	selftest_state.guest[0] = PKVM_POISON;
- 	assert_transition_res(0,	__pkvm_host_force_reclaim_page_guest, phys);
- 	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn, vcpu);
- 	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
-+	assert_transition_res(-EHWPOISON, __pkvm_guest_share_host, vcpu, gfn);
-+	assert_transition_res(-EHWPOISON, __pkvm_guest_unshare_host, vcpu, gfn);
- 
- 	selftest_state.host = PKVM_NOPAGE;
- 	selftest_state.guest[1] = PKVM_PAGE_OWNED;
--- 
-2.52.0.457.g6b5491de43-goog
+Bit it turns out there is an errata for the Pericom PI7C9X2G404 switch that 
+matches my problem, and there is already a workaround in the kernel, but it does 
+not match my PCI ids:
 
+   DECLARE_PCI_FIXUP_ENABLE(PCI_VENDOR_ID_PERICOM, 0x2404,
+                            pci_fixup_pericom_acs_store_forward);
+   DECLARE_PCI_FIXUP_RESUME(PCI_VENDOR_ID_PERICOM, 0x2404,
+                            pci_fixup_pericom_acs_store_forward);
+   DECLARE_PCI_FIXUP_ENABLE(PCI_VENDOR_ID_PERICOM, 0x2304,
+                            pci_fixup_pericom_acs_store_forward);
+   DECLARE_PCI_FIXUP_RESUME(PCI_VENDOR_ID_PERICOM, 0x2304,
+                            pci_fixup_pericom_acs_store_forward);
+   DECLARE_PCI_FIXUP_ENABLE(PCI_VENDOR_ID_PERICOM, 0x2303,
+                            pci_fixup_pericom_acs_store_forward);
+   DECLARE_PCI_FIXUP_RESUME(PCI_VENDOR_ID_PERICOM, 0x2303,
+                            pci_fixup_pericom_acs_store_forward);
+
+While my device is 12d8:b404 and lspci still identifies it as PI7C9X2G404:
+
+01:00.0 PCI bridge [0604]: Pericom Semiconductor PI7C9X2G404 EV/SV PCIe2 
+4-Port/4-Lane Packet Switch [12d8:b404] (rev 01) (prog-if 00 [Normal decode])
+
+Adding this ID to the quirks.c list fixes the issue. I'll send a patch.
 
