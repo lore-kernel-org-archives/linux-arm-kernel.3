@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A4ABD2ECE6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 20:56:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEB93D2ECE6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 20:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9wwb0BucoU9pwrZ7HxA6A8L6Cx7GPr2fiyhszcitlq8=; b=a0EVxCpJDee3s4ildwYs5mbT71
-	6lvAYL0J4Cq8gbrtQaR4jlhx5dYgyZ8S1NonqaqosYE6OVHyjNj19m+gHNcUQHoAfCDORh6mg0pbh
-	PdLKs/oR7ZEpXSrSlAlehnb4kB614JtFLXG9+1d7ya0rJQOiRUCzqBxMYF30hcE10g00IQ19PNIvC
-	oHlx+bi/3FWL1eVxrX1QziJCvDtVVRfDtov8oRdys5QTrqqySN98S+YpevZfbpYwn6dHhetDDwu7K
-	PLBAKQqDhZj39Cs4gt9woeTmfy6NEQBAaNPnk3nAoxzW7VAEWQonopp/CkQWOmbnNHrKtU8emROMw
-	b/UwaDGw==;
+	bh=WEGUhEn4s6o4fkZP794y6D2gq2Mreoj5D51eLRnMoKU=; b=Uw7vZGZIKA2wICys8eYSwCw2S4
+	rL4SzSOFTou0zGH/tDZQ7ulzBhlbISt1ncVhQWHXYafrnpWf/G2YES5wrZ4zFGOBPvMM0qCKmJEht
+	ThYxpknurPp779gzRr36jshpLJQNKdrTVN1/bPmNhXvW46KWlkJZwITB7+X6AGExifB1/Sk5ecSmG
+	AOMUbCPSIYIyKfWEd3iKgn4nt26iu5EKctjbl55rLK/k5hZEQjP2HI5qU81gFSGxCFqDCBaTt/LjS
+	W+z41MvcGnVNJrOVXdx3fuFp7JKvVtH3gQeIEFHyFaVK246bqXRr4PkxxdSzxNwjwCO23CSxk+wiS
+	Tc1hhkqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhwIW-00000002r3M-3uE9;
-	Mon, 19 Jan 2026 20:56:28 +0000
+	id 1vhwKD-00000002rNi-0w0M;
+	Mon, 19 Jan 2026 20:58:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhwIT-00000002r31-46Be
+	id 1vhwK9-00000002rLp-3S0C
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 20:56:27 +0000
+	Mon, 19 Jan 2026 20:58:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D82F497;
-	Mon, 19 Jan 2026 12:56:17 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0307A497;
+	Mon, 19 Jan 2026 12:58:02 -0800 (PST)
 Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 63C783F632;
-	Mon, 19 Jan 2026 12:56:19 -0800 (PST)
-Message-ID: <e38cb392-ff29-4008-aa4f-e9d7166836f0@arm.com>
-Date: Mon, 19 Jan 2026 20:56:17 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CCBB93F632;
+	Mon, 19 Jan 2026 12:58:03 -0800 (PST)
+Message-ID: <d6f1b1e7-1b90-45c7-9049-9528c1f1cdd1@arm.com>
+Date: Mon, 19 Jan 2026 20:58:02 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 45/47] arm_mpam: Add workaround for T241-MPAM-4
-To: Fenghua Yu <fenghuay@nvidia.com>
+Subject: Re: [PATCH v3 47/47] arm_mpam: Quirk CMN-650's CSU NRDY behaviour
+To: Gavin Shan <gshan@redhat.com>
 Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
  dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- gshan@redhat.com, james.morse@arm.com, jonathan.cameron@huawei.com,
+ fenghuay@nvidia.com, james.morse@arm.com, jonathan.cameron@huawei.com,
  kobak@nvidia.com, lcherian@marvell.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  peternewman@google.com, punit.agrawal@oss.qualcomm.com,
@@ -52,16 +52,17 @@ Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
  will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
  joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
 References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-46-ben.horgan@arm.com>
- <23f08379-301d-4ffc-bf6f-d6a7bb952724@nvidia.com>
+ <20260112165914.4086692-48-ben.horgan@arm.com>
+ <30b7483d-abaa-4668-95bd-93765c72a1f2@redhat.com>
 From: Ben Horgan <ben.horgan@arm.com>
 Content-Language: en-US
-In-Reply-To: <23f08379-301d-4ffc-bf6f-d6a7bb952724@nvidia.com>
+In-Reply-To: <30b7483d-abaa-4668-95bd-93765c72a1f2@redhat.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_125626_053139_F836AAF8 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20260119_125809_943298_D9725A0A 
+X-CRM114-Status: UNSURE (   6.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,34 +77,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fenghua,
+Hi Gavin,
 
-On 1/15/26 23:20, Fenghua Yu wrote:
-> Hi, Shanker and Ben,
+On 1/19/26 12:18, Gavin Shan wrote:
+> On 1/13/26 12:59 AM, Ben Horgan wrote:
+> An error reported by checkpatch.pl as below.
 > 
-> On 1/12/26 08:59, Ben Horgan wrote:
->> From: Shanker Donthineni <sdonthineni@nvidia.com>
->>
->> In the T241 implementation of memory-bandwidth partitioning, in the
->> absence
->> of contention for bandwidth, the minimum bandwidth setting can affect the
->> amount of achieved bandwidth. Specifically, the achieved bandwidth in the
->> absence of contention can settle to any value between the values of
->> MPAMCFG_MBW_MIN and MPAMCFG_MBW_MAX.  Also, if MPAMCFG_MBW_MIN is set
->> zero (below 0.78125%), once a core enters a throttled state, it will
->> never
->> leave that state.
->>
->> The first issue is not a concern if the MPAM software allows to program
->> MPAMCFG_MBW_MIN through the sysfs interface. This patch ensures program
->> MBW_MIN=1 (0.78125%) whenever MPAMCFG_MBW_MIN=0 is programmed.
+> ERROR: Macros with complex values should be enclosed in parentheses
+> #105: FILE: drivers/resctrl/mpam_internal.h:255:
+> +#define MPAM_IIDR_ARM_CMN_650   
+> FIELD_PREP_CONST(MPAMF_IIDR_PRODUCTID,   0)    | \
+> +                FIELD_PREP_CONST(MPAMF_IIDR_VARIANT,     0)    | \
+> +                FIELD_PREP_CONST(MPAMF_IIDR_REVISION,    0)    | \
+> +                FIELD_PREP_CONST(MPAMF_IIDR_IMPLEMENTER, 0x43b)
 > 
-> When MBW_MIN=1, min mem bw can be very low when contention. This may
-> drop mem access performance. Is it possible to set MBW_MIN bigger so
-> that ensure the floor of mem access is high?
 
-Isn't that a policy decision rather than something we should be putting
-in a quirk framework?
+Fixed
 
 Thanks,
 
