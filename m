@@ -4,68 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8094CD29C5A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 18:39:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B09BD29C50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 18:41:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3zvLu/l2gPZv/fOEvzqCDdJNqA6ygc0q6Qx7osq7M50=; b=nBZ7ce4iVRgA4SFMpCVoY5T9Oi
-	2PNI3jOUtjvchbbC0y9yb5zAP+dgcilw8CuyG+7Mh0JgAPlBhULkyACbImCNHV5P+0kiPpI0Dzx9S
-	4GPQZ5kJF1IWG5pZn7K6GZjOykkDx1M8P+6luqtU2jVVH5R1/fqEHNImgduwayDIIBy3KCxhtPaYR
-	WpKqpwSedHmZk+i9iUCLiBjtskprwQYltnIgZTZmDsqr5n/nWyvZMxrmRvnrAeyC+Tg0e0Hnc5ikZ
-	VqrIyBtqK00UkKtaSTDa9UHbpeCHXcVgC0w0+ydKR4m6qf0Bfc8KO+3KSyopNUxNa+4+0G65jcx5c
-	53qE5eLw==;
+	bh=Rr5emfEcfEtizcmwc/bjF2HrmiNyr+RRERkigvrRZ4c=; b=nl7ytvOMgoJUDAkshwGhUW7Oke
+	yf8QHBr1U6rdgxXeqnWh2RUrV1rRY06//H/BTySH5ZctBc62Huv1CsMRy5yW1T1jyctRpl1rWZq1D
+	eyv0gNxwAHBOTpcBM6LgB7MjRy9eUACc+JN4/nC5Zb0rp7qJhs/147FMBQb7y+mgmIbjofQNizZRV
+	A0GwT/nwhWEUXsgmKISUmmD4K8vsTbgrIZtkvW93anXoIe9FMSwiF79394pnxdF6xEaBg4vFzc0V+
+	gPnb2o0COoYJFTPO5/1oVXWnmT7Xzk2tlozTfE6NteR5eOTW0WOafyCkiiTwfWUAP6CJeyf2qQWvf
+	3TcWJn1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhu9P-00000002ivy-1lRx;
-	Mon, 19 Jan 2026 18:38:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vhuBq-00000002j4X-0ANk;
+	Mon, 19 Jan 2026 18:41:26 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhu9O-00000002ivp-0LwE
+	id 1vhuBa-00000002j48-2qfY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 18:38:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2443E60054;
-	Mon, 19 Jan 2026 18:38:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A820EC116C6;
-	Mon, 19 Jan 2026 18:38:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768847932;
-	bh=TJG3FfXkTRkE2CcE9n4ac0NG1if2XpQ6DPf2Wc7Uvr0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XIoG2b55slYzmKtI+uPZ2lT+jERhCK32XMEJgtiinrAmgw6BlUSFeb7c+7YIdQjJt
-	 EcNuYC4i0e0zi9SlcdEtvMI0/deLdMmoso1ECjFoiYz9BCoebA8DiCccITzEDcxmZd
-	 D/y6fGcDPoOlktHzYud6yqmcsONYGCwNLQ6KRP5DNIxUketUslPPul/D3y0TrnoJ3H
-	 29qeG9TZslgAVMzV2MDNUMBLKTaOPVovAeKVGIVoafN2d9zaCt4lwONQCyapsOetz7
-	 A7bOQY2nsSO593ZPk+moHk0M+YM1I5Uvowrln+PE3pgp/sEJ7LzMd6JS945OJ245Ni
-	 FHdC7SI4r5Xlg==
-Date: Mon, 19 Jan 2026 18:38:48 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michal Simek <michal.simek@amd.com>, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] spi: xilinx: use device property accessors.
-Message-ID: <b9ad8ab8-7985-4c89-a82b-c7f31d32c167@sirena.org.uk>
-References: <20260119-spi-xilinx-v3-0-4566c33bac0d@nexthop.ai>
- <20260119-spi-xilinx-v3-3-4566c33bac0d@nexthop.ai>
- <8436e914-429f-40b9-8e6f-ec3b02702cad@sirena.org.uk>
- <69F83558-4675-4FC2-8656-BC6E3481AD65@nexthop.ai>
- <9e559e33-4f2f-40d4-a15f-584548bd6057@sirena.org.uk>
- <05D2CC15-DD6B-40F0-BFF0-3264D4FF96ED@nexthop.ai>
- <b1b79de0-a078-486d-b3e9-96899354407c@sirena.org.uk>
- <3D1B59A7-6E57-4C8C-AA95-EA7AA115264F@nexthop.ai>
+	Mon, 19 Jan 2026 18:41:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768848071; x=1800384071;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=QcM11rkwgqR54cWMF4Ry5O/lkvAKnGedpOaB4gdmyds=;
+  b=j02GKtycVye3eUGXZfc6f1gCQZRjeUWZp5KH9c4z+0GZcvYtNH8EvEB8
+   9uQ84XmP1q01C0/wkUYuqHFx+V9dV2u9xtvKpG2yMa54vJ/m8GSZAMzSo
+   mi0RnGNKrq8kzUrjoavTR8VlIe2GkeDnUdJ35/C+X2xMX7aZIwjncwS2M
+   V7+adItzoSJX13TcnzlsneR/EaNuXLKjc4iMOcLpOZYmGbcfr1muIud3m
+   Y/wq2G0RkonM6xVGsFayldiUi7Ba2ADS1LfvoIb85ogy3RDHKTh/5wvFs
+   zzNaTF915NBpwG6SEqkFumIIieS5XgxbJkycl3ILizWBIAB0tXeXDqe3e
+   w==;
+X-CSE-ConnectionGUID: bztjidUoTfeUPyvPJOhLhQ==
+X-CSE-MsgGUID: 9KMM277zSDmol/3uyPWRGQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11676"; a="87478105"
+X-IronPort-AV: E=Sophos;i="6.21,238,1763452800"; 
+   d="scan'208";a="87478105"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Jan 2026 10:41:09 -0800
+X-CSE-ConnectionGUID: bFoh48EvQxacr/wGvQxdWg==
+X-CSE-MsgGUID: n5lUR5CAQburQGzpBCfRqQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,238,1763452800"; 
+   d="scan'208";a="206280975"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 19 Jan 2026 10:41:05 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vhuBS-00000000OBN-3CRR;
+	Mon, 19 Jan 2026 18:41:02 +0000
+Date: Tue, 20 Jan 2026 02:41:00 +0800
+From: kernel test robot <lkp@intel.com>
+To: Salman Nabi <salman.nabi@arm.com>, vvidwans@nvidia.com,
+	andre.przywara@arm.com, sudeep.holla@arm.com, mark.rutland@arm.com,
+	lpieralisi@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, ardb@kernel.org, chao.gao@intel.com,
+	linux-arm-kernel@lists.infradead.org, linux-coco@lists.linux.dev,
+	linux-kernel@vger.kernel.org, sdonthineni@nvidia.com,
+	vsethi@nvidia.com, vwadekar@nvidia.com
+Subject: Re: [PATCH 1/1] firmware: smccc: add support for Live Firmware
+ Activation (LFA)
+Message-ID: <202601200225.cTYuYwRI-lkp@intel.com>
+References: <20260119122729.287522-2-salman.nabi@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="yr3Zwye/gBaAHNhT"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <3D1B59A7-6E57-4C8C-AA95-EA7AA115264F@nexthop.ai>
-X-Cookie: Does not include installation.
+In-Reply-To: <20260119122729.287522-2-salman.nabi@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260119_104110_826356_2EA06BDC 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,58 +92,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Salman,
 
---yr3Zwye/gBaAHNhT
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+kernel test robot noticed the following build errors:
 
-On Mon, Jan 19, 2026 at 09:47:11AM -0800, Abdurrahman Hussain wrote:
-> > On Jan 19, 2026, at 9:32=E2=80=AFAM, Mark Brown <broonie@kernel.org> wr=
-ote:
+[auto build test ERROR on soc/for-next]
+[also build test ERROR on linus/master v6.19-rc6 next-20260116]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Please fix your mail client to word wrap within paragraphs at something
-substantially less than 80 columns.  Doing this makes your messages much
-easier to read and reply to.
+url:    https://github.com/intel-lab-lkp/linux/commits/Salman-Nabi/firmware-smccc-add-support-for-Live-Firmware-Activation-LFA/20260119-203221
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/20260119122729.287522-2-salman.nabi%40arm.com
+patch subject: [PATCH 1/1] firmware: smccc: add support for Live Firmware Activation (LFA)
+config: arm-sp7021_defconfig (https://download.01.org/0day-ci/archive/20260120/202601200225.cTYuYwRI-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260120/202601200225.cTYuYwRI-lkp@intel.com/reproduce)
 
-> > You are just bindly making the DT properties available as _DSD
-> > properties on ACPI systems, ACPI is a completely different firmware
-> > interface with it's own idioms.  Does this interface make any sense on
-> > ACPI?
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601200225.cTYuYwRI-lkp@intel.com/
 
-> From the above link:
+All errors (new ones prefixed by >>):
 
-> "The special DT namespace link device ID, PRP0001, provides a means to
-> use the existing DT-compatible device identification in ACPI=E2=80=A6"
+   drivers/firmware/smccc/lfa_fw.c: In function 'get_nr_lfa_components':
+>> drivers/firmware/smccc/lfa_fw.c:179:16: error: variable 'reg' has initializer but incomplete type
+     179 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:179:43: warning: excess elements in struct initializer
+     179 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:179:43: note: (near initialization for 'reg')
+>> drivers/firmware/smccc/lfa_fw.c:179:35: error: storage size of 'reg' isn't known
+     179 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+>> drivers/firmware/smccc/lfa_fw.c:184:9: error: implicit declaration of function 'arm_smccc_1_2_invoke'; did you mean 'arm_smccc_1_1_invoke'? [-Wimplicit-function-declaration]
+     184 |         arm_smccc_1_2_invoke(&reg, &reg);
+         |         ^~~~~~~~~~~~~~~~~~~~
+         |         arm_smccc_1_1_invoke
+   drivers/firmware/smccc/lfa_fw.c:179:35: warning: unused variable 'reg' [-Wunused-variable]
+     179 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_cancel':
+   drivers/firmware/smccc/lfa_fw.c:194:16: error: variable 'reg' has initializer but incomplete type
+     194 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:194:43: warning: excess elements in struct initializer
+     194 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:194:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:194:35: error: storage size of 'reg' isn't known
+     194 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:194:35: warning: unused variable 'reg' [-Wunused-variable]
+   drivers/firmware/smccc/lfa_fw.c: In function 'call_lfa_activate':
+   drivers/firmware/smccc/lfa_fw.c:220:16: error: variable 'reg' has initializer but incomplete type
+     220 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:220:43: warning: excess elements in struct initializer
+     220 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:220:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:220:35: error: storage size of 'reg' isn't known
+     220 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:220:35: warning: unused variable 'reg' [-Wunused-variable]
+   drivers/firmware/smccc/lfa_fw.c: In function 'prime_fw_image':
+   drivers/firmware/smccc/lfa_fw.c:290:16: error: variable 'reg' has initializer but incomplete type
+     290 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:290:43: warning: excess elements in struct initializer
+     290 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:290:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:290:35: error: storage size of 'reg' isn't known
+     290 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:290:35: warning: unused variable 'reg' [-Wunused-variable]
+   drivers/firmware/smccc/lfa_fw.c: In function 'activation_pending_show':
+   drivers/firmware/smccc/lfa_fw.c:360:16: error: variable 'reg' has initializer but incomplete type
+     360 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:360:43: warning: excess elements in struct initializer
+     360 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:360:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:360:35: error: storage size of 'reg' isn't known
+     360 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:360:35: warning: unused variable 'reg' [-Wunused-variable]
+   drivers/firmware/smccc/lfa_fw.c: In function 'pending_version_show':
+   drivers/firmware/smccc/lfa_fw.c:434:16: error: variable 'reg' has initializer but incomplete type
+     434 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:434:43: warning: excess elements in struct initializer
+     434 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:434:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:434:35: error: storage size of 'reg' isn't known
+     434 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:434:35: warning: unused variable 'reg' [-Wunused-variable]
+   drivers/firmware/smccc/lfa_fw.c: In function 'update_fw_images_tree':
+   drivers/firmware/smccc/lfa_fw.c:586:16: error: variable 'reg' has initializer but incomplete type
+     586 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:586:43: warning: excess elements in struct initializer
+     586 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:586:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:586:35: error: storage size of 'reg' isn't known
+     586 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:586:35: warning: unused variable 'reg' [-Wunused-variable]
+   drivers/firmware/smccc/lfa_fw.c: In function 'lfa_init':
+   drivers/firmware/smccc/lfa_fw.c:619:16: error: variable 'reg' has initializer but incomplete type
+     619 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                ^~~~~~~~~~~~~~~~~~
+   drivers/firmware/smccc/lfa_fw.c:619:43: warning: excess elements in struct initializer
+     619 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                           ^
+   drivers/firmware/smccc/lfa_fw.c:619:43: note: (near initialization for 'reg')
+   drivers/firmware/smccc/lfa_fw.c:619:35: error: storage size of 'reg' isn't known
+     619 |         struct arm_smccc_1_2_regs reg = { 0 };
+         |                                   ^~~
+   drivers/firmware/smccc/lfa_fw.c:619:35: warning: unused variable 'reg' [-Wunused-variable]
 
-=2E..
 
-> Is this not appropriate?
+vim +/reg +179 drivers/firmware/smccc/lfa_fw.c
 
-This was specifically targetted at some embedded x86 systems where there
-was a goal to reuse device tree bindings for things that just can't be
-expressed well in ACPI.  _DSD is generally considered tasteless for more
-server style systems, AIUI the general approach preferred by ACPI
-forward OSs is to use some combination of DMI quirking and registering
-with a per-device ID (like the per generation fake PCI IDs that Intel
-uses for all IPs on their SoCs).  Just blindly accepting _DSD can end up
-with something that's not used because it's not what the ecosystem
-wants.
+   176	
+   177	static unsigned long get_nr_lfa_components(void)
+   178	{
+ > 179		struct arm_smccc_1_2_regs reg = { 0 };
+   180	
+   181		reg.a0 = LFA_1_0_FN_GET_INFO;
+   182		reg.a1 = 0; /* lfa_info_selector = 0 */
+   183	
+ > 184		arm_smccc_1_2_invoke(&reg, &reg);
+   185		if (reg.a0 != LFA_SUCCESS)
+   186			return reg.a0;
+   187	
+   188		return reg.a1;
+   189	}
+   190	
 
---yr3Zwye/gBaAHNhT
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmluejcACgkQJNaLcl1U
-h9D9WQf/ejnLfZnKfjoUOCRr/OyYxlYQYG5/C3z0oW96iVMkZ+jfUoRQQU/a71PA
-2gjGAH06p0iahNbsNf7b8Fn8YUbs0MJQyW5mUbW/IvEUupw0PCTCaAn6+9tOoxxr
-iU6/mcgBeIiBLLnoxtEswwp2oV4pWyB8MDmgcKMCH9XOuaY+nlRNubw1vbl/Jp3F
-ZNFvouH7n0jPA6bGGCTzNdIYPbT8+sBO9SOouZ/Nc/i98SaMpn4PWN1Y0YHWQxeD
-ti4uBjNPykGDfxV2g1Hm+e4cSuxnoxgmPrBidLkPpPJGbhGpHdybpHmi+tI/cTDI
-9b6E6xiSjFbyTNzrn9LFxgTZObk8hw==
-=8AUl
------END PGP SIGNATURE-----
-
---yr3Zwye/gBaAHNhT--
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
