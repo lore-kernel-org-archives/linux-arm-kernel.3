@@ -4,101 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 178A3D29C36
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 15:36:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6EB5D29C2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 15:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMJ5nMJfhQBbodCSUw7/slQ7OY7bXr5BnBhnNIrMmcI=; b=Mr/xDfI0izrYLEz8JPau9JOOH3
-	toKL/qbYLaBtCiK3awelqB5pcRhN/mj0OdH6UQDuRYfdR/JKMx5QPlOaT361fl/LpqgGIZWg1qAsj
-	iiwogzkopBAfWAEk70eHwaQopQsdYuw1eGUijp+OEk0aO2uoowWtI3pyL4GEXqE5LggDbW8S3sw7b
-	Arm0Qyri4zwKLfzj7lLPXGZ2EvEVWMoNfOuXbCfrRg1eFRiqnEvVOK+AYX26NiWjepn4z/IKCsD9B
-	bGTkRrO9lLZFNsjlWccy6NGSTvWZRDtil/yNVBsrkz3R4LoeTZFNQKKDOWm7Fw/hBBelsdimiDZbk
-	JCW+UpBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=seixLJfaVSdo0IZhUY82q8JMpY8jnRRiQJ4L3ZQrJhk=; b=QGbRdWSaM/yHc2MlNGZDMRHLQ4
+	OWEvzKpRTzynfzQpTHpp/9dmXHOk93uZlm533QQOe2+un3m80T0or/sxXbsnly+lbLloxK0sfNkyp
+	DRi2KFkW7+vOmuo4R145qLiLGFXKoOXS20wqOCv0/ZF3zDgyV8N4JXH/XvCbNxkLd/yOexrgPRIvz
+	/c6didESyaA7yCCVIQOHYPf2utyLduZp/EXpPtgaM6WxGg1/AZxMa7bW0poEluL6uyRuGaMMJL7B6
+	kJs9dICOOzBQ8nij4J8JSSO4zMpokN6qJUpRadoCIf0hiXT+EriMj2uwsXAlTxNCmu+7NOaDSsniB
+	Whh2obTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhrIr-00000002Mm4-0Ep1;
-	Mon, 19 Jan 2026 15:36:29 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vhrNc-00000002NEO-1MpL;
+	Mon, 19 Jan 2026 15:41:27 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhrIi-00000002MlI-118e
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 15:36:27 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-47f3b7ef761so24079825e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 07:36:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768836978; x=1769441778; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KMJ5nMJfhQBbodCSUw7/slQ7OY7bXr5BnBhnNIrMmcI=;
-        b=Js5HeCZIiq+CvYPEnhRa8JEd607kP59CLqu3aiEOReHXm8/AILmNqJXSgoddH7QDOf
-         iUfBzcBaol5pS61f/I32gcuNusB8wmdPH9RY+7goD7oEuC9j6OcsHILmBtnPBspG4wtU
-         fanfR1R7lG+GO2Rb+nRjGepiwlawO9D7vigwHoRzGDx5z0UaiZoW5BjhIchI/w9WaVoQ
-         VBKfn2HmzUIt9KRp5wm/27RD4wxxkCpsjXYicy+aFHlJPvPVU6C3mu8sEujz6GFuHSV0
-         RnFeMC+m2965UYfpTGTc+uVK3rKo5e5YYViGGUok+sUNXTMXFVOLnWFeGqjjTzJTqhvk
-         eb6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768836978; x=1769441778;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=KMJ5nMJfhQBbodCSUw7/slQ7OY7bXr5BnBhnNIrMmcI=;
-        b=dRY3LW8eMw8xdg2TzJ0sRNlETk5hi/LQW2PlKt34VVQNRW9YULGjyNhPK3aZAs+3ME
-         R5jOeDZfy5Hqod85Kc0sfYpIAOwqhnGI7XL55cvhr+nqtyb/42JU2ODE0Zw15jx9Qf0H
-         Pr0kp41tCeusyhniIoHtfRjwSz4cp/73nElcsLf0uu09gUAheFIutEaf7fcKMq5iH9ci
-         Pea0Etak323+EfV/5hp1PU6IDzbIqpkf2sJEIfceun4cvIiBOECFmNT8KkAjTi/UmWMI
-         fwxUfWQlAzm2quL+4Q4xi84Gr6b3fclIDXN/jQyQq1k0McHCKO3H1Fp46ZAJbGkwEXYi
-         CnuA==
-X-Forwarded-Encrypted: i=1; AJvYcCX8ZxdrqXlcxhzX8L7ZuiTowOdwwKoqFRKenJfL/lWdUPMcBDSbTpprAo07fOu0J/bElvwCHCDUqryqFDOWamYh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkSd/MSJnTmnG0QZ28et+k/DvYbtUHNc4GSJ6FGwg+rFCQX4iK
-	fFCtFHSbUiD1q95+zEAYBX6lOQZLMjk93qfttEQKPL6Iup4t/omAe/ya
-X-Gm-Gg: AY/fxX7cg5YH/YH+WU7obENMuNpJMIUy3zqkek4Jc8oQyV1i+nvFFaV6B6U7F4c/rqj
-	0t3UCSfLV+UwHE/atzizPuV3I3SgRUXAqIsgaRfWgd20kdToJV50WEbx8yl7vv1EGBOQWcK9u6H
-	sTuhvONrlK4KCh8izS0gyMelt6LWTPbSnSAE+pcolYTPSh0rI6NyqU/U95N/1r6znbJLeIYzeF/
-	Qz9+YAQt62qhY/cQpJWboQqTR3F77WaD70Hn5AuB6e+n/PkxATBSzwWSMAPJL6ODiB8zyvuaac9
-	iddkaESlnG0aZRwDhTX3tT4b2xQFEnJ0RL7caYu4SyY2HfeItuU4ozY9GfXIzOw5DmL89Tb9SSn
-	pwBXV4O+YrbMioH8UHyw+cZ/hfi5oM2fYLnOowwsWUEDhaBuE+4JnI7xG5cwHIKqfQn2HW+CPaG
-	URlt+ubocMygyMJsw0rTKt1ztFofqyDshgLxolmGlxXkIsuhWLuuDyR246c46bvy4J3ANY
-X-Received: by 2002:a05:600c:4584:b0:47b:deb9:15fb with SMTP id 5b1f17b1804b1-4801e350af0mr140088985e9.33.1768836977812;
-        Mon, 19 Jan 2026 07:36:17 -0800 (PST)
-Received: from jernej-laptop.localnet (213-161-4-198.dynamic.telemach.net. [213.161.4.198])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43569926ff1sm23614533f8f.13.2026.01.19.07.36.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jan 2026 07:36:17 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
- linux-sunxi@lists.linux.dev,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH 8/8] soc: sunxi: mbus: don't access of_root directly
-Date: Mon, 19 Jan 2026 16:36:15 +0100
-Message-ID: <5957177.DvuYhMxLoT@jernej-laptop>
-In-Reply-To: <20260119-soc-of-root-v1-8-32a0fa9a78b4@oss.qualcomm.com>
-References: <20260119-soc-of-root-v1-0-32a0fa9a78b4@oss.qualcomm.com>
- <20260119-soc-of-root-v1-8-32a0fa9a78b4@oss.qualcomm.com>
+	id 1vhrNI-00000002ND5-2cYC;
+	Mon, 19 Jan 2026 15:41:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1768837261;
+	bh=WGje4+ey1jXaVxohpYLHfCxVK7LiezHtVRN34MEwaUQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FmCyE4EsGHuEGsVCgS3ZHCNmr1HZ0JgHB/6ULTjwJ4rtZ/iB2vMXCTTsmDK9leCcc
+	 xxfkjlbe9cBdTp/mN+roDs4MyBW9Yok/DOrprw+6g8XsvoI/6YaMrxs+2vlMr+uyel
+	 tCks0ibnW/FqNOtlPF7KITC+elSm3taLy9cuMJ5vI+zIk2zRUtZy0MmPTB7f1ID48g
+	 TZ0u9BEknq+EOVXxIcw6BKjiSrTtfOkCrlhRD9KYG4zkhvivuCug9nTK7U8UqEuLHS
+	 UbaM831YPK/V0dK5TWIc+KWwTYN548YcDrs1KMPeQcLcuaL/W1gPVKbI1yNhkrqE/L
+	 udOQRo9lCLG4g==
+Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2340F17E0FFA;
+	Mon, 19 Jan 2026 16:41:00 +0100 (CET)
+Message-ID: <37c83a9a-088a-4a96-b6f6-343fa6cdddc6@collabora.com>
+Date: Mon, 19 Jan 2026 16:40:59 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/3] media: synopsys: add driver for the designware
+ mipi csi-2 receiver
+To: Frank Li <Frank.li@nxp.com>
+Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Hans Verkuil <hverkuil@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251114-rockchip-mipi-receiver-v5-0-45aa117f190a@collabora.com>
+ <20251114-rockchip-mipi-receiver-v5-2-45aa117f190a@collabora.com>
+ <aWpil6jI1Ad0DcEI@lizhi-Precision-Tower-5810>
+ <db2f0c20-ca7e-41c9-be08-67fd1f92c2af@collabora.com>
+ <aW5PLIv2w+OY7xJD@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <aW5PLIv2w+OY7xJD@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_073620_283944_3903874B 
-X-CRM114-Status: UNSURE (   7.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260119_074104_981045_555CE057 
+X-CRM114-Status: GOOD (  23.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,20 +93,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne ponedeljek, 19. januar 2026 ob 11:40:19 Srednjeevropski standardni =C4=
-=8Das je Bartosz Golaszewski napisal(a):
-> Don't access of_root directly as it reduces the build test coverage for
-> this driver with COMPILE_TEST=3Dy and OF=3Dn. Use existing helper functio=
-ns
-> to retrieve the relevant information.
->=20
-> Suggested-by: Rob Herring <robh@kernel.org>
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Hi Frank,
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+On 1/19/26 16:35, Frank Li wrote:
+> On Mon, Jan 19, 2026 at 10:49:20AM +0100, Michael Riesch wrote:
+>> Hi Frank,
+>>
+>> Thanks for your review.
+>>
+>> On 1/16/26 17:08, Frank Li wrote:
+>>> On Fri, Jan 16, 2026 at 02:02:47PM +0100, Michael Riesch wrote:
+>>>> The Synopsys DesignWare MIPI CSI-2 Receiver is a CSI-2 bridge with
+>>>> one input port and one output port. It receives the data with the
+>>>> help of an external MIPI PHY (C-PHY or D-PHY) and passes it to e.g.,
+>>>> the Rockchip Video Capture (VICAP) block on recent Rockchip SoCs.
+>>>>
+>>>> Add a V4L2 subdevice driver for this unit.
+>>>>
+>>>> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+>>>> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+>>>> Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
+>>>> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+>>>> ---
+>>> ...
+>>>> +
+>>>> +static inline struct dw_mipi_csi2_device *to_csi2(struct v4l2_subdev *sd)
+>>>> +{
+>>>> +	return container_of(sd, struct dw_mipi_csi2_device, sd);
+>>>> +}
+>>>> +
+>>>> +static inline __maybe_unused void
+>>>
+>>> why need '__maybe_unused', needn't inline. compiler can auto decide and
+>>> report unused function if no 'inline'.
+>>
+>> The __maybe_unused was helpful during development and is not really
+>> required now. It doesn't hurt either, so I left it in. I can remove it
+>> if you wish.
+>>
+>>>
+>>>> +
+>>>> +	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
+>>>
+>>> use  struct fwnode_handle *ep __free(fwnode_handle) can simplify err
+>>> handler.
+>>
+>> Sorry, I don't see the benefit of that.
+>>
+> 
+> I remember reduce one goto
 
-Best regards,
-Jernej
+Since Sakari requested this variant as well, I changed it to as you
+suggested in v7.
 
+> 
+>>>
+>>>> +	if (!ep)
+>>>> +		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
+>>>> +
+>>> ...
+>>>> +{
+>>>> +	struct media_pad *pads = csi2->pads;
+>>>> +	struct v4l2_subdev *sd = &csi2->sd;
+>>>> +	int ret;
+>>>> +
+>>>> +	ret = dw_mipi_csi2_register_notifier(csi2);
+>>>> +	if (ret)
+>>>> +		goto err;
+>>>> +
+>>>> +	v4l2_subdev_init(sd, &dw_mipi_csi2_ops);
+>>>> +	sd->dev = csi2->dev;
+>>>> +	sd->entity.ops = &dw_mipi_csi2_media_ops;
+>>>> +	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
+>>>> +	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE | V4L2_SUBDEV_FL_STREAMS;
+>>>> +
+>>>> +static int dw_mipi_csi2_runtime_resume(struct device *dev)
+>>>> +{
+>>>> +	struct dw_mipi_csi2_device *csi2 = dev_get_drvdata(dev);
+>>>> +	int ret;
+>>>> +
+>>>> +	reset_control_assert(csi2->reset);
+>>>> +	udelay(5);
+>>>
+>>> Now prefer use fsleep(), which auto choose difference sleep function
+>>> according to delay number.
+>>
+>> I'll keep that in mind, but here the first thing that fsleep does is to
+>> check whether the parameter is <= 10 and (since this is true) call
+>> udelay. So here I don't see the point really.
+> 
+> Thank.
+> 
+>>
+>>>
+>>>> +	reset_control_deassert(csi2->reset);
+>>>> +
+>>>> +	ret = clk_bulk_prepare_enable(csi2->clks_num, csi2->clks);
+>>>> +	if (ret) {
+>>>> +		dev_err(dev, "failed to enable clocks\n");
+>>>> +		return ret;
+>>>> +	}
+>>>> +
+>>>> +	return 0;
+>>>> +}
+>>>> +
+>>>> +static DEFINE_RUNTIME_DEV_PM_OPS(dw_mipi_csi2_pm_ops,
+>>>> +				 dw_mipi_csi2_runtime_suspend,
+>>>> +				 dw_mipi_csi2_runtime_resume, NULL);
+>>>> +
+>>>> +static struct platform_driver dw_mipi_csi2_drv = {
+>>>> +	.driver = {
+>>>> +		.name = "dw-mipi-csi2",
+>>>> +		.of_match_table = dw_mipi_csi2_of_match,
+>>>> +		.pm = &dw_mipi_csi2_pm_ops,
+>>>
+>>> pm_ptr( &dw_mipi_csi2_pm_ops)
+>>
+>> Shouldn't make a difference here since this driver depends on CONFIG_PM.
+>>
+> 
+> Avoid some static scan tools to report the problem, no harmful to add
+> pm_ptr().
+
+Interesting. Which tools to you use?
+
+I hope v7 is accepted as sent earlier today, and this should not be a
+blocker. We can add pm_ptr() easily in a follow-up patch.
+
+Thanks and regards,
+Michael
+
+> 
+> Frank
+> 
+>> Best regards,
+>> Michael
+>>
+>>>
+>>> Frank
+>>>> +	},
+>>>> +	.probe = dw_mipi_csi2_probe,
+>>>> +	.remove = dw_mipi_csi2_remove,
+>>>> +};
+>>>> +module_platform_driver(dw_mipi_csi2_drv);
+>>>> +
+>>>> +MODULE_DESCRIPTION("Synopsys DesignWare MIPI CSI-2 Receiver platform driver");
+>>>> +MODULE_LICENSE("GPL");
+>>>>
+>>>> --
+>>>> 2.39.5
+>>>>
+>>
 
 
