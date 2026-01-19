@@ -4,186 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48572C98315
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 02:39:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05CC5C9830C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 02:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cMeTnSvjoh+C/Oglk8Lz9NHoM/pRiPf/jC4gMkf9Sio=; b=uZyyLCA9KdufoEPd9vlNGobe6r
-	knr9xxznkqh/fyWM0kVeOk3TcNHQm7Q8nMkscE4oI/7DWMj3A/07RMfjzocMJDtMOszQgZmzcf0G1
-	LhGv6gljeQgM6xLy8NnGS7zb+FhwDGs4yBnlcu1BK8RRLnBoqdfIf1ftA/itUP2jhCQCQFDp4Nx8G
-	Pb9Sl021QSxZbx/097d7mcvD74g0dk+gw9wWJD+x0D35g5/wlFl/emqqXlUTR39AsLGMRFDhZoILl
-	pFcUrTXtBKjIECo9aJHIwNjENaa5MeHm5tgmh0HWMpbBOXvgv1b3mL73eYIxTePUZX8myczaKxFrx
-	m3h/wIgA==;
+	bh=5/jn6nx2N5xGFXlrQxpa9J1QrCjsnvpSsb/9hzGvrrw=; b=i3NFVOZRsgwHoVFimihPOalN9k
+	mnbsDkGUVURRi/bpTMkTdKerlOd+oRJdffVAatFOzKY38HNN+KDyNFCJAS8wPK5A1wgR1wGD3+kfZ
+	nJbsbhMOI0TK20v2gW7/Q/hFJWHd9oE0P8ySnd+iBL6LOwvHyRU5G/CnO5XlbJi3q874BDow1qjXs
+	PeApVkwB+e0WJtLL1lziVslBY2LKJsaSGa1llMoqIZ44e9Pxy51WfAkx0Briiqm94cswMCQBTwc8d
+	s2wzvD3bpX2ps0clogeIi6xLvtaU0k5IZuV0npFOtaWZiwATC/x99nOb9ifwmF7/Os/lpQYj0r2bY
+	JYfXe90Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhfAr-00000001HGf-2oKa;
-	Mon, 19 Jan 2026 02:39:27 +0000
-Received: from mail-koreacentralazon11023114.outbound.protection.outlook.com ([40.107.44.114] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1vhfBP-00000001HLv-0YYe;
+	Mon, 19 Jan 2026 02:39:59 +0000
+Received: from mail-japaneastazon11023085.outbound.protection.outlook.com ([52.101.127.85] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhfAo-00000001HGF-2lkm
+	id 1vhfBN-00000001HLD-0j80
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 02:39:23 +0000
+	Mon, 19 Jan 2026 02:39:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cMeTnSvjoh+C/Oglk8Lz9NHoM/pRiPf/jC4gMkf9Sio=;
- b=oFCx4+2eimWYcUcH/64k4oy8tb+kPG5guo7JPchZws71mZFk1HKhXr+5xIiJcf/hg8bcUrlVedyhSJWm9uB+6GJ2CcdRb96c4vtx9KIx6byQLWNgAoov/iJmVUlEO9PHpq0U5CjPdwyV3HZuOuWfzYI8O9zwobYsWXhZFoAamvekP6765c/pmycSeiq+KJpW2Mop5snnt8XgGUCsiZeXAqOWeRaDTTwabxRohSD/LbWKA15td0cX9G/j9SZwYGqzP4bGF2g9tyOSGowCuY5PfsNzKPrjiq12HaQRKfsQDCKbmfMRUMGNjituRsRHABurkJDyH0OyVAy/DUgyt3qzXg==
+ bh=5/jn6nx2N5xGFXlrQxpa9J1QrCjsnvpSsb/9hzGvrrw=;
+ b=MP3wUXkrVB8CBtmTvk1QS0s3Hqkz32/28xdbT+mlPBM23uqlw/pCLM6Z8ku1DWH14fzhinw+/w+KlwqzcNsZFgwyFGJS0TppDx4SN0Ax9rhqnh9nKuRN/Ryf842Bsxu//D6GaDtLHBY37Bko8og364puSx7gmtHoe0/0qtB9/oFfUNYIzvcdLip+lrMVrpIg4majohuqQMSZyTABxsWQUdDqz4WbEX+sOEv7633WeRC3BjZeB6zXHVJ7GW1AXAJBMU0HIVpq+Lyjar5cDmuJesWKb67lUZYpMYI3Bl7gdO3HUZRVPDZCCEj1uEc7Yz76znrEAUnThJQwe4oRWlc3YA==
 Received: from OSQPR06MB7252.apcprd06.prod.outlook.com (2603:1096:604:29c::6)
  by TYZPR06MB6894.apcprd06.prod.outlook.com (2603:1096:405:20::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Mon, 19 Jan
- 2026 02:39:13 +0000
+ 2026 02:39:51 +0000
 Received: from OSQPR06MB7252.apcprd06.prod.outlook.com
  ([fe80::814e:819a:7d52:7448]) by OSQPR06MB7252.apcprd06.prod.outlook.com
  ([fe80::814e:819a:7d52:7448%3]) with mapi id 15.20.9520.006; Mon, 19 Jan 2026
- 02:39:13 +0000
+ 02:39:51 +0000
 From: Billy Tsai <billy_tsai@aspeedtech.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Andrew Jeffery <andrew@aj.id.au>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, BMC-SW
-	<BMC-SW@aspeedtech.com>
-Subject: Re: [PATCH 3/5] gpio: aspeed-sgpio: Create llops to handle hardware
- access
-Thread-Topic: [PATCH 3/5] gpio: aspeed-sgpio: Create llops to handle hardware
- access
-Thread-Index: AQHch6LbTxZfi00O+EG9xRc0ikvT8LVWgaEAgAI3VL8=
-Date: Mon, 19 Jan 2026 02:39:12 +0000
-Message-ID: <f94ea2f9d0d241509d256d87f02c6de2OSQPR06MB725219B6ED261DBB4E8BC33D8B88A@OSQPR06MB7252.apcprd06.prod.outlook.com>
-References: <20260117-upstream_sgpio-v1-0-850ef3ffb680@aspeedtech.com>
- <20260117-upstream_sgpio-v1-3-850ef3ffb680@aspeedtech.com>
- <55fbb766-12b5-441a-b06c-d807097e5476@lunn.ch>
-In-Reply-To: <55fbb766-12b5-441a-b06c-d807097e5476@lunn.ch>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>, Tony Lindgren
+	<tony@atomide.com>, Haojian Zhuang <haojian.zhuang@linaro.org>, Linus Walleij
+	<linusw@kernel.org>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-omap@vger.kernel.org"
+	<linux-omap@vger.kernel.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, BMC-SW <BMC-SW@aspeedtech.com>
+Subject: Re: [PATCH 0/3] pinctrl: single: bit-per-mux DT flexibility, probe
+ robustness, and consistent pinconf offsets
+Thread-Topic: [PATCH 0/3] pinctrl: single: bit-per-mux DT flexibility, probe
+ robustness, and consistent pinconf offsets
+Thread-Index: AQHcczsi6yiHaQFqaEONeIjO2QzRmLVHeJyAgA0e9uk=
+Date: Mon, 19 Jan 2026 02:39:51 +0000
+Message-ID: <3e88618470fa4f2ca15ba868dcecb1d3OSQPR06MB7252F20C7715CD90F0DE282F8B8DA@OSQPR06MB7252.apcprd06.prod.outlook.com>
+References: <20251222-upstream_pinctrl_single-v1-0-e4aaa4eeb936@aspeedtech.com>
+ <245bb0d1cfc1dee91baaab7c1fd73bc264586a0d.camel@codeconstruct.com.au>
+In-Reply-To: <245bb0d1cfc1dee91baaab7c1fd73bc264586a0d.camel@codeconstruct.com.au>
 Accept-Language: en-US, zh-TW
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
 msip_labels: 
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 0c4a117d-79c7-4b53-4818-08de5703ee73
-x-ms-traffictypediagnostic: OSQPR06MB7252:EE_|TY0PR06MB5495:EE_|OSQPR06MB7252:EE_|TYZPR06MB6894:EE_
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|14060799003|35042699022|38070700021;
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSQPR06MB7252.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(14060799003)(35042699022)(38070700021);DIR:OUT;SFP:1102;
+x-ms-office365-filtering-correlation-id: 06124c6b-1110-4721-f10d-08de57040544
+x-ms-traffictypediagnostic: OSQPR06MB7252:EE_|TY2PPFBE94497F1:EE_|OSQPR06MB7252:EE_|TYZPR06MB6894:EE_
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|14060799003|35042699022|38070700021;
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSQPR06MB7252.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(14060799003)(35042699022)(38070700021);DIR:OUT;SFP:1102;
 x-ms-exchange-crosstenant-authas: Internal
 x-ms-exchange-crosstenant-authsource: OSQPR06MB7252.apcprd06.prod.outlook.com
-x-ms-exchange-crosstenant-network-message-id: 41541a69-2443-4910-7d04-08de56ffc9b5
-x-ms-exchange-crosstenant-originalarrivaltime: 19 Jan 2026 02:09:33.3417 (UTC)
+x-ms-exchange-crosstenant-network-message-id: a8900111-6e32-45e5-24bd-08de54d79097
+x-ms-exchange-crosstenant-originalarrivaltime: 16 Jan 2026 08:16:35.3351 (UTC)
 x-ms-exchange-crosstenant-fromentityheader: Hosted
 x-ms-exchange-crosstenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-x-ms-exchange-transport-crosstenantheadersstamped: TY0PR06MB5495
+x-ms-exchange-transport-crosstenantheadersstamped: TY2PPFBE94497F1
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=aspeedtech.com;
 arc-seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WE561qc5RgpX1WoB63qXz/vqyQts3AmU9uzblLEpfRss2spYJuWT2GpICDBM9ksEuqOYxp0mnFDk8EZEKpITyn0idynhlLur+6GGHYI6KF/OH5WvT7F4Sut1+dzl9+lbYigXQdvp2TZVlwwjhW2Kfuvh3D6aZXndy5fqJfbwXkgBxTeBCdtENNyLzdzS04F4gTX3SZ7jlU5gsUXdX6lX/epSLpR0gXJOKd5C24K4CdjxiZIVlGTy2d/+Xj/+mMW3B9YI2XztgnbhaoVmr6XmD6NSzrztjCnbuFikqrySOxXyI9KBjc7FH7d3ICPVHYGqqJst8QDaBngG/zIwRbdRSw==
+ b=bn+Om3HVOMpDF2Pd+cKq7dTinIEinI7utdRMbs7mW4btomvsO/2S2noIYDk6X273qhDRpX8fPdilLrt0SMGbg9BmoAtDXRrolxhpTUpwEv25h+0vjZDaQRxPXGItCOhgazFArNTttTCnWbcwA3eGDstcqvd/Hcp27nF16XDVfigElEHNpFJXqYd+KXJlkxxx4qVmXi05N4I2232zuh7BoV0JD9DgxwQUYhs0d2jTbpFEb/8JZE0I/1oFcMMlMMp6/ab2BHNyh6l/a/n5rskTA/xDMvQIkRZfM+SEzQuwkkcyMcBSDtX1SEf4cglh/Sf3EvHdS/jwULuHJxb0vh5wcQ==
 arc-message-signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Rx5jmfo2Kbf12nfLFmLe2kMtM06s6zFkPW75bIBG7+I=;
- b=YYCL8nSjpJrJ8bla/w+YQz5scRTxoR9HkZ1aDqpt4nfnvV+cwTnUuMD3Hn3BcTQCkW4P19zd4FUo0PhYOOa2GIfQ9kFSDcH4BevRh+rTOupdBIvVHFNESTsqV3S4ziu2iJSkfJ6DYZq5FtfVDa+FEQNMsWmYQeWaX3JMWEq5Flt/nQ8MUy5yrHYa74Ros/314sXpGimEQNPTckGf8B115+awfBZIaVRPEywz6E79eyYoWob8FV65UXNYB+iQKfRW/QtkStPh1wwZkXlKM69kKsfqpTcPRzVzA3tnh1OEoYQlGCuunMy/m1DdcAzJGrRTelcQS110HtEleHzEJGf40g==
+ bh=8rIs/J2HnIVUjDv1xR/AJYFpwZVPNKndvNB3G8Vey40=;
+ b=MwPxCdHLMlY4IC948FjdAGDgECt4ONK+MDfcV3bcuarCKLjYmXglYv9i1+vsxOIaMKXxo8GOd2m4qw4QkOcYYbUGN3Q/Z3DrYUhc5HT55wrgv/K2J+rVNoAzVV0YlYfmg2J2gBVEQHlB0LmAvmDCgeTRlsxOWk1ZOcCa6ekXYtBN+cNo7folY4G0N3UQE4y51n6EA+09p6kG6WbUNbpO8K/Q/cLSYuYEm5vWtnpUykntf8Eib1+Loo3TUbL4PwhBV/PG46rz2fViQ9DZJUoEHkzRdfNPGmwHt2zqlS2YhjbfC6dZkJTXxO3AD0y8jXRsPj55JbDwCdZsU/vhniKPOQ==
 arc-authentication-results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
  header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
 x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: =?Windows-1252?Q?1f3Fxa9LE9T/6ipiEB9tBlMMtFAEXpioa3nrZWNB6lnJH8mkby/RJXZt?=
- =?Windows-1252?Q?94ODd2wtvNt3s2L2K7LIVJeIwE2iKhp4sDona7GhpF5yUjSH2VoIIHl+?=
- =?Windows-1252?Q?1nBA97EGpaaIG5Kz+Hulgu6XxqzdeoOji1femAs0oVWlwvj29Vpk0bQt?=
- =?Windows-1252?Q?9AOan13HTDGtY7WPGOOHtvJTSzXHGA4wJ+yg6TJcF4PAdXn/Kk59PBfM?=
- =?Windows-1252?Q?chZSrs5UG0ZFWz7ATm4k1+O+0FjYHS7OXHC0wDhDTvjlpNuDsktsUEAr?=
- =?Windows-1252?Q?8TwnZkN+91Ay/n5wxbSPko86XpBEGI7mqA/JGlLiSqHemvt34X0Xulp2?=
- =?Windows-1252?Q?G6z+eqecJ1442CvmX2B8eOJpZ7YFn6q/0VaLBD0yqLl0e6/+f+2eL7zM?=
- =?Windows-1252?Q?85TsJS/jziA+wcMFsVWMihaNRgwAZ5I8KorR2JV58rsLvWZisY6Bc5RW?=
- =?Windows-1252?Q?i4prRv1PO+PB+TG0utA5fSsWaNgZ95mmI/Bkvjv+MdVhUrFCzFOgVE0P?=
- =?Windows-1252?Q?uQxfiMz3IwiP76FSKG0V5LMX5K+dpoE/JP8lNZVUCgIG0Dayq1Rpn+pd?=
- =?Windows-1252?Q?1QiDNW2qE6pZzejwuyj2+dSThQDC+lruD90w1a6Kt1WnMEFRbt3yr3d4?=
- =?Windows-1252?Q?1G3K9v0GhXXCw2omrXdYTYVlnlKQXz/ZJg3yTvbgrQpthXMzYHzVoG7l?=
- =?Windows-1252?Q?8pKSzTLxjykYSaj6Z+dQiBB815zTTAw2pQ3LwGzgGxT0qCN2lYP/yZng?=
- =?Windows-1252?Q?jUmrE+OwdKuR5FUoqi9wVYyeXzIp/Ovnsd4+gghj1cvm22XkVuZpdrQH?=
- =?Windows-1252?Q?lpgJqG2D3qOOnFYtL/p2aLqdOcTIlesDAm/rJrj+up70PWzkzhIybRjF?=
- =?Windows-1252?Q?FFzcJnxxiRmQmzhLirjHAplPmrPwF1FV2ED2qdeGcI0LoR7bFssW1/Mj?=
- =?Windows-1252?Q?3t2vTe9i1haJCO9fMvlR6DUjUa/X4oAE1rZHxG3HdqobIt0z25nW/JQ8?=
- =?Windows-1252?Q?bVHQkR1zB82Nfx+ly0ksWax1Fok1Mekb8jMnRy5ovonBbm2oF+x5J88K?=
- =?Windows-1252?Q?+vo4h3Vmxyi2XgHB/Clq8yzC7TXsldMlMvnyPSi5xHGvEgwqGte5/GZv?=
- =?Windows-1252?Q?1Oz70XNwVxT6jU3Mshuip0hnQVTzfSKuCV47YuE4YLpho5M9vMxAsXrr?=
- =?Windows-1252?Q?kKhTSBUgXO///mVzbQuR7lTlc55XGZMlpOpv4y1I1kunrXY3CVZ8K81o?=
- =?Windows-1252?Q?94r7i8wnBklNYgvvumydMy0lAB7Q76mssZxblK61snyBUA9OwrArjx18?=
- =?Windows-1252?Q?85mMb7vQb/NRP4HTP5sXvtUYc84HHdLaCF9zHrg2txuORKigXKmj8Fbx?=
- =?Windows-1252?Q?gcbAzwsU1vR/ypcKY3iaU4nKWNuTpEQwUn4N7HosjmuExm6FJ/8gEJRE?=
- =?Windows-1252?Q?qWQdY/XF2cUfeiZha+fwrABk9Yj/KoXxBKyDi2cPRIsf265d4DojI7g4?=
- =?Windows-1252?Q?ORPuG7JSWakV7mHN25evZwnCHMIUPjakuDlQpbm2+baKZubnGdeXOp5P?=
- =?Windows-1252?Q?T1DtQOy+iE3XK77UZOBmQWJZnjfQ+REyL7SCbq3L6V0nMNDQGc3aM9hZ?=
- =?Windows-1252?Q?txoHe8n76C/Gi8DSgATPYCLLHOo1uq03PUWfAfv5uEfaONszLBljQvP+?=
- =?Windows-1252?Q?gj7Z6I1YdvHMq+h78c9LaR/PaU1oBozwq1WoGQjq3O5FDkY4aUVFoZg6?=
- =?Windows-1252?Q?oKAXHH/xUomPcp/Q8IQ=3D?=
+x-microsoft-antispam-message-info: =?Windows-1252?Q?6NrQlktZBBWK7u9j89sOjqlMiqTaWvb60aBjvAT5L7mpmPPCdFIoD1Dz?=
+ =?Windows-1252?Q?7lLZpFbN8Wd3qZuZi6waCocxprJ4PGkmwj9qdPRLUBBmsu0QusvZIsRi?=
+ =?Windows-1252?Q?jC0P71EFum4dC1PcSIlDZ33GWiwU1T69AJVq9ss3hJgX771bPWNdCZNS?=
+ =?Windows-1252?Q?Uvu3ZPvwETh6iXr8iBpNZd/XiRy6dKVYz22ldRQZYp3il5j6X0tAaNen?=
+ =?Windows-1252?Q?2YMf8L4qcL8VSPuumK5EmrQQp5wpMZR6SXtfp+9VnUyVBX39Rtdopl/F?=
+ =?Windows-1252?Q?29ciNT96muYuIhQlQ+O3qTvXurWE3hcz1iuMyKEChUeMq2BjoaI10JdZ?=
+ =?Windows-1252?Q?QdvYDfTuB+5tmKbEPcIT/dF78TJHZl4v1liQ2AtaMQ8QqrX5NHlH/lo2?=
+ =?Windows-1252?Q?+TBl1gTXqbStTVk+688a49tWBr2Lj0LZ08pLTP/+jpqhb3+BZmyh2qRX?=
+ =?Windows-1252?Q?2Op6L1kfRtxUJewUmh/Lidz3zp7LXrzi8slQEqmaOa+eYYTQXgyUjICd?=
+ =?Windows-1252?Q?tdwFBoJP4FrvxmVlZQgO/nsuUZyiUOLM6puMc3VrCNLDwwGgCtIoeFB0?=
+ =?Windows-1252?Q?yAZsL95Y5+Dls/n6Mj4JGwtrWL4iMVY49xg14Jhae7We2qjOB3oEdads?=
+ =?Windows-1252?Q?0wsWvwo3Sqj1cagrvz/DqSfAdH5qLfLJ3qVkEleToGl47TdJCx7K2X3M?=
+ =?Windows-1252?Q?KjepvWiJuz9o1DdnwwtD8BSW+ToSkaV//WxB0tZ4Fs/c9CLXE568lLbC?=
+ =?Windows-1252?Q?1yC4BWTNqM9BUC1Ic9G6ivBo3wDcM/nZoTpa6lENxvp/pwcjBhQOHLgL?=
+ =?Windows-1252?Q?JzwVAWGAabDARWhOn/m8nCxV3LJoriUC6CP5K7QJiWTOoHNE/V+ZQXg/?=
+ =?Windows-1252?Q?BEFw/2r9TzgZE9Q8XYZlczygZFCv/b/VNwH5FIJilV91KCQAX3qm3xTE?=
+ =?Windows-1252?Q?XrHpI+pa4WofL/k9HwS/UoyUTzNnaVWx3YT73kEmU9TWIKIZuQpLkAIq?=
+ =?Windows-1252?Q?ZQ95YtrVqARqZsNkl+KiFyRtM9saeuCsXhNRbqqU8qvgZRriYH0aEqve?=
+ =?Windows-1252?Q?Oq19gNZVjkbBVgX5l6cba8qyVecjMLrJPA7TtL4/EpWX9xXrlMeZyMKN?=
+ =?Windows-1252?Q?S7UiXuNQHQJhkh1RXHOs25WJJ+qyHADqtL+dtGrj7y6yMcYTD32L24pD?=
+ =?Windows-1252?Q?jyFD9YQSaT+oq72OllyRoVMMi4e8gVZpS/C9zCSruci2R0fMgsvi85fl?=
+ =?Windows-1252?Q?PqoC2//nxKxwxeUb6gLcOBEzGv1rHUk48S82zJ5DuIdM1/Ml9Zs/1/p1?=
+ =?Windows-1252?Q?mCuurUJgo73ZlchnXrj6eVas5ZCmUT85VDBu2OnqWYW6JCXgtS/oSacS?=
+ =?Windows-1252?Q?O4F7p4gcExohu2JU0c5fUUjeXHmJ3c1q/DhsXkTcjmnKj1oUUE0FTCTf?=
+ =?Windows-1252?Q?xUFg+1xJbd7R46yJZ3EvORgpvmy/Buqh970UOEtxg00LEnAfSr7UWonk?=
+ =?Windows-1252?Q?GXPuo6pmt4aI9nrJovdfli0ipPojfxLnT/8BQQiUU9f05hfHyTpo9nRB?=
+ =?Windows-1252?Q?rEA2AApO+mQQulCjCQtsWHJEkGFpbQ2sYzMMgSk7vrJQ0oPt8Tz0enSs?=
+ =?Windows-1252?Q?kfdHHkM8UjiQtuDlGFcNV/xMV7g52hcwABkTcxDGy5R89uMIOtEF6cKC?=
+ =?Windows-1252?Q?CsV0gAC8fBYnXHb4FcrOBqq46BQ2luLXkUTqTjH1q8N1gdYMpIrUqqq3?=
+ =?Windows-1252?Q?2dqjjDY2cB/Pu8Q/5gg=3D?=
 x-ms-exchange-crosstenant-mailboxtype: HOSTED
-x-ms-exchange-crosstenant-userprincipalname: NN5JmIit2OGS4HolIvIXeralEd8ZfoyuQ5V+Ic1ExP2xo0lzP0Ne1JVGgTA4FRtx+29BdpAOLV/QNlcQb1QGPGzJzWwbMA+SM5GqvyJ4cJY=
+x-ms-exchange-crosstenant-userprincipalname: vrH8PwVgN/0c4OQS6uPbiShTw/nZEJX7KHh1edhF4FM2Dt9+bvIHOk69yz7QT5FzSAYgHoV5TJ47gl8FLj91fyCbhAnm2Gpjj6Qsps0kCS4=
 dkim-signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Rx5jmfo2Kbf12nfLFmLe2kMtM06s6zFkPW75bIBG7+I=;
- b=kZod77qXv48jZebobzaaYRIvZyg1aEMOffwiaKKWHaTeDPfvrSE5fZ72Oavcq8XnDOPWolisoAzERft/WR0pqHOjkzW3mLKLRUocI+wJJuA/xSyxfsBGW/GZ5di+QFLPd+hCfHzN/8sh9fIXatfqLxPHKIzTUuMuY/nDYqqgPJDGOvvjlkJ+nfEo99c58hAElT55q4J7fJYPGfp9wIASqGe0symoXU6Gdo+e/q9U1URG+tUWH7mv+h9utpG/v7sKbDdUK/Qor0uuKyt/qqs8+hdjPlihpMcAOOmlFFAQwwAlnwxpq+eqFDf/SdyEjJkMCvt5A499S7MEEDRAQnA4tg==
+ bh=8rIs/J2HnIVUjDv1xR/AJYFpwZVPNKndvNB3G8Vey40=;
+ b=cmxotcqXfQ4AMKQHFqs+j7ZpNDMsq7LgWKlPaBmSf6IwI12/WnBBdle24rvaGU/t8ph75Ap5ls1JofaVIqhh+tEf725/o2n0269y0ehXjQTd/LPAFM4zoMU5pgk3E8G3qZvHD5UwXx7O6uuBYNUMmOtLvgdHQXhgTPKvScbYLTulZtjxHB/vv3Efmdh0l+1JwlCK9+SfOyvMpuYOI1OEpe+h5IGhlayKhcIh6IyIr9WwCNs6DjT2n+ji8ySQKl9hnosi6llF7aiaBq8gxz1JhIIi8fmztp8xdUhKoxdv5hxTOBUMnIWnVAvvOFdL3wa+WoSvIEiuwWqyKiG4sz08Ow==
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?Windows-1252?Q?GXcFt8S91EJ7ujlTxgb0nhzSV2W0uJsP+FLUqiVMFYYrwW+/UjMtKf2T?=
- =?Windows-1252?Q?uX/dq1hlJiX6iJ5InxQ059jnHGiQUrMkQzavDuvUWeRS64VSBavV86Fw?=
- =?Windows-1252?Q?MyUnvXHlx3Prx2/yvIp10eQgyW011CQuvOQPjcaBD//L4V0PrfAgzJBX?=
- =?Windows-1252?Q?lqsicCFg+9Y88emeYOy6IJFJ9rSfCYC8Ic2tXT2bKaqK1a3s2PAWmM48?=
- =?Windows-1252?Q?jNeSvZyaIL/fiVIj4eJiwi1MFz1XQ3wm76sHYiTarecVhJ0weqBnl+q3?=
- =?Windows-1252?Q?OKemlJcVCcPUW7np0i9xdLYAtcLoyVxgerF8es93LlbSg/Z53UXzFErv?=
- =?Windows-1252?Q?5FUg3Ch/4N499JBoAQnQ+N+rVNfWZoPVmLq1chEp5Ci8E4hUWIHNGVex?=
- =?Windows-1252?Q?p/vhgxp9BP36UP44gZYgHmR0HJ+qpZJRC/PE2YGOeXIOZIb3d+pHf7TJ?=
- =?Windows-1252?Q?0eL89DMCjdodsxe3WY+SmU6FoSbZ/1i3Tez+gE7p3Ldypua36Ps2pOuP?=
- =?Windows-1252?Q?et2IjFv5ppwZNnXX1Bho9auY82yAUYb+CDNmP0Fw/z59E628MhXQbkLR?=
- =?Windows-1252?Q?KVKxMG0oaOOQxAL3TcXvyoa/qTonxjffSgw/ZP+BJ/ST8TLITuU6Vw+P?=
- =?Windows-1252?Q?dccM/KGjYXrvoD7Edq6bibhGS1X0HrLoubI+yVykvw+O0N/d87XaX5iV?=
- =?Windows-1252?Q?7VFCsRFYexvybijNDRQ5AbwNDfSDHDiGb4jbUNpoUOQodxKT71wVYrxV?=
- =?Windows-1252?Q?5F9IQlJosTOFtPa/1HZ7AIbD+Viy5hKxUONqsrDBw0TDN6GNRUPhhqLF?=
- =?Windows-1252?Q?i8e4d70QHpGZKXNyJOcc+rsl4+ymZAHO73lQiK6hHdwCc4N2uh7OFV94?=
- =?Windows-1252?Q?QNOl7bikK3Bd2bbhURiuX/nmEI5eom1lL3reAo8ZiGKcahWOIjOqFmKI?=
- =?Windows-1252?Q?B3+IdT3jCgmxVJI5hpjq0EXieICcq+j3QyUoGzZCb/3qB12AjP4QZlkv?=
- =?Windows-1252?Q?nA9xzYO6APFGT1wRgWjUa16FxENl+2iQLKb3KYJDhLuEgHSf5ejjYAz9?=
- =?Windows-1252?Q?GWta0XOyOERCsSqNJiDZLH0fa6+fQ1I+N6s/+vb3KUCvUT/FnGz/k8gb?=
- =?Windows-1252?Q?9C6Enaq6Bz0+fmMS0+FVNEmG+e8SD5eJVrR3Cie7Yl+kqz1KJiqvmGfn?=
- =?Windows-1252?Q?AgxImn0NSLaGt/HwkJwQlqK3EWDQpQM/Iq6FxWqZm8tc/lv7EG3+TqTG?=
- =?Windows-1252?Q?Lo/3cWMdQ5QWabid/ISl8B944jkcUKO2ShUkbCG/mY0lnY7QwHtCU4Qs?=
- =?Windows-1252?Q?w37G6lk5UK1oLTjpa82kDNfBG2D+CHJWGb9nMk8iMKXx8aY+lVgRYqGC?=
- =?Windows-1252?Q?j56TZOk6GKWi+TNPQ0L15NOo0L6EwrPZhV6PAeosGto5uii5rD9Yiq/M?=
- =?Windows-1252?Q?mccF/szTFuHjA0JAIyEhZxxNW15g1I9a55iKA5GmYYQezH0xuDQxZxpV?=
- =?Windows-1252?Q?/eK1oPxjyxcfF/s9q3GTGSiMgh9iIy+y98xEwCqjoyfFXnY7G4WYnLHY?=
- =?Windows-1252?Q?8lGjzdtSFa1LDYwgF0B66j8slJVIk3VN6bsXCY8K3XRtPEUQdn+Nh7/X?=
- =?Windows-1252?Q?242G3GdLbClcntb7ypWwr7nJFAaffVs92R502CGiPJhQ1JlL+mLDx6cV?=
- =?Windows-1252?Q?7WmjxCXk/QhaI4M7QUWzWg+p1R+hP/+ylUvk3c08IzMdfq/eFDytoWvZ?=
- =?Windows-1252?Q?Lkk5kPJQD/w+08giA1aJMM53e0ejvIEF/SVoBMBUWe0BFw4SCcRGMilR?=
- =?Windows-1252?Q?AfdYzXYeqCKvCzGoPs2U+Zuc8tuOgN8UeTjPfFmyebozGZTLOmUftmP3?=
- =?Windows-1252?Q?MQkL9B/bgFDqVA=3D=3D?=
+x-ms-exchange-antispam-messagedata-0: =?Windows-1252?Q?xnbe7mrXhtAadpRulkIkinwPL8r7mZvMS9J0kJTCejDKeJcICxFflwNv?=
+ =?Windows-1252?Q?Mm0VTp09hNmFn73MS52ODFDgeAtHmvnrIMOVte9t/adJYPcuS01TDYtY?=
+ =?Windows-1252?Q?iRDjbQcA9Z1g2oicJOxXGBP10SgA07gIbm8uIT8JmLl5Qq4oahkh7CSo?=
+ =?Windows-1252?Q?9x2GmkNz6k5/jK3cdARKPZtXVSN5d7K/MOoVgITxnfcLgt9n5WelFoAr?=
+ =?Windows-1252?Q?PUdqlex/bFcJxxXIeHGoqIUsqph/Opa3mKQu1sVfBOA3yt2RJlKR0RSA?=
+ =?Windows-1252?Q?EzXZ7nW+JiM8OK1++FACvw8/pcLdloM2JNYvKl+LVRWcbE5lWGbIIN7x?=
+ =?Windows-1252?Q?uDtWiKo5PNoojkabNEbUygJGxhEUEglu2BMtdB9SVDjyfct8h2KudOFJ?=
+ =?Windows-1252?Q?WNzaRplvOcDdW5NubL7CgNoDqaMHSIbVauYbj+rNrKIWJ8az6BNklbMk?=
+ =?Windows-1252?Q?K1GVGXM1c02rD4/De1P01Ds0la2GMlvK1nOTGxj5Fhh8VPI89s1Gh4wT?=
+ =?Windows-1252?Q?sybsY6NZgk8D6Jq3kibzC7XPSrNKf8Rp3qY6R5hJsIYh4H+/j2mSW0uN?=
+ =?Windows-1252?Q?nz/mUf4KLaQpeJtG+8HVrWkypu7InbBjMdIypt4OofMmGZFh6Hc4f0jU?=
+ =?Windows-1252?Q?PZ+68BgHGuL4VmUvcDyOIzQZr2m8+nvjy3pu2YmyDn/X2Xr+TDktMLRL?=
+ =?Windows-1252?Q?yGlGcjUzuRDpb2xdCmDJY1lxCfVx+tO1JCEu5xZuULE0ctdgGLouDD/e?=
+ =?Windows-1252?Q?zR5wnFUvvenCFJewiqyA7aTUkVLVWd3/QGusVBDBb4UVhqECMMDoSaAN?=
+ =?Windows-1252?Q?7/nh8lWI9uM4I26mXdnCy8D5L4Dqejfq4aHyIqE0/whoOT85vjKqALPv?=
+ =?Windows-1252?Q?2dLGsRaIkncq0EEdky6N/SQ2AO5Vp/vekRN5bM8IACyHyQd0b5KOrui/?=
+ =?Windows-1252?Q?3VEV3pTc1t5I7W0Dwrf6m8gBhshg2RZwqAM9jdOCcX0pRu8icNoyzYU4?=
+ =?Windows-1252?Q?EQGzZJ/OUqTR8uMxwjNzDhfCHTdSeP5d1NUgWE0TBLIUgJihhpT+TFtY?=
+ =?Windows-1252?Q?kokl1ba/NhluWv5aVJvPUOdG1oRjVpRZKAAEfx0gx4agBx6mp/LFGZQq?=
+ =?Windows-1252?Q?1fJPPNmTzc+BEZbOSn9OWkHwJbl52ILAH7zoIUV/wofyLlnWqOvbImPJ?=
+ =?Windows-1252?Q?ZQLKWKCvOt/dN2bSQZIpiHSr2ejx8eXLSEQdPkUxF4jPcgpmgeJ7ygBN?=
+ =?Windows-1252?Q?b2R/wpbDGTcs+Pk5pY7kRic0bhSEi7gYwzOshYGfh3Fo/wK6Pbnr7l5x?=
+ =?Windows-1252?Q?Klw2jGNgs/FFzJJksGWtcO2FvnqsjHxlMRdoZDroIs8nr22hngIrc888?=
+ =?Windows-1252?Q?/ixLBfc9jNlwkwjmevoYv+l+4dgItzc3qFDJoTwU5Knf5o34u9MXJqir?=
+ =?Windows-1252?Q?0Tu/P3BpOzWBPyTKgkQ457iCVPbAptBcybmIi9Q6p+zTwkHC2Ogi+lih?=
+ =?Windows-1252?Q?AktDKzX7DnO0RnZHHXWmTs5Yg6Wt13vhHRdZkZAPUyPc2eFsm1sCWdf/?=
+ =?Windows-1252?Q?fMrhj/agy4wn2SXZsa51r+QRj1s7W2FA6/Zt4s3G/8UUaO0nDiRxUc14?=
+ =?Windows-1252?Q?nhEEir5UFs/fs+zwiz+p9mBK640Ek3525EKj38TvgmOsc30Z3obly4Dp?=
+ =?Windows-1252?Q?ZQ3DkfGl8HK+IG35NngCUNfxt1VxCt1EI6vAi47ziYHWqH67drc2bz7g?=
+ =?Windows-1252?Q?mhnkL1NdSyijK+xy4mzhvqFRAbmwzpfTh45E4HFI3kAoMsvSO5vJuJyG?=
+ =?Windows-1252?Q?2+brM/Av/mI5kbfdpxiwKXjJfiQvwf2R5pVP6LaaTvVXPa+D3Y3+aMc3?=
+ =?Windows-1252?Q?q+nInc8miFN26w=3D=3D?=
 x-ms-exchange-antispam-relay: 0
-x-ms-office365-filtering-correlation-id-prvs: 41541a69-2443-4910-7d04-08de56ffc9b5
+x-ms-office365-filtering-correlation-id-prvs: a8900111-6e32-45e5-24bd-08de54d79097
 Content-Type: text/plain; charset="Windows-1252"
-Content-ID: <BF515AE31A98C542AA9145F25925EFE5@apcprd06.prod.outlook.com>
+Content-ID: <DF06DF1D2E71A942A182532DA7B05080@apcprd06.prod.outlook.com>
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
 X-OriginatorOrg: aspeedtech.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: OSQPR06MB7252.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c4a117d-79c7-4b53-4818-08de5703ee73
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jan 2026 02:39:13.0010
+X-MS-Exchange-CrossTenant-Network-Message-Id: 06124c6b-1110-4721-f10d-08de57040544
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jan 2026 02:39:51.2654
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: +48wFlY07IAqc9uzI7v1pVcBVgTg836AmJDDq/vZJmVM4V0kzSG9lYPiYMH21YgAysEI5g6pwXiwQMwx8x35OmreWdxT73p5Yhh0YSEsgpk=
+X-MS-Exchange-CrossTenant-userprincipalname: 6iFyTq1sjgZdE1Pg4ZczbCE1zc2sFzqpRQl4CsbHTeD27b/O3Obj1C4OfS1Yj15o6C5gIch6mFU2KV6gGmB3Ys7MBTS3ufteSEUD66t54wI=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6894
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_183922_866246_29FF7536 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20260118_183957_212991_1B7B1D9B 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,147 +194,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=A0=0A=
-Thanks for the detailed review =97 your comments are very helpful.=0A=
-=A0=0A=
-> > Add low-level operations (llops) to abstract the register access for SG=
-PIO=0A=
-> > registers. With this abstraction layer, the driver can separate the=0A=
-> > hardware and software logic, making it easier to extend the driver to=
+> > This series updates pinctrl-single to behave more predictably on=0A=
+> > bit-per-mux platforms by making its DT interface more flexible, its pro=
+be=0A=
+> > path more tolerant of pre-reserved resources, and its pin configuration=
 =0A=
-> > support different hardware register layouts.=0A=
+> > register addressing consistent with pinmux.=0A=
 =A0=0A=
-> With a quick look at the code, it appears the register numbers stay=0A=
-> the same? Is that true?=0A=
-> I think you have reinvented regmap.=0A=
-=A0=0A=
-Yes, the register numbers remain unchanged for ASPEED G4 in this patch.=0A=
-The intent of introducing the llops abstraction is to decouple the driver l=
-ogic=0A=
-from the underlying register layout so that we can support SoCs with differ=
-ent=0A=
-SGPIO register organizations in the future. The actual AST2700-specific sup=
-port=0A=
-will be added in a subsequent patch.=0A=
-=A0=0A=
-We did consider regmap. However, llops is intended to abstract not only reg=
-ister=0A=
-access but also layout-specific bit mapping, which is difficult to express=
+> Can you provide some more context here? For instance, this is motivated=
 =0A=
-cleanly with a flat regmap interface.=0A=
+> by the AST2700 - can you talk a bit more about why its design needs=0A=
+> these changes?=0A=
 =A0=0A=
-> > @@ -318,30 +278,25 @@ static int aspeed_sgpio_set_type(struct irq_data =
-*d, unsigned int type)=0A=
-> >=A0=A0=A0=A0=A0=A0 u32 type0 =3D 0;=0A=
-> >=A0=A0=A0=A0=A0=A0 u32 type1 =3D 0;=0A=
-> >=A0=A0=A0=A0=A0=A0 u32 type2 =3D 0;=0A=
-> > -=A0=A0=A0=A0 u32 bit, reg;=0A=
-> > -=A0=A0=A0=A0 const struct aspeed_sgpio_bank *bank;=0A=
-> >=A0=A0=A0=A0=A0=A0 irq_flow_handler_t handler;=0A=
-> > -=A0=A0=A0=A0 struct aspeed_sgpio *gpio;=0A=
-> > -=A0=A0=A0=A0 void __iomem *addr;=0A=
-> > -=A0=A0=A0=A0 int offset;=0A=
-> > -=0A=
-> > -=A0=A0=A0=A0 irqd_to_aspeed_sgpio_data(d, &gpio, &bank, &bit, &offset)=
-;=0A=
-> > +=A0=A0=A0=A0 struct aspeed_sgpio *gpio =3D irq_data_get_irq_chip_data(=
-d);=0A=
-> > +=A0=A0=A0=A0 int offset =3D irqd_to_hwirq(d);=0A=
+> > It extends the driver to accept a per-pin <pin_index func_sel> style=0A=
+> > description for bit-per-mux users while keeping the existing=0A=
+> > pinctrl-single,bits binding as the preferred input when available. It a=
+lso=0A=
+> > relaxes probe failure when the I/O memory region cannot be reserved=0A=
+> > exclusively, allowing initialization to proceed with a warning on syste=
+ms=0A=
+> > where that region is already reserved.=0A=
 > >=0A=
-> >=A0=A0=A0=A0=A0=A0 switch (type & IRQ_TYPE_SENSE_MASK) {=0A=
-> >=A0=A0=A0=A0=A0=A0 case IRQ_TYPE_EDGE_BOTH:=0A=
-> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 type2 |=3D bit;=0A=
-> > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 type2 =3D 1;=0A=
-> >=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 fallthrough;=0A=
-> >=A0=A0=A0=A0=A0=A0 case IRQ_TYPE_EDGE_RISING:=0A=
-> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 type0 |=3D bit;=0A=
-> > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 type0 =3D 1;=0A=
-> >=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 fallthrough;=0A=
-> >=A0=A0=A0=A0=A0=A0 case IRQ_TYPE_EDGE_FALLING:=0A=
-> >=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 handler =3D handle_edge_irq;=
+=A0=0A=
+> Can you unpack what's going on here in the context of the target soc?=0A=
+=A0=0A=
+Hi Andrew,=0A=
+=A0=0A=
+This series is mainly extending pinctrl-single to match how AST2700 uses th=
+e=0A=
+pinmux and pinconf registers. There are three parts:=0A=
+=A0=0A=
+1. Per-pin DT binding for bit-per-mux=0A=
+In the current driver, bit-per-mux users can only describe pinmux via=0A=
+pinctrl-single,bits (<offset, value, mask>). On AST2700 the pinmux register=
 =0A=
-> >=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 break;=0A=
-> >=A0=A0=A0=A0=A0=A0 case IRQ_TYPE_LEVEL_HIGH:=0A=
-> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 type0 |=3D bit;=0A=
-> > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 type0 =3D 1;=0A=
-> >=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 fallthrough;=0A=
-> >=A0=A0=A0=A0=A0=A0 case IRQ_TYPE_LEVEL_LOW:=0A=
-> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 type1 |=3D bit;=0A=
-> > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 type1 =3D 1;=0A=
-> >=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 handler =3D handle_level_irq;=
-=0A=
-> >=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 break;=0A=
+layout is contiguous per pin:=0A=
+pin 0 maps to 0x400[3:0], pin 1 maps to 0x400[7:4], pin 2 maps to 0x400[11:=
+8], and so on.=0A=
+For that layout, describing each pin by <pin_index func_sel> is more direct=
+ and readable=0A=
+than crafting offset/mask/value tuples.=0A=
+Example:=0A=
 =A0=0A=
-> This change is not obviously correct to me. It is not about=0A=
-> abstracting register accesses, what you actually write to the=0A=
-> registers appears to of changed. Maybe you could add a refactoring=0A=
-> patch first which does this change, with a commit message explaining=0A=
-> it, and then insert the register abstraction?=0A=
+pinctrl-single,pins =3D <=0A=
+=A0=A0=A0 0 2=A0=A0 // pin 0 to function 2=0A=
+=A0=A0=A0 1 3=A0=A0 // pin 1 to function 3=0A=
+=A0=A0=A0 2 0=A0=A0 // pin 2 to function 0=0A=
+>;=0A=
+This change lets the driver accept that per-pin encoding while still=0A=
+preferring the existing pinctrl-single,bits binding for compatibility.=0A=
 =A0=0A=
-You=92re right =97 viewed together, this change is not obviously correct an=
-d makes=0A=
-the refactoring harder to review.=0A=
-=A0=0A=
-While the llops interface is designed to handle bit positioning internally=
-=0A=
-(changing the semantics from passing a bitmask to passing a value), combini=
-ng=0A=
-this semantic change with the abstraction refactoring increases review=0A=
-complexity.=0A=
-=A0=0A=
-To address this, I will respin the series and split it into:=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 1.=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0 a preparatory refactoring patch that introduces the llops helpers wi=
-thout=0A=
-changing behavior, and=0A=
-=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 2.=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0 a follow-up patch that switches callers to the new value-based inter=
-face,=0A=
-with a commit message explicitly explaining the semantic change.=0A=
-=A0=0A=
-> > @@ -374,16 +318,14 @@ static void aspeed_sgpio_irq_handler(struct irq_d=
-esc *desc)=0A=
-> >=A0 {=0A=
-> >=A0=A0=A0=A0=A0=A0 struct gpio_chip *gc =3D irq_desc_get_handler_data(de=
-sc);=0A=
-> >=A0=A0=A0=A0=A0=A0 struct irq_chip *ic =3D irq_desc_get_chip(desc);=0A=
-> > -=A0=A0=A0=A0 struct aspeed_sgpio *data =3D gpiochip_get_data(gc);=0A=
-> > +=A0=A0=A0=A0 struct aspeed_sgpio *gpio =3D gpiochip_get_data(gc);=0A=
-=A0=0A=
-> This rename does not belong in this patch. You want lots of small=0A=
-> patches, each doing one logical thing, with a good commit message, and=0A=
-> obviously correct. Changes like this make it a lot less obviously=0A=
-> correct.=0A=
-=A0=0A=
-Agreed. I will revert the rename from this patch and handle it separately i=
+2. Unify pinconf offset mapping with pinmux=0A=
+Today pinconf offset calculation assumes a linear per-register width even i=
 f=0A=
-needed.=0A=
-=A0=0A=
-> >=A0=A0=A0=A0=A0=A0 /* Disable IRQ and clear Interrupt status registers f=
-or all SGPIO Pins. */=0A=
-> > -=A0=A0=A0=A0 for (i =3D 0; i < ARRAY_SIZE(aspeed_sgpio_banks); i++) {=
+bit-per-mux/function-mask is in use. On AST2700, pinconf follows the same=
 =0A=
-> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 bank =3D=A0 &aspeed_sgpio_banks[i=
-];=0A=
-> > +=A0=A0=A0=A0 for (i =3D 0; i < gpio->chip.ngpio; i +=3D 2) {=0A=
+bit-per-pin layout as pinmux. For example,=0A=
+drive strength: pin 0 at 0x4c0[1:0], pin 1 at 0x4c0[3:2], etc.=0A=
+Pulldown: pin 0 at 0x480[0], pin 1 at 0x480[1], etc.=0A=
+Unifying pinconf offset mapping with the pinmux logic makes the behavior co=
+rrect=0A=
+and easier to understand.=0A=
 =A0=0A=
-> Why are ARRAY_SIZE() gone? There probably is a good reason, so doing=0A=
-> this in a patch of its own, with a commit message explaining "Why?"=0A=
-> would make this easier to review.=0A=
-=A0=0A=
-The change from ARRAY_SIZE(aspeed_sgpio_banks) to gpio->chip.ngpio is requi=
-red=0A=
-because AST2700 does not use a fixed bank-based register layout.=0A=
-=A0=0A=
-Using ngpio removes the dependency on a static bank array and allows the IR=
-Q=0A=
-handling code to work with SoCs that have different SGPIO organizations.=0A=
-I agree this change deserves a dedicated patch with a commit message explai=
-ning=0A=
-the rationale, and I will split it out accordingly.=0A=
-=A0=0A=
-Thanks again for the review. I=92ll send a revised version with the changes=
- above.=0A=
+3. Probe with busy memory region=0A=
+On AST2700 boards the SCU/pinctrl registers are often reserved in the DT by=
 =0A=
+a top-level =93syscon=94 node or by firmware. devm_request_mem_region() ret=
+urns=0A=
+-EBUSY even though the region is valid and should be shared. Without this=
+=0A=
+change, pinctrl-single fails to probe and all pinmux setup is lost. The pat=
+ch=0A=
+just downgrades that case to a warning and continues.=0A=
+=A0=0A=
+Thanks=0A=
+Best regards,=0A=
 Billy Tsai=
 
