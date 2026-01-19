@@ -4,102 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B7D1CCF2F4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:23:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74AD3CCF2F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hizH6Y0dclm/GlFu897aCLzhsPW9G/RqQepyEMFpeE8=; b=hA5XPxXgIlNcR4dCTmCf2hFxg7
-	ji6YCDNaCXOt539fFRAV/XUnL896b2Z0LWDTOeosZWnayoLumuCED/JlGQHVKLeBJAn87fhpFGs4G
-	lBcdmfjfLRLrmEPZb64vMdKSLBRQGeLWeHBrJsYUFjLezFKb6OMXdTTqXxUIkczfQHWzdRS6AwEdo
-	olE4K8fGtT81N1synkSW0lvcChyOp96YxslEDO4BYNq/tNMf0dmeO6J4YzzlguxI3x6fO7qLXQ+5X
-	SJUXgLbwmvTOpznqU3S6dgnHoq98smGxUVjRJvOqnFVwBtATg6B/2U0YL+sn7DYY8O/y+6hcAyO7Y
-	ElouxKBQ==;
+	bh=sBnhIbHjdOOsrxpXTYLWxY/uaYjyEsXHWiNAp9HHrec=; b=ecmyYXKciLu04LV+o/P7UqPm5O
+	sgH6Ru67pqa7D5cEGnb7YcdCBuaHCTeUnbF/cC+F//M19SzKUvbajvJC/8jJdv3InVbK5VWTGdN8i
+	uIL1mg3fr0pp2aPiMWnnwxIJcEu4+cMTwM2YfeQdRp1A3vdq1/TWesGjUKSjCmjOseCcMbxIW+8S5
+	INDfCcM+SQNaAr7sRpuoCANu9P+22qrosAHE7Q4hKODOvkS0z/hWAX3xOSYAVZJlpWoCL8D3OgNIg
+	SfH60Vbm4MVZS7AJpQFfg7ho/ClasyZtY473T48MYM31zjgh7xaIkrU9wp/dqzjsPP1O3EvqWAL8S
+	u0bBQYWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhoHa-00000001zmJ-2BXm;
-	Mon, 19 Jan 2026 12:22:58 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhoHX-00000001zkk-3sk5
+	id 1vhoI3-00000001ztp-2ZRE;
+	Mon, 19 Jan 2026 12:23:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhoHz-00000001zs1-0Tfn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 12:22:57 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4801d98cf39so17390225e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 04:22:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768825373; x=1769430173; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hizH6Y0dclm/GlFu897aCLzhsPW9G/RqQepyEMFpeE8=;
-        b=UUjXpFnMK0ceni7hUHUzIFHNhHYJ+1ok1H3xgfVLsMiO83hy//42ncN8CQ1OD/Ey4/
-         E43AtZvnbmAZd9rN9EfuUCnWGKrKqiG+Cs9MFuqmsGaNXWNadklExj/HnpxKxKZPA7Ww
-         7tjOdej/a/1Bp1cqxIaVv+Ccswb5+A6/z2uScC4mn33NIBtSR6Zmi6VIyo2wOoGutF+K
-         8/dx7Ec2MyJT0aUIGplz19AJ4cMzv8ouCdH/DDQy0TjZgjdqUsLOmpzf1pVKeAnDaxhM
-         9zISSgQUo4QFRdzqRxdq4N6dOjEhrhM/zan0LDQ1+tLdUC/uOEbM9y/sCVOFDJbp4mmH
-         3STA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768825373; x=1769430173;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hizH6Y0dclm/GlFu897aCLzhsPW9G/RqQepyEMFpeE8=;
-        b=tdfMUCBEw6YP7KKLtPR55IcHSHTw+zYVeFk+Rn7HDZQ1y5LtpQDog4QFA5DealS11O
-         j9S4WEg2Q7RREiWiTq7nJ80WXDqj+zuJICunbFW2C0n5QoOFl7rPrIpNo7rNR2y4uwsl
-         lJr31RsxwZMwJt4Vr+evK/hUb4Y4CSiL43CAQ6sANkMt3pz58qYpOmmqkfodsJqhshcB
-         TCQ1vpHVodE/OudWamWMtuZJIRXBXuI/P9FBJMliqpF+W4K2n2ckvpkNACKBJHO4dkI3
-         ukZE6u5sZHlCnZv06Fvgjsi95YchaaPi39YLU3Ma63b5qf0hyqtZFg2H8z7y5uNveLT8
-         0F/w==
-X-Forwarded-Encrypted: i=1; AJvYcCXfEysQ3g9hkaH1hOQz328WdUt20181A2B9IlVufgXQja1OpUQbokvIL9p5I9qKBeve1a4Db7Xig5zHtvmvAtlL@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIxFh2Q+huRCxGyOspKW9mFrUaO+FjeBC0zu7ffzL/YgzCt90t
-	j+HWAQizQbACgR+TbRKtbQzFzC28rvatdB6cHdhLv21zsPVMHMrhBJ7U
-X-Gm-Gg: AY/fxX4w8uGf6dkLLlB/UT4uuveXMNAFqrVsepNwDZh0t5CjD6gLlgnRiIsfB9YSRRQ
-	9RCJ33ep/S/DQ966Ow3TE/vsVfPIzjVM+xw26jZitI9niGzU3ALoz7b2XBws3jPRB2IwN/VIbsM
-	RvAUYVKgP22hEIZ63xfNraGsug1AcbqVjRtTayHLzWG/g9baDb3sEZDX5iiJEshsT+aVNjml1QT
-	OxGGtQ9NFMfbeP7rNGJDt3shJHJBSlPS6JMiRk3njCy/NL1FJW4+5IQVfmPb8SRgqBokZ66csBg
-	XoUlNX2mLC37jdeAq7UfDB4AL1yqxvlGTofI9knX4aCbLEITfm6rrh5WCfl0LwIuDSBux09hbmn
-	1zlavP2rHsanZlbxXUsPRGDsv/b4OgvynrIqGeDXiShWEVqL9J28iT26UeJmRKkfLp93vuxV3zg
-	QhU1OQVmKb7sepgQKQVIIW/63WCFotRh6mIpxOu5hKxKM5P/nOvCLh
-X-Received: by 2002:a05:600c:3509:b0:47a:94fc:d057 with SMTP id 5b1f17b1804b1-4801eab54e2mr107589925e9.2.1768825373288;
-        Mon, 19 Jan 2026 04:22:53 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801fe67780sm78105625e9.16.2026.01.19.04.22.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jan 2026 04:22:52 -0800 (PST)
-Date: Mon, 19 Jan 2026 12:22:48 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Kees Cook <kees@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "Gustavo
- A. R. Silva" <gustavoars@kernel.org>, Arnd Bergmann <arnd@arndb.de>, "Jason
- A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>, Jeremy
- Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 0/3] Fix bugs and performance of kstack offset
- randomisation
-Message-ID: <20260119122248.30974c78@pumpkin>
-In-Reply-To: <aW4NC9P3K7Ab_e8j@J2N7QTR9R3>
-References: <20260102131156.3265118-1-ryan.roberts@arm.com>
-	<aW4NC9P3K7Ab_e8j@J2N7QTR9R3>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Mon, 19 Jan 2026 12:23:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 367A5339;
+	Mon, 19 Jan 2026 04:23:13 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0635F3F632;
+	Mon, 19 Jan 2026 04:23:14 -0800 (PST)
+Message-ID: <f19cab15-0626-4d13-b25e-1c194294e62f@arm.com>
+Date: Mon, 19 Jan 2026 12:23:13 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 06/47] arm64: mpam: Context switch the MPAM registers
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, will@kernel.org,
+ corbet@lwn.net, maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+ suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-7-ben.horgan@arm.com> <aWkqt37FJ5l6QD0E@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <aWkqt37FJ5l6QD0E@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_042255_995821_128BC22E 
-X-CRM114-Status: GOOD (  27.19  )
+X-CRM114-CacheID: sfid-20260119_042323_828067_89110A3F 
+X-CRM114-Status: GOOD (  34.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,53 +75,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 Jan 2026 10:52:59 +0000
-Mark Rutland <mark.rutland@arm.com> wrote:
+Hi Catalin,
 
-> On Fri, Jan 02, 2026 at 01:11:51PM +0000, Ryan Roberts wrote:
-> > Hi All,  
+On 1/15/26 17:58, Catalin Marinas wrote:
+> On Mon, Jan 12, 2026 at 04:58:33PM +0000, Ben Horgan wrote:
+>>  menu "ARMv8.5 architectural features"
+>> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
+>> new file mode 100644
+>> index 000000000000..14011e5970ce
+>> --- /dev/null
+>> +++ b/arch/arm64/include/asm/mpam.h
+>> @@ -0,0 +1,67 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +/* Copyright (C) 2025 Arm Ltd. */
+>> +
+>> +#ifndef __ASM__MPAM_H
+>> +#define __ASM__MPAM_H
+>> +
+>> +#include <linux/jump_label.h>
+>> +#include <linux/percpu.h>
+>> +#include <linux/sched.h>
+>> +
+>> +#include <asm/sysreg.h>
+>> +
+>> +DECLARE_STATIC_KEY_FALSE(mpam_enabled);
+>> +DECLARE_PER_CPU(u64, arm64_mpam_default);
+>> +DECLARE_PER_CPU(u64, arm64_mpam_current);
+>> +
+>> +/*
+>> + * The value of the MPAM0_EL1 sysreg when a task is in resctrl's default group.
+>> + * This is used by the context switch code to use the resctrl CPU property
+>> + * instead. The value is modified when CDP is enabled/disabled by mounting
+>> + * the resctrl filesystem.
+>> + */
+>> +extern u64 arm64_mpam_global_default;
+>> +
+>> +/*
+>> + * The resctrl filesystem writes to the partid/pmg values for threads and CPUs,
+>> + * which may race with reads in mpam_thread_switch(). Ensure only one of the old
+>> + * or new values are used. Particular care should be taken with the pmg field as
+>> + * mpam_thread_switch() may read a partid and pmg that don't match, causing this
+>> + * value to be stored with cache allocations, despite being considered 'free' by
+>> + * resctrl.
+>> + */
+>> +#ifdef CONFIG_ARM64_MPAM
+>> +static inline u64 mpam_get_regval(struct task_struct *tsk)
+>> +{
+>> +	return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);
+>> +}
+>> +
+>> +static inline void mpam_thread_switch(struct task_struct *tsk)
+>> +{
+>> +	u64 oldregval;
+>> +	int cpu = smp_processor_id();
+>> +	u64 regval = mpam_get_regval(tsk);
+>> +
+>> +	if (!static_branch_likely(&mpam_enabled))
+>> +		return;
+>> +
+>> +	if (regval == READ_ONCE(arm64_mpam_global_default))
+>> +		regval = READ_ONCE(per_cpu(arm64_mpam_default, cpu));
+>> +
+>> +	oldregval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
+>> +	if (oldregval == regval)
+>> +		return;
+>> +
+>> +	write_sysreg_s(regval, SYS_MPAM1_EL1);
+>> +	isb();
+>> +
+>> +	/* Synchronising the EL0 write is left until the ERET to EL0 */
+>> +	write_sysreg_s(regval, SYS_MPAM0_EL1);
 > 
-> Hi Ryan,
+> Since we have an isb() already, does it make any difference if we write
+> MPAM0 before the barrier? Similar question for other places where we
+> write these two registers.
+
+The reason for the isb() placement is to document that it's not required
+for the MPAM0_EL1. All instructions running at EL1take their MPAM
+configuration from MPAM1_EL1. This includes LDTR and STTR as you asked
+about in a different thread.
+
 > 
-> > As I reported at [1], kstack offset randomisation suffers from a couple of bugs
-> > and, on arm64 at least, the performance is poor. This series attempts to fix
-> > both; patch 1 provides back-portable fixes for the functional bugs. Patches 2-3
-> > propose a performance improvement approach.
-> > 
-> > I've looked at a few different options but ultimately decided that Jeremy's
-> > original prng approach is the fastest. I made the argument that this approach is
-> > secure "enough" in the RFC [2] and the responses indicated agreement.  
+> At some point, we should go through __switch_to() and coalesce the isbs
+> into fewer as we keep accumulating them (e.g. all those switch function
+> setting some sync variable if needed).
 > 
-> FWIW, the series all looks good to me. I understand you're likely to
-> spin a v4 with a couple of minor tweaks (fixing typos and adding an
-> out-of-line wrapper for a prandom function), but I don't think there's
-> anything material that needs to change.
+>> +
+>> +	WRITE_ONCE(per_cpu(arm64_mpam_current, cpu), regval);
 > 
-> I've given my Ack on all three patches. I've given the series a quick
-> boot test (atop v6.19-rc4) with a bunch of debug options enabled, and
-> all looks well.
+> Is it too expensive to read the MPAM sysregs and avoid carrying around
+> another per-CPU state? You use it for pm restoring but we could just
+> save it in cpu_do_suspend() like other sysregs. Not a big issue, it just
+> feels like this function got unnecessarily complicated (it took me a bit
+> to figure out what it all does).
+
+It's done this way as it matches what's done in x86. I expect it would
+be cheap enough to read the register to check whether a write is required.
+
 > 
-> Kees, do you have any comments? It would be nice if we could queue this
-> up soon.
+> A related question - is resctrl_arch_set_cdp_enabled() always called in
+> non-preemptible contexts? We potentially have a race between setting
+> current->mpam_partid_msg and arm64_mpam_global_default, so the check in
+> mpam_thread_switch() can get confused.
 
-I don't want to stop this being queued up in its current form.
-But I don't see an obvious need for multiple per-cpu prng
-(there are a couple of others lurking), surely one will do.
+The resctrl filesystem can only ever get mounted once and
+resctrl_arch_set_cdp_enabled() is always called in mount. In
+rdt_get_tree(), rdt_enable_ctx() calls resctrl_arch_set_cdp_enabled().
+This is done while holding the rdtgroup_mutex and the user can't change
+the mpam configuration from the default until the mutex is released and
+it can claim it.
 
-How much overhead does the get_cpu_var() add?
-I think it has to disable pre-emption (or interrupts) which might
-be more expensive on non-x86 (which can just do 'inc %gs:address').
+> 
+> And I couldn't figure out where the MPAMx_EL1 registers are written. If
+> any global/per-cpu/per-task value is changed, does the kernel wait until
+> the next thread switch to write the sysreg? The only places I can found
+> touching these sysregs are the thread switch, pm notifiers and KVM.
+> 
 
-I'm sure I remember a version that used a per-task prng.
-That just needs 'current' - which might be known and/or be cheaper
-to get.
-(Although I also remember a reference some system where it was slow...)
+If the task configuration is changed then the MPAM sysreg will only be
+updated the next time it goes into the kernel. So, just eventually
+consistent. For cpu configuration, update_closid_rmid() gets called
+which ipis the cpus and ends up calling mpam_thread_switch() from
+resctrl_arch_sched_in().
 
-The other option is just to play 'fast and loose' with the prng data.
-Using the state from the 'wrong cpu' (if the code is pre-empted) won't
-really matter.
-You might get a RrwW (or even RrwrwW) sequence, but the prng won't be used
-for anything 'really important' so it shouldn't matter.
+Thanks,
 
-	David
+Ben
+
 
