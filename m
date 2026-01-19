@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94991CCF2D9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD1CCCF2D2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=io7/1CBGpuEJksfwcZ+XEOWyqPrISU4aqPzE15+/GSY=; b=NIW+a+ujTzSSwWPe2CErckgpsk
-	3KCqLzDzhnZtiS3cJ4l03RgLVLbEJ+iApdZezn2PvP0KYSKDUsOjQYpih+qm1SQhjzn2uX5wnuEkY
-	Aqup863PpC5A8UnXl+ijKI5jiX12HNXQAFFcw6QDGRtO23gkskA9KWI7oVUp97hvZ4TRpsifCvEhx
-	S5p7Xd4U0Xn9yzs6LFk1zxh9st9yM6vNHd99Ng5HQyFKzpx0CTcpNmT7Yb/gtvNjueTLe5Rl+GYmR
-	XQi+0dSBxtmhy9NT6gSnMmDRXFUMFaBupE/F6mzL2GYNxh18+drOfGC/HFrAgSMqZdOFCDT+8qJIk
-	iOzX7FVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6rGknulicpb/N5ZHwBgsBvsJXwGZS09gxBTT+qK+3Ww=; b=erwvvqFTCq7OQsosNLxlCE4bQI
+	hB52S/+XToQigcNIXZRY7O8UXYr6q1ctJNywImcuDqJlxMbIKxfvPy8N5LyxkG/RtA/gPWBpb2u19
+	GbuzyG/G8nXDWgPXsojHb5BDuS6KVBtwvDUuYgcgc6jYPHVW67aAHxTXu400zcy8MhRT0Bagfx1Ko
+	zcYv8fGV71/yDv4QISpF6yHUzAjISSxww4oco+yQQEXxQ63aZtBcKMOcunY5QI4hSqnOSnapyVmqE
+	OcOGh/UVdNmIbdGV9lN34oiePrRPgZFxbEOH1Ai/8bOC5EZgWLETOCfSRrZfDhBO26PaWTLGFJpgW
+	xak6RL6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmOJ-00000001l0d-1FN8;
-	Mon, 19 Jan 2026 10:21:47 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmOH-00000001kzx-1Ujs
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 10:21:46 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A87AE1A2941;
-	Mon, 19 Jan 2026 10:21:43 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 788F360731;
-	Mon, 19 Jan 2026 10:21:43 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4D7C310B6993C;
-	Mon, 19 Jan 2026 11:21:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1768818102; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=io7/1CBGpuEJksfwcZ+XEOWyqPrISU4aqPzE15+/GSY=;
-	b=Lx/LxEnmn6xez3KdCkr3UsfqmbFYZZYuzGUq47Asl1MAutDbD7JnSvswBbUh9qHB0bIYif
-	prLSBcz/d3UArSjqKesJwqFgL+o9k4zrQcyXdHls7Jhc0sZZfOlkqu1Gu36C3vhVlBMSJm
-	yslnIS5tEBpYZI2uMorwYIvLPQ/vBo5m/HPtZ4VGMsgzL5FMlGARp7bCYJrdI79alT6y/b
-	xG2q3iV5HISuUzXKEr+tcVWaWL8J0Xc8+UzduWVtbfLvty3oFctuFJmfmADN5n5Wf7YpZc
-	CzHdptaSEB6AJlnK8iDwHgm9tnSYFtbIaZm2WCsfPYE4XlAiLpnJuzNrpt4R9w==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Russell King <linux@armlinux.org.uk>,
-	"Rob Herring (Arm)" <robh@kernel.org>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
-	linux-mtd@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/3] at91: Remove of_platform_default_populate() calls
-Date: Mon, 19 Jan 2026 11:21:35 +0100
-Message-ID: <176881807614.2444994.10707378152162604281.b4-ty@bootlin.com>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
-References: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
+	id 1vhmQ2-00000001lT4-0wTg;
+	Mon, 19 Jan 2026 10:23:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhmPx-00000001lRC-2F6Y;
+	Mon, 19 Jan 2026 10:23:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9ABCC1517;
+	Mon, 19 Jan 2026 02:23:18 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2614E3F632;
+	Mon, 19 Jan 2026 02:23:19 -0800 (PST)
+Date: Mon, 19 Jan 2026 10:23:14 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Jeremy Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] randomize_kstack: Maintain kstack_offset per task
+Message-ID: <aW4GEi9C_F6K9Qck@J2N7QTR9R3>
+References: <20260102131156.3265118-1-ryan.roberts@arm.com>
+ <20260102131156.3265118-2-ryan.roberts@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260102131156.3265118-2-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_022145_519695_CC104624 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20260119_022330_882085_29CC78DA 
+X-CRM114-Status: GOOD (  36.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,24 +82,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 05 Jan 2026 15:06:42 -0600, Rob Herring (Arm) wrote:
-> This is another attempt at removing of_platform_default_populate() calls
-> on at91 platforms. The last attempts were in 2018[1] and 2023[2]. The
-> problems reported are PM and NAND failures. Both of these depend on SRAM
-> pool which doesn't have any fw_devlink tracking. Also, the PM code is
-> not a driver, so fw_devlink wouldn't help. For the NAND driver, we can
-> simply defer probe. For the PM init, we can move it to the .late_init
-> hook.
+On Fri, Jan 02, 2026 at 01:11:52PM +0000, Ryan Roberts wrote:
+> kstack_offset was previously maintained per-cpu, but this caused a
+> couple of issues. So let's instead make it per-task.
 > 
-> [...]
+> Issue 1: add_random_kstack_offset() and choose_random_kstack_offset()
+> expected and required to be called with interrupts and preemption
+> disabled so that it could manipulate per-cpu state. But arm64, loongarch
+> and risc-v are calling them with interrupts and preemption enabled. I
+> don't _think_ this causes any functional issues, but it's certainly
+> unexpected and could lead to manipulating the wrong cpu's state, which
+> could cause a minor performance degradation due to bouncing the cache
+> lines. By maintaining the state per-task those functions can safely be
+> called in preemptible context.
+> 
+> Issue 2: add_random_kstack_offset() is called before executing the
+> syscall and expands the stack using a previously chosen rnadom offset.
+> choose_random_kstack_offset() is called after executing the syscall and
+> chooses and stores a new random offset for the next syscall. With
+> per-cpu storage for this offset, an attacker could force cpu migration
+> during the execution of the syscall and prevent the offset from being
+> updated for the original cpu such that it is predictable for the next
+> syscall on that cpu. By maintaining the state per-task, this problem
+> goes away because the per-task random offset is updated after the
+> syscall regardless of which cpu it is executing on.
+> 
+> Fixes: 39218ff4c625 ("stack: Optionally randomize kernel stack offset each syscall")
+> Closes: https://lore.kernel.org/all/dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com/
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
-Applied to nand/next, thanks!
+Acked-by: Mark Rutland <mark.rutland@arm.com>
 
-[1/3] mtd: nand: atmel: Defer probe if SRAM is missing
+Mark.
 
-Patche(s) should be available on mtd/linux.git and will be
-part of the next PR (provided that no robot complains by then).
-
-Kind regards,
-Miquèl
+> ---
+>  include/linux/randomize_kstack.h | 26 +++++++++++++++-----------
+>  include/linux/sched.h            |  4 ++++
+>  init/main.c                      |  1 -
+>  kernel/fork.c                    |  2 ++
+>  4 files changed, 21 insertions(+), 12 deletions(-)
+> 
+> diff --git a/include/linux/randomize_kstack.h b/include/linux/randomize_kstack.h
+> index 1d982dbdd0d0..5d3916ca747c 100644
+> --- a/include/linux/randomize_kstack.h
+> +++ b/include/linux/randomize_kstack.h
+> @@ -9,7 +9,6 @@
+>  
+>  DECLARE_STATIC_KEY_MAYBE(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
+>  			 randomize_kstack_offset);
+> -DECLARE_PER_CPU(u32, kstack_offset);
+>  
+>  /*
+>   * Do not use this anywhere else in the kernel. This is used here because
+> @@ -50,15 +49,14 @@ DECLARE_PER_CPU(u32, kstack_offset);
+>   * add_random_kstack_offset - Increase stack utilization by previously
+>   *			      chosen random offset
+>   *
+> - * This should be used in the syscall entry path when interrupts and
+> - * preempt are disabled, and after user registers have been stored to
+> - * the stack. For testing the resulting entropy, please see:
+> - * tools/testing/selftests/lkdtm/stack-entropy.sh
+> + * This should be used in the syscall entry path after user registers have been
+> + * stored to the stack. Preemption may be enabled. For testing the resulting
+> + * entropy, please see: tools/testing/selftests/lkdtm/stack-entropy.sh
+>   */
+>  #define add_random_kstack_offset() do {					\
+>  	if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,	\
+>  				&randomize_kstack_offset)) {		\
+> -		u32 offset = raw_cpu_read(kstack_offset);		\
+> +		u32 offset = current->kstack_offset;			\
+>  		u8 *ptr = __kstack_alloca(KSTACK_OFFSET_MAX(offset));	\
+>  		/* Keep allocation even after "ptr" loses scope. */	\
+>  		asm volatile("" :: "r"(ptr) : "memory");		\
+> @@ -69,9 +67,9 @@ DECLARE_PER_CPU(u32, kstack_offset);
+>   * choose_random_kstack_offset - Choose the random offset for the next
+>   *				 add_random_kstack_offset()
+>   *
+> - * This should only be used during syscall exit when interrupts and
+> - * preempt are disabled. This position in the syscall flow is done to
+> - * frustrate attacks from userspace attempting to learn the next offset:
+> + * This should only be used during syscall exit. Preemption may be enabled. This
+> + * position in the syscall flow is done to frustrate attacks from userspace
+> + * attempting to learn the next offset:
+>   * - Maximize the timing uncertainty visible from userspace: if the
+>   *   offset is chosen at syscall entry, userspace has much more control
+>   *   over the timing between choosing offsets. "How long will we be in
+> @@ -85,14 +83,20 @@ DECLARE_PER_CPU(u32, kstack_offset);
+>  #define choose_random_kstack_offset(rand) do {				\
+>  	if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,	\
+>  				&randomize_kstack_offset)) {		\
+> -		u32 offset = raw_cpu_read(kstack_offset);		\
+> +		u32 offset = current->kstack_offset;			\
+>  		offset = ror32(offset, 5) ^ (rand);			\
+> -		raw_cpu_write(kstack_offset, offset);			\
+> +		current->kstack_offset = offset;			\
+>  	}								\
+>  } while (0)
+> +
+> +static inline void random_kstack_task_init(struct task_struct *tsk)
+> +{
+> +	tsk->kstack_offset = 0;
+> +}
+>  #else /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
+>  #define add_random_kstack_offset()		do { } while (0)
+>  #define choose_random_kstack_offset(rand)	do { } while (0)
+> +#define random_kstack_task_init(tsk)		do { } while (0)
+>  #endif /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
+>  
+>  #endif
+> diff --git a/include/linux/sched.h b/include/linux/sched.h
+> index d395f2810fac..9e0080ed1484 100644
+> --- a/include/linux/sched.h
+> +++ b/include/linux/sched.h
+> @@ -1591,6 +1591,10 @@ struct task_struct {
+>  	unsigned long			prev_lowest_stack;
+>  #endif
+>  
+> +#ifdef CONFIG_RANDOMIZE_KSTACK_OFFSET
+> +	u32				kstack_offset;
+> +#endif
+> +
+>  #ifdef CONFIG_X86_MCE
+>  	void __user			*mce_vaddr;
+>  	__u64				mce_kflags;
+> diff --git a/init/main.c b/init/main.c
+> index b84818ad9685..27fcbbde933e 100644
+> --- a/init/main.c
+> +++ b/init/main.c
+> @@ -830,7 +830,6 @@ static inline void initcall_debug_enable(void)
+>  #ifdef CONFIG_RANDOMIZE_KSTACK_OFFSET
+>  DEFINE_STATIC_KEY_MAYBE_RO(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
+>  			   randomize_kstack_offset);
+> -DEFINE_PER_CPU(u32, kstack_offset);
+>  
+>  static int __init early_randomize_kstack_offset(char *buf)
+>  {
+> diff --git a/kernel/fork.c b/kernel/fork.c
+> index b1f3915d5f8e..b061e1edbc43 100644
+> --- a/kernel/fork.c
+> +++ b/kernel/fork.c
+> @@ -95,6 +95,7 @@
+>  #include <linux/thread_info.h>
+>  #include <linux/kstack_erase.h>
+>  #include <linux/kasan.h>
+> +#include <linux/randomize_kstack.h>
+>  #include <linux/scs.h>
+>  #include <linux/io_uring.h>
+>  #include <linux/bpf.h>
+> @@ -2231,6 +2232,7 @@ __latent_entropy struct task_struct *copy_process(
+>  	if (retval)
+>  		goto bad_fork_cleanup_io;
+>  
+> +	random_kstack_task_init(p);
+>  	stackleak_task_init(p);
+>  
+>  	if (pid != &init_struct_pid) {
+> -- 
+> 2.43.0
+> 
 
