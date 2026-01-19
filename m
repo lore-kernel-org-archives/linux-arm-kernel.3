@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2C0FD29C28
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 13:20:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD5E2D29C2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 13:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jljzdrq4r/rY5hYR5tbzegDR66TZ8LKmWCEKANj2q0M=; b=fHQx6HsS10lN0nbcroIiiwfgnJ
-	2d///FK4mF4v9feaiL03M1fAXfMCvUBW1k2wy+TPxWzCx1cv5R8yvOqdMzUPnsGnt9U9ADVtFBwrt
-	HTj0RacSjGZ6dyYkTocE9nNYR2GkqAKXjYfAlK0O9ukEmXlMwyKcNsckiTIwFCgwtTUe6JktS86Jm
-	RfBqTXt7vDtumGPg/EuZiWSfxQuuJgbJlhEBeQNsqmCis33eWRqcIp4RzLZQXVj8Nev5Y4ctHuQgn
-	NeK6+zXdCLIXp4abnwPbaM6lbLc4Z17KxdNCJL+vM82wtR26Ji2XAmcjaHPYbM0O3YpoyeWZwI2k8
-	mE+La/TQ==;
+	bh=C88mVe4i3Z4l63ZcsasxWSNQLM5vvDv1/QRFfBQNgwM=; b=FDwfbJ2X7lriIoWyO2CHkvgjYl
+	5pMM/pWy0iT2XCQRv99m6jZpij0CzBH87+LbVgw4aXthdSL+eM/pxAUjhRd3RPxZJhc4UL7/OhlVq
+	cWlrL4YA6VgSimvfxSSnfYNxXDCD92cpnt213rS7h++EEkmOAL8yLVlfztYNbpnyF0570nZCKQtvR
+	Wtnu+As2iYurSIKDtPF5AziQv5SauJ+S5dVuUzo4Ry3o3B7Uial1DVQvXTiBtwF17BDzevaKia+SW
+	rrGLu0g5VOva5AYzXB8CDItaSabd0I4Tu+YEnFSJ/jnksbrwT7nK+Ong9vYi57NfL7Jkm7eYxgyPE
+	Ts3IOWyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhpBP-000000029Ni-2IxA;
-	Mon, 19 Jan 2026 13:20:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vhpBZ-000000029Pp-3WUQ;
+	Mon, 19 Jan 2026 13:20:51 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhpBL-000000029NC-0tUd
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 13:20:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5B90043724;
-	Mon, 19 Jan 2026 13:20:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5023C116C6;
-	Mon, 19 Jan 2026 13:20:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768828834;
-	bh=Jljzdrq4r/rY5hYR5tbzegDR66TZ8LKmWCEKANj2q0M=;
-	h=Date:To:From:Subject:Cc:References:In-Reply-To:From;
-	b=LYqOMNv6K//ghc3wg6xqGAnjEk9y7lgkxB77d8PfRJZ0NgwDf4IdMzIiF2CM+pZTr
-	 tp+dNB2zzIvG6F85ubonr1U8Z9HLFwm2La8nG088JaBLNRCnd+oN7MYgTCL/FvpB4z
-	 8ZSc4pYJvGyoRhwQsYZYC6fPhbHnH6OFx2mLiCVzliYTY0U5V/z8j4R7oviRAvL35g
-	 4dRcVJIVx7nxlu7YPz2cwPbUO1vCu4+J7IpIt+Q6Q8KAqOXPB14fi0nUDP7Eu3bLYg
-	 oxfXosJm8l1f6KyAoM0Ufa3ANpnn246RhC+8beVyM1R39hIWt3Ivm926qthW+w2Iz2
-	 RDepxu4iYp6Qw==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+	id 1vhpBU-000000029Nm-0Krm;
+	Mon, 19 Jan 2026 13:20:46 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id A5533C214CA;
+	Mon, 19 Jan 2026 13:20:11 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id AA6D560731;
+	Mon, 19 Jan 2026 13:20:38 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 80CE510B6AFE7;
+	Mon, 19 Jan 2026 14:20:29 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1768828837; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=C88mVe4i3Z4l63ZcsasxWSNQLM5vvDv1/QRFfBQNgwM=;
+	b=WL75Q6JmD/2Sm5piBoIA+v8gzFbjTwJz0lP7rJVdDU/Ayn+q92uePzNzCiiQNAK2CP8PRv
+	ip3puZqFUHQg/9mIUqwTeSVahXjqKCGNhc/JiVR8jMg+ajzSzfDatEi0wQmTIp4Mq1xZ9z
+	WvtLjHEhcnLeN2PVZCCdFgPXIqr20jYnFAVWKJJL8nPDPHvCz2VdqlrpDEyq0F3TWU2iA5
+	YpKxcvARPFMLIs5De1S9LNSH57XWzurdG/MYqhgDwYsBj4xV4eyi4/nhu6/D2fufTQELal
+	PeUDVjASw+xlDH/vuc62zUY42q5wgihzdX/qC9tWoWwh5m+oJRVc5Z/dSkALKQ==
+Message-ID: <c6d88377-2b0f-4535-96b1-3eb01efef709@bootlin.com>
 Date: Mon, 19 Jan 2026 14:20:28 +0100
-Message-Id: <DFSLHM2ZBRE8.1JDMK08LNYYKT@kernel.org>
-To: "Bartosz Golaszewski" <brgl@kernel.org>
-From: "Danilo Krummrich" <dakr@kernel.org>
-Subject: Re: [PATCH 1/8] of: provide of_machine_get_compatible()
-Cc: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>, "Rob
- Herring" <robh@kernel.org>, "Saravana Kannan" <saravanak@kernel.org>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- "Shawn Guo" <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
- <festevam@gmail.com>, "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Magnus Damm" <magnus.damm@gmail.com>, "Chen-Yu Tsai" <wens@kernel.org>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Samuel Holland"
- <samuel@sholland.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
- <linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>,
- <linux-renesas-soc@vger.kernel.org>, <linux-sunxi@lists.linux.dev>
-References: <20260119-soc-of-root-v1-0-32a0fa9a78b4@oss.qualcomm.com>
- <20260119-soc-of-root-v1-1-32a0fa9a78b4@oss.qualcomm.com>
- <DFSJ2AD562CP.1ZX1JO1F0Y1UU@kernel.org>
- <CAMRc=McTaTGPM6fMWb3b+S0+Gq_V-Vi7DF9JxDeOEfPAavgXaQ@mail.gmail.com>
-In-Reply-To: <CAMRc=McTaTGPM6fMWb3b+S0+Gq_V-Vi7DF9JxDeOEfPAavgXaQ@mail.gmail.com>
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 10/14] net: stmmac: use integrated PCS for BASE-X
+ modes
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+References: <aW4kakF3Ly7VaxN6@shell.armlinux.org.uk>
+ <E1vhoSh-00000005H29-1LYk@rmk-PC.armlinux.org.uk>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <E1vhoSh-00000005H29-1LYk@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_052036_248577_C41530F7 
-X-CRM114-Status: UNSURE (   4.26  )
+X-CRM114-CacheID: sfid-20260119_052044_265595_7BB4C4E0 
+X-CRM114-Status: UNSURE (   8.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,8 +87,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Jan 19, 2026 at 2:00 PM CET, Bartosz Golaszewski wrote:
-> How about of_machine_read_compatible()?
 
-SGTM.
+
+On 19/01/2026 13:34, Russell King (Oracle) wrote:
+> dwmac-qcom-ethqos supports SGMII and 2500BASE-X using the integrated
+> PCS, so we need to expand the PCS support to include support for
+> BASE-X modes.
+> 
+> Add support to the prereset configuration to detect 2500BASE-X, and
+> arrange for stmmac_mac_select_pcs() to return the integrated PCS if
+> its supported_interfaces bitmap reports support for the interface mode.
+> 
+> This results in priv->hw->pcs now being write-only, so remove it.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Maxime
+
+
 
