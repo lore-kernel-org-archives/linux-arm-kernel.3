@@ -4,79 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0450CCF2E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FD62CA5FF6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 11:01:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FKtegqYHifNIY2Kpenqe3xasa7tR9IwWZxy+OLErCjs=; b=JwIt3LY8A/cgIHv4zUDJLcvN9O
-	1genFUVXyhHjlIPFqb4Ce6CHphuhmXsAh7Ej7RUXU/NOLDKsiNFurW4fKWCLoY+uMDHQ33dOewKbq
-	bqPPazUx8k/jsSV55ZP8Gh2jT1iAx+RYkc6/GrU1pP700xi8vKNUFwL1oikbvOBxQly3+3ktK6YBC
-	cFONgn9K/i87kInn1+Pq+vvErzMo17F7KxYfypZtFFGKcCky8h9T4OPmHaH2d35rbWomI8qpB6S1I
-	kJmcVRTv6exSbbtyBoC9Nt5xhB+IsZAh77QijOMWtbL7hv/+OzQCCdUlhrHQYvgalHYWXPMWAKN6f
-	XxILWOJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m4LazPcF/wnlQqrBB0dkwPZ2Jb2xDS0R7wte5tpEq3I=; b=gLLic3/Xs/zSEHq1ra5Yb3e8q/
+	7xlR71X5TkHesACuVCdo3JtJqp8igJR2QhUfNp0kd7Q6N+sHn8bYX25o3qUM8Cj1pEi7XT3OGENRj
+	haDshAooYBoLdLhLwQgLJC37yL82xAj+i4xMZNJMIddPLJhUxGLLyWNkDouYdcmElOpvngAF7l33V
+	o4UABSME+9tQO8XqpMlmxldQnX0wv/8IKd98kHOqsNZNPOLHluanYezU/iKEvhHQ8YO3YzmVvcPrs
+	sIHnQDlXoGF+4VBt6rAFXjgHuqNF5gNrAxJS/ewY+UT6hQZX/DW/VXsrY3zalrRqAi81u+GkPDl9R
+	aV5DYxiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmy5-00000001q7s-1ftP;
-	Mon, 19 Jan 2026 10:58:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vhn0V-00000001qJt-3jeY;
+	Mon, 19 Jan 2026 11:01:15 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmy2-00000001q7V-2DII;
-	Mon, 19 Jan 2026 10:58:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4CBEF402B9;
-	Mon, 19 Jan 2026 10:58:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22CE9C116C6;
-	Mon, 19 Jan 2026 10:58:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768820321;
-	bh=yfPKb9BVO6k+dZ/kURKCnEAbYk4oQ741nblYfmVk/kA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HodbY79QQVJ1ToMX5FDjVjQkmPR0PLVyFCNUfN4lnBuhJ3LQDiZeYLYgaTkuV//eN
-	 SgDkEg8c4DfTwOMz3z3aUGKlApba7dWXHIaEw04s+8r82rJQryi3h3PGeH/j7FCks8
-	 TMqExMZUu3bhJLf+3/RcSv7jOfLO3YIenhAHjFPQKtDjv0xJjjQBbiOUuih8fVplyy
-	 nwXmiphIma7RnMeA5CgVwGiJJ6KmD1FBTVYwaxOaCVU8qH/U3MnP8N8WMCNe2VqW2D
-	 +XciX3/vx8jCBLLGaaqukWP6Fe4L+NJiv6eZhcD86GMD8qUOvWR/rTOMBpX76wfgKA
-	 aUTTOvfu8/ZMg==
-Received: from johan by xi.lan with local (Exim 4.98.2)
-	(envelope-from <johan@kernel.org>)
-	id 1vhmxu-000000000rP-02O8;
-	Mon, 19 Jan 2026 11:58:34 +0100
-Date: Mon, 19 Jan 2026 11:58:34 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Khalil Blaiech <kblaiech@nvidia.com>,
-	Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-actions@lists.infradead.org,
-	Bartosz Golaszewski <brgl@kernel.org>
-Subject: Re: Big I2C core changes coming up this year (was: Re: [PATCH 00/12]
- i2c: add and start using i2c_adapter-specific printk helpers
-Message-ID: <aW4OWnyYp6Vas53L@hovoldconsulting.com>
-References: <20251223-i2c-printk-helpers-v1-0-46a08306afdb@oss.qualcomm.com>
- <aUql_tZisfH8E1bq@hovoldconsulting.com>
- <aWYYZEPX-_1GfQtL@ninjato>
+	id 1vhn0I-00000001qI2-2DKo
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 11:01:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1768820461;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=m4LazPcF/wnlQqrBB0dkwPZ2Jb2xDS0R7wte5tpEq3I=;
+	b=fq3QRDdoEsVxwNS4c77Koik/Bto4CYx0AvbZb1GpDd6BDHHxpD0oiUPnHDjvBW66gt1fVG
+	CgOt93bjAzaCXtPPJx2eAlf2Zy/bzTe5lmT41wNzv9hA7KEl7jcYy8+GDn/ZylUF/WSb41
+	4GgYpX8WcWTur86w9vjlhcgoXf3L6Ho=
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com
+ [209.85.210.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-283-T0t1irSbN0mvVaqZ50Z9qQ-1; Mon, 19 Jan 2026 06:01:00 -0500
+X-MC-Unique: T0t1irSbN0mvVaqZ50Z9qQ-1
+X-Mimecast-MFC-AGG-ID: T0t1irSbN0mvVaqZ50Z9qQ_1768820459
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-81f73452300so7861686b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 03:01:00 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768820459; x=1769425259;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=m4LazPcF/wnlQqrBB0dkwPZ2Jb2xDS0R7wte5tpEq3I=;
+        b=Y6+spsUWIUVakkdt/DcTkLVUUKWWYVvnZudxScOPKQDtR/QeMhsJ6uljoI1suniGbS
+         kH+66LKIQAIoXfxRTm86lH4MQMupF61qF72wH5wP9gzOTssRfpILAnp2ZdvzetGWaXig
+         sc9Zlx5DFb6AIHiuWP8REF0i5xaUrgf6RlqU2bgaySEUBEpx75dDYmsnuAP2eaL9kiE9
+         seliWUfmWVqX3DYaaq69bWHC2yy7vaiscpt1oJ4hqZ6vV9WbFY4XTEYOO2j+yL4Kx9N9
+         GXtTIzbmhtGk1MRLLIB/z2+3MjlPkND6CLgsuxwFN7zs2aLfwnYwli4mBnszGOGEsT2E
+         FCag==
+X-Forwarded-Encrypted: i=1; AJvYcCW1i61n3R/tIWS1VC/N6gTSnlgi1zRRz1YGOBhYYfQPZQ3iBm7G8hw6yRbXNFwka+S10bh3QrK1Qz93MPAgQtZr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfHV3tkwt3Z4xikraVDPhsYlaCmS95HkwTBagKzer3HTwVNzlO
+	E1iIgaIX6aGVXlfyAN6XTkuiSd2HWTskrPAHAV1T263pGpDA8cAJ8atQ9XA3fR9WidICPC9SDJj
+	D0c8RB//YvSfbwjob+LnT8v5ruLSLJuDSAFBr/+SW3i7yJppepW9aWdg2A/RPZoiZ/0zVyVHT5T
+	lM
+X-Gm-Gg: AY/fxX4yr2mGlczro7PLhvaJMSJnlL7bwSacR6hdlLycOKY6cJPQ4IZ8elqhepoarAj
+	fV4IroIiKbbpTx7m3af77VOEGDHChLRkf/y22B/XiBL9Xy3JzhoMl13mgHm3s8+ohH5VrRs7rOV
+	G5ZuD77rn7/TPFgAVZOh8ZCONARFHZ0JCARd/L3yAAI955W8LSdI/pUuP3IJ+ze+vWfrgF4SzO7
+	lYZokF8l1VicVXW2Ja3KFHgG/lLG6FjWDjB23cQ/WnUD9HksCKgi+UOHsN18KFKUbenoXr/pEtD
+	9t7g36DiqdI3ypxvO2OtOSjkeFyJNEM6DvA5CxHhAP99OStnsjn0H7iDl1n8PAJikTvb1Ft8zSG
+	F
+X-Received: by 2002:a05:6a00:368d:b0:81f:3b6e:21be with SMTP id d2e1a72fcca58-81f9f6850b8mr9116596b3a.11.1768820459097;
+        Mon, 19 Jan 2026 03:00:59 -0800 (PST)
+X-Received: by 2002:a05:6a00:368d:b0:81f:3b6e:21be with SMTP id d2e1a72fcca58-81f9f6850b8mr9116305b3a.11.1768820453951;
+        Mon, 19 Jan 2026 03:00:53 -0800 (PST)
+Received: from localhost ([209.132.188.88])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-81fa10c03e1sm8433770b3a.22.2026.01.19.03.00.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Jan 2026 03:00:53 -0800 (PST)
+Date: Mon, 19 Jan 2026 18:57:23 +0800
+From: Coiby Xu <coxu@redhat.com>
+To: Rob Herring <robh@kernel.org>
+Cc: kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>, Baoquan he <bhe@redhat.com>, Dave Young <dyoung@redhat.com>, 
+	Kairui Song <ryncsn@gmail.com>, Pingfan Liu <kernelfans@gmail.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE" <devicetree@vger.kernel.org>
+Subject: Re: [PATCH] arm64/kdump: pass dm-crypt keys to kdump kernel
+Message-ID: <aW4Jq9on_4a5o5o7@Rk>
+References: <20251226141116.1379601-1-coxu@redhat.com>
+ <CAL_JsqLEsUV34tMZWSMc6w-xDV=M0JpOmS95TxrtbbBMRoD3Jw@mail.gmail.com>
+ <aV49pPV3OViTDe8c@Rk>
+ <20260114210859.GA3197242-robh@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+In-Reply-To: <20260114210859.GA3197242-robh@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: JT6NasuCmuDdXLfpUz4tUYTyPoumz776G9CGLSyfS8c_1768820459
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Disposition: inline
-In-Reply-To: <aWYYZEPX-_1GfQtL@ninjato>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_025842_607488_68642634 
-X-CRM114-Status: GOOD (  46.33  )
+X-CRM114-CacheID: sfid-20260119_030107_037734_2A7BEAC2 
+X-CRM114-Status: GOOD (  34.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,107 +117,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 13, 2026 at 11:03:16AM +0100, Wolfram Sang wrote:
-> Johan, (and all future readers I have pointed to this mail)
-> 
-> > No, this is not the way to do it. You start with designing and showing
-> > what the end result will look like *before* you start rewriting world
-> > like you are doing here.
-> 
-> In general, this is correct. It does not apply here, though. I will
-> describe it in detail, so I can also point other people to this mail who
-> wonder about quite some intrusive changes to I2C core this year.
-> 
-> > We should not be making driver code less readable just to address some
-> > really niche corner cases like hot pluggable i2c controllers.
-> 
-> It is not a niche-case for hot-plugging. Hot-plugging (which still
-> should be avoided for I2C) just makes a subsystem-inherent lifecycle
-> problem more obvious. All of Bart's patch series basically prepare to
-> tackle this comment from the I2C core:
-> 
-> 1805         /* wait until all references to the device are gone
-> 1806          *
-> 1807          * FIXME: This is old code and should ideally be replaced by an
-> 1808          * alternative which results in decoupling the lifetime of the struct
-> 1809          * device from the i2c_adapter, like spi or netdev do. Any solution
-> 1810          * should be thoroughly tested with DEBUG_KOBJECT_RELEASE enabled!
-> 1811          */
-> 1812         init_completion(&adap->dev_released);
-> 1813         device_unregister(&adap->dev);
-> 1814         wait_for_completion(&adap->dev_released);
-> 
-> This has been in the I2C core since switching to the driver model and
-> the underlying problem applies to *all* i2c adapters. Simply unbind an
-> I2C controller while you still have a reference to its i2c-dev
-> counterpart and you are right in the problem space.
+On Wed, Jan 14, 2026 at 03:08:59PM -0600, Rob Herring wrote:
+>On Wed, Jan 07, 2026 at 07:39:24PM +0800, Coiby Xu wrote:
+>> On Tue, Jan 06, 2026 at 09:44:37AM -0600, Rob Herring wrote:
+>> > On Fri, Dec 26, 2025 at 8:11 AM Coiby Xu <coxu@redhat.com> wrote:
+>> > >
+>> > > Based on the CONFIG_CRASH_DM_CRYPT feature, this patch adds
+>> > > LUKS-encrypted device dump target support to ARM64 by addressing two
+>> > > challenges [1],
+>> > >  - Kdump kernel may not be able to decrypt the LUKS partition. For some
+>> > >    machines, a system administrator may not have a chance to enter the
+>> > >    password to decrypt the device in kdump initramfs after the 1st kernel
+>> > >    crashes
+>> > >
+>> > >  - LUKS2 by default use the memory-hard Argon2 key derivation function
+>> > >    which is quite memory-consuming compared to the limited memory reserved
+>> > >    for kdump.
+>> > >
+>> > > 1st kernel will add device tree property dmcryptkeys as similar to
+>> > > elfcorehdr to pass the memory address of the stored info of dm-crypt
+>> > > keys to the kdump kernel.
+>> >
+>> > Is there not any security issue with putting the key into the DT? The
+>> > DT is provided to userspace. There's provisions already to not expose
+>> > "security-*" properties to userspace (see __of_add_property_sysfs).
+>> > Though I think that has a hole in that the FDT is also provided as-is.
+>> > However, I don't even know who or what uses these properties.
+>> >
+>> > Rob
+>>
+>> Hi Rob,
+>>
+>> Thanks for raising the concern! If I understand DT correctly, this
+>> property is only accessible to the kexec'ed kdump kernel. A new DT is
+>> allocated and set up by of_kexec_alloc_and_setup_fdt. Btw, to be
+>> precise, it's putting the memory address where the key is stored but
+>> not the key itself into DT. The key is stored in the memory exclusively
+>> reserved for kdump. For more info on by who and how this property will
+>> used, I've created a dt-schema pull request as suggested by Krzysztof,
+>> https://github.com/devicetree-org/dt-schema/pull/181
+>
+>Okay, that's a bit less sensitive. That still could expose a memory
+>address to user space which has generally been locked down in recent
+>years. Though I'm not sure we'd consider addresses of blobs passed by
+>kexec sensitive or secure.
+>
+>>
+>> And yes, there is no need for even userspace of the kdump kernel to
+>> access it. So this idea of "security-*" properties/__of_add_property_sysfs
+>> seems desirable. Thanks for bringing it up! I'll give it a try.
+>
+>Since it is just the memory address, kdump just moving the key would be
+>sufficient. Or the property can be removed early on. I think we do that
+>with kaslr seed IIRC.
 
-Unbinding drivers is even more of a corner case than hot-plugging i2c
-controllers is since only root can do that.
+A security-* property is still exposed to user space. I think simply
+removing the property is an elegant solution! It's also much simpler
+than moving the key. I did a test and somehow wiping the old memory
+in read_from_oldmem_iter made it fail to read the keys. So I'll apply
+your suggestion of removing the property to next version. Thanks!
 
-Unloading modules is really just a development (debugging) tool so there
-is a perfectly simple solution for any issues stemming from root
-unbinding a driver while it's in use: don't do that then.
+>
+>Rob
+>
 
-Furthermore, we even have mechanisms for preventing root from shooting
-themselves in the foot with module refcounting and suppression of bind
-attributes (which sometimes makes sense).
+-- 
+Best regards,
+Coiby
 
-Issues stemming from unbinding drivers are not in themselves a
-sufficient reason for making code harder to read and maintain or for
-adding overhead to normal operation.
-
-> The problem is known for decades(!) and nobody dared to touch it, so
-> far. Even worse, the above pattern is not only present in I2C but also
-> other subsystems. Bart and I have been talking about potential solutions
-> for three years now. Bart brought in SRCU as a generic solution and at a
-> Plumbers 2024 session with many experienced maintainers present, it was
-> decided that this path is worth exploring. Greg suggested to try SRCU
-> with GPIO and I2C subsystems, and if this works well, we can try to
-> abstract it into something useful for other canidates as well. Now,
-> recently, the 'revocable' patch series was introduced which might be
-> helpful in our case.
-
-Revocable is definitely not something we want for the very reasons I
-outlined above (wrapping every access in code that's generally simply
-not needed).
-
-> It is also perfectly okay to work incrementally here, in my book. It is
-> such an intrusive change that we need to touch a lot of drivers in any
-> case. Yet, with the I2C core being a moving target, all the I2C drivers,
-> the 'revocable' patch series, and Linux in general, I think requesting a
-> fully complete patch series now is neither efficient nor maintainable.
-
-Again, if the end result is undesirable, that's what we should be
-focusing on and not "chipping away" in a direction were we most likely
-do not want to go.
-
-It doesn't have to be a complete series, an RFC reworking one driver is
-more than enough to be able to judge the end result. And of course a
-proper description of the problem you're trying to solve.
-
-> Bartosz and I do have a plan. We are happy to discuss it with other
-> interested people, of course. Still, despite all our efforts it might be
-> a bumpy ride. Because it is such a crucial and deep-inside change to the
-> subsystem core. This is part of development, though. If something
-> breaks, we will fix or revert. The alternative is stagnation which I
-> don't want. The above code was fine back in the days but now we have
-> better mechanisms to handle lifecycle issues. And I really do not want
-> Linux to have lifecycle issues. Especially not ones we *know of*.
-
-There are lifetime issues in some subsystems related to user space
-interfaces and hotplugging, but driver unbind is really not something
-you need to worry about.
-
-> > But in any case, don't get ahead of things by posting changes that we
-> > most likely don't want in the end anyway.
-> 
-> We want helpers accessing that specific 'struct device', so we have
-> central place to implement access to a protected version of it.
-
-I really don't think we do. USB has been dealing with hotplugging since
-forever without any of this. You need to keep some state around and
-prevent new accesses until the last user is gone. That's about it.
-
-Johan
 
