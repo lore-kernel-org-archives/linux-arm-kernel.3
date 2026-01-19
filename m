@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18502CA5FE4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 07:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6214ECA5FFC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 07:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6RKYrl9uKKYeoPLwxT7m43ODsBqPn7Ulx0XyJQsA0lM=; b=swGwdDEz7IZKY/60nWCTMD3mSL
-	X+U8kGBFRmruBYHiuXznEy0mAeixQRrNEa6inDP161f6QKprLnwUtzLdv08sI0rS2STD7m+gPG5Gf
-	5MOhtx0WW0KU23i8Oii7V+MWQB1LTdOblAvF/63UpBIWCNEYfNRyeUPa7/uWhmN6bbOjJu0HorHfp
-	TNyRQkE7s2Moo9LB2aezqCEKnl/i+bfTlt6N/HzQYqOBSaBO8xoIc8sTjaRH+7+v7LZkHKD4Ae0i5
-	HOGmxjpuLvP51LCicSjYyBrBGiJKn1rSk/1zdjLf7MEa+lZUvU0HgLECeO/qryIoWYwj4F3ePlhgM
-	WeHVXI4g==;
+	bh=mTE8GiUrUtEaTT4O+e4/NPc8OEJgo20N+GCnBt48BNo=; b=JxQHphk8kHyyajZJB4k4Z8UCdx
+	AwqwKYVB75widFORlYAnj+cke5VvKjDPrmG3oEd6uBtXGDVHjqSbSuRicJkiRvq4OSi3vlJEuvTLX
+	nKalOGz6cqu1Zd3deOyqdoCp5j7iaGOUNffwh6qWyhJs/R6pXWvi+7sSWj60c4YGxANLfwzS4eNck
+	AdEpgqegf1gKlndDj3gVlOoscn7sI7ppf+JMHerTPlaKY9KnUBKr8QQ3qYcwX1U2V0uzWGcXdJauS
+	svD7zSYz2QD3LDDXEK2+1wb8biZ+HPSR2YuQqbOMxMW9LzrUopUQIDAvoNapyUWlCQbokl9Xccgyw
+	xY5DR3RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhjlP-00000001UbN-1Qx9;
-	Mon, 19 Jan 2026 07:33:27 +0000
-Received: from smtpbgsg2.qq.com ([54.254.200.128])
+	id 1vhjlT-00000001UfV-0E3C;
+	Mon, 19 Jan 2026 07:33:38 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhjl3-00000001U6x-2Xdg;
-	Mon, 19 Jan 2026 07:33:13 +0000
+	id 1vhjlI-00000001UI7-2mPp;
+	Mon, 19 Jan 2026 07:33:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1768807941;
-	bh=6RKYrl9uKKYeoPLwxT7m43ODsBqPn7Ulx0XyJQsA0lM=;
+	s=altu2504; t=1768807911;
+	bh=mTE8GiUrUtEaTT4O+e4/NPc8OEJgo20N+GCnBt48BNo=;
 	h=From:To:Subject:Date:Message-Id;
-	b=m0+VERdEZM6EZ4VXwKxHdkutXvYXh0i86jixhGzmeNofFppwD87p1h23h+92MhTu7
-	 wmANYB4hSWh5PqdIBlvfl2kQ/jbcCKOObLU2dqHQzgW2eDnE1vO2accU0zQlb1O9+f
-	 tLggGOtOLAtVPmk3/5BvnrL2TUhzaRhZpTJs9+lQ=
-X-QQ-mid: esmtpsz17t1768807939t4e3bec3b
-X-QQ-Originating-IP: A7VIZcKkSbUgehWQYkOQDZdSzfyBv0nlR5sBVFW6EVM=
+	b=DuiMRdZYg3QDHpFybCX0XJ1dhFeLmscA+wE44lvyEkBTWP+HNj1wzxf7AlgXlSL1C
+	 oLi7LrXyna1WMBi6xZW6H2UVTQz2vOEGDMVDTbUjMnhcEBYfzrmDygPoI321bTA99c
+	 W26LqNdJleAh9nnXx1V6isTzp511JDnyajsb1ZR4=
+X-QQ-mid: esmtpsz17t1768807909t6177b3cf
+X-QQ-Originating-IP: 7rQc2nr+44BlSU0iP8JPeW5epauJLxNX/QDEkb7wpC8=
 Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 19 Jan 2026 15:32:13 +0800 (CST)
+	id ; Mon, 19 Jan 2026 15:31:42 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6769309788427873216
+X-BIZMAIL-ID: 12188449118939079178
 From: Chaoyi Chen <kernel@airkyi.com>
 To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -81,35 +81,35 @@ Cc: linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	dri-devel@lists.freedesktop.org
-Subject: [PATCH v14 8/9] arm64: dts: rockchip: Add missing dp_out port for RK3399 CDN-DP
-Date: Mon, 19 Jan 2026 15:30:59 +0800
-Message-Id: <20260119073100.143-9-kernel@airkyi.com>
+Subject: [PATCH v14 5/9] phy: rockchip: phy-rockchip-typec: Add DRM AUX bridge
+Date: Mon, 19 Jan 2026 15:30:56 +0800
+Message-Id: <20260119073100.143-6-kernel@airkyi.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20260119073100.143-1-kernel@airkyi.com>
 References: <20260119073100.143-1-kernel@airkyi.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: N9DIJtFs/avn469pEPR1EF5Tkm/GPRY6gFxvvNcyPU1aPjp8XHRL2pw6
-	PKY0b47EmpcR9mYUyVsekGpzLKLmZzn/UD2hh/AehmC0gU0Qx6F1FnonjzG+57LO/J1wl09
-	0Uw4/QzAYow54sQcPKg2ecw+qsbSCrdtH/F+axpZemO4fzLH7UuXEEbuwYRNZFvj0G2ZETn
-	kIiX1HyHRKdSNzAHDBiNYtn2PIZP12+QKLCGOVxArYe7o1V+v4+SmK2CR/RyAWUFFI97vCu
-	TFE1Yi2t4d/qiRb/04DYYlwShEK6TcneHhsmug7eUds3G7QyHFU1CuYWizWx9taRn8+h9ud
-	Fq3tgAn983eOTPbUFuvnj5DygKcGYTiEz6d+YSBNzMCR73PQbQZFeNoVu4Ti8GW8Lp67Nfp
-	Uk4CjYUQ183luSUVSxxtIbntQFsFGi3n6ZS97HaVQ6RCOF/8RWFk4+psgE0j8RvOiGf2t6F
-	HDAJdXy+AJUztjZfo2jbRHdPGN4N8Ds2/fN1v/1maJ7DdqzEP7PG+T8zJDRo6i/d1o2Aw9h
-	ZCnebSMJI4E9LhFPijPQHf2dSwu9g5cxR977B0ZmK00bMCfs6Gv1WOehZXfg+V3451VRxhF
-	9sZHpDspovHfNvT2Tyb9fQOESYG5eJmNSQRcy1w8IUq5mheflI8m2gRsYCdaB2J/5fo+YL+
-	X/JBNWg/pGUwAskNtqyr9UmPLaKh6cs/HfoObdj3c4PNuP2XSo/vm9b9aRsOJ1yduJXhtcS
-	LllKEpkJdakBnr+oT6uDPggm3z9xzZVzzGI1mqZdYEKAg68p+PbImi3pPAmTpRJbsUBxz13
-	ylsD1xt+dAXsLAyK4BkK7EE72X+xmK875gxhMCpEj8k1zyqdT7jrgz7s1d9gNzd8nc5/1Th
-	LCYvi5Ysoft42aaU1+oBhOwPyvMS6c3iYlyQGLe/P66IkoC7yHvSEfzMLdl3S1/pSLuC8dv
-	EguWeN08Wgn4yLSQox1zbvG90UbS+OgVYxTfO+8cWBGD9hYqyweVcFNrzLekfYB5ihYCaVt
-	1HFE60IOWiLd76fJW3b96CvboijzL+cSMXjFvdoQ==
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-XMAILINFO: NNgSqAauJRa7IWwn2f5/mdk3nt8o+2X0beg5wUexPCsYt2e4BW3uNOh6
+	yZM0MwsjJEZb8nxe4k95oS8jTUw7lfYt8MU/vBHQZnln/dkgKiNnt1ZzOy3ms38q24r9ZVR
+	VCBjgC7vfsq3tyy3MtazVOPS+d2tWR1v8dIW1CwDdwmg6ODz4XdyRb8VtwLheghK7/u3eqQ
+	KW3Sz7giRn48oQoxswhLfPLt2dtFIilYkC0tqEHpo08MymA1lfwD18A0ZPgYZlcU1a64/fD
+	jwRh6YAkPfiad8xt571HJDKTbPkX+5U49Um1roMBhAf5y/G+eQCe8Woe3j+UfnDlD49RaaD
+	spHjYWBLBEE+Mlzc+kv94jcrMXZp5KkieNOLhmzX31+j4Rn7CIVCtnl3YRwd9wQ/qJD3NVB
+	CYZ02tWSRsnZiSrtz7qq+uldUYsSuQVtHsXGHHE6hQeuFAcyh+gRgmnIYcJFqTeGwv1+ZaB
+	6VEAOVSKTffRkxcsDShY4SYFkR57jrnnfUC4gNrm3yUwp9AiRcVq53M4BYmgHuUf9FyFt6n
+	d5wikJQfujTCZZbQc72KYYz7CrUiVhH/DFQbF4f03vZ+9ydKhCbN9oKU1UnWsvwIDHpheXz
+	pHxbk3vlowjBFzOOfOWTI8VKEnAiZfo1lr9b5GiRAUbKo7Va0SJZWZbbkYl+JUjXcqyiAV9
+	fHw3UQr09nHqy7/f0nLi7JCuumz/pY3ObfuNZ6tP5i/mEBO4W8/DDF0kxp7TQZPAKLaa9b9
+	6HOokTDMmm7fq4T4bnWNZHHnGQ8J9BekoOE2cu8UJ/dVSaF3SrkAlZiZOLtwjQGTz5lyEwi
+	vrTzZwGwNrs03Tu5/oSQpeKj0L2jeP4seH9HKVfX8vrsoM8JwLxFGk+dacplyB5EJg0vwmi
+	jMX4xmdmXEUeh949lTkVVmiUjhq7yjC2sAXOrNS+hEqtKatulDfavIHoN4t0ZpBwF7frWdo
+	kl/c9u2VT5wXJWRf5+r+YVTgUcNpSukQc4ii1BUIjiB5OKxCo1IjPvZML0I3jJD5ZNBJuEO
+	YvHo6okkeDMnZuyQmnekWNawuq0II=
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260118_233306_311525_8922460D 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20260118_233326_883617_B050F829 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,51 +126,64 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Let's make the ports nodes of cdn_dp in the same style as the other
-display interface, and match the style of ports's yaml.
+Using the DRM_AUX_BRIDGE helper to create the transparent DRM bridge
+device.
 
 Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 ---
 
-(no changes since v5)
+(no changes since v11)
 
-Changes in v4:
-- Remove unnecessary #address/#size-cells
+Changes in v10:
+- Use drm_aux_bridge_register_from_node() instead.
 
-(no changes since v1)
+(no changes since v7)
+
+Changes in v6:
+- Fix depend in Kconfig.
 ---
 
- arch/arm64/boot/dts/rockchip/rk3399-base.dtsi | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+ drivers/phy/rockchip/Kconfig              | 2 ++
+ drivers/phy/rockchip/phy-rockchip-typec.c | 5 +++++
+ 2 files changed, 7 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-index 4dcceb9136b7..93b42820998f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
-@@ -618,7 +618,11 @@ cdn_dp: dp@fec00000 {
- 		status = "disabled";
+diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
+index db4adc7c53da..bcb5476222fc 100644
+--- a/drivers/phy/rockchip/Kconfig
++++ b/drivers/phy/rockchip/Kconfig
+@@ -120,6 +120,8 @@ config PHY_ROCKCHIP_TYPEC
+ 	tristate "Rockchip TYPEC PHY Driver"
+ 	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
+ 	depends on TYPEC || TYPEC=n
++	depends on DRM || DRM=n
++	select DRM_AUX_BRIDGE if DRM_BRIDGE
+ 	select EXTCON
+ 	select GENERIC_PHY
+ 	select RESET_CONTROLLER
+diff --git a/drivers/phy/rockchip/phy-rockchip-typec.c b/drivers/phy/rockchip/phy-rockchip-typec.c
+index 1f5b4142cbe4..e31b778c3537 100644
+--- a/drivers/phy/rockchip/phy-rockchip-typec.c
++++ b/drivers/phy/rockchip/phy-rockchip-typec.c
+@@ -56,6 +56,7 @@
+ #include <linux/phy/phy.h>
+ #include <linux/usb/typec_dp.h>
+ #include <linux/usb/typec_mux.h>
++#include <drm/bridge/aux-bridge.h>
  
- 		ports {
--			dp_in: port {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
+ #define CMN_SSM_BANDGAP			(0x21 << 2)
+ #define CMN_SSM_BIAS			(0x22 << 2)
+@@ -1312,6 +1313,10 @@ static int tcphy_setup_typec_mux(struct rockchip_typec_phy *tcphy)
+ 	if (!of_property_read_bool(np, "mode-switch"))
+ 		goto put_np;
+ 
++	ret = drm_aux_bridge_register_from_node(tcphy->dev, np);
++	if (ret)
++		goto put_np;
 +
-+			dp_in: port@0 {
-+				reg = <0>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -632,6 +636,10 @@ dp_in_vopl: endpoint@1 {
- 					remote-endpoint = <&vopl_out_dp>;
- 				};
- 			};
-+
-+			dp_out: port@1 {
-+				reg = <1>;
-+			};
- 		};
- 	};
- 
+ 	mux_desc.drvdata = tcphy;
+ 	mux_desc.fwnode = device_get_named_child_node(tcphy->dev, "dp-port");
+ 	mux_desc.set = tcphy_typec_mux_set;
 -- 
 2.51.1
 
