@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B2CD29C2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 13:37:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17B5ED29C2A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 13:38:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lJb3R19nkiYopQmNx5R8476OrkmBP08hMcFQKv47fKY=; b=VseKwkb0YND8KlsPkdeJWmLGub
-	WTw28/P626799LM6APXlPT0NGp8jJ1QREjhdiL5082hqfsUPwibIw3q5zVICCLowlaFGYgGFydviF
-	eVJjuutyvhze44NVXkVpuiL40RnPeq0IC+UnKDUO9K6b2VaJ2T6gd86zEiJTZ2MOOcvTJnC6gAUHz
-	uGQNpoPDz0XeC2Vtpor7ooXogY5GZSws67pXC9h8Jrm57JYhMSRG5Zo4/k5csM9jUmb+mOT3RRF8T
-	P7eJtDeRq9i6itSmyDLZKkGQot3ZaWKzyPjBrALgBiHlJkdpHSROdQQCozfdU+yTXnoz2BzlLphPB
-	9L2CBxHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hUAVyNbnXZWCQBjg+zyhay+XC6IH/G0IgORJeud/DK0=; b=jdAFX+xM3GpyrrxGdPFo8YGhrp
+	vjoNAkd6pNSStE4HhM/8cZg84WKhzx9Fsg2RrVeNoqkj2BE0TSE0FJBXcHHKyqRb6U5/s4zvhSTBk
+	5g3pVozVECc3Bbaz9TiYVxKDXJJQCknjq+ef9jUP939Ex+IhfCIWp+/YvkXTOj1JAMXQ+RIAMt1Yc
+	vQkZBrHolonNC9rPaJMa6NxtiHerXNyCooPeguDWFc01hhr6CUFWsFbHrP5aQ5SobUGh0V+TfAkre
+	PtzN+6ma14ikbCXA6FiA7w6v0wVe2CSXOl5b1RNq0ccVvb6i95pv/21U4c0UI8pywDMMSkw0hh1OG
+	o1oF7d+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhpRa-00000002Asy-1HFM;
-	Mon, 19 Jan 2026 13:37:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhpRY-00000002Asr-3lC6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 19 Jan 2026 13:37:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=lJb3R19nkiYopQmNx5R8476OrkmBP08hMcFQKv47fKY=; b=SXxHormaFyd3raMUg6aDAc2BCX
-	WV4Z+6JDSjlXAF1A8rlO9JJ/47adjQU3mAbIRd7m3nw8eCMpngzBzTJTzOkyF8budMm8xCnVk9AA0
-	rFdbQKpDFJbKU716w9TXy6ILljksP8t+PoJXlCoLJMbIfcD1pseoY3cy1Dth7oNShA+SdlOZNYk+Q
-	KI2rwtUDvryIKk1HGDwUJh4h70SOLBG7tHull2DnTzPwXjtay/a+wkhLSlnl9fmZhxmXmxZfnv6KZ
-	9Dcswc5dzW8VGsyPqelXa0yJU03SzHclL1MsDhJlyax4ZI04+gHG6nW9Ja8z30zzH25dhwbac80/J
-	OqW7Kfkg==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhpRV-0000000CBDH-19yY
+	id 1vhpSY-00000002Azq-0vDN;
+	Mon, 19 Jan 2026 13:38:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhpSV-00000002AzD-24QT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 13:37:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 677F543C4C;
-	Mon, 19 Jan 2026 13:37:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09E63C116C6;
-	Mon, 19 Jan 2026 13:37:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768829833;
-	bh=NQhlNmakp9XzCvOKm+K/DiXWdOuvD8Ykc7UWybaRfrA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=A0Yy+O9m3bpEWejSb8AZVey2Vkiwx0Eax1Yq7MFX+zQfpIW9vXJjBQavwlH/TErRH
-	 qW66JhnYseJiJfY2MKbXCI54CthEcjVWyI6bb/ms2w53GHTvZLz6J3jazd5/uSl2Ps
-	 FTn7n87f/C1RBrwV1i6bt5ETR8tzAWb0QlnyYbPPk0g6AQe4B1dYCGNXRpxzsRjpvG
-	 O/O1cX7wCx42r0asHpVNvtwg9Az048pE37WW7oOey/+uBFiI33P8bnOHzVHf9i0y12
-	 XwB/K0dlvP1LZpCmhHgmmT6v5qbWg3jaahCpW3/N9FB90ik68JPzCM7hNszYr4JJ4q
-	 hXVNgNbeGbjXQ==
-Date: Mon, 19 Jan 2026 13:37:08 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Paul Menzel <pmenzel@molgen.mpg.de>
-Cc: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, clg@kaod.org,
-	boris.brezillon@bootlin.com, joel@jms.id.au,
-	andrew@codeconstruct.com.au, linux-aspeed@lists.ozlabs.org,
-	openbmc@lists.ozlabs.org, linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	BMC-SW@aspeedtech.com
-Subject: Re: [PATCH v2 2/2] spi: aspeed: Add support for non-spi-mem devices
-Message-ID: <e4f133db-928e-49ae-9ee8-99e119d14708@sirena.org.uk>
-References: <20260117134216.595436-1-chin-ting_kuo@aspeedtech.com>
- <20260117134216.595436-3-chin-ting_kuo@aspeedtech.com>
- <3153512e-8325-4d0b-a869-a2a5062abefd@molgen.mpg.de>
+	Mon, 19 Jan 2026 13:38:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1DF7C497;
+	Mon, 19 Jan 2026 05:38:11 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF8193F694;
+	Mon, 19 Jan 2026 05:38:12 -0800 (PST)
+Message-ID: <d603ad9c-18a0-40fe-9d0b-2ff31eaf8f30@arm.com>
+Date: Mon, 19 Jan 2026 13:38:11 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gk42q0GFzUogNGdb"
-Content-Disposition: inline
-In-Reply-To: <3153512e-8325-4d0b-a869-a2a5062abefd@molgen.mpg.de>
-X-Cookie: Does not include installation.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 07/47] arm64: mpam: Re-initialise MPAM regs when CPU
+ comes online
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, will@kernel.org,
+ corbet@lwn.net, maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+ suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-8-ben.horgan@arm.com> <aWkucXgE6g2lwvkj@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <aWkucXgE6g2lwvkj@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_133717_596712_F670DE77 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20260119_053819_612172_C1F1A0F3 
+X-CRM114-Status: GOOD (  29.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,41 +76,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Catalin,
 
---gk42q0GFzUogNGdb
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 1/15/26 18:14, Catalin Marinas wrote:
+> On Mon, Jan 12, 2026 at 04:58:34PM +0000, Ben Horgan wrote:
+>> From: James Morse <james.morse@arm.com>
+>>
+>> Now that the MPAM system registers are expected to have values that change,
+>> reprogram them based on the previous value when a CPU is brought online.
+>>
+>> Previously MPAM's 'default PARTID' of 0 was always used for MPAM in
+>> kernel-space as this is the PARTID that hardware guarantees to
+>> reset. Because there are a limited number of PARTID, this value is exposed
+>> to user-space, meaning resctrl changes to the resctrl default group would
+>> also affect kernel threads.  Instead, use the task's PARTID value for
+>> kernel work on behalf of user-space too. The default of 0 is kept for both
+>> user-space and kernel-space when MPAM is not enabled.
+>>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>> Changes since rfc:
+>> CONFIG_MPAM -> CONFIG_ARM64_MPAM
+>> Check mpam_enabled
+>> Comment about relying on ERET for synchronisation
+>> Update commit message
+>> ---
+>>  arch/arm64/kernel/cpufeature.c | 19 ++++++++++++-------
+>>  1 file changed, 12 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>> index c840a93b9ef9..0cdfb3728f43 100644
+>> --- a/arch/arm64/kernel/cpufeature.c
+>> +++ b/arch/arm64/kernel/cpufeature.c
+>> @@ -86,6 +86,7 @@
+>>  #include <asm/kvm_host.h>
+>>  #include <asm/mmu.h>
+>>  #include <asm/mmu_context.h>
+>> +#include <asm/mpam.h>
+>>  #include <asm/mte.h>
+>>  #include <asm/hypervisor.h>
+>>  #include <asm/processor.h>
+>> @@ -2483,13 +2484,17 @@ test_has_mpam(const struct arm64_cpu_capabilities *entry, int scope)
+>>  static void
+>>  cpu_enable_mpam(const struct arm64_cpu_capabilities *entry)
+>>  {
+>> -	/*
+>> -	 * Access by the kernel (at EL1) should use the reserved PARTID
+>> -	 * which is configured unrestricted. This avoids priority-inversion
+>> -	 * where latency sensitive tasks have to wait for a task that has
+>> -	 * been throttled to release the lock.
+>> -	 */
+>> -	write_sysreg_s(0, SYS_MPAM1_EL1);
+> 
+> Is this comment about priority inversion no longer valid?
 
-On Sun, Jan 18, 2026 at 12:48:37AM +0100, Paul Menzel wrote:
-> Am 17.01.26 um 14:42 schrieb Chin-Ting Kuo:
-> > The ASPEED FMC/SPI controller may be shared by spi-mem devices and
-> > other SPI peripherals that do not use the spi-mem framework.
-> >=20
-> > The driver currently assumes spi-mem semantics for all devices,
-> > while the controller also supports direct user mode access commonly
-> > used by non-spi-mem devices. This mismatch can result in incorrect
-> > behavior when different types of devices share the same controller.
+Yes, will drop it.
 
-Please delete unneeded context from mails when replying.  Doing this
-makes it much easier to find your reply in the message, helping ensure
-it won't be missed by people scrolling through the irrelevant quoted
-material.
+ I see thread
+> switching sets the same value for both MPAM0 and MPAM1 registers but I
+> couldn't find an explanation why this is now better when it wasn't
+> before.
 
---gk42q0GFzUogNGdb
-Content-Type: application/pgp-signature; name="signature.asc"
+I touch on it in the cover letter. It is the way it is done for x86 and
+so sensible to make it the default. All partids are usable from
+user-space and user-space can't bypass MPAM controls by doing the work
+in the kernel.
 
------BEGIN PGP SIGNATURE-----
+There is a proposal from Babu at AMD, PLZA, which he presented at LPC
+which would give a new interface to  have different configuration,
+closid, for userspace and kernel space. We should be able to use this
+with MPAM too.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmluM4MACgkQJNaLcl1U
-h9AOpAf+KY6H92cdg3gOoQqgQu7crH6a+7XIW9D8d4DUyutJ3AVxvUSJHgxNAl3c
-V4ilv0msLOJJ6HpX/r5PQwBxtXyJ8B+4awixyqucFxMc5rOTbOhTUfSQs5CEk0Ye
-ZA0i4zbi0ugsYRl329wp62zOsYNbdZu0zDZmaAwIGUnZhuyarMsk3xfSkg8i7oor
-/uQhG8Z+bw1Y9rW5+WBFPLHsEiOhsf/o7pIIKUtTkaJkrE8hvfvszgIzObDQwKPM
-EXIlzMbd2tlKgIHfwIRcRK+NzbpvC/BIHEBZmiYPR/Ura1meOTlsrD9UR0rpd5Gg
-RrZG1vxcsH4KwCDJfTCUxBBlMfcFlg==
-=Arfl
------END PGP SIGNATURE-----
+> 
+> MPAM1 will also be inherited by IRQ handlers AFAICT.
 
---gk42q0GFzUogNGdb--
+Yes, this is a disadvantage of having MPAM1 and MPAM0 change together.
+
+> 
+>> +	int cpu = smp_processor_id();
+>> +	u64 regval = 0;
+>> +
+>> +	if (IS_ENABLED(CONFIG_ARM64_MPAM) && static_branch_likely(&mpam_enabled))
+>> +		regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
+>> +
+>> +	write_sysreg_s(regval, SYS_MPAM1_EL1);
+>> +	isb();
+>> +
+>> +	/* Synchronising the EL0 write is left until the ERET to EL0 */
+>> +	write_sysreg_s(regval, SYS_MPAM0_EL1);
+> 
+> I mentioned before, is it worth waiting until ERET?
+
+Just for documentation. I can change it if you prefer.
+
+> 
+> Related to this, do LDTR/STTR use MPAM0 or MPAM1? I couldn't figure out
+> from the Arm ARM. If they use MPAM0, then we need the ISB early for the
+> uaccess routines, at least in the thread switching path (an earlier
+> patch).
+> 
+
+They use LDTR/STTR. MPAM doesn't care about which instruction is running.
+
+Thanks,
+
+Ben
+
 
