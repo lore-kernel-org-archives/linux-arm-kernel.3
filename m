@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E37CCF2D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:09:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E209CCF2D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 10:09:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=19Tlxmtj1wgd7c/Wqw3aq86mSes++ziMKVUPZDLOdm4=; b=xxFoQzI9ivSZsO
-	XXVEHnn6qvRdZyQlHr7ecT8ruGKC0D2CzDNH9G8OmEhYQt+uzWfcQ1gGAUrRWJyU/M0acKHFbtfEf
-	vo2agQrTZt8uuSM3jUic3z6QEoPogZokH4V8pdNYo3MkBRRZ9+sQHBWF9Slad1rvY63b/U8wXorfh
-	8CpwCyXD4KIb7jpwLkO7rWSjSP+dykaU+iU8G9iX+5beTHSptoZ7m1a/gE4rY5x5/0hGzuMsQdFvY
-	Yxp4srZiQyGuguQ1I2PrHGcN/reqLg4A2nSqCnHL81n1ljO45JH3ayTo6SLQzVGMZEh7Rt+rIL0pl
-	WeKxbtCxboW8ZuYeKWYg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rQboqiyM1bMVlCd/3rehrhWCEvcz3KFGOF/fcvtDHSE=; b=anM5Mf1Rn+PgnBNgf72UbiaZM4
+	Y5oJVLoePWLKEZBzxRhX0XMD3VFugkGUaKQuU6qkggQTZYqeWIUeAq/Z3Wpc2l3gWO63fYFumEE1z
+	Lrf4zJy1oUljpHhfl3rK9kn1BzBe20f2m8at5lvSzaJ8Abc9PhDx8ciJlrJkyUj4nWVWJXOJ2WMLA
+	xt6NVka4vU+KQ5m3TsWMppFE70E+P7JSupNBYT/eomQUthymLeYksu/ktk1v2MMz7ZBszHwFCDDOD
+	/zgg/PWYMBnSDsps3t+X8ZKDvxzd99jtxYFz2TRLxYjj5yNkq2+gM4njQqY5ExnLPzMf/wNNwmyTj
+	tdTRPouA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmCF-00000001ikq-48DD;
-	Mon, 19 Jan 2026 10:09:19 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1vhmCK-00000001imi-2O1W;
+	Mon, 19 Jan 2026 10:09:24 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhmCE-00000001ijn-0MzF
+	id 1vhmCF-00000001ikC-36hy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 10:09:19 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-42fbc3056afso2472514f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 02:09:17 -0800 (PST)
+	Mon, 19 Jan 2026 10:09:20 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-42fbbc3df8fso2081347f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 02:09:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768817356; x=1769422156; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=19Tlxmtj1wgd7c/Wqw3aq86mSes++ziMKVUPZDLOdm4=;
-        b=MoEU/VKm9E5ePjjCpzDx63Dsb2LgcQoSJKYaYKtPdNCATIPhUgZRzjsAasma1LLeDG
-         ResSLYu8htKwnmaoAaF2Q6PmZrOfOa7JLuQW+ojqXhWeP93pcwlMQs3PgcIeO12Eu20r
-         BAxUNERYCghC0teKijPd5ZhALYZyQcCw1t4JXPtSsG0EJLnpAajgT2O64HKhXwr4ghvD
-         svbX/fyf27qa3IbBIf7eEf7eiiho6HQx7682jdlkh6VBL15iHQJv285OfLtCwIptc9X1
-         dXAZ5WzE04e4aqgPPejoRLtvtUzDZv5NH/iTCpkdw+Vkh8t0QEYlq5nkPg6NlrYCN7Ym
-         Gveg==
+        d=linaro.org; s=google; t=1768817358; x=1769422158; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rQboqiyM1bMVlCd/3rehrhWCEvcz3KFGOF/fcvtDHSE=;
+        b=xgkS7t5/kpbBkNS4RrOqYYKIByZqFDHruWW2mwvqSG4VydiXNEscPj1FMTNTpplNmz
+         D61JIVH+2h2hA190nU1st98VkHrWFE4eMwKDf8K/3JrL6G6h8pFLx76By7RdVNUAsDTg
+         03uNbgPptlEvO/samR7EmicmNmc1eSCwEkaQHfJMTlF5xGMA27GGTa7i+8zjsqcWMz+4
+         MVxzQVVTOJNUEVMv5UI+PsKcxMrS0Bw/uPhskAOODOJS8UoPUYsTbzqrka/AyK2LB+OR
+         NRVinWzx9qcLFR+eFRI60SkjQ1xQxQYVKU2aVFxnI4XEClaq6cvtN1JBDA4QuONyOgOi
+         bI5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768817356; x=1769422156;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=19Tlxmtj1wgd7c/Wqw3aq86mSes++ziMKVUPZDLOdm4=;
-        b=i47ptTX2Pd175hfJ9cUwpqJUKnrcII31SkauwPqZvLBOnMaFs1fQ3r4A6/q7WHmX9G
-         nUhYMhfOeUeoFmDydnT5j15i2WJFKcG2/faQHzficP1iYNxZ7yq1dW31OqOQIrLImaNN
-         +jSetVtGTl8nqbZx1w81fB3k7Lnf2p+kh9egr4m92DKwwY7Dd03J0G1H+XfZ28tpeoa8
-         QdwoUznU67hDL802aVduS9l4213WtYWOE422ZlQTpS90bD7MTzxGlOECe9BA/8mdfboG
-         0IckA/1X+yJlIoFDIsodthVMKkq9CXjTwFWRyuA1WsPaRPKdNByNLbWTYC6ebTHsg4q7
-         oyDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW9gA2yDfgK2sZq85Q9nh+YTurfFuFH0x8OVh7L6YvvYb3kIe93fxBAcwvW51ja5sNEtqLHYlqC0W/Ju7uOyaFq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzM13PuoRkSLCYrCACywRGCnF8YNEO8Fhqhf40ICX3TXrIjN+Kh
-	vicsCWt35q+SMUK4G38AzoQO5s7s+ko3o2zAbpcwtTPo0yfJwgtp8ov0y0FpK2yGvzk=
-X-Gm-Gg: AZuq6aL2jWFYcl//MYUFx2MP6RFutwz2jLMISu6d7lJ8ul+3dqQQ/yb2EHjMgZFMgvc
-	rOPGGfFvOGXRqw2zqruHZKnIkNhPMV9pooC56j/toK+EMOgO0SyOC9yqvY22KsyNJ9rQ6PPVwct
-	KyBQZO6Kjzk8THSgu6pYvNLl3tdE8I6Yk9A7jvs2RI7g6WnJfGCSKlEchar6yMp7X5fFqcZaxC8
-	dzE7BBqGqmFjnKMRNpFhXZcPKiVdfwsBtP+Netb7vESxFtD2AImMm5gExLwNZPXXueA06twh5zK
-	wPA7CCuc+AEfqJJILpKpmtG4HAj3nZBDlsgiJT6/pTz3wPTw78Q87Hj9zbhqMFWCVXqwP0wvNGw
-	mQumXinCwVzyhgjTh2eRM5pqFocEQlULhILo402yrfu9MBu0cTqaSUtouYT/sGDTLO1ueAP/RCp
-	ZIpPin+/+kVuYJnj8r6hC2
-X-Received: by 2002:a05:6000:25c7:b0:432:dfa8:e1b6 with SMTP id ffacd0b85a97d-4356a053748mr14605338f8f.39.1768817355664;
-        Mon, 19 Jan 2026 02:09:15 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768817358; x=1769422158;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=rQboqiyM1bMVlCd/3rehrhWCEvcz3KFGOF/fcvtDHSE=;
+        b=soKOn24NuxMFD898muCZI3ELDajzvxxmRPYmp8VYk+uxss7M7W5gNgpZ27RpXoXq9E
+         dfv4EweS5awZr7DynVcDrDNaNKraR8N/oLpoDQHck1etSq4E+tJwNQu+m7TJbAcEP5r2
+         xbuOyneqnjnhC1PRia2cBUNKNkVEs69cSuizYK0f1YDpPUUGSQguMiQahpgPpmLin4je
+         zYGI5arNc78cwVTTyTjnatVo2UaC7IHdsg57JJRGdp7+hlTNYQ9UF3UXfxDn/7pONNuj
+         LdyoeoA+Ma5CYtVHoHNB8OgYO9k05K06hNNA/xv6fNpzhdbFlgFMVXxJvDbJ7IbTs1f5
+         fxWw==
+X-Forwarded-Encrypted: i=1; AJvYcCUNuZ81dcJGZmD1HAHyrrjx93+QpPqFNelhP/4sEqLCVJTrau41waeVJHd2w/crfzUn3AbPpEIgu7qLQ6JYMJzS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPQIcgfRsOi1Gs+Z2u8fBOY/hS455gWVcZ2H5DzU81btpBvDCY
+	8f7kPX5VVerRfPFc688ebQ7viPSTbMukulwjM9f2XF6Q8rmzN75gGCZBkKVkVRFT/V0=
+X-Gm-Gg: AY/fxX7EqpJ/cYOCeP8nQLq5SQLdJ++CFqzFKVz3FvL0KufRoBDUZm2ST7lctYQV8yR
+	1GLbpHb1BFMocHdDCpYSa6ddco3TKtLrZKmAQSWF11XeUBbFaLb+wDdnbEPNUKdYgPHze/kvQVR
+	+T2q2clmunCOiapL+ITAQ3oNS0W9Sj1CdHDQ45UBsuv96959roTT4zl7w0IUUfoqGrsB01hrUkk
+	dHkWp1mlZIDWJps5lu8rBy5Vojlg88uq11QJNIW7L6JSotkZNgAn9iIFvm387PexXXYualarDQD
+	MWaVIEPxfPYIAHC8yOMcepKQ5lM69hj37c8JzMKL4hzTrFlKgvIcvet5erkGUV/+8r3TNhvvePA
+	dEuMgQxqzhZkwehrEgfF46/5aFaLVFlw1J8VK81/TAihVutk4tuxE71nDt56Ni8EGhch35Thvic
+	Cvqj/sTynXn+ECtlLWpFiA
+X-Received: by 2002:a05:6000:144b:b0:432:586f:2a9d with SMTP id ffacd0b85a97d-43569bbffa4mr14213616f8f.32.1768817358124;
+        Mon, 19 Jan 2026 02:09:18 -0800 (PST)
 Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4356997e6cdsm23234802f8f.31.2026.01.19.02.09.14
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4356997e6cdsm23234802f8f.31.2026.01.19.02.09.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jan 2026 02:09:15 -0800 (PST)
+        Mon, 19 Jan 2026 02:09:17 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Subject: [PATCH 0/2] (no cover subject)
-Date: Mon, 19 Jan 2026 10:08:15 +0000
-Message-Id: <20260119-james-perf-coresight-cpu-map-segfault-v1-0-a9cfd67653ae@linaro.org>
+Date: Mon, 19 Jan 2026 10:08:17 +0000
+Subject: [PATCH 2/2] perf cs-etm: Test sparse CPU maps
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAI8CbmkC/x3NwQqDMAyA4VeRnBdoC51jrzJ2CF1aM6aWRGUgv
- rvF43f5/x2MVdjg2e2gvInJPDX4WwdpoKkwyqcZggt3533EL41sWFkzplnZpAwLprriSBWNS6b
- 1tyCH6ChHor5/QGtV5Sz/6/N6H8cJgYXI4HcAAAA=
+Message-Id: <20260119-james-perf-coresight-cpu-map-segfault-v1-2-a9cfd67653ae@linaro.org>
+References: <20260119-james-perf-coresight-cpu-map-segfault-v1-0-a9cfd67653ae@linaro.org>
+In-Reply-To: <20260119-james-perf-coresight-cpu-map-segfault-v1-0-a9cfd67653ae@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Mike Leach <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>, 
  Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, 
@@ -93,9 +93,8 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_020918_141448_A277E3E8 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260119_020919_798263_544316D9 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,21 +109,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+We only currently test with default (all CPUs) or --per-thread mode.
+Different permutations of the "-C" option can affect decoding so add
+tests for some of them.
 
+Signed-off-by: James Clark <james.clark@linaro.org>
 ---
-James Clark (2):
-      perf cs-etm: Fix decoding for sparse CPU maps
-      perf cs-etm: Test sparse CPU maps
-
  tools/perf/tests/shell/test_arm_coresight.sh | 54 ++++++++++++++++++++++++++++
- tools/perf/util/cs-etm.c                     |  3 +-
- 2 files changed, 56 insertions(+), 1 deletion(-)
----
-base-commit: 571d29baa07e83e637075239f379f91353c24ec9
-change-id: 20260115-james-perf-coresight-cpu-map-segfault-e250af5aa778
+ 1 file changed, 54 insertions(+)
 
-Best regards,
+diff --git a/tools/perf/tests/shell/test_arm_coresight.sh b/tools/perf/tests/shell/test_arm_coresight.sh
+index 1c750b67d141..bbf89e944e7b 100755
+--- a/tools/perf/tests/shell/test_arm_coresight.sh
++++ b/tools/perf/tests/shell/test_arm_coresight.sh
+@@ -198,6 +198,58 @@ arm_cs_etm_basic_test() {
+ 	arm_cs_report "CoreSight basic testing with '$*'" $err
+ }
+ 
++arm_cs_etm_test_cpu_list() {
++	echo "Testing sparse CPU list: $1"
++	perf record -o ${perfdata} -e cs_etm//u -C $1 \
++		-- taskset --cpu-list $1 true > /dev/null 2>&1
++	perf_script_branch_samples true
++	err=$?
++	arm_cs_report "CoreSight sparse CPUs with '$*'" $err
++}
++
++arm_cs_etm_sparse_cpus_test() {
++	# Iterate for every ETM device
++	cpus=()
++	for dev in /sys/bus/event_source/devices/cs_etm/cpu*; do
++		# Canonicalize the path
++		dev=`readlink -f $dev`
++
++		# Find the ETM device belonging to which CPU
++		cpus+=("$(cat $dev/cpu)")
++	done
++
++	mapfile -t cpus < <(printf '%s\n' "${cpus[@]}" | sort -n)
++	total=${#cpus[@]}
++
++	# Need more than 1 to test
++	if [ $total -le 1 ]; then
++		return 0
++	fi
++
++	half=$((total / 2))
++
++	# First half
++	first_half=$(IFS=,; echo "${cpus[*]:0:$half}")
++	arm_cs_etm_test_cpu_list $first_half
++
++	# Second half
++	second_half=$(IFS=,; echo "${cpus[*]:$half}")
++	arm_cs_etm_test_cpu_list $second_half
++
++	# Odd list is the same as halves unless >= 4 CPUs
++	if [ $total -lt 4 ]; then
++		return 0
++	fi
++
++	# Odd indices
++	odd_cpus=()
++	for ((i=1; i<total; i+=2)); do
++		odd_cpus+=("${cpus[$i]}")
++	done
++	odd_list=$(IFS=,; echo "${odd_cpus[*]}")
++	arm_cs_etm_test_cpu_list $odd_list
++}
++
+ arm_cs_etm_traverse_path_test
+ arm_cs_etm_system_wide_test
+ arm_cs_etm_snapshot_test
+@@ -211,4 +263,6 @@ arm_cs_etm_basic_test -e cs_etm/timestamp=1/ -a
+ arm_cs_etm_basic_test -e cs_etm/timestamp=0/
+ arm_cs_etm_basic_test -e cs_etm/timestamp=1/
+ 
++arm_cs_etm_sparse_cpus_test
++
+ exit $glb_err
+
 -- 
-James Clark <james.clark@linaro.org>
+2.34.1
 
 
