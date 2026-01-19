@@ -4,131 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96C0AD489AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:53:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8005FD29C23
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:Subject:From:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5BKEJSbQqm0XcnAkEvIEBpS5wjgQPQm9TQO45dq1oQc=; b=IEDIhBTZc/LUSVnUB5PETk94Tp
-	c9ub+gx3UIcDJsj2YirWR+5MHYkdt34+LvCm0blp0rZVH/doqNT/Q5WvIBEpxwQnwOAUlt1+mxdho
-	mVQL2T1MiA4AErdxKAOdunXpNnVdNGaITQFX60MQeV/qk6K30S8ljq/aupdcGIFodk3E/SU+cRSPD
-	GdgZS/8hBWWrUzvY01I280AdMtKSK8oaZpGSHZLrn3p3xICkbGDhCD9ML3nQ5wAX69ue78NkvE1J3
-	D/ii11LehbS/LvvKEvhx2SSYrW/NzMxys3xn4BAK4El+MSxz6y20yU/BX3jK27/nBd9Zi/rsEi/O8
-	87VIqp4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lNHrn/XFzhadasziTUy6F7RftXtkLpDR8wFnHICqw0k=; b=BGOc67Z5EMazBXWuTtADQEmPFh
+	6y5lOcn/XALTC8qITEthtQtYpirjeJkg/vpMqi4ajnr6JD+EDTiAjsf+9JPLv21PRyk7YRrSQBXDC
+	du2FkazG+dqmvNJydJTD6Qokj/rWZsiO9LVzBgd1pHpy0thk+GHQcsRD5QCTtQ/3//bkxnmA/yPoF
+	CVPYNCbn6IIZOgcowIz1jbyGDMZzDFYm7vqeyEamuKLtqSSJvFEm/skXGklRMENmoNqBkEIvE2WzI
+	7QjirnoObmyrtgOtQSA1FsaF7t1vbhioWKO42z/Iyz7Z8U669yvc0eDTKIamP/B7KidwbTdIEZFKw
+	bmaF3wZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhol7-000000026Fc-147L;
-	Mon, 19 Jan 2026 12:53:29 +0000
-Received: from mout.kundenserver.de ([217.72.192.73])
+	id 1vhooS-000000026fL-28WO;
+	Mon, 19 Jan 2026 12:56:56 +0000
+Received: from mail-ot1-f51.google.com ([209.85.210.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhol2-000000026Ex-2KLF
+	id 1vhooP-000000026dt-42cH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 12:53:26 +0000
-Received: from [192.168.0.66] ([88.171.60.104]) by mrelayeu.kundenserver.de
- (mreue106 [213.165.67.119]) with ESMTPSA (Nemesis) id
- 1M3lLh-1vhXll1nPv-00BvaZ; Mon, 19 Jan 2026 13:53:02 +0100
-Message-ID: <154d0ccb-00d8-4e7b-ab6e-c798c86c5e96@green-communications.fr>
-Date: Mon, 19 Jan 2026 13:53:01 +0100
+	Mon, 19 Jan 2026 12:56:55 +0000
+Received: by mail-ot1-f51.google.com with SMTP id 46e09a7af769-7cfdf7e7d19so2325055a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 04:56:53 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768827413; x=1769432213;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lNHrn/XFzhadasziTUy6F7RftXtkLpDR8wFnHICqw0k=;
+        b=g5wz4f1ni3tPxNhKop5Aceba3cqST2YOaoui7EH3ecrpA+hFhWi7zM//pEn1nABDoq
+         v7SroeAozD3UApAp8n+2fEJS/3ur/t+yXRErxH2yo3O/GDWJw7nZ9cWafjgnWlhVS/tX
+         7QohvISJrxMvrj8AXzYaQ1C9wkM360XMTqxTQivCmFAh7ksf4BQVj7RJHTJNE1v/ejvb
+         3zKyi78rkMclJfs+/r0WelNYwGIYgPJT0V2QO1QTRCiPklHyBgA+oPmNDFXAvB2StD0n
+         2odMqHAzSmVha0Runb43yPa6eb02OJ3+GUjNLdT14+DxIeGtR4W4bKvfniFn5k3wRlHi
+         K8wQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVfPi/nMoeT7nL7UnigWq1k9rja+n9M7lR+u+Cah23uqeet+3bo399EvH1VBmNzpIxm9TONvvDGIuxLkjisnw/m@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuCxFBXzt9SQFPLKAAQBTXPCTDegvdV9KZEx3TvYWdTVRAhRKS
+	oUtR6NnX5vn55DFZiHTlXIfN2uOjGLHITWlLF9/Xjgerpdj6KU0icjSf
+X-Gm-Gg: AY/fxX66l6rTsK9gSFJ3unAm0uchG50ixPDuEJRF32U8053xGGYj1koK10cB+TPoTJf
+	PRuWgA2shumWpgyslCB8RRZbHIEmAetsVq5j2Xg8pGeJFxy7TfiPNDAiQh/Fr5CkPYT7mrK9MqD
+	8H8dWw1Un4i/msUnxV83vkbKtpFGRnaGtCzF+1LHtRhdXUuIi/V2lrJhpCzH9F+CIk/m7i6FHQt
+	1rf9zprTaRTfU0QOHLLHGbdYJHf2bf/SpjaHnKGNwAPDXiPKz51/nGdedqkWJgk5Hk2njaC20Uh
+	hbtrF+v8QwY4bOn+EBvFLKkkpnzw45ZcIqD+FrcuQrL0UU7FHKNf82kjWXN+B8ZTiy8Hkon6PZW
+	+GgSzRLXFX44R/FT1sRFpODzEEEyzAxZKqzwhFF4CtzqHgPeTvhje3wAa6hQzD9tZ4KFL+wkdS2
+	9H
+X-Received: by 2002:a05:6830:82ea:b0:7cf:f7c1:d9ac with SMTP id 46e09a7af769-7cff7c1da6dmr4841137a34.9.1768827412551;
+        Mon, 19 Jan 2026 04:56:52 -0800 (PST)
+Received: from gmail.com ([2a03:2880:10ff:4::])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7cfdf2a5f02sm6632883a34.25.2026.01.19.04.56.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Jan 2026 04:56:52 -0800 (PST)
+Date: Mon, 19 Jan 2026 04:56:49 -0800
+From: Breno Leitao <leitao@debian.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Ajit Khaparde <ajit.khaparde@broadcom.com>, 
+	Sriharsha Basavapatna <sriharsha.basavapatna@broadcom.com>, Somnath Kotur <somnath.kotur@broadcom.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Felix Fietkau <nbd@nbd.name>, 
+	Sean Wang <sean.wang@mediatek.com>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Shay Agroskin <shayagr@amazon.com>, 
+	Arthur Kiyanovski <akiyano@amazon.com>, David Arinzon <darinzon@amazon.com>, 
+	Saeed Bishara <saeedb@amazon.com>, Bryan Whitehead <bryan.whitehead@microchip.com>, 
+	UNGLinuxDriver@microchip.com, Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, 
+	Raju Rangoju <Raju.Rangoju@amd.com>, Potnuri Bharat Teja <bharat@chelsio.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Jiawen Wu <jiawenwu@trustnetic.com>, Mengyuan Lou <mengyuanlou@net-swift.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next 1/9] net: benet: convert to use
+ .get_rx_ring_count
+Message-ID: <l66l2ijd45fkwniaesgau5jdzoxrdyt4t7tnsd6dpo4dlefytf@tugyhkn2th36>
+References: <20260115-grxring_big_v2-v1-0-b3e1b58bced5@debian.org>
+ <20260115-grxring_big_v2-v1-1-b3e1b58bced5@debian.org>
+ <20260117181551.0b139ca1@kernel.org>
+ <ziyd3327jr7miqgv2e252w4wpizphomkvxxge6nbjwtg4pyvf4@gvwwi2r7rykl>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Bjorn Helgaas <bhelgaas@google.com>, "Rob Herring (Arm)"
- <robh@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Jason Gunthorpe <jgg@nvidia.com>, regressions@lists.linux.dev
-References: <a1d926f0-4cb5-4877-a4df-617902648d80@green-communications.fr>
- <eb94b379-6e0b-4beb-aaa7-413a4e7f04b9@green-communications.fr>
- <3780eb61-68e2-42ce-939e-7458cd3a63cb@green-communications.fr>
- <4da29d46-9a80-4ec4-b6b8-6c9457eed481@arm.com>
-Content-Language: en-US
-From: Nicolas Cavallari <Nicolas.Cavallari@green-communications.fr>
-Autocrypt: addr=Nicolas.Cavallari@green-communications.fr; keydata=
- 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
-Subject: Re: [REGRESSION] Re: imx8 PCI regression since "iommu: Get DT/ACPI
- parsing into the proper probe path"
-In-Reply-To: <4da29d46-9a80-4ec4-b6b8-6c9457eed481@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Provags-ID: V03:K1:qvKrgniDhCDttoq4hx/KpwZ7wvT16Hg+QjDEhqguqFoZvTWbYYU
- TAdm6qt5OYVkrkzIV5BNU900bXM0nA2ibuHysJmVsMFcS3Dg0a4BXevHAaml5stE7+brjh3
- G4BzfnZqu694rkvzCdqJNoOeJi8QMlhuL9ygtzBVxeOTgA/J20A8OqLub9ESDr49En8OwaK
- +/xqqWg7onaVG+Ll/CRpQ==
-UI-OutboundReport: notjunk:1;M01:P0:EzNrFn9xkI4=;8DWpBIhuMNpzgSwAxfQ7dLLhNe9
- rJznxzuVIOeaoZU+8zdc6bMAZaWOX191m6YuvJF5zlTkEmbgVD76qPgO2Y1+coVr+LuwZ7JnS
- vWk0I9WuOlH+m1ytpblAoqYRY96llCe8Pzci9ZO5u1kt1mBzaXWEMUW+eHPPHvvm4cSRd/JXv
- ah4YpGGGRpYevF3UGKuYeVBPCSL1qwF0iA4n3tRK+B9nx2MHdGv06+qTWpErTQCTYvQy7yok4
- gdkp/Ee6x25tSvq77PZnH2qECgCo1ZJK7lkeJgCwmtlREFQ0Bnhu8jnkseS6K2SXEinx1v2hf
- SmZRjmJZQ058ec6scJu2PqT2n3HQq77r41V4DfU+krCzqwEVajaS8roagNgmgcDA1MrzI/bG2
- UQBgtjxbXPlRYbTf+s4QCcPDfXBSn9NN2gQZLM5L6Uq00VcdMD7ddzpLKIenPuWkA7gIJ6K/x
- agvLGJ8nCORN15CgDuHgfbh/y2il346tDwqB5nvxV/R1SfZX4JUBBGLCpkmrhYY9rGdNLYAQG
- roa/daAv/oxjZ4Tvek6wb/Mz7MwDrjQG93OxqqtaTdKGjnTK5ySOEVf+igyeCP9fpfA+AK7oa
- sSYgMYB0tYEGZVwMXI+NqxaamqdrtpyjpWHHDYF1wfZ/H6qWkIDmYqmIAMeeYZMsmjFeODxtz
- VGJmFV9wwn75kCh+EbzZ3Fz19QtoKTBD8ozTOUfoYVJkXdwYV9rbTdRTCg4EImIUH4c/KDrhT
- S7wllpqjgmIWJMkRlIKRwhwMghd8Us8Cyibhid1SnTJwVxh8RGhy/xzqhCpqObd+1TALqC4t/
- RvHHBbe2TMKQvDM5YKb7idT9v9u4NxABJnzrj2ergxqCnhy+QqsE6yXaEiKA56jbJ+oC7dkcz
- IESEsG8o1x/twrNAYL1vWJ92u/xPAlfjPn6nb3zFeT2U7ohRnZ6ggzFl6ckw+1mX8lDJXgl2Y
- F4xyRlSgc6Obeo3vXuF7K+lIfkiWOXILcOQIBec7VzgRmdLKxJ73BdNuG0FMpQ7oD+8Nq3krC
- +1hR2NDLjxYnvTotm0+fW9PPWIud2zy5I7DT8YImSXU1wK2vFBfj6x9WZXb/2PshORP4fECPi
- WodrPNUNlqFRPVKI6F50ZHUHZUqJpZpNyBKOG+BEKybe6TH9x/nMy3YSl/HvLf0lb2CqHb8tY
- KunLjb+t/RYsMZTzWCxqTwKbqyb9L4mm+S3sPyztpRu3Y5wkBOnO8AGJkA1WsSFZcAVwIcWZG
- JkVlZW3t5a3LBU6y0p8aSU0V723JuuewIFxWJ+nfdsOU2yeKlyIg4PVeeWgzmez+OVMI9k81I
- dymPt+Cbi4LKFwE2rNpcP/m39WetK5OxfAjAb42vnG6ZGZlVmdm7Z/4sHpXBtXyThpm99aTzX
- Ett3mzhWu6Wf3B61dj08mRdMuNJWlC9VxeGO1cIOChKqEGGKkhGiaAzUaaIgDakSURwIURcFF
- ePlfCCSyvVNrywAEcPG8i9zJ7glah4NRtSXEswqJqfieME0kgE4k2qhwRXI+4wnWlWjfqDVPq
- XRbp+KH4wfyRdQCXXJeh7i11vrZWRNfa8a3E+gH0Xj/jRe9D8d80h5OXHpzKXGUuPPPQoZI/a
- njzlisWadfTYQDLM6Z4xZhCXxsouGvGNld9dXQji/2C1NWCpSLmAnXP1vj2E9rGGoJ41GXA/8
- o0d+fXB7Lzn7lioyi0zaeWREgrmHOHgWsxvOc7WkP+8yrij30gT8zTp8TZp5B6SSVBTbnVLTR
- 3A+45Nf6RjQgu1oaPsoP/Dd9+Ao7WG9EY07XFd4J9JRPvzEsXsUgCqQqy7X5jiodVkYqg1mqB
- Sjcp
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ziyd3327jr7miqgv2e252w4wpizphomkvxxge6nbjwtg4pyvf4@gvwwi2r7rykl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_045325_128144_DEDBDC59 
-X-CRM114-Status: GOOD (  30.03  )
+X-CRM114-CacheID: sfid-20260119_045654_003913_2E160587 
+X-CRM114-Status: GOOD (  21.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,102 +103,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 16/01/2026 à 18:24, Robin Murphy a écrit :
-> On 2026-01-16 4:52 pm, Nicolas Cavallari wrote:
->> +cc regressions ML
->>
->> Le 13/01/2026 à 10:17, Nicolas Cavallari a écrit :
->>> +cc patch author & reviewers
->>>
->>> On 1/9/26 17:22, Nicolas Cavallari wrote:
->>>> When upgrading from 6.12 to a 6.18 kernel, I noticed that a PCI
->>>> Ethernet adapter (Microchip LAN7430) would hang under load and not
->>>> recover.  When that happens, some of its registers indicate it is
->>>> failing to do DMA reads, so cannot reclaim entries on its ring buffer.
->>>>
->>>> I bisected the problem into this commit:
->>>>
->>>> commit bcb81ac6ae3c2ef95b44e7b54c3c9522364a245c
->>>> Author: Robin Murphy <robin.murphy@arm.com>
->>>> Date:   Fri Feb 28 15:46:33 2025 +0000
->>>>
->>>>        iommu: Get DT/ACPI parsing into the proper probe path
->>>>
->>>> The problem still exists on 6.19-rc1, on pci/next (29a77b4897f1) and on
->>>> iommu/master (360e85353769) trees.  Reverting the commit fixes the
->>>> issue.
->>
->> The problem persists on 6.19-rc5
->>
->>>> The system is a Gateworks GW7200, which is a i.MX 8 Mini connected to a
->>>> Pericom
->>>> PI7C9X2G404 4-port switch connected to the LAN7430 chip.
->>>>
->>>> -[0000:00]---00.0-[01-ff]----00.0-[02-05]--+-01.0-[03]----00.0
->>>>                                               +-02.0-[04]--
->>>>                                               \-03.0-[05]----00.0
->>>>
->>>> The problem only occurs when there is at least another PCI device in use
->>>> on the
->>>> switch.  It does not happen if the LAN7430 is the only PCI device, or if
->>>> the
->>>> other devices are not actively used.  For example i can reproduce it
->>>> with an
->>>> ath9k wireless network adapter when it is up and running, but not when
->>>> it is
->>>> down or its driver is not loaded.
->>>>
->>>> I suspect that other PCI devices have similar issues, but the LAN7430 is
->>>> the
->>>> easiest one to diagnose, as it hangs within seconds with an iperf3 --
->>>> bidir -u
->>>> -b 200M and its register map are public.
->>>>
->>>> I couldn't find an way to dump the PCI address translation mapping from
->>>> userspace.
->>>> I would be happy to provide more information or test patches.
->>
->> I debugged it further, it seems to be mostly a PCI issue since the
->> system does not actually have an IOMMU.
+On Mon, Jan 19, 2026 at 03:07:12AM -0800, Breno Leitao wrote:
+> Hello Jakub,
 > 
-> Indeed, I was figuring this had to be another case of a switch with
-> wonky ACS - do Mani's patches adjusting ACS enablement make any difference?
+> On Sat, Jan 17, 2026 at 06:15:51PM -0800, Jakub Kicinski wrote:
+> > On Thu, 15 Jan 2026 06:37:48 -0800 Breno Leitao wrote:
+> > > -static int be_get_rxnfc(struct net_device *netdev, struct ethtool_rxnfc *cmd,
+> > > -			u32 *rule_locs)
+> > > -{
+> > > -	struct be_adapter *adapter = netdev_priv(netdev);
+> > > -
+> > > -	if (!be_multi_rxq(adapter)) {
+> > > -		dev_info(&adapter->pdev->dev,
+> > > -			 "ethtool::get_rxnfc: RX flow hashing is disabled\n");
+> > > -		return -EINVAL;
+> > > -	}
+> > 
+> > I think we need to add this check to set_rxfh now. The error coming
+> > from get_rxnfc/GRXRINGS effectively shielded the driver from set_rxfh
+> > calls ever happening when there's only 1 ring. Now they will happen.
 > 
-> https://lore.kernel.org/all/20260102-pci_acs-v3-1-72280b94d288@oss.qualcomm.com/
+> You are absolutely correct. The ethtool core calls
+> get_rxnfc(ETHTOOL_GRXRINGS) _before_ allowing RSS configuration via
+> set_rxfh, and if it fails, ethtool_set_rxfh() will fail as well. And
+> with the current change, ethtool_set_rxfh() will not fail if the adapter
+> is not multi-queue.
 
-With this series, ACS is still enabled and eth1 is still failing under load.
+Upon further consideration, should we implement this limitation directly within
+the ethtool infrastructure?
 
-> Although in this case I guess the issue is arguably more that we're
-> requesting ACS at all, before we know that there's actually an IOMMU
-> present to warrant it. Clearly the best option would be to figure out if
-> the switch behaviour itself can be fixed somehow, but perhaps something
-> like this might help paper over the issue for now (but I'd have to test
-> it to make sure it doesn't break IOMMUs again...)
-> 
-> ----->8-----
-> diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
-> index 6b989a62def2..837cc0b5ace4 100644
-> --- a/drivers/iommu/of_iommu.c
-> +++ b/drivers/iommu/of_iommu.c
-> @@ -141,10 +141,12 @@ int of_iommu_configure(struct device *dev, struct
-> device_node *master_np,
->    			.np = master_np,
->    		};
-> 
-> -		pci_request_acs();
->    		err = pci_for_each_dma_alias(to_pci_dev(dev),
->    					     of_pci_iommu_init, &info);
-> -		of_pci_check_device_ats(dev, master_np);
-> +		if (!err) {
-> +			pci_request_acs();
-> +			of_pci_check_device_ats(dev, master_np);
-> +		}
->    	} else {
->    		err = of_iommu_configure_device(master_np, dev, id);
->    	}
-> -----8<-----
+Something as:
 
-With this, ACS is indeed disabled and eth1 no longer fails under load, but I 
-have also identified an errata on the PCIe switch that causes ACS to fail. I've 
-sent another message in this thread.
+Author: Breno Leitao <leitao@debian.org>
+Date:   Mon Jan 19 03:25:05 2026 -0800
+
+   ethtool: reject RSS configuration on single-queue devices
+
+    Configuring RSS (Receive Side Scaling) makes no sense when the device
+    only has a single RX queue - there is nothing to distribute traffic
+    across. The indirection table would just map everything to queue 0.
+
+    Add explicit checks in ethtool_set_rxfh_indir() and ethtool_set_rxfh()
+    to reject RSS configuration when the device reports fewer than 2 RX rings.
+
+    This protects all drivers uniformly at the core level.
+
+    Signed-off-by: Breno Leitao <leitao@debian.org>
+
+
+diff --git a/net/ethtool/ioctl.c b/net/ethtool/ioctl.c
+index 9431e305b233..899864e96aab 100644
+--- a/net/ethtool/ioctl.c
++++ b/net/ethtool/ioctl.c
+@@ -1380,6 +1380,10 @@ static noinline_for_stack int ethtool_set_rxfh_indir(struct net_device *dev,
+                ret = num_rx_rings;
+                goto out;
+        }
++       if (num_rx_rings < 2) {
++               ret = -EOPNOTSUPP;
++               goto out;
++       }
+
+        if (user_size == 0) {
+                u32 *indir = rxfh_dev.indir;
+@@ -1599,6 +1603,10 @@ static noinline_for_stack int ethtool_set_rxfh(struct net_device *dev,
+                ret = num_rx_rings;
+                goto out_free;
+        }
++       if (num_rx_rings < 2) {
++               ret = -EOPNOTSUPP;
++               goto out_free;
++       }
+
 
