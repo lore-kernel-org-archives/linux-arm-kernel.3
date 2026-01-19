@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E74D29C3D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 15:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 870FBD29C3D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 15:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NOE7KB+Fw73DI25/czfEIYqChpCw4xwJsi/vOSqGBGc=; b=l5lbGhrcDd92OpeFo9D69muKXF
-	9HZM/aBX6YiGPtDywg+uqDIUHqaBpdLWZhJQJnI9hP5IDgOONz1V0DyLGl8ybaLRp8MFmFgrYjbcM
-	6eAK0wvdMstv2kRI+ck27UnqE2X96F+JyZR9MRsYjBadPmaQGShvRtDuaiU7sH2wK853dud5pTQdr
-	rhfmtoKO6n4C1Q6F10jWSBs/ht/aIVb1bJ9O3hzCt6+l4t7LLl2cWly71zyvTsoM3WuWbY+/Okvdp
-	OtJerwo6eJL/27dXK9peVpMOP76yBSmPYznW9mkew050iKLO5rtE70jXcN0KXgYZ9p9tv5UN90yJm
-	vo9e1X2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eTBglWBnTynV6ai1tS9WQOcWN4D6jkFL54SYLkFOA+g=; b=0VqRkaZgjb7MZJsAxTEumxy3gM
+	058+j0jOoHiS8PNebkWCynj9hQJwE1FaSV7BuPP7vYcHNtS4DHpNHochxcvjzPnT5ZN3bo2TU++78
+	RO2BCtDv9dEnhh8O1Q3qMvEaBkD7bRbr+qs+v+gz4VlQz6Te2sif2lT2/8bQ5uswUrgbyJkbbLkXJ
+	u8vf/WQ+B+3PLF7U6s5TwE+7lW1mjFDpDZxDGErQvrCLbLB29Gsx5rdzhN2b0oQFwVofajmjj8SLJ
+	to3tdZC6swdwjZcDzxr/G8r6+1bY8fleL4nG3JRKqyn8XCpqvO+NOv+cJ3BKXElXifAkdnVo4jkgE
+	sb84JC8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhrc6-00000002OyL-1FvN;
-	Mon, 19 Jan 2026 15:56:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vhrd8-00000002P8p-35MN;
+	Mon, 19 Jan 2026 15:57:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhrbx-00000002OxZ-0veG
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 19 Jan 2026 15:56:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=NOE7KB+Fw73DI25/czfEIYqChpCw4xwJsi/vOSqGBGc=; b=m9dw64Cy56RM+Zaidb74XukRIw
-	cxHSMUnKNaLLkChcJ5t2AzvRCh3UYJ3O1gDAixVfZovFD7bJAYLDj8AbI067FI1RFyzAby+/Pqe0E
-	J1HMjCal3VeIoS+JhFYo6RBBxIs6szGamhn3BeyHO8BEKQjcxVbqpCcWoeca0pmm7QYZOs7y0ETg2
-	cJcUzf0EP2J2t7MAT9P+1FDq3UalFUsbVdIJUTaq0ujcmMrQVf4fm4CEdVaadn73OYSIaxIu7ob06
-	vPM5CdG5psf8kp9UbvkVGYc6xSPhhua+ram6eKgh9L3xxCb9JIqtoEWADI1wu1N1WFuuqTbwAwIyA
-	1WxKuYIg==;
-Received: from mout.web.de ([212.227.17.11])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhrbt-0000000CS58-3uRS
+	id 1vhrd6-00000002P7z-4Bu0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 15:56:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1768838166; x=1769442966; i=markus.elfring@web.de;
-	bh=NOE7KB+Fw73DI25/czfEIYqChpCw4xwJsi/vOSqGBGc=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=IOHqH5EQJFxWrjBZCSgjOea6wxFEmIN1NerYXaStxwHlLtcHJQoHhHlrFjgWO/Ax
-	 AvtneA4/gnMu3xVEs7m3thdUGmpVW4JhX/VCNcTq4ivcJbKy0qF6pHJiUo39SxLK5
-	 dcarxm1NaIhWloZK/NevCZV6zDdwLUF7OKa1xi28zX/xOsuBQ4cL8iZuYwEDiVb63
-	 N5w9/hM2ITa7EywhpJYKu+0sW4koo8efBJ15/rN/8DXcovqmAlKsLTX9XXJJeYoN5
-	 0J/wKxQypJthFM/hC115BMHdU/YtP4k+3KQQeL8cL1V1kj7exnPeIomc2b8SgLVax
-	 cuSbKUO4y8CD+8AePQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.178]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MQPZj-1vUr3v1vEH-00UVA3; Mon, 19
- Jan 2026 16:56:06 +0100
-Message-ID: <a2aa3091-4a93-48be-970a-8bc506fb0cd3@web.de>
-Date: Mon, 19 Jan 2026 16:56:04 +0100
+	Mon, 19 Jan 2026 15:57:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F66B600C3;
+	Mon, 19 Jan 2026 15:57:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A002EC116C6;
+	Mon, 19 Jan 2026 15:57:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768838243;
+	bh=bEBSCZfXLR1tJf1vwoAqITNqg+ipt9Ps9iqCK6K38wU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o/vIYDzJ2uTrb2kbHa5FfDunUeBlmLEU0PhnTOPodO4bYqwWwlCiUTlpv+80WfWJE
+	 bon8nQLNe5/SVPp8zumiJiuIkFH9371fc3BqrS4WlvBjS9HpQEiYwArT/7hKvIA96P
+	 mPfUUBxcgFIaPk7pIdu4badTWfKPkkqwn7eVsHo4loM16n+/E6BTmxBjtuWqYBNBuq
+	 ++s+W/ZXUqHX79XVEvxb0znwB1Ehhbwe234Zas1r2hFcGNzTHdlHHvAmDyMkll/bkn
+	 7v9M9QTsm0cJspiTgu4gU7vzhTnEm1oQDLIgRmBdb0fBvqFQAnZ5md3wsyNdJCi7ap
+	 w6PCbttDE3tQg==
+Date: Mon, 19 Jan 2026 15:57:16 +0000
+From: Will Deacon <will@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, maz@kernel.org, broonie@kernel.org,
+	oliver.upton@linux.dev, miko.lenczewski@arm.com,
+	kevin.brodsky@arm.com, ardb@kernel.org, suzuki.poulose@arm.com,
+	lpieralisi@kernel.org, yangyicong@hisilicon.com,
+	scott@os.amperecomputing.com, joey.gouly@arm.com,
+	yuzenghui@huawei.com, pbonzini@redhat.com, shuah@kernel.org,
+	mark.rutland@arm.com, arnd@arndb.de,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v11 RESEND 5/9] arm64: futex: refactor futex atomic
+ operation
+Message-ID: <aW5UXFz-TykfkGpV@willie-the-truck>
+References: <20251214112248.901769-1-yeoreum.yun@arm.com>
+ <20251214112248.901769-6-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: iommu: Fix NULL pointer deref when io_page_fault tracepoint fires
-To: Daniel Thompson <daniel@riscstar.com>,
- linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Steven Rostedt <rostedt@goodmis.org>, LKML <linux-kernel@vger.kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>
-References: <20260116-iommu-io_page_fault_null_fix-v1-1-6c20c2e62987@riscstar.com>
- <fca8f2cd-c3e5-40b0-a793-bded109e37bc@web.de> <aW5CIA1aCC8FVyFl@aspen.lan>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <aW5CIA1aCC8FVyFl@aspen.lan>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:y61srb9u+nV37cdp/UCvCkBtS20CsXLOeeztrx63OoVYO5VjDmI
- Dl6SnzHDEiBiw7qL3xdgpH+gAtyUU6ZheYoD/PyLO2qsIph4Fskkpy/hrM7EG2F3iqhV+jh
- rtclaVOpv7WOLgm90sPVeVklrnd4VgEOyuNYngHU3q0as8clgQBJ+ADNr/BzHA9BPnJ+6eW
- iz7tC5WCuoCuLLxPrNJxA==
-UI-OutboundReport: notjunk:1;M01:P0:ETxlV5+rwKM=;wr+POEz0Dfp8oDaeETSuL6iaqhe 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 amtUV4gzol2gObo23QzE59DpO3OEo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_155610_227927_1EE9F8FF 
-X-CRM114-Status: GOOD (  10.41  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251214112248.901769-6-yeoreum.yun@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,38 +78,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->> =E2=80=A6
->>> Fix this by adding logic to the tracepoint to safely propagate NULL.
->>
->> * How do you think about to add any tags (like =E2=80=9CFixes=E2=80=9D =
-and =E2=80=9CCc=E2=80=9D) accordingly?
->=20
-> I could add a
->=20
-> Fixes: f8f934c180f6 ("iommu/arm-smmu: Add support for driver IOMMU fault=
- handlers")
->=20
-> However, who do you think I neglected to Cc:?
+On Sun, Dec 14, 2025 at 11:22:44AM +0000, Yeoreum Yun wrote:
+> Refactor futex atomic operations using ll/sc method with
+> clearing PSTATE.PAN to prepare to apply FEAT_LSUI on them.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> ---
+>  arch/arm64/include/asm/futex.h | 128 +++++++++++++++++++++------------
+>  1 file changed, 82 insertions(+), 46 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
+> index bc06691d2062..f8cb674bdb3f 100644
+> --- a/arch/arm64/include/asm/futex.h
+> +++ b/arch/arm64/include/asm/futex.h
+> @@ -7,17 +7,21 @@
+> 
+>  #include <linux/futex.h>
+>  #include <linux/uaccess.h>
+> +#include <linux/stringify.h>
+> 
+>  #include <asm/errno.h>
+> 
+>  #define FUTEX_MAX_LOOPS	128 /* What's the largest number you can think of? */
+> 
+> -#define __futex_atomic_op(insn, ret, oldval, uaddr, tmp, oparg)		\
+> -do {									\
+> +#define LLSC_FUTEX_ATOMIC_OP(op, insn)					\
+> +static __always_inline int						\
+> +__llsc_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
+> +{									\
+>  	unsigned int loops = FUTEX_MAX_LOOPS;				\
+> +	int ret, oldval, tmp;						\
+>  									\
+>  	uaccess_enable_privileged();					\
+> -	asm volatile(							\
+> +	asm volatile("// __llsc_futex_atomic_" #op "\n"			\
+>  "	prfm	pstl1strm, %2\n"					\
+>  "1:	ldxr	%w1, %2\n"						\
+>  	insn "\n"							\
+> @@ -35,45 +39,103 @@ do {									\
+>  	: "r" (oparg), "Ir" (-EAGAIN)					\
+>  	: "memory");							\
+>  	uaccess_disable_privileged();					\
+> -} while (0)
+> +									\
+> +	if (!ret)							\
+> +		*oval = oldval;						\
+> +									\
+> +	return ret;							\
+> +}
+> +
+> +LLSC_FUTEX_ATOMIC_OP(add, "add	%w3, %w1, %w5")
+> +LLSC_FUTEX_ATOMIC_OP(or,  "orr	%w3, %w1, %w5")
+> +LLSC_FUTEX_ATOMIC_OP(and, "and	%w3, %w1, %w5")
+> +LLSC_FUTEX_ATOMIC_OP(eor, "eor	%w3, %w1, %w5")
+> +LLSC_FUTEX_ATOMIC_OP(set, "mov	%w3, %w5")
 
-See also once more:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
-cumentation/process/submitting-patches.rst?h=3Dv6.19-rc5#n262
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
-cumentation/process/stable-kernel-rules.rst?h=3Dv6.19-rc5#n34
+Since you're reworking this code, how about we take the opportunity to
+use named arguments instead of the numbers?
 
-
->> * Would a summary phrase like =E2=80=9CPrevent null pointer dereference=
- for a tracepoint=E2=80=9D
->>   be a bit nicer?
->=20
-> I don't understand what is wrong with the original phrasing. Can you
-> explain why this change matters to you?
-
-* Questionable abbreviation =E2=80=9Cderef=E2=80=9D
-
-* when clause
-
-
-Regards,
-Markus
+Will
 
