@@ -4,105 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1603CCF2DD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 19:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3ED8CCF2DD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 19:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9rq/mqDmZq8gMZ+d2R8pkO8FovF44UTPXxgcytXXSxc=; b=pqYSOTIDvVB2CrNN1HzIUm8W80
-	DFwiKsYNBZy1T8ZTZFf1Zr09zNnMBuyiwUZMlFSbrVGeUnXfP/uTvtSmEyMwxdxT52sXT8/vYmGIh
-	L8NvKq3LOQLJdWJGBawEP5/RrHJhI6Khqv4yLMUfoDWpAzfZ3A74XqlZMQccAraIGwjy8h+fEvoY1
-	LiLcN0gVTFN6JuspXvPzLGeElr0eFXwOkE+7zSE36cABOxBzcpmuxiFj/ONFasZUBe7GZgR+I0BCw
-	96tAl+044Qpx04fYyoZzWvKK39VOfXAOB+j+HVUN6jjuXQOJhSk0pC+1KCu7ePrd2WVpCzIKU26sP
-	qxcK3USA==;
+	bh=V9m95KgEyNK1CvtfTsfth0r05lcDYU8i4iOvx30+kzo=; b=Sk9VJgziHJLpTQsRwLTtndGNnj
+	iIJvcUlokMPL6Q2kOtRNgWT2kSrTiMo2CQR/tYu0CTRZWLWeYkzHidkdpH1JzrRHbug6kKhp3dAtS
+	y2Cdq62324erKa81KnWj6HR+VZcY8haxq3E68/CS+tDzCkzNkEtRuJJAKfed0Y2O+CzsIL6u7nDWe
+	JAOOAkVEuooBxTo1usDdDoH5NkQvYKpdddviNqTKN8dfzmJeu56tQFXf3xPNVoNyO+ppZLh8evfUN
+	eVVqmorMipngfJhVA5uIP7Zs5O0qIIFS+2vSx+H6zrj3OcocM41CwI+Xuw5+KHluPXudyDhuyLqmk
+	3LSAwfqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhulp-00000002lNP-2ONC;
-	Mon, 19 Jan 2026 19:18:43 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vhuol-00000002lh6-1As9;
+	Mon, 19 Jan 2026 19:21:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhulc-00000002lJ6-3mjE
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 19:18:36 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2a0833b5aeeso47002755ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 11:18:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1768850304; x=1769455104; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9rq/mqDmZq8gMZ+d2R8pkO8FovF44UTPXxgcytXXSxc=;
-        b=LGwaUI8Cbh57UrDvogfTd8YIVX0JVLt5PCFFRl2HzZ2poWkLFcxaVHy+JDKKXyrIBf
-         NRY9Q+Rgy9/zZj3T93Q6cPnU8laQNoyUhozHint4hYVV2JrQ/Vgy5f+EoKzSqWv4l12E
-         UtadkaWFz9anKP31qCaMbfBfB3Iw8STqi10rDXPp2FtvS/PkMmxJ4TTvPSsANRi0RPQM
-         RwIB/HV9OOTVMfxce7Tyqk8TSmsvU5qrgf7xS7XERhTUZr9QaIjnGAmjBc67ZKLxAoo3
-         NDE0DhrPFC5U4JSYNVd1ZzkV6c1vtoaT7EiE/lrX7wVsOxWvn9vTMnXwt4E5vhB9FvX3
-         shkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768850304; x=1769455104;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=9rq/mqDmZq8gMZ+d2R8pkO8FovF44UTPXxgcytXXSxc=;
-        b=wXLFD8QJUfPtOC1yQ03ihH6yop6yCvwqEDjZfXyoqhR9i8Bu96uiixtWskrJQSy8D/
-         sRYVOIvnQBvQiPoB4A+7A/OELB1ZmVEWXvuotMAhcPJersxgFpf7P63WV+GgUXbdbo+g
-         CRSsbUCPPTMbbicHvHiUEqYfGtOOfpVjLOBkXtwVePVIwYUpvm5zn1qYSU/UYV4AJ2Ev
-         T5CwttJjBIlPcpS8ci9FgthSCeLC136K8XSkZHqQU3oUn68JgnwE48Ar9mf/nRKu28jo
-         +D4nqZfEN9kv3hdr+xW8gAEXSlt26Ft/pRDEcGkL70QfZhSr+aKaIee7gQbmJillhb/c
-         fbSw==
-X-Forwarded-Encrypted: i=1; AJvYcCXL6TQUuF1st+1g3A6N0Nxq7XhStN1FgKub+ORq5oLADmUzj6z2RknoCGnCD1UUKx+Y88bsRBXtLtdmTG2G/P07@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywxh1GzxEL6+cYt3Zc2fGDqhEDYYi38EkM3Pxy8NzVSLnJYbXPh
-	6E7ZZkfJeT1xLpKBv48bL6hHXqkrnVeHyGp7C7OtDuyukRd5hkP6dl7TM7R2XB5MdeY=
-X-Gm-Gg: AZuq6aI9QiucQ4c9Tl4HY0jyXziXdds96GaLutQ2t6qn5+TvgODYnKhOQG0eG7Bch/9
-	PrSfmV0w4zfIhCCWnA77Wla66cSI+Q7FxlrmH/XiMsXK7RU/640fziUeVsu2/L/8R7wl6sjkkmg
-	VzI5/J04jkdhZe59CIEJT8MMVAe/Yf+qZdnW3YzHdAM5PnvRem8oSPINhCrX8gI/gkqwExkhhz/
-	vrvQJ/hyI8SVIfN+P3iBsT969U5JhQ+WaZ/N3Wcs6hK49gYwuL+f427HUzpZ1dCFEpAQH+JjiIG
-	bmIMn3WFdufUJi3hIO3Z930rwqUO2Oi6XHEiuVE/hBYmsU75fehAXCe5Op6pi+dcz6Phbxx2zs0
-	7sNTBWJyOeFK4FtL/QaIvSj3Y9A7VOdTq3R6cMApd45bLtV5RqRA21audqIiusd/BhwwbCp0Hdl
-	58SgO8d+2VSPU4+e9K6QtTcg62uVTPRxjpoJ9enUfR4nmqSlljNl00dFNz
-X-Received: by 2002:a17:903:2446:b0:2a0:af76:f8cf with SMTP id d9443c01a7336-2a71885839cmr129978275ad.2.1768850303599;
-        Mon, 19 Jan 2026 11:18:23 -0800 (PST)
-Received: from smtpclient.apple ([2601:602:8701:f0de:dc5c:239b:cee7:ca39])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a7193dbebasm103144495ad.55.2026.01.19.11.18.22
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 19 Jan 2026 11:18:23 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
-Subject: Re: [PATCH v3 3/3] spi: xilinx: use device property accessors.
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-In-Reply-To: <b03307f7-93f6-4680-9241-cf28b5456fd0@sirena.org.uk>
-Date: Mon, 19 Jan 2026 11:18:12 -0800
-Cc: Michal Simek <michal.simek@amd.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <31207BE9-C83F-4B4D-9A3F-7F25DF574E89@nexthop.ai>
-References: <20260119-spi-xilinx-v3-0-4566c33bac0d@nexthop.ai>
- <20260119-spi-xilinx-v3-3-4566c33bac0d@nexthop.ai>
- <8436e914-429f-40b9-8e6f-ec3b02702cad@sirena.org.uk>
- <69F83558-4675-4FC2-8656-BC6E3481AD65@nexthop.ai>
- <9e559e33-4f2f-40d4-a15f-584548bd6057@sirena.org.uk>
- <05D2CC15-DD6B-40F0-BFF0-3264D4FF96ED@nexthop.ai>
- <b1b79de0-a078-486d-b3e9-96899354407c@sirena.org.uk>
- <3D1B59A7-6E57-4C8C-AA95-EA7AA115264F@nexthop.ai>
- <b9ad8ab8-7985-4c89-a82b-c7f31d32c167@sirena.org.uk>
- <a6d57890-89c1-445e-836c-d8239d20c621@amd.com>
- <b03307f7-93f6-4680-9241-cf28b5456fd0@sirena.org.uk>
-To: Mark Brown <broonie@kernel.org>
-X-Mailer: Apple Mail (2.3864.300.41.1.7)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_111828_838547_90C35A64 
-X-CRM114-Status: GOOD (  25.89  )
+	id 1vhuoi-00000002lgx-2804;
+	Mon, 19 Jan 2026 19:21:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 851EA600CB;
+	Mon, 19 Jan 2026 19:21:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6584DC116C6;
+	Mon, 19 Jan 2026 19:21:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768850495;
+	bh=bTvnpQwyMWeQprejsCLPF19PUoNVMU+Bj/o+xuFRyPw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=RhYHaSve1QmWIrv5TyLGaTbwpfcsUaMF8FmzVrt0/wMD7H60mLj0P0CBONBIlAk6s
+	 2MgpJYvIMV7hr9yTFTfVZPsAthBZKM5rvBncUfeuowcaSgkSHprRyQjAIxq2cHizxO
+	 iOClmclqVBvGQ4Ccloghkcpp1igKQnhoCD14gXvLRsI9ktg+aa8Ae+uagcSBh5lXCj
+	 ga5CJxyB8jFbJrpTJ44TqoMj/+MFMo2cCAr94PZY4Aap4TArOrQOgR/5C4KKNVvwJ6
+	 8aiS8FbuE4ysLrue1Ekh2MSuivawyRRIG4ad5DRekXMoDopYCtF5Z+Ocg2SkgN8cr2
+	 mjoSI+jRrDnNw==
+From: Jakub Kicinski <kuba@kernel.org>
+To: rmk+kernel@armlinux.org.uk
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	linux-phy@lists.infradead.org,
+	davem@davemloft.net,
+	maxime.chevallier@bootlin.com,
+	alexandre.torgue@foss.st.com,
+	mohd.anwar@oss.qualcomm.com,
+	neil.armstrong@linaro.org,
+	hkallweit1@gmail.com,
+	mcoquelin.stm32@gmail.com,
+	netdev@vger.kernel.org,
+	edumazet@google.com,
+	linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	vkoul@kernel.org,
+	andrew@lunn.ch,
+	pabeni@redhat.com,
+	andrew+netdev@lunn.ch,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [net-next,05/14] net: stmmac: add stmmac core serdes support
+Date: Mon, 19 Jan 2026 11:21:25 -0800
+Message-ID: <20260119192125.1245102-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <E1vhoSH-00000005H1f-2cq9@rmk-PC.armlinux.org.uk>
+References: <E1vhoSH-00000005H1f-2cq9@rmk-PC.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,137 +83,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 
+For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
+---
+net: stmmac: add stmmac core serdes support
 
-> On Jan 19, 2026, at 11:01=E2=80=AFAM, Mark Brown <broonie@kernel.org> =
-wrote:
->=20
-> On Mon, Jan 19, 2026 at 07:52:35PM +0100, Michal Simek wrote:
->> On 1/19/26 19:38, Mark Brown wrote:
->=20
->>> This was specifically targetted at some embedded x86 systems where =
-there
->>> was a goal to reuse device tree bindings for things that just can't =
-be
->>> expressed well in ACPI.  _DSD is generally considered tasteless for =
-more
->>> server style systems, AIUI the general approach preferred by ACPI
->>> forward OSs is to use some combination of DMI quirking and =
-registering
->>> with a per-device ID (like the per generation fake PCI IDs that =
-Intel
->>> uses for all IPs on their SoCs).  Just blindly accepting _DSD can =
-end up
->>> with something that's not used because it's not what the ecosystem
->>> wants.
->=20
->> Is it a better way to use auxiliary bus as was recommended by Greg in =
-past
->> on drivers/misc/keba/cp500.c review?
->> =
-https://lore.kernel.org/linux-i2c/2024060203-impeding-curing-e6cd@gregkh/
->=20
-> The driver there appears to be doing runtime enumeration based on some
-> EEPROMs on the system and creating platform devices based on what it
-> finds there so it's a bit of a different thing, the aux bus suggestion
-> is about what the code that does with the data it got from the EEPROM.
-> This patch is for something described directly by firmware so there's =
-no
-> way we'd create an aux device, that's purely in kernel.
->=20
-> I have no idea what the hardware this series targets is (other than =
-that
-> it's using a FPGA) or if there's even a motivation for the change =
-other
-> than code inspection.
+This commit adds SerDes PHY support to the stmmac core driver, moving it
+from platform glue into the integrated PCS driver. The SerDes is managed
+through phy_init/phy_exit for lifecycle and phy_power_on/phy_power_off
+for the power state.
 
-We are using this on an AMD Ryzen Embedded V3C48 based system. This is a =
-data-center switch using Broadcom TH5 ASIC with 64 port OSFP cage and a =
-whole lot of hwmon/pmbus and temp sensors. We have an AMD Artix 7 based =
-FPGA that sits on PCIe bus and exposes about 80 different IP blocks (I2C =
-and SPI). Behind each IP block are various devices. Each of the 64 OSFPs =
-is handled by its own IP block (i2c-xiic.c driver) and is wired to one =
-of 3 MSI interrupts.
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
+> index 2f826fe7229b..4d1902f3a58f 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
 
-We have implemented a custom irq_chip/gpi driver to manage the =
-interrupts.
+[ ... ]
 
-All of this gets automatically enumerated by kernel and works today, so =
-there=E2=80=99s strong motivation to get this merged. It=E2=80=99s not =
-just for code inspection. We are currently using 6.12 kernel.
+> static int dwmac_integrated_pcs_enable(struct phylink_pcs *pcs)
+> {
+> 	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
+> +	struct stmmac_priv *priv = spcs->priv;
+> +	int ret;
+>
+> -	stmmac_mac_irq_modify(spcs->priv, 0, spcs->int_mask);
+> +	ret = dwmac_serdes_power_on(priv);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (spcs->interface != PHY_INTERFACE_MODE_NA) {
+> +		ret = dwmac_serdes_set_mode(priv, spcs->interface);
+> +		if (ret)
+> +			return ret;
+                        ^^^^^^^^^^
 
+If dwmac_serdes_set_mode() fails here, doesn't this leave the SerDes in
+a powered-on state? dwmac_serdes_power_on() succeeded at this point but
+there's no corresponding dwmac_serdes_power_off() call before returning
+the error.
 
-Here=E2=80=99s an example of what a SPI controller/device would look =
-like in ACPI ASL:
+Looking at phylink_major_config(), it appears to discard the return
+value from phylink_pcs_enable(), so the caller won't know to call
+pcs_disable() to clean up the power state.
 
-            Device (SPI0) {
-                Name (_HID, "PRP0001")
-                Name (_CRS, ResourceTemplate () {
-                    Memory32Fixed (ReadWrite, 0x80950000, 0x00000200)
-                })
-                Name (_DSD, Package () {
-                    ToUUID ("daffd814-6eba-4d8c-8a91-bc9bbf4aa301"),
-                    Package () {
-                        Package () { "compatible", =
-"xlnx,axi-quad-spi-1.00.a" },
-                        Package () { "xlnx,num-ss-bits", 5 },
-                        Package () { "xlnx,num-transfer-bits", 8 },
-                    }
-                })
+Should this be something like:
 
-                Device (NOR0) {
-                    Name (_HID, "PRP0001")
-                    Name (_STR, Unicode ("TH5 Boot Flash"))
-                    Name (_CRS, ResourceTemplate () {
-                        SPISerialBus(0, PolarityLow, FourWireMode, 8, =
-ControllerInitiated,
-                            120000000, ClockPolarityHigh, =
-ClockPhaseSecond,
-                            "\\_SB.PCI0.GPP6.FPGA.SPI0")
-                    })
-                    Name (_DSD, Package () {
-                        ToUUID ("daffd814-6eba-4d8c-8a91-bc9bbf4aa301"),
-                        Package () {
-                            Package () { "compatible", "jedec,spi-nor" }
-                        }
-                    })
-                }
-            }
+    if (spcs->interface != PHY_INTERFACE_MODE_NA) {
+        ret = dwmac_serdes_set_mode(priv, spcs->interface);
+        if (ret) {
+            dwmac_serdes_power_off(priv);
+            return ret;
+        }
+    }
 
-And here=E2=80=99s an example of I2C controller with a TMP sensor:
+> +	}
+> +
+> +	stmmac_mac_irq_modify(priv, 0, spcs->int_mask);
+>
+> 	return 0;
+> }
 
-            Device (I2C6) {
-                Name (_HID, "PRP0001")
-                Name (_CRS, ResourceTemplate () {
-                    Memory32Fixed (ReadWrite, 0x80a40c00, 0x00000200)
-                    ClockInput(25, 1, Mhz, Fixed,,)
-                    GpioInt (Level, ActiveHigh, Exclusive, PullNone, 0,
-                        "\\_SB.PCI0.GPP5.FPGA") { 14 }
-                })
-                Name (_DSD, Package () {
-                    ToUUID ("daffd814-6eba-4d8c-8a91-bc9bbf4aa301"),
-                    Package () {
-                       Package () { "compatible", "xlnx,axi-iic-2.1" },
-                       Package () { "single-master", 1 },
-                       Package () { "clock-frequency", 100000 },
-                    }
-                })
-
-                Device (TMP0) {
-                    Name (_HID, "PRP0001")
-                    Name (_CRS, ResourceTemplate () {
-                        I2cSerialBusV2 (0x48, ControllerInitiated, =
-100000,
-                            AddressingMode7Bit, =
-"\\_SB.PCI0.GPP5.FPGA.I2C6",
-                            0, ResourceConsumer,,)
-                    })
-                    Name (_DSD, Package () {
-                        ToUUID ("daffd814-6eba-4d8c-8a91-bc9bbf4aa301"),
-                        Package () {
-                            Package () { "compatible", "ti,tmp464" }
-                        }
-                    })
-                }
-            }=
+[ ... ]
 
