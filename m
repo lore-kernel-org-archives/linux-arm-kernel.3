@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7543DCCF2EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 11:36:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F749CCF2EF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 11:44:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jxSm0RT6/vS5ISeDyalVPSvK3rwkjosRSSjTO13ynmg=; b=QmRSW91llTgt658WS1Vzecbm+H
-	fcLJZmVi/LBBJIRd/AotGaplTVfA2MF++AM8I8iCGh1gFk1FUcDHU06X0tzFtygKjWvKO+8alOvGD
-	JDTCIj6gJxjPCyhfx1LFawceik21jXbEA/WKi5vzBM4ZjSU9ZujBZBFcH/El9Tswb+xKRwgXxvyUw
-	oAFU7NCZDffGB+0zaaxymq6XB9V96cq3qi+50EAocTz+QMA5Gd6oPOd8PwHdi9pMqB1IFxGVTQpps
-	kcUJTjST9No4DgyAPkJmTbedRpn9IYU3rhjODDkxc+0Re1+Lo0NkoljcKnSr9r5h7NmHKmzE4lGt7
-	SSgt/pFQ==;
+	bh=VY2RAAyyRPcyj0OJTVqPrwEJ1qKA4qroeiSM6ixy7bM=; b=02iKURDjAdN/JAtHcZ4Nd4+UzI
+	A1tIFcy9K7G8Eu0gqF2kvXYe07I/Fc8gkXJobPUbTxNkMJ4/dzmyf7A0m0jMDoaJB71rFWYD7TTZn
+	IeOw16hFwLOQi7LdcesNXv9xZKOulSrBQDxAnNk46RYFhjUTvMia+y/jfYmvZSvD3ygoULaelhyIn
+	nWiLHo48v3YpNUalTW+O16JsFIJ0m6bBsZVBxGQ3NZUoISxHiK/DcumWwhFXCvPFaadtrlitDzBgJ
+	M55iZfReTXLNaTmWGTraP/Fls1+RAZg15EjhQFYBpHH5pZGONPxXenTJV54lZzJB0ktu8mnHZ0+lw
+	amyfNUSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhnYR-00000001uU5-0m5Q;
-	Mon, 19 Jan 2026 11:36:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vhnfo-00000001uox-1ppb;
+	Mon, 19 Jan 2026 11:43:56 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhnYN-00000001uTU-3gUz
+	id 1vhnfj-00000001uoc-1tNz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 11:36:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3CFC760140;
-	Mon, 19 Jan 2026 11:36:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD9E3C116C6;
-	Mon, 19 Jan 2026 11:36:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768822574;
-	bh=OQinx1qBrX1pwq31acCG+L+3NgEjuiriHQfON/AY/rg=;
-	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
-	b=Q7rEkfzGjUkdkLUMw2ZzG/zLwSm9pxB9UUK4Zq2Vvsh765XsoyJRENkSFrQycIObl
-	 UjIhmRCXCsiKzSUo7mxsWiC3hBoe/LJfFTWvwXQwDC7XwSmACPI06b4qv+pSNrhOgl
-	 09sixcXOxnbd7EGd20DKDKUmMchA9DpWntHdNA3XJaawRA65n/PaisNRh2vKd4JbFd
-	 VYTqzJgFLx6mpYG4nfUQWGVtU4TAP1eEIdjwAYR/gcD/J52wMH26ARBt4Pqea5KzNP
-	 3nz7ojLpYAQLVFUuiR90PbSI5WZ4SCKH/F3KkgIByMQSEUSMAwyA4bNzSqwQli6vie
-	 prijfAz8KLjCA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 19 Jan 2026 12:36:09 +0100
-Message-Id: <DFSJ9QN6U81W.19R0VFKTEFZKR@kernel.org>
-Subject: Re: [PATCH 3/8] base: soc: export soc_device_get_machine()
-Cc: "Rob Herring" <robh@kernel.org>, "Saravana Kannan"
- <saravanak@kernel.org>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, "Christophe Leroy (CS GROUP)"
- <chleroy@kernel.org>, "Shawn Guo" <shawnguo@kernel.org>, "Sascha Hauer"
- <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Geert
- Uytterhoeven" <geert+renesas@glider.be>, "Magnus Damm"
- <magnus.damm@gmail.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linuxppc-dev@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
- <imx@lists.linux.dev>, <linux-renesas-soc@vger.kernel.org>,
- <linux-sunxi@lists.linux.dev>
-To: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>
-From: "Danilo Krummrich" <dakr@kernel.org>
-References: <20260119-soc-of-root-v1-0-32a0fa9a78b4@oss.qualcomm.com>
- <20260119-soc-of-root-v1-3-32a0fa9a78b4@oss.qualcomm.com>
-In-Reply-To: <20260119-soc-of-root-v1-3-32a0fa9a78b4@oss.qualcomm.com>
+	Mon, 19 Jan 2026 11:43:55 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dvpVz2PSvzJ46mQ;
+	Mon, 19 Jan 2026 19:43:23 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1719340569;
+	Mon, 19 Jan 2026 19:43:46 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 19 Jan
+ 2026 11:43:45 +0000
+Date: Mon, 19 Jan 2026 11:43:43 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<arm-scmi@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+	<sudeep.holla@arm.com>, <james.quinlan@broadcom.com>, <f.fainelli@gmail.com>,
+	<vincent.guittot@linaro.org>, <etienne.carriere@st.com>,
+	<peng.fan@oss.nxp.com>, <michal.simek@amd.com>, <dan.carpenter@linaro.org>,
+	<d-gole@ti.com>, <elif.topuz@arm.com>, <lukasz.luba@arm.com>,
+	<philip.radford@arm.com>, <souvik.chakravarty@arm.com>
+Subject: Re: [PATCH v2 04/17] uapi: Add ARM SCMI definitions
+Message-ID: <20260119114343.00003f07@huawei.com>
+In-Reply-To: <20260114114638.2290765-5-cristian.marussi@arm.com>
+References: <20260114114638.2290765-1-cristian.marussi@arm.com>
+	<20260114114638.2290765-5-cristian.marussi@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+MIME-Version: 1.0
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260119_034351_803213_6AADF671 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +76,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Jan 19, 2026 at 11:40 AM CET, Bartosz Golaszewski wrote:
-> -static void soc_device_get_machine(struct soc_device_attribute *soc_dev_=
-attr)
-> +int soc_device_get_machine(struct soc_device_attribute *soc_dev_attr)
->  {
-> -	struct device_node *np;
-> -
->  	if (soc_dev_attr->machine)
-> -		return;
-> +		return -EBUSY;
+On Wed, 14 Jan 2026 11:46:08 +0000
+Cristian Marussi <cristian.marussi@arm.com> wrote:
+
+> Add a number of structures and ioctls definitions used by the ARM
+> SCMI Telemetry protocol.
+> 
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+
+A few drive by comments.
+
+> diff --git a/include/uapi/linux/scmi.h b/include/uapi/linux/scmi.h
+> new file mode 100644
+> index 000000000000..e4e9939a1bf8
+> --- /dev/null
+> +++ b/include/uapi/linux/scmi.h
+> @@ -0,0 +1,287 @@
+> +/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+> +/*
+> + * Copyright (C) 2026 ARM Ltd.
+> + */
+> +#ifndef _UAPI_LINUX_SCMI_H
+> +#define _UAPI_LINUX_SCMI_H
 > +
-> +	struct device_node *np __free(device_node) =3D of_find_node_by_path("/"=
-);
-> +	if (!np)
-> +		return -ENOENT;
+> +/*
+> + * Userspace interface SCMI Telemetry
+> + */
+> +
+> +#include <linux/ioctl.h>
+> +#include <linux/types.h>
 
-This should never fail at this point, no? Also, can't we just use of_root?
 
-> =20
-> -	np =3D of_find_node_by_path("/");
-> -	of_property_read_string(np, "model", &soc_dev_attr->machine);
-> -	of_node_put(np);
-> +	return of_property_read_string(np, "model", &soc_dev_attr->machine);
->  }
-> +EXPORT_SYMBOL_GPL(soc_device_get_machine);
+> +/**
+> + * scmi_tlm_intervals  - Update intervals descriptor
+> + *
+> + * @discrete: Flag to indicate the nature of the intervals described in
+> + *	      @update_intervals.
+> + *	      When 'false' @update_intervals is a triplet: min/max/step
+> + * @pad: Padding fields to enforce alignment.
+> + * @num: Number of entries of @update_intervals
+> + * @update_intervals: A variably-sized array containing the update intervals
+> + *
+> + * Used by:
+> + *	RW - SCMI_TLM_GET_INTRVS
+> + *
+> + * Supported by:
+> + *	control/
+> + *	groups/<N>/control
+> + */
+> +struct scmi_tlm_intervals {
+> +	__u8 discrete;
+> +	__u8 pad[3];
+> +	__u32 num;
 
-If we want to export this, we shouldn't reuse the existing name, which is
-misleading.
+Trivial but this seems a little inconsistent. In other
+'num' entries (e.g. num_des) below a more specific name
+is used.
 
-soc_device_get_machine() reads as if we return a reference count of somethi=
-ng.
-Additionally, it operates on struct soc_device_attribute instead of struct
-soc_device, where the name suggests the latter.
+> +#define SCMI_TLM_UPDATE_INTVL_SEGMENT_LOW	0
+> +#define SCMI_TLM_UPDATE_INTVL_SEGMENT_HIGH	1
+> +#define SCMI_TLM_UPDATE_INTVL_SEGMENT_STEP	2
+> +	__u32 update_intervals[] __counted_by(num);
+> +};
 
-Instead this should be soc_device_attribute_read_machine() or if we want a
-shorter name, just soc_attr_read_machine().
+> +
+> +/**
+> + * scmi_tlm_des_list  - List of all defined DEs
+> + *
+> + * @num_des: Number of entries in @des
+> + * @des: An array containing descriptors for all defined DEs
+> + *
+> + * Used by:
+> + *	RW - SCMI_TLM_GET_DE_LIST
+> + *
+> + * Supported by:
+> + *	control/
+> + */
+> +struct scmi_tlm_des_list {
+> +	__u32 num_des;
+> +	struct scmi_tlm_de_info des[] __counted_by(num_des);
+> +};
+> +
+> +/**
+> + * scmi_tlm_de_sample - A DE reading
+> + *
+> + * @id: DE identifier
+> + * @tstamp: DE reading timestamp (equal 0 is NOT supported)
+> + * @val: Reading of the DE data value
+> + *
+> + * Used by:
+> + *	RW - SCMI_TLM_GET_DE_VALUE
+> + *
+> + * Supported by:
+> + *	control/
+> + */
+> +struct scmi_tlm_de_sample {
+> +	__u32 id;
+
+Packing issues maybe if this ever ends up on 32 bit machines.
+Even more so once it's in an array below.
+
+> +	__u64 tstamp;
+> +	__u64 val;
+> +};
+> +
+> +/**
+> + * scmi_tlm_data_read - Bulk read of multiple DEs
+> + *
+> + * @num_samples: Number of entries returned in @samples
+> + * @samples: An array of samples containing an entry for each DE that was
+> + *	     enabled when the single sample read request was issued.
+> + *
+> + * Used by:
+> + *	RW - SCMI_TLM_SINGLE_SAMPLE
+> + *	RW - SCMI_TLM_BULK_READ
+> + *
+> + * Supported by:
+> + *	control/
+> + *	groups/<N>/control
+> + */
+> +struct scmi_tlm_data_read {
+> +	__u32 num_samples;
+> +	struct scmi_tlm_de_sample samples[] __counted_by(num_samples);
+> +};
 
