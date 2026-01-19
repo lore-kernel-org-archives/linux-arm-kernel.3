@@ -4,103 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B42CCF2E0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D37CCF2F8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jGK/JHtGxCZWFp0R8SxdcXdTEhWhNtsWilx8eiq1+lY=; b=Ec3C3o0RHHkGDSUGnDOKAITFTL
-	w006TS2jbtOmbZ/akC7S9gUmGNsA0jIZRpzw/k7uTkaEPBA0QPQi5AU//4Oj+/OFf4GnbHw4Edjil
-	O7BHHFjsUvmqb4LltZKwi1yEaf3Bln2HkdZVeVMB5ja+EtBtDfTMpeOTnOF3ESQOayRe/9KzuxAbT
-	Q2nz2SxPSlHd3SZjk7TildCzRk+UV0hdqpYESFswcGYCirLYdmAI+ftlVWurJq4y8XuYsepGy8tVI
-	+kuO+Q4Fpa56pAHXUPwhbW5sSPZiI5nCHcamKoEkHymqMbZHCJKG1VqF1wJIhgraBArJHIVdZrVzL
-	CFXGG8Jw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SMd4jeWhasR5Ax+rrzm88VsJBmtkjFpx+JbXORECd/Y=; b=op8SGv3yX+kqK92RVN5YU0DoZ+
+	iN4UvcGl7c47n37xrNOySA7TVhWDav+AEaxzJhZeZxYCPGNTTWhYYcnPLx3hO2TtRXhFYoZRNmGLB
+	8+9Q1enP21Jo2Tj2vccFokUt8LVaQarSipWcpTCufjRozBr2eq7iAaahF4CLnt3LgHecRWaPYYm/X
+	5Q42D0UDU3/IrYMRf8i8obuosI2RiSmxObqwXuyFI8GISUUTgYgo3Y5fMViEIi52MVAdjmLmnDGGX
+	Zrxs27C36nt1fwqZ2wB4yqqd63ipZJucZDo9C6uSYAzNJjfofNnkV8feH+z7G1WZgDEmlGsZ2lKQ/
+	IMIlvZfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhod8-000000022qz-2JBE;
-	Mon, 19 Jan 2026 12:45:14 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1vhoen-0000000231q-1Y4P;
+	Mon, 19 Jan 2026 12:46:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhod6-000000022qY-13v2
+	id 1vhoek-0000000230p-1IOQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 12:45:13 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4801d1daf53so27818475e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 04:45:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1768826710; x=1769431510; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jGK/JHtGxCZWFp0R8SxdcXdTEhWhNtsWilx8eiq1+lY=;
-        b=gK/ks+ygLoz4NQSOU9ilHtA81xtMqFQ6mybpl92wSGqRjD0S0+L60dq89BoIWm5pEg
-         eBHMaeeX9WbBldY24zJPFGe3VCcoDGvcEDT4WP/Lz7AlVigAgYoZQFlSnldads1+rkb5
-         VYr0I3vMSbNXUx3NBdOo7Et9jl4PsyE2cYE7XNTy5xRc9rOaKu6EOIPfLl3MBxXd9NKh
-         LskXB5Lh/MQU/DQz0Kodv825ZWb/nTprYZO6hzBeKOOZvDCS1Ho1r5A45pQAMq1S67XD
-         lRigQGVivkITegX9qw/veri9vqzl6bK0039FQZLsN1HyEKh/p6JTXX7reVJ0ULRwMyrU
-         DGsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768826710; x=1769431510;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jGK/JHtGxCZWFp0R8SxdcXdTEhWhNtsWilx8eiq1+lY=;
-        b=Zg7MGPklEFxETVC4dHFsMogMYc1z52kIVY2+L4OjBjGogLIfT4hASskyBx8tk+wl3a
-         W0n1oFSIeJgiWciviYctkb4R14dbT9rk/WiMJg4vTLX+u8xAm1dZS8Zn/wtY+N9bDYS3
-         Ajx9cKwSyjr0r+ubd8hsnKitPNq1bpizWDV30ksbwZoRx2nfRIqksWgjdMaE2+AAqEdW
-         KhJBr/bkJLt9uE0Jx/l3x5IuFWIQxQ0j0qPLgDiSJhJQbvSHA8LuayocfoeTuTq05PHm
-         nGMNO9L32h/sieoeyFQxoyOdRlokTcQDo5Tk+g6SQDiOEzEI5Kgn/BaBYT5Vhu7l5/R/
-         Extw==
-X-Forwarded-Encrypted: i=1; AJvYcCXLBi0Q+2M67pv7k5JLTQeLiEBo7o99m9hqx+qw9mrBv36MF5eR7zapVNnkidGv7rSni7RSD3HMvweQ4GhTYqjq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzl+vUcC0c6X/PxbhADSiS6Cjamn1srScBzj0p3sWf2qJFtu6nt
-	pLZyICkY4RmiiHjK6bnU2JSktRlN+OdKorKQS/v4H3EZFnTZEV498T+nnjzIk4eqgbE=
-X-Gm-Gg: AY/fxX7TpDD3S3VUKL5wIqA5TcDF0RA7YbLCUCUNdYN4MzEL0BnbNsBOj1WoYulPPRM
-	Vv/ypOcsY2/GSkLPKa0EfQbadPImpr62m8nb21qxGUy/E0DMgClnzmDYcvyrxZlzkv5UlU2awhj
-	0bSFrq54WatyExffJ3kZ9molOtF5xhwELSXex2/M2DjI0QX4CVqqMDa3ctRG9DGOzj2tMwXnMfi
-	8996Myd2wKCFcfBKXwNAShJpDKP2fT4/WX8z5JjtFzcQAxT2Fe8HfHlB2AqJ8V9EcxluhM+vZFo
-	TpCJqjuAxyFnm3Vd3mX5DNkoEskA0RsAXq3GJubIRuo/cs2E2uZLcktjJf6J3M8TdA7+EhCzylG
-	UFsA471e9Q978CqzE15k/k89DbCx8uuc5upSJSTTGnThcq5o+IHckgFcsLXY0fNecnmr0MeZkzG
-	Red8pXNn0JG8GTQ0cpC4tPEkKkV+XVm5aIrg==
-X-Received: by 2002:a05:600c:6098:b0:480:3a72:5238 with SMTP id 5b1f17b1804b1-4803a7253d1mr13426025e9.30.1768826710239;
-        Mon, 19 Jan 2026 04:45:10 -0800 (PST)
-Received: from [10.255.242.87] ([109.166.183.49])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4801e86c197sm193288675e9.1.2026.01.19.04.45.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 19 Jan 2026 04:45:09 -0800 (PST)
-Message-ID: <10cb51ae-9cec-49a9-96c4-757cd1410d8a@linaro.org>
-Date: Mon, 19 Jan 2026 14:45:07 +0200
+	Mon, 19 Jan 2026 12:46:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 490B643DB0;
+	Mon, 19 Jan 2026 12:46:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E8E8C116C6;
+	Mon, 19 Jan 2026 12:46:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768826813;
+	bh=YJ9e/R24mcZ6mGK1DihOlExa+pPF4aCUH5QlK/D4yPA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=bzJoVJs4+Lai5ii+QpmQH2AnEboNDuMEW6z1pXg0DoOfY9/LkjYPjDAJpbD7Ok6y5
+	 K0GKXBsJx7D0SW6ewUvxDh4M6ZkUIBP3Kf/mtzy/0tkmiq1qgfKV6BXUJAODW7VIrc
+	 WYVn7dAQERvEXDvhqxKD4PKw1Rh1rzOgWbw9W/oW6U3Ckeo6RgOOL/LCKLo8d3JtD8
+	 7C96PLv0rHi8Khypx+/W5DfEQ3IrOMz3G1M8GPm+VPccVlLpxFj1YeORwU1kiwGi0w
+	 mX+oalBQJQNM+xuOqxqnuktImP5swhoXNYq3O/kcaqxlgWvjID1BlpWXvCzLEFTwDh
+	 JCPYbztIsAqSQ==
+From: Will Deacon <will@kernel.org>
+To: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: [PATCH v2 00/35] KVM: arm64: Add support for protected guest memory with pKVM
+Date: Mon, 19 Jan 2026 12:45:53 +0000
+Message-ID: <20260119124629.2563-1-will@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] dt-bindings: thermal: Add Google GS101 TMU
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>, willmcvicker@google.com,
- jyescas@google.com, shin.son@samsung.com, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-hardening@vger.kernel.org
-References: <20260114-acpm-tmu-v1-0-cfe56d93e90f@linaro.org>
- <20260114-acpm-tmu-v1-1-cfe56d93e90f@linaro.org>
- <20260115-ultramarine-wildebeest-of-completion-ea1bc0@quoll>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20260115-ultramarine-wildebeest-of-completion-ea1bc0@quoll>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_044512_338993_A3917A20 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20260119_044654_385653_FFCCC1C6 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,102 +79,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi folks,
 
+It's back and it's even bigger than before!
 
-On 1/15/26 3:32 PM, Krzysztof Kozlowski wrote:
-> On Wed, Jan 14, 2026 at 02:16:29PM +0000, Tudor Ambarus wrote:
->> Add device tree bindings for the Google GS101 Thermal Management Unit
->> (TMU).
->>
->> The GS101 TMU is a hybrid thermal solution:
->> 1. Configuration (thresholds, hysteresis) is handled via the Alive
->>    Clock and Power Manager (ACPM) firmware protocol.
->> 2. Interrupt handling is handled by the kernel via direct register
->>    access.
->>
->> This binding documents the required resources, including the APB clock
->> for register access and the phandle to the associated syscon node.
->>
->> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
->> ---
->>  .../bindings/thermal/google,gs101-tmu-top.yaml     | 64 ++++++++++++++++++++++
->>  1 file changed, 64 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml b/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..ecf4a315ecf1ea0649c4e96a207d531c696282f4
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
->> @@ -0,0 +1,64 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/thermal/google,gs101-tmu-top.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Google GS101 Thermal Management Unit (TMU)
->> +
->> +maintainers:
->> +  - Tudor Ambarus <tudor.ambarus@linaro.org>
->> +
->> +description: |
->> +  The Google GS101 TMU is a thermal sensor block managed via the ACPM
->> +  (Active Core Power Management) firmware. While the firmware handles
->> +  the thermal algorithm and thresholds, the kernel requires direct
->> +  access to the interrupt pending registers via a syscon interface to
->> +  acknowledge and clear thermal interrupts.
->> +
->> +properties:
->> +  compatible:
->> +    const: google,gs101-tmu-top
->> +
->> +  clocks:
->> +    maxItems: 1
->> +    description: |
->> +      Phandle to the APB peripheral clock (PCLK) required to access
->> +      the TMU registers.
-> 
-> Drop all the redundancies, so:
-> items:
->  - description: APB peripheral clock (PCLK) for TMU register access
-> 
+Although the first patch has been picked up as a fix (thanks, Oliver),
+review feedback has resulted in some additional patches being included
+in the series. If you'd like to see the first version, it's available
+here:
 
-ack
-> 
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +    description: |
->> +      The combined thermal interrupt signal (Level High).
-> 
-> Drop description
-> 
+  https://lore.kernel.org/kvmarm/20260105154939.11041-1-will@kernel.org/
 
-ack
+Changes since v1 include:
 
->> +
->> +  syscon:
-> 
-> I feel like suddenly you sent something completely different than what
-> have you been working for the past 4 years.
-> 
->> +    $ref: /schemas/types.yaml#/definitions/phandle
->> +    description: |
->> +      Phandle to the device node representing the TMU System Controller
->> +      (compatible with "google,gs101-tmu-syscon"). This node provides the
->> +      regmap for INTPEND and INTCLEAR registers.
->> +
->> +  "#thermal-sensor-cells":
->> +    const: 1
->> +
-> 
-> No supply?
+  * Change hypercall order so that pKVM-specific calls are in their own
+    range
+  * Make 'pkvm_handle_t' a u16 and check its size at compile-time
+  * Rework pte annotations to take a 4-bit type field
+  * Fix a memory leak on the kvm_arch_init_vm() failure path
+  * Pass KVM_PGTABLE_WALK_IGNORE_EAGAIN when mapping into the host idmap
+  * Avoid host annotation when reclaiming guest pages
+  * Re-instate guest pte metadata when unsharing a page
+  * Extend selftests to cover guest share and unshare hypercalls
+  * Drop broken MMU notifier changes
+  * Documentation tweaks
 
-It seems not. Nothing specified downstream. Couldn't find anything in the
-schematics that I have either.
+As before, patches are based on v6.19-rc4 and are also available at:
 
-I addressed the rest of the feedback in v2.
+  https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=kvm/protected-memory
 
-Thanks,
-ta
+All feedback welcome.
+
+Cheers,
+
+Will
+
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Zenghui Yu <yuzenghui@huawei.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Quentin Perret <qperret@google.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: Vincent Donnefort <vdonnefort@google.com>
+Cc: Mostafa Saleh <smostafa@google.com>
+
+--->8
+
+Fuad Tabba (1):
+  KVM: arm64: Expose self-hosted debug regs as RAZ/WI for protected
+    guests
+
+Quentin Perret (2):
+  KVM: arm64: Refactor enter_exception64()
+  KVM: arm64: Inject SIGSEGV on illegal accesses
+
+Will Deacon (32):
+  KVM: arm64: Invert KVM_PGTABLE_WALK_HANDLE_FAULT to fix pKVM walkers
+  KVM: arm64: Don't leak stage-2 page-table if VM fails to init under
+    pKVM
+  KVM: arm64: Move handle check into pkvm_pgtable_stage2_destroy_range()
+  KVM: arm64: Rename __pkvm_pgtable_stage2_unmap()
+  KVM: arm64: Don't advertise unsupported features for protected guests
+  KVM: arm64: Remove is_protected_kvm_enabled() checks from hypercalls
+  KVM: arm64: Ignore MMU notifier callbacks for protected VMs
+  KVM: arm64: Prevent unsupported memslot operations on protected VMs
+  KVM: arm64: Ignore -EAGAIN when mapping in pages for the pKVM host
+  KVM: arm64: Split teardown hypercall into two phases
+  KVM: arm64: Introduce __pkvm_host_donate_guest()
+  KVM: arm64: Hook up donation hypercall to pkvm_pgtable_stage2_map()
+  KVM: arm64: Handle aborts from protected VMs
+  KVM: arm64: Introduce __pkvm_reclaim_dying_guest_page()
+  KVM: arm64: Hook up reclaim hypercall to pkvm_pgtable_stage2_destroy()
+  KVM: arm64: Avoid pointless annotation when mapping host-owned pages
+  KVM: arm64: Generalise kvm_pgtable_stage2_set_owner()
+  KVM: arm64: Introduce host_stage2_set_owner_metadata_locked()
+  KVM: arm64: Change 'pkvm_handle_t' to u16
+  KVM: arm64: Annotate guest donations with handle and gfn in host
+    stage-2
+  KVM: arm64: Introduce hypercall to force reclaim of a protected page
+  KVM: arm64: Reclaim faulting page from pKVM in spurious fault handler
+  KVM: arm64: Return -EFAULT from VCPU_RUN on access to a poisoned pte
+  KVM: arm64: Add hvc handler at EL2 for hypercalls from protected VMs
+  KVM: arm64: Implement the MEM_SHARE hypercall for protected VMs
+  KVM: arm64: Implement the MEM_UNSHARE hypercall for protected VMs
+  KVM: arm64: Allow userspace to create protected VMs when pKVM is
+    enabled
+  KVM: arm64: Add some initial documentation for pKVM
+  KVM: arm64: Extend pKVM page ownership selftests to cover guest
+    donation
+  KVM: arm64: Register 'selftest_vm' in the VM table
+  KVM: arm64: Extend pKVM page ownership selftests to cover forced
+    reclaim
+  KVM: arm64: Extend pKVM page ownership selftests to cover guest hvcs
+
+ .../admin-guide/kernel-parameters.txt         |   4 +-
+ Documentation/virt/kvm/arm/index.rst          |   1 +
+ Documentation/virt/kvm/arm/pkvm.rst           | 103 +++
+ arch/arm64/include/asm/kvm_asm.h              |  27 +-
+ arch/arm64/include/asm/kvm_emulate.h          |   5 +
+ arch/arm64/include/asm/kvm_host.h             |   9 +-
+ arch/arm64/include/asm/kvm_pgtable.h          |  51 +-
+ arch/arm64/include/asm/kvm_pkvm.h             |   4 +-
+ arch/arm64/include/asm/virt.h                 |   6 +
+ arch/arm64/kvm/Kconfig                        |  10 +
+ arch/arm64/kvm/arm.c                          |  12 +-
+ arch/arm64/kvm/hyp/exception.c                | 100 +--
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   9 +
+ arch/arm64/kvm/hyp/include/nvhe/memory.h      |   6 +
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |   7 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 125 ++--
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 595 ++++++++++++++++--
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                | 224 ++++++-
+ arch/arm64/kvm/hyp/nvhe/switch.c              |   1 +
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c            |   8 +
+ arch/arm64/kvm/hyp/pgtable.c                  |  38 +-
+ arch/arm64/kvm/mmu.c                          | 122 +++-
+ arch/arm64/kvm/pkvm.c                         | 149 ++++-
+ arch/arm64/mm/fault.c                         |  31 +-
+ include/uapi/linux/kvm.h                      |   5 +
+ 25 files changed, 1405 insertions(+), 247 deletions(-)
+ create mode 100644 Documentation/virt/kvm/arm/pkvm.rst
+
+-- 
+2.52.0.457.g6b5491de43-goog
+
 
