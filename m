@@ -4,74 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBB6DCA5FF6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 11:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC2C3CCF2DF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 11:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=InzMZ2sKPU+dBiXuXrFvQIinli9OSxMqyO9gWD6Sl84=; b=v+V5/zVC8ev9JNunKEKbFSs0ts
-	1xQU9YpyGPfePBJe2gPyx2SPNq6ZsM89We7jUp9vhA8liOftFUEWfk/11Q1FlS+R/zkW6ua9sE1jD
-	YCfhB22T8MMOEXouCqA44wZwwDVnQARNyH8DxKTAAjpBXTb01dpZPrYK+5lVWuY3ohOxIK790hBgs
-	XU3+iIA+XMm/LS43yNQHntf7Jkgc0TPI8/hIVzvn6mMQjjkWtvDHY095fr0q25o41qi61dx8ThmJ/
-	KX1Us996n3cSnVRt5TwwfTC2yjsAH7x42rWEM28JUcv+OVk2SjDHxkyoMw5DFpoxfoZgeqrPX/sgm
-	Y2kkNNcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VS2moVsLFS8R82B6LKNK6mphxLmcNhEidNAZl37HgzY=; b=Vv1O1Fy7crdXFxrcYgCtCVFEMc
+	l+nL7bLuplNRcLZjQUSUotbXhWsZ8dEZ00HpdtwYmGfjhpPz+hEglZ7P6hKFpc1gcoc7WSQO4e1NB
+	kOSDsXqcjTjUETUp8lNtQYeqYZFd7fhypgpeZajmJL+zRtEk/sjJOhLCT/jt0Ksqs/EVVITchKYfr
+	RC8yz7TIpR+ZFIcc/PuOhg9vf0YBYtksDCQnRMwuHMXjBUbbpe8uv3rNwAnh5KBjP/q5A3e4JxU89
+	jl2e12egs0pFC76ngMySgdV4Kbu6HvJ6aelkJfx0Eop2VXMkbXyDTkPNUMO4eYIv1BKjIAif/A/uT
+	8x9T8bjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhn66-00000001qoG-12hG;
-	Mon, 19 Jan 2026 11:07:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vhn6N-00000001qsD-2OWc;
+	Mon, 19 Jan 2026 11:07:19 +0000
+Received: from mail-oo1-f42.google.com ([209.85.161.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhn63-00000001qnO-3K6t
+	id 1vhn6K-00000001qqh-47zp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 11:07:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 12BBD41A4E;
-	Mon, 19 Jan 2026 11:06:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BEC8C116C6;
-	Mon, 19 Jan 2026 11:06:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768820818;
-	bh=FSHtm5y+0kZFCu8h7MAlOolnmcLEJiXQsqC8mgqCK0I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=M/3rPe+VeDwVPcMY41CgntHHzX52DrZ0Q9LntDEdhFwNDiNZ+STK82e5P8+fTyKDM
-	 DyPXKjY5ovs4CJIuPMfV4bFzgLkuVtS9YVZxtJVrjT3KTCx6Lt50yKGHNFtwjJiioZ
-	 nRo+/iFAN2Yo41CvjEQUqCEYz+oCH0IdS9UATPlAo/IjYIH20q8aTsdTpeQSk7f+Qz
-	 8eou2/M7Ip9TXxzlIaBsgTffX6DujbxZky1fjiNwbe1DQLng6YsJKWQD40SP/jF/2q
-	 1OLSx6lcmdOrWzcG4u/cDPaN57epDjYD//Wwa+BRG53He0SLZsLR2jz5ALHlw9R7Rn
-	 813vdS2ZEk1iA==
-Message-ID: <ff8db3d9-cb27-4ea3-8953-a7786eb54a01@kernel.org>
-Date: Mon, 19 Jan 2026 12:06:51 +0100
+	Mon, 19 Jan 2026 11:07:18 +0000
+Received: by mail-oo1-f42.google.com with SMTP id 006d021491bc7-66106a2f8d1so2944701eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 03:07:16 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768820835; x=1769425635;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VS2moVsLFS8R82B6LKNK6mphxLmcNhEidNAZl37HgzY=;
+        b=Cimn8hVW4El7MLPqBJef9XavOwQI/X+FR4UeFBGakc8Dep6KufVCN3SdP+6pgLSh2b
+         qg/YBUllGifnny3PAXryvyiITf9F3c7KENRhBIBjNwADCrDTWulF7hv4wiPouKLti74c
+         48xEJKXrrkvL48y/sSnK5J1AmSjN5mszIQe5CvdVCaqQjOuCWAeYSY/c2E+kG3rPF7f+
+         zhusN/9z6yMLk1ab6/Ux9zphq/vwvoOOdi1q0yfi+1Cpxkf8X5uUqU9zrKk6+pngpeLX
+         zbgc66X6QLeBARCUrbzt2/U/aSwQm7yEyY/lUnBlLFyYgfBaCad8WmBdKiKfg3SlG6dN
+         EVcg==
+X-Forwarded-Encrypted: i=1; AJvYcCXza/6BAoZbJN5w0fod6tI8sGrCA5f01eqKOzgm2TXtwlH/blcr2yUeBOnQ9mlVUqfkjGyiNa5xrlWoyB2P6rsW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLBxt8soV8T7Xx8Ep+URrmmcEdS4K9RjwZMJgL/unUi/ZxV65N
+	uVIEq//c+Bl89wvZeiJ2FHBtD3n4w7s+HeKMil0LpJHMc8TY1INWQnsa
+X-Gm-Gg: AY/fxX6PRrHoliIZMR7KagKHzE7/wzAglS6Ld6i5shFFQL7kEID9m2CO2pyiMe9nIUw
+	JrstSRmKDF/nBLelduQvW5Mx34eK+XnBUuXfmuPKNeMs19VI9YS+iNxf84ssfJ4ApeI84Gx8Q0a
+	VsA0cVsaAtWYhPgxglgZb6zHZbv2D5pOWAxnXTX2v6cSnqezFWBd+huI3FBKSmsO4VtCPeH27v+
+	s03yW18/GyDtmOUT3XPd+wIdYV7kXKw8jsbh5wfVh0nS8ycCncUAVretNF9tOCQ9jbx9iVR+k/g
+	7ONysN3A/F5EXaJ0RLlfd0oracF0Nh1BupSlKupUrp/VHWWdUttXBlWgyf5n8qPEHlzobH0xCUC
+	npq0wYFj9qvpEvGcjgXaVaNOqhF7lmOmhpihdl0EWqh0JWwtL3fqHhtvvi+hOALPBG2zC1m6W/p
+	cCn6LZxX8QAgzJ
+X-Received: by 2002:a05:6820:448b:b0:65f:54b1:a9af with SMTP id 006d021491bc7-661179b6b61mr3226026eaf.42.1768820835533;
+        Mon, 19 Jan 2026 03:07:15 -0800 (PST)
+Received: from gmail.com ([2a03:2880:10ff:52::])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4044bda443asm6804809fac.22.2026.01.19.03.07.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Jan 2026 03:07:14 -0800 (PST)
+Date: Mon, 19 Jan 2026 03:07:12 -0800
+From: Breno Leitao <leitao@debian.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Ajit Khaparde <ajit.khaparde@broadcom.com>, 
+	Sriharsha Basavapatna <sriharsha.basavapatna@broadcom.com>, Somnath Kotur <somnath.kotur@broadcom.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Felix Fietkau <nbd@nbd.name>, 
+	Sean Wang <sean.wang@mediatek.com>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Shay Agroskin <shayagr@amazon.com>, 
+	Arthur Kiyanovski <akiyano@amazon.com>, David Arinzon <darinzon@amazon.com>, 
+	Saeed Bishara <saeedb@amazon.com>, Bryan Whitehead <bryan.whitehead@microchip.com>, 
+	UNGLinuxDriver@microchip.com, Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, 
+	Raju Rangoju <Raju.Rangoju@amd.com>, Potnuri Bharat Teja <bharat@chelsio.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Jiawen Wu <jiawenwu@trustnetic.com>, Mengyuan Lou <mengyuanlou@net-swift.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next 1/9] net: benet: convert to use
+ .get_rx_ring_count
+Message-ID: <ziyd3327jr7miqgv2e252w4wpizphomkvxxge6nbjwtg4pyvf4@gvwwi2r7rykl>
+References: <20260115-grxring_big_v2-v1-0-b3e1b58bced5@debian.org>
+ <20260115-grxring_big_v2-v1-1-b3e1b58bced5@debian.org>
+ <20260117181551.0b139ca1@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] of: provide of_machine_get_compatible()
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
- linux-sunxi@lists.linux.dev
-References: <20260119-soc-of-root-v1-0-32a0fa9a78b4@oss.qualcomm.com>
- <20260119-soc-of-root-v1-1-32a0fa9a78b4@oss.qualcomm.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20260119-soc-of-root-v1-1-32a0fa9a78b4@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260117181551.0b139ca1@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_030659_873762_F4A5E3DD 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20260119_030717_028990_98729570 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,58 +102,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Jakub,
 
-
-Le 19/01/2026 à 11:40, Bartosz Golaszewski a écrit :
-> Provide a helper function allowing users to read the compatible string
-> of the machine, hiding the access to the root node.
+On Sat, Jan 17, 2026 at 06:15:51PM -0800, Jakub Kicinski wrote:
+> On Thu, 15 Jan 2026 06:37:48 -0800 Breno Leitao wrote:
+> > -static int be_get_rxnfc(struct net_device *netdev, struct ethtool_rxnfc *cmd,
+> > -			u32 *rule_locs)
+> > -{
+> > -	struct be_adapter *adapter = netdev_priv(netdev);
+> > -
+> > -	if (!be_multi_rxq(adapter)) {
+> > -		dev_info(&adapter->pdev->dev,
+> > -			 "ethtool::get_rxnfc: RX flow hashing is disabled\n");
+> > -		return -EINVAL;
+> > -	}
 > 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> I think we need to add this check to set_rxfh now. The error coming
+> from get_rxnfc/GRXRINGS effectively shielded the driver from set_rxfh
+> calls ever happening when there's only 1 ring. Now they will happen.
 
-Reviewed-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+You are absolutely correct. The ethtool core calls
+get_rxnfc(ETHTOOL_GRXRINGS) _before_ allowing RSS configuration via
+set_rxfh, and if it fails, ethtool_set_rxfh() will fail as well. And
+with the current change, ethtool_set_rxfh() will not fail if the adapter
+is not multi-queue.
 
-> ---
->   drivers/of/base.c  | 13 +++++++++++++
->   include/linux/of.h |  2 ++
->   2 files changed, 15 insertions(+)
-> 
-> diff --git a/drivers/of/base.c b/drivers/of/base.c
-> index 0b65039ece53aa90f30da2420a893a02ab4c6dd8..a7e27d5355929abd6d156b80c52f8f8b08fe6da1 100644
-> --- a/drivers/of/base.c
-> +++ b/drivers/of/base.c
-> @@ -434,6 +434,19 @@ bool of_machine_compatible_match(const char *const *compats)
->   }
->   EXPORT_SYMBOL(of_machine_compatible_match);
->   
-> +/**
-> + * of_machine_get_compatible - Get the compatible string of this machine
-> + * @compatible: address at which the compatible string will be stored
-> + *
-> + * Returns:
-> + * 0 on success, negative error number on failure.
-> + */
-> +int of_machine_get_compatible(const char **compatible)
-> +{
-> +	return of_property_read_string(of_root, "compatible", compatible);
-> +}
-> +EXPORT_SYMBOL_GPL(of_machine_get_compatible);
-> +
->   /**
->    * of_machine_device_match - Test root of device tree against a of_device_id array
->    * @matches:	NULL terminated array of of_device_id match structures to search in
-> diff --git a/include/linux/of.h b/include/linux/of.h
-> index 9bbdcf25a2b448ba4ec5ddee8b35a105ca4aab8b..75423fb556ee4c108ce25144a0bdc252a89f7d1d 100644
-> --- a/include/linux/of.h
-> +++ b/include/linux/of.h
-> @@ -426,6 +426,8 @@ static inline bool of_machine_is_compatible(const char *compat)
->   	return of_machine_compatible_match(compats);
->   }
->   
-> +int of_machine_get_compatible(const char **compatible);
-> +
->   extern int of_add_property(struct device_node *np, struct property *prop);
->   extern int of_remove_property(struct device_node *np, struct property *prop);
->   extern int of_update_property(struct device_node *np, struct property *newprop);
-> 
-
+Thanks for the heads-up. I will send a v2 shortly.
+--breno
 
