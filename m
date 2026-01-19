@@ -4,73 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74E5ED29C46
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4CF6D29C46
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:44:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uw6KihBC1TRdvi5ZGo68c20jmI6Js3ekwsf6FSSvJdY=; b=db+DaMScuWiZ3m7aZDo2QOBjH0
-	bFvHYsoar2mqrOrGYTjkBiiqORvPU/vqBwyLbo13EW7bR26iJS2Kcr3wcof+N7zpX61i5+qrPp5iw
-	nJrvRKJ6S6XQMBZ5NSdq9WVQJP2DHnwgWL/4hDj68IYn9hlaMkO9bUL68LmhYFZa0A+KpaMu7+Y7+
-	v5cLBhuYIdphOrC5/k+XhMUiRi5g0hWsUyL+67BCVRfAtXOEpZMi4jVM7N6c2bXVPw9KYvs89UXtD
-	P4vZSgwtAKu+8IY+ejeew7hAFuCgyED4c9UhTOJSatTHMbJ6BZBBpq9jBxW/zK1sNSFODViSwWfVT
-	8byQOZcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wmVSL0yeT+KvD+vmMkTMN5P2TsIbV9a8ttJOjy1cS/U=; b=tDnK6KFnWjD4GrOkgAfKv35+jW
+	XU8ztXx4qrT2ruQkH3lDYoM8vVm3eyQKqvY/MViS0O4nGmSUpcUseXggb3ZkKykbS5iSQMYZeY8Ff
+	1LbhZupWISdD3B8I4FM5eWsCppkHgAxfGXcNJjrIvqY1jMnqQIHMOEHWE17P/ikmHzcseFeNLShUk
+	l7SzZlbWRtULxH3XpPgaM3US3iA3BYGesnLHY+esw5xn+oSdZEZvIK8444WdgqP2hYPa4WHeuTf+p
+	AJ+fANvXrZ/odZMPvGqoi7K6YDzkgzTuRM2wmyeaRd+1nZ5QNb3hcPBbof57G9NhvRKZ3gf7iZeLb
+	5I4KrjXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsMX-00000002XKd-4AXJ;
-	Mon, 19 Jan 2026 16:44:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vhsMh-00000002XOt-0x72;
+	Mon, 19 Jan 2026 16:44:31 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsMX-00000002XKP-0Icb;
-	Mon, 19 Jan 2026 16:44:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 22A0760054;
-	Mon, 19 Jan 2026 16:44:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B80FAC116C6;
-	Mon, 19 Jan 2026 16:44:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768841059;
-	bh=16FGOoiet4+IrVT+FcqrHcvY6YUTC0QcugfuzrxpDdk=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=q0tAOJQSpR4lAPo9D9a0ZLzj9fmk4VEFSuwyHRGgr6m2/2bnlj2msqm1OK35ZA72i
-	 BsoEW2Hi1Kd0mpXDYPCuFTDERjp9sFatntALxM7RaexoblAcWHEgiVDgn5GR/Cfhs5
-	 lJ+7nmPuUhjsYr7LMg0JLovICzoM9fTlHD0eazCWxNpHY+vxS6kc8rz0ZKG0d1VEWg
-	 IIhlCXiVHIe0pBTCOoVEENtJxJ+QEakuwJKi7yA2fm+eSBFbxX2gEsdDI8+DoA1Vyk
-	 WSTb5IyXokPQcIaRg69SRVfbN0PLcfWUE2soFEJxCYrdO9X8LHmJmpvUejzzI3uzi8
-	 2/W6/Js/SDGRw==
-Date: Mon, 19 Jan 2026 08:44:17 -0800
-From: Kees Cook <kees@kernel.org>
-To: Dave Hansen <dave.hansen@intel.com>, Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Mark Rutland <mark.rutland@arm.com>, "Jason A. Donenfeld" <Jason@zx2c4.com>,
- Ard Biesheuvel <ardb@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- David Laight <david.laight.linux@gmail.com>
-CC: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-hardening@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v4_0/3=5D_Fix_bugs_and_perfo?=
- =?US-ASCII?Q?rmance_of_kstack_offset_randomisation?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20fb97f1-7e50-485a-bdfd-a2901d20ec84@intel.com>
-References: <20260119130122.1283821-1-ryan.roberts@arm.com> <20fb97f1-7e50-485a-bdfd-a2901d20ec84@intel.com>
-Message-ID: <C502BCE6-2FB2-4A06-93A8-E8DEDFC22914@kernel.org>
+	id 1vhsMe-00000002XMu-1cxN
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 19 Jan 2026 16:44:29 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60J90gve227781
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 16:44:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=wmVSL0yeT+KvD+vmMkTMN5P2
+	TsIbV9a8ttJOjy1cS/U=; b=coEDHFhkNOmgoVBlhWI3pnsdLh8wyuzTLnTYtood
+	rR+jvY5OYGHvzyTW1/Jl47yUZ9hp5T7gaYWyZ0jRxbEkQLE2A0bzU3ZdGq7N111C
+	UQzN9QL9kcHCGbn3MWpQLTyp0qlRi3aP3kOB4zQ8vNT39RK6SjIBWxegDNwHdYLT
+	fOvDocDhhqM/XaY4Ulcze8PjInn/JsbYvhVa1iudRzLbehIgXpCSV4E5tkjxlGCp
+	yGdRUmpTYSchsH7F5sgeHBS3RNOpsz3vasKD9aw3iUZC8YvqDai+TtF1D6rQoGc6
+	lOBUpbacnABqsVuTCFYts8CV2/EntsDhO9EWpH3NMMJNEw==
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bsgfr9n3m-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 16:44:27 +0000 (GMT)
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-8887c0d3074so116104596d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 08:44:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1768841067; x=1769445867; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=wmVSL0yeT+KvD+vmMkTMN5P2TsIbV9a8ttJOjy1cS/U=;
+        b=JTfNC1zoQmojA4u6f9mEYhHcXSTAvDgHn1JcyEAyJtzz4yfMKYv786e95H2Hss8gkT
+         c1ZFMe48vXnpOcDag3TGqvKnsZ8ZYrP0dqi5xbHfunBVHx9puvBv5fwtZM3zgZopVPF3
+         /RTr9lRHPB3qwxcIMzhFA7TP4QmkzLz5l+2E00h55xL+E+M+5E3Z8OuDsj9pYampskR4
+         kREmAZ8MtwaPeoXRDMBYjrqRkhfpZRq3yaQ+NZCNW4AepDWic0r7oP4yDyU08ZwrHVnt
+         trLPMAR6vJE4TW4gckWNV6zXQQj8bkJ9hiA4PlR/gbShlXLXFLd6LjIbCm+j4BeK9+w/
+         QtXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768841067; x=1769445867;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wmVSL0yeT+KvD+vmMkTMN5P2TsIbV9a8ttJOjy1cS/U=;
+        b=T1huYu9n2R/+zzcKwRlr63EYagJLCSV/D8dP45KlEiuPYL4ntJZaDpzn2Vyp39hQAC
+         yvOCic2en7ICbFB84yDLwVIFe6XHRx4w+7AvnU5uuedtMma35H9n/aAiBWU4DM3FTLlq
+         oYx6buB2CepAHR8erctnpmBUxu4da2mkPz35iTk5cRWNcB8GM4yS/PpefiAEv6Npf6Av
+         +aLKvTxgbjS5cppc6ezSfOBF45IQAh5QkNIIyRM5N6qfpYLkxguyNMsS8zN1Nx+1Y+Yg
+         qLndJa/JaKQU9eNJ0qvwUpK+FTpBo48c3VLIPvLYNHp8YEu4jHYNYGdxz3ON/7I9k3Pw
+         btLA==
+X-Forwarded-Encrypted: i=1; AJvYcCUm9gL9ri6ECtmhyvBeqL99ZAURc4sFX7ILSbNmp4L+a8v1OvNXS95Sy5B5T141v00Laq9YzBszvYgWFL5dAlgV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1AFwEG0AQ1B4wNzU95XObHBbQpL1YnclyIA0zcq8zIjvKUHnP
+	dxXnQDd7KQaL5ROxtFPxh8x0WpFAcUTiNQvorOSWqYXvuDkiqe82uuuKq7z4gnOWhHlvuScBaIz
+	SAw82I2y4xZGM0P6nAwImimvXEXBoSw+qPRSHKDAI3d2+d1mRlWXJfNb93csPZ7YD0SSXEvsS+z
+	w8OA==
+X-Gm-Gg: AZuq6aI5PXZRJSaesDRg6mSzLNHVgZ2rzz8YcoNuWVI24YjV9qijCMLyEVLeye0r4ve
+	wsM5SkJ5v4YkEi120lhus9wETJyzWBXlkMDjo/63ogyeAGmLGszkD60trSgwGq3y3TfSRn3Nayw
+	0k7ylPhiaPJHU6qcceL75yfWHIpeb9RRL/Ztj6lMHgUsVZFS5q8V7rppK2sLhYhPSuBUR+EoKRy
+	CBER9ARHx3W2+6EgfpCibrU3Bvb4g4qY2wgKb+UiYERzAcN84lF3lPwjh6giux4mrp6xpCJRF94
+	tnfzTlH6pQI3md1Ac1R0i88evTS4lecgPP3UPv+RC9QhKjhoP66DMnCCdEidk7b/l6Hd1Cuixdl
+	W4xkf8E905jgA0Yedk0jGETurBbBSDqqiO4BoIefjv69Zyk1Vl5zMrgWxD0Kdx9MzW6oqOP1ZGf
+	rcWRggzSBp4cDl6aYEvbDy5Zk=
+X-Received: by 2002:ad4:4d11:0:b0:894:3cb5:2ed9 with SMTP id 6a1803df08f44-8943cb532bemr93075176d6.14.1768841066695;
+        Mon, 19 Jan 2026 08:44:26 -0800 (PST)
+X-Received: by 2002:ad4:4d11:0:b0:894:3cb5:2ed9 with SMTP id 6a1803df08f44-8943cb532bemr93074836d6.14.1768841066124;
+        Mon, 19 Jan 2026 08:44:26 -0800 (PST)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59baf39c03bsm3444442e87.77.2026.01.19.08.44.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Jan 2026 08:44:25 -0800 (PST)
+Date: Mon, 19 Jan 2026 18:44:23 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Trilok Soni <trilokkumar.soni@oss.qualcomm.com>,
+        Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, trilok.soni@oss.qualcomm.com
+Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
+Message-ID: <vvvq5rnbzs7ngtahqrar4iqinizthyrv3ipqnjp6ln34di365j@bbwdyda6gw3u>
+References: <aWY6kx8Bwa_2azIl@bogus>
+ <86331062-301b-40b1-9df1-78f7751508b4@oss.qualcomm.com>
+ <aWgEDAlglnGrzdR4@bogus>
+ <4fab824f-8067-49d7-8e6c-dedd67a8454d@oss.qualcomm.com>
+ <aWoVR4oNdIHnksJQ@bogus>
+ <92d90a1e-e993-4044-b152-83a8700f7b63@oss.qualcomm.com>
+ <cb7326b9-91d9-44a3-b9f0-9d2e6ab5fa42@oss.qualcomm.com>
+ <aWzuuwQi_nsHoj_5@bogus>
+ <mzs5vq2jsrmb6kdriuxawbamyim6dhgy34ne6tucnhlalt5y3w@ghckxur3cn6m>
+ <aW5Fdjag_w7i0zWN@bogus>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aW5Fdjag_w7i0zWN@bogus>
+X-Proofpoint-ORIG-GUID: 9OacmXjYYWbgRyM9m2bI5921gkdhhQ2C
+X-Proofpoint-GUID: 9OacmXjYYWbgRyM9m2bI5921gkdhhQ2C
+X-Authority-Analysis: v=2.4 cv=c4OmgB9l c=1 sm=1 tr=0 ts=696e5f6b cx=c_pps
+ a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=M4nwLoQtCJemt5GeOY8A:9 a=CjuIK1q_8ugA:10 a=ZXulRonScM0A:10
+ a=zZCYzV9kfG8A:10 a=iYH6xdkBrDN1Jqds4HTS:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE5MDEzOSBTYWx0ZWRfXzvgGhCya6n4l
+ L6c4ugtaZKcIXUI2HjQtriY/GYnOgEaYG+sBlJjqL8GIY7ngOhGX5cI2xndGmPJrdlp8O4EMsq+
+ tkMsyA5pTK2UmMIoFtKrJcAd1h6w+TuOr1AX0c4OZnUQ9c+kCWKCtHzX+W1nGQ2uxZ8jc722s4V
+ pAa/YYzjXy1OAAE3qu+QWXEhMp7uVcgyhGEwM0cpyvJJODkdHOTv6B89qElNT7EDffmQ5vKlybD
+ TNEDLiv4NnHvvHEXZup/LeMpxKZ1KqC/GNpudx3aVDDw6X11trTboU8xjxM9Ijlbgf/eDF8yP/9
+ i8IHm/vhWSbLNmLTzae7/dWOM1lYh0iOrFQn/j51MILW0C7OtreYpdjz1dHmUdB3BfoYeh/3kQr
+ EWrMqQI/3usE3WH6Exz9pnHiMNt+qpS72Rm4vKbXHtgu+GQ47oYXXgqXlwkD1Rm4HLHZnGzNsd3
+ 6lgPiLx9jLTucbDutlw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-19_04,2026-01-19_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 adultscore=0 impostorscore=0 clxscore=1015 priorityscore=1501
+ suspectscore=0 spamscore=0 bulkscore=0 phishscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601190139
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260119_084428_594946_03306268 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +154,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 19, 2026 at 02:53:42PM +0000, Sudeep Holla wrote:
+> On Sun, Jan 18, 2026 at 03:16:50PM -0600, Bjorn Andersson wrote:
+> > On Sun, Jan 18, 2026 at 02:31:23PM +0000, Sudeep Holla wrote:
+> > 
+> > To me, when you decided to add a second caller to soc_device_register()
+> > you created a regression in the userspace interface. If nothing else
+> > it's a leaky abstraction.
+> > 
+> 
+> In that case, shouldn't soc_device_register() made to give error when an
+> attempt to call it more that one time then ? Also should be change the
+> ABI documents to refer it as soc0 and not socX ?
 
+Then the whole SoC bus is an overkill. But I have a strange question
+here. Consider the device having the "BT / WiFi SoC" next to the main
+SoC. Is that SoC a legit target to export informaiton through sysfs /
+soc bus?
 
-On January 19, 2026 8:00:00 AM PST, Dave Hansen <dave=2Ehansen@intel=2Ecom=
-> wrote:
->On 1/19/26 05:01, Ryan Roberts wrote:
->> x86 (AWS Sapphire Rapids):
->> +-----------------+--------------+-------------+---------------+
->> | Benchmark       | Result Class |   v6=2E18-rc5 | per-task-prng |
->> |                 |              | rndstack-on |               |
->> |                 |              |             |               |
->> +=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D+=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D+=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D+
->> | syscall/getpid  | mean (ns)    |  (R) 13=2E32% |     (R) 4=2E60% |
->> |                 | p99 (ns)     |  (R) 13=2E38% |    (R) 18=2E08% |
->> |                 | p99=2E9 (ns)   |      16=2E26% |    (R) 19=2E38% |
->
->Like you noted, this is surprising=2E This would be a good thing to make
->sure it goes in very early after -rc1 and gets plenty of wide testing=2E
-
-Right, we are pretty late in the dev cycle (rc6)=2E It would be prudent to=
- get this into -next after the coming rc1 (1 month from now)=2E
-
-On the other hand, the changes are pretty "binary" in the sense that mista=
-kes should be VERY visible right away=2E Would it be better to take this in=
-to -next immediately instead?
-
->But I don't see any problems with the approach, and the move to common
->code looks like a big win as well:
-
-Agreed; I think it's looking great=2E
-
---=20
-Kees Cook
+-- 
+With best wishes
+Dmitry
 
