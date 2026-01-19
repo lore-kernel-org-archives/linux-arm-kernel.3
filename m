@@ -4,91 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8CFDD29C4D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 19:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9335CCF2DD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 19:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Y1wTxdZLJ7XhSQYYR0Ku2EXGP2C5XG02vKe6+mSL78=; b=sO7GRIIPvP4yTQFGQqnuPJRMZc
-	wyWAWAIKej3A4lY5iJ/ItKG/28RiqrP+qWKdAJ7yZ/CBN0EN+yhjU23Nwo9E1sULHUaB0NpkyliWr
-	8ozc2t2C6O7UY2oS7dQprzxnvZ6T+DGX6/CEVCauLjOhKT1SfnrclCi61RJPDOUDR7cqpiIGfAQi0
-	DiUAb5a8Rhz8zZKqzXnH1IjZtiHpRiJnJ4XBuHpDrZefpj0gW1xLw4C86/tTiMm4y2ikNnumIiIz1
-	ltMJW4fN9X2vL2r41td7AQQPApnlwjaWnqcozSy3lZEXqyXa10FCNlICrMZ1LPvKIzGOGByv2hqva
-	edgUqpLw==;
+	bh=KjLqg4NCZW5HVeSGJD2IDu7KY/jOeFMsx7bzNX3Cq+4=; b=l9S3XM+gqV2IAHk52TrExbvTMV
+	SDXukl7HwFK4TwzI0jO/hwCz+iHy2oH0UrdttSyIg1ssveYoelUwPVhSjBL62vn+lzgEPhcALMPTf
+	q3mmpxOv9FUS3tv3SEbKsU78cuAQYFvu6Gy05nSM3MT/JDdVf2EY3di8DraPNn4Rctzln23z+Adan
+	1zEFCWlCTCrqkDDkolQQdX9YjtcGRX+q8jeySf9F9enn8E6nJQfgh6UOx0uO8V10s1oeFd+k8LT38
+	Bhk9k/ZFpDveRAy1GmizsbcZ6cC/29cidjRviXK33P5sMkknMUEtFImUUixpurG9SoR3Y7ZqihN/c
+	AsE4GWgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhusk-00000002mTT-3Bt2;
-	Mon, 19 Jan 2026 19:25:51 +0000
-Received: from mail-vk1-f176.google.com ([209.85.221.176])
+	id 1vhvCa-00000002n5t-3YAz;
+	Mon, 19 Jan 2026 19:46:16 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhuse-00000002mS3-2OC4
+	id 1vhvCX-00000002n5Y-3WAq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 19:25:41 +0000
-Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-5636274b338so3784166e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 11:25:40 -0800 (PST)
+	Mon, 19 Jan 2026 19:46:15 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60JIooQL2966239
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 19:46:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=KjLqg4NCZW5HVeSGJD2IDu7K
+	Y/jOeFMsx7bzNX3Cq+4=; b=mbAt42zCnE2LHYfx94GGHwF/iecPPZ7e0bX59MPE
+	8pgi7v7ShqAvBHkJWoUGfeFqGGEuWmU0UI0F81LaY/j5EQEzZH9okL8yJlbkZiKg
+	gRBzcrWvPtR9eUqxbERBJzRXBnaqCVWH0QUaLgq9o0aVzW+uIUmbopMsQjyGkoXw
+	hfuaX9CHH1lPVXQGPZzgQ3F11Mnjd3a0ZXofTq2Um4tfOZbskgvuayZE7JJU1EsK
+	Zx9w0aG5ZbQ4edPwkCQgLb9CifBRoNMYnIOrb0LpJrlGObnmMKj6AHkpXPSGq3L1
+	TjQ/Es1XeS6+YPlyBQTESK6iXp1XTDbl9swni0KqapgoJQ==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bsjaa9muk-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 19:46:12 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8c6a291e7faso590868685a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 11:46:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1768851972; x=1769456772; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KjLqg4NCZW5HVeSGJD2IDu7KY/jOeFMsx7bzNX3Cq+4=;
+        b=eMDyBd96Sbqui1RLcQWmCJdx3U1z1ofuP70CiX/7+QzpJQdieX6pJ7M67K61sgBmrX
+         jdboS/6g2usO7krHGoqojCx+OTwmXz/ZV0/J8bwZHt0qosWfF3aomLCqvwz2flp3Zj8p
+         wVz1tIbfwBWdsh3zjSuS/9CSYol3sYTzdDdSrauKA3mWNfLhs2COhcnBMSJAvAA79pAG
+         A4kL3TQ84EIJaRQCAMgQIMbsVb9XHjc+IzMTwbV3f9F67jquTMLuBbRYf36bHfCmdkOo
+         ePpA4WCuPbbBYkMTrYvhbrTqgFjwCaJZmnv1ST32AL8A9dpSnZI5WKa3vpGnu3Dicc3F
+         KTXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768850739; x=1769455539;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6Y1wTxdZLJ7XhSQYYR0Ku2EXGP2C5XG02vKe6+mSL78=;
-        b=jlB0UKW8lrspmzmB7w0US/+5XghzOhjiZxsB9FTr3ftxLVgbimH4vXYXz6IY9tlaOr
-         4cZAleLHtuttUiqytVRNYOKDDN/xjvSgEq6wQR9CSrlv8atYo0HZY7XaE+8jA+elHXZy
-         jkEuOplE7LI6vYq/D+HscGit1ROnOMYcaghgYim/F7c89P3RBTNTEew3xrk5wnagLikY
-         3sk2IwpxK122Xz6LOe5QWj5aKvWPF0ws3+sxEAVphacSLzDH2qiZ5nYEiIRJgqgNhSHR
-         oKcvdcxvq92UcZAIGD3KeWpaf4grfkJ4ulRVnCV7oioaMb/2AaJU0EQh8+WyFeFQJPZg
-         JSvw==
-X-Forwarded-Encrypted: i=1; AJvYcCUR7y6fNwxu619nezsR2ynOqfaYiJnZVujHKmCzJq2FdOdZ3w8+l/Phj6LhXU2755Nhqm4cnydjekqC6aTPY+GF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8q63+l8FTllFSFB2KsYIjBjMNgkvRo0F/WZ3ApNtcbmyOUZkr
-	UctrKj/qxPCmpBBdoCqC2m9L4oYAE7TfjDE0bLbY+M7V7QFTZPE88RSs/msI39or
-X-Gm-Gg: AY/fxX6X6Pr0VFRB5iAhvon96+EQZ/E82E90EBujIvVIhRXl0jAolxj29GWYMc9PtSF
-	tMvCjU5JRIC8MOjopAW/RW/KwwGX+ae5e0qpDMoJhdyIikFrFt4332NiftwC6sMmsTNoXYiSc4k
-	HGRA1WmU5u2q1HtETd4Ic8+UeINHdtpukgGmhQELhupc1FytP6kARPzrsvVoxdsD+pvpvtKRYJo
-	EofgY1VbqL8Nbhrv9cueeRrkLN/nsnvj6Zm6UJgnJuSd5aWhrBRSnUTtOp56nzswDCikyjI+9d2
-	PVqcyXYKEASu+ao6uDW7SpUKL4K5zx919UHO1KmQQDcZKN+eGIfqKdBEzduRffUcQnTWOCz/EjX
-	dv0FbtfmxYV10pIlj/R313/rBNzCmnQz1v5TDlWVpLQtnOB9Lmk57s0+aYx1bHcA6XfbixKXY2m
-	xA4nzs2vZuIZGYQYOVHZhhupMmwXJdlvNJhbYO5HsO3UOt4jh5
-X-Received: by 2002:a05:6122:8008:b0:563:50ff:69b4 with SMTP id 71dfb90a1353d-563aa9c7454mr4681078e0c.7.1768850739113;
-        Mon, 19 Jan 2026 11:25:39 -0800 (PST)
-Received: from mail-ua1-f46.google.com (mail-ua1-f46.google.com. [209.85.222.46])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-563b6ffd215sm2977131e0c.6.2026.01.19.11.25.38
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 19 Jan 2026 11:25:38 -0800 (PST)
-Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-93f5910b06cso2781255241.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 11:25:38 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUCnMMWR2zuWjgd2tx7f45Nj+18yEgZ7mxjUJ/jFTLaJY6nsyMB5yx2Of3YWDrcWaMsL4eMRx96qDpFe9Bwoio6@lists.infradead.org
-X-Received: by 2002:a05:6102:3e96:b0:5ef:b32c:dff8 with SMTP id
- ada2fe7eead31-5f1923fb2c1mr5826988137.5.1768850738083; Mon, 19 Jan 2026
- 11:25:38 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768851972; x=1769456772;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KjLqg4NCZW5HVeSGJD2IDu7KY/jOeFMsx7bzNX3Cq+4=;
+        b=I4+rwcZKRqykmbSjwaOMdyv/JFyt8ARZZjGSJLtXDS8BfpKgW82qmrTgHWHwGOmeVx
+         Uc/CyHbqDZftEIET+ph1IvmFlO0B5qxtTNaABcbYrStjK8qChh/yIrVGoqiqfy28YzWk
+         HNRZct2EKWp+iu7S3zoJbv67vN79ugeFU3BOBqWuJFGsEfRk45TnuRk6Jg8077khUHCY
+         2xQzfzuEuI1NyQf15Mp/LaHeMOXJHaPRRtiCzgdFoj0Yn91eL31Btt+gdx3xszmag7nP
+         qhhmxR0GO0KuefUlxyD0KSk/mDTBAz8LiPnfD434LHPb6KRtoVvgX4etYXnIvKqMO/qf
+         ri/g==
+X-Forwarded-Encrypted: i=1; AJvYcCWQlt1Tv/MbydrZsoLqYhlIPWyYpLLBVAiDlj8JN5KYn08naWilCh32gL0YtIaKzHPtDeRR7iRGXvJVCjLO37vk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUWjmDcnHLzOBLkPCRxPmiZrIue5atukvY0AnBJa0aptIxBKvc
+	KdYEYRu8wZ3FsQ/+KHBfrFDT9cl7AfKmjP+B4a42SLhJzTlCbMD9DiZJXaVxRrpdZ5ImSw/JNo6
+	/V76Ml7O/YE8OjXZbZlMZ68zAFDsuuTK/wlLr+n6mM9p8ASGlVZVxoJYeBROYmllo76I5X4liZI
+	ijOQ==
+X-Gm-Gg: AY/fxX5aDysdlaN9eSGxwcK0j+wqdo5dhOyZGPuuXvDK26qaLuz5OZmkpKD7YzSkRJS
+	eU3a5QOeg80B57C6SryKPOTcOVjJdgP9uyW3NPwKdBD1Xit7I8h+vO3CJP8XVlMrYHIKvN2dCb0
+	0WQ3YZP9FkX+V9x0KE/G35zBO22wDdF/kBkxKiqWnXzUW+1s+hxXU+OOkmYGCiian0D/5ExMJJ9
+	1JXbE/U8xDXIjt8sG4JPsScBa0CKo0t5Dha8mK2VY+DKmGxTe521xb+ovJJt+/fL+I8uDSO4ogH
+	55g5ID0vo/lyZE8kJ1E6Z9uddbnW0gwW9YGkCxfC5Bz5AdKN6LfNLCEx/nZOdGqv7SYT9z4PF9t
+	14utICrl+ZecF5tbymzoBaLG3ne1FFMVePpkJLBf/MguWWhusPSz0Cc/hZMJWC+fGab1g6FKyAA
+	y+ymhIbrCyiL3ANmXSuL+ETs4=
+X-Received: by 2002:a05:620a:2805:b0:8b6:1877:3689 with SMTP id af79cd13be357-8c6a6919d3dmr1637943885a.35.1768851971558;
+        Mon, 19 Jan 2026 11:46:11 -0800 (PST)
+X-Received: by 2002:a05:620a:2805:b0:8b6:1877:3689 with SMTP id af79cd13be357-8c6a6919d3dmr1637940085a.35.1768851971054;
+        Mon, 19 Jan 2026 11:46:11 -0800 (PST)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59baf39bc5csm3636078e87.67.2026.01.19.11.46.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Jan 2026 11:46:10 -0800 (PST)
+Date: Mon, 19 Jan 2026 21:46:08 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Bjorn Andersson <andersson@kernel.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+        Trilok Soni <trilokkumar.soni@oss.qualcomm.com>,
+        Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, trilok.soni@oss.qualcomm.com
+Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
+Message-ID: <2fmnaxj2ma2bb5iuuu4yzmenp3tsxjko6rziwuaaqr6rqvegbw@s4x6eiwhlkcm>
+References: <aWoVR4oNdIHnksJQ@bogus>
+ <92d90a1e-e993-4044-b152-83a8700f7b63@oss.qualcomm.com>
+ <cb7326b9-91d9-44a3-b9f0-9d2e6ab5fa42@oss.qualcomm.com>
+ <aWzuuwQi_nsHoj_5@bogus>
+ <mzs5vq2jsrmb6kdriuxawbamyim6dhgy34ne6tucnhlalt5y3w@ghckxur3cn6m>
+ <aW5Fdjag_w7i0zWN@bogus>
+ <vvvq5rnbzs7ngtahqrar4iqinizthyrv3ipqnjp6ln34di365j@bbwdyda6gw3u>
+ <aW5iQABCRukZXpZH@bogus>
+ <3ldzdsyspd3s6on3cwyanjeheegoeba6kn6qaybojtqeca7335@cyemyxk6kck4>
+ <i4zd3jesjrbljym7xuhwo5v7gwbsbuesuarnxr462eeuosevij@64hcfdzht6w3>
 MIME-Version: 1.0
-References: <20260119-soc-of-root-v1-0-32a0fa9a78b4@oss.qualcomm.com> <20260119-soc-of-root-v1-7-32a0fa9a78b4@oss.qualcomm.com>
-In-Reply-To: <20260119-soc-of-root-v1-7-32a0fa9a78b4@oss.qualcomm.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 19 Jan 2026 20:25:26 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdU56p9jH8OZ5bpwKq8Q31C-8X85YAjiXZm8amYdo+Xotw@mail.gmail.com>
-X-Gm-Features: AZwV_QjRSaQ_qXyXNZN9OqtIjEIE6rAZwNcvdO7jDgxqMH0vtYkLnv2_hmzs9Y4
-Message-ID: <CAMuHMdU56p9jH8OZ5bpwKq8Q31C-8X85YAjiXZm8amYdo+Xotw@mail.gmail.com>
-Subject: Re: [PATCH 7/8] soc: renesas: don't access of_root directly
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <i4zd3jesjrbljym7xuhwo5v7gwbsbuesuarnxr462eeuosevij@64hcfdzht6w3>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTE5MDE2NSBTYWx0ZWRfX8OIDk9vDywHg
+ hNBmmRaFnU7Qmr3FtCNBPAGuNpFMKu3rIX+7Xs84Xxx355arqAMUodvadRBNSi+EBO5bLYRBmuj
+ sxBaWtLnIJZZirrLgZ7lssl9mePosf7NG+/mt28XSDlICs+ONA+V/tduhoX+UxOYP6W+d4mVFZX
+ zzqY3LVTHfawhWzKBeyRBjW92p/2uTd3ADUd/PWRtgOx/wFbdoW4YMoigkdmgiinK3R8ap/sV1J
+ 1NBmdGCgl6TJ+YMVluhYmTokqKIeFhP4D6/3PBoiwp6eF+FK5nrSlB3kX3ORJds9yStbN6B65I5
+ QVz7JoL16mPbNVF/7YHSmE6sD4gwRo7hCz+EH6me/OurjuNJmjERsm8Rccal6fFGqG+Fv3GtmZU
+ KQtvE4iz6jvRk5PGOLNjdTbQ99PyFEXAjptSGdT/C4Nt8oFqEU574UXhZbTd+/yDE3g89pdNEBC
+ t+r+/Jnjgj6FFAubzLQ==
+X-Proofpoint-ORIG-GUID: wG0opBdxZxeDd5RDpZM5tygNSGh3vtpk
+X-Proofpoint-GUID: wG0opBdxZxeDd5RDpZM5tygNSGh3vtpk
+X-Authority-Analysis: v=2.4 cv=L8gQguT8 c=1 sm=1 tr=0 ts=696e8a04 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=f3c_A7qAZzxDW3Z421kA:9 a=CjuIK1q_8ugA:10 a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-19_05,2026-01-19_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 impostorscore=0 suspectscore=0 phishscore=0 spamscore=0
+ clxscore=1015 priorityscore=1501 lowpriorityscore=0 bulkscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601190165
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_112540_613442_4635BC2D 
-X-CRM114-Status: GOOD (  24.80  )
+X-CRM114-CacheID: sfid-20260119_114613_886217_E98E6F32 
+X-CRM114-Status: GOOD (  36.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,61 +153,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz,
+On Mon, Jan 19, 2026 at 11:25:31AM -0600, Bjorn Andersson wrote:
+> On Mon, Jan 19, 2026 at 07:20:09PM +0200, Dmitry Baryshkov wrote:
+> > On Mon, Jan 19, 2026 at 04:56:32PM +0000, Sudeep Holla wrote:
+> > > On Mon, Jan 19, 2026 at 06:44:23PM +0200, Dmitry Baryshkov wrote:
+> > > > On Mon, Jan 19, 2026 at 02:53:42PM +0000, Sudeep Holla wrote:
+> > > > > On Sun, Jan 18, 2026 at 03:16:50PM -0600, Bjorn Andersson wrote:
+> > > > > > On Sun, Jan 18, 2026 at 02:31:23PM +0000, Sudeep Holla wrote:
+> > > > > > 
+> > > > > > To me, when you decided to add a second caller to soc_device_register()
+> > > > > > you created a regression in the userspace interface. If nothing else
+> > > > > > it's a leaky abstraction.
+> > > > > > 
+> > > > > 
+> > > > > In that case, shouldn't soc_device_register() made to give error when an
+> > > > > attempt to call it more that one time then ? Also should be change the
+> > > > > ABI documents to refer it as soc0 and not socX ?
+> > > > 
+> > > > Then the whole SoC bus is an overkill. But I have a strange question
+> > > > here. Consider the device having the "BT / WiFi SoC" next to the main
+> > > > SoC. Is that SoC a legit target to export informaiton through sysfs /
+> > > > soc bus?
+> > > > 
+> > > 
+> > > Just for clarity, I agree with you and there could be duplication of
+> > > information if there are multiple source for that information. E.g.,
+> > > the setup in this discussion where the EL3 firmware provides SOC_ID
+> > > information via SMCCC SOC_ID and DT providing vendor specific information
+> > > about the platform. Both are getting exported via sysfs but the problem
+> > > here is SOC_ID has displaced vendor specific DT info from soc0 to soc1.
+> > 
+> > I understand the context and I understand that we ended up having two
+> > soc devices for the main SoC. And that's exactly why I'm asking about
+> > the WCN SoC exporting the information through the same interface. If it
+> > is a legit user, then it is a possible outcome that WCN binds to soc0
+> > while the main core gets bound to soc1 (even without SMCCC_ID in place).
+> > 
+> > Likewise if WCN if a legit user of soc_device_register(), then we can't
+> > make it fail after registering the first entry.
+> > 
+> 
+> But by this definition, a vast variety of discrete IP should register
+> with this interface - instead of providing such information in their
+> respective functional interface.
 
-On Mon, 19 Jan 2026 at 11:40, Bartosz Golaszewski
-<bartosz.golaszewski@oss.qualcomm.com> wrote:
-> Don't access of_root directly as it reduces the build test coverage for
-> this driver with COMPILE_TEST=y and OF=n. Use existing helper functions
-> to retrieve the relevant information.
->
-> Suggested-by: Rob Herring <robh@kernel.org>
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+I *suppose* that was the intention. Otherwise there is little point in
+having socX defined in the ABI.
 
-Thanks for your patch!
+> 
+> My interpretation is that the soc_device_register() related to the
+> entity which is represented as /soc in your DeviceTree.
+> 
+> For a broader "dumping ground for different IP to register their
+> version information", we'd need some way to associate each entity with
+> the related component - which I believe there is none, because then you
+> could have used the specific driver interface in the first place.
 
-> --- a/drivers/soc/renesas/renesas-soc.c
-> +++ b/drivers/soc/renesas/renesas-soc.c
-> @@ -6,6 +6,7 @@
->   */
->
->  #include <linux/bitfield.h>
-> +#include <linux/cleanup.h>
->  #include <linux/io.h>
->  #include <linux/of.h>
->  #include <linux/of_address.h>
-> @@ -468,7 +469,11 @@ static int __init renesas_soc_init(void)
->         const char *soc_id;
->         int ret;
->
-> -       match = of_match_node(renesas_socs, of_root);
-> +       struct device_node *root __free(device_node) = of_find_node_by_path("/");
-> +       if (!root)
-> +               return -ENOENT;
-> +
-> +       match = of_match_node(renesas_socs, root);
+We can be using of_node / fwnode pointers for that (where available).
+However, I guess, there would be no fwnode for SMCCC SOC_ID.
 
-I am not so fond of these of_find_node_by_path("/") + something replacements.
-What about adding an of_match_root() helper?
+> (I.e. there's no representation of the WCN SoC in our system, we have
+> representations for the PMU, the WiFi, and the BT core, but not the
+> whole).
 
-However, in the previous patch you used a different strategy:
-
--       if (!of_match_node(imx8_soc_match, of_root))
-+       if (!of_machine_device_match(imx8_soc_match))
-
->         if (!match)
->                 return -ENODEV;
->
->
-
-Gr{oetje,eeting}s,
-
-                        Geert
+The mapping is really a separate topic. I can imagine "just an
+enumeration" kind of ABI.
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+With best wishes
+Dmitry
 
