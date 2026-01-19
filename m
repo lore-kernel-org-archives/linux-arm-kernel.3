@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1060CCF2F7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AADACCF2EF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:33:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FO0Guq0u2bLxFqUb5MMyKfXXibl+E3l8zx5BVN/T+Eo=; b=G2rR8ItGe6QfSmW75z1xQZWFxX
-	DDUVXvJ2LYpH3tMdDgAAq4sD13bF1R98V9cnFQbVG2hubrp7FEbMyXtW+WQr02zPTR3lYSvsFSGJE
-	OJ4hXXmPn95aiID19cXg7iY1MTj2curmBJ5zxHLvzCm0Qa36ZishCd4//8xXyFfmpoPITm4bClE0A
-	YbTR2TJO3I/EjJEiZICsxGi4nDcXBQfeppR4/kmz607b84jmv5IRY0gZ2yPmE8+QPPr4JFNGNTGxF
-	rMJal3EJf0MD0CMm+1ll9g/08l6uNAZGYfDa2P8TfzOdJn4Gam4RDdM349DsTIOjTMoQf+xhMGMwB
-	C9iZccWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ru0nxSOEAUS0c1CIJ001g/HVYfV6kPWDtKRmcrJjgng=; b=2vCesR7DMqRGZfamuNSgIwvVAY
+	t7r2AkKymIoPGTMebFhiqB6caQoLomxrVhBCGUwVNzI6F7AgbuIYnLQkAkWP1tKZlikkA0NvXtXzo
+	zSrSTI583HtdQmlpNOcrJ305s87rA4cX310JdIBbn5W4VPY8zfdjB1Wp9XVRByJYnNTZkMKlARzB1
+	TrVll/gDdbd4NwnRva8IgT6MpxIjxUVZNYCuSMe63+B56ZlTUKVnvX7dlHl5h4by22MZzpOgTZUta
+	IBvl8y4pI9BTRU/Of5hrUTyiLIWfqovJg+B68IpAu+m5k+SBLGBFTf4d1caa0FsPUKmsnLoZZk0TB
+	TKGbzHlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhoRG-000000020dG-3Ynk;
-	Mon, 19 Jan 2026 12:33:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vhoRX-000000020gL-1Vqm;
+	Mon, 19 Jan 2026 12:33:15 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhoRD-000000020cs-35ER;
-	Mon, 19 Jan 2026 12:32:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA3256014E;
-	Mon, 19 Jan 2026 12:32:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34E65C116C6;
-	Mon, 19 Jan 2026 12:32:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768825974;
-	bh=M+d6u8jNMJOG/dvieHbaSobR94YjAiJkXgQzt7gGqGY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AedT0N6xsVrBAyEJQwxwMI7L0E1ha0dhwopq7LOvX6bGNGP/Hl2efB2FDeJWXCqHs
-	 3M5e5CQKpAAZC4tSjvi4Vjy7OCPhNHVtZs36enVffdaRm16stc0+WGqN5AAwK8l/kD
-	 jyyFF0tDkMTD/uMk9bRke/+5h9dxF/iUdvJGZmaqnyFiCFoHktjNbvpvF8WRpVLhEv
-	 KrYzILjhNYkhIYsHeDBCIeO461iCbnO827xVPOjDMBKgF6SFjpKlfcu86CVkESJbVR
-	 3JFAjjII3dtZAbzNbK2fb9d1jpmpEr6SlsOPfi9iqBPLTLlGxNc4it3VxoA5kHyEuI
-	 vk/HT8NvfjNpQ==
-Date: Mon, 19 Jan 2026 12:32:47 +0000
-From: Will Deacon <will@kernel.org>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Cc: joro@8bytes.org, robin.murphy@arm.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
-	nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
-	mchehab@kernel.org, iommu@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
-	kernel@collabora.com
-Subject: Re: [PATCH v11 3/7] iommu: Add verisilicon IOMMU driver
-Message-ID: <aW4kb5EbxbrhTOxK@willie-the-truck>
-References: <20260107101005.84039-1-benjamin.gaignard@collabora.com>
- <20260107101005.84039-4-benjamin.gaignard@collabora.com>
- <aWZui-rn5RDPwpEO@willie-the-truck>
- <68a49f8b-178c-4fa2-b4a9-315ad602271d@collabora.com>
- <aWeTQ50DOtntcniN@willie-the-truck>
- <db0950f1-b357-47c2-9829-e33262ab456d@collabora.com>
+	id 1vhoRF-000000020cq-3jCA;
+	Mon, 19 Jan 2026 12:33:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ru0nxSOEAUS0c1CIJ001g/HVYfV6kPWDtKRmcrJjgng=; b=kObIpteAPzCuUxauZeML37Pk7E
+	pk151CM3jRglHjSj9s073pEL6WuAapJhIvJZdtVR7cZXkv2KIfkGK3kQTz38a841qfLNrgqjkRQev
+	q/jgyT1H/R0yP006BvGPaWHNbEi5hELEfS5AplPbSIS2gOyDtVoSBGD7LtStxhTrPGaFp3dBPD5AG
+	5Ok+rz/tlc/VHSbviizcy5+yMMHW5a5Y/UoTEhLHjXzASkAzvr4lMnj0fOQB15fA72Hu0Ib+XOHdS
+	ojjqx8TnSoG/OeBbo+y0F+ciPOub6obVqBapbNYhLzFDLR8KHg2GujY1oHbfnpxkw2Yy3EmfROUQc
+	V2xtvRpQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40468)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vhoR4-00000000517-35y5;
+	Mon, 19 Jan 2026 12:32:46 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vhoR0-000000006Y5-2Egz;
+	Mon, 19 Jan 2026 12:32:42 +0000
+Date: Mon, 19 Jan 2026 12:32:42 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH net-next 00/14] net: stmmac: SerDes, PCS, BASE-X, and inband
+ goodies
+Message-ID: <aW4kakF3Ly7VaxN6@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <db0950f1-b357-47c2-9829-e33262ab456d@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260119_043257_931410_AAB4EB6A 
+X-CRM114-Status: GOOD (  29.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,119 +87,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 02:10:48PM +0100, Benjamin Gaignard wrote:
-> 
-> Le 14/01/2026 à 13:59, Will Deacon a écrit :
-> > On Tue, Jan 13, 2026 at 05:25:38PM +0100, Benjamin Gaignard wrote:
-> > > Le 13/01/2026 à 17:10, Will Deacon a écrit :
-> > > > Hi Benjamin,
-> > > > 
-> > > > Thanks for posting a v11.
-> > > > 
-> > > > On Wed, Jan 07, 2026 at 11:09:53AM +0100, Benjamin Gaignard wrote:
-> > > > > The Verisilicon IOMMU hardware block can be found in combination
-> > > > > with Verisilicon hardware video codecs (encoders or decoders) on
-> > > > > different SoCs.
-> > > > > Enable it will allow us to use non contiguous memory allocators
-> > > > > for Verisilicon video codecs.
-> > > > > If both decoder and this iommu driver are compiled has modules
-> > > > > there is undefined symboles issues so this iommu driver could
-> > > > > only be compiled has built-in.
-> > > > > 
-> > > > > Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> > > > > ---
-> > > > > changes in version 11:
-> > > > > - Fix dependency issue when decoder driver is build as module.
-> > > > > 
-> > > > >    drivers/iommu/Kconfig     |  11 +
-> > > > >    drivers/iommu/Makefile    |   1 +
-> > > > >    drivers/iommu/vsi-iommu.c | 808 ++++++++++++++++++++++++++++++++++++++
-> > > > >    include/linux/vsi-iommu.h |  21 +
-> > > > >    4 files changed, 841 insertions(+)
-> > > > >    create mode 100644 drivers/iommu/vsi-iommu.c
-> > > > >    create mode 100644 include/linux/vsi-iommu.h
-> > > > Based on your reply to v9:
-> > > > 
-> > > > https://lore.kernel.org/all/0eff8b1a-c45f-47b1-a871-59f4a0101f0f@collabora.com/
-> > > > 
-> > > > I took another look at this to see whether it had changed significantly
-> > > > from v6 when compared to the rockchip driver. Sadly, they still look
-> > > > very similar to me and I continue to suspect that the hardware is a
-> > > > derivative. I really don't understand why having a shared implementation
-> > > > of the default domain ops is difficult or controversial. Have you tried
-> > > > to write it?
-> > > > 
-> > > > However, given that nobody from the Rockchip side has contributed to the
-> > > > discussion and you claim that this is a distinct piece of IP, I don't
-> > > > want to block the merging of the driver by leaving the conversation
-> > > > hanging.
-> > > > 
-> > > > There is still one thing I don't understand (which, amusingly, the
-> > > > rockchip driver doesn't seem to suffer from):
-> > > > 
-> > > > > +static void vsi_iommu_flush_tlb_all(struct iommu_domain *domain)
-> > > > > +{
-> > > > > +	struct vsi_iommu_domain *vsi_domain = to_vsi_domain(domain);
-> > > > > +	struct list_head *pos;
-> > > > > +	unsigned long flags;
-> > > > > +
-> > > > > +	spin_lock_irqsave(&vsi_domain->lock, flags);
-> > > > > +
-> > > > > +	list_for_each(pos, &vsi_domain->iommus) {
-> > > > > +		struct vsi_iommu *iommu;
-> > > > > +		int ret;
-> > > > > +
-> > > > > +		iommu = list_entry(pos, struct vsi_iommu, node);
-> > > > > +		ret = pm_runtime_resume_and_get(iommu->dev);
-> > > > > +		if (ret < 0)
-> > > > > +			continue;
-> > > > > +
-> > > > > +		spin_lock(&iommu->lock);
-> > > > > +
-> > > > > +		writel(VSI_MMU_BIT_FLUSH, iommu->regs + VSI_MMU_FLUSH_BASE);
-> > > > > +		writel(0, iommu->regs + VSI_MMU_FLUSH_BASE);
-> > > > > +
-> > > > > +		spin_unlock(&iommu->lock);
-> > > > > +		pm_runtime_put_autosuspend(iommu->dev);
-> > > > > +	}
-> > > > > +
-> > > > > +	spin_unlock_irqrestore(&vsi_domain->lock, flags);
-> > > > > +}
-> > > > [...]
-> > > > 
-> > > > > +static const struct iommu_ops vsi_iommu_ops = {
-> > > > > +	.identity_domain = &vsi_identity_domain,
-> > > > > +	.release_domain = &vsi_identity_domain,
-> > > > > +	.domain_alloc_paging = vsi_iommu_domain_alloc_paging,
-> > > > > +	.of_xlate = vsi_iommu_of_xlate,
-> > > > > +	.probe_device = vsi_iommu_probe_device,
-> > > > > +	.release_device = vsi_iommu_release_device,
-> > > > > +	.device_group = generic_single_device_group,
-> > > > > +	.owner = THIS_MODULE,
-> > > > > +	.default_domain_ops = &(const struct iommu_domain_ops) {
-> > > > > +		.attach_dev		= vsi_iommu_attach_device,
-> > > > > +		.map_pages		= vsi_iommu_map,
-> > > > > +		.unmap_pages		= vsi_iommu_unmap,
-> > > > > +		.flush_iotlb_all	= vsi_iommu_flush_tlb_all,
-> > > > This has no callers and so your unmap routine appears to be broken.
-> > > It is a leftover of previous attempt to allow video decoder to clean/flush
-> > > the iommu by using a function from the API.
-> > > Now it is using vsi_iommu_restore_ctx().
-> > > I while remove it in version 12.
-> > Don't you still need some invalidation on the unmap path?
-> 
-> In vsi_iommu_unmap_iova() page is invalided by calling vsi_mk_pte_invalid().
+This is the v1 submission: if it doesn't get tested but review goes
+well, it'll end up in net-next and mainline without testing on the
+affected hardware!
 
-But that just writes an invalid descriptor and doesn't appear to invalidate
-the TLB at all.
+Mentioned previously, I've been trying to sort out the PCS support in
+stmmac, and this series represents the current state of play.
 
-> That clear BIT(0) so the hardware knows the page is invalid.
-> Do I have miss something here ?
+Previous posted patches centred around merely getting autonegotiation
+to be configured correctly, to a point where the manual configuration
+can be removed from the qcom-ethqos driver. The qcom-ethqos driver
+uses both SGMII and 2500BASE-X, manually configuring the dwmac's
+integrated PCS appropriately.
 
-Yes, the TLB structure needs to be invalidated so that the page-table
-walker sees the new value that you have written in memory.
+This *untested* series attempts to take this further. The patches:
 
-The rockchip driver gets this correct...
+- clean up qcom-ethqos only-written mac_base member.
+- convert qcom-ethqos to use the set_clk_tx_rate() method for setting
+  the link clock rate.
+- add support for phy_set_mode_ext() to the qcom "SGMII" ethernet
+  SerDes driver (which is really only what it needs. Note that
+  phy_set_mode_ext() is an expected call to be made, where as
+  phy_set_speed() is optional and not. See PHY documentation.)
+- add platform-glue independent SerDes support to the stmmac core
+  driver. Currently, only qcom-ethqos will make use of this, and
+  I suspect as we haven't had this, it's going to be difficult to
+  convert other platform glue to use this - but had this existed
+  earlier, we could've pushed people to use PHY to abstract some
+  of the platform glue differences. Adding it now makes it available
+  for future platform glue.
+- convert qcom-ethqos to use this core SerDes support.
+- arrange for stmmac_pcs.c to supply the phy_intf_sel field value
+  if the integrated PCS will be used. (PHY_INTF_SEL_SGMII requires
+  the integrated PCS rather than an external PCS.)
+- add BASE-X support to the integrated PCS driver, and use it for
+  BASE-X modes. This fully supports in-band mode, including reading
+  the link partner advertisement.
+- add in-band support for SGMII, reading the state from the RGSMII
+  status field.
 
-Will
+As we leave qcom-ethqos' manual configuration of the PCS in place at
+the moment, the last patch adds reporting of any changes in its
+configuration that the qcom-ethqos driver does beyond what phylink
+requested, thus providing a path to debug and eventually remove
+qcom-ethqos' manual configuration.
+
+One patch is not included in this set - which adds a phy_intf_sel
+value for external PCS (using PHY_INTF_SEL_GMII_MII). I believe all
+external PCS use this mode when connected to a MAC capable of up to
+2.5G. However, no platform glue that provides the mac_select_pcs()
+method also provide the set_phy_intf_sel() method, so we can safely
+ignore this for now.
+
+I would like to get this into net-next before the next merge window,
+so testing would be appreciated. If there are issues with these patches
+applied, please check whether the issue exists without these patches
+and only report regressions caused by this patch set. For example,
+I'm aware that qcom-ethqos has issues with 10Mbps mode due to an AQR
+PHY being insanely provisioned to use SGMII in 1000M mode but with
+rate matching with 10M media. This is not an issue that is relevant
+to this patch series, but a problem with the PHY provisioning.
+
+rfc->v1:
+ - fix SGMII link status
+ - avoid calling phy_get_mode() if PHY is null
+
+ drivers/net/ethernet/stmicro/stmmac/Makefile       |   2 +-
+ drivers/net/ethernet/stmicro/stmmac/common.h       |   1 -
+ .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    |  74 ++-----
+ .../net/ethernet/stmicro/stmmac/dwmac1000_core.c   |   9 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c  |   8 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  |  69 +++++--
+ drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c   | 220 +++++++++++++++++++--
+ drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h   |  53 ++---
+ .../net/ethernet/stmicro/stmmac/stmmac_serdes.c    | 111 +++++++++++
+ .../net/ethernet/stmicro/stmmac/stmmac_serdes.h    |  16 ++
+ drivers/phy/qualcomm/phy-qcom-sgmii-eth.c          |  43 ++++
+ include/linux/stmmac.h                             |   2 +
+ 12 files changed, 483 insertions(+), 125 deletions(-)
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.h
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
