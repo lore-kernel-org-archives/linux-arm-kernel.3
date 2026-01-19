@@ -4,90 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E659ED29C2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:21:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8B94D29C3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 16:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2+OELfv/lSe+X7B8QTozmK9tBUL2XraVPMgbP8bDdws=; b=QhzOoA8vvwbA77A2d7h9Bzhksg
-	2ONU5XpXpxdBqzGyojXtd0Jo1E4+ItrO1HRzFFvBtaNu0S4eRknADiPhTF2moTqYDyeyrnLdc06SR
-	oLTsPIbhVdJGFQG4ZFqLKUpc1tx34vdNE9NdV9D+1iCGlp1ryEOm1pGq/nR5ElwL8P2RPquENxIDL
-	Lt4MmlcNyI5A/DJdbMbeqtY6Izh3Y3i5L7d5tQDPZrDUQhn60Uth1syKtTd/rc7DIWFGk0p9zJhub
-	jyiMkbeGQFMwAiGDiNCl7o/hvIl4xMQrgsUuuYeF9XbalR3OBHDjRU5/TJgSIqUkq6rvcqr1EJvoU
-	g42VinPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5PQtD0fbfhp6USXMwJPXhokift+qfgrXvTefNLgxrlk=; b=rZQN3xcKxpopKQhSz10C6ITIMi
+	eHxpPJkiq7/rCvMcYRvdQvEoRBBXpLiPNzOLrVDZjpmxyaqT2Ihs2wtQM3huN6bbOPwCyR0JL0+1c
+	6J7QlXVRyI+J4284REOls1H9z3J1JPXjWBxXy42wrzD6IxY4tX3LP+uSewY+ZXBLRT+7vkZVFkKe+
+	Wphm6f4nMXEvWf5f7wuSHV+RLSDVMIXYXzAPMZI5z7G/ONRXqkzpIOtHFMuX7J+r+9nWoAdauxhIo
+	e5znrSk8Lu+1026xpWqog0mC/x1FAU0a7RMrU30fDT3eTjF2sty3O3tl8mlsLPhfv9k+R8s6SFYxI
+	uoZSN6iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhs0Z-00000002SL1-0Pm9;
-	Mon, 19 Jan 2026 16:21:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vhs15-00000002SPj-44ui;
+	Mon, 19 Jan 2026 16:22:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhs0I-00000002SJ6-1edd
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 19 Jan 2026 16:21:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=2+OELfv/lSe+X7B8QTozmK9tBUL2XraVPMgbP8bDdws=; b=N+cWp09GeFGKXDJL3aTP3hKBAk
-	n8Htlvebwdxoj8buP2jHZaPhvYc+hyS6s6S3nH9u7hEj6Fko/0DjPve8eKf5XzJS6/wGZfYqq3zUZ
-	ebS2Gv6j6Quofco0pGXMxgg1JvQzQiDicJav+GbunQzEtv28nfdVJq4kqiARvLG6/OvNEHVBO//DU
-	aR8zZ26JbpZEJ1cShu1mYS6N/NPmfjbgCEs8Qt44OhdBki8+e6S8NlWhHp1lNPbZVtRBMa3CZd2sE
-	kmFv76a3rmtg7UYjbvNLJkSYNwlZvxiNByj2mUjh7yHsHjt4NSy35o4/e34yg+DxP6uUTd6LonkZ+
-	kcWL55Iw==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhs0E-0000000CUiL-30Vw
+	id 1vhs0y-00000002SOl-3raQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 16:21:21 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vhrzu-0005Rt-JI; Mon, 19 Jan 2026 17:20:58 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vhrzu-001Rdx-2x;
-	Mon, 19 Jan 2026 17:20:58 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vhrzu-003Qo8-0S;
-	Mon, 19 Jan 2026 17:20:58 +0100
-Date: Mon, 19 Jan 2026 17:20:58 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org, Fabio Estevam <festevam@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Nathan Chancellor <nathan@kernel.org>,
-	imx@lists.linux.dev,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Nicolas Schier <nsc@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, Li Jun <jun.li@nxp.com>
-Subject: Re: [PATCH v2 4/9] arm64: dts: imx8mm: add wakeup-source for usb phy
-Message-ID: <20260119162058.yar4igdkaj2zqzsl@pengutronix.de>
-References: <20260117-misc_dts-v2-0-0f319c7e9b55@nxp.com>
- <20260117-misc_dts-v2-4-0f319c7e9b55@nxp.com>
- <20260118172208.h7yts2yuf2lkhd4n@pengutronix.de>
- <20260118172946.zsqokjhp76trijq3@pengutronix.de>
- <aW5VzffP2UNAvy51@lizhi-Precision-Tower-5810>
+	Mon, 19 Jan 2026 16:22:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 16080439F2;
+	Mon, 19 Jan 2026 16:22:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 467B7C116C6;
+	Mon, 19 Jan 2026 16:22:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768839723;
+	bh=oqgy3+J9tqflgUKoulRfWzxdEN5sKgu3jxasIQ1uMTU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=tXXra+oV6S+83cQFE+YBJ8R1aqUp49/qTLrGwAP819CsyArz9vQhe8Sw/GzcfoXgW
+	 GglV/JlA44Pc/Xk+53NICwN15sNdddZfGyQJg3ANOLjpZgF3WaKvaEXBcv1Eekr13j
+	 YzDUjn+FnKU8SpXG7UhzyoVo6Hgik06vlFJJvTRNKRo2hnrfVGriokk34fo1u1QdUy
+	 1VHdJ2vVM2AC38/QyLOiAH6AUPKwHFzvJgT5JZwqLAY4eRoVnWwNqaxMJoUkvnZNMS
+	 PxyILa0EZfqICKuEXJqoYRtz5E7Q8ObvFa9E8j0PdUhfwo5D22OsL7BN8ubN1HwZyK
+	 5O6or2HMo6cKg==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Alexander Wilhelm <alexander.wilhelm@westermo.com>,
+	Pankaj Patil <pankaj.patil@oss.qualcomm.com>,
+	Unnathi Chalicheemala <unnathi.chalicheemala@oss.qualcomm.com>,
+	Haotian Zhang <vulab@iscas.ac.cn>,
+	Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Dale Whinham <daleyo@gmail.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Jorge Ramirez-Ortiz <jorge.ramirez@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [GIT PULL] Qualcomm driver updates for v6.20
+Date: Mon, 19 Jan 2026 10:22:01 -0600
+Message-ID: <20260119162201.842771-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aW5VzffP2UNAvy51@lizhi-Precision-Tower-5810>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_162118_804137_57F9BE69 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20260119_082204_998228_D0CED47B 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,63 +83,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-01-19, Frank Li wrote:
-> On Sun, Jan 18, 2026 at 06:29:46PM +0100, Marco Felsch wrote:
-> > On 26-01-18, Marco Felsch wrote:
-> > > On 26-01-17, Frank Li wrote:
-> > > > From: Li Jun <jun.li@nxp.com>
-> > > >
-> > > > USB phy can be wakeup source to support wakeup system from USB.
-> > >
-> > > Was USB wakeup tested? That beeing said, marking the device as
-> > > wakeup-src is fine.
-> > >
-> > > > Signed-off-by: Li Jun <jun.li@nxp.com>
-> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > >
-> > > Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
-> >
-> > Just noticed that this targets the base soc.dtsi. IMHO this is board
-> > desicion to make and therefore belongs to the real board.dts(i) or dtso.
-> >
-> > Therefore please drop my r-b.
-> 
-> wakeup-source is captiblity of hardware. The user need use echo 1 > wakeup
-> to enable it. it is SOC's feature.
 
-I know that but still if the your system doesn't want to have the usb
-exposed as wakeup-source in the first place, the board.dts(i) files are
-now forced to delete this property. Therefore IMHO it's still a board
-decision to make.
+The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
 
-Regards,
-  Marco
+  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
 
+are available in the Git repository at:
 
-> 
-> Frank
-> 
-> >
-> > Regards,
-> >   Marco
-> >
-> >
-> > --
-> > #gernperDu
-> > #CallMeByMyFirstName
-> >
-> > Pengutronix e.K.                           |                             |
-> > Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-> > 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-> > Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
-> 
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-6.20
 
--- 
-#gernperDu 
-#CallMeByMyFirstName
+for you to fetch changes up to fe099c387e06b566840449ac21008db1b25ad1f4:
 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+  soc: qcom: preserve CPU endianness for QMI_DATA_LEN (2026-01-16 08:19:46 -0600)
+
+----------------------------------------------------------------
+Qualcomm driver updates for v6.20
+
+Support multiple wait queues in the SCM firmware interface and provide
+discovery of the wait queue interrupt to deal with the cases where
+bootloader didn't patch the DeviceTree with the IRQ information.
+
+Refactor the MDT loader and the SCM driver's peripheral authentication
+service interface and introduce support for passing a remoteproc
+resource table to the firmware. The remoteproc patches that uses this
+and uses this to configure the IOMMU are included here due to
+bidirectional dependencies. The end result is remoteproc support on the
+Glymur platform.
+
+Enable QSEECOM and thereby UEFI variable access, on the Surface Pro 11.
+
+Make the QMI interface endianness aware, to support ath1Xk on big endian
+machines.
+
+Add the Glymur support in LLCC driver.
+
+----------------------------------------------------------------
+Alexander Wilhelm (3):
+      soc: qcom: check QMI basic element error codes
+      soc: qcom: fix QMI encoding/decoding for basic elements
+      soc: qcom: preserve CPU endianness for QMI_DATA_LEN
+
+Bjorn Andersson (1):
+      Merge branch '20260105-kvmrprocv10-v10-0-022e96815380@oss.qualcomm.com' into drivers-for-6.20
+
+Dale Whinham (1):
+      firmware: qcom: scm: allow QSEECOM on Surface Pro 11
+
+Dmitry Baryshkov (1):
+      soc: qcom: ubwc: add missing include
+
+Haotian Zhang (2):
+      clk: qcom: Return correct error code in qcom_cc_probe_by_index()
+      soc: qcom: cmd-db: Use devm_memremap() to fix memory leak in cmd_db_dev_probe
+
+Jingyi Wang (2):
+      dt-bindings: interrupt-controller: qcom,pdc: Document Kaanapali Power Domain Controller
+      dt-bindings: sram: Document qcom,kaanapali-imem and its child node
+
+Jorge Ramirez-Ortiz (1):
+      soc: qcom: smem: handle ENOMEM error during probe
+
+Konrad Dybcio (1):
+      soc: qcom: pmic_glink_altmode: Consume TBT3/USB4 mode notifications
+
+Krzysztof Kozlowski (1):
+      bus: qcom-ebi2: Simplify with scoped for each OF child loop
+
+Luca Weiss (2):
+      dt-bindings: crypto: qcom,prng: document Milos
+      dt-bindings: qcom,pdc: document the Milos Power Domain Controller
+
+Mukesh Ojha (13):
+      dt-bindings: remoteproc: qcom,pas: Add iommus property
+      firmware: qcom_scm: Remove redundant piece of code
+      firmware: qcom_scm: Rename peripheral as pas_id
+      firmware: qcom_scm: Introduce PAS context allocator helper function
+      remoteproc: pas: Replace metadata context with PAS context structure
+      soc: qcom: mdtloader: Add PAS context aware qcom_mdt_pas_load() function
+      soc: qcom: mdtloader: Remove qcom_mdt_pas_init() from exported symbols
+      firmware: qcom_scm: Add a prep version of auth_and_reset function
+      firmware: qcom_scm: Refactor qcom_scm_pas_init_image()
+      firmware: qcom_scm: Add SHM bridge handling for PAS when running without QHEE
+      firmware: qcom_scm: Add qcom_scm_pas_get_rsc_table() to get resource table
+      remoteproc: pas: Extend parse_fw callback to fetch resources via SMC call
+      remoteproc: qcom: pas: Enable Secure PAS support with IOMMU managed by Linux
+
+Pankaj Patil (3):
+      dt-bindings: cache: qcom,llcc: Document Glymur LLCC block
+      soc: qcom: llcc-qcom: Add support for Glymur
+      dt-bindings: cache: qcom,llcc: Remove duplicate llcc7_base for Glymur
+
+Unnathi Chalicheemala (3):
+      firmware: qcom_scm: Add API to get waitqueue IRQ info
+      firmware: qcom_scm: Support multiple waitq contexts
+      firmware: qcom_scm: Use TASK_IDLE state in wait_for_wq_completion()
+
+ .../devicetree/bindings/cache/qcom,llcc.yaml       |  46 +-
+ .../devicetree/bindings/crypto/qcom,prng.yaml      |   1 +
+ .../bindings/interrupt-controller/qcom,pdc.yaml    |   2 +
+ .../bindings/remoteproc/qcom,pas-common.yaml       |   3 +
+ Documentation/devicetree/bindings/sram/sram.yaml   |   2 +
+ drivers/bus/qcom-ebi2.c                            |   7 +-
+ drivers/clk/qcom/common.c                          |   2 +-
+ drivers/firmware/qcom/qcom_scm.c                   | 507 ++++++++++++++++++---
+ drivers/firmware/qcom/qcom_scm.h                   |   2 +
+ drivers/remoteproc/qcom_q6v5_pas.c                 | 165 +++++--
+ drivers/soc/qcom/cmd-db.c                          |   7 +-
+ drivers/soc/qcom/llcc-qcom.c                       | 207 +++++++++
+ drivers/soc/qcom/mdt_loader.c                      |  51 ++-
+ drivers/soc/qcom/pmic_glink_altmode.c              | 188 +++++++-
+ drivers/soc/qcom/qmi_encdec.c                      | 137 +++++-
+ drivers/soc/qcom/smem.c                            |   4 +-
+ include/linux/firmware/qcom/qcom_scm.h             |  30 +-
+ include/linux/soc/qcom/llcc-qcom.h                 |   4 +
+ include/linux/soc/qcom/mdt_loader.h                |  22 +-
+ include/linux/soc/qcom/ubwc.h                      |   1 +
+ 20 files changed, 1199 insertions(+), 189 deletions(-)
 
