@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D37CCF2F8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBCFECCF2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 12:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SMd4jeWhasR5Ax+rrzm88VsJBmtkjFpx+JbXORECd/Y=; b=op8SGv3yX+kqK92RVN5YU0DoZ+
-	iN4UvcGl7c47n37xrNOySA7TVhWDav+AEaxzJhZeZxYCPGNTTWhYYcnPLx3hO2TtRXhFYoZRNmGLB
-	8+9Q1enP21Jo2Tj2vccFokUt8LVaQarSipWcpTCufjRozBr2eq7iAaahF4CLnt3LgHecRWaPYYm/X
-	5Q42D0UDU3/IrYMRf8i8obuosI2RiSmxObqwXuyFI8GISUUTgYgo3Y5fMViEIi52MVAdjmLmnDGGX
-	Zrxs27C36nt1fwqZ2wB4yqqd63ipZJucZDo9C6uSYAzNJjfofNnkV8feH+z7G1WZgDEmlGsZ2lKQ/
-	IMIlvZfQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mlGALvbEagLrvL43Ae87o/5LHQ2nk9c3dvJHPo9cbOQ=; b=fRDdwOpSqDX/vS6oyKhMlmpkJf
+	3Ui7EYKgoIapU5KbpHaOpVWnGciGJi7nsSAeNbmL656jHISStEDk5co2F2nQLy1aQU94WRxGpGDPG
+	n0ufc/BSF+VeYK9q00pg8Vbht3KqBGx1zS46q8wtEzbp2BaBzytAtQyB5GuPCaz2c6kHPPOACm7UV
+	Qu8V+wHBwCmeOTQmRs2bfrr6Ocgt+W2D7qi4FCY91pLixYqD66mX6knLEvx1vEQDxmbss8LTSmclC
+	p7yQPC5x3c/qhaToOtXcELMQgLCc+b7OUKE1yUnZAhfUueS5dxobDSRhaC7BXMbiq+MqCrdE8AKrn
+	c6Zy396w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhoen-0000000231q-1Y4P;
-	Mon, 19 Jan 2026 12:46:59 +0000
+	id 1vhoev-00000002345-05RQ;
+	Mon, 19 Jan 2026 12:47:05 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhoek-0000000230p-1IOQ
+	id 1vhoep-0000000231t-32s2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 12:46:55 +0000
+	Mon, 19 Jan 2026 12:47:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 490B643DB0;
-	Mon, 19 Jan 2026 12:46:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E8E8C116C6;
-	Mon, 19 Jan 2026 12:46:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 712EE437A7;
+	Mon, 19 Jan 2026 12:46:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3689C116C6;
+	Mon, 19 Jan 2026 12:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768826813;
-	bh=YJ9e/R24mcZ6mGK1DihOlExa+pPF4aCUH5QlK/D4yPA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=bzJoVJs4+Lai5ii+QpmQH2AnEboNDuMEW6z1pXg0DoOfY9/LkjYPjDAJpbD7Ok6y5
-	 K0GKXBsJx7D0SW6ewUvxDh4M6ZkUIBP3Kf/mtzy/0tkmiq1qgfKV6BXUJAODW7VIrc
-	 WYVn7dAQERvEXDvhqxKD4PKw1Rh1rzOgWbw9W/oW6U3Ckeo6RgOOL/LCKLo8d3JtD8
-	 7C96PLv0rHi8Khypx+/W5DfEQ3IrOMz3G1M8GPm+VPccVlLpxFj1YeORwU1kiwGi0w
-	 mX+oalBQJQNM+xuOqxqnuktImP5swhoXNYq3O/kcaqxlgWvjID1BlpWXvCzLEFTwDh
-	 JCPYbztIsAqSQ==
+	s=k20201202; t=1768826819;
+	bh=NSDE7w18H5H9oBwx/Q8/XjnJ3tAfUQrVudZ00DELzrs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=L1eeo/z2YGNrjz+jOS7LISbuNYMpx6J2DtZMfAv+Y12I0ilU6jGG7DB01ZwmVPuNv
+	 eFIxGIUgkbbBJBO2Wzhfuv8PyfMmdhpItjNNbvpQkpS8o8LlZe13WIIPZfgd5T9MWK
+	 Uk3XD+mH8fpyofi1FfgDZg5pmKWa/YuO+31FzBvT4norS/sl0T47AJUpG840n1p6pi
+	 9DNrKymNGY//19Ht3vw/SpZe88mXz+nRvvKi9ns0f3vR06NxOcGWPlDJ8A+fyHocAy
+	 7K0lcklJIJbL1KUtb7ubeC77+kWrPHoEkblLCWmZZK8SL6jZqHtFMpzlYHybg/8eNh
+	 EUZYdm+AkG8ng==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -56,15 +56,18 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Fuad Tabba <tabba@google.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH v2 00/35] KVM: arm64: Add support for protected guest memory with pKVM
-Date: Mon, 19 Jan 2026 12:45:53 +0000
-Message-ID: <20260119124629.2563-1-will@kernel.org>
+Subject: [PATCH v2 02/35] KVM: arm64: Don't leak stage-2 page-table if VM fails to init under pKVM
+Date: Mon, 19 Jan 2026 12:45:55 +0000
+Message-ID: <20260119124629.2563-3-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260119124629.2563-1-will@kernel.org>
+References: <20260119124629.2563-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_044654_385653_FFCCC1C6 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20260119_044659_947977_D0F8B238 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,129 +82,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+If pkvm_init_host_vm() fails, we should free the stage-2 page-table
+previously allocated by kvm_init_stage2_mmu().
 
-It's back and it's even bigger than before!
-
-Although the first patch has been picked up as a fix (thanks, Oliver),
-review feedback has resulted in some additional patches being included
-in the series. If you'd like to see the first version, it's available
-here:
-
-  https://lore.kernel.org/kvmarm/20260105154939.11041-1-will@kernel.org/
-
-Changes since v1 include:
-
-  * Change hypercall order so that pKVM-specific calls are in their own
-    range
-  * Make 'pkvm_handle_t' a u16 and check its size at compile-time
-  * Rework pte annotations to take a 4-bit type field
-  * Fix a memory leak on the kvm_arch_init_vm() failure path
-  * Pass KVM_PGTABLE_WALK_IGNORE_EAGAIN when mapping into the host idmap
-  * Avoid host annotation when reclaiming guest pages
-  * Re-instate guest pte metadata when unsharing a page
-  * Extend selftests to cover guest share and unshare hypercalls
-  * Drop broken MMU notifier changes
-  * Documentation tweaks
-
-As before, patches are based on v6.19-rc4 and are also available at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=kvm/protected-memory
-
-All feedback welcome.
-
-Cheers,
-
-Will
-
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Zenghui Yu <yuzenghui@huawei.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Quentin Perret <qperret@google.com>
 Cc: Fuad Tabba <tabba@google.com>
-Cc: Vincent Donnefort <vdonnefort@google.com>
-Cc: Mostafa Saleh <smostafa@google.com>
+Fixes: 07aeb70707b1 ("KVM: arm64: Reserve pKVM handle during pkvm_init_host_vm()")
+Signed-off-by: Will Deacon <will@kernel.org>
+---
+ arch/arm64/kvm/arm.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
---->8
-
-Fuad Tabba (1):
-  KVM: arm64: Expose self-hosted debug regs as RAZ/WI for protected
-    guests
-
-Quentin Perret (2):
-  KVM: arm64: Refactor enter_exception64()
-  KVM: arm64: Inject SIGSEGV on illegal accesses
-
-Will Deacon (32):
-  KVM: arm64: Invert KVM_PGTABLE_WALK_HANDLE_FAULT to fix pKVM walkers
-  KVM: arm64: Don't leak stage-2 page-table if VM fails to init under
-    pKVM
-  KVM: arm64: Move handle check into pkvm_pgtable_stage2_destroy_range()
-  KVM: arm64: Rename __pkvm_pgtable_stage2_unmap()
-  KVM: arm64: Don't advertise unsupported features for protected guests
-  KVM: arm64: Remove is_protected_kvm_enabled() checks from hypercalls
-  KVM: arm64: Ignore MMU notifier callbacks for protected VMs
-  KVM: arm64: Prevent unsupported memslot operations on protected VMs
-  KVM: arm64: Ignore -EAGAIN when mapping in pages for the pKVM host
-  KVM: arm64: Split teardown hypercall into two phases
-  KVM: arm64: Introduce __pkvm_host_donate_guest()
-  KVM: arm64: Hook up donation hypercall to pkvm_pgtable_stage2_map()
-  KVM: arm64: Handle aborts from protected VMs
-  KVM: arm64: Introduce __pkvm_reclaim_dying_guest_page()
-  KVM: arm64: Hook up reclaim hypercall to pkvm_pgtable_stage2_destroy()
-  KVM: arm64: Avoid pointless annotation when mapping host-owned pages
-  KVM: arm64: Generalise kvm_pgtable_stage2_set_owner()
-  KVM: arm64: Introduce host_stage2_set_owner_metadata_locked()
-  KVM: arm64: Change 'pkvm_handle_t' to u16
-  KVM: arm64: Annotate guest donations with handle and gfn in host
-    stage-2
-  KVM: arm64: Introduce hypercall to force reclaim of a protected page
-  KVM: arm64: Reclaim faulting page from pKVM in spurious fault handler
-  KVM: arm64: Return -EFAULT from VCPU_RUN on access to a poisoned pte
-  KVM: arm64: Add hvc handler at EL2 for hypercalls from protected VMs
-  KVM: arm64: Implement the MEM_SHARE hypercall for protected VMs
-  KVM: arm64: Implement the MEM_UNSHARE hypercall for protected VMs
-  KVM: arm64: Allow userspace to create protected VMs when pKVM is
-    enabled
-  KVM: arm64: Add some initial documentation for pKVM
-  KVM: arm64: Extend pKVM page ownership selftests to cover guest
-    donation
-  KVM: arm64: Register 'selftest_vm' in the VM table
-  KVM: arm64: Extend pKVM page ownership selftests to cover forced
-    reclaim
-  KVM: arm64: Extend pKVM page ownership selftests to cover guest hvcs
-
- .../admin-guide/kernel-parameters.txt         |   4 +-
- Documentation/virt/kvm/arm/index.rst          |   1 +
- Documentation/virt/kvm/arm/pkvm.rst           | 103 +++
- arch/arm64/include/asm/kvm_asm.h              |  27 +-
- arch/arm64/include/asm/kvm_emulate.h          |   5 +
- arch/arm64/include/asm/kvm_host.h             |   9 +-
- arch/arm64/include/asm/kvm_pgtable.h          |  51 +-
- arch/arm64/include/asm/kvm_pkvm.h             |   4 +-
- arch/arm64/include/asm/virt.h                 |   6 +
- arch/arm64/kvm/Kconfig                        |  10 +
- arch/arm64/kvm/arm.c                          |  12 +-
- arch/arm64/kvm/hyp/exception.c                | 100 +--
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   9 +
- arch/arm64/kvm/hyp/include/nvhe/memory.h      |   6 +
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h        |   7 +-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c            | 125 ++--
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 595 ++++++++++++++++--
- arch/arm64/kvm/hyp/nvhe/pkvm.c                | 224 ++++++-
- arch/arm64/kvm/hyp/nvhe/switch.c              |   1 +
- arch/arm64/kvm/hyp/nvhe/sys_regs.c            |   8 +
- arch/arm64/kvm/hyp/pgtable.c                  |  38 +-
- arch/arm64/kvm/mmu.c                          | 122 +++-
- arch/arm64/kvm/pkvm.c                         | 149 ++++-
- arch/arm64/mm/fault.c                         |  31 +-
- include/uapi/linux/kvm.h                      |   5 +
- 25 files changed, 1405 insertions(+), 247 deletions(-)
- create mode 100644 Documentation/virt/kvm/arm/pkvm.rst
-
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 4f80da0c0d1d..6a218739621d 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -190,7 +190,7 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+ 		 */
+ 		ret = pkvm_init_host_vm(kvm);
+ 		if (ret)
+-			goto err_free_cpumask;
++			goto err_uninit_mmu;
+ 	}
+ 
+ 	kvm_vgic_early_init(kvm);
+@@ -206,6 +206,8 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+ 
+ 	return 0;
+ 
++err_uninit_mmu:
++	kvm_uninit_stage2_mmu(kvm);
+ err_free_cpumask:
+ 	free_cpumask_var(kvm->arch.supported_cpus);
+ err_unshare_kvm:
 -- 
 2.52.0.457.g6b5491de43-goog
 
