@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBE0FD29C25
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 13:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA54D29C24
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 13:01:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UmKKLGh10RPN1svLNZxmqR0nL1F2Drx46Fu4EdQWxE0=; b=NVv0eSBSOJkcq02i/L/MvWSYTR
-	wS0h9PvQr+N/J3AC5bQ9rLy2rq5I4xPM8I2Y260OrSkv8zA+W5G+j+nAq1BCIm53VD6SfiqQJehCA
-	BbpVuo11JkFYtktTKlZrKZ76eSNPO1aF1rpl0CkYLyklQkEBtG3Ti3HUvdq/e50Wp/mewVdQiZCaw
-	2JnrxeBQdPT4ViHZIQGZZYXmGc09OxtTovlMxLxtF9KJcrZnSaFbvSaTWNwCGI1CAeF656TqVqHv5
-	hHXKy6exSgVJCH4ZK3H8YOuBKiYf5rkLV+mgsfxklzhCaM1585okRkz52xH+Ctvx71C8SeKUI010Q
-	9tmzGQVg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SRiqYM3jk38SNVDdGTWvhOoxAdz87tQ9o5v3/qDk3+A=; b=ULMRj4d/kz9IDbS63MEId7vRAT
+	J/iTq+ISD0rCHsPLfMWfo1bjXxbmHoZHnAxZ9FsQzm9bTEdCtjYmiBZ7DOXQLUxQFq4Gw7BxHLdZz
+	u8QIa9KBaUzR1apzLQNZtm4yWLNz5FZvgHnkbHXNSFQzQlASPjQ/+cqdjViRqEd2aW4l/Q8ioE7aa
+	DiXt+enQ2eDhQeYiDVLgJDVBezfVM+fAMEu+gqZ+JT6j7nEsQhLrsziOohXtGEdAkyGv7uJdolPj3
+	8DJLiwPa+hAmI+nCCqmZNxFwI++ZUw3LmtkT8oVbUACaETU+g+0HWu1RXHYap+mAstsUA9SqGQCKY
+	WVwYgTHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhosi-000000027Mt-1B2L;
-	Mon, 19 Jan 2026 13:01:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhosK-000000027Km-3B4J
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 19 Jan 2026 13:00:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=UmKKLGh10RPN1svLNZxmqR0nL1F2Drx46Fu4EdQWxE0=; b=M73JF8TVRebP2q2kVhdLhqa/WL
-	Oc/LhfgopsuaCiwzKiWubcsl8Q6xfV3qGz9WSd5sP9cpa/x5H/8NpaMX2hqHSMat+HSl1lrArgI21
-	dSppVRql8Icp5htRe2ao7DrLUd76YtvNGididnb2Vzv6N+k/bjgYoXsu59Ddd/fKAMdIVdaTJogIT
-	pyqJVbUO/jxvlmSCE9FhRoJK20o/cKk0viKVIdo3QXUMYq7UPDYWUWsncCpAWQ1td20pgIWm8cQ8h
-	bhHngKt4hR+UEKCn7cjktJPp8fvCKAWEKYPLgmO7ngBk7NxfXZ4V38AFynQfSQLvkaOPucHZ/e/0D
-	T8kZiYNA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhosG-0000000C7sy-1QIr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 13:00:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 86C7344320
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 13:00:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54DC1C2BCB4
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 13:00:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768827648;
-	bh=UmKKLGh10RPN1svLNZxmqR0nL1F2Drx46Fu4EdQWxE0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ER3296Lkgw70Klu/exJKetBSAMzlIu7GK5CegbTBj8yMhUjvfA9liQoG6N3JAd132
-	 NAP4sFSthxsKI0+tD0diPdB5I5XZ6+vWkFEiwYGSZSQtZDwz2GrJTVKD7mCFsXNXFI
-	 3Fj3qluS3lbszDkpsq824ntuR12GhyE1iddCAo4pn+SBZPrg9O8Yy47IWQNoH4tB8H
-	 2VqeCfbOaiy/QVQERg/wBM8fa01g98AXLFKs5p9nIgtWqm9xO28ErxctHloHOUm9B6
-	 Gqrb2objZmqM9gJNwgtTohvImLYmqryQc+LU+GZKeUMLu1TqeU/4akyvMNbQDvQAm6
-	 6x9IcCpaUyY6Q==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-59b6c89d306so4823910e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 05:00:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUsuRDW6ILgfEmDTrK4zOpqX73veJ7N+TKvQuLptNgKwfjV8mcRMZWFS5G746L/kuH/a24DQ9AHLRIF4fT9eSiB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZH/paJGic9VnoPSIHbHCj19ZFrBKXy2CcgOELzXnzd4gMUU6Y
-	8l8DU8hfwerJol5fnUAgqp/MiFQ+zPPM+J4F9SWfOCSiGN1v6nB1asSbo4clSEzGM/YMPlpPR5K
-	wMWKSBKSi5XHIDPp8lhSckS/9F3xc+y4W3fy8AuhoyQ==
-X-Received: by 2002:a05:6512:ba0:b0:598:faf0:66e7 with SMTP id
- 2adb3069b0e04-59baffc59d5mr3615354e87.26.1768827646961; Mon, 19 Jan 2026
- 05:00:46 -0800 (PST)
+	id 1vhot9-000000027SF-3z56;
+	Mon, 19 Jan 2026 13:01:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vhosx-000000027Q3-1SpO;
+	Mon, 19 Jan 2026 13:01:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA896497;
+	Mon, 19 Jan 2026 05:01:27 -0800 (PST)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ECD0C3F740;
+	Mon, 19 Jan 2026 05:01:30 -0800 (PST)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	David Laight <david.laight.linux@gmail.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: [PATCH v4 0/3] Fix bugs and performance of kstack offset randomisation
+Date: Mon, 19 Jan 2026 13:01:07 +0000
+Message-ID: <20260119130122.1283821-1-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260119-soc-of-root-v1-0-32a0fa9a78b4@oss.qualcomm.com>
- <20260119-soc-of-root-v1-1-32a0fa9a78b4@oss.qualcomm.com> <DFSJ2AD562CP.1ZX1JO1F0Y1UU@kernel.org>
-In-Reply-To: <DFSJ2AD562CP.1ZX1JO1F0Y1UU@kernel.org>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Mon, 19 Jan 2026 14:00:34 +0100
-X-Gmail-Original-Message-ID: <CAMRc=McTaTGPM6fMWb3b+S0+Gq_V-Vi7DF9JxDeOEfPAavgXaQ@mail.gmail.com>
-X-Gm-Features: AZwV_QhN8PNZUNgPe6qogeVHpUfMZNp33VjYbo53S4KjyCuojwPBvWZd3s1oEdA
-Message-ID: <CAMRc=McTaTGPM6fMWb3b+S0+Gq_V-Vi7DF9JxDeOEfPAavgXaQ@mail.gmail.com>
-Subject: Re: [PATCH 1/8] of: provide of_machine_get_compatible()
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_130052_860867_20ABA6A8 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20260119_050135_487513_B253BB28 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,34 +87,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 12:26=E2=80=AFPM Danilo Krummrich <dakr@kernel.org>=
- wrote:
->
-> On Mon Jan 19, 2026 at 11:40 AM CET, Bartosz Golaszewski wrote:
-> > +/**
-> > + * of_machine_get_compatible - Get the compatible string of this machi=
-ne
-> > + * @compatible: address at which the compatible string will be stored
-> > + *
-> > + * Returns:
-> > + * 0 on success, negative error number on failure.
-> > + */
-> > +int of_machine_get_compatible(const char **compatible)
->
-> I think the name of this function is not ideal. 'get' usually indicates t=
-hat a
-> reference count will be taken, but this is not the case here.
->
-> I'm also not sure about the machine prefix. If we really want this helper=
- I'd
-> suggest something along the lines of e.g. of_root_read_compatible().
->
+[Kees; I'm hoping this is now good-to-go via your hardening tree? Please shout
+if you think there is more work to be done here!]
 
-Makes sense for the "read" part but I'm not sure about the "root" bit.
-We already have a whole set of "of_machine_" interfaces, like
-of_machine_is_compatible().
+Hi All,
 
-How about of_machine_read_compatible()?
+As I reported at [1], kstack offset randomisation suffers from a couple of bugs
+and, on arm64 at least, the performance is poor. This series attempts to fix
+both; patch 1 provides back-portable fixes for the functional bugs. Patches 2-3
+propose a performance improvement approach.
 
-Bartosz
+I've looked at a few different options but ultimately decided that Jeremy's
+original prng approach is the fastest. I made the argument that this approach is
+secure "enough" in the RFC [2] and the responses indicated agreement.
+
+More details in the commit logs.
+
+
+Performance
+===========
+
+Mean and tail performance of 3 "small" syscalls was measured. syscall was made
+10 million times and each individually measured and binned. These results have
+low noise so I'm confident that they are trustworthy.
+
+The baseline is v6.18-rc5 with stack randomization turned *off*. So I'm showing
+performance cost of turning it on without any changes to the implementation,
+then the reduced performance cost of turning it on with my changes applied.
+
+**NOTE**: The below results were generated using the RFC patches but there is no
+meaningful change, so the numbers are still valid.
+
+arm64 (AWS Graviton3):
++-----------------+--------------+-------------+---------------+
+| Benchmark       | Result Class |   v6.18-rc5 | per-task-prng |
+|                 |              | rndstack-on |               |
+|                 |              |             |               |
++=================+==============+=============+===============+
+| syscall/getpid  | mean (ns)    |  (R) 15.62% |     (R) 3.43% |
+|                 | p99 (ns)     | (R) 155.01% |     (R) 3.20% |
+|                 | p99.9 (ns)   | (R) 156.71% |     (R) 2.93% |
++-----------------+--------------+-------------+---------------+
+| syscall/getppid | mean (ns)    |  (R) 14.09% |     (R) 2.12% |
+|                 | p99 (ns)     | (R) 152.81% |         1.55% |
+|                 | p99.9 (ns)   | (R) 153.67% |         1.77% |
++-----------------+--------------+-------------+---------------+
+| syscall/invalid | mean (ns)    |  (R) 13.89% |     (R) 3.32% |
+|                 | p99 (ns)     | (R) 165.82% |     (R) 3.51% |
+|                 | p99.9 (ns)   | (R) 168.83% |     (R) 3.77% |
++-----------------+--------------+-------------+---------------+
+
+Because arm64 was previously using get_random_u16(), it was expensive when it
+didn't have any buffered bits and had to call into the crng. That's what caused
+the enormous tail latency.
+
+
+x86 (AWS Sapphire Rapids):
++-----------------+--------------+-------------+---------------+
+| Benchmark       | Result Class |   v6.18-rc5 | per-task-prng |
+|                 |              | rndstack-on |               |
+|                 |              |             |               |
++=================+==============+=============+===============+
+| syscall/getpid  | mean (ns)    |  (R) 13.32% |     (R) 4.60% |
+|                 | p99 (ns)     |  (R) 13.38% |    (R) 18.08% |
+|                 | p99.9 (ns)   |      16.26% |    (R) 19.38% |
++-----------------+--------------+-------------+---------------+
+| syscall/getppid | mean (ns)    |  (R) 11.96% |     (R) 5.26% |
+|                 | p99 (ns)     |  (R) 11.83% |     (R) 8.35% |
+|                 | p99.9 (ns)   |  (R) 11.42% |    (R) 22.37% |
++-----------------+--------------+-------------+---------------+
+| syscall/invalid | mean (ns)    |  (R) 10.58% |     (R) 2.91% |
+|                 | p99 (ns)     |  (R) 10.51% |     (R) 4.36% |
+|                 | p99.9 (ns)   |  (R) 10.35% |    (R) 21.97% |
++-----------------+--------------+-------------+---------------+
+
+I was surprised to see that the baseline cost on x86 is 10-12% since it is just
+using rdtsc. But as I say, I believe the results are accurate.
+
+
+Changes since v3 (RFC) [4]
+==========================
+
+- Patch 1: Fixed typo in commit log (per David L)
+- Patch 2: Reinstated prandom_u32_state() as out-of-line function, which
+  forwards to inline version (per David L)
+- Patch 3: Added supplementary info about benefits of removing
+  choose_random_kstack_offset() (per Mark R)
+
+Changes since v2 (RFC) [3]
+==========================
+
+- Moved late_initcall() to initialize kstack_rnd_state out of
+  randomize_kstack.h and into main.c. (issue noticed by kernel test robot)
+
+Changes since v1 (RFC) [2]
+==========================
+
+- Introduced patch 2 to make prandom_u32_state() __always_inline (needed since
+  its called from noinstr code)
+- In patch 3, prng is now per-cpu instead of per-task (per Ard)
+
+
+[1] https://lore.kernel.org/all/dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com/
+[2] https://lore.kernel.org/all/20251127105958.2427758-1-ryan.roberts@arm.com/
+[3] https://lore.kernel.org/all/20251215163520.1144179-1-ryan.roberts@arm.com/
+[4] https://lore.kernel.org/all/20260102131156.3265118-1-ryan.roberts@arm.com/
+
+Thanks,
+Ryan
+
+Ryan Roberts (3):
+  randomize_kstack: Maintain kstack_offset per task
+  prandom: Add __always_inline version of prandom_u32_state()
+  randomize_kstack: Unify random source across arches
+
+ arch/Kconfig                         |  5 ++-
+ arch/arm64/kernel/syscall.c          | 11 ------
+ arch/loongarch/kernel/syscall.c      | 11 ------
+ arch/powerpc/kernel/syscall.c        | 12 -------
+ arch/riscv/kernel/traps.c            | 12 -------
+ arch/s390/include/asm/entry-common.h |  8 -----
+ arch/x86/include/asm/entry-common.h  | 12 -------
+ include/linux/prandom.h              | 20 +++++++++++
+ include/linux/randomize_kstack.h     | 54 +++++++++++-----------------
+ init/main.c                          |  9 ++++-
+ kernel/fork.c                        |  1 +
+ lib/random32.c                       |  8 +----
+ 12 files changed, 52 insertions(+), 111 deletions(-)
+
+--
+2.43.0
+
 
