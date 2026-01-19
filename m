@@ -4,73 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A04D29C4B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 17:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA9CD29C43
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 19 Jan 2026 17:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j1Gw507vmcSsdFH9CkXbz2Yd6P8oRVdS73BssjFLkks=; b=NM+LVHtBvbrYv0+8bfz6WnTiP4
-	wM9cIaePaoD2MwzZLjTTXkDIlXqAVaZpClqCIvN2PcEH+78nSAWw7gnV9I/Hv5FHmoFJke+RWBMxj
-	8lJPgTZ+cDjjRC4+skBMnk4WUMCAVUpxLbwP62WI979i95A79Ba8HVSyVu40/nAOyY5Ykfmgs1BV/
-	AiMZH+VMIgjYK4RZe2xI1TDjFzAI3nJe0aR5DqrMyZ9+hiyKfP+A0Ag/f/eSKqc1EFQIAzZkUx1dL
-	drZACihOcIzQXzUuxf/+tKestUX9oZFV3CqUClnS7D1CoXdJ6wSaZmfHvLsSEPhjUB29FB2Y7bQ20
-	9g945thA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PlTicvZTPcl321u0fURHRjZSH0DCCW5nHUV/2vqk8Fo=; b=S37vyQBXPK/qQ3i7SJgRvRM59w
+	78x4rOdIS1t7nxLInumS56MVCwPuH3EPdK2pJhpLX5jjAJaxIK1r99BFZrUtOoweRxibqQ2tVR4h3
+	ZPSl5Wx6s066Lg2u52UGjp8SLkjasR9SlAKpKfoOpmyab4oP3MgALR05wmTxSoAqD2O0wowBPYFA3
+	Fwn48mSEuNb5GQRNmJRogd8ycOkZOztPCReUlLoD4CcwZ0yi/x9MLNcTPRzmy43GtIaWO0L69o75K
+	KrhJlBTfeCAePopwc7w64Q2rt+GRbr5vS9BLpZdKXD5S9u+cn2UxiyNMK3eNvbhRjDwDSyuOVp5vG
+	aIEAdvCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsej-00000002aHs-2z0h;
-	Mon, 19 Jan 2026 17:03:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vhsey-00000002aJ7-07Ln;
+	Mon, 19 Jan 2026 17:03:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsei-00000002aHH-31j9
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 19 Jan 2026 17:03:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=j1Gw507vmcSsdFH9CkXbz2Yd6P8oRVdS73BssjFLkks=; b=EX9bYxByuirK/BQdKr7OJQ/v0W
-	/6+sH2bLBnoWbwqcvslGJ6+Qdfjf6pjHNxn/3Y4tWkKoyUONvredoiGU+aX3g2NLyxGZzv+0i18MQ
-	nV7wSDQyx+QgWEoKgePf0IJQ62QINLEc0V+eRtJy+AJyyEloo4iJX4w4CfpWzb3bRDheAHwo6W4Ob
-	3MhF+V2Jtztnb4Mxx2y77JZdaUwBkEsKLPCI1OhfmQExRiVQRVgQyD49F7e4IvFOekrRs588EG8up
-	NNBZWoimoWwt9d0ERcqVDyIfD7O/HjicbncqCK374/NFECTK+BpVl/Cb7A2bIhKx2jiUpyaJqs8QV
-	0CYgDQag==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhsef-0000000Ccgk-2rsq
+	id 1vhsew-00000002aIp-24b0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 19 Jan 2026 17:03:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 29D7E497;
-	Mon, 19 Jan 2026 09:02:56 -0800 (PST)
-Received: from bogus (e124108.arm.com [10.1.32.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D7F0C3F632;
-	Mon, 19 Jan 2026 09:03:00 -0800 (PST)
-Date: Mon, 19 Jan 2026 17:02:58 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, arm-scmi@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] dt-bindings: firmware: arm,scmi: Document
- arm,no-completion-irq property
-Message-ID: <aW5jwtoYCFs-Pzpk@bogus>
-References: <20260117010241.186685-1-marek.vasut+renesas@mailbox.org>
- <aW5hmb9tyw1Gv388@pluto>
+	Mon, 19 Jan 2026 17:03:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9536B60054;
+	Mon, 19 Jan 2026 17:03:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A397C116C6;
+	Mon, 19 Jan 2026 17:03:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768842201;
+	bh=EcK0McsaD5PqEhzXSuPqy2gy/gwkBquxIH6Ix+hFNnU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=sXWiBJd8i1JSvuM0+NEYSc7T5ujL4OKYw9FJl/MJLWZNQClkEgACHPXbZb14ALffS
+	 8YaFqZ7jpEesEXvMrTWbYp0CngKczu70RZXKovBkO+nNz7V/5ok1Bmsf0qtLH08+4u
+	 DVKZD2CokHcbaLN+6uEZmullzY3THYuEQRzsgniFYsiD0IJ/CwvLUyWy+11epPJZDt
+	 G/IzrMIF/XdCHCZCdZRIyaU0jWStTBa7n1R+hcVyuUVyAOZQIp7Wi/iLoSe+/olZ6Y
+	 cDZv2n4FrjBVGwCQnjXbMMJp7de61n4niRnZIJXiJNadaChJbfmGm9uOJq1s6hNYEO
+	 wJ/sleEizT30w==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Luca Weiss <luca.weiss@fairphone.com>
+Subject: [GIT PULL] Qualcomm Arm64 defconfig update for v6.20
+Date: Mon, 19 Jan 2026 11:03:19 -0600
+Message-ID: <20260119170319.847911-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aW5hmb9tyw1Gv388@pluto>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_170306_104124_2CAD9F1C 
-X-CRM114-Status: GOOD (  29.09  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,74 +71,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 04:53:45PM +0000, Cristian Marussi wrote:
-> On Sat, Jan 17, 2026 at 02:02:28AM +0100, Marek Vasut wrote:
-> > Document new property arm,no-completion-irq . This optional property
-> > is intended for hardware that does not generate completion interrupts
-> > and can be used to unconditionally enable forced polling mode of
-> > operation.
-> > 
-> > With this property set, such implementations which do not generate
-> > interrupts can be interacted with, until they are fixed to generate
-> > interrupts properly.
-> > 
-> > Note that, because the original base protocol exchange also requires
-> > some sort of completion mechanism, it is not possible to query SCMI
-> > itself for this property and it must be described in DT. While this
-> > does look a bit like policy, the SCMI provider is part of the
-> > hardware, hence DT.
-> > 
-> > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> > ---
-> > Cc: Conor Dooley <conor+dt@kernel.org>
-> > Cc: Cristian Marussi <cristian.marussi@arm.com>
-> > Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-> > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> > Cc: Rob Herring <robh@kernel.org>
-> > Cc: Sudeep Holla <sudeep.holla@arm.com>
-> > Cc: arm-scmi@vger.kernel.org
-> > Cc: devicetree@vger.kernel.org
-> > Cc: linux-arm-kernel@lists.infradead.org
-> > Cc: linux-renesas-soc@vger.kernel.org
-> > ---
-> > V2: s@mean@&t and limit poll transport to mailbox/shmem only
-> > V3: - Reformat the commit message, expand property description to
-> >       explicitly spell out this is hardware description.
-> >     - Rename property from arm,poll-transport to arm,no-completion-irq
-> > V4: - Update first paragraph of commit message and property description
-> >     - Add RB from Rob
-> > ---
-> >  .../devicetree/bindings/firmware/arm,scmi.yaml         | 10 ++++++++++
-> >  1 file changed, 10 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> > index be817fd9cc34b..d06cca9273c48 100644
-> > --- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> > +++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> > @@ -146,6 +146,13 @@ properties:
-> >        this platform. If set, the value should be non-zero.
-> >      minimum: 1
-> >  
-> > +  arm,no-completion-irq:
-> > +    type: boolean
-> > +    description:
-> 
-> Shouldn't these two points have to be swapped as per Sudeep and Rob
-> suggestions ?
-> 
->     description:
-> 	....
->     type: boolean
-> 
 
-I was just referring to the points covered under the `description` and not
-the order of `type` and `description`. I am not sure if there is any such
-requirement as well. I am happy with this version, but this needs to wait
-for the merge window following the next as I have already sent the PR to
-SoC teams.
+The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
 
--- 
-Regards,
-Sudeep
+  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git qcom-arm64-defconfig-for-6.20
+
+for you to fetch changes up to 9f262627a90c3af102e066ad922e966d9f6fa24b:
+
+  arm64: defconfig: Enable EC drivers for Qualcomm-based laptops (2026-01-03 12:35:00 -0600)
+
+----------------------------------------------------------------
+Qualcomm Arm64 defconfig update for v6.20
+
+Enable drivers needed to boot the Kaanapali and Milos platforms.
+
+Enable EC-drivers found on various Qualcomm-based laptops.
+
+----------------------------------------------------------------
+Jingyi Wang (1):
+      arm64: defconfig: enable clocks, interconnect and pinctrl for Qualcomm Kaanapali
+
+Krzysztof Kozlowski (1):
+      arm64: defconfig: Enable EC drivers for Qualcomm-based laptops
+
+Luca Weiss (1):
+      arm64: defconfig: Enable options for Qualcomm Milos SoC
+
+ arch/arm64/configs/defconfig | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
