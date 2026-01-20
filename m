@@ -4,58 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9603FD2ECE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:33:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BAF9D2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jvrFng5JflWyfj/acM6l5GlHLKTj1I8ShXgCAALi3Iw=; b=dHFmU3NI6VxKghTDNKJbWOen3D
-	gy9uQSuAJnxQR++J9BuRJA/iWYuI2Mz80pTQijYeievOFQeLUkmLCvWImhuC6eDZzSVcsyYjxK5GF
-	OMASW700oM0+em5hNpof7dDJRD/XsWxF5TNqg9AvEdYlhVXPR8/Y4UafYjrh1hZASnQ1rZyTBgTcm
-	FZjK0XCgA2PyZnERpbu/+epvdlnNPt/7rhkjSgnkSVUisCIcNEaHqedOBqz9KTjfECx6uD7aPQag8
-	YoLSNatGmR2mYH8hwnfRHEv8WF643pzcy6bp25HPSd/pvE3Ie4NLnLwXgi4YeP76hjHzn3FOy08vj
-	e8/emq6Q==;
+	bh=uXvv8CO3hXqIXpF8YR3tOCAPQB3Eir/RM7wzK3KSo0w=; b=0polLtZh4DDo6M5TP2t0zkeTjh
+	daKXIMt4B1DXJ+ubA3BvztTmaMGr98eoSO9rT+RKCSDTKkEZ+aDi1HAXbageZzHW2mlqzdGFmTkUE
+	FnJRrvTfTg9JpCf543qtTkZl37jmkA4mxana9UhnExVmYdmFa4Ttl5no2QipG/CcaZUJfnrj/WYNT
+	HDmOXMy4Xe+Wk/nWO18TWs0xs/xqYPpCalyD/9IEeNgprDTyuXFhcMY46eVaDv12UTS0zsY3ae/kW
+	dt3nadjg/PAAlZiMU1OyzYIrNHTs+qU8BLuEVkki1XXoDUd88aK63HkgfC48GA5IeKvVM0mTkHWrt
+	BRX/Wp1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAve-00000003qtM-05NG;
-	Tue, 20 Jan 2026 12:33:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1viB22-00000003r9k-3cVf;
+	Tue, 20 Jan 2026 12:40:26 +0000
+Received: from mail-centralusazon11010025.outbound.protection.outlook.com ([52.101.61.25] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAvb-00000003qt0-02g5
+	id 1viB20-00000003r92-0fWM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 12:33:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5099943FA3;
-	Tue, 20 Jan 2026 12:33:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 001ABC16AAE;
-	Tue, 20 Jan 2026 12:33:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768912426;
-	bh=Y0bXJFrIMQu42HkX8sO2hSl2uRvMmAIUm4N1kYYXYbg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TxGZV8yxxs7f9OIOe/76/YrYaqjVeBTLmNJdeq9rZnYXtQBKVVFzF9G+vZXhnfGlh
-	 vT9CZ7egfF2YJDaVzTZCoXW7WvjE6P9hHlULJeQGsNLJOVQ6GN8ql7pboCjgU4WGCe
-	 Vt8ME1f66ylY9a+GCkoyhnoJhXrb39PCRzYGGNaz54bIGYkZiF1bgZi24H9uytWylw
-	 9Pa1LQ5sYMXUi5RHj69gPO6rv2NvuLMgE69i3zkNmc//4jIPBEZz5BqT8SQXYiPd6j
-	 m+4BX8yGRcFm1xNp3e9O6KxgephbObAfu5q0mTQt6b0ny660NNsJKm//uUu92158VD
-	 Rk2ttoJ8XgDvA==
-Date: Tue, 20 Jan 2026 12:33:39 +0000
-From: Will Deacon <will@kernel.org>
-To: Barry Song <21cnbao@gmail.com>
-Subject: Re: [PATCH v2 3/8] arm64: Provide dcache_inval_poc_nosync helper
-Message-ID: <aW92I_sn9VqDPLKz@willie-the-truck>
-References: <20251226225254.46197-1-21cnbao@gmail.com>
- <20251226225254.46197-4-21cnbao@gmail.com>
+	Tue, 20 Jan 2026 12:40:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LGY/uuKC5/OIIx92em8ztj4QlQwhuzt7lij9qP4FQklmPYsShZegBOe45+SaVkfLg6W5WNFXRxEun07j++bobFaFIgUKL7i5SpwQtOazxQPIvuHmNCNrj20rJ7zcfG6gIXO7rzltnaI5eQV7zcIUICCGdTKrNkHWDicmVz1cS2qt6U2wVYkZWi4JkpsP2gAr0nyUd7U7za1aQcSxeZX+2ELY3WwMOQ0sVjBs3JcihnF+27z81nFsJNYyQpd780g6kGKJhMwCupurJSoNxcpym0pTla17+mOk25ySeWoTZ2+2HIcPIMM4178xfYRjVqH8+ufeo2nG9hrRQDqaOb4a0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uXvv8CO3hXqIXpF8YR3tOCAPQB3Eir/RM7wzK3KSo0w=;
+ b=PWd55Wtdzn7SerCYpVr3evLci+mUVbiB/5fnREHn5e7b6zUpTTqUv8aZFL94WJ+t8BGnLOg787hRopVlHlRj5XOVRc7fdq9G+wzvJbKpWd+B/uoWxPMwBXuLvbIHGZ11eHMBYXVNcZSvmmqxlwjaL25CJaj6TG0eNAC1Uor1S5rgl3UJLPZnuCTih9seqmNjTqiAsHSYxV/QQi6qK+/DVLkVFEWWeJniMAZSowmq3QZ8EcmY0oiJU+Y2xvHpRU2OCsLyaCPNguUeDp2PkZ6HuJa4HWyXzDAxetpPzxms4RKVBBvnfDSFJJXXEdpzzBOfDmW5NzB7n3HAbQVNL2a8Sg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uXvv8CO3hXqIXpF8YR3tOCAPQB3Eir/RM7wzK3KSo0w=;
+ b=s+LMxjKjU6a+5sQJ87NCzDKo+9ePcwcyZhYtdiENrcP5kWBGPZkAsgNalOPZSBmvElUYmcoWoph9E6BbpmGJuKwKaJiSDoHNt5zxxFUTV1k4dt5SR/B6J4I6NqtF2r4mRwy1nepW0pvTOds2yB7DHuB8a7W3Hkw+bU5KHLl5AAE=
+Received: from CH0P223CA0016.NAMP223.PROD.OUTLOOK.COM (2603:10b6:610:116::34)
+ by MW4PR10MB6677.namprd10.prod.outlook.com (2603:10b6:303:22f::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Tue, 20 Jan
+ 2026 12:40:17 +0000
+Received: from CH2PEPF0000009B.namprd02.prod.outlook.com
+ (2603:10b6:610:116:cafe::d2) by CH0P223CA0016.outlook.office365.com
+ (2603:10b6:610:116::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.12 via Frontend Transport; Tue,
+ 20 Jan 2026 12:40:16 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CH2PEPF0000009B.mail.protection.outlook.com (10.167.244.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9542.4 via Frontend Transport; Tue, 20 Jan 2026 12:40:16 +0000
+Received: from DLEE205.ent.ti.com (157.170.170.85) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 20 Jan
+ 2026 06:40:15 -0600
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 20 Jan
+ 2026 06:40:15 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 20 Jan 2026 06:40:15 -0600
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60KCeFnH1073710;
+	Tue, 20 Jan 2026 06:40:15 -0600
+Date: Tue, 20 Jan 2026 06:40:15 -0600
+From: Nishanth Menon <nm@ti.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+	Michael Walle <mwalle@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 0/3] arm64: defconfig: enable Kontron SMARC-sAM67 support
+Message-ID: <20260120124015.f47xvslcpycsc2la@legislate>
+References: <20260115132558.1522169-1-mwalle@kernel.org>
+ <176857429244.3703601.340857575047572204.b4-ty@ti.com>
+ <03116f78-a332-4c47-b524-6a5378c1a1dd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20251226225254.46197-4-21cnbao@gmail.com>
+In-Reply-To: <03116f78-a332-4c47-b524-6a5378c1a1dd@kernel.org>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000009B:EE_|MW4PR10MB6677:EE_
+X-MS-Office365-Filtering-Correlation-Id: b157697b-623d-4c34-e2ab-08de58211089
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qnFLJ94Z8rxeWMMJ6+8WauI99sCvTPFxExTfFzEOHgKEtzetDwYe+4SfJQd5?=
+ =?us-ascii?Q?DpU2fRBrXnLRxkKcYfLaU0RRS8hmb6bwgvezMkWtpwM9du0vjYCmMamlxbbG?=
+ =?us-ascii?Q?MhWraa7/UX62yjmWJ961rdgaQn28gEcOxS0MX370rIz4mkngeSolB4VEGZvu?=
+ =?us-ascii?Q?ZDFk/tY6veyzx0y5mmA6bEhkzVBDAslsnxMva5AsEWHTSxtqY+4dm70w4U78?=
+ =?us-ascii?Q?VJhPDNpVmXUMFYW37YcO407sGaufoE8zbR7MNqQXoXipfnWdk+w2qlmsbmnK?=
+ =?us-ascii?Q?GjGRwKKVrIoxebS0plU7vt9XgUxSZwMO4lN4oCriWEG9alTe2OEh9Blvud9P?=
+ =?us-ascii?Q?cMZ9rjkPcAkPI+6HY5YzBvrEE/qcsBfRVC49t0+CipqtNPjGWoO1H4d4lYc3?=
+ =?us-ascii?Q?yayRcal0t/6HpBlUf0Pqy8ilwtLwg053FtF5T0dNz91m8q/jFwViLbpDd6xC?=
+ =?us-ascii?Q?JkljpEOYA79QI+v4knw+MUWQwCztBKIO+rajqIwQRCg2sfoOt/9EkfZzNR7q?=
+ =?us-ascii?Q?VuLxITcibQ+5OkRWguLF79R7S00eeInja4Dg0GzVW1hnq1kShgSwq5UXlvS0?=
+ =?us-ascii?Q?vL4wC8axt2Oyo1c35cYMy+RLf7ugOBwjtcOlJFHgyY+zRzs6MEDCHoI91u9L?=
+ =?us-ascii?Q?Ny3n/i4uu0yMXhJ1tGsCL1wqnMbaHMwwBgOahN7a7Od3ZtV2fh8IxGqQeuFC?=
+ =?us-ascii?Q?6jf5IPKf+TdmUA4BIKRFo1ixDCT28Pe8BO2bHzVBDLExQ2LagXD6fj6AC3s6?=
+ =?us-ascii?Q?Xr/Ah1fD721LOkKv8SFWftcEvyO+H2gGpfqT1CgkYMhU4aMRi/v/QiIbwdDZ?=
+ =?us-ascii?Q?5wnlpvgjDFhDCgYOGJitchAeBe7MIPfw2tnZ6NqJn63zNSAL3BzT6hvkzUhN?=
+ =?us-ascii?Q?NQKvESqA8F+54VN2bVVgUVsjnNt4OW/mUqVVD/Ve9WR4TCqG03PiMScA+iXg?=
+ =?us-ascii?Q?7dpXGpcWCoE4ZKIxsvKV/BaRuKv2TNDRaeMzlEk6fwH2EDdPiJRJWIHu2cdm?=
+ =?us-ascii?Q?BSAPFgU/MtKo2/lFdEHLK6ylMpaei0OaO3x1T0hLJm3mnI8maMcgkZzcy9iA?=
+ =?us-ascii?Q?hg/5fdB49YxlvFFKc4mBEPBbsSevist57PoD4qTFMjFnnUhimGDgnkGQgfaX?=
+ =?us-ascii?Q?+z1d96t5Slmbb1qWkbo1sLuo0mURi7vspKyQQNXBANkPIs/D5lln+nPX65aS?=
+ =?us-ascii?Q?QAKsCmZyTum8k34PpeJvRVQlt/mqcksUalxxXpPFAid8WMbjIwydjsbwm5MP?=
+ =?us-ascii?Q?IXF6dHadxCHDOckHXQ6kFbAvGWkkPaY6UqIJAmoHiAQONu3agvudgBySls9A?=
+ =?us-ascii?Q?ub9ibft3uTpICUjuUrMqke0L5+6IuItN5uKDUTYi544uVHG+yXImCrGDB3Nh?=
+ =?us-ascii?Q?9wMy8KfXccMPqAmXyL3tVwK9PhhW21BnrL3JAQaO4x0SXFUcgGdpJTPCRZjV?=
+ =?us-ascii?Q?AD1A9mt8gSWtJr0gB8fnJGRjmll7EnbrkIkOcJyRlzAJXxlc0qkRqLWNP8pS?=
+ =?us-ascii?Q?GFm8u8UeytNmLxf8E1RuV84Dmqwge7ULBzQn2eJ+MYq1awrcHaZFJs17R3AC?=
+ =?us-ascii?Q?KXSIq/nIv8B2Bsg93+Z2+z+ZyDEkJ6sJwziqKkmsIJUPULc3OAB0cSJXrh5Q?=
+ =?us-ascii?Q?dZh7d18G+qpGjLv9OE+L58tTgVNE+NjJtYibWhmmd4Y5kiRprghIN74mqDBz?=
+ =?us-ascii?Q?0pwPEg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 12:40:16.6933
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b157697b-623d-4c34-e2ab-08de58211089
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6677
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_043347_089638_87626364 
-X-CRM114-Status: GOOD (  20.71  )
+X-CRM114-CacheID: sfid-20260120_044024_204299_3E756508 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,110 +154,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Tangquan Zheng <zhengtangquan@oppo.com>, Barry Song <baohua@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Leon Romanovsky <leon@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>, xen-devel@lists.xenproject.org, robin.murphy@arm.com, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 27, 2025 at 11:52:43AM +1300, Barry Song wrote:
-> From: Barry Song <baohua@kernel.org>
+On 12:05-20260117, Krzysztof Kozlowski wrote:
+> On 16/01/2026 15:39, Nishanth Menon wrote:
+> > Hi Michael Walle,
+> > 
+> > On Thu, 15 Jan 2026 14:24:41 +0100, Michael Walle wrote:
+> >> Enable the modules required to make the sa67 module function
+> >> properly. It is planned to add this module to KCI.
+> >>
+> >> Michael Walle (3):
+> >>   arm64: defconfig: enable the J721E PCI host driver
+> >>   arm64: defconfig: enable TPS6594 power button module
+> >>   arm64: defconfig: enable sa67mcu sensors
+> >>
+> >> [...]
+> > 
+> > I have applied the following to branch ti-k3-config-next on [1].
 > 
-> dcache_inval_poc_nosync does not wait for the data cache invalidation to
-> complete. Later, we defer the synchronization so we can wait for all SG
-> entries together.
 > 
-> Cc: Leon Romanovsky <leon@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Suren Baghdasaryan <surenb@google.com>
-> Cc: Tangquan Zheng <zhengtangquan@oppo.com>
-> Signed-off-by: Barry Song <baohua@kernel.org>
-> ---
->  arch/arm64/include/asm/cacheflush.h |  1 +
->  arch/arm64/mm/cache.S               | 42 +++++++++++++++++++++--------
->  2 files changed, 32 insertions(+), 11 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/cacheflush.h b/arch/arm64/include/asm/cacheflush.h
-> index 9b6d0a62cf3d..382b4ac3734d 100644
-> --- a/arch/arm64/include/asm/cacheflush.h
-> +++ b/arch/arm64/include/asm/cacheflush.h
-> @@ -74,6 +74,7 @@ extern void icache_inval_pou(unsigned long start, unsigned long end);
->  extern void dcache_clean_inval_poc(unsigned long start, unsigned long end);
->  extern void dcache_inval_poc(unsigned long start, unsigned long end);
->  extern void dcache_clean_poc(unsigned long start, unsigned long end);
-> +extern void dcache_inval_poc_nosync(unsigned long start, unsigned long end);
->  extern void dcache_clean_poc_nosync(unsigned long start, unsigned long end);
->  extern void dcache_clean_pop(unsigned long start, unsigned long end);
->  extern void dcache_clean_pou(unsigned long start, unsigned long end);
-> diff --git a/arch/arm64/mm/cache.S b/arch/arm64/mm/cache.S
-> index 4a7c7e03785d..99a093d3aecb 100644
-> --- a/arch/arm64/mm/cache.S
-> +++ b/arch/arm64/mm/cache.S
-> @@ -132,17 +132,7 @@ alternative_else_nop_endif
->  	ret
->  SYM_FUNC_END(dcache_clean_pou)
->  
-> -/*
-> - *	dcache_inval_poc(start, end)
-> - *
-> - * 	Ensure that any D-cache lines for the interval [start, end)
-> - * 	are invalidated. Any partial lines at the ends of the interval are
-> - *	also cleaned to PoC to prevent data loss.
-> - *
-> - *	- start   - kernel start address of region
-> - *	- end     - kernel end address of region
-> - */
-> -SYM_FUNC_START(__pi_dcache_inval_poc)
-> +.macro raw_dcache_inval_poc_macro
->  	dcache_line_size x2, x3
->  	sub	x3, x2, #1
->  	tst	x1, x3				// end cache line aligned?
-> @@ -158,11 +148,41 @@ SYM_FUNC_START(__pi_dcache_inval_poc)
->  3:	add	x0, x0, x2
->  	cmp	x0, x1
->  	b.lo	2b
-> +.endm
-> +
-> +/*
-> + *	dcache_inval_poc(start, end)
-> + *
-> + * 	Ensure that any D-cache lines for the interval [start, end)
-> + * 	are invalidated. Any partial lines at the ends of the interval are
-> + *	also cleaned to PoC to prevent data loss.
-> + *
-> + *	- start   - kernel start address of region
-> + *	- end     - kernel end address of region
-> + */
-> +SYM_FUNC_START(__pi_dcache_inval_poc)
-> +	raw_dcache_inval_poc_macro
->  	dsb	sy
->  	ret
->  SYM_FUNC_END(__pi_dcache_inval_poc)
->  SYM_FUNC_ALIAS(dcache_inval_poc, __pi_dcache_inval_poc)
->  
-> +/*
-> + *	dcache_inval_poc_nosync(start, end)
-> + *
-> + * 	Issue the instructions of D-cache lines for the interval [start, end)
-> + * 	for invalidation. Not necessarily cleaned to PoC till an explicit dsb
-> + *	sy is issued later
-> + *
-> + *	- start   - kernel start address of region
-> + *	- end     - kernel end address of region
-> + */
-> +SYM_FUNC_START(__pi_dcache_inval_poc_nosync)
-> +	raw_dcache_inval_poc_macro
-> +	ret
+> Before they get to next next, please squash them.
 
-Sorry, similar naming nit to the other patch. Let's have the macro use
-the 'nosync' suffix instead of the 'raw' prefix. You can chuck some
-underscores at it if you want to keep the name of this function the same.
+Thanks for catching this.
 
-Will
+Done. new commit 65428481cf6e174cc1bb45444ddc7489e3f2ef0d
+("arm64: defconfig: Enable configurations for Kontron SMARC-sAM67")
+
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
