@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C818D2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 06:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874A0D2ED0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 06:43:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GY/3BAplObLOWLiMmMhdzuiyonlo2hPySFg8J0DmMRg=; b=mCWmQT3mtuofW2JpILdmx41NYb
-	5kJ/fewez4DA6R6PT+l8RlKoKjX8yW6svfgqegQ7pQXrOoaFXwng+ZN8qZhLBMv4bwpqZHrsOatrm
-	fwg036aOBN5xNVtO/yR8mkSrHX4OW9ViUWSyF4jaDw8w1xbmDpB99VPI8WPDuETbIdv2MO2ARB4An
-	sp7i/0Bf+Mvy4vdV//JwDqimN0R+s0Pb/Hv91ytDk2DJjbeqstgHQwVFVOfhFuzMGGrUnnphaFJJk
-	DCgSAZxxQr4J0n5+O0dRTx708j2o2fyFlejBmS+rx9M1W90f/242PbPeVEjF19brjBhTn5QoYtwel
-	CJH0PJiQ==;
+	bh=zpXyH34CFeKZeTaTWBElXlgUbMpP958BejYtbygF9WU=; b=K/s8QspJxMZ/hIZW3Bv6/IbCZt
+	ogz7y8Y+xIN/SSc9qCFFi9nYfuMfLV3dc1ALOzZftZ/nLvZ06Ib6R6JFPYr+GV6Olvl1uqTiKPHl/
+	mkiDJ/auNHf9omZFPIdhDpBCsjmI7MjI91r2deI7RQDtoAKvrlvxMFrgTBq9skWD6Vx84lGcFUPt4
+	uc92VPXD8qMfKyuGpDgtO7aUuWEnv81ZhDqPyj3hhJiX3B9iHSVm09RmDQ6zcydYWeah46qbjc0Wi
+	LQPn36FYHybT/sQvDOrfJa52NwEK1t9PNc0zLdTi0HcLo3h2t5LsK+ZdLO8/acuPFYw0elacQMsc+
+	8Zt3Tk3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi5Si-00000003HOa-3rAP;
-	Tue, 20 Jan 2026 06:43:37 +0000
+	id 1vi5Sx-00000003HZY-0cLG;
+	Tue, 20 Jan 2026 06:43:51 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi5Sd-00000003HLO-1qsS
+	id 1vi5Si-00000003HMp-0BbA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 06:43:32 +0000
+	Tue, 20 Jan 2026 06:43:37 +0000
 Received: from mrdev.corp.microsoft.com (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 0AF6020B716C;
-	Mon, 19 Jan 2026 22:43:30 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 0AF6020B716C
+	by linux.microsoft.com (Postfix) with ESMTPSA id F3B4F20B7170;
+	Mon, 19 Jan 2026 22:43:34 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com F3B4F20B7170
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1768891410;
-	bh=GY/3BAplObLOWLiMmMhdzuiyonlo2hPySFg8J0DmMRg=;
+	s=default; t=1768891415;
+	bh=zpXyH34CFeKZeTaTWBElXlgUbMpP958BejYtbygF9WU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OyE5IrEXEydCDRpaah6ewzB23X17QX/RjBGB29tQkSo3l2hB8CFiO6YmqRj0708qp
-	 EfkZmdhRxrU1OIR3rZ4960CcronEfP/kE700rK8djoXhNeQhKHhgnxNT6HJRWUZ94I
-	 Oo0gffN1n2BT7OZCtpE2b2IsuJYEKTvJMyFBk6po=
+	b=XooknD8V3y1L7GC5cut7FI2hLyVvn6UK2r3zNP70pOOrJOGkL2XgdHyUFQhkvqH+s
+	 a2RAD3LH4gUbnfx4u/9xJnauVpk+rbZvmVon1tdkvwqWrzcIdMVTfcOr9i82ENiIG+
+	 9hTmsE68dqA36HuiiMpMrCAkEEFwOF3W1KpplTro=
 From: Mukesh R <mrathor@linux.microsoft.com>
 To: linux-kernel@vger.kernel.org,
 	linux-hyperv@vger.kernel.org,
@@ -67,17 +67,17 @@ Cc: kys@microsoft.com,
 	nunodasneves@linux.microsoft.com,
 	mhklinux@outlook.com,
 	romank@linux.microsoft.com
-Subject: [PATCH v0 03/15] x86/hyperv: add insufficient memory support in irqdomain.c
-Date: Mon, 19 Jan 2026 22:42:18 -0800
-Message-ID: <20260120064230.3602565-4-mrathor@linux.microsoft.com>
+Subject: [PATCH v0 07/15] mshv: Add ioctl support for MSHV-VFIO bridge device
+Date: Mon, 19 Jan 2026 22:42:22 -0800
+Message-ID: <20260120064230.3602565-8-mrathor@linux.microsoft.com>
 X-Mailer: git-send-email 2.51.2.vfs.0.1
 In-Reply-To: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
 References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_224331_509220_F2E2100E 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20260119_224336_105770_82706B44 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,93 +94,164 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mukesh Rathor <mrathor@linux.microsoft.com>
 
-Passthru exposes insufficient memory hypercall failure in the current map
-device interrupt hypercall. In case of such a failure, we must deposit
-more memory and redo the hypercall. Add support for that. Deposit memory
-needs partition id, make that a parameter to the map interrupt function.
+Add ioctl support for creating MSHV devices for a paritition. At
+present only VFIO device types are supported, but more could be
+added. At a high level, a partition ioctl to create device verifies
+it is of type VFIO and does some setup for bridge code in mshv_vfio.c.
+Adapted from KVM device ioctls.
+
+Credits: Original author: Wei Liu <wei.liu@kernel.org>
+NB: Slightly modified from the original version.
 
 Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
 ---
- arch/x86/hyperv/irqdomain.c | 38 +++++++++++++++++++++++++++++++------
- 1 file changed, 32 insertions(+), 6 deletions(-)
+ drivers/hv/mshv_root_main.c | 126 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 126 insertions(+)
 
-diff --git a/arch/x86/hyperv/irqdomain.c b/arch/x86/hyperv/irqdomain.c
-index f6b61483b3b8..ccbe5848a28f 100644
---- a/arch/x86/hyperv/irqdomain.c
-+++ b/arch/x86/hyperv/irqdomain.c
-@@ -13,8 +13,9 @@
- #include <linux/irqchip/irq-msi-lib.h>
- #include <asm/mshyperv.h>
+diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+index 83c7bad269a0..27313419828d 100644
+--- a/drivers/hv/mshv_root_main.c
++++ b/drivers/hv/mshv_root_main.c
+@@ -1551,6 +1551,129 @@ mshv_partition_ioctl_initialize(struct mshv_partition *partition)
+ 	return ret;
+ }
  
--static int hv_map_interrupt(union hv_device_id hv_devid, bool level,
--		int cpu, int vector, struct hv_interrupt_entry *ret_entry)
-+static u64 hv_map_interrupt_hcall(u64 ptid, union hv_device_id hv_devid,
-+				  bool level, int cpu, int vector,
-+				  struct hv_interrupt_entry *ret_entry)
- {
- 	struct hv_input_map_device_interrupt *input;
- 	struct hv_output_map_device_interrupt *output;
-@@ -30,8 +31,10 @@ static int hv_map_interrupt(union hv_device_id hv_devid, bool level,
- 
- 	intr_desc = &input->interrupt_descriptor;
- 	memset(input, 0, sizeof(*input));
--	input->partition_id = hv_current_partition_id;
++static long mshv_device_attr_ioctl(struct mshv_device *mshv_dev, int cmd,
++				   ulong uarg)
++{
++	struct mshv_device_attr attr;
++	const struct mshv_device_ops *devops = mshv_dev->device_ops;
 +
-+	input->partition_id = ptid;
- 	input->device_id = hv_devid.as_uint64;
++	if (copy_from_user(&attr, (void __user *)uarg, sizeof(attr)))
++		return -EFAULT;
 +
- 	intr_desc->interrupt_type = HV_X64_INTERRUPT_TYPE_FIXED;
- 	intr_desc->vector_count = 1;
- 	intr_desc->target.vector = vector;
-@@ -64,6 +67,28 @@ static int hv_map_interrupt(union hv_device_id hv_devid, bool level,
- 
- 	local_irq_restore(flags);
- 
-+	return status;
++	switch (cmd) {
++	case MSHV_SET_DEVICE_ATTR:
++		if (devops->device_set_attr)
++			return devops->device_set_attr(mshv_dev, &attr);
++		break;
++	case MSHV_HAS_DEVICE_ATTR:
++		if (devops->device_has_attr)
++			return devops->device_has_attr(mshv_dev, &attr);
++		break;
++	}
++
++	return -EPERM;
 +}
 +
-+static int hv_map_interrupt(u64 ptid, union hv_device_id device_id, bool level,
-+			    int cpu, int vector,
-+			    struct hv_interrupt_entry *ret_entry)
++static long mshv_device_fop_ioctl(struct file *filp, unsigned int cmd,
++				  ulong uarg)
 +{
-+	u64 status;
-+	int rc, deposit_pgs = 16;		/* don't loop forever */
++	struct mshv_device *mshv_dev = filp->private_data;
 +
-+	while (deposit_pgs--) {
-+		status = hv_map_interrupt_hcall(ptid, device_id, level, cpu,
-+						vector, ret_entry);
++	switch (cmd) {
++	case MSHV_SET_DEVICE_ATTR:
++	case MSHV_HAS_DEVICE_ATTR:
++		return mshv_device_attr_ioctl(mshv_dev, cmd, uarg);
++	}
 +
-+		if (hv_result(status) != HV_STATUS_INSUFFICIENT_MEMORY)
-+			break;
++	return -ENOTTY;
++}
 +
-+		rc = hv_call_deposit_pages(NUMA_NO_NODE, ptid, 1);
-+		if (rc)
-+			break;
-+	};
++static int mshv_device_fop_release(struct inode *inode, struct file *filp)
++{
++	struct mshv_device *mshv_dev = filp->private_data;
++	struct mshv_partition *partition = mshv_dev->device_pt;
 +
- 	if (!hv_result_success(status))
- 		hv_status_err(status, "\n");
- 
-@@ -199,8 +224,8 @@ int hv_map_msi_interrupt(struct irq_data *data,
- 	hv_devid = hv_build_devid_type_pci(pdev);
- 	cpu = cpumask_first(irq_data_get_effective_affinity_mask(data));
- 
--	return hv_map_interrupt(hv_devid, false, cpu, cfg->vector,
--				out_entry ? out_entry : &dummy);
-+	return hv_map_interrupt(hv_current_partition_id, hv_devid, false, cpu,
-+				cfg->vector, out_entry ? out_entry : &dummy);
- }
- EXPORT_SYMBOL_GPL(hv_map_msi_interrupt);
- 
-@@ -422,6 +447,7 @@ int hv_map_ioapic_interrupt(int ioapic_id, bool level, int cpu, int vector,
- 	hv_devid.device_type = HV_DEVICE_TYPE_IOAPIC;
- 	hv_devid.ioapic.ioapic_id = (u8)ioapic_id;
- 
--	return hv_map_interrupt(hv_devid, level, cpu, vector, entry);
-+	return hv_map_interrupt(hv_current_partition_id, hv_devid, level, cpu,
-+				vector, entry);
- }
- EXPORT_SYMBOL_GPL(hv_map_ioapic_interrupt);
++	if (mshv_dev->device_ops->device_release) {
++		mutex_lock(&partition->pt_mutex);
++		hlist_del(&mshv_dev->device_ptnode);
++		mshv_dev->device_ops->device_release(mshv_dev);
++		mutex_unlock(&partition->pt_mutex);
++	}
++
++	mshv_partition_put(partition);
++	return 0;
++}
++
++static const struct file_operations mshv_device_fops = {
++	.owner = THIS_MODULE,
++	.unlocked_ioctl = mshv_device_fop_ioctl,
++	.release = mshv_device_fop_release,
++};
++
++long mshv_partition_ioctl_create_device(struct mshv_partition *partition,
++					void __user *uarg)
++{
++	long rc;
++	struct mshv_create_device devargk;
++	struct mshv_device *mshv_dev;
++	const struct mshv_device_ops *vfio_ops;
++	int type;
++
++	if (copy_from_user(&devargk, uarg, sizeof(devargk))) {
++		rc = -EFAULT;
++		goto out;
++	}
++
++	/* At present, only VFIO is supported */
++	if (devargk.type != MSHV_DEV_TYPE_VFIO) {
++		rc = -ENODEV;
++		goto out;
++	}
++
++	if (devargk.flags & MSHV_CREATE_DEVICE_TEST) {
++		rc = 0;
++		goto out;
++	}
++
++	mshv_dev = kzalloc(sizeof(*mshv_dev), GFP_KERNEL_ACCOUNT);
++	if (mshv_dev == NULL) {
++		rc = -ENOMEM;
++		goto out;
++	}
++
++	vfio_ops = &mshv_vfio_device_ops;
++	mshv_dev->device_ops = vfio_ops;
++	mshv_dev->device_pt = partition;
++
++	rc = vfio_ops->device_create(mshv_dev, type);
++	if (rc < 0) {
++		kfree(mshv_dev);
++		goto out;
++	}
++
++	hlist_add_head(&mshv_dev->device_ptnode, &partition->pt_devices);
++
++	mshv_partition_get(partition);
++	rc = anon_inode_getfd(vfio_ops->device_name, &mshv_device_fops,
++			      mshv_dev, O_RDWR | O_CLOEXEC);
++	if (rc < 0) {
++		mshv_partition_put(partition);
++		hlist_del(&mshv_dev->device_ptnode);
++		vfio_ops->device_release(mshv_dev);
++		goto out;
++	}
++
++	devargk.fd = rc;
++	rc = 0;
++
++	if (copy_to_user(uarg, &devargk, sizeof(devargk))) {
++		rc = -EFAULT;
++		goto out;
++	}
++out:
++	return rc;
++}
++
+ static long
+ mshv_partition_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+ {
+@@ -1587,6 +1710,9 @@ mshv_partition_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+ 	case MSHV_ROOT_HVCALL:
+ 		ret = mshv_ioctl_passthru_hvcall(partition, true, uarg);
+ 		break;
++	case MSHV_CREATE_DEVICE:
++		ret = mshv_partition_ioctl_create_device(partition, uarg);
++		break;
+ 	default:
+ 		ret = -ENOTTY;
+ 	}
 -- 
 2.51.2.vfs.0.1
 
