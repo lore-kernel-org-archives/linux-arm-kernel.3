@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7EE0D2ECE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 14:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84019D2ECE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 14:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SRZwSnwwpMXlZd1qrwrcmadEPNcJzTwVR45bra3G+q8=; b=MPKOXdbre4qauSfsuFZvczRDkH
-	SEOzrcz0MEUhibcxF9EjFBLWgcwv02gZ4PmgUhnNbSJ/ukMzx+6sIBa/mAY42VzDfDggMjNQmXfta
-	d+JdiEsSlxcJcm8B2aGE+usgOwiHmzB6nWKEY4GYcp8np2J5XscB79jPFzfXAMTWoUjCDaoWhHFeO
-	JvO1b2N+QlFsdCuUiWFPvUuFT5by6XFpzT6jt8v9sG8cSKM7MmpqU21Hcrb+Ks4dha4cq3KgY8u7A
-	FGzpQqMQ2QhkDsaj5Q/xpd6mdK9DLHjX5v03FuV46uvXSmXoBUM7TuP0pwnVtieZrFhNeH1cfBD9e
-	Nij/hSdA==;
+	bh=61uJrUPfT5U9DRGtqaHRnNb4l+eYBRqUTw8sR2BEonU=; b=iWvlQRcGvGk+Z7uOGNWiCgQuDQ
+	qmpcqVnpmos93BXBf64rxZ+H8sehdjawx+GXm3vWyaJX+XKsTV6N2SFhi7qb2LrmP0hhWbg4mJi7f
+	7tlmlDsLt2xlw2NDNEl8DfeJvUo9QhJiNdi60/dOR7xv7UlEgK6yHgimTmt3DvnIREKSIIy8JFa6j
+	OWGU8lGKtjjQxtz/sZlK8XNPTvE9/7RUX202NFoNPIkkATbbCiU015TXhhZlLx2Xe+1Y+YtWoQk7K
+	3NsWtGyvZ42EHXwy72eQiWGUwp280mLs0UaRgVRI9pJhrhPHa0DxxO/WrQ1CRHOZXkJUamWQA/IlU
+	SdMU40jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viD51-000000041S5-2Ufe;
-	Tue, 20 Jan 2026 14:51:39 +0000
+	id 1viD56-000000041UZ-2uR4;
+	Tue, 20 Jan 2026 14:51:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viD53-000000041SY-0J9N
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 20 Jan 2026 14:51:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=61uJrUPfT5U9DRGtqaHRnNb4l+eYBRqUTw8sR2BEonU=; b=fMRDX3cCoJfzQH7LK043DmSCZ6
+	EK/LU/XbyDPk/4I1Op65fKiLZiQsEPTCIbbSMTXoayESIA3eKaGEa2R9QyguYHY1jLmTlnW6r4esZ
+	IALY3XjLNUZcHMTIK8yOoNxFlRmgNbGXFRpaRujB710AAY2TrmkdpABNulv4og3IhG+lZymATM3Fc
+	zMq+esx5RkTu+QH/PxVT7tGQX7zKz+/bg9Bn+eCPqTZ3o5NDzyAmL13FjZC6rtAFkuhIn81RmMtdd
+	DCHjxeKAOxr5QEvWq9VLpCumZUE4VLc8k7T/ptdBa1e1JWXr+WP92kWO1fDIA6fnI8bHR7b8i9gza
+	92zsbzng==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viD4y-000000041Qs-3Hoz
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viD4y-0000000EFl3-3lsp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 14:51:38 +0000
+	Tue, 20 Jan 2026 14:51:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 36F091517;
-	Tue, 20 Jan 2026 06:51:27 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 685CF1684;
+	Tue, 20 Jan 2026 06:51:29 -0800 (PST)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CC61F3F694;
-	Tue, 20 Jan 2026 06:51:32 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0A8633F694;
+	Tue, 20 Jan 2026 06:51:34 -0800 (PST)
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: broonie@kernel.org,
@@ -40,17 +55,17 @@ Cc: broonie@kernel.org,
 	mark.rutland@arm.com,
 	syzbot+d4ab35af21e99d07ce67@syzkaller.appspotmail.com,
 	will@kernel.org
-Subject: [PATCH 1/3] arm64/fpsimd: ptrace: Fix SVE writes on !SME systems
-Date: Tue, 20 Jan 2026 14:51:05 +0000
-Message-Id: <20260120145107.1278972-2-mark.rutland@arm.com>
+Subject: [PATCH 2/3] arm64/fpsimd: signal: Allocate SSVE storage when restoring ZA
+Date: Tue, 20 Jan 2026 14:51:06 +0000
+Message-Id: <20260120145107.1278972-3-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260120145107.1278972-1-mark.rutland@arm.com>
 References: <20260120145107.1278972-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_065136_952277_9C530CED 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20260120_145137_284701_441D61E3 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,89 +80,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When SVE is supported but SME is not supported, a ptrace write to the
-NT_ARM_SVE regset can place the tracee into an invalid state where
-(non-streaming) SVE register data is stored in FP_STATE_SVE format but
-TIF_SVE is clear. This can result in a later warning from
-fpsimd_restore_current_state(), e.g.
+The code to restore a ZA context doesn't attempt to allocate the task's
+sve_state before setting TIF_SME. Consequently, restoring a ZA context
+can place a task into an invalid state where TIF_SME is set but the
+task's sve_state is NULL.
 
-  WARNING: CPU: 0 PID: 7214 at arch/arm64/kernel/fpsimd.c:383 fpsimd_restore_current_state+0x50c/0x748
+In legitimate but uncommon cases where the ZA signal context was NOT
+created by the kernel in the context of the same task (e.g. if the task
+is saved/restored with something like CRIU), we have no guarantee that
+sve_state had been allocated previously. In these cases, userspace can
+enter streaming mode without trapping while sve_state is NULL, causing a
+later NULL pointer dereference when the kernel attempts to store the
+register state:
 
-When this happens, fpsimd_restore_current_state() will set TIF_SVE,
-placing the task into the correct state. This occurs before any other
-check of TIF_SVE can possibly occur, as other checks of TIF_SVE only
-happen while the FPSIMD/SVE/SME state is live. Thus, aside from the
-warning, there is no functional issue.
+| # ./sigreturn-za
+| Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+| Mem abort info:
+|   ESR = 0x0000000096000046
+|   EC = 0x25: DABT (current EL), IL = 32 bits
+|   SET = 0, FnV = 0
+|   EA = 0, S1PTW = 0
+|   FSC = 0x06: level 2 translation fault
+| Data abort info:
+|   ISV = 0, ISS = 0x00000046, ISS2 = 0x00000000
+|   CM = 0, WnR = 1, TnD = 0, TagAccess = 0
+|   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+| user pgtable: 4k pages, 52-bit VAs, pgdp=0000000101f47c00
+| [0000000000000000] pgd=08000001021d8403, p4d=0800000102274403, pud=0800000102275403, pmd=0000000000000000
+| Internal error: Oops: 0000000096000046 [#1]  SMP
+| Modules linked in:
+| CPU: 0 UID: 0 PID: 153 Comm: sigreturn-za Not tainted 6.19.0-rc1 #1 PREEMPT
+| Hardware name: linux,dummy-virt (DT)
+| pstate: 214000c9 (nzCv daIF +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+| pc : sve_save_state+0x4/0xf0
+| lr : fpsimd_save_user_state+0xb0/0x1c0
+| sp : ffff80008070bcc0
+| x29: ffff80008070bcc0 x28: fff00000c1ca4c40 x27: 63cfa172fb5cf658
+| x26: fff00000c1ca5228 x25: 0000000000000000 x24: 0000000000000000
+| x23: 0000000000000000 x22: fff00000c1ca4c40 x21: fff00000c1ca4c40
+| x20: 0000000000000020 x19: fff00000ff6900f0 x18: 0000000000000000
+| x17: fff05e8e0311f000 x16: 0000000000000000 x15: 028fca8f3bdaf21c
+| x14: 0000000000000212 x13: fff00000c0209f10 x12: 0000000000000020
+| x11: 0000000000200b20 x10: 0000000000000000 x9 : fff00000ff69dcc0
+| x8 : 00000000000003f2 x7 : 0000000000000001 x6 : fff00000c1ca5b48
+| x5 : fff05e8e0311f000 x4 : 0000000008000000 x3 : 0000000000000000
+| x2 : 0000000000000001 x1 : fff00000c1ca5970 x0 : 0000000000000440
+| Call trace:
+|  sve_save_state+0x4/0xf0 (P)
+|  fpsimd_thread_switch+0x48/0x198
+|  __switch_to+0x20/0x1c0
+|  __schedule+0x36c/0xce0
+|  schedule+0x34/0x11c
+|  exit_to_user_mode_loop+0x124/0x188
+|  el0_interrupt+0xc8/0xd8
+|  __el0_irq_handler_common+0x18/0x24
+|  el0t_64_irq_handler+0x10/0x1c
+|  el0t_64_irq+0x198/0x19c
+| Code: 54000040 d51b4408 d65f03c0 d503245f (e5bb5800)
+| ---[ end trace 0000000000000000 ]---
 
-This bug was introduced during rework to error handling in commit:
+Fix this by having restore_za_context() ensure that the task's sve_state
+is allocated, matching what we do when taking an SME trap. Any live
+SVE/SSVE state (which is restored earlier from a separate signal
+context) must be preserved, and hence this is not zeroed.
 
-  9f8bf718f2923 ("arm64/fpsimd: ptrace: Gracefully handle errors")
-
-... where the setting of TIF_SVE was moved into a block which is only
-executed when system_supports_sme() is true.
-
-Fix this by removing the system_supports_sme() check. This ensures that
-TIF_SVE is set for (SVE-formatted) writes to NT_ARM_SVE, at the cost of
-unconditionally manipulating the tracee's saved svcr value. The
-manipulation of svcr is benign and inexpensive, and we already do
-similar elsewhere (e.g. during signal handling), so I don't think it's
-worth guarding this with system_supports_sme() checks.
-
-Aside from the above, there is no functional change. The 'type' argument
-to sve_set_common() is only set to ARM64_VEC_SME (in ssve_set())) when
-system_supports_sme(), so the ARM64_VEC_SME case in the switch statement
-is still unreachable when !system_supports_sme(). When
-CONFIG_ARM64_SME=n, the only caller of sve_set_common() is sve_set(),
-and the compiler can constant-fold for the case where type is
-ARM64_VEC_SVE, removing the logic for other cases.
-
-Reported-by: syzbot+d4ab35af21e99d07ce67@syzkaller.appspotmail.com
-Fixes: 9f8bf718f2923 ("arm64/fpsimd: ptrace: Gracefully handle errors")
+Fixes: 39782210eb7e ("arm64/sme: Implement ZA signal handling")
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Mark Brown <broonie@kernel.org>
 Cc: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kernel/ptrace.c | 26 ++++++++++++--------------
- 1 file changed, 12 insertions(+), 14 deletions(-)
+ arch/arm64/kernel/signal.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index b9bdd83fbbca0..6c5ff6807d4cc 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -968,20 +968,18 @@ static int sve_set_common(struct task_struct *target,
- 	vq = sve_vq_from_vl(task_get_vl(target, type));
+diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+index 1110eeb21f572..9c2e26e01d729 100644
+--- a/arch/arm64/kernel/signal.c
++++ b/arch/arm64/kernel/signal.c
+@@ -576,6 +576,10 @@ static int restore_za_context(struct user_ctxs *user)
+ 	if (user->za_size < ZA_SIG_CONTEXT_SIZE(vq))
+ 		return -EINVAL;
  
- 	/* Enter/exit streaming mode */
--	if (system_supports_sme()) {
--		switch (type) {
--		case ARM64_VEC_SVE:
--			target->thread.svcr &= ~SVCR_SM_MASK;
--			set_tsk_thread_flag(target, TIF_SVE);
--			break;
--		case ARM64_VEC_SME:
--			target->thread.svcr |= SVCR_SM_MASK;
--			set_tsk_thread_flag(target, TIF_SME);
--			break;
--		default:
--			WARN_ON_ONCE(1);
--			return -EINVAL;
--		}
-+	switch (type) {
-+	case ARM64_VEC_SVE:
-+		target->thread.svcr &= ~SVCR_SM_MASK;
-+		set_tsk_thread_flag(target, TIF_SVE);
-+		break;
-+	case ARM64_VEC_SME:
-+		target->thread.svcr |= SVCR_SM_MASK;
-+		set_tsk_thread_flag(target, TIF_SME);
-+		break;
-+	default:
-+		WARN_ON_ONCE(1);
-+		return -EINVAL;
- 	}
- 
- 	/* Always zero V regs, FPSR, and FPCR */
++	sve_alloc(current, false);
++	if (!current->thread.sve_state)
++		return -ENOMEM;
++
+ 	sme_alloc(current, true);
+ 	if (!current->thread.sme_state) {
+ 		current->thread.svcr &= ~SVCR_ZA_MASK;
 -- 
 2.30.2
 
