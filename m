@@ -4,200 +4,214 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 436DDD2ED16
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 14:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7EE3D2ECE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 14:09:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uK1rkJgbz9vrKgHFg7PMymhJ7f4ARW3zGyiDqMDQpmk=; b=g6pp+CsWXOmNu7nRDYzL2Rxp50
-	X0sqgArM7LlGFKDe+Zan4S4iG6Y0j8UNG15v3NFn23U+c9Jqrnl2Kxf282chVJ7NyvUO9OgwglSd5
-	3g4dAepZ3dHKZTyRqFBjDHz3kjP5mvP3g57sz9dSfevh6FIokeFFWB9NwJuSxZsdG/oyWJLVHs0ST
-	021FmisEF/1WOd0DzKzR/JEp3uplJH+08ZkE3U0R3edo6uOIcCSdmPHZo9imh8EgPzGu97Ys19kdl
-	G2F2KPUS5Pv1QFognxgnv3qpQbb5hkZjKWomBPtFwl5koWVpiDAzBKPGAQNRBQFJ2Lf/lLkkhe7/t
-	Y1bNuHng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yfSNy7aK8dngM8j5WwPtkAMn5KZEJUlV2eCzLQiozxs=; b=LXgDZFKt8cjqO3+KjbqHAtSeGs
+	TEU2yIqK3Yw6XihfVlCswc1QLmlCLxT1ha1z0lE5Npi8jYmWn9v8q2RsjOVw1AJnXD3pmoX7AyRfq
+	G/CY+30aWbW92vMxwmSGfi52KFi4yWIjqoHzP9uG0tUrEPNzRkZhRymhJFpFGkO+8qKfV0LBxryLx
+	nH0O9M9TnxVWDbtpEPn8Hzx78xykwFU/8jiInilIezw/ohsfV5eaWp5rQWf2lTvBPjJkFpVOG5m93
+	Kay80FKx5a553egM5sT56QLvwA4DzyfBDvzEOtZYS1Q6eiZAkgfcbd+7MzrVJdwwyh2JCNsK8O3P9
+	HEdyz0ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viCOL-00000003x5o-01GU;
-	Tue, 20 Jan 2026 14:07:33 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1viCPj-00000003xEg-127W;
+	Tue, 20 Jan 2026 14:08:59 +0000
+Received: from mail-francesouthazon11011042.outbound.protection.outlook.com ([40.107.130.42] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viCNw-00000003x4u-0gMm
+	id 1viCPf-00000003xDp-0RxT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 14:07:31 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60KE4cfL3801853;
-	Tue, 20 Jan 2026 15:05:32 +0100
-Received: from duzpr83cu001.outbound.protection.outlook.com (mail-northeuropeazon11012014.outbound.protection.outlook.com [52.101.66.14])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4br0e99u2j-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 20 Jan 2026 15:05:32 +0100 (CET)
+	Tue, 20 Jan 2026 14:08:56 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=RhHbsUeJl6L5IxDz47maJtI5Zk/aam5BC8Oj7xSfcAW/ozHbSXwYY8AIUX7xJN6mp0WHlrstoQfaJmQe3/l58TjmvSLw2lhMtlMv2veatE4doJ7kysx7oftQ5QfydyYtwFIKccauYgFb/qZgj4ZQk6MxxLdFCLq7LlefZIJM2vze/g1nm79/tv40rDJc2yb4yLsmKiOsd+epRlAbIWPqj3mn+HbWGSq/wSoCvDQL7VnwSE7As6VLkVnpBgolrTF+sPzZH4oa/AVkbP4XxaXyE9yYupGIyi6nSiRh4XTEhwc0FN7GpSk78pRTxllCIpozAOAGAlGRp6jlwne/Dooijw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yfSNy7aK8dngM8j5WwPtkAMn5KZEJUlV2eCzLQiozxs=;
+ b=jQexwbK8anKZrawjT+b7cUzzchDS2Y2qXh4iilVzSYU9kYDhB/3wRd18UzJOlTKxqP+XzaLPvAKa/9hNNtsa4W/5wKUizZ56UFcXICd6zWT3NBMkaiJT5qDOW+7/BRv3ftUvQk5hzQ3OEoc1hMSbtmWvATFfhTdkF7lrYstaDeCjx/fX6ecP6oJZr1oUKLNDYg32TFkdOuWJg/hXOZSATlCA0lWd8MKGHunO9YJJlSgQ4OUvgRWHPKftm5Wih5eW2WypmW7FDG9Ejq8eLH0whB+06hNvyVVFjh1acZFrGQYzj4Rz+GH6QYiRilUspr/zk2jYAr6SGTQQC/dOa80Hcg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yfSNy7aK8dngM8j5WwPtkAMn5KZEJUlV2eCzLQiozxs=;
+ b=CTyBOcG4iDbknKDGMscQ607JUh4f+7BeulGWUOjbBMg1vPPb/TlqEDo8wtj3FWPrlzzl5AS330eHuLTExnuBAVWHicbA+wRLE0G+sKl0JM9kB8riMtFpliTDLhomjsFV1WvV1WX/LZfZZ12d2c1rVhgOiTVAAeyJnAJGsvuzAEU=
+Received: from AM0PR02CA0115.eurprd02.prod.outlook.com (2603:10a6:20b:28c::12)
+ by VI1PR08MB10173.eurprd08.prod.outlook.com (2603:10a6:800:1cb::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Tue, 20 Jan
+ 2026 14:08:47 +0000
+Received: from AMS0EPF0000019C.eurprd05.prod.outlook.com
+ (2603:10a6:20b:28c:cafe::3c) by AM0PR02CA0115.outlook.office365.com
+ (2603:10a6:20b:28c::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.10 via Frontend Transport; Tue,
+ 20 Jan 2026 14:08:19 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS0EPF0000019C.mail.protection.outlook.com (10.167.16.248) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.4
+ via Frontend Transport; Tue, 20 Jan 2026 14:08:46 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kz/JLsM2dy+eFECq3SQgPThhUc0acb6sUEVEl/3v52AW/Yij+hoqdsL1YZ2hMk9rXsCf5ZWvYzTeMBNF/1DLXxeZysJpzc+e+IZ8nSShMwu02Btnk0E0sgBZBDlUROAH3X8q+rl+GW4HJmFuG3GZdeSATZoszgm2PDkFhG0xEWlVXB16CPnHejH+FrWYLVE+Uy8jONUjdbRSEGFynTcWnT64ir2xDNv4MGMrwyhixR5NRvUnwRnWpPwQ/pVVA+Gqmqot1dqr7hEAbRy7S1swryweHGqoRKhCccLReAveJ29M4W+932X9REYgapN1jUjLXYLQtKlIU0loSd/JaaEa3A==
+ b=YtYQRFEFPyNLlV2Owww7Q4A8WcnQx89DXbhIwmTnhtue9xpF+5E32t5Q5D97UKIYJZn8yJMMGJgCONNIDiEBpzpCJTd3Ly0xw4v+Ee5fsiXA0Ilsjm1nvmqrNckDVV3iyVD53j5xI5b1wJqFCR4wfo1avJA62cStAEZmED8KRbPJfQnlg0jgvF6ANjbA9AnPIZ3UvAYqez+ChKE//KG+JNoLOtX4YFFlq/GkIZPXxZmhBFVVNxlh4CviNauWs/YfnvxYe+RorQqdqCyAcUToIkxfBh+s/ZBTVqrUQlUMvmoDTd7uOEtQVeQ2QXrsFliS5qLFH7ML64jRwYXWbaTWoQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uK1rkJgbz9vrKgHFg7PMymhJ7f4ARW3zGyiDqMDQpmk=;
- b=zDIf/kSb2mbV2gf8nQjyhE2tdImBhRDChoN/LvAKmxEGEbLZ5F2KmSUJaZoKl25sIZlb9C+eATRCAZQpt62+cIC8oRfK2F/eLZjU5c8WTHZ31xTgKHDZoAg0KJRuj7OQR9Sc0i0p/d3eSEkc8byXTpBipsVTNvFdTdEwKw77tRf5oEiE+Ai5rpQ0oZUn8XjRDvkb00Dqxe4yvcmYJ0QTo5l1qiciAPKMz2uOE7FdUHsFO+qpJsGN1eLrw2l48N46mls9zR2V3fCZqHmEmaV5+/pH4+yr9ifxZd85Xapz18MSH91+S6Bd+T2CpvTyEL+Hqa5ctELlCko93I8U5WJUgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
+ bh=yfSNy7aK8dngM8j5WwPtkAMn5KZEJUlV2eCzLQiozxs=;
+ b=lN4QFOBzsIs0DPNTF4DUOW+l1zgfyNmwCWYjj901jsevzoVDXaV9I08nDbnj1ni+fK6vYiwBHodDQi8KCPpkYOIMe4MryNorVrDbfm2+JQ3/VClRIK1IO4AvCBDglF63LXSj5ih2x3VTkYCfAEALblrs/LfBpvSUmsFQcz3Gpr1tALp7PPtwRgonxW03R9XhFBFzHfPC+o60rlrcK+AckcEVLkeAm0uVeMSkc3sdaZAcPfr/5dqE7M4uOpSQcC91m3H9RpZ8sQ0JmLuf4HVkJ3xudOp4Mh6rll3k0aN9b82JM++kXDnvC9hXNL0X/J5NrSDzx+KWT1ofUXh/6fnZhQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uK1rkJgbz9vrKgHFg7PMymhJ7f4ARW3zGyiDqMDQpmk=;
- b=OqcmWN9GLDwNoXfeDgZOvNRJ6T8dHw3W/MfBJc6hNVFw0qB3dUMARUSpTjQ25XctYu/8V8T1t23bYbemxRncz+7rlud6FTTPayH2B26mhLqld6jnhkDV1KysX2u4233UmmLTBPEK57W0DIZoMyC71SCzz964OyjO7A/E+n1tCi7a2cY7GJRPqtNv1zr1TB9/tkMTb/9rAs1nnn0qO9wKLAQQhNR4YE30JSkLmJ6tey+21kswOlBWrWa2IBpZQgF+7c9B8oWrfoEjGjTJ/K6TgjkgZiXTrfGn6jXeZPo9s9bZntBkdr7ct8oaBM8OSmFJKSxlRgZjEFqaSoJhZ9jvUA==
-Received: from AS4P189CA0016.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5db::8)
- by DB8PR10MB3925.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:149::8) with
+ bh=yfSNy7aK8dngM8j5WwPtkAMn5KZEJUlV2eCzLQiozxs=;
+ b=CTyBOcG4iDbknKDGMscQ607JUh4f+7BeulGWUOjbBMg1vPPb/TlqEDo8wtj3FWPrlzzl5AS330eHuLTExnuBAVWHicbA+wRLE0G+sKl0JM9kB8riMtFpliTDLhomjsFV1WvV1WX/LZfZZ12d2c1rVhgOiTVAAeyJnAJGsvuzAEU=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DB4PR08MB9214.eurprd08.prod.outlook.com (2603:10a6:10:3fa::12)
+ by DB9PR08MB6636.eurprd08.prod.outlook.com (2603:10a6:10:250::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.9; Tue, 20 Jan
- 2026 14:05:29 +0000
-Received: from AMS0EPF000001A4.eurprd05.prod.outlook.com
- (2603:10a6:20b:5db:cafe::13) by AS4P189CA0016.outlook.office365.com
- (2603:10a6:20b:5db::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.13 via Frontend Transport; Tue,
- 20 Jan 2026 14:05:22 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AMS0EPF000001A4.mail.protection.outlook.com (10.167.16.229) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9542.4 via Frontend Transport; Tue, 20 Jan 2026 14:05:28 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 20 Jan
- 2026 15:06:57 +0100
-Received: from [10.48.86.212] (10.48.86.212) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Tue, 20 Jan
- 2026 15:05:27 +0100
-Message-ID: <310ab5ef-bd29-44a6-927a-f82239499e60@foss.st.com>
-Date: Tue, 20 Jan 2026 15:05:22 +0100
-MIME-Version: 1.0
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Tue, 20 Jan
+ 2026 14:07:39 +0000
+Received: from DB4PR08MB9214.eurprd08.prod.outlook.com
+ ([fe80::92b8:ca99:9d64:9921]) by DB4PR08MB9214.eurprd08.prod.outlook.com
+ ([fe80::92b8:ca99:9d64:9921%5]) with mapi id 15.20.9542.008; Tue, 20 Jan 2026
+ 14:07:39 +0000
+Message-ID: <644cd18a-e324-417b-ad20-9e7b0f4b8c70@arm.com>
+Date: Tue, 20 Jan 2026 14:07:36 +0000
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 11/11] pinctrl: stm32: add firewall checks before
- probing the HDP driver
-To: Linus Walleij <linusw@kernel.org>
-CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        Leo Yan
-	<leo.yan@linux.dev>,
-        =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?=
-	<legoffic.clement@gmail.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        <jens.wiklander@linaro.org>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-References: <20260114-debug_bus-v2-0-5475c7841569@foss.st.com>
- <20260114-debug_bus-v2-11-5475c7841569@foss.st.com>
- <CAD++jLmW5_xDnA9UtKynaSzdM8aC439sB_n6suFmLY1TJ0cYbg@mail.gmail.com>
+Subject: Re: [RFC PATCH 4/5] firmware: smccc: register as platform driver
+To: Vedashree Vidwans <vvidwans@nvidia.com>, sudeep.holla@arm.com,
+ andre.przywara@arm.com, lpieralisi@kernel.org, mark.rutland@arm.com
+Cc: ardb@kernel.org, chao.gao@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-coco@lists.linux.dev,
+ linux-kernel@vger.kernel.org, sdonthineni@nvidia.com, vsethi@nvidia.com,
+ vwadekar@nvidia.com
+References: <20251208221319.1524888-1-vvidwans@nvidia.com>
+ <20251208221319.1524888-5-vvidwans@nvidia.com>
 Content-Language: en-US
-From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-In-Reply-To: <CAD++jLmW5_xDnA9UtKynaSzdM8aC439sB_n6suFmLY1TJ0cYbg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.212]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF000001A4:EE_|DB8PR10MB3925:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6cdbe002-c766-4de1-84ba-08de582cf799
+From: Salman Nabi <salman.nabi@arm.com>
+In-Reply-To: <20251208221319.1524888-5-vvidwans@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0167.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:18a::10) To DB4PR08MB9214.eurprd08.prod.outlook.com
+ (2603:10a6:10:3fa::12)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: DB4PR08MB9214:EE_|DB9PR08MB6636:EE_|AMS0EPF0000019C:EE_|VI1PR08MB10173:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1fb1f6c4-b462-46d4-9f4c-08de582d6d6d
+x-checkrecipientrouted: true
+NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|82310400026|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TVB5NTFsTitiMVpEWXhpTU9GRTJ0WEpib0E5bURHZ0laTzBPaXlGQVA0Vy9w?=
- =?utf-8?B?Z3FPNkhuV0Nnam9VWG13NElMNDJxdld6bVFjQTliVUVkeXZiS3gxWkxDZFFk?=
- =?utf-8?B?aGF5azBQelN4R0RmaFhIRmRiK1JyQ21ocUVhS2VnY3pOdFRPQzdURHgvUlh2?=
- =?utf-8?B?cnR4ZFJObXh0TllSUHZoQjRTVmVrcFhXMWhDMDBvWFBWZG9VK1ZPVHVzc1NB?=
- =?utf-8?B?MFZTcG5kd2Vsa21FTW1nRlgxN3Z5RS8xZVRHZ3BmeXRPNVR0cXNHL2h1dWpK?=
- =?utf-8?B?ZWdCa0VLVlZCaFlQUDRrQ0ZVZDRxY1QwQlZWdU5nazcrL3pYZWNLRUVkR1V4?=
- =?utf-8?B?N0NZMTQ2S1Urc0toSmhKMHBSM2U5RTJQeFBXVFdLeWZEWjFVWm9ib2Z6WnBQ?=
- =?utf-8?B?VUdiTXFqc2ZaNm1lekZQaXAwUjRMTUtHYjFhRUNaUHFpSmFNNzhGSGN6OUhJ?=
- =?utf-8?B?ekhzMDRNNUlnWG5NRTFBbDZ4aWlkTStUNnJnZlliZ3V0akY1YlljcXV2YjRF?=
- =?utf-8?B?c2NmanU2VVZiNExQL21qUjFkTDJtWU4vSUVkNWZERGw5YlYrOGJ0WmRjZ3ZT?=
- =?utf-8?B?ZS9BazZTSGNVZWNOdnB1MUsxTkMxVGd3d21Cb0VDWnl3Qndxdm5ZQnh4cjUz?=
- =?utf-8?B?N2JKalhsUGJHWElhN1RhS2xGTFkzbkplQ0lsUUEvMEo2NHNvTks4Q2JDM1Rx?=
- =?utf-8?B?SFBhSkNTMkxldWk5VlptVUplUDlZY0F3c0xQZTY4Wkk5dmdDcGtwcHZIa3NI?=
- =?utf-8?B?ak10UmxtQjR1YmYyTThFNkNsUDNEcnhQVUU2L0ZMMFhKaHlRSVljZnZxOGFz?=
- =?utf-8?B?YUN2bU9tOFVRMVR3VkhTZ1pWL0V2RDFEQUZHZ0VnVFFkdHlyUFF1Ky9YNDlz?=
- =?utf-8?B?NHM1aTR4SVFCTW5qTE5wTE9qd3pDVDNrNXBtdDlrM25vSzBRcVFzTGN6WUhx?=
- =?utf-8?B?aTRXT0Y0VFVzL2x2OWhEcWNwY09ab2lIbE1zRHRnY0c2bHBuQmFBU3ZZdWhM?=
- =?utf-8?B?TDBUYTF0K3ZiNlRqbnFUR2pUUXNmTWJBaEtmVTdLVWZuOW1DWHBrVGNTVWpJ?=
- =?utf-8?B?QU5SUW9sRTBRaXZyRURESlgrQVRuUzdCa3JqeUtOS0YwVXU4RzZ4cUJKcHY1?=
- =?utf-8?B?aDJEMlBUTlZqQWd2SU43RDBxbEZmMUE0dGh6dCt1WEFOa0oza1J1c0liMFBw?=
- =?utf-8?B?WDVRRkh4dUlRQzdIRnlwRDJZRytUSEJFeDBvYTU1c0pvcTAxai9xMm1QcTVF?=
- =?utf-8?B?UEgvRnlBcVoybS9MdUdnN3hMQXVlbllGRThXdjN1TUg5YnlYVnR4ejI2N3F6?=
- =?utf-8?B?cFllKzQvUHdvZlZSaU9DWnpXNkk5bnR0bHYvV2Y4RTZoNXNQekFXT1M5NlZT?=
- =?utf-8?B?K2h4Q3ZJeXNGMk1MbXl5V3dySHoyY3RMbjRKeWRUcElMMFJpb2ZkQjhORDhm?=
- =?utf-8?B?WnBPT2Z5bHBKSXFRRi9kdEQvMVlQWDRpR0p4Zkgram5MR2lRQm9TcW1jckwz?=
- =?utf-8?B?TUdvQW5uSk1Ra0NDYlBNTWZuNEkvdnFxSkV0MWxnUnpmKzFvNE03UTBqZDJp?=
- =?utf-8?B?RkEzZkVWVHFHTVZpOU9ySFR1ak4yZ25DMFBlczFqV0NTZTdmenpDYzdjM2JO?=
- =?utf-8?B?L2Frck1kYlFWaVVTeWh5alZJcTJ6bG9yazJDL29tdHZmcEROUmJnNk40Rm5i?=
- =?utf-8?B?emNIdXd3N3RpUHVzVXFMejZVNzZPeTI2NkloamJQMU9mTTJVVEpkbVF3Z1dC?=
- =?utf-8?B?dVB1Q0Y5SGpwSXAxT1NHM29FMllLOTMzSG5kVnh1ZXNXNkozektlOTQvR0FC?=
- =?utf-8?B?VUJqMjdXbXM5QTRhTDE4dTdUb1JQUk04K2FIU3VUSUJOMG95ZlQxME9qc3Bt?=
- =?utf-8?B?aUZqQnB1SGlVV0tGOFVKQnlwQmdoR2ZnRUNLQVNnbWNUM2ZsRnAzb1dSKzZD?=
- =?utf-8?B?K3RWNm1QUHYyMjVqTDY4d0VBVU9ZeGsxYjlsMWxWK21pQ1V6UFJOYTY0dWpq?=
- =?utf-8?B?QzcrU0JHTHJRVmErMGpBVFR3N0I1RG9ZNXdTUUV4aFVFTjg1OFFxM3VuREZh?=
- =?utf-8?B?VE40ODd5aDlUZWs2V3dEN1lFT3NCUE9DSm5DanE0OEd3dGlmejZXUUNyMjZN?=
- =?utf-8?B?Y3ZKQXZJM3pxZWhkV1NmTjRHUGNWNitWS01oS05STldYcWw3Rnk1ZlJKdWZu?=
- =?utf-8?B?bVJ2dHVjVHFDSG9PL1VsRnhNWGc4MjJLNHNFVkYxL3BzaFN6WUZSRkFTL1Vt?=
- =?utf-8?B?MW5tQ1VLVml4bEtJdnU1S2c0aTNRPT0=?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 14:05:28.8151
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?NHRPMk5QOVlGYS9NdkFHSGhhc2xsT3FENGlkMWtiSWx6Q055b1RMTlhIMkpQ?=
+ =?utf-8?B?c2t5NGpNYmM4WXFxZXlsK1BkN1R5NXNUb2JjV29OSWsycEpJZlNnZENGMHNI?=
+ =?utf-8?B?TWltVWtaRmczRnd3SWZLeE00REZDb01FTGZKdkpPa2tubk5tYy9BY05LMEV3?=
+ =?utf-8?B?NElyZzVUcXpnTUN1V0dNTmd0TFBIVXRtZWpCU1kwYTd5N2JLTW1OK3d3aTh0?=
+ =?utf-8?B?OUJmMGNDcnRSVFBmaGx4ZkFsRUlBMy9IeC9WeHNldUp0aytqZk5NTlExSlVl?=
+ =?utf-8?B?eVVTOVFJcTFvRytoUFBRUWFMVEtMZ0VCbDAzWEtrekgwdGVhRnF0SHFCQ0lZ?=
+ =?utf-8?B?WFZlMzRieHhXQ0s1ckE2RTdYUDJLVDFodkVCMlBPRDQ5RDVpZ3FZdVNqRjlv?=
+ =?utf-8?B?eEplL3lweHlzL3M5UEsyZjQyTG15ZGFNZk1xL1M4YXc5NWNJelRlMzc3dGZY?=
+ =?utf-8?B?UmRmaFlqYlBVWm5ITk1iQVFaR0o0SXNsVWIwdnNYK2FEUWFUVUhDREdidXhx?=
+ =?utf-8?B?cTJqTnV0Y1IxeUw5Y3h1WGpSM3JDM0VCTjMrRzJSalYzSUYwWmQ5Nzk0V1FI?=
+ =?utf-8?B?RjRLb01ydUhoeXJjU3djVlFxb0VEVHRyVmdTWjY3ZVBjamlTNm9VcHRHQTIx?=
+ =?utf-8?B?UURpV1kwU1AzNW1kS0lNaGt1NG5tRjZjZTYwVnMxOC9rUjBaS2o0M0g0dTFx?=
+ =?utf-8?B?REwxU1BaNWJDMTZJRVV4NURLL3d5YzlTYkp3R2ZGY0FIeWIxbThuZW5MR3RF?=
+ =?utf-8?B?S283S1hCL2dUdVA4ajBtdDJ2T0NPbnpISkc3ZVVJMXFGbklyNlVYeDMrYjFG?=
+ =?utf-8?B?Mzc2Z1VDQUp6OVJxQTBLQjEyUW15d2YwK256dFNCTG53T1dhejdmbUtYbHBV?=
+ =?utf-8?B?a2FaMnkrQ2dvdmI0NnpOUlBOcmxHaTZyOU1nWm92ekxBd0IwT0hMVmpxZk5x?=
+ =?utf-8?B?ZXFWcVN0VTk5b2FHaE5lUExCVGxZRnNNUkloRkh5UFg0TU96NzJUeEc1MVhi?=
+ =?utf-8?B?VkRRcGxNaTFoUS9sSmg1MkF5Y1FoWVpiNlFqd25xU251NE9mYWZ4Sjl0cVhm?=
+ =?utf-8?B?b08rbnNQYXBHUUFQYUpEaEhWVloxOCtaUnZTbDA2aDJkZUF2cTJIa2ltMStv?=
+ =?utf-8?B?TFU5YWVuRDZhQ2I1TGpyVnl1QzNpOEc5emVydDU4ck9FUmhGcEdCSk1reUNu?=
+ =?utf-8?B?VG9BNUxFcEZtN1NxbUcrTUpCdTVCanc5enZ6amxtcCtkRTNaVzNoMDNiMmxj?=
+ =?utf-8?B?SklvSU41L2ZLZWVRYW82L0Q5czlscUhOcUtpeFFnbUw3eEdmMGtKcU11emtG?=
+ =?utf-8?B?SWsyMG1vZVdpMFVwQXBpVkE3TFZ1alVrTVJDSlQ4dnZnekNDbEVVNXVNQnFB?=
+ =?utf-8?B?N3htdEM1L1ZleHhoenJodjAwN3JPT2ZwTmF3cUJncGM2WGJuaVFtbzl1MVY1?=
+ =?utf-8?B?OHdIN2xFYVp1NEpPM2dKRGQzbTV5SXF4QmFZV3JQN0NUVkUwZGlmdzVzeTVj?=
+ =?utf-8?B?aWczeDd0ZFlyWjBKaU5WUXhnTG5ZOER0MEJnMVpnSUs3TFJPcHcvVEJqM2NU?=
+ =?utf-8?B?RjhaN2RzL3NXY2YxNEphamRGenZBcnpwbWFCb2F1YmMzT0liZlBEbTBUUUZp?=
+ =?utf-8?B?RTdNRlhNTm9Xa3RKM1plN2hXT1VCS3RwSTdZMTVEa1pvS3Q0L3h6bUFKM3Rt?=
+ =?utf-8?B?TjF2Z2hsZW9oODdMdExmaEgxcnBOWlN1UVhBUGNWRVBLNnlLRE1XQzQ3d0d2?=
+ =?utf-8?B?d2lYZjNTdE1WYU9oeEo3WU1rZ1V3enpNb1BvYXN5WEtENDlGaDAxcWhJWmtU?=
+ =?utf-8?B?bjQxSzg1LzNnM2lqak1xTkJ4UXBOamkycytINWprVGpucmlWL1kweFNOcjlH?=
+ =?utf-8?B?bFltTmJ0dCszQWtwZ2RrZm9kd2t0NFJUMzR2UWZBRUd5Mjk5V0hHZjBYYk9r?=
+ =?utf-8?B?YklUc1c2b0JPMTB3cUN0TkJFK0MzOFcxbkIxWnNZL08zQnAyWVRUbGZWYUFL?=
+ =?utf-8?B?eDNNM3hRZ3NGU3ZuQkZRUk9USWFJSDhWb1JHWStOWmsvTGRkMldWKzFUVWhq?=
+ =?utf-8?B?bGwzQW1xbU5EdTFhU1lpR1FxdVF2eERZRUZGaHQxcDl5dGJSZEVuWWlEVEJP?=
+ =?utf-8?Q?GafqU8W1feDBRjnajKqCV3Mi3?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB4PR08MB9214.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB6636
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF0000019C.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 3bde94be-24ae-465a-57f6-08de582d453b
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|35042699022|7416014|376014|82310400026|14060799003|13003099007|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TCtsaXJ5bFdTMS9oRWs3dU1xV1Y1N0l0Rkx5Z1FkSjJ3TFBwNGhrd29sYTc1?=
+ =?utf-8?B?d0FpWHZXZkFPQ0M0b0dxKzBtaEpzSW1IbHJ2MFoxdXlLQi9rNEVBUmNlQSt6?=
+ =?utf-8?B?eWl2bUh2YXlLQ1pjcTh3UVBnWGxkUkgwbEtGU05ZTXF5aE5yVGNoVWxjKzFY?=
+ =?utf-8?B?a0lpUEhnbTBpazlXMVRJM3NXNW9STVVob0QxeXltRE11NFFhaGYrSGFTdEFt?=
+ =?utf-8?B?c2xHYWtsRWFFQXdFVWczTFhxNnN5WFc3eUo3WkRibVBBd3JEZUdyZHBycWhj?=
+ =?utf-8?B?MWM5VkE4SVhNTlQ1RUZjbmNoTFFBRkNCOXZabmpMaFZVVFo2OENlcE9TaHlG?=
+ =?utf-8?B?K3pUMERqK3dnN0thc3diZTlDUGRFRURlSVhnOXVuRW1lUUZtWlg2Z0l3WWhJ?=
+ =?utf-8?B?YjVBbkJRZm1MTU9wOFppeEFvMjh3NFRKUFdRRnlrbUUrVTJIMnpBRmNhUDNk?=
+ =?utf-8?B?bXk4TWhwOWo0bGxIVCsyRFZVYVpyT1dBaW5BT2hpejZFZ1k0OE1kbmI1MERx?=
+ =?utf-8?B?WUFlQ2xEYkptUEJUSHpEcWJPN0UzZFlhRDFCQldNbTVzZEZ2bTgySG5yQmlO?=
+ =?utf-8?B?RDVheHF3SVkwM0cwSzJDTkZLbUdvV1R2NW5aeTRlU3prejJxMG05ODRENzdQ?=
+ =?utf-8?B?U3QydUQyTGxBTVdQcUY3Nm9mSUJYdzBGNCs2SXEzelV3c2lueHhGV1EyRk9I?=
+ =?utf-8?B?aTQzL3VOcmpqbWxGelhkN25CdXRuc0M2VERxdUlwRnh3UTNHRS9NMFFyemlV?=
+ =?utf-8?B?OWJoSkhqd2Z5RG1uVHQxeTVnRTMvcUxVSTJrUXJVL3Joa3FDNVhpbVBjZ00v?=
+ =?utf-8?B?NDUwcE92TXBtUGpENE5hNEt0Rm5IbnlaNFYyeHJtcnpOcGU0Q1U3RERrRVIz?=
+ =?utf-8?B?K1pNWkpRczRRQUpHZzA0R3NhYWwvdCtsV2hDT3dMSURqem5weGVXN3ZWU25U?=
+ =?utf-8?B?SGlYeWQ0NTVHRlgzOERoL1BGeVF0SGFTd1FwckxlNEQ4b0JLQUdwdEtabFox?=
+ =?utf-8?B?VE85RS94VmlYcHpjS3ZaM2JabFUrNFV0dit1OWVpWWlMVms2Nmg4N0RpRHB3?=
+ =?utf-8?B?NmNQK2tSanI2TDRhVzlNVVpkaEkrT0VrbTdJay9yeGkrZ2NQcmtydWdUYnRm?=
+ =?utf-8?B?QnFteXFJb3g4ZnRoRlZZT0NadERHdkNZS2FJYzRXcFNTK3EzK3pMK2ZNaHR6?=
+ =?utf-8?B?U0UzWWw4SWFxdFU3MEZGVFdCYkNTdEM1ZnFIMk92U2hCWFlldHRDVkRKaWVP?=
+ =?utf-8?B?Q3VCUURJeWY3R0dFRnVVMHc4M3U2M3c5QXV5RjRhY1NmekVpQlF6cTQ5cEpX?=
+ =?utf-8?B?ZHRubHJhclBZOWYrWkZCbjBFdDM4aElDQXlhU1BPdWt4K3lsYW1uMXVIWG1y?=
+ =?utf-8?B?U2VDcFErRHI0OWZyN2JTM1hzN3dyVzREcFlaUktvejJaSTJvOGprQm5kc3JK?=
+ =?utf-8?B?aW16U3IrZzhkUTFVV3lCUlBaSHQyQTRDSEsxY3FVdFMzU0l2bDl5Wkx2T1V3?=
+ =?utf-8?B?TkxVVG84dVQ5UUlVMFhnWXdlclVVRnNZVXJ6cnI2WjljWERvSkh0TWdsR3hT?=
+ =?utf-8?B?Sm5vaGxpTTJrdk1DakdLODl0dHV3QWx4V092Zi8xRmowcUhDb1ZPdUlFRUNq?=
+ =?utf-8?B?VUVUMGFNMitadVdhQWpla2lzTjl5YXp4SHlYUEtuZlZmZHUyS0R5ak5PR09o?=
+ =?utf-8?B?M2xHWFZxYlJpOEZGcU10TUZ2a0c1cUVGTkpkOThsdTY2OUpSU0hzSXhMamFR?=
+ =?utf-8?B?elNaUFVObnhSOVZGQ29aZnkxM3FEWVI0R2lEUXU1Slk2aXp3MkJub3BkNi92?=
+ =?utf-8?B?bFpNNGNqMTBDcWF6WWZCZXA5ZSs4YkNERVFuaDRjQ2hraFZRanBQVnJsRnVF?=
+ =?utf-8?B?akROZFNSL1ZpTjVoaTljRjAzdUJJZmMrZSt5N1R0QUtyd2JNVnpQVFB6TWtX?=
+ =?utf-8?B?aEljMjhnK0d2NFBrQWhiK2Iyd1dqL0h1d0pWNk05Z04reFowUU8vSmd0b0hN?=
+ =?utf-8?B?RW9zNGlrUC9TNFQxRlAzL2RTNFl4VWgrelQ4OXV2QlIxWEtVZWZOTlFJemtL?=
+ =?utf-8?B?MnhhUWVhWUZlalpyUEVBU0xra1JmejNRMFN3a0tzRTYyeU1RRzAvNEhOMWN0?=
+ =?utf-8?B?bHQ4NTl6Qkhhd0J1RjZPL1dUVjBxbjJpbnZ1eWZIbzNzSmtrQ0IrUkh3YlpL?=
+ =?utf-8?B?TjRubXZxVVBxWHdPNUprMjRvN3VIN0ZpT1Jpb1gyNUR4ZmNqN3Y2Sk43NHdP?=
+ =?utf-8?Q?DD0vUpkQzih/xyXJ10DyNX2njvcw0nuaBktOxc0NNQ=3D?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(35042699022)(7416014)(376014)(82310400026)(14060799003)(13003099007)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 14:08:46.4953
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6cdbe002-c766-4de1-84ba-08de582cf799
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A4.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1fb1f6c4-b462-46d4-9f4c-08de582d6d6d
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF0000019C.eurprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3925
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTIwMDExNiBTYWx0ZWRfXxm+6pC7CxBVP
- OYk8lW8t/HHboamN9aOICkBvQ7rEpl95w3P8lzt5NzYIzfyGOO5s5DiAbYIbHXv0+ryzZ9w24Dy
- Ld4J1grBA5jtIFmmWC+5zQUSyRZ7K5/50TZHxawOnc7MVLphieZCz/xVLUHpLEwz2JSp+2OccIA
- VxZaXJY40VhT75sdQhb1rXmSGuV4iq9kA5AX9lUlCTNSRQofHag1XZstg4BKk/OlBrQDtkQ5pBU
- H2/my5YLYbG15JEQnzSVh2b4ItoFxT1GpETGgUp/IlC96l8Ye/HSngfenujqS7rVtFRU5/lpw3J
- qZlJpV8FA/1OqJDDjLQWc7GwPRYcSyzbbJr/dGin2YKhhDxSRDn1gqch7svt3McDbdSL1TT7Rrd
- CovEor1lHYZfRnfuAzpDpKYbUeq5dtLqX7lGLWpg2GaUrbG+0oXao55iN9b2sd5shkVj3/5duZC
- u5j1K/ZxXzB2BWTrx7g==
-X-Authority-Analysis: v=2.4 cv=ZOPaWH7b c=1 sm=1 tr=0 ts=696f8bac cx=c_pps
- a=eFpRzQyoWvhnAo4uHDxzFA==:117 a=d6reE3nDawwanmLcZTMRXA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=rg8MelPR9j8A:10 a=IkcTkHD0fZMA:10
- a=vUbySO9Y5rIA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=3jc1UR8r757g_BjvJPwA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-ORIG-GUID: U9eIyakqq-U99iqUUeShNabjPYAAcFY_
-X-Proofpoint-GUID: U9eIyakqq-U99iqUUeShNabjPYAAcFY_
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
- definitions=2026-01-20_03,2026-01-20_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
- priorityscore=1501 spamscore=0 phishscore=0 bulkscore=0 impostorscore=0
- adultscore=0 lowpriorityscore=0 clxscore=1015 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601200116
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR08MB10173
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_060708_831177_B77BE298 
-X-CRM114-Status: GOOD (  27.27  )
+X-CRM114-CacheID: sfid-20260120_060855_322015_C078557B 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -212,110 +226,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Veda,
+
+On 12/8/25 22:13, Vedashree Vidwans wrote:
+> - Update driver to be in-built kernel module. This will ensure driver is
+> installed in kernel and would not require any user intervention.
+> - Register the LFA driver as a platform driver corresponding to
+> 'armhf000' device. The driver will be invoked when the device is
+> detected on a platform.
+> - Add functionality to register LFA interrupt in the driver probe().
+> This LFA IRQ number will be retrived from the LFA device node.
+> - On IRQ, driver will query FW component details and trigger activation
+> of capable and pending FW component. The driver will loop to update FW
+> component details after every successful FW component activation.
+> - Mutex synchronization is implemented to avoid concurrent LFA updates
+> through interrupt and sysfs interfaces.
+>
+> Device node snippet from LFA spec[1]:
+> fwu0 {
+>     compatible = "arm,armhf000";
+>     memory-region = <&fwu_payload>;
+>     interrupt-parent = <&ic>;
+>     interrupts = <0 100 1>; // SPI, Interrupt #100, Edge Rising
+> };
+>
+> [1] https://developer.arm.com/documentation/den0147/latest/
+>
+> Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
+> ---
+>  drivers/firmware/smccc/Kconfig  |   3 +-
+>  drivers/firmware/smccc/lfa_fw.c | 124 +++++++++++++++++++++++++++++++-
+>  2 files changed, 125 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/firmware/smccc/Kconfig b/drivers/firmware/smccc/Kconfig
+> index 48b98c14f770..c21be43fbfed 100644
+> --- a/drivers/firmware/smccc/Kconfig
+> +++ b/drivers/firmware/smccc/Kconfig
+> @@ -25,8 +25,9 @@ config ARM_SMCCC_SOC_ID
+>  	  platforms providing some sysfs information about the SoC variant.
+>  
+>  config ARM_LFA
+> -	tristate "Arm Live Firmware activation support"
+> +	bool "Arm Live Firmware activation support"
+I think the LFA driver is a strong candidate for a module rather than built-in only. If it ever needs to be built-in, we can always set its default state to "y". Kernel best practices prefer using tristate because it provides flexibility, unless the code cannot be modularized, for example, when it must run before the module loader is available.
+
+Just an FYI, for built-in code the driver will need to be refactored, for example, the __exit call will need to be removed and the __init call will need to be changed, see here: https://lkml.org/lkml/2015/5/10/125
 
 
-On 1/18/26 23:19, Linus Walleij wrote:
-> Hi Gatien,
-> 
-> thanks for your patch!
-> 
-> On Wed, Jan 14, 2026 at 11:31 AM Gatien Chevallier
-> <gatien.chevallier@foss.st.com> wrote:
-> 
->> Because the HDP peripheral both depends on debug and firewall
->> configuration, when CONFIG_STM32_FIREWALL is present, use the
->> stm32 firewall framework to be able to check these configuration against
->> the relevant controllers.
->>
->> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
-> (...)
->> +#include <linux/bus/stm32_firewall_device.h>
->>   #include <linux/clk.h>
->>   #include <linux/gpio/driver.h>
->>   #include <linux/gpio/generic.h>
->> @@ -605,10 +606,50 @@ MODULE_DEVICE_TABLE(of, stm32_hdp_of_match);
->>   static int stm32_hdp_probe(struct platform_device *pdev)
->>   {
->>          struct gpio_generic_chip_config config;
->> +       struct stm32_firewall *firewall = NULL;
->>          struct device *dev = &pdev->dev;
->>          struct stm32_hdp *hdp;
->> +       int nb_firewall;
->>          u8 version;
->>          int err;
->> +       int i;
->> +
->> +       nb_firewall = of_count_phandle_with_args(pdev->dev.of_node, "access-controllers",
->> +                                                "#access-controller-cells");
->> +       if (IS_ENABLED(CONFIG_STM32_FIREWALL) && nb_firewall != -ENOENT) {
->> +               if (nb_firewall <= 0)
->> +                       return -EINVAL;
->> +
->> +               firewall = devm_kcalloc(dev, nb_firewall, sizeof(*firewall), GFP_KERNEL);
->> +               if (!firewall)
->> +                       return -ENOMEM;
->> +
->> +               /* Get stm32 firewall information */
->> +               err = stm32_firewall_get_firewall(dev->of_node, firewall, nb_firewall);
->> +               if (err)
->> +                       return dev_err_probe(dev, err, "Failed to get firewall controller\n");
->> +
->> +               for (i = 0; i < nb_firewall; i++) {
->> +                       err = stm32_firewall_grant_access_by_id(firewall + i,
->> +                                                               firewall[i].firewall_id);
->> +                       if (err) {
->> +                               while (i) {
->> +                                       u32 id;
->> +
->> +                                       i--;
->> +                                       id = firewall[i].firewall_id;
->> +                                       stm32_firewall_release_access_by_id(firewall + i, id);
->> +                               }
->> +                               if (err == -EACCES) {
->> +                                       dev_info(dev, "No firewall access\n");
->> +                                       return -ENODEV;
->> +                               }
->> +
->> +                               return dev_err_probe(dev, err, "Error checking firewall access\n");
->> +                       }
->> +               }
->> +       }
-> 
-> Doesn't this whole piece of code look very generic?
-> 
-> Point out to me if something is pin control-specific about it?
-> 
-> Can't we just add a helper function such as
-> 
-> stm32_firewall_of_check_access(struct device *dev)
-> {
->      struct stm32_firewall *firewall = NULL;
->      int nb_firewall;
-> 
->      nb_firewall = of_count_phandle_with_args(pdev->dev.of_node,
-> "access-controllers",
->                                          "#access-controller-cells");
-> (...)
-> }
-> 
-> Then place the prototype for this in <linux/bus/stm32_firewall_device.h>.
-> 
-> I think this will be helpful for the next driver that needs to check
-> firewall access
-> before continuing.
-> 
-> Yours,
-> Linus Walleij
+Many thanks,
+Salman
 
-Hello Linus,
-
-Thanks for your feedback. There is already a function to check the
-firewall access that is stm32_firewall_grant_access().
-
-However, a helper could clearly implemented to wrap it with the
-get when all elements should be assessed, as you're suggesting.
-I'll submit V3 with a proposition, let's see.
-
-Best regards,
-Gatien
+>  	depends on HAVE_ARM_SMCCC_DISCOVERY
+> +	default y
+>  	help
+>  	  Include support for triggering Live Firmware Activation, which
+>  	  allows to upgrade certain firmware components without a reboot.
+> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
+> index 0e420cefa260..24916fc53420 100644
+> --- a/drivers/firmware/smccc/lfa_fw.c
+> +++ b/drivers/firmware/smccc/lfa_fw.c
+> @@ -19,7 +19,12 @@
+>  #include <linux/nmi.h>
+>  #include <linux/ktime.h>
+>  #include <linux/delay.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/acpi.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/mutex.h>
+>  
+> +#define DRIVER_NAME	"ARM_LFA"
+>  #define LFA_ERROR_STRING(name) \
+>  	[name] = #name
+>  #undef pr_fmt
+> @@ -129,6 +134,7 @@ static const struct fw_image_uuid {
+>  };
+>  
+>  static struct kobject *lfa_dir;
+> +static DEFINE_MUTEX(lfa_lock);
+>  
+>  static int get_nr_lfa_components(void)
+>  {
+> @@ -374,17 +380,23 @@ static ssize_t activate_store(struct kobject *kobj, struct kobj_attribute *attr,
+>  					 image_attrs[LFA_ATTR_ACTIVATE]);
+>  	int ret;
+>  
+> +	if (!mutex_trylock(&lfa_lock)) {
+> +		pr_err("Mutex locked, try again");
+> +		return -EAGAIN;
+> +	}
+> +
+>  	ret = activate_fw_image(attrs);
+>  	if (ret) {
+>  		pr_err("Firmware activation failed: %s\n",
+>  			lfa_error_strings[-ret]);
+> -
+> +		mutex_unlock(&lfa_lock);
+>  		return -ECANCELED;
+>  	}
+>  
+>  	pr_info("Firmware activation succeeded\n");
+>  
+>  	/* TODO: refresh image flags here*/
+> +	mutex_unlock(&lfa_lock);
+>  	return count;
+>  }
+>  
+> @@ -510,6 +522,106 @@ static int create_fw_images_tree(void)
+>  	return 0;
+>  }
+>  
+> +static irqreturn_t lfa_irq_thread(int irq, void *data)
+> +{
+> +	struct image_props *attrs = NULL;
+> +	int ret;
+> +	int num_of_components, curr_component;
+> +
+> +	mutex_lock(&lfa_lock);
+> +
+> +	/*
+> +	 * As per LFA spec, after activation of a component, the caller
+> +	 * is expected to re-enumerate the component states (using
+> +	 * LFA_GET_INFO then LFA_GET_INVENTORY).
+> +	 * Hence we need an unconditional loop.
+> +	 */
+> +
+> +	do {
+> +		/* TODO: refresh image flags here */
+> +		/* If refresh fails goto exit_unlock */
+> +
+> +		/* Initialize counters to track list traversal  */
+> +		num_of_components = get_nr_lfa_components();
+> +		curr_component = 0;
+> +
+> +		/* Execute PRIME and ACTIVATE for activable FW component */
+> +		list_for_each_entry(attrs, &lfa_fw_images, image_node) {
+> +			curr_component++;
+> +			if ((!attrs->activation_capable) || (!attrs->activation_pending)) {
+> +				/* LFA not applicable for this FW component */
+> +				continue;
+> +			}
+> +
+> +			ret = activate_fw_image(attrs);
+> +			if (ret) {
+> +				pr_err("Firmware %s activation failed: %s\n",
+> +					attrs->image_name, lfa_error_strings[-ret]);
+> +				goto exit_unlock;
+> +			}
+> +
+> +			pr_info("Firmware %s activation succeeded", attrs->image_name);
+> +			/* Refresh FW component details */
+> +			break;
+> +		}
+> +	} while (curr_component < num_of_components);
+> +
+> +	/* TODO: refresh image flags here */
+> +	/* If refresh fails goto exit_unlock */
+> +
+> +exit_unlock:
+> +	mutex_unlock(&lfa_lock);
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int __init lfa_probe(struct platform_device *pdev)
+> +{
+> +	int err;
+> +	unsigned int irq;
+> +
+> +	err = platform_get_irq_byname_optional(pdev, "fw-store-updated-interrupt");
+> +	if (err < 0)
+> +		err = platform_get_irq(pdev, 0);
+> +	if (err < 0) {
+> +		pr_err("Interrupt not found, functionality will be unavailable.");
+> +
+> +		/* Bail out without failing the driver. */
+> +		return 0;
+> +	}
+> +	irq = err;
+> +
+> +	err = request_threaded_irq(irq, NULL, lfa_irq_thread, IRQF_ONESHOT, DRIVER_NAME, NULL);
+> +	if (err != 0) {
+> +		pr_err("Interrupt setup failed, functionality will be unavailable.");
+> +
+> +		/* Bail out without failing the driver. */
+> +		return 0;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id lfa_of_ids[] = {
+> +	{ .compatible = "arm,armhf000", },
+> +	{ },
+> +};
+> +MODULE_DEVICE_TABLE(of, lfa_of_ids);
+> +
+> +static const struct acpi_device_id lfa_acpi_ids[] = {
+> +	{"ARMHF000"},
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(acpi, lfa_acpi_ids);
+> +
+> +static struct platform_driver lfa_driver = {
+> +	.probe = lfa_probe,
+> +	.driver = {
+> +		.name = DRIVER_NAME,
+> +		.of_match_table = lfa_of_ids,
+> +		.acpi_match_table = ACPI_PTR(lfa_acpi_ids),
+> +	},
+> +};
+> +
+>  static int __init lfa_init(void)
+>  {
+>  	struct arm_smccc_1_2_regs reg = { 0 };
+> @@ -536,22 +648,32 @@ static int __init lfa_init(void)
+>  	pr_info("Arm Live Firmware Activation (LFA): detected v%ld.%ld\n",
+>  		reg.a0 >> 16, reg.a0 & 0xffff);
+>  
+> +	err = platform_driver_register(&lfa_driver);
+> +	if (err < 0)
+> +		pr_err("Platform driver register failed");
+> +
+>  	lfa_dir = kobject_create_and_add("lfa", firmware_kobj);
+>  	if (!lfa_dir)
+>  		return -ENOMEM;
+>  
+> +	mutex_lock(&lfa_lock);
+>  	err = create_fw_images_tree();
+>  	if (err != 0)
+>  		kobject_put(lfa_dir);
+>  
+> +	mutex_unlock(&lfa_lock);
+>  	return err;
+>  }
+>  module_init(lfa_init);
+>  
+>  static void __exit lfa_exit(void)
+>  {
+> +	mutex_lock(&lfa_lock);
+>  	clean_fw_images_tree();
+> +	mutex_unlock(&lfa_lock);
+> +
+>  	kobject_put(lfa_dir);
+> +	platform_driver_unregister(&lfa_driver);
+>  }
+>  module_exit(lfa_exit);
+>  
 
