@@ -4,64 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D310D262A0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 21:16:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C912D262A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 21:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gq1ImmqiFZMX6k084xMjSxwFejaVEnAHfMY58nBpLNQ=; b=XIdONZLHT62odw3EI8EOR88j0h
-	rUkdosdjX4wQsmleByqY0qojSoWuZpx//IRZOeBeZgYq+VQ5jbzMOJr9D3kXtsPhbVeWsK3Pg1Kwb
-	XJVBkqnqWFMHeAdPT8Z7T5N/Tmla5J8+J7Vh7sYlJZa9EfiuvuA516DqaA2d/vdY74EISOyzM+q5w
-	eq/WvW8T3tYTrYzAdOU9oviVQc/W7E4H5eUPLX/e7YFTAGIFFUOLUF5z627HG/zRedYIzeqo9xhsF
-	Jfi1vqjIwYwTG3vyRWSEDBnhYZwbziTu0dkVf4jD7V8xjgOS5SoqcSd2epGc75xy77G70dZulkz/v
-	E1bgGTKA==;
+	bh=36zTzon9oUVK/nuiPMa7vnryNd3MX66gD0YjlfD2MdI=; b=aV7e03CSlksiQ+gbCaqkDsQSdj
+	aebFPDQUeRo2beGyQMP8PeVmazIXRPflHmrEwwLGZYtTVhQ7KRRY4bQD5wfT/6FlEi1opkkE9WH4h
+	1pmgxwA1YPqR/N/6WpC7Py7HDekJLqMz16yNdLm+ycdIEGMJhakpaayOR62D1gY3MmwD8VHXKex4d
+	22UAaG0jMadTF084DXr+ULuI6J+A/g7ssvam1ENSSJX1CtYy6AJ0JhBboJ+mZcL9+0ks8PN10uk2Q
+	ItpYYTDE+B27qD2Ib8K+g9buqaZqywiRgjlejq+14R6SeUOH1JqQt/j43LrArUHjEqHppBBRCKao9
+	s7QGXEeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viJ54-00000004Tfd-37m6;
-	Tue, 20 Jan 2026 21:16:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1viJHR-00000004UNe-48jn;
+	Tue, 20 Jan 2026 21:28:54 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viJ52-00000004TfX-4604
+	id 1viJHP-00000004UNI-1Huk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 21:16:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 12BB360007;
-	Tue, 20 Jan 2026 21:16:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 264A3C16AAE;
-	Tue, 20 Jan 2026 21:16:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768943763;
-	bh=k+AXef9xJ0NMYxE0xeBDoDL6TDip/0guYNTErye5XeE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ViOxTvm/wBcqrRmueJcnA2eKsVM7IiLX+iKhZBMtBWp/RG2pbtop2vcWb6ApVoSzc
-	 ppGw8yQVNtX5fBIU76SqhbZjAMA00XB4JsFh/5TkfLxxJZ3KWTNe5jR19wYqKTlyii
-	 vePMRNc+fVaocz2/WIyg1fDLR+m3Q+gt45QkjwuY8XWAKMQp6J5g8gzoB/2ZuUF74m
-	 5/UWws6pLVPOk9qkiYYZ0dnMFLcdpCaHuHHFKqued+U5Kn8gySLomhmG7lqVgR7Rkz
-	 2SY1yf46R8DnIsw7Bdq6mVuo5veVy5sFTp1bUZYuYg3tmykv5SJvIovGBCu2ZsoiDy
-	 BKqNYbr1op2pA==
-Date: Tue, 20 Jan 2026 14:15:58 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
-	Sebastian Ene <sebastianene@google.com>
-Subject: Re: [PATCH v2 4/6] KVM: arm64: Account for RES1 bits in
- DECLARE_FEAT_MAP() and co
-Message-ID: <20260120211558.GA834868@ax162>
-References: <20251210173024.561160-1-maz@kernel.org>
- <20251210173024.561160-5-maz@kernel.org>
+	Tue, 20 Jan 2026 21:28:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768944531; x=1800480531;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=VAkJ/KITOoPPwFJHwdAoEzuCuhXukFgLDyfcXhDmS98=;
+  b=QY3iLTOeTi1j5zzbb7/Q/qN4jRpBINcd++KfRco4NybEMpOFSXnaIWLp
+   UpThdhE3EZBh5l0C8GJh1p+JD1K9o3sJH/TqZ77CESHzjlm/QHozU7B2J
+   LeVWZo/cbit++x3+XZJEFUUZJZXO5T5Xa054sD67vVyPqO0EvaFyI++qP
+   yyWnpvX+AYwUxCK1GLaxHDvSdYzQxIwq0n9Crm4Xk1TQH4gJItV2dT0n7
+   Cose02Js5LHM3Afq1+9qLdBXzat/GFSo/7HO4aRKIYGoORO0T6cp8ZiVl
+   FbkFJIehqbLAJk4Itay4FLKWe3gc3Xs2OPrknG+2GXNmeoeo8kQaUkfx5
+   A==;
+X-CSE-ConnectionGUID: VJ2FgXDoSKeN9IG8lXUX3w==
+X-CSE-MsgGUID: XnwUJhoVQ+WNQJtNzvPryQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11677"; a="70257759"
+X-IronPort-AV: E=Sophos;i="6.21,241,1763452800"; 
+   d="scan'208";a="70257759"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2026 13:28:50 -0800
+X-CSE-ConnectionGUID: dAWGnrmlTsS7OPsMmnwgMA==
+X-CSE-MsgGUID: ipFP5vVHQK6X3ee9IwH9Xw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,241,1763452800"; 
+   d="scan'208";a="206477213"
+Received: from dhhellew-desk2.ger.corp.intel.com (HELO localhost) ([10.245.244.240])
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2026 13:28:47 -0800
+Date: Tue, 20 Jan 2026 23:28:45 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Abdurrahman Hussain <abdurrahman@nexthop.ai>,
+	Michal Simek <michal.simek@amd.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] spi: xilinx: use device property accessors.
+Message-ID: <aW_zjaRLtewa_NV1@smile.fi.intel.com>
+References: <a6d57890-89c1-445e-836c-d8239d20c621@amd.com>
+ <b03307f7-93f6-4680-9241-cf28b5456fd0@sirena.org.uk>
+ <a3fcef3a-d1e9-4b46-b114-3a82575e052e@amd.com>
+ <980ad372-a2c7-417c-91f9-4958d3d1aaca@sirena.org.uk>
+ <4831B269-DFC1-40E0-96B7-67981AC72562@nexthop.ai>
+ <6e06696e-09a4-46e0-98fa-252690b888e0@sirena.org.uk>
+ <BF71A04E-7FFB-42D1-8C8D-6FD13415EED5@nexthop.ai>
+ <c3fc04a4-4b09-4c6a-a0f1-e5aa92a22976@sirena.org.uk>
+ <80A8F67E-7A01-4F9F-9D84-29722678A2CE@nexthop.ai>
+ <817bcc43-7f10-4329-8924-6c375eb73ff2@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251210173024.561160-5-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <817bcc43-7f10-4329-8924-6c375eb73ff2@sirena.org.uk>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260120_132851_363416_48F46EB8 
+X-CRM114-Status: GOOD (  30.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,93 +101,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
-
-On Wed, Dec 10, 2025 at 05:30:22PM +0000, Marc Zyngier wrote:
-> None of the registers we manage in the feature dependency infrastructure
-> so far has any RES1 bit. This is about to change, as VTCR_EL2 has
-> its bit 31 being RES1.
+On Tue, Jan 20, 2026 at 09:04:58PM +0000, Mark Brown wrote:
+> On Tue, Jan 20, 2026 at 11:11:44AM -0800, Abdurrahman Hussain wrote:
+> > > On Jan 20, 2026, at 10:45 AM, Mark Brown <broonie@kernel.org> wrote:
+> > > On Mon, Jan 19, 2026 at 04:20:06PM -0800, Abdurrahman Hussain wrote:
 > 
-> In order to not fail the consistency checks by not describing a bit,
-> add RES1 bits to the set of immutable bits. This requires some extra
-> surgery for the FGT handling, as we now need to track RES1 bits there
-> as well.
+> Let me once more renew my plea:
 > 
-> There are no RES1 FGT bits *yet*. Watch this space.
+> > > To repeat once again:
 > 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > | Please fix your mail client to word wrap within paragraphs at something
+> > > | substantially less than 80 columns.  Doing this makes your messages much
+> > > | easier to read and reply to.
+> 
+> > > To drivers that are used on ACPI systems, yes.  Many devices wouldn't be
+> > > used on ACPI systems, or would be expected to be exposed differently
+> > > (for example, hidden behind AML).
+> 
+> > This is not for a normal off the shelf server. In our case we are building an embedded
+> > switch with an AMD CPU and Xilinx FPGAs that happens to use EDK2 based BIOS and ACPI.
+> 
+> Sure, AFAICT it's mostly a PCI card with a bunch of stuff on it from a
+> software point of view.
+> 
+> > >> I am just trying to get this 2-line small change merged so we can start using the standard spi-xilinx driver today. I am not trying to boil the ocean.
+> 
+> > > I mean, adding a HID wouldn't take substantially more code.
+> 
+> > We could, but we don’t own the Xilinx IP blocks. Are we not justified in using PRP0001
+> > hack until the driver owner adds the HIDs? Wasn’t PRP0001 created as an escape hatch for
+> > these kind of scenarios?
+> 
+> No, it's more there for the cases where embedded ACPI systems need to
+> import non-trivial DT bindings so they can avoid having to respecify
+> things that ACPI really doesn't cope with or for local hacks.  See
+> Andy's reply earlier in the thread:
+> 
+>    https://lore.kernel.org/r/aW9JihlsjnJ-uBul@black.igk.intel.com
+> 
+> AFAICT for ACPI the HID assigment is a bit of a free for all in practice
+> - board vendors generally seem perfectly happy to just pick something if
+> the silicon vendor didn't do something.  Just look at all the parts with
+> INTxxxx IDs!  That said Michal is on the thread so hopefully that's not
 
-After this change in -next as commit c259d763e6b0 ("KVM: arm64: Account
-for RES1 bits in DECLARE_FEAT_MAP() and co"), I am seeing several
-"undefined behavior" errors on my two arm64 boxes.
+INTxxxx was a (historical) mistake, but look at the correct one INTCxxxx
+which has listed several components Intel doesn't own. Because ACPI HID
+it's not only about the component in use, it's also about integration of
+that component in the platform environment. Hence it might require (platform)
+specific quirks.
 
-  $ journalctl -k -g '(Linux version|kvm)' --no-hostname -o cat
-  Linux version 6.19.0-rc4-00014-gc259d763e6b0 (nathan@framework-amd-ryzen-maxplus-395) (aarch64-linux-gcc (GCC) 15.2.0, GNU ld (GNU Binutils) 2.45) #1 SMP PREEMPT_DYNAMIC Tue Jan 20 13:59:52 MST 2026
-  kvm [1]: nv: 568 coarse grained trap handlers
-  kvm [1]: Undefined hfgrtr_masks behaviour, bits fff7ffffffffffff
-  kvm [1]: Undefined hfgwtr_masks behaviour, bits fff7baffe9db39fb
-  kvm [1]: Undefined hfgitr_masks behaviour, bits dfffffffffffffff
-  kvm [1]: Undefined hdfgrtr_masks behaviour, bits fffdfb3fffcffeff
-  kvm [1]: Undefined hdfgwtr_masks behaviour, bits 73f7763bbfbffdbf
-  kvm [1]: Undefined hafgrtr_masks behaviour, bits 0003fffffffe001f
-  kvm [1]: Undefined hfgrtr2_masks behaviour, bits 0000000000007fff
-  kvm [1]: Undefined hfgwtr2_masks behaviour, bits 0000000000007ffd
-  kvm [1]: Undefined hfgitr2_masks behaviour, bits 0000000000000003
-  kvm [1]: Undefined hdfgrtr2_masks behaviour, bits 0000000001dfffff
-  kvm [1]: Undefined hdfgwtr2_masks behaviour, bits 0000000001f9ffbf
-  kvm [1]: IPA Size Limit: 44 bits
-  kvm [1]: vgic-v2@c0e0000
-  kvm [1]: GICv3 sysreg trapping enabled ([C], reduced performance)
-  kvm [1]: GIC system register CPU interface enabled
-  kvm [1]: vgic interrupt IRQ9
-  kvm [1]: Hyp nVHE mode initialized successfully
+> an issue and we can get something from Xilinx fairly easily.
 
-At the parent change, there are no warnings:
+Exactly! Either from them, or AMD can do, or even NextHop.AI.
+If you have not yet registered vendor ID, it's pretty much
+straightforward process.
 
-  $ journalctl -k -g '(Linux version|kvm)' --no-hostname -o cat
-  Linux version 6.19.0-rc4-00013-ga035001dea37 (nathan@framework-amd-ryzen-maxplus-395) (aarch64-linux-gcc (GCC) 15.2.0, GNU ld (GNU Binutils) 2.45) #1 SMP PREEMPT_DYNAMIC Tue Jan 20 14:05:51 MST 2026
-  kvm [1]: nv: 568 coarse grained trap handlers
-  kvm [1]: IPA Size Limit: 44 bits
-  kvm [1]: vgic-v2@c0e0000
-  kvm [1]: GICv3 sysreg trapping enabled ([C], reduced performance)
-  kvm [1]: GIC system register CPU interface enabled
-  kvm [1]: vgic interrupt IRQ9
-  kvm [1]: Hyp nVHE mode initialized successfully
+Here is the pointer for your convenience:
+https://uefi.org/PNP_ACPI_Registry
 
-Is this expected? If there is any other information I can provide from
-this machine, I am more than happy to do so.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Cheers,
-Nathan
 
-# bad: [d08c85ac8894995d4b0d8fb48d2f6a3e53cd79ab] Add linux-next specific files for 20260119
-# good: [24d479d26b25bce5faea3ddd9fa8f3a6c3129ea7] Linux 6.19-rc6
-git bisect start 'd08c85ac8894995d4b0d8fb48d2f6a3e53cd79ab' '24d479d26b25bce5faea3ddd9fa8f3a6c3129ea7'
-# good: [6639b8bb674daa8e7781884a599e971b71aa2520] Merge branch 'for-next' of https://git.kernel.org/pub/scm/linux/kernel/git/ath/ath.git
-git bisect good 6639b8bb674daa8e7781884a599e971b71aa2520
-# good: [28b7eb3c316bddbe6ba570caf68f560ecc06e66a] Merge branch 'for-next' of https://git.kernel.org/pub/scm/linux/kernel/git/device-mapper/linux-dm.git
-git bisect good 28b7eb3c316bddbe6ba570caf68f560ecc06e66a
-# bad: [7bdf87f63d2577b8eab4f732e33e91d71d3fba4b] Merge branch 'linux-next' of https://git.kernel.org/pub/scm/linux/kernel/git/xen/tip.git
-git bisect bad 7bdf87f63d2577b8eab4f732e33e91d71d3fba4b
-# good: [27eb76f30bfc3d9f2d3f8f4879fb54f788fdbdb9] Merge branch 'for-next' of https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git
-git bisect good 27eb76f30bfc3d9f2d3f8f4879fb54f788fdbdb9
-# good: [79a02a116a52c96311b04be8051030c8bd730bb8] Merge branch into tip/master: 'x86/cpu'
-git bisect good 79a02a116a52c96311b04be8051030c8bd730bb8
-# bad: [1e0ce70c66b8f7fb248d1c6b74a4139e5ac452bc] Merge branch 'next' of https://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git
-git bisect bad 1e0ce70c66b8f7fb248d1c6b74a4139e5ac452bc
-# good: [5d1563869e30923c5a8de291ce63d2fa82e08202] Merge branch 'for-next' of https://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git
-git bisect good 5d1563869e30923c5a8de291ce63d2fa82e08202
-# bad: [c24170ec742d06021ae7f14df9a1885714ab6095] Merge branch kvm-arm64/selftests-6.20 into kvmarm-master/next
-git bisect bad c24170ec742d06021ae7f14df9a1885714ab6095
-# bad: [80cbfd7174f31010982f065e8ae73bf337992105] KVM: arm64: Honor UX/PX attributes for EL2 S1 mappings
-git bisect bad 80cbfd7174f31010982f065e8ae73bf337992105
-# good: [9e27085c33cca7ad26bec0af2c17aab072dd802e] KVM: arm64: nv: Respect stage-2 write permssion when setting stage-1 AF
-git bisect good 9e27085c33cca7ad26bec0af2c17aab072dd802e
-# good: [f1640174c8a769511641bfd5b7da16c4943e2c64] arm64: Convert ID_AA64MMFR0_EL1.TGRAN{4,16,64}_2 to UnsignedEnum
-git bisect good f1640174c8a769511641bfd5b7da16c4943e2c64
-# bad: [c259d763e6b09a463c85ff6b1d20ede92da48d24] KVM: arm64: Account for RES1 bits in DECLARE_FEAT_MAP() and co
-git bisect bad c259d763e6b09a463c85ff6b1d20ede92da48d24
-# good: [a035001dea37b885efb934e25057430ae1193d0a] arm64: Convert VTCR_EL2 to sysreg infratructure
-git bisect good a035001dea37b885efb934e25057430ae1193d0a
-# first bad commit: [c259d763e6b09a463c85ff6b1d20ede92da48d24] KVM: arm64: Account for RES1 bits in DECLARE_FEAT_MAP() and co
 
