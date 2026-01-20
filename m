@@ -4,109 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2361D2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 13:15:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E61AD2ECE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 13:20:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=61FVTvC+OPYsLfCnTMn5A70RhUk+8hVfV9yJPBCxid4=; b=whBl0uFoKNdU4LFVC+AlPg5bYJ
-	tpYIsY/o/oGG/x5Ypj1Cf2uHO63XhwcWq1USwtILYTLwFwUzzjHVEDvMzdGfjMCZktMG6AoORKzWF
-	dESuTTxpweOOP1kYgbJ134JvmstYOWXwz40hZRrlcchRPn5ROCVvd/HVIkAu2Vsy7Lzk6QxWvsYd0
-	IAriKAGzskAbdLo8zRV4KEZH4TTY0Hh1U1IfjKuLjdpCbCNoXvsh1rqEh8iknv4pxVzyX5qBLsbp/
-	GOO3L2aT+8Fw2jaVBYEUhyD65m3OQr4Eiz6GhBa71PMMrpfKIKIu/gpzDm+0zAq5cHrV8ZawwrH3S
-	KCBv5/VQ==;
+	bh=bp4+SFYmNI2O9e81b7U7uPqujKehD8dI3MzHmMjWYhk=; b=r+K7C18usMPwzJMsmTwmFxSlsY
+	1LpRNyKT6+IVMl6Wcf3ljBiwGCugnLYJSrtHRDtBSmZ/lHCW/7bRXj6R2TCtbCxsXPSP5MR2Jqmju
+	kOkz5p6YnU31pMJDgkB5hCf8RDLFg2rrjv+3bH+1Z0A1AkUm9A7viRYqqrWcrlS3+5SU0uUWZ61QV
+	VuWoh48dboX0dtvo1y/9yPOq3kAB2GqQVPfCQ/0Hs1o7ZRuRaASWMUPyAuD8YeSWHAj8UXMdMI8tE
+	OBE88i2G3fv13W906umZh4OA7r4wRFDcEb+NFX7LBelKIKe3mMzVxvH0s20hWtr9GmVsNQO8FPtid
+	15jjIf2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viBZT-00000003tdP-2uhk;
-	Tue, 20 Jan 2026 13:14:59 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viBZR-00000003tcZ-3EHF
+	id 1viBf2-00000003uMD-3vfh;
+	Tue, 20 Jan 2026 13:20:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viBf0-00000003uLC-2ePs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 13:14:58 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-5029aa94f28so40573121cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 05:14:57 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768914896; cv=none;
-        d=google.com; s=arc-20240605;
-        b=RBvqV4DNkjHxTVNblG63I31H9wyPAuMLKdmYDT3OQWqWZPApNuT9Cn35DbN9ztwlUX
-         TmN4ywJzXmzjaDOYiotiY5ec0MAxA0nqFuoPjun6O7MBa/VqlNTooWYKGd7bL8J3nOlT
-         wAI6JDxIiDa/jojXv3D4kgbEWRzgqym2jXFVbBqDL0/P2tinMZ/EQW9cZzgO4JVz3/xC
-         ytac87orPhwBqJltDTkZOphiQiNLqj6QNzv4ocfMlNfz5EKp15J0LCNHa9j/YZN/WnZC
-         mWLWP/qXZ5mltRB01ETYGZqZaVVuzCleOykcxRiSrYKPRnza9Vc9iIdnvalWVN09N5+u
-         VcrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=61FVTvC+OPYsLfCnTMn5A70RhUk+8hVfV9yJPBCxid4=;
-        fh=HBcD8AyZQEfdtU6i0ucYitUwG/6RUoB0FsIzk63KHYw=;
-        b=lxsgDNC1MHdaNcN8Akj+JmOJqOQpOBXmDbYTBtXPj5RPJy6EI01y2hOoYup5XOGnQ8
-         XTcwQVzvsAoX6GVf+oMKl4RjAuMgw9gCD9xQpRAARfpT3G5g9FoD23BROLrmAZia0e9C
-         F0zN545KQv1W2g/AWrm9QknJbesBwUUNx0zmxeZOU9EotUbvrVTszjvSjn6bRDCwjyfM
-         uwXfWEZyUaNY0Ycu8zLw3HNbbxLIauf3LQbtvMQBI70Q6xA8L8nXa8HbJrjqoWdPFXam
-         RYvfhsozmJ43Cj1i1FTIwbmwuNE8ak022p1EfvuqVd5KODMz6buUpbvsUh/FxD+viJpN
-         HX7Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768914896; x=1769519696; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=61FVTvC+OPYsLfCnTMn5A70RhUk+8hVfV9yJPBCxid4=;
-        b=TZXcHwp9jI3UYYfAqUcks2PTTnhQSzHA14/hwjddXS2pUtEopNP1AESjYaVLY/4iH0
-         TeZiaA+1x+8uqLMUUkQqQZkVI63Z5z37vgpN9f+wVrfKgeWAneNIxLw8h5Px/t2O/1WS
-         pi10jAzsJRHsSZyo/P6gnN0R9O5ZQc6ak9nlu0OAQDoZ+0shVWYhzWzd45l6duL40HRx
-         JTMccDIrx61iGbD6ep+o7jqm+1OExjlqTC7zBEgQ+UWjS/FkdfiZOdf0IM66gtLsXTXL
-         OTxQ7q0zjnO0mupXANicshMrwe+Ul778F2JAzhdMRgzH2G7iEGVg6WMG8/GHERiVc2lz
-         WD7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768914896; x=1769519696;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=61FVTvC+OPYsLfCnTMn5A70RhUk+8hVfV9yJPBCxid4=;
-        b=mWvh5l5do8z1J+mr3Q37AHSLjFni5e0E0jT0S1IoOxmmfWpbK9jbKpitcuMwhLdKDp
-         wRsbA8VgBcoQbyfsZ4Di7EPAU7X7qSbDFCFfamFTzL1jdlGKU2L4RTow5VQK7D2tYuj2
-         TRjJtnGCP4M09P43eOxe5dWqE/MmLZf2QwS1g/sgnZ7LGFHhGzmb0v2CwgKHVpQrGbxe
-         jcqvD9uQhGcsZoMgVtkRxyeLWY4yX8uLRNcC31Yn8wBjJ3qD1m0Zrr4mltTzskD4MXE3
-         8+qDZwY/jCf1jZHBtSzJAxroCIoHRAonjFySMvb30n24UU2pir5RGZgY39Q7XxW+UkBB
-         hZrg==
-X-Forwarded-Encrypted: i=1; AJvYcCWUReRbeYmB8kwkmki+h1321vvFZrrZgPchksh9M9iTBrETHgChztX/KbS+OfGIwvxeE6Py/fnHTTTNiNlbmdc2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yws9rzkbAbcqmwC1nIbeq+enDHvp3YRrMUOWL9Q79jff1wf64N4
-	lnnaHrZkgxKRaKw+jd8956fQlj7QDLSA1uqHltceJqg3T6rmfQ6320BG2uEJ5wmLW974tI5VWN7
-	zMOqE9Rqv1mypu7dTnqL3umgnSEHiqAM=
-X-Gm-Gg: AY/fxX5zu6Uz1OUr1r3542BhzO2stIztsvCYOQKbWP1nthfDWIzVaJTgvXs96zcyfpE
-	CJSmMUWvS1sMdTS9rh6NAla8oBtDHDURQT9vB051gR2KP1+BYw23oGpZrkxHxvqVg7LgZC3JfrC
-	9hNUnTX18D7UejLft9JeHKagxcx1ODAfZCLtugI2u1M0yIjSucQzAhP/W2f1k+GEYPNS9QCxXNK
-	ZMxL4lS4RIIvYU+seyGG4jP+zqfoVF+nv0/ka2SqYO6qHBmXjhQHWt3mPB+6+Sqqr1LCAmDEiV+
-	lzwO7kFjnW74Avu+Hvty3hKWRPU133LO0/u6JA==
-X-Received: by 2002:a05:622a:204:b0:4ff:a8c1:b00e with SMTP id
- d75a77b69052e-501982dcb6amr257878141cf.2.1768914896054; Tue, 20 Jan 2026
- 05:14:56 -0800 (PST)
+	Tue, 20 Jan 2026 13:20:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 247A21476;
+	Tue, 20 Jan 2026 05:20:31 -0800 (PST)
+Received: from [10.57.49.114] (unknown [10.57.49.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 718CD3F740;
+	Tue, 20 Jan 2026 05:20:36 -0800 (PST)
+Message-ID: <028734f6-2a72-4509-81e0-7e69bda20253@arm.com>
+Date: Tue, 20 Jan 2026 13:20:34 +0000
 MIME-Version: 1.0
-References: <20260120-ufs-rst-v2-1-b5735f1996f6@gmail.com> <9e51b504-e0f0-4d17-baa2-387339507c86@cherry.de>
-In-Reply-To: <9e51b504-e0f0-4d17-baa2-387339507c86@cherry.de>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Tue, 20 Jan 2026 17:14:48 +0400
-X-Gm-Features: AZwV_Qhp14S3f8jxRdEKOTb8-WUOX2RQGlmlwHiEcT4hA3FpWfhKr4Hgbt-e0zM
-Message-ID: <CABjd4YwAMbH21jcjhks7ThoXzcF8GeOzBPYDvN+7cip0iA6stg@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: dts: rockchip: Explicitly request UFS reset pin
- on RK3576
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	"Martin K. Petersen" <martin.petersen@oracle.com>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Manivannan Sadhasivam <mani@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: =?UTF-8?B?UmU6IFtQQVRDSF0gYXJtNjQ6IHN3aW90bGI6IERvbuKAmXQgc2hyaW5r?=
+ =?UTF-8?Q?_default_buffer_when_bounce_is_forced?=
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, suzuki.poulose@arm.com,
+ steven.price@arm.com
+References: <20260120070102.182977-1-aneesh.kumar@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260120070102.182977-1-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_051457_822646_3CFB3717 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20260120_052042_788866_A0689219 
+X-CRM114-Status: GOOD (  22.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,72 +68,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 5:00=E2=80=AFPM Quentin Schulz <quentin.schulz@cher=
-ry.de> wrote:
->
-> Hi Alexey,
->
-> On 1/20/26 1:53 PM, Alexey Charkov wrote:
-> > Rockchip RK3576 UFS controller uses a dedicated pin to reset the connec=
-ted
-> > UFS device, which can operate either in a hardware controlled mode or a=
-s a
-> > GPIO pin.
-> >
-> > Power-on default is GPIO mode, but the boot ROM reconfigures it to a
-> > hardware controlled mode if it uses UFS to load the next boot stage.
-> >
-> > Given that existing bindings (and rk3576.dtsi) expect a GPIO-controlled
-> > device reset, request the required pin config explicitly.
-> >
-> > This doesn't appear to affect Linux, but it does affect U-boot:
-> >
-> > Before:
-> > =3D> md.l 0x2604b398
-> > 2604b398: 00000011 00000000 00000000 00000000  ................
-> > < ... snip ... >
-> > =3D> ufs init
-> > ufshcd-rockchip ufshc@2a2d0000: [RX, TX]: gear=3D[3, 3], lane[2, 2], pw=
-r[FASTAUTO_MODE, FASTAUTO_MODE], rate =3D 2
-> > =3D> md.l 0x2604b398
-> > 2604b398: 00000011 00000000 00000000 00000000  ................
-> >
-> > After:
-> > =3D> md.l 0x2604b398
-> > 2604b398: 00000011 00000000 00000000 00000000  ................
-> > < ... snip ...>
-> > =3D> ufs init
-> > ufshcd-rockchip ufshc@2a2d0000: [RX, TX]: gear=3D[3, 3], lane[2, 2], pw=
-r[FASTAUTO_MODE, FASTAUTO_MODE], rate =3D 2
-> > =3D> md.l 0x2604b398
-> > 2604b398: 00000010 00000000 00000000 00000000  ................
-> >
-> > (0x2604b398 is the respective pin mux register, with its BIT0 driving t=
-he
-> > mode of UFS_RST: unset =3D GPIO, set =3D hardware controlled UFS_RST)
-> >
-> > This helps ensure that GPIO-driven device reset actually fires when the
-> > system requests it, not when whatever black box magic inside the UFSHC
-> > decides to reset the flash chip.
-> >
->
-> Would have liked a mention on why pull-down in the commit log.
+On 2026-01-20 7:01 am, Aneesh Kumar K.V (Arm) wrote:
+> arm64 reduces the default swiotlb size (for unaligned kmalloc()
+> bouncing) when it detects that no swiotlb bouncing is needed.
+> 
+> If swiotlb bouncing is explicitly forced via the command line
+> (swiotlb=force), this heuristic must not apply. Add a swiotlb helper to
+> query the forced-bounce state and use it to skip the resize when
+> bouncing is forced.
 
-Indeed. Heiko, if you're going to apply this to your tree, would you
-mind amending the commit description with something like the
-following?
+This doesn't appear to be an arm64-specific concern though... Since 
+swiotlb_adjust_size() already prevents resizing if the user requests a 
+specific size on the command line, it seems logical enough to also not 
+reduce the size (but I guess still allow it to be enlarged) there if 
+force is requested.
 
-The pin is requested with pull-down enabled, which is in line with the
-SoC power-on default and helps ensure that the attached UFS chip stays
-in reset until the driver takes over the control of the respective
-GPIO line.
+(Although realistically, anyone requesting force is quite likely to want 
+to request a larger default size anyway...)
 
-> In any case,
->
-> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Thanks,
+Robin.
 
-Thanks a lot!
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>   arch/arm64/mm/init.c    | 3 ++-
+>   include/linux/swiotlb.h | 7 +++++++
+>   kernel/dma/swiotlb.c    | 5 +++++
+>   3 files changed, 14 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index 524d34a0e921..7046241b47b8 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -345,7 +345,8 @@ void __init arch_mm_preinit(void)
+>   		flags |= SWIOTLB_FORCE;
+>   	}
+>   
+> -	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb) {
+> +	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) &&
+> +	    !(swiotlb || force_swiotlb_bounce())) {
+>   		/*
+>   		 * If no bouncing needed for ZONE_DMA, reduce the swiotlb
+>   		 * buffer for kmalloc() bouncing to 1MB per 1GB of RAM.
+> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+> index 3dae0f592063..513a93dcbdbc 100644
+> --- a/include/linux/swiotlb.h
+> +++ b/include/linux/swiotlb.h
+> @@ -185,6 +185,7 @@ bool is_swiotlb_active(struct device *dev);
+>   void __init swiotlb_adjust_size(unsigned long size);
+>   phys_addr_t default_swiotlb_base(void);
+>   phys_addr_t default_swiotlb_limit(void);
+> +bool force_swiotlb_bounce(void);
+>   #else
+>   static inline void swiotlb_init(bool addressing_limited, unsigned int flags)
+>   {
+> @@ -234,6 +235,12 @@ static inline phys_addr_t default_swiotlb_limit(void)
+>   {
+>   	return 0;
+>   }
+> +
+> +static inline bool force_swiotlb_bounce(void)
+> +{
+> +	return false;
+> +}
+> +
+>   #endif /* CONFIG_SWIOTLB */
+>   
+>   phys_addr_t swiotlb_tbl_map_single(struct device *hwdev, phys_addr_t phys,
+> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+> index 0d37da3d95b6..85e31f228cc9 100644
+> --- a/kernel/dma/swiotlb.c
+> +++ b/kernel/dma/swiotlb.c
+> @@ -1646,6 +1646,11 @@ phys_addr_t default_swiotlb_base(void)
+>   	return io_tlb_default_mem.defpool.start;
+>   }
+>   
+> +bool force_swiotlb_bounce(void)
+> +{
+> +	return swiotlb_force_bounce;
+> +}
+> +
+>   /**
+>    * default_swiotlb_limit() - get the address limit of the default SWIOTLB
+>    *
 
-Best regards,
-Alexey
 
