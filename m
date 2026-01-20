@@ -4,120 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F068BD2ED12
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFAE1D2ED0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KEeKRKNgnXmWzaKf1C0tW6uj5QVjxVimCmm99Tj3C3c=; b=DscVZbVR/zRXpjngKTxwhxJwO5
-	BrGVo8nC8fezV9X9Enk04wDiLulaPDkJhjcExTCjQhBjSWd4U8JDZ6FfGzObQLBNFmws3neaonjM2
-	YmU/fhxRYI86qzr0rl9qc4DVfRieXMk8smBcqbQVeCezkmXCFHn6a5lVdHI4iaoqhOK1uvyY9vgKD
-	TDCkybdKmg+YPDZlzbS++RP+tO2WxCCb8ALDXaICXuihU6r+hU+v+3xVSah18Ps/nmSzKVsrW3cCg
-	9pcUemoiQ9zNaGrlMQFn7wtW/cIksd6u69QHPHabk34OfqQsWYBOuJOP/B3cIi5nwSlwJN0+TmF3v
-	mNbvobiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E86ZXdE770Xwovkl6IYgj3eO0oOM7/ipyrSNGJ5VLkk=; b=MhRnQxS2hijLNOXkRi1ojm5Vr8
+	SncgK0JAa76EI7DEsiUslI5k0TRuyXHfQp8TwJIDDepUSA2zeHACVWwYAZGsImN/6WWcKAHrQ2cWJ
+	ZxIWmBIHJpMovM3CQaKMgwxOLODcY2P7rqDO99wPiYcAciZjFqUNp1xiWgXoV9nxta/oxkdfpDEbz
+	I1GAtK/xtffbZAj5RfnGLUBDnY4QVrRxHQAqRtpoCWnEsmYEKlFl3HG3uY8gskx1ZUV8Ip4l61DMB
+	zl+oiWkvt22DBX5SlwAP5tn3nkTV1KCoODLHVpNstcS0tKRKXFb65ZiVuYTj32XZR7MnU4oyO9Jdp
+	+20A9POQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viA9J-00000003jzI-0dxA;
-	Tue, 20 Jan 2026 11:43:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1viA9k-00000003k9v-3IWg;
+	Tue, 20 Jan 2026 11:44:20 +0000
+Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viA9H-00000003jye-40z6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 20 Jan 2026 11:43:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=KEeKRKNgnXmWzaKf1C0tW6uj5QVjxVimCmm99Tj3C3c=; b=ZCL2PQo7BewN3kxU6Ecbfm1Kt0
-	uXJ3UIMIEcBE6ayFiSdnNCyIuVwErB8wg4lvjgVuPI8EeKZjgdyjn30QgfEQdTjVdcU8G6HUWFE9+
-	HUYH/TAcAvwJfrnto+C0witi9n7R2YkpW64dd7cqMtFd8tuqw+GnruuweTxErybPITx5ieuWQT0mY
-	tcxVenxFsjWvFza1ezj2E0bIB/Yf7mydhvgJcMadHVMeVbbXMmFV92NdyCXvNl59ZehcO0sguPVo7
-	4C8rd0JrwUPYGuIt87KNtaIet+VjlUKwwa5+b81ILFDVBNO8z761OFn6ZbpS5BCMjppqk49tKtvP3
-	AKmQj9ig==;
-Received: from mail-dy1-x132a.google.com ([2607:f8b0:4864:20::132a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viA9F-0000000DwV7-0JA4
+	id 1viA9i-00000003k8h-2MfB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 11:43:50 +0000
-Received: by mail-dy1-x132a.google.com with SMTP id 5a478bee46e88-2b4520f6b32so7078898eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 03:43:48 -0800 (PST)
+	Tue, 20 Jan 2026 11:44:19 +0000
+Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-124566b6693so7068811c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 03:44:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768909457; cv=none;
+        d=google.com; s=arc-20240605;
+        b=UHW3fQ/usX4Vq6sI14fov/pu3M/qRft/7pnSZG3MvKk1vjCISL06rLAiw4x0ZQrHdB
+         +r5fRnIf5rlb3CdnujXYjtQjODZ2okm/0D4p3CfmmSX+qcY+qvn16XBXc1Ni9kaJnJ4f
+         bd9y+5FGymwpF1T5cGDkR7Zqab0Wl/DWefnPRfN16vZDNnkC69I0G6P+UnP6DylFmBUt
+         f3xn1ILkevEUw0A/dflZeEJOFN7bXUWV62sSJJOos6WTLgMQ8vCjRnUoYP8ixomcALjg
+         +ApWzhuOfwl6zD6vNdd7XYr8KOoeCt1iPAGLnmqrRCWbjhn6h4Hk5r1JzC7hMIm5strp
+         zrjg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=E86ZXdE770Xwovkl6IYgj3eO0oOM7/ipyrSNGJ5VLkk=;
+        fh=rWN8tzJEYp+eIPVx7SMP8Xkwh4APoDWvgsoEbR0W07w=;
+        b=ZP8Dz7eqM/VtRQzSAVaTURHdxL26XFnE9IvRK1OLkaZHYPip7v3c1r5NRXKDXt1mkr
+         nfb9CBFCT+S1WpZ5ncMB+AFhtiT6ERplVb3cibFSpZ/oGpHd8N+9WnohmIs5O/pBJHv0
+         aKh4QzSxEPloGSGB9UWW8WoyrQ51yIW0OuE8xV7OlnkgYYw79HGr/O1TT8/7rG1B+Gxm
+         GGUEqGgsVP+OVLYdsW2ty4iljlsW5yenTLhiTbSRu6hKq7TCiX8qSEV5LjACOj0ob4Ne
+         6rJVyk6v79kzu4rz8QbvPAjVJPKoHaFvdgHVJak4P0yBXxk69wIbghSNzbpVLEDTrd12
+         53Hg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768909427; x=1769514227; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KEeKRKNgnXmWzaKf1C0tW6uj5QVjxVimCmm99Tj3C3c=;
-        b=BSu6p4mjdlcsWWdOSDQLnPsLqmVfGrUnA19ir1bTwRlcRurS7AYLyAwCxZhZtPgBG7
-         qI6xzonWAOof60mlIcllsXpRzhSGq60bIldqnolPTdSDhmtYDG7ymdjtvAgXLgVKJq9C
-         BjeTALdZ5znaFdZmtnzrl/LLrPuyfGISZw1PYAzgzp8TANvqHQwvnQFkRuOQNaB1Anrr
-         KkM3wFpAVNPe+TRtFArRt9jNLJHyep1gG5gd3bDyQpAB36Ojh+B0AY9CNtxS4A8pX6GM
-         JTsXhzrckXUIF1O4Uot6zlKhqiuaAjs5GbS0aKULAb1HV+2b/ccWvZ5jLPVAyAHvHrm8
-         YlfA==
+        d=gmail.com; s=20230601; t=1768909457; x=1769514257; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=E86ZXdE770Xwovkl6IYgj3eO0oOM7/ipyrSNGJ5VLkk=;
+        b=RlzPRjXDSWyTbe0Oiqdz5vJ5HDDcBrpR2GuWJrRwZCxOwy0LHCxRPMpN9v6TaCbZVQ
+         IFCOwTBYMawr62iGg4PadPFkV61W53S7Qm+Zp+7tCAkA12I08o1RQcAsCPzAdvVnZV01
+         iUeBgnUDnWDMPcYfDHrDvopkkXPR0OC5UGpj25K4jOEK5uWmvzWABLBkdvIp5L6LkuYH
+         peY3YoRfgoPvv2Q0C0KKZP9sXcDSyIektDisBLh3naPknIzRQElgLew51j5e9k+vEEZl
+         9H3ZNLyjGUjyAk8Ty0v5EI+yAIXAJmHAPgptb27LoQOHYRR7gmmedu3Gpl3y5Ve+A2n/
+         oIqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768909427; x=1769514227;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KEeKRKNgnXmWzaKf1C0tW6uj5QVjxVimCmm99Tj3C3c=;
-        b=dKK/pTeEDSf2xqN4ePEsSj59HoAG7ft0PaN/chfGyt9wXKO5ccMwoS0+dpbUt3AI5P
-         Al9yRhfF2IvhmhVhZ9grFHZTruOLsw32zw2mxWBM9etxZMydpu30vrK4fBvDj/rW6FPR
-         3tnNEtz/6dXl/J0gbEjeCVrw4179a7Frse8HyMaGEJz2oF52nnLfCrCuLZrB4/WoTOPr
-         9NZ7j5Ap+5SxY2AhHqbKciYQTl2ngo5FvoCm11PYbO1VLe3NN1jYLQtgsxT6VeZaRJeS
-         LSsKgyWGngYKmb5HzIKQaJFZz8jBoy3lM7vPqjoSquBLIBEomS2neUpfCM3LUHTbxw0X
-         cECw==
-X-Forwarded-Encrypted: i=1; AJvYcCVl2BFjz1CbCIn3Olg9+oVBf8YZH/bHCBTEz/PnCUCSg0FT2FL/4Dj0Nrh52BPlPMOZ2MeLXijISg30431ooX1U@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywo7KDG2cyjFInxD6OiKtInlUgTF8K6odK6WM261tsVt1ILtGf1
-	fC2gfZM5sotspFSQaA1X3DE4IWyDljatxRV0CHKnx01CnkWuXyHechFW
-X-Gm-Gg: AZuq6aI/03dYHLmkd4dMSWSUPw7holmarIenZ0v/hqz8xEATtJXqWs4qZg+f5SH9U9O
-	LNeIkj4sepjspsNWxel4e/HzGPvmvryTQ7LDsJkcBpmMk3/zag43mvwK9OGVdCjIDoONNH+bvRc
-	Zd2HOlnAIubBbHz82Tt+QQfMPAQDlDVDkzzASTNl7LlOiWDN2o7w91O+dAOXrfBANe18LJFscSg
-	LZIdaypHOojrnUa4wZ6Pfsm8e6Nb70XwdjNsIJPlb9lzq4D8l8gqncD6qhMlAQ2z62gS/KA/D/j
-	GGdQtOzLubgPzIAYpSe8MZAaDciuVyTyYqNraO9IqyjPsiNCrNFrd5w/IPgqIlEPrGel/ked1Gw
-	MBPNsnOb1QKxqP4AHS4nlZ9+TqVNMv+bxUl3i3Q8m7kI0NzQc0aA9rfaPdv1kccU1eL0HiAlDnC
-	59CV/RLiBfEw==
-X-Received: by 2002:a05:7301:2b05:b0:2b0:5929:4d1f with SMTP id 5a478bee46e88-2b6fd7add4emr884545eec.33.1768909426655;
-        Tue, 20 Jan 2026 03:43:46 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b6b34c11dasm18506224eec.2.2026.01.20.03.43.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Jan 2026 03:43:46 -0800 (PST)
-Date: Tue, 20 Jan 2026 19:43:36 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>, Yao Zi <me@ziyao.cc>
-Cc: Inochi Amaoto <inochiama@gmail.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Yanteng Si <siyanteng@cqsoftware.com.cn>, 
-	Yao Zi <ziyao@disroot.org>, Vladimir Oltean <vladimir.oltean@nxp.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Choong Yong Liang <yong.liang.choong@linux.intel.com>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Shangjuan Wei <weishangjuan@eswincomputing.com>, Boon Khai Ng <boon.khai.ng@altera.com>, 
-	Quentin Schulz <quentin.schulz@cherry.de>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next 3/3] net: stmmac: Add glue layer for Spacemit K3
- SoC
-Message-ID: <aW9p9By1ZW5i4iWw@inochi.infowork>
-References: <20260120043609.910302-1-inochiama@gmail.com>
- <20260120043609.910302-4-inochiama@gmail.com>
- <aW9jbqBSgkiLLw8r@pie>
- <aW9m8YOVO1ClIQOd@shell.armlinux.org.uk>
+        d=1e100.net; s=20230601; t=1768909457; x=1769514257;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=E86ZXdE770Xwovkl6IYgj3eO0oOM7/ipyrSNGJ5VLkk=;
+        b=gH+G/BUBNnZsjwZDvkt2OxZgKd5B1l3R/ZqDbnvpEjRgGhY/YFgKxJha6evsy6cGnH
+         L3Ekgwz8HDW9PU1UavudFe7w1yYvjVv1tVqunEFz3XdjTFKEhrtYl6sIsC7qjuhknFDN
+         MqZx5EPTTvLJMWuZ0/zmv2RUDnEFUHAl8Y4bfRI8vSzXEAjdVNChVhWqDedsvCS5zu+R
+         DnqHRWQaMmXL8/RbiHNDa+/nsTkhQNoOIdeZcUVmcfueaRe0rNvmOXMsFUEDKgb/2UfV
+         xLKcN44pWx+1U3KmKXYEkUhGJ4zrYuCyyqlJLemyQaCbZFBmF5R3TvwG15GHjO+aq55L
+         hz/A==
+X-Forwarded-Encrypted: i=1; AJvYcCW4Z7TkbKfHY6IIM02TYE0NEDIQ1NTdTu2DIUge67cuPHFjjmxH7xdNxn/ruS1IgYpeoqcDkSM+0r4BcgOZECBq@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSkxsZAOfGDSijrTjAgrLXUhK0s0bt1s+4HbWiR7YH3oJKVHQR
+	DnMwkN6fQy6lpTB1/jzh4WpVzJs0UZ+1XyGxC7YYhH7tnrXG8L8MeI9BNVpqBBhsulO9APnQ8q3
+	dmkbO4if4RcKMYQ/24+zrtHI3XCDCluY=
+X-Gm-Gg: AY/fxX4xNVltK+cgnINBi997moa8265laiBsTqao7KMen+ZP7PR8MMHmHU6WluR5Fur
+	LHQjz4hpMT7wRjtsjENEctPqWZ0xrnLUCzl2eiCjXVj5+S9CTRwm3GkIfl68ljnPmXRCdenpLlb
+	UFbFxqMHq66nxOfDfnPN0Yywj1/FI4uHCUqLKyqey35d2N9RTTZpnoVEjCD/mg2DQnc9hf3PI51
+	ul0OHYPUCOK8+YkGvpkXid01HDeC99ywrJvUXs23glSCez5P4K6IDNALwEs9mekxEWXMc6Ic/yQ
+	PNrbtzLnWoVszh6jWdNDKAcaPyd3kZSbqfOgEwYVF/S61NTrhtuFN7l/9N9cENJ5mbJpCBf4ThW
+	2YM/GNZYRQA==
+X-Received: by 2002:a05:7022:4184:b0:11d:e40f:ee69 with SMTP id
+ a92af1059eb24-1244b380f9dmr12491059c88.36.1768909457416; Tue, 20 Jan 2026
+ 03:44:17 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aW9m8YOVO1ClIQOd@shell.armlinux.org.uk>
+References: <20260120011757.1387140-1-hongxing.zhu@nxp.com>
+In-Reply-To: <20260120011757.1387140-1-hongxing.zhu@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Tue, 20 Jan 2026 13:46:57 +0200
+X-Gm-Features: AZwV_QhZ2tV6-Vbghh15PVnUEIiWGUBvMJOKoCcTwI3NHHV2_Ne1DbptDmWuXU8
+Message-ID: <CAEnQRZBpLxM289h=OoZA5Dx_pDdG6Ude2wam+sULb=www68uow@mail.gmail.com>
+Subject: Re: [PATCH v1] arm64: dts: imx95: Add fsl,max-link-speed property for pcie-ep[0,1]
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	shawnguo@kernel.org, frank.li@nxp.com, s.hauer@pengutronix.de, 
+	festevam@gmail.com, kernel@pengutronix.de, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_114349_278788_1D484F1F 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20260120_034418_601334_5252A7C0 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,44 +120,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 11:28:49AM +0000, Russell King (Oracle) wrote:
-> On Tue, Jan 20, 2026 at 11:13:50AM +0000, Yao Zi wrote:
-> > On Tue, Jan 20, 2026 at 12:36:08PM +0800, Inochi Amaoto wrote:
-> > > +static int spacemit_dwmac_probe(struct platform_device *pdev)
-> > > +{
-> > 
-> > ...
-> > 
-> > > +	of_property_read_u32(pdev->dev.of_node, "tx-internal-delay-ps", &tx_delay);
-> > > +	of_property_read_u32(pdev->dev.of_node, "rx-internal-delay-ps", &rx_delay);
-> > 
-> > According to of.h, of_property_read_u32, which in turn calls
-> > of_property_read_u32_array, could fail with -ENODATA if there's no value
-> > associated with the property. Should the case be handled?
-> 
-> You cut too much. This had:
-> 
-> 	unsigned int tx_delay = 0;
-> 	unsigned int rx_delay = 0;
-> 
-> at the start of the function.
-> 
-> of_property_read_u32_array() says:
-> 
->  * @out_values: pointer to return value, modified only if return value is 0.
-> 
-> and of_property_read_u32() passes &tx_delay or &rx_delay to this. Thus,
-> if any error occurs, these will be zero. In other words, a missing
-> property is equivalent to setting these to zero, which is entirely
-> reasonable.
-> 
-> However, "unsigned int" _may_ be type equivalent to "u32", but really
-> these should be "u32" if of_property_read_u32_array() is used.
-> 
+On Tue, Jan 20, 2026 at 3:21=E2=80=AFAM Richard Zhu <hongxing.zhu@nxp.com> =
+wrote:
+>
+> Add fsl,max-link-speed property for pcie_ep[0,1].
 
-Good catch! I always treat "unsigned int" to "u32" implictly, I will 
-change to u32 for as an precise type.
+Hi Richard,
 
-Regards,
-Inochi
+Can you explain in the commit message why this change is needed?
+
+What problem does it fix.
+
+fsl,max-link-speed  is an optional property with a default of 1.
+
+So it is perfectly fine to skip it as the initial patch does.
+
+Thanks,
+Daniel
 
