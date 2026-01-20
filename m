@@ -4,65 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C95FFD262A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 21:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A539D262A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 22:04:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DwMx1fGfc/oMBGTHztc/dxOH22dYYQr047Mb7LvAKtc=; b=3b9XAVHt0pT4ZXg5V507Zj/xBI
-	NtBqk+tqbaMR4IBjTDA/VDX5HGEA2KxRuvKHfjVxL0wvz7mYKXE5bRD2cZc3lm7eoQuip5rgJAooj
-	HXhj9xoEwAdMAdLCUege+9+IQ8QW0wY7sR9gb3Sr6F4OIzCF0KQSoyET8TSmI6Cj9iBdinIZfBIxV
-	DawGIIsnRI5WySaQfVKS20TQRzqOk4XvB/NnbrEJVPB7Lemaecn9U5mtzfY3U8nF6cbp7ilvEixCK
-	LjKFub9MZlluSg7UlLvPRoV7N5uNof+7eBZrFjMMlNilgj3PgtQO3vmd4Wv3+FbVlwe7NLxHnpGN4
-	+5MMqvJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+W4N9020o5SHKPKefE+HnKULspM/h9WgQ/Covj9e3y4=; b=00lsBlN5H7kDSy2gTZXsuT5sZT
+	qYORKMPj4qyLZEu3jf1VzBe4g11RgbwUKS5ilKR4qzsSeKkImYMiAdALPenK/+U/+YHVVhQAf3y12
+	9SXcg8WmajXm5I4Xb/dmip5QUK91pL0Dg9pKpu3ym7d6g04E5T03z2j7kXeL5SCWgyyLB2o9H4GIE
+	8bUK++QuSCGNqRAQPkWT59nzPX2vyi7z7evOqHNRBOYDiccmR5qcuFIjW8uaJOZVVU1tUliTcbbAE
+	zOOJ1596/4MUdNMdK+oaCsxAHkV2wtHejFxoqkqFp12SeFQES+e3vUO1llAhRY2Ktls/zy6hbqVu8
+	DJVYzBPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viJcU-00000004VUN-2FGC;
-	Tue, 20 Jan 2026 21:50:38 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viJcS-00000004VTu-1rcG
+	id 1viJpT-00000004W3Q-3UFS;
+	Tue, 20 Jan 2026 22:04:03 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viJpR-00000004W35-0acL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 21:50:37 +0000
-Received: from localhost (unknown [20.236.11.185])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 8301220B7167;
-	Tue, 20 Jan 2026 13:50:33 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 8301220B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1768945834;
-	bh=DwMx1fGfc/oMBGTHztc/dxOH22dYYQr047Mb7LvAKtc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=XdU2nnEITnohdXjTAjZux5Tf14cVyNK+1C0eGq/oK+KE1lzbPRUSq+ZyoEC65z6Nu
-	 428sRK77k7ioALgSM4txW6tNcXrwJ2u07BXXVCqLB4vhBS/Keavg5KXscUf6CpEo6j
-	 ONB3467l8VndQ/7q+tIfu5XMSAqJ2PcV4iH0KMsk=
-Date: Tue, 20 Jan 2026 13:50:32 -0800
-From: Jacob Pan <jacob.pan@linux.microsoft.com>
-To: Mukesh R <mrathor@linux.microsoft.com>
-Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-pci@vger.kernel.org, linux-arch@vger.kernel.org, kys@microsoft.com,
- haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
- longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
- nunodasneves@linux.microsoft.com, mhklinux@outlook.com
-Subject: Re: [PATCH v0 00/15] PCI passthru on Hyper-V (Part I)
-Message-ID: <20260120134933.00004f2a@linux.microsoft.com>
-In-Reply-To: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
-References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
-Organization: LSG
-X-Mailer: Claws Mail 3.21.0 (GTK+ 2.24.33; x86_64-w64-mingw32)
+	Tue, 20 Jan 2026 22:04:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768946641; x=1800482641;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zip5ATIXcGnPOSFQUuvHx03GlQS1rEwh0UF9MXE7tg8=;
+  b=Pwnej9w7BfLF8MtUgkiUFrBoSTRY0tx+HTmihZX2/ARgjbqUcOEkLJxJ
+   uOxlomLIrYf5mscekSQQUHzc8lzPuM4xGbPZLx/R6xqkb8jO3c2chYrkq
+   SUHgbk4QilDau4j7selRgTcmTxqqHi9L18UuUDWgq2CIFOfSMfmcUmr/6
+   SO6VPvHOeHgrGroSUSq0LKlk5fBrz1KnTSzFUf/7IXMPw0ZQ/99f3u8yr
+   HAON0mRI6X8TEjPqK4Dy40SEWkU1a/a7tZRddzL+FxSEa2XHKF+Qc6nsR
+   rkn2xEYH9u7WZZd3pUnW3u07h4A0At93Uq8t/WwrOG2HOOIOL0NwGr25o
+   Q==;
+X-CSE-ConnectionGUID: Nf6F54EAQ5qbmPsTDvUIbw==
+X-CSE-MsgGUID: 7bj/eJbgTv6hkwUQ0vbcFg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11677"; a="80473248"
+X-IronPort-AV: E=Sophos;i="6.21,241,1763452800"; 
+   d="scan'208";a="80473248"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2026 14:03:59 -0800
+X-CSE-ConnectionGUID: 73eAFPAGT/WDIQ971AOI4w==
+X-CSE-MsgGUID: usykPe85S06Yq/5VD5O3Og==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,241,1763452800"; 
+   d="scan'208";a="205879081"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 20 Jan 2026 14:03:57 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1viJpK-00000000Pbh-1pJw;
+	Tue, 20 Jan 2026 22:03:54 +0000
+Date: Wed, 21 Jan 2026 06:03:16 +0800
+From: kernel test robot <lkp@intel.com>
+To: Felix Gu <gu_0233@qq.com>, Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Felix Gu <gu_0233@qq.com>
+Subject: Re: [PATCH] firmware: arm_scpi: Fix device_node reference leak in
+ scpi_probe()
+Message-ID: <202601210508.3BaBN2n8-lkp@intel.com>
+References: <tencent_845B889AF1A932F1347EE0C09F350E491009@qq.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <tencent_845B889AF1A932F1347EE0C09F350E491009@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_135036_533630_866834C5 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20260120_140401_234914_C2721C5F 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,92 +91,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mukesh,
+Hi Felix,
 
-On Mon, 19 Jan 2026 22:42:15 -0800
-Mukesh R <mrathor@linux.microsoft.com> wrote:
+kernel test robot noticed the following build errors:
 
-> From: Mukesh Rathor <mrathor@linux.microsoft.com>
->=20
-> Implement passthru of PCI devices to unprivileged virtual machines
-> (VMs) when Linux is running as a privileged VM on Microsoft Hyper-V
-> hypervisor. This support is made to fit within the workings of VFIO
-> framework, and any VMM needing to use it must use the VFIO subsystem.
-> This supports both full device passthru and SR-IOV based VFs.
->=20
-> There are 3 cases where Linux can run as a privileged VM (aka MSHV):
->   Baremetal root (meaning Hyper-V+Linux), L1VH, and Nested.
->=20
-I think some introduction/background to L1VH would help.
+[auto build test ERROR on d08c85ac8894995d4b0d8fb48d2f6a3e53cd79ab]
 
-> At a high level, the hypervisor supports traditional mapped iommu
-> domains that use explicit map and unmap hypercalls for mapping and
-> unmapping guest RAM into the iommu subsystem.
-It may be clearer to state that the hypervisor supports Linux IOMMU
-paging domains through map/unmap hypercalls, mapping GPAs to HPAs using
-stage=E2=80=912 I/O page tables.
+url:    https://github.com/intel-lab-lkp/linux/commits/Felix-Gu/firmware-arm_scpi-Fix-device_node-reference-leak-in-scpi_probe/20260120-203159
+base:   d08c85ac8894995d4b0d8fb48d2f6a3e53cd79ab
+patch link:    https://lore.kernel.org/r/tencent_845B889AF1A932F1347EE0C09F350E491009%40qq.com
+patch subject: [PATCH] firmware: arm_scpi: Fix device_node reference leak in scpi_probe()
+config: arm-randconfig-001-20260121 (https://download.01.org/0day-ci/archive/20260121/202601210508.3BaBN2n8-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260121/202601210508.3BaBN2n8-lkp@intel.com/reproduce)
 
-> Hyper-V also has a
-> concept of direct attach devices whereby the iommu subsystem simply
-> uses the guest HW page table (ept/npt/..). This series adds support
-> for both, and both are made to work in VFIO type1 subsystem.
->=20
-This may warrant introducing a new IOMMU domain feature flag, as it
-performs mappings but does not support map/unmap semantics in the same
-way as a paging domain.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601210508.3BaBN2n8-lkp@intel.com/
 
-> While this Part I focuses on memory mappings, upcoming Part II
-> will focus on irq bypass along with some minor irq remapping=20
-> updates.
->=20
-> This patch series was tested using Cloud Hypervisor verion 48. Qemu
-> support of MSHV is in the works, and that will be extended to include
-> PCI passthru and SR-IOV support also in near future.
->=20
-> Based on: 8f0b4cce4481 (origin/hyperv-next)
->=20
-> Thanks,
-> -Mukesh
->=20
-> Mukesh Rathor (15):
->   iommu/hyperv: rename hyperv-iommu.c to hyperv-irq.c
->   x86/hyperv: cosmetic changes in irqdomain.c for readability
->   x86/hyperv: add insufficient memory support in irqdomain.c
->   mshv: Provide a way to get partition id if running in a VMM process
->   mshv: Declarations and definitions for VFIO-MSHV bridge device
->   mshv: Implement mshv bridge device for VFIO
->   mshv: Add ioctl support for MSHV-VFIO bridge device
->   PCI: hv: rename hv_compose_msi_msg to hv_vmbus_compose_msi_msg
->   mshv: Import data structs around device domains and irq remapping
->   PCI: hv: Build device id for a VMBus device
->   x86/hyperv: Build logical device ids for PCI passthru hcalls
->   x86/hyperv: Implement hyperv virtual iommu
->   x86/hyperv: Basic interrupt support for direct attached devices
->   mshv: Remove mapping of mmio space during map user ioctl
->   mshv: Populate mmio mappings for PCI passthru
->=20
->  MAINTAINERS                         |    1 +
->  arch/arm64/include/asm/mshyperv.h   |   15 +
->  arch/x86/hyperv/irqdomain.c         |  314 ++++++---
->  arch/x86/include/asm/mshyperv.h     |   21 +
->  arch/x86/kernel/pci-dma.c           |    2 +
->  drivers/hv/Makefile                 |    3 +-
->  drivers/hv/mshv_root.h              |   24 +
->  drivers/hv/mshv_root_main.c         |  296 +++++++-
->  drivers/hv/mshv_vfio.c              |  210 ++++++
->  drivers/iommu/Kconfig               |    1 +
->  drivers/iommu/Makefile              |    2 +-
->  drivers/iommu/hyperv-iommu.c        | 1004
-> +++++++++++++++++++++------ drivers/iommu/hyperv-irq.c          |
-> 330 +++++++++ drivers/pci/controller/pci-hyperv.c |  207 ++++--
->  include/asm-generic/mshyperv.h      |    1 +
->  include/hyperv/hvgdk_mini.h         |   11 +
->  include/hyperv/hvhdk_mini.h         |  112 +++
->  include/linux/hyperv.h              |    6 +
->  include/uapi/linux/mshv.h           |   31 +
->  19 files changed, 2182 insertions(+), 409 deletions(-)
->  create mode 100644 drivers/hv/mshv_vfio.c
->  create mode 100644 drivers/iommu/hyperv-irq.c
->=20
+All errors (new ones prefixed by >>):
 
+>> drivers/firmware/arm_scpi.c:21:10: fatal error: 'linux/clean.h' file not found
+      21 | #include <linux/clean.h>
+         |          ^~~~~~~~~~~~~~~
+   1 error generated.
+
+
+vim +21 drivers/firmware/arm_scpi.c
+
+    18	
+    19	#include <linux/bitmap.h>
+    20	#include <linux/bitfield.h>
+  > 21	#include <linux/clean.h>
+    22	#include <linux/device.h>
+    23	#include <linux/err.h>
+    24	#include <linux/export.h>
+    25	#include <linux/io.h>
+    26	#include <linux/kernel.h>
+    27	#include <linux/list.h>
+    28	#include <linux/mailbox_client.h>
+    29	#include <linux/module.h>
+    30	#include <linux/of.h>
+    31	#include <linux/of_address.h>
+    32	#include <linux/of_platform.h>
+    33	#include <linux/platform_device.h>
+    34	#include <linux/printk.h>
+    35	#include <linux/property.h>
+    36	#include <linux/pm_opp.h>
+    37	#include <linux/scpi_protocol.h>
+    38	#include <linux/slab.h>
+    39	#include <linux/sort.h>
+    40	#include <linux/spinlock.h>
+    41	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
