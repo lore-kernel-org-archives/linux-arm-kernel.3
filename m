@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59148D26293
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 19:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52ABCD2629C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 19:49:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XeUViYfY2uTSAY/Y5mKsJA4QEp1pKU/MT51bOa0VcX4=; b=mTXDhuMI/GJehPH0omaF7eMeq9
-	0nhBdc3LTw+JVoRUm/FncYeWY+/pxePWbR63Tym0RvkU7dnLrFg/z6N90taK7X7MJJU7txDnwTzVq
-	tsXCErmDPuKZlZU4x4ryrNfNfr+mRT+wHap/kA3dE4gFXiOnDOpENUvwBQ0iXvfLEAfLWjNKf712e
-	3VdNR2YCCeIYWCMjqyKRoFPxNzpqBqDVN4LIVGthVy4NuSg/sms7syd9POH/JhVB1WgN9/0IwbsOt
-	SC0zg8rvslXT0w+DLvIAU+ucH2/5JfSzL//IsS9oCKjt5TUdDmz3HIhCZZ8lbAdYzIXASD4/sfeVC
-	D0WFr5sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V/CBPLXl+JIeID66Nc0jnjjvEreyWus6xKp5B0RgCOY=; b=i0F413RxF2UPBz7xdJIPScPsHe
+	2H32irf+SPHmzDvGina7NBHHgpyIDCBOx6xWaSudtbyxKaUAHFQZJ9MP+sdYSZ9tPyOIkKrvjE93Q
+	FDIoiXghpfHd6J3cyjzkmfeOquS9hU4A8mOgvAsl8AQo95L0RIQNTBtyBI2xbaXgzmV7KA0uxoUtn
+	GcYU3Qv/87vXUiD9i7tv3sQ2gnDY+1inTjZ/DPhB4Jtbp8wyAJkZEbTqDi8zvTUpzLoS1b5hCejql
+	1OWv6QXoQA4/smBMTvfKq1bXTZjDjEYS2Y4r1nuB9CBflB1oO9s8sq3JjmLD1Jifm5V9KSan+z01B
+	tOYl8B/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viHer-00000004OXu-3Ag0;
-	Tue, 20 Jan 2026 19:44:57 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	id 1viHjW-00000004Omb-2BWC;
+	Tue, 20 Jan 2026 19:49:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viHeo-00000004OXT-1BKi
+	id 1viHjU-00000004OmT-3GaO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 19:44:56 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-7d148ddbb91so85266a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 11:44:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=utexas.edu; s=google; t=1768938292; x=1769543092; darn=lists.infradead.org;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XeUViYfY2uTSAY/Y5mKsJA4QEp1pKU/MT51bOa0VcX4=;
-        b=xBxV5JENEoaPRprUWTI2iZbq8Cs3EPyf1oP7fc4OcwD3VC4nhQglJndp/m+asOO03c
-         Ky6BbJDjoUiRbTjxiRIVfOUEVALBkqh9EVGhiSt7EWIVDiRX4W1LxaTcCI2zV2fr3KOE
-         DJn8WaxpaYGoB/ZW550x8tHWIM/n59kz3w3cu8LdP+XZmopzWcVqO5MR5nDFAe34SPZD
-         14kpze4yV76tbKLoSrR0wqmA4815d6+vctB5yUj+JKcwDIfN/ZMNET5D5cMIYJxoTxau
-         W4htZVqK3LgaxIir9I6QYBtuwzEpEEi6V1vc7DSCnQI4rDgNaiAYTHoChJhUh/ThNd6r
-         S/ew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768938292; x=1769543092;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XeUViYfY2uTSAY/Y5mKsJA4QEp1pKU/MT51bOa0VcX4=;
-        b=dlmxK+BR3MNSUCUE/gF/TnDQdSEOSZG/SEmu9nK890iZ3Dk86OC1iZuyywrGX6tM9I
-         +TyNpLtORC6llArDt7amspDucXtIG+kPZduCnuj/OZMQttmE3L7vg0VrKLESfYjcS9L4
-         n4DJiJWoO7GgUm1YGsSOoxJWvvogUeAocsezib3J63C3BkCPoFI5cRRNCZ1pzozAgknb
-         Yh7H/phaYxlegW5YyQXLZCwITLlZlcwUhbpV6BMY/CbigsyhUmzOAyiDrgolaK21LBbW
-         hD1hvg/hpK3QJuXH+ACKRAlpgOwGsIFLgnaJOstoMgPCDX1RD7fDK2Zw+S9aE/sztuW/
-         rGLA==
-X-Forwarded-Encrypted: i=1; AJvYcCXzH8cz6HEF/279TJ6ndwGLBi8h40CevRAAMVmNyjMx0Jox5ipwNFhAPU8ZQFAP2QSSNe5cKiX60n24G79qbTut@lists.infradead.org
-X-Gm-Message-State: AOJu0YwidmKtWlGaK7ywarXRs4sD2QMmbOhhdQIxzTqJMivEFyrMw47u
-	aM/3jVcxuink5AkT5Qrb1DIJsI5wT8K3RUToIo5SGozT32561ySlJcIXNgKbjw+AuIml6sqkk1A
-	2jS8W
-X-Gm-Gg: AY/fxX48XOzTKZTOtMMp5F0p/mT6LuanoFyM442091dod6qhTUtUfMu06Il3v03Gd8I
-	f88ft8hq+ig/qfiRLbfPmPjyxx+1/AudvOSrs+vHoWv4/io/jjpoNUJyOzCbT7yHdEA302jtXYx
-	AQ6U+hDA1BDkwO5zEPQtERfWyYdLN8qNvVIfp3GvTjS796uJOU0gYV9ph+fZ33kinVTpJwgdDXn
-	xFf6m+6E1NqzELZS7kr2DZYlvAW7QCvvUAKzP40zCBtw6W5ANIvliZSC0zCcfxnmu+R5axjdhVo
-	gC0LGkJW0y89GCIa/MkoeJq9Vt6UqEnFCxfUrVNfD6s1aLt4maG4/+wKyWdIDtL6shZDVqkN0Zj
-	sAlcTUltvdFeuCZrmYK1L0Sem0RyB4th2gF4jelw9oRjFs4S6AEVsnQg8a5IFqdejjBvSQdmQME
-	ZBCJZPO4xs+4o6vPFaNzjmO5vRudmZDP9OjyHlyMExhl668AK99S4=
-X-Received: by 2002:a05:6830:4407:b0:7ca:c897:fc5c with SMTP id 46e09a7af769-7d140ab7359mr1703875a34.20.1768938292199;
-        Tue, 20 Jan 2026 11:44:52 -0800 (PST)
-Received: from localhost (nat-128-62-18-57.public.utexas.edu. [128.62.18.57])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7cfdf28efbasm9258158a34.17.2026.01.20.11.44.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Jan 2026 11:44:51 -0800 (PST)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 20 Jan 2026 13:44:50 -0600
-Message-Id: <DFTOAG3ZYSFS.PHQA8FL20S6K@utexas.edu>
-To: "Catalin Marinas" <catalin.marinas@arm.com>, "Carl Worth"
- <carl@os.amperecomputing.com>
-Cc: "Will Deacon" <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, "Peter Collingbourne" <pcc@google.com>
-Subject: Re: [PATCH v2 1/2] arm64: mte: Clarify kernel MTE policy and
- manipulation of TCO
-From: "Taehyun Noh" <taehyun@utexas.edu>
-X-Mailer: aerc 0.20.1
-References: <20251030-mte-tighten-tco-v2-0-e259dda9d5b3@os.amperecomputing.com> <20251030-mte-tighten-tco-v2-1-e259dda9d5b3@os.amperecomputing.com> <aW51OPBNsydlJS30@arm.com>
-In-Reply-To: <aW51OPBNsydlJS30@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_114454_456924_513CB62E 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+	Tue, 20 Jan 2026 19:49:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 932FD60128;
+	Tue, 20 Jan 2026 19:49:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CA5DC2BCAF;
+	Tue, 20 Jan 2026 19:49:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768938582;
+	bh=KcOj+JsQoGK/0bADpgrpqVHEBcwxEgzUFgAm4cNBfcs=;
+	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
+	b=UkobEx4lZ6dx5VJQ8XB5BiZMhrxCzr11qwqdyvq0D1N1bH/sKVUZnIUP86IWXAPST
+	 fAdZCgAmD40rZGI7phYrpHWGF3Cd46gsAminAIOXtuUZZUSa8SsF0Lsf/fv2TSpY90
+	 SYvwgs4EY+gTe2vI/nNh3NL3DMHgagc/YxjFwVm6c1kSsDM6jbVFfAEGE+n4JvMX22
+	 Ip9Yh9QItlnLa49EXDhJlAd4met+g9bjQYn5m6kDOIIqfbd7Ug7GjHhhsVCYxYPjWN
+	 rOPLPP5s7p+1SmWEP/LEIDTciuIEvS2Pk4KOifVucgeO4d8LJqXh0I/rKH/uY0Wsao
+	 8gY/vF4ULudyg==
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 20 Jan 2026 13:49:41 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+Cc: NXP S32 Linux Team <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>, 
+ Dong Aisheng <aisheng.dong@nxp.com>, linux-arm-kernel@lists.infradead.org, 
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Jacky Bai <ping.bai@nxp.com>, 
+ Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ linux-gpio@vger.kernel.org, Chester Lin <chester62515@gmail.com>, 
+ Enric Balletbo <eballetb@redhat.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ devicetree@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Vincent Guittot devicetree @ vger . kernel . org" <vincent.guittot@linaro.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Alberto Ruiz <aruizrui@redhat.com>, imx@lists.linux.dev, 
+ Larisa Grigore <larisa.grigore@nxp.com>, 
+ Eric Chanudet <echanude@redhat.com>, Fabio Estevam <festevam@gmail.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, 
+ Matthias Brugger <mbrugger@suse.com>
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+In-Reply-To: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
+References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
+Message-Id: <176893840760.631021.17752522800220517955.robh@kernel.org>
+Subject: Re: [PATCH v8 00/10] gpio: siul2-s32g2: add initial GPIO driver
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,15 +84,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Jan 19, 2026 at 12:17 PM CST, Catalin Marinas wrote:
-> TBH, I'm fine with leaving the logic in this function without
-> introducing a new user_uses_tagcheck() but not strongly opposed to it
-> with better naming.
->
-> That said, the set_kernel_mte_policy() naming looks too broad. The
-> policy somehow implies tag check mode, fault behaviour. All it does is
-> dealing with PSTATE.TCO.
 
-I agree with your point. having TCO on the function name is more concise
-than what I've suggested. We can drop this patch.
+On Tue, 20 Jan 2026 13:59:12 +0200, Khristine Andreea Barbulescu wrote:
+> This patch series adds support for basic GPIO
+> operations(set, get, direction_output/input, set_config).
+> 
+> There are two SIUL2 hardware modules: SIUL2_0 and SIUL2_1.
+> However, this driver exports both as a single GPIO driver.
+> This is because the interrupt registers are located only
+> in SIUL2_1, even for GPIOs that are part of SIUL2_0.
+> 
+> There are two gaps in the GPIO ranges:
+> - 102-111(inclusive) are invalid
+> - 123-143(inclusive) are invalid
+> 
+> Writing and reading GPIO values is done via the PGPDO/PGPDI
+> registers(Parallel GPIO Pad Data Output/Input) which are
+> 16 bit registers, each bit corresponding to a GPIO.
+> 
+> Note that the PGPDO order is similar to a big-endian grouping
+> of two registers:
+> PGPDO1, PGPDO0, PGPDO3, PGPDO2, PGPDO5, PGPDO4, gap, PGPDO6.
+> 
+> v8 -> v7
+> - remove all ': true' lines from properties in dt bindings
+> - remove NVMEM MFD cell from SIUL2 in dtsi
+> - remove NVMEM driver and configs
+> - expose SoC information via syscon cells SIUL2_0
+> and SIUL2_1 in MFD driver
+> - add SIUL2_0 and SIUL2_1 syscon nodes in dtsi
+> - add patternProperties for "^siul2_[0-1]$" for syscon nodes
+> - update example to include syscon cells with proper format
+> - remove `reg` property from pinctrl node in dt binding
+> - update Kconfig help text to reflect new syscon structure
+> instead of NVMEM for SoC information
+> - squash deprecated SIUL2 pinctrl binding with new MFD binding
+> - dropped "nxp,s32g3-siul2" from MFD driver match table
+> - fixed commit messages
+> - fixed dtb warnings
+> 
+> v7 -> v6
+> - fixed MAINTAINERS wrong file path
+> - add unevaluatedProperties, change siul2 node name, remove
+>   jtag_pins label in the device tree schema
+> - change compatible definition in schema
+> - change node name in dtsi
+> - mentioned binding deprecation in commit messages
+> - split mfd cell conversion commit in two: one for the
+>   previous refactoring, one for the mfd cell conversion
+> - removed Acked-by: Linus Walleij from commit:
+>   "pinctrl: s32: convert the driver into an mfd cell"
+>   because of changes to that commit
+> - deprecate the nxp,s32g2-siul2-pinctrl binding
+> - add NVMEM MFD cell for SIUL2
+> - made the GPIO driver not export invalid pins
+>   (there are some gaps 102-111, 123-143)
+> - removed the need for gpio-reserved-ranges
+> - force initialized pinctrl_desc->num_custom_params to 0
+> 
+> v6 -> v5
+> - removed description for reg in the dt-bindings and added
+>   maxItems
+> - dropped label for example in the dt-bindings
+> - simplified the example in the dt-bindings
+> - changed dt-bindings filename to nxp,s32g2-siul2.yaml
+> - changed title in the dt-bindings
+> - dropped minItmes from gpio-ranges/gpio-reserved-ranges
+>   and added maxItems to gpio-reserved-ranges
+> - added required block for -grp[0-9]$ nodes
+> - switch to using "" as quotes
+> - kernel test robot: fixed frame sizes, added description
+>   for reg_name, fixed typo in gpio_configs_lock, removed
+>   uninitialized ret variable usage
+> - ordered includes in nxp-siul2.c, switched to dev-err-probe
+>   added a mention that other commits will add nvmem functionality
+>   to the mfd driver
+> - switched spin_lock_irqsave to scoped_guard statement
+> - switched dev_err to dev_err_probe in pinctrl-s32cc in places
+>   reached during the probing part
+> 
+> v5 -> v4
+> - fixed di_div error
+> - fixed dt-bindings error
+> - added Co-developed-by tags
+> - added new MFD driver nxp-siul2.c
+> - made the old pinctrl driver an MFD cell
+> - added the GPIO driver in the existing SIUL2 pinctrl one
+> - Switch from "devm_pinctrl_register" to
+>   "devm_pinctrl_register_and_init"
+> 
+> v4 -> v3
+> - removed useless parentheses
+> - added S32G3 fallback compatible
+> - fixed comment alignment
+> - fixed dt-bindings license
+> - fixed modpost: "__udivdi3"
+> - moved MAINTAINERS entry to have the new GPIO driver
+>   together with other files related to S32G
+> 
+> v3 -> v2
+> - fix dt-bindings schema id
+> - add maxItems to gpio-ranges
+> - removed gpio label from dt-bindings example
+> - added changelog for the MAINTAINERS commit and
+>   added separate entry for the SIUL2 GPIO driver
+> - added guard(raw_spinlock_irqsave) in
+>   'siul2_gpio_set_direction'
+> - updated the description for
+>   'devm_platform_get_and_ioremap_resource_byname'
+> 
+> v2 -> v1
+> dt-bindings:
+> - changed filename to match compatible
+> - fixed commit messages
+> - removed dt-bindings unnecessary properties descriptions
+> - added minItems for the interrupts property
+> driver:
+> - added depends on ARCH_S32 || COMPILE_TEST to Kconfig
+> - added select REGMAP_MMIO to Kconfig
+> - remove unnecessary include
+> - add of_node_put after `siul2_get_gpio_pinspec`
+> - removed inline from function definitions
+> - removed match data and moved the previous platdata
+>   definition to the top of the file to be visible
+> - replace bitmap_set/clear with __clear_bit/set_bit
+>   and devm_bitmap_zalloc with devm_kzalloc
+> - switched to gpiochip_generic_request/free/config
+> - fixed dev_err format for size_t reported by
+>   kernel test robot
+> - add platform_get_and_ioremap_resource_byname wrapper
+> 
+> Andrei Stefanescu (9):
+>   dt-bindings: mfd: add support for the NXP SIUL2 module
+>   mfd: nxp-siul2: add support for NXP SIUL2
+>   arm64: dts: s32g: change pinctrl node into the new mfd node
+>   pinctrl: s32cc: use dev_err_probe() and improve error messages
+>   pinctrl: s32cc: change to "devm_pinctrl_register_and_init"
+>   pinctrl: s32g2: change the driver to also be probed as an MFD cell
+>   pinctrl: s32cc: implement GPIO functionality
+>   MAINTAINERS: add MAINTAINER for NXP SIUL2 MFD driver
+>   pinctrl: s32cc: set num_custom_params to 0
+> 
+> Khristine Andreea Barbulescu (1):
+>   pinctrl: s32cc: skip syscon child nodes when parsing funcs and groups
+> 
+>  .../bindings/mfd/nxp,s32g2-siul2.yaml         | 165 +++++
+>  .../pinctrl/nxp,s32g2-siul2-pinctrl.yaml      |   2 +
+>  MAINTAINERS                                   |   2 +
+>  arch/arm64/boot/dts/freescale/s32g2.dtsi      |  35 +-
+>  arch/arm64/boot/dts/freescale/s32g3.dtsi      |  35 +-
+>  drivers/mfd/Kconfig                           |  13 +
+>  drivers/mfd/Makefile                          |   1 +
+>  drivers/mfd/nxp-siul2.c                       | 440 ++++++++++++
+>  drivers/pinctrl/nxp/pinctrl-s32.h             |   4 +-
+>  drivers/pinctrl/nxp/pinctrl-s32cc.c           | 652 ++++++++++++++----
+>  drivers/pinctrl/nxp/pinctrl-s32g2.c           |  32 +-
+>  include/linux/mfd/nxp-siul2.h                 |  55 ++
+>  12 files changed, 1259 insertions(+), 177 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/nxp,s32g2-siul2.yaml
+>  create mode 100644 drivers/mfd/nxp-siul2.c
+>  create mode 100644 include/linux/mfd/nxp-siul2.h
+> 
+> --
+> 2.50.1
+> 
+> 
+> 
+
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/v6.19-rc1-8-gea6806346080 (best guess, 8/9 blobs matched)
+ Base: tags/v6.19-rc1-8-gea6806346080 (use --merge-base to override)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+
+Warnings in base: 24
+Warnings after series: 42
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com:
+
+arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: pinctrl@4009c000 (nxp,s32g3-siul2): 'siul2_0@4009c000', 'siul2_1@44010000' do not match any of the regexes: '-hog(-[0-9]+)?$', '-pins$', '^pinctrl-[0-9]+$', '^siul2_[0-1]$'
+	from schema $id: http://devicetree.org/schemas/mfd/nxp,s32g2-siul2.yaml
+arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: siul2_0@4009c000 (syscon): compatible: ['syscon'] is too short
+	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml
+arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: siul2_1@44010000 (syscon): compatible: ['syscon'] is too short
+	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml
+arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: pinctrl@4009c000 (nxp,s32g2-siul2): 'siul2_0@4009c000', 'siul2_1@44010000' do not match any of the regexes: '-hog(-[0-9]+)?$', '-pins$', '^pinctrl-[0-9]+$', '^siul2_[0-1]$'
+	from schema $id: http://devicetree.org/schemas/mfd/nxp,s32g2-siul2.yaml
+arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: siul2_0@4009c000 (syscon): compatible: ['syscon'] is too short
+	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml
+arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: siul2_1@44010000 (syscon): compatible: ['syscon'] is too short
+	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml
+arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: pinctrl@4009c000 (nxp,s32g2-siul2): 'siul2_0@4009c000', 'siul2_1@44010000' do not match any of the regexes: '-hog(-[0-9]+)?$', '-pins$', '^pinctrl-[0-9]+$', '^siul2_[0-1]$'
+	from schema $id: http://devicetree.org/schemas/mfd/nxp,s32g2-siul2.yaml
+arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: siul2_0@4009c000 (syscon): compatible: ['syscon'] is too short
+	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml
+arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: siul2_1@44010000 (syscon): compatible: ['syscon'] is too short
+	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml
+
+
+
+
+
 
