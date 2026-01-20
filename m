@@ -4,103 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E216D2ECE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:22:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22540D2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nkWsnkKCVjMZzH2VkxNPLyQ7JTR/8jtQIzW13xUUaKo=; b=f1PrLr1MuXJGlgLDg8qxOEk9tt
-	MpPOwhfpxkMyEBBti4WtaIzQnx5PVLtNpmHy4VAHsq0V7cvDvaJW2kZ7Qahd+3TxGo/J/VA1e9t1t
-	x229iUAq+dexVbfCPloa/qkvC0lxcW54bRcSPa/B2xtep/DRX6v6Cg6nPbgRkwEQ0i/VoW1jd/pFF
-	tnSYON6Gzg7HJLezOwGHluj2pccAG1yFDEbH0z0jeJSSNqZGLVi/kkM2CZXakXdaRyvIwVOg+PWqI
-	CLo2lhBLlp76gsJpCQYI4pgI0zQddQUpXnlsnqe9vJzWeDJwtj80tMPYsSwwFjIV2Rj0wwbK2orRN
-	AnDEKKJA==;
+	bh=B/FgHK+pzlkCaNNisT+qoF/i0PlfVt8s+magiThvv14=; b=wBh13ckgjcrlBds4m5/52Juh8T
+	VdMKfgjRk97G/tQCQyzP8PadcZw1M8+MUrTIm+wWXqg5quNnJ/5k6JwihEoA1h8fIa17Vmv9py7vM
+	T6xxdz78tL2mSH3jPYH1FVg36HZqqXO65U31KWfwqz3qkRdr0fOFcW02b3WalTmjfZoxOo4V1qFbm
+	bwtmutTPjU4i0Knunoqk9ddrS02NsDJkVwziJUFexkaG3tG3tpxb5qos1lmRZD30l98S8XSg9oMa5
+	fB6F9XyATcqLy53QKvxTaB4TJ2QXsk3otU8eYw1ufKR7kIjXrJihceD48fPmSDf7Kn48l38nSB2PQ
+	nUSL1eLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAku-00000003p6F-0u9F;
-	Tue, 20 Jan 2026 12:22:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1viAnD-00000003pev-0VCR;
+	Tue, 20 Jan 2026 12:25:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAko-00000003p0v-1hZR;
-	Tue, 20 Jan 2026 12:22:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=nkWsnkKCVjMZzH2VkxNPLyQ7JTR/8jtQIzW13xUUaKo=; b=BFdT+2xeMx5J/Ci4HqMBzYJJ/o
-	s33Fc6QbYsJusTXYbzyyDRXareM/nQjZONxkhWNikfRUjYc7B6E10kuKlw6CSHXBu5X8hc9Scmc8K
-	6gOeWseYS7zhYysBskD0gz0s0a4EVS22hpQc4yoLgo+1zj4nHZZ2fS9oJdZPlnd+2IcMAwdulhg/C
-	zDTzTIkMh9K10BSypVAP4TQ0I5qUI31XPIlwtmh6eWol3jb/XhJuRjfaIj1GxA3edLHdvUosnrVpf
-	u2jDvkc62h0Rb3Qeu9QgbyXNLQLe/QhiVHe45nt5B0e9cLXX56bCW8Yn0FArlJLl3K2ocERwo29bY
-	AqRWpPTA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAkl-0000000E0fW-0BaS;
-	Tue, 20 Jan 2026 12:22:37 +0000
+	id 1viAnC-00000003peJ-0LbM
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Jan 2026 12:25:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F023F443A3;
-	Tue, 20 Jan 2026 12:22:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C1ECFC2BCB5;
-	Tue, 20 Jan 2026 12:22:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 956D360018;
+	Tue, 20 Jan 2026 12:25:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4669C16AAE;
+	Tue, 20 Jan 2026 12:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768911751;
-	bh=SBMojAQMLBEsq97VBBgUN3ogr+3rX2KzJ0Dl48KhAsI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=WrapHvxu9wzC6dPh+d2Diu33um8C+StFfh5MJrVUMKJHx0sZtchoh7hfLoDgGjpa1
-	 8mHz2LgITw35uFF7Ajq6uP27pqoxElgAAHpZyiHmP5GZ8u74C5U3+C5GjPgBeH+JmN
-	 k7SXgBg5+1M5NZ9dJd8P459Z+A1MXkdTMNJNCB2+8VsHd6/sOgqn+79rOt68u5Yg0B
-	 RNUjI1vhFCtXtDAhuRl8s/ri2VknucbJ7q+2tOAunD2MF2N3iLtEzMRpCG6NiXVxF7
-	 xz/o776+HawJM+cXWt12eAExfMmwB0lJbJDMxWLgsq4R/0xuplyQ7VOkY8gl4BjOuf
-	 Lpu/CqdwuH3NQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ADB0AD2ED15;
-	Tue, 20 Jan 2026 12:22:31 +0000 (UTC)
-From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Tue, 20 Jan 2026 13:22:29 +0100
-Subject: [PATCH v8 3/3] arm64: defconfig: enable designware mipi csi-2
- receiver
+	s=k20201202; t=1768911904;
+	bh=bLSG0tEveb+gncpwTtyqmY3n1fbc+iPmbTX/cVlIgjo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IIaZnQxvVk2+qt+Mlgp8OUNj0PN/kPCJgeWJPwt/wC9Tf91T9cMch3wsZDSUISe7N
+	 aJ/tUVy0ek8oZwyYaByCenkvW9fM3sCa5r2tt01VVYggu1iOccwcbfKRFs72MNUzSJ
+	 fp1enaMxHoy85UP291aH82jbFVSe44hpTRVqw7IFcGS1TCbsirqOj7caxvu6Tm3NYD
+	 K/muEe2rx2YnLbj44mIBGCFQkwNaqQhORFBWBzahjUSEEzM9bwz9g4x6sTioTHdbje
+	 dShHh+MtAglD4nEzVRLKqN3m7Rd5l73oFdXw7h+mmp3Xf6eJqpxCJgjKh8UclFPLXp
+	 E+E8Da302a5LQ==
+Message-ID: <f81c20f4-5e6a-4ec2-8946-a78bccc14e8f@kernel.org>
+Date: Tue, 20 Jan 2026 13:24:58 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] dt-bindings: pinctrl: aspeed: Add support for
+ AST27xx
+To: Billy Tsai <billy_tsai@aspeedtech.com>, Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>
+Cc: Andrew Jeffery <andrew@aj.id.au>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
+ linux-gpio@vger.kernel.org, bmc-sw@aspeedtech.com
+References: <20260120-upstream_pinctrl-v3-0-868fbf8413b5@aspeedtech.com>
+ <20260120-upstream_pinctrl-v3-2-868fbf8413b5@aspeedtech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260120-upstream_pinctrl-v3-2-868fbf8413b5@aspeedtech.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251114-rockchip-mipi-receiver-v8-3-bd1cf5cb9588@collabora.com>
-References: <20251114-rockchip-mipi-receiver-v8-0-bd1cf5cb9588@collabora.com>
-In-Reply-To: <20251114-rockchip-mipi-receiver-v8-0-bd1cf5cb9588@collabora.com>
-To: Michael Riesch <michael.riesch@collabora.com>, 
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
- Kever Yang <kever.yang@rock-chips.com>, Frank Li <Frank.li@nxp.com>, 
- Mehdi Djait <mehdi.djait@linux.intel.com>, 
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Hans Verkuil <hverkuil@kernel.org>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Collabora Kernel Team <kernel@collabora.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768911749; l=786;
- i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=4/e4J7LessS5jdywMTVpeb4iDs9BMTFRupZRi4shvqg=;
- b=vM+9GvcUuupfbEtXCVYeCqoIhDdyKGXeBgK5EHF4Y7GG0wfQPK5IhDW3ee+Q8DGNb9+HqRDbd
- cXR5vbU9VxTCsLddpvbjSWg4A95nbSX+dQKQNM2sHkwQtLb5lkuN4Pw
-X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
- pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
-X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
- with auth_id=371
-X-Original-From: Michael Riesch <michael.riesch@collabora.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_122235_399160_3BF347E2 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,36 +118,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Riesch <michael.riesch@collabora.com>
+On 20/01/2026 12:43, Billy Tsai wrote:
+> Add bindings for the pin controller found in ASPEED AST27xx SoCs.
+> 
+> The AST2700 SoC consists of two interconnected SoC instances, each
+> with its own pin controller register block managed by a separate
+> System Control Unit (SCU).
+> 
+> Introduce the "aspeed,ast2700-soc0-pinctrl" compatible string to
+> describe the SoC0 pin controller, which is not compatible with
+> existing ASPEED pinctrl bindings.
+> 
+> The SoC1 pin controller follows a regular and predictable register
+> layout and can be described using an existing generic pinctrl
+> binding, therefore no dedicated AST2700-specific compatible string
+> is introduced for it.
+> 
+> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+> ---
+>  .../bindings/mfd/aspeed,ast2x00-scu.yaml           |  27 +++++
+>  .../pinctrl/aspeed,ast2700-soc0-pinctrl.yaml       | 130 +++++++++++++++++++++
+>  2 files changed, 157 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
+> index ff6cf8f63cbc..7eda8fddc560 100644
+> --- a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
+> @@ -164,4 +164,31 @@ examples:
+>              reg = <0x7c 0x4>, <0x150 0x8>;
+>          };
+>      };
+> +
+> +  - |
+> +    syscon@12c02000 {
+> +        compatible = "aspeed,ast2700-scu0", "syscon", "simple-mfd";
 
-The Synopsys DesignWare MIPI CSI-2 Receiver is integrated into
-recent Rockchip SoCs, such as the RK3568 and the RK3588.
-Enable the driver for it in the default configuration.
+No changes in the binding, so please do not add unnecessary examples.
 
-Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Plus this makes little sense now in way you split patches :/. Either you
+keep separate MFD from pinctrl for merging or, if not separate, you
+squash patches.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 45288ec9eaf7..58bda738819a 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -873,6 +873,7 @@ CONFIG_SDR_PLATFORM_DRIVERS=y
- CONFIG_V4L_MEM2MEM_DRIVERS=y
- CONFIG_VIDEO_AMPHION_VPU=m
- CONFIG_VIDEO_CADENCE_CSI2RX=m
-+CONFIG_VIDEO_DW_MIPI_CSI2RX=m
- CONFIG_VIDEO_MEDIATEK_JPEG=m
- CONFIG_VIDEO_MEDIATEK_VCODEC=m
- CONFIG_VIDEO_WAVE_VPU=m
-
--- 
-2.39.5
-
-
+Best regards,
+Krzysztof
 
