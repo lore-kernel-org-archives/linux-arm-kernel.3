@@ -4,78 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F02C3D2ED0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 10:26:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8181AD2ED0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 10:27:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9diJR4kQZN+k/wbWqdTO6OI+/69IKXx1J/s9tKfVwNY=; b=ZW1MtjZiwZziJfd4ZuFFhb3snj
-	3J/GgsOzphJjseZhZysY79BoZZ/miWvbyJb1OL2/lmwJfYpEH6p/DiS+YrPOAgpmUXeEm2UXcQBOp
-	5CiPP4RFZ725oVTeCkNPTgzaOi0yP2vydH/7S8/+ImSdW6n6KADyprZhqVg7ZXegmf0ELGP/ZzP9l
-	Y8TsMqLkw53h5JNXz2diyvTg/aGIi17pSdUvA28H0LMW1J5PU+Rh6AgCRwSSW/fuK2MrU3K46/2ja
-	vIvW3zJ44QhjEYSy3mGbbCmbnOMRJH2ArzSc04qckBynIn0e7vyXATrTtKvASUdEOLjYZgqlYOQtS
-	K3mF2vLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1JwjBESJFuEdej6bZjldwOugggZD1GeR4GyAvJvzCmE=; b=KYZs/MtyF/edED+pmzMe4dnbXQ
+	rvZlRDoFNYf0RLXN1QY7JPZ6W/OnwcLHF3KdNdzmuF0kczHVpqZNfLGMuAlS9KQc/w4AqdAylAtHb
+	MnIE2zViVIXvTUjYg9Kx14iKjMs3jqpxs5S2Nuv7kJkb426NIexfyI4z9dBEv9hVix2gr0s1yXr/s
+	1wZBwy2U5jGsnomtasfg+lpEcAixhaLnweLuARALLCUZdiXgxVxDmyA0luapG6rdzM43bCMczIl8d
+	VAq1kLtyB9/r9XnoEd3IBrgVvHQjZPAQY+KkmnSN9q397R86/0Lix7kw6JhRUMwGXX6tV/IQS2lb0
+	GRKLo7Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8wI-00000003cTM-0YjB;
-	Tue, 20 Jan 2026 10:26:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vi8wq-00000003cY9-15ky;
+	Tue, 20 Jan 2026 10:26:56 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8wH-00000003cTC-03tT;
-	Tue, 20 Jan 2026 10:26:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=9diJR4kQZN+k/wbWqdTO6OI+/69IKXx1J/s9tKfVwNY=; b=CufrPNFGtGYAC2vp81NYi+94qK
-	BxLn2slte26KKpwsFSIk0g55aZekQs7QU8SRO/gXrJqPt+qDmWB11BUH0Eh5lbNGTsoUl+awcXeIf
-	cckPSxIm1iU6rsrVc8W0Tx9rde4iTXSpLMxHhyRXhorYQHg/fhkHueb87+b5tLXO8CL5Lx2pjuOEA
-	/20oaZ9P7va0r3UhN1PO1MHnU+QUFkQSTVn6Tlk5nvEq7P/X6k7dyJzLgAjtzlIsOuYayjn/B9GKV
-	TpSaVYfCNvCx3ctINAZR0A4BBrRJ4gtrZQTMX5njt8yDBgb8RCfqfjqzea4Y5haXYknN71kOLVgad
-	6d2WY3gg==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8wD-0000000Dnk8-3ytj;
-	Tue, 20 Jan 2026 10:26:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=9diJR4kQZN+k/wbWqdTO6OI+/69IKXx1J/s9tKfVwNY=; b=XSPs81KHpZHhgt4vtOmZ7ONpWU
-	Tzy1oFkhZq1dlMTqezc1Wp9D+9yA9sUuuBvcclPnRRb+r58xL8GsH+5a+RREbLfVd6N4FpoxBlDOs
-	kqhk7o4uqD5ckBIWQmcW2nY+LC6w4h5oflfemO6nHeTZJxM/A4puTk1SIF7bF3RZnY3I43vNWgF3D
-	R3BExg8bBa6b4Ki6C8sdL1FM+Se4MssShty8MlMnExKElAMOZQySHhLDIkTDsphbqwUaGd4Jz1fCM
-	w96x4RqiTQe1XLY4K8po3yd5Pzhq6NHJORLR/4GFeQ8gi1mPdgM3bJlZh7xJJgBVEtu5T7pC5BAF8
-	yUrUN0nQ==;
-Received: from [192.76.154.238] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vi8w6-003MaT-5E; Tue, 20 Jan 2026 11:26:10 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Alexey Charkov <alchark@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Shawn Lin <shawn.lin@rock-chips.com>,
- Quentin Schulz <quentin.schulz@cherry.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Explicitly request UFS reset pin on RK3576
-Date: Tue, 20 Jan 2026 11:26:09 +0100
-Message-ID: <4253761.Y6S9NjorxK@phil>
-In-Reply-To: <8df14d73-8e20-4d89-89eb-d40f27814d2d@cherry.de>
-References: <20260119-ufs-rst-v1-1-c8e96493948c@gmail.com> <5743823.mogB4TqSGs@phil>
- <8df14d73-8e20-4d89-89eb-d40f27814d2d@cherry.de>
+	id 1vi8wo-00000003cWz-1oBz
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Jan 2026 10:26:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TYXouJnruZRVlfrAlrFKaZ5xf0ysumKC2Ed6FIzkKAAGt//hMXT/vqgfFKPMJN9cNHix7IMeWbzdbTGlQUU/kgVNAWNyGjF53xWCvjzlgprVYtFqO1+NST1si/pFX8XZJonZqoR25q+3QmeaYdpruSBkdVxB8h4EULorsYVFJlHL/kDm9tpKIznOu4L9cameLJ4rFPSDDp209GLCEmNB8qqG/E14E6uXGfvVruGzbJrBtDPnkZS44Q1EhiryFMOz9ypcU1LZVrEU/NX+CAKMjzmKg1BWLFNPd0qw+fFrydGWgdZDIx/y4YDklOG8HpyWalgp5gvS0Mc3RhAFTx1hQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1JwjBESJFuEdej6bZjldwOugggZD1GeR4GyAvJvzCmE=;
+ b=fDlvRdZI6qzx/GTltVQKSi2giMZ0KXNIMcJZP2PiLnZ/+niWQb+ULqaYYarSu/ZARZYpSRu0t2tAx48OIFGDioG5n9vMWOmF4TImIN9XvjA+7lSZdR/l+9K+An8fg4STV2C7ZmASVXn/1cKvfci1lKrgHXtat2DdqUno+dxbGeBMenro3m7sabGRC8CpdTuF8OZD6wKeJHwZcxBd3EzetrQUcLiANt12GZDXmUT02HEFXO/xzFxGfTiu6WvUe/WxxPdiu7qpxl1qPR/ICXhr0/eT04Xk/RFlT6aorAvmPa3NA5t7rtrlYRGr2c8st8JdrXvtIHrz1SpGesVX9o06eg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1JwjBESJFuEdej6bZjldwOugggZD1GeR4GyAvJvzCmE=;
+ b=RYJF9tId3OGH8PR2FhDv+k+iUU3rmJiNT2p1K8REW72rUX1iwk9QO7ComSYP85qTMamOts+R9utIyyA8AQiXAF9JpmuQufcCX0nrdgC0PjCXVVU06FwUt3Sxu+mWbZekQwZno4B2N7S43/rfC91n5QRIMPbbHoUGIJL6p8BapTU0/PIwws/m58dhBOwxSAkc+KTjOADD6rf6dfYxVQ5kznYzvdEE1Wx8hqs++v9Gx61X4zQ4kZwvf7WJ6B+vZuqaXKzzdfQOc90EufYgv8k+ADfxAMVnYXukzEsJMi2Bl3ezUx2I9fg5RmxgwTGwlqINe1PhQTywhwOXpdOtVFqMDQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by DU2PR04MB8694.eurprd04.prod.outlook.com
+ (2603:10a6:10:2dd::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.13; Tue, 20 Jan
+ 2026 10:26:47 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7%5]) with mapi id 15.20.9520.011; Tue, 20 Jan 2026
+ 10:26:47 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	daniel.baluta@nxp.com,
+	dario.binacchi@amarulasolutions.com,
+	alexander.stein@ew.tq-group.com,
+	Markus.Niebel@tq-group.com,
+	matthias.schiffer@tq-group.com,
+	y.moog@phytec.de,
+	josua@solid-run.com,
+	francesco.dolcini@toradex.com,
+	primoz.fiser@norik.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@pengutronix.de
+Subject: [PATCH 0/2] Add i.MX93W EVK board support
+Date: Tue, 20 Jan 2026 18:26:02 +0800
+Message-Id: <20260120102604.1989725-1-sherry.sun@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR04CA0005.apcprd04.prod.outlook.com
+ (2603:1096:4:197::16) To VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|DU2PR04MB8694:EE_
+X-MS-Office365-Filtering-Correlation-Id: ae098b66-58fe-41c6-1e6b-08de580e6a74
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|52116014|7416014|376014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LF5QrVH8J0An7PrHqLdLy5H2FgvwbJ3hi7CiEES8RRqRL212Z3cZtPA+ORPV?=
+ =?us-ascii?Q?O80pIaDo0JISkY56FUy94ELrGDrB+6hRl9Xmpl8BaQni16gOkG2KfkuSCUUv?=
+ =?us-ascii?Q?sy2pKNmbjesEQp9iMpnLEeffFPsAeqT9IUEviDyO0GjHKdDGjK4fLCfxC4Lt?=
+ =?us-ascii?Q?GgkCZ2M+u1OIVFoHtkvXd8t+0m7UaSf9x531NNM/kYUMU1UPr7pV7xs2C7NR?=
+ =?us-ascii?Q?HanCajmvueVm3+75vt0tePQrvox3/DHkjecC1M6CQZwN9NVMLYU2q30BpJuf?=
+ =?us-ascii?Q?mORoTd6U5O/Fzpw7ljsYorl12eJ09HI5qmedh4K7Vr/lTHWqr+ILISNEbaPg?=
+ =?us-ascii?Q?0iwHePZ0VTjg22vq87mYL3D/bZPUYMEnYH4GzZyLuNYn+cfoRdfCf/Hn813r?=
+ =?us-ascii?Q?Q1sQ+SeLD+X/St+iJBL6T3uaLDHd6Rip74gMWRcimv3nYEfhD/tRra8MrFZX?=
+ =?us-ascii?Q?o5bUPpSPRt3gGkjtYisgkz/HKJXguSEnlCi2NUUYFJbkxJUagL9YC8s9/TEA?=
+ =?us-ascii?Q?k/VyZdmJvQCHYbwtHuHQoG0OFWbYrkprjO2BRljRpzWUd43DD+5I6VAYBVY6?=
+ =?us-ascii?Q?hzHwdY0wNCQQlXGz6pPSAzhllqq8mfTYS1r0cfZ7VkCd8y7NPHoehE9HKtUz?=
+ =?us-ascii?Q?KnEKJ20AvuGs8FNm7dwj5lSIrqulmDZZyiftDeqgytTuXlwaOfEQvImhLQGN?=
+ =?us-ascii?Q?4kYOhIvoqtKNWOOJ8MHONaxcgBfvyKjYMwXXyJGap66K5LERr3hqKiuJ0ZFH?=
+ =?us-ascii?Q?OpcqsHJqZWs7oiVwCgazPS6gRBmrLuvs32YORglCUK/Ypg/haJ0ndmXnfW6A?=
+ =?us-ascii?Q?hzRK5MsaFcWGktoZcfa6+nyXcYGlnszlXY/NkQP4lRL+NYPZFMYy9EfCbWAg?=
+ =?us-ascii?Q?iLvr9S/UfzM9hA6WPg2V3APphKTTAEDeuLrvu4OR7E5Xl+2F2PEFEselVdvm?=
+ =?us-ascii?Q?67367q7g26OUW6AIRmdT68ntZvVuRugJsQR6XHNFMCI8tzkXlQK6K9gWb9ij?=
+ =?us-ascii?Q?gDpdP7MU9AfpNpOr795kRkrSgtvZNz+8jcUnxMnePzjHR1kOmQBiUSVYOTGR?=
+ =?us-ascii?Q?ygIDQbQVTriHKumE04KK89sI9jIYv2VXJkt4ZigPv4kLV90W68tS5G2MtJ8q?=
+ =?us-ascii?Q?BqHECc40JahqYtgOH5IUBGoWLHwPFK6usxsH1yAMJodflcUz1DHSWmlmRsTM?=
+ =?us-ascii?Q?vuZwho/rh6oggIR8zvc/bawmIFlhCYznrJNZux+TS6LJQgJfgabzbRn7ZP+k?=
+ =?us-ascii?Q?p/GTWsL+eC+WCkPl+NDiCkiBXxif/DfPoG3SIYdbH7lDKdw8tvJ9EUuZf7HN?=
+ =?us-ascii?Q?8QQ8amUvagG/e2VOEcCvC3RN5PkO92uwmhJTy57FYoTG99DjoDNO5lfwTvfq?=
+ =?us-ascii?Q?hTVQs0O9/EPktWj7mtOlN/cgkrd8vnETL2MQzy5i/x4qUNafuxTpB/CoxJc0?=
+ =?us-ascii?Q?sZZg7ZeosSv63KRJp0OZNRo6EG/ohh7LP+0UCQmzApeUfod4DIuEZz72wFov?=
+ =?us-ascii?Q?3n5VcbBqxD+dIhTTdloVVFaRd2Mvc66cRSpWe5p+9AyR/1Tsb3AYXPEFHSKC?=
+ =?us-ascii?Q?msFqPj+M2/Vg4Q43aAOwp+HWa4yfGyeFTs6UHX6vcaZ3VPvf1nZItAs1RNOE?=
+ =?us-ascii?Q?OMkuD5CvVB13wLDEkEx9p+/fF6knLjYcLlvGrAoE8sKp?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(52116014)(7416014)(376014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?si3OZmGeBCJYQhbmFFaaL8Jte4M12mDKyy63Hpaq6cEPLQkjKRqenR7HFJBt?=
+ =?us-ascii?Q?33LR735p8M3hWSWUnugNOt9+6ZQPRpkq1WyrBcUd3KeiZ4fpZ1qhqHUMpn+o?=
+ =?us-ascii?Q?tuT8Z+z7OXwAvP/kT5NijIEi+2a3Cshz+30xr4qYoL22Osv5IitYS3Sm7p+G?=
+ =?us-ascii?Q?cOJn4t93l0nRK0of3GcrC0UjqUnSA7QdExNvKGofTkG+Ag1krqGiq7KOVk4w?=
+ =?us-ascii?Q?tBNYIJAFu9LX9QfcNNZDhIgmqvxcGoLbKLMz8TFSuDgllC056SLNbqIk7Uec?=
+ =?us-ascii?Q?GmzdlImy3NG/vnhY9+KSlwLRA7s3ky+yNcNgbcv6W4jCfPKvadV81lJWlfpt?=
+ =?us-ascii?Q?ykx1Z4o5L6NkS8JfxMCY8swSZvMOqVrFNWnsM8ns8Tv00UKiYtUBB2pCCIrV?=
+ =?us-ascii?Q?THIJEGwXLtexJulKzht6dynF9T3vCOSCEklHzfvX3xqDgZXN5t20mWDJEkQ7?=
+ =?us-ascii?Q?+piD6z9Z5+VnMXkcdVXPCe8ZKNlH88TiYvjMxfmK3Ao7hhQmSIsp2Q+GDUNK?=
+ =?us-ascii?Q?GFNdgiKHKLYFvpAsryRS0fNhH4JWK68nDCud259qVFw8gd8UWlhavkBQQg6L?=
+ =?us-ascii?Q?PXldwQzK3xEXwVjTqtdvqvOlylbCKeYFPsLWKX/Z2kYZ4jGPBY8XayDzoVWK?=
+ =?us-ascii?Q?W6lRsonl6XM/eby8KfwZmD/9cWwq6gGI/yAic1ePCs9Vx+LX4CaEmMvyMxmt?=
+ =?us-ascii?Q?GFPMPC1UTHtBaq1ue2gXUBswPgqeQbNGSMN7nJSGezIkaQqBd3B2QFOtVRKT?=
+ =?us-ascii?Q?BAoJrSI473b0lyIcpVTUBpIvAbalu1doxF13kMSZWaGr94XiunsoqI2j5UOo?=
+ =?us-ascii?Q?+I9x1hiv+OSBseNLYZxbryCuaugBo0qA7Dk0ZfxzXUoPEXd7hbeAoSpLrkWz?=
+ =?us-ascii?Q?HpgzeXAP+WLdoL3dWYM0ojdzzWfkb2t9BOYkeKSUx18jhnDZ7qX3sfGHSOtK?=
+ =?us-ascii?Q?pMn+aqGmtrgITLsgWWGaQbwxMHULATSiKLqgQXP3WCZqKh5gaF+uML++nCUq?=
+ =?us-ascii?Q?dnREne9OQWA6DL8+f5vmmVDtQ1scUfV39J16U9+1x0oh9DuZV9l8/aGVLIJ1?=
+ =?us-ascii?Q?9UnUKN5ZgxLbwH3GSBLYUJ9PcwiCDzzPd7cFlYb/WYqHLOMpse+Z7kSqOMYV?=
+ =?us-ascii?Q?JjYPsZ8ISVKavrOzfMQFBm13U+giod96fTpEHsdfBoi9E4YBxjOnMZB7qPhN?=
+ =?us-ascii?Q?63ZdZULC+OBrlZp53zYRTqm+DPDPlSLvMsCYEYDEw6tAEtsDAGdzxONERTtV?=
+ =?us-ascii?Q?7qETtcIKu1C+HS/T1s/for3zX2P5DMdLl5Phgwgm5E22JwdlXLqJvVZGOJFm?=
+ =?us-ascii?Q?LLODW1xzzyB5Xl2HP3xiiuZmzG3983dpfHaLOWEOUZY1Io1sN8wd49GYgU7q?=
+ =?us-ascii?Q?/dMA7LjSwhmpLagxRJpQP89isrNeH/WN1ZtTCE8UxRwYDZ/M8k1C9ehwc/JQ?=
+ =?us-ascii?Q?Dqa8553nPmNTUVnwCu4rOkYb6eNyPJDhxnKnAaOwrUvkOO58TACpdV8lqWsh?=
+ =?us-ascii?Q?gqmPomxUs0cQNtjfNrZksIoDv/UZ38Qb/2xLNd5x0VdzUbwAjS6DM4wHV38s?=
+ =?us-ascii?Q?gWeSlXYAsjd9YZDOVMXE3csFe7bSs+JkpzTYH3U0APgoAEK8uypezoc4Td2K?=
+ =?us-ascii?Q?OVQV5yeIVDqPwSiQWc3/cCiaGXgJpZquVTD6HW/AxTlCjLnahWoiIogEHHgK?=
+ =?us-ascii?Q?q4QIGxArZr3f083W6l27Sd0BF5LMaAnAmgL9EcPlkGEYwcJN3vQj3EK6xafT?=
+ =?us-ascii?Q?0ZK1r2+GiA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ae098b66-58fe-41c6-1e6b-08de580e6a74
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 10:26:47.4867
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PiwE8dn4sctXPpGxTbZn6Ppt1aKO4TjjpiALkaiQb5YQOMwI0xA6e3jtaaokiKY/4On4aXw2U5M+FoUoqoIyvA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8694
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_102618_060006_D287EF65 
-X-CRM114-Status: GOOD (  32.54  )
+X-CRM114-CacheID: sfid-20260120_022654_484523_8980DCBD 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,81 +179,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 20. Januar 2026, 11:21:34 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Quentin Schulz:
-> Hi Heiko,
->=20
-> On 1/20/26 9:55 AM, Heiko Stuebner wrote:
-> > Am Dienstag, 20. Januar 2026, 02:39:28 Mitteleurop=C3=A4ische Normalzei=
-t schrieb Shawn Lin:
-> >> =E5=9C=A8 2026/01/19 =E6=98=9F=E6=9C=9F=E4=B8=80 17:22, Alexey Charkov=
- =E5=86=99=E9=81=93:
-> >>> Rockchip RK3576 UFS controller uses a dedicated pin to reset the conn=
-ected
-> >>> UFS device, which can operate either in a hardware controlled mode or=
- as a
-> >>> GPIO pin.
-> >>>
-> >>
-> >> It's the only one 1.2V IO could be used on RK3576 to reset ufs devices,
-> >> except ufs refclk. So it's a dedicated pin for sure if using ufs, that=
-'s
-> >> why we put it into rk3576.dtsi.
-> >>
-> >>> Power-on default is GPIO mode, but the boot ROM reconfigures it to a
-> >>> hardware controlled mode if it uses UFS to load the next boot stage.
-> >>>
-> >>
-> >> ROM code could be specific, but the linux/loader driver is compatible=
-=EF=BC=8C
-> >> so for the coming SoCs, with more 1.2V IO could be used, it's more
-> >> flexible to use gpio-based instead of hardware controlled(of course,
-> >> move reset pinctrl settings into board dts).
-> >>
-> >>> Given that existing bindings (and rk3576.dtsi) expect a GPIO-controll=
-ed
-> >>> device reset, request the required pin config explicitly.
-> >>>
-> >>> This doesn't appear to affect Linux, but it does affect U-boot:
-> >>>
-> >>
-> >> IIUC, it's more or less a fix for loader, more precisely U-boot here?
-> >> I'm not entirely certain about the handling here, is it standard
-> >> convention to add a fixes tag in this context?
-> >=20
-> > Yes, a fixes tag is warranted here, in Linux it "only" fixes a potential
-> > issue due to the mismatch between pinconfig and gpio during probe.
-> >=20
-> > nce this patch then enters the kernel, it can be cherry-picked to
-> > the current u-boot development cycle. I don't think u-boot is doing
-> > stable releases though, so U-Boot will only profit for the next
-> > version where this is included.
-> >=20
->=20
-> U-Boot only takes what's in devicetree-rebasing=20
-> (https://git.kernel.org/pub/scm/linux/kernel/git/devicetree/devicetree-re=
-basing.git),=20
-> so only from Linus's tree AFAICT. C.f.=20
-> https://docs.u-boot.org/en/latest/develop/process.html#resyncing-of-the-d=
-evice-tree-subtree=20
-> and=20
-> https://docs.u-boot.org/en/latest/develop/devicetree/control.html#resynci=
-ng-with-devicetree-rebasing.=20
-> See also OF_UPSTREAM Kconfig symbol in U-Boot.
->=20
-> This policy does make adding support for a new board quite slow as we=20
-> may need to wait months before it makes it to Linus's tree, and then go=20
-> through the development cycle in U-Boot which can also take a few months=
-=20
-> if the timing is unfortunate. For now it seems like we're sticking with=20
-> this policy to avoid too much in "downstream" DT in U-Boot. I know we=20
-> push for this aggressively for new Rockchip boards and SoCs, cannot say=20
-> for other vendors.
+i.MX93W SiP is created by integrating i.MX93 and IW610 WLCSP (Wi-Fi +
+BLE + 802.15.4). And i.MX93W EVK board with the i.MX93W SiP basically
+reuse the i.MX93 11x11 EVK board, with some minor functional and pin
+connection differences.
 
-Yeah, this is what I "meant", but explained badly :-)
+Add device tree and dt-binding for i.MX93W EVK.
 
-Also this is the reason I'd like that v2 soon'ish, that it can make its
-way still into 6.20-rc1 and thus into u-boot.
+Sherry Sun (2):
+  dt-bindings: arm: fsl: Add i.MX93W EVK board
+  arch: arm64: imx93-wevk: Add i.MX93W EVK board support
 
+ .../devicetree/bindings/arm/fsl.yaml          |  1 +
+ arch/arm64/boot/dts/freescale/Makefile        |  1 +
+ arch/arm64/boot/dts/freescale/imx93w-evk.dts  | 73 +++++++++++++++++++
+ 3 files changed, 75 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93w-evk.dts
+
+-- 
+2.37.1
 
 
