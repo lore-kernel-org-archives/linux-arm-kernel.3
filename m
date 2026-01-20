@@ -4,53 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99438D2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 14:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB4DD2ED12
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 14:57:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=edOUrfEetymNSbVScMmZI6R0Ag1JaIZNs0MCpB/G6Wk=; b=i6yeuFjKtUUl+CxaDxMAz+sswa
-	Oei32nc7Mv9qNvyrN03/U5f524PnkDSlYyKNfl2suyLHnjvRM+YuvfQKfNbrkQXF9ekI8OjKNTwF6
-	U0yNTO384Auo8XfpPpuw7CMhQxAe6CXiQG9DMXv1NL1avc2A17j1I+Gnx6GfvG1IBHtdmstiB09Cg
-	aTPsvJ93+Sd4vjWZGSiknqUikdw3xNRIXXgTkqj8M+dIOh1xdM+nAtXr09pFKwzTj92dFvd6CGHXh
-	0ZnYHgfPw2RShOs3CHrfEG3U+i9RkUYXEeVDHZ+IpyIoWi48zEMYgtojrFT4uF9MIRacu2xdsrdgN
-	glb5LtGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u4juXVmRdHndog/gjN1skVewrJuIN9y/AhKiTJnsuXQ=; b=rwqsP1dYVloTh+ygXppWXjd5tN
+	sIxU6ScWmnd81lrvIVTGj3KKBOEan3wzm5DggYdMdJEzyxhlxC4Wo9JoDvBPLt5fhGHYn/7XfO9dM
+	xmcM7kFS4WT7ERPfYMvmBNmmRCXtoMCuzPUcz+w2U4EQ55Y1GSMvEy/qh6y5xcdiQ3Quy4SIXBKB5
+	GLP7SwmE4J8D8owF0D7rEzdU2obqdlzfR3OixZTcf7VdXIk5/9qm08Dj5QByidDg2lUDJo1BadeSI
+	bBvC7rnhn77kNZHSl8xj9waFSe7VzlxGp7x2+GyEDkJGZtdvWeqoZJHEwNrvRLDclUvVRO0o+x5zG
+	CWDOMc1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viD56-000000041UA-1j2t;
-	Tue, 20 Jan 2026 14:51:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viD50-000000041Rk-3cRm
+	id 1viDAZ-000000042CC-3Tqo;
+	Tue, 20 Jan 2026 14:57:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viDAY-000000042Bx-1n0e
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 14:51:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 57156168F;
-	Tue, 20 Jan 2026 06:51:31 -0800 (PST)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id F066D3F694;
-	Tue, 20 Jan 2026 06:51:36 -0800 (PST)
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: broonie@kernel.org,
+	Tue, 20 Jan 2026 14:57:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D8BFB60008;
+	Tue, 20 Jan 2026 14:57:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FE3CC16AAE;
+	Tue, 20 Jan 2026 14:57:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768921041;
+	bh=Yj7rTjIjMAZ0Wi0ai+L3m3KiOtHRAzqMbeSv8nGF5Pw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=eXOQrxmD9aE1aSJbILqPkFSnLeeTGbtAmBzNsleHo205AckpXoiPSaGU0cWZjUWl5
+	 rFsc0TO+xnGjkm+wrakHzInyFDm+R4OSF1YbU6s1njHQCeYXbtKCq0f6FqBhP44qbG
+	 /ndAUdBOjKkxN0852Sl7qARy38Rp4xQ/K828PFjbwUyU6Z6yA1NmjIs94S2N6f/zOa
+	 nRovAjKtRUGt4oYONCTOXGgZnTUrHipfk1zTeH+ij5l3Cs4DqM7/wLU3zz3K0t+IUU
+	 tiiU0+VL3EDu49Nu0zQAogkuRTMyvqpko4BfyOa1CO4UCnvyGGyJ8E/zR7jjxGGiDt
+	 f913JWJ+LqypQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1viDAV-00000003yyv-0llw;
+	Tue, 20 Jan 2026 14:57:19 +0000
+Date: Tue, 20 Jan 2026 14:57:18 +0000
+Message-ID: <864iogcoxd.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
 	catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	syzbot+d4ab35af21e99d07ce67@syzkaller.appspotmail.com,
 	will@kernel.org
-Subject: [PATCH 3/3] arm64/fpsimd: signal: Fix restoration of SVE context
-Date: Tue, 20 Jan 2026 14:51:07 +0000
-Message-Id: <20260120145107.1278972-4-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260120145107.1278972-1-mark.rutland@arm.com>
-References: <20260120145107.1278972-1-mark.rutland@arm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_065138_979517_4F39D6C7 
-X-CRM114-Status: GOOD (  21.78  )
+Subject: Re: [PATCH v2 3/5] KVM: arm64: Refactor enter_exception64()
+In-Reply-To: <20251211113828.370370-4-tabba@google.com>
+References: <20251211113828.370370-1-tabba@google.com>
+	<20251211113828.370370-4-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,128 +87,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When SME is supported, Restoring SVE signal context can go wrong in a
-few ways, including placing the task into an invalid state where the
-kernel may read from out-of-bounds memory (and may potentially take a
-fatal fault) and/or may kill the task with a SIGKILL.
+On Thu, 11 Dec 2025 11:38:26 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> From: Quentin Perret <qperret@google.com>
+> 
+> To simplify the injection of exceptions into the host in pKVM context,
+> refactor enter_exception64() to split out the logic for calculating the
+> exception vector offset and the target CPSR.
+> 
+> Extract two new helper functions:
+>  - get_except64_offset(): Calculates exception vector offset based on
+>    current/target exception levels and exception type
+>  - get_except64_cpsr(): Computes the new CPSR/PSTATE when taking an
+>    exception
+> 
+> A subsequent patch will use these helpers to inject UNDEF exceptions
+> into the host when MTE system registers are accessed with MTE disabled.
+> Extracting the helpers allows that code to reuse the exception entry
+> logic without duplicating the CPSR and vector offset calculations.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Quentin Perret <qperret@google.com>
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> ---
+>  arch/arm64/include/asm/kvm_emulate.h |   5 ++
+>  arch/arm64/kvm/hyp/exception.c       | 100 ++++++++++++++++-----------
+>  2 files changed, 63 insertions(+), 42 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index c9eab316398e..c3f04bd5b2a5 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -71,6 +71,11 @@ static inline int kvm_inject_serror(struct kvm_vcpu *vcpu)
+>  	return kvm_inject_serror_esr(vcpu, ESR_ELx_ISV);
+>  }
+>  
+> +unsigned long get_except64_offset(unsigned long psr, unsigned long target_mode,
+> +				  enum exception_type type);
+> +unsigned long get_except64_cpsr(unsigned long old, bool has_mte,
+> +				unsigned long sctlr, unsigned long mode);
 
-(1) Restoring a context with SVE_SIG_FLAG_SM set can place the task into
-    an invalid state where SVCR.SM is set (and sve_state is non-NULL)
-    but TIF_SME is clear, consequently resuting in out-of-bounds memory
-    reads and/or killing the task with SIGKILL.
+s/cpsr/pstate/ as we don't need to introduce more 32bit terminology.
 
-    This can only occur in unusual (but legitimate) cases where the SVE
-    signal context has either been modified by userspace or was saved in
-    the context of another task (e.g. as with CRIU), as otherwise the
-    presence of an SVE signal context with SVE_SIG_FLAG_SM implies that
-    TIF_SME is already set.
+> +
+>  void kvm_vcpu_wfi(struct kvm_vcpu *vcpu);
+>  
+>  void kvm_emulate_nested_eret(struct kvm_vcpu *vcpu);
+> diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
+> index bef40ddb16db..d3bcda665612 100644
+> --- a/arch/arm64/kvm/hyp/exception.c
+> +++ b/arch/arm64/kvm/hyp/exception.c
+> @@ -65,12 +65,25 @@ static void __vcpu_write_spsr_und(struct kvm_vcpu *vcpu, u64 val)
+>  		vcpu->arch.ctxt.spsr_und = val;
+>  }
+>  
+> +unsigned long get_except64_offset(unsigned long psr, unsigned long target_mode,
+> +				  enum exception_type type)
+> +{
+> +	u64 mode = psr & (PSR_MODE_MASK | PSR_MODE32_BIT);
+> +	u64 exc_offset;
+> +
+> +	if      (mode == target_mode)
+> +		exc_offset = CURRENT_EL_SP_ELx_VECTOR;
+> +	else if ((mode | PSR_MODE_THREAD_BIT) == target_mode)
+> +		exc_offset = CURRENT_EL_SP_EL0_VECTOR;
+> +	else if (!(mode & PSR_MODE32_BIT))
+> +		exc_offset = LOWER_EL_AArch64_VECTOR;
+> +	else
+> +		exc_offset = LOWER_EL_AArch32_VECTOR;
+> +
+> +	return exc_offset + type;
+> +}
+> +
+>  /*
+> - * This performs the exception entry at a given EL (@target_mode), stashing PC
+> - * and PSTATE into ELR and SPSR respectively, and compute the new PC/PSTATE.
+> - * The EL passed to this function *must* be a non-secure, privileged mode with
+> - * bit 0 being set (PSTATE.SP == 1).
+> - *
+>   * When an exception is taken, most PSTATE fields are left unchanged in the
+>   * handler. However, some are explicitly overridden (e.g. M[4:0]). Luckily all
+>   * of the inherited bits have the same position in the AArch64/AArch32 SPSR_ELx
+> @@ -82,50 +95,17 @@ static void __vcpu_write_spsr_und(struct kvm_vcpu *vcpu, u64 val)
+>   * Here we manipulate the fields in order of the AArch64 SPSR_ELx layout, from
+>   * MSB to LSB.
+>   */
+> -static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+> -			      enum exception_type type)
+> +unsigned long get_except64_cpsr(unsigned long old, bool has_mte,
+> +				unsigned long sctlr, unsigned long target_mode)
 
-    While in this state, task_fpsimd_load() will NOT configure SMCR_ELx
-    (leaving some arbitrary value configured in hardware) before
-    restoring SVCR and attempting to restore the streaming mode SVE
-    registers from memory via sve_load_state(). As the value of
-    SMCR_ELx.LEN may be larger than the task's streaming SVE vector
-    length, this may read memory outside of the task's allocated
-    sve_state, reading unrelated data and/or triggering a fault.
+I really dislike the has_mte and sctlr thing.
 
-    While this can result in secrets being loaded into streaming SVE
-    registers, these values are never exposed. As TIF_SME is clear,
-    fpsimd_bind_task_to_cpu() will configure CPACR_ELx.SMEN to trap EL0
-    accesses to streaming mode SVE registers, so these cannot be
-    accessed directly at EL0. As fpsimd_save_user_state() verifies the
-    live vector length before saving (S)SVE state to memory, no secret
-    values can be saved back to memory (and hence cannot be observed via
-    ptrace, signals, etc).
+The main reason is that it will not scale as we end-up hiding more
+feature on the host (think PM and FEAT_EBEP, for example). Even worse,
+some bits are not necessarily sourced from PSTATE, nor SCTLR (EXLOCK
+depends on GCSCR_ELx, for example).
 
-    When the live vector length doesn't match the expected vector length
-    for the task, fpsimd_save_user_state() will send a fatal SIGKILL
-    signal to the task. Hence the task may be killed after executing
-    userspace for some period of time.
+I think you really need to turn this into something that is flexible
+enough that it can work for both host and guest, with an actual
+abstraction. It is likely to look like a list of register accessors to
+get to the correct data.
 
-(2) Restoring a context with SVE_SIG_FLAG_SM clear does not clear the
-    task's SVCR.SM. If SVCR.SM was set prior to restoring the context,
-    then the task will be left in streaming mode unexpectedly, and some
-    register state will be combined inconsistently, though the task will
-    be left in legitimate state from the kernel's PoV.
+But it could well be that open-coding it is the least horrid solution.
 
-    This can only occur in unusual (but legitimate) cases where ptrace
-    has been used to set SVCR.SM after entry to the sigreturn syscall,
-    as syscall entry clears SVCR.SM.
+Thanks,
 
-    In these cases, the the provided SVE register data will be loaded
-    into the task's sve_state using the non-streaming SVE vector length
-    and the FPSIMD registers will be merged into this using the
-    streaming SVE vector length.
+	M.
 
-Fix (1) by setting TIF_SME when setting SVCR.SM. This also requires
-ensuring that the task's sme_state has been allocated, but as this could
-contain live ZA state, it should not be zeroed. Fix (2) by clearing
-SVCR.SM when restoring a SVE signal context with SVE_SIG_FLAG_SM clear.
-
-For consistency, I've pulled the manipulation of SVCR, TIF_SVE, TIF_SME,
-and fp_type earlier, immediately after the allocation of
-sve_state/sme_state, before the restore of the actual register state.
-This makes it easier to ensure that these are always modified
-consistently, even if a fault is taken while reading the register data
-from the signal context. I do not expect any software to depend on the
-exact state restored when a fault is taken while reading the context.
-
-Fixes: 85ed24dad290 ("arm64/sme: Implement streaming SVE signal handling")
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/kernel/signal.c | 22 ++++++++++++++++------
- 1 file changed, 16 insertions(+), 6 deletions(-)
-
-diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-index 9c2e26e01d729..08ffc5a5aea4c 100644
---- a/arch/arm64/kernel/signal.c
-+++ b/arch/arm64/kernel/signal.c
-@@ -449,12 +449,28 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
- 	if (user->sve_size < SVE_SIG_CONTEXT_SIZE(vq))
- 		return -EINVAL;
- 
-+	if (sm) {
-+		sme_alloc(current, false);
-+		if (!current->thread.sme_state)
-+			return -ENOMEM;
-+	}
-+
- 	sve_alloc(current, true);
- 	if (!current->thread.sve_state) {
- 		clear_thread_flag(TIF_SVE);
- 		return -ENOMEM;
- 	}
- 
-+	if (sm) {
-+		current->thread.svcr |= SVCR_SM_MASK;
-+		set_thread_flag(TIF_SME);
-+	} else {
-+		current->thread.svcr &= ~SVCR_SM_MASK;
-+		set_thread_flag(TIF_SVE);
-+	}
-+
-+	current->thread.fp_type = FP_STATE_SVE;
-+
- 	err = __copy_from_user(current->thread.sve_state,
- 			       (char __user const *)user->sve +
- 					SVE_SIG_REGS_OFFSET,
-@@ -462,12 +478,6 @@ static int restore_sve_fpsimd_context(struct user_ctxs *user)
- 	if (err)
- 		return -EFAULT;
- 
--	if (flags & SVE_SIG_FLAG_SM)
--		current->thread.svcr |= SVCR_SM_MASK;
--	else
--		set_thread_flag(TIF_SVE);
--	current->thread.fp_type = FP_STATE_SVE;
--
- 	err = read_fpsimd_context(&fpsimd, user);
- 	if (err)
- 		return err;
 -- 
-2.30.2
-
+Without deviation from the norm, progress is not possible.
 
