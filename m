@@ -4,69 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75AACD2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 06:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3D80D2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 06:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vNxPCkZDWqhlIjd/I8rHrZz21t7vwfqEdig0gAFmrUw=; b=qH1gPqGHMBKCz88GR/LeNfodNa
-	OnDXkBVHkb/ufWHM4rnvq/PHgjYQA/LZpiByeMO1m/5GGosYIg59xZWE9wQjAZoMjyLdH/BZYO7l2
-	8Fn9NBUzMkp1iTHXFtJwhBOW1nceKvv6igqVDAs6cxkVZsej5a6ku6zRpyBdAh7JfQ8GIr0gOhKJb
-	MHhb8GDem+nsfnB2Nw0ZS6LEk6cNVJ3ajmWHwCxvoPMA4g4RY08zKASKSiK2AzjB4G+KZZN3JENzj
-	Wlg1Pvonxq8NYYu2nVf7ch2g6Ss9bvk2cqfhZnS7D4H72PfFqasRqbJBWH+5KUK7a+ccwWJKqFMB3
-	YNiHR1nA==;
+	bh=BSDo7aH/DecQGOGSEI6/z/SFKnpTJhF1eNXGHC91qeA=; b=YXZaPb+NNZ6h+bt6oeYDpSMKlO
+	XVH5TTkZlvft7HMpwBE7gubBtgr8aJzSDRiYd2zzGooxiyJHSuSNU5Hy1RCKExd0w6z/CFz5NZEV5
+	qC8L5w7Prr0wJ2TrfcieUk7H4thLpEeen6Xp010g5f3ZiMuGH/oHe9ANxrr+mpptUg56eJIOi+26x
+	8ufgZXnvKiclw1Bu7Z3TjVKsbQCj2LuGygM4cOnASZCy04oaL+CosE1mMwCdw58QlqIUW7orF8owf
+	Zip6w+vO0AXWOWsGEVpDQzz0y6GT772NOHfnYj+R49Ka2O5AtJT7wphRAQrAcCO+fBV8SCThdgfxj
+	wfb0j7uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi4vB-00000003Fax-40kB;
-	Tue, 20 Jan 2026 06:08:57 +0000
-Received: from mx1.unisoc.com ([222.66.158.135] helo=SHSQR01.spreadtrum.com)
+	id 1vi4yg-00000003Flt-0Sac;
+	Tue, 20 Jan 2026 06:12:34 +0000
+Received: from mail-westus2azon11010025.outbound.protection.outlook.com ([52.101.46.25] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi4v7-00000003FZZ-1UJ8
+	id 1vi4yc-00000003Fl8-2HjU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 06:08:57 +0000
-Received: from dlp.unisoc.com ([10.29.3.86])
-	by SHSQR01.spreadtrum.com with ESMTP id 60K66Yqr051077;
-	Tue, 20 Jan 2026 14:06:34 +0800 (+08)
-	(envelope-from zhaoyang.huang@unisoc.com)
-Received: from SHDLP.spreadtrum.com (BJMBX01.spreadtrum.com [10.0.64.7])
-	by dlp.unisoc.com (SkyGuard) with ESMTPS id 4dwGsL4VHWz2K7HdF;
-	Tue, 20 Jan 2026 14:00:54 +0800 (CST)
-Received: from bj03382pcu03.spreadtrum.com (10.0.73.40) by
- BJMBX01.spreadtrum.com (10.0.64.7) with Microsoft SMTP Server (TLS) id
- 15.0.1497.48; Tue, 20 Jan 2026 14:06:32 +0800
-From: "zhaoyang.huang" <zhaoyang.huang@unisoc.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        James Morse <james.morse@arm.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Zhaoyang Huang <huangzhaoyang@gmail.com>, <steve.kang@unisoc.com>
-CC: <jeson.gao@unisoc.com>, <xuewen.yan@unisoc.com>
-Subject: [RESEND PATCH] arch: arm64: set __nocfi on swsusp_arch_resume
-Date: Tue, 20 Jan 2026 14:06:19 +0800
-Message-ID: <20260120060619.469565-1-zhaoyang.huang@unisoc.com>
-X-Mailer: git-send-email 2.25.1
+	Tue, 20 Jan 2026 06:12:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gRM3Sw3nFira/0ury2OhL6v0NHR/MY5eWgcZMQyI5+6JWhSs1Frz/r+eB8NAxFcOeh81kE4hM7AFOhXufqOJe2M08iIKWcelSU3X+wxOyT/r8Uv5pfTqIpL8NG1LYnc8SXLeMI61BxUXteRmvKTve/2fbCuX/btKAAOneLQxrCvYEkwP/7DbBiNbl794+9fE6QCUgLdAITfp76jMFJBFSWWrRSAq6oJYZA7kz1hMvbobUzWmHSspBDmBcpcrverWP+xejQW5a/IKb6/MvkZIZT+FCDwMbKtKnBOu4aqQIMQLbIUaJ3WZgqF8FcRvryLzLX+5yXKMXdBRCGv5oEhipQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BSDo7aH/DecQGOGSEI6/z/SFKnpTJhF1eNXGHC91qeA=;
+ b=IoJ8tC6Bx9RP51z3LSdev+LxD8J+z85+Jg9mCUPF4OMkve5prwn8s7cZCSbz8yj7UzHmO7G7MchCbcyXVmnaScmc2567h3D9/Nrezq0L4v6JNULoOWnYeFMUchOFLXMyBuTttLOiK/gw1G8Blx1LBA0zjUvjCtTq204RTCeBjwMVK6CGDYzE3FdbJMcRv+Sqa4V/zr8EnSEZYnOt5gGKTAtVwrlTWj4KMSb22bCFQKPmtuLv9fmzDilD6pHI87Skk7HdRr9mGS9xzkKmkCFl6aNVASBighA4JPfQkH1MJWzElEj/hM01luFS/hg0QRKFJj6K+/wDJxYTKuD2z54/gg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BSDo7aH/DecQGOGSEI6/z/SFKnpTJhF1eNXGHC91qeA=;
+ b=Y12PmSChjjG4vn0a3dhQxlYlDdFOYGwAaKpaX5GHBCCG+f0W8ManSLuglscRWtI8Q2DHtarps3HAbYASLDBEVkqK/8FgnThoYHLpcS0yJ2OT2hMmn8wyqdTrwlpbDBu2nJrn4SLR6xxxfiXB1fsvuJ1HDLdt3E9nxBz3x9DL3KY=
+Received: from SN7PR18CA0022.namprd18.prod.outlook.com (2603:10b6:806:f3::21)
+ by DM3PPFA35BF3976.namprd10.prod.outlook.com (2603:10b6:f:fc00::c3c) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.13; Tue, 20 Jan
+ 2026 06:12:26 +0000
+Received: from SN1PEPF000397AF.namprd05.prod.outlook.com
+ (2603:10b6:806:f3:cafe::e7) by SN7PR18CA0022.outlook.office365.com
+ (2603:10b6:806:f3::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.11 via Frontend Transport; Tue,
+ 20 Jan 2026 06:12:25 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ SN1PEPF000397AF.mail.protection.outlook.com (10.167.248.53) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9542.4 via Frontend Transport; Tue, 20 Jan 2026 06:12:24 +0000
+Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 20 Jan
+ 2026 00:12:20 -0600
+Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 20 Jan
+ 2026 00:12:20 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 20 Jan 2026 00:12:20 -0600
+Received: from toolbox.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60K6CFP9569454;
+	Tue, 20 Jan 2026 00:12:15 -0600
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <bb@ti.com>, <afd@ti.com>,
+	<p-bhagat@ti.com>
+CC: <stable@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<srk@ti.com>, <s-vadapalli@ti.com>
+Subject: [PATCH] arm64: dts: ti: k3-am62d2-evm: Fix missing RX delay for DP83867 PHY
+Date: Tue, 20 Jan 2026 11:43:24 +0530
+Message-ID: <20260120061335.1497832-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.51.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.0.73.40]
-X-ClientProxiedBy: SHCAS03.spreadtrum.com (10.0.1.207) To
- BJMBX01.spreadtrum.com (10.0.64.7)
-X-MAIL: SHSQR01.spreadtrum.com 60K66Yqr051077
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=unisoc.com;
-	s=default; t=1768889212;
-	bh=vNxPCkZDWqhlIjd/I8rHrZz21t7vwfqEdig0gAFmrUw=;
-	h=From:To:CC:Subject:Date;
-	b=dXRSo/drGupvdpEdjOrQASnZIOM0SBUHybBZq2AeAyj6GPGORlKBVrMsotEarIYzN
-	 sWm9vfdVykInYGX+B7fPZErvwQf02LH0ueKynJ/jbO7S3BdRYBuTISQOT4SKxTUQKR
-	 c7O27LotanlcxgoNR8Es1FInnj/KSnzkYHMik/wGjt/G/cn9Ej0pyMVua03mQCPt9h
-	 eGOjFdZ3iVYQn9eNYlKQC1MUrs/L5eZGRFfsHQ8osFDcoMzCvHzWnXQ8r6pYMUu9t5
-	 2JOByjlIqOKj/FbDJ9qNbYPzIMdaZOi2yhRK0+tTB+49hGlSdutaYfbvyM6ZqYTJQF
-	 um02uf0I6UIbQ==
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000397AF:EE_|DM3PPFA35BF3976:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2ced4f0b-b851-4d4b-201b-08de57eae11f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vu/QH5RrfHyk9OMzmpMUMjq4nUdDk4PKrSS1VspfcGVUrcIhzxwWWl98p/kn?=
+ =?us-ascii?Q?dkgBUxFP2UAgIiFwXuyL5GB2ZCfEldETuSQU36CGGa1wc1jnoeNy7FhfN66y?=
+ =?us-ascii?Q?Yn6HonLBXUdIxnimWe2hScRk5oglpEswFUu6Y8IGIVprWZqLhdFYonNMUrIh?=
+ =?us-ascii?Q?7MQ4vDP4ifIzBvm1OAJBxH2jpfBxnEpm8BdfW8q+BMB9DBYvlztgIepv9373?=
+ =?us-ascii?Q?f+7indi7AhFJetLegfjRg7nFmAwEgeSRFxlMHIIvUpQhhQtinth3wbVmuU9q?=
+ =?us-ascii?Q?MVRpy92Rulqd90c+KPLkjh8uDPJNM948jrkZ8c8J7xRJOeVbuHtWk1BN8nXT?=
+ =?us-ascii?Q?NMVsF+jV4Xhp/bFDFC5ulWAVpzkfxALwslNDCixEI7Wj2ldzYyXvjrIYId6f?=
+ =?us-ascii?Q?/VvrUqhgdyeQzdkJQBZG+xEvUY5tC3X44i97CVxR5AlMvSEgQnUOUe71KBD2?=
+ =?us-ascii?Q?AeOFRtkrvQaL/KLC7Iub9VW+bKbh7qDXM0g98vt5a5YHeUpXbJm7/65M1V1z?=
+ =?us-ascii?Q?6WEIW2XaTObFRWHh6iE81i542ZHkc65PgS5tjtBqtGXwxyiMkdB70EwiHlo2?=
+ =?us-ascii?Q?V9EDuPMbSsR6TQ0BNdyNWhCYI73VVzO+rcZAf/+jutBTDMjjRl9RGEUE9yMN?=
+ =?us-ascii?Q?8+ci6BZujMyvXivNYRu9cATsOGRp7kMP6ybsUR+pUAnlRA8Tr5XONPwW1VYz?=
+ =?us-ascii?Q?31SeSeO3S/5Gc+0llirVEVLH4eqYLy3LTuuOj2o742ce5wKvDsf/JJgzubrW?=
+ =?us-ascii?Q?ZC9THcrEg6YMi1j7E2L/lJAZnDXBnavYp2VFyx1Taf/JS5K+Cln4s6xhpmu2?=
+ =?us-ascii?Q?AKuHXj6mfgdRkIaHc2s0DW27L1FoEgtpKgVyM8FSnSlohu3vZjwIB5c5QPrz?=
+ =?us-ascii?Q?oii+8PO/zhKzaLf5yyjqJvmS10T7lw2vfnejbFxoVHJtiaeGOtAQicgWNJbq?=
+ =?us-ascii?Q?x219oj6nHczaPPm0QJaVV0orWZvOc7CKM0pljN7N5KXVfVkxrr6tt7uMByiH?=
+ =?us-ascii?Q?qjPFmg8Ys5vXU/0P2k56iqwFgDvU086/5ej+vYsqkVndfsa2jh9nIhqasADD?=
+ =?us-ascii?Q?TNZ3D1mmJNVj5vqjW+FP2kB8FztM995XJioCJqJdZ5VhF5Mb5qkspOOnBJxo?=
+ =?us-ascii?Q?3152UG0zNEm/r3Nzvr4ZCNk3iZ/P+UjaPXdakn6BaTCoNfaCy77RTZSBAnOe?=
+ =?us-ascii?Q?zZwl7LeubKn5oHBwyEeA37mCuZLolaRxoCLu+XbnIB/gC9woCnLg51WVrkQO?=
+ =?us-ascii?Q?4Qqf1a1jrfeGisSGpY82uEnnhyrsg8zx1+vM4SmYj+QuWJOWyZNIKA7JD0q5?=
+ =?us-ascii?Q?OEytGm0IR36cJGJkxlADKhxIupTmiokkeiaND2RFi6ZjDPR+a+5gtN+Rhlqe?=
+ =?us-ascii?Q?KMU52z2wFYRqJ0K53koCcDnwsvPc3+xDx+FHTdIzWMM3yJCy2NWescB/SX+L?=
+ =?us-ascii?Q?eNgw7yWPhfQNzkfJNKwSyWITlxHmPBORFpXQTcpRFtLHbZQxd2pe+76LBkKr?=
+ =?us-ascii?Q?HpKk4VJHr52wIMBS/3oKp9qdUd8bxr3uo52Yl2uRq1K1EQIp5q9xtyg2tgds?=
+ =?us-ascii?Q?HC7FMaTO/aPwpRIfk0IyVJehoIA/QyK9KPUGV5hP/UZCCrm5RfHukZ6j7v02?=
+ =?us-ascii?Q?6DrEWzWr8ATBa8MwtE64ENJifnosDosN2p24ty13jAVxJpImmm+FPuVos//X?=
+ =?us-ascii?Q?BhSbkg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 06:12:24.3229
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2ced4f0b-b851-4d4b-201b-08de57eae11f
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397AF.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PPFA35BF3976
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_220854_524171_85A009F4 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20260119_221230_609147_5A25AAB6 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,98 +156,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
+MAC Ports 1 and 2 of the CPSW3G Ethernet Switch in the AM62D2 SoC are both
+connected to different instances of the DP83867 Ethernet PHY on the AM62D2
+EVM, with the 'phy-mode' set to 'rgmii-id'. The DP83867 Ethernet PHY has to
+add a 2 nanosecond delay on receive (from wire) based on the EVM design.
 
-A DABT is reported[1] on an android based system when resume from hiberate,
-which is root caused as CFI will plant stub code[2] to verify the
-swsusp_arch_suspend_exit's authentication, where the hash value is stored
-before the page that alloced by create_safe_exec_page. We also have
-tried to copy the hash value together with the function but get failed since
-the value is not on the desired position(src_start - 4). So we solve
-this issue by setting __nocfi on swsusp_arch_resume and it works.
+Since the device driver for the DP83867 Ethernet PHY coincidentally assumes
+that the a 2 nanosecond receive delay has to be added in the absence of the
+'ti,rx-internal-delay' property, Ethernet is functional.
 
-[1]
-[   22.991934][    T1] Unable to handle kernel paging request at virtual address 0000000109170ffc
-[   22.991934][    T1] Mem abort info:
-[   22.991934][    T1]   ESR = 0x0000000096000007
-[   22.991934][    T1]   EC = 0x25: DABT (current EL), IL = 32 bits
-[   22.991934][    T1]   SET = 0, FnV = 0
-[   22.991934][    T1]   EA = 0, S1PTW = 0
-[   22.991934][    T1]   FSC = 0x07: level 3 translation fault
-[   22.991934][    T1] Data abort info:
-[   22.991934][    T1]   ISV = 0, ISS = 0x00000007, ISS2 = 0x00000000
-[   22.991934][    T1]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-[   22.991934][    T1]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-[   22.991934][    T1] [0000000109170ffc] user address but active_mm is swapper
-[   22.991934][    T1] Internal error: Oops: 0000000096000007 [#1] PREEMPT SMP
-[   22.991934][    T1] Dumping ftrace buffer:
-[   22.991934][    T1]    (ftrace buffer empty)
-[   22.991934][    T1] Modules linked in:
-[   22.991934][    T1] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 6.6.98-android15-8-g0b1d2aee7fc3-dirty-4k #1 688c7060a825a3ac418fe53881730b355915a419
-[   22.991934][    T1] Hardware name: Unisoc UMS9360-base Board (DT)
-[   22.991934][    T1] pstate: 804000c5 (Nzcv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[   22.991934][    T1] pc : swsusp_arch_resume+0x2ac/0x344
-[   22.991934][    T1] lr : swsusp_arch_resume+0x294/0x344
-[   22.991934][    T1] sp : ffffffc08006b960
-[   22.991934][    T1] x29: ffffffc08006b9c0 x28: 0000000000000000 x27: 0000000000000000
-[   22.991934][    T1] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000820
-[   22.991934][    T1] x23: ffffffd0817e3000 x22: ffffffd0817e3000 x21: 0000000000000000
-[   22.991934][    T1] x20: ffffff8089171000 x19: ffffffd08252c8c8 x18: ffffffc080061058
-[   22.991934][    T1] x17: 00000000529c6ef0 x16: 00000000529c6ef0 x15: 0000000000000004
-[   22.991934][    T1] x14: ffffff8178c88000 x13: 0000000000000006 x12: 0000000000000000
-[   22.991934][    T1] x11: 0000000000000015 x10: 0000000000000001 x9 : ffffffd082533000
-[   22.991934][    T1] x8 : 0000000109171000 x7 : 205b5d3433393139 x6 : 392e32322020205b
-[   22.991934][    T1] x5 : 000000010916f000 x4 : 000000008164b000 x3 : ffffff808a4e0530
-[   22.991934][    T1] x2 : ffffffd08058e784 x1 : 0000000082326000 x0 : 000000010a283000
-[   22.991934][    T1] Call trace:
-[   22.991934][    T1]  swsusp_arch_resume+0x2ac/0x344
-[   22.991934][    T1]  hibernation_restore+0x158/0x18c
-[   22.991934][    T1]  load_image_and_restore+0xb0/0xec
-[   22.991934][    T1]  software_resume+0xf4/0x19c
-[   22.991934][    T1]  software_resume_initcall+0x34/0x78
-[   22.991934][    T1]  do_one_initcall+0xe8/0x370
-[   22.991934][    T1]  do_initcall_level+0xc8/0x19c
-[   22.991934][    T1]  do_initcalls+0x70/0xc0
-[   22.991934][    T1]  do_basic_setup+0x1c/0x28
-[   22.991934][    T1]  kernel_init_freeable+0xe0/0x148
-[   22.991934][    T1]  kernel_init+0x20/0x1a8
-[   22.991934][    T1]  ret_from_fork+0x10/0x20
-[   22.991934][    T1] Code: a9400a61 f94013e0 f9438923 f9400a64 (b85fc110)
+However, since the device-tree is intended to describe the Hardware, and,
+the device driver for the DP83867 Ethernet PHY may change in the future,
+add the 'ti,rx-internal-delay' property and assign it the value
+'DP83867_RGMIIDCTL_2_00_NS' which corresponds to a 2 nanosecond
+delay.
 
-[2]
-0xffffffd08064a878 <swsusp_arch_resume+596>:	mov	x0, x24
-0xffffffd08064a87c <swsusp_arch_resume+600>:	mov	x1, x20
-0xffffffd08064a880 <swsusp_arch_resume+604>:	mov	x2, x21
-0xffffffd08064a884 <swsusp_arch_resume+608>:	mov	x3, x22
-0xffffffd08064a888 <swsusp_arch_resume+612>:	mov	x4, x23
-0xffffffd08064a88c <swsusp_arch_resume+616>:	ldur	w16, [x25, #-4]
-0xffffffd08064a890 <swsusp_arch_resume+620>:	movk	w17, #0x5d7b
-0xffffffd08064a894 <swsusp_arch_resume+624>:	movk	w17, #0xb6ad, lsl #16
-0xffffffd08064a898 <swsusp_arch_resume+628>:	cmp	w16, w17
-0xffffffd08064a89c <swsusp_arch_resume+632>:	b.eq	0xffffffd08064a8a4 <swsusp_arch_resume+640>  // b.none
-0xffffffd08064a8a0 <swsusp_arch_resume+636>:	brk	#0x8239
-0xffffffd08064a8a4 <swsusp_arch_resume+640>:	blr	x25
-
-co_developed-by: Jeson Gao <jeson.gao@unisoc.com>
-Signed-off-by: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
+Fixes: 1544bca2f188 ("arm64: dts: ti: Add support for AM62D2-EVM")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 ---
- arch/arm64/kernel/hibernate.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
-index 18749e9a6c2d..9717568518ba 100644
---- a/arch/arm64/kernel/hibernate.c
-+++ b/arch/arm64/kernel/hibernate.c
-@@ -402,7 +402,7 @@ int swsusp_arch_suspend(void)
-  * Memory allocated by get_safe_page() will be dealt with by the hibernate code,
-  * we don't need to free it here.
-  */
--int swsusp_arch_resume(void)
-+int __nocfi swsusp_arch_resume(void)
- {
- 	int rc;
- 	void *zero_page;
+Hello,
+
+This patch is based on commit
+24d479d26b25 Linux 6.19-rc6
+of Mainline Linux.
+
+Patch has been tested on the AM62D2 EVM verifying Ethernet functionality in
+the form of NFS (Network File System) mounted using the CPSW3G Ethernet
+interface 'eth0'. Test Logs:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/04c51da22c0a05f7fc930afc98997571
+
+Regards,
+Siddharth.
+
+ arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+index 2b233bc0323d..17c64af4f97b 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+@@ -649,12 +649,14 @@ &cpsw3g_mdio {
+ 
+ 	cpsw3g_phy0: ethernet-phy@0 {
+ 		reg = <0>;
++		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+ 		ti,min-output-impedance;
+ 	};
+ 
+ 	cpsw3g_phy1: ethernet-phy@3 {
+ 		reg = <3>;
++		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+ 		ti,min-output-impedance;
+ 	};
 -- 
-2.25.1
+2.51.1
 
 
