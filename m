@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD1CD2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57EDAD2ED0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mp07abERrumNhyPsQeKse54rOadyi3+YxkYP4qPzpsA=; b=sUaDrN0Voz+Z+duztbjkzQ4CdD
-	CkRzchetrG/L5Njy42SdsNIoRPquR6cY1+6cHaZVFrmG0eTT6aqRgaJsws0vQuSmc2SS4GWL/mA1i
-	oovqn09XRXU2P5iRI2N0LgP0rf8aOpd1fAw8LCAD1Ne2toNLBKt8NmoiagncwiDh7c05GQkEjffwe
-	BTTvmLI/ZycDLpu9adrSdLiK/9md6HAHkiH5k9rVbQ3M6wPl4Rqf7R8w2PRtF/f1OYLWAMYhaK9V8
-	ij+6SD4d10D02Jib506qPnLFzTmeiVA9oxSK2ZwC/Dk/lOC85ltnAdLiioOyuq9YXUzq1/ADox97F
-	tbfLBEUA==;
+	bh=+tIrp6HstcuwfiFz162zyZhrHpaG9hHBmzq4tw2KMNk=; b=HGZ7QurNYz53VQF1IpkWrLYXLr
+	50s2lfxtagxkaO6yljogmW4ZRQYqJpOjwODB3EbXQL8Wikt2NKXaNvspK1FVwzTdZXERLAJpqYiGr
+	loaNM0lfKhemyK6NmO4oF1O2qMvcd8uVXLb+IJ7RGXbQb9YLcHACB2EWOA6cQmUDD1MVzdkgHv40S
+	qTPwTl+SCrVqefMSuZEevsGGukMfUDMIcCoyD/a4HzCJt3Vpun1x6iDKlg6NICNpvfOhPoeaSMxf4
+	obdht92UiZMnHXHBbx+PmMrit++u9mtiLPJTlW6kNYEACdMC5vPUDFi0bnb7ZqVemaGMWEKjWV04+
+	wnhyYYVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viASt-00000003mMu-2YJM;
-	Tue, 20 Jan 2026 12:04:07 +0000
+	id 1viATY-00000003mT5-2ZVj;
+	Tue, 20 Jan 2026 12:04:48 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viASr-00000003mMl-2FGM
+	id 1viATW-00000003mSs-4AVg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 12:04:05 +0000
+	Tue, 20 Jan 2026 12:04:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 82C676012A
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 12:04:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27FC0C2BCB0
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 12:04:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6F91C6014A
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 12:04:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18444C2BCB2
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 12:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768910644;
-	bh=p9d6LakFYKaOF+FR5vT9INwm4NnQ4cVQwluda9YDdLI=;
+	s=k20201202; t=1768910686;
+	bh=jKyaAlehX7Qy5dIkcTxFT6tTeel+TstN11n2B93COhE=;
 	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=Bxqg/Cwf8cCDixc4DhCyDikAuBAJRSzUY4anYoaWTIXnlHvwjxWCqOgFCdG+3wI6D
-	 EKrWwRoZxMKi6p+h10uKdQ8B6+Gkw02RXfY1M6GNWYFzPiYW7gRi8svaPsWg93ltq0
-	 DWaeTPyixP8dgMdR1eL+N0TyLodycidYZZdHQW+OqlgeJEVj+hF4mCSpCL5zIadgrY
-	 YhHXiuqBM7d8RAT/UK7nr8pnchmDvW3s1xQAp8JU7noZz50XkYPrcH1fYLxEopl+p6
-	 N8NXAa+5QQF/bkACsMvcP/gVfMbvs3NJ43PJwCPBA6J0YSTGUlo7UBeq420yLY9d7f
-	 fpO3StVJ4PZWg==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-59b6f59c4f5so6161950e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 04:04:04 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWHLWve3MopXrpTjGUr7XrBhhtfv3+MRh4VfUhS+8eb4dfrgBaDssDYyphJzfEqP9B7QwT+ubs65BCOB1IcqFda@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrR3jhWvQbAhE3eJy07ywBEUz/JUkmIGqCB8T5Rvmx7nSvsnbt
-	yq6Zgndfmh+3Z+wiEWAEMecX84r7oLFu6Fk7nnmKoAbt5MwlyHsaBxyVKn1AiZrCOd9clbpGugl
-	fWWHXuFU0QQHmXXGGi8vsNfaLI8Fwot2jqdzdsfaAPg==
-X-Received: by 2002:ac2:4f14:0:b0:59b:7c78:a9c3 with SMTP id
- 2adb3069b0e04-59baeebad7amr4060447e87.1.1768910642665; Tue, 20 Jan 2026
- 04:04:02 -0800 (PST)
+	b=O5zqHn7qGRY+OMGtwYfBkJM8aq8kprH2Je9+4YgUlyRD3vxmqwweAXuEASjZYKbis
+	 CMKvOjnctS9PWsX0gsO0n0IOxNW1igR+lTwJrsAQu25eckrn/oOLYKX0OcyZYIM1M8
+	 uUZG8Ekg8novL6hgivp9odFr2c+HNyNhuxoCjyoRBXH3L2uVKe+3tCKwCkCnebld5B
+	 iNI6DRxIRaaLnBkwFh1oERsf0hulvXrcnwxASbFQBC1OqhXkLmKBTkQstkQ1/Hqed1
+	 A6Bb1+C4g/NJu7S9ryf2YkL/T6PkOgnMbeBM+ykxNo4JIPhARVCmX/qv5OdbEwUVkZ
+	 7WBAp3m6K8fkw==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-59b685d2b79so5269995e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 04:04:45 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVTQk79dpZIj88niLeetznlzUbvG29rg1HM1FzA9y6WIk4sqa4tT+61ZUDosIEvpZcOCgtEgpAlBAjhywBLvEsx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBBWKHipFgdtSV/gun+29vgg5yyZzL6Ca5yH4ZLtrNyTau95d2
+	seU/AQldj9RUIFS22NrSX0dGIi1e+Atz4EYIfjugQHf9qVPLVEEwAxHSI/taLxorAZM7KEbkr32
+	J0MfAozg+gujjFGS01G0XWtWI9/UpeE+YpFmPJGlz3A==
+X-Received: by 2002:a05:6512:2209:b0:595:910c:8eea with SMTP id
+ 2adb3069b0e04-59baeedb8d0mr4527119e87.32.1768910684697; Tue, 20 Jan 2026
+ 04:04:44 -0800 (PST)
 Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 20 Jan 2026 06:04:01 -0600
+ HTTPREST; Tue, 20 Jan 2026 12:04:43 +0000
 Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 20 Jan 2026 06:04:01 -0600
+ HTTPREST; Tue, 20 Jan 2026 12:04:43 +0000
 From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260120115923.3463866-5-khristineandreea.barbulescu@oss.nxp.com>
+In-Reply-To: <20260120115923.3463866-6-khristineandreea.barbulescu@oss.nxp.com>
 MIME-Version: 1.0
-References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com> <20260120115923.3463866-5-khristineandreea.barbulescu@oss.nxp.com>
-Date: Tue, 20 Jan 2026 06:04:01 -0600
-X-Gmail-Original-Message-ID: <CAMRc=MfH427jyVosqa1qzE9yAoH9jZkiv3mxPEtcUGR=4MibHw@mail.gmail.com>
-X-Gm-Features: AZwV_Qgqo3z9o-DsAb1ExxLJ6yhYuf67su5n9ktf7Dr6yJtAkW9SfUF-2_57DZo
-Message-ID: <CAMRc=MfH427jyVosqa1qzE9yAoH9jZkiv3mxPEtcUGR=4MibHw@mail.gmail.com>
-Subject: Re: [PATCH v8 04/10] pinctrl: s32cc: use dev_err_probe() and improve
- error messages
+References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com> <20260120115923.3463866-6-khristineandreea.barbulescu@oss.nxp.com>
+Date: Tue, 20 Jan 2026 12:04:43 +0000
+X-Gmail-Original-Message-ID: <CAMRc=McHieZFrdVkt_BhF1oEBz2breVj6zKjtgaQAaU9npCBRA@mail.gmail.com>
+X-Gm-Features: AZwV_QjiJd4F6TfXTJkvg80886t2EMvMvx-E5YB_KKhZJvuYUWeZmMG4W0nTwv4
+Message-ID: <CAMRc=McHieZFrdVkt_BhF1oEBz2breVj6zKjtgaQAaU9npCBRA@mail.gmail.com>
+Subject: Re: [PATCH v8 05/10] pinctrl: s32cc: change to "devm_pinctrl_register_and_init"
 To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
 Cc: Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
 	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
@@ -95,267 +94,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 20 Jan 2026 12:59:16 +0100, Khristine Andreea Barbulescu
+On Tue, 20 Jan 2026 12:59:17 +0100, Khristine Andreea Barbulescu
 <khristineandreea.barbulescu@oss.nxp.com> said:
 > From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
 >
-> Change dev_err&return statements into dev_err_probe throughout the driver
-> on the probing path. Moreover, add/fix some comments and print
-> statements.
+> Switch from "devm_pinctrl_register" to "devm_pinctrl_register_and_init"
+> and "pinctrl_enable" since this is the recommended way.
 >
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 > Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
 > ---
->  drivers/pinctrl/nxp/pinctrl-s32cc.c | 106 +++++++++++++++-------------
->  1 file changed, 55 insertions(+), 51 deletions(-)
+>  drivers/pinctrl/nxp/pinctrl-s32cc.c | 15 ++++++++++-----
+>  1 file changed, 10 insertions(+), 5 deletions(-)
 >
 > diff --git a/drivers/pinctrl/nxp/pinctrl-s32cc.c b/drivers/pinctrl/nxp/pinctrl-s32cc.c
-> index 35511f83d056..a98f8e7c2768 100644
+> index a98f8e7c2768..4767916dbcab 100644
 > --- a/drivers/pinctrl/nxp/pinctrl-s32cc.c
 > +++ b/drivers/pinctrl/nxp/pinctrl-s32cc.c
-> @@ -2,7 +2,7 @@
->  /*
->   * Core driver for the S32 CC (Common Chassis) pin controller
->   *
-> - * Copyright 2017-2022,2024 NXP
-> + * Copyright 2017-2022,2024-2025 NXP
->   * Copyright (C) 2022 SUSE LLC
->   * Copyright 2015-2016 Freescale Semiconductor, Inc.
->   */
-> @@ -60,14 +60,20 @@ static u32 get_pin_func(u32 pinmux)
->  	return pinmux & GENMASK(3, 0);
->  }
+> @@ -974,10 +974,10 @@ int s32_pinctrl_probe(struct platform_device *pdev,
+>  		return dev_err_probe(&pdev->dev, ret,
+>  				     "Fail to probe dt properties\n");
 >
-> +/**
-> + * struct s32_pinctrl_mem_region - memory region for a set of SIUL2 registers
-> + * @map: regmap used for this range
-> + * @pin_range: the pins controlled by these registers
-> + * @name: name of the current range
-> + */
-
-This should be a separate commit, it has nothing to do with dev_err_probe().
-
-Same elsewhere, just add a commit fixing kerneldocs in this driver.
-
->  struct s32_pinctrl_mem_region {
->  	struct regmap *map;
->  	const struct s32_pin_range *pin_range;
->  	char name[8];
->  };
->
-> -/*
-> - * Holds pin configuration for GPIO's.
-> +/**
-> + * struct gpio_pin_config - holds pin configuration for GPIO's
->   * @pin_id: Pin ID for this GPIO
->   * @config: Pin settings
->   * @list: Linked list entry for each gpio pin
-> @@ -78,21 +84,23 @@ struct gpio_pin_config {
->  	struct list_head list;
->  };
->
-> -/*
-> - * Pad config save/restore for power suspend/resume.
-> +/**
-> + * struct s32_pinctrl_context - pad config save/restore for suspend/resume
-> + * @pads: saved values for the pards
->   */
->  struct s32_pinctrl_context {
->  	unsigned int *pads;
->  };
->
-> -/*
-> +/**
-> + * struct s32_pinctrl - private driver data
->   * @dev: a pointer back to containing device
->   * @pctl: a pointer to the pinctrl device structure
->   * @regions: reserved memory regions with start/end pin
->   * @info: structure containing information about the pin
-> - * @gpio_configs: Saved configurations for GPIO pins
-> - * @gpiop_configs_lock: lock for the `gpio_configs` list
-> - * @s32_pinctrl_context: Configuration saved over system sleep
-> + * @gpio_configs: saved configurations for GPIO pins
-> + * @gpio_configs_lock: lock for the `gpio_configs` list
-> + * @saved_context: configuration saved over system sleep
->   */
->  struct s32_pinctrl {
->  	struct device *dev;
-> @@ -123,13 +131,13 @@ s32_get_region(struct pinctrl_dev *pctldev, unsigned int pin)
->  	return NULL;
->  }
->
-> -static inline int s32_check_pin(struct pinctrl_dev *pctldev,
-> -				unsigned int pin)
-> +static int s32_check_pin(struct pinctrl_dev *pctldev,
-> +			 unsigned int pin)
-
-Likewise, this merits a separate patch.
-
->  {
->  	return s32_get_region(pctldev, pin) ? 0 : -EINVAL;
->  }
->
-> -static inline int s32_regmap_read(struct pinctrl_dev *pctldev,
-> +static int s32_regmap_read(struct pinctrl_dev *pctldev,
->  			   unsigned int pin, unsigned int *val)
->  {
->  	struct s32_pinctrl_mem_region *region;
-> @@ -145,7 +153,7 @@ static inline int s32_regmap_read(struct pinctrl_dev *pctldev,
->  	return regmap_read(region->map, offset, val);
->  }
->
-> -static inline int s32_regmap_write(struct pinctrl_dev *pctldev,
-> +static int s32_regmap_write(struct pinctrl_dev *pctldev,
->  			    unsigned int pin,
->  			    unsigned int val)
->  {
-> @@ -163,7 +171,7 @@ static inline int s32_regmap_write(struct pinctrl_dev *pctldev,
->
->  }
->
-> -static inline int s32_regmap_update(struct pinctrl_dev *pctldev, unsigned int pin,
-> +static int s32_regmap_update(struct pinctrl_dev *pctldev, unsigned int pin,
->  			     unsigned int mask, unsigned int val)
->  {
->  	struct s32_pinctrl_mem_region *region;
-> @@ -236,10 +244,10 @@ static int s32_dt_group_node_to_map(struct pinctrl_dev *pctldev,
->  	}
->
->  	ret = pinconf_generic_parse_dt_config(np, pctldev, &cfgs, &n_cfgs);
-> -	if (ret) {
-> -		dev_err(dev, "%pOF: could not parse node property\n", np);
-> -		return ret;
-> -	}
-> +	if (ret)
-> +		return dev_err_probe(dev, ret,
-> +				     "%pOF: could not parse node property\n",
-> +				     np);
->
->  	if (n_cfgs)
->  		reserve++;
-> @@ -321,7 +329,7 @@ static int s32_pmx_set(struct pinctrl_dev *pctldev, unsigned int selector,
->  	/* Check beforehand so we don't have a partial config. */
->  	for (i = 0; i < grp->data.npins; i++) {
->  		if (s32_check_pin(pctldev, grp->data.pins[i]) != 0) {
-> -			dev_err(info->dev, "invalid pin: %u in group: %u\n",
-> +			dev_err(info->dev, "Invalid pin: %u in group: %u\n",
->  				grp->data.pins[i], group);
->  			return -EINVAL;
->  		}
-> @@ -476,8 +484,8 @@ static int s32_get_slew_regval(int arg)
->  	return -EINVAL;
->  }
->
-> -static inline void s32_pin_set_pull(enum pin_config_param param,
-> -				   unsigned int *mask, unsigned int *config)
-> +static void s32_pin_set_pull(enum pin_config_param param,
-> +			     unsigned int *mask, unsigned int *config)
->  {
->  	switch (param) {
->  	case PIN_CONFIG_BIAS_DISABLE:
-> @@ -763,15 +771,15 @@ static int s32_pinctrl_parse_groups(struct device_node *np,
->  	grp->data.name = np->name;
->
->  	npins = of_property_count_elems_of_size(np, "pinmux", sizeof(u32));
-> -	if (npins < 0) {
-> -		dev_err(dev, "Failed to read 'pinmux' property in node %s.\n",
-> -			grp->data.name);
-> -		return -EINVAL;
-> -	}
-> -	if (!npins) {
-> -		dev_err(dev, "The group %s has no pins.\n", grp->data.name);
-> -		return -EINVAL;
-> -	}
-> +	if (npins < 0)
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "Failed to read 'pinmux' in node %s\n",
-> +				     grp->data.name);
-> +
-> +	if (!npins)
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "The group %s has no pins\n",
-> +				     grp->data.name);
->
->  	grp->data.npins = npins;
->
-> @@ -812,10 +820,9 @@ static int s32_pinctrl_parse_functions(struct device_node *np,
->  	/* Initialise function */
->  	func->name = np->name;
->  	func->ngroups = of_get_child_count(np);
-> -	if (func->ngroups == 0) {
-> -		dev_err(info->dev, "no groups defined in %pOF\n", np);
-> -		return -EINVAL;
-> -	}
-> +	if (func->ngroups == 0)
-> +		return dev_err_probe(info->dev, -EINVAL,
-> +				     "No groups defined in %pOF\n", np);
->
->  	groups = devm_kcalloc(info->dev, func->ngroups,
->  				    sizeof(*func->groups), GFP_KERNEL);
-> @@ -886,10 +893,9 @@ static int s32_pinctrl_probe_dt(struct platform_device *pdev,
->  	}
->
->  	nfuncs = of_get_child_count(np);
-> -	if (nfuncs <= 0) {
-> -		dev_err(&pdev->dev, "no functions defined\n");
-> -		return -EINVAL;
-> -	}
-> +	if (nfuncs <= 0)
-> +		return dev_err_probe(&pdev->dev, -EINVAL,
-> +				     "No functions defined\n");
->
->  	info->nfunctions = nfuncs;
->  	info->functions = devm_kcalloc(&pdev->dev, nfuncs,
-> @@ -919,18 +925,17 @@ static int s32_pinctrl_probe_dt(struct platform_device *pdev,
->  int s32_pinctrl_probe(struct platform_device *pdev,
->  		      const struct s32_pinctrl_soc_data *soc_data)
->  {
-> -	struct s32_pinctrl *ipctl;
-> -	int ret;
-> -	struct pinctrl_desc *s32_pinctrl_desc;
-> -	struct s32_pinctrl_soc_info *info;
->  #ifdef CONFIG_PM_SLEEP
->  	struct s32_pinctrl_context *saved_context;
->  #endif
-> +	struct pinctrl_desc *s32_pinctrl_desc;
-> +	struct s32_pinctrl_soc_info *info;
-> +	struct s32_pinctrl *ipctl;
-> +	int ret;
->
-> -	if (!soc_data || !soc_data->pins || !soc_data->npins) {
-> -		dev_err(&pdev->dev, "wrong pinctrl info\n");
-> -		return -EINVAL;
-> -	}
-> +	if (!soc_data || !soc_data->pins || !soc_data->npins)
-> +		return dev_err_probe(&pdev->dev, -EINVAL,
-> +				     "Wrong pinctrl info\n");
->
->  	info = devm_kzalloc(&pdev->dev, sizeof(*info), GFP_KERNEL);
->  	if (!info)
-> @@ -965,16 +970,15 @@ int s32_pinctrl_probe(struct platform_device *pdev,
->  	s32_pinctrl_desc->owner = THIS_MODULE;
->
->  	ret = s32_pinctrl_probe_dt(pdev, ipctl);
-> -	if (ret) {
-> -		dev_err(&pdev->dev, "fail to probe dt properties\n");
-> -		return ret;
-> -	}
+> -	ipctl->pctl = devm_pinctrl_register(&pdev->dev, s32_pinctrl_desc,
+> -					    ipctl);
+> -	if (IS_ERR(ipctl->pctl))
+> -		return dev_err_probe(&pdev->dev, PTR_ERR(ipctl->pctl),
+> +	ret = devm_pinctrl_register_and_init(&pdev->dev, s32_pinctrl_desc,
+> +					     ipctl, &ipctl->pctl);
 > +	if (ret)
 > +		return dev_err_probe(&pdev->dev, ret,
-> +				     "Fail to probe dt properties\n");
->
->  	ipctl->pctl = devm_pinctrl_register(&pdev->dev, s32_pinctrl_desc,
->  					    ipctl);
->  	if (IS_ERR(ipctl->pctl))
->  		return dev_err_probe(&pdev->dev, PTR_ERR(ipctl->pctl),
-> -				     "could not register s32 pinctrl driver\n");
-> +				     "Could not register s32 pinctrl driver\n");
+>  				     "Could not register s32 pinctrl driver\n");
 >
 >  #ifdef CONFIG_PM_SLEEP
->  	saved_context = &ipctl->saved_context;
+> @@ -990,7 +990,12 @@ int s32_pinctrl_probe(struct platform_device *pdev,
+>  		return -ENOMEM;
+>  #endif
+>
+> -	dev_info(&pdev->dev, "initialized s32 pinctrl driver\n");
+> +	ret = pinctrl_enable(ipctl->pctl);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +				     "Failed to enable pinctrl\n");
+> +
+> +	dev_info(&pdev->dev, "Initialized S32 pinctrl driver\n");
+>
+>  	return 0;
+>  }
 > --
 > 2.50.1
 >
 >
 
-Bart
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
