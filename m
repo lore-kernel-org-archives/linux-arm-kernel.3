@@ -4,88 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90D6DD2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 07:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF9ED2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 07:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sYk5VbQOx8qeK5j+I6exldUJy66Tz0nREUA5btGygaA=; b=QHIk3PIowPN3D5pp/mVDOquJw8
-	fJqFO7gLU911VvUVSHO/rRbXhArqFcUD7NAAw366oDulyfEVOxySiuc1VH3DI2Z/88Ud/9uUqfm1E
-	Kq8AMcFkfwOKS/wRAdkVIQPl/nhL6pYUoeHnAZUW9RRwRg/KOq/iYgTW3liGkGlwRpd77Z420gDsJ
-	NA3oooksLXNR6IIF26WSrV68Z5rtgrF+FKC7iNIa9xMsAE+BgOqbkd5PgudJDYsIv6hLd6SUi4puu
-	IPTgczhkwDDtQncSdcXj/fiGBFhlkdsTywHXt9HSPkwY14IUBSpkF6wxeBjryQqTaUWVErIy4svmr
-	uTWePQDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7vazJlY7f+ipRlmtxy6NEiiscVonh33GVCHIMR/axgI=; b=RcPJdmKdapuX2iEXhYu/T/75Kb
+	cbcnc/Me9dIx/NQQx8dkWX+Pyz5ClOK1iYpxz2HdC76lNFYAGEwAnJBOSqgduyUSnrRWdVXKDVSUy
+	oYjR9LGOQJtsJsMsMnKk6L9kAAWHHbgegqLp62BJtUC+dg8soXgEma428ub89PKTtk8P96igy5qs5
+	HwyRwYdSvmu0wMQDaIzbJa/KAqqgAZt9kGnQEQYwsC1lN1r3W9G+o8DO0Ca+39QRXiElOBpP2Q/ql
+	ZcP4+hwNzL2m7kJuUJFhKZXQFgl51NqOb+wYgatPUZmqGbbGETB6pxFUvf+llyYcnGGvEjOJ7YENo
+	FGek5iwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi67T-00000003LOZ-0kCE;
-	Tue, 20 Jan 2026 07:25:43 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1vi6MM-00000003Mcb-0VXq;
+	Tue, 20 Jan 2026 07:41:06 +0000
+Received: from mx.adeep.su ([185.250.0.168])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi67R-00000003LNp-05Li
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 07:25:42 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2a35ae38bdfso55415ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 23:25:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1768893937; x=1769498737; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=sYk5VbQOx8qeK5j+I6exldUJy66Tz0nREUA5btGygaA=;
-        b=Q721dfNI5qzQHU7EJfUnDbNI7VJtBSsIAxG8BEWvPi66PP5Vwvbv2tuTRr9xd8ydnX
-         EWULhN1a1uNEQTapIAKWMpK1hXaVkTkcoLxk/n0+fs7x/dkmlUkODJHMr+bf83SilpJb
-         KSx8MeZMNaRKT0rx+YnXZx8QZ51csViv3SKVX4jg1EVTORnwLIjhp5qGg/B2ffbNa1ve
-         8dqptJwPk6B8uKDuZi6EgpMm8ZjpkyMVtpg+JhKZ4t19x/M1MH/37AG9vGhJJxwiAoVW
-         yN1l1hO33U9Q4694k5yp7adPKAbRksX6kDN+tuIL2Z0F1+3Kp5i8rbxQ4lZxEzfQ1rbA
-         A9kQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768893937; x=1769498737;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=sYk5VbQOx8qeK5j+I6exldUJy66Tz0nREUA5btGygaA=;
-        b=Qai+/6q10JfWCQ6Vw29RhdZ4/JknWQLexzOxczuAXM485nLag8U2nkxkwsqTbW+Hnl
-         K8fXL6JV+99WW/ao0zZqiswaDE91csBHzMh/V3JvI7xOOUL5BLl96HxqMWEtRd8wpCYv
-         S/04wWhUh8a5gj04uwBvYzVu6yLt2lRBdFBjIzo4mGw15GKWKd/0I8TawzvsZhQT49sg
-         vpbnPhc9yUxF88+WKf0kJK8C68QwekLen16m2TP3aMrdQVVP1o2u0IVsCNwSgQCePJRo
-         +XaG7D8dr+IRTwfQHWV2C+JM2reVI2DWiDBkei1noOowX4WKrRNZQlVvqBaA3F1pkZbS
-         dpLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVggfd9nmfy2t5TMCWKrgZTtma5RqnOTZEQYd/eRCQcrE59ZssjIU9LSNWyfkDBrJnjWQgO5oYw94wLrDRj5npu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhaZ5niiHORM+8CeZ3lQFOtKcOKNIClbwkFlqdfUX2TtxaDGo6
-	b95PW3M+5IjvTG0AOipYiB1c/xPMSdG87QmHzSJ9JOh1rYEPWZNkLRVh4Mqw96DUigkCIA9umEO
-	+a7z2uQ==
-X-Gm-Gg: AZuq6aLA/B7FPi/Ro0FnvlFkAsjWn09KHD+NIMbNrwYQ6S63glyXsX5U4ECyPVrZBLL
-	D8x/ml0GUJjmXL2cWfmR/8KDIDuDqpPFXaBnlZBibpS21wLZT2wHxKGHfE7dChpuwXN8ne/iCVi
-	88gok2Npz2tAgjNe9RmDWr6XlU9plDqQKBdUf48KwMJKxuVpzTX2RJOby676R47iw8oc423/i+g
-	VdL2+keVQKvUkFSmQtXW0lOhc3Km6Pl4axOQvR3sdKzImRtXpruJcpl+goVxYLf0bUqmEpi4r3Z
-	IMDAy3mzFutmOmsXYEORk1QucmyW9nhag46td9H7TiHqFsmuHsLC/8ic1OXysoUeLEKbGkNp+FY
-	RTYgZiue928NXwus2iz+t7JJRlLybAsUGKfKKOZBAeHj/Oi3AB04kP2y6WdCdvPg6BMig2FCR2u
-	+frptZRoqx09gZfi0rK/Bgbw/pRa19Hs/kgBvzk5N92RS1zdRB
-X-Received: by 2002:a17:903:2289:b0:2a7:6c4e:5914 with SMTP id d9443c01a7336-2a76c4e5f06mr647805ad.6.1768893937263;
-        Mon, 19 Jan 2026 23:25:37 -0800 (PST)
-Received: from google.com (222.245.187.35.bc.googleusercontent.com. [35.187.245.222])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-81fa10c5502sm11275223b3a.24.2026.01.19.23.25.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jan 2026 23:25:36 -0800 (PST)
-Date: Tue, 20 Jan 2026 07:25:31 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, jgg@nvidia.com, robin.murphy@arm.com, joro@8bytes.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH rc] iommu/arm-smmu-v3: Do not set disable_ats unless vSTE
- is Translate
-Message-ID: <aW8t609h-7yDi033@google.com>
-References: <20260115011243.1302402-1-nicolinc@nvidia.com>
+	id 1vi6MI-00000003Mc9-00tO;
+	Tue, 20 Jan 2026 07:41:04 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D56C3270AA;
+	Tue, 20 Jan 2026 10:33:41 +0300 (MSK)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=baodeep.com; s=dkim;
+	t=1768894425; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references:
+	 disposition-notification-to; bh=7vazJlY7f+ipRlmtxy6NEiiscVonh33GVCHIMR/axgI=;
+	b=F/ZuUzVedI+o80QCH+G05kHTJddLLaWdVlPdUavvyOGNDKf+A+lJdf5lDmvmrsyoaKQYNO
+	dodA2pAX5FVq3aS74mcfcBY0euu2VNPRmUfuzmGiMZurJfjOeU/k6ojkdv6Y6543A1m4Io
+	09I4pB8BKtctoYCoMNYwdAlHlKRdqmlhBO4gatSt1oQrK5UVAU/U+NiNgGLXSX/pGoI0vJ
+	UsiHSweUomrl7azJxZmErSouaRTSPhRRsNnC6RdxudfgLpxd+kEmfxquQQo39Z+ckxAykE
+	UXnbD8clpyKdBUmxMcq4iGS1epRu7ZOVSf31vkB6/tcriwYKONCeVAedqyKZqw==
+Message-ID: <f923c800-d7f5-4c99-9f41-b75f00fecca1@baodeep.com>
+Date: Tue, 20 Jan 2026 10:33:23 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260115011243.1302402-1-nicolinc@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Eliminate Odroid HC4 power glitches during boot.
+To: Eric.Neulight@linuxdev.slmail.me, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260116-odroid-hc4-dts-v1-1-459b601cd5cf@linuxdev.slmail.me>
+From: Viacheslav <v@baodeep.com>
+Content-Language: en-US
+In-Reply-To: <20260116-odroid-hc4-dts-v1-1-459b601cd5cf@linuxdev.slmail.me>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_232541_063173_4E4361A9 
-X-CRM114-Status: GOOD (  23.51  )
+X-CRM114-CacheID: sfid-20260119_234102_711395_6A84A3F6 
+X-CRM114-Status: GOOD (  20.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,55 +73,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 05:12:43PM -0800, Nicolin Chen wrote:
-> A vSTE may have three configuration types: Abort, Bypass, and Translate.
+Hi!
+
+On 17/01/2026 07.02, Eric Neulight via B4 Relay wrote:
+> From: Eric Neulight <Eric.Neulight@linuxdev.slmail.me>
 > 
-> An Abort vSTE wouldn't enable ATS, but the other two might.
+> Fix issue with Odroid HC4 (and all meson-sm1-odroid) DTS that causes
+> regulator power to momentarily glitch OFF-ON during boot.  Add
+> regulator-boot-on to all regulator-fixed and regulator-gpio entries
+> that (1) define a gpio AND (2) define regulator-always-on.
 > 
-> It makes sense for a Transalte vSTE to rely on the guest vSTE.EATS field.
+> U-boot powers on devices necessary for boot then hands off the DTB to
+> the kernel.  During probe, linux drivers/regulator/fixed.c and
+> gpio-regulator.c both first set the regulator control gpio (that U-boot
+> already turned ON) to default OFF before then setting it to the defined
+> (ON) state. This glitches the power to the affected devices, unless
+> regulator-boot-on is specified with it.  In fact, U-boot has the same
+> behavior.  So, during reboot, a power glitch can actually happen twice:
+> once when U-boot reads the DTB and probes the gpio and again when the
+> kernel reads the DTB and probes the gpio.
 > 
-> For a Bypass vSTE, it would end up with an S2-only physical STE, similar
-> to an attachment to a regular S2 domain. However, the nested case always
-> disables ATS following the Bypass vSTE, while the regular S2 case always
-> enables ATS so long as arm_smmu_ats_supported(master) == true.
+> Problem this fixes: On the Odroid HC4, power to the SATA ports glitches
+> during boot and causes some HDDs to do emergency head retract, which
+> should be avoided.  On the HC4, power glitches to the SD card, USB,
+> SATA, and HDMI interfaces during boot.  These are all boot devices.
+> A power glitch can potentially cause a problem for any sensitive devices
+> during boot.
 > 
-> Note that ATS is needed for certain VM centric workloads and historically
-> non-vSMMU cases have relied on this automatic enablement. So, having the
-> nested case behave differently causes problems.
+> NOTE: This is not limited to just the HC4, likely an issue with ALL DTS
+> with regulator-fixed or regulator-gpio entries that (1) define a gpio
+> AND (2) define regulator-always-on.  All such entries should also
+> include regulator-boot-on in order to avoid potential power glitches.
+> At worst, adding regulator-boot-on in such cases is harmless because of
+> regulator-always-on, and, at best, it eliminates detrimental power
+> glitches during boot.  So, this is best-practice.
 > 
-> To fix that, add a condition to disable_ats, so that it might enable ATS
-> for a Bypass vSTE, aligning with the regular S2 case.
+> Fixes: 164147f094ec5d0fc2c2098a888f4b50cf3096a7 ("arm64: dts: meson-sm1-odroid-hc4: add regulators controlled by GPIOH_8")
+> Fixes: 45d736ab17b44257e15e75e0dba364139fdb0983 ("arm64: dts: meson-sm1-odroid: add 5v regulator gpio")
+> Fixes: 1f80a5cf74a60997b92d2cde772edec093bec4d9 ("arm64: dts: meson-sm1-odroid: add missing enable gpio and supply for tf_io regulator")
+> Fixes: 88d537bc92ca035e2a9920b0abc750dd62146520 ("arm64: dts: meson: convert meson-sm1-odroid-c4 to dtsi")
 > 
-> Fixes: f27298a82ba0 ("iommu/arm-smmu-v3: Allow ATS for IOMMU_DOMAIN_NESTED")
-> Cc: stable@vger.kernel.org
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Eric Neulight <Eric.Neulight@linuxdev.slmail.me>
 > ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+>   arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts | 2 ++
+>   arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi    | 3 +++
+>   2 files changed, 5 insertions(+)
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> index 93fdadd07431..823461a26659 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> @@ -177,7 +177,9 @@ static int arm_smmu_attach_dev_nested(struct iommu_domain *domain,
->  	 * config bit here base this off the EATS value in the STE. If the EATS
->  	 * is set then the VM must generate ATC flushes.
->  	 */
-> -	state.disable_ats = !nested_domain->enable_ats;
-> +	if (FIELD_GET(STRTAB_STE_0_CFG, le64_to_cpu(nested_domain->ste[0])) ==
-> +	    STRTAB_STE_0_CFG_S1_TRANS)
-> +		state.disable_ats = !nested_domain->enable_ats;
->  	ret = arm_smmu_attach_prepare(&state, domain);
->  	if (ret) {
->  		mutex_unlock(&arm_smmu_asid_lock);
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
+> index 0170139b8d32f4274ad991b0f3d9a0f6c67969ce..3ece30a0a1fff736c544cf89ed0a8cca0890f128 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
+> +++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
+> @@ -52,6 +52,7 @@ p12v_0: regulator-p12v-0 {
+>   
+>   		gpio = <&gpio GPIOH_8 GPIO_OPEN_DRAIN>;
+>   		enable-active-high;
+> +		regulator-boot-on;
+>   		regulator-always-on;
+>   	};
+>   
+> @@ -65,6 +66,7 @@ p12v_1: regulator-p12v-1 {
+>   
+>   		gpio = <&gpio GPIOH_8 GPIO_OPEN_DRAIN>;
+>   		enable-active-high;
+> +		regulator-boot-on;
+>   		regulator-always-on;
+>   	};
+>   
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi
+> index c4524eb4f0996dfbccec16ca5b936a5c3b2663a5..0bce4e8d965f2c83e6ba677fef2ede2726de6ed1 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi
+> @@ -37,6 +37,7 @@ tflash_vdd: regulator-tflash-vdd {
+>   
+>   		gpio = <&gpio_ao GPIOAO_3 GPIO_OPEN_DRAIN>;
+>   		enable-active-high;
+> +		regulator-boot-on;
+>   		regulator-always-on;
+>   	};
+>   
+> @@ -50,6 +51,7 @@ tf_io: gpio-regulator-tf-io {
+>   
+>   		enable-gpios = <&gpio_ao GPIOE_2 GPIO_OPEN_DRAIN>;
+>   		enable-active-high;
+> +		regulator-boot-on;
+>   		regulator-always-on;
+>   
+>   		gpios = <&gpio_ao GPIOAO_6 GPIO_OPEN_SOURCE>;
+> @@ -81,6 +83,7 @@ vcc_5v: regulator-vcc-5v {
+>   		regulator-name = "5V";
+>   		regulator-min-microvolt = <5000000>;
+>   		regulator-max-microvolt = <5000000>;
+> +		regulator-boot-on;
+>   		regulator-always-on;
+>   		vin-supply = <&main_12v>;
+>   		gpio = <&gpio GPIOH_8 GPIO_OPEN_DRAIN>;
+> 
+> ---
+> base-commit: b71e635feefc852405b14620a7fc58c4c80c0f73
+> change-id: 20260116-odroid-hc4-dts-54f4254d8554
+> 
+> Best regards,
 
-This makes sense. The nested_domain->enable_ats should indeed only be
-checked for Translate configs.
-
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Acked-by: Viacheslav Bocharov <v@baodeep.com>
 
 Thanks,
-Praan
-
+Viacheslav
 
