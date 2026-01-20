@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E2ED2ED0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 10:40:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80823D2ED11
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 10:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DxGELJiW39YSBH6yCtCMZHPxIbPOubG0p87HEjV4ICI=; b=Z1/GmMxtfNUjX6lG7D20iPDpH4
-	fu+58VL0oypFgyjXDAdpW/nRzhtNW5B0pIFn4cG7fyQtcYAaWClc349KSWHN+5jwCtzN6kH+NOcc8
-	Ol6aDUO1qvD4nNJCjEaYM+VniYYwpsEpRRxKJ2dOw3HtZG5YDLx7peqAkesWwcUNrxH+uJM+UAlGV
-	i7ckJ2Ie6dmvy6SCXygcb5mlFR+BBf+X+hzHeZojVJAFdMryYPluPLJrbrdFnDeGCjkMktCRJbZmX
-	RftfVhEKiY9NAY8ck9OqqcsRkmEH8tJVMlPJuSltPBT8W0Roz0UCIFQHYs0USbzhYz6Cc/WzWDoo/
-	iZ2gDrdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O2FhviPnC5jz5ZsBAwO6tzGpttxJxSsq9OxCi424fEk=; b=35Dw3sUZKcnsb8hNXMKvRg1gad
+	y86ned89lsz+yVOK7nl9oZZVGrr1LIsULZQiqCVF4IfQx3gz9xIHlwNcixQlLduKGPtCpJ2lHkzh0
+	fQiGiA6etJOQSesSnOhIsVVN7JJtn3hu6F+Z7Ryt/S86jWWlUjh37Glnofh5XdKbXQPy7XnxtsmlI
+	vsjlHFlbcXwKk9hQgguOzeZ21VLhW+6DiTvI2CWxI4EbQU89nc1vNxkZ7LQcZc3sLvGHJY0XdN69C
+	T/28HIBWC1QpGCvYEZWnvcCIV4feuHLfAuX9pCPngEvk/0j6J2Hv3ZzTImZjDZZonLYXLfXjEp3Jv
+	8rM1MoUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi9A7-00000003dZw-2wbx;
-	Tue, 20 Jan 2026 10:40:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi9A4-00000003dZV-3n9P
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 10:40:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19AAF1476;
-	Tue, 20 Jan 2026 02:40:28 -0800 (PST)
-Received: from [10.1.39.200] (XHFQ2J9959.cambridge.arm.com [10.1.39.200])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9D393F694;
-	Tue, 20 Jan 2026 02:40:31 -0800 (PST)
-Message-ID: <baa46ea0-737b-4d9e-b4f4-2eee1476da95@arm.com>
-Date: Tue, 20 Jan 2026 10:40:30 +0000
+	id 1vi9DL-00000003drZ-3Tga;
+	Tue, 20 Jan 2026 10:43:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vi9DK-00000003drM-1ThA;
+	Tue, 20 Jan 2026 10:43:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=O2FhviPnC5jz5ZsBAwO6tzGpttxJxSsq9OxCi424fEk=; b=pi4h7G/RQR+F19rHk0ijTGxoVj
+	qPB1Nop1AyfZJQbdjdJerJslw5wLJfvX+hr37AvIZmrmbwL3vOOINovFmkElnxI8vyekel45F9bTZ
+	fIj7NJsOdjek1zlav7otxy9c3V9zRPGiecgTCOjSYVEL5EpBOtJrcpE7HXFlk5s0DeKivhh6ycK3v
+	CH6PKEleudQCtjsiSzAhM0jNGN84pI7jSyOP0LgJtOMrGoX/nFlYYJbEo404ZYfrBOH6/x99rjsRH
+	ipvUbvz3Im4c4h9GRlZqUJPeHWnukGpL/ZdSfAu4wENI1+fbAhKVuaFZxKBu2D6v9XdkExed/h330
+	CsEvoOCA==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vi9DH-0000000Dpo3-25Ar;
+	Tue, 20 Jan 2026 10:43:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=O2FhviPnC5jz5ZsBAwO6tzGpttxJxSsq9OxCi424fEk=; b=lxZMgDnA7WGotJ0c12IMFqkU7a
+	rwtU+DoqMrphu1iorjPcGFxsr1p0/WtuZXWjU9WIWLzaIIDwgRAjmFpdOQr72wpzlEwBRKSxY1jUA
+	zpKgaOK1KezXk/bc0zdRwF7YZmrCBgt3CfDv/jmR5HEsJVlsQXdkH02mqs4lak3nNBx/pU6YyXQdL
+	W1t7Y+39lfIc1Tmxok2lYKPNC1R9UPgCAimMDW9NEIo2H/i1hxwJBdr+RUtsyVUVsJwuwCeaPrHVM
+	9QUlDYrhBFOrjOYNZHJM4IMdbqwJz7kzu0vi+vdAwxQXChIf+0jbUeOWnPBcIZNAi5VLurg7Qy9Tg
+	Oqh96xGg==;
+Received: from [192.76.154.238] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vi9D4-003N5V-46; Tue, 20 Jan 2026 11:43:42 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: dmitry.baryshkov@oss.qualcomm.com, Andy Yan <andyshrk@163.com>
+Cc: krzk+dt@kernel.org, conor+dt@kernel.org, cristian.ciocaltea@collabora.com,
+ Laurent.pinchart@ideasonboard.com, mripard@kernel.org, hjc@rock-chips.com,
+ robh@kernel.org, sebastian.reichel@collabora.com, tzimmermann@suse.de,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH 2/5] drm/bridge: synopsys: dw-dp: Set pixel mode by platform data
+Date: Tue, 20 Jan 2026 11:43:41 +0100
+Message-ID: <4083071.q0ZmV6gNhb@phil>
+In-Reply-To: <20260109080054.228671-3-andyshrk@163.com>
+References: <20260109080054.228671-1-andyshrk@163.com>
+ <20260109080054.228671-3-andyshrk@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] arm64: mmu: avoid allocating pages while splitting
- the linear mapping
-Content-Language: en-GB
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
- catalin.marinas@arm.com, akpm@linux-oundation.org, david@kernel.org,
- kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com, dev.jain@arm.com,
- yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
- bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
- lorenzo.stoakes@oracle.com, ardb@kernel.org, jackmanb@google.com,
- vbabka@suse.cz, mhocko@suse.com
-References: <20260105202328.2418990-1-yeoreum.yun@arm.com>
- <20260105202328.2418990-3-yeoreum.yun@arm.com>
- <aW5p1ylQBNXTEmmq@willie-the-truck> <aW6hISBu3hNYS771@e129823.arm.com>
- <2619166b-13ef-4daa-82c7-1d44035a8d6c@arm.com>
- <aW9LCX92T9t8iDco@e129823.arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aW9LCX92T9t8iDco@e129823.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_024037_027984_ED4AFAC1 
-X-CRM114-Status: GOOD (  35.94  )
+X-CRM114-CacheID: sfid-20260120_104355_651726_4837EB4D 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,135 +88,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/01/2026 09:29, Yeoreum Yun wrote:
-> Hi Ryan
->> On 19/01/2026 21:24, Yeoreum Yun wrote:
->>> Hi Will,
->>>
->>>> On Mon, Jan 05, 2026 at 08:23:27PM +0000, Yeoreum Yun wrote:
->>>>> +static int __init linear_map_prealloc_split_pgtables(void)
->>>>> +{
->>>>> +	int ret, i;
->>>>> +	unsigned long lstart = _PAGE_OFFSET(vabits_actual);
->>>>> +	unsigned long lend = PAGE_END;
->>>>> +	unsigned long kstart = (unsigned long)lm_alias(_stext);
->>>>> +	unsigned long kend = (unsigned long)lm_alias(__init_begin);
->>>>> +
->>>>> +	const struct mm_walk_ops collect_to_split_ops = {
->>>>> +		.pud_entry	= collect_to_split_pud_entry,
->>>>> +		.pmd_entry	= collect_to_split_pmd_entry
->>>>> +	};
->>>>
->>>> Why do we need to rewalk the page-table here instead of collating the
->>>> number of block mappings we put down when creating the linear map in
->>>> the first place?
->>
->> That's a good point; perhaps we can reuse the counters that this series introduces?
->>
->> https://lore.kernel.org/all/20260107002944.2940963-1-yang@os.amperecomputing.com/
->>
->>>
->>> First, linear alias of the [_text, __init_begin) is not a target for
->>> the split and it also seems strange to me to add code inside alloc_init_XXX()
->>> that both checks an address range and counts to get the number of block mappings.
->>>
->>> Second, for a future feature,
->>> I hope to add some code to split "specfic" area to be spilt e.x)
->>> to set a specific pkey for specific area.
->>
->> Could you give more detail on this? My working assumption is that either the
->> system supports BBML2 or it doesn't. If it doesn't, we need to split the whole
->> linear map. If it does, we already have logic to split parts of the linear map
->> when needed.
-> 
-> This is not for a linear mapping case. but for a "kernel text area".
-> As a draft, I want to mark some of kernel code can executable
-> both kernel and eBPF program.
-> (I'm trying to make eBPF program non-executable kernel code directly
-> with POE feature).
-> For this "executable area" both of kernel and eBPF program
-> -- typical example is exception entry, It need to split that specific
-> range and mark them with special POE index.
+Am Freitag, 9. Januar 2026, 09:00:45 Mitteleurop=C3=A4ische Normalzeit schr=
+ieb Andy Yan:
+> From: Andy Yan <andy.yan@rock-chips.com>
+>=20
+> The DW DisplayPort hardware block can be configured to work in single,
+> dual,quad pixel mode on differnt platforms, so make the pixel mode set
+> by plat_data to support the upcoming rk3576 variant.
+>=20
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 
-Ahh yes, I recall you mentioning this a while back (although I confess all the
-deatils have fallen out of my head). You'd need to make sure you're definitely
-not splitting an area of text that the secondary CPUs are executing while they
-are being held in the pen, since at least one of those CPUs doesn't support BBML2.
+While Dmitry helped a lot with looking at bridge drivers recently,
+I think your recipient list does miss a number of other people
+listed as bridge reviewers/maintainers.
 
-> 
->>
->>>
->>> In this case, it's useful to rewalk the page-table with the specific
->>> range to get the number of block mapping.
->>>
->>>>
->>>>> +	split_pgtables_idx = 0;
->>>>> +	split_pgtables_count = 0;
->>>>> +
->>>>> +	ret = walk_kernel_page_table_range_lockless(lstart, kstart,
->>>>> +						    &collect_to_split_ops,
->>>>> +						    NULL, NULL);
->>>>> +	if (!ret)
->>>>> +		ret = walk_kernel_page_table_range_lockless(kend, lend,
->>>>> +							    &collect_to_split_ops,
->>>>> +							    NULL, NULL);
->>>>> +	if (ret || !split_pgtables_count)
->>>>> +		goto error;
->>>>> +
->>>>> +	ret = -ENOMEM;
->>>>> +
->>>>> +	split_pgtables = kvmalloc(split_pgtables_count * sizeof(struct ptdesc *),
->>>>> +				  GFP_KERNEL | __GFP_ZERO);
->>>>> +	if (!split_pgtables)
->>>>> +		goto error;
->>>>> +
->>>>> +	for (i = 0; i < split_pgtables_count; i++) {
->>>>> +		/* The page table will be filled during splitting, so zeroing it is unnecessary. */
->>>>> +		split_pgtables[i] = pagetable_alloc(GFP_PGTABLE_KERNEL & ~__GFP_ZERO, 0);
->>>>> +		if (!split_pgtables[i])
->>>>> +			goto error;
->>>>
->>>> This looks potentially expensive on the boot path and only gets worse as
->>>> the amount of memory grows. Maybe we should predicate this preallocation
->>>> on preempt-rt?
->>>
->>> Agree. then I'll apply pre-allocation with PREEMPT_RT only.
->>
->> I guess I'm missing something obvious but I don't understand the problem here...
->> We are only deferring the allocation of all these pgtables, so the cost is
->> neutral surely? Had we correctly guessed that the system doesn't support BBML2
->> earlier, we would have had to allocate all these pgtables earlier.
->>
->> Another way to look at it is that we are still allocating the same number of
->> pgtables in the existing fallback path, it's just that we are doing it inside
->> the stop_machine().
->>
->> My vote would be _not_ to have a separate path for PREEMPT_RT, which will end up
->> with significantly less testing...
-> 
-> IIUC, Will's mention is additional memory allocation for
-> "split_pgtables" where saved "pre-allocate" page tables.
-> As the memory increase, definitely this size would increase the cost.
+$ scripts/get_maintainer.pl drivers/gpu/drm/bridge
+Andrzej Hajda <andrzej.hajda@intel.com> (maintainer:DRM DRIVERS FOR BRIDGE =
+CHIPS)
+Neil Armstrong <neil.armstrong@linaro.org> (maintainer:DRM DRIVERS FOR BRID=
+GE CHIPS)
+Robert Foss <rfoss@kernel.org> (maintainer:DRM DRIVERS FOR BRIDGE CHIPS)
+Laurent Pinchart <Laurent.pinchart@ideasonboard.com> (reviewer:DRM DRIVERS =
+=46OR BRIDGE CHIPS)
+Jonas Karlman <jonas@kwiboo.se> (reviewer:DRM DRIVERS FOR BRIDGE CHIPS)
+Jernej Skrabec <jernej.skrabec@gmail.com> (reviewer:DRM DRIVERS FOR BRIDGE =
+CHIPS)
 
-Err, so you're referring to the extra kvmalloc()? I don't think that's a big
-deal is it? you get 512 pointers per page. So the amortized cost is 1/512= 0.2%?
+As you'll need to do a v2 for the binding, please add the missing people
+to the recipients.
 
-I suspect we have both misunderstood Will's point...
 
-Thanks,
-Ryan
+=46or the change itself, can you improve the commit message a bit.
 
-> 
-> And this cost need not to burden for !PREEMPT_RT since
-> it can use memory allocation in stop_machine() with GFP_ATOMIC.
-> 
-> But I also agree in the aspect that if that cost not much of huge,
-> It's also convincing and additionally, as I mentioned in another thread,
-> It would be good not to give a hallucination GFP_ATOMIC is fine for
-> everywhere even in the PREEMPT_RT.
-> 
-> --
-> Sincerely,
-> Yeoreum Yun
+I assume the Single/Dual/Quad-Pixel config is a real hardware-feature
+that is set when the IP is integrated into the soc? Or this a runtime
+setting and a soc can support multiple output variants?
+
+
+Thanks
+Heiko
+
 
 
