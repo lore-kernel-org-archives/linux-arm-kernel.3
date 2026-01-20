@@ -4,69 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 016AED2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D600D2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SUQKreo5qnKQZtG0JdOQZXpE+wY1UWud7H7ntmLdYdw=; b=CP+HA+z4Icag28ZkCny+ME3Vwm
-	1+qCqvvcmFTr1/pcsnzHaEM07orq5ELSYlG6PrERZUrMCjEX01kuw8AH2CQ80kn2ANXZuzYTC5zjS
-	5ju1ljIeJrjaF4ve1S7diY1wnKJJvSN+UStZUjdriJWbON0MNf91ERw+DIrxC3TmCULb4Wd4s5VO9
-	DjNb8AaFX6hbRIvWM4JMtD4cJ7pK/8R9mElaZJ+7qbRHhkiVFNRCQlJ2BkAk8leGixITXLONbLUiK
-	DgZgp/Hpk4gIM0vMLsvitiwgugMxCbA+uX4yVx+JpWb/c4B5bJxRmWx3Jt4JVoGdwd0ksjnzqSjlW
-	uyjyyjiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=otBxXoelkVyGWdviwTNicAVK1vpnWo8ztzTWW14MJ50=; b=ZHYaX99uqhn9bS
+	wXFVa8rF1zb1mBld2Jv60PpgGNlmKI8/joFQX82+kHh2vNOydU4wUprC6ZUfPcSYqZwp8ve67Jy0U
+	ysFiLcinCzOttzC9dqLnqvYIcSyoQZYcmKv4RekhutNCrlGmu/Xr/TTZ9/HGZN6hguKszIGbLHAJ2
+	ITeTPw7zLQlW6dsqQzLyqLlg1nQXRbe0dtnrmk6bUNuQTTdyVtCHHuMe0Oh9Qfz3HdgM9f5kLHgdx
+	qPqCFkErv0CWx1NI0OOaHxv0GOGZ/sVp8YdAWOAIcgsQCSsy5+aodHloGIDFsTAoWWpcP6Z1XIsh1
+	212bB8+1+c00CjsgL+yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAAD-00000003kIg-0ZyL;
-	Tue, 20 Jan 2026 11:44:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1viADQ-00000003kXe-38aH;
+	Tue, 20 Jan 2026 11:48:08 +0000
+Received: from mail-southcentralusazon11011035.outbound.protection.outlook.com ([40.93.194.35] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAAA-00000003kH9-1jEi
+	id 1viADM-00000003kXC-35KQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 11:44:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B31AE40A01;
-	Tue, 20 Jan 2026 11:44:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7FCBC16AAE;
-	Tue, 20 Jan 2026 11:44:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768909485;
-	bh=ga7aPYBv6vEC6RDrqtoIEfix9L+QcEdkN3Y8HkPOkcc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jkWJRgPu/hDvAODxQrnmwrwXOrJbzhZZxMuR/yCH3LeFB1QxK6Ha7I2h5gX6AwOs7
-	 MBxEkhNAkA9yhOuXfLa19twaYItLLp95LIl5/AdD5eOmzGEzjEc2gAEChKWwWMDXmo
-	 p+xpPsDOfCkeqcel6c63KpBx/8pIf/7WrPfw/7hqgRPNc4E8u1fTOXvfJGWtKgHHnn
-	 T2vMcCXqILpEXcjonpn8Z/NKjgQ3dUMTIGo8p/TV0qGHVLT6ty3arWv9biC/diIu9o
-	 M2oWujiT3qterri1I6f6RGMIGwVSDBcTFTluQNvK2gurhgJs+77FF/Mgw7pczNCfOV
-	 sOYi48iM8/xAQ==
-Date: Tue, 20 Jan 2026 11:44:38 +0000
-From: Will Deacon <will@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev, catalin.marinas@arm.com,
-	ryan.roberts@arm.com, akpm@linux-oundation.org, david@kernel.org,
-	kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com, dev.jain@arm.com,
-	yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
-	bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
-	lorenzo.stoakes@oracle.com, ardb@kernel.org, jackmanb@google.com,
-	vbabka@suse.cz, mhocko@suse.com
-Subject: Re: [PATCH v5 3/3] arm64: mmu: avoid allocating pages while
- installing ng-mapping for KPTI
-Message-ID: <aW9qpjyAcFXJNGo4@willie-the-truck>
-References: <20260105202328.2418990-1-yeoreum.yun@arm.com>
- <20260105202328.2418990-4-yeoreum.yun@arm.com>
- <aW5qfh_bsGNRd0Vd@willie-the-truck>
- <aW6idotkGVoD692c@e129823.arm.com>
+	Tue, 20 Jan 2026 11:48:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KyOevY+3u43SmSlVxicCdTKCxIHstbzpOHxf98fx8+5SAS89YmQN9PJMMbCa0xO7RskvTNoknvc/CcLsdYBkSsrNMHrfQWoc0KmGDa7v1hwzJkSuX1VzHmELm6N5Cq77n38M8/2lh/hnn8eEk+3+mkea7hBUdrlXCNrWABT01EgejVwzJTZB2zh+v6rn1AJ56fI/2+s2N3WmlE7yeqWbPAYpSpB0pPT1031M6FUs2dlrtSxNoT5JxL9t4rgTfMRcHIkCGKZzyPHC6PMNERIno0SlT9Vc7OmpoICVBAUGPNhAWHyxDxcMAEfp9/wXaG01De7cFLXxQi8HvpYO9Z1/1w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=otBxXoelkVyGWdviwTNicAVK1vpnWo8ztzTWW14MJ50=;
+ b=poowlZ/Q/STR5apcfik3/ghkDB/imPMcjbuv9IYKhUbanXJ+yLGhKeKtwIyiwNrNZwv/AAKpLnE65HpaXY4ORtlI4UkSwAXCSkR1KYlmzCL4wjSYAb9uOZueoM+zQaljHhMsQbbD1T5bfFC+zphpTMxOpnXla0v0QyElDzUOOYdGE7UDjG1ScoMI+iqDmRrm1R28+8AtwANv4wcJ74B/8RdYpOYDPdQXex4JFQJWk7sC1L5xDGLpk5uv5rc5KRMQeLtlnzgAbBda1QdvMXj4ukg5euFYzH6b9vJBhopQwE/G+IQAyarEUJF1Qqb2YwvDY2KNcUbaN8rqYLVsryQTBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=otBxXoelkVyGWdviwTNicAVK1vpnWo8ztzTWW14MJ50=;
+ b=iOnnDgNlN+nWXRmK/htT3gWloi9sm2lLKwdwKosNL7houaPD2+eV/RWBPRmKn/pHYUQLYDOrfHxhQusavqHo/lIerZCux8lJQptGrp98vSGstv92hFEfqGn2JiKzAEwUYykiyPNjZaAjpbUf5GB5ZEZWGvDK2MLku+kU0lHs1RA=
+Received: from SA1P222CA0133.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:3c2::18)
+ by SN7PR10MB6618.namprd10.prod.outlook.com (2603:10b6:806:2ad::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Tue, 20 Jan
+ 2026 11:48:00 +0000
+Received: from SN1PEPF000252A1.namprd05.prod.outlook.com
+ (2603:10b6:806:3c2:cafe::37) by SA1P222CA0133.outlook.office365.com
+ (2603:10b6:806:3c2::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.9 via Frontend Transport; Tue,
+ 20 Jan 2026 11:48:00 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SN1PEPF000252A1.mail.protection.outlook.com (10.167.242.8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9542.4 via Frontend Transport; Tue, 20 Jan 2026 11:48:00 +0000
+Received: from DLEE213.ent.ti.com (157.170.170.116) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 20 Jan
+ 2026 05:48:00 -0600
+Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 20 Jan
+ 2026 05:47:59 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE206.ent.ti.com
+ (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 20 Jan 2026 05:47:59 -0600
+Received: from [127.0.1.1] (lcpd911.dhcp.ti.com [172.24.233.130])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60KBls131151397;
+	Tue, 20 Jan 2026 05:47:55 -0600
+From: Dhruva Gole <d-gole@ti.com>
+Subject: [PATCH v3 0/3] cpufreq: ti: Add support for AM62L3 SoC
+Date: Tue, 20 Jan 2026 17:17:29 +0530
+Message-ID: <20260120-am62l-cpufreq-v3-0-8c69b80168a3@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aW6idotkGVoD692c@e129823.arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFJrb2kC/32MywrCMBAAf0X2bCTZyqb15H+Ih5Bu7YJ9mNSgl
+ P67aS+e9DgDMzNEDsIRTrsZAieJMvQZiv0OfOv6GyupMwNqJG0MKdcR3pUfn03ghzJVaZ0+Omq
+ ohNyMgRt5bb/LNXMrcRrCe9sns9pfp2SUVlTUmrAw1nF1nuTghw7WTcK/KeaUnbeMbMsav+myL
+ B+ElPO54gAAAA==
+X-Change-ID: 20260116-am62l-cpufreq-1987a04a6f68
+To: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar
+	<viresh.kumar@linaro.org>, Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>
+CC: Kendall Willis <k-willis@ti.com>, Sebin Francis <sebin.francis@ti.com>,
+	Bryan Brattlof <bb@ti.com>, <linux-pm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, Dhruva Gole <d-gole@ti.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768909675; l=1663;
+ i=d-gole@ti.com; h=from:subject:message-id;
+ bh=gHwKlw9tM7umxFfbAWIca6msfZb96ehD0ii4uxfAk/Q=;
+ b=/j4T/ttVU4zDMaIZ2HuZZROGc/2ZLTCSsUyXEma/okGgyg0nQSG1M2Das5T4BmmmRtHeuE6rq
+ XMVfxG39isNAjyxxVIClHfQLWkuVo/EHd+itGPzk3K1PDFut4oqxbmt
+X-Developer-Key: i=d-gole@ti.com; a=ed25519;
+ pk=k8NnY4RbxVqeqGsYfTHeVn4hPOHkjg7Mii0Ixs4rghM=
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000252A1:EE_|SN7PR10MB6618:EE_
+X-MS-Office365-Filtering-Correlation-Id: cc998257-501a-4cf8-d099-08de5819c325
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?QzMwN0ZVTTU0SzlyS0IvQWpSNll5Tlp2WXkxNHJ5QzFZZzN0RXNqUTJtcytu?=
+ =?utf-8?B?VjJrNGRvR2p6MUNtSUxkU3hMRnF1ZEpCSHBpUFFEbjVtZmhIendROWJRZm9t?=
+ =?utf-8?B?bTU0Yzk4N1l2eDc4UGhsWENIanRBc2ZBVmZhRTRTZllxNlUwSEpGZWhibnVz?=
+ =?utf-8?B?aWY3dXBoR051MzBjcU1UZ1lPRHhkUTk4bHJ2ajkyUDB1QkJ4NlFDZzhCSTZ5?=
+ =?utf-8?B?K3F2eGFKb1g5aGlUbUtQMVFPa0F5WGtmVW83TStlVG94cC9FWWlGTlZCQUxZ?=
+ =?utf-8?B?MDdIVXdpdnJmcGhYR2dQaTZLY1VhbkxpSUdlUXpBdnFUSUswemJaM3NJYldx?=
+ =?utf-8?B?MlZmQkd2WkFZemFxV0JyN2RtV0JnSTNtZ1J4Wm5nWU5pdCtzUkNPVERhc2Yz?=
+ =?utf-8?B?clNpLzUxY3VjQWJCcFIzbGg1RUk5RXRwUkhackNybko3TFRodHNDekljMTZZ?=
+ =?utf-8?B?bjdKRWZuTlZmcElqRGdYR2RaL0lXRHh0Mi9hSDBLQS9WZUMvUkpXUllnVWtm?=
+ =?utf-8?B?Zjg0NzA5Sm9iTE9kZXVEMkxFTDdCM0kvcWl1aGFRUmQrUXNNZGdNL2RqdUdr?=
+ =?utf-8?B?KzlCdEtIbXA5ajM4bHhxLzdzaGVzUTRSZ3lIV2NzYzUvMTNNa252c3BKM3Rq?=
+ =?utf-8?B?Tkk4SHNzR0VsdEh6em1rSUxhZnliSTI2OUJxamwwVlVmZGllOVQyRXNLV2c1?=
+ =?utf-8?B?OVZualhrVnlqY1hnbTdTZWdCd0pxNjJsYzQrUjE1bXJERVlTU1ZTa3FaMTZu?=
+ =?utf-8?B?WTdobmZXUXhranprUGlOUnhVWHEva3VDRXF6L2dTV1FNZVRhZUE0cmxaTmtF?=
+ =?utf-8?B?OG1MTG9uVmJkUUJGbWFROE9iWEpGUDdaTWYrTEVwK0lzaXRZdE8vR0JROEZH?=
+ =?utf-8?B?Z0VndG8zbGtrZHZiSnNEbm5PcmxpSjZidkg5OGQyMnQzUEc1cVRyb3UweVpk?=
+ =?utf-8?B?OTM3cmlKYTBHR3dYMGdMOS9aaDFWaUkrZ1VZL3VvS3lRaDZMaS93TFExcE9r?=
+ =?utf-8?B?Y0N0a0hlRzdXYWdBU0VXUlRPK0U3SkU5TFVncUhWbEcvY3ZwNXl2V0FaazNz?=
+ =?utf-8?B?KzF0YVlPR2lwcFJla3paK0dGUkdGSC9RMnNYa09OVzI0M3BxcFdsU0lid1hT?=
+ =?utf-8?B?a3EwTFpLS3k3aENYcEppamxZbzNGUGYzNHFBMnJ3MEhPNDNROWdsTURvYTFo?=
+ =?utf-8?B?RCtueEJMcU9IbkVzMmpzU1N1TU4wQVZ6azBPRjR1RmpNczdJNURnaEplM0Qx?=
+ =?utf-8?B?TW5ybFZQRHJJU3JVY3NZSHBHcndQeThKSFlTK0ZTbURUMTFLL1B3ZUtoa0ts?=
+ =?utf-8?B?RlJ5THUzejhLWHYxU0ZkZmZrQlFRNlhENGpvS2hQZEE1cUdYSzl4aWdKdXZ2?=
+ =?utf-8?B?UStVam1wM2l3QWJKTTR2elZLTzkrWTFKeHpZMllNcHhWaDdlc3JHYlMxQUQr?=
+ =?utf-8?B?UG8ya0ZhK3l4TjRGME5WR29WNEVYeXpNTCt1QlFkSStZYzFCYzE0bTBjWTlz?=
+ =?utf-8?B?bnp6M0UyV082VkpyMlc5d1g1Tk5reHhZV0tLdFZJamxtOHZPYUZOb0lqaXlm?=
+ =?utf-8?B?V2NVeUNMRzl4T3VCTDlrZDAyZlFQUWppR2l2SUN6dm5WZzl1ME5VcFdtZGNT?=
+ =?utf-8?B?TFM4ODh1Z09pVWdMc0dGMWlMcjloQ0RXak5hTHVDbE5rb08vU3lzcUgrK1U0?=
+ =?utf-8?B?eHgyb0ZSbDMwSWU2OEp0STkxRmlIeWZ2UXRSWGRQRXFiZi9wUmt1bCtTNE0r?=
+ =?utf-8?B?V0ZFUjZRNk5DM1gxZGlJTVJlRkc0YzI3cXpGbnZHWnJJMDlGSDVqWUoxZUFB?=
+ =?utf-8?B?NHdiekU4NFRXVllLRk5kQ0lWaWlwY3JocmdsWll0MUxJbmNBdFVGTnVva0d5?=
+ =?utf-8?B?cGhpN21LTkJ2SzdRVVpHT3U4WVRqeDVEYUU2NVNSMzJxUUtGVWFLSDJNUGRi?=
+ =?utf-8?B?UWtONGN6aGc3bW9NbXhxaXloaThTUVUyMW1BSjNuZjBkbG1kV2VxTW1WbWFu?=
+ =?utf-8?B?VEJWdDF2c0JxM01SRWxrVzRpREhIQ3Z5TnFiUHJNL0hJcGM2eXJ3S00wbFYy?=
+ =?utf-8?B?TVpweHFZUUpwSkJKanIzUStlVWhmYTQzL21aVHpDVlV1WElsaTBjbC9ma0Ft?=
+ =?utf-8?B?Mzl3cWwranRKMFFZckpaNmRmNWdRM04waEpyZ05jTTRmRUg4QzZzN0VHNmpw?=
+ =?utf-8?B?L3ZpVEJ0WVAxbERlcENwcC9xOGlQclBGYklYTWFXTWxtajdVVWk0Nks0VVRB?=
+ =?utf-8?Q?L/dCy3NGCIAPk1DJAFWjyRcYcWdFQcfm/CpOv4Oci4=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 11:48:00.3870
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cc998257-501a-4cf8-d099-08de5819c325
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000252A1.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR10MB6618
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_034446_488991_6BE63FF7 
-X-CRM114-Status: GOOD (  29.61  )
+X-CRM114-CacheID: sfid-20260120_034804_871851_2BA27C51 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,110 +180,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 09:30:30PM +0000, Yeoreum Yun wrote:
-> Hi Will,
-> 
-> > On Mon, Jan 05, 2026 at 08:23:28PM +0000, Yeoreum Yun wrote:
-> > > The current __kpti_install_ng_mappings() allocates a temporary PGD
-> > > while installing the NG mapping for KPTI under stop_machine(),
-> > > using GFP_ATOMIC.
-> > >
-> > > This is fine in the non-PREEMPT_RT case. However, it becomes a problem
-> > > under PREEMPT_RT because generic memory allocation/free APIs
-> > > (e.g., pgtable_alloc(), __get_free_pages(), etc.) cannot be invoked
-> > > in a non-preemptible context, except for the *_nolock() variants.
-> > > These generic allocators may sleep due to their use of spin_lock().
-> > >
-> > > In other words, calling __get_free_pages(), even with GFP_ATOMIC,
-> > > is not allowed in __kpti_install_ng_mappings(), which is executed by
-> > > the stopper thread where preemption is disabled under PREEMPT_RT.
-> > >
-> > > To address this, preallocate the page needed for the temporary PGD
-> > > before invoking __kpti_install_ng_mappings() via stop_machine().
-> > >
-> > > Fixes: 47546a1912fc ("arm64: mm: install KPTI nG mappings with MMU enabled")
-> > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > > Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-> > > ---
-> > >  arch/arm64/mm/mmu.c | 21 ++++++++++++---------
-> > >  1 file changed, 12 insertions(+), 9 deletions(-)
-> > >
-> > > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> > > index 120874a2d35b..6ea5b80ab54f 100644
-> > > --- a/arch/arm64/mm/mmu.c
-> > > +++ b/arch/arm64/mm/mmu.c
-> > > @@ -1360,7 +1360,7 @@ static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
-> > >  	return kpti_ng_temp_alloc;
-> > >  }
-> > >
-> > > -static int __init __kpti_install_ng_mappings(void *__unused)
-> > > +static int __init __kpti_install_ng_mappings(void *data)
-> > >  {
-> > >  	typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
-> > >  	extern kpti_remap_fn idmap_kpti_install_ng_mappings;
-> > > @@ -1368,10 +1368,9 @@ static int __init __kpti_install_ng_mappings(void *__unused)
-> > >
-> > >  	int cpu = smp_processor_id();
-> > >  	int levels = CONFIG_PGTABLE_LEVELS;
-> > > -	int order = order_base_2(levels);
-> > >  	u64 kpti_ng_temp_pgd_pa = 0;
-> > >  	pgd_t *kpti_ng_temp_pgd;
-> > > -	u64 alloc = 0;
-> > > +	u64 alloc = *(u64 *)data;
-> > >
-> > >  	if (levels == 5 && !pgtable_l5_enabled())
-> > >  		levels = 4;
-> > > @@ -1382,8 +1381,6 @@ static int __init __kpti_install_ng_mappings(void *__unused)
-> > >
-> > >  	if (!cpu) {
-> > >  		int ret;
-> > > -
-> > > -		alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
-> > >  		kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
-> > >  		kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
-> > >
-> > > @@ -1414,16 +1411,16 @@ static int __init __kpti_install_ng_mappings(void *__unused)
-> > >  	remap_fn(cpu, num_online_cpus(), kpti_ng_temp_pgd_pa, KPTI_NG_TEMP_VA);
-> > >  	cpu_uninstall_idmap();
-> > >
-> > > -	if (!cpu) {
-> > > -		free_pages(alloc, order);
-> > > +	if (!cpu)
-> > >  		arm64_use_ng_mappings = true;
-> > > -	}
-> > >
-> > >  	return 0;
-> > >  }
-> > >
-> > >  void __init kpti_install_ng_mappings(void)
-> > >  {
-> > > +	int order = order_base_2(CONFIG_PGTABLE_LEVELS);
-> > > +	u64 alloc;
-> > >  	/* Check whether KPTI is going to be used */
-> > >  	if (!arm64_kernel_unmapped_at_el0())
-> > >  		return;
-> > > @@ -1436,8 +1433,14 @@ void __init kpti_install_ng_mappings(void)
-> > >  	if (arm64_use_ng_mappings)
-> > >  		return;
-> > >
-> > > +	alloc = __get_free_pages(GFP_KERNEL | __GFP_ZERO, order);
-> > > +	if (!alloc)
-> > > +		panic("Failed to alloc page tables\n");
-> >
-> > Why are you adding this panic?
-> 
-> Because original code call the panic() when it fails to create
-> mapping of kpti_ng_temp_pgd and I think allocation is also part
-> of creating kpti_ng_temp_pgd too.
-> So, I added this panic() when allocation is failed for kpti_ng_temp_pgd.
+Hello,
 
-No. The current code seems to assume the allocation will succeed and
-panic()s if the call to __create_pgd_mapping_locked() returns an error.
+This series adds CPU frequency scaling support for the TI AM62L3 SoC.
 
-Just make this:
+The AM62L3 is a low-power, low-cost SoC from Texas Instruments. This
+series enables cpufreq support by:
+1. Adding the SoC to the cpufreq-dt-platdev blocklist to prevent the generic driver from probing.
+2. Extending the ti-cpufreq driver to support AM62L3 speed grading by reading the efuse.
+3. Updating the device tree with the necessary operating points and clock configurations.
 
-	if (WARN_ON(!alloc))
-		return;
+Tested on AM62L3 EVM [1]
 
-Will
+[1] https://gist.github.com/DhruvaG2000/6dcceb80cf7bbd1e624ec210532538cb
+
+Signed-off-by: Dhruva Gole <d-gole@ti.com>
+---
+Changes in v3:
+- Sorted the #defines and structs for am62l as well after am62a
+- Pick the R-by tag from Kendall
+- Link to v2: https://lore.kernel.org/r/20260116-am62l-cpufreq-v2-0-eac7e2e78d29@ti.com
+
+Changes in v2:
+- Sort alphabetically while adding AM62L as per Krzysztof's comments
+- Link to v1: https://lore.kernel.org/r/20260116-am62l-cpufreq-v1-0-63d062317ae9@ti.com
+
+---
+Dhruva Gole (3):
+      cpufreq: dt-platdev: Add ti,am62l3 to blocklist
+      cpufreq: ti-cpufreq: add support for AM62L3 SoC
+      arm64: dts: ti: k3-am62l: support cpufreq
+
+ arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi |  5 +++
+ arch/arm64/boot/dts/ti/k3-am62l3.dtsi       | 47 +++++++++++++++++++++++++++++
+ drivers/cpufreq/cpufreq-dt-platdev.c        |  1 +
+ drivers/cpufreq/ti-cpufreq.c                | 34 ++++++++++++++++++++-
+ 4 files changed, 86 insertions(+), 1 deletion(-)
+---
+base-commit: 9b7977f9e39b7768c70c2aa497f04e7569fd3e00
+change-id: 20260116-am62l-cpufreq-1987a04a6f68
+
+Best regards,
+-- 
+Dhruva Gole <d-gole@ti.com>
+
 
