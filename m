@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD90D2ED0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 10:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C8E7D2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 10:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MfnfHEO5iuaJRI+62YTPm5+K8bMNJD7kcoNtFyzxGKs=; b=zrUHx4oYpsY0gW/3KXthXpoNaG
-	kO+Kq+4B2qNcylGtPgo/lMiq9weecLlzr2avW/+qHtbojE7WD/DzaO3vkSMRlg2ul4eCdPrlCymYn
-	qQ0UhMJISgXBwPDSalRwOrSrzczQAzV7ZkqeuqIBfMJ1xd3xCC1hZgLQ9Ro2fgVMayIRe1PI8f/Ly
-	Bw7dpCKjEXRqnwp3ihkM8GxTWdNE8wC+T3swx6IDtIx+kdQSHJMvO0OhKqQMTM7op5rsCsgXbeVRe
-	TpGUFMJdMmwUV02ntyuEpE/xjQJnNRh1GFjTqC1XyvZ06/80NCvsu4uzBkQoRrBGUGVIhc6BDd0tH
-	/985yawA==;
+	bh=9Yv+dpRQRMN5qyhSBXjej37h+nZntknJMic+/TUR9+o=; b=rZ6LicdB5dB+buxAQqcs0TkJT2
+	sWdCRnfi+6JzEhRLThu094Ew5GLb9zH9WRsMBFSB5aKhXauoimKbyKlUxUpJoSo3wkipN1CiOKWTJ
+	XeytzZkC6Qtq7SnUxSDz9NToifJd8Wyyd14KDk+wdgCUhFAtB9x+8Pb1OyQw2ogVh0n2FNRuovlVy
+	IRCz79fUBeHx98mZPB/Cr4BjhCM450Dk1YcRJ7OhPti9D3uj3rpAH/Fqr5r+FNj9tQs+EYzFZsYag
+	L8jrS5CyFpZQAdow+UGZm/KA6u2sdvKlIKwx9tSpjAteIWg/OVG5u9OQZgOF7LotrXEUroI2LCrjH
+	34RhZrjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8jK-00000003aYe-2Vb5;
-	Tue, 20 Jan 2026 10:12:58 +0000
+	id 1vi8l4-00000003amT-3D5s;
+	Tue, 20 Jan 2026 10:14:46 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8jI-00000003aXC-0fUz;
-	Tue, 20 Jan 2026 10:12:57 +0000
+	id 1vi8l2-00000003alw-29Mp;
+	Tue, 20 Jan 2026 10:14:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=MfnfHEO5iuaJRI+62YTPm5+K8bMNJD7kcoNtFyzxGKs=; b=rBMPbugFWYyVL5qpyUg71WmJgk
-	NsW+d5r8l/3OJR/bH+uny7K63JHwn6EexwsD9LgRY6e5O2AoGA0soxQOIcSdqKe3mQ+gXM9DhhvNo
-	3KG7Z5FvIKpjDOcFokazR26jpXg0ukCqkxia45m632A7Xe22PwgqMfLqJI9IRIo84tkzvOmWADB0M
-	pv42xrrZ6Rzee5VmvTyIbxH8lOov3zAKwed6WTCS3yxxp6LYPcbJ4QgQ/AJPkBTRGUHVtYWQa06FJ
-	UO4Ic0BM3GjKTXZWTbufGLAIVl3iNTAXQw9/5JLdrWJoHlNavESs15lsvZcwxIGTgY+VGhp3SaXto
-	6nDc20Fg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43312)
+	bh=9Yv+dpRQRMN5qyhSBXjej37h+nZntknJMic+/TUR9+o=; b=VJlC1K2gyJ9/otBfB1zskPXFfG
+	W24edyx/d7uS+k2Lr5Px/mwPserfDD0u0ythB0g/la0lT0fiK/XOl6VikBxGutkeQz8Dr1DAdlZm6
+	nhCCtkJSBoSPzlzDbLoSnAsEMSvsTR1l3dzC0zT9U3rTjWQCUDGJBixA6hMRwoHi4+9J+97gE0EI8
+	q4wrj32W+vmtiKrQ0S3BRAaqfJO+6dQIgjDK+jDV4RVMnrojaFCPLJzwFqNl78mW3Yw5Ah6fyc1ib
+	7q7kehaZ0n6exkqc7VXbWW5Z76+ZyUrodOlwZGR25zdXb8d/Mse00/lPaGbZdCJcxg9f6RAnCEE6l
+	0eSB3V7A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42602)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1vi8jC-00000000645-2Cga;
-	Tue, 20 Jan 2026 10:12:50 +0000
+	id 1vi8kz-0000000064a-0tA1;
+	Tue, 20 Jan 2026 10:14:41 +0000
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vi8j8-000000007RE-1CJk;
-	Tue, 20 Jan 2026 10:12:46 +0000
-Date: Tue, 20 Jan 2026 10:12:46 +0000
+	id 1vi8kw-000000007RQ-3W81;
+	Tue, 20 Jan 2026 10:14:38 +0000
+Date: Tue, 20 Jan 2026 10:14:38 +0000
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Vladimir Oltean <olteanv@gmail.com>
 Cc: Jakub Kicinski <kuba@kernel.org>, linux-phy@lists.infradead.org,
@@ -61,19 +61,18 @@ Cc: Jakub Kicinski <kuba@kernel.org>, linux-phy@lists.infradead.org,
 	andrew@lunn.ch, pabeni@redhat.com, andrew+netdev@lunn.ch,
 	linux-stm32@st-md-mailman.stormreply.com
 Subject: Re: [net-next,05/14] net: stmmac: add stmmac core serdes support
-Message-ID: <aW9VHt6meEJFxV0I@shell.armlinux.org.uk>
+Message-ID: <aW9VjieyiZCNbb-G@shell.armlinux.org.uk>
 References: <E1vhoSH-00000005H1f-2cq9@rmk-PC.armlinux.org.uk>
  <20260119192125.1245102-1-kuba@kernel.org>
  <aW8M9ZiiftGBQIRM@shell.armlinux.org.uk>
- <20260120081844.7e6aq2urhxrylywi@skbuf>
+ <20260120084227.j2wgbmjsrpmycpgn@skbuf>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260120081844.7e6aq2urhxrylywi@skbuf>
+In-Reply-To: <20260120084227.j2wgbmjsrpmycpgn@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_021256_196998_53380CDE 
-X-CRM114-Status: UNSURE (   7.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260120_021444_569128_405B04BB 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,17 +87,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-First, I'll say I'm on a very short fuse today; no dinner last night,
-at the hospital up until 5:30am, and a fucking cold caller rang the door
-bell at 10am this morning. Just fucking our luck.
+On Tue, Jan 20, 2026 at 10:42:27AM +0200, Vladimir Oltean wrote:
+> More to the point, if dwmac_integrated_pcs_enable() fails at
+> dwmac_serdes_power_on() (thus, the SerDes is _not_ powered on), by your
+> own admission of this PCS calling convention, sooner or later
+> dwmac_integrated_pcs_disable() -> dwmac_serdes_power_off() will still be
+> called, leading to a negative phy->power_count.
+> 
+> That is to say, if the model is "irrespective of whether pcs_enable()
+> succeeds or fails mid way, pcs_disable is called anyway()", then these
+> methods are not prepared to handle that reliably.
 
-On Tue, Jan 20, 2026 at 10:18:44AM +0200, Vladimir Oltean wrote:
-> Isn't it sufficient to set pl->pcs to NULL when pcs_enable() fails and
-> after calling pcs_disable(), though?
-
-No. We've already called mac_prepare(), pcs_pre_config(),
-pcs_post_config() by this time, we're past the point of being able to
-unwind.
+That's the way it currently is, and it's been this way in the
+major_config path for a very long time. If anything fails in that
+path, we can't report the error back up to anyone, and the netdev
+is effectively dead.
 
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
