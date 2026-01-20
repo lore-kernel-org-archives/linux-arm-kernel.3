@@ -4,65 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBBECA5FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 16:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36996CA5FA8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 16:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dobyx7KUQgj0z831/ID8qB1h8VjXUTYbw8UVPZVRb6w=; b=otgkIWTx/37kJJiPLrcb0FErSX
-	/xjW/GiNJgf2scSpApn2Y7Ix9iIUi3qsjLwFIZ5ln2CyKjQoHgP7BgsDw8EBePwmajv1RwcrciQTP
-	yKz8goVS9c0e3dpsZJ0ypBudyalNSDEM3IiunFxDresBZEo4ubbfZgZ4NPM7sT7wMPMye56mYg6eJ
-	WtdZKOCdAIidvDQnLk/490idfO7yUA2+x6EPM4GxzYz3SCLMpmy8SUL94LIko7NZgT39vh048BTDj
-	n3zY3LJXbXq0holXR/zFWSasQDIoKBJ35xpFDU78gvdeN3wLicM9Y/LRLvFNfl2uAf6UEbU45vHsV
-	0bDee+bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hba4kNZtDtZEgYO+F3uzb/3+EdFtoluWNaS1XYW5Cyk=; b=1oJGBxayUAqHZf2OjPsGzzFGfG
+	Lvf25ABvobvIIypS0NYUolApZIBiBQROJYIkZ1L3cFsRHN4M5M+ut0pilWwYKxfLMmX87cWcoj/1O
+	chzYHhGA75oNJPddpt5T8b5gGo/ocKNdmC/w9zLezBLkSpZMKYDJAGe3lTkzsWjGTZLR91Edx4Qke
+	Oiz4mev7GwtUyIR43pfdNjFMf6d6gte2g0We6kzx0pF/ZMdrhzrQRKOl8yv0EuSGT6uUtW40fuxJ1
+	9cYCg9seL+qk1ePgSf0TUFEzZXC9m8l0i7rwd3OZBS/web7/xdlvdS/eEg/hYs2nvfUqkgm/riNlC
+	Xy0HZClw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viEVS-000000049oY-2ceW;
-	Tue, 20 Jan 2026 16:23:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viEVQ-000000049nt-1Cne
+	id 1viEVi-000000049qI-3uI4;
+	Tue, 20 Jan 2026 16:23:18 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viEVd-000000049pc-0XZr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 16:23:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23D541476;
-	Tue, 20 Jan 2026 08:22:48 -0800 (PST)
-Received: from [10.1.39.200] (XHFQ2J9959.cambridge.arm.com [10.1.39.200])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D5DEB3F694;
-	Tue, 20 Jan 2026 08:22:51 -0800 (PST)
-Message-ID: <a6c1f21f-43e4-41d2-adb6-c5f9985b3abd@arm.com>
-Date: Tue, 20 Jan 2026 16:22:50 +0000
+	Tue, 20 Jan 2026 16:23:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TKUThmjy5/ax8lffIiNmeZtoEy8PLto8PzRU73RH2c0PHvGEF9hjFJMTmHmtAvauPgZ31P22c02LsqJqP6A4Fp825MLFi3Q3gMu+zu5qGrgDDIHXqytkcFFusAXX25nImbKpAxpvpUSz59S53zLNVll5LlymrA/SfA5O4lvzE2R0A7/NgdS3hveCfx/ul15tVr+GNl8F4K134u0++nQrpks6NuChqwNVIeG1NL8olYp9pBj5miAiNEYVH6XMcEg1osxoyvSCJWY3Y2yeLPVOKxNlDvonYiGgyoldWeD1BAKuTfKgV5EUMORFPqYVVEOIcxsaYuLoISNiZ7PoueR5Qg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hba4kNZtDtZEgYO+F3uzb/3+EdFtoluWNaS1XYW5Cyk=;
+ b=PByzZKrg8oyM6GkOuqOaMMUgNLcew5vIcwNK8uEjjYUtarg72qLd2YaqKqsF2qJBBPu4X6omEX9vI6Z1tk5ACMXU5bzEJ1wuxO8RYctYnCHkjh+6XuJ/wp8uZ5sFW5SkUz9OCEqK1SsiQnqICyk+SuvWWPMfZOei6z/eJyzEfb0LRMXiWutbx1XxEVnD0QJWtgNLW7H8SAPHRx/+EWnZaVQj4e/I6U9V6y6TI3XGcGKukce7Uak0fYOYZ5YRF7ic3OlIEuRgBs+12PNov3s/N4idk32UkuBFA7OhKjP+lpwiBAUZoXEu2tUUqanWdpUrguhbD9rNbxL4Z/CoE3ya7w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hba4kNZtDtZEgYO+F3uzb/3+EdFtoluWNaS1XYW5Cyk=;
+ b=gGRAG1k7qDSq5eciq8I0pCLUOLEfgALJePoWCdUJK/ISRq13jrEqC9iI1tp1W7vr3KK7CoVfVVYy+rGPRYh/c94HJzcG/xlPwmulG0dY4XXsYh2EWQ7Zk2IAzjLXhSOu6sGvSnMQX1VJU8pTA3xWA6PYYo+SZhNlibzpgwwSOBqxhtfiLkhBEZ8vp076EWvvccJp7z5ClIkCe4nK2oLPUEeLWv7IblIpV7WC0mt/EkZiUdGkwa8sP0GWpsH/7bvw8J4XzMJsM3Wovi3YSwn8pwTfI3X6Zr1oJGcumJA5eQcW5MM9ctGrx8nWa6cZIPJTNHRotItG+cCsUkbuZhJQGg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by AS8PR04MB9078.eurprd04.prod.outlook.com (2603:10a6:20b:445::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Tue, 20 Jan
+ 2026 16:23:08 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9520.011; Tue, 20 Jan 2026
+ 16:23:08 +0000
+Date: Tue, 20 Jan 2026 11:22:58 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Chancel Liu <chancel.liu@nxp.com>, linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH 2/2] arm64: dts: imx95-15x15-frdm: support AONMIX MQS
+Message-ID: <aW+r4m0Nsah4UCA7@lizhi-Precision-Tower-5810>
+References: <20260120150329.1486-1-laurentiumihalcea111@gmail.com>
+ <20260120150329.1486-3-laurentiumihalcea111@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260120150329.1486-3-laurentiumihalcea111@gmail.com>
+X-ClientProxiedBy: BYAPR01CA0072.prod.exchangelabs.com (2603:10b6:a03:94::49)
+ To DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] arm64: mmu: avoid allocating pages while splitting
- the linear mapping
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
- catalin.marinas@arm.com, akpm@linux-oundation.org, david@kernel.org,
- kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com, dev.jain@arm.com,
- yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
- bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
- lorenzo.stoakes@oracle.com, ardb@kernel.org, jackmanb@google.com,
- vbabka@suse.cz, mhocko@suse.com
-References: <20260105202328.2418990-1-yeoreum.yun@arm.com>
- <20260105202328.2418990-3-yeoreum.yun@arm.com>
- <aW5p1ylQBNXTEmmq@willie-the-truck> <aW6hISBu3hNYS771@e129823.arm.com>
- <2619166b-13ef-4daa-82c7-1d44035a8d6c@arm.com>
- <aW9LCX92T9t8iDco@e129823.arm.com>
- <baa46ea0-737b-4d9e-b4f4-2eee1476da95@arm.com>
- <aW-k_D1Q8jpYMPoI@willie-the-truck>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aW-k_D1Q8jpYMPoI@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|AS8PR04MB9078:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3c6ae3a8-81fc-455a-8d19-08de5840327c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?eA+BnizLKGFXwZvm37jo56fjBN/OaoLQfwpz5UNWUr6E3otRttatTo73P5uU?=
+ =?us-ascii?Q?mev99DZq9c2C/wfePoUWydlf0SSdSfeS7B+wm2SsZgm4UoNMi3YwpDAQbI5k?=
+ =?us-ascii?Q?kvzGxch3O697L98UUHs3oma+MhkrmLxYwUNK6zjLdkz1LSbjs+HuWgsQ8EV7?=
+ =?us-ascii?Q?vH11Iw031mZaxL5l9WB5Uh+jCGJYhRBQZuabZNqZRCPLQYH255lIu9qSF1+M?=
+ =?us-ascii?Q?tgESuYMrePk1BHuzbWtHIFIGzLBj91YUtZNgokAo9ceV11C9pa87FcN3tpMi?=
+ =?us-ascii?Q?mJqaL5h2GzwoYi3XjxjdeWWrkJFiWnFxGDkrS3fsPtRCpnNPLqNg8N49DIst?=
+ =?us-ascii?Q?gu88ph3q4QgLIOai0EDs+oGyIEC9uEgM4igq1MmeBnqzB/AQX/NH8FAXJZCO?=
+ =?us-ascii?Q?GdTyPZC9CqZCGn+2GbLaWXG6se3pLS0XAwwtEcaBiNDVwwJkakGAjezOnpxw?=
+ =?us-ascii?Q?QecjWg4qNgmYuXy707M5C03fIjGWj+i/7yoR9d9BU2GisP8TD3FYFszoBypi?=
+ =?us-ascii?Q?cSahOkjqqXAvbGhKaMfjoWnq0CHo4MIAYGgmP6fJbuXSD7u+Tt4vV/Qnm65q?=
+ =?us-ascii?Q?bR63YaznRkRyyCRzkQjG6IT46gcvh6rxuaopwh50UmDvR5kH8TaVQsxVbrRw?=
+ =?us-ascii?Q?S+WJukU01s7UF3XAg0Ceqxf85zOf1vAYXZ8QUyAI2/2Nhu3Pids8JP9C3HhJ?=
+ =?us-ascii?Q?Y6iYmu+3whGGvDurjn2Ze3nYXwTUx5Qh20/YZxXVtgU/iJjlJKq8yyjWNTHO?=
+ =?us-ascii?Q?BV+WNXObUuIiwgbisDNhWxfH+HTOyycgO69oqi3LnEXAEkkYWXrwb31O33Fv?=
+ =?us-ascii?Q?41hs/GGIBcx51M3DLuWBmm8k8zqSk/M3D3JQ9Key5XxX3DfX9Qux7rklMfE0?=
+ =?us-ascii?Q?RIo/RMNB5hjqDh6K4DUt7ib5eSb8lMpA1061wdfaMVcP1X6TJhCK7MZnazx8?=
+ =?us-ascii?Q?2pFYh41ZJ10EKp7rYlZPbHXjo21jTZ5hHh+Z/ty34/VhrKhQUDwR633/Fvg+?=
+ =?us-ascii?Q?vcLBYtDwzAIyau3oocKqHIkfq4Y6do4buVSh+33r+zOc6R2AosToP0u9A0lX?=
+ =?us-ascii?Q?JbTWrkAf7ber8x7xMdQokLWXHHsapSLHjWDK56BYRcACMM7CIQ7YLAV+xYT0?=
+ =?us-ascii?Q?O593M44SOWQ9eNxtqHmyzi2UM/wW5RQVlgh091EkIOKwvoKpUZUMbqTYXSZS?=
+ =?us-ascii?Q?H2A1r2Upcx9W1kpoiQz2y9XdrVEKFdUnYZmc2F2rGvhdJzzS4yhiAC1OdoZg?=
+ =?us-ascii?Q?lQQKGB6KzkhBsESCmyHas7gGPT7eSGXAtZ2nwEtfKgzPr5nkbbrBwBJhlYzN?=
+ =?us-ascii?Q?arFNwmgTV3QRcXheUeVVfHqgP7S5NDs+JuB9OG207enwbxu4VEH6GaHJchxN?=
+ =?us-ascii?Q?3B1tomILivGaqkYSpvkNtDJ6UXMphV7yZX+AAxBVLjooSmYc73BTcs4dqHjE?=
+ =?us-ascii?Q?SFoLx64AeYfN4gEGAsctnocCqe6GQscX4cKDtOyuC4GxIbZS0UcIQM7+vZvb?=
+ =?us-ascii?Q?FQWgW2wZlc3U8QWIpKMGpMl1V84jvcTbrKCdudfLUtza9t4OrQboTdhvZJ0q?=
+ =?us-ascii?Q?gHnAmZ8QhU+p/K/iXYtuYyF/JxyDlr6DziC9gOOjy4YzjwCzIPpJkinRHW+d?=
+ =?us-ascii?Q?wRF9NDmBf03eXKS94FrmYFk=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VmesxnwV5qMut8BbM+OjJyDzK66Ast5INsT8dL+3WRBigQx0KVr6Dg/Xt5hJ?=
+ =?us-ascii?Q?jKg+ckkBUnpU2LrEUj0pQ/uqlw3y9Y2GoPcyK3cES5fIAbIimdG9i9+phP5B?=
+ =?us-ascii?Q?ghuqUR6QhMsdh3CSvXzTDNTP5mxJLpTvmPLZtH1FscK8bcI4J3HGOKP3DQzi?=
+ =?us-ascii?Q?FfII3/GduNoyctl/0cZnmzZ7r3c1xI0d9xsAlZRhp2C2mXw8m1XjpziDdo+X?=
+ =?us-ascii?Q?NnJyN1btsSeOIK++8oXfJZw/G+0czGRvjyNfMUWWCqfv9m2JMlINhu5t7ebC?=
+ =?us-ascii?Q?EVmHLYcDgnLL62di1scfulahZ4fNPvGzPJEeBHhE0jS/9XYTLLgRrRqZpLUl?=
+ =?us-ascii?Q?CGjhnlPJTfRF9HL4tYjMuJ1OG6eAjA3Y+PASf8ErkIIGUJJy9bo/rUWEnsTx?=
+ =?us-ascii?Q?g1QrEWvrvp3HqIhb+l3PLk8n+spwZJ43WkDxVFj4rTybIqEAv+VOjeyG4BXt?=
+ =?us-ascii?Q?WWSrdAE2id3eMhpK4VwM5j5RmswsBk56A/rZVeoT7JdjXjqeYLNY9Etk5et+?=
+ =?us-ascii?Q?TSIQZR+sbecd2guIAmX3PUIaFGBguEv5U/+nK4mZwDjDkQnfnujlRsufjzeP?=
+ =?us-ascii?Q?+93cNNypFQxOnc5yJfMBHicb+EiKGls8QAmd9u/Iz8PaLm1aaPvVzbW4fEb8?=
+ =?us-ascii?Q?VfmGEuFBa8Os7f/No387bcUS4AKV4HBpfFhdThbVDkklouQ20rTySE+BQp8G?=
+ =?us-ascii?Q?KYatiAbYFsRuKcocLaCwlZ4Uk9l0AMZhxeiJ/fD+RVv3Wt/iO105/0I+cY6r?=
+ =?us-ascii?Q?7P707xk/Bnmuc9w+jrdmIec5R0xZzm08dARpYoXWB8cIRS+T81i9sdlob2QM?=
+ =?us-ascii?Q?Rr0I2pQJq1mEGeu/iskNsies+aBo9lrD43mFvcHuSh2fr/VDeGqlgPSw1Kp/?=
+ =?us-ascii?Q?YzZhch5an3z90njKmvEYAJzAXFJv+YMXPqApDDzWp9Zp7Vcj5dtNYjMdjm8v?=
+ =?us-ascii?Q?Kqdsmsd8mZyPl8ZLfn5AKSMhpFg/RWTEnbQ9aAlUTE6QbCcVQcCLj38Jzl4p?=
+ =?us-ascii?Q?W7tAKPc1s9SMHqRXy24PqYWiYXrKYIqj2pNq6Zd9dCqT6eMoQ9y5O7Iwjz55?=
+ =?us-ascii?Q?yXpm4GkcOSpU6y/chZ9riByVEHvnDYzuTASa0rP/hyjMjJXAilj0v2C5Zsp5?=
+ =?us-ascii?Q?MpZ3fjrQZcGuZXtY2fdeAiGk49mJChqEID7Qo/FvmMKOcUpZv3UNz4rw2UoE?=
+ =?us-ascii?Q?ZxMUJAqIMte2gCvmbcnzUhP+gW5u2UlvaejEwIVzsd+/Xa3gDfAQ+fPDPO6r?=
+ =?us-ascii?Q?KSy63omzoDaa3AjeV3fTO0DQGELSyelLyUy7eYAMDUEsJWvo2fbxdFYYC7hE?=
+ =?us-ascii?Q?cnX00fwZO5JVioGlRGPPW84rExkTuu4k9md9vcSS8yo/7XWkZxmI5K16w53q?=
+ =?us-ascii?Q?KAqF+4zOYcoq1I1e4+dkUoqNaRD1j2OOAT9e1+ud83tSwPnmeqa18xwQOiDu?=
+ =?us-ascii?Q?aGLZMBUAqCbdOd8RKHUxBJL3TWZrOzVDEgPs52B/ohpZdWIEbvogJIX6+Py7?=
+ =?us-ascii?Q?skAIpw0rql7Q7bz22xE3xsmexRsKL3XzgfoIZ65/1bs9/xva9X8DBUpuaoyv?=
+ =?us-ascii?Q?CguVxnOst7GVCa/hZ5CYZZFrlUQHXU0tFAIyGHoGaLNsll/1ZL6WL33+wGDw?=
+ =?us-ascii?Q?LNZnvqdRy/A5194FG0zH0uDpuOUCSYRKzM4qDz+GjoAQSX8i2hUuv43i/6mc?=
+ =?us-ascii?Q?1hpyFE0HBl5SwBQOWuOu0jU7DVK+D4HNuJ0APQ+H1eMKN5ce?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3c6ae3a8-81fc-455a-8d19-08de5840327c
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 16:23:08.2859
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KLSq6Dbqaf8Ztu/S5lIKz5OV/idu37QRVL7FnIAtn/zQIdbX2rtEbu3xxfvqDsr3MWeM5yYf+IqazJPCbdRNAg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_082300_447471_EC45561E 
-X-CRM114-Status: GOOD (  37.94  )
+X-CRM114-CacheID: sfid-20260120_082313_173331_7F9A6873 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,153 +169,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/01/2026 15:53, Will Deacon wrote:
-> On Tue, Jan 20, 2026 at 10:40:30AM +0000, Ryan Roberts wrote:
->> On 20/01/2026 09:29, Yeoreum Yun wrote:
->>> Hi Ryan
->>>> On 19/01/2026 21:24, Yeoreum Yun wrote:
->>>>> Hi Will,
->>>>>
->>>>>> On Mon, Jan 05, 2026 at 08:23:27PM +0000, Yeoreum Yun wrote:
->>>>>>> +static int __init linear_map_prealloc_split_pgtables(void)
->>>>>>> +{
->>>>>>> +	int ret, i;
->>>>>>> +	unsigned long lstart = _PAGE_OFFSET(vabits_actual);
->>>>>>> +	unsigned long lend = PAGE_END;
->>>>>>> +	unsigned long kstart = (unsigned long)lm_alias(_stext);
->>>>>>> +	unsigned long kend = (unsigned long)lm_alias(__init_begin);
->>>>>>> +
->>>>>>> +	const struct mm_walk_ops collect_to_split_ops = {
->>>>>>> +		.pud_entry	= collect_to_split_pud_entry,
->>>>>>> +		.pmd_entry	= collect_to_split_pmd_entry
->>>>>>> +	};
->>>>>>
->>>>>> Why do we need to rewalk the page-table here instead of collating the
->>>>>> number of block mappings we put down when creating the linear map in
->>>>>> the first place?
->>>>
->>>> That's a good point; perhaps we can reuse the counters that this series introduces?
->>>>
->>>> https://lore.kernel.org/all/20260107002944.2940963-1-yang@os.amperecomputing.com/
->>>>
->>>>>
->>>>> First, linear alias of the [_text, __init_begin) is not a target for
->>>>> the split and it also seems strange to me to add code inside alloc_init_XXX()
->>>>> that both checks an address range and counts to get the number of block mappings.
->>>>>
->>>>> Second, for a future feature,
->>>>> I hope to add some code to split "specfic" area to be spilt e.x)
->>>>> to set a specific pkey for specific area.
->>>>
->>>> Could you give more detail on this? My working assumption is that either the
->>>> system supports BBML2 or it doesn't. If it doesn't, we need to split the whole
->>>> linear map. If it does, we already have logic to split parts of the linear map
->>>> when needed.
->>>
->>> This is not for a linear mapping case. but for a "kernel text area".
->>> As a draft, I want to mark some of kernel code can executable
->>> both kernel and eBPF program.
->>> (I'm trying to make eBPF program non-executable kernel code directly
->>> with POE feature).
->>> For this "executable area" both of kernel and eBPF program
->>> -- typical example is exception entry, It need to split that specific
->>> range and mark them with special POE index.
->>
->> Ahh yes, I recall you mentioning this a while back (although I confess all the
->> deatils have fallen out of my head). You'd need to make sure you're definitely
->> not splitting an area of text that the secondary CPUs are executing while they
->> are being held in the pen, since at least one of those CPUs doesn't support BBML2.
->>
->>>
->>>>
->>>>>
->>>>> In this case, it's useful to rewalk the page-table with the specific
->>>>> range to get the number of block mapping.
->>>>>
->>>>>>
->>>>>>> +	split_pgtables_idx = 0;
->>>>>>> +	split_pgtables_count = 0;
->>>>>>> +
->>>>>>> +	ret = walk_kernel_page_table_range_lockless(lstart, kstart,
->>>>>>> +						    &collect_to_split_ops,
->>>>>>> +						    NULL, NULL);
->>>>>>> +	if (!ret)
->>>>>>> +		ret = walk_kernel_page_table_range_lockless(kend, lend,
->>>>>>> +							    &collect_to_split_ops,
->>>>>>> +							    NULL, NULL);
->>>>>>> +	if (ret || !split_pgtables_count)
->>>>>>> +		goto error;
-> 
-> Just noticed this, but why do we check '!split_pgtables_count' here?
-> if the page-table is already somehow mapped at page granularity, that
-> doesn't necessarily sound like a fatal error to me.
-> 
->>>>>>> +
->>>>>>> +	ret = -ENOMEM;
->>>>>>> +
->>>>>>> +	split_pgtables = kvmalloc(split_pgtables_count * sizeof(struct ptdesc *),
->>>>>>> +				  GFP_KERNEL | __GFP_ZERO);
->>>>>>> +	if (!split_pgtables)
->>>>>>> +		goto error;
->>>>>>> +
->>>>>>> +	for (i = 0; i < split_pgtables_count; i++) {
->>>>>>> +		/* The page table will be filled during splitting, so zeroing it is unnecessary. */
->>>>>>> +		split_pgtables[i] = pagetable_alloc(GFP_PGTABLE_KERNEL & ~__GFP_ZERO, 0);
->>>>>>> +		if (!split_pgtables[i])
->>>>>>> +			goto error;
->>>>>>
->>>>>> This looks potentially expensive on the boot path and only gets worse as
->>>>>> the amount of memory grows. Maybe we should predicate this preallocation
->>>>>> on preempt-rt?
->>>>>
->>>>> Agree. then I'll apply pre-allocation with PREEMPT_RT only.
->>>>
->>>> I guess I'm missing something obvious but I don't understand the problem here...
->>>> We are only deferring the allocation of all these pgtables, so the cost is
->>>> neutral surely? Had we correctly guessed that the system doesn't support BBML2
->>>> earlier, we would have had to allocate all these pgtables earlier.
->>>>
->>>> Another way to look at it is that we are still allocating the same number of
->>>> pgtables in the existing fallback path, it's just that we are doing it inside
->>>> the stop_machine().
->>>>
->>>> My vote would be _not_ to have a separate path for PREEMPT_RT, which will end up
->>>> with significantly less testing...
->>>
->>> IIUC, Will's mention is additional memory allocation for
->>> "split_pgtables" where saved "pre-allocate" page tables.
->>> As the memory increase, definitely this size would increase the cost.
->>
->> Err, so you're referring to the extra kvmalloc()? I don't think that's a big
->> deal is it? you get 512 pointers per page. So the amortized cost is 1/512= 0.2%?
-> 
-> Right, it was the page-table pages I was worried about not the array of
-> pointers.
-> 
->> I suspect we have both misunderstood Will's point...
-> 
-> I probably just got confused by linear_map_free_split_pgtables() as it
-> has logic to free unused page-table pages between 'split_pgtables_idx'
-> and 'split_pgtables_count', implying that we can over-allocate.
-> 
-> If that is only needed for the error path in
-> linear_map_prealloc_split_pgtables(), then perhaps that part should be
-> inlined to deal with the case where we fail to allocate part way through.
+On Tue, Jan 20, 2026 at 07:03:29AM -0800, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>
+> Add support for AONMIX MQS (i.e. MQS1).
+>
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> ---
+>  .../boot/dts/freescale/imx95-15x15-frdm.dts   | 73 +++++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx95.dtsi      |  5 ++
+>  2 files changed, 78 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
+> index ca1c4966c867..53aae25db7e4 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
+> @@ -243,6 +243,12 @@ codec {
+>  		};
+>  	};
+>
+...
+> +
+>  &scmi_iomuxc {
+>  	pinctrl_emdio: emdiogrp {
+>  		fsl,pins = <
+> @@ -618,6 +684,13 @@ IMX95_PAD_GPIO_IO31__LPI2C4_SCL				0x40000b9e
+>  		>;
+>  	};
+>
+> +	pinctrl_mqs1: mqs1grp {
+> +		fsl,pins = <
+> +			IMX95_PAD_SAI1_TXFS__AONMIX_TOP_MQS1_LEFT               0x31e
+> +			IMX95_PAD_SAI1_RXD0__AONMIX_TOP_MQS1_RIGHT              0x31e
 
-I was originally concerned [1] that there could be a race where another CPU
-caused the normal splitting machinery to kick in after this cpu determined the
-number of required page tables, so there could be some left over in that case.
+Can you use tab instead of space for 0x31e
 
-On reflection, I guess (hope) that's not possible because we've determined that
-some CPUs don't support BBML2. I'm guessing the secondaries haven't been
-released to do general work yet?
-
-In which case, I agree, this could be simplified and we could just assert that
-all pre-allocated pages get used up if there is no error?
-
-[1] https://lore.kernel.org/all/73ced1db-a2e2-49ea-927e-9fc4a30e771e@arm.com/
-
-> 
-> Will
-
+Frank
+> +		>;
+> +	};
+> +
+>  	pinctrl_pcal6524: pcal6524grp {
+>  		fsl,pins = <
+>  			IMX95_PAD_GPIO_IO34__GPIO5_IO_BIT14			0x31e
+> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> index 55e2da094c88..0c55861d673c 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> @@ -391,6 +391,11 @@ scmi_misc: protocol@84 {
+>  		};
+>  	};
+>
+> +	mqs1: mqs-1 {
+> +		compatible = "fsl,imx95-aonmix-mqs";
+> +		status = "disabled";
+> +	};
+> +
+>  	pmu {
+>  		compatible = "arm,cortex-a55-pmu";
+>  		interrupts = <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_HIGH)>;
+> --
+> 2.43.0
+>
 
