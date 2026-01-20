@@ -4,79 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC25D2628B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 18:50:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2618FD26290
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 19:09:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pNbeLKJuz1RvRxewPnrUOwgP/eAxH+4YUlLYd3dHS5s=; b=EZ1yLypQ4MiwSvKZ8Rt/gZrzyp
-	YBmKCkFeZPxcoEJzJkoAGjRWVJlL54DQyTDiGn38YrCgEr/4L09Li8EydCs1H2b/5L1srroad/LTj
-	6aPwWYS4iwX1vRJcsVXTDt5IOoFLgr5hRxIHKtoInipRxhRTRB91BikMxDeDfGkWQNfIxWGF3k9Ci
-	qHmDuiVj8X6Neamvho8zv9ymiqJvwia5299x21ARH5qH8Lma61xShbDtkQjyPeaulF7MbfqbEzo+3
-	uqBpHKpGpEw3mTIA3Rm6QWW6GfSa6kfjennFTSopJ6AuYs6h87FVORq3wE3MLpZFhmlEEIqCPd1Ea
-	aDMDsh+Q==;
+	bh=TZWLoaoV7EzezsWHGxVNdZ4QDGJRM/HQSEczyoVsHN0=; b=qVMT4tE6IMjsyemF7cifPn6qBI
+	mXFbcwj68JJciVemw4bCBFt/086MEQOLN/WlC2qQTPxnKC9t+jc+RVNDRJrIUstET3ttU78YG+roA
+	C+stVVq+bZfOGhTVUWCdgNezeeU1ZJOcrI7M77aUy7h8tZOfjS0Nu5nVZAAlKpJ6O9Y9psdf0SwA0
+	8PP/G8eYsFaKNAwnaoSSXjap9SqJPDHfn6YzOmVqjM19/JJNAc+Eix42PlF6PwUwG/pfgmfNsZphe
+	GKC/tmzcxA0Fzfv+nDO6GOsGY8j6KX1W/gwkHLggXg1HSIZgaGignJpKvew3pjbspAnPR/IrchkfR
+	wux82PMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viGnn-00000004K9W-40Kl;
-	Tue, 20 Jan 2026 18:50:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1viH5y-00000004LYI-12yQ;
+	Tue, 20 Jan 2026 19:08:56 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viGnm-00000004K9K-0VVg;
-	Tue, 20 Jan 2026 18:50:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A2B7B60007;
-	Tue, 20 Jan 2026 18:50:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D20CAC19421;
-	Tue, 20 Jan 2026 18:50:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768935002;
-	bh=RmGeyuXo1uW+F5wAFWT4FNRAvYpuDuojoTmkmG6thsg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XMFr0HUnW2gYIg+E4/T/nh+T/QfHDMc2TLB2/zszUt0HXKwvhCRhKh4lcMkeSr2Ne
-	 AAWnRTO264ZmkDHhpojE9ivFIjL+XA73XMS5r+nNVLd7nonTTwtkPMmxSOji3WXASy
-	 VSYLaCKzBf02zAAWW9tcwWC9QBfANo4NPsJznBVq6coq8SMiOHpFoKSiaZ/c0wJnLF
-	 vclTuYh5uRyhvj90KnGJeh4pjcU+OgAFq0Awl0SbsRStoKqGhb4e8ah+XE//Tc7nSp
-	 42nG8H7qsbqyoxTVwfbNmkswQXM9rx3sjGlQxnnNZ0s5ek61vtiB0LniK69jN8Q1tX
-	 +V9Z+6Eh30Y6w==
-Date: Tue, 20 Jan 2026 15:49:59 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Shimin Guo <shimin.guo@skydio.com>,
-	Athira Rajeev <atrajeev@linux.ibm.com>,
-	Stephen Brennan <stephen.s.brennan@oracle.com>,
-	Howard Chu <howardchu95@gmail.com>,
-	Thomas Falcon <thomas.falcon@intel.com>,
-	Andi Kleen <ak@linux.intel.com>,
-	"Dr. David Alan Gilbert" <linux@treblig.org>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Krzysztof =?utf-8?Q?=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>,
-	Chun-Tse Shao <ctshao@google.com>,
-	Aditya Bodkhe <aditya.b1@linux.ibm.com>,
-	Haibo Xu <haibo1.xu@intel.com>,
-	Sergei Trofimovich <slyich@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Mark Wielaard <mark@klomp.org>
-Subject: Re: [PATCH v1 08/23] perf perf_regs: Switch from arch string to int
- e_machine
-Message-ID: <aW_OV72q5rAVrgRE@x1>
-References: <20260117052849.2205545-1-irogers@google.com>
- <20260117052849.2205545-9-irogers@google.com>
+	id 1viH5v-00000004LXm-0vTT
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Jan 2026 19:08:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768936131; x=1800472131;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=suq092sxUq1UZDCmvSjB4EIKq0NWnio2m/MOEmqo3HM=;
+  b=PYDqAKB18VxL8n+qx/lznWGeA8rSNU0rjH+7CB1gUMbmhg4WcFbNEbW7
+   diOCe1eTeZylh10obxDXFM480lxmERdUbhAZYBkgkYhgjIXKluT/B/Xtd
+   KBD1cF0xmsz0oPoVsenzElzpbZZDy6mu6wq9a4rjCtADKcBf6sMOArBKO
+   +35dCNC6nPMO6gYgAMOIPHAqNqz7hIlMjED7sR2UEsr5OPxWp9pvRa6aI
+   0VabahKIwfVuCVS+qL+86fxiRM7oNCrDBa5OjWv2GYi8GZhU4aAfieGTb
+   DLlT+PPbh18rFy/YRMbdy3JYIKyzU5H6rLlybtvRzXOvUCh/NcwkTQWEd
+   w==;
+X-CSE-ConnectionGUID: kv/zW18ZTz6B/HV3Ap3F3g==
+X-CSE-MsgGUID: UJmUvQvTQeKF/gKect/F/w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11677"; a="57716908"
+X-IronPort-AV: E=Sophos;i="6.21,241,1763452800"; 
+   d="scan'208";a="57716908"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2026 11:08:49 -0800
+X-CSE-ConnectionGUID: S/qzfxi6Tjynf60TUbjybw==
+X-CSE-MsgGUID: oFTL2pAKTTqSKELIV4YUSw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,241,1763452800"; 
+   d="scan'208";a="206450650"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 20 Jan 2026 11:08:43 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1viH5k-00000000POH-2pR0;
+	Tue, 20 Jan 2026 19:08:40 +0000
+Date: Wed, 21 Jan 2026 03:08:24 +0800
+From: kernel test robot <lkp@intel.com>
+To: Mukesh R <mrathor@linux.microsoft.com>, linux-kernel@vger.kernel.org,
+	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-pci@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, kys@microsoft.com,
+	haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+	longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
+	nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
+	romank@linux.microsoft.com
+Subject: Re: [PATCH v0 01/15] iommu/hyperv: rename hyperv-iommu.c to
+ hyperv-irq.c
+Message-ID: <202601210208.mg3YUkif-lkp@intel.com>
+References: <20260120064230.3602565-2-mrathor@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260117052849.2205545-9-irogers@google.com>
+In-Reply-To: <20260120064230.3602565-2-mrathor@linux.microsoft.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260120_110851_294073_5D7D830A 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,19 +98,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 09:28:34PM -0800, Ian Rogers wrote:
-> The arch string requires multiple strcmp to identify things like the
-> IP and SP. Switch to passing in an e_machine that in the bulk of cases
-> is computed using a current thread load. The e_machine also allows
-> identification of 32-bit vs 64-bit processes.
-> 
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/builtin-script.c                   |  17 ++-
->  tools/perf/util/evsel.c                       |  14 ++-
->  tools/perf/util/perf_regs.c                   | 105 +++++++++++-------
+Hi Mukesh,
 
-[ Include dwarf-regs.h to get conditional defines for EM_CSKY and EM_LOONGARCH, not available in old distros ]
+kernel test robot noticed the following build errors:
 
-- Arnaldo
+[auto build test ERROR on tip/x86/core]
+[also build test ERROR on pci/next pci/for-linus arm64/for-next/core clk/clk-next soc/for-next linus/master arnd-asm-generic/master v6.19-rc6 next-20260119]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Mukesh-R/iommu-hyperv-rename-hyperv-iommu-c-to-hyperv-irq-c/20260120-145832
+base:   tip/x86/core
+patch link:    https://lore.kernel.org/r/20260120064230.3602565-2-mrathor%40linux.microsoft.com
+patch subject: [PATCH v0 01/15] iommu/hyperv: rename hyperv-iommu.c to hyperv-irq.c
+config: i386-randconfig-001-20260120 (https://download.01.org/0day-ci/archive/20260121/202601210208.mg3YUkif-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260121/202601210208.mg3YUkif-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601210208.mg3YUkif-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from drivers/acpi/pci_root.c:20:
+>> include/linux/dmar.h:269:17: error: unknown type name '__u128'; did you mean '__u32'?
+     269 |                 __u128 irte;
+         |                 ^~~~~~
+         |                 __u32
+
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for IRQ_REMAP
+   Depends on [n]: IOMMU_SUPPORT [=y] && X86_64 [=n] && X86_IO_APIC [=y] && PCI_MSI [=n] && ACPI [=y]
+   Selected by [y]:
+   - HYPERV_IOMMU [=y] && IOMMU_SUPPORT [=y] && HYPERV [=y] && X86 [=y]
+
+
+vim +269 include/linux/dmar.h
+
+2ae21010694e56 Suresh Siddha   2008-07-10  200  
+2ae21010694e56 Suresh Siddha   2008-07-10  201  struct irte {
+b1fe7f2cda2a00 Peter Zijlstra  2023-05-31  202  	union {
+b1fe7f2cda2a00 Peter Zijlstra  2023-05-31  203  		struct {
+2ae21010694e56 Suresh Siddha   2008-07-10  204  			union {
+3bf17472226b00 Thomas Gleixner 2015-06-09  205  				/* Shared between remapped and posted mode*/
+2ae21010694e56 Suresh Siddha   2008-07-10  206  				struct {
+3bf17472226b00 Thomas Gleixner 2015-06-09  207  					__u64	present		: 1,  /*  0      */
+3bf17472226b00 Thomas Gleixner 2015-06-09  208  						fpd		: 1,  /*  1      */
+3bf17472226b00 Thomas Gleixner 2015-06-09  209  						__res0		: 6,  /*  2 -  6 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  210  						avail		: 4,  /*  8 - 11 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  211  						__res1		: 3,  /* 12 - 14 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  212  						pst		: 1,  /* 15      */
+3bf17472226b00 Thomas Gleixner 2015-06-09  213  						vector		: 8,  /* 16 - 23 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  214  						__res2		: 40; /* 24 - 63 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  215  				};
+3bf17472226b00 Thomas Gleixner 2015-06-09  216  
+3bf17472226b00 Thomas Gleixner 2015-06-09  217  				/* Remapped mode */
+3bf17472226b00 Thomas Gleixner 2015-06-09  218  				struct {
+3bf17472226b00 Thomas Gleixner 2015-06-09  219  					__u64	r_present	: 1,  /*  0      */
+3bf17472226b00 Thomas Gleixner 2015-06-09  220  						r_fpd		: 1,  /*  1      */
+3bf17472226b00 Thomas Gleixner 2015-06-09  221  						dst_mode	: 1,  /*  2      */
+3bf17472226b00 Thomas Gleixner 2015-06-09  222  						redir_hint	: 1,  /*  3      */
+3bf17472226b00 Thomas Gleixner 2015-06-09  223  						trigger_mode	: 1,  /*  4      */
+3bf17472226b00 Thomas Gleixner 2015-06-09  224  						dlvry_mode	: 3,  /*  5 -  7 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  225  						r_avail		: 4,  /*  8 - 11 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  226  						r_res0		: 4,  /* 12 - 15 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  227  						r_vector	: 8,  /* 16 - 23 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  228  						r_res1		: 8,  /* 24 - 31 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  229  						dest_id		: 32; /* 32 - 63 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  230  				};
+3bf17472226b00 Thomas Gleixner 2015-06-09  231  
+3bf17472226b00 Thomas Gleixner 2015-06-09  232  				/* Posted mode */
+3bf17472226b00 Thomas Gleixner 2015-06-09  233  				struct {
+3bf17472226b00 Thomas Gleixner 2015-06-09  234  					__u64	p_present	: 1,  /*  0      */
+3bf17472226b00 Thomas Gleixner 2015-06-09  235  						p_fpd		: 1,  /*  1      */
+3bf17472226b00 Thomas Gleixner 2015-06-09  236  						p_res0		: 6,  /*  2 -  7 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  237  						p_avail		: 4,  /*  8 - 11 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  238  						p_res1		: 2,  /* 12 - 13 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  239  						p_urgent	: 1,  /* 14      */
+3bf17472226b00 Thomas Gleixner 2015-06-09  240  						p_pst		: 1,  /* 15      */
+3bf17472226b00 Thomas Gleixner 2015-06-09  241  						p_vector	: 8,  /* 16 - 23 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  242  						p_res2		: 14, /* 24 - 37 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  243  						pda_l		: 26; /* 38 - 63 */
+2ae21010694e56 Suresh Siddha   2008-07-10  244  				};
+2ae21010694e56 Suresh Siddha   2008-07-10  245  				__u64 low;
+2ae21010694e56 Suresh Siddha   2008-07-10  246  			};
+2ae21010694e56 Suresh Siddha   2008-07-10  247  
+2ae21010694e56 Suresh Siddha   2008-07-10  248  			union {
+3bf17472226b00 Thomas Gleixner 2015-06-09  249  				/* Shared between remapped and posted mode*/
+2ae21010694e56 Suresh Siddha   2008-07-10  250  				struct {
+3bf17472226b00 Thomas Gleixner 2015-06-09  251  					__u64	sid		: 16,  /* 64 - 79  */
+3bf17472226b00 Thomas Gleixner 2015-06-09  252  						sq		: 2,   /* 80 - 81  */
+3bf17472226b00 Thomas Gleixner 2015-06-09  253  						svt		: 2,   /* 82 - 83  */
+3bf17472226b00 Thomas Gleixner 2015-06-09  254  						__res3		: 44;  /* 84 - 127 */
+3bf17472226b00 Thomas Gleixner 2015-06-09  255  				};
+3bf17472226b00 Thomas Gleixner 2015-06-09  256  
+3bf17472226b00 Thomas Gleixner 2015-06-09  257  				/* Posted mode*/
+3bf17472226b00 Thomas Gleixner 2015-06-09  258  				struct {
+3bf17472226b00 Thomas Gleixner 2015-06-09  259  					__u64	p_sid		: 16,  /* 64 - 79  */
+3bf17472226b00 Thomas Gleixner 2015-06-09  260  						p_sq		: 2,   /* 80 - 81  */
+3bf17472226b00 Thomas Gleixner 2015-06-09  261  						p_svt		: 2,   /* 82 - 83  */
+3bf17472226b00 Thomas Gleixner 2015-06-09  262  						p_res3		: 12,  /* 84 - 95  */
+3bf17472226b00 Thomas Gleixner 2015-06-09  263  						pda_h		: 32;  /* 96 - 127 */
+2ae21010694e56 Suresh Siddha   2008-07-10  264  				};
+2ae21010694e56 Suresh Siddha   2008-07-10  265  				__u64 high;
+2ae21010694e56 Suresh Siddha   2008-07-10  266  			};
+2ae21010694e56 Suresh Siddha   2008-07-10  267  		};
+b1fe7f2cda2a00 Peter Zijlstra  2023-05-31  268  #ifdef CONFIG_IRQ_REMAP
+b1fe7f2cda2a00 Peter Zijlstra  2023-05-31 @269  		__u128 irte;
+b1fe7f2cda2a00 Peter Zijlstra  2023-05-31  270  #endif
+b1fe7f2cda2a00 Peter Zijlstra  2023-05-31  271  	};
+b1fe7f2cda2a00 Peter Zijlstra  2023-05-31  272  };
+423f085952fd72 Thomas Gleixner 2010-10-10  273  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
