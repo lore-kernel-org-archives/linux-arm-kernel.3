@@ -4,117 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E75D2ED0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 09:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98909D2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 10:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h9YOBZ5miiA8PQ9oxv2tW/ypKDf9bSv32CdHRlk5ulA=; b=A3qoh5lUY1c/HfdYXdUGKnzdrt
-	uLrGJG4WVhq8JqGPKkyijlw5aGtksOd2ShCw/InpkaPQo5OJLp/4QBfCixuXa6IaqmY9UN3UTSWgu
-	Py0Jm+jpuH/XdWSKbwDgAPWC3YIqH8+YlkS5xPxV3qPc9Bd//zDnemsqoYEptt8Un8ppqmpaoazHN
-	g3bZASfUCvgl9Zz/9eB2xIVf/v7ixniQiJ/eRMliEb0SG63Eey4fS9KqsughQoV0GFtCaA18KGfVP
-	82xgKBnlDHBOcOu4Twh1RkySG6g/M28JtEj4Biwceg4RePiT17cSsKDNhC4H5J0BktGKV2t5dNDLi
-	7LS7pQ6Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=S7951CmhBfNyeg6X5oFR/k3HQrKbwIeGqG50J+wopCs=; b=i0tBhGZixbg6iJl1zlieX7hFW4
+	hlCV/IoEczTtDOeudyB5PO1Ll1IoS4z0FrrM1Sayw7YjRKfRt+EYGsYzKcNY57wZ6waJZQvh+vmMJ
+	uwsVa5R9WNE7AlzbzRCF4dLkd7f9FU3aBHLpd7XBRFuqT5f7XRdrXGQZ+vyNXGK43/6/U3ocGvUPW
+	5dOFbdyQggYOFXpWYOV1UojMEMMEynYjsOwR6xA75ykGf23Mfr5XzhgsSamgJMlmNjBTHCK/1a4rC
+	Ek1WmHpoMb4XlDL3fBRbusdxlmnKqqNz4TB7k/q9g7j4x8elI35OvSE20WX1Phe56TxtkzK6nHj2S
+	rCvRB1Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8Rq-00000003Z1h-2oTK;
-	Tue, 20 Jan 2026 09:54:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vi8ZG-00000003Zcz-21PB;
+	Tue, 20 Jan 2026 10:02:34 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8Rm-00000003Z0g-0q26
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 20 Jan 2026 09:54:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=h9YOBZ5miiA8PQ9oxv2tW/ypKDf9bSv32CdHRlk5ulA=; b=cxRdOVNXd8SEVEn/PGQRc8LC1v
-	0XVYoB2sTVb5eG92qdWwpSX9snOl7mz8HPI4ijcLkCZZblksT8AOURiXeKBpfqDum7WG9RlFhbRtA
-	ChQ3v1nOxZEaXBR0WCByvInmsVsW+7UHcQ+4AshnVDP+NIVn5a5a4gWe2iUDdMka9s11wy9t1fy3l
-	EGL2JkRziy73u5yyu3nOd/2dLkooMELEhmOohJzK9PJ0BX5n/mxAu5GjOO9A4XGoZGP3UiFfGpXXp
-	fB4kCF6NHsXOZ1QSN2r2qwOR5xABISTjgzYXbF+9yuz9S5Kz9CUe9IZXYUrIVgJR4KlNOsjF8H/hT
-	TLR0H9YQ==;
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8Rj-0000000DkTR-0TP3
+	id 1vi8ZC-00000003ZcJ-1r6Z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 09:54:49 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 823CB1D004D8;
-	Tue, 20 Jan 2026 04:54:41 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Tue, 20 Jan 2026 04:54:41 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1768902881;
-	 x=1768989281; bh=h9YOBZ5miiA8PQ9oxv2tW/ypKDf9bSv32CdHRlk5ulA=; b=
-	HgxF9qNj8nDJPnfVzduuoMTz48JeKsZ4iIf7csB+WxSy6MzYkD+8VKdmLhkrrTUo
-	dbOkuDnEPzA0WYev2Ex+/GbMHX3DH/uorAyVi9ZXQ5IYQmfRRsJiYA+9srbPrvso
-	GrTBgWmT6EQl4Yn11rtbGXPEDk0CDFG6Fg9VCZVEL9b9TmAlAOtMXl68YZQFxJMg
-	L02cbe8B43H1fWd906RcbORZCvu86oPGrZoan8lYk6GLyOBDVUi9ccfoedTuwn91
-	/YlFVQgFFOkl5nybY1oyCtXPYDoUgZp+nXh4/ugjX861LcRBLNOuM+cgP5Dresky
-	G8ZEL+8GHHLYxqXOwUQNSw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1768902881; x=
-	1768989281; bh=h9YOBZ5miiA8PQ9oxv2tW/ypKDf9bSv32CdHRlk5ulA=; b=P
-	EYSiO99u2dbMtG4ECgu2HZVRGKJsAWlm2BQ5QMdhV5bxZgGD/qS3v8uIc1rOoxC5
-	WVQQi7gql8uX677q1TnbbKjDrCgiAYEsIn0RDYP9Za36p4eNxgOYM1qHBLuOp4rz
-	2MRZzqbr0Rtwgwx+Jo6T2nWZcAYkA2q+p4aln8AhoKeX/pHDqy+gw1yXiBsArwVE
-	aew9Amn6s76KTWWaSEPrzI9v2/08coTP29lNI1HmoQbWTCA40GPJP8Eit6+me0vr
-	7sbvXN/z+9LLMh00k72+qt8N5ohSw96OiAjJGVs/dXkHIxQxSo9kWDdNLD1dvzGj
-	ssSGFf/irV6LxO7oxWB1A==
-X-ME-Sender: <xms:4VBvaavqBQN6V45_fjcqSkXkxSarv0cXq9fyyjbwGS6elw2XuGfJhA>
-    <xme:4VBvaaRgjRW-hHcCt3KrlhPp4UXQZpD1Yx3akddhOtFzg22IDrd83PO3Y3lg2vcFy
-    wD74tYXUOZ3WwAC-SoNT7_nNr9odfCg2fp-uerEoGX5TNSHMTzyA0s>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddugedttdelucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepiedpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtoheprghrnhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlphhivg
-    hrrghlihhsiheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgriieskhgvrhhnvghl
-    rdhorhhgpdhrtghpthhtohepthhglhigsehlihhnuhhtrhhonhhigidruggvpdhrtghpth
-    htoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggu
-    rdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvg
-    hlrdhorhhg
-X-ME-Proxy: <xmx:4VBvaWN89djM1sHAlJQohFEzIVkbd5z31i-70Rh7B6ZYY72KbhkDeg>
-    <xmx:4VBvaf4GuwIeBfkV2Sbv4W7Nk47M94iYO_4h_Xe0OF5Bczm9wlCDoA>
-    <xmx:4VBvacSkGvZpksIsczbTvjMTJX48-VY4F7ONRJI2G679yvaV6CF2Gg>
-    <xmx:4VBvacBD3pSQJ5qmi4MFr01yA_YHltgMVkWvejCdUIvGkGeNPfIjiA>
-    <xmx:4VBvaX6qes0kVi2nTiYP1tT29Kw1mPGzypiCmTHM8lpXV2Y8Ll35U6Bj>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 20692700065; Tue, 20 Jan 2026 04:54:41 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 20 Jan 2026 10:02:32 +0000
+Received: from francesco-nb.corp.toradex.com (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
+	by mail11.truemail.it (Postfix) with ESMTPA id 95CA11FA75;
+	Tue, 20 Jan 2026 11:02:25 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1768903346;
+	bh=S7951CmhBfNyeg6X5oFR/k3HQrKbwIeGqG50J+wopCs=; h=From:To:Subject;
+	b=nXcYyEHE74KQFgZYlqNEYOwELUmuiRjg5OfOpQzSJvGrksJAWOIapHaax/BFHmdNC
+	 vOaAziDCQq3TIVmDnugwbW0XJ2MKVA1pw6krg6+geqjdL35ykM3PqyEIs9otZRD2LT
+	 u3JEsfuVeLKiMCPc0hocUoKRafgn2CV46g7diXpLkJZRL093EqxNPOEuvU2RCZA16X
+	 nbR+kW27/OcRIovle8po3kwtzEuhEXrP8u+qZoXByFtpI5cfV8DmPyAUpGSme9T9xn
+	 svducdGRKvgP5kMeMQxLK0U5Lvcl99tmNh+gnaigXi9OsRV7eyreWaXVXF+wlUOeqW
+	 0QLZ759V9jyWQ==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1] arm64: dts: imx8-apalis: Disable the audmix
+Date: Tue, 20 Jan 2026 11:02:20 +0100
+Message-ID: <20260120100221.47274-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-ThreadId: AyIhq_EbNuZc
-Date: Tue, 20 Jan 2026 10:52:53 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Marc Zyngier" <maz@kernel.org>, "Arnd Bergmann" <arnd@kernel.org>
-Cc: "Thomas Gleixner" <tglx@linutronix.de>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Message-Id: <e090dcf7-b55c-4bbe-bfba-482cf318463e@app.fastmail.com>
-In-Reply-To: <865x8wd5v9.wl-maz@kernel.org>
-References: <20260119201603.2713066-1-arnd@kernel.org>
- <865x8wd5v9.wl-maz@kernel.org>
-Subject: Re: [PATCH] irqchip: gic-v3-its: avoid truncating memory addresses
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_095447_401249_7DF90D96 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20260120_020231_359502_F08BA28F 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,38 +76,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026, at 09:51, Marc Zyngier wrote:
-> On Mon, 19 Jan 2026 20:15:12 +0000, Arnd Bergmann <arnd@kernel.org> wrote:
->> 
->> Change the itt_addr variable to the correct phys_addr_t type instead,
->> along with all other variables in this driver that hold a physical
->> address.
->
-> Ah, nice catch. It's amazing that we've managed for so long with such
-> a glaring bug. I guess most 32bit VMs don't have much memory above the
-> 4GB limit.
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Right, the upstream qemu model specifically has no lowmem above
-the limit, as its RAM starts as 0x40000000 and the most lowmem we
-support (with CONFIG_VMSPLIT_1G) is 3.75GiB, ending at 0xEFFFFFFF
-physical.
+The audmix is not used on apalis imx8, disable it.
 
-There are some SoCs that start physical RAM higher up, but I suppose
-these were either never tested with CONFIG_VMSPLIT_1G, or they don't
-have a GICv3.
+This solves the following warning message
 
-The patch I'm testing with allows lowmem to be at physically
-discontinuous addresses, so this can happen on any SoC that has
-its second DRAM controller mapped to a high address, potentially
-even with the regular VMSPLIT_3G or VMSPLIT_2G.
+  imx-audmix imx-audmix.0: failed to find SAI platform device
+  imx-audmix imx-audmix.0: probe with driver imx-audmix failed with error -22
 
->> I checked the gicv5 driver for the same problem, and it correctly
->> uses u64 variables,
->
-> GICv5 is strictly 64bit, and cannot be plugged on a system that
-> supports AArch32.
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+ arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi       | 4 ----
+ arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi | 4 ----
+ arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi | 4 ----
+ 3 files changed, 12 deletions(-)
 
-Right, makes sense.
+diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi
+index 06790255a764..6f5af37ba9af 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi
+@@ -22,10 +22,6 @@ &adc1 {
+ 	status = "okay";
+ };
+ 
+-&amix {
+-	status = "okay";
+-};
+-
+ &asrc0 {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi
+index 7022de46b8bf..97fcd865fe3e 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi
+@@ -62,10 +62,6 @@ &adc1 {
+ 	status = "okay";
+ };
+ 
+-&amix {
+-	status = "okay";
+-};
+-
+ &asrc0 {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi
+index 12732ed7f811..b70cf3e8f8c1 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi
+@@ -94,10 +94,6 @@ &adc1 {
+ 	status = "okay";
+ };
+ 
+-&amix {
+-	status = "okay";
+-};
+-
+ &asrc0 {
+ 	status = "okay";
+ };
+-- 
+2.47.3
 
-   Arnd
 
