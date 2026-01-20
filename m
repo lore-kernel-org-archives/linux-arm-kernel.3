@@ -4,79 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A2F7D2ED0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 09:21:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C6C7D2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 09:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OXF/P9VEQfJJ8i8D8me4MwtOeFLxEnKqU9NmPAC1YHc=; b=j0qSyxhkbehHdKC8l3wn1LBt5O
-	JtXrhZPeamNZRGVzHj503AMgxuUrgfkPfjNOBnIgR62QAEMhlUrJ8CQzzq2dZiA302UvLlywHo78R
-	kLDcKIhN+N3SrSjIa6U/l6lPTsoZ6uSIbhZI4Ccsu+wj+kKSPHxBL5urZmlQ/Oha6HyJmyao9HgHa
-	qZgZu4wQ2+9Z2IAl4C6Nf3FX+H70bVtbFMn+Nn+M7dMmhxlLhj4wl3omkgB2M6oJCcUOiOEy5ss/B
-	dgJXLCMdGH5yn0d/Jnmo0xIhot5UNbjc09zT83tI600G7dY+VZ9pbbFjGqadw5ytF9Pj9sUnvF2I4
-	SHxqtElw==;
+	bh=nqJyUn8KDzX+BW/H9VmIvPq3L9/Qeq03MXJMYTwUlZg=; b=GkParWw7PNG4K1ZQMp5Uqh02UT
+	dfNB654qBohwObxbtG1OkKLzGUQCoNvbGKhOpr+MqKRW7Jbm3mfletbsqv+BkbZUvOD1Jsup2A+Pq
+	ZmZc3LiqLfrbz8QB6pwP7BMVZr261m4ltuNUS9n7BjD5MYkw+K+lpYCqTHWNr5uQqL72TUL9hY1N/
+	CvFvPnUd2e0OSesvGmUNcgmyV8TiTIYRG2fL+ar3Gjox3+H0yCZSRvHZ9yYjYmpI5t4/sfcLO7fGV
+	4CALpD0cDSL+9epj9kvoL2cqK3HkXBJsSvsDHrFFmLPv8TeOIyxtuMNoSRr5aWRHvSZkDDOkmM7J9
+	q3WuA/MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi7vH-00000003WW7-2XD8;
-	Tue, 20 Jan 2026 09:21:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vi7xX-00000003Wkf-1rAG;
+	Tue, 20 Jan 2026 09:23:38 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi7vF-00000003WVe-3WgF;
-	Tue, 20 Jan 2026 09:21:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=OXF/P9VEQfJJ8i8D8me4MwtOeFLxEnKqU9NmPAC1YHc=; b=JFoO3X/31ShkwGFeoJua438lVX
-	I9lQFhXy/qzUijrhubYOGPYKLSBhhvGPyX4tBeGmHjfUYDNWQBHKfm9Sq8MygTdyBuf/HOPsfG4tP
-	31RVUvi3YRJhRqj//hQmwVlHAGjkxAwWMaCS+vks8H3Pl/E/qe2Ux3atFsm6+3lF4oc7QAxt+8lSm
-	leEad7NbM0B2LioM/a4oQzS6WD+N4kBk+kYWh/Vaznx49/Rz4h9VfGrT5w89xW97LAIiOh6c60ULN
-	ZQap1RRC0ejab+OJe3hD8yuXJMzgqeOZe5TkkMmLm0ZvCTGD937bndPDAAqbyAJS3AokxDyU5mAm9
-	ySVQxWig==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi7vD-0000000DgiO-0jIR;
-	Tue, 20 Jan 2026 09:21:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=OXF/P9VEQfJJ8i8D8me4MwtOeFLxEnKqU9NmPAC1YHc=; b=BimZu0SuvzB3jaUW5oNSKxEaOu
-	uB3H3zCEEpx7yA6si/29a3bsR5iKClQLYlHKfTbQFEk8Gmfzpt+z47v2bP3if1Ke0/7lrocAxi0I6
-	tc+T/tBM6Pz5+/9yzGEFeZYC5BzyOpLC5j3QS0gTRKAdGEG0We3410D6IoeBzojXifV5W1oB5C8c2
-	lt+LPC710XKWmU8vMpx50S+2aKaaB5Dspupzyyc/QNocLut0BI588Ganj5QG71PMidnAWVe9p7rxn
-	rTWbRKfShFWUmDMHqf8GqLJFhgeoaK/Bt0yzBGCMFxxuG8m39cbaNJza5UI+pJZwGMbHkeLKXyocU
-	UGHAiwmQ==;
-Received: from [192.76.154.238] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vi7v3-003KRU-PW; Tue, 20 Jan 2026 10:21:02 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Quentin Schulz <quentin.schulz@cherry.de>,
- Alexey Charkov <alchark@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- Shawn Lin <shawn.lin@rock-chips.com>,
- Manivannan Sadhasivam <mani@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Explicitly request UFS reset pin on RK3576
-Date: Tue, 20 Jan 2026 10:21:01 +0100
-Message-ID: <40619400.XM6RcZxFsP@phil>
-In-Reply-To: <8960787.MhkbZ0Pkbq@diego>
-References: <20260119-ufs-rst-v1-1-c8e96493948c@gmail.com>
- <CABjd4YympEqbiN9-Kwv40YtaCh6bu=3PBQPyvvGgKCQbLeZmZw@mail.gmail.com>
- <8960787.MhkbZ0Pkbq@diego>
+	id 1vi7xP-00000003Wju-369M
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Jan 2026 09:23:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768901007; x=1800437007;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=S9gyRhn0+B7afxQAp1s8FGxNuqTvrrlOvLDrNuhP94M=;
+  b=MGTZ/Uwi+Rzhn81mTOsF9a2Az/OkxWAnKRj7tB4C4/Uk7S0guzgW0BCI
+   8KA+ofNm1rqRSBHuTye8udsxiMOBfpabG7K66fgHB24UYy8dAIM/JuXi8
+   5NYomW6VhqJDpxofI99NLYoBZvlWUvXsW9Bg5tO4oZ6gvYjNtXSRn3rF1
+   bukc3XuXQ1CPe5za4TJ8NkxpELlhtf+wNKZVK/XVMD3Ayv9A0FXdB75IK
+   g1An+rQ9azJpjt7RPklHwqPpDBHjttnaMihMU+0lByrtAvchRfJgdexPs
+   L+rbe9Febkd63SA2ikkg2ULG+OMcnq8oHaOhjHveF+betINsq8CDYWj6g
+   A==;
+X-CSE-ConnectionGUID: 4vHwA2ztQFqxj2xkv1nDEA==
+X-CSE-MsgGUID: xXVzrRVxQVKotC/0uGyfmg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11676"; a="57662228"
+X-IronPort-AV: E=Sophos;i="6.21,240,1763452800"; 
+   d="scan'208";a="57662228"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2026 01:23:26 -0800
+X-CSE-ConnectionGUID: 4hHYjA+dQHa+/uSIVxbELA==
+X-CSE-MsgGUID: LIYIcTO5TFKeZnFVP0EBtg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,240,1763452800"; 
+   d="scan'208";a="211084970"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by orviesa005.jf.intel.com with ESMTP; 20 Jan 2026 01:23:23 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1003)
+	id 73F1A99; Tue, 20 Jan 2026 10:23:22 +0100 (CET)
+Date: Tue, 20 Jan 2026 10:23:22 +0100
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Michal Simek <michal.simek@amd.com>,
+	Abdurrahman Hussain <abdurrahman@nexthop.ai>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] spi: xilinx: use device property accessors.
+Message-ID: <aW9JihlsjnJ-uBul@black.igk.intel.com>
+References: <69F83558-4675-4FC2-8656-BC6E3481AD65@nexthop.ai>
+ <9e559e33-4f2f-40d4-a15f-584548bd6057@sirena.org.uk>
+ <05D2CC15-DD6B-40F0-BFF0-3264D4FF96ED@nexthop.ai>
+ <b1b79de0-a078-486d-b3e9-96899354407c@sirena.org.uk>
+ <3D1B59A7-6E57-4C8C-AA95-EA7AA115264F@nexthop.ai>
+ <b9ad8ab8-7985-4c89-a82b-c7f31d32c167@sirena.org.uk>
+ <a6d57890-89c1-445e-836c-d8239d20c621@amd.com>
+ <b03307f7-93f6-4680-9241-cf28b5456fd0@sirena.org.uk>
+ <a3fcef3a-d1e9-4b46-b114-3a82575e052e@amd.com>
+ <980ad372-a2c7-417c-91f9-4958d3d1aaca@sirena.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <980ad372-a2c7-417c-91f9-4958d3d1aaca@sirena.org.uk>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_092111_269105_B212570E 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20260120_012327_832649_0F9EB2E7 
+X-CRM114-Status: GOOD (  51.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,25 +101,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 19. Januar 2026, 15:42:23 Mitteleurop=C3=A4ische Normalzeit schr=
-ieb Heiko St=C3=BCbner:
-> Am Montag, 19. Januar 2026, 15:05:16 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Alexey Charkov:
-> > Happy to make a v2 with an explicit pull-down. Will wait a bit for any
-> > other potential feedback though.
->=20
-> I'd side with Quentin here, having the pin firmly on one state, when no-o=
-ne
-> (board nor driver) is caring would be my preference.
-> Especially as Quentin said, this is the hardware-default too.
+On Mon, Jan 19, 2026 at 07:56:57PM +0000, Mark Brown wrote:
+> On Mon, Jan 19, 2026 at 08:17:46PM +0100, Michal Simek wrote:
+> > On 1/19/26 20:01, Mark Brown wrote:
+> > > On Mon, Jan 19, 2026 at 07:52:35PM +0100, Michal Simek wrote:
 
-Also it would be good to send that v2 sooner rather than later, as we're
-pretty late in the current development cycle already.
-(We're after -rc6 already)
+> > > > Is it a better way to use auxiliary bus as was recommended by Greg in past
+> > > > on drivers/misc/keba/cp500.c review?
+> > > > https://lore.kernel.org/linux-i2c/2024060203-impeding-curing-e6cd@gregkh/
+> 
+> > > The driver there appears to be doing runtime enumeration based on some
+> > > EEPROMs on the system and creating platform devices based on what it
+> > > finds there so it's a bit of a different thing, the aux bus suggestion
+> > > is about what the code that does with the data it got from the EEPROM.
+> > > This patch is for something described directly by firmware so there's no
+> > > way we'd create an aux device, that's purely in kernel.
+> 
+> > I don't thing it is actually eeprom because in fpga you can place at certain
+> > location just memory (or RO memory) to describe what it is inside.
+> 
+> The table of per module I2C EEPROM devices (there's a whole pile flagged
+> as optional) sure does look like it, and it's a very standard way to
+> implement hardware enumeration of non-enumerable systems.
+> 
+> > If you know it I think you have multiple options how to wire existing drivers.
+> 
+> > 1. ACPI - which is what this series is trying to do
+> 
+> Is it?  It just looks like random cleanups.  We've got a change to make
+> interrupts optional and this change to device properties - the cover
+> letter just says it's a transition to device property but there's no
+> indiciation why it's being done.  The cover letter for the series just
+> says it's switching to device properties with no further explanation.
+> It looks like a "that's the newer API" thing than something that's been
+> thought through.
+> 
+> None of this looks like something intended to add ACPI bindings,
+> it's not clear to me how we'd even get the device instantiated on a
+> normal ACPI system.  There's no ACPI IDs defined (and there aren't any
+> existing ones), just a conversion of the property parsing code.
+
+For the matter of this change, the only thing that can be preferred in ACPI is
+to have the real ID, id est ACPI _HID (allocated by the vendor, namely Xilix).
+So, ideally at the end it should be enumerated by ACPI ID table with properly
+allocated HID and not with the compatible line.
+
+The compatible line is for prototyping and DIY (discrete components, like
+small temperature sensors, when allocating proper ACPI ID is a big deal
+for a vendor).
+
+The set of _DSD properties is okay to be shared even in that case.
+
+TL;DR: We prefer ACPI HID to be properly allocated and used, or explained
+why it can't be feasible (which I don't believe the case for Xilinx).
+
+> > 2. DT - on x86 not sure if feasible
+> 
+> No, x86 decided not to use DT and shoehorn everything into APCI (and the
+> x86 SoCs put their platform devices behind fake PCI that looks like PCI
+> to the OS).
+
+There are three platforms in the past that used DT on x86.
+Latest one was dated ca. 2017 (SpreadTrum SoC with x86 core in it).
+
+DT on x86 is a real thing, but very niche.
+
+> > 3. platform drivers - as described above by Greg not an option on PCIe
+> > 4. aux bus - for example keba drivers
+> > 5. dfl - drivers/fpga/dfl* - used for accelerators.
+> 
+> These are orthogonal to the above, they're Linux internal things not a
+> concept the firmware has.  You have firmware descriptions of things that
+> can be mapped onto platform devices but that's a separate thing.
+> 
+> > Pretty much all current Xilinx drivers for soft IPs (spi, i2c, uarts,
+> > watchdogs, etc) are platform drivers (more OF drivers because platform data
+> > are mostly not used).
+> 
+> > It means I think would be good to get any recommendation which way to go.
+> 
+> You should use whatever firmware interface is sensible for the platform,
+> if that's x86 that's always ACPI.  For other architectures there's a
+> split with servers using ACPI and more embedded platforms using DT.
+> 
+> > > I have no idea what the hardware this series targets is (other than that
+> > > it's using a FPGA) or if there's even a motivation for the change other
+> > > than code inspection.
+> 
+> > I think all these cases are very similar. You have x86 with pcie root port
+> > which is connected directly (or via pcie slot) to fpga. In fpga you have
+> > pcie endpoint HW which connects other IPs sitting on AXI.
+> 
+> What are "all these cases"?  For something connected via PCI I would
+> expect a PCI driver that knows via some mechanism what's connected to it
+> and then instantiates the IPs, probably as aux devices.  I would not
+> expect to see the contents of the PCI device described in firmware at
+> all, that's a big goal with using PCI.  If something is not connected
+> via PCI that's obviously not going to fly but it sounds like you're only
+> interested in PCI cases here.
 
 
-Thanks
-Heiko
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
 
