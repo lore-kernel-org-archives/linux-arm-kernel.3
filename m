@@ -4,151 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98ACAD2ECFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 00:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CACFD2ECFC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 01:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2mjKlTe71LKxOJb9n/mBgap8RbLIerfr32L117tE1eA=; b=mV7J9nr6wNqCUXELvXFmeC8OwV
-	+N0KjOXPz1n73r9JFwj62x7xojzh964VGdtiXqppoKWtyF4f8Fens10UVmUFsThKwQaBsH3jVc4yI
-	9e4wmh9KlVuv4L4ZyedLYhu7zmr3xRbWD9/xh1LtiX8XQlNP2TJvXbuFBMZ7uwS4PjN0OUciY/uP3
-	kE/QaLYKlZTicELQ+BVCP5YgTf0UFPckis3Y3r9YmK6GUksik/uPfT1kP0W13RrxbE7hD2h5Y8hOy
-	F+YbGGRRa/b9ewpWLrpOeMANxP4pd33qLjv+BCqSb175K8wU37rYrNmaCpiOsEmZVDNETIIVAlMF8
-	GU00wIng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T/TCsCdIrbCboZ9CYWIOrqCgweLTDpJXdZAWcI4FJpY=; b=ofqwwp5VEfZkzAh/LtMHdnp9iC
+	wXMjhQEuGHDi9gd42bxXdKDsGGfnoFdOBFKHUdv4TNHKe5L07kEJuGobiaAHs7jTxf2x/5H3k83kO
+	vXa7qOG8ewjhJ2JLc/sMFDwycIL7Mx+QS+oRdOeFEp26v86sUxvOSVFTn6PWdMHbnFwyo1JxckCF2
+	EcjFV2uOQRwlo/NJpF9iqMotLQX88kSwYRdJg4vXqPkEIVY6yyX3ubyq9cJvInO5sVCjDqshv/L7Y
+	BD67V6rxF4bCJUPi8/5ijX0IvNUE0q2lKnzNffk+2gBjTb4T70vXJs4wUpt0lTawb+5U/10CrJu6Q
+	eH8BZnxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhzVn-00000002zz1-3LZS;
-	Tue, 20 Jan 2026 00:22:23 +0000
-Received: from mail-centralusazon11010031.outbound.protection.outlook.com ([52.101.61.31] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vi0F5-0000000311l-2LdT;
+	Tue, 20 Jan 2026 01:09:11 +0000
+Received: from mail-m82213681.xmail.ntesmail.com ([8.221.36.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vhzVl-00000002zyg-04GX
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 00:22:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qX/8oePeWtD6BHN4vGpv7xwIvrY+cgeexIuUX8D1aKr8dg8AFIMwwvdOLuuZZolI1Bdb/xBi9p66OSO6b7JD11zL3GeQLG7moYOzaL5NEHLeMn8WkGNqvV0VEujRUlJA8Xig6Sjw759M3RaZF8tu5ANvoxXucvIGNYyTcLYl3eT4Hd/5unAM5kr3PJxRx7iBaqpZ5/ZakHOc7oM8XyIDn3xOEXvC3thSDUCVHBHimnIb1z17oCJ+q5fJU8V/+7jgQXlvf5z2MyXGMtu64o/nThcU6DYZQE365aGLenzBU0keINplJBj0R6VmqZcMumGf8+Nvm3LVnDO964h8xk3cPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2mjKlTe71LKxOJb9n/mBgap8RbLIerfr32L117tE1eA=;
- b=A3z3Re65y7ZyitkbAm1J1eWDlt21hiZTUyngtXcpX3ktvUitFKCuqYw1R3goxGCE4j/K5PgVoK/wc6ySickZhMzQQ6GX/ukOowlzBq7/eD4TT/SBn0JJPEX1Yfl89QT5hCuRL5lXoMq056tGuZZxNuj0iFlhE55i6SmxYxB8kuEFIc3Ih/LRqTB8ZoBldvQGqUhn+7H3VcCwNUFarxaNoypNSPu0tcLWND/0rExA1h21j7Wnx9NTOluVK2hBMJg+I9m+K3XRS2SNVom7BwzhhLhTeXSiC8OhjEGRmp7syawXlBdMYyl6jlUBD3GW2qFi33eBLBZHbCdo2YqVRiKCow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2mjKlTe71LKxOJb9n/mBgap8RbLIerfr32L117tE1eA=;
- b=nNnEq5z7eRXJ4g3AJc6u1EoAoqsd3hiypYw4gmYqSVZ3vl0UnVjPvpBUIxRy4crK/zS8jAknaVzF/Rux1ckhKMLLb6q75T+SUyup5AcbMlFqk7wIVF0eK+1Iy4ZHlLCPl4bgdtGPBVwGTmEQLaagaAaswo+kzakWqw0c8YgD+OiyTrvQS8z5QxUyPPIlAvG6FWoTY+7J/aumQYkIROOPPB2+PGKsF4XomcFsZ2PzH65LIU0JTekthAZQ5VowKoy2bcNA/BFnKd8sqaoCwUXLGJyJMR01HOutlYPuYpHneB3O52/YGgX7iblX4fv4W/Ic+ACQKvgZT6fm0pMitUc9FQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by DM6PR12MB4315.namprd12.prod.outlook.com (2603:10b6:5:223::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.11; Tue, 20 Jan
- 2026 00:22:14 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9520.011; Tue, 20 Jan 2026
- 00:22:14 +0000
-Date: Mon, 19 Jan 2026 20:22:13 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
-	praan@google.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH rc] iommu/arm-smmu-v3: Do not set disable_ats unless vSTE
- is Translate
-Message-ID: <20260120002213.GY1134360@nvidia.com>
-References: <20260115011243.1302402-1-nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260115011243.1302402-1-nicolinc@nvidia.com>
-X-ClientProxiedBy: BLAPR03CA0052.namprd03.prod.outlook.com
- (2603:10b6:208:32d::27) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1vi0F0-0000000311J-1heO;
+	Tue, 20 Jan 2026 01:09:09 +0000
+Received: from [172.16.12.14] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 31385ed12;
+	Tue, 20 Jan 2026 09:08:56 +0800 (GMT+08:00)
+Message-ID: <314c7852-a79a-4cdc-9767-187ae5a89a48@rock-chips.com>
+Date: Tue, 20 Jan 2026 09:08:56 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DM6PR12MB4315:EE_
-X-MS-Office365-Filtering-Correlation-Id: bb0fd749-ad78-40d2-3b93-08de57b9f613
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FarTSnPxB+swRK2H5eXqsiqbZjAfM7SY/jBi7Fq7MzE21bhhMT0KtARXoYtc?=
- =?us-ascii?Q?3lUmdQhhqHzZjTuUpssweWt0tv1WGFV0jpDrLFOkO4WUcv/MNPl8qk06M206?=
- =?us-ascii?Q?RwQGySUGZKQfNoP85lJg71JlqMHX5stw8mWv7C4gU/Lp8yubFN6mzj1GDIae?=
- =?us-ascii?Q?tffC0YWoblg5DarHeHLZvN7cuhVR4YFJp4pEw3W7L1yqYluvqGYUV9x+kYiR?=
- =?us-ascii?Q?n6KNUU0yDJO2EPFHPnPLjH/9X2r2l9sanBmuGuDsqdgIHFWKGJ/XAPM+DC17?=
- =?us-ascii?Q?oMPLgME+QjsLOA2QBqPZmkg6RA2AImrx1ay7NNrc6GoolX81LHaOfSHHPyBr?=
- =?us-ascii?Q?WHnA8Nv7UpKtXkR9mEEaEJNjBWC35jmRTt8VyLWuwQLhCBkrbmthYa7oCCSb?=
- =?us-ascii?Q?Gt4iFl7pOPZW4RUAFive04NQd38+dto0sOCwv9vdXuf/XjdGsNbIRXos2j/T?=
- =?us-ascii?Q?tIiPNKlcPG6fTvSpWD+vFTK9MVgI3g3tChF4esZNk8YTC/5NGr+ZwvKFKYF/?=
- =?us-ascii?Q?sM4xwdl+jmGYQKSh/m0R/5FNRkKMqKI6umwpCo8O3HbhXEWERyMy1qtne3XE?=
- =?us-ascii?Q?FqlAgCf2G/Wks6fP07Divac17H6UXcMd3IqPKZo6Iy0HUyxBkAbiKc21QBxH?=
- =?us-ascii?Q?zfT2oQatOi2f+MjtucqjCEufMGQRbSCdvZsTXrDzDzUGZA82jEBdvi9wXQot?=
- =?us-ascii?Q?THuBqv88Jh+R41blU8p8ijTMb3bpk2ZnrbGVsFUJPW4+pTXi94/yla4WCrGC?=
- =?us-ascii?Q?7370ukAcCXi2iGJX1awxpvt0MrI6sH833aZ/cDCuHCGcQc/79imYnc0bGmr2?=
- =?us-ascii?Q?okxwxDcxwPi0klHuMSNZzTDxLi3cI8lpT6Ivv1QVbO12SKaCFJVI02z38a7X?=
- =?us-ascii?Q?PEX2GTwefXzzyaTIaiQax7Q752/zxFrZRUPFRj1HA61IBlTnvs6tC0AZm3dM?=
- =?us-ascii?Q?+f8IB2fr9pVaRS2gsPCkYR6CvOSOfeRyjGBZjTEhToaMd+aOkJu6BraSAxhM?=
- =?us-ascii?Q?8+DeFFxyPORXA64KbfAOdtIOCA3Z1fg0Nd5sDnj7QsMghPboaS+8ku240WBP?=
- =?us-ascii?Q?yJPmJRus6cfvCYLou+OczJvr6gv1hlSjSfD8HTGj9ihOKPH2uo4iv1U0xuEX?=
- =?us-ascii?Q?rWNCvFTQmEQ4GKXw/2Ob0CPfmRWewuZTnHoB7Kl8DOHsqTizWmR1bB146QT9?=
- =?us-ascii?Q?ZdGwpY3QnCgfaVLzoPH4NPSG7KA6mUnoqDcvnhfwCrGDMi+1BRjR+eXJ0l9q?=
- =?us-ascii?Q?QNq62K9rsuwnLVL7Zno+ubZw71jmuCAd8f17yS4igEbV/dLXgRMUNgIafrr2?=
- =?us-ascii?Q?pbHUwtC4abXRHxogoTDjq7dCDWv0MrQupu7Kakfcm4ZOsD/uxgeikZmxu0Ha?=
- =?us-ascii?Q?ZHxU5agmp3xMmANEQWclQ5Vzn7Bp6CgZ1fVet0pw9gESiT6cCau+cwfOISZD?=
- =?us-ascii?Q?DqG/Qo8nKrjjsAYYBxcKxar5KwI0dn9XedPc3XAnlPirPoxcNpuBamnl/AmP?=
- =?us-ascii?Q?nP2Kjod7MXkoV1dv/GAVhys3M9bR1FaW00S7TijY6VK1Hh2wWZ/GyenlB3Ka?=
- =?us-ascii?Q?Jh1zjYk5J+AycVLMi70=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IOUHlnXG0Om4Ac1Er3Suqlvpud0m2e6nFbpu1I131/D8iyl5gPGIW/q3Vfil?=
- =?us-ascii?Q?MJPX9OlswjHHIO4LEp/ImH03YxhOm3HbPXPRR+L9m9Pf7Hz5f0+QNhFNvm0o?=
- =?us-ascii?Q?SZ1ZiFj9xnCOVrM/A+p8qvRyTJicnxoPtjpW/qGsYuCMLwC5eERfDlt3D3OJ?=
- =?us-ascii?Q?oe1oLQWpOTemEcNdKl2QbmXZywRf84dp+nj96GOD3rSNF5Nt6vnEPfKjB0Ts?=
- =?us-ascii?Q?xbMaxyUtfZYu2QHQ1Ke8NrB5x/QjLCAUonYYVyRtGYQ52cTNZizFmp6M67qO?=
- =?us-ascii?Q?FEXfa93coMr00nNFNL0Xkyu50uKV/dlyk6jS9yIP+8FeMvzKLbVNYTGdHDfv?=
- =?us-ascii?Q?BbglbWmcm5W0JY5naaZ+OM59M4XDI7N2Rtivr75cbaxTPcrFP7e+Zy+dooJd?=
- =?us-ascii?Q?V3xDCx16N3lJu1Vh+p9E1Dwv8Ovg14DOSyRjHX4JlRkKeb3sKcGOF9YARWAr?=
- =?us-ascii?Q?o+7WM6xHDM45DqJkdIzgZ5RB5zufMPIC46moiM2Jv/xo9AbJ4zb8aJikp7px?=
- =?us-ascii?Q?Z1xq7STtGpGvLF96uvNchD6v0HU3TkR1QFt9dZaL7iDGT25/bvTP3Zg2i5mE?=
- =?us-ascii?Q?vlG5rRfZDJZ9ebVloZtYGlADOWSM6ATZekIaP8NcdLbIkORzeI/5j2C/MMWR?=
- =?us-ascii?Q?OHtLBB/B0WBoDJcSO73RQVtFaD5kTz7r8hRmRuhRjokffJYB0WqaNVPt8OTa?=
- =?us-ascii?Q?mdesSbB7NPuUeFvwsQnL42qC5QjhP6GI2RsMy7uLh9dSs1tiRrYue4X5DbKG?=
- =?us-ascii?Q?5hDr6TdDBfpeuGt/z0914duY2w6u1cJytyLnQcEnSW1A66CZBgrS43NH/6mb?=
- =?us-ascii?Q?WGJOqh6uRyTbaOhlbBnyyOifWvP71Zav89j+YuDI2PZ2l6yuDHyAoisqbc1N?=
- =?us-ascii?Q?YgjA17d3ewejkUoAa2fozzlT4ASlYEA0/vb6Ty/bo0OGXPVQMzqp82GQQ2MR?=
- =?us-ascii?Q?/z6yg1OVgYutTTX1C+JMskrqxBLyJRLnqKe4/blqmSUhgJ+Ojj+8YFYxC/Fz?=
- =?us-ascii?Q?p0sMwNgfWXTtsv3ONHU37rbdOw/o9Fjp/00R33TF9BW64Np5PM+jcKaOcC0a?=
- =?us-ascii?Q?gNaZOkGT0NF02kIbzF4jrRrux6JIQOAqkh3FnDSE9ZWBlk7llYD3DLkJ8Vlj?=
- =?us-ascii?Q?rydbI7CfMEo0J5RRuKlVE8c0PxdcPLbrctzbYNtT+msLo4tbZiNo/JF728bg?=
- =?us-ascii?Q?VH7C5EgIvCfloyHB1+GFqTUWD9Bd/FxuxrEy8TJ1uo0vFfCvgKocf2bFvMCG?=
- =?us-ascii?Q?Sf6T0Wf3/RV9E9sWKzt3WPF3EJddisttsrgBAdqv187j1/3ygyPCstJoRY6i?=
- =?us-ascii?Q?bItPvgXNGm/A+2dKtt5YxEEPn+pLISrVH/8ytD/2LfqsGvMmmoE4w7+KejxS?=
- =?us-ascii?Q?MeafwcN6mzuYKNcZXFs0MuGLCl/9DwOKMiI0LgKxbuhJ1/LU1RH5GCGZTCAb?=
- =?us-ascii?Q?VpZH4rCTQWKGeuLuswyEXTUME1tOUbhlnetEqMjlXDOK08dA2DjEnlLHiMtj?=
- =?us-ascii?Q?zkC+7qNnRUVeXrPPeKmsvV5V29Xy6+VfExkMJOBYR1Cy4cVykADFrXYS7x4f?=
- =?us-ascii?Q?4ZH3HbT/8l9d+PY1SUWt6qjr+yDS0Xq/zIG3YNtUB9Xxiv72XP/meh7lZYfC?=
- =?us-ascii?Q?ckAO+c6fFPyvJqVe2fK5D9n4W9/EN/nyxDl2ijgvHmK2Ca/3IfJKZwiMDVZf?=
- =?us-ascii?Q?Wp3UFkgiVWDgMYb1gwU0JEDWcEOvgBIL4Tdtl/H2aIMXCJMAc45eUI6PghYF?=
- =?us-ascii?Q?7a4bwkKGqQ=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb0fd749-ad78-40d2-3b93-08de57b9f613
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 00:22:14.3908
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pWfYpx2Td18qAN8xqnEf4Mo37MIQu8YlQ39lsKQXtW+Sx3F4Vi/f0jeim73po6MF
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4315
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, robh@kernel.org, conor+dt@kernel.org,
+ krzk+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, heiko@sntech.de
+Subject: Re: [PATCH v1] ARM: dts: rockchip: rk3036: remove mshc aliases
+To: Johan Jonker <jbx6244@gmail.com>
+References: <c6feab79-5b73-413b-a94f-9d1b2fa6df43@gmail.com>
+ <c4c17773-1146-4db9-bf2f-a7500a8bd734@rock-chips.com>
+ <e4ebdde6-4073-4dd6-aef2-abf2c293a48d@gmail.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <e4ebdde6-4073-4dd6-aef2-abf2c293a48d@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9bd8f29b0809cckunm185652679dde8c
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQx5MTlZPTU5CSUtOTB9MHk1WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=Fh0Deu1C5ejpCy0CJY9ogr4aBj5Sv9+tlwEhVKIqaWOeoCcUsCdNQeNSfSS7e5Ekw0mC/36iRje7iIbnTbO1RxRZ4OlBUM8jzXtoiDaNSN6WvrmyCaA0uSpM+FX9gOVEWAbc07oU5SaPiptmzPhtP1SvAqrKRcacZ/Ez3/RSiCM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=T/TCsCdIrbCboZ9CYWIOrqCgweLTDpJXdZAWcI4FJpY=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_162221_055908_C7FF5448 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20260119_170907_779477_4285FF1E 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,34 +73,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 05:12:43PM -0800, Nicolin Chen wrote:
-> A vSTE may have three configuration types: Abort, Bypass, and Translate.
+在 2026/01/20 星期二 2:10, Johan Jonker 写道:
 > 
-> An Abort vSTE wouldn't enable ATS, but the other two might.
 > 
-> It makes sense for a Transalte vSTE to rely on the guest vSTE.EATS field.
+> On 1/19/26 08:08, Shawn Lin wrote:
+>> Hi Johan,
+>>
+>> 在 2026/01/17 星期六 5:05, Johan Jonker 写道:
+>>> The use of mshc aliases is deprecated for some while,
+>>> so remove them from the rk3036.dtsi file.
+>>>
+>>
 > 
-> For a Bypass vSTE, it would end up with an S2-only physical STE, similar
-> to an attachment to a regular S2 domain. However, the nested case always
-> disables ATS following the Bypass vSTE, while the regular S2 case always
-> enables ATS so long as arm_smmu_ats_supported(master) == true.
+>> I noticed that the alias property is still listed in the
+>> documentation[1]. Could you please share where it has been formally
+>> marked as deprecated? I may have missed the update.
+>>
+>> [1] Documentation/devicetree/bindings/mmc/mmc-controller.yaml
 > 
-> Note that ATS is needed for certain VM centric workloads and historically
-> non-vSMMU cases have relied on this automatic enablement. So, having the
-> nested case behave differently causes problems.
+> Mshc aliases driver support was introduced 2018 in dw_mmc.c only and before that a undocumented copy paste entered somehow into dtsi files.
+> The mmc-controller.yaml file change in 2020 mentions a fixed index mmcN format.
+> A generic alias name "mmc" is now preferred instead of a "mshc" driver specific.
 > 
-> To fix that, add a condition to disable_ats, so that it might enable ATS
-> for a Bypass vSTE, aligning with the regular S2 case.
+> As suggested by Arnd Bergmann and others, the newly added mmc aliases
+> should be board specific
 > 
-> Fixes: f27298a82ba0 ("iommu/arm-smmu-v3: Allow ATS for IOMMU_DOMAIN_NESTED")
-> Cc: stable@vger.kernel.org
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Thanks for these details. Then I'm fine with this patch.
 
-Jason
+> Discussions about Rockchip aliases started around 2021
+> https://lore.kernel.org/linux-rockchip/CAK8P3a3_uO23Y0tyfdh26tmCVcyp6XM+ur0WUd4khGUoBb32Hw@mail.gmail.com/#t
+> 
+> https://lore.kernel.org/all/CAPDyKFp1zMBUfK7LteW0yEfTpqtU+P+EybLsJBFx_r54HwFdMg@mail.gmail.com/
+> 
+> [PATCH 0/4] mmc: dw_mmc: start deprecating mshcN aliases
+> https://lore.kernel.org/linux-rockchip/20211124184603.3897245-1-john@metanate.com/
+> ====
+> 
+> Nov 24, 2015
+> ARM: dts: rockchip: add core rk3036 dtsi
+> https://github.com/torvalds/linux/commit/faea098e1808729e4785cdba3a3fc52fae49f1ab
+> 
+> Dec 19, 2015
+> ARM: dts: rockchip: add the sdio/sdmmc node for rk3036
+> https://github.com/torvalds/linux/commit/187d7967a5ee630ae062fb543655e59d2f0f91fb
+> 
+> ====
+> 
+> Feb 27, 2018
+> mmc: dw_mmc: Factor out dw_mci_init_slot_caps
+> https://github.com/torvalds/linux/commit/a4faa4929ed3be15e2d500d2405f992f6dedc8eb
+> 
+> ====
+> 
+> Sep 7, 2020
+> dt-bindings: mmc: document alias support
+> https://github.com/torvalds/linux/commit/1796164fac7e348f74a0f1f1cae995b22d002315
+> 
+> Sep 7, 2020
+> mmc: core: Allow setting slot index via device tree alias
+> https://github.com/torvalds/linux/commit/fa2d0aa96941e8dc347e49a04c75468e3002ee20
+> 
+>>
+>>> Signed-off-by: Johan Jonker <jbx6244@gmail.com>
+>>> ---
+>>>    arch/arm/boot/dts/rockchip/rk3036.dtsi | 3 ---
+>>>    1 file changed, 3 deletions(-)
+>>>
+>>> diff --git a/arch/arm/boot/dts/rockchip/rk3036.dtsi b/arch/arm/boot/dts/rockchip/rk3036.dtsi
+>>> index fca21ebb224b..78afae42f8b2 100644
+>>> --- a/arch/arm/boot/dts/rockchip/rk3036.dtsi
+>>> +++ b/arch/arm/boot/dts/rockchip/rk3036.dtsi
+>>> @@ -23,9 +23,6 @@ aliases {
+>>>            i2c0 = &i2c0;
+>>>            i2c1 = &i2c1;
+>>>            i2c2 = &i2c2;
+>>> -        mshc0 = &emmc;
+>>> -        mshc1 = &sdmmc;
+>>> -        mshc2 = &sdio;
+>>>            serial0 = &uart0;
+>>>            serial1 = &uart1;
+>>>            serial2 = &uart2;
+>>> -- 
+>>> 2.39.5
+>>>
+>>>
+>>> _______________________________________________
+>>> Linux-rockchip mailing list
+>>> Linux-rockchip@lists.infradead.org
+>>> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+>>>
+>>
+> 
+> 
+
 
