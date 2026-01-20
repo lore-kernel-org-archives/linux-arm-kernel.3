@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B4DCD2ECE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 14:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF59BD2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 14:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1+HljzJAxHOBFeIXuMPiGuXCQ1Tna/1pc36MTk3CcdE=; b=X62Htm9GiahDHo4IKZIMUj1b3b
-	FlCpvdFRSHH0XIqo0JSLLopCG3TyrpJU3mEypbA1j8oykRFMZjIa2RETEGr8TStIQl69OUQDLIHBw
-	DsnkyEEi7pC3FuihFN6iuuvTHm3OviLkGCAdQG2aSHQzctne9lRKRUCaaRG297YTz3uF+dx9rCWO7
-	XW/qIIoHJjEfPLCy9di2DD8T1IbbwKkTApkxH/4FO3GIriynPP2Fc9oLUAK/pJQ9sLmt3jnODoElG
-	r7xgBnb9T7yLEomhm04Z+QdokGMbAJIejrF/GPX4kXbTNzKreHgyouV8KZBJmufk0KJTr9qsW//26
-	T2FmE/WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sag+H/BhPZ45KSkJ6zCyuoYRKvuE9xHt5nOXwQMVW40=; b=lHN5/9NVFIiXiGA0EaS+RP+JF/
+	w9ex22/chaOTX5RC7pJwf6T+97pPm5A2aXmjg+2j2NGERwFibrRzwZsyXAGAL6o/xTT3oROTddoSi
+	ebPAkehJSQ4EQz7Cec30NyrNtXAaVtwa4oqXG4I/SmvRXExioh/1/3d5HMhQRL0Y57CnW+LgF6tbA
+	obmS+fA16Q7JV++6v61sG2LobQGCBRtiIVhTMjp1ayg6c6bWYA5XSbtbwh57IsYpvJWwK/A3QVK10
+	4Xn7GU+Dmie/zKu0NNrJKZunec19+P4RJHkbZ/sMXWLQ3p0Xhkf9pzi4Umucd/rqRJo0TZzQWjdXu
+	LiwkimBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viCv2-000000040bq-3hi5;
-	Tue, 20 Jan 2026 14:41:20 +0000
-Received: from mail-10631.protonmail.ch ([79.135.106.31])
+	id 1viCv5-000000040dN-3Fzm;
+	Tue, 20 Jan 2026 14:41:23 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viCuy-000000040ah-3fHi
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 14:41:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
-	s=protonmail3; t=1768920073; x=1769179273;
-	bh=1+HljzJAxHOBFeIXuMPiGuXCQ1Tna/1pc36MTk3CcdE=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=VMYppwYNYF+4xOAUD0pYRYVfLcnLdAcWQZoQZdnovMDRAtv+RRteJF1SviE9eBYrJ
-	 qqrKsSOcJqCf33MS+MaZKs/wI9peb9bi2eWuqRcE2zmjfozCyBdsoauBnWASkcR+pq
-	 hRO9HRM6Vi9mhephqMDhAMa6AW8b4KEmes9ilBWV7qRtfS6wHYlLkrof61DpcjfCs+
-	 PzePiWFRwG8Xe/ehPoOu0MPZE/6Rj6kBTvSXrgWvmpgrFIyUbxYi95NRhr8RG9HVmZ
-	 fNzaTbxZlyCvSan508wsVQRa90BWSGcy5m4mFZRJTxXK0QGajDIriPORKJcOQnZdlz
-	 dDkDDuMkKrsmg==
-Date: Tue, 20 Jan 2026 14:41:08 +0000
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, Andrew Morton <akpm@linux-foundation.org>, Jan Kiszka <jan.kiszka@siemens.com>, Kieran Bingham <kbingham@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-From: Maciej Wieczor-Retman <m.wieczorretman@pm.me>
-Cc: m.wieczorretman@pm.me, Samuel Holland <samuel.holland@sifive.com>, Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, linux-mm@kvack.org, llvm@lists.linux.dev
-Subject: [PATCH v9 01/13] kasan: sw_tags: Use arithmetic shift for shadow computation
-Message-ID: <eb5ed91489b648fcb0f7cbe3fe4347ba4e636b65.1768845098.git.m.wieczorretman@pm.me>
-In-Reply-To: <cover.1768845098.git.m.wieczorretman@pm.me>
-References: <cover.1768845098.git.m.wieczorretman@pm.me>
-Feedback-ID: 164464600:user:proton
-X-Pm-Message-ID: 0488e01fae9adc69c76456c169a4b2174e5e4018
+	id 1viCv1-000000040au-0OSh;
+	Tue, 20 Jan 2026 14:41:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=Sag+H/BhPZ45KSkJ6zCyuoYRKvuE9xHt5nOXwQMVW40=; b=wlp0I5GKmkHGAajTVUbav838z3
+	6hqseOEREYnEOKPj/nmBZZi/VZDgF5D6MNyxqFPU0be0Ids+mGYNL/DbmmjFKW4UL4X6Tf1IlNKzw
+	2JzL/ufy7vBtteFvAA/uIQ5jhdJxU2d6EgQCECbgueW+iOAHk4zaAZpdf2gq4EPJEkAonK0ZmGJor
+	q/T/DsRgoreG3A+qEK9gcRNjJr1I2sbYzd4U6W28Wat5tRGRkkLU4d7BIM9N9WbUzE1uQBE5g4FIL
+	GgmOdXHfV96fRHsRrGuSGsgbYEwHLdEDX/quh3UR2izo/uXGz5y4QsnuixAmOxjB3EjGTaqorYDcZ
+	cG+3jzaA==;
+Received: from i53875a75.versanet.de ([83.135.90.117] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1viCuo-003T50-Vr; Tue, 20 Jan 2026 15:41:07 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Quentin Schulz <quentin.schulz@cherry.de>,
+ Alexey Charkov <alchark@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Shawn Lin <shawn.lin@rock-chips.com>,
+ Manivannan Sadhasivam <mani@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: dts: rockchip: Explicitly request UFS reset pin on
+ RK3576
+Date: Tue, 20 Jan 2026 15:41:06 +0100
+Message-ID: <4830042.taCxCBeP46@diego>
+In-Reply-To: <CABjd4YwAMbH21jcjhks7ThoXzcF8GeOzBPYDvN+7cip0iA6stg@mail.gmail.com>
+References: <20260120-ufs-rst-v2-1-b5735f1996f6@gmail.com>
+ <9e51b504-e0f0-4d17-baa2-387339507c86@cherry.de>
+ <CABjd4YwAMbH21jcjhks7ThoXzcF8GeOzBPYDvN+7cip0iA6stg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_064117_680081_70E52C6D 
-X-CRM114-Status: GOOD (  32.00  )
+X-CRM114-CacheID: sfid-20260120_064119_225071_14A3F9D6 
+X-CRM114-Status: GOOD (  23.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,437 +78,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Samuel Holland <samuel.holland@sifive.com>
-
-Currently, kasan_mem_to_shadow() uses a logical right shift, which turns
-canonical kernel addresses into non-canonical addresses by clearing the
-high KASAN_SHADOW_SCALE_SHIFT bits. The value of KASAN_SHADOW_OFFSET is
-then chosen so that the addition results in a canonical address for the
-shadow memory.
-
-For KASAN_GENERIC, this shift/add combination is ABI with the compiler,
-because KASAN_SHADOW_OFFSET is used in compiler-generated inline tag
-checks[1], which must only attempt to dereference canonical addresses.
-
-However, for KASAN_SW_TAGS there is some freedom to change the algorithm
-without breaking the ABI. Because TBI is enabled for kernel addresses,
-the top bits of shadow memory addresses computed during tag checks are
-irrelevant, and so likewise are the top bits of KASAN_SHADOW_OFFSET.
-This is demonstrated by the fact that LLVM uses a logical right shift in
-the tag check fast path[2] but a sbfx (signed bitfield extract)
-instruction in the slow path[3] without causing any issues.
-
-Use an arithmetic shift in kasan_mem_to_shadow() as it provides a number
-of benefits:
-
-1) The memory layout doesn't change but is easier to understand.
-KASAN_SHADOW_OFFSET becomes a canonical memory address, and the shifted
-pointer becomes a negative offset, so KASAN_SHADOW_OFFSET =3D=3D
-KASAN_SHADOW_END regardless of the shift amount or the size of the
-virtual address space.
-
-2) KASAN_SHADOW_OFFSET becomes a simpler constant, requiring only one
-instruction to load instead of two. Since it must be loaded in each
-function with a tag check, this decreases kernel text size by 0.5%.
-
-3) This shift and the sign extension from kasan_reset_tag() can be
-combined into a single sbfx instruction. When this same algorithm change
-is applied to the compiler, it removes an instruction from each inline
-tag check, further reducing kernel text size by an additional 4.6%.
-
-These benefits extend to other architectures as well. On RISC-V, where
-the baseline ISA does not shifted addition or have an equivalent to the
-sbfx instruction, loading KASAN_SHADOW_OFFSET is reduced from 3 to 2
-instructions, and kasan_mem_to_shadow(kasan_reset_tag(addr)) similarly
-combines two consecutive right shifts.
-
-Add the arch_kasan_non_canonical_hook() to group the arch specific code
-in the relevant arch directories.
-
-Link: https://github.com/llvm/llvm-project/blob/llvmorg-20-init/llvm/lib/Tr=
-ansforms/Instrumentation/AddressSanitizer.cpp#L1316 [1]
-Link: https://github.com/llvm/llvm-project/blob/llvmorg-20-init/llvm/lib/Tr=
-ansforms/Instrumentation/HWAddressSanitizer.cpp#L895 [2]
-Link: https://github.com/llvm/llvm-project/blob/llvmorg-20-init/llvm/lib/Ta=
-rget/AArch64/AArch64AsmPrinter.cpp#L669 [3]
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-Co-developed-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
-Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
----
-Changelog v9: (Maciej)
-- Take out the arm64 related code from mm/kasan/report.c and put it in
-  the arch specific directory in a new file so the kasan_mem_to_shadow()
-  function can be included.
-- Reset addr tag bits in arm64's arch_kasan_non_canonical_hook() so the
-  inline mode can also work with that function (Andrey Ryabinin).
-- Fix incorrect number of zeros in a comment in mm/kasan/report.c.
-- Remove Catalin's acked-by since changes were made.
-
-Changelog v7: (Maciej)
-- Change UL to ULL in report.c to fix some compilation warnings.
-
-Changelog v6: (Maciej)
-- Add Catalin's acked-by.
-- Move x86 gdb snippet here from the last patch.
-
-Changelog v5: (Maciej)
-- (u64) -> (unsigned long) in report.c
-
-Changelog v4: (Maciej)
-- Revert x86 to signed mem_to_shadow mapping.
-- Remove last two paragraphs since they were just poorer duplication of
-  the comments in kasan_non_canonical_hook().
-
-Changelog v3: (Maciej)
-- Fix scripts/gdb/linux/kasan.py so the new signed mem_to_shadow() is
-  reflected there.
-- Fix Documentation/arch/arm64/kasan-offsets.sh to take new offsets into
-  account.
-- Made changes to the kasan_non_canonical_hook() according to upstream
-  discussion. Settled on overflow on both ranges and separate checks for
-  x86 and arm.
-
-Changelog v2: (Maciej)
-- Correct address range that's checked in kasan_non_canonical_hook().
-  Adjust the comment inside.
-- Remove part of comment from arch/arm64/include/asm/memory.h.
-- Append patch message paragraph about the overflow in
-  kasan_non_canonical_hook().
-
- Documentation/arch/arm64/kasan-offsets.sh |  8 ++++--
- MAINTAINERS                               |  2 +-
- arch/arm64/Kconfig                        | 10 +++----
- arch/arm64/include/asm/kasan.h            |  5 ++++
- arch/arm64/include/asm/memory.h           | 14 ++++++++-
- arch/arm64/mm/Makefile                    |  2 ++
- arch/arm64/mm/kasan_init.c                |  7 +++--
- arch/arm64/mm/kasan_sw_tags.c             | 35 +++++++++++++++++++++++
- include/linux/kasan.h                     | 10 +++++--
- mm/kasan/kasan.h                          |  7 +++++
- mm/kasan/report.c                         | 15 ++++++++--
- scripts/gdb/linux/kasan.py                |  5 +++-
- scripts/gdb/linux/mm.py                   |  5 ++--
- 13 files changed, 106 insertions(+), 19 deletions(-)
- create mode 100644 arch/arm64/mm/kasan_sw_tags.c
-
-diff --git a/Documentation/arch/arm64/kasan-offsets.sh b/Documentation/arch=
-/arm64/kasan-offsets.sh
-index 2dc5f9e18039..ce777c7c7804 100644
---- a/Documentation/arch/arm64/kasan-offsets.sh
-+++ b/Documentation/arch/arm64/kasan-offsets.sh
-@@ -5,8 +5,12 @@
-=20
- print_kasan_offset () {
- =09printf "%02d\t" $1
--=09printf "0x%08x00000000\n" $(( (0xffffffff & (-1 << ($1 - 1 - 32))) \
--=09=09=09- (1 << (64 - 32 - $2)) ))
-+=09if [[ $2 -ne 4 ]] then
-+=09=09printf "0x%08x00000000\n" $(( (0xffffffff & (-1 << ($1 - 1 - 32))) \
-+=09=09=09=09- (1 << (64 - 32 - $2)) ))
-+=09else
-+=09=09printf "0x%08x00000000\n" $(( (0xffffffff & (-1 << ($1 - 1 - 32))) )=
-)
-+=09fi
- }
-=20
- echo KASAN_SHADOW_SCALE_SHIFT =3D 3
-diff --git a/MAINTAINERS b/MAINTAINERS
-index da9dbc1a4019..8e0e776b66a7 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -13585,7 +13585,7 @@ S:=09Maintained
- B:=09https://bugzilla.kernel.org/buglist.cgi?component=3DSanitizers&produc=
-t=3DMemory%20Management
- F:=09Documentation/dev-tools/kasan.rst
- F:=09arch/*/include/asm/*kasan.h
--F:=09arch/*/mm/kasan_init*
-+F:=09arch/*/mm/kasan*
- F:=09include/linux/kasan*.h
- F:=09lib/Kconfig.kasan
- F:=09mm/kasan/
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 93173f0a09c7..c1b7261cdb96 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -434,11 +434,11 @@ config KASAN_SHADOW_OFFSET
- =09default 0xdffffe0000000000 if ARM64_VA_BITS_42 && !KASAN_SW_TAGS
- =09default 0xdfffffc000000000 if ARM64_VA_BITS_39 && !KASAN_SW_TAGS
- =09default 0xdffffff800000000 if ARM64_VA_BITS_36 && !KASAN_SW_TAGS
--=09default 0xefff800000000000 if (ARM64_VA_BITS_48 || (ARM64_VA_BITS_52 &&=
- !ARM64_16K_PAGES)) && KASAN_SW_TAGS
--=09default 0xefffc00000000000 if (ARM64_VA_BITS_47 || ARM64_VA_BITS_52) &&=
- ARM64_16K_PAGES && KASAN_SW_TAGS
--=09default 0xeffffe0000000000 if ARM64_VA_BITS_42 && KASAN_SW_TAGS
--=09default 0xefffffc000000000 if ARM64_VA_BITS_39 && KASAN_SW_TAGS
--=09default 0xeffffff800000000 if ARM64_VA_BITS_36 && KASAN_SW_TAGS
-+=09default 0xffff800000000000 if (ARM64_VA_BITS_48 || (ARM64_VA_BITS_52 &&=
- !ARM64_16K_PAGES)) && KASAN_SW_TAGS
-+=09default 0xffffc00000000000 if (ARM64_VA_BITS_47 || ARM64_VA_BITS_52) &&=
- ARM64_16K_PAGES && KASAN_SW_TAGS
-+=09default 0xfffffe0000000000 if ARM64_VA_BITS_42 && KASAN_SW_TAGS
-+=09default 0xffffffc000000000 if ARM64_VA_BITS_39 && KASAN_SW_TAGS
-+=09default 0xfffffff800000000 if ARM64_VA_BITS_36 && KASAN_SW_TAGS
- =09default 0xffffffffffffffff
-=20
- config UNWIND_TABLES
-diff --git a/arch/arm64/include/asm/kasan.h b/arch/arm64/include/asm/kasan.=
-h
-index b167e9d3da91..42d8e3092835 100644
---- a/arch/arm64/include/asm/kasan.h
-+++ b/arch/arm64/include/asm/kasan.h
-@@ -22,5 +22,10 @@ void kasan_init(void);
- static inline void kasan_init(void) { }
- #endif
-=20
-+#ifdef CONFIG_KASAN_SW_TAGS
-+bool __arch_kasan_non_canonical_hook(unsigned long addr);
-+#define arch_kasan_non_canonical_hook(addr) __arch_kasan_non_canonical_hoo=
-k(addr)
-+#endif
-+
- #endif
- #endif
-diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memor=
-y.h
-index 9d54b2ea49d6..f127fbf691ac 100644
---- a/arch/arm64/include/asm/memory.h
-+++ b/arch/arm64/include/asm/memory.h
-@@ -89,7 +89,15 @@
-  *
-  * KASAN_SHADOW_END is defined first as the shadow address that correspond=
-s to
-  * the upper bound of possible virtual kernel memory addresses UL(1) << 64
-- * according to the mapping formula.
-+ * according to the mapping formula. For Generic KASAN, the address in the
-+ * mapping formula is treated as unsigned (part of the compiler's ABI), so=
+Am Dienstag, 20. Januar 2026, 14:14:48 Mitteleurop=C3=A4ische Normalzeit sc=
+hrieb Alexey Charkov:
+> On Tue, Jan 20, 2026 at 5:00=E2=80=AFPM Quentin Schulz <quentin.schulz@ch=
+erry.de> wrote:
+> >
+> > Hi Alexey,
+> >
+> > On 1/20/26 1:53 PM, Alexey Charkov wrote:
+> > > Rockchip RK3576 UFS controller uses a dedicated pin to reset the conn=
+ected
+> > > UFS device, which can operate either in a hardware controlled mode or=
+ as a
+> > > GPIO pin.
+> > >
+> > > Power-on default is GPIO mode, but the boot ROM reconfigures it to a
+> > > hardware controlled mode if it uses UFS to load the next boot stage.
+> > >
+> > > Given that existing bindings (and rk3576.dtsi) expect a GPIO-controll=
+ed
+> > > device reset, request the required pin config explicitly.
+> > >
+> > > This doesn't appear to affect Linux, but it does affect U-boot:
+> > >
+> > > Before:
+> > > =3D> md.l 0x2604b398
+> > > 2604b398: 00000011 00000000 00000000 00000000  ................
+> > > < ... snip ... >
+> > > =3D> ufs init
+> > > ufshcd-rockchip ufshc@2a2d0000: [RX, TX]: gear=3D[3, 3], lane[2, 2], =
+pwr[FASTAUTO_MODE, FASTAUTO_MODE], rate =3D 2
+> > > =3D> md.l 0x2604b398
+> > > 2604b398: 00000011 00000000 00000000 00000000  ................
+> > >
+> > > After:
+> > > =3D> md.l 0x2604b398
+> > > 2604b398: 00000011 00000000 00000000 00000000  ................
+> > > < ... snip ...>
+> > > =3D> ufs init
+> > > ufshcd-rockchip ufshc@2a2d0000: [RX, TX]: gear=3D[3, 3], lane[2, 2], =
+pwr[FASTAUTO_MODE, FASTAUTO_MODE], rate =3D 2
+> > > =3D> md.l 0x2604b398
+> > > 2604b398: 00000010 00000000 00000000 00000000  ................
+> > >
+> > > (0x2604b398 is the respective pin mux register, with its BIT0 driving=
  the
-+ * end of the shadow memory region is at a large positive offset from
-+ * KASAN_SHADOW_OFFSET. For Software Tag-Based KASAN, the address in the
-+ * formula is treated as signed. Since all kernel addresses are negative, =
-they
-+ * map to shadow memory below KASAN_SHADOW_OFFSET, making KASAN_SHADOW_OFF=
-SET
-+ * itself the end of the shadow memory region. (User pointers are positive=
- and
-+ * would map to shadow memory above KASAN_SHADOW_OFFSET, but shadow memory=
- is
-+ * not allocated for them.)
-  *
-  * KASAN_SHADOW_START is defined second based on KASAN_SHADOW_END. The sha=
-dow
-  * memory start must map to the lowest possible kernel virtual memory addr=
-ess
-@@ -100,7 +108,11 @@
-  */
- #if defined(CONFIG_KASAN_GENERIC) || defined(CONFIG_KASAN_SW_TAGS)
- #define KASAN_SHADOW_OFFSET=09_AC(CONFIG_KASAN_SHADOW_OFFSET, UL)
-+#ifdef CONFIG_KASAN_GENERIC
- #define KASAN_SHADOW_END=09((UL(1) << (64 - KASAN_SHADOW_SCALE_SHIFT)) + K=
-ASAN_SHADOW_OFFSET)
-+#else
-+#define KASAN_SHADOW_END=09KASAN_SHADOW_OFFSET
-+#endif
- #define _KASAN_SHADOW_START(va)=09(KASAN_SHADOW_END - (UL(1) << ((va) - KA=
-SAN_SHADOW_SCALE_SHIFT)))
- #define KASAN_SHADOW_START=09_KASAN_SHADOW_START(vabits_actual)
- #define PAGE_END=09=09KASAN_SHADOW_START
-diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
-index c26489cf96cd..4658d59b7ea6 100644
---- a/arch/arm64/mm/Makefile
-+++ b/arch/arm64/mm/Makefile
-@@ -15,4 +15,6 @@ obj-$(CONFIG_ARM64_GCS)=09=09+=3D gcs.o
- KASAN_SANITIZE_physaddr.o=09+=3D n
-=20
- obj-$(CONFIG_KASAN)=09=09+=3D kasan_init.o
-+obj-$(CONFIG_KASAN_SW_TAGS)=09+=3D kasan_sw_tags.o
- KASAN_SANITIZE_kasan_init.o=09:=3D n
-+KASAN_SANITIZE_kasan_sw_tags.o=09:=3D n
-diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
-index abeb81bf6ebd..937f6eb8115b 100644
---- a/arch/arm64/mm/kasan_init.c
-+++ b/arch/arm64/mm/kasan_init.c
-@@ -198,8 +198,11 @@ static bool __init root_level_aligned(u64 addr)
- /* The early shadow maps everything to a single page of zeroes */
- asmlinkage void __init kasan_early_init(void)
- {
--=09BUILD_BUG_ON(KASAN_SHADOW_OFFSET !=3D
--=09=09KASAN_SHADOW_END - (1UL << (64 - KASAN_SHADOW_SCALE_SHIFT)));
-+=09if (IS_ENABLED(CONFIG_KASAN_GENERIC))
-+=09=09BUILD_BUG_ON(KASAN_SHADOW_OFFSET !=3D
-+=09=09=09KASAN_SHADOW_END - (1UL << (64 - KASAN_SHADOW_SCALE_SHIFT)));
-+=09else
-+=09=09BUILD_BUG_ON(KASAN_SHADOW_OFFSET !=3D KASAN_SHADOW_END);
- =09BUILD_BUG_ON(!IS_ALIGNED(_KASAN_SHADOW_START(VA_BITS), SHADOW_ALIGN));
- =09BUILD_BUG_ON(!IS_ALIGNED(_KASAN_SHADOW_START(VA_BITS_MIN), SHADOW_ALIGN=
-));
- =09BUILD_BUG_ON(!IS_ALIGNED(KASAN_SHADOW_END, SHADOW_ALIGN));
-diff --git a/arch/arm64/mm/kasan_sw_tags.c b/arch/arm64/mm/kasan_sw_tags.c
-new file mode 100644
-index 000000000000..d509db7bdc7e
---- /dev/null
-+++ b/arch/arm64/mm/kasan_sw_tags.c
-@@ -0,0 +1,35 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * This file contains ARM64 specific KASAN sw_tags code.
-+ */
-+
-+#include <linux/kasan.h>
-+
-+bool __arch_kasan_non_canonical_hook(unsigned long addr)
-+{
-+=09/*
-+=09 * For Software Tag-Based KASAN, kasan_mem_to_shadow() uses the
-+=09 * arithmetic shift. Normally, this would make checking for a possible
-+=09 * shadow address complicated, as the shadow address computation
-+=09 * operation would overflow only for some memory addresses. However, du=
-e
-+=09 * to the chosen KASAN_SHADOW_OFFSET values and the fact the
-+=09 * kasan_mem_to_shadow() only operates on pointers with the tag reset,
-+=09 * the overflow always happens.
-+=09 *
-+=09 * For arm64, the top byte of the pointer gets reset to 0xFF. Thus, the
-+=09 * possible shadow addresses belong to a region that is the result of
-+=09 * kasan_mem_to_shadow() applied to the memory range
-+=09 * [0xFF00000000000000, 0xFFFFFFFFFFFFFFFF]. Despite the overflow, the
-+=09 * resulting possible shadow region is contiguous, as the overflow
-+=09 * happens for both 0xFF00000000000000 and 0xFFFFFFFFFFFFFFFF.
-+=09 *
-+=09 * Reset the addr's tag bits so the inline mode which still uses
-+=09 * the logical shift can work correctly. Otherwise it would
-+=09 * always return because of the 'smaller than' comparison below.
-+=09 */
-+=09addr |=3D (0xFFULL << 56);
-+=09if (addr < (unsigned long)kasan_mem_to_shadow((void *)(0xFFULL << 56)) =
-||
-+=09    addr > (unsigned long)kasan_mem_to_shadow((void *)(~0ULL)))
-+=09=09return true;
-+=09return false;
-+}
-diff --git a/include/linux/kasan.h b/include/linux/kasan.h
-index 9c6ac4b62eb9..0f65e88cc3f6 100644
---- a/include/linux/kasan.h
-+++ b/include/linux/kasan.h
-@@ -62,8 +62,14 @@ int kasan_populate_early_shadow(const void *shadow_start=
-,
- #ifndef kasan_mem_to_shadow
- static inline void *kasan_mem_to_shadow(const void *addr)
- {
--=09return (void *)((unsigned long)addr >> KASAN_SHADOW_SCALE_SHIFT)
--=09=09+ KASAN_SHADOW_OFFSET;
-+=09void *scaled;
-+
-+=09if (IS_ENABLED(CONFIG_KASAN_GENERIC))
-+=09=09scaled =3D (void *)((unsigned long)addr >> KASAN_SHADOW_SCALE_SHIFT)=
-;
-+=09else
-+=09=09scaled =3D (void *)((long)addr >> KASAN_SHADOW_SCALE_SHIFT);
-+
-+=09return KASAN_SHADOW_OFFSET + scaled;
- }
- #endif
-=20
-diff --git a/mm/kasan/kasan.h b/mm/kasan/kasan.h
-index fc9169a54766..02574e53d980 100644
---- a/mm/kasan/kasan.h
-+++ b/mm/kasan/kasan.h
-@@ -558,6 +558,13 @@ static inline bool kasan_arch_is_ready(void)=09{ retur=
-n true; }
- #error kasan_arch_is_ready only works in KASAN generic outline mode!
- #endif
-=20
-+#ifndef arch_kasan_non_canonical_hook
-+static inline bool arch_kasan_non_canonical_hook(unsigned long addr)
-+{
-+=09return false;
-+}
-+#endif
-+
- #if IS_ENABLED(CONFIG_KASAN_KUNIT_TEST)
-=20
- void kasan_kunit_test_suite_start(void);
-diff --git a/mm/kasan/report.c b/mm/kasan/report.c
-index 62c01b4527eb..53152d148deb 100644
---- a/mm/kasan/report.c
-+++ b/mm/kasan/report.c
-@@ -642,10 +642,19 @@ void kasan_non_canonical_hook(unsigned long addr)
- =09const char *bug_type;
-=20
- =09/*
--=09 * All addresses that came as a result of the memory-to-shadow mapping
--=09 * (even for bogus pointers) must be >=3D KASAN_SHADOW_OFFSET.
-+=09 * For Generic KASAN, kasan_mem_to_shadow() uses the logical right shif=
-t
-+=09 * and never overflows with the chosen KASAN_SHADOW_OFFSET values. Thus=
-,
-+=09 * the possible shadow addresses (even for bogus pointers) belong to a
-+=09 * single contiguous region that is the result of kasan_mem_to_shadow()
-+=09 * applied to the whole address space.
- =09 */
--=09if (addr < KASAN_SHADOW_OFFSET)
-+=09if (IS_ENABLED(CONFIG_KASAN_GENERIC)) {
-+=09=09if (addr < (unsigned long)kasan_mem_to_shadow((void *)(0ULL)) ||
-+=09=09    addr > (unsigned long)kasan_mem_to_shadow((void *)(~0ULL)))
-+=09=09=09return;
-+=09}
-+
-+=09if (arch_kasan_non_canonical_hook(addr))
- =09=09return;
-=20
- =09orig_addr =3D (unsigned long)kasan_shadow_to_mem((void *)addr);
-diff --git a/scripts/gdb/linux/kasan.py b/scripts/gdb/linux/kasan.py
-index 56730b3fde0b..4b86202b155f 100644
---- a/scripts/gdb/linux/kasan.py
-+++ b/scripts/gdb/linux/kasan.py
-@@ -7,7 +7,8 @@
- #
-=20
- import gdb
--from linux import constants, mm
-+from linux import constants, utils, mm
-+from ctypes import c_int64 as s64
-=20
- def help():
-     t =3D """Usage: lx-kasan_mem_to_shadow [Hex memory addr]
-@@ -39,6 +40,8 @@ class KasanMemToShadow(gdb.Command):
-         else:
-             help()
-     def kasan_mem_to_shadow(self, addr):
-+        if constants.CONFIG_KASAN_SW_TAGS and not utils.is_target_arch('x8=
-6'):
-+            addr =3D s64(addr)
-         return (addr >> self.p_ops.KASAN_SHADOW_SCALE_SHIFT) + self.p_ops.=
-KASAN_SHADOW_OFFSET
-=20
- KasanMemToShadow()
-diff --git a/scripts/gdb/linux/mm.py b/scripts/gdb/linux/mm.py
-index 7571aebbe650..2e63f3dedd53 100644
---- a/scripts/gdb/linux/mm.py
-+++ b/scripts/gdb/linux/mm.py
-@@ -110,12 +110,13 @@ class aarch64_page_ops():
-         self.KERNEL_END =3D gdb.parse_and_eval("_end")
-=20
-         if constants.LX_CONFIG_KASAN_GENERIC or constants.LX_CONFIG_KASAN_=
-SW_TAGS:
-+            self.KASAN_SHADOW_OFFSET =3D constants.LX_CONFIG_KASAN_SHADOW_=
-OFFSET
-             if constants.LX_CONFIG_KASAN_GENERIC:
-                 self.KASAN_SHADOW_SCALE_SHIFT =3D 3
-+                self.KASAN_SHADOW_END =3D (1 << (64 - self.KASAN_SHADOW_SC=
-ALE_SHIFT)) + self.KASAN_SHADOW_OFFSET
-             else:
-                 self.KASAN_SHADOW_SCALE_SHIFT =3D 4
--            self.KASAN_SHADOW_OFFSET =3D constants.LX_CONFIG_KASAN_SHADOW_=
-OFFSET
--            self.KASAN_SHADOW_END =3D (1 << (64 - self.KASAN_SHADOW_SCALE_=
-SHIFT)) + self.KASAN_SHADOW_OFFSET
-+                self.KASAN_SHADOW_END =3D self.KASAN_SHADOW_OFFSET
-             self.PAGE_END =3D self.KASAN_SHADOW_END - (1 << (self.vabits_a=
-ctual - self.KASAN_SHADOW_SCALE_SHIFT))
-         else:
-             self.PAGE_END =3D self._PAGE_END(self.VA_BITS_MIN)
---=20
-2.52.0
+> > > mode of UFS_RST: unset =3D GPIO, set =3D hardware controlled UFS_RST)
+> > >
+> > > This helps ensure that GPIO-driven device reset actually fires when t=
+he
+> > > system requests it, not when whatever black box magic inside the UFSHC
+> > > decides to reset the flash chip.
+> > >
+> >
+> > Would have liked a mention on why pull-down in the commit log.
+>=20
+> Indeed. Heiko, if you're going to apply this to your tree, would you
+> mind amending the commit description with something like the
+> following?
+>=20
+> The pin is requested with pull-down enabled, which is in line with the
+> SoC power-on default and helps ensure that the attached UFS chip stays
+> in reset until the driver takes over the control of the respective
+> GPIO line.
+
+Will do :-)
+
+Heiko
+
+
+> > In any case,
+> >
+> > Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+>=20
+> Thanks a lot!
+>=20
+> Best regards,
+> Alexey
+>=20
+
+
 
 
 
