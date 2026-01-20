@@ -4,96 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D66D2ED0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA08DD2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AjnwvV2BqvE2aPiFrCHPh0/mzQujqmD6N4sIt6a5sZU=; b=IUCl0mPnFOaL5sTf3KHug07A4Y
-	dcloLIClFmYr+NYMueBG/poiNUvJeH+8hBCMOeNkhUoogNV4IJJGkl/GFmxPJCYSZ0xHnkQ8hIyk+
-	S4PiA6nEpIpYStA708TkQ1NMy/ssKBAsKpcw3GxJe88Bm7E2MjBBlXUiZg7F63iUvaFWk+leC2Zap
-	zp698hWboFF+1boXE1TZugl4WLi4eIJQwGe37evLmmhXm5JnvRROy7qvuI1cOGXdtEfrA42mjlXql
-	+GUdrxaBvVQ8jVlYanCq8cGBxIE0UBbzqrLJ9f1dZYR0aISn0VZu7UJ13ekP6rPEVeOya4Nt59lvs
-	dBbtjzQQ==;
+	bh=ZN6Js6bvYUwBHKtacRq+m09Crr6gkPDpjl2gN8opAjY=; b=L6sgMd7yqjyASVcRu933wQhLf3
+	76nKAKitfGHZE0uKihz0yAvNWk/L8gF+Gmw1BUOrDFMvf5vT2koiUQG0ybxAFmGf9HiPs+oOkGcz5
+	oq6NVoFbG+TmUv3SeESeHwPjizq5PgqqVe+wDLArQpfcPC7xFzgiWIAkcJsv47R6xLzeNKSj0L12U
+	+u0xIjCbhs4B6RwtjLmEpooAY/4GKIrRTR/dmFcXtaDV5MsKmQOlKoW0LTamg8CWA3GDD/JEb6GI7
+	UIt867u/K7wzgQm5HmHyL3e9H8AgkpsRGR2fH7Xx+b7dGTzzaOWtcRqNFM3Z2H3GTfqFbux8omPce
+	l+T6S7sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi9vc-00000003iJj-057Y;
-	Tue, 20 Jan 2026 11:29:44 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vi9wh-00000003iVs-3keb;
+	Tue, 20 Jan 2026 11:30:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi9vY-00000003iJB-3hwC;
-	Tue, 20 Jan 2026 11:29:42 +0000
+	id 1vi9wg-00000003iVV-1mHF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 20 Jan 2026 11:30:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=AjnwvV2BqvE2aPiFrCHPh0/mzQujqmD6N4sIt6a5sZU=; b=hovWwipuHB57LKi4MlszUuI8DP
-	CgD3oSh3KhgWsMTfb486kUstGtEakbhWKS3+1iC5/urnMW79/L40gcwZ5abtlbaHeVDneWxj/KXyX
-	eTJv0JZfc3wkTMmGRw7nkB0HxBhoRPNL5zkIKvCd+Dsv6eBFJLW2/pEYOO2FIvMQl4Su8K1KY6UZi
-	PrXKLOXfxQQycmy+X6n53r84bKvM9JlWyEx096TTXdb2WDyBWNjezyvY8YMZ1iQmo/Hfbr+wGtFAY
-	C9aaJwM1f6p7mnsw1EmmDjJrl5vXbwvoF6LduEgFjCuro5aKLguFLKEm7NSzHR4V0bm8WPRMvX/zN
-	vUNCdoYQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59282)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vi9us-000000006A6-2vXc;
-	Tue, 20 Jan 2026 11:28:58 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vi9uj-000000007Tq-3hBk;
-	Tue, 20 Jan 2026 11:28:49 +0000
-Date: Tue, 20 Jan 2026 11:28:49 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Yao Zi <me@ziyao.cc>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yanteng Si <siyanteng@cqsoftware.com.cn>,
-	Yao Zi <ziyao@disroot.org>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next 3/3] net: stmmac: Add glue layer for Spacemit K3
- SoC
-Message-ID: <aW9m8YOVO1ClIQOd@shell.armlinux.org.uk>
-References: <20260120043609.910302-1-inochiama@gmail.com>
- <20260120043609.910302-4-inochiama@gmail.com>
- <aW9jbqBSgkiLLw8r@pie>
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ZN6Js6bvYUwBHKtacRq+m09Crr6gkPDpjl2gN8opAjY=; b=TeJmiin21A+sOHSEk5A3kpJlTw
+	zgmvrKA27XLXklWP+AumEK64R0wQc7priRO/7aOmtfspufe5JvMyAx7JPt7974QbpfQo0YeEBDbKJ
+	foIypg4SoJ6j2cp3UjdLlLk0dlExAnTBA3tB0a8bT5vrio6vpPiwPn3dKm6IGxJWpyc1ZU10JshrO
+	wxac1Pv+kZv+SlcxJ5NiCBPMhWIECl7i6GbS4ySc7zWYPBL5ANMwUgQvMaWYlQKk7glyfQwAhqDqU
+	1zzdDW4lSMWKzbi3nCwPsZ2jxLjMDinB+56nVNlc8FxdGvyTNtKfc882VJ4NmH4N3IQJ4Vu11p3+x
+	FLdzybeQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vi9wd-0000000Dv24-1hgD
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Jan 2026 11:30:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D49B843C7A;
+	Tue, 20 Jan 2026 11:30:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9C73C19422;
+	Tue, 20 Jan 2026 11:30:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768908643;
+	bh=9NM+oghNkkVqgepU5c12IfRc35B/z3EEEGh8HcAsK7E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RRMSCePle9tlCGNr1cXpZDcYzt8lFk5AAnRVuYS+FTtE+bz8FSLy0yCfKq5J6y5yY
+	 RkQHRjP5Rhd2PjQLOsAzAcRfMdEXMNJCY3iyphh+MWusaW69V3+vTCEl20EdkTNjJL
+	 j7zC6Mq9zJx+MTbbNs+RfuOG8PuWEdYVbDcY1i02DTGqXKY43rse/XLOPfkp7SfN0P
+	 WD7okPXlpjEH9u+RyvOkg6+M3XRakmZAudwHyKVu/apnE43TbduJUejT5JaJ2VXdwx
+	 LGqV1zQ3jpMTmqv83Wn/IaoKQFJgluPxVBeWgpd9082AXYqJeSAWGbDMJKaVUL0TN4
+	 FA5r4cjTWHXZQ==
+Date: Tue, 20 Jan 2026 12:30:38 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: frank.li@nxp.com, aisheng.dong@nxp.com, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, vz@mleia.com, 
+	wsa@kernel.org, linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] i2c: imx-lpi2c: support smbus block read feature
+Message-ID: <aW9jUs2-kiVIxTfn@zenone.zhora.eu>
+References: <20251121110100.1909603-1-carlos.song@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aW9jbqBSgkiLLw8r@pie>
+In-Reply-To: <20251121110100.1909603-1-carlos.song@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_032940_948845_61B0A887 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20260120_113047_846484_38B05D8F 
+X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,40 +88,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 11:13:50AM +0000, Yao Zi wrote:
-> On Tue, Jan 20, 2026 at 12:36:08PM +0800, Inochi Amaoto wrote:
-> > +static int spacemit_dwmac_probe(struct platform_device *pdev)
-> > +{
+Hi Carlos,
+
+On Fri, Nov 21, 2025 at 07:01:00PM +0800, Carlos Song wrote:
+> The LPI2C controller automatically sends a NACK after the last byte of a
+> receive command unless the next command in MTDR is also a receive command.
+> If MTDR is empty when a receive completes, NACK is transmitted by default.
 > 
-> ...
-> 
-> > +	of_property_read_u32(pdev->dev.of_node, "tx-internal-delay-ps", &tx_delay);
-> > +	of_property_read_u32(pdev->dev.of_node, "rx-internal-delay-ps", &rx_delay);
-> 
-> According to of.h, of_property_read_u32, which in turn calls
-> of_property_read_u32_array, could fail with -ENODATA if there's no value
-> associated with the property. Should the case be handled?
+> To comply with SMBus block read, start with a 2-byte read:
+> - The first byte is the block length. Once received, update MTDR
+>   immediately to keep MTDR non-empty.
+> - Issue a new receive command for the remaining data before the second
+>   byte arrives ensuring continuous ACK instead of NACK.
 
-You cut too much. This had:
+What is the real fix you are addressing here? Can you be a bit
+more descriptive?
 
-	unsigned int tx_delay = 0;
-	unsigned int rx_delay = 0;
+> Fixes: a55fa9d0e42e ("i2c: imx-lpi2c: add low power i2c bus driver")
 
-at the start of the function.
+Is this tag really needed?
 
-of_property_read_u32_array() says:
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
 
- * @out_values: pointer to return value, modified only if return value is 0.
+...
 
-and of_property_read_u32() passes &tx_delay or &rx_delay to this. Thus,
-if any error occurs, these will be zero. In other words, a missing
-property is equivalent to setting these to zero, which is entirely
-reasonable.
+>  #define MRDR_RXEMPTY	BIT(14)
+>  #define MDER_TDDE	BIT(0)
+>  #define MDER_RDDE	BIT(1)
+> +#define MSR_RDF_ASSERT(x) FIELD_GET(MSR_RDF, (x))
 
-However, "unsigned int" _may_ be type equivalent to "u32", but really
-these should be "u32" if of_property_read_u32_array() is used.
+This name sounds more as an imperative action, do you mean
+something like MSR_RDF_ASSERTED(x)?
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+>  #define SCR_SEN		BIT(0)
+>  #define SCR_RST		BIT(1)
+
+...
+
+> +static unsigned int lpi2c_SMBus_block_read_single_byte(struct lpi2c_imx_struct *lpi2c_imx)
+> +{
+> +	unsigned int val, data;
+> +	int ret;
+> +
+> +	ret = readl_poll_timeout(lpi2c_imx->base + LPI2C_MSR, val,
+> +				 MSR_RDF_ASSERT(val), 1, 1000);
+
+What is the value of val here?
+
+> +	if (ret) {
+> +		dev_err(&lpi2c_imx->adapter.dev, "SMBus read count timeout %d\n", ret);
+> +		return ret;
+
+This is an unsigned function and you are trying to return a
+negative number.
+
+Can we also add a comment saying that readl_poll_timeout() fails
+only if it times out?
+
+> +	}
+> +
+
+...
+
+> +		/* Read the first byte as block len */
+> +		block_len = lpi2c_SMBus_block_read_single_byte(lpi2c_imx);
+> +		if (block_len < 0) {
+
+both block_len and lpi2c_SMBus_block_read_single_byte() are
+unsigned, but you are comparing for negative value.
+
+> +			dev_err(&lpi2c_imx->adapter.dev, "SMBus read data length timeout\n");
+> +			return;
+> +		}
+> +
+
+...
+
+> +		if (block_len == 1) {
+> +			ret = lpi2c_SMBus_block_read_single_byte(lpi2c_imx);
+> +			if (ret < 0)
+> +				dev_err(&lpi2c_imx->adapter.dev, "SMBus read data timeout\n");
+> +			return;
+
+do we need to increment msglen here?
+
+> +		}
+> +
+> +		/* Block read other length data need to update command again*/
+
+Please fix the commenting style here.
+
+> +		writel((RECV_DATA << 8) | (block_len - 2), lpi2c_imx->base + LPI2C_MTDR);
+> +		lpi2c_imx->msglen += block_len;
+> +	}
+
+Thanks,
+Andi
 
