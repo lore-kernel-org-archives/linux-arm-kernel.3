@@ -4,55 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E50E5D2ED0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 14:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51F6BD2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 14:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6XzkSDuDP0HfzejUTV5XzIVGv3/HCsAZ2kabQBiMoXc=; b=d0GKjff1pOZUCbJyTq0q1F/iav
-	nc/c3hcGSPLetx1/IwUTXKDk41wg/363dSg7+X470WDI0dYaHdSYabGq9UbGRFYvygkq4mZN6XOhV
-	Am+Q8PVCRNeszxWfJMcIw4KkajahijZ1AHtjhaas87y0w8A7nTEnaETsE6Rvk6r71j1vDyNYnq+8G
-	toVksD64k+d5Gyii3h5k7KW+k5DtK6dbGmrUpZHWNlZQfyvI78+GglVr4kZSPLRcxvhAUuJndnTZT
-	FWp6UthPaJHa7Cnk519qpnwDjBNt1n7m6UzHT7UGtisMSRv83wKAkAHT3ZBKNt4CPDrlctnt7MUn5
-	9TXp3vLw==;
+	bh=oDGqX/KkQRxzOI+l10MofO8gzSL8IjI07TilGIBbVzY=; b=Bcr16s5CqnW52aNRhjJdbwWAt4
+	Jnw3HXOtU2562SWCPAs7d6LPgkprLTy0mXGTXt1koRqEK8FbmK53XKloNfxDQ3DqLXXkue3nIuiRY
+	BH4zVe2mBVQmBuTh5qEgWYqTZ56uKmVIjvUZdFUe16MqATTLXEFT/X8WBWWi++UCeaGP7KQev9Q4d
+	1IowsqGhe8+Rt7GK4yGNAs6rYWqluY+CPGIuhLyjY6lC7kXRiU1/wVCaFSwHsbu1XcOez62eC6iC9
+	qCMIOXBBM+rE3CaPRAjDzXEE9oQjt9lpTE4OuvEiyXB/R4EweaNxl2bOMWubB1MWSbpMR7BJVMkMS
+	xPcWrFkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viCsl-00000003zyh-33Sm;
+	id 1viCsl-00000003zyK-1jHs;
 	Tue, 20 Jan 2026 14:38:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viCsj-00000003zwk-1Q2y
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 20 Jan 2026 14:38:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=6XzkSDuDP0HfzejUTV5XzIVGv3/HCsAZ2kabQBiMoXc=; b=rW3t9aZ09XIwTRs2FjaW33J+WW
-	Q7inhlFdcw7mGn4ZwihpH5rBz0hwTirIBBY7U0aQ1LWFZkyhFvHPk2SR+lq9SUuqNUdX9o1kxNwmM
-	UOhlYvqZ4BpMkn+kB87bzqERAmS4ROSM3NvuuVjWf3weJgv9GSQXPQkZNLjmbiNrX9/JJI7c4KIVu
-	fPPph/2/Yh8DrAyrZdyVRDMxh8V5Cxvfp4dIpUbLhi8mECFU9MvfaT3YKG9LiIk7WjHpoZbENVBLW
-	DVOtutK54sawQD9gzpie8XDahShUeFIKitpdR6ebDso3fI37zvCBcjeHHIqSg/nOVSLCBHcZTTYWx
-	fi6TqNPQ==;
 Received: from mail.thorsis.com ([217.92.40.78])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viCsg-0000000EEC5-1NqB
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viCsU-00000003zrd-45qR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 14:38:56 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D702C148AD45;
-	Tue, 20 Jan 2026 15:38:43 +0100 (CET)
+	Tue, 20 Jan 2026 14:38:46 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 01336148AD47;
+	Tue, 20 Jan 2026 15:38:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1768919924; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1768919921; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=6XzkSDuDP0HfzejUTV5XzIVGv3/HCsAZ2kabQBiMoXc=;
-	b=oMyZMHrBI12VPCPL0yQIS0fjxoar0Ljo5pzPQ3ubhw8r5eYKbZm6j9O2804oOXaMg1m23X
-	6l7c2y2zCfnnUPtOYKMdaNXEXmqq+oTCndzwGhmS/SULtz7K6Jieivw7skL+M48hL0jWcm
-	f3DmEoHBVsFTc2KUC9MlX4GLNVjfgNPaJGvhcdgdSmd7Iwst4NH2pMSap5WQgHq/iwfXA9
-	fvoKK29N09ZsuXEJcyvHjJBkWWzopahom8M+WWiNZT9ss20z7j49XYECEcUpBsUXM8G6sp
-	lQKGhqFcqUytn9Zfj13/Snr4jE5N3+gB4CLi4KH/Q4mO4P0t+NPCZgIlq8n8LA==
+	bh=oDGqX/KkQRxzOI+l10MofO8gzSL8IjI07TilGIBbVzY=;
+	b=HmgzkrB213NnhUir2q1t5Jo6axm6vljm2js6lBKfCQKklOUYXVIZzUZdwKbXW3gc7wIVm1
+	lKAf/dV2mGuXkZvRX5Q7xOAgSmnnm3ikOkVZafxqYOR0ce+nse3Oh3fIwM200VawhhEHsO
+	/feYg2arUbmo0KddN5iwVAKS/ZERVQQxfHFjSoDROMnDuqM1lYDlqLr3ABr2RQjwIaN7E4
+	8THtvCQ220l0rbXr/eeWOmk+xdr7qPdD13vU2oGdmKpdX4m2mjLklGM0+P/bJ+lsOSaIUE
+	HmeULds+keVYceZ9CQdEHew6SylB/CcW7FgphoIGOM8YzGkk5Qhw37HaSLmqXA==
 From: Alexander Dahl <ada@thorsis.com>
 To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
@@ -65,11 +50,11 @@ Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
 	Cristian Birsan <cristian.birsan@microchip.com>,
-	Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>,
-	Varshini Rajendran <varshini.rajendran@microchip.com>
-Subject: [PATCH v3 07/19] clk: at91: Add peripheral id for OTPC
-Date: Tue, 20 Jan 2026 15:37:28 +0100
-Message-ID: <20260120143759.904013-8-ada@thorsis.com>
+	Varshini Rajendran <varshini.rajendran@microchip.com>,
+	Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
+Subject: [PATCH v3 06/19] clk: at91: Allow enabling main_rc_osc through DT
+Date: Tue, 20 Jan 2026 15:37:27 +0100
+Message-ID: <20260120143759.904013-7-ada@thorsis.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260120143759.904013-1-ada@thorsis.com>
 References: <20260120143759.904013-1-ada@thorsis.com>
@@ -77,8 +62,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_143854_529668_D3A64303 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20260120_063845_162424_6F0C8C88 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,9 +78,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-That peripheral clock is required for proper OTPC function.
+SAM9X60 Datasheet (DS60001579G) Section "23.4 Product Dependencies"
+says:
 
-Link: https://lore.kernel.org/linux-clk/ec34efc2-2051-4b8a-b5d8-6e2fd5e08c28@microchip.com/T/#u
+    "The OTPC is clocked through the Power Management Controller (PMC).
+    The user must power on the main RC oscillator and enable the
+    peripheral clock of the OTPC prior to reading or writing the OTP
+    memory."
+
+The code for enabling/disabling that clock is already present, it was
+just not possible to hook into DT anymore, after at91 clk devicetree
+binding rework back in 2018 for kernel v4.19.
+
+Do it for all controllers with an OTPC controller, where the main rc
+oscillator is required for proper operation.
+
 Signed-off-by: Alexander Dahl <ada@thorsis.com>
 ---
 
@@ -104,7 +101,8 @@ Notes:
     - no changes
     
     v2:
-    - new patch in series, was not present in v1
+    - split out dt-bindings changes into separate patch
+    - extend to drivers for other SoCs providing the OTPC
 
  drivers/clk/at91/sam9x60.c  | 1 +
  drivers/clk/at91/sam9x7.c   | 1 +
@@ -113,53 +111,53 @@ Notes:
  4 files changed, 4 insertions(+)
 
 diff --git a/drivers/clk/at91/sam9x60.c b/drivers/clk/at91/sam9x60.c
-index a9f293a8e3b26..11f16126ff9e9 100644
+index dbcdb1d2161a9..a9f293a8e3b26 100644
 --- a/drivers/clk/at91/sam9x60.c
 +++ b/drivers/clk/at91/sam9x60.c
-@@ -146,6 +146,7 @@ static const struct {
- 	{ .n = "isi_clk",    .id = 43, },
- 	{ .n = "pioD_clk",   .id = 44, },
- 	{ .n = "tcb1_clk",   .id = 45, },
-+	{ .n = "otpc_clk",   .id = 46, },
- 	{ .n = "dbgu_clk",   .id = 47, },
- 	/*
- 	 * mpddr_clk feeds DDR controller and is enabled by bootloader thus we
+@@ -227,6 +227,7 @@ static void __init sam9x60_pmc_setup(struct device_node *np)
+ 					   50000000);
+ 	if (IS_ERR(hw))
+ 		goto err_free;
++	sam9x60_pmc->chws[SAM9X60_PMC_MAIN_RC] = hw;
+ 
+ 	hw = at91_clk_register_main_osc(regmap, "main_osc", mainxtal_name, NULL, 0);
+ 	if (IS_ERR(hw))
 diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
-index 9a5afd258cb86..c4d2b022d9d07 100644
+index 07eadb712a1e4..9a5afd258cb86 100644
 --- a/drivers/clk/at91/sam9x7.c
 +++ b/drivers/clk/at91/sam9x7.c
-@@ -407,6 +407,7 @@ static const struct {
- 	{ .n = "isi_clk",	.id = 43, },
- 	{ .n = "pioD_clk",	.id = 44, },
- 	{ .n = "tcb1_clk",	.id = 45, },
-+	{ .n = "otpc_clk",	.id = 46, },
- 	{ .n = "dbgu_clk",	.id = 47, },
- 	{ .n = "pmecc_clk",	.id = 48, },
- 	/*
+@@ -764,6 +764,7 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+ 					   50000000);
+ 	if (IS_ERR(hw))
+ 		goto err_free;
++	sam9x7_pmc->chws[SAM9X7_PMC_MAIN_RC] = hw;
+ 
+ 	hw = at91_clk_register_main_osc(regmap, "main_osc", mainxtal_name, NULL, 0);
+ 	if (IS_ERR(hw))
 diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
-index 5d8973aa50a53..52467d629258f 100644
+index 4ccffa8db43a5..5d8973aa50a53 100644
 --- a/drivers/clk/at91/sama7d65.c
 +++ b/drivers/clk/at91/sama7d65.c
-@@ -641,6 +641,7 @@ static struct {
- 	{ .n = "mcan2_clk",	.p = PCK_PARENT_HW_MCK5, .id = 60, .r = { .max = 200000000, }, },
- 	{ .n = "mcan3_clk",	.p = PCK_PARENT_HW_MCK5, .id = 61, .r = { .max = 200000000, }, },
- 	{ .n = "mcan4_clk",	.p = PCK_PARENT_HW_MCK5, .id = 62, .r = { .max = 200000000, }, },
-+	{ .n = "otpc_clk",	.p = PCK_PARENT_HW_MCK0, .id = 63, },
- 	{ .n = "pdmc0_clk",	.p = PCK_PARENT_HW_MCK9, .id = 64, .r = { .max = 200000000, }, },
- 	{ .n = "pdmc1_clk",	.p = PCK_PARENT_HW_MCK9, .id = 65, .r = { .max = 200000000, }, },
- 	{ .n = "pit64b0_clk",	.p = PCK_PARENT_HW_MCK7, .id = 66, },
+@@ -1135,6 +1135,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+ 						   50000000);
+ 	if (IS_ERR(main_rc_hw))
+ 		goto err_free;
++	sama7d65_pmc->chws[SAMA7D65_PMC_MAIN_RC] = hw;
+ 
+ 	bypass = of_property_read_bool(np, "atmel,osc-bypass");
+ 
 diff --git a/drivers/clk/at91/sama7g5.c b/drivers/clk/at91/sama7g5.c
-index 9a6f0f30b2b7e..3e0cfd2613851 100644
+index 99b4c1d9bdcca..9a6f0f30b2b7e 100644
 --- a/drivers/clk/at91/sama7g5.c
 +++ b/drivers/clk/at91/sama7g5.c
-@@ -504,6 +504,7 @@ static struct {
- 	{ .n = "mcan3_clk",	.p = PCK_PARENT_HW_MCK1, .id = 64, .r = { .max = 200000000, }, },
- 	{ .n = "mcan4_clk",	.p = PCK_PARENT_HW_MCK1, .id = 65, .r = { .max = 200000000, }, },
- 	{ .n = "mcan5_clk",	.p = PCK_PARENT_HW_MCK1, .id = 66, .r = { .max = 200000000, }, },
-+	{ .n = "otpc_clk",	.p = PCK_PARENT_HW_MCK0, .id = 67, },
- 	{ .n = "pdmc0_clk",	.p = PCK_PARENT_HW_MCK1, .id = 68, .r = { .max = 200000000, }, },
- 	{ .n = "pdmc1_clk",	.p = PCK_PARENT_HW_MCK1, .id = 69, .r = { .max = 200000000, }, },
- 	{ .n = "pit64b0_clk",	.p = PCK_PARENT_HW_MCK1, .id = 70, },
+@@ -1014,6 +1014,7 @@ static void __init sama7g5_pmc_setup(struct device_node *np)
+ 						   50000000);
+ 	if (IS_ERR(main_rc_hw))
+ 		goto err_free;
++	sama7g5_pmc->chws[SAMA7G5_PMC_MAIN_RC] = hw;
+ 
+ 	bypass = of_property_read_bool(np, "atmel,osc-bypass");
+ 
 -- 
 2.47.3
 
