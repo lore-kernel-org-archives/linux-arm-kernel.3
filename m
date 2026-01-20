@@ -4,132 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB5ED262A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 22:26:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35B8D262AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 22:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=12m2xvgJzDqiJreuY7EetpiVScySOxRmwMPypQhBiRc=; b=v7jZode1ZDz0DES60foC/jEWUS
-	TUXffUfuW7WN//g+563nYxaXEor8mOivsu+DZ6yS9d/4jt8L9AorVlpbod+BpGJPUzUItijjRdmR6
-	KQmj4A3uysMlWilVQyCZXnf3/oSOhA2S/BcFdiERSwpImLgup5AT2oKLyp2r0NQUcwIZ2kMsc2CUA
-	eYXiORJgX9uXuW3UlmlZEDa/VzrKXbQUb4UY9a6U3MlevKi3qu5zR6ZfKMebEZuy+oxKO+9u6Ab5l
-	OvuwEDSt8BPVvLIemKkVwlQu75AdPR8FDNGdmmOCi02Bb3lCvUcBpoLj41Mcjql67dAYFosr7h3kc
-	/aGPji6A==;
+	bh=TtQ2QoYLJn1s3uHte30pNr+WHXuCyKS2txAnzP8/+HE=; b=17H5O0zDkAsTz+NMWaaaApwRcm
+	C4HTGDnivAT54gmp9GIcQjXiVMx9FrAaXSRUv7e0DvkhKNWPHWZ9g781bXWGlu2a7vbCFbFRnMIL7
+	ES60kLB9UUwNqMuJ4pdcMlW4SWeh31FEgIRYss4Ut9r2lrKhxxBWu4+NsTf1RMWK/HxRqJbqOYkPj
+	lLXQ0QtmKcfMQV5C+MJk2DPAFML60FpFwzZjdrndDPwF0WVsTvJGq+mi3dVtZaEGr5YRMMcioJIlv
+	0U9HjEQLxgDrU1jJjRoW7y5MaJ7OftjmShktQnRR4SAl9xFmagOm/UJt03waF3n4+hrToyxMd/hld
+	WXvk3eZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viKB8-00000004ZaT-40Ni;
-	Tue, 20 Jan 2026 22:26:26 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viKB6-00000004ZZj-0fsD
+	id 1viKCS-00000004Zis-47iY;
+	Tue, 20 Jan 2026 22:27:48 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viKCM-00000004ZiR-1iUP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 22:26:25 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60KGmcTE3257527
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 22:26:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=12m2xvgJzDqiJreuY7EetpiV
-	ScySOxRmwMPypQhBiRc=; b=Uq1aKteu47PUQzhdxfFj7EO6snCXAim50cVpMhE4
-	lw2IzTFCoAZcdYOJQQ7+u2shTUiCSxqeBRvsxCO7RZLFDh8eYm9mxgiCiuglsdNB
-	q/yvkrlBCzTvLuO5lTbYPQZ2EyNcyKzR76+GLFRsNWOVISDHS1wGppYKy2FCD/B0
-	ksdH+i7yWwMV4Cujf1h58voGin2EU2PNMMTR5CURy3/hSqtsF6X3ZJ93qfFjUGCN
-	1IF9uxVj6JJprDlEVPjPoFeIehkdDHphW7UeoRsX9gsQ3K9idKZFkqsVEPle/0w+
-	wuYCYnKKZVjSq5gRdxaFT12r0u0HYlewIgBOfZqBoooj1w==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bt6u7theg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 22:26:22 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8c1cffa1f2dso132667885a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 14:26:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1768947982; x=1769552782; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=12m2xvgJzDqiJreuY7EetpiVScySOxRmwMPypQhBiRc=;
-        b=gnduZp95ic77Lucrb4AtX8jRrcOhaDdKO6U1XsW1o5bqfPhthc3CmFjpgLN6n3stfq
-         GA1HdRLHife3vt2YQPuaz91dZSBurHja5ZHmj/Xe+tcduKw8y+h65JCetQCKtg6OqkJt
-         G573oAlf2lrAgsdsBSJ2MUccqCkKb5pF3MCffuKqUhDfEOCepjV7MMs5D6A19sDGSy+E
-         A3+GOe/1U/xwlA7MQ9cUsLc+c+glb/gP1w2cyDR7mMgPs3iJdebKY+AFYkjMjYGCIVpg
-         vPL1A5s1fiZ5UZM9oGUTDYJYQccoGPU1f2wRCk29abqvwTO2PZCBTl9EA6J+dBQqO1E2
-         rGxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768947982; x=1769552782;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=12m2xvgJzDqiJreuY7EetpiVScySOxRmwMPypQhBiRc=;
-        b=MpsY8GNc4aiax/VlF2K/eow2ZRU5UW9z98NC8hfarolZdstR/Mq0+nO6V1mgRotc/J
-         J/xhxZ8Vev6E73hNSJZgaG6S9F1KNNpH/84hzsRVXBu9nfRUgv/q8OBOrKTUH8MpYQm3
-         msdF605zMXu3Wr9k0H/ZSL93szQydlaYt93mfxfOBVE4bOZT4raE8icAMIWd9lTIhQVx
-         E0+i28tCYh/0VENV02N0Ph+cu4csMgAza50WfLIh/KYqqEXRlKygsNjN9JaqNxdyTIIu
-         m3eb3VOb3C2oW9vD5N8Fqbowupv6IRmbhf6dYjBDMbmJyx//vqaZ08zRfG62NGGtvWpg
-         08WA==
-X-Forwarded-Encrypted: i=1; AJvYcCVSpmIvKH8S4IfkgcPzFl8Ublbi8HJOBESywjYJwyogfvPrqSXUkquKJPRzdkkghyKTBZzkP5UpxhKcUSsr48HW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUG5xj53tMz8ftQ0q594U1oi6muGfk/c3y/FBWr4QOt6zB0ch2
-	BhqkeFvmLx+8D+7acAUIRt70enOIIxb0iE9ahILpSI88qZfZ6ZGj8W42VLEoHoiIL8mgnbFWS3K
-	ncSkc4HUgJdWpzk7PnyLHaj9cndWnaasnXSrrbXa6JIkjoA54cMB/FkBodrZQQfR4pkOcMRwQsl
-	3/3Q==
-X-Gm-Gg: AY/fxX7CZxYmEr3CkaiuNbI7In6dZlHWuvVasrZooVrhqm14llNDvbjwVdcZ2oGa1n6
-	DiWNSYx4XfRglEvjMnzjK+kWjilZFXbGbMIaVRFj+wWbxBkPsr7vWYw3OP4Xl+SMMZ0UC2DIGVx
-	i7VqCfww7FOemau3qDrFUKgvlZdJZEKG7djx7od7AuNorXEph3Lh1WjUipRSkuHXe2ZSEBAL0Vi
-	CxlBFBlNMAmpRlFS2zkMOuoXBAd8vkAXAyAiSZHwODjxKZ2ZfdInpGdbdLfkO0iN/+42rrV70J6
-	sIbOSktFK5e5WS6oqGHvA9xgUSLPUJeYH0KdMwAVzkjs2S4g/oSoZwF3oTq/DSSjWutC1H6AHUf
-	fzgdf/2H2b43eS0dnz0X5r6EbLd1tspKc6EcWZmXX0942fHGkpTMTw297L12YT/YJfZ2LJXnfTQ
-	lkm2lkaSihG6AnFeAC+amPAVs=
-X-Received: by 2002:a05:620a:4114:b0:8c6:a64e:f66a with SMTP id af79cd13be357-8c6a64f04camr2155762885a.21.1768947981596;
-        Tue, 20 Jan 2026 14:26:21 -0800 (PST)
-X-Received: by 2002:a05:620a:4114:b0:8c6:a64e:f66a with SMTP id af79cd13be357-8c6a64f04camr2155759285a.21.1768947981130;
-        Tue, 20 Jan 2026 14:26:21 -0800 (PST)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59baf34d572sm4303193e87.24.2026.01.20.14.26.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Jan 2026 14:26:20 -0800 (PST)
-Date: Wed, 21 Jan 2026 00:26:18 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: bibek.patro@oss.qualcomm.com
-Cc: will@kernel.org, catalin.marinas@arm.com, charan.kalla@oss.qualcomm.com,
-        iommu@lists.linux.dev, joro@8bytes.org, kernel-team@android.com,
-        konrad.dybcio@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        robin.clark@oss.qualcomm.com, robin.murphy@arm.com
-Subject: Re: [PATCH] iommu/arm-smmu-qcom: Restore ACTLR settings for MDSS on
- sa8775p
-Message-ID: <ctdfmzictrjcwugv66hmk5pouj56qviy5umdo3yrmhvfexqoni@kmtozbt53sdv>
-References: <20260120151105.614792-1-bibek.patro@oss.qualcomm.com>
+	Tue, 20 Jan 2026 22:27:47 +0000
+Received: from skinsburskii.localdomain (c-98-225-44-182.hsd1.wa.comcast.net [98.225.44.182])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 96EF920B7167;
+	Tue, 20 Jan 2026 14:27:34 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 96EF920B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1768948055;
+	bh=TtQ2QoYLJn1s3uHte30pNr+WHXuCyKS2txAnzP8/+HE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LR/P3vCX7xx8DrCzcPc++LOlapP4HKNSuldXE0UBzrxPMGofDX924TfgdmPc+ywVP
+	 d9tvKFbY3fAV7eFuRUBoG4HnEtZuxP5pCMeyEkS/5Cmn8OyH6MRx4SYrBQulX7Z+e0
+	 UXW3pctUG9dDqf2MqdXnnpmCFzK3mLQJYhMhM5to=
+Date: Tue, 20 Jan 2026 14:27:33 -0800
+From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+To: Mukesh R <mrathor@linux.microsoft.com>
+Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-pci@vger.kernel.org, linux-arch@vger.kernel.org,
+	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
+	will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
+	nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
+	romank@linux.microsoft.com
+Subject: Re: [PATCH v0 11/15] x86/hyperv: Build logical device ids for PCI
+ passthru hcalls
+Message-ID: <aXABVTS6xDb2GB2s@skinsburskii.localdomain>
+References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+ <20260120064230.3602565-12-mrathor@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260120151105.614792-1-bibek.patro@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=P/w3RyAu c=1 sm=1 tr=0 ts=6970010e cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=kvr8ZGpsiUTQIvHu6H8A:9 a=CjuIK1q_8ugA:10
- a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTIwMDE4NiBTYWx0ZWRfX+gjJS3Src8Bt
- XDXMRDDhoT5vXKyBXB76ncURObayhJ4ed4FWu16BdPDt1Gvo+gLz/HS6AnEncJR7g87BgaMd1CO
- XxDTB4kHyKF0CCW9oZhWsV+5Q90jHfp87te8R2hxcqRQ/BB9AkycbduqAJxhOzlgnnd1p+IC85l
- RJy7yWH+REYpih9ym0zvpwvaF8GPH3t9WVrvMs2k1gwDDD3rqfvwuGZMpQGX1iXuYFo8Qs2r9M9
- c0sjT5dUJLf1QANUH/ozDqvXQEAzy794tssRlZ/oB0XeCnspP3FznVMHuOwPoKZNrLXwUTqhV6w
- oKWsN7rdsp6mAbuW+GpInZKyyD7UUAdluMWTq3fqFPXDzps8NEAe7zQ1ebxPsDLryS4ulj8dzZ8
- djezEtWWanwo7O9xbSBytNSe/4ZQaDsqV4y724GmzuS4D5CrmF2PeaSHPySkpowH/4/mb9EIBhD
- ib3u1W8z7RkOf3XzE3w==
-X-Proofpoint-ORIG-GUID: QWTQoaenF5jftB3drj4TXqZNXhYXc2Vs
-X-Proofpoint-GUID: QWTQoaenF5jftB3drj4TXqZNXhYXc2Vs
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
- definitions=2026-01-20_06,2026-01-20_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0 adultscore=0
- clxscore=1015 spamscore=0 phishscore=0 impostorscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601200186
+In-Reply-To: <20260120064230.3602565-12-mrathor@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_142624_318243_68A2382F 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20260120_142742_495514_F999768D 
+X-CRM114-Status: GOOD (  29.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,23 +78,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 08:41:05PM +0530, bibek.patro@oss.qualcomm.com wrote:
-> From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+On Mon, Jan 19, 2026 at 10:42:26PM -0800, Mukesh R wrote:
+> From: Mukesh Rathor <mrathor@linux.microsoft.com>
 > 
-> The ACTLR configuration for the sa8775p MDSS client was inadvertently
-> dropped while reworking the commit f91879fdf70b ("iommu/arm-smmu-qcom:
-> Add actlr settings for mdss on Qualcomm platforms"). Without this
-> entry, the sa8775p MDSS block does not receive the intended default
-> ACTLR configuration.
+> On Hyper-V, most hypercalls related to PCI passthru to map/unmap regions,
+> interrupts, etc need a device id as a parameter. A device id refers
+> to a specific device. A device id is of two types:
+>    o Logical: used for direct attach (see below) hypercalls. A logical
+>               device id is a unique 62bit value that is created and
+>               sent during the initial device attach. Then all further
+>               communications (for interrupt remaps etc) must use this
+>               logical id.
+>    o PCI: used for device domain hypercalls such as map, unmap, etc.
+>           This is built using actual device BDF info.
 > 
-> Restore the missing compatible entry so that the platform receives the
-> expected behavior.
+>    PS: Since an L1VH only supports direct attaches, a logical device id
+>        on an L1VH VM is always a VMBus device id. For non-L1VH cases,
+>        we just use PCI BDF info, altho not strictly needed, to build the
+>        logical device id.
 > 
-> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+> At a high level, Hyper-V supports two ways to do PCI passthru:
+>   1. Device Domain: root must create a device domain in the hypervisor,
+>      and do map/unmap hypercalls for mapping and unmapping guest RAM.
+>      All hypervisor communications use device id of type PCI for
+>      identifying and referencing the device.
+> 
+>   2. Direct Attach: the hypervisor will simply use the guest's HW
+>      page table for mappings, thus the host need not do map/unmap
+>      hypercalls. A direct attached device must be referenced
+>      via logical device id and never via the PCI device id. For an
+>      L1VH root/parent, Hyper-V only supports direct attaches.
+> 
+> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+> ---
+>  arch/x86/hyperv/irqdomain.c     | 60 ++++++++++++++++++++++++++++++---
+>  arch/x86/include/asm/mshyperv.h | 14 ++++++++
+>  2 files changed, 70 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/x86/hyperv/irqdomain.c b/arch/x86/hyperv/irqdomain.c
+> index ccbe5848a28f..33017aa0caa4 100644
+> --- a/arch/x86/hyperv/irqdomain.c
+> +++ b/arch/x86/hyperv/irqdomain.c
+> @@ -137,7 +137,7 @@ static int get_rid_cb(struct pci_dev *pdev, u16 alias, void *data)
+>  	return 0;
+>  }
+>  
+> -static union hv_device_id hv_build_devid_type_pci(struct pci_dev *pdev)
+> +static u64 hv_build_devid_type_pci(struct pci_dev *pdev)
+>  {
+>  	int pos;
+>  	union hv_device_id hv_devid;
+> @@ -197,7 +197,58 @@ static union hv_device_id hv_build_devid_type_pci(struct pci_dev *pdev)
+>  	}
+>  
+>  out:
+> -	return hv_devid;
+> +	return hv_devid.as_uint64;
+> +}
+> +
+> +/* Build device id for direct attached devices */
+> +static u64 hv_build_devid_type_logical(struct pci_dev *pdev)
+> +{
+> +	hv_pci_segment segment;
+> +	union hv_device_id hv_devid;
+> +	union hv_pci_bdf bdf = {.as_uint16 = 0};
+> +	struct rid_data data = {
+> +		.bridge = NULL,
+> +		.rid = PCI_DEVID(pdev->bus->number, pdev->devfn)
+> +	};
+> +
+> +	segment = pci_domain_nr(pdev->bus);
+> +	bdf.bus = PCI_BUS_NUM(data.rid);
+> +	bdf.device = PCI_SLOT(data.rid);
+> +	bdf.function = PCI_FUNC(data.rid);
+> +
+> +	hv_devid.as_uint64 = 0;
+> +	hv_devid.device_type = HV_DEVICE_TYPE_LOGICAL;
+> +	hv_devid.logical.id = (u64)segment << 16 | bdf.as_uint16;
+> +
+> +	return hv_devid.as_uint64;
+> +}
+> +
+> +/* Build device id after the device has been attached */
+> +u64 hv_build_devid_oftype(struct pci_dev *pdev, enum hv_device_type type)
+> +{
+> +	if (type == HV_DEVICE_TYPE_LOGICAL) {
+> +		if (hv_l1vh_partition())
+> +			return hv_pci_vmbus_device_id(pdev);
 
-Missing Fixes tag. Otherwise LGTM
+Should this one be renamed into hv_build_devid_type_vmbus() to align
+with the other two function names?
 
--- 
-With best wishes
-Dmitry
+Thanks,
+Stanislav
+
+> +		else
+> +			return hv_build_devid_type_logical(pdev);
+> +	} else if (type == HV_DEVICE_TYPE_PCI)
+> +		return hv_build_devid_type_pci(pdev);
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(hv_build_devid_oftype);
+> +
+> +/* Build device id for the interrupt path */
+> +static u64 hv_build_irq_devid(struct pci_dev *pdev)
+> +{
+> +	enum hv_device_type dev_type;
+> +
+> +	if (hv_pcidev_is_attached_dev(pdev) || hv_l1vh_partition())
+> +		dev_type = HV_DEVICE_TYPE_LOGICAL;
+> +	else
+> +		dev_type = HV_DEVICE_TYPE_PCI;
+> +
+> +	return hv_build_devid_oftype(pdev, dev_type);
+>  }
+>  
+>  /*
+> @@ -221,7 +272,7 @@ int hv_map_msi_interrupt(struct irq_data *data,
+>  
+>  	msidesc = irq_data_get_msi_desc(data);
+>  	pdev = msi_desc_to_pci_dev(msidesc);
+> -	hv_devid = hv_build_devid_type_pci(pdev);
+> +	hv_devid.as_uint64 = hv_build_irq_devid(pdev);
+>  	cpu = cpumask_first(irq_data_get_effective_affinity_mask(data));
+>  
+>  	return hv_map_interrupt(hv_current_partition_id, hv_devid, false, cpu,
+> @@ -296,7 +347,8 @@ static int hv_unmap_msi_interrupt(struct pci_dev *pdev,
+>  {
+>  	union hv_device_id hv_devid;
+>  
+> -	hv_devid = hv_build_devid_type_pci(pdev);
+> +	hv_devid.as_uint64 = hv_build_irq_devid(pdev);
+> +
+>  	return hv_unmap_interrupt(hv_devid.as_uint64, irq_entry);
+>  }
+>  
+> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
+> index 0d7fdfb25e76..97477c5a8487 100644
+> --- a/arch/x86/include/asm/mshyperv.h
+> +++ b/arch/x86/include/asm/mshyperv.h
+> @@ -188,6 +188,20 @@ bool hv_vcpu_is_preempted(int vcpu);
+>  static inline void hv_apic_init(void) {}
+>  #endif
+>  
+> +#if IS_ENABLED(CONFIG_HYPERV_IOMMU)
+> +static inline bool hv_pcidev_is_attached_dev(struct pci_dev *pdev)
+> +{ return false; }       /* temporary */
+> +u64 hv_build_devid_oftype(struct pci_dev *pdev, enum hv_device_type type);
+> +#else	/* CONFIG_HYPERV_IOMMU */
+> +static inline bool hv_pcidev_is_attached_dev(struct pci_dev *pdev)
+> +{ return false; }
+> +
+> +static inline u64 hv_build_devid_oftype(struct pci_dev *pdev,
+> +				       enum hv_device_type type)
+> +{ return 0; }
+> +
+> +#endif	/* CONFIG_HYPERV_IOMMU */
+> +
+>  u64 hv_pci_vmbus_device_id(struct pci_dev *pdev);
+>  
+>  struct irq_domain *hv_create_pci_msi_domain(void);
+> -- 
+> 2.51.2.vfs.0.1
+> 
+
+
+
+
+
+
+
+
+
 
