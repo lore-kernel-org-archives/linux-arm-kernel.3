@@ -4,62 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF35D2ECE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 13:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE95D2ECE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 13:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nk/jil5P9bd18lXGzo7iKVLteI4PK9x59aS/JMtc4go=; b=iuqkSqpCOLBNXn1JO2uNPbIO+Q
-	S9+wkYnRfdIUln4gbw8NlbXZvvhB5I4K/moF4dRXhD87wlyjx1ONhx4NAplzMD0DxvZC4W4EOFfUo
-	qohqKSotFPGY+MZKUhb0IURD/pFxfpqinZx+rj2CXEyWSlPc/rD8imh6S00JKIOb8v4sf8W3a+RHy
-	HWDtWvfX/OLDBxXlvnfdfkg3Fb3OM5o0fKF+CNr0TP3iNqiO2nyfWD6qA7SMaBBZVbXH0Bf7RiilK
-	hJiqUeN1fFgIJewHzb/lxRaMLqokg1CQdflQwNdleeS0UUZkAVKCv2LXmB4ltdDzfpHKVZSGncRKu
-	g0lrEA0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x9mgi3TL0eDGl2pTGxPI5X6I1yeHKcio4o8DKGeuzng=; b=Xalh1LpABV+zM2WGdSb/Q+pw/6
+	tKogEK42sWjpgbiIweKvOe3/lw9ktpu/p1D+v506sS9nbBzlnpbe8lelnm/YaRtvRbRi7BKetc/xr
+	DqfQCalUZ0eqwlGqEZiBtlZbWhqg+dfPHJge8D2VifeZ4aPbeOgst1l7i3Hz8yTG+b4R0oh41wo+R
+	oBvjw+h5q+TUnte7RcsaXS8H4ZAzCDuMZ5Uznck/0lzpDOAUe8Y8FQi7WDHZSMQFnhdGPP64NaUlL
+	svcnXOaXViw/Hr8WZIXSKhKtPeltbWf1Th3dI3HIsFE7cj+DC28FGAlbi5OKA46ZHVUGPkL01OcPw
+	vmJBoKqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viBqe-00000003v15-0Vpk;
-	Tue, 20 Jan 2026 13:32:44 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1viC0l-00000003vVt-3GuN;
+	Tue, 20 Jan 2026 13:43:11 +0000
+Received: from mail-dl1-x1230.google.com ([2607:f8b0:4864:20::1230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viBqb-00000003v0U-0r7Y;
-	Tue, 20 Jan 2026 13:32:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=nk/jil5P9bd18lXGzo7iKVLteI4PK9x59aS/JMtc4go=; b=J9vkQPaCXohOKQwicpD9vyG5hZ
-	0RSc6vxzfIcNiZd5vB75M42d1j9XHPwD8LcQPkXxJyAAyxtlTa6y3iJKfVo1gEH0MOENlVDXIZzLh
-	7aU0YslQ3Ie7T9DAgiZahEolidw9rmhERlqFY1UZPb+KxkSsCwW6RRN4cQDDX7kslWJo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1viBqQ-003gLQ-8O; Tue, 20 Jan 2026 14:32:30 +0100
-Date: Tue, 20 Jan 2026 14:32:30 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: Frank Li <Frank.li@nxp.com>, vkoul@kernel.org,
-	neil.armstrong@linaro.org, shawnguo@kernel.org,
-	kernel@pengutronix.de, festevam@gmail.com, jun.li@nxp.com,
-	linux-phy@lists.infradead.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] phy: fsl-imx8mq-usb: add debugfs to access control
- register
-Message-ID: <06ae1272-9874-4ce7-9e4f-01d521a5f27f@lunn.ch>
-References: <20260108083641.2119616-1-xu.yang_2@nxp.com>
- <aV/Qha0CQ+LJHo76@lizhi-Precision-Tower-5810>
- <das6ud7gep5hrcdn4bnmoyl2pb7okbxslpnawch2osaezd6xm5@psbizlufjec4>
- <6d27a8b1-1407-40ff-945b-927ef0a39eb1@lunn.ch>
- <fmdje7ftwna5vv5xrzt5e7hpv4juzwjurhvdzzrfeifaeyyblj@givopw2u7vmn>
+	id 1viC0j-00000003vV5-052U
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Jan 2026 13:43:10 +0000
+Received: by mail-dl1-x1230.google.com with SMTP id a92af1059eb24-123320591a4so5358171c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 05:43:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768916588; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QjhZoS2dtA6B758RRX3ZKAd5ZP+dZ1mkTHTb5ZAiog2P7R432wR2P3NmjKXlTmthNv
+         hcX8+jt/3BZsdcuwD/wWnokg2Wax37vbBAvW0XeApSvveTOupjy8Ew8OGTe9oo5cXeCs
+         1IQj5gNcvBcSHVoj4yQMV//ac+xkzWbTiETcQc8I1VdhvpprOl5bul8UqJKXydQWCqZO
+         qAlSk5Y6zAU9rHH/9F+y/8LZhluRuBCFgu/iMvqal3GCKDKtPYrYPo1B/pQmSLySexyG
+         97I/8OB6suc5eiMWxUPYXmTaxE1LjKkQKVapA5ynEr0qM3UiV+HLVBrKv4s6L/S+IhBi
+         /q/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=x9mgi3TL0eDGl2pTGxPI5X6I1yeHKcio4o8DKGeuzng=;
+        fh=vbwaOKuN9g8CpaITK9zSdmz+cjkP3DxP+JYpD3rS35I=;
+        b=Sb8Mz5LNq1kCvCyHF6odU4ZseoEG0QvPuN56H9bbLmBZUNyjYO+On/UGLF8IzoaCxV
+         ys4TVav5n4bsOhWgfORhAM0w+385yo1q7w2G+Ejlzclm6HmSUV7DQi6gJg/atuFoMDSj
+         XuAQgkzlCUYixCClV11huHgYd/EC1l5dR5abqWRJuGqKHm87yVblSiP8reBJQE4O8fur
+         /+dztTL8nmY0rY6L+y9mDxocaBPHlmIJuc9QJQsDr2vKAWf03q0TJnMlRXeuB5NPNTnW
+         BFZ/VF0IxY2zglK3ihq1OIf/lggKG74xb6JuOLzh0q5Vd+sGQj90Nl3oCrqHgYwBpL0C
+         MTHw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768916588; x=1769521388; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=x9mgi3TL0eDGl2pTGxPI5X6I1yeHKcio4o8DKGeuzng=;
+        b=mGmQ5xdxidXASJCkqDcwdvrKEuONl/IA47mUqTRDLKWq7Q0OXbDdSyNAuEIdBWlw7C
+         k2atNFVgJR8OCD83EOJGcfUZqR2g6LIbMCcies0XJ2XM1BMmxRUjb6btg2N7Wwliobi2
+         4+Zzi6d+Zwhad/JABnRbtSUNG25lp2+gxrYls983AnyRblqH6jbsanU6IvFp7KcIcy0E
+         G/5zHTxP/ltmYTcFi+i2eQECCmrOZ80Nt8fWakqiAFm/jOgApuT1ZYbR7jRNcIbnAuXa
+         4M22TXgm7x7hUCvuvB43R6czqa65s882m4xkvTKgCZGWl9UTfg30wMM3H7FRJFS2eHFj
+         ks0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768916588; x=1769521388;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=x9mgi3TL0eDGl2pTGxPI5X6I1yeHKcio4o8DKGeuzng=;
+        b=JPrIPd9By/U6X1AVLuERVqlXFlg9DkjZRS2uhtqF0WxQhsPybs8i7Lt1wjMoMtrTMf
+         JfHce3O1pfhigUNiYprA1+KeGbQ+v5twKiGkaIAKy/ONDsWsCUPrIW6tGhH93/4IgfnJ
+         ycywr/9160m0ho/0ufLsb3OMmjm//mmqQuRma7wk+0Dneg+1xlsqeDK7W7ZPADd+hrEU
+         rgJuXb6jF4IURwLNTcHrbTzLNCIkxkAvl997ub9Awv6CykYtMSpJbjTl7YQdE/gZfv6O
+         w4tnPgyKmUHxC9TFvgg24T6oCFSzzORRT4A7Z9jqiOzBzspgYlgK+ga46QWBu6UBBMNK
+         Wazw==
+X-Forwarded-Encrypted: i=1; AJvYcCXeaw0Ka+rRrilfb2j6aR8C0PCFFuoCPIBaOFRn3GlTh37LqeqQeeLzZY8K23WVRBC0+uZRlfijvsGWeXEjRHlL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwD/I3glBWeZDQig+CLL/ZLu3OQnHcbc1qJmJtk9AmDvv2NS0kk
+	RJ1c1agD4lTYbvHuASMep33JN/9FmGaFd1lFCWidI3P+GFzilHINk9VCXUgXQ+HsFt+ORRQAAzS
+	tXvDryOS+whxkV7ZWPyt4vhM+eKRuU48=
+X-Gm-Gg: AY/fxX5jma+FOkZclERQMFuoPyhtKjnD2aE6mKgYyrHeEc76JrXHVdqNGMNAYISiQdf
+	isFPydS+JWW8qHaauUy+UTfc9OZ9YsyA4M07w1DJBPg19mG+KY8Dhjxz/ZbFqI7IU/vSHeNZGtR
+	brZw8GgUYhApYG8AutNqYXAJB1JfWOvFNX9X0TaBRhwKagncHxkH7zLFxVSIO29yCR3TEiXcExP
+	aTbxIivzEr7DQ3aJuTpFHq2IshXO8xgmdrpUHfznMEwyV6nwPajSuM9rZXdmWaxtHUEhfzcm5g9
+	M231Mh4DZ2Wkwjkx+aZsJfsKfb2Af4D1sLQ6jPNNqJNccrLG8AFOcUUQZ1GgiyJrw1Dd344TvXA
+	jFl/pUPj08w==
+X-Received: by 2002:a05:7022:6b8c:b0:119:e56c:18a6 with SMTP id
+ a92af1059eb24-1244a7257a4mr10880097c88.14.1768916586232; Tue, 20 Jan 2026
+ 05:43:06 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <fmdje7ftwna5vv5xrzt5e7hpv4juzwjurhvdzzrfeifaeyyblj@givopw2u7vmn>
+References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com>
+ <20260120115923.3463866-11-khristineandreea.barbulescu@oss.nxp.com> <CAMRc=McD0cRxtb3RCzzYPewFisto=4OjvA4gjaTcOk8ghTw_qA@mail.gmail.com>
+In-Reply-To: <CAMRc=McD0cRxtb3RCzzYPewFisto=4OjvA4gjaTcOk8ghTw_qA@mail.gmail.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Tue, 20 Jan 2026 15:45:46 +0200
+X-Gm-Features: AZwV_QiPrjYIgkrWuZvZ77hO6EmYEBB8e53YvqXAvD3NoIb32l_6NmOignEguN0
+Message-ID: <CAEnQRZBNKBpwhO2Pr9Gb4cPPBwXf0bMYRuQzshCMJgOkOJEKVg@mail.gmail.com>
+Subject: Re: [PATCH v8 10/10] pinctrl: s32cc: set num_custom_params to 0
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>, 
+	Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
+	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	"Vincent Guittot devicetree @ vger . kernel . org" <vincent.guittot@linaro.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
+	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_053241_251514_7E2A4AA7 
-X-CRM114-Status: GOOD (  22.41  )
+X-CRM114-CacheID: sfid-20260120_054309_066990_B56C4FAB 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,60 +131,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > Rather than reinvent the wheel, could you use regmap?
-> > 
-> > https://elixir.bootlin.com/linux/v6.12.1/source/drivers/base/regmap/regmap-debugfs.c#L546
-> > 
-> > Regmap should be able to provide a debugfs interface for you, no
-> > driver code needed.
-> > 
-> > This will also help you with the abstraction between the core generic
-> > part of the PHY driver and the SoC integration glue. You pass the
-> > regmap to the core driver, and the funny muxing through two registers
-> > is hidden away from the core. If the next SoC integrated uses plan
-> > MMIO, that SoC glue driver can instantiate an MMIO regmap.
-> > 
-> > Using regmap is a good idea for core generic drivers which can be
-> > integrated into SoCs in different ways. It hides the SoC details
-> > behind a well known API.
-> 
-> Thanks for your suggestion.
-> 
-> Using regmap is generally a good fit for reusable driver and I aggre it
-> helps abstract Soc-specific details.
-> 
-> However, the regmap defbugfs has its own limitations:
-> 1. By default the register is read-only, add write operation require rebuild
->    the kernel which make it inconvenient to debug the issue on the spot.
+On Tue, Jan 20, 2026 at 2:26=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.or=
+g> wrote:
+>
+> On Tue, 20 Jan 2026 12:59:22 +0100, Khristine Andreea Barbulescu
+> <khristineandreea.barbulescu@oss.nxp.com> said:
+> > From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> >
+> > The `num_custom_params` was not set to 0 and the pinctrl_desc structure
+> > was not initialized with 0. This would result in errors when parsing
+> > pinconf properties from the device tree.
+> >
+>
+> Shoudn't this come as first in the series and with a Fixes tag?
 
-That is somewhat deliberate. We don't want a nice API which can be
-used for user space binary blob drivers. In networking, which is my
-more normal area, we pretty much reject any sort of write interface,
-other than official kernel APIs.
+Hi Khristine,
 
->    Refer to: "09c6ecd39410 regmap: Add support for writing to regmap registers
->               via debugfs"
-> 
->     # ls /sys/kernel/debug/regmap/2-0050/ -l
->     total 0
->     -r-------- 1 root root 0 Jan 20 07:45 access
->     -r-------- 1 root root 0 Jan 20 07:45 name
->     -r-------- 1 root root 0 Jan 20 07:45 range
->     -r-------- 1 root root 0 Jan 20 07:45 registers
-> 
-> 2. It can't randomly read specific one register with common linux commands. Besides,
->    the read operation is inefficient especially when the range is a bit large because
->    when you cat the register it always read and output all the registers. 
+The entire series could use a better patch reordering to arrange the
+code as follows:
 
-You are debugging. Do you need efficient output?
-
-If you have a specific debug tasks in mind, maybe you should be
-thinking of an official kernel API? In the past, there has been
-interest in getting SERDES eye information out of PHYs, and being able
-to change the configuration parameters of the eye. Could a generic API
-be added for that? Some of these PHYs also support pseudo random bit
-sequence generators, and there has been interest in adding APIs for
-configuring them.
-
-	    Andrew
+* Bug fixes
+* Code refactorization or API changes
+* Device tree bindings
+* Driver implementation
+* DTS changes
 
