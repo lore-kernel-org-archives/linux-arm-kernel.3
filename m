@@ -4,110 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE4ED2ECE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593A4D2ED12
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xIKhuYFw63DINEPQxv2wgmdGn5ZNASi1pTjZrRr4yhE=; b=IjzkuYa2jXtGu6+BQInB3sCmcK
-	KHf+znxtO7rxjcIEvh9Ymp+Mu3NJXb0K34NwgA8L5lISxSCMwmISsHNSRPrLH1HqHkm0SwM6NdDEi
-	ovjAHDhYft72jczx4yB6DB47ctyEkc9loffwcm1kQcMKqNu0plJazJI4cZDAgFq2Q6M/lG5ebt1cv
-	6XMyhDn33WJ0kBIiaQtpSHJb5ND00njdJUWaaPtxteWaZV1iTlPNBc7BMcLg7x7d4w4YiXY0/j7PS
-	f+szbCV4rG/6Yn3V+av+h2NQlnIEfcW/JZsbXeSUVuBt/rSnMcha+MRIUJ5lWY2lTfi1VG7C89aOk
-	z85mIqnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+qJs6bVpqnwm8lHKbWUBls2B4XnqyQPllX7JX0zzKkk=; b=HfK4dRkTdsczo8CdSY0lOTxC3S
+	/SCdhmh9JRpnoCWCPKIjUAhGbpozwxwiOWFei0BfJRooVJEbZy5rm6Bk4BAbMnmSueLPxenQzP+W+
+	8kemFZ22yJPcgKBnjG4sJgzBZXpHVD8GuK8H8x6lcQjQ3YXXzSUgluYzoQoTkvZLd6a+1DpehOed7
+	rJFYI/U3KmKqlogxby7BAgQaHz9jOEZ0yP7sKAOduB2r5hRMwiqzv92+eVh9Bl3KzOaNjt7FAvrpb
+	rh400UDmoit1S9XTA9KGYFfhDK1edpShG61K5RWwLSlpMtgWJWG7e0QoOH1F22S3ZUic5t90ois/2
+	HKINXrtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viBHA-00000003sIP-18Jq;
-	Tue, 20 Jan 2026 12:56:04 +0000
-Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
+	id 1viBJJ-00000003sTG-1y3v;
+	Tue, 20 Jan 2026 12:58:17 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viBH7-00000003sI4-2Z9k
+	id 1viBJG-00000003sSO-20mi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 12:56:02 +0000
-Received: by mail-qv1-xf2c.google.com with SMTP id 6a1803df08f44-88888c41a13so73462696d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 04:56:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768913760; cv=none;
-        d=google.com; s=arc-20240605;
-        b=jelC/fdh1uzO3TOc/BSo+o7lQUwYbV9wM0pyZqT6XmbKsO2oKX2d84O30/PikAVRfp
-         EfExCFEWjiqTH5gNwVa+9co2xtDzc/e2fbjYSi4F8KMlxGoVKIBlEMGb5+T5xNpPTp27
-         jvYdqpzz6GpuBXu/4K7Jobb4SugjH+emafYZ1NM1pDEaj4MPot2mqeszjyASBYGMbHSo
-         7Uf6cing8UgycSNhWjyVMSusS4esxyYI0fDiHu0mdQu+j207XYYl/8jcukFhRrPWWOB4
-         WJp7884Olzg+i8nUXa6+Yok6lIhdm/MkwWNotqAO//7GGCkRW4aR22pwK6PnSAnXPoOC
-         WITA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=xIKhuYFw63DINEPQxv2wgmdGn5ZNASi1pTjZrRr4yhE=;
-        fh=GWRnLEa+wJ9gk1aX3H542aPJ5E4EgBLW2wkwUtt5byg=;
-        b=E3xEtXOWyHLnQ2+OLsXrSqHcrqN8RXebkby0FtLJes7QzZSI5fAg7gMcRSDngegVPI
-         HqopJRbhx4tLBbcf7cDkXgIHJ2F5eoC1/rs7VrUjTWoJ/t+CSnl+fTOkVC5814/cqeW9
-         MU/10P+rRLI7Nwmh0eg2xjSWsitVFasvPsuQOL0YAIjUw+My2rZ7yddCxRRBwzsMetdj
-         SdR8K+vksPspwa7KEzKhcYkt4qBDQe1S+80753N8eGfsWRPnGTaZ8uJfXmFalaQpnPz4
-         Hi5slMoBUvynm6akt3zsiVdMqIRlaRRRIDU2hmuomyd5Ht1spuqrZju8sgYjZsDQGgD+
-         zbmQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1768913760; x=1769518560; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=xIKhuYFw63DINEPQxv2wgmdGn5ZNASi1pTjZrRr4yhE=;
-        b=iamVg6K1i65SGOv9PDVvmPWd2+v1pGFLsd1uzkqKOkxwZVfUdLBgN6a1wwGzFqzMDx
-         YUcUM0Xsg82U/hW5w7/9+N8Uf2bGYhc4ObHJ9K764P28MZgWGCJJtGzZ6abUOorkgNSF
-         ORrNNAaMumJSRVVH/uq3hgPwRoPG7mtxheLtAwMAeVBmlJB1Cn7I8bDKxkOk5i1Zw0mh
-         SsGZaxbSW6mYnfZOYinc1an4hzR8G9lfGE2gLrDYrVKgfFlTayN6Pkdpbieao0plmuhX
-         1LfiqKdQf9OeHfHqQm6k5AGV1FFFkWauOb+lko0t0NX4lYQPXqTR1z3MQlKOls6BrLYK
-         q+mg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768913760; x=1769518560;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xIKhuYFw63DINEPQxv2wgmdGn5ZNASi1pTjZrRr4yhE=;
-        b=uTPpnPtb7dBKsqWIGABBed1tVTWK9+PfOo8NgtQqnuCzGhf7bvzTlq6+DUsHSknSfl
-         P0j15hbUZQW/jtmSPYHOAl2FnhN7v2I6Rzev+PZ5dpDCOOAdY85QWICBUCKRQxD7Sf1B
-         rZeEfqZ05eeFP2WAZxsim8G2IfDuC5kuso7EiOeJFszBjzlv+aNb66z72bL7Qj1sQL+K
-         U8vGG4FiutcWrTjOTfNXyb6mbEXUpSDiP/vEdhuQEA+clLYBfELRu05l0/hiHTQ0I+rQ
-         EWd4yCR6/m8wpTnx0TdAZqUN8mqAB7PLFIKrpppdesKaQZyJ7Ot9L1F4k2nTcdis95pR
-         DJCA==
-X-Forwarded-Encrypted: i=1; AJvYcCV2v55BLESEjLLhFCbBnMif6xnuTu3LY/INAd1GYe9BR1alG6rHv6DneHc/mrJL83tRrXXIOAcNcYO89yM13w32@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRd+jxwbZN7v7Qnbr0fvjH5jSiwz4B2D7G6njEEMwNZNQH5gqd
-	1rqKpXzf/zEamcvh8PCiXI6SdO/I6Gjho5N+R5iYaRZVNm11uC81qr0vvO7oNB5E/erpNDDXoWW
-	Vqp58ym3QtbJsh1zyyo0WGroIC2jSuVTzKSE9zGEBVw==
-X-Gm-Gg: AZuq6aLDI/2ynT0DraAL8miZdiHnYkTHKwuP0v7k9v6s+2lVZGAvAWwoJvFSUemo2z/
-	bgXvcUOLlLkb0YDWmHTN8riZ1n1s1vDmFp7VIHbSfvnWMtKo0u15s0RMgUDtrN0ubKi6jl3E0zL
-	wnmvAso5XD2ZZH8YWd9dLUcsLS9rLX5jCXnS3oUb++i/KsbbIjmqLj1dzNtNVjREHOGODtKNwjL
-	ty6ukaKzGQxjxM7dPwNkqw3eTw6lLllGHeSyY1dutl9Dl71qoceo4sGYGM+E0FCb2eKeFG3eLhR
-	rJM=
-X-Received: by 2002:a05:6214:19c5:b0:894:6dc8:924d with SMTP id
- 6a1803df08f44-8946dc893a8mr4189616d6.24.1768913760251; Tue, 20 Jan 2026
- 04:56:00 -0800 (PST)
+	Tue, 20 Jan 2026 12:58:15 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 83C475BCC9;
+	Tue, 20 Jan 2026 12:58:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1768913892; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=+qJs6bVpqnwm8lHKbWUBls2B4XnqyQPllX7JX0zzKkk=;
+	b=CQ3rS7A0N9VaHm5fdzHOEPgTEq7VaAO/H5qGTsISnDsLxcK9WCHwdIcBlIxNTPW/qJyKW+
+	jg0xeS7Lu3+mA38JqGEx88yulj8wff6TiSFXG/9P9L4qcyzzhgw50Nex5N0S516jju2Vp1
+	gUtskmpEMlHiFCRQa2kT+erO94Ndu5A=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1768913892;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=+qJs6bVpqnwm8lHKbWUBls2B4XnqyQPllX7JX0zzKkk=;
+	b=EMcGt/wXdx8NtqF8WvNqGe/hrmtQ5aN2Mr8g0+KpIK0tAMHhohPx2GbMmEW51Pb0SiU+zT
+	71BLGROPXJxC8mAQ==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=CQ3rS7A0;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="EMcGt/wX"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1768913892; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=+qJs6bVpqnwm8lHKbWUBls2B4XnqyQPllX7JX0zzKkk=;
+	b=CQ3rS7A0N9VaHm5fdzHOEPgTEq7VaAO/H5qGTsISnDsLxcK9WCHwdIcBlIxNTPW/qJyKW+
+	jg0xeS7Lu3+mA38JqGEx88yulj8wff6TiSFXG/9P9L4qcyzzhgw50Nex5N0S516jju2Vp1
+	gUtskmpEMlHiFCRQa2kT+erO94Ndu5A=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1768913892;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=+qJs6bVpqnwm8lHKbWUBls2B4XnqyQPllX7JX0zzKkk=;
+	b=EMcGt/wXdx8NtqF8WvNqGe/hrmtQ5aN2Mr8g0+KpIK0tAMHhohPx2GbMmEW51Pb0SiU+zT
+	71BLGROPXJxC8mAQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 25EAC3EA63;
+	Tue, 20 Jan 2026 12:58:12 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id fBgMCOR7b2nwBAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 20 Jan 2026 12:58:12 +0000
+Message-ID: <686d24ee-c37d-4983-9984-2bbb4543395f@suse.de>
+Date: Tue, 20 Jan 2026 13:58:11 +0100
 MIME-Version: 1.0
-References: <20260120-cpitchen-mainline_gfx2d-v6-0-1a16cd1d70b8@microchip.com> <20260120-cpitchen-mainline_gfx2d-v6-2-1a16cd1d70b8@microchip.com>
-In-Reply-To: <20260120-cpitchen-mainline_gfx2d-v6-2-1a16cd1d70b8@microchip.com>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Tue, 20 Jan 2026 12:55:47 +0000
-X-Gm-Features: AZwV_QhsNtOa999KaX-_EQFOd0iUAVt0uZ4iVZSigcVCX1SaDa3SaynZsl9mIpQ
-Message-ID: <CAPj87rPwJ_FHpzn-4wQ_3kG=iJfLbnF=KpCrOA8a59WrSW9c2Q@mail.gmail.com>
-Subject: Re: [PATCH v6 2/5] drm/microchip: add a driver for the Microchip
- GFX2D GPU
-To: Cyrille Pitchen <cyrille.pitchen@microchip.com>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Russell King <linux@armlinux.org.uk>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/8] drm/rockchip: vop2: Fix Esmart test condition
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>
+References: <20251206-vop2-atomic-fixups-v2-0-7fb45bbfbebd@collabora.com>
+ <20251206-vop2-atomic-fixups-v2-3-7fb45bbfbebd@collabora.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20251206-vop2-atomic-fixups-v2-3-7fb45bbfbebd@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-4.51 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	FREEMAIL_TO(0.00)[collabora.com,rock-chips.com,sntech.de,linux.intel.com,kernel.org,gmail.com,ffwll.ch];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[14];
+	MIME_TRACE(0.00)[0:+];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RCVD_TLS_ALL(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,collabora.com:email,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received,2a07:de40:b281:104:10:150:64:97:from];
+	DKIM_TRACE(0.00)[suse.de:+]
+X-Rspamd-Queue-Id: 83C475BCC9
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_045601_679442_185A64C5 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20260120_045814_805946_E8216AA5 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,38 +172,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cyrille,
+Hi
 
-On Tue, 20 Jan 2026 at 12:06, Cyrille Pitchen
-<cyrille.pitchen@microchip.com> wrote:
-> +static int mchp_gfx2d_ioctl_alloc_buffer(struct drm_device *dev, void *data,
-> +                                        struct drm_file *file_priv)
-> +{
-> +       struct drm_mchp_gfx2d_alloc_buffer *args = data;
-> +       struct mchp_gfx2d_gem_object *gfx2d_obj;
-> +       enum dma_data_direction dir;
-> +       struct drm_gem_object *obj;
-> +       int ret;
-> +
-> +       ret = to_dma_data_direction(args->direction, &dir);
-> +       if (ret)
-> +               return ret;
-> +
-> +       if (!valid_pixel_format(args->format))
-> +               return -EINVAL;
-> +
-> +       gfx2d_obj = mchp_gfx2d_gem_create_with_handle(file_priv, dev,
-> +                                                     args->size, dir,
-> +                                                     &args->handle);
-> +       if (IS_ERR(gfx2d_obj))
-> +               return PTR_ERR(gfx2d_obj);
-> +
-> +       gfx2d_obj->width = args->width;
-> +       gfx2d_obj->height = args->height;
-> +       gfx2d_obj->stride = args->stride;
+Am 06.12.25 um 21:45 schrieb Nicolas Frattaroli:
+> From: Daniel Stone <daniels@collabora.com>
+>
+> If we want to find out if a window is Esmart or not, test for not being
+> a cluster window, rather than AFBDC presence.
+>
+> No functional effect as only cluster windows support AFBC decode.
+>
+> Signed-off-by: Daniel Stone <daniels@collabora.com>
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>   drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 10 ++++------
+>   1 file changed, 4 insertions(+), 6 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> index 81b3eba07095..9d715d7659af 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> @@ -1230,12 +1230,10 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+>   	 * This is workaround solution for IC design:
+>   	 * esmart can't support scale down when src_w % 16 == 1.
+>   	 */
+> -	if (!(win->data->feature & WIN_FEATURE_AFBDC)) {
+> -		if (src_w > dsp_w && (src_w & 0xf) == 1) {
+> -			drm_dbg_kms(vop2->drm, "vp%d %s act_w[%d] MODE 16 == 1\n",
+> -				    vp->id, win->data->name, src_w);
+> -			src_w -= 1;
+> -		}
+> +	if (!vop2_cluster_window(win) && src_w > dsp_w && (src_w & 1)) {
+> +		drm_dbg_kms(vop2->drm, "vp%d %s act_w[%d] MODE 16 == 1\n",
+> +			    vp->id, win->data->name, src_w);
 
-You need to validate height*stride vs. the size here. Same on the import path.
+Drivers should usually be using drm_dbg(), drm_err(), drm_warn() etc. 
+Print functions with _kms postfix are for the DRM helpers. Here and in 
+all other patches.
 
-Cheers,
-Daniel
+Best regards
+Thomas
+
+
+> +		src_w -= 1;
+>   	}
+>   
+>   	if (afbc_en && src_w % 4) {
+>
+
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+
+
 
