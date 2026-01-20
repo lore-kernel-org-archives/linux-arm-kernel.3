@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84126CA5FB7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 17:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD6F5CA5FBD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 17:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FGoi95HK0DawKJbc0JNfaYKaxMRLx0klu4MeJDrk2+E=; b=tggZEllwpVyepGvhpJN+8R24VI
-	Lz5UxlE0s0Vba0ONn4g1Hk0Be+6t6h5dVddnODMItFslqgp3yorEcqMjSXmWa+P9mAmdmIC5Vf4du
-	wPnrHu5PMAH7LG5r1mwhs6qb5Lhguhq3gwO38pcW7bdCRdR3szKeTInuuJ+LIBVZD1FkPZ5GuG72E
-	+4yj0RHi6epAJ4RQXTeZ4Lrzjszj+nDjxqoji7u1vEQ7yfB/trP3z/vuvGyBwWvS1zGvSqUGK9f+o
-	srz9QudgSNxRBR3UrOZsdGkJfkHcPxWXDt8d0RBnBEEpf6Uy7g6UXJm0ICORcpecJY2c5xm1VJ8HE
-	DMJCe5TQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a9iLuhBBaWFw/vFGauqBf+tR/cYKN7IjXcWrjMcj1kg=; b=a/cAMCLthOYbNhPCGOIrZx9WvZ
+	8d8fGBrcdjWIGq5oxzPEV8VHSw6cBNHO/9bc2WGLQF/Qefa/YvU3ttrd4dshX2eYzRW+TtNEpq6XA
+	FyuXJLpXJI/6j8gmZhNldhVnMTriIuYOO3Fk+OCkVPdZrpesJmA0/vm3sulhq4/bFVygZC01a2P+5
+	RZAPfBJB9o+ZPNTdAD/eZ84RZmd6zncSrvwmZ8WA/2zimFv2yANGrcjB0+dZP9q7rSG86Wo3xaiwO
+	1hbFncYwVLuq3Z/A/01cdTpwel/1istktyRFyM+zTvX1WXt3Xk7Fwe059LV9nV12i4MVeHvHknXKj
+	BFReFfwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viFp2-00000004Fmh-3rF5;
-	Tue, 20 Jan 2026 17:47:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viFoz-00000004FmK-3x9R
+	id 1viFqN-00000004G0K-00Bo;
+	Tue, 20 Jan 2026 17:48:43 +0000
+Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viFqL-00000004FzI-10o1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 17:47:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E20F91476;
-	Tue, 20 Jan 2026 09:47:09 -0800 (PST)
-Received: from bogus (e124108.arm.com [10.1.35.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C1D803F632;
-	Tue, 20 Jan 2026 09:47:14 -0800 (PST)
-Date: Tue, 20 Jan 2026 17:47:11 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: Trilok Soni <trilokkumar.soni@oss.qualcomm.com>,
-	Satya Durga Srinivasu Prabhala <satya.prabhala@oss.qualcomm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, trilok.soni@oss.qualcomm.com
-Subject: Re: [PATCH] firmware: smccc: default ARM_SMCCC_SOC_ID to disabled
-Message-ID: <aW-_n_gWV_cxlS-L@bogus>
-References: <86331062-301b-40b1-9df1-78f7751508b4@oss.qualcomm.com>
- <aWgEDAlglnGrzdR4@bogus>
- <4fab824f-8067-49d7-8e6c-dedd67a8454d@oss.qualcomm.com>
- <aWoVR4oNdIHnksJQ@bogus>
- <92d90a1e-e993-4044-b152-83a8700f7b63@oss.qualcomm.com>
- <cb7326b9-91d9-44a3-b9f0-9d2e6ab5fa42@oss.qualcomm.com>
- <aWzuuwQi_nsHoj_5@bogus>
- <mzs5vq2jsrmb6kdriuxawbamyim6dhgy34ne6tucnhlalt5y3w@ghckxur3cn6m>
- <aW5Fdjag_w7i0zWN@bogus>
- <qv2do4mmxrlspkr2b2vzsozedxzdocoyapymll63laowljue3d@ycq3mlxrrllt>
+	Tue, 20 Jan 2026 17:48:42 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B4F55148AD87;
+	Tue, 20 Jan 2026 18:48:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
+	t=1768931318; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=a9iLuhBBaWFw/vFGauqBf+tR/cYKN7IjXcWrjMcj1kg=;
+	b=fNeDGe8mv6Rlfr8cFOjBCpX+6Qmj8jO2iHS0qT5DPCfu4kLq0d6MoX4LWa/qi7nti2x986
+	l86EFkt6kwe9acw/UA0VDcYTZsAmnUy6AcOAxbKwC5x0FHU5eAMA0P36+DdjYJEn+B8QJv
+	da9NlyO2unJsV0tgojRgayTkcmCf//0dLZq5VmZ3GIgFGoEX+opu745SyoyOA81DrHr68p
+	vaZqnWRhiiKfCMsGAbq+0BzxZ8Uiix5UmKp6mVcCWoP4ZgDgjpYdOlRG4zqoTfQdPEGaaK
+	UWxnIk4AYFJXctNntwVvB5Pde7e37dKAylQjq907GDl0GlIGnoOlVTaYyNMjTg==
+From: Alexander Dahl <ada@thorsis.com>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Ryan Wanner <ryan.wanner@microchip.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: [PATCH v3 18/19] ARM: dts: microchip: sam9x60_curiosity: Enable OTP Controller
+Date: Tue, 20 Jan 2026 16:44:52 +0100
+Message-ID: <20260120154502.1280938-12-ada@thorsis.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260120154502.1280938-1-ada@thorsis.com>
+References: <20260120143759.904013-1-ada@thorsis.com>
+ <20260120154502.1280938-1-ada@thorsis.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <qv2do4mmxrlspkr2b2vzsozedxzdocoyapymll63laowljue3d@ycq3mlxrrllt>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_094718_101651_D3B8B39F 
-X-CRM114-Status: GOOD (  40.23  )
+X-CRM114-CacheID: sfid-20260120_094841_433535_0E8E19A3 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,91 +78,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 11:21:07AM -0600, Bjorn Andersson wrote:
-> On Mon, Jan 19, 2026 at 02:53:42PM +0000, Sudeep Holla wrote:
+Allows to access the OTP memory and Product UID now.
 
-[...]
+Signed-off-by: Alexander Dahl <ada@thorsis.com>
+---
 
-> > 
-> > OK if we are going there, can we blame the firmware for exposing this
-> > information which is standard ? Sorry to repeat by firmware is exporting
-> > that info in OS agnostic way and other OSes use that as the information as
-> > it is standard way. Why can't we make Linux use or work with that information
-> > as that removes all these vendor specific fragmentation created over years.
-> 
-> I certainly don't blame the firmware for providing a generic interface
-> for exposing such information, it sounds like a good idea to me. My
-> concern is that we're not "abstracting" this away from the applications,
-> within the kernel.
-> 
+Notes:
+    v3:
+    - Reworded commit message after reordering patches
+    
+    v2:
+    - same as in v1, no changes
 
-I see your point, but the purpose of the SOC_ID interface is to avoid encoding
-vendor-specific interpretation in the kernel and to push that problem to
-userspace. If we now need the kernel to provide an abstraction based on
-vendor-specific information from the device tree and SOC_ID information from
-the firmware, then I don’t think that’s feasible - SOC_ID was designed
-specifically so that the kernel wouldn’t interpret it.
+ arch/arm/boot/dts/microchip/at91-sam9x60_curiosity.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-> I think the UAPI should provide one answer to the question "what target
-> am I on right now" - not two (or N) different answers.
-> 
-
-I’m not sure that’s an exact match for the question. The socX nodes simply
-indicate which SoCs are present and expose the associated identification
-information for the system that’s running. It’s not clear whether this is
-limited to the application processor only, whether it can also include I/O
-components, or whether the identifier is required to be unique.
-
-> > This point is orthogonal to user-space break.
-> > 
-> 
-> With multiple socX instances exposed the UAPI no longer matches my
-> interpretation of its purpose (feel free to tell me that I have
-> misunderstood the purpose).
-> 
-
-I can’t say that you’ve misunderstood it; it may be that I’m misunderstanding
-it. My interpretation is that it provides information about all the SoCs on
-the system. That could include multiple instances of the same SoC, different
-variants, or even I/O chips such as Bluetooth or Wi-Fi. That’s my take on the
-socX nodes, but I may be wrong.
-
-> > > What does it even mean to have two different socs presented here? How
-> > > would userspace know which one to refer to? Should it refer to both and
-> > > guess which one makes more sense to it?
-> > > 
-> > 
-> > Yes, the standard interface doesn't have much info though, so it could be
-> > union of it if the applications prefer that way.
-> > 
-> > > 
-> > > To me, when you decided to add a second caller to soc_device_register()
-> > > you created a regression in the userspace interface. If nothing else
-> > > it's a leaky abstraction.
-> > > 
-> > 
-> > In that case, shouldn't soc_device_register() made to give error when an
-> > attempt to call it more that one time then ?
-> 
-> Based on my understanding of the purpose, that seems reasonable to me.
-> 
-
-It's exactly opposite based on my understanding though 😉.
-
-> > Also should be change the
-> > ABI documents to refer it as soc0 and not socX ?
-> > 
-> 
-> I'm still grappling with the thought of what does it actually mean to
-> find N socX nodes. Perhaps I'm wrong and the answer is that these are
-> just different blobs of soc information and userspace should consume
-> them all? (Just doesn't feel very user friendly to me).
-> 
-
-Why ? If the intention was to provide as much information as possible
-about the running system.
-
+diff --git a/arch/arm/boot/dts/microchip/at91-sam9x60_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sam9x60_curiosity.dts
+index b9ffd9e5faacc..c110a8e87568a 100644
+--- a/arch/arm/boot/dts/microchip/at91-sam9x60_curiosity.dts
++++ b/arch/arm/boot/dts/microchip/at91-sam9x60_curiosity.dts
+@@ -252,6 +252,10 @@ ethernet-phy@0 {
+ 	};
+ };
+ 
++&otpc {
++	status = "okay";
++};
++
+ &pinctrl {
+ 	adc {
+ 		pinctrl_adc_default: adc-default {
 -- 
-Regards,
-Sudeep
+2.47.3
+
 
