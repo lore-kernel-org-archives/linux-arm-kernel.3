@@ -4,55 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF79D2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A51CDD2ECE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7kioe172RUEI57MBDFhxuJ9tK9fy7IOriL8j2SKp2Qw=; b=t6en+rCbseINFkEr4IPpCKyzkk
-	sbkspb8ehxZJOO21Y0KjYF5ykEPtd9aT3/oLNVXO6RL95x+MTbkmtqHPESv9ZqsRUbnJTmx7i4+pq
-	8nCb7AKKZrrtA0toOFC1NRxKI0UlnqIWplhdBI+n3L4XzTVzPCgaOaMX2BP1jvByN8kdXxBQGhPFk
-	r69Gcyk7NkFHPP9Up+EPVDYItg+edos2h3baTogHgWDGkn6NaSnNrS8yvB41ttxFBqc0j73+WtfyM
-	I9xeOtOudujM8T8z4hkBsvqrIANN/ZRbEwUdYRLkfOsGp6cPpXCaDBl+atvy1aOro2AXn4OBmbra/
-	XWp2wBnQ==;
+	bh=dWzUL86zeloyhVgkXz4snN6gH5GJmE76J80J6yEf0kk=; b=Nzd98V8CVPTEaGGMHa9GG0ifsK
+	BCtSyoCuPBo66KmbvQobMofMNKKvMkQ7kfGVTXAfU3f/2LBAfS4Ln/KJbfPJ1SidWFivABbTp5tsV
+	s2OJLSY5qIMPb32EOGrbKCHw2toKff2mXwS1zs8mBx971zvXQQD6eKBEcQoLG03Cj0sYaMmT4OxZt
+	XQq5/PPFcgM/yvUR8Fpe5QFO3PMYbXwOzXPqhn0ft5w1MZ9aw11jaeLcg32HP9I9e9CVIrZDHSZAU
+	sFmfx8wcsf6hrEqeNvMeQ8t77n98eNVC2TZiGoDMd2nPETSBPHM+A8/ua7oNILjliKWqmHuhbjUlM
+	dP30rUQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viApi-00000003q0c-2c3q;
-	Tue, 20 Jan 2026 12:27:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1viApt-00000003q6R-0vk0;
+	Tue, 20 Jan 2026 12:27:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viApg-00000003pzV-2J3E
+	id 1viApq-00000003q4w-3jpn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 12:27:40 +0000
+	Tue, 20 Jan 2026 12:27:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D94D66011F;
-	Tue, 20 Jan 2026 12:27:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6533FC19423;
-	Tue, 20 Jan 2026 12:27:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3380D4376F;
+	Tue, 20 Jan 2026 12:27:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B855DC16AAE;
+	Tue, 20 Jan 2026 12:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768912059;
-	bh=b7Mbdz/B6k9B79H7XOHyXFan5oK4QyoZB2R8RyLKnA0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qyvATZaSrEe49sh1pTLv223SMZUXupyJ7AEH8b7OsfHEeQacfJO00Zf/WzAHWL9E4
-	 YdtXc3YZVh9NSGcUhAD2bQvcACJ5PrjSRas0X6y7UOImj3QPKnx5QP1rSKYrFh5Mts
-	 ukTURbyHiw+A+Kz5Vf26qHNwrORw2S4F45MPwEjPavVEHNIxp5dnd7uk7o0/DPXX7+
-	 g73KWaKHxGDsX8vefv3wZzROajBumN3ybV4NMn2T3AnSa9jpAw36eCJjIuqT/JPkF0
-	 Dt5GgYa0z7KnbSSkgeEZDb889qUkR918KJJZNX1gKKxnazEduQBZ+Q4614JxO2KCTn
-	 WhoIppH/1oyUw==
-Date: Tue, 20 Jan 2026 12:27:33 +0000
-From: Will Deacon <will@kernel.org>
-To: Barry Song <21cnbao@gmail.com>
-Subject: Re: [PATCH v2 1/8] arm64: Provide dcache_by_myline_op_nosync helper
-Message-ID: <aW90tXGtLVC0mKWP@willie-the-truck>
-References: <20251226225254.46197-1-21cnbao@gmail.com>
- <20251226225254.46197-2-21cnbao@gmail.com>
+	s=k20201202; t=1768912069;
+	bh=OBQa66E8qIIZZ+a5/f/YUB/uMB9Oa+5RXnBGA2tH1VA=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=hHyqsg7SLKU6D/+NrFAwaN3MhGr5XHbaGDgQQaIQvl+t/iY5qBmfoYu4l8P1Lcgm2
+	 oqJ3zQmgw1zYfVFAqf8RWA870XZkWL9FQDro7p9evW2z0tw4c4/sBvgKaSQtE4S5hn
+	 CdQsPuEKhcpai1OKgQmiT+5ZVmFPe9frZIGN4ZfeuxtJ7DNvwhniQ85cZa9PK0IB8T
+	 LRTiByz0h8vDb+LxO4ccWKXYiOI8JKsTMY1lsJ9exLUtk9yiLYW4Mi8tjUvTgSQUVa
+	 U4O5JcFDH62U61e3HJyoNXKzJhwJ7VTiD1wcAU6iW1MKXr8WJHEzxlNP0uS3iWfgpB
+	 YOcSVoJ6njokA==
+Date: Tue, 20 Jan 2026 06:27:48 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251226225254.46197-2-21cnbao@gmail.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: bmc-sw@aspeedtech.com, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Andrew Jeffery <andrew@aj.id.au>, devicetree@vger.kernel.org, 
+ Linus Walleij <linusw@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Lee Jones <lee@kernel.org>, linux-gpio@vger.kernel.org
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+In-Reply-To: <20260120-upstream_pinctrl-v3-2-868fbf8413b5@aspeedtech.com>
+References: <20260120-upstream_pinctrl-v3-0-868fbf8413b5@aspeedtech.com>
+ <20260120-upstream_pinctrl-v3-2-868fbf8413b5@aspeedtech.com>
+Message-Id: <176891206887.1610236.16662937885214497301.robh@kernel.org>
+Subject: Re: [PATCH v3 2/3] dt-bindings: pinctrl: aspeed: Add support for
+ AST27xx
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260120_042750_970885_AC16271A 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,88 +76,73 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Tangquan Zheng <zhengtangquan@oppo.com>, Barry Song <baohua@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Leon Romanovsky <leon@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>, xen-devel@lists.xenproject.org, robin.murphy@arm.com, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 27, 2025 at 11:52:41AM +1300, Barry Song wrote:
-> From: Barry Song <baohua@kernel.org>
+
+On Tue, 20 Jan 2026 19:43:06 +0800, Billy Tsai wrote:
+> Add bindings for the pin controller found in ASPEED AST27xx SoCs.
 > 
-> dcache_by_myline_op ensures completion of the data cache operations for a
-> region, while dcache_by_myline_op_nosync only issues them without waiting.
-> This enables deferred synchronization so completion for multiple regions
-> can be handled together later.
+> The AST2700 SoC consists of two interconnected SoC instances, each
+> with its own pin controller register block managed by a separate
+> System Control Unit (SCU).
 > 
-> Cc: Leon Romanovsky <leon@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Suren Baghdasaryan <surenb@google.com>
-> Cc: Tangquan Zheng <zhengtangquan@oppo.com>
-> Signed-off-by: Barry Song <baohua@kernel.org>
+> Introduce the "aspeed,ast2700-soc0-pinctrl" compatible string to
+> describe the SoC0 pin controller, which is not compatible with
+> existing ASPEED pinctrl bindings.
+> 
+> The SoC1 pin controller follows a regular and predictable register
+> layout and can be described using an existing generic pinctrl
+> binding, therefore no dedicated AST2700-specific compatible string
+> is introduced for it.
+> 
+> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 > ---
->  arch/arm64/include/asm/assembler.h  | 24 +++++++++++++++++++-----
->  arch/arm64/kernel/relocate_kernel.S |  3 ++-
->  2 files changed, 21 insertions(+), 6 deletions(-)
+>  .../bindings/mfd/aspeed,ast2x00-scu.yaml           |  27 +++++
+>  .../pinctrl/aspeed,ast2700-soc0-pinctrl.yaml       | 130 +++++++++++++++++++++
+>  2 files changed, 157 insertions(+)
 > 
-> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-> index f0ca7196f6fa..b408ed61866f 100644
-> --- a/arch/arm64/include/asm/assembler.h
-> +++ b/arch/arm64/include/asm/assembler.h
-> @@ -371,14 +371,13 @@ alternative_endif
->   * [start, end) with dcache line size explicitly provided.
->   *
->   * 	op:		operation passed to dc instruction
-> - * 	domain:		domain used in dsb instruction
->   * 	start:          starting virtual address of the region
->   * 	end:            end virtual address of the region
->   *	linesz:		dcache line size
->   * 	fixup:		optional label to branch to on user fault
->   * 	Corrupts:       start, end, tmp
->   */
-> -	.macro dcache_by_myline_op op, domain, start, end, linesz, tmp, fixup
-> +	.macro raw_dcache_by_myline_op op, start, end, linesz, tmp, fixup
->  	sub	\tmp, \linesz, #1
->  	bic	\start, \start, \tmp
->  .Ldcache_op\@:
-> @@ -402,14 +401,13 @@ alternative_endif
->  	add	\start, \start, \linesz
->  	cmp	\start, \end
->  	b.lo	.Ldcache_op\@
-> -	dsb	\domain
 
-Naming nit, but I'd prefer this to be dcache_by_myline_op_nosync() for
-consistency with the other macros that you're adding. The 'raw' prefix
-is used by raw_dcache_line_size() to indicate that we're getting the
-value from the underlying hardware register.
+My bot found errors running 'make dt_binding_check' on your patch:
 
->  
->  	_cond_uaccess_extable .Ldcache_op\@, \fixup
->  	.endm
->  
->  /*
->   * Macro to perform a data cache maintenance for the interval
-> - * [start, end)
-> + * [start, end) and wait for completion
->   *
->   * 	op:		operation passed to dc instruction
->   * 	domain:		domain used in dsb instruction
-> @@ -420,7 +418,23 @@ alternative_endif
->   */
->  	.macro dcache_by_line_op op, domain, start, end, tmp1, tmp2, fixup
->  	dcache_line_size \tmp1, \tmp2
-> -	dcache_by_myline_op \op, \domain, \start, \end, \tmp1, \tmp2, \fixup
-> +	raw_dcache_by_myline_op \op, \start, \end, \tmp1, \tmp2, \fixup
-> +	dsb \domain
-> +	.endm
+yamllint warnings/errors:
 
-This could just be dcache_by_line_op_nosync() + dsb.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml: patternProperties:-state$: 'anyOf' conditional failed, one must be fixed:
+	'pins' is not one of ['$ref', 'additionalItems', 'additionalProperties', 'allOf', 'anyOf', 'const', 'contains', 'default', 'dependencies', 'dependentRequired', 'dependentSchemas', 'deprecated', 'description', 'else', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'items', 'if', 'minItems', 'minimum', 'maxItems', 'maximum', 'multipleOf', 'not', 'oneOf', 'pattern', 'patternProperties', 'properties', 'required', 'then', 'typeSize', 'unevaluatedProperties', 'uniqueItems']
+	'type' was expected
+	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml: patternProperties:-state$: 'anyOf' conditional failed, one must be fixed:
+	'drive-strength' is not one of ['$ref', 'additionalItems', 'additionalProperties', 'allOf', 'anyOf', 'const', 'contains', 'default', 'dependencies', 'dependentRequired', 'dependentSchemas', 'deprecated', 'description', 'else', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'items', 'if', 'minItems', 'minimum', 'maxItems', 'maximum', 'multipleOf', 'not', 'oneOf', 'pattern', 'patternProperties', 'properties', 'required', 'then', 'typeSize', 'unevaluatedProperties', 'uniqueItems']
+	'type' was expected
+	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml: patternProperties:-state$: 'pins' is not one of ['type', 'description', 'dependencies', 'dependentRequired', 'dependentSchemas', 'properties', 'patternProperties', 'additionalProperties', 'unevaluatedProperties', 'deprecated', 'required', 'not', 'if', 'else', 'then', 'allOf', 'anyOf', 'oneOf', '$ref']
+	from schema $id: http://devicetree.org/meta-schemas/nodes.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml: patternProperties:-state$: 'drive-strength' is not one of ['type', 'description', 'dependencies', 'dependentRequired', 'dependentSchemas', 'properties', 'patternProperties', 'additionalProperties', 'unevaluatedProperties', 'deprecated', 'required', 'not', 'if', 'else', 'then', 'allOf', 'anyOf', 'oneOf', '$ref']
+	from schema $id: http://devicetree.org/meta-schemas/nodes.yaml
+Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.example.dts:63.13-50: Warning (ranges_format): /example-1/syscon@12c02000:ranges: "ranges" property has invalid length (16 bytes) (parent #address-cells == 1, child #address-cells == 1, #size-cells == 1)
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.example.dtb: syscon@12c02000 (aspeed,ast2700-scu0): reg: [[0, 314580992], [0, 4096]] is too long
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.example.dtb: pinctrl@400 (aspeed,ast2700-soc0-pinctrl): 'reg' does not match any of the regexes: '-state$', '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.example.dtb: pinctrl@400 (aspeed,ast2700-soc0-pinctrl): emmcclk-driving-state: 'drive-strength', 'pins' do not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
 
-Will
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260120-upstream_pinctrl-v3-2-868fbf8413b5@aspeedtech.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
