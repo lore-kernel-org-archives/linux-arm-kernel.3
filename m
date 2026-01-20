@@ -4,86 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2618FD26290
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 19:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20ED8D26292
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 19:12:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TZWLoaoV7EzezsWHGxVNdZ4QDGJRM/HQSEczyoVsHN0=; b=qVMT4tE6IMjsyemF7cifPn6qBI
-	mXFbcwj68JJciVemw4bCBFt/086MEQOLN/WlC2qQTPxnKC9t+jc+RVNDRJrIUstET3ttU78YG+roA
-	C+stVVq+bZfOGhTVUWCdgNezeeU1ZJOcrI7M77aUy7h8tZOfjS0Nu5nVZAAlKpJ6O9Y9psdf0SwA0
-	8PP/G8eYsFaKNAwnaoSSXjap9SqJPDHfn6YzOmVqjM19/JJNAc+Eix42PlF6PwUwG/pfgmfNsZphe
-	GKC/tmzcxA0Fzfv+nDO6GOsGY8j6KX1W/gwkHLggXg1HSIZgaGignJpKvew3pjbspAnPR/IrchkfR
-	wux82PMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ub8N3tY8GwCy8TqVlqK7eFFGB7gNEjREB31fE0IlsTg=; b=HhirX3gEFCuFUCjeG/94uxPINw
+	e3/tfgxKZ6HJbL9ZCNkf+oAoq9l5K6I+2vNiipjQ03ULQobpL4yqJb6xNByymMMZNV5EqXydMZtdF
+	2qHBgXa4JhG82QSQBu1SDB3pSZh8g+qqU31foGTDI+keSzw2bvsFBoRN4g5PmJbijmJKTgmZhS3Yv
+	jLu3xs+hUTzqYnCl8iMS/eiQYALc0KqCbC+1eDoxE3ZK208AxxnpZfE0gRoiFW6SHM2VxdTLarbKL
+	qlfkeeR4YZB/1l2Q6ebpr1EY60ma6l5xi9ECLak6Y7zNFmgY2VyhL0E5xa+HFFBnNedxdmTFWngtf
+	dAo1xNfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viH5y-00000004LYI-12yQ;
-	Tue, 20 Jan 2026 19:08:56 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1viH8z-00000004Li9-3Vkg;
+	Tue, 20 Jan 2026 19:12:01 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viH5v-00000004LXm-0vTT
+	id 1viH8w-00000004Lhk-2SSU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 19:08:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768936131; x=1800472131;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=suq092sxUq1UZDCmvSjB4EIKq0NWnio2m/MOEmqo3HM=;
-  b=PYDqAKB18VxL8n+qx/lznWGeA8rSNU0rjH+7CB1gUMbmhg4WcFbNEbW7
-   diOCe1eTeZylh10obxDXFM480lxmERdUbhAZYBkgkYhgjIXKluT/B/Xtd
-   KBD1cF0xmsz0oPoVsenzElzpbZZDy6mu6wq9a4rjCtADKcBf6sMOArBKO
-   +35dCNC6nPMO6gYgAMOIPHAqNqz7hIlMjED7sR2UEsr5OPxWp9pvRa6aI
-   0VabahKIwfVuCVS+qL+86fxiRM7oNCrDBa5OjWv2GYi8GZhU4aAfieGTb
-   DLlT+PPbh18rFy/YRMbdy3JYIKyzU5H6rLlybtvRzXOvUCh/NcwkTQWEd
-   w==;
-X-CSE-ConnectionGUID: kv/zW18ZTz6B/HV3Ap3F3g==
-X-CSE-MsgGUID: UJmUvQvTQeKF/gKect/F/w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11677"; a="57716908"
-X-IronPort-AV: E=Sophos;i="6.21,241,1763452800"; 
-   d="scan'208";a="57716908"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2026 11:08:49 -0800
-X-CSE-ConnectionGUID: S/qzfxi6Tjynf60TUbjybw==
-X-CSE-MsgGUID: oFTL2pAKTTqSKELIV4YUSw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,241,1763452800"; 
-   d="scan'208";a="206450650"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by fmviesa008.fm.intel.com with ESMTP; 20 Jan 2026 11:08:43 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1viH5k-00000000POH-2pR0;
-	Tue, 20 Jan 2026 19:08:40 +0000
-Date: Wed, 21 Jan 2026 03:08:24 +0800
-From: kernel test robot <lkp@intel.com>
-To: Mukesh R <mrathor@linux.microsoft.com>, linux-kernel@vger.kernel.org,
-	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-pci@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, kys@microsoft.com,
-	haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
-	longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
-	nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
-	romank@linux.microsoft.com
-Subject: Re: [PATCH v0 01/15] iommu/hyperv: rename hyperv-iommu.c to
- hyperv-irq.c
-Message-ID: <202601210208.mg3YUkif-lkp@intel.com>
-References: <20260120064230.3602565-2-mrathor@linux.microsoft.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260120064230.3602565-2-mrathor@linux.microsoft.com>
+	Tue, 20 Jan 2026 19:12:00 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-81db1530173so2748261b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 11:11:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nexthop.ai; s=google; t=1768936316; x=1769541116; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ub8N3tY8GwCy8TqVlqK7eFFGB7gNEjREB31fE0IlsTg=;
+        b=ENTI6ttznWclp73Pp5m6OdkpmSLGJOn9Vw4+Ozh12hGipO6D01Vtoa4Nnvgaep+cH0
+         /Cve5H6C/UzOd2NNHQZZtWS5ADyOxhjCvLvILyf+yVHP+/VeJU4SMmP0Fz11ZZ3Luxzw
+         IAtMpYvkL7CJVe5W7HFH9SqXhrybAoH69WwYpg0taYWspTjXHvk+KSolDugTDa4UR24b
+         IogHKPUQP38i0pZplXM2R9ndQ/rphrmNFI8EjPVCA36T+LgcG5e7CsKpr7XPPEvh73Gd
+         8so5S3xdXz9Pia0Pw6lzqqbBoToRtxRGbq+eZiS2agi4sSwIhElOq891mUZZ1BdecdLx
+         t/hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768936316; x=1769541116;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Ub8N3tY8GwCy8TqVlqK7eFFGB7gNEjREB31fE0IlsTg=;
+        b=g43fI+6Ool5oQWPKpD/4zrfcqJpU6a4I82tDG2xInl2UvcWmnZ89/7COP1MHSSmeel
+         GvYtbp0mXvAI0CQEEjA8wlHDnLcP5U20ir0aADwOCZdcyokHxbZEoFPkOXXohPuh1rGe
+         OUYTUA7pypo4ZQ5dUNBlqIYL5RHnQkt6P3ynoG7AG+FQcnLylKKVfEF5HFOAEL0mZUTD
+         qPHmteduVP4UstbLFOmROb/p0lLC/Bm8NgUDJ4StL3RfAPGlgOlTuCnpabL2pO6JhcIT
+         IK/rU2e+sVndnl6BhWD1qKMgjUIoVeFs2RYiAwxUUZ1yRhG8YGNxkSDV0k+sXXYJ1F0O
+         zCOg==
+X-Forwarded-Encrypted: i=1; AJvYcCWvXoHuaZ+/7/pPxFtEle91WuZ5KpCmE9IEK5Q2pQn+KRWIkDpAe0ia3OilCKyeYYYnKt+8irutlsvQylkywOSm@lists.infradead.org
+X-Gm-Message-State: AOJu0YyE156t8DlU9lPBw4rSB5uh9phnu5t//uNSV9LMY48W5mNU/iDQ
+	IRJPJZ5yedV6pwwey89uKgcQtYMeEWhsfh5mJQJ/wCUDCT+qqT9c9w22dHZP9krs5Iw=
+X-Gm-Gg: AY/fxX7TBZUBEpMx6HXZkWernVZgNvX5YgI4yrDtYPWpzraWRRO3CIAKvRFvOmhPMdE
+	IVQrA1funVVZGEyiCyscHC3UWjpCwoxF839Cm61yrWo44i7jvQzz9B1TKGB/fMI+LzB6a0gzoNE
+	HOKeTx+L01PXuJ43Wir6IXa3cJEJfgIvizGWqHTVgzmGjLCodrpmJ6ouvBX1/pCYUuDpm+Q2T5p
+	WBjMGItiKfkyHBs+9f370Hki1EbE73z1lqJYto5zD0En3s3yaBvj+GHLrIB5LbwRR26Bqzjzgpr
+	tPG/3y/Bir3apAZLfpb6VrY7XKUuWJPK+VM/y++0TBYHPS5sozai66GgWXwy/yJofEM7C6cxwir
+	TpSc3pZqd5K1bFzy13yG8kUU2YuRF/ERZJOu64eiJOGPboE+55PEjhjvh8whtTW42dVycRc3dbE
+	pb7FIo/r5ZnZLFDa9y5oIMBmKdRQ8umv3ean+f8JhXqMajesYeISQJh1jaPpx0RK8SPO/YcQU=
+X-Received: by 2002:a05:6a21:7305:b0:36c:2cf5:9b06 with SMTP id adf61e73a8af0-38e45eacbfamr2933705637.79.1768936316195;
+        Tue, 20 Jan 2026 11:11:56 -0800 (PST)
+Received: from smtpclient.apple (c-24-16-26-157.hsd1.wa.comcast.net. [24.16.26.157])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c5edf354b24sm12357331a12.28.2026.01.20.11.11.55
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 20 Jan 2026 11:11:55 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
+Subject: Re: [PATCH v3 3/3] spi: xilinx: use device property accessors.
+From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+In-Reply-To: <c3fc04a4-4b09-4c6a-a0f1-e5aa92a22976@sirena.org.uk>
+Date: Tue, 20 Jan 2026 11:11:44 -0800
+Cc: Michal Simek <michal.simek@amd.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Andrew Lunn <andrew@lunn.ch>,
+ linux-spi@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <80A8F67E-7A01-4F9F-9D84-29722678A2CE@nexthop.ai>
+References: <b1b79de0-a078-486d-b3e9-96899354407c@sirena.org.uk>
+ <3D1B59A7-6E57-4C8C-AA95-EA7AA115264F@nexthop.ai>
+ <b9ad8ab8-7985-4c89-a82b-c7f31d32c167@sirena.org.uk>
+ <a6d57890-89c1-445e-836c-d8239d20c621@amd.com>
+ <b03307f7-93f6-4680-9241-cf28b5456fd0@sirena.org.uk>
+ <a3fcef3a-d1e9-4b46-b114-3a82575e052e@amd.com>
+ <980ad372-a2c7-417c-91f9-4958d3d1aaca@sirena.org.uk>
+ <4831B269-DFC1-40E0-96B7-67981AC72562@nexthop.ai>
+ <6e06696e-09a4-46e0-98fa-252690b888e0@sirena.org.uk>
+ <BF71A04E-7FFB-42D1-8C8D-6FD13415EED5@nexthop.ai>
+ <c3fc04a4-4b09-4c6a-a0f1-e5aa92a22976@sirena.org.uk>
+To: Mark Brown <broonie@kernel.org>
+X-Mailer: Apple Mail (2.3864.300.41.1.7)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_110851_294073_5D7D830A 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260120_111158_663389_BC55B44C 
+X-CRM114-Status: GOOD (  37.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,122 +118,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mukesh,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on tip/x86/core]
-[also build test ERROR on pci/next pci/for-linus arm64/for-next/core clk/clk-next soc/for-next linus/master arnd-asm-generic/master v6.19-rc6 next-20260119]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Mukesh-R/iommu-hyperv-rename-hyperv-iommu-c-to-hyperv-irq-c/20260120-145832
-base:   tip/x86/core
-patch link:    https://lore.kernel.org/r/20260120064230.3602565-2-mrathor%40linux.microsoft.com
-patch subject: [PATCH v0 01/15] iommu/hyperv: rename hyperv-iommu.c to hyperv-irq.c
-config: i386-randconfig-001-20260120 (https://download.01.org/0day-ci/archive/20260121/202601210208.mg3YUkif-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260121/202601210208.mg3YUkif-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601210208.mg3YUkif-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from drivers/acpi/pci_root.c:20:
->> include/linux/dmar.h:269:17: error: unknown type name '__u128'; did you mean '__u32'?
-     269 |                 __u128 irte;
-         |                 ^~~~~~
-         |                 __u32
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for IRQ_REMAP
-   Depends on [n]: IOMMU_SUPPORT [=y] && X86_64 [=n] && X86_IO_APIC [=y] && PCI_MSI [=n] && ACPI [=y]
-   Selected by [y]:
-   - HYPERV_IOMMU [=y] && IOMMU_SUPPORT [=y] && HYPERV [=y] && X86 [=y]
 
 
-vim +269 include/linux/dmar.h
+> On Jan 20, 2026, at 10:45=E2=80=AFAM, Mark Brown <broonie@kernel.org> =
+wrote:
+>=20
+> On Mon, Jan 19, 2026 at 04:20:06PM -0800, Abdurrahman Hussain wrote:
+>=20
+> To repeat once again:
+>=20
+> | Please fix your mail client to word wrap within paragraphs at =
+something
+> | substantially less than 80 columns.  Doing this makes your messages =
+much
+> | easier to read and reply to.
+>=20
+>>> On Jan 19, 2026, at 3:20=E2=80=AFPM, Mark Brown <broonie@kernel.org> =
+wrote:
+>=20
+>>>> But rather, to re-use the existing drivers as much as possible by =
+relying on the
+>>>> special DT namespace link "PRP0001":
+>=20
+>>> What is the goal in avoiding using native ACPI bindings?  PRP0001 is =
+a
+>>> workaround for cases where you have things that ACPI has never =
+dreamed
+>>> of and can't abstract well but which have already been handled by =
+DT,
+>>> it is not something we're aiming.  The hardware you have described
+>>> seems like fairly normal server style hardware and like it should =
+fit
+>>> well with normal ACPI.  Adding ACPI IDs to existing drivers is =
+pretty
+>>> common and standard, I'd class that as reuse.
+>=20
+>> I did not intentionally avoid introducing new ACPI _HIDs, but at the =
+same time
+>> don=E2=80=99t understand the need to, especially when PRP0001 =
+workaround works and
+>> it works well. We don=E2=80=99t own the spi-xilinx driver and neither =
+do we own the i2c-xiic.
+>> These are standard Xilinx IP platform drivers that could be made =
+usable on ACPI platforms
+>> by just switching to device_property APIs. Which is what these series =
+is trying to do.
+>=20
+> It's just not idiomatic ACPI, indeed some other OSs actively reject =
+the
+> idea of binding to PRP0001 described devices.  In general we don't =
+want
+> to encourage people needlessly creating unusual hardware descriptions,
+> that provides better future proofing so we're less likely to have to
+> work around our own past decisions and avoids causing hassle for other
+> OS vendors with having to deal with Linux special firmware =
+descriptions.
+>=20
+>>> As far as I can see from the example you posted the devices are all
+>>> fairly standard and just need IDs assigning to work naturally with =
+ACPI.
+>>> There's possibly an argument for using PRP0001 for the flash given =
+that
+>>> it's not especially idiomatic to have OS visible flash on ACPI =
+systems,
+>>> usually flash would only be visible to UEFI, but equally the =
+description
+>>> would trivial and systems wouldn't have to use it.
+>=20
+>> You mention =E2=80=9Cidiomatic=E2=80=9D a lot. Are you implying the =
+SPI NOR-flash devices should
+>> not be exposed to user-space? Then why does the spi-nor driver even =
+exist?
+>=20
+> Flashes are widely used on non-ACPI systems where exposing them to the
+> OS is a perfectly normal and standard thing to do.  Usually on a =
+system
+> with ACPI NOR flashes would be purely for the firmware to store itself
+> and it's data, storage exposed to the OS would be at least eMMC or
+> something.  ACPI has a very strong idea of what the systems it is used
+> with should look like.
+>=20
+>> We have a SPI device that needs to be accessible from users-space in =
+order to
+>> =E2=80=9Cflash" various FPGAs. How do you suggest we do that?
+>=20
+> You should probably register the device, it's just a question of if =
+it's
+> weird enough that it does actually fit with PRP0001 or if it's =
+something
+> with general enough application in ACPI systems that a HID should be
+> allocated.
+>=20
+>> Also, there are hundreds of drivers in the DT namespace that are =
+missing the ACPI IDs today.
+>> Do you suggest adding ACPI IDs to every driver just so it=E2=80=99s =
+more =E2=80=9Cidiomatic=E2=80=9D to use?
+>=20
+> To drivers that are used on ACPI systems, yes.  Many devices wouldn't =
+be
+> used on ACPI systems, or would be expected to be exposed differently
+> (for example, hidden behind AML).
 
-2ae21010694e56 Suresh Siddha   2008-07-10  200  
-2ae21010694e56 Suresh Siddha   2008-07-10  201  struct irte {
-b1fe7f2cda2a00 Peter Zijlstra  2023-05-31  202  	union {
-b1fe7f2cda2a00 Peter Zijlstra  2023-05-31  203  		struct {
-2ae21010694e56 Suresh Siddha   2008-07-10  204  			union {
-3bf17472226b00 Thomas Gleixner 2015-06-09  205  				/* Shared between remapped and posted mode*/
-2ae21010694e56 Suresh Siddha   2008-07-10  206  				struct {
-3bf17472226b00 Thomas Gleixner 2015-06-09  207  					__u64	present		: 1,  /*  0      */
-3bf17472226b00 Thomas Gleixner 2015-06-09  208  						fpd		: 1,  /*  1      */
-3bf17472226b00 Thomas Gleixner 2015-06-09  209  						__res0		: 6,  /*  2 -  6 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  210  						avail		: 4,  /*  8 - 11 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  211  						__res1		: 3,  /* 12 - 14 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  212  						pst		: 1,  /* 15      */
-3bf17472226b00 Thomas Gleixner 2015-06-09  213  						vector		: 8,  /* 16 - 23 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  214  						__res2		: 40; /* 24 - 63 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  215  				};
-3bf17472226b00 Thomas Gleixner 2015-06-09  216  
-3bf17472226b00 Thomas Gleixner 2015-06-09  217  				/* Remapped mode */
-3bf17472226b00 Thomas Gleixner 2015-06-09  218  				struct {
-3bf17472226b00 Thomas Gleixner 2015-06-09  219  					__u64	r_present	: 1,  /*  0      */
-3bf17472226b00 Thomas Gleixner 2015-06-09  220  						r_fpd		: 1,  /*  1      */
-3bf17472226b00 Thomas Gleixner 2015-06-09  221  						dst_mode	: 1,  /*  2      */
-3bf17472226b00 Thomas Gleixner 2015-06-09  222  						redir_hint	: 1,  /*  3      */
-3bf17472226b00 Thomas Gleixner 2015-06-09  223  						trigger_mode	: 1,  /*  4      */
-3bf17472226b00 Thomas Gleixner 2015-06-09  224  						dlvry_mode	: 3,  /*  5 -  7 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  225  						r_avail		: 4,  /*  8 - 11 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  226  						r_res0		: 4,  /* 12 - 15 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  227  						r_vector	: 8,  /* 16 - 23 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  228  						r_res1		: 8,  /* 24 - 31 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  229  						dest_id		: 32; /* 32 - 63 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  230  				};
-3bf17472226b00 Thomas Gleixner 2015-06-09  231  
-3bf17472226b00 Thomas Gleixner 2015-06-09  232  				/* Posted mode */
-3bf17472226b00 Thomas Gleixner 2015-06-09  233  				struct {
-3bf17472226b00 Thomas Gleixner 2015-06-09  234  					__u64	p_present	: 1,  /*  0      */
-3bf17472226b00 Thomas Gleixner 2015-06-09  235  						p_fpd		: 1,  /*  1      */
-3bf17472226b00 Thomas Gleixner 2015-06-09  236  						p_res0		: 6,  /*  2 -  7 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  237  						p_avail		: 4,  /*  8 - 11 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  238  						p_res1		: 2,  /* 12 - 13 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  239  						p_urgent	: 1,  /* 14      */
-3bf17472226b00 Thomas Gleixner 2015-06-09  240  						p_pst		: 1,  /* 15      */
-3bf17472226b00 Thomas Gleixner 2015-06-09  241  						p_vector	: 8,  /* 16 - 23 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  242  						p_res2		: 14, /* 24 - 37 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  243  						pda_l		: 26; /* 38 - 63 */
-2ae21010694e56 Suresh Siddha   2008-07-10  244  				};
-2ae21010694e56 Suresh Siddha   2008-07-10  245  				__u64 low;
-2ae21010694e56 Suresh Siddha   2008-07-10  246  			};
-2ae21010694e56 Suresh Siddha   2008-07-10  247  
-2ae21010694e56 Suresh Siddha   2008-07-10  248  			union {
-3bf17472226b00 Thomas Gleixner 2015-06-09  249  				/* Shared between remapped and posted mode*/
-2ae21010694e56 Suresh Siddha   2008-07-10  250  				struct {
-3bf17472226b00 Thomas Gleixner 2015-06-09  251  					__u64	sid		: 16,  /* 64 - 79  */
-3bf17472226b00 Thomas Gleixner 2015-06-09  252  						sq		: 2,   /* 80 - 81  */
-3bf17472226b00 Thomas Gleixner 2015-06-09  253  						svt		: 2,   /* 82 - 83  */
-3bf17472226b00 Thomas Gleixner 2015-06-09  254  						__res3		: 44;  /* 84 - 127 */
-3bf17472226b00 Thomas Gleixner 2015-06-09  255  				};
-3bf17472226b00 Thomas Gleixner 2015-06-09  256  
-3bf17472226b00 Thomas Gleixner 2015-06-09  257  				/* Posted mode*/
-3bf17472226b00 Thomas Gleixner 2015-06-09  258  				struct {
-3bf17472226b00 Thomas Gleixner 2015-06-09  259  					__u64	p_sid		: 16,  /* 64 - 79  */
-3bf17472226b00 Thomas Gleixner 2015-06-09  260  						p_sq		: 2,   /* 80 - 81  */
-3bf17472226b00 Thomas Gleixner 2015-06-09  261  						p_svt		: 2,   /* 82 - 83  */
-3bf17472226b00 Thomas Gleixner 2015-06-09  262  						p_res3		: 12,  /* 84 - 95  */
-3bf17472226b00 Thomas Gleixner 2015-06-09  263  						pda_h		: 32;  /* 96 - 127 */
-2ae21010694e56 Suresh Siddha   2008-07-10  264  				};
-2ae21010694e56 Suresh Siddha   2008-07-10  265  				__u64 high;
-2ae21010694e56 Suresh Siddha   2008-07-10  266  			};
-2ae21010694e56 Suresh Siddha   2008-07-10  267  		};
-b1fe7f2cda2a00 Peter Zijlstra  2023-05-31  268  #ifdef CONFIG_IRQ_REMAP
-b1fe7f2cda2a00 Peter Zijlstra  2023-05-31 @269  		__u128 irte;
-b1fe7f2cda2a00 Peter Zijlstra  2023-05-31  270  #endif
-b1fe7f2cda2a00 Peter Zijlstra  2023-05-31  271  	};
-b1fe7f2cda2a00 Peter Zijlstra  2023-05-31  272  };
-423f085952fd72 Thomas Gleixner 2010-10-10  273  
+This is not for a normal off the shelf server. In our case we are =
+building an embedded
+switch with an AMD CPU and Xilinx FPGAs that happens to use EDK2 based =
+BIOS and ACPI.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+We, as a vendor, have full control of the BIOS/ACPI and would like to =
+use it describe
+hardware and make as much use of the standard Linux drivers as possible. =
+We have dozens of
+I2C devices like temp sensors, voltage regulators, DCDC converters, =
+EEPROMS, SPI-NOR flash
+devices behind the Xilinx IP blocks. Most of the devices we use don=E2=80=99=
+t have proper ACPI _HIDs.
+
+>=20
+>> I am just trying to get this 2-line small change merged so we can =
+start using the standard spi-xilinx driver today. I am not trying to =
+boil the ocean.
+>=20
+> I mean, adding a HID wouldn't take substantially more code.
+
+We could, but we don=E2=80=99t own the Xilinx IP blocks. Are we not =
+justified in using PRP0001
+hack until the driver owner adds the HIDs? Wasn=E2=80=99t PRP0001 =
+created as an escape hatch for
+these kind of scenarios?
+
+
+>=20
+>>> There is the bit where there's a PCI bus in the way and you don't =
+use
+>>> ACPI particularly idiomatically...  I can see the dodging out on the =
+PCI
+>>> bus description, but the way the devices behind the PCI bus are
+>>> described seems confusing.
+>=20
+>> What exactly about this usage is not idiomatic? Our PCI device =
+description in ACPI looks like
+>> this (GPP5 is the PCIe bridge under which the FPGA is located):
+>=20
+> The use of PRP0001.
+
+Understood.
+
+
 
