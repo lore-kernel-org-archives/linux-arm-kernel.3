@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA08DD2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B855D2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZN6Js6bvYUwBHKtacRq+m09Crr6gkPDpjl2gN8opAjY=; b=L6sgMd7yqjyASVcRu933wQhLf3
-	76nKAKitfGHZE0uKihz0yAvNWk/L8gF+Gmw1BUOrDFMvf5vT2koiUQG0ybxAFmGf9HiPs+oOkGcz5
-	oq6NVoFbG+TmUv3SeESeHwPjizq5PgqqVe+wDLArQpfcPC7xFzgiWIAkcJsv47R6xLzeNKSj0L12U
-	+u0xIjCbhs4B6RwtjLmEpooAY/4GKIrRTR/dmFcXtaDV5MsKmQOlKoW0LTamg8CWA3GDD/JEb6GI7
-	UIt867u/K7wzgQm5HmHyL3e9H8AgkpsRGR2fH7Xx+b7dGTzzaOWtcRqNFM3Z2H3GTfqFbux8omPce
-	l+T6S7sg==;
+	bh=El/hTLjOq6TJZMeNKman36RM/GJ2+dwThbc8HUiTt/U=; b=DVPoHAquDgO1pmjaOrrvbdU3FX
+	CjWmxM1MURqWcSd916l5yCzO+GDBcP1Pa5uNUPexqcaBXp/0mwgcuELHO9ud9OERtpgzV05fKY13l
+	aWbQL+R5AvhQviqRNHSJRsYtFeukvF659dDd7txEbzkkZk2BajChefpncUVg/m+ibW56EHJohfYQy
+	VXdquxyWqiFVYJKcmI98j33HMxXhBiW8o3WwoUNibwqQHIS/dEG3z4jnDaG/+V5T1jVVAbDk2alZ7
+	xjptUZ1OdFlmyws67G2stsFuSofHVhoum1Rznt+jeJBWrA3u8n3/FDPMNed+yLg/ExsW0b5UCDQvl
+	7hc3EDfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi9wh-00000003iVs-3keb;
-	Tue, 20 Jan 2026 11:30:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vi9yJ-00000003ihD-2ui3;
+	Tue, 20 Jan 2026 11:32:31 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi9wg-00000003iVV-1mHF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 20 Jan 2026 11:30:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ZN6Js6bvYUwBHKtacRq+m09Crr6gkPDpjl2gN8opAjY=; b=TeJmiin21A+sOHSEk5A3kpJlTw
-	zgmvrKA27XLXklWP+AumEK64R0wQc7priRO/7aOmtfspufe5JvMyAx7JPt7974QbpfQo0YeEBDbKJ
-	foIypg4SoJ6j2cp3UjdLlLk0dlExAnTBA3tB0a8bT5vrio6vpPiwPn3dKm6IGxJWpyc1ZU10JshrO
-	wxac1Pv+kZv+SlcxJ5NiCBPMhWIECl7i6GbS4ySc7zWYPBL5ANMwUgQvMaWYlQKk7glyfQwAhqDqU
-	1zzdDW4lSMWKzbi3nCwPsZ2jxLjMDinB+56nVNlc8FxdGvyTNtKfc882VJ4NmH4N3IQJ4Vu11p3+x
-	FLdzybeQ==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi9wd-0000000Dv24-1hgD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 11:30:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D49B843C7A;
-	Tue, 20 Jan 2026 11:30:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9C73C19422;
-	Tue, 20 Jan 2026 11:30:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768908643;
-	bh=9NM+oghNkkVqgepU5c12IfRc35B/z3EEEGh8HcAsK7E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RRMSCePle9tlCGNr1cXpZDcYzt8lFk5AAnRVuYS+FTtE+bz8FSLy0yCfKq5J6y5yY
-	 RkQHRjP5Rhd2PjQLOsAzAcRfMdEXMNJCY3iyphh+MWusaW69V3+vTCEl20EdkTNjJL
-	 j7zC6Mq9zJx+MTbbNs+RfuOG8PuWEdYVbDcY1i02DTGqXKY43rse/XLOPfkp7SfN0P
-	 WD7okPXlpjEH9u+RyvOkg6+M3XRakmZAudwHyKVu/apnE43TbduJUejT5JaJ2VXdwx
-	 LGqV1zQ3jpMTmqv83Wn/IaoKQFJgluPxVBeWgpd9082AXYqJeSAWGbDMJKaVUL0TN4
-	 FA5r4cjTWHXZQ==
-Date: Tue, 20 Jan 2026 12:30:38 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Carlos Song <carlos.song@nxp.com>
-Cc: frank.li@nxp.com, aisheng.dong@nxp.com, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, vz@mleia.com, 
-	wsa@kernel.org, linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] i2c: imx-lpi2c: support smbus block read feature
-Message-ID: <aW9jUs2-kiVIxTfn@zenone.zhora.eu>
-References: <20251121110100.1909603-1-carlos.song@nxp.com>
+	id 1vi9yD-00000003igo-2lsH;
+	Tue, 20 Jan 2026 11:32:30 +0000
+Received: from localhost (unknown [116.232.27.242])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id B15B9341064;
+	Tue, 20 Jan 2026 11:32:18 +0000 (UTC)
+Date: Tue, 20 Jan 2026 19:32:07 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Yao Zi <me@ziyao.cc>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Yao Zi <ziyao@disroot.org>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next 3/3] net: stmmac: Add glue layer for Spacemit K3
+ SoC
+Message-ID: <20260120113207-GYB56672@gentoo.org>
+References: <20260120043609.910302-1-inochiama@gmail.com>
+ <20260120043609.910302-4-inochiama@gmail.com>
+ <aW9jbqBSgkiLLw8r@pie>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251121110100.1909603-1-carlos.song@nxp.com>
+In-Reply-To: <aW9jbqBSgkiLLw8r@pie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_113047_846484_38B05D8F 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20260120_033225_753244_475AB4E6 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,100 +94,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carlos,
+Hi Yao,
 
-On Fri, Nov 21, 2025 at 07:01:00PM +0800, Carlos Song wrote:
-> The LPI2C controller automatically sends a NACK after the last byte of a
-> receive command unless the next command in MTDR is also a receive command.
-> If MTDR is empty when a receive completes, NACK is transmitted by default.
+On 11:13 Tue 20 Jan     , Yao Zi wrote:
+> On Tue, Jan 20, 2026 at 12:36:08PM +0800, Inochi Amaoto wrote:
+> > Adds Spacemit dwmac driver support on the Spacemit K3 SoC.
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> >  drivers/net/ethernet/stmicro/stmmac/Kconfig   |  12 +
+> >  drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+> >  .../ethernet/stmicro/stmmac/dwmac-spacemit.c  | 224 ++++++++++++++++++
+> >  3 files changed, 237 insertions(+)
+> >  create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-spacemit.c
 > 
-> To comply with SMBus block read, start with a 2-byte read:
-> - The first byte is the block length. Once received, update MTDR
->   immediately to keep MTDR non-empty.
-> - Issue a new receive command for the remaining data before the second
->   byte arrives ensuring continuous ACK instead of NACK.
+> 
+> ...
+> 
+> > +static int spacemit_dwmac_probe(struct platform_device *pdev)
+> > +{
+> 
+> ...
+> 
+> > +	of_property_read_u32(pdev->dev.of_node, "tx-internal-delay-ps", &tx_delay);
+> > +	of_property_read_u32(pdev->dev.of_node, "rx-internal-delay-ps", &rx_delay);
+> 
+> According to of.h, of_property_read_u32, which in turn calls
+> of_property_read_u32_array, could fail with -ENODATA if there's no value
+> associated with the property. Should the case be handled?
+> 
+I think it should be safe, see the comment
 
-What is the real fix you are addressing here? Can you be a bit
-more descriptive?
+ *
+ * The out_values is modified only if a valid u64 value can be decoded.
+ */
+static inline int of_property_read_u64_array(const struct device_node *np,
+                                             const char *propname,
+                                             u64 *out_values, size_t sz)
+{
+..
+if the function fail then it will use default value which assigned already
+at initialization stage.
 
-> Fixes: a55fa9d0e42e ("i2c: imx-lpi2c: add low power i2c bus driver")
-
-Is this tag really needed?
-
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
-
-...
-
->  #define MRDR_RXEMPTY	BIT(14)
->  #define MDER_TDDE	BIT(0)
->  #define MDER_RDDE	BIT(1)
-> +#define MSR_RDF_ASSERT(x) FIELD_GET(MSR_RDF, (x))
-
-This name sounds more as an imperative action, do you mean
-something like MSR_RDF_ASSERTED(x)?
-
->  #define SCR_SEN		BIT(0)
->  #define SCR_RST		BIT(1)
-
-...
-
-> +static unsigned int lpi2c_SMBus_block_read_single_byte(struct lpi2c_imx_struct *lpi2c_imx)
-> +{
-> +	unsigned int val, data;
-> +	int ret;
-> +
-> +	ret = readl_poll_timeout(lpi2c_imx->base + LPI2C_MSR, val,
-> +				 MSR_RDF_ASSERT(val), 1, 1000);
-
-What is the value of val here?
-
-> +	if (ret) {
-> +		dev_err(&lpi2c_imx->adapter.dev, "SMBus read count timeout %d\n", ret);
-> +		return ret;
-
-This is an unsigned function and you are trying to return a
-negative number.
-
-Can we also add a comment saying that readl_poll_timeout() fails
-only if it times out?
-
-> +	}
-> +
-
-...
-
-> +		/* Read the first byte as block len */
-> +		block_len = lpi2c_SMBus_block_read_single_byte(lpi2c_imx);
-> +		if (block_len < 0) {
-
-both block_len and lpi2c_SMBus_block_read_single_byte() are
-unsigned, but you are comparing for negative value.
-
-> +			dev_err(&lpi2c_imx->adapter.dev, "SMBus read data length timeout\n");
-> +			return;
-> +		}
-> +
-
-...
-
-> +		if (block_len == 1) {
-> +			ret = lpi2c_SMBus_block_read_single_byte(lpi2c_imx);
-> +			if (ret < 0)
-> +				dev_err(&lpi2c_imx->adapter.dev, "SMBus read data timeout\n");
-> +			return;
-
-do we need to increment msglen here?
-
-> +		}
-> +
-> +		/* Block read other length data need to update command again*/
-
-Please fix the commenting style here.
-
-> +		writel((RECV_DATA << 8) | (block_len - 2), lpi2c_imx->base + LPI2C_MTDR);
-> +		lpi2c_imx->msglen += block_len;
-> +	}
-
-Thanks,
-Andi
+-- 
+Yixun Lan (dlan)
 
