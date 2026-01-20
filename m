@@ -4,114 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59C10D2ECFD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 01:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81705D2ECEF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 02:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jUmHX3uxcNc6yjpwU1CNhVsSz48eAE4qC1VWpnEVxvE=; b=rPPOZsrBIRWrNK/ZjWfU4ZKJVc
-	0xgnYXBI+9nUTtOumj1429OB+IMyK+2PV4TEZk9fhG7DL4c21Y5Ico0pvv8HVVMbFAZ3yOhVzlpk4
-	7VXinor0c+ozLIxJ/8eB34/3fDKbAj6Ir5iSNPRxvbAnmbJzTw2uHpMrGjRofoIvF2ozs6fmOSPU4
-	UEfyN5Az1wEvMouxCVrpRx5uFv5u6PoFccYh6XiZgntTCVNGK7LLE8zZbMI3xOR6ry5KC/EKbn+dT
-	akOS5PE5UhH4Y4SThbniziXNndUz9gVgFMCMR9oG2R/2QQU+3CZCcCQ86gpBQkQU5NhML62IapHDD
-	jTTaegoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cH7Abm51qQxV5PHM1iN+x12BF82jgQ3vJyP9rj/MBkM=; b=tf5flUThN9mrDsO93341tXw57z
+	t4PtVHP93PIGAqDzu3+Q9wCAeegmKWK/JbZ0Iq0xdAiS4z7YRnxkra0KzodF77XoKYtgx3N4XovOF
+	LqmOP4uLocuUrUpHDJaWFzMXTWb0vtp82hohxOvaTe4Cb2IWEN0NfMvEAWmPw3GwrVaaDttW/j5mP
+	1UVIJIdFkebvkOExsBIz4+6Z5FHcE9YYCJ4EoqqpjXALJ/c4Xr698Sz466nCU9bxU1KTN65wuXSVH
+	7YoTehww8OyaEBfRC5WSUc7o3GLwtnCO3oclK40tUz6LVtKMN4IzgXSGKATFwtBNcs1MKHzOv4tmt
+	aCJon7ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi0lN-000000033QR-3nJs;
-	Tue, 20 Jan 2026 01:42:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vi1OQ-000000035Y4-2ZaY;
+	Tue, 20 Jan 2026 02:22:54 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi0lL-000000033Pb-0IJo
+	id 1vi1OL-000000035Xd-3IGC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 01:42:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1768873348;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jUmHX3uxcNc6yjpwU1CNhVsSz48eAE4qC1VWpnEVxvE=;
-	b=S3S6ifGcrXqeq2KIo0/Xn+8JwsIUD7Gz4HrR7jHpSs2GVO+DZ6yYGj+ecpe5lGsn9Ylfz0
-	hj3QRaGQPH0wRbpv1P/5DjedQGQmA514gnUusr3Lse+f5arSMW3e4z7BOFaiH3be7NQq05
-	oSsoMrklmXbKtIEpmqbdh1SGc4XTu5o=
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com
- [209.85.215.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-283-BNlcUyh5NSi8Es04C0xPxg-1; Mon, 19 Jan 2026 20:42:26 -0500
-X-MC-Unique: BNlcUyh5NSi8Es04C0xPxg-1
-X-Mimecast-MFC-AGG-ID: BNlcUyh5NSi8Es04C0xPxg_1768873345
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c52d37d346dso2477012a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 17:42:26 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768873345; x=1769478145;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jUmHX3uxcNc6yjpwU1CNhVsSz48eAE4qC1VWpnEVxvE=;
-        b=Gc4T/rr29YP8u8PfRqfdpXfiFc7J14j6VPa2ConJ4MAw8bPXZzYTa5/BEov6ezpK4K
-         hQ79r+m7/yntsG5O+WRat+sR4pGeo3rs5JQySJnPDDhUiIk2oK58/IpSHu9tt1W/saMY
-         1mxkPpf1wtP6SZSaL5iy+7G7HMWRXDe1S9bgFrrLKib5I/xWe08vQVtTD9vOsT0sWkzg
-         6+AUrBtBHbG8eMtcvtBIuIEqq+mMIETcQ64I2FapDGBOtkjb4InJi21w9Dw+MWZvJDt/
-         WfBITx6FWeQttGXOPxv1nskKLs7t1Dw7Hgv1PVJh8kDPAcG60PDJyAfsxz4IC9L/ur7+
-         Hg9A==
-X-Forwarded-Encrypted: i=1; AJvYcCVIDC1sNO/8gtNU5DOFp3FAeAK/8i21dVMH0FiefxEp4g4qwvAxqTwQvOBLRFkImzxCPLaxbfpPrXrtq7Z3Ngc7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwegvxAFLejDzCkeYGtE5R82md8Q5bKq1tYq0L50dQHuudK4fp1
-	KYNTP8zo4G06h5/uaByZRPIfpLdL9T5fb2ZKq1ynmeKMQW59l3sQAmLoDky7pU9y2cxdw2Te1D2
-	6NX1asZFrckYERheELJnokNqAWr6mJhd7eO9FrG3jn0WFBb+RE44/caaLQsKZn7cj1DIHUUIP4R
-	n7
-X-Gm-Gg: AY/fxX61BY0EoORVNnD4QUSsFFrhx9iCVWYbbGgEbcANQGXxdutZKZ2/9KpuFwgp19G
-	PWWMjgPNVVIBQkeUqJsdA1zYo+2wFbQNGadFw04WoHcpwa9RRuzgtxGhoEZTsAfVw0sPz6m2lw0
-	Au/A25Zw3QN1bbHjSF1o+vTyNZx86Jn89kec1y1MLiTge7iZmdAazrvMR4NMXoSfGn8wDcx+XZo
-	/18T5n8CCznzmfpuF/fF2qUXetf1BXQf1+5QoN3PKE3NM++721e4ZOLrJt21sEFVQc/YSJ6PV4w
-	3DB5tLQqGGuisZZfnm91SkOisxc8zDisPLOfrq1xQD4QxrlLvKKqdHK5H3UT5IebogHtmnoGE5z
-	QoYESW0hRoE8=
-X-Received: by 2002:a05:6a21:3943:b0:366:14af:9bd8 with SMTP id adf61e73a8af0-38e45eaca3dmr326357637.78.1768873345320;
-        Mon, 19 Jan 2026 17:42:25 -0800 (PST)
-X-Received: by 2002:a05:6a21:3943:b0:366:14af:9bd8 with SMTP id adf61e73a8af0-38e45eaca3dmr326343637.78.1768873344861;
-        Mon, 19 Jan 2026 17:42:24 -0800 (PST)
-Received: from [10.72.112.128] ([209.132.188.88])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c5edf249fcbsm10600102a12.12.2026.01.19.17.42.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 19 Jan 2026 17:42:24 -0800 (PST)
-Message-ID: <02b41ff8-1373-493d-93ab-7eb78e0a57a1@redhat.com>
-Date: Tue, 20 Jan 2026 09:42:09 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/47] arm64: mpam: Context switch the MPAM registers
-To: Ben Horgan <ben.horgan@arm.com>,
- Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, james.morse@arm.com, kobak@nvidia.com,
- lcherian@marvell.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, peternewman@google.com,
- punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com,
- reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, oupton@kernel.org,
- joey.gouly@arm.com, suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20260112165914.4086692-1-ben.horgan@arm.com>
- <20260112165914.4086692-7-ben.horgan@arm.com>
- <12779ebc-1928-42db-8a44-ee97e2a58fd1@redhat.com>
- <20260115120923.000079fa@huawei.com>
- <eba5f35c-2edc-47e4-9c74-e60aaf7ab4ec@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <eba5f35c-2edc-47e4-9c74-e60aaf7ab4ec@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: uKnS640kk8uUREJXWKgYoiueZ7XnqNHNh85aAfAmnzU_1768873345
-X-Mimecast-Originator: redhat.com
+	Tue, 20 Jan 2026 02:22:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s5ANR79hfwgdx/Lrs08IfsyxsUSH4qzWAnMM8QZ1McKm+Da90JljgMx4pqAI3FVzVZMfBAWbhweWgLqYLkZbxj7GHVjnQD8PLovo72/U7Vtd9TnxZRYIjNl9UcOfrCeha11ZNapdOCSOjSGg35aV/b128caU9NtiQ2+rTuQCz0SiHl4dP9FUDRYQgUfnINhm8ICoJuONzSpkp09xIKY4VrDwVp3Debvibw5H33m4s/b234D/6hAd+72/rnOEKwtO9GSrjoRzq0gDrzo3H6GhxSmn8EQXzlde35dYCMaqXsAEDDwVZhpUATqslhzz54v4KpnPv2rn3zianX4eQF72Gg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cH7Abm51qQxV5PHM1iN+x12BF82jgQ3vJyP9rj/MBkM=;
+ b=cXJcHpSGZ5r197zx96pRGhmCbhUmwJHDWAnRcS03c3+tkATRvhzRpPf6qMojfosHbNKMdy5WKZPe0KEMU/WYgiMAZomobcEIIlkNYVrHkzTqVRFYuNXrV38+kh8EsHKsk1LAKdAGb0aRHKGuZzg+/JMfmI5ho3eJ1mBr/AcJ8QUP/k/Qz4XIvMvXbMbApFjlKA3vHZ+Ue7rlxKHINVRw1ZFqn9QJWAZPzPH6YsINNwZTYQStihhd/LjB0gMsD6ooVtJLw9yAWpebBM3EVLQvl429e4N8qshXWcAxOOHGJ0FB1RgaNAqepyKrKhHVdDv9ZUHS+CVcxtG5KXo4oAL41Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cH7Abm51qQxV5PHM1iN+x12BF82jgQ3vJyP9rj/MBkM=;
+ b=hGQwiigy7/NcedYO0QXsTNQUnTkbKSkLm9XVgltUlt969SSPlTrCgCnNtXGd6QqVVJUUD1hEryW/7+4dpxPRi6Px8k2z+k3Mt5gKEIGP3FfD1qZEGV2U8a8fvmoMZc1PGaVhG38fH69NF7vWbgyqJagetEqlaP67GxqedzW/a/sogb1hINuivCk9C/iI5+S+WAkOsHICesa4WtdSoDzspw/HE5c5LuVzhJfko7M8y2E5lyXLd2Yoj4QHio9Dl2pEVBkhOvVdZjNLVxVDfHosNcPoz2j6fFXMyOqpM7CfENgNkJqkI30d6UpdqOZPDJM31EmhUDP2aOzaqrQjBoJdAw==
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by DBBPR04MB7834.eurprd04.prod.outlook.com
+ (2603:10a6:10:1ee::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Tue, 20 Jan
+ 2026 02:22:44 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7%5]) with mapi id 15.20.9520.011; Tue, 20 Jan 2026
+ 02:22:44 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: Frank Li <frank.li@nxp.com>
+CC: Hongxing Zhu <hongxing.zhu@nxp.com>, "l.stach@pengutronix.de"
+	<l.stach@pengutronix.de>, "bhelgaas@google.com" <bhelgaas@google.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org"
+	<kwilczynski@kernel.org>, "mani@kernel.org" <mani@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH 01/10] dt-bindings: PCI: fsl,imx6q-pcie: Add reset GPIO in
+ Root Port node
+Thread-Topic: [PATCH 01/10] dt-bindings: PCI: fsl,imx6q-pcie: Add reset GPIO
+ in Root Port node
+Thread-Index: AQHciSrkYtB9tLTqMki47vkTAR4KwbVZqzCAgACpbFA=
+Date: Tue, 20 Jan 2026 02:22:44 +0000
+Message-ID: <VI0PR04MB12114BBB33DD944C2175868329289A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+References: <20260119100235.1173839-1-sherry.sun@nxp.com>
+ <20260119100235.1173839-2-sherry.sun@nxp.com>
+ <aW5YhTaclPKB9s14@lizhi-Precision-Tower-5810>
+In-Reply-To: <aW5YhTaclPKB9s14@lizhi-Precision-Tower-5810>
+Accept-Language: zh-CN, en-US
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|DBBPR04MB7834:EE_
+x-ms-office365-filtering-correlation-id: aaad6c15-44b7-4b64-0e98-08de57cacbeb
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|19092799006|366016|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?DlneMMJoXDsYz7bcfx8w22br4hf1PXhizoXMPjLGKyBsiPCcU0hgqpTjtLG6?=
+ =?us-ascii?Q?/PVtxzF5U891CG6ZMjLnD9ky4NNY4UcWTeQq1OS4Jop4LyiibMLXw9S1NoeE?=
+ =?us-ascii?Q?W56WyX1KaTY2Poutqr1eSF3Ims2hiYLtmogIgJ5rbl/YIvD3YsKvcf3wXgSP?=
+ =?us-ascii?Q?sGj8mx8cR8xpl2PYWQVr81IchVufaZpuzDFJF9LUq0aO1dyekR1PeTrnNJSB?=
+ =?us-ascii?Q?PUU8p4loIBO9iHK4922/rpwZ15puoAQD0nYMcrDtQbG0I6LU5ipmX7BKD66A?=
+ =?us-ascii?Q?ua0gaYcmwh3RYhB4ehQKR66OCnSFcJghrwBrZmSu7ehOvqOxUbXTs5FL37H0?=
+ =?us-ascii?Q?98Td3BzOv3D5lmBGjddQT+We2DlxLg02nUO3njUgvwvPee40W+GX7JZOV+HC?=
+ =?us-ascii?Q?Nnq1nCH0NKVbqRdtTmwVXcSVxo2mwGPB7mf9QNZumoQCwymVxxaPg9zO/AhS?=
+ =?us-ascii?Q?fRByxpS8TkmMxyhbu7NJuguH7ITCbrxCOkYB3zFDedGhKBgJNUrEEfTjR+hV?=
+ =?us-ascii?Q?fEZuMw/dwlgvDBRn7dZ3951XZlkiM0aAt+ex6Yy07830ycpw5TSvDuZlANu8?=
+ =?us-ascii?Q?q5XdKUDjtfcrnZ1ueNHLQRU/0OXpAYyT8Y8eluDANThU0vGUHrIRT/Pu7Mwe?=
+ =?us-ascii?Q?u2EltsHtMKGGtuYlcPeLYUsGeY4QcJm4n6/GbiZdsDgFwY0d6U7PBa3krdvj?=
+ =?us-ascii?Q?qX8EAXnX5CKrlzYlqRfYiHmH8yvcgj27XuQ5vOPt9uTgqYBMJovKllie0G8D?=
+ =?us-ascii?Q?/q0j0Y/sWObua6dIgDWmLTliZgZQeFj30djBlYqeEsyt2GMOqBq79hg8QrUo?=
+ =?us-ascii?Q?dMePS6b5lACl+7WNIKX9/0KyKtGINZ9E8WhDyiGnm1cP/7OIrj7um2ZVaj/E?=
+ =?us-ascii?Q?IT4Qg4rwQfFQHSD9bSCxQkPJyQoV/PDtT4/bzjYPrH5n0mfvxYH5Jge9UDsD?=
+ =?us-ascii?Q?XaSilWX6bNIqMZ8KKNz+TPKHwMgyH1jtjNDOG6b9/OxDUs/HkzXu38XvUV45?=
+ =?us-ascii?Q?n0hCWpjKXcQ4HIMx5jqoZFhZQH/f3EYzEsBmrS5SFub2jSdm7pchVSEzVuff?=
+ =?us-ascii?Q?LzZX1BcfFkW7Gyuhh+XSxFs/vaJdIRrnQiCSeuJvEoLJvGU8FHsSDOvMGLFO?=
+ =?us-ascii?Q?lmGZbJLvN8kuTKT9ET/dhMcRy+fYSc9HUQvnqO9fH+5yrQkuWvvR/tenAeml?=
+ =?us-ascii?Q?Jm2oyMyzP37JkhRkf4TFnrpTfMquFxjOa5LoUl95RlwPZZKLGF9feN0osc6p?=
+ =?us-ascii?Q?lEviU6g48mCt1Z+SImkLwJ/5uX/qRQyCu+1/u2AsCMeHusNJIZEYL6UK1RqI?=
+ =?us-ascii?Q?KT6yiH+CW/teiH7DwN+1yn/uu9m487CHUJzdFnctKHBHZ8ooVxCQGw5mU/dP?=
+ =?us-ascii?Q?DOTHAVwa6o5cFjlKgUlG7yBaGKvqc39A6SoSYX0Y5LcO0Fj/oxqoEo0J7Mpz?=
+ =?us-ascii?Q?YHfglWLEQAbGKoJ/+vjVHGigMjEFIyAN2RxjBbNmcko64KN3qwq5hVNg3M7O?=
+ =?us-ascii?Q?ETMevsk7iTMXtvEp83ncgR4vSkR8Tdiy/FGRQfYOQp0WmxFan65IE86zVlFW?=
+ =?us-ascii?Q?ueYfH19KzrqxViUMDjMjmoMJnUaOdzWH9yLOiR9Ua4n78ZDqAD2g5rOCq4qX?=
+ =?us-ascii?Q?41/syL50WDDECLOu4blEGsk=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(19092799006)(366016)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?d6B9v/Qn+rC5kR9nYMfeOalPUPdxjpGDxeTCd39EOPSH0Gl2fN0L8fZ2ceEv?=
+ =?us-ascii?Q?6pcxWVk82MEaWM/2Eg2OX8SxA+TBSIVuPlKNfuHwFEchTcjtwlQnKGFq9VqM?=
+ =?us-ascii?Q?XGVRg/uDFwry040mHZQcC8AVRtE44frzrYXVWiitucjXBXkQzfRPI4dlEooZ?=
+ =?us-ascii?Q?/3OXsbLO/nSFAKfnf6b2cpwcPfsn84T5MH5NCqNndn0I+jhU2XvDxGJ0XTrT?=
+ =?us-ascii?Q?MQYVRH4wRb846G1V+sC+p46eeqz7L66aePvEm3fL3cKqgRADBHjp3wNv4Vmj?=
+ =?us-ascii?Q?ZFCFu0tiMg4Ejk1gp8v2et837zQFtItaXjAb9P4emq2jCUohDMzzY2inj/wu?=
+ =?us-ascii?Q?Jjaf2eNNaoCnS3hUEbIPa368QPLifiVs5GbT/ytE403UAnAsbGzCId5RB2T1?=
+ =?us-ascii?Q?v43K8ydRQHEk51X+GpmElZ7/UOl+0CriXxbQFCmWiYC+cM13XXgsxYIwqldx?=
+ =?us-ascii?Q?QdxGoeNIr3PHK0CJq+iwha774CjVoUjL2OA9ib/IjYXmZe7+UhuHsCtnIJT6?=
+ =?us-ascii?Q?fk5gjg8zvV95tLpwiiVxEZi3ZpeOJKq8bArF3LkK2oBI9AOFmvLhwWdd/Kyn?=
+ =?us-ascii?Q?jbLKp0CmxYeqcGqlQLqbuL5pyfbu+WQbI9qY61l7gSZEWfJTVaMFTpTp1ca7?=
+ =?us-ascii?Q?JH8/Ob+EIjT2BPO/mRth/MivsMcK006btk5XB06FlwKIXFSDaC1qs8y6JQIw?=
+ =?us-ascii?Q?Scm2EV6tnZJrFzfSC+sEhD3cMVbIHrW+9jaX/TMQ5JBfuqnD6Haq57sLcySo?=
+ =?us-ascii?Q?Ov9xrZAvzsCUQXcpDb2MyqmQMeehf5ME53kD7pBkGjQiMKRTr/0Fvh1PQt3z?=
+ =?us-ascii?Q?2bTVFAy879eAt5OLPrRkPE3AI7fX3Uz0UKz7yDl50Te7ZAzIq3QhvOFCzowu?=
+ =?us-ascii?Q?AdYcoIYfjl6HeYO6yVkcQNd9Qytu5QtTfHZTZslQnslacL7Bw7zmN/NRaGnj?=
+ =?us-ascii?Q?rGoOWOa6Xkm0E31uCpLcTb+TNHbKSEG6nLwJ9GTqZSCcApPPs5+eV0pXWNpV?=
+ =?us-ascii?Q?4TFVNt/tdQZO971jR7nrrYP09V7rNc8hXHqoD4Y+6+ym+ODvT6ISCC/2+01d?=
+ =?us-ascii?Q?kYs3SzDtKouVfXK61HJnlHGSWf4vb1iPAGRtrDI9NSyutgFbSFkOzQMNexiR?=
+ =?us-ascii?Q?7gjohsHibpvgN1yrvcuWgxz/MylfjGeAF5tMFK6pjLq0Vf48BZ0QsGwDJXSc?=
+ =?us-ascii?Q?xYIluBhD9WuwjMDKsKXX8toRiRg71zQojAoZ+G6nKYI6ttv5I1RsHPMIy+ej?=
+ =?us-ascii?Q?6rtb9azm/JxG/xLMH4NqvT5x3+jiL+tbkq6iSVokfEXYSNpIcMhUNbrTMn5B?=
+ =?us-ascii?Q?B/oLDCY0CV8mL4PhyT7EE5R5YJHOhdi3BpCALtWTmB80xR4VvGNC4qPuBTSW?=
+ =?us-ascii?Q?JixsrJyw8DIc3y2S3t7rSTbzFqXojJKPqmPxQNcd/1YyQ2vTR6xhhCpXrjoj?=
+ =?us-ascii?Q?UizrDJywUzixa2xEVL44Svx10tq96vQob7pZR8WpY/l7LFMxOFO4PWnaITjB?=
+ =?us-ascii?Q?rUZShXZJuaE2eolB4Lm1SdYNAjn2RGMbXShMisCsHAzrWDqLIwIYNUCbR42y?=
+ =?us-ascii?Q?NcftXAsASz5PLHxsgqkjIp+vo+VEsV/bVWBe/P/xI04bFJCjTijh82KUrS44?=
+ =?us-ascii?Q?vAGyIPFYGAxM7fHHX1s6q/mc8FOuuk/g6dknWDOJy5LJzhj+K2+1vEhDEdKn?=
+ =?us-ascii?Q?BTcUeUMPm5wCTTZiLx32XqkEEwaIkfE3RjhxEC2w/AoB9GcQ?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aaad6c15-44b7-4b64-0e98-08de57cacbeb
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Jan 2026 02:22:44.8905
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: rC3/EvkDAIWvFksHh7oRV0lALHw4JRE8E4i+sYg11qpGVnS3+7EEyEXbrAYw3EWwntvwLxNxKqsTxfS/NdRsag==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7834
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_174231_257870_22EFAC2E 
-X-CRM114-Status: GOOD (  31.26  )
+X-CRM114-CacheID: sfid-20260119_182251_595079_E8D6FF6B 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,162 +179,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben and Jonathan,
 
-On 1/19/26 10:00 PM, Ben Horgan wrote:
-> Hi Gavin, Jonathan,
-> 
-> On 1/15/26 12:09, Jonathan Cameron wrote:
->> On Thu, 15 Jan 2026 14:47:28 +0800
->> Gavin Shan <gshan@redhat.com> wrote:
->>
->>> Hi Ben,
->>>
->>> On 1/13/26 12:58 AM, Ben Horgan wrote:
->>>> From: James Morse <james.morse@arm.com>
->>>>
->>>> MPAM allows traffic in the SoC to be labeled by the OS, these labels are
->>>> used to apply policy in caches and bandwidth regulators, and to monitor
->>>> traffic in the SoC. The label is made up of a PARTID and PMG value. The x86
->>>> equivalent calls these CLOSID and RMID, but they don't map precisely.
->>>>
->>>> MPAM has two CPU system registers that is used to hold the PARTID and PMG
->>>> values that traffic generated at each exception level will use. These can
->>>> be set per-task by the resctrl file system. (resctrl is the defacto
->>>> interface for controlling this stuff).
->>>>
->>>> Add a helper to switch this.
->>>>
->>>> struct task_struct's separate CLOSID and RMID fields are insufficient to
->>>> implement resctrl using MPAM, as resctrl can change the PARTID (CLOSID) and
->>>> PMG (sort of like the RMID) separately. On x86, the rmid is an independent
->>>> number, so a race that writes a mismatched closid and rmid into hardware is
->>>> benign. On arm64, the pmg bits extend the partid.
->>>> (i.e. partid-5 has a pmg-0 that is not the same as partid-6's pmg-0).  In
->>>> this case, mismatching the values will 'dirty' a pmg value that resctrl
->>>> believes is clean, and is not tracking with its 'limbo' code.
->>>>
->>>> To avoid this, the partid and pmg are always read and written as a
->>>> pair. This requires a new u64 field. In struct task_struct there are two
->>>> u32, rmid and closid for the x86 case, but as we can't use them here do
->>>> something else. Add this new field, mpam_partid_pmg, to struct thread_info
->>>> to avoid adding more architecture specific code to struct task_struct.
->>>> Always use READ_ONCE()/WRITE_ONCE() when accessing this field.
->>>>
->>>> Resctrl allows a per-cpu 'default' value to be set, this overrides the
->>>> values when scheduling a task in the default control-group, which has
->>>> PARTID 0. The way 'code data prioritisation' gets emulated means the
->>>> register value for the default group needs to be a variable.
->>>>
->>>> The current system register value is kept in a per-cpu variable to avoid
->>>> writing to the system register if the value isn't going to change.  Writes
->>>> to this register may reset the hardware state for regulating bandwidth.
->>>>
->>>> Finally, there is no reason to context switch these registers unless there
->>>> is a driver changing the values in struct task_struct. Hide the whole thing
->>>> behind a static key. This also allows the driver to disable MPAM in
->>>> response to errors reported by hardware. Move the existing static key to
->>>> belong to the arch code, as in the future the MPAM driver may become a
->>>> loadable module.
->>>>
->>>> All this should depend on whether there is an MPAM driver, hide it behind
->>>> CONFIG_ARM64_MPAM.
->>>>
->>>> CC: Amit Singh Tomar <amitsinght@marvell.com>
->>>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->>>> Signed-off-by: James Morse <james.morse@arm.com>
->>>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->>>> ---
->>>> Changes since rfc:
->>>> CONFIG_MPAM -> CONFIG_ARM64_MPAM in commit message
->>>> Remove extra DECLARE_STATIC_KEY_FALSE
->>>> Function name in comment, __mpam_sched_in() -> mpam_thread_switch()
->>>> Remove unused headers
->>>> Expand comment (Jonathan)
->>>>
->>>> Changes since v2:
->>>> Tidy up ifdefs
->>>> ---
->>>>    arch/arm64/Kconfig                   |  2 +
->>>>    arch/arm64/include/asm/mpam.h        | 67 ++++++++++++++++++++++++++++
->>>>    arch/arm64/include/asm/thread_info.h |  3 ++
->>>>    arch/arm64/kernel/Makefile           |  1 +
->>>>    arch/arm64/kernel/mpam.c             | 13 ++++++
->>>>    arch/arm64/kernel/process.c          |  7 +++
->>>>    drivers/resctrl/mpam_devices.c       |  2 -
->>>>    drivers/resctrl/mpam_internal.h      |  4 +-
->>>>    8 files changed, 95 insertions(+), 4 deletions(-)
->>>>    create mode 100644 arch/arm64/include/asm/mpam.h
->>>>    create mode 100644 arch/arm64/kernel/mpam.c
->>>>    
->>>
->>> With the following nitpick addressed:
->>>
->>
->> I commented on the nitpick.
->>
->>> Reviewed-by: Gavin Shan <gshan@redhat.com>
->>
->>>> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
->>>> index 76f32e424065..15979f366519 100644
->>>> --- a/arch/arm64/kernel/Makefile
->>>> +++ b/arch/arm64/kernel/Makefile
->>>> @@ -67,6 +67,7 @@ obj-$(CONFIG_CRASH_DUMP)		+= crash_dump.o
->>>>    obj-$(CONFIG_VMCORE_INFO)		+= vmcore_info.o
->>>>    obj-$(CONFIG_ARM_SDE_INTERFACE)		+= sdei.o
->>>>    obj-$(CONFIG_ARM64_PTR_AUTH)		+= pointer_auth.o
->>>> +obj-$(CONFIG_ARM64_MPAM)		+= mpam.o
->>>>    obj-$(CONFIG_ARM64_MTE)			+= mte.o
->>>>    obj-y					+= vdso-wrap.o
->>>>    obj-$(CONFIG_COMPAT_VDSO)		+= vdso32-wrap.o
->>>> diff --git a/arch/arm64/kernel/mpam.c b/arch/arm64/kernel/mpam.c
->>>> new file mode 100644
->>>> index 000000000000..9866d2ca0faa
->>>> --- /dev/null
->>>> +++ b/arch/arm64/kernel/mpam.c
->>>> @@ -0,0 +1,13 @@
->>>> +// SPDX-License-Identifier: GPL-2.0
->>>> +/* Copyright (C) 2025 Arm Ltd. */
->>>> +
->>>> +#include <asm/mpam.h>
->>>> +
->>>> +#include <linux/jump_label.h>
->>>> +#include <linux/percpu.h>
->>>> +
->>>
->>> Nitpick: Needn't include those two header files since they have been included
->>> to <asm/mpam.h>
->>
->> That is a non obvious include chain that we should not rely on.
->> Please keep the headers and continue to follow include what you use
->> style (with exceptions when a given header is clearly documented as always including
->> another like some of the bit map stuff.) It is more obviously correct and
->> causes less grief if headers get refactored in future.
-> 
-> Keeping the includes here makes sense to me too. Gavin, are you ok with
-> keeping this as is?
-> 
 
-Yeah, I'm fine to keep it as of being :-)
+> On Mon, Jan 19, 2026 at 06:02:26PM +0800, Sherry Sun wrote:
+> > Update the fsl,imx6q-pcie.yaml to include the reset-gpios property in
+> > the Root Port node.
+> >
+> > There is already 'reset-gpios' property defined for PERST# in
+> > pci-bus-common.yaml, so use that property instead of 'reset-gpio' in
+> > this file, for backward compatibility, do not remove the existing
+> > property in the bridge node, but mark them as 'deprecated' instead.
+>=20
+>=20
+> Update fsl,imx6q-pcie.yaml to include the standard reset-gpios property f=
+or
+> the Root Port node.
+>=20
+> The reset-gpios property is already defined in pci-bus-common.yaml for
+> PERST#, so use it instead of the local reset-gpio property. Keep the exis=
+ting
+> reset-gpio property in the bridge node for backward compatibility, but ma=
+rk it
+> as deprecated.
+>=20
 
->>
->>>    
->>>> +DEFINE_STATIC_KEY_FALSE(mpam_enabled);
->>>> +DEFINE_PER_CPU(u64, arm64_mpam_default);
->>>> +DEFINE_PER_CPU(u64, arm64_mpam_current);
->>>> +
->>>> +u64 arm64_mpam_global_default;
->>
->>>
->>
-> 
-> Thanks,
-> 
-> Ben
-> 
-> 
+Hi Frank, ok, will improve the commit message in V2, thanks!
 
-Thanks,
-Gavin
+Best Regards
+Sherry
 
+>=20
+> Frank
+> >
+> > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> > ---
+> >  .../bindings/pci/fsl,imx6q-pcie.yaml          | 29 +++++++++++++++++++
+> >  1 file changed, 29 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> > b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> > index 12a01f7a5744..74156b42e7a2 100644
+> > --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> > +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
+> > @@ -59,9 +59,12 @@ properties:
+> >        - const: dma
+> >
+> >    reset-gpio:
+> > +    deprecated: true
+> >      description: Should specify the GPIO for controlling the PCI bus d=
+evice
+> >        reset signal. It's not polarity aware and defaults to active-low=
+ reset
+> >        sequence (L=3Dreset state, H=3Doperation state) (optional requir=
+ed).
+> > +      This property is deprecated, instead of referencing this propert=
+y from
+> the
+> > +      host bridge node, use the reset-gpios property from the root por=
+t
+> node.
+> >
+> >    reset-gpio-active-high:
+> >      description: If present then the reset sequence using the GPIO @@
+> > -69,6 +72,18 @@ properties:
+> >        L=3Doperation state) (optional required).
+> >      type: boolean
+> >
+> > +  pcie@0:
+> > +    description:
+> > +      Describe the i.MX6 PCIe Root Port.
+> > +    type: object
+> > +    $ref: /schemas/pci/pci-pci-bridge.yaml#
+> > +
+> > +    properties:
+> > +      reg:
+> > +        maxItems: 1
+> > +
+> > +    unevaluatedProperties: false
+> > +
+> >  required:
+> >    - compatible
+> >    - reg
+> > @@ -229,6 +244,7 @@ unevaluatedProperties: false
+> >  examples:
+> >    - |
+> >      #include <dt-bindings/clock/imx6qdl-clock.h>
+> > +    #include <dt-bindings/gpio/gpio.h>
+> >      #include <dt-bindings/interrupt-controller/arm-gic.h>
+> >
+> >      pcie: pcie@1ffc000 {
+> > @@ -255,5 +271,18 @@ examples:
+> >                  <&clks IMX6QDL_CLK_LVDS1_GATE>,
+> >                  <&clks IMX6QDL_CLK_PCIE_REF_125M>;
+> >          clock-names =3D "pcie", "pcie_bus", "pcie_phy";
+> > +
+> > +        pcie_port0: pcie@0 {
+> > +            compatible =3D "pciclass,0604";
+> > +            device_type =3D "pci";
+> > +            reg =3D <0x0 0x0 0x0 0x0 0x0>;
+> > +            bus-range =3D <0x01 0xff>;
+> > +
+> > +            #address-cells =3D <3>;
+> > +            #size-cells =3D <2>;
+> > +            ranges;
+> > +
+> > +            reset-gpios =3D <&gpio7 12 GPIO_ACTIVE_LOW>;
+> > +        };
+> >      };
+> >  ...
+> > --
+> > 2.37.1
+> >
 
