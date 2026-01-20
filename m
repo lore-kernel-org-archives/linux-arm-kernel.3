@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D63B8D262A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 22:04:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 653D6D262A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 22:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=fam2jl/GH6YsOlWHEU4YoA75VfPcBwa6Yfe6H/U+4wI=; b=keqBwh54nx+rbi
-	KBwhMEroOHl1Ym4bUxaY23LGkmkABmlAsAfUZihMMIl4v1BJh1NwruQK4izVO7uMb1UKAxALkziSm
-	u32n7opqBEURSdRZF1YvY5mL/X9mv8aHVwjST5ps/EW4VJgtuawsz44TDMKLKjuz9rxj5rnnfpf8G
-	zV5FsFz+zsAJns6nxFGHO4lHWMf0MWr+Es8L4qOTcLrCqEoEFHZvWkI/k5hw1PtKnt0Gn2bK3CIAa
-	jLzVgyNaf1TfDdef5a8RZzqEYVyeS5JEOuzTIG03rqp70cKBoNHthIH5U4m4vdIcR7330Bnq1tW7n
-	rews82r81CN8zI6zz2Ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cz8APhsseY0Zk6G5E1jpmPu9bX8/ov5VZe6gD1zzSmc=; b=cPzMjxL/W5n6K9NPVmPH47wuur
+	+pglg6jGXv7rP6C5hottdC6wJydlShUiBmz241sioLRcso9Klyk6svnLyxI2PeJnwJ86ly552Ki4G
+	WskO9bun4OXYelcHeMSpsfRIzWDi0ybZXjR32LELGQlcLmrzT2K6WGmD3DjG0dky2O8SdBgGn7UFc
+	nwgObKl18qQro4YrqjIxJG5HzvjLti+xRejtvbwaiFqpbxNFGQvof+hnAecVAwckQqAibmKc1Wcd7
+	osO59KWMh/wphWHMLK4Z7WY0d9Nl8LWhpZqd5TqdZqvVuhsYScpessBXuVro/nwEAAAxK+s+1GiXN
+	eDudGTBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viJqA-00000004W7W-0lfJ;
-	Tue, 20 Jan 2026 22:04:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1viJwV-00000004WQN-16U1;
+	Tue, 20 Jan 2026 22:11:19 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viJq8-00000004W6y-0IH4
+	id 1viJwT-00000004WPy-0502
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 22:04:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D0C1F43922;
-	Tue, 20 Jan 2026 22:04:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FF7FC16AAE;
-	Tue, 20 Jan 2026 22:04:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768946682;
-	bh=Ksd7axcgTS0Lavz7Iw2jFrS2gsUr2aSKtbp2LAryPmk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=laUvCro2hjtkpMTyGGJ9dHJXz8JR1c4XofHhT5wJf+CPN8Qo9/ULqHboEeChcQIrc
-	 ZdxPuldd8oR/hlIMOVXWM0l15XGGzhvBYSlZ0tz4POx2KCuVpjZcTFXbsBvVqhWbUY
-	 9SCowjOihAhnpzvVcDLNwDr5cOaisQeeQdOP0t5cOgWWwPHKo2IpM5FA9nBcf9JG4W
-	 nN4u5A8aYkx5OleM2+2Rhcpt0mxqd2hfCW2dDzY3375uO5Gzf/7RjxcxvpZiiCxvYZ
-	 hre4i0DyrOzTLJ8XFevDbrz7Ge0RLz5K9N8fXYTXbPShr0CFHVReq4My4QB8bpi7X2
-	 ESpPrzrZXBhKA==
-Date: Tue, 20 Jan 2026 16:04:41 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Hongxing Zhu <hongxing.zhu@nxp.com>
-Cc: Frank Li <frank.li@nxp.com>,
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v6 08/11] PCI: dwc: Invoke post_init in
- dw_pcie_resume_noirq()
-Message-ID: <20260120220441.GA1170239@bhelgaas>
+	Tue, 20 Jan 2026 22:11:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=cz8APhsseY0Zk6G5E1jpmPu9bX8/ov5VZe6gD1zzSmc=; b=0W
+	Lm9SWQQov5SYd420XUzSP8tyaiF9Y4ujlBQzmY/Th4asNTZ50ub3BJd9Dlsrxalzcy+e9smXDK7uN
+	NqKWIJLS3Yz9jukT5jfXlgISuHH38T+Dy7aAeX+CrQxUfBfk/HmRYj7G1QITxRhI94jWTECv3vxjD
+	lw4a8v0h3Xo2qJY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1viJw7-003jIq-CF; Tue, 20 Jan 2026 23:10:55 +0100
+Date: Tue, 20 Jan 2026 23:10:55 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Joey Lu <a0987203069@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	richardcochran@gmail.com, alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com, ychuang3@nuvoton.com, schung@nuvoton.com,
+	yclu4@nuvoton.com, peppe.cavallaro@st.com,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next v8 2/3] arm64: dts: nuvoton: Add Ethernet nodes
+Message-ID: <2e3f213b-d507-4290-91af-fba7492155d2@lunn.ch>
+References: <20260119073342.3132502-1-a0987203069@gmail.com>
+ <20260119073342.3132502-3-a0987203069@gmail.com>
+ <04df4909-4fdb-4046-917f-2f2e47832c62@lunn.ch>
+ <a5cb949f-34c1-470c-bd04-0b35c249455f@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260109152750.GA544801@bhelgaas>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <a5cb949f-34c1-470c-bd04-0b35c249455f@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_140444_125134_38479315 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20260120_141117_064012_2527D597 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,28 +79,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 09, 2026 at 09:27:50AM -0600, Bjorn Helgaas wrote:
-> ...
+On Tue, Jan 20, 2026 at 09:34:39AM +0800, Joey Lu wrote:
+> Dear Andrew,
 
-> The current commit log for this patch is this:
+Please don't top post.
+
 > 
->   Some SoCs like i.MX95 require enabling REFCLK after resuming from suspend
->   in their post_init callback. So invoke the callback at the end of
->   dw_pcie_resume_noirq() if available.
+> Thanks for the clarification.
 > 
-> When .post_init() is called, the link is already up and PCIe devices
-> have already been enumerated.  I think REFCLK is required for the link
-> to come up, so it doesn't sound right to me that .post_init() would be
-> *enabling* REFCLK.
+> In our design, the Ethernet PHYs are located on the base boards, not on the
+> MA35D1 SOM.
+> 
+> The SOM base board routes two RGMII interfaces from the SOM to two external
+> PHYs on the carrier board.
+> 
+> On the MA35D1 IoT board, there is no separate SOM and carrier board - it is
+> a single integrated board.
+> 
+> I will update the DTS accordingly so that no PHY nodes appear in .dtsi.
+> 
+> Thanks!
+> 
+> Best regards,
+> 
+> Joey
+> 
+> Andrew Lunn 於 1/19/2026 11:22 PM 寫道:
+> > On Mon, Jan 19, 2026 at 03:33:40PM +0800, Joey Lu wrote:
+> > > Add GMAC nodes for our MA35D1 development boards:
+> > > two RGMII interfaces for SOM board, and one RGMII
+> > > and one RMII interface for IoT board.
+> > > 
+> > > Signed-off-by: Joey Lu <a0987203069@gmail.com>
+> > > ---
+> > >   .../boot/dts/nuvoton/ma35d1-iot-512m.dts      | 12 +++++
+> > >   .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 10 ++++
+> > >   arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 54 +++++++++++++++++++
 
-This never got resolved.
+Does ma35d1.dtsi represent the SOM?
 
-https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/commit/?h=controller/dwc-imx6&id=199c18221622
-says imx_pcie_host_post_init() enables REFCLK by applying the
-IMX_PCIE_FLAG_8GT_ECN_ERR051586 workaround.
+If so, what is ma35d1-som-256m.dts ? It looks like some odd sort of
+carrier board with a few serial ports and some memory? But systems
+like this put the memory on the SOM, not the carrier.
 
-I don't think that commit log is correct.  Can you please supply some
-correct text for that commit?
+As i said, i'm confused with your naming here.
 
-Bjorn
+   Andrew
 
