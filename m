@@ -4,76 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 580DCD2629E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 21:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2585D262A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 21:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F9pMsdoh+AlA8ixF8Vj7OXhOMBUvHhf98cDKLgC7cmQ=; b=dnzJkM7Sj97meJ6NXEY11NLIYI
-	dSye05Rf5OGzzyzwywyUgBIiPsR9GPwR9xElbILGVZVps3WnP1UQKM7GZRIjpbU9hHui3FdmLuHfV
-	0QYzJ9P20NPD2KppC7rrNBd3+GPcZSSdVs+I2Hcm6+GkS/L3SnQrCt5nFRVTf/Kfl7H5m8Rwzk30Y
-	YKl+VECHH1THlLY32qSvt4OopVIiFPXoYrt6Sg6CXosHGA/253Ggfc7TShC86LwetlZj+xPGe5iAZ
-	bx7M3uU5poGgeXvm+6HLIsy0LTamqmBaLggJ31mL6Azi1Dmx35IyuibfCt8KaJHoYe/II2LZRSj4x
-	SuybUjDw==;
+	bh=IPW/Tiibf5Agq4KETYiHSyMUyI3h0jvp+z4ORATWDdc=; b=Pp4GnEC8L+04ox9vXU9idv9dqh
+	FQOQcSE/xEFhWNnZH+fq8XEul6K/W7gxyAgqfNx/jee0nYwKpxRsOdLAQmSHKTJOVmzg4Hz6gDSmJ
+	N2SEY2RbO3m22MiIfc4ZSoPtRc9YIYKkr5I0Wed/ZS9acUnzobHQDYiQVmzsjGPd1lrTL4P1+g4AH
+	ZlgVqFDe537LgA9h2CH2jOemwf94oHVv7dgh9gp27F9WlEmWMY1zRF7HJybqT/1xp9fzqwuFdXpak
+	BR08Qw9GAS4YiNtXETI91g7824rWI+rUz2aJTg8tY0eAwfM+oHxjpDs8fwne1ydmfGvB+aBRrkaFx
+	cwaQ+tRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viIuS-00000004TCe-3162;
-	Tue, 20 Jan 2026 21:05:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1viIzF-00000004TPc-1nZJ;
+	Tue, 20 Jan 2026 21:10:05 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viIuO-00000004TC7-1Nte
+	id 1viIzC-00000004TPE-0S1z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 21:05:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9E8134418F;
-	Tue, 20 Jan 2026 21:05:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DE21C16AAE;
-	Tue, 20 Jan 2026 21:05:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768943103;
-	bh=y6JkTdrfZ0IdqU5DBnuy7dDWlv3s+hrrid20IbLAFIg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=axYfTCERvt9h65ERKYbSIt98DAmiMInhCHMPaQOdF3Fao3B1JyD+Q39dcUZxhhsbF
-	 bzhz13Nv2EEO9MZym2dD4UTXUrLC704WHvfDr0JR0KvWBOMiVo0Myzbt2Q+mLDVsXZ
-	 vLNCBg7Q9vLv1ctbRO2QA2IulWdApdGFolNUsJP/b9B0dffoMAAVBMn5LDSX4SISky
-	 NvMrc9M68x7bfOs3/14PrLuSKW7BK5kJAWBllhDtS9FTTXd76AFP+9QY/O8A0Q2MDP
-	 VvTzmoGdKZnWgCCTost15YIpRIdamN7yJkwl5UQRihpMIpA5WDd3Eu/ByHgCFj1mlz
-	 QtTJVlFWR5jDg==
-Date: Tue, 20 Jan 2026 21:04:58 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Cc: Michal Simek <michal.simek@amd.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] spi: xilinx: use device property accessors.
-Message-ID: <817bcc43-7f10-4329-8924-6c375eb73ff2@sirena.org.uk>
-References: <b9ad8ab8-7985-4c89-a82b-c7f31d32c167@sirena.org.uk>
- <a6d57890-89c1-445e-836c-d8239d20c621@amd.com>
- <b03307f7-93f6-4680-9241-cf28b5456fd0@sirena.org.uk>
- <a3fcef3a-d1e9-4b46-b114-3a82575e052e@amd.com>
- <980ad372-a2c7-417c-91f9-4958d3d1aaca@sirena.org.uk>
- <4831B269-DFC1-40E0-96B7-67981AC72562@nexthop.ai>
- <6e06696e-09a4-46e0-98fa-252690b888e0@sirena.org.uk>
- <BF71A04E-7FFB-42D1-8C8D-6FD13415EED5@nexthop.ai>
- <c3fc04a4-4b09-4c6a-a0f1-e5aa92a22976@sirena.org.uk>
- <80A8F67E-7A01-4F9F-9D84-29722678A2CE@nexthop.ai>
+	Tue, 20 Jan 2026 21:10:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768943402; x=1800479402;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ivHtQ6gh6IXT2hO8yZKcCr+q7hqDkcejJS3fvf52Ppo=;
+  b=Qf/4opCa5ESpQw/lRu/NTfJuA2nWFDkuAr2Pe2lz7WJLivxv01l0ND/Z
+   HMPSxuQ9WLHfFtTatWSdQnrwUnxUEFaHMsOciSXzJYUxqs0pvOC/GeRHC
+   ME7xP2UgaN8WDL2/15YBWVK5hfbwjF3bNCqWbkGllW5U9baQLWvqAxmdl
+   AFWk9fKxIJsIxpYkKyAjscNheDfO/2SHMNNaFQA+agpQHQL5CeGLVZZFw
+   FG14Gm2ukPYJR/oOrtnI0jCo1eNdfB/gwbhS3I6z41IVhFptAT0J0V48x
+   1jmrn1x/B//O4Ggk4U4Y3XqVyMY0VmS+pHCt4BdQWphD20ITPYwD6Z/HJ
+   w==;
+X-CSE-ConnectionGUID: xQhHv4wVQj2iiqni3JhoPw==
+X-CSE-MsgGUID: /F+23g1RR8uSr1UF8+0v4g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11677"; a="80791595"
+X-IronPort-AV: E=Sophos;i="6.21,241,1763452800"; 
+   d="scan'208";a="80791595"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2026 13:10:01 -0800
+X-CSE-ConnectionGUID: AXjcRiQeSHCcT9bTnSKtZg==
+X-CSE-MsgGUID: g2PZWbUQQhiY3dv6ggSIEw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,241,1763452800"; 
+   d="scan'208";a="237482957"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 20 Jan 2026 13:09:54 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1viIz1-00000000PXR-2Z9s;
+	Tue, 20 Jan 2026 21:09:51 +0000
+Date: Wed, 21 Jan 2026 05:09:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: Mukesh R <mrathor@linux.microsoft.com>, linux-kernel@vger.kernel.org,
+	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-pci@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, kys@microsoft.com,
+	haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+	longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
+	nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
+	romank@linux.microsoft.com
+Subject: Re: [PATCH v0 01/15] iommu/hyperv: rename hyperv-iommu.c to
+ hyperv-irq.c
+Message-ID: <202601210423.wwOrf2K8-lkp@intel.com>
+References: <20260120064230.3602565-2-mrathor@linux.microsoft.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="dzBsCT7hqYc2f/af"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <80A8F67E-7A01-4F9F-9D84-29722678A2CE@nexthop.ai>
-X-Cookie: Slippery when wet.
+In-Reply-To: <20260120064230.3602565-2-mrathor@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_130504_412026_C58E09C2 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20260120_131002_169160_34842F84 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,78 +98,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Mukesh,
 
---dzBsCT7hqYc2f/af
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+kernel test robot noticed the following build warnings:
 
-On Tue, Jan 20, 2026 at 11:11:44AM -0800, Abdurrahman Hussain wrote:
-> > On Jan 20, 2026, at 10:45=E2=80=AFAM, Mark Brown <broonie@kernel.org> w=
-rote:
-> > On Mon, Jan 19, 2026 at 04:20:06PM -0800, Abdurrahman Hussain wrote:
+[auto build test WARNING on tip/x86/core]
+[also build test WARNING on pci/next pci/for-linus arm64/for-next/core clk/clk-next soc/for-next linus/master arnd-asm-generic/master v6.19-rc6 next-20260120]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Let me once more renew my plea:
+url:    https://github.com/intel-lab-lkp/linux/commits/Mukesh-R/iommu-hyperv-rename-hyperv-iommu-c-to-hyperv-irq-c/20260120-145832
+base:   tip/x86/core
+patch link:    https://lore.kernel.org/r/20260120064230.3602565-2-mrathor%40linux.microsoft.com
+patch subject: [PATCH v0 01/15] iommu/hyperv: rename hyperv-iommu.c to hyperv-irq.c
+config: i386-allmodconfig (https://download.01.org/0day-ci/archive/20260121/202601210423.wwOrf2K8-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260121/202601210423.wwOrf2K8-lkp@intel.com/reproduce)
 
-> > To repeat once again:
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601210423.wwOrf2K8-lkp@intel.com/
 
-> > | Please fix your mail client to word wrap within paragraphs at somethi=
-ng
-> > | substantially less than 80 columns.  Doing this makes your messages m=
-uch
-> > | easier to read and reply to.
+All warnings (new ones prefixed by >>):
 
-> > To drivers that are used on ACPI systems, yes.  Many devices wouldn't be
-> > used on ACPI systems, or would be expected to be exposed differently
-> > (for example, hidden behind AML).
+   In file included from drivers/iommu/intel/irq_remapping.c:6:
+   include/linux/dmar.h:269:17: error: unknown type name '__u128'; did you mean '__u32'?
+     269 |                 __u128 irte;
+         |                 ^~~~~~
+         |                 __u32
+   drivers/iommu/intel/irq_remapping.c: In function 'modify_irte':
+   drivers/iommu/intel/irq_remapping.c:181:17: error: unknown type name 'u128'
+     181 |                 u128 old = irte->irte;
+         |                 ^~~~
+   In file included from arch/x86/include/asm/bug.h:193,
+                    from arch/x86/include/asm/alternative.h:9,
+                    from arch/x86/include/asm/barrier.h:5,
+                    from include/asm-generic/bitops/generic-non-atomic.h:7,
+                    from include/linux/bitops.h:28,
+                    from include/linux/kernel.h:23,
+                    from include/linux/interrupt.h:6,
+                    from drivers/iommu/intel/irq_remapping.c:5:
+   include/linux/atomic/atomic-arch-fallback.h:326:14: error: void value not ignored as it ought to be
+     326 |         ___r = raw_cmpxchg128((_ptr), ___o, (_new)); \
+         |              ^
+   include/asm-generic/bug.h:110:32: note: in definition of macro 'WARN_ON'
+     110 |         int __ret_warn_on = !!(condition);                              \
+         |                                ^~~~~~~~~
+   include/linux/atomic/atomic-instrumented.h:4956:9: note: in expansion of macro 'raw_try_cmpxchg128'
+    4956 |         raw_try_cmpxchg128(__ai_ptr, __ai_oldp, __VA_ARGS__); \
+         |         ^~~~~~~~~~~~~~~~~~
+   drivers/iommu/intel/irq_remapping.c:182:26: note: in expansion of macro 'try_cmpxchg128'
+     182 |                 WARN_ON(!try_cmpxchg128(&irte->irte, &old, irte_modified->irte));
+         |                          ^~~~~~~~~~~~~~
+   drivers/iommu/intel/irq_remapping.c: In function 'intel_ir_set_vcpu_affinity':
+>> drivers/iommu/intel/irq_remapping.c:1270:40: warning: left shift count >= width of type [-Wshift-count-overflow]
+    1270 |                                 ~(-1UL << PDA_HIGH_BIT);
+         |                                        ^~
 
-> This is not for a normal off the shelf server. In our case we are buildin=
-g an embedded
-> switch with an AMD CPU and Xilinx FPGAs that happens to use EDK2 based BI=
-OS and ACPI.
+Kconfig warnings: (for reference only)
+   WARNING: unmet direct dependencies detected for IRQ_REMAP
+   Depends on [n]: IOMMU_SUPPORT [=y] && X86_64 [=n] && X86_IO_APIC [=y] && PCI_MSI [=y] && ACPI [=y]
+   Selected by [y]:
+   - HYPERV_IOMMU [=y] && IOMMU_SUPPORT [=y] && HYPERV [=y] && X86 [=y]
 
-Sure, AFAICT it's mostly a PCI card with a bunch of stuff on it from a
-software point of view.
 
-> >> I am just trying to get this 2-line small change merged so we can star=
-t using the standard spi-xilinx driver today. I am not trying to boil the o=
-cean.
+vim +1270 drivers/iommu/intel/irq_remapping.c
 
-> > I mean, adding a HID wouldn't take substantially more code.
+b106ee63abccbba drivers/iommu/intel_irq_remapping.c Jiang Liu           2015-04-13  1241  
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1242  static int intel_ir_set_vcpu_affinity(struct irq_data *data, void *info)
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1243  {
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1244  	struct intel_ir_data *ir_data = data->chip_data;
+53527ea1b70224d drivers/iommu/intel/irq_remapping.c Sean Christopherson 2025-06-11  1245  	struct intel_iommu_pi_data *pi_data = info;
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1246  
+ed1e48ea4370300 drivers/iommu/intel/irq_remapping.c Jacob Pan           2024-04-23  1247  	/* stop posting interrupts, back to the default mode */
+53527ea1b70224d drivers/iommu/intel/irq_remapping.c Sean Christopherson 2025-06-11  1248  	if (!pi_data) {
+2454823e97a63d8 drivers/iommu/intel/irq_remapping.c Sean Christopherson 2025-03-19  1249  		__intel_ir_reconfigure_irte(data, true);
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1250  	} else {
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1251  		struct irte irte_pi;
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1252  
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1253  		/*
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1254  		 * We are not caching the posted interrupt entry. We
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1255  		 * copy the data from the remapped entry and modify
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1256  		 * the fields which are relevant for posted mode. The
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1257  		 * cached remapped entry is used for switching back to
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1258  		 * remapped mode.
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1259  		 */
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1260  		memset(&irte_pi, 0, sizeof(irte_pi));
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1261  		dmar_copy_shared_irte(&irte_pi, &ir_data->irte_entry);
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1262  
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1263  		/* Update the posted mode fields */
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1264  		irte_pi.p_pst = 1;
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1265  		irte_pi.p_urgent = 0;
+53527ea1b70224d drivers/iommu/intel/irq_remapping.c Sean Christopherson 2025-06-11  1266  		irte_pi.p_vector = pi_data->vector;
+53527ea1b70224d drivers/iommu/intel/irq_remapping.c Sean Christopherson 2025-06-11  1267  		irte_pi.pda_l = (pi_data->pi_desc_addr >>
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1268  				(32 - PDA_LOW_BIT)) & ~(-1UL << PDA_LOW_BIT);
+53527ea1b70224d drivers/iommu/intel/irq_remapping.c Sean Christopherson 2025-06-11  1269  		irte_pi.pda_h = (pi_data->pi_desc_addr >> 32) &
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09 @1270  				~(-1UL << PDA_HIGH_BIT);
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1271  
+688124cc541f60d drivers/iommu/intel/irq_remapping.c Sean Christopherson 2025-03-19  1272  		ir_data->irq_2_iommu.posted_vcpu = true;
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1273  		modify_irte(&ir_data->irq_2_iommu, &irte_pi);
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1274  	}
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1275  
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1276  	return 0;
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1277  }
+8541186faf3b596 drivers/iommu/intel_irq_remapping.c Feng Wu             2015-06-09  1278  
 
-> We could, but we don=E2=80=99t own the Xilinx IP blocks. Are we not justi=
-fied in using PRP0001
-> hack until the driver owner adds the HIDs? Wasn=E2=80=99t PRP0001 created=
- as an escape hatch for
-> these kind of scenarios?
-
-No, it's more there for the cases where embedded ACPI systems need to
-import non-trivial DT bindings so they can avoid having to respecify
-things that ACPI really doesn't cope with or for local hacks.  See
-Andy's reply earlier in the thread:
-
-   https://lore.kernel.org/r/aW9JihlsjnJ-uBul@black.igk.intel.com
-
-AFAICT for ACPI the HID assigment is a bit of a free for all in practice
-- board vendors generally seem perfectly happy to just pick something if
-the silicon vendor didn't do something.  Just look at all the parts with
-INTxxxx IDs!  That said Michal is on the thread so hopefully that's not
-an issue and we can get something from Xilinx fairly easily.
-
---dzBsCT7hqYc2f/af
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlv7fkACgkQJNaLcl1U
-h9AP+wf/fY3dptR4nlcZm7vi3ylm1tT08D0HjjuiLaAYNM7iwdqhtiqP6mphbZwe
-2DaY2C7MZQDoP9L8ZLPhmMzBe97Av5zNeog2oQrsqVzHVUjRwVQ+mZQrF4DsFHW/
-dESpAcscaKyYcNDZZFLOIQaDXKfXyFQ1/QHLZJ75Sj/btFTqdoEtI3dnvUWJheyb
-rnNKtZIl9BAqyFl7kP1gEDDU5Mxw1rsev+hzqisb+Le0NAwQIJk83m0X8yTiW69Z
-RGH65oxkW+SegH8762gKdFdzZE4zAQToJf9VONxQZeRTXJ1O9ZcrSmWS9FbFQHoB
-b3gndELp/rI7Xxy3DNBEZHWP1FhgIw==
-=w2PD
------END PGP SIGNATURE-----
-
---dzBsCT7hqYc2f/af--
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
