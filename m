@@ -4,176 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75469D2ED0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 10:21:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F02C3D2ED0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 10:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/bfT4PfsdxcnYexI5ijl7KjBDV17MG5wDUsbfoTGaPM=; b=U4E0C6kI648Bzg5j+jOgAz1pHS
-	1ti0S5dpzYCqJlqGZsME/37+k2Ed+IHOlwFHT40GLt1fxaj0QQISovBN7MkLhvpi+p2Y9fPl+enkB
-	xCRuTWctgidf6UvyD/NA15SAEHtHKK0pmpvR2Gpoa37pIjE9W6nCspzlzS8Dw209CRmCJNsCyTxdW
-	oVpMxJH40hxOXspYOp3nCua2onOHo4uIR8/0MscJooHfDyTO4fcRI0f8wX4/lWamodCCoN+4cleHJ
-	cFk1yilFjI1vO+DI1Mvj5PHSkrMiaWoODj1yM3o4nG72jF1Vyaxfxhn0XYBgnK32IoTnwPcS+hQkX
-	LMG1CVPw==;
+	bh=9diJR4kQZN+k/wbWqdTO6OI+/69IKXx1J/s9tKfVwNY=; b=ZW1MtjZiwZziJfd4ZuFFhb3snj
+	3J/GgsOzphJjseZhZysY79BoZZ/miWvbyJb1OL2/lmwJfYpEH6p/DiS+YrPOAgpmUXeEm2UXcQBOp
+	5CiPP4RFZ725oVTeCkNPTgzaOi0yP2vydH/7S8/+ImSdW6n6KADyprZhqVg7ZXegmf0ELGP/ZzP9l
+	Y8TsMqLkw53h5JNXz2diyvTg/aGIi17pSdUvA28H0LMW1J5PU+Rh6AgCRwSSW/fuK2MrU3K46/2ja
+	vIvW3zJ44QhjEYSy3mGbbCmbnOMRJH2ArzSc04qckBynIn0e7vyXATrTtKvASUdEOLjYZgqlYOQtS
+	K3mF2vLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8rt-00000003cCG-2tQv;
-	Tue, 20 Jan 2026 10:21:49 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vi8wI-00000003cTM-0YjB;
+	Tue, 20 Jan 2026 10:26:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8rq-00000003cBd-2OwZ;
-	Tue, 20 Jan 2026 10:21:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jHTkcu9V7jff/X5qqIMFVklgWwXjNiks0YI9EmmTLuFQ2A5AjzL1XGYuns13HSOo1uVfKl4x1zOGWPsNaLDDpY9+AJcLKeypHsk6lpEqDZAMaRp/XUHz4z4synsr6z+UbB8eq5eTnGeFM3BWLmD5aYLHBalJAeNKxJguUXZp0GdMmgTP8bEVRagrQBssX78EJpz7G1x9snE1lKZ8HK9tg5ckHeush59/xF12ZTxpNkHB2rX8Gn6F5PLIdquNRBLqLaSyUi31yrkqmnlZIM0xCRyDdei6n/t71isUF62e6wHXN4KmWXEst2yTEye03c6SpxyUnjGhKWsIrR5hIaPTPg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/bfT4PfsdxcnYexI5ijl7KjBDV17MG5wDUsbfoTGaPM=;
- b=Kn++L7B1sqnS6GeidnEfdrnOqx5tjz4smE/IJBSoQSNE0/iW42RrehB5MWn+CP9Ir4HNB8DoDWP61rPnIUeuX/vDN2dPn29SjNpyWklGU39yWodKq9t/9DkIwy3EC4Lls2GMe2tl1rEuKdMuTNVum1az86Jtcxttn3RqBIn3qbar5coyq2S20eBGH10681R+YmiEWw+lEuYzf8kdnZdIJ/3JE1oBpo0j+CAhtJByHnYLkMZeCw6VZ2voEUD9sRVX0pLbpLYks19BCj1AHF4WczlkToiCNp/kv2tAUqClgUeweLVAvNszCOrRD4R23aNTXYFEVr22kAz7GnrVAVov2w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/bfT4PfsdxcnYexI5ijl7KjBDV17MG5wDUsbfoTGaPM=;
- b=a55HiFpVXCCceov1FlawD8/2s4UnBNC0AX5BC1Cx77VdZlTP3yplyJ6nASv54rUGiwBt2k9P9LYCqgezvKibPJlrK/ui0trITdvwUq9Qh6G9AH8A+bSg+Ri6lnUEww6jNQ9BHk5liqWr1kqGl6Of/tagH/SnK0VnaEavjLH2I3Q=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from GVXPR04MB12038.eurprd04.prod.outlook.com (2603:10a6:150:2be::5)
- by DBBPR04MB7561.eurprd04.prod.outlook.com (2603:10a6:10:209::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Tue, 20 Jan
- 2026 10:21:39 +0000
-Received: from GVXPR04MB12038.eurprd04.prod.outlook.com
- ([fe80::6c04:8947:f2f0:5e78]) by GVXPR04MB12038.eurprd04.prod.outlook.com
- ([fe80::6c04:8947:f2f0:5e78%6]) with mapi id 15.20.9520.011; Tue, 20 Jan 2026
- 10:21:39 +0000
-Message-ID: <8df14d73-8e20-4d89-89eb-d40f27814d2d@cherry.de>
-Date: Tue, 20 Jan 2026 11:21:34 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: Explicitly request UFS reset pin on
- RK3576
-To: Heiko Stuebner <heiko@sntech.de>, Alexey Charkov <alchark@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
+	id 1vi8wH-00000003cTC-03tT;
+	Tue, 20 Jan 2026 10:26:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=9diJR4kQZN+k/wbWqdTO6OI+/69IKXx1J/s9tKfVwNY=; b=CufrPNFGtGYAC2vp81NYi+94qK
+	BxLn2slte26KKpwsFSIk0g55aZekQs7QU8SRO/gXrJqPt+qDmWB11BUH0Eh5lbNGTsoUl+awcXeIf
+	cckPSxIm1iU6rsrVc8W0Tx9rde4iTXSpLMxHhyRXhorYQHg/fhkHueb87+b5tLXO8CL5Lx2pjuOEA
+	/20oaZ9P7va0r3UhN1PO1MHnU+QUFkQSTVn6Tlk5nvEq7P/X6k7dyJzLgAjtzlIsOuYayjn/B9GKV
+	TpSaVYfCNvCx3ctINAZR0A4BBrRJ4gtrZQTMX5njt8yDBgb8RCfqfjqzea4Y5haXYknN71kOLVgad
+	6d2WY3gg==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vi8wD-0000000Dnk8-3ytj;
+	Tue, 20 Jan 2026 10:26:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=9diJR4kQZN+k/wbWqdTO6OI+/69IKXx1J/s9tKfVwNY=; b=XSPs81KHpZHhgt4vtOmZ7ONpWU
+	Tzy1oFkhZq1dlMTqezc1Wp9D+9yA9sUuuBvcclPnRRb+r58xL8GsH+5a+RREbLfVd6N4FpoxBlDOs
+	kqhk7o4uqD5ckBIWQmcW2nY+LC6w4h5oflfemO6nHeTZJxM/A4puTk1SIF7bF3RZnY3I43vNWgF3D
+	R3BExg8bBa6b4Ki6C8sdL1FM+Se4MssShty8MlMnExKElAMOZQySHhLDIkTDsphbqwUaGd4Jz1fCM
+	w96x4RqiTQe1XLY4K8po3yd5Pzhq6NHJORLR/4GFeQ8gi1mPdgM3bJlZh7xJJgBVEtu5T7pC5BAF8
+	yUrUN0nQ==;
+Received: from [192.76.154.238] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vi8w6-003MaT-5E; Tue, 20 Jan 2026 11:26:10 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Alexey Charkov <alchark@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
  "Martin K. Petersen" <martin.petersen@oracle.com>,
- Manivannan Sadhasivam <mani@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Shawn Lin <shawn.lin@rock-chips.com>,
+ Quentin Schulz <quentin.schulz@cherry.de>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
  stable@vger.kernel.org
-References: <20260119-ufs-rst-v1-1-c8e96493948c@gmail.com>
- <6479d7b8-7712-4181-9c82-0021da94d1a8@rock-chips.com>
- <5743823.mogB4TqSGs@phil>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <5743823.mogB4TqSGs@phil>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR0P281CA0188.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ab::9) To GVXPR04MB12038.eurprd04.prod.outlook.com
- (2603:10a6:150:2be::5)
+Subject: Re: [PATCH] arm64: dts: rockchip: Explicitly request UFS reset pin on RK3576
+Date: Tue, 20 Jan 2026 11:26:09 +0100
+Message-ID: <4253761.Y6S9NjorxK@phil>
+In-Reply-To: <8df14d73-8e20-4d89-89eb-d40f27814d2d@cherry.de>
+References: <20260119-ufs-rst-v1-1-c8e96493948c@gmail.com> <5743823.mogB4TqSGs@phil>
+ <8df14d73-8e20-4d89-89eb-d40f27814d2d@cherry.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12038:EE_|DBBPR04MB7561:EE_
-X-MS-Office365-Filtering-Correlation-Id: 282caf19-a31e-444e-07c7-08de580db2e8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|10070799003|1800799024|14052099004;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QTAzNUYrU25hSlRDQW51TVJsTWpIMUNrTHhTWmtEN1dHUFVVM3ZiTCsrUFVN?=
- =?utf-8?B?dmVGNStMVTFONVRGWWcxNEhXSkhoVmY5MnBjTjBTNCtZblRXUEs3Skxac2ZD?=
- =?utf-8?B?V29ERlVQYVhRWWNlcXB5ZDhmSFlxOEFVc1UvelYrOHRWK01JVkxYd2hZeTg1?=
- =?utf-8?B?eDcrbUx1NnNLQ0ZSbDJQdzhFeEptQ1hBcHQvMTQ1VVk2NmJFZmNjTVhqV0lt?=
- =?utf-8?B?QUJlZm9ib2E1SDNSdGFZTW1QWTRFR3ZPNEptSDlHL0hSQndDb3NXZDNseGdL?=
- =?utf-8?B?NmtyWEN1SzhPQTdzNjVPa0FxZmpwTElXUzB0U29WZzBUYk1uSW8xWSt5K3Ry?=
- =?utf-8?B?TVo3QkRTZ2JYVWNYSk11aXhUdVcvUzcwMkg1d3lKaGRIUW1TTGhheS9lV3lw?=
- =?utf-8?B?N1ZUUFhpVVgwWXNOdzBrS2ZuYmxDSVl2a2VBU2VWdFErVkpXWEtrd3FWaUNy?=
- =?utf-8?B?UXRIMHF0Nms4a0dqUHFpSjlQNzdwMk9sNGtHdWtEaGhUNzFZcTQrenkwZkxq?=
- =?utf-8?B?anhiTjMzTmliQ3JRNGlreldhNS9Zdi9lWmRya29XdkJhQXFjS2dWbzQxbjNK?=
- =?utf-8?B?VjduejlqU1FYUUpuN3BVWSs2bTFhV1lobktBaDRQaFRuSGlkZk5pS1M5S2dl?=
- =?utf-8?B?TFZncjh5MDZBV05KRlZJTE5TeHcrRDEvK0dJUTBMK2lxdXBLcUJnM2E0SmRK?=
- =?utf-8?B?MW9HWUVqZUpBR1o2dzUvNTRiekFKc1prb3E0R2grNjJGSE5rc1NJWGM1NVZn?=
- =?utf-8?B?aFlZazN4dkxrNUFxUjd3bmRjRUlaVVBtd3hQekIxYWxGajNSTzFldGgzOFY4?=
- =?utf-8?B?UXgvblNPOERlSU0wWE5rUDZWMy9hRVF6N3ZaS0MvbitTdzVIRVRVZklFdjFq?=
- =?utf-8?B?djhqN0d3VzJlYVhLNnJoc0JxQ0FqQWh5bUdaMVhya2FXdWt4Z1RJQ3g1NUdM?=
- =?utf-8?B?V1Z6V3Bvb0M1SHJiN0RTK2NremxDUEZPdnhoUUdPUFlKdm44U1haOTJCK0Za?=
- =?utf-8?B?QkE3Y2NIbkFVYm9SaVZEQWlWM1NPUzBNRGJ5dVZ1OE9zTXlhNGRkZmdOeGxB?=
- =?utf-8?B?bVpSYWhyTGJ0RmNkSXAwTm1uM1JQR3BMdkNWM1oxdVM1TUQzaUhxUHNTVllz?=
- =?utf-8?B?ZWM5cVhlQkUyNnNnNmgzTXVEazlpOVJzcmsxQXY5Z2tWaVlCSGdSaloraGVU?=
- =?utf-8?B?dmw0bWxmYTFZM0JmaEhGbXVBMEJrbi90d0c5bEplZFRXZkwxeHJDeHdnNVpQ?=
- =?utf-8?B?Y0lYZjRVV0EzYTJIdEVUS3dQMmg4ZG1rYVVhREN1b0xMUWxGdSttb2ZHbldy?=
- =?utf-8?B?UlE5dTBvWW5IM1EyVUZCOEdFYjBvdmE3UVJLMlVHVktIWlNRV0hzbTdmNk9a?=
- =?utf-8?B?enMzckdiSGV0LzR5b3hJVVFVOXRuUFBJang4a09iUHJUaGFOYU10MWdnTGZU?=
- =?utf-8?B?KzR5VnJjdUdNbzZyYzl4OW1IeTgydW53L2pWemhtZE9iMmF3d2UzaEJXV2Jl?=
- =?utf-8?B?NEJzV3BpbzhZRlBUc01vN3kwbzNwdDlYYy93enV0OHVQanV4MVpoajFnZTdN?=
- =?utf-8?B?b1d1b2FiMUdQb2Ruc2pnZW01TnRabVBJMHNZN1FNeG5ndmY4VXBxU2hpaHdH?=
- =?utf-8?B?a253MVIyLzJMQW0ya0o0TWY3RjVnd0ErOGpHN1kxeGlsUmtwS3JuQWwxaUdQ?=
- =?utf-8?B?bU9ESHdNMk9rZytrZmprVTFudHdFMUt1UFhKbzVvaWtUbmNXNzNjRE9heXRv?=
- =?utf-8?B?ZitIY05vRXZERWRXM1libnRSQk9lYlBHTEhRNUllb25pSzZwa0ltRFZIYXJU?=
- =?utf-8?B?clRDZ0pmOW9qWmswKzlIRkNlaW1IMXhWOUhNcHZFQ3VvY0xWZmJlNnlZU0tz?=
- =?utf-8?B?dkt0SlZQRllMVGRNaWhWdWZ1NENNSlpKdmZYcDJYQ0QyQTg1bk9XOVZ4Lzl2?=
- =?utf-8?B?RysvRlJOMHEvMFY4R3pWRXpvUVNzaTc0KzM5RktDZno2WEJnVmVLcjJCbjFY?=
- =?utf-8?B?Sm95eGpKRG1HUkVQekNkL2NRV0wyY3FjM0tsWWhtTG1RVy9nOVl0QmJzNnJx?=
- =?utf-8?Q?vowhPW?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12038.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(10070799003)(1800799024)(14052099004);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Zy9Ha1FLS2xNVDB5d1hBSmFkS2hYNDVoRCtJVjRwZ2xVQXBGNllXNDNtM1d0?=
- =?utf-8?B?cWZ3MVBsRjQvZ0drTkFEY2k4LzBnbUM5TGRhR3hDUStpSHkyeWd3V1BQSTly?=
- =?utf-8?B?WTlJK2lXcXN3SHR6ZHY2WFlKOGt6NGFLcDVnQkhQR3o5OEtiVGJhK1Jicnhv?=
- =?utf-8?B?UnRTRWdRdjJEck9zWTZvd3JKODhMczViT2VyWFFocDRlSjFMNWVFd2JRcmNO?=
- =?utf-8?B?bmdFbHVzc2lHR0lqbS80VmUwRnlGTmR5RitaUkJOZE55QXRxWnRzN2tZS2hr?=
- =?utf-8?B?VTRaTkZHZDdxcnpTQkI2RkpXNHNsS010MFpObTFnS3JTVDJKQmNWNDh0R1Nu?=
- =?utf-8?B?NGFVR3Ftb0w5VklWakJkeTlqaGloRGNuQzBreHMxU1RHWjgwbENWWjJkbWFG?=
- =?utf-8?B?aUNEV3RKdUNsM0JuZ3A1dHFPU0czQUhIeC82NGVJQkJzL3VIcElscmdvZGFa?=
- =?utf-8?B?aDAxdjZwT2lucE15YTI3Nk5tdDdsVTNSTTZEZG9IUStGQlBYVERVc3UyU3VX?=
- =?utf-8?B?NGNHM3czWUFNdEx3VzN1QkJYZVNwSkdFaVJMWGNnWnBVbXlvYnhPaC9wcGM1?=
- =?utf-8?B?WHpLS0VIdWNCejg2cXhzaVk5YVFEQUswN0J3Z0pDUStRbWtvK2QrWXJxZnVK?=
- =?utf-8?B?b3dLU1dMN0szWjNpOTRNU09odmh5b1YxS2NHSDNBa1FIV0tWZzZQT2pnaHJz?=
- =?utf-8?B?NHdXYURVNEIvT1pCNXNkT3hWY0VuOWE5aU1DVHRibWUvNWNESEhBY1FHc2tX?=
- =?utf-8?B?WHdIb1BuUlZRSGpRcFllMGNQUTEwbHVBY0tSOXFxTWdOWldaejJBWVltd3du?=
- =?utf-8?B?UFNTZHE5cjkvcFJkT2Rjd3M2VWdQWElpNStSVWJOMXl5M2ZEMTJIK0ZSc2FF?=
- =?utf-8?B?VW4xdFIraWozdndUQnNkM1JqbVJqYlRsdVdDUGpSaTliTXdvUmU4c0RSSGNi?=
- =?utf-8?B?NUtTeU05M2VLc0FjeGlWN0dHbEw1YzZJQmEwdjZiakhtMC94cHhFbjBPRVRs?=
- =?utf-8?B?RUNRVVJoUENkM0w4S3ZBT0VGbkZkNklYbEFIQ3RaMS9nYnBFSm9lOXJHVU9u?=
- =?utf-8?B?enNYK01NUUE5dzRScUIrdkUxOWVtTy9uUXNMSlkrQkR1Mk54R2VsL0swMDF5?=
- =?utf-8?B?a1dFbXdTVUdJdTR4SWw1cmtkUzV3VEtNNGdmSHFmVEFWNVBLZmNZRkRzS2R4?=
- =?utf-8?B?N3VEeWFNMHk1ZUFWOVg0MThld2xrZkh4Z0l1VWJTOC9IZG9xQjhHMVlZeFgw?=
- =?utf-8?B?Qk9GTTdCK1I2SUp3Y1UzaERCdGZTTXRKdUxIc0YwQmpQWng0Z1hVY1lOaE9x?=
- =?utf-8?B?V0lEaUxvQjVzRkN5cjh4YmUzMlpJdzV0TXloSGtjTzJES3VXY2VKMDA4MlZX?=
- =?utf-8?B?c2JaMjYrZE1MbVhJZDZzNE85MzBiWmJaK0JTWmxKM01IbVB3ZkhjRVJxSXND?=
- =?utf-8?B?V0s4UWxlZlJNWUlsTHNBYTFnaTlpcmZ0Sk9OWWYxRmhMSGIvUmVQdEpCMVNU?=
- =?utf-8?B?ZnJmT3NjMlJjd3dsNVZNL1pmaWVHemNGK3FJQnBuK3hNZWk4QVduVExtYUtm?=
- =?utf-8?B?NllxUkgzUE1kOU5WMjl1MTB3RFFoOTFHREhycENKbThhOE5LOHhOeWtQOElX?=
- =?utf-8?B?OHYxSncwam05MFQ1dDI3OHJJRlIrdVRYdXNUSFlud1NLZzVLT2dvN2thREpq?=
- =?utf-8?B?c2psVkZ0VDd1TkV2ZXY0RkRGVy94ZW0wcFRmbFpJalRxTGdzYlF4QTkrYzdE?=
- =?utf-8?B?RDlWOHJtTkYzNElsUnVWc1hpTW16a1dGTkN0ZWdLa05OVkNMc0FTZ3RISHly?=
- =?utf-8?B?c2M3UmRqSmpSZTVPRXI2SmhuaVlLcEFCYTVFSkhnbVY0ZFFFMjZ4OVZhZUpm?=
- =?utf-8?B?UlhIL1QxbGVtcWg2ZDlpOHpOZGJmdWZXQUZhMU9BdFQ0cHY3clI1MytiaEVT?=
- =?utf-8?B?V1IxblFtaVliTXNEcklzZ2YxODN5MThyQS9rT3dRaUpqa1lWTGRmRS9jMFhv?=
- =?utf-8?B?RGdrcno0YlJaSDRKRXAybWxqUUxnQUZ6K2R3VzJPcWZNQXVrWFhCQXJKUjNz?=
- =?utf-8?B?enh5M0VJeHhuY2dsWlgwY3ZKb2h5V1cwbDdMV2Zod01sSk9DbENRbGpUamxw?=
- =?utf-8?B?bzNYLzNGbHRxbW9ka1lMRG10WExqL0g3NnJ1NTNHdXgwY2RFb21EcjIzeWNQ?=
- =?utf-8?B?c2pEb2dUdVZRQ2FIZDRmSU52dzJqQXBTODZBSG1sUTJ3MnVKUHBoVEh6eXZk?=
- =?utf-8?B?VEJQZkNpRW9UeDhmYm5NZk5sYkdtQWx2SmxNY2lkTjFtUVRocW82NUVZUmJG?=
- =?utf-8?B?QlEvSXp2dE45V1JJWWdzL2M2ME1SaXFCaVpMS2ZQazNIcUM2aVNjckVjSnFm?=
- =?utf-8?Q?5sJx6n4YisDWxFThQizz01LKA01HTa+6+Ytl+?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 282caf19-a31e-444e-07c7-08de580db2e8
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12038.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 10:21:39.3826
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: I+AR/2ZdGQBCIhbKq329beuOE9+LKw9bebV38KQxcmSynYyXb5Dw5Wa+kIkvDFQhK4BZ0VbKt24Kp4c2hRcYgOBDykmEwhSEfnzUwdncmm0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7561
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_022146_625784_2E509B1B 
-X-CRM114-Status: GOOD (  22.59  )
+X-CRM114-CacheID: sfid-20260120_102618_060006_D287EF65 
+X-CRM114-Status: GOOD (  32.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,64 +90,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Am Dienstag, 20. Januar 2026, 11:21:34 Mitteleurop=C3=A4ische Normalzeit sc=
+hrieb Quentin Schulz:
+> Hi Heiko,
+>=20
+> On 1/20/26 9:55 AM, Heiko Stuebner wrote:
+> > Am Dienstag, 20. Januar 2026, 02:39:28 Mitteleurop=C3=A4ische Normalzei=
+t schrieb Shawn Lin:
+> >> =E5=9C=A8 2026/01/19 =E6=98=9F=E6=9C=9F=E4=B8=80 17:22, Alexey Charkov=
+ =E5=86=99=E9=81=93:
+> >>> Rockchip RK3576 UFS controller uses a dedicated pin to reset the conn=
+ected
+> >>> UFS device, which can operate either in a hardware controlled mode or=
+ as a
+> >>> GPIO pin.
+> >>>
+> >>
+> >> It's the only one 1.2V IO could be used on RK3576 to reset ufs devices,
+> >> except ufs refclk. So it's a dedicated pin for sure if using ufs, that=
+'s
+> >> why we put it into rk3576.dtsi.
+> >>
+> >>> Power-on default is GPIO mode, but the boot ROM reconfigures it to a
+> >>> hardware controlled mode if it uses UFS to load the next boot stage.
+> >>>
+> >>
+> >> ROM code could be specific, but the linux/loader driver is compatible=
+=EF=BC=8C
+> >> so for the coming SoCs, with more 1.2V IO could be used, it's more
+> >> flexible to use gpio-based instead of hardware controlled(of course,
+> >> move reset pinctrl settings into board dts).
+> >>
+> >>> Given that existing bindings (and rk3576.dtsi) expect a GPIO-controll=
+ed
+> >>> device reset, request the required pin config explicitly.
+> >>>
+> >>> This doesn't appear to affect Linux, but it does affect U-boot:
+> >>>
+> >>
+> >> IIUC, it's more or less a fix for loader, more precisely U-boot here?
+> >> I'm not entirely certain about the handling here, is it standard
+> >> convention to add a fixes tag in this context?
+> >=20
+> > Yes, a fixes tag is warranted here, in Linux it "only" fixes a potential
+> > issue due to the mismatch between pinconfig and gpio during probe.
+> >=20
+> > nce this patch then enters the kernel, it can be cherry-picked to
+> > the current u-boot development cycle. I don't think u-boot is doing
+> > stable releases though, so U-Boot will only profit for the next
+> > version where this is included.
+> >=20
+>=20
+> U-Boot only takes what's in devicetree-rebasing=20
+> (https://git.kernel.org/pub/scm/linux/kernel/git/devicetree/devicetree-re=
+basing.git),=20
+> so only from Linus's tree AFAICT. C.f.=20
+> https://docs.u-boot.org/en/latest/develop/process.html#resyncing-of-the-d=
+evice-tree-subtree=20
+> and=20
+> https://docs.u-boot.org/en/latest/develop/devicetree/control.html#resynci=
+ng-with-devicetree-rebasing.=20
+> See also OF_UPSTREAM Kconfig symbol in U-Boot.
+>=20
+> This policy does make adding support for a new board quite slow as we=20
+> may need to wait months before it makes it to Linus's tree, and then go=20
+> through the development cycle in U-Boot which can also take a few months=
+=20
+> if the timing is unfortunate. For now it seems like we're sticking with=20
+> this policy to avoid too much in "downstream" DT in U-Boot. I know we=20
+> push for this aggressively for new Rockchip boards and SoCs, cannot say=20
+> for other vendors.
 
-On 1/20/26 9:55 AM, Heiko Stuebner wrote:
-> Am Dienstag, 20. Januar 2026, 02:39:28 Mitteleuropäische Normalzeit schrieb Shawn Lin:
->> 在 2026/01/19 星期一 17:22, Alexey Charkov 写道:
->>> Rockchip RK3576 UFS controller uses a dedicated pin to reset the connected
->>> UFS device, which can operate either in a hardware controlled mode or as a
->>> GPIO pin.
->>>
->>
->> It's the only one 1.2V IO could be used on RK3576 to reset ufs devices,
->> except ufs refclk. So it's a dedicated pin for sure if using ufs, that's
->> why we put it into rk3576.dtsi.
->>
->>> Power-on default is GPIO mode, but the boot ROM reconfigures it to a
->>> hardware controlled mode if it uses UFS to load the next boot stage.
->>>
->>
->> ROM code could be specific, but the linux/loader driver is compatible，
->> so for the coming SoCs, with more 1.2V IO could be used, it's more
->> flexible to use gpio-based instead of hardware controlled(of course,
->> move reset pinctrl settings into board dts).
->>
->>> Given that existing bindings (and rk3576.dtsi) expect a GPIO-controlled
->>> device reset, request the required pin config explicitly.
->>>
->>> This doesn't appear to affect Linux, but it does affect U-boot:
->>>
->>
->> IIUC, it's more or less a fix for loader, more precisely U-boot here?
->> I'm not entirely certain about the handling here, is it standard
->> convention to add a fixes tag in this context?
-> 
-> Yes, a fixes tag is warranted here, in Linux it "only" fixes a potential
-> issue due to the mismatch between pinconfig and gpio during probe.
-> 
-> nce this patch then enters the kernel, it can be cherry-picked to
-> the current u-boot development cycle. I don't think u-boot is doing
-> stable releases though, so U-Boot will only profit for the next
-> version where this is included.
-> 
+Yeah, this is what I "meant", but explained badly :-)
 
-U-Boot only takes what's in devicetree-rebasing 
-(https://git.kernel.org/pub/scm/linux/kernel/git/devicetree/devicetree-rebasing.git), 
-so only from Linus's tree AFAICT. C.f. 
-https://docs.u-boot.org/en/latest/develop/process.html#resyncing-of-the-device-tree-subtree 
-and 
-https://docs.u-boot.org/en/latest/develop/devicetree/control.html#resyncing-with-devicetree-rebasing. 
-See also OF_UPSTREAM Kconfig symbol in U-Boot.
+Also this is the reason I'd like that v2 soon'ish, that it can make its
+way still into 6.20-rc1 and thus into u-boot.
 
-This policy does make adding support for a new board quite slow as we 
-may need to wait months before it makes it to Linus's tree, and then go 
-through the development cycle in U-Boot which can also take a few months 
-if the timing is unfortunate. For now it seems like we're sticking with 
-this policy to avoid too much in "downstream" DT in U-Boot. I know we 
-push for this aggressively for new Rockchip boards and SoCs, cannot say 
-for other vendors.
 
-Cheers,
-Quentin
 
