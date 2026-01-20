@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C850ED2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 08:56:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B77FD2ED0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 08:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dxgtuw6/eiHYsPsz91G2+s/blRfxmN8N4VduCGdXThM=; b=4UUtlHqp20izChFdobDP7jnvf0
-	y/2lUnmorVp6ccfHQaWrHtKFzZNF9MqrugjEy/oCop2ZaWVkof7z3rj4+CSV9zfTzWBD2XT/JIesU
-	gSbmIhrr0mY/aev8wY0Y7+5HEuMKUrz2dUqLQbSTUOUXCRHHtrUgzkJTq/AemAUwDamf/xla1veYr
-	nbJuHIk/ZBR3fGV1vigYKfidiIL7F8wGtzUBB7TtUPOPLJibrKrFW27fOD1KQ1cJfnvZfqsS61j1u
-	cSiCLulGcN3grFYLmxJmMU+oAIsjGkrSgrwf7jjFOss8gCRIFXY0WKqT+l+FYozJSEQ7RxJcED4JR
-	pz6pHRJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ofm+KQE0HxEiv1Gq2GQLI51GgfEo/ZwflXsA1/quJH4=; b=JyhpXBR28xWwXgQY4VFbMhNLMI
+	emZE4gkXqSBdKU+H1VrEBu7SptMMeqGg0v+VtRQWEDOyDhInBcwsBS+zYoWiEV8Szjcy838i0tesc
+	fskHe23FuX612FiCsDFuS6M3aokMcL0irertvLgmzPeI+ZCckY84PcAuNn8HvOgAhU1OwyklQE7tk
+	ZwzLGoKxzhoxyfMHMySxprA7cqN02H6+odtdBtHbcKS1F5o2X8uS2aic5KM06DkWouIVQGIEsIutB
+	wKMHWB2V+U0VOzaeQpMg/a3SlHwAQ0egteBonNEHEN81hXwyhdnGjCtnRmQ2Se87X5hHLG9VA5hw+
+	1HDQxfGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi7X0-00000003UkR-46Ul;
-	Tue, 20 Jan 2026 08:56:11 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi7Wy-00000003Ujf-1Bxu;
-	Tue, 20 Jan 2026 08:56:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=dxgtuw6/eiHYsPsz91G2+s/blRfxmN8N4VduCGdXThM=; b=EEUU3TtcX15TaXsTpy+efUZgnr
-	GvRN3Wul0JrdfXvzmqZFYEm9I5Uuv2B2EaNTsD6vtuVQ2+71/Bp0nMxYDfQreGXBBUP8E75DD691R
-	sAIRMetPw+PlnHZgC9fXRBVhvGFkXks8VAGKpYofCqbwcrnGs2p5BTnF2BLcVEKn8IjMgEHdbP4kL
-	vuJxuwoN8jvH8O5oN6rX7N6gVXJ1b2PMiViNfcUxHagz6JNq/xpOXqaAQAnK0ZGMXv6M0VDImvFsR
-	LMq0DtfiImIzlNlKYk4TEmnqJ22gXd2Z3+oQymTtqHxJ9fB9TTcxhaeEAlz4ysIznmFaON5yNz4x1
-	QaakdUVA==;
-Received: from [192.76.154.230] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vi7Wm-003K6A-Kw; Tue, 20 Jan 2026 09:55:57 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Alexey Charkov <alchark@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- Manivannan Sadhasivam <mani@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>
-Cc: shawn.lin@rock-chips.com, Quentin Schulz <quentin.schulz@cherry.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Explicitly request UFS reset pin on RK3576
-Date: Tue, 20 Jan 2026 09:55:56 +0100
-Message-ID: <5743823.mogB4TqSGs@phil>
-In-Reply-To: <6479d7b8-7712-4181-9c82-0021da94d1a8@rock-chips.com>
-References: <20260119-ufs-rst-v1-1-c8e96493948c@gmail.com>
- <6479d7b8-7712-4181-9c82-0021da94d1a8@rock-chips.com>
+	id 1vi7XC-00000003UnF-3L7N;
+	Tue, 20 Jan 2026 08:56:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vi7X9-00000003Ulw-0hsQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Jan 2026 08:56:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CFBC91476;
+	Tue, 20 Jan 2026 00:56:10 -0800 (PST)
+Received: from [10.57.93.204] (unknown [10.57.93.204])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2603C3F740;
+	Tue, 20 Jan 2026 00:56:14 -0800 (PST)
+Message-ID: <2619166b-13ef-4daa-82c7-1d44035a8d6c@arm.com>
+Date: Tue, 20 Jan 2026 08:56:12 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/3] arm64: mmu: avoid allocating pages while splitting
+ the linear mapping
+Content-Language: en-GB
+To: Yeoreum Yun <yeoreum.yun@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rt-devel@lists.linux.dev, catalin.marinas@arm.com,
+ akpm@linux-oundation.org, david@kernel.org, kevin.brodsky@arm.com,
+ quic_zhenhuah@quicinc.com, dev.jain@arm.com, yang@os.amperecomputing.com,
+ chaitanyas.prakash@arm.com, bigeasy@linutronix.de, clrkwllms@kernel.org,
+ rostedt@goodmis.org, lorenzo.stoakes@oracle.com, ardb@kernel.org,
+ jackmanb@google.com, vbabka@suse.cz, mhocko@suse.com
+References: <20260105202328.2418990-1-yeoreum.yun@arm.com>
+ <20260105202328.2418990-3-yeoreum.yun@arm.com>
+ <aW5p1ylQBNXTEmmq@willie-the-truck> <aW6hISBu3hNYS771@e129823.arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <aW6hISBu3hNYS771@e129823.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_005608_362836_B80C22A8 
-X-CRM114-Status: GOOD (  24.03  )
+X-CRM114-CacheID: sfid-20260120_005619_622250_2DCB3CE2 
+X-CRM114-Status: GOOD (  28.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,50 +72,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 20. Januar 2026, 02:39:28 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Shawn Lin:
-> =E5=9C=A8 2026/01/19 =E6=98=9F=E6=9C=9F=E4=B8=80 17:22, Alexey Charkov =
-=E5=86=99=E9=81=93:
-> > Rockchip RK3576 UFS controller uses a dedicated pin to reset the connec=
-ted
-> > UFS device, which can operate either in a hardware controlled mode or a=
-s a
-> > GPIO pin.
-> >=20
->=20
-> It's the only one 1.2V IO could be used on RK3576 to reset ufs devices,
-> except ufs refclk. So it's a dedicated pin for sure if using ufs, that's
-> why we put it into rk3576.dtsi.
->=20
-> > Power-on default is GPIO mode, but the boot ROM reconfigures it to a
-> > hardware controlled mode if it uses UFS to load the next boot stage.
-> >=20
->=20
-> ROM code could be specific, but the linux/loader driver is compatible=EF=
-=BC=8C
-> so for the coming SoCs, with more 1.2V IO could be used, it's more
-> flexible to use gpio-based instead of hardware controlled(of course,
-> move reset pinctrl settings into board dts).
->=20
-> > Given that existing bindings (and rk3576.dtsi) expect a GPIO-controlled
-> > device reset, request the required pin config explicitly.
-> >=20
-> > This doesn't appear to affect Linux, but it does affect U-boot:
-> >=20
->=20
-> IIUC, it's more or less a fix for loader, more precisely U-boot here?
-> I'm not entirely certain about the handling here, is it standard
-> convention to add a fixes tag in this context?
+On 19/01/2026 21:24, Yeoreum Yun wrote:
+> Hi Will,
+> 
+>> On Mon, Jan 05, 2026 at 08:23:27PM +0000, Yeoreum Yun wrote:
+>>> +static int __init linear_map_prealloc_split_pgtables(void)
+>>> +{
+>>> +	int ret, i;
+>>> +	unsigned long lstart = _PAGE_OFFSET(vabits_actual);
+>>> +	unsigned long lend = PAGE_END;
+>>> +	unsigned long kstart = (unsigned long)lm_alias(_stext);
+>>> +	unsigned long kend = (unsigned long)lm_alias(__init_begin);
+>>> +
+>>> +	const struct mm_walk_ops collect_to_split_ops = {
+>>> +		.pud_entry	= collect_to_split_pud_entry,
+>>> +		.pmd_entry	= collect_to_split_pmd_entry
+>>> +	};
+>>
+>> Why do we need to rewalk the page-table here instead of collating the
+>> number of block mappings we put down when creating the linear map in
+>> the first place?
 
-Yes, a fixes tag is warranted here, in Linux it "only" fixes a potential
-issue due to the mismatch between pinconfig and gpio during probe.
+That's a good point; perhaps we can reuse the counters that this series introduces?
 
-nce this patch then enters the kernel, it can be cherry-picked to
-the current u-boot development cycle. I don't think u-boot is doing
-stable releases though, so U-Boot will only profit for the next
-version where this is included.
+https://lore.kernel.org/all/20260107002944.2940963-1-yang@os.amperecomputing.com/
 
-Heiko
+> 
+> First, linear alias of the [_text, __init_begin) is not a target for
+> the split and it also seems strange to me to add code inside alloc_init_XXX()
+> that both checks an address range and counts to get the number of block mappings.
+> 
+> Second, for a future feature,
+> I hope to add some code to split "specfic" area to be spilt e.x)
+> to set a specific pkey for specific area.
 
+Could you give more detail on this? My working assumption is that either the
+system supports BBML2 or it doesn't. If it doesn't, we need to split the whole
+linear map. If it does, we already have logic to split parts of the linear map
+when needed.
+
+> 
+> In this case, it's useful to rewalk the page-table with the specific
+> range to get the number of block mapping.
+> 
+>>
+>>> +	split_pgtables_idx = 0;
+>>> +	split_pgtables_count = 0;
+>>> +
+>>> +	ret = walk_kernel_page_table_range_lockless(lstart, kstart,
+>>> +						    &collect_to_split_ops,
+>>> +						    NULL, NULL);
+>>> +	if (!ret)
+>>> +		ret = walk_kernel_page_table_range_lockless(kend, lend,
+>>> +							    &collect_to_split_ops,
+>>> +							    NULL, NULL);
+>>> +	if (ret || !split_pgtables_count)
+>>> +		goto error;
+>>> +
+>>> +	ret = -ENOMEM;
+>>> +
+>>> +	split_pgtables = kvmalloc(split_pgtables_count * sizeof(struct ptdesc *),
+>>> +				  GFP_KERNEL | __GFP_ZERO);
+>>> +	if (!split_pgtables)
+>>> +		goto error;
+>>> +
+>>> +	for (i = 0; i < split_pgtables_count; i++) {
+>>> +		/* The page table will be filled during splitting, so zeroing it is unnecessary. */
+>>> +		split_pgtables[i] = pagetable_alloc(GFP_PGTABLE_KERNEL & ~__GFP_ZERO, 0);
+>>> +		if (!split_pgtables[i])
+>>> +			goto error;
+>>
+>> This looks potentially expensive on the boot path and only gets worse as
+>> the amount of memory grows. Maybe we should predicate this preallocation
+>> on preempt-rt?
+> 
+> Agree. then I'll apply pre-allocation with PREEMPT_RT only.
+
+I guess I'm missing something obvious but I don't understand the problem here...
+We are only deferring the allocation of all these pgtables, so the cost is
+neutral surely? Had we correctly guessed that the system doesn't support BBML2
+earlier, we would have had to allocate all these pgtables earlier.
+
+Another way to look at it is that we are still allocating the same number of
+pgtables in the existing fallback path, it's just that we are doing it inside
+the stop_machine().
+
+My vote would be _not_ to have a separate path for PREEMPT_RT, which will end up
+with significantly less testing...
+
+Thanks,
+Ryan
+
+> 
+> Thanks for your review.
+> 
+> --
+> Sincerely,
+> Yeoreum Yun
 
 
