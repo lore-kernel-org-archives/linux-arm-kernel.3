@@ -4,94 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C36A3D2ECFD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 01:32:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF34D2ECFD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 01:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oA9EJA38Ao+A32i9rXYjoTfg7C61pSIvbeavCfCz8zc=; b=tutwwatI+FNJa8CBtbCRyYCkP+
-	/17ESkdC9G7cEwiZGpvKhED56a4N8d5ngabt0bxrrDzZec03ubPxI3Ws7DkUZ1rQHwom0Ml6GnZ8n
-	2VDXbXemCKtEGRtlZzpHYeAKDd9Oafme6FF48hp1KGkERtkejOYAemN+MgDqo2/Ina6uJeLlHad+6
-	qpEDTeScBXNmRok68vxFLliskoKSU64It3LJmFtxGoUhO9Ad+jmmslv+7209A2r86okzGeo/z+jws
-	UFBd5PAkxDl2YjFiYvvh6zQymDIPB+5g1OzTH/aIZCGoqT6Y2Ntl930SKrl3EF+3M6JhwiQHazL4U
-	NUY1Aj1w==;
+	bh=RrH9sDwa3QtPj5gSU1d7cy8zDFpQYEGB5vrm976c5QE=; b=3Ok5LM4CErP6Izxm0maoKfJasC
+	j7iNyjFPms+O/xp5JRVcpXb7i7lBD696lKDGSZjXpVTb5RKNsbLV1tX2gesr43rUjU9KVPbAv75HP
+	CMmMhkIYo+baTO3Mcgea1rnD+0kWPvgMMzgY61fbiBXgQ23xc/WpaYowW7OrpzboN3eXmhAXORQKd
+	57/Il6snXjRXL54KIsDdR+TtycZUOZgG30mAP7GQoVrCgFbuEalkJkNGN20OSHl9QB3wn59WSi3As
+	lCD/i0utLowo5qFyeTjct8RUHFxyqoeldRU3kAysuy468vJML0/83SQYbf/jwW4NoqRVQad+GoRO8
+	QiI68l4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi0bL-000000032Rh-02uz;
-	Tue, 20 Jan 2026 01:32:11 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1vi0dv-000000032hF-1Fkn;
+	Tue, 20 Jan 2026 01:34:52 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi0bI-000000032Px-3bPR
+	id 1vi0dt-000000032gu-3ArK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 01:32:10 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b872f1c31f1so640779766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 17:32:07 -0800 (PST)
+	Tue, 20 Jan 2026 01:34:50 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-34f634dbfd6so3720851a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 17:34:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pardini.net; s=google; t=1768872727; x=1769477527; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1768872889; x=1769477689; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=oA9EJA38Ao+A32i9rXYjoTfg7C61pSIvbeavCfCz8zc=;
-        b=bHH+q0Y6l9LUuBfEfiTOYwOfLdQJe8qDf3DhGNwwRQGyu39t1r3WZG1ZI/leaDQWXL
-         N4GBKxEuvLAvAdD1hc88NSOmhgwyulkbvqy+9/yS5sV1DClShoQsylt5PbmPpMZZYiPm
-         6houUBjCfNGjYx2J1IUo+9yL2x/w3Lcd7ONBCp2muSfdZE0IRqU31ELumV3vyfAKroXQ
-         6aNAURnTfFL1+OO+OeDWFWJWTsfol7YHHdoVbrEK2J+C9KhHGKuX79t+9+9/Z/gtBfuJ
-         e0pDcb+mmU3ZYf307gAy7AqRqcyWdROHyjTODieGVygtnaE2jik6zchbjSD9/Qh3EDmo
-         lyOA==
+        bh=RrH9sDwa3QtPj5gSU1d7cy8zDFpQYEGB5vrm976c5QE=;
+        b=Z8m8RkAvqZUAaj39x++bQ3jt5FJ8KwDlXxIyKsDKTWh9UFKG1j5YToMoCHuZZs24xt
+         /Em1uH9oWi9qrGxz/ff7UCdV9gtAW9hZPaYMZ9YP8Fg1K9vHAZHVrx9n8SvKubEl8l3b
+         8tOtZzbRh5ZcicTB2XclG7VTQKExAezQkZxojd3P8RZhA1CQloKAXwdlynzb4P7vBgbu
+         jA1a81hPg1KFeckRcaYT+bayti73Yitf/jkPBzsjpwO5GJ4j8KgQx4XBhqyh0in98mE3
+         LgMrc3u2LcfHPQjcX11hjsMP4RkEDBINHb4va7bIpJEcdzI89OHumKjsWWdl7yWcdoof
+         3vIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768872727; x=1769477527;
+        d=1e100.net; s=20230601; t=1768872889; x=1769477689;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=oA9EJA38Ao+A32i9rXYjoTfg7C61pSIvbeavCfCz8zc=;
-        b=L+7X6vdT2lfSM1bMOLS2TrVqdSBamti7tsgaDrbD1TrZumkF19OVebmnzuh+uHTXC7
-         sUNW7cdXRhW1v1TBY1X3ZvTxKcRfYFXJ6bxBhxo+dR/JVnS7/CsFNPLge/Pao+24yefc
-         HLdKeoUXhB4UxhndhH+7sf8kJ/stMGzCHPjc6uL36FTm3H3hUJ8dAZ/XwTu7sKI1Z7+R
-         BApGlCuVO8LDq+vd+BpFLvJ3uHSUKB+LakQJaEOQ3UCjO0CCR28kPKNWE2NRYkl0Mh1Z
-         V9xVOOsIjjTq450Uv4Taa2UyREp4lQrRRYKrGXKNrkQC1Olck0C08gdRc0sxwV84hIXD
-         xBiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVeXvXSxazbOihu1os6lEJRSMC0fkCZj4N3/A2fdsye5WS8Y5822hGD8nmFfQ8XYiw0yUyspndZDIHNZdJZgSrt@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjXAVFVqkTX5ik1wmANPX1riCb1G6qvP0yglEZ2Yiol+mYTvu2
-	eANGKcsWjVb6wFpfdVlq82lql2/Tra4Q7IkM9QPwDruyOtBoDsvxChumVs7I994yYQ==
-X-Gm-Gg: AZuq6aKPLsIXoE/n+PQm8a3lhCMqENsBEfxWMmi/7Io4fYcZTOnrHb8fz2nFywS78ng
-	4CFhu6H+7xkBwclhDLfGfyM5WGrp2BNPiJRaLfMGQgx1XB6PrW3o9khueM7YgDPX0YbcTvNN1ms
-	PDl5DhwlZZyxxgR0jmDr8RtHNo4nsCUiix7ssz9nFeWX9L0vmwYgsNJsL/MSD01gn4LXgyQ/B4+
-	9ZczfMmEgNDgNe9mthOKCTNJ9mtR9nzz1ees+Jr7to1Skdy2CKHkbppxjI9YTjGTu6ggYrV+lZ+
-	B96n69xuaXZg4PrEryMeNnONqYdaYFi94iyGvVDpZJaeG37la5p1T9mdDU5J9dohKqKcaA06Krl
-	AV53aLYhZfn1QBR92tMxk5ZQUPRfI+YEvQuoA2Y01XTVFXonc4Q8F2cGMxothQyZHXlDLXRmF+q
-	3OdDS7I0pjfojoLtJEVxMBa+GhBdvoy30T/esbW1Wbt+g/cYv7OIC/m3E1Mb/tRQOtaQ/1mayqY
-	GV+++oSUHZSfvhtCVjr8z3QqUfGeqP8WXVHNHybZhFyVoUqAqQc01LJkA==
-X-Received: by 2002:a17:907:fd17:b0:b87:7cb9:c3dc with SMTP id a640c23a62f3a-b880064d660mr16596666b.32.1768872726489;
-        Mon, 19 Jan 2026 17:32:06 -0800 (PST)
-Received: from ?IPV6:2a02:a466:4d7a:0:6c50:b577:541e:d133? (2a02-a466-4d7a-0-6c50-b577-541e-d133.fixed6.kpn.net. [2a02:a466:4d7a:0:6c50:b577:541e:d133])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8795169f10sm1269998766b.26.2026.01.19.17.32.05
+        bh=RrH9sDwa3QtPj5gSU1d7cy8zDFpQYEGB5vrm976c5QE=;
+        b=roHHYDyYPmrVxzTbNUU+yi5mzsqT9wMSDNLlWnT4/Y0/i6twJxCxdsys+vUgMxTUqj
+         W5l3wigulJFv9U2Qmdo6Ae0OtlkAlrVBSiQNztFDL7FYK6ApFRjbiOndFn+VdFYXDjKi
+         fZG3CpmOKvRXB8DK+LWnt/hvhmq1CvxaqbiLAj5nFoR6Ftcp764Yi0jiLeslDwrA9kYx
+         Ie2q5A2QJnwoUBZxA+FmIf1DZHMY6lvehB2EABvmogL/+BL8SvWEoZtq3WrUX7D6NBhK
+         v7JGr1jM/8XTDe4wHvq+KBvuHCDQqCbkIN5jkAkV2soy/Cx3QAB/5sHRlEt4ICR2pid+
+         9Ifw==
+X-Forwarded-Encrypted: i=1; AJvYcCWXYBZSRel0kbgTwC6/r84tzht9y8/OgZTw4dBpYQzmVnEx4/3dJ12lnS7KbsTbBdz4ciGI7Qk2sm47kAeMbAiI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbYuq+7Z8LLKPfdcr9VypewPtdo9mAgEAemTEFkuRXqc+1eaWy
+	5KSoUKEj1DFlEMiAZ5+U1ZoSNdyTLExtITHemhcXov7XmQhhvpsJwGw0
+X-Gm-Gg: AZuq6aKpB+zJcW4uIVT2gJ6aVH9woLvSH4jyQ4ed2Hk/5zdhdnwGMIPgfGQPmAHZaNh
+	pYN1PynguhotiiHqIMUiVjrR9KFrAs8/4s7ZkQ0NG/84yILp6wGP2mKq5s3niOcdP6rK+kMP8kK
+	GT1OTrHqYIGmAVTXc7hC1Nx4LPK6v5hYmaK+VRjtZ4PUrZlYCL6bIATB9KSHYQo4yr5MOYvBLIS
+	/x59BJFeyodDll/AT8RrkpWA9fWs38TJueL9iZOC+abzJ/ksc43w7KOF4wa4gDnUX036oXbcy8c
+	TIOvT1/RQb7VibhIn6Ipt8XJbkD1jB+JBtJQ3liRd0BBb/VQci9MLwSwIabNLFewd34u5c2jxhZ
+	GTN3pK3PA7OOneF/HjTbc4CD8LQO0J37evoOn39+Y/djG3R3OPxDpwB56S/wTVp1dohEvEOKADF
+	SiC7OwQDAWxiXEtj7fflMSCki/kjxoz5dLHTQ5eMXXd9d7rWBybIPyJvT+HufgxBmPTcfRoWx34
+	ks=
+X-Received: by 2002:a17:90a:c110:b0:336:9dcf:ed14 with SMTP id 98e67ed59e1d1-352c407a272mr335012a91.23.1768872888766;
+        Mon, 19 Jan 2026 17:34:48 -0800 (PST)
+Received: from [192.168.0.102] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-352677ca9acsm12931529a91.1.2026.01.19.17.34.45
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 19 Jan 2026 17:32:05 -0800 (PST)
-Message-ID: <80837c50-8721-48e7-83bf-223dfc5a3a22@pardini.net>
-Date: Tue, 20 Jan 2026 02:32:05 +0100
+        Mon, 19 Jan 2026 17:34:48 -0800 (PST)
+Message-ID: <a5cb949f-34c1-470c-bd04-0b35c249455f@gmail.com>
+Date: Tue, 20 Jan 2026 09:34:39 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] Eliminate Odroid HC4 power glitches during boot.
-To: Eric.Neulight@linuxdev.slmail.me, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260116-odroid-hc4-dts-v1-1-459b601cd5cf@linuxdev.slmail.me>
+Subject: Re: [PATCH net-next v8 2/3] arm64: dts: nuvoton: Add Ethernet nodes
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, mcoquelin.stm32@gmail.com, richardcochran@gmail.com,
+ alexandre.torgue@foss.st.com, joabreu@synopsys.com, ychuang3@nuvoton.com,
+ schung@nuvoton.com, yclu4@nuvoton.com, peppe.cavallaro@st.com,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20260119073342.3132502-1-a0987203069@gmail.com>
+ <20260119073342.3132502-3-a0987203069@gmail.com>
+ <04df4909-4fdb-4046-917f-2f2e47832c62@lunn.ch>
 Content-Language: en-US
-From: Ricardo Pardini <ricardo@pardini.net>
-In-Reply-To: <20260116-odroid-hc4-dts-v1-1-459b601cd5cf@linuxdev.slmail.me>
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <04df4909-4fdb-4046-917f-2f2e47832c62@lunn.ch>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_173208_930012_3C939B3C 
-X-CRM114-Status: GOOD (  25.14  )
+X-CRM114-CacheID: sfid-20260119_173449_798287_8FE68E70 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,118 +110,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/01/2026 05:02, Eric Neulight via B4 Relay wrote:
+Dear Andrew,
 
-> Fix issue with Odroid HC4 (and all meson-sm1-odroid) DTS that causes
-> regulator power to momentarily glitch OFF-ON during boot.  Add
-> regulator-boot-on to all regulator-fixed and regulator-gpio entries
-> that (1) define a gpio AND (2) define regulator-always-on.
-> 
-> U-boot powers on devices necessary for boot then hands off the DTB to
-> the kernel.  During probe, linux drivers/regulator/fixed.c and
-> gpio-regulator.c both first set the regulator control gpio (that U-boot
-> already turned ON) to default OFF before then setting it to the defined
-> (ON) state. This glitches the power to the affected devices, unless
-> regulator-boot-on is specified with it.  In fact, U-boot has the same
-> behavior.  So, during reboot, a power glitch can actually happen twice:
-> once when U-boot reads the DTB and probes the gpio and again when the
-> kernel reads the DTB and probes the gpio.
-> 
-> Problem this fixes: On the Odroid HC4, power to the SATA ports glitches
-> during boot and causes some HDDs to do emergency head retract, which
-> should be avoided.  On the HC4, power glitches to the SD card, USB,
-> SATA, and HDMI interfaces during boot.  These are all boot devices.
-> A power glitch can potentially cause a problem for any sensitive devices
-> during boot.
-> 
-> NOTE: This is not limited to just the HC4, likely an issue with ALL DTS
-> with regulator-fixed or regulator-gpio entries that (1) define a gpio
-> AND (2) define regulator-always-on.  All such entries should also
-> include regulator-boot-on in order to avoid potential power glitches.
-> At worst, adding regulator-boot-on in such cases is harmless because of
-> regulator-always-on, and, at best, it eliminates detrimental power
-> glitches during boot.  So, this is best-practice.
-> 
-> Fixes: 164147f094ec5d0fc2c2098a888f4b50cf3096a7 ("arm64: dts: meson-sm1-odroid-hc4: add regulators controlled by GPIOH_8")
-> Fixes: 45d736ab17b44257e15e75e0dba364139fdb0983 ("arm64: dts: meson-sm1-odroid: add 5v regulator gpio")
-> Fixes: 1f80a5cf74a60997b92d2cde772edec093bec4d9 ("arm64: dts: meson-sm1-odroid: add missing enable gpio and supply for tf_io regulator")
-> Fixes: 88d537bc92ca035e2a9920b0abc750dd62146520 ("arm64: dts: meson: convert meson-sm1-odroid-c4 to dtsi")
-> 
-> Signed-off-by: Eric Neulight <Eric.Neulight@linuxdev.slmail.me>
-> ---
->   arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts | 2 ++
->   arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi    | 3 +++
->   2 files changed, 5 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-> index 0170139b8d32f4274ad991b0f3d9a0f6c67969ce..3ece30a0a1fff736c544cf89ed0a8cca0890f128 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-> +++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid-hc4.dts
-> @@ -52,6 +52,7 @@ p12v_0: regulator-p12v-0 {
->   
->   		gpio = <&gpio GPIOH_8 GPIO_OPEN_DRAIN>;
->   		enable-active-high;
-> +		regulator-boot-on;
->   		regulator-always-on;
->   	};
->   
-> @@ -65,6 +66,7 @@ p12v_1: regulator-p12v-1 {
->   
->   		gpio = <&gpio GPIOH_8 GPIO_OPEN_DRAIN>;
->   		enable-active-high;
-> +		regulator-boot-on;
->   		regulator-always-on;
->   	};
->   
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi
-> index c4524eb4f0996dfbccec16ca5b936a5c3b2663a5..0bce4e8d965f2c83e6ba677fef2ede2726de6ed1 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/meson-sm1-odroid.dtsi
-> @@ -37,6 +37,7 @@ tflash_vdd: regulator-tflash-vdd {
->   
->   		gpio = <&gpio_ao GPIOAO_3 GPIO_OPEN_DRAIN>;
->   		enable-active-high;
-> +		regulator-boot-on;
->   		regulator-always-on;
->   	};
->   
-> @@ -50,6 +51,7 @@ tf_io: gpio-regulator-tf-io {
->   
->   		enable-gpios = <&gpio_ao GPIOE_2 GPIO_OPEN_DRAIN>;
->   		enable-active-high;
-> +		regulator-boot-on;
->   		regulator-always-on;
->   
->   		gpios = <&gpio_ao GPIOAO_6 GPIO_OPEN_SOURCE>;
-> @@ -81,6 +83,7 @@ vcc_5v: regulator-vcc-5v {
->   		regulator-name = "5V";
->   		regulator-min-microvolt = <5000000>;
->   		regulator-max-microvolt = <5000000>;
-> +		regulator-boot-on;
->   		regulator-always-on;
->   		vin-supply = <&main_12v>;
->   		gpio = <&gpio GPIOH_8 GPIO_OPEN_DRAIN>;
-> 
-> ---
-> base-commit: b71e635feefc852405b14620a7fc58c4c80c0f73
-> change-id: 20260116-odroid-hc4-dts-54f4254d8554
-> 
-> Best regards,
+Thanks for the clarification.
 
-Tested with 6.19-rc5 base on an Odroid-HC4 running with a single 2.5" HDD.
+In our design, the Ethernet PHYs are located on the base boards, not on 
+the MA35D1 SOM.
 
-This patch does not solve (as I hoped) unrelated/long standing issues 
-like the "famous" disk noise at/~around PCIe/AHCI probe time nor the 
-fact the 5V rail can't properly power two 5V disks when at least one of 
-them is spinning rust -- but also doesn't cause any new problems that I 
-can detect (SMART etc).
+The SOM base board routes two RGMII interfaces from the SOM to two 
+external PHYs on the carrier board.
 
-I hope someone with 12V disks could take a this for a spin and report 
-further; I really can't take mine out of "production" anytime soon.
+On the MA35D1 IoT board, there is no separate SOM and carrier board - it 
+is a single integrated board.
 
-Tested-by: Ricardo Pardini <ricardo@pardini.net> # on Odroid-HC4 5V HDD
+I will update the DTS accordingly so that no PHY nodes appear in .dtsi.
 
-Thanks,
-Ricardo
+Thanks!
 
+Best regards,
+
+Joey
+
+Andrew Lunn 於 1/19/2026 11:22 PM 寫道:
+> On Mon, Jan 19, 2026 at 03:33:40PM +0800, Joey Lu wrote:
+>> Add GMAC nodes for our MA35D1 development boards:
+>> two RGMII interfaces for SOM board, and one RGMII
+>> and one RMII interface for IoT board.
+>>
+>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+>> ---
+>>   .../boot/dts/nuvoton/ma35d1-iot-512m.dts      | 12 +++++
+>>   .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 10 ++++
+>>   arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 54 +++++++++++++++++++
+> I'm somewhat confused with your naming here.
+>
+> A SoM generally needs a carrier board. So the SoM is described as a
+> .dtsi file, which the carrier board .dts file can then include.
+>
+> Where are the PHYs? Sometimes the PHYs are on the SoM, sometimes they
+> are on the carrier board. If they are not actually on the SoM, the
+> PHYs should not be listed as part of the SoM.
+>
+>       Andrew
 
