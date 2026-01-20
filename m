@@ -4,160 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A55ACA5FA6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 16:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBBECA5FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 16:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aEijWoEcz8qk4vc5lKA3KEBifk+rAUpH5c1UQE6t/hM=; b=ZJLWdfbxkZZ6uU7QvGnsZNGIb9
-	v+CffKcFT6ATbvF9P+h5XoyvbfzAEhoW9hWmtFTEUHvVa+yI9ECTKoBB96vsIsoiKX9Xl5MKeXkQ7
-	ZwYMcv4WelzxCD7W3SN2sI73dMLlFC6vGU75RxG4diyo0KUWmsiN8LggUjwhV52DONe00JX7uMOA9
-	dimIkCPW/eVeop+8LNzXmyDeU9EN/X+0LIDcr+mTfI/X3hjC4w2BGuwCJ5+9jy9hWeXPefTPjVcjz
-	ASZgabV0OBbLsMd+6oY/6S68FLAfWEnJCbIhU1z55xQFMlMQLkE8c8u3S6TEu+rCM5Tvuv9L14Rkk
-	PUdIhdnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dobyx7KUQgj0z831/ID8qB1h8VjXUTYbw8UVPZVRb6w=; b=otgkIWTx/37kJJiPLrcb0FErSX
+	/xjW/GiNJgf2scSpApn2Y7Ix9iIUi3qsjLwFIZ5ln2CyKjQoHgP7BgsDw8EBePwmajv1RwcrciQTP
+	yKz8goVS9c0e3dpsZJ0ypBudyalNSDEM3IiunFxDresBZEo4ubbfZgZ4NPM7sT7wMPMye56mYg6eJ
+	WtdZKOCdAIidvDQnLk/490idfO7yUA2+x6EPM4GxzYz3SCLMpmy8SUL94LIko7NZgT39vh048BTDj
+	n3zY3LJXbXq0holXR/zFWSasQDIoKBJ35xpFDU78gvdeN3wLicM9Y/LRLvFNfl2uAf6UEbU45vHsV
+	0bDee+bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viERc-000000049VQ-299o;
-	Tue, 20 Jan 2026 16:19:04 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viERZ-000000049Qd-1ePQ
+	id 1viEVS-000000049oY-2ceW;
+	Tue, 20 Jan 2026 16:23:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viEVQ-000000049nt-1Cne
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 16:19:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ESXKJzXJoadrAPjOpjRmkcnvxxh4PEojn7gtNFe5oo7X//rivcsHewsmv5DAiG5G3Kh6rQybdOlY0lPIaNxE3RT7yfzsgSe9fEJG3xaT0Vo6Cltp3fKuE93aTjkj4TpAQrqoPQ1t36By/52GyTqh4DMiwYSptVb/7EyyjMuF3pLR41F3xhKEPpfGRB1cEzUGzl3uCNFXoDMXBeqFbAYN0XP1liTRQOEhc7DdoE2OJaQwUk0B1FSBgRtpOrXWH4zp8zRVm2O60to8PGPZnw8IUq/BaEaxFftrRNaZlYY+lBWAfKrmJnbsRvhB0eg8isDTOyeRcxNl+UOFlJJHZGk7gA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aEijWoEcz8qk4vc5lKA3KEBifk+rAUpH5c1UQE6t/hM=;
- b=SpWc8WnGL6IuQ5FD72u95jCaQdWzeNUQnSPNPWqmfaDg8W4snDE1cCO2WyVrW4lZchphKP5h2bxlrk5nsAysICZ8Wo/GZQp/GCwB6B2h/TDX/wmC39ubk1QFYVciwKqGDg6JuIYhyRkGsiqvw5agfBqVNp0wrlJyZmMG5Nwp2WZ7/tZBTWqPSGFiDrJUU0+qHKF4ZpYrTcI6TnR1ioqn/gUnlCeshEPn9NXNl5s0f+NGg4k1hgVyCdWySqyDFpVDvjSaxc2vz67yNwkI8VgdXEvO0laciTIpMlU2XMKhp6IQcbFb/vBhnNRyvqeGeYs/a8JghSx0XuSEL1LLKIkA5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aEijWoEcz8qk4vc5lKA3KEBifk+rAUpH5c1UQE6t/hM=;
- b=h3eAq17zO9A8WGR/TeP0ZIg9Nm8+Aa3JZkIItym4NzIBIB+6kYV2W6tRJkzyyQX2gHlulrjw99IB/JGLIwkP7MjFyQZgp9ZOre75FbHUly+mQP1r95L/2zFBq5N63/1F6C9SR/pepbfK25e1a0cvoC4NFdri5ANeRcM4hi9EOyloExVwNb1o0EqdIYDvLAKOreY2jb0pHF0GLtG81eriKk8Cot4DgHJCafcOzqZQNd0U4qkqP9VNTck8h0v9Qq2O2uXGX0XxIWtX+uDbgJiJWvGcjXYn0oKYSAAikpQblfpUw7y10+FEhX9rY2k3U9IMdZkoSw6fvlbf7YCr2SKhZA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by DU2PR04MB8727.eurprd04.prod.outlook.com (2603:10a6:10:2de::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Tue, 20 Jan
- 2026 16:18:53 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9520.011; Tue, 20 Jan 2026
- 16:18:53 +0000
-Date: Tue, 20 Jan 2026 11:18:42 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Chancel Liu <chancel.liu@nxp.com>, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH 1/2] ASoC: dt-bindings: fsl,mqs: make gpr optional for
- SM-based SoCs
-Message-ID: <aW+q4lrdYJEciNS/@lizhi-Precision-Tower-5810>
-References: <20260120150329.1486-1-laurentiumihalcea111@gmail.com>
- <20260120150329.1486-2-laurentiumihalcea111@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260120150329.1486-2-laurentiumihalcea111@gmail.com>
-X-ClientProxiedBy: BYAPR08CA0028.namprd08.prod.outlook.com
- (2603:10b6:a03:100::41) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Tue, 20 Jan 2026 16:23:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23D541476;
+	Tue, 20 Jan 2026 08:22:48 -0800 (PST)
+Received: from [10.1.39.200] (XHFQ2J9959.cambridge.arm.com [10.1.39.200])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D5DEB3F694;
+	Tue, 20 Jan 2026 08:22:51 -0800 (PST)
+Message-ID: <a6c1f21f-43e4-41d2-adb6-c5f9985b3abd@arm.com>
+Date: Tue, 20 Jan 2026 16:22:50 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DU2PR04MB8727:EE_
-X-MS-Office365-Filtering-Correlation-Id: 530cf115-f716-4627-ba05-08de583f9ac8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|19092799006|7416014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?w6YnROS9oCoLMz/37oyJZ7NSpSMcaubm7kBpiX3DEES+JLlspleW0fOFpnCK?=
- =?us-ascii?Q?jB/aeNvpOcuGNfd7xuZC7tIo1lTN/4VZKcolAN+zEZ7nzdVt/4mkYOI+6f71?=
- =?us-ascii?Q?EWCv/dSsvCjUrjxFTbwN3lA/G/ZTwe06AzcJ3Q0y/eqCIILrDo4VujCsu/ci?=
- =?us-ascii?Q?9SdmIdYISIsn8d3mAqQ0ZJrcigXX4KfeqJBf2GJ7l4DnuxHGn5rCja4eg3uU?=
- =?us-ascii?Q?A1u6pr+W6nwljhdGQPdK2ZyCGo4LbQAQi/JbNjuz/PV1zFEh+jvcrPhYqvMz?=
- =?us-ascii?Q?Q5/ZK9zg8AhEyjll3wvJkQMimoxlUbWjigHv4u7M6xf53AGQ2dmmfgRlA6cj?=
- =?us-ascii?Q?/mYdE3q7L5p3hPMZVJ597aJEu8uyprMQyoBKzSfL9ycb8bHeRbXm2dnR3IHH?=
- =?us-ascii?Q?WQ6j+bu/uUBAKF6G2B5TBf/m7bBfwjKsR+ICAZxLCTyEbIloxXbC5qUNAOw9?=
- =?us-ascii?Q?6zerbOgYoGAQtGB9TbXu1WgxJ9jno/HEnNgGLE9zLhcC5Ja51rFwIPBh2dYa?=
- =?us-ascii?Q?d2ThGqBsryhS5gwuicgcNfnSSmJqoEV5CPfDyKBObmhitKX4H1fUPJg/QjbF?=
- =?us-ascii?Q?Qf73bAnx/rUkAQRUsJ/msA+3Ac+YUES2zFBWU9wpG99Zmi1UjNPKc2rCr7PD?=
- =?us-ascii?Q?oma9KOrfDpJo+axnNbznfZ9OBAxZfnYIJFwm0sO/r2pO+Ulwh0FKnDPo2okb?=
- =?us-ascii?Q?my5vRNJRhBhZby5bPPe0/q3SVafPtcmR3SnaUH7sSzowOVP8E8Pucsbf1psk?=
- =?us-ascii?Q?o+eU1zN0jqGB/uI8wt8YfG+ZINBQh9iEp4N78SKc1pPfnPBvUpZLwtH0rMgB?=
- =?us-ascii?Q?v//DJYMMwmmnV/dsZVkGSJEToU5UI59jetGAPgFHqzq+fwzyKgo2HGsTlJ3P?=
- =?us-ascii?Q?m2PktfC+wzRHznGeYrBTSTM7SHZ8Y7sBp30HngQIF8MJYIC1mXdpb1Sj4lfB?=
- =?us-ascii?Q?iYbs7+/Wx1oLJIe/7hxsiSpK0gZzpr/HYNL9jDKklH55rQJHkuDz7Wxf4mD/?=
- =?us-ascii?Q?MJXtAo4jCdAS4AGFvr0tMWecpx3pWUDdfoibExYBpiuC2IUDiGRMI0jrCgvJ?=
- =?us-ascii?Q?5vuKFeXmxpJYDeO+qVv0nEYyxab2BeZT8djUSyffUlfSVbqnBSpvC1IXxbHc?=
- =?us-ascii?Q?RfWeDq/IP476XAfKZOM+YNQhSWk320dd3hC2ROwS43vHVI77X5LQnOnnTCJc?=
- =?us-ascii?Q?9JUwdKF6yQHKDzlwVg11ttQ66HYcY5ZTdYw5lw63LKBzn4zPHo/0RgVBWYF3?=
- =?us-ascii?Q?OX7yBNqnhLVdP0rcJk5YSf5rM1HiAQSQA0/cx/2iSMA8MItzxD17SQD5orA9?=
- =?us-ascii?Q?4HaDpfRNhvyqQByrXT/+HF9vWogb1f027TBbCX7Fc4J6MSdTEkQP6L7AToAB?=
- =?us-ascii?Q?dH7SULL6CR8ncyqU6UG87oKXYXUION3SKecz+4eDsLf2I48Qu5u1BH07T2ki?=
- =?us-ascii?Q?ujPNdyaL8HvZg4epYqlY39o4J5ouhS6Y9vIUnyfJ902EEQ5tszusOFp1+tlB?=
- =?us-ascii?Q?AQNFKwwYtxPBPsTjnqbA8Hxyuy1yt8SjrxlKsGZdukEaMxVd8udtFM391bKc?=
- =?us-ascii?Q?HVyn2GzdqDzn9hLD2X+GBipoifIgRj3ZOBGu3x247/hIua79WRUdmynRLkyT?=
- =?us-ascii?Q?iS4Idu4aeu0PDTS3ucVm57M=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(19092799006)(7416014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dai3O1bwEIRudSauvYxAmnZk9Vu3oZ8R7xwpcHLLHxcfOhPw51s7+esTO2uC?=
- =?us-ascii?Q?ZYzBU7GVQGwTL30tXhdQ3/2NKsy9fLfMJ1pCHL1r6xp95Q/7W1W63E4Z1JuL?=
- =?us-ascii?Q?xKV4LtANTOyWMo8liTLV5q2egb2yvkD9hAaOYCuCMFhV3R155Ey9+NPq6jJB?=
- =?us-ascii?Q?vxBWhLYuTNWwLwnpuoytwxat6fotLYPA9ZMQqH0ZKjQpl26gEXF+hEYlsz64?=
- =?us-ascii?Q?CvBW2yBx7pUxZZ4w/yUQSDg99+3wATKzFZX6B7RWNyx/zb1MMB/rLiDT2b09?=
- =?us-ascii?Q?4NE9ol0O9j8517obV2uub+LCJEaM9sPeISmJBtSZd5NNzGij/+lDKbQ5Oes0?=
- =?us-ascii?Q?OeJbD8sRNnp+QOCqitLnQB8p9m2UjkI4pS85ZFD5xdGpfMqWEgu6asHanZ1S?=
- =?us-ascii?Q?OSIZ/45lwjp3EqrMw6x3LgO0k2JU0v19YiEzaO8dJPOJ7/toyzBEfeOxaWUV?=
- =?us-ascii?Q?BU0dNCycPXhBNdFh0/DUwnMeC7jfeEJZx86W9TryHSXexBLfPjAShaSuKav9?=
- =?us-ascii?Q?RfK3l6tu1lHua5tG21qUmG3zKPR7zSTV/Gqu8N7DDgRkz5je5mXwhktbgjoE?=
- =?us-ascii?Q?IKclDJRAEuaSH/dB3+WNPLAHxiv3HQHNkM/16SEvNeLBaaqNzZ5SZWgjQAqp?=
- =?us-ascii?Q?/eSI9hxyOuZXS2gAdFMJpJhOkcEAHuiw907oWm4UVqZ7jhQ5gMW3fc0cIHrI?=
- =?us-ascii?Q?gn4sZMV3TONCT3Eabmh7qE9OUUKdSMG8LmjGati1crXiOX79QCJXwEVCA7Rx?=
- =?us-ascii?Q?v+aqwWLK+qduJfMYyWnU8j/IOx434euTjVR+hBt8vszDGBQ8QAAM7egaSF7H?=
- =?us-ascii?Q?9SmGze3wwYTArppUIWZEQ3B2s8mvNeO3a1DVn0GfOpcnotW8guycq8SP5ITf?=
- =?us-ascii?Q?jC7p/VSqduHAvKI0v+Ny9+ODBe70Ra/GBbLVDp9BSnJjyouO2XDgKiC9Dh05?=
- =?us-ascii?Q?Ocv82hLmSOnl2UFHt9YgFsbvib4VBcqQQ3dCDadxhpci1Bhq8s5P7zohhb0a?=
- =?us-ascii?Q?QWZiSqTYizcHlTTEyMyNg9+z9nQEE49AgBG4EaulQotvEDAvfRGEjrY3KfBa?=
- =?us-ascii?Q?pugkVpD4RxZH7noccaJx5ORVyqZbVkTPxd8kj6pQBHrKSIk5BAqRl7CvPg3w?=
- =?us-ascii?Q?1NBCBZjuuShutA8oa0hvwVWXQKmum1mn5WUcwtjopB7HTBJk0bbalc7Yr9Kw?=
- =?us-ascii?Q?DCIjtZeJC/f0i5sm7+d1A9k6DD1kfjHhDEWTBm0efhJcYqoZd7dJscpDBdwA?=
- =?us-ascii?Q?8kCRPcraR/Z9TkuoWmCnSNnGQawdTQm/zd/bQXBLfjYCqPsxroIjLZBBxz3Q?=
- =?us-ascii?Q?XSw1ZIcjrRzmlAkK3EtaD6QHBQ6lyaD5pNASdyCk2mMp7F8b/FYr9MT185W4?=
- =?us-ascii?Q?1MJhkrRqo+MaiwijY14qSkY3O2kH10SKnOSLmWIY1sPsgHkSSungDX9zbd/J?=
- =?us-ascii?Q?jPUoZ4tRg9TODwAzPCPrfuvGni5Fd0FPP378VGKx/BqZ61IfO8/a95204tCf?=
- =?us-ascii?Q?UY7bJh89SdEngb3VNsRrx+lNOb0WlJV7ymlmRKKcBNKUfRmIH3PzC1jpWuAg?=
- =?us-ascii?Q?Cp3GiIxfm2v+LmAkf9PzONjFLcgqy7UbZ6mLKX6qs5SUBDZWT0RFP+Miwon8?=
- =?us-ascii?Q?q2Ih9mfetM0xTWHhhMXtocmbCuiOwYFBlt4SCjVIK9Mvn9dzfpvrYj1TwH/U?=
- =?us-ascii?Q?fDxGl1Usg1IXh9zDtFKU0S8dzT+qLGtJGg9yHPt7WSHnoCG9rboqfOfpSSln?=
- =?us-ascii?Q?Pce+uvB0Rg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 530cf115-f716-4627-ba05-08de583f9ac8
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 16:18:53.8585
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KFp8KJ/Fpx6+1VGy6rXrHkZwR92OQJZ8oSrydHfIfIweDVC6ra9Y+Vd4TzrQlj2GT1+5frRyZ3jMABXiw6a4/g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8727
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/3] arm64: mmu: avoid allocating pages while splitting
+ the linear mapping
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+ catalin.marinas@arm.com, akpm@linux-oundation.org, david@kernel.org,
+ kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com, dev.jain@arm.com,
+ yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
+ bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
+ lorenzo.stoakes@oracle.com, ardb@kernel.org, jackmanb@google.com,
+ vbabka@suse.cz, mhocko@suse.com
+References: <20260105202328.2418990-1-yeoreum.yun@arm.com>
+ <20260105202328.2418990-3-yeoreum.yun@arm.com>
+ <aW5p1ylQBNXTEmmq@willie-the-truck> <aW6hISBu3hNYS771@e129823.arm.com>
+ <2619166b-13ef-4daa-82c7-1d44035a8d6c@arm.com>
+ <aW9LCX92T9t8iDco@e129823.arm.com>
+ <baa46ea0-737b-4d9e-b4f4-2eee1476da95@arm.com>
+ <aW-k_D1Q8jpYMPoI@willie-the-truck>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <aW-k_D1Q8jpYMPoI@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_081901_455084_68EDB42E 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20260120_082300_447471_EC45561E 
+X-CRM114-Status: GOOD (  37.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,56 +77,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 07:03:28AM -0800, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->
-> For SM-based SoCs (i.e. MX95, MX943), GPR configuration is performed by
-> the SM coprocessor. Thus, the programming model needs no handle to the
-> GPR node. Make it optional.
+On 20/01/2026 15:53, Will Deacon wrote:
+> On Tue, Jan 20, 2026 at 10:40:30AM +0000, Ryan Roberts wrote:
+>> On 20/01/2026 09:29, Yeoreum Yun wrote:
+>>> Hi Ryan
+>>>> On 19/01/2026 21:24, Yeoreum Yun wrote:
+>>>>> Hi Will,
+>>>>>
+>>>>>> On Mon, Jan 05, 2026 at 08:23:27PM +0000, Yeoreum Yun wrote:
+>>>>>>> +static int __init linear_map_prealloc_split_pgtables(void)
+>>>>>>> +{
+>>>>>>> +	int ret, i;
+>>>>>>> +	unsigned long lstart = _PAGE_OFFSET(vabits_actual);
+>>>>>>> +	unsigned long lend = PAGE_END;
+>>>>>>> +	unsigned long kstart = (unsigned long)lm_alias(_stext);
+>>>>>>> +	unsigned long kend = (unsigned long)lm_alias(__init_begin);
+>>>>>>> +
+>>>>>>> +	const struct mm_walk_ops collect_to_split_ops = {
+>>>>>>> +		.pud_entry	= collect_to_split_pud_entry,
+>>>>>>> +		.pmd_entry	= collect_to_split_pmd_entry
+>>>>>>> +	};
+>>>>>>
+>>>>>> Why do we need to rewalk the page-table here instead of collating the
+>>>>>> number of block mappings we put down when creating the linear map in
+>>>>>> the first place?
+>>>>
+>>>> That's a good point; perhaps we can reuse the counters that this series introduces?
+>>>>
+>>>> https://lore.kernel.org/all/20260107002944.2940963-1-yang@os.amperecomputing.com/
+>>>>
+>>>>>
+>>>>> First, linear alias of the [_text, __init_begin) is not a target for
+>>>>> the split and it also seems strange to me to add code inside alloc_init_XXX()
+>>>>> that both checks an address range and counts to get the number of block mappings.
+>>>>>
+>>>>> Second, for a future feature,
+>>>>> I hope to add some code to split "specfic" area to be spilt e.x)
+>>>>> to set a specific pkey for specific area.
+>>>>
+>>>> Could you give more detail on this? My working assumption is that either the
+>>>> system supports BBML2 or it doesn't. If it doesn't, we need to split the whole
+>>>> linear map. If it does, we already have logic to split parts of the linear map
+>>>> when needed.
+>>>
+>>> This is not for a linear mapping case. but for a "kernel text area".
+>>> As a draft, I want to mark some of kernel code can executable
+>>> both kernel and eBPF program.
+>>> (I'm trying to make eBPF program non-executable kernel code directly
+>>> with POE feature).
+>>> For this "executable area" both of kernel and eBPF program
+>>> -- typical example is exception entry, It need to split that specific
+>>> range and mark them with special POE index.
+>>
+>> Ahh yes, I recall you mentioning this a while back (although I confess all the
+>> deatils have fallen out of my head). You'd need to make sure you're definitely
+>> not splitting an area of text that the secondary CPUs are executing while they
+>> are being held in the pen, since at least one of those CPUs doesn't support BBML2.
+>>
+>>>
+>>>>
+>>>>>
+>>>>> In this case, it's useful to rewalk the page-table with the specific
+>>>>> range to get the number of block mapping.
+>>>>>
+>>>>>>
+>>>>>>> +	split_pgtables_idx = 0;
+>>>>>>> +	split_pgtables_count = 0;
+>>>>>>> +
+>>>>>>> +	ret = walk_kernel_page_table_range_lockless(lstart, kstart,
+>>>>>>> +						    &collect_to_split_ops,
+>>>>>>> +						    NULL, NULL);
+>>>>>>> +	if (!ret)
+>>>>>>> +		ret = walk_kernel_page_table_range_lockless(kend, lend,
+>>>>>>> +							    &collect_to_split_ops,
+>>>>>>> +							    NULL, NULL);
+>>>>>>> +	if (ret || !split_pgtables_count)
+>>>>>>> +		goto error;
+> 
+> Just noticed this, but why do we check '!split_pgtables_count' here?
+> if the page-table is already somehow mapped at page granularity, that
+> doesn't necessarily sound like a fatal error to me.
+> 
+>>>>>>> +
+>>>>>>> +	ret = -ENOMEM;
+>>>>>>> +
+>>>>>>> +	split_pgtables = kvmalloc(split_pgtables_count * sizeof(struct ptdesc *),
+>>>>>>> +				  GFP_KERNEL | __GFP_ZERO);
+>>>>>>> +	if (!split_pgtables)
+>>>>>>> +		goto error;
+>>>>>>> +
+>>>>>>> +	for (i = 0; i < split_pgtables_count; i++) {
+>>>>>>> +		/* The page table will be filled during splitting, so zeroing it is unnecessary. */
+>>>>>>> +		split_pgtables[i] = pagetable_alloc(GFP_PGTABLE_KERNEL & ~__GFP_ZERO, 0);
+>>>>>>> +		if (!split_pgtables[i])
+>>>>>>> +			goto error;
+>>>>>>
+>>>>>> This looks potentially expensive on the boot path and only gets worse as
+>>>>>> the amount of memory grows. Maybe we should predicate this preallocation
+>>>>>> on preempt-rt?
+>>>>>
+>>>>> Agree. then I'll apply pre-allocation with PREEMPT_RT only.
+>>>>
+>>>> I guess I'm missing something obvious but I don't understand the problem here...
+>>>> We are only deferring the allocation of all these pgtables, so the cost is
+>>>> neutral surely? Had we correctly guessed that the system doesn't support BBML2
+>>>> earlier, we would have had to allocate all these pgtables earlier.
+>>>>
+>>>> Another way to look at it is that we are still allocating the same number of
+>>>> pgtables in the existing fallback path, it's just that we are doing it inside
+>>>> the stop_machine().
+>>>>
+>>>> My vote would be _not_ to have a separate path for PREEMPT_RT, which will end up
+>>>> with significantly less testing...
+>>>
+>>> IIUC, Will's mention is additional memory allocation for
+>>> "split_pgtables" where saved "pre-allocate" page tables.
+>>> As the memory increase, definitely this size would increase the cost.
+>>
+>> Err, so you're referring to the extra kvmalloc()? I don't think that's a big
+>> deal is it? you get 512 pointers per page. So the amortized cost is 1/512= 0.2%?
+> 
+> Right, it was the page-table pages I was worried about not the array of
+> pointers.
+> 
+>> I suspect we have both misunderstood Will's point...
+> 
+> I probably just got confused by linear_map_free_split_pgtables() as it
+> has logic to free unused page-table pages between 'split_pgtables_idx'
+> and 'split_pgtables_count', implying that we can over-allocate.
+> 
+> If that is only needed for the error path in
+> linear_map_prealloc_split_pgtables(), then perhaps that part should be
+> inlined to deal with the case where we fail to allocate part way through.
 
-"programming model" look like software configuration.
+I was originally concerned [1] that there could be a race where another CPU
+caused the normal splitting machinery to kick in after this cpu determined the
+number of required page tables, so there could be some left over in that case.
 
-Thus, GPR is transparent to software and does not need to be described in the
-device tree. Make it optional.
+On reflection, I guess (hope) that's not possible because we've determined that
+some CPUs don't support BBML2. I'm guessing the secondaries haven't been
+released to do general work yet?
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
->
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> ---
->  Documentation/devicetree/bindings/sound/fsl,mqs.yaml | 12 ++++++++++--
->  1 file changed, 10 insertions(+), 2 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/sound/fsl,mqs.yaml b/Documentation/devicetree/bindings/sound/fsl,mqs.yaml
-> index 1415247c92c8..bcc265a742c7 100644
-> --- a/Documentation/devicetree/bindings/sound/fsl,mqs.yaml
-> +++ b/Documentation/devicetree/bindings/sound/fsl,mqs.yaml
-> @@ -63,6 +63,16 @@ required:
->
->  allOf:
->    - $ref: dai-common.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - fsl,imx6sx-mqs
-> +              - fsl,imx93-mqs
-> +    then:
-> +      required:
-> +        - gpr
->    - if:
->        properties:
->          compatible:
-> @@ -91,8 +101,6 @@ allOf:
->          clock-names:
->            items:
->              - const: mclk
-> -      required:
-> -        - gpr
->
->  unevaluatedProperties: false
->
-> --
-> 2.43.0
->
+In which case, I agree, this could be simplified and we could just assert that
+all pre-allocated pages get used up if there is no error?
+
+[1] https://lore.kernel.org/all/73ced1db-a2e2-49ea-927e-9fc4a30e771e@arm.com/
+
+> 
+> Will
+
 
