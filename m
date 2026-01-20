@@ -4,104 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA175D2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D66D2ED0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:29:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yc+Ead3PO+unG4M7qBQi+SYoKoovz03bDLJ6rIoKTZI=; b=MZD1CX+xhulrZHVVm8MYa9Qz7U
-	dZ1TbioCG7stipWrtXwDSf9wVshd342pllCsSGqg7oxBx0swz121xgJDu86Ha7UFN3Oqwh3Wv7mwu
-	Vl9FFnNNHtTmJURc4JYjyrhuRLOIRLGqqQSTlV5EMTdgcGGAccaywcG+XVbR7hz/APpSABkGWOViY
-	wxzmXLtLcwjvFrgsNR7uRRJ6bBFkpXvLiXIUxEisFNQv+uW0d42zLuXVJpJbDFPBCUDJHEqpRXLiR
-	wlTDRCX1SjlPNdHCb+QAQrPEH74dUmQy60zJIQELiIyCmnlRhh3/jnD93k/9mcz8BjDhM3plL7F+k
-	71+jstBQ==;
+	bh=AjnwvV2BqvE2aPiFrCHPh0/mzQujqmD6N4sIt6a5sZU=; b=IUCl0mPnFOaL5sTf3KHug07A4Y
+	dcloLIClFmYr+NYMueBG/poiNUvJeH+8hBCMOeNkhUoogNV4IJJGkl/GFmxPJCYSZ0xHnkQ8hIyk+
+	S4PiA6nEpIpYStA708TkQ1NMy/ssKBAsKpcw3GxJe88Bm7E2MjBBlXUiZg7F63iUvaFWk+leC2Zap
+	zp698hWboFF+1boXE1TZugl4WLi4eIJQwGe37evLmmhXm5JnvRROy7qvuI1cOGXdtEfrA42mjlXql
+	+GUdrxaBvVQ8jVlYanCq8cGBxIE0UBbzqrLJ9f1dZYR0aISn0VZu7UJ13ekP6rPEVeOya4Nt59lvs
+	dBbtjzQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi9qT-00000003hzI-2tmD;
-	Tue, 20 Jan 2026 11:24:25 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1vi9vc-00000003iJj-057Y;
+	Tue, 20 Jan 2026 11:29:44 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi9qQ-00000003hyQ-02pO
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 11:24:24 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-8c530866cf0so513295685a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 03:24:21 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768908261; cv=none;
-        d=google.com; s=arc-20240605;
-        b=NoVUcINO3oVvhEWyJca3qIv2B0FJByS1DlxvPLy+VFY8Q1hfZB/wl4HLmb9o9ah1Gx
-         o0tNNlk/tmFRxnpSGKgcMbu9x/eS3lSCmEfzgf1pJBDB3QNvVum8skDcVYNtz5CFV8ta
-         iqf7Qi3ALOHfKOj/dFJWpqq2w2EabAJay0fegR/27zTX7kGqBd2VuWnE06kMGxxJNQa4
-         nNntD0Ja6+/4ENmr2AnKntB4s47AutKuilug6ZCo+0FWNkkOZTWZ7x4uXu4MW+mM4Kyj
-         MPfyWzxN162wphC60TsUvlzUieLa68bpK5N2O2sZMFVJivHyJRi9RlEiKC1KtFjiioUg
-         GFYA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Yc+Ead3PO+unG4M7qBQi+SYoKoovz03bDLJ6rIoKTZI=;
-        fh=pw+FhBngeEUWC1e0Bj8/1aXub45OeaKKIZzNgWuATqo=;
-        b=lTgR/Uqc86WJ58xudKA2i/rOnOuRm50+r2FeklJNimXQkEJsXQlb1NRlSJQYfidJMa
-         KEUcVdsEK+eaJLGjfya/vC8ODJuyM1G7pu2Hd28yQO60eSskGU77qelVguWsp5pPfpml
-         Lt8vAwJ6KYFuq76EW4eMOqskQZL5Vt2IVfA5sbEUpiUEXQ6Yegt5H1bEIQZRStrMN2oC
-         g1vqp7MQL0YEIiDbqju9P2BFVMjefJMX+RHcFq0P0I98H5ZXo8MziTYE40Z9annuKsTX
-         xyohSt0HWqC+woYPHtVRzqKZdFppN0nGUVRTlwW092lSy3sITANTw8aiKygRbrF58EJT
-         byLA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1768908260; x=1769513060; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Yc+Ead3PO+unG4M7qBQi+SYoKoovz03bDLJ6rIoKTZI=;
-        b=RfUhSuWRA+Hf1cyj/w0TCsHbr/PFX95rUs9xTxetYbWdfqB7XLPZbIjFSiTJjlT127
-         nJWYUhlmP7dk1apKc8iezogdwiN1TxVaTcJR+BEOepz9YdnemKYSZTa/tqdFjlaoOSOP
-         xZR4tXm0UpAssHRUAFkw25mcv4OF6K24BYLm4nwfesRVCfhA9iQ4va0wCeiH6hjnWrEW
-         gGMzZD5eyzaMC+jqXZyWpRY5XzDi2tzQhHaqI0GzAUMpyeWNNt2MEYQkzF4JT3iXnt1n
-         5LSy2D6wM+Y5/Edy9cQdVBqaEXFlOu6S33EOtKGgcmkma+Db6hZVJHYofaq7JJPWIttn
-         ErwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768908260; x=1769513060;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Yc+Ead3PO+unG4M7qBQi+SYoKoovz03bDLJ6rIoKTZI=;
-        b=SAJFtKKYTLWswEmpsp2tMq34IIB8YyWl3tHcVRFb8PhWaGWT92wb5x1M3tMsfJyjWX
-         mnNyxfZxXrQm8Y31dEPX1UHOLZy49dN6vu4hVpuY3M21qtclPQtMoJ1DaHK3xfAiQRu2
-         oP8fQ6lZHLWUS65uML8TCAeSQi0SyVdvN2bJ0Pm6zme3WL27Od1fzs8W5i/t7WdoeAm2
-         QvpIUR8hCcmFrgc7BqJjUSf/f+kkXRAVufCyt5AQ9F1qKNFnPYkYhoFzmKyCJ4v0vqgg
-         M3lEGJ1cQk34q1CiWttszrNBKw9xmHmsTGZ1pqGgRIXnIjXYcdErgzRiPIgO3pBwtJDP
-         qFWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX28YADnYpXJDQMwMNr58Y4Q2cyz3qpMLQRmHqOLlqCagJvVjzJtw2uDi8HMA6iK+ipSwkN3nvB8SFo+9Oh67uQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzhrt3GLqLUb190Ucs3dkSRWeJk34g6LJEZo/VsoEX3E/5gop8X
-	eUnL/SsGq+eVapPUNAxw6nvcYz6ZqOY85A7USpirUb6AV6+GVSmH5GhQ5vyTfoiUvemHjONbxY6
-	2qr3kn/VCoF4nwCle3ROj063uuaheTjjTWdcZ7a1Yag==
-X-Gm-Gg: AY/fxX5gOnu2XQycK0uxH9aln4k6Sxqrq2jXohjabLY/uLEMbGjL4L3RzPBlf6nFU75
-	H+jb7rpHlgFr4hLz9QDce701BT2U+OOu5wZya8xYYYDeVklNp4Dk3F2cBJZ85GF6sp618e9PDXH
-	fDjg8B7wPeY4ijOWl0oG5rwhx/+3tCyihjMmOtBTEeAcxQonIqC9R8jGTo9J8Tj711XBRHr93gX
-	0b8zY/zjX3IUzdTMnjZNKuhzBsT+Ax9WrqehkDtThA22z4mD+NtSnA+glX8PrU3vRMk
-X-Received: by 2002:a05:622a:293:b0:4ed:b012:9706 with SMTP id
- d75a77b69052e-502d8560e22mr15738471cf.43.1768908260643; Tue, 20 Jan 2026
- 03:24:20 -0800 (PST)
+	id 1vi9vY-00000003iJB-3hwC;
+	Tue, 20 Jan 2026 11:29:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=AjnwvV2BqvE2aPiFrCHPh0/mzQujqmD6N4sIt6a5sZU=; b=hovWwipuHB57LKi4MlszUuI8DP
+	CgD3oSh3KhgWsMTfb486kUstGtEakbhWKS3+1iC5/urnMW79/L40gcwZ5abtlbaHeVDneWxj/KXyX
+	eTJv0JZfc3wkTMmGRw7nkB0HxBhoRPNL5zkIKvCd+Dsv6eBFJLW2/pEYOO2FIvMQl4Su8K1KY6UZi
+	PrXKLOXfxQQycmy+X6n53r84bKvM9JlWyEx096TTXdb2WDyBWNjezyvY8YMZ1iQmo/Hfbr+wGtFAY
+	C9aaJwM1f6p7mnsw1EmmDjJrl5vXbwvoF6LduEgFjCuro5aKLguFLKEm7NSzHR4V0bm8WPRMvX/zN
+	vUNCdoYQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59282)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vi9us-000000006A6-2vXc;
+	Tue, 20 Jan 2026 11:28:58 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vi9uj-000000007Tq-3hBk;
+	Tue, 20 Jan 2026 11:28:49 +0000
+Date: Tue, 20 Jan 2026 11:28:49 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Yao Zi <me@ziyao.cc>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Yao Zi <ziyao@disroot.org>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next 3/3] net: stmmac: Add glue layer for Spacemit K3
+ SoC
+Message-ID: <aW9m8YOVO1ClIQOd@shell.armlinux.org.uk>
+References: <20260120043609.910302-1-inochiama@gmail.com>
+ <20260120043609.910302-4-inochiama@gmail.com>
+ <aW9jbqBSgkiLLw8r@pie>
 MIME-Version: 1.0
-References: <20260109005821.225235-1-andyshrk@163.com> <CAPj87rPYsD9bp7Ep=fBb2ViOzSnWCgWNJ7Hj=WZuDR+OTNpnSQ@mail.gmail.com>
-In-Reply-To: <CAPj87rPYsD9bp7Ep=fBb2ViOzSnWCgWNJ7Hj=WZuDR+OTNpnSQ@mail.gmail.com>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Tue, 20 Jan 2026 11:24:09 +0000
-X-Gm-Features: AZwV_QhTX82cJ3r5JB05_RUf2GPXL2PjFD8R51i19MJ8Z0EQM7Kp4Hhb5yTq2q0
-Message-ID: <CAPj87rNJ_ELo0C7u5Qqqhg5br8kar+f7DjcKd6Oxkr1uETsVAQ@mail.gmail.com>
-Subject: Re: [PATCH] drm/rockchip: vop2: Add mode valid callback for crtc
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, hjc@rock-chips.com, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, airlied@gmail.com, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, simona@ffwll.ch, 
-	Andy Yan <andy.yan@rock-chips.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aW9jbqBSgkiLLw8r@pie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_032423_661559_CE1B244D 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20260120_032940_948845_61B0A887 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,28 +108,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
-
-On Tue, 20 Jan 2026 at 11:03, Daniel Stone <daniel@fooishbar.org> wrote:
-> On Fri, 9 Jan 2026 at 00:59, Andy Yan <andyshrk@163.com> wrote:
-> > Filter the mode that can't output by the crtc.
-> >
-> > [...]
-> >
-> > +static enum drm_mode_status vop2_crtc_mode_valid(struct drm_crtc *crtc,
-> > +                                                const struct drm_display_mode *mode)
+On Tue, Jan 20, 2026 at 11:13:50AM +0000, Yao Zi wrote:
+> On Tue, Jan 20, 2026 at 12:36:08PM +0800, Inochi Amaoto wrote:
+> > +static int spacemit_dwmac_probe(struct platform_device *pdev)
 > > +{
-> > +       struct vop2_video_port *vp = to_vop2_video_port(crtc);
-> > +
-> > +       if (mode->hdisplay > vp->data->max_output.width)
-> > +               return MODE_BAD_HVALUE;
->
-> Why not test height as well?
+> 
+> ...
+> 
+> > +	of_property_read_u32(pdev->dev.of_node, "tx-internal-delay-ps", &tx_delay);
+> > +	of_property_read_u32(pdev->dev.of_node, "rx-internal-delay-ps", &rx_delay);
+> 
+> According to of.h, of_property_read_u32, which in turn calls
+> of_property_read_u32_array, could fail with -ENODATA if there's no value
+> associated with the property. Should the case be handled?
 
-I see the question was answered about 45 minutes ago ... anyway, why
-not as a follow-up, change struct vop_rect max_output to just a single
-max_width value?
+You cut too much. This had:
 
-Cheers,
-Daniel
+	unsigned int tx_delay = 0;
+	unsigned int rx_delay = 0;
+
+at the start of the function.
+
+of_property_read_u32_array() says:
+
+ * @out_values: pointer to return value, modified only if return value is 0.
+
+and of_property_read_u32() passes &tx_delay or &rx_delay to this. Thus,
+if any error occurs, these will be zero. In other words, a missing
+property is equivalent to setting these to zero, which is entirely
+reasonable.
+
+However, "unsigned int" _may_ be type equivalent to "u32", but really
+these should be "u32" if of_property_read_u32_array() is used.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
