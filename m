@@ -4,80 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C37D2ECF9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 06:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D3CD2ECF9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 06:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e5zTidzD1l2EkEPlrmawzN2dIfFYQQCNH1hdqUaixrE=; b=PqXym6/lxF4sNua7+BvOO0P5hg
-	ZKgxE6aNFqpkurbnR8qYmCFnJUuMbbIUB9R+8O75E8Q1aanA/LDeX2RLsQwuW/FYWwISU5FtLTnTv
-	Y+yYMoqvugDbOwGc7YI7P3dYIU5Cpb7Do6Yrc5RPY2ggGLSQTL8/yvzPwqLLCTiyEzYUsmMXFeDNY
-	Bm4sgHDr/oRCboMvk/cxqUKegqroQwnbfq6lqmRO97ELa3Nyk0rmCeBfHxUyvajeDve4bHredb3rH
-	dRrwqwIdTv7uAMMettZLAuJVEyH6aFCJBk5xLxI3BpD8h2xHq7nncueG8UN8G+1EHHMYIzOpXH+bd
-	1pSIw9nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rqgc5CPjaP49KJcXebJGCDXQWilda3LGOk43y2VroRw=; b=nWhU6EUlVr6VtcRfqn61Ov+ncp
+	Cki36JfvOf3dywv/W8xq+iqSVxo5uzR2yU2ty7Na8fnMZ1pJ559SccSTffwjpcHYe0qR0fynG3Ul1
+	ExJDoJcCuUEDzzohAFLcnAj1JgdZj55SthqkwLwvq41MlNtJjhWgQExBRusuq8GqShwr8GZquMwYL
+	3rHsUS8dunVZT7t5H1reB8GXPQAvuCHsGjrS0bHWrUha2QhjLyThhTLlCiJ0KdwsU2mJGbnYfKYkk
+	arUggCFZFpr6ngjkVw9kZSJVGEu6jmXO6/JmXWmUlfHSDR5ThKBc/ei5CpN/AB8vWVgtnGwPsR6pl
+	w1vdFDCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi5TI-00000003HxY-1aPn;
-	Tue, 20 Jan 2026 06:44:12 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi5Ss-00000003HUO-0APq
+	id 1vi5Td-00000003IJJ-4Axa;
+	Tue, 20 Jan 2026 06:44:34 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vi5TY-00000003IC4-2B8r
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 06:43:52 +0000
-Received: from mrdev.corp.microsoft.com (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
-	by linux.microsoft.com (Postfix) with ESMTPSA id E60DA20B7175;
-	Mon, 19 Jan 2026 22:43:39 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E60DA20B7175
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1768891420;
-	bh=e5zTidzD1l2EkEPlrmawzN2dIfFYQQCNH1hdqUaixrE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UNMpFJkAxc0ipZ/uc95ODahk07NK6NWJyqWcGkaZVKyIZt1UDQiiBulzjGwCk91VX
-	 jt0oLrxXe6iYTsRwRbf+EqSpgCO1gfUoGkAjX1AJ38Zyc7EB7vv0f3UcxIZZ6sNoFr
-	 vdmcs3Bq/RId5HwNs85PYXjzf1VCUY/upizMZ+/c=
-From: Mukesh R <mrathor@linux.microsoft.com>
-To: linux-kernel@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-pci@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Cc: kys@microsoft.com,
-	haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	longli@microsoft.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	joro@8bytes.org,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	arnd@arndb.de,
-	nunodasneves@linux.microsoft.com,
-	mhklinux@outlook.com,
-	romank@linux.microsoft.com
-Subject: [PATCH v0 11/15] x86/hyperv: Build logical device ids for PCI passthru hcalls
-Date: Mon, 19 Jan 2026 22:42:26 -0800
-Message-ID: <20260120064230.3602565-12-mrathor@linux.microsoft.com>
-X-Mailer: git-send-email 2.51.2.vfs.0.1
-In-Reply-To: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
-References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+	Tue, 20 Jan 2026 06:44:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MVkRCwSV7rosuiQfRBpjQ5634IptEZvcmnDVoYahRFo6ZnIjFVOkMRvVI3noqGQpaLVUJTbhDft9MmfXMentedTJQoePj8XeRLPGINB1uDe+0xs3utaylrg33Gb+gZyAas5E9kn2yKvnsD/Gpy5v6/nefTOhofKmRvsqdur21FTWstuZCBn5lnuAgtROOLvljpR0/HgkAUlZkX3j9iu6YD2htVhiynUWq2fayuGjuYAz2tQ6u9BQUwD9vvXujavlWz/2k3jrujZ3HmCJxMbQe+1552hRbI911P1NTDwXLijlWrkoVVyL8uoXQxHHw5lHc7NMhfTGpxD+ivAegNHcmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rqgc5CPjaP49KJcXebJGCDXQWilda3LGOk43y2VroRw=;
+ b=dpuGR+a3OiILgxsPBhE+ytHV8OPrg8pHzVE/tm+s+GeV8Lxu8RiefkIUEOfhzL3sAOi4YWDXwnqF7QbY6A+Z+DLeJnaZ31JRxgRe/sN4GslSsArIjHv3YJpM2d+XqdO26q0hTikY0m7rwD7nmtmA7AOnLnN0KW5HhTHUp/mU5p3Lw2wKP3BqFNCSUvYVarCrZvGNy1RiVKpT0KGOWQwTb/6GNt8GN4PrBUOX5fZY70KG4IGPQMNh/iarT21DczWHrm0qWtG/4c2SmDK/cglAoamlQJH7lnblZPElF+kPp0VqNPk66fdznpzSn8vmOd0QIyaFRRS1qhMShIfO3NvzVw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=arm.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rqgc5CPjaP49KJcXebJGCDXQWilda3LGOk43y2VroRw=;
+ b=lbTwt6TyqGQ/Q/uNCKd0wObLm3lK614HlCwOplkx1EUUFzEul/sINzY8vAr0Ezo1DwnzIzD4hPP64fxemue8A7SAfY+a8KF/iDXM5DL5G8Gv0EyCCYzrOADewk2+O5Uypq3NJwEN1OtNL3e1+XvOVfyXGI2EncR4d2g7WkHXN8U=
+Received: from PH2PEPF00003856.namprd17.prod.outlook.com (2603:10b6:518:1::78)
+ by CH3PR10MB7257.namprd10.prod.outlook.com (2603:10b6:610:128::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Tue, 20 Jan
+ 2026 06:44:21 +0000
+Received: from SN1PEPF00036F3D.namprd05.prod.outlook.com
+ (2a01:111:f403:f90d::) by PH2PEPF00003856.outlook.office365.com
+ (2603:1036:903:48::3) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.12 via Frontend Transport; Tue,
+ 20 Jan 2026 06:44:21 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SN1PEPF00036F3D.mail.protection.outlook.com (10.167.248.21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9542.4 via Frontend Transport; Tue, 20 Jan 2026 06:44:21 +0000
+Received: from DLEE210.ent.ti.com (157.170.170.112) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 20 Jan
+ 2026 00:44:21 -0600
+Received: from DLEE211.ent.ti.com (157.170.170.113) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 20 Jan
+ 2026 00:44:20 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE211.ent.ti.com
+ (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 20 Jan 2026 00:44:20 -0600
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60K6iJXG619716;
+	Tue, 20 Jan 2026 00:44:20 -0600
+Date: Tue, 20 Jan 2026 12:14:19 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+CC: Cristian Marussi <cristian.marussi@arm.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<arm-scmi@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+	<sudeep.holla@arm.com>, <james.quinlan@broadcom.com>, <f.fainelli@gmail.com>,
+	<vincent.guittot@linaro.org>, <etienne.carriere@st.com>,
+	<peng.fan@oss.nxp.com>, <michal.simek@amd.com>, <dan.carpenter@linaro.org>,
+	<elif.topuz@arm.com>, <lukasz.luba@arm.com>, <philip.radford@arm.com>,
+	<souvik.chakravarty@arm.com>
+Subject: Re: [PATCH v2 01/17] firmware: arm_scmi: Define a common
+ SCMI_MAX_PROTOCOLS value
+Message-ID: <20260120064419.by4nvmdgdybwe76q@lcpd911>
+References: <20260114114638.2290765-1-cristian.marussi@arm.com>
+ <20260114114638.2290765-2-cristian.marussi@arm.com>
+ <20260119111827.00001704@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260119111827.00001704@huawei.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF00036F3D:EE_|CH3PR10MB7257:EE_
+X-MS-Office365-Filtering-Correlation-Id: 48d78a62-9531-4e7b-c5d7-08de57ef57c1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Ovd8b3Fh0cZvjkAv4XSAuc9KwOD1Qzqjkp7ALf62oE7UHFb7qDm2kyO/lykU?=
+ =?us-ascii?Q?jTQZ3URAY4eYae+Br8IkVMQImEspzoH/qBwSEbG5cUf4uU24UdI5md2W1cdd?=
+ =?us-ascii?Q?l+fdE+fiouHOlGvORIpW0pp/7ZTPM+DfXuluSKAWhPHUDD+FGiwYz/UgpE+w?=
+ =?us-ascii?Q?b/W1AmQwu0hZWovdrkwVZhY0RdQXeaiUO7Za6oFuOjOXieMtj9dDYwpQTtv0?=
+ =?us-ascii?Q?waK7lonj2HIsMAvAz5m1LYdtoX1d8jRoemDA4Hb+yqH+Bz3Thgffj2p7cmWZ?=
+ =?us-ascii?Q?hWwABrvAz87JxE7GLvlVUof0+R02RDBaDQk0Bk9vZFAw7KU6ECtcs97dWQ+P?=
+ =?us-ascii?Q?MqL+c1Gi7R62ooODZNo+4EEGoms/4pH/CIBi2LqpwWe1PNjY7GS5WP+trb9A?=
+ =?us-ascii?Q?vZdMgL7k+evzgC9YHvi+fjkQO/H4JHaeCYigUQdHaz0wMqwBCuzQKNsU3Irl?=
+ =?us-ascii?Q?F394RghUYUYGmRyzlYYMrse9AYaE4iim/ZIqMTHtrpuTwpKa4Oo/2ieWvW8A?=
+ =?us-ascii?Q?biyLNnO9fs2DMyF7cJqukAFxx9RJbEd7mN4GNckWqFSU64/IkhXNcbXX9HwG?=
+ =?us-ascii?Q?bTcrIAT+l1DWChIqAyVh58Ja0BvmjqXFjt0I5yPfilz5X8qAAS/6ecmM0aao?=
+ =?us-ascii?Q?xNwc3FVu6Ly+uEVyKXxjsb5PzbvqTv9Byaf2XZdIcmv3NWZB332KV+WzVQ4i?=
+ =?us-ascii?Q?CWKNdxx1T/1PF4XpGziBDwXmFXLQ9s2fZu1908eZfwk5+d6N4s8bDESUC5fb?=
+ =?us-ascii?Q?95lAA8o4qCQTKvzK1hfgLLLV1rqvn3e2cbsUUBl2/6yebAjgxQSUqZb3yXKJ?=
+ =?us-ascii?Q?eTr7Z9bXOaLpA7Vvohsaf9HC/GsHfxVe1ZWvtRLrYwCX6+Q5LsVYjwDT3kOs?=
+ =?us-ascii?Q?gL0h2I2qQI9BeP0c/7gtQmyX5SjWKoN3e33uwqh1cgCrjV9/uvpPrhSsodmn?=
+ =?us-ascii?Q?5qCCbsUTGuf4PGHzenN0w4v4swrDGzDzGUJatxraRMBvBsXMeM82jwdfcOuF?=
+ =?us-ascii?Q?S8Zbi8o16n4Gzxg0UAh484erpA24aG3+PEs7PF0ypUn0/tEzUXyQSzHFv7aG?=
+ =?us-ascii?Q?C7EafCVMqi5r/PtfvSXQ9eNwdx79+P8SiwAtU6ftM/cO+GI/9iqHwsJ7XR0i?=
+ =?us-ascii?Q?y1qy8vmdIon3u6PPWNWDT0Z0JAQ3C3qCD4GWum+i8qfigToeMoeSJ0iB2AO6?=
+ =?us-ascii?Q?F9puDw/Tuwx8tXGoJwBD4jWyIE2jO3pH2Zm7LxIzi29lRPnKjbdNhZn7An8H?=
+ =?us-ascii?Q?9Q4cTmgaez9uLAbAXju9mURUyZhrNUs2YP7eUOlW02xfyKnoPLIhsF9dy0jp?=
+ =?us-ascii?Q?JhD0iMrHeXGmFJJH1WbR6BxdifzEXky0+1toHm0YFDuH2e3hmYO0UF4EXUTM?=
+ =?us-ascii?Q?/D+u+iXr32gEMCJVwsT+H1zFUUwZ5iDZmd3Tts948EFDRxrd0EiTKIgibxNZ?=
+ =?us-ascii?Q?DLFOupqQgxQjGt4cuvcxl76ZFbjvsnWNUtDqNu4lvlEoGzS4nVbyfEs8/IUn?=
+ =?us-ascii?Q?bJodAAW8QR4DAgU+LVGBNqe3qmbGrB07MBaPIuP+Sdv5jZdioUJvHbLgpoD+?=
+ =?us-ascii?Q?3gwBqj2XkzLr5uyhk/uuTt4snqauGspB9Xr2c7i1WbOaeIZWKK077mqFoDml?=
+ =?us-ascii?Q?iaShPVQEQjwkldN20GgqOZIfXyuf/1EqfVdWrJ+AnHmWuFytBVg4RP31pC+J?=
+ =?us-ascii?Q?RebiLg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014)(7416014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 06:44:21.3468
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 48d78a62-9531-4e7b-c5d7-08de57ef57c1
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F3D.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7257
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_224346_203686_C0FC21C8 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20260119_224428_574569_BB2B975B 
+X-CRM114-Status: GOOD (  20.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,160 +163,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mukesh Rathor <mrathor@linux.microsoft.com>
+On Jan 19, 2026 at 11:18:27 +0000, Jonathan Cameron wrote:
+> On Wed, 14 Jan 2026 11:46:05 +0000
+> Cristian Marussi <cristian.marussi@arm.com> wrote:
+> 
+> > Add a common definition of SCMI_MAX_PROTOCOLS and use it all over the
+> > SCMI stack.
+> > 
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> Hi Cristian,
+> 
+> Mention the introduction of SCMI_PROTOCOL_LAST in the patch description
+> and probably say why it takes that value (which is much less than
+> the SCMI_MAX_PROTOCOLS value).
 
-On Hyper-V, most hypercalls related to PCI passthru to map/unmap regions,
-interrupts, etc need a device id as a parameter. A device id refers
-to a specific device. A device id is of two types:
-   o Logical: used for direct attach (see below) hypercalls. A logical
-              device id is a unique 62bit value that is created and
-              sent during the initial device attach. Then all further
-              communications (for interrupt remaps etc) must use this
-              logical id.
-   o PCI: used for device domain hypercalls such as map, unmap, etc.
-          This is built using actual device BDF info.
+Rather I wonder why even add it? Is it just like a documentation/ marker
+or is some other usage even planned for it?
 
-   PS: Since an L1VH only supports direct attaches, a logical device id
-       on an L1VH VM is always a VMBus device id. For non-L1VH cases,
-       we just use PCI BDF info, altho not strictly needed, to build the
-       logical device id.
+> 
+> Jonathan
+> 
+> > ---
+> >  drivers/firmware/arm_scmi/notify.c | 4 +---
+> >  include/linux/scmi_protocol.h      | 3 +++
+> >  2 files changed, 4 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
+> > index dee9f238f6fd..78e9e27dc9ec 100644
+> > --- a/drivers/firmware/arm_scmi/notify.c
+> > +++ b/drivers/firmware/arm_scmi/notify.c
+> > @@ -94,8 +94,6 @@
+> >  #include "common.h"
+> >  #include "notify.h"
+> >  
+> > -#define SCMI_MAX_PROTO		256
+> > -
+> >  #define PROTO_ID_MASK		GENMASK(31, 24)
+> >  #define EVT_ID_MASK		GENMASK(23, 16)
+> >  #define SRC_ID_MASK		GENMASK(15, 0)
+> > @@ -1673,7 +1671,7 @@ int scmi_notification_init(struct scmi_handle *handle)
+> >  	ni->gid = gid;
+> >  	ni->handle = handle;
+> >  
+> > -	ni->registered_protocols = devm_kcalloc(handle->dev, SCMI_MAX_PROTO,
+> > +	ni->registered_protocols = devm_kcalloc(handle->dev, SCMI_MAX_PROTOCOLS,
+> >  						sizeof(char *), GFP_KERNEL);
+> >  	if (!ni->registered_protocols)
+> >  		goto err;
+> > diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+> > index aafaac1496b0..c6efe4f371ac 100644
+> > --- a/include/linux/scmi_protocol.h
+> > +++ b/include/linux/scmi_protocol.h
+> > @@ -926,8 +926,11 @@ enum scmi_std_protocol {
+> >  	SCMI_PROTOCOL_VOLTAGE = 0x17,
+> >  	SCMI_PROTOCOL_POWERCAP = 0x18,
+> >  	SCMI_PROTOCOL_PINCTRL = 0x19,
+> > +	SCMI_PROTOCOL_LAST = 0x7f,
+> >  };
+> >  
+> > +#define SCMI_MAX_PROTOCOLS	256
+> > +
+> >  enum scmi_system_events {
+> >  	SCMI_SYSTEM_SHUTDOWN,
+> >  	SCMI_SYSTEM_COLDRESET,
+> 
 
-At a high level, Hyper-V supports two ways to do PCI passthru:
-  1. Device Domain: root must create a device domain in the hypervisor,
-     and do map/unmap hypercalls for mapping and unmapping guest RAM.
-     All hypervisor communications use device id of type PCI for
-     identifying and referencing the device.
-
-  2. Direct Attach: the hypervisor will simply use the guest's HW
-     page table for mappings, thus the host need not do map/unmap
-     hypercalls. A direct attached device must be referenced
-     via logical device id and never via the PCI device id. For an
-     L1VH root/parent, Hyper-V only supports direct attaches.
-
-Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
----
- arch/x86/hyperv/irqdomain.c     | 60 ++++++++++++++++++++++++++++++---
- arch/x86/include/asm/mshyperv.h | 14 ++++++++
- 2 files changed, 70 insertions(+), 4 deletions(-)
-
-diff --git a/arch/x86/hyperv/irqdomain.c b/arch/x86/hyperv/irqdomain.c
-index ccbe5848a28f..33017aa0caa4 100644
---- a/arch/x86/hyperv/irqdomain.c
-+++ b/arch/x86/hyperv/irqdomain.c
-@@ -137,7 +137,7 @@ static int get_rid_cb(struct pci_dev *pdev, u16 alias, void *data)
- 	return 0;
- }
- 
--static union hv_device_id hv_build_devid_type_pci(struct pci_dev *pdev)
-+static u64 hv_build_devid_type_pci(struct pci_dev *pdev)
- {
- 	int pos;
- 	union hv_device_id hv_devid;
-@@ -197,7 +197,58 @@ static union hv_device_id hv_build_devid_type_pci(struct pci_dev *pdev)
- 	}
- 
- out:
--	return hv_devid;
-+	return hv_devid.as_uint64;
-+}
-+
-+/* Build device id for direct attached devices */
-+static u64 hv_build_devid_type_logical(struct pci_dev *pdev)
-+{
-+	hv_pci_segment segment;
-+	union hv_device_id hv_devid;
-+	union hv_pci_bdf bdf = {.as_uint16 = 0};
-+	struct rid_data data = {
-+		.bridge = NULL,
-+		.rid = PCI_DEVID(pdev->bus->number, pdev->devfn)
-+	};
-+
-+	segment = pci_domain_nr(pdev->bus);
-+	bdf.bus = PCI_BUS_NUM(data.rid);
-+	bdf.device = PCI_SLOT(data.rid);
-+	bdf.function = PCI_FUNC(data.rid);
-+
-+	hv_devid.as_uint64 = 0;
-+	hv_devid.device_type = HV_DEVICE_TYPE_LOGICAL;
-+	hv_devid.logical.id = (u64)segment << 16 | bdf.as_uint16;
-+
-+	return hv_devid.as_uint64;
-+}
-+
-+/* Build device id after the device has been attached */
-+u64 hv_build_devid_oftype(struct pci_dev *pdev, enum hv_device_type type)
-+{
-+	if (type == HV_DEVICE_TYPE_LOGICAL) {
-+		if (hv_l1vh_partition())
-+			return hv_pci_vmbus_device_id(pdev);
-+		else
-+			return hv_build_devid_type_logical(pdev);
-+	} else if (type == HV_DEVICE_TYPE_PCI)
-+		return hv_build_devid_type_pci(pdev);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(hv_build_devid_oftype);
-+
-+/* Build device id for the interrupt path */
-+static u64 hv_build_irq_devid(struct pci_dev *pdev)
-+{
-+	enum hv_device_type dev_type;
-+
-+	if (hv_pcidev_is_attached_dev(pdev) || hv_l1vh_partition())
-+		dev_type = HV_DEVICE_TYPE_LOGICAL;
-+	else
-+		dev_type = HV_DEVICE_TYPE_PCI;
-+
-+	return hv_build_devid_oftype(pdev, dev_type);
- }
- 
- /*
-@@ -221,7 +272,7 @@ int hv_map_msi_interrupt(struct irq_data *data,
- 
- 	msidesc = irq_data_get_msi_desc(data);
- 	pdev = msi_desc_to_pci_dev(msidesc);
--	hv_devid = hv_build_devid_type_pci(pdev);
-+	hv_devid.as_uint64 = hv_build_irq_devid(pdev);
- 	cpu = cpumask_first(irq_data_get_effective_affinity_mask(data));
- 
- 	return hv_map_interrupt(hv_current_partition_id, hv_devid, false, cpu,
-@@ -296,7 +347,8 @@ static int hv_unmap_msi_interrupt(struct pci_dev *pdev,
- {
- 	union hv_device_id hv_devid;
- 
--	hv_devid = hv_build_devid_type_pci(pdev);
-+	hv_devid.as_uint64 = hv_build_irq_devid(pdev);
-+
- 	return hv_unmap_interrupt(hv_devid.as_uint64, irq_entry);
- }
- 
-diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
-index 0d7fdfb25e76..97477c5a8487 100644
---- a/arch/x86/include/asm/mshyperv.h
-+++ b/arch/x86/include/asm/mshyperv.h
-@@ -188,6 +188,20 @@ bool hv_vcpu_is_preempted(int vcpu);
- static inline void hv_apic_init(void) {}
- #endif
- 
-+#if IS_ENABLED(CONFIG_HYPERV_IOMMU)
-+static inline bool hv_pcidev_is_attached_dev(struct pci_dev *pdev)
-+{ return false; }       /* temporary */
-+u64 hv_build_devid_oftype(struct pci_dev *pdev, enum hv_device_type type);
-+#else	/* CONFIG_HYPERV_IOMMU */
-+static inline bool hv_pcidev_is_attached_dev(struct pci_dev *pdev)
-+{ return false; }
-+
-+static inline u64 hv_build_devid_oftype(struct pci_dev *pdev,
-+				       enum hv_device_type type)
-+{ return 0; }
-+
-+#endif	/* CONFIG_HYPERV_IOMMU */
-+
- u64 hv_pci_vmbus_device_id(struct pci_dev *pdev);
- 
- struct irq_domain *hv_create_pci_msi_domain(void);
 -- 
-2.51.2.vfs.0.1
-
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
