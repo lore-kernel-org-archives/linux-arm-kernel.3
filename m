@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22540D2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4801D2ED12
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B/FgHK+pzlkCaNNisT+qoF/i0PlfVt8s+magiThvv14=; b=wBh13ckgjcrlBds4m5/52Juh8T
-	VdMKfgjRk97G/tQCQyzP8PadcZw1M8+MUrTIm+wWXqg5quNnJ/5k6JwihEoA1h8fIa17Vmv9py7vM
-	T6xxdz78tL2mSH3jPYH1FVg36HZqqXO65U31KWfwqz3qkRdr0fOFcW02b3WalTmjfZoxOo4V1qFbm
-	bwtmutTPjU4i0Knunoqk9ddrS02NsDJkVwziJUFexkaG3tG3tpxb5qos1lmRZD30l98S8XSg9oMa5
-	fB6F9XyATcqLy53QKvxTaB4TJ2QXsk3otU8eYw1ufKR7kIjXrJihceD48fPmSDf7Kn48l38nSB2PQ
-	nUSL1eLQ==;
+	bh=XXkE2HvcVxwas7DVsPIhOKr5uWNoyxHv4EBAIKTLQe8=; b=jkSoSvSbLCDZ/GgciJ0osK4KNm
+	mpTjeQCnovSfzpTK+uAJWhzHtNpvt4NkpTiR2BET8HgTMdCCwWFkERHKYySqzE7IlasbTA35Uhjra
+	jBldW7sCCk0zF1zcgjYZJiFxIMQfpmpI0KIr8NWx1FPmgzQY3/7Py++SwWYtyvQdSL3/pMLgcBa7W
+	zz34VcMy7UnlvSIgV3R3VoC1NGPQYUW1Xt7bDy1sRGxz76TfKRUnclcrNLnr5eRr4KlCBsHB3w7VP
+	ClTNcwC+IPowFnFblv4AoJbI7mWTKREGxCasFhVcLOUeLsHOhnD9xBhFSzd2FI7Clj5+OSTtG/d2D
+	QY9nmnVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAnD-00000003pev-0VCR;
-	Tue, 20 Jan 2026 12:25:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1viApK-00000003puN-2Gq3;
+	Tue, 20 Jan 2026 12:27:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAnC-00000003peJ-0LbM
+	id 1viApI-00000003puG-1wtW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 12:25:06 +0000
+	Tue, 20 Jan 2026 12:27:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 956D360018;
-	Tue, 20 Jan 2026 12:25:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4669C16AAE;
-	Tue, 20 Jan 2026 12:25:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CB55F600CB;
+	Tue, 20 Jan 2026 12:27:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04F1FC16AAE;
+	Tue, 20 Jan 2026 12:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768911904;
-	bh=bLSG0tEveb+gncpwTtyqmY3n1fbc+iPmbTX/cVlIgjo=;
+	s=k20201202; t=1768912035;
+	bh=We6iPStU0ZFDOwTAL7qZlfBr4nmJKhgoqksa0yciLRc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IIaZnQxvVk2+qt+Mlgp8OUNj0PN/kPCJgeWJPwt/wC9Tf91T9cMch3wsZDSUISe7N
-	 aJ/tUVy0ek8oZwyYaByCenkvW9fM3sCa5r2tt01VVYggu1iOccwcbfKRFs72MNUzSJ
-	 fp1enaMxHoy85UP291aH82jbFVSe44hpTRVqw7IFcGS1TCbsirqOj7caxvu6Tm3NYD
-	 K/muEe2rx2YnLbj44mIBGCFQkwNaqQhORFBWBzahjUSEEzM9bwz9g4x6sTioTHdbje
-	 dShHh+MtAglD4nEzVRLKqN3m7Rd5l73oFdXw7h+mmp3Xf6eJqpxCJgjKh8UclFPLXp
-	 E+E8Da302a5LQ==
-Message-ID: <f81c20f4-5e6a-4ec2-8946-a78bccc14e8f@kernel.org>
-Date: Tue, 20 Jan 2026 13:24:58 +0100
+	b=n8aC/QvwvFFOP3yufXOJtOjJe/XstFlKJSXeyxXFVxtZom2AB4Wyb6Sl5K0vj96gN
+	 a/tWGLtAI1Py1Hkdlb6KS9EDHPNv9rpQgBiA2ePMF2dG/CYc6Dp2ibQCBVuMk44Met
+	 BWfvVLb2Hyrpnr8ep7OYAxDyUatZgk9eXGRCGNr3+mEZ1MRjZT57UO+x3DTPu2SHwn
+	 BumztqbzymIqqbgJaatoZItVouoryCjUwo+OKY0XnhoiFiD8agFXwb4Af8BTdwwIBm
+	 s8lo4pF5VEfABwAWlCxdY14qnkt8R0O9M+0TMUNqaFqWy7WHCdRLangR3t8mVSWK6j
+	 Lq22G3QPoulyg==
+Message-ID: <0d8ad41f-a2c4-4a4f-ac1f-68263648c4dc@kernel.org>
+Date: Tue, 20 Jan 2026 13:27:09 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] dt-bindings: pinctrl: aspeed: Add support for
- AST27xx
+Subject: Re: [PATCH v3 3/3] pinctrl: aspeed: add G7(AST2700) SoC0 pinctrl
+ support
 To: Billy Tsai <billy_tsai@aspeedtech.com>, Lee Jones <lee@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
@@ -58,7 +58,7 @@ Cc: Andrew Jeffery <andrew@aj.id.au>, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
  linux-gpio@vger.kernel.org, bmc-sw@aspeedtech.com
 References: <20260120-upstream_pinctrl-v3-0-868fbf8413b5@aspeedtech.com>
- <20260120-upstream_pinctrl-v3-2-868fbf8413b5@aspeedtech.com>
+ <20260120-upstream_pinctrl-v3-3-868fbf8413b5@aspeedtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260120-upstream_pinctrl-v3-2-868fbf8413b5@aspeedtech.com>
+In-Reply-To: <20260120-upstream_pinctrl-v3-3-868fbf8413b5@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -122,45 +122,114 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 20/01/2026 12:43, Billy Tsai wrote:
-> Add bindings for the pin controller found in ASPEED AST27xx SoCs.
+> Add pinctrl support for the SoC0 instance of the ASPEED AST2700.
 > 
-> The AST2700 SoC consists of two interconnected SoC instances, each
-> with its own pin controller register block managed by a separate
-> System Control Unit (SCU).
+> AST2700 consists of two interconnected SoC instances, each with its own
+> pinctrl register block.
 > 
-> Introduce the "aspeed,ast2700-soc0-pinctrl" compatible string to
-> describe the SoC0 pin controller, which is not compatible with
-> existing ASPEED pinctrl bindings.
-> 
-> The SoC1 pin controller follows a regular and predictable register
-> layout and can be described using an existing generic pinctrl
-> binding, therefore no dedicated AST2700-specific compatible string
-> is introduced for it.
+> The SoC0 pinctrl hardware closely follows the design found in previous
+> ASPEED BMC generations, allowing the driver to build upon the common
+> ASPEED pinctrl infrastructure.
 > 
 > Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 > ---
->  .../bindings/mfd/aspeed,ast2x00-scu.yaml           |  27 +++++
->  .../pinctrl/aspeed,ast2700-soc0-pinctrl.yaml       | 130 +++++++++++++++++++++
->  2 files changed, 157 insertions(+)
+>  drivers/pinctrl/aspeed/Kconfig                  |   8 +
+>  drivers/pinctrl/aspeed/Makefile                 |   1 +
+>  drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c | 683 ++++++++++++++++++++++++
+>  3 files changed, 692 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
-> index ff6cf8f63cbc..7eda8fddc560 100644
-> --- a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
-> @@ -164,4 +164,31 @@ examples:
->              reg = <0x7c 0x4>, <0x150 0x8>;
->          };
->      };
+> diff --git a/drivers/pinctrl/aspeed/Kconfig b/drivers/pinctrl/aspeed/Kconfig
+> index 1a4e5b9ed471..16743091a139 100644
+> --- a/drivers/pinctrl/aspeed/Kconfig
+> +++ b/drivers/pinctrl/aspeed/Kconfig
+> @@ -31,3 +31,11 @@ config PINCTRL_ASPEED_G6
+>  	help
+>  	  Say Y here to enable pin controller support for Aspeed's 6th
+>  	  generation SoCs. GPIO is provided by a separate GPIO driver.
 > +
-> +  - |
-> +    syscon@12c02000 {
-> +        compatible = "aspeed,ast2700-scu0", "syscon", "simple-mfd";
+> +config PINCTRL_ASPEED_G7
+> +	bool "Aspeed G7 SoC pin control"
+> +	depends on (ARCH_ASPEED || COMPILE_TEST) && OF
+> +	select PINCTRL_ASPEED
+> +	help
+> +	  Say Y here to enable pin controller support for Aspeed's 7th
+> +	  generation SoCs. GPIO is provided by a separate GPIO driver.
+> diff --git a/drivers/pinctrl/aspeed/Makefile b/drivers/pinctrl/aspeed/Makefile
+> index db2a7600ae2b..cb2c81a69551 100644
+> --- a/drivers/pinctrl/aspeed/Makefile
+> +++ b/drivers/pinctrl/aspeed/Makefile
+> @@ -6,3 +6,4 @@ obj-$(CONFIG_PINCTRL_ASPEED)	+= pinctrl-aspeed.o pinmux-aspeed.o
+>  obj-$(CONFIG_PINCTRL_ASPEED_G4)	+= pinctrl-aspeed-g4.o
+>  obj-$(CONFIG_PINCTRL_ASPEED_G5)	+= pinctrl-aspeed-g5.o
+>  obj-$(CONFIG_PINCTRL_ASPEED_G6)	+= pinctrl-aspeed-g6.o
+> +obj-$(CONFIG_PINCTRL_ASPEED_G7) += pinctrl-aspeed-g7-soc0.o
+> \ No newline at end of file
 
-No changes in the binding, so please do not add unnecessary examples.
+Do not introduce patch warnings.
 
-Plus this makes little sense now in way you split patches :/. Either you
-keep separate MFD from pinctrl for merging or, if not separate, you
-squash patches.
+> diff --git a/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c b/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c
+> new file mode 100644
+> index 000000000000..c4e828c8839a
+> --- /dev/null
+> +++ b/drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc0.c
+> @@ -0,0 +1,683 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +
+
+...
+
+> +
+> +static const struct aspeed_pinmux_ops aspeed_g7_soc0_ops = {
+> +	.set = aspeed_g7_soc0_sig_expr_set,
+> +};
+> +
+> +static struct aspeed_pinctrl_data aspeed_g7_soc0_pinctrl_data = {
+
+Look at your existing drivers - what is missing here and in other places?
+
+> +	.pins = aspeed_g7_soc0_pins,
+> +	.npins = ARRAY_SIZE(aspeed_g7_soc0_pins),
+> +	.pinmux = {
+> +		.ops = &aspeed_g7_soc0_ops,
+> +		.groups = aspeed_g7_soc0_groups,
+> +		.ngroups = ARRAY_SIZE(aspeed_g7_soc0_groups),
+> +		.functions = aspeed_g7_soc0_functions,
+> +		.nfunctions = ARRAY_SIZE(aspeed_g7_soc0_functions),
+> +	},
+> +	.configs = aspeed_g7_soc0_configs,
+> +	.nconfigs = ARRAY_SIZE(aspeed_g7_soc0_configs),
+> +	.confmaps = aspeed_g7_soc0_pin_config_map,
+> +	.nconfmaps = ARRAY_SIZE(aspeed_g7_soc0_pin_config_map),
+> +};
+> +
+> +static int aspeed_g7_soc0_pinctrl_probe(struct platform_device *pdev)
+> +{
+> +	return aspeed_pinctrl_probe(pdev, &aspeed_g7_soc0_pinctrl_desc,
+> +				    &aspeed_g7_soc0_pinctrl_data);
+> +}
+> +
+> +static const struct of_device_id aspeed_g7_soc0_pinctrl_match[] = {
+> +	{ .compatible = "aspeed,ast2700-soc0-pinctrl" },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, aspeed_g7_soc0_pinctrl_match);
+> +
+> +static struct platform_driver aspeed_g7_soc0_pinctrl_driver = {
+> +	.probe = aspeed_g7_soc0_pinctrl_probe,
+> +	.driver = {
+> +		.name = "aspeed-g7-soc0-pinctrl",
+> +		.of_match_table = aspeed_g7_soc0_pinctrl_match,
+> +		.suppress_bind_attrs = true,
+> +	},
+> +};
+> +
+> +static int __init aspeed_g7_soc0_pinctrl_init(void)
+> +{
+> +	return platform_driver_register(&aspeed_g7_soc0_pinctrl_driver);
+> +}
+> +arch_initcall(aspeed_g7_soc0_pinctrl_init);
+> 
+
 
 Best regards,
 Krzysztof
