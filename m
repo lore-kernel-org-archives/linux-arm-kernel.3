@@ -4,111 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26AF9D2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 10:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E2ED2ED0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 10:40:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EngcF0AuMSe4GxCLzFlk3vYwqxnh61muSwDFDmoTUcU=; b=C1NSj2yWJ298mmF7OOBjjwCxNy
-	o6YWvxVmsrMwdxpOLzMxkMQbS8TBQdtPAE4RihG1PG4liDWLZoj7/I+1rfHrMIsMnUpa3vcFDIFjM
-	ClyuWob/Dk/uwg5hReEAGhivDwmIDzyLQ+niRdfe0Xq+j9v5Bd2a7P+L90qicO63nS2nBylNkjrQ5
-	7m8ikLGI2xjvEsm0IUfB7p1eTxYH7LT2q2pKpflnkUYYdks5NVQdxC4sein5sHcjeguoMm/5xvJCR
-	eH44/iTNo5ev6EGQG/RPjVWU1OlZADndAgsKqoasQIH2zKiD5BuQqaOCdrsMSQhgi7ab8AgImvzlg
-	8PVZQQhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DxGELJiW39YSBH6yCtCMZHPxIbPOubG0p87HEjV4ICI=; b=Z1/GmMxtfNUjX6lG7D20iPDpH4
+	fu+58VL0oypFgyjXDAdpW/nRzhtNW5B0pIFn4cG7fyQtcYAaWClc349KSWHN+5jwCtzN6kH+NOcc8
+	Ol6aDUO1qvD4nNJCjEaYM+VniYYwpsEpRRxKJ2dOw3HtZG5YDLx7peqAkesWwcUNrxH+uJM+UAlGV
+	i7ckJ2Ie6dmvy6SCXygcb5mlFR+BBf+X+hzHeZojVJAFdMryYPluPLJrbrdFnDeGCjkMktCRJbZmX
+	RftfVhEKiY9NAY8ck9OqqcsRkmEH8tJVMlPJuSltPBT8W0Roz0UCIFQHYs0USbzhYz6Cc/WzWDoo/
+	iZ2gDrdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi95b-00000003dIm-25Y0;
-	Tue, 20 Jan 2026 10:35:59 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi95V-00000003dHF-2fGP
+	id 1vi9A7-00000003dZw-2wbx;
+	Tue, 20 Jan 2026 10:40:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vi9A4-00000003dZV-3n9P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 10:35:58 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-50146fcf927so53807131cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 02:35:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768905350; cv=none;
-        d=google.com; s=arc-20240605;
-        b=iB710op1WmnGgBVknfJlyY/RndsKVH85qrUdR9MJH4sLXBpf8eAOWM2G8V3NRJlt3u
-         ac7pLVz8/NL+oFmkpQ/NbGqya1fpde3rfr0svDzHH+MmKFuSP/8auBXC8KPdbga2WLux
-         LJOgogs6V8zNnEq+XhiO0BLkmv/0Wt1ChNnqsYlaEeSUxFLgYc2itqJKS4qmOr9uZFyt
-         peQV4Q1Ypmn9mvnF45Aalx+YUX7gwkOp7hHsYTDpCHeqdMnC20rAbdb7MduQsJUQjt6c
-         GrqCIdYmENrGl5JQ15IeLSETBEQrMO1NDbZhVZ1lxeNNvZo9+6IccdYTtcqjtnUBYpI9
-         7uyQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=EngcF0AuMSe4GxCLzFlk3vYwqxnh61muSwDFDmoTUcU=;
-        fh=uDYG6WxG1JYQJa8XuDho1MEhrRwJYmOsq6iaiLfGy+4=;
-        b=N2jqus88U18YtxNt0QeGKmiVoJmIf/VCoC321CLGYUXknuwN8EF0j6rkZIrKs8O26c
-         CeZMESs0uRk7KdI5WXQ6qm25pNTSCoXd3+JguYiTt2LIztcBDt7/6ngP4/Lm/unSIaBz
-         V3cDeTGj6Z6pSf+sju7GGt75i7yYIEn6f9bSHAMJkZWnxYq/xB8MbxZPOvxR/DwGAV/i
-         Mm7PEgv5Z89Q2EDzSaYkzE+HOTg5lcndqYdzDYKoP4UiyO/KmHkwOsQgMkQ8ymZ6n9/l
-         ujav3urn/e+2Zy2Giw+j2vS9DPONUZLvzJSVg2Zdjn4+oZnDHZQsgKfoWc1RnoqwOwEH
-         qHCA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1768905350; x=1769510150; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=EngcF0AuMSe4GxCLzFlk3vYwqxnh61muSwDFDmoTUcU=;
-        b=Nrf483FJyNr932bnw6h9zJQkiytzycZT8wyIC/GtrfPXcnFrSm/TMYc7L2WkFtaQ+X
-         C6uOIS7CfySGHcVVqLRZ2rjiwgkmEaxvT5qNCKaL1jNXpXrDi6fqArQnFsSD0ZoIisfe
-         OWxp+JMK2o3YUVp+tLc4UDVnkxgwKFY8XACiDIBl3KEhEbMKejb36/cqTBA+o66FI6KM
-         7HtKSm3d+QYvJGPb5ZZaC5dSx8kogROprnfPlrOcnBqXQweVtquCCOg6a1jZetxWA2JM
-         bg8ofwlLm3ghbyn8ghIkLvGhIEfaHgmAEZ6JfuXGZ5RIbrb/69eUqSPYuetmQGDHTXuF
-         Uqeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768905350; x=1769510150;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EngcF0AuMSe4GxCLzFlk3vYwqxnh61muSwDFDmoTUcU=;
-        b=PV8oTB+m1Ibnz074ZzNxjQJ7DVFeHPETUFfFeFEsRCN/L4yGDQgl2t9gAfRKGR2VCO
-         IUa9KnKDbiqJlMFKjEv3IKi0zGmoB0hbDoCzoWUwjY64lY7Fx6NFcmL99C4cprhD2AX9
-         ZS31xw519fM9f8daKdf9n+uhJUb61kaV+EC4z1afL/DJTmqi7ujJbk6p6Cf6iKqjTr9R
-         gS6v0BSF68jE9xPflKJ/nj5kP96iBShAUUbhtLwHHpdEQ7Ex1Bmw2yKLFK1A+lijvqGe
-         rAhVV/qrfhYank6GQS4phU0SFQj1EIhRO4WHg267EFUrdvOcW9Fqef+KMRaCAdVD6nme
-         8u0A==
-X-Forwarded-Encrypted: i=1; AJvYcCWY18pKhk9WP191kAjrZ3bu8+UCHn3YcwXnbmd0l3D2QhAz2twxI2oOmTYB5H+ZJhPOw3kEBVJv2/KcuqfGBkqF@lists.infradead.org
-X-Gm-Message-State: AOJu0YynkrKaeUKe4fHryUTsmNdJBG68w/O0aTbpaG6SzmoAeLHPj5Dt
-	fIK1xAInpJfVc38xJ1Gkz6wYgG5lTKnTVf+3+q6e/AWm3TqJOMtm2eMhGZlTwZEwyHnJJ0m2U/P
-	O6zGM7z8FhILjBVNQpOfbSNQyXm51/XDQ/GdngrscrA==
-X-Gm-Gg: AY/fxX7FagxLBB+MCadD602CFboeQ/NLk5jsQqfXwVizu5FRzqL936D7PgL7M/EMDEc
-	dOxwzseLA3vyPNb2fBnm/FlmfTOkTMk+gPMoy3P04y5RkdUUUdVUsbQUM8X4sjuRHn5a5uJ7bkQ
-	hGdJyyVKMnDhB+uh+UjF+Ae5YmRFcH7yjqPqeIQR2OZo44u37cetFqFCtWl9F5Xjlm8ez6lLvLe
-	/McJ7GffdsAkFdOgmqF016v4I8Ek/bNIg6IbYu8G6wgq25coNjbDHlN3hZPk8iE7R5xmbWE9REW
-	RLc=
-X-Received: by 2002:a05:622a:1211:b0:4ef:bed6:5347 with SMTP id
- d75a77b69052e-5019f8faa18mr267369681cf.30.1768905349558; Tue, 20 Jan 2026
- 02:35:49 -0800 (PST)
+	Tue, 20 Jan 2026 10:40:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19AAF1476;
+	Tue, 20 Jan 2026 02:40:28 -0800 (PST)
+Received: from [10.1.39.200] (XHFQ2J9959.cambridge.arm.com [10.1.39.200])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9D393F694;
+	Tue, 20 Jan 2026 02:40:31 -0800 (PST)
+Message-ID: <baa46ea0-737b-4d9e-b4f4-2eee1476da95@arm.com>
+Date: Tue, 20 Jan 2026 10:40:30 +0000
 MIME-Version: 1.0
-References: <20251206-vop2-atomic-fixups-v2-0-7fb45bbfbebd@collabora.com>
- <f9f7b446-8575-4f16-aa96-5197b22846e3@rock-chips.com> <4696988.LvFx2qVVIh@workhorse>
- <8655687.NyiUUSuA9g@workhorse>
-In-Reply-To: <8655687.NyiUUSuA9g@workhorse>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Tue, 20 Jan 2026 10:35:38 +0000
-X-Gm-Features: AZwV_QhRkXnTevqN1bZxbydehXRez199_FOqVjVHDQ7c6Ms6YsAuPA9K_r8GGT8
-Message-ID: <CAPj87rN19nQcFT_u8WyNO6a+2AbAp2hBG7ARbWoJ8-jwO3yGfA@mail.gmail.com>
-Subject: Re: [PATCH v2 5/8] drm/rockchip: vop2: Enforce AFBC source alignment
- in plane_check
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>, kernel@collabora.com, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Daniel Stone <daniels@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/3] arm64: mmu: avoid allocating pages while splitting
+ the linear mapping
+Content-Language: en-GB
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+ catalin.marinas@arm.com, akpm@linux-oundation.org, david@kernel.org,
+ kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com, dev.jain@arm.com,
+ yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
+ bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
+ lorenzo.stoakes@oracle.com, ardb@kernel.org, jackmanb@google.com,
+ vbabka@suse.cz, mhocko@suse.com
+References: <20260105202328.2418990-1-yeoreum.yun@arm.com>
+ <20260105202328.2418990-3-yeoreum.yun@arm.com>
+ <aW5p1ylQBNXTEmmq@willie-the-truck> <aW6hISBu3hNYS771@e129823.arm.com>
+ <2619166b-13ef-4daa-82c7-1d44035a8d6c@arm.com>
+ <aW9LCX92T9t8iDco@e129823.arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <aW9LCX92T9t8iDco@e129823.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_023553_790179_EE5C1467 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20260120_024037_027984_ED4AFAC1 
+X-CRM114-Status: GOOD (  35.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,34 +75,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On 20/01/2026 09:29, Yeoreum Yun wrote:
+> Hi Ryan
+>> On 19/01/2026 21:24, Yeoreum Yun wrote:
+>>> Hi Will,
+>>>
+>>>> On Mon, Jan 05, 2026 at 08:23:27PM +0000, Yeoreum Yun wrote:
+>>>>> +static int __init linear_map_prealloc_split_pgtables(void)
+>>>>> +{
+>>>>> +	int ret, i;
+>>>>> +	unsigned long lstart = _PAGE_OFFSET(vabits_actual);
+>>>>> +	unsigned long lend = PAGE_END;
+>>>>> +	unsigned long kstart = (unsigned long)lm_alias(_stext);
+>>>>> +	unsigned long kend = (unsigned long)lm_alias(__init_begin);
+>>>>> +
+>>>>> +	const struct mm_walk_ops collect_to_split_ops = {
+>>>>> +		.pud_entry	= collect_to_split_pud_entry,
+>>>>> +		.pmd_entry	= collect_to_split_pmd_entry
+>>>>> +	};
+>>>>
+>>>> Why do we need to rewalk the page-table here instead of collating the
+>>>> number of block mappings we put down when creating the linear map in
+>>>> the first place?
+>>
+>> That's a good point; perhaps we can reuse the counters that this series introduces?
+>>
+>> https://lore.kernel.org/all/20260107002944.2940963-1-yang@os.amperecomputing.com/
+>>
+>>>
+>>> First, linear alias of the [_text, __init_begin) is not a target for
+>>> the split and it also seems strange to me to add code inside alloc_init_XXX()
+>>> that both checks an address range and counts to get the number of block mappings.
+>>>
+>>> Second, for a future feature,
+>>> I hope to add some code to split "specfic" area to be spilt e.x)
+>>> to set a specific pkey for specific area.
+>>
+>> Could you give more detail on this? My working assumption is that either the
+>> system supports BBML2 or it doesn't. If it doesn't, we need to split the whole
+>> linear map. If it does, we already have logic to split parts of the linear map
+>> when needed.
+> 
+> This is not for a linear mapping case. but for a "kernel text area".
+> As a draft, I want to mark some of kernel code can executable
+> both kernel and eBPF program.
+> (I'm trying to make eBPF program non-executable kernel code directly
+> with POE feature).
+> For this "executable area" both of kernel and eBPF program
+> -- typical example is exception entry, It need to split that specific
+> range and mark them with special POE index.
 
-On Tue, 9 Dec 2025 at 10:58, Nicolas Frattaroli
-<nicolas.frattaroli@collabora.com> wrote:
-> In either case, I think adhering to the atomic API to ensure
-> artifact-free presentation is more important here than enabling
-> a fast-path on RK3568. I do think in most real-world use case
-> scenarios, the fallback won't degrade user experience, because
-> almost everything performance intensive I can think of (video
-> playback, games) will likely already use a plane geometry
-> where the width is divisible by 4. 800, 1024, 1280, 1600, 1920,
-> 2560, 3840 are all divisible by 4, so a window or full-screen
-> playback of common content won't need to fall back to GPU
-> compositing.
+Ahh yes, I recall you mentioning this a while back (although I confess all the
+deatils have fallen out of my head). You'd need to make sure you're definitely
+not splitting an area of text that the secondary CPUs are executing while they
+are being held in the pen, since at least one of those CPUs doesn't support BBML2.
 
-That's exactly it. Changing userspace's request may result in
-unpleasant visual artifacts and other unwanted effects. If userspace
-wants to always hit a fast path, then it will need some kind of
-hardware awareness to do something different here. The patch series
-pointed out gives userspace a good way to figure this out.
+> 
+>>
+>>>
+>>> In this case, it's useful to rewalk the page-table with the specific
+>>> range to get the number of block mapping.
+>>>
+>>>>
+>>>>> +	split_pgtables_idx = 0;
+>>>>> +	split_pgtables_count = 0;
+>>>>> +
+>>>>> +	ret = walk_kernel_page_table_range_lockless(lstart, kstart,
+>>>>> +						    &collect_to_split_ops,
+>>>>> +						    NULL, NULL);
+>>>>> +	if (!ret)
+>>>>> +		ret = walk_kernel_page_table_range_lockless(kend, lend,
+>>>>> +							    &collect_to_split_ops,
+>>>>> +							    NULL, NULL);
+>>>>> +	if (ret || !split_pgtables_count)
+>>>>> +		goto error;
+>>>>> +
+>>>>> +	ret = -ENOMEM;
+>>>>> +
+>>>>> +	split_pgtables = kvmalloc(split_pgtables_count * sizeof(struct ptdesc *),
+>>>>> +				  GFP_KERNEL | __GFP_ZERO);
+>>>>> +	if (!split_pgtables)
+>>>>> +		goto error;
+>>>>> +
+>>>>> +	for (i = 0; i < split_pgtables_count; i++) {
+>>>>> +		/* The page table will be filled during splitting, so zeroing it is unnecessary. */
+>>>>> +		split_pgtables[i] = pagetable_alloc(GFP_PGTABLE_KERNEL & ~__GFP_ZERO, 0);
+>>>>> +		if (!split_pgtables[i])
+>>>>> +			goto error;
+>>>>
+>>>> This looks potentially expensive on the boot path and only gets worse as
+>>>> the amount of memory grows. Maybe we should predicate this preallocation
+>>>> on preempt-rt?
+>>>
+>>> Agree. then I'll apply pre-allocation with PREEMPT_RT only.
+>>
+>> I guess I'm missing something obvious but I don't understand the problem here...
+>> We are only deferring the allocation of all these pgtables, so the cost is
+>> neutral surely? Had we correctly guessed that the system doesn't support BBML2
+>> earlier, we would have had to allocate all these pgtables earlier.
+>>
+>> Another way to look at it is that we are still allocating the same number of
+>> pgtables in the existing fallback path, it's just that we are doing it inside
+>> the stop_machine().
+>>
+>> My vote would be _not_ to have a separate path for PREEMPT_RT, which will end up
+>> with significantly less testing...
+> 
+> IIUC, Will's mention is additional memory allocation for
+> "split_pgtables" where saved "pre-allocate" page tables.
+> As the memory increase, definitely this size would increase the cost.
 
-With my Weston maintainer hat on, I'd take a patch to
-weston-simple-egl to allow it to use a different size with
-command-line arguments if you'd like that for easier testing. (Fun
-fact: it was specifically made 250x250 to discover issues such as
-this, which wouldn't be uncovered by something that's aligned to a
-generous power of two.)
+Err, so you're referring to the extra kvmalloc()? I don't think that's a big
+deal is it? you get 512 pointers per page. So the amortized cost is 1/512= 0.2%?
 
-Cheers,
-Daniel
+I suspect we have both misunderstood Will's point...
+
+Thanks,
+Ryan
+
+> 
+> And this cost need not to burden for !PREEMPT_RT since
+> it can use memory allocation in stop_machine() with GFP_ATOMIC.
+> 
+> But I also agree in the aspect that if that cost not much of huge,
+> It's also convincing and additionally, as I mentioned in another thread,
+> It would be good not to give a hallucination GFP_ATOMIC is fine for
+> everywhere even in the PREEMPT_RT.
+> 
+> --
+> Sincerely,
+> Yeoreum Yun
+
 
