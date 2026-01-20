@@ -4,99 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F13D2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 15:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBF1D2ECE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 15:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GhLdh2zZK+bYAbQvWFFaUIm6SUaBfCue1vhMyALyCxw=; b=BGowOzzQrnHSd2vR2KGMyhgPmm
-	ANHW3/u/QnMUJyIFPw+f3B1uRUHXOLuhPYCVM6PPP14+Op3ujSVJmpuuOkajuHQJolg+lgT52ymIj
-	g4OIMgtGzPsSNjXZNHS3c2g/h1hs0872lyqJmD93eR2Cm1/y76aAyRjFNEa1Z70BN2AsNh7x4Urct
-	Yz2sgFE23nzLSbK683AqSQWko2KyU9iFFjI9JjzND/XdKSEaE4llJ9jNbIbA+AZIbWpPcrU2munRo
-	McUMjRjK+Wq1ornvBDP/8pgasy98CHpCZ83eAZx6f0+X48bwDkqJDlAHxz/xr1zG0tlOQVTijUgvv
-	N/Xz8Edw==;
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R2Q7SvHuSDAVtZr8Kc9/++hSXyyDNQmsxA9fUfbHm9s=; b=LY4GYCPoQezk3SG2FPeSLrhLNm
+	PDuojUxEbZic4qZcoj3WA0QitJXwRBy/NrMvFP73YZo2z3vSVqww3rRwBp8RUYHeylX3FzUzKx8fG
+	gQi1jWPUBA+sE3wqLDazNxBpbfD7QIWvz1VGELmgsgQ/OXzgmtMyKDGcbobiM9YWdzmUlJus7rAE3
+	t3+Ns5gg/J25tVRN+li5RY7ER76Q2XkTTVV4UBwIi4SRano3qAt39Dx5Ff2e3nSFAq0Dg04/a6BNJ
+	vK83B25dHQeUmSADDGGDVyW0xD/cYtxVK255UMdXlK4xecejLC3G55StGBBRYCPD1of9/B8yOqTzI
+	sTi3OvnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viDHp-0000000430g-1S2K;
-	Tue, 20 Jan 2026 15:04:53 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1viDO4-000000043Sf-1qPX;
+	Tue, 20 Jan 2026 15:11:20 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viDHk-000000042xw-363i
+	id 1viDO1-000000043SK-2g2U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 15:04:49 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b86f69bbe60so855419166b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 07:04:48 -0800 (PST)
+	Tue, 20 Jan 2026 15:11:19 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60KCxZLP803888
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 15:11:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=R2Q7SvHuSDAVtZr8Kc9/++
+	hSXyyDNQmsxA9fUfbHm9s=; b=bBBvBljPPxpPV5HYM08TIgyh/CiAGq1DVhJI/z
+	WV/3EaibeIUHHqyvZYNU/mqVecoDq/0I3RG6qo5Cg0V27alaYHB4xr/GrOlB+vhm
+	+mS7QlFzqMbj3vX9/856P/X+GsDwX1lna92E+Kg0OecQ/rzBb9xG444T1cq7GG23
+	xbK46ntct770xJEX+R8rmxGWfVJ0pP+0Yi8x63msbvssv14HeSGXm5S+kdNsJVZd
+	rpGGH11RyqkpGKC3aCp4ERJIagq6TmLFNfQzWaXIxhudAUYwVHWbid8jyoqHx8LH
+	xNBPXSutXSohsGxuDGy2zxtIcdlo7MY9qO/2M3iEMrz/h70w==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bta6q0c0a-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 15:11:15 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-34c64cd48a8so5811322a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 07:11:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768921487; x=1769526287; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GhLdh2zZK+bYAbQvWFFaUIm6SUaBfCue1vhMyALyCxw=;
-        b=fcKi3A0dAqrzcoSwLA1TOKbp/Tk6zp5zEgNmm6DnedkZYf7u/dvC88NmDR/vi45gYK
-         0fZf+LTsCqsfTcRKKEYypmssQk9xF1JlRXW6wbnUdunRWua1IVveBOaN0LD20mdWzA68
-         QtLjSfJpjqp4iqqDJYlyaghJfNeT3k553Ep0lM8PIza6DozW7uv/tXmVlJlbMHC5+sNG
-         NdbIoGzVzookXVvwTpHpFZyHhH+ZtAQVf0fp/dfewo2buXyJuGZ3QwQ0MiNulCfrzemI
-         WcgWt4SkLFmiLe9c9QjGVF4MKVspJIrgeMUBUr1iqBg0PAuC+NxI46v1jU+oM0YSZ9zF
-         YeHg==
+        d=oss.qualcomm.com; s=google; t=1768921875; x=1769526675; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=R2Q7SvHuSDAVtZr8Kc9/++hSXyyDNQmsxA9fUfbHm9s=;
+        b=iP8LYhfTr5ziQyTFIFLu91qgWcViMBbxRqpgGpsvdxTbI9mkB4dTxRSfhZIHOQD8rh
+         6QEh0JP5Mnppb4CHc+xWW8PD1WqtAKQMaOgiawUBrs/vxM1qVr33BxWkb0lFius/6eL+
+         U6/KjT3Sbx7PjcI78LQ+Ijth3zYaHljPLKxuymfoW6tmcqqP7OdjNNQDEHLXcs5LhMmY
+         Ye0CkXAQzkAg6/T2Q1yZ8wFVWZgB2cAH5vJoLky2+1MlkZSp8d9+TX6rhr1axxEO+wos
+         2OkblaHKHHsPNLPn3cpuPKYtgTaMHA9FOc5WJdlSxbOuFmMKxfwO12MTtVhhhDVE+ZJ9
+         mu1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768921487; x=1769526287;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=GhLdh2zZK+bYAbQvWFFaUIm6SUaBfCue1vhMyALyCxw=;
-        b=WQkhBS6BGEjle05UFLBrLVTRc0G8ufHjl8/NSNJsM4c415r0MVg6lO4j5h+awAvac9
-         0P07W79nLipiy9RuCuQ+MzNsQaKTSNNGbsVo+wMZBWFGZCUjE2YyziFmYRYADBlG8OJQ
-         0BTg0aBEqpwiJ4QjoUI0yU9OcIQ9yvLRULACSm0mr092lLEWC/67fCwn2UmQGMxaEXxE
-         0YJBPYxUylc0WklE4sS95uK14zF6DqOEn7g7kEyUa5nEXDuSaaiU7tCNyIxUF89b4SQb
-         fRC7WUk1LyLb5d2NSOcdGPJBz633KlLKJ5k7qHCNzL16kiba785NWXzVlY89s+WTl2r/
-         0vsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX51hpK4LmXK52Ecb0iThG4Zb30BhFNBiyDE0Ak1/AGm24HPUaW+KYsdz8yXRzMwwFvJz+vidoTTzVBNn3BM+Xs@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMLeB/4g+hu3Wfac76m7aCr/Y/LdPkGkeMGnaVdkg0cVM30HLZ
-	wRucd8F9TXj8fFEQRXlVJsnsYH5wyyVOjZ/AIqePPqjfXzawBUFxzrQE
-X-Gm-Gg: AZuq6aIRlneuNpfWcINNumYc7eOUqxCPv9x6F7pdFviL4ROsG3IjsOFGdHiw5+tlOBt
-	YVUn8Wo2kWAuZPMPO+7T5JrjzmK1ZExfHyU1tv7Y2qudmT3+CVArpHTBU24JwKHGKrqQqpWF4GB
-	HjIMssoZpj1WYQGchCJ/bf+rhEOm39jO5Ra2zAvBazDQslWl1bcxfNe3fmD+5aKXYMz9nnbTXHB
-	zFs7kZadphhXHTcuRpN2P3fl8s1WYLuCuxzVmfPSPh/akfEh4gbohsnTks2Fd1NKuAEZ7sMN5sH
-	TARnuTEpEFLTG6s990kmGGCdzUJp1e/DR+IE5X0YA+iD3cM8zO/UiSbTFBphcXlpDZ9FSqiD/HJ
-	hkjWP1QGllMWEZxKRdlUj7nLTOTqvGkvKjeJsC49J+0aepV+k8349dXrdkZOmNU1rXUAQ2FqKzR
-	iTvUrWV6UUmMWB8ZDPypd0bPKVFFvb2IK6xQhJ
-X-Received: by 2002:a17:907:97c8:b0:b87:40fd:c913 with SMTP id a640c23a62f3a-b87968b6b22mr1267788266b.2.1768921486189;
-        Tue, 20 Jan 2026 07:04:46 -0800 (PST)
-Received: from SMW024614.wbi.nxp.com ([128.77.115.157])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8795a214e8sm1427045966b.60.2026.01.20.07.04.44
+        d=1e100.net; s=20230601; t=1768921875; x=1769526675;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=R2Q7SvHuSDAVtZr8Kc9/++hSXyyDNQmsxA9fUfbHm9s=;
+        b=WoDzIlooaoRpKjqePLmJ4Onbc9AdaRkVr727iCerogI9SdGd0u/3/w9uVPLhMpblDm
+         ZHvJmxLGn424F3VEq5gpJ/t47AHNHnQAKxbIM0WdE8vlZzZqRMI44Jss0aYiI/beugnD
+         p/JyklT/QPk1ktYN70+td8RWPxwn6j+y+4uLoD5+vhXKMQzLy07vcu9KJda278rit/O5
+         YI52z51MDmexJovFWAb7ABJQujyX2OOS2mePqBdCy8Zt7JsUYHAOx8t7WKuzb4G+lypo
+         GMq1LwWEe+5z493gjS5PwmHX9RPZUkKp7wKH377YDAfu7gdoBGOGJI4vlvuql2WXdv75
+         aw+A==
+X-Forwarded-Encrypted: i=1; AJvYcCWmtqvYmZaH+KNPIGuGB5NKtP/Bm3BgJrdEPhzqVcMkVG14meN13ZAwcOv0xMMbz69dd8dDkgMyNlLxxtdeEcos@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqRGB3tBP6bRqlKXKJrp1Gzj0ndvFI8ljRicesMcwX3JcESBJm
+	Cdr6/r/Xv+nie5j0pqzbWCyA0cFXHxrr0P1v2c67TXyOpnUGCxR47nAcDZSWKICEY1IXf02I3Nr
+	CI9M2wDAIJq/eek2fzVoMDgkxGgz6xwiSofxAr2ityqTL2cYmM6Zbw0vTtEbI818olb5xk689MN
+	Cu0g==
+X-Gm-Gg: AZuq6aJmpoaSxh0eyCQk3TiaHFKx+hd50uYwYAo2DB8tFu6UfeKGaKtZBStdOZp8+rD
+	RDWZjaJnFIO9yKk02WY6N49sgAo9XFrDj8evngq8m3YOS5DGoVfy/NyVBRaSVsZY60ddi7fJ+44
+	UeCfR2Qvqhe4JxFd/NfL1ltnRhuBBG3VCBw24KnQLK+3sy8MbRSzc0vtJ4NQzKyuBfbgURicAXZ
+	YPTfzCPggaWNSLtwJYCBKbrgdOiSxYEfYa+TcFaHfAEc8n4+kcZV4QmS1DR03CsNPt0QpRyRr+z
+	zayI8VsrTceNOLJ1Kn3/FcebEz35JwOTCCSCaMqNpERbBOsD3yc9j2F6Boc7o/9oR1GWG2ApJRg
+	TzKBqNuifmMUqmOkALLBxuM7GqqNRdc9Tj49eWiVI
+X-Received: by 2002:a17:90b:1e0b:b0:34c:f5b5:c1b6 with SMTP id 98e67ed59e1d1-35272f028a0mr14267292a91.12.1768921874714;
+        Tue, 20 Jan 2026 07:11:14 -0800 (PST)
+X-Received: by 2002:a17:90b:1e0b:b0:34c:f5b5:c1b6 with SMTP id 98e67ed59e1d1-35272f028a0mr14267256a91.12.1768921874153;
+        Tue, 20 Jan 2026 07:11:14 -0800 (PST)
+Received: from hu-bibekkum-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3527306c41esm11517836a91.5.2026.01.20.07.11.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Jan 2026 07:04:45 -0800 (PST)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Chancel Liu <chancel.liu@nxp.com>
-Cc: linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH 2/2] arm64: dts: imx95-15x15-frdm: support AONMIX MQS
-Date: Tue, 20 Jan 2026 07:03:29 -0800
-Message-ID: <20260120150329.1486-3-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260120150329.1486-1-laurentiumihalcea111@gmail.com>
-References: <20260120150329.1486-1-laurentiumihalcea111@gmail.com>
+        Tue, 20 Jan 2026 07:11:13 -0800 (PST)
+From: bibek.patro@oss.qualcomm.com
+To: will@kernel.org
+Cc: bibek.patro@oss.qualcomm.com, catalin.marinas@arm.com,
+        charan.kalla@oss.qualcomm.com, dmitry.baryshkov@oss.qualcomm.com,
+        iommu@lists.linux.dev, joro@8bytes.org, kernel-team@android.com,
+        konrad.dybcio@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        robin.clark@oss.qualcomm.com, robin.murphy@arm.com
+Subject: [PATCH] iommu/arm-smmu-qcom: Restore ACTLR settings for MDSS on sa8775p
+Date: Tue, 20 Jan 2026 20:41:05 +0530
+Message-Id: <20260120151105.614792-1-bibek.patro@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=QohTHFyd c=1 sm=1 tr=0 ts=696f9b13 cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=X4sqO_BnIXgP0qhT90oA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTIwMDEyNiBTYWx0ZWRfX0jKufmD530k8
+ OgO7QtzSH/hYR2Z1QP0ovpjWTYcdUUL/Th7+/qar0piQlSiq8FaE2c/P9yURFCCOAwqojn3C5GU
+ 82WS+RPedEzkBUqtoW8PZTzaASAKWUdZPMtXXzqYgP9afBcpct7yPHTOrUGeC7WiK1fbnuD0l3/
+ OVicuruZVCizz6NR+tzZD1/mg6T9Teac1r9jTOajGCM/DK/lkzfSrrVshz/NIUCgJHb4O4/Etbm
+ SeoCamrGvWcL2OGeuMlbs2p/Z69ULQKVVZqK23EkrdsXJM6d8oyr2AU933sDJuvlTg7TwWhsYb6
+ lhKwD7KZ3O/5t0pR32lMulK8qOmukezxYnnA5xP8QnXwUTDYKXgQw4/ccFsNEAav2pcb9/NBi7X
+ /2uhJpjBJAnIDYY2yPvaXWh9uudM4C6B9pNptKe2QKYmzFSpaTHJXNbYiXw6XBh4S79U+sD+c2X
+ ScAZEtcZdxYr9+rMYYg==
+X-Proofpoint-GUID: y-iLhmscdYRiACuampO6WGohxDrQOjbW
+X-Proofpoint-ORIG-GUID: y-iLhmscdYRiACuampO6WGohxDrQOjbW
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
+ definitions=2026-01-20_04,2026-01-20_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 malwarescore=0 priorityscore=1501 adultscore=0 clxscore=1015
+ impostorscore=0 lowpriorityscore=0 phishscore=0 suspectscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601200126
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_070448_805575_401C251E 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260120_071117_798418_8870AB80 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,138 +143,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
 
-Add support for AONMIX MQS (i.e. MQS1).
+The ACTLR configuration for the sa8775p MDSS client was inadvertently
+dropped while reworking the commit f91879fdf70b ("iommu/arm-smmu-qcom:
+Add actlr settings for mdss on Qualcomm platforms"). Without this
+entry, the sa8775p MDSS block does not receive the intended default
+ACTLR configuration.
 
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Restore the missing compatible entry so that the platform receives the
+expected behavior.
+
+Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
 ---
- .../boot/dts/freescale/imx95-15x15-frdm.dts   | 73 +++++++++++++++++++
- arch/arm64/boot/dts/freescale/imx95.dtsi      |  5 ++
- 2 files changed, 78 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
-index ca1c4966c867..53aae25db7e4 100644
---- a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
-@@ -243,6 +243,12 @@ codec {
- 		};
- 	};
- 
-+	sound-mqs {
-+		compatible = "audio-graph-card2";
-+		links = <&sai1_port1>;
-+		label = "mqs-audio";
-+	};
-+
- 	usdhc3_pwrseq: usdhc3-pwrseq {
- 		compatible = "mmc-pwrseq-simple";
- 		reset-gpios = <&pcal6524 8 GPIO_ACTIVE_LOW>;
-@@ -473,6 +479,21 @@ &mu7 {
- 	status = "okay";
- };
- 
-+&mqs1 {
-+	clocks = <&scmi_clk IMX95_CLK_SAI1>;
-+	clock-names = "mclk";
-+	pinctrl-0 = <&pinctrl_mqs1>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+
-+	mqs1_port: port {
-+		mqs1_ep: endpoint {
-+			dai-format = "left_j";
-+			remote-endpoint = <&sai1_port1_ep>;
-+		};
-+	};
-+};
-+
- &netc_blk_ctrl {
- 	status = "okay";
- };
-@@ -534,6 +555,51 @@ &pcie0 {
- 	status = "okay";
- };
- 
-+&sai1 {
-+	clocks = <&scmi_clk IMX95_CLK_BUSAON>, <&dummy>,
-+		 <&scmi_clk IMX95_CLK_SAI1>, <&dummy>,
-+		 <&dummy>, <&scmi_clk IMX95_CLK_AUDIOPLL1>,
-+		 <&scmi_clk IMX95_CLK_AUDIOPLL2>;
-+	clock-names = "bus", "mclk0", "mclk1", "mclk2", "mclk3", "pll8k", "pll11k";
-+	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
-+			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
-+			  <&scmi_clk IMX95_CLK_AUDIOPLL1>,
-+			  <&scmi_clk IMX95_CLK_AUDIOPLL2>,
-+			  <&scmi_clk IMX95_CLK_SAI1>;
-+	assigned-clock-parents = <0>, <0>, <0>, <0>, <&scmi_clk IMX95_CLK_AUDIOPLL1>;
-+	assigned-clock-rates = <3932160000>, <3612672000>,
-+			       <393216000>, <361267200>,
-+			       <24576000>;
-+	fsl,sai-mclk-direction-output;
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* leave unconnected - no RX in the context of MQS */
-+		port@0 {
-+			reg = <0>;
-+
-+			endpoint {
-+			};
-+		};
-+
-+		sai1_port1: port@1 {
-+			reg = <1>;
-+			mclk-fs = <512>;
-+
-+			sai1_port1_ep: endpoint {
-+				dai-format = "left_j";
-+				system-clock-direction-out;
-+				bitclock-master;
-+				frame-master;
-+				remote-endpoint = <&mqs1_ep>;
-+			};
-+		};
-+	};
-+};
-+
- &scmi_iomuxc {
- 	pinctrl_emdio: emdiogrp {
- 		fsl,pins = <
-@@ -618,6 +684,13 @@ IMX95_PAD_GPIO_IO31__LPI2C4_SCL				0x40000b9e
- 		>;
- 	};
- 
-+	pinctrl_mqs1: mqs1grp {
-+		fsl,pins = <
-+			IMX95_PAD_SAI1_TXFS__AONMIX_TOP_MQS1_LEFT               0x31e
-+			IMX95_PAD_SAI1_RXD0__AONMIX_TOP_MQS1_RIGHT              0x31e
-+		>;
-+	};
-+
- 	pinctrl_pcal6524: pcal6524grp {
- 		fsl,pins = <
- 			IMX95_PAD_GPIO_IO34__GPIO5_IO_BIT14			0x31e
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index 55e2da094c88..0c55861d673c 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -391,6 +391,11 @@ scmi_misc: protocol@84 {
- 		};
- 	};
- 
-+	mqs1: mqs-1 {
-+		compatible = "fsl,imx95-aonmix-mqs";
-+		status = "disabled";
-+	};
-+
- 	pmu {
- 		compatible = "arm,cortex-a55-pmu";
- 		interrupts = <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_HIGH)>;
--- 
-2.43.0
+Hello community,
+
+Resending this patch as the earlier version was sent as an
+in‑reply‑to within an ongoing discussion thread [1], instead of being sent
+as a new standalone patch submission. This may have caused it to inherit
+the same message-id and appear threaded incorrectly.
+
+Please consider this as the correct patch submission.
+
+[1]:
+https://lore.kernel.org/all/20260109204551.845959-1-bibek.patro@oss.qualcomm.com/
+
+Thanks & regards,
+Bibek
+
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+index 456d5146831e..718d102356d9 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+@@ -43,6 +43,8 @@ static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
+ 			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
+ 	{ .compatible = "qcom,qcm2290-mdss",
+ 			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
++	{ .compatible = "qcom,sa8775p-mdss",
++			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
+ 	{ .compatible = "qcom,sc7280-mdss",
+ 			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+ 	{ .compatible = "qcom,sc7280-venus",
+--
+2.34.1
 
 
