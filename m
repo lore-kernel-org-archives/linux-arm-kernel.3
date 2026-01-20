@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD6F5CA5FBD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 17:48:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B8BFCA5FBB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 17:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a9iLuhBBaWFw/vFGauqBf+tR/cYKN7IjXcWrjMcj1kg=; b=a/cAMCLthOYbNhPCGOIrZx9WvZ
-	8d8fGBrcdjWIGq5oxzPEV8VHSw6cBNHO/9bc2WGLQF/Qefa/YvU3ttrd4dshX2eYzRW+TtNEpq6XA
-	FyuXJLpXJI/6j8gmZhNldhVnMTriIuYOO3Fk+OCkVPdZrpesJmA0/vm3sulhq4/bFVygZC01a2P+5
-	RZAPfBJB9o+ZPNTdAD/eZ84RZmd6zncSrvwmZ8WA/2zimFv2yANGrcjB0+dZP9q7rSG86Wo3xaiwO
-	1hbFncYwVLuq3Z/A/01cdTpwel/1istktyRFyM+zTvX1WXt3Xk7Fwe059LV9nV12i4MVeHvHknXKj
-	BFReFfwg==;
+	bh=5vMBKkvm6k3gmJ6Qe3oDHVl+mCgwYJYz+Jp8UVTdokc=; b=bWW2CR6s/i77rEul8zOkV80gvB
+	1lrXeiDLo6c53PAtwRSwEMXVMyxCD0221+/7wNMce7KsaG7xZcmrJC2b1vBHiF1V2B16CD0o5eHFY
+	MCYCnqFwdiwbQ/82gky0VMTYdASPH4F2aYzsp1fTzQE/+7COfCPGv9nDNPwguN33avPSB3n/LetYU
+	kP80Sf6dpmfrohRdyTqbp88ozw5c4wcXQ5QWkKEgLte0i29KkZm2pgfzXn3AUaw89Nl4Netzo5ccH
+	uXLutr0nmFR5doSeNomXYVxMza77RNNuVUx6MBhfWJM85exryp5NqCfuINMChZQOy2zSUMkSf/L4K
+	ydcKUMZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viFqN-00000004G0K-00Bo;
-	Tue, 20 Jan 2026 17:48:43 +0000
-Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
+	id 1viFqR-00000004G1t-1EB5;
+	Tue, 20 Jan 2026 17:48:47 +0000
+Received: from mail.thorsis.com ([217.92.40.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viFqL-00000004FzI-10o1
+	id 1viFqL-00000004Fz7-0s5k
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 20 Jan 2026 17:48:42 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B4F55148AD87;
-	Tue, 20 Jan 2026 18:48:38 +0100 (CET)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5FAA8148ABD0;
+	Tue, 20 Jan 2026 18:48:36 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
 	t=1768931318; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=a9iLuhBBaWFw/vFGauqBf+tR/cYKN7IjXcWrjMcj1kg=;
-	b=fNeDGe8mv6Rlfr8cFOjBCpX+6Qmj8jO2iHS0qT5DPCfu4kLq0d6MoX4LWa/qi7nti2x986
-	l86EFkt6kwe9acw/UA0VDcYTZsAmnUy6AcOAxbKwC5x0FHU5eAMA0P36+DdjYJEn+B8QJv
-	da9NlyO2unJsV0tgojRgayTkcmCf//0dLZq5VmZ3GIgFGoEX+opu745SyoyOA81DrHr68p
-	vaZqnWRhiiKfCMsGAbq+0BzxZ8Uiix5UmKp6mVcCWoP4ZgDgjpYdOlRG4zqoTfQdPEGaaK
-	UWxnIk4AYFJXctNntwVvB5Pde7e37dKAylQjq907GDl0GlIGnoOlVTaYyNMjTg==
+	bh=5vMBKkvm6k3gmJ6Qe3oDHVl+mCgwYJYz+Jp8UVTdokc=;
+	b=OMxkNh93XArjOYe9qyeEqLB1bx7/aoP5yvVdUFj4WJItIGLh/iMqDc+7hSO7hSrG+RVHjz
+	FR9umWLBBaoFdVfdNQSPOGAwpLG2WQCWG8/lH2bchzPaPjFQFw/uh0m6isWrcgyjjYfqHg
+	EUOEuda/On8b/M+xPinElT99QFYWVU3hMWZABgJdkieRA1IxSKcf/oN7AmZIbuI+OxqTIb
+	BWKgMecizUu/1aIQrqEs0prt2bRN/qngcdzDVY2kQwgJrxUyvy/i15tgoVNWtmX/X5yy5Y
+	pG8C8lJ4hAJnwDldUoQFm776NaQ05bn/TpwlTOZJcl+ixV2wAClISLhWNUlxAA==
 From: Alexander Dahl <ada@thorsis.com>
 To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
@@ -50,9 +50,9 @@ Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v3 18/19] ARM: dts: microchip: sam9x60_curiosity: Enable OTP Controller
-Date: Tue, 20 Jan 2026 16:44:52 +0100
-Message-ID: <20260120154502.1280938-12-ada@thorsis.com>
+Subject: [PATCH v3 17/19] ARM: dts: microchip: sam9x60: Add OTPC node
+Date: Tue, 20 Jan 2026 16:44:51 +0100
+Message-ID: <20260120154502.1280938-11-ada@thorsis.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260120154502.1280938-1-ada@thorsis.com>
 References: <20260120143759.904013-1-ada@thorsis.com>
@@ -61,9 +61,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_094841_433535_0E8E19A3 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260120_094841_406285_72A6126B 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +77,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allows to access the OTP memory and Product UID now.
+The One-Time Programmable (OTP) Memory Controller (OTPC) is the secure
+interface between the system and the OTP memory.  It also features the
+Unique Product ID (UID) registers containing a unique serial number.
+
+See datasheet (DS60001579G) sections "7. Memories" and "23. OTP Memory
+Controller (OTPC)" for reference.
 
 Signed-off-by: Alexander Dahl <ada@thorsis.com>
 ---
 
 Notes:
     v3:
-    - Reworded commit message after reordering patches
+    - Removed needless header include
+    - Removed clock-names, not part of bindings anymore, and not used by driver
     
     v2:
-    - same as in v1, no changes
+    - squashed with patch adding the clock properties
 
- arch/arm/boot/dts/microchip/at91-sam9x60_curiosity.dts | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm/boot/dts/microchip/sam9x60.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/arm/boot/dts/microchip/at91-sam9x60_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sam9x60_curiosity.dts
-index b9ffd9e5faacc..c110a8e87568a 100644
---- a/arch/arm/boot/dts/microchip/at91-sam9x60_curiosity.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sam9x60_curiosity.dts
-@@ -252,6 +252,10 @@ ethernet-phy@0 {
- 	};
- };
+diff --git a/arch/arm/boot/dts/microchip/sam9x60.dtsi b/arch/arm/boot/dts/microchip/sam9x60.dtsi
+index f9e3962faca3f..098996739a62f 100644
+--- a/arch/arm/boot/dts/microchip/sam9x60.dtsi
++++ b/arch/arm/boot/dts/microchip/sam9x60.dtsi
+@@ -157,6 +157,14 @@ sdmmc1: sdio-host@90000000 {
+ 			status = "disabled";
+ 		};
  
-+&otpc {
-+	status = "okay";
-+};
++		otpc: efuse@eff00000 {
++			compatible = "microchip,sam9x60-otpc", "syscon";
++			reg = <0xeff00000 0xec>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			clocks = <&pmc PMC_TYPE_CORE SAM9X60_PMC_MAIN_RC>, <&pmc PMC_TYPE_PERIPHERAL 46>;
++		};
 +
- &pinctrl {
- 	adc {
- 		pinctrl_adc_default: adc-default {
+ 		apb {
+ 			compatible = "simple-bus";
+ 			#address-cells = <1>;
 -- 
 2.47.3
 
