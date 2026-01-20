@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D86D2ED11
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 06:44:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C37D2ECF9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 06:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vwKC6HwtuqTh63I/EcCnX9kz02TP/FLMLkDGVcBN5Jg=; b=Yc6hpuLKH5YiOhdCPs7H6FxABN
-	aJkkS2XCJvnURjFUOn8vM4BoIJuwxbYojkoymy3H5bIAKE4yNMCkCUV5y97mhIc4T1ZWZ1eOUB/Dp
-	Bqvfd5v5pyFu/pfZJFYdcG/PFEfhnGpQfW8mQoQ+33tHDwhL2Q42hnK/DCbc6+2ksSWORstgtIse/
-	EqhQOoDQSFUu7BfOYM+cV1ys5D9G7oT7R9k6TZCYfJDaV5oMA91Wkke913OgGtK0bxy2C9fXf13bT
-	ciEQ88TB2f7dbBkpvHmM4eiS6+Il1gFYQhrkG4Ul4K8r0f/RzJnoedOK8qv4F5suAVrMocDA7JQHw
-	y/6iPSHA==;
+	bh=e5zTidzD1l2EkEPlrmawzN2dIfFYQQCNH1hdqUaixrE=; b=PqXym6/lxF4sNua7+BvOO0P5hg
+	ZKgxE6aNFqpkurbnR8qYmCFnJUuMbbIUB9R+8O75E8Q1aanA/LDeX2RLsQwuW/FYWwISU5FtLTnTv
+	Y+yYMoqvugDbOwGc7YI7P3dYIU5Cpb7Do6Yrc5RPY2ggGLSQTL8/yvzPwqLLCTiyEzYUsmMXFeDNY
+	Bm4sgHDr/oRCboMvk/cxqUKegqroQwnbfq6lqmRO97ELa3Nyk0rmCeBfHxUyvajeDve4bHredb3rH
+	dRrwqwIdTv7uAMMettZLAuJVEyH6aFCJBk5xLxI3BpD8h2xHq7nncueG8UN8G+1EHHMYIzOpXH+bd
+	1pSIw9nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi5TI-00000003HyB-3S4Q;
+	id 1vi5TI-00000003HxY-1aPn;
 	Tue, 20 Jan 2026 06:44:12 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi5Sx-00000003HZw-1iD1
+	id 1vi5Ss-00000003HUO-0APq
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 20 Jan 2026 06:43:52 +0000
 Received: from mrdev.corp.microsoft.com (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 795D320B716D;
-	Mon, 19 Jan 2026 22:43:50 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 795D320B716D
+	by linux.microsoft.com (Postfix) with ESMTPSA id E60DA20B7175;
+	Mon, 19 Jan 2026 22:43:39 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E60DA20B7175
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1768891431;
-	bh=vwKC6HwtuqTh63I/EcCnX9kz02TP/FLMLkDGVcBN5Jg=;
+	s=default; t=1768891420;
+	bh=e5zTidzD1l2EkEPlrmawzN2dIfFYQQCNH1hdqUaixrE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nPKgQKZQP36at7Pw9ekyrrLYOUWnS9INVzf/0p/e0spMOrWzbrSFIdbBIYmCgu9Yl
-	 48+3TE7z+OgQ6l8v5rUbjC5ExL0L5TS/agbqGuSQ32EEIyWVA0e4BzSdoH7oe9rgAX
-	 6TseUo1oxO/Z0ZpmEfj8TIL4CIuSoguKL/aCkpmA=
+	b=UNMpFJkAxc0ipZ/uc95ODahk07NK6NWJyqWcGkaZVKyIZt1UDQiiBulzjGwCk91VX
+	 jt0oLrxXe6iYTsRwRbf+EqSpgCO1gfUoGkAjX1AJ38Zyc7EB7vv0f3UcxIZZ6sNoFr
+	 vdmcs3Bq/RId5HwNs85PYXjzf1VCUY/upizMZ+/c=
 From: Mukesh R <mrathor@linux.microsoft.com>
 To: linux-kernel@vger.kernel.org,
 	linux-hyperv@vger.kernel.org,
@@ -67,17 +67,17 @@ Cc: kys@microsoft.com,
 	nunodasneves@linux.microsoft.com,
 	mhklinux@outlook.com,
 	romank@linux.microsoft.com
-Subject: [PATCH v0 15/15] mshv: Populate mmio mappings for PCI passthru
-Date: Mon, 19 Jan 2026 22:42:30 -0800
-Message-ID: <20260120064230.3602565-16-mrathor@linux.microsoft.com>
+Subject: [PATCH v0 11/15] x86/hyperv: Build logical device ids for PCI passthru hcalls
+Date: Mon, 19 Jan 2026 22:42:26 -0800
+Message-ID: <20260120064230.3602565-12-mrathor@linux.microsoft.com>
 X-Mailer: git-send-email 2.51.2.vfs.0.1
 In-Reply-To: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
 References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_224351_478019_4EDF60A9 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20260119_224346_203686_C0FC21C8 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,164 +94,157 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mukesh Rathor <mrathor@linux.microsoft.com>
 
-Upon guest access, in case of missing mmio mapping, the hypervisor
-generates an unmapped gpa intercept. In this path, lookup the PCI
-resource pfn for the guest gpa, and ask the hypervisor to map it
-via hypercall. The PCI resource pfn is maintained by the VFIO driver,
-and obtained via fixup_user_fault call (similar to KVM).
+On Hyper-V, most hypercalls related to PCI passthru to map/unmap regions,
+interrupts, etc need a device id as a parameter. A device id refers
+to a specific device. A device id is of two types:
+   o Logical: used for direct attach (see below) hypercalls. A logical
+              device id is a unique 62bit value that is created and
+              sent during the initial device attach. Then all further
+              communications (for interrupt remaps etc) must use this
+              logical id.
+   o PCI: used for device domain hypercalls such as map, unmap, etc.
+          This is built using actual device BDF info.
+
+   PS: Since an L1VH only supports direct attaches, a logical device id
+       on an L1VH VM is always a VMBus device id. For non-L1VH cases,
+       we just use PCI BDF info, altho not strictly needed, to build the
+       logical device id.
+
+At a high level, Hyper-V supports two ways to do PCI passthru:
+  1. Device Domain: root must create a device domain in the hypervisor,
+     and do map/unmap hypercalls for mapping and unmapping guest RAM.
+     All hypervisor communications use device id of type PCI for
+     identifying and referencing the device.
+
+  2. Direct Attach: the hypervisor will simply use the guest's HW
+     page table for mappings, thus the host need not do map/unmap
+     hypercalls. A direct attached device must be referenced
+     via logical device id and never via the PCI device id. For an
+     L1VH root/parent, Hyper-V only supports direct attaches.
 
 Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
 ---
- drivers/hv/mshv_root_main.c | 115 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 115 insertions(+)
+ arch/x86/hyperv/irqdomain.c     | 60 ++++++++++++++++++++++++++++++---
+ arch/x86/include/asm/mshyperv.h | 14 ++++++++
+ 2 files changed, 70 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
-index 03f3aa9f5541..4c8bc7cd0888 100644
---- a/drivers/hv/mshv_root_main.c
-+++ b/drivers/hv/mshv_root_main.c
-@@ -56,6 +56,14 @@ struct hv_stats_page {
- 	};
- } __packed;
+diff --git a/arch/x86/hyperv/irqdomain.c b/arch/x86/hyperv/irqdomain.c
+index ccbe5848a28f..33017aa0caa4 100644
+--- a/arch/x86/hyperv/irqdomain.c
++++ b/arch/x86/hyperv/irqdomain.c
+@@ -137,7 +137,7 @@ static int get_rid_cb(struct pci_dev *pdev, u16 alias, void *data)
+ 	return 0;
+ }
  
-+bool hv_nofull_mmio;   /* don't map entire mmio region upon fault */
-+static int __init setup_hv_full_mmio(char *str)
+-static union hv_device_id hv_build_devid_type_pci(struct pci_dev *pdev)
++static u64 hv_build_devid_type_pci(struct pci_dev *pdev)
+ {
+ 	int pos;
+ 	union hv_device_id hv_devid;
+@@ -197,7 +197,58 @@ static union hv_device_id hv_build_devid_type_pci(struct pci_dev *pdev)
+ 	}
+ 
+ out:
+-	return hv_devid;
++	return hv_devid.as_uint64;
++}
++
++/* Build device id for direct attached devices */
++static u64 hv_build_devid_type_logical(struct pci_dev *pdev)
 +{
-+	hv_nofull_mmio = true;
++	hv_pci_segment segment;
++	union hv_device_id hv_devid;
++	union hv_pci_bdf bdf = {.as_uint16 = 0};
++	struct rid_data data = {
++		.bridge = NULL,
++		.rid = PCI_DEVID(pdev->bus->number, pdev->devfn)
++	};
++
++	segment = pci_domain_nr(pdev->bus);
++	bdf.bus = PCI_BUS_NUM(data.rid);
++	bdf.device = PCI_SLOT(data.rid);
++	bdf.function = PCI_FUNC(data.rid);
++
++	hv_devid.as_uint64 = 0;
++	hv_devid.device_type = HV_DEVICE_TYPE_LOGICAL;
++	hv_devid.logical.id = (u64)segment << 16 | bdf.as_uint16;
++
++	return hv_devid.as_uint64;
++}
++
++/* Build device id after the device has been attached */
++u64 hv_build_devid_oftype(struct pci_dev *pdev, enum hv_device_type type)
++{
++	if (type == HV_DEVICE_TYPE_LOGICAL) {
++		if (hv_l1vh_partition())
++			return hv_pci_vmbus_device_id(pdev);
++		else
++			return hv_build_devid_type_logical(pdev);
++	} else if (type == HV_DEVICE_TYPE_PCI)
++		return hv_build_devid_type_pci(pdev);
++
 +	return 0;
 +}
-+__setup("hv_nofull_mmio", setup_hv_full_mmio);
++EXPORT_SYMBOL_GPL(hv_build_devid_oftype);
 +
- struct mshv_root mshv_root;
- 
- enum hv_scheduler_type hv_scheduler_type;
-@@ -612,6 +620,109 @@ mshv_partition_region_by_gfn(struct mshv_partition *partition, u64 gfn)
++/* Build device id for the interrupt path */
++static u64 hv_build_irq_devid(struct pci_dev *pdev)
++{
++	enum hv_device_type dev_type;
++
++	if (hv_pcidev_is_attached_dev(pdev) || hv_l1vh_partition())
++		dev_type = HV_DEVICE_TYPE_LOGICAL;
++	else
++		dev_type = HV_DEVICE_TYPE_PCI;
++
++	return hv_build_devid_oftype(pdev, dev_type);
  }
  
- #ifdef CONFIG_X86_64
-+
-+/*
-+ * Check if uaddr is for mmio range. If yes, return 0 with mmio_pfn filled in
-+ * else just return -errno.
-+ */
-+static int mshv_chk_get_mmio_start_pfn(struct mshv_partition *pt, u64 gfn,
-+				       u64 *mmio_pfnp)
-+{
-+	struct vm_area_struct *vma;
-+	bool is_mmio;
-+	u64 uaddr;
-+	struct mshv_mem_region *mreg;
-+	struct follow_pfnmap_args pfnmap_args;
-+	int rc = -EINVAL;
-+
-+	/*
-+	 * Do not allow mem region to be deleted beneath us. VFIO uses
-+	 * useraddr vma to lookup pci bar pfn.
-+	 */
-+	spin_lock(&pt->pt_mem_regions_lock);
-+
-+	/* Get the region again under the lock */
-+	mreg = mshv_partition_region_by_gfn(pt, gfn);
-+	if (mreg == NULL || mreg->type != MSHV_REGION_TYPE_MMIO)
-+		goto unlock_pt_out;
-+
-+	uaddr = mreg->start_uaddr +
-+		((gfn - mreg->start_gfn) << HV_HYP_PAGE_SHIFT);
-+
-+	mmap_read_lock(current->mm);
-+	vma = vma_lookup(current->mm, uaddr);
-+	is_mmio = vma ? !!(vma->vm_flags & (VM_IO | VM_PFNMAP)) : 0;
-+	if (!is_mmio)
-+		goto unlock_mmap_out;
-+
-+	pfnmap_args.vma = vma;
-+	pfnmap_args.address = uaddr;
-+
-+	rc = follow_pfnmap_start(&pfnmap_args);
-+	if (rc) {
-+		rc = fixup_user_fault(current->mm, uaddr, FAULT_FLAG_WRITE,
-+				      NULL);
-+		if (rc)
-+			goto unlock_mmap_out;
-+
-+		rc = follow_pfnmap_start(&pfnmap_args);
-+		if (rc)
-+			goto unlock_mmap_out;
-+	}
-+
-+	*mmio_pfnp = pfnmap_args.pfn;
-+	follow_pfnmap_end(&pfnmap_args);
-+
-+unlock_mmap_out:
-+	mmap_read_unlock(current->mm);
-+unlock_pt_out:
-+	spin_unlock(&pt->pt_mem_regions_lock);
-+	return rc;
-+}
-+
-+/*
-+ * At present, the only unmapped gpa is mmio space. Verify if it's mmio
-+ * and resolve if possible.
-+ * Returns: True if valid mmio intercept and it was handled, else false
-+ */
-+static bool mshv_handle_unmapped_gpa(struct mshv_vp *vp)
-+{
-+	struct hv_message *hvmsg = vp->vp_intercept_msg_page;
-+	struct hv_x64_memory_intercept_message *msg;
-+	union hv_x64_memory_access_info accinfo;
-+	u64 gfn, mmio_spa, numpgs;
-+	struct mshv_mem_region *mreg;
-+	int rc;
-+	struct mshv_partition *pt = vp->vp_partition;
-+
-+	msg = (struct hv_x64_memory_intercept_message *)hvmsg->u.payload;
-+	accinfo = msg->memory_access_info;
-+
-+	if (!accinfo.gva_gpa_valid)
-+		return false;
-+
-+	/* Do a fast check and bail if non mmio intercept */
-+	gfn = msg->guest_physical_address >> HV_HYP_PAGE_SHIFT;
-+	mreg = mshv_partition_region_by_gfn(pt, gfn);
-+	if (mreg == NULL || mreg->type != MSHV_REGION_TYPE_MMIO)
-+		return false;
-+
-+	rc = mshv_chk_get_mmio_start_pfn(pt, gfn, &mmio_spa);
-+	if (rc)
-+		return false;
-+
-+	if (!hv_nofull_mmio) {		/* default case */
-+		gfn = mreg->start_gfn;
-+		mmio_spa = mmio_spa - (gfn - mreg->start_gfn);
-+		numpgs = mreg->nr_pages;
-+	} else
-+		numpgs = 1;
-+
-+	rc = hv_call_map_mmio_pages(pt->pt_id, gfn, mmio_spa, numpgs);
-+
-+	return rc == 0;
-+}
-+
- static struct mshv_mem_region *
- mshv_partition_region_by_gfn_get(struct mshv_partition *p, u64 gfn)
- {
-@@ -666,13 +777,17 @@ static bool mshv_handle_gpa_intercept(struct mshv_vp *vp)
+ /*
+@@ -221,7 +272,7 @@ int hv_map_msi_interrupt(struct irq_data *data,
  
- 	return ret;
+ 	msidesc = irq_data_get_msi_desc(data);
+ 	pdev = msi_desc_to_pci_dev(msidesc);
+-	hv_devid = hv_build_devid_type_pci(pdev);
++	hv_devid.as_uint64 = hv_build_irq_devid(pdev);
+ 	cpu = cpumask_first(irq_data_get_effective_affinity_mask(data));
+ 
+ 	return hv_map_interrupt(hv_current_partition_id, hv_devid, false, cpu,
+@@ -296,7 +347,8 @@ static int hv_unmap_msi_interrupt(struct pci_dev *pdev,
+ {
+ 	union hv_device_id hv_devid;
+ 
+-	hv_devid = hv_build_devid_type_pci(pdev);
++	hv_devid.as_uint64 = hv_build_irq_devid(pdev);
++
+ 	return hv_unmap_interrupt(hv_devid.as_uint64, irq_entry);
  }
-+
- #else  /* CONFIG_X86_64 */
-+static bool mshv_handle_unmapped_gpa(struct mshv_vp *vp) { return false; }
- static bool mshv_handle_gpa_intercept(struct mshv_vp *vp) { return false; }
- #endif /* CONFIG_X86_64 */
  
- static bool mshv_vp_handle_intercept(struct mshv_vp *vp)
- {
- 	switch (vp->vp_intercept_msg_page->header.message_type) {
-+	case HVMSG_UNMAPPED_GPA:
-+		return mshv_handle_unmapped_gpa(vp);
- 	case HVMSG_GPA_INTERCEPT:
- 		return mshv_handle_gpa_intercept(vp);
- 	}
+diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
+index 0d7fdfb25e76..97477c5a8487 100644
+--- a/arch/x86/include/asm/mshyperv.h
++++ b/arch/x86/include/asm/mshyperv.h
+@@ -188,6 +188,20 @@ bool hv_vcpu_is_preempted(int vcpu);
+ static inline void hv_apic_init(void) {}
+ #endif
+ 
++#if IS_ENABLED(CONFIG_HYPERV_IOMMU)
++static inline bool hv_pcidev_is_attached_dev(struct pci_dev *pdev)
++{ return false; }       /* temporary */
++u64 hv_build_devid_oftype(struct pci_dev *pdev, enum hv_device_type type);
++#else	/* CONFIG_HYPERV_IOMMU */
++static inline bool hv_pcidev_is_attached_dev(struct pci_dev *pdev)
++{ return false; }
++
++static inline u64 hv_build_devid_oftype(struct pci_dev *pdev,
++				       enum hv_device_type type)
++{ return 0; }
++
++#endif	/* CONFIG_HYPERV_IOMMU */
++
+ u64 hv_pci_vmbus_device_id(struct pci_dev *pdev);
+ 
+ struct irq_domain *hv_create_pci_msi_domain(void);
 -- 
 2.51.2.vfs.0.1
 
