@@ -4,169 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73A39CA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 16:49:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59EB4CA5FB7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 17:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QuZDMjEHcRQf2VB+azAYapp4m8KmxBHZ90s6EVnFKNQ=; b=HlwKFkBa9fJYjjky3uQAUWKTm2
-	v/y1U4CXRtB1sWvJ0gLNP433z2ynAbaMhsWqIyvKigD3axfwPfT8XE8f4bZ5OTgoSMgfrvcYxDeTn
-	NGsHcLUK8ocuqk5Rab2UvuO86ai7FMrO/tV2758S9iRF+icawrdZuN/o5dI3f0HTNO+ijo0VmWkdp
-	QN39+Qctv4z99Tacsks0w6QXBtvyBMC6wJ1lYu6eFo1224iFxYSKo3JHszRaKKLaw1FJpWGSyCWRL
-	I0c+heEUR8VKSchO0SleIHwDFJEfeymLw+HX1K9NREyjyrC8nPXPFrFd1P0GzeL0bPaQQdOhgM+6v
-	ee/briPQ==;
+	bh=PnTkjcrLdIvff7zfVxLrAnu1nObdwt/iZtg17ii8hUo=; b=Sp/CiCOC31N0OMuWSMTKZ4jTAI
+	eZByny6efDFPvTFm1vIJyQ3qS3DghVN5va/dUUwe6KhIJHJuLZSDAtv1q4yr9AAPN/8qCpOtffOCY
+	06WfP9MAlWopNZk6KBETlsiMGc7i5wr+0XGEn1Pep5hRPlWA5uW6+kDN9+e4CPeRkMKoHykn/jkYr
+	5UMzAVzfTDM/+758jlOTNBdSYT7IY5urVMZ+nRCG4Hn2a69sNVpYLmeKMyX3T2sCRlMPhTOP5x69D
+	ealUZ98pMmnZBAKmJUzJ3Fcf/fq4ALKqxaUZJ9lpve6vEd7f6yqCwtbztDigNLr/SHQ6NsfayokGT
+	TIUnup+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viEui-00000004D1T-41OO;
-	Tue, 20 Jan 2026 16:49:08 +0000
-Received: from mail-northeuropeazon11010049.outbound.protection.outlook.com ([52.101.84.49] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1viF5S-00000004DPA-0KWm;
+	Tue, 20 Jan 2026 17:00:14 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viEuf-00000004D14-48XD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 16:49:07 +0000
+	id 1viF5N-00000004DOT-43dt;
+	Tue, 20 Jan 2026 17:00:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AG3M4TqCO7stEJC2GCDpLkBg43Uant6I6wfr3v5VgxOuV1OlRK+UFr7Ct2uGu5y5L2ZaszcT9YMDYWwlmBxglxw3ja1PNW/kk8+sKjs1goixL2ZmFR5OspkiwA5bIgz6Cjkjn3KV+5kYfAya4gYP/Zvu+L5IqqsZR+S2cYPQMSMuBHjWbmyMvaFNnAoLX2EOPmck7gYBTblwpk0OTvciAsyXIsRDT4Th6e+07Fo3VfXkPQ35tg12znjFpnJX0yV/qQXqDFOLFn+op/LVAXWdqXtACQPuyuZb/R2louKzX9nS7F5PMY8XReDVcnAQiJJa7bMsawtaqUk1ZZFNdl816Q==
+ b=n069s1djt8V047I4N/mp4nwfHVpejtF0RaCT3RsNjTqTn5+1ub/CYkaPr78ba5Nu2PfZmvY03u5oNmALYAR9WSMakWcfyaiuxeeM5Tm8vvnZ6ZRZ+KRJct8JXV/maRpIU/ptTafvlXj5PTO+khs3T0cuAkRvIiOlzAXLK+KgPmC+Tn7n/pg0qSn5HFicn/AuWf1ID6FnCBm69Ngcc6EiE/drxXk+Py8ouaPK1c+z6fRiAa7uysWKUDK0PeVgIKthdFqWRbQWl9Hjj7EzZC3bWgZqiTznr/+Mo+/ktM4iWKvJNYE/zqg8d4fmnZU7bBYpuXFacy+FUO7VJrf82djzFw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QuZDMjEHcRQf2VB+azAYapp4m8KmxBHZ90s6EVnFKNQ=;
- b=EqgTKm493s6SbJBymxc8W73oUArYldxB+8Ca1GrELEs/5N31fsM1KAWa4JZtCCeiVoLYTnOxQv3QMNBMfAz5oRSGnpPJvAyyuZ0sxrxZ8vdoVbUtEkly3bU1lgpfk676IrDJ9K3bzCjXtsBIORjlrUCD6KsOp3na8npINcNKsQWed02eXq79YKgLSrt4mX6YwOmS0sivJaenWoqz5GoMqsGrfp3P9+ueYWxVbB91sYwxE8OXRDl3AzAfrCa/RzrGj2QUZpOaQfCPXT8YfHJiXRiZMcyn/ApPfSxT/KPZYCh+WrSpOlDIYXE4XwXBQetC2t+DWG3a6nWBDWIshKSVXA==
+ bh=PnTkjcrLdIvff7zfVxLrAnu1nObdwt/iZtg17ii8hUo=;
+ b=N1pDjDUNqoo4zVkTM7KH0WYKHlr8O2h/yuY+vu9/xo2e0tnr434REh87rY8ZqWRjrHmSIpH2iT7JooDP/ImfUdSkr78SwHsYEpffCniNgt2Cdsmv9MDUCn9RWn1kso8yj3iU0eJfDT0kR7P+dhkkHXxb5XKmOY/2qP850bBNA1fNouSfjhsJc0WlQgGeHm+fkYGjeXKv4cVTsxe+32dS4txMS1M8xmmlBPbr6LvNpg5t2mnCRA9pRTBcJ/C3SR5ooC5g+d0fdITwjgNX2yxnyPlkU5NUO0XEbaFWlMIjuarWjn9Q1D4ekFHjunoYJz6wywkkoBqd2jfPCMRv4bJpig==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QuZDMjEHcRQf2VB+azAYapp4m8KmxBHZ90s6EVnFKNQ=;
- b=mC7GZyFuBlWVv8Otn14ABIGOVmQjn/MOyJZhAhZP3ENpi31vSCVz+/4TLrYkcnDCH+W6Uj5/iCLc8dJBtV/EYZcTZ/O+KrkRGuiSN8VrHFUC9/Gbm4/SPDlGoMsNNahQs16Qm0E57uUG9toWbqipF41IaMKWXihvclzI95WtNZAUQrVxm6oxUAzqCFF+jo1jeQr78FNaskTexGp46zSD+7jR2WktAX4jQJh+6PeJaYknWqJDqNORYu+51LO/jYcOCHjvAqXp1GwwwsfR7piDZyE7WDjyt3GALSc+dtpPzr2LoLnO1CoRrx09XLHcX7Hwse+SndhYTv6hfXlqqDgFEQ==
+ bh=PnTkjcrLdIvff7zfVxLrAnu1nObdwt/iZtg17ii8hUo=;
+ b=h5soSAELj4IUJwkIC78VhARV9gNvjWXMGEdyLVIVnhoj41J6YjVfYmQ5OHaaOSt92du49y+Ef95Qo6+iF0B7CC8e6nyPbOaJ0JJAzgLFtTvKrIv0mOcSdtvQZrTKf1+bERHXhucl5ZVuGsEuYur138oRynH/4Wbq/77stvHmXbXVaTatnFUiC2Wy/aKAhYgbFGEQRPqczLSO7jAN+onH6Q1UU8j5ydlyL50gNnlFh9bBZN8iQDFWn627pHrOvPfAaOHRV1LK4UlmOns84OTT6p5+5AMgip6Y2K58vIHPjAPcIwYaTEPvs2w3VkR/AvOvexCd0aUSnte/+mt2YXZ7gA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by VI0PR04MB11919.eurprd04.prod.outlook.com (2603:10a6:800:306::12) with
+ by DU2PR04MB8856.eurprd04.prod.outlook.com (2603:10a6:10:2e3::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Tue, 20 Jan
- 2026 16:49:01 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Tue, 20 Jan
+ 2026 17:00:04 +0000
 Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
  ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
  ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9520.011; Tue, 20 Jan 2026
- 16:49:01 +0000
-Date: Tue, 20 Jan 2026 11:48:53 -0500
+ 17:00:04 +0000
+Date: Tue, 20 Jan 2026 11:59:55 -0500
 From: Frank Li <Frank.li@nxp.com>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: Hongxing Zhu <hongxing.zhu@nxp.com>,
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 03/10] arm: dts: imx6qdl: Add Root Port node and move
- PERST property to Root Port node
-Message-ID: <aW+x9eA1I/nGdAL9@lizhi-Precision-Tower-5810>
-References: <20260119100235.1173839-1-sherry.sun@nxp.com>
- <20260119100235.1173839-4-sherry.sun@nxp.com>
- <aW5aodaPdjYwAE1V@lizhi-Precision-Tower-5810>
- <VI0PR04MB1211450544DD02D44B4B901959289A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+To: Michael Riesch <michael.riesch@collabora.com>
+Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 2/3] media: synopsys: add driver for the designware
+ mipi csi-2 receiver
+Message-ID: <aW+0i3nyeSGCzKf9@lizhi-Precision-Tower-5810>
+References: <20251114-rockchip-mipi-receiver-v8-0-bd1cf5cb9588@collabora.com>
+ <20251114-rockchip-mipi-receiver-v8-2-bd1cf5cb9588@collabora.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <VI0PR04MB1211450544DD02D44B4B901959289A@VI0PR04MB12114.eurprd04.prod.outlook.com>
-X-ClientProxiedBy: PH7P221CA0039.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:33c::18) To DU2PR04MB8951.eurprd04.prod.outlook.com
+In-Reply-To: <20251114-rockchip-mipi-receiver-v8-2-bd1cf5cb9588@collabora.com>
+X-ClientProxiedBy: PH7PR17CA0059.namprd17.prod.outlook.com
+ (2603:10b6:510:325::25) To DU2PR04MB8951.eurprd04.prod.outlook.com
  (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|VI0PR04MB11919:EE_
-X-MS-Office365-Filtering-Correlation-Id: 72689088-7df6-482b-f515-08de5843d030
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DU2PR04MB8856:EE_
+X-MS-Office365-Filtering-Correlation-Id: c53b3989-e92d-4967-1d18-08de58455b9d
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|19092799006|7416014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?iKY2le7bTYaIXu72w5HWJiL0d+AG1sf679zdk/BanMvY8AJBF0VVKF3gQszj?=
- =?us-ascii?Q?X7SLwmrtQDN9opYy4yQ+ciGlHXHE2GRpbnFDVjh3wIn06mp8ubQaKlh/8kYb?=
- =?us-ascii?Q?7sFnyEwGAsEtmPOOkFtPogkLgSNRLVJRRcF4k4ULZnugz3ekK6WoiadEFKq4?=
- =?us-ascii?Q?5ZQPVmFqGGunxSuumc/P4/HrCR9L8zzFZtqaHwYk+ERxuU1z6TrknrMHH7OF?=
- =?us-ascii?Q?N2HyeNp2AKZptieYMktcVhtYTY2LPW6irhXH6PPbtSbBc2JQncE7tGV3/SRc?=
- =?us-ascii?Q?6ZjLg+i8xEz2qh5sVanAJJwjQj1E8ckjsr3YlZfVvKtEdNRaJX287y8R4oxv?=
- =?us-ascii?Q?2ovnGxyhLgstcmmP5du9VKXQRwB7r7ZwLfP9ffZE1Wd7/904f86BpxslnEAL?=
- =?us-ascii?Q?Tssygkaw1NSr+T0zZRYPDnCktCNSJAq/KjHFYGq9M9uZeSODjVlsV5fCWbAB?=
- =?us-ascii?Q?7r0lLrhMbx33zYR5qDiU9w69Ez54a/u1iYoc8Q5jWVxyu2aYJ4sFLt+emRdQ?=
- =?us-ascii?Q?cPhbCVGYSmtD/G/cIkw4hStNCkzVURLbA4OzZAZdosmzgZVVpmvbRaW1gkg3?=
- =?us-ascii?Q?X3eDLKUyEWzWSsKiAQFkSAT84gzdyFkKfdFf5yw0RriBaaj4W6ICUJQGcg1Z?=
- =?us-ascii?Q?UK1R15hU7glCE48PZxSeWk31VOlp4SuwkrwM7NL/Y/S99oJaNCLwXecUWaEt?=
- =?us-ascii?Q?vGHTP8HNlLCYfMx/p0jRln2webgm4TLAeJQO3xR8nqM/KTyD1BvO+lLlB1h3?=
- =?us-ascii?Q?mxRbstQfdztyuIBBObY/3MxTxtCzNo9ODdGr4aPTVyMEjDtVpFUN4ciiJr0p?=
- =?us-ascii?Q?nBSMyjN++S+fUa+x8ZOq5HQDjTZ8O0Aqyr94JtdluoeoW+gl4nJ9oms/+1Zp?=
- =?us-ascii?Q?JI1r+rcWQvTBIRHjxc/fj6FEYhydFFfdfagHpZcqsqG9iwwE1IQdc/ZdovPQ?=
- =?us-ascii?Q?zGfrW5CmO/BefUtZIPnI/g4sGo9c3gccqn1ih4icpRjM55qLzeiGtIi0AQvr?=
- =?us-ascii?Q?aLjp1YNpFbzI0KQYfFefwxFBU08tE3J10s0QhRtcO/qARyJF6qT6nADH27tp?=
- =?us-ascii?Q?AnV2qfA8LmrE2jCFAaAv5bnspEr0kdc3ZLAp6Ka5wyDUnkoiX/Im+Nm8yabF?=
- =?us-ascii?Q?Q5mqqf23tNj9zFcraXk679ccFWPNWsRDbOT6usX4/zgItsB4i6rKuEEHCPbi?=
- =?us-ascii?Q?tTFFZruHmJnqPhGyCuUZtqsU3UXilzAwAatH/oza6SgUoKbqxUk4LJawe/Od?=
- =?us-ascii?Q?vaoELlmmcduIUZjv1NS02ZwtTxiKNGoS+gSdNueQcNRd88obwXJ88eCqJuc6?=
- =?us-ascii?Q?bh3BYvPV9VS/Z6EB6c6JO1cZ4ULSl0MYiKidTMTfa55J0AnKtcFwIpVFY0cI?=
- =?us-ascii?Q?XYUFE/djo73RGVJtWwWyfVtqMD6vn4hfg6xyQh307AKYp9IyIgupz+ckoSQc?=
- =?us-ascii?Q?uOuT+NmLoDuVH0Row+Iqi3AEVyL8LvTTfwOnDRK8L4bxDCdrUyrk120L93z8?=
- =?us-ascii?Q?6ZExQiXkbpj/wJuFcufrKhl5fcLA5KrKZ07gvnybur1SdnoKlQBSyiSWJtiE?=
- =?us-ascii?Q?1+kyqTLBTibPKXqwNwIUcT+mVS5kjQY6jq9VciR8VXDLTRXoPBG+AnaUsfnK?=
- =?us-ascii?Q?HbCwH6WaAXxNv3xM7bFWyYc=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(19092799006)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|19092799006|1800799024|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nd6h2+4Jy4S1W+mlOLZDXvBokDVQXFBOirxSBkWtmBGOmpGmgHlmBOeQSS75?=
+ =?us-ascii?Q?nEN9Hi6KrJvN7Hb3xPzUc+x7EUmPr5MGYmsgIO5rmbNB8d603Zge7u8FWkUB?=
+ =?us-ascii?Q?NgEkT6gg3ofs/QYF1ged1JM5Gyemoir9tl0YFO4qWSdgd91UsJQpy2rlOpuf?=
+ =?us-ascii?Q?S7lGMQr00WnZpz2q4Q6oL0d1mJO09HImTR/qI35PBSh2ls0nBYLLMa3bw87Y?=
+ =?us-ascii?Q?1nS+zVNB5eOyr3ROfm6hZ9HVHvsz0oWoPefoCkrS+g3txF59R+/iadEFOsHN?=
+ =?us-ascii?Q?2dSCmP4hzlx1+C1zLM8hrBWIpmAxYWetU+eG3IyrOQQWEjfU4cDUqbCJCzFv?=
+ =?us-ascii?Q?qfTiVudKMBYtIRZyiLEFmaTipjRnYhoAqC6dAMPI65FP+VrJY5cYx1JgSJk4?=
+ =?us-ascii?Q?vBB8LZNU0BiG7T4LDq5XQWxGlPrhxqh2NoTo38s/DGv/wCw7YAvCGBSgPat6?=
+ =?us-ascii?Q?lxXcyqOD/PvWHamZEHCoTCw1r1R0PJ4FQ6Uu2/6zkcS+PfBr3qlzPHfmPzbv?=
+ =?us-ascii?Q?dbSrgLHXOEfQqrxi5vGOqwpwH/eOsJSoyey26e9bUDWe894igx7qZH55z346?=
+ =?us-ascii?Q?D8GfgyV9vOUjUn5DhoewC+SuAmA7ffky08XES3BkNB/CJ4QfiF5th0BhQeVT?=
+ =?us-ascii?Q?oJr+lNGkAI4//Lq4W72Wp5qEMcuzDl1zAXyKSSZzx7vdPKVVxh3hHkMDqZFf?=
+ =?us-ascii?Q?j2WIpxhynGm6esJ5iOQjDGrUzZdLMuaG6uaGT+V5nDnCAwQX81EGckYWTiRu?=
+ =?us-ascii?Q?bjmZI/9t5i5d5lCdWFO0s/g9C4gtn6mbSxs3KAsLTaaTrD+UfiQHUKqWXCWv?=
+ =?us-ascii?Q?g/VeYUp9i0S/EgSk+rzYKNQnDQcd3U/m2RitWu5N+KqhBB3J9K0R30mtwVXb?=
+ =?us-ascii?Q?MvZ+tKLWVNpqGt8I30ZQqKvLvi9966/2AJzqbHzzpgeSq/9ZN5EJLkvsh7UD?=
+ =?us-ascii?Q?f8iLIzMMerLuDvzZAlK/+p9FF25dWQ1D3BzCurEYz2YVELqvk6WIo02ReZ1e?=
+ =?us-ascii?Q?oEHATEo7/hefzh4jBJ7bKAi8Tcdn8rOBoan5bewS7Ig3Xyg2VakB6JVG9o3H?=
+ =?us-ascii?Q?beGYr+NtAZzgYGrBA3BisME2twt6hWRlqJIbPXKbHCYzkVjNI9nNWaGObLm9?=
+ =?us-ascii?Q?KQ1RymYq6lYl1tUyXdj4npm347ccTpIR9neXoNdBrrB+f9EocXF8apLpf7+Q?=
+ =?us-ascii?Q?9ZloVrjTdl3CLiqn85tPQkEKqWQ98R/IN25CpaZfadtRFz2YUEHjdo2LQQ2P?=
+ =?us-ascii?Q?cT2ZNvbkv9T9hcMo2GKVf79romGCl9Np42fIuFhDU4ClQFqVWrjxF+oNMTGr?=
+ =?us-ascii?Q?Q929XGW6CJowzNs5+wUHyeNFCp38VDh2EjgZKZ0ccTNZe6WMlMUu21AiEXOh?=
+ =?us-ascii?Q?EdQHdMEvepXylAhWkaI38Sv2cEdwlld6NiO/FEqPrDYTFwCH7woT1/PKKFyo?=
+ =?us-ascii?Q?cSvrkyb4uXMQB9oOnzqiFTuPIvroSI+6/IxNlK4EKMPd6D3oStxwsrpY0CMY?=
+ =?us-ascii?Q?9HwgVAWjsGKshvGuofLIWzuuPIk1AfOq/iVHaIjQwuog98NbhePpp0zKK8+R?=
+ =?us-ascii?Q?NxHBC0FedoVFX3JGkRbuh/wStN3RBjUTMq275bp1nfR01SEkh8SlVjJH0umc?=
+ =?us-ascii?Q?mODWUvck3yNHj0VnYo+ssMg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(19092799006)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?t+90NSHY+P5tz8vCrG7+TdxYGNzW+a9YisVriKMAyFn0gwCTNgXMD1xxdbRR?=
- =?us-ascii?Q?UDPqvDGS8XUKtQy/pEp2WtQhPsjG2CuCCLz27Mhkgx57fwnjt5r20WFYzcSh?=
- =?us-ascii?Q?27BdkLv51NF9dE/Ro6Vxe7Kl0xVAXx2ryX6IQSbqzo8qauqPx52purpx9DOg?=
- =?us-ascii?Q?8IjgYLdEn5XiQo7SvvnOX8pAI6/YHrE+PaiJ+E7JWSmYGmqqiNy8jAusOGJb?=
- =?us-ascii?Q?N50LUk/fxtWf8i2RPUm9vD65o6QwakgGlRxYF4NWtTFuktEMz1FabaR5imYO?=
- =?us-ascii?Q?StJqu9VeLJeEsxiDc4xTQWZlVAZ+KS7CKgzAbNPC4+Zn8MMnF56i5wV3A7jV?=
- =?us-ascii?Q?h6ITsYJRhuxK2vmjJdPqJW4zRrQjc/A5m56tziLTckxtJPjAbPsRcBCW5Yff?=
- =?us-ascii?Q?JkoJLCMS1a00Sv8dMckga5p/SHdbm/e+XMztgS2nju6fl2S7IoQpyvHSYx3L?=
- =?us-ascii?Q?2NAkt3hs3O/FDzKVfdmLs7WHqBsU9BZJkhZCCOxLreK+T0YVZtinKspiuG/8?=
- =?us-ascii?Q?BXnou9pDhCkXsAq11sXyhhxAbghSSoKiA2OMR3HgqclbBex7/Aszq1Z8mQhN?=
- =?us-ascii?Q?tl/Is1TNrqJa+h/LNbAscGbo67DaoLUElhGK8+czrRnkwhr8cCOG2XD6GKBG?=
- =?us-ascii?Q?dICV1mnr5Pt4cFhCYXYEFEUahof9Kuubaa6B5DYbV1LzqhZ4ZtA8rLQbbzPz?=
- =?us-ascii?Q?umzJUBXTpm7h7IJnkECvib35i+Y8lOzvmdvAALkA74bhCdcfC68ajrUocxHC?=
- =?us-ascii?Q?G8M87ot6Cnuvshij4M90tCcuSNpuOl0GRIDeZqA1V7KEqmYNBMuQK8VmXz6b?=
- =?us-ascii?Q?2/yVzd9e6XmvQKaZW2nWk1znze8+W4IzDu6N8hTb/uERcLDXLoZ79DgbrlGk?=
- =?us-ascii?Q?TZCdTc7o5t0WgPR2mSu6yHsRd4DzVHlY4E0YsITOIIuozO0v+ocnPraLGF2L?=
- =?us-ascii?Q?egdlW4AutpdUZ+poyckxVejop6zV63kXgWicxt5uKhP6F+/C8MDCHkus6nml?=
- =?us-ascii?Q?QyGECd/i5g8kna4R12LXzQp+Gl/TAq3e9MVdyVGBv+kWwMuYYgL8l2PGihG8?=
- =?us-ascii?Q?L3qRMBIB1Adbbtv6Ihpx9LP4S6ex3Ye3hlIK+aTpRZZcWl7DX9heyDSHIkVn?=
- =?us-ascii?Q?fZp76AxacrJaLlk/IktqIxTIgdsPPjWCUFCmqQ/k9iDHwAXTFugiy9TyttKB?=
- =?us-ascii?Q?yFYOoQoJARIoL6xnVSP/Wr0DDmVERxSU8/MtigG/ZunR5cNOSqPSj7x7M42Q?=
- =?us-ascii?Q?YgM5F8JgL4r5bG3n10qDRc/aVKbcbkGkfCeJD9OTvrKgKaDJCGl4BRI1Yby9?=
- =?us-ascii?Q?S+kWP84PAaXou5SuLrZtT59NgP7DmEtlIZIfu1BXtcgqH3fdtI+GPg5z7Mrz?=
- =?us-ascii?Q?umcSaIyFhRQnKGsBAZiM6A84uHTXfv081Ds/cHCajQ9SMPWi6QIvBuXjH3B0?=
- =?us-ascii?Q?5PlWNa+gQXLsFrjBS0jeB4Aa9CNphVb97MU6ejZ5GyzAy7uH5DjpuNE/BdpR?=
- =?us-ascii?Q?mJp/yP6BxU8FFZ8ENh1PJ+5ae5yO/Ct5KQ84t734VGafvLrf1IFAxGwluxYb?=
- =?us-ascii?Q?iCqASSmY90u9lmBVAt2dO3lZGeGtoyPXAY+ZJjFEbiaFQfKDFfxrw1FJCxiI?=
- =?us-ascii?Q?F4AojorWF+hvqxo/x/pb+NoptbxX6MtSgsrdLpkhTTC2JTtz9ro/HbV9Y0Ld?=
- =?us-ascii?Q?mGB0t+xO0fBbamordi65dn/1tP6bCGHBd9+U/wr3xrzHTymajJwFEtor53rW?=
- =?us-ascii?Q?wXLx+yMOUw=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/25a6jxc68cmHthXm2NGBoxt2r0qWPMJhqOX0P36bzw+t0mzK7NfQvhn30Wc?=
+ =?us-ascii?Q?1SXqY65dhXvW6jzhxKmnD1V2PqvcVA0Pw62UC64NiEsC1KjaO6hOyH5fk1Ma?=
+ =?us-ascii?Q?pGcSIlNEs4R8fRNLynzhMMSCZKz5Ng4Evn/N61UoK4cm5R4fTvBU07cEcyVV?=
+ =?us-ascii?Q?jsRiMPrg3cR5PuU1mF+EPy/YvoWD8XfAttdm6ycrB/KBYrZnENvXXM9bXv8v?=
+ =?us-ascii?Q?73IbXaxcHenlPQrUca9SNrPbMzHbGIsVPWwwG3G951Mdk9zFGmqj2y5NJeRe?=
+ =?us-ascii?Q?0a83Z3bsOPSoISJqHWn+26FTcO786gMTVFbkkTnsVfImZsqM2EvogQJq5VVR?=
+ =?us-ascii?Q?YyfzC+x2tNCI1/I4Y0rLP8R1yUYvix6DlYxOStoCKdQhSppoJFjqR8mqybcK?=
+ =?us-ascii?Q?JtnqeGYUJMDHDnsu86YJ6JA+JABQv8TqrgdSJLpvsLzwbeEvU242z+zap8MV?=
+ =?us-ascii?Q?EYIuzwtXVfMaXy8qsftwRZ5pLK/aHEYptkweL9ub+BIK85GNwJScWFZAFSoR?=
+ =?us-ascii?Q?JzUgCT5zzLaTLki/Kpvb0uYRxVd7XUjVRisL079E96v5HRdm/EkIPC9r3K+F?=
+ =?us-ascii?Q?8mQRn3hGqF8aorjrmjAQW6k03FH4MpP//8wr5NgCPP5PLblh8udtRLrOGumv?=
+ =?us-ascii?Q?gfN1Jr1MhyIZoDCQNf2rTHm2xVC/SpAdXGstzpvZCibXMCpzW/mcaPB4wsby?=
+ =?us-ascii?Q?0b/fKpqugJYxAtYhAXUtxi6pyJS22iJTUpq3yfWMZLteOch1byiN5jTzi1Bu?=
+ =?us-ascii?Q?h1HkLf8UAK1Xi8PdtoXy9LR+no151NN5xkI9hxQztuNQPEAihlpCciB1Cbwr?=
+ =?us-ascii?Q?DUvJEJtnmTOn7wXxet4yOFkZUVhhRyOSAmit4rCq/UB7fXCyV4lFUqWMuhX/?=
+ =?us-ascii?Q?q0+lUbMpGNUuq5x8gDPvz2j7OMo1er2bP/LA88urpUW71jVdL7MNIEZkUL6l?=
+ =?us-ascii?Q?EqjprfRUySqGdpVmg3fCr2jtsOCUoJMx9LqJXC88ZgMrR/CWSXTIcjB9h21P?=
+ =?us-ascii?Q?v5kUPedUJl7pnltldAYyVwL5yI8XrKob+TaKfmzzlUdMohW1gS27IyWgojDF?=
+ =?us-ascii?Q?ZmBWYS8QBYTl4h1S/fOtihCYa3i4Rt2iYYHcUtGwmiq42kNg16R12n6F9XKH?=
+ =?us-ascii?Q?SpTGEnZexll1tSEZxPGVgeNzN0CIVh3LUCbZdbjtB29elICHjG9kHJldJ72d?=
+ =?us-ascii?Q?2ouiWu0xc+hpUnltXyaa9KK6Ch5nxggqyLfh5Yk7BTSEJ9g2VWpK+cznoljS?=
+ =?us-ascii?Q?pQJ7dG05Ws1aFihplVQQVAOg4F4d9+g3p+Mh11alhCotvjmdk/idd/zkx2eS?=
+ =?us-ascii?Q?55y3K9db5OJupzXquuZQb3O5dMQm0kMThTUcy2CpUbgVKrfaXqPTEdLf/89W?=
+ =?us-ascii?Q?kxpDQfczskL8aYu9w2hx0JgqWEvq1Qs07KzmlFRF+aw+jlWTphzgZhF97kaR?=
+ =?us-ascii?Q?s4g0jt9qLnjEmXi3RbIWGftuBqKzaVFexq+ZvFw7yMTq09xgcBQ4x+jelFOY?=
+ =?us-ascii?Q?VS8YtzOLeLyhDlDfASj+6QB3lxehuE8Ewe0suS06hoz00KXKl1whq9wcqUy9?=
+ =?us-ascii?Q?s0fr4eEtXdtMTGgjdGq/nYay5uJpk97X4daNToi2WLFK219EgJY5NmRmoShG?=
+ =?us-ascii?Q?rOW38qgojmr0KTmzcsSqIx3umNlGmAZfwDw2lXX7tOfG8vcQ4azZH1IBOnir?=
+ =?us-ascii?Q?AmozncaMXkVu4r/c2fbUYWVjRwk34w4nOr6fY1IXC0CL+m4r?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 72689088-7df6-482b-f515-08de5843d030
+X-MS-Exchange-CrossTenant-Network-Message-Id: c53b3989-e92d-4967-1d18-08de58455b9d
 X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 16:49:01.3232
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 17:00:04.8618
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WwR0XnbmY9vTm8uJPCODFdLNazXHhcsHUA5+xLmO5/HIiG6EXNchIUSTWy1kfAAc5AVQEyBICeq0TvY4D1YtWQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11919
+X-MS-Exchange-CrossTenant-UserPrincipalName: sqp3mmuzd2DE+7Hj2Di5gjub0x3iL5DVLKiHbIKjggT5Giz3Slpmny7HRqz+YbMcBkmUfbBP0cB1xH/1UjYicw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8856
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_084906_050994_967C137F 
-X-CRM114-Status: GOOD (  22.96  )
+X-CRM114-CacheID: sfid-20260120_090011_320900_051CA03C 
+X-CRM114-Status: GOOD (  29.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,107 +179,809 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 02:44:34AM +0000, Sherry Sun wrote:
+On Tue, Jan 20, 2026 at 01:22:28PM +0100, Michael Riesch wrote:
+> The Synopsys DesignWare MIPI CSI-2 Receiver is a CSI-2 bridge with
+> one input port and one output port. It receives the data with the
+> help of an external MIPI PHY (C-PHY or D-PHY) and passes it to e.g.,
+> the Rockchip Video Capture (VICAP) block on recent Rockchip SoCs.
 >
-> > Subject: Re: [PATCH 03/10] arm: dts: imx6qdl: Add Root Port node and move
-> > PERST property to Root Port node
-> >
-> > On Mon, Jan 19, 2026 at 06:02:28PM +0800, Sherry Sun wrote:
-> > > Since describing the PCIe PERST# property under Host Bridge node is
-> > > now deprecated, it is recommended to add it to the Root Port node, so
-> > > creating the Root Port node and move the reset-gpios property.
-> > >
-> > > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> > > ---
-> > >  arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi |  5 ++++-
-> > >  arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi         | 11 +++++++++++
-> > >  arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts |  5 ++++-
-> > >  3 files changed, 19 insertions(+), 2 deletions(-)
-> > >
-> > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> > > b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> > > index ba29720e3f72..c64c8cbd0038 100644
-> > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi
-> > > @@ -754,11 +754,14 @@ lvds0_out: endpoint {  &pcie {
-> > >  	pinctrl-names = "default";
-> > >  	pinctrl-0 = <&pinctrl_pcie>;
-> > > -	reset-gpio = <&gpio7 12 GPIO_ACTIVE_LOW>;
-> >
-> > Generally, don't remove old property to keep back comaptiblity. You can add
-> > comments here if you want.
+> Add a V4L2 subdevice driver for this unit.
 >
-> Hi Frank,
-> Actually not remove, just move the property from host bridge node to
-> the Root Port node, if keep both reset-gpios property in dts, not sure if it may
-> confuse users because it's unclear which one is the valid configuration.
+> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 
-You can add comments here. Just in case this dts use by old kernel. At
-least keep some kernel release, then remove it later.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Remove it at least need wait for pci part driver merged.
-
-Frank
+> ---
+>  MAINTAINERS                                      |   1 +
+>  drivers/media/platform/synopsys/Kconfig          |  18 +
+>  drivers/media/platform/synopsys/Makefile         |   2 +
+>  drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 726 +++++++++++++++++++++++
+>  4 files changed, 747 insertions(+)
 >
-> Best Regards
-> Sherry
-> >
-> > Frank
-> >
-> > >  	vpcie-supply = <&reg_pcie>;
-> > >  	status = "okay";
-> > >  };
-> > >
-> > > +&pcie_port0 {
-> > > +	reset-gpios = <&gpio7 12 GPIO_ACTIVE_LOW>; };
-> > > +
-> > >  &pwm1 {
-> > >  	pinctrl-names = "default";
-> > >  	pinctrl-0 = <&pinctrl_pwm1>;
-> > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> > > b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> > > index 9793feee6394..c03deb2cdfab 100644
-> > > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
-> > > @@ -287,6 +287,17 @@ pcie: pcie@1ffc000 {
-> > >  				 <&clks IMX6QDL_CLK_PCIE_REF_125M>;
-> > >  			clock-names = "pcie", "pcie_bus", "pcie_phy";
-> > >  			status = "disabled";
-> > > +
-> > > +			pcie_port0: pcie@0 {
-> > > +				compatible = "pciclass,0604";
-> > > +				device_type = "pci";
-> > > +				reg = <0x0 0x0 0x0 0x0 0x0>;
-> > > +				bus-range = <0x01 0xff>;
-> > > +
-> > > +				#address-cells = <3>;
-> > > +				#size-cells = <2>;
-> > > +				ranges;
-> > > +			};
-> > >  		};
-> > >
-> > >  		aips1: bus@2000000 { /* AIPS1 */
-> > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
-> > > b/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
-> > > index c5b220aeaefd..c35c24623d36 100644
-> > > --- a/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
-> > > +++ b/arch/arm/boot/dts/nxp/imx/imx6qp-sabreauto.dts
-> > > @@ -45,10 +45,13 @@ MX6QDL_PAD_GPIO_6__ENET_IRQ
-> > 	0x000b1
-> > >  };
-> > >
-> > >  &pcie {
-> > > -	reset-gpio = <&max7310_c 5 GPIO_ACTIVE_LOW>;
-> > >  	status = "okay";
-> > >  };
-> > >
-> > > +&pcie_port0 {
-> > > +	reset-gpios = <&max7310_c 5 GPIO_ACTIVE_LOW>; };
-> > > +
-> > >  &sata {
-> > >  	status = "okay";
-> > >  };
-> > > --
-> > > 2.37.1
-> > >
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 1d1589feaf95..62ccdc72384d 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -25369,6 +25369,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
+>  L:	linux-media@vger.kernel.org
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+> +F:	drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+>
+>  SYNOPSYS DESIGNWARE MMC/SD/SDIO DRIVER
+>  M:	Jaehoon Chung <jh80.chung@samsung.com>
+> diff --git a/drivers/media/platform/synopsys/Kconfig b/drivers/media/platform/synopsys/Kconfig
+> index 4fd521f78425..e798ec00b189 100644
+> --- a/drivers/media/platform/synopsys/Kconfig
+> +++ b/drivers/media/platform/synopsys/Kconfig
+> @@ -1,3 +1,21 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>
+>  source "drivers/media/platform/synopsys/hdmirx/Kconfig"
+> +
+> +config VIDEO_DW_MIPI_CSI2RX
+> +	tristate "Synopsys DesignWare MIPI CSI-2 Receiver"
+> +	depends on VIDEO_DEV
+> +	depends on V4L_PLATFORM_DRIVERS
+> +	depends on PM && COMMON_CLK
+> +	select MEDIA_CONTROLLER
+> +	select V4L2_FWNODE
+> +	select VIDEO_V4L2_SUBDEV_API
+> +	help
+> +	  The Synopsys DesignWare MIPI CSI-2 Receiver is a CSI-2 bridge with
+> +	  one input port and one output port. It receives the data with the
+> +	  help of an external MIPI PHY (C-PHY or D-PHY) and passes it to e.g.,
+> +	  the Rockchip Video Capture (VICAP) block on recent Rockchip SoCs.
+> +	  This is a driver for this unit.
+> +
+> +	  To compile this driver as a module, choose M here: the module
+> +	  will be called dw-mipi-csi2rx.
+> diff --git a/drivers/media/platform/synopsys/Makefile b/drivers/media/platform/synopsys/Makefile
+> index 3b12c574dd67..e0232ee23304 100644
+> --- a/drivers/media/platform/synopsys/Makefile
+> +++ b/drivers/media/platform/synopsys/Makefile
+> @@ -1,2 +1,4 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  obj-y += hdmirx/
+> +
+> +obj-$(CONFIG_VIDEO_DW_MIPI_CSI2RX) += dw-mipi-csi2rx.o
+> diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> new file mode 100644
+> index 000000000000..29119a1a8d38
+> --- /dev/null
+> +++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> @@ -0,0 +1,726 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Synopsys DesignWare MIPI CSI-2 Receiver Driver
+> + *
+> + * Copyright (C) 2019 Rockchip Electronics Co., Ltd.
+> + * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
+> + * Copyright (C) 2026 Collabora, Ltd.
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/property.h>
+> +#include <linux/reset.h>
+> +
+> +#include <media/mipi-csi2.h>
+> +#include <media/v4l2-ctrls.h>
+> +#include <media/v4l2-fwnode.h>
+> +#include <media/v4l2-mc.h>
+> +#include <media/v4l2-subdev.h>
+> +
+> +#define DW_MIPI_CSI2RX_N_LANES		0x04
+> +#define DW_MIPI_CSI2RX_RESETN		0x10
+> +#define DW_MIPI_CSI2RX_PHY_STATE	0x14
+> +#define DW_MIPI_CSI2RX_ERR1		0x20
+> +#define DW_MIPI_CSI2RX_ERR2		0x24
+> +#define DW_MIPI_CSI2RX_MSK1		0x28
+> +#define DW_MIPI_CSI2RX_MSK2		0x2c
+> +#define DW_MIPI_CSI2RX_CONTROL		0x40
+> +
+> +#define SW_CPHY_EN(x)		((x) << 0)
+> +#define SW_DSI_EN(x)		((x) << 4)
+> +#define SW_DATATYPE_FS(x)	((x) << 8)
+> +#define SW_DATATYPE_FE(x)	((x) << 14)
+> +#define SW_DATATYPE_LS(x)	((x) << 20)
+> +#define SW_DATATYPE_LE(x)	((x) << 26)
+> +
+> +#define DW_MIPI_CSI2RX_CLKS_MAX	1
+> +
+> +enum {
+> +	DW_MIPI_CSI2RX_PAD_SINK,
+> +	DW_MIPI_CSI2RX_PAD_SRC,
+> +	DW_MIPI_CSI2RX_PAD_MAX,
+> +};
+> +
+> +struct dw_mipi_csi2rx_format {
+> +	u32 code;
+> +	u8 depth;
+> +	u8 csi_dt;
+> +};
+> +
+> +struct dw_mipi_csi2rx_device {
+> +	struct device *dev;
+> +
+> +	void __iomem *base_addr;
+> +	struct clk_bulk_data *clks;
+> +	unsigned int clks_num;
+> +	struct phy *phy;
+> +	struct reset_control *reset;
+> +
+> +	const struct dw_mipi_csi2rx_format *formats;
+> +	unsigned int formats_num;
+> +
+> +	struct media_pad pads[DW_MIPI_CSI2RX_PAD_MAX];
+> +	struct v4l2_async_notifier notifier;
+> +	struct v4l2_subdev sd;
+> +
+> +	enum v4l2_mbus_type bus_type;
+> +	u32 lanes_num;
+> +};
+> +
+> +static const struct v4l2_mbus_framefmt default_format = {
+> +	.width = 3840,
+> +	.height = 2160,
+> +	.code = MEDIA_BUS_FMT_SRGGB10_1X10,
+> +	.field = V4L2_FIELD_NONE,
+> +	.colorspace = V4L2_COLORSPACE_RAW,
+> +	.ycbcr_enc = V4L2_YCBCR_ENC_601,
+> +	.quantization = V4L2_QUANTIZATION_FULL_RANGE,
+> +	.xfer_func = V4L2_XFER_FUNC_NONE,
+> +};
+> +
+> +static const struct dw_mipi_csi2rx_format formats[] = {
+> +	/* YUV formats */
+> +	{
+> +		.code = MEDIA_BUS_FMT_YUYV8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_UYVY8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_YVYU8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_VYUY8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	/* RGB formats */
+> +	{
+> +		.code = MEDIA_BUS_FMT_RGB888_1X24,
+> +		.depth = 24,
+> +		.csi_dt = MIPI_CSI2_DT_RGB888,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_BGR888_1X24,
+> +		.depth = 24,
+> +		.csi_dt = MIPI_CSI2_DT_RGB888,
+> +	},
+> +	/* Bayer formats */
+> +	{
+> +		.code = MEDIA_BUS_FMT_SBGGR8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGBRG8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGRBG8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SRGGB8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SBGGR10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGBRG10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGRBG10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SRGGB10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SBGGR12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGBRG12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGRBG12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SRGGB12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +};
+> +
+> +static inline struct dw_mipi_csi2rx_device *to_csi2(struct v4l2_subdev *sd)
+> +{
+> +	return container_of(sd, struct dw_mipi_csi2rx_device, sd);
+> +}
+> +
+> +static inline void dw_mipi_csi2rx_write(struct dw_mipi_csi2rx_device *csi2,
+> +					unsigned int addr, u32 val)
+> +{
+> +	writel(val, csi2->base_addr + addr);
+> +}
+> +
+> +static inline u32 dw_mipi_csi2rx_read(struct dw_mipi_csi2rx_device *csi2,
+> +				      unsigned int addr)
+> +{
+> +	return readl(csi2->base_addr + addr);
+> +}
+> +
+> +static const struct dw_mipi_csi2rx_format *
+> +dw_mipi_csi2rx_find_format(struct dw_mipi_csi2rx_device *csi2, u32 mbus_code)
+> +{
+> +	WARN_ON(csi2->formats_num == 0);
+> +
+> +	for (unsigned int i = 0; i < csi2->formats_num; i++) {
+> +		const struct dw_mipi_csi2rx_format *format = &csi2->formats[i];
+> +
+> +		if (format->code == mbus_code)
+> +			return format;
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static int dw_mipi_csi2rx_start(struct dw_mipi_csi2rx_device *csi2)
+> +{
+> +	struct media_pad *source_pad;
+> +	union phy_configure_opts opts;
+> +	u32 lanes = csi2->lanes_num;
+> +	u32 control = 0;
+> +	s64 link_freq;
+> +	int ret;
+> +
+> +	if (lanes < 1 || lanes > 4)
+> +		return -EINVAL;
+> +
+> +	source_pad = media_pad_remote_pad_unique(
+> +		&csi2->pads[DW_MIPI_CSI2RX_PAD_SINK]);
+> +	if (IS_ERR(source_pad))
+> +		return PTR_ERR(source_pad);
+> +
+> +	/* set mult and div to 0, thus completely rely on V4L2_CID_LINK_FREQ */
+> +	link_freq = v4l2_get_link_freq(source_pad, 0, 0);
+> +	if (link_freq < 0)
+> +		return link_freq;
+> +
+> +	switch (csi2->bus_type) {
+> +	case V4L2_MBUS_CSI2_DPHY:
+> +		struct phy_configure_opts_mipi_dphy *cfg = &opts.mipi_dphy;
+> +
+> +		ret = phy_mipi_dphy_get_default_config_for_hsclk(link_freq * 2,
+> +								 lanes, cfg);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = phy_set_mode(csi2->phy, PHY_MODE_MIPI_DPHY);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = phy_configure(csi2->phy, &opts);
+> +		if (ret)
+> +			return ret;
+> +
+> +		control |= SW_CPHY_EN(0);
+> +		break;
+> +
+> +	case V4L2_MBUS_CSI2_CPHY:
+> +		/* TODO: implement CPHY configuration */
+> +		return -EOPNOTSUPP;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	control |= SW_DATATYPE_FS(0x00) | SW_DATATYPE_FE(0x01) |
+> +		   SW_DATATYPE_LS(0x02) | SW_DATATYPE_LE(0x03);
+> +
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_N_LANES, lanes - 1);
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_CONTROL, control);
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_RESETN, 1);
+> +
+> +	return phy_power_on(csi2->phy);
+> +}
+> +
+> +static void dw_mipi_csi2rx_stop(struct dw_mipi_csi2rx_device *csi2)
+> +{
+> +	phy_power_off(csi2->phy);
+> +
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_RESETN, 0);
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_MSK1, ~0);
+> +	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_MSK2, ~0);
+> +}
+> +
+> +static const struct media_entity_operations dw_mipi_csi2rx_media_ops = {
+> +	.link_validate = v4l2_subdev_link_validate,
+> +};
+> +
+> +static int
+> +dw_mipi_csi2rx_enum_mbus_code(struct v4l2_subdev *sd,
+> +			      struct v4l2_subdev_state *sd_state,
+> +			      struct v4l2_subdev_mbus_code_enum *code)
+> +{
+> +	struct dw_mipi_csi2rx_device *csi2 = to_csi2(sd);
+> +
+> +	switch (code->pad) {
+> +	case DW_MIPI_CSI2RX_PAD_SRC:
+> +		const struct v4l2_mbus_framefmt *sink_fmt;
+> +
+> +		if (code->index)
+> +			return -EINVAL;
+> +
+> +		sink_fmt = v4l2_subdev_state_get_format(
+> +			sd_state, DW_MIPI_CSI2RX_PAD_SINK);
+> +		code->code = sink_fmt->code;
+> +
+> +		return 0;
+> +	case DW_MIPI_CSI2RX_PAD_SINK:
+> +		if (code->index > csi2->formats_num)
+> +			return -EINVAL;
+> +
+> +		code->code = csi2->formats[code->index].code;
+> +		return 0;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+> +static int dw_mipi_csi2rx_set_fmt(struct v4l2_subdev *sd,
+> +				  struct v4l2_subdev_state *state,
+> +				  struct v4l2_subdev_format *format)
+> +{
+> +	struct dw_mipi_csi2rx_device *csi2 = to_csi2(sd);
+> +	const struct dw_mipi_csi2rx_format *fmt;
+> +	struct v4l2_mbus_framefmt *sink, *src;
+> +
+> +	/* the format on the source pad always matches the sink pad */
+> +	if (format->pad == DW_MIPI_CSI2RX_PAD_SRC)
+> +		return v4l2_subdev_get_fmt(sd, state, format);
+> +
+> +	sink = v4l2_subdev_state_get_format(state, format->pad, format->stream);
+> +	if (!sink)
+> +		return -EINVAL;
+> +
+> +	fmt = dw_mipi_csi2rx_find_format(csi2, format->format.code);
+> +	if (!fmt)
+> +		format->format = default_format;
+> +
+> +	*sink = format->format;
+> +
+> +	/* propagate the format to the source pad */
+> +	src = v4l2_subdev_state_get_opposite_stream_format(state, format->pad,
+> +							   format->stream);
+> +	if (!src)
+> +		return -EINVAL;
+> +
+> +	*src = *sink;
+> +
+> +	return 0;
+> +}
+> +
+> +static int dw_mipi_csi2rx_set_routing(struct v4l2_subdev *sd,
+> +				      struct v4l2_subdev_state *state,
+> +				      enum v4l2_subdev_format_whence which,
+> +				      struct v4l2_subdev_krouting *routing)
+> +{
+> +	int ret;
+> +
+> +	ret = v4l2_subdev_routing_validate(sd, routing,
+> +					   V4L2_SUBDEV_ROUTING_ONLY_1_TO_1);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return v4l2_subdev_set_routing_with_fmt(sd, state, routing,
+> +						&default_format);
+> +}
+> +
+> +static int dw_mipi_csi2rx_enable_streams(struct v4l2_subdev *sd,
+> +					 struct v4l2_subdev_state *state,
+> +					 u32 pad, u64 streams_mask)
+> +{
+> +	struct dw_mipi_csi2rx_device *csi2 = to_csi2(sd);
+> +	struct v4l2_subdev *remote_sd;
+> +	struct media_pad *sink_pad, *remote_pad;
+> +	struct device *dev = csi2->dev;
+> +	u64 mask;
+> +	int ret;
+> +
+> +	sink_pad = &sd->entity.pads[DW_MIPI_CSI2RX_PAD_SINK];
+> +	remote_pad = media_pad_remote_pad_first(sink_pad);
+> +	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
+> +
+> +	mask = v4l2_subdev_state_xlate_streams(state, DW_MIPI_CSI2RX_PAD_SINK,
+> +					       DW_MIPI_CSI2RX_PAD_SRC,
+> +					       &streams_mask);
+> +
+> +	ret = pm_runtime_resume_and_get(dev);
+> +	if (ret)
+> +		goto err;
+> +
+> +	ret = dw_mipi_csi2rx_start(csi2);
+> +	if (ret) {
+> +		dev_err(dev, "failed to enable CSI hardware\n");
+> +		goto err_pm_runtime_put;
+> +	}
+> +
+> +	ret = v4l2_subdev_enable_streams(remote_sd, remote_pad->index, mask);
+> +	if (ret)
+> +		goto err_csi_stop;
+> +
+> +	return 0;
+> +
+> +err_csi_stop:
+> +	dw_mipi_csi2rx_stop(csi2);
+> +err_pm_runtime_put:
+> +	pm_runtime_put(dev);
+> +err:
+> +	return ret;
+> +}
+> +
+> +static int dw_mipi_csi2rx_disable_streams(struct v4l2_subdev *sd,
+> +					  struct v4l2_subdev_state *state,
+> +					  u32 pad, u64 streams_mask)
+> +{
+> +	struct dw_mipi_csi2rx_device *csi2 = to_csi2(sd);
+> +	struct v4l2_subdev *remote_sd;
+> +	struct media_pad *sink_pad, *remote_pad;
+> +	struct device *dev = csi2->dev;
+> +	u64 mask;
+> +	int ret;
+> +
+> +	sink_pad = &sd->entity.pads[DW_MIPI_CSI2RX_PAD_SINK];
+> +	remote_pad = media_pad_remote_pad_first(sink_pad);
+> +	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
+> +
+> +	mask = v4l2_subdev_state_xlate_streams(state, DW_MIPI_CSI2RX_PAD_SINK,
+> +					       DW_MIPI_CSI2RX_PAD_SRC,
+> +					       &streams_mask);
+> +
+> +	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad->index, mask);
+> +
+> +	dw_mipi_csi2rx_stop(csi2);
+> +
+> +	pm_runtime_put(dev);
+> +
+> +	return ret;
+> +}
+> +
+> +static const struct v4l2_subdev_pad_ops dw_mipi_csi2rx_pad_ops = {
+> +	.enum_mbus_code = dw_mipi_csi2rx_enum_mbus_code,
+> +	.get_fmt = v4l2_subdev_get_fmt,
+> +	.set_fmt = dw_mipi_csi2rx_set_fmt,
+> +	.set_routing = dw_mipi_csi2rx_set_routing,
+> +	.enable_streams = dw_mipi_csi2rx_enable_streams,
+> +	.disable_streams = dw_mipi_csi2rx_disable_streams,
+> +};
+> +
+> +static const struct v4l2_subdev_ops dw_mipi_csi2rx_ops = {
+> +	.pad = &dw_mipi_csi2rx_pad_ops,
+> +};
+> +
+> +static int dw_mipi_csi2rx_init_state(struct v4l2_subdev *sd,
+> +				     struct v4l2_subdev_state *state)
+> +{
+> +	struct v4l2_subdev_route routes[] = {
+> +		{
+> +			.sink_pad = DW_MIPI_CSI2RX_PAD_SINK,
+> +			.sink_stream = 0,
+> +			.source_pad = DW_MIPI_CSI2RX_PAD_SRC,
+> +			.source_stream = 0,
+> +			.flags = V4L2_SUBDEV_ROUTE_FL_ACTIVE,
+> +		},
+> +	};
+> +	struct v4l2_subdev_krouting routing = {
+> +		.len_routes = ARRAY_SIZE(routes),
+> +		.num_routes = ARRAY_SIZE(routes),
+> +		.routes = routes,
+> +	};
+> +
+> +	return v4l2_subdev_set_routing_with_fmt(sd, state, &routing,
+> +						&default_format);
+> +}
+> +
+> +static const struct v4l2_subdev_internal_ops dw_mipi_csi2rx_internal_ops = {
+> +	.init_state = dw_mipi_csi2rx_init_state,
+> +};
+> +
+> +static int dw_mipi_csi2rx_notifier_bound(struct v4l2_async_notifier *notifier,
+> +					 struct v4l2_subdev *sd,
+> +					 struct v4l2_async_connection *asd)
+> +{
+> +	struct dw_mipi_csi2rx_device *csi2 =
+> +		container_of(notifier, struct dw_mipi_csi2rx_device, notifier);
+> +	struct media_pad *sink_pad = &csi2->pads[DW_MIPI_CSI2RX_PAD_SINK];
+> +	int ret;
+> +
+> +	ret = v4l2_create_fwnode_links_to_pad(sd, sink_pad,
+> +					      MEDIA_LNK_FL_ENABLED);
+> +	if (ret) {
+> +		dev_err(csi2->dev, "failed to link source pad of %s\n",
+> +			sd->name);
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct v4l2_async_notifier_operations dw_mipi_csi2rx_notifier_ops = {
+> +	.bound = dw_mipi_csi2rx_notifier_bound,
+> +};
+> +
+> +static int dw_mipi_csi2rx_register_notifier(struct dw_mipi_csi2rx_device *csi2)
+> +{
+> +	struct v4l2_async_connection *asd;
+> +	struct v4l2_async_notifier *ntf = &csi2->notifier;
+> +	struct v4l2_fwnode_endpoint vep;
+> +	struct v4l2_subdev *sd = &csi2->sd;
+> +	struct device *dev = csi2->dev;
+> +	int ret;
+> +
+> +	struct fwnode_handle *ep __free(fwnode_handle) =
+> +		fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
+> +	if (!ep)
+> +		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
+> +
+> +	vep.bus_type = V4L2_MBUS_UNKNOWN;
+> +	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to parse endpoint\n");
+> +
+> +	if (vep.bus_type != V4L2_MBUS_CSI2_DPHY &&
+> +	    vep.bus_type != V4L2_MBUS_CSI2_CPHY)
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "invalid bus type of endpoint\n");
+> +
+> +	csi2->bus_type = vep.bus_type;
+> +	csi2->lanes_num = vep.bus.mipi_csi2.num_data_lanes;
+> +
+> +	v4l2_async_subdev_nf_init(ntf, sd);
+> +	ntf->ops = &dw_mipi_csi2rx_notifier_ops;
+> +
+> +	asd = v4l2_async_nf_add_fwnode_remote(ntf, ep,
+> +					      struct v4l2_async_connection);
+> +	if (IS_ERR(asd)) {
+> +		ret = PTR_ERR(asd);
+> +		goto err_nf_cleanup;
+> +	}
+> +
+> +	ret = v4l2_async_nf_register(ntf);
+> +	if (ret) {
+> +		ret = dev_err_probe(dev, ret, "failed to register notifier\n");
+> +		goto err_nf_cleanup;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_nf_cleanup:
+> +	v4l2_async_nf_cleanup(ntf);
+> +
+> +	return ret;
+> +}
+> +
+> +static int dw_mipi_csi2rx_register(struct dw_mipi_csi2rx_device *csi2)
+> +{
+> +	struct media_pad *pads = csi2->pads;
+> +	struct v4l2_subdev *sd = &csi2->sd;
+> +	int ret;
+> +
+> +	ret = dw_mipi_csi2rx_register_notifier(csi2);
+> +	if (ret)
+> +		goto err;
+> +
+> +	v4l2_subdev_init(sd, &dw_mipi_csi2rx_ops);
+> +	sd->dev = csi2->dev;
+> +	sd->entity.ops = &dw_mipi_csi2rx_media_ops;
+> +	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
+> +	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE | V4L2_SUBDEV_FL_STREAMS;
+> +	sd->internal_ops = &dw_mipi_csi2rx_internal_ops;
+> +	snprintf(sd->name, sizeof(sd->name), "dw-mipi-csi2rx %s",
+> +		 dev_name(csi2->dev));
+> +
+> +	pads[DW_MIPI_CSI2RX_PAD_SINK].flags = MEDIA_PAD_FL_SINK |
+> +					      MEDIA_PAD_FL_MUST_CONNECT;
+> +	pads[DW_MIPI_CSI2RX_PAD_SRC].flags = MEDIA_PAD_FL_SOURCE;
+> +	ret = media_entity_pads_init(&sd->entity, DW_MIPI_CSI2RX_PAD_MAX, pads);
+> +	if (ret)
+> +		goto err_notifier_unregister;
+> +
+> +	ret = v4l2_subdev_init_finalize(sd);
+> +	if (ret)
+> +		goto err_entity_cleanup;
+> +
+> +	ret = v4l2_async_register_subdev(sd);
+> +	if (ret) {
+> +		dev_err(sd->dev, "failed to register CSI-2 subdev\n");
+> +		goto err_subdev_cleanup;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_subdev_cleanup:
+> +	v4l2_subdev_cleanup(sd);
+> +err_entity_cleanup:
+> +	media_entity_cleanup(&sd->entity);
+> +err_notifier_unregister:
+> +	v4l2_async_nf_unregister(&csi2->notifier);
+> +	v4l2_async_nf_cleanup(&csi2->notifier);
+> +err:
+> +	return ret;
+> +}
+> +
+> +static void dw_mipi_csi2rx_unregister(struct dw_mipi_csi2rx_device *csi2)
+> +{
+> +	struct v4l2_subdev *sd = &csi2->sd;
+> +
+> +	v4l2_async_unregister_subdev(sd);
+> +	v4l2_subdev_cleanup(sd);
+> +	media_entity_cleanup(&sd->entity);
+> +	v4l2_async_nf_unregister(&csi2->notifier);
+> +	v4l2_async_nf_cleanup(&csi2->notifier);
+> +}
+> +
+> +static const struct of_device_id dw_mipi_csi2rx_of_match[] = {
+> +	{
+> +		.compatible = "rockchip,rk3568-mipi-csi2",
+> +	},
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, dw_mipi_csi2rx_of_match);
+> +
+> +static int dw_mipi_csi2rx_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct dw_mipi_csi2rx_device *csi2;
+> +	int ret;
+> +
+> +	csi2 = devm_kzalloc(dev, sizeof(*csi2), GFP_KERNEL);
+> +	if (!csi2)
+> +		return -ENOMEM;
+> +	csi2->dev = dev;
+> +	dev_set_drvdata(dev, csi2);
+> +
+> +	csi2->base_addr = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(csi2->base_addr))
+> +		return PTR_ERR(csi2->base_addr);
+> +
+> +	ret = devm_clk_bulk_get_all(dev, &csi2->clks);
+> +	if (ret != DW_MIPI_CSI2RX_CLKS_MAX)
+> +		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
+> +	csi2->clks_num = ret;
+> +
+> +	csi2->phy = devm_phy_get(dev, NULL);
+> +	if (IS_ERR(csi2->phy))
+> +		return dev_err_probe(dev, PTR_ERR(csi2->phy),
+> +				     "failed to get MIPI CSI-2 PHY\n");
+> +
+> +	csi2->reset = devm_reset_control_get_exclusive(dev, NULL);
+> +	if (IS_ERR(csi2->reset))
+> +		return dev_err_probe(dev, PTR_ERR(csi2->reset),
+> +				     "failed to get reset\n");
+> +
+> +	csi2->formats = formats;
+> +	csi2->formats_num = ARRAY_SIZE(formats);
+> +
+> +	ret = devm_pm_runtime_enable(dev);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to enable pm runtime\n");
+> +
+> +	ret = phy_init(csi2->phy);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "failed to initialize MIPI CSI-2 PHY\n");
+> +
+> +	ret = dw_mipi_csi2rx_register(csi2);
+> +	if (ret)
+> +		goto err_phy_exit;
+> +
+> +	return 0;
+> +
+> +err_phy_exit:
+> +	phy_exit(csi2->phy);
+> +
+> +	return ret;
+> +}
+> +
+> +static void dw_mipi_csi2rx_remove(struct platform_device *pdev)
+> +{
+> +	struct dw_mipi_csi2rx_device *csi2 = platform_get_drvdata(pdev);
+> +
+> +	dw_mipi_csi2rx_unregister(csi2);
+> +	phy_exit(csi2->phy);
+> +}
+> +
+> +static int dw_mipi_csi2rx_runtime_suspend(struct device *dev)
+> +{
+> +	struct dw_mipi_csi2rx_device *csi2 = dev_get_drvdata(dev);
+> +
+> +	clk_bulk_disable_unprepare(csi2->clks_num, csi2->clks);
+> +
+> +	return 0;
+> +}
+> +
+> +static int dw_mipi_csi2rx_runtime_resume(struct device *dev)
+> +{
+> +	struct dw_mipi_csi2rx_device *csi2 = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	reset_control_assert(csi2->reset);
+> +	udelay(5);
+> +	reset_control_deassert(csi2->reset);
+> +
+> +	ret = clk_bulk_prepare_enable(csi2->clks_num, csi2->clks);
+> +	if (ret) {
+> +		dev_err(dev, "failed to enable clocks\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static DEFINE_RUNTIME_DEV_PM_OPS(dw_mipi_csi2rx_pm_ops,
+> +				 dw_mipi_csi2rx_runtime_suspend,
+> +				 dw_mipi_csi2rx_runtime_resume, NULL);
+> +
+> +static struct platform_driver dw_mipi_csi2rx_drv = {
+> +	.driver = {
+> +		.name = "dw-mipi-csi2rx",
+> +		.of_match_table = dw_mipi_csi2rx_of_match,
+> +		.pm = pm_ptr(&dw_mipi_csi2rx_pm_ops),
+> +	},
+> +	.probe = dw_mipi_csi2rx_probe,
+> +	.remove = dw_mipi_csi2rx_remove,
+> +};
+> +module_platform_driver(dw_mipi_csi2rx_drv);
+> +
+> +MODULE_DESCRIPTION("Synopsys DesignWare MIPI CSI-2 Receiver platform driver");
+> +MODULE_LICENSE("GPL");
+>
+> --
+> 2.39.5
+>
 
