@@ -4,98 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D5FCD2ECE9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 13:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2361D2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 13:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AFD8dduxHdXARbhmuw3nGz+HS5/qU93piZU3w6MAoZk=; b=MKnXwXXCh5bjTsOqiJs6BsRxgi
-	OX6HNBw8E+taj7lF43qM8ZV4QyJVBFKasRjY4mzwkjxu7QkKKf7xLOlsnFHiHv8hfuFt+D9SxJIzt
-	RhP0yEGl8KpuR3t3TxghuW6cFOQ/9vK27ls1SP7+vLt87KX/i4QTS86Ek6H3XsGRTVhgX6h6G1fFa
-	13ALi9bNZF+tRckC8dK1AWJ39flUmTZkIrQmqXMbQj3n4Cv6w4+iGeIX6v6faTNe9if+pRzRKybcj
-	LJHvxQHGfamVzCy6SmISynKnI8vwogRjkdhbwFwA+zBIJtzzN2TYsgcrDUHcwBDfmcd76HDAkPH51
-	txYJE/nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=61FVTvC+OPYsLfCnTMn5A70RhUk+8hVfV9yJPBCxid4=; b=whBl0uFoKNdU4LFVC+AlPg5bYJ
+	tpYIsY/o/oGG/x5Ypj1Cf2uHO63XhwcWq1USwtILYTLwFwUzzjHVEDvMzdGfjMCZktMG6AoORKzWF
+	dESuTTxpweOOP1kYgbJ134JvmstYOWXwz40hZRrlcchRPn5ROCVvd/HVIkAu2Vsy7Lzk6QxWvsYd0
+	IAriKAGzskAbdLo8zRV4KEZH4TTY0Hh1U1IfjKuLjdpCbCNoXvsh1rqEh8iknv4pxVzyX5qBLsbp/
+	GOO3L2aT+8Fw2jaVBYEUhyD65m3OQr4Eiz6GhBa71PMMrpfKIKIu/gpzDm+0zAq5cHrV8ZawwrH3S
+	KCBv5/VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viBWW-00000003tP2-2uF1;
-	Tue, 20 Jan 2026 13:11:56 +0000
-Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
+	id 1viBZT-00000003tdP-2uhk;
+	Tue, 20 Jan 2026 13:14:59 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viBWU-00000003tOU-03Tg
+	id 1viBZR-00000003tcZ-3EHF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 13:11:55 +0000
-Received: by mail-qv1-xf2c.google.com with SMTP id 6a1803df08f44-88a3bba9fd4so56352836d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 05:11:52 -0800 (PST)
+	Tue, 20 Jan 2026 13:14:58 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-5029aa94f28so40573121cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 05:14:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768914896; cv=none;
+        d=google.com; s=arc-20240605;
+        b=RBvqV4DNkjHxTVNblG63I31H9wyPAuMLKdmYDT3OQWqWZPApNuT9Cn35DbN9ztwlUX
+         TmN4ywJzXmzjaDOYiotiY5ec0MAxA0nqFuoPjun6O7MBa/VqlNTooWYKGd7bL8J3nOlT
+         wAI6JDxIiDa/jojXv3D4kgbEWRzgqym2jXFVbBqDL0/P2tinMZ/EQW9cZzgO4JVz3/xC
+         ytac87orPhwBqJltDTkZOphiQiNLqj6QNzv4ocfMlNfz5EKp15J0LCNHa9j/YZN/WnZC
+         mWLWP/qXZ5mltRB01ETYGZqZaVVuzCleOykcxRiSrYKPRnza9Vc9iIdnvalWVN09N5+u
+         VcrQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=61FVTvC+OPYsLfCnTMn5A70RhUk+8hVfV9yJPBCxid4=;
+        fh=HBcD8AyZQEfdtU6i0ucYitUwG/6RUoB0FsIzk63KHYw=;
+        b=lxsgDNC1MHdaNcN8Akj+JmOJqOQpOBXmDbYTBtXPj5RPJy6EI01y2hOoYup5XOGnQ8
+         XTcwQVzvsAoX6GVf+oMKl4RjAuMgw9gCD9xQpRAARfpT3G5g9FoD23BROLrmAZia0e9C
+         F0zN545KQv1W2g/AWrm9QknJbesBwUUNx0zmxeZOU9EotUbvrVTszjvSjn6bRDCwjyfM
+         uwXfWEZyUaNY0Ycu8zLw3HNbbxLIauf3LQbtvMQBI70Q6xA8L8nXa8HbJrjqoWdPFXam
+         RYvfhsozmJ43Cj1i1FTIwbmwuNE8ak022p1EfvuqVd5KODMz6buUpbvsUh/FxD+viJpN
+         HX7Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1768914712; x=1769519512; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=AFD8dduxHdXARbhmuw3nGz+HS5/qU93piZU3w6MAoZk=;
-        b=jGbzIthMZXr8ljn4G8eKJnhCZgJbgObR1u7YcAo77aM3LXTeHkwX0aQIlcMEXZitiM
-         tMDj/6MGXBgjoUdDozux2xiVEW5TtR31en4jpG6Bgadh+W4Tutuq3cbppOWPjCiMW7v2
-         UG4vvvX+wy5LaAestWEVWleFxXyR++8H4ZFFHBweX5/RVcq0WBVYoHWHY0+B6xHZvgMS
-         VyYq1V7pBjW18iSZrjsiuZNTvH0CTYFMdsSJXmJq5q70b33nCxHNl4fVZSIModZ9ZILR
-         W0E87G6QjH2iqRo5aTS5HcEFZqCC4rjg++C87ONJ5/rPnrp5Pr9X/DksyAUHBdN5v+vw
-         49HQ==
+        d=gmail.com; s=20230601; t=1768914896; x=1769519696; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=61FVTvC+OPYsLfCnTMn5A70RhUk+8hVfV9yJPBCxid4=;
+        b=TZXcHwp9jI3UYYfAqUcks2PTTnhQSzHA14/hwjddXS2pUtEopNP1AESjYaVLY/4iH0
+         TeZiaA+1x+8uqLMUUkQqQZkVI63Z5z37vgpN9f+wVrfKgeWAneNIxLw8h5Px/t2O/1WS
+         pi10jAzsJRHsSZyo/P6gnN0R9O5ZQc6ak9nlu0OAQDoZ+0shVWYhzWzd45l6duL40HRx
+         JTMccDIrx61iGbD6ep+o7jqm+1OExjlqTC7zBEgQ+UWjS/FkdfiZOdf0IM66gtLsXTXL
+         OTxQ7q0zjnO0mupXANicshMrwe+Ul778F2JAzhdMRgzH2G7iEGVg6WMG8/GHERiVc2lz
+         WD7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768914712; x=1769519512;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AFD8dduxHdXARbhmuw3nGz+HS5/qU93piZU3w6MAoZk=;
-        b=j1uvrtol/iAdBeCrQ0jRqbRucHn+r1KEARVvGef+r9lwFLhHjdbevbT/6Ywgx48nHQ
-         AzsfWuY1phK8So2B/+ZVGc7TT6e+tC9SIyIjTCzSeY4f5aIXSeGNTMEGH4yADTGHJQ9c
-         kFYLjcCKFDm+8Qeg+e7VpjbrUWtDOk0AZrpjnACn04lSEDWBg7OeVDyP7foiCNihVZCc
-         pqxb6xvJQIEADdH8Yz5usigf6ivp4ulnS4/CCbjh0BEp8qByqK2CR83KxLukXxg6Y7R2
-         Bee8gF2zWdCPC8Z6gm3mwH5+8BVDpEW4sBh2oVRHy29NYWaxZR5uS7CaLkyt2563Tvc4
-         vQXg==
-X-Forwarded-Encrypted: i=1; AJvYcCWI5yCwl6U71kYGq+BStGjojACMncf4zT9WbWRTKFT+VRjyhLpB1KTDq4TeIT61thP9QDSJEEUXYrBx2z/23lhr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGqm/2cAzIiVcPpeE8OV0jxHCTGDGohYj05ya+qgJydn51boLf
-	f92Sz6inwXwyf1l5EBvSpGPv3DJ2XPu87foKzM91UrOQHF+drzlBicIz7NSpWQi52aMBVEVehrT
-	wvb0B
-X-Gm-Gg: AZuq6aL/b8+Yjo/a582MVwqG1lZ0DIm1wF55yCgCe7qwwEKY7fWq9uEiXf+ptqRdpnE
-	tKn9Hkvv2DHs93DZ8nX4mjSzlrsNlnbY5sLBjNfWmSp6T0pXQpOQBS1FMji2oso3cxs8/BZN+gj
-	F6diliJwiz2L/6by3SdPaiWIEQdfOtcMynAn2YKKgGFJurXTrclD8Zmc3wbcIPtlOMQeWDXWO2r
-	ZNkoKXjWW++vCGAdRbL4uJFlRa49UMbZG621vW++RY0KlHax8ZX5EevWQQ+nL0HJknFjAZXwIbn
-	PHmMVifK+g8Fui38sM/cA8TXiNvPYfZctuYGNG7Mc3L4etBSqv1zdomYorOWhBKmx+Oz/Vsk2Y6
-	tKkgi7+AmivbUUmj6MRl0Cgqtcrhgz6CN5e08BzNUwnnCEAVVWzI3iBQAud3t1zQuN7mSE18wUd
-	yszo4NGuCXi+JYssxhNi1wJg321ZWLHui8w3MCUEhiensvcz8bthMfxY7ZhLCQa3rDtj4=
-X-Received: by 2002:a05:6214:21e2:b0:78d:be82:fffa with SMTP id 6a1803df08f44-89463e12ecbmr22544176d6.33.1768914711953;
-        Tue, 20 Jan 2026 05:11:51 -0800 (PST)
-Received: from ziepe.ca (hlfxns017vw-142-162-112-119.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.162.112.119])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8942e5e5307sm104190186d6.9.2026.01.20.05.11.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Jan 2026 05:11:51 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1viBWQ-00000005W5W-3jR2;
-	Tue, 20 Jan 2026 09:11:50 -0400
-Date: Tue, 20 Jan 2026 09:11:50 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Will Deacon <will@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>, Dawei Li <dawei.li@linux.dev>,
-	joro@8bytes.org, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	set_pte_at@outlook.com, stable@vger.kernel.org
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Maintain valid access attributes for
- non-coherent SMMU
-Message-ID: <20260120131150.GM961572@ziepe.ca>
-References: <20251229002354.162872-1-dawei.li@linux.dev>
- <c25309d1-0424-495e-82af-d025b3e6d8c8@arm.com>
- <20260105145321.GD125261@ziepe.ca>
- <f253d6aa-1dc2-4b1a-85df-f43b06719c04@arm.com>
- <20260105185423.GI125261@ziepe.ca>
- <aW9xs1ko3nWq5VbS@willie-the-truck>
+        d=1e100.net; s=20230601; t=1768914896; x=1769519696;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=61FVTvC+OPYsLfCnTMn5A70RhUk+8hVfV9yJPBCxid4=;
+        b=mWvh5l5do8z1J+mr3Q37AHSLjFni5e0E0jT0S1IoOxmmfWpbK9jbKpitcuMwhLdKDp
+         wRsbA8VgBcoQbyfsZ4Di7EPAU7X7qSbDFCFfamFTzL1jdlGKU2L4RTow5VQK7D2tYuj2
+         TRjJtnGCP4M09P43eOxe5dWqE/MmLZf2QwS1g/sgnZ7LGFHhGzmb0v2CwgKHVpQrGbxe
+         jcqvD9uQhGcsZoMgVtkRxyeLWY4yX8uLRNcC31Yn8wBjJ3qD1m0Zrr4mltTzskD4MXE3
+         8+qDZwY/jCf1jZHBtSzJAxroCIoHRAonjFySMvb30n24UU2pir5RGZgY39Q7XxW+UkBB
+         hZrg==
+X-Forwarded-Encrypted: i=1; AJvYcCWUReRbeYmB8kwkmki+h1321vvFZrrZgPchksh9M9iTBrETHgChztX/KbS+OfGIwvxeE6Py/fnHTTTNiNlbmdc2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yws9rzkbAbcqmwC1nIbeq+enDHvp3YRrMUOWL9Q79jff1wf64N4
+	lnnaHrZkgxKRaKw+jd8956fQlj7QDLSA1uqHltceJqg3T6rmfQ6320BG2uEJ5wmLW974tI5VWN7
+	zMOqE9Rqv1mypu7dTnqL3umgnSEHiqAM=
+X-Gm-Gg: AY/fxX5zu6Uz1OUr1r3542BhzO2stIztsvCYOQKbWP1nthfDWIzVaJTgvXs96zcyfpE
+	CJSmMUWvS1sMdTS9rh6NAla8oBtDHDURQT9vB051gR2KP1+BYw23oGpZrkxHxvqVg7LgZC3JfrC
+	9hNUnTX18D7UejLft9JeHKagxcx1ODAfZCLtugI2u1M0yIjSucQzAhP/W2f1k+GEYPNS9QCxXNK
+	ZMxL4lS4RIIvYU+seyGG4jP+zqfoVF+nv0/ka2SqYO6qHBmXjhQHWt3mPB+6+Sqqr1LCAmDEiV+
+	lzwO7kFjnW74Avu+Hvty3hKWRPU133LO0/u6JA==
+X-Received: by 2002:a05:622a:204:b0:4ff:a8c1:b00e with SMTP id
+ d75a77b69052e-501982dcb6amr257878141cf.2.1768914896054; Tue, 20 Jan 2026
+ 05:14:56 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aW9xs1ko3nWq5VbS@willie-the-truck>
+References: <20260120-ufs-rst-v2-1-b5735f1996f6@gmail.com> <9e51b504-e0f0-4d17-baa2-387339507c86@cherry.de>
+In-Reply-To: <9e51b504-e0f0-4d17-baa2-387339507c86@cherry.de>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Tue, 20 Jan 2026 17:14:48 +0400
+X-Gm-Features: AZwV_Qhp14S3f8jxRdEKOTb8-WUOX2RQGlmlwHiEcT4hA3FpWfhKr4Hgbt-e0zM
+Message-ID: <CABjd4YwAMbH21jcjhks7ThoXzcF8GeOzBPYDvN+7cip0iA6stg@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: rockchip: Explicitly request UFS reset pin
+ on RK3576
+To: Quentin Schulz <quentin.schulz@cherry.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	"Martin K. Petersen" <martin.petersen@oracle.com>, Shawn Lin <shawn.lin@rock-chips.com>, 
+	Manivannan Sadhasivam <mani@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_051154_164615_FE1987BB 
-X-CRM114-Status: GOOD (  23.79  )
+X-CRM114-CacheID: sfid-20260120_051457_822646_3CFB3717 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,60 +121,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 12:14:43PM +0000, Will Deacon wrote:
-> I'm not against being more careful about the memory attributes used by
-> the non-coherent walker, but we shouldn't fool ourselves into thinking
-> that Linux can treat coherent devices as non-coherent and expect things
-> to work generally. 
+On Tue, Jan 20, 2026 at 5:00=E2=80=AFPM Quentin Schulz <quentin.schulz@cher=
+ry.de> wrote:
+>
+> Hi Alexey,
+>
+> On 1/20/26 1:53 PM, Alexey Charkov wrote:
+> > Rockchip RK3576 UFS controller uses a dedicated pin to reset the connec=
+ted
+> > UFS device, which can operate either in a hardware controlled mode or a=
+s a
+> > GPIO pin.
+> >
+> > Power-on default is GPIO mode, but the boot ROM reconfigures it to a
+> > hardware controlled mode if it uses UFS to load the next boot stage.
+> >
+> > Given that existing bindings (and rk3576.dtsi) expect a GPIO-controlled
+> > device reset, request the required pin config explicitly.
+> >
+> > This doesn't appear to affect Linux, but it does affect U-boot:
+> >
+> > Before:
+> > =3D> md.l 0x2604b398
+> > 2604b398: 00000011 00000000 00000000 00000000  ................
+> > < ... snip ... >
+> > =3D> ufs init
+> > ufshcd-rockchip ufshc@2a2d0000: [RX, TX]: gear=3D[3, 3], lane[2, 2], pw=
+r[FASTAUTO_MODE, FASTAUTO_MODE], rate =3D 2
+> > =3D> md.l 0x2604b398
+> > 2604b398: 00000011 00000000 00000000 00000000  ................
+> >
+> > After:
+> > =3D> md.l 0x2604b398
+> > 2604b398: 00000011 00000000 00000000 00000000  ................
+> > < ... snip ...>
+> > =3D> ufs init
+> > ufshcd-rockchip ufshc@2a2d0000: [RX, TX]: gear=3D[3, 3], lane[2, 2], pw=
+r[FASTAUTO_MODE, FASTAUTO_MODE], rate =3D 2
+> > =3D> md.l 0x2604b398
+> > 2604b398: 00000010 00000000 00000000 00000000  ................
+> >
+> > (0x2604b398 is the respective pin mux register, with its BIT0 driving t=
+he
+> > mode of UFS_RST: unset =3D GPIO, set =3D hardware controlled UFS_RST)
+> >
+> > This helps ensure that GPIO-driven device reset actually fires when the
+> > system requests it, not when whatever black box magic inside the UFSHC
+> > decides to reset the flash chip.
+> >
+>
+> Would have liked a mention on why pull-down in the commit log.
 
-Probably not generally, but we will need much more flexible
-coherent/non-coherent choices for some upcoming HW that cannot support
-cachable access for certain isochronous DMA flows.
+Indeed. Heiko, if you're going to apply this to your tree, would you
+mind amending the commit description with something like the
+following?
 
-The device driver will know this, and it will know the underlying HW
-works properly, so it can safely opt in without worrying about
-"generally".
+The pin is requested with pull-down enabled, which is in line with the
+SoC power-on default and helps ensure that the attached UFS chip stays
+in reset until the driver takes over the control of the respective
+GPIO line.
 
-PCIe defined no-snoop TLPs a long time ago for these isochronous cases
-and we haven't done a great job supporting this feature in Linux so far.
+> In any case,
+>
+> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
 
-> The use of non-cacheable mappings in
-> dma_alloc_coherent() and cache invalidation in the streaming API when
-> transferring buffer ownership back to the CPU can both lead to DMA
-> corruption if the device can snoop the CPU caches.
+Thanks a lot!
 
-That's a bit different situation, here we are talking about the SMMU
-itself and things like the page table walker are fine if the HW does
-cachable or non-cachable because we can flush the caches and the HW
-never writes. The same argument works for the stream table and CD
-tables, but they'd have to switch away from dma_alloc_coherent().
-
-Certainly the end device driver doing DMA can't get off so easy, but
-it is also not so unreasonable to think that the driver should know
-that the SOC block it is driving has an appropriate HW implementation
-for no-snoop.
-
-> I think we're all agreed on that, but just wanted to make sure as this
-> is something that has come up before when talking to hardware folks
-> who seem to think that the "dma-coherent" property is a hint.
-
-What I've been pushing for is that the SMMU architected cache
-properties have to be followed. If the architecture says the
-transaction must be cachable then the HW must actually cache snoop it.
-
-However, this goes the other way too and if the architecture says the
-transaction should be uncached the HW can bypass the cache.
-
-Hence my interest in this series because HW that follows the
-architected cache properties is going to be sad if Linux doesn't set
-them right.
-
-If the HW actually implements the cache properties then the SW needs
-to select cached/non-cached on a (sub)stream basis to support
-isochronous flows. If the SW doesn't do this and just selects the
-deafult cachable then the DMAs will work and transfer the right data,
-but the realtime guarantees will fail and other parts of the system
-will have errors.
-
-Jason
+Best regards,
+Alexey
 
