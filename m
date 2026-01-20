@@ -4,75 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C8E7D2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 10:14:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10D0D2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 10:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Yv+dpRQRMN5qyhSBXjej37h+nZntknJMic+/TUR9+o=; b=rZ6LicdB5dB+buxAQqcs0TkJT2
-	sWdCRnfi+6JzEhRLThu094Ew5GLb9zH9WRsMBFSB5aKhXauoimKbyKlUxUpJoSo3wkipN1CiOKWTJ
-	XeytzZkC6Qtq7SnUxSDz9NToifJd8Wyyd14KDk+wdgCUhFAtB9x+8Pb1OyQw2ogVh0n2FNRuovlVy
-	IRCz79fUBeHx98mZPB/Cr4BjhCM450Dk1YcRJ7OhPti9D3uj3rpAH/Fqr5r+FNj9tQs+EYzFZsYag
-	L8jrS5CyFpZQAdow+UGZm/KA6u2sdvKlIKwx9tSpjAteIWg/OVG5u9OQZgOF7LotrXEUroI2LCrjH
-	34RhZrjQ==;
+	bh=DaphwKTr6kruAM6Ca6z24D6/blOeNF2NHw7uL9x+gGQ=; b=qANfvmN+BHXLgTr2UvDvneIemg
+	lBbIUMigAL6XrCg+XKCG0kesHVjS7cgYvaGyZkN8vvDaRXq+EOJrsPgY1p7Pr0auID6i4nRWBMJai
+	NT22nM2JcREkxb9J5XM/uvxltbc7QoFMrKdzSL7jcVLb5Zs9nuSCoSL1ru9gJCqSQZb4A2YKBMbK0
+	DA6/jL7etFXCpW/R587Ta52L77dgyc843HschU0pTbcsGSEBDDEXuq4xslPy63VEO4QCt/SPGxZum
+	pRWYJycWdRRol1OO526j7eAP3uElVwoHnoLn9OPwFU43XHhmsS0TYsbbKqrd6nTVEszbz0rSkNDaj
+	JquGo5tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8l4-00000003amT-3D5s;
-	Tue, 20 Jan 2026 10:14:46 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vi8mD-00000003atH-3egu;
+	Tue, 20 Jan 2026 10:16:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi8l2-00000003alw-29Mp;
-	Tue, 20 Jan 2026 10:14:45 +0000
+	id 1vi8mA-00000003asr-147p
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 20 Jan 2026 10:15:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=9Yv+dpRQRMN5qyhSBXjej37h+nZntknJMic+/TUR9+o=; b=VJlC1K2gyJ9/otBfB1zskPXFfG
-	W24edyx/d7uS+k2Lr5Px/mwPserfDD0u0ythB0g/la0lT0fiK/XOl6VikBxGutkeQz8Dr1DAdlZm6
-	nhCCtkJSBoSPzlzDbLoSnAsEMSvsTR1l3dzC0zT9U3rTjWQCUDGJBixA6hMRwoHi4+9J+97gE0EI8
-	q4wrj32W+vmtiKrQ0S3BRAaqfJO+6dQIgjDK+jDV4RVMnrojaFCPLJzwFqNl78mW3Yw5Ah6fyc1ib
-	7q7kehaZ0n6exkqc7VXbWW5Z76+ZyUrodOlwZGR25zdXb8d/Mse00/lPaGbZdCJcxg9f6RAnCEE6l
-	0eSB3V7A==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42602)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vi8kz-0000000064a-0tA1;
-	Tue, 20 Jan 2026 10:14:41 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vi8kw-000000007RQ-3W81;
-	Tue, 20 Jan 2026 10:14:38 +0000
-Date: Tue, 20 Jan 2026 10:14:38 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, linux-phy@lists.infradead.org,
-	davem@davemloft.net, maxime.chevallier@bootlin.com,
-	alexandre.torgue@foss.st.com, mohd.anwar@oss.qualcomm.com,
-	neil.armstrong@linaro.org, hkallweit1@gmail.com,
-	mcoquelin.stm32@gmail.com, netdev@vger.kernel.org,
-	edumazet@google.com, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, vkoul@kernel.org,
-	andrew@lunn.ch, pabeni@redhat.com, andrew+netdev@lunn.ch,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [net-next,05/14] net: stmmac: add stmmac core serdes support
-Message-ID: <aW9VjieyiZCNbb-G@shell.armlinux.org.uk>
-References: <E1vhoSH-00000005H1f-2cq9@rmk-PC.armlinux.org.uk>
- <20260119192125.1245102-1-kuba@kernel.org>
- <aW8M9ZiiftGBQIRM@shell.armlinux.org.uk>
- <20260120084227.j2wgbmjsrpmycpgn@skbuf>
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=DaphwKTr6kruAM6Ca6z24D6/blOeNF2NHw7uL9x+gGQ=; b=dIiLdVk0v8mQ9sIEPfm9fygkeY
+	7htraddIO1tiaZ87Fm+2loxGPlgl1QCOxODC2I6mFlUVlZYUs2z8SmDPgAz7v96r+LU5KCJj/6cum
+	LkH6wBQzJL/vGRMEe7SKCnGvxLfJyZZ8PxrAe+sJP3ixq8oEbOfr8143yC7W7lAbqEYUKWgi3DkCN
+	ztzPEHYQBg4u/uXsidnBp+drbyOcnEn0IaKtel7by1zsW0kx6PagY22Npoa1S74Sg3CVP+AuUmm/x
+	ROD62Q456ezZGYhlENUUf3BfSfgHj+d+OKXm12DfZ6YcFL2Y/qKzhTYi9nWJkgHOi1w+A35t/W4sS
+	lwVxvuNw==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vi8m7-0000000DmZl-1mVZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 20 Jan 2026 10:15:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1768904148;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DaphwKTr6kruAM6Ca6z24D6/blOeNF2NHw7uL9x+gGQ=;
+	b=GtlKPQAfm7a8g/SEweyPX2JtjVLqUJZDAoBSpEJlN252AO6ruajc7VelG067yvb2zsVcOv
+	Qx+KS4loZ46V33kDut9LSHOpzgpUrzLQGk0XcaaAy/ZvNaasXEAcpSUMC4cbAAkgLGnJr4
+	r9QYBPUoSmfN9hHudwu8M6JgnqwOTYg=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1768904148;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DaphwKTr6kruAM6Ca6z24D6/blOeNF2NHw7uL9x+gGQ=;
+	b=GtlKPQAfm7a8g/SEweyPX2JtjVLqUJZDAoBSpEJlN252AO6ruajc7VelG067yvb2zsVcOv
+	Qx+KS4loZ46V33kDut9LSHOpzgpUrzLQGk0XcaaAy/ZvNaasXEAcpSUMC4cbAAkgLGnJr4
+	r9QYBPUoSmfN9hHudwu8M6JgnqwOTYg=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-60-XPoEYggVOSeMcVKFq0boNA-1; Tue,
+ 20 Jan 2026 05:15:41 -0500
+X-MC-Unique: XPoEYggVOSeMcVKFq0boNA-1
+X-Mimecast-MFC-AGG-ID: XPoEYggVOSeMcVKFq0boNA_1768904140
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 414C01954B0B;
+	Tue, 20 Jan 2026 10:15:39 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.122])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 45B4B19560A2;
+	Tue, 20 Jan 2026 10:15:36 +0000 (UTC)
+Date: Tue, 20 Jan 2026 18:15:33 +0800
+From: Baoquan He <bhe@redhat.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Qiang Ma <maqianga@uniontech.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] kexec: add kexec flag to control debug printing
+Message-ID: <aW9VxaXD60X36ZFV@MiWiFi-R3L-srv>
+References: <20251219093134.2268620-1-maqianga@uniontech.com>
+ <20260119154947.e351bfb8e97d91305932e2eb@linux-foundation.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260120084227.j2wgbmjsrpmycpgn@skbuf>
+In-Reply-To: <20260119154947.e351bfb8e97d91305932e2eb@linux-foundation.org>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_021444_569128_405B04BB 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20260120_101551_582541_00308433 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,23 +108,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 10:42:27AM +0200, Vladimir Oltean wrote:
-> More to the point, if dwmac_integrated_pcs_enable() fails at
-> dwmac_serdes_power_on() (thus, the SerDes is _not_ powered on), by your
-> own admission of this PCS calling convention, sooner or later
-> dwmac_integrated_pcs_disable() -> dwmac_serdes_power_off() will still be
-> called, leading to a negative phy->power_count.
+On 01/19/26 at 03:49pm, Andrew Morton wrote:
+> On Fri, 19 Dec 2025 17:31:30 +0800 Qiang Ma <maqianga@uniontech.com> wrote:
 > 
-> That is to say, if the model is "irrespective of whether pcs_enable()
-> succeeds or fails mid way, pcs_disable is called anyway()", then these
-> methods are not prepared to handle that reliably.
+> > The commit cbc2fe9d9cb2 ("kexec_file: add kexec_file flag to control
+> > debug printing") added the kexec_file flag to control debug printing.
+> > However, for arm64, after commit 6f8c1da071a4 ("kexec_file, arm64: print
+> > out debugging message if required"), when using the kexec_load interface,
+> > the kexec_image_info function is called to print debug message, but
+> > it uses kexec_dprintk, which is only available under kexec_file,
+> > then when specifying 'kexec -d', kexec_load interface will print nothing.
+> > 
+> > For riscv, commit eb7622d908a09 ("kexec_file, riscv: print out debugging
+> > message if required") remove kexec_image_info(), because the content has
+> > been printed out in generic code in kexec_file_load, but not in kexec_load.
+> > 
+> > Therefore, in order to solve the two problems mentioned above, for this
+> > patchset, several things need to be done:
+> > 
+> > 1. Enabling kexec_dprintk is available for kexec_load.
+> > 2. Add some debugging message of the deleted kexec_image_info
+> >    to generic code.
+> > 3. Remove duplicate debugging prints for arm64.
+> 
+> Some additional review input on this series would be good, if someone
+> has the time.
 
-That's the way it currently is, and it's been this way in the
-major_config path for a very long time. If anything fails in that
-path, we can't report the error back up to anyone, and the netdev
-is effectively dead.
+As I have said before, I am not fan of this patchset becuase I think
+it's not necessary, even though it has no much harm except of adding code.
+Leave this to those who like it.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
