@@ -4,108 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFAE1D2ED0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 016AED2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E86ZXdE770Xwovkl6IYgj3eO0oOM7/ipyrSNGJ5VLkk=; b=MhRnQxS2hijLNOXkRi1ojm5Vr8
-	SncgK0JAa76EI7DEsiUslI5k0TRuyXHfQp8TwJIDDepUSA2zeHACVWwYAZGsImN/6WWcKAHrQ2cWJ
-	ZxIWmBIHJpMovM3CQaKMgwxOLODcY2P7rqDO99wPiYcAciZjFqUNp1xiWgXoV9nxta/oxkdfpDEbz
-	I1GAtK/xtffbZAj5RfnGLUBDnY4QVrRxHQAqRtpoCWnEsmYEKlFl3HG3uY8gskx1ZUV8Ip4l61DMB
-	zl+oiWkvt22DBX5SlwAP5tn3nkTV1KCoODLHVpNstcS0tKRKXFb65ZiVuYTj32XZR7MnU4oyO9Jdp
-	+20A9POQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SUQKreo5qnKQZtG0JdOQZXpE+wY1UWud7H7ntmLdYdw=; b=CP+HA+z4Icag28ZkCny+ME3Vwm
+	1+qCqvvcmFTr1/pcsnzHaEM07orq5ELSYlG6PrERZUrMCjEX01kuw8AH2CQ80kn2ANXZuzYTC5zjS
+	5ju1ljIeJrjaF4ve1S7diY1wnKJJvSN+UStZUjdriJWbON0MNf91ERw+DIrxC3TmCULb4Wd4s5VO9
+	DjNb8AaFX6hbRIvWM4JMtD4cJ7pK/8R9mElaZJ+7qbRHhkiVFNRCQlJ2BkAk8leGixITXLONbLUiK
+	DgZgp/Hpk4gIM0vMLsvitiwgugMxCbA+uX4yVx+JpWb/c4B5bJxRmWx3Jt4JVoGdwd0ksjnzqSjlW
+	uyjyyjiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viA9k-00000003k9v-3IWg;
-	Tue, 20 Jan 2026 11:44:20 +0000
-Received: from mail-dl1-x1233.google.com ([2607:f8b0:4864:20::1233])
+	id 1viAAD-00000003kIg-0ZyL;
+	Tue, 20 Jan 2026 11:44:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viA9i-00000003k8h-2MfB
+	id 1viAAA-00000003kH9-1jEi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 11:44:19 +0000
-Received: by mail-dl1-x1233.google.com with SMTP id a92af1059eb24-124566b6693so7068811c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 03:44:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768909457; cv=none;
-        d=google.com; s=arc-20240605;
-        b=UHW3fQ/usX4Vq6sI14fov/pu3M/qRft/7pnSZG3MvKk1vjCISL06rLAiw4x0ZQrHdB
-         +r5fRnIf5rlb3CdnujXYjtQjODZ2okm/0D4p3CfmmSX+qcY+qvn16XBXc1Ni9kaJnJ4f
-         bd9y+5FGymwpF1T5cGDkR7Zqab0Wl/DWefnPRfN16vZDNnkC69I0G6P+UnP6DylFmBUt
-         f3xn1ILkevEUw0A/dflZeEJOFN7bXUWV62sSJJOos6WTLgMQ8vCjRnUoYP8ixomcALjg
-         +ApWzhuOfwl6zD6vNdd7XYr8KOoeCt1iPAGLnmqrRCWbjhn6h4Hk5r1JzC7hMIm5strp
-         zrjg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=E86ZXdE770Xwovkl6IYgj3eO0oOM7/ipyrSNGJ5VLkk=;
-        fh=rWN8tzJEYp+eIPVx7SMP8Xkwh4APoDWvgsoEbR0W07w=;
-        b=ZP8Dz7eqM/VtRQzSAVaTURHdxL26XFnE9IvRK1OLkaZHYPip7v3c1r5NRXKDXt1mkr
-         nfb9CBFCT+S1WpZ5ncMB+AFhtiT6ERplVb3cibFSpZ/oGpHd8N+9WnohmIs5O/pBJHv0
-         aKh4QzSxEPloGSGB9UWW8WoyrQ51yIW0OuE8xV7OlnkgYYw79HGr/O1TT8/7rG1B+Gxm
-         GGUEqGgsVP+OVLYdsW2ty4iljlsW5yenTLhiTbSRu6hKq7TCiX8qSEV5LjACOj0ob4Ne
-         6rJVyk6v79kzu4rz8QbvPAjVJPKoHaFvdgHVJak4P0yBXxk69wIbghSNzbpVLEDTrd12
-         53Hg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768909457; x=1769514257; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=E86ZXdE770Xwovkl6IYgj3eO0oOM7/ipyrSNGJ5VLkk=;
-        b=RlzPRjXDSWyTbe0Oiqdz5vJ5HDDcBrpR2GuWJrRwZCxOwy0LHCxRPMpN9v6TaCbZVQ
-         IFCOwTBYMawr62iGg4PadPFkV61W53S7Qm+Zp+7tCAkA12I08o1RQcAsCPzAdvVnZV01
-         iUeBgnUDnWDMPcYfDHrDvopkkXPR0OC5UGpj25K4jOEK5uWmvzWABLBkdvIp5L6LkuYH
-         peY3YoRfgoPvv2Q0C0KKZP9sXcDSyIektDisBLh3naPknIzRQElgLew51j5e9k+vEEZl
-         9H3ZNLyjGUjyAk8Ty0v5EI+yAIXAJmHAPgptb27LoQOHYRR7gmmedu3Gpl3y5Ve+A2n/
-         oIqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768909457; x=1769514257;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=E86ZXdE770Xwovkl6IYgj3eO0oOM7/ipyrSNGJ5VLkk=;
-        b=gH+G/BUBNnZsjwZDvkt2OxZgKd5B1l3R/ZqDbnvpEjRgGhY/YFgKxJha6evsy6cGnH
-         L3Ekgwz8HDW9PU1UavudFe7w1yYvjVv1tVqunEFz3XdjTFKEhrtYl6sIsC7qjuhknFDN
-         MqZx5EPTTvLJMWuZ0/zmv2RUDnEFUHAl8Y4bfRI8vSzXEAjdVNChVhWqDedsvCS5zu+R
-         DnqHRWQaMmXL8/RbiHNDa+/nsTkhQNoOIdeZcUVmcfueaRe0rNvmOXMsFUEDKgb/2UfV
-         xLKcN44pWx+1U3KmKXYEkUhGJ4zrYuCyyqlJLemyQaCbZFBmF5R3TvwG15GHjO+aq55L
-         hz/A==
-X-Forwarded-Encrypted: i=1; AJvYcCW4Z7TkbKfHY6IIM02TYE0NEDIQ1NTdTu2DIUge67cuPHFjjmxH7xdNxn/ruS1IgYpeoqcDkSM+0r4BcgOZECBq@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSkxsZAOfGDSijrTjAgrLXUhK0s0bt1s+4HbWiR7YH3oJKVHQR
-	DnMwkN6fQy6lpTB1/jzh4WpVzJs0UZ+1XyGxC7YYhH7tnrXG8L8MeI9BNVpqBBhsulO9APnQ8q3
-	dmkbO4if4RcKMYQ/24+zrtHI3XCDCluY=
-X-Gm-Gg: AY/fxX4xNVltK+cgnINBi997moa8265laiBsTqao7KMen+ZP7PR8MMHmHU6WluR5Fur
-	LHQjz4hpMT7wRjtsjENEctPqWZ0xrnLUCzl2eiCjXVj5+S9CTRwm3GkIfl68ljnPmXRCdenpLlb
-	UFbFxqMHq66nxOfDfnPN0Yywj1/FI4uHCUqLKyqey35d2N9RTTZpnoVEjCD/mg2DQnc9hf3PI51
-	ul0OHYPUCOK8+YkGvpkXid01HDeC99ywrJvUXs23glSCez5P4K6IDNALwEs9mekxEWXMc6Ic/yQ
-	PNrbtzLnWoVszh6jWdNDKAcaPyd3kZSbqfOgEwYVF/S61NTrhtuFN7l/9N9cENJ5mbJpCBf4ThW
-	2YM/GNZYRQA==
-X-Received: by 2002:a05:7022:4184:b0:11d:e40f:ee69 with SMTP id
- a92af1059eb24-1244b380f9dmr12491059c88.36.1768909457416; Tue, 20 Jan 2026
- 03:44:17 -0800 (PST)
+	Tue, 20 Jan 2026 11:44:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B31AE40A01;
+	Tue, 20 Jan 2026 11:44:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7FCBC16AAE;
+	Tue, 20 Jan 2026 11:44:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768909485;
+	bh=ga7aPYBv6vEC6RDrqtoIEfix9L+QcEdkN3Y8HkPOkcc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jkWJRgPu/hDvAODxQrnmwrwXOrJbzhZZxMuR/yCH3LeFB1QxK6Ha7I2h5gX6AwOs7
+	 MBxEkhNAkA9yhOuXfLa19twaYItLLp95LIl5/AdD5eOmzGEzjEc2gAEChKWwWMDXmo
+	 p+xpPsDOfCkeqcel6c63KpBx/8pIf/7WrPfw/7hqgRPNc4E8u1fTOXvfJGWtKgHHnn
+	 T2vMcCXqILpEXcjonpn8Z/NKjgQ3dUMTIGo8p/TV0qGHVLT6ty3arWv9biC/diIu9o
+	 M2oWujiT3qterri1I6f6RGMIGwVSDBcTFTluQNvK2gurhgJs+77FF/Mgw7pczNCfOV
+	 sOYi48iM8/xAQ==
+Date: Tue, 20 Jan 2026 11:44:38 +0000
+From: Will Deacon <will@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev, catalin.marinas@arm.com,
+	ryan.roberts@arm.com, akpm@linux-oundation.org, david@kernel.org,
+	kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com, dev.jain@arm.com,
+	yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
+	bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
+	lorenzo.stoakes@oracle.com, ardb@kernel.org, jackmanb@google.com,
+	vbabka@suse.cz, mhocko@suse.com
+Subject: Re: [PATCH v5 3/3] arm64: mmu: avoid allocating pages while
+ installing ng-mapping for KPTI
+Message-ID: <aW9qpjyAcFXJNGo4@willie-the-truck>
+References: <20260105202328.2418990-1-yeoreum.yun@arm.com>
+ <20260105202328.2418990-4-yeoreum.yun@arm.com>
+ <aW5qfh_bsGNRd0Vd@willie-the-truck>
+ <aW6idotkGVoD692c@e129823.arm.com>
 MIME-Version: 1.0
-References: <20260120011757.1387140-1-hongxing.zhu@nxp.com>
-In-Reply-To: <20260120011757.1387140-1-hongxing.zhu@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Tue, 20 Jan 2026 13:46:57 +0200
-X-Gm-Features: AZwV_QhZ2tV6-Vbghh15PVnUEIiWGUBvMJOKoCcTwI3NHHV2_Ne1DbptDmWuXU8
-Message-ID: <CAEnQRZBpLxM289h=OoZA5Dx_pDdG6Ude2wam+sULb=www68uow@mail.gmail.com>
-Subject: Re: [PATCH v1] arm64: dts: imx95: Add fsl,max-link-speed property for pcie-ep[0,1]
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	shawnguo@kernel.org, frank.li@nxp.com, s.hauer@pengutronix.de, 
-	festevam@gmail.com, kernel@pengutronix.de, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aW6idotkGVoD692c@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_034418_601334_5252A7C0 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20260120_034446_488991_6BE63FF7 
+X-CRM114-Status: GOOD (  29.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,21 +81,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 3:21=E2=80=AFAM Richard Zhu <hongxing.zhu@nxp.com> =
-wrote:
->
-> Add fsl,max-link-speed property for pcie_ep[0,1].
+On Mon, Jan 19, 2026 at 09:30:30PM +0000, Yeoreum Yun wrote:
+> Hi Will,
+> 
+> > On Mon, Jan 05, 2026 at 08:23:28PM +0000, Yeoreum Yun wrote:
+> > > The current __kpti_install_ng_mappings() allocates a temporary PGD
+> > > while installing the NG mapping for KPTI under stop_machine(),
+> > > using GFP_ATOMIC.
+> > >
+> > > This is fine in the non-PREEMPT_RT case. However, it becomes a problem
+> > > under PREEMPT_RT because generic memory allocation/free APIs
+> > > (e.g., pgtable_alloc(), __get_free_pages(), etc.) cannot be invoked
+> > > in a non-preemptible context, except for the *_nolock() variants.
+> > > These generic allocators may sleep due to their use of spin_lock().
+> > >
+> > > In other words, calling __get_free_pages(), even with GFP_ATOMIC,
+> > > is not allowed in __kpti_install_ng_mappings(), which is executed by
+> > > the stopper thread where preemption is disabled under PREEMPT_RT.
+> > >
+> > > To address this, preallocate the page needed for the temporary PGD
+> > > before invoking __kpti_install_ng_mappings() via stop_machine().
+> > >
+> > > Fixes: 47546a1912fc ("arm64: mm: install KPTI nG mappings with MMU enabled")
+> > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > > Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> > > ---
+> > >  arch/arm64/mm/mmu.c | 21 ++++++++++++---------
+> > >  1 file changed, 12 insertions(+), 9 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> > > index 120874a2d35b..6ea5b80ab54f 100644
+> > > --- a/arch/arm64/mm/mmu.c
+> > > +++ b/arch/arm64/mm/mmu.c
+> > > @@ -1360,7 +1360,7 @@ static phys_addr_t __init kpti_ng_pgd_alloc(enum pgtable_type type)
+> > >  	return kpti_ng_temp_alloc;
+> > >  }
+> > >
+> > > -static int __init __kpti_install_ng_mappings(void *__unused)
+> > > +static int __init __kpti_install_ng_mappings(void *data)
+> > >  {
+> > >  	typedef void (kpti_remap_fn)(int, int, phys_addr_t, unsigned long);
+> > >  	extern kpti_remap_fn idmap_kpti_install_ng_mappings;
+> > > @@ -1368,10 +1368,9 @@ static int __init __kpti_install_ng_mappings(void *__unused)
+> > >
+> > >  	int cpu = smp_processor_id();
+> > >  	int levels = CONFIG_PGTABLE_LEVELS;
+> > > -	int order = order_base_2(levels);
+> > >  	u64 kpti_ng_temp_pgd_pa = 0;
+> > >  	pgd_t *kpti_ng_temp_pgd;
+> > > -	u64 alloc = 0;
+> > > +	u64 alloc = *(u64 *)data;
+> > >
+> > >  	if (levels == 5 && !pgtable_l5_enabled())
+> > >  		levels = 4;
+> > > @@ -1382,8 +1381,6 @@ static int __init __kpti_install_ng_mappings(void *__unused)
+> > >
+> > >  	if (!cpu) {
+> > >  		int ret;
+> > > -
+> > > -		alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
+> > >  		kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
+> > >  		kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
+> > >
+> > > @@ -1414,16 +1411,16 @@ static int __init __kpti_install_ng_mappings(void *__unused)
+> > >  	remap_fn(cpu, num_online_cpus(), kpti_ng_temp_pgd_pa, KPTI_NG_TEMP_VA);
+> > >  	cpu_uninstall_idmap();
+> > >
+> > > -	if (!cpu) {
+> > > -		free_pages(alloc, order);
+> > > +	if (!cpu)
+> > >  		arm64_use_ng_mappings = true;
+> > > -	}
+> > >
+> > >  	return 0;
+> > >  }
+> > >
+> > >  void __init kpti_install_ng_mappings(void)
+> > >  {
+> > > +	int order = order_base_2(CONFIG_PGTABLE_LEVELS);
+> > > +	u64 alloc;
+> > >  	/* Check whether KPTI is going to be used */
+> > >  	if (!arm64_kernel_unmapped_at_el0())
+> > >  		return;
+> > > @@ -1436,8 +1433,14 @@ void __init kpti_install_ng_mappings(void)
+> > >  	if (arm64_use_ng_mappings)
+> > >  		return;
+> > >
+> > > +	alloc = __get_free_pages(GFP_KERNEL | __GFP_ZERO, order);
+> > > +	if (!alloc)
+> > > +		panic("Failed to alloc page tables\n");
+> >
+> > Why are you adding this panic?
+> 
+> Because original code call the panic() when it fails to create
+> mapping of kpti_ng_temp_pgd and I think allocation is also part
+> of creating kpti_ng_temp_pgd too.
+> So, I added this panic() when allocation is failed for kpti_ng_temp_pgd.
 
-Hi Richard,
+No. The current code seems to assume the allocation will succeed and
+panic()s if the call to __create_pgd_mapping_locked() returns an error.
 
-Can you explain in the commit message why this change is needed?
+Just make this:
 
-What problem does it fix.
+	if (WARN_ON(!alloc))
+		return;
 
-fsl,max-link-speed  is an optional property with a default of 1.
-
-So it is perfectly fine to skip it as the initial patch does.
-
-Thanks,
-Daniel
+Will
 
