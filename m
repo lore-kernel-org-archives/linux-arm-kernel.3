@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA67CA5FB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 16:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 666C1CA5FB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 16:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kj8j1lSiFNV6ItVP/sSK3Apkmi5cG5J6MNdKKWb5RxA=; b=b8aBQe6HIyX95GjGTA+2+fDsxd
-	hY3xAGFe0fLH/y8cSmjn8+RCC5EkuDwqPy9D+a93K3khLK3mo3RA1XhHbXS/sGucDOS3kGtt9CUf9
-	GOKAqGWZ0PtKS0fUyR0PppRWZ9ivqAIE7Q5zOmqCilN6PmPAGJFc+bNyH/zog+Qqfht4VYBq6J+av
-	f1pshfdhzTdOiSID0vdb/zLPZ0KgAnZqMVXpbHUq1senF5F8oE7qkZ5Cag8hgn2VMReCnlGI1zGjM
-	TT3nyhBnRxIEZT5bEDbBHpwIFzqyFT6rCvsZq9EBojrxowzUP291UTaMYOmx9Ashs84OwQXuYbRqh
-	MEQ9YVCA==;
+	bh=ulo77ylyJZMF+/aZjD30uG2oZc3o7QcUP3IHLM+BdQQ=; b=oDGQ79VufJv/IRnJ43prK8F4N+
+	Gk3ofh9s1M5c8XrmyQ7V4aTi6h9XUCqRjOU0vum8L/h6WN/NOgEvszvKDxQWlcAnR1iFaP8vB7MhB
+	TNg/4tDn60yuEn35AOqno1Y1FeY9gd92IzxfUv15uBpIFZQR+22JL+7y2Bge0Vg/7e4vR1gf5okua
+	g0uIrHLE2aKewh6DKj+vQ3tqbKPwxIPK5MAFEbwWaQKrsxQ8bf62aIMX/hC3PYhEUANwWnSxBsjAY
+	mj1xWrHKZRlngvvK91FwINjcGRq85oq6jpcOEiL1tRKpQgZ4fkneoKQPSqHVdtUGhl1mIH4LZkA0q
+	GOYa52pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viEsb-00000004CWI-3AxZ;
-	Tue, 20 Jan 2026 16:46:57 +0000
-Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
+	id 1viEsc-00000004CWc-0Aom;
+	Tue, 20 Jan 2026 16:46:58 +0000
+Received: from mail.thorsis.com ([217.92.40.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viEsY-00000004CUk-46ZO
+	id 1viEsY-00000004CUl-43dF
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 20 Jan 2026 16:46:56 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 23B7A148AD75;
-	Tue, 20 Jan 2026 17:46:49 +0100 (CET)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 886631488638;
+	Tue, 20 Jan 2026 17:46:52 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
 	t=1768927612; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=kj8j1lSiFNV6ItVP/sSK3Apkmi5cG5J6MNdKKWb5RxA=;
-	b=T1Yyb6qIJr0P3oXL6s19AD1RXrZqtP8PX91Ltp/gfeuDnTRVVqcNmZAWbPkvLeEmdmHNkG
-	T0KfXaS/s0/cafX+kFzXDKNJTS1mxDUTPkZdlV2WnOEkXdJhGzGbwU32qUPwJiZkm5F/IZ
-	t/N0nOlu2dJmKJ7YGpUAaD/KFXftSfOw1C3h3RISv1eVDq7ztal3509T/6TOwPBPaE4eZI
-	hdUwrlko34l71tx24ilW8aQNoBkdPmd2NRtWgtNAOWfVvYKEBSfX1l8d5mj+Ttt//CfQVp
-	16vDhEfcB6lJ8K29rp/AUAG4G5OzWWRFq42SkWwqqWptXQExw0OHtVV0iRDGbQ==
+	bh=ulo77ylyJZMF+/aZjD30uG2oZc3o7QcUP3IHLM+BdQQ=;
+	b=lQSQpedZYGaCXUVdPKEo+JbBJSbufqszB6YbOEuq3DXKqeMQV7KK9GcbUzcxRD67j05RZq
+	FRDPg+GRczRx/4AXPhimI+R7nN8VpkEBdgoI4aEX9NbZiWyo6xu6mMQa4f49vm6dWnO0SV
+	iR+57Otsj6/GMGkaI5Po3YR7dPOTHhjqYhebsb5snBrhYfyiBEG18kj9P8jTZdLMF3VwSd
+	oGT0banOk3cEkTKBN+jPcF25sAQro2qzFTCJDKF1UD2sR17QCmNqX9bhrqHqbKCdSyNM3Y
+	DJ4HUcLbCZMxuODvlseWE4Jyi9ndIGSADRTru8r20hLNTzUtj6ewRy11EYlRxA==
 From: Alexander Dahl <ada@thorsis.com>
 To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
@@ -48,9 +48,9 @@ Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
 	linux-kernel@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	Srinivas Kandagatla <srini@kernel.org>
-Subject: [PATCH v3 12/19] nvmem: microchip-otpc: Add SAM9X60 support
-Date: Tue, 20 Jan 2026 16:44:46 +0100
-Message-ID: <20260120154502.1280938-6-ada@thorsis.com>
+Subject: [PATCH v3 13/19] nvmem: microchip-otpc: Enable necessary clocks
+Date: Tue, 20 Jan 2026 16:44:47 +0100
+Message-ID: <20260120154502.1280938-7-ada@thorsis.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260120154502.1280938-1-ada@thorsis.com>
 References: <20260120143759.904013-1-ada@thorsis.com>
@@ -59,8 +59,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_084655_173363_A2522291 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20260120_084655_162201_30CF6FD0 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,36 +75,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Register layout is almost identical to SAMA7G5 OTPC.  SAMA7G5 has some
-additional bits in common registers, and some additional registers all
-related to custom packages in secure world.  None of these are currently
-used by the driver.
+Without enabling the main rc clock, initializing the packet list leads
+to a read timeout on the first packet, at least on sam9x60.
 
+According to SAM9X60 datasheet (DS60001579G) section "23.4 Product
+Dependencies" the clock must be enabled for reading and writing.
+
+Tested on sam9x60-curiosity board.
+
+Link: https://lore.kernel.org/linux-clk/ec34efc2-2051-4b8a-b5d8-6e2fd5e08c28@microchip.com/T/#u
 Signed-off-by: Alexander Dahl <ada@thorsis.com>
 ---
 
 Notes:
     v3:
-    - no changes
+    - Rewrap lines
     
     v2:
-    - Reword commit message (additional information about SoC differences)
+    - Rewrite to enable _all_ clocks defined in dts
 
- drivers/nvmem/microchip-otpc.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/nvmem/microchip-otpc.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/drivers/nvmem/microchip-otpc.c b/drivers/nvmem/microchip-otpc.c
-index bf7e5167152cb..d39f2d57e5f5e 100644
+index d39f2d57e5f5e..34c0d7611f3e4 100644
 --- a/drivers/nvmem/microchip-otpc.c
 +++ b/drivers/nvmem/microchip-otpc.c
-@@ -269,6 +269,7 @@ static int mchp_otpc_probe(struct platform_device *pdev)
+@@ -8,6 +8,7 @@
+  */
  
- static const struct of_device_id __maybe_unused mchp_otpc_ids[] = {
- 	{ .compatible = "microchip,sama7g5-otpc", },
-+	{ .compatible = "microchip,sam9x60-otpc", },
- 	{ },
- };
- MODULE_DEVICE_TABLE(of, mchp_otpc_ids);
+ #include <linux/bitfield.h>
++#include <linux/clk.h>
+ #include <linux/iopoll.h>
+ #include <linux/module.h>
+ #include <linux/nvmem-provider.h>
+@@ -241,6 +242,7 @@ static struct nvmem_config mchp_nvmem_config = {
+ static int mchp_otpc_probe(struct platform_device *pdev)
+ {
+ 	struct nvmem_device *nvmem;
++	struct clk_bulk_data *clks;
+ 	struct mchp_otpc *otpc;
+ 	u32 size;
+ 	int ret;
+@@ -253,6 +255,10 @@ static int mchp_otpc_probe(struct platform_device *pdev)
+ 	if (IS_ERR(otpc->base))
+ 		return PTR_ERR(otpc->base);
+ 
++	ret = devm_clk_bulk_get_all_enabled(&pdev->dev, &clks);
++	if (ret < 0)
++		return dev_err_probe(&pdev->dev, ret, "Error getting clocks!\n");
++
+ 	otpc->dev = &pdev->dev;
+ 	ret = mchp_otpc_init_packets_list(otpc, &size);
+ 	if (ret)
 -- 
 2.47.3
 
