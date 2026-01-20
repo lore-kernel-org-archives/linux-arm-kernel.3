@@ -4,108 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22319D26296
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 19:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BA8D26293
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 19:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OXLFg4Ha3wo5odRoRInuMI31S2PvEVHCQEfb71vGAQo=; b=Lc7TXMVSDSjLX6Z5wCzR7a5va3
-	AZ9RHr0hF8iNvqrirXH3+MlQEwPV/m04JwqSFQHBJT2mEq/SJGeRzrNvAH4mVf8NwCyFcboyYbfEk
-	VGQzsocmo6idgMAEdst+BMs6BYa9DZsZCbfiif082vMa9Cgw/qJcU2iZBjIKK/hr/m982FP6TfPSW
-	EalueHS/Lsv9SvN6sFLQcjq1OIHhhKArB6pAPX2dsN8JgGr/AwOK0m9yCda7PURLxobjP6V5RV8vU
-	qrB5WavQlK9XQizDmBjTEU4/Zb+IU+JiD70SkesOXAuvcoqCcLkpoK4tKhZ9QW05UUlI4K3BYX0iQ
-	YywnU0MA==;
+	bh=sy76whdWsr2+0uhdxqV/7DmqprCp9p5S0npWuG2odvI=; b=xVc9PevMnjtp+o3dSIrI/ft37e
+	sYUivVKQ6ga8oO6TxiWXvUQmrFNdg7DPueMx0pH3kuBc/5ht86Jy8g1ZDD+LJ1vWYqmYY307ipRJ7
+	lZf3YSayH47Xh1o5hxpdxYGeGAv+MNmNzsXucIQxYusZMmFFmMRAInZfODRWvLr5rh7dlVuLEJuJ7
+	dkajG21y2WAhE8NSzU6zAXTccEGQRCp+DZihfMW1e9HipzcI/55+/gA2ajtvRdhAtBXcytMUWSNNk
+	4SIQJUgl5LIVs7SASJ8gW77+bLiOEgDo5KuRJKMqS0cbRi1H8U4qdEonTAlrHlSt3pEHlnnsjK9wd
+	lq3KaWVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viHaf-00000004OD1-0N0D;
-	Tue, 20 Jan 2026 19:40:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1viHdg-00000004OOi-2Vlv;
+	Tue, 20 Jan 2026 19:43:44 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viHac-00000004OCc-10Ji
+	id 1viHdc-00000004OO3-3VVy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 19:40:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1F916442A8;
-	Tue, 20 Jan 2026 19:40:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAA54C16AAE;
-	Tue, 20 Jan 2026 19:40:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768938033;
-	bh=A86HiTGdeay1Qm6gVy1xjuUwe/ZurTakL/i4nzwnxfM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JvPktp/r9fF70Yi+kkvVdIvLvdRX6hMlVniyKB22/rSI6V5EvWFmKhirAOKND+Lp/
-	 6HkPqdn4APlMo5AxNKPl5M3IRLhnk4WBq8y8jNOvnlfRFeUuDsO5HfgRmKhaiY14aQ
-	 XWUcBGJ+kosW4SZG0zzaETQg0IVJ6SaOfI90jAOEdONndTIRhj7HccT241CNppSr5s
-	 BuDOZXVVNhmHkAbfx5dVCQzMsLkbyiV3/zMtjdz4Zr+wHkjbuDD4xgepPnGZU08GGu
-	 APVnzMfQZZcA/9xnGp4OEgH5cjxGGcUZFFnJ64UIQ3kccY/CMNAkSOTFTPDexz6xhm
-	 UoANmSzm+CqBg==
-Message-ID: <b7d27dc1-05c7-4525-b483-1712e9d497ee@kernel.org>
-Date: Tue, 20 Jan 2026 20:40:29 +0100
+	Tue, 20 Jan 2026 19:43:42 +0000
+Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-47fedb7c68dso40586025e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 11:43:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768938218; x=1769543018; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sy76whdWsr2+0uhdxqV/7DmqprCp9p5S0npWuG2odvI=;
+        b=igcWD/GOY3qJ0OBaOMAydzyAuThJgK5dp4AA9CumFxwtwauuTxAhHGoEfh2ctMLB+d
+         MRQrPADBcOIILaYOjVXdlp3xMSo+EmiLI6gBx5SwZmQAzoEwLcdCNunePsaMZHo4/moA
+         qcYUVIo2YxHto7Oz8XaYN2pc+X12Bx9Y6LKJprvEXr02grdGHk4XObnPMoHQv/uCB3B4
+         juA8hk9+nJY1Rn35KCr0B/4Prs6ilN1u5ZxscN+79ANH0y/A7EswYes12rJFb1CT5K/m
+         Iowc8+DEw1mPDAGZnlziRH+2yzh37MDjg/tUnKA84fLzGNBEdbgSkF+I4+R6ZtM5Z81N
+         kkhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768938218; x=1769543018;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sy76whdWsr2+0uhdxqV/7DmqprCp9p5S0npWuG2odvI=;
+        b=BDw+5FSpl9VWq7HPvJbGLuUwOcXsEmigIqcJOf0JLz9XQDznCCXNvf5ZRoa6e1HSTF
+         7VI+pQ7cqLCwRSi0605TBqqrKK8FwwsxDhXGe+D+Hu4ENIgkjc9gXKrt11N1NXwez2Gc
+         mlWJOnlY5FKAPwzeuzYeeHbpHAbKkQzRG23YhzM1CxWO7WGmPWYf1JTWUIiSiB1JAAsN
+         Y/qzk2A+7RH+m0vQ8Wcbfy9ncrdqm8ge76VCxIVbckPzTF3P/zr37bwjA2uHcUx8QF3E
+         v4Hc+x0974ThD2WHo9YOMocxcMsJ0yi49n7lgYWrqFSgdGxRDkpOqAoJP9sfS3MQ9yhn
+         ZscQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVi+/HfyYtjFlhLSr/YHwjXfqBEY9blNA2psUtfJJzyvQDmMckBIRBXEJWJGsF2P8acuYev6k2w127Zf72vg2fe@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFkzlsCjDVfvVYl03PTUN4oMYqyYOpjT7ELT33N1y/ThQnMhQE
+	BIqSQI2h5TzcFTCsh9ijCzyqleqyeucYsNN7l3Q4dRiwuL9DymmFUOYBgD4EKEd7u0k=
+X-Gm-Gg: AY/fxX60iX2BgaThi4lDSf+ROqqWp5a9+vhYKck+BPLHY3svZSNL41QWTYTcGegyBLo
+	Dx9Yqt3kLfd/t89gP3QjcErzAlWPoPldLHWdPj4IiFQ0uPAudXVsmwk93T5pjyfez2h252kDLQN
+	1zI2jRQgqvIERm7S6gvN31nXxgj1TGSeCS8ijZVC8/4Vl5pzq2h8zS7MDDFXGnMgtxF6FAeDM06
+	Gv+poQub+AbngOjJBihkLTXkYeXaD5C/8Cm9fj4HOJiFmyVfdglFZYCNPJLkDSe3RTUqQz9lGcm
+	4UAK3Y2cTNR2PebPQY3cRSaaQNMgOnUZog/Ss9obh9XqayxOV4nkbDguL2YMUlN+r6w0FxefXeG
+	kYgz7EFMLPLeE5ICgXkyVZUz4DStnInYLjIE+okiG0AmE5vYd8uwTMkWvW76FWGMoWM/fOqhmjj
+	+hWtHfMKrSv4lfKdNkGnsc8hastqOY8PlpzGsmdsc7P+cevbbBNIFPFj6OkSxsQ6U=
+X-Received: by 2002:a05:600c:458d:b0:47f:f952:d207 with SMTP id 5b1f17b1804b1-4801e341e2emr173523155e9.19.1768938218443;
+        Tue, 20 Jan 2026 11:43:38 -0800 (PST)
+Received: from ?IPV6:2a05:6e02:1041:c10:ebda:5627:9bc:1ede? ([2a05:6e02:1041:c10:ebda:5627:9bc:1ede])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4801e86c1b2sm257889055e9.3.2026.01.20.11.43.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 20 Jan 2026 11:43:37 -0800 (PST)
+Message-ID: <b43cae11-e67c-4979-9e9f-b49a0cd640e0@linaro.org>
+Date: Tue, 20 Jan 2026 20:43:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] ARM: dts: aspeed: add an alt 128M flash layout
-To: Marc Olberding <molberding@nvidia.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-References: <20260120-alt-128-v3-0-a81bdafc00a7@nvidia.com>
- <20260120-alt-128-v3-1-a81bdafc00a7@nvidia.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v5 0/8] Add thermal sensor driver support for Mediatek
+ MT8196
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ rafael@kernel.org, rui.zhang@intel.com, lukasz.luba@arm.com,
+ matthias.bgg@gmail.com
+Cc: nfraprado@collabora.com, arnd@arndb.de, colin.i.king@gmail.com,
+ u.kleine-koenig@baylibre.com, andrew-ct.chen@mediatek.com,
+ lala.lin@mediatek.com, bchihi@baylibre.com, frank-w@public-files.de,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, kernel@collabora.com,
+ wenst@chromium.org, fshao@chromium.org, Laura Nao <laura.nao@collabora.com>
+References: <20251125-mt8196-lvts-v4-v5-0-6db7eb903fb7@collabora.com>
+ <382ef406-6abf-4d6f-9f0c-42b0bbbd6918@collabora.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260120-alt-128-v3-1-a81bdafc00a7@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <382ef406-6abf-4d6f-9f0c-42b0bbbd6918@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_114034_372407_E825E156 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20260120_114340_989591_7BCDF26D 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,53 +111,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/01/2026 20:26, Marc Olberding wrote:
-> Add a 128M layout for the BMC flash chip we didn't boot from. Including
-> this allows the user to write to each partition on the alternate spi
-> chip. This dtsi follows the existing standard of using the same layout
-> as non alt version and prepending `alt` to each partition's name.
+On 1/19/26 13:06, AngeloGioacchino Del Regno wrote:
+> Il 25/11/25 17:16, Laura Nao ha scritto:
+>> This patch series extends the MediaTek LVTS thermal driver to support the
+>> MT8196 SoC.
+>>
 > 
-> Tested by running on target and catting sysfs nodes
-
-You cannot test this patch that way - DTSI is not included by anything.
-This probably should be squashed with next one because makes little
-benefit on its own,
-
->     for devdir in /sys/class/mtd/mtd*; do
->          [[ -d $devdir && -r $devdir/name ]] || continue
->          name=$(<"$devdir/name")
->          [[ $name == alt* ]] || continue
+> This series has been there on the lists for *5 months* now, and it still
+> applies as-is.
 > 
->          size=$(<"$devdir/size")
->          offset=0
->          [[ -r $devdir/offset ]] && offset=$(<"$devdir/offset")
-> 
->          dev=$(basename "$devdir")
->          printf "%s name=%s offset=0x%X size=0x%X\n" "$dev" "$name" \
->             "$offset" "$size"
->     done
-> 
->     mtd10 name=alt-rofs offset=0xA00000 size=0x5600000
->     mtd11 name=alt-rwfs offset=0x6000000 size=0x2000000
->     mtd7 name=alt-u-boot offset=0x0 size=0xE0000
->     mtd8 name=alt-u-boot-env offset=0xE0000 size=0x20000
->     mtd9 name=alt-kernel offset=0x100000 size=0x900000
-> 
-> Ran dtbs check, no errors from the msx4 dts
+> Can we *please* get this picked?
 
-Drop this sentence, it's implied. There is no point to state obvious,
-e.g. that you build source code, in the commit msg. It serves no purpose
-in the git history. You also have changelog for such things, if you want
-to emphasize.
+Sorry for the delay, it is applied now
 
-> 
-> running diff between the main and alt flash layouts shows that the only
-> diff is alt prepended to the partition labels, as expected.
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
 
-? Not sure what you want to say, but please do not explain us how DTS
-works (in case this was about DTS).
-
-
-Best regards,
-Krzysztof
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
