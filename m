@@ -4,180 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE838D2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:48:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A94BD2ED0F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+eikradmCaZ9as0Q3XUD8DEaV9yfIz+7j7Pz5Sf6CNY=; b=buade9SHZEW6K+pEGcG7L4P6qF
-	uRL+i8HmwAcCFUPfcQAq+10NdbTxTfu+7P9Z6+I/aWh8aG6jL60ozQ050oIcJ7LvlEc1r5cQ7zHwe
-	KIr81aqD+iaO329G6536NM5ak5Bq3YBAVgGIPNyug4l+sZBqskbOmsnHGa2pwB6O8mwe/vqqNOrdW
-	WX5520GT8bbOg7LcTPnj+e0GMX+MFiZAXnVwkHjBniGFudVcw/h2hiysKuhc6m4YBAEa8iw4fbGIp
-	uMu7sav3JIV2L4mkxLhzNg2j4CpYWndsivV0Q2rtd2NhX6OIIwwmH3pHkgCrz1uxMDuh5YT5NX29M
-	D7Bpdl8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VcsB1A3dyzX0YAAHRE9KIQnIlq4KHMm1Pz2Q952VEY4=; b=r0Jr6At7SE/B8n/+m6yfQs3EuP
+	DaltfYVjsbuZsYOyNsj5qS/s3OA20xm18g/a92Od1OJPGW3suwXHQeC6/CV+7DIRbyU2qgNop0GSb
+	lcn8/xRzmqADo8OMqcmppe42fxBDU6ojrLbML0acaBG6dbdhjlvac6gAkHwRt9qhLPwctqNe374yn
+	EybvrhzoalZ5iZDDbYBAQnhYuxRoM5id8u7omUduAxFC0ppyUfTc1BfuGwH9xrgw2reYl+2ZzNwe2
+	2ZDk83fk7pbVDpWfLBj0dRJ4rJ8/9J+jvxQzWN3SwOIRTA9EjpP5x1VMePNqbQjObJU0K4YI8OCMS
+	sI+2NRMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viADq-00000003khN-0Yji;
-	Tue, 20 Jan 2026 11:48:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1viAFs-00000003kxn-0YD8;
+	Tue, 20 Jan 2026 11:50:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viADo-00000003kgs-3zu1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 20 Jan 2026 11:48:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=+eikradmCaZ9as0Q3XUD8DEaV9yfIz+7j7Pz5Sf6CNY=; b=YketE1Ax0S3x5JLQQAQ5caod+A
-	ZG009iIIH+UXp+tvsY80l1W/Kampc/sgZn5F+XAzBigqtkRYFMPnsk3Ymv/An/4ilonyEb8H38+11
-	7Gnwy+x8Px2TrxK11Uus/6lwuRfPpLOJvdKstf8bwYYpQg2mY6rrNoGmPjT//wrNVteLT74TrJer8
-	3p9qQjfDO6nkpJ8Gpw6K/rxzuIsA6zo7ciziCVUTGmzcvLfXeEV1g7A/TEr0fHM+NF/hjDxNoek/G
-	v6D8hgc3l+ZnMLvzzRQkWKCmV6BjV8BsOY0Bn4Tz6FgjvDeZRFw9tcm182Epfa3C+JalKgTgCPMoe
-	ZlCLZghg==;
-Received: from mail-westus3azon11011058.outbound.protection.outlook.com ([40.107.208.58] helo=PH0PR06CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viADl-0000000Dx1H-1Ygq
+	id 1viAFr-00000003kxh-2OFr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 11:48:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WWomezVft5Gx1Z8NeibfLWfaCfxQbVYN2VhC77RpCOl4IXK5m0jA6JEntDoEXYDYa5kcvFyCwbiuCPBxR04poOzgF3a6vcenhnnloBgQOW4IopiS7P7AXPvR/oENjNvGn/Qzgpc5GyZCwgY8UEK4DeAQeQaMhRpRh2kfIdPFBrp11vdvwtz7V44MuuZpzvW0RzmlmYfhI2BETmSx+HeacR2jvFiNrdh+jMcAYeYuhcZKluohQuaSuiXehTAtu19+ahtQkSEqOgUHXU4Jvrum8+yrzIdvsh7KRjke65bpjLg54A0U0hRdV96exaR71Ko9sLu9m/tXM/RrSoNOwwP8qw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+eikradmCaZ9as0Q3XUD8DEaV9yfIz+7j7Pz5Sf6CNY=;
- b=Seyqr8ueSAPFu9Y6nEBT9GoIBjob5C0CZjivXi3eQS0sIQhupwMhbr0Zig72aVqlSaQTPyKRhU1wujI4cC67qSgQsqMNI/q5Wb9C57TzcI5ana1TrS0t3122ZaUFXz1aTsiL926wGfJv1wc42A3m3ZrdtRPbImlsSvLFGwnOPNsNZ+2mk3p/czLTWi8fwP5672dE0ErIwI/e4j5cZ4zdZ36YEX1Ga9hA2snnxTBfjNYqd6kn+TCh+WRSXtQFwm6Ssb7ATaj7vojjvblkZys86bFoKLpmCJaiP7IQsSI2czSNi2J+w8tXhU/RLDEo5QbbQrIBnW/JP4Jl8AInLmfw4Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+eikradmCaZ9as0Q3XUD8DEaV9yfIz+7j7Pz5Sf6CNY=;
- b=rNo/Uwcp8cQg1Oc6NZE7WogQ8zmvDwGPqduyEvA+sarbPJKJjf3IvCibE0VkRZosx3OZWCp57MlLIrD4ElTczThryXCniiEaZEJWMvuggEtsedZ9al6xeGziDO56m0+XtlkDrOonqZi6KPFp48AYJSQx6q0Kl84QmZ/WCFFxVf0=
-Received: from SN7PR04CA0096.namprd04.prod.outlook.com (2603:10b6:806:122::11)
- by SJ5PPF1849371D1.namprd10.prod.outlook.com (2603:10b6:a0f:fc02::78e) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.12; Tue, 20 Jan
- 2026 11:48:16 +0000
-Received: from SA2PEPF00003F67.namprd04.prod.outlook.com
- (2603:10b6:806:122:cafe::da) by SN7PR04CA0096.outlook.office365.com
- (2603:10b6:806:122::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9520.10 via Frontend Transport; Tue,
- 20 Jan 2026 11:48:16 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SA2PEPF00003F67.mail.protection.outlook.com (10.167.248.42) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9542.4 via Frontend Transport; Tue, 20 Jan 2026 11:48:14 +0000
-Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 20 Jan
- 2026 05:48:13 -0600
-Received: from DFLE210.ent.ti.com (10.64.6.68) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 20 Jan
- 2026 05:48:13 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE210.ent.ti.com
- (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 20 Jan 2026 05:48:13 -0600
-Received: from [127.0.1.1] (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60KBls161151397;
-	Tue, 20 Jan 2026 05:48:09 -0600
-From: Dhruva Gole <d-gole@ti.com>
-Date: Tue, 20 Jan 2026 17:17:32 +0530
-Subject: [PATCH v3 3/3] arm64: dts: ti: k3-am62l: support cpufreq
+	Tue, 20 Jan 2026 11:50:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9A8A86012A;
+	Tue, 20 Jan 2026 11:50:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DC9AC16AAE;
+	Tue, 20 Jan 2026 11:50:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768909838;
+	bh=fwzc7yqIuJaeQHw9CCm5cdBaBfc+5ih+Xegkbgg7jAU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iINjgdbI1V5aR8AhZ8qLkcXEaGUxqTCm+ER3WXRtrPQ4Ipsdr5FtiABTAxuRDqK58
+	 N1FiFW+SK6Cev9SnwDHk0dTlDmFnEU8jMrXGIkHDJVkE6DT17rn1I967ZxcdX3XlA4
+	 GNsHiFoXO4O8tnrJDxw2Z2agpi5uAy/Bai8WK2YORZ2xuezF7yJHTlW8P1w18MaiLy
+	 DXwlwrbDzQrMojAA6teHCDKQ+TkNZTnEP8MopY2xujgvNifTeCj/0IzWjqYD4WPE58
+	 CLIbIdZb19uSaFgbGW1CPlac5v4ZtfUEDDuhlOBQmDpzcRk1PEUHoIqDKRaky15gk2
+	 wSh1njOz4d7Gw==
+Date: Tue, 20 Jan 2026 11:50:30 +0000
+From: Will Deacon <will@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	catalin.marinas@arm.com, broonie@kernel.org, oliver.upton@linux.dev,
+	miko.lenczewski@arm.com, kevin.brodsky@arm.com, ardb@kernel.org,
+	suzuki.poulose@arm.com, lpieralisi@kernel.org,
+	yangyicong@hisilicon.com, scott@os.amperecomputing.com,
+	joey.gouly@arm.com, yuzenghui@huawei.com, pbonzini@redhat.com,
+	shuah@kernel.org, arnd@arndb.de,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v11 RESEND 9/9] arm64: armv8_deprecated: apply FEAT_LSUI
+ for swpX emulation.
+Message-ID: <aW9sBkUVnpAkPkxN@willie-the-truck>
+References: <20251214112248.901769-1-yeoreum.yun@arm.com>
+ <20251214112248.901769-10-yeoreum.yun@arm.com>
+ <86ms3knl6s.wl-maz@kernel.org>
+ <aT/bNLQyKcrAZ6Fb@e129823.arm.com>
+ <aW5O714hfl7DCl04@willie-the-truck>
+ <aW6w6+B21NbUuszA@e129823.arm.com>
+ <aW9O6R7v-ybhrm66@J2N7QTR9R3>
+ <aW9T5b+Y2b2JOZHk@e129823.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260120-am62l-cpufreq-v3-3-8c69b80168a3@ti.com>
-References: <20260120-am62l-cpufreq-v3-0-8c69b80168a3@ti.com>
-In-Reply-To: <20260120-am62l-cpufreq-v3-0-8c69b80168a3@ti.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar
-	<viresh.kumar@linaro.org>, Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>
-CC: Kendall Willis <k-willis@ti.com>, Sebin Francis <sebin.francis@ti.com>,
-	Bryan Brattlof <bb@ti.com>, <linux-pm@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, Dhruva Gole <d-gole@ti.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768909675; l=3167;
- i=d-gole@ti.com; h=from:subject:message-id;
- bh=z2M0We1QuRJn2unXQpzgE2daNzDDB1ZrTBJBdjpT/So=;
- b=qt4NnZ5AbfOpppOdh+isQ2z4FEByrb31gN6j0DTaCQc6p/x4hgucmQggGmsJ1A7JJWxMGcUj3
- Xy21w/Q7MoBDSCn4hf2kVLxqhdR8kOh2eS/RFfeMT3hfi+rxaVqR93J
-X-Developer-Key: i=d-gole@ti.com; a=ed25519;
- pk=k8NnY4RbxVqeqGsYfTHeVn4hPOHkjg7Mii0Ixs4rghM=
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F67:EE_|SJ5PPF1849371D1:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0ac59d84-e75e-4631-2f9f-08de5819cb8a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z1RnOUZlYVY5THVXSmdXNUxLb3NMWHhjWDZ4eVlMdHpKRkFkOWRBZ0taU2lu?=
- =?utf-8?B?OW9DQlhYMXR0eUdPM05WeTgxMWx4YTI0dHE5Rk1XZi8veGhmZG0vSjZlbE9w?=
- =?utf-8?B?SDV3bHVMT1Brcmd1RnljcEpaYTNkcjlUK1dubFBsVFYremQ2MllqdWhsV3ZG?=
- =?utf-8?B?OUVjZ0RNNnhNY2hGMVpZNHBBcTFpU3V1NEh5S1IxV3F1RXlLUWF1dmxtKzhT?=
- =?utf-8?B?VGI1eUdFTXZHMlJzb1ozRWdhRCtQdUhLUkxDQ3pJclZKTk5xWVhjc3BmTkYw?=
- =?utf-8?B?L3pIeGlTVDRBR00xcnFhY09wdjZDRS9Jdi8yakhhTTlhNlUyK1BkOGlybnhi?=
- =?utf-8?B?ZGw0V2tKeGtxMXJiTWJ2SUJGci9BSkpibklaMVNieDhkeE9waGNVMkdqcDh5?=
- =?utf-8?B?YmVaM0xXS0dSYXk4VHJiUmdnYVdTeVVjVlBJM3pzUDd0ZFQ5am1RaGgvMVlL?=
- =?utf-8?B?L3J6TWhmQXJNY2JqNncrVVc3TGFFcUdkZ1BIdzNqZVpwNmorcjVSZkFpbzFh?=
- =?utf-8?B?bFA1OGhHNW9zeVEza1NHTFdyWmNsVUFZTXhrOFpSNDNKQlRIWWYyRDQ1WUlQ?=
- =?utf-8?B?OUFHeGZlZ1NzZ1dJR2hCSlhRNUo1bEZqSndtd2JRS0w4WjN1bld5MHdIVWkx?=
- =?utf-8?B?TmJvTjI2czdqWXltK1g3VGllQVMxT2ZySTFQc3VOL3pKUVc5Y2wreXpQc2hx?=
- =?utf-8?B?MzYxRTZJdk5VbGIwb0RWVFFqQzNJcnFJdWdUTDVwcWpIODUxc0xvRlZWc0FK?=
- =?utf-8?B?dkxzNVZTWThnZ0ZwcjFRbGwvTGwzTm05R1N1NDNjOUluWXYxYjlOblRBY0pR?=
- =?utf-8?B?VVB1dmwwUlVPWXhBcHVhcDd5TEcwckovdXlIczNHTi83b2RlSW9uNHJUL2RN?=
- =?utf-8?B?L2piTVpFUnM0cEQxbk5tN242aUViSWF6VXpQR21VVGhsOEVDbHNtZVV6V3d3?=
- =?utf-8?B?bktQbmM1TzUrV2lyZk56WFBTa2phUC91MTRhZUI0b1VMajZqSEpDamo2S1JJ?=
- =?utf-8?B?Rm04eHgyazV0Q2lRcjF2TlJ6VjBDOEpDVmpPZ0VtVitta1JuYXZJY3VxQm5h?=
- =?utf-8?B?eFRnUGpEU0R6TGE0OFhLYlZTQy9KL2lRQ0RUUUQyYk95ejBPazFCNDhSWDhU?=
- =?utf-8?B?WmZwNGhveGFvenhlU3MvNk1lejFqdnpoVTNmbmxvZngvRXRraVFDTGlnWElV?=
- =?utf-8?B?ck1oOUZQWDlEdVZ0VGxuSDNhd2NoSm5CZzREbmZzdEhKYlhxNWVaMzRVZGdM?=
- =?utf-8?B?Rk1CTStycXYrdDN3ZGYrN1kxMnpJRXVWSGRTVXJLS3pQSXBhelYwUnFMdFEr?=
- =?utf-8?B?QVdMUmM0YU9rSGkzMzVSS0pPSWh2NjVkZkkzamh0dGxSdUNRd3FrYmV0bkdj?=
- =?utf-8?B?aHVrWG5BTjdOd3VleS9RalJ0L1FQR3lOUEw0ZCtCQlpEQkRTVTFCcGZHRDIr?=
- =?utf-8?B?WTBPelNONjlOMTlUdE8ydVlYbytDREM2WGlRaUFqc3FkMFU2ak8vRFlOZXMw?=
- =?utf-8?B?Vko0dVNWakNiUWI0bTh6SlU2SGs3UXBQSGxFQ2hJUERWakxPQTNlRUlBYlRY?=
- =?utf-8?B?TUNrNVhwdGZMWjhNZXBtTmJBOXlmQit2ZThLWVVoZWYxczdTdW1HV3MvZ0tj?=
- =?utf-8?B?dDBJek14aFE2YSt1Q2d4QjJTL1VodnY3My9qaEhSc2FhOGFZY2pBYmhLSWk2?=
- =?utf-8?B?N3Q4MlMxMFFJWUU5aThwK25ZUEVCMTZmZmo5dlh5bDNKTlhqM21DSGpUa1V6?=
- =?utf-8?B?eDQwbmErNkVJSTVhZEU2Mlh0M1NPNGJLWkpXWTZ0V3p3VU53aURJeGI2bnBw?=
- =?utf-8?B?WWcxbUhuZWxoNlBnRGJsZTVOVnNLalhYNHo5RzFINk5iMzdubEg2R24zYUlV?=
- =?utf-8?B?VTBsdncvRTFuOFE2S0VTQ1owemd5SWw4WGI1NlQvTVZEK0VPOUtVeWFqaW5y?=
- =?utf-8?B?M2h0V1Q0d2laNmdVN0E4T0pUaHA5Ti9FUndvemN1SGN0M2lUMDlzZkJQRCs0?=
- =?utf-8?B?dmEyNTBpL1ZYaHp2cG5nOHRJRDcxZVM0QjVwTFBDa1VDVjA2SGNIVmFESnNJ?=
- =?utf-8?B?eTlxbUNhZFc2NUtIL0UzYXJ6aFdWd3o1VG1oTzRiUzlRTloxUnFWS2lMYjdh?=
- =?utf-8?B?eTlYRmNHR3hGM2JRVjBhTjlIdUtYam01eDk5eFM5dnFCWXhsZ1ZBeGVvQ014?=
- =?utf-8?B?RmJrRzZEZ20xcTByQiszNHloVDVaQTV1YnMxZlJqS2YvTlcxTmFXZkkvMVdm?=
- =?utf-8?B?YklPYmR1dDBHMDhUVEQ5Yyt0WDVBPT0=?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jan 2026 11:48:14.4670
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0ac59d84-e75e-4631-2f9f-08de5819cb8a
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F67.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF1849371D1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_114829_527349_F1C25EDE 
-X-CRM114-Status: GOOD (  10.89  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aW9T5b+Y2b2JOZHk@e129823.arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,112 +84,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable CPUFreq support for AM62L SoC by adding the relevant OPP efuse table
-syscon to k3-am62l-wakeup.dtsi for speed grade detection.
+On Tue, Jan 20, 2026 at 10:07:33AM +0000, Yeoreum Yun wrote:
+> Hi Mark,
+> 
+> > On Mon, Jan 19, 2026 at 10:32:11PM +0000, Yeoreum Yun wrote:
+> > > > On Mon, Dec 15, 2025 at 09:56:04AM +0000, Yeoreum Yun wrote:
+> > > > > > On Sun, 14 Dec 2025 11:22:48 +0000,
+> > > > > > Yeoreum Yun <yeoreum.yun@arm.com> wrote:
+> > > > > > >
+> > > > > > > Apply the FEAT_LSUI instruction to emulate the deprecated swpX
+> > > > > > > instruction, so that toggling of the PSTATE.PAN bit can be removed when
+> > > > > > > LSUI-related instructions are used.
+> > > > > > >
+> > > > > > > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > > > > >
+> > > > > > It really begs the question: what are the odds of ever seeing a CPU
+> > > > > > that implements both LSUI and AArch32?
+> > > > > >
+> > > > > > This seems extremely unlikely to me.
+> > > > >
+> > > > > Well, I'm not sure how many CPU will have
+> > > > > both ID_AA64PFR0_EL1.EL0 bit as 0b0010 and FEAT_LSUI
+> > > > > (except FVP currently) -- at least the CPU what I saw,
+> > > > > most of them set ID_AA64PFR0_EL1.EL0 as 0b0010.
+> > > >
+> > > > Just to make sure I understand you, you're saying that you have seen
+> > > > a real CPU that implements both 32-bit EL0 *and* FEAT_LSUI?
+> > > >
+> > > > > If you this seems useless, I don't have any strong comments
+> > > > > whether drop patches related to deprecated swp instruction parts
+> > > > > (patch 8-9 only) or not.
+> > > > > (But, I hope to pass this decision to maintaining perspective...)
+> > > >
+> > > > I think it depends on whether or not the hardware exists. Marc thinks
+> > > > that it's extremely unlikely whereas you appear to have seen some (but
+> > > > please confirm).
+> > >
+> > > What I meant was not a 32-bit CPU with LSUI, but a CPU that supports
+> > > 32-bit EL0 compatibility (i.e. ID_AA64PFR0_EL1.EL0 = 0b0010).
+> > > My point was that if CPUs implementing LSUI do appear, most of them will likely
+> > > continue to support the existing 32-bit EL0 compatibility that
+> > > the majority of current CPUs already have.
+> >
+> > That doesn't really answer Will's question. Will asked:
+> >
+> >   Just to make sure I understand you, you're saying that you have seen a
+> >   real CPU that implements both 32-bit EL0 *and* FEAT_LSUI?
+> >
+> > IIUC you have NOT seen any specific real CPU that supports this, and you
+> > have been testing on an FVP AEM model (which can be configured to
+> > support this combination of features). Can you please confirm?
+> >
+> > I don't beleive it's likely that we'll see hardware that supports
+> > both FEAT_LSUI and AArch32 (at EL0).
+> 
+> Yes. I've tested in FVP model. and the latest of my reply said
+> I confirmed that Marc's and your view was right.
 
-Add the operating-points-v2 table with CPU frequency steps from 200MHz to
-1.25GHz to k3-am62l3.dtsi
+It's probably still worth adding something to the cpufeature stuff to
+WARN() if we spot both LSUI and support for AArch32.
 
-Configure CPU clocks to reference the SCMI clock controller for frequency
-scaling
-
-This enables proper CPU frequency scaling capabilities for the AM62L SoC
-using the ARM SCMI protocol to interact with the power management firmware.
-
-Signed-off-by: Dhruva Gole <d-gole@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi |  5 +++
- arch/arm64/boot/dts/ti/k3-am62l3.dtsi       | 47 +++++++++++++++++++++++++++++
- 2 files changed, 52 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-index 61bfcdcfc66ea8d802a36ed43cd01fbbf3decc70..a42ccd0d2fcc4d204cae81508f839c44ce83f558 100644
---- a/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-@@ -127,6 +127,11 @@ chipid: chipid@14 {
- 			bootph-all;
- 		};
- 
-+		opp_efuse_table: syscon@18 {
-+			compatible = "ti,am62-opp-efuse-table", "syscon";
-+			reg = <0x18 0x4>;
-+		};
-+
- 		cpsw_mac_syscon: ethernet-mac-syscon@2000 {
- 			compatible = "ti,am62p-cpsw-mac-efuse", "syscon";
- 			reg = <0x2000 0x8>;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62l3.dtsi b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-index da220b85151227c63f59b2b8ec48ae2ebb37e7bf..f7146421918f7037c6a192cc4765e8814a508afc 100644
---- a/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-@@ -39,6 +39,8 @@ cpu0: cpu@0 {
- 			d-cache-line-size = <64>;
- 			d-cache-sets = <128>;
- 			next-level-cache = <&l2_0>;
-+			operating-points-v2 = <&a53_opp_table>;
-+			clocks = <&scmi_clk 356>;
- 		};
- 
- 		cpu1: cpu@1 {
-@@ -53,6 +55,8 @@ cpu1: cpu@1 {
- 			d-cache-line-size = <64>;
- 			d-cache-sets = <128>;
- 			next-level-cache = <&l2_0>;
-+			operating-points-v2 = <&a53_opp_table>;
-+			clocks = <&scmi_clk 356>;
- 		};
- 	};
- 
-@@ -64,4 +68,47 @@ l2_0: l2-cache0 {
- 		cache-line-size = <64>;
- 		cache-sets = <256>;
- 	};
-+
-+	a53_opp_table: opp-table {
-+		compatible = "operating-points-v2-ti-cpu";
-+		opp-shared;
-+		syscon = <&opp_efuse_table>;
-+
-+		opp-200000000 {
-+			opp-hz = /bits/ 64 <200000000>;
-+			opp-supported-hw = <0x01 0x0007>;
-+			clock-latency-ns = <6000000>;
-+		};
-+
-+		opp-400000000 {
-+			opp-hz = /bits/ 64 <400000000>;
-+			opp-supported-hw = <0x01 0x0007>;
-+			clock-latency-ns = <6000000>;
-+		};
-+
-+		opp-600000000 {
-+			opp-hz = /bits/ 64 <600000000>;
-+			opp-supported-hw = <0x01 0x0007>;
-+			clock-latency-ns = <6000000>;
-+		};
-+
-+		opp-800000000 {
-+			opp-hz = /bits/ 64 <800000000>;
-+			opp-supported-hw = <0x01 0x0007>;
-+			clock-latency-ns = <6000000>;
-+		};
-+
-+		opp-1000000000 {
-+			opp-hz = /bits/ 64 <1000000000>;
-+			opp-supported-hw = <0x01 0x0006>;
-+			clock-latency-ns = <6000000>;
-+		};
-+
-+		opp-1250000000 {
-+			opp-hz = /bits/ 64 <1250000000>;
-+			opp-supported-hw = <0x01 0x0003>;
-+			clock-latency-ns = <6000000>;
-+			opp-suspend;
-+		};
-+	};
- };
-
--- 
-2.34.1
-
+Will
 
