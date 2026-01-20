@@ -4,121 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE0CDD2ECF9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 06:29:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0FF7D2ECF9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 06:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9/P4vB6ZrTUYfKL01JZTaSnR0v+y3e+rmtwAP48/qa4=; b=p0nUHA7mMfS8m+4W+uRa+Y3RZe
-	UgVDDCjK7KUr8H8JKJF0PoJu25yIqIDvbq/V3XrxI1IFUubZkOEGiFhvGEq6XdrDsQLzK04/jJug4
-	uNu6BqCq/nTbTalwcRh/LVDTky2biBxxzmgDbbIPtKPnriXKPrarsvF9AbGSGJ5WWmdh/K4ZpdUAZ
-	wcYfDvMVlXd5wr6pEU4NgX2EocB8tg5FZmgWQlMON2PYLuykrkY/v2r9GN82PXjBZ3ZkrEXCVEnIp
-	jP0jWNNL65Mne5D5SoQkw+1QOjmVKzCvJVVA2U/46ZekapoFTDUvEoZnSG+jmDx2o45PtnMxYVipD
-	U+a4J/jQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WHhmto1NMo2mPctdS5EAM5h05xQRsGXKjEkSKa5x4SQ=; b=H1jDNWMtjpq9UhZbrxmW3VQbPx
+	bzsV+t1olZYb3QOdu2BCLa/FkpB4DiSZ0COSuGeIGjRsBYcHiVsLpxttSlYqbpJxDqW1FVQBigyES
+	KusHHzGkCKEWlWT+XlLRwvDyuYjIQrIXDwWURYYZ8AftmwvWt8hSGyJJOvCydz1L8Mhnm21KoF3+s
+	QqV5UULXaigsIuLnzFEDaAmyqzP+MKIC+nhJnO04v9rqsw2JpUWUrXJMrGDWgfOa8rGTRrY7aJyYs
+	gZW7jv6B/3Pu2CEvWhpIiUKXBpr7hrFxDUa26vJNtlDiqo1iAEGFXPN1t6inPKbplS7lhprHW8UOw
+	lK0r26Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi5FO-00000003GrK-3a4o;
-	Tue, 20 Jan 2026 06:29:53 +0000
-Received: from mail-ua1-x931.google.com ([2607:f8b0:4864:20::931])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi5FF-00000003Gp9-1Nia
+	id 1vi5SZ-00000003HJa-1ujK;
+	Tue, 20 Jan 2026 06:43:27 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vi5SW-00000003HJE-1hto
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 06:29:42 +0000
-Received: by mail-ua1-x931.google.com with SMTP id a1e0cc1a2514c-93f5729f159so3207630241.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 19 Jan 2026 22:29:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768890580; x=1769495380; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9/P4vB6ZrTUYfKL01JZTaSnR0v+y3e+rmtwAP48/qa4=;
-        b=FF7tot0iCWG5+VzmpSG570p58JcX6d8lB266j3vvLHujHDJZDwX7ySQjgqFYD2wAOH
-         SNtRiFFzcgQTZAekNs+hSZ4yd7wpiCPWK00dNEwWPMR9yHXkzF5F9WWNM0oLJLW3IU3a
-         oJiG8ZBa1ZkNDX9EMkK8uF/yF7qMLyAkJlGkvIu/AsbHeLZbIbabkLBo2Qny0u/YpQyV
-         vHZ6ghgi7vTkRCy9Byd7VI/vwsiaazHpo0cv6D8FR1XJiFDVa3z7DoP2UhFc2kpqOqQd
-         eASD/FwObQr4TBhgIm/ylqP0BuZkJos+2H3sZBRyIluFYY+vg6zSOZtmwWDWITCCnFHl
-         DuAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768890580; x=1769495380;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=9/P4vB6ZrTUYfKL01JZTaSnR0v+y3e+rmtwAP48/qa4=;
-        b=I6jT+2icxmRnWaMd0oZXidg1QqCSdGy2u3TBmuoJdDw7wL068zt+O1hMRPNWG0VDJn
-         qJvx5mG3lg2VxqF6rn41PK2HJ6oP8YFPVuJFWFtBn1Q9uWYva2pty45JOCZ3Ag7N1PPZ
-         mcKRRWLp0gsL4n6+Mm7gkpsTamHV0BuFz7x2HjKgpO/QudXDMIKeu/HYVn13DgA11nq/
-         cT8OrkKyxZx4HpXAIKVKzLiAeXaFrtyggznC8kmd9JtCqNU2zW8j6IyM5b1jvWzhIxaW
-         oR7H8qVRmVGe6eoxEPDNn9Mk0t2VjS5b0Uc1wzZpBSFSDsxWaXJ2XY63mY2eh1j+lN1z
-         m7Yw==
-X-Forwarded-Encrypted: i=1; AJvYcCWAuRKa+UiL05kVA5ICN/4RM57rLEygQdzuoeZsEqTqr3TODJtB/hjcPLPfZ1Hr3feLr+e5at1k6ziSw+eihibM@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOW7KOjN1pl2W91p355pgJibckmuOb8ZMDMjCOApEyjun8nMjy
-	h8sonbUIFUnmCfuWPJegnWTrtUntzXz1aFwykhjZNFE5V9UhCPaVzXKX
-X-Gm-Gg: AZuq6aIqDa1cjfQX1OIMTh9lutu4/IfXhVrXKxefYvNLTVDR8EwV6U85Q9q55owvOKM
-	tY1zyjI5MerOFxFz+gl25eZfcjfCG2Mwul1HVBCiWyfd37XNrkq4yCRLL/FC3Kkl/3GrLwXpSDI
-	WU7/y2boagYntghlVSvvWayWkgD//Uxfvf4kfB0gs4EcXFIfc8sM6RX4fdQ8rG9r6vfAjZbrV4v
-	jLg1FJ/TY0ntddcawyrZ0kR5fjqtxCJ94IKFrNTiBehnYcGyjJXx3k9oIsEe31dZOuYY1ljqpnO
-	DU0SKLHANwsJxV2+4ULVO9WNb4RjMtA1d+F57AzXOJoADtFJV5MyNKvfrtMoD7L0dOd+Db3drY1
-	Gdzz1whfgyjJi8DiF3iYqwIw7pMzsd7Pih3A+x4aO9fPqDgV9oRImvG1ARiL1gr9V3fxq7YVe81
-	u2rPaL/7SKTA==
-X-Received: by 2002:a05:7300:6d1f:b0:2b0:4e86:8157 with SMTP id 5a478bee46e88-2b6b46eb100mr10720484eec.17.1768883786512;
-        Mon, 19 Jan 2026 20:36:26 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b6b3502c91sm15459859eec.9.2026.01.19.20.36.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 19 Jan 2026 20:36:26 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Yixun Lan <dlan@gentoo.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Yanteng Si <siyanteng@cqsoftware.com.cn>,
-	Yao Zi <ziyao@disroot.org>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Tue, 20 Jan 2026 06:43:25 +0000
+Received: from mrdev.corp.microsoft.com (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 894FA20B7167;
+	Mon, 19 Jan 2026 22:43:21 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 894FA20B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1768891402;
+	bh=WHhmto1NMo2mPctdS5EAM5h05xQRsGXKjEkSKa5x4SQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=KObiO0LomVdnCGD0qJjSQFMugy3J6V/LNLQqjcITWX2EUOrCCdurSu1HImxVLcr9N
+	 3MwXDYf6nYuzcPQtFGaAcZ/0ED0nqox5DvQaa/ce3LgiEL7QPLorMKSkRaPU10acE3
+	 3s6EcGCdwRVhQkwXMaos7Jb786KoxYs/lY2njGww=
+From: Mukesh R <mrathor@linux.microsoft.com>
+To: linux-kernel@vger.kernel.org,
+	linux-hyperv@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH net-next 1/3] dt-bindings: net: Add support for Spacemit K3 dwmac
-Date: Tue, 20 Jan 2026 12:36:06 +0800
-Message-ID: <20260120043609.910302-2-inochiama@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260120043609.910302-1-inochiama@gmail.com>
-References: <20260120043609.910302-1-inochiama@gmail.com>
+	iommu@lists.linux.dev,
+	linux-pci@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Cc: kys@microsoft.com,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	longli@microsoft.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	tglx@linutronix.de,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	hpa@zytor.com,
+	joro@8bytes.org,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	arnd@arndb.de,
+	nunodasneves@linux.microsoft.com,
+	mhklinux@outlook.com,
+	romank@linux.microsoft.com
+Subject: [PATCH v0 00/15] PCI passthru on Hyper-V (Part I)
+Date: Mon, 19 Jan 2026 22:42:15 -0800
+Message-ID: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+X-Mailer: git-send-email 2.51.2.vfs.0.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260119_222941_379693_B8C4D012 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20260119_224324_478153_57E9068D 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,160 +90,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GMAC IP on Spacemit K3 is almost a standard Synopsys DesignWare
-MAC (version 5.40a) with some extra clock.
+From: Mukesh Rathor <mrathor@linux.microsoft.com>
 
-Add necessary compatible string for this device.
+Implement passthru of PCI devices to unprivileged virtual machines
+(VMs) when Linux is running as a privileged VM on Microsoft Hyper-V
+hypervisor. This support is made to fit within the workings of VFIO
+framework, and any VMM needing to use it must use the VFIO subsystem.
+This supports both full device passthru and SR-IOV based VFs.
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- .../devicetree/bindings/net/snps,dwmac.yaml   |   3 +
- .../bindings/net/spacemit,k3-dwmac.yaml       | 107 ++++++++++++++++++
- 2 files changed, 110 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+There are 3 cases where Linux can run as a privileged VM (aka MSHV):
+  Baremetal root (meaning Hyper-V+Linux), L1VH, and Nested.
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index dd3c72e8363e..3c2c6cb6b10b 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -34,6 +34,7 @@ select:
-           - snps,dwmac-5.10a
-           - snps,dwmac-5.20
-           - snps,dwmac-5.30a
-+          - snps,dwmac-5.40a
-           - snps,dwxgmac
-           - snps,dwxgmac-2.10
- 
-@@ -108,6 +109,7 @@ properties:
-         - snps,dwmac-5.10a
-         - snps,dwmac-5.20
-         - snps,dwmac-5.30a
-+        - snps,dwmac-5.40a
-         - snps,dwxgmac
-         - snps,dwxgmac-2.10
-         - sophgo,sg2042-dwmac
-@@ -653,6 +655,7 @@ allOf:
-                 - snps,dwmac-5.10a
-                 - snps,dwmac-5.20
-                 - snps,dwmac-5.30a
-+                - snps,dwmac-5.40a
-                 - snps,dwxgmac
-                 - snps,dwxgmac-2.10
-                 - st,spear600-gmac
-diff --git a/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
-new file mode 100644
-index 000000000000..58dd98f79e8a
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
-@@ -0,0 +1,107 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/spacemit,k3-dwmac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Spacemit K3 DWMAC glue layer
-+
-+maintainers:
-+  - Inochi Amaoto <inochiama@gmail.com>
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        const: spacemit,k3-dwmac
-+  required:
-+    - compatible
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: spacemit,k3-dwmac
-+      - const: snps,dwmac-5.40a
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    minItems: 3
-+    items:
-+      - description: GMAC main clock
-+      - description: PTP clock
-+      - description: TX clock
-+      - description: PHY clock
-+
-+  clock-names:
-+    minItems: 3
-+    items:
-+      - const: stmmaceth
-+      - const: ptp_ref
-+      - const: tx
-+      - const: phy
-+
-+  interrupts:
-+    minItems: 1
-+    items:
-+      - description: MAC interrupt
-+      - description: MAC wake interrupt
-+
-+  interrupt-names:
-+    minItems: 1
-+    items:
-+      - const: macirq
-+      - const: eth_wake_irq
-+
-+  resets:
-+    maxItems: 1
-+
-+  reset-names:
-+    const: stmmaceth
-+
-+  spacemit,apmu:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to the syscon node which control the glue register
-+          - description: offset of the control register
-+          - description: offset of the dline register
-+
-+    description:
-+      A phandle to syscon with offset to control registers for this MAC
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - interrupt-names
-+  - resets
-+  - reset-names
-+
-+allOf:
-+  - $ref: snps,dwmac.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    eth0: ethernet@cac80000 {
-+      compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
-+      reg = <0xcac80000 0x2000>;
-+      clocks = <&syscon_apmu 66>, <&syscon_apmu 68>,
-+               <&syscon_apmu 69>;
-+      clock-names = "stmmaceth", "ptp_ref", "tx";
-+      interrupts = <131 IRQ_TYPE_LEVEL_HIGH>, <276 IRQ_TYPE_LEVEL_HIGH>;
-+      interrupt-names = "macirq", "eth_wake_irq";
-+      phy-mode = "rgmii-id";
-+      phy-handle = <&phy0>;
-+      resets = <&syscon_apmu 67>;
-+      reset-names = "stmmaceth";
-+      spacemit,apmu = <&syscon_apmu 0x384 0x38c>;
-+    };
-+
+At a high level, the hypervisor supports traditional mapped iommu domains
+that use explicit map and unmap hypercalls for mapping and unmapping guest
+RAM into the iommu subsystem. Hyper-V also has a concept of direct attach
+devices whereby the iommu subsystem simply uses the guest HW page table
+(ept/npt/..). This series adds support for both, and both are made to
+work in VFIO type1 subsystem.
+
+While this Part I focuses on memory mappings, upcoming Part II
+will focus on irq bypass along with some minor irq remapping 
+updates.
+
+This patch series was tested using Cloud Hypervisor verion 48. Qemu
+support of MSHV is in the works, and that will be extended to include
+PCI passthru and SR-IOV support also in near future.
+
+Based on: 8f0b4cce4481 (origin/hyperv-next)
+
+Thanks,
+-Mukesh
+
+Mukesh Rathor (15):
+  iommu/hyperv: rename hyperv-iommu.c to hyperv-irq.c
+  x86/hyperv: cosmetic changes in irqdomain.c for readability
+  x86/hyperv: add insufficient memory support in irqdomain.c
+  mshv: Provide a way to get partition id if running in a VMM process
+  mshv: Declarations and definitions for VFIO-MSHV bridge device
+  mshv: Implement mshv bridge device for VFIO
+  mshv: Add ioctl support for MSHV-VFIO bridge device
+  PCI: hv: rename hv_compose_msi_msg to hv_vmbus_compose_msi_msg
+  mshv: Import data structs around device domains and irq remapping
+  PCI: hv: Build device id for a VMBus device
+  x86/hyperv: Build logical device ids for PCI passthru hcalls
+  x86/hyperv: Implement hyperv virtual iommu
+  x86/hyperv: Basic interrupt support for direct attached devices
+  mshv: Remove mapping of mmio space during map user ioctl
+  mshv: Populate mmio mappings for PCI passthru
+
+ MAINTAINERS                         |    1 +
+ arch/arm64/include/asm/mshyperv.h   |   15 +
+ arch/x86/hyperv/irqdomain.c         |  314 ++++++---
+ arch/x86/include/asm/mshyperv.h     |   21 +
+ arch/x86/kernel/pci-dma.c           |    2 +
+ drivers/hv/Makefile                 |    3 +-
+ drivers/hv/mshv_root.h              |   24 +
+ drivers/hv/mshv_root_main.c         |  296 +++++++-
+ drivers/hv/mshv_vfio.c              |  210 ++++++
+ drivers/iommu/Kconfig               |    1 +
+ drivers/iommu/Makefile              |    2 +-
+ drivers/iommu/hyperv-iommu.c        | 1004 +++++++++++++++++++++------
+ drivers/iommu/hyperv-irq.c          |  330 +++++++++
+ drivers/pci/controller/pci-hyperv.c |  207 ++++--
+ include/asm-generic/mshyperv.h      |    1 +
+ include/hyperv/hvgdk_mini.h         |   11 +
+ include/hyperv/hvhdk_mini.h         |  112 +++
+ include/linux/hyperv.h              |    6 +
+ include/uapi/linux/mshv.h           |   31 +
+ 19 files changed, 2182 insertions(+), 409 deletions(-)
+ create mode 100644 drivers/hv/mshv_vfio.c
+ create mode 100644 drivers/iommu/hyperv-irq.c
+
 -- 
-2.52.0
+2.51.2.vfs.0.1
 
 
