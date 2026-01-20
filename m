@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC08BD2ED12
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:30:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9603FD2ECE9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x4U/KqrlkovWrEFeaTiGkh/Luq0q6dmHQVuEhJlPhds=; b=tN8NpeqgTAqJRNu3o1NryeS7fE
-	IqtbyiSN2UzdZV+RyOZ/wFnHyXB4whlhnnqDXUcS/HrFBkcU/JqqTS8QAHUPGA0Bcy9T75fTv1JBn
-	CIC+sQ9irBi9qIHCrhKlLN20SVVpdTYZYIsEF/4esKClVMAPI1pU8zRf931BilUkh7Vz0ctYIZUT8
-	uW7vqY3QaWsIMQn+ZC1dr5Lwpz2kGtaTGvUjsACa6z/AhCtyZLstZ79++8+WkzQJ20EkqkN24YiAg
-	pFVge6pkUZFyAy1JGcMoEcn5DpXivovcoo9JmAb/pcjHboR20R3rCb3PtlDh+hxA8NbuXAzWaZ2v3
-	NQ96QYRw==;
+	bh=jvrFng5JflWyfj/acM6l5GlHLKTj1I8ShXgCAALi3Iw=; b=dHFmU3NI6VxKghTDNKJbWOen3D
+	gy9uQSuAJnxQR++J9BuRJA/iWYuI2Mz80pTQijYeievOFQeLUkmLCvWImhuC6eDZzSVcsyYjxK5GF
+	OMASW700oM0+em5hNpof7dDJRD/XsWxF5TNqg9AvEdYlhVXPR8/Y4UafYjrh1hZASnQ1rZyTBgTcm
+	FZjK0XCgA2PyZnERpbu/+epvdlnNPt/7rhkjSgnkSVUisCIcNEaHqedOBqz9KTjfECx6uD7aPQag8
+	YoLSNatGmR2mYH8hwnfRHEv8WF643pzcy6bp25HPSd/pvE3Ie4NLnLwXgi4YeP76hjHzn3FOy08vj
+	e8/emq6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAsB-00000003qWd-3krZ;
-	Tue, 20 Jan 2026 12:30:15 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1viAve-00000003qtM-05NG;
+	Tue, 20 Jan 2026 12:33:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAs8-00000003qTm-0exB
+	id 1viAvb-00000003qt0-02g5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 12:30:13 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 20 Jan
- 2026 20:30:05 +0800
-Received: from aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 20 Jan 2026 20:30:05 +0800
-From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-To: <clg@kaod.org>, <broonie@kernel.org>, <boris.brezillon@bootlin.com>,
-	<joel@jms.id.au>, <andrew@codeconstruct.com.au>,
-	<linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
-	<linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <BMC-SW@aspeedtech.com>,
-	<pmenzel@molgen.mpg.de>
-Subject: [PATCH v3 2/2] spi: aspeed: Add support for non-spi-mem devices
-Date: Tue, 20 Jan 2026 20:30:05 +0800
-Message-ID: <20260120123005.1392071-3-chin-ting_kuo@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260120123005.1392071-1-chin-ting_kuo@aspeedtech.com>
-References: <20260120123005.1392071-1-chin-ting_kuo@aspeedtech.com>
+	Tue, 20 Jan 2026 12:33:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5099943FA3;
+	Tue, 20 Jan 2026 12:33:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 001ABC16AAE;
+	Tue, 20 Jan 2026 12:33:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768912426;
+	bh=Y0bXJFrIMQu42HkX8sO2hSl2uRvMmAIUm4N1kYYXYbg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TxGZV8yxxs7f9OIOe/76/YrYaqjVeBTLmNJdeq9rZnYXtQBKVVFzF9G+vZXhnfGlh
+	 vT9CZ7egfF2YJDaVzTZCoXW7WvjE6P9hHlULJeQGsNLJOVQ6GN8ql7pboCjgU4WGCe
+	 Vt8ME1f66ylY9a+GCkoyhnoJhXrb39PCRzYGGNaz54bIGYkZiF1bgZi24H9uytWylw
+	 9Pa1LQ5sYMXUi5RHj69gPO6rv2NvuLMgE69i3zkNmc//4jIPBEZz5BqT8SQXYiPd6j
+	 m+4BX8yGRcFm1xNp3e9O6KxgephbObAfu5q0mTQt6b0ny660NNsJKm//uUu92158VD
+	 Rk2ttoJ8XgDvA==
+Date: Tue, 20 Jan 2026 12:33:39 +0000
+From: Will Deacon <will@kernel.org>
+To: Barry Song <21cnbao@gmail.com>
+Subject: Re: [PATCH v2 3/8] arm64: Provide dcache_inval_poc_nosync helper
+Message-ID: <aW92I_sn9VqDPLKz@willie-the-truck>
+References: <20251226225254.46197-1-21cnbao@gmail.com>
+ <20251226225254.46197-4-21cnbao@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251226225254.46197-4-21cnbao@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_043012_201214_A6501D91 
-X-CRM114-Status: GOOD (  23.49  )
+X-CRM114-CacheID: sfid-20260120_043347_089638_87626364 
+X-CRM114-Status: GOOD (  20.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,296 +67,110 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Tangquan Zheng <zhengtangquan@oppo.com>, Barry Song <baohua@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Leon Romanovsky <leon@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>, xen-devel@lists.xenproject.org, robin.murphy@arm.com, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ASPEED FMC/SPI controller may be shared by spi-mem devices and
-other SPI peripherals that do not use the spi-mem framework.
+On Sat, Dec 27, 2025 at 11:52:43AM +1300, Barry Song wrote:
+> From: Barry Song <baohua@kernel.org>
+> 
+> dcache_inval_poc_nosync does not wait for the data cache invalidation to
+> complete. Later, we defer the synchronization so we can wait for all SG
+> entries together.
+> 
+> Cc: Leon Romanovsky <leon@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+> Cc: Robin Murphy <robin.murphy@arm.com>
+> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Suren Baghdasaryan <surenb@google.com>
+> Cc: Tangquan Zheng <zhengtangquan@oppo.com>
+> Signed-off-by: Barry Song <baohua@kernel.org>
+> ---
+>  arch/arm64/include/asm/cacheflush.h |  1 +
+>  arch/arm64/mm/cache.S               | 42 +++++++++++++++++++++--------
+>  2 files changed, 32 insertions(+), 11 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/cacheflush.h b/arch/arm64/include/asm/cacheflush.h
+> index 9b6d0a62cf3d..382b4ac3734d 100644
+> --- a/arch/arm64/include/asm/cacheflush.h
+> +++ b/arch/arm64/include/asm/cacheflush.h
+> @@ -74,6 +74,7 @@ extern void icache_inval_pou(unsigned long start, unsigned long end);
+>  extern void dcache_clean_inval_poc(unsigned long start, unsigned long end);
+>  extern void dcache_inval_poc(unsigned long start, unsigned long end);
+>  extern void dcache_clean_poc(unsigned long start, unsigned long end);
+> +extern void dcache_inval_poc_nosync(unsigned long start, unsigned long end);
+>  extern void dcache_clean_poc_nosync(unsigned long start, unsigned long end);
+>  extern void dcache_clean_pop(unsigned long start, unsigned long end);
+>  extern void dcache_clean_pou(unsigned long start, unsigned long end);
+> diff --git a/arch/arm64/mm/cache.S b/arch/arm64/mm/cache.S
+> index 4a7c7e03785d..99a093d3aecb 100644
+> --- a/arch/arm64/mm/cache.S
+> +++ b/arch/arm64/mm/cache.S
+> @@ -132,17 +132,7 @@ alternative_else_nop_endif
+>  	ret
+>  SYM_FUNC_END(dcache_clean_pou)
+>  
+> -/*
+> - *	dcache_inval_poc(start, end)
+> - *
+> - * 	Ensure that any D-cache lines for the interval [start, end)
+> - * 	are invalidated. Any partial lines at the ends of the interval are
+> - *	also cleaned to PoC to prevent data loss.
+> - *
+> - *	- start   - kernel start address of region
+> - *	- end     - kernel end address of region
+> - */
+> -SYM_FUNC_START(__pi_dcache_inval_poc)
+> +.macro raw_dcache_inval_poc_macro
+>  	dcache_line_size x2, x3
+>  	sub	x3, x2, #1
+>  	tst	x1, x3				// end cache line aligned?
+> @@ -158,11 +148,41 @@ SYM_FUNC_START(__pi_dcache_inval_poc)
+>  3:	add	x0, x0, x2
+>  	cmp	x0, x1
+>  	b.lo	2b
+> +.endm
+> +
+> +/*
+> + *	dcache_inval_poc(start, end)
+> + *
+> + * 	Ensure that any D-cache lines for the interval [start, end)
+> + * 	are invalidated. Any partial lines at the ends of the interval are
+> + *	also cleaned to PoC to prevent data loss.
+> + *
+> + *	- start   - kernel start address of region
+> + *	- end     - kernel end address of region
+> + */
+> +SYM_FUNC_START(__pi_dcache_inval_poc)
+> +	raw_dcache_inval_poc_macro
+>  	dsb	sy
+>  	ret
+>  SYM_FUNC_END(__pi_dcache_inval_poc)
+>  SYM_FUNC_ALIAS(dcache_inval_poc, __pi_dcache_inval_poc)
+>  
+> +/*
+> + *	dcache_inval_poc_nosync(start, end)
+> + *
+> + * 	Issue the instructions of D-cache lines for the interval [start, end)
+> + * 	for invalidation. Not necessarily cleaned to PoC till an explicit dsb
+> + *	sy is issued later
+> + *
+> + *	- start   - kernel start address of region
+> + *	- end     - kernel end address of region
+> + */
+> +SYM_FUNC_START(__pi_dcache_inval_poc_nosync)
+> +	raw_dcache_inval_poc_macro
+> +	ret
 
-The driver currently assumes spi-mem semantics for all devices,
-while the controller also supports direct user mode access commonly
-used by non-spi-mem devices. This mismatch can result in incorrect
-behavior when different types of devices share the same controller.
+Sorry, similar naming nit to the other patch. Let's have the macro use
+the 'nosync' suffix instead of the 'raw' prefix. You can chuck some
+underscores at it if you want to keep the name of this function the same.
 
-Therefore, a user mode based path for non-spi-mem devices is added
-by implementing the transfer_one() callback and wiring up
-prepare_message() and unprepare_message() so controller state is
-initialized and restored for user mode transfers. This allows
-non-spi-mem devices to operate correctly alongside spi-mem devices
-on a shared controller.
-
-This patch has been tested on:
-- AST2700 EVB + Infineon and ST SPI TPM device.
-- AST2x00 EVB + spidev_test utility and the output waveforms are
-  verified with logic analyzer.
-- AST2x00 EVB + SPI NOR flash read/write regression.
-
-Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
----
- drivers/spi/spi-aspeed-smc.c | 134 +++++++++++++++++++++++++++++++++--
- 1 file changed, 128 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/spi/spi-aspeed-smc.c b/drivers/spi/spi-aspeed-smc.c
-index db3e096f2eb0..3949f94b6667 100644
---- a/drivers/spi/spi-aspeed-smc.c
-+++ b/drivers/spi/spi-aspeed-smc.c
-@@ -48,6 +48,8 @@
- /* CEx Address Decoding Range Register */
- #define CE0_SEGMENT_ADDR_REG		0x30
- 
-+#define FULL_DUPLEX_RX_DATA		0x1e4
-+
- /* CEx Read timing compensation register */
- #define CE0_TIMING_COMPENSATION_REG	0x94
- 
-@@ -81,6 +83,7 @@ struct aspeed_spi_data {
- 	u32	hclk_mask;
- 	u32	hdiv_max;
- 	u32	min_window_size;
-+	bool	full_duplex;
- 
- 	phys_addr_t (*segment_start)(struct aspeed_spi *aspi, u32 reg);
- 	phys_addr_t (*segment_end)(struct aspeed_spi *aspi, u32 reg);
-@@ -105,6 +108,7 @@ struct aspeed_spi {
- 
- 	struct clk		*clk;
- 	u32			 clk_freq;
-+	u8			 cs_change;
- 
- 	struct aspeed_spi_chip	 chips[ASPEED_SPI_MAX_NUM_CS];
- };
-@@ -280,7 +284,8 @@ static ssize_t aspeed_spi_write_user(struct aspeed_spi_chip *chip,
- }
- 
- /* support for 1-1-1, 1-1-2 or 1-1-4 */
--static bool aspeed_spi_supports_op(struct spi_mem *mem, const struct spi_mem_op *op)
-+static bool aspeed_spi_supports_mem_op(struct spi_mem *mem,
-+				       const struct spi_mem_op *op)
- {
- 	if (op->cmd.buswidth > 1)
- 		return false;
-@@ -305,7 +310,8 @@ static bool aspeed_spi_supports_op(struct spi_mem *mem, const struct spi_mem_op
- 
- static const struct aspeed_spi_data ast2400_spi_data;
- 
--static int do_aspeed_spi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
-+static int do_aspeed_spi_exec_mem_op(struct spi_mem *mem,
-+				     const struct spi_mem_op *op)
- {
- 	struct aspeed_spi *aspi = spi_controller_get_devdata(mem->spi->controller);
- 	struct aspeed_spi_chip *chip = &aspi->chips[spi_get_chipselect(mem->spi, 0)];
-@@ -367,11 +373,12 @@ static int do_aspeed_spi_exec_op(struct spi_mem *mem, const struct spi_mem_op *o
- 	return ret;
- }
- 
--static int aspeed_spi_exec_op(struct spi_mem *mem, const struct spi_mem_op *op)
-+static int aspeed_spi_exec_mem_op(struct spi_mem *mem,
-+				  const struct spi_mem_op *op)
- {
- 	int ret;
- 
--	ret = do_aspeed_spi_exec_op(mem, op);
-+	ret = do_aspeed_spi_exec_mem_op(mem, op);
- 	if (ret)
- 		dev_err(&mem->spi->dev, "operation failed: %d\n", ret);
- 	return ret;
-@@ -773,8 +780,8 @@ static ssize_t aspeed_spi_dirmap_read(struct spi_mem_dirmap_desc *desc,
- }
- 
- static const struct spi_controller_mem_ops aspeed_spi_mem_ops = {
--	.supports_op = aspeed_spi_supports_op,
--	.exec_op = aspeed_spi_exec_op,
-+	.supports_op = aspeed_spi_supports_mem_op,
-+	.exec_op = aspeed_spi_exec_mem_op,
- 	.get_name = aspeed_spi_get_name,
- 	.dirmap_create = aspeed_spi_dirmap_create,
- 	.dirmap_read = aspeed_spi_dirmap_read,
-@@ -843,6 +850,110 @@ static void aspeed_spi_enable(struct aspeed_spi *aspi, bool enable)
- 		aspeed_spi_chip_enable(aspi, cs, enable);
- }
- 
-+static int aspeed_spi_user_prepare_msg(struct spi_controller *ctlr,
-+				       struct spi_message *msg)
-+{
-+	struct aspeed_spi *aspi =
-+		(struct aspeed_spi *)spi_controller_get_devdata(ctlr);
-+	const struct aspeed_spi_data *data = aspi->data;
-+	struct spi_device *spi = msg->spi;
-+	u32 cs = spi_get_chipselect(spi, 0);
-+	struct aspeed_spi_chip *chip = &aspi->chips[cs];
-+	u32 ctrl_val;
-+	u32 clk_div = data->get_clk_div(chip, spi->max_speed_hz);
-+
-+	ctrl_val = chip->ctl_val[ASPEED_SPI_BASE];
-+	ctrl_val &= ~CTRL_IO_MODE_MASK & data->hclk_mask;
-+	ctrl_val |= clk_div;
-+	chip->ctl_val[ASPEED_SPI_BASE] = ctrl_val;
-+
-+	if (aspi->cs_change == 0)
-+		aspeed_spi_start_user(chip);
-+
-+	return 0;
-+}
-+
-+static int aspeed_spi_user_unprepare_msg(struct spi_controller *ctlr,
-+					 struct spi_message *msg)
-+{
-+	struct aspeed_spi *aspi =
-+		(struct aspeed_spi *)spi_controller_get_devdata(ctlr);
-+	struct spi_device *spi = msg->spi;
-+	u32 cs = spi_get_chipselect(spi, 0);
-+	struct aspeed_spi_chip *chip = &aspi->chips[cs];
-+
-+	if (aspi->cs_change == 0)
-+		aspeed_spi_stop_user(chip);
-+
-+	return 0;
-+}
-+
-+static void aspeed_spi_user_transfer_tx(struct aspeed_spi *aspi,
-+					struct spi_device *spi,
-+					const u8 *tx_buf, u8 *rx_buf,
-+					void *dst, u32 len)
-+{
-+	const struct aspeed_spi_data *data = aspi->data;
-+	bool full_duplex_transfer = data->full_duplex && tx_buf == rx_buf;
-+	u32 i;
-+
-+	if (full_duplex_transfer &&
-+	    !!(spi->mode & (SPI_TX_DUAL | SPI_TX_QUAD |
-+			    SPI_RX_DUAL | SPI_RX_QUAD))) {
-+		dev_err(aspi->dev,
-+			"full duplex is only supported for single IO mode\n");
-+		return;
-+	}
-+
-+	for (i = 0; i < len; i++) {
-+		writeb(tx_buf[i], dst);
-+		if (full_duplex_transfer)
-+			rx_buf[i] = readb(aspi->regs + FULL_DUPLEX_RX_DATA);
-+	}
-+}
-+
-+static int aspeed_spi_user_transfer(struct spi_controller *ctlr,
-+				    struct spi_device *spi,
-+				    struct spi_transfer *xfer)
-+{
-+	struct aspeed_spi *aspi =
-+		(struct aspeed_spi *)spi_controller_get_devdata(ctlr);
-+	u32 cs = spi_get_chipselect(spi, 0);
-+	struct aspeed_spi_chip *chip = &aspi->chips[cs];
-+	void __iomem *ahb_base = aspi->chips[cs].ahb_base;
-+	const u8 *tx_buf = xfer->tx_buf;
-+	u8 *rx_buf = xfer->rx_buf;
-+
-+	dev_dbg(aspi->dev,
-+		"[cs%d] xfer: width %d, len %u, tx %p, rx %p\n",
-+		cs, xfer->bits_per_word, xfer->len,
-+		tx_buf, rx_buf);
-+
-+	if (tx_buf) {
-+		if (spi->mode & SPI_TX_DUAL)
-+			aspeed_spi_set_io_mode(chip, CTRL_IO_DUAL_DATA);
-+		else if (spi->mode & SPI_TX_QUAD)
-+			aspeed_spi_set_io_mode(chip, CTRL_IO_QUAD_DATA);
-+
-+		aspeed_spi_user_transfer_tx(aspi, spi, tx_buf, rx_buf,
-+					    (void *)ahb_base, xfer->len);
-+	}
-+
-+	if (rx_buf && rx_buf != tx_buf) {
-+		if (spi->mode & SPI_RX_DUAL)
-+			aspeed_spi_set_io_mode(chip, CTRL_IO_DUAL_DATA);
-+		else if (spi->mode & SPI_RX_QUAD)
-+			aspeed_spi_set_io_mode(chip, CTRL_IO_QUAD_DATA);
-+
-+		ioread8_rep(ahb_base, rx_buf, xfer->len);
-+	}
-+
-+	xfer->error = 0;
-+	aspi->cs_change = xfer->cs_change;
-+
-+	return 0;
-+}
-+
- static int aspeed_spi_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -899,6 +1010,9 @@ static int aspeed_spi_probe(struct platform_device *pdev)
- 	ctlr->cleanup = aspeed_spi_cleanup;
- 	ctlr->num_chipselect = of_get_available_child_count(dev->of_node);
- 	ctlr->dev.of_node = dev->of_node;
-+	ctlr->prepare_message = aspeed_spi_user_prepare_msg;
-+	ctlr->unprepare_message = aspeed_spi_user_unprepare_msg;
-+	ctlr->transfer_one = aspeed_spi_user_transfer;
- 
- 	aspi->num_cs = ctlr->num_chipselect;
- 
-@@ -1455,6 +1569,7 @@ static const struct aspeed_spi_data ast2400_fmc_data = {
- 	.hclk_mask     = 0xfffff0ff,
- 	.hdiv_max      = 1,
- 	.min_window_size = 0x800000,
-+	.full_duplex   = false,
- 	.calibrate     = aspeed_spi_calibrate,
- 	.get_clk_div   = aspeed_get_clk_div_ast2400,
- 	.segment_start = aspeed_spi_segment_start,
-@@ -1471,6 +1586,7 @@ static const struct aspeed_spi_data ast2400_spi_data = {
- 	.timing	       = 0x14,
- 	.hclk_mask     = 0xfffff0ff,
- 	.hdiv_max      = 1,
-+	.full_duplex   = false,
- 	.get_clk_div   = aspeed_get_clk_div_ast2400,
- 	.calibrate     = aspeed_spi_calibrate,
- 	/* No segment registers */
-@@ -1485,6 +1601,7 @@ static const struct aspeed_spi_data ast2500_fmc_data = {
- 	.hclk_mask     = 0xffffd0ff,
- 	.hdiv_max      = 1,
- 	.min_window_size = 0x800000,
-+	.full_duplex   = false,
- 	.get_clk_div   = aspeed_get_clk_div_ast2500,
- 	.calibrate     = aspeed_spi_calibrate,
- 	.segment_start = aspeed_spi_segment_start,
-@@ -1502,6 +1619,7 @@ static const struct aspeed_spi_data ast2500_spi_data = {
- 	.hclk_mask     = 0xffffd0ff,
- 	.hdiv_max      = 1,
- 	.min_window_size = 0x800000,
-+	.full_duplex   = false,
- 	.get_clk_div   = aspeed_get_clk_div_ast2500,
- 	.calibrate     = aspeed_spi_calibrate,
- 	.segment_start = aspeed_spi_segment_start,
-@@ -1520,6 +1638,7 @@ static const struct aspeed_spi_data ast2600_fmc_data = {
- 	.hclk_mask     = 0xf0fff0ff,
- 	.hdiv_max      = 2,
- 	.min_window_size = 0x200000,
-+	.full_duplex   = false,
- 	.get_clk_div   = aspeed_get_clk_div_ast2600,
- 	.calibrate     = aspeed_spi_ast2600_calibrate,
- 	.segment_start = aspeed_spi_segment_ast2600_start,
-@@ -1538,6 +1657,7 @@ static const struct aspeed_spi_data ast2600_spi_data = {
- 	.hclk_mask     = 0xf0fff0ff,
- 	.hdiv_max      = 2,
- 	.min_window_size = 0x200000,
-+	.full_duplex   = false,
- 	.get_clk_div   = aspeed_get_clk_div_ast2600,
- 	.calibrate     = aspeed_spi_ast2600_calibrate,
- 	.segment_start = aspeed_spi_segment_ast2600_start,
-@@ -1556,6 +1676,7 @@ static const struct aspeed_spi_data ast2700_fmc_data = {
- 	.hclk_mask     = 0xf0fff0ff,
- 	.hdiv_max      = 2,
- 	.min_window_size = 0x10000,
-+	.full_duplex   = true,
- 	.get_clk_div   = aspeed_get_clk_div_ast2600,
- 	.calibrate     = aspeed_spi_ast2600_calibrate,
- 	.segment_start = aspeed_spi_segment_ast2700_start,
-@@ -1573,6 +1694,7 @@ static const struct aspeed_spi_data ast2700_spi_data = {
- 	.hclk_mask     = 0xf0fff0ff,
- 	.hdiv_max      = 2,
- 	.min_window_size = 0x10000,
-+	.full_duplex   = true,
- 	.get_clk_div   = aspeed_get_clk_div_ast2600,
- 	.calibrate     = aspeed_spi_ast2600_calibrate,
- 	.segment_start = aspeed_spi_segment_ast2700_start,
--- 
-2.34.1
-
+Will
 
