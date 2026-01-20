@@ -4,66 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35B8D262AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 22:28:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 000E2D262A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 22:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TtQ2QoYLJn1s3uHte30pNr+WHXuCyKS2txAnzP8/+HE=; b=17H5O0zDkAsTz+NMWaaaApwRcm
-	C4HTGDnivAT54gmp9GIcQjXiVMx9FrAaXSRUv7e0DvkhKNWPHWZ9g781bXWGlu2a7vbCFbFRnMIL7
-	ES60kLB9UUwNqMuJ4pdcMlW4SWeh31FEgIRYss4Ut9r2lrKhxxBWu4+NsTf1RMWK/HxRqJbqOYkPj
-	lLXQ0QtmKcfMQV5C+MJk2DPAFML60FpFwzZjdrndDPwF0WVsTvJGq+mi3dVtZaEGr5YRMMcioJIlv
-	0U9HjEQLxgDrU1jJjRoW7y5MaJ7OftjmShktQnRR4SAl9xFmagOm/UJt03waF3n4+hrToyxMd/hld
-	WXvk3eZw==;
+	bh=oK1Xva04K7ygLWg0U7fdlOWooXBJszh65DA1fNcqFD8=; b=19D+TGsAcSYzLH4yeaWXV/TvSx
+	zPJ8GAWp3Iy0ybMD4X5SeHnp91AJ+TbewDPv2xsn2+FkSmhsZLdis5gp0rL44Tqx/hCKaKGj5UAwW
+	gyGW8pAEhcupK3OlosnwMwU3P3K5Yu6KJ203oGSQdtbWe3fvGQjw9pJd7cloYdvJofHrnSkB/jWg6
+	hYoh9ZeCz8wEMncKDsIa1OC0nryXacIHx26CIU1NfL7iHNez15vsPsBmid2rQKyi8sdwxGdRM7G2g
+	Zz3vHWlFPX/Qy3NkUa25M9XM1HbxKfiSd+73wLe2H47mEQZOeJMDSiThreioJK38mqEeadEcbFSlA
+	+qd9eAig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viKCS-00000004Zis-47iY;
-	Tue, 20 Jan 2026 22:27:48 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viKCM-00000004ZiR-1iUP
+	id 1viKG7-00000004Zu9-3hE4;
+	Tue, 20 Jan 2026 22:31:35 +0000
+Received: from mail-dy1-x132f.google.com ([2607:f8b0:4864:20::132f])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viKG5-00000004ZtD-1Pmc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 22:27:47 +0000
-Received: from skinsburskii.localdomain (c-98-225-44-182.hsd1.wa.comcast.net [98.225.44.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 96EF920B7167;
-	Tue, 20 Jan 2026 14:27:34 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 96EF920B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1768948055;
-	bh=TtQ2QoYLJn1s3uHte30pNr+WHXuCyKS2txAnzP8/+HE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LR/P3vCX7xx8DrCzcPc++LOlapP4HKNSuldXE0UBzrxPMGofDX924TfgdmPc+ywVP
-	 d9tvKFbY3fAV7eFuRUBoG4HnEtZuxP5pCMeyEkS/5Cmn8OyH6MRx4SYrBQulX7Z+e0
-	 UXW3pctUG9dDqf2MqdXnnpmCFzK3mLQJYhMhM5to=
-Date: Tue, 20 Jan 2026 14:27:33 -0800
-From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-To: Mukesh R <mrathor@linux.microsoft.com>
-Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-pci@vger.kernel.org, linux-arch@vger.kernel.org,
-	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
-	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
-	will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
-	nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
-	romank@linux.microsoft.com
-Subject: Re: [PATCH v0 11/15] x86/hyperv: Build logical device ids for PCI
- passthru hcalls
-Message-ID: <aXABVTS6xDb2GB2s@skinsburskii.localdomain>
-References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
- <20260120064230.3602565-12-mrathor@linux.microsoft.com>
+	Tue, 20 Jan 2026 22:31:34 +0000
+Received: by mail-dy1-x132f.google.com with SMTP id 5a478bee46e88-2ad70765db9so6787539eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 14:31:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768948292; x=1769553092; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=oK1Xva04K7ygLWg0U7fdlOWooXBJszh65DA1fNcqFD8=;
+        b=RQpV+fkNMBRQDJJBTZGeouTlZSoxiTughoqpzkuz+qj9mWptZLGysHa9lwX7c4DTA5
+         eI09hWwQlc+ZhO1NrDRAB5GbhmSVCbaN5EzJKP5wHMevyP8SLxKhprTsDJuQMVH8Bx3F
+         EXl3iMJgEtFa8X69J3zbo0ENFKeITljInJx4sZI02zt+BoQgonEEq3HgLLeqpAsjYcSl
+         nsCZlsBZ97ikdomoPCH/Ic11l2p7p+3WT1btNJ203E9l60XzfVUu3kOs1eCrtvrY/8RT
+         aOFl7HfA7O412PhLcifrz/k7RARswJ5aLumN++g3HwYbFP6bKKNO9KU93n3r0zlJu6/W
+         DQyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768948292; x=1769553092;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=oK1Xva04K7ygLWg0U7fdlOWooXBJszh65DA1fNcqFD8=;
+        b=pbrBp4zSvYV0Z81g0lUdjx0G2XVTv18UjUDnoJbrl16n8z8pMTZh//zgblS86FwVER
+         UA1n3/B5y3SJDlaipnSYLzfZwdMOw+/pKbUZhlWrZqMX/9AztvJfOadbQRNqsxrJ7is/
+         AIxXx5j73MAxTRdMrfK9tPeun2RasBJga/vJOMh2Z5RVkAPBZLY7I74ixuaVs6f8RPW2
+         gpWtBMPvGDleD4z6NYK108vF6d/gtWjqswFCrKd+ALeAjZ3/LlLbx3tmGtIP1ZbLyfGg
+         pqetep3cd3gEa018O6CoBiUaPyZKFJOmYJnB3QNFCG8Xl7byjOYkJtdaOr8l9ExEYVzN
+         LC1w==
+X-Forwarded-Encrypted: i=1; AJvYcCXoIwJ0tlet0/FwdkiMsmqSFPAdRJSzKFhLK5i1OK/9mwYALTVpo7ZjycoITaKgaOLyrfl2uNFPIrv2Es1Yz6kE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxuiCn1gsF8JM04nNQLa+SJLgylf/nhgpKGTq1tRU0TjSJ19mn
+	VWJdFe/deR6sVdhd7HWlTS4KC6EB7xk2g3b2t/6U6Xy/lfJi9km+PpwM
+X-Gm-Gg: AZuq6aK4am6TzsKYt/PvGND48r2oRedg94lpDl8XY0CyANL9FeTpq85xZ6POmHBclSj
+	rDfTUrqCJUn9tsqjcU1D1EwZVp1X+n7FiBMqDRu52rjyoSlQ7PMAPuoTZdA/VyhVfZ+CUGcd78G
+	Fzw1xODr9SupJqSu68d3ZiqKjV0n8pnWZxvO6Wtyxg6BqBH8jMH2JtoviqMz8h0hFmlXQ0P3ivu
+	7rGNqCoSmuuZhB1QnN+PYBv19bYKAixpSbPCAj9Pkz2ptL8o+QORxBxe6RzMKfjIIdr776QI37N
+	BSR90m/Fjzecx/kfESzxOch4RFE5nYo4ozwYS01mp+mNwP/nPBxowrdW62JTI486WfEY8X58m0Y
+	mml3HSD+q5tst78GMorn1To350RLLmaBThPzJJ5UJVDXYvRwo7cNGTtKnSGa48qtMcBzZJONag6
+	2CLhVcGYI5fXcY3bk+2L1S
+X-Received: by 2002:a05:7300:1493:b0:2ae:5a55:fc0a with SMTP id 5a478bee46e88-2b6b4e287acmr16477739eec.7.1768948292340;
+        Tue, 20 Jan 2026 14:31:32 -0800 (PST)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b712881482sm499886eec.5.2026.01.20.14.31.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Jan 2026 14:31:32 -0800 (PST)
+Date: Wed, 21 Jan 2026 06:31:22 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Yao Zi <me@ziyao.cc>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
+	Yanteng Si <siyanteng@cqsoftware.com.cn>, Yao Zi <ziyao@disroot.org>, 
+	Vladimir Oltean <vladimir.oltean@nxp.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, Shangjuan Wei <weishangjuan@eswincomputing.com>, 
+	Boon Khai Ng <boon.khai.ng@altera.com>, Quentin Schulz <quentin.schulz@cherry.de>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next 1/3] dt-bindings: net: Add support for Spacemit
+ K3 dwmac
+Message-ID: <aXABw0zVz8n3jLlm@inochi.infowork>
+References: <20260120043609.910302-1-inochiama@gmail.com>
+ <20260120043609.910302-2-inochiama@gmail.com>
+ <aW9fL7r0AM0flALJ@pie>
+ <aW9ou-lsQQ5dVzqW@inochi.infowork>
+ <9334905d-d11b-49d4-92b1-61e8cf644f0f@lunn.ch>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260120064230.3602565-12-mrathor@linux.microsoft.com>
+In-Reply-To: <9334905d-d11b-49d4-92b1-61e8cf644f0f@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_142742_495514_F999768D 
-X-CRM114-Status: GOOD (  29.78  )
+X-CRM114-CacheID: sfid-20260120_143133_382517_D18C3A9D 
+X-CRM114-Status: GOOD (  20.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,177 +117,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 10:42:26PM -0800, Mukesh R wrote:
-> From: Mukesh Rathor <mrathor@linux.microsoft.com>
+On Tue, Jan 20, 2026 at 02:48:12PM +0100, Andrew Lunn wrote:
+> > IIRC, the "phy" clock is used to pass the phy from the mac core, I will
+> > double check if it is possible to connect to the phy directly.
 > 
-> On Hyper-V, most hypercalls related to PCI passthru to map/unmap regions,
-> interrupts, etc need a device id as a parameter. A device id refers
-> to a specific device. A device id is of two types:
->    o Logical: used for direct attach (see below) hypercalls. A logical
->               device id is a unique 62bit value that is created and
->               sent during the initial device attach. Then all further
->               communications (for interrupt remaps etc) must use this
->               logical id.
->    o PCI: used for device domain hypercalls such as map, unmap, etc.
->           This is built using actual device BDF info.
+> Are you saying this is the reference clock output from the MAC being
+> fed to the PHY? That would be a clock provider, not a clock consumer.
 > 
->    PS: Since an L1VH only supports direct attaches, a logical device id
->        on an L1VH VM is always a VMBus device id. For non-L1VH cases,
->        we just use PCI BDF info, altho not strictly needed, to build the
->        logical device id.
+> Or is it the reference clock output from the PHY going to the MAC?
+> Then the MAC would be a consumer.
 > 
-> At a high level, Hyper-V supports two ways to do PCI passthru:
->   1. Device Domain: root must create a device domain in the hypervisor,
->      and do map/unmap hypercalls for mapping and unmapping guest RAM.
->      All hypervisor communications use device id of type PCI for
->      identifying and referencing the device.
-> 
->   2. Direct Attach: the hypervisor will simply use the guest's HW
->      page table for mappings, thus the host need not do map/unmap
->      hypercalls. A direct attached device must be referenced
->      via logical device id and never via the PCI device id. For an
->      L1VH root/parent, Hyper-V only supports direct attaches.
-> 
-> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
-> ---
->  arch/x86/hyperv/irqdomain.c     | 60 ++++++++++++++++++++++++++++++---
->  arch/x86/include/asm/mshyperv.h | 14 ++++++++
->  2 files changed, 70 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/x86/hyperv/irqdomain.c b/arch/x86/hyperv/irqdomain.c
-> index ccbe5848a28f..33017aa0caa4 100644
-> --- a/arch/x86/hyperv/irqdomain.c
-> +++ b/arch/x86/hyperv/irqdomain.c
-> @@ -137,7 +137,7 @@ static int get_rid_cb(struct pci_dev *pdev, u16 alias, void *data)
->  	return 0;
->  }
->  
-> -static union hv_device_id hv_build_devid_type_pci(struct pci_dev *pdev)
-> +static u64 hv_build_devid_type_pci(struct pci_dev *pdev)
->  {
->  	int pos;
->  	union hv_device_id hv_devid;
-> @@ -197,7 +197,58 @@ static union hv_device_id hv_build_devid_type_pci(struct pci_dev *pdev)
->  	}
->  
->  out:
-> -	return hv_devid;
-> +	return hv_devid.as_uint64;
-> +}
-> +
-> +/* Build device id for direct attached devices */
-> +static u64 hv_build_devid_type_logical(struct pci_dev *pdev)
-> +{
-> +	hv_pci_segment segment;
-> +	union hv_device_id hv_devid;
-> +	union hv_pci_bdf bdf = {.as_uint16 = 0};
-> +	struct rid_data data = {
-> +		.bridge = NULL,
-> +		.rid = PCI_DEVID(pdev->bus->number, pdev->devfn)
-> +	};
-> +
-> +	segment = pci_domain_nr(pdev->bus);
-> +	bdf.bus = PCI_BUS_NUM(data.rid);
-> +	bdf.device = PCI_SLOT(data.rid);
-> +	bdf.function = PCI_FUNC(data.rid);
-> +
-> +	hv_devid.as_uint64 = 0;
-> +	hv_devid.device_type = HV_DEVICE_TYPE_LOGICAL;
-> +	hv_devid.logical.id = (u64)segment << 16 | bdf.as_uint16;
-> +
-> +	return hv_devid.as_uint64;
-> +}
-> +
-> +/* Build device id after the device has been attached */
-> +u64 hv_build_devid_oftype(struct pci_dev *pdev, enum hv_device_type type)
-> +{
-> +	if (type == HV_DEVICE_TYPE_LOGICAL) {
-> +		if (hv_l1vh_partition())
-> +			return hv_pci_vmbus_device_id(pdev);
-
-Should this one be renamed into hv_build_devid_type_vmbus() to align
-with the other two function names?
-
-Thanks,
-Stanislav
-
-> +		else
-> +			return hv_build_devid_type_logical(pdev);
-> +	} else if (type == HV_DEVICE_TYPE_PCI)
-> +		return hv_build_devid_type_pci(pdev);
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(hv_build_devid_oftype);
-> +
-> +/* Build device id for the interrupt path */
-> +static u64 hv_build_irq_devid(struct pci_dev *pdev)
-> +{
-> +	enum hv_device_type dev_type;
-> +
-> +	if (hv_pcidev_is_attached_dev(pdev) || hv_l1vh_partition())
-> +		dev_type = HV_DEVICE_TYPE_LOGICAL;
-> +	else
-> +		dev_type = HV_DEVICE_TYPE_PCI;
-> +
-> +	return hv_build_devid_oftype(pdev, dev_type);
->  }
->  
->  /*
-> @@ -221,7 +272,7 @@ int hv_map_msi_interrupt(struct irq_data *data,
->  
->  	msidesc = irq_data_get_msi_desc(data);
->  	pdev = msi_desc_to_pci_dev(msidesc);
-> -	hv_devid = hv_build_devid_type_pci(pdev);
-> +	hv_devid.as_uint64 = hv_build_irq_devid(pdev);
->  	cpu = cpumask_first(irq_data_get_effective_affinity_mask(data));
->  
->  	return hv_map_interrupt(hv_current_partition_id, hv_devid, false, cpu,
-> @@ -296,7 +347,8 @@ static int hv_unmap_msi_interrupt(struct pci_dev *pdev,
->  {
->  	union hv_device_id hv_devid;
->  
-> -	hv_devid = hv_build_devid_type_pci(pdev);
-> +	hv_devid.as_uint64 = hv_build_irq_devid(pdev);
-> +
->  	return hv_unmap_interrupt(hv_devid.as_uint64, irq_entry);
->  }
->  
-> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
-> index 0d7fdfb25e76..97477c5a8487 100644
-> --- a/arch/x86/include/asm/mshyperv.h
-> +++ b/arch/x86/include/asm/mshyperv.h
-> @@ -188,6 +188,20 @@ bool hv_vcpu_is_preempted(int vcpu);
->  static inline void hv_apic_init(void) {}
->  #endif
->  
-> +#if IS_ENABLED(CONFIG_HYPERV_IOMMU)
-> +static inline bool hv_pcidev_is_attached_dev(struct pci_dev *pdev)
-> +{ return false; }       /* temporary */
-> +u64 hv_build_devid_oftype(struct pci_dev *pdev, enum hv_device_type type);
-> +#else	/* CONFIG_HYPERV_IOMMU */
-> +static inline bool hv_pcidev_is_attached_dev(struct pci_dev *pdev)
-> +{ return false; }
-> +
-> +static inline u64 hv_build_devid_oftype(struct pci_dev *pdev,
-> +				       enum hv_device_type type)
-> +{ return 0; }
-> +
-> +#endif	/* CONFIG_HYPERV_IOMMU */
-> +
->  u64 hv_pci_vmbus_device_id(struct pci_dev *pdev);
->  
->  struct irq_domain *hv_create_pci_msi_domain(void);
-> -- 
-> 2.51.2.vfs.0.1
+> And there are some designs which have a third party generate the
+> clock, and both the MAC and the PHY consume it.
 > 
 
+I have confirmed the clock is directly from the the clock tree and
+is consumed only by the PHY. It seems like I have got a wrong
+information about this. So let's remove it and let the phy consume
+the clock if it use this clock.
 
-
-
-
-
-
-
-
+Regards,
+Inochi
 
