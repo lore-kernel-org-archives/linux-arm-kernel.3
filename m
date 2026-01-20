@@ -4,83 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5801D2ED0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 15:15:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2D3DD2ED15
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 15:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NsDLZWihLyJlFXu9AIgF+ATIVvGorDbyby2j6akt7Cw=; b=rAMCkpPaqDJy4sjGssDsf0S8e8
-	6NIZs0Al7a9147seO0wQA1qw0EwFkfmmhidzfmk9YQf/ah1crggLgz0z3pZZ7ojX7c+JHyJMkrZ7T
-	qVKT080k5zPz5Se+MtUib4fqQH2Drl3trr6hXA7yWk99FcNalur+AMHeuIOF61na9DnoJLnKeDBoK
-	TS8R/DC57rCEWxchwXwevMTcmAaUGggLlGcFuB4WKsqBf2rgJda2i+ec6QGnQYzzZ6yJUkIL32PcL
-	oDsTL4DoTDd3Uo+DD+xonfLNLA62OM20F5zw/RbDBd7MthhIfdKQEIUgmEvyuKWDjuaY2JX+JxJNN
-	x+kJqBpQ==;
+	bh=JqXVhZ2ooM04sfsONBP/g4Xaonqxn1HoOaxmk54/D1w=; b=I0/Tax3djfqpp4daCgENGkyKzL
+	7hqvYji25X/tCngl4o8n1HlRrUoNzmVe2fQ0cQmQY+KmC6YhJsuFp1gXpJtdTMmxpOYG/7Dp2UQeT
+	uA+jfzWu686rg5bLLUb5N8Hp/08mFOaS+mLjb/Shj1kJY99euyznqSqf6Ik+PEc8dicMI6b6O122q
+	pJTGvP7vOr6TtIlJWb9C0xy48KxEfc/ygH1dZ81ljVgZdbyvW1wvL4VIKzmNGsimLVEUpPBF6ltT/
+	Uo+9PhDHvDVf9Tv6xItst9NoONDngU1VRhBKsNh1H5v4ij26M09eH2lPPHlDPvLQzKV4ieBqgkcnP
+	qIb9IV9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viDS2-000000043xA-1RxI;
-	Tue, 20 Jan 2026 15:15:26 +0000
+	id 1viDWu-000000044X3-0mDU;
+	Tue, 20 Jan 2026 15:20:28 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viDS1-000000043x1-1KxW
+	id 1viDWs-000000044Wu-0aBt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 15:15:25 +0000
+	Tue, 20 Jan 2026 15:20:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 72940600CB;
-	Tue, 20 Jan 2026 15:15:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B042EC16AAE;
-	Tue, 20 Jan 2026 15:15:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F7FB60010;
+	Tue, 20 Jan 2026 15:20:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C89FAC19423;
+	Tue, 20 Jan 2026 15:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768922124;
-	bh=cB6+u0cGFM+BuA6s4Sw76CjAr/+izfs5ypcZfWumP+8=;
+	s=k20201202; t=1768922425;
+	bh=JqXVhZ2ooM04sfsONBP/g4Xaonqxn1HoOaxmk54/D1w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dTm6pm0UbqrACPX84K25WsKI0mLcsga30LnGZ0xAs1QeHOq8GuYQb0tsVAj/1PyOk
-	 AN1JtPlGK2Lo1SN6drBYr1dVy9fdgzrRQCr2v1Zr5WaI0DgPDkYpbpHSPBc0lzPVxT
-	 mDodJS2/jqZjTXVaKaFD5qjNt2270SzYmLSpr9NA2qekfz0PdVSlZLmHpnEvNYJ+eY
-	 A07k9S1Ry7xxwMicubb01dCJM4tNlasnq386AOzVL87vqKI0T34pSKz9QNypV2LDxE
-	 2HWPcTW6E/V+Ce+TphpVMpakDh1WcI3tzKUwZtHRXG5Gb8k9H87NfGW6D+dQQz/FfZ
-	 kpuAsAsDnxf/g==
-Date: Tue, 20 Jan 2026 15:15:14 +0000
-From: Will Deacon <will@kernel.org>
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chen Ridong <chenridong@huawei.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-block@vger.kernel.org, linux-mm@kvack.org,
-	linux-pci@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 29/33] sched/arm64: Move fallback task cpumask to
- HK_TYPE_DOMAIN
-Message-ID: <aW-cAlJCtI5Qtify@willie-the-truck>
-References: <20260101221359.22298-1-frederic@kernel.org>
- <20260101221359.22298-30-frederic@kernel.org>
+	b=saOpaG5ouunjSoFPVVr3LzMc7KoOJ2R6zmJHgaRvf3bG9uBci7aStlUCVMldguMJ7
+	 75l+KZedQ5iOfplj3LA9hv9+BtoRBfy9lNKzOoeAcOEZ/uXBuBv4m9C4r2SqBYG/Mn
+	 ocRwOjkhWWK7KCNshqexDmCu5ys/Og/HEN/7JiB8udLwYzrBOgcmb1XNby7/FX/+a2
+	 tKFRNHPGOJ/H3lPJ/kr6zYnlTFxYkR/UMUe70jxDONEEn70hLC26CcxFx9XWz+CBGS
+	 OpvEl9j/xCADlkqYtgnzzexKGTlXagNxqn2lmnY1DdInoNTA7Hy4GPi5MqyvUgA6Uo
+	 /R2YckEdGZV9w==
+Date: Tue, 20 Jan 2026 15:20:20 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	syzbot+d4ab35af21e99d07ce67@syzkaller.appspotmail.com,
+	will@kernel.org
+Subject: Re: [PATCH 2/3] arm64/fpsimd: signal: Allocate SSVE storage when
+ restoring ZA
+Message-ID: <84889813-d769-4761-825e-2e70595307fb@sirena.org.uk>
+References: <20260120145107.1278972-1-mark.rutland@arm.com>
+ <20260120145107.1278972-3-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4HONcBWwVfyV+sic"
 Content-Disposition: inline
-In-Reply-To: <20260101221359.22298-30-frederic@kernel.org>
+In-Reply-To: <20260120145107.1278972-3-mark.rutland@arm.com>
+X-Cookie: Slippery when wet.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,44 +73,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frederic,
 
-On Thu, Jan 01, 2026 at 11:13:54PM +0100, Frederic Weisbecker wrote:
-> When none of the allowed CPUs of a task are online, it gets migrated
-> to the fallback cpumask which is all the non nohz_full CPUs.
-> 
-> However just like nohz_full CPUs, domain isolated CPUs don't want to be
-> disturbed by tasks that have lost their CPU affinities.
-> 
-> And since nohz_full rely on domain isolation to work correctly, the
-> housekeeping mask of domain isolated CPUs should always be a superset of
-> the housekeeping mask of nohz_full CPUs (there can be CPUs that are
-> domain isolated but not nohz_full, OTOH there shouldn't be nohz_full
-> CPUs that are not domain isolated):
-> 
-> 	HK_TYPE_DOMAIN | HK_TYPE_KERNEL_NOISE == HK_TYPE_DOMAIN
-> 
-> Therefore use HK_TYPE_DOMAIN as the appropriate fallback target for
-> tasks and since this cpumask can be modified at runtime, make sure
-> that 32 bits support CPUs on ARM64 mismatched systems are not isolated
-> by cpusets.
-> 
-> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> Reviewed-by: Waiman Long <longman@redhat.com>
-> ---
->  arch/arm64/kernel/cpufeature.c | 18 +++++++++++++++---
->  include/linux/cpu.h            |  4 ++++
->  kernel/cgroup/cpuset.c         | 17 ++++++++++++++---
->  3 files changed, 33 insertions(+), 6 deletions(-)
+--4HONcBWwVfyV+sic
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-tbh, I'd also be fine just saying that isolation isn't reliable on these
-systems and then you don't need to add the extra arch hook.
+On Tue, Jan 20, 2026 at 02:51:06PM +0000, Mark Rutland wrote:
+> The code to restore a ZA context doesn't attempt to allocate the task's
+> sve_state before setting TIF_SME. Consequently, restoring a ZA context
+> can place a task into an invalid state where TIF_SME is set but the
+> task's sve_state is NULL.
 
-Whatever you prefer, but please can you update the text in
-Documentation/arch/arm64/asymmetric-32bit.rst to cover the interaction
-between the asymmetric stuff and cpu isolation?
+...
 
-Cheers,
+> Fix this by having restore_za_context() ensure that the task's sve_state
+> is allocated, matching what we do when taking an SME trap. Any live
+> SVE/SSVE state (which is restored earlier from a separate signal
+> context) must be preserved, and hence this is not zeroed.
 
-Will
+Reviewed-by: Mark Brown <broonie@kernel.org>
+
+--4HONcBWwVfyV+sic
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlvnTQACgkQJNaLcl1U
+h9DCsgf+O3+/PpgpjcFcgh/xxaFFRP6H5TcA7THx5hkHriQDLIMYFJaTpXsIRZqL
+WFTFDDaoSIWmIWXVw6rs9KSmYYwsdKpstKewdcIJfhLeF+CqSCPILXOkfB0hcJTO
+Shg5TQw+FIwM8LCuJVsWV8xfB98YlZjeBMUdMTmhm1PX2NUFTqDIjRSa3/E8Gk3F
+Nh1+WSw5wTqP0SaW2dT/BrXBgH410vnIKspCEdoBjpjcav8Ap+1DKYbcYdi0178I
+TGTav7hyNZhzl1pXVQ0WkSUVTAMyBz/CGL3XbDvR2Q0VtkbzNCo0tgofCkVCQrdR
+vZuOQ5jeBkoOddqpu5ZX51ZQ0ynzMQ==
+=3ttW
+-----END PGP SIGNATURE-----
+
+--4HONcBWwVfyV+sic--
 
