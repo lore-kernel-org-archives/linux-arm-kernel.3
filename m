@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB6ED2ED0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26A2DD2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8IAnkTbgOaJkZtCVYGrwwhpVuqICb96TvAkTWyFOUQc=; b=YbZ5UhaqcVIYfndyKcheXE04Rq
-	3T+cmaen7e7IJ6iUKdyr55yLa7KGszqL13Oo122fbq6SQu5QetAehE58CYU2dTH7qHzvnNZ9KVLTO
-	1Zo3fziVgZLNHeBAqRdVYAnMTcBZBEzTMJFOh7JrIpN/6HEA/G6WzEbYrWL+bduL1uq+Pulo2uTqJ
-	pU2n6J+tc7jwbrAzop7lgjibqobzugcQKZFAVWWzHbda5neBuell/F66fBB1B3aQDjpVhz+DivaAt
-	iarPnLAsVbc4gqqMKZOVo7vkaj9QaIGef+Nmt0FYgoLpiuXFFPFKjuvKNqjOrGhyxxBkN09EkQqlg
-	L0BTXGpg==;
+	bh=DisFyYzCfDclVFt+G5bXfi51CtJOBrgzoZTg+744NWw=; b=bPky+RQkWatHAvK1z9I18//Wdd
+	Qse4H41fPvtdzAk8iw4IDtoyAYQ5B6aKdEwlZNOLulM10ZdauNnWBJ44SdJOcGgdjYyVZjIJ430Hi
+	2VWHPmznpxr3ySvpmVjstigI7etbBA/uRX2iH9IsOujrIcp6HQmNAjyVrpLOq7ygj73ifatz/+38K
+	Ts6NOx7r6uycON6ECwGWRLxcBRRVUiCnO6i7ZP92CDrHvXA3OkkX7hWwioECXWRiA51rIhfUC+opy
+	mj5JWzwHMt84A40/xlvPxzMCTa2N2ssIuF0r7YwxBgk2OE//TY8WSwVbrLLsO5ZCdmBiOGkmjlnIp
+	NIfyLVDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAel-00000003o29-1mhO;
-	Tue, 20 Jan 2026 12:16:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1viAew-00000003o5B-31q0;
+	Tue, 20 Jan 2026 12:16:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAej-00000003o11-11p2
+	id 1viAev-00000003o4f-0E00
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 12:16:22 +0000
+	Tue, 20 Jan 2026 12:16:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E330F443AD
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 12:16:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4B54C19422
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 12:16:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6626860149
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 12:16:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 084D8C4AF13
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 12:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768911379;
-	bh=+zZx1UCGop6TYPZIxrfkSxnpM9rhdSNLbAwPt6AGnAU=;
+	s=k20201202; t=1768911392;
+	bh=f4SQu8TLteMQk418u5SbKNfQe6oAUTEfS0S5lAZ0Tcs=;
 	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=KjL3GeaZzuJ416a7GxI+F11kDaKsrYLK0V6IMppL8/mVFXv4yIPkzLLACjnXs3zJu
-	 yAPWb1yuPbjMTkV5MjhigVb5P2fgp1CMxOqZdAEFoMc75UVPsFI5YPzB3oYX/1ye+a
-	 QBZczAamyqfW5Z8dUucGo/bRJl16usMiTt+vdEaVLt8xzpnIkAQqmG6XPysWnFwAkK
-	 pkFZlUxT09h/U5Oaj4n5IIdL3Qq7UtOGBnR5oFPASgQLkE6KxE9aKvFStC5Hicw8+C
-	 zCibngRXB6CoJ4VdyqFqQ0js/x0njel6NQarfEty25OwhNJXB1JVqfdXm8gZcxXChw
-	 lGHo9JLia0YBQ==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-59b8364e4ccso5747099e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 04:16:19 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUmx3IrHdaQqahg/TY56p/5eIbsM0ntLAuBjOFKRhjeUVsNQNbwF5jRQceArgGuqxNEgm8dCICxMTC0cF35IFDd@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjTAIlZPVx2nBtssusQyz+vTuNuhZLkqf1egYi+cexom1ukObi
-	jfUyoiUXnnP07hsV/zZxsRjcDYMoMB8+rVPODIDAA2L8cB0GYqkQkKVYxdOTUtfBv8n9n23s/ZC
-	1ydPJs2qPNwzFIIs3khfVRO4TPGPOHXwToOgNA1TOIA==
-X-Received: by 2002:a05:6512:2526:b0:59b:6853:f085 with SMTP id
- 2adb3069b0e04-59dc8f2348fmr709971e87.16.1768911378444; Tue, 20 Jan 2026
- 04:16:18 -0800 (PST)
+	b=AuytESB2Xc8VnlYLiGZm6f1MxLdOcO5e2ZaGni9VfyIpTVcVQ+pqKu4le1BPzq7L1
+	 OQi29y/l4piWKUEFQzvXZ9ZSXaayloVXq5QyeX6DIlMb64DRaOcrcwPC/LOVo186v4
+	 0TEqQARXpwKS6oUgQt1vMmFncfjOseTlLzIo9X+jo2OPfdQ4uhRp9XUxPOgv2s39ja
+	 Q8Jbb4N4u1WMGuggYxYycMTPhdRbt+EuExDfubWYpNv00pfrPtCEzS1OTqvZfGbzSG
+	 aNdaYmErsowI9QdECdiC5a68+fGnicuzof3qZ8dDAC/uwPF1IsnNqU7mttg5g4+kRz
+	 nuE/i7zLeAF6A==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-59b6df3d6b4so6522503e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 04:16:31 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWIfEaUqfp3vncNhPZHaL7n3hoouarkWX1RTMI3q6+WWIbwiAATEl0hVgLWJWGAnff+DPODGdfehWDRMiX69AS6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGDtvuPTPBAqm/K0C2oDp/7EgJVUv+YDzXrUOPX+hfErTKtoJ9
+	COtDW02q0qE+BNrc65x2gH+SElueOX150mUB6o19ADG7AFTEIsuG6BEHItygzNpZk8iQKF3bfoZ
+	9KUUtHGsJUjuTmpCRr4htkzjLIWOr1DiItk8zv8yoTA==
+X-Received: by 2002:a05:6512:2398:b0:55f:4633:7b2 with SMTP id
+ 2adb3069b0e04-59baef01bf5mr5299465e87.46.1768911390457; Tue, 20 Jan 2026
+ 04:16:30 -0800 (PST)
 Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 20 Jan 2026 06:16:17 -0600
+ HTTPREST; Tue, 20 Jan 2026 12:16:28 +0000
 Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 20 Jan 2026 06:16:17 -0600
+ HTTPREST; Tue, 20 Jan 2026 12:16:28 +0000
 From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260120115923.3463866-11-khristineandreea.barbulescu@oss.nxp.com>
+In-Reply-To: <20260120115923.3463866-8-khristineandreea.barbulescu@oss.nxp.com>
 MIME-Version: 1.0
-References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com> <20260120115923.3463866-11-khristineandreea.barbulescu@oss.nxp.com>
-Date: Tue, 20 Jan 2026 06:16:17 -0600
-X-Gmail-Original-Message-ID: <CAMRc=McD0cRxtb3RCzzYPewFisto=4OjvA4gjaTcOk8ghTw_qA@mail.gmail.com>
-X-Gm-Features: AZwV_QiTyzFRnq5hh7hZRZvq1Kgy4gAD4D9HxCaMuBiHbH1GRoIc82NCrITXf6Y
-Message-ID: <CAMRc=McD0cRxtb3RCzzYPewFisto=4OjvA4gjaTcOk8ghTw_qA@mail.gmail.com>
-Subject: Re: [PATCH v8 10/10] pinctrl: s32cc: set num_custom_params to 0
+References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com> <20260120115923.3463866-8-khristineandreea.barbulescu@oss.nxp.com>
+Date: Tue, 20 Jan 2026 12:16:28 +0000
+X-Gmail-Original-Message-ID: <CAMRc=Md7+SWMpF20y-+-+Hn7ymkzuMeTxT2EsE3Cnb=B6YUG0w@mail.gmail.com>
+X-Gm-Features: AZwV_QiewUw2Hjrv10M89S0t63JoJsu7jxaj9pA-T120txrnOoBROFqPAhkrEn8
+Message-ID: <CAMRc=Md7+SWMpF20y-+-+Hn7ymkzuMeTxT2EsE3Cnb=B6YUG0w@mail.gmail.com>
+Subject: Re: [PATCH v8 07/10] pinctrl: s32cc: skip syscon child nodes when
+ parsing funcs and groups
 To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
 Cc: Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
 	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
@@ -80,9 +81,6 @@ Cc: Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>, de
 	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_041621_330875_F33024AE 
-X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,38 +95,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 20 Jan 2026 12:59:22 +0100, Khristine Andreea Barbulescu
+On Tue, 20 Jan 2026 12:59:19 +0100, Khristine Andreea Barbulescu
 <khristineandreea.barbulescu@oss.nxp.com> said:
-> From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> The SIUL2 node contains child nodes for syscon
+> instances (SIUL2_0 and SIUL2_1) to expose register
+> ranges for SoC information. These nodes are not
+> part of the pinctrl configuration and should not
+> be treated as pinctrl functions or groups.
 >
-> The `num_custom_params` was not set to 0 and the pinctrl_desc structure
-> was not initialized with 0. This would result in errors when parsing
-> pinconf properties from the device tree.
->
-
-Shoudn't this come as first in the series and with a Fixes tag?
-
-Bartosz
-
-> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
 > ---
->  drivers/pinctrl/nxp/pinctrl-s32cc.c | 1 +
->  1 file changed, 1 insertion(+)
+>  drivers/pinctrl/nxp/pinctrl-s32cc.c | 11 +++++++++--
+>  1 file changed, 9 insertions(+), 2 deletions(-)
 >
 > diff --git a/drivers/pinctrl/nxp/pinctrl-s32cc.c b/drivers/pinctrl/nxp/pinctrl-s32cc.c
-> index 3e0c48068f08..27ea0b44a7aa 100644
+> index cdd3a1cd4fe5..50d5a01107eb 100644
 > --- a/drivers/pinctrl/nxp/pinctrl-s32cc.c
 > +++ b/drivers/pinctrl/nxp/pinctrl-s32cc.c
-> @@ -1272,6 +1272,7 @@ int s32_pinctrl_probe(struct platform_device *pdev,
->  	s32_pinctrl_desc->pctlops = &s32_pctrl_ops;
->  	s32_pinctrl_desc->pmxops = &s32_pmx_ops;
->  	s32_pinctrl_desc->confops = &s32_pinconf_ops;
-> +	s32_pinctrl_desc->num_custom_params = 0;
->  	s32_pinctrl_desc->owner = THIS_MODULE;
+> @@ -2,7 +2,7 @@
+>  /*
+>   * Core driver for the S32 CC (Common Chassis) pin controller
+>   *
+> - * Copyright 2017-2022,2024-2025 NXP
+> + * Copyright 2017-2022,2024-2025-2026 NXP
+>   * Copyright (C) 2022 SUSE LLC
+>   * Copyright 2015-2016 Freescale Semiconductor, Inc.
+>   */
+> @@ -832,6 +832,9 @@ static int s32_pinctrl_parse_functions(struct device_node *np,
 >
->  	ipctl->regions = devm_kcalloc(&pdev->dev, soc_data->mem_regions,
+>  	dev_dbg(info->dev, "parse function(%u): %pOFn\n", index, np);
+>
+> +	if (of_device_is_compatible(np, "syscon"))
+> +		return 0;
+> +
+>  	func = &info->functions[index];
+>
+>  	/* Initialise function */
+> @@ -941,7 +944,8 @@ static int s32_pinctrl_probe_dt(struct platform_device *pdev,
+>  		return -ENODEV;
+>
+>  	for_each_child_of_node_scoped(np, child)
+> -		++nfuncs;
+> +		if (!of_device_is_compatible(child, "syscon"))
+> +			++nfuncs;
+>  	if (nfuncs <= 0)
+>  		return dev_err_probe(&pdev->dev, -EINVAL,
+>  				     "No functions defined\n");
+> @@ -962,6 +966,9 @@ static int s32_pinctrl_probe_dt(struct platform_device *pdev,
+>  		return -ENOMEM;
+>
+>  	for_each_child_of_node_scoped(np, child) {
+> +		if (of_device_is_compatible(child, "syscon"))
+> +			continue;
+> +
+>  		ret = s32_pinctrl_parse_functions(child, info, i++);
+>  		if (ret)
+>  			return ret;
 > --
 > 2.50.1
 >
 >
+
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
