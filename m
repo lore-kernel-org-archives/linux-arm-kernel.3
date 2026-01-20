@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2744D2ED0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D0DFD2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vfvcWrkZ5jCb574R1sI7PNnWdYTz+NUUS4f8Io7nDf8=; b=1A2AMLh2kovEzAwq5bRvgN4K9G
-	mZJR/0OsrIV+oasnXF2Tlgwr2pS1p6SBqNdvJ6wJE3FkJxwqZKT/E1zUoirhv9kEnJR3dCTCkRiBw
-	I7LG12ep/ulMEWxPcDUpE3512Tl5FX1M+h6rXNxMmGeqNATkzFP1Pa4gQjGSELN/9ZdCDY95LK2IR
-	Qe7yP4hNuFhBTPsPcL3b+nBoAueMtqDYXkwruFE34JllF3ouic9gJtwzHHbbbBTG8QwGMS5VxTpxt
-	RgtXkLfazChAKj6KPb364RuddudK0eQQXVjPAzUv1PlCOeqqC5Kgtv+XSUYdOb2nU6Rm+xnkN9X51
-	T4OYlbvQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fhfmJQkeVlG9jPVG858396ux5RDddh8yEocP/xq126g=; b=BuZoEQOFXFZXW4HPDN2VzljVee
+	PLzLzHkk1phsG0NBxSW7uofdfInIgqdwrznp6Hu5Jscie5TTWWp31N/MmuKjWAX+KKDpxHZmIcvRM
+	L0DFiIwxV3V02CyhmF7A2EIdim3e0FBXvjSWeOiz6w4nUiykspvmA4K+nC/Kulif/i4kWsC99DYe+
+	IcWb+w2IgfkmR1M8ld7tRltfTOuqvR1m8qiQcvP9yHRKLCZkkIWocIbvFLqgXq879/ffQah/odR93
+	LyuS5cyLWd1DCVddTwrsuJsU9Wxus8Bdd7a7Nt/mxLqBHiekDL+NvRrpd4n1Cb+Q7NvgHiLcdsXT3
+	bQzE++BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAko-00000003p1w-2aIG;
+	id 1viAko-00000003p13-09YZ;
 	Tue, 20 Jan 2026 12:22:38 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAkj-00000003oyN-0iGp;
+	id 1viAki-00000003oyO-3X5S;
 	Tue, 20 Jan 2026 12:22:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0D2A43B93;
+	by sea.source.kernel.org (Postfix) with ESMTP id DE3284434E;
 	Tue, 20 Jan 2026 12:22:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 69448C16AAE;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A37B5C2BCB0;
 	Tue, 20 Jan 2026 12:22:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1768911751;
-	bh=xI3XK/W7MN3TODvGHDwVqQLxNB3kgignpElz2ouoedE=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=bdhHgFK9q11JhzDNwOO5lOKWXf54Y8ylzeb+NMxdWGPIv9fXkCny/IUUSIuj/XLRG
-	 oTBrcJXRNYbiWaJgDbBejJZkJ91bGiDKTydfogUjEb1xGkyXZNI17k+LQOEr0xWxe7
-	 7mSiseSJoE2yBemF8dIQiZcr8lpbdASwDahBL3aEMYXXUO9A9j+lXT1+HYRpO0LfPw
-	 l3eolLGf8B6EV0i/8l+MiuirneVQQfKrVbFlywch1qTTYKy3Ibr9vXddBU+tP3ZkIS
-	 G1lQkaphOP7+R5J0YE/0HDoq0XxFx5KRR/6HC2UqJxCzDwhn8n1EgpX06RJ/8TN/OZ
-	 M1EjFQQjwZGDw==
+	bh=grzsM0NyvwlM1dtwmdE6IbFAgV2l9i/UVkMdQy2SfQM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=mvCR06JqG7x5jQ5+unBRfhR7AM7VOLuQeMNkc7fvm8YVtzkdz3xafTKG9L7gsAErj
+	 c1jYYkQSyeYKoPIa2BDcDiBU4gPe3ES9uCxScDPJGqSkJBN2C7uCDjYAXcQ0m5VtzT
+	 1i2tzh2UjUT1S6MPzoy97zxvXGXN2boJOoTUMxemLUzFLV5vjGNvlzDa+iZHh5tP3M
+	 okbgj5ZbILPc0RQnoSaOk8/KBkYYocmKIOndZ6z9Giy9Za49fftTnsCO4QdJdO0QSr
+	 w9JYfYWQSIjO9N1+9t3CrMONO62g39LAu7GjFv+QApY0wHGglthEmw3W3FfSucd2/O
+	 U2Qs154jKME0Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4F66FD2ECE9;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 90EAFD2ECE9;
 	Tue, 20 Jan 2026 12:22:31 +0000 (UTC)
 From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Subject: [PATCH v8 0/3] media: rockchip: add driver for the rockchip mipi
+Date: Tue, 20 Jan 2026 13:22:28 +0100
+Subject: [PATCH v8 2/3] media: synopsys: add driver for the designware mipi
  csi-2 receiver
-Date: Tue, 20 Jan 2026 13:22:26 +0100
-Message-Id: <20251114-rockchip-mipi-receiver-v8-0-bd1cf5cb9588@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIJzb2kC/43QTU7EMAwF4KuMsiYozm87K+6BWCSpQyM6TZVCB
- Rr17rizRJXI8lny9yzf2Yo148qulzuruOU1l5lC93RhcfTzO/I8UGZSSAMAmtcSP+KYF37LS+Y
- VI+YNKxfBJ6l17GOHjJaDX5GH6uc40vr8NU00XCqm/P1oe32jPOb1s9SfR/kGx/Tfng244AMo0
- VnsQAzDSyzT5EOp/jmWGzvYTbZRkigMfdBKOZeiPqNUG6WIArpIee+S6s0ZpdsoTZSnN9qEcRB
- GnlGmjTJEaeM9gEvQC39G2TbKEhVcRIu2CyqdUq6NcsdVMiUNfeqDgb/Uvu+/e7fAo5cCAAA=
+Message-Id: <20251114-rockchip-mipi-receiver-v8-2-bd1cf5cb9588@collabora.com>
+References: <20251114-rockchip-mipi-receiver-v8-0-bd1cf5cb9588@collabora.com>
+In-Reply-To: <20251114-rockchip-mipi-receiver-v8-0-bd1cf5cb9588@collabora.com>
 To: Michael Riesch <michael.riesch@collabora.com>, 
  Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
  Kever Yang <kever.yang@rock-chips.com>, Frank Li <Frank.li@nxp.com>, 
@@ -74,23 +71,21 @@ To: Michael Riesch <michael.riesch@collabora.com>,
  Sakari Ailus <sakari.ailus@linux.intel.com>
 Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Michael Riesch <michael.riesch@collabora.com>
+ linux-kernel@vger.kernel.org, Michael Riesch <michael.riesch@collabora.com>
 X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768911749; l=3584;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768911749; l=22249;
  i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=xI3XK/W7MN3TODvGHDwVqQLxNB3kgignpElz2ouoedE=;
- b=c8dBzMuiY14hwKL7xYp8MdP0tAvvQ6oVPsikr49ecWsDas4kEgVMvrYZ3zRVEMs1kEurGoVuh
- ekEKZgxIFDtAn4YUTiTsuO+UbXwu/Te/YGeh+i39IYb8K0WNsqm2Xv/
+ bh=5lkoTgjwEJ1CqpLbjkI9WNG/JACfxfDcBdgf93wdlnY=;
+ b=Uf8UIYyrvdo+YjJLH0rmPayG7jZP6w6mYHJXbDbjXkcTb79OrbfMp8tSUMn87eyA89xDNOxsf
+ eUEWQy4W5J9AhRQZpRhH81bKzexOwL1ZZbGrpV6BWqCho0wK7n7Uhoo
 X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
  pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
 X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
  with auth_id=371
 X-Original-From: Michael Riesch <michael.riesch@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_042233_253780_82E81B8D 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20260120_042232_943694_E3AF00F4 
+X-CRM114-Status: GOOD (  25.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,90 +101,808 @@ Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Habidere,
+From: Michael Riesch <michael.riesch@collabora.com>
 
-This series adds support for the Rockchip MIPI CSI-2 Receiver that is
-integrated into recent Rockchip SoCs, such as the RK3568 and the RK3588.
+The Synopsys DesignWare MIPI CSI-2 Receiver is a CSI-2 bridge with
+one input port and one output port. It receives the data with the
+help of an external MIPI PHY (C-PHY or D-PHY) and passes it to e.g.,
+the Rockchip Video Capture (VICAP) block on recent Rockchip SoCs.
 
-According to Rockchip, this core is NOT the Synopsys MIPI CSI-2 Host, but
-it features a compatible register layout (thanks Chaoyi for the
-clarification).
+Add a V4L2 subdevice driver for this unit.
 
-As pointed out by Frank, we should thus rename the driver and place it
-under drivers/media/platform/synopsys to facilitate re-use of this code
-for similar IP cores.
-
-As has been discussed in [0], it would be beneficial to add support 
-for the split mode (a feature of the Rockchip CSI-2 DPHY) before
-integrating the MIPI CSI-2 Receiver into the respective SoC device tree
-includes. However, we can readily add the DT binding and the driver
-as I am positive they will not need to be changed significantly when this
-feature is introduced.
-
-This constitutes a small step towards mainline video capture and camera
-support on the Rockchip RK3588.
-
-Looking forward to your comments!
-
+Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
 Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-
-[0] https://lore.kernel.org/r/20240220-rk3568-vicap-v14-0-b38b6da0fc80@collabora.com
-
 ---
-Changes in v8:
-- moved driver directly to drivers/media/platform/synopsys (Sakari)
-- fixed further cosmetic issues (Frank)
-- Link to v7: https://lore.kernel.org/r/20251114-rockchip-mipi-receiver-v7-0-42ff419f9b51@collabora.com
+ MAINTAINERS                                      |   1 +
+ drivers/media/platform/synopsys/Kconfig          |  18 +
+ drivers/media/platform/synopsys/Makefile         |   2 +
+ drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 726 +++++++++++++++++++++++
+ 4 files changed, 747 insertions(+)
 
-Changes in v7:
-- fixed several cosmetic issues (Frank)
-- Link to v6: https://lore.kernel.org/r/20251114-rockchip-mipi-receiver-v6-0-b7ce6e68b3fa@collabora.com
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 1d1589feaf95..62ccdc72384d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -25369,6 +25369,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
++F:	drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+ 
+ SYNOPSYS DESIGNWARE MMC/SD/SDIO DRIVER
+ M:	Jaehoon Chung <jh80.chung@samsung.com>
+diff --git a/drivers/media/platform/synopsys/Kconfig b/drivers/media/platform/synopsys/Kconfig
+index 4fd521f78425..e798ec00b189 100644
+--- a/drivers/media/platform/synopsys/Kconfig
++++ b/drivers/media/platform/synopsys/Kconfig
+@@ -1,3 +1,21 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+ source "drivers/media/platform/synopsys/hdmirx/Kconfig"
++
++config VIDEO_DW_MIPI_CSI2RX
++	tristate "Synopsys DesignWare MIPI CSI-2 Receiver"
++	depends on VIDEO_DEV
++	depends on V4L_PLATFORM_DRIVERS
++	depends on PM && COMMON_CLK
++	select MEDIA_CONTROLLER
++	select V4L2_FWNODE
++	select VIDEO_V4L2_SUBDEV_API
++	help
++	  The Synopsys DesignWare MIPI CSI-2 Receiver is a CSI-2 bridge with
++	  one input port and one output port. It receives the data with the
++	  help of an external MIPI PHY (C-PHY or D-PHY) and passes it to e.g.,
++	  the Rockchip Video Capture (VICAP) block on recent Rockchip SoCs.
++	  This is a driver for this unit.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called dw-mipi-csi2rx.
+diff --git a/drivers/media/platform/synopsys/Makefile b/drivers/media/platform/synopsys/Makefile
+index 3b12c574dd67..e0232ee23304 100644
+--- a/drivers/media/platform/synopsys/Makefile
++++ b/drivers/media/platform/synopsys/Makefile
+@@ -1,2 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ obj-y += hdmirx/
++
++obj-$(CONFIG_VIDEO_DW_MIPI_CSI2RX) += dw-mipi-csi2rx.o
+diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+new file mode 100644
+index 000000000000..29119a1a8d38
+--- /dev/null
++++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+@@ -0,0 +1,726 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Synopsys DesignWare MIPI CSI-2 Receiver Driver
++ *
++ * Copyright (C) 2019 Rockchip Electronics Co., Ltd.
++ * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
++ * Copyright (C) 2026 Collabora, Ltd.
++ */
++
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/phy/phy.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/property.h>
++#include <linux/reset.h>
++
++#include <media/mipi-csi2.h>
++#include <media/v4l2-ctrls.h>
++#include <media/v4l2-fwnode.h>
++#include <media/v4l2-mc.h>
++#include <media/v4l2-subdev.h>
++
++#define DW_MIPI_CSI2RX_N_LANES		0x04
++#define DW_MIPI_CSI2RX_RESETN		0x10
++#define DW_MIPI_CSI2RX_PHY_STATE	0x14
++#define DW_MIPI_CSI2RX_ERR1		0x20
++#define DW_MIPI_CSI2RX_ERR2		0x24
++#define DW_MIPI_CSI2RX_MSK1		0x28
++#define DW_MIPI_CSI2RX_MSK2		0x2c
++#define DW_MIPI_CSI2RX_CONTROL		0x40
++
++#define SW_CPHY_EN(x)		((x) << 0)
++#define SW_DSI_EN(x)		((x) << 4)
++#define SW_DATATYPE_FS(x)	((x) << 8)
++#define SW_DATATYPE_FE(x)	((x) << 14)
++#define SW_DATATYPE_LS(x)	((x) << 20)
++#define SW_DATATYPE_LE(x)	((x) << 26)
++
++#define DW_MIPI_CSI2RX_CLKS_MAX	1
++
++enum {
++	DW_MIPI_CSI2RX_PAD_SINK,
++	DW_MIPI_CSI2RX_PAD_SRC,
++	DW_MIPI_CSI2RX_PAD_MAX,
++};
++
++struct dw_mipi_csi2rx_format {
++	u32 code;
++	u8 depth;
++	u8 csi_dt;
++};
++
++struct dw_mipi_csi2rx_device {
++	struct device *dev;
++
++	void __iomem *base_addr;
++	struct clk_bulk_data *clks;
++	unsigned int clks_num;
++	struct phy *phy;
++	struct reset_control *reset;
++
++	const struct dw_mipi_csi2rx_format *formats;
++	unsigned int formats_num;
++
++	struct media_pad pads[DW_MIPI_CSI2RX_PAD_MAX];
++	struct v4l2_async_notifier notifier;
++	struct v4l2_subdev sd;
++
++	enum v4l2_mbus_type bus_type;
++	u32 lanes_num;
++};
++
++static const struct v4l2_mbus_framefmt default_format = {
++	.width = 3840,
++	.height = 2160,
++	.code = MEDIA_BUS_FMT_SRGGB10_1X10,
++	.field = V4L2_FIELD_NONE,
++	.colorspace = V4L2_COLORSPACE_RAW,
++	.ycbcr_enc = V4L2_YCBCR_ENC_601,
++	.quantization = V4L2_QUANTIZATION_FULL_RANGE,
++	.xfer_func = V4L2_XFER_FUNC_NONE,
++};
++
++static const struct dw_mipi_csi2rx_format formats[] = {
++	/* YUV formats */
++	{
++		.code = MEDIA_BUS_FMT_YUYV8_1X16,
++		.depth = 16,
++		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
++	},
++	{
++		.code = MEDIA_BUS_FMT_UYVY8_1X16,
++		.depth = 16,
++		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
++	},
++	{
++		.code = MEDIA_BUS_FMT_YVYU8_1X16,
++		.depth = 16,
++		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
++	},
++	{
++		.code = MEDIA_BUS_FMT_VYUY8_1X16,
++		.depth = 16,
++		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
++	},
++	/* RGB formats */
++	{
++		.code = MEDIA_BUS_FMT_RGB888_1X24,
++		.depth = 24,
++		.csi_dt = MIPI_CSI2_DT_RGB888,
++	},
++	{
++		.code = MEDIA_BUS_FMT_BGR888_1X24,
++		.depth = 24,
++		.csi_dt = MIPI_CSI2_DT_RGB888,
++	},
++	/* Bayer formats */
++	{
++		.code = MEDIA_BUS_FMT_SBGGR8_1X8,
++		.depth = 8,
++		.csi_dt = MIPI_CSI2_DT_RAW8,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SGBRG8_1X8,
++		.depth = 8,
++		.csi_dt = MIPI_CSI2_DT_RAW8,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SGRBG8_1X8,
++		.depth = 8,
++		.csi_dt = MIPI_CSI2_DT_RAW8,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SRGGB8_1X8,
++		.depth = 8,
++		.csi_dt = MIPI_CSI2_DT_RAW8,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SBGGR10_1X10,
++		.depth = 10,
++		.csi_dt = MIPI_CSI2_DT_RAW10,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SGBRG10_1X10,
++		.depth = 10,
++		.csi_dt = MIPI_CSI2_DT_RAW10,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SGRBG10_1X10,
++		.depth = 10,
++		.csi_dt = MIPI_CSI2_DT_RAW10,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SRGGB10_1X10,
++		.depth = 10,
++		.csi_dt = MIPI_CSI2_DT_RAW10,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SBGGR12_1X12,
++		.depth = 12,
++		.csi_dt = MIPI_CSI2_DT_RAW12,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SGBRG12_1X12,
++		.depth = 12,
++		.csi_dt = MIPI_CSI2_DT_RAW12,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SGRBG12_1X12,
++		.depth = 12,
++		.csi_dt = MIPI_CSI2_DT_RAW12,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SRGGB12_1X12,
++		.depth = 12,
++		.csi_dt = MIPI_CSI2_DT_RAW12,
++	},
++};
++
++static inline struct dw_mipi_csi2rx_device *to_csi2(struct v4l2_subdev *sd)
++{
++	return container_of(sd, struct dw_mipi_csi2rx_device, sd);
++}
++
++static inline void dw_mipi_csi2rx_write(struct dw_mipi_csi2rx_device *csi2,
++					unsigned int addr, u32 val)
++{
++	writel(val, csi2->base_addr + addr);
++}
++
++static inline u32 dw_mipi_csi2rx_read(struct dw_mipi_csi2rx_device *csi2,
++				      unsigned int addr)
++{
++	return readl(csi2->base_addr + addr);
++}
++
++static const struct dw_mipi_csi2rx_format *
++dw_mipi_csi2rx_find_format(struct dw_mipi_csi2rx_device *csi2, u32 mbus_code)
++{
++	WARN_ON(csi2->formats_num == 0);
++
++	for (unsigned int i = 0; i < csi2->formats_num; i++) {
++		const struct dw_mipi_csi2rx_format *format = &csi2->formats[i];
++
++		if (format->code == mbus_code)
++			return format;
++	}
++
++	return NULL;
++}
++
++static int dw_mipi_csi2rx_start(struct dw_mipi_csi2rx_device *csi2)
++{
++	struct media_pad *source_pad;
++	union phy_configure_opts opts;
++	u32 lanes = csi2->lanes_num;
++	u32 control = 0;
++	s64 link_freq;
++	int ret;
++
++	if (lanes < 1 || lanes > 4)
++		return -EINVAL;
++
++	source_pad = media_pad_remote_pad_unique(
++		&csi2->pads[DW_MIPI_CSI2RX_PAD_SINK]);
++	if (IS_ERR(source_pad))
++		return PTR_ERR(source_pad);
++
++	/* set mult and div to 0, thus completely rely on V4L2_CID_LINK_FREQ */
++	link_freq = v4l2_get_link_freq(source_pad, 0, 0);
++	if (link_freq < 0)
++		return link_freq;
++
++	switch (csi2->bus_type) {
++	case V4L2_MBUS_CSI2_DPHY:
++		struct phy_configure_opts_mipi_dphy *cfg = &opts.mipi_dphy;
++
++		ret = phy_mipi_dphy_get_default_config_for_hsclk(link_freq * 2,
++								 lanes, cfg);
++		if (ret)
++			return ret;
++
++		ret = phy_set_mode(csi2->phy, PHY_MODE_MIPI_DPHY);
++		if (ret)
++			return ret;
++
++		ret = phy_configure(csi2->phy, &opts);
++		if (ret)
++			return ret;
++
++		control |= SW_CPHY_EN(0);
++		break;
++
++	case V4L2_MBUS_CSI2_CPHY:
++		/* TODO: implement CPHY configuration */
++		return -EOPNOTSUPP;
++	default:
++		return -EINVAL;
++	}
++
++	control |= SW_DATATYPE_FS(0x00) | SW_DATATYPE_FE(0x01) |
++		   SW_DATATYPE_LS(0x02) | SW_DATATYPE_LE(0x03);
++
++	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_N_LANES, lanes - 1);
++	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_CONTROL, control);
++	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_RESETN, 1);
++
++	return phy_power_on(csi2->phy);
++}
++
++static void dw_mipi_csi2rx_stop(struct dw_mipi_csi2rx_device *csi2)
++{
++	phy_power_off(csi2->phy);
++
++	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_RESETN, 0);
++	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_MSK1, ~0);
++	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_MSK2, ~0);
++}
++
++static const struct media_entity_operations dw_mipi_csi2rx_media_ops = {
++	.link_validate = v4l2_subdev_link_validate,
++};
++
++static int
++dw_mipi_csi2rx_enum_mbus_code(struct v4l2_subdev *sd,
++			      struct v4l2_subdev_state *sd_state,
++			      struct v4l2_subdev_mbus_code_enum *code)
++{
++	struct dw_mipi_csi2rx_device *csi2 = to_csi2(sd);
++
++	switch (code->pad) {
++	case DW_MIPI_CSI2RX_PAD_SRC:
++		const struct v4l2_mbus_framefmt *sink_fmt;
++
++		if (code->index)
++			return -EINVAL;
++
++		sink_fmt = v4l2_subdev_state_get_format(
++			sd_state, DW_MIPI_CSI2RX_PAD_SINK);
++		code->code = sink_fmt->code;
++
++		return 0;
++	case DW_MIPI_CSI2RX_PAD_SINK:
++		if (code->index > csi2->formats_num)
++			return -EINVAL;
++
++		code->code = csi2->formats[code->index].code;
++		return 0;
++	default:
++		return -EINVAL;
++	}
++}
++
++static int dw_mipi_csi2rx_set_fmt(struct v4l2_subdev *sd,
++				  struct v4l2_subdev_state *state,
++				  struct v4l2_subdev_format *format)
++{
++	struct dw_mipi_csi2rx_device *csi2 = to_csi2(sd);
++	const struct dw_mipi_csi2rx_format *fmt;
++	struct v4l2_mbus_framefmt *sink, *src;
++
++	/* the format on the source pad always matches the sink pad */
++	if (format->pad == DW_MIPI_CSI2RX_PAD_SRC)
++		return v4l2_subdev_get_fmt(sd, state, format);
++
++	sink = v4l2_subdev_state_get_format(state, format->pad, format->stream);
++	if (!sink)
++		return -EINVAL;
++
++	fmt = dw_mipi_csi2rx_find_format(csi2, format->format.code);
++	if (!fmt)
++		format->format = default_format;
++
++	*sink = format->format;
++
++	/* propagate the format to the source pad */
++	src = v4l2_subdev_state_get_opposite_stream_format(state, format->pad,
++							   format->stream);
++	if (!src)
++		return -EINVAL;
++
++	*src = *sink;
++
++	return 0;
++}
++
++static int dw_mipi_csi2rx_set_routing(struct v4l2_subdev *sd,
++				      struct v4l2_subdev_state *state,
++				      enum v4l2_subdev_format_whence which,
++				      struct v4l2_subdev_krouting *routing)
++{
++	int ret;
++
++	ret = v4l2_subdev_routing_validate(sd, routing,
++					   V4L2_SUBDEV_ROUTING_ONLY_1_TO_1);
++	if (ret)
++		return ret;
++
++	return v4l2_subdev_set_routing_with_fmt(sd, state, routing,
++						&default_format);
++}
++
++static int dw_mipi_csi2rx_enable_streams(struct v4l2_subdev *sd,
++					 struct v4l2_subdev_state *state,
++					 u32 pad, u64 streams_mask)
++{
++	struct dw_mipi_csi2rx_device *csi2 = to_csi2(sd);
++	struct v4l2_subdev *remote_sd;
++	struct media_pad *sink_pad, *remote_pad;
++	struct device *dev = csi2->dev;
++	u64 mask;
++	int ret;
++
++	sink_pad = &sd->entity.pads[DW_MIPI_CSI2RX_PAD_SINK];
++	remote_pad = media_pad_remote_pad_first(sink_pad);
++	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
++
++	mask = v4l2_subdev_state_xlate_streams(state, DW_MIPI_CSI2RX_PAD_SINK,
++					       DW_MIPI_CSI2RX_PAD_SRC,
++					       &streams_mask);
++
++	ret = pm_runtime_resume_and_get(dev);
++	if (ret)
++		goto err;
++
++	ret = dw_mipi_csi2rx_start(csi2);
++	if (ret) {
++		dev_err(dev, "failed to enable CSI hardware\n");
++		goto err_pm_runtime_put;
++	}
++
++	ret = v4l2_subdev_enable_streams(remote_sd, remote_pad->index, mask);
++	if (ret)
++		goto err_csi_stop;
++
++	return 0;
++
++err_csi_stop:
++	dw_mipi_csi2rx_stop(csi2);
++err_pm_runtime_put:
++	pm_runtime_put(dev);
++err:
++	return ret;
++}
++
++static int dw_mipi_csi2rx_disable_streams(struct v4l2_subdev *sd,
++					  struct v4l2_subdev_state *state,
++					  u32 pad, u64 streams_mask)
++{
++	struct dw_mipi_csi2rx_device *csi2 = to_csi2(sd);
++	struct v4l2_subdev *remote_sd;
++	struct media_pad *sink_pad, *remote_pad;
++	struct device *dev = csi2->dev;
++	u64 mask;
++	int ret;
++
++	sink_pad = &sd->entity.pads[DW_MIPI_CSI2RX_PAD_SINK];
++	remote_pad = media_pad_remote_pad_first(sink_pad);
++	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
++
++	mask = v4l2_subdev_state_xlate_streams(state, DW_MIPI_CSI2RX_PAD_SINK,
++					       DW_MIPI_CSI2RX_PAD_SRC,
++					       &streams_mask);
++
++	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad->index, mask);
++
++	dw_mipi_csi2rx_stop(csi2);
++
++	pm_runtime_put(dev);
++
++	return ret;
++}
++
++static const struct v4l2_subdev_pad_ops dw_mipi_csi2rx_pad_ops = {
++	.enum_mbus_code = dw_mipi_csi2rx_enum_mbus_code,
++	.get_fmt = v4l2_subdev_get_fmt,
++	.set_fmt = dw_mipi_csi2rx_set_fmt,
++	.set_routing = dw_mipi_csi2rx_set_routing,
++	.enable_streams = dw_mipi_csi2rx_enable_streams,
++	.disable_streams = dw_mipi_csi2rx_disable_streams,
++};
++
++static const struct v4l2_subdev_ops dw_mipi_csi2rx_ops = {
++	.pad = &dw_mipi_csi2rx_pad_ops,
++};
++
++static int dw_mipi_csi2rx_init_state(struct v4l2_subdev *sd,
++				     struct v4l2_subdev_state *state)
++{
++	struct v4l2_subdev_route routes[] = {
++		{
++			.sink_pad = DW_MIPI_CSI2RX_PAD_SINK,
++			.sink_stream = 0,
++			.source_pad = DW_MIPI_CSI2RX_PAD_SRC,
++			.source_stream = 0,
++			.flags = V4L2_SUBDEV_ROUTE_FL_ACTIVE,
++		},
++	};
++	struct v4l2_subdev_krouting routing = {
++		.len_routes = ARRAY_SIZE(routes),
++		.num_routes = ARRAY_SIZE(routes),
++		.routes = routes,
++	};
++
++	return v4l2_subdev_set_routing_with_fmt(sd, state, &routing,
++						&default_format);
++}
++
++static const struct v4l2_subdev_internal_ops dw_mipi_csi2rx_internal_ops = {
++	.init_state = dw_mipi_csi2rx_init_state,
++};
++
++static int dw_mipi_csi2rx_notifier_bound(struct v4l2_async_notifier *notifier,
++					 struct v4l2_subdev *sd,
++					 struct v4l2_async_connection *asd)
++{
++	struct dw_mipi_csi2rx_device *csi2 =
++		container_of(notifier, struct dw_mipi_csi2rx_device, notifier);
++	struct media_pad *sink_pad = &csi2->pads[DW_MIPI_CSI2RX_PAD_SINK];
++	int ret;
++
++	ret = v4l2_create_fwnode_links_to_pad(sd, sink_pad,
++					      MEDIA_LNK_FL_ENABLED);
++	if (ret) {
++		dev_err(csi2->dev, "failed to link source pad of %s\n",
++			sd->name);
++		return ret;
++	}
++
++	return 0;
++}
++
++static const struct v4l2_async_notifier_operations dw_mipi_csi2rx_notifier_ops = {
++	.bound = dw_mipi_csi2rx_notifier_bound,
++};
++
++static int dw_mipi_csi2rx_register_notifier(struct dw_mipi_csi2rx_device *csi2)
++{
++	struct v4l2_async_connection *asd;
++	struct v4l2_async_notifier *ntf = &csi2->notifier;
++	struct v4l2_fwnode_endpoint vep;
++	struct v4l2_subdev *sd = &csi2->sd;
++	struct device *dev = csi2->dev;
++	int ret;
++
++	struct fwnode_handle *ep __free(fwnode_handle) =
++		fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
++	if (!ep)
++		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
++
++	vep.bus_type = V4L2_MBUS_UNKNOWN;
++	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to parse endpoint\n");
++
++	if (vep.bus_type != V4L2_MBUS_CSI2_DPHY &&
++	    vep.bus_type != V4L2_MBUS_CSI2_CPHY)
++		return dev_err_probe(dev, -EINVAL,
++				     "invalid bus type of endpoint\n");
++
++	csi2->bus_type = vep.bus_type;
++	csi2->lanes_num = vep.bus.mipi_csi2.num_data_lanes;
++
++	v4l2_async_subdev_nf_init(ntf, sd);
++	ntf->ops = &dw_mipi_csi2rx_notifier_ops;
++
++	asd = v4l2_async_nf_add_fwnode_remote(ntf, ep,
++					      struct v4l2_async_connection);
++	if (IS_ERR(asd)) {
++		ret = PTR_ERR(asd);
++		goto err_nf_cleanup;
++	}
++
++	ret = v4l2_async_nf_register(ntf);
++	if (ret) {
++		ret = dev_err_probe(dev, ret, "failed to register notifier\n");
++		goto err_nf_cleanup;
++	}
++
++	return 0;
++
++err_nf_cleanup:
++	v4l2_async_nf_cleanup(ntf);
++
++	return ret;
++}
++
++static int dw_mipi_csi2rx_register(struct dw_mipi_csi2rx_device *csi2)
++{
++	struct media_pad *pads = csi2->pads;
++	struct v4l2_subdev *sd = &csi2->sd;
++	int ret;
++
++	ret = dw_mipi_csi2rx_register_notifier(csi2);
++	if (ret)
++		goto err;
++
++	v4l2_subdev_init(sd, &dw_mipi_csi2rx_ops);
++	sd->dev = csi2->dev;
++	sd->entity.ops = &dw_mipi_csi2rx_media_ops;
++	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
++	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE | V4L2_SUBDEV_FL_STREAMS;
++	sd->internal_ops = &dw_mipi_csi2rx_internal_ops;
++	snprintf(sd->name, sizeof(sd->name), "dw-mipi-csi2rx %s",
++		 dev_name(csi2->dev));
++
++	pads[DW_MIPI_CSI2RX_PAD_SINK].flags = MEDIA_PAD_FL_SINK |
++					      MEDIA_PAD_FL_MUST_CONNECT;
++	pads[DW_MIPI_CSI2RX_PAD_SRC].flags = MEDIA_PAD_FL_SOURCE;
++	ret = media_entity_pads_init(&sd->entity, DW_MIPI_CSI2RX_PAD_MAX, pads);
++	if (ret)
++		goto err_notifier_unregister;
++
++	ret = v4l2_subdev_init_finalize(sd);
++	if (ret)
++		goto err_entity_cleanup;
++
++	ret = v4l2_async_register_subdev(sd);
++	if (ret) {
++		dev_err(sd->dev, "failed to register CSI-2 subdev\n");
++		goto err_subdev_cleanup;
++	}
++
++	return 0;
++
++err_subdev_cleanup:
++	v4l2_subdev_cleanup(sd);
++err_entity_cleanup:
++	media_entity_cleanup(&sd->entity);
++err_notifier_unregister:
++	v4l2_async_nf_unregister(&csi2->notifier);
++	v4l2_async_nf_cleanup(&csi2->notifier);
++err:
++	return ret;
++}
++
++static void dw_mipi_csi2rx_unregister(struct dw_mipi_csi2rx_device *csi2)
++{
++	struct v4l2_subdev *sd = &csi2->sd;
++
++	v4l2_async_unregister_subdev(sd);
++	v4l2_subdev_cleanup(sd);
++	media_entity_cleanup(&sd->entity);
++	v4l2_async_nf_unregister(&csi2->notifier);
++	v4l2_async_nf_cleanup(&csi2->notifier);
++}
++
++static const struct of_device_id dw_mipi_csi2rx_of_match[] = {
++	{
++		.compatible = "rockchip,rk3568-mipi-csi2",
++	},
++	{}
++};
++MODULE_DEVICE_TABLE(of, dw_mipi_csi2rx_of_match);
++
++static int dw_mipi_csi2rx_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct dw_mipi_csi2rx_device *csi2;
++	int ret;
++
++	csi2 = devm_kzalloc(dev, sizeof(*csi2), GFP_KERNEL);
++	if (!csi2)
++		return -ENOMEM;
++	csi2->dev = dev;
++	dev_set_drvdata(dev, csi2);
++
++	csi2->base_addr = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(csi2->base_addr))
++		return PTR_ERR(csi2->base_addr);
++
++	ret = devm_clk_bulk_get_all(dev, &csi2->clks);
++	if (ret != DW_MIPI_CSI2RX_CLKS_MAX)
++		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
++	csi2->clks_num = ret;
++
++	csi2->phy = devm_phy_get(dev, NULL);
++	if (IS_ERR(csi2->phy))
++		return dev_err_probe(dev, PTR_ERR(csi2->phy),
++				     "failed to get MIPI CSI-2 PHY\n");
++
++	csi2->reset = devm_reset_control_get_exclusive(dev, NULL);
++	if (IS_ERR(csi2->reset))
++		return dev_err_probe(dev, PTR_ERR(csi2->reset),
++				     "failed to get reset\n");
++
++	csi2->formats = formats;
++	csi2->formats_num = ARRAY_SIZE(formats);
++
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to enable pm runtime\n");
++
++	ret = phy_init(csi2->phy);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "failed to initialize MIPI CSI-2 PHY\n");
++
++	ret = dw_mipi_csi2rx_register(csi2);
++	if (ret)
++		goto err_phy_exit;
++
++	return 0;
++
++err_phy_exit:
++	phy_exit(csi2->phy);
++
++	return ret;
++}
++
++static void dw_mipi_csi2rx_remove(struct platform_device *pdev)
++{
++	struct dw_mipi_csi2rx_device *csi2 = platform_get_drvdata(pdev);
++
++	dw_mipi_csi2rx_unregister(csi2);
++	phy_exit(csi2->phy);
++}
++
++static int dw_mipi_csi2rx_runtime_suspend(struct device *dev)
++{
++	struct dw_mipi_csi2rx_device *csi2 = dev_get_drvdata(dev);
++
++	clk_bulk_disable_unprepare(csi2->clks_num, csi2->clks);
++
++	return 0;
++}
++
++static int dw_mipi_csi2rx_runtime_resume(struct device *dev)
++{
++	struct dw_mipi_csi2rx_device *csi2 = dev_get_drvdata(dev);
++	int ret;
++
++	reset_control_assert(csi2->reset);
++	udelay(5);
++	reset_control_deassert(csi2->reset);
++
++	ret = clk_bulk_prepare_enable(csi2->clks_num, csi2->clks);
++	if (ret) {
++		dev_err(dev, "failed to enable clocks\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static DEFINE_RUNTIME_DEV_PM_OPS(dw_mipi_csi2rx_pm_ops,
++				 dw_mipi_csi2rx_runtime_suspend,
++				 dw_mipi_csi2rx_runtime_resume, NULL);
++
++static struct platform_driver dw_mipi_csi2rx_drv = {
++	.driver = {
++		.name = "dw-mipi-csi2rx",
++		.of_match_table = dw_mipi_csi2rx_of_match,
++		.pm = pm_ptr(&dw_mipi_csi2rx_pm_ops),
++	},
++	.probe = dw_mipi_csi2rx_probe,
++	.remove = dw_mipi_csi2rx_remove,
++};
++module_platform_driver(dw_mipi_csi2rx_drv);
++
++MODULE_DESCRIPTION("Synopsys DesignWare MIPI CSI-2 Receiver platform driver");
++MODULE_LICENSE("GPL");
 
-Changes in v6:
-- renamed driver to dw-mipi-csi2rx (Sakari)
-- fixed return value of v4l2_get_link_freq (this time, really) (Sakari)
-- Link to v5: https://lore.kernel.org/r/20251114-rockchip-mipi-receiver-v5-0-45aa117f190a@collabora.com
-
-Changes in v5:
-- fixed indentation in struct platform_driver ... (Sakari)
-- fixed return value in case v4l2_get_link_freq returns 0 (Sakari)
-- switched from pm_runtime_put_sync() to pm_runtime_put() (Sakari)
-- Link to v4: https://lore.kernel.org/r/20251114-rockchip-mipi-receiver-v4-0-a9c86fecd052@collabora.com
-
-Changes in v4:
-- moved driver to drivers/media/platform/synopsys and renamed it (Frank)
-- addresse review comments by Sakari
-- Link to v3: https://lore.kernel.org/r/20251114-rockchip-mipi-receiver-v3-0-16e83aa7f395@collabora.com
-
-Changes in v3:
-- rebased onto v6.19/recent media-committers/next
-- Link to v2: https://lore.kernel.org/r/20251114-rockchip-mipi-receiver-v2-0-eb9b43377fc4@collabora.com
-
-Changes in v2:
-- dropped one R-b by Bryan, as there were two of them on the same patch
-  (Krzysztof)
-- Link to v1: https://lore.kernel.org/r/20251114-rockchip-mipi-receiver-v1-0-d13086e810dd@collabora.com
-
----
-Michael Riesch (3):
-      media: dt-bindings: add rockchip mipi csi-2 receiver
-      media: synopsys: add driver for the designware mipi csi-2 receiver
-      arm64: defconfig: enable designware mipi csi-2 receiver
-
- .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  | 141 ++++
- MAINTAINERS                                        |   7 +
- arch/arm64/configs/defconfig                       |   1 +
- drivers/media/platform/synopsys/Kconfig            |  18 +
- drivers/media/platform/synopsys/Makefile           |   2 +
- drivers/media/platform/synopsys/dw-mipi-csi2rx.c   | 726 +++++++++++++++++++++
- 6 files changed, 895 insertions(+)
----
-base-commit: eb4ee870747c3a77a9c3c84d84efb64bd481013a
-change-id: 20251114-rockchip-mipi-receiver-0baf244c9c8e
-
-Best regards,
 -- 
-Michael Riesch <michael.riesch@collabora.com>
+2.39.5
 
 
 
