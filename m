@@ -4,105 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982A9D2ED0F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:04:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55633D2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 11:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1WFMJIykjeDUwTLAnV/91H11zpuB8UJJKa8bgoRktHs=; b=N1PjuCuWyiGJiLpRPd5CzcJQOt
-	7rzpyaqRzxS53diyOvOHh8fRE8JgGHPlHyB/Y0S2Kx/NT5PhJDTrViFXHv8histv0cH+CiD7AygBF
-	1E0PWY6j2ijBxTVOuhf31GWkSLN/hqsRQNk4Ao+erhDOEK7agiPnERyN76Gg3WA5Xcr4c6HJFlMjy
-	AG3WA9R5hFvHyqW/4NBqCCpZGqIrynZikkBdj5xyyItuMULY1HWV+1egVpxV2IeD0xNw8kER3/1b4
-	fqMS46k2Y8uYkJwB+1NCqePzmw19AEQokDGNtdcDVDou73w6NsLOCF7S+F4yv+hwR3BQrTlRTg0Ju
-	wmxbzhJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VTp8D9aHKubMXvdcgA6NueZbNBOyUWbHG0j1r0Ye+Vk=; b=XCqr4ndkDIE1ezdjhtjeaCNSn/
+	gUkMY3X1eLUkXhPJGhTBe2jAcxNmL5VvB/V1iOjo3J4jOZqL1nGTN5dZFaMIaWs0+ObanZom/vr6a
+	R1n9SJpOYRC9NfLTHfVe5PHnxFyjBILV991zjNhaxvuRGmCnza4/SleNFPKtT6oq6x3UyXO9rCbX6
+	ejNgjGDI0Db/0Cr4IKQVWZeTVH1y9rBTD1mLeMoQ0rS0QfXjQYodtW9W6l+M8C+zWHVQerVQ6lCIv
+	YUGjq9aUeyyLSRZobrC58CnrgnFFeaSKuLan9FUkpGxvUDrCY3muUWZaBmm8H2fM4LeS4yTY2i7L1
+	mLm80M4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi9Ww-00000003fgk-0fV3;
-	Tue, 20 Jan 2026 11:04:14 +0000
-Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
+	id 1vi9af-00000003fu1-0doU;
+	Tue, 20 Jan 2026 11:08:05 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vi9Ws-00000003ffx-2lR7
+	id 1vi9ac-00000003ftf-0kb6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 11:04:12 +0000
-Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-894676e6863so3488126d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 03:04:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768907049; cv=none;
+	Tue, 20 Jan 2026 11:08:03 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-7f89d0b37f0so3026097b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 03:08:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768907280; cv=none;
         d=google.com; s=arc-20240605;
-        b=Lsti76HuK2gakLJJeeGQ7tyB6yV5Vu47/uSAH9BuPEubniQNJ3/sJe/a5Iht+75aOT
-         8bhovkhAOeYgjxNFCPIg3uWBexnNus4cSTKerTOqJXV/rgA1ujftttnAsjdleduZpdXH
-         umu1QHriW7r6FXwx9otWt+CohIgeDqAbLd9yCD+8KHO09lxwM+ryjzD2rhSVq1nmHzuN
-         2cf/w59R5sBnQ5f5skbMf7VDIX1Jh+9tDKtmdM7SzdPR0DXW5Ym5s3f/brVlO8eFNFj1
-         wwsu1gSFW1baYqG93R1BftWdWGp05ilmC+fSdSNp3gb59TmlDnT1ySoZDCfzLrHKKKnn
-         NWzA==
+        b=D6EjMrUfnkL+gZ/PS+lMMR93pRHXZxM5wSA1glhsdSvettJp0SJT7sUicWsWM0PEAW
+         4IrpYQs0xSaxszPgBV3Zd1jTUBEam49gcWqLOZPFBl5gCl1X4q6KL9ZBW09stjzcbF3U
+         SXkP+w3vy1yyQL21nsVyUGf5Lh+jqrfnNHrz84du0UEmmeTIJ622ZaJilOWm9zNKP21p
+         +LN29a36fCFjGexxrOZkcRyK6SyjlFEQShMxstumlftlyLroWj/EubNTuhQrbfnaOAc0
+         ikERxlkGVImG8mVq90IxcWxxx5Rr9t8IThwANehNWIhl7LkuzrUXGm0rAmD5sYtjvhDG
+         8P0A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=1WFMJIykjeDUwTLAnV/91H11zpuB8UJJKa8bgoRktHs=;
-        fh=ProPxvHsBxVU6qoZad3Yv5rHK6H951EH7uL00IReqro=;
-        b=e8CDUJXAgWvZcCVg1c5yr3ef5WaVfKq9YSpEdeEPec2hcXONKkRs9ulrgDsa4Qzm+U
-         WZxvo4t606e3v2SAWUOnm00Fzv8H/r9nQjnXw6gkbzEwIs8l16UAOcxgd3Y1Zn30I5gj
-         9FKvqeYlQQRTsSJy61TamMVoypQfJoPQgBKQc1s3HNd7l+kcMt38b4B3ckLBVmh7nwX8
-         X0oz/4qQtUPFnzZF3groeDrWdHjXD8aIwRBkgX93AviYpfxmrLdq57rFWRWSbWmTbA/K
-         c/iSf8IllV8y8ZssPYtkpUsm1VYBb2LRaa9B8J91/kiBrEV10JOZN1q+G3uXBnnmA6Gk
-         F0Jg==;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=VTp8D9aHKubMXvdcgA6NueZbNBOyUWbHG0j1r0Ye+Vk=;
+        fh=48m5rmMEv2ZuWeq6D+MxpVTYFEtT82Bywwd2ZLe0gjI=;
+        b=a9V18uTE3hTVQnfnwDyzY6YpRcGplboWf/hwm1N6bykpT7W+feJjo8ryc9atgNbKyj
+         VxsJb309J/QzBcLsMxD/iKS8kbWxi+QVwPIDNPR4HK+sMGIqVT/hohXFf3IDDqZf3Q0j
+         SKuAKRVzFgA18fPqqLwORxlW0lHMzE7LpGdFBr62b58R7wojnLV0UVtQlcVLFS9mB0Fs
+         nlWPAvJPkTUM5+h+D8YNyYCM8tpadmG7rybrkTmILP+36tCYEeemMhBR8tBXNhb+peWi
+         UtB2rQ/83XXkmDw+q5II95kCuFuHfkKCh2CrH8MP4OdnMRob3ZMIuxtV/oC1A7Qs5Zz4
+         7egg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1768907049; x=1769511849; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=1WFMJIykjeDUwTLAnV/91H11zpuB8UJJKa8bgoRktHs=;
-        b=Sx29TOpVWgl02lkR9Ekuz1G4yyl1VGJjM3Hs3UVMwkQyYd++QtYuHvW688w6TLIMw+
-         vClxpLyetEJSYRc40xL1OI2fSet4NMpsYwFQqQq43Hg7PzLLSufDqAt/7ebLOsvCj7Rn
-         yXrE5p7lXklkB0ID1s71wh4B39OM0x7QVWegqMdFrlQGc27XRcbc7aFYUM+c5KTHymxB
-         5g448rJm4UONTjSAZU9b3fBWbFPguEfDuk5WA58tz6Xx0cbYukMscWowgTbyJvmwChPW
-         P6SWE0XbIUHkkSFmScTldedNpcx1a8RCplXRz/e7eSPCT9xXy8u02JAM1sCmuhvvHAB6
-         hITw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768907049; x=1769511849;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1768907280; x=1769512080; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1WFMJIykjeDUwTLAnV/91H11zpuB8UJJKa8bgoRktHs=;
-        b=oEBc08KvFh7ILkaJJgn1ii+oJjOn00ZB1rRQCcNZG76uqWk+6e8gT9TPBCVAo62aeF
-         VZyRwdosXt87JflfHYOpuxPC8oOrakpo2pgIu2jz1D/EP9Vvf86mTH84kCPx/kP0TI7i
-         Xyrr1gTsXm4Lit7fBgV2V0C/AltJCm+5OW78LfigdK/Gs42iF02iAeZa7y2o3glnxUBq
-         wiNCs6YJGXkz8aHZsCkPdSKZdx9taJGykYCoyCXYsBgiOpjoxY2DW82fJv0Dz736M2XH
-         CG6yw/TL/zlvroFEm7P93mCuFExx224HD5cNvsCMfcyeJoOZYDUnAy8hxVgDqBzrv88i
-         Lhmw==
-X-Forwarded-Encrypted: i=1; AJvYcCVGKEZ5Tfer08/6iPpUobVQUXXwsyavCg164OpxwJr3Dpk1s9/YHZxS+d493cwWAo7pyS8vZfFcz8EHm19CQon+@lists.infradead.org
-X-Gm-Message-State: AOJu0YydScA2Ne9dyCuofo7ZhTprMl6YRC83XDYh15Ld8AwQB0DEIv+N
-	tMGFs2SUdPIyXM3Q5HgKq23p4QbZuEEjFZ04BPiV7qSJZzYt/JasREdWsFX7kcggufw6zLpvVvw
-	5L8Y8RI3Ey24wCI2Z2ZZHvU0aKMqq19shllCEIomMBg==
-X-Gm-Gg: AZuq6aKPAZbscb2Ded6dY/DDBjEt9Mb8Ypn1nYMF3zRMNULIb6i1bsMG0xPf+CfsJTf
-	aF+COXtFMEg3Rp4PiKpHm2etfTZW88VffEG00lW3jIR/+WY8hy5MWnSKPLhs5AyWTaGeDiYGcT/
-	3FAIKFaZgpEZay0BWsD2dv0y9DrRyjul4kxk67nc3iNtiUMbU6gbtMcFv+L7W48b+OZgOmNaPWi
-	+zg4iGfyBVx6Ke1z8HwtR5RGzu+TLoOXKM/CfKwHgLP+8L7N81MbGsWmyCjUlSTN1Gn
-X-Received: by 2002:ad4:4eef:0:b0:88a:4694:5921 with SMTP id
- 6a1803df08f44-8942ddad70fmr192050966d6.37.1768907049157; Tue, 20 Jan 2026
- 03:04:09 -0800 (PST)
+        bh=VTp8D9aHKubMXvdcgA6NueZbNBOyUWbHG0j1r0Ye+Vk=;
+        b=FM2mlivziDaPeBLK0MkG9p6Jbqtey93hEHg8ECSnqae6sxaIzlua4HI1C4Dn7yb5Jl
+         /mFUjs8D99hc1D6/2f0DnupvSkCv2z4knuXYwhNQOxkVNpNy6unWw4m7+YZtFmUrK2cs
+         /idmqYd/f6bkFtk2kD0h2jQoDXwZhbmmKODUyKcpnNRtI5X3FHUdQoQisHTK4sR5g0Fu
+         otPAWmUjsVpbYuG4xjrq1jI/uEWzZMPVA9RvvqkUKHXUt4oAmdeML3h+xpbf0WKYLL7o
+         sIDu9+lMm8fVoF2vHQlC8r0tjFibABOh+6luk/4vfysOVQt0AUTFQVnJkY4rujH9kBQ2
+         L9MA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768907280; x=1769512080;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=VTp8D9aHKubMXvdcgA6NueZbNBOyUWbHG0j1r0Ye+Vk=;
+        b=gWGNcWq0ES4lyGbpE/srx9LSPw2KigMNkH6zCbGricpUKkqAO7BuCs6uMZHxn2ZIhs
+         HzCxuTphFVrKYxN2bQqRCIQUPlBG16S8yyrIy1pwmlKzTjZOlfhX5SVwpn6qVKdVKNqB
+         DsmTEGi8yj15DFDNs33LiAstn/6zp0HvBQo00otZuH/3ZYQ+WUIewxg9U3oNYaDoztP/
+         YHN3pOfr3BXc3usMVSFuxD/45khB4Gf/jQSqCd+3jWb+re+PMF6W6K4FtPCndSTXk4v8
+         mAPud2910so3Rt64Cm5M15/E2YnA/AGjMaLQvEKSZcKsT+F1ZOMooCc3LNdbKdAJVEGU
+         075Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVwYqTd5fJkgDa3jFc69Lx7nRYtt974FbRDIwxc/YZ8P6eQ8jxSc95eW1IM5LhHu+qQg0N35PrfsC43LP6xO8iC@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPQ59CqZLhRPsyeqKtd2ubc3BWmYKJCucD6qaGC1D9Rg5HFP8I
+	anMHx8+6Y6T+XdZqyz4m3FJ76cFoCDWMxZEiPt96aAzXnDye1wx/wGkIp5a22s9/BQhj5bzYYW8
+	A/nFlEvbJaTq/OHOIol/zq5VjndIVIt4=
+X-Gm-Gg: AY/fxX4zLabM47OgV9FUuXKNfXTuqPuhOlM2B0oMbi7690koSLMiZHyvsvAPv15YHI+
+	yHl6UwikV+UAkxLLv9ZgGDjPUZJFYQhnll7fmGH4p2k/+P14b3ogAVFWRaBzgIq/5NNNSG+98Qt
+	ciwMu73VA2mlGzrkKF8bCgLUDPIUqnQH6iQUaTlUx5471saGqpO0TGPg25LLW335nB6dUDGR4Xr
+	9G05gXxiYc3TRgtaGEsmf9uhwOcam0KnSizXvf5cs6uh0qZPdlU8bb9OS6sZR4EITm6cfonOoRH
+	ofVf4w==
+X-Received: by 2002:a05:6a21:3a42:b0:38b:e70c:6406 with SMTP id
+ adf61e73a8af0-38dff36821cmr13408140637.22.1768907280519; Tue, 20 Jan 2026
+ 03:08:00 -0800 (PST)
 MIME-Version: 1.0
-References: <20260109005821.225235-1-andyshrk@163.com>
-In-Reply-To: <20260109005821.225235-1-andyshrk@163.com>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Tue, 20 Jan 2026 11:03:57 +0000
-X-Gm-Features: AZwV_Qj6ykO3irdHAAivo3zJ7fPUY3sXls4LuuJI-exbLYOzFgw_HME4X3eA2Z4
-Message-ID: <CAPj87rPYsD9bp7Ep=fBb2ViOzSnWCgWNJ7Hj=WZuDR+OTNpnSQ@mail.gmail.com>
-Subject: Re: [PATCH] drm/rockchip: vop2: Add mode valid callback for crtc
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, hjc@rock-chips.com, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, airlied@gmail.com, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, simona@ffwll.ch, 
-	Andy Yan <andy.yan@rock-chips.com>
+References: <20260120035210.1593742-1-shengjiu.wang@nxp.com>
+ <20260120035210.1593742-2-shengjiu.wang@nxp.com> <20260120-fractal-lemming-of-chemistry-6f21df@quoll>
+In-Reply-To: <20260120-fractal-lemming-of-chemistry-6f21df@quoll>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Tue, 20 Jan 2026 19:07:48 +0800
+X-Gm-Features: AZwV_QjlRWGRppxCrBr9lEF7AFifqLu4-_l_Wvfec_Mh4jj0zdL8Z4fH3sbuZEk
+Message-ID: <CAA+D8APePw6BnRP=Wnw+zna+oc4_aoMWZewYC7yx-XYLBrSKbQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] ASoC: dt-bindings: fsl,audmix: Add support for
+ i.MX952 platform
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, Xiubo.Lee@gmail.com, festevam@gmail.com, 
+	nicoleotsuka@gmail.com, lgirdwood@gmail.com, broonie@kernel.org, 
+	perex@perex.cz, tiwai@suse.com, linux-sound@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_030410_692346_9E2B30C3 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260120_030802_227735_0E3E778F 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,23 +123,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
-
-On Fri, 9 Jan 2026 at 00:59, Andy Yan <andyshrk@163.com> wrote:
-> Filter the mode that can't output by the crtc.
+On Tue, Jan 20, 2026 at 6:31=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
 >
-> [...]
+> On Tue, Jan 20, 2026 at 11:52:07AM +0800, Shengjiu Wang wrote:
+> > There is no power domain defined on i.MX952, so make power-domains to b=
+e
 >
-> +static enum drm_mode_status vop2_crtc_mode_valid(struct drm_crtc *crtc,
-> +                                                const struct drm_display_mode *mode)
-> +{
-> +       struct vop2_video_port *vp = to_vop2_video_port(crtc);
-> +
-> +       if (mode->hdisplay > vp->data->max_output.width)
-> +               return MODE_BAD_HVALUE;
+> There is no defined or there is no power domain? If the first, then this
+> patch is incomplete. Please read writing bindings part about complete
+> bindings. If the latter, then you miss constraints ":false" and commit
+> msg phrasing is incorrect (and remember that in such case you won't be
+> able to add power domains later because now you add complete binding).
 
-Why not test height as well?
+Thanks for pointing this out.
 
-Cheers,
-Daniel
+There is a power domain on i.MX952 for the mix system of AUDMIX.
+But it is enabled by default,  AUDMIX device don't need to enable it.
+So can we make the power-domains to be optional for this case?
+
+Best regards
+Shengjiu Wang
+
+>
+> > dedicated to i.MX8QM.
+> >
+> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > ---
+>
+> Best regards,
+> Krzysztof
+>
 
