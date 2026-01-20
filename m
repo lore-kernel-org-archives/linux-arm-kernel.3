@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85B85D111B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 15:45:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C1BD2ED17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 15:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fyY4FMK1LscaLC9zpJmTzZ3DKssABxALVLPWwLcUGs8=; b=ncppV+GpOuuEgyeAexZrIyNT4n
-	4DbYvXoc7/dZl+TmVRTZDHgdxQ78P351QDxb311w0XJ77RJQe5DPrGOhKfP7cE+gfyGsXAznnTsS3
-	kL+GoVLDhTEGIskAkdtebOEHZ4/g5n6/viXLhyOWrhSV81qBhd49r01wbUtyb/RzlhTcDAMHEx1cW
-	cYapS0smiHhDzsYdyxz6t4rXtoWCcsZ7gEeCdjlRRFs7NTwxc5hhiQFD55GB5GL3aZXnz3gAx1ZUN
-	ZYyR4aezrKyRibYEvOR0rqpmPsnmDc91C2SrKUzKKfSwgwPuTRaGPBZAxgUT6b55gJUQHz8l6NPn/
-	+jzSELXw==;
+	bh=+Nzql5r62pcLSgpHhPzlIpwDJKN/eNaqMW1y6EcuY0I=; b=BfSAw3NBP0JS3uBDgq1I06J/Wy
+	Kk0hoWgOS9I2YungeigpXjwPCYI673DswyMMPH6B6VLTGVpt3xD2OcCIwz5vXY5VNTDN+Uzp1pZ7i
+	kA3vhtaApoy2swS1IPuXI4MDaIB45ccdGK3PdIb9azvsuIGKTbdFKwVOuQd8IYUFFvVvtjkw3SilK
+	shLEqqIGjj11Rz/5RFCVM3wxQ7yyUiYr+f42nxPMGYuAPPp70G/XH2+gVpYLkdGoEArbVT77H/jQR
+	8b4CUEpG7nVY05Z6pAGE1TRhi605FazEOPSCB+LT387gItqS+GZkjBckI0wQEu9MSLn06fPGJWJ/T
+	myCzMRXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viDv1-0000000468g-2bAc;
+	id 1viDv4-0000000469N-1rlc;
 	Tue, 20 Jan 2026 15:45:26 +0000
 Received: from mail.thorsis.com ([217.92.40.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viDun-0000000464P-42Re
+	id 1viDuo-0000000464S-2o3f
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 20 Jan 2026 15:45:11 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B2440148AD57;
-	Tue, 20 Jan 2026 16:45:07 +0100 (CET)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6D6FC148AD59;
+	Tue, 20 Jan 2026 16:45:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
 	t=1768923908; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=fyY4FMK1LscaLC9zpJmTzZ3DKssABxALVLPWwLcUGs8=;
-	b=syCO/+ki/dOSE0g8IPNFi2uH12pLWKK+Y/8L9L1OgOZ69dH639ik9x0WKzdnmfyCNXspJV
-	z96LZD/MVyZbXG8/5OPUbPN3EgJr+9387NSKnjWUCV77yPer3NvBSh3lDJJSOcWze80odD
-	7xV/zw1mHWH6jsKSpBRD+WRCkCUK3/yu1uRFTrKyUKWP0qHpid8gYH3rH0Ei3a4Vu4XzGG
-	nu+73509emfxdS93Ubit0DEwPaKGBcDXWsz/NpLRxBegMgmq4gVcR1KCiV7G3l9QqC6Rkl
-	pLWsNCrwErL26LdkrQJ6sJfPoBvvaCePJz5t0Im+cUf0q0W2eeblO4J3CS/Iwg==
+	bh=+Nzql5r62pcLSgpHhPzlIpwDJKN/eNaqMW1y6EcuY0I=;
+	b=r7lb5MFejvrhiSo2K5dptvovWuqrYR/wTxir21irifHGKPgSn/3FusOKSrqoTwPHmU6M6x
+	/1BLwjsDY+I4L9+9YgEJhyD5aCLPs6cI8O8MZE6W308/rrlP/Q4KnoM6OgcJosj7k2TWiu
+	+bZLELhhsYSCN3HEr8waErYoYsoyBtzfZnPVw9A+qUsca3iUe2EOHMPzoMOGN9v+R7W0hR
+	s3i3pwEB5f8AYnXONS6DxQs+C3BqESKq/gYUKeN+wZq6EPSwU+Xmcf6J1PzDVVMK8SfA9l
+	LtAZuHwJTWaF1Qu3G7tcABIfTdO0ikUxV3V06tjPzwBPvUG6om+5WOW1pO86KA==
 From: Alexander Dahl <ada@thorsis.com>
 To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
@@ -47,13 +47,12 @@ Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-clk@vger.kernel.org,
+	stable@vger.kernel.org,
 	Srinivas Kandagatla <srini@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v3 09/19] dt-bindings: nvmem: microchip-otpc: Add required clocks
-Date: Tue, 20 Jan 2026 16:44:43 +0100
-Message-ID: <20260120154502.1280938-3-ada@thorsis.com>
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: [PATCH v3 10/19] nvmem: microchip-otpc: Avoid reading a write-only register
+Date: Tue, 20 Jan 2026 16:44:44 +0100
+Message-ID: <20260120154502.1280938-4-ada@thorsis.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260120154502.1280938-1-ada@thorsis.com>
 References: <20260120143759.904013-1-ada@thorsis.com>
@@ -62,8 +61,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_074510_159314_2B23AA87 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20260120_074510_868942_60C0F9A9 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,67 +77,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The OTPC requires both the peripheral clock through PMC and the main RC
-oscillator.  Seemed to work without explicitly enabling those clocks on
-sama7g5 before, but did not on sam9x60.
+The OTPC Control Register (OTPC_CR) has just write-only members.
+Reading from that register leads to a warning in OTPC Write Protection
+Status Register (OTPC_WPSR) in field Software Error Type (SWETYP) of
+type READ_WO (A write-only register has been read (warning).)
 
-Older datasheets were not clear and explicit about this, but recent are,
-e.g. SAMA7G5 series datasheet (DS60001765B),
-section 30.4.1 Power Management:
+Just create the register write content from scratch is sufficient here.
 
-> The OTPC is clocked through the Power Management Controller (PMC).
-> The user must power on the main RC oscillator and enable the
-> peripheral clock of the OTPC prior to reading or writing the OTP
-> memory.
-
-Link: https://lore.kernel.org/linux-clk/ec34efc2-2051-4b8a-b5d8-6e2fd5e08c28@microchip.com/T/#u
+Fixes: 98830350d3fc ("nvmem: microchip-otpc: add support")
+Cc: stable@vger.kernel.org
 Signed-off-by: Alexander Dahl <ada@thorsis.com>
 ---
 
 Notes:
     v3:
-    - Removed clock-names (led to confusion, and not used by the driver anyways)
-    - Removed redundant example
+    - Reorder tags
+    - Add stable tag
     
     v2:
-    - new patch, not present in v1
+    - Add Fixes tag
+    - Remove temporary variable usage
+    - Reword misleading subject (s/writing/reading/)
 
- .../devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/nvmem/microchip-otpc.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
-index 9a7aaf64eef32..847dfb67c6b72 100644
---- a/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
-+++ b/Documentation/devicetree/bindings/nvmem/microchip,sama7g5-otpc.yaml
-@@ -29,6 +29,11 @@ properties:
-   reg:
-     maxItems: 1
+diff --git a/drivers/nvmem/microchip-otpc.c b/drivers/nvmem/microchip-otpc.c
+index df979e8549fdb..e2851c63cc0b4 100644
+--- a/drivers/nvmem/microchip-otpc.c
++++ b/drivers/nvmem/microchip-otpc.c
+@@ -82,9 +82,7 @@ static int mchp_otpc_prepare_read(struct mchp_otpc *otpc,
+ 	writel_relaxed(tmp, otpc->base + MCHP_OTPC_MR);
  
-+  clocks:
-+    items:
-+      - description: main rc oscillator
-+      - description: otpc peripheral clock
-+
- required:
-   - compatible
-   - reg
-@@ -37,6 +42,8 @@ unevaluatedProperties: false
+ 	/* Set read. */
+-	tmp = readl_relaxed(otpc->base + MCHP_OTPC_CR);
+-	tmp |= MCHP_OTPC_CR_READ;
+-	writel_relaxed(tmp, otpc->base + MCHP_OTPC_CR);
++	writel_relaxed(MCHP_OTPC_CR_READ, otpc->base + MCHP_OTPC_CR);
  
- examples:
-   - |
-+    #include <dt-bindings/clock/at91.h>
-+    #include <dt-bindings/clock/microchip,sama7g5-pmc.h>
-     #include <dt-bindings/nvmem/microchip,sama7g5-otpc.h>
- 
-     otpc: efuse@e8c00000 {
-@@ -44,6 +51,7 @@ examples:
-         reg = <0xe8c00000 0xec>;
-         #address-cells = <1>;
-         #size-cells = <1>;
-+        clocks = <&pmc PMC_TYPE_CORE SAMA7G5_PMC_MAIN_RC>, <&pmc PMC_TYPE_PERIPHERAL 67>;
- 
-         temperature_calib: calib@1 {
-             reg = <OTP_PKT(1) 76>;
+ 	/* Wait for packet to be transferred into temporary buffers. */
+ 	return read_poll_timeout(readl_relaxed, tmp, !(tmp & MCHP_OTPC_SR_READ),
 -- 
 2.47.3
 
