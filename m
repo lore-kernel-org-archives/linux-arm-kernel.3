@@ -4,109 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 983B0D2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6468AD2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 12:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cQavtXRfI3u4KztW86vPo3O2a8HplyqLeGiawtgz3xs=; b=sOF3Fg8EVAvtjHgxiIrN9zqsBh
-	r2v7fn638BcOlNVxq/sZ7+DYHQhYGxqmHSnYPAbeviX57rfzPlgkc0IahbXSd29odIro5FN/59DTu
-	ODI8QI8Uc5eChMywx+Ttvsr6WgnhHUjIb/A23HHOzqYENw7HbGVwPCLx0sWSeVJpsIdvadiAOlMQH
-	whFuQZKlotM+cGfX/vxnED88dMiiCDvKJNH/E1D0W0NGdNmG6OuKcIkEAD/FLKfWhombaAG2MZ5fy
-	6dZZzt6pnIOwAiQSwVL0Fj1MwVn4lRGG9nncObkoSAuv6NT1mafO8Q8c/Erj9HQW1mijN/ZgRGMv9
-	D3z5pTQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vZ6UbohxUN0tii6hS75uDJpKshLq7buKNXOSr/0MNhw=; b=Aj6F4vzi6YsRIeutqZC7KPdTiO
+	JxEW8IkukP+JP73NOiEmm9yK2YMmrgQ8dvaY/AnPIJoFokRoMA1uYZb6IihZ40lA3kEMCz6Z2bEIS
+	W/FOg+1GN1pPcIRKrVQfeBqVu7DfP5Qi24TT5mvwg0kwAoJqQKCb58RskTEXpcwGdwBxykX7e+7FC
+	zAvvdq6og8MSQyg2p/qkTZ1pJ5YyQqDDF+tnbL4iU6BwM+fxMKROrqzO46f4B6gQOaL1AjMr0bFdt
+	RLvlIHxqvxvvRU5r50cRkyvzyR5yIghdgqX47CfoWg3TeVxY1qcmMAh2AxJlIO+elDapsSES0FtpM
+	BtxvjeKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAbb-00000003nYT-0iul;
-	Tue, 20 Jan 2026 12:13:07 +0000
+	id 1viAcp-00000003nfp-2UfK;
+	Tue, 20 Jan 2026 12:14:23 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viAbZ-00000003nYM-1xeW
+	id 1viAcn-00000003nfg-2wFW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 12:13:05 +0000
+	Tue, 20 Jan 2026 12:14:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 81A776011F;
-	Tue, 20 Jan 2026 12:13:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3230C16AAE;
-	Tue, 20 Jan 2026 12:13:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 277E66011F;
+	Tue, 20 Jan 2026 12:14:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0133C19422;
+	Tue, 20 Jan 2026 12:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768911184;
-	bh=cQavtXRfI3u4KztW86vPo3O2a8HplyqLeGiawtgz3xs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IGZdCx7N6W3P6BdiheOz8GnY8jt6HJSaxh0falyH99QYGzA61M4PlGpMxT2ZiUfwD
-	 jB0Oc/Xd2M0bEkD0SGna7iE7qFSjvhqr8A3z9Bvn76h19bIA+C8L18+ENT7+b2c+Wy
-	 ScRYuQRkYlETHyt9jQ4FvwURGJ7BFio3zwcFypdr+nAkIeLPrg/C19Wefc39feodP6
-	 Rvsv/cHZrtFdpV7jfs4HQBZxnWmuMRwW76DgtzPo0EMDQcVhFVyXuSiCkgsK57+JxJ
-	 yPguRHbRN3DUa994puFNEBEc4qNgrYnDfVqDaCaY7Gn9hTAr+3RzeUNij4seaFi9qP
-	 5yuwSUAzJedIg==
-Message-ID: <85579870-370a-4bbf-94d5-6e70d3bdc944@kernel.org>
-Date: Tue, 20 Jan 2026 13:12:58 +0100
+	s=k20201202; t=1768911260;
+	bh=qYW1oJOqPclM08d4FkR7uEbs6KnqFmv0WcgIwdVcFYU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hG7S3T/PcxkGiJSFc77iGksaBX4RezZghPeNsckH64CnHmb9AxjEaNL3ATPmpnvKS
+	 Ee5+jDplxHcDnruh9DOlCFpdtuc3CLw2ldPpuQBTi+95DmvyetLMZhH4gdf8yuZmYj
+	 1uJMX2AqogHK36GQsNVtFCbg71yjJzuHbenO/lnxTo/f1TzI/Miwu1vhP4FwCi+0/l
+	 RF+aE/XCC84gKHmsTOUNMarUoj5fuBmMkfuIB/jNjsjOvfHRh7KTysQn0CKhMXV/j/
+	 x3YAhaXWSzitUXhqSuntQA4u0iCfExs5GepiAAE9b8es1cmc8EpOUSQbLPWZx9rS5z
+	 oa5KOU2pTUhnA==
+Date: Tue, 20 Jan 2026 12:14:15 +0000
+From: Will Deacon <will@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Marc Zyngier <maz@kernel.org>, Lukas Bulwahn <lbulwahn@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Vegard Nossum <vegard.nossum@oracle.com>,
+	Kees Cook <kees@kernel.org>, kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Subject: Re: [PATCH] arm64: Kconfig: deprecate redundant ARM64_USE_LSE_ATOMICS
+Message-ID: <aW9xlz0bMw1koatd@willie-the-truck>
+References: <20251223110730.121239-1-lukas.bulwahn@redhat.com>
+ <aVwkIYMyoe7OpeUh@willie-the-truck>
+ <86h5syn8ww.wl-maz@kernel.org>
+ <aV6CpBCvr37mcv7W@willie-the-truck>
+ <7b7ac65c-773e-48fe-a335-c49b6ef9a0e8@app.fastmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] Add compatible strings for AST2700 pinctrl to the
- SCU binding.
-To: Billy Tsai <billy_tsai@aspeedtech.com>, Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>
-Cc: Andrew Jeffery <andrew@aj.id.au>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org,
- linux-gpio@vger.kernel.org, bmc-sw@aspeedtech.com
-References: <20260120-upstream_pinctrl-v3-0-868fbf8413b5@aspeedtech.com>
- <20260120-upstream_pinctrl-v3-1-868fbf8413b5@aspeedtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260120-upstream_pinctrl-v3-1-868fbf8413b5@aspeedtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7b7ac65c-773e-48fe-a335-c49b6ef9a0e8@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,15 +78,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/01/2026 12:43, Billy Tsai wrote:
-> AST2700 consists of two interconnected SoC instances. Each SoC has
-> its own pinctrl register block, which needs to be described
-> independently in the device tree.
+On Wed, Jan 07, 2026 at 11:07:03PM +0100, Arnd Bergmann wrote:
+> On Wed, Jan 7, 2026, at 16:58, Will Deacon wrote:
+> > On Tue, Jan 06, 2026 at 01:54:39PM +0000, Marc Zyngier wrote:
+> >> On Mon, 05 Jan 2026 20:50:41 +0000, Will Deacon <will@kernel.org> wrote:
+> >> Subject: [PATCH] arm64: Unconditionally enable LSE support
+> >> 
+> >> LSE atomics have been in the architecture since ARMv8.1 (released in
+> >> 2014), and are hopefully supported by all modern toolchains.
+> >> 
+> >> Drop the optional nature of LSE support in the kernel, and always
+> >> compile the support in, as this really is very little code. LL/SC
+> >> still is the default, and the switch to LSE is done dynamically.
+> >> 
+> >> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> >> ---
+> >>  arch/arm64/Kconfig             | 16 ----------------
+> >>  arch/arm64/include/asm/insn.h  | 23 -----------------------
+> >>  arch/arm64/include/asm/lse.h   |  9 ---------
+> >>  arch/arm64/kernel/cpufeature.c |  2 --
+> >>  arch/arm64/kvm/at.c            |  7 -------
+> >>  arch/arm64/lib/insn.c          |  2 --
+> >>  arch/arm64/net/bpf_jit_comp.c  |  7 -------
+> >>  7 files changed, 66 deletions(-)
+> >
+> > I think we should go ahead with this.
+> >
+> > Initially, I thought we'd need some surgery to cpufeature.c so that
+> > cpus_have_final_cap() could take the _likely_ path for LSE but it looks
+> > like that's only relevant for KVM's AT handling and the common atomic_t
+> > APIs use alternative_has_cap_likely() already.
+> 
+> I'm not entirely convinced by the direction. Removing compile-time
+> options and complexity from #ifdef blocks is clearly an advantage,
+> but I'm a bit worried about at least the ARM64_USE_LSE_ATOMICS 
+> option still being valuable.
+> 
+> The boot-time patching for all atomics adds complexity as well, and
+> being able to configure it out can be helpful in a number of
+> scenarios:
+> 
+> - I've seen several scenarios where code size is extremely important,
+>   and being able to compile out any runtime-detected features 
+>   saves some space. In a defconfig kernel, this is about 1.1% of .text.
+>   Being able to select just the LSE version without the patching
+>   may be even more valuable these days, but almost
+>   all embedded systems I see are still ARMv8.0 (Cortex-A53 and
+>   Cortex-A35) without LSE.
+> - We have an experimental patch set for CONFIG_XIP_KERNEL on arm64,
+>   which inherently requires not patching at all, and requires
+>   the opposite patches for other features and errata workarounds.
+> - The amount of nested macros and inline functions for the arm64
+>   atomics is large enough to slow down compilation, #including
+>   linux/spinlock.h shouldn't really result in >1MB of preprocessed
+>   source code. (this is a much harder problem to solve)
 
-You lost subject.
+In the absence of a concerted and persistent upstream effort to solve
+some of these problems, I think retaining ARM64_USE_LSE_ATOMICS is
+a tiny drop in the ocean and yet its presence does lead to build
+breakages and additional testing burden today, which we could avoid.
 
+So I'm inclined to merge Marc's changes and if folks aggressively want
+to optimise the kernel's memory footprint in future, perhaps they can
+try to implement some of your suggestions above (such as forcing the
+LSE atomics into the compiled Image).
 
-
-Best regards,
-Krzysztof
+Will
 
