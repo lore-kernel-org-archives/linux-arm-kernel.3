@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD361D2ECF7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 14:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 532A1D2ECF7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 20 Jan 2026 14:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7RIKrOtSrZCjU+49GFgDk0B16AH7WqW4jA0Zs5uYsEw=; b=bPgFiqgOESi940G2P/AR032ccF
-	IghXkVdXTLpf8Y4G+jfcRbb8KiYgEJ6HaVb5cabX6S5TQmHUKXcyq56VHdbOj7LcQ20MHo/D2eQMa
-	JpMnBZLuYRkf009HGruAoGk+LBje6qF4ZTG9OqBeRhPkYlMvhieHUfq8uvMEZ+mnyTrIhQzeeAaEu
-	R/vGiWmCqX0wTxtAUb8zX0osLIrnBJdGdS7Lku21zkCO1609lGLU8XDHjdrsr1hsPZRuSdzaK3inV
-	LXpNSh9NhZHrBO47HT4G8UA523STXvABGWJL0EdxxfaqinS92gqec2QC3cjGLjLq0ZBy8Xs3FmCZD
-	fjblc2Eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+sjV4jKZbmaCgDV+GkMaLzLnPZD2hmO2N+9AYVVEwgo=; b=sgnNCLUS3dPd0mXGJFr/ia/Izo
+	Razt+ORIpQAjjnaLnIDcVl/keurC9MBAwR4e32ilv9L3wtbphfvW8FBuCR9fE/fAG/PjFAo/ZrnK3
+	i/0tgMgPsSTUqWJO8rJ43nHJlUHDAhciE82CpfXLUE/O9lec//PacX+1MyjlUASpg2rs2hGtAfCL2
+	qfYQYWd+3bSWZifT7rugFL4HbLQHYrokFoAJhk1tct2VvxN1o3agfDcXDh1Z1hIuquSv7XQSKOaIA
+	K7S2mCMTI5ZV6U9h+EOoC9aI21XmQP1U09uWu4h+Nqri+kIH5LbBttoV2A+5QubiSTrLFu04ajxKQ
+	vmUTVN7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viCQt-00000003xLI-2ytd;
-	Tue, 20 Jan 2026 14:10:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1viCWh-00000003xjF-1UQE;
+	Tue, 20 Jan 2026 14:16:11 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viCQr-00000003xL7-36yy
+	id 1viCWd-00000003xir-1JGf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 20 Jan 2026 14:10:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C51B360010;
-	Tue, 20 Jan 2026 14:10:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8F47C4AF0B;
-	Tue, 20 Jan 2026 14:10:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768918208;
-	bh=Ym1BChiDA/nfvHPs0Pfn4x26/vTjDWdcKmeSW/i2+E8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KYpbZuFluE7Uc8y1vpgERaU6XAa5n/fvQ/K56ZbqGt3sRL5iQF21JCt+kALvLIugx
-	 FyVaRlMeMTI8Ih94Sz5EFdsDwE93XxHrSRisOlawIKJneUtql5nqD3nwWJNSjc5Ora
-	 Xve2KhQIT4X+PvjLymzzZt1SZNPCK0lbklFE68IYwcEpMnxW2NFoOh49AvA/MX2O5x
-	 9RDv7nSvqunBctVvkVSrMIIQ05S/GTVsLs9CBwcp7Ey0ztr7MyIhazqm4yJ5xRdWsD
-	 icxl3qapy2SikY3ermb7927dsvsNNK76kZU0Z69iDaslwUQD9wqvXvIXgM2plbEXOw
-	 0OuVAOlpTAI1Q==
-Date: Tue, 20 Jan 2026 14:10:02 +0000
-From: Will Deacon <will@kernel.org>
-To: perlarsen@google.com
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Armelle Laine <armellel@google.com>,
-	Sebastien Ene <sebastianene@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ in
- host handler
-Message-ID: <aW-MugHHrJVQQKxc@willie-the-truck>
-References: <20260109-host-direct-messages-v4-0-95da4221d186@google.com>
- <20260109-host-direct-messages-v4-1-95da4221d186@google.com>
+	Tue, 20 Jan 2026 14:16:10 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id A69444E421AB;
+	Tue, 20 Jan 2026 14:16:03 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 75FC1606AB;
+	Tue, 20 Jan 2026 14:16:03 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C5B5010B698AE;
+	Tue, 20 Jan 2026 15:15:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1768918562; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=+sjV4jKZbmaCgDV+GkMaLzLnPZD2hmO2N+9AYVVEwgo=;
+	b=jWxVCnbCkzG1ahCUoIe6zWU7LBpBHB9DhliiM0lM8yu2Jq6FBVXrGVmvXCS3nMRLdeGeyC
+	dhWRn6K1Rh+vjBnUoWUnJXUf4WRGtEXrsg7JshFYDmafpl8SIJdpySEakihoFFiDEqMngi
+	iAmQzHGDrXCnxIn0Kyr75uMDpgbg2kBSbohOpxxCRM7qunkgrmR88S1QiUrDxqGpQDNc0/
+	8Kr47qQmMW4s++eN70Y8Bug/+6qGCFfEInYJEtufQPtVVPjSs8Eio488J11LDjS0NqdlI+
+	oyxbmSmIfSAnD2FxMebS1yS4b5RWHr5imr2k3tGt+6EBj/9wi2F6EtA93teD7Q==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Philippe Cornu <philippe.cornu@st.com>, benjamin.gaignard@linaro.org, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Adrien Grassein <adrien.grassein@gmail.com>, Liu Ying <victor.liu@nxp.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ stable@vger.kernel.org
+In-Reply-To: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-0-8bad3ef90b9f@bootlin.com>
+References: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-2-v2-0-8bad3ef90b9f@bootlin.com>
+Subject: Re: [PATCH v2 00/12] drm/bridge: convert users of
+ of_drm_find_bridge(), part 2
+Message-Id: <176891855295.598401.9824700731247929118.b4-ty@bootlin.com>
+Date: Tue, 20 Jan 2026 15:15:52 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260109-host-direct-messages-v4-1-95da4221d186@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260120_061608_530551_10350F78 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,59 +94,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 09, 2026 at 10:34:25PM +0000, Per Larsen via B4 Relay wrote:
-> From: Sebastian Ene <sebastianene@google.com>
+
+On Fri, 09 Jan 2026 08:31:31 +0100, Luca Ceresoli wrote:
+> This series converts all DRM bridge drivers (*) from the now deprecated
+> of_drm_find_bridge() to its replacement of_drm_find_and_get_bridge() which
+> allows correct bridge refcounting. It also converts per-driver
+> "next_bridge" pointers to the unified drm_bridge::next_bridge which puts
+> the reference automatically on bridge deallocation.
 > 
-> Allow direct messages to be forwarded from the host. The host should
-> not be sending framework messages so they are filtered out.
+> This is part of the work to support hotplug of DRM bridges. The grand plan
+> was discussed in [0].
 > 
-> Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Per Larsen <perlarsen@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 20 ++++++++++++++++++++
->  include/linux/arm_ffa.h       |  3 +++
->  2 files changed, 23 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index f731cc4c3f280a32acccca0de92b9ac6c8e05602..fc84595007f310004def7d525371fa7c128f244a 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -862,6 +862,22 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
->  	hyp_spin_unlock(&host_buffers.lock);
->  }
->  
-> +static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
-> +			      struct kvm_cpu_context *ctxt)
-> +{
-> +	DECLARE_REG(u32, flags, ctxt, 2);
-> +
-> +	struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
-> +
-> +	/* filter out framework messages and validate SBZ/MBZ bits */
-> +	if (flags) {
-> +		ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
-> +	}
-> +
-> +	arm_smccc_1_2_smc(args, res);
+> [...]
 
-I thought we were going to validate that the sender is HOST_FFA_ID?
+Applied, thanks!
 
-> diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-> index 81e603839c4a51873090b7e22edbe7b33a7e94df..d209d0cdac1eb804be01e4607acac8f76cc99e40 100644
-> --- a/include/linux/arm_ffa.h
-> +++ b/include/linux/arm_ffa.h
-> @@ -130,6 +130,9 @@
->  #define FFA_FEAT_RXTX_MIN_SZ_16K	2
->  #define FFA_FEAT_RXTX_MIN_SZ_MASK	GENMASK(1, 0)
->  
-> +/* FFA message flags */
-> +#define FFA_MSG_FLAGS_MSG_TYPE		BIT(31)
-> +
+[01/12] drm: of: drm_of_panel_bridge_remove(): fix device_node leak
+        commit: a4b4385d0523e39a7c058cb5a6c8269e513126ca
+[02/12] drm: of: drm_of_panel_bridge_remove(): convert to of_drm_find_and_get_bridge()
+        commit: f675a276b84488e78287dd22c2e9461e4c008c66
+[03/12] drm/bridge: sii902x: convert to of_drm_find_and_get_bridge()
+        commit: d07490fb23958006bcecd6f2ba411571c099d104
+[04/12] drm/bridge: thc63lvd1024: convert to of_drm_find_and_get_bridge()
+        commit: 9d34e1a8cf7b643bca058a65f3441d90099b297f
+[05/12] drm/bridge: tfp410: convert to of_drm_find_and_get_bridge()
+        commit: 35dd5e1c089b6fd9f503bb15ebc1138d5a3f887e
+[06/12] drm/bridge: tpd12s015: convert to of_drm_find_and_get_bridge()
+        commit: 0bbca46cd50a527bded903ffe7f32e3761e825bd
+[07/12] drm/bridge: lt8912b: convert to of_drm_find_and_get_bridge()
+        commit: 31cb3cd7e7149983e279f3d6da3ae5757a965ea5
+[08/12] drm/bridge: imx8mp-hdmi-pvi: convert to of_drm_find_and_get_bridge()
+        commit: 7654c807f20701ebd1dc7e967270d017dcc36730
+[09/12] drm/bridge: imx8qxp-ldb: convert to of_drm_find_and_get_bridge()
+        commit: 32529d384cea3a9b939ff1b56aa30a13f8370129
+[10/12] drm/bridge: samsung-dsim: samsung_dsim_host_attach: use a temporary variable for the next bridge
+        commit: e5e1a0000746ded4d9fa16fceda0748aec2b6e6a
+[11/12] drm/bridge: samsung-dsim: samsung_dsim_host_attach: don't use the bridge pointer as an error indicator
+        commit: 33f86ac63031d0593e48eb0a738f2d1b1ee29879
+[12/12] drm/bridge: samsung-dsim: samsung_dsim_host_attach: convert to of_drm_find_and_get_bridge()
+        commit: 685d0dfc37d081e56374852165afc8ab3b3e8d5b
 
-This hunk is no longer needed now that we're just checking for the flags
-being zero.
+Best regards,
+-- 
+Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-Will
 
