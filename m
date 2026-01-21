@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F57C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 19:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E63C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 19:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ceZDdxXVRMyodJMxNqzYUd3vI5IVFcO4Qcy2zDq4rw=; b=j6EYBr/e3MGOtLuY7fdwtJDLTc
-	gqYs8/O2+5wwExQqmWFXcYJNE259kvA3G603NIR1b67CuuaLOJeBiRVyNcT1V6j7DuQNadumtZ5Wu
-	YQQtEqlfjN/0hCkwpogY2iFjHyvJNDedkNmvKZ5aWIcx0kmVZaNSlVh0dM4YybaIfAlBVBt4HnSjG
-	aQX87QeJl420SgADaLG4Ll0ZeU3PfQIiW1Jfb0RMcra2zxdNazAupFRe24OvjMCLnhek14FyiG4en
-	GnCoTdY7jk2XWsJCnlmnMfev6ylfHt4dayaU74SgeA7ToN6p2qpNaU7c22rQ8yPHXKv8lL/xWp1mh
-	GY5tQ+AA==;
+	bh=FODavOV50UQ2fle0wdcQBoJzYQUSYXPQs30mluJukZ8=; b=nLyxaHZzwtVrex5fGQi34rr1qr
+	dWBEOPqkkE4eb2+hGr1vpOFEMgbZ972CS0eNphEPhzVmieFR6fOtVhN4Ktl1ChmzMzgcG4tt9T7MQ
+	nn1o/Z3Ygw4SHuqfIIvZ7oFeWLl+Onq0VNQ8uFMqywcQW6dut34YfquygC4/zlop1Qy5JIjUPwhNX
+	kTExmm6mAYypZ2rDSu/+t2NG2GookDapssyDpTbxRo4A9uxVb9y/Ww4WVrNTOxCBU6Tuk0WZzfsNq
+	FdogYZxoXzRys75tj5snisQKau+dF2YR5f8HUbQ5dQqMpMvejHMhF0GKIX1W8WNv6JavQIasGm1cW
+	TrsbpfbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vidXL-00000005xGa-3HqJ;
-	Wed, 21 Jan 2026 19:06:39 +0000
+	id 1vidXT-00000005xJv-34EX;
+	Wed, 21 Jan 2026 19:06:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vidXF-00000005xEa-04Rf
+	id 1vidXO-00000005xHv-0hTo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 19:06:34 +0000
+	Wed, 21 Jan 2026 19:06:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 14AD91515;
-	Wed, 21 Jan 2026 11:06:24 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA9E21596;
+	Wed, 21 Jan 2026 11:06:34 -0800 (PST)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 89E8A3F632;
-	Wed, 21 Jan 2026 11:06:27 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 214B13F632;
+	Wed, 21 Jan 2026 11:06:38 -0800 (PST)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -57,17 +57,17 @@ Cc: catalin.marinas@arm.com,
 	mark.rutland@arm.com,
 	arnd@arndb.de,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v12 1/7] arm64: Kconfig: add support for LSUI
-Date: Wed, 21 Jan 2026 19:06:16 +0000
-Message-Id: <20260121190622.2218669-2-yeoreum.yun@arm.com>
+Subject: [PATCH v12 4/7] KVM: arm64: kselftest: set_id_regs: add test for FEAT_LSUI
+Date: Wed, 21 Jan 2026 19:06:19 +0000
+Message-Id: <20260121190622.2218669-5-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260121190622.2218669-1-yeoreum.yun@arm.com>
 References: <20260121190622.2218669-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_110633_095123_6F2E08A3 
-X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-CacheID: sfid-20260121_110642_251171_0F89CE32 
+X-CRM114-Status: UNSURE (   7.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,48 +83,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
-previleged level to access to access user memory without clearing
-PSTATE.PAN bit.
-
-Add Kconfig option entry for FEAT_LSUI.
+Add test coverage for FEAT_LSUI.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Reviewed-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/Kconfig | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ tools/testing/selftests/kvm/arm64/set_id_regs.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 93173f0a09c7..af70778e966c 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2227,6 +2227,26 @@ config ARM64_GCS
+diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+index c4815d365816..0b1714aa127c 100644
+--- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
++++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+@@ -125,6 +125,7 @@ static const struct reg_ftr_bits ftr_id_aa64isar2_el1[] = {
  
- endmenu # "ARMv9.4 architectural features"
- 
-+config AS_HAS_LSUI
-+	def_bool $(as-instr,.arch_extension lsui)
-+	help
-+	  Supported by LLVM 20+ and binutils 2.45+.
-+
-+menu "ARMv9.6 architectural features"
-+
-+config ARM64_LSUI
-+	bool "Support Unprivileged Load Store Instructions (LSUI)"
-+	default y
-+	depends on AS_HAS_LSUI && !CPU_BIG_ENDIAN
-+	help
-+	  The Unprivileged Load Store Instructions (LSUI) provides
-+	  variants load/store instructions that access user-space memory
-+	  from the kernel without clearing PSTATE.PAN bit.
-+
-+	  This feature is supported by LLVM 20+ and binutils 2.45+.
-+
-+endmenu # "ARMv9.6 architectural feature"
-+
- config ARM64_SVE
- 	bool "ARM Scalable Vector Extension support"
- 	default y
+ static const struct reg_ftr_bits ftr_id_aa64isar3_el1[] = {
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR3_EL1, FPRCVT, 0),
++	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR3_EL1, LSUI, 0),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR3_EL1, LSFE, 0),
+ 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR3_EL1, FAMINMAX, 0),
+ 	REG_FTR_END,
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
