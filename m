@@ -4,122 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB8FC44502
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 08:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C92C44502
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 08:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nJLNhxpUuunLpKkwMWOBq42/DhYih3hY7Y23pMOtVm4=; b=H3IaxEJaneh8i6fv/9xvWB44yi
-	fPAoVI3YqqHZdkUHoZp3QVUaBIkO0Ee1RgNznE3ciBiRuVwZVgK/+l11RpQAqz6edGAm9NoJ8EzOX
-	bIfYXU2W+QOd40/VBPtuyO1lFroUhLeDoQCC5IAO3b8Ds/rpdwe68YUptsoJPmV0vmJ6xIHqZ2Gpk
-	1k5WayVTy/BJ86X6KwB+NzVd1c5l7DybpGUTPRVzVrYB3Jqotv7o/uDs8Hi7psV7eR17PkfO/XGXh
-	58xFMKSecFXa9fAwIHoYuEJ8V6pdw89s/C3SDuN2qx24mDD+V8z8apUqFpwMSpmVwV5vnHAhpjNwE
-	Xh+oA4JQ==;
+	bh=3h5K98mpUaP2HOxH95Iz3m/g1kohTemp9eBgSQV7pzY=; b=sBXzsXkP6H+LMh+43JUce0Uokh
+	O2ensDH3Ao5tOJPb+KmA8d+uUwZQFBccOKJpEFPKIWioAMHy+QwvQxb7YXbf7fDKUovahWg/WiPAf
+	szwCOC6vDkOutHIcTtlW719DmwVK4EywoZn3IG8ffGZxe+QP/FOp8b+LCr4X1G6qX1xZ9ivFIb7l9
+	WeNCzqUBVsX9OtGattoMML2EzHCKzqw4llf+kFgBYQQM5yTtC7calbJHkh0ZUC6gxCoULjJLEMFPw
+	MCh9Ox0mWxsD+CWnTngbFHHsYwB/vLHVMO3Gv0/N1UUmwC8UGeOX5V4BNgA9UV04g1VCTUeho+Hl/
+	QlHWBbeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viTvE-000000057O7-3Ng5;
-	Wed, 21 Jan 2026 08:50:40 +0000
-Received: from mail-ua1-x930.google.com ([2607:f8b0:4864:20::930])
+	id 1viTwW-000000057Uo-0rsO;
+	Wed, 21 Jan 2026 08:52:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viTvC-000000057NU-06x2
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 08:50:39 +0000
-Received: by mail-ua1-x930.google.com with SMTP id a1e0cc1a2514c-944168e8c5fso4138056241.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 00:50:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768985436; x=1769590236; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nJLNhxpUuunLpKkwMWOBq42/DhYih3hY7Y23pMOtVm4=;
-        b=BboCyW2DkHrakowLJZAmvM8209ztrV3rvuCDrHT6CGmw9AQndv5t2K4ybDJ7P/lUoo
-         X2HlpBt0yqcw8dt+PYksQWALjMpNqkM6LrJAmJWBiduDJFfT/mJJ43FGgbPMhjYsljRM
-         h5qqWhg3sGierejcDGyABcSU5BMhErwc6H0n1ZFFV6GEee3171RyoCBKT1GSA9WezBca
-         w116kMPfNMbzpy9BQrbOKQWRkyj9JfOSSgfC9eQ7XcM+7DGnE2PS5Q82cvTg8TQWRbL6
-         SBSFHK8gjHefuoox+ctEd9ed65widKlJe0wY8LmZMGsC21C1G77Cy29XQBCopngtql8i
-         Pn4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768985436; x=1769590236;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=nJLNhxpUuunLpKkwMWOBq42/DhYih3hY7Y23pMOtVm4=;
-        b=O2KJKSP8J3N9Q8TyyPNknz3F+ro/8LOClX7o5NzytPqYRdIedZoNYYoJo2J12BRdMo
-         vdr1uIkoGD4e9T686qp9Y7Qv5x7nrw7ZtaTmqAbK1m4qe3Ju1vOsotT5HfzHIiVfxn0R
-         bVWH9FkifkpJUrPyrQH0gF+92uQXgqFLZ5tKovPNXxrnhXcjhdDb3n0urSlZuzfSXw5I
-         P65qJbx2bkL1yYBppsY08V0YuNIfeXvAiMPmB9/6Jba3vtY4x3/ZOxdwNTUaESeAOSJy
-         yRLLCs7EALENY3mBfQyO8AHLxSFQcuCdC1Ja+34ZBvFwaHiskYF0Gkm1d+O8c8uzwGnW
-         FPBg==
-X-Forwarded-Encrypted: i=1; AJvYcCV6Yhc2VHgCRG8GmpzQ27GEBwKU2ewtkZ5FHbqzG5O9j7A2fpAtrRQB8IIMkoccYupnzleFpFOgZJeS2QDj+acN@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsVpWJGYXWkV3c0uOrBVUPyHyWdV/QPazW3EVCREXg13NMUlBG
-	TkOSZ8/zD5UIgYt5tRl9IJfnuOyN8YdbZ5nqHcksxd4vvE+N3krMPAJfDbg+TvXY
-X-Gm-Gg: AZuq6aJ2f95r9e+2Baj/8KFesYHcLI1r3ukIsbqeYtHS9BFzKgAyl77lSMzhRqp3tpS
-	aUVZuJc01cC5/+qGdT106GsIkdoXYi3qjl/+lL7KvGvlNTjQ2r3PkIavDC8BPHNhtJj5lTx+DAX
-	0OOf/+EBOz50LF1tV8Jo8ipB9a1BCwLVT6Wh9SwXehkj87TaMcd/LV3uRpDxoY3qJpait4JoNa6
-	LmGVlZMlvaCC6YsmC0JZpjbDly6CZPuskVcH/Qe/eB89dvn3oaRBH3jsVKRqtCs3dtdRsxLfHyP
-	pK8O2Rr1Rlr7G9RDEjYovoxH/4dQpr93ubTpvNdu6YEUaxHty4uQcI0pn7MOOehtKoSRCzjwnhR
-	X1GPQPPqhTCjm7ToBxV/oONH3n61/VaUl5tz/TUFZ3WsqEpIA0hYpYNBHyzriFy+j+ZnRiOXBSe
-	ozrhkS7jR0nQ==
-X-Received: by 2002:a05:7022:1e01:b0:11b:d6f2:a6d6 with SMTP id a92af1059eb24-1244b36efefmr13558965c88.34.1768979613029;
-        Tue, 20 Jan 2026 23:13:33 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1244aefac48sm21239676c88.11.2026.01.20.23.13.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Jan 2026 23:13:32 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Yixun Lan <dlan@gentoo.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Yao Zi <ziyao@disroot.org>,
-	Yanteng Si <siyanteng@cqsoftware.com.cn>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH net-next v2 1/3] dt-bindings: net: Add support for Spacemit K3 dwmac
-Date: Wed, 21 Jan 2026 15:13:09 +0800
-Message-ID: <20260121071315.940130-2-inochiama@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260121071315.940130-1-inochiama@gmail.com>
-References: <20260121071315.940130-1-inochiama@gmail.com>
+	id 1viTwU-000000057UX-1IfX;
+	Wed, 21 Jan 2026 08:51:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BAEA460051;
+	Wed, 21 Jan 2026 08:51:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7334BC116D0;
+	Wed, 21 Jan 2026 08:51:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768985516;
+	bh=b1OkaZbNKUB0kzLe7Q/SqmLQZt0wkkv/yFCuw4NH4Cs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=JRox7huEDz8nFWjSs4ZCXM5FZBDddqq3Hbm0Fc8HE36ratOpY588+7QfjRwnqaBcI
+	 MJnHocoLBWWAm2tYtnOcO57kCvQ5KdvPjZp7KWpkPN7ruiujb740/53CENj7XQcjMu
+	 MAwUXv8UiXZGzarjbnl2opyXRkFC9gAK60D5N4+Rz/BEzq1fuEJauwM5CHWYfeEtza
+	 ub2sxpomfTBZmFt06nBF/xrL+XQ4r/IBQCHmN+2HZD8XtPtb7nQ9EgG/qmRvFz4ZU0
+	 2M4RM68hgh3K/fBNLWcxNm45GckJf2MFfRonCnhAPBrQEShersIDi0VeEQuBeGtPBX
+	 MSPFcXuYROycQ==
+From: Vinod Koul <vkoul@kernel.org>
+To: Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org
+In-Reply-To: <20251221-phy-hdptx-frl-v5-0-dac390a780be@collabora.com>
+References: <20251221-phy-hdptx-frl-v5-0-dac390a780be@collabora.com>
+Subject: Re: [PATCH v5 00/11] Add HDMI 2.1 FRL support to
+ phy-rockchip-samsung-hdptx
+Message-Id: <176898551090.1268719.6685367481494669298.b4-ty@kernel.org>
+Date: Wed, 21 Jan 2026 14:21:50 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_005038_106116_F0C299CB 
-X-CRM114-Status: GOOD (  17.07  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.13.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,156 +74,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GMAC IP on Spacemit K3 is almost a standard Synopsys DesignWare
-MAC (version 5.40a) with some extra clock.
 
-Add necessary compatible string for this device.
+On Sun, 21 Dec 2025 12:46:47 +0200, Cristian Ciocaltea wrote:
+> The Samsung HDMI/eDP Transmitter Combo PHY is capable of handling four
+> HDMI 2.1 Fixed Rate Link (FRL) lanes, while each lane can operate at
+> 3Gbps, 6Gbps, 8Gbps, 10Gbps or 12Gbps.
+> 
+> This patchset extends the HDMI PHY configuration API to manage the FRL
+> mode and provides all the required HDMI driver changes to enable FRL in
+> addition to the already supported TMDS mode.
+> 
+> [...]
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- .../devicetree/bindings/net/snps,dwmac.yaml   |   3 +
- .../bindings/net/spacemit,k3-dwmac.yaml       | 103 ++++++++++++++++++
- 2 files changed, 106 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+Applied, thanks!
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index dd3c72e8363e..3c2c6cb6b10b 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -34,6 +34,7 @@ select:
-           - snps,dwmac-5.10a
-           - snps,dwmac-5.20
-           - snps,dwmac-5.30a
-+          - snps,dwmac-5.40a
-           - snps,dwxgmac
-           - snps,dwxgmac-2.10
- 
-@@ -108,6 +109,7 @@ properties:
-         - snps,dwmac-5.10a
-         - snps,dwmac-5.20
-         - snps,dwmac-5.30a
-+        - snps,dwmac-5.40a
-         - snps,dwxgmac
-         - snps,dwxgmac-2.10
-         - sophgo,sg2042-dwmac
-@@ -653,6 +655,7 @@ allOf:
-                 - snps,dwmac-5.10a
-                 - snps,dwmac-5.20
-                 - snps,dwmac-5.30a
-+                - snps,dwmac-5.40a
-                 - snps,dwxgmac
-                 - snps,dwxgmac-2.10
-                 - st,spear600-gmac
-diff --git a/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
-new file mode 100644
-index 000000000000..e69f3b60c51f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
-@@ -0,0 +1,103 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/spacemit,k3-dwmac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Spacemit K3 DWMAC glue layer
-+
-+maintainers:
-+  - Inochi Amaoto <inochiama@gmail.com>
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        const: spacemit,k3-dwmac
-+  required:
-+    - compatible
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: spacemit,k3-dwmac
-+      - const: snps,dwmac-5.40a
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: GMAC main clock
-+      - description: PTP clock
-+      - description: TX clock
-+
-+  clock-names:
-+    items:
-+      - const: stmmaceth
-+      - const: ptp_ref
-+      - const: tx
-+
-+  interrupts:
-+    minItems: 1
-+    items:
-+      - description: MAC interrupt
-+      - description: MAC wake interrupt
-+
-+  interrupt-names:
-+    minItems: 1
-+    items:
-+      - const: macirq
-+      - const: eth_wake_irq
-+
-+  resets:
-+    maxItems: 1
-+
-+  reset-names:
-+    const: stmmaceth
-+
-+  spacemit,apmu:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - items:
-+          - description: phandle to the syscon node which control the glue register
-+          - description: offset of the control register
-+          - description: offset of the dline register
-+
-+    description:
-+      A phandle to syscon with offset to control registers for this MAC
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - interrupt-names
-+  - resets
-+  - reset-names
-+
-+allOf:
-+  - $ref: snps,dwmac.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    eth0: ethernet@cac80000 {
-+      compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
-+      reg = <0xcac80000 0x2000>;
-+      clocks = <&syscon_apmu 66>, <&syscon_apmu 68>,
-+               <&syscon_apmu 69>;
-+      clock-names = "stmmaceth", "ptp_ref", "tx";
-+      interrupts = <131 IRQ_TYPE_LEVEL_HIGH>, <276 IRQ_TYPE_LEVEL_HIGH>;
-+      interrupt-names = "macirq", "eth_wake_irq";
-+      phy-mode = "rgmii-id";
-+      phy-handle = <&phy0>;
-+      resets = <&syscon_apmu 67>;
-+      reset-names = "stmmaceth";
-+      spacemit,apmu = <&syscon_apmu 0x384 0x38c>;
-+    };
-+
+[01/11] phy: hdmi: Add HDMI 2.1 FRL configuration options
+        commit: 41c6cac6decd5123db1da8ca240a9c808b0ae6ce
+[02/11] phy: rockchip: samsung-hdptx: Use usleep_range() instead of udelay()
+        commit: 0ef8dd1034e3656e40d020911bb7aa14e7084663
+[03/11] phy: rockchip: samsung-hdptx: Fix coding style alignment
+        commit: 4f310f180373bd0e68311debee7a0dddb14c1656
+[04/11] phy: rockchip: samsung-hdptx: Consistently use [rk_]hdptx_[tmds_] prefixes
+        commit: 925f26a4f8c65e5686e1820f0bdc7e0a237edba7
+[05/11] phy: rockchip: samsung-hdptx: Enable lane output in common helper
+        commit: 8e8aa072b19d0d16afbfd690c8e50628176db3ef
+[06/11] phy: rockchip: samsung-hdptx: Cleanup *_cmn_init_seq lists
+        commit: df74a964e4354e65fefef60c9c50765ff32cd26e
+[07/11] phy: rockchip: samsung-hdptx: Compute clk rate from PLL config
+        commit: 3481fc04d969bc1528c2d1f7c02443a9fccf1a83
+[08/11] phy: rockchip: samsung-hdptx: Drop hw_rate driver data
+        commit: 66d76b6d958d7ca195c8b3f43828b12a206fb731
+[09/11] phy: rockchip: samsung-hdptx: Switch to driver specific HDMI config
+        commit: ac079c1207e492924237fdfb12c93664265b2e23
+[10/11] phy: rockchip: samsung-hdptx: Extend rk_hdptx_phy_verify_hdmi_config() helper
+        commit: b14fec4dbda301d61603c047277b4f447837b3e3
+[11/11] phy: rockchip: samsung-hdptx: Add HDMI 2.1 FRL support
+        commit: de5dba83311842cf208735b37bea84073688d470
+
+Best regards,
 -- 
-2.52.0
+~Vinod
+
 
 
