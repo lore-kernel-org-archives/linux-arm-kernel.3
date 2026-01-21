@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF9B5C4452E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A98EAC4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1b3iqZSi3NAv7DL60cztWzXhzFJIdx6Y7OlwrcqJEwU=; b=de+ZmnMgRZka8Anrh/ixmexGIT
-	5f7MEWgTUM/IpaabmXg9hM9EbZ21xpEM7SFvjsD7ijqJmJQYBs63k5gBjuAN+KvUJHIFce/W6/1ZA
-	QeTVT2Np/SsNGJZGQR4f5IQBc70Sq/dgFaoXA/sR1fHwkpCTBphIie1/vMOTYAQ65R2NpLyMR/f8z
-	WeqXUe5/2LzCjJirrO3/JXsLgVOsa8vQV+Qey7gHCg45ZdH4taWr5r05SAhPp0GNx12W6fDuJ0Uq+
-	Pk/M7E7mwI2RGsdc7Ubz89iLxnenYGXp+o8iQ1qHhXpW+D8du/jc3Hq4zA390tUjiqsG2EQdw/9ip
-	8d4giCTQ==;
+	bh=SfjcxeAT2W+o+UxrPmZJDMJEXHj1m3+fRUI5YUGISxM=; b=32EgJwCmVSnB98m+orCkWLanPb
+	QnQAyyjT9FXdARpMOhXOKRqbLaExJvQfgNMbQlsctB4Ag5iQ7Jm3Gm1kg2j9vdcTXbkJ9TGLc+p06
+	/134LZ4ghI+Qr/HIFE85Gwy0CQhRbCjbYLodS0zi6OBRKa4s7A3Ysn6+4CMrjVnJytxKrMbOOakqX
+	17DhrQ5n35qBZOc1CG9syxGt3Na2NkH+Hhi6kvteoZek8d5YSdWZnRVlTL0NYmuqwn8K6FIN55ZFU
+	McUgBwWfU2LKIc1exFDoppLaDWZvhmtdJ7Ooji89EHExL00Gv5Xz0MNZ6jUJcDYVqZMUrHB04RCXi
+	IyepF5UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYaF-00000005Xci-1dmy;
-	Wed, 21 Jan 2026 13:49:19 +0000
+	id 1viYaN-00000005XkC-0OA7;
+	Wed, 21 Jan 2026 13:49:27 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYa5-00000005XSe-2oSW;
-	Wed, 21 Jan 2026 13:49:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769003315; cv=none; 
+	id 1viYaC-00000005XZz-2uFS;
+	Wed, 21 Jan 2026 13:49:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769003323; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=ZQ1NiD4NSxwzxZxJntICbsvdENFIT0cSSTOF7ArkJ/yKBPVODIUr9SzMXtEdNh4eq7Bdzco6I1tuUQMM8VsvUDzoCys5hcuI2118YSHQtGDM0LFHIvklreIiwWwAA30CtTjOuhkAdBKNgNFfxuWa+NnIq02rIvk6hT1GrkChYkc=
+	b=Qu5HcFI7eZQyiLafHMrl40Bks9ctbn3Ag/wWiDv4upwjKR2blsOUlAAB+pwG4gnk1oMbo6IckVIieq4tPo2co0flrE6JQDG75MFPG2S8idT5LkDpkZRny0maeIl33YuuAvdD8Wa1Hcqu7VlU76nJ4rFSTTi3fw7mqUR/byQ4XEQ=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769003315; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=1b3iqZSi3NAv7DL60cztWzXhzFJIdx6Y7OlwrcqJEwU=; 
-	b=MCYMxy19TxGJo0C00oCdLu/P7VTBoLGUsHJZ9hLsdM9K70F3Cxjiy43e82FU5/kT+k5nWIJmhwdr34f9YVoRm7jo52yar7tCAFXimdDLBIQXP3apCALnlx3sgTaCWYItASuA2hoWBdtNG4ye+QBU0n/9Gwyqf6bS0FepZvk9Uow=
+	t=1769003323; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=SfjcxeAT2W+o+UxrPmZJDMJEXHj1m3+fRUI5YUGISxM=; 
+	b=KhH6sT8FeyTWPQ93V/yBX/pRI+veKpouS2PgUmP8OeIaNEDLH4tu9tNIuh5NGYd4VowpJqrG5L8LoetvhaqhC13gGxEw/pFfh6b9XtAhyf5J54GPblqhxvTmTAmu6pd7bjSFhcGqnT32X0rrlhg0+5GWhbZerJ4jMWH9TxxPO4k=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769003315;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769003323;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=1b3iqZSi3NAv7DL60cztWzXhzFJIdx6Y7OlwrcqJEwU=;
-	b=ewZqoHOTDyBeyFE0lz03N2LTT+NpsEmr7LiCAjifTwltfHI0U15+AZKCm3xDle6i
-	WcEWzus1yOj8Nd5rxsrY4YjkzglZtpuJOWKcIy4vWKFLP10t4a91+2J6XCdIw3ARb5J
-	Oj6CZu9JSjA95Bv6QtZpKV/X//+hkGMC3cMjc6sI=
-Received: by mx.zohomail.com with SMTPS id 1769003313004480.16829062943896;
-	Wed, 21 Jan 2026 05:48:33 -0800 (PST)
+	bh=SfjcxeAT2W+o+UxrPmZJDMJEXHj1m3+fRUI5YUGISxM=;
+	b=NBgc6ozo0i/RTDRfPAIxxMCsaynl11+ueBDC0eT6tGUo92Lv21csWpMu8MW+PpwE
+	HG8fPD/kd3L6KIb+sPpMgHUXL3U4hMtwD8b3oN8/K0qN3AdNNpVXmLt5KKxEhNA3ehu
+	/RZi4IFp0AyKU9yvGug+X0zTy4RLOdZFb0bOtYKI=
+Received: by mx.zohomail.com with SMTPS id 1769003320832411.20417740809444;
+	Wed, 21 Jan 2026 05:48:40 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Wed, 21 Jan 2026 14:45:46 +0100
-Subject: [PATCH v6 20/21] drm/tests: bridge: Add KUnit tests for bridge
- chain format selection
+Date: Wed, 21 Jan 2026 14:45:47 +0100
+Subject: [PATCH v6 21/21] drm/bridge: Document bridge chain format
+ selection
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260121-color-format-v6-20-7b81a771cd0b@collabora.com>
+Message-Id: <20260121-color-format-v6-21-7b81a771cd0b@collabora.com>
 References: <20260121-color-format-v6-0-7b81a771cd0b@collabora.com>
 In-Reply-To: <20260121-color-format-v6-0-7b81a771cd0b@collabora.com>
 To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
@@ -84,8 +84,8 @@ Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_054909_923989_70AACEC9 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20260121_054916_813107_DFCDBC6F 
+X-CRM114-Status: GOOD (  17.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,911 +100,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the "color format" property, the bridge chain format selection has
-gained increased complexity. Instead of simply finding any sequence of
-bus formats that works, the bridge chain format selection needs to pick
-a sequence that results in the requested color format.
+The bridge chain format selection behaviour was, until now,
+undocumented. With the addition of the "color format" DRM property, it's
+not sufficiently complex enough that documentation is warranted,
+especially for driver authors trying to do the right thing.
 
-Add KUnit tests for this new logic. These take the form of some pleasant
-preprocessor macros to make it less cumbersome to define test bridges
-with a set of possible input and output formats.
-
-The input and output formats are defined for bridges in the form of
-tuples, where the first member defines the input format, and the second
-member defines the output format that can be produced from this input
-format. This means the tests can construct scenarios in which not all
-inputs can be converted to all outputs.
-
-Some tests are added to test interesting scenarios to exercise the bus
-format selection in the presence of a specific color format request.
-
-Furthermore, tests are added to verify that bridge chains that end in an
-HDMI connector will always prefer RGB when the color format is
-DRM_COLOR_FORMAT_AUTO, as is the behaviour in the HDMI state helpers.
+Add a high-level overview of how the process is supposed to work, and
+mention what the display driver is supposed to do if it wants to make
+use of this functionality.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/tests/drm_bridge_test.c | 815 ++++++++++++++++++++++++++++++++
- 1 file changed, 815 insertions(+)
+ Documentation/gpu/drm-kms-helpers.rst |  6 ++++++
+ drivers/gpu/drm/drm_bridge.c          | 39 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 45 insertions(+)
 
-diff --git a/drivers/gpu/drm/tests/drm_bridge_test.c b/drivers/gpu/drm/tests/drm_bridge_test.c
-index 887020141c7f..decacd49b50b 100644
---- a/drivers/gpu/drm/tests/drm_bridge_test.c
-+++ b/drivers/gpu/drm/tests/drm_bridge_test.c
-@@ -2,15 +2,23 @@
- /*
-  * Kunit test for drm_bridge functions
+diff --git a/Documentation/gpu/drm-kms-helpers.rst b/Documentation/gpu/drm-kms-helpers.rst
+index 781129f78b06..47c4f593cf9d 100644
+--- a/Documentation/gpu/drm-kms-helpers.rst
++++ b/Documentation/gpu/drm-kms-helpers.rst
+@@ -181,6 +181,12 @@ Bridge Operations
+ .. kernel-doc:: drivers/gpu/drm/drm_bridge.c
+    :doc: bridge operations
+ 
++Bridge Chain Format Selection
++-----------------------------
++
++.. kernel-doc:: drivers/gpu/drm/drm_bridge.c
++   :doc: bridge chain format selection
++
+ Bridge Connector Helper
+ -----------------------
+ 
+diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+index b0dfa03dbb81..a155b8aa4a3d 100644
+--- a/drivers/gpu/drm/drm_bridge.c
++++ b/drivers/gpu/drm/drm_bridge.c
+@@ -198,6 +198,45 @@
+  * driver.
   */
-+#include <linux/cleanup.h>
-+#include <linux/media-bus-format.h>
-+
- #include <drm/drm_atomic_state_helper.h>
-+#include <drm/drm_atomic_uapi.h>
- #include <drm/drm_bridge.h>
- #include <drm/drm_bridge_connector.h>
- #include <drm/drm_bridge_helper.h>
-+#include <drm/drm_edid.h>
- #include <drm/drm_kunit_helpers.h>
-+#include <drm/drm_managed.h>
- 
- #include <kunit/device.h>
- #include <kunit/test.h>
- 
-+#include "drm_kunit_edid.h"
-+
- /*
-  * Mimick the typical "private" struct defined by a bridge driver, which
-  * embeds a bridge plus other fields.
-@@ -37,6 +45,27 @@ struct drm_bridge_init_priv {
- 	bool destroyed;
- };
- 
-+struct drm_bridge_chain_priv {
-+	struct drm_device drm;
-+	struct drm_encoder encoder;
-+	struct drm_plane *plane;
-+	struct drm_crtc *crtc;
-+	struct drm_connector *connector;
-+	unsigned int num_bridges;
-+
-+	/**
-+	 * @test_bridges: array of pointers to &struct drm_bridge_priv entries
-+	 *                of which the first @num_bridges entries are valid.
-+	 */
-+	struct drm_bridge_priv **test_bridges;
-+	/**
-+	 * @destroyed: bool array of size @num_bridges serving the same function
-+	 *             as &struct drm_bridge_init_priv::destroyed does for a
-+	 *             single bridge test.
-+	 */
-+	bool *destroyed;
-+};
-+
- static struct drm_bridge_priv *bridge_to_priv(struct drm_bridge *bridge)
- {
- 	return container_of(bridge, struct drm_bridge_priv, bridge);
-@@ -50,6 +79,21 @@ static void drm_test_bridge_priv_destroy(struct drm_bridge *bridge)
- 	priv->destroyed = true;
- }
- 
-+static void drm_test_bridge_chain_priv_destroy(struct drm_bridge *bridge)
-+{
-+	struct drm_bridge_priv *bridge_priv = bridge_to_priv(bridge);
-+	struct drm_bridge_chain_priv *priv = (struct drm_bridge_chain_priv *)bridge_priv->data;
-+	unsigned int i;
-+
-+	for (i = 0; i < priv->num_bridges; i++) {
-+		if (priv->test_bridges[i] != bridge_priv)
-+			continue;
-+
-+		priv->destroyed[i] = true;
-+		break;
-+	}
-+}
-+
- static void drm_test_bridge_enable(struct drm_bridge *bridge)
- {
- 	struct drm_bridge_priv *priv = bridge_to_priv(bridge);
-@@ -95,6 +139,231 @@ static const struct drm_bridge_funcs drm_test_bridge_atomic_funcs = {
- 	.atomic_reset		= drm_atomic_helper_bridge_reset,
- };
  
 +/**
-+ * struct fmt_tuple - a tuple of input/output MEDIA_BUS_FMT_*
-+ */
-+struct fmt_tuple {
-+	u32 in_fmt;
-+	u32 out_fmt;
-+};
-+
-+/*
-+ * Format mapping that only accepts RGB888, and outputs only RGB888
-+ */
-+static const struct fmt_tuple rgb8_passthrough[] = {
-+	{ MEDIA_BUS_FMT_RGB888_1X24, MEDIA_BUS_FMT_RGB888_1X24 },
-+};
-+
-+/*
-+ * Format mapping that only accepts YUV444, and outputs only YUV444
-+ */
-+static const struct fmt_tuple yuv8_passthrough[] = {
-+	{ MEDIA_BUS_FMT_YUV8_1X24,   MEDIA_BUS_FMT_YUV8_1X24 },
-+};
-+
-+/*
-+ * Format mapping where 8bpc RGB -> 8bpc YUV444, or ID(RGB) or ID(YUV444)
-+ */
-+static const struct fmt_tuple rgb8_to_yuv8_or_id[] = {
-+	{ MEDIA_BUS_FMT_RGB888_1X24, MEDIA_BUS_FMT_RGB888_1X24 },
-+	{ MEDIA_BUS_FMT_YUV8_1X24,   MEDIA_BUS_FMT_YUV8_1X24 },
-+	{ MEDIA_BUS_FMT_RGB888_1X24, MEDIA_BUS_FMT_YUV8_1X24 },
-+};
-+
-+static const struct fmt_tuple rgb8_to_id_yuv8_or_yuv8_to_yuv422_yuv420[] = {
-+	{ MEDIA_BUS_FMT_RGB888_1X24, MEDIA_BUS_FMT_RGB888_1X24 },
-+	{ MEDIA_BUS_FMT_RGB888_1X24, MEDIA_BUS_FMT_YUV8_1X24 },
-+	{ MEDIA_BUS_FMT_YUV8_1X24,   MEDIA_BUS_FMT_UYVY8_1X16 },
-+	{ MEDIA_BUS_FMT_YUV8_1X24,   MEDIA_BUS_FMT_UYYVYY8_0_5X24 },
-+};
-+
-+/*
-+ * Format mapping where 8bpc YUV444 -> 8bpc RGB, or ID(YUV444)
-+ */
-+static const struct fmt_tuple yuv8_to_rgb8_or_id[] = {
-+	{ MEDIA_BUS_FMT_YUV8_1X24, MEDIA_BUS_FMT_YUV8_1X24 },
-+	{ MEDIA_BUS_FMT_YUV8_1X24, MEDIA_BUS_FMT_RGB888_1X24 },
-+};
-+
-+/*
-+ * A format mapping that acts like a video processor that generates an RGB signal
-+ */
-+static const struct fmt_tuple rgb_producer[] = {
-+	{ MEDIA_BUS_FMT_FIXED, MEDIA_BUS_FMT_RGB888_1X24 },
-+	{ MEDIA_BUS_FMT_FIXED, MEDIA_BUS_FMT_RGB101010_1X30 },
-+	{ MEDIA_BUS_FMT_FIXED, MEDIA_BUS_FMT_RGB121212_1X36 },
-+};
-+
-+/*
-+ * A format mapping that acts like a video processor that generates an 8-bit RGB,
-+ * YUV444 or YUV420 signal
-+ */
-+static const struct fmt_tuple rgb_yuv444_yuv420_producer[] = {
-+	{ MEDIA_BUS_FMT_FIXED, MEDIA_BUS_FMT_RGB888_1X24 },
-+	{ MEDIA_BUS_FMT_FIXED, MEDIA_BUS_FMT_YUV8_1X24 },
-+	{ MEDIA_BUS_FMT_FIXED, MEDIA_BUS_FMT_UYYVYY8_0_5X24 },
-+};
-+
-+static const struct fmt_tuple rgb8_yuv444_yuv422_passthrough[] = {
-+	{ MEDIA_BUS_FMT_RGB888_1X24, MEDIA_BUS_FMT_RGB888_1X24 },
-+	{ MEDIA_BUS_FMT_YUV8_1X24,   MEDIA_BUS_FMT_YUV8_1X24 },
-+	{ MEDIA_BUS_FMT_UYVY8_1X16,  MEDIA_BUS_FMT_UYVY8_1X16 },
-+};
-+
-+static const struct fmt_tuple yuv444_yuv422_rgb8_passthrough[] = {
-+	{ MEDIA_BUS_FMT_YUV8_1X24,   MEDIA_BUS_FMT_YUV8_1X24 },
-+	{ MEDIA_BUS_FMT_UYVY8_1X16,  MEDIA_BUS_FMT_UYVY8_1X16 },
-+	{ MEDIA_BUS_FMT_RGB888_1X24, MEDIA_BUS_FMT_RGB888_1X24 },
-+};
-+
-+static bool fmt_in_list(const u32 fmt, const u32 *out_fmts, const size_t num_fmts)
-+{
-+	size_t i;
-+
-+	for (i = 0; i < num_fmts; i++)
-+		if (out_fmts[i] == fmt)
-+			return true;
-+
-+	return false;
-+}
-+
-+/**
-+ * get_tuples_out_fmts - Get unique output formats of a &struct fmt_tuple list
-+ * @fmt_tuples: array of &struct fmt_tuple
-+ * @num_fmt_tuples: number of entries in @fmt_tuples
-+ * @out_fmts: target array to store the unique output bus formats
++ * DOC: bridge chain format selection
 + *
-+ * Returns the number of unique output formats, i.e. the number of entries in
-+ * @out_fmts that were populated with sensible values.
-+ */
-+static size_t get_tuples_out_fmts(const struct fmt_tuple *fmt_tuples,
-+				  const size_t num_fmt_tuples, u32 *out_fmts)
-+{
-+	size_t num_unique = 0;
-+	size_t i;
-+
-+	for (i = 0; i < num_fmt_tuples; i++)
-+		if (!fmt_in_list(fmt_tuples[i].out_fmt, out_fmts, num_unique))
-+			out_fmts[num_unique++] = fmt_tuples[i].out_fmt;
-+
-+	return num_unique;
-+}
-+
-+#define DEFINE_FMT_FUNCS_FROM_TUPLES(name) \
-+static u32 *drm_test_bridge_ ## name ## _out_fmts(struct drm_bridge *bridge,			\
-+						  struct drm_bridge_state *bridge_state,	\
-+						  struct drm_crtc_state *crtc_state,		\
-+						  struct drm_connector_state *conn_state,	\
-+						  unsigned int *num_output_fmts)		\
-+{												\
-+	u32 *out_fmts = kcalloc(ARRAY_SIZE((name)), sizeof(u32), GFP_KERNEL);			\
-+												\
-+	if (out_fmts)										\
-+		*num_output_fmts = get_tuples_out_fmts((name), ARRAY_SIZE((name)), out_fmts);	\
-+	else											\
-+		*num_output_fmts = 0;								\
-+												\
-+	return out_fmts;									\
-+}												\
-+												\
-+static u32 *drm_test_bridge_ ## name ## _in_fmts(struct drm_bridge *bridge,			\
-+						 struct drm_bridge_state *bridge_state,		\
-+						 struct drm_crtc_state *crtc_state,		\
-+						 struct drm_connector_state *conn_state,	\
-+						 u32 output_fmt,				\
-+						 unsigned int *num_input_fmts)			\
-+{												\
-+	u32 *in_fmts = kcalloc(ARRAY_SIZE((name)), sizeof(u32), GFP_KERNEL);			\
-+	unsigned int num_fmts = 0;								\
-+	size_t i;										\
-+												\
-+	if (!in_fmts) {										\
-+		*num_input_fmts = 0;								\
-+		return NULL;									\
-+	}											\
-+												\
-+	for (i = 0; i < ARRAY_SIZE((name)); i++)						\
-+		if ((name)[i].out_fmt == output_fmt)						\
-+			in_fmts[num_fmts++] = (name)[i].in_fmt;					\
-+												\
-+	*num_input_fmts = num_fmts;								\
-+												\
-+	return in_fmts;										\
-+}
-+
-+#define DRM_BRIDGE_ATOMIC_WITH_BUS_FMT_HDMI_FUNC(ident, input_fmts_func, output_fmts_func,	\
-+						 hdmi_write_infoframe_func,			\
-+						 hdmi_clear_infoframe_func)			\
-+static const struct drm_bridge_funcs (ident) = {						\
-+	.destroy			= drm_test_bridge_chain_priv_destroy,			\
-+	.atomic_enable			= drm_test_bridge_atomic_enable,			\
-+	.atomic_disable			= drm_test_bridge_atomic_disable,			\
-+	.atomic_destroy_state		= drm_atomic_helper_bridge_destroy_state,		\
-+	.atomic_duplicate_state		= drm_atomic_helper_bridge_duplicate_state,		\
-+	.atomic_reset			= drm_atomic_helper_bridge_reset,			\
-+	.atomic_get_input_bus_fmts	= (input_fmts_func),					\
-+	.atomic_get_output_bus_fmts	= (output_fmts_func),					\
-+	.hdmi_write_infoframe		= (hdmi_write_infoframe_func),				\
-+	.hdmi_clear_infoframe		= (hdmi_clear_infoframe_func),				\
-+}
-+
-+#define DRM_BRIDGE_ATOMIC_WITH_BUS_FMT_FUNC(ident, input_fmts_func, output_fmts_func)		\
-+	DRM_BRIDGE_ATOMIC_WITH_BUS_FMT_HDMI_FUNC(ident, input_fmts_func, output_fmts_func,	\
-+						 NULL, NULL)
-+
-+#define DRM_BRIDGE_ATOMIC_WITH_BUS_FMT(_name)						\
-+	DRM_BRIDGE_ATOMIC_WITH_BUS_FMT_FUNC(_name ## _funcs,				\
-+					    drm_test_bridge_ ## _name ## _in_fmts,	\
-+					    drm_test_bridge_ ## _name ## _out_fmts)
-+
-+
-+static int drm_test_bridge_write_infoframe_stub(struct drm_bridge *bridge,
-+						enum hdmi_infoframe_type type,
-+						const u8 *buffer, size_t len)
-+{
-+	return 0;
-+}
-+
-+static int drm_test_bridge_clear_infoframe_stub(struct drm_bridge *bridge,
-+						enum hdmi_infoframe_type type)
-+{
-+	return 0;
-+}
-+
-+#define DRM_BRIDGE_ATOMIC_WITH_BUS_FMT_HDMI(_name)						\
-+	DRM_BRIDGE_ATOMIC_WITH_BUS_FMT_HDMI_FUNC(_name ## _hdmi ## _funcs,			\
-+						 drm_test_bridge_ ## _name ## _in_fmts,		\
-+						 drm_test_bridge_ ## _name ## _out_fmts,	\
-+						 drm_test_bridge_write_infoframe_stub,		\
-+						 drm_test_bridge_clear_infoframe_stub)
-+DEFINE_FMT_FUNCS_FROM_TUPLES(rgb8_passthrough)
-+DRM_BRIDGE_ATOMIC_WITH_BUS_FMT(rgb8_passthrough);
-+
-+DEFINE_FMT_FUNCS_FROM_TUPLES(yuv8_passthrough)
-+DRM_BRIDGE_ATOMIC_WITH_BUS_FMT(yuv8_passthrough);
-+
-+DEFINE_FMT_FUNCS_FROM_TUPLES(rgb8_to_yuv8_or_id)
-+DRM_BRIDGE_ATOMIC_WITH_BUS_FMT(rgb8_to_yuv8_or_id);
-+
-+DEFINE_FMT_FUNCS_FROM_TUPLES(yuv8_to_rgb8_or_id)
-+DRM_BRIDGE_ATOMIC_WITH_BUS_FMT(yuv8_to_rgb8_or_id);
-+
-+DEFINE_FMT_FUNCS_FROM_TUPLES(rgb_producer)
-+DRM_BRIDGE_ATOMIC_WITH_BUS_FMT(rgb_producer);
-+
-+DEFINE_FMT_FUNCS_FROM_TUPLES(rgb_yuv444_yuv420_producer)
-+DRM_BRIDGE_ATOMIC_WITH_BUS_FMT(rgb_yuv444_yuv420_producer);
-+
-+DEFINE_FMT_FUNCS_FROM_TUPLES(rgb8_to_id_yuv8_or_yuv8_to_yuv422_yuv420)
-+DRM_BRIDGE_ATOMIC_WITH_BUS_FMT(rgb8_to_id_yuv8_or_yuv8_to_yuv422_yuv420);
-+
-+DEFINE_FMT_FUNCS_FROM_TUPLES(rgb8_yuv444_yuv422_passthrough)
-+DRM_BRIDGE_ATOMIC_WITH_BUS_FMT(rgb8_yuv444_yuv422_passthrough);
-+
-+DEFINE_FMT_FUNCS_FROM_TUPLES(yuv444_yuv422_rgb8_passthrough)
-+DRM_BRIDGE_ATOMIC_WITH_BUS_FMT(yuv444_yuv422_rgb8_passthrough);
-+DRM_BRIDGE_ATOMIC_WITH_BUS_FMT_HDMI(yuv444_yuv422_rgb8_passthrough);
-+
- KUNIT_DEFINE_ACTION_WRAPPER(drm_bridge_remove_wrapper,
- 			    drm_bridge_remove,
- 			    struct drm_bridge *);
-@@ -180,6 +449,125 @@ drm_test_bridge_init(struct kunit *test, const struct drm_bridge_funcs *funcs)
- 	return priv;
- }
- 
-+static struct drm_bridge_chain_priv *
-+drm_test_bridge_chain_init(struct kunit *test, unsigned int num_bridges,
-+			   const struct drm_bridge_funcs **funcs)
-+{
-+	struct drm_bridge_chain_priv *priv;
-+	const struct drm_edid *edid;
-+	struct drm_bridge *prev;
-+	struct drm_encoder *enc;
-+	struct drm_bridge *bridge;
-+	struct drm_device *drm;
-+	bool has_hdmi = false;
-+	struct device *dev;
-+	unsigned int i;
-+	int ret;
-+
-+	dev = drm_kunit_helper_alloc_device(test);
-+	if (IS_ERR(dev))
-+		return ERR_CAST(dev);
-+
-+	priv = drm_kunit_helper_alloc_drm_device(test, dev, struct drm_bridge_chain_priv,
-+						 drm, DRIVER_MODESET | DRIVER_ATOMIC);
-+	if (IS_ERR(priv))
-+		return ERR_CAST(priv);
-+
-+	drm = &priv->drm;
-+
-+	priv->test_bridges = drmm_kmalloc_array(drm, num_bridges, sizeof(*priv->test_bridges),
-+						GFP_KERNEL);
-+	if (!priv->test_bridges)
-+		return ERR_PTR(-ENOMEM);
-+
-+	priv->destroyed = drmm_kcalloc(drm, num_bridges, sizeof(*priv->destroyed), GFP_KERNEL);
-+	if (!priv->destroyed)
-+		return ERR_PTR(-ENOMEM);
-+
-+	priv->num_bridges = num_bridges;
-+
-+	for (i = 0; i < num_bridges; i++) {
-+		priv->test_bridges[i] = devm_drm_bridge_alloc(dev, struct drm_bridge_priv,
-+							      bridge, funcs[i]);
-+		if (IS_ERR(priv->test_bridges[i]))
-+			return ERR_CAST(priv->test_bridges[i]);
-+
-+		priv->test_bridges[i]->data = priv;
-+	}
-+
-+	priv->plane = drm_kunit_helper_create_primary_plane(test, drm, NULL, NULL,
-+							    NULL, 0, NULL);
-+	if (IS_ERR(priv->plane))
-+		return ERR_CAST(priv->plane);
-+
-+	priv->crtc = drm_kunit_helper_create_crtc(test, drm, priv->plane, NULL,
-+						  NULL, NULL);
-+	if (IS_ERR(priv->crtc))
-+		return ERR_CAST(priv->crtc);
-+
-+	enc = &priv->encoder;
-+	ret = drmm_encoder_init(drm, enc, NULL, DRM_MODE_ENCODER_TMDS, NULL);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	enc->possible_crtcs = drm_crtc_mask(priv->crtc);
-+
-+	prev = NULL;
-+	for (i = 0; i < num_bridges; i++) {
-+		bridge = &priv->test_bridges[i]->bridge;
-+		bridge->type = DRM_MODE_CONNECTOR_VIRTUAL;
-+
-+		if (bridge->funcs->hdmi_clear_infoframe &&
-+		    bridge->funcs->hdmi_write_infoframe) {
-+			has_hdmi = true;
-+			bridge->ops |= DRM_BRIDGE_OP_HDMI;
-+			bridge->type = DRM_MODE_CONNECTOR_HDMIA;
-+			bridge->vendor = "LNX";
-+			bridge->product = "KUnit";
-+			bridge->supported_formats = (BIT(HDMI_COLORSPACE_RGB) |
-+						     BIT(HDMI_COLORSPACE_YUV444) |
-+						     BIT(HDMI_COLORSPACE_YUV422) |
-+						     BIT(HDMI_COLORSPACE_YUV420));
-+		}
-+
-+		ret = drm_kunit_bridge_add(test, bridge);
-+		if (ret)
-+			return ERR_PTR(ret);
-+
-+		ret = drm_bridge_attach(enc, bridge, prev, 0);
-+		if (ret)
-+			return ERR_PTR(ret);
-+
-+		prev = bridge;
-+	}
-+
-+
-+	priv->connector = drm_bridge_connector_init(drm, enc);
-+	if (IS_ERR(priv->connector))
-+		return ERR_CAST(priv->connector);
-+
-+	drm_connector_attach_encoder(priv->connector, enc);
-+
-+	drm_mode_config_reset(drm);
-+
-+	if (!has_hdmi)
-+		return priv;
-+
-+	scoped_guard(mutex, &drm->mode_config.mutex) {
-+		edid = drm_edid_alloc(test_edid_hdmi_1080p_rgb_yuv_4k_yuv420_dc_max_200mhz,
-+				ARRAY_SIZE(test_edid_hdmi_1080p_rgb_yuv_4k_yuv420_dc_max_200mhz));
-+		if (!edid)
-+			return ERR_PTR(-EINVAL);
-+
-+		drm_edid_connector_update(priv->connector, edid);
-+		KUNIT_ASSERT_GT(test, drm_edid_connector_add_modes(priv->connector), 0);
-+
-+		ret = priv->connector->funcs->fill_modes(priv->connector, 4096, 4096);
-+	}
-+
-+	return priv;
-+}
-+
- /*
-  * Test that drm_bridge_get_current_state() returns the last committed
-  * state for an atomic bridge.
-@@ -508,14 +896,441 @@ static struct kunit_suite drm_bridge_alloc_test_suite = {
- 	.test_cases = drm_bridge_alloc_tests,
- };
- 
-+/**
-+ * drm_test_bridge_chain_verify_fmt - Verify bridge chain format selection
-+ * @test: pointer to KUnit test object
-+ * @priv: pointer to a &struct drm_bridge_chain_priv for this chain
-+ * @expected: constant array of &struct fmt_tuple describing the expected
-+ *            input and output bus formats
-+ * @num_expected: number of entries in @expected
++ * A bridge chain, from display output processor to connector, may contain
++ * bridges capable of converting between bus formats on their inputs, and
++ * output formats on their outputs. For example, a bridge may be able to convert
++ * from RGB to YCbCr 4:4:4, and pass through YCbCr 4:2:0 as-is, but not convert
++ * from RGB to YCbCr 4:2:0. This means not all input formats map to all output
++ * formats.
 + *
-+ * Runs the KUNIT_EXPECT clauses to verify the bridge chain format selection
-+ * resulted in the expected formats. If %0 is given as a format in a
-+ * &struct fmt_tuple, then it is understood to mean "any".
++ * Further adding to this, a desired output color format, as specified with the
++ * "color format" DRM property, might not correspond to what the display driver
++ * should set at its output 1:1. The bridge chain it feeds into may only be able
++ * to reach the desired output format, if a conversion from a different starting
++ * format is performed.
 + *
-+ * Must be called with the modeset lock held.
-+ */
-+static void drm_test_bridge_chain_verify_fmt(struct kunit *test,
-+					     struct drm_bridge_chain_priv *priv,
-+					     const struct fmt_tuple *const expected,
-+					     const unsigned int num_expected)
-+{
-+	struct drm_bridge_state *bstate;
-+	unsigned int i = 0;
-+
-+	drm_for_each_bridge_in_chain_scoped(&priv->encoder, bridge) {
-+		KUNIT_ASSERT_LT(test, i, num_expected);
-+
-+		bstate = drm_bridge_get_current_state(bridge);
-+		if (expected[i].in_fmt)
-+			KUNIT_EXPECT_EQ(test, bstate->input_bus_cfg.format,
-+					expected[i].in_fmt);
-+		if (expected[i].out_fmt)
-+			KUNIT_EXPECT_EQ(test, bstate->output_bus_cfg.format,
-+					expected[i].out_fmt);
-+
-+		i++;
-+	}
-+
-+	KUNIT_ASSERT_EQ_MSG(test, i, num_expected,
-+			    "Fewer bridges (%u) than expected (%u)\n", i, num_expected);
-+}
-+
-+/*
-+ * Test that constructs a bridge chain in which an RGB888 producer is chained to
-+ * two bridges that will convert from RGB to YUV and from YUV to RGB respectively.
++ * To deal with this complexity, the recursive bridge chain bus format selection
++ * logic starts with the last bridge in the chain, usually the connector, and
++ * then recursively walks the chain of bridges backwards to the first bridge,
++ * trying to find a path.
 + *
-+ * The test requests an output color_format of RGB using the color_format property,
-+ * so to satisfy this request, the bridge chain must take a detour over YUV.
-+ */
-+static void drm_test_bridge_rgb_yuv_rgb(struct kunit *test)
-+{
-+	static const struct drm_bridge_funcs *funcs[] = {
-+		&rgb_producer_funcs,
-+		&rgb8_to_yuv8_or_id_funcs,
-+		&yuv8_to_rgb8_or_id_funcs,
-+	};
-+	static const struct fmt_tuple expected[] = {
-+		{ MEDIA_BUS_FMT_FIXED, MEDIA_BUS_FMT_RGB888_1X24 },
-+		{ MEDIA_BUS_FMT_RGB888_1X24, MEDIA_BUS_FMT_YUV8_1X24 },
-+		{ MEDIA_BUS_FMT_YUV8_1X24, MEDIA_BUS_FMT_RGB888_1X24 },
-+	};
-+	struct drm_connector_state *conn_state;
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_bridge_chain_priv *priv;
-+	struct drm_crtc_state *crtc_state;
-+	struct drm_atomic_state *state;
-+	struct drm_display_mode *mode;
-+	int ret;
-+
-+	priv = drm_test_bridge_chain_init(test, ARRAY_SIZE(funcs), funcs);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv);
-+
-+	drm_modeset_acquire_init(&ctx, 0);
-+
-+	state = drm_kunit_helper_atomic_state_alloc(test, &priv->drm, &ctx);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, state);
-+
-+retry_commit:
-+	conn_state = drm_atomic_get_connector_state(state, priv->connector);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
-+
-+	mode = drm_kunit_display_mode_from_cea_vic(test, &priv->drm, 16);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, mode);
-+
-+	conn_state->color_format = DRM_COLOR_FORMAT_RGB444;
-+
-+	ret = drm_atomic_set_crtc_for_connector(conn_state, priv->crtc);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	crtc_state = drm_atomic_get_crtc_state(state, priv->crtc);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, crtc_state);
-+
-+	ret = drm_atomic_set_mode_for_crtc(crtc_state, mode);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	crtc_state->enable = true;
-+	crtc_state->active = true;
-+
-+	ret = drm_atomic_commit(state);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	drm_test_bridge_chain_verify_fmt(test, priv, expected, ARRAY_SIZE(expected));
-+
-+	drm_modeset_drop_locks(&ctx);
-+	drm_modeset_acquire_fini(&ctx);
-+}
-+
-+/*
-+ * Test in which a bridge capable of producing RGB, YUV444 and YUV420 has to
-+ * produce RGB and convert with a downstream bridge in the chain to reach the
-+ * requested YUV444 color format, as no direct path exists between its YUV444
-+ * and the last bridge.
++ * For a display driver to work in such a scenario, it should read the first
++ * bridge's bridge state to figure out which bus format the chain resolved to.
++ * If the first bridge's input format resolved to %MEDIA_BUS_FMT_FIXED, then its
++ * output format should be used.
 + *
-+ * The rationale behind this test is to devise a scenario in which naively
-+ * assuming any format the video processor can output, and the connector
-+ * requests, is the right format to pick, does not work.
++ * Special handling is done for HDMI as it relates to format selection. Instead
++ * of directly using the "color format" DRM property for bridge chains that end
++ * in HDMI bridges, the bridge chain format selection logic will trust the logic
++ * that set the HDMI output format. For the common HDMI state helper
++ * functionality, this means that %DRM_COLOR_FORMAT_AUTO will allow fallbacks to
++ * YCBCr 4:2:0 if the bandwidth requirements would otherwise be too high but the
++ * mode and connector allow it.
++ *
++ * For bridge chains that do not end in an HDMI bridge, %DRM_COLOR_FORMAT_AUTO
++ * will be satisfied with the first output format on the last bridge for which
++ * it can find a path back to the first bridge.
 + */
-+static void drm_test_bridge_must_convert_to_yuv444(struct kunit *test)
-+{
-+	static const struct drm_bridge_funcs *funcs[] = {
-+		&rgb_yuv444_yuv420_producer_funcs,
-+		&rgb8_passthrough_funcs,
-+		&rgb8_to_id_yuv8_or_yuv8_to_yuv422_yuv420_funcs,
-+		&rgb8_yuv444_yuv422_passthrough_funcs,
-+	};
-+	static const struct fmt_tuple expected[] = {
-+		{ MEDIA_BUS_FMT_FIXED, MEDIA_BUS_FMT_RGB888_1X24 },
-+		{ MEDIA_BUS_FMT_RGB888_1X24, MEDIA_BUS_FMT_RGB888_1X24 },
-+		{ MEDIA_BUS_FMT_RGB888_1X24, MEDIA_BUS_FMT_YUV8_1X24 },
-+		{ MEDIA_BUS_FMT_YUV8_1X24, MEDIA_BUS_FMT_YUV8_1X24 },
-+	};
-+	struct drm_connector_state *conn_state;
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_bridge_chain_priv *priv;
-+	struct drm_crtc_state *crtc_state;
-+	struct drm_atomic_state *state;
-+	struct drm_display_mode *mode;
-+	int ret;
 +
-+	priv = drm_test_bridge_chain_init(test, ARRAY_SIZE(funcs), funcs);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv);
-+
-+	drm_modeset_acquire_init(&ctx, 0);
-+
-+	state = drm_kunit_helper_atomic_state_alloc(test, &priv->drm, &ctx);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, state);
-+
-+retry_commit:
-+	conn_state = drm_atomic_get_connector_state(state, priv->connector);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
-+
-+	mode = drm_kunit_display_mode_from_cea_vic(test, &priv->drm, 16);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, mode);
-+
-+	conn_state->color_format = DRM_COLOR_FORMAT_YCBCR444;
-+
-+	ret = drm_atomic_set_crtc_for_connector(conn_state, priv->crtc);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	crtc_state = drm_atomic_get_crtc_state(state, priv->crtc);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, crtc_state);
-+
-+	ret = drm_atomic_set_mode_for_crtc(crtc_state, mode);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	crtc_state->enable = true;
-+	crtc_state->active = true;
-+
-+	ret = drm_atomic_commit(state);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	drm_test_bridge_chain_verify_fmt(test, priv, expected, ARRAY_SIZE(expected));
-+
-+	drm_modeset_drop_locks(&ctx);
-+	drm_modeset_acquire_fini(&ctx);
-+}
-+
-+/*
-+ * Test which checks that no matter the order of bus formats returned by an
-+ * HDMI bridge, RGB is preferred on DRM_COLOR_FORMAT_AUTO if it's available.
-+ */
-+static void drm_test_bridge_hdmi_auto_rgb(struct kunit *test)
-+{
-+	static const struct drm_bridge_funcs *funcs[] = {
-+		&rgb_yuv444_yuv420_producer_funcs,
-+		&yuv444_yuv422_rgb8_passthrough_hdmi_funcs,
-+	};
-+	static const struct fmt_tuple expected[] = {
-+		{ MEDIA_BUS_FMT_FIXED, MEDIA_BUS_FMT_RGB888_1X24 },
-+		{ MEDIA_BUS_FMT_RGB888_1X24, MEDIA_BUS_FMT_RGB888_1X24 },
-+	};
-+	struct drm_connector_state *conn_state;
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_bridge_chain_priv *priv;
-+	struct drm_crtc_state *crtc_state;
-+	struct drm_atomic_state *state;
-+	struct drm_display_mode *mode;
-+	int ret;
-+
-+	priv = drm_test_bridge_chain_init(test, ARRAY_SIZE(funcs), funcs);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv);
-+
-+	drm_modeset_acquire_init(&ctx, 0);
-+
-+	state = drm_kunit_helper_atomic_state_alloc(test, &priv->drm, &ctx);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, state);
-+
-+retry_commit:
-+	conn_state = drm_atomic_get_connector_state(state, priv->connector);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
-+
-+	mode = drm_kunit_display_mode_from_cea_vic(test, &priv->drm, 16);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, mode);
-+
-+	KUNIT_ASSERT_EQ(test, conn_state->color_format, DRM_COLOR_FORMAT_AUTO);
-+
-+	ret = drm_atomic_set_crtc_for_connector(conn_state, priv->crtc);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	crtc_state = drm_atomic_get_crtc_state(state, priv->crtc);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, crtc_state);
-+
-+	ret = drm_atomic_set_mode_for_crtc(crtc_state, mode);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	crtc_state->enable = true;
-+	crtc_state->active = true;
-+
-+	ret = drm_atomic_commit(state);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	KUNIT_EXPECT_EQ(test, conn_state->hdmi.output_format, HDMI_COLORSPACE_RGB);
-+
-+	drm_test_bridge_chain_verify_fmt(test, priv, expected, ARRAY_SIZE(expected));
-+
-+	drm_modeset_drop_locks(&ctx);
-+	drm_modeset_acquire_fini(&ctx);
-+}
-+
-+/*
-+ * Test which checks that DRM_COLOR_FORMAT_AUTO on non-HDMI connectors will
-+ * result in the first bus format on the output to be picked.
-+ */
-+static void drm_test_bridge_auto_first(struct kunit *test)
-+{
-+	static const struct drm_bridge_funcs *funcs[] = {
-+		&rgb_yuv444_yuv420_producer_funcs,
-+		&yuv444_yuv422_rgb8_passthrough_funcs,
-+	};
-+	static const struct fmt_tuple expected[] = {
-+		{ MEDIA_BUS_FMT_FIXED, MEDIA_BUS_FMT_YUV8_1X24 },
-+		{ MEDIA_BUS_FMT_YUV8_1X24, MEDIA_BUS_FMT_YUV8_1X24 },
-+	};
-+	struct drm_connector_state *conn_state;
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_bridge_chain_priv *priv;
-+	struct drm_crtc_state *crtc_state;
-+	struct drm_atomic_state *state;
-+	struct drm_display_mode *mode;
-+	int ret;
-+
-+	priv = drm_test_bridge_chain_init(test, ARRAY_SIZE(funcs), funcs);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv);
-+
-+	drm_modeset_acquire_init(&ctx, 0);
-+
-+	state = drm_kunit_helper_atomic_state_alloc(test, &priv->drm, &ctx);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, state);
-+
-+retry_commit:
-+	conn_state = drm_atomic_get_connector_state(state, priv->connector);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
-+
-+	mode = drm_kunit_display_mode_from_cea_vic(test, &priv->drm, 16);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, mode);
-+
-+	KUNIT_ASSERT_EQ(test, conn_state->color_format, DRM_COLOR_FORMAT_AUTO);
-+
-+	ret = drm_atomic_set_crtc_for_connector(conn_state, priv->crtc);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	crtc_state = drm_atomic_get_crtc_state(state, priv->crtc);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, crtc_state);
-+
-+	ret = drm_atomic_set_mode_for_crtc(crtc_state, mode);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	crtc_state->enable = true;
-+	crtc_state->active = true;
-+
-+	ret = drm_atomic_commit(state);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	drm_test_bridge_chain_verify_fmt(test, priv, expected, ARRAY_SIZE(expected));
-+
-+	drm_modeset_drop_locks(&ctx);
-+	drm_modeset_acquire_fini(&ctx);
-+}
-+
-+/*
-+ * Test which checks that in a configuration of bridge chains where an RGB
-+ * producer is hooked to a YUV444-only pass-through, the atomic commit fails as
-+ * the bridge format selection cannot find a valid sequence of bus formats.
-+ */
-+static void drm_test_bridge_rgb_yuv_no_path(struct kunit *test)
-+{
-+	static const struct drm_bridge_funcs *funcs[] = {
-+		&rgb_producer_funcs,
-+		&yuv8_passthrough_funcs,
-+		&rgb8_yuv444_yuv422_passthrough_funcs,
-+	};
-+	struct drm_connector_state *conn_state;
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_bridge_chain_priv *priv;
-+	struct drm_crtc_state *crtc_state;
-+	struct drm_atomic_state *state;
-+	struct drm_display_mode *mode;
-+	int ret;
-+
-+	priv = drm_test_bridge_chain_init(test, ARRAY_SIZE(funcs), funcs);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv);
-+
-+	drm_modeset_acquire_init(&ctx, 0);
-+
-+	state = drm_kunit_helper_atomic_state_alloc(test, &priv->drm, &ctx);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, state);
-+
-+retry_commit:
-+	conn_state = drm_atomic_get_connector_state(state, priv->connector);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, conn_state);
-+
-+	mode = drm_kunit_display_mode_from_cea_vic(test, &priv->drm, 16);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, mode);
-+
-+	ret = drm_atomic_set_crtc_for_connector(conn_state, priv->crtc);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	crtc_state = drm_atomic_get_crtc_state(state, priv->crtc);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, crtc_state);
-+
-+	ret = drm_atomic_set_mode_for_crtc(crtc_state, mode);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	crtc_state->enable = true;
-+	crtc_state->active = true;
-+
-+	ret = drm_atomic_commit(state);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry_commit;
-+	}
-+	KUNIT_EXPECT_EQ(test, ret, -ENOTSUPP);
-+
-+	drm_modeset_drop_locks(&ctx);
-+	drm_modeset_acquire_fini(&ctx);
-+}
-+
-+static struct kunit_case drm_bridge_bus_fmt_tests[] = {
-+	KUNIT_CASE(drm_test_bridge_rgb_yuv_rgb),
-+	KUNIT_CASE(drm_test_bridge_must_convert_to_yuv444),
-+	KUNIT_CASE(drm_test_bridge_hdmi_auto_rgb),
-+	KUNIT_CASE(drm_test_bridge_auto_first),
-+	KUNIT_CASE(drm_test_bridge_rgb_yuv_no_path),
-+	{ }
-+};
-+
-+static struct kunit_suite drm_bridge_bus_fmt_test_suite = {
-+	.name = "drm_bridge_bus_fmt",
-+	.test_cases = drm_bridge_bus_fmt_tests,
-+};
-+
- kunit_test_suites(
- 	&drm_bridge_get_current_state_test_suite,
- 	&drm_bridge_helper_reset_crtc_test_suite,
- 	&drm_bridge_alloc_test_suite,
-+	&drm_bridge_bus_fmt_test_suite,
- );
- 
- MODULE_AUTHOR("Maxime Ripard <mripard@kernel.org>");
- MODULE_AUTHOR("Luca Ceresoli <luca.ceresoli@bootlin.com>");
-+MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
- 
- MODULE_DESCRIPTION("Kunit test for drm_bridge functions");
- MODULE_LICENSE("GPL");
+ /* Protect bridge_list and bridge_lingering_list */
+ static DEFINE_MUTEX(bridge_lock);
+ static LIST_HEAD(bridge_list);
 
 -- 
 2.52.0
