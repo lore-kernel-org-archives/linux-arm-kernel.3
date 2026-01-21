@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47569D262B3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 02:11:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94FB3D262B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 02:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pbk+pGFu+lFL3En95JgNEi9CVcEotXXw9ZhswsnFCUw=; b=tcoXz9e7X2aEUqBDkqEBoMyGZ8
-	TpEtex0Y5Ly0XUzODDQY2J0ZXLZgrRUE3YZXoC8crJfcIv2d0msqDo7Tf/Bil+9P+drKnLp3cZBIN
-	PkMpoLusdsvBRaPdXzArEy13/CPJdWJHLiqKB4jHregUPyST8q73p1sMCa84y6AQHywbOjccq3m+j
-	XSz2dPfbNmqznb+O1g9ZIOpuO7vxUSDHaOPc9uSQzJ/4KxPtbNhjAQAeecacUBKM3ZxQLTDRxR1tm
-	fC5g5LnnUWeC1Iq03f1vxtDFCUNJTdEduWW3UtX8/Crzu4gCYpVqMKCcX4q2RsddEUIpowBvksdkz
-	6GaBACrw==;
+	bh=ggu2VYssaqPzB+lfsAVnB3UCMlYP053i9KIoNenyvO8=; b=FOlzEph7vzCQF/5764qZTkpZ9E
+	idFrtfmyKYC0N0M+swiVjBlnsOV8b6mOsR5h69aGilAB4DXrmeADRFJ8w5hSADTKK+0l/jMPwnHOM
+	XZkwvmMs8J8r3lqxuzF+EBpq+U3HvPeVswq792F14HZ4x4dWZAxpg+AFdvUAbTvqZAU5qVR3mboLe
+	L+O9ZOUVNKKPuPpy5Mv/ZqXT5lgwDt3ExRk31QHWmfPoDoPSdohtBOAxeZ/oYxD/H9MmHL/Ce+1Je
+	GPeIPtLLlHoe1NG+WSPjkok+gkxRvq4NR438jbOgppLsZkRXr6eFq6SBh1maB2CPMQtk5/obJk0mG
+	ZDFosjog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNhB-00000004l7h-0QRJ;
-	Wed, 21 Jan 2026 02:11:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1viNjF-00000004lGd-00xA;
+	Wed, 21 Jan 2026 02:13:53 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNh8-00000004l7M-1UTU
+	id 1viNjD-00000004lGG-0Pm0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 02:11:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5FBD943DB7;
-	Wed, 21 Jan 2026 02:11:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A20DC16AAE;
-	Wed, 21 Jan 2026 02:11:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768961501;
-	bh=/KGdhDaKaLBJN6yZlpLTZ1ZclR4grZLUB70QioIqzqo=;
+	Wed, 21 Jan 2026 02:13:52 +0000
+Received: from pendragon.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id C70812D7;
+	Wed, 21 Jan 2026 03:13:17 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1768961598;
+	bh=Xe1nmcNnParGKTT36BF5z73M+2mDyrArtK+cq8m9Fj0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JmuJmz9ne2giYJgM05lbIVAzQnrqRB6rgNu6X1zj4EbT9rnhG1hqyFu+EBKmuKRQP
-	 eU668ym8IXwTvFEDAz7kz+p26tFNneupjsiJdyY6sIalr5Fa6BJ7s23aEcL2hY8OY0
-	 vU991IsPI+vUmnPHT5wNraIMNh4LZ8KTOEPcMG6EdzkSK8cA+lZnSdc+wKB3S7p5Pv
-	 z6z+1LGle9Jzwi5lOorBhCAB2j/x4kj4o5kP/Z7oUEuL9yBomD7IY2tcI0PL6NDMjK
-	 lrIniiMpO4RMq024RDeqq2NV9XF2ufGIIJYGysjfjMiQtLSk1zSYEeFqzR+2avYMmu
-	 Kv4XK3xtDWGfg==
-Date: Tue, 20 Jan 2026 20:11:40 -0600
-From: Rob Herring <robh@kernel.org>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	b=wCvViTFm0WUujGrdnzCktwQ6GchNtco7Q3jb1CP2O7qUQSJ81oyjbblLHI4sn87I7
+	 YpxtmMZAOqzRDggSjFyK/hG77NbfBYcd2JAN7QVJhUb98o3mgvBT0xS2G2ZqdWVd4M
+	 uYp+cR10in8QBvqqruwvT2ncuZ0z+XDmgK3cVPBA=
+Date: Wed, 21 Jan 2026 04:13:48 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Liu Ying <victor.liu@nxp.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	luca.ceresoli@bootlin.com, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v9 1/3] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC
- subnode to schema and example
-Message-ID: <20260121021140.GA1677576-robh@kernel.org>
-References: <20260115-v6-18-topic-imx93-parallel-display-v9-0-2c5051e4b144@pengutronix.de>
- <20260115-v6-18-topic-imx93-parallel-display-v9-1-2c5051e4b144@pengutronix.de>
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND v2 4/5] media: staging: media: imx6-mipi-csi2: use
+ guard() to simplify code
+Message-ID: <20260121021348.GH403250@killaraus>
+References: <20260116-stage-csi2-cleanup-v2-0-a56e9cb25196@nxp.com>
+ <20260116-stage-csi2-cleanup-v2-4-a56e9cb25196@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260115-v6-18-topic-imx93-parallel-display-v9-1-2c5051e4b144@pengutronix.de>
+In-Reply-To: <20260116-stage-csi2-cleanup-v2-4-a56e9cb25196@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_181142_434748_24DBBDCD 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20260120_181351_296859_EF77FFE4 
+X-CRM114-Status: GOOD (  26.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,40 +76,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 04:24:51PM +0100, Marco Felsch wrote:
-> From: Liu Ying <victor.liu@nxp.com>
-> 
-> i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
-> configures parallel display format by using the "PARALLEL_DISP_FORMAT"
-> field. Document the Parallel Display Format Configuration(PDFC) subnode
-> and add the subnode to example.
-> 
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> [m.felsch@pengutronix.de: port to v6.18-rc1]
-> [m.felsch@pengutronix.de: add bus-width]
-> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> ---
->  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 78 ++++++++++++++++++++++
->  1 file changed, 78 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> index 34aea58094e55365a2f9c86092f637e533f954ff..d828c2e82965c7a4cd69a67136047d83c96b0a35 100644
-> --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> @@ -40,6 +40,58 @@ properties:
->      minItems: 8
->      maxItems: 10
->  
-> +  dpi-bridge:
-> +    type: object
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      compatible:
-> +        enum:
-> +          - nxp,imx91-pdfc
-> +          - nxp,imx93-pdfc
+Hi Frank,
 
-Looks like there's a register for this at 0x60. That should be a 'reg' 
-entry in the DT.
+Thank you for the patch.
+
+On Fri, Jan 16, 2026 at 11:17:59AM -0500, Frank Li wrote:
+> Use guard() to simplify mutex locking. No functional change.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> leave as it without cleanup goto branch because there are two path to
+> update stream_count.
+> 
+> And it will be replaced soon at
+> 
+> Use new v4l2_subdev_pad_ops.enable_streams(disalbe_stream) replace
+> deprecated s_stream interface.
+> 
+> https://lore.kernel.org/imx/20250821-95_cam-v3-18-c9286fbb34b9@nxp.com/
+> ---
+>  drivers/staging/media/imx/imx6-mipi-csi2.c | 54 +++++++++++-------------------
+>  1 file changed, 19 insertions(+), 35 deletions(-)
+> 
+> diff --git a/drivers/staging/media/imx/imx6-mipi-csi2.c b/drivers/staging/media/imx/imx6-mipi-csi2.c
+> index e1b4b7fb53131ce9515b9441d8fc420e85d3e993..762f19ffd0858c952027afa8e0f36fc87246e1ea 100644
+> --- a/drivers/staging/media/imx/imx6-mipi-csi2.c
+> +++ b/drivers/staging/media/imx/imx6-mipi-csi2.c
+> @@ -412,21 +412,17 @@ static int csi2_s_stream(struct v4l2_subdev *sd, int enable)
+>  	struct csi2_dev *csi2 = sd_to_dev(sd);
+>  	int i, ret = 0;
+>  
+> -	mutex_lock(&csi2->lock);
+> +	guard(mutex)(&csi2->lock);
+>  
+> -	if (!csi2->src_sd) {
+> -		ret = -EPIPE;
+> -		goto out;
+> -	}
+> +	if (!csi2->src_sd)
+> +		return -EPIPE;
+>  
+>  	for (i = 0; i < CSI2_NUM_SRC_PADS; i++) {
+>  		if (csi2->sink_linked[i])
+>  			break;
+>  	}
+> -	if (i >= CSI2_NUM_SRC_PADS) {
+> -		ret = -EPIPE;
+> -		goto out;
+> -	}
+> +	if (i >= CSI2_NUM_SRC_PADS)
+> +		return -EPIPE;
+>  
+>  	/*
+>  	 * enable/disable streaming only if stream_count is
+> @@ -441,14 +437,12 @@ static int csi2_s_stream(struct v4l2_subdev *sd, int enable)
+>  	else
+>  		csi2_stop(csi2);
+>  	if (ret)
+> -		goto out;
+> +		return ret;
+>  
+>  update_count:
+>  	csi2->stream_count += enable ? 1 : -1;
+>  	if (csi2->stream_count < 0)
+>  		csi2->stream_count = 0;
+> -out:
+> -	mutex_unlock(&csi2->lock);
+>  	return ret;
+>  }
+>  
+> @@ -466,32 +460,28 @@ static int csi2_link_setup(struct media_entity *entity,
+>  
+>  	remote_sd = media_entity_to_v4l2_subdev(remote->entity);
+>  
+> -	mutex_lock(&csi2->lock);
+> +	guard(mutex)(&csi2->lock);
+>  
+>  	if (local->flags & MEDIA_PAD_FL_SOURCE) {
+>  		if (flags & MEDIA_LNK_FL_ENABLED) {
+> -			if (csi2->sink_linked[local->index - 1]) {
+> -				ret = -EBUSY;
+> -				goto out;
+> -			}
+> +			if (csi2->sink_linked[local->index - 1])
+> +				return -EBUSY;
+> +
+>  			csi2->sink_linked[local->index - 1] = true;
+>  		} else {
+>  			csi2->sink_linked[local->index - 1] = false;
+>  		}
+>  	} else {
+>  		if (flags & MEDIA_LNK_FL_ENABLED) {
+> -			if (csi2->src_sd) {
+> -				ret = -EBUSY;
+> -				goto out;
+> -			}
+> +			if (csi2->src_sd)
+> +				return -EBUSY;
+> +
+>  			csi2->src_sd = remote_sd;
+>  		} else {
+>  			csi2->src_sd = NULL;
+>  		}
+>  	}
+>  
+> -out:
+> -	mutex_unlock(&csi2->lock);
+>  	return ret;
+
+You can
+
+	return 0;
+
+here and drop the local ret variable. With that,
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+>  }
+>  
+> @@ -512,14 +502,12 @@ static int csi2_get_fmt(struct v4l2_subdev *sd,
+>  	struct csi2_dev *csi2 = sd_to_dev(sd);
+>  	struct v4l2_mbus_framefmt *fmt;
+>  
+> -	mutex_lock(&csi2->lock);
+> +	guard(mutex)(&csi2->lock);
+>  
+>  	fmt = __csi2_get_fmt(csi2, sd_state, sdformat->pad, sdformat->which);
+>  
+>  	sdformat->format = *fmt;
+>  
+> -	mutex_unlock(&csi2->lock);
+> -
+>  	return 0;
+>  }
+>  
+> @@ -529,17 +517,14 @@ static int csi2_set_fmt(struct v4l2_subdev *sd,
+>  {
+>  	struct csi2_dev *csi2 = sd_to_dev(sd);
+>  	struct v4l2_mbus_framefmt *fmt;
+> -	int ret = 0;
+>  
+>  	if (sdformat->pad >= CSI2_NUM_PADS)
+>  		return -EINVAL;
+>  
+> -	mutex_lock(&csi2->lock);
+> +	guard(mutex)(&csi2->lock);
+>  
+> -	if (csi2->stream_count > 0) {
+> -		ret = -EBUSY;
+> -		goto out;
+> -	}
+> +	if (csi2->stream_count > 0)
+> +		return -EBUSY;
+>  
+>  	/* Output pads mirror active input pad, no limits on input pads */
+>  	if (sdformat->pad != CSI2_SINK_PAD)
+> @@ -548,9 +533,8 @@ static int csi2_set_fmt(struct v4l2_subdev *sd,
+>  	fmt = __csi2_get_fmt(csi2, sd_state, sdformat->pad, sdformat->which);
+>  
+>  	*fmt = sdformat->format;
+> -out:
+> -	mutex_unlock(&csi2->lock);
+> -	return ret;
+> +
+> +	return 0;
+>  }
+>  
+>  static int csi2_registered(struct v4l2_subdev *sd)
+
+-- 
+Regards,
+
+Laurent Pinchart
 
