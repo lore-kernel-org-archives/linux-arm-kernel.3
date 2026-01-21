@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B85C4452E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:52:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9594CC4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X7gT9UC4sQcenS3aM2Pap8cxEe9QaY6Up1+QlLfmUqw=; b=Dqm/rB1hYWOdQHe9kZAQ2vPChK
-	o35ONfxJXp9CYS5nEFTLZiqSLC534h/AGWx+Yiz2AhUW1yN3JxGkggcICKqMKtmgQ+YC2uEOKwYxm
-	LHhdwDGNmNpf4es45iCjkxHy+gf0Gjt9SE8j9+zVhrUh0nSr++GgRGG2BmDI6WThBa3m3M+pWwspG
-	pdzKWGP528nAgMmIfg3xwbAjXuZRFPJF4LvmiD16pFqhEKCrGPRHKHJ964yxmvZEyQYEVDGGjTPoZ
-	QgFyCqDONrkvIHfNGRBPp+xDLgK7h9MUsTxmTJ3RO+WP1wEtCIKdChrx5YE68sfhpGt5voZnpjEy7
-	RRMRfqtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lbBz6UOMJpiAg21QC6WCb59iTGSeHK+XaQZanHQt5+8=; b=XydPsSSfnKCMg5cUujDm/9rtTn
+	r345leS/vp5/BGheMPeEkV/mZ2kCyG9Dmx8DebSwXUK0Y6wZBGKT2AQSZM2lv3t83lWuyfIQ5S9ZM
+	No2RGyXA4qZ5kM+eojIuAMQImwEAfqJfC75JMfs9WSuA3EgB4IdvnGUhy3t5hjTVgQJygVldwowqh
+	pmO8k+7yL6uRJJHpf8TbrRd+osl1yB5PEdT7oVVXKm4oki7EHsV8MlU8u2V+Sd8MQzW0gPwldquR+
+	8zI6ru9nr8pmo36QcqCDcwR5se5DW2e292jQ7oVjBEge3gA0sO1lV8+rsm6AHBkNruHpCJu9Sf2f4
+	Y6tnZMiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYdK-00000005YML-2OdH;
-	Wed, 21 Jan 2026 13:52:30 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1viYhE-00000005Yet-16Sp;
+	Wed, 21 Jan 2026 13:56:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYdI-00000005YLw-2hkU;
-	Wed, 21 Jan 2026 13:52:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769003534; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=gtuHqyJdIm26Gi68yEFskeWFD9ZoG4RxqzDfP4x6Du8ae40H3vouNHmQt1cjr+SuRR6//aDwJfE+FMqbNotpiJ5L8PcynHwlVfHjRwy/Kvmf9LJfWN3FKbur8MqS4gOur9suEzsY4SJVKIrDjIWSfdOXvOBSFhljA2WMNH9d+18=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769003534; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=X7gT9UC4sQcenS3aM2Pap8cxEe9QaY6Up1+QlLfmUqw=; 
-	b=G31Z5e6m9YgwA320ovrLK3t25mHfHWU8I70IFq3nqPLpoDp1JrA9V0Rlk/t7/epUORI64E+eVxSlCt+W9zxNiyYi6MKzK/DCpVSdIxt2qfpG63iz5kNne5aoQ/Jl0hviLFKIPzYjkD9rw+4Kl/dr6rukuX+KtqG1N1mGCSS4c5M=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769003534;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=X7gT9UC4sQcenS3aM2Pap8cxEe9QaY6Up1+QlLfmUqw=;
-	b=J8wuY4QuC0BtQTpdyPyiss5sy28ILKTaKxLvFE/5mr3F6BlD5qPPdylW9DS9c2Zq
-	QXihqonNeBPieNEid5VgFRi5QFUoLZTEXnS6KZEpecQqDKQNrOFYw9NNV/iYUWBP9rv
-	j70kwKBKFTeFBknZd1L7IejUKmxXYWxWxycn+yHQ=
-Received: by mx.zohomail.com with SMTPS id 176900353209289.89941655481675;
-	Wed, 21 Jan 2026 05:52:12 -0800 (PST)
-Message-ID: <4e0de2ff-4616-4e49-a419-1bdfb03e1430@collabora.com>
-Date: Wed, 21 Jan 2026 14:52:07 +0100
+	id 1viYhA-00000005YeQ-2zQb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Jan 2026 13:56:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BA3D844068;
+	Wed, 21 Jan 2026 13:56:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6934CC4CEF1;
+	Wed, 21 Jan 2026 13:56:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769003787;
+	bh=lbBz6UOMJpiAg21QC6WCb59iTGSeHK+XaQZanHQt5+8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=T7BMdWsscuprZQVqjgOlNMHQ95GLHAGfSruDk8Hm1EMwxIKP96InkuM3UMB7u5rYV
+	 HmvbfCjC3dF3OtyAqUAGXRrOEG+6qNhEap/BNJSlBkGCK4BHHWr9hqNpbxq+i6IO0T
+	 2ihErp/aMr/i01amz4uGoEOIRafJCwUjPZiVZSYo/r3Sp++Ui8WJJsESZqSn4SxkdN
+	 JhO7HLuehfbTUyTtffFTnlW4eHwvTQANZr0qQrnavK1cDJa6e27sMJdmuGVwAGVsMN
+	 ReeS9iIu+0tK0KErkKI0/LYvUkmH2uwk2TY/Oca1gdt6kwb5t7T3NWjrgzaMam25hx
+	 0bNTu3WicJiGA==
+Date: Wed, 21 Jan 2026 13:56:20 +0000
+From: Will Deacon <will@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	catalin.marinas@arm.com, broonie@kernel.org, oliver.upton@linux.dev,
+	miko.lenczewski@arm.com, kevin.brodsky@arm.com, ardb@kernel.org,
+	suzuki.poulose@arm.com, lpieralisi@kernel.org,
+	yangyicong@hisilicon.com, scott@os.amperecomputing.com,
+	joey.gouly@arm.com, yuzenghui@huawei.com, pbonzini@redhat.com,
+	shuah@kernel.org, arnd@arndb.de,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v11 RESEND 9/9] arm64: armv8_deprecated: apply FEAT_LSUI
+ for swpX emulation.
+Message-ID: <aXDbBKhE1SdCW6q4@willie-the-truck>
+References: <20251214112248.901769-1-yeoreum.yun@arm.com>
+ <20251214112248.901769-10-yeoreum.yun@arm.com>
+ <86ms3knl6s.wl-maz@kernel.org>
+ <aT/bNLQyKcrAZ6Fb@e129823.arm.com>
+ <aW5O714hfl7DCl04@willie-the-truck>
+ <aW6w6+B21NbUuszA@e129823.arm.com>
+ <aW9O6R7v-ybhrm66@J2N7QTR9R3>
+ <aW9T5b+Y2b2JOZHk@e129823.arm.com>
+ <aW9sBkUVnpAkPkxN@willie-the-truck>
+ <aW/Ck3M3Xg02DpQX@e129823.arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 3/6] iommu: Add verisilicon IOMMU driver
-To: =?UTF-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>
-Cc: will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
- kernel@collabora.com
-References: <20260114100922.149187-1-benjamin.gaignard@collabora.com>
- <20260114100922.149187-4-benjamin.gaignard@collabora.com>
- <3082a454-31dc-42a2-85a6-0fd0c87bf31b@collabora.com>
- <25htwrdapwwvumlaqlu5oywcnnbss5kjyvnv6cxrx42q7mfhuw@wyagcnc3scgf>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <25htwrdapwwvumlaqlu5oywcnnbss5kjyvnv6cxrx42q7mfhuw@wyagcnc3scgf>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aW/Ck3M3Xg02DpQX@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_055228_741042_327B51EF 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260121_055628_868177_DEF8766C 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,18 +89,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jan 20, 2026 at 05:59:47PM +0000, Yeoreum Yun wrote:
+> On second thought, while a CPU that implements LSUI is unlikely to
+> support AArch32 compatibility,
+> I don't think LSUI requires the absence of AArch32.
+> These two are independent features (and in fact our FVP reports/supports both).
 
-Le 21/01/2026 à 12:54, Jörg Rödel a écrit :
-> Note that I stop taking changes for v6.20 (except fixes) by next week. I you
-> want a chance to have this code in 6.20, please make sure a v13 is in my inbox
-> by tomorrow.
+Did you have to configure the FVP specially for this or that a "default"
+configuration?
 
-I have v13 ready but I'm waiting for the conclusion of the thread with Will to send it.
-Thanks for the reminder.
+> Given that, I'm not sure a WARN is really necessary.
+> Would it be sufficient to just drop the patch for swpX instead?
 
-Benjamin
+Given that the whole point of LSUI is to remove the PAN toggling, I think
+we should make an effort to make sure that we don't retain PAN toggling
+paths at runtime that could potentially be targetted by attackers. If we
+drop the SWP emulation patch and then see that we have AArch32 at runtime,
+we should forcefully disable the SWP emulation but, since we don't actually
+think we're going to see this in practice, the WARN seemed simpler.
 
->
-> -Joerg
->
+Will
 
