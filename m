@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120A0C44525
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 12:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BB87C44525
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 12:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0HjdByAbPJTeDuGEDNiYTUtgD0UckMjRF1RPmGXvzV8=; b=C1npAvvm4S7VrzvekkOTPqbPwq
-	SUY02dPS9wcOEngKobO3ETi7eSU7FYPFiZK14ddVBIB2UCDfNabN7bS1yyEI0QW0tRwNlhJg0ODSz
-	JxOiptKLQSnsU7rEMv4z5Vcqqd1DUV/f5VsRbn4HI1A2QhXcG9hhkEu022nGueA8VWUv+z5FvRHe5
-	nL3gWNH1dLYW8D+NHPVKeYfKH1KBxR/kXJDxLo8mpOc5odTl1BwB/6z2TcQcakDclyXLBBWCIPR50
-	qM6Z7rqVoJvmTTEB2m4AzfEHr//iwBVEmx+60iP2wa2GMWnG/pvyV4CepG5UmG4SJ29TZB9ffTACp
-	LtXGnV8Q==;
+	bh=jxOrB8wfEeC2m9GMBQa+QZHxO/B1NDwQHQf6JSIEBVs=; b=rrODw0PGwbGnEDiHvYKR97hH0s
+	Ny6Cqvtgyow1uxOw7AgGTptjMFG4kBYJ4MEJ0h4TPU7JniDuGVKvIfHVM8Bxc5Wy1zXzn1N2GCXqc
+	9EOa+l6ysr4J3TcI5ibH/HsNCGvciGbu+fwxm9TL4gpsCYcle7XCUYixu5B+HTSqEzoczwyMbcPKc
+	7owfDOjXdO7nDus9iuCp1XokXC7TF2S/E3vbb/r21SVuP8uFAQk3yLBTKze8+NUHr3hVzCCB+q0el
+	usPdnfP1LUZ/NVsltcrUdncOZtc2BhP5ZJnidSMGSE4cvbcstEjrOPt2vpZiEtgCCjhjqC6HTmPlL
+	Xf0BM7Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viXXq-00000005RpV-2Lqx;
-	Wed, 21 Jan 2026 12:42:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1viXZd-00000005Rxl-08go;
+	Wed, 21 Jan 2026 12:44:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viXXp-00000005RpE-1mwo
+	id 1viXZb-00000005RxT-06hy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 12:42:45 +0000
+	Wed, 21 Jan 2026 12:44:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 22137600C3
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 12:42:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEAA9C2BC86
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 12:42:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C8F6B4431C
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 12:44:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6E2DC19421
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 12:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768999363;
-	bh=0HjdByAbPJTeDuGEDNiYTUtgD0UckMjRF1RPmGXvzV8=;
+	s=k20201202; t=1768999473;
+	bh=jxOrB8wfEeC2m9GMBQa+QZHxO/B1NDwQHQf6JSIEBVs=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=UnVC/BhAV8RExjfRBGxd4SayHpkI6BXVApiddURNH6LADLweuCDo1yeyzxzzcjMKt
-	 MNmEBWXfNGJ/p7Wg1W+pMupV/HHb7qvugLSoAFgklqtk/REb8XEEB9KfAXCZes1942
-	 rY6K4B8xvhtKwh5ACxg0EykQDuq46vPZLAbl4G3hJ8VrEk99svpl4XvZ32gcUZSMxg
-	 9ggkZOIeMQD+lgwX/pdji+pctRty4i7P5G1gCLjpL3IVfClR+H2k0YoV1a5hPhpliT
-	 re4rsZjSWR0PC4HxDmXFVifTZsgaA6x4Sd/nqvrq9MruUBraCOoRiax28OHE38+a3K
-	 L5qypK48qfwbw==
-Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-646e2b3600fso5881695d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 04:42:43 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUyCOmLOZp/dIjJZF189TJ04zyHCS8Qd1IAQqarUK0Y9GOjqZlOXmDD3kpxKTPnaO5iEdxbDZM15gvSfs7kIdXX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7BlvUls/0ClNIN/G45Fs03hjnjWTXo2k9cVTTQTVoVzwJOqnr
-	GJyuJqu47sjy7p/J5y0XUWjJJSKzNwUx5q8d3M+PPV/dm94JKwiqLiRgSmAVoDW6hG+mkuI0QIx
-	4XlstaEg6CCujecUhqP9/46tp2Voz3gs=
-X-Received: by 2002:a05:690e:188d:b0:644:60d9:7525 with SMTP id
- 956f58d0204a3-6491651e69dmr12004302d50.87.1768999363203; Wed, 21 Jan 2026
- 04:42:43 -0800 (PST)
+	b=tSkBcFaBbZKibs5kVPOyBS2H8PmTauBESCSL+Uwgla7l1IPLG7ugTJqOT/c7/WJED
+	 z2PgR6Cqiho3fzbKqjLPG1QL7BK6p+Em96KUWf6DOiI+5VC+oQZNvgo9ScF/NeYq0W
+	 nmQPcl97qd3txxyvjCF1Oua5hmkG+gruuC2O20O4qrxV5vncGLiCz4IRK0hgyuetg5
+	 OSPC1T1fxTDD9PtM5sVB2uXqjQ5k8EocivxTTjqh1fCSj0veoZmjnKP+ieppSU/y3u
+	 YdnmilYNvb2Z5M+1ZdUUCqK+VWzaIC5vcamTTMZm2OsGLrtbUSdHp4GS0MrSx93bSV
+	 GG4dHr5OW5+4g==
+Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-649389b1cc5so2137548d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 04:44:33 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCU06nTYJwr/t9asQN5KEzL010GE57EICxhhxnsQGNUXN2+hyBXlqW28mMHLgTiRYJ67ZFNEvecUUohJeJiZgzFF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8l21Wc8i7uX3JKgjUx/J+e2j+35OgvorxDzYd3OTemYvpbb7X
+	24c+BjFyFJ94r4OWgxlY6vXPbj31DNAD1yepauZCVcsuzkEqIVv8iY+KtmrsmZ9RxVQn6LUqMkn
+	fAUmrKoO6aEYyBrEk4APYepp5nZDEFP0=
+X-Received: by 2002:a05:690e:12cc:b0:649:40f7:f20e with SMTP id
+ 956f58d0204a3-64940f7fb03mr3287094d50.46.1768999472553; Wed, 21 Jan 2026
+ 04:44:32 -0800 (PST)
 MIME-Version: 1.0
-References: <20260117-upstream_sgpio-v1-0-850ef3ffb680@aspeedtech.com>
-In-Reply-To: <20260117-upstream_sgpio-v1-0-850ef3ffb680@aspeedtech.com>
+References: <20260115114021.111324-1-robert.marko@sartura.hr> <20260115114021.111324-7-robert.marko@sartura.hr>
+In-Reply-To: <20260115114021.111324-7-robert.marko@sartura.hr>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 21 Jan 2026 13:42:31 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkSmV1kVT+c2Nk-oWMS7WPgeu2NbF0yt4SUVsTmAUjq3g@mail.gmail.com>
-X-Gm-Features: AZwV_QiQRH_FgyO-4O8MQg7hUCGXaZg8vwoF5MWGo_Re4DDhsmu71vEaHa_pOBQ
-Message-ID: <CAD++jLkSmV1kVT+c2Nk-oWMS7WPgeu2NbF0yt4SUVsTmAUjq3g@mail.gmail.com>
-Subject: Re: [PATCH 0/5] Add Aspeed G7 sgpio support
-To: Billy Tsai <billy_tsai@aspeedtech.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Joel Stanley <joel@jms.id.au>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, Andrew Jeffery <andrew@aj.id.au>, devicetree@vger.kernel.org, 
-	bmc-sw@aspeedtech.com
+Date: Wed, 21 Jan 2026 13:44:21 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmitNVhWmUf9BBqLR2_WsAR7V-+ykVJsLK3MuOSUKQF0A@mail.gmail.com>
+X-Gm-Features: AZwV_Qgthmlr5E7M3bcNO1COpCtqKG_0WAWJfZBTcClME9lzo2DlyQIrR9yT_Bs
+Message-ID: <CAD++jLmitNVhWmUf9BBqLR2_WsAR7V-+ykVJsLK3MuOSUKQF0A@mail.gmail.com>
+Subject: Re: [PATCH v5 06/11] dt-bindings: pinctrl: pinctrl-microchip-sgpio:
+ add LAN969x
+To: Robert Marko <robert.marko@sartura.hr>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
+	claudiu.beznea@tuxon.dev, herbert@gondor.apana.org.au, davem@davemloft.net, 
+	lee@kernel.org, andrew+netdev@lunn.ch, edumazet@google.com, kuba@kernel.org, 
+	pabeni@redhat.com, Steen.Hegelund@microchip.com, daniel.machon@microchip.com, 
+	UNGLinuxDriver@microchip.com, olivia@selenic.com, richard.genoud@bootlin.com, 
+	radu_nicolae.pirea@upb.ro, gregkh@linuxfoundation.org, 
+	richardcochran@gmail.com, horatiu.vultur@microchip.com, 
+	Ryan.Wanner@microchip.com, tudor.ambarus@linaro.org, 
+	kavyasree.kotagiri@microchip.com, lars.povlsen@microchip.com, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-gpio@vger.kernel.org, linux-spi@vger.kernel.org, 
+	linux-serial@vger.kernel.org, luka.perkov@sartura.hr, 
+	Conor Dooley <conor.dooley@microchip.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260121_044435_082265_36A00EA0 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,22 +97,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 17, 2026 at 12:17=E2=80=AFPM Billy Tsai <billy_tsai@aspeedtech.=
-com> wrote:
+Hi Robert,
 
-> The Aspeed 7th generation SoC features two SGPIO master controllers: both
-> with 256 serial inputs and outputs. The main difference from the previous
-> generation is that the control logic has been updated to support
-> per-pin control, allowing each pin to have its own 32-bit register for
-> configuring value, interrupt type, and more.
-> This patch serial also add low-level operations (llops) to abstract the
-> register access for SGPIO registers making it easier to extend the driver
-> to support different hardware register layouts.
+On Thu, Jan 15, 2026 at 12:41=E2=80=AFPM Robert Marko <robert.marko@sartura=
+.hr> wrote:
+
+> Document LAN969x compatibles for SGPIO.
 >
-> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
-Changes look reasonable to me!
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Should I just merge this one patch to the pinctrl tree?
+Looks good to me.
 
 Yours,
 Linus Walleij
