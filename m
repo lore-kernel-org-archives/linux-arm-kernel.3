@@ -4,77 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C7A4D46943
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA83C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iStF1+0UpaSNBxFtH2LAPTY4dVGLGH3AvGpTjjJnIHU=; b=g5NN1d+Ka4MgIg8U1N7+u47fLA
-	0aOWXLaaFZw4X5sxCLinjpWKJAfjaDisbw7s+pGYhhA2POZ/5m/bBF/9v3u7i05GFFbSN+gqnXcMH
-	0zWP2ETOxO5eJi7iWlrak0nnT8qYDUwmveaNv291iLWK9xSQ0GoBI54i5wkzWp4lv6Ws9qfTig1+k
-	uybrbKeOmlRSfmSvB5eejCAMYb46vvgUwR9SAKu9LMnWvgpOYBxy8TXGd+vlH8dqAQYIN9L0mwh7m
-	VAiH99xN0b+O/wsIHVDMfWyUDtHFF2G+sjjjjI31Sfc9DblS4AFYUQ5UOJo0Ba553a35B6YWHiy68
-	r/iMAgGg==;
+	bh=CVFYDJgl9DpR4aWif10dDSge2J50osws4U85YFJ8fVo=; b=4jj5sTJRRYtPvvF2xEMmL6XY9Z
+	frW83ExuAfQeEGqKdRhHQOoTtBuBkvgDEfZwkUYqJUtrk/D9s7mZU90b2lJpZzOB6/Zb/l05gHPCh
+	SPFBwMQJtFKhKpDS6Vhe0SqfabsK8JFVC5DAIhE88crRChtU+kZyuONZX+CBx7jXMB/D7gNxqpfvD
+	P8nqACtQEppvOQ2hLOrwjunDFEeih3YvSF0crEIHpbk8pW2F3V0OLQtaMm9pyQHRXlD4Ma2PZ3Oy3
+	ejM0vCdXXFmX1ZATCm/WzQhfvGbcA2suE/k4+Ih0s6F+u0Xq6XtkWlyY6mYgBuUoHs91seWevTYt9
+	PeB8aJ5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZU5-00000005dCz-3wcK;
-	Wed, 21 Jan 2026 14:47:01 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1viZU9-00000005dGf-3UAu;
+	Wed, 21 Jan 2026 14:47:05 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZTz-00000005d5O-0gWn;
-	Wed, 21 Jan 2026 14:46:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=iStF1+0UpaSNBxFtH2LAPTY4dVGLGH3AvGpTjjJnIHU=; b=e9bH30XyD6pkMJHTgoZwJ7SBsQ
-	0CLCJyQaHxcYuc61vX87CjlwIjH755e5RfCQJ0Wfv4lNRlzSX2yX9k/kwo8QWMtpWhfVnPgANvDB9
-	kl123aZe/rSEj8KpIBeh0lPIAMVOWTc19dGF+NdztKgvvnA+5BX7opil0piY56CwJO20tSmz1Xlko
-	pzBMbMVUUyaGXSsIrFSc5JdeRIYiwiAV1GpaVlXdZ0VTRxn+jcebBR5roWfde62EU7wcfzvg9tR3Q
-	9GmdzF0i47FizmPYPrE1/KUuNR/fwPn0E/d24rqa7i7R6bhkesWWIr0GN+RCRzFGiFUEkdThXAtTj
-	trX0GOiA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36082)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1viZTt-000000007c8-10Ub;
-	Wed, 21 Jan 2026 14:46:49 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1viZTm-0000000005o-2xDz;
-	Wed, 21 Jan 2026 14:46:42 +0000
-Date: Wed, 21 Jan 2026 14:46:42 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, linux-phy@lists.infradead.org,
-	davem@davemloft.net, maxime.chevallier@bootlin.com,
-	alexandre.torgue@foss.st.com, mohd.anwar@oss.qualcomm.com,
-	neil.armstrong@linaro.org, hkallweit1@gmail.com,
-	mcoquelin.stm32@gmail.com, netdev@vger.kernel.org,
-	edumazet@google.com, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, vkoul@kernel.org,
-	andrew@lunn.ch, pabeni@redhat.com, andrew+netdev@lunn.ch,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [net-next,05/14] net: stmmac: add stmmac core serdes support
-Message-ID: <aXDm0jVOYOZ9l6Wu@shell.armlinux.org.uk>
-References: <E1vhoSH-00000005H1f-2cq9@rmk-PC.armlinux.org.uk>
- <20260119192125.1245102-1-kuba@kernel.org>
- <aW8M9ZiiftGBQIRM@shell.armlinux.org.uk>
- <20260120081844.7e6aq2urhxrylywi@skbuf>
- <aW9VHt6meEJFxV0I@shell.armlinux.org.uk>
- <20260120121114.2aedgu42i2wax3yp@skbuf>
+	id 1viZU2-00000005d74-0ijQ;
+	Wed, 21 Jan 2026 14:47:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1769006813;
+	bh=afNV+4Kntzl2OJS5+YQHRny1CbURCs2XIYTp9jU1WYU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=P54WYVbsl17MXk2LcSxoBkOPZ+v81dklD6Yc/blcHFG8sQyIqIvF+MMRH6T4kaMDv
+	 Pxjo1NMW89sPRxGJFPkURFW1nWxsppd5963XazMJ726o6P/Iivoe7ec6ArmAQtamaO
+	 RlZyD7+bGDIGYPQHWw4oE32TfcDBZMg5TZYmlI0l9dEdtr06159ivtRWbsW9e4awTp
+	 4JrJvUoVQc2xrpYWyHOtVJluq9aPIwQkJerYHttPM1RBiv/vy2S6OAhougTe9RdHIV
+	 /r+5JJPd01uc3aTkRStbsetRpip9w6jVKRc4NTRpPW+rxSOZezyf7nN1TPm/6K4DEV
+	 0I9Nquhwzkj7A==
+Received: from [IPv6:2606:6d00:17:7b4b::c41] (unknown [IPv6:2606:6d00:17:7b4b::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E1FD417E12E5;
+	Wed, 21 Jan 2026 15:46:50 +0100 (CET)
+Message-ID: <69fda4f0136285e4d2f86e7e93d5bdd812c1d47a.camel@collabora.com>
+Subject: Re: [PATCH v9 15/17] media: rkvdec: Add H264 support for the
+ VDPU383 variant
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: kernel test robot <lkp@intel.com>, Detlev Casanova
+	 <detlev.casanova@collabora.com>, linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, Mauro Carvalho
+ Chehab	 <mchehab@kernel.org>, linux-media@vger.kernel.org, Ezequiel Garcia	
+ <ezequiel@vanguardiasur.com.ar>, Heiko Stuebner <heiko@sntech.de>, Daniel
+ Almeida <daniel.almeida@collabora.com>, Jonathan Corbet <corbet@lwn.net>,
+ Ricardo Ribalda	 <ribalda@chromium.org>, Hans Verkuil <hverkuil@xs4all.nl>,
+ Yunke Cao	 <yunkec@google.com>, Hans de Goede <hansg@kernel.org>, Laurent
+ Pinchart	 <laurent.pinchart@ideasonboard.com>, Pavan Bobba
+ <opensource206@gmail.com>,  Sakari Ailus <sakari.ailus@linux.intel.com>,
+ James Cowgill <james.cowgill@blaize.com>, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>, Diederik de Haas	
+ <didi.debian@cknow.org>
+Date: Wed, 21 Jan 2026 09:46:48 -0500
+In-Reply-To: <202601211924.rqKS2Ihm-lkp@intel.com>
+References: <20260120222018.404741-16-detlev.casanova@collabora.com>
+	 <202601211924.rqKS2Ihm-lkp@intel.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-HUBaFbLuQRAvVZ40o0vh"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260120121114.2aedgu42i2wax3yp@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_064655_203989_C122F262 
-X-CRM114-Status: GOOD (  23.07  )
+X-CRM114-CacheID: sfid-20260121_064658_556094_277DEA10 
+X-CRM114-Status: GOOD (  20.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,65 +100,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 02:11:14PM +0200, Vladimir Oltean wrote:
-> On Tue, Jan 20, 2026 at 10:12:46AM +0000, Russell King (Oracle) wrote:
-> > First, I'll say I'm on a very short fuse today; no dinner last night,
-> > at the hospital up until 5:30am, and a fucking cold caller rang the door
-> > bell at 10am this morning. Just fucking our luck.
-> 
-> Sorry to hear that.
-> 
-> > On Tue, Jan 20, 2026 at 10:18:44AM +0200, Vladimir Oltean wrote:
-> > > Isn't it sufficient to set pl->pcs to NULL when pcs_enable() fails and
-> > > after calling pcs_disable(), though?
-> >
-> > No. We've already called mac_prepare(), pcs_pre_config(),
-> > pcs_post_config() by this time, we're past the point of being able to
-> > unwind.
-> 
-> I'm set out to resolve a much smaller problem.
-> 
-> Calling it a full "unwind" is perhaps a bit much, because pcs_pre_config()
-> and pcs_post_config() don't have unwinding equivalents, unlike how
-> pcs_enable() has pcs_disable(). I don't see what API convention would be
-> violated if phylink decided to drop a PCS whose enable() returned an error.
 
-While pcs_pre_config() and pcs_post_config() do not have unwinding
-equivalents (what would they be?) the issue here is that these could
-have changed any state that isn't simply undone by calling
-pcs_disable().
+--=-HUBaFbLuQRAvVZ40o0vh
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-For example, pcs_pre_config() could have reprogrammed signal routing,
-clocking, or power supplies to blocks.
+Hi,
 
-This already applies to Marvell DSA pcs-639x.c, where the pre/post
-config hooks change the power state of the PCS block (for errata
-handling), and the only way that gets undone is via a call to
-pcs_disable() which explicitly disables IRQs and power for the PCS. Its
-pcs_disable() isn't a strict reversal of pcs_enable(), it does more.
+Le mercredi 21 janvier 2026 =C3=A0 22:27 +0800, kernel test robot a =C3=A9c=
+rit=C2=A0:
+> Hi Detlev,
+>=20
+> kernel test robot noticed the following build warnings:
+>=20
+> [auto build test WARNING on rockchip/for-next]
+> [also build test WARNING on linuxtv-media-pending/master media-tree/maste=
+r linus/master v6.19-rc6 next-20260120]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+>=20
+> url:=C2=A0=C2=A0=C2=A0 https://github.com/intel-lab-lkp/linux/commits/Det=
+lev-Casanova/media-uapi-HEVC-Add-v4l2_ctrl_hevc_ext_sps_-ls-t_rps-controls/=
+20260121-071026
+> base:=C2=A0=C2=A0 https://git.kernel.org/pub/scm/linux/kernel/git/mmind/l=
+inux-rockchip.git=C2=A0for-next
+> patch link:=C2=A0=C2=A0=C2=A0 https://lore.kernel.org/r/20260120222018.40=
+4741-16-detlev.casanova%40collabora.com
+> patch subject: [PATCH v9 15/17] media: rkvdec: Add H264 support for the V=
+DPU383 variant
+> config: loongarch-allmodconfig (https://download.01.org/0day-ci/archive/2=
+0260121/202601211924.rqKS2Ihm-lkp@intel.com/config)
+> compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project=C2=
+=A0cd708029e0b2869e80abe31ddb175f7c35361f90)
 
-We already declare the interface to be dead on pcs_post_config()
-failure, but we don't do that for pcs_enable() failure.
+Modification has been done to reduce the stack utilization on clang, though=
+ we
+believe we are hitting limitations/bugs on older clang. We went ahead with =
+these
+patch by updating our CI to clang 21, which allocate a lot less stack with =
+KASAN
+enabled and this code. Our general advise is to use a newer clang, or GCC f=
+or
+testing with KASAN.
 
-Maybe I need to explicitly state that pcs_disable() does not directly
-balance pcs_enable(), but that _and_ the effects of pcs_pre_config()
-and pcs_post_config(). However, that itself will add to the problems.
-What if pcs_pre_config() and pcs_post_config() succeed but not
-pcs_enable()? pcs-639x needs pcs_disable() to be called, but if we
-require pcs_disable() to be balanced with a successful call to
-pcs_enable(), that messes up that driver, and pretty much makes it
-impossible to work around the errata.
+The stack utilization is caused by the combination of loop unrolling, agres=
+sive
+inlining, and write operations to bitfield (which requires the compiler to
+generate more code for memory checks, since the writes are not aligned).
 
-If you feel strongly about this, then the only thing I can think of
-doing is to move this SerDes support out of stmmac and into phylink
-(which is a point I already raised in the cover message) so that
-its failure can be dealt with at the higher level, where we can
-ensure that phy_power_off() is balaced with phy_power_on(). However,
-that means pushing even more of the stmmac specific "we need the
-clocks running to access registers XYZ or reset" weirdness into
-phylink.
+cheers,
+Nicolas
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archi=
+ve/20260121/202601211924.rqKS2Ihm-lkp@intel.com/reproduce)
+>=20
+> If you fix the issue in a separate patch/commit (i.e. not just a new vers=
+ion of
+> the same patch/commit), kindly add following tags
+> > Reported-by: kernel test robot <lkp@intel.com>
+> > Closes: https://lore.kernel.org/oe-kbuild-all/202601211924.rqKS2Ihm-lkp=
+@intel.com/
+>=20
+> All warnings (new ones prefixed by >>):
+>=20
+> > > drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c:485:12: =
+warning: stack frame size (2064) exceeds limit (2048) in 'rkvdec_h264_run' =
+[-Wframe-larger-than]
+> =C2=A0=C2=A0=C2=A0=C2=A0 485 | static int rkvdec_h264_run(struct rkvdec_c=
+tx *ctx)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ^
+> =C2=A0=C2=A0 1 warning generated.
+>=20
+>=20
+> vim +/rkvdec_h264_run +485 drivers/media/platform/rockchip/rkvdec/rkvdec-=
+vdpu383-h264.c
+>=20
+> =C2=A0=C2=A0 484=09
+> =C2=A0> 485	static int rkvdec_h264_run(struct rkvdec_ctx *ctx)
+> =C2=A0=C2=A0 486	{
+> =C2=A0=C2=A0 487		struct v4l2_h264_reflist_builder reflist_builder;
+> =C2=A0=C2=A0 488		struct rkvdec_dev *rkvdec =3D ctx->dev;
+> =C2=A0=C2=A0 489		struct rkvdec_h264_ctx *h264_ctx =3D ctx->priv;
+> =C2=A0=C2=A0 490		struct rkvdec_h264_run run;
+> =C2=A0=C2=A0 491		struct rkvdec_h264_priv_tbl *tbl =3D h264_ctx->priv_tbl=
+.cpu;
+> =C2=A0=C2=A0 492		u32 timeout_threshold;
+> =C2=A0=C2=A0 493=09
+> =C2=A0=C2=A0 494		rkvdec_h264_run_preamble(ctx, &run);
+> =C2=A0=C2=A0 495=09
+> =C2=A0=C2=A0 496		/* Build the P/B{0,1} ref lists. */
+> =C2=A0=C2=A0 497		v4l2_h264_init_reflist_builder(&reflist_builder, run.de=
+code_params,
+> =C2=A0=C2=A0 498					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 run.sps, run.de=
+code_params->dpb);
+> =C2=A0=C2=A0 499		v4l2_h264_build_p_ref_list(&reflist_builder, h264_ctx->=
+reflists.p);
+> =C2=A0=C2=A0 500		v4l2_h264_build_b_ref_lists(&reflist_builder, h264_ctx-=
+>reflists.b0,
+> =C2=A0=C2=A0 501					=C2=A0=C2=A0=C2=A0 h264_ctx->reflists.b1);
+> =C2=A0=C2=A0 502=09
+> =C2=A0=C2=A0 503		assemble_hw_scaling_list(&run, &tbl->scaling_list);
+> =C2=A0=C2=A0 504		assemble_hw_pps(ctx, &run);
+> =C2=A0=C2=A0 505		lookup_ref_buf_idx(ctx, &run);
+> =C2=A0=C2=A0 506		assemble_hw_rps(&reflist_builder, &run, &h264_ctx->refl=
+ists, &tbl->rps);
+> =C2=A0=C2=A0 507=09
+> =C2=A0=C2=A0 508		config_registers(ctx, &run);
+> =C2=A0=C2=A0 509=09
+> =C2=A0=C2=A0 510		rkvdec_run_postamble(ctx, &run.base);
+> =C2=A0=C2=A0 511=09
+> =C2=A0=C2=A0 512		timeout_threshold =3D h264_ctx->regs.common.reg013_core=
+_timeout_threshold;
+> =C2=A0=C2=A0 513		rkvdec_schedule_watchdog(rkvdec, timeout_threshold);
+> =C2=A0=C2=A0 514=09
+> =C2=A0=C2=A0 515		/* Start decoding! */
+> =C2=A0=C2=A0 516		writel(timeout_threshold, rkvdec->link + VDPU383_LINK_T=
+IMEOUT_THRESHOLD);
+> =C2=A0=C2=A0 517		writel(0, rkvdec->link + VDPU383_LINK_IP_ENABLE);
+> =C2=A0=C2=A0 518		writel(VDPU383_DEC_E_BIT, rkvdec->link + VDPU383_LINK_D=
+EC_ENABLE);
+> =C2=A0=C2=A0 519=09
+> =C2=A0=C2=A0 520		return 0;
+> =C2=A0=C2=A0 521	}
+> =C2=A0=C2=A0 522=09
+
+--=-HUBaFbLuQRAvVZ40o0vh
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaXDm2AAKCRDZQZRRKWBy
+9Fd5AQCFNfQJ7V7hO/CwnP/tTYqJgQUUANlbrcmEIqz2R5L3KAEAlUwzVwSgEeKi
+Ne3geJutlRoJdxx1o7GBsOPJDjWQTwU=
+=cGBC
+-----END PGP SIGNATURE-----
+
+--=-HUBaFbLuQRAvVZ40o0vh--
 
