@@ -4,96 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A298C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B64CED46945
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:58:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yQ23YRgS2KiITA/RkEwSXOJ7lbiLq2Dr+pqkiKDbtJY=; b=bvHD4Sd2iZ9VYbqaqU+Zt+9C0P
-	C6L6OtV9Dd3YtNiQBlIipPDzSxJkEPbCLzGCpgAWpvW9rRJRUn/Tfcwwgte78dPM0KEy1QIx5l+xE
-	wa0Gn3BizN9mf1YxKQYpWJcXKiro2KWALCB4RdVXNNaR6AM4HPyatxbtRZUybtScF2mJncf9LAAfs
-	4oPpxwjIOXU++6n7T+0nkmiH6OBRN0jYC3lFbxmjQr6XuVcJ1mMsw/rNFN1i+D+rt3VLKdYqCWMrC
-	2h6Pn9UWyq0jFYrmp1C6jaPz1R/jlsX3TyrxGbvZwQUDkkgNzZlJ0ij+xtCgrHwIz+FKFDOVC29No
-	5ZfB0Zyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5lZHxNsyKGa355cZo8zF72cbfZ/W9qTW1QU/xhajsQs=; b=WrZDKg11ExTkOicnfEOayQvHet
+	70RYBIdV00u7Me+MclboNCq9UldGR8+qJY4i5mPhjoMlCJLNWJkHP62cnGxPTI7r7X/IobDXU91xv
+	8fWSPtE1BJvwDD+rOW/ZEKPiLGRlXTEEOj86pD3ql3OsG96j/aTQiFV/oXMJYf82wppIfV7AIr3a9
+	l2CBycI5Kw5NY8qc2/4/nncA1TLhbn9yNVpnt2dlkZlfmAEok3NiYO3vufuomtYuJVi0dJmngbyUb
+	p+fm3Ly12T4HXrGTrjKOymCTKB15u4UbzGfpIHW1tnqEGTtrha8qpefr1zxWE/i8Myuu/HdqceA9e
+	XfNqJ8bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZcm-00000005gLy-0mPe;
-	Wed, 21 Jan 2026 14:56:00 +0000
-Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
+	id 1viZeb-00000005gp6-11OE;
+	Wed, 21 Jan 2026 14:57:53 +0000
+Received: from mail-northeuropeazon11012007.outbound.protection.outlook.com ([52.101.66.7] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZci-00000005gHW-2tXu
+	id 1viZeW-00000005gnz-3xSG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 14:55:59 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id 561D7EC0223;
-	Wed, 21 Jan 2026 09:55:53 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Wed, 21 Jan 2026 09:55:53 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm2; t=1769007353; x=1769093753; bh=yQ
-	23YRgS2KiITA/RkEwSXOJ7lbiLq2Dr+pqkiKDbtJY=; b=BgsOwEYpeiSTT3qAl1
-	ykpeG1oIXzAHdDrRWKv85WG2VL5enmlkqAUFoOlo7kLL2mwE/8hz6+QSB2UjLWBS
-	TWoEQHGIUaStMgakpRpz7jjQOHuUZk60eQyibgRYSUFbup/HEUZihZEx+qVpQY+6
-	ixZrOgym4P0SnX91Id4rzO6k0DirBNQQpK+udrEJkRSN0fGSsSQtxYUDHhmfGkLX
-	HM2WMObC5HI8b4tw8/FpGyZvVUZjNwPQcoDKbG1226ommejYHWGupninDzxvxr0w
-	R/nU6lRxI+E3hNo0G0rLVXkNT998B4gcixu5JPWiQqVtLYser1lme1aevHystFzp
-	rC5A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1769007353; x=1769093753; bh=yQ23YRgS2KiITA/RkEwSXOJ7lbiL
-	q2Dr+pqkiKDbtJY=; b=asRfcDORrFMIiWkH+hq0/RUToZsj2tQtRbqVt4+ZK9Tp
-	s8rY6/AG6ylDh1mx4o3pEgQoLVY/7zsWESAMsFakQhHoBLn3dbHN95zpXny/Bw+2
-	DEpwqaxttVJvJVdWusKQ+0M5RorFY1thv4vuJ7Ed18NwUTj5vRw6gE7TdFBUDHC9
-	fdpgIvNsuQl+NEy2mjBtvvF3ZFXw7jJWlOKQiO2H2Poyv0VicKgKcY039tx3cW88
-	9flZbYb1O9g+BZMtauxE9GUCikkgVVQKGZpwBwRV17o1BPVWPKJeVZNUNFbXwsYG
-	g9Ia/GdulvSrmBs28fGYJbI0dkUpgulT+0Z75JxMyA==
-X-ME-Sender: <xms:-OhwadYt1Cc8YYQpFupMSnpWSyV5xZjRElfn2rFjfLWbVlNNpQL-Cw>
-    <xme:-OhwafObXEfPo1ru666Cu3D21yVDh5NXbwABsszAi8a8b0GG1TPWGMk3DMh085C4c
-    3rvJ0DO5u9O5-FrR_acctTEJAwQDpm0PKqPkdu_3dQg-R0YaDwoBDg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddugeefheejucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkffutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
-    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
-    epudelieegkeevueegtedtjedttdelgeehhfdvhfeuheethfduleffuddvueelveetnecu
-    ffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurf
-    grrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphht
-    thhopeegpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehtohhrvhgrlhgusheslh
-    hinhhugidqfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghr
-    mhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoh
-    epshhotgeslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhk
-    vghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:-OhwaXHr5e8X1v34KPQFqE9f6YcIuPRYf04skq0PvR3LGhRN1tYYpA>
-    <xmx:-OhwabOrxdv_1hHJEN8YcSlsZ_Q7xmSGTZFGb7DP2oWULMMHX1ojJw>
-    <xmx:-OhwaReAg1FIBbzOmkAta6X1OQd5DEWmcn9LIakvA_nDWMGKDS-PaQ>
-    <xmx:-OhwaQte52YirMWUpie5UbsfL6bWgS8sHWqXlfIVmLyeCX9DtDju6A>
-    <xmx:-ehwaSf26qz85C7UEbMb5KVu2DOG6GawJSkS8ZAWTwMQZdncwSuS-3FY>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 8E53B700065; Wed, 21 Jan 2026 09:55:52 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 21 Jan 2026 14:57:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=whWoMPlAnYWJXka/rhJFSqmNCzozkDnv9vBRl+hsZ/MQmCWiO5vxjoD85qS6WH5J+xgXocJJY3bb8Rf/UfHm2I/IQiEanYKpOPxRv3iwUavasiioSGSvqJJW7q3OycAkjC82YJj63RbLiOgzIMU3Y9lpY1/BhBlIqVuTQqJVxum4NyNaA7Xfu7jo7uGV1Wh05xr8J1Tcz8LV/6+Xzg8VgGE5ne2GHq9ajoGVMUo4XbjYAy8SeKJdBkCuWLZxOzhQCPHVDxdOzKE0e6tMbHyQQmOWJKIOgyW+8uvVPhuncLv2L1JHCV4sRNz0iOQNzK/gDmhDbJqXX/aaE87frskS/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5lZHxNsyKGa355cZo8zF72cbfZ/W9qTW1QU/xhajsQs=;
+ b=brOLFec75CkLR4hjkGSlqz65+WeO4fChIzHIpWk8KhfkdjAPyeQFcD4UY/cpOrUS2Qi08fAdlBgxgX5TyHJzNqzM6ye4DDQMaDXupe29ayP39NrUB8Ah0DG4sbIUUvKsYWMHX2kra9yyBHqOILkNqJXe4MvmxNZeYJ2bFZKLy+5Z5tD+QuSctvGBqDH3dsGxPfzyz6Mvr0noApAtQ+hgneED1wC5QEgOw5qinak/DBNSwWW4AkfODHy8fJPpWjCbgnlyP+2Y3RPiBKl6gehf65uoIB7kzEWWoXUPsUZja0Xr7fy/gg75WB17/iTGW22FXXnth/xsNcoFHmYZXa/azQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5lZHxNsyKGa355cZo8zF72cbfZ/W9qTW1QU/xhajsQs=;
+ b=BHz9PwEYDKjdyqx/4Rg4jBW60DU2T1W5x0v3lBI0M/Y46otpxh4IbWBiqiXOoOfxn45nbzy8w+o0DEQatoB6cZwSeeJcnaIN6c09qf32lJCB58HKFjKVGqohMmzLeRMA41ZV82Ev0JTBD7/pqa3PKo5VFOOzG6Sm3WIw5/grWQQ5kXQE9jjsjEL17xZWHCc9O3LWmbYfh42wKzK4AoejrSMpY6ySLfFisCjhkv+oXWlI8M6TgE3mWIsXOtodldMfLWnsLwfS7Po/HTKyRvDqif2HO2gI5bMG9LaA6m920yV+/o47OVBS9Y44/uqhy5ClaNixuQ8MfpDpwhbp5N4TaA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by GVXPR04MB12090.eurprd04.prod.outlook.com (2603:10a6:150:2be::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Wed, 21 Jan
+ 2026 14:57:41 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9520.011; Wed, 21 Jan 2026
+ 14:57:41 +0000
+Date: Wed, 21 Jan 2026 09:57:35 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Shawn Guo <shawnguo@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Linus Walleij <linusw@kernel.org>, kernel@pengutronix.de,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH] MAINTAINERS: Replace Shawn with Frank as i.MX platform
+ maintainer
+Message-ID: <aXDpX+Wm3HU8FYTA@lizhi-Precision-Tower-5810>
+References: <20260121142047.10887-1-shawnguo@kernel.org>
+ <aXDh1tc3x4aCZG0z@dragon>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aXDh1tc3x4aCZG0z@dragon>
+X-ClientProxiedBy: PH0PR07CA0024.namprd07.prod.outlook.com
+ (2603:10b6:510:5::29) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-X-ThreadId: A8kywoqqtqdw
-Date: Wed, 21 Jan 2026 15:55:32 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Message-Id: <77a55850-bd7c-4525-8ffe-46d9e17dc1e4@app.fastmail.com>
-Subject: [GIT PULL] soc: fixes for 6.19, part 2
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|GVXPR04MB12090:EE_
+X-MS-Office365-Filtering-Correlation-Id: cbbc8ef3-6bdc-4fce-df24-08de58fd6d14
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|19092799006|1800799024|376014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RWxZZno3ZVRNTkhacG1mM1N1Sk40aTBKaHlmM1FNYTB2SW4yTWVkbHpLU2pW?=
+ =?utf-8?B?YzNWbEcxeHRHYjU1MndHemVJQXNyVmhFZVNRcEVmQTNxMk44ZUhaNWw3alJQ?=
+ =?utf-8?B?eG4zTk5tUWx4TncvN3g0K3NTdlFGM1VDWFM1VWkzRmorSHY0YkFlbnR2V24y?=
+ =?utf-8?B?cUtlWThtTElkSnpvRWRFaFRpd0xKdHJ3U3NwWjZXV0RPSjlqM1NETzFXcVZN?=
+ =?utf-8?B?Z3AvSG5uVnBBRlpabytTRUgyZHFBZzlLYTdoeDBRZmhTaVFaekdNK0hoMnJO?=
+ =?utf-8?B?SGlEUjZMaFFyVXlxMUpFNGpsd3RCalRBNisrNGUwNkVCTndqaG9BSUdPQmp6?=
+ =?utf-8?B?c056dFZJWG1jYVJjSmRFWkorK0txNnQ2T1NsMjExeTFzOXpORWUrSkltZ2VY?=
+ =?utf-8?B?MGsrd1ZINWJzdmVrZDEzZG9ZSFRrMWZ1cTRnMnVRTlJUcGpIMVRZekRJek1R?=
+ =?utf-8?B?eFIxVTF3T1VXbWROVkZRbmFIMDZ0aUw0UWpic3VmOElDc0hvcVBYaUgyMlJv?=
+ =?utf-8?B?Zzl5bUNLTnYzdzVpTHNnMGF5S2xLbEt6bU9WWHJMdS9VUGprRTJyQzNZODBU?=
+ =?utf-8?B?YXBPR2VVdGlKemJrZjFsZ2twN2g5QWZYMzBMU094bEw1UGE0aE5kY1c4a0Jv?=
+ =?utf-8?B?WHdQM1JTMElFZGtNQzBTNlZhNUNjNm5tWUVYSjN3WkpieFUzdFA0RWw1Szdu?=
+ =?utf-8?B?MU42ZkpyL0V5RU04THBpQmtFbnlLN1FXdGFYaHBiNGxUaGdGcUhkdFZrSm5p?=
+ =?utf-8?B?c1JIYitBREt5eE85WUNBb2ZaK3YxOWhZYjIvWTB4NlJlUnJFamZ2WUc5MVda?=
+ =?utf-8?B?K1B2b21KeklTTk9pSWM5bVZlamRzZjdvQWUxaE9qSnJXcjFaaXQxQ25WUzFH?=
+ =?utf-8?B?MitVWnY4Q1ZSUGxlVVRMc1BtS2xvWG5VeVpHVzUyeW5zejUvemp4SDRWN0Vs?=
+ =?utf-8?B?eVVlZ2tkUithZXgrYVd5Znd2dU5TbStnZTJod1EwMVZMaTdaSTNzZERkNEp2?=
+ =?utf-8?B?aUZKeXF0TnRxRTVDWFdqZjZRVmd4cTdMK0dNUG1HK0dxbmJQdVRURnRtMCtY?=
+ =?utf-8?B?RldnRXlHOW9IRkR3dVdMSHdHcFZtN1pISlFLVmNXdkp4OTM1L1czdW04ckxi?=
+ =?utf-8?B?UkVYdWRNN0w3d1l6QkFQMkRIb3lxU1lrSjM0RUxYcHRpVzRhRXVQMHYyNXpQ?=
+ =?utf-8?B?bUJKTmFMN1JuM3lsaHk4SGhXWmVkWnZmY0VuQXRQcXBmSUZ6SW1MSU5yWEZr?=
+ =?utf-8?B?cEljUmVhR3dYbHl4VEl3T2EySDFsUFlsU1NoemlPYjAwMGxYUzZSeDFvOEJK?=
+ =?utf-8?B?Y2VvUmhVakIwWUJ2aEQ1R2FVZnFMMFQzRndSUFFxcnhPTFBFOUhBV056ZEp1?=
+ =?utf-8?B?V0dTYVhYSnU1WStBVUZrTjRvWkZpV28xQ0RHMFU5RzVjN28xaG9xQWluTDFy?=
+ =?utf-8?B?KzFHeUhLdDZYbWh0KzlhbDdIL1d1TzlUVzBCVDBVa1I2aS9yNnFkSlFCYlVS?=
+ =?utf-8?B?bUJyTnV4ZHdXblljQ0hLVElLSytGSVV2MWhZRlpnVnhaUHIyeDNSanZSQ1pN?=
+ =?utf-8?B?S094cGdCT3VJT1h0OWxoT2FvZWJkQlg3WVJQdWdtQVArejFuY3BjenNtQm83?=
+ =?utf-8?B?TXpuNDFYZ0w4RE83eTBxYTAvUm4rdU01LzM1bkpHT1MvN2NPZWFkRi9mb20r?=
+ =?utf-8?B?azh6Z3h4amtMdm4yaTRwVU1pRXJsTFdxYmhTZnl2UFl4Q2NzQjdZTTJYRzRE?=
+ =?utf-8?B?OERkQUJvVUNzNWVudHpRWkdSMGVZRG54RTg5Y2RxbThzeVVQak92Y3MvdUhu?=
+ =?utf-8?B?Wmc1eEc3S0J6TTNxUmg3dWlNcG1kSzlIQSsyZzBjNFBLelZGYjdmaS9PYXMv?=
+ =?utf-8?B?NEFjVDllQ1ZMbEt0RmdNNFZsMU52OENpU2U0U1NGTGFieW1wcFkyYmp2aWI2?=
+ =?utf-8?B?YkFJUUs4eGo2cGhVT0hsNWRFMXk3SytKc29DYlBReG82d210bEF0dm1rNW9m?=
+ =?utf-8?B?b3I1Ry9jRHBxbHliQ2MyS0dmRko5MXhYUmJzKzhMRFU0a1A5Q0lzckYrcDVX?=
+ =?utf-8?B?VjU1cVd4dGZSeWtnNk11NTdjd0xxWmpMajRVU1pkTVdwQXVJMGtXY1FoeHJL?=
+ =?utf-8?B?TkFaVklGN2N2TllXVHoxcXlLL3gzN3grTHh3dTEvS1VRZUcva2VBbm15V3ln?=
+ =?utf-8?Q?+eGi28Uquc+3Ok+bb4N4H8c=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(19092799006)(1800799024)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MlVPTFowSEh5UjhyeHM2ZTlxNjNsSTJyMXdhS2hia01MaWxYa0dodXA1Si93?=
+ =?utf-8?B?S1p2elZidUx4Y2tFaGZ0WWgrelMwNTFNbU9sTUMrOTZVT1dHaDA5NnlJbUVR?=
+ =?utf-8?B?dFlZaUFpaHRvYTJMU3liZkg4WjlvYUN3THFUQzh5eER0V2FBVkxOa2xvZytr?=
+ =?utf-8?B?eFRoeDErS2ovNFVBRnljdHRacGVMcU9kUTRkdVFwZG4yUDNXZ25rWFkvL1Q2?=
+ =?utf-8?B?QTFYQlltY2xIMlh0UmZVcFNJelptY1FVVVNSRUhodi8zNEdINUMvbTFjbERi?=
+ =?utf-8?B?OGo2YStYYmw0bkMxbXloa0xXZjVaT0l6Q0ZxSjRjYWUxTFduTzcyWCtFNHdE?=
+ =?utf-8?B?L3FnK3JVaUJvOHVBWVlZMnpmQmc4ckNwTmdWamllMG9kNXRZclVOQm9lUFU4?=
+ =?utf-8?B?SllOc2xUeE12eEJxVkhzYk9sMDdMVlYrbHpyOHlqdDIybllBRDlCRlFkejFl?=
+ =?utf-8?B?UzR3V0RHaVJhc045ZitwbUNMN3M4bTBJUEo4ZUtsT2pzYmdOK2dJdkF1ejF3?=
+ =?utf-8?B?RkF0WVgrdUw5U3oyRHpYeVpURUNkdzdsTzF6MHJjK29rMyt3U25lNStudGpW?=
+ =?utf-8?B?WE4vU0o5ZVNrblhSUVNkVE1LTHFMN2h4WUR4NFAzdDZPNlphSlM1bG9KcmVq?=
+ =?utf-8?B?RExtWFlNalpLR01GMUFQT1oyYUQzU2ZPTHUyYXA4R0wzakNINWZralJVaU9M?=
+ =?utf-8?B?VXI0VG1NMDk3Vmh6M3V5SGlUZ2YyWFRRckxyNzhLRkp0YjBtWXRQVHhEaVF3?=
+ =?utf-8?B?ek5ocWFtaFBzQ3VVMktuMUMvYmtuSkdOWlVKNW5WTldWYnZoM25Lc3BaL0NX?=
+ =?utf-8?B?dXZzOWtTb1BoK1ZacjlTSWRmcno2QTlpdXdsdERtZGVHb2ZxcERFTGRHMmRP?=
+ =?utf-8?B?QWRTUXdqVmtTbFBFMC9xWmNRSEZpYzE2ZEFqL1VaemdYNkt4MVNLMWlrcjF5?=
+ =?utf-8?B?T2JpMnpEU1hIWUt2dmFiNkwrMkI0NzRoNExzUnN0UC80cWl1Q0pJZHIwVGlE?=
+ =?utf-8?B?ak1oS2M2blVNMm9VSzRKSU90YlhJajNQOHVPaDJnY2NabG1wVUt2ck1NYUFO?=
+ =?utf-8?B?akZSRGRoOGIyMlp3eHBVeE9ySzQ2czBZelI0MnJab3JWdjFzWWhOSjlwcWVa?=
+ =?utf-8?B?MVl0dUJ6U0pROHdIRHVWWVNKdkltK0h0ejg0cjJDdFlZTXA5MUk2TlVTK3VO?=
+ =?utf-8?B?WkhBVG1ld3h0b1FqTFlQeDBJNENMWDZheGxEV3IrK0hSMTA3ZTA0TDFyVjcr?=
+ =?utf-8?B?Z050eC9Uelo3c01PSllxc2RUWGk3U0trcGlzcFVkQjdqMTl2bjJ3RHJqMity?=
+ =?utf-8?B?cVM3VHRweDBwdCtYcS9XMVZqVWtTZHJtNFROLzN3SzRzamc3bHNmdTVZdm9O?=
+ =?utf-8?B?VUxyelMzYW5TSVljdVl1aVRnRDRyZVU0d3V1WnpSS3UxSVpxaHhBNk1RUWx4?=
+ =?utf-8?B?aHk4KzR5NEFHcWVoRXdpS0pXNXFqeWZkSjFWdExrcHkzVWFHc0ViZnBzUkMx?=
+ =?utf-8?B?M0loYWwwdFd3YlNNaXR3N0tVTEJiOHdaRHIzMmVVODlDZnh3OHRZTHMzZU15?=
+ =?utf-8?B?OElKeGM2NFk3eVA1TUJqYnlFalBJQk85aTJVMnlhM3lkSTZ6MXUzMUIxWmNO?=
+ =?utf-8?B?bzJYQllVNTM1MVZzQ3l2Y1Q0V2pZRFBJV2hXSURZUzRmV0kyb2xtWGdSMEZ6?=
+ =?utf-8?B?VmhKTTRJVCsySGNiSlJmZEp5RWlXNEQ0dFh5dDBMSWhKbXZwbkJUcnU4Nndy?=
+ =?utf-8?B?SjFieXJlRGFQd0NXcXErZEhZcm00dm9QVXQ5aHVYTXFPNUpGWTZlaVNVcElO?=
+ =?utf-8?B?VnU4MEFvY3ljVXlIc1FGcFFBcWRTYmE3aFNIR0xmeGtMRGt2TDFPMkIraElX?=
+ =?utf-8?B?eXlabTd1Nk9mUC9kOEw2KzJQRTd0M2NKTk9Oc3hnaHIwNDFOMCtJSXVPSW55?=
+ =?utf-8?B?Z2lpSmtOUFc1cE1zQkdSdm03QTBaU1M2NnRsRjl2aVZSYU9ZVHpPWENVYVFh?=
+ =?utf-8?B?bmw5ME5XeWQyVm1UYm1EcEdvb0UxeHN2WmtMQjU5Nlg1dWJlU09xYzQwb3A4?=
+ =?utf-8?B?THQ2c0pPUEFOTm1pOVc3Nnh3aEpRZlZ4S2k1Wk9kUFVFODZZeFMxOEhYOGRX?=
+ =?utf-8?B?TUhqQktQZFVZd2taK2RObDJaRkJwQ0pqNHl4eHErRnB2K3NINS9KUG5NcXov?=
+ =?utf-8?B?Mzk0dGNVTUpWNVV0VEd2QU9rTi9VblVPVDhKUHh2WUNzZTlPcHZOU3ErY2RB?=
+ =?utf-8?B?NGRraTltQzVEc29VdnN0Wi9ia3JUV2grRHlsSU5PNmd5V0JxMno3dDhRc09l?=
+ =?utf-8?Q?OnG2hx8MB2jeA88Vh8?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cbbc8ef3-6bdc-4fce-df24-08de58fd6d14
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2026 14:57:41.4714
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JBCcn6SUyhHG/aNQ/GTaN1k4g24E0C5vO3Ounr49tg9WKr1Lp16tX0a7ExVDjUv0K0Ow7JFHNutznpUT+pRn/A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_065557_265601_5FDE22D1 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20260121_065749_136915_6047A302 
+X-CRM114-Status: GOOD (  22.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,138 +185,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 0f61b1860cc3f52aef9036d7235ed1f017632193:
+On Wed, Jan 21, 2026 at 10:25:26PM +0800, Shawn Guo wrote:
+> Cc Frank
+>
+> On Wed, Jan 21, 2026 at 10:20:47PM +0800, Shawn Guo wrote:
+> > Shawn is no longer interested in maintaining i.MX platform, and would like
+> > to step down.  On the other hand, Frank seems to be the best successor
+> > for this role.
+> >
+> >  - He has been one of the most outstanding contributors to i.MX platform
+> >    in the recent years.
+> >
+> >  - He has been actively working as a co-maintainer reviewing i.MX
+> >    patches and keep the platform support in good shape.
+> >
+> >  - He works for NXP and could be the bridge and coordinator between
+> >    NXP internal developers and community contributors.
+> >
+> > Signed-off-by: Shawn Guo <shawnguo@kernel.org>
+> > ---
 
-  Linux 6.19-rc5 (2026-01-11 17:03:14 -1000)
+Thanks, Shawn, for your great work maintaining i.MX platform support. I’ve
+learned a lot from you, and I’m happy to continue maintaining the i.MX
+platform.
 
-are available in the Git repository at:
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.19-2
-
-for you to fetch changes up to 0638dc292e54ba0cbcb1ff81af3ca52d3bbfaf54:
-
-  Merge tag 'qcom-arm64-fixes-for-6.19' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes (2026-01-21 09:52:19 +0100)
-
-----------------------------------------------------------------
-soc: fixes for 6.19, part 2
-
-The main changes are devicetree updates for qualcomm and rockchips arm64
-platforms, fixing minor mistakes in SoC and board specific settings:
-
- - GPIO settings for Pinephone Pro buttons
- - Register ranges for rk3576 GPU
- - Power domains on sc8280xp
- - Clocks on qcom talos
- - dtc warnings for extraneous properties, nonstandard node names and
-   undocument identifiers
-
-The Tegra210 platform gets a single revert for a devicetree change that
-caused a 6.19 regression.
-
-On 32-bit Arm, we have trivial fixes for Microchip SAMA7 devicetree
-files and NPCM Kconfig, as well as Andrew Jeffery being officially
-listed as MAINTAINER for NPCM.
-
-A single driver fix is for Qualcomm RPMHD power domains, bringing the
-driver up to date with a devicetree change that added additional power
-domains to be enabled.
-
-----------------------------------------------------------------
-Abel Vesa (1):
-      mailmap: Update email address for Abel Vesa
-
-Alexey Charkov (2):
-      arm64: dts: rockchip: Fix headphones widget name on NanoPi M5
-      arm64: dts: rockchip: Configure MCLK for analog sound on NanoPi M5
-
-Andrew Jeffery (1):
-      MAINTAINERS: Add Andrew as M: to ARM/NUVOTON NPCM ARCHITECTURE
-
-Arnd Bergmann (4):
-      Merge tag 'at91-fixes-6.19' of https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux into arm/fixes
-      Merge tag 'v6.19-rockchip-dtsfixes1' of git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip into arm/fixes
-      Merge tag 'nuvoton-arm-6.19-fixes-0' of https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux into arm/fixes
-      Merge tag 'qcom-arm64-fixes-for-6.19' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into arm/fixes
-
-Chaoyi Chen (1):
-      arm64: dts: rockchip: Fix wrong register range of rk3576 gpu
-
-David Heidelberg (1):
-      arm64: dts qcom: sdm845-oneplus-enchilada: Specify panel name within the compatible
-
-Geraldo Nascimento (2):
-      arm64: dts: rockchip: remove dangerous max-link-speed from helios64
-      arm64: dts: rockchip: remove redundant max-link-speed from nanopi-r4s
-
-Hari Prasath Gujulan Elango (1):
-      ARM: dts: microchip: sama7d65: fix the ranges property for flx9
-
-Horatiu Vultur (1):
-      ARM: dts: microchip: lan966x: Fix the access to the PHYs for pcb8290
-
-Jon Hunter (1):
-      Revert "arm64: tegra: Add interconnect properties for Tegra210"
-
-Konrad Dybcio (3):
-      dt-bindings: power: qcom,rpmpd: Add SC8280XP_MXC_AO
-      pmdomain: qcom: rpmhpd: Add MXC to SC8280XP
-      arm64: dts: qcom: sc8280xp: Add missing VDD_MXC links
-
-Krishna Kurapati (2):
-      arm64: dts: qcom: sm8550: Fix compile warnings in USB controller node
-      arm64: dts: qcom: sm8650: Fix compile warnings in USB controller node
-
-Krzysztof Kozlowski (1):
-      arm64: dts: rockchip: Fix wifi interrupts flag on Sakura Pi RK3308B
-
-Nicolas Ferre (1):
-      ARM: dts: microchip: sama7d65: fix size-cells property for i2c3
-
-Ondrej Jirman (1):
-      arm64: dts: rockchip: Fix voltage threshold for volume keys for Pinephone Pro
-
-Pradeep P V K (1):
-      arm64: dts: qcom: talos: Correct UFS clocks ordering
-
-Quentin Schulz (1):
-      arm64: dts: rockchip: fix unit-address for RK3588 NPU's core1 and core2's IOMMU
-
-Randy Dunlap (1):
-      arm: npcm: drop unused Kconfig ERRATA symbol
-
-Rob Herring (Arm) (4):
-      arm64: dts: rockchip: Drop "sitronix,st7789v" fallback compatible from rk3568-wolfvision
-      arm64: dts: rockchip: Fix pinctrl property typo on rk3326-odroid-go3
-      arm64: dts: rockchip: Fix gpio pinctrl node names
-      arm64: dts: rockchip: Drop unsupported properties
-
-Yixun Lan (1):
-      MAINTAINERS: update email address for Yixun Lan
-
- .mailmap                                           |  3 +++
- MAINTAINERS                                        |  4 +++-
- arch/arm/boot/dts/microchip/lan966x-pcb8290.dts    |  1 +
- arch/arm/boot/dts/microchip/sama7d65.dtsi          |  4 ++--
- arch/arm/mach-npcm/Kconfig                         |  1 -
- arch/arm64/boot/dts/nvidia/tegra210.dtsi           | 24 ----------------------
- arch/arm64/boot/dts/qcom/sc8280xp.dtsi             | 16 +++++++++++----
- .../boot/dts/qcom/sdm845-oneplus-enchilada.dts     |  4 ++--
- arch/arm64/boot/dts/qcom/sm8550.dtsi               |  2 --
- arch/arm64/boot/dts/qcom/sm8650.dtsi               |  3 ---
- arch/arm64/boot/dts/qcom/talos.dtsi                |  4 ++--
- .../boot/dts/rockchip/rk3308-sakurapi-rk3308b.dts  |  2 +-
- arch/arm64/boot/dts/rockchip/rk3326-odroid-go3.dts |  3 ++-
- .../boot/dts/rockchip/rk3399-kobol-helios64.dts    |  2 --
- .../arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dtsi |  1 -
- .../boot/dts/rockchip/rk3399-pinebook-pro.dts      |  1 -
- .../boot/dts/rockchip/rk3399-pinephone-pro.dts     |  4 ++--
- arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi      |  2 +-
- .../boot/dts/rockchip/rk3399-rock-4c-plus.dts      |  4 ++--
- .../rockchip/rk3568-wolfvision-pf5-display-vz.dtso |  3 +--
- arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts  | 12 +++++++----
- arch/arm64/boot/dts/rockchip/rk3576.dtsi           |  2 +-
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  4 ++--
- drivers/pmdomain/qcom/rpmhpd.c                     |  4 ++++
- include/dt-bindings/power/qcom,rpmhpd.h            |  1 +
- 25 files changed, 50 insertions(+), 61 deletions(-)
+> >  MAINTAINERS | 14 +++++++-------
+> >  1 file changed, 7 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index 5b11839cba9d..a294b4e952a9 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -2745,14 +2745,14 @@ F:	arch/arm/include/asm/hardware/dec21285.h
+> >  F:	arch/arm/mach-footbridge/
+> >
+> >  ARM/FREESCALE IMX / MXC ARM ARCHITECTURE
+> > -M:	Shawn Guo <shawnguo@kernel.org>
+> > +M:	Frank Li <Frank.Li@nxp.com>
+> >  M:	Sascha Hauer <s.hauer@pengutronix.de>
+> >  R:	Pengutronix Kernel Team <kernel@pengutronix.de>
+> >  R:	Fabio Estevam <festevam@gmail.com>
+> >  L:	imx@lists.linux.dev
+> >  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> >  S:	Maintained
+> > -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git
+> > +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git
+> >  F:	Documentation/devicetree/bindings/firmware/fsl*
+> >  F:	Documentation/devicetree/bindings/firmware/nxp*
+> >  F:	arch/arm/boot/dts/nxp/imx/
+> > @@ -2767,22 +2767,22 @@ N:	mxs
+> >  N:	\bmxc[^\d]
+> >
+> >  ARM/FREESCALE LAYERSCAPE ARM ARCHITECTURE
+> > -M:	Shawn Guo <shawnguo@kernel.org>
+> > +M:	Frank Li <Frank.Li@nxp.com>
+> >  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> >  S:	Maintained
+> > -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git
+> > +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git
+> >  F:	arch/arm/boot/dts/nxp/ls/
+> >  F:	arch/arm64/boot/dts/freescale/fsl-*
+> >  F:	arch/arm64/boot/dts/freescale/qoriq-*
+> >
+> >  ARM/FREESCALE VYBRID ARM ARCHITECTURE
+> > -M:	Shawn Guo <shawnguo@kernel.org>
+> > +M:	Frank Li <Frank.Li@nxp.com>
+> >  M:	Sascha Hauer <s.hauer@pengutronix.de>
+> >  R:	Pengutronix Kernel Team <kernel@pengutronix.de>
+> >  R:	Stefan Agner <stefan@agner.ch>
+> >  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+> >  S:	Maintained
+> > -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git
+> > +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git
+> >  F:	arch/arm/boot/dts/nxp/vf/
+> >  F:	arch/arm/mach-imx/*vf610*
+> >
+> > @@ -20562,7 +20562,7 @@ F:	drivers/pinctrl/pinctrl-amd.c
+> >  PIN CONTROLLER - FREESCALE
+> >  M:	Dong Aisheng <aisheng.dong@nxp.com>
+> >  M:	Fabio Estevam <festevam@gmail.com>
+> > -M:	Shawn Guo <shawnguo@kernel.org>
+> > +M:	Frank Li <Frank.Li@nxp.com>
+> >  M:	Jacky Bai <ping.bai@nxp.com>
+> >  R:	Pengutronix Kernel Team <kernel@pengutronix.de>
+> >  R:	NXP S32 Linux Team <s32@nxp.com>
+> > --
+> > 2.43.0
+> >
 
