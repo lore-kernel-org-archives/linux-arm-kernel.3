@@ -4,115 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 097FCC44506
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 18:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84CE7C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 18:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ynpg/cJ+vd3nqyV8BLe/SIqtaIrKy7cylnYrcUttxQg=; b=Z4Kb4Ectj9XgvpEse9MjIyTH53
-	8FLnHQ8wAkp7ikEyHFhpAz1VypJ1zdfBexbs2z3HfBBMam0b+4+NzBTZKOjasA981gZxrVBw+7kFR
-	t+tdBhI+Fqu6n29YoF02KZHsTfOJ3AcyQ99MClpPPfH5JaMC5D83ZntLYGxAw2rBao6iaTG2HmCmz
-	H7nNuaihl1p5jV+54SQbLgGmScD22eC4Q3vwUyGte2m/h0knnZN3MXU7XlPxcujd7hI4+L7Z1g3+v
-	yybisVOHaprq7E4ABRU4/0lAiUeSqXU4hAxv9kLV2aYd83cGkCcd2rSkv0xq7oiaaVMGrtw9C4+Sw
-	CAFBqrJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p5XVqIJKmTdNg//3T8VtD062hEHwYD3wbewTGcUQHww=; b=Btjnf8fLm59b0RbIGNroQfAnQN
+	NW0bMeJ/maOjQio72ryVbk+YOq4OX2VL0ZpeG8MvL5KrabCSqkOIi37eoE/CfImLeP7ba6pSnCj31
+	+/5/Nh6TKm958pKjux7dNeW8zp/sWCKASW/92DEHZG1Ly1VH3Uf7oiaRbXTPym7onUHF89xKwpW2e
+	ZCWyjNKIhRu1dK9mqXN/HroyVv7wbxx6FjheWytbBh8Vj6/DfuFwY7X+0B9ByLQn/jOGXpCbc3tTN
+	9yv1HOGxv+QrEUezGmXqxdVHk+OyLrIlwerQVzojbTgTkSkzOqS3NiRepKOXvhaQ29TlsKExVMiLC
+	VrRozuYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viciO-00000005uT5-1cVB;
-	Wed, 21 Jan 2026 18:14:00 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vicj3-00000005uXM-3143;
+	Wed, 21 Jan 2026 18:14:41 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viciL-00000005uSh-2ZJM
+	id 1vicj1-00000005uWh-2gDQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 18:13:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1769019236;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ynpg/cJ+vd3nqyV8BLe/SIqtaIrKy7cylnYrcUttxQg=;
-	b=AB1YxHnihS+6P3zQQaO2zOtQY+jgEbeFhGjegrf6fvMtcEzfinB8fgXPzoTw+zAOWqIHtS
-	K9cFs7Xrr1SWAUKMNK0xWQx1LVRUG/KCdd+QU7Gvtq8edYaRojrVjr428QyIwyPp0jIlw5
-	BnmLfh64LsK9NAcFQaSf95/EBTl3rX0=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-211-n0ZJbGzGNlufjgljWqAxOg-1; Wed, 21 Jan 2026 13:13:52 -0500
-X-MC-Unique: n0ZJbGzGNlufjgljWqAxOg-1
-X-Mimecast-MFC-AGG-ID: n0ZJbGzGNlufjgljWqAxOg_1769019231
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4358fe2e7e1so77908f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 10:13:52 -0800 (PST)
+	Wed, 21 Jan 2026 18:14:40 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-47ee730612dso3935e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 10:14:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769019276; cv=none;
+        d=google.com; s=arc-20240605;
+        b=aFZTs4udM2ykukYeVr3q29IqmSRa8o75vcBjnoGANP9WmhnA9eFl0pQyt56lDfOg3i
+         l/T4MKrvvvLRBgYpLlHdMKIIjR6+sekPLqgOkGoR8taLQ6EV8VeWFMlSeCxkTBDI/xGh
+         OjZGy9MQlXvhH+XBvn7EsSEXpCe3STzU/HQoe4tXzrAoHnjt3/B2OBjGmL7v1oTg3lAO
+         /1EEfHZH6opKUZFwRDkgM8IgiyIfXiZiLQ9+oM25j1Zu9Z6SaK9+XYwGK63is1yB5Y7n
+         KrmAftAcmQDFPoPd4G2VsiIpMSt9txVZuwCgaDhZhZFrtmL4X8vuPSm0q0AffimRHHPn
+         emKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=p5XVqIJKmTdNg//3T8VtD062hEHwYD3wbewTGcUQHww=;
+        fh=BMDngvLyZ8R4bHSsqQu26/NU4cRmcM580OwyBoV0Zts=;
+        b=CeLqij5e+jmfTi0vJQjKPrBmuNWL4xlv/RRss4X55fS1Akp9DdaRJ1hvs4VJ67K4/3
+         KGmJi9UMF0xiVYKUAGhfxJnUzt0oXeMT8+lEbaE9pDHK9v/zuAHM0BUhp0tPkJ2fOR4D
+         Uk/xZ0/J779l3Ui8cz7wM/kbKWVaYIWdrskhxVuJUlTQNzbvlFX3zR+i6KA9qitjj5iu
+         5Yu2bvkm4EPbEZwztIIyrCSLNfzgR5oOzHlTlF6SEZA1dd09JXl0fVJrCuJr4OyeURp/
+         MMnZOg7fGKFDrrE4+3pp6j1nQh2AowzwStIbfd+CHO5RZYD2ICN9ScAIjfto49zp5WWS
+         Ymdw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1769019276; x=1769624076; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=p5XVqIJKmTdNg//3T8VtD062hEHwYD3wbewTGcUQHww=;
+        b=EAqT1eaNe4AA6x7nFWFcbueBHPV1Ay8sbGgwGf4n0P5UZkgDV3lnq7pbVt9TdoC3CQ
+         4N2Qxl7f4l2iozjG50KUJVGwomTTe9x0z3pRg4vO+caRDz517UCXjbR0n9y9nIdjTin4
+         feuuSLpE6CJ2r0F5EciFprLAMdZ0FFYTNqRl8+ipYx1/jtzzv1OdzX+GBp7y1OKU8Lxi
+         gZjuSGwpVKgJ0O7FTSilP9y572D+J7lQfkiPHWUCRky4DVHmVvSZIzmJ/7dMDP8XFA+S
+         CiUN6IpHBzvmqHnDtHy+ETaxx1FXSdieCtttDDXAOno49uaw18ZOUaiwD4pg/SGz80e0
+         wDeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769019231; x=1769624031;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ynpg/cJ+vd3nqyV8BLe/SIqtaIrKy7cylnYrcUttxQg=;
-        b=fc01HeelUPZ4SHoiM4NVvQlUnN9dGHKwjJimoY23kbgikWy0bbRsv4p52pMMMc2fgk
-         udVOQuZOSmA2KUyoRR+bBSokytgPPOXHHU8gKQ+KNTzHLHRtkbc6j43B7JjgdWRgbRJE
-         TG8Gdge19OFlKHIms7B8BzLmKo9YuFT/qX5MNpxOWyRbNPch/QPFamgxkGTFKt9ZWRPM
-         05V5xedImIcvwHN7krzeeHwYOQQWeK/DJTpjb98SqbcW/bHIMsRgWX2DVVwrRd8kRcFM
-         SWcSPQJCmNiuoPcJbc6dD9Rtx2rJzsabARHSxhSlUVa3rat+NbDEY+dSrSkJtlbwV9jH
-         3Bfg==
-X-Forwarded-Encrypted: i=1; AJvYcCXU3LBkySRhAI8uznKrQvYHtRa3v8t2npOohv8vNgO3thV/3mq8ep6XhWllEPBTlIikCavst9XACvlYH1Iy2CoO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeZ/3/DYVxIQfg8sp+lVoCtEcB238jE3dtIIXrPhO/FR9Fe5Oh
-	nu543WFkHtku3SoSE/HxK4X+k4AzyiZ78612KO9bJuZCy0UL7b2h696b0IVNUdAzo5+ofVHDOKG
-	OvQmf5GM+66Z3T2oTPB6OdZ0nQ25trPlEhAPPNUGEm4tzvjFAKWmgL3trzz4yLOuXd+A/yexKmn
-	bJ
-X-Gm-Gg: AZuq6aIkUGGmCq+A63ylsla1FUOV9frSsrQDd2/KOs9tQVsJuYHMNovHxIUrtRKumMq
-	sI13/fge4+gETUSlJcpTwLtjfzwgO4RYfuRA/XfVDY7cHTE6GdD6MSnOlB5+Bhf1+105jt3Ynke
-	Cw5Tc0fEKDC1URiqvcne3eizG1HO1F6a+cp/bxiK3rpFiiDwK+fh5y5LpNxJPFTESuTIE4neci0
-	LBOySEHRjO6UQDb0IT4jOYJDPGAm6TVTOs94TvILkprSwSkjx/uSdx9hlRxaVcAbNdKR3KN/ya7
-	6vcUols2oXmlL7GL0B//jqW6F2YTCXpk4hCd59drsMDDHt5RslOqBRIqhmgiIu7UmtcvDMH3pDW
-	F9ufWinrik5TAZu4ZyvqHsDUPPpYRaRKna8RDoFZQIprvUnNDltB89U4d1sU07vcC8oPuInAr/P
-	c6yF1puDDe8xFX6A==
-X-Received: by 2002:a5d:4688:0:b0:435:95c9:6891 with SMTP id ffacd0b85a97d-43595c96bcamr7351158f8f.42.1769019231268;
-        Wed, 21 Jan 2026 10:13:51 -0800 (PST)
-X-Received: by 2002:a5d:4688:0:b0:435:95c9:6891 with SMTP id ffacd0b85a97d-43595c96bcamr7351114f8f.42.1769019230831;
-        Wed, 21 Jan 2026 10:13:50 -0800 (PST)
-Received: from [192.168.10.48] ([151.61.26.160])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-43569921da2sm38550536f8f.1.2026.01.21.10.13.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 21 Jan 2026 10:13:49 -0800 (PST)
-Message-ID: <5bea843b-dec8-4f15-bb7c-1d0550542034@redhat.com>
-Date: Wed, 21 Jan 2026 19:13:43 +0100
+        d=1e100.net; s=20230601; t=1769019276; x=1769624076;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=p5XVqIJKmTdNg//3T8VtD062hEHwYD3wbewTGcUQHww=;
+        b=AY8FG5BBpifUMrvpgW+bHadiNnR36PAS0vvsHisLx9v+vkBJtY1DGR17GashRCSsc0
+         6xqn3aB4Q02te7wdgJkxzwgeDS9KQby5fAc0UmUcUPUYXa8WkIWcud7hSE9eG4T+k/Wv
+         grVdvOmCpywzpAannPNo9vbTN+f21XwNNAFxCZMOKd81EXzkXlwd5/k42Cbkex9UgEab
+         bZWB3d/HlEH3HnDRjfwJt3c7f481QT5kiL6aRAJ2yXKVQyutn2EB2jrJf9tOCHcSg/w6
+         GiSIEjVQAFVMTDRny16KAKRafwK6Wg48FtxbvC/KysVpjwyzTQ+/uGLcdvZIM4idgGmB
+         KYew==
+X-Forwarded-Encrypted: i=1; AJvYcCVXDyfCQu5Ml52V4KwFpFdFLk7nbkdZVE0wd0Enf6VF75KEfZulr/p5mVHZ0nVv50alP9Clvo/5wirZd8+0Gd/y@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJYFqDEYJd2GfQYTuv5WnSrNQklDScqhyySC2KODyv0xPSKF08
+	yqUwt1ptu5kAilhIuthhWH9lxauf5ooJbPrgKhF6H2xhodsYpNlklVt/Z3kjs64/TNa2ZrUgEcc
+	pScwuVgXD0IIpD10MtZNqg2LdgU08sRoRjTRtjZJ5
+X-Gm-Gg: AZuq6aIYy2CYb3D0WPi1KXDcsoH559opTGD0oQw7uWWDPGLL3WuhiQv/pnEhmKkHRw+
+	TRoOnUHYL4dg6aprZP7HCThUxxy9eCGARjukXctOxjQiZEhHNcoq4wT+SbzDKoHXrsOiAgpLCWa
+	lwMQ/BEOeoW1bSYJjpy8EVX3VhgoC8RV9Sd8LWZ9uWWM5r3d1qLxDSU9pNhM0hnQ2A3CbFShtxi
+	DcD3uA4fL+yBoMiJ61lFCfvZnpGurmDUNCKqLO10vl72kiRGP+m7swqopsR9sgeYAJtTvHv
+X-Received: by 2002:a05:600c:6384:b0:477:563a:135c with SMTP id
+ 5b1f17b1804b1-480477b51a1mr26765e9.0.1769019275979; Wed, 21 Jan 2026 10:14:35
+ -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: possible deadlock due to irq_set_thread_affinity() calling into
- the scheduler (was Re: [PATCH v3 38/62] KVM: SVM: Take and hold ir_list_lock
- across IRTE updates in IOMMU)
-To: Thomas Gleixner <tglx@kernel.org>, Ankit Soni <Ankit.Soni@amd.com>,
- Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>, Joerg Roedel <joro@8bytes.org>,
- David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- Sairaj Kodilkar <sarunkod@amd.com>, Vasant Hegde <vasant.hegde@amd.com>,
- Maxim Levitsky <mlevitsk@redhat.com>,
- Joao Martins <joao.m.martins@oracle.com>,
- Francesco Lavra <francescolavra.fl@gmail.com>,
- David Matlack <dmatlack@google.com>, Naveen Rao <Naveen.Rao@amd.com>,
- Crystal Wood <crwood@redhat.com>
-References: <20250611224604.313496-2-seanjc@google.com>
- <20250611224604.313496-40-seanjc@google.com>
- <njhjud3e6wbdftzr3ziyuh5bhyvc5ndt5qvmg7rlvh5isoop2l@f2uxctws2c7d>
- <42513cb3-3c2e-4aa8-b748-23b6656a5096@redhat.com> <874iovu742.ffs@tglx>
- <87pl7jsrdg.ffs@tglx>
-From: Paolo Bonzini <pbonzini@redhat.com>
-In-Reply-To: <87pl7jsrdg.ffs@tglx>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: AWApxEUGRojrK3_rwmDkHtV9V_lTVqoQ29_Yq1JEjTs_1769019231
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20260119105651.255693-1-maz@kernel.org>
+In-Reply-To: <20260119105651.255693-1-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Wed, 21 Jan 2026 18:13:00 +0000
+X-Gm-Features: AZwV_Qh_YeP54R4FLco28FynJf9u8bOykNrY9GWkuwWxdnhQ-4o8kYRPJgfG68U
+Message-ID: <CA+EHjTzN1hUZCW_muHwapRQopFaju-zRPZygxKoyfYS1XSYNSg@mail.gmail.com>
+Subject: Re: [PATCH 0/6] KVM: arm64: ... and FWB for all
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
+	Quentin Perret <qperret@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_101357_724636_B815FE6B 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20260121_101439_702779_B56C454C 
+X-CRM114-Status: GOOD (  23.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,54 +115,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sorry, not sure how the previous email ended up encrypted.
+Hi Marc,
 
-On 1/8/26 22:53, Thomas Gleixner wrote:
-> On Thu, Jan 08 2026 at 22:28, Thomas Gleixner wrote:
->> On Mon, Dec 22 2025 at 15:09, Paolo Bonzini wrote:
->>> Of the three, the most sketchy is (a); notably, __setup_irq() calls
->>> wake_up_process outside desc->lock.  Therefore I'd like so much to treat
->>> it as a kernel/irq/ bug; and the simplest (perhaps too simple...) fix is
->>
->> It's not more sketchy than VIRT assuming that it can do what it wants
->> under rq->lock. 🙂
+On Mon, 19 Jan 2026 at 10:56, Marc Zyngier <maz@kernel.org> wrote:
 >
-> And just for the record, that's not the only place in the irq core which
-> has that lock chain.
+> [Yes, you can tell what I was listening to]
 >
-> irq_set_affinity_locked()       // invoked with desc::lock held
->     if (desc->affinity_notify)
->        schedule_work()           // Ends up taking rq::lock
+> Today, running in protected mode puts the host under it's own S2 with
+> FWB=0, even if the rest of the guests are running with FWB=1. The
+> rationale for this special-casing of the host is that we want the
+> combined attributes to actually reflect the ones exposed by S1.
 >
-> and that's the case since cd7eab44e994 ("genirq: Add IRQ affinity
-> notifiers"), which was added 15 years ago.
+> We therefore use NormalCacheable (which is the weakest memory type) as
+> the default attributes at S2 so that S1 can only strengthen the final
+> memory type.
 >
-> Are you still claiming that this is a kernel/irq bug?
+> But there is no reason why we cannot achieve the same effect with
+> FWB. We normally use FWB to enforce cacheable memory from S2,
+> irrespective of S1. But it is possible to configure the S2 attributes
+> as "pass-through", so that the S1 attributes are always used.
+>
+> This small series implements that change, adding a flag that actually
+> describes what we are trying to do (instead of the NOFWB flag which is
+> pretty obscure), and fixes an interesting gotcha with CMOs.
+> Interestingly, CMOs never actually worked with NOFWB on an FWB-aware
+> platform...
+>
+> Patches on top of 6.19-rc5.
+>
+> Marc Zyngier (6):
+>   arm64: Add MT_S2{,_FWB}_AS_S1 encodings
+>   KVM: arm64: Add KVM_PGTABLE_S2_AS_S1 flag
+>   KVM: arm64: Make stage2_pte_cacheable() return false when S2_AS_S1 is
+>     set
+>   KVM: arm64: Switch pKVM host S2 over to KVM_PGTABLE_S2_AS_S1
+>   KVM: arm64: Kill KVM_PGTABLE_S2_NOFWB
+>   KVM: arm64: Simplify PAGE_S2_MEMATTR
 
-Not really, I did say I'd like to treat it as a kernel/irq bug...
-but certainly didn't have hopes high enough to "claim" that.
-I do think that it's ugly to have locks that are internal,
-non-leaf and held around callbacks; but people smarter than
-me have thought about it and you can't call it a bug anyway.
+Glad to see the host is no longer pulling the shortest straw on memory
+attributes. ;)
 
-For x86/AMD we have a way to fix it, so that part is not a problem.
+I've applied these patches on top of the pKVM Android branch (with one
+small fix to the Android pKVM code), and tested it with qemu on cpu
+max (fwb) neoverse-n1 and cortex-a72 (no fwb).
 
-For the call(*) to irq_set_affinity() in arch/arm64/kvm/'s
-vgic_v4_load() I think it can be solved as well.
-kvm_make_request(KVM_REQ_RELOAD_GICv4) will delay vgic_v4_load()
-to a safe spot, so just cache the previous smp_processor_id() and,
-if it is different, do the kvm_make_request() and return instead
-of calling irq_set_affinity().
+Tested-by: Fuad Tabba <tabba@google.com>
 
-vgic_v3_load() is the only place that calls it from the preempt
-notifier, so this behavior can be tied to a "bool delay_set_affinity"
-argument to vgic_v4_load() or placed in a different function.
+Stay tuned for the reviews...
 
-Marc/Oliver, does that sound doable?
+Cheers,
+/fuad
 
-Paolo
 
-(*) kvm_sched_in() preempt notifier -> kvm_arch_vcpu_load() ->
-     kvm_vgic_load() -> vgic_v3_load() -> vgic_v4_load()
 
+
+
+
+>  arch/arm64/include/asm/kvm_pgtable.h  |  7 +++---
+>  arch/arm64/include/asm/memory.h       | 11 ++++++---
+>  arch/arm64/include/asm/pgtable-prot.h |  4 ++--
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c |  4 +++-
+>  arch/arm64/kvm/hyp/pgtable.c          | 32 +++++++++++++++++++--------
+>  5 files changed, 39 insertions(+), 19 deletions(-)
+>
+> --
+> 2.47.3
+>
 
