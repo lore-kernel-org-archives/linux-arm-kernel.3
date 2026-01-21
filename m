@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BB87C44525
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 12:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C645C44525
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 12:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jxOrB8wfEeC2m9GMBQa+QZHxO/B1NDwQHQf6JSIEBVs=; b=rrODw0PGwbGnEDiHvYKR97hH0s
-	Ny6Cqvtgyow1uxOw7AgGTptjMFG4kBYJ4MEJ0h4TPU7JniDuGVKvIfHVM8Bxc5Wy1zXzn1N2GCXqc
-	9EOa+l6ysr4J3TcI5ibH/HsNCGvciGbu+fwxm9TL4gpsCYcle7XCUYixu5B+HTSqEzoczwyMbcPKc
-	7owfDOjXdO7nDus9iuCp1XokXC7TF2S/E3vbb/r21SVuP8uFAQk3yLBTKze8+NUHr3hVzCCB+q0el
-	usPdnfP1LUZ/NVsltcrUdncOZtc2BhP5ZJnidSMGSE4cvbcstEjrOPt2vpZiEtgCCjhjqC6HTmPlL
-	Xf0BM7Jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VYAPCj2irDOgzqZXdDb9tdxLAgky8zYNcuL1hkiR9mI=; b=JOal8Ml3Dy5XoPinNJ333dqpRY
+	WE+TgarTtBThcQYa5qpgx/BOKQ8dvuZLxHVjHFv8V2BKQMViDLnw3ZYU0lHJaQmBtMExXa3ohvOvU
+	gDlTXZb907bzeijHeBop9Q053l23S457fs0KIkuGxAy1BqV1gvKsi4vqlRFX6KKs8LHL8v5AWh44t
+	5N6UdPGddYRC6ik/Eq6+G1601PHUXNW/sNEPCveXxc+yZoowMHaueCc+Iqha0AY4T3KYBMyNtEerN
+	tHZUu7ypgFfMQTALNJf2OQnZ1jS1iw1Ddhm3XPIe3d2MkDz6halHbX9ImQVJXs4sC+ew6/rFpOxEh
+	h6vQWe+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viXZd-00000005Rxl-08go;
-	Wed, 21 Jan 2026 12:44:37 +0000
+	id 1viXgY-00000005SF6-1bfx;
+	Wed, 21 Jan 2026 12:51:46 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viXZb-00000005RxT-06hy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 12:44:36 +0000
+	id 1viXgW-00000005SEK-2Sde;
+	Wed, 21 Jan 2026 12:51:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C8F6B4431C
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 12:44:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6E2DC19421
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 12:44:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C1444017A;
+	Wed, 21 Jan 2026 12:51:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAC07C19421;
+	Wed, 21 Jan 2026 12:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768999473;
-	bh=jxOrB8wfEeC2m9GMBQa+QZHxO/B1NDwQHQf6JSIEBVs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=tSkBcFaBbZKibs5kVPOyBS2H8PmTauBESCSL+Uwgla7l1IPLG7ugTJqOT/c7/WJED
-	 z2PgR6Cqiho3fzbKqjLPG1QL7BK6p+Em96KUWf6DOiI+5VC+oQZNvgo9ScF/NeYq0W
-	 nmQPcl97qd3txxyvjCF1Oua5hmkG+gruuC2O20O4qrxV5vncGLiCz4IRK0hgyuetg5
-	 OSPC1T1fxTDD9PtM5sVB2uXqjQ5k8EocivxTTjqh1fCSj0veoZmjnKP+ieppSU/y3u
-	 YdnmilYNvb2Z5M+1ZdUUCqK+VWzaIC5vcamTTMZm2OsGLrtbUSdHp4GS0MrSx93bSV
-	 GG4dHr5OW5+4g==
-Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-649389b1cc5so2137548d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 04:44:33 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCU06nTYJwr/t9asQN5KEzL010GE57EICxhhxnsQGNUXN2+hyBXlqW28mMHLgTiRYJ67ZFNEvecUUohJeJiZgzFF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8l21Wc8i7uX3JKgjUx/J+e2j+35OgvorxDzYd3OTemYvpbb7X
-	24c+BjFyFJ94r4OWgxlY6vXPbj31DNAD1yepauZCVcsuzkEqIVv8iY+KtmrsmZ9RxVQn6LUqMkn
-	fAUmrKoO6aEYyBrEk4APYepp5nZDEFP0=
-X-Received: by 2002:a05:690e:12cc:b0:649:40f7:f20e with SMTP id
- 956f58d0204a3-64940f7fb03mr3287094d50.46.1768999472553; Wed, 21 Jan 2026
- 04:44:32 -0800 (PST)
+	s=k20201202; t=1768999903;
+	bh=brbeUf/uHaUwIvWYg3FBssw/lRpSOlGRll71yV5ZVq4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DL94ys3MfP15mHhCxt/gWnaL3hYzfGSS458Wm3B3oFfMNSwhEvzoMizLJCYhS7Dt+
+	 sAyLDZEAoC8kFGwSXZbp4a4bAQBgBC7Uc7yy47ONTEn/ZMJvlnrcloLsfKZ0f0ijDx
+	 62ABgJ6K0ymEb72d0BjWPwEfKI1bxfQX0Kt1H50UqicrqokcexIze+E9nLMoIAU9yP
+	 VpmwA5Wt4lt5q+m79eyJRYkUE4cQGVIPxgm61liIll3OtfqjM+Z8UrkdvUo8MsnQXh
+	 /uym0TGMQOG4u9zMoCH0OpjLN7mkG/6VtNK0T4r1Il7nNyJXY3NQpn4P0Y1CUoRVGW
+	 vA+kHJKGdBE8g==
+Date: Wed, 21 Jan 2026 12:51:36 +0000
+From: Will Deacon <will@kernel.org>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Cc: joro@8bytes.org, robin.murphy@arm.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+	nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
+	mchehab@kernel.org, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
+	kernel@collabora.com
+Subject: Re: [PATCH v11 3/7] iommu: Add verisilicon IOMMU driver
+Message-ID: <aXDL2JH_4RCDmAJv@willie-the-truck>
+References: <20260107101005.84039-1-benjamin.gaignard@collabora.com>
+ <20260107101005.84039-4-benjamin.gaignard@collabora.com>
+ <aWZui-rn5RDPwpEO@willie-the-truck>
+ <68a49f8b-178c-4fa2-b4a9-315ad602271d@collabora.com>
+ <aWeTQ50DOtntcniN@willie-the-truck>
+ <db0950f1-b357-47c2-9829-e33262ab456d@collabora.com>
+ <aW4kb5EbxbrhTOxK@willie-the-truck>
+ <b8f43fe8-3e07-4d98-a50d-817c31370710@collabora.com>
 MIME-Version: 1.0
-References: <20260115114021.111324-1-robert.marko@sartura.hr> <20260115114021.111324-7-robert.marko@sartura.hr>
-In-Reply-To: <20260115114021.111324-7-robert.marko@sartura.hr>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 21 Jan 2026 13:44:21 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmitNVhWmUf9BBqLR2_WsAR7V-+ykVJsLK3MuOSUKQF0A@mail.gmail.com>
-X-Gm-Features: AZwV_Qgthmlr5E7M3bcNO1COpCtqKG_0WAWJfZBTcClME9lzo2DlyQIrR9yT_Bs
-Message-ID: <CAD++jLmitNVhWmUf9BBqLR2_WsAR7V-+ykVJsLK3MuOSUKQF0A@mail.gmail.com>
-Subject: Re: [PATCH v5 06/11] dt-bindings: pinctrl: pinctrl-microchip-sgpio:
- add LAN969x
-To: Robert Marko <robert.marko@sartura.hr>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
-	claudiu.beznea@tuxon.dev, herbert@gondor.apana.org.au, davem@davemloft.net, 
-	lee@kernel.org, andrew+netdev@lunn.ch, edumazet@google.com, kuba@kernel.org, 
-	pabeni@redhat.com, Steen.Hegelund@microchip.com, daniel.machon@microchip.com, 
-	UNGLinuxDriver@microchip.com, olivia@selenic.com, richard.genoud@bootlin.com, 
-	radu_nicolae.pirea@upb.ro, gregkh@linuxfoundation.org, 
-	richardcochran@gmail.com, horatiu.vultur@microchip.com, 
-	Ryan.Wanner@microchip.com, tudor.ambarus@linaro.org, 
-	kavyasree.kotagiri@microchip.com, lars.povlsen@microchip.com, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-gpio@vger.kernel.org, linux-spi@vger.kernel.org, 
-	linux-serial@vger.kernel.org, luka.perkov@sartura.hr, 
-	Conor Dooley <conor.dooley@microchip.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b8f43fe8-3e07-4d98-a50d-817c31370710@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_044435_082265_36A00EA0 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260121_045144_685517_6AA71552 
+X-CRM114-Status: GOOD (  29.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,20 +83,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Robert,
+On Mon, Jan 19, 2026 at 03:03:44PM +0100, Benjamin Gaignard wrote:
+> > > > > > > +static const struct iommu_ops vsi_iommu_ops = {
+> > > > > > > +	.identity_domain = &vsi_identity_domain,
+> > > > > > > +	.release_domain = &vsi_identity_domain,
+> > > > > > > +	.domain_alloc_paging = vsi_iommu_domain_alloc_paging,
+> > > > > > > +	.of_xlate = vsi_iommu_of_xlate,
+> > > > > > > +	.probe_device = vsi_iommu_probe_device,
+> > > > > > > +	.release_device = vsi_iommu_release_device,
+> > > > > > > +	.device_group = generic_single_device_group,
+> > > > > > > +	.owner = THIS_MODULE,
+> > > > > > > +	.default_domain_ops = &(const struct iommu_domain_ops) {
+> > > > > > > +		.attach_dev		= vsi_iommu_attach_device,
+> > > > > > > +		.map_pages		= vsi_iommu_map,
+> > > > > > > +		.unmap_pages		= vsi_iommu_unmap,
+> > > > > > > +		.flush_iotlb_all	= vsi_iommu_flush_tlb_all,
+> > > > > > This has no callers and so your unmap routine appears to be broken.
+> > > > > It is a leftover of previous attempt to allow video decoder to clean/flush
+> > > > > the iommu by using a function from the API.
+> > > > > Now it is using vsi_iommu_restore_ctx().
+> > > > > I while remove it in version 12.
+> > > > Don't you still need some invalidation on the unmap path?
+> > > In vsi_iommu_unmap_iova() page is invalided by calling vsi_mk_pte_invalid().
+> > But that just writes an invalid descriptor and doesn't appear to invalidate
+> > the TLB at all.
+> > 
+> > > That clear BIT(0) so the hardware knows the page is invalid.
+> > > Do I have miss something here ?
+> > Yes, the TLB structure needs to be invalidated so that the page-table
+> > walker sees the new value that you have written in memory.
+> > 
+> > The rockchip driver gets this correct...
+> 
+> Rockchip hardware have a ZAP_ONE_LINE register which didn't exist on Verisilicon
+> hardware.
 
-On Thu, Jan 15, 2026 at 12:41=E2=80=AFPM Robert Marko <robert.marko@sartura=
-.hr> wrote:
+Presumably you have some sort of Verisilicon datasheet or downstream driver
+from which you can infer the TLB invalidation runes?
 
-> Document LAN969x compatibles for SGPIO.
->
-> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+> I have tried to use VSI_MMU_BIT_FLUSH on VSI driver after unmapping iova
+> but it doesn't work.
 
-Should I just merge this one patch to the pinctrl tree?
-Looks good to me.
+What do you mean by "doesn't work"? If it works without doing any
+invalidation at all, then it's very peculiar that adding the invalidation
+would introduce issues.
 
-Yours,
-Linus Walleij
+> So far calling dma_sync_single_for_device() seems to be enough to make iommu
+> and video decoder work together.
+
+I don't think we should settle for "seems to enough"! If we can reason
+about the operation of the hardware then the driver will be undebuggable
+when it eventually goes wrong.
+
+Will
 
