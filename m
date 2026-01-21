@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EED7CA5FD7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:46:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED636C4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FCunRDq0/fm6bo4ZBAJq0Hh80vyN/MatVlH6n1QruFk=; b=iYZlMXRX2Zpc2g
-	9v1wqJK14ORSFw6IB3oFJgiXPd0hxDIPD0vC4sAyvO+DNczdUuT8qbIWaMScQTybgiqrrdZmtz9T8
-	rA9G+5JXogBEG1LdZ/Jrd00+7yYIHbiMkpcCWaUyoeGR7rfDYomyvYEBAAn0PSlZ9YxQPj8SOvwqu
-	wLZ0uU1njYy/kQLjS1mftQU+R6r0Rb19znv+L9yjLweUHyRcUsuCvTqW8Cxz+3+mPG4lc9ksxGvNz
-	JS9GkYCszPEauh1hDZp6HV4sOXA+FJ1QxtFDNQVDcEHqU2PB53TbYIw6MKC1x370tmgKFocAMvUt3
-	7TVPZvVrxtniQ7nTOJwQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8tbnRLxC7YN9OmZ6Ssd8CDhleEgMPvrSDskSel3YjYw=; b=MkCtXeTSNUsOZ81Hy9ClzyMbrK
+	R9q9N9Ax8K5GCunjZKJNLuBTYAhbBgZzslsQSquFvSO1VzxN4vpTH5ihXXgrSHf/xwM0RAfrP0Quq
+	4wegaBnthXBr2NkhpTgW0PeywFwK2UYqM1xl+Bhj6kGTPNIR/QU8KxXjXxioQRra2BY75nxy0AqdY
+	X4SapUoUrg50pEOClBnzyUWlQS5xk28Ez7Z7rc4JOx3TZboz5c2X+ppyKIHqqZR9JH0abskm8T5di
+	2U2WcAnPLRwpMGbA7fCcXXO6F5R2zf6mMDzEr0C1sho2hsOF3oHX88jTEGWqxM83IXU9iUJfSHdo9
+	5DI1N7iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYXk-00000005VHa-2r75;
-	Wed, 21 Jan 2026 13:46:44 +0000
+	id 1viYXs-00000005VO6-3die;
+	Wed, 21 Jan 2026 13:46:52 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYXc-00000005VEt-2FBw;
-	Wed, 21 Jan 2026 13:46:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769003152; cv=none; 
+	id 1viYXp-00000005VLJ-2bgn;
+	Wed, 21 Jan 2026 13:46:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769003178; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=M/Ti7qJ/lzUocqBJ9oziwBZKK00vakxasXq7pYJePGxHZDUw+StSKaKsHEyr15Y8bSGHQlUQiGK8alm/P0/LcUF3jKbBDm5rKPClIbdboQyP/n84OVJuej5KtbzK3DGzZJiwnk0+7RpXbP1OBEIH4tHLSU4hDVOObPzx6b850ZI=
+	b=SyAMyDaKKo4o8sMbqVNu9U1VYcy6ru7q/Sa6d6S+xV6PCoP2D7ivYsSfKuAsWwR78jINhE1QHCOlBrNyYNQsDl5Baq6904fgC6rX+q2vVKyMQRXN4ZCVPeKchrmoiioa2PnjO6n2rjPer9OZpGyvaeP3RD0qZO90VNOTumIy9eY=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769003152; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=FCunRDq0/fm6bo4ZBAJq0Hh80vyN/MatVlH6n1QruFk=; 
-	b=hj/vjIUpEuPP95i9WDbQgrAZDv7yvhQD8Ct4ZVmDGIXLdWc1yDGPV9oNtJ5RRx4sBS7uEXc9nFKLoUyCZfLw5HLNBGZsYYsVyT2lQKzKp1WN5ze7lPEbQ6D5yVBHlkS+nSakSDTx1lbDmnrFHy55nyY3caGh+d07YLdGvLme/Vc=
+	t=1769003178; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=8tbnRLxC7YN9OmZ6Ssd8CDhleEgMPvrSDskSel3YjYw=; 
+	b=oBH0DP9UsaQ5coKQJE3hc/8IS14W1xqqa1b0JVNdz26oVOk+LoGFVFutJxlqXVb3tpvnfOWk/vlp2+aj9Hqi2hPNW7v/Z5Z88+kT0+ZCS+LDZVSxFyQndMKymvT+fO1rHnkKmX5EVbe3mz4Qz5JA3hV7XEYbHAL15in0iOOmGs4=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769003152;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769003178;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=FCunRDq0/fm6bo4ZBAJq0Hh80vyN/MatVlH6n1QruFk=;
-	b=ASlLWKSaHhKHPGIHuBeWfis7mYBQdr8eOadWncybJPlVzRFquQZ/C8pvSuYB5XCd
-	M00j81xbatuaGQX4uXk1XMcx2rdzc4DmFtRRWDB8kuA90MeRyaPLqwRkKA4OXxbsL5v
-	ncl83gAhdM7rHSy7LPMnABgjkOYfgOjmn1A1YWyQ=
-Received: by mx.zohomail.com with SMTPS id 1769003150849158.2112654467452;
-	Wed, 21 Jan 2026 05:45:50 -0800 (PST)
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=8tbnRLxC7YN9OmZ6Ssd8CDhleEgMPvrSDskSel3YjYw=;
+	b=EXDLm7PlBylZ09uoyc7VtUczgxLe8v4VUF/RlL0G6gkcy0DIwysXoug9F04WjlAu
+	jAcKbhuh+DSpxEnf6TbKNYH7NhLXYBvKk8d6qfuN/I7mgFDy/NXi0v0cyFdA3SLsLTv
+	HSGBIbHWZ5NC8YtwWzmo8ALBrv42lUa4vb3GV93s=
+Received: by mx.zohomail.com with SMTPS id 1769003176579352.97627818605895;
+	Wed, 21 Jan 2026 05:46:16 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: [PATCH v6 00/21] Add new general DRM property "color format"
-Date: Wed, 21 Jan 2026 14:45:26 +0100
-Message-Id: <20260121-color-format-v6-0-7b81a771cd0b@collabora.com>
+Date: Wed, 21 Jan 2026 14:45:29 +0100
+Subject: [PATCH v6 03/21] drm: Add enum conversions between
+ DRM_COLOR_FORMAT and HDMI_COLORSPACE
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/12QzW7DIBCEX8XiXFwW//vU96iqCAzEqHZI1gS1i
- vzuXbtRleaEZkf7MbM3tlj0dmF9dmNok198OJGoXzI2jOp0tNwb0kwKWYGQLR/CFJC7gLOKvOy
- cIUc30BaMVs5onf/ace8fpB2GmccRrfqDiA4ACtEUXV52Rc2Bzwr9dcnTpMwb0SelA6p8CPOdi
- PZypVzxF8u0WiylmGcf+8wg8f359f6yx9h9toeWBfDN1ugNzdU0hYEfbTxf4zY/BHdw/mQOd//
- TkE0luNNCDG05VLJSfQK29Rn9EgN+79dK5R5n/wOg+X+YVHLBhbGmkdoAkZ6abbBUPQCeL5sqA
- tSFbaUDo8HCM2Bd1x+LaU9LvQEAAA==
-X-Change-ID: 20251028-color-format-49fd202b7183
+Message-Id: <20260121-color-format-v6-3-7b81a771cd0b@collabora.com>
+References: <20260121-color-format-v6-0-7b81a771cd0b@collabora.com>
+In-Reply-To: <20260121-color-format-v6-0-7b81a771cd0b@collabora.com>
 To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
  Rodrigo Siqueira <siqueira@igalia.com>, 
  Alex Deucher <alexander.deucher@amd.com>, 
@@ -86,12 +82,11 @@ Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
  intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
  linux-doc@vger.kernel.org, 
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Werner Sembach <wse@tuxedocomputers.com>, 
- Andri Yngvason <andri@yngvason.is>, Marius Vlad <marius.vlad@collabora.com>
+ Marius Vlad <marius.vlad@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_054636_737894_597C22A4 
-X-CRM114-Status: GOOD (  37.38  )
+X-CRM114-CacheID: sfid-20260121_054649_830220_B81A86D1 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,262 +101,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+While the two enums have similar values, they're not identical, and
+HDMI's enum is defined as per the HDMI standard.
 
-this is a follow-up to
-https://lore.kernel.org/all/20250911130739.4936-1-marius.vlad@collabora.com/
-which in of itself is a follow-up to
-https://lore.kernel.org/dri-devel/20240115160554.720247-1-andri@yngvason.is/ where
-a new DRM connector property has been added allowing users to
-force a particular color format.
+Add a simple conversion function from DRM to HDMI. Unexpected inputs
+aren't handled in any clever way, DRM_COLOR_FORMAT_AUTO and any other
+value that doesn't cleanly map to HDMI just gets returned as
+HDMI_COLORSPACE_RGB.
 
-That in turn was actually also a follow-up from Werner Sembach's posted at
-https://lore.kernel.org/dri-devel/20210630151018.330354-1-wse@tuxedocomputers.com/
+Add a second conversion function that gets a DRM_COLOR_FORMAT from an
+HDMI_COLORSPACE as well. In this case, reserved HDMI values that can't
+be converted will result in an -EINVAL return value.
 
-As the number of cooks have reached critical mass, I'm hoping I'll be
-the last person to touch this particular series.
-
-We have an implementation in Weston at
-https://gitlab.freedesktop.org/wayland/weston/-/merge_requests/1825 that
-adds support for this property. This patch series has been tested
-against that MR on i915 (HDMI, DP), amdgpu (HDMI, DP) and on rockchip
-(HDMI).
-
-You can also manually test this with modetest like so, but beware that
-this is a non-atomic invocation, so testing YUV420 like this will result
-in weird outcomes if only some of the modes support YUV420:
-
-  $ modetest -s 115:1920x1080-60@NV12 -w 115:'color format':4
-
-where 115 is the connector ID and '4' is the enum value for a particular
-color format.
-
-General notes on the approach taken by me: instead of silently switching
-to a different format than was explicitly requested, or even worse,
-outputting something to the sink the sink doesn't support, bubble up an
-error to userspace instead. "color format" is a "I want this" type
-property, not a "force this" type property, i.e. the kernel will respect
-the limits imposed by the hardware.
-
-I'm not sure if my drm_bridge change actually achieves what I want in a
-more complex bridge setup. I'd need to either come up with a virtual
-bridge to test these scenarios, or spend some time making a flat flex
-cable adapter for the DSI-HDMI bridge board I have here. Before I invest
-too much time into either of those, I'd like to get some feedback on
-this approach however.
-
-Things I've tested:
-- HDMI (YCbCr 4:4:4 + YCbCr 4:2:2 (8-bit) + RGB + Auto) on RK3588
-- HDMI (YCbCr 4:4:4 + YCbCr 4:2:2 (8-bit) + RGB + Auto) on RK3576
-- HDMI + DP (YCbCr 4:4:4, YCbCr 4:2:0, RGB, Auto) on Intel N97 (i915)
-  DP-MST is untested, but I expect it to work the same.
-- HDMI (YCbCr 4:4:4, YCbCr 4:2:2, YCbCr 4:2:0, RGB, Auto) + DP (YCbCr
-  4:4:4, RGB, Auto) on an AMD Radeon RX 550 (amdgpu). DP-MST is
-  untested.
-
+Co-developed-by: Marius Vlad <marius.vlad@collabora.com>
+Signed-off-by: Marius Vlad <marius.vlad@collabora.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
-Changes in v6:
-- Checkpatch fixes
-- Add drm_bridge.c kerneldoc fix patch to b4 deps so the kernel docs
-  required for every contribution to the subsystem can be built
-- dw-hdmi-qp core has gained the atomic_get_output_bus_fmts bridge func,
-  which allows it to participate in the drm_bridge chain recursive format
-  selection code properly.
-- The Rockchip dw-hdmi-qp integration now no longer reimplements the
-  color format logic (improperly), but reads the bus format of the first
-  bridge as set by the recursive bridge format selection. If the input
-  format is FIXED, it'll use the output format. Otherwise, the input
-  format is used.
-- In the synopsys drivers, YUV422 uses the same bus format as the non-qp
-  hdmi encoder driver. Probably correcter this way. The Rockchip vop2
-  is_yuv function has been extended to recognise this format as well.
-- KUnit tests for drm_bridge chains are now included, which exercise the
-  chain's recursive bus format selection.
-- On HDMI connectors, the drm_bridge bus format selection will try to target
-  the color format that the HDMI layer came up with. This means the AUTO
-  logic is not duplicated for HDMI connectors.
-- The enum conversion function commit gained a function for converting
-  from hdmi_colorspace to drm_color_format, and its author changed as no
-  original code remains anyway. Marius is still included as a
-  Co-developer.
-- Some tests for the HDMI state helper's mode_valid have been written.
-  They are incomplete as we lack a test EDID for a 420-also mode that
-  would violate the clock constraints on RGB. I hacked one together with
-  a hex editor, but it reports a too high of a clock rate, and there's
-  no EDID editor I could find which supports these extension blocks.
-- The color_format KUnit tests have been more heavily parameterised, the
-  auto case absorbed into other tests, and the comments around them
-  rewritten.
-- Add a few paragraphs of documentation that explain the bridge format
-  selection, and how to make use of it in a display driver.
-- Link to v5: https://lore.kernel.org/r/20251128-color-format-v5-0-63e82f1db1e1@collabora.com
+ include/drm/drm_connector.h | 54 +++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 54 insertions(+)
 
-Changes in v5:
-- Rebase onto drm-tip
-- Drop DRM_MODE_COLOR_FORMAT_* as an enum
-- Unify DRM_COLOR_FORMAT_NONE and DRM_COLOR_FORMAT_AUTO, with AUTO being
-  0. This makes conversion and general logic much easier.
-- Adjust the drm_color_format enum to not needlessly renumber the
-  existing defines, as it doesn't need to correspond to how HDMI numbers
-  them.
-- Make the DRM-to-HDMI conversion function static inline __pure, because
-  the assembly it generates is tiny, and the function is pure.
-- Don't accept nothing as the list of supported color formats for
-  registration of the property.
-- Drop the per-connector variants of the color format registration
-  function, as it's not needed.
-- drm_hdmi_state_helper: Fix mode_valid rejecting 420-only modes.
-- drm_hdmi_state_helper: Only fall back to YUV420 with
-  DRM_COLOR_FORMAT_AUTO.
-- drm_hdmi_state_helper: Remove redundant AUTO->RGB condition, as the
-  conversion already does this.
-- Add KUnit tests for hdmi_compute_config.
-- drm/bridge: Refactor bus_format_is_color_fmt and add a few more YUV422
-  formats.
-- Register the color format property in drmm_connector_hdmi_init based
-  on the supported HDMI formats passed to it. This means rockchip
-  dw_hdmi_qp no longer needs to register it.
-- amdgpu: Simplify YUV420 logic
-- amdgpu: Don't try to pick YUV444 on YUV420-only modes
-- i915: Try to make behaviour more or less the same as that of the drm
-  hdmi state helper.
-- rockchip dw_hdmi_qp: Set supported HDMI formats
-- rockchip dw_hdmi_qp: Set the right VO GRF values depending on color
-  format.
-- rockchip dw_hdmi_qp: Act on the color format property in this driver,
-  rather than in VOP2, by setting the bus_format appropriately.
-- rockchip VOP2: Can the BCSH-based implementation. BCSH isn't available
-  on all video ports of the hardware, and the code was extremely
-  suspect. Instead, plug into the existing YUV-to-RGB/RGB-to-YUV code,
-  which can be done now that the HDMI driver sets the bus format.
-- A whole bunch of Rockchip VOP2 fixes.
-- Link to v4: https://lore.kernel.org/r/20251117-color-format-v4-0-0ded72bd1b00@collabora.com
+diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+index b5604dca728a..ffeb42f3b4a3 100644
+--- a/include/drm/drm_connector.h
++++ b/include/drm/drm_connector.h
+@@ -2612,6 +2612,60 @@ int drm_connector_attach_color_format_property(struct drm_connector *connector);
+ 
+ const char *drm_get_color_format_name(enum drm_color_format color_fmt);
+ 
++/**
++ * drm_color_format_to_hdmi_colorspace - convert DRM color format to HDMI
++ * @fmt: the &enum drm_color_format to convert
++ *
++ * Convert a given &enum drm_color_format to an equivalent
++ * &enum hdmi_colorspace. For non-representable values and
++ * %DRM_COLOR_FORMAT_AUTO, the value %HDMI_COLORSPACE_RGB is returned.
++ *
++ * Returns: the corresponding &enum hdmi_colorspace value
++ */
++static inline enum hdmi_colorspace __pure
++drm_color_format_to_hdmi_colorspace(enum drm_color_format fmt)
++{
++	switch (fmt) {
++	default:
++	case DRM_COLOR_FORMAT_AUTO:
++	case DRM_COLOR_FORMAT_RGB444:
++		return HDMI_COLORSPACE_RGB;
++	case DRM_COLOR_FORMAT_YCBCR444:
++		return HDMI_COLORSPACE_YUV444;
++	case DRM_COLOR_FORMAT_YCBCR422:
++		return HDMI_COLORSPACE_YUV422;
++	case DRM_COLOR_FORMAT_YCBCR420:
++		return HDMI_COLORSPACE_YUV420;
++	}
++}
++
++/**
++ * drm_color_format_from_hdmi_colorspace - convert HDMI color format to DRM
++ * @fmt: the &enum hdmi_colorspace to convert
++ *
++ * Convert a given &enum hdmi_colorspace to an equivalent
++ * &enum drm_color_format. For non-representable values,
++ * %-EINVAL is returned.
++ *
++ * Returns: the corresponding &enum drm_color_format value, or %-EINVAL
++ */
++static inline enum drm_color_format __pure
++drm_color_format_from_hdmi_colorspace(enum hdmi_colorspace fmt)
++{
++	switch (fmt) {
++	default:
++		return -EINVAL;
++	case HDMI_COLORSPACE_RGB:
++		return DRM_COLOR_FORMAT_RGB444;
++	case HDMI_COLORSPACE_YUV444:
++		return DRM_COLOR_FORMAT_YCBCR444;
++	case HDMI_COLORSPACE_YUV422:
++		return DRM_COLOR_FORMAT_YCBCR422;
++	case HDMI_COLORSPACE_YUV420:
++		return DRM_COLOR_FORMAT_YCBCR420;
++	}
++}
++
+ /**
+  * drm_for_each_connector_iter - connector_list iterator macro
+  * @connector: &struct drm_connector pointer used as cursor
 
-Changes in v4:
-- Rebase onto next-20251117
-- Get rid of HDMI_COLORSPACE_AUTO
-- Split hdmi_compute_config change into separate patch
-- Add missing symbol export for color_format_to_hdmi_colorspace to fix
-  builds in certain configurations
-- Drop "drm: Pass supported color formats straight onto drm_bridge"
-- Make dw-hdmi-qp set the platform data's supported color formats as
-  the bridge's supported HDMI color formats
-- drm_hdmi_state_helper: pass requested color format to
-  hdmi_compute_format_bpc if set.
-- drm_bridge: limit the bus formats to those explicitly requested with
-  the color format property during the atomic bridge check call,
-  specifically in drm_atomic_bridge_chain_select_bus_fmts.
-- i915: Remove INTEL_OUTPUT_FORMAT_AUTO, as automatic format selection
-  does not need to involve the hardware state
-- i915: Deduplicate ntel_output_format_to_drm_color_format code by
-  moving it as a static inline __pure function into a shared header
-- i915: rework logic in HDMI, DP and DP-MST output config functions to
-  remove redundant locals, simplify execution flow, and return an error
-  to userspace if an explicit color_format request can't be satisfied.
-- i915: assign myself as the author and make the others Co-developers,
-  so that they don't get the blame for any of my bugs.
-- amdgpu: refactor fill_stream_properties_from_drm_display_mode to
-  improve readability and ensure that impossible color format requests
-  get bubbled up to userspace as errors
-- amdgpu: don't pick YUV444 over RGB.
-- amdgpu: assign authorship to myself, with others as Co-developers, as
-  logic was modified and the blame should fall on me
-- dw_hdmi_qp-rockchip: set the supported color formats platform data
-  member
-- rockchip: remove drm property registration for rk3066_hdmi and
-  inno_hdmi. None of the platforms that use these use vop2 as the
-  video output processor.
-- Link to v3: https://lore.kernel.org/all/20250911130739.4936-1-marius.vlad@collabora.com/
-
-Changes in v3 by mvlad compared to Andri's v2 series:
-- renamed the property to just 'color format'
-- the property is added dynamically similar to the Colorspace property
-- a key point from previous comments was that drivers should advertise
-  the color formats they support and userspace would query EDID and
-  perform an intersection from those color formats which users can
-  further use. With this patch set each driver that adds this property
-  has such list of hard-coded color formats, but fundamentally the idea
-  is that driver can query the HW and do that on its own. The
-  infrastructure is now in place to allow to do that
-- by default the 'AUTO' color format is set. With this patch series that
-  has been introduced as a fallback to RGB. Drivers could further
-  customize this behavour and could perform additional checks on the sink
-  to pick another suitable color format they'd like for AUTO
-- drm_bridge bridge code has been improved to allow initialization with
-  the same color formats list as the DRM connector property. Similarly, bpc
-  pick-up now takes the color format into consideration when deciding
-  which bpc to choose from
-- The new DRM color format re-uses HDMI_COLORPSACE enum and provides an
-  enum translations between the two to avoid touching all other drivers that
-  use HDMI_COLORPSACE enum. I believe at this point that this allows the
-  least amount of disruption and avoids a massive bike shedding around
-  that part
-- a rockchip implementation has been by my colleague Derek Foreman
-- YUV444 color format has been added in i915
-- address comment about "Remove unnecessary SIGNAL_TYPE_HDMI_TYPE_A
-  check" where aconnector might be invalid
-- Link to v2: https://lore.kernel.org/dri-devel/20240115160554.720247-1-andri@yngvason.is/
-
----
-Andri Yngvason (1):
-      drm: Add new general DRM property "color format"
-
-Nicolas Frattaroli (19):
-      drm: Add enum conversions between DRM_COLOR_FORMAT and HDMI_COLORSPACE
-      drm/bridge: Act on the DRM color format property
-      drm/display: hdmi-state-helper: Act on color format DRM property
-      drm/display: hdmi-state-helper: Try subsampling in mode_valid
-      drm/i915: Implement the "color format" DRM property
-      drm/amdgpu: Implement "color format" DRM property
-      drm/rockchip: Add YUV422 output mode constants for VOP2
-      drm/rockchip: vop2: Fix YUV444 output
-      drm/rockchip: vop2: Add RK3576 to the RG swap special case
-      drm/rockchip: vop2: Recognise 10/12-bit YUV422 as YUV formats
-      drm/rockchip: vop2: Set correct output format for RK3576 YUV422
-      drm/bridge: dw-hdmi-qp: Implement atomic_get_output_bus_fmts
-      drm/rockchip: dw_hdmi_qp: Implement "color format" DRM property
-      drm/rockchip: dw_hdmi_qp: Set supported_formats platdata
-      drm/connector: Register color format property on HDMI connectors
-      drm/tests: hdmi: Add tests for the color_format property
-      drm/tests: hdmi: Add tests for HDMI helper's mode_valid
-      drm/tests: bridge: Add KUnit tests for bridge chain format selection
-      drm/bridge: Document bridge chain format selection
-
-Werner Sembach (1):
-      drm/amd/display: Remove unnecessary SIGNAL_TYPE_HDMI_TYPE_A check
-
- Documentation/gpu/drm-kms-helpers.rst              |   6 +
- drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c  |  88 ++-
- .../amd/display/amdgpu_dm/amdgpu_dm_mst_types.c    |  13 +
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c       |  64 ++
- drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  27 +-
- drivers/gpu/drm/drm_atomic_helper.c                |   5 +
- drivers/gpu/drm/drm_atomic_uapi.c                  |  11 +
- drivers/gpu/drm/drm_bridge.c                       | 118 ++-
- drivers/gpu/drm/drm_connector.c                    | 155 ++++
- drivers/gpu/drm/i915/display/intel_connector.c     |  11 +
- drivers/gpu/drm/i915/display/intel_connector.h     |   1 +
- drivers/gpu/drm/i915/display/intel_display_types.h |  15 +
- drivers/gpu/drm/i915/display/intel_dp.c            |  55 +-
- drivers/gpu/drm/i915/display/intel_dp.h            |   4 +
- drivers/gpu/drm/i915/display/intel_dp_mst.c        |  36 +-
- drivers/gpu/drm/i915/display/intel_hdmi.c          |  54 +-
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c     | 111 ++-
- drivers/gpu/drm/rockchip/rockchip_drm_drv.h        |   4 +
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c       |  41 +-
- drivers/gpu/drm/tests/drm_bridge_test.c            | 815 +++++++++++++++++++++
- drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 300 ++++++++
- include/drm/drm_connector.h                        |  89 ++-
- 22 files changed, 1965 insertions(+), 58 deletions(-)
----
-base-commit: dc0b90be8d513256a6594095731a702287f29602
-change-id: 20251028-color-format-49fd202b7183
-prerequisite-change-id: 20251231-drm-bridge-alloc-getput-drm_of_find_bridge-kdoc-fix-fb00c84c525a:v1
-prerequisite-patch-id: bbdc03403e29a985540228dfa789dbfa47861e4e
-
-Best regards,
 -- 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+2.52.0
 
 
