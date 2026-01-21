@@ -4,92 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B21D262B2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 06:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F1FAD262B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 07:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oGCaNWOrziYJiY8UN1dexl0iYLA/uCJ+jgLUzqoYAwc=; b=fxdFPawlyrxP3px7OP3csWSjv9
-	OZBU5CXVCxfetuT76cfAG9YCZRLIG7HroaiB5ybj9JuAiYSIqCmNorn7KCXhV225pxhpM1dxSxJux
-	uOENZT1RrzDg0LDmugFqO/etMHkYms6NveuRprVh4181oLbdEBPhw4od1G+ialNTkB65UJFqqLZ2g
-	cL01sz4gYsBOEZ/kvONCrqoZU0ZYPJPftnLMWax0nJsYB87GAryu4Sz7OnVE54oRr890IFtEKycr/
-	IaHkP/0uiVT6hSJaFffiZzA2YccolvxU0F4flySuXEXqba31KCjRoN3dFfsfrRaeU6jMhrDLGHCXZ
-	hAX4qjHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EKCBa6LC63ySO6wxtyOEHj7+hfHaWtIUCg/hVqZDPyQ=; b=S8jAs80+BVUCaMrYfx+H10YJYK
+	zYaC8U0taZdS6tuAxUQw0QYCrOGgVEsGaUZAJ5Z9sMDQ6ZyhPr/hy9HkirkUNuxs5RTqGBrzsx0Xi
+	CPCWc5A1c8VGIzsyBrsQi++Bg8Q/mLPMsJT0PyT/Oh9pezHjTFxrtti1JIp0pM/HJBptOz7iu97WW
+	f/H3suNy4uxJHpYac+r2kDV1yusA0E98y5djx2A+P5jiw2PEekxYWzxBzMmCbLMFteUKsAJ0CDoPZ
+	W3cQywoy8W2ZGRLBGa9s9akN8+w0ywsbgJNkRuaKlpYwQidstshj1Xquw6NgDtmGX14bJgr5va6Od
+	IShe62hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viSAm-00000004yaK-1NBv;
-	Wed, 21 Jan 2026 06:58:36 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1viSJJ-00000004zCR-1qUF;
+	Wed, 21 Jan 2026 07:07:25 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viSAj-00000004yZn-377j;
-	Wed, 21 Jan 2026 06:58:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768978714; x=1800514714;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=gQ2iJQpnPdN/VjaVdp15xX/jvrsDqvjipQxnEurzx0o=;
-  b=keTalmMkRLRdF4G6aEANlcgH2YcAAGb4SVDcRaRS+h5vzxCMVjNkPPqy
-   MCkloiY8SDu+LXLY0Ui5TnPgEiqrFRAhZ2B7LbOLe1Wy192Qw7+vKha+R
-   zm8uODdm1H4yCmVnt9PQUPJISHRAwcROCP8kBCprdkJQQl9r8UhlAmMnD
-   ca9h7nT745A9WlcfR0DIeDe+T6KJnTFKVYYVdBjGNBGdvxmaA/ijPo3MY
-   PSDL26OaWUxfFsS2NHMslBu8f40kga8A6Et3wwuhfbpQZIiv8F4MyPoDY
-   bMPrjfWEprPrPCR+GWSdWzEH/5syxm2a8JsdG526ZxQ/GDZiZj6GeMpnD
-   Q==;
-X-CSE-ConnectionGUID: PvZ3oc2fRhW1f3rajkSMXA==
-X-CSE-MsgGUID: GMHDkOewQXSka+5BLxRcXg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11677"; a="87613439"
-X-IronPort-AV: E=Sophos;i="6.21,242,1763452800"; 
-   d="scan'208";a="87613439"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2026 22:58:32 -0800
-X-CSE-ConnectionGUID: RTr0u7XLSeaTx5XBU3ytxg==
-X-CSE-MsgGUID: XiL39KX7SleqSNkWfdr/mQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,242,1763452800"; 
-   d="scan'208";a="206775947"
-Received: from unknown (HELO [10.238.3.254]) ([10.238.3.254])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2026 22:58:25 -0800
-Message-ID: <8c1fefd6-4f4c-42a7-9007-5c9df3975080@linux.intel.com>
-Date: Wed, 21 Jan 2026 14:58:23 +0800
+	id 1viSJF-00000004zBf-3okx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Jan 2026 07:07:23 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-c5513f598c0so2409804a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 23:07:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1768979240; x=1769584040; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=EKCBa6LC63ySO6wxtyOEHj7+hfHaWtIUCg/hVqZDPyQ=;
+        b=c/7fKrKBrHmq4frhxeY16Q+lIxKrTIHcHbsLaMd6KEm0o3Mob1R0rt4acJEVLKtpZq
+         StIhqq8bLTAaizQvsYswXWkmf1tZbnpGHHE2R60ZjDmuHA1Ff4VYnEFbn7iN7WPkHitN
+         n6UcMvYDQ9rv42jCnsM8vDGJ+Jfu4MFqZkTycajdDu27AxB0SYenWa2966TpszM6iCMt
+         8b+5e83WZ961HAoO5RyTPMbz1fivF9amndGRXaxFXYiOoxOxhfGpvYSXBeHSN1u61AsQ
+         DfxeM2pQFrEdEOIMvIJHVC3Dk1Ppp2tR/rXjSgLpywyh8LH07LPWCp6WEPWp6c9zgSRp
+         c+wQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768979240; x=1769584040;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=EKCBa6LC63ySO6wxtyOEHj7+hfHaWtIUCg/hVqZDPyQ=;
+        b=KL3w/SB+Q6Lz+kHxS+7Jwv3qP9c+WIqZOLyunji2cN68HiiVo/H6FJKCXOUQ2sPrhz
+         R1wnKArPpYGZ3vACEH+4pgLscQdc6CXnE0F7E0/mFpKgdAEAtgwPtA1dTtGKxDzWPN5M
+         RFwNfhmwuDtYJvy87s1U3A1vBI5B0VkhnmzhHlhkN6iOZsc6rf34OVcy7MGHNVI9PoZ4
+         jpfFcty+3f5YqrjXvX6Di314V1BUK7SSbhaC7U1npZrkfMNse99eOj02VBBWcP0HMHXN
+         1oSxUZTNVO5e9n2Q1hTi7CkJnpwa4nho5L8PwkqBSRUvX9ECKrG3NO5ND4hsLmQEI9LF
+         q+pw==
+X-Forwarded-Encrypted: i=1; AJvYcCWQFr7dsJpR6xqASYiWxb8KJ788yggjVZ4r+SB7Iihs/koHUe4vI0lwbkOtVQ+f/RgELCm0V8/H5gv3CGWlMftn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEcNyj4YQ7BmacA7WRooqpdJW66ks1UhK37mRAuD+X/YwKpa2Y
+	3VjuU5D4KO1QPhQWT3g0KDqP4+Kz2MdZ+Fg5n4Hefu9gWU0lcfe7AO6hl9sHimciSfU=
+X-Gm-Gg: AZuq6aI2gZTRJhbG6viz1E8xnlo6JD+pzBhrZXdq3018S1V7lnMfiEAXKkAcHmR1yNX
+	EBHB04kbTxo01TJKog36tR18Mw1V6XzCaOzBy0ZgA98TgV1sL/H1VUu9Cng/uLM4ApNpbEG8zbp
+	ec+uWTybSWn7WgjfRhLN7rs9SW/3YZwUEBWsPGh5nCxb4ksJ5WI+Xr1K5dJLhRODCf/I8ryfZeM
+	z+gFiWmBTWLwEv+MntiVk66nYD05pDIAp8bldD8uysruT7tj4HMBo1ZWaE8+Dv/ZCTOze9hywEP
+	kS+SoAE0tHWR6BcR6NQKFryfCvbVT6H1V5hZyDspfBl8YUjZzK+JiEf84NnLslH1cRndW2SatHT
+	vlgKjEanmE2bv4YIfZFLJcOmYIF76Z5stB4N4MoWP4jHTr7K6EJtE3Dq2t5alr1MBX/vGpA7aRj
+	vE8m2tqh4R5O4=
+X-Received: by 2002:a17:903:1110:b0:271:479d:3dcb with SMTP id d9443c01a7336-2a717518996mr160044275ad.6.1768979240300;
+        Tue, 20 Jan 2026 23:07:20 -0800 (PST)
+Received: from localhost ([122.172.80.63])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a7190c9f0dsm143860365ad.31.2026.01.20.23.07.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Jan 2026 23:07:19 -0800 (PST)
+Date: Wed, 21 Jan 2026 12:37:16 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Dhruva Gole <d-gole@ti.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Nishanth Menon <nm@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Kendall Willis <k-willis@ti.com>, Sebin Francis <sebin.francis@ti.com>, Bryan Brattlof <bb@ti.com>, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 0/3] cpufreq: ti: Add support for AM62L3 SoC
+Message-ID: <jix4pxfxdxyald22fpobt2hmobox27z6fgroo4pevvt645kj44@s5lxh2ifo4q2>
+References: <20260120-am62l-cpufreq-v3-0-8c69b80168a3@ti.com>
+ <yjpk2duxzham3ky7bvsu3majkjlypkvnc23dsxenfx4ykejpcp@uuohmp63qhwk>
+ <20260121063840.tngolbewageekveb@lcpd911>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 08/23] perf perf_regs: Switch from arch string to int
- e_machine
-To: Arnaldo Carvalho de Melo <acme@kernel.org>,
- Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
- Adrian Hunter <adrian.hunter@intel.com>, James Clark
- <james.clark@linaro.org>, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>,
- Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Shimin Guo <shimin.guo@skydio.com>,
- Athira Rajeev <atrajeev@linux.ibm.com>,
- Stephen Brennan <stephen.s.brennan@oracle.com>,
- Howard Chu <howardchu95@gmail.com>, Thomas Falcon <thomas.falcon@intel.com>,
- Andi Kleen <ak@linux.intel.com>, "Dr. David Alan Gilbert"
- <linux@treblig.org>, Dmitry Vyukov <dvyukov@google.com>,
- =?UTF-8?Q?Krzysztof_=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>,
- Chun-Tse Shao <ctshao@google.com>, Aditya Bodkhe <aditya.b1@linux.ibm.com>,
- Haibo Xu <haibo1.xu@intel.com>, Sergei Trofimovich <slyich@gmail.com>,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org, Mark Wielaard <mark@klomp.org>
-References: <20260117052849.2205545-1-irogers@google.com>
- <20260117052849.2205545-9-irogers@google.com> <aW_OV72q5rAVrgRE@x1>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <aW_OV72q5rAVrgRE@x1>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260121063840.tngolbewageekveb@lcpd911>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_225833_816600_96688E8A 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20260120_230721_975441_206FEF8C 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,63 +103,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 21-01-26, 12:08, Dhruva Gole wrote:
+> On Jan 21, 2026 at 11:58:23 +0530, Viresh Kumar wrote:
+> > On 20-01-26, 17:17, Dhruva Gole wrote:
+> > > Hello,
+> > > 
+> > > This series adds CPU frequency scaling support for the TI AM62L3 SoC.
+> > > 
+> > > The AM62L3 is a low-power, low-cost SoC from Texas Instruments. This
+> > > series enables cpufreq support by:
+> > > 1. Adding the SoC to the cpufreq-dt-platdev blocklist to prevent the generic driver from probing.
+> > > 2. Extending the ti-cpufreq driver to support AM62L3 speed grading by reading the efuse.
+> > > 3. Updating the device tree with the necessary operating points and clock configurations.
+> > > 
+> > > Tested on AM62L3 EVM [1]
+> > > 
+> > > [1] https://gist.github.com/DhruvaG2000/6dcceb80cf7bbd1e624ec210532538cb
+> > > 
+> > > Signed-off-by: Dhruva Gole <d-gole@ti.com>
+> > 
+> > I should be applying only patch 1 and 3 ?
 
-On 1/21/2026 2:49 AM, Arnaldo Carvalho de Melo wrote:
-> On Fri, Jan 16, 2026 at 09:28:34PM -0800, Ian Rogers wrote:
->> The arch string requires multiple strcmp to identify things like the
->> IP and SP. Switch to passing in an e_machine that in the bulk of cases
->> is computed using a current thread load. The e_machine also allows
->> identification of 32-bit vs 64-bit processes.
->>
->> Signed-off-by: Ian Rogers <irogers@google.com>
->> ---
->>  tools/perf/builtin-script.c                   |  17 ++-
->>  tools/perf/util/evsel.c                       |  14 ++-
->>  tools/perf/util/perf_regs.c                   | 105 +++++++++++-------
-> [ Include dwarf-regs.h to get conditional defines for EM_CSKY and EM_LOONGARCH, not available in old distros ]
->
-> - Arnaldo
+Ahh, I meant 1 and 2.
 
-Seems the change would introduce the below building error.
+> >From what I spoke with Nishanth yesterday, the DT patch (3/3) will have to go via
+> his tree as it's ti-k3.
+> 
+> The first 2 patches are the cpufreq subsystem ones, once you apply those
+> and they are integrated Nishanth can pick up the DT patch.
 
-util/perf_regs.c: In function ‘perf_reg_name’:
-util/perf_regs.c:48:14: error: ‘EM_LOONGARCH’ undeclared (first use in this
-function)
-   48 |         case EM_LOONGARCH:
-      |              ^~~~~~~~~~~~
-util/perf_regs.c:48:14: note: each undeclared identifier is reported only
-once for each function it appears in
-util/perf_regs.c: In function ‘perf_arch_reg_ip’:
-util/perf_regs.c:114:14: error: ‘EM_LOONGARCH’ undeclared (first use in
-this function)
-  114 |         case EM_LOONGARCH:
-      |              ^~~~~~~~~~~~
-util/perf_regs.c: In function ‘perf_arch_reg_sp’:
-util/perf_regs.c:143:14: error: ‘EM_LOONGARCH’ undeclared (first use in
-this function)
-  143 |         case EM_LOONGARCH:
-      |              ^~~~~~~~~~~~
+Applied. Thanks.
 
-It looks EM_LOONGARCH is not defined in the <elf.h> header file, not sure
-which one is better, include  dwarf-regs.h suggested by Arnaldo or direct
-add the define,
-
-diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
-index b58d59b84fb1..ce839df19fa3 100644
---- a/tools/perf/util/perf_regs.c
-+++ b/tools/perf/util/perf_regs.c
-@@ -6,6 +6,10 @@
- #include "util/sample.h"
- #include "debug.h"
-
-+#ifndef EM_LOONGARCH
-+#define EM_LOONGARCH           258
-+#endif
-+
- int __weak arch_sdt_arg_parse_op(char *old_op __maybe_unused,
-                                 char **new_op __maybe_unused)
- {
-
-
->
+-- 
+viresh
 
