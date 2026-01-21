@@ -4,72 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E6BC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 17:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8B8BC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 17:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0GEePNXlRioSSI+/e2W8cMzaUuqufuQaYeIjfwb71Kw=; b=tR97F2Dt7kEZ8gyCy6tvdqL1xb
-	aqN1RevF6p7sv9ReLsYIIcCKj1FgJr0B14PGeGe9lid/9wLPYA3Db3s6ke8QsTSAgSOJm513zETUA
-	wJo22WfV2E6+4Duhf587/vtHcapGwjSYbGlPtAS0azpJJhJXUy3zB1POxPEo/6J46oUSYT4sMSNpZ
-	7C8PYisCTIw4Sm5Bt06ZdAYu57BZ3c82a1rE9itZJxKKGNgHDHKVZJpanbxJ32tMA0WxLWyBkGRDo
-	37Mz39jZS7yzV14kqCOaEUeEYW0p310HGRG7PFp99UG49PqDzGdfC9n1Y880kEYi5DbiFJZe+84/H
-	+ltmvaJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ENCjiUyFyqKTfowkYdXmyJGMEeUb4ui0gjmTnlKiIkg=; b=fF0axyYEJ5hyvZ6YT5WwTSmiGW
+	7KfjtjQfoYVOndu4nGyHrNCFhcQ76dTmoqMjz9FeDrRTpZv0T4GW47mVz4kEiyn3ynjocqEJGr75E
+	veG80I7UmFWgZJHUAGQ7eXth7419lb165nIccUKUx5wnZpcghn8qxqBekHdujas/TbeBRvOUVQ2GY
+	l0VLx0+dP3oDlUtb0+JKnNVuj/hcu0/LWFhdzMkZijdWgLluYW6Dt15fZD0yiKNiQJufGsT+tTgJU
+	grXMVzz7tEfdP2GgcJsOOtKxahTGTECOxO8fe1k08BIPBu/B9WUUHyX/OZ95cUJquRF3E8MVzhKlG
+	3f81uDlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vibbl-00000005qji-1LWL;
-	Wed, 21 Jan 2026 17:03:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vibeo-00000005qy5-3tEH;
+	Wed, 21 Jan 2026 17:06:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vibbj-00000005qjY-2TWr
+	id 1vibem-00000005qxP-0w7X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 17:03:03 +0000
+	Wed, 21 Jan 2026 17:06:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 46E0F6013B
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 17:03:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2531C19424
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 17:03:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0271A43290;
+	Wed, 21 Jan 2026 17:06:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A976C4CEF1;
+	Wed, 21 Jan 2026 17:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769014981;
-	bh=pa8aWCTcpI5fQV8rx/plmPidwgBTTPF3cpoGqJ3CbM8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=mXbsNauiA8DEehouSx0bo1tQQZObz1DX6hvdtnpcVFOgycqXsZVdgkiON+MmgQlx+
-	 Pf+71tP3kA81oTJ74sFcGl2OBUsDCKc2Nh+dv0am40ivp34QijdI3hh+fJcszE9gSB
-	 NkX4DiADcoq/Mz1eeqyEl8wJcg2PpOA1EwFAOdqM/lnsJ3Ml3g6IgSo2oCm+wpiwmW
-	 jhE4CY4zS01OGoeO5Haj/E0I8mMBVZQ8wQRhFXAim9HX26rqdgbn5KOevD+g07dYTG
-	 /j/hW/PJWnNPU4Wb4MyzfdeakmPcMTxhwxTs5KzoZocEC3f1SmmWVlFLsSesR43RIR
-	 9tQs7MRpPhihA==
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-b87124c6295so132966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 09:03:00 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXJJieTLMk+afa0DtE/j6K84lrD4fLoWGyNH16xgFUUQiw7eDv1ApVqVAX0Sd8QaAEs4CWacWRGHVTujG/DGFZM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfA0UrvR41eyGjVV9wvI2sWmldsH00AX5sDbEsVDExZoeip6Qi
-	wbdZDJZpgcb+e/pk7zsoQfXUaWS+oGvxf1gdQDO8UrVa6xRS5SRtVjcdX+gVDYU3DtWvBobeS/T
-	hdetR87yJHjrW8chA/cCsEmV79WsONA==
-X-Received: by 2002:a17:907:a05:b0:b87:1b62:13ae with SMTP id
- a640c23a62f3a-b87932b8e26mr1653806366b.61.1769014979483; Wed, 21 Jan 2026
- 09:02:59 -0800 (PST)
+	s=k20201202; t=1769015170;
+	bh=ida7uC1+IcLm3mH5OnwxhdYHy+GE2IR1NjNzomFuB9g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YurHeLrj0Kc1Z0kXwWObFZEVHgWtGcldhLnc/9rTtIWDrfOF5OHZhBDWWdjOE+462
+	 fvExXn7KnbYEhXpWGo0kukD1NpS4gyjv+Pr7pHR+Giv+UGDKpFQR4jiFII2JYw6KuB
+	 7Y8ozd5liCmajIIf/Gyx/RwYNYOZ5mWwJctr8S8J+TzMEv3rCWxOO3RhAdYzLaQL+n
+	 6gnoTvdwYhSMdpeIgae4LwcnvIuh1RGjcBa0Uwy7/qPLVdXh1CzAp+l96r9ZaxuEan
+	 Q0gajJnqRVo0ClKW8SRy7uN+F5eE04OGnRK255rIs66OEyyWUFcE6wDDLeD0IN5rPp
+	 vKuYKaTb2eaLg==
+Date: Wed, 21 Jan 2026 18:06:07 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chen Ridong <chenridong@huawei.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-block@vger.kernel.org, linux-mm@kvack.org,
+	linux-pci@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 29/33] sched/arm64: Move fallback task cpumask to
+ HK_TYPE_DOMAIN
+Message-ID: <aXEHf5nbZMI8LT4b@localhost.localdomain>
+References: <20260101221359.22298-1-frederic@kernel.org>
+ <20260101221359.22298-30-frederic@kernel.org>
+ <aW-cAlJCtI5Qtify@willie-the-truck>
 MIME-Version: 1.0
-References: <20260121085347.10368-1-marex@nabladev.com> <176901406635.3440858.3601461880570246394.robh@kernel.org>
-In-Reply-To: <176901406635.3440858.3601461880570246394.robh@kernel.org>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 21 Jan 2026 11:02:47 -0600
-X-Gmail-Original-Message-ID: <CAL_Jsq+v3W2bVCUbYtMZMyvkdP7LGrn4vzca_PFHkwgQptJ6rQ@mail.gmail.com>
-X-Gm-Features: AZwV_Qix7oj-Of4DdoJ2Jzyev08ewbS4IgrrQfV85apQDNnlZrqyfeVPrtD3VKk
-Message-ID: <CAL_Jsq+v3W2bVCUbYtMZMyvkdP7LGrn4vzca_PFHkwgQptJ6rQ@mail.gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: eeprom: at25: Document Microchip 25AA010A
-To: Marek Vasut <marex@nabladev.com>
-Cc: kernel@dh-electronics.com, 
-	Christoph Niedermaier <cniedermaier@dh-electronics.com>, linux-stm32@st-md-mailman.stormreply.com, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Raphael Gallais-Pou <rgallaispou@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Amelie Delaunay <amelie.delaunay@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aW-cAlJCtI5Qtify@willie-the-truck>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260121_090612_299067_B4BCE0BE 
+X-CRM114-Status: GOOD (  27.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +100,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 10:48=E2=80=AFAM Rob Herring (Arm) <robh@kernel.org=
-> wrote:
->
->
-> On Wed, 21 Jan 2026 09:53:19 +0100, Marek Vasut wrote:
-> > The Microchip 25AA010A is a 1 Kbit SPI EEPROM with 16 Byte page.
-> > Product page is at https://www.microchip.com/en-us/product/25AA010A
-> >
-> > Signed-off-by: Marek Vasut <marex@nabladev.com>
+Le Tue, Jan 20, 2026 at 03:15:14PM +0000, Will Deacon a écrit :
+> Hi Frederic,
+> 
+> On Thu, Jan 01, 2026 at 11:13:54PM +0100, Frederic Weisbecker wrote:
+> > When none of the allowed CPUs of a task are online, it gets migrated
+> > to the fallback cpumask which is all the non nohz_full CPUs.
+> > 
+> > However just like nohz_full CPUs, domain isolated CPUs don't want to be
+> > disturbed by tasks that have lost their CPU affinities.
+> > 
+> > And since nohz_full rely on domain isolation to work correctly, the
+> > housekeeping mask of domain isolated CPUs should always be a superset of
+> > the housekeeping mask of nohz_full CPUs (there can be CPUs that are
+> > domain isolated but not nohz_full, OTOH there shouldn't be nohz_full
+> > CPUs that are not domain isolated):
+> > 
+> > 	HK_TYPE_DOMAIN | HK_TYPE_KERNEL_NOISE == HK_TYPE_DOMAIN
+> > 
+> > Therefore use HK_TYPE_DOMAIN as the appropriate fallback target for
+> > tasks and since this cpumask can be modified at runtime, make sure
+> > that 32 bits support CPUs on ARM64 mismatched systems are not isolated
+> > by cpusets.
+> > 
+> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> > Reviewed-by: Waiman Long <longman@redhat.com>
 > > ---
-> > Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> > Cc: Amelie Delaunay <amelie.delaunay@foss.st.com>
-> > Cc: Christoph Niedermaier <cniedermaier@dh-electronics.com>
-> > Cc: Conor Dooley <conor+dt@kernel.org>
-> > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> > Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-> > Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> > Cc: Raphael Gallais-Pou <rgallaispou@gmail.com>
-> > Cc: Rob Herring <robh@kernel.org>
-> > Cc: devicetree@vger.kernel.org
-> > Cc: kernel@dh-electronics.com
-> > Cc: linux-arm-kernel@lists.infradead.org
-> > Cc: linux-kernel@vger.kernel.org
-> > Cc: linux-stm32@st-md-mailman.stormreply.com
-> > ---
-> >  Documentation/devicetree/bindings/eeprom/at25.yaml | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
->
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> >  arch/arm64/kernel/cpufeature.c | 18 +++++++++++++++---
+> >  include/linux/cpu.h            |  4 ++++
+> >  kernel/cgroup/cpuset.c         | 17 ++++++++++++++---
+> >  3 files changed, 33 insertions(+), 6 deletions(-)
+> 
+> tbh, I'd also be fine just saying that isolation isn't reliable on these
+> systems and then you don't need to add the extra arch hook.
 
-Actually, I applied this one too.
+Hmm, I think I heard about nohz_full usage on arm64 but I'm not sure.
+And I usually expect isolcpus or cpuset isolated partitions to be even
+more broadly used, it's lighter isolation with less constraints.
 
-Rob
+Anyway you're probably right that we could remove isolation support here
+but I don't want to break any existing user.
+
+> Whatever you prefer, but please can you update the text in
+> Documentation/arch/arm64/asymmetric-32bit.rst to cover the interaction
+> between the asymmetric stuff and cpu isolation?
+
+I'll keep that path and update the documentation. I guess we can still
+consider removing that support afterward. If we do so anyway, it would
+deserve its own patchset and shouldn't be hidden in this pile.
+
+Thanks.
+
+-- 
+Frederic Weisbecker
+SUSE Labs
 
