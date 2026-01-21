@@ -4,86 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A77E7C4453F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:46:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E160FC4453B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:46:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GA0E+2lExoLTrBoxDpukALnUWndmDpxiv7DFZKJpltk=; b=TiWT8hpb1liZuc0xqFkIZ4m6Om
-	Q5sr4zcy5GjJrvM/LxNTD8Ngs6sud+rRKsZbSpEFC/N9l6gG/m3gv1DO5+bSlOOXmbvaIdWjVhYSq
-	1pVz5Lpm4y4aHJc2qbuRB2R6mGWWYy6OrUjyrmDWKQTMmZO4XPpqAS7xRCggrXFfhhOxvoXYQkh+8
-	RLrEQemUnqzpSuE4VZLRcH1PCo6DV43wUn4QJ0d2WjQabFh6BXYbrNTEMcCzgR1hOiDyThTE09GWu
-	l355tkCzwKClrvWovQNwCsw9vDVmY3Vln9omDp6jGCIw09Nj6Nh2ojT1rKfA6CdoyY89Pzq2l4OiX
-	zhhD3Grw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QLGL7sAGGjAc4J4kRVufIDJ5+o6RGlXVLshIz0+jGpw=; b=T/oKnrQkXjFZLgo1FR3jG5wcan
+	wQMJaDZBUR+/1Gr2eKooPsD+qrlWzjwDu5qxUmIX+3nuUYUV+1MGB1Eod3/h/SxJuIAaViv/ZDjVK
+	cKjs1jQJhn4/vxSNqkY/VvI37R6rIPDCY9TUMvwi9hC+DNUga8jY6v4xleqVVi7sLzOCrqvNXkzM9
+	8caGHPY/U9COicVB0vqPEUwFkpBEXjZiKqHhk2vF058PRHxEOZNV8BS+/7hoTSAhqJ6S6FeYHb7md
+	m7SxnQWbuGPtBbB2CUFCELy9N5n1/jiey2gFqm/mu2nHne6yooYXOeoS9SOV3TNlvz9IPLr2onx2t
+	tAuiK9Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYXC-00000005VAs-2LK6;
-	Wed, 21 Jan 2026 13:46:10 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1viYXl-00000005VI3-14No;
+	Wed, 21 Jan 2026 13:46:45 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYX6-00000005VAF-3PMV;
-	Wed, 21 Jan 2026 13:46:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=GA0E+2lExoLTrBoxDpukALnUWndmDpxiv7DFZKJpltk=; b=5b+lJUiFPwVO4dTWd/qFReIVHI
-	7f99yyhyqXgdhUMCdDHEPQCqc1MLMgQKanORtkFU4U6RCDNpUqvSXjBSwcTdCc7xJv69ahZoiVGVN
-	k8+LEDN5Wjx8rpjwbhFUTfrwdpdMpHdB3asxlQfgxxUCsjamsFoUEg21HcN8Scc4H/oo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1viYWS-003p7S-MM; Wed, 21 Jan 2026 14:45:24 +0100
-Date: Wed, 21 Jan 2026 14:45:24 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Yao Zi <ziyao@disroot.org>,
-	Yanteng Si <siyanteng@cqsoftware.com.cn>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Shangjuan Wei <weishangjuan@eswincomputing.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v2 3/3] net: stmmac: Add glue layer for Spacemit
- K3 SoC
-Message-ID: <73bf2977-ad1a-45fa-9b06-5df083c060a8@lunn.ch>
-References: <20260121071315.940130-1-inochiama@gmail.com>
- <20260121071315.940130-4-inochiama@gmail.com>
- <aXDBCsfaNrgfGjNK@shell.armlinux.org.uk>
+	id 1viYXg-00000005VGG-3F0K;
+	Wed, 21 Jan 2026 13:46:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769003161; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=jlYHFWx2P3Kz6LTZ79x+6kdqLvari7VcC47ur0DqSG79+KQE/JW7gpF86NvCk+EWhTvpAVE6XE1n1dCJfJhS8ZIoKEFMouaAriJcpckoRdZK8M40ecIoWblvFOiDJWVS8E8R6QBJhVxv5iKtSpG1c2JMjkOkQ94IMJ4u8sRJk/U=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1769003161; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=QLGL7sAGGjAc4J4kRVufIDJ5+o6RGlXVLshIz0+jGpw=; 
+	b=S56vRgXoVMgJJnBVD3npkriP2aBkcgj91rL3N8NMLkyC3U8SAdaiPHisuSt9zjqAuWsbQLXt2hb6h+V0CLn/+cGlZRN4oT92X+ivBHmWxjs5jigtXQe3LiMIQpRew62ANnOHNEpiOjohskdgwuSl0IutAb5L2xJUZQnDj5m8fpg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769003160;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=QLGL7sAGGjAc4J4kRVufIDJ5+o6RGlXVLshIz0+jGpw=;
+	b=ZcfaTRN6WerfLB+GnZqROxbI2m562Gzxo1kyzDco1GRnbupQvcdDUh9qL6n8Wxuz
+	jx7FowaaGR6aY36KvntN5TbXi3zv4VVFtGoGtGMU0DTA9u7d0uFVrvfp5BMqivsErmZ
+	16WHLMAhNk+mu7JLRAxd/u5RLv6/yGT08dQhGAD8=
+Received: by mx.zohomail.com with SMTPS id 176900315953349.19319125732909;
+	Wed, 21 Jan 2026 05:45:59 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Wed, 21 Jan 2026 14:45:27 +0100
+Subject: [PATCH v6 01/21] drm/amd/display: Remove unnecessary
+ SIGNAL_TYPE_HDMI_TYPE_A check
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXDBCsfaNrgfGjNK@shell.armlinux.org.uk>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260121-color-format-v6-1-7b81a771cd0b@collabora.com>
+References: <20260121-color-format-v6-0-7b81a771cd0b@collabora.com>
+In-Reply-To: <20260121-color-format-v6-0-7b81a771cd0b@collabora.com>
+To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+ Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>
+Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-doc@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Werner Sembach <wse@tuxedocomputers.com>, 
+ Andri Yngvason <andri@yngvason.is>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_054604_853340_53B7B52F 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20260121_054640_953143_4B2451C2 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,49 +102,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 12:05:30PM +0000, Russell King (Oracle) wrote:
-> On Wed, Jan 21, 2026 at 03:13:11PM +0800, Inochi Amaoto wrote:
-> > +	mask = RGMII_RX_DLINE_STEP | RGMII_TX_DLINE_CODE | RGMII_TX_DLINE_EN |
-> > +	       RGMII_TX_DLINE_STEP | RGMII_RX_DLINE_CODE | RGMII_RX_DLINE_EN;
-> > +	val = FIELD_PREP(RGMII_TX_DLINE_STEP, tx_config) |
-> > +	      FIELD_PREP(RGMII_TX_DLINE_CODE, tx_code) | RGMII_TX_DLINE_EN |
-> > +	      FIELD_PREP(RGMII_RX_DLINE_STEP, rx_config) |
-> > +	      FIELD_PREP(RGMII_RX_DLINE_CODE, rx_code) | RGMII_RX_DLINE_EN;
-> 
-> So your reply where you basically stated that all the RGMII.*DLINE.*
-> constants here should be the same was nonsense. How can we trust your
-> replies?
-> 
-> > +static int spacemit_dwmac_fix_delay(struct plat_stmmacenet_data *plat_dat,
-> > +				    struct regmap *apmu,
-> > +				    unsigned int dline_offset,
-> > +				    unsigned int tx_delay, unsigned int rx_delay)
-> > +{
-> > +	bool mac_rxid = rx_delay != 0;
-> > +	bool mac_txid = tx_delay != 0;
-> > +	unsigned int rx_config = 0;
-> > +	unsigned int tx_config = 0;
-> > +	int rx_code;
-> > +	int tx_code;
-> > +
-> > +	plat_dat->phy_interface = phy_fix_phy_mode_for_mac_delays(plat_dat->phy_interface,
-> > +								  mac_txid,
-> > +								  mac_rxid);
-> 
-> Maybe Andrew can confirm, but this function was to fix up existing
-> broken DT, and shouldn't be used by brand new drivers.
+From: Werner Sembach <wse@tuxedocomputers.com>
 
-Hi Russell, thanks for pointing this out.
+Remove unnecessary SIGNAL_TYPE_HDMI_TYPE_A check that was performed in the
+drm_mode_is_420_only() case, but not in the drm_mode_is_420_also() &&
+force_yuv420_output case.
 
-This function should not be used in this case. MAC drivers in general
-only add small delays, in order to do fine tuning. The PHY adds the
-2ns delay. There are however some MACs who cannot disable their 2ns
-delay, or have historically been broken, and add 2ns delay. In such
-cases, the phy_interface passed to the PHY needs masking, to indicate
-the PHY should not add the 2ns delays. That is what this function
-does.
+Without further knowledge if YCbCr 4:2:0 is supported outside of HDMI,
+there is no reason to use RGB when the display
+reports drm_mode_is_420_only() even on a non HDMI connection.
 
-Please don't call it. Pass phy_interface as is to the PHY.
+This patch also moves both checks in the same if-case. This  eliminates an
+extra else-if-case.
 
-       Andrew
+Signed-off-by: Werner Sembach <wse@tuxedocomputers.com>
+Signed-off-by: Andri Yngvason <andri@yngvason.is>
+Tested-by: Andri Yngvason <andri@yngvason.is>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+index cb13a2b0de62..4a2491a66fdd 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+@@ -6699,12 +6699,9 @@ static void fill_stream_properties_from_drm_display_mode(
+ 	timing_out->v_border_top = 0;
+ 	timing_out->v_border_bottom = 0;
+ 	/* TODO: un-hardcode */
+-	if (drm_mode_is_420_only(info, mode_in)
+-			&& stream->signal == SIGNAL_TYPE_HDMI_TYPE_A)
+-		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
+-	else if (drm_mode_is_420_also(info, mode_in)
+-			&& aconnector
+-			&& aconnector->force_yuv420_output)
++	if (drm_mode_is_420_only(info, mode_in) ||
++	    (aconnector && aconnector->force_yuv420_output &&
++	     drm_mode_is_420_also(info, mode_in)))
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
+ 	else if ((connector->display_info.color_formats & DRM_COLOR_FORMAT_YCBCR422)
+ 			&& aconnector
+
+-- 
+2.52.0
+
 
