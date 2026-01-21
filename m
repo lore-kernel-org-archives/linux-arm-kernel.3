@@ -4,183 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18F5DC44506
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 18:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 097FCC44506
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 18:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eKeNxEDgcn69qsIh/uHBhQolHnILVbREU+zLwKOtvL8=; b=M9DRcDZVJl2VLOLiAorrQYdO8u
-	2HLm7BHatB07t0GEyzU6ZnUkord+Fk1oiK6TNarTkF1qD2AoANQ/exDeKNy1L9R9UuWFy/9irmiV0
-	c5lFrMximWswsk8WgnT1KRSX+3XtRH0MKkcMC1P8KkuYN4/T41ZiRCiSCA+DfNr0oy2tj8QKIAfMu
-	UxefYlkZ0+KeMrgWSQy8+IdRuBJxQcEpcpfhgvrFALEeYFht5rUiKrvsv3R0XDYR2zivo+1/JBuwq
-	iXSvSIeUWpfhdY70vmRHS8Gzm05PAcG94Nqh4jeMBP6OIKp0dDp3eOjqHvmy34wdV0/ka+zFsi+hg
-	UmpGDJTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ynpg/cJ+vd3nqyV8BLe/SIqtaIrKy7cylnYrcUttxQg=; b=Z4Kb4Ectj9XgvpEse9MjIyTH53
+	8FLnHQ8wAkp7ikEyHFhpAz1VypJ1zdfBexbs2z3HfBBMam0b+4+NzBTZKOjasA981gZxrVBw+7kFR
+	t+tdBhI+Fqu6n29YoF02KZHsTfOJ3AcyQ99MClpPPfH5JaMC5D83ZntLYGxAw2rBao6iaTG2HmCmz
+	H7nNuaihl1p5jV+54SQbLgGmScD22eC4Q3vwUyGte2m/h0knnZN3MXU7XlPxcujd7hI4+L7Z1g3+v
+	yybisVOHaprq7E4ABRU4/0lAiUeSqXU4hAxv9kLV2aYd83cGkCcd2rSkv0xq7oiaaVMGrtw9C4+Sw
+	CAFBqrJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vicZW-00000005ttE-3HBp;
-	Wed, 21 Jan 2026 18:04:50 +0000
-Received: from mail-francesouthazon11011013.outbound.protection.outlook.com ([40.107.130.13] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1viciO-00000005uT5-1cVB;
+	Wed, 21 Jan 2026 18:14:00 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vicZU-00000005trD-0Uk3
+	id 1viciL-00000005uSh-2ZJM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 18:04:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xdRz7H56vkxjmeP86RIYTf5LsdNYsvk0mX2pbfRf2l+6XfXJbRiOknJ1691YBaIcGfKD99X0KzilQKOekKuH9n7ukeih7Svkcw/8CV1Icw6lo65MLOA3MmO8U3AY0TEt3cyFjXxKnL+8XjpbSGOfaFlZcOCRpvyy5ko9fJwHlJH0vZi3J+IggJVA7XlAAJIgreMOKF1YMtO3sEiFTXfOE3rqFsiEAXfYiG9d3+SPTPVQxmrc0pEMxD/QFJL6UAN+j6q6gfyaDRHucnnSS55VmjIarwVAIHXa3qOgPhocp6eFaDmVYCqsfKp75RWIAv/HJZ+ZcO+WcMTyZtFjnzc2ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eKeNxEDgcn69qsIh/uHBhQolHnILVbREU+zLwKOtvL8=;
- b=mp84gIPWp8jXxVW8qZKfFe8+K9uCnb/SmBh3dJQ659F62JksUmwmGxegHSycvkgrI168BlM71e8JZu2AP+Of8g1Y9FpW7hp5dsFawyHZn5IG4fDJ7OsjWXxXPTFTxW9t+5yOGP2zQClZohICh4fQBbmAvqi2OIzxc2e61oZrs8VZVlaVRy9CP3xbfnV6Z5AT8zObUpRmyl/np4D5SLGO8UP2t3XaGAt5OdrJzKRPpQ72SzUGUnrTz/mO85WbUbC8AUdtUstGdqr1uwkW4dUfF4MebJb5eDKD7eCnIlJxQwqkiQbtHzeTPpoCY7Yiy/9C8wSmsxH0pRYPGPMXe1yQ3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eKeNxEDgcn69qsIh/uHBhQolHnILVbREU+zLwKOtvL8=;
- b=CTRRg7ckxeLGDsxC3XKFNab1ZTiaQpeAnpIzpw4CkwN9AaEbNWoH/uZi0rju61TrkEm6wAQsC99F0yNUl1C9nkLiR/L3K08r1xACeHMBQk6A9wA+FxW6a59GSySwhqen/9ZYttDyS7t4W5kkTqY4YuxYR9Kkuj8YEfTNT1gwnXsuNwJDML3/CDuCKffXD6Aeu3L7BO/RhHkljknuOh9emZiK/YeDGCEcBpR9D0urCfM6Ejc6SOhjxXkSIwNqbEvvcEvtieRM8oAzk7CBOF01g3Zhklwaziuj5bVVfJPrHlbqUIQp9T90xy6kSIHaNn2q7gwitcRqFIsIgmqMqz3ZRw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by DB9PR04MB8202.eurprd04.prod.outlook.com (2603:10a6:10:24f::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Wed, 21 Jan
- 2026 18:04:41 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9520.011; Wed, 21 Jan 2026
- 18:04:41 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 21 Jan 2026 13:04:17 -0500
-Subject: [PATCH v3 3/3] ARM: dts: imx: add required clocks and clock-names
- for ccm
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260121-ccm_dts-v3-3-820ce9b5fa38@nxp.com>
-References: <20260121-ccm_dts-v3-0-820ce9b5fa38@nxp.com>
-In-Reply-To: <20260121-ccm_dts-v3-0-820ce9b5fa38@nxp.com>
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769018664; l=8065;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=lhT2vXtUAbuVxSdVz4i2QyO+V8jXLBnb3vIumD0rNXo=;
- b=desrajjQpDCF/a31ujMVtfLsfDjhoz08FPGcicyeNsE7lChFU3EijPXj/YjkKhamSxP4Bn7+/
- ZONdFmB0iFgCLrQi77O9qWRt8ncnVIzvwivvf8XOzj7H/gOGgmCwkF9
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0PR13CA0015.namprd13.prod.outlook.com
- (2603:10b6:a03:2c0::20) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Wed, 21 Jan 2026 18:13:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1769019236;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ynpg/cJ+vd3nqyV8BLe/SIqtaIrKy7cylnYrcUttxQg=;
+	b=AB1YxHnihS+6P3zQQaO2zOtQY+jgEbeFhGjegrf6fvMtcEzfinB8fgXPzoTw+zAOWqIHtS
+	K9cFs7Xrr1SWAUKMNK0xWQx1LVRUG/KCdd+QU7Gvtq8edYaRojrVjr428QyIwyPp0jIlw5
+	BnmLfh64LsK9NAcFQaSf95/EBTl3rX0=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-211-n0ZJbGzGNlufjgljWqAxOg-1; Wed, 21 Jan 2026 13:13:52 -0500
+X-MC-Unique: n0ZJbGzGNlufjgljWqAxOg-1
+X-Mimecast-MFC-AGG-ID: n0ZJbGzGNlufjgljWqAxOg_1769019231
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4358fe2e7e1so77908f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 10:13:52 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769019231; x=1769624031;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ynpg/cJ+vd3nqyV8BLe/SIqtaIrKy7cylnYrcUttxQg=;
+        b=fc01HeelUPZ4SHoiM4NVvQlUnN9dGHKwjJimoY23kbgikWy0bbRsv4p52pMMMc2fgk
+         udVOQuZOSmA2KUyoRR+bBSokytgPPOXHHU8gKQ+KNTzHLHRtkbc6j43B7JjgdWRgbRJE
+         TG8Gdge19OFlKHIms7B8BzLmKo9YuFT/qX5MNpxOWyRbNPch/QPFamgxkGTFKt9ZWRPM
+         05V5xedImIcvwHN7krzeeHwYOQQWeK/DJTpjb98SqbcW/bHIMsRgWX2DVVwrRd8kRcFM
+         SWcSPQJCmNiuoPcJbc6dD9Rtx2rJzsabARHSxhSlUVa3rat+NbDEY+dSrSkJtlbwV9jH
+         3Bfg==
+X-Forwarded-Encrypted: i=1; AJvYcCXU3LBkySRhAI8uznKrQvYHtRa3v8t2npOohv8vNgO3thV/3mq8ep6XhWllEPBTlIikCavst9XACvlYH1Iy2CoO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeZ/3/DYVxIQfg8sp+lVoCtEcB238jE3dtIIXrPhO/FR9Fe5Oh
+	nu543WFkHtku3SoSE/HxK4X+k4AzyiZ78612KO9bJuZCy0UL7b2h696b0IVNUdAzo5+ofVHDOKG
+	OvQmf5GM+66Z3T2oTPB6OdZ0nQ25trPlEhAPPNUGEm4tzvjFAKWmgL3trzz4yLOuXd+A/yexKmn
+	bJ
+X-Gm-Gg: AZuq6aIkUGGmCq+A63ylsla1FUOV9frSsrQDd2/KOs9tQVsJuYHMNovHxIUrtRKumMq
+	sI13/fge4+gETUSlJcpTwLtjfzwgO4RYfuRA/XfVDY7cHTE6GdD6MSnOlB5+Bhf1+105jt3Ynke
+	Cw5Tc0fEKDC1URiqvcne3eizG1HO1F6a+cp/bxiK3rpFiiDwK+fh5y5LpNxJPFTESuTIE4neci0
+	LBOySEHRjO6UQDb0IT4jOYJDPGAm6TVTOs94TvILkprSwSkjx/uSdx9hlRxaVcAbNdKR3KN/ya7
+	6vcUols2oXmlL7GL0B//jqW6F2YTCXpk4hCd59drsMDDHt5RslOqBRIqhmgiIu7UmtcvDMH3pDW
+	F9ufWinrik5TAZu4ZyvqHsDUPPpYRaRKna8RDoFZQIprvUnNDltB89U4d1sU07vcC8oPuInAr/P
+	c6yF1puDDe8xFX6A==
+X-Received: by 2002:a5d:4688:0:b0:435:95c9:6891 with SMTP id ffacd0b85a97d-43595c96bcamr7351158f8f.42.1769019231268;
+        Wed, 21 Jan 2026 10:13:51 -0800 (PST)
+X-Received: by 2002:a5d:4688:0:b0:435:95c9:6891 with SMTP id ffacd0b85a97d-43595c96bcamr7351114f8f.42.1769019230831;
+        Wed, 21 Jan 2026 10:13:50 -0800 (PST)
+Received: from [192.168.10.48] ([151.61.26.160])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-43569921da2sm38550536f8f.1.2026.01.21.10.13.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 Jan 2026 10:13:49 -0800 (PST)
+Message-ID: <5bea843b-dec8-4f15-bb7c-1d0550542034@redhat.com>
+Date: Wed, 21 Jan 2026 19:13:43 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DB9PR04MB8202:EE_
-X-MS-Office365-Filtering-Correlation-Id: 292fd94f-7e5a-4866-46d3-08de59178ca8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|19092799006|1800799024|366016|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NFM5VjNzSFpUWDhBUmN6VzlnZ1RCMzV5aFdFVDJMTllWQVJEMG9UU0RhaHpq?=
- =?utf-8?B?eDZMajd6KzAxTFEzbEZqTTh6bGNKMVVraGVWQkxTSzBhdXBzSWRoQUtLSG9m?=
- =?utf-8?B?OHdJZHJEbFhjY3F6czREMHhHZEhVZjJubUhudmZBcnBHWUhQbjJ1aGoydm1K?=
- =?utf-8?B?SXk0UmMrdXFYakVOVTh0WFU3N3o2ZS9yR3FZVVBjUjJaZEIvN1kxNDR3MmNo?=
- =?utf-8?B?R2IrVy8rbTFXSWZTUVJLQTVXMy9RQkZiUVI1NWxrQmV2VzBWakgyTll3ZWMz?=
- =?utf-8?B?cGZSYnUvVHBMeFU3cjVXbkVPWE56RHlXWHpzK0hVU1kxZ1hDZ3BrdEZtd2N1?=
- =?utf-8?B?WDM0RGo1UFZNYWtRTGl1R0FHYnBEeVhnaFhVcW50OVFmanhzNUVQdlRBVlQx?=
- =?utf-8?B?aWJvRVh2Yk5xVmJZdWJjdTNETFk2OWIycmYybHUyTTJCanVCenBCS3ZaNHZ1?=
- =?utf-8?B?bndGZkl6eGJjUnpRV21Zc2MyMnltYTQ0bncwUEpKZjBxcEpCMVZOWWVUdHVT?=
- =?utf-8?B?VWRqVzZ3TWVhQlp4WlNkOVhVRjJmN0lyWnNnTXdXd3dKWjQ2NGdEUTd5UHhr?=
- =?utf-8?B?a0VGQTNQR0luQ0MyQ0YwTHp6RmZnU1g4b1U3Z3JaRnpaUTlJQmdpL1pzOFJj?=
- =?utf-8?B?dmU1MncvLzY5NnNqUDU3cm9pTE0vTnFZZUFxVGVYMSsxNC9HcWFXWFVwbTFn?=
- =?utf-8?B?Sk5yMCtZSTRKcmt4eS9zNEYwWDZ0TTVuejFJTVFMdStyS0VpdEhjZ2VpcGRF?=
- =?utf-8?B?MUtCUHBmL3hwaUxqSlZyd1pFMHFuekJHcU9Ja0Fmbjc2QkhNVXYvZjRaQmFV?=
- =?utf-8?B?bXZ1Z2tmbFg4SldENFhtNXo1eklBaFJndmRiREFJZ3g5QXJGWEc1NXNxUmNR?=
- =?utf-8?B?c0pIVGhpZURFRlR4QWJtNUs2TGdWK0Rmelc5ejdhR0hyQitHTFZYTWsxQkZv?=
- =?utf-8?B?TWtseGlReEhzaGtkdXVvWWxCSWVCMjBvWTU3elZKbXBmUlNlOFo3V2ZEalNy?=
- =?utf-8?B?ak1TUUp0UnVvYlhxbEdYcXFIblF1ZzY2OEFqYmNINk9FSTNBeDhyNzJVSWFN?=
- =?utf-8?B?Sy92OWgvNWpmL2lNZDJnMGlmaUdlVFN3Zkg3MyttT2NzNThtUnFCRWQ4cng0?=
- =?utf-8?B?S0tFSnVRS1laV05BbE9peWlWU24wLzJueldxdGlqQTY2MEx4eDh5dG1wd1JB?=
- =?utf-8?B?V1pCb1V1bzFBRW9DSGNkRUlLSGV3Z3JjMUZLOUw2TVJMUEd0YnZIcjZOQzhN?=
- =?utf-8?B?aTFnWDIwSXh1MFh4RVJqUEFSdm9lV0VFUStDZVd3YzViYy9IaW1OWlRydmNC?=
- =?utf-8?B?aW9WZnhpckE0TFcrdjN4YUFiN1JmZk1IUXVWVkwvckFJU2FPMFlrb3JNcGlH?=
- =?utf-8?B?UHQ1ZllxK1N4eURkY2tETVhldTlHYUFuT0pBSDZFeVk0L00ySkVPSStCenVY?=
- =?utf-8?B?VVJtdENLbUZtNmI3ZTBHSHdCWStBTjZkN3hYM01ZejBYRTErMVEzTUI3SzZz?=
- =?utf-8?B?OGFhOGMzU0VNL25HWUZySHBvSTk2QUdhNW02WHVXaEJpUVpIUEVrcU5GUXBM?=
- =?utf-8?B?VHU5dU5zK21NQmtDMW5kZWVjbWpQR2ZkWEd3Ti9vM2ZUVGhZanlaQ2QzdU9W?=
- =?utf-8?B?MmFUalFvSEFzY08rMGkvM0gvbzVvZmxIWGRKc25sSkZlTXVqTERlL3FhblRv?=
- =?utf-8?B?N2ErSHB0UTNScnd0TFQ0dlhHd0FTV1dmME94RWJVSmxoazZXWFhPTDZjZTNu?=
- =?utf-8?B?Ykk0N01rWmxzYnhpakFMSlJmdVJtejdhVktXcGJHc2VHRGNueW1RZlF6SlN6?=
- =?utf-8?B?VmFObG4xc2hXUjlhck9IUEk5ZnVIandWUzdXMUloSTAwYmY1dFVCSGxZeWtO?=
- =?utf-8?B?MmpkRjE0T21FQThzNGU5Q3orUWxSWTMrbXV0bGZKL0J6SEg5U2RYcndsR252?=
- =?utf-8?B?OFhLTVR0VDF4WW5WaHU2TGxZZm5BbmNIbnpWV1Z1ODRTWjJCdE1Sd3ppT2Fs?=
- =?utf-8?B?YnlCWThzWkozT082b3BaUkQwMW9UZlRVcExHdDBGQkdOT2tCc0RCWEVOay81?=
- =?utf-8?B?SUF1aCtEdnB4bk9iTTBrWWNMZzBUajFjQ0xVOE9vcVJlUjFpVElEYjJMUkE4?=
- =?utf-8?Q?Y/7sNbRUrTpTN7lbrxroWrG7W?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(19092799006)(1800799024)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?em1qNVJ0SzR1YVdxTnJRQU9FWFNlWWNlcll4RmJDSlNCMnE1c3Jqc0p6bE5X?=
- =?utf-8?B?K0dNM0pLb2U4UnlmQlVpSFh1RDkzdW5YdjlLdGNHZ0V5OTBOVWsvZUU0SHI4?=
- =?utf-8?B?NG42bjdDZEcvOS8zV2Y2Mm0rZmhDeG1pSDdCcUNyRllMN2l4R1FGUkdSRThG?=
- =?utf-8?B?WnJRQWM4UjlkQyttZWdCYktyU2xZS0RMQmVVN2cxY2pHTVNYYXpVNnNabUR0?=
- =?utf-8?B?Mmp6SUhpdWNVRllkNlgrQk9zMVBBckFzeHVWMEYzb2xzWHRjRUlCUXdaS3JZ?=
- =?utf-8?B?S215K0JzZ1NuL1NjUm0yaytUZG1XVHViZGEwYlVLRjQzOHlZN01ValMva3ds?=
- =?utf-8?B?UTZsb09kQ0VjVmM0enNuUk9FaUpLRWJ2V0ZuTCt6dVZHU3ZVUGx3cWRXTUhi?=
- =?utf-8?B?SExCVWczU080ekQ5VFRxWHhkdnd4RkRQZXFZb1Q5blltOFFNbUhPcHlxS0Q4?=
- =?utf-8?B?emxPaEwrd1FwYmZFclRHSXBpSUZZVmdNTmZGZ0k2SXJDZlV2YkVXRnRhWUxK?=
- =?utf-8?B?ajVYL1BzRVJVOGdsb2NGWkJzMkQ2SkRtUGJpbzdVeThLSk13VU1qTVNndXJ6?=
- =?utf-8?B?MjFDTWFNMm5UY2RXem9sdUt1RmxDUng1ZTNSUXpnMEZzT1VWYTVqN2RyNUpM?=
- =?utf-8?B?T2I5RW5rYk9aSzhRS3JyVHcwUloyVnVCQUpUdU1CMXNxRkkvV1NzcVpnWGxR?=
- =?utf-8?B?azVGa2ZZVGZJaWxuckV4K1lDZm9QUy9Gb2UzaW1EdjlLOVNwMko2dGUySUZ4?=
- =?utf-8?B?Tks0Tzc0c3J4SmxsR0RSUUtPdEtVMVdnbTM2bUl0WFRMZFpMb2k3eS9GeDVa?=
- =?utf-8?B?M3NsWklXU3k3S1B1TmVlMnZtWUt2cHltVGNiQ0NlTFI3aVdpZGNJWGZxcmEx?=
- =?utf-8?B?S2tvaG5EMDI4Qm9YTVZqYlRacStQNHJuODAyeHhJc0JDNWpQdUVRZWQ5RUhL?=
- =?utf-8?B?dnoyTW95UGJCYjVxajh6YUJoczZpbGZUbUNUenBDYzJBQ2F6NEsvTDA0YWha?=
- =?utf-8?B?cENuVVNlVUdDdURWci9NdzVHaXdoMWNBOWdncGpBS0Z5clJIa1NNWjBCdTlK?=
- =?utf-8?B?YWFueXNYc2xndzYwblZiZGtTNVFCRUFzanFmSUVqZjJlR1BNNnU5aDlRMDNj?=
- =?utf-8?B?NktLdVJLY0JKREFHSG1QdTdZTy9zSjJSVGthR1lyRVhuLzFlS2k2SFJ1Ym1a?=
- =?utf-8?B?azEweVVKK2lNRDVESmxmUlZqcGJpM1RZa3F0Y0JsQXJYbERrUlRIMnY5R3p4?=
- =?utf-8?B?MVJtZ2thZ0NidkVSM2dsbWNnK1JWS1Z3TktHYmgwTWVKWjgxcUJKQTNVcTZY?=
- =?utf-8?B?SW40blFaYkdGVW5hcmRhYkJic3M5VTQvT0tKYkVCemUvWnVGUGpVNU90VlZ4?=
- =?utf-8?B?MFZOUVFpT2xWYUYwcDlRbDZlYVk5RDVza1djWlJtZTRBTUZnVE4yS3BTR0hs?=
- =?utf-8?B?RFNaVTVIeXVLQUhuWDhvM3drWkxwTHhIQ3FXOHdaZUhRejhZU1l1NTMyajVX?=
- =?utf-8?B?Uml6Q3FkU3VyNGJnZWcxcTExL0prM2tYeStwWjhrLzFNMnhEU2NkcU11Zkxx?=
- =?utf-8?B?UUdRZ2E4bkdxWU9xVmw5NE9OUVFlZVhDWUVqRzBGaTB4b2RpcXhYWUNOejgv?=
- =?utf-8?B?dDR4S3RZZkl6QngydUdJQzhraTBVQUttL2VYK3Vtc3ZXa3pqYWxza1VrVVlu?=
- =?utf-8?B?Y0k1ZFpRcG9Gc1hpVU9FYjVnbTZ5ZFl3eU5ERFl1ZXd5Nzg3ZW5wcmh4Z2xU?=
- =?utf-8?B?QXJlOUMyb3EvbWZETWUxdkthdjVMWDBNS0p6TkFlK0RqRTV5dDhhak8zUDIv?=
- =?utf-8?B?NXd2S2d0c250azlhVmw3YmY0UU0yMFZUeXdhV3VwY2tiNEFaME5DTURCUUNS?=
- =?utf-8?B?dUlQRXp5Q1U1L051cERVSTdwK1h4S3l2Rld2UlY0VFhVYmRYZGxLaW52bFdH?=
- =?utf-8?B?ZE12NHZVYzZZNUdQampYNkxHYVB0V2hXa2hlTk9EK1BRNWNxdmZ3aXRqRmJy?=
- =?utf-8?B?M1hqa0NTclorZHJLdkRMdHhOc0dyeldpVndSYnZlb3VLdTVYQjRqcmJGamJv?=
- =?utf-8?B?bk1rY3lBRW1OMDFvU24vMkRtcG1VTmQ2SHFPK25JMC9GU0VXb0U2d1g0c1Fx?=
- =?utf-8?B?QTBCR0FJZnVycWpORlJVRGoraTNiak9qN2xPTHZLdHhvT2dIZGlvZmVYdEJt?=
- =?utf-8?B?eXQvZytrdXF1TmFPNUQ0UlF1M3NNdjZ1anpnZHlKLzU2b1NmSk5MS0V3Nm1P?=
- =?utf-8?B?L016NkF5UDYyUTcvb3p1WUllRkpiWUZYbktmZEt5WWZwRjh0ODFXRUtDWTFL?=
- =?utf-8?B?QTNaNVAyMURFT3VoQ0J6OTRnY3l0dEFwR3VOY0FvdjlVOVo3aDc4Zz09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 292fd94f-7e5a-4866-46d3-08de59178ca8
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2026 18:04:41.3632
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TioE7CwUxHq+ljIQB/LeLyjQJQ9za+NHAMInF6VLNRAwfbe0Vt/RV3fErl6w+pKQGXErGz9yBDPb8pVxOCgNwQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8202
+User-Agent: Mozilla Thunderbird
+Subject: Re: possible deadlock due to irq_set_thread_affinity() calling into
+ the scheduler (was Re: [PATCH v3 38/62] KVM: SVM: Take and hold ir_list_lock
+ across IRTE updates in IOMMU)
+To: Thomas Gleixner <tglx@kernel.org>, Ankit Soni <Ankit.Soni@amd.com>,
+ Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Joerg Roedel <joro@8bytes.org>,
+ David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Sairaj Kodilkar <sarunkod@amd.com>, Vasant Hegde <vasant.hegde@amd.com>,
+ Maxim Levitsky <mlevitsk@redhat.com>,
+ Joao Martins <joao.m.martins@oracle.com>,
+ Francesco Lavra <francescolavra.fl@gmail.com>,
+ David Matlack <dmatlack@google.com>, Naveen Rao <Naveen.Rao@amd.com>,
+ Crystal Wood <crwood@redhat.com>
+References: <20250611224604.313496-2-seanjc@google.com>
+ <20250611224604.313496-40-seanjc@google.com>
+ <njhjud3e6wbdftzr3ziyuh5bhyvc5ndt5qvmg7rlvh5isoop2l@f2uxctws2c7d>
+ <42513cb3-3c2e-4aa8-b748-23b6656a5096@redhat.com> <874iovu742.ffs@tglx>
+ <87pl7jsrdg.ffs@tglx>
+From: Paolo Bonzini <pbonzini@redhat.com>
+In-Reply-To: <87pl7jsrdg.ffs@tglx>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: AWApxEUGRojrK3_rwmDkHtV9V_lTVqoQ29_Yq1JEjTs_1769019231
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_100448_326799_8EB7C3A5 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20260121_101357_724636_B815FE6B 
+X-CRM114-Status: GOOD (  18.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,181 +127,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add required clocks and clock-names for ccm to fix below CHECK_DTBS
-warnings:
-  arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dtb: clock-controller@20c4000 (fsl,imx6q-ccm): clock-names:0: 'osc' was expected
-        from schema $id: http://devicetree.org/schemas/clock/imx6q-clock.yaml#
+Sorry, not sure how the previous email ended up encrypted.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change in v2
-- use enet_ref_pad instead of enet1_ref_pad (only use at 6ul).
----
- arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dts           | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6dl-eckelmann-ci4x10.dts | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6dl-lanmcu.dts           | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6dl-plybas.dts           | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts           | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6dl-prtmvt.dts           | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6dl-qmx6.dtsi            | 5 +++--
- arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts           | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6q-prtwd2.dts            | 4 ++--
- arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi       | 4 ++--
- 10 files changed, 21 insertions(+), 20 deletions(-)
+On 1/8/26 22:53, Thomas Gleixner wrote:
+> On Thu, Jan 08 2026 at 22:28, Thomas Gleixner wrote:
+>> On Mon, Dec 22 2025 at 15:09, Paolo Bonzini wrote:
+>>> Of the three, the most sketchy is (a); notably, __setup_irq() calls
+>>> wake_up_process outside desc->lock.  Therefore I'd like so much to treat
+>>> it as a kernel/irq/ bug; and the simplest (perhaps too simple...) fix is
+>>
+>> It's not more sketchy than VIRT assuming that it can do what it wants
+>> under rq->lock. 🙂
+>
+> And just for the record, that's not the only place in the irq core which
+> has that lock chain.
+>
+> irq_set_affinity_locked()       // invoked with desc::lock held
+>     if (desc->affinity_notify)
+>        schedule_work()           // Ends up taking rq::lock
+>
+> and that's the case since cd7eab44e994 ("genirq: Add IRQ affinity
+> notifiers"), which was added 15 years ago.
+>
+> Are you still claiming that this is a kernel/irq bug?
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dts
-index 9bb36db131c21956a33f0a5a013c5bb4cffe1890..aed4fb7843e2f2a5bc57499aafd3431b582437dd 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-alti6p.dts
-@@ -193,8 +193,8 @@ &can1 {
- };
- 
- &clks {
--	clocks = <&clock_ksz8081>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clock_ksz8081>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clock_ksz8081>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-eckelmann-ci4x10.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-eckelmann-ci4x10.dts
-index 5ed55f74b398f24a69245dbf88f5c93ee0d347d8..5f61eeb9fad0c590e778d82d42d201fc2b0a7c3f 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-eckelmann-ci4x10.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-eckelmann-ci4x10.dts
-@@ -66,8 +66,8 @@ &can2 {
- };
- 
- &clks {
--	clocks = <&rmii_clk>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&rmii_clk>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&rmii_clk>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-lanmcu.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-lanmcu.dts
-index 47a6d63c8e04cf28795310aafcdd3b2b05740830..9bde6546255825ed871aaee592347e23da4d4141 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-lanmcu.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-lanmcu.dts
-@@ -119,8 +119,8 @@ &can2 {
- };
- 
- &clks {
--	clocks = <&clock_ksz8081>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clock_ksz8081>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clock_ksz8081>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-plybas.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-plybas.dts
-index 84f34da06267ebd477fbe71b465a44ffe5b4c098..69e790ba56624ee8ee8611ddac5ae3c9585a5c2b 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-plybas.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-plybas.dts
-@@ -101,8 +101,8 @@ &can2 {
- };
- 
- &clks {
--	clocks = <&clk50m_phy>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clk50m_phy>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clk50m_phy>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts
-index 0ef24a07dedf986efdf4ce8ad4032814752e7271..fbff77944ce327f390abcabde638f4162d45eadf 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts
-@@ -199,8 +199,8 @@ &can1 {
- };
- 
- &clks {
--	clocks = <&clk50m_phy>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clk50m_phy>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clk50m_phy>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-prtmvt.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-prtmvt.dts
-index 2160b71778355623a9f124975e2cd4dfba4be900..dcd5a4099c602d03704c35860f4d6f0beed1862d 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-prtmvt.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-prtmvt.dts
-@@ -294,8 +294,8 @@ &can2 {
- };
- 
- &clks {
--	clocks = <&clk50m_phy>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clk50m_phy>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_LDB_DI0_SEL>, <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clks IMX6QDL_CLK_PLL5_VIDEO_DIV>, <&clk50m_phy>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-qmx6.dtsi b/arch/arm/boot/dts/nxp/imx/imx6dl-qmx6.dtsi
-index d5baec5e7a7824c05ca64c36a1839efff0bd7f71..fb674ac2c2485a818ae593c63388bcec548a100e 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-qmx6.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-qmx6.dtsi
-@@ -71,8 +71,9 @@ IMX_AUDMUX_V2_PDCR_RXDSEL(MX51_AUDMUX_PORT1_SSI0)
- };
- 
- &clks {
--	clocks = <&rtc_sqw>;
--	clock-names = "ckil";
-+	clocks = <&osc>, <&rtc_sqw>, <&ckih1>, <&anaclk1>, <&anaclk2>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2";
-+
- 	assigned-clocks = <&clks IMX6QDL_CLK_LDB_DI0_SEL>,
- 			  <&clks IMX6QDL_CLK_LDB_DI1_SEL>;
- 	assigned-clock-parents = <&clks IMX6QDL_CLK_PLL2_PFD0_352M>,
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts
-index 76b0007d20ad22eee738ab40ed126435a8fd17fd..18019a6bb3af07c43730ef60f884fefd810553bd 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts
-@@ -160,8 +160,8 @@ vdiv_hitch_pos: voltage-divider-hitch-pos {
- };
- 
- &clks {
--	clocks = <&clk50m_phy>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clk50m_phy>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clk50m_phy>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-prtwd2.dts b/arch/arm/boot/dts/nxp/imx/imx6q-prtwd2.dts
-index 0e02e448db1085e7f508e55cd55d4441d2f51a54..5ef1ce80869914f8866cf71e79dc1b3d54d56f5f 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-prtwd2.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-prtwd2.dts
-@@ -57,8 +57,8 @@ &can1 {
- };
- 
- &clks {
--	clocks = <&clk50m_phy>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clk50m_phy>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clk50m_phy>;
- };
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-index 131a3428ddb86796ed843b46cbae12f5d095b2f4..894e5c28b2ac036cc29a2d23d4c6451f0da9dff4 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
-@@ -238,8 +238,8 @@ adc: adc@0 {
- };
- 
- &clks {
--	clocks = <&clk50m_phy>;
--	clock-names = "enet_ref_pad";
-+	clocks = <&osc>, <&ckil>, <&ckih1>, <&anaclk1>, <&anaclk2>, <&clk50m_phy>;
-+	clock-names = "osc", "ckil", "ckih1", "anaclk1", "anaclk2", "enet_ref_pad";
- 	assigned-clocks = <&clks IMX6QDL_CLK_ENET_REF_SEL>;
- 	assigned-clock-parents = <&clk50m_phy>;
- };
+Not really, I did say I'd like to treat it as a kernel/irq bug...
+but certainly didn't have hopes high enough to "claim" that.
+I do think that it's ugly to have locks that are internal,
+non-leaf and held around callbacks; but people smarter than
+me have thought about it and you can't call it a bug anyway.
 
--- 
-2.34.1
+For x86/AMD we have a way to fix it, so that part is not a problem.
+
+For the call(*) to irq_set_affinity() in arch/arm64/kvm/'s
+vgic_v4_load() I think it can be solved as well.
+kvm_make_request(KVM_REQ_RELOAD_GICv4) will delay vgic_v4_load()
+to a safe spot, so just cache the previous smp_processor_id() and,
+if it is different, do the kvm_make_request() and return instead
+of calling irq_set_affinity().
+
+vgic_v3_load() is the only place that calls it from the preempt
+notifier, so this behavior can be tied to a "bool delay_set_affinity"
+argument to vgic_v4_load() or placed in a different function.
+
+Marc/Oliver, does that sound doable?
+
+Paolo
+
+(*) kvm_sched_in() preempt notifier -> kvm_arch_vcpu_load() ->
+     kvm_vgic_load() -> vgic_v3_load() -> vgic_v4_load()
 
 
