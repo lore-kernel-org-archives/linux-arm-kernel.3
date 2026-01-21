@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 766A8C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 17:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D97E7C44506
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 17:33:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RuFdmIRnCWZxEyNL+CscDoyUzORtsrI8Gl99JqU3laE=; b=tDwZiJLKdo5WP0Q5HUri7TpoJX
-	VDSL7cj9AJUaZt/hS/boQ65VrBUkgrHjzvyKvF8bvMfjAIfQID7wBwN/hbOnXOL+LWu/hfpXCOWJn
-	7GrCyHVimouxJUU88Zfx//k6SmXzu5/DlrgEc3Nugt/mfwJnPRHhVa2ZodQyVtqInAduQGiaDy/KA
-	7RpU/LEX08VReTMxzxUwZUe1piFnOkeiJ9N+nZ64WFdXRY57z38Imnc8vv/A9yfBL/x+uuyQaVodQ
-	SO+ICPHNSBblzfrt5eQ4qadCk/DtskICWBQhgPOHTyVUa1FainwJC1ZGD8aOHgjLd8anGcbbOqOL0
-	FDgLbb9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZwVQ7DVnwRsf/W7oc0aqwTt7dOJIeDibahFoGDhgMVo=; b=bZGrW1pBlclSyBgVWvM+U+YZm3
+	NL42etkeYCKXu4Fpkd5q1dl8Ywfw4wcGFoRCs1bPLLRe2MgccEMtqIog9+f3/aWJOZEEHws+ir19L
+	yVpLe+41zlVyVtG/6mP9t5AA58sGp8B2iZxAQMD5A0Bgj6KwLk5aSkCNBBkAbjRVdM/uezwddcAgp
+	mIho5TKnd2wY+XTnyFYz6DEi1ycg1tnOPmLz4ohrnu1ZB0IywoysNrP6lo9s062r5muOccNaaRWq+
+	DqcqM1ZHV37ydGYHa6K+1w/yIlHpT09ipaTwFtYOHClv6nN3zJTzDGAS91czt40c0HmP3LzBs5QlK
+	5d+/1Idg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vibvq-00000005rh6-0rG8;
-	Wed, 21 Jan 2026 17:23:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vic5M-00000005s4Z-0HDm;
+	Wed, 21 Jan 2026 17:33:40 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vibvo-00000005rgw-2ilZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 21 Jan 2026 17:23:48 +0000
+	id 1vic5J-00000005s41-2cgg;
+	Wed, 21 Jan 2026 17:33:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=RuFdmIRnCWZxEyNL+CscDoyUzORtsrI8Gl99JqU3laE=; b=Su40VqxSKegsQo4gdqGxHUIWec
-	kqvsum3dWGj8WF8Kn3rmP4amBPw7OD1bDkErEtpYrRnVcJd1nrsKqGZd0ps9b7pMK7AcY3+VYwYP1
-	QbbTkPF5UU7lM5PZX3lL/mwpIdGjUrWvIN3rDFVQgCYmPh9FDBZzjHqcHVZ92e6gnEilJD4DkgP83
-	3WW/xT458Gt07OP5VQWi1l4rxpIUBskoFxEqjOzuqd78/toLpE8qEJcOiRqmmUAlbMbxuzrQuTm4m
-	fJFsGbKXIBbHGOsGiAO70Zr5JWTJZCZ9kEk/iZ3H/hlUIvY9TzeTexTTUvWzF8k2olnf4uN/QPzkY
-	63Qi76uQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vibvj-0000000GU8p-0pZR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 17:23:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4087A1476;
-	Wed, 21 Jan 2026 09:23:17 -0800 (PST)
-Received: from [10.1.25.175] (XHFQ2J9959.cambridge.arm.com [10.1.25.175])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AFAD03F632;
-	Wed, 21 Jan 2026 09:23:22 -0800 (PST)
-Message-ID: <bdd7bd07-dbed-432e-ae87-dc6381c05ddd@arm.com>
-Date: Wed, 21 Jan 2026 17:23:21 +0000
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ZwVQ7DVnwRsf/W7oc0aqwTt7dOJIeDibahFoGDhgMVo=; b=RGQRrLafnzAKAK9bhLuJbuYq9m
+	cw3YwU4Mmw1YcwJGdmmV+AKinp/sIzQLOusOyBiHud9uW0hCPFU6pAOzdGvp1BVxiYu/1xJMH7YdE
+	S8PvtpPsGXrcBdF0rlGWVEGhe9m5ZuuMRGLK4rsc5sPx293nNUjtUbL1xrS4Mriibo39YoAh/wqib
+	smF510gFCIRAzz4sGVGA2CvR6zMmrUxzvFcHqjqh1Z5ZtHoZdlhdnJdEM9HW1e++AIWMtv4JRf12s
+	nPb3esoJDFqohvi7oFuZ3NH2gCyFtR711mxtWFOA88fY8/wLU9ip+P5piOsKU1S/VFHHvuvMDoI2p
+	rTa3Rd9A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40482)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vic5E-000000007oR-1qPB;
+	Wed, 21 Jan 2026 17:33:32 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vic5A-000000000Bp-1guX;
+	Wed, 21 Jan 2026 17:33:28 +0000
+Date: Wed, 21 Jan 2026 17:33:28 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, linux-phy@lists.infradead.org,
+	davem@davemloft.net, maxime.chevallier@bootlin.com,
+	alexandre.torgue@foss.st.com, mohd.anwar@oss.qualcomm.com,
+	neil.armstrong@linaro.org, hkallweit1@gmail.com,
+	mcoquelin.stm32@gmail.com, netdev@vger.kernel.org,
+	edumazet@google.com, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, vkoul@kernel.org,
+	andrew@lunn.ch, pabeni@redhat.com, andrew+netdev@lunn.ch,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [net-next,05/14] net: stmmac: add stmmac core serdes support
+Message-ID: <aXEN6B5_T9uFzVvu@shell.armlinux.org.uk>
+References: <E1vhoSH-00000005H1f-2cq9@rmk-PC.armlinux.org.uk>
+ <20260119192125.1245102-1-kuba@kernel.org>
+ <aW8M9ZiiftGBQIRM@shell.armlinux.org.uk>
+ <20260120081844.7e6aq2urhxrylywi@skbuf>
+ <aW9VHt6meEJFxV0I@shell.armlinux.org.uk>
+ <20260120121114.2aedgu42i2wax3yp@skbuf>
+ <aXDm0jVOYOZ9l6Wu@shell.armlinux.org.uk>
+ <20260121162345.4jpzvwqhfqxd7tl7@skbuf>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v5 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>
-Cc: catalin.marinas@arm.com, cl@gentwo.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260107002944.2940963-1-yang@os.amperecomputing.com>
- <aWZYXhrT6D2M-7-N@willie-the-truck>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aWZYXhrT6D2M-7-N@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260121162345.4jpzvwqhfqxd7tl7@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_172343_609739_DE693094 
-X-CRM114-Status: GOOD (  40.65  )
+X-CRM114-CacheID: sfid-20260121_093337_667141_63B7C612 
+X-CRM114-Status: GOOD (  34.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,248 +91,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/01/2026 14:36, Will Deacon wrote:
-> On Tue, Jan 06, 2026 at 04:29:44PM -0800, Yang Shi wrote:
->> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
->> rodata=full"), the direct mapping may be split on some machines instead
->> keeping static since boot. It makes more sense to show the direct mapping
->> use in /proc/meminfo than before.
->> This patch will make /proc/meminfo show the direct mapping use like the
->> below (4K base page size):
->> DirectMap4K:	   94792 kB
->> DirectMap64K:	  134208 kB
->> DirectMap2M:	 1173504 kB
->> DirectMap32M:	 5636096 kB
->> DirectMap1G:	529530880 kB
->>
->> Although just the machines which support BBML2_NOABORT can split the
->> direct mapping, show it on all machines regardless of BBML2_NOABORT so
->> that the users have consistent view in order to avoid confusion.
->>
->> Although ptdump also can tell the direct map use, but it needs to dump
->> the whole kernel page table. It is costly and overkilling. It is also
->> in debugfs which may not be enabled by all distros. So showing direct
->> map use in /proc/meminfo seems more convenient and has less overhead.
->>
->> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->> ---
->> v5: * Rebased to v6.19-rc4
->>     * Fixed the build error for !CONFIG_PROC_FS
->> v4: * Used PAGE_END instead of _PAGE_END(VA_BITS_MIN) per Ryan
->>     * Used shorter name for the helpers and variables per Ryan
->>     * Fixed accounting for memory hotunplug
->> v3: * Fixed the over-accounting problems per Ryan
->>     * Introduced helpers for add/sub direct map use and #ifdef them with
->>       CONFIG_PROC_FS per Ryan
->>     * v3 is a fix patch on top of v2
->> v2: * Counted in size instead of the number of entries per Ryan
->>     * Removed shift array per Ryan
->>     * Use lower case "k" per Ryan
->>     * Fixed a couple of build warnings reported by kernel test robot
->>     * Fixed a couple of poential miscounts
->>
->>  arch/arm64/mm/mmu.c | 202 +++++++++++++++++++++++++++++++++++++++-----
->>  1 file changed, 181 insertions(+), 21 deletions(-)
->>
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index 8e1d80a7033e..422441c9a992 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -29,6 +29,7 @@
->>  #include <linux/mm_inline.h>
->>  #include <linux/pagewalk.h>
->>  #include <linux/stop_machine.h>
->> +#include <linux/proc_fs.h>
->>  
->>  #include <asm/barrier.h>
->>  #include <asm/cputype.h>
->> @@ -171,6 +172,85 @@ static void init_clear_pgtable(void *table)
->>  	dsb(ishst);
->>  }
->>  
->> +enum dm_type {
->> +	PTE,
->> +	CONT_PTE,
->> +	PMD,
->> +	CONT_PMD,
->> +	PUD,
->> +	NR_DM_TYPE,
->> +};
->> +
->> +#ifdef CONFIG_PROC_FS
->> +static unsigned long dm_meminfo[NR_DM_TYPE];
->> +
->> +void arch_report_meminfo(struct seq_file *m)
->> +{
->> +	char *size[NR_DM_TYPE];
+On Wed, Jan 21, 2026 at 06:23:45PM +0200, Vladimir Oltean wrote:
+> On Wed, Jan 21, 2026 at 02:46:42PM +0000, Russell King (Oracle) wrote:
+> > On Tue, Jan 20, 2026 at 02:11:14PM +0200, Vladimir Oltean wrote:
+> > > On Tue, Jan 20, 2026 at 10:12:46AM +0000, Russell King (Oracle) wrote:
+> > > > First, I'll say I'm on a very short fuse today; no dinner last night,
+> > > > at the hospital up until 5:30am, and a fucking cold caller rang the door
+> > > > bell at 10am this morning. Just fucking our luck.
+> > > 
+> > > Sorry to hear that.
+> > > 
+> > > > On Tue, Jan 20, 2026 at 10:18:44AM +0200, Vladimir Oltean wrote:
+> > > > > Isn't it sufficient to set pl->pcs to NULL when pcs_enable() fails and
+> > > > > after calling pcs_disable(), though?
+> > > >
+> > > > No. We've already called mac_prepare(), pcs_pre_config(),
+> > > > pcs_post_config() by this time, we're past the point of being able to
+> > > > unwind.
+> > > 
+> > > I'm set out to resolve a much smaller problem.
+> > > 
+> > > Calling it a full "unwind" is perhaps a bit much, because pcs_pre_config()
+> > > and pcs_post_config() don't have unwinding equivalents, unlike how
+> > > pcs_enable() has pcs_disable(). I don't see what API convention would be
+> > > violated if phylink decided to drop a PCS whose enable() returned an error.
+> > 
+> > While pcs_pre_config() and pcs_post_config() do not have unwinding
+> > equivalents (what would they be?) the issue here is that these could
+> > have changed any state that isn't simply undone by calling
+> > pcs_disable().
+> > 
+> > For example, pcs_pre_config() could have reprogrammed signal routing,
+> > clocking, or power supplies to blocks.
+> > 
+> > This already applies to Marvell DSA pcs-639x.c, where the pre/post
+> > config hooks change the power state of the PCS block (for errata
+> > handling), and the only way that gets undone is via a call to
+> > pcs_disable() which explicitly disables IRQs and power for the PCS. Its
+> > pcs_disable() isn't a strict reversal of pcs_enable(), it does more.
+> > 
+> > We already declare the interface to be dead on pcs_post_config()
+> > failure, but we don't do that for pcs_enable() failure.
+> > 
+> > Maybe I need to explicitly state that pcs_disable() does not directly
+> > balance pcs_enable(), but that _and_ the effects of pcs_pre_config()
+> > and pcs_post_config(). However, that itself will add to the problems.
+> > What if pcs_pre_config() and pcs_post_config() succeed but not
+> > pcs_enable()? pcs-639x needs pcs_disable() to be called, but if we
+> > require pcs_disable() to be balanced with a successful call to
+> > pcs_enable(), that messes up that driver, and pretty much makes it
+> > impossible to work around the errata.
 > 
-> const?
-> 
->> +
->> +#if defined(CONFIG_ARM64_4K_PAGES)
->> +	size[PTE] = "4k";
->> +	size[CONT_PTE] = "64k";
->> +	size[PMD] = "2M";
->> +	size[CONT_PMD] = "32M";
->> +	size[PUD] = "1G";
->> +#elif defined(CONFIG_ARM64_16K_PAGES)
->> +	size[PTE] = "16k";
->> +	size[CONT_PTE] = "2M";
->> +	size[PMD] = "32M";
->> +	size[CONT_PMD] = "1G";
->> +#elif defined(CONFIG_ARM64_64K_PAGES)
->> +	size[PTE] = "64k";
->> +	size[CONT_PTE] = "2M";
->> +	size[PMD] = "512M";
->> +	size[CONT_PMD] = "16G";
->> +#endif
->> +
->> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
->> +			size[PTE], dm_meminfo[PTE] >> 10);
->> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
->> +			size[CONT_PTE],
->> +			dm_meminfo[CONT_PTE] >> 10);
->> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
->> +			size[PMD], dm_meminfo[PMD] >> 10);
->> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
->> +			size[CONT_PMD],
->> +			dm_meminfo[CONT_PMD] >> 10);
->> +	if (pud_sect_supported())
->> +		seq_printf(m, "DirectMap%s:	%8lu kB\n",
->> +			size[PUD], dm_meminfo[PUD] >> 10);
-> 
-> This seems a bit brittle to me. If somebody adds support for l1 block
-> mappings for !4k pages in future, they will forget to update this and
-> we'll end up returning kernel stack in /proc/meminfo afaict.
-> 
->> +static inline bool is_dm_addr(unsigned long addr)
->> +{
->> +	return (addr >= PAGE_OFFSET) && (addr < PAGE_END);
->> +}
->> +
->> +static inline void dm_meminfo_add(unsigned long addr, unsigned long size,
->> +				  enum dm_type type)
->> +{
->> +	if (is_dm_addr(addr))
->> +		dm_meminfo[type] += size;
->> +}
->> +
->> +static inline void dm_meminfo_sub(unsigned long addr, unsigned long size,
->> +				  enum dm_type type)
->> +{
->> +	if (is_dm_addr(addr))
->> +		dm_meminfo[type] -= size;
->> +}
->> +#else
->> +static inline void dm_meminfo_add(unsigned long addr, unsigned long size,
->> +				  enum dm_type type)
->> +{
->> +}
->> +
->> +static inline void dm_meminfo_sub(unsigned long addr, unsigned long size,
->> +				  enum dm_type type)
->> +{
->> +}
->> +#endif
->> +
->>  static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
->>  		     phys_addr_t phys, pgprot_t prot)
->>  {
->> @@ -236,6 +316,11 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
->>  
->>  		init_pte(ptep, addr, next, phys, __prot);
->>  
->> +		if (pgprot_val(__prot) & PTE_CONT)
->> +			dm_meminfo_add(addr, (next - addr), CONT_PTE);
->> +		else
->> +			dm_meminfo_add(addr, (next - addr), PTE);
->> +
->>  		ptep += pte_index(next) - pte_index(addr);
->>  		phys += next - addr;
->>  	} while (addr = next, addr != end);
->> @@ -266,6 +351,17 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
->>  		    (flags & NO_BLOCK_MAPPINGS) == 0) {
->>  			pmd_set_huge(pmdp, phys, prot);
->>  
->> +			/*
->> +			 * It is possible to have mappings allow cont mapping
->> +			 * but disallow block mapping. For example,
->> +			 * map_entry_trampoline().
->> +			 * So we have to increase CONT_PMD and PMD size here
->> +			 * to avoid double counting.
->> +			 */
->> +			if (pgprot_val(prot) & PTE_CONT)
->> +				dm_meminfo_add(addr, (next - addr), CONT_PMD);
->> +			else
->> +				dm_meminfo_add(addr, (next - addr), PMD);
-> 
-> I don't understand the comment you're adding here. If somebody passes
-> NO_BLOCK_MAPPINGS then that also prevents contiguous entries except at
-> level 3.
-> 
-> It also doesn't look you handle the error case properly when the mapping
-> fails.
-> 
->> -static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
->> +static void unmap_hotplug_pte_range(pte_t *ptep, unsigned long addr,
->>  				    unsigned long end, bool free_mapped,
->>  				    struct vmem_altmap *altmap)
->>  {
->> -	pte_t *ptep, pte;
->> +	pte_t pte;
->>  
->>  	do {
->> -		ptep = pte_offset_kernel(pmdp, addr);
->>  		pte = __ptep_get(ptep);
->>  		if (pte_none(pte))
->>  			continue;
->>  
->>  		WARN_ON(!pte_present(pte));
->>  		__pte_clear(&init_mm, addr, ptep);
->> +		dm_meminfo_sub(addr, PAGE_SIZE, PTE);
->>  		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
->>  		if (free_mapped)
->>  			free_hotplug_page_range(pte_page(pte),
->>  						PAGE_SIZE, altmap);
-> 
-> Is the existing code correct for contiguous entries here? I'd have
-> thought that we'd need to make the range non-contiguous before knocking
-> out the TLB.
+> What if we reordered phylink_major_config() such that phylink_pcs_enable()
+> comes first, followed by phylink_pcs_pre_config() -> phylink_mac_config() ->
+> phylink_pcs_post_config()? Superficially looking at pcs-639x, I don't
+> think it would break.
 
-The Arm ARM has this, which makes me think you are probably correct:
+I'm sorry, but I don't have time to continue this discussion today. I
+woke late, we're trying to cram in the meals (in the middle of delayed
+lunch-time dinner right now), work wants a quick call to discuss a
+project that I missed the meeting for yesterday (which I haven't yet
+had time for...)
 
-IVNXYF:
-The architecture does not require descriptors with the Contiguous bit set to 1
-to be cached as a single TLB entry for the contiguous region. To avoid TLB
-coherency issues, software is required to perform TLB maintenance on the entire
-address region that results from using the Contiguous bit.
+Sorry, but while you may wish to get this sorted, for me this is a very
+low priority issue that can be addressed later. Don't think I will have
+time to review anything you send - and that's not a personal attack,
+it's because I'm barely managing to hold everything together at my
+end, and I don't have the time.
 
-I've asked for clarification internally. But I think we should hoist out the tlb
-flush regardless because it will be faster if we just invalidate a single range.
-I can handle that as a separate patch if you like.
-
-
-However, I think there may be another problem; IIUC, any old range of memory can
-be hot-unplugged as long as it is section aligned. It doesn't have to be the
-same range that was previously hot-plugged. But if the linear map is block
-mapped, the range being unplugged may cover a partial block mapping.
-
-For example, with 4K pages, the section size is 128M, so you could hot unmap
-128M from a PUD leaf mapping (1G). What am I missing that means this doesn't go
-bang?
-
-This would have been an issue for the non-rodata-full config so predates the
-work to split the linear map dynamically. I'm not really sure how to solve this
-for systems without BBML2 but without non--rodata-full.
-
-I must be misunderstanding something crucial here... I'll dig some more.
-
-Thanks,
-Ryan
-
-
-
-> 
-> Will
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
