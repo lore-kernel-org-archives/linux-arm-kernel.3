@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE24C4451A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 11:39:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A737EC4451E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 11:54:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oOm30u6gK/r66A1Wr0DpF3h2DA1WKQoKv9vRSkX6H68=; b=1gxTiulh3MzgyV1sXpSFntJWrx
-	tdVrGEqbh+jpIagc1f+Hx3lv3e6vl6ZooutU6TBibK8FAvI6SyBfdUz//x4+1ND0BNwa7FVkO1tU2
-	gn2EANeU9motgdgBiKXPNHnY3kyCe1qukleyU/MwROJhus0bgSwbhKSm/L4eLDn3nTuKcj3obaVcP
-	3/HbR6jVFpih3EUfYWeNLln/ZGifCksPYvmWF5GOAE/fgh+SU2WmZsQT2EmTiAqUSFEs3fwShPTz8
-	pGYj1u9zJZ44Qr4KE41n3OjIhhiyAZIJ6N5wUek+S0SpG4vDYUGrbG1FLen5kXsx5zzgCRdgEOb29
-	juuW5a+Q==;
+	bh=EHnoo6jsWKMh3RwGK+x0GrMu6SJ4jIy6xOR9GwEQ6CE=; b=FdFyP1JAyoQs2CGzbJC46BuTzD
+	wZ+OjXjNo7JRdEGy2ui12Q7GX2p4TcaDc4pEPWvnhmglwStoh8XeRhQuxjJu7p4LRVJHNiyVlrUe+
+	Ye4GgQn1wPHfIkaLMGDBHvW83cBao1Pxfz+DAwzUJy1wcMfZodEFOMzarHSuB2ZqYsAv5ZX4de35+
+	ynxXldnPcxui5Aj4ZDgrcADGjgbNOSm7WwyW9fzee2wmZr5h4zrrzjC5bQ/jZnXV2uL49tKeNm4eC
+	ICBE0IkKbpE+5ofPoJNiIePYmGp0MvD92QCuLr3dJ6jdqNhIO3TrE3/nM2nxKoy0p53ZITLt/Xvki
+	EhgPHPbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viWYi-00000005Mg9-1wMR;
-	Wed, 21 Jan 2026 11:39:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viWYf-00000005Mfo-1wCX
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 11:39:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B75B9418FD;
-	Wed, 21 Jan 2026 11:39:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA7B8C116D0;
-	Wed, 21 Jan 2026 11:39:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768995571;
-	bh=OZXYeC+9a+kafCG1p94BKTtO3DuMta1qT3VMpvj+N7E=;
+	id 1viWn3-00000005NA3-3e0p;
+	Wed, 21 Jan 2026 11:54:25 +0000
+Received: from mail.8bytes.org ([85.214.250.239])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viWn1-00000005N9V-3EGk;
+	Wed, 21 Jan 2026 11:54:25 +0000
+Received: from 8bytes.org (p4ffe051a.dip0.t-ipconnect.de [79.254.5.26])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.8bytes.org (Postfix) with ESMTPSA id 3B2FB1A268D;
+	Wed, 21 Jan 2026 12:54:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
+	s=default; t=1768996460;
+	bh=EHnoo6jsWKMh3RwGK+x0GrMu6SJ4jIy6xOR9GwEQ6CE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jtevf5tC7W2AYC2sCJEIUgUmDW2cMb/DMQtYixYR5BL3bQN3CpYpm7lmnmYlaY8JG
-	 BSY3FvBAT6IBBrk1D3qLSu4jf9zd29KCIu3R7Qt5w2P/e+QXZyjSvns0lLBu2OHy+x
-	 jn4jYTQitVAUwSnagvCsU1tOM6zYVQYFgyufo1n9YGi1FQJZUlQIjuiS36SoxS9HpE
-	 ugvZOuAEB2ZLFByCwCas++FjNOEMQbHr7ueO/TYW65mEI/Qa/II0i+Sq6uwXfIXLr4
-	 N5+JBi9BC1NaWri91qbsTAcWK15L/WIfGBk2awyAyoVISQQNJdzKBdEI0q8RLSYpl4
-	 XgS+aO9v3u5DQ==
-Date: Wed, 21 Jan 2026 11:39:26 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Michal Simek <michal.simek@amd.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Abdurrahman Hussain <abdurrahman@nexthop.ai>,
-	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH v3 0/3] spi: xilinx: switch to device properties
- and make IRQs optional
-Message-ID: <83b93899-8f48-47cb-a74a-b4e838cc463b@sirena.org.uk>
-References: <20260119-spi-xilinx-v3-0-4566c33bac0d@nexthop.ai>
- <176893698361.778248.6867023245726406177.b4-ty@kernel.org>
- <c0288962-6a11-4274-9e93-91bd5a6997c5@amd.com>
+	b=NKJZCtHUJI53ywbSRKz+BAeVcA/rpeZUWA7m+TgaMBgFefYc7Ht6L6xas7eZcnotX
+	 pbP2TPR/lDUrp2vwBBQ1ugibuiRT2CTazgktOEHUn/D8Cg/GBVNAMXjQTYjgznNvFH
+	 rujktX34V/R5exHXsaTq0Cwmst/ar8VBkgbbFJ72gBQU38T0Aoemj7mibtXBfEcBo8
+	 1UDac/gTZQ6x51vKqz1OwpSER6QSUpq2mdwmDRcbbNIrErn7wyZuwhPDXjG2TL9WaI
+	 86ePOCjup+gexdCw7AQc7dd4E6WUHADWnoU0RngN4RVROMLLcYa7yIW+06F0KXDwdr
+	 AaZPr6TIXx7oQ==
+Date: Wed, 21 Jan 2026 12:54:19 +0100
+From: =?utf-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Cc: will@kernel.org, robin.murphy@arm.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, 
+	nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org, 
+	iommu@lists.linux.dev, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org, 
+	kernel@collabora.com
+Subject: Re: [PATCH v12 3/6] iommu: Add verisilicon IOMMU driver
+Message-ID: <25htwrdapwwvumlaqlu5oywcnnbss5kjyvnv6cxrx42q7mfhuw@wyagcnc3scgf>
+References: <20260114100922.149187-1-benjamin.gaignard@collabora.com>
+ <20260114100922.149187-4-benjamin.gaignard@collabora.com>
+ <3082a454-31dc-42a2-85a6-0fd0c87bf31b@collabora.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6oTNzElpk8SzuhnU"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <c0288962-6a11-4274-9e93-91bd5a6997c5@amd.com>
-X-Cookie: Eschew obfuscation.
+In-Reply-To: <3082a454-31dc-42a2-85a6-0fd0c87bf31b@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_033933_542685_AC5BFC11 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20260121_035423_953037_BFC157DD 
+X-CRM114-Status: UNSURE (   6.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,42 +78,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Note that I stop taking changes for v6.20 (except fixes) by next week. I you
+want a chance to have this code in 6.20, please make sure a v13 is in my inbox
+by tomorrow.
 
---6oTNzElpk8SzuhnU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Wed, Jan 21, 2026 at 09:15:02AM +0100, Michal Simek wrote:
-> On 1/20/26 20:23, Mark Brown wrote:
-
-> > [1/3] spi: dt-bindings: xilinx: make interrupts optional
-> >        commit: b603500de20fbe15ee54580481c1df4212a4ec44
-
-> Are you sure about this one based on my discussion with Rob in past?
-> https://lore.kernel.org/all/20250605130331.GA2370690-robh@kernel.org/
-
-> I don't really mind but would be good to do it in a consistent way.
-
-My understanding was that the hardware doesn't require physically wiring
-up the interrupt signal and can work in a polling only mode.  That's not
-unknown for SPI controllers.  If the interrupt is actually a strong
-requirement for the hardware (and especially if it is actually wired up
-on this system) then we should drop these patches.
-
---6oTNzElpk8SzuhnU
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlwuu4ACgkQJNaLcl1U
-h9DM0wf9Ef7sqmY9FVcVZkrTC4gEsAf/UWIpQT7xuqTVm6rMyNBxcr7hgG1I2jpp
-civnH47B1gKiGjfVFVdSKaP9r7dh0XsyiuHVCECK/zaB1og4XDvIJd4v2louzCQ8
-+xeqWZf6vuTu4LFjbhdMetTqWgBFBKu/dEm/oKrpTN8wBHbRGsCE+kd5W5hHATF9
-h0eivfXgVIDIS7ktrVvgirKQ+6AkY/qBsvn0NAqEdMrPkGPsud8znU3eLkNrQmC3
-hgEOqBqKI1/gw22IrJM++MPADnzYbUVJmZlwSd+LQdDlOjmSSgTJjRRKxZaIhBpl
-qEgDqXc0EVQhN7JUODVuBlxWmepKiQ==
-=jyYD
------END PGP SIGNATURE-----
-
---6oTNzElpk8SzuhnU--
+-Joerg
 
