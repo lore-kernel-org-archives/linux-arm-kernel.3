@@ -4,88 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA83C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:47:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A08D46945
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CVFYDJgl9DpR4aWif10dDSge2J50osws4U85YFJ8fVo=; b=4jj5sTJRRYtPvvF2xEMmL6XY9Z
-	frW83ExuAfQeEGqKdRhHQOoTtBuBkvgDEfZwkUYqJUtrk/D9s7mZU90b2lJpZzOB6/Zb/l05gHPCh
-	SPFBwMQJtFKhKpDS6Vhe0SqfabsK8JFVC5DAIhE88crRChtU+kZyuONZX+CBx7jXMB/D7gNxqpfvD
-	P8nqACtQEppvOQ2hLOrwjunDFEeih3YvSF0crEIHpbk8pW2F3V0OLQtaMm9pyQHRXlD4Ma2PZ3Oy3
-	ejM0vCdXXFmX1ZATCm/WzQhfvGbcA2suE/k4+Ih0s6F+u0Xq6XtkWlyY6mYgBuUoHs91seWevTYt9
-	PeB8aJ5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=szv7zeisuWuGrBdunRvMTfpswrAihzvQghry6ST4+nA=; b=ziFHFb+yGLFwA1rjTUG4mfC8W5
+	Kn0M2CCMKd3uTBPLanAzstAe7i0fWW5YWIu7+ik2fNcicSsp9lc3z75h7SkggV6/R3bi76kqzjuWM
+	JdpY2sNZOFTJ0eaHAwX1WxLua1R5tLwbdwd3z48NfbBYNSGYdDs6hk6Aqavis78XaEJzmdykfeZtA
+	mOAR7SAzQjnas/hnbCjf+JfjU53u92/cKg6MVVRhCDyZKx6eQ7Seqm+LIcEoZfrW8vbEGXjCFT/jG
+	Kb2dD+uyQeCjFk6HmiwWJXsGnxncfmpPJ4ssOawHPu2AWmFsavJAw/kt3G+ixXQWH9YL1pN8QlzcF
+	aJh65n6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZU9-00000005dGf-3UAu;
-	Wed, 21 Jan 2026 14:47:05 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1viZUJ-00000005dPO-1s1n;
+	Wed, 21 Jan 2026 14:47:15 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZU2-00000005d74-0ijQ;
-	Wed, 21 Jan 2026 14:47:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1769006813;
-	bh=afNV+4Kntzl2OJS5+YQHRny1CbURCs2XIYTp9jU1WYU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=P54WYVbsl17MXk2LcSxoBkOPZ+v81dklD6Yc/blcHFG8sQyIqIvF+MMRH6T4kaMDv
-	 Pxjo1NMW89sPRxGJFPkURFW1nWxsppd5963XazMJ726o6P/Iivoe7ec6ArmAQtamaO
-	 RlZyD7+bGDIGYPQHWw4oE32TfcDBZMg5TZYmlI0l9dEdtr06159ivtRWbsW9e4awTp
-	 4JrJvUoVQc2xrpYWyHOtVJluq9aPIwQkJerYHttPM1RBiv/vy2S6OAhougTe9RdHIV
-	 /r+5JJPd01uc3aTkRStbsetRpip9w6jVKRc4NTRpPW+rxSOZezyf7nN1TPm/6K4DEV
-	 0I9Nquhwzkj7A==
-Received: from [IPv6:2606:6d00:17:7b4b::c41] (unknown [IPv6:2606:6d00:17:7b4b::c41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E1FD417E12E5;
-	Wed, 21 Jan 2026 15:46:50 +0100 (CET)
-Message-ID: <69fda4f0136285e4d2f86e7e93d5bdd812c1d47a.camel@collabora.com>
-Subject: Re: [PATCH v9 15/17] media: rkvdec: Add H264 support for the
- VDPU383 variant
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: kernel test robot <lkp@intel.com>, Detlev Casanova
-	 <detlev.casanova@collabora.com>, linux-kernel@vger.kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, Mauro Carvalho
- Chehab	 <mchehab@kernel.org>, linux-media@vger.kernel.org, Ezequiel Garcia	
- <ezequiel@vanguardiasur.com.ar>, Heiko Stuebner <heiko@sntech.de>, Daniel
- Almeida <daniel.almeida@collabora.com>, Jonathan Corbet <corbet@lwn.net>,
- Ricardo Ribalda	 <ribalda@chromium.org>, Hans Verkuil <hverkuil@xs4all.nl>,
- Yunke Cao	 <yunkec@google.com>, Hans de Goede <hansg@kernel.org>, Laurent
- Pinchart	 <laurent.pinchart@ideasonboard.com>, Pavan Bobba
- <opensource206@gmail.com>,  Sakari Ailus <sakari.ailus@linux.intel.com>,
- James Cowgill <james.cowgill@blaize.com>, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	kernel@collabora.com, Jonas Karlman <jonas@kwiboo.se>, Diederik de Haas	
- <didi.debian@cknow.org>
-Date: Wed, 21 Jan 2026 09:46:48 -0500
-In-Reply-To: <202601211924.rqKS2Ihm-lkp@intel.com>
-References: <20260120222018.404741-16-detlev.casanova@collabora.com>
-	 <202601211924.rqKS2Ihm-lkp@intel.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-HUBaFbLuQRAvVZ40o0vh"
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	id 1viZUD-00000005dJC-07V3;
+	Wed, 21 Jan 2026 14:47:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769006790; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ep/AW9vaBzOEmWGp716QSXwdj34GyLEHDzGIQNGdkN31uVf2+9iYQsJqMsthdlZwvbPosaUEJX5uw5P9WjK7yNqxUSwebjyTZgGU8RHtatYH9hrDT3Xuv/CWkRClzMQyjY6Ja2guxx594WSSZgoKUzfeX9y5BgApBSuoWFQbdCM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1769006790; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=szv7zeisuWuGrBdunRvMTfpswrAihzvQghry6ST4+nA=; 
+	b=ekaHhliejsRhDxEkz9S3NVTSQT41k78Bjk68kOelTK47InwU2RGExBVBlVMKAgMCjRa69WMbcQunKej9kUVUuvNRqqIdfme/UYvnJmwU71LghzjUj6OoXr09vyqw8mSiUNn18Jc9UaQulUB19oqSn+U4WD074tph3FFdCQ/kjyE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769006789;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=szv7zeisuWuGrBdunRvMTfpswrAihzvQghry6ST4+nA=;
+	b=Wqfc6OTqUj+WEw7qXXV/DvWileHyzsEAjR5o7LzjXwXkst3c4qJ4rlwF+1N97+zy
+	E2YPvSXWlZX+pP4jqOX/5ICFprHJtsJH3EMBuXR2bGgwdU0ZvFFmvjwEIXy/+EzVkdp
+	OoeS7DGC1O8CE140cfMtC7ldj6Jd1XJHmLsb7txg=
+Received: by mx.zohomail.com with SMTPS id 1769006787242591.5422626959777;
+	Wed, 21 Jan 2026 06:46:27 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Wed, 21 Jan 2026 15:45:14 +0100
+Subject: [PATCH v7 07/22] drm/i915: Implement the "color format" DRM
+ property
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260121-color-format-v7-7-ef790dae780c@collabora.com>
+References: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
+In-Reply-To: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
+To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+ Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>
+Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-doc@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Werner Sembach <wse@tuxedocomputers.com>, 
+ Andri Yngvason <andri@yngvason.is>, Marius Vlad <marius.vlad@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_064658_556094_277DEA10 
-X-CRM114-Status: GOOD (  20.16  )
+X-CRM114-CacheID: sfid-20260121_064709_217218_AF94EA25 
+X-CRM114-Status: GOOD (  20.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,144 +102,361 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This includes RGB, YUV420, YUV444 and Auto. Auto will pick RGB, unless
+the mode being asked for is YUV420-only, in which case it picks YUV420.
 
---=-HUBaFbLuQRAvVZ40o0vh
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Should the explicitly requested color format not be supported by the
+sink, then an error is returned to userspace, so that it can make a
+better choice.
 
-Hi,
+Co-developed-by: Werner Sembach <wse@tuxedocomputers.com>
+Signed-off-by: Werner Sembach <wse@tuxedocomputers.com>
+Co-developed-by: Andri Yngvason <andri@yngvason.is>
+Signed-off-by: Andri Yngvason <andri@yngvason.is>
+Co-developed-by: Marius Vlad <marius.vlad@collabora.com>
+Signed-off-by: Marius Vlad <marius.vlad@collabora.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ drivers/gpu/drm/i915/display/intel_connector.c     | 11 +++++
+ drivers/gpu/drm/i915/display/intel_connector.h     |  1 +
+ drivers/gpu/drm/i915/display/intel_display_types.h | 15 ++++++
+ drivers/gpu/drm/i915/display/intel_dp.c            | 55 +++++++++++++++++-----
+ drivers/gpu/drm/i915/display/intel_dp.h            |  4 ++
+ drivers/gpu/drm/i915/display/intel_dp_mst.c        | 36 +++++++++++++-
+ drivers/gpu/drm/i915/display/intel_hdmi.c          | 54 +++++++++++++++------
+ 7 files changed, 148 insertions(+), 28 deletions(-)
 
-Le mercredi 21 janvier 2026 =C3=A0 22:27 +0800, kernel test robot a =C3=A9c=
-rit=C2=A0:
-> Hi Detlev,
->=20
-> kernel test robot noticed the following build warnings:
->=20
-> [auto build test WARNING on rockchip/for-next]
-> [also build test WARNING on linuxtv-media-pending/master media-tree/maste=
-r linus/master v6.19-rc6 next-20260120]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
->=20
-> url:=C2=A0=C2=A0=C2=A0 https://github.com/intel-lab-lkp/linux/commits/Det=
-lev-Casanova/media-uapi-HEVC-Add-v4l2_ctrl_hevc_ext_sps_-ls-t_rps-controls/=
-20260121-071026
-> base:=C2=A0=C2=A0 https://git.kernel.org/pub/scm/linux/kernel/git/mmind/l=
-inux-rockchip.git=C2=A0for-next
-> patch link:=C2=A0=C2=A0=C2=A0 https://lore.kernel.org/r/20260120222018.40=
-4741-16-detlev.casanova%40collabora.com
-> patch subject: [PATCH v9 15/17] media: rkvdec: Add H264 support for the V=
-DPU383 variant
-> config: loongarch-allmodconfig (https://download.01.org/0day-ci/archive/2=
-0260121/202601211924.rqKS2Ihm-lkp@intel.com/config)
-> compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project=C2=
-=A0cd708029e0b2869e80abe31ddb175f7c35361f90)
+diff --git a/drivers/gpu/drm/i915/display/intel_connector.c b/drivers/gpu/drm/i915/display/intel_connector.c
+index 682bf1be350d..2d690e0400b5 100644
+--- a/drivers/gpu/drm/i915/display/intel_connector.c
++++ b/drivers/gpu/drm/i915/display/intel_connector.c
+@@ -38,6 +38,10 @@
+ #include "intel_hdcp.h"
+ #include "intel_panel.h"
+ 
++static const u32 supported_colorformats = DRM_COLOR_FORMAT_RGB444 |
++					  DRM_COLOR_FORMAT_YCBCR444 |
++					  DRM_COLOR_FORMAT_YCBCR420;
++
+ static void intel_connector_modeset_retry_work_fn(struct work_struct *work)
+ {
+ 	struct intel_connector *connector = container_of(work, typeof(*connector),
+@@ -321,6 +325,13 @@ intel_attach_dp_colorspace_property(struct drm_connector *connector)
+ 		drm_connector_attach_colorspace_property(connector);
+ }
+ 
++void
++intel_attach_colorformat_property(struct drm_connector *connector)
++{
++	if (!drm_mode_create_color_format_property(connector, supported_colorformats))
++		drm_connector_attach_color_format_property(connector);
++}
++
+ void
+ intel_attach_scaling_mode_property(struct drm_connector *connector)
+ {
+diff --git a/drivers/gpu/drm/i915/display/intel_connector.h b/drivers/gpu/drm/i915/display/intel_connector.h
+index 0aa86626e646..fe6149d1d559 100644
+--- a/drivers/gpu/drm/i915/display/intel_connector.h
++++ b/drivers/gpu/drm/i915/display/intel_connector.h
+@@ -31,6 +31,7 @@ void intel_attach_broadcast_rgb_property(struct drm_connector *connector);
+ void intel_attach_aspect_ratio_property(struct drm_connector *connector);
+ void intel_attach_hdmi_colorspace_property(struct drm_connector *connector);
+ void intel_attach_dp_colorspace_property(struct drm_connector *connector);
++void intel_attach_colorformat_property(struct drm_connector *connector);
+ void intel_attach_scaling_mode_property(struct drm_connector *connector);
+ void intel_connector_queue_modeset_retry_work(struct intel_connector *connector);
+ void intel_connector_cancel_modeset_retry_work(struct intel_connector *connector);
+diff --git a/drivers/gpu/drm/i915/display/intel_display_types.h b/drivers/gpu/drm/i915/display/intel_display_types.h
+index e6298279dc89..520d5670f8da 100644
+--- a/drivers/gpu/drm/i915/display/intel_display_types.h
++++ b/drivers/gpu/drm/i915/display/intel_display_types.h
+@@ -2251,6 +2251,21 @@ to_intel_frontbuffer(struct drm_framebuffer *fb)
+ 	return fb ? to_intel_framebuffer(fb)->frontbuffer : NULL;
+ }
+ 
++static inline __pure enum drm_color_format
++intel_output_format_to_drm_color_format(enum intel_output_format input)
++{
++	switch (input) {
++	case INTEL_OUTPUT_FORMAT_RGB:
++		return DRM_COLOR_FORMAT_RGB444;
++	case INTEL_OUTPUT_FORMAT_YCBCR444:
++		return DRM_COLOR_FORMAT_YCBCR444;
++	case INTEL_OUTPUT_FORMAT_YCBCR420:
++		return DRM_COLOR_FORMAT_YCBCR420;
++	}
++
++	return DRM_COLOR_FORMAT_AUTO;
++}
++
+ /*
+  * Conversion functions/macros from various pointer types to struct
+  * intel_display pointer.
+diff --git a/drivers/gpu/drm/i915/display/intel_dp.c b/drivers/gpu/drm/i915/display/intel_dp.c
+index 79fd3b8d8b25..063c8514fd41 100644
+--- a/drivers/gpu/drm/i915/display/intel_dp.c
++++ b/drivers/gpu/drm/i915/display/intel_dp.c
+@@ -1178,7 +1178,7 @@ dfp_can_convert(struct intel_dp *intel_dp,
+ 	return false;
+ }
+ 
+-static enum intel_output_format
++enum intel_output_format
+ intel_dp_output_format(struct intel_connector *connector,
+ 		       enum intel_output_format sink_format)
+ {
+@@ -3187,17 +3187,24 @@ intel_dp_compute_output_format(struct intel_encoder *encoder,
+ 	struct intel_connector *connector = intel_dp->attached_connector;
+ 	const struct drm_display_info *info = &connector->base.display_info;
+ 	const struct drm_display_mode *adjusted_mode = &crtc_state->hw.adjusted_mode;
+-	bool ycbcr_420_only;
++	enum drm_color_format sink_format_drm;
+ 	int ret;
+ 
+-	ycbcr_420_only = drm_mode_is_420_only(info, adjusted_mode);
++	if ((conn_state->color_format == DRM_COLOR_FORMAT_YCBCR420 &&
++	     drm_mode_is_420(info, adjusted_mode)) ||
++	    (conn_state->color_format == DRM_COLOR_FORMAT_AUTO &&
++	     drm_mode_is_420_only(info, adjusted_mode)))
++		crtc_state->sink_format = INTEL_OUTPUT_FORMAT_YCBCR420;
++	else if (conn_state->color_format == DRM_COLOR_FORMAT_YCBCR444)
++		crtc_state->sink_format = INTEL_OUTPUT_FORMAT_YCBCR444;
++	else
++		crtc_state->sink_format = INTEL_OUTPUT_FORMAT_RGB;
+ 
+-	if (ycbcr_420_only && !connector->base.ycbcr_420_allowed) {
++	if (crtc_state->sink_format == INTEL_OUTPUT_FORMAT_YCBCR420 &&
++	    !connector->base.ycbcr_420_allowed) {
+ 		drm_dbg_kms(display->drm,
+-			    "YCbCr 4:2:0 mode but YCbCr 4:2:0 output not possible. Falling back to RGB.\n");
+-		crtc_state->sink_format = INTEL_OUTPUT_FORMAT_RGB;
+-	} else {
+-		crtc_state->sink_format = intel_dp_sink_format(connector, adjusted_mode);
++			"YCbCr 4:2:0 mode requested but unsupported by connector.\n");
++		return -EINVAL;
+ 	}
+ 
+ 	crtc_state->output_format = intel_dp_output_format(connector, crtc_state->sink_format);
+@@ -3205,9 +3212,20 @@ intel_dp_compute_output_format(struct intel_encoder *encoder,
+ 	ret = intel_dp_compute_link_config(encoder, crtc_state, conn_state,
+ 					   respect_downstream_limits);
+ 	if (ret) {
+-		if (crtc_state->sink_format == INTEL_OUTPUT_FORMAT_YCBCR420 ||
+-		    !connector->base.ycbcr_420_allowed ||
+-		    !drm_mode_is_420_also(info, adjusted_mode))
++		/*
++		 * If no valid link config can be found due to bandwidth constraints,
++		 * degrade from RGB/YCbCr 4:4:4 to YCbCr 4:2:0 if permitted by
++		 * the source and sink.
++		 */
++		if (!connector->base.ycbcr_420_allowed)
++			return ret;
++		/* No point in trying YCbCr420 a second time. */
++		if (crtc_state->sink_format == INTEL_OUTPUT_FORMAT_YCBCR420)
++			return ret;
++		if (!drm_mode_is_420(info, adjusted_mode))
++			return ret;
++		/* If a non-AUTO color format is chosen, don't fall back. */
++		if (conn_state->color_format)
+ 			return ret;
+ 
+ 		crtc_state->sink_format = INTEL_OUTPUT_FORMAT_YCBCR420;
+@@ -3215,9 +3233,20 @@ intel_dp_compute_output_format(struct intel_encoder *encoder,
+ 								   crtc_state->sink_format);
+ 		ret = intel_dp_compute_link_config(encoder, crtc_state, conn_state,
+ 						   respect_downstream_limits);
++		if (ret)
++			return ret;
+ 	}
+ 
+-	return ret;
++	sink_format_drm = intel_output_format_to_drm_color_format(crtc_state->sink_format);
++	if (conn_state->color_format && conn_state->color_format != sink_format_drm) {
++		drm_dbg_kms(display->drm,
++			    "Explicitly asked for color format %s, got sink format %s\n",
++			    drm_get_color_format_name(conn_state->color_format),
++			    drm_get_color_format_name(sink_format_drm));
++		return -EINVAL;
++	}
++
++	return 0;
+ }
+ 
+ void
+@@ -6684,6 +6713,8 @@ intel_dp_add_properties(struct intel_dp *intel_dp, struct drm_connector *_connec
+ 		intel_attach_dp_colorspace_property(&connector->base);
+ 	}
+ 
++	intel_attach_colorformat_property(&connector->base);
++
+ 	if (intel_dp_has_gamut_metadata_dip(&dp_to_dig_port(intel_dp)->base))
+ 		drm_connector_attach_hdr_output_metadata_property(&connector->base);
+ 
+diff --git a/drivers/gpu/drm/i915/display/intel_dp.h b/drivers/gpu/drm/i915/display/intel_dp.h
+index 25bfbfd291b0..fd47a4bcba6e 100644
+--- a/drivers/gpu/drm/i915/display/intel_dp.h
++++ b/drivers/gpu/drm/i915/display/intel_dp.h
+@@ -205,6 +205,10 @@ bool intel_dp_compute_config_limits(struct intel_dp *intel_dp,
+ void intel_dp_get_dsc_sink_cap(u8 dpcd_rev,
+ 			       const struct drm_dp_desc *desc, bool is_branch,
+ 			       struct intel_connector *connector);
++enum intel_output_format
++intel_dp_output_format(struct intel_connector *connector,
++		       enum intel_output_format sink_format);
++
+ bool intel_dp_has_gamut_metadata_dip(struct intel_encoder *encoder);
+ 
+ bool intel_dp_link_params_valid(struct intel_dp *intel_dp, int link_rate,
+diff --git a/drivers/gpu/drm/i915/display/intel_dp_mst.c b/drivers/gpu/drm/i915/display/intel_dp_mst.c
+index 24f8e60df9ac..5118decfbc97 100644
+--- a/drivers/gpu/drm/i915/display/intel_dp_mst.c
++++ b/drivers/gpu/drm/i915/display/intel_dp_mst.c
+@@ -607,6 +607,8 @@ static int mst_stream_compute_config(struct intel_encoder *encoder,
+ 		to_intel_connector(conn_state->connector);
+ 	const struct drm_display_mode *adjusted_mode =
+ 		&pipe_config->hw.adjusted_mode;
++	const struct drm_display_info *info = &connector->base.display_info;
++	enum drm_color_format sink_format_drm;
+ 	struct link_config_limits limits;
+ 	bool dsc_needed, joiner_needs_dsc;
+ 	int num_joined_pipes;
+@@ -625,10 +627,35 @@ static int mst_stream_compute_config(struct intel_encoder *encoder,
+ 	if (num_joined_pipes > 1)
+ 		pipe_config->joiner_pipes = GENMASK(crtc->pipe + num_joined_pipes - 1, crtc->pipe);
+ 
+-	pipe_config->sink_format = INTEL_OUTPUT_FORMAT_RGB;
+-	pipe_config->output_format = INTEL_OUTPUT_FORMAT_RGB;
++	if ((conn_state->color_format == DRM_COLOR_FORMAT_YCBCR420 &&
++	     drm_mode_is_420(info, adjusted_mode)) ||
++	    (conn_state->color_format == DRM_COLOR_FORMAT_AUTO &&
++	     drm_mode_is_420_only(info, adjusted_mode)))
++		pipe_config->sink_format = INTEL_OUTPUT_FORMAT_YCBCR420;
++	else if (conn_state->color_format == DRM_COLOR_FORMAT_YCBCR444)
++		pipe_config->sink_format = INTEL_OUTPUT_FORMAT_YCBCR444;
++	else
++		pipe_config->sink_format = INTEL_OUTPUT_FORMAT_RGB;
++
++	if (pipe_config->sink_format == INTEL_OUTPUT_FORMAT_YCBCR420 &&
++	    !connector->base.ycbcr_420_allowed) {
++		drm_dbg_kms(display->drm,
++			    "YCbCr 4:2:0 mode requested but unsupported by connector.\n");
++		return -EINVAL;
++	}
++
++	pipe_config->output_format = intel_dp_output_format(connector, pipe_config->sink_format);
+ 	pipe_config->has_pch_encoder = false;
+ 
++	sink_format_drm = intel_output_format_to_drm_color_format(pipe_config->sink_format);
++	if (conn_state->color_format && conn_state->color_format != sink_format_drm) {
++		drm_dbg_kms(display->drm,
++			    "Unsupported color format %s (0x%x), sink has 0x%x\n",
++			    drm_get_color_format_name(conn_state->color_format),
++			    conn_state->color_format, sink_format_drm);
++		return -EINVAL;
++	}
++
+ 	joiner_needs_dsc = intel_dp_joiner_needs_dsc(display, num_joined_pipes);
+ 
+ 	dsc_needed = joiner_needs_dsc || intel_dp->force_dsc_en ||
+@@ -1608,6 +1635,11 @@ static int mst_topology_add_connector_properties(struct intel_dp *intel_dp,
+ 	if (connector->base.max_bpc_property)
+ 		drm_connector_attach_max_bpc_property(&connector->base, 6, 12);
+ 
++	connector->base.color_format_property =
++		intel_dp->attached_connector->base.color_format_property;
++	if (connector->base.color_format_property)
++		intel_attach_colorformat_property(&connector->base);
++
+ 	return drm_connector_set_path_property(&connector->base, pathprop);
+ }
+ 
+diff --git a/drivers/gpu/drm/i915/display/intel_hdmi.c b/drivers/gpu/drm/i915/display/intel_hdmi.c
+index 05e898d10a2b..8c402a0794d0 100644
+--- a/drivers/gpu/drm/i915/display/intel_hdmi.c
++++ b/drivers/gpu/drm/i915/display/intel_hdmi.c
+@@ -2270,30 +2270,54 @@ static int intel_hdmi_compute_output_format(struct intel_encoder *encoder,
+ 	struct intel_connector *connector = to_intel_connector(conn_state->connector);
+ 	const struct drm_display_mode *adjusted_mode = &crtc_state->hw.adjusted_mode;
+ 	const struct drm_display_info *info = &connector->base.display_info;
+-	bool ycbcr_420_only = drm_mode_is_420_only(info, adjusted_mode);
++	enum drm_color_format req_fmt = conn_state->color_format;
++	enum drm_color_format sink_format_drm;
+ 	int ret;
+ 
+-	crtc_state->sink_format =
+-		intel_hdmi_sink_format(crtc_state, connector, ycbcr_420_only);
+-
+-	if (ycbcr_420_only && crtc_state->sink_format != INTEL_OUTPUT_FORMAT_YCBCR420) {
+-		drm_dbg_kms(display->drm,
+-			    "YCbCr 4:2:0 mode but YCbCr 4:2:0 output not possible. Falling back to RGB.\n");
+-		crtc_state->sink_format = INTEL_OUTPUT_FORMAT_RGB;
+-	}
++	if (!req_fmt)
++		crtc_state->sink_format =
++			intel_hdmi_sink_format(crtc_state, connector,
++					       drm_mode_is_420_only(info, adjusted_mode));
++	else if (req_fmt == DRM_COLOR_FORMAT_YCBCR444)
++		crtc_state->sink_format = INTEL_OUTPUT_FORMAT_YCBCR444;
++	else
++		crtc_state->sink_format =
++			intel_hdmi_sink_format(crtc_state, connector,
++					       req_fmt == DRM_COLOR_FORMAT_YCBCR420);
+ 
+ 	crtc_state->output_format = intel_hdmi_output_format(crtc_state);
+ 	ret = intel_hdmi_compute_clock(encoder, crtc_state, respect_downstream_limits);
+ 	if (ret) {
+-		if (crtc_state->sink_format == INTEL_OUTPUT_FORMAT_YCBCR420 ||
+-		    !crtc_state->has_hdmi_sink ||
+-		    !connector->base.ycbcr_420_allowed ||
+-		    !drm_mode_is_420_also(info, adjusted_mode))
++		/*
++		 * If no valid link config can be found due to bandwidth constraints,
++		 * degrade from RGB/YCbCr 4:4:4 to YCbCr 4:2:0 if permitted by
++		 * the source and sink.
++		 */
++		if (!connector->base.ycbcr_420_allowed)
++			return ret;
++		/* No point in trying YCbCr420 a second time. */
++		if (crtc_state->sink_format == INTEL_OUTPUT_FORMAT_YCBCR420)
++			return ret;
++		if (!drm_mode_is_420(info, adjusted_mode))
++			return ret;
++		/* If a non-AUTO color format is chosen, don't fall back. */
++		if (req_fmt)
+ 			return ret;
+ 
+ 		crtc_state->sink_format = INTEL_OUTPUT_FORMAT_YCBCR420;
+ 		crtc_state->output_format = intel_hdmi_output_format(crtc_state);
+ 		ret = intel_hdmi_compute_clock(encoder, crtc_state, respect_downstream_limits);
++		if (ret)
++			return ret;
++	}
++
++	sink_format_drm = intel_output_format_to_drm_color_format(crtc_state->sink_format);
++	if (req_fmt && req_fmt != sink_format_drm) {
++		drm_dbg_kms(display->drm,
++			    "Explicitly asked for color format %s, got sink format %s\n",
++			    drm_get_color_format_name(req_fmt),
++			    drm_get_color_format_name(sink_format_drm));
++		ret = -EINVAL;
+ 	}
+ 
+ 	return ret;
+@@ -2689,8 +2713,10 @@ intel_hdmi_add_properties(struct intel_hdmi *intel_hdmi, struct drm_connector *_
+ 	if (DISPLAY_VER(display) >= 10)
+ 		drm_connector_attach_hdr_output_metadata_property(&connector->base);
+ 
+-	if (!HAS_GMCH(display))
++	if (!HAS_GMCH(display)) {
+ 		drm_connector_attach_max_bpc_property(&connector->base, 8, 12);
++		intel_attach_colorformat_property(&connector->base);
++	}
+ }
+ 
+ /*
 
-Modification has been done to reduce the stack utilization on clang, though=
- we
-believe we are hitting limitations/bugs on older clang. We went ahead with =
-these
-patch by updating our CI to clang 21, which allocate a lot less stack with =
-KASAN
-enabled and this code. Our general advise is to use a newer clang, or GCC f=
-or
-testing with KASAN.
+-- 
+2.52.0
 
-The stack utilization is caused by the combination of loop unrolling, agres=
-sive
-inlining, and write operations to bitfield (which requires the compiler to
-generate more code for memory checks, since the writes are not aligned).
-
-cheers,
-Nicolas
-
-> reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archi=
-ve/20260121/202601211924.rqKS2Ihm-lkp@intel.com/reproduce)
->=20
-> If you fix the issue in a separate patch/commit (i.e. not just a new vers=
-ion of
-> the same patch/commit), kindly add following tags
-> > Reported-by: kernel test robot <lkp@intel.com>
-> > Closes: https://lore.kernel.org/oe-kbuild-all/202601211924.rqKS2Ihm-lkp=
-@intel.com/
->=20
-> All warnings (new ones prefixed by >>):
->=20
-> > > drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c:485:12: =
-warning: stack frame size (2064) exceeds limit (2048) in 'rkvdec_h264_run' =
-[-Wframe-larger-than]
-> =C2=A0=C2=A0=C2=A0=C2=A0 485 | static int rkvdec_h264_run(struct rkvdec_c=
-tx *ctx)
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ^
-> =C2=A0=C2=A0 1 warning generated.
->=20
->=20
-> vim +/rkvdec_h264_run +485 drivers/media/platform/rockchip/rkvdec/rkvdec-=
-vdpu383-h264.c
->=20
-> =C2=A0=C2=A0 484=09
-> =C2=A0> 485	static int rkvdec_h264_run(struct rkvdec_ctx *ctx)
-> =C2=A0=C2=A0 486	{
-> =C2=A0=C2=A0 487		struct v4l2_h264_reflist_builder reflist_builder;
-> =C2=A0=C2=A0 488		struct rkvdec_dev *rkvdec =3D ctx->dev;
-> =C2=A0=C2=A0 489		struct rkvdec_h264_ctx *h264_ctx =3D ctx->priv;
-> =C2=A0=C2=A0 490		struct rkvdec_h264_run run;
-> =C2=A0=C2=A0 491		struct rkvdec_h264_priv_tbl *tbl =3D h264_ctx->priv_tbl=
-.cpu;
-> =C2=A0=C2=A0 492		u32 timeout_threshold;
-> =C2=A0=C2=A0 493=09
-> =C2=A0=C2=A0 494		rkvdec_h264_run_preamble(ctx, &run);
-> =C2=A0=C2=A0 495=09
-> =C2=A0=C2=A0 496		/* Build the P/B{0,1} ref lists. */
-> =C2=A0=C2=A0 497		v4l2_h264_init_reflist_builder(&reflist_builder, run.de=
-code_params,
-> =C2=A0=C2=A0 498					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 run.sps, run.de=
-code_params->dpb);
-> =C2=A0=C2=A0 499		v4l2_h264_build_p_ref_list(&reflist_builder, h264_ctx->=
-reflists.p);
-> =C2=A0=C2=A0 500		v4l2_h264_build_b_ref_lists(&reflist_builder, h264_ctx-=
->reflists.b0,
-> =C2=A0=C2=A0 501					=C2=A0=C2=A0=C2=A0 h264_ctx->reflists.b1);
-> =C2=A0=C2=A0 502=09
-> =C2=A0=C2=A0 503		assemble_hw_scaling_list(&run, &tbl->scaling_list);
-> =C2=A0=C2=A0 504		assemble_hw_pps(ctx, &run);
-> =C2=A0=C2=A0 505		lookup_ref_buf_idx(ctx, &run);
-> =C2=A0=C2=A0 506		assemble_hw_rps(&reflist_builder, &run, &h264_ctx->refl=
-ists, &tbl->rps);
-> =C2=A0=C2=A0 507=09
-> =C2=A0=C2=A0 508		config_registers(ctx, &run);
-> =C2=A0=C2=A0 509=09
-> =C2=A0=C2=A0 510		rkvdec_run_postamble(ctx, &run.base);
-> =C2=A0=C2=A0 511=09
-> =C2=A0=C2=A0 512		timeout_threshold =3D h264_ctx->regs.common.reg013_core=
-_timeout_threshold;
-> =C2=A0=C2=A0 513		rkvdec_schedule_watchdog(rkvdec, timeout_threshold);
-> =C2=A0=C2=A0 514=09
-> =C2=A0=C2=A0 515		/* Start decoding! */
-> =C2=A0=C2=A0 516		writel(timeout_threshold, rkvdec->link + VDPU383_LINK_T=
-IMEOUT_THRESHOLD);
-> =C2=A0=C2=A0 517		writel(0, rkvdec->link + VDPU383_LINK_IP_ENABLE);
-> =C2=A0=C2=A0 518		writel(VDPU383_DEC_E_BIT, rkvdec->link + VDPU383_LINK_D=
-EC_ENABLE);
-> =C2=A0=C2=A0 519=09
-> =C2=A0=C2=A0 520		return 0;
-> =C2=A0=C2=A0 521	}
-> =C2=A0=C2=A0 522=09
-
---=-HUBaFbLuQRAvVZ40o0vh
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaXDm2AAKCRDZQZRRKWBy
-9Fd5AQCFNfQJ7V7hO/CwnP/tTYqJgQUUANlbrcmEIqz2R5L3KAEAlUwzVwSgEeKi
-Ne3geJutlRoJdxx1o7GBsOPJDjWQTwU=
-=cGBC
------END PGP SIGNATURE-----
-
---=-HUBaFbLuQRAvVZ40o0vh--
 
