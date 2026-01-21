@@ -4,68 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71277D262B2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 06:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B21D262B2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 06:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xzOVNeURzn/hBIJKnjKRrA+fpvW6DuQEnUIIkY5csqM=; b=cFf8tdz4IOPvzT9fZlc19RqTdx
-	/GTZ1QNgEZ8dnEOGF7YoGR45nPHnU9G5yE5UTTfN98USjSjaY8a/DGpergLBEwIDrOB3JPhue45uq
-	RyEysubpTLUEt1AOmjccpZuc6k52tkYaCH+a6lc122Stxeu8PDV5lc1hRI8EGooMW55VdODdMY28/
-	oiXYYvW7U0R5hBpKO2IUt/cMRMLcZdB0oPR4WBR/6mm+gFahhF4o1Zta53CpFzzkgku2FeMwrcqwz
-	YCzOkgb17YH55HhwG8qt7sDQZ+s72Lf+Q1F1qo9UMzHIBCEm9tfRl0wd7AFjAJOLyTreBMHHV113P
-	PQC9d2uA==;
+	bh=oGCaNWOrziYJiY8UN1dexl0iYLA/uCJ+jgLUzqoYAwc=; b=fxdFPawlyrxP3px7OP3csWSjv9
+	OZBU5CXVCxfetuT76cfAG9YCZRLIG7HroaiB5ybj9JuAiYSIqCmNorn7KCXhV225pxhpM1dxSxJux
+	uOENZT1RrzDg0LDmugFqO/etMHkYms6NveuRprVh4181oLbdEBPhw4od1G+ialNTkB65UJFqqLZ2g
+	cL01sz4gYsBOEZ/kvONCrqoZU0ZYPJPftnLMWax0nJsYB87GAryu4Sz7OnVE54oRr890IFtEKycr/
+	IaHkP/0uiVT6hSJaFffiZzA2YccolvxU0F4flySuXEXqba31KCjRoN3dFfsfrRaeU6jMhrDLGHCXZ
+	hAX4qjHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viS6y-00000004yEV-02yf;
-	Wed, 21 Jan 2026 06:54:40 +0000
-Received: from mail-m15598.qiye.163.com ([101.71.155.98])
+	id 1viSAm-00000004yaK-1NBv;
+	Wed, 21 Jan 2026 06:58:36 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viS6u-00000004yDZ-0Jch;
-	Wed, 21 Jan 2026 06:54:38 +0000
-Received: from [172.16.12.51] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 316a0a540;
-	Wed, 21 Jan 2026 14:54:26 +0800 (GMT+08:00)
-Message-ID: <15a3e449-25e5-4387-963d-0dbda7be90f5@rock-chips.com>
-Date: Wed, 21 Jan 2026 14:54:25 +0800
+	id 1viSAj-00000004yZn-377j;
+	Wed, 21 Jan 2026 06:58:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1768978714; x=1800514714;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=gQ2iJQpnPdN/VjaVdp15xX/jvrsDqvjipQxnEurzx0o=;
+  b=keTalmMkRLRdF4G6aEANlcgH2YcAAGb4SVDcRaRS+h5vzxCMVjNkPPqy
+   MCkloiY8SDu+LXLY0Ui5TnPgEiqrFRAhZ2B7LbOLe1Wy192Qw7+vKha+R
+   zm8uODdm1H4yCmVnt9PQUPJISHRAwcROCP8kBCprdkJQQl9r8UhlAmMnD
+   ca9h7nT745A9WlcfR0DIeDe+T6KJnTFKVYYVdBjGNBGdvxmaA/ijPo3MY
+   PSDL26OaWUxfFsS2NHMslBu8f40kga8A6Et3wwuhfbpQZIiv8F4MyPoDY
+   bMPrjfWEprPrPCR+GWSdWzEH/5syxm2a8JsdG526ZxQ/GDZiZj6GeMpnD
+   Q==;
+X-CSE-ConnectionGUID: PvZ3oc2fRhW1f3rajkSMXA==
+X-CSE-MsgGUID: GMHDkOewQXSka+5BLxRcXg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11677"; a="87613439"
+X-IronPort-AV: E=Sophos;i="6.21,242,1763452800"; 
+   d="scan'208";a="87613439"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2026 22:58:32 -0800
+X-CSE-ConnectionGUID: RTr0u7XLSeaTx5XBU3ytxg==
+X-CSE-MsgGUID: XiL39KX7SleqSNkWfdr/mQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,242,1763452800"; 
+   d="scan'208";a="206775947"
+Received: from unknown (HELO [10.238.3.254]) ([10.238.3.254])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jan 2026 22:58:25 -0800
+Message-ID: <8c1fefd6-4f4c-42a7-9007-5c9df3975080@linux.intel.com>
+Date: Wed, 21 Jan 2026 14:58:23 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] arm64: dts: rockchip: Change gmac phy-mode to
- rgmii-id for rk3576 board
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Andrew Lunn <andrew@lunn.ch>
-Cc: Chaoyi Chen <kernel@airkyi.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Alexey Charkov <alchark@gmail.com>, Shawn Lin <shawn.lin@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Stephen Chen <stephen@radxa.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260121031548.402-1-kernel@airkyi.com> <aXBlBHZIPQ6xhykE@venus>
+Subject: Re: [PATCH v1 08/23] perf perf_regs: Switch from arch string to int
+ e_machine
+To: Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Adrian Hunter <adrian.hunter@intel.com>, James Clark
+ <james.clark@linaro.org>, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>,
+ Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Shimin Guo <shimin.guo@skydio.com>,
+ Athira Rajeev <atrajeev@linux.ibm.com>,
+ Stephen Brennan <stephen.s.brennan@oracle.com>,
+ Howard Chu <howardchu95@gmail.com>, Thomas Falcon <thomas.falcon@intel.com>,
+ Andi Kleen <ak@linux.intel.com>, "Dr. David Alan Gilbert"
+ <linux@treblig.org>, Dmitry Vyukov <dvyukov@google.com>,
+ =?UTF-8?Q?Krzysztof_=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>,
+ Chun-Tse Shao <ctshao@google.com>, Aditya Bodkhe <aditya.b1@linux.ibm.com>,
+ Haibo Xu <haibo1.xu@intel.com>, Sergei Trofimovich <slyich@gmail.com>,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Mark Wielaard <mark@klomp.org>
+References: <20260117052849.2205545-1-irogers@google.com>
+ <20260117052849.2205545-9-irogers@google.com> <aW_OV72q5rAVrgRE@x1>
 Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <aXBlBHZIPQ6xhykE@venus>
+From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
+In-Reply-To: <aW_OV72q5rAVrgRE@x1>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9bdf55465003abkunm4ed7deafb5040a
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQk1DSlZKTBkYTh1NShhMSEJWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=e+4/XJNTG3dJj79/1WvOUqrCxW5tV9IdRs2FJ8fKvz7/CpOoAMKcucuuE31+iGLJehiJ/tT17MGbDgtNnOuAQcfgZZFQZk1LXHehCoDQT0kZvbMC8KVRj2Qj5m/dqc2D4uuEoph2HvA7bwF758kD1zoaqHrF+y9hRgk/UGy0pEA=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=xzOVNeURzn/hBIJKnjKRrA+fpvW6DuQEnUIIkY5csqM=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_225436_750219_9879D328 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20260120_225833_816600_96688E8A 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +104,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian, Andrew,
 
-On 1/21/2026 1:51 PM, Sebastian Reichel wrote:
-> Hi,
-> 
-> On Wed, Jan 21, 2026 at 11:15:45AM +0800, Chaoyi Chen wrote:
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+On 1/21/2026 2:49 AM, Arnaldo Carvalho de Melo wrote:
+> On Fri, Jan 16, 2026 at 09:28:34PM -0800, Ian Rogers wrote:
+>> The arch string requires multiple strcmp to identify things like the
+>> IP and SP. Switch to passing in an e_machine that in the bulk of cases
+>> is computed using a current thread load. The e_machine also allows
+>> identification of 32-bit vs 64-bit processes.
 >>
->> According to the description in the net documentation, PHY modes
->> "rgmii", "rgmii-rxid" and "rgmii-txid" modes require the clock signal
->> to be delayed on the PCB.
->>
->> The Rockchip platform has long used the above mentioned PHY modes and
->> private delay prop to describe the internal IO delay settings of the
->> chip, which is inconsistent with what is described in the documentation.
->>
->> Some background, for RK3576, you can assume that:
->>
->>         tx_delay_time(ns) = 0.0579 * delay_line_count + 0.105
->>
->> For example, tx_delay = <0x20> means:
->>
->>         time = 0.0579 * 0x20 + 0.105 ns = 1.9578 ns
->>
->> Recently, Andrew has often mentioned the problem of phy mode in board
->> level configuration. So let's start with the RK3576 to modify this.
->>
->> Please test this series of patches, thanks.
-> 
-> The RTL8211F PHY driver does not use the "tx-internal-delay-ps"
-> property, which would require using phy_get_internal_delay(). Also
-> the hardware only seems to support enabling/disabling a fixed delay
-> of 2ns, so it cannot be implemented as far as I can tell. So unless
-> I missed something, this series makes no sense as-is.
-> 
-> My suggestion would be to add support for <rx/tx>-internal-delay-ps
-> to the Rockchip GMAC driver by introducing a new rk_gmac_ops
-> entry to translate the standard properties into register values:
-> 
-> int rk3576_delay_conversion(unsigned int delay_ps) {
->     return (delay_ps*10 - 1050) / 579;
-> }
-> 
-> That allows using standard properties in DT instead of vendor
-> specific "rx_delay"/"tx_delay". This results in a much better board
-> description and shows how far boards derive from the the standard
-> 2ns (which can use rgmii-id without any extra delay specification).
-> 
+>> Signed-off-by: Ian Rogers <irogers@google.com>
+>> ---
+>>  tools/perf/builtin-script.c                   |  17 ++-
+>>  tools/perf/util/evsel.c                       |  14 ++-
+>>  tools/perf/util/perf_regs.c                   | 105 +++++++++++-------
+> [ Include dwarf-regs.h to get conditional defines for EM_CSKY and EM_LOONGARCH, not available in old distros ]
+>
+> - Arnaldo
 
-Oh, your approach was also my initial thought.
+Seems the change would introduce the below building error.
 
-I first asked whether it would be more appropriate to implement this
-in the PHY or in the GMAC, and Andrew told me it should preferably be 
-done in the PHY. But I'm not sure whether all PHYs support this
-operation.
+util/perf_regs.c: In function ‘perf_reg_name’:
+util/perf_regs.c:48:14: error: ‘EM_LOONGARCH’ undeclared (first use in this
+function)
+   48 |         case EM_LOONGARCH:
+      |              ^~~~~~~~~~~~
+util/perf_regs.c:48:14: note: each undeclared identifier is reported only
+once for each function it appears in
+util/perf_regs.c: In function ‘perf_arch_reg_ip’:
+util/perf_regs.c:114:14: error: ‘EM_LOONGARCH’ undeclared (first use in
+this function)
+  114 |         case EM_LOONGARCH:
+      |              ^~~~~~~~~~~~
+util/perf_regs.c: In function ‘perf_arch_reg_sp’:
+util/perf_regs.c:143:14: error: ‘EM_LOONGARCH’ undeclared (first use in
+this function)
+  143 |         case EM_LOONGARCH:
+      |              ^~~~~~~~~~~~
 
-Andrew, would it be possible to implement this in the GMAC for cases
-where the PHY does not support it? Thanks.
+It looks EM_LOONGARCH is not defined in the <elf.h> header file, not sure
+which one is better, include  dwarf-regs.h suggested by Arnaldo or direct
+add the define,
 
--- 
-Best, 
-Chaoyi
+diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
+index b58d59b84fb1..ce839df19fa3 100644
+--- a/tools/perf/util/perf_regs.c
++++ b/tools/perf/util/perf_regs.c
+@@ -6,6 +6,10 @@
+ #include "util/sample.h"
+ #include "debug.h"
+
++#ifndef EM_LOONGARCH
++#define EM_LOONGARCH           258
++#endif
++
+ int __weak arch_sdt_arg_parse_op(char *old_op __maybe_unused,
+                                 char **new_op __maybe_unused)
+ {
+
+
+>
 
