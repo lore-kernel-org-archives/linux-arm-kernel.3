@@ -4,57 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CFF2C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E49AFD46942
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:47:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aVmNpRwJkD/JEMm4c8LH3FOIC2UTRCdrTMW6411SbMs=; b=xdM3CORIEAVxlT8rzxMQNcw5Vn
-	tgileNNpxf0FeFUb/ObSHZ0OZomIFY2GjkNfKUWB6bFctA+JPwbqMZfpY4GvZ+eF/N+wmcndSnxto
-	YIrDR16D7DglCj4jBwbG6tdlRv/iqzIeHSnkx5NJZBBRjsCYmYRjp9ta0SbQ2kTI7iLQH8GncXge5
-	Bb0I8abagHJO+L3KIutEIv0R0qfuuE8tWUYrYmHtULEQK8Kzx8SpbJHwhBrp8/QzP9N9HElvl5FYW
-	sTCF/zg1pV4YxdW34d1XAmUVQpq385FOnlvim+elODkUT0/VT7Dx/f/XbDLNyRI2NH7rahu47EziX
-	tqLUScQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w+BU3yZcnZLVUl/l+ViGJZdk5XsNHMsU7ReIC8wTppQ=; b=0XCDyrmZcRfAkawwzfISUw49hd
+	lGmmdruL0LOBgYpEUKFV9cuqPPF48Kb+v1oYSGiZKAsrXeHpKWEsrMEPyasS5dUm2zlE9DLJszDU9
+	gEoK3IjpOiznxJNaW/5D2IWlpQ0mnmdViFMRR5kvZF3stVJaOPIyqfWrA26LgDiItzlX/xdwnVWw1
+	fsgQvZGfpoQ6OTAcl/pzxoMs/s42PCbNdI0swX/lV/AsCBAMndzIpHs0AEf1d9tnd2kZaTOzxcQ7s
+	YdojQgtmR2NVE4sVDUNS67+497ZYWUPI+Y0/YW48JXhLFh1AbiqLKOMbkn0lSA51ciMNHKR0/yTR5
+	2ZG9yYpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZTz-00000005d78-2kt6;
-	Wed, 21 Jan 2026 14:46:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1viZU5-00000005dBe-082z;
+	Wed, 21 Jan 2026 14:47:01 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZTy-00000005d5d-3Qc9
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 14:46:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6D9CE60097;
-	Wed, 21 Jan 2026 14:46:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A8B3C4CEF1;
-	Wed, 21 Jan 2026 14:46:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1769006813;
-	bh=S+5EpmdELU8PLZTSrl8ayAXpEobV1mMRAAa5uAOth0c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oRuaQeTimy3+0QFPFe2bCRMcbMxj26B7rlNdaMdWcO384tZkzsFAqbDlm9YpSBtMB
-	 bovOxj10jSa3NGXqSBGunOpvNJvHFgeR9dGqZJ1JeIaLmvXa+mLoe834NRHzxK8+q4
-	 RpmMQ7E3dv33x0KyCuEi5FH92zmTQRz4EpAJqHu0=
-Date: Wed, 21 Jan 2026 15:46:49 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: rafael@kernel.org, broonie@kernel.org, will@kernel.org,
-	robin.murphy@arm.com, joro@8bytes.org, robin.clark@oss.qualcomm.com,
-	hanguidong02@gmail.com, quic_c_gdjako@quicinc.com,
-	dmitry.baryshkov@oss.qualcomm.com, driver-core@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH] iommu/arm-smmu-qcom: do not register driver in probe()
-Message-ID: <2026012139-crewmate-radiantly-d533@gregkh>
-References: <20260121141215.29658-1-dakr@kernel.org>
+	id 1viZTz-00000005d67-0NVc;
+	Wed, 21 Jan 2026 14:46:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769006780; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=e0A4bW9Bg//mH1TE8GfuAwqfayUGCpTByz8IEEaPpwXzBquMDVy0nh5DH51xbXKy5rmPwQH662AUdtZWghBgIouKZ/a4t5OcyMy6SRhKH7RF5w3XFXv3u1InZKhbzjnQuvfGp2x8L+/2NpFL+8gNDT5cyce1xYSb7IQm4Ny9WbY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1769006780; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=w+BU3yZcnZLVUl/l+ViGJZdk5XsNHMsU7ReIC8wTppQ=; 
+	b=UCX3Sl2AfKRLsoHrzKby2mB6kAlz8z7DLkyY2+qpryszgxTq5gKYjjN3N8LBgdeXs63ZR2XJQBp3n2w467z1PwweHayc0MWK7bkFJ9fn9HSueTfjNeCiVs/l9hf5cP827z+M+CJHOUZJTNxfEV1ZSeCjTJnKQeqlBIrdinhwmuc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769006780;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=w+BU3yZcnZLVUl/l+ViGJZdk5XsNHMsU7ReIC8wTppQ=;
+	b=BBA3G30gz/faVkMIqxUCEfIPk4lJkyDvkZggDeRxsF+FnBk5WUiwMEHQo9huuyiy
+	h6tP6sZzmVJFb1mG3J6aljLWPNV+RxGUhRefiXBWZD8OZq9a6NJCzfHDr0Z9td7/Ahu
+	PhVSsOrPoBTnnbM0fkZMh4rytu6Lyv0rcJGVWJY0=
+Received: by mx.zohomail.com with SMTPS id 1769006778497255.4881577685843;
+	Wed, 21 Jan 2026 06:46:18 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Wed, 21 Jan 2026 15:45:13 +0100
+Subject: [PATCH v7 06/22] drm/display: hdmi-state-helper: Try subsampling
+ in mode_valid
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260121141215.29658-1-dakr@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260121-color-format-v7-6-ef790dae780c@collabora.com>
+References: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
+In-Reply-To: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
+To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+ Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>
+Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-doc@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260121_064655_183781_F89DCE3E 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,35 +100,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 03:12:01PM +0100, Danilo Krummrich wrote:
-> Commit 0b4eeee2876f ("iommu/arm-smmu-qcom: Register the TBU driver in
-> qcom_smmu_impl_init") intended to also probe the TBU driver when
-> CONFIG_ARM_SMMU_QCOM_DEBUG is disabled, but also moved the corresponding
-> platform_driver_register() call into qcom_smmu_impl_init() which is
-> called from arm_smmu_device_probe().
-> 
-> However, it neither makes sense to register drivers from probe()
-> callbacks of other drivers, nor does the driver core allow registering
-> drivers with a device lock already being held.
-> 
-> The latter was revealed by commit dc23806a7c47 ("driver core: enforce
-> device_lock for driver_match_device()") leading to a deadlock condition
-> described in [1].
-> 
-> Additionally, it was noted by Robin that the current approach is
-> potentially racy with async probe [2].
-> 
-> Hence, fix this by registering the qcom_smmu_tbu_driver from
-> module_init(). Unfortunately, due to the vendoring of the driver, this
-> requires an indirection through arm-smmu-impl.c.
-> 
-> Reported-by: Mark Brown <broonie@kernel.org>
-> Closes: https://lore.kernel.org/lkml/7ae38e31-ef31-43ad-9106-7c76ea0e8596@sirena.org.uk/
-> Link: https://lore.kernel.org/lkml/DFU7CEPUSG9A.1KKGVW4HIPMSH@kernel.org/ [1]
-> Link: https://lore.kernel.org/lkml/0c0d3707-9ea5-44f9-88a1-a65c62e3df8d@arm.com/ [2]
-> Fixes: dc23806a7c47 ("driver core: enforce device_lock for driver_match_device()")
-> Fixes: 0b4eeee2876f ("iommu/arm-smmu-qcom: Register the TBU driver in qcom_smmu_impl_init")
-> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+drm_hdmi_connector_mode_valid assumes modes are only valid if they work
+with RGB. The reality is more complex however: YCbCr 4:2:0
+chroma-subsampled modes only require half the pixel clock that the same
+mode would require in RGB.
 
-Reviewed-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+This leads to drm_hdmi_connector_mode_valid rejecting perfectly valid
+420-only or 420-also modes.
+
+Fix this by checking whether the mode is 420-capable first. If so, then
+proceed by checking it with HDMI_COLORSPACE_YUV420 so long as the
+connector has legalized 420, otherwise error out. If the mode is not
+420-capable, check with RGB as was previously always the case.
+
+Fixes: 47368ab437fd ("drm/display: hdmi: add generic mode_valid helper")
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+index 1ea3b9c93aa5..ceabfdb30f7a 100644
+--- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
++++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+@@ -898,8 +898,21 @@ drm_hdmi_connector_mode_valid(struct drm_connector *connector,
+ 			      const struct drm_display_mode *mode)
+ {
+ 	unsigned long long clock;
++	enum hdmi_colorspace fmt;
++
++	if (drm_mode_is_420_only(&connector->display_info, mode)) {
++		if (connector->ycbcr_420_allowed)
++			fmt = HDMI_COLORSPACE_YUV420;
++		else
++			return MODE_NO_420;
++	} else if (drm_mode_is_420_also(&connector->display_info, mode) &&
++		   connector->ycbcr_420_allowed) {
++		fmt = HDMI_COLORSPACE_YUV420;
++	} else {
++		fmt = HDMI_COLORSPACE_RGB;
++	}
+ 
+-	clock = drm_hdmi_compute_mode_clock(mode, 8, HDMI_COLORSPACE_RGB);
++	clock = drm_hdmi_compute_mode_clock(mode, 8, fmt);
+ 	if (!clock)
+ 		return MODE_ERROR;
+ 
+
+-- 
+2.52.0
+
 
