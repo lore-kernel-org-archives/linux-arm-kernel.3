@@ -4,110 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21FE8C44503
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 10:47:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB3E1C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 10:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/fMXkDh4NuIGqP7vK0ebKmRodxeqBxQ37RgaLup8t8A=; b=kb9ZbrY4frRxH3A0wH4Nx6yOrF
-	tZTcDEdYtEQUy8RT40J505UhrY5SxVFy8wWOBbVYm0WUHGRAQeWSmsgoUHjj2HC78hRLjTnohSM09
-	ZpQvbIBUxfuG0Nc41EkcTnZwxd6HY6XZfmprd3M2oaRXigJjYtlL0/0zrQspfsazRJUPiOdyCNvJ3
-	DD+PHNhwkuDTKsZyRFKIzo9HRlImF2j2XxWL59rEfhu+bU0ciFdem0wiLAKwAnZZ0/9vgtdMHf43Z
-	bnB/9figJylQsmr5GIGEqywtCKMnE5iKE+17/bhz+iqmNxQZdrXrtt9e2k6D2hUP+aCFzPqFjl+jh
-	xNLllWlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=22kDOirRPzGW5TAXpkreNZN/j+FFDXEo824mnYGHqXM=; b=b/oqfrc/zKKdYpQJVfC3qHwAJu
+	Z4zXCKeRI0HD18UvlWQiKwthyCY6Z4vaaHsJfndqJ1xTmw5nyl9bUuSAdPhlUYQFF6MqZbZ8WK7DL
+	GQhp+mNefsAl97nZEcTiN6tOl8B4chllQ3uZ6vxJ506Xi/gXFkj7X3Tm0z1TNmXeS9tgnJD0KfZoQ
+	vSGTivcWUCEi09rhkw71FwVpDCOY3crmU4R9ASPzujdK/nWBwGGafo1haRSYe6Y/X4DQMzfXhlKtL
+	1T+hTeIZjMCF1dZulqUKOi29T0DInKYeeatbbd/HUhOVHSooZcG7oMFgsJKIgSiobJrP6zIxCyUHV
+	gVxrprVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viVkO-00000005IfR-2Kws;
-	Wed, 21 Jan 2026 10:47:36 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1viVnY-00000005IpS-0NiX;
+	Wed, 21 Jan 2026 10:50:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viVkL-00000005If6-328a
+	id 1viVnU-00000005Ip2-2eeZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 10:47:35 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-3530715386cso408475a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 02:47:33 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768992452; cv=none;
-        d=google.com; s=arc-20240605;
-        b=HHXTAkOkzzTzVOivQFqkp8BOEJjvIjfwxMqyW/64B/AhKhv+J3iFFjAf4ez9Td1iDX
-         PMaB0DgzMGzwNJhsbXi23XixbjU0mVbHcO7tXAcDLgL/nwbbdFevCCFsICsIau0MX9DV
-         7pWtSMhuxEnqQGm5Sq88U5COsjESE9cKeuzhi9o/6RLDyQ7jF75PQygOZdD84SxDU4kO
-         OAwx5ysgSWhNTh9WxtBKoQPDtHJup7Y/PCtzHy6sITTjrJ2UubrfmY+6lGc5ISDTX6yu
-         taXq770LA+QXu915yFciPNTHOLNUu6vn2YjMHmlywMZ1gV6JeOR85jMIzbkBvftDmJwz
-         GHnw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=/fMXkDh4NuIGqP7vK0ebKmRodxeqBxQ37RgaLup8t8A=;
-        fh=gw1KYeeEds6SlKLzOtdpvB0c89Ro0n9WJSS/+pqnObs=;
-        b=PBSAsCzH91ceQnDKveF5xYo5hQTHJzOLfYr89M0Fi7pdnZu8VR9YhdoPGe/ynvjb4T
-         K0PB6SCN2I22ms208pnOtD/lDFvLqqHt0f1BCnP6s37F2xmsPzUtR0EWQx6rVTTtFcQq
-         7443k5rYqSti2UZbII9sj+KqhnuyaCS7EkKaEoYV3sUeDa29ODyKRwGP0oKc9DfGqILp
-         MivsmlHn7xYF/ISeqe/gSVub9HVmI2FaHsXpH5eBFTtwM2jePa2ETH9Q98pzSzybEQQF
-         qAez8l+QOGAhqIVnxVFR0K+yDV8ADHRwx+xLyQCYqFQkkBGROnLSN7q5h9cmzfo4jv5p
-         N11A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768992452; x=1769597252; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/fMXkDh4NuIGqP7vK0ebKmRodxeqBxQ37RgaLup8t8A=;
-        b=k+yiTnVV1SRZwB9qr4UqZyKwOYmRtXiO8eJSdrFeXLrDgCsd8btp9Hzh/hzqgPLgSG
-         U9W6X4DaKwqlPZtomOzhXbVjLwvtaAnwsPg0NpJcF+8UCeTw1JT/RgJUQ8ajAfdrvHVz
-         DBc9Vk1TZCBZnuWYiGXkWU9e8bDyQCQiUC3Wb1HDHnFZhczg32GraV4bjCeaRGiFE2mx
-         TfWGvGjpNnsIWGu/tTIctHEVEHi+oZdMv776cmiJWNR/9jMQciGCcFG2SmSinBsEfSUf
-         2HSqS1GJgXx3EqkbmPtbEWBEhBM2V8XmYcRAqmXVWSF/DVpI9biPSdZ8PcawhZYrfd0Z
-         ysCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768992452; x=1769597252;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/fMXkDh4NuIGqP7vK0ebKmRodxeqBxQ37RgaLup8t8A=;
-        b=IT0/al4Bv9xycPwYXUvIY64+Kb+40uMYeqYyVcdoO+FFBBplcf7EAz/dhrm1IlZ8Qu
-         RJcSPUxbAAHU/jIXxrNdWMEba+qH4SDgzEWehgqFiBnX5VhUKGQkXY7F3EVpECiCYxRz
-         qb4Kv3ZtuB/G6WncI/mXUTRGwmSV8C3IOfpI69SgqibYquqLX6q6m1VwkE22VmuErrQ0
-         NXpYSWLUnGKdRzqprvLbODNFtvmkg1TfCea94rYhAD0KvCHbKCy/aldozrEsFDA/b29K
-         ozXWj/RQ/euIDN/c/u8JdIFvZEe1HCW5xs9tVr2p+FAkHkqkkpaQw4jAKhnfJy4QOytH
-         ytQA==
-X-Forwarded-Encrypted: i=1; AJvYcCWnvcRPgs4d7b+2xP8wQfUEM/qTCZQjzCiQZzEExW5eIULpGGwzsoLM0DeQXaQrbwvcMfT2a/56OSZ4X98TLdha@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5+SzT3eBmnac4sFNpenuqRa1SZuHGhk1SRok9827Cm6pL7uVb
-	NBocNO34Ks9EOfHQlJ7V9ot1k2hgYCiE13nEdIHn7OnSBENTwekdxcyeOMYEnHozm5wH5pawUJO
-	x5nj6o6G8NSceoipRyEMVjvla3bMI2T8llFxX
-X-Gm-Gg: AZuq6aJwFLcse/AbhBmuam1SFYLe6D9r4DIT/PnOpGY9p4uf3vHJG6fbuJWC+nAc+8p
-	Ot4VBj8KnlB8ZtSfLl3QFph9+CtY7dhEix1zpX7C5qXNRb9EkocX54oreWc6qSirnUQZTCiuD8G
-	eMrNQea0xTWDP4Xj/9ZYe8BI5TVMbA3atZWdjHXMAP0KTngkhTObSNiGjV0St5ZL8W1VqD0nTR6
-	VFBEHZCUz6GHw74JrFWztC8VDmBSaBwWoGV5nlaZ/AG7FCiEVI2oQauqNJR6IenDeOjuPk=
-X-Received: by 2002:a17:90b:3b8d:b0:340:b908:9665 with SMTP id
- 98e67ed59e1d1-3527329ea06mr14234623a91.37.1768992452459; Wed, 21 Jan 2026
- 02:47:32 -0800 (PST)
-MIME-Version: 1.0
-References: <20260120035210.1593742-1-shengjiu.wang@nxp.com>
- <20260120035210.1593742-3-shengjiu.wang@nxp.com> <20260121-careful-beige-iguana-c32bbd@quoll>
-In-Reply-To: <20260121-careful-beige-iguana-c32bbd@quoll>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Wed, 21 Jan 2026 18:47:19 +0800
-X-Gm-Features: AZwV_QjDpxZv6jt8rBYtLCaZTNVLi3Y8jythwZEftwLkFpk7naOfOY6Hgw_qq24
-Message-ID: <CAA+D8ANy6-e3RkhjSKWfqEcxEnsZrEuJvz7Bmp5q6ZO4x3RfVg@mail.gmail.com>
-Subject: Re: [PATCH v2 2/4] ASoC: dt-bindings: fsl,sai: Add AUDMIX mode
- support on i.MX952
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, Xiubo.Lee@gmail.com, festevam@gmail.com, 
-	nicoleotsuka@gmail.com, lgirdwood@gmail.com, broonie@kernel.org, 
-	perex@perex.cz, tiwai@suse.com, linux-sound@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 21 Jan 2026 10:50:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 00ACA429CA;
+	Wed, 21 Jan 2026 10:50:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC326C116D0;
+	Wed, 21 Jan 2026 10:50:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768992647;
+	bh=CfWWd4eTZ7SIvAFdgkWvswQfPdfwTP4jeQ6wPYFjh1o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=laLO8FnWyyK8MtpwGzmwWyciuntO3Rup/T85ja0myQmL46b8N413Bbvq6LyRXfwHp
+	 nVOca27zcoxzQAA4eLhyaPdrQoQaa9PulWCGI3/ZouvXpI2AAcHynevgy151ZLE9eu
+	 INhmN9DQUJhIaffOlnhBg6JhhPTqRkiBgNPSeGDyqFe06PHmQuSabsK1tNhnnhnaf9
+	 lPcunAeH/9XixAVOXdaTA1TK7DrbhlX/IpeZokjzWof3T+4u6t7xKos+lrzg1aStSz
+	 04GLDK0nlwoVRxFgLYGvS+77+10oXNG4D1AchkGl1HbZgDvrx1z+f7oWKir5z+gyXp
+	 sVSSKSRmkl8iA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1viVnR-00000004HPP-2D8L;
+	Wed, 21 Jan 2026 10:50:45 +0000
+Date: Wed, 21 Jan 2026 10:50:45 +0000
+Message-ID: <86zf67b5oa.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v2 4/6] KVM: arm64: Account for RES1 bits in DECLARE_FEAT_MAP() and co
+In-Reply-To: <20260120211558.GA834868@ax162>
+References: <20251210173024.561160-1-maz@kernel.org>
+	<20251210173024.561160-5-maz@kernel.org>
+	<20260120211558.GA834868@ax162>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: nathan@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, alexandru.elisei@arm.com, Sascha.Bischoff@arm.com, qperret@google.com, tabba@google.com, sebastianene@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_024733_788481_547D6F27 
-X-CRM114-Status: GOOD (  27.25  )
+X-CRM114-CacheID: sfid-20260121_025048_716719_FAC56B4A 
+X-CRM114-Status: GOOD (  30.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,105 +95,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 4:03=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On Tue, Jan 20, 2026 at 11:52:08AM +0800, Shengjiu Wang wrote:
-> > The SAI can connect to AUDMIX, but AUDMIX can be bypassed or not on
-> > i.MX952, so add 'fsl,sai-amix-mode' property for this feature, with
-> > this property present, then SAI driver will try to config the setting,
->
-> I am still not sure this is hardware static property. You say "can be
-> bypassed", so I imagine same board could have it bypassed or not,
-> depending on use case (so mixers).
+Hi Nathan,
 
-Yes, depending on the use case.
-1.  When bypassed,   the SAI output goes to codec directly.
-      like: SAI -> Codec
+Thanks for reporting this.
 
-2.  AUDMIX mode:  the SAI output goes to AUDMIX.
-      like: SAI -> AUDMIX-> Codec
+On Tue, 20 Jan 2026 21:15:58 +0000,
+Nathan Chancellor <nathan@kernel.org> wrote:
+> 
+> Hi Marc,
+> 
+> On Wed, Dec 10, 2025 at 05:30:22PM +0000, Marc Zyngier wrote:
+> > None of the registers we manage in the feature dependency infrastructure
+> > so far has any RES1 bit. This is about to change, as VTCR_EL2 has
+> > its bit 31 being RES1.
+> > 
+> > In order to not fail the consistency checks by not describing a bit,
+> > add RES1 bits to the set of immutable bits. This requires some extra
+> > surgery for the FGT handling, as we now need to track RES1 bits there
+> > as well.
+> > 
+> > There are no RES1 FGT bits *yet*. Watch this space.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> 
+> After this change in -next as commit c259d763e6b0 ("KVM: arm64: Account
+> for RES1 bits in DECLARE_FEAT_MAP() and co"), I am seeing several
+> "undefined behavior" errors on my two arm64 boxes.
+> 
+>   $ journalctl -k -g '(Linux version|kvm)' --no-hostname -o cat
+>   Linux version 6.19.0-rc4-00014-gc259d763e6b0 (nathan@framework-amd-ryzen-maxplus-395) (aarch64-linux-gcc (GCC) 15.2.0, GNU ld (GNU Binutils) 2.45) #1 SMP PREEMPT_DYNAMIC Tue Jan 20 13:59:52 MST 2026
+>   kvm [1]: nv: 568 coarse grained trap handlers
+>   kvm [1]: Undefined hfgrtr_masks behaviour, bits fff7ffffffffffff
+>   kvm [1]: Undefined hfgwtr_masks behaviour, bits fff7baffe9db39fb
+>   kvm [1]: Undefined hfgitr_masks behaviour, bits dfffffffffffffff
+>   kvm [1]: Undefined hdfgrtr_masks behaviour, bits fffdfb3fffcffeff
+>   kvm [1]: Undefined hdfgwtr_masks behaviour, bits 73f7763bbfbffdbf
+>   kvm [1]: Undefined hafgrtr_masks behaviour, bits 0003fffffffe001f
+>   kvm [1]: Undefined hfgrtr2_masks behaviour, bits 0000000000007fff
+>   kvm [1]: Undefined hfgwtr2_masks behaviour, bits 0000000000007ffd
+>   kvm [1]: Undefined hfgitr2_masks behaviour, bits 0000000000000003
+>   kvm [1]: Undefined hdfgrtr2_masks behaviour, bits 0000000001dfffff
+>   kvm [1]: Undefined hdfgwtr2_masks behaviour, bits 0000000001f9ffbf
+>   kvm [1]: IPA Size Limit: 44 bits
+>   kvm [1]: vgic-v2@c0e0000
+>   kvm [1]: GICv3 sysreg trapping enabled ([C], reduced performance)
+>   kvm [1]: GIC system register CPU interface enabled
+>   kvm [1]: vgic interrupt IRQ9
+>   kvm [1]: Hyp nVHE mode initialized successfully
 
-Will add above info in the commit message.
+Let me guess: Cortex-A72 or similarly ancient ARM-designed CPUs, as
+hinted by the lack of GICv3 TDIR control? Then these do not have
+FEAT_FGT.
 
->
-> > fsl,sai-amix-mode =3D <0> is bypass mode, fsl,sai-amix-mode =3D <1> is
-> > the AUDMIX mode.
-> >
-> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> > ---
-> >  .../devicetree/bindings/sound/fsl,sai.yaml       | 16 ++++++++++++++++
-> >  1 file changed, 16 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/sound/fsl,sai.yaml b/Doc=
-umentation/devicetree/bindings/sound/fsl,sai.yaml
-> > index d838ee0b61cb..7808c324eebc 100644
-> > --- a/Documentation/devicetree/bindings/sound/fsl,sai.yaml
-> > +++ b/Documentation/devicetree/bindings/sound/fsl,sai.yaml
-> > @@ -133,6 +133,13 @@ properties:
-> >          - description: dataline mask for 'rx'
-> >          - description: dataline mask for 'tx'
-> >
-> > +  fsl,sai-amix-mode:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
->
-> Anyway, string is more readable.
+The issue stems from the fact that as an optimisation, we skip the
+parsing of the FGT trap table on such hardware, which also results in
+the FGT masks of known bits not being updated. We then compute the
+effective feature map, and discover that the two don't match.
 
-Ok,  will use string
->
-> > +    description:
-> > +      The audmix module is bypassed from hardware or not.
-> > +      Bypass AUDMIX(0), AUDMIX mode(1)
->
-> Drop last sentence and use enum [ bypass, mode-1-whatever-this-means ]
->
-> > +    enum: [0, 1]
->
-> What is the default? What is the meaning of lack of this property?
->
+It was harmless so far, as we were only dealing with RES0 bits, and
+assuming that anything that wasn't a RES0 bit was a stateful bit. With
+the introduction of RES1 handling, we've run out of luck. To be clear,
+that's just a warning, not a functional issue.
 
-  fsl,sai-amix-mode:
-    $ref: /schemas/types.yaml#/definitions/string
-    description:
-      The audmix module is bypassed from hardware or not.
-    enum: [none, bypass, audmix]
-    default: none
+At this point, I don't think the above "optimisation" is worth having.
+This is only done *once*, at boot time, so the gain is extremely
+small. I'd like the checks to be effective irrespective of the HW the
+kernel runs on, which is consistent with what we do for other tables
+describing the architectural state.
 
-I'd like to use the above definition.  add 'none' for default.
-Which means no audmix connection in hardware. then we don't need to
-bypass or not-bypass audmix.
+Anyway, I came up with the following hack, which performs the checks,
+but avoid inserting the FGT information in the sysreg xarray if the HW
+doesn't support it, as a memory saving measure. Please let me know if
+that helps (it does on my old boxes).
 
+Thanks,
 
-> > +
-> >    fsl,sai-mclk-direction-output:
-> >      description: SAI will output the SAI MCLK clock.
-> >      type: boolean
-> > @@ -180,6 +187,15 @@ allOf:
-> >        properties:
-> >          fsl,sai-synchronous-rx: false
-> >
-> > +  - if:
-> > +      required:
-> > +        - fsl,sai-amix-mode
-> > +    then:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: fsl,imx952-sai
->
-> There is no such compatible.
+	M.
 
-It is in another patch:
-https://www.spinics.net/lists/kernel/msg6004158.html
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index 88336336efc9f..fa8fa09de67dc 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -2284,9 +2284,6 @@ int __init populate_nv_trap_config(void)
+ 	kvm_info("nv: %ld coarse grained trap handlers\n",
+ 		 ARRAY_SIZE(encoding_to_cgt));
+ 
+-	if (!cpus_have_final_cap(ARM64_HAS_FGT))
+-		goto check_mcb;
+-
+ 	for (int i = 0; i < ARRAY_SIZE(encoding_to_fgt); i++) {
+ 		const struct encoding_to_trap_config *fgt = &encoding_to_fgt[i];
+ 		union trap_config tc;
+@@ -2306,6 +2303,15 @@ int __init populate_nv_trap_config(void)
+ 			}
+ 
+ 			tc.val |= fgt->tc.val;
++
++			if (!aggregate_fgt(tc)) {
++				ret = -EINVAL;
++				print_nv_trap_error(fgt, "FGT bit is reserved", ret);
++			}
++
++			if (!cpus_have_final_cap(ARM64_HAS_FGT))
++				continue;
++
+ 			prev = xa_store(&sr_forward_xa, enc,
+ 					xa_mk_value(tc.val), GFP_KERNEL);
+ 
+@@ -2313,11 +2319,6 @@ int __init populate_nv_trap_config(void)
+ 				ret = xa_err(prev);
+ 				print_nv_trap_error(fgt, "Failed FGT insertion", ret);
+ 			}
+-
+-			if (!aggregate_fgt(tc)) {
+-				ret = -EINVAL;
+-				print_nv_trap_error(fgt, "FGT bit is reserved", ret);
+-			}
+ 		}
+ 	}
+ 
+@@ -2333,7 +2334,6 @@ int __init populate_nv_trap_config(void)
+ 	kvm_info("nv: %ld fine grained trap handlers\n",
+ 		 ARRAY_SIZE(encoding_to_fgt));
+ 
+-check_mcb:
+ 	for (int id = __MULTIPLE_CONTROL_BITS__; id < __COMPLEX_CONDITIONS__; id++) {
+ 		const enum cgt_group_id *cgids;
+ 
 
-Best regards
-Shengjiu Wang
->
-> > +
-> >  required:
-> >    - compatible
-> >    - reg
-> > --
-> > 2.34.1
-> >
+-- 
+Without deviation from the norm, progress is not possible.
 
