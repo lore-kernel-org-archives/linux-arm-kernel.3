@@ -4,62 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355BAD2ED0C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82A74CA5FD7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ClTgdvOED/TWc/NYq97oMCMrKOe+terkXHI5v1vBQI0=; b=FE0AY0OmXyAKLsAMHYz1cjj6/l
-	Ik1VKWld2HBt5Hk7A8kdXc6JChIBVK7VaJXeR+3jezbhEd3DMyiwwybllnhFrL7DbLRXfDD9o5kCU
-	fCqRqD8Ua0MeRomdzDkUoaYiUlznEeBUC/skSS9HW60z5+LiR7fiot2FS+80D7Gj81xlSK+aA5tCV
-	mt9rviFVUUvpZ/sBt8nJuv4SyIh+evCXgskBIFUSBuR2A0ZU3MkMmqq3rudDfk7DvuamWrkhaUoGh
-	Us9SCMGzPv/5bJ+XLpQxxI591fdTFqPm/IM6snOqaCoI4tYzDzZMgUkVTPmZAuiaVliwcQgzobyf9
-	E5sJNYqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gk+Vt4dwqCKIh8dNgDER4T0qQrawIBbm38oe6EugFxQ=; b=G9tyu0PnlYNGvh
+	rrNwp4bIE0voFLtFjC5i3Vk1lrx0heyJVsF5m3+yg12mRSgPnaL6mckPLRsY4RJbkprt6fQVwszyt
+	/tERPBmq5cpvfDS9eAh1aP8JJMHhUF7TkbYwm5SHCes9B4K8L3S7JteGW30ifkYbuhpG0pMhdyy0+
+	GyLksDB7iLzuwQuYv/EKsrtV7L0VDlUcd+g9t/Aj16JltLxR+J41lE3p/k7ydAR42JI7MS3QtbboO
+	FBj8AcFxmL6o6SksjBMdJlfpc1/59ChaByPOecSFbOuKOeU06RpPqeW+/lwM0FJK2iUNLSl9iY6xj
+	k39FwUaCypAn5mAxdAJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZOF-00000005cMP-3eX4;
-	Wed, 21 Jan 2026 14:40:59 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1viZTL-00000005cgx-2hut;
+	Wed, 21 Jan 2026 14:46:15 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZOB-00000005cLD-35cY
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 14:40:59 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1viZNu-0003b7-FM; Wed, 21 Jan 2026 15:40:38 +0100
-Message-ID: <9369a9c0-9020-4686-9b57-a487bfb5fd15@pengutronix.de>
-Date: Wed, 21 Jan 2026 15:40:35 +0100
+	id 1viZTI-00000005cgY-1066;
+	Wed, 21 Jan 2026 14:46:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769006731; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=SSUAJQAujJmeaxC6M9YTQRrxagsW4+/vqH568T4X9JNukKnPRxSel4NjYvEYmaCOwmHwrjoddxHY1bVQcIJqg7h09qxNK3Jxc1iGEcdFhdRMwrdRJg9F+6Q+IxTP4OVwKVc3uUyNry2qXGqYlgFfNOCYeq2gVOmtjXgWVdPjt8k=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1769006731; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=gk+Vt4dwqCKIh8dNgDER4T0qQrawIBbm38oe6EugFxQ=; 
+	b=dGEr0eh4RaOgNICcSqfaf48mDPnEMzjciemcJox4nZv8Q5sF8Sis77VU0GN/KFVKzY2oYDwysPABVVHEAJIJBgUcw34r1QI2vxuz38epYAlI0/GW5RNz74Dku+WO21KiciCs77Em6OcwrQcvVLd8fMz1WQM1xhfmQVe6DhIjIYE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769006731;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=gk+Vt4dwqCKIh8dNgDER4T0qQrawIBbm38oe6EugFxQ=;
+	b=bA5DUjq5S4NBXXf7JMi5ObLPTtHWASnu8rtpH2o+tdam66uV9HRiEgX0wcH8KFUm
+	+DKpZUyvGZUAEBUFRas+1N23G/sm7bZnRkMc1P4bAAN9fOk9N1ZuZ1kbOSk5/KMKGuj
+	5lzz+Sfg/fKcnn3vXdbjYQ7yyLjy0FgK8zO0cbnQ=
+Received: by mx.zohomail.com with SMTPS id 1769006729407368.49240407291063;
+	Wed, 21 Jan 2026 06:45:29 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH v7 00/22] Add new general DRM property "color format"
+Date: Wed, 21 Jan 2026 15:45:07 +0100
+Message-Id: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 21/22] media: rockchip: rga: add rga3 support
-To: Nicolas Dufresne <nicolas@ndufresne.ca>,
- Jacob Chen <jacob-chen@iotwrt.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, kernel@pengutronix.de
-References: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
- <20251203-spu-rga3-v2-21-989a67947f71@pengutronix.de>
- <e85f35648ce5d4b969d7305c8cde0a21488a2340.camel@ndufresne.ca>
-Content-Language: en-US
-From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-In-Reply-To: <e85f35648ce5d4b969d7305c8cde0a21488a2340.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23QS27DIBAG4KtYrEvK4Ae2V71HVUU8E1TbJJigV
+ lHu3rGbVqnVFRpGfPwzVzLb6O1M+uJKos1+9mHCQjwVRB/ldLDUG6wJZ7wGxluqwxAidSGOMtG
+ qcwY7SkBbEnxyitb5j5V7fcPaxTDSdIxW/iKsA4CSibLbVV3ZUKCjjP4y7/IgzQvqg1Qhyp0O4
+ 12M9nzBXOmbJUrOFlOMo099YSL6/vR8P8lj7L5YQ/MS6NJW0Ru8l8MQND3YdLqk5X4f3N75yez
+ v/XeDbRyCOsWYbitd81r2Gcgyz9HPKcTPdVu5WuOsfwCIv4vJFWWUGWsEVwZQ2ky2YLl+ALabz
+ TUCTWlb7sAosPAf0PwADQMOG6BBQKgWpBCgDVNb4Ha7fQH/Pho6/gEAAA==
+X-Change-ID: 20251028-color-format-49fd202b7183
+To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+ Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>
+Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-doc@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Werner Sembach <wse@tuxedocomputers.com>, 
+ Andri Yngvason <andri@yngvason.is>, Marius Vlad <marius.vlad@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_064056_084008_A44E9DF3 
-X-CRM114-Status: GOOD (  44.64  )
+X-CRM114-CacheID: sfid-20260121_064612_344762_D4534DDF 
+X-CRM114-Status: GOOD (  37.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,802 +106,272 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+Hello,
 
-On 12/24/25 5:34 PM, Nicolas Dufresne wrote:
-> Hi,
->
-> Le mercredi 03 décembre 2025 à 16:52 +0100, Sven Püschel a écrit :
->> Add support for the RGA3 unit contained in the RK3588.
->>
->> Only a basic feature set consisting of scaling and color conversion is
->> implemented. Also the BT601F color space conversion is currently hard
->> coded. Currently unimplemented features include:
->> - Advanced formats like 10bit YUV, FBCE mode and Tile8x8 mode
->> - Colorspace conversions functions BT601L, BT709, BT2020
-> This one I already raised in v1 as problematic omission. I applied the changes
-> locally and just ran few conversions that I saved to PNG, and I could
-> immediately see that range handling and colors are all over the place. Comparing
-> reference against conversion very often show difference in brighness or small
-> discoloration. On top of which, the compliance is failing.
->
-> More investigation needed, but I suspect the implementation is a little too
-> loose. Not handling any of it while accepting to do YCbCr to RGB (or vis-versa)
-> incorrect and should be fixed.
+this is a follow-up to
+https://lore.kernel.org/all/20250911130739.4936-1-marius.vlad@collabora.com/
+which in of itself is a follow-up to
+https://lore.kernel.org/dri-devel/20240115160554.720247-1-andri@yngvason.is/ where
+a new DRM connector property has been added allowing users to
+force a particular color format.
 
-While I don't know how you tested this, I've reproduced your findings 
-with the following gstreamer 1.26 pipeline:
+That in turn was actually also a follow-up from Werner Sembach's posted at
+https://lore.kernel.org/dri-devel/20210630151018.330354-1-wse@tuxedocomputers.com/
 
-gst-launch-1.0 videotestsrc num-buffers=1 ! 
-video/x-raw,format=RGBA,width=128,height=128 ! v4l2convert ! 
-video/x-raw,format=YUY2 ! videoconvert ! video/x-raw,format=RGBA ! 
-pngenc ! filesink location=/tmp/test.png
+As the number of cooks have reached critical mass, I'm hoping I'll be
+the last person to touch this particular series.
 
-After debugging the GStreamer pipeline, I've found that it didn't 
-consider the colorspace from the driver on it's src pad. Therefore it 
-didn't properly add it to the YUY2 caps, which caused the RGA3 driver to 
-do BT601 full range and videoconvert the default colorspace (i think 
-BT601 limited range). See [1], which fixes the problem.
+We have an implementation in Weston at
+https://gitlab.freedesktop.org/wayland/weston/-/merge_requests/1825 that
+adds support for this property. This patch series has been tested
+against that MR on i915 (HDMI, DP), amdgpu (HDMI, DP) and on rockchip
+(HDMI).
 
-I'd be interested if this also fixes the issue(s) you've noticed.
+You can also manually test this with modetest like so, but beware that
+this is a non-atomic invocation, so testing YUV420 like this will result
+in weird outcomes if only some of the modes support YUV420:
 
+  $ modetest -s 115:1920x1080-60@NV12 -w 115:'color format':4
 
-Sincerely
-     Sven
+where 115 is the connector ID and '4' is the enum value for a particular
+color format.
 
-[1] 
-https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/10582
+General notes on the approach taken by me: instead of silently switching
+to a different format than was explicitly requested, or even worse,
+outputting something to the sink the sink doesn't support, bubble up an
+error to userspace instead. "color format" is a "I want this" type
+property, not a "force this" type property, i.e. the kernel will respect
+the limits imposed by the hardware.
 
->> - Background color (V4L2_CID_BG_COLOR)
->> - Configurable alpha value (V4L2_CID_ALPHA_COMPONENT)
->> - Image flipping (V4L2_CID_HFLIP and V4L2_CID_VFLIP)
->> - Image rotation (V4L2_CID_ROTATE)
->> - Image cropping/composing (VIDIOC_S_SELECTION)
->>
->> The register address defines were copied from the
->> vendor Rockchip kernel sources and slightly adjusted to not start at 0
->> again for the cmd registers.
->>
->> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
->> ---
->>   drivers/media/platform/rockchip/rga/Makefile  |   2 +-
->>   drivers/media/platform/rockchip/rga/rga.c     |   4 +
->>   drivers/media/platform/rockchip/rga/rga.h     |   2 +-
->>   drivers/media/platform/rockchip/rga/rga3-hw.c | 471 ++++++++++++++++++++++++++
->>   drivers/media/platform/rockchip/rga/rga3-hw.h | 190 +++++++++++
->>   5 files changed, 667 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/media/platform/rockchip/rga/Makefile b/drivers/media/platform/rockchip/rga/Makefile
->> index 1bbecdc3d8df2..7326a548f3dc7 100644
->> --- a/drivers/media/platform/rockchip/rga/Makefile
->> +++ b/drivers/media/platform/rockchip/rga/Makefile
->> @@ -1,4 +1,4 @@
->>   # SPDX-License-Identifier: GPL-2.0-only
->> -rockchip-rga-objs := rga.o rga-hw.o rga-buf.o
->> +rockchip-rga-objs := rga.o rga-hw.o rga3-hw.o rga-buf.o
->>   
->>   obj-$(CONFIG_VIDEO_ROCKCHIP_RGA) += rockchip-rga.o
->> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
->> index 65686228b7300..313d875c789bf 100644
->> --- a/drivers/media/platform/rockchip/rga/rga.c
->> +++ b/drivers/media/platform/rockchip/rga/rga.c
->> @@ -843,6 +843,10 @@ static const struct of_device_id rockchip_rga_match[] = {
->>   		.compatible = "rockchip,rk3399-rga",
->>   		.data = &rga2_hw,
->>   	},
->> +	{
->> +		.compatible = "rockchip,rk3588-rga3",
->> +		.data = &rga3_hw,
->> +	},
->>   	{},
->>   };
->>   
->> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
->> index b9c75b5fda4dc..2c5f0330879fa 100644
->> --- a/drivers/media/platform/rockchip/rga/rga.h
->> +++ b/drivers/media/platform/rockchip/rga/rga.h
->> @@ -163,6 +163,6 @@ static inline bool rga_has_internal_iommu(const struct rockchip_rga *rga)
->>   	return rga->hw->has_internal_iommu;
->>   }
->>   
->> -extern const struct rga_hw rga2_hw;
->> +extern const struct rga_hw rga2_hw, rga3_hw;
-> nit: Add a line instead.
->
->>   
->>   #endif
->> diff --git a/drivers/media/platform/rockchip/rga/rga3-hw.c b/drivers/media/platform/rockchip/rga/rga3-hw.c
->> new file mode 100644
->> index 0000000000000..2b8cd639da39b
->> --- /dev/null
->> +++ b/drivers/media/platform/rockchip/rga/rga3-hw.c
->> @@ -0,0 +1,471 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Copyright (C) Pengutronix e.K.
-> No year ?
->
->> + * Author: Sven Püschel <s.pueschel@pengutronix.de>
->> + */
->> +
->> +#include <linux/pm_runtime.h>
->> +#include <linux/bitfield.h>
->> +#include <linux/delay.h>
->> +#include <linux/printk.h>
->> +
->> +#include <media/v4l2-common.h>
->> +
->> +#include "rga3-hw.h"
->> +#include "rga.h"
->> +
->> +static unsigned int rga3_get_scaling(unsigned int src, unsigned int dst)
->> +{
->> +	/*
->> +	 * RGA3 scaling factor calculation as described in chapter 5.4.7 Resize
->> +	 * of the TRM Part 2. The resulting scaling factor is a 16-bit value
->> +	 * and therefore normalized with 2^16.
->> +	 *
->> +	 * While the TRM also mentions (dst-1)/(src-1) for the up-scaling case,
->> +	 * it didn't work as the value always exceeds 16 bit. Flipping the
->> +	 * factors results in a correct up-scaling. This is possible as the
->> +	 * RGA3 has the RGA3_WIN_SCALE_XXX_UP bit to determine if it does
->> +	 * an up or downscale.
->> +	 *
->> +	 * With a scaling factor of 1.0 the calculation technically also
->> +	 * overflows 16 bit. This isn't relevant, as in this case the
->> +	 * RGA3_WIN_SCALE_XXX_BYPASS bit completely skips the scaling operation.
->> +	 */
->> +	if (dst > src) {
->> +		if (((src - 1) << 16) % (dst - 1) == 0)
->> +			return ((src - 1) << 16) / (dst - 1) - 1;
->> +		else
->> +			return ((src - 1) << 16) / (dst - 1);
->> +	} else {
->> +		return ((dst - 1) << 16) / (src - 1) + 1;
->> +	}
->> +}
->> +
->> +/*
->> + * Check if the given format can be captured, as the RGA3 doesn't support all
->> + * input formats also on it's output.
->> + */
->> +static bool rga3_can_capture(const struct rga3_fmt *fmt)
->> +{
->> +	return fmt->hw_format <= RGA3_COLOR_FMT_LAST_OUTPUT;
->> +}
->> +
->> +/*
->> + * Map the transformations to the RGA3 command buffer.
->> + * Currently this is just the scaling settings and a fixed alpha value.
->> + */
->> +static void rga3_cmd_set_trans_info(struct rga_ctx *ctx)
->> +{
->> +	u32 *cmd = ctx->cmdbuf_virt;
->> +	unsigned int src_h, src_w, dst_h, dst_w;
->> +	unsigned int reg;
->> +	u16 hor_scl_fac, ver_scl_fac;
->> +	const struct rga3_fmt *in = ctx->in.fmt;
->> +
->> +	src_h = ctx->in.pix.height;
->> +	src_w = ctx->in.pix.width;
->> +	dst_h = ctx->out.pix.height;
->> +	dst_w = ctx->out.pix.width;
-> These are padded dimensions, I think there should be code here that go pick from
-> the selection rectangles. Can't skip that, its way too common to have 1088 src_h
-> as an example. Otherwise, its not clear what will be result of using a scaling
-> factor while doing 1088 -> 1080, where the 8 lines are actually padding.
->
->> +
->> +	reg = RGA3_WIN0_RD_CTRL - RGA3_FIRST_CMD_REG;
->> +	cmd[reg >> 2] |= FIELD_PREP(RGA3_WIN_SCALE_HOR_UP, dst_w > src_w)
->> +		      |  FIELD_PREP(RGA3_WIN_SCALE_HOR_BYPASS, dst_w == src_w)
->> +		      |  FIELD_PREP(RGA3_WIN_SCALE_VER_UP, dst_h > src_h)
->> +		      |  FIELD_PREP(RGA3_WIN_SCALE_VER_BYPASS, dst_h == src_h);
->> +
->> +	hor_scl_fac = rga3_get_scaling(src_w, dst_w);
->> +	ver_scl_fac = rga3_get_scaling(src_h, dst_h);
->> +	reg = RGA3_WIN0_SCL_FAC - RGA3_FIRST_CMD_REG;
->> +	cmd[reg >> 2] = FIELD_PREP(RGA3_SCALE_HOR_FAC, hor_scl_fac)
->> +		      | FIELD_PREP(RGA3_SCALE_VER_FAC, ver_scl_fac);
->> +
->> +	if (v4l2_format_info(in->fourcc)->has_alpha) {
->> +		/* copy alpha from input */
->> +		reg = RGA3_OVLP_TOP_ALPHA - RGA3_FIRST_CMD_REG;
->> +		cmd[reg >> 2] = FIELD_PREP(RGA3_ALPHA_SELECT_MODE, 1)
->> +			      | FIELD_PREP(RGA3_ALPHA_BLEND_MODE, 1);
->> +		reg = RGA3_OVLP_BOT_ALPHA - RGA3_FIRST_CMD_REG;
->> +		cmd[reg >> 2] = FIELD_PREP(RGA3_ALPHA_SELECT_MODE, 1)
->> +			      | FIELD_PREP(RGA3_ALPHA_BLEND_MODE, 1);
->> +	} else {
->> +		/* just use a 255 alpha value */
->> +		reg = RGA3_OVLP_TOP_CTRL - RGA3_FIRST_CMD_REG;
->> +		cmd[reg >> 2] = FIELD_PREP(RGA3_OVLP_GLOBAL_ALPHA, 0xff)
->> +			      | FIELD_PREP(RGA3_OVLP_COLOR_MODE, 1);
->> +		reg = RGA3_OVLP_BOT_CTRL - RGA3_FIRST_CMD_REG;
->> +		cmd[reg >> 2] = FIELD_PREP(RGA3_OVLP_GLOBAL_ALPHA, 0xff)
->> +			      | FIELD_PREP(RGA3_OVLP_COLOR_MODE, 1);
->> +	}
->> +}
->> +
->> +static void rga3_cmd_set_win0_addr(struct rga_ctx *ctx,
->> +				   const struct rga_addrs *addrs)
->> +{
->> +	u32 *cmd = ctx->cmdbuf_virt;
->> +	unsigned int reg;
->> +
->> +	reg = RGA3_WIN0_Y_BASE - RGA3_FIRST_CMD_REG;
->> +	cmd[reg >> 2] = addrs->y_addr;
->> +	reg = RGA3_WIN0_U_BASE - RGA3_FIRST_CMD_REG;
->> +	cmd[reg >> 2] = addrs->u_addr;
->> +}
->> +
->> +static void rga3_cmd_set_wr_addr(struct rga_ctx *ctx,
->> +				 const struct rga_addrs *addrs)
->> +{
->> +	u32 *cmd = ctx->cmdbuf_virt;
->> +	unsigned int reg;
->> +
->> +	reg = RGA3_WR_Y_BASE - RGA3_FIRST_CMD_REG;
->> +	cmd[reg >> 2] = addrs->y_addr;
->> +	reg = RGA3_WR_U_BASE - RGA3_FIRST_CMD_REG;
->> +	cmd[reg >> 2] = addrs->u_addr;
->> +}
->> +
->> +/* Map the input pixel format to win0 of the comamnd buffer. */
->> +static void rga3_cmd_set_win0_format(struct rga_ctx *ctx)
->> +{
->> +	u32 *cmd = ctx->cmdbuf_virt;
->> +	const struct rga3_fmt *in = ctx->in.fmt;
->> +	const struct rga3_fmt *out = ctx->out.fmt;
->> +	const struct v4l2_format_info *in_fmt, *out_fmt;
->> +	unsigned int src_h, src_w;
->> +	bool r2y, y2r;
->> +	u8 rd_format;
->> +	unsigned int reg;
->> +
->> +	src_h = ctx->in.pix.height;
->> +	src_w = ctx->in.pix.width;
->> +
->> +	in_fmt = v4l2_format_info(in->fourcc);
->> +	out_fmt = v4l2_format_info(out->fourcc);
->> +	r2y = v4l2_is_format_rgb(in_fmt) && v4l2_is_format_yuv(out_fmt);
->> +	y2r = v4l2_is_format_yuv(in_fmt) && v4l2_is_format_rgb(out_fmt);
->> +
->> +	if (in->semi_planar)
->> +		rd_format = RGA3_RDWR_FORMAT_SEMI_PLANAR;
->> +	else
->> +		rd_format = RGA3_RDWR_FORMAT_INTERLEAVED;
->> +
->> +	/* set pixel format and CSC */
->> +	reg = RGA3_WIN0_RD_CTRL - RGA3_FIRST_CMD_REG;
->> +	cmd[reg >> 2] |= FIELD_PREP(RGA3_WIN_PIC_FORMAT, in->hw_format)
->> +		      |  FIELD_PREP(RGA3_WIN_YC_SWAP, in->yc_swap)
->> +		      |  FIELD_PREP(RGA3_WIN_RBUV_SWAP, in->rbuv_swap)
->> +		      |  FIELD_PREP(RGA3_WIN_RD_FORMAT, rd_format)
->> +		      |  FIELD_PREP(RGA3_WIN_R2Y, r2y)
->> +		      |  FIELD_PREP(RGA3_WIN_Y2R, y2r)
->> +		      |  FIELD_PREP(RGA3_WIN_CSC_MODE, RGA3_WIN_CSC_MODE_BT601_F);
-> I'd say don't hardcode BT601 Full-Range. This in fact explains a lot of the
-> weird stuff I've seen so far.
->
-> This IP is extremely limited in CSC, it would be good to limite the choice in
-> try_fmt. Basically BT601 is the only thing that support full range, where the
-> more common BT709 and 2020 coeffiicent are most commonly used. Fortunatly,
-> limited range is more common, I can only guess, but RGB is likely always full
-> range.
->
-> I'm guessing when doing YCbCr to YCbCr the CSC is untouched. Make sure the
-> capture and output format reflects that.
->
-> Nicolas
->
->> +
->> +	/* set stride */
->> +	reg = RGA3_WIN0_VIR_STRIDE - RGA3_FIRST_CMD_REG;
->> +	/* stride needs to be in words */
->> +	cmd[reg >> 2] = ctx->in.pix.plane_fmt[0].bytesperline >> 2;
->> +	reg = RGA3_WIN0_UV_VIR_STRIDE - RGA3_FIRST_CMD_REG;
->> +	/* The Hardware only supports formats with 1/2 planes */
->> +	if (ctx->in.pix.num_planes == 2)
->> +		cmd[reg >> 2] = ctx->in.pix.plane_fmt[1].bytesperline >> 2;
->> +	else
->> +		cmd[reg >> 2] = ctx->in.pix.plane_fmt[0].bytesperline >> 2;
->> +
->> +	/* set size */
->> +	reg = RGA3_WIN0_ACT_SIZE - RGA3_FIRST_CMD_REG;
->> +	cmd[reg >> 2] = FIELD_PREP(RGA3_WIDTH, src_w)
->> +		      | FIELD_PREP(RGA3_HEIGHT, src_h);
->> +	/* no cropping support. Use same value as ACT_SIZE */
->> +	reg = RGA3_WIN0_SRC_SIZE - RGA3_FIRST_CMD_REG;
->> +	cmd[reg >> 2] = FIELD_PREP(RGA3_WIDTH, src_w)
->> +		      | FIELD_PREP(RGA3_HEIGHT, src_h);
->> +}
->> +
->> +static void rga3_cmd_enable_win0(struct rga_ctx *ctx)
->> +{
->> +	u32 *cmd = ctx->cmdbuf_virt;
->> +	unsigned int reg;
->> +
->> +	reg = RGA3_WIN0_RD_CTRL - RGA3_FIRST_CMD_REG;
->> +	cmd[reg >> 2] |= FIELD_PREP(RGA3_WIN_ENABLE, 1);
->> +}
->> +
->> +/* Map the output pixel format to the command buffer */
->> +static void rga3_cmd_set_wr_format(struct rga_ctx *ctx)
->> +{
->> +	u32 *cmd = ctx->cmdbuf_virt;
->> +	const struct rga3_fmt *out = ctx->out.fmt;
->> +	unsigned int dst_h, dst_w;
->> +	u8 wr_format;
->> +	unsigned int reg;
->> +
->> +	dst_h = ctx->out.pix.height;
->> +	dst_w = ctx->out.pix.width;
->> +
->> +	if (out->semi_planar)
->> +		wr_format = RGA3_RDWR_FORMAT_SEMI_PLANAR;
->> +	else
->> +		wr_format = RGA3_RDWR_FORMAT_INTERLEAVED;
->> +
->> +	/* set pixel format */
->> +	reg = RGA3_WR_CTRL - RGA3_FIRST_CMD_REG;
->> +	cmd[reg >> 2] |= FIELD_PREP(RGA3_WR_PIC_FORMAT, out->hw_format)
->> +		      |  FIELD_PREP(RGA3_WR_YC_SWAP, out->yc_swap)
->> +		      |  FIELD_PREP(RGA3_WR_RBUV_SWAP, out->rbuv_swap)
->> +		      |  FIELD_PREP(RGA3_WR_FORMAT, wr_format);
->> +
->> +	/* set stride */
->> +	reg = RGA3_WR_VIR_STRIDE - RGA3_FIRST_CMD_REG;
->> +	/* stride needs to be in words */
->> +	cmd[reg >> 2] = ctx->out.pix.plane_fmt[0].bytesperline >> 2;
->> +	reg = RGA3_WR_PL_VIR_STRIDE - RGA3_FIRST_CMD_REG;
->> +	/* The Hardware only supports formats with 1/2 planes */
->> +	if (ctx->out.pix.num_planes == 2)
->> +		cmd[reg >> 2] = ctx->out.pix.plane_fmt[1].bytesperline >> 2;
->> +	else
->> +		cmd[reg >> 2] = ctx->out.pix.plane_fmt[0].bytesperline >> 2;
->> +
->> +	/* Set size.
->> +	 * As two inputs are not supported, we don't use win1.
->> +	 * Therefore only set the size for win0.
->> +	 */
->> +	reg = RGA3_WIN0_DST_SIZE - RGA3_FIRST_CMD_REG;
->> +	cmd[reg >> 2] = FIELD_PREP(RGA3_WIDTH, dst_w)
->> +		      | FIELD_PREP(RGA3_HEIGHT, dst_h);
->> +}
->> +
->> +static void rga3_cmd_disable_wr_limitation(struct rga_ctx *ctx)
->> +{
->> +	u32 *cmd = ctx->cmdbuf_virt;
->> +	unsigned int reg;
->> +
->> +	/* Use the max value to avoid limiting the write speed */
->> +	reg = RGA3_WR_CTRL - RGA3_FIRST_CMD_REG;
->> +	cmd[reg >> 2] |= FIELD_PREP(RGA3_WR_SW_OUTSTANDING_MAX, 63);
->> +}
->> +
->> +static void rga3_hw_setup_cmdbuf(struct rga_ctx *ctx)
->> +{
->> +	memset(ctx->cmdbuf_virt, 0, RGA3_CMDBUF_SIZE * 4);
->> +
->> +	rga3_cmd_set_win0_format(ctx);
->> +	rga3_cmd_enable_win0(ctx);
->> +	rga3_cmd_set_trans_info(ctx);
->> +	rga3_cmd_set_wr_format(ctx);
->> +	rga3_cmd_disable_wr_limitation(ctx);
->> +}
->> +
->> +static void rga3_hw_start(struct rockchip_rga *rga,
->> +			  struct rga_vb_buffer *src, struct rga_vb_buffer *dst)
->> +{
->> +	struct rga_ctx *ctx = rga->curr;
->> +
->> +	rga3_cmd_set_win0_addr(ctx, &src->dma_addrs);
->> +	rga3_cmd_set_wr_addr(ctx, &dst->dma_addrs);
->> +
->> +	rga_write(rga, RGA3_CMD_ADDR, ctx->cmdbuf_phy);
->> +
->> +	/* sync CMD buf for RGA */
->> +	dma_sync_single_for_device(rga->dev, ctx->cmdbuf_phy,
->> +				   PAGE_SIZE, DMA_BIDIRECTIONAL);
->> +
->> +	/* set to master mode and start the conversion */
->> +	rga_write(rga, RGA3_SYS_CTRL,
->> +		  FIELD_PREP(RGA3_CMD_MODE, RGA3_CMD_MODE_MASTER));
->> +	rga_write(rga, RGA3_INT_EN, FIELD_PREP(RGA3_INT_FRM_DONE, 1));
->> +	rga_write(rga, RGA3_CMD_CTRL,
->> +		  FIELD_PREP(RGA3_CMD_LINE_START_PULSE, 1));
->> +}
->> +
->> +static bool rga3_handle_irq(struct rockchip_rga *rga)
->> +{
->> +	u32 intr;
->> +
->> +	intr = rga_read(rga, RGA3_INT_RAW);
->> +	/* clear all interrupts */
->> +	rga_write(rga, RGA3_INT_CLR, intr);
->> +
->> +	return FIELD_GET(RGA3_INT_FRM_DONE, intr);
->> +}
->> +
->> +static void rga3_get_version(struct rockchip_rga *rga)
->> +{
->> +	u32 version = rga_read(rga, RGA3_VERSION_NUM);
->> +
->> +	rga->version.major = FIELD_GET(RGA3_VERSION_NUM_MAJOR, version);
->> +	rga->version.minor = FIELD_GET(RGA3_VERSION_NUM_MINOR, version);
->> +}
->> +
->> +static struct rga3_fmt rga3_formats[] = {
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_RGB24,
->> +		.hw_format = RGA3_COLOR_FMT_BGR888,
->> +		.rbuv_swap = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_BGR24,
->> +		.hw_format = RGA3_COLOR_FMT_BGR888,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_ABGR32,
->> +		.hw_format = RGA3_COLOR_FMT_BGRA8888,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_RGBA32,
->> +		.hw_format = RGA3_COLOR_FMT_BGRA8888,
->> +		.rbuv_swap = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_XBGR32,
->> +		.hw_format = RGA3_COLOR_FMT_BGRA8888,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_RGBX32,
->> +		.hw_format = RGA3_COLOR_FMT_BGRA8888,
->> +		.rbuv_swap = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_RGB565,
->> +		.hw_format = RGA3_COLOR_FMT_BGR565,
->> +		.rbuv_swap = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_NV12M,
->> +		.hw_format = RGA3_COLOR_FMT_YUV420,
->> +		.semi_planar = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_NV12,
->> +		.hw_format = RGA3_COLOR_FMT_YUV420,
->> +		.semi_planar = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_NV21M,
->> +		.hw_format = RGA3_COLOR_FMT_YUV420,
->> +		.rbuv_swap = 1,
->> +		.semi_planar = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_NV21,
->> +		.hw_format = RGA3_COLOR_FMT_YUV420,
->> +		.rbuv_swap = 1,
->> +		.semi_planar = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_NV16M,
->> +		.hw_format = RGA3_COLOR_FMT_YUV422,
->> +		.semi_planar = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_NV16,
->> +		.hw_format = RGA3_COLOR_FMT_YUV422,
->> +		.semi_planar = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_NV61M,
->> +		.hw_format = RGA3_COLOR_FMT_YUV422,
->> +		.rbuv_swap = 1,
->> +		.semi_planar = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_NV61,
->> +		.hw_format = RGA3_COLOR_FMT_YUV422,
->> +		.rbuv_swap = 1,
->> +		.semi_planar = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_YUYV,
->> +		.hw_format = RGA3_COLOR_FMT_YUV422,
->> +		.yc_swap = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_YVYU,
->> +		.hw_format = RGA3_COLOR_FMT_YUV422,
->> +		.yc_swap = 1,
->> +		.rbuv_swap = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_UYVY,
->> +		.hw_format = RGA3_COLOR_FMT_YUV422,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_VYUY,
->> +		.hw_format = RGA3_COLOR_FMT_YUV422,
->> +		.rbuv_swap = 1,
->> +	},
->> +	/* Input only formats last to keep rga3_enum_format simple */
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_ARGB32,
->> +		.hw_format = RGA3_COLOR_FMT_ABGR8888,
->> +		.rbuv_swap = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_BGRA32,
->> +		.hw_format = RGA3_COLOR_FMT_ABGR8888,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_XRGB32,
->> +		.hw_format = RGA3_COLOR_FMT_ABGR8888,
->> +		.rbuv_swap = 1,
->> +	},
->> +	{
->> +		.fourcc = V4L2_PIX_FMT_BGRX32,
->> +		.hw_format = RGA3_COLOR_FMT_ABGR8888,
->> +	},
->> +};
->> +
->> +static int rga3_enum_format(struct v4l2_fmtdesc *f)
->> +{
->> +	struct rga3_fmt *fmt;
->> +
->> +	if (f->index >= ARRAY_SIZE(rga3_formats))
->> +		return -EINVAL;
->> +
->> +	fmt = &rga3_formats[f->index];
->> +	if (V4L2_TYPE_IS_CAPTURE(f->type) && !rga3_can_capture(fmt))
->> +		return -EINVAL;
->> +
->> +	f->pixelformat = fmt->fourcc;
->> +	return 0;
->> +}
->> +
->> +static void *rga3_adjust_and_map_format(struct v4l2_pix_format_mplane *format,
->> +					bool is_output)
->> +{
->> +	unsigned int i;
->> +
->> +	if (!format)
->> +		return &rga3_formats[0];
->> +
->> +	format->ycbcr_enc = V4L2_YCBCR_ENC_601;
->> +	format->quantization = V4L2_QUANTIZATION_FULL_RANGE;
->> +
->> +	for (i = 0; i < ARRAY_SIZE(rga3_formats); i++) {
->> +		if (!is_output && !rga3_can_capture(&rga3_formats[i]))
->> +			continue;
->> +
->> +		if (rga3_formats[i].fourcc == format->pixelformat)
->> +			return &rga3_formats[i];
->> +	}
->> +
->> +	format->pixelformat = rga3_formats[0].fourcc;
->> +	return &rga3_formats[0];
->> +}
->> +
->> +const struct rga_hw rga3_hw = {
->> +	.card_type = "rga3",
->> +	.has_internal_iommu = false,
->> +	.cmdbuf_size = RGA3_CMDBUF_SIZE,
->> +	.min_width = RGA3_MIN_WIDTH,
->> +	.min_height = RGA3_MIN_HEIGHT,
->> +	/* use output size, as it's a bit smaller than the input size */
->> +	.max_width = RGA3_MAX_OUTPUT_WIDTH,
->> +	.max_height = RGA3_MAX_OUTPUT_HEIGHT,
->> +	.max_scaling_factor = RGA3_MAX_SCALING_FACTOR,
->> +	.stride_alignment = 16,
->> +	.features = 0,
->> +
->> +	.setup_cmdbuf = rga3_hw_setup_cmdbuf,
->> +	.start = rga3_hw_start,
->> +	.handle_irq = rga3_handle_irq,
->> +	.get_version = rga3_get_version,
->> +	.enum_format = rga3_enum_format,
->> +	.adjust_and_map_format = rga3_adjust_and_map_format,
->> +};
->> diff --git a/drivers/media/platform/rockchip/rga/rga3-hw.h b/drivers/media/platform/rockchip/rga/rga3-hw.h
->> new file mode 100644
->> index 0000000000000..fa16b95fb43ba
->> --- /dev/null
->> +++ b/drivers/media/platform/rockchip/rga/rga3-hw.h
->> @@ -0,0 +1,190 @@
->> +/* SPDX-License-Identifier: GPL-2.0-only */
->> +/*
->> + * Copyright (C) Pengutronix e.K.
->> + * Author: Sven Püschel <s.pueschel@pengutronix.de>
->> + */
->> +#ifndef __RGA3_HW_H__
->> +#define __RGA3_HW_H__
->> +
->> +#include <linux/bits.h>
->> +#include <linux/types.h>
->> +
->> +#define RGA3_CMDBUF_SIZE 0x2e
->> +
->> +#define RGA3_MIN_WIDTH 128
->> +#define RGA3_MIN_HEIGHT 128
->> +#define RGA3_MAX_INPUT_WIDTH (8192 - 16)
->> +#define RGA3_MAX_INPUT_HEIGHT (8192 - 16)
->> +#define RGA3_MAX_OUTPUT_WIDTH (8192 - 64)
->> +#define RGA3_MAX_OUTPUT_HEIGHT (8192 - 64)
->> +#define RGA3_MAX_SCALING_FACTOR 8
->> +#define RGA3_RESET_TIMEOUT 1000
->> +
->> +/* Registers address */
->> +/* sys reg */
->> +#define RGA3_SYS_CTRL				0x000
->> +#define RGA3_CMD_CTRL				0x004
->> +#define RGA3_CMD_ADDR				0x008
->> +#define RGA3_MI_GROUP_CTRL			0x00c
->> +#define RGA3_ARQOS_CTRL				0x010
->> +#define RGA3_VERSION_NUM			0x018
->> +#define RGA3_VERSION_TIM			0x01c
->> +#define RGA3_INT_EN				0x020
->> +#define RGA3_INT_RAW				0x024
->> +#define RGA3_INT_MSK				0x028
->> +#define RGA3_INT_CLR				0x02c
->> +#define RGA3_RO_SRST				0x030
->> +#define RGA3_STATUS0				0x034
->> +#define RGA3_SCAN_CNT				0x038
->> +#define RGA3_CMD_STATE				0x040
->> +
->> +/* cmd reg */
->> +#define RGA3_WIN0_RD_CTRL			0x100
->> +#define RGA3_FIRST_CMD_REG			RGA3_WIN0_RD_CTRL
->> +#define RGA3_WIN0_Y_BASE			0x110
->> +#define RGA3_WIN0_U_BASE			0x114
->> +#define RGA3_WIN0_V_BASE			0x118
->> +#define RGA3_WIN0_VIR_STRIDE			0x11c
->> +#define RGA3_WIN0_FBC_OFF			0x120
->> +#define RGA3_WIN0_SRC_SIZE			0x124
->> +#define RGA3_WIN0_ACT_OFF			0x128
->> +#define RGA3_WIN0_ACT_SIZE			0x12c
->> +#define RGA3_WIN0_DST_SIZE			0x130
->> +#define RGA3_WIN0_SCL_FAC			0x134
->> +#define RGA3_WIN0_UV_VIR_STRIDE			0x138
->> +#define RGA3_WIN1_RD_CTRL			0x140
->> +#define RGA3_WIN1_Y_BASE			0x150
->> +#define RGA3_WIN1_U_BASE			0x154
->> +#define RGA3_WIN1_V_BASE			0x158
->> +#define RGA3_WIN1_VIR_STRIDE			0x15c
->> +#define RGA3_WIN1_FBC_OFF			0x160
->> +#define RGA3_WIN1_SRC_SIZE			0x164
->> +#define RGA3_WIN1_ACT_OFF			0x168
->> +#define RGA3_WIN1_ACT_SIZE			0x16c
->> +#define RGA3_WIN1_DST_SIZE			0x170
->> +#define RGA3_WIN1_SCL_FAC			0x174
->> +#define RGA3_WIN1_UV_VIR_STRIDE			0x178
->> +#define RGA3_OVLP_CTRL				0x180
->> +#define RGA3_OVLP_OFF				0x184
->> +#define RGA3_OVLP_TOP_KEY_MIN			0x188
->> +#define RGA3_OVLP_TOP_KEY_MAX			0x18c
->> +#define RGA3_OVLP_TOP_CTRL			0x190
->> +#define RGA3_OVLP_BOT_CTRL			0x194
->> +#define RGA3_OVLP_TOP_ALPHA			0x198
->> +#define RGA3_OVLP_BOT_ALPHA			0x19c
->> +#define RGA3_WR_CTRL				0x1a0
->> +#define RGA3_WR_FBCE_CTRL			0x1a4
->> +#define RGA3_WR_VIR_STRIDE			0x1a8
->> +#define RGA3_WR_PL_VIR_STRIDE			0x1ac
->> +#define RGA3_WR_Y_BASE				0x1b0
->> +#define RGA3_WR_U_BASE				0x1b4
->> +#define RGA3_WR_V_BASE				0x1b8
->> +
->> +/* Registers value */
->> +#define RGA3_COLOR_FMT_YUV420		0x0
->> +#define RGA3_COLOR_FMT_YUV422		0x1
->> +#define RGA3_COLOR_FMT_YUV420_10B	0x2
->> +#define RGA3_COLOR_FMT_YUV422_10B	0x3
->> +/*
->> + * Use memory ordering names
->> + * instead of the datasheet naming RGB formats in big endian order
->> + */
->> +#define RGA3_COLOR_FMT_BGR565		0x4
->> +#define RGA3_COLOR_FMT_BGR888		0x5
->> +#define RGA3_COLOR_FMT_FIRST_HAS_ALPHA	RGA3_COLOR_FMT_BGRA8888
->> +#define RGA3_COLOR_FMT_BGRA8888		0x6
->> +#define RGA3_COLOR_FMT_LAST_OUTPUT	RGA3_COLOR_FMT_BGRA8888
->> +/* the following are only supported as inputs */
->> +#define RGA3_COLOR_FMT_ABGR8888		0x7
->> +/*
->> + * the following seem to be unnecessary,
->> + * as they can be achieved with RB swaps
->> + */
->> +#define RGA3_COLOR_FMT_RGBA8888		0x8
->> +#define RGA3_COLOR_FMT_ARGB8888		0x9
->> +
->> +#define RGA3_RDWR_FORMAT_SEMI_PLANAR	0x1
->> +#define RGA3_RDWR_FORMAT_INTERLEAVED	0x2
->> +
->> +#define RGA3_CMD_MODE_MASTER 0x1
->> +
->> +#define RGA3_WIN_CSC_MODE_BT601_F 0x2
->> +
->> +/* RGA masks */
->> +/* SYS_CTRL */
->> +#define RGA3_CCLK_SRESET BIT(4)
->> +#define RGA3_ACLK_SRESET BIT(3)
->> +#define RGA3_CMD_MODE BIT(1)
->> +
->> +/* CMD_CTRL */
->> +#define RGA3_CMD_LINE_START_PULSE BIT(0)
->> +
->> +/* VERSION_NUM */
->> +#define RGA3_VERSION_NUM_MAJOR GENMASK(31, 28)
->> +#define RGA3_VERSION_NUM_MINOR GENMASK(27, 20)
->> +
->> +/* INT_* */
->> +#define RGA3_INT_FRM_DONE BIT(0)
->> +#define RGA3_INT_DMA_READ_BUS_ERR BIT(2)
->> +#define RGA3_INT_WIN0_FBC_DEC_ERR BIT(5)
->> +#define RGA3_INT_WIN0_HOR_ERR BIT(6)
->> +#define RGA3_INT_WIN0_VER_ERR BIT(7)
->> +#define RGA3_INT_WR_VER_ERR BIT(13)
->> +#define RGA3_INT_WR_HOR_ERR BIT(14)
->> +#define RGA3_INT_WR_BUS_ERR BIT(15)
->> +#define RGA3_INT_WIN0_IN_FIFO_WR_ERR BIT(16)
->> +#define RGA3_INT_WIN0_IN_FIFO_RD_ERR BIT(17)
->> +#define RGA3_INT_WIN0_HOR_FIFO_WR_ERR BIT(18)
->> +#define RGA3_INT_WIN0_HOR_FIFO_RD_ERR BIT(19)
->> +#define RGA3_INT_WIN0_VER_FIFO_WR_ERR BIT(20)
->> +#define RGA3_INT_WIN0_VER_FIFO_RD_ERR BIT(21)
->> +
->> +/* RO_SRST */
->> +#define RGA3_RO_SRST_DONE GENMASK(5, 0)
->> +
->> +/* *_SIZE */
->> +#define RGA3_HEIGHT GENMASK(28, 16)
->> +#define RGA3_WIDTH GENMASK(12, 0)
->> +
->> +/* SCL_FAC */
->> +#define RGA3_SCALE_VER_FAC GENMASK(31, 16)
->> +#define RGA3_SCALE_HOR_FAC GENMASK(15, 0)
->> +
->> +/* WINx_CTRL */
->> +#define RGA3_WIN_CSC_MODE GENMASK(27, 26)
->> +#define RGA3_WIN_R2Y BIT(25)
->> +#define RGA3_WIN_Y2R BIT(24)
->> +#define RGA3_WIN_SCALE_VER_UP BIT(23)
->> +#define RGA3_WIN_SCALE_VER_BYPASS BIT(22)
->> +#define RGA3_WIN_SCALE_HOR_UP BIT(21)
->> +#define RGA3_WIN_SCALE_HOR_BYPASS BIT(20)
->> +#define RGA3_WIN_YC_SWAP BIT(13)
->> +#define RGA3_WIN_RBUV_SWAP BIT(12)
->> +#define RGA3_WIN_RD_FORMAT GENMASK(9, 8)
->> +#define RGA3_WIN_PIC_FORMAT GENMASK(7, 4)
->> +#define RGA3_WIN_ENABLE BIT(0)
->> +
->> +/* COLOR_CTRL */
->> +#define RGA3_OVLP_GLOBAL_ALPHA GENMASK(23, 16)
->> +#define RGA3_OVLP_COLOR_MODE BIT(0)
->> +
->> +/* ALPHA_CTRL */
->> +#define RGA3_ALPHA_SELECT_MODE BIT(4)
->> +#define RGA3_ALPHA_BLEND_MODE GENMASK(3, 2)
->> +
->> +/* WR_CTRL */
->> +#define RGA3_WR_YC_SWAP BIT(20)
->> +#define RGA3_WR_SW_OUTSTANDING_MAX GENMASK(18, 13)
->> +#define RGA3_WR_RBUV_SWAP BIT(12)
->> +#define RGA3_WR_FORMAT GENMASK(9, 8)
->> +#define RGA3_WR_PIC_FORMAT GENMASK(7, 4)
->> +
->> +struct rga3_fmt {
->> +	u32 fourcc;
->> +	u8 hw_format;
->> +	bool rbuv_swap;
->> +	bool yc_swap;
->> +	bool semi_planar;
->> +};
->> +
->> +#endif
+I'm not sure if my drm_bridge change actually achieves what I want in a
+more complex bridge setup. I'd need to either come up with a virtual
+bridge to test these scenarios, or spend some time making a flat flex
+cable adapter for the DSI-HDMI bridge board I have here. Before I invest
+too much time into either of those, I'd like to get some feedback on
+this approach however.
+
+Things I've tested:
+- HDMI (YCbCr 4:4:4 + YCbCr 4:2:2 (8-bit) + RGB + Auto) on RK3588
+- HDMI (YCbCr 4:4:4 + YCbCr 4:2:2 (8-bit) + RGB + Auto) on RK3576
+- HDMI + DP (YCbCr 4:4:4, YCbCr 4:2:0, RGB, Auto) on Intel N97 (i915)
+  DP-MST is untested, but I expect it to work the same.
+- HDMI (YCbCr 4:4:4, YCbCr 4:2:2, YCbCr 4:2:0, RGB, Auto) + DP (YCbCr
+  4:4:4, RGB, Auto) on an AMD Radeon RX 550 (amdgpu). DP-MST is
+  untested.
+
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+Changes in v7:
+- Fix drm_bridge kunit test build failure caused by rebasing across an
+  API change.
+- Make compilers shut up about unused EDID definitions in the test
+  suites.
+- Empty line checkpatch fixes that b4 prep --check didn't catch.
+- Link to v6: https://lore.kernel.org/r/20260121-color-format-v6-0-7b81a771cd0b@collabora.com
+
+Changes in v6:
+- Checkpatch fixes
+- Add drm_bridge.c kerneldoc fix patch to b4 deps so the kernel docs
+  required for every contribution to the subsystem can be built
+- dw-hdmi-qp core has gained the atomic_get_output_bus_fmts bridge func,
+  which allows it to participate in the drm_bridge chain recursive format
+  selection code properly.
+- The Rockchip dw-hdmi-qp integration now no longer reimplements the
+  color format logic (improperly), but reads the bus format of the first
+  bridge as set by the recursive bridge format selection. If the input
+  format is FIXED, it'll use the output format. Otherwise, the input
+  format is used.
+- In the synopsys drivers, YUV422 uses the same bus format as the non-qp
+  hdmi encoder driver. Probably correcter this way. The Rockchip vop2
+  is_yuv function has been extended to recognise this format as well.
+- KUnit tests for drm_bridge chains are now included, which exercise the
+  chain's recursive bus format selection.
+- On HDMI connectors, the drm_bridge bus format selection will try to target
+  the color format that the HDMI layer came up with. This means the AUTO
+  logic is not duplicated for HDMI connectors.
+- The enum conversion function commit gained a function for converting
+  from hdmi_colorspace to drm_color_format, and its author changed as no
+  original code remains anyway. Marius is still included as a
+  Co-developer.
+- Some tests for the HDMI state helper's mode_valid have been written.
+  They are incomplete as we lack a test EDID for a 420-also mode that
+  would violate the clock constraints on RGB. I hacked one together with
+  a hex editor, but it reports a too high of a clock rate, and there's
+  no EDID editor I could find which supports these extension blocks.
+- The color_format KUnit tests have been more heavily parameterised, the
+  auto case absorbed into other tests, and the comments around them
+  rewritten.
+- Add a few paragraphs of documentation that explain the bridge format
+  selection, and how to make use of it in a display driver.
+- Link to v5: https://lore.kernel.org/r/20251128-color-format-v5-0-63e82f1db1e1@collabora.com
+
+Changes in v5:
+- Rebase onto drm-tip
+- Drop DRM_MODE_COLOR_FORMAT_* as an enum
+- Unify DRM_COLOR_FORMAT_NONE and DRM_COLOR_FORMAT_AUTO, with AUTO being
+  0. This makes conversion and general logic much easier.
+- Adjust the drm_color_format enum to not needlessly renumber the
+  existing defines, as it doesn't need to correspond to how HDMI numbers
+  them.
+- Make the DRM-to-HDMI conversion function static inline __pure, because
+  the assembly it generates is tiny, and the function is pure.
+- Don't accept nothing as the list of supported color formats for
+  registration of the property.
+- Drop the per-connector variants of the color format registration
+  function, as it's not needed.
+- drm_hdmi_state_helper: Fix mode_valid rejecting 420-only modes.
+- drm_hdmi_state_helper: Only fall back to YUV420 with
+  DRM_COLOR_FORMAT_AUTO.
+- drm_hdmi_state_helper: Remove redundant AUTO->RGB condition, as the
+  conversion already does this.
+- Add KUnit tests for hdmi_compute_config.
+- drm/bridge: Refactor bus_format_is_color_fmt and add a few more YUV422
+  formats.
+- Register the color format property in drmm_connector_hdmi_init based
+  on the supported HDMI formats passed to it. This means rockchip
+  dw_hdmi_qp no longer needs to register it.
+- amdgpu: Simplify YUV420 logic
+- amdgpu: Don't try to pick YUV444 on YUV420-only modes
+- i915: Try to make behaviour more or less the same as that of the drm
+  hdmi state helper.
+- rockchip dw_hdmi_qp: Set supported HDMI formats
+- rockchip dw_hdmi_qp: Set the right VO GRF values depending on color
+  format.
+- rockchip dw_hdmi_qp: Act on the color format property in this driver,
+  rather than in VOP2, by setting the bus_format appropriately.
+- rockchip VOP2: Can the BCSH-based implementation. BCSH isn't available
+  on all video ports of the hardware, and the code was extremely
+  suspect. Instead, plug into the existing YUV-to-RGB/RGB-to-YUV code,
+  which can be done now that the HDMI driver sets the bus format.
+- A whole bunch of Rockchip VOP2 fixes.
+- Link to v4: https://lore.kernel.org/r/20251117-color-format-v4-0-0ded72bd1b00@collabora.com
+
+Changes in v4:
+- Rebase onto next-20251117
+- Get rid of HDMI_COLORSPACE_AUTO
+- Split hdmi_compute_config change into separate patch
+- Add missing symbol export for color_format_to_hdmi_colorspace to fix
+  builds in certain configurations
+- Drop "drm: Pass supported color formats straight onto drm_bridge"
+- Make dw-hdmi-qp set the platform data's supported color formats as
+  the bridge's supported HDMI color formats
+- drm_hdmi_state_helper: pass requested color format to
+  hdmi_compute_format_bpc if set.
+- drm_bridge: limit the bus formats to those explicitly requested with
+  the color format property during the atomic bridge check call,
+  specifically in drm_atomic_bridge_chain_select_bus_fmts.
+- i915: Remove INTEL_OUTPUT_FORMAT_AUTO, as automatic format selection
+  does not need to involve the hardware state
+- i915: Deduplicate ntel_output_format_to_drm_color_format code by
+  moving it as a static inline __pure function into a shared header
+- i915: rework logic in HDMI, DP and DP-MST output config functions to
+  remove redundant locals, simplify execution flow, and return an error
+  to userspace if an explicit color_format request can't be satisfied.
+- i915: assign myself as the author and make the others Co-developers,
+  so that they don't get the blame for any of my bugs.
+- amdgpu: refactor fill_stream_properties_from_drm_display_mode to
+  improve readability and ensure that impossible color format requests
+  get bubbled up to userspace as errors
+- amdgpu: don't pick YUV444 over RGB.
+- amdgpu: assign authorship to myself, with others as Co-developers, as
+  logic was modified and the blame should fall on me
+- dw_hdmi_qp-rockchip: set the supported color formats platform data
+  member
+- rockchip: remove drm property registration for rk3066_hdmi and
+  inno_hdmi. None of the platforms that use these use vop2 as the
+  video output processor.
+- Link to v3: https://lore.kernel.org/all/20250911130739.4936-1-marius.vlad@collabora.com/
+
+Changes in v3 by mvlad compared to Andri's v2 series:
+- renamed the property to just 'color format'
+- the property is added dynamically similar to the Colorspace property
+- a key point from previous comments was that drivers should advertise
+  the color formats they support and userspace would query EDID and
+  perform an intersection from those color formats which users can
+  further use. With this patch set each driver that adds this property
+  has such list of hard-coded color formats, but fundamentally the idea
+  is that driver can query the HW and do that on its own. The
+  infrastructure is now in place to allow to do that
+- by default the 'AUTO' color format is set. With this patch series that
+  has been introduced as a fallback to RGB. Drivers could further
+  customize this behavour and could perform additional checks on the sink
+  to pick another suitable color format they'd like for AUTO
+- drm_bridge bridge code has been improved to allow initialization with
+  the same color formats list as the DRM connector property. Similarly, bpc
+  pick-up now takes the color format into consideration when deciding
+  which bpc to choose from
+- The new DRM color format re-uses HDMI_COLORPSACE enum and provides an
+  enum translations between the two to avoid touching all other drivers that
+  use HDMI_COLORPSACE enum. I believe at this point that this allows the
+  least amount of disruption and avoids a massive bike shedding around
+  that part
+- a rockchip implementation has been by my colleague Derek Foreman
+- YUV444 color format has been added in i915
+- address comment about "Remove unnecessary SIGNAL_TYPE_HDMI_TYPE_A
+  check" where aconnector might be invalid
+- Link to v2: https://lore.kernel.org/dri-devel/20240115160554.720247-1-andri@yngvason.is/
+
+---
+Andri Yngvason (1):
+      drm: Add new general DRM property "color format"
+
+Nicolas Frattaroli (20):
+      drm: Add enum conversions between DRM_COLOR_FORMAT and HDMI_COLORSPACE
+      drm/bridge: Act on the DRM color format property
+      drm/display: hdmi-state-helper: Act on color format DRM property
+      drm/display: hdmi-state-helper: Try subsampling in mode_valid
+      drm/i915: Implement the "color format" DRM property
+      drm/amdgpu: Implement "color format" DRM property
+      drm/rockchip: Add YUV422 output mode constants for VOP2
+      drm/rockchip: vop2: Fix YUV444 output
+      drm/rockchip: vop2: Add RK3576 to the RG swap special case
+      drm/rockchip: vop2: Recognise 10/12-bit YUV422 as YUV formats
+      drm/rockchip: vop2: Set correct output format for RK3576 YUV422
+      drm/bridge: dw-hdmi-qp: Implement atomic_get_output_bus_fmts
+      drm/rockchip: dw_hdmi_qp: Implement "color format" DRM property
+      drm/rockchip: dw_hdmi_qp: Set supported_formats platdata
+      drm/connector: Register color format property on HDMI connectors
+      drm/tests: hdmi: Add tests for the color_format property
+      drm/tests: hdmi: Add tests for HDMI helper's mode_valid
+      drm/tests: edid: Add __maybe_unused attribute to EDID definitions
+      drm/tests: bridge: Add KUnit tests for bridge chain format selection
+      drm/bridge: Document bridge chain format selection
+
+Werner Sembach (1):
+      drm/amd/display: Remove unnecessary SIGNAL_TYPE_HDMI_TYPE_A check
+
+ Documentation/gpu/drm-kms-helpers.rst              |   6 +
+ drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c  |  88 ++-
+ .../amd/display/amdgpu_dm/amdgpu_dm_mst_types.c    |  13 +
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c       |  64 ++
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  27 +-
+ drivers/gpu/drm/drm_atomic_helper.c                |   5 +
+ drivers/gpu/drm/drm_atomic_uapi.c                  |  11 +
+ drivers/gpu/drm/drm_bridge.c                       | 118 ++-
+ drivers/gpu/drm/drm_connector.c                    | 155 ++++
+ drivers/gpu/drm/i915/display/intel_connector.c     |  11 +
+ drivers/gpu/drm/i915/display/intel_connector.h     |   1 +
+ drivers/gpu/drm/i915/display/intel_display_types.h |  15 +
+ drivers/gpu/drm/i915/display/intel_dp.c            |  55 +-
+ drivers/gpu/drm/i915/display/intel_dp.h            |   4 +
+ drivers/gpu/drm/i915/display/intel_dp_mst.c        |  36 +-
+ drivers/gpu/drm/i915/display/intel_hdmi.c          |  54 +-
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c     | 111 ++-
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.h        |   4 +
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c       |  41 +-
+ drivers/gpu/drm/tests/drm_bridge_test.c            | 812 +++++++++++++++++++++
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 300 ++++++++
+ drivers/gpu/drm/tests/drm_kunit_edid.h             |  27 +-
+ include/drm/drm_connector.h                        |  89 ++-
+ 23 files changed, 1980 insertions(+), 67 deletions(-)
+---
+base-commit: dc0b90be8d513256a6594095731a702287f29602
+change-id: 20251028-color-format-49fd202b7183
+prerequisite-change-id: 20251231-drm-bridge-alloc-getput-drm_of_find_bridge-kdoc-fix-fb00c84c525a:v1
+prerequisite-patch-id: bbdc03403e29a985540228dfa789dbfa47861e4e
+
+Best regards,
+-- 
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
 
