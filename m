@@ -4,87 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A60E9D262B5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:24:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE43C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:25:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lvoFIxQj3mH4EtSmQ7n3oaBkOfeZOq1rP38/Mk5pNKc=; b=VM0W8AiH/Sv9CYFfc3xVrIZo1f
-	TtnXV3Oevwpf0weoVU8C3sf9FwUCWwFBqKGQSG7XN/6hkLPeAFA3q1awrcZwMQidIXUzA+60NJlW+
-	vhYavocbrK+ZJFrDEJYlhaIs2CGFgW+Es9GEe42BGw6m2FbW6RLQoG6OhBtJm8ltWNF+E7CxZ9H10
-	DQSZyDyaSf0adegCcwqa8tg6T1SzTTXHcz/TGJLHCn5bXXMCuC10MSnehy3BoN13TIaLdXHYK88DP
-	YftlK8pmVBArm6za6x/A+WuEothCzKjUBdwGx2hePwVmavbb/tSDAVxRilAwGLQArIWZW1ITjoOla
-	581+hQHA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=14apFWlhTvQWEip5MNwPcJWLuMTuD4gZOFiejLL2siY=; b=jkuzn8SsMFKAqDDMP7+k1b+ZNN
+	Nt/B+EtStCGvMLE+RBz1zG2D8X2tbYZXNaOEPlRIymXlgeVztB00uozarJePsx+jyA5sc7S5bPvP4
+	pHLDtDvAO9DRH5Ib4e98Vx2cyXJFVx6jB/PHOHRVr+r8x9GYibn6Lz/9bldhcarrtgcaZ2NdwTH6K
+	+IlqmtN3j5qHo02CMmCN/YIDDiCqAEkqHUwJBU7ezpPn5QgjU2gLDNTCdzqUAb91C19iPArHj6pIB
+	tLXmg3QezGRj8/C+iywX7ASoiJpHWXkXT8W36FCMvqaC70WjkjqV41h97Y2dtyjirx0cfRvYJ32Dr
+	4/W6xD1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZ7t-00000005acn-2666;
-	Wed, 21 Jan 2026 14:24:05 +0000
+	id 1viZ9K-00000005b2T-2XxF;
+	Wed, 21 Jan 2026 14:25:34 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZ7l-00000005aYT-27RQ
+	id 1viZ9H-00000005b1J-0vGB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 14:23:59 +0000
+	Wed, 21 Jan 2026 14:25:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 950084436C;
-	Wed, 21 Jan 2026 14:23:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 75726C2BCB1;
-	Wed, 21 Jan 2026 14:23:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A54C840A2E;
+	Wed, 21 Jan 2026 14:25:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CD83C4CEF1;
+	Wed, 21 Jan 2026 14:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769005436;
-	bh=rSKVfYfz9N135mnmxWTKekzeluUwhW3UmrKJxAih8R8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=FheyfuLIziWi7CMjBus/rfzNVexMVJ7LJu+Ns9iM6aqx2jFQFierCkP2zElqOthHb
-	 2jpUWhfrr4jiRGeWFvOOn3DsfmVklqjviI++JdLdrGZrr3w/c9jPzxh0zLX9TZ9WEi
-	 5/5YTSHWu20XCRCBMLmM8N/cPZ9KdNmowzywRQxHVO3319AV911GzHzN00goJZWs26
-	 /LUkKTC5g4SACH6C3QD4BqHQ9H+wRYLZPpnTayZTLnzjOK/nLZJeIj/6WsPf5Iknnj
-	 NgZPPez7vdfXg1qsWNpGH1iIyfwSAhifFO7nLcPwDB9wz3dxzl6dqRB10CoCwd+Nrm
-	 5zcHMB1bMa91Q==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6BB28C44502;
-	Wed, 21 Jan 2026 14:23:56 +0000 (UTC)
-From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Wed, 21 Jan 2026 15:23:38 +0100
-Subject: [PATCH RFC v2 4/4] stmmac: s32: enable support for Multi-IRQ mode
+	s=k20201202; t=1769005530;
+	bh=g+4h2F0GqeJM+ILBcEzEWRvalmeCX7blFWNfkF0KDHg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uazv6lAWX5j9HF1yfT3oYBr4JyvwLdoX/BYVlxM0k4Ng1VVODKKG61g19NKt259yl
+	 JMAFPADXGN3YMXHQgum34PyUric6g0KAjQrs71+emhwN0gYkz290hqF+VLvAkPu/pF
+	 Mv1SJnmzycPljh0yQd67++YWsz5J4RBVGVYRa7nvRCuJGKaZ0pqGe1KKyHF7tgik3P
+	 fG1uAK4JGC0ShpaNCO5Ck00lzuQjymCmkgrSBNDzNhjzXUmV4Z4UkeIoJM0pn2JfFp
+	 yc/bjp8C0zyZl3BuX4RZ2skfaKIry6scz5U+WSn8QSucDwkonmZDX4sKLhYCFKznnz
+	 ZFtr3HwApVXAQ==
+Date: Wed, 21 Jan 2026 22:25:26 +0800
+From: Shawn Guo <shawnguo@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Linus Walleij <linusw@kernel.org>, kernel@pengutronix.de,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH] MAINTAINERS: Replace Shawn with Frank as i.MX platform
+ maintainer
+Message-ID: <aXDh1tc3x4aCZG0z@dragon>
+References: <20260121142047.10887-1-shawnguo@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260121-dwmac_multi_irq-v2-4-3b829230d071@oss.nxp.com>
-References: <20260121-dwmac_multi_irq-v2-0-3b829230d071@oss.nxp.com>
-In-Reply-To: <20260121-dwmac_multi_irq-v2-0-3b829230d071@oss.nxp.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, devicetree@vger.kernel.org, 
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769005434; l=3819;
- i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=74RGaLzoIg2YFHeU0p/CYWs0Z4X8UBwxCJa13xx0UtQ=;
- b=4z1wA8YyOVge2MlsBDwF1filHqTcxO5qznswuu0BITrfqUPgdk93OuCEkArMPFXgcvZlVS6AI
- TLRe0UhnAHxAA0luNGhNxlnDvcIPyq4Zn8SWLEgzaFIErg1hMXJJLpB
-X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
- pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
-X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
- auth_id=217
-X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260121142047.10887-1-shawnguo@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_062357_589302_A4E9C77D 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20260121_062531_295379_F34FDA8E 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,115 +72,88 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+Cc Frank
 
-To get enabled Multi-IRQ mode, the driver checks:
-
-  1) property of 'snps,mtl-xx-config' subnode
-     defines 'snps,xx-queues-to-use' bigger then one, ie:
-
-     ethernet@4033c000 {
-         compatible = "nxp,s32g2-dwmac";
-         ...
-         snps,mtl-rx-config = <&mtl_rx_setup>;
-         ...
-
-         mtl_rx_setup: rx-queues-config {
-             snps,rx-queues-to-use = <2>;
-         };
-
-  2) queue based IRQs are set, ie:
-
-     ethernet@4033c000 {
-         compatible = "nxp,s32g2-dwmac";
-         ...
-         interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
-                      /* CHN 0: tx, rx */
-                      <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
-                      <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
-                      /* CHN 1: tx, rx */
-                      <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
-                      <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
-         interrupt-names = "macirq",
-                           "tx-queue-0", "rx-queue-0",
-                           "tx-queue-1", "rx-queue-1";
-
-If those prerequisites are met, the driver switch to Multi-IRQ mode,
-using per-queue IRQs for rx/tx data pathr:
-
-[    1.387045] s32-dwmac 4033c000.ethernet: Multi-IRQ mode (per queue IRQ) selected
-
-Now the driver owns all queues IRQs:
-
-root@s32g399aevb3:~# grep eth /proc/interrupts
- 29:    0    0    0    0    0    0    0    0    GICv3  89 Level   eth0:mac
- 30:    0    0    0    0    0    0    0    0    GICv3  91 Level   eth0:rx-0
- 31:    0    0    0    0    0    0    0    0    GICv3  93 Level   eth0:rx-1
- 32:    0    0    0    0    0    0    0    0    GICv3  95 Level   eth0:rx-2
- 33:    0    0    0    0    0    0    0    0    GICv3  97 Level   eth0:rx-3
- 34:    0    0    0    0    0    0    0    0    GICv3  99 Level   eth0:rx-4
- 35:    0    0    0    0    0    0    0    0    GICv3  90 Level   eth0:tx-0
- 36:    0    0    0    0    0    0    0    0    GICv3  92 Level   eth0:tx-1
- 37:    0    0    0    0    0    0    0    0    GICv3  94 Level   eth0:tx-2
- 38:    0    0    0    0    0    0    0    0    GICv3  96 Level   eth0:tx-3
- 39:    0    0    0    0    0    0    0    0    GICv3  98 Level   eth0:tx-4
-
-Otherwise, if one of the prerequisite don't met, the driver
-continue with MAC IRQ mode:
-
-[    1.387045] s32-dwmac 4033c000.ethernet: MAC IRQ mode selected
-
-And only MAC IRQ will be attached:
-
-root@s32g399aevb3:~# grep eth /proc/interrupts
- 29:    0    0    0    0    0    0    0    0    GICv3  89 Level   eth0:mac
-
-What represents the original MAC IRQ mode and is fully backward
-compatible.
-
-Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-index 5a485ee98fa7..823700219534 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-@@ -2,7 +2,7 @@
- /*
-  * NXP S32G/R GMAC glue layer
-  *
-- * Copyright 2019-2024 NXP
-+ * Copyright 2019-2026 NXP
-  *
-  */
- 
-@@ -149,6 +149,17 @@ static int s32_dwmac_probe(struct platform_device *pdev)
- 	plat->core_type = DWMAC_CORE_GMAC4;
- 	plat->pmt = 1;
- 	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
-+
-+	/* Check for multi-IRQ config. Assumption: symetrical rx/tx queues */
-+	if (plat->rx_queues_to_use > 1 &&
-+	    (res.rx_irq[0] >= 0 || res.tx_irq[0] >= 0)) {
-+		plat->flags |= STMMAC_FLAG_MULTI_MSI_EN;
-+		dev_info(dev, "Multi-IRQ mode (per queue IRQ) selected\n");
-+	} else {
-+		dev_info(dev, "MAC IRQ mode selected\n");
-+	}
-+
-+	plat->flags |= STMMAC_FLAG_MULTI_MSI_EN;
- 	plat->rx_fifo_size = 20480;
- 	plat->tx_fifo_size = 20480;
- 
-
--- 
-2.47.0
-
-
+On Wed, Jan 21, 2026 at 10:20:47PM +0800, Shawn Guo wrote:
+> Shawn is no longer interested in maintaining i.MX platform, and would like
+> to step down.  On the other hand, Frank seems to be the best successor
+> for this role.
+> 
+>  - He has been one of the most outstanding contributors to i.MX platform
+>    in the recent years.
+> 
+>  - He has been actively working as a co-maintainer reviewing i.MX
+>    patches and keep the platform support in good shape.
+> 
+>  - He works for NXP and could be the bridge and coordinator between
+>    NXP internal developers and community contributors.
+> 
+> Signed-off-by: Shawn Guo <shawnguo@kernel.org>
+> ---
+>  MAINTAINERS | 14 +++++++-------
+>  1 file changed, 7 insertions(+), 7 deletions(-)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 5b11839cba9d..a294b4e952a9 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2745,14 +2745,14 @@ F:	arch/arm/include/asm/hardware/dec21285.h
+>  F:	arch/arm/mach-footbridge/
+>  
+>  ARM/FREESCALE IMX / MXC ARM ARCHITECTURE
+> -M:	Shawn Guo <shawnguo@kernel.org>
+> +M:	Frank Li <Frank.Li@nxp.com>
+>  M:	Sascha Hauer <s.hauer@pengutronix.de>
+>  R:	Pengutronix Kernel Team <kernel@pengutronix.de>
+>  R:	Fabio Estevam <festevam@gmail.com>
+>  L:	imx@lists.linux.dev
+>  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  S:	Maintained
+> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git
+> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git
+>  F:	Documentation/devicetree/bindings/firmware/fsl*
+>  F:	Documentation/devicetree/bindings/firmware/nxp*
+>  F:	arch/arm/boot/dts/nxp/imx/
+> @@ -2767,22 +2767,22 @@ N:	mxs
+>  N:	\bmxc[^\d]
+>  
+>  ARM/FREESCALE LAYERSCAPE ARM ARCHITECTURE
+> -M:	Shawn Guo <shawnguo@kernel.org>
+> +M:	Frank Li <Frank.Li@nxp.com>
+>  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  S:	Maintained
+> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git
+> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git
+>  F:	arch/arm/boot/dts/nxp/ls/
+>  F:	arch/arm64/boot/dts/freescale/fsl-*
+>  F:	arch/arm64/boot/dts/freescale/qoriq-*
+>  
+>  ARM/FREESCALE VYBRID ARM ARCHITECTURE
+> -M:	Shawn Guo <shawnguo@kernel.org>
+> +M:	Frank Li <Frank.Li@nxp.com>
+>  M:	Sascha Hauer <s.hauer@pengutronix.de>
+>  R:	Pengutronix Kernel Team <kernel@pengutronix.de>
+>  R:	Stefan Agner <stefan@agner.ch>
+>  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>  S:	Maintained
+> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git
+> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git
+>  F:	arch/arm/boot/dts/nxp/vf/
+>  F:	arch/arm/mach-imx/*vf610*
+>  
+> @@ -20562,7 +20562,7 @@ F:	drivers/pinctrl/pinctrl-amd.c
+>  PIN CONTROLLER - FREESCALE
+>  M:	Dong Aisheng <aisheng.dong@nxp.com>
+>  M:	Fabio Estevam <festevam@gmail.com>
+> -M:	Shawn Guo <shawnguo@kernel.org>
+> +M:	Frank Li <Frank.Li@nxp.com>
+>  M:	Jacky Bai <ping.bai@nxp.com>
+>  R:	Pengutronix Kernel Team <kernel@pengutronix.de>
+>  R:	NXP S32 Linux Team <s32@nxp.com>
+> -- 
+> 2.43.0
+> 
 
