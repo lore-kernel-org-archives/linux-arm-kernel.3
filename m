@@ -4,161 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74E81C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 09:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98F5C44502
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 09:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=J0IAsoHwYXi56wRUJMJaGdOTWAq5HjCDG4C8xjeIq+A=; b=z+1f2iR67jtRMJUybnLatJkThB
-	7nyupLFvMJG2bCTS+XYdWETidqzObAztuiCNsWDclrTC1c/Vl/hIGFv5Unf2+y0r97E1nFn2sIZk7
-	p0iE3limEGypkaJrXAKh0doqy7TwAcLTVnIRFwi8GfWm6O+tDEVUCYejgEByurhW4gza5m5/Ltpdk
-	T6o3xJolcPUJQFcP1OxGt5s73E9DRMvT05LCVzPMCZMGxrGLiF6/nfAdNedWPrZcCGshAJ2t/gFlQ
-	UvTur+aprPvdMIKAlJX8XHVDmFMADuwQMnlUmSfXhq0zKT9/01kO6NudoJ2Zo3au4YEMORlTc/7nq
-	wMBJioTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GSHGaIsWZ0YnveCWlqyCPygExtYlmBkZI3k+7sIdigs=; b=Gl8kdwZxEigjKtN05ppTPw0E0i
+	M67tBVfaO9SQSCpWR8G+jTMeevYprysM5bGlrUGUpfoheE/P6Q+ulTbudvxYPeDwAv1TWjzRmOWQY
+	MFbbdXgYUHaP/6vdPuybglZNg4aHYigrhIZhvvxg+oXa+ivSo1IvhBk5RDksUrKENuOMOKqbY2Fnz
+	TFWEJD8bX8Uu/cPYEmrHx1HKGFvuJDdf055pCgJ/RaMU3IrhxbWd2idE6JAMFBTT9pjd6aWE54Uvw
+	oVwDb/Of0wTWGXypScZKFsPytVooLpTlC6U2HbmvLqITINL9Bn/BL7c3VGLvACO42GqKa/x/n9KCr
+	U3wAHFYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viUoq-00000005Cz6-3deA;
-	Wed, 21 Jan 2026 09:48:08 +0000
-Received: from mail-westeuropeazon11013034.outbound.protection.outlook.com ([52.101.72.34] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1viUpX-00000005D8a-19gJ;
+	Wed, 21 Jan 2026 09:48:51 +0000
+Received: from mail-dl1-x1236.google.com ([2607:f8b0:4864:20::1236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viUoo-00000005CyF-1JRh
+	id 1viUpV-00000005D7D-0BZZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 09:48:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SKvJNqlz253HEvGnBceYEJFYKtQirsFBcnpLT7L6zim8rQK/Ghjtcuk1GIVfMQFQQSNic6korxHgDROg7fBm4/6D2EvBuOXRmZDVukmebSMqtR679lwPqRUr/v9Urr/WQqJZebFIRRH6uWs+Qwo18EhKX4ZjCkHeqz2RadTKA+A8oVpykHQSZaGNCjjBxOcRBOkN+QijrydvdvoZadtNsemJdCBWO92wkYWnU5NvwUbtJPTeos9aLMkK4FRUjofZAphLmwSKlQdGCLTWlKkyjyWhMTclaxY9T6NMDdrGnZZJWJ+LiotmvzKOdvfQmuWWI7mSEgNa6ZQWIB5JPNteAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=J0IAsoHwYXi56wRUJMJaGdOTWAq5HjCDG4C8xjeIq+A=;
- b=AoW2EgRoFL0WMsf3tfGbtopx/hC9J2X4PKMuw5r5aKjT1vwcdlnl2kTzD/dF6EXd2svBjlCspOl3yUwu78TIJwOktAOCqP8DesXfvQbpD5LQlaK7yFnwriB0NwHwJNkGxnFUefysCJspgj3GK9n6GomHhI4PHzoV6OA14lz9C114kRcgxWDdaDk9eIsaNvPuxaoHhwq/zxRVSuQ1sC0W7D2sTFVEy9sDQTVQHb7nR8cpG7rpZptUt6Q9VTGTsq/Gv+FLHJp5iac58y7yIJ7vC7TZ0AV+T5ee+mXMKremd65MeVgnMnjkBLOpn93vkzXh1AvKsIXMmd6rC4h1TC/xiA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=J0IAsoHwYXi56wRUJMJaGdOTWAq5HjCDG4C8xjeIq+A=;
- b=TBRTmc+PE7oMzqEVux83jWCNxmC21JP6TfTfDy0gvirigKncvtIvZ+TZ1pTsn6qsyUADAO33ztmv/nqU4juDVTTxv8By35FKKpP3ew0WQ8MQ4iYtEuXaMxi6EnUX/B9pfGqbSRrNlqImDlpMppJRJyYYKhTE9pvJctcew0IFgq9domL/YteZGwe6F0Yu3Zkp7SXjjoQj9FLeDw034e58h5nrbiEtuYtpUFTpZkTUhnjByxhkDsuRZhnDdJFgdY/XwctUv1YBbiCX+UNqnXC1JMBePdWQH7bMs4+jshY5aPQpvOJcz8NZKuIe35MeUfcxN6zpY/hk7zPk8vKCgBCAVA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14) by PA1PR04MB10865.eurprd04.prod.outlook.com
- (2603:10a6:102:48a::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Wed, 21 Jan
- 2026 09:48:01 +0000
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::c859:7e6d:9345:afe1]) by VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::c859:7e6d:9345:afe1%3]) with mapi id 15.20.9520.009; Wed, 21 Jan 2026
- 09:48:01 +0000
-From: Carlos Song <carlos.song@nxp.com>
-To: andi.shyti@kernel.org,
-	aisheng.dong@nxp.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	vz@mleia.com,
-	pandy.gao@nxp.com,
-	B38611@freescale.com,
-	wsa@kernel.org
-Cc: linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Carlos Song <carlos.song@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [Patch V3] i2c: imx-lpi2c: fix SMBus block read NACK after byte count
-Date: Wed, 21 Jan 2026 17:48:37 +0800
-Message-ID: <20260121094837.2651035-1-carlos.song@nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AS4P195CA0050.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:65a::8) To VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14)
+	Wed, 21 Jan 2026 09:48:50 +0000
+Received: by mail-dl1-x1236.google.com with SMTP id a92af1059eb24-121a0bcd364so8231916c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 01:48:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768988928; cv=none;
+        d=google.com; s=arc-20240605;
+        b=PVdPmdsID6uXyPLsO0jF0RbwYW+RT0oZehMhbQ8GffiHuZ88zH5IMGgzM3oyqhjJ1w
+         M7a4NgKcTZ8lvafYlSlNxoXu2oFo5l5mR8T9zAR4fOJ7VxnZMwhCm6OWxCO6F8ZsVoTk
+         GQIiWDysCanVCUQA4VogOFZLXLDyVDzubrMCYfnbqzu+CZCftpLkvEFS6Nujxl/ZkoMC
+         HcYk52PFC3WOiJeJvfT3zSZvwvp903THrVgQ3BULUdoIvFQeWX1z2aEN+c7VkyNyeAgi
+         KKfxsPPptVrkeCbRTCZxrcAWLe25q3oioLc5R/OfKpv9JD50GRVhuz3NG5AtNJY/RPts
+         diDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=GSHGaIsWZ0YnveCWlqyCPygExtYlmBkZI3k+7sIdigs=;
+        fh=ItTUGNLE3p4dg+BHpYI2bYnC8FTeSQ29lMTHDcV3DZ4=;
+        b=KmbpAM8ibks3OPt9kodffL9C33aReIs6aqty9UWOSLH6Y0FEKoqrjWkJS7te8f327Q
+         2ybBWEHSDfSxlgLhnkkoiM9nTS3utpFZXRRjTTnlwT3lqCVW+3/b6kCMcQWUN1kyYfGt
+         6dXZRdTaaf1A10Wbyi5I3hurVLz7IkL179RIvEbqW1CfKfdyoTH8K7Il55x78G7RqVHX
+         8VvEYm4DtwjmOwEDxqk5HpM62oAnHXb9CBA6neBbfZtyX9WcDkHhdcH7PKo/yFK+ImcR
+         hNhUodqGlHudTdettjOiAHhG6xBcCO0BFTwGr/bG/bdpplTAAPlgUfIfMHXK4JBB9400
+         fcVg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768988928; x=1769593728; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=GSHGaIsWZ0YnveCWlqyCPygExtYlmBkZI3k+7sIdigs=;
+        b=SsjJF1wSCGn/Z9A0bwdQEMfgbZuygqq+IH1fBJ2rdOO4rTEZ0AnHGMrH+OhiVSLR74
+         CcYl8VffEjtSOwoAARf1g3hzZYeMuau1rJajxZNYq9qISrPqYkEnpmmUxrcEdY6HMdzM
+         cHSUz113Mab8aQ6BFkXqgHoOX61eYnJoqwak5VgZZbpPdnQSoMEsynbMKzWPmgrOjbyo
+         Ob1MqyS8WB6tKUnmGm8ipm5SlwUiOs4ELql9ODMF/6j8Medn0YAYksL98xI01XL2QLVH
+         +rlVae8JFJKUpOVP8WIfCYNTzOxnla0ZKfivVOv3DbboLsl6Wjy132JfL/7Mbg8rORVD
+         faUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768988928; x=1769593728;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GSHGaIsWZ0YnveCWlqyCPygExtYlmBkZI3k+7sIdigs=;
+        b=DHEc0HgeYivzU4npTfr38r6B0u1G68icIaPjADsz6zTTFOLq7uWbvvW+ECv/Nbw1RD
+         4DpXBnCaFvamKhl+ehvtFKglt2pxI9th5wt+jhcDB8OvrA9tNK9feTtqQdKCeSqj4oQz
+         NQAAP29tCw0biIeLqq1s8i4OrIuVo9bYRlMUSRhK6HA78530H32bO+xhLALYrFUwbSxT
+         QXyfNg9ROeE8iIqn2cCj1pvnXesccyp6vnPUZtpX6sZ21RhryEixFvlVVWgcmG4bHNVc
+         7Vb4gb1DWLoZKQRR9IYirsr6N92sDTSILc4iO2i4eqxi3dNNX72emqjwxpC0dHjL3Chb
+         birA==
+X-Forwarded-Encrypted: i=1; AJvYcCV9YvtY/6Odsp5rJhbQsPOnUt+VDO/9UEBXGWK3mgPLwizqQ9/qIZD95lfO2FqihyJ9tYWfgE2dagoOKBty5jW4@lists.infradead.org
+X-Gm-Message-State: AOJu0YymNFDvnf/a1dcflvwaVEI9QKH+4NLlWIEkYpGNs2Usxm7u0d0x
+	W8i7WaC3qVokXWaXjsYa+QmzAZkk/AZRkZ2Fxq1/+Ge+UxpIm0ycp3IITxUX1kVgB1fevWSzKvY
+	ISA5j/V6DCtL++aFmccdxi6dwf+rA0pE=
+X-Gm-Gg: AZuq6aJFMyeqhmDPHnstRFPSBYXpHPRduo2hT1q+qdB68fKAJKtxfLhpfDP099wqX0I
+	eVqLoJinMU9xqWN3IWP1BjMaNekfp0jUWUWbodG43zC8EjT7mMn+fBRLXKiEJJglpTU2+HtGn8B
+	0bbUyvXzKqRrioIxGejSPKjBMfpBnDUaqRFXzYcKgCIDTckFE7tHOpBxA0uF0/Y3vywaZmJQixu
+	wLf1rhu2oQE547xhHaqEWxKfUsSaaS73ewEAReANDSBYD7TVuVHePGbnC6N1g8HTurfL4WJRjvq
+	VENETkEs2voOml+EY0tdcepFQVhtVOW19d6GxROolmWwE5ZQjSmZYwqyhK8yR5iZp+TWiE/pAHW
+	dKvK/jfnUJA==
+X-Received: by 2002:a05:7022:1601:b0:11e:3e9:3ea2 with SMTP id
+ a92af1059eb24-1244a791beemr14456344c88.49.1768988927959; Wed, 21 Jan 2026
+ 01:48:47 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11147:EE_|PA1PR04MB10865:EE_
-X-MS-Office365-Filtering-Correlation-Id: 99114791-1cfe-41b0-50f0-08de58d22a87
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|19092799006|366016|376014|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?aF6n3OVkpy8nezUGdp479bD0OM3UfK4G3OEtxiWBH73GACG3A2qylEnLTV8L?=
- =?us-ascii?Q?YNLLHHpKEppJvLUKxldMosv2FzMSmU0lRGJoF27pzoHr7vfZ2yOnSWlYk0Cj?=
- =?us-ascii?Q?sg31JnznaXgW2JzqgD9IuWGyK2paGB+KdQnRcjG27O+/n5j29CBZH0KiS4y9?=
- =?us-ascii?Q?mjzIae9y4awcfR+o+cPTd2Xp5rh4/KSpG8rYRSMDOSDpUIlYaHypWKyWPYun?=
- =?us-ascii?Q?cWe9+1s0pc2BfVHaJ0nCgqYJhniTWHOH4Msx+jYpT+/3plUFksfua1PdNQpH?=
- =?us-ascii?Q?9RATLbmW3cFm2Ub2LSmT50T5t6UzHXGmvbs1PYo8ELrVUh5nRFX4lgEffLPo?=
- =?us-ascii?Q?Py+gisbcy4j4eMGjdDuwDKzeFV272A6D2+RWGmM1IYiaBceirTBpweGHsyTB?=
- =?us-ascii?Q?A0rrxzSvSeFe8HPs/943BxNrA44OAIoskjLKNnKayBZ//DUWLn4MReNeVLxA?=
- =?us-ascii?Q?oj+CG2+5uKU4vQFDcx7bbly493SCXTkxMlc+UFxG7t4KVHbcUUrWJER85N28?=
- =?us-ascii?Q?FgOeLcYwOFUyqpTTw2TjgQtvRbKvSvOw7N4teXSqpqJJoUOD79rTBvQfjqbQ?=
- =?us-ascii?Q?lRA5cm/BQ+kmpOmum/WQYi2lGl+jyyTqHSSixLrlosq4aGgiDVxnW071mb4d?=
- =?us-ascii?Q?etUCuj8hNKWHfeESS1kGkTEVNmn21CNW6qVoQd+p2b6O2uHkcqyAlslVscKF?=
- =?us-ascii?Q?kkX1qR8XjZyhNZfcImcA7HOVb4vq4M0mx/XQZNacyC2alLluGQBU2J0nDc1v?=
- =?us-ascii?Q?FqHQRGcGze+tX8Z6JbcRiNziS4/v10sGQFype4rkuYfuY2Lm2Vee5zDgMDDr?=
- =?us-ascii?Q?CvM8Fri1BxDrYQujQyQEOz9CppZhi56LTxjSqS0CxuDWdnGHYxGZi72l9yXY?=
- =?us-ascii?Q?Zhkl4i66jQmrxM/Cs9FQe/BiFZjRjt+CiOWDB+EJIToLkj9rYzxb5yGpHiDo?=
- =?us-ascii?Q?kWrympb0TaBe0R6HI/c3PRG1YZOCxLf5fgMry9E734hF5WiHqPV25SzzRXH/?=
- =?us-ascii?Q?hiCSCyybW4uVwbxrPu3YjM6qIp/k2oTmhp7MofjMIcP9YeFbS8IfXC4TMAcH?=
- =?us-ascii?Q?1eY06mGFjtZiKRbMucSkaWaVdJPgSc2VnklHT4kzCWOHWykj9Q37fflXoKxJ?=
- =?us-ascii?Q?DQfudabvzethAdwLUK4BFxw+Rj6i6wa1hPzCSIFZcM74ulJHXkPNThbpYdDH?=
- =?us-ascii?Q?l89hOHptbg5u3IHvl8oDWdRrly/YWukG6dZgFITtd3hUC3xzCB74QnYDMDgl?=
- =?us-ascii?Q?PKvETIJAII3S+HWKBzOp8wpHRQAnMvRx6OwjYNpWJa69f1mzVOerMLpobnk3?=
- =?us-ascii?Q?OZKfIpkFGmh8MWw0mtWcmjlPxuIYMLVkKedfqNCbnuFzyci/0E2FzME0CeEU?=
- =?us-ascii?Q?YjKwae4PPazmvtBTcPV/QKQ61a3wpsrBNiwq3FmGwDT7hcMLmvoMS5vWRqVK?=
- =?us-ascii?Q?q3lfuOzVPyERpPMWkpInWCjefpWjd4uiPXgKPjqzB14djsiONGC8i+Yt+qwL?=
- =?us-ascii?Q?1DMBP9NTBhi9QDMe1u6UXzhvRnYhIVk68AvzulbzqHyp8VkZEonqg7xfSgug?=
- =?us-ascii?Q?NkanWH+V3R/fX6vJkyRhB8Z8okd4KLknHJkIoi01oqXs0oCaonMz7pRXcJ4I?=
- =?us-ascii?Q?U6jw8dpRWl9J0XLagdm7ZEZzVUU6NviDGmwgL/whfbbQ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(19092799006)(366016)(376014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hVfjNwcU+P7JuKgxrI/b2U2CKzOCAH2FMakfQ5TyBqmb+uPfEmHlX85UaK+Y?=
- =?us-ascii?Q?W0TAsrW7pFY3FDZ+0+UyH9MQL9MD2rvaZKwi2ty5Tai2eJVJ8OZeVIVPAIjp?=
- =?us-ascii?Q?DRecAFmx1PQS5bmCOyU4vldMQmz7B3jRNc2LjICX5SuCUWu2Iibp9LPugvEX?=
- =?us-ascii?Q?zlETW6aNFIaa4X6d+DbgJsKQ3g0qhiLiPZBmbFr9SdxmQiMLyM/v8wrTl1HN?=
- =?us-ascii?Q?D4wgxAj91cLZ//ysGd01g6NAeU486EX1jydyELFwnXuz0wCEOckrY7uUfQEq?=
- =?us-ascii?Q?P4Ozo3sQGLsRlthWA6LZn8v1bquht92Ozo4/MSgfrv8aw4V1GXger39WVthr?=
- =?us-ascii?Q?QsYeentzO6vvt6J4GVxkv3m44gmttKSme53X0xJkbNIuDEHmgtBOBHPqFkPF?=
- =?us-ascii?Q?iloA2uUA0kQE6hBsXHsfBNNpCM7fn7pnqb8aBtsobYHp6jc8loOlTchZlUhi?=
- =?us-ascii?Q?5CqfSGaEF65xiRwwKTILFfhpPxzrvtjZLpe6pcOBEPyG7V9PbIsqPeVGuelu?=
- =?us-ascii?Q?BiGI5owxzM5YPnk+/UjaWVV2rWMzfQy8txamUvF9DvoGlvooNiJWoqCNf8mq?=
- =?us-ascii?Q?VBZulhMdmxz0bMbU5ED8jhquZ1Sai1z/GthabSFwxfxKOTJe8+SOiUNxbixI?=
- =?us-ascii?Q?d8NUaFem/UBEtTSf2WQUyAeq+I+R2Mk8m2S+rtXKL1FEGiXE0q7A+hDado1o?=
- =?us-ascii?Q?4DHbrYhUN/m/CjBrGAGDoBQ52iYiTPIu4nE3O/lAVZz1tYthuxW0eojlXm0i?=
- =?us-ascii?Q?gkvqaLsSOLqPJEW23IpLA8JRA4QlAzgvVYD0hahJ4WH5XM/L0QSWtHjzpzAm?=
- =?us-ascii?Q?IUPC82a79EwoLqkxaU29nFNmBvuHPQR4nI2R/luLyGcvCZ7gPGk2OE9Dd+JK?=
- =?us-ascii?Q?gL56Hd/IsTl/Z6UreDZM6jhQJs3i5eZVIUEOF8VNWRtKIrjJEqmPoUdwzCyO?=
- =?us-ascii?Q?fzekEQruO7Jb0nW7YPyux2T99bL8nePBQjDdnnQu0oc92nE5F2kaFk1WMxE0?=
- =?us-ascii?Q?OMEXEGteV1QlHN2sq6EfYvCZd2un3i3fsnGRGuJZgr4CBvevbe3pq9UhKApn?=
- =?us-ascii?Q?q0dVKlrOz5IbJ1A0omk+1RXBKsqh8RIgaBzQYTtANDRX5ZvhJBRyJMJG3so3?=
- =?us-ascii?Q?w4GiZKFNCFZwvSB+7YqGp0H/XCBlDJo6kKJpGSh94TRZu1qcDDU6P2+viReq?=
- =?us-ascii?Q?Es0hjpNY4Xo6toYcbbTBwUu5baSGTy7aXELtXLQ3kjlV1SBE/mh8+qoaJAgw?=
- =?us-ascii?Q?dMhE8t8MmmNmlW9DblVj1Nceo/lNqLvNd4aveYSFHKaUriYKyucCfebdQyLB?=
- =?us-ascii?Q?+edwe1xVOybCTYlti4td3FXUYTfcM5taW2ixK7MONF2EwFXGcbiPl9+6yXRD?=
- =?us-ascii?Q?8RgfYmV0adGexcM73KrvY8O02Gtbhp4Y20yqdbpKH5L47tsO4U01eb/N1r9O?=
- =?us-ascii?Q?asEdeizqt/8SiVP3iVH5s5oH97n3vXrR1KEqys72M2cWr7xYMR1vOwKjVlbO?=
- =?us-ascii?Q?zBqv9X6ktfiELmbyx+H6qUZifJeNpP2J1wge11ZG2jfNIeDllbEZ1Yrea6cr?=
- =?us-ascii?Q?fgFxlC64/zS18F5/a9CV9I/0gD/nzxR5EhyMq6UVWDczGeIHQEZL7Mu2jlLJ?=
- =?us-ascii?Q?3D7mXalN/FVImY8aiQfi3HRyBGxSpNgpw5hozJo+ciCEKRVTXlwXaClp74NY?=
- =?us-ascii?Q?IiEUGYc7MYoeeePlWPzY+cfKkHkxhuuSiNhsTdHIpEWYcV9DCaqeK09/qtGI?=
- =?us-ascii?Q?uGtVJq8hrw=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 99114791-1cfe-41b0-50f0-08de58d22a87
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2026 09:48:01.7284
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jFpIaZ0rG/qZShwIHL1TRiuUTiqa1vssAmbYAu4BZ6kGURQRJGKosQSeYL+8q7UENWf2u9Vu5c+65aBksqcMHA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10865
+References: <20260120102604.1989725-1-sherry.sun@nxp.com> <20260120102604.1989725-2-sherry.sun@nxp.com>
+ <aW+ullwMtDq0RpNt@lizhi-Precision-Tower-5810> <VI0PR04MB121146CD3EDDE9C4771B83A939296A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+ <2394637b-f85b-47b7-ae30-f7ac2be49c59@kernel.org> <VI0PR04MB1211472ABF4E87D0323D5713A9296A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+In-Reply-To: <VI0PR04MB1211472ABF4E87D0323D5713A9296A@VI0PR04MB12114.eurprd04.prod.outlook.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Wed, 21 Jan 2026 11:51:27 +0200
+X-Gm-Features: AZwV_Qjqfx2U87Bv6XKadV2LQsP0YlPiUuwembG0uAps9TrGxLQ9lqFEOdimBZs
+Message-ID: <CAEnQRZDCNXcAH7kBCPLJm2pPrJ9akXX+ZMW98H7MO8Hptjp3TA@mail.gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: Add i.MX93W EVK board
+To: Sherry Sun <sherry.sun@nxp.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Frank Li <frank.li@nxp.com>, 
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, 
+	"dario.binacchi@amarulasolutions.com" <dario.binacchi@amarulasolutions.com>, 
+	"alexander.stein@ew.tq-group.com" <alexander.stein@ew.tq-group.com>, 
+	"Markus.Niebel@tq-group.com" <Markus.Niebel@tq-group.com>, 
+	"matthias.schiffer@tq-group.com" <matthias.schiffer@tq-group.com>, "y.moog@phytec.de" <y.moog@phytec.de>, 
+	"josua@solid-run.com" <josua@solid-run.com>, Francesco Dolcini <francesco.dolcini@toradex.com>, 
+	"primoz.fiser@norik.com" <primoz.fiser@norik.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
+	"festevam@gmail.com" <festevam@gmail.com>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_014806_510492_A30E4571 
-X-CRM114-Status: GOOD (  23.24  )
+X-CRM114-CacheID: sfid-20260121_014849_086567_EDFBCE95 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,214 +130,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The LPI2C controller sends a NACK at the end of a receive command
-unless another receive command is already queued in MTDR. During
-SMBus block reads, this causes the controller to NACK immediately
-after receiving the block length byte, aborting the transfer before
-the data bytes are read.
+<snip>
 
-Fix this by queueing a second receive command as soon as the block
-length byte is received, keeping MTDR non-empty and ensuring
-continuous ACKs. The initial receive command reads the block length,
-and the subsequent command reads the remaining data bytes according
-to the reported length.
+> > >>> +              - fsl,imx93w-evk            # i.MX93W EVK Board
+> > >>
+> > >> Is 93w 11x11 or 14x14? can you add suffix to keep align existing one.
+> > >>
+> > >
+> > > Hi Frank,
+> > >
+> > > IMX93W-EVK is the official board name, it basically reuse the  i.MX93
+> > > 11x11 EVK board, as described in the cover letter and dts patch. I
+> > > prefer to still use this name (imx93w-evk) to keep align with the board
+> > official name.
+> > It's second case, previous was frdm, with the same argument. I don't care
+> > what you prefer internally. You must align to upstream and all NXP boards are
+> > called soc-foo. Not socfoo.
+>
+> Hi Krzysztof,
+>
+> The soc name is imx93w, the board is basically reuse the i.MX93 11x11 EVK,
+> so do you suggest we name it fsl,imx93w-11x11-evk or fsl,imx93w-evk?
 
-Fixes: a55fa9d0e42e ("i2c: imx-lpi2c: add low power i2c bus driver")
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
-Changes since v2:
-* Change patch name to clear "this is a fix patch".
-* Change patch commit log and clear "what is fixing".
-* Place MSR_RDF_ASSERT(x) by MSR_RDF_ASSERTED(x).
-* Split this lpi2c_SMBus_block_read_single_byte() function to ensure
-  return value is type aligned.
-* Add return value for lpi2c_imx_read_init() to ensure transfer function
-  return directly when meet error in smbus block read length byte stage.
-* Don't read 1 bytes when block_len = 1 individually, insteadly all
-  data bytes are read in IRQ handler or atomic_read function.
-* Improve code comment to clear up every step logic.
----
- drivers/i2c/busses/i2c-imx-lpi2c.c | 106 ++++++++++++++++++++++-------
- 1 file changed, 82 insertions(+), 24 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index 2a3b8d4bb4df..897290e49b36 100644
---- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-+++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -90,6 +90,7 @@
- #define MRDR_RXEMPTY	BIT(14)
- #define MDER_TDDE	BIT(0)
- #define MDER_RDDE	BIT(1)
-+#define MSR_RDF_ASSERTED(x) FIELD_GET(MSR_RDF, (x))
- 
- #define SCR_SEN		BIT(0)
- #define SCR_RST		BIT(1)
-@@ -482,7 +483,7 @@ static bool lpi2c_imx_write_txfifo(struct lpi2c_imx_struct *lpi2c_imx, bool atom
- 
- static bool lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx, bool atomic)
- {
--	unsigned int blocklen, remaining;
-+	unsigned int remaining;
- 	unsigned int temp, data;
- 
- 	do {
-@@ -493,15 +494,6 @@ static bool lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx, bool atomi
- 		lpi2c_imx->rx_buf[lpi2c_imx->delivered++] = data & 0xff;
- 	} while (1);
- 
--	/*
--	 * First byte is the length of remaining packet in the SMBus block
--	 * data read. Add it to msgs->len.
--	 */
--	if (lpi2c_imx->block_data) {
--		blocklen = lpi2c_imx->rx_buf[0];
--		lpi2c_imx->msglen += blocklen;
--	}
--
- 	remaining = lpi2c_imx->msglen - lpi2c_imx->delivered;
- 
- 	if (!remaining) {
-@@ -514,12 +506,7 @@ static bool lpi2c_imx_read_rxfifo(struct lpi2c_imx_struct *lpi2c_imx, bool atomi
- 	lpi2c_imx_set_rx_watermark(lpi2c_imx);
- 
- 	/* multiple receive commands */
--	if (lpi2c_imx->block_data) {
--		lpi2c_imx->block_data = 0;
--		temp = remaining;
--		temp |= (RECV_DATA << 8);
--		writel(temp, lpi2c_imx->base + LPI2C_MTDR);
--	} else if (!(lpi2c_imx->delivered & 0xff)) {
-+	if (!(lpi2c_imx->delivered & 0xff)) {
- 		temp = (remaining > CHUNK_DATA ? CHUNK_DATA : remaining) - 1;
- 		temp |= (RECV_DATA << 8);
- 		writel(temp, lpi2c_imx->base + LPI2C_MTDR);
-@@ -557,18 +544,77 @@ static int lpi2c_imx_write_atomic(struct lpi2c_imx_struct *lpi2c_imx,
- 	return err;
- }
- 
--static void lpi2c_imx_read_init(struct lpi2c_imx_struct *lpi2c_imx,
--				struct i2c_msg *msgs)
-+static unsigned int lpi2c_SMBus_block_read_length_byte(struct lpi2c_imx_struct *lpi2c_imx)
- {
--	unsigned int temp;
-+	unsigned int data;
-+
-+	data = readl(lpi2c_imx->base + LPI2C_MRDR);
-+	lpi2c_imx->rx_buf[lpi2c_imx->delivered++] = data & 0xff;
-+
-+	return data;
-+}
-+
-+static int lpi2c_imx_read_init(struct lpi2c_imx_struct *lpi2c_imx,
-+			       struct i2c_msg *msgs)
-+{
-+	unsigned int temp, val, block_len;
-+	int ret;
- 
- 	lpi2c_imx->rx_buf = msgs->buf;
- 	lpi2c_imx->block_data = msgs->flags & I2C_M_RECV_LEN;
- 
- 	lpi2c_imx_set_rx_watermark(lpi2c_imx);
--	temp = msgs->len > CHUNK_DATA ? CHUNK_DATA - 1 : msgs->len - 1;
--	temp |= (RECV_DATA << 8);
--	writel(temp, lpi2c_imx->base + LPI2C_MTDR);
-+
-+	if (!lpi2c_imx->block_data) {
-+		temp = msgs->len > CHUNK_DATA ? CHUNK_DATA - 1 : msgs->len - 1;
-+		temp |= (RECV_DATA << 8);
-+		writel(temp, lpi2c_imx->base + LPI2C_MTDR);
-+	} else {
-+		/*
-+		 * The LPI2C controller automatically sends a NACK after the last byte of a
-+		 * receive command, unless the next command in MTDR is also a receive command.
-+		 * If MTDR is empty when a receive completes, a NACK is sent by default.
-+		 *
-+		 * To comply with the SMBus block read spec, we start with a 2-byte read:
-+		 * The first byte in RXFIFO is the block length. Once this byte arrives, the
-+		 * controller immediately updates MTDR with the next read command, ensuring
-+		 * continuous ACK instead of NACK.
-+		 *
-+		 * The second byte is the first block data byte. Therefore, the subsequent
-+		 * read command should request (block_len - 1) bytes, since one data byte
-+		 * has already been read.
-+		 */
-+
-+		writel((RECV_DATA << 8) | 0x01, lpi2c_imx->base + LPI2C_MTDR);
-+
-+		ret = readl_poll_timeout(lpi2c_imx->base + LPI2C_MSR, val,
-+					 MSR_RDF_ASSERTED(val), 1, 1000);
-+		if (ret) {
-+			dev_err(&lpi2c_imx->adapter.dev, "SMBus read count failed %d\n", ret);
-+			return ret;
-+		}
-+
-+		/* Read block length byte and confirm this SMBus transfer meets protocol */
-+		block_len = lpi2c_SMBus_block_read_length_byte(lpi2c_imx);
-+		if (block_len == 0 || block_len > I2C_SMBUS_BLOCK_MAX) {
-+			dev_err(&lpi2c_imx->adapter.dev, "Invalid SMBus block read length\n");
-+			return -EPROTO;
-+		}
-+
-+		/*
-+		 * When block_len shows more bytes need to be read, update second read command to
-+		 * keep MTDR non-empty and ensuring continuous ACKs. Only update command register
-+		 * here. All block bytes will be read out at IRQ handler or lpi2c_imx_read_atomic()
-+		 * function.
-+		 */
-+		if (block_len > 1)
-+			writel((RECV_DATA << 8) | (block_len - 2), lpi2c_imx->base + LPI2C_MTDR);
-+
-+		lpi2c_imx->msglen += block_len;
-+		msgs->len += block_len;
-+	}
-+
-+	return 0;
- }
- 
- static bool lpi2c_imx_read_chunk_atomic(struct lpi2c_imx_struct *lpi2c_imx)
-@@ -620,6 +666,10 @@ static bool is_use_dma(struct lpi2c_imx_struct *lpi2c_imx, struct i2c_msg *msg)
- 	if (pm_suspend_in_progress())
- 		return false;
- 
-+	/* DMA is not suitable for SMBus block read */
-+	if (msg->flags & I2C_M_RECV_LEN)
-+		return false;
-+
- 	/*
- 	 * When the length of data is less than I2C_DMA_THRESHOLD,
- 	 * cpu mode is used directly to avoid low performance.
-@@ -630,10 +680,14 @@ static bool is_use_dma(struct lpi2c_imx_struct *lpi2c_imx, struct i2c_msg *msg)
- static int lpi2c_imx_pio_xfer(struct lpi2c_imx_struct *lpi2c_imx,
- 			      struct i2c_msg *msg)
- {
-+	int ret;
-+
- 	reinit_completion(&lpi2c_imx->complete);
- 
- 	if (msg->flags & I2C_M_RD) {
--		lpi2c_imx_read_init(lpi2c_imx, msg);
-+		ret = lpi2c_imx_read_init(lpi2c_imx, msg);
-+		if (ret)
-+			return ret;
- 		lpi2c_imx_intctrl(lpi2c_imx, MIER_RDIE | MIER_NDIE);
- 	} else {
- 		lpi2c_imx_write(lpi2c_imx, msg);
-@@ -645,8 +699,12 @@ static int lpi2c_imx_pio_xfer(struct lpi2c_imx_struct *lpi2c_imx,
- static int lpi2c_imx_pio_xfer_atomic(struct lpi2c_imx_struct *lpi2c_imx,
- 				     struct i2c_msg *msg)
- {
-+	int ret;
-+
- 	if (msg->flags & I2C_M_RD) {
--		lpi2c_imx_read_init(lpi2c_imx, msg);
-+		ret = lpi2c_imx_read_init(lpi2c_imx, msg);
-+		if (ret)
-+			return ret;
- 		return lpi2c_imx_read_atomic(lpi2c_imx, msg);
- 	}
- 
--- 
-2.43.0
-
+As per my understanding from Krzysztof comment this should be  fsl,imx93-w-evk.
+Like soc-foo not socfoo.
 
