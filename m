@@ -4,91 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF609D46951
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 16:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E608D46951
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 16:48:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MrVrJ2R0M9gIk1FFgofj0nCEI69CS6cLVCdJv2vwzhw=; b=y1hWmiWQ8ZPk2SGe0T1yJibWS3
-	InMD6aDHg98Su4XTJpMUOC0U9ADs5a+pbIFpFYrLivbCbKra+R2A9XZ0hs6mHLo+HY3RdjBIRTxE/
-	LausShlo7CkijPGJ0ZzHgmDAQNn2dXnsJn0EuCBqA/5/Q0FY8DLW6QD3AMLzw33vPUUKtOAbihPtl
-	O9FUujnVzxzo1iSWBjrh8hSbdpGlPxJYMkv2tfBUdOmlZzcEeZT3OZroOhPXIc8dWETigtoaD2iMj
-	5e4IMEpr11EhXI3RlEIOGMEk9nWN72J7RUTsBVsNLYxfmMHvf+5LS6KvzfSD7Huo5QuuIoy9S13GD
-	iSQCIFLQ==;
+	bh=ykTbvmHT9/WGpPskvmRNezx6+t+3FtJHW4PlWu+Aw8o=; b=RHi+MICoh2djKHoj1lZE3t3lMY
+	Pa02iMBWjePomg2sF78KOXK/JSOX+8ChxwITqbKzXDdf7/x4PNM+dFpuHdFO1Dyjg7AFVmJtu+u1v
+	57IbOAr9AHHZiO4o1IA9GeMVa1w4yE89crQMPft2SS5cyHtOU0SEOQ29u9PqMJQBGd0BHCH/xilUm
+	4bFb1wgZ3ryijgP8l+XR2Gj9OY1v39pDT0jZQNcsOY60XCiOyIcdezuF6qo9fcMSvP6lK/nGVz7Et
+	uUk5QP+Jho4In/lI3mEgOnKUM2xc+XJrqFa4jvHcintzarnpS4BhVx0ZGGdpsv/nyldvS4ESrgLOB
+	ett7yzSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vibKV-00000005oox-2rkW;
-	Wed, 21 Jan 2026 16:45:15 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vibNa-00000005p5u-3V9D;
+	Wed, 21 Jan 2026 16:48:26 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vibKT-00000005onr-0vT2
+	id 1vibNX-00000005p4b-0yS7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 16:45:14 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47ee3a63300so494005e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 08:45:12 -0800 (PST)
+	Wed, 21 Jan 2026 16:48:26 +0000
+Received: by mail-wm1-x344.google.com with SMTP id 5b1f17b1804b1-47edd9024b1so369305e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 08:48:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769013911; x=1769618711; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MrVrJ2R0M9gIk1FFgofj0nCEI69CS6cLVCdJv2vwzhw=;
-        b=IUMsdJ85NSwnF7Bws+r7fogQ+M27w6uOWyPi1T3L8WDC/VVh5GHMGcfQnyo0oo44q/
-         u0CJyPAy2Zj4si4a2lLwSDS1Po3JrYQzXim76TBsr4FALJewVvO0F4JLjFip+NU7EZk4
-         gPsE6VDLBj19ZQmx71aCDpHBVCT1SAEl7lm8W/9OobH5Z1o+0vXfV2GHzYMqgvylPYw6
-         gvrKPVa1eXiQ/Fh7Ms7u8Aj2sblofyUenvSqLEKqASgd/0+YMgaTmdpM1Bqx6xzGQiVA
-         eHCgfTd00puTbzNvo72dJosIP+Q/bWWrubBVjnUwb/nnVSjy5O7/Qu5KHClbZK4K5wdQ
-         LMxg==
+        d=linaro.org; s=google; t=1769014100; x=1769618900; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ykTbvmHT9/WGpPskvmRNezx6+t+3FtJHW4PlWu+Aw8o=;
+        b=SMmO5TF1nLxodLG0+IgDoRoZkw5lYj2mdlBy8O6NnyzcDpyDWVnuKn7QkSECqOvdzI
+         ofoIsYnUEUO/94lA5qzeAFi5RvY1xf4EWBV7FBu8j/LSh7XOj3kUHYr8QRwj/Da3xCOo
+         kXoAM7NTbHZgxroXBdUAn1d0sWQIlH/UKB8ck8BF/ZLgVz7sq8TPfI3LRz23xgbvBDsx
+         wW15Qu6JCWFHcL2Tqe59WasWEfrEBFVMETRl11/4MqvYbWriYv/zyyGFDnIh7PfQqhhd
+         BgJiMrxd5osNLmrm/tbCcEzAzhJ6x7UjyuC9WjoSCS1+sQKszR7U+e0LYNTu+es5oVQ2
+         n+Ug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769013911; x=1769618711;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=MrVrJ2R0M9gIk1FFgofj0nCEI69CS6cLVCdJv2vwzhw=;
-        b=q5n6TRUCDmonfOEQV4nbhI99gKZHLSR2MnTiaHLztEPebnCWkO6Kz3Jn7rukFltSOE
-         /+l/ILwD7MhlYDHUvI46QbipufgtJIcO/Py0yFMs2b815ot9PQ0rfq95K/HFCdBKa1vb
-         OwT+F9e58qLU4ZPOi2Xp3qhwTSXmpabNp9aqpnRuDZBjNr5Q+KlIiItmBiI85kDWi+OC
-         kEOYz+4XHg8YxEeASGu689L7NpflRG042at5uN88K2AQwhjtCJfSIAgS2FtS34o9+hzm
-         ei23oF7IpohbMFfOeckJGx9wwM6C37E8M2mkqeD36wZB4FSK9SoXUGz3VdRP9CnYxKir
-         mVqg==
-X-Forwarded-Encrypted: i=1; AJvYcCWnhtYMI81lk0tP1GQrCdk9rRUjHflt3MtLt0FYzOhxFVg9W2hYVng0Py7EVafOBjSs5L0nYk2LXWW3fWTaiwxI@lists.infradead.org
-X-Gm-Message-State: AOJu0YysoIjClLb59W5Joa+7OCLyOhqoaXc4DVo2GjE4UcsJaCqPZR7A
-	COfcfhj51DImT74Kx5Hm5otzVN9owaqqsF2kzc7wZ0TsJR6js+SOmLTZyl8lZ6rNNO0=
-X-Gm-Gg: AZuq6aKA33rSuj+D6mCaRZGlxVEdkZO5QgzjbMdEbRLlRINbybqtEKmWtPRd5fAPvfd
-	V+XaYm5QTqi1HT9LQ93r/ExAK3KgqeYtfqgf39JJJHmR/s6/icrrViJjIT60iy05sfh1SqPwFtU
-	q/irnbQMB3P/KTvNVNa9Jw35EnABESh0DYW2GmaXPWHEJuXDeNQXf5Rm4cqEOQxr4tteAAqoBgk
-	S9lgw4EpyuV/mXd/GAzHuoQJ/WLzhOC7ZrQTOOT3bcP4VVf2Ntj2+/Aztf2SQrfAixe2sQdSkzN
-	QClWYH8za2+jxaK3PMUCr/tKjbUo/NRh4VU/wtW3O+dciMbvg6K1PT+aE1ycEqjx2hfUX/0NLYl
-	QFRhhrP2XrQkr4QQoXoSNiHKtwyM5Z/RNbPqgH5OjaY8U3usGezl0yQIiejsRj2OGBRnObPoCdz
-	FRk6OpVUhj+fWqBbFgVqvvJkrefZImFaY=
-X-Received: by 2002:a05:600c:3b17:b0:477:54cd:200e with SMTP id 5b1f17b1804b1-48040a258d6mr85202485e9.1.1769013910648;
-        Wed, 21 Jan 2026 08:45:10 -0800 (PST)
-Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-480470401cbsm1211415e9.4.2026.01.21.08.45.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 21 Jan 2026 08:45:10 -0800 (PST)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: khilman@baylibre.com, jbrunet@baylibre.com, 
- martin.blumenstingl@googlemail.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, Nick Xie <nick@khadas.com>
-Cc: krzk+dt@kernel.org, robh@kernel.org, conor+dt@kernel.org, 
- xieqinick@gmail.com
-In-Reply-To: <20260121014725.122722-1-nick@khadas.com>
-References: <20260121014725.122722-1-nick@khadas.com>
-Subject: Re: [PATCH v2] arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s:
- enable SDIO interface
-Message-Id: <176901390954.10662.8672885431997370730.b4-ty@linaro.org>
-Date: Wed, 21 Jan 2026 17:45:09 +0100
+        d=1e100.net; s=20230601; t=1769014100; x=1769618900;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ykTbvmHT9/WGpPskvmRNezx6+t+3FtJHW4PlWu+Aw8o=;
+        b=M+65lgen0a+Na0gX6OKfR2QIAWXeA9gCPo9+Rbe0pMopRqmL7jzatB6S8iprrBFtiC
+         euhJo1Dm9z1Ug6a1ie74+plmTFDCZIs5QDJP+oBsDXE5IrLUbMZJl1sk5ld6UcFN1OEE
+         cwL/8AeuYOpEpKh/6XjOjkCYSyijgdaGPG7D3s6F1M6Et11oeTB3XzeNOfIETZqiM0+L
+         8Wb4b4IyiXlOmXqrKs8YWjMqp5lZ382r/3nL//+IfLGQsDWxtEzCGyfMpQo34TgUoOHJ
+         vXm9m0+HShxc5+m0y3+EAVlbUhSmC4eN8/Q1LdjjI8nGcHIArLtTL25U/FVr2x4XydGQ
+         37ug==
+X-Forwarded-Encrypted: i=1; AJvYcCWsVubzgPGs5E72ki13W+K2ZGxw2uSiDfbf28X43qiLtoHiB9UcAOhLmL7obcTrVTSVNuq0+u7LQE9zkhlaZRp1@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvixSCEtrsp20G9Vn5A3M3oTCrEvtMnOr/EPvUXkx/vBrHD7AQ
+	BiJQPvrN13RdWe9tblAXR1dqS2+pzKunCNONHnaDavgiqgPN1dFmbdryJVzWO1IuBj4=
+X-Gm-Gg: AZuq6aK61zRfwk68gR5J1jOPbUi216biZgKj8w6o8xOGEVlF41/sDCK71vhtJTOE9KZ
+	GnYYb8Cm4wgEor44z7UOEQVAtsR49MecSvoAEkzDK60EDOSx8UX0n+aSAo/q0jHMUQjBocilg/x
+	UcvZjifl8DjFC13kQ5JUlGOUNb1EN9GN07pecOYzoqoSAosWKabdo2gf/fbXBJ2DTTpxM22l7v1
+	M39hhZUIjOPhon7d8Xg3/QKs1M5VsuGi9mIuy8/Hu2JUlET6ekkWZQMDsA2zUf9udZstTDrQJLX
+	B5qINA4VkKPIv3wkMYZwNPxwp5RTNBM2HDh/KqKOu0wB2e89MJjzSr8pchsJ33Wfh9YspdAxjzs
+	YdrrFpmBNSUGR4popcWb8Yk7G9QkSu/zsU0IhuTrT9F2Xec56airntQNp0OmrchesaS8n5tePCy
+	eEOG74jSmaFESJdOkjE6qVotayjj/pzuHPA7ye3TySU8Elnuhqw5FtJRlKDeWig0s=
+X-Received: by 2002:a05:600c:4587:b0:47e:e952:86c9 with SMTP id 5b1f17b1804b1-4801ea340d1mr232570525e9.0.1769014100219;
+        Wed, 21 Jan 2026 08:48:20 -0800 (PST)
+Received: from ?IPV6:2a05:6e02:1041:c10:ebda:5627:9bc:1ede? ([2a05:6e02:1041:c10:ebda:5627:9bc:1ede])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-480424b64a8sm28528915e9.3.2026.01.21.08.48.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 Jan 2026 08:48:19 -0800 (PST)
+Message-ID: <529bb029-cae6-4c83-bbbf-7f7ea2637431@linaro.org>
+Date: Wed, 21 Jan 2026 17:48:18 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND] thermal: broadcom: Use clamp to simplify
+ bcm2835_thermal_temp2adc
+To: Thorsten Blum <thorsten.blum@linux.dev>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260105121308.1761-1-thorsten.blum@linux.dev>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20260105121308.1761-1-thorsten.blum@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_084513_284442_2834F1DE 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20260121_084823_276379_AC8ABBAE 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,41 +110,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Wed, 21 Jan 2026 09:47:25 +0800, Nick Xie wrote:
-> Enable the SDIO controller interface connected to the on-board
-> AP6256 WiFi/BT module.
+On 1/5/26 13:13, Thorsten Blum wrote:
+> Use clamp() to simplify bcm2835_thermal_temp2adc() and improve its
+> readability. Explicitly cast BIT() to int to prevent a signedness error.
 > 
+> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+> ---
+>   drivers/thermal/broadcom/bcm2835_thermal.c | 8 ++------
+>   1 file changed, 2 insertions(+), 6 deletions(-)
 > 
+> diff --git a/drivers/thermal/broadcom/bcm2835_thermal.c b/drivers/thermal/broadcom/bcm2835_thermal.c
+> index 685a5aee5e0d..c5105dfc6ec9 100644
+> --- a/drivers/thermal/broadcom/bcm2835_thermal.c
 
-Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.20/arm64-dt)
-
-[1/1] arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s: enable SDIO interface
-      https://git.kernel.org/amlogic/c/854583f9992671411bad28bd8a3867afba7cce77
-
-These changes has been applied on the intermediate git tree [1].
-
-The v6.20/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
-for inclusion in their intermediate git branches in order to be sent to Linus during
-the next merge window, or sooner if it's a set of fixes.
-
-In the cases of fixes, those will be merged in the current release candidate
-kernel and as soon they appear on the Linux master branch they will be
-backported to the previous Stable and Long-Stable kernels [2].
-
-The intermediate git branches are merged daily in the linux-next tree [3],
-people are encouraged testing these pre-release kernels and report issues on the
-relevant mailing-lists.
-
-If problems are discovered on those changes, please submit a signed-off-by revert
-patch followed by a corrective changeset.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+Applied, thanks
 
 -- 
-Neil
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
 
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
