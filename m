@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F38F5C44503
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 11:04:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4EB4C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 11:04:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PvHOvd99B0k7tzuarHMyRWVeaES9UJpKYnUM8t+KeLA=; b=yLW0g/T0cjX+lYTXW1xydPsoDd
-	3q2edOVnlx/f4RHjmNHxgp8iOaGgcWYzfTJ8av1psnnKTj4KHuEGn6S/qr8PoW4WEo6Ba89eE3+A0
-	9uzgcFUzetPfP5kZYT4jHWt5WaKou7LGXA7tGgDpUt0nDSoVZYyASFJEeSj/8VMtKK+x15j4Go4Mn
-	TXDU18+Tvb5miqkaWk5QGjAoiEnX4HlrLXM5sT3xrP1TCZOXSAnbiF6tgAluQx1pvcybrgTIYdQbx
-	9M231rUeHbr0FqBwi84iCH5BFSkUZ++BXcIzwxIa8JBgeeIrqr0YZnHNvINQ29lm/Epx3TLnVogCU
-	RFFMLZPg==;
+	bh=Q9xJi6VAHCUEzm3dN054EmcisgXFfpIHGR5lwkOb/cw=; b=RrK+R8ncNMXwa5wAcjeVJQVuTk
+	03xXHcOq+OJucOpgbA0g43tvMHNWtjDAY6Y4PGOPp36qQ0hhUibbwwnem1bU75Ph6Z3GPD9CBVwY5
+	aJJkk1LWaR1dk5aNCMiPSK9TqU9kERdZ1bH0pv6EMEh94ns+o8vhvgpydkohD0GwOeF6vxRqWx9ck
+	IeH80crOOY5TmfXH8J2jxgC8DkPF5kFAEqeB9AyENPfsKprs2DE+szxb8+/zGqjty+1eTkvxEkiZo
+	amghDrdWso8hhS6SQZ87T8SNL/nlhDF563T+7mOSsutqLDz9yfh3rzPk5pkRoyKl4V7nv2q3PLi5r
+	ESrktZZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viW0F-00000005JlA-0OTX;
-	Wed, 21 Jan 2026 11:03:59 +0000
+	id 1viW0W-00000005Jpk-1gbt;
+	Wed, 21 Jan 2026 11:04:16 +0000
 Received: from sender4-op-o16.zoho.com ([136.143.188.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viW0C-00000005Jjq-1T5k
+	id 1viW0T-00000005Jow-399X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 11:03:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1768993427; cv=none; 
+	Wed, 21 Jan 2026 11:04:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1768993443; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=X8xcatVEFgI3WgDr7sY8+YugmN0FU4LiK2KvwBNEVyG2OAi4OrVm0tE0EHoyaRPvVgwiw/m/p2sM+DVnwIslpO5nkODrPlPP92zQRaxRLIwoEY+iK1Ixsh5X7ss7ZlDyuoG4QE9MeGKDFdhzouHN14MdTBE8Wgg9Nc2mTDzRSug=
+	b=iDTfN+GYmWGpF1sSZ11lnR14TiFZh3OC/Ih137nMp+2sefu85bBNBwzzDbiFNG8yoXOJoWAZSXyxlPIxpMCcfx7uloVHPnJwAruq2ltCeWN3Nz1KEjm1Z4k9MTKFDASaRf4dVQq5UdFNCAkcuWvM/BddIewSoGBcwI1vRLzkzCI=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1768993427; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=PvHOvd99B0k7tzuarHMyRWVeaES9UJpKYnUM8t+KeLA=; 
-	b=Y7ob6IWjXSLFUCkPGic3DXfrinTPsDGtrNc5AmT6MYtJfBzn4qIcfE/CTAyY6p1I724lASU8hjDYStPwF2vHssa3CSJ+m+aJZcJZtTJ5Z3zvKjngJP8WWg/vnSE4YQBmSATSvYoooCJlJpUvo5bIQTLK0oUsTpU96UaQRkntn+Y=
+	t=1768993443; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Q9xJi6VAHCUEzm3dN054EmcisgXFfpIHGR5lwkOb/cw=; 
+	b=Ca78poVEBiD+NghCzY024n0Gv3UYAjMHSAWWfc/+i4W38Rpued1SsOqXx1Tl3w9J4pLuT46KQGvSN+i7gGkbm1hePKWX+NJKy24h+dsRvfFmAOPVmXquxqS/RHHDI3Rcy9R0sFKXQWR1kNDqCJ35XTjuAyrZ8IuDxfBTmJidy8E=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=pigmoral.tech;
 	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
 	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768993427;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768993443;
 	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=PvHOvd99B0k7tzuarHMyRWVeaES9UJpKYnUM8t+KeLA=;
-	b=Oh4tjiMt3dNTcDzTwbnYI9QL1WdjCyMlXmKtB638z1RwwNpCimLkDP4OgSPEw5BT
-	ABdLLK9PdSraqyZPg91BMyrQ9ebhXYfk6odUcLmqS7f9gpRyeddwi789yL2ZScIBs0o
-	JXXBC2xFP5EA1WijPVL5B13HiezrI1dWu7fy9+3U=
-Received: by mx.zohomail.com with SMTPS id 1768993424817370.07718841329984;
-	Wed, 21 Jan 2026 03:03:44 -0800 (PST)
+	bh=Q9xJi6VAHCUEzm3dN054EmcisgXFfpIHGR5lwkOb/cw=;
+	b=TgZjJLE+/3LfqohAS1g2WUBUaPANu6Boa3mjmtk1FrjvQlXjMxrB29QNHs3y+71N
+	NEMROp13HrdHf9vnuQHEotkvK74UfKweRhU8uykp2y17Gf02Wq+x73sEP/hOB0PiK3l
+	uSWtvZ/fK5vNBPWeur3uS8OkaKHaa2CSSwwoKnUI=
+Received: by mx.zohomail.com with SMTPS id 1768993442305964.352987418435;
+	Wed, 21 Jan 2026 03:04:02 -0800 (PST)
 From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Wed, 21 Jan 2026 18:59:08 +0800
-Subject: [PATCH 2/7] rtc: sun6i: Bind internal CCU via auxiliary bus
+Date: Wed, 21 Jan 2026 18:59:09 +0800
+Subject: [PATCH 3/7] clk: sunxi-ng: sun6i-rtc: Add feature bit for IOSC
+ calibration
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260121-a733-rtc-v1-2-d359437f23a7@pigmoral.tech>
+Message-Id: <20260121-a733-rtc-v1-3-d359437f23a7@pigmoral.tech>
 References: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech>
 In-Reply-To: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -68,17 +69,17 @@ Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
  Junhui Liu <junhui.liu@pigmoral.tech>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768993386; l=6782;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768993386; l=3422;
  i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
- bh=XrhXYqswxIwIvROOe902KdWGRTTB1HlGHLw5IfuBL9M=;
- b=79FxhVb8WHnaGsdnfzjPoMgq5oPS7LsgpMPXplBqQ4erQG4lEvglmFrRtYZqZMkgcMopkxuj9
- 6hXDNVB3STDDGA/6p1WI5oyKVyQhQxGuNx+p1lMrafR6s3V8TR6GSs/
+ bh=EaZwUZOL/6KRK5E3haLUyKQNLv0B7SELQtluH9yrJLU=;
+ b=UOl1J6qZ2N2m3kr+ssXubB+UY59HWZGQsOMSAIyLazGm1HLOdoP/dR/8xP4BC17QNEHm6JzQ6
+ NTr7syE0uSxBbQsuBFT80Y6HLE/5dwOBOzNIwmT0u96arwwE7OQLsKN
 X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
  pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_030356_454748_69A07023 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20260121_030413_830316_1CA624BB 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,209 +94,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The sun6i RTC block contains an internal clock control unit (CCU).
-Currently, the RTC driver binds this CCU part by directly calling a
-probe function exported by the clock framework. This creates a tight
-coupling between the RTC and clock drivers and makes it difficult to
-add internal CCU support for new SoCs.
+The sun6i-rtc CCU driver currently uses a global static variable to
+denote whether calibration is supported, which makes IOSC operations
+tightly coupled to this file.
 
-Switch to use the auxiliary bus for binding the internal CCU to
-decouple the drivers.
+Convert this into a feature bit to decouple the logic. This allows the
+IOSC clock code to be moved into a shared module for reuse by other SoCs.
 
 Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
- drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 29 +++++++++++++++++++++++------
- drivers/rtc/rtc-sun6i.c              | 31 +++++++++++++++++++++++--------
- include/linux/clk/sunxi-ng.h         |  2 --
- 3 files changed, 46 insertions(+), 16 deletions(-)
+ drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 17 +++++++++--------
+ drivers/clk/sunxi-ng/ccu_common.h    |  1 +
+ 2 files changed, 10 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-index f6bfeba009e8..3088f247d927 100644
+index 3088f247d927..6f888169412c 100644
 --- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
 +++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-@@ -3,6 +3,7 @@
- // Copyright (c) 2021 Samuel Holland <samuel@sholland.org>
- //
- 
-+#include <linux/auxiliary_bus.h>
- #include <linux/clk.h>
- #include <linux/clk-provider.h>
- #include <linux/device.h>
-@@ -11,8 +12,6 @@
- #include <linux/of.h>
- #include <linux/of_device.h>
- 
--#include <linux/clk/sunxi-ng.h>
--
- #include "ccu_common.h"
- 
- #include "ccu_div.h"
-@@ -44,6 +43,8 @@
- #define DCXO_CTRL_REG			0x160
- #define DCXO_CTRL_CLK16M_RC_EN		BIT(0)
- 
-+#define SUN6I_RTC_AUX_ID(_name)		"rtc_sun6i." #_name
-+
- struct sun6i_rtc_match_data {
- 	bool				have_ext_osc32k		: 1;
- 	bool				have_iosc_calibration	: 1;
-@@ -349,14 +350,18 @@ static const struct of_device_id sun6i_rtc_ccu_match[] = {
+@@ -53,8 +53,6 @@ struct sun6i_rtc_match_data {
+ 	u8				osc32k_fanout_nparents;
  };
- MODULE_DEVICE_TABLE(of, sun6i_rtc_ccu_match);
  
--int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
-+static int sun6i_rtc_ccu_probe(struct auxiliary_device *adev,
-+			       const struct auxiliary_device_id *id)
+-static bool have_iosc_calibration;
+-
+ static int ccu_iosc_enable(struct clk_hw *hw)
  {
- 	const struct sun6i_rtc_match_data *data;
- 	struct clk *ext_osc32k_clk = NULL;
- 	const struct of_device_id *match;
-+	struct device *dev = &adev->dev;
-+	void __iomem *reg = dev->platform_data;
-+	struct device *parent = dev->parent;
+ 	struct ccu_common *cm = hw_to_ccu_common(hw);
+@@ -81,7 +79,7 @@ static unsigned long ccu_iosc_recalc_rate(struct clk_hw *hw,
+ {
+ 	struct ccu_common *cm = hw_to_ccu_common(hw);
  
- 	/* This driver is only used for newer variants of the hardware. */
--	match = of_match_device(sun6i_rtc_ccu_match, dev);
-+	match = of_match_device(sun6i_rtc_ccu_match, parent);
- 	if (!match)
+-	if (have_iosc_calibration) {
++	if (cm->features & CCU_FEATURE_IOSC_CALIBRATION) {
+ 		u32 reg = readl(cm->base + IOSC_CLK_CALI_REG);
+ 
+ 		/*
+@@ -120,7 +118,7 @@ static int ccu_iosc_32k_prepare(struct clk_hw *hw)
+ 	struct ccu_common *cm = hw_to_ccu_common(hw);
+ 	u32 val;
+ 
+-	if (!have_iosc_calibration)
++	if (!(cm->features & CCU_FEATURE_IOSC_CALIBRATION))
  		return 0;
  
-@@ -367,9 +372,9 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
+ 	val = readl(cm->base + IOSC_CLK_CALI_REG);
+@@ -135,7 +133,7 @@ static void ccu_iosc_32k_unprepare(struct clk_hw *hw)
+ 	struct ccu_common *cm = hw_to_ccu_common(hw);
+ 	u32 val;
+ 
+-	if (!have_iosc_calibration)
++	if (!(cm->features & CCU_FEATURE_IOSC_CALIBRATION))
+ 		return;
+ 
+ 	val = readl(cm->base + IOSC_CLK_CALI_REG);
+@@ -149,7 +147,7 @@ static unsigned long ccu_iosc_32k_recalc_rate(struct clk_hw *hw,
+ 	struct ccu_common *cm = hw_to_ccu_common(hw);
+ 	u32 val;
+ 
+-	if (have_iosc_calibration) {
++	if (cm->features & CCU_FEATURE_IOSC_CALIBRATION) {
+ 		val = readl(cm->base + IOSC_CLK_CALI_REG);
+ 
+ 		/* Assume the calibrated 32k clock is accurate. */
+@@ -168,7 +166,7 @@ static unsigned long ccu_iosc_32k_recalc_accuracy(struct clk_hw *hw,
+ 	struct ccu_common *cm = hw_to_ccu_common(hw);
+ 	u32 val;
+ 
+-	if (have_iosc_calibration) {
++	if (cm->features & CCU_FEATURE_IOSC_CALIBRATION) {
+ 		val = readl(cm->base + IOSC_CLK_CALI_REG);
+ 
+ 		/* Assume the calibrated 32k clock is accurate. */
+@@ -366,7 +364,10 @@ static int sun6i_rtc_ccu_probe(struct auxiliary_device *adev,
+ 		return 0;
+ 
+ 	data = match->data;
+-	have_iosc_calibration = data->have_iosc_calibration;
++	if (data->have_iosc_calibration) {
++		iosc_clk.features |= CCU_FEATURE_IOSC_CALIBRATION;
++		iosc_32k_clk.features |= CCU_FEATURE_IOSC_CALIBRATION;
++	}
+ 
+ 	if (data->have_ext_osc32k) {
  		const char *fw_name;
+diff --git a/drivers/clk/sunxi-ng/ccu_common.h b/drivers/clk/sunxi-ng/ccu_common.h
+index bbec283b9d99..d9dc24ad5503 100644
+--- a/drivers/clk/sunxi-ng/ccu_common.h
++++ b/drivers/clk/sunxi-ng/ccu_common.h
+@@ -21,6 +21,7 @@
+ #define CCU_FEATURE_CLOSEST_RATE	BIT(9)
+ #define CCU_FEATURE_DUAL_DIV		BIT(10)
+ #define CCU_FEATURE_UPDATE_BIT		BIT(11)
++#define CCU_FEATURE_IOSC_CALIBRATION	BIT(12)
  
- 		/* ext-osc32k was the only input clock in the old binding. */
--		fw_name = of_property_present(dev->of_node, "clock-names")
-+		fw_name = of_property_present(parent->of_node, "clock-names")
- 			? "ext-osc32k" : NULL;
--		ext_osc32k_clk = devm_clk_get_optional(dev, fw_name);
-+		ext_osc32k_clk = devm_clk_get_optional(parent, fw_name);
- 		if (IS_ERR(ext_osc32k_clk))
- 			return PTR_ERR(ext_osc32k_clk);
- 	}
-@@ -392,6 +397,18 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
- 	return devm_sunxi_ccu_probe(dev, reg, &sun6i_rtc_ccu_desc);
- }
- 
-+static const struct auxiliary_device_id sun6i_ccu_rtc_ids[] = {
-+	{ .name = SUN6I_RTC_AUX_ID(sun6i) },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(auxiliary, sun6i_ccu_rtc_ids);
-+
-+static struct auxiliary_driver sun6i_ccu_rtc_driver = {
-+	.probe = sun6i_rtc_ccu_probe,
-+	.id_table = sun6i_ccu_rtc_ids,
-+};
-+module_auxiliary_driver(sun6i_ccu_rtc_driver);
-+
- MODULE_IMPORT_NS("SUNXI_CCU");
- MODULE_DESCRIPTION("Support for the Allwinner H616/R329 RTC CCU");
- MODULE_LICENSE("GPL");
-diff --git a/drivers/rtc/rtc-sun6i.c b/drivers/rtc/rtc-sun6i.c
-index e5e6013d080e..b4489e0a09ce 100644
---- a/drivers/rtc/rtc-sun6i.c
-+++ b/drivers/rtc/rtc-sun6i.c
-@@ -11,9 +11,9 @@
-  * Copyright (c) 2013, Carlo Caione <carlo.caione@gmail.com>
-  */
- 
-+#include <linux/auxiliary_bus.h>
- #include <linux/clk.h>
- #include <linux/clk-provider.h>
--#include <linux/clk/sunxi-ng.h>
- #include <linux/delay.h>
- #include <linux/err.h>
- #include <linux/fs.h>
-@@ -141,6 +141,11 @@ struct sun6i_rtc_clk_data {
- 
- #define RTC_LINEAR_DAY	BIT(0)
- 
-+struct sun6i_rtc_match_data {
-+	const char *adev_name;
-+	unsigned long flags;
-+};
-+
- struct sun6i_rtc_dev {
- 	struct rtc_device *rtc;
- 	const struct sun6i_rtc_clk_data *data;
-@@ -745,8 +750,10 @@ static void sun6i_rtc_bus_clk_cleanup(void *data)
- 
- static int sun6i_rtc_probe(struct platform_device *pdev)
- {
-+	const struct sun6i_rtc_match_data *data;
- 	struct sun6i_rtc_dev *chip = sun6i_rtc;
- 	struct device *dev = &pdev->dev;
-+	struct auxiliary_device *adev;
- 	struct clk *bus_clk;
- 	int ret;
- 
-@@ -765,6 +772,8 @@ static int sun6i_rtc_probe(struct platform_device *pdev)
- 			return ret;
- 	}
- 
-+	data = of_device_get_match_data(&pdev->dev);
-+
- 	if (!chip) {
- 		chip = devm_kzalloc(&pdev->dev, sizeof(*chip), GFP_KERNEL);
- 		if (!chip)
-@@ -776,16 +785,17 @@ static int sun6i_rtc_probe(struct platform_device *pdev)
- 		if (IS_ERR(chip->base))
- 			return PTR_ERR(chip->base);
- 
--		if (IS_REACHABLE(CONFIG_SUN6I_RTC_CCU)) {
--			ret = sun6i_rtc_ccu_probe(dev, chip->base);
--			if (ret)
--				return ret;
-+		if (data && data->adev_name) {
-+			adev = devm_auxiliary_device_create(dev, data->adev_name, chip->base);
-+			if (!adev)
-+				return -ENODEV;
- 		}
- 	}
- 
- 	platform_set_drvdata(pdev, chip);
- 
--	chip->flags = (unsigned long)of_device_get_match_data(&pdev->dev);
-+	if (data)
-+		chip->flags = data->flags;
- 
- 	chip->irq = platform_get_irq(pdev, 0);
- 	if (chip->irq < 0)
-@@ -850,6 +860,11 @@ static int sun6i_rtc_probe(struct platform_device *pdev)
- 	return 0;
- }
- 
-+static const struct sun6i_rtc_match_data sun6i_rtc_match_data = {
-+	.adev_name = "sun6i",
-+	.flags = RTC_LINEAR_DAY,
-+};
-+
- /*
-  * As far as RTC functionality goes, all models are the same. The
-  * datasheets claim that different models have different number of
-@@ -865,9 +880,9 @@ static const struct of_device_id sun6i_rtc_dt_ids[] = {
- 	{ .compatible = "allwinner,sun50i-h5-rtc" },
- 	{ .compatible = "allwinner,sun50i-h6-rtc" },
- 	{ .compatible = "allwinner,sun50i-h616-rtc",
--		.data = (void *)RTC_LINEAR_DAY },
-+		.data = &sun6i_rtc_match_data },
- 	{ .compatible = "allwinner,sun50i-r329-rtc",
--		.data = (void *)RTC_LINEAR_DAY },
-+		.data = &sun6i_rtc_match_data },
- 	{ /* sentinel */ },
- };
- MODULE_DEVICE_TABLE(of, sun6i_rtc_dt_ids);
-diff --git a/include/linux/clk/sunxi-ng.h b/include/linux/clk/sunxi-ng.h
-index 57c8ec44ab4e..cf32123b39f5 100644
---- a/include/linux/clk/sunxi-ng.h
-+++ b/include/linux/clk/sunxi-ng.h
-@@ -9,6 +9,4 @@
- int sunxi_ccu_set_mmc_timing_mode(struct clk *clk, bool new_mode);
- int sunxi_ccu_get_mmc_timing_mode(struct clk *clk);
- 
--int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg);
--
- #endif
+ /* MMC timing mode switch bit */
+ #define CCU_MMC_NEW_TIMING_MODE		BIT(30)
 
 -- 
 2.52.0
