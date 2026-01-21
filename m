@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E39D2629F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 01:00:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3146D262B3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 01:00:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dwst4WrK3wZzcCousQ+xwmGtb3JywZPeJRYqh2LQXWo=; b=FRsEhxr72hAxjgE/0T2FeE6F6l
-	dfTiqDHuRfqlUgZX8I2iq/dCZfydiBwBXXi3mkTfl3FS46ztpfHHDj0R7Lol73/ANBd+uauGNWm1z
-	imvPJO3CL2PWzBPbYXBeV/Ns6/pnV+m0VEdfYyTTBKKGhKP3L3dYGVd/Al6vytwVLSQBN0LqH8ATa
-	p/6LEOVDrnRRCH9rAqzGt1HYJwEfM5/kSkkp+9jieljWEu36kZJzZc+uo7yMalbqc53LGmrNSUqsd
-	aSPShk865Zpzvc7/zN8JyXuSOpZ7qh9ZVB8rTagNC3LS+Xy6rH7YRZ3wHJncuksxP13ciecBs6ePh
-	sYfDWjWg==;
+	bh=dcqUk4SSOVrj2sf9mBUFj/rCmEY8ODklLn1EvBVFnwc=; b=wbjs4+KhyMHnFSAP5nseErFMxJ
+	j8/rqpzkCSvXWldBsMZ5iKb5l96LkVwMotenALTPMz2actb+nmT9+//UCo+fLrzS8c4L3c91TCeOd
+	3Td3SCmzlnwFMoX7kDCeaP3TQ6esnj10BrJ1yL7WM5Wjmt3v6L5M0zEmTyvMEwjwMikMxifKU9DRQ
+	qdk40mtMeZS6Eiw5uEw89aaEamw9373rpfCcHBJjQudZN/2IcTlSO+h3U+E7rIVR4DuAxDuAlMYBq
+	/HdBaZjNMC5E0nJm5ak0HgVq6qQTzoxx8NmvJ6581DhxVwkjyi7ffDLDPVoFw+c842YXrjzAH4ZiK
+	DkqTEXjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viMa1-00000004gU7-0W1D;
-	Wed, 21 Jan 2026 01:00:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1viMa6-00000004gVj-2bUm;
+	Wed, 21 Jan 2026 01:00:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viMZz-00000004gSm-35UD
+	id 1viMZz-00000004gSi-27uW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 01:00:15 +0000
+	Wed, 21 Jan 2026 01:00:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CF96C600CB;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5F0A8443A4;
 	Wed, 21 Jan 2026 01:00:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7AA1CC2BCB0;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2CB3BC19424;
 	Wed, 21 Jan 2026 01:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1768957214;
-	bh=XsHeBPquA+X8hq4tjBVOXmmlym62FAzaGNliMr6+S5k=;
+	bh=vME9erZ8v4/3XnAfc41aTNJXW0Ogk90LyJ2PO02vRi4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=lY9lYTlBwe/NqvbZHlCG8DaF//A9Eu1wnFVse0PYXzztteMvSDk0jScClDcKsAC/6
-	 wPhFHGX4Oy20mllT6jtxevO66Lyw8hjX4f3VhOks7wB6rGH8VM5vAXkecxHaUCbsD9
-	 RWclnzqP9Aj6g+qHt7tpVHjUKPLayDZFJkRenKQ1Cm+9YkDhHe6rQGElypK26d2qV9
-	 xZpieJsgF8LpREnjOasz52LWKKZNYBLcV45r+K3V9OG0CJQf6obyunnsrCfkZIMDyN
-	 7RCGz51Kcplx7egceqq9uY4ugjSw3A0259mvgpJOmPTM9l2Fg1e5qFUdqOk2vUoAUe
-	 fRegVYTicwsLg==
+	b=NkQuit1+YerIgsdmdqI/BDECqvOz01CTzj2LHnEFZcddYZHm8EWI9l9pQPrsIotih
+	 ZzeZL2zKAm81FLHkMg01woe5JGMg4hgVsD7ayb3qLpyUtpRm6XitsAJqxqRRw7cUyJ
+	 HU1K7vF/TY2xNcwRkZnrBbINsEKGYeFMS1yh7/zcS1ffwlO6RCsi+cXT+VmTo1uvEB
+	 AJ9Dk3IIl6XrNZ4mAdXxCJG+j0lldSZkYXp5JmXr6omBxYwDKUup8GJzK+a4wG4Bgr
+	 GD41RO1+JNML9VIdcCL36S4wCgAxwfC1UvkzCm2v3ltEoOqYk4JN0kCzf2ISXcAImZ
+	 N5zbLay+qKGsQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 70161D262B3;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1ACF1D2629F;
 	Wed, 21 Jan 2026 01:00:14 +0000 (UTC)
 From: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>
-Date: Wed, 21 Jan 2026 00:59:39 +0000
-Subject: [PATCH v4 5/5] usb: typec: tcpm/tcpci_maxim: deprecate WAR for
- setting charger mode
+Date: Wed, 21 Jan 2026 00:59:35 +0000
+Subject: [PATCH v4 1/5] dt-bindings: mfd: maxim,max77759: reference
+ power-supply schema and add regulator property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260121-max77759-charger-v4-5-694234c8ded1@google.com>
+Message-Id: <20260121-max77759-charger-v4-1-694234c8ded1@google.com>
 References: <20260121-max77759-charger-v4-0-694234c8ded1@google.com>
 In-Reply-To: <20260121-max77759-charger-v4-0-694234c8ded1@google.com>
 To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -69,18 +69,23 @@ Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
  devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>, 
- Amit Sunil Dhamne <amitsd@google.com>
+ Amit Sunil Dhamne <amitsd@google.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768957213; l=4043;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768957213; l=1953;
  i=amitsd@google.com; s=20241031; h=from:subject:message-id;
- bh=gNnVByQLieKyAsnu80J6+t0cbNJjF7NR+Dggwv66Dvg=;
- b=a2qWTsPaLRBPgYtyC9nrykgm9MHHNBIWDmGasd1ExwNCbAyccZMhE6yNyVEzqdxwL276xA5mi
- 177B1gJG8FpDcyyKsX8HymqgZ4ttdGoNiryQwI+aNtGjKCKqqsTyt3Y
+ bh=a3JQ5uiaaaZKvPLZencodzGQn/qwlSwCMZMZqJW9xWs=;
+ b=/Dkg+PTGUGK0kXU7AFdyUc7uWzaQgeKdzrr+LNPm1d7Z3kGJx+PyKcod2eCmhdDA/0gr8N07g
+ VbQRheR1gV0DqUBOgEvWxytslVvvQoR6kYG6YxRvC4yflAjgDBzQvsT
 X-Developer-Key: i=amitsd@google.com; a=ed25519;
  pk=wD+XZSST4dmnNZf62/lqJpLm7fiyT8iv462zmQ3H6bI=
 X-Endpoint-Received: by B4 Relay for amitsd@google.com/20241031 with
  auth_id=262
 X-Original-From: Amit Sunil Dhamne <amitsd@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260120_170015_593518_C9FE5095 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,124 +103,63 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Amit Sunil Dhamne <amitsd@google.com>
 
-TCPCI maxim driver directly writes to the charger's register space to
-set charger mode depending on the power role. As MAX77759 chg driver
-exists, this WAR is not required.
-
-Instead, use a regulator interface to source vbus when typec is in
-source power mode. In other power modes, this regulator will be turned
-off if active.
+Extend the max77759 binding to reference power-supply schema, so that
+PMIC node can reference its supplier. Also, add regulator property to
+control CHGIN (OTG) voltage.
 
 Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
-Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Reviewed-by: André Draszik <andre.draszik@linaro.org>
 ---
- drivers/usb/typec/tcpm/tcpci_maxim.h      |  1 +
- drivers/usb/typec/tcpm/tcpci_maxim_core.c | 54 +++++++++++++++++++------------
- 2 files changed, 34 insertions(+), 21 deletions(-)
+ .../devicetree/bindings/mfd/maxim,max77759.yaml          | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/usb/typec/tcpm/tcpci_maxim.h b/drivers/usb/typec/tcpm/tcpci_maxim.h
-index b33540a42a953dc6d8197790ee4af3b6f52791ce..b314606eb0f67ddbc80d8760244aa6dee61bebc1 100644
---- a/drivers/usb/typec/tcpm/tcpci_maxim.h
-+++ b/drivers/usb/typec/tcpm/tcpci_maxim.h
-@@ -60,6 +60,7 @@ struct max_tcpci_chip {
- 	struct tcpm_port *port;
- 	enum contamiant_state contaminant_state;
- 	bool veto_vconn_swap;
-+	struct regulator *vbus_reg;
- };
+diff --git a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
+index 525de9ab3c2b7b431e48497330640857540625b1..42e4a84d52043c09bd073dec391a3bd76dbd359b 100644
+--- a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
++++ b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
+@@ -16,6 +16,9 @@ description: |
+   The MAX77759 includes Battery Charger, Fuel Gauge, temperature sensors, USB
+   Type-C Port Controller (TCPC), NVMEM, and a GPIO expander.
  
- static inline int max_tcpci_read16(struct max_tcpci_chip *chip, unsigned int reg, u16 *val)
-diff --git a/drivers/usb/typec/tcpm/tcpci_maxim_core.c b/drivers/usb/typec/tcpm/tcpci_maxim_core.c
-index 19f63865079658fb2a446dc390262d141b940e9a..e9e2405c5ca036e28c307088d4b785726834e71f 100644
---- a/drivers/usb/typec/tcpm/tcpci_maxim_core.c
-+++ b/drivers/usb/typec/tcpm/tcpci_maxim_core.c
-@@ -10,6 +10,7 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/regmap.h>
-+#include <linux/regulator/consumer.h>
- #include <linux/usb/pd.h>
- #include <linux/usb/tcpci.h>
- #include <linux/usb/tcpm.h>
-@@ -35,12 +36,6 @@
-  */
- #define TCPC_RECEIVE_BUFFER_LEN				32
- 
--#define MAX_BUCK_BOOST_SID				0x69
--#define MAX_BUCK_BOOST_OP				0xb9
--#define MAX_BUCK_BOOST_OFF				0
--#define MAX_BUCK_BOOST_SOURCE				0xa
--#define MAX_BUCK_BOOST_SINK				0x5
--
- static const struct regmap_range max_tcpci_tcpci_range[] = {
- 	regmap_reg_range(0x00, 0x95)
- };
-@@ -202,32 +197,49 @@ static void process_rx(struct max_tcpci_chip *chip, u16 status)
- 	tcpm_pd_receive(chip->port, &msg, rx_type);
- }
- 
-+static int get_vbus_regulator_handle(struct max_tcpci_chip *chip)
-+{
-+	if (IS_ERR_OR_NULL(chip->vbus_reg)) {
-+		chip->vbus_reg = devm_regulator_get_exclusive(chip->dev,
-+							      "vbus");
-+		if (IS_ERR_OR_NULL(chip->vbus_reg)) {
-+			dev_err(chip->dev,
-+				"Failed to get vbus regulator handle");
-+			return -ENODEV;
-+		}
-+	}
++allOf:
++  - $ref: /schemas/power/supply/power-supply.yaml#
 +
-+	return 0;
-+}
+ properties:
+   compatible:
+     const: maxim,max77759
+@@ -37,12 +40,18 @@ properties:
+   nvmem-0:
+     $ref: /schemas/nvmem/maxim,max77759-nvmem.yaml
+ 
++  chgin-otg-regulator:
++    type: object
++    description: Provides Boost for sourcing VBUS.
++    $ref: /schemas/regulator/regulator.yaml#
++    unevaluatedProperties: false
 +
- static int max_tcpci_set_vbus(struct tcpci *tcpci, struct tcpci_data *tdata, bool source, bool sink)
- {
- 	struct max_tcpci_chip *chip = tdata_to_max_tcpci(tdata);
--	u8 buffer_source[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_SOURCE};
--	u8 buffer_sink[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_SINK};
--	u8 buffer_none[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_OFF};
--	struct i2c_client *i2c = chip->client;
- 	int ret;
+ required:
+   - compatible
+   - interrupts
+   - reg
  
--	struct i2c_msg msgs[] = {
--		{
--			.addr = MAX_BUCK_BOOST_SID,
--			.flags = i2c->flags & I2C_M_TEN,
--			.len = 2,
--			.buf = source ? buffer_source : sink ? buffer_sink : buffer_none,
--		},
--	};
--
- 	if (source && sink) {
- 		dev_err(chip->dev, "Both source and sink set\n");
- 		return -EINVAL;
- 	}
+-additionalProperties: false
++unevaluatedProperties: false
  
--	ret = i2c_transfer(i2c->adapter, msgs, 1);
-+	ret = get_vbus_regulator_handle(chip);
-+	if (ret) {
-+		/*
-+		 * Regulator is not necessary for sink only applications. Return
-+		 * success in cases where sink mode is being modified.
-+		 */
-+		return source ? ret : 1;
-+	}
+ examples:
+   - |
+@@ -59,6 +68,11 @@ examples:
+ 
+             interrupt-controller;
+             #interrupt-cells = <2>;
++            power-supplies = <&maxtcpci>;
 +
-+	if (source) {
-+		if (!regulator_is_enabled(chip->vbus_reg))
-+			ret = regulator_enable(chip->vbus_reg);
-+	} else {
-+		if (regulator_is_enabled(chip->vbus_reg))
-+			ret = regulator_disable(chip->vbus_reg);
-+	}
++            chgin-otg-regulator {
++                regulator-name = "chgin-otg";
++            };
  
--	return  ret < 0 ? ret : 1;
-+	return ret < 0 ? ret : 1;
- }
- 
- static void process_power_status(struct max_tcpci_chip *chip)
+             gpio {
+                 compatible = "maxim,max77759-gpio";
 
 -- 
 2.52.0.457.g6b5491de43-goog
