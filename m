@@ -4,88 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E49AFD46942
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C7A4D46943
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+BU3yZcnZLVUl/l+ViGJZdk5XsNHMsU7ReIC8wTppQ=; b=0XCDyrmZcRfAkawwzfISUw49hd
-	lGmmdruL0LOBgYpEUKFV9cuqPPF48Kb+v1oYSGiZKAsrXeHpKWEsrMEPyasS5dUm2zlE9DLJszDU9
-	gEoK3IjpOiznxJNaW/5D2IWlpQ0mnmdViFMRR5kvZF3stVJaOPIyqfWrA26LgDiItzlX/xdwnVWw1
-	fsgQvZGfpoQ6OTAcl/pzxoMs/s42PCbNdI0swX/lV/AsCBAMndzIpHs0AEf1d9tnd2kZaTOzxcQ7s
-	YdojQgtmR2NVE4sVDUNS67+497ZYWUPI+Y0/YW48JXhLFh1AbiqLKOMbkn0lSA51ciMNHKR0/yTR5
-	2ZG9yYpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iStF1+0UpaSNBxFtH2LAPTY4dVGLGH3AvGpTjjJnIHU=; b=g5NN1d+Ka4MgIg8U1N7+u47fLA
+	0aOWXLaaFZw4X5sxCLinjpWKJAfjaDisbw7s+pGYhhA2POZ/5m/bBF/9v3u7i05GFFbSN+gqnXcMH
+	0zWP2ETOxO5eJi7iWlrak0nnT8qYDUwmveaNv291iLWK9xSQ0GoBI54i5wkzWp4lv6Ws9qfTig1+k
+	uybrbKeOmlRSfmSvB5eejCAMYb46vvgUwR9SAKu9LMnWvgpOYBxy8TXGd+vlH8dqAQYIN9L0mwh7m
+	VAiH99xN0b+O/wsIHVDMfWyUDtHFF2G+sjjjjI31Sfc9DblS4AFYUQ5UOJo0Ba553a35B6YWHiy68
+	r/iMAgGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZU5-00000005dBe-082z;
+	id 1viZU5-00000005dCz-3wcK;
 	Wed, 21 Jan 2026 14:47:01 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZTz-00000005d67-0NVc;
+	id 1viZTz-00000005d5O-0gWn;
 	Wed, 21 Jan 2026 14:46:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769006780; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=e0A4bW9Bg//mH1TE8GfuAwqfayUGCpTByz8IEEaPpwXzBquMDVy0nh5DH51xbXKy5rmPwQH662AUdtZWghBgIouKZ/a4t5OcyMy6SRhKH7RF5w3XFXv3u1InZKhbzjnQuvfGp2x8L+/2NpFL+8gNDT5cyce1xYSb7IQm4Ny9WbY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769006780; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=w+BU3yZcnZLVUl/l+ViGJZdk5XsNHMsU7ReIC8wTppQ=; 
-	b=UCX3Sl2AfKRLsoHrzKby2mB6kAlz8z7DLkyY2+qpryszgxTq5gKYjjN3N8LBgdeXs63ZR2XJQBp3n2w467z1PwweHayc0MWK7bkFJ9fn9HSueTfjNeCiVs/l9hf5cP827z+M+CJHOUZJTNxfEV1ZSeCjTJnKQeqlBIrdinhwmuc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769006780;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=w+BU3yZcnZLVUl/l+ViGJZdk5XsNHMsU7ReIC8wTppQ=;
-	b=BBA3G30gz/faVkMIqxUCEfIPk4lJkyDvkZggDeRxsF+FnBk5WUiwMEHQo9huuyiy
-	h6tP6sZzmVJFb1mG3J6aljLWPNV+RxGUhRefiXBWZD8OZq9a6NJCzfHDr0Z9td7/Ahu
-	PhVSsOrPoBTnnbM0fkZMh4rytu6Lyv0rcJGVWJY0=
-Received: by mx.zohomail.com with SMTPS id 1769006778497255.4881577685843;
-	Wed, 21 Jan 2026 06:46:18 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Wed, 21 Jan 2026 15:45:13 +0100
-Subject: [PATCH v7 06/22] drm/display: hdmi-state-helper: Try subsampling
- in mode_valid
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=iStF1+0UpaSNBxFtH2LAPTY4dVGLGH3AvGpTjjJnIHU=; b=e9bH30XyD6pkMJHTgoZwJ7SBsQ
+	0CLCJyQaHxcYuc61vX87CjlwIjH755e5RfCQJ0Wfv4lNRlzSX2yX9k/kwo8QWMtpWhfVnPgANvDB9
+	kl123aZe/rSEj8KpIBeh0lPIAMVOWTc19dGF+NdztKgvvnA+5BX7opil0piY56CwJO20tSmz1Xlko
+	pzBMbMVUUyaGXSsIrFSc5JdeRIYiwiAV1GpaVlXdZ0VTRxn+jcebBR5roWfde62EU7wcfzvg9tR3Q
+	9GmdzF0i47FizmPYPrE1/KUuNR/fwPn0E/d24rqa7i7R6bhkesWWIr0GN+RCRzFGiFUEkdThXAtTj
+	trX0GOiA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36082)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1viZTt-000000007c8-10Ub;
+	Wed, 21 Jan 2026 14:46:49 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1viZTm-0000000005o-2xDz;
+	Wed, 21 Jan 2026 14:46:42 +0000
+Date: Wed, 21 Jan 2026 14:46:42 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, linux-phy@lists.infradead.org,
+	davem@davemloft.net, maxime.chevallier@bootlin.com,
+	alexandre.torgue@foss.st.com, mohd.anwar@oss.qualcomm.com,
+	neil.armstrong@linaro.org, hkallweit1@gmail.com,
+	mcoquelin.stm32@gmail.com, netdev@vger.kernel.org,
+	edumazet@google.com, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, vkoul@kernel.org,
+	andrew@lunn.ch, pabeni@redhat.com, andrew+netdev@lunn.ch,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [net-next,05/14] net: stmmac: add stmmac core serdes support
+Message-ID: <aXDm0jVOYOZ9l6Wu@shell.armlinux.org.uk>
+References: <E1vhoSH-00000005H1f-2cq9@rmk-PC.armlinux.org.uk>
+ <20260119192125.1245102-1-kuba@kernel.org>
+ <aW8M9ZiiftGBQIRM@shell.armlinux.org.uk>
+ <20260120081844.7e6aq2urhxrylywi@skbuf>
+ <aW9VHt6meEJFxV0I@shell.armlinux.org.uk>
+ <20260120121114.2aedgu42i2wax3yp@skbuf>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260121-color-format-v7-6-ef790dae780c@collabora.com>
-References: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
-In-Reply-To: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
-To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
- Rodrigo Siqueira <siqueira@igalia.com>, 
- Alex Deucher <alexander.deucher@amd.com>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>
-Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
- linux-doc@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260120121114.2aedgu42i2wax3yp@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_064655_183781_F89DCE3E 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20260121_064655_203989_C122F262 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,54 +89,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-drm_hdmi_connector_mode_valid assumes modes are only valid if they work
-with RGB. The reality is more complex however: YCbCr 4:2:0
-chroma-subsampled modes only require half the pixel clock that the same
-mode would require in RGB.
+On Tue, Jan 20, 2026 at 02:11:14PM +0200, Vladimir Oltean wrote:
+> On Tue, Jan 20, 2026 at 10:12:46AM +0000, Russell King (Oracle) wrote:
+> > First, I'll say I'm on a very short fuse today; no dinner last night,
+> > at the hospital up until 5:30am, and a fucking cold caller rang the door
+> > bell at 10am this morning. Just fucking our luck.
+> 
+> Sorry to hear that.
+> 
+> > On Tue, Jan 20, 2026 at 10:18:44AM +0200, Vladimir Oltean wrote:
+> > > Isn't it sufficient to set pl->pcs to NULL when pcs_enable() fails and
+> > > after calling pcs_disable(), though?
+> >
+> > No. We've already called mac_prepare(), pcs_pre_config(),
+> > pcs_post_config() by this time, we're past the point of being able to
+> > unwind.
+> 
+> I'm set out to resolve a much smaller problem.
+> 
+> Calling it a full "unwind" is perhaps a bit much, because pcs_pre_config()
+> and pcs_post_config() don't have unwinding equivalents, unlike how
+> pcs_enable() has pcs_disable(). I don't see what API convention would be
+> violated if phylink decided to drop a PCS whose enable() returned an error.
 
-This leads to drm_hdmi_connector_mode_valid rejecting perfectly valid
-420-only or 420-also modes.
+While pcs_pre_config() and pcs_post_config() do not have unwinding
+equivalents (what would they be?) the issue here is that these could
+have changed any state that isn't simply undone by calling
+pcs_disable().
 
-Fix this by checking whether the mode is 420-capable first. If so, then
-proceed by checking it with HDMI_COLORSPACE_YUV420 so long as the
-connector has legalized 420, otherwise error out. If the mode is not
-420-capable, check with RGB as was previously always the case.
+For example, pcs_pre_config() could have reprogrammed signal routing,
+clocking, or power supplies to blocks.
 
-Fixes: 47368ab437fd ("drm/display: hdmi: add generic mode_valid helper")
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/gpu/drm/display/drm_hdmi_state_helper.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+This already applies to Marvell DSA pcs-639x.c, where the pre/post
+config hooks change the power state of the PCS block (for errata
+handling), and the only way that gets undone is via a call to
+pcs_disable() which explicitly disables IRQs and power for the PCS. Its
+pcs_disable() isn't a strict reversal of pcs_enable(), it does more.
 
-diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-index 1ea3b9c93aa5..ceabfdb30f7a 100644
---- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-+++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-@@ -898,8 +898,21 @@ drm_hdmi_connector_mode_valid(struct drm_connector *connector,
- 			      const struct drm_display_mode *mode)
- {
- 	unsigned long long clock;
-+	enum hdmi_colorspace fmt;
-+
-+	if (drm_mode_is_420_only(&connector->display_info, mode)) {
-+		if (connector->ycbcr_420_allowed)
-+			fmt = HDMI_COLORSPACE_YUV420;
-+		else
-+			return MODE_NO_420;
-+	} else if (drm_mode_is_420_also(&connector->display_info, mode) &&
-+		   connector->ycbcr_420_allowed) {
-+		fmt = HDMI_COLORSPACE_YUV420;
-+	} else {
-+		fmt = HDMI_COLORSPACE_RGB;
-+	}
- 
--	clock = drm_hdmi_compute_mode_clock(mode, 8, HDMI_COLORSPACE_RGB);
-+	clock = drm_hdmi_compute_mode_clock(mode, 8, fmt);
- 	if (!clock)
- 		return MODE_ERROR;
- 
+We already declare the interface to be dead on pcs_post_config()
+failure, but we don't do that for pcs_enable() failure.
+
+Maybe I need to explicitly state that pcs_disable() does not directly
+balance pcs_enable(), but that _and_ the effects of pcs_pre_config()
+and pcs_post_config(). However, that itself will add to the problems.
+What if pcs_pre_config() and pcs_post_config() succeed but not
+pcs_enable()? pcs-639x needs pcs_disable() to be called, but if we
+require pcs_disable() to be balanced with a successful call to
+pcs_enable(), that messes up that driver, and pretty much makes it
+impossible to work around the errata.
+
+If you feel strongly about this, then the only thing I can think of
+doing is to move this SerDes support out of stmmac and into phylink
+(which is a point I already raised in the cover message) so that
+its failure can be dealt with at the higher level, where we can
+ensure that phy_power_off() is balaced with phy_power_on(). However,
+that means pushing even more of the stmmac specific "we need the
+clocks running to access registers XYZ or reset" weirdness into
+phylink.
 
 -- 
-2.52.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
