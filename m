@@ -4,53 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E160C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 15:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71F60D4694A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 15:41:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e0dbOAMgISMQQS+1WkxTJ/jl2C/xVOcD8s/PetKIX6U=; b=Kbgh/7ZWUvk2vET0qzJnt+KdJs
-	2FwAmkqY54kI1XciYAY21PzGtdquniIXm4ShopaykpL2iO2DsdLxLa3znNgJRZZzbZsidEYxFKFFv
-	x+Z2qchAKakPjjr3iUI2qDnUcardmntWzAAIT9NxPoYByr1W6w2VoNlatfz8SFbC28YLZfrcdV6Wk
-	z2gO5dbuLMTlZq4Qu1YhGLFF9+d/MSAJ5Yhx8Ok/xFj1QQsYKLxbato1SSBRCFIv7Nzobyzda3MPO
-	wf7EapFmEgXocpUQYRySOd1PUoDNK5pHHfo1ZdlWOsb86OE+JyrodjIW4qT7885cMrk+0l2fT+9GT
-	DTeqLiwA==;
+	bh=bJMVsqMsM4TnBCGz+qOUq+rSyO+NcLPnv+SRm0UJHUk=; b=HMWp5kh9FYFJtjPmL81nkNWf17
+	iQE4O/goJOWk6RrUsf9LzpLaG9+fPOI27blU9hgzztbX0P+uCzL3fAKT44X1G/+W14nkVvxXgJNKH
+	A818G2oO3D7fy4QPyEYjA+mcQ25vGc2qGiWt5TiHAzqEVebeAH+dOfE+m1rdNGipqxwJsbubY+dvn
+	YoI3/TMtBU70lG8udEyzAXdFfWkHTDfqruqweDqiWcKW1yQ24mgIyTqHcceHHu7zjVXu6Dxc1BJIM
+	PAFsAtuiGkQSJOf6ARYtyZJelce4KY12jwDQdy++sUwihErRoIBF09hYDJfSseyhVU78IynFVHGH1
+	jjHlAbBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viaGi-00000005jHD-1eHK;
-	Wed, 21 Jan 2026 15:37:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viaGf-00000005jGh-1tLX
+	id 1viaKd-00000005jWQ-0A6a;
+	Wed, 21 Jan 2026 15:41:19 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viaKZ-00000005jW5-3cZ7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 15:37:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3AD861476;
-	Wed, 21 Jan 2026 07:37:02 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9351D3F632;
-	Wed, 21 Jan 2026 07:37:07 -0800 (PST)
-Date: Wed, 21 Jan 2026 15:37:02 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Joey Gouly <joey.gouly@arm.com>, linux-arm-kernel@lists.infradead.org,
-	david.spickett@arm.com, stable@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v1] arm64: poe: fix stale POR_EL0 values for ptrace
-Message-ID: <aXDynm0YGuNzi7B3@J2N7QTR9R3>
-References: <20260121135639.1835784-1-joey.gouly@arm.com>
- <4f4b9dd9-02ed-4899-b17d-24415e50e5c3@arm.com>
+	Wed, 21 Jan 2026 15:41:17 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60LDFWum022363;
+	Wed, 21 Jan 2026 15:40:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=bJMVsq
+	MsM4TnBCGz+qOUq+rSyO+NcLPnv+SRm0UJHUk=; b=Fz46yFRn/4wweJ9HwSyn0M
+	O3wMo3wca7aVIRwbN9CVhisZqENfMc3HFhMI1R1Hx3KlGjqlCbZu8AwagKRLPCSE
+	KtbG9M1zbOrU6CS/8hQ7+xY8nLu6NZBIPG3FqbU2NILd7Kr+x97ij2PEFDIvdotI
+	oWWgB/SNLr12otmb1cQa5ke23HCD3AhJkN1Ur2fRH8sIgYjdrg+0kXlfxxvYZaeh
+	XDi9IeeWEL8Gwxf+ieJlCDTdY+XCpQfVaWFMSPNvevLd6Fj10LKPVjInhi2ZhFAk
+	lR7Iwg87QYukvsa1i02OLJ2S1y8vKtGPgs58751UIWYcUvh+c0nYDXPgWuhL/RZQ
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4br0ufkuhp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 21 Jan 2026 15:40:32 +0000 (GMT)
+Received: from m0353725.ppops.net (m0353725.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 60LFeVHZ006354;
+	Wed, 21 Jan 2026 15:40:31 GMT
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4br0ufkuhk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 21 Jan 2026 15:40:31 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60LDDsf5027334;
+	Wed, 21 Jan 2026 15:40:30 GMT
+Received: from smtprelay06.dal12v.mail.ibm.com ([172.16.1.8])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4brnrn4u84-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 21 Jan 2026 15:40:30 +0000
+Received: from smtpav01.wdc07v.mail.ibm.com (smtpav01.wdc07v.mail.ibm.com [10.39.53.228])
+	by smtprelay06.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60LFeSVo29426232
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 21 Jan 2026 15:40:28 GMT
+Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 559AA5804B;
+	Wed, 21 Jan 2026 15:40:28 +0000 (GMT)
+Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2938158065;
+	Wed, 21 Jan 2026 15:40:25 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.58.59])
+	by smtpav01.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 21 Jan 2026 15:40:25 +0000 (GMT)
+Message-ID: <1a0b6e5601a673a81f8823de0815f92b7afbeb60.camel@linux.ibm.com>
+Subject: Re: [PATCH 1/3] integrity: Make arch_ima_get_secureboot
+ integrity-wide
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Coiby Xu <coxu@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
+        Dave
+ Hansen	 <dave.hansen@intel.com>
+Cc: linux-integrity@vger.kernel.org, Heiko Carstens <hca@linux.ibm.com>,
+        Roberto Sassu <roberto.sassu@huaweicloud.com>,
+        Catalin Marinas
+ <catalin.marinas@arm.com>,
+        Will Deacon	 <will@kernel.org>,
+        Madhavan
+ Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman	 <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)"
+ <chleroy@kernel.org>,
+        Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev	
+ <agordeev@linux.ibm.com>,
+        Christian Borntraeger
+ <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Thomas
+ Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav
+ Petkov	 <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)"	 <x86@kernel.org>,
+        "H.
+ Peter Anvin" <hpa@zytor.com>,
+        Roberto Sassu	 <roberto.sassu@huawei.com>,
+        Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
+        Eric Snowberg
+ <eric.snowberg@oracle.com>,
+        Paul Moore <paul@paul-moore.com>, James Morris
+ <jmorris@namei.org>,
+        "Serge E. Hallyn"	 <serge@hallyn.com>,
+        Jarkko
+ Sakkinen <jarkko@kernel.org>,
+        "moderated list:ARM64 PORT (AARCH64
+ ARCHITECTURE)"	 <linux-arm-kernel@lists.infradead.org>,
+        open list
+ <linux-kernel@vger.kernel.org>,
+        "open list:LINUX FOR POWERPC (32-BIT AND
+ 64-BIT)"	 <linuxppc-dev@lists.ozlabs.org>,
+        "open list:S390 ARCHITECTURE"	
+ <linux-s390@vger.kernel.org>,
+        "open list:EXTENSIBLE FIRMWARE INTERFACE
+ (EFI)"	 <linux-efi@vger.kernel.org>,
+        "open list:SECURITY SUBSYSTEM"	
+ <linux-security-module@vger.kernel.org>,
+        "open
+ list:KEYS/KEYRINGS_INTEGRITY"	 <keyrings@vger.kernel.org>
+In-Reply-To: <aW2i3yacr5TvWU-m@Rk>
+References: <20260115004328.194142-1-coxu@redhat.com>
+	 <20260115004328.194142-2-coxu@redhat.com>
+	 <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
+	 <8bfa859ed3a4f1cf0db0ab64d8c1c3b24684582a.camel@linux.ibm.com>
+	 <CAMj1kXHsJNZoUEnbD1y=v4Ftuv9d2c08VckRV7ru4k4P83vZbQ@mail.gmail.com>
+	 <97b69bc79a5d9246f7a399510908c7b95b2e95e7.camel@linux.ibm.com>
+	 <CAMj1kXGx4ebaK87W7k0SNUNQnO9+=z1nmYxXC7retmp3OqRRFg@mail.gmail.com>
+	 <ac5e5e45c12e9b0bda19807e60b06057d74be0b3.camel@linux.ibm.com>
+	 <aW2i3yacr5TvWU-m@Rk>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Wed, 21 Jan 2026 10:40:24 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4f4b9dd9-02ed-4899-b17d-24415e50e5c3@arm.com>
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: WAqyQc7iYAb6bBztJEBir9hqT_fDY33W
+X-Proofpoint-ORIG-GUID: cSwAFNrvWB6VDbqJDgghQDN6Ynh6VVyS
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTIxMDEyOSBTYWx0ZWRfX3pjDpN110rfB
+ f6LDluWAghYKhOYecWjxKqd1c4jRq0EL8adCIUMRJ1yCj9fhFWCTR8NlKTqMvOdjFnDezXfHyR7
+ CRP+BNm9lrFrQrrUKiI9/q77mePoKraN92J2qBc1dRLRgRKb2rIpAL/MAru7pVfnrRhoBcXV5y5
+ EVA9mCACOo0XE9en1N7SIg85RSjzUV59UIQBHeGztZoRKcuBrbh8cSsbnucRZMzSPSoRVhOx9ka
+ wTaxrZmi1RmhiaBK0ahLVEuKzQi/GbfItGcq/AQqhGwiRRmIu+u6Aft6ydCxGG82EWnM/jdYsNE
+ uqofPbC7m7ooe2l5GXr4FgTo1pvIYS1Kudl7tRh1P0c93Avu3UprXRB6JXXms7V/+I3K2wmMYek
+ 85uYlsmRGCksYBiXA9wQ58l+B+huOfRUe8zxiNqoAq9NlKw4z2E66a/6W4lRi3ioTJAz5IEM6hE
+ Tu8ERwmmxKjDi9qIu/w==
+X-Authority-Analysis: v=2.4 cv=bopBxUai c=1 sm=1 tr=0 ts=6970f370 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=iN3FFbS9Bkn7VKFBHvUA:9 a=QEXdDO2ut3YA:10 a=ZXulRonScM0A:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
+ definitions=2026-01-21_02,2026-01-20_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 bulkscore=0 adultscore=0 suspectscore=0 impostorscore=0
+ phishscore=0 malwarescore=0 lowpriorityscore=0 priorityscore=1501
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2601150000
+ definitions=main-2601210129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_073713_531702_AAE61A4A 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20260121_074116_022573_60055651 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,43 +182,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 03:59:22PM +0100, Kevin Brodsky wrote:
-> On 21/01/2026 14:56, Joey Gouly wrote:
-> > If a process wrote to POR_EL0 and then crashed before a context switch
-> > happened, the coredump would contain an incorrect value for POR_EL0.
-> 
-> Isn't that also a problem if using ptrace(PTRACE_GETREGSET, REGSET_POE)?
+On Mon, 2026-01-19 at 12:04 +0800, Coiby Xu wrote:
 
-In the case of manipulating a tracee (i.e. target != current), the core
-code ensures that the tracee is stopped (has context-switched out, an
-hence has saved its registrer contents to memory) before the relevant
-regset functions can be called.
+> diff --git a/security/integrity/ima/Kconfig b/security/integrity/ima/Kcon=
+fig
+> index 976e75f9b9ba..5dce572192d6 100644
+> --- a/security/integrity/ima/Kconfig
+> +++ b/security/integrity/ima/Kconfig
+> @@ -311,6 +311,7 @@ config IMA_QUEUE_EARLY_BOOT_KEYS
+>   config IMA_SECURE_AND_OR_TRUSTED_BOOT
+>          bool
+>          depends on IMA_ARCH_POLICY
+> +       depends on INTEGRITY_SECURE_BOOT
+>=20
+>=20
+> Another idea is make a tree-wide arch_get_secureboot i.e. to move
+> current arch_ima_get_secureboot code to arch-specific secure boot
+> implementation. By this way, there will no need for a new Kconfig option
+> INTEGRITY_SECURE_BOOT. But I'm not sure if there is any unforeseen
+> concern.
 
-> Just like for fpsimd, etc.
-
-Just FYI, The FPSIMD/SVE/SME registers are a special case relative to
-all the other regsets.
-
-The FPSIMD/SVE/SME registers eagerly saved to memory (and so when a task
-is scheduled out, the value in memory will be up-to-date), but they're
-lazily restored (so the value in registers can be transiently stale
-while the task is running), and there's a special case when scheduling a
-task in where we attempt to spot if the CPU registers happen to be
-up-to-date with the task.
-
-The gist of this is that when manipulating the FPSIMD/SVE/SME regsets of
-a task:
-
-* For reads, we know that the value in memory is up-to-date unless the
-  task is the current task.
-
-* For writes (which can only occur for a tracee which is not the current
-  task), we need to update some tracking data to prevent context-switch
-  from reusing stale values on a CPU. That's what
-  fpsimd_flush_task_state() does.
-
-Pretty much all other regsets don't need the "flush" on writes, since
-the value in memory will be loaded when the task is next scheduled in.
-
-Mark.
+Originally basing IMA policy on the secure boot mode was an exception.  As =
+long
+as making it public isn't an issue any longer, this sounds to me.  Ard, Dav=
+e, do
+you have any issues with replacing arch_ima_get_secureboot() with
+arch_get_secureboot()?
 
