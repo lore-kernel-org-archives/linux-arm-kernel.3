@@ -4,67 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D10D262B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 02:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D02DD262B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 02:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GlEsWVcrnlWmy29pj5zkQH3SZ2phU2MltcFHlX6p2yM=; b=jkpA205ZSE5sH4Zg3/qLNYUaYK
-	hmDJ5bvWe51GfCxam4aJDcMwPrQH5/Bb/tvvQtaaMYdW0WEkha8EWVuSIT3INEuxabkXO3IDTVEqC
-	zAr+G9e0zPXAUpw/rT8gns7OaYA+bblOkj+BVoij1gWG9Wqz60uRyP7Xx+O8kwJkSfSPoWfli2Fi8
-	g1wEOJB9E0w6o1kKgn0QGg3k7IdMJot/lg46oxofiQjmMnZIXkOV0KyMRCuXtcrS8eNFsEsdqJmUv
-	ts5Mz3aZ11cfeNM90+3assKJq/Bgo+apuEGHqYZyuBAhAch1uI3fVZ9GH5trHeKPasrGERLGhjbcr
-	kOZ9XkqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FuXy/cX+McuEURHXGPyqZ+VaHcxMh6LN2RI/K3jGixU=; b=lN2IIXpdes7ij+GQxUWSw2T3Xr
+	fGiZ7BltiTee6EeG0VZH4GIlNiyzaQGFFPTkJJesOB49DfutbIZngc3xng8S/VHpZPtrHBbzCysOk
+	3qzdlG3mC04XBnXZDKxYyL0+eKMeIrEPEAtD5vWy0Db9KfCeRN0ebBCbvfXIyaimk3V+eQ9Nm5z5s
+	eOIbuA1vgdkvHaxWSLojm3/DfQKasapApsBAsXuVV1JZdaxozc7StBkRyNanhjQsyNkPqRXeidROi
+	Uibwhm6wzoakrqvSQUdti5g+KW5cqZ08y6Kk/nKaaHtFcxrZqODW9eUiB5V1W5E38KHm98JdIiWP+
+	4Y9CGMIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNzq-00000004nMv-09i4;
-	Wed, 21 Jan 2026 02:31:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1viO7Z-00000004nkd-1D42;
+	Wed, 21 Jan 2026 02:39:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNzo-00000004nMJ-0LE1;
-	Wed, 21 Jan 2026 02:31:00 +0000
+	id 1viO7W-00000004nk7-3cjj
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Jan 2026 02:38:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 28FF960007;
-	Wed, 21 Jan 2026 02:30:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA226C16AAE;
-	Wed, 21 Jan 2026 02:30:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C48143D20;
+	Wed, 21 Jan 2026 02:38:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CD04C16AAE;
+	Wed, 21 Jan 2026 02:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768962658;
-	bh=kakUcG5SzcJJ04uD/Xh1SJIe/+0LTLNt11k19MhqLXM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Y/cGBS2ZiYJku/rO/phS4zAT6dn8nNrdqI8u+hc6Y2meUr+Es7RsLp0+Rm7l87ziC
-	 C3NoqCyzyiNMNRzMrb+jVblUX2sl4m6KzPViOOYtIr0XrRQ5ON/zbpK6biDZ8PWiCw
-	 QoUfeKSuGNQtezWsH+OK1b8zo4AunmsDaIsZQKMgFpnXQpVwpOBk0C68LMLQo+2czv
-	 bVxOheQCsIgvu126fLB/oviuyBSovVh/Qi3dVWnXIsV9Q6/e/5o7+XtPgpKcFhJ4AQ
-	 xIDTYbuJSe5Xl1ehzqDAdsRVuicF1Nr7islS6eL5n9rNFYEtyIxOuKbKIXDLK4HgtG
-	 Ni0rpTqql6Avg==
-Date: Tue, 20 Jan 2026 20:30:58 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Gregory CLEMENT <gregory.clement@bootlin.com>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>, linux-kernel@vger.kernel.org,
-	linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?iso-8859-1?Q?Beno=EEt?= Monin <benoit.monin@bootlin.com>,
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH v3 1/4] of: reserved_mem: Fix placement of __free()
- annotation
-Message-ID: <176896265605.1837058.2000534852582541394.robh@kernel.org>
-References: <20260107-mtd-memregion-v3-0-f9fc9107b992@bootlin.com>
- <20260107-mtd-memregion-v3-1-f9fc9107b992@bootlin.com>
+	s=k20201202; t=1768963137;
+	bh=foy09YRZdpfh+UcvVsh4GRT12EVN+LC1837tCHo1aB0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Zsc44AFdV6aDzxB8ptj2ODzyAk7zE3+OCht8aqOT44hN5GbKU+JeVpIbIrn2g/GN8
+	 4/fLK+lG8MCcwcUWkqCxxClmt4EX2qoraqPd/JAeH1SlBV9HKWW+58XoYxQRkGK02U
+	 /016TPWTUAhYJzlFkKtl3gm4wDQNZMMX+hJtuoOIESP6Wan3HxnFcZ1Hy8BjAFDHjd
+	 GEdyz6rTKNlkUZs0XDFRNsIzU0BoVZ44kHTR3qmB3Ph/PObQMuPxJA5kyq75BLCExQ
+	 C66UzmFDFHMukn8rFhja+D6XJ2RQZoTOSMedQitO2/WKhsPfJOS6nM2nEMQ/cIseuz
+	 7fh0vyKP4VmCg==
+Date: Tue, 20 Jan 2026 18:38:54 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Robert Marko <robert.marko@sartura.hr>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ claudiu.beznea@tuxon.dev, herbert@gondor.apana.org.au, davem@davemloft.net,
+ lee@kernel.org, andrew+netdev@lunn.ch, edumazet@google.com,
+ pabeni@redhat.com, Steen.Hegelund@microchip.com,
+ daniel.machon@microchip.com, UNGLinuxDriver@microchip.com,
+ linusw@kernel.org, olivia@selenic.com, richard.genoud@bootlin.com,
+ radu_nicolae.pirea@upb.ro, gregkh@linuxfoundation.org,
+ richardcochran@gmail.com, horatiu.vultur@microchip.com,
+ Ryan.Wanner@microchip.com, tudor.ambarus@linaro.org,
+ kavyasree.kotagiri@microchip.com, lars.povlsen@microchip.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+ netdev@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-serial@vger.kernel.org,
+ luka.perkov@sartura.hr
+Subject: Re: [PATCH v5 10/11] dt-bindings: net: sparx5: do not require phys
+ when RGMII is used
+Message-ID: <20260120183854.7d081aec@kernel.org>
+In-Reply-To: <20260115114021.111324-11-robert.marko@sartura.hr>
+References: <20260115114021.111324-1-robert.marko@sartura.hr>
+	<20260115114021.111324-11-robert.marko@sartura.hr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260107-mtd-memregion-v3-1-f9fc9107b992@bootlin.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260120_183858_931351_A1BB453B 
+X-CRM114-Status: UNSURE (   7.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,27 +88,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 07 Jan 2026 14:04:52 +0100, Gregory CLEMENT wrote:
-> The __free() annotation was incorrectly placed before the variable
-> name instead of after it, which resulted in the following checkpatch
-> errors:
+On Thu, 15 Jan 2026 12:37:35 +0100 Robert Marko wrote:
+> LAN969x has 2 dedicated RGMII ports, so regular SERDES lanes are not used
+> for RGMII.
 > 
-> ERROR: need consistent spacing around '*' (ctx:WxV)
-> +       struct device_node __free(device_node) *target = of_parse_phandle(np, "memory-region", idx);
->                                                ^
-> WARNING: function definition argument 'idx' should also have an identifier name
-> +       struct device_node __free(device_node) *target = of_parse_phandle(np, "memory-region", idx);
-> 
-> As part of this cleanup, also remove the useless return statement
-> flagged by checkpatch.
-> 
-> Signed-off-by: Gregory CLEMENT <gregory.clement@bootlin.com>
-> ---
->  drivers/of/of_reserved_mem.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
-> 
+> So, lets not require phys to be defined when any of the rgmii phy-modes are
+> set.
 
 Applied, thanks!
-
 
