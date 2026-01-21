@@ -4,109 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C05A5D262B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 07:35:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD361D262B7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 07:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GlwN8j82SgoVOz7HHzh2bhzIqCg28sVCaQneoE9LKSM=; b=VhNX0B2fI8SgA6mGcbQU++iQ3E
-	WJCZ5I3CPMd0VNgvNs+ZZ5pvdITFOhXJ4q4ffA5WYAU4TZ2WGxVN96/ZIOqaiJkzeMiTa89rCRrkl
-	tttTNP3mYcv6BqZUzZ5TJ1WCcfAqw/422/pAGUUpvPa0cNkt1AbwC/BjVm00/92R68Vn/HR/Vs3zL
-	VPmRQBSV0lv9RA0nUjmKH1ZZSzbPz5tuLMGg06YsAAk6CZkShKBOXxXk8mDTyo/Bl5uK8SXci8gV2
-	hju/Ki+/j9jI679P/+ZuMZQNmogtXNz9YJwik63MUzRyj9pszKuAUJGKY89f/Wj0A9HHxykPznx4n
-	AwLLlTJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0cCPUZnGLoUlQBF/9NTsmnTAUK8WV5r6Blkl4XMyMuE=; b=uGz7JzFzysE0sJQus+OPgCMeeD
+	1DZDl1oy4Y7p6WRT7Hk2L79pvX0JQecjCR2F/Eh60SbW06TIvZ1r6+Hj8tMR+rjy4JpJOjSlhwehe
+	cqY0rfAjaccdi7cof+v3IcwhAqnrrPOVuO9gJeXk/kAEjcZyWm59IyYewoy8opCjDlotycekHJol/
+	1urcUGzTPk2rnBMdxsvyxKYUtJtGLE8wDcG9vrCb1UJ/p/Kstm9MwxaWvRGCtrxvKDiUC0b/tsEaa
+	wLGyqjMsJiwlmdUHsMHfLjLPL3T8+eB1Kcg2cCcTuoX3KenmhDeVp6fg0gCkbyJc8cWIAXteqzVIu
+	/bF3mAKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viSkT-000000051Z7-1evm;
-	Wed, 21 Jan 2026 07:35:29 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1viSrA-000000051wb-0bBw;
+	Wed, 21 Jan 2026 07:42:24 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viSkP-000000051YP-3xhg
+	id 1viSr7-000000051vh-0rJV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 07:35:27 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-8c5265d06c3so67216485a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 23:35:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768980924; cv=none;
-        d=google.com; s=arc-20240605;
-        b=QxZlhoTTbuRKzkfd4YL+QePJx/71EDnE67AjiTMWVBfR0gdaWB1Do3uunashTFQp9V
-         b0gPDTpUkK35JfCjWgGXQlEt3+MDeCJU7m5TJL+OT1+r5iFpe8ykX05SIG0R2KWPDUrE
-         M5pUdaHnbfI+pf8VXZpuUdBkJH54UmFzMdStZzce1Lf8Gbu6OEfbEnZlwiIa3lcPe1SO
-         UgyFAoit3BPXZwqLyllQxSB3jkHKsnwmUhdG6aOQ+e7kdhXR3lcEhOcDCg0mlYEnfU8D
-         +2FmkcUcApmwRgf6Jc9nqz6oe358jI4jAZOre2aNeLDO1InAQ3I2f+q6r/B800Y6m/w7
-         1xBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=GlwN8j82SgoVOz7HHzh2bhzIqCg28sVCaQneoE9LKSM=;
-        fh=WGzQk03/uPBhjUpEl+OlPtQcVUOQjmctg4ubhsV4UUE=;
-        b=VRnVjqYkZSukgjSprFh7QcBc2S76UlBE6JK8/tS9XwcJ9ehobX5n2QBSXRh93k+pEb
-         aQ3ZyBZmOXZiQnZw/XiEZpC2JJOPaxI82IF0RLvzQvZPekgDI5LQr6kbL2GTRqJFv35j
-         chIHPicGAMvOgtIKjXlKwbYkqdP6TkNTjL5L4UgUCgpkLMnPQox4cqrc6njAZ+yGB1Ca
-         zhWiKP3ElVOmsCIqudDb9QVCO7McNt/IgF/02XMet39TRuiQlxctBgtMxVT5po6WFqbl
-         5MMAOnYGD4cOAuF+mY5jAe+1Ehcr4v87b/H6zdumkepsyOmCb3X/JNOWN6swLWP77YT8
-         kWng==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 21 Jan 2026 07:42:22 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-47ee301a06aso59211875e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 23:42:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768980924; x=1769585724; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GlwN8j82SgoVOz7HHzh2bhzIqCg28sVCaQneoE9LKSM=;
-        b=mYZASeUJOl1DJSpDQKVYZjNLqFXB6SIDvUOz4+9wMECwcvtIpT7SRYXwz4FUzhCZIh
-         mMPAnGx3dvC9nXYprTCPLmxuJpD6eVg42Dufpw4x/uEzyg1qU9MKNJkdzHaMLk6hcPjG
-         GEJorhJWFURSnVrk+una1evocuGKRTjiR+luW+BUrINC0ZAamztqwJ3HrH2M5de0EUjv
-         Gp8ncxldKTnIY0VaflbZaQPQWtuFOl5pwIXz8VMMvIZZPppgH0sFKueDtqdsOPyfSUvI
-         WTNfgWSYAPxfoGfItWbMxO18msfHqOx0edHA4FKFTYbLE0iwwoyRIhuY6+d/Q65Jfg7F
-         ncUQ==
+        d=gmail.com; s=20230601; t=1768981339; x=1769586139; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0cCPUZnGLoUlQBF/9NTsmnTAUK8WV5r6Blkl4XMyMuE=;
+        b=UKZx+1LvJqcmVtCOFf+XhSOGoaBZSEEOinKIkiyD8QeLuAjcTx9yYz2WLvqmRTpBni
+         mv6Ybx7+SdC6jWCtw39DJFgpvUEOgKB4Z2jCrC8/Brhi6KNpe0VP/+PcSyDoa1Mwlbq1
+         ZVr5RI+rqruFxreF6lJPyGFsEKVt/SKS2+uBR8q4K8crOEDlrxj5k++WURr1eXtrJb1z
+         UVlxHKmjw23+g0lz6eM021tcO7xtR+pM6nrHw67esVGbZtCi+aa8tb1zRO2z0TJfm8Dw
+         lq7Ymmy4z9KL0oW5qUr6gYDsXqUMZzkjZcc5akVowbxIP4gGnyhua8Wl1H+MO1SOl8ki
+         GCtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768980924; x=1769585724;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=GlwN8j82SgoVOz7HHzh2bhzIqCg28sVCaQneoE9LKSM=;
-        b=way33oPJCG96mTUOz/7J8W+86Dn01dBLSCmze4cMWiSOxtqQu86+pPtHoUjy1AhuXH
-         znWwwTsJ4RPWXOAO55iQEkpGkaICxrP/RozJkBnAeEaP4AxE4diVuYLII/ZTXwlxKXj8
-         tBLH8sct+99A8IuTCBaa035A7opWLGZqQbZ+ixmaIGCZtLrpPwutWFvFx+ccLHTxEgbR
-         ymHaLlzkUsJZVC7bt8hOS5rYctxSdc/AwoMrUNjPAuu6rdsVoJc07qOSDChvqoonGwx4
-         OORb1CseCx0EOqTLoYvTnUXnl9wO4ZsTiJI4vuQT0129xYauB/2sKL3t7HjxaBggbGDO
-         2LRw==
-X-Forwarded-Encrypted: i=1; AJvYcCWS9BK631h044VlrBq1Vs2icSczjwnUg1gnMPWuUbi1w2pKmUMawBnuikXzForle1i5Om8x+lXxzgValhTfmP1p@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzj3/WxX1n4mfKQjQ+0xzGJp4+gmaEcvZ3bCSyurUN/jNP7/QRF
-	BZtXjiWBQ8XXv6g10cH1tjjviEqq1g98y3WMWDtJeQgFTmlFriIGAU6i84JWObQj2wak57kUPSd
-	7vHJM9uuVfHYxcICXvVonUOeRojWDKAI=
-X-Gm-Gg: AZuq6aI4nnyb1UB7wVPHAl/kL0GuUuqix6gfOQn/Upt8eKgduBr8TXedwikbFhRyNz0
-	D94eydc+MgxBKyLRQHiA4aoefKSkz2wKuRrECKf/xJl4z/PT7cfoumNjmGSwqokvM/0QSSuvMGr
-	UO3h9QRGyBAsi3swpem0b++6vs3fZnIYnLQmnNlyyhiS2nQXdusEw6DxJX74LeQInKq7K6BIIrZ
-	F9yOF48aPrY2sx5bVlK6Lqzj3ADetKCMh6B0WxxP9P9BnevBQlpzQFlERQiGzmm7ColdSjm/KuV
-	lY/S0MrBGPW332G7aYkKPVpN25c=
-X-Received: by 2002:a05:620a:199e:b0:8c6:a5ae:e9cc with SMTP id
- af79cd13be357-8c6a5aeeb3dmr2503090885a.14.1768980924177; Tue, 20 Jan 2026
- 23:35:24 -0800 (PST)
-MIME-Version: 1.0
-References: <20260120-ufs-rst-v2-1-b5735f1996f6@gmail.com> <176894531223.1201556.243460289333921566.robh@kernel.org>
-In-Reply-To: <176894531223.1201556.243460289333921566.robh@kernel.org>
+        d=1e100.net; s=20230601; t=1768981339; x=1769586139;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0cCPUZnGLoUlQBF/9NTsmnTAUK8WV5r6Blkl4XMyMuE=;
+        b=fX4zDJr1DCY3vuvvhjJXf+BcRS1ZdiWTUySe7c/dETmiYUwrJNTX6MdEJnmpbNvog2
+         pL6MfJvTQEBXeI7GUqU8Cc78YdjoBX3qgoAly6SwNG+McOn6865223KIweClDZMJvRY/
+         whJDyNLWvFpGtCGwjBAsaH+mOiCORJ7XUNiqUgm8W6xYbGNiR61fx7DhlwooM9KkCZHk
+         iiy2dje54XvecfKrSnznqvlpe+nf25BLjWKvub8Oz05XoTHkGqlOstyCgwIpcyZog6QM
+         9XThbO0g3lfjSX2Sja7Ttm17jqJa3ocR6HeJrhrGcd8axWtLILsuQuLCPCHpOlbiQOVT
+         XkjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWMo3gPhdx8utiYfJ3f1dkV7EZUCuTagPxSky/WGnH6icI15lU5PBS+eBMIQrrzjiaXl8RqUtIAghtV43LFjtzX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUeTZrOew6bXG/9WNUYcfVaTMXFoor7wHxZHreFe060CT95sCx
+	gmmVBA4f/Hh8eRxJpKzsWqX4V20YzF7bWZghA/uqKr0PqeYXHP/p5gcx
+X-Gm-Gg: AZuq6aL59RNEpOWYMUqcqTzItw2NXuJqgUJrNxnJvJgrBVb2pRhxArS/wegeaH6dmih
+	8V5d8pN0hpCxzYc70aqkS2o7lllisVEWrGMDnzKZ/2tLaVg79I+Qvzd3f5HJNcVWZe16mpR2PfX
+	vY1MCgIj5lnvjiGAkNQEjS1GEgUU3GUrz4BZY7dg0GA5xdCW1FulF+ElD8hCgyV4FSdrFrkrjnF
+	wj6rbXdZO/0Gh9g2ANe3UdifEXlCO/nYUR5Lo4gn7xgiwXtz/PDxEFqqsZdwmEkhRCK/NHl1abz
+	BRvgoi4U3SAMqSG5nVZVsuw1uqZnOgSbN2tH/sd6FTKPxjcVQCX9tPwUomcjA/mOfcJe8SUlOVs
+	cZ5vFQ3AODb+KLF1jQRcLlF2Hhp25WndmJxV+PtjFYtYryQILG51b8s3fHvzH4bTC9iEoZgeRHJ
+	8BS14jjR6TYnyTdFV+x2kK768ERxOyTIcy/ZbFXlIdRNmzWiiEkTVI7OgE5YE84YM=
+X-Received: by 2002:a05:600c:198e:b0:477:9976:9e1a with SMTP id 5b1f17b1804b1-4801eaadc94mr208656345e9.6.1768981338757;
+        Tue, 20 Jan 2026 23:42:18 -0800 (PST)
+Received: from alchark-surface.localdomain (bba-83-110-134-52.alshamil.net.ae. [83.110.134.52])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4356999824csm34368915f8f.39.2026.01.20.23.42.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Jan 2026 23:42:18 -0800 (PST)
 From: Alexey Charkov <alchark@gmail.com>
-Date: Wed, 21 Jan 2026 11:35:15 +0400
-X-Gm-Features: AZwV_Qj7xD-HFnkapRoKPYsoUpofy6BjoS4guSoqEyGq3j-AZNfOskowc3KWMuM
-Message-ID: <CABjd4YyPhHCL0TNzKG1_t4bTspfcC0bx41a8t=u+CJo6JvMC0g@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: dts: rockchip: Explicitly request UFS reset pin
+Date: Wed, 21 Jan 2026 11:42:13 +0400
+Subject: [PATCH v3] arm64: dts: rockchip: Explicitly request UFS reset pin
  on RK3576
-To: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Quentin Schulz <quentin.schulz@cherry.de>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-kernel@vger.kernel.org, 
-	"Martin K. Petersen" <martin.petersen@oracle.com>, Heiko Stuebner <heiko@sntech.de>, stable@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260121-ufs-rst-v3-1-35839bcb4ca7@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAFSDcGkC/2WMyw6CMBBFf4XM2pq2QGld+R/GBdQpTCKPtNhoC
+ P9uYSOJy3Nzz1kgoCcMcMkW8Bgp0DgkyE8Z2K4eWmT0SAySS8WFMOzlAvNhZs41lqPVGnkF6T1
+ 5dPTeS7d74o7CPPrPHo5iW/8bUTDBrEajCpObQttr29f0PNuxh60R5cGT/OfJ5DVllZdOGKOcO
+ nrrun4BqGEyK9YAAAA=
+X-Change-ID: 20260119-ufs-rst-ffbc0ec88e07
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ "Martin K. Petersen" <martin.petersen@oracle.com>, 
+ Shawn Lin <shawn.lin@rock-chips.com>, 
+ Manivannan Sadhasivam <mani@kernel.org>
+Cc: Quentin Schulz <quentin.schulz@cherry.de>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+ Alexey Charkov <alchark@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4576; i=alchark@gmail.com;
+ h=from:subject:message-id; bh=H/Le12Y1Ya9Ys/AHE2MLwlPKgu80NfZB2AyT4Dbqvfw=;
+ b=owGbwMvMwCW2adGNfoHIK0sZT6slMWQWNEd1/vFnKX7XOtVy1p1lmvIvev2rTpd0fmpM/nNXQ
+ vLCtTVnOyayMIhxMViKKbLM/bbEdqoR36xdHh5fYeawMoEMkRZpYAACFga+3MS8UiMdIz1TbUM9
+ Q0MdYx0jBi5OAZhq3h8M/1PUlrT1cjzd+LP2hPPHiVdrjqyKMv++LfWp+MFDKeIlvxoYGc5LHbw
+ W1GfhP9fil9RNhbevDEyO6D33TZoS4bdp5St7fX4A
+X-Developer-Key: i=alchark@gmail.com; a=openpgp;
+ fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_233526_005721_DE4AA394 
-X-CRM114-Status: GOOD (  33.56  )
+X-CRM114-CacheID: sfid-20260120_234221_282541_0974A112 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,162 +116,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 1:45=E2=80=AFAM Rob Herring <robh@kernel.org> wrote=
-:
->
->
-> On Tue, 20 Jan 2026 16:53:54 +0400, Alexey Charkov wrote:
-> > Rockchip RK3576 UFS controller uses a dedicated pin to reset the connec=
-ted
-> > UFS device, which can operate either in a hardware controlled mode or a=
-s a
-> > GPIO pin.
-> >
-> > Power-on default is GPIO mode, but the boot ROM reconfigures it to a
-> > hardware controlled mode if it uses UFS to load the next boot stage.
-> >
-> > Given that existing bindings (and rk3576.dtsi) expect a GPIO-controlled
-> > device reset, request the required pin config explicitly.
-> >
-> > This doesn't appear to affect Linux, but it does affect U-boot:
-> >
-> > Before:
-> > =3D> md.l 0x2604b398
-> > 2604b398: 00000011 00000000 00000000 00000000  ................
-> > < ... snip ... >
-> > =3D> ufs init
-> > ufshcd-rockchip ufshc@2a2d0000: [RX, TX]: gear=3D[3, 3], lane[2, 2], pw=
-r[FASTAUTO_MODE, FASTAUTO_MODE], rate =3D 2
-> > =3D> md.l 0x2604b398
-> > 2604b398: 00000011 00000000 00000000 00000000  ................
-> >
-> > After:
-> > =3D> md.l 0x2604b398
-> > 2604b398: 00000011 00000000 00000000 00000000  ................
-> > < ... snip ...>
-> > =3D> ufs init
-> > ufshcd-rockchip ufshc@2a2d0000: [RX, TX]: gear=3D[3, 3], lane[2, 2], pw=
-r[FASTAUTO_MODE, FASTAUTO_MODE], rate =3D 2
-> > =3D> md.l 0x2604b398
-> > 2604b398: 00000010 00000000 00000000 00000000  ................
-> >
-> > (0x2604b398 is the respective pin mux register, with its BIT0 driving t=
-he
-> > mode of UFS_RST: unset =3D GPIO, set =3D hardware controlled UFS_RST)
-> >
-> > This helps ensure that GPIO-driven device reset actually fires when the
-> > system requests it, not when whatever black box magic inside the UFSHC
-> > decides to reset the flash chip.
-> >
-> > Cc: stable@vger.kernel.org
-> > Fixes: c75e5e010fef ("scsi: arm64: dts: rockchip: Add UFS support for R=
-K3576 SoC")
-> > Reported-by: Quentin Schulz <quentin.schulz@cherry.de>
-> > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > ---
-> > This has originally surfaced during the review of UFS patches for U-boo=
-t
-> > at [1], where it was found that the UFS reset line is not requested to =
-be
-> > configured as GPIO but used as such. This leads in some cases to the UF=
-S
-> > driver appearing to control device resets, while in fact it is the
-> > internal controller logic that drives the reset line (perhaps in
-> > unexpected ways).
-> >
-> > Thanks Quentin Schulz for spotting this issue.
-> >
-> > [1] https://lore.kernel.org/u-boot/259fc358-f72b-4a24-9a71-ad90f2081335=
-@cherry.de/
-> > ---
-> > Changes in v2:
-> > - Change default pin pull to pull-down in line with the SoC power-on de=
-fault
-> > - Link to v1: https://lore.kernel.org/r/20260119-ufs-rst-v1-1-c8e964939=
-48c@gmail.com
-> > ---
-> >  arch/arm64/boot/dts/rockchip/rk3576-pinctrl.dtsi | 7 +++++++
-> >  arch/arm64/boot/dts/rockchip/rk3576.dtsi         | 2 +-
-> >  2 files changed, 8 insertions(+), 1 deletion(-)
-> >
->
->
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
->
-> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-> are fixed by another series. Ultimately, it is up to the platform
-> maintainer whether these warnings are acceptable or not. No need to reply
-> unless the platform maintainer has comments.
->
-> If you already ran DT checks and didn't see these error(s), then
-> make sure dt-schema is up to date:
->
->   pip3 install dtschema --upgrade
->
->
-> This patch series was applied (using b4) to base:
->  Base: 46fe65a2c28ecf5df1a7475aba1f08ccf4c0ac1b (use --merge-base to over=
-ride)
->
-> If this is not the correct base, please add 'base-commit' tag
-> (or use b4 which does this automatically)
->
->
-> New warnings running 'make CHECK_DTBS=3Dy for arch/arm64/boot/dts/rockchi=
-p/' for 20260120-ufs-rst-v2-1-b5735f1996f6@gmail.com:
->
-> arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dtb: ufs: ufs-rst-gp=
-io: {'rockchip,pins': [[4, 24, 0, 29]], 'phandle': 113} is not of type 'arr=
-ay'
->         from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer=
-.yaml
-> arch/arm64/boot/dts/rockchip/rk3576-100ask-dshanpi-a1.dtb: ufs: ufs-rst-g=
-pio: {'rockchip,pins': [[4, 24, 0, 29]], 'phandle': 130} is not of type 'ar=
-ray'
->         from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer=
-.yaml
-> arch/arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dtb: ufs: ufs-rst-gpio: {=
-'rockchip,pins': [[4, 24, 0, 29]], 'phandle': 116} is not of type 'array'
->         from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer=
-.yaml
-> arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dtb: ufs: ufs-rst-gpio: {'rock=
-chip,pins': [[4, 24, 0, 29]], 'phandle': 117} is not of type 'array'
->         from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer=
-.yaml
-> arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dtb: ufs: ufs-rst-gpio: {'r=
-ockchip,pins': [[4, 24, 0, 29]], 'phandle': 133} is not of type 'array'
->         from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer=
-.yaml
-> arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dtb: ufs: ufs-rst-gpio: {'roc=
-kchip,pins': [[4, 24, 0, 29]], 'phandle': 122} is not of type 'array'
->         from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer=
-.yaml
-> arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: ufs: ufs-rst-gpio: {'ro=
-ckchip,pins': [[4, 24, 0, 29]], 'phandle': 134} is not of type 'array'
->         from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer=
-.yaml
-> arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: ufs: ufs-rst-gpio: =
-{'rockchip,pins': [[4, 24, 0, 29]], 'phandle': 130} is not of type 'array'
->         from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer=
-.yaml
-> arch/arm64/boot/dts/rockchip/rk3576-evb1-v10-pcie1.dtb: ufs: ufs-rst-gpio=
-: {'rockchip,pins': [[4, 24, 0, 29]], 'phandle': 134} is not of type 'array=
-'
->         from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer=
-.yaml
-> arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5-v1.2-wifibt.dtb: ufs: uf=
-s-rst-gpio: {'rockchip,pins': [[4, 24, 0, 29]], 'phandle': 130} is not of t=
-ype 'array'
->         from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer=
-.yaml
+Rockchip RK3576 UFS controller uses a dedicated pin to reset the connected
+UFS device, which can operate either in a hardware controlled mode or as a
+GPIO pin.
 
-Thank you bot. This wildcard for *-gpio is driving me crazy. And yes,
-looks like I forgot to test against the schema - sorry for that. Will
-resend a slightly adjusted version shortly
-(s/ufs-rst-gpio/ufs-rstgpio/ to avoid incorrectly matching against the
-GPIO schema)
+Power-on default is GPIO mode, but the boot ROM reconfigures it to a
+hardware controlled mode if it uses UFS to load the next boot stage.
+
+Given that existing bindings (and rk3576.dtsi) expect a GPIO-controlled
+device reset, request the required pin config explicitly.
+
+The pin is requested with pull-down enabled, which is in line with the
+SoC power-on default and helps ensure that the attached UFS chip stays
+in reset until the driver takes over the control of the respective
+GPIO line.
+
+This doesn't appear to affect Linux, but it does affect U-boot:
+
+Before:
+=> md.l 0x2604b398
+2604b398: 00000011 00000000 00000000 00000000  ................
+< ... snip ... >
+=> ufs init
+ufshcd-rockchip ufshc@2a2d0000: [RX, TX]: gear=[3, 3], lane[2, 2], pwr[FASTAUTO_MODE, FASTAUTO_MODE], rate = 2
+=> md.l 0x2604b398
+2604b398: 00000011 00000000 00000000 00000000  ................
+
+After:
+=> md.l 0x2604b398
+2604b398: 00000011 00000000 00000000 00000000  ................
+< ... snip ...>
+=> ufs init
+ufshcd-rockchip ufshc@2a2d0000: [RX, TX]: gear=[3, 3], lane[2, 2], pwr[FASTAUTO_MODE, FASTAUTO_MODE], rate = 2
+=> md.l 0x2604b398
+2604b398: 00000010 00000000 00000000 00000000  ................
+
+(0x2604b398 is the respective pin mux register, with its BIT0 driving the
+mode of UFS_RST: unset = GPIO, set = hardware controlled UFS_RST)
+
+This helps ensure that GPIO-driven device reset actually fires when the
+system requests it, not when whatever black box magic inside the UFSHC
+decides to reset the flash chip.
+
+Cc: stable@vger.kernel.org
+Fixes: c75e5e010fef ("scsi: arm64: dts: rockchip: Add UFS support for RK3576 SoC")
+Reported-by: Quentin Schulz <quentin.schulz@cherry.de>
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
+---
+This has originally surfaced during the review of UFS patches for U-boot
+at [1], where it was found that the UFS reset line is not requested to be
+configured as GPIO but used as such. This leads in some cases to the UFS
+driver appearing to control device resets, while in fact it is the
+internal controller logic that drives the reset line (perhaps in
+unexpected ways).
+
+Thanks Quentin Schulz for spotting this issue.
+
+[1] https://lore.kernel.org/u-boot/259fc358-f72b-4a24-9a71-ad90f2081335@cherry.de/
+---
+Changes in v3:
+- Rename the pin to "ufs-rstgpio" to avoid incorrectly matching against
+  the GPIO schema with the *-gpio pattern (thanks Rob's bot)
+- Amend the commit description to reflect the rationale for the pull-down
+  configuration (thanks Quentin)
+- Link to v2: https://lore.kernel.org/r/20260120-ufs-rst-v2-1-b5735f1996f6@gmail.com
+
+Changes in v2:
+- Change default pin pull to pull-down in line with the SoC power-on default
+- Link to v1: https://lore.kernel.org/r/20260119-ufs-rst-v1-1-c8e96493948c@gmail.com
+---
+ arch/arm64/boot/dts/rockchip/rk3576-pinctrl.dtsi | 7 +++++++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi         | 2 +-
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-pinctrl.dtsi b/arch/arm64/boot/dts/rockchip/rk3576-pinctrl.dtsi
+index 0b0851a7e4ea..98c9f8013158 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-pinctrl.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576-pinctrl.dtsi
+@@ -5228,6 +5228,13 @@ ufs_rst: ufs-rst {
+ 				/* ufs_rstn */
+ 				<4 RK_PD0 1 &pcfg_pull_none>;
+ 		};
++
++		/omit-if-no-ref/
++		ufs_rstgpio: ufs-rstgpio {
++			rockchip,pins =
++				/* ufs_rstn */
++				<4 RK_PD0 RK_FUNC_GPIO &pcfg_pull_down>;
++		};
+ 	};
+ 
+ 	ufs_testdata0 {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index 3a29c627bf6d..49ccdf12ef7e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -1865,7 +1865,7 @@ ufshc: ufshc@2a2d0000 {
+ 			assigned-clock-parents = <&cru CLK_REF_MPHY_26M>;
+ 			interrupts = <GIC_SPI 361 IRQ_TYPE_LEVEL_HIGH>;
+ 			power-domains = <&power RK3576_PD_USB>;
+-			pinctrl-0 = <&ufs_refclk>;
++			pinctrl-0 = <&ufs_refclk &ufs_rstgpio>;
+ 			pinctrl-names = "default";
+ 			resets = <&cru SRST_A_UFS_BIU>, <&cru SRST_A_UFS_SYS>,
+ 				 <&cru SRST_A_UFS>, <&cru SRST_P_UFS_GRF>;
+
+---
+base-commit: 46fe65a2c28ecf5df1a7475aba1f08ccf4c0ac1b
+change-id: 20260119-ufs-rst-ffbc0ec88e07
 
 Best regards,
-Alexey
+-- 
+Alexey Charkov <alchark@gmail.com>
+
 
