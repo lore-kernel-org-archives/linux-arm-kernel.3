@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A6F8C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 18:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65516C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 18:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IG+aucFYrXcuoX6ZpIwhvoHvM5NCyWAHEHVKm/8nItw=; b=v7kViPGvtoThQhFFOr82mKDTq1
-	bB0Lb9VZ4UWnqgsQlQ8nj2bdYgoEPZVjsDyxwAUktz+q+0X0yvZ1lowGi1gfCi7GeV2uIii+YqH5g
-	hw2uJAdt1xF1tKDSRYdcu3LSWuQBKw80ICflKIa5OWqRRTky8/Lj0oA5ou6xUkHAot0b3ueVM3y6b
-	6m6MpJbGN8NONhTYIafr7xzKIUIZn/KjNcuohUUNciv9rFlfUhFhZLvo+BX4VKPYLLzr9MbKPpg35
-	8k2RbGLDoXS4mrup8DtU614IjIlcjsAw8Ub6pfYHLF1kbLY4/ByhJz2s9vikJnXoI5elX7vhuM2W7
-	i72U0pRQ==;
+	bh=3GNMB3FjoeNxpLD3yr2JMnbh0OOReOIXlnt2lZEHitY=; b=GeEDz4sRUyMpTxzCPDNawrh+Ny
+	10a9k6jgVQHLrw7KVOwP9TrJdrOz/4h9uhqSa4nalRpkRiw5o5CA4WLOsPPVaA9kyVMdb76k/Qtkn
+	4rwMd5OOj6uehzOWZKcrU5/X52BdkxgeT/1wOKidnpqqLnjlsgePqOZQZ8+2ZnXz7vUP6Qnk56u0S
+	zKBzcOtktP9zB5R/VNLvyCARKS/5RuZ5EqdPbVKRXaoogQs+2bhjG7kfLLVS7az5y6aXvcTgPvI0n
+	0pJZlm+xus3U8KaGZ7ZsoipRU0q/OQxJCwxZilLD4Jt1R4cuoi8byykNkxRnIZLYy0B7pSnhdam6W
+	yYaV9TRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vidBP-00000005wKg-2ZRw;
-	Wed, 21 Jan 2026 18:43:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vidC5-00000005wPl-10mT;
+	Wed, 21 Jan 2026 18:44:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vidBN-00000005wK8-24DI;
-	Wed, 21 Jan 2026 18:43:58 +0000
+	id 1vidC3-00000005wPO-2iPE;
+	Wed, 21 Jan 2026 18:44:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B8ED24398E;
-	Wed, 21 Jan 2026 18:43:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74DFBC16AAE;
-	Wed, 21 Jan 2026 18:43:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C465C60131;
+	Wed, 21 Jan 2026 18:44:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54ED0C16AAE;
+	Wed, 21 Jan 2026 18:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769021036;
-	bh=tdP8IcHE3V6E2WPepo9Dt20ryBg+PeyHE8I+374/qzw=;
+	s=k20201202; t=1769021078;
+	bh=wZE/s1l1NOJXYc8o2baQjkj9gVvGsCEaAvDmPO+gaMk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u9BQlKNOvdxV7n3Bjtlq1U1gQn6fVBSdcHrOxE+cEly/9B9Qqa4t3qcbuVDvD9Wxq
-	 UBrtBLLWe+cMLLOf6u6s+gXXgLj7keOCYiA2FRpydbLPEbZwQ6ROlgBZmFEPY1Lnya
-	 uRI6eD73CxMsJLs1mjb3aWS2r3BVQT7FpwkDur0ZwsjqCZcaGcTskJlURDiPREotVX
-	 dNcyZU2y1hJrOyRyJjIBpxM7pe/MdtCnSxpfgmoR7WUdx0rRgY3xeTxZ/bwKnrpOAk
-	 2+QtIONOjFpbd0Bd9UOMW3SwwmIsmlg47+glaC5usr+Er802DfZMa1IoecM2c1tf7v
-	 Fo9V2PGeHK68Q==
-Date: Wed, 21 Jan 2026 12:43:55 -0600
+	b=Frdt+oEUZNmgSY81no4KQ4SWHaX8UV9q6oHzYrTauxwn6EY06LkllofP3ZhTr+5v8
+	 s3qASNeWBs96LWLvrVt1n8jlHArExTqSvCXA0uN+tkkXvoW8NBSqIwb0+o7ZrfB294
+	 URFXrC4bXefltMQIbSw50mt29gLlL/ZeMoU9VN0ajHO9FjIawX25UrTFxi+8J804Ut
+	 ItG1YOEV2/agcMWLyGOEhMZ64XZT2zYSAIMdSSOqSaAtb2PP0FVoDdeqwkHyLXa5nc
+	 9ivYlNQk93Vk9Av81NpnRuN7V2S97j+HxQdK7iMwaF0oz858/YWfSsxlte4fApLZzE
+	 J5DpSI4aQMNzA==
+Date: Wed, 21 Jan 2026 12:44:37 -0600
 From: Rob Herring <robh@kernel.org>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: krzk+dt@kernel.org, herbert@gondor.apana.org.au, davem@davemloft.net,
-	conor+dt@kernel.org, andrew@lunn.ch, gregory.clement@bootlin.com,
-	sebastian.hesselbarth@gmail.com, matthias.bgg@gmail.com,
-	atenart@kernel.org, linux-crypto@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, kernel@collabora.com
-Subject: Re: [PATCH v2 0/4] Fixes for EIP97/EIP197 binding and devicetrees
-Message-ID: <20260121184355.GA3842411-robh@kernel.org>
-References: <20260112145558.54644-1-angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, mturquette@baylibre.com, sboyd@kernel.org,
+	matthias.bgg@gmail.com, ulf.hansson@linaro.org,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, kernel@collabora.com
+Subject: Re: [PATCH 4/5] arm64: dts: mediatek: mt7622: Add missing clock to
+ audio-controller
+Message-ID: <20260121184437.GB3842411-robh@kernel.org>
+References: <20260113110012.36984-1-angelogioacchino.delregno@collabora.com>
+ <20260113110012.36984-5-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260112145558.54644-1-angelogioacchino.delregno@collabora.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_104357_556989_836D6107 
-X-CRM114-Status: GOOD (  10.06  )
+In-Reply-To: <20260113110012.36984-5-angelogioacchino.delregno@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,21 +73,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 12, 2026 at 03:55:54PM +0100, AngeloGioacchino Del Regno wrote:
-> Changes in v2:
->  - Reorder commits
->  - Change to restrict interrupts/interrupt-names minItems to MediaTek only
+On Tue, Jan 13, 2026 at 12:00:11PM +0100, AngeloGioacchino Del Regno wrote:
+> Add the missing audio_mrgif_pd clock to the audio-controller node
+> to both resolve a dtbs_check warning and ensure that the AFE merge
+> interface is clocked while using audio.
 > 
-> This series adds SoC compatibles to the EIP97/EIP197 binding, and also
-> fixes all of the devicetrees to actually declare those in their nodes.
-> 
-> The only platforms using this binding are Marvell and MediaTek.
-> 
-> AngeloGioacchino Del Regno (4):
->   dt-bindings: crypto: inside-secure,safexcel: Add SoC compatibles
->   dt-bindings: crypto: inside-secure,safexcel: Mandate only ring IRQs
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  arch/arm64/boot/dts/mediatek/mt7622.dtsi | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
 
-I applied these 2.
-
-Rob
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
