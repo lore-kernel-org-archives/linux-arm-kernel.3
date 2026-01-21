@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A98EAC4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87CDBC4453A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SfjcxeAT2W+o+UxrPmZJDMJEXHj1m3+fRUI5YUGISxM=; b=32EgJwCmVSnB98m+orCkWLanPb
-	QnQAyyjT9FXdARpMOhXOKRqbLaExJvQfgNMbQlsctB4Ag5iQ7Jm3Gm1kg2j9vdcTXbkJ9TGLc+p06
-	/134LZ4ghI+Qr/HIFE85Gwy0CQhRbCjbYLodS0zi6OBRKa4s7A3Ysn6+4CMrjVnJytxKrMbOOakqX
-	17DhrQ5n35qBZOc1CG9syxGt3Na2NkH+Hhi6kvteoZek8d5YSdWZnRVlTL0NYmuqwn8K6FIN55ZFU
-	McUgBwWfU2LKIc1exFDoppLaDWZvhmtdJ7Ooji89EHExL00Gv5Xz0MNZ6jUJcDYVqZMUrHB04RCXi
-	IyepF5UA==;
+	bh=9j0aEnPsFf4ht23DVuEjYMMqdJpKWzWkgwC3q2GqT3A=; b=p3HMnfQY5chxpnMhnQK0FT3yMH
+	/g1fEvWbZdjGyJBteB8Z/YbmE6VFKSjwA24rLTV7z/lDQA6VWCLJEvCWkw39svTwTbmR8gWS0x27a
+	OMf3bTzuNg2D5lU+nDzxvhUsILs9+UuP5ya6IkUdLh9dJTohX3E2uY2frQ2ad1LIzj9agRGT0kyRv
+	D91wyXydE2jLS1+AJJ6b9lgKA0nUjv3MRxDhhvjm03Bt35xq3ESlTB61/pHKa1/53VdWTqoug+gs3
+	Fq19R7mdG4wfXhF6b3/G4NxUT2iQ6hAG8MdjY4cbSSOCGvXCjnrfjjEZuB2WkArppTH4dMTA8DIo5
+	1rwLC8JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYaN-00000005XkC-0OA7;
-	Wed, 21 Jan 2026 13:49:27 +0000
+	id 1viYba-00000005YCX-3G7y;
+	Wed, 21 Jan 2026 13:50:42 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYaC-00000005XZz-2uFS;
-	Wed, 21 Jan 2026 13:49:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769003323; cv=none; 
+	id 1viYbX-00000005YBx-30Y1;
+	Wed, 21 Jan 2026 13:50:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769003425; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=Qu5HcFI7eZQyiLafHMrl40Bks9ctbn3Ag/wWiDv4upwjKR2blsOUlAAB+pwG4gnk1oMbo6IckVIieq4tPo2co0flrE6JQDG75MFPG2S8idT5LkDpkZRny0maeIl33YuuAvdD8Wa1Hcqu7VlU76nJ4rFSTTi3fw7mqUR/byQ4XEQ=
+	b=oMD3DvxuLuEzLSKEQ+n7wJ4m/xJbJL42ySs6VOCov2+etqD4CgyPmKR8dkzx4g41ouAyqQO62NoJmbCaOtROJc7sd0f6R40oSBIx78qL6ybgkLBuv2rDFMaO/5EhdG55m8UuI97tr7tzCiQJSiJ39lWOQviRPlrDP3vbU1zyLJM=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769003323; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=SfjcxeAT2W+o+UxrPmZJDMJEXHj1m3+fRUI5YUGISxM=; 
-	b=KhH6sT8FeyTWPQ93V/yBX/pRI+veKpouS2PgUmP8OeIaNEDLH4tu9tNIuh5NGYd4VowpJqrG5L8LoetvhaqhC13gGxEw/pFfh6b9XtAhyf5J54GPblqhxvTmTAmu6pd7bjSFhcGqnT32X0rrlhg0+5GWhbZerJ4jMWH9TxxPO4k=
+	t=1769003425; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=9j0aEnPsFf4ht23DVuEjYMMqdJpKWzWkgwC3q2GqT3A=; 
+	b=AbgOsVL6Ef6WBq9f5iily7oU2CPu1sGMgiO0qjOsCI5xkur+8tRusuPAKEHZUEZ3V2aO1UJnSxkwDDRRNxoSiDYCwg7T835rgSWb67ZqHx9iJM1AxWy6Cv+DWVpo8cmOYYzFz3NM0AiKfr7u4ZoWj6luSFuJlyp8HjLuMnUGV10=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769003323;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=SfjcxeAT2W+o+UxrPmZJDMJEXHj1m3+fRUI5YUGISxM=;
-	b=NBgc6ozo0i/RTDRfPAIxxMCsaynl11+ueBDC0eT6tGUo92Lv21csWpMu8MW+PpwE
-	HG8fPD/kd3L6KIb+sPpMgHUXL3U4hMtwD8b3oN8/K0qN3AdNNpVXmLt5KKxEhNA3ehu
-	/RZi4IFp0AyKU9yvGug+X0zTy4RLOdZFb0bOtYKI=
-Received: by mx.zohomail.com with SMTPS id 1769003320832411.20417740809444;
-	Wed, 21 Jan 2026 05:48:40 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Wed, 21 Jan 2026 14:45:47 +0100
-Subject: [PATCH v6 21/21] drm/bridge: Document bridge chain format
- selection
+	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
+	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769003425;
+	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=9j0aEnPsFf4ht23DVuEjYMMqdJpKWzWkgwC3q2GqT3A=;
+	b=FgHTyAymulI5Ru9lYKyZMIbtyQLW1up5yzp5g/XMCPX5Snig5KqTiaTFvUb2GMG7
+	AWA2tt6krbxfxurKZ0M2qTryuy+IwA/fgwMmdmw+uDE94mfzKFW4cGkVOfXbRGgfVsh
+	qlJrHcSEgf5HEUGrk7+QkMbz0DL7z037nqsloBQM=
+Received: by mx.zohomail.com with SMTPS id 1769003423843237.2758502026851;
+	Wed, 21 Jan 2026 05:50:23 -0800 (PST)
+Message-ID: <4b33b50f-f0c3-4db8-b394-dd2d4d6e3a55@collabora.com>
+Date: Wed, 21 Jan 2026 14:50:18 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260121-color-format-v6-21-7b81a771cd0b@collabora.com>
-References: <20260121-color-format-v6-0-7b81a771cd0b@collabora.com>
-In-Reply-To: <20260121-color-format-v6-0-7b81a771cd0b@collabora.com>
-To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
- Rodrigo Siqueira <siqueira@igalia.com>, 
- Alex Deucher <alexander.deucher@amd.com>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>
-Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
- linux-doc@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 3/7] iommu: Add verisilicon IOMMU driver
+To: Will Deacon <will@kernel.org>
+Cc: joro@8bytes.org, robin.murphy@arm.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+ nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org,
+ iommu@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
+ kernel@collabora.com
+References: <20260107101005.84039-1-benjamin.gaignard@collabora.com>
+ <20260107101005.84039-4-benjamin.gaignard@collabora.com>
+ <aWZui-rn5RDPwpEO@willie-the-truck>
+ <68a49f8b-178c-4fa2-b4a9-315ad602271d@collabora.com>
+ <aWeTQ50DOtntcniN@willie-the-truck>
+ <db0950f1-b357-47c2-9829-e33262ab456d@collabora.com>
+ <aW4kb5EbxbrhTOxK@willie-the-truck>
+ <b8f43fe8-3e07-4d98-a50d-817c31370710@collabora.com>
+ <aXDL2JH_4RCDmAJv@willie-the-truck>
+Content-Language: en-US
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+In-Reply-To: <aXDL2JH_4RCDmAJv@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_054916_813107_DFCDBC6F 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20260121_055039_778476_5CD1FAD8 
+X-CRM114-Status: GOOD (  22.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,90 +90,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bridge chain format selection behaviour was, until now,
-undocumented. With the addition of the "color format" DRM property, it's
-not sufficiently complex enough that documentation is warranted,
-especially for driver authors trying to do the right thing.
 
-Add a high-level overview of how the process is supposed to work, and
-mention what the display driver is supposed to do if it wants to make
-use of this functionality.
+Le 21/01/2026 à 13:51, Will Deacon a écrit :
+> On Mon, Jan 19, 2026 at 03:03:44PM +0100, Benjamin Gaignard wrote:
+>>>>>>>> +static const struct iommu_ops vsi_iommu_ops = {
+>>>>>>>> +	.identity_domain = &vsi_identity_domain,
+>>>>>>>> +	.release_domain = &vsi_identity_domain,
+>>>>>>>> +	.domain_alloc_paging = vsi_iommu_domain_alloc_paging,
+>>>>>>>> +	.of_xlate = vsi_iommu_of_xlate,
+>>>>>>>> +	.probe_device = vsi_iommu_probe_device,
+>>>>>>>> +	.release_device = vsi_iommu_release_device,
+>>>>>>>> +	.device_group = generic_single_device_group,
+>>>>>>>> +	.owner = THIS_MODULE,
+>>>>>>>> +	.default_domain_ops = &(const struct iommu_domain_ops) {
+>>>>>>>> +		.attach_dev		= vsi_iommu_attach_device,
+>>>>>>>> +		.map_pages		= vsi_iommu_map,
+>>>>>>>> +		.unmap_pages		= vsi_iommu_unmap,
+>>>>>>>> +		.flush_iotlb_all	= vsi_iommu_flush_tlb_all,
+>>>>>>> This has no callers and so your unmap routine appears to be broken.
+>>>>>> It is a leftover of previous attempt to allow video decoder to clean/flush
+>>>>>> the iommu by using a function from the API.
+>>>>>> Now it is using vsi_iommu_restore_ctx().
+>>>>>> I while remove it in version 12.
+>>>>> Don't you still need some invalidation on the unmap path?
+>>>> In vsi_iommu_unmap_iova() page is invalided by calling vsi_mk_pte_invalid().
+>>> But that just writes an invalid descriptor and doesn't appear to invalidate
+>>> the TLB at all.
+>>>
+>>>> That clear BIT(0) so the hardware knows the page is invalid.
+>>>> Do I have miss something here ?
+>>> Yes, the TLB structure needs to be invalidated so that the page-table
+>>> walker sees the new value that you have written in memory.
+>>>
+>>> The rockchip driver gets this correct...
+>> Rockchip hardware have a ZAP_ONE_LINE register which didn't exist on Verisilicon
+>> hardware.
+> Presumably you have some sort of Verisilicon datasheet or downstream driver
+> from which you can infer the TLB invalidation runes?
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- Documentation/gpu/drm-kms-helpers.rst |  6 ++++++
- drivers/gpu/drm/drm_bridge.c          | 39 +++++++++++++++++++++++++++++++++++
- 2 files changed, 45 insertions(+)
+I have only this downstream driver:
+https://github.com/rockchip-linux/kernel/blob/develop-6.1/drivers/iommu/rockchip-iommu-av1d.c
+No datasheet...
 
-diff --git a/Documentation/gpu/drm-kms-helpers.rst b/Documentation/gpu/drm-kms-helpers.rst
-index 781129f78b06..47c4f593cf9d 100644
---- a/Documentation/gpu/drm-kms-helpers.rst
-+++ b/Documentation/gpu/drm-kms-helpers.rst
-@@ -181,6 +181,12 @@ Bridge Operations
- .. kernel-doc:: drivers/gpu/drm/drm_bridge.c
-    :doc: bridge operations
- 
-+Bridge Chain Format Selection
-+-----------------------------
-+
-+.. kernel-doc:: drivers/gpu/drm/drm_bridge.c
-+   :doc: bridge chain format selection
-+
- Bridge Connector Helper
- -----------------------
- 
-diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index b0dfa03dbb81..a155b8aa4a3d 100644
---- a/drivers/gpu/drm/drm_bridge.c
-+++ b/drivers/gpu/drm/drm_bridge.c
-@@ -198,6 +198,45 @@
-  * driver.
-  */
- 
-+/**
-+ * DOC: bridge chain format selection
-+ *
-+ * A bridge chain, from display output processor to connector, may contain
-+ * bridges capable of converting between bus formats on their inputs, and
-+ * output formats on their outputs. For example, a bridge may be able to convert
-+ * from RGB to YCbCr 4:4:4, and pass through YCbCr 4:2:0 as-is, but not convert
-+ * from RGB to YCbCr 4:2:0. This means not all input formats map to all output
-+ * formats.
-+ *
-+ * Further adding to this, a desired output color format, as specified with the
-+ * "color format" DRM property, might not correspond to what the display driver
-+ * should set at its output 1:1. The bridge chain it feeds into may only be able
-+ * to reach the desired output format, if a conversion from a different starting
-+ * format is performed.
-+ *
-+ * To deal with this complexity, the recursive bridge chain bus format selection
-+ * logic starts with the last bridge in the chain, usually the connector, and
-+ * then recursively walks the chain of bridges backwards to the first bridge,
-+ * trying to find a path.
-+ *
-+ * For a display driver to work in such a scenario, it should read the first
-+ * bridge's bridge state to figure out which bus format the chain resolved to.
-+ * If the first bridge's input format resolved to %MEDIA_BUS_FMT_FIXED, then its
-+ * output format should be used.
-+ *
-+ * Special handling is done for HDMI as it relates to format selection. Instead
-+ * of directly using the "color format" DRM property for bridge chains that end
-+ * in HDMI bridges, the bridge chain format selection logic will trust the logic
-+ * that set the HDMI output format. For the common HDMI state helper
-+ * functionality, this means that %DRM_COLOR_FORMAT_AUTO will allow fallbacks to
-+ * YCBCr 4:2:0 if the bandwidth requirements would otherwise be too high but the
-+ * mode and connector allow it.
-+ *
-+ * For bridge chains that do not end in an HDMI bridge, %DRM_COLOR_FORMAT_AUTO
-+ * will be satisfied with the first output format on the last bridge for which
-+ * it can find a path back to the first bridge.
-+ */
-+
- /* Protect bridge_list and bridge_lingering_list */
- static DEFINE_MUTEX(bridge_lock);
- static LIST_HEAD(bridge_list);
+>
+>> I have tried to use VSI_MMU_BIT_FLUSH on VSI driver after unmapping iova
+>> but it doesn't work.
+> What do you mean by "doesn't work"? If it works without doing any
+> invalidation at all, then it's very peculiar that adding the invalidation
+> would introduce issues.
 
--- 
-2.52.0
+I mean VSI_MMU_BIT_FLUSH register can't be used to invalid the TLB.
+I think the hardware iterates over the pages tables in memory and
+check the valid/invalid bit.
 
+Benjamin
+
+>
+>> So far calling dma_sync_single_for_device() seems to be enough to make iommu
+>> and video decoder work together.
+> I don't think we should settle for "seems to enough"! If we can reason
+> about the operation of the hardware then the driver will be undebuggable
+> when it eventually goes wrong.
+>
+> Will
+>
 
