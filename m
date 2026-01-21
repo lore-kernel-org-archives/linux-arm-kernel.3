@@ -4,184 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB7B9D262B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 00:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C180D262AD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 00:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2MwjJPFo8ndMvw4+H9z/imFCy9HLMyRqi4MtXsvPdbs=; b=Pk/EG9wtJtaz5+3NErP0nvwngH
-	A/SbHKKhS0kDyWHcCdL8epmFWFgOqlmjxMzVgYSz89VMO8is+kDYaAaECJjv9shJDVvpQl9onj2e5
-	TNA3/LaN/IbqXakb/DnTrv2jt1PSIM6eup5cbFuxiFfpf0yxehZKuH6OpU2tYlYfhwT9Xb+Y+3XDp
-	nL0iYqQnLzV24jD0wRpipNbrQBGN00H9YCWghHCOEDMXUacfLqNayV0DKw5j+BoGpk6+pYL2V3ote
-	JWx+8TNHDH1X16ZJvdsh5eabGpdKhEWbPDn9DbZKLkqflln6yP0u9Hb5I6xuq7+q/DSOSzO+4Bld2
-	VlOzobdg==;
+	bh=Eeq/gG1sg6NAOFvmrBFw+IwsTvdCLhlsdiEeaLVVzdw=; b=4s7otk24fsqJerIZkHgn6ITY0H
+	qN6geT5ZgmWy+MxP6PqpUjnGt4XvMd+6HvN1TNZxRgWYZUX5ICGjuHxOjt09TqdCi8vFUnHWxk+By
+	FHNFC7AtH2MV8MjMYUuIb51M7h4AyTrGMsfZkrLO6MfC+woM0pOv5CqEEi0k3bn31VjDoe3HZj5GA
+	mKtrSl908M9MNuAV3dyXoW9a1w1xfVE5ElNHRA1WiUmFkt4j7pGV21B+e53pRdHSMPQ3CNiYBLNuv
+	o7eeUQv4v8S9DKgMBEyFQglHixMBAgXnO4meIFBRWjnK66s8n4IMb/SEdtFWJ1FY/Z0XuYB4bnHKY
+	pbhtWJIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viMJo-00000004flx-3VQR;
-	Wed, 21 Jan 2026 00:43:32 +0000
-Received: from mail-centralusazon11021086.outbound.protection.outlook.com ([52.101.62.86] helo=DM5PR21CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viMJl-00000004flc-26bx
+	id 1viMNO-00000004fxn-0CSL;
+	Wed, 21 Jan 2026 00:47:14 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viMNL-00000004fxQ-07SR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 00:43:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ARe6C8P6GxObfG2hDqY5yb8pZAfxe+BcJ0olkn2ugyHUT40/FvnsgqbOmoWV8xPGpPp0M3VRb50NAA+ne5mM56uLXf1RDFcUPkgI4+Y6CCsed4PYkautvlKint2NDGNYTkxEt/6OsT6MPJjHxsSwFbpuJvdmpqtVdFeOdZIF4MOsAz0Ah4kxCuKNTq15uNQA+caW/smc5OF5krkvyZnwhsIdSRyN0gsPwkuo7GrrDZEf8yIuJ3Z8g34g2iVYsOvt8YDD1GnMTi/n4x41udA7LMqjHPrEXSqUenOO5SoZ5/u0hN7pyFOHnpBdGO9U2hyfaNA+M7nCeYQdlEFRPrjVSw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2MwjJPFo8ndMvw4+H9z/imFCy9HLMyRqi4MtXsvPdbs=;
- b=QfqqJWTaR250QuKDu5mrUhAJDA/Il/lCDjeA1rD2GuyjD/6dF7dKQXxaTYCqHln1w0mQzEW9VwqCldFTecxIZyUdG3kBpIVc9fZO857/sCR2kbl1qrupyCqN0BTslVGfxbmXzsrDV/WOBS2enDzV4e0m8iPURNElFFrH/QlIQkRdBkKIkp0xJ9kQKpF0cCrVLqHZPnV77/VPerUP5FC5wNYQEoVd+WXujKLex4jn89190W6ISY3Jm29LYWz2gS5+/M70VDlbBEA9Nqm2nMIy+oVATTv0NVZD+4jc9kuf+3ae8Lt0dXoy0KFih5zt4WD1wx2/33jHsB7JcIBok41EKw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2MwjJPFo8ndMvw4+H9z/imFCy9HLMyRqi4MtXsvPdbs=;
- b=hQFCC6fwBbPZNesv7iHCbmdsgC07oHDagVLdju1scGn8612wgJpMeHzXqtap5jfKtpSKrDcrpiZdFd+hsO3WD/prXCOk57CsOxkXrhgzb3jt1+mkHSdbsqBtTrFXQlmbwvYeGjM1GoeIimarCkVhunMKFjNX6V5aOBStlh7r13M=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- SN7PR01MB7902.prod.exchangelabs.com (2603:10b6:806:34c::12) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9520.12; Wed, 21 Jan 2026 00:43:23 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0%4]) with mapi id 15.20.9542.008; Wed, 21 Jan 2026
- 00:43:23 +0000
-Message-ID: <2a18acfc-7de5-4ff8-bcce-14a3212cef75@os.amperecomputing.com>
-Date: Tue, 20 Jan 2026 16:43:18 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] arm64: mmu: avoid allocating pages while splitting
- the linear mapping
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rt-devel@lists.linux.dev, catalin.marinas@arm.com,
- akpm@linux-oundation.org, david@kernel.org, kevin.brodsky@arm.com,
- quic_zhenhuah@quicinc.com, dev.jain@arm.com, chaitanyas.prakash@arm.com,
- bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
- lorenzo.stoakes@oracle.com, ardb@kernel.org, jackmanb@google.com,
- vbabka@suse.cz, mhocko@suse.com
-References: <20260105202328.2418990-1-yeoreum.yun@arm.com>
- <20260105202328.2418990-3-yeoreum.yun@arm.com>
- <aW5p1ylQBNXTEmmq@willie-the-truck> <aW6hISBu3hNYS771@e129823.arm.com>
- <2619166b-13ef-4daa-82c7-1d44035a8d6c@arm.com>
- <aW9LCX92T9t8iDco@e129823.arm.com>
- <5a5c78a4-0b07-4337-8b31-a2cdce1834ea@os.amperecomputing.com>
- <aXAJRx5JtTenw1Ou@e129823.arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <aXAJRx5JtTenw1Ou@e129823.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: BYAPR06CA0024.namprd06.prod.outlook.com
- (2603:10b6:a03:d4::37) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	Wed, 21 Jan 2026 00:47:12 +0000
+Received: from skinsburskii.localdomain (c-98-225-44-182.hsd1.wa.comcast.net [98.225.44.182])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 4630520B7167;
+	Tue, 20 Jan 2026 16:47:09 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 4630520B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1768956430;
+	bh=Eeq/gG1sg6NAOFvmrBFw+IwsTvdCLhlsdiEeaLVVzdw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jVdufeK10Ad5GzcwvLybsmRsA5sujY3rHvkaXZJDg4OmIbsiJMPuIUiyPx3ZBMJNH
+	 Dsymq4JAmkDfe7grA7380zvn4fOYE5zuo0g2l1agO69GBQ76zKKBt4sE5mRx0DlhYd
+	 YzTC/yJtkuASgPPbsVjystJHOZEXCfTJb60KY4hg=
+Date: Tue, 20 Jan 2026 16:47:07 -0800
+From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+To: Mukesh R <mrathor@linux.microsoft.com>
+Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-pci@vger.kernel.org, linux-arch@vger.kernel.org,
+	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
+	will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
+	nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
+	romank@linux.microsoft.com
+Subject: Re: [PATCH v0 13/15] x86/hyperv: Basic interrupt support for direct
+ attached devices
+Message-ID: <aXAiCw9Dk7GDfagy@skinsburskii.localdomain>
+References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+ <20260120064230.3602565-14-mrathor@linux.microsoft.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SN7PR01MB7902:EE_
-X-MS-Office365-Filtering-Correlation-Id: a6a6dec1-f777-4fab-16f8-08de588614d6
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VDAyWGwycldYYTAxTGZubktNWTBFTEVieGRpV1Nwd3QwQ3pqYXg4OE1YWklN?=
- =?utf-8?B?bFVBUldDSWRuVys0MUdmS0N4L04xb0FsRzNSQ3JhcEpwZWRidlZmK0poMzB4?=
- =?utf-8?B?cGlXSXhKZ0I2dlZFOUQ5RmNlSWpnbVdoTEdEK1JoMzdjK0xZL283YWN4bk9F?=
- =?utf-8?B?TVJPMExnV1ZnYzV6cFJKckNGVG5sdVRyMlFldTlDTmR4TmQ0Q3dZN1dVd0J5?=
- =?utf-8?B?SkVCbm9OWk9NekFDSG90Nm5GelZyN2lndjhWL05LYStiQUozMnFhOVpiYmxR?=
- =?utf-8?B?YUVWc3VXa2RGekcvVTFibmxtZlRjZ0dNNDdPOUkrWnRXZm1uRlFmM3ZUUnow?=
- =?utf-8?B?eVBER3lGSEJvS0dvajlvVWdMOENQVm96S3dWTlBBc1RNWEJIR3BSMnNuUUFT?=
- =?utf-8?B?VmVJdFpRcnBIc3FOcXNUUkllbEhoTllmWFVoejVRR3I3RFhvQU5hd1hGckYw?=
- =?utf-8?B?T1phbnhTRGtQUm5QYzh5WWtBQ2JMQkNuUTY3TjF0bVNRZEwyYkVjb3NPNkJt?=
- =?utf-8?B?TUdVZC9GMGRSSmNEMzhrdlNpUHkzY0FubEF1dHBTaGxROTJzOURiVjlhcGVS?=
- =?utf-8?B?YU51VlBWOEd1ODlVMDVQcDVqM2Z5WWxFWDBtdnIzcjZIQXZwVU9zMC8ydzhz?=
- =?utf-8?B?OHQ5R1FLcElEOEZ0R2VsSDNnOXVPdGhFSEtxL3R0WlBkTEVTRklxcmdjdU9x?=
- =?utf-8?B?SzJXQ0t6TWw4STlqZEJBT1ZoMjlWdjQvQWRvZ2NBM1V0bzJIV3o3TktKYy9U?=
- =?utf-8?B?R1lZN1R5Z0w1bDJLZVNid0FRWmk3eDgwOG5wTERRd0VFSXJhczB5ZFNCbFpu?=
- =?utf-8?B?dzdzTE1nNGw2R3IwSUU0cTNJRnBGSEt4d1NBa3dObXZxMXBOTE84TUVkWlN4?=
- =?utf-8?B?S056K1h4a05mK0J6TkYrbXErM3Z5aXcwU2s4Z1RoQW5KbW1jUVBsQmx5VkNS?=
- =?utf-8?B?WjlMcE1PNkcwY3JZdFRuLzNKRi93ZkdhWlo0NTJibS9VVkJTby85Ly9iemFU?=
- =?utf-8?B?am1yOXRUSFpXNGVlYmtxaXgyeVU4N2hlL3ZEYVB1R2x5dWprSTQwZUpoSmJq?=
- =?utf-8?B?cXlYcGw4TEh3cTkxTUc0TVE4N3VDcURzMS9BNkJ3ZEVrRGpwVDljRW1yVzRi?=
- =?utf-8?B?K3FObVZUcWlXMjJ5VkZCQ3JyM1lXeEVhSG5BODl5b2RMd0FrK05PQ2pPa2ZI?=
- =?utf-8?B?N01maitSdXYyNTVZN0dSSC9PSHVTKzFxNzR6endpd1Q1aHpOVnFHSXVYdUtj?=
- =?utf-8?B?U0d3bVM1Q2JnQnM5d0JyOUFlS0RyeHVKSGZEcGg4RnBZZm1yMnRGL3N4Z2tZ?=
- =?utf-8?B?eG54VzUwdHJsRmFGTWt3K0cvMG1zbEpQTGYwNW00azdwSVVEd0tuMVI3MG5B?=
- =?utf-8?B?MGkrZmRMeWRDS25CMW0zTGY3bnhkR3BZNFZucHk0WGFVMXlTUXV4SEU5enoy?=
- =?utf-8?B?cmhTUHowT2FwREkrTG12L2lRMjZla0dJTUkwSzZvaUdmdGpuNVVLQnphL0F3?=
- =?utf-8?B?SkRhWGh1d0NWWDM5S0NQa3JxcG1iKzlSK0s3bCt1UDU1LzAvd0hJWWlyaHdG?=
- =?utf-8?B?REY2RERmeWpBV055Rzd1ZzdnQ0d6Y2Zsc2lvYWRqMTN0ZlJobW5qcVBhbVI1?=
- =?utf-8?B?WGdXdFVxU1FOS0dZcjdPRDlkVXByUGpvczJvdUZ0cUtVYnF4enRsWDZxUmtW?=
- =?utf-8?B?UDdaNUxLWVlLVkQycWwxcElYcCt4NURNMy9LdlJZRjBCZ3FqZkVOVUphYytD?=
- =?utf-8?B?TVp4Y0ZINHpnRFVxOFlFaEt1Y3NDOW1XeUdPK2w3aDM3Y0NnU2haZWplRkR2?=
- =?utf-8?B?WnRTRlhtT1QwbWdkdjJNbFZsMkpDa1dIL1hDazZJSTJVcGdoTDBkSmhtUkdt?=
- =?utf-8?B?MGhkM0pSTTZxRXhUVmlFVVNkQ1ZZdHlpR2pCTzFuWGlwQjhwOWJaTUNvZGNU?=
- =?utf-8?B?azhyTGVlU2FKd1hmY1RKQ2NiOS9KNnNzNUpteThIZHRtMm5OUGZRYUg2V3lu?=
- =?utf-8?B?TVJOYWJLczRZNitWSjBaSEdkdDFGSjNNOVpiaGh4VkY4RmNGVEtKeG5STUpM?=
- =?utf-8?B?Z08zUjV6TEltK1E1eHNGcmNWcEIyZlpDWDhCUnNBc1VQVkpuZ0lrOGJnTG5V?=
- =?utf-8?Q?Cajk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q2RsRWhtNUFRZDhzNnAwQ2dWU0dKRXk3NjZnKzcyUFpOcEVlMFBIWXBHdW5s?=
- =?utf-8?B?ZzVhcFQ2MGFvQmlaSU9VYU9paE40RDk1MUhMcUJKNDRpYmpzZGNWZWJoVk9Y?=
- =?utf-8?B?VzR0RDVXNGNTQUkwanpDV09tV3lzOEt1eWoybnJldXo5TEIyYS9Yd0lEKzdv?=
- =?utf-8?B?ejk4UGpjM1g4RSs0ZXp2R1g4R1BSSm1CK1lWUGJDMnJwcmVNem5RRktrVDBt?=
- =?utf-8?B?TzdSVUgwalpWa3lXdTdjU0l0ay9QdjZQSWZlak03R3E3RTBCZkZ4bHZWZzhj?=
- =?utf-8?B?WERuakZ0NUtjT3VxN21pSXA5Q3JRSzdydlJ1MHpTZFd3N1ljQ293WmtEdXZk?=
- =?utf-8?B?UHF3OXhWekxVYmF6d2lDZVJ6N1VMZnhDd3QvRlVvQlhpSWwrSE9zdTNQaEp2?=
- =?utf-8?B?MEFlOXRZbVVzSkZ6YzN5d1dML2FWbHdnWkNpZ015cmRKOERwd3lnVFhGcjZM?=
- =?utf-8?B?bXJwczFFRVd1ZHkzRzBZc0JPbExPYnNtaGV2ZVFHM05IdlZnbldkN3JuSXkz?=
- =?utf-8?B?YWJ5NENHOE5kWG1zSEJNVS9RamozeWVvZ1ZUcTRUb2t3OVJrTGovRGhRMm13?=
- =?utf-8?B?ZGVCczhhakNrWU9TNDZzOXpjUEFFZ292R2VWQjIrNWxzV3ZPcHFmakV1U2g1?=
- =?utf-8?B?YW16QktIV09BUGxnVmpvak1sRFowYmlRd0IyNXpIc2lCcEt6ZmszWGFuU09m?=
- =?utf-8?B?djF3UFlJajZUOHpiTUx2aEtZREY3OU1QSFRCTjQ1UmJheUtGYzJCNnpnRVdp?=
- =?utf-8?B?dHltQXpFVW05Njl5WCtzL2NEeHNTTDVWd2N6ZktRQTJyZnhudFN5K3Awamlj?=
- =?utf-8?B?cEtSVUM4NXJ5dWpDSnVqcjNjVVF5ZkFWUmdmRHM2SzVTODMzUkd5V3dGKzVu?=
- =?utf-8?B?V0dvWDlidjNCMkdkZDNCQ3Q1S2ZlZXI4Q0kwQmQ5TXdCUmtmcDhtMmxNMFN0?=
- =?utf-8?B?NHcxNVBaS2wxZXVkRU5WczZVK3ZjL3JtdWpRQkNqWlp0dmxJb2VRRWtyMVcv?=
- =?utf-8?B?eWI2dEl2L2RLdHBXNkFEUlo3M1FLTjFaUnEzNFRKcmN3MDN2SHAzVFRodTVE?=
- =?utf-8?B?aTZaWTZSNW1QbFhEQ1FUSkxvcTc3R1paUEp1Skk5OTdNcnN5WXJseGMvd3Ju?=
- =?utf-8?B?b09GcjcvdGx0eDhsZ3FEMHNsN3ZrMzdxUy9ucHBXYUxaaVh5NWRDQmdVRklT?=
- =?utf-8?B?SGEzRUt6Umo5d2QyOERFN05sNnFHMXR4Z3ROOEhRS3NrdlU2K0JpdW9BdFh5?=
- =?utf-8?B?YnNIUFh2MVNlRDN0SzNqR1RxeXRRK3podThSUlhVRVNkdEwzcEV2UmZtMGpW?=
- =?utf-8?B?am13S3p6L05TbUxKN1N5ZWJNL2hHRlU3QStUUjRySVBGZzduL3l2eGRLWmlo?=
- =?utf-8?B?NCtUeFAxTGxab3JCazlXVElJRVdtTHFJVjVpeFQ4REUxcEpRRUFHQ0cxTzBi?=
- =?utf-8?B?S0RzM1RSemZ6eFpFU3d4L1lVcHlKTjdIdkdxbVc4T2FZUm1qc1V3RUJRUHU2?=
- =?utf-8?B?NW9GblkxcURUWmpYNXBXOVJmUnZEQ0FlN1RQSU1nQWwvSUI2NmFHK0NKRXh5?=
- =?utf-8?B?T05qaEV2aTRSenhuYmkzM1N4N3Y1ejFyT3N6c09KQUkzNWlZZDk3WXhvVWlD?=
- =?utf-8?B?TlhIZGEvK3NwSlorUUpNUnFxNDYxam5oQkZ0TkxXL0lpcHFhZGtqeCtWNFNu?=
- =?utf-8?B?OStQU25PM3NreVlLcUVwUGpHU05hcVdDd1FHQW8yT0JCWE80SmdvaENJbjZF?=
- =?utf-8?B?WFBlQURveGkwQWg5ZEIxNXpLclU3YXFqY24zSWwyVXlsOFVjcEdHMVFScTlB?=
- =?utf-8?B?d0xCYTlBWTVmYS9iclM0eFo1YWJybUxlVFFJUXZqUFVPQWFyTHlHd3g3Nklx?=
- =?utf-8?B?NS9Qdll4OHZmQW1qVWYyajFtVElLOFNEWldWYjNhaG5HZ3JBT2xtT1RhQjdK?=
- =?utf-8?B?c1BLWC9lZUZEbENrNlZhc2x6M3grMTEvaEpHZ2g3MUhzKzhpQTNTVmV5Tnlh?=
- =?utf-8?B?c01TclVTd09ZelNWbGZPcFEyWCtMbXIrNHVscHczU2RFN3N6emFYZFRSN3lu?=
- =?utf-8?B?bzlFUUJJcFpKUWNJeTYrNnBUb0pUK09SVW1RRkVnMDZzRkJqY0NVbzljSTRl?=
- =?utf-8?B?NlhLSDE4UW5oNldaZHpSNkNWTWJzSlVxZHg4VG5KLy9mMlBuZVpXeGlJRHh6?=
- =?utf-8?B?M2ZzMzNRVW44ZVVaRU5QTnduR2lib0pvQS94QjVJQTRKYUJRRnMrV0RmV240?=
- =?utf-8?B?RkRJTkUzTG95amFPeHliU0tIUjNrUFB1MndjQXRLWlBaVHpTdi8yNkRmclBk?=
- =?utf-8?B?SkhJTE1VTEJXekE2VHNzY1I5M2hScnJ4cnpwVmhzWGFuK2hTRmFSM3JVNG1L?=
- =?utf-8?Q?AnuQvBthRyNPyDlQ=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a6a6dec1-f777-4fab-16f8-08de588614d6
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2026 00:43:23.4301
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Oi2O+vEQgPZvnevwtgq3vaWJIT+N4FxyOu59agIjdxGKefxMWfOLrWbaUNXpAkba3hTtVrkQo+/Guuth1REl+o2JsoYWi1V6DaYT2MmlvIc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR01MB7902
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260120064230.3602565-14-mrathor@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_164329_621776_2817282F 
-X-CRM114-Status: GOOD (  32.59  )
+X-CRM114-CacheID: sfid-20260120_164711_153948_21144FF4 
+X-CRM114-Status: GOOD (  42.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,158 +78,380 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 19, 2026 at 10:42:28PM -0800, Mukesh R wrote:
+> From: Mukesh Rathor <mrathor@linux.microsoft.com>
+> 
+> As mentioned previously, a direct attached device must be referenced
+> via logical device id which is formed in the initial attach hypercall.
+> Interrupt mapping paths for direct attached devices are almost same,
+> except we must use logical device ids instead of the PCI device ids.
+> 
+> L1VH only supports direct attaches for passing thru devices to its guests,
+> and devices on L1VH are VMBus based. However, the interrupts are mapped
+> via the map interrupt hypercall and not the traditional method of VMBus
+> messages.
+> 
+> Partition id for the relevant hypercalls is tricky. This because a device
+> could be moving from root to guest and then back to the root. In case
+> of L1VH, it could be moving from system host to L1VH root to a guest,
+> then back to the L1VH root. So, it is carefully crafted by keeping
+> track of whether the call is on behalf of a VMM process, whether the
+> device is attached device (as opposed to mapped), and whether we are in
+> an L1VH root/parent. If VMM process, we assume it is on behalf of a
+> guest. Otherwise, the device is being attached or detached during boot
+> or shutdown of the privileged partition.
+> 
+> Lastly, a dummy cpu and vector is used to map interrupt for a direct
+> attached device. This because, once a device is marked for direct attach,
+> hypervisor will not let any interrupts be mapped to host. So it is mapped
+> to guest dummy cpu and dummy vector. This is then correctly mapped during
+> guest boot via the retarget paths.
+> 
+> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+> ---
+>  arch/arm64/include/asm/mshyperv.h   | 15 +++++
+>  arch/x86/hyperv/irqdomain.c         | 57 +++++++++++++-----
+>  arch/x86/include/asm/mshyperv.h     |  4 ++
+>  drivers/pci/controller/pci-hyperv.c | 91 +++++++++++++++++++++++++----
+>  4 files changed, 142 insertions(+), 25 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/mshyperv.h b/arch/arm64/include/asm/mshyperv.h
+> index b721d3134ab6..27da480f94f6 100644
+> --- a/arch/arm64/include/asm/mshyperv.h
+> +++ b/arch/arm64/include/asm/mshyperv.h
+> @@ -53,6 +53,21 @@ static inline u64 hv_get_non_nested_msr(unsigned int reg)
+>  	return hv_get_msr(reg);
+>  }
+>  
+> +struct irq_data;
+> +struct msi_msg;
+> +struct pci_dev;
+> +static inline void hv_irq_compose_msi_msg(struct irq_data *data,
+> +					  struct msi_msg *msg) {};
+> +static inline int hv_unmap_msi_interrupt(struct pci_dev *pdev,
+> +					struct hv_interrupt_entry *hvirqe)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +static inline bool hv_pcidev_is_attached_dev(struct pci_dev *pdev)
+> +{
+> +	return false;
+> +}
+> +
+>  /* SMCCC hypercall parameters */
+>  #define HV_SMCCC_FUNC_NUMBER	1
+>  #define HV_FUNC_ID	ARM_SMCCC_CALL_VAL(			\
+> diff --git a/arch/x86/hyperv/irqdomain.c b/arch/x86/hyperv/irqdomain.c
+> index 33017aa0caa4..e6eb457f791e 100644
+> --- a/arch/x86/hyperv/irqdomain.c
+> +++ b/arch/x86/hyperv/irqdomain.c
+> @@ -13,6 +13,16 @@
+>  #include <linux/irqchip/irq-msi-lib.h>
+>  #include <asm/mshyperv.h>
+>  
+> +/*
+> + * For direct attached devices (which use logical device ids), hypervisor will
+> + * not allow mappings to host. But VFIO needs to bind the interrupt at the very
+> + * start before the guest cpu/vector is known. So we use dummy cpu and vector
+> + * to bind in such case, and later when the guest starts, retarget will move it
+> + * to correct guest cpu and vector.
+> + */
+> +#define HV_DDA_DUMMY_CPU      0
+> +#define HV_DDA_DUMMY_VECTOR  32
+> +
+>  static u64 hv_map_interrupt_hcall(u64 ptid, union hv_device_id hv_devid,
+>  				  bool level, int cpu, int vector,
+>  				  struct hv_interrupt_entry *ret_entry)
+> @@ -24,6 +34,11 @@ static u64 hv_map_interrupt_hcall(u64 ptid, union hv_device_id hv_devid,
+>  	u64 status;
+>  	int nr_bank, var_size;
+>  
+> +	if (hv_devid.device_type == HV_DEVICE_TYPE_LOGICAL) {
+> +		cpu = HV_DDA_DUMMY_CPU;
+> +		vector = HV_DDA_DUMMY_VECTOR;
+> +	}
+> +
+>  	local_irq_save(flags);
+>  
+>  	input = *this_cpu_ptr(hyperv_pcpu_input_arg);
+> @@ -95,7 +110,8 @@ static int hv_map_interrupt(u64 ptid, union hv_device_id device_id, bool level,
+>  	return hv_result_to_errno(status);
+>  }
+>  
+> -static int hv_unmap_interrupt(u64 id, struct hv_interrupt_entry *irq_entry)
+> +static int hv_unmap_interrupt(union hv_device_id hv_devid,
+> +			      struct hv_interrupt_entry *irq_entry)
+>  {
+>  	unsigned long flags;
+>  	struct hv_input_unmap_device_interrupt *input;
+> @@ -103,10 +119,14 @@ static int hv_unmap_interrupt(u64 id, struct hv_interrupt_entry *irq_entry)
+>  
+>  	local_irq_save(flags);
+>  	input = *this_cpu_ptr(hyperv_pcpu_input_arg);
+> -
+>  	memset(input, 0, sizeof(*input));
+> -	input->partition_id = hv_current_partition_id;
+> -	input->device_id = id;
+> +
+> +	if (hv_devid.device_type == HV_DEVICE_TYPE_LOGICAL)
+> +		input->partition_id = hv_iommu_get_curr_partid();
+> +	else
+> +		input->partition_id = hv_current_partition_id;
+> +
+> +	input->device_id = hv_devid.as_uint64;
+>  	input->interrupt_entry = *irq_entry;
+>  
+>  	status = hv_do_hypercall(HVCALL_UNMAP_DEVICE_INTERRUPT, input, NULL);
+> @@ -263,6 +283,7 @@ static u64 hv_build_irq_devid(struct pci_dev *pdev)
+>  int hv_map_msi_interrupt(struct irq_data *data,
+>  			 struct hv_interrupt_entry *out_entry)
+>  {
+> +	u64 ptid;
+>  	struct irq_cfg *cfg = irqd_cfg(data);
+>  	struct hv_interrupt_entry dummy;
+>  	union hv_device_id hv_devid;
+> @@ -275,8 +296,17 @@ int hv_map_msi_interrupt(struct irq_data *data,
+>  	hv_devid.as_uint64 = hv_build_irq_devid(pdev);
+>  	cpu = cpumask_first(irq_data_get_effective_affinity_mask(data));
+>  
+> -	return hv_map_interrupt(hv_current_partition_id, hv_devid, false, cpu,
+> -				cfg->vector, out_entry ? out_entry : &dummy);
+> +	if (hv_devid.device_type == HV_DEVICE_TYPE_LOGICAL)
+> +		if (hv_pcidev_is_attached_dev(pdev))
+> +			ptid = hv_iommu_get_curr_partid();
+> +		else
+> +			/* Device actually on l1vh root, not passthru'd to vm */
 
+l1vh and root are mutually exclusive partitions.
+If you wanted to highlight that it's l1vh itself and not its child guest, then
+"l1vh parent" term would do.
 
-On 1/20/26 3:01 PM, Yeoreum Yun wrote:
-> Hi Yang,
->>
->> On 1/20/26 1:29 AM, Yeoreum Yun wrote:
->>> Hi Ryan
->>>> On 19/01/2026 21:24, Yeoreum Yun wrote:
->>>>> Hi Will,
->>>>>
->>>>>> On Mon, Jan 05, 2026 at 08:23:27PM +0000, Yeoreum Yun wrote:
->>>>>>> +static int __init linear_map_prealloc_split_pgtables(void)
->>>>>>> +{
->>>>>>> +	int ret, i;
->>>>>>> +	unsigned long lstart = _PAGE_OFFSET(vabits_actual);
->>>>>>> +	unsigned long lend = PAGE_END;
->>>>>>> +	unsigned long kstart = (unsigned long)lm_alias(_stext);
->>>>>>> +	unsigned long kend = (unsigned long)lm_alias(__init_begin);
->>>>>>> +
->>>>>>> +	const struct mm_walk_ops collect_to_split_ops = {
->>>>>>> +		.pud_entry	= collect_to_split_pud_entry,
->>>>>>> +		.pmd_entry	= collect_to_split_pmd_entry
->>>>>>> +	};
->>>>>> Why do we need to rewalk the page-table here instead of collating the
->>>>>> number of block mappings we put down when creating the linear map in
->>>>>> the first place?
->>>> That's a good point; perhaps we can reuse the counters that this series introduces?
->>>>
->>>> https://lore.kernel.org/all/20260107002944.2940963-1-yang@os.amperecomputing.com/
->> Yeah, good point. It seems feasible to me. The patch can count how many
->> PUD/CONT_PMD/PMD mappings, we can calculate how many page table pages need
->> to be allocated based on those counters.
->>
->>>>> First, linear alias of the [_text, __init_begin) is not a target for
->>>>> the split and it also seems strange to me to add code inside alloc_init_XXX()
->>>>> that both checks an address range and counts to get the number of block mappings.
->> IIUC, it should be not that hard to exclude kernel mappings. We know
->> kernel_start and kernel_end, so you should be able to maintain a set of
->> counters for kernel, then minus them when you do the calculation for how
->> many page table pages need to be allocated.
-> As you said, this is not difficult. However, what I meant was that
-> this collection would be done in alloc_init_XXX(), and in that case,
-> collecting the number of block mappings for the range
-> [kernel_start, kernel_end) and adding conditional logic in
-> alloc_init_XXX() seems a bit odd.
-> That said, for potential future use cases involving splitting specific ranges,
-> I don’t think having this kind of collection is necessarily a bad idea.
+> +			ptid = hv_current_partition_id;
+> +	else
+> +		ptid = hv_current_partition_id;
 
-I'm not sure whether we are on the same page or not. IIUC the point is 
-collecting the counts of PUD/CONT_PMD/PMD by re-walking page table is 
-sub optimal and unnecessary for this usecase (repainting linear 
-mapping). We can simply know the counts at linear mapping creation time.
-
-I don't mean it is a bad idea for your future projects if it is necessary.
+Looks like the only special case is for attached logical devices,
+otherwise hv_current_partition_id is used.
+Can the logic simplified here?
 
 Thanks,
-Yang
+Stanislav
 
->
->>>>> Second, for a future feature,
->>>>> I hope to add some code to split "specfic" area to be spilt e.x)
->>>>> to set a specific pkey for specific area.
->>>> Could you give more detail on this? My working assumption is that either the
->>>> system supports BBML2 or it doesn't. If it doesn't, we need to split the whole
->>>> linear map. If it does, we already have logic to split parts of the linear map
->>>> when needed.
->>> This is not for a linear mapping case. but for a "kernel text area".
->>> As a draft, I want to mark some of kernel code can executable
->>> both kernel and eBPF program.
->>> (I'm trying to make eBPF program non-executable kernel code directly
->>> with POE feature).
->>> For this "executable area" both of kernel and eBPF program
->>> -- typical example is exception entry, It need to split that specific
->>> range and mark them with special POE index.
->> IIUC, you want to change POE attributes for some kernel area (mainly in
->> vmalloc address space). It sounds like you can do something like
->> set_memory_rox(), but just split vmalloc address mapping instead of linear
->> mapping. Or you need preallocate page table pages in this case? Anyway we
->> can have more simple way to count block mappings for splitting linear
->> mapping, it seems not necessary to re-walk page table again IMHO.
-> As I said, it isn't not only vmalloc address mapping but also
-> "kimage" mapping too.
-> In this case, it need to be split to set the specific code area
-> with specific POE index.
->
-> The preallocate page is for spliting via "stop_machine()"
-> since page table allocation with GFP_ATOMIC couldn't be in case of
-> PREEMPT_RT in stop_machine().
->
-> Also, the spliting text-code area to set specific POE index would be
-> done via stop_machine() so, the collection is required.
->
->>>>> In this case, it's useful to rewalk the page-table with the specific
->>>>> range to get the number of block mapping.
->>>>>
->>>>>>> +	split_pgtables_idx = 0;
->>>>>>> +	split_pgtables_count = 0;
->>>>>>> +
->>>>>>> +	ret = walk_kernel_page_table_range_lockless(lstart, kstart,
->>>>>>> +						    &collect_to_split_ops,
->>>>>>> +						    NULL, NULL);
->>>>>>> +	if (!ret)
->>>>>>> +		ret = walk_kernel_page_table_range_lockless(kend, lend,
->>>>>>> +							    &collect_to_split_ops,
->>>>>>> +							    NULL, NULL);
->>>>>>> +	if (ret || !split_pgtables_count)
->>>>>>> +		goto error;
->>>>>>> +
->>>>>>> +	ret = -ENOMEM;
->>>>>>> +
->>>>>>> +	split_pgtables = kvmalloc(split_pgtables_count * sizeof(struct ptdesc *),
->>>>>>> +				  GFP_KERNEL | __GFP_ZERO);
->>>>>>> +	if (!split_pgtables)
->>>>>>> +		goto error;
->>>>>>> +
->>>>>>> +	for (i = 0; i < split_pgtables_count; i++) {
->>>>>>> +		/* The page table will be filled during splitting, so zeroing it is unnecessary. */
->>>>>>> +		split_pgtables[i] = pagetable_alloc(GFP_PGTABLE_KERNEL & ~__GFP_ZERO, 0);
->>>>>>> +		if (!split_pgtables[i])
->>>>>>> +			goto error;
->>>>>> This looks potentially expensive on the boot path and only gets worse as
->>>>>> the amount of memory grows. Maybe we should predicate this preallocation
->>>>>> on preempt-rt?
->>>>> Agree. then I'll apply pre-allocation with PREEMPT_RT only.
->>>> I guess I'm missing something obvious but I don't understand the problem here...
->>>> We are only deferring the allocation of all these pgtables, so the cost is
->>>> neutral surely? Had we correctly guessed that the system doesn't support BBML2
->>>> earlier, we would have had to allocate all these pgtables earlier.
->>>>
->>>> Another way to look at it is that we are still allocating the same number of
->>>> pgtables in the existing fallback path, it's just that we are doing it inside
->>>> the stop_machine().
->>>>
->>>> My vote would be _not_ to have a separate path for PREEMPT_RT, which will end up
->>>> with significantly less testing...
->>> IIUC, Will's mention is additional memory allocation for
->>> "split_pgtables" where saved "pre-allocate" page tables.
->>> As the memory increase, definitely this size would increase the cost.
->>>
->>> And this cost need not to burden for !PREEMPT_RT since
->>> it can use memory allocation in stop_machine() with GFP_ATOMIC.
->>>
->>> But I also agree in the aspect that if that cost not much of huge,
->>> It's also convincing and additionally, as I mentioned in another thread,
->>> It would be good not to give a hallucination GFP_ATOMIC is fine for
->>> everywhere even in the PREEMPT_RT.
->>>
->>> --
->>> Sincerely,
->>> Yeoreum Yun
-> --
-> Sincerely,
-> Yeoreum Yun
-
+> +
+> +	return hv_map_interrupt(ptid, hv_devid, false, cpu, cfg->vector,
+> +				out_entry ? out_entry : &dummy);
+>  }
+>  EXPORT_SYMBOL_GPL(hv_map_msi_interrupt);
+>  
+> @@ -289,10 +319,7 @@ static void entry_to_msi_msg(struct hv_interrupt_entry *entry,
+>  	msg->data = entry->msi_entry.data.as_uint32;
+>  }
+>  
+> -static int hv_unmap_msi_interrupt(struct pci_dev *pdev,
+> -				  struct hv_interrupt_entry *irq_entry);
+> -
+> -static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+> +void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>  {
+>  	struct hv_interrupt_entry *stored_entry;
+>  	struct irq_cfg *cfg = irqd_cfg(data);
+> @@ -341,16 +368,18 @@ static void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>  	data->chip_data = stored_entry;
+>  	entry_to_msi_msg(data->chip_data, msg);
+>  }
+> +EXPORT_SYMBOL_GPL(hv_irq_compose_msi_msg);
+>  
+> -static int hv_unmap_msi_interrupt(struct pci_dev *pdev,
+> -				  struct hv_interrupt_entry *irq_entry)
+> +int hv_unmap_msi_interrupt(struct pci_dev *pdev,
+> +			   struct hv_interrupt_entry *irq_entry)
+>  {
+>  	union hv_device_id hv_devid;
+>  
+>  	hv_devid.as_uint64 = hv_build_irq_devid(pdev);
+>  
+> -	return hv_unmap_interrupt(hv_devid.as_uint64, irq_entry);
+> +	return hv_unmap_interrupt(hv_devid, irq_entry);
+>  }
+> +EXPORT_SYMBOL_GPL(hv_unmap_msi_interrupt);
+>  
+>  /* NB: during map, hv_interrupt_entry is saved via data->chip_data */
+>  static void hv_teardown_msi_irq(struct pci_dev *pdev, struct irq_data *irqd)
+> @@ -486,7 +515,7 @@ int hv_unmap_ioapic_interrupt(int ioapic_id, struct hv_interrupt_entry *entry)
+>  	hv_devid.device_type = HV_DEVICE_TYPE_IOAPIC;
+>  	hv_devid.ioapic.ioapic_id = (u8)ioapic_id;
+>  
+> -	return hv_unmap_interrupt(hv_devid.as_uint64, entry);
+> +	return hv_unmap_interrupt(hv_devid, entry);
+>  }
+>  EXPORT_SYMBOL_GPL(hv_unmap_ioapic_interrupt);
+>  
+> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
+> index e4ccdbbf1d12..b6facd3a0f5e 100644
+> --- a/arch/x86/include/asm/mshyperv.h
+> +++ b/arch/x86/include/asm/mshyperv.h
+> @@ -204,11 +204,15 @@ static inline u64 hv_iommu_get_curr_partid(void)
+>  #endif	/* CONFIG_HYPERV_IOMMU */
+>  
+>  u64 hv_pci_vmbus_device_id(struct pci_dev *pdev);
+> +void hv_irq_compose_msi_msg(struct irq_data *data, struct msi_msg *msg);
+> +extern bool hv_no_attdev;
+>  
+>  struct irq_domain *hv_create_pci_msi_domain(void);
+>  
+>  int hv_map_msi_interrupt(struct irq_data *data,
+>  			 struct hv_interrupt_entry *out_entry);
+> +int hv_unmap_msi_interrupt(struct pci_dev *dev,
+> +			   struct hv_interrupt_entry *hvirqe);
+>  int hv_map_ioapic_interrupt(int ioapic_id, bool level, int vcpu, int vector,
+>  		struct hv_interrupt_entry *entry);
+>  int hv_unmap_ioapic_interrupt(int ioapic_id, struct hv_interrupt_entry *entry);
+> diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
+> index 40f0b06bb966..71d1599dc4a8 100644
+> --- a/drivers/pci/controller/pci-hyperv.c
+> +++ b/drivers/pci/controller/pci-hyperv.c
+> @@ -660,15 +660,17 @@ static void hv_irq_retarget_interrupt(struct irq_data *data)
+>  
+>  	params = *this_cpu_ptr(hyperv_pcpu_input_arg);
+>  	memset(params, 0, sizeof(*params));
+> -	params->partition_id = HV_PARTITION_ID_SELF;
+> +
+> +	if (hv_pcidev_is_attached_dev(pdev))
+> +		params->partition_id = hv_iommu_get_curr_partid();
+> +	else
+> +		params->partition_id = HV_PARTITION_ID_SELF;
+> +
+>  	params->int_entry.source = HV_INTERRUPT_SOURCE_MSI;
+> -	params->int_entry.msi_entry.address.as_uint32 = int_desc->address & 0xffffffff;
+> +	params->int_entry.msi_entry.address.as_uint32 =
+> +						int_desc->address & 0xffffffff;
+>  	params->int_entry.msi_entry.data.as_uint32 = int_desc->data;
+> -	params->device_id = (hbus->hdev->dev_instance.b[5] << 24) |
+> -			   (hbus->hdev->dev_instance.b[4] << 16) |
+> -			   (hbus->hdev->dev_instance.b[7] << 8) |
+> -			   (hbus->hdev->dev_instance.b[6] & 0xf8) |
+> -			   PCI_FUNC(pdev->devfn);
+> +	params->device_id = hv_pci_vmbus_device_id(pdev);
+>  	params->int_target.vector = hv_msi_get_int_vector(data);
+>  
+>  	if (hbus->protocol_version >= PCI_PROTOCOL_VERSION_1_2) {
+> @@ -1263,6 +1265,15 @@ static void _hv_pcifront_read_config(struct hv_pci_dev *hpdev, int where,
+>  			mb();
+>  		}
+>  		spin_unlock_irqrestore(&hbus->config_lock, flags);
+> +		/*
+> +		 * Make sure PCI_INTERRUPT_PIN is hard-wired to 0 since it may
+> +		 * be read using a 32bit read which is skipped by the above
+> +		 * emulation.
+> +		 */
+> +		if (PCI_INTERRUPT_PIN >= where &&
+> +		    PCI_INTERRUPT_PIN <= (where + size)) {
+> +			*((char *)val + PCI_INTERRUPT_PIN - where) = 0;
+> +		}
+>  	} else {
+>  		dev_err(dev, "Attempt to read beyond a function's config space.\n");
+>  	}
+> @@ -1731,14 +1742,22 @@ static void hv_msi_free(struct irq_domain *domain, unsigned int irq)
+>  	if (!int_desc)
+>  		return;
+>  
+> -	irq_data->chip_data = NULL;
+>  	hpdev = get_pcichild_wslot(hbus, devfn_to_wslot(pdev->devfn));
+>  	if (!hpdev) {
+> +		irq_data->chip_data = NULL;
+>  		kfree(int_desc);
+>  		return;
+>  	}
+>  
+> -	hv_int_desc_free(hpdev, int_desc);
+> +	if (hv_pcidev_is_attached_dev(pdev)) {
+> +		hv_unmap_msi_interrupt(pdev, irq_data->chip_data);
+> +		kfree(irq_data->chip_data);
+> +		irq_data->chip_data = NULL;
+> +	} else {
+> +		irq_data->chip_data = NULL;
+> +		hv_int_desc_free(hpdev, int_desc);
+> +	}
+> +
+>  	put_pcichild(hpdev);
+>  }
+>  
+> @@ -2139,6 +2158,56 @@ static void hv_vmbus_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+>  	msg->data = 0;
+>  }
+>  
+> +/* Compose an msi message for a directly attached device */
+> +static void hv_dda_compose_msi_msg(struct irq_data *irq_data,
+> +				   struct msi_desc *msi_desc,
+> +				   struct msi_msg *msg)
+> +{
+> +	bool multi_msi;
+> +	struct hv_pcibus_device *hbus;
+> +	struct hv_pci_dev *hpdev;
+> +	struct pci_dev *pdev = msi_desc_to_pci_dev(msi_desc);
+> +
+> +	multi_msi = !msi_desc->pci.msi_attrib.is_msix &&
+> +		    msi_desc->nvec_used > 1;
+> +
+> +	if (multi_msi) {
+> +		dev_err(&hbus->hdev->device,
+> +			"Passthru direct attach does not support multi msi\n");
+> +		goto outerr;
+> +	}
+> +
+> +	hbus = container_of(pdev->bus->sysdata, struct hv_pcibus_device,
+> +			    sysdata);
+> +
+> +	hpdev = get_pcichild_wslot(hbus, devfn_to_wslot(pdev->devfn));
+> +	if (!hpdev)
+> +		goto outerr;
+> +
+> +	/* will unmap if needed and also update irq_data->chip_data */
+> +	hv_irq_compose_msi_msg(irq_data, msg);
+> +
+> +	put_pcichild(hpdev);
+> +	return;
+> +
+> +outerr:
+> +	memset(msg, 0, sizeof(*msg));
+> +}
+> +
+> +static void hv_compose_msi_msg(struct irq_data *data, struct msi_msg *msg)
+> +{
+> +	struct pci_dev *pdev;
+> +	struct msi_desc *msi_desc;
+> +
+> +	msi_desc = irq_data_get_msi_desc(data);
+> +	pdev = msi_desc_to_pci_dev(msi_desc);
+> +
+> +	if (hv_pcidev_is_attached_dev(pdev))
+> +		hv_dda_compose_msi_msg(data, msi_desc, msg);
+> +	else
+> +		hv_vmbus_compose_msi_msg(data, msg);
+> +}
+> +
+>  static bool hv_pcie_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
+>  				      struct irq_domain *real_parent, struct msi_domain_info *info)
+>  {
+> @@ -2177,7 +2246,7 @@ static const struct msi_parent_ops hv_pcie_msi_parent_ops = {
+>  /* HW Interrupt Chip Descriptor */
+>  static struct irq_chip hv_msi_irq_chip = {
+>  	.name			= "Hyper-V PCIe MSI",
+> -	.irq_compose_msi_msg	= hv_vmbus_compose_msi_msg,
+> +	.irq_compose_msi_msg	= hv_compose_msi_msg,
+>  	.irq_set_affinity	= irq_chip_set_affinity_parent,
+>  	.irq_ack		= irq_chip_ack_parent,
+>  	.irq_eoi		= irq_chip_eoi_parent,
+> @@ -4096,7 +4165,7 @@ static int hv_pci_restore_msi_msg(struct pci_dev *pdev, void *arg)
+>  		irq_data = irq_get_irq_data(entry->irq);
+>  		if (WARN_ON_ONCE(!irq_data))
+>  			return -EINVAL;
+> -		hv_vmbus_compose_msi_msg(irq_data, &entry->msg);
+> +		hv_compose_msi_msg(irq_data, &entry->msg);
+>  	}
+>  	return 0;
+>  }
+> -- 
+> 2.51.2.vfs.0.1
+> 
 
