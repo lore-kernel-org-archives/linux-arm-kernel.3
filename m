@@ -4,168 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEBBD46942
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 15:30:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3686BC44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 15:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PtmlnhrcboQC2zSz3tkdWdWIHjt+pGDAQNrjfcEM9Ao=; b=AaDQ1u/59TbyGlJw5Wwh79ltma
-	j3jKbUYGF01ib9efpTvDzBd1NiuzVgOQ35kggxqZy6DtAhRc4AbHfkF+T8h27954NIj7wqFdbhH/h
-	BG3w1Xj9j9g1A/GEPWPUOpUMQFBqVYtFwOgelZNQrOOkjGWSZTcAa33FMc332wqBUld3Z0jU9cpxy
-	h1OPOYiLVpUm5jdkfUyAK8yBrETAMFNB8a1KF0UA7GFEQ+I2US+3AV06Pf5O3c/aJrijv04A3rOBk
-	zJNe+4WvwlczeQcFyvP5sDtxZnQGPENyMWf0ADsB5laQq6H9TFmAG5D+TH3ME8PlJ3ZS34f5eWps2
-	LwH9o/eA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4W0ec4fQDJd2xOwnuzTfcy8ZaXM1RW26O37NMjr14ds=; b=u9OdwaQAEIof2A5pjJXyCr0yMT
+	pPv34J4VlGTr3tQft/q5mKDHZLnF7wAnEHZOgDBqmbrUXHMeZdrwuJSy9f3Zr7meIMcpnRymKh1um
+	WHe40gCso5/uewWGn1gwOw9jR5lcooYtkbfHaGnxqJWBsXALzzeoLILIYH4j+RJ7ls2ORDY2DUTXs
+	aTcBJ9yClxVLyyxJjonJlzxODunrN5Z9jb09RyNCyJ5YC0BKZmSelrslnX0RyjkXSdFbACrALN3Iw
+	l1z6T9Mr37VMeL27iEcydH+NqM0//DAZmIjr9tE6J7x6uAn6HDTLxFfqvh9l3Kfd70nW+Kvs8sHa3
+	yM/X3t2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1via9r-00000005imv-33gv;
-	Wed, 21 Jan 2026 15:30:11 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1viaBv-00000005izx-0cUh;
+	Wed, 21 Jan 2026 15:32:19 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1via9o-00000005ily-3AQF
+	id 1viaBt-00000005iza-0k3X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 15:30:10 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60LCIPJC007922;
-	Wed, 21 Jan 2026 15:29:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=Ptmlnh
-	rcboQC2zSz3tkdWdWIHjt+pGDAQNrjfcEM9Ao=; b=R7MQU+obN+Qps4PgiI24Ew
-	/tg73MOOpAIXEaySqQu7qpuwwKYHl9637G1gGm4LpJ2PWu5Z/T4NOLNYom2+S5vr
-	srhYoUIvgDBQrVjo1HYcMdOulZS0VupOQWns9ZnfPpX7Ztjv02TtRF8HlkawN/nq
-	3Ak6iWcgqyrpoU1dlZvAN1KYeK2vscKs4JjcOxdKg1PC/DIh43J1W6lElnb6UDkY
-	uJFCeKaU3lS2IxSIfAOHxkjKAuSYN0wWMNxQggR2q6hK1YScGRtZRQvuOekEzYvn
-	ZJ10UAMFtMOVSS16pGwG0gmu/qeStWTp3sum9s3sN+OXYJhaNj+34GwvvoLYKO3g
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bqyukbxuy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 Jan 2026 15:29:19 +0000 (GMT)
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 60LFTIC8003745;
-	Wed, 21 Jan 2026 15:29:18 GMT
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bqyukbxus-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 Jan 2026 15:29:18 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60LE7HHN009273;
-	Wed, 21 Jan 2026 15:29:17 GMT
-Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4brp8kcpjs-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 21 Jan 2026 15:29:17 +0000
-Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
-	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60LFTGuU32834142
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 21 Jan 2026 15:29:16 GMT
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 12AF05804E;
-	Wed, 21 Jan 2026 15:29:16 +0000 (GMT)
-Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D0E225803F;
-	Wed, 21 Jan 2026 15:29:12 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.58.59])
-	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 21 Jan 2026 15:29:12 +0000 (GMT)
-Message-ID: <90e382b630b9719bf3e0ac76da1ce8b467d7ca52.camel@linux.ibm.com>
-Subject: Re: [PATCH 1/3] integrity: Make arch_ima_get_secureboot
- integrity-wide
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Dave Hansen <dave.hansen@intel.com>, Ard Biesheuvel <ardb@kernel.org>
-Cc: Coiby Xu <coxu@redhat.com>, linux-integrity@vger.kernel.org,
-        Heiko
- Carstens	 <hca@linux.ibm.com>,
-        Roberto Sassu
- <roberto.sassu@huaweicloud.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Madhavan Srinivasan	 <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin	
- <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev
- <agordeev@linux.ibm.com>,
-        Christian Borntraeger	
- <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav
- Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)"	 <x86@kernel.org>,
-        "H.
- Peter Anvin" <hpa@zytor.com>,
-        Roberto Sassu	 <roberto.sassu@huawei.com>,
-        Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
-        Eric Snowberg
- <eric.snowberg@oracle.com>,
-        Paul Moore <paul@paul-moore.com>, James Morris
- <jmorris@namei.org>,
-        "Serge E. Hallyn"	 <serge@hallyn.com>,
-        Jarkko
- Sakkinen <jarkko@kernel.org>,
-        "moderated list:ARM64 PORT (AARCH64
- ARCHITECTURE)"	 <linux-arm-kernel@lists.infradead.org>,
-        open list
- <linux-kernel@vger.kernel.org>,
-        "open list:LINUX FOR POWERPC (32-BIT AND
- 64-BIT)"	 <linuxppc-dev@lists.ozlabs.org>,
-        "open list:S390 ARCHITECTURE"	
- <linux-s390@vger.kernel.org>,
-        "open list:EXTENSIBLE FIRMWARE INTERFACE
- (EFI)"	 <linux-efi@vger.kernel.org>,
-        "open list:SECURITY SUBSYSTEM"	
- <linux-security-module@vger.kernel.org>,
-        "open
- list:KEYS/KEYRINGS_INTEGRITY"	 <keyrings@vger.kernel.org>
-In-Reply-To: <79185163-bf8f-4490-9396-3fd73b7a0c73@intel.com>
-References: <20260115004328.194142-1-coxu@redhat.com>
-	 <20260115004328.194142-2-coxu@redhat.com>
-	 <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
-	 <8bfa859ed3a4f1cf0db0ab64d8c1c3b24684582a.camel@linux.ibm.com>
-	 <CAMj1kXHsJNZoUEnbD1y=v4Ftuv9d2c08VckRV7ru4k4P83vZbQ@mail.gmail.com>
-	 <97b69bc79a5d9246f7a399510908c7b95b2e95e7.camel@linux.ibm.com>
-	 <CAMj1kXGx4ebaK87W7k0SNUNQnO9+=z1nmYxXC7retmp3OqRRFg@mail.gmail.com>
-	 <ac5e5e45c12e9b0bda19807e60b06057d74be0b3.camel@linux.ibm.com>
-	 <79185163-bf8f-4490-9396-3fd73b7a0c73@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 21 Jan 2026 10:29:12 -0500
+	Wed, 21 Jan 2026 15:32:18 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2a7bced39cfso4839445ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 07:32:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769009536; x=1769614336; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4W0ec4fQDJd2xOwnuzTfcy8ZaXM1RW26O37NMjr14ds=;
+        b=NSZJTkdbFrx+KI4btSDLiFpWEBwhsImONQXz151rXy/Y6/ny5hvUXOvnVOwFXZspTn
+         H2GQRpqlbRX/nX/OEeHQRs6RY1nC0nmHG8IsVsHk78lZoG164+9lIJ9GtsND8Ke65JWf
+         POrYNTUzow6uxDFLt6C9OArj+oM01USPnUuSbJzY85vaEu7zvnPBLqvO07e/4WDAE0IN
+         FwGGLhb372/tMHTdJXCdHdqMwCqaWdAQDHKIdHLPjvKnOXQ3LfI4Gi8L39MkVogVowwN
+         CFxBelf8q7lPOIm9TzL84Nk4E8UorI4nn3MlRP9mBYVq5OL4c/Er8r47og4x9b7vKIXm
+         eqRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769009536; x=1769614336;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4W0ec4fQDJd2xOwnuzTfcy8ZaXM1RW26O37NMjr14ds=;
+        b=pedZkhbVx+oJehsadZfvPSE0zmLFugKb/6b2VSrNwaklbeCuFJL93n5dmmH1TLtWmM
+         hCaYQ0cg1b4wRuM+a2K6T3krIvimvoWnCigly3puluvKGEJVGnAunP5NHt/Od12TYjk+
+         UQH5Xcvko2fXS8I5QEn5VkNSLVcx6yoMHu1yQc5aEnyeqhcLYlXvWxrEzNALi3ZJkC7Y
+         QUbvNZ9hivAOTJCRXu8ljmqHUJIYfzKJONe5beiVWbUHiE2bgz13pQVfHWCoPILN6eYr
+         xncaUlOvbDjYV8tD/pPU0aReUEQfTbTapoJRe0KWg4zkHUQ8QEiI/CFFOQTceW8bPua8
+         Niww==
+X-Forwarded-Encrypted: i=1; AJvYcCWrIuKIxb/VRj4QRI/Nm3NsmWDBm9Ve3+DHIRRayVMXtSnzMMLpgAxyUWZG4T6yzwYSY/UpbeuRLCP/wIwEliZH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbZP2wffnVopRUmV8KDnYr/zQoU9iwE75iK/lRBwA1Z1CykNPh
+	BDiKovdtCemsaE75ZrA6tdzAgb/amKtFlnWUvGkkwdw5uF+KDruS5CpZ
+X-Gm-Gg: AZuq6aKT6Q+m8STfJFAETi1c9PufSWnwVIwyj9+72GUtR8PBoYG4pFTI1Y92TZgg6KR
+	9HQS8fElwltJYk117xSx1RlasFEPI8agUqa+5C9QMJYZERLDqvz4zL7+y1xWfA2c6Ca9JYDTZSJ
+	K0LFbUqZCmZjHEU2hBhjtrDXFRUsEzBNdEnu7vO9SUWjY6gkEVi4cE7Lh/YWEQHv/q+pfbhfGmO
+	9jpaDsa78XWldgRKeY+HxDQO9za7susJz8ky6mNj97q1bd//fsm/arDXL9Fn6RuYSD8v7l+Zxnw
+	eNxAXT4uJZjZPpncx/O3AjsKI2DQAPgHWrmU7fbdKB0hMHlwjPMoIKBBHZwA23z3y5mhSfCnzCJ
+	Jrt9qgV88zb0D8zp0AoTxVkWr1kH1jZ1MqlqHapHjiwnwqJyCM0C0f3qtSDnV0yLaxJcAG7a0ub
+	j+rosWZHrp/Dq71L/ynsW5dTysSC62qB53aa8=
+X-Received: by 2002:a17:902:ce0c:b0:290:c516:8c53 with SMTP id d9443c01a7336-2a76b053c28mr47806965ad.40.1769009535555;
+        Wed, 21 Jan 2026 07:32:15 -0800 (PST)
+Received: from junjungu-PC.localdomain ([188.253.124.89])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a7193dd19asm159153125ad.59.2026.01.21.07.32.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Jan 2026 07:32:15 -0800 (PST)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Wed, 21 Jan 2026 23:32:06 +0800
+Subject: [PATCH] cpufreq: scmi: Fix device_node reference leak in
+ scmi_cpu_domain_id()
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTIxMDEyOSBTYWx0ZWRfX2ymvuQYTy22H
- qJNFLcQqWjeaCaLFEyKT6tfE0MW/e++nB0SRaSFVtToAa9ox6oeVXILCPxuv+vctXvPHW3rsYrQ
- +ejPAxy5nQRglPnamJCq1FFiP7jMKqOLF16rjF+Bx8AKWTma7YLK67DTU6FJbmSTRKOpWP3H1pu
- Wg7FpxlASD8gzCkZwBbwfrDAPc4zwN7GUrVCGuyQgBF6vKaRnD8zXGeJIzrhGxxnJfbBMnLTfZy
- TeJRkW492qytmES3d6FRnj0Rq9JTRV2s755lB3CGKXdkShUejNQZLiiBAo73NEyFpV+H4+8d40k
- RDpXSBrIKVh11RVald9e5I9lxAfIvQOyV3D9niyM9/EkSGYC52qa1uUWX4+rAvlXsEx+0yhfROv
- 2tSF8yG6PJGDjvQRkGjOgB1n2uOpvIOEJ7uicvzpXhvpauEMpRWd0+DPjwyy8aOwzDmoMRnpfiT
- sac2pUBUVyCecKsNSdg==
-X-Authority-Analysis: v=2.4 cv=bsBBxUai c=1 sm=1 tr=0 ts=6970f0cf cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=m0T7RSBcDQ_YrrizhwQA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: S936aB5gmoeXC2u8rCvDZx6qTRnYBrU1
-X-Proofpoint-GUID: 1nKqWJ362P7-Wshb2BQ9Ah0DM2KFKlHH
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
- definitions=2026-01-21_02,2026-01-20_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0
- impostorscore=0 malwarescore=0 clxscore=1011 adultscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2601150000 definitions=main-2601210129
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260121-b4-scmi-cpufreq-v1-1-b0547210feac@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAHXxcGkC/x3MQQqAIBBA0avErBtQE4WuEi3SpppFZkoRhHdPW
+ r7F/y9kSkwZ+uaFRDdnPkKFbBvw2xRWQp6rQQllhFQSncbsd0YfryXRiUp3kzXWkNMeahUTLfz
+ 8x2Es5QPsgKfkYQAAAA==
+X-Change-ID: 20260121-b4-scmi-cpufreq-243a7676eb4c
+To: Sudeep Holla <sudeep.holla@arm.com>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, 
+ Ulf Hansson <ulf.hansson@linaro.org>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769009530; l=941;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=m5l9glzlQdkTaKfNaDnN8sFdatZLvmq6941LcITDeuc=;
+ b=cfXD1Y1geysfvUU65r8/VTNhJv8/QJBeT0RrlIICW84nj+GcFWUl8FvfztZPFGogJbIRG+qKI
+ umusYR73874BWDNCOBLN0hBKLb15zKgVsa0K/kK8Qc8b5s84NGUZ2RF
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_073008_966997_AE95D4A0 
-X-CRM114-Status: GOOD (  20.89  )
+X-CRM114-CacheID: sfid-20260121_073217_227177_6639A79F 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,46 +114,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dave!
+When calling of_parse_phandle_with_args(), the caller is responsible
+to call of_node_put() to release the reference of device node.
+In scmi_cpu_domain_id(), it does not release the reference.
 
-On Mon, 2026-01-19 at 10:44 -0800, Dave Hansen wrote:
-> On 1/18/26 10:25, Mimi Zohar wrote:
-> > As not all arch's implement arch_integrity_get_secureboot, the definiti=
-on in
-> > include/linux/integrity.h would need to be updated.  Something like:
-> >=20
-> > -#ifdef CONFIG_INTEGRITY_SECURE_BOOT
-> > +#if (defined(CONFIG_INTEGRITY_SECURE_BOOT) && \
-> > +       (defined(CONFIG_X86) && defined(CONFIG_EFI)) || defined(CONFIG_=
-S390) \
-> > +        || defined(CONFIG_PPC_SECURE_BOOT))
-> >=20
-> > Then IMA_SECURE_AND_OR_TRUSTED_BOOT and EVM could select INTEGRITY_SECU=
-RE_BOOT,
-> > as suggested.
->=20
-> This seems to be going a wee bit sideways. :)
+Fixes: e336baa4193e ("cpufreq: scmi: Prepare to move OF parsing of domain-id to cpufreq")
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+---
+ drivers/cpufreq/scmi-cpufreq.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Agreed, that was my point. :)   "imply" was cleaner, but Ard objected to tw=
-o
-imply's.
+diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
+index e0e1756180b0..c7a3b038385b 100644
+--- a/drivers/cpufreq/scmi-cpufreq.c
++++ b/drivers/cpufreq/scmi-cpufreq.c
+@@ -101,6 +101,7 @@ static int scmi_cpu_domain_id(struct device *cpu_dev)
+ 			return -EINVAL;
+ 	}
+ 
++	of_node_put(domain_id.np);
+ 	return domain_id.args[0];
+ }
+ 
 
->=20
-> This kind of CONFIG complexity really should be left to Kconfig. C
-> macros really aren't a great place to do it.
->=20
-> The other idiom we use a lot is this in generic code:
->=20
-> #ifndef arch_foo
-> static inline void arch_foo(void) {}
-> #endif
->=20
-> Then all you have to do is make sure the arch header that #defines it is
-> included before the generic code. I'm not a super huge fan of these
-> because it can be hard to tell (for humans at least) _if_ the
-> architecture has done the #define.
->=20
-> But it sure beats that #ifdef maze.
+---
+base-commit: 053966c344dbd346e71305f530e91ea77916189f
+change-id: 20260121-b4-scmi-cpufreq-243a7676eb4c
 
-Sure.
+Best regards,
+-- 
+Felix Gu <ustc.gu@gmail.com>
+
 
