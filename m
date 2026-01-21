@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6751CC44525
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A76E2C44526
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wZQftdk2nD+KUg1koynnm115h0ip7JWIlzvZWrt2KVA=; b=XyWp637K1zoWx6s2QnUzxQHGd+
-	4dQF4G4bc7HjVt7UPJaL32USfhTW3/90tCPCdPhvoeoDTbDCRaLEp0yBhFmCLG7XCcBcPr4R17phO
-	yK6t/tvEm4xibNnJpN7+sm9PCHpHW3QCROhcVVqbJ4xT98GY9CvcDP3lB18ymkKIq3CUViyPmYUnO
-	qLyqBBcebBZ8oZ16nttAWcgjip4c80jzcIAkU5Cr4jZeflUOJDXrj9l7HsTT+HpN1bZg2fj9b2dzp
-	ToZ4Mi5LmjfNJlF2lQcMLP0nPApELzYSy0lGwbVCHOxLN+0FkohXmhQfoDs11i8p4iTvlvD47az1C
-	Tgzka1JA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gt5x1YSpMGnCtzukdJPqtJ1KKo1auwQYmco3HjMbW64=; b=hRoV+Xt13QwfEnn9R+og1hYtKX
+	mUDCvYqoW6mDze1PrQ291TwoBK1KyAJlPkthnJ1BUyNXLtxRHotfmG6WXaN0kj5ppFchumMLHFSit
+	94b4PC8weovop5lXj2fW5dthm3KwJiTS9fS9oTx8eo1xEJ+RjcBrGgVPdcnwZ0i7lkorxb2E8fcCY
+	vcFn1C83ayhvXpRM1iKyWidzPTAO6YVDeECkQkFIPoJxR5RCv65D3oaTA5J46RnkLC7If/s1UfInC
+	WOyU57nvZsE6VyM9r7McgOhmHE4JmQW6QcIO0fJKZ/UHBXkQW7oJ9dd6aMGXV4dMu4kRCmUE2n/wo
+	WkKM6kuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viXy9-00000005TeF-3D7u;
-	Wed, 21 Jan 2026 13:09:57 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1viY3b-00000005TxX-1XR6;
+	Wed, 21 Jan 2026 13:15:35 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viXy6-00000005Tcw-1dHP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 13:09:57 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 263A21A2994;
-	Wed, 21 Jan 2026 13:09:49 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E831E6070A;
-	Wed, 21 Jan 2026 13:09:48 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C1864119B12B0;
-	Wed, 21 Jan 2026 14:09:35 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769000986; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=wZQftdk2nD+KUg1koynnm115h0ip7JWIlzvZWrt2KVA=;
-	b=y60xwBm3xBqZIT8UiYIEJC1jmdN8HJp50cHs3G3ihI5ZArfnGhhrDedj2MG09NvX+QDlQX
-	upp0ldCVvnWrEUjJvZvWNWKylSt1StNKVf4xwz58pIChVXAs1jOd6c9DZKq+W1K34lsE9g
-	//T7Ds7Mv74Xu/O+cc4S5vJn1tUFJ/575ztvoEjJm3J2Csz8vdr5SOEk5nawaVwhwzf7m0
-	AML5lo5TXHe6QOVd+hlDkDYvp5/oqwOh/TW7bZQcLCwod2zaw5CoFmhRd+I3kB4EJWMDot
-	HOA/Lx1NGRnjvTnTln6ZLrP6ZWSsFCJv/uCjkTCWpinzCFD1A7hA1gsnoxcqFQ==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
- Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>, 
- Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, 
- Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, linux-mediatek@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-In-Reply-To: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-3-v2-0-8d7a3dbacdf4@bootlin.com>
-References: <20260109-drm-bridge-alloc-getput-drm_of_find_bridge-3-v2-0-8d7a3dbacdf4@bootlin.com>
-Subject: Re: [PATCH v2 0/6] drm/bridge: convert users of
- of_drm_find_bridge(), part 3
-Message-Id: <176900097537.2193756.17458623342246187982.b4-ty@bootlin.com>
-Date: Wed, 21 Jan 2026 14:09:35 +0100
+	id 1viY3Z-00000005TxB-1GKp;
+	Wed, 21 Jan 2026 13:15:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Gt5x1YSpMGnCtzukdJPqtJ1KKo1auwQYmco3HjMbW64=; b=vl0ieqsST/XAdQms2yS2AnXGP4
+	iKTNylKNi6MsB8Gs5xn+yFVLoVe2YzwSsYg7DXx2BghYOZ4lB6JPOQWDyN9GPbuzi5pcyoPcu704r
+	meApSaYjfZ6SwbuacnjfAeRvkweortpZYC5FwBlayKLJTZB9T/Aixz5XudvmtUcHDaAk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1viY3D-003owk-Hj; Wed, 21 Jan 2026 14:15:11 +0100
+Date: Wed, 21 Jan 2026 14:15:11 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>, Hsun Lai <i@chainsx.cn>,
+	John Clark <inindev@gmail.com>, Jimmy Hon <honyuenkwun@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/2] arm64: dts: rockchip: Add rk3576 evb2 board
+Message-ID: <aec69818-9fd0-4e50-bab9-f5e36304a4a2@lunn.ch>
+References: <20260121015357.291-1-kernel@airkyi.com>
+ <20260121015357.291-3-kernel@airkyi.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260121015357.291-3-kernel@airkyi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_050954_779908_0EA851A9 
-X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-CacheID: sfid-20260121_051533_341656_90D5448C 
+X-CRM114-Status: UNSURE (   9.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,36 +82,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> +&mdio0 {
+> +	rgmii_phy0: ethernet-phy@1 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <0x1>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&rgmii_phy0_rst>;
+> +		reset-assert-us = <20000>;
+> +		reset-deassert-us = <100000>;
+> +		reset-gpios = <&gpio3 RK_PD3 GPIO_ACTIVE_LOW>;
+> +		tx-internal-delay-ps = <1900>;
 
-On Fri, 09 Jan 2026 11:02:49 +0100, Luca Ceresoli wrote:
-> This series converts many DRM drivers from the now deprecated
-> of_drm_find_bridge() to its replacement of_drm_find_and_get_bridge() which
-> allows correct bridge refcounting. Where applicable it also converts
-> per-driver "next_bridge" pointers to the unified drm_bridge::next_bridge
-> which puts the reference automatically on bridge deallocation.
-> 
-> This is part of the work to support hotplug of DRM bridges. The grand plan
-> was discussed in [0].
-> 
-> [...]
+What PHY is this? Does it actually implement this property?
 
-Applied, thanks!
+It is also close to the 2000ps default. Have you put the board in an
+environment chamber and run tests at -20C to +70C to see if it will
+work with the default 2000ps?
 
-[1/6] drm/bridge: dw-hdmi: convert to of_drm_find_and_get_bridge()
-      commit: 4e7fd5aa3f3939dfcd8b0578de57f1cc00d6c31c
-[2/6] drm/meson/dw-hdmi: convert to of_drm_find_and_get_bridge()
-      commit: 9afbf7a9cce584e3ce7b709ea5654f2721b00694
-[3/6] drm/imx/dw-hdmi: convert to of_drm_find_and_get_bridge()
-      commit: 6dfebeee296cbb3296f06c28f3b2d053ec8374e7
-[4/6] drm/mediatek: mtk_hdmi*: convert to of_drm_find_and_get_bridge()
-      commit: 4ace6fbcd25f5ef275c91b93424e715f96197e50
-[5/6] drm/exynos: hdmi: convert to of_drm_find_and_get_bridge()
-      commit: 2db0d298f22d685e0c9f7f66ab6470f12a0255b6
-[6/6] drm: rcar-du: lvds: convert to of_drm_find_and_get_bridge()
-      commit: 95d628c9e4738c070ba780488efbab894e583646
-
-Best regards,
--- 
-Luca Ceresoli <luca.ceresoli@bootlin.com>
-
+     Andrew
 
