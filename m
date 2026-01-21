@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7778C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:48:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F44C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ps4BnNAGF4U24DnSoeoMdVWWIbGEhgg92/5V7kamsSY=; b=cI9+uM5778m2ps1QIh+7aclLvh
-	Utjmp3X4REnkki5oek1uGRKL+hD9alrMxU9b4nBci61VcBD+yzcua/LkjXfD6OF2nG14BXC6ZBlfx
-	4cOwZT0kWa1b54iocI0pQMJh3xfjgoHZc4Z5GgQ2AGEsH7vKKiQl4+ZTqEm7UsL92fhDFBPkHlfzr
-	LuNBYNq4mhsTMMSaFAoGgGTiuAFgy11qv2rSW8kD8W+7KPz0MBdttAdVmtFyITUWUeBE1RcrLiO7+
-	HYrllpsfnY7eg3b+wfWWa2g0jxvnxAFJ8tZ7L5UdhtFJbrQCdXUqX9devgEVCy93Sqz8GSXIWKksE
-	NtUjWB2A==;
+	bh=RSXhbmC3n6qv4fmbrHo/VYnmC01w0SpCKpxl71nPUq4=; b=DTTR8A6/Rt3lTDzhv5aZkA7RlH
+	GTyp6KPnyqVOiNNETA835YJO9QZwfoNh3OFTpKWmUOwbgsC2uvy9U7UoOH8MtMhIUGoEAX66EG2P2
+	rtrQ+vQKqZnYOchUOrPF0r6V4ecIxPXn5hcLE+EjJR//q14P2CPfi5FbxBmmft7rTX+kdMBINyQc1
+	VJAAZZRCMzNY41Ve7oY01RvCHh2knelxKCB5h/C8zindd4aEqLWlTPHmHudiuvX/YudU4EvwAn99P
+	CPbi65qsUkh+Ml1xgtYPhzIhNbTKh9drzBjV3venU3RBXrRctalJIQ9m4FMJAfuwM47xZYCCf9lNT
+	4jYEm3xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZVi-00000005ex7-0tOL;
-	Wed, 21 Jan 2026 14:48:42 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1viZVr-00000005f6O-31uY;
+	Wed, 21 Jan 2026 14:48:51 +0000
+Received: from sender4-pp-e103.zoho.com ([136.143.188.103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZVb-00000005ep1-0jMk;
-	Wed, 21 Jan 2026 14:48:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769006884; cv=none; 
+	id 1viZVk-00000005eyI-0rhS;
+	Wed, 21 Jan 2026 14:48:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769006892; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=XDF04ArA/ApQBHZKmy01QKKuWLjIHfLwjRNfbnXHgk+Up4YXpc7Xte6tjnpQiVaOdBH2GqZIepQyccFbv7S6XzNj8uMaPy2IQfN8iv2BDxXoqKNSZNIovkPOuRQyJmnUDdi38xrr+EremzL5xxSXcT+y6H5YjCjZZ0k3Ktb3u70=
+	b=GRAq2EuTac6Mq6i0t+LyJMc7NglhbkgdhY9zkk+h8JURXr8zLYMzbtvSxbITyjSkOhrZK4N3eOqNjWhZvTBbd9BvI8VN53b2tDzYrMRYd6NcC1t2pg3P7wNFhD9ToYo8Wx/btaGGKu7Ii5qw+TxV6a40tM57fia4fl6msBkjJVE=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769006884; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ps4BnNAGF4U24DnSoeoMdVWWIbGEhgg92/5V7kamsSY=; 
-	b=I9oCykcybmQ0SQkqJXd3+EvabOpxin+9V1T2oyKGpDkd/RshUVagZ0E2EKIQfd69js5gi+mSpoZvBvEeUF+93oKHm0kZIKHhKG6Pc3mEL0qI7U4P1eLeWlRWFTHeiIeezWrJ/Eq6C5Tik5JVbifuqehDyI39EwxEOp/HswDnXe4=
+	t=1769006892; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=RSXhbmC3n6qv4fmbrHo/VYnmC01w0SpCKpxl71nPUq4=; 
+	b=ccZcs+LpjWcyC0wPrr+pT6obmlIHpIht5naqvc0KJv2wNO8rBiHCHY+hhec7EjJDv2uMJJPlL+aEK+aSIOXUmLtWeeICoxMklEQWEOw58Ks5MDH4N9mz9tjcGKDZVz1RtvfsedgZTdsrlUSkb5BpbOKrf3yrAgyDN7J2937vjKU=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769006884;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769006892;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=ps4BnNAGF4U24DnSoeoMdVWWIbGEhgg92/5V7kamsSY=;
-	b=UpcmeBVOQexJFu2sQ5PWtzJkTq+8kHibYaVPiDsYg2+MkEoGMO5rhkANEtn8+zFT
-	kVa7/I8P7NYo3Qm20JXLTJkuhBGIuqzGPCkw5pfTfc8Q261uqM7PUffegaKoE/Ony6O
-	ZEOucfP9uLfTTBLgkTBFaKv9w2iuYf0SiRoWKLyw=
-Received: by mx.zohomail.com with SMTPS id 1769006882991361.2124863507353;
-	Wed, 21 Jan 2026 06:48:02 -0800 (PST)
+	bh=RSXhbmC3n6qv4fmbrHo/VYnmC01w0SpCKpxl71nPUq4=;
+	b=S5+ZkMcHjoohd3WfGKo9QzA0/sYp1/VYdj2z98zvmyqDNz9vmNPol7P68IKSExGM
+	NMQ1yvUqnwhrEGG53K+IXzTOFii2rwj7uD+C1SPm/a/LC4Jy3ePBmZMeghMuqCLQg9T
+	Vqe41P8HS0iWS2L8Zlyl6/vH9U2f8QE9vayouOqk=
+Received: by mx.zohomail.com with SMTPS id 1769006890778410.0564390583087;
+	Wed, 21 Jan 2026 06:48:10 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Wed, 21 Jan 2026 15:45:26 +0100
-Subject: [PATCH v7 19/22] drm/tests: hdmi: Add tests for HDMI helper's
- mode_valid
+Date: Wed, 21 Jan 2026 15:45:27 +0100
+Subject: [PATCH v7 20/22] drm/tests: edid: Add __maybe_unused attribute to
+ EDID definitions
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260121-color-format-v7-19-ef790dae780c@collabora.com>
+Message-Id: <20260121-color-format-v7-20-ef790dae780c@collabora.com>
 References: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
 In-Reply-To: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
 To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
@@ -84,8 +84,8 @@ Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_064835_237448_57F9AA82 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20260121_064844_349601_807CB05C 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,147 +100,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add some KUnit tests to verify that the HDMI state helper's mode_valid
-implementation does not improperly reject chroma subsampled modes on the
-basis of their clock rate not being satisfiable in RGB.
+It's normal for a test suite to need an EDID, but not all EDIDs across
+every test. Silence compiler warnings caused by unused definitions by
+using the appropriate attribute.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 109 +++++++++++++++++++++
- 1 file changed, 109 insertions(+)
+ drivers/gpu/drm/tests/drm_kunit_edid.h | 27 ++++++++++++++++++---------
+ 1 file changed, 18 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-index f9648f9de46b..b2c421d7e986 100644
---- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-+++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-@@ -77,6 +77,23 @@ static struct drm_display_mode *find_420_only_mode(struct drm_connector *connect
- 	return NULL;
- }
- 
-+static struct drm_display_mode *find_420_also_mode(struct drm_connector *connector)
-+{
-+	struct drm_device *drm = connector->dev;
-+	struct drm_display_mode *mode;
-+
-+	mutex_lock(&drm->mode_config.mutex);
-+	list_for_each_entry(mode, &connector->modes, head) {
-+		if (drm_mode_is_420_also(&connector->display_info, mode)) {
-+			mutex_unlock(&drm->mode_config.mutex);
-+			return mode;
-+		}
-+	}
-+	mutex_unlock(&drm->mode_config.mutex);
-+
-+	return NULL;
-+}
-+
- static int set_connector_edid(struct kunit *test, struct drm_connector *connector,
- 			      const void *edid, size_t edid_len)
- {
-@@ -2700,11 +2717,103 @@ static void drm_test_check_mode_valid_reject_max_clock(struct kunit *test)
- 	KUNIT_EXPECT_EQ(test, preferred->clock, 25200);
- }
- 
-+/*
-+ * Test that drm_hdmi_connector_mode_valid() will accept modes that require a
-+ * 4:2:0 chroma subsampling, even if said mode would violate maximum clock
-+ * constraints if it used RGB 4:4:4.
-+ */
-+static void drm_test_check_mode_valid_yuv420_only_max_clock(struct kunit *test)
-+{
-+	struct drm_atomic_helper_connector_hdmi_priv *priv;
-+	struct drm_display_mode *dank;
-+	struct drm_connector *conn;
-+
-+	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
-+				BIT(HDMI_COLORSPACE_RGB) |
-+				BIT(HDMI_COLORSPACE_YUV420),
-+				8,
-+				&dummy_connector_hdmi_funcs,
-+				test_edid_hdmi_1080p_rgb_yuv_4k_yuv420_dc_max_200mhz);
-+	KUNIT_ASSERT_NOT_NULL(test, priv);
-+
-+	conn = &priv->connector;
-+	KUNIT_ASSERT_EQ(test, conn->display_info.max_tmds_clock, 200 * 1000);
-+
-+	dank = find_420_only_mode(conn);
-+	KUNIT_ASSERT_NOT_NULL(test, dank);
-+	KUNIT_EXPECT_EQ(test, dank->hdisplay, 3840);
-+	KUNIT_EXPECT_EQ(test, dank->vdisplay, 2160);
-+
-+	/*
-+	 * Note: The mode's "clock" here is not accurate to the actual TMDS
-+	 * clock that HDMI will use for a subsampled mode. Hence, why the mode's
-+	 * clock is above the .max_tmds_clock of 200MHz.
-+	 */
-+	KUNIT_EXPECT_EQ(test, dank->clock, 297000);
-+}
-+
-+/*
-+ * Test that drm_hdmi_connector_mode_valid() will reject modes that require
-+ * 4:2:0 chroma subsampling, if the connector does not support 4:2:0.
-+ */
-+static void
-+drm_test_check_mode_valid_reject_yuv420_only_connector(struct kunit *test)
-+{
-+	struct drm_atomic_helper_connector_hdmi_priv *priv;
-+	struct drm_display_mode *dank;
-+	struct drm_connector *conn;
-+
-+	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
-+				BIT(HDMI_COLORSPACE_RGB),
-+				8,
-+				&dummy_connector_hdmi_funcs,
-+				test_edid_hdmi_1080p_rgb_yuv_4k_yuv420_dc_max_200mhz);
-+	KUNIT_ASSERT_NOT_NULL(test, priv);
-+
-+	conn = &priv->connector;
-+	KUNIT_ASSERT_EQ(test, conn->display_info.max_tmds_clock, 200 * 1000);
-+
-+	dank = find_420_only_mode(conn);
-+	KUNIT_EXPECT_NULL(test, dank);
-+}
-+
-+/*
-+ * Test that drm_hdmi_connector_mode_valid() will accept modes that allow (among
-+ * other color formats) 4:2:0 chroma subsampling, even if the connector does not
-+ * support 4:2:0, but the mode's clock works for RGB 4:4:4.
-+ */
-+static void
-+drm_test_check_mode_valid_accept_yuv420_also_connector_rgb(struct kunit *test)
-+{
-+	struct drm_atomic_helper_connector_hdmi_priv *priv;
-+	struct drm_display_mode *mode;
-+	struct drm_connector *conn;
-+
-+	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
-+				BIT(HDMI_COLORSPACE_RGB),
-+				8,
-+				&dummy_connector_hdmi_funcs,
-+				test_edid_hdmi_4k_rgb_yuv420_dc_max_340mhz);
-+	KUNIT_ASSERT_NOT_NULL(test, priv);
-+
-+	conn = &priv->connector;
-+	KUNIT_ASSERT_EQ(test, conn->display_info.max_tmds_clock, 340 * 1000);
-+
-+	mode = find_420_also_mode(conn);
-+	KUNIT_ASSERT_NOT_NULL(test, mode);
-+	KUNIT_EXPECT_EQ(test, mode->hdisplay, 3840);
-+	KUNIT_EXPECT_EQ(test, mode->vdisplay, 2160);
-+	KUNIT_EXPECT_EQ(test, mode->clock, 297000);
-+}
-+
- static struct kunit_case drm_atomic_helper_connector_hdmi_mode_valid_tests[] = {
- 	KUNIT_CASE(drm_test_check_mode_valid),
- 	KUNIT_CASE(drm_test_check_mode_valid_reject),
- 	KUNIT_CASE(drm_test_check_mode_valid_reject_rate),
- 	KUNIT_CASE(drm_test_check_mode_valid_reject_max_clock),
-+	KUNIT_CASE(drm_test_check_mode_valid_yuv420_only_max_clock),
-+	KUNIT_CASE(drm_test_check_mode_valid_reject_yuv420_only_connector),
-+	KUNIT_CASE(drm_test_check_mode_valid_accept_yuv420_also_connector_rgb),
- 	{ }
- };
- 
+diff --git a/drivers/gpu/drm/tests/drm_kunit_edid.h b/drivers/gpu/drm/tests/drm_kunit_edid.h
+index f4923157f5bf..18bb7043d7e8 100644
+--- a/drivers/gpu/drm/tests/drm_kunit_edid.h
++++ b/drivers/gpu/drm/tests/drm_kunit_edid.h
+@@ -54,7 +54,8 @@
+  *
+  * EDID conformity: PASS
+  */
+-static const unsigned char test_edid_dvi_1080p[] = {
++static const unsigned char __maybe_unused
++test_edid_dvi_1080p[] = {
+ 	0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x31, 0xd8, 0x2a, 0x00,
+ 	0x00, 0x00, 0x00, 0x00, 0x00, 0x21, 0x01, 0x03, 0x81, 0xa0, 0x5a, 0x78,
+ 	0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+@@ -160,7 +161,8 @@ static const unsigned char test_edid_dvi_1080p[] = {
+  *
+  * EDID conformity: FAIL
+  */
+-static const unsigned char test_edid_hdmi_1080p_rgb_max_100mhz[] = {
++static const unsigned char __maybe_unused
++test_edid_hdmi_1080p_rgb_max_100mhz[] = {
+ 	0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x31, 0xd8, 0x2a, 0x00,
+ 	0x00, 0x00, 0x00, 0x00, 0x00, 0x21, 0x01, 0x03, 0x81, 0xa0, 0x5a, 0x78,
+ 	0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20,
+@@ -268,7 +270,8 @@ static const unsigned char test_edid_hdmi_1080p_rgb_max_100mhz[] = {
+  *
+  * EDID conformity: PASS
+  */
+-static const unsigned char test_edid_hdmi_1080p_rgb_max_200mhz[] = {
++static const unsigned char __maybe_unused
++test_edid_hdmi_1080p_rgb_max_200mhz[] = {
+ 	0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x31, 0xd8, 0x2a, 0x00,
+ 	0x00, 0x00, 0x00, 0x00, 0x00, 0x21, 0x01, 0x03, 0x81, 0xa0, 0x5a, 0x78,
+ 	0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20,
+@@ -387,7 +390,8 @@ static const unsigned char test_edid_hdmi_1080p_rgb_max_200mhz[] = {
+  *
+  * EDID conformity: PASS
+  */
+-static const unsigned char test_edid_hdmi_1080p_rgb_max_200mhz_hdr[] = {
++static const unsigned char __maybe_unused
++test_edid_hdmi_1080p_rgb_max_200mhz_hdr[] = {
+ 	0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x31, 0xd8, 0x2a, 0x00,
+ 	0x00, 0x00, 0x00, 0x00, 0x00, 0x21, 0x01, 0x03, 0x81, 0xa0, 0x5a, 0x78,
+ 	0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20,
+@@ -495,7 +499,8 @@ static const unsigned char test_edid_hdmi_1080p_rgb_max_200mhz_hdr[] = {
+  *
+  * EDID conformity: PASS
+  */
+-static const unsigned char test_edid_hdmi_1080p_rgb_max_340mhz[] = {
++static const unsigned char __maybe_unused
++test_edid_hdmi_1080p_rgb_max_340mhz[] = {
+ 	0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x31, 0xd8, 0x2a, 0x00,
+ 	0x00, 0x00, 0x00, 0x00, 0x00, 0x21, 0x01, 0x03, 0x81, 0xa0, 0x5a, 0x78,
+ 	0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20,
+@@ -609,7 +614,8 @@ static const unsigned char test_edid_hdmi_1080p_rgb_max_340mhz[] = {
+  *
+  * EDID conformity: PASS
+  */
+-static const unsigned char test_edid_hdmi_1080p_rgb_yuv_dc_max_200mhz[] = {
++static const unsigned char __maybe_unused
++test_edid_hdmi_1080p_rgb_yuv_dc_max_200mhz[] = {
+ 	0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x31, 0xd8, 0x2a, 0x00,
+ 	0x00, 0x00, 0x00, 0x00, 0x00, 0x21, 0x01, 0x03, 0x81, 0xa0, 0x5a, 0x78,
+ 	0x1a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20,
+@@ -723,7 +729,8 @@ static const unsigned char test_edid_hdmi_1080p_rgb_yuv_dc_max_200mhz[] = {
+  *
+  * EDID conformity: PASS
+  */
+-static const unsigned char test_edid_hdmi_1080p_rgb_yuv_dc_max_340mhz[] = {
++static const unsigned char __maybe_unused
++test_edid_hdmi_1080p_rgb_yuv_dc_max_340mhz[] = {
+ 	0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x31, 0xd8, 0x2a, 0x00,
+ 	0x00, 0x00, 0x00, 0x00, 0x00, 0x21, 0x01, 0x03, 0x81, 0xa0, 0x5a, 0x78,
+ 	0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20,
+@@ -841,7 +848,8 @@ static const unsigned char test_edid_hdmi_1080p_rgb_yuv_dc_max_340mhz[] = {
+  *     VIC  95:  3840x2160   30.000000 Hz  16:9     67.500 kHz    297.000000 MHz
+  * Checksum: 0xca
+  */
+-static const unsigned char test_edid_hdmi_1080p_rgb_yuv_4k_yuv420_dc_max_200mhz[] = {
++static const unsigned char __maybe_unused
++test_edid_hdmi_1080p_rgb_yuv_4k_yuv420_dc_max_200mhz[] = {
+ 	0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x31, 0xd8, 0x34, 0x00,
+ 	0x00, 0x00, 0x00, 0x00, 0xff, 0x23, 0x01, 0x03, 0x80, 0x60, 0x36, 0x78,
+ 	0x0f, 0xee, 0x91, 0xa3, 0x54, 0x4c, 0x99, 0x26, 0x0f, 0x50, 0x54, 0x20,
+@@ -955,7 +963,8 @@ static const unsigned char test_edid_hdmi_1080p_rgb_yuv_4k_yuv420_dc_max_200mhz[
+  *   YCbCr 4:2:0 Video Data Block:
+  * Checksum: 0x84
+  */
+-static const unsigned char test_edid_hdmi_4k_rgb_yuv420_dc_max_340mhz[] = {
++static const unsigned char __maybe_unused
++test_edid_hdmi_4k_rgb_yuv420_dc_max_340mhz[] = {
+ 	0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00, 0x31, 0xd8, 0x34, 0x00,
+ 	0x00, 0x00, 0x00, 0x00, 0xff, 0x23, 0x01, 0x03, 0x80, 0x60, 0x36, 0x78,
+ 	0x0f, 0xee, 0x91, 0xa3, 0x54, 0x4c, 0x99, 0x26, 0x0f, 0x50, 0x54, 0x20,
 
 -- 
 2.52.0
