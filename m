@@ -4,85 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD5DC4453D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:48:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE88C4452E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:48:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FDhI8tIlTzFkDL9hKs3tIMe24M9SzYYyQ7hRvEJ46wo=; b=r8p95v9xI0SlTjcdEXXSh/zCNl
-	VMZkYCCnQK4Pyd2RgpndpKRF/oZ0eS1ijsZlB0HvJMw5NUuUuxdO5sqirCBVvuHw2EfAi79fxogpt
-	3SwyMJcQbvAIXyynUGJD9xlHFTPbi8q6Ia2bIGpnCpxR7JO5cDgIebgPULi2FCK/9nmki8oJEGRUF
-	1v4lom+ytVao8Om9Vk7sa9+aBCqJgYF7hWzhe0+uAdQyZOW9qSVEaor30iuu4QkXe8uPGCfo1CW7D
-	8FV6c/6OtgvhEBWSksaq2xzj4+hQzP/rOKfcO39+EOQ9TcfnJVD9leQ3e/pc4hseAKhPpCWlXl59t
-	r1kUI6oQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Yjl7AEz7PGojFt2JYw9FMo7Abi02d/7TPFmWTuR52w=; b=KAH3WaojXuR+EmQUmEe9FwQKYH
+	s6ABuqSOa2KDF5AJsQT2xX1ckUdcOJtBeBp0DBRAEvN8N6mMVYtWXFf5EUKoA9ga92bpmHIfClXZV
+	4HHTi0N0P4i4QR94k6wXmOFkFU7QvFoKLYqQNy97kpJnIQafB1xVRgixoXiVHVYAry2EGoR8wYFFv
+	oKT7JDbtjFYXd7j/zknHRiJH32Seov4CZSArkuYpgVfLwp6Ro1mVbHr/DHd05JeKmRbwXZxHt3od2
+	RPq+qO9dn7Ff6HV0vCkKa93bIWrhUWc8UYIZHcgtsXdgVmN+Zuv9K42vq64U8x4Kqt+FmA2EFnOlE
+	JdArV9bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYZI-00000005WdL-1V64;
-	Wed, 21 Jan 2026 13:48:22 +0000
-Received: from mail-vk1-f176.google.com ([209.85.221.176])
+	id 1viYZU-00000005Wnw-31Y4;
+	Wed, 21 Jan 2026 13:48:32 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYZE-00000005WY8-3kCa
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 13:48:18 +0000
-Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-56624fea96fso184226e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 05:48:16 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769003295; x=1769608095;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FDhI8tIlTzFkDL9hKs3tIMe24M9SzYYyQ7hRvEJ46wo=;
-        b=YpidzSR3UElfJfxiI7tQDhHS/hqrgh84de+OWEyGQrfK2BN74CnJYCMunKhaayU+Xd
-         mef7E2sXYkmXpa27UlCfBSSLS1tFjS/Dha9QQNA7yLKjpoxuzRLZKU7qeQwd+SLX6Ff5
-         c3ZQ/VrjB5rIgfQmhtPty/IyH8H+Ag4/MNtueZD3rpHHcxv8KSfx8+F1clrTu/HBn9Ft
-         vM6wmiTLcMvYZPsXeXqShIyH8+OuQct3vCdPRFMkIYfuDQedOtVneahyksRsQ7czFzAy
-         ogb6LXuXr4iuyUG6HkeOdhfZouznyeXwxrh/GOIQKvKYYGopfTd8+xRa99F+pOgpZiwO
-         m0xQ==
-X-Gm-Message-State: AOJu0YzcXf+gME75JmncW9QkRaSIZRwkXtToZNzG/UTrKPWB+RPPpIqg
-	dKKvRkSdpBYauSYOI2xXw/sk3Z4VBuQtDRS+SB9xaFz7tVszmARjVt3XWn7mkpk3
-X-Gm-Gg: AZuq6aK3pFIPuSbQQS/RI72BrD4haFDj2Ccj/rVJXG4VZSopPxwUNsVEt3xdldpY780
-	a1qE0qoCwK4kYAQg9IyReGnRIcoY/QMk2KTnp4uJcHiCwdAgMXSfZFTLsRpZqAcAsT+xrP8A5/b
-	OJTEtRhXQkLnzKRfs+tDCQ6sqLHQXPMkjPm+DKU7IYvCvF1kvk/pxOoE8duxO8iucuhPacTNXOZ
-	Jd4+v0DZw6ugreKEMyQlEpT/PFJeWhIk5WpNC4OQm2rEDdbESDVTR1lxnIWtWIUUPVJmn/8zjga
-	aW5cDyi3MdS9k5MwxNlVU5YPZnkT52BFLvZs28gwHUq8kzvYXVccSr3k9+t0WEj3kDscFMGa6um
-	uHKQj0eRrI6EOCkiJYd/UClXksMDgqSDErdQiYgdptW/+Xgxj/EyyXEJaYXIzmF50T9pYMjsqYg
-	HaYP1EYiYtN/JzAR2KdYIm/iOaEUST3c2eF2Cuos/zUi9DYxAP
-X-Received: by 2002:a05:6122:2676:b0:563:ba2e:91a0 with SMTP id 71dfb90a1353d-563ba2e91d6mr3780558e0c.10.1769003294599;
-        Wed, 21 Jan 2026 05:48:14 -0800 (PST)
-Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com. [209.85.222.48])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-947d03d5aebsm4971140241.5.2026.01.21.05.48.13
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 21 Jan 2026 05:48:13 -0800 (PST)
-Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-9480078b2fbso583393241.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 05:48:13 -0800 (PST)
-X-Received: by 2002:a05:6102:d92:b0:5ed:ab0:e5d1 with SMTP id
- ada2fe7eead31-5f192539f6amr7680722137.15.1769003293334; Wed, 21 Jan 2026
- 05:48:13 -0800 (PST)
+	id 1viYZJ-00000005WdN-3kYT;
+	Wed, 21 Jan 2026 13:48:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769003267; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=bg6117jJr729sFxLoNVNtJ12kdLxqQkhl/AU94N9fu+G1X+JuTVkAm4ypLGaSa+G3OIILcDXmU88OKNe+EKCkwUXeDL0skOaIXihXyVArcKUMbrljA0a/QXJx1p45jJNY98LaLkrdpbegz5pFJJuO/24sOhp2fncN+Ozjy2VvvU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1769003267; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=7Yjl7AEz7PGojFt2JYw9FMo7Abi02d/7TPFmWTuR52w=; 
+	b=RiUkyeA6EfJUZi0X7Lyose5BGL2wZveCPKK5gVkX+xg5oi5p/MIdMGwdyb5ey0wEpIDl5x1uZlr/rK9YsyhCRa3WiJBnLC04hZs6JUjrt//s4aBeBMMGyDlANzXCXHNZ7nE7fu0roh6WzMgp8CsXGW8ueFn9KP5DS0ynESFJxpM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769003267;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=7Yjl7AEz7PGojFt2JYw9FMo7Abi02d/7TPFmWTuR52w=;
+	b=N3OyL3JIgoj3a8y4KBnjXINcQU2lSMmGaFe9fNLwZBeu3AgIQHpu9mt7dYmOCHKU
+	NsXDwIIIjRT5D/dQtlww9YUXSZU17CoCcRN1tzPSHMytCaTXJAm1/GIxT2Lla6KcmMZ
+	Nx9mkxBWvAe4AFcJ5QncVeIQbrKHXYUFr1AdlbmM=
+Received: by mx.zohomail.com with SMTPS id 176900326583051.079850612094674;
+	Wed, 21 Jan 2026 05:47:45 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Wed, 21 Jan 2026 14:45:40 +0100
+Subject: [PATCH v6 14/21] drm/bridge: dw-hdmi-qp: Implement
+ atomic_get_output_bus_fmts
 MIME-Version: 1.0
-References: <20260118135038.8033-1-marek.vasut+renesas@mailbox.org> <20260118135038.8033-10-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260118135038.8033-10-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 21 Jan 2026 14:48:02 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWfkHMQFvUzaHpso-fMFAS5u8ABHpEA9ZXq1fxcR-oN6Q@mail.gmail.com>
-X-Gm-Features: AZwV_Qi-WLBK0O_q5kA0yh25XZR3hcQUNirELFZFoxr2VQqkUKi0-PPk2Bs3v1s
-Message-ID: <CAMuHMdWfkHMQFvUzaHpso-fMFAS5u8ABHpEA9ZXq1fxcR-oN6Q@mail.gmail.com>
-Subject: Re: [PATCH v2 9/9] arm64: dts: renesas: ebisu: Describe PCIe/USB3.0
- clock generator
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260121-color-format-v6-14-7b81a771cd0b@collabora.com>
+References: <20260121-color-format-v6-0-7b81a771cd0b@collabora.com>
+In-Reply-To: <20260121-color-format-v6-0-7b81a771cd0b@collabora.com>
+To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+ Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>
+Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-doc@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_054817_003128_A75207BA 
-X-CRM114-Status: GOOD (  26.11  )
+X-CRM114-CacheID: sfid-20260121_054822_703625_D605AE47 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,106 +100,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+The atomic_get_output_bus_fmts callback is used by the DRM bridge layer
+to recursively select a suitable output format in a bridge chain.
 
-On Sun, 18 Jan 2026 at 14:51, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Describe the 9FGV0841 PCIe and USB3.0 clock generator present on Ebisu
-> board. The clock generator supplies 100 MHz differential clock for both
-> PCIe slot and BT/WLAN expansion port, as well as for the USB 3.0 PHY.
->
-> This configuration is valid for SW49 in OFF position, which means the
-> PCIe signals are routed to the PCIe slot and U11 9FGV0841 PCIe clock
-> generator output 3 supplies clock to the PCIe slot.
->
-> In case the SW49 is set to ON position, which means the PCIe signals
-> are routed to the EX BT/WLAN expansion port, and U11 9FGV0841 PCIe
-> clock generator output 4 supplies clock to the port and &pciec0_rp
-> clocks should be changed to "clocks = <&pcie_usb_clk 4>;". Once the
-> BT/WLAN port is tested, this can be implemented using a DTO. Until
-> then, assume SW49 is set to OFF position.
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+As a bridge that outputs to HDMI, dw-hdmi-qp will have its output
+formats determined by which formats the platform-specific integration of
+the hardware supports, and the chosen HDMI output bit depth.
 
-Thanks for your patch!
+Implement this callback. The returned u32* buffer is supposed to be
+freed by the caller of this callback, as specified by the callback's
+documentation.
 
-> --- a/arch/arm64/boot/dts/renesas/ebisu.dtsi
-> +++ b/arch/arm64/boot/dts/renesas/ebisu.dtsi
-> @@ -53,6 +53,12 @@ backlight: backlight {
->                 power-supply = <&reg_12p0v>;
->         };
->
-> +       pcie_usb_refclk: clk-x7 {
-> +               compatible = "fixed-clock";
-> +               #clock-cells = <0>;
-> +               clock-frequency = <25000000>;
-> +       };
-> +
->         cvbs-in {
->                 compatible = "composite-video-connector";
->                 label = "CVBS IN";
-> @@ -439,6 +445,13 @@ adv7511_out: endpoint {
->                 };
->         };
->
-> +       pcie_usb_clk: clk@68 {
-> +               compatible = "renesas,9fgv0841";
-> +               reg = <0x68>;
-> +               clocks = <&pcie_usb_refclk>;
-> +               #clock-cells = <1>;
-> +       };
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 64 ++++++++++++++++++++++++++++
+ 1 file changed, 64 insertions(+)
 
-During boot, the rs9 prints a warning:
-
-    clk-renesas-pcie-9series 0-0068: No cache defaults, reading back from HW
-
-which probably shouldn't be printed at the warning level?
-
-> +
->         video-receiver@70 {
->                 compatible = "adi,adv7482";
->                 reg = <0x70>;
-
-> @@ -871,7 +902,19 @@ &usb2_phy0 {
->         status = "okay";
->  };
->
-> +&usb3_phy0 {
-> +       clocks = <&pcie_usb_clk 6>;
-> +       status = "okay";
-> +};
-
-This does not work, probing fails with:
-
-    usb_phy_generic usb-phy: dummy supplies not allowed for exclusive
-requests (id=vbus)
-
-Adding a fixed regulator that serves as vbus-supply like in commit
-fec2d8fcdedaeeb0 ("arm64: dts: freescale: imx93-phyboard-nash: Add USB
-vbus regulators") fixes that issue (and my USB3.0 FLASH driver is
-detected, yeah!), but a more accurate description would be better.
-
-> +
-> +&usb3s0_clk {
-> +       clock-frequency = <100000000>;
-> +       status = "disabled";
-> +};
-> +
->  &usb3_peri0 {
-> +       phys = <&usb3_phy0>;
-> +       phy-names = "usb";
->         companion = <&xhci0>;
->         status = "okay";
->  };
-
-Gr{oetje,eeting}s,
-
-                        Geert
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index ab7fed6214e0..82a63964f7f7 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -11,6 +11,7 @@
+ #include <linux/export.h>
+ #include <linux/i2c.h>
+ #include <linux/irq.h>
++#include <linux/media-bus-format.h>
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+ #include <linux/of.h>
+@@ -862,6 +863,68 @@ static int dw_hdmi_qp_config_audio_infoframe(struct dw_hdmi_qp *hdmi,
+ 	return 0;
+ }
+ 
++static u32*
++dw_hdmi_qp_bridge_get_output_bus_fmts(struct drm_bridge *bridge,
++				      struct drm_bridge_state *bridge_state,
++				      struct drm_crtc_state *crtc_state,
++				      struct drm_connector_state *conn_state,
++				      unsigned int *num_output_fmts)
++{
++	unsigned int num_fmts = 0;
++	u32 *out_fmts;
++
++	/*
++	 * bridge->supported_formats is a bit field of the HDMI_COLORSPACE_* enums.
++	 * These enums are defined by the HDMI standard, and currently top out at
++	 * 7. Consequently, BIT(7) is the highest bit that will be set here, unless
++	 * the standard runs out of reserved pixel formats. Therefore, hweight8()
++	 * will give an accurate count of how many bus formats we'll output.
++	 */
++	out_fmts = kmalloc_array(hweight8(bridge->supported_formats), sizeof(u32),
++				 GFP_KERNEL);
++	if (!out_fmts) {
++		*num_output_fmts = 0;
++		return NULL;
++	}
++
++	switch (conn_state->hdmi.output_bpc) {
++	case 12:
++		if (bridge->supported_formats & BIT(HDMI_COLORSPACE_RGB))
++			out_fmts[num_fmts++] = MEDIA_BUS_FMT_RGB121212_1X36;
++		if (bridge->supported_formats & BIT(HDMI_COLORSPACE_YUV444))
++			out_fmts[num_fmts++] = MEDIA_BUS_FMT_YUV12_1X36;
++		if (bridge->supported_formats & BIT(HDMI_COLORSPACE_YUV422))
++			out_fmts[num_fmts++] = MEDIA_BUS_FMT_UYVY12_1X24;
++		if (bridge->supported_formats & BIT(HDMI_COLORSPACE_YUV420))
++			out_fmts[num_fmts++] = MEDIA_BUS_FMT_UYYVYY12_0_5X36;
++		break;
++	case 10:
++		if (bridge->supported_formats & BIT(HDMI_COLORSPACE_RGB))
++			out_fmts[num_fmts++] = MEDIA_BUS_FMT_RGB101010_1X30;
++		if (bridge->supported_formats & BIT(HDMI_COLORSPACE_YUV444))
++			out_fmts[num_fmts++] = MEDIA_BUS_FMT_YUV10_1X30;
++		if (bridge->supported_formats & BIT(HDMI_COLORSPACE_YUV422))
++			out_fmts[num_fmts++] = MEDIA_BUS_FMT_UYVY10_1X20;
++		if (bridge->supported_formats & BIT(HDMI_COLORSPACE_YUV420))
++			out_fmts[num_fmts++] = MEDIA_BUS_FMT_UYYVYY10_0_5X30;
++		break;
++	default:
++		if (bridge->supported_formats & BIT(HDMI_COLORSPACE_RGB))
++			out_fmts[num_fmts++] = MEDIA_BUS_FMT_RGB888_1X24;
++		if (bridge->supported_formats & BIT(HDMI_COLORSPACE_YUV444))
++			out_fmts[num_fmts++] = MEDIA_BUS_FMT_YUV8_1X24;
++		if (bridge->supported_formats & BIT(HDMI_COLORSPACE_YUV422))
++			out_fmts[num_fmts++] = MEDIA_BUS_FMT_UYVY8_1X16;
++		if (bridge->supported_formats & BIT(HDMI_COLORSPACE_YUV420))
++			out_fmts[num_fmts++] = MEDIA_BUS_FMT_UYYVYY8_0_5X24;
++		break;
++	}
++
++	*num_output_fmts = num_fmts;
++
++	return out_fmts;
++}
++
+ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 					    struct drm_atomic_state *state)
+ {
+@@ -1213,6 +1276,7 @@ static int dw_hdmi_qp_cec_transmit(struct drm_bridge *bridge, u8 attempts,
+ #endif /* CONFIG_DRM_DW_HDMI_QP_CEC */
+ 
+ static const struct drm_bridge_funcs dw_hdmi_qp_bridge_funcs = {
++	.atomic_get_output_bus_fmts = dw_hdmi_qp_bridge_get_output_bus_fmts,
+ 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+ 	.atomic_reset = drm_atomic_helper_bridge_reset,
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.52.0
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
