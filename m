@@ -4,105 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F949D262AD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 01:38:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50ED0D262AD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 01:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A5yAAJyzuotg25Ij3sl9iHvHzE6qHnmlHIRrb6J8qac=; b=xh44s3/5+uW3cpMGvQH+FqQ+m2
-	qOI/tr3UqepQz0jB+h/XK9MqOsqbpspyabQeLtEYM8oJ42ot0QOEkzVGU+mQ+30Goq6dB2/Uy7vFe
-	bXEHETUOs064HHte8olSQL6pNG1YIlXMUFi+o9sIT1hurp5NNzr8Bizn2EvhyZmxlWtCRkPN3/4bW
-	8B7F/E0C+la6PFB/jLNyBFsI7fbMXG/RYADJV+7w6JZMjRlh8KrkLIEyJqwMKZrW4GZpTcMs8LXME
-	vqSy4SWKqey8x1S1wCOGN4XObfJBrtRUpnsCAyqIqogRgZc5Q+HLx6h2c4GM+CzdoGj5C8n8WO3vq
-	YS19chmw==;
+	bh=h1u27U5gS1The7w0JK5akAoj89QIuvkN4z0DjyBy/sQ=; b=gACyU5IpggxTdAJVBv/p1+BUdP
+	9iOvUQqMrWcAQmdZAv7a+LcIOTeKC33AC0QfUF/v5KfHhy49ru3SQBfMx8Ei5vH0vxJ8ZQ3hXwiOY
+	6CIvjY1AXIaVIaTlOBx0dNS5u9MDgHJ1UXpSsBSFNzLGn/T4hN8VPB2+5jiKIf4ZKVkTqynl/PExD
+	U++jiJ40vPe9gy3QOj8yquE830OBp9HsKoCVYYvxA3cjRjudUU/iMY1xp/LBbvlM05ujmOnc1FBgT
+	TbkfB8TVgVZ2SYnRKPA1WoJ57YE2ZXluNEf3pJe8WhGNGAWPgQOz07/nq6FTlPmptrAcHAtx57R2O
+	16ORUNEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNAd-00000004iZK-32Gq;
-	Wed, 21 Jan 2026 01:38:07 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNAb-00000004iYZ-2rTH
+	id 1viNEA-00000004ipL-2bxJ;
+	Wed, 21 Jan 2026 01:41:46 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viNE7-00000004iov-2Gii
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 01:38:06 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-121bf277922so8486558c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 20 Jan 2026 17:38:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768959484; x=1769564284; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=A5yAAJyzuotg25Ij3sl9iHvHzE6qHnmlHIRrb6J8qac=;
-        b=Sq28s+9cCrzpZNujgGfoc/E+R09zq7UTDoZJJA7uwCI+FpusPDwxLf116O8t7EgPo9
-         4GqRIqvutE/3wEJvI/UpblTEoPPaMK15YtRl3CfL52zanTH/vw2EqdSkctXHrEi/eigN
-         l+TWvzqVRTlj+8VGj1vBkJE/VYdAvm84bJ6AORW+0D/Ss8lStU5VkBX7ACe2QC4QZCPJ
-         s2fDUiGOw5/QuiHqV3tlvE2SnJBdh04tvI2W8iKP1z7N87VUzB9E2GSC3VA2TLrftEgP
-         A6HSqZ42AgOeujPY6sRt5kF3LPZzAZwKmO90/R+/ed6xFvX7vozvmhfti2jyE/X77BNa
-         bjjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768959484; x=1769564284;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=A5yAAJyzuotg25Ij3sl9iHvHzE6qHnmlHIRrb6J8qac=;
-        b=qHlWYjL9a4VjF+MJcJxFXL9J9pV/DMsq6CaDWTM6n5vryXqGfAO8/NBiFSZAoODm9T
-         XRXH6+AN0mLGOwTaCFwf7WE+WlMeUYfshQsLVVU/Kfhre6UVtXCTINcD370Pqt0hznQ1
-         +04UmDCC7N8X9QrJyLpYvqxuF7O4M4LbS+MPcsXANOo0B4ZNd485QqYxlCOZenQi4NCS
-         LOoAiB3DHPeo9niRMHzh5+1AkEHYIbYymmrlyO9oFuMAn6zaB8tnd2icPyNlPWUpKVzv
-         wqf0ik6qoxChtXBBTjAvXYK7E5X0AZFo6EN781YKFQHoyMRN7F4Xthpp/t54tkEGW/AS
-         QrBw==
-X-Forwarded-Encrypted: i=1; AJvYcCVDhCbP/HkcTOQPc20yDi8N4eIwD854FW2eGFzYy4DGqk8AALS4bgiRYsFjuKH+D0t7FKQupV3aX0vAvz5p2Nv/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+5T2i7sHG5lcasFTkLz2YFtmBPEx9hPifyJNajr7VpnKie/S1
-	yotJXgO4I0xZrYQUXdqDvYoKJAFPYdSLpjfhUDxIiTXkz5dUUw56Davj
-X-Gm-Gg: AZuq6aICVmnF4uOuX01ARrrrmiPCtkn2KwOPBWv/5xEbqAEaAX93h2DuiJBI91dLDqQ
-	LqEWpUZtr5sGtdtrnbd8BFXkDw420ozbaceYQHMoRvcEXOifSh90hr3fXZfFYlxYtBJ1iHcPo6u
-	w7tiCiYV5XIzxcc2chMLseDYT5Wu4GIZrbuONWk66J0bFhFaLi5+L6kQzmKa3ijY725mD2oU2bz
-	LNT+w/+wA4Db/MqeZ05t8+YvV+F5hPZYkVzA3z/cG14iTnVnEcOGyNx7benknne6JgzQIORkmc4
-	FPBjavKWXaePHYsCm82lnIaDpl31ivEdiX8HjluJh0Ul/lWF4pr016IEWZfXsI2VPMupIyzcnuK
-	Rv3sOjpkTdUkVgBBYBLDTecvV5F82rJIdm0c+NEtZXPjB3jE5AUr/dh4ilDCiyHpIJ1Ul+tgzeG
-	CAHBDdLbUwKg==
-X-Received: by 2002:a05:7301:2b84:b0:2b7:f12:9503 with SMTP id 5a478bee46e88-2b70f1295ccmr1043461eec.30.1768959484158;
-        Tue, 20 Jan 2026 17:38:04 -0800 (PST)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b7047b099bsm3361798eec.31.2026.01.20.17.38.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Jan 2026 17:38:03 -0800 (PST)
-Date: Wed, 21 Jan 2026 09:37:53 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
-	Yanteng Si <siyanteng@cqsoftware.com.cn>, Yao Zi <ziyao@disroot.org>, 
-	Vladimir Oltean <vladimir.oltean@nxp.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Chen-Yu Tsai <wens@kernel.org>, Shangjuan Wei <weishangjuan@eswincomputing.com>, 
-	Boon Khai Ng <boon.khai.ng@altera.com>, Quentin Schulz <quentin.schulz@cherry.de>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next 3/3] net: stmmac: Add glue layer for Spacemit K3
- SoC
-Message-ID: <aXAtMZJorEBiK2R-@inochi.infowork>
-References: <20260120043609.910302-1-inochiama@gmail.com>
- <20260120043609.910302-4-inochiama@gmail.com>
- <f8e4c5ec-94b1-4da0-8a40-976770514828@lunn.ch>
- <aXACRN7BaumIySp3@inochi.infowork>
- <cd5c882e-1632-4623-92d3-8a433c8ccdbb@lunn.ch>
+	Wed, 21 Jan 2026 01:41:44 +0000
+Received: from skinsburskii.localdomain (unknown [20.236.10.163])
+	by linux.microsoft.com (Postfix) with ESMTPSA id B79F720B7167;
+	Tue, 20 Jan 2026 17:41:40 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B79F720B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1768959701;
+	bh=h1u27U5gS1The7w0JK5akAoj89QIuvkN4z0DjyBy/sQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qmKw9cInop9AHynO7hKDyhQLPFrZG1RLwzltG8pbrdak41axSEVaOiokn7fk5SsOu
+	 3RZvI2gw1GArtNU2eD6flAKsm1NhYK5XDP2DHHgVW9Cx4hE3ulFRPSXxZZtRNpAobi
+	 VyAzaz36TcJLoV8iRJQXalUBnjTSC+vZUxeDjGHY=
+Date: Tue, 20 Jan 2026 17:41:39 -0800
+From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+To: Mukesh R <mrathor@linux.microsoft.com>
+Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-pci@vger.kernel.org, linux-arch@vger.kernel.org,
+	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
+	will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
+	nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
+	romank@linux.microsoft.com
+Subject: Re: [PATCH v0 14/15] mshv: Remove mapping of mmio space during map
+ user ioctl
+Message-ID: <aXAu02NbucdEn-Ky@skinsburskii.localdomain>
+References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+ <20260120064230.3602565-15-mrathor@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cd5c882e-1632-4623-92d3-8a433c8ccdbb@lunn.ch>
+In-Reply-To: <20260120064230.3602565-15-mrathor@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_173805_725631_6AB6FE96 
-X-CRM114-Status: GOOD (  20.88  )
+X-CRM114-CacheID: sfid-20260120_174143_609145_6137D32F 
+X-CRM114-Status: GOOD (  20.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,38 +78,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 02:29:23AM +0100, Andrew Lunn wrote:
-> On Wed, Jan 21, 2026 at 06:36:01AM +0800, Inochi Amaoto wrote:
-> > On Tue, Jan 20, 2026 at 02:56:26PM +0100, Andrew Lunn wrote:
-> > > > +/* Note: the delay step value is at 0.1ps */
-> > > > +static const unsigned int k3_delay_step_10x[4] = {
-> > > > +	367, 493, 559, 685
-> > > > +};
-> > > 
-> > > Am i reading it correctly that RGMII delays are limited to these four
-> > > values?
-> > > 
-> > > If so, please add this list to the DT binding.
-> > > 
-> > 
-> > No, these value are just adjustment interval, and it is also
-> > controlled by another code register, the final delay is calculated
-> > by the following formula:
-> > 
-> > delay = delay_step * delay_code * 0.9;
-> > 
-> > So the delay configuration needs to be calculated instead of
-> > directly assigned.
+On Mon, Jan 19, 2026 at 10:42:29PM -0800, Mukesh R wrote:
+> From: Mukesh Rathor <mrathor@linux.microsoft.com>
 > 
-> O.K.
+> VFIO no longer puts the mmio pfn in vma->vm_pgoff. So, remove code
+> that is using it to map mmio space. It is broken and will cause
+> panic.
 > 
-> So what is the actual range? Can is do 1000ps? 2000ps? 3000ps? Should
-> there be a basic range check to avoid dumb typos?
+> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+> ---
+>  drivers/hv/mshv_root_main.c | 20 ++++----------------
+>  1 file changed, 4 insertions(+), 16 deletions(-)
+> 
+> diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+> index 27313419828d..03f3aa9f5541 100644
+> --- a/drivers/hv/mshv_root_main.c
+> +++ b/drivers/hv/mshv_root_main.c
+> @@ -1258,16 +1258,8 @@ static int mshv_prepare_pinned_region(struct mshv_mem_region *region)
+>  }
+>  
+>  /*
+> - * This maps two things: guest RAM and for pci passthru mmio space.
+> - *
+> - * mmio:
+> - *  - vfio overloads vm_pgoff to store the mmio start pfn/spa.
+> - *  - Two things need to happen for mapping mmio range:
+> - *	1. mapped in the uaddr so VMM can access it.
+> - *	2. mapped in the hwpt (gfn <-> mmio phys addr) so guest can access it.
+> - *
+> - *   This function takes care of the second. The first one is managed by vfio,
+> - *   and hence is taken care of via vfio_pci_mmap_fault().
+> + * This is called for both user ram and mmio space. The mmio space is not
+> + * mapped here, but later during intercept.
+>   */
+>  static long
+>  mshv_map_user_memory(struct mshv_partition *partition,
+> @@ -1276,7 +1268,6 @@ mshv_map_user_memory(struct mshv_partition *partition,
+>  	struct mshv_mem_region *region;
+>  	struct vm_area_struct *vma;
+>  	bool is_mmio;
+> -	ulong mmio_pfn;
+>  	long ret;
+>  
+>  	if (mem.flags & BIT(MSHV_SET_MEM_BIT_UNMAP) ||
+> @@ -1286,7 +1277,6 @@ mshv_map_user_memory(struct mshv_partition *partition,
+>  	mmap_read_lock(current->mm);
+>  	vma = vma_lookup(current->mm, mem.userspace_addr);
+>  	is_mmio = vma ? !!(vma->vm_flags & (VM_IO | VM_PFNMAP)) : 0;
+> -	mmio_pfn = is_mmio ? vma->vm_pgoff : 0;
+>  	mmap_read_unlock(current->mm);
+>  
+>  	if (!vma)
+> @@ -1313,10 +1303,8 @@ mshv_map_user_memory(struct mshv_partition *partition,
+>  					    HV_MAP_GPA_NO_ACCESS, NULL);
+>  		break;
+>  	case MSHV_REGION_TYPE_MMIO:
+> -		ret = hv_call_map_mmio_pages(partition->pt_id,
+> -					     region->start_gfn,
+> -					     mmio_pfn,
+> -					     region->nr_pages);
+> +		/* mmio mappings are handled later during intercepts */
+> +		ret = 0;
 
-It can have a pretty big ranges, and I was told the total delay is fine
-to work between [1200, 2800]. I guess it is fine for us to check the
-upper limit?
+No need updating ret here: it's 0 after the previous call.
 
-Regards,
-Inochi
+Thanks,
+Stanislav
+
+>  		break;
+>  	}
+>  
+> -- 
+> 2.51.2.vfs.0.1
+> 
 
