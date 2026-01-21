@@ -4,75 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBBEC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 08:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A690C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 08:38:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3qHNBcErh/9Cb8Kz4D569n5ROv5RlS4x0QnaD2U5sJQ=; b=v4ayYyBxvR/D5URh5V2ADb/EvY
-	U6u0BPSw8RtsI8dokCLya/hsUpBOS8W1t8j9KPN/cY1sv3gfnsIZtKUryi7tzWuJ2qdM1yrge/uQh
-	GhDC1q+WuPFeCLW6at7Vzg81iXcI6ovuOJXDeS5N2uaqpAM9AMwOgXM6KzH38+BNPTU84QcilC/Na
-	lVxl83PoJ4alPwzGO6MAql76kjo/9yxlSGP6EJLAsw7YY8UcPRnVZSQAk2GwavQt/s4Ly/MsfToak
-	yR1FKxZI3dCnWlf/RSg7EXEk2CD7P+6lqT8jH5k5CrEe5VICtA5r/+Lwpv5vKtGjeJf86sTNwGY0Z
-	cHnDNVwg==;
+	bh=clUgq8pmjP3sjaVZ9Lg4VHnbOcyQgfqOvAwFYHwMT3s=; b=nU1Kq+xwdTCcN8IuB1hQaJG/lC
+	Ij7ID0W99ZBybT6PWAmM9a3MMb1E1whI978qf/TC5KPDqFm8CjhkVmFneLBXy5ggUhWqdFAQO3fJb
+	aTV4opfWq3cIFyKJ1i2+i7s5O/8PfEtwx1dYKKRk+7pPJLxEAfaICRiLtuVo2pkBSJhWuVe89J+FV
+	It6HbwQKwaTP2ZWBPpARRBxJI2nc+iuz5FhiK8uz94MqRrV7WcS8U3rPZ9OfkSN5NWMI9/RtMpyTR
+	tnqA9jckY0VIUsndIDPQAqTuGiftZ/ZmVTew39XQaDcsb2ryDwzHgEAxEgS6J0DB1fvmSOrVaTDFK
+	3xA4ZQZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viThI-000000056kf-0TRq;
-	Wed, 21 Jan 2026 08:36:16 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1viTjM-000000056ss-2nfs;
+	Wed, 21 Jan 2026 08:38:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viThF-000000056kJ-1W8s
+	id 1viTjK-000000056sX-3FGU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 08:36:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768984573; x=1800520573;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=AmAt/5VJ7tS0yWz5F1R0sjelT69xys6GeqwdR0QvhZE=;
-  b=QsX2A0qFj2ZibFAhZmb4tEM5KlgMfM2O1vGvh//2QEgwvSXn0zZYeDU4
-   i2fWKsGka13/FBtu55sCgbssrMJecBtOtezyOY7/nVDsi77MDsSFKN04I
-   75GNIjmmZNkO700DfXhPE8yy5sjBDGcKLKSp9OdvwvX7U9Qj3tYvLlVbZ
-   hPRbDaf0P68qaQzaI5WhmuEQcYPQtCKv0Oyx/BYii/5JCZE3TRldv1z9p
-   +qRpikT8GvvLQC2HkY3tLgHaM3iAHdCJm2f/GZiQmZg4QuEY7PKR8fQGA
-   X6/TNbgVZV+jJ+NsfUzWMPZy7EHZoIWQQeUETVBxrgXyItxtvBU4bTITa
-   Q==;
-X-CSE-ConnectionGUID: YVghSFbNRriFNlWVi6yATA==
-X-CSE-MsgGUID: a+1+hHvVQdyLEjueFSIFVQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11677"; a="80835382"
-X-IronPort-AV: E=Sophos;i="6.21,242,1763452800"; 
-   d="scan'208";a="80835382"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2026 00:36:06 -0800
-X-CSE-ConnectionGUID: y0n/W5e5TIy+9Z8MZXZB3Q==
-X-CSE-MsgGUID: +PBGUecEQL+drmTeR2NE0A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,242,1763452800"; 
-   d="scan'208";a="205638284"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by orviesa010.jf.intel.com with ESMTP; 21 Jan 2026 00:36:05 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 5049498; Wed, 21 Jan 2026 09:36:03 +0100 (CET)
-Date: Wed, 21 Jan 2026 09:36:03 +0100
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] i2c: xiic: add ACPI support
-Message-ID: <aXCP87og_n1DLUKL@black.igk.intel.com>
-References: <20260115002846.25389-1-abdurrahman@nexthop.ai>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260115002846.25389-1-abdurrahman@nexthop.ai>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+	Wed, 21 Jan 2026 08:38:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4AB6E405CE;
+	Wed, 21 Jan 2026 08:38:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 234DAC116D0;
+	Wed, 21 Jan 2026 08:38:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1768984700;
+	bh=FHIfrtQp0a1LDUro16fPEm1A1xfk5VxSFyVP/6ghJZY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=rL3quvklhfag30JMrlUH5pn2+ingfQ7mybc6tPSgCAYfkq83LleY2B9rp0FE1qJKb
+	 WdgzJAP8E8Ic2BXuWUVxBkcy4lbc7a/ruvwX//10Aqdjk201PLSdG9v/RqjP3BFoHQ
+	 vmk7smtLQsXcV0+CHWWSVmGoT5EU1/vFcfyILjS2Tu56IUnBC0V52yr/yLfJOsp6EZ
+	 s9FSXNg7zW92Cnkm5gW2YzAvAqms7QxJYdYwDqgvtTp0jgpGTSTj0J+8xacNAg+/Mj
+	 KHuo54s424Vw3l7CsR5t2M3GCnZ2LGGLTOstBmxv4y1EleFMKBaO+qfE8RrFJcKcte
+	 Puu0JUyyNb8SQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1viTjF-00000004Ewn-2tx9;
+	Wed, 21 Jan 2026 08:38:17 +0000
+Date: Wed, 21 Jan 2026 08:38:17 +0000
+Message-ID: <861pjjcqdi.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Waiman Long <longman@redhat.com>,
+	Thomas Gleixner <tglx@kernel.org>
+Cc: Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven
+ Rostedt <rostedt@goodmis.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH] irqchip/gic-v3-its: Don't acquire rt_spin_lock in allocate_vpe_l1_table()
+In-Reply-To: <86tswrkrh4.wl-maz@kernel.org>
+References: <20260107215353.75612-1-longman@redhat.com>
+	<864iowmrx6.wl-maz@kernel.org>
+	<87ms2nsqju.ffs@tglx>
+	<86wm1qlq7l.wl-maz@kernel.org>
+	<87ecnwij44.ffs@tglx>
+	<86v7h8l9ht.wl-maz@kernel.org>
+	<87pl7gglya.ffs@tglx>
+	<86tswrkrh4.wl-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: longman@redhat.com, tglx@kernel.org, bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_003613_413011_C42A3647 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20260121_003822_872231_3EF9F475 
+X-CRM114-Status: GOOD (  32.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,45 +97,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 15, 2026 at 12:28:46AM +0000, Abdurrahman Hussain wrote:
-> Use generic device property accessors.
-> Make the clock optional assuming it's managed by firmware.
+On Mon, 12 Jan 2026 11:20:07 +0000,
+Marc Zyngier <maz@kernel.org> wrote:
+> 
+> On Sun, 11 Jan 2026 16:20:45 +0000,
+> Thomas Gleixner <tglx@kernel.org> wrote:
+> > 
+> > On Sun, Jan 11 2026 at 10:38, Marc Zyngier wrote:
+> > > On Sun, 11 Jan 2026 09:39:07 +0000,
+> > > Thomas Gleixner <tglx@kernel.org> wrote:
+> > >> 
+> > >> On Fri, Jan 09 2026 at 16:13, Marc Zyngier wrote:
+> > >> > On Thu, 08 Jan 2026 22:11:33 +0000,
+> > >> > Thomas Gleixner <tglx@kernel.org> wrote:
+> > >> >> At the point where a CPU is brought up, the topology should be known
+> > >> >> already, which means this can be allocated on the control CPU _before_
+> > >> >> the new CPU comes up, no?
+> > >> >
+> > >> > No. Each CPU finds *itself* in the forest of redistributors, and from
+> > >> > there tries to find whether it has some shared resource with a CPU
+> > >> > that has booted before it. That's because firmware is absolutely awful
+> > >> > and can't present a consistent view of the system.
+> > >> 
+> > >> Groan....
+> > >>
+> > >> > Anyway, I expect it could be solved by moving this part of the init to
+> > >> > an ONLINE HP callback.
+> > >> 
+> > >> Which needs to be before CPUHP_AP_IRQ_AFFINITY_ONLINE, but even that
+> > >> might be to late because there are callbacks in the STARTING section,
+> > >> i.e. timer, perf, which might rely on interrupts being accessible.
+> > >
+> > > Nah. This stuff is only for direct injection of vLPIs into guests, so
+> > > as long as this is done before we can schedule a vcpu on this physical
+> > > CPU, we're good. No physical interrupt is concerned with this code.
+> > 
+> > That's fine then. vCPUs are considered "user-space" tasks and can't be
+> > scheduled before CPUHP_AP_ACTIVE sets the CPU active for the scheduler.
+> 
+> Waiman, can you please give the following hack a go on your box? The
+> machines I have are thankfully limited to a single ITS group, so I
+> can't directly reproduce your issue.
 
-The generalisation parts are okay in a sense for prototyping, for ACPI-based
-platforms, we want to see the proper _HID allocated by a platform vendor
-(and maybe accompanied _CID allocated by the IP vendor).
+Have you managed to try this hack? I may be able to spend some time
+addressing the issue in the next cycle if I have an indication that
+I'm on the right track.
 
-Also you need to reshuffle header inclusions (removing of* and adding proper
-headers following IWYU principle).
+Thanks,
 
-...
-
-Add
-
-	struct device *dev = &pdev->dev;
-
-to the top of the function and use it everywhere.
-
->  	i2c->adap.dev.of_node = pdev->dev.of_node;
-> +	ACPI_COMPANION_SET(&i2c->adap.dev, ACPI_COMPANION(&pdev->dev));
-
-Instead of two lines, switch to
-
-	device_set_node(...);
-
-...
-
-> -	i2c->clk = devm_clk_get_enabled(&pdev->dev, NULL);
-> +	i2c->clk = devm_clk_get_optional_enabled(&pdev->dev, NULL);
->  	if (IS_ERR(i2c->clk))
->  		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->clk),
->  				     "failed to enable input clock.\n");
-
-This needs to be in the separate change explaining why this is okay to go with.
+	M.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Without deviation from the norm, progress is not possible.
 
