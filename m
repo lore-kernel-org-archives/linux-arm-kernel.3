@@ -4,89 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E214AC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 08:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB8FC44502
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 08:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=77FLW+hFAaPAiKNpklKaPeVzjA4aB/7X2TVtpwD5IuE=; b=0IrWvDP6ZI35aD/O+AOypLNtBu
-	0F4FbApkzR5dLEytiGttiOQtBx2aQ/yZeD6uEb6s6OTjdDp3qjSbRxE2Kpgq8pKvB04OkZhT8JmVV
-	gid8iIqOg+MtHRLaxHnRo0NI1I9l2EMWvg7F61tfhRJinMx5dIyM1Tb1Yn8tLkLjIraoBkizzzbh9
-	XENjQgrTAZgyL4upMy7OqnpMCAoCni9HYA8xF0fiS95GsLN9L986jSFMNU/+JvY+H6LVplu4/w5/C
-	ocpFEAYn+huSs2PDOY0kuP/00ztNsvuKvq53cWd1IAKGzT1TNykM56FHSTNB1Wi22a+VQjLcFUubJ
-	xrMdQDWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nJLNhxpUuunLpKkwMWOBq42/DhYih3hY7Y23pMOtVm4=; b=H3IaxEJaneh8i6fv/9xvWB44yi
+	fPAoVI3YqqHZdkUHoZp3QVUaBIkO0Ee1RgNznE3ciBiRuVwZVgK/+l11RpQAqz6edGAm9NoJ8EzOX
+	bIfYXU2W+QOd40/VBPtuyO1lFroUhLeDoQCC5IAO3b8Ds/rpdwe68YUptsoJPmV0vmJ6xIHqZ2Gpk
+	1k5WayVTy/BJ86X6KwB+NzVd1c5l7DybpGUTPRVzVrYB3Jqotv7o/uDs8Hi7psV7eR17PkfO/XGXh
+	58xFMKSecFXa9fAwIHoYuEJ8V6pdw89s/C3SDuN2qx24mDD+V8z8apUqFpwMSpmVwV5vnHAhpjNwE
+	Xh+oA4JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viTlO-0000000573h-2k6m;
-	Wed, 21 Jan 2026 08:40:30 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1viTvE-000000057O7-3Ng5;
+	Wed, 21 Jan 2026 08:50:40 +0000
+Received: from mail-ua1-x930.google.com ([2607:f8b0:4864:20::930])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viTlM-0000000573M-3Cj5
+	id 1viTvC-000000057NU-06x2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 08:40:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1768984828; x=1800520828;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=QIWNhkI3vNpRRJeiND+NuOqGf5F4BCHhNEQazA0NT4s=;
-  b=iwUZeDVIraYRTFrNVXLp1WyRBEQH4lfWq+WkthWeMw1ljWFw0zgawfXG
-   QM/iFUCZXSvvJAVRORlQrkB8vVaWLwHkgIWN7YGnzWt1Dnbs6Q/lJlN3l
-   I32FDZgYLGbKbR6MEkLk7/M7izb4Zerobe/opHm6BiJo1rjsUbvswII1Y
-   asUwjYsjHG5Jc4VGsYDRhB9n7vfXCHD4QprrAmAStfJedh1C1dXZ0ua61
-   76mU1Z2lnCUOqJ68wrwXve/h25W2ja99uo3IMVQsb2JqeF+p4lQmv5lZ9
-   agMSOMbICiSlAIuz4vXZKEhqa7gpItq7/fLt17IG/LuJOSl8stRi4TzGI
-   A==;
-X-CSE-ConnectionGUID: JYgeNQ36QmufBdJnXmA8og==
-X-CSE-MsgGUID: LHH8zzP0S+WMMcctuSPZEA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11677"; a="81316363"
-X-IronPort-AV: E=Sophos;i="6.21,242,1763452800"; 
-   d="scan'208";a="81316363"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2026 00:40:28 -0800
-X-CSE-ConnectionGUID: cPftjnRsTHem2pg/uuQD2g==
-X-CSE-MsgGUID: SbSHcbw/R06YH6NTRflvTA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,242,1763452800"; 
-   d="scan'208";a="205527668"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.73])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2026 00:40:25 -0800
-Date: Wed, 21 Jan 2026 10:40:22 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Michal Simek <michal.simek@amd.com>
-Cc: Mark Brown <broonie@kernel.org>,
-	Abdurrahman Hussain <abdurrahman@nexthop.ai>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Wed, 21 Jan 2026 08:50:39 +0000
+Received: by mail-ua1-x930.google.com with SMTP id a1e0cc1a2514c-944168e8c5fso4138056241.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 00:50:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768985436; x=1769590236; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nJLNhxpUuunLpKkwMWOBq42/DhYih3hY7Y23pMOtVm4=;
+        b=BboCyW2DkHrakowLJZAmvM8209ztrV3rvuCDrHT6CGmw9AQndv5t2K4ybDJ7P/lUoo
+         X2HlpBt0yqcw8dt+PYksQWALjMpNqkM6LrJAmJWBiduDJFfT/mJJ43FGgbPMhjYsljRM
+         h5qqWhg3sGierejcDGyABcSU5BMhErwc6H0n1ZFFV6GEee3171RyoCBKT1GSA9WezBca
+         w116kMPfNMbzpy9BQrbOKQWRkyj9JfOSSgfC9eQ7XcM+7DGnE2PS5Q82cvTg8TQWRbL6
+         SBSFHK8gjHefuoox+ctEd9ed65widKlJe0wY8LmZMGsC21C1G77Cy29XQBCopngtql8i
+         Pn4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768985436; x=1769590236;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=nJLNhxpUuunLpKkwMWOBq42/DhYih3hY7Y23pMOtVm4=;
+        b=O2KJKSP8J3N9Q8TyyPNknz3F+ro/8LOClX7o5NzytPqYRdIedZoNYYoJo2J12BRdMo
+         vdr1uIkoGD4e9T686qp9Y7Qv5x7nrw7ZtaTmqAbK1m4qe3Ju1vOsotT5HfzHIiVfxn0R
+         bVWH9FkifkpJUrPyrQH0gF+92uQXgqFLZ5tKovPNXxrnhXcjhdDb3n0urSlZuzfSXw5I
+         P65qJbx2bkL1yYBppsY08V0YuNIfeXvAiMPmB9/6Jba3vtY4x3/ZOxdwNTUaESeAOSJy
+         yRLLCs7EALENY3mBfQyO8AHLxSFQcuCdC1Ja+34ZBvFwaHiskYF0Gkm1d+O8c8uzwGnW
+         FPBg==
+X-Forwarded-Encrypted: i=1; AJvYcCV6Yhc2VHgCRG8GmpzQ27GEBwKU2ewtkZ5FHbqzG5O9j7A2fpAtrRQB8IIMkoccYupnzleFpFOgZJeS2QDj+acN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsVpWJGYXWkV3c0uOrBVUPyHyWdV/QPazW3EVCREXg13NMUlBG
+	TkOSZ8/zD5UIgYt5tRl9IJfnuOyN8YdbZ5nqHcksxd4vvE+N3krMPAJfDbg+TvXY
+X-Gm-Gg: AZuq6aJ2f95r9e+2Baj/8KFesYHcLI1r3ukIsbqeYtHS9BFzKgAyl77lSMzhRqp3tpS
+	aUVZuJc01cC5/+qGdT106GsIkdoXYi3qjl/+lL7KvGvlNTjQ2r3PkIavDC8BPHNhtJj5lTx+DAX
+	0OOf/+EBOz50LF1tV8Jo8ipB9a1BCwLVT6Wh9SwXehkj87TaMcd/LV3uRpDxoY3qJpait4JoNa6
+	LmGVlZMlvaCC6YsmC0JZpjbDly6CZPuskVcH/Qe/eB89dvn3oaRBH3jsVKRqtCs3dtdRsxLfHyP
+	pK8O2Rr1Rlr7G9RDEjYovoxH/4dQpr93ubTpvNdu6YEUaxHty4uQcI0pn7MOOehtKoSRCzjwnhR
+	X1GPQPPqhTCjm7ToBxV/oONH3n61/VaUl5tz/TUFZ3WsqEpIA0hYpYNBHyzriFy+j+ZnRiOXBSe
+	ozrhkS7jR0nQ==
+X-Received: by 2002:a05:7022:1e01:b0:11b:d6f2:a6d6 with SMTP id a92af1059eb24-1244b36efefmr13558965c88.34.1768979613029;
+        Tue, 20 Jan 2026 23:13:33 -0800 (PST)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1244aefac48sm21239676c88.11.2026.01.20.23.13.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Jan 2026 23:13:32 -0800 (PST)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] spi: xilinx: use device property accessors.
-Message-ID: <aXCQ9jcpheMub8u3@smile.fi.intel.com>
-References: <980ad372-a2c7-417c-91f9-4958d3d1aaca@sirena.org.uk>
- <4831B269-DFC1-40E0-96B7-67981AC72562@nexthop.ai>
- <6e06696e-09a4-46e0-98fa-252690b888e0@sirena.org.uk>
- <BF71A04E-7FFB-42D1-8C8D-6FD13415EED5@nexthop.ai>
- <c3fc04a4-4b09-4c6a-a0f1-e5aa92a22976@sirena.org.uk>
- <80A8F67E-7A01-4F9F-9D84-29722678A2CE@nexthop.ai>
- <817bcc43-7f10-4329-8924-6c375eb73ff2@sirena.org.uk>
- <aW_zjaRLtewa_NV1@smile.fi.intel.com>
- <aW_1zlEdaPNwiXuI@smile.fi.intel.com>
- <6ad4387f-08b7-40e2-a2eb-1346d8af6ea3@amd.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Yixun Lan <dlan@gentoo.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Yao Zi <ziyao@disroot.org>,
+	Yanteng Si <siyanteng@cqsoftware.com.cn>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Shangjuan Wei <weishangjuan@eswincomputing.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next v2 1/3] dt-bindings: net: Add support for Spacemit K3 dwmac
+Date: Wed, 21 Jan 2026 15:13:09 +0800
+Message-ID: <20260121071315.940130-2-inochiama@gmail.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260121071315.940130-1-inochiama@gmail.com>
+References: <20260121071315.940130-1-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <6ad4387f-08b7-40e2-a2eb-1346d8af6ea3@amd.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_004028_907602_751929E6 
-X-CRM114-Status: GOOD (  57.51  )
+X-CRM114-CacheID: sfid-20260121_005038_106116_F0C299CB 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,119 +134,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 09:11:04AM +0100, Michal Simek wrote:
-> On 1/20/26 22:38, Andy Shevchenko wrote:
-> > On Tue, Jan 20, 2026 at 11:28:50PM +0200, Andy Shevchenko wrote:
-> > > On Tue, Jan 20, 2026 at 09:04:58PM +0000, Mark Brown wrote:
-> > > > On Tue, Jan 20, 2026 at 11:11:44AM -0800, Abdurrahman Hussain wrote:
-> > > > > > On Jan 20, 2026, at 10:45 AM, Mark Brown <broonie@kernel.org> wrote:
-> > > > > > On Mon, Jan 19, 2026 at 04:20:06PM -0800, Abdurrahman Hussain wrote:
-> > > > 
-> > > > Let me once more renew my plea:
-> > > > 
-> > > > > > To repeat once again:
-> > > > 
-> > > > > > | Please fix your mail client to word wrap within paragraphs at something
-> > > > > > | substantially less than 80 columns.  Doing this makes your messages much
-> > > > > > | easier to read and reply to.
-> > > > 
-> > > > > > To drivers that are used on ACPI systems, yes.  Many devices wouldn't be
-> > > > > > used on ACPI systems, or would be expected to be exposed differently
-> > > > > > (for example, hidden behind AML).
-> > > > 
-> > > > > This is not for a normal off the shelf server. In our case we are building an embedded
-> > > > > switch with an AMD CPU and Xilinx FPGAs that happens to use EDK2 based BIOS and ACPI.
-> > > > 
-> > > > Sure, AFAICT it's mostly a PCI card with a bunch of stuff on it from a
-> > > > software point of view.
-> > > > 
-> > > > > > > I am just trying to get this 2-line small change merged so we can start using the standard spi-xilinx driver today. I am not trying to boil the ocean.
-> > > > 
-> > > > > > I mean, adding a HID wouldn't take substantially more code.
-> > > > 
-> > > > > We could, but we don’t own the Xilinx IP blocks. Are we not justified in using PRP0001
-> > > > > hack until the driver owner adds the HIDs? Wasn’t PRP0001 created as an escape hatch for
-> > > > > these kind of scenarios?
-> > > > 
-> > > > No, it's more there for the cases where embedded ACPI systems need to
-> > > > import non-trivial DT bindings so they can avoid having to respecify
-> > > > things that ACPI really doesn't cope with or for local hacks.  See
-> > > > Andy's reply earlier in the thread:
-> > > > 
-> > > >     https://lore.kernel.org/r/aW9JihlsjnJ-uBul@black.igk.intel.com
-> > > > 
-> > > > AFAICT for ACPI the HID assigment is a bit of a free for all in practice
-> > > > - board vendors generally seem perfectly happy to just pick something if
-> > > > the silicon vendor didn't do something.  Just look at all the parts with
-> > > > INTxxxx IDs!  That said Michal is on the thread so hopefully that's not
-> > > 
-> > > INTxxxx was a (historical) mistake, but look at the correct one INTCxxxx
-> > > which has listed several components Intel doesn't own. Because ACPI HID
-> > > it's not only about the component in use, it's also about integration of
-> > > that component in the platform environment. Hence it might require (platform)
-> > > specific quirks.
-> > 
-> > Btw, you can look at the MIPI I3C HCI case. MIPI as an owner allocated generic
-> > ID (which is usually represented as _CID in ACPI), AMD allocated their own one
-> > _HID (compatible with _CID) exactly for the purpose of having platform quirks.
-> > 
-> > TL;DR: if you are 100% sure you have no HW integration issues, requirements, etc
-> > and everything works as is, you can use Xilinx allocated id (assuming it will come)
-> > for the given IP and use it directly as _HID, otherwise use that as _CID and
-> > allocate your own for _HID.
-> 
-> I got in touch with respective AMD team about ACPI ID allocation. I also
-> don't think it is going to be a problem to get unique one. And I expect
-> device properties should pretty much match DT property names to be able to
-> use the same device_property_read* helper function to read them. Andy:
-> Correct?
+The GMAC IP on Spacemit K3 is almost a standard Synopsys DesignWare
+MAC (version 5.40a) with some extra clock.
 
-Yes, the main issue I see is the enumeration by PRP0001 instead of by ACPI
-_HID. Also note, whatever ACPI has supported in _CRS (resources) should be
-used that way (memory, interrupts, DMA channels, etc).
+Add necessary compatible string for this device.
 
-> I am still trying to wrap my head around all these possible solutions for
-> this problem or if we can solve it in a more generic way.
-> 
-> I can't see any problem with patches which are switching from
-> of_property_read* to device_property_read.
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   3 +
+ .../bindings/net/spacemit,k3-dwmac.yaml       | 103 ++++++++++++++++++
+ 2 files changed, 106 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
 
-Technically there is no issue with that, indeed.
-
-> If driver also works without IRQ
-> I think it is fine to make irq optional (which is 2/3 patch in this series).
-> The patch 1/3 is the same as mine I sent in past
-> https://lore.kernel.org/all/a527f5adffc6efe4c1ad2ccc40e1e095d73efe74.1749027112.git.michal.simek@amd.com/
-> and it was rejected by Rob.
-
-I think Rob is correct. But what's the problem to describe IRQ natively in _CRS
-in ACPI via Interrupt() or GpioInt() resource? You mean there is no actual wire
-connection to it?
-
-> Andrew: thanks for sharing link to pcie driver with DT which is one solution
-> which requires writing one PCIe driver and that's pretty much it.
-> Obviously enable DT on x86 but that's not a problem for product based on
-> embedded x86. But it can be a problem for standard distributions.
-> 
-> Then this ACPI way where it is not clear to me yet how to get information
-> about clocks. The i2c Abdurrahman's patch is making clk optional
-> https://lore.kernel.org/r/20260115002846.25389-1-abdurrahman@nexthop.ai
-> But input_clk is used in reinit code that's why maybe it is working for the
-> first time but in case of error not sure if driver really works properly.
-> On PCIe clock for spi/i2c is likely only one and ACPI device property can be
-> created to pass that information and call devm_clk_get_enabled() only in DT
-> case.
-
-On ACPI the clock are usually managed by firmware, but in new specification
-we also have ClockInput() resource. I dunno if there is still a gap between
-ACPICA and CCF to integrate that.
-
-> And then you have DFL (drivers/fpga/dfl*) and aux bus
-> (drivers/misc/keba/cp500.c) which pretty much targets similar setup.
-
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index dd3c72e8363e..3c2c6cb6b10b 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -34,6 +34,7 @@ select:
+           - snps,dwmac-5.10a
+           - snps,dwmac-5.20
+           - snps,dwmac-5.30a
++          - snps,dwmac-5.40a
+           - snps,dwxgmac
+           - snps,dwxgmac-2.10
+ 
+@@ -108,6 +109,7 @@ properties:
+         - snps,dwmac-5.10a
+         - snps,dwmac-5.20
+         - snps,dwmac-5.30a
++        - snps,dwmac-5.40a
+         - snps,dwxgmac
+         - snps,dwxgmac-2.10
+         - sophgo,sg2042-dwmac
+@@ -653,6 +655,7 @@ allOf:
+                 - snps,dwmac-5.10a
+                 - snps,dwmac-5.20
+                 - snps,dwmac-5.30a
++                - snps,dwmac-5.40a
+                 - snps,dwxgmac
+                 - snps,dwxgmac-2.10
+                 - st,spear600-gmac
+diff --git a/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+new file mode 100644
+index 000000000000..e69f3b60c51f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/spacemit,k3-dwmac.yaml
+@@ -0,0 +1,103 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/spacemit,k3-dwmac.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Spacemit K3 DWMAC glue layer
++
++maintainers:
++  - Inochi Amaoto <inochiama@gmail.com>
++
++select:
++  properties:
++    compatible:
++      contains:
++        const: spacemit,k3-dwmac
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: spacemit,k3-dwmac
++      - const: snps,dwmac-5.40a
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: GMAC main clock
++      - description: PTP clock
++      - description: TX clock
++
++  clock-names:
++    items:
++      - const: stmmaceth
++      - const: ptp_ref
++      - const: tx
++
++  interrupts:
++    minItems: 1
++    items:
++      - description: MAC interrupt
++      - description: MAC wake interrupt
++
++  interrupt-names:
++    minItems: 1
++    items:
++      - const: macirq
++      - const: eth_wake_irq
++
++  resets:
++    maxItems: 1
++
++  reset-names:
++    const: stmmaceth
++
++  spacemit,apmu:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    items:
++      - items:
++          - description: phandle to the syscon node which control the glue register
++          - description: offset of the control register
++          - description: offset of the dline register
++
++    description:
++      A phandle to syscon with offset to control registers for this MAC
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - interrupt-names
++  - resets
++  - reset-names
++
++allOf:
++  - $ref: snps,dwmac.yaml#
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    eth0: ethernet@cac80000 {
++      compatible = "spacemit,k3-dwmac", "snps,dwmac-5.40a";
++      reg = <0xcac80000 0x2000>;
++      clocks = <&syscon_apmu 66>, <&syscon_apmu 68>,
++               <&syscon_apmu 69>;
++      clock-names = "stmmaceth", "ptp_ref", "tx";
++      interrupts = <131 IRQ_TYPE_LEVEL_HIGH>, <276 IRQ_TYPE_LEVEL_HIGH>;
++      interrupt-names = "macirq", "eth_wake_irq";
++      phy-mode = "rgmii-id";
++      phy-handle = <&phy0>;
++      resets = <&syscon_apmu 67>;
++      reset-names = "stmmaceth";
++      spacemit,apmu = <&syscon_apmu 0x384 0x38c>;
++    };
++
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.52.0
 
 
