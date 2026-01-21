@@ -4,65 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED9FBD262AF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 01:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF65D262AD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 01:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ymw6zhgGVeFVyXTu0csGpSjrM5/LURY8dThwT1pHr1g=; b=c6CeEWBvRW2yWMtVt2dDAMz1NJ
-	p90m/QW2Sq8q2uCCQ6PD62aR7atzNP56iJL4WQISeOgF9q1d2tvlbdi1qVNE4mLMdVBNUA9dAPijX
-	z/Os9NMpA7d+4pwH7mG17WWZ6ENCW1vejdfxu4SkMl8VPDwhZ0Tu7dAO3r8JU0TXqQC2PekVbF1ww
-	AA2n4eWExBax7z7Yk81laK5Z4fkGFOxM5pm91smqdns3d1vmgpjuTIAFhvNvYodqv/yiLklHVArdg
-	WGik2lRRLR9bGJ771Vbvw9s2YFzXnluwzarpueOW6EUwzPg2zSLUWVYyrERH6dKFnilDO+HpIpYcA
-	YbTqL76A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WZq7zIP7/86ZusWmfGwlEuQbY/grzwNqfRgaU1ANOgM=; b=ex0NxScIUtK1HlZXKLqZga0iSG
+	qEkmUuplzXbdNk803Ct67LF2MwktqGzUqkv4XRQ98DcljtIbqrlw8h4rfW3iysxFgTJYavSlwhUrW
+	1N7ncmgGQhBt+zTKFCj0XEAAUJip9Y1PS1B8tVMoREXofi44JQZJnv4bEzkvgAI8f9t/q7dmIJK1h
+	DMQOqoUJq6XEfsqfaZAHSD+rja+0iXo8iRnvAYaff0HybAMSSFKuLPAKFl2vHl1qX9MgcbWOu1/TL
+	/2qImpmmfJdgolVxPd7Cd2yyhfWW31X8yzLS5mrNKn4wcPpxx3lezuadYX1B6pOrJaiwIJJJbPQZ1
+	LjRpg90A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNPc-00000004jav-1hG2;
-	Wed, 21 Jan 2026 01:53:36 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNPZ-00000004jaY-1AEn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 01:53:34 +0000
-Received: from skinsburskii.localdomain (unknown [20.236.10.163])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 916ED20B7167;
-	Tue, 20 Jan 2026 17:53:30 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 916ED20B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1768960411;
-	bh=Ymw6zhgGVeFVyXTu0csGpSjrM5/LURY8dThwT1pHr1g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IbluBz1JLfnfdfGrhKQDQkff+no9Xt61GmK/MxRcADLiMlxt2AFu4VsDIxwK/r8KE
-	 1M36jL8WfIMUbzlGyoMAAOTNsz1rZ2bN/HcHJMHK30JunRpnZLI6AxGsKP7ofA5SNG
-	 prJ3EYaLv9L0r0x5imz0gAe5MPs+pN/qtNn09OHE=
-Date: Tue, 20 Jan 2026 17:53:29 -0800
-From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-To: Mukesh R <mrathor@linux.microsoft.com>
-Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-pci@vger.kernel.org, linux-arch@vger.kernel.org,
-	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
-	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
-	will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
-	nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
-	romank@linux.microsoft.com
-Subject: Re: [PATCH v0 15/15] mshv: Populate mmio mappings for PCI passthru
-Message-ID: <aXAxmYm4zbOzGztz@skinsburskii.localdomain>
-References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
- <20260120064230.3602565-16-mrathor@linux.microsoft.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260120064230.3602565-16-mrathor@linux.microsoft.com>
+	id 1viNQk-00000004ji8-3Z9V;
+	Wed, 21 Jan 2026 01:54:46 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viNQi-00000004jfk-0rrL;
+	Wed, 21 Jan 2026 01:54:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1768960450;
+	bh=WZq7zIP7/86ZusWmfGwlEuQbY/grzwNqfRgaU1ANOgM=;
+	h=From:To:Subject:Date:Message-Id;
+	b=uadAQwnYj9uDJdocpzElGXKwxCahIq8KGRKuToX6UEztVmOg8XbbLawEPucvuaL5j
+	 qxTczyBb0uRtIf5B8kX/AikwWBhzQadrlVGutwxxS2ercjkXA1zSTJMqTp67EMpleN
+	 xyFGC4t10q/uLkWz/hQPAd9oLJ8Y7o+4YrhDxX4s=
+X-QQ-mid: zesmtpsz3t1768960443te5516434
+X-QQ-Originating-IP: ZazM54AfZm2RdLLOT68vt/up/bzHgtB6O8CyHXWTUiM=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 21 Jan 2026 09:54:00 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 16337528738947552159
+EX-QQ-RecipientCnt: 21
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Hsun Lai <i@chainsx.cn>,
+	John Clark <inindev@gmail.com>,
+	Jimmy Hon <honyuenkwun@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Andy Yan <andy.yan@rock-chips.com>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/2] arm64: dts: rockchip: Add rk3576 evb2 board
+Date: Wed, 21 Jan 2026 09:53:55 +0800
+Message-Id: <20260121015357.291-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: OWISOlifo4Hy2L7zlMA5PXytslX1F8lCFf0c2cb0emBivGiLxZc1zxYN
+	aEFdXtkSKsMGC87CnbuwxnFva3ONuiVQwcR2MatNQtVmBNU8pVWP47zBuSmAGnQD6FsoIB0
+	d3/9KXMd3AiB9z4Clp3LearMwcy1LhZndtOvegsU7+BS/JHDqpYZyNchFpPzUFk1tc4RH/+
+	O0HtwafRh3c1OcvDvhRJeODzlcsECCOi4URvO8hwlo8WX7tVeJ3kqd06p3QCOHnlOv6oR27
+	dzZQJTbIyIfTa0X1R6ZESfD7MtHhZDUBSq0xpAgABMvCKWCtJjYHUCZVCWbeXukxoEg24lt
+	kf+pNoADXT5tdGkmr17HfGSoGxoCOE31DABDgsgHA+tqs3+j/douUpGsGnJRLqyVsSaJhol
+	JZ4CS7V+3XGNvgT0G2rvCMazfHbXTwjvfonYnhig35geabVdsp3ke34EwVD6429/6+ZPCng
+	A2PuB3YPIvnVS2ctxHNIZD20aiIXSes9lWvHR9rAsPIfjuI6xkoa6KDvyatqBNeYV0/89ma
+	po9DQJ8ag6AqWrOBVV+9A0edt3z+NT0+lFvjR1uWZxEM0xY4hEKn4N70I65AZ5kiNnwFYkw
+	45NxZu3APJVMXOZtDSWvI1TnRkFogs6KrxjgU1mXhe7KJw0oFKsNSA7QWCwZPT5i2gzyLv+
+	FYhukI9bFksiX0RCnS99gcqBfqQ0/gwjWd0bVbkek68Bk2GGSZylRIK38SNWtAQLcWf+3rn
+	PGNDyRYR4Ave/rCedSLCueJOyxEOglnu/IsYVO4gqS9OyvzfUy7al+QVE+ihr03/vsCGfjM
+	d88EJ18Cc6wAHxuSyfNfxMYhmrggqjd7oPJgCxCN1udLn9dsK3eC8OPbDIG//5GmXjb7HS0
+	Buby02ZP+dtrMTgiTwmGHbE5cEYezT+2PXeMEFB+QRqtQtu6q30KlRzb5xIEJ2EIJJ47pV2
+	1CYiu6AWKvW8Qp6I+95bm82cV97m2TQ6T38FpgXzp0n7kn7JvX8swi2S1DziLCb9siTz9gT
+	2XdE45DT+U+yaMkcT4cQiW334bqJAGni3t49Tpqw==
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_175333_348415_CB41E4A0 
-X-CRM114-Status: GOOD (  26.72  )
+X-CRM114-CacheID: sfid-20260120_175444_796014_51115012 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,183 +105,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 10:42:30PM -0800, Mukesh R wrote:
-> From: Mukesh Rathor <mrathor@linux.microsoft.com>
-> 
-> Upon guest access, in case of missing mmio mapping, the hypervisor
-> generates an unmapped gpa intercept. In this path, lookup the PCI
-> resource pfn for the guest gpa, and ask the hypervisor to map it
-> via hypercall. The PCI resource pfn is maintained by the VFIO driver,
-> and obtained via fixup_user_fault call (similar to KVM).
-> 
-> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
-> ---
->  drivers/hv/mshv_root_main.c | 115 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 115 insertions(+)
-> 
-> diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
-> index 03f3aa9f5541..4c8bc7cd0888 100644
-> --- a/drivers/hv/mshv_root_main.c
-> +++ b/drivers/hv/mshv_root_main.c
-> @@ -56,6 +56,14 @@ struct hv_stats_page {
->  	};
->  } __packed;
->  
-> +bool hv_nofull_mmio;   /* don't map entire mmio region upon fault */
-> +static int __init setup_hv_full_mmio(char *str)
-> +{
-> +	hv_nofull_mmio = true;
-> +	return 0;
-> +}
-> +__setup("hv_nofull_mmio", setup_hv_full_mmio);
-> +
->  struct mshv_root mshv_root;
->  
->  enum hv_scheduler_type hv_scheduler_type;
-> @@ -612,6 +620,109 @@ mshv_partition_region_by_gfn(struct mshv_partition *partition, u64 gfn)
->  }
->  
->  #ifdef CONFIG_X86_64
-> +
-> +/*
-> + * Check if uaddr is for mmio range. If yes, return 0 with mmio_pfn filled in
-> + * else just return -errno.
-> + */
-> +static int mshv_chk_get_mmio_start_pfn(struct mshv_partition *pt, u64 gfn,
-> +				       u64 *mmio_pfnp)
-> +{
-> +	struct vm_area_struct *vma;
-> +	bool is_mmio;
-> +	u64 uaddr;
-> +	struct mshv_mem_region *mreg;
-> +	struct follow_pfnmap_args pfnmap_args;
-> +	int rc = -EINVAL;
-> +
-> +	/*
-> +	 * Do not allow mem region to be deleted beneath us. VFIO uses
-> +	 * useraddr vma to lookup pci bar pfn.
-> +	 */
-> +	spin_lock(&pt->pt_mem_regions_lock);
-> +
-> +	/* Get the region again under the lock */
-> +	mreg = mshv_partition_region_by_gfn(pt, gfn);
-> +	if (mreg == NULL || mreg->type != MSHV_REGION_TYPE_MMIO)
-> +		goto unlock_pt_out;
-> +
-> +	uaddr = mreg->start_uaddr +
-> +		((gfn - mreg->start_gfn) << HV_HYP_PAGE_SHIFT);
-> +
-> +	mmap_read_lock(current->mm);
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Semaphore can't be taken under spinlock.
-Get it instead.
+Hi,
 
-> +	vma = vma_lookup(current->mm, uaddr);
-> +	is_mmio = vma ? !!(vma->vm_flags & (VM_IO | VM_PFNMAP)) : 0;
+This series add support for rk3576 evb2 board.
 
-Why this check is needed again?
-The region type is stored on the region itself.
-And the type is checked on the caller side.
+General features for rk3576 evb2 board:
+    - Rockchip RK3576
+    - LPDDR4/4X
+    - eMMC5.1
+    - RK806-2x2pcs + DiscretePower
+    - 1x HDMI2.1 TX / HDMI2.0 RX
+    - 1x full size DP1.4 TX (Only 2 Lanes)
+    - 2x 10/100/1000M Ethernet
+    - 5x SATA3.0 7Pin Slot
+    - 2x USB3.2 Gen1 Host
+    - 3x USB2.0 Host
+    - WIFI/BT
+    - ...
 
-> +	if (!is_mmio)
-> +		goto unlock_mmap_out;
-> +
-> +	pfnmap_args.vma = vma;
-> +	pfnmap_args.address = uaddr;
-> +
-> +	rc = follow_pfnmap_start(&pfnmap_args);
-> +	if (rc) {
-> +		rc = fixup_user_fault(current->mm, uaddr, FAULT_FLAG_WRITE,
-> +				      NULL);
-> +		if (rc)
-> +			goto unlock_mmap_out;
-> +
-> +		rc = follow_pfnmap_start(&pfnmap_args);
-> +		if (rc)
-> +			goto unlock_mmap_out;
-> +	}
-> +
-> +	*mmio_pfnp = pfnmap_args.pfn;
-> +	follow_pfnmap_end(&pfnmap_args);
-> +
-> +unlock_mmap_out:
-> +	mmap_read_unlock(current->mm);
-> +unlock_pt_out:
-> +	spin_unlock(&pt->pt_mem_regions_lock);
-> +	return rc;
-> +}
-> +
-> +/*
-> + * At present, the only unmapped gpa is mmio space. Verify if it's mmio
-> + * and resolve if possible.
-> + * Returns: True if valid mmio intercept and it was handled, else false
-> + */
-> +static bool mshv_handle_unmapped_gpa(struct mshv_vp *vp)
-> +{
-> +	struct hv_message *hvmsg = vp->vp_intercept_msg_page;
-> +	struct hv_x64_memory_intercept_message *msg;
-> +	union hv_x64_memory_access_info accinfo;
-> +	u64 gfn, mmio_spa, numpgs;
-> +	struct mshv_mem_region *mreg;
-> +	int rc;
-> +	struct mshv_partition *pt = vp->vp_partition;
-> +
-> +	msg = (struct hv_x64_memory_intercept_message *)hvmsg->u.payload;
-> +	accinfo = msg->memory_access_info;
-> +
-> +	if (!accinfo.gva_gpa_valid)
-> +		return false;
-> +
-> +	/* Do a fast check and bail if non mmio intercept */
-> +	gfn = msg->guest_physical_address >> HV_HYP_PAGE_SHIFT;
-> +	mreg = mshv_partition_region_by_gfn(pt, gfn);
+To make the USB hub work, the additional patch from usb-next is required:
 
-This call needs to be protected by the spinlock.
+[0] https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?h=usb-next&id=00fcc9c86a134c488fd857b5460a7925228272c1
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?h=usb-next&id=fa3bb5011f33cccd246072954e64d64483d0d774
 
-Thanks,
-Stanislav 
+Changes in v4:
+- Link to v3: https://lore.kernel.org/all/20260112022823.91-1-kernel@airkyi.com/
+- Move the USB hub code into a separate patch series, and that series have
+  already been merged into usb-next.
+- Fix supply and reset for usb hub.
+- Add cd-gpios for sdmmc.
 
-> +	if (mreg == NULL || mreg->type != MSHV_REGION_TYPE_MMIO)
-> +		return false;
-> +
-> +	rc = mshv_chk_get_mmio_start_pfn(pt, gfn, &mmio_spa);
-> +	if (rc)
-> +		return false;
-> +
-> +	if (!hv_nofull_mmio) {		/* default case */
-> +		gfn = mreg->start_gfn;
-> +		mmio_spa = mmio_spa - (gfn - mreg->start_gfn);
-> +		numpgs = mreg->nr_pages;
-> +	} else
-> +		numpgs = 1;
-> +
-> +	rc = hv_call_map_mmio_pages(pt->pt_id, gfn, mmio_spa, numpgs);
-> +
-> +	return rc == 0;
-> +}
-> +
->  static struct mshv_mem_region *
->  mshv_partition_region_by_gfn_get(struct mshv_partition *p, u64 gfn)
->  {
-> @@ -666,13 +777,17 @@ static bool mshv_handle_gpa_intercept(struct mshv_vp *vp)
->  
->  	return ret;
->  }
-> +
->  #else  /* CONFIG_X86_64 */
-> +static bool mshv_handle_unmapped_gpa(struct mshv_vp *vp) { return false; }
->  static bool mshv_handle_gpa_intercept(struct mshv_vp *vp) { return false; }
->  #endif /* CONFIG_X86_64 */
->  
->  static bool mshv_vp_handle_intercept(struct mshv_vp *vp)
->  {
->  	switch (vp->vp_intercept_msg_page->header.message_type) {
-> +	case HVMSG_UNMAPPED_GPA:
-> +		return mshv_handle_unmapped_gpa(vp);
->  	case HVMSG_GPA_INTERCEPT:
->  		return mshv_handle_gpa_intercept(vp);
->  	}
-> -- 
-> 2.51.2.vfs.0.1
-> 
+Changes in v3:
+- Link to v2: https://lore.kernel.org/all/20260107070322.323-1-kernel@airkyi.com/ 
+- Add binding for WCH CH334/CH335 hub controller.
+- Add alias for mmc.
+- Rename some usb vbus regulator.
+- Add DP regulator.
+- Change gmac phy-mode to rgmii-id.
+- Add target-supply for sata.
+- Change vcc-supply for ufshc.
+- Add usb hub.
+- ...
+
+Changes in v2:
+- Link to v1: https://lore.kernel.org/all/20260104023703.118-1-kernel@airkyi.com/
+- Enable hdmi_sound and sai6.
+- Add more cpu-supply.
+- Use regulator to control sata power.
+- Remove "cap-mmc-highspeed" prop in sdmmc.
+- Add regulator supply for ufshc.
+- Add the missing vcc3v3_hubreset regulator.
+- Add otg capability for usb_drd0_dwc3.
+
+Chaoyi Chen (2):
+  dt-bindings: arm: rockchip: Add rk3576 evb2 board
+  arm64: dts: rockchip: Add rk3576 evb2 board
+
+ .../devicetree/bindings/arm/rockchip.yaml     |    4 +-
+ arch/arm64/boot/dts/rockchip/Makefile         |    1 +
+ .../boot/dts/rockchip/rk3576-evb2-v10.dts     | 1004 +++++++++++++++++
+ 3 files changed, 1008 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
+
+-- 
+2.51.1
+
 
