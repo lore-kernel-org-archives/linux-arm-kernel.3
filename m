@@ -4,116 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6592DCA5FD7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:38:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355BAD2ED0C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:41:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=msSdfH3XnAW146u8Yi0K+chNdxqhJBoYztW2Z1PWgmc=; b=TBOtAxLu1zcTGcw4buMorYGhx1
-	YCa2efmO6obfMSv+VXYKCBh5GYBV9BqydqqRhxOOJmawrHcjPTO0lXo7/4caGLVhoMfy9iQjTrM6Z
-	S1Jtp+F+hsleQYgkc6nf70M5hvkogbdn1qlY2k/xWNmqLWStbfn+rEiKrmnrI86T54s8Vsxsn5PTW
-	doyJZRKmLB11o8RESsdnHx3TswwqQgZYWJvIL7zOqkf+bAgkSGYkwJZT9x2m8D6F3jANwOwjm7Qdz
-	H42QUgHI42Y7Ly7FpHe2N4WHGASOjj9r6kuFGB1ME7WU/6gCVTC8Zpcu6xR/GJruIDxOSQdyNFlgL
-	DhtRTWZg==;
+	bh=ClTgdvOED/TWc/NYq97oMCMrKOe+terkXHI5v1vBQI0=; b=FE0AY0OmXyAKLsAMHYz1cjj6/l
+	Ik1VKWld2HBt5Hk7A8kdXc6JChIBVK7VaJXeR+3jezbhEd3DMyiwwybllnhFrL7DbLRXfDD9o5kCU
+	fCqRqD8Ua0MeRomdzDkUoaYiUlznEeBUC/skSS9HW60z5+LiR7fiot2FS+80D7Gj81xlSK+aA5tCV
+	mt9rviFVUUvpZ/sBt8nJuv4SyIh+evCXgskBIFUSBuR2A0ZU3MkMmqq3rudDfk7DvuamWrkhaUoGh
+	Us9SCMGzPv/5bJ+XLpQxxI591fdTFqPm/IM6snOqaCoI4tYzDzZMgUkVTPmZAuiaVliwcQgzobyf9
+	E5sJNYqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZLg-00000005c5v-0yqm;
-	Wed, 21 Jan 2026 14:38:20 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1viZOF-00000005cMP-3eX4;
+	Wed, 21 Jan 2026 14:40:59 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZLd-00000005c5G-0BBV
+	id 1viZOB-00000005cLD-35cY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 14:38:19 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a0d06cfa93so77255ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 06:38:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769006295; cv=none;
-        d=google.com; s=arc-20240605;
-        b=QzMkDuypad6+Mw+fhmbAsSP0anyuSe9uaScKBe4PWqnaw0s+3QsJV8YSQuZI1Qdl+/
-         lc+q7aC/CDNKD2jcwJ0o4xrfr13eq5pKBdOHOyU+xJg75Zizqr/bQh2T1Zf67RqIs8F5
-         dDMkNLW5oFzedLWA1wZGu56T0xdhZtAVmIltVfYDFcnjRyratcsWATwP7NlXcJGmK3XU
-         FKkhatb7zuvps1oEuyCpT5440JEvjjgectUC2uQL43rRmBtPJ4vchq6qP9eAEnd7SByW
-         3jMy7VKXC4Cz6yYitzFMLDanuwWf6UEvarFiyXv+hgjgeUjDc4FF9HoHZ6q48gau+luX
-         zKbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=msSdfH3XnAW146u8Yi0K+chNdxqhJBoYztW2Z1PWgmc=;
-        fh=zDFxjKfCFlbgLBMIQlGaZ+/FxpOZ4YOi/f2AyjbePN0=;
-        b=Tfl/G/krEJSBTopfl9SYhpkzqbW2m+sJSPuOOaNGGzoGGXCGVUOOqXNtgmdpVsSDs7
-         G2d7XNJWsaeLM0IvhdK3HlCDXqYDDyDiqlz9W2tphINj/5iTMNhRcem51OJ0vSpYnBcs
-         wL+1nGkE1UvMPGKYUGUpRZw9xkVPm1WfjB9NJRlhtwSEX5soiT4sUa8uhnpluYvxMZod
-         Q07/fag+Va28A2GhmDA7HHDom/hzMLhx/31KWNEnrrDHh7q0SX9G2TGQXksKpogELPU7
-         vOmmJ2q0liz20QwuuCrr31VE0YxqehdaoUkuy+cPbDRqouVkJOCY+O2HdM+ptoTKq2ZB
-         mypA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769006295; x=1769611095; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=msSdfH3XnAW146u8Yi0K+chNdxqhJBoYztW2Z1PWgmc=;
-        b=AVU9p5ksIKHjm57egmxaY3pHTblVMbRpcIadI0RaobJJ9tZh4/6ozerpgI61pCEhC2
-         SvUrDTCAyke2DBvEaVeCORgnj4+gM9+FDJIK6C5iO7e9oA6DkqygwXOcbKsCIp+yts5t
-         GtJI+STbn5aPdsR19BgQsDyUQtw9mmTvKSKTYNcAfFc93XnshFSkfSfPJ6Ghiod98rrG
-         XizM+3PdW7XH+Qk5CPIncRvxmtm1+DOCJOcmQ8siB9Ww1FwU2NDn60BTN8DYMuyMZge8
-         2zMniwdT9lxcqKfycVNIIPodSS4/IzxlxxoZa0BgWFPmH7fWhh/0ACkYX3V5/NR1b29G
-         2Wng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769006295; x=1769611095;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=msSdfH3XnAW146u8Yi0K+chNdxqhJBoYztW2Z1PWgmc=;
-        b=hi43PntPYXvRrqegjwH8BP0KdGFC5vq1FpvrgNU3KgID5EWSS/CuLR7sWKvlw61eWN
-         O2vzfm+GJ1tEGSJ8usOZHyT7AaS2XYATd6oroGqUXTTrPPPYHJDtOgepvrAmp1sxO7Jd
-         EfRX65Snx9PCBozFEsxsg1KBJkgjPH+h+8Q1JyLbNy4Abqvk1x3JKrzMcYjiZDBByvOC
-         Nq6BQOvcq6WIWrJM03un9k2wYdTewRfne7NNw9xJ4VZuyjOsg44DZGAmd7YSCsTfICNG
-         JIrehEH2d9jLEgnsLxDIWhv1vMJcG5H1sOiIbcG9HBsFLAVM5uQEQaIMawQsEcacDaYT
-         mnsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWSRHS6XR9y0C1C27v0iHBqKjG/pQmFR+B00NmNJvQGV59NbA8yyupl9EakMYaXjtBN4roqKLh+/2kXW6Jwj/OH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzD88AMyANUhZwkZwyKGJyaUiaCpD4GWXwX6Gjuk4IzLVGZGHX
-	JZXHoEQYA7D7nbf7js6CLFxRPbn4p5V5cu302/z3C7N2DowS3M12/o9egT9UYH1doQWY2PjxGwi
-	fPf/k++mhMkD/hb5+aH/bXKBcMRP1qAL4Ol8cN1UE6TSwYaX/qMJ1aB9X
-X-Gm-Gg: AZuq6aJb/1aDw56OUQX4rE3SDLj+u3kAerIl4qEc9oRdJs/cNhp6NbMycMJDpnfHYen
-	/XaLNX/PH3xvxdyRqZE9ApxfOZAVFn/H0nzkd7KvKaahSFm47+bPl4RCISCn+OTt+jrXwvWqPqm
-	CwkCr7vdk77e1Pa01Q++EiaUqHH5wQ5+95dGMHJjhrguI6iX/4Rh7WUS2PS5+PhLmbGBGumsN4w
-	qV7cHpCdUm8r2KYbYYrAp794gMChgEiABqZoCet7gyxMVOEBPSayLhpWQgSmkYGhup7NnKA
-X-Received: by 2002:a17:902:d4ce:b0:2a0:867c:60e2 with SMTP id
- d9443c01a7336-2a7a2467210mr2478925ad.19.1769006294704; Wed, 21 Jan 2026
- 06:38:14 -0800 (PST)
+	Wed, 21 Jan 2026 14:40:59 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1viZNu-0003b7-FM; Wed, 21 Jan 2026 15:40:38 +0100
+Message-ID: <9369a9c0-9020-4686-9b57-a487bfb5fd15@pengutronix.de>
+Date: Wed, 21 Jan 2026 15:40:35 +0100
 MIME-Version: 1.0
-References: <20260121021735.3625244-1-irogers@google.com> <56bb6d4d-ad9e-485f-af15-e0f6fbc261c1@linux.intel.com>
-In-Reply-To: <56bb6d4d-ad9e-485f-af15-e0f6fbc261c1@linux.intel.com>
-From: Ian Rogers <irogers@google.com>
-Date: Wed, 21 Jan 2026 06:38:03 -0800
-X-Gm-Features: AZwV_QhNGa8s-njQgDOqrPNAGX-1zU94cdMqg2iX3Fq18pbzTIBS4v3GUWrreDk
-Message-ID: <CAP-5=fWS+1412_ZOca3QfbjLzsZRbrYoLh9zGHDx5G_ZpTdg6Q@mail.gmail.com>
-Subject: Re: [PATCH v2] perf regs: Refactor use of arch__sample_reg_masks to perf_reg_name
-To: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, 
-	Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Shimin Guo <shimin.guo@skydio.com>, Athira Rajeev <atrajeev@linux.ibm.com>, 
-	Stephen Brennan <stephen.s.brennan@oracle.com>, Howard Chu <howardchu95@gmail.com>, 
-	Thomas Falcon <thomas.falcon@intel.com>, Andi Kleen <ak@linux.intel.com>, 
-	"Dr. David Alan Gilbert" <linux@treblig.org>, Dmitry Vyukov <dvyukov@google.com>, 
-	=?UTF-8?Q?Krzysztof_=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>, 
-	Chun-Tse Shao <ctshao@google.com>, Aditya Bodkhe <aditya.b1@linux.ibm.com>, 
-	Haibo Xu <haibo1.xu@intel.com>, Sergei Trofimovich <slyich@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 21/22] media: rockchip: rga: add rga3 support
+To: Nicolas Dufresne <nicolas@ndufresne.ca>,
+ Jacob Chen <jacob-chen@iotwrt.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kernel@pengutronix.de
+References: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
+ <20251203-spu-rga3-v2-21-989a67947f71@pengutronix.de>
+ <e85f35648ce5d4b969d7305c8cde0a21488a2340.camel@ndufresne.ca>
+Content-Language: en-US
+From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+In-Reply-To: <e85f35648ce5d4b969d7305c8cde0a21488a2340.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_063817_153651_61DBD850 
-X-CRM114-Status: GOOD (  27.40  )
+X-CRM114-CacheID: sfid-20260121_064056_084008_A44E9DF3 
+X-CRM114-Status: GOOD (  44.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,722 +74,802 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 12:28=E2=80=AFAM Mi, Dapeng <dapeng1.mi@linux.intel=
-.com> wrote:
->
->
-> On 1/21/2026 10:17 AM, Ian Rogers wrote:
-> > arch__sample_reg_masks isn't supported on ARM(32), csky, loongarch,
-> > MIPS, RISC-V and s390. The table returned by the function just has the
-> > name of a register paired with the corresponding sample_regs_user mask
-> > value. For a given perf register we can compute the name with
-> > perf_reg_name and the mask is just 1 left-shifted by the perf register
-> > number. Change __parse_regs to use this method for finding registers
-> > rather than arch__sample_reg_masks, thereby adding __parse_regs
-> > support for ARM(32), csky, loongarch, MIPS, RISC-V and s390. As
-> > arch__sample_reg_masks is then unused, remove the now unneeded
-> > declarations.
-> >
-> > Signed-off-by: Ian Rogers <irogers@google.com>
-> > ---
-> > v2: Correct the setting of reg mask for registers that need >1 bit set
-> >     like XMMs.
-> >
-> > The idea for this patch came up in conversation with Dapeng Mi to
-> > avoid additional functions and tables for x86 APX support:
-> > https://lore.kernel.org/lkml/CAP-5=3DfWOsvAXuu8qx0tk9q8j8BoXPMJB3Gxto+i=
-u6wf06i4cVA@mail.gmail.com/
-> >
-> > The patch is on top of the dwfl clean up patches that switch perf
-> > register functions to using e_machine as an argument rather than the
-> > arch string, this means that EM_HOST can be used with perf_reg_name:
-> > https://lore.kernel.org/lkml/20260117052849.2205545-1-irogers@google.co=
-m/
-> > ---
-> >  tools/perf/arch/arm/util/perf_regs.c          |   9 --
-> >  tools/perf/arch/arm64/util/machine.c          |  14 +--
-> >  tools/perf/arch/arm64/util/perf_regs.c        |  45 +------
-> >  tools/perf/arch/csky/util/perf_regs.c         |   9 --
-> >  tools/perf/arch/loongarch/util/perf_regs.c    |   9 --
-> >  tools/perf/arch/mips/util/perf_regs.c         |   9 --
-> >  tools/perf/arch/powerpc/util/perf_regs.c      |  68 ----------
-> >  tools/perf/arch/riscv/util/perf_regs.c        |   9 --
-> >  tools/perf/arch/s390/util/perf_regs.c         |   9 --
-> >  tools/perf/arch/x86/util/perf_regs.c          |  47 -------
-> >  .../util/arm64-frame-pointer-unwind-support.c |   3 +-
-> >  tools/perf/util/parse-regs-options.c          | 116 +++++++++++-------
-> >  tools/perf/util/perf_regs.c                   |   9 --
-> >  tools/perf/util/perf_regs.h                   |  12 --
-> >  14 files changed, 81 insertions(+), 287 deletions(-)
-> >
-> > diff --git a/tools/perf/arch/arm/util/perf_regs.c b/tools/perf/arch/arm=
-/util/perf_regs.c
-> > index f94a0210c7b7..03a5bc0cf64c 100644
-> > --- a/tools/perf/arch/arm/util/perf_regs.c
-> > +++ b/tools/perf/arch/arm/util/perf_regs.c
-> > @@ -2,10 +2,6 @@
-> >  #include "perf_regs.h"
-> >  #include "../../../util/perf_regs.h"
-> >
-> > -static const struct sample_reg sample_reg_masks[] =3D {
-> > -     SMPL_REG_END
-> > -};
-> > -
-> >  uint64_t arch__intr_reg_mask(void)
-> >  {
-> >       return PERF_REGS_MASK;
-> > @@ -15,8 +11,3 @@ uint64_t arch__user_reg_mask(void)
-> >  {
-> >       return PERF_REGS_MASK;
-> >  }
-> > -
-> > -const struct sample_reg *arch__sample_reg_masks(void)
-> > -{
-> > -     return sample_reg_masks;
-> > -}
-> > diff --git a/tools/perf/arch/arm64/util/machine.c b/tools/perf/arch/arm=
-64/util/machine.c
-> > index aab1cc2bc283..80fb13c958d9 100644
-> > --- a/tools/perf/arch/arm64/util/machine.c
-> > +++ b/tools/perf/arch/arm64/util/machine.c
-> > @@ -1,18 +1,12 @@
-> >  // SPDX-License-Identifier: GPL-2.0
-> >
-> > -#include <inttypes.h>
-> > -#include <stdio.h>
-> > -#include <string.h>
-> > -#include "debug.h"
-> > -#include "symbol.h"
-> > -#include "callchain.h"
-> > +#include "callchain.h" // prototype of arch__add_leaf_frame_record_opt=
-s
-> >  #include "perf_regs.h"
-> >  #include "record.h"
-> > -#include "util/perf_regs.h"
-> > +
-> > +#define SMPL_REG_MASK(b) (1ULL << (b))
-> >
-> >  void arch__add_leaf_frame_record_opts(struct record_opts *opts)
-> >  {
-> > -     const struct sample_reg *sample_reg_masks =3D arch__sample_reg_ma=
-sks();
-> > -
-> > -     opts->sample_user_regs |=3D sample_reg_masks[PERF_REG_ARM64_LR].m=
-ask;
-> > +     opts->sample_user_regs |=3D SMPL_REG_MASK(PERF_REG_ARM64_LR);
-> >  }
-> > diff --git a/tools/perf/arch/arm64/util/perf_regs.c b/tools/perf/arch/a=
-rm64/util/perf_regs.c
-> > index 09308665e28a..9bb768e1bea1 100644
-> > --- a/tools/perf/arch/arm64/util/perf_regs.c
-> > +++ b/tools/perf/arch/arm64/util/perf_regs.c
-> > @@ -12,48 +12,12 @@
-> >  #include "../../../util/event.h"
-> >  #include "../../../util/perf_regs.h"
-> >
-> > +#define SMPL_REG_MASK(b) (1ULL << (b))
-> > +
-> >  #ifndef HWCAP_SVE
-> >  #define HWCAP_SVE    (1 << 22)
-> >  #endif
-> >
-> > -static const struct sample_reg sample_reg_masks[] =3D {
-> > -     SMPL_REG(x0, PERF_REG_ARM64_X0),
-> > -     SMPL_REG(x1, PERF_REG_ARM64_X1),
-> > -     SMPL_REG(x2, PERF_REG_ARM64_X2),
-> > -     SMPL_REG(x3, PERF_REG_ARM64_X3),
-> > -     SMPL_REG(x4, PERF_REG_ARM64_X4),
-> > -     SMPL_REG(x5, PERF_REG_ARM64_X5),
-> > -     SMPL_REG(x6, PERF_REG_ARM64_X6),
-> > -     SMPL_REG(x7, PERF_REG_ARM64_X7),
-> > -     SMPL_REG(x8, PERF_REG_ARM64_X8),
-> > -     SMPL_REG(x9, PERF_REG_ARM64_X9),
-> > -     SMPL_REG(x10, PERF_REG_ARM64_X10),
-> > -     SMPL_REG(x11, PERF_REG_ARM64_X11),
-> > -     SMPL_REG(x12, PERF_REG_ARM64_X12),
-> > -     SMPL_REG(x13, PERF_REG_ARM64_X13),
-> > -     SMPL_REG(x14, PERF_REG_ARM64_X14),
-> > -     SMPL_REG(x15, PERF_REG_ARM64_X15),
-> > -     SMPL_REG(x16, PERF_REG_ARM64_X16),
-> > -     SMPL_REG(x17, PERF_REG_ARM64_X17),
-> > -     SMPL_REG(x18, PERF_REG_ARM64_X18),
-> > -     SMPL_REG(x19, PERF_REG_ARM64_X19),
-> > -     SMPL_REG(x20, PERF_REG_ARM64_X20),
-> > -     SMPL_REG(x21, PERF_REG_ARM64_X21),
-> > -     SMPL_REG(x22, PERF_REG_ARM64_X22),
-> > -     SMPL_REG(x23, PERF_REG_ARM64_X23),
-> > -     SMPL_REG(x24, PERF_REG_ARM64_X24),
-> > -     SMPL_REG(x25, PERF_REG_ARM64_X25),
-> > -     SMPL_REG(x26, PERF_REG_ARM64_X26),
-> > -     SMPL_REG(x27, PERF_REG_ARM64_X27),
-> > -     SMPL_REG(x28, PERF_REG_ARM64_X28),
-> > -     SMPL_REG(x29, PERF_REG_ARM64_X29),
-> > -     SMPL_REG(lr, PERF_REG_ARM64_LR),
-> > -     SMPL_REG(sp, PERF_REG_ARM64_SP),
-> > -     SMPL_REG(pc, PERF_REG_ARM64_PC),
-> > -     SMPL_REG(vg, PERF_REG_ARM64_VG),
-> > -     SMPL_REG_END
-> > -};
-> > -
-> >  /* %xNUM */
-> >  #define SDT_OP_REGEX1  "^(x[1-2]?[0-9]|3[0-1])$"
-> >
-> > @@ -175,8 +139,3 @@ uint64_t arch__user_reg_mask(void)
-> >       }
-> >       return PERF_REGS_MASK;
-> >  }
-> > -
-> > -const struct sample_reg *arch__sample_reg_masks(void)
-> > -{
-> > -     return sample_reg_masks;
-> > -}
-> > diff --git a/tools/perf/arch/csky/util/perf_regs.c b/tools/perf/arch/cs=
-ky/util/perf_regs.c
-> > index 6b1665f41180..2cf7a54106e0 100644
-> > --- a/tools/perf/arch/csky/util/perf_regs.c
-> > +++ b/tools/perf/arch/csky/util/perf_regs.c
-> > @@ -2,10 +2,6 @@
-> >  #include "perf_regs.h"
-> >  #include "../../util/perf_regs.h"
-> >
-> > -static const struct sample_reg sample_reg_masks[] =3D {
-> > -     SMPL_REG_END
-> > -};
-> > -
-> >  uint64_t arch__intr_reg_mask(void)
-> >  {
-> >       return PERF_REGS_MASK;
-> > @@ -15,8 +11,3 @@ uint64_t arch__user_reg_mask(void)
-> >  {
-> >       return PERF_REGS_MASK;
-> >  }
-> > -
-> > -const struct sample_reg *arch__sample_reg_masks(void)
-> > -{
-> > -     return sample_reg_masks;
-> > -}
-> > diff --git a/tools/perf/arch/loongarch/util/perf_regs.c b/tools/perf/ar=
-ch/loongarch/util/perf_regs.c
-> > index f94a0210c7b7..03a5bc0cf64c 100644
-> > --- a/tools/perf/arch/loongarch/util/perf_regs.c
-> > +++ b/tools/perf/arch/loongarch/util/perf_regs.c
-> > @@ -2,10 +2,6 @@
-> >  #include "perf_regs.h"
-> >  #include "../../../util/perf_regs.h"
-> >
-> > -static const struct sample_reg sample_reg_masks[] =3D {
-> > -     SMPL_REG_END
-> > -};
-> > -
-> >  uint64_t arch__intr_reg_mask(void)
-> >  {
-> >       return PERF_REGS_MASK;
-> > @@ -15,8 +11,3 @@ uint64_t arch__user_reg_mask(void)
-> >  {
-> >       return PERF_REGS_MASK;
-> >  }
-> > -
-> > -const struct sample_reg *arch__sample_reg_masks(void)
-> > -{
-> > -     return sample_reg_masks;
-> > -}
-> > diff --git a/tools/perf/arch/mips/util/perf_regs.c b/tools/perf/arch/mi=
-ps/util/perf_regs.c
-> > index 6b1665f41180..2cf7a54106e0 100644
-> > --- a/tools/perf/arch/mips/util/perf_regs.c
-> > +++ b/tools/perf/arch/mips/util/perf_regs.c
-> > @@ -2,10 +2,6 @@
-> >  #include "perf_regs.h"
-> >  #include "../../util/perf_regs.h"
-> >
-> > -static const struct sample_reg sample_reg_masks[] =3D {
-> > -     SMPL_REG_END
-> > -};
-> > -
-> >  uint64_t arch__intr_reg_mask(void)
-> >  {
-> >       return PERF_REGS_MASK;
-> > @@ -15,8 +11,3 @@ uint64_t arch__user_reg_mask(void)
-> >  {
-> >       return PERF_REGS_MASK;
-> >  }
-> > -
-> > -const struct sample_reg *arch__sample_reg_masks(void)
-> > -{
-> > -     return sample_reg_masks;
-> > -}
-> > diff --git a/tools/perf/arch/powerpc/util/perf_regs.c b/tools/perf/arch=
-/powerpc/util/perf_regs.c
-> > index bd36cfd420a2..779073f7e992 100644
-> > --- a/tools/perf/arch/powerpc/util/perf_regs.c
-> > +++ b/tools/perf/arch/powerpc/util/perf_regs.c
-> > @@ -18,69 +18,6 @@
-> >  #define PVR_POWER10          0x0080
-> >  #define PVR_POWER11          0x0082
-> >
-> > -static const struct sample_reg sample_reg_masks[] =3D {
-> > -     SMPL_REG(r0, PERF_REG_POWERPC_R0),
-> > -     SMPL_REG(r1, PERF_REG_POWERPC_R1),
-> > -     SMPL_REG(r2, PERF_REG_POWERPC_R2),
-> > -     SMPL_REG(r3, PERF_REG_POWERPC_R3),
-> > -     SMPL_REG(r4, PERF_REG_POWERPC_R4),
-> > -     SMPL_REG(r5, PERF_REG_POWERPC_R5),
-> > -     SMPL_REG(r6, PERF_REG_POWERPC_R6),
-> > -     SMPL_REG(r7, PERF_REG_POWERPC_R7),
-> > -     SMPL_REG(r8, PERF_REG_POWERPC_R8),
-> > -     SMPL_REG(r9, PERF_REG_POWERPC_R9),
-> > -     SMPL_REG(r10, PERF_REG_POWERPC_R10),
-> > -     SMPL_REG(r11, PERF_REG_POWERPC_R11),
-> > -     SMPL_REG(r12, PERF_REG_POWERPC_R12),
-> > -     SMPL_REG(r13, PERF_REG_POWERPC_R13),
-> > -     SMPL_REG(r14, PERF_REG_POWERPC_R14),
-> > -     SMPL_REG(r15, PERF_REG_POWERPC_R15),
-> > -     SMPL_REG(r16, PERF_REG_POWERPC_R16),
-> > -     SMPL_REG(r17, PERF_REG_POWERPC_R17),
-> > -     SMPL_REG(r18, PERF_REG_POWERPC_R18),
-> > -     SMPL_REG(r19, PERF_REG_POWERPC_R19),
-> > -     SMPL_REG(r20, PERF_REG_POWERPC_R20),
-> > -     SMPL_REG(r21, PERF_REG_POWERPC_R21),
-> > -     SMPL_REG(r22, PERF_REG_POWERPC_R22),
-> > -     SMPL_REG(r23, PERF_REG_POWERPC_R23),
-> > -     SMPL_REG(r24, PERF_REG_POWERPC_R24),
-> > -     SMPL_REG(r25, PERF_REG_POWERPC_R25),
-> > -     SMPL_REG(r26, PERF_REG_POWERPC_R26),
-> > -     SMPL_REG(r27, PERF_REG_POWERPC_R27),
-> > -     SMPL_REG(r28, PERF_REG_POWERPC_R28),
-> > -     SMPL_REG(r29, PERF_REG_POWERPC_R29),
-> > -     SMPL_REG(r30, PERF_REG_POWERPC_R30),
-> > -     SMPL_REG(r31, PERF_REG_POWERPC_R31),
-> > -     SMPL_REG(nip, PERF_REG_POWERPC_NIP),
-> > -     SMPL_REG(msr, PERF_REG_POWERPC_MSR),
-> > -     SMPL_REG(orig_r3, PERF_REG_POWERPC_ORIG_R3),
-> > -     SMPL_REG(ctr, PERF_REG_POWERPC_CTR),
-> > -     SMPL_REG(link, PERF_REG_POWERPC_LINK),
-> > -     SMPL_REG(xer, PERF_REG_POWERPC_XER),
-> > -     SMPL_REG(ccr, PERF_REG_POWERPC_CCR),
-> > -     SMPL_REG(softe, PERF_REG_POWERPC_SOFTE),
-> > -     SMPL_REG(trap, PERF_REG_POWERPC_TRAP),
-> > -     SMPL_REG(dar, PERF_REG_POWERPC_DAR),
-> > -     SMPL_REG(dsisr, PERF_REG_POWERPC_DSISR),
-> > -     SMPL_REG(sier, PERF_REG_POWERPC_SIER),
-> > -     SMPL_REG(mmcra, PERF_REG_POWERPC_MMCRA),
-> > -     SMPL_REG(mmcr0, PERF_REG_POWERPC_MMCR0),
-> > -     SMPL_REG(mmcr1, PERF_REG_POWERPC_MMCR1),
-> > -     SMPL_REG(mmcr2, PERF_REG_POWERPC_MMCR2),
-> > -     SMPL_REG(mmcr3, PERF_REG_POWERPC_MMCR3),
-> > -     SMPL_REG(sier2, PERF_REG_POWERPC_SIER2),
-> > -     SMPL_REG(sier3, PERF_REG_POWERPC_SIER3),
-> > -     SMPL_REG(pmc1, PERF_REG_POWERPC_PMC1),
-> > -     SMPL_REG(pmc2, PERF_REG_POWERPC_PMC2),
-> > -     SMPL_REG(pmc3, PERF_REG_POWERPC_PMC3),
-> > -     SMPL_REG(pmc4, PERF_REG_POWERPC_PMC4),
-> > -     SMPL_REG(pmc5, PERF_REG_POWERPC_PMC5),
-> > -     SMPL_REG(pmc6, PERF_REG_POWERPC_PMC6),
-> > -     SMPL_REG(sdar, PERF_REG_POWERPC_SDAR),
-> > -     SMPL_REG(siar, PERF_REG_POWERPC_SIAR),
-> > -     SMPL_REG_END
-> > -};
-> > -
-> >  /* REG or %rREG */
-> >  #define SDT_OP_REGEX1  "^(%r)?([1-2]?[0-9]|3[0-1])$"
-> >
-> > @@ -233,8 +170,3 @@ uint64_t arch__user_reg_mask(void)
-> >  {
-> >       return PERF_REGS_MASK;
-> >  }
-> > -
-> > -const struct sample_reg *arch__sample_reg_masks(void)
-> > -{
-> > -     return sample_reg_masks;
-> > -}
-> > diff --git a/tools/perf/arch/riscv/util/perf_regs.c b/tools/perf/arch/r=
-iscv/util/perf_regs.c
-> > index 6b1665f41180..2cf7a54106e0 100644
-> > --- a/tools/perf/arch/riscv/util/perf_regs.c
-> > +++ b/tools/perf/arch/riscv/util/perf_regs.c
-> > @@ -2,10 +2,6 @@
-> >  #include "perf_regs.h"
-> >  #include "../../util/perf_regs.h"
-> >
-> > -static const struct sample_reg sample_reg_masks[] =3D {
-> > -     SMPL_REG_END
-> > -};
-> > -
-> >  uint64_t arch__intr_reg_mask(void)
-> >  {
-> >       return PERF_REGS_MASK;
-> > @@ -15,8 +11,3 @@ uint64_t arch__user_reg_mask(void)
-> >  {
-> >       return PERF_REGS_MASK;
-> >  }
-> > -
-> > -const struct sample_reg *arch__sample_reg_masks(void)
-> > -{
-> > -     return sample_reg_masks;
-> > -}
-> > diff --git a/tools/perf/arch/s390/util/perf_regs.c b/tools/perf/arch/s3=
-90/util/perf_regs.c
-> > index 6b1665f41180..2cf7a54106e0 100644
-> > --- a/tools/perf/arch/s390/util/perf_regs.c
-> > +++ b/tools/perf/arch/s390/util/perf_regs.c
-> > @@ -2,10 +2,6 @@
-> >  #include "perf_regs.h"
-> >  #include "../../util/perf_regs.h"
-> >
-> > -static const struct sample_reg sample_reg_masks[] =3D {
-> > -     SMPL_REG_END
-> > -};
-> > -
-> >  uint64_t arch__intr_reg_mask(void)
-> >  {
-> >       return PERF_REGS_MASK;
-> > @@ -15,8 +11,3 @@ uint64_t arch__user_reg_mask(void)
-> >  {
-> >       return PERF_REGS_MASK;
-> >  }
-> > -
-> > -const struct sample_reg *arch__sample_reg_masks(void)
-> > -{
-> > -     return sample_reg_masks;
-> > -}
-> > diff --git a/tools/perf/arch/x86/util/perf_regs.c b/tools/perf/arch/x86=
-/util/perf_regs.c
-> > index 12fd93f04802..a7ca4154fdf9 100644
-> > --- a/tools/perf/arch/x86/util/perf_regs.c
-> > +++ b/tools/perf/arch/x86/util/perf_regs.c
-> > @@ -13,48 +13,6 @@
-> >  #include "../../../util/pmu.h"
-> >  #include "../../../util/pmus.h"
-> >
-> > -static const struct sample_reg sample_reg_masks[] =3D {
-> > -     SMPL_REG(AX, PERF_REG_X86_AX),
-> > -     SMPL_REG(BX, PERF_REG_X86_BX),
-> > -     SMPL_REG(CX, PERF_REG_X86_CX),
-> > -     SMPL_REG(DX, PERF_REG_X86_DX),
-> > -     SMPL_REG(SI, PERF_REG_X86_SI),
-> > -     SMPL_REG(DI, PERF_REG_X86_DI),
-> > -     SMPL_REG(BP, PERF_REG_X86_BP),
-> > -     SMPL_REG(SP, PERF_REG_X86_SP),
-> > -     SMPL_REG(IP, PERF_REG_X86_IP),
-> > -     SMPL_REG(FLAGS, PERF_REG_X86_FLAGS),
-> > -     SMPL_REG(CS, PERF_REG_X86_CS),
-> > -     SMPL_REG(SS, PERF_REG_X86_SS),
-> > -#ifdef HAVE_ARCH_X86_64_SUPPORT
-> > -     SMPL_REG(R8, PERF_REG_X86_R8),
-> > -     SMPL_REG(R9, PERF_REG_X86_R9),
-> > -     SMPL_REG(R10, PERF_REG_X86_R10),
-> > -     SMPL_REG(R11, PERF_REG_X86_R11),
-> > -     SMPL_REG(R12, PERF_REG_X86_R12),
-> > -     SMPL_REG(R13, PERF_REG_X86_R13),
-> > -     SMPL_REG(R14, PERF_REG_X86_R14),
-> > -     SMPL_REG(R15, PERF_REG_X86_R15),
-> > -#endif
-> > -     SMPL_REG2(XMM0, PERF_REG_X86_XMM0),
-> > -     SMPL_REG2(XMM1, PERF_REG_X86_XMM1),
-> > -     SMPL_REG2(XMM2, PERF_REG_X86_XMM2),
-> > -     SMPL_REG2(XMM3, PERF_REG_X86_XMM3),
-> > -     SMPL_REG2(XMM4, PERF_REG_X86_XMM4),
-> > -     SMPL_REG2(XMM5, PERF_REG_X86_XMM5),
-> > -     SMPL_REG2(XMM6, PERF_REG_X86_XMM6),
-> > -     SMPL_REG2(XMM7, PERF_REG_X86_XMM7),
-> > -     SMPL_REG2(XMM8, PERF_REG_X86_XMM8),
-> > -     SMPL_REG2(XMM9, PERF_REG_X86_XMM9),
-> > -     SMPL_REG2(XMM10, PERF_REG_X86_XMM10),
-> > -     SMPL_REG2(XMM11, PERF_REG_X86_XMM11),
-> > -     SMPL_REG2(XMM12, PERF_REG_X86_XMM12),
-> > -     SMPL_REG2(XMM13, PERF_REG_X86_XMM13),
-> > -     SMPL_REG2(XMM14, PERF_REG_X86_XMM14),
-> > -     SMPL_REG2(XMM15, PERF_REG_X86_XMM15),
-> > -     SMPL_REG_END
-> > -};
-> > -
-> >  struct sdt_name_reg {
-> >       const char *sdt_name;
-> >       const char *uprobe_name;
-> > @@ -276,11 +234,6 @@ int arch_sdt_arg_parse_op(char *old_op, char **new=
-_op)
-> >       return SDT_ARG_VALID;
-> >  }
-> >
-> > -const struct sample_reg *arch__sample_reg_masks(void)
-> > -{
-> > -     return sample_reg_masks;
-> > -}
-> > -
-> >  uint64_t arch__intr_reg_mask(void)
-> >  {
-> >       struct perf_event_attr attr =3D {
-> > diff --git a/tools/perf/util/arm64-frame-pointer-unwind-support.c b/too=
-ls/perf/util/arm64-frame-pointer-unwind-support.c
-> > index 958afe8b821e..858ce2b01812 100644
-> > --- a/tools/perf/util/arm64-frame-pointer-unwind-support.c
-> > +++ b/tools/perf/util/arm64-frame-pointer-unwind-support.c
-> > @@ -2,7 +2,6 @@
-> >  #include "arm64-frame-pointer-unwind-support.h"
-> >  #include "callchain.h"
-> >  #include "event.h"
-> > -#include "perf_regs.h" // SMPL_REG_MASK
-> >  #include "unwind.h"
-> >  #include <string.h>
-> >
-> > @@ -15,6 +14,8 @@ struct entries {
-> >       size_t length;
-> >  };
-> >
-> > +#define SMPL_REG_MASK(b) (1ULL << (b))
-> > +
-> >  static bool get_leaf_frame_caller_enabled(struct perf_sample *sample)
-> >  {
-> >       struct regs_dump *regs;
-> > diff --git a/tools/perf/util/parse-regs-options.c b/tools/perf/util/par=
-se-regs-options.c
-> > index cda1c620968e..c0d0ef9fd495 100644
-> > --- a/tools/perf/util/parse-regs-options.c
-> > +++ b/tools/perf/util/parse-regs-options.c
-> > @@ -5,15 +5,54 @@
-> >  #include <string.h>
-> >  #include <stdio.h>
-> >  #include "util/debug.h"
-> > +#include <dwarf-regs.h>
-> >  #include <subcmd/parse-options.h>
-> >  #include "util/perf_regs.h"
-> >  #include "util/parse-regs-options.h"
-> >
-> > +static void list_perf_regs(FILE *fp, uint64_t mask)
-> > +{
-> > +     const char *last_name =3D NULL;
-> > +
-> > +     fprintf(fp, "available registers: ");
-> > +     for (int reg =3D 0; reg < 64; reg++) {
->
-> Could we not use the magic number 64? It's not safe, the supported GP
-> register number could exceed 64 in the future, then the exceeded register
-> won't be iterated.
+Hi Nicolas,
 
-How will such a register appear in sample_regs_user/sample_regs_intr?
-There's a requirement that perf registers be indices into the 64-bit
-mask.
+On 12/24/25 5:34 PM, Nicolas Dufresne wrote:
+> Hi,
+>
+> Le mercredi 03 décembre 2025 à 16:52 +0100, Sven Püschel a écrit :
+>> Add support for the RGA3 unit contained in the RK3588.
+>>
+>> Only a basic feature set consisting of scaling and color conversion is
+>> implemented. Also the BT601F color space conversion is currently hard
+>> coded. Currently unimplemented features include:
+>> - Advanced formats like 10bit YUV, FBCE mode and Tile8x8 mode
+>> - Colorspace conversions functions BT601L, BT709, BT2020
+> This one I already raised in v1 as problematic omission. I applied the changes
+> locally and just ran few conversions that I saved to PNG, and I could
+> immediately see that range handling and colors are all over the place. Comparing
+> reference against conversion very often show difference in brighness or small
+> discoloration. On top of which, the compliance is failing.
+>
+> More investigation needed, but I suspect the implementation is a little too
+> loose. Not handling any of it while accepting to do YCbCr to RGB (or vis-versa)
+> incorrect and should be fixed.
 
-> How about this?
->
-> diff --git a/tools/perf/util/parse-regs-options.c
-> b/tools/perf/util/parse-regs-options.c
-> index c0d0ef9fd495..5177016a7ad4 100644
-> --- a/tools/perf/util/parse-regs-options.c
-> +++ b/tools/perf/util/parse-regs-options.c
-> @@ -15,7 +15,7 @@ static void list_perf_regs(FILE *fp, uint64_t mask)
->         const char *last_name =3D NULL;
->
->         fprintf(fp, "available registers: ");
-> -       for (int reg =3D 0; reg < 64; reg++) {
-> +       for (unsigned long reg =3D 0; reg < sizeof(mask) * BITS_PER_BYTE;
-> reg++) {
->                 const char *name;
->
->                 if (((1ULL << reg) & mask) =3D=3D 0)
->
->
-> > +             const char *name;
-> > +
-> > +             if (((1ULL << reg) & mask) =3D=3D 0)
-> > +                     continue;
-> > +
-> > +             name =3D perf_reg_name(reg, EM_HOST);
-> > +             if (name && (!last_name || strcmp(last_name, name)))
-> > +                     fprintf(fp, "%s%s", reg > 0 ? " " : "", name);
-> > +             last_name =3D name;
-> > +     }
-> > +     fputc('\n', fp);
-> > +}
-> > +
-> > +static uint64_t name_to_perf_reg_mask(const char *to_match, uint64_t m=
-ask)
-> > +{
-> > +     uint64_t reg_mask =3D 0;
-> > +
-> > +     for (int reg =3D 0; reg < 64; reg++) {
->
-> ditto.
->
->
-> > +             const char *name;
-> > +
-> > +             if (((1ULL << reg) & mask) =3D=3D 0)
-> > +                     continue;
-> > +
-> > +             name =3D perf_reg_name(reg, EM_HOST);
-> > +             if (!name)
-> > +                     continue;
-> > +
-> > +             if (!strcasecmp(to_match, name))
-> > +                     reg_mask |=3D 1ULL << reg;
->
-> How much register names are expected to match here? It seems the function
-> expects to match only one register name. If so, we can "break" here.
+While I don't know how you tested this, I've reproduced your findings 
+with the following gstreamer 1.26 pipeline:
 
-Registers like XMM0 double up so that they have two 64-bit slots in
-the sample data. You need to match the name multiple times so that all
-bits can be set in the mask.
+gst-launch-1.0 videotestsrc num-buffers=1 ! 
+video/x-raw,format=RGBA,width=128,height=128 ! v4l2convert ! 
+video/x-raw,format=YUY2 ! videoconvert ! video/x-raw,format=RGBA ! 
+pngenc ! filesink location=/tmp/test.png
 
-Thanks,
-Ian
+After debugging the GStreamer pipeline, I've found that it didn't 
+consider the colorspace from the driver on it's src pad. Therefore it 
+didn't properly add it to the YUY2 caps, which caused the RGA3 driver to 
+do BT601 full range and videoconvert the default colorspace (i think 
+BT601 limited range). See [1], which fixes the problem.
 
-> Thanks.
+I'd be interested if this also fixes the issue(s) you've noticed.
+
+
+Sincerely
+     Sven
+
+[1] 
+https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/10582
+
+>> - Background color (V4L2_CID_BG_COLOR)
+>> - Configurable alpha value (V4L2_CID_ALPHA_COMPONENT)
+>> - Image flipping (V4L2_CID_HFLIP and V4L2_CID_VFLIP)
+>> - Image rotation (V4L2_CID_ROTATE)
+>> - Image cropping/composing (VIDIOC_S_SELECTION)
+>>
+>> The register address defines were copied from the
+>> vendor Rockchip kernel sources and slightly adjusted to not start at 0
+>> again for the cmd registers.
+>>
+>> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+>> ---
+>>   drivers/media/platform/rockchip/rga/Makefile  |   2 +-
+>>   drivers/media/platform/rockchip/rga/rga.c     |   4 +
+>>   drivers/media/platform/rockchip/rga/rga.h     |   2 +-
+>>   drivers/media/platform/rockchip/rga/rga3-hw.c | 471 ++++++++++++++++++++++++++
+>>   drivers/media/platform/rockchip/rga/rga3-hw.h | 190 +++++++++++
+>>   5 files changed, 667 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/media/platform/rockchip/rga/Makefile b/drivers/media/platform/rockchip/rga/Makefile
+>> index 1bbecdc3d8df2..7326a548f3dc7 100644
+>> --- a/drivers/media/platform/rockchip/rga/Makefile
+>> +++ b/drivers/media/platform/rockchip/rga/Makefile
+>> @@ -1,4 +1,4 @@
+>>   # SPDX-License-Identifier: GPL-2.0-only
+>> -rockchip-rga-objs := rga.o rga-hw.o rga-buf.o
+>> +rockchip-rga-objs := rga.o rga-hw.o rga3-hw.o rga-buf.o
+>>   
+>>   obj-$(CONFIG_VIDEO_ROCKCHIP_RGA) += rockchip-rga.o
+>> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+>> index 65686228b7300..313d875c789bf 100644
+>> --- a/drivers/media/platform/rockchip/rga/rga.c
+>> +++ b/drivers/media/platform/rockchip/rga/rga.c
+>> @@ -843,6 +843,10 @@ static const struct of_device_id rockchip_rga_match[] = {
+>>   		.compatible = "rockchip,rk3399-rga",
+>>   		.data = &rga2_hw,
+>>   	},
+>> +	{
+>> +		.compatible = "rockchip,rk3588-rga3",
+>> +		.data = &rga3_hw,
+>> +	},
+>>   	{},
+>>   };
+>>   
+>> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+>> index b9c75b5fda4dc..2c5f0330879fa 100644
+>> --- a/drivers/media/platform/rockchip/rga/rga.h
+>> +++ b/drivers/media/platform/rockchip/rga/rga.h
+>> @@ -163,6 +163,6 @@ static inline bool rga_has_internal_iommu(const struct rockchip_rga *rga)
+>>   	return rga->hw->has_internal_iommu;
+>>   }
+>>   
+>> -extern const struct rga_hw rga2_hw;
+>> +extern const struct rga_hw rga2_hw, rga3_hw;
+> nit: Add a line instead.
 >
+>>   
+>>   #endif
+>> diff --git a/drivers/media/platform/rockchip/rga/rga3-hw.c b/drivers/media/platform/rockchip/rga/rga3-hw.c
+>> new file mode 100644
+>> index 0000000000000..2b8cd639da39b
+>> --- /dev/null
+>> +++ b/drivers/media/platform/rockchip/rga/rga3-hw.c
+>> @@ -0,0 +1,471 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * Copyright (C) Pengutronix e.K.
+> No year ?
 >
-> > +     }
-> > +     return reg_mask;
-> > +}
-> > +
-> >  static int
-> >  __parse_regs(const struct option *opt, const char *str, int unset, boo=
-l intr)
-> >  {
-> >       uint64_t *mode =3D (uint64_t *)opt->value;
-> > -     const struct sample_reg *r =3D NULL;
-> >       char *s, *os =3D NULL, *p;
-> >       int ret =3D -1;
-> >       uint64_t mask;
-> > @@ -27,50 +66,41 @@ __parse_regs(const struct option *opt, const char *=
-str, int unset, bool intr)
-> >       if (*mode)
-> >               return -1;
-> >
-> > -     if (intr)
-> > -             mask =3D arch__intr_reg_mask();
-> > -     else
-> > -             mask =3D arch__user_reg_mask();
-> > -
-> >       /* str may be NULL in case no arg is passed to -I */
-> > -     if (str) {
-> > -             /* because str is read-only */
-> > -             s =3D os =3D strdup(str);
-> > -             if (!s)
-> > -                     return -1;
-> > -
-> > -             for (;;) {
-> > -                     p =3D strchr(s, ',');
-> > -                     if (p)
-> > -                             *p =3D '\0';
-> > -
-> > -                     if (!strcmp(s, "?")) {
-> > -                             fprintf(stderr, "available registers: ");
-> > -                             for (r =3D arch__sample_reg_masks(); r->n=
-ame; r++) {
-> > -                                     if (r->mask & mask)
-> > -                                             fprintf(stderr, "%s ", r-=
->name);
-> > -                             }
-> > -                             fputc('\n', stderr);
-> > -                             /* just printing available regs */
-> > -                             goto error;
-> > -                     }
-> > -                     for (r =3D arch__sample_reg_masks(); r->name; r++=
-) {
-> > -                             if ((r->mask & mask) && !strcasecmp(s, r-=
->name))
-> > -                                     break;
-> > -                     }
-> > -                     if (!r || !r->name) {
-> > -                             ui__warning("Unknown register \"%s\", che=
-ck man page or run \"perf record %s?\"\n",
-> > -                                         s, intr ? "-I" : "--user-regs=
-=3D");
-> > -                             goto error;
-> > -                     }
-> > -
-> > -                     *mode |=3D r->mask;
-> > -
-> > -                     if (!p)
-> > -                             break;
-> > -
-> > -                     s =3D p + 1;
-> > +     if (!str)
-> > +             return -1;
-> > +
-> > +     mask =3D intr ? arch__intr_reg_mask() : arch__user_reg_mask();
-> > +
-> > +     /* because str is read-only */
-> > +     s =3D os =3D strdup(str);
-> > +     if (!s)
-> > +             return -1;
-> > +
-> > +     for (;;) {
-> > +             uint64_t reg_mask;
-> > +
-> > +             p =3D strchr(s, ',');
-> > +             if (p)
-> > +                     *p =3D '\0';
-> > +
-> > +             if (!strcmp(s, "?")) {
-> > +                     list_perf_regs(stderr, mask);
-> > +                     goto error;
-> > +             }
-> > +
-> > +             reg_mask =3D name_to_perf_reg_mask(s, mask);
-> > +             if (reg_mask =3D=3D 0) {
-> > +                     ui__warning("Unknown register \"%s\", check man p=
-age or run \"perf record %s?\"\n",
-> > +                             s, intr ? "-I" : "--user-regs=3D");
-> > +                     goto error;
-> >               }
-> > +             *mode |=3D reg_mask;
-> > +
-> > +             if (!p)
-> > +                     break;
-> > +
-> > +             s =3D p + 1;
-> >       }
-> >       ret =3D 0;
-> >
-> > diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
-> > index b58d59b84fb1..ec602da1aeb6 100644
-> > --- a/tools/perf/util/perf_regs.c
-> > +++ b/tools/perf/util/perf_regs.c
-> > @@ -22,15 +22,6 @@ uint64_t __weak arch__user_reg_mask(void)
-> >       return 0;
-> >  }
-> >
-> > -static const struct sample_reg sample_reg_masks[] =3D {
-> > -     SMPL_REG_END
-> > -};
-> > -
-> > -const struct sample_reg * __weak arch__sample_reg_masks(void)
-> > -{
-> > -     return sample_reg_masks;
-> > -}
-> > -
-> >  const char *perf_reg_name(int id, uint16_t e_machine)
-> >  {
-> >       const char *reg_name =3D NULL;
-> > diff --git a/tools/perf/util/perf_regs.h b/tools/perf/util/perf_regs.h
-> > index 7bfc6a34c02b..2c2a8de6912d 100644
-> > --- a/tools/perf/util/perf_regs.h
-> > +++ b/tools/perf/util/perf_regs.h
-> > @@ -7,17 +7,6 @@
-> >
-> >  struct regs_dump;
-> >
-> > -struct sample_reg {
-> > -     const char *name;
-> > -     uint64_t mask;
-> > -};
-> > -
-> > -#define SMPL_REG_MASK(b) (1ULL << (b))
-> > -#define SMPL_REG(n, b) { .name =3D #n, .mask =3D SMPL_REG_MASK(b) }
-> > -#define SMPL_REG2_MASK(b) (3ULL << (b))
-> > -#define SMPL_REG2(n, b) { .name =3D #n, .mask =3D SMPL_REG2_MASK(b) }
-> > -#define SMPL_REG_END { .name =3D NULL }
-> > -
-> >  enum {
-> >       SDT_ARG_VALID =3D 0,
-> >       SDT_ARG_SKIP,
-> > @@ -26,7 +15,6 @@ enum {
-> >  int arch_sdt_arg_parse_op(char *old_op, char **new_op);
-> >  uint64_t arch__intr_reg_mask(void);
-> >  uint64_t arch__user_reg_mask(void);
-> > -const struct sample_reg *arch__sample_reg_masks(void);
-> >
-> >  const char *perf_reg_name(int id, uint16_t e_machine);
-> >  int perf_reg_value(u64 *valp, struct regs_dump *regs, int id);
+>> + * Author: Sven Püschel <s.pueschel@pengutronix.de>
+>> + */
+>> +
+>> +#include <linux/pm_runtime.h>
+>> +#include <linux/bitfield.h>
+>> +#include <linux/delay.h>
+>> +#include <linux/printk.h>
+>> +
+>> +#include <media/v4l2-common.h>
+>> +
+>> +#include "rga3-hw.h"
+>> +#include "rga.h"
+>> +
+>> +static unsigned int rga3_get_scaling(unsigned int src, unsigned int dst)
+>> +{
+>> +	/*
+>> +	 * RGA3 scaling factor calculation as described in chapter 5.4.7 Resize
+>> +	 * of the TRM Part 2. The resulting scaling factor is a 16-bit value
+>> +	 * and therefore normalized with 2^16.
+>> +	 *
+>> +	 * While the TRM also mentions (dst-1)/(src-1) for the up-scaling case,
+>> +	 * it didn't work as the value always exceeds 16 bit. Flipping the
+>> +	 * factors results in a correct up-scaling. This is possible as the
+>> +	 * RGA3 has the RGA3_WIN_SCALE_XXX_UP bit to determine if it does
+>> +	 * an up or downscale.
+>> +	 *
+>> +	 * With a scaling factor of 1.0 the calculation technically also
+>> +	 * overflows 16 bit. This isn't relevant, as in this case the
+>> +	 * RGA3_WIN_SCALE_XXX_BYPASS bit completely skips the scaling operation.
+>> +	 */
+>> +	if (dst > src) {
+>> +		if (((src - 1) << 16) % (dst - 1) == 0)
+>> +			return ((src - 1) << 16) / (dst - 1) - 1;
+>> +		else
+>> +			return ((src - 1) << 16) / (dst - 1);
+>> +	} else {
+>> +		return ((dst - 1) << 16) / (src - 1) + 1;
+>> +	}
+>> +}
+>> +
+>> +/*
+>> + * Check if the given format can be captured, as the RGA3 doesn't support all
+>> + * input formats also on it's output.
+>> + */
+>> +static bool rga3_can_capture(const struct rga3_fmt *fmt)
+>> +{
+>> +	return fmt->hw_format <= RGA3_COLOR_FMT_LAST_OUTPUT;
+>> +}
+>> +
+>> +/*
+>> + * Map the transformations to the RGA3 command buffer.
+>> + * Currently this is just the scaling settings and a fixed alpha value.
+>> + */
+>> +static void rga3_cmd_set_trans_info(struct rga_ctx *ctx)
+>> +{
+>> +	u32 *cmd = ctx->cmdbuf_virt;
+>> +	unsigned int src_h, src_w, dst_h, dst_w;
+>> +	unsigned int reg;
+>> +	u16 hor_scl_fac, ver_scl_fac;
+>> +	const struct rga3_fmt *in = ctx->in.fmt;
+>> +
+>> +	src_h = ctx->in.pix.height;
+>> +	src_w = ctx->in.pix.width;
+>> +	dst_h = ctx->out.pix.height;
+>> +	dst_w = ctx->out.pix.width;
+> These are padded dimensions, I think there should be code here that go pick from
+> the selection rectangles. Can't skip that, its way too common to have 1088 src_h
+> as an example. Otherwise, its not clear what will be result of using a scaling
+> factor while doing 1088 -> 1080, where the 8 lines are actually padding.
+>
+>> +
+>> +	reg = RGA3_WIN0_RD_CTRL - RGA3_FIRST_CMD_REG;
+>> +	cmd[reg >> 2] |= FIELD_PREP(RGA3_WIN_SCALE_HOR_UP, dst_w > src_w)
+>> +		      |  FIELD_PREP(RGA3_WIN_SCALE_HOR_BYPASS, dst_w == src_w)
+>> +		      |  FIELD_PREP(RGA3_WIN_SCALE_VER_UP, dst_h > src_h)
+>> +		      |  FIELD_PREP(RGA3_WIN_SCALE_VER_BYPASS, dst_h == src_h);
+>> +
+>> +	hor_scl_fac = rga3_get_scaling(src_w, dst_w);
+>> +	ver_scl_fac = rga3_get_scaling(src_h, dst_h);
+>> +	reg = RGA3_WIN0_SCL_FAC - RGA3_FIRST_CMD_REG;
+>> +	cmd[reg >> 2] = FIELD_PREP(RGA3_SCALE_HOR_FAC, hor_scl_fac)
+>> +		      | FIELD_PREP(RGA3_SCALE_VER_FAC, ver_scl_fac);
+>> +
+>> +	if (v4l2_format_info(in->fourcc)->has_alpha) {
+>> +		/* copy alpha from input */
+>> +		reg = RGA3_OVLP_TOP_ALPHA - RGA3_FIRST_CMD_REG;
+>> +		cmd[reg >> 2] = FIELD_PREP(RGA3_ALPHA_SELECT_MODE, 1)
+>> +			      | FIELD_PREP(RGA3_ALPHA_BLEND_MODE, 1);
+>> +		reg = RGA3_OVLP_BOT_ALPHA - RGA3_FIRST_CMD_REG;
+>> +		cmd[reg >> 2] = FIELD_PREP(RGA3_ALPHA_SELECT_MODE, 1)
+>> +			      | FIELD_PREP(RGA3_ALPHA_BLEND_MODE, 1);
+>> +	} else {
+>> +		/* just use a 255 alpha value */
+>> +		reg = RGA3_OVLP_TOP_CTRL - RGA3_FIRST_CMD_REG;
+>> +		cmd[reg >> 2] = FIELD_PREP(RGA3_OVLP_GLOBAL_ALPHA, 0xff)
+>> +			      | FIELD_PREP(RGA3_OVLP_COLOR_MODE, 1);
+>> +		reg = RGA3_OVLP_BOT_CTRL - RGA3_FIRST_CMD_REG;
+>> +		cmd[reg >> 2] = FIELD_PREP(RGA3_OVLP_GLOBAL_ALPHA, 0xff)
+>> +			      | FIELD_PREP(RGA3_OVLP_COLOR_MODE, 1);
+>> +	}
+>> +}
+>> +
+>> +static void rga3_cmd_set_win0_addr(struct rga_ctx *ctx,
+>> +				   const struct rga_addrs *addrs)
+>> +{
+>> +	u32 *cmd = ctx->cmdbuf_virt;
+>> +	unsigned int reg;
+>> +
+>> +	reg = RGA3_WIN0_Y_BASE - RGA3_FIRST_CMD_REG;
+>> +	cmd[reg >> 2] = addrs->y_addr;
+>> +	reg = RGA3_WIN0_U_BASE - RGA3_FIRST_CMD_REG;
+>> +	cmd[reg >> 2] = addrs->u_addr;
+>> +}
+>> +
+>> +static void rga3_cmd_set_wr_addr(struct rga_ctx *ctx,
+>> +				 const struct rga_addrs *addrs)
+>> +{
+>> +	u32 *cmd = ctx->cmdbuf_virt;
+>> +	unsigned int reg;
+>> +
+>> +	reg = RGA3_WR_Y_BASE - RGA3_FIRST_CMD_REG;
+>> +	cmd[reg >> 2] = addrs->y_addr;
+>> +	reg = RGA3_WR_U_BASE - RGA3_FIRST_CMD_REG;
+>> +	cmd[reg >> 2] = addrs->u_addr;
+>> +}
+>> +
+>> +/* Map the input pixel format to win0 of the comamnd buffer. */
+>> +static void rga3_cmd_set_win0_format(struct rga_ctx *ctx)
+>> +{
+>> +	u32 *cmd = ctx->cmdbuf_virt;
+>> +	const struct rga3_fmt *in = ctx->in.fmt;
+>> +	const struct rga3_fmt *out = ctx->out.fmt;
+>> +	const struct v4l2_format_info *in_fmt, *out_fmt;
+>> +	unsigned int src_h, src_w;
+>> +	bool r2y, y2r;
+>> +	u8 rd_format;
+>> +	unsigned int reg;
+>> +
+>> +	src_h = ctx->in.pix.height;
+>> +	src_w = ctx->in.pix.width;
+>> +
+>> +	in_fmt = v4l2_format_info(in->fourcc);
+>> +	out_fmt = v4l2_format_info(out->fourcc);
+>> +	r2y = v4l2_is_format_rgb(in_fmt) && v4l2_is_format_yuv(out_fmt);
+>> +	y2r = v4l2_is_format_yuv(in_fmt) && v4l2_is_format_rgb(out_fmt);
+>> +
+>> +	if (in->semi_planar)
+>> +		rd_format = RGA3_RDWR_FORMAT_SEMI_PLANAR;
+>> +	else
+>> +		rd_format = RGA3_RDWR_FORMAT_INTERLEAVED;
+>> +
+>> +	/* set pixel format and CSC */
+>> +	reg = RGA3_WIN0_RD_CTRL - RGA3_FIRST_CMD_REG;
+>> +	cmd[reg >> 2] |= FIELD_PREP(RGA3_WIN_PIC_FORMAT, in->hw_format)
+>> +		      |  FIELD_PREP(RGA3_WIN_YC_SWAP, in->yc_swap)
+>> +		      |  FIELD_PREP(RGA3_WIN_RBUV_SWAP, in->rbuv_swap)
+>> +		      |  FIELD_PREP(RGA3_WIN_RD_FORMAT, rd_format)
+>> +		      |  FIELD_PREP(RGA3_WIN_R2Y, r2y)
+>> +		      |  FIELD_PREP(RGA3_WIN_Y2R, y2r)
+>> +		      |  FIELD_PREP(RGA3_WIN_CSC_MODE, RGA3_WIN_CSC_MODE_BT601_F);
+> I'd say don't hardcode BT601 Full-Range. This in fact explains a lot of the
+> weird stuff I've seen so far.
+>
+> This IP is extremely limited in CSC, it would be good to limite the choice in
+> try_fmt. Basically BT601 is the only thing that support full range, where the
+> more common BT709 and 2020 coeffiicent are most commonly used. Fortunatly,
+> limited range is more common, I can only guess, but RGB is likely always full
+> range.
+>
+> I'm guessing when doing YCbCr to YCbCr the CSC is untouched. Make sure the
+> capture and output format reflects that.
+>
+> Nicolas
+>
+>> +
+>> +	/* set stride */
+>> +	reg = RGA3_WIN0_VIR_STRIDE - RGA3_FIRST_CMD_REG;
+>> +	/* stride needs to be in words */
+>> +	cmd[reg >> 2] = ctx->in.pix.plane_fmt[0].bytesperline >> 2;
+>> +	reg = RGA3_WIN0_UV_VIR_STRIDE - RGA3_FIRST_CMD_REG;
+>> +	/* The Hardware only supports formats with 1/2 planes */
+>> +	if (ctx->in.pix.num_planes == 2)
+>> +		cmd[reg >> 2] = ctx->in.pix.plane_fmt[1].bytesperline >> 2;
+>> +	else
+>> +		cmd[reg >> 2] = ctx->in.pix.plane_fmt[0].bytesperline >> 2;
+>> +
+>> +	/* set size */
+>> +	reg = RGA3_WIN0_ACT_SIZE - RGA3_FIRST_CMD_REG;
+>> +	cmd[reg >> 2] = FIELD_PREP(RGA3_WIDTH, src_w)
+>> +		      | FIELD_PREP(RGA3_HEIGHT, src_h);
+>> +	/* no cropping support. Use same value as ACT_SIZE */
+>> +	reg = RGA3_WIN0_SRC_SIZE - RGA3_FIRST_CMD_REG;
+>> +	cmd[reg >> 2] = FIELD_PREP(RGA3_WIDTH, src_w)
+>> +		      | FIELD_PREP(RGA3_HEIGHT, src_h);
+>> +}
+>> +
+>> +static void rga3_cmd_enable_win0(struct rga_ctx *ctx)
+>> +{
+>> +	u32 *cmd = ctx->cmdbuf_virt;
+>> +	unsigned int reg;
+>> +
+>> +	reg = RGA3_WIN0_RD_CTRL - RGA3_FIRST_CMD_REG;
+>> +	cmd[reg >> 2] |= FIELD_PREP(RGA3_WIN_ENABLE, 1);
+>> +}
+>> +
+>> +/* Map the output pixel format to the command buffer */
+>> +static void rga3_cmd_set_wr_format(struct rga_ctx *ctx)
+>> +{
+>> +	u32 *cmd = ctx->cmdbuf_virt;
+>> +	const struct rga3_fmt *out = ctx->out.fmt;
+>> +	unsigned int dst_h, dst_w;
+>> +	u8 wr_format;
+>> +	unsigned int reg;
+>> +
+>> +	dst_h = ctx->out.pix.height;
+>> +	dst_w = ctx->out.pix.width;
+>> +
+>> +	if (out->semi_planar)
+>> +		wr_format = RGA3_RDWR_FORMAT_SEMI_PLANAR;
+>> +	else
+>> +		wr_format = RGA3_RDWR_FORMAT_INTERLEAVED;
+>> +
+>> +	/* set pixel format */
+>> +	reg = RGA3_WR_CTRL - RGA3_FIRST_CMD_REG;
+>> +	cmd[reg >> 2] |= FIELD_PREP(RGA3_WR_PIC_FORMAT, out->hw_format)
+>> +		      |  FIELD_PREP(RGA3_WR_YC_SWAP, out->yc_swap)
+>> +		      |  FIELD_PREP(RGA3_WR_RBUV_SWAP, out->rbuv_swap)
+>> +		      |  FIELD_PREP(RGA3_WR_FORMAT, wr_format);
+>> +
+>> +	/* set stride */
+>> +	reg = RGA3_WR_VIR_STRIDE - RGA3_FIRST_CMD_REG;
+>> +	/* stride needs to be in words */
+>> +	cmd[reg >> 2] = ctx->out.pix.plane_fmt[0].bytesperline >> 2;
+>> +	reg = RGA3_WR_PL_VIR_STRIDE - RGA3_FIRST_CMD_REG;
+>> +	/* The Hardware only supports formats with 1/2 planes */
+>> +	if (ctx->out.pix.num_planes == 2)
+>> +		cmd[reg >> 2] = ctx->out.pix.plane_fmt[1].bytesperline >> 2;
+>> +	else
+>> +		cmd[reg >> 2] = ctx->out.pix.plane_fmt[0].bytesperline >> 2;
+>> +
+>> +	/* Set size.
+>> +	 * As two inputs are not supported, we don't use win1.
+>> +	 * Therefore only set the size for win0.
+>> +	 */
+>> +	reg = RGA3_WIN0_DST_SIZE - RGA3_FIRST_CMD_REG;
+>> +	cmd[reg >> 2] = FIELD_PREP(RGA3_WIDTH, dst_w)
+>> +		      | FIELD_PREP(RGA3_HEIGHT, dst_h);
+>> +}
+>> +
+>> +static void rga3_cmd_disable_wr_limitation(struct rga_ctx *ctx)
+>> +{
+>> +	u32 *cmd = ctx->cmdbuf_virt;
+>> +	unsigned int reg;
+>> +
+>> +	/* Use the max value to avoid limiting the write speed */
+>> +	reg = RGA3_WR_CTRL - RGA3_FIRST_CMD_REG;
+>> +	cmd[reg >> 2] |= FIELD_PREP(RGA3_WR_SW_OUTSTANDING_MAX, 63);
+>> +}
+>> +
+>> +static void rga3_hw_setup_cmdbuf(struct rga_ctx *ctx)
+>> +{
+>> +	memset(ctx->cmdbuf_virt, 0, RGA3_CMDBUF_SIZE * 4);
+>> +
+>> +	rga3_cmd_set_win0_format(ctx);
+>> +	rga3_cmd_enable_win0(ctx);
+>> +	rga3_cmd_set_trans_info(ctx);
+>> +	rga3_cmd_set_wr_format(ctx);
+>> +	rga3_cmd_disable_wr_limitation(ctx);
+>> +}
+>> +
+>> +static void rga3_hw_start(struct rockchip_rga *rga,
+>> +			  struct rga_vb_buffer *src, struct rga_vb_buffer *dst)
+>> +{
+>> +	struct rga_ctx *ctx = rga->curr;
+>> +
+>> +	rga3_cmd_set_win0_addr(ctx, &src->dma_addrs);
+>> +	rga3_cmd_set_wr_addr(ctx, &dst->dma_addrs);
+>> +
+>> +	rga_write(rga, RGA3_CMD_ADDR, ctx->cmdbuf_phy);
+>> +
+>> +	/* sync CMD buf for RGA */
+>> +	dma_sync_single_for_device(rga->dev, ctx->cmdbuf_phy,
+>> +				   PAGE_SIZE, DMA_BIDIRECTIONAL);
+>> +
+>> +	/* set to master mode and start the conversion */
+>> +	rga_write(rga, RGA3_SYS_CTRL,
+>> +		  FIELD_PREP(RGA3_CMD_MODE, RGA3_CMD_MODE_MASTER));
+>> +	rga_write(rga, RGA3_INT_EN, FIELD_PREP(RGA3_INT_FRM_DONE, 1));
+>> +	rga_write(rga, RGA3_CMD_CTRL,
+>> +		  FIELD_PREP(RGA3_CMD_LINE_START_PULSE, 1));
+>> +}
+>> +
+>> +static bool rga3_handle_irq(struct rockchip_rga *rga)
+>> +{
+>> +	u32 intr;
+>> +
+>> +	intr = rga_read(rga, RGA3_INT_RAW);
+>> +	/* clear all interrupts */
+>> +	rga_write(rga, RGA3_INT_CLR, intr);
+>> +
+>> +	return FIELD_GET(RGA3_INT_FRM_DONE, intr);
+>> +}
+>> +
+>> +static void rga3_get_version(struct rockchip_rga *rga)
+>> +{
+>> +	u32 version = rga_read(rga, RGA3_VERSION_NUM);
+>> +
+>> +	rga->version.major = FIELD_GET(RGA3_VERSION_NUM_MAJOR, version);
+>> +	rga->version.minor = FIELD_GET(RGA3_VERSION_NUM_MINOR, version);
+>> +}
+>> +
+>> +static struct rga3_fmt rga3_formats[] = {
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_RGB24,
+>> +		.hw_format = RGA3_COLOR_FMT_BGR888,
+>> +		.rbuv_swap = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_BGR24,
+>> +		.hw_format = RGA3_COLOR_FMT_BGR888,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_ABGR32,
+>> +		.hw_format = RGA3_COLOR_FMT_BGRA8888,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_RGBA32,
+>> +		.hw_format = RGA3_COLOR_FMT_BGRA8888,
+>> +		.rbuv_swap = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_XBGR32,
+>> +		.hw_format = RGA3_COLOR_FMT_BGRA8888,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_RGBX32,
+>> +		.hw_format = RGA3_COLOR_FMT_BGRA8888,
+>> +		.rbuv_swap = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_RGB565,
+>> +		.hw_format = RGA3_COLOR_FMT_BGR565,
+>> +		.rbuv_swap = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_NV12M,
+>> +		.hw_format = RGA3_COLOR_FMT_YUV420,
+>> +		.semi_planar = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_NV12,
+>> +		.hw_format = RGA3_COLOR_FMT_YUV420,
+>> +		.semi_planar = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_NV21M,
+>> +		.hw_format = RGA3_COLOR_FMT_YUV420,
+>> +		.rbuv_swap = 1,
+>> +		.semi_planar = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_NV21,
+>> +		.hw_format = RGA3_COLOR_FMT_YUV420,
+>> +		.rbuv_swap = 1,
+>> +		.semi_planar = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_NV16M,
+>> +		.hw_format = RGA3_COLOR_FMT_YUV422,
+>> +		.semi_planar = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_NV16,
+>> +		.hw_format = RGA3_COLOR_FMT_YUV422,
+>> +		.semi_planar = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_NV61M,
+>> +		.hw_format = RGA3_COLOR_FMT_YUV422,
+>> +		.rbuv_swap = 1,
+>> +		.semi_planar = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_NV61,
+>> +		.hw_format = RGA3_COLOR_FMT_YUV422,
+>> +		.rbuv_swap = 1,
+>> +		.semi_planar = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_YUYV,
+>> +		.hw_format = RGA3_COLOR_FMT_YUV422,
+>> +		.yc_swap = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_YVYU,
+>> +		.hw_format = RGA3_COLOR_FMT_YUV422,
+>> +		.yc_swap = 1,
+>> +		.rbuv_swap = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_UYVY,
+>> +		.hw_format = RGA3_COLOR_FMT_YUV422,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_VYUY,
+>> +		.hw_format = RGA3_COLOR_FMT_YUV422,
+>> +		.rbuv_swap = 1,
+>> +	},
+>> +	/* Input only formats last to keep rga3_enum_format simple */
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_ARGB32,
+>> +		.hw_format = RGA3_COLOR_FMT_ABGR8888,
+>> +		.rbuv_swap = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_BGRA32,
+>> +		.hw_format = RGA3_COLOR_FMT_ABGR8888,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_XRGB32,
+>> +		.hw_format = RGA3_COLOR_FMT_ABGR8888,
+>> +		.rbuv_swap = 1,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_BGRX32,
+>> +		.hw_format = RGA3_COLOR_FMT_ABGR8888,
+>> +	},
+>> +};
+>> +
+>> +static int rga3_enum_format(struct v4l2_fmtdesc *f)
+>> +{
+>> +	struct rga3_fmt *fmt;
+>> +
+>> +	if (f->index >= ARRAY_SIZE(rga3_formats))
+>> +		return -EINVAL;
+>> +
+>> +	fmt = &rga3_formats[f->index];
+>> +	if (V4L2_TYPE_IS_CAPTURE(f->type) && !rga3_can_capture(fmt))
+>> +		return -EINVAL;
+>> +
+>> +	f->pixelformat = fmt->fourcc;
+>> +	return 0;
+>> +}
+>> +
+>> +static void *rga3_adjust_and_map_format(struct v4l2_pix_format_mplane *format,
+>> +					bool is_output)
+>> +{
+>> +	unsigned int i;
+>> +
+>> +	if (!format)
+>> +		return &rga3_formats[0];
+>> +
+>> +	format->ycbcr_enc = V4L2_YCBCR_ENC_601;
+>> +	format->quantization = V4L2_QUANTIZATION_FULL_RANGE;
+>> +
+>> +	for (i = 0; i < ARRAY_SIZE(rga3_formats); i++) {
+>> +		if (!is_output && !rga3_can_capture(&rga3_formats[i]))
+>> +			continue;
+>> +
+>> +		if (rga3_formats[i].fourcc == format->pixelformat)
+>> +			return &rga3_formats[i];
+>> +	}
+>> +
+>> +	format->pixelformat = rga3_formats[0].fourcc;
+>> +	return &rga3_formats[0];
+>> +}
+>> +
+>> +const struct rga_hw rga3_hw = {
+>> +	.card_type = "rga3",
+>> +	.has_internal_iommu = false,
+>> +	.cmdbuf_size = RGA3_CMDBUF_SIZE,
+>> +	.min_width = RGA3_MIN_WIDTH,
+>> +	.min_height = RGA3_MIN_HEIGHT,
+>> +	/* use output size, as it's a bit smaller than the input size */
+>> +	.max_width = RGA3_MAX_OUTPUT_WIDTH,
+>> +	.max_height = RGA3_MAX_OUTPUT_HEIGHT,
+>> +	.max_scaling_factor = RGA3_MAX_SCALING_FACTOR,
+>> +	.stride_alignment = 16,
+>> +	.features = 0,
+>> +
+>> +	.setup_cmdbuf = rga3_hw_setup_cmdbuf,
+>> +	.start = rga3_hw_start,
+>> +	.handle_irq = rga3_handle_irq,
+>> +	.get_version = rga3_get_version,
+>> +	.enum_format = rga3_enum_format,
+>> +	.adjust_and_map_format = rga3_adjust_and_map_format,
+>> +};
+>> diff --git a/drivers/media/platform/rockchip/rga/rga3-hw.h b/drivers/media/platform/rockchip/rga/rga3-hw.h
+>> new file mode 100644
+>> index 0000000000000..fa16b95fb43ba
+>> --- /dev/null
+>> +++ b/drivers/media/platform/rockchip/rga/rga3-hw.h
+>> @@ -0,0 +1,190 @@
+>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>> +/*
+>> + * Copyright (C) Pengutronix e.K.
+>> + * Author: Sven Püschel <s.pueschel@pengutronix.de>
+>> + */
+>> +#ifndef __RGA3_HW_H__
+>> +#define __RGA3_HW_H__
+>> +
+>> +#include <linux/bits.h>
+>> +#include <linux/types.h>
+>> +
+>> +#define RGA3_CMDBUF_SIZE 0x2e
+>> +
+>> +#define RGA3_MIN_WIDTH 128
+>> +#define RGA3_MIN_HEIGHT 128
+>> +#define RGA3_MAX_INPUT_WIDTH (8192 - 16)
+>> +#define RGA3_MAX_INPUT_HEIGHT (8192 - 16)
+>> +#define RGA3_MAX_OUTPUT_WIDTH (8192 - 64)
+>> +#define RGA3_MAX_OUTPUT_HEIGHT (8192 - 64)
+>> +#define RGA3_MAX_SCALING_FACTOR 8
+>> +#define RGA3_RESET_TIMEOUT 1000
+>> +
+>> +/* Registers address */
+>> +/* sys reg */
+>> +#define RGA3_SYS_CTRL				0x000
+>> +#define RGA3_CMD_CTRL				0x004
+>> +#define RGA3_CMD_ADDR				0x008
+>> +#define RGA3_MI_GROUP_CTRL			0x00c
+>> +#define RGA3_ARQOS_CTRL				0x010
+>> +#define RGA3_VERSION_NUM			0x018
+>> +#define RGA3_VERSION_TIM			0x01c
+>> +#define RGA3_INT_EN				0x020
+>> +#define RGA3_INT_RAW				0x024
+>> +#define RGA3_INT_MSK				0x028
+>> +#define RGA3_INT_CLR				0x02c
+>> +#define RGA3_RO_SRST				0x030
+>> +#define RGA3_STATUS0				0x034
+>> +#define RGA3_SCAN_CNT				0x038
+>> +#define RGA3_CMD_STATE				0x040
+>> +
+>> +/* cmd reg */
+>> +#define RGA3_WIN0_RD_CTRL			0x100
+>> +#define RGA3_FIRST_CMD_REG			RGA3_WIN0_RD_CTRL
+>> +#define RGA3_WIN0_Y_BASE			0x110
+>> +#define RGA3_WIN0_U_BASE			0x114
+>> +#define RGA3_WIN0_V_BASE			0x118
+>> +#define RGA3_WIN0_VIR_STRIDE			0x11c
+>> +#define RGA3_WIN0_FBC_OFF			0x120
+>> +#define RGA3_WIN0_SRC_SIZE			0x124
+>> +#define RGA3_WIN0_ACT_OFF			0x128
+>> +#define RGA3_WIN0_ACT_SIZE			0x12c
+>> +#define RGA3_WIN0_DST_SIZE			0x130
+>> +#define RGA3_WIN0_SCL_FAC			0x134
+>> +#define RGA3_WIN0_UV_VIR_STRIDE			0x138
+>> +#define RGA3_WIN1_RD_CTRL			0x140
+>> +#define RGA3_WIN1_Y_BASE			0x150
+>> +#define RGA3_WIN1_U_BASE			0x154
+>> +#define RGA3_WIN1_V_BASE			0x158
+>> +#define RGA3_WIN1_VIR_STRIDE			0x15c
+>> +#define RGA3_WIN1_FBC_OFF			0x160
+>> +#define RGA3_WIN1_SRC_SIZE			0x164
+>> +#define RGA3_WIN1_ACT_OFF			0x168
+>> +#define RGA3_WIN1_ACT_SIZE			0x16c
+>> +#define RGA3_WIN1_DST_SIZE			0x170
+>> +#define RGA3_WIN1_SCL_FAC			0x174
+>> +#define RGA3_WIN1_UV_VIR_STRIDE			0x178
+>> +#define RGA3_OVLP_CTRL				0x180
+>> +#define RGA3_OVLP_OFF				0x184
+>> +#define RGA3_OVLP_TOP_KEY_MIN			0x188
+>> +#define RGA3_OVLP_TOP_KEY_MAX			0x18c
+>> +#define RGA3_OVLP_TOP_CTRL			0x190
+>> +#define RGA3_OVLP_BOT_CTRL			0x194
+>> +#define RGA3_OVLP_TOP_ALPHA			0x198
+>> +#define RGA3_OVLP_BOT_ALPHA			0x19c
+>> +#define RGA3_WR_CTRL				0x1a0
+>> +#define RGA3_WR_FBCE_CTRL			0x1a4
+>> +#define RGA3_WR_VIR_STRIDE			0x1a8
+>> +#define RGA3_WR_PL_VIR_STRIDE			0x1ac
+>> +#define RGA3_WR_Y_BASE				0x1b0
+>> +#define RGA3_WR_U_BASE				0x1b4
+>> +#define RGA3_WR_V_BASE				0x1b8
+>> +
+>> +/* Registers value */
+>> +#define RGA3_COLOR_FMT_YUV420		0x0
+>> +#define RGA3_COLOR_FMT_YUV422		0x1
+>> +#define RGA3_COLOR_FMT_YUV420_10B	0x2
+>> +#define RGA3_COLOR_FMT_YUV422_10B	0x3
+>> +/*
+>> + * Use memory ordering names
+>> + * instead of the datasheet naming RGB formats in big endian order
+>> + */
+>> +#define RGA3_COLOR_FMT_BGR565		0x4
+>> +#define RGA3_COLOR_FMT_BGR888		0x5
+>> +#define RGA3_COLOR_FMT_FIRST_HAS_ALPHA	RGA3_COLOR_FMT_BGRA8888
+>> +#define RGA3_COLOR_FMT_BGRA8888		0x6
+>> +#define RGA3_COLOR_FMT_LAST_OUTPUT	RGA3_COLOR_FMT_BGRA8888
+>> +/* the following are only supported as inputs */
+>> +#define RGA3_COLOR_FMT_ABGR8888		0x7
+>> +/*
+>> + * the following seem to be unnecessary,
+>> + * as they can be achieved with RB swaps
+>> + */
+>> +#define RGA3_COLOR_FMT_RGBA8888		0x8
+>> +#define RGA3_COLOR_FMT_ARGB8888		0x9
+>> +
+>> +#define RGA3_RDWR_FORMAT_SEMI_PLANAR	0x1
+>> +#define RGA3_RDWR_FORMAT_INTERLEAVED	0x2
+>> +
+>> +#define RGA3_CMD_MODE_MASTER 0x1
+>> +
+>> +#define RGA3_WIN_CSC_MODE_BT601_F 0x2
+>> +
+>> +/* RGA masks */
+>> +/* SYS_CTRL */
+>> +#define RGA3_CCLK_SRESET BIT(4)
+>> +#define RGA3_ACLK_SRESET BIT(3)
+>> +#define RGA3_CMD_MODE BIT(1)
+>> +
+>> +/* CMD_CTRL */
+>> +#define RGA3_CMD_LINE_START_PULSE BIT(0)
+>> +
+>> +/* VERSION_NUM */
+>> +#define RGA3_VERSION_NUM_MAJOR GENMASK(31, 28)
+>> +#define RGA3_VERSION_NUM_MINOR GENMASK(27, 20)
+>> +
+>> +/* INT_* */
+>> +#define RGA3_INT_FRM_DONE BIT(0)
+>> +#define RGA3_INT_DMA_READ_BUS_ERR BIT(2)
+>> +#define RGA3_INT_WIN0_FBC_DEC_ERR BIT(5)
+>> +#define RGA3_INT_WIN0_HOR_ERR BIT(6)
+>> +#define RGA3_INT_WIN0_VER_ERR BIT(7)
+>> +#define RGA3_INT_WR_VER_ERR BIT(13)
+>> +#define RGA3_INT_WR_HOR_ERR BIT(14)
+>> +#define RGA3_INT_WR_BUS_ERR BIT(15)
+>> +#define RGA3_INT_WIN0_IN_FIFO_WR_ERR BIT(16)
+>> +#define RGA3_INT_WIN0_IN_FIFO_RD_ERR BIT(17)
+>> +#define RGA3_INT_WIN0_HOR_FIFO_WR_ERR BIT(18)
+>> +#define RGA3_INT_WIN0_HOR_FIFO_RD_ERR BIT(19)
+>> +#define RGA3_INT_WIN0_VER_FIFO_WR_ERR BIT(20)
+>> +#define RGA3_INT_WIN0_VER_FIFO_RD_ERR BIT(21)
+>> +
+>> +/* RO_SRST */
+>> +#define RGA3_RO_SRST_DONE GENMASK(5, 0)
+>> +
+>> +/* *_SIZE */
+>> +#define RGA3_HEIGHT GENMASK(28, 16)
+>> +#define RGA3_WIDTH GENMASK(12, 0)
+>> +
+>> +/* SCL_FAC */
+>> +#define RGA3_SCALE_VER_FAC GENMASK(31, 16)
+>> +#define RGA3_SCALE_HOR_FAC GENMASK(15, 0)
+>> +
+>> +/* WINx_CTRL */
+>> +#define RGA3_WIN_CSC_MODE GENMASK(27, 26)
+>> +#define RGA3_WIN_R2Y BIT(25)
+>> +#define RGA3_WIN_Y2R BIT(24)
+>> +#define RGA3_WIN_SCALE_VER_UP BIT(23)
+>> +#define RGA3_WIN_SCALE_VER_BYPASS BIT(22)
+>> +#define RGA3_WIN_SCALE_HOR_UP BIT(21)
+>> +#define RGA3_WIN_SCALE_HOR_BYPASS BIT(20)
+>> +#define RGA3_WIN_YC_SWAP BIT(13)
+>> +#define RGA3_WIN_RBUV_SWAP BIT(12)
+>> +#define RGA3_WIN_RD_FORMAT GENMASK(9, 8)
+>> +#define RGA3_WIN_PIC_FORMAT GENMASK(7, 4)
+>> +#define RGA3_WIN_ENABLE BIT(0)
+>> +
+>> +/* COLOR_CTRL */
+>> +#define RGA3_OVLP_GLOBAL_ALPHA GENMASK(23, 16)
+>> +#define RGA3_OVLP_COLOR_MODE BIT(0)
+>> +
+>> +/* ALPHA_CTRL */
+>> +#define RGA3_ALPHA_SELECT_MODE BIT(4)
+>> +#define RGA3_ALPHA_BLEND_MODE GENMASK(3, 2)
+>> +
+>> +/* WR_CTRL */
+>> +#define RGA3_WR_YC_SWAP BIT(20)
+>> +#define RGA3_WR_SW_OUTSTANDING_MAX GENMASK(18, 13)
+>> +#define RGA3_WR_RBUV_SWAP BIT(12)
+>> +#define RGA3_WR_FORMAT GENMASK(9, 8)
+>> +#define RGA3_WR_PIC_FORMAT GENMASK(7, 4)
+>> +
+>> +struct rga3_fmt {
+>> +	u32 fourcc;
+>> +	u8 hw_format;
+>> +	bool rbuv_swap;
+>> +	bool yc_swap;
+>> +	bool semi_planar;
+>> +};
+>> +
+>> +#endif
 
