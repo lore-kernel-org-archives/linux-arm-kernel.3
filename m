@@ -4,81 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F6FC44503
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 11:05:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9137AC44503
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 11:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c+vBV4VT1dMjsTAU9tsfPgC8rjnBjBQSGpwb/wpSV2s=; b=LJGWZZ3jrlzUCBdhP1aWlBBibS
-	LLqWprMuvIJ9SPmKGgY1qYWCayT0FxRuSH4PAUbkNwdrDXk66iL7Oqa1G2oN8dGHQokrHRxiMHSAz
-	rjWFJfGUesG5f9lUuyHuH3tA41XuWoDp9lrIZg9qKU7jdiAA9aM24dXGUomTntcswQqQWzDC3qVv5
-	0nNcJd4keh7QM1cRw7YcfJ8+GZ/Z7t7pQupL1fF7UgkGcXlkVXaZYvoBWPveKMIP8of3Z1751mWaq
-	4g1neNJmthiF5DppI4ECW8vVt1jcB0OqM5nqvVvscLbQBYeGgB0GACla1qtoSDpJQ/42g1DqLBjaF
-	6w7gfjig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IpFNBg6OKE8D1CjFk2QPMBchV60yycsinsMWbkIh9Fk=; b=THs3KO+eaHOtf6bBTrjtCnfDth
+	OsyukQW/b6IhT1Iw1jY+NY5TKlA8+2FPCeibi/6HZImmxlShv2ACxkGnRr6myBHlQvrFdyjwtBHP0
+	kMCVyXudwsjFeqpUa4uNVskewyL7ey9rxX+LzuLzYz3Il1u4cIO8F4LEcXqmEXAbL9uKnrnq8n1iT
+	gRsxq7BP3R3GCCw2uuUz6+W+N/0BAOosdX9CbJTcMZ+mRskidGvUe3rNH1Y/PlO8Hme+bL46z3srN
+	ZzmypUplfBzfttEUSp45skqyazmDn84Iuv8+bAkEnZ+oUhMxyqsXFSjY5h+STG9qT6B4u5/4h+Rtz
+	XVAxYErQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viW1D-00000005K86-0v9E;
-	Wed, 21 Jan 2026 11:04:59 +0000
-Received: from sender4-op-o16.zoho.com ([136.143.188.16])
+	id 1viWAL-00000005KoO-1jmT;
+	Wed, 21 Jan 2026 11:14:25 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viW1B-00000005K6q-0WfP
+	id 1viWAI-00000005Ko0-1OWf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 11:04:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1768993490; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=CnmSDABxcOhHqfA89YMjM7rS8TBHbSfyJtkC0E2Ocxunxj81oT5Mznny52K1c3/HWQ1hYkV3LhIoOKxSqBXNpJOdJ29zat1+HPf5mhtt7SbE2ok93TR4YnIg/oSFp0pI7ICcrcdoK/eBE2fCKkRnVAWmvj3QsSSrf/WuRAlgHcI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1768993490; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=c+vBV4VT1dMjsTAU9tsfPgC8rjnBjBQSGpwb/wpSV2s=; 
-	b=npwVALibQKN7qOrX1A002P2CXw+xmBWvEDswr6yxXYApGVbH+NwmAusZcDCSeapkh6kKBBkQXqfSASeNAJsfSAQaeohqOWlzCGVR9EbPrvG9hQvDCRhVOF2XHLNZH7zgkLLmx8o45Hu7btXlZP/pzFhNFQZodcScSVOusPG35Lw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768993490;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=c+vBV4VT1dMjsTAU9tsfPgC8rjnBjBQSGpwb/wpSV2s=;
-	b=VwcMeXZs8A2M9bULzdko8GAaqWCwf+mUEITdtkXoVVqqJ+A5pVUTDkkPkBJE0wQZ
-	TZdJrcLTqxo41HD7j6oGYIb/DkaAoFLYQNJlnm+vbn1DKdF4GuqOOYr4dCgcDOiuxuY
-	SgehDodgCmb4wvVOjdMyI+OPkgbjhq8JJ8hDjN4k=
-Received: by mx.zohomail.com with SMTPS id 1768993486830785.6868370776832;
-	Wed, 21 Jan 2026 03:04:46 -0800 (PST)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Wed, 21 Jan 2026 18:59:13 +0800
-Subject: [PATCH 7/7] clk: sunxi-ng: Add Allwinner A733 RTC CCU support
+	Wed, 21 Jan 2026 11:14:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yyIA9j3uiFlPsoekoJoG8kLRnwGhgdISLM6Tz3WMtrq5XttjwNkwUfpn+HpXlBp2KZjDG873yoqxFCl1uyzM7AZo2UCGu07jL+cAFbyvkD5k7F19PC814DwjbN2FqsGhiGFAcKb0sn9ZiftDKKTQ9zF+UtdvzrAgQ1XIIgWTNbbIOx9nYBt10A0ye8ThaO/sitYEX2m0d33AiP3IljWyCXUPOYYcvUjAiaby4xjfBBkrHhpkA3cHT9c1j3oXXoHGnYrp9cw9G89KO7rq5y/NQlGUZPXaU/qBH03WPX1wnx+D9jhowSY88XcSUepQPJu8ZWabMwmLWGJbWyz+j3huXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IpFNBg6OKE8D1CjFk2QPMBchV60yycsinsMWbkIh9Fk=;
+ b=WPFmg3zKXebYJSmSFTWM6Xcx5UVDG9IUVQSBTFBRWuScB1MCyWt7TwBrz1xfnIn8nGd9/7JA5WuO7siEd8PsXqTyVLlRn0HUSDtw7Cw6yFbJwgem24PU9gWKIIOMP2kI/VrOT5ntOWdSe41FfUiA7hVg4WwSSK7nEuS/RXrFM0HMAv4kxePh2+T5TGdI7hVmbXpH68X2AlHCsGYMqvK5MNuCMfb0EwQC+XIc1+MqjqA5cE7/OvYZalXY7nm9mJvLQ7KGH8wzlzImwAooGLMM5dFmSgs5mwhHpgZmsdlv/z5ZUnhBOem6dlg56WQagOyYauN2Sm8rMxgVJToj69ZstQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IpFNBg6OKE8D1CjFk2QPMBchV60yycsinsMWbkIh9Fk=;
+ b=WUBRD5M864k5ijDpXdfFV6bA7NOoIYPC1KqPlgd6qj8RD2i90pCbN0MtOefyLmcGJFKq77YgUKpayBVpy0hBPR5Jrm9MR+HXDZHpHlDORmNOY3HfcNjSh8Tncx3Y8xNA3TAwYMdTIFi4wAIFXhaUMQNLKqG+pMQkx3VeEW4aP/8/HJ67d6qriNOeRsb80iLyCREzmRxuX+C5LEKvx5Ana2fMu+dfT4+3mvf/HMpGqQ3iqjDQaBslrce5iu2k2PST3sXFn6ytxOURLm2hg484h932VvgLGlv3/jtkBAnIgZcvzgCNJWi4tDE6NG/bIfOYzPnLtZ086VgPMKNIbe6hXA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by AM7PR04MB6917.eurprd04.prod.outlook.com
+ (2603:10a6:20b:109::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.6; Wed, 21 Jan
+ 2026 11:14:15 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7%5]) with mapi id 15.20.9542.008; Wed, 21 Jan 2026
+ 11:14:15 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: kernel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V2] arm64: dts: imx93-evk/qsb: add m2-pcm-level-shifter-hog to enable BT HFP
+Date: Wed, 21 Jan 2026 19:13:46 +0800
+Message-Id: <20260121111346.2598783-1-sherry.sun@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SI2PR02CA0016.apcprd02.prod.outlook.com
+ (2603:1096:4:194::9) To VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260121-a733-rtc-v1-7-d359437f23a7@pigmoral.tech>
-References: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech>
-In-Reply-To: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
- Junhui Liu <junhui.liu@pigmoral.tech>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768993386; l=10406;
- i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
- bh=XzyKX1iXhjH/xe6SwbPUU2TPiS68z964fkgnLa/Ll7U=;
- b=b3o2BSCLMzB6Z0pr+Id6k3NBkfOa2eF/19I1MilbZG3CXD9a9RyaTnEkxci/Tc9KoV401PqlJ
- 43O28YMPUdjBktQNZ+pnuzGTdv0Vd+zXnkhvII5PThTjnoTTTwFRW1a
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
- pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
-X-ZohoMailClient: External
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|AM7PR04MB6917:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8d876d37-0197-42a7-0d30-08de58de36ac
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|52116014|1800799024|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ekNNeFM5L0YxVi9OaXFaUnV2Ykh2VVJDY042azZabHJaOGNtT2pJQTliYTlr?=
+ =?utf-8?B?SE9ESWVURVZYNmxtNVViRU9tY0RTVDVpYzJDMjFhc3FEejg0UXdGWUZWYXhU?=
+ =?utf-8?B?SkpnODQvNlA1ekV0ekFVcDNWUWJkcUZ6cXZyMCtVWjdTanlDVEhWbWtwTDJD?=
+ =?utf-8?B?SGtiZ0lkd2JmWWxRUldSdkQvR2RMVmU3aVNxdUY1ZE9FS1lZbHJVN1V2em1a?=
+ =?utf-8?B?Yzc2ckZEMFdFZXJZT1VuTEI0UGxPNklmc01vY1JiL0tvbUFMQ0NMVnMreTBz?=
+ =?utf-8?B?U3BUdnZlc2xKQjdQR3BIYXdjeXE4bFpOeGtscFVvWWtsRGQ0cGZDd1Q3UmNm?=
+ =?utf-8?B?by9jWUlyVHJRNlVqOEVkeHJ0bi9KNlJITDJkSldyTXRiN1BsNjdoK3N4eGZs?=
+ =?utf-8?B?MGhqNW5UMlg4K0pJd2pFeDlxcDF2allEVmM3ZVljSVIvd3A3RmlOdXlpU0xG?=
+ =?utf-8?B?TEdielZOVlFLUThWV0w1RlNiYjBscTBoaUREUEJBNStTZ1NRVFZGb3RUUUM3?=
+ =?utf-8?B?UGxPNHhNWGU2VEZsM1NQZ00yUDBGdHdoQjZPd1dJSFN5djVZMzdEM0ExM1RJ?=
+ =?utf-8?B?WER4VUJIeDYzZVZ4U0Qra3F6QWk0QXc5dXVHOHlhaS9uQ1BOaXRWR0tHT3RU?=
+ =?utf-8?B?a0tWMXJJKzFwOEJuSDR3U3hhK01nTmd3TG9iNzMzcklmejM4WFMyTUtkalpt?=
+ =?utf-8?B?ZWFwUmhJUFA5Z2F2TmVDa2tNTjU5RWY2SStwOWxRTFQwUVhScHhsWE1iMndv?=
+ =?utf-8?B?RElDWE9CRjRqdGhSa2hxNXc1dEhLbVMzSGFGRTJtV09pc1VhY29XNU1DUnov?=
+ =?utf-8?B?MStYTmRmTDk2eFJhUFJDK0Z4OEtkQ25FekZIalQvNUZDWS9mY00xaGNtVUo0?=
+ =?utf-8?B?YVdvUTRWQWZoYmJyZU9lVjJLNXEvYmU5NXhVeDYyeVZMVHVwajZKWkhaUVor?=
+ =?utf-8?B?M1JmQzdpSk9YRzlYU2c4a3dPc2luM0xoaHdMOVViNmpxdG55SFJyckJaZERO?=
+ =?utf-8?B?T05KQ1MzV2hJaFM5TTJ0bzEwc3c2ai9qQk41WllBTHFCRTMzcHpWZEx2UDB2?=
+ =?utf-8?B?ZzU0MU1DWXdKSkhiK1pPcVo2NkR1dGQrRzRtQWR0dksxZVc2WGlicWlCaExB?=
+ =?utf-8?B?RDRMSVFlS1ZXTFJxMnRuR1kzTVVwbXFydGlvT2FCdWtadll3eVlsQkhPSk1q?=
+ =?utf-8?B?ZldjNVBmQmVGNjB3QTFqUklNYlZpOTY3YUVGME0wY0l1eHBZRnlHR0F4V0JX?=
+ =?utf-8?B?MFlUcVNaQkQxM2VjajlxTW5pS1BVOUp6cnErT0pDNlQ2SVd6cFY1UEt0R3k5?=
+ =?utf-8?B?azBRaFFPamZxdjkwTHF2SW54MFhhRWpqVWdOcWlNQjJoczROeWlrOXA5d2Zh?=
+ =?utf-8?B?UCtmeGNaQzRnQlRrOTV3cElBRVpqZXRYMVVhT2RRcy9RUjU1MlVpaGhWeHpm?=
+ =?utf-8?B?SUIvOVc2d3ZZQkVsZWtPTmlxblVtYmM1am9GZHNyODFkS1FUb0daTjFIWlNq?=
+ =?utf-8?B?L3l3VFpjNDF2elJEYzF0K1dCSy80MHZSdGxmMFVibjMvajJhY0NxakxPdmsy?=
+ =?utf-8?B?K1hoU3VEZmVRWEpBeXFEd3doK3dXN1RRN1hUUEFScjJFVE5TZ09LMGdtbk1V?=
+ =?utf-8?B?bVQ2cWJLN3NnNUlDSXZUT2ptMUNGL2JLcFVhSzdWbkhlS0l4WXFUemdsREJu?=
+ =?utf-8?B?QU55VVB1bUVsRWYzMFhCd25NbXlhc2g5c1lDdGNLRG41emJlTjhOK0x3Q3hQ?=
+ =?utf-8?B?RTdmZWhFTEkyaU1pY1BNd3JjKzc4NVZ5R0R1Zzd3RW16MkorRk9jNWtQREhx?=
+ =?utf-8?B?WEM2bTF6MUV1VUxvV2YzUzY3MlpNK0VUYTlpeEdEZ2FCWTI3YzdDSDRpNzNZ?=
+ =?utf-8?B?T3RHaEhhamlzUXJUUmp3RVpwRkFqb082UGsyd01jaWhqdzZjVkNCTUg2My9Y?=
+ =?utf-8?B?cU5tbkthek44b3o0NjRqei9zZUZDR0F3RG1nV3AvUW1hY3gwTGl0bEVPeHp3?=
+ =?utf-8?B?MkVEVUNjMHZwaysxLzBWVDJvOEpYOE1UOWhrZHl1Y2t5U3JGcW1NbHFERjRD?=
+ =?utf-8?B?YUlqblhXVlYxZytpNXpxR1dXSkt0c2tCSEF6ay9qcmtQMURmTU5LYi9GblJV?=
+ =?utf-8?B?bVZHU0pjOEFwUXJiMkhOSkN0SzZmNTlWdkxDVE4veDBHd3pGNFYxa2FDQ2JD?=
+ =?utf-8?Q?soggASP+zrAcJ/sSQVl9ObE=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(52116014)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MVBleUNFKzlhTGpVUnlTVHNPZFBlRzNDYXphdUJBeVJ0cTF4aDFWK0VxYVZI?=
+ =?utf-8?B?ZkRTWUQybER3R0o2WkRkcFRJRG96dWdwQlZNRkp0MzkweGRnRkIyeWROaG9h?=
+ =?utf-8?B?VHFyMWFqaEVSczNqQkxEOWlXdExmVzNPQlhkVmV1Q3Rzb0N2TjZlZzZCYVRS?=
+ =?utf-8?B?Q0hCdGQ3cEE5YktVdTRHR2NMWStJWjdQM295RWlic0lBMlNqa1NzNmhqbmUz?=
+ =?utf-8?B?VDRPNW5hYVlRbVpGMHc0aVdLblBnWFBlTE9rblhaOHhhVUIxeFlocHU5aUgy?=
+ =?utf-8?B?Q291V3J5SngyS0VEZDhlT3RDNVFPVTFEU0V0N29JSTNNc2lGcWViaWkyZm1L?=
+ =?utf-8?B?bXd0YjdCZDVhT1pSRUt3TDJBV2hRVEVYb1BLYS91UUNYTGJMVFE2WGhoQ3Ez?=
+ =?utf-8?B?YlpKNWY5WnJ5VHVuaUFWU08rRk0vUzZnWXlXK2hHVGdFeXZxTDRGOHgzaFdS?=
+ =?utf-8?B?cHhqS0MzdkpTcXNPRnZlUDR4Z0gyKzJqclg0Tkd0NFZseGI5N2s1Q1Y5TVIr?=
+ =?utf-8?B?ZlJ3ZnFrWDNWRnQzZlhmai9ndTIvVGgwQzF3MkkvQWRwa1BrMUIxNC9hRHpW?=
+ =?utf-8?B?eXBYcm9IM2JKOFUrdzRqZ2FlRHNNT0swY3ovVzNZZTBPK0F3WVVwRUNEVURy?=
+ =?utf-8?B?RmQzdVBRa3FOTUlJMnR3S1JCNkFVYkFBTGV1dzVXaFlKb3E0VXpkazlCQjMx?=
+ =?utf-8?B?LzhyYVVtSDcwZHQyQ3NpRnVheE9yQlY4aG4xWmhpS1dZdXMvVGh4Um5VbjUx?=
+ =?utf-8?B?TVFkU2RZazlwVEpVTEhlOXQxek11dk01QTNMeHR5czNjVnRsQmJlTjhFUFd6?=
+ =?utf-8?B?NURMK0JNd2MrNFRQbjBudlNJbW9tTFUzLzNrZWdKVTRHMVNDWjU1NDUxdGx3?=
+ =?utf-8?B?Q1V4NUx4NUF1bkNaamtxeGc2b3NJWkx3a1FpRnkyN3MzRTk5dmwrTFVXOVFl?=
+ =?utf-8?B?aGZWTCs0Z3h5Q29ad3VxdzB3K1ZVdVVHUnhKZk91T0s5TDJSck56aE5wRkM1?=
+ =?utf-8?B?b29QWlB3Qi93eW9DYkF5cmVLUXdGY2RXcXJ6RFpaQlpwSTdaR1pjZXlUaUZI?=
+ =?utf-8?B?MWtrZFVxeEZ6OXFMcjY1VHFqRnFHQmxrTVRqalZqeVMvVTFQbi9WVEJmbTcr?=
+ =?utf-8?B?YkZqMGtuSzBtVmsxYzdBV0duZ2U5TTZQM0dnMUJsMDFqbWpKWS80T0htYWlo?=
+ =?utf-8?B?MXYvRG9pdEVJbW54NGJrZUxwQ3l6azJTZ245VkdaUU9Yb1hHcmdoSituc2JG?=
+ =?utf-8?B?MjFXT0JVa2R2YlU2MWx6dXphWkRZMVROdWwwQ2JhTnI5U3lMZDBYSGVVbWVJ?=
+ =?utf-8?B?ZmlVMVB2ZVgzc0Z5U21KR2pZdzlCNU9YRE94TUFxVnRxYnR0eXhLV0tFcmpS?=
+ =?utf-8?B?bDFJUDFhL21WNnhjVGZqRWlhQzFmSWpjMGpaVVN1Q1dpK1AxdkhQejJKYWhP?=
+ =?utf-8?B?MEdSNjVaVFpKOUptdUs3cmNUYm1jVWlBcnFUQ1NYNFNoMmtPWHFiQVBzaFBX?=
+ =?utf-8?B?WEg3bDhkVG1zSzF3Q00vLzVoeDdTN0RPMEMvUWRIQjlqVUJuU29LYXhYTDB6?=
+ =?utf-8?B?aDlvN0p3L01UTml6Y2F3WDNBWWNjSjdIWUV3cnpXOEhIdFROVXJhK1B4SGQz?=
+ =?utf-8?B?NzZjTmNKV3BGR0tMSGg2b0UreXZRa1phWCtKVm8xbGdEb25DRW4ySWJ3cWJ0?=
+ =?utf-8?B?VWwwdFllQnFnRnhveUZZeDVTM3pVdjgyd1FDYVBCVFphZksxTGNqOUplOW9W?=
+ =?utf-8?B?YkIyZkJWNzI3YWxSZ09jbURBaERKd1QwbXpXS0lid2h5bTkxZlg2ejVIcGZ5?=
+ =?utf-8?B?d0JYTEtFS0R3QVk2cGlJRkZnUXFwRmkvRkNjMFhhY3M5N2ZKRXNRY2QvanBI?=
+ =?utf-8?B?bE5iWWRVVHBMUUttZlFGL1ArR2FJdk5KenBPNkhZRE1lRWNQd3RIS1d5SFZV?=
+ =?utf-8?B?STRlRVJCWjRFRjdhV21xblA0c0lQellLSFJyREpqajN4dTBSSFJhWFJSVWRG?=
+ =?utf-8?B?NXBZK0w0VzE0cVR2ZTMybEhXRGFMWC81U2ZFdm5lNkVpUkFYSWdMWVh6SXZN?=
+ =?utf-8?B?TzVmZCsyTVd5WmtTOFlodW83RmlpVGJWWWxKQzdIVzRLcUloQ3Mrc3BWejBK?=
+ =?utf-8?B?eDNwMk12SDhVbnlyYUxKUmdKaWIxN0R0dURrZnRGdWdlRUxCUlJQbjdHVVhB?=
+ =?utf-8?B?VlNSeDY0NHVXUjEzaWFNUTJ5WTVVQkNPWnRBeGthaFV2dStlSTRWTERNYzda?=
+ =?utf-8?B?WnFCOSs4blVJM0RIWVJXRVE3d0M0WWVVT0Z3SW5hSXNtRnZqOU5XbWM2Vldv?=
+ =?utf-8?B?c2pHNGpkaVZqK01GY3dkRDNKdDJzeFlxL1Q1Vmk2cHJTc0hxc0ppdz09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8d876d37-0197-42a7-0d30-08de58de36ac
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2026 11:14:15.7245
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: phUWTOvO4Ezpv2qxJTXriW3oUnpUM3gORMqiI9rX00cN8XNaxDzIlBITlgWrg+tR7lomt/75b9dVyTuGb3HMqQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6917
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_030457_227435_911BF6F5 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20260121_031422_414763_A534D64A 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,325 +186,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the internal CCU found in the RTC module of the Allwinner
-A733 SoC. While the basic 16MHz (IOSC) and 32kHz logic remains compatible
-with older SoCs like the sun6i, the A733 introduces several new features.
+For i.MX93 11x11 EVK and 9x9 QSB boards, add the gpio-hog to enable the
+M.2 PCM pins level shifter connected between soc sai1 interface and M.2
+PCM pins so that HFP feature can be supported.
 
-The A733 RTC CCU supports choosing one of three external crystal
-frequencies: 19.2MHz, 24MHz, and 26MHz. It features hardware detection
-logic to automatically identify the frequency used on the board and
-exports this DCXO signal as the "hosc" clock.
+Since the HFP is only used at a later stage — after the BT firmware has
+been downloaded and the BT connection with the remote device has been
+established — both the pcal6524 expander and sai1 interface are already
+fully initialized and available by that time. Therefore, using a
+gpio-hog here will not introduce any probe ordering or dependency issues
+for the HFP use case.
 
-Furthermore, the driver implements logic to derive a 32kHz reference
-from the HOSC. This is achieved through a muxed clock path using fixed
-pre-dividers to normalize the different crystal frequencies to ~32kHz.
-This path reuses the same hardware mux registers as the HOSC clock.
-
-Additionally, this CCU provides several gate clocks for specific
-peripherals, including SerDes, HDMI, and UFS. The driver is implemented
-as an auxiliary driver to be bound to the sun6i-rtc driver.
-
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
 ---
- drivers/clk/sunxi-ng/Kconfig               |   5 +
- drivers/clk/sunxi-ng/Makefile              |   2 +
- drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.c | 204 +++++++++++++++++++++++++++++
- drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.h |  18 +++
- drivers/clk/sunxi-ng/ccu_rtc.h             |   7 +
- 5 files changed, 236 insertions(+)
+Changes in V2:
+1. Improve the commit message to avoid confusion.
+---
+ arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts | 6 ++++++
+ arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts   | 6 ++++++
+ 2 files changed, 12 insertions(+)
 
-diff --git a/drivers/clk/sunxi-ng/Kconfig b/drivers/clk/sunxi-ng/Kconfig
-index 6af2d020e03e..16afbf249f26 100644
---- a/drivers/clk/sunxi-ng/Kconfig
-+++ b/drivers/clk/sunxi-ng/Kconfig
-@@ -67,6 +67,11 @@ config SUN55I_A523_R_CCU
- 	default ARCH_SUNXI
- 	depends on ARM64 || COMPILE_TEST
+diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts
+index 8dd5340e8141..acb160d3186c 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts
+@@ -356,6 +356,12 @@ pcal6524: gpio@22 {
+ 		#interrupt-cells = <2>;
+ 		interrupt-parent = <&gpio3>;
+ 		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
++
++		m2-pcm-level-shifter-hog {
++			gpio-hog;
++			gpios = <19 GPIO_ACTIVE_HIGH>;
++			output-high;
++		};
+ 	};
  
-+config SUN60I_A733_RTC_CCU
-+	tristate "Support for the Allwinner A733 RTC CCU"
-+	default ARCH_SUNXI
-+	depends on ARM64 || COMPILE_TEST
+ 	pmic@25 {
+diff --git a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+index 0852067eab2c..11e08673083b 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts
+@@ -349,6 +349,12 @@ mic-can-sel-hog {
+ 			gpios = <17 GPIO_ACTIVE_HIGH>;
+ 			output-low;
+ 		};
 +
- config SUN4I_A10_CCU
- 	tristate "Support for the Allwinner A10/A20 CCU"
- 	default ARCH_SUNXI
-diff --git a/drivers/clk/sunxi-ng/Makefile b/drivers/clk/sunxi-ng/Makefile
-index c3f810a025a8..b0d823440c33 100644
---- a/drivers/clk/sunxi-ng/Makefile
-+++ b/drivers/clk/sunxi-ng/Makefile
-@@ -39,6 +39,7 @@ obj-$(CONFIG_SUN50I_H616_CCU)	+= sun50i-h616-ccu.o
- obj-$(CONFIG_SUN55I_A523_CCU)	+= sun55i-a523-ccu.o
- obj-$(CONFIG_SUN55I_A523_MCU_CCU)	+= sun55i-a523-mcu-ccu.o
- obj-$(CONFIG_SUN55I_A523_R_CCU)	+= sun55i-a523-r-ccu.o
-+obj-$(CONFIG_SUN60I_A733_RTC_CCU)	+= sun60i-a733-rtc-ccu.o
- obj-$(CONFIG_SUN4I_A10_CCU)	+= sun4i-a10-ccu.o
- obj-$(CONFIG_SUN5I_CCU)		+= sun5i-ccu.o
- obj-$(CONFIG_SUN6I_A31_CCU)	+= sun6i-a31-ccu.o
-@@ -67,6 +68,7 @@ sun50i-h616-ccu-y		+= ccu-sun50i-h616.o
- sun55i-a523-ccu-y		+= ccu-sun55i-a523.o
- sun55i-a523-mcu-ccu-y		+= ccu-sun55i-a523-mcu.o
- sun55i-a523-r-ccu-y		+= ccu-sun55i-a523-r.o
-+sun60i-a733-rtc-ccu-y		+= ccu-sun60i-a733-rtc.o
- sun4i-a10-ccu-y			+= ccu-sun4i-a10.o
- sun5i-ccu-y			+= ccu-sun5i.o
- sun6i-a31-ccu-y			+= ccu-sun6i-a31.o
-diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.c b/drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.c
-new file mode 100644
-index 000000000000..d17aceffa16e
---- /dev/null
-+++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.c
-@@ -0,0 +1,204 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
-+ */
-+
-+#include <linux/array_size.h>
-+#include <linux/auxiliary_bus.h>
-+#include <linux/clk-provider.h>
-+#include <linux/device.h>
-+#include <linux/module.h>
-+
-+#include "ccu_common.h"
-+
-+#include "ccu_gate.h"
-+#include "ccu_mux.h"
-+#include "ccu_rtc.h"
-+
-+#include "ccu-sun60i-a733-rtc.h"
-+
-+static struct ccu_common iosc_clk = {
-+	.reg		= DCXO_CTRL_REG,
-+	.features	= CCU_FEATURE_IOSC_CALIBRATION,
-+	.hw.init	= CLK_HW_INIT_NO_PARENT("iosc", &ccu_iosc_ops,
-+						CLK_GET_RATE_NOCACHE),
-+};
-+
-+static struct ccu_common iosc_32k_clk = {
-+	.features	= CCU_FEATURE_IOSC_CALIBRATION,
-+	.hw.init	= CLK_HW_INIT_HW("iosc-32k", &iosc_clk.hw,
-+					 &ccu_iosc_32k_ops,
-+					 CLK_GET_RATE_NOCACHE),
-+};
-+
-+static SUNXI_CCU_GATE_FW(ext_osc32k_gate_clk, "ext-osc32k-gate",
-+			 "ext-osc32k", 0x0, BIT(4), 0);
-+
-+static const struct clk_hw *osc32k_parents[] = {
-+	&iosc_32k_clk.hw,
-+	&ext_osc32k_gate_clk.common.hw,
-+};
-+
-+static struct ccu_mux osc32k_clk = {
-+	.mux	= _SUNXI_CCU_MUX(0, 1),
-+	.common	= {
-+		.reg		= LOSC_CTRL_REG,
-+		.features	= CCU_FEATURE_KEY_FIELD,
-+		.hw.init	= CLK_HW_INIT_PARENTS_HW("osc32k",
-+							 osc32k_parents,
-+							 &ccu_mux_ops,
-+							 0),
-+	},
-+};
-+
-+static const struct clk_parent_data hosc_parents[] = {
-+	{ .fw_name = "osc24M" },
-+	{ .fw_name = "osc19M" },
-+	{ .fw_name = "osc26M" },
-+	{ .fw_name = "osc24M" },
-+};
-+
-+struct ccu_mux hosc_clk = {
-+	.enable	= DCXO_CTRL_DCXO_EN,
-+	.mux	= _SUNXI_CCU_MUX(14, 2),
-+	.common	= {
-+		.reg		= DCXO_CTRL_REG,
-+		.hw.init	= CLK_HW_INIT_PARENTS_DATA("hosc",
-+							   hosc_parents,
-+							   &ccu_mux_ro_ops,
-+							   0),
-+	},
-+};
-+
-+static const struct ccu_mux_fixed_prediv hosc_32k_predivs[] = {
-+	{ .index = 0, .div = 732 },
-+	{ .index = 1, .div = 586 },
-+	{ .index = 2, .div = 793 },
-+	{ .index = 3, .div = 732 },
-+};
-+
-+static struct ccu_mux hosc_32k_mux_clk = {
-+	.enable		= DCXO_CTRL_DCXO_EN,
-+	.mux		= {
-+		.shift		= 14,
-+		.width		= 2,
-+		.fixed_predivs	= hosc_32k_predivs,
-+		.n_predivs	= ARRAY_SIZE(hosc_32k_predivs),
-+	},
-+	.common		= {
-+		.reg		= DCXO_CTRL_REG,
-+		.features	= CCU_FEATURE_FIXED_PREDIV,
-+		.hw.init	= CLK_HW_INIT_PARENTS_DATA("hosc-32k-mux",
-+							   hosc_parents,
-+							   &ccu_mux_ro_ops,
-+							   0),
-+	},
-+};
-+
-+static SUNXI_CCU_GATE_HW(hosc_32k_clk, "hosc-32k", &hosc_32k_mux_clk.common.hw,
-+			 LOSC_OUT_GATING_REG, BIT(16), 0);
-+
-+static const struct clk_hw *rtc_32k_parents[] = {
-+	&osc32k_clk.common.hw,
-+	&hosc_32k_clk.common.hw,
-+};
-+
-+static struct ccu_mux rtc_32k_clk = {
-+	.mux	= _SUNXI_CCU_MUX(1, 1),
-+	.common	= {
-+		.reg		= LOSC_CTRL_REG,
-+		.features	= CCU_FEATURE_KEY_FIELD,
-+		.hw.init	= CLK_HW_INIT_PARENTS_HW("rtc-32k",
-+							 rtc_32k_parents,
-+							 &ccu_mux_ops,
-+							 0),
-+	},
-+};
-+
-+static const struct clk_parent_data osc32k_fanout_parents[] = {
-+	{ .hw = &osc32k_clk.common.hw },
-+	{ .hw = &ext_osc32k_gate_clk.common.hw },
-+	{ .hw = &hosc_32k_clk.common.hw },
-+};
-+
-+static SUNXI_CCU_MUX_DATA_WITH_GATE(osc32k_fanout_clk, "osc32k-fanout", osc32k_fanout_parents,
-+				    LOSC_OUT_GATING_REG,
-+				    1, 2,	/* mux */
-+				    BIT(0),	/* gate */
-+				    0);
-+
-+static SUNXI_CCU_GATE_HW(hosc_serdes1_clk, "hosc-serdes1", &hosc_clk.common.hw,
-+			 DCXO_GATING_REG, DCXO_SERDES1_GATING, 0);
-+static SUNXI_CCU_GATE_HW(hosc_serdes0_clk, "hosc-serdes0", &hosc_clk.common.hw,
-+			 DCXO_GATING_REG, DCXO_SERDES0_GATING, 0);
-+static SUNXI_CCU_GATE_HW(hosc_hdmi_clk, "hosc-hdmi", &hosc_clk.common.hw,
-+			 DCXO_GATING_REG, DCXO_HDMI_GATING, 0);
-+static SUNXI_CCU_GATE_HW(hosc_ufs_clk, "hosc-ufs", &hosc_clk.common.hw,
-+			 DCXO_GATING_REG, DCXO_UFS_GATING, 0);
-+
-+static struct ccu_common *sun60i_rtc_ccu_clks[] = {
-+	&iosc_clk,
-+	&iosc_32k_clk,
-+	&ext_osc32k_gate_clk.common,
-+	&osc32k_clk.common,
-+	&hosc_clk.common,
-+	&hosc_32k_mux_clk.common,
-+	&hosc_32k_clk.common,
-+	&rtc_32k_clk.common,
-+	&osc32k_fanout_clk.common,
-+	&hosc_serdes1_clk.common,
-+	&hosc_serdes0_clk.common,
-+	&hosc_hdmi_clk.common,
-+	&hosc_ufs_clk.common,
-+};
-+
-+static struct clk_hw_onecell_data sun60i_rtc_ccu_hw_clks = {
-+	.num = CLK_NUMBER,
-+	.hws = {
-+		[CLK_IOSC]		= &iosc_clk.hw,
-+		[CLK_OSC32K]		= &osc32k_clk.common.hw,
-+		[CLK_HOSC]		= &hosc_clk.common.hw,
-+		[CLK_RTC_32K]		= &rtc_32k_clk.common.hw,
-+		[CLK_OSC32K_FANOUT]	= &osc32k_fanout_clk.common.hw,
-+		[CLK_HOSC_SERDES1]	= &hosc_serdes1_clk.common.hw,
-+		[CLK_HOSC_SERDES0]	= &hosc_serdes0_clk.common.hw,
-+		[CLK_HOSC_HDMI]		= &hosc_hdmi_clk.common.hw,
-+		[CLK_HOSC_UFS]		= &hosc_ufs_clk.common.hw,
-+		[CLK_IOSC_32K]		= &iosc_32k_clk.hw,
-+		[CLK_EXT_OSC32K_GATE]	= &ext_osc32k_gate_clk.common.hw,
-+		[CLK_HOSC_32K_MUX]	= &hosc_32k_mux_clk.common.hw,
-+		[CLK_HOSC_32K]		= &hosc_32k_clk.common.hw,
-+	},
-+};
-+
-+static const struct sunxi_ccu_desc sun60i_rtc_ccu_desc = {
-+	.ccu_clks	= sun60i_rtc_ccu_clks,
-+	.num_ccu_clks	= ARRAY_SIZE(sun60i_rtc_ccu_clks),
-+
-+	.hw_clks	= &sun60i_rtc_ccu_hw_clks,
-+};
-+
-+static int sun60i_rtc_ccu_probe(struct auxiliary_device *adev,
-+				const struct auxiliary_device_id *id)
-+{
-+	struct device *dev = &adev->dev;
-+	void __iomem *reg = dev->platform_data;
-+
-+	return devm_sunxi_ccu_probe(dev, reg, &sun60i_rtc_ccu_desc);
-+}
-+
-+static const struct auxiliary_device_id sun60i_ccu_rtc_ids[] = {
-+	{ .name = SUN6I_RTC_AUX_ID(sun60i) },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(auxiliary, sun60i_ccu_rtc_ids);
-+
-+static struct auxiliary_driver sun60i_ccu_rtc_driver = {
-+	.probe = sun60i_rtc_ccu_probe,
-+	.id_table = sun60i_ccu_rtc_ids,
-+};
-+module_auxiliary_driver(sun60i_ccu_rtc_driver);
-+
-+MODULE_IMPORT_NS("SUNXI_CCU");
-+MODULE_DESCRIPTION("Support for the Allwinner A733 RTC CCU");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.h b/drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.h
-new file mode 100644
-index 000000000000..41ec6195b5e7
---- /dev/null
-+++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.h
-@@ -0,0 +1,18 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
-+ */
-+
-+#ifndef _CCU_SUN60I_A733_RTC_H_
-+#define _CCU_SUN60I_A733_RTC_H_
-+
-+#include <dt-bindings/clock/sun60i-a733-rtc.h>
-+
-+#define CLK_IOSC_32K		9
-+#define CLK_EXT_OSC32K_GATE	10
-+#define CLK_HOSC_32K_MUX	11
-+#define CLK_HOSC_32K		12
-+
-+#define CLK_NUMBER		(CLK_HOSC_32K + 1)
-+
-+#endif /* _CCU_SUN60I_A733_RTC_H_ */
-diff --git a/drivers/clk/sunxi-ng/ccu_rtc.h b/drivers/clk/sunxi-ng/ccu_rtc.h
-index 1c44c2206a25..665162723796 100644
---- a/drivers/clk/sunxi-ng/ccu_rtc.h
-+++ b/drivers/clk/sunxi-ng/ccu_rtc.h
-@@ -27,8 +27,15 @@
- #define LOSC_OUT_GATING_REG		0x60
++		m2-pcm-level-shifter-hog {
++			gpio-hog;
++			gpios = <19 GPIO_ACTIVE_HIGH>;
++			output-high;
++		};
+ 	};
  
- #define DCXO_CTRL_REG			0x160
-+#define DCXO_CTRL_DCXO_EN		BIT(1)
- #define DCXO_CTRL_CLK16M_RC_EN		BIT(0)
- 
-+#define DCXO_GATING_REG			0x16c
-+#define DCXO_SERDES1_GATING		BIT(5)
-+#define DCXO_SERDES0_GATING		BIT(4)
-+#define DCXO_HDMI_GATING		BIT(1)
-+#define DCXO_UFS_GATING			BIT(0)
-+
- #define SUN6I_RTC_AUX_ID(_name)		"rtc_sun6i." #_name
- 
- extern const struct clk_ops ccu_iosc_ops;
-
+ 	pmic@25 {
 -- 
-2.52.0
+2.37.1
 
 
