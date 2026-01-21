@@ -4,86 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E884C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 22:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D45C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 22:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rtnDcpt83urSnEkoGJAnSaHfcKiF5w4G5JkFsSE44zM=; b=oVPK6iD9pO1JbF7veuYv2N4pTt
-	YD8BiTx0tNt5h770d+VpmUXnjES3MYeAXLeCVO40kDc7TfLNlsYlVpIgqqOhaTM0CQkOPCFhxg3F3
-	F30/PX8eYFjLJ1IuV6gL4UpHr03J3HXR/pLtPnKlid5GjSEMYsqK/9gZwSt1V694qFUurFxDNvAmF
-	X+OJDJt3U3PBoZ0U4s51DtvQE51gYauytdpM28tpLqPZjNB2gpDNU2uvzwsKonkIqDjUx+e1cmGaB
-	3UlLLEA9etVSZi3dLBj4F/2ycPQmJ1Yjq6QdLtzjV5ikhwYXESHolrtY2fRaTYbrnEmUUmJUdXWkJ
-	RgsUsy4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pgjMJi+m/42Lvq5w641HEHT7p6jawBc1Rvrn2olmX9o=; b=M0Z/tvwGYSd5oXBnmGlbaFCgbN
+	Wlym6tkY1h6YJMzXHOJruy104YxTwpL4NNatDv4giOwcVP3lQRsWhdaW6bMP+dFnms2IFxW66yyU5
+	FsFaYb+xup/RX+/twWwa4qUHZ+F/0YbaUlHpys4nzXU8PwYUHTWcPzsrBgfknotONlhViZfvKNswC
+	f9TZDKtWwBxW/Pu0jxg5NSljhepBVPuBwaQzu4nOSsZ1m8z1WIBDhDuAYimRz/cdvSY/KlJjrrIxv
+	sgZMUagZs4ULnfc5uSHjvxucXpPAbMpgqtozyXDFB1Rx0yGZdeNaZIvyixFhqEwlr7eBMZ3JQBDKG
+	pDcyXEdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vigaO-000000066qn-3LlJ;
-	Wed, 21 Jan 2026 22:22:00 +0000
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	id 1vigpM-000000067QO-0Dy4;
+	Wed, 21 Jan 2026 22:37:28 +0000
+Received: from mail-dl1-x1229.google.com ([2607:f8b0:4864:20::1229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vigaL-000000066q4-3mHv
+	id 1vigpI-000000067Pb-2TU6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 22:21:59 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b71c5826fbso382088eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 14:21:57 -0800 (PST)
+	Wed, 21 Jan 2026 22:37:26 +0000
+Received: by mail-dl1-x1229.google.com with SMTP id a92af1059eb24-121bf277922so643729c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 14:37:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769034116; x=1769638916; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=rtnDcpt83urSnEkoGJAnSaHfcKiF5w4G5JkFsSE44zM=;
-        b=HuqZUT+Ll1XRSw1My5S11qTveVR0o2SGvnJXkz7/xldv+YgDID6wXfl+8piJXc2XTP
-         +q1WsXMATCoj7xuO7tRAHZdiy8ouxlMxTuFar/oFvJPhRlloTGBXeWVhNqfTn3j1U8ay
-         NJBinrBeOzFc1dg3q3+za26vn5qj+KH/Op9drSS5l0GlUY2qhW0wuUXiaIQ4kyCDRgor
-         /NXZ+aFvu4/aavABjr5LqcATx+8gH7b8rWmHf/B2cnccDwUJ1yBt3X1jHvokLGXkmJax
-         HGvmkbL7rZpH0ONBermadkt4o8B13XGBSPUW5fuogVu6yJwIoI9YaV9vzG/U22PvioBd
-         8WRw==
+        d=gmail.com; s=20230601; t=1769035044; x=1769639844; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pgjMJi+m/42Lvq5w641HEHT7p6jawBc1Rvrn2olmX9o=;
+        b=WFjt5JTKzwt9YrfDGOLf31IYN4LMOGnUCrWFL6F2jg6meiI7cXQ/WAIuUyLRxNOja+
+         K2xFzD5mUvSa30UZ5WmK+EASWHpJfvluS2Wk4owjEb/LzM29jFsbTS9ovDYT8MVKGfjr
+         RkX0Shjr6tI/N7uBniUbOBF9FmZwCVpuQKSnjGwEfaXo2PPuwJn/ja54iV4IwmTKA8kp
+         ABIxEbNvyncPZZZjN+l3NZxbNdB8h5v4+YcbHrq6cKl72jgdwLZT/sczhg4S/q/3FLaT
+         IAuRtRuvXYRPh+EsnhCqzQEh95ui6qwWvw7oMQZ3kxtzjst9J2HwvweLID4hxOcToZZc
+         wOIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769034116; x=1769638916;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rtnDcpt83urSnEkoGJAnSaHfcKiF5w4G5JkFsSE44zM=;
-        b=GM6bIzMNfdqRVb0iMNK500+34/ulfFs9ll87Pqemw5qX1IUmADBpmzeK9Eo+wyUj9H
-         AKpfziF1RFcZga+GzFAbOLRb4ivSHz38n+3W2QPK6pSYUmwKn+/+HbmFRQSnn6cKhMG6
-         20XKVhLYr4vhyXpEvZn+bO784kyEB+KKnqeBkXleiAQRPkuQCkAonKL/wtyYhK7UFDkx
-         JU7FWbWdFNVZgNDQtxAp4nFNzJngq5D5roF+e0O4RhXEnMDGxMKPrmVMiFZOV+2ZOBip
-         kp9u8k5bAhzwPWs9EYVUP6HrMGZ7HyOR0iistUHfX/Mitr9QNEeW8orcQUIRtMtivgJW
-         SQmA==
-X-Forwarded-Encrypted: i=1; AJvYcCWS+ihJnLQidQ7HIp67c5purUT4R+SsG+SpXsd83SU+Dla731KPBT9YECciv0KMEjYetc1hGO0SshqzqbWt9GYk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrQ7QDcYiEpXnEQnnWyNCWY6+WCsia5hXfRqD02/1C/Xwqok4A
-	B1+UBcd/aLHKOrJXoZPXYzX2n6Su4504oKv7tEVs36l2qJFqBISXbFx5Sq6FA8ufkSVa8nOhDim
-	INnNYQw==
-X-Received: from dycoz10.prod.google.com ([2002:a05:7301:fc8a:b0:2b7:2358:5b16])
- (user=royluo job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:df4c:b0:2ae:5db9:f32c
- with SMTP id 5a478bee46e88-2b6b40f34cdmr12582763eec.26.1769034116342; Wed, 21
- Jan 2026 14:21:56 -0800 (PST)
-Date: Wed, 21 Jan 2026 22:21:34 +0000
-Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAG1RcWkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDQyND3bzUihLdJEsTS0MLy+TE5DQTJaDSgqLUtMwKsDHRSiAVSrG1tQA 37UCWXAAAAA==
-X-Change-Id: 20260121-next-b949189cacf4
-X-Developer-Key: i=royluo@google.com; a=ed25519; pk=nTq1n8WcJActRWe1s8jdcy+TzpTK4a+IYRCIWvQfq5k=
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769034114; l=1355;
- i=royluo@google.com; s=20251120; h=from:subject:message-id;
- bh=F06bzrwrKY1rSDEzs1cPBYIVqqftHmJQ7diTsid8rvM=; b=ikH3G/1gJWuSsn1ES9rUIQWPKBJIvgAS08dh4f0vn+tdcYO2Ps2/dtYWDFK1qXN2Ng1NP+g2A
- lSWhYVr/JBqDxzvA7x7Zn6t/4BJ2IcCcEcaorPdQyviKCwvn2CnJeai
-X-Mailer: b4 0.14.2
-Message-ID: <20260121-next-v1-1-c18068b091b9@google.com>
-Subject: [PATCH next] phy: google: fix build dependency for Google Tensor USB PHY
-From: Roy Luo <royluo@google.com>
-To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, 
-	"=?utf-8?q?Andr=C3=A9_Draszik?=" <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
-Cc: linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	kernel test robot <lkp@intel.com>, Roy Luo <royluo@google.com>
-Content-Type: text/plain; charset="utf-8"
+        d=1e100.net; s=20230601; t=1769035044; x=1769639844;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pgjMJi+m/42Lvq5w641HEHT7p6jawBc1Rvrn2olmX9o=;
+        b=OXSPY4R58dLm7q5it0FUhW/7ywRsfzXR9sLd/BOlYf+DjZXSyEvY5VNwDIx/cToXX+
+         C3sc9/WDD2Ll8rgG5XFknjW+UzpYTCVfIOSD4hES4HnaFBKQJU154RtJFhwK4WB81iUG
+         9KxOQVA/TbpjDqPyO0bePAGOzbzKaYAieQeelCD6Je0LUTi2b7ybPa4S4enDfOCnSFFE
+         70VyubA2ENehoYrBhhOaPn4SuY3TJSE4923eWeL72+mrO3GIB7/F1rK2qakOIY+qHIhZ
+         VxJzaDAfFRWgnuot04c2brsi+6kbzNd89DjFIf6hsbsNb8N34QCJuYrX699lEEMuwWMl
+         B5tw==
+X-Forwarded-Encrypted: i=1; AJvYcCUMFAMTggJcxhg/0VqLQ04SoVwncSI5j1vjYXYyl9MyDsX7mSx7wcV1zb1EjTeZZhxYTewUCqPffdp+t+loXQfi@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGxHmfZCRrWksjguPdrTTDXlmcRHkIVOWNczFT7X6SHNd1dIxI
+	N0K8mstJMRtJpVWc1Lw2GEWUzCeNsQFPzDn4IsOHoaLvsEjdADoYGQCZ
+X-Gm-Gg: AZuq6aK9Fam+z+apw1tNJi6YCAKnqJDMFwyMNc3/HrP7oGq+QBhx4+1+Q0QaqJ+/Zzs
+	bi6M/YiD8J1o7FqlKh9RW5qnZLgLVsk/+mZpfRY/6PXrXJkiLMpZ/17eoKA6QrJyO6KzfAiZCsq
+	A93hOm8I1yP5IKbyPz7YacXDDamJvqNtfwiabHsVz1DnBTenyxwczQgHW0F/DwJOipa0Ph6E4ye
+	dyx9hIRc5+Bu5e+tZej2waEUw2UbK1nf9/t5YagCi6BLEufZDedAEy3y1u4RNxKoRylAZgvZN7G
+	lsWJv0yI/tPgHaO3hq8BEnfcsWJtMx7ykbDEEOofjSRQXSPeQMeq1W0ZcSws9KYILTd1Z5D+21q
+	iDe880zyrZD3EslN/I+9KKlhBns0RjPE1rSaGswFRaiHoDIN5ZkSz2qSvvgLVWoUZ+NIkWk6IpJ
+	iDnFx08slGnQ==
+X-Received: by 2002:a05:7300:8b14:b0:2ae:5555:4880 with SMTP id 5a478bee46e88-2b6b4713257mr14102244eec.13.1769035043476;
+        Wed, 21 Jan 2026 14:37:23 -0800 (PST)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b70d7f729bsm6725736eec.16.2026.01.21.14.37.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Jan 2026 14:37:23 -0800 (PST)
+Date: Thu, 22 Jan 2026 06:37:12 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>, 
+	"Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Inochi Amaoto <inochiama@gmail.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Richard Cochran <richardcochran@gmail.com>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Yao Zi <ziyao@disroot.org>, 
+	Yanteng Si <siyanteng@cqsoftware.com.cn>, Vladimir Oltean <vladimir.oltean@nxp.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>, Shangjuan Wei <weishangjuan@eswincomputing.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Boon Khai Ng <boon.khai.ng@altera.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Quentin Schulz <quentin.schulz@cherry.de>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v2 3/3] net: stmmac: Add glue layer for Spacemit
+ K3 SoC
+Message-ID: <aXFVAoChTPZhjnGu@inochi.infowork>
+References: <20260121071315.940130-1-inochiama@gmail.com>
+ <20260121071315.940130-4-inochiama@gmail.com>
+ <aXDBCsfaNrgfGjNK@shell.armlinux.org.uk>
+ <73bf2977-ad1a-45fa-9b06-5df083c060a8@lunn.ch>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <73bf2977-ad1a-45fa-9b06-5df083c060a8@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_142157_934845_53534180 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20260121_143724_629702_10BD370F 
+X-CRM114-Status: GOOD (  24.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,42 +118,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Google Tensor USB PHY driver uses the Type-C switch framework to
-handle orientation changes. However, the Kconfig did not specify a
-dependency on the TYPEC framework, leading to undefined reference
-errors when building for architectures or configurations where
-CONFIG_TYPEC is disabled or configured as a module.
+On Wed, Jan 21, 2026 at 02:45:24PM +0100, Andrew Lunn wrote:
+> On Wed, Jan 21, 2026 at 12:05:30PM +0000, Russell King (Oracle) wrote:
+> > On Wed, Jan 21, 2026 at 03:13:11PM +0800, Inochi Amaoto wrote:
+> > > +	mask = RGMII_RX_DLINE_STEP | RGMII_TX_DLINE_CODE | RGMII_TX_DLINE_EN |
+> > > +	       RGMII_TX_DLINE_STEP | RGMII_RX_DLINE_CODE | RGMII_RX_DLINE_EN;
+> > > +	val = FIELD_PREP(RGMII_TX_DLINE_STEP, tx_config) |
+> > > +	      FIELD_PREP(RGMII_TX_DLINE_CODE, tx_code) | RGMII_TX_DLINE_EN |
+> > > +	      FIELD_PREP(RGMII_RX_DLINE_STEP, rx_config) |
+> > > +	      FIELD_PREP(RGMII_RX_DLINE_CODE, rx_code) | RGMII_RX_DLINE_EN;
+> > 
+> > So your reply where you basically stated that all the RGMII.*DLINE.*
+> > constants here should be the same was nonsense. How can we trust your
+> > replies?
+> > 
+> > > +static int spacemit_dwmac_fix_delay(struct plat_stmmacenet_data *plat_dat,
+> > > +				    struct regmap *apmu,
+> > > +				    unsigned int dline_offset,
+> > > +				    unsigned int tx_delay, unsigned int rx_delay)
+> > > +{
+> > > +	bool mac_rxid = rx_delay != 0;
+> > > +	bool mac_txid = tx_delay != 0;
+> > > +	unsigned int rx_config = 0;
+> > > +	unsigned int tx_config = 0;
+> > > +	int rx_code;
+> > > +	int tx_code;
+> > > +
+> > > +	plat_dat->phy_interface = phy_fix_phy_mode_for_mac_delays(plat_dat->phy_interface,
+> > > +								  mac_txid,
+> > > +								  mac_rxid);
+> > 
+> > Maybe Andrew can confirm, but this function was to fix up existing
+> > broken DT, and shouldn't be used by brand new drivers.
+> 
+> Hi Russell, thanks for pointing this out.
+> 
+> This function should not be used in this case. MAC drivers in general
+> only add small delays, in order to do fine tuning. The PHY adds the
+> 2ns delay. There are however some MACs who cannot disable their 2ns
+> delay, or have historically been broken, and add 2ns delay. In such
+> cases, the phy_interface passed to the PHY needs masking, to indicate
+> the PHY should not add the 2ns delays. That is what this function
+> does.
+> 
+> Please don't call it. Pass phy_interface as is to the PHY.
+> 
 
-Add 'depends on TYPEC' to the PHY_GOOGLE_USB entry to ensure all
-required symbols are available during linking.
+Great, I will remove this call and pass the phy_interface.
 
-Fixes: cbce66669c82 ("phy: Add Google Tensor SoC USB PHY driver")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202601210825.ELrpQeED-lkp@intel.com/
-Signed-off-by: Roy Luo <royluo@google.com>
----
- drivers/phy/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 142e7b0ef2efb9209781800ee47b820a91b115ae..5531ff31d8156cb164c32e3e52d4a57b26a62d8d 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -49,6 +49,7 @@ config GENERIC_PHY_MIPI_DPHY
- 
- config PHY_GOOGLE_USB
- 	tristate "Google Tensor SoC USB PHY driver"
-+	depends on TYPEC
- 	select GENERIC_PHY
- 	help
- 	  Enable support for the USB PHY on Google Tensor SoCs, starting with
-
----
-base-commit: 8bb92fd7a04077925c8330f46a6ab44c80ca59f4
-change-id: 20260121-next-b949189cacf4
-
-Best regards,
--- 
-Roy Luo <royluo@google.com>
-
+Regards,
+Inochi
 
