@@ -4,63 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE43C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61836D2ED14
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=14apFWlhTvQWEip5MNwPcJWLuMTuD4gZOFiejLL2siY=; b=jkuzn8SsMFKAqDDMP7+k1b+ZNN
-	Nt/B+EtStCGvMLE+RBz1zG2D8X2tbYZXNaOEPlRIymXlgeVztB00uozarJePsx+jyA5sc7S5bPvP4
-	pHLDtDvAO9DRH5Ib4e98Vx2cyXJFVx6jB/PHOHRVr+r8x9GYibn6Lz/9bldhcarrtgcaZ2NdwTH6K
-	+IlqmtN3j5qHo02CMmCN/YIDDiCqAEkqHUwJBU7ezpPn5QgjU2gLDNTCdzqUAb91C19iPArHj6pIB
-	tLXmg3QezGRj8/C+iywX7ASoiJpHWXkXT8W36FCMvqaC70WjkjqV41h97Y2dtyjirx0cfRvYJ32Dr
-	4/W6xD1g==;
+	bh=CY+vv/MrpcwOTHsV3g7FZLymN0ZyqaIzwy8SL7fj158=; b=LwF7DT+3nY3WNWbxP0n4oeTHqW
+	SsIlWpKfgvXSe6leLkQ6qNo1CdjVITau8k5fIdgZtNo5u/WBJz0HNXrOKvM7XwTpoYMoq6llZhcWS
+	u0FHKS9/674xC5wT5koneeEylU7pc+8yMcEM1NLZHtBQZnGklKearSFwQS39AcKhRuiJDJ07puSLP
+	bTiDbPpTLDh7MrFc1ryTtluQsI+nk1r3Xa4J610jN76QOAHTyFi96yH+gR8y8uXBZE/5g/1EDr3FL
+	aej0B9zKcY3Nnbs1x/qZsPFKzpdC91wQ2g0Ed00ZF70JhnmCNLjlTCeX6bmgHcT4k6KM7gvADy/TX
+	9cug2S1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZ9K-00000005b2T-2XxF;
-	Wed, 21 Jan 2026 14:25:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1viZBZ-00000005bLv-3eTq;
+	Wed, 21 Jan 2026 14:27:53 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZ9H-00000005b1J-0vGB
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 14:25:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A54C840A2E;
-	Wed, 21 Jan 2026 14:25:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CD83C4CEF1;
-	Wed, 21 Jan 2026 14:25:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769005530;
-	bh=g+4h2F0GqeJM+ILBcEzEWRvalmeCX7blFWNfkF0KDHg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uazv6lAWX5j9HF1yfT3oYBr4JyvwLdoX/BYVlxM0k4Ng1VVODKKG61g19NKt259yl
-	 JMAFPADXGN3YMXHQgum34PyUric6g0KAjQrs71+emhwN0gYkz290hqF+VLvAkPu/pF
-	 Mv1SJnmzycPljh0yQd67++YWsz5J4RBVGVYRa7nvRCuJGKaZ0pqGe1KKyHF7tgik3P
-	 fG1uAK4JGC0ShpaNCO5Ck00lzuQjymCmkgrSBNDzNhjzXUmV4Z4UkeIoJM0pn2JfFp
-	 yc/bjp8C0zyZl3BuX4RZ2skfaKIry6scz5U+WSn8QSucDwkonmZDX4sKLhYCFKznnz
-	 ZFtr3HwApVXAQ==
-Date: Wed, 21 Jan 2026 22:25:26 +0800
-From: Shawn Guo <shawnguo@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Linus Walleij <linusw@kernel.org>, kernel@pengutronix.de,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH] MAINTAINERS: Replace Shawn with Frank as i.MX platform
- maintainer
-Message-ID: <aXDh1tc3x4aCZG0z@dragon>
-References: <20260121142047.10887-1-shawnguo@kernel.org>
+	id 1viZBV-00000005bKR-0R3F;
+	Wed, 21 Jan 2026 14:27:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769005670; x=1800541670;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5ZRWs9xXfr5MhLjyldecu1D79f6ZK8VE+HPThNMbI60=;
+  b=ldwr5LKnJzX0WTnWtPB0i+oQTuGTSafgA435W9Urnv0+qcDFlxnoF28D
+   xN60IzxG+bGXXt9SCYaxzQUZxqTcJDX7pf+zaU6YA++2TN6JePNVHjWEu
+   s/brbVucaRWoU6kvdMKeHQVifRs6EA5qHIfV8FtNE300fKv2ejqJ6Chna
+   1jscR3/5GBm2sooVJJoS7ppJI/Jd+Rmud0h+D1POh3iAuwyzx8Il05dIq
+   hh0QU52KCT9IWSe+u7AXzbecu6z+dTcX5JG0vQKP4zvD3hTZtqtOhOQMu
+   aOZWpJxiZMzUj3+Oiq+ZXVzmXgJSYHVRxOvq8UCG0Q0L4/26wg0kOV+vO
+   w==;
+X-CSE-ConnectionGUID: IKXeD1mvStCJOKtfT2wCVQ==
+X-CSE-MsgGUID: Kxl2HW9VQSyYRH1mR3igiA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11678"; a="69250471"
+X-IronPort-AV: E=Sophos;i="6.21,242,1763452800"; 
+   d="scan'208";a="69250471"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2026 06:27:46 -0800
+X-CSE-ConnectionGUID: dJMZTeArSL6jW6aZnJH4tw==
+X-CSE-MsgGUID: hTxK/I4iQfqddwbWYKkhgA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,242,1763452800"; 
+   d="scan'208";a="206888102"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 21 Jan 2026 06:27:41 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1viZBJ-00000000RIj-2tQ5;
+	Wed, 21 Jan 2026 14:27:37 +0000
+Date: Wed, 21 Jan 2026 22:27:14 +0800
+From: kernel test robot <lkp@intel.com>
+To: Detlev Casanova <detlev.casanova@collabora.com>,
+	linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	linux-media@vger.kernel.org,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Ricardo Ribalda <ribalda@chromium.org>,
+	Hans Verkuil <hverkuil@xs4all.nl>, Yunke Cao <yunkec@google.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Pavan Bobba <opensource206@gmail.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	James Cowgill <james.cowgill@blaize.com>,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Diederik de Haas <didi.debian@cknow.org>
+Subject: Re: [PATCH v9 15/17] media: rkvdec: Add H264 support for the VDPU383
+ variant
+Message-ID: <202601211924.rqKS2Ihm-lkp@intel.com>
+References: <20260120222018.404741-16-detlev.casanova@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260121142047.10887-1-shawnguo@kernel.org>
+In-Reply-To: <20260120222018.404741-16-detlev.casanova@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_062531_295379_F34FDA8E 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20260121_062749_503726_27D3F4FE 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,85 +106,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cc Frank
+Hi Detlev,
 
-On Wed, Jan 21, 2026 at 10:20:47PM +0800, Shawn Guo wrote:
-> Shawn is no longer interested in maintaining i.MX platform, and would like
-> to step down.  On the other hand, Frank seems to be the best successor
-> for this role.
-> 
->  - He has been one of the most outstanding contributors to i.MX platform
->    in the recent years.
-> 
->  - He has been actively working as a co-maintainer reviewing i.MX
->    patches and keep the platform support in good shape.
-> 
->  - He works for NXP and could be the bridge and coordinator between
->    NXP internal developers and community contributors.
-> 
-> Signed-off-by: Shawn Guo <shawnguo@kernel.org>
-> ---
->  MAINTAINERS | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 5b11839cba9d..a294b4e952a9 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2745,14 +2745,14 @@ F:	arch/arm/include/asm/hardware/dec21285.h
->  F:	arch/arm/mach-footbridge/
->  
->  ARM/FREESCALE IMX / MXC ARM ARCHITECTURE
-> -M:	Shawn Guo <shawnguo@kernel.org>
-> +M:	Frank Li <Frank.Li@nxp.com>
->  M:	Sascha Hauer <s.hauer@pengutronix.de>
->  R:	Pengutronix Kernel Team <kernel@pengutronix.de>
->  R:	Fabio Estevam <festevam@gmail.com>
->  L:	imx@lists.linux.dev
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
-> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git
-> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git
->  F:	Documentation/devicetree/bindings/firmware/fsl*
->  F:	Documentation/devicetree/bindings/firmware/nxp*
->  F:	arch/arm/boot/dts/nxp/imx/
-> @@ -2767,22 +2767,22 @@ N:	mxs
->  N:	\bmxc[^\d]
->  
->  ARM/FREESCALE LAYERSCAPE ARM ARCHITECTURE
-> -M:	Shawn Guo <shawnguo@kernel.org>
-> +M:	Frank Li <Frank.Li@nxp.com>
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
-> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git
-> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git
->  F:	arch/arm/boot/dts/nxp/ls/
->  F:	arch/arm64/boot/dts/freescale/fsl-*
->  F:	arch/arm64/boot/dts/freescale/qoriq-*
->  
->  ARM/FREESCALE VYBRID ARM ARCHITECTURE
-> -M:	Shawn Guo <shawnguo@kernel.org>
-> +M:	Frank Li <Frank.Li@nxp.com>
->  M:	Sascha Hauer <s.hauer@pengutronix.de>
->  R:	Pengutronix Kernel Team <kernel@pengutronix.de>
->  R:	Stefan Agner <stefan@agner.ch>
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
-> -T:	git git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git
-> +T:	git git://git.kernel.org/pub/scm/linux/kernel/git/frank.li/linux.git
->  F:	arch/arm/boot/dts/nxp/vf/
->  F:	arch/arm/mach-imx/*vf610*
->  
-> @@ -20562,7 +20562,7 @@ F:	drivers/pinctrl/pinctrl-amd.c
->  PIN CONTROLLER - FREESCALE
->  M:	Dong Aisheng <aisheng.dong@nxp.com>
->  M:	Fabio Estevam <festevam@gmail.com>
-> -M:	Shawn Guo <shawnguo@kernel.org>
-> +M:	Frank Li <Frank.Li@nxp.com>
->  M:	Jacky Bai <ping.bai@nxp.com>
->  R:	Pengutronix Kernel Team <kernel@pengutronix.de>
->  R:	NXP S32 Linux Team <s32@nxp.com>
-> -- 
-> 2.43.0
-> 
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on rockchip/for-next]
+[also build test WARNING on linuxtv-media-pending/master media-tree/master linus/master v6.19-rc6 next-20260120]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Detlev-Casanova/media-uapi-HEVC-Add-v4l2_ctrl_hevc_ext_sps_-ls-t_rps-controls/20260121-071026
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git for-next
+patch link:    https://lore.kernel.org/r/20260120222018.404741-16-detlev.casanova%40collabora.com
+patch subject: [PATCH v9 15/17] media: rkvdec: Add H264 support for the VDPU383 variant
+config: loongarch-allmodconfig (https://download.01.org/0day-ci/archive/20260121/202601211924.rqKS2Ihm-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260121/202601211924.rqKS2Ihm-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601211924.rqKS2Ihm-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c:485:12: warning: stack frame size (2064) exceeds limit (2048) in 'rkvdec_h264_run' [-Wframe-larger-than]
+     485 | static int rkvdec_h264_run(struct rkvdec_ctx *ctx)
+         |            ^
+   1 warning generated.
+
+
+vim +/rkvdec_h264_run +485 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
+
+   484	
+ > 485	static int rkvdec_h264_run(struct rkvdec_ctx *ctx)
+   486	{
+   487		struct v4l2_h264_reflist_builder reflist_builder;
+   488		struct rkvdec_dev *rkvdec = ctx->dev;
+   489		struct rkvdec_h264_ctx *h264_ctx = ctx->priv;
+   490		struct rkvdec_h264_run run;
+   491		struct rkvdec_h264_priv_tbl *tbl = h264_ctx->priv_tbl.cpu;
+   492		u32 timeout_threshold;
+   493	
+   494		rkvdec_h264_run_preamble(ctx, &run);
+   495	
+   496		/* Build the P/B{0,1} ref lists. */
+   497		v4l2_h264_init_reflist_builder(&reflist_builder, run.decode_params,
+   498					       run.sps, run.decode_params->dpb);
+   499		v4l2_h264_build_p_ref_list(&reflist_builder, h264_ctx->reflists.p);
+   500		v4l2_h264_build_b_ref_lists(&reflist_builder, h264_ctx->reflists.b0,
+   501					    h264_ctx->reflists.b1);
+   502	
+   503		assemble_hw_scaling_list(&run, &tbl->scaling_list);
+   504		assemble_hw_pps(ctx, &run);
+   505		lookup_ref_buf_idx(ctx, &run);
+   506		assemble_hw_rps(&reflist_builder, &run, &h264_ctx->reflists, &tbl->rps);
+   507	
+   508		config_registers(ctx, &run);
+   509	
+   510		rkvdec_run_postamble(ctx, &run.base);
+   511	
+   512		timeout_threshold = h264_ctx->regs.common.reg013_core_timeout_threshold;
+   513		rkvdec_schedule_watchdog(rkvdec, timeout_threshold);
+   514	
+   515		/* Start decoding! */
+   516		writel(timeout_threshold, rkvdec->link + VDPU383_LINK_TIMEOUT_THRESHOLD);
+   517		writel(0, rkvdec->link + VDPU383_LINK_IP_ENABLE);
+   518		writel(VDPU383_DEC_E_BIT, rkvdec->link + VDPU383_LINK_DEC_ENABLE);
+   519	
+   520		return 0;
+   521	}
+   522	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
