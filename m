@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD35DD2629F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 02:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C7ED2629F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 02:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OkU8ApuroSqbVEJzvRcYGONePcixpVi5puZ7bfkSA6E=; b=D6nzlMxoMGTK+GFff1LzGWjG9r
-	mglaUm0pQdie8kSxpopNnBCXkqSNpvKan3r2riPZbJXPjbi1I1N9VpkIQqPb7NhDlCNG8KypHxuWu
-	ooTmLLHCQjEEeq8U4KbGzwtJKXrEQQPM9Y6vlfpJFueXgNJw1d6m0Flx1/yv4iutxYkSe23TTZ3jb
-	275b0F7JWjkXhY61Abng98rEPJ07PCC7drpTm06+EjGPtg52Tv6ZX2Ir4BFVBeXj0EQe8VOpzLcCG
-	97k+VU8J4tICJHZdz6GDbqT+Q7Dk21UQ1W3QzuHo/N+JjYvGW6LlBLSgb3AKzDyYry/bpnqtigvZ+
-	rDmkZ2YQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=px66oAjk4XaqMxJ6LP/bn8wEYOzMSxyTszaBJt3RpgU=; b=iULRWEfJRBVAObmk+VGeEmbN/T
+	EzMJn/E5vSoAn+rYH8z65piQjIOScUQd5AgKJuO7WOlfoHKU2f6SAQ2auxTpeQ6laIQIAEwjOfV5Y
+	hmxxKfwxRGZ0SxlXtqZOKMUjk/UTp9CP5WXNBSR3ZljN8CxAXNQf6Q7KLRB/8D7G0jTQeyqqC7WX1
+	cLccg89GAlpcV6TMO444X23LBM6U50b4Su6gnIeQFj8QeNAKKvePMjiq3S6m5LMcyUlrNFM0rdnLV
+	Q7IyxPej2ayKFyK7Asz1eNYl8Z3EmzqWhFm+iuA7BPT/j8865rJ//2qTg//8R1sDkFf1J0ul12IFP
+	NkMHnuIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNdr-00000004kpL-3bqZ;
-	Wed, 21 Jan 2026 02:08:19 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1viNfH-00000004kxJ-29S3;
+	Wed, 21 Jan 2026 02:09:47 +0000
+Received: from mail-m81244.xmail.ntesmail.com ([156.224.81.244])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNdk-00000004knv-0QHy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 02:08:19 +0000
-Received: from pendragon.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id F067E2D7;
-	Wed, 21 Jan 2026 03:07:38 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1768961259;
-	bh=9c/Vyx5uG8NjX9q2/14qV8q/mnJjh/fI6PuZbTidzmo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JCf/KKFbao+idj7P0iGL05QQZgAsf1ct1/3HWhGXgrFaeRiK1vDIBDR5oMba8jpBN
-	 GqCpRmSpWLjx5MJSfmF3OMiTAtK8G75skCftCGyegj9vGgpi6dagsGtWHh3ABj1DPO
-	 Mc3dUzZLZE3G62hVpUi/1wTIg7BgK13XWve7S22g=
-Date: Wed, 21 Jan 2026 04:08:08 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Steve Longerbeam <slongerbeam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v2 3/5] media: staging: media: imx6-mipi-csi2: use
- devm_clk_bulk_get_all() to fetch clocks
-Message-ID: <20260121020808.GG403250@killaraus>
-References: <20260116-stage-csi2-cleanup-v2-0-a56e9cb25196@nxp.com>
- <20260116-stage-csi2-cleanup-v2-3-a56e9cb25196@nxp.com>
+	id 1viNfE-00000004kwn-092x;
+	Wed, 21 Jan 2026 02:09:46 +0000
+Received: from [172.16.12.14] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3160079c9;
+	Wed, 21 Jan 2026 10:09:36 +0800 (GMT+08:00)
+Message-ID: <07082578-f56a-4ad2-9ea0-a4ef20a86cfe@rock-chips.com>
+Date: Wed, 21 Jan 2026 10:09:35 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260116-stage-csi2-cleanup-v2-3-a56e9cb25196@nxp.com>
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/2] arm64: dts: rockchip: Add rk3576 evb2 board
+To: Chaoyi Chen <kernel@airkyi.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Quentin Schulz <quentin.schulz@cherry.de>, Jonas Karlman <jonas@kwiboo.se>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>, Hsun Lai <i@chainsx.cn>,
+ John Clark <inindev@gmail.com>, Jimmy Hon <honyuenkwun@gmail.com>,
+ Dragan Simic <dsimic@manjaro.org>,
+ Michael Riesch <michael.riesch@collabora.com>,
+ Peter Robinson <pbrobinson@gmail.com>, Alexey Charkov <alchark@gmail.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Andy Yan <andy.yan@rock-chips.com>
+References: <20260121015357.291-1-kernel@airkyi.com>
+ <20260121015357.291-3-kernel@airkyi.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20260121015357.291-3-kernel@airkyi.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9bde507f6a09cckunm61165221ae686c
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ08eHVZCSRlLT01LTUoeSBpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=OTnBNxqLyT/ATGNdjWCVeQIbbGmNGD7G2Ag2Ri6UofQbwdtTkPS4Zr3WTt/ADmgt3INO+I0u/ui36nmRIORe5sDY3KtB3nBbGrFJRMP5ssqP23UuNzAa/k/bgDT5u+rIUl+6rHblHuYH/D4F/2Lae628Bq6b6Yo/ynvPGPHzKyE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=px66oAjk4XaqMxJ6LP/bn8wEYOzMSxyTszaBJt3RpgU=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_180812_284934_FB4DA112 
-X-CRM114-Status: GOOD (  26.22  )
+X-CRM114-CacheID: sfid-20260120_180944_684097_BF6F5521 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,169 +81,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 11:17:58AM -0500, Frank Li wrote:
-> Use devm_clk_bulk_get_all_enabled() helper to simplify clock handling.
+在 2026/01/21 星期三 9:53, Chaoyi Chen 写道:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 > 
-> Defer all clock prepare and enable to csi2_start(), which previous only
-> enable pix clock here.
+> General features for rk3576 evb2 board:
+>      - Rockchip RK3576
+>      - LPDDR4/4X
+>      - eMMC5.1
+>      - RK806-2x2pcs + DiscretePower
+>      - 1x HDMI2.1 TX / HDMI2.0 RX
+>      - 1x full size DP1.4 TX (Only 2 Lanes)
+>      - 2x 10/100/1000M Ethernet
+>      - 5x SATA3.0 7Pin Slot
+>      - 2x USB3.2 Gen1 Host
+>      - 3x USB2.0 Host
+>      - WIFI/BT
+>      - ...
 > 
-> Add clk_enable at log_status().
+> Tested with eMMC/SDMMC/HDMI/USB/Ethernet/WIFI/BT module.
 > 
-> Do that safely because there are not register access before csi2_start().
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> Reviewed-by: Alexey Charkov <alchark@gmail.com>
 > ---
-> changes in v2
-> - add clk_bulk_prepare_enable() get at csi2_log_status()
-> ---
->  drivers/staging/media/imx/imx6-mipi-csi2.c | 57 +++++++++---------------------
->  1 file changed, 16 insertions(+), 41 deletions(-)
-> 
-> diff --git a/drivers/staging/media/imx/imx6-mipi-csi2.c b/drivers/staging/media/imx/imx6-mipi-csi2.c
-> index 4f740170d2bbf586ac0a58b5d25f8f8432e9e6a3..e1b4b7fb53131ce9515b9441d8fc420e85d3e993 100644
-> --- a/drivers/staging/media/imx/imx6-mipi-csi2.c
-> +++ b/drivers/staging/media/imx/imx6-mipi-csi2.c
-> @@ -39,9 +39,8 @@ struct csi2_dev {
->  	struct v4l2_subdev sd;
->  	struct v4l2_async_notifier notifier;
->  	struct media_pad pad[CSI2_NUM_PADS];
-> -	struct clk *dphy_clk;
-> -	struct clk *pllref_clk;
-> -	struct clk *pix_clk; /* what is this? */
-> +	struct clk_bulk_data *clks;
-> +	int num_clks;
->  	void __iomem *base;
->  
->  	struct v4l2_subdev *remote;
-> @@ -343,7 +342,7 @@ static int csi2_start(struct csi2_dev *csi2)
->  	unsigned int lanes;
->  	int ret;
->  
-> -	ret = clk_prepare_enable(csi2->pix_clk);
-> +	ret = clk_bulk_prepare_enable(csi2->num_clks, csi2->clks);
->  	if (ret)
->  		return ret;
->  
-> @@ -390,7 +389,7 @@ static int csi2_start(struct csi2_dev *csi2)
->  err_assert_reset:
->  	csi2_enable(csi2, false);
->  err_disable_clk:
-> -	clk_disable_unprepare(csi2->pix_clk);
-> +	clk_bulk_disable_unprepare(csi2->num_clks, csi2->clks);
->  	return ret;
->  }
->  
-> @@ -401,7 +400,7 @@ static void csi2_stop(struct csi2_dev *csi2)
->  	v4l2_subdev_call(csi2->src_sd, video, post_streamoff);
->  
->  	csi2_enable(csi2, false);
-> -	clk_disable_unprepare(csi2->pix_clk);
-> +	clk_bulk_disable_unprepare(csi2->num_clks, csi2->clks);
->  }
->  
->  /*
-> @@ -570,6 +569,11 @@ static int csi2_registered(struct v4l2_subdev *sd)
->  static int csi2_log_status(struct v4l2_subdev *sd)
->  {
->  	struct csi2_dev *csi2 = sd_to_dev(sd);
-> +	int ret;
-> +
-> +	ret = clk_bulk_prepare_enable(csi2->num_clks, csi2->clks);
-> +	if (ret)
-> +		return ret;
->  
->  	v4l2_info(sd, "-----MIPI CSI status-----\n");
->  	v4l2_info(sd, "VERSION: 0x%x\n",
-> @@ -601,6 +605,8 @@ static int csi2_log_status(struct v4l2_subdev *sd)
->  	v4l2_info(sd, "PHY_TST_CTRL1: 0x%x\n",
->  		  readl(csi2->base + CSI2_PHY_TST_CTRL1));
->  
-> +	clk_bulk_disable_unprepare(csi2->num_clks, csi2->clks);
-> +
->  	return 0;
->  }
->  
-> @@ -749,24 +755,6 @@ static int csi2_probe(struct platform_device *pdev)
->  	if (ret)
->  		return ret;
->  
-> -	csi2->pllref_clk = devm_clk_get(&pdev->dev, "ref");
-> -	if (IS_ERR(csi2->pllref_clk)) {
-> -		v4l2_err(&csi2->sd, "failed to get pll reference clock\n");
-> -		return PTR_ERR(csi2->pllref_clk);
-> -	}
-> -
-> -	csi2->dphy_clk = devm_clk_get(&pdev->dev, "dphy");
-> -	if (IS_ERR(csi2->dphy_clk)) {
-> -		v4l2_err(&csi2->sd, "failed to get dphy clock\n");
-> -		return PTR_ERR(csi2->dphy_clk);
-> -	}
-> -
-> -	csi2->pix_clk = devm_clk_get(&pdev->dev, "pix");
-> -	if (IS_ERR(csi2->pix_clk)) {
-> -		v4l2_err(&csi2->sd, "failed to get pixel clock\n");
-> -		return PTR_ERR(csi2->pix_clk);
-> -	}
-> -
->  	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
->  	if (!res) {
->  		v4l2_err(&csi2->sd, "failed to get platform resources\n");
-> @@ -781,20 +769,12 @@ static int csi2_probe(struct platform_device *pdev)
->  	if (ret)
->  		return ret;
->  
-> -	ret = clk_prepare_enable(csi2->pllref_clk);
-> -	if (ret) {
-> -		v4l2_err(&csi2->sd, "failed to enable pllref_clk\n");
-> -		return ret;
-> -	}
-> -
-> -	ret = clk_prepare_enable(csi2->dphy_clk);
-> -	if (ret) {
-> -		v4l2_err(&csi2->sd, "failed to enable dphy_clk\n");
-> -		goto pllref_off;
-> -	}
-> -
->  	platform_set_drvdata(pdev, &csi2->sd);
->  
-> +	csi2->num_clks = devm_clk_bulk_get_all(&pdev->dev, &csi2->clks);
-> +	if (csi2->num_clks < 0)
-> +		return dev_err_probe(&pdev->dev, csi2->num_clks, "Failed to get clocks\n");
 
-I'm still really not a fan of devm_clk_bulk_get_all(). I would prefer
-using clk_bulk_get(). The rest looks fine, although I would have split
-this patch in two, one to switch to the bulk API, and one to move
-enabling/disabling of the clocks.
-
-Ah, no, there's one clock that's already enabled at start time, so a
-single patch is fine.
+---8<----
 
 > +
->  	ret = csi2_async_register(csi2);
->  	if (ret)
->  		goto clean_notifier;
-> @@ -804,9 +784,6 @@ static int csi2_probe(struct platform_device *pdev)
->  clean_notifier:
->  	v4l2_async_nf_unregister(&csi2->notifier);
->  	v4l2_async_nf_cleanup(&csi2->notifier);
-> -	clk_disable_unprepare(csi2->dphy_clk);
-> -pllref_off:
-> -	clk_disable_unprepare(csi2->pllref_clk);
->  	return ret;
->  }
->  
-> @@ -818,8 +795,6 @@ static void csi2_remove(struct platform_device *pdev)
->  	v4l2_async_nf_unregister(&csi2->notifier);
->  	v4l2_async_nf_cleanup(&csi2->notifier);
->  	v4l2_async_unregister_subdev(sd);
-> -	clk_disable_unprepare(csi2->dphy_clk);
-> -	clk_disable_unprepare(csi2->pllref_clk);
->  	media_entity_cleanup(&sd->entity);
->  }
->  
+> +&sdio {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	bus-width = <4>;
+> +	cap-sd-highspeed;
+> +	cap-sdio-irq;
+> +	disable-wp;
 
--- 
-Regards,
+disable-wp is not used for SDIO case, could be removed.
 
-Laurent Pinchart
+
+> +	keep-power-in-suspend;
+> +	max-frequency = <150000000>;
+> +	mmc-pwrseq = <&sdio_pwrseq>;
+> +	no-sd;
+> +	no-mmc;
+> +	non-removable;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&sdmmc1m0_bus4 &sdmmc1m0_clk &sdmmc1m0_cmd>;
+> +	sd-uhs-sdr104;
+> +	status = "okay";
+> +
+> +	brcmf: wifi@1 {
+> +		compatible = "brcm,bcm4329-fmac";
+> +		reg = <1>;
+> +		interrupt-parent = <&gpio0>;
+> +		interrupts = <RK_PB0 IRQ_TYPE_LEVEL_HIGH>;
+> +		interrupt-names = "host-wake";
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&wifi_host_wake>;
+> +	};
+> +};
+> +
+> +&sdhci {
+> +	bus-width = <8>;
+> +	full-pwr-cycle-in-suspend;
+> +	mmc-hs400-1_8v;
+> +	mmc-hs400-enhanced-strobe;
+> +	no-sdio;
+> +	no-sd;
+> +	non-removable;
+> +	status = "okay";
+> +};
+> +
+> +&sdmmc {
+> +	bus-width = <4>;
+> +	cap-sd-highspeed;
+> +	cd-gpios = <&gpio0 RK_PA7 GPIO_ACTIVE_LOW>;
+> +	disable-wp;
+> +	no-sdio;
+> +	no-mmc;
+> +	sd-uhs-sdr104;
+> +	vqmmc-supply = <&vccio_sd_s0>;
+
+Should use vmmc-supply to contrl the power, the same as EVB1[1].
+
+[1] 
+https://lore.kernel.org/linux-rockchip/1768524932-163929-5-git-send-email-shawn.lin@rock-chips.com/T/#u
+
+> +	status = "okay";
+> +};
+> +
+> +&u2phy0 {
+> +	status = "okay";
+> +};
+> +
+
+
 
