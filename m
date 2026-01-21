@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FAAC44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 23:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E8AC44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 23:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/6fUF2fRjlnHh50Def4PZDDzQGCOnWfyeU9+GdnK46s=; b=2ziJ/5Wx1P+JxGowgBNmvY+sHq
-	A6k6eHvL/p+jCznov5dUUNF946gVZazIASjYoeHN+V6a6LHr8BlmBVIX3NTOqBca9Zk1ysrUeA2xu
-	aQDhi0U9ShFj51rltNx28lbyyDIa/pjQE6vJnYGIvT1EN52JULZ0tIsYzSPTEwD6azw+PaKuBnk5e
-	7sTz7BO8PHqRqVlezOX2a4i7U773viXQSkAzz8xtJezo7cxfBTQh3BbOCXGr+QKZP3IUtwvSxux9M
-	2fHg9WNL3ZWBZYCG5Ve1F8bjpzw8fvQhG4MxB2duI056RmRcSbkiryUX2GGjEdzHUnVJeKn8m+mn0
-	8IomSBkA==;
+	bh=myZj2s9sKZSBACOxD4WjfRlty/Ygw6vJDPmcoScV2+A=; b=fhEmDfA7l2+ICkm2lXczFSlk3G
+	HNvCbepFL2kRyK8EWTLe5cdZfD1VkE1GpiZt8QzDV4RGuaSJwt5S4EROdFqNBXbOx0LG6B5XHdykp
+	gtx0uMVDtkG6hDZEipo7tiKBoURM47tlTxxpc9zTjShbe9H63QqFNS2TNC33gpjdFcCSATpuPIElg
+	B/OjVbrZHpd2S4wKEzq4ukAd5ZFHxTOhHH1XLI+61Tj1rtnwj6C0p/B4tO2xhjqibShS9nRt7j3AK
+	fGV+2xBry/MNIFBFTW3raNGvmdD35vwgp9t0uz8gGBcjRuvyPq8unqduLHIYtoNdNXCq3S62xbhVf
+	f4KanE8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vihSe-000000069dn-27Ll;
-	Wed, 21 Jan 2026 23:18:04 +0000
+	id 1vihSd-000000069dS-3vcd;
+	Wed, 21 Jan 2026 23:18:03 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vihSb-000000069bq-25Xj;
+	id 1vihSb-000000069bp-0r42;
 	Wed, 21 Jan 2026 23:18:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1769037479;
-	bh=IOkGky72ycSVKMWdQ5+E2JdTAcFkDJyoVCA3jgsd9d8=;
+	s=mail; t=1769037478;
+	bh=dpoYWqd1QmnsLx6bOVdrexg1n+TySTa7C5ZjTOClS1o=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KDlAI0/N8uL4N6MWF1dSwO221qrr991GSLn0purSrQ6KqqCqLVFzIbU/HSGfe6vXv
-	 imBMqqa86BOIPsT0b9DeSH3Rb2JNpeqKtzfoxhZPPDnE/GSm0YrQ++L4xmVDYMQFyw
-	 zBFS45utIT8b5+FRrGWrPW/EHy/Tu976Ddr1MQZlGS9+80Mp564ErDu0Iqo8qAxPF5
-	 uK3W85kBGm2q2EA8//FTKfalHkdeazprWOtfLtas67khUvX6okCW/56wIa4Glupr9m
-	 E4V8O1JIPp5UJ1a8KxTHjiMXNo/jR+oHLmdnl/3c6nyrPLX4riRJH+Ss2lNH2iJMMM
-	 6xGOvsi9LJGzw==
+	b=WmkOCjlmRtLu+l8Km1N1C2KS7UYRCQ5tK4kqWH1VIyahTF1slmQOsO24HtsXeZjhi
+	 2x3mzkXhN01byqHSVVJI2y79y63qxIpiYPJc8+FKpUyvXsoYp9Ch1zeXl+6HkVYf4g
+	 Rp6hzYcueD758rI/cx4HSOviiQNVRsKvZe7d0grpqRacx6UlktRHD7l4pIbN9n/x/p
+	 Gs8fG579QoHbKHwlmLtWNBz1MJut0imOSvho0jpvOmZtSR666WH+QIK3/VAHV+oUCA
+	 Kr6ElGZWWOh3bQIJS8oZ7UMmOcPmqOS+SgeiS5VMATX3+23VusB0fQWeMuuBxzNidk
+	 qySt14u09YTLg==
 Received: from localhost (unknown [82.79.138.145])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 102E717E138B;
-	Thu, 22 Jan 2026 00:17:59 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 442B117E1389;
+	Thu, 22 Jan 2026 00:17:58 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 22 Jan 2026 01:17:35 +0200
-Subject: [PATCH 2/6] drm/rockchip: dw_dp: Switch to drmm_kzalloc()
+Date: Thu, 22 Jan 2026 01:17:34 +0200
+Subject: [PATCH 1/6] drm/rockchip: inno-hdmi: Switch to drmm_kzalloc()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260122-drm-rk-fixes-v1-2-3942f185750e@collabora.com>
+Message-Id: <20260122-drm-rk-fixes-v1-1-3942f185750e@collabora.com>
 References: <20260122-drm-rk-fixes-v1-0-3942f185750e@collabora.com>
 In-Reply-To: <20260122-drm-rk-fixes-v1-0-3942f185750e@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -65,8 +65,8 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_151801_708573_FD053087 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20260121_151801_423701_989AAD3B 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +99,31 @@ use-after-free.
 Ensure driver's internal structure is still reachable on encoder cleanup
 by switching from a device-managed allocation to a drm-managed one.
 
-Fixes: d68ba7bac955 ("drm/rockchip: Add RK3588 DPTX output support")
+Fixes: 969325a2597e ("drm/rockchip: inno-hdmi: Convert to drm bridge")
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 3 ++-
+ drivers/gpu/drm/rockchip/inno_hdmi-rockchip.c | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index 25ab4e46301e..98d97e0f3cf4 100644
---- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-@@ -13,6 +13,7 @@
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_bridge.h>
+diff --git a/drivers/gpu/drm/rockchip/inno_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/inno_hdmi-rockchip.c
+index 97c20500f790..28e6fb09aae7 100644
+--- a/drivers/gpu/drm/rockchip/inno_hdmi-rockchip.c
++++ b/drivers/gpu/drm/rockchip/inno_hdmi-rockchip.c
+@@ -14,6 +14,7 @@
+ 
+ #include <drm/bridge/inno_hdmi.h>
  #include <drm/drm_bridge_connector.h>
 +#include <drm/drm_managed.h>
  #include <drm/drm_of.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
-@@ -82,7 +83,7 @@ static int dw_dp_rockchip_bind(struct device *dev, struct device *master, void *
- 	struct drm_connector *connector;
+ 
+ #include "rockchip_drm_drv.h"
+@@ -90,7 +91,7 @@ static int inno_hdmi_rockchip_bind(struct device *dev, struct device *master, vo
+ 	const struct inno_hdmi_plat_data *plat_data;
  	int ret;
  
--	dp = devm_kzalloc(dev, sizeof(*dp), GFP_KERNEL);
-+	dp = drmm_kzalloc(drm_dev, sizeof(*dp), GFP_KERNEL);
- 	if (!dp)
+-	hdmi = devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
++	hdmi = drmm_kzalloc(drm, sizeof(*hdmi), GFP_KERNEL);
+ 	if (!hdmi)
  		return -ENOMEM;
  
 
