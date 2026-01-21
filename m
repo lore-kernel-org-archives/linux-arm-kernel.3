@@ -4,52 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6731C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 14:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A602BD46942
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 15:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aAIHljqGY2xLxWGi2l5ZUOWi2PRSE7BWQN/paPrVg64=; b=vvy+dF8HxZp9INicdfxke4g3q4
-	InFKE4+SKKjgCg4DJA+f5roBI8s7X5MOApUqrOn9pWaPORfei3aB6tUQvQnraROkUGrQTV1+M3f0H
-	rah6g5vmSBlB6BTh79syV4dNW+woi5LAzLm/8Xcj2qA60HoFBMvDBrW7zqNaBLxDtIDGsMFOF9qy1
-	HCz2WJtsIPAIVG1mEYkslbfG2TCNzSapjJhJzMz/UlULg2P5pibtXQlGu4qrS6mVZBTaYoQs6bmKj
-	Wcs8x6hv+5lOFhjqNgRxyrCVQ3PV9zZ64V3jtqO1W7tWf72v1wLRce/N28rspqCcLuj4MqNFpYX0O
-	AFJu+FPQ==;
+	bh=8cq3lPpsU9NuHmxxQ6Gl9R0Ngrgj00dbe7YLgPdsZR0=; b=zafbuGZxPKGxbBxpuxqKWqwe1j
+	HWNftgYfJnhFirFufU1ImivzjSxSrjS/rcRcqR3YzW1e16dDA6Ij5aJlYiL3iE8xjOHij3qXjtzUN
+	0bBty8EDe9MYWcfnCcbTpq51bjIly1+UnEsZZ5isomK3XkyAxNvjh2Kw2xIUfcGTgkNBnTn93+r6c
+	Gctmc8SPhwyNqAsG36bvqzb+mY3vtkuY3nEQbg7iqriE+daqNYhwlPUaeRNyEEDkcXGDVg7FSUOKS
+	cRsSo3kko9w366bQ9dp45ThSmcH4azMm9U/00DtoJvx+eInoby9LpGB4RDcOcAaGoArDfYUZTduht
+	M23VU8NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZgE-00000005h2Y-3Pa4;
-	Wed, 21 Jan 2026 14:59:34 +0000
+	id 1viZrU-00000005hSd-4ApB;
+	Wed, 21 Jan 2026 15:11:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viZgC-00000005h22-139T
+	id 1viZrS-00000005hSD-0v8C
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 14:59:33 +0000
+	Wed, 21 Jan 2026 15:11:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 260C81476;
-	Wed, 21 Jan 2026 06:59:20 -0800 (PST)
-Received: from [10.57.49.179] (unknown [10.57.49.179])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 004DA3F632;
-	Wed, 21 Jan 2026 06:59:24 -0800 (PST)
-Message-ID: <4f4b9dd9-02ed-4899-b17d-24415e50e5c3@arm.com>
-Date: Wed, 21 Jan 2026 15:59:22 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EEF4D1476;
+	Wed, 21 Jan 2026 07:10:59 -0800 (PST)
+Received: from [10.1.196.85] (e121345-lin.cambridge.arm.com [10.1.196.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 897FF3F632;
+	Wed, 21 Jan 2026 07:11:04 -0800 (PST)
+Message-ID: <56506bb7-89ff-4b7a-9cb3-42f6ecf4dc6a@arm.com>
+Date: Wed, 21 Jan 2026 15:11:03 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64: poe: fix stale POR_EL0 values for ptrace
-To: Joey Gouly <joey.gouly@arm.com>, linux-arm-kernel@lists.infradead.org
-Cc: david.spickett@arm.com, mark.rutland@arm.com, stable@vger.kernel.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-References: <20260121135639.1835784-1-joey.gouly@arm.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
+Subject: Re: [PATCH] iommu/arm-smmu-qcom: do not register driver in probe()
+To: Danilo Krummrich <dakr@kernel.org>, gregkh@linuxfoundation.org,
+ rafael@kernel.org, broonie@kernel.org, will@kernel.org, joro@8bytes.org,
+ robin.clark@oss.qualcomm.com, hanguidong02@gmail.com,
+ quic_c_gdjako@quicinc.com, dmitry.baryshkov@oss.qualcomm.com
+Cc: driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-arm-msm@vger.kernel.org
+References: <20260121141215.29658-1-dakr@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
 Content-Language: en-GB
-In-Reply-To: <20260121135639.1835784-1-joey.gouly@arm.com>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20260121141215.29658-1-dakr@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_065932_394577_44C7D944 
-X-CRM114-Status: GOOD (  22.24  )
+X-CRM114-CacheID: sfid-20260121_071110_324064_99460F47 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,95 +68,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/01/2026 14:56, Joey Gouly wrote:
-> If a process wrote to POR_EL0 and then crashed before a context switch
-> happened, the coredump would contain an incorrect value for POR_EL0.
+On 21/01/2026 2:12 pm, Danilo Krummrich wrote:
+> Commit 0b4eeee2876f ("iommu/arm-smmu-qcom: Register the TBU driver in
+> qcom_smmu_impl_init") intended to also probe the TBU driver when
+> CONFIG_ARM_SMMU_QCOM_DEBUG is disabled, but also moved the corresponding
+> platform_driver_register() call into qcom_smmu_impl_init() which is
+> called from arm_smmu_device_probe().
+> 
+> However, it neither makes sense to register drivers from probe()
+> callbacks of other drivers, nor does the driver core allow registering
+> drivers with a device lock already being held.
+> 
+> The latter was revealed by commit dc23806a7c47 ("driver core: enforce
+> device_lock for driver_match_device()") leading to a deadlock condition
+> described in [1].
+> 
+> Additionally, it was noted by Robin that the current approach is
+> potentially racy with async probe [2].
 
-Isn't that also a problem if using ptrace(PTRACE_GETREGSET, REGSET_POE)?
-Just like for fpsimd, etc.
+On third look, the current lack of unregister, when it can end up in a 
+module which (theoretically) supports unloading, is also sketchy :)
 
-> The value read in poe_get() would be a stale value left in thread.por_el0.  Fix
-> this by reading the value from the system register, if the target thread is the
-> current thread.
->
-> This matches what gcs/fpsimd do.
->
-> Fixes: 175198199262 ("arm64/ptrace: add support for FEAT_POE")
-> Reported-by: David Spickett <david.spickett@arm.com>
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Joey Gouly <joey.gouly@arm.com>
-> Cc: Kevin Brodsky <kevin.brodsky@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> ---
->  arch/arm64/include/asm/por.h | 2 ++
->  arch/arm64/kernel/process.c  | 7 ++++++-
->  arch/arm64/kernel/ptrace.c   | 5 +++++
->  3 files changed, 13 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/include/asm/por.h b/arch/arm64/include/asm/por.h
-> index d913d5b529e4..46f1356837e2 100644
-> --- a/arch/arm64/include/asm/por.h
-> +++ b/arch/arm64/include/asm/por.h
-> @@ -31,4 +31,6 @@ static inline bool por_elx_allows_exec(u64 por, u8 pkey)
->  	return perm & POE_X;
->  }
->  
-> +void poe_preserve_current_state(void);
-> +
->  #endif /* _ASM_ARM64_POR_H */
-> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-> index 489554931231..400182099784 100644
-> --- a/arch/arm64/kernel/process.c
-> +++ b/arch/arm64/kernel/process.c
-> @@ -665,12 +665,17 @@ static int do_set_tsc_mode(unsigned int val)
->  	return 0;
->  }
->  
-> +void poe_preserve_current_state(void)
-> +{
-> +	current->thread.por_el0 = read_sysreg_s(SYS_POR_EL0);
-> +}
-> +
->  static void permission_overlay_switch(struct task_struct *next)
->  {
->  	if (!system_supports_poe())
->  		return;
->  
-> -	current->thread.por_el0 = read_sysreg_s(SYS_POR_EL0);
-> +	poe_preserve_current_state();
->  	if (current->thread.por_el0 != next->thread.por_el0) {
->  		write_sysreg_s(next->thread.por_el0, SYS_POR_EL0);
->  		/*
-> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-> index b9bdd83fbbca..276d8ee630cd 100644
-> --- a/arch/arm64/kernel/ptrace.c
-> +++ b/arch/arm64/kernel/ptrace.c
-> @@ -37,6 +37,7 @@
->  #include <asm/gcs.h>
->  #include <asm/mte.h>
->  #include <asm/pointer_auth.h>
-> +#include <asm/por.h>
->  #include <asm/stacktrace.h>
->  #include <asm/syscall.h>
->  #include <asm/traps.h>
-> @@ -1486,6 +1487,10 @@ static int poe_get(struct task_struct *target,
->  	if (!system_supports_poe())
->  		return -EINVAL;
->  
-> +	if (target == current) {
-> +		poe_preserve_current_state();
-> +	}
+> Hence, fix this by registering the qcom_smmu_tbu_driver from
+> module_init(). Unfortunately, due to the vendoring of the driver, this
+> requires an indirection through arm-smmu-impl.c.
+ >
+> Reported-by: Mark Brown <broonie@kernel.org>
+> Closes: https://lore.kernel.org/lkml/7ae38e31-ef31-43ad-9106-7c76ea0e8596@sirena.org.uk/
+> Link: https://lore.kernel.org/lkml/DFU7CEPUSG9A.1KKGVW4HIPMSH@kernel.org/ [1]
+> Link: https://lore.kernel.org/lkml/0c0d3707-9ea5-44f9-88a1-a65c62e3df8d@arm.com/ [2]
+> Fixes: dc23806a7c47 ("driver core: enforce device_lock for driver_match_device()")
+> Fixes: 0b4eeee2876f ("iommu/arm-smmu-qcom: Register the TBU driver in qcom_smmu_impl_init")
+> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
 
-Nit: no need for {}.
+Looks OK to me, thanks Danilo!
 
-Otherwise:
-
-Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-
-- Kevin
-
-> +
->  	return membuf_write(&to, &target->thread.por_el0,
->  			    sizeof(target->thread.por_el0));
->  }
+Acked-by: Robin Murphy <robin.murphy@arm.com>
 
