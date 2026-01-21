@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31A71C44503
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 11:03:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32C86C44503
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 11:03:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8lJlN0ug6yApIS1+JqeiBezclov7WidFA1UiDZN5V9U=; b=0PnPAspA/h60hE
-	KkZuVab5LVGLW8HkXKNbBy9IZahG+1CtILTyfPvRmNXW8FQIswM1i/jiOn/AAx4fU7TLVEavyFW5e
-	D1HKCzzl3f0tMjucdxlOKXY5tMqbbqTaZ1RpsKtVE5pibS4ZS+CiQCN8jIcARw+lvREoch+h60aZy
-	cJt4u7WA3YLZX7k5L0F/Ri82PP/sCMXZkDUDAV/2e+COpbUV5mp5iCJABb8GufF3pJfpKXvqbBs42
-	NB2bYqPzqmi1mnWPpNSzuSbVR+oVX3yj1gzQQC4brv3oJkPgoz6+uY3zrwBIz+hGLsg9b9NRP//Bn
-	UQL+PF+to8cUBmjBB62g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wy04XAmCKMPl7NSQXKqkGhuam6Urng2cs2pZpGeZnEw=; b=alD51Be53Om4Qr7JIKAsydOxQF
+	cxwwYdpxGxjAg01W6UgS+21v/NRDa1t5O8da9lEScVWpOQPHj4cyMCwDsYWrhBiQTw7WIJAFD2pgF
+	bYv7FOuiaWSvboz239tLVljqrZEfEhKFV+G5j2n7rFcWk6kOoyeZbQ1TCL1ob8CRlKx9C9ahqL16u
+	gKwHs6pixyKEqyKmeG3zf2CPj3pSaEgu9A66TnOZ1G/F6JdoA9dQJGvYQNUQ+hUYjiqSKY+9zlY28
+	IpR5MXERieyT+O2K/XXtF/F78WM3V+s2JZyxXruM9GPhUzjO9MZtr/vEJbychyJ1+XyMa7ywTGvY/
+	vBNLlLXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viVzr-00000005Jf3-3jQY;
-	Wed, 21 Jan 2026 11:03:35 +0000
+	id 1viW01-00000005Jgg-0mc0;
+	Wed, 21 Jan 2026 11:03:45 +0000
 Received: from sender4-op-o16.zoho.com ([136.143.188.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viVzp-00000005Jec-0hi1
+	id 1viVzy-00000005JgD-1Ojh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 11:03:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1768993399; cv=none; 
+	Wed, 21 Jan 2026 11:03:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1768993411; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=NxKL92tnsCo6rQLAN9YJNpmmDqvjzt9U4JGe1g7aiwG6AjuvGgMM29zvZN/UuDwVNO4xTRmPvnlbr8Qto9c9vhvO2S5CC2UtaOih6qsYSsNfga1i9DNekZ2zxCTw1VhxEgDXimU0wk8IBBKBq/skYtAinjucySgx5SXuzqV0fgk=
+	b=jMX5cUVOd6K11rH+ruCUDSkyR1Bahv+y4wCNnUtdJtfnPzPTdHSVWp6vCtytGaNH5F8LpJsbn1sNYDRXnps7+qMmZm11LKS7/7zf4Xmo4lLCpAMVhAT06NnfXEEPV9qyxvZQKR4VT+wWqOBREXXz1v/TactnXGpxec4ZCTE3qkk=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1768993399; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=8lJlN0ug6yApIS1+JqeiBezclov7WidFA1UiDZN5V9U=; 
-	b=efPAjUeiloqUEzONBIcm104uCSYV+Jd7sosEuBvl055uP86GX+KZ5U5CcrcDoRu/hoalQGfjvTbIMHU+zQ2To0W6S39JMHRXpNRaJDepCFAkLjqTv5oP2XUAbgOFgszsV/8NKx3x5p5vn0VlM0++W/sWGd7TJrTcHOHnNaW4OAM=
+	t=1768993411; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Wy04XAmCKMPl7NSQXKqkGhuam6Urng2cs2pZpGeZnEw=; 
+	b=U6Z2QUsbWQ/5Ia1uzbqgkG1ZjNt6uT6e9NNeGb1wbFwFp3asMqtgHfBJGcWmnhcWzqlAzWzdDKJLptrCvl5nIxGj3vaw7tRArDOoc+EVFxYynP0KRinS6ZoKxXn7PsY8rxq7lFanRLt5BL9Biqyi4FHbtfWLLyrP7RN/d4sZgPY=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=pigmoral.tech;
 	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
 	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768993399;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1768993411;
 	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=8lJlN0ug6yApIS1+JqeiBezclov7WidFA1UiDZN5V9U=;
-	b=CjTbgVW8EfrZNxEdESlIHMgnfutX4+6+3f+to8Kp/yx9l8lYvD0k/iIaEY7tKavc
-	pV1m/d6wIrZhRyffdyPIuS4bNTGdSuQuMaU8H68vrRDYsUXj08unjWBHyba0IwvLdBA
-	ce4qJoMXPMrfRcPX8j1hSk9KeAzGC4O7NGe9UNMg=
-Received: by mx.zohomail.com with SMTPS id 1768993396228245.11544303994697;
-	Wed, 21 Jan 2026 03:03:16 -0800 (PST)
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=Wy04XAmCKMPl7NSQXKqkGhuam6Urng2cs2pZpGeZnEw=;
+	b=pChYFRqlT8PNsDosS1Hc3NkVL/6iHYsE7XTwMtI55pusKLZ2sT9w1+b4JHPuwfEk
+	ZU31ZxS9nQY3m5WnxFZqWWW42etIQkFlTckMBIfw6niNlZpHSN5pJsNllkCNh8KjA4P
+	5EXAHGxJWqjM92AgA5KAvdY6cmZw1mxTo6mZmNMQ=
+Received: by mx.zohomail.com with SMTPS id 1768993407771767.779557047111;
+	Wed, 21 Jan 2026 03:03:27 -0800 (PST)
 From: Junhui Liu <junhui.liu@pigmoral.tech>
-Subject: [PATCH 0/7] rtc: sun6i: Add support for Allwinner A733 SoC
-Date: Wed, 21 Jan 2026 18:59:06 +0800
-Message-Id: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech>
+Date: Wed, 21 Jan 2026 18:59:07 +0800
+Subject: [PATCH 1/7] dt-bindings: rtc: sun6i: Add Allwinner A733 support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1NDIyMz3URzY2PdopJk3WRTQzPzlDRDk1SzVCWg8oKi1LTMCrBR0bG1tQB
- d2m3lWgAAAA==
-X-Change-ID: 20251226-a733-rtc-c5167df14e6e
+Message-Id: <20260121-a733-rtc-v1-1-d359437f23a7@pigmoral.tech>
+References: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech>
+In-Reply-To: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech>
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
  Jernej Skrabec <jernej.skrabec@gmail.com>, 
@@ -70,17 +68,17 @@ Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
  Junhui Liu <junhui.liu@pigmoral.tech>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1768993386; l=2495;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1768993386; l=3681;
  i=junhui.liu@pigmoral.tech; s=20251228; h=from:subject:message-id;
- bh=ChAE11uB2J9P96UiiuYNslcAUUgF4nuthjgSsDtHVF0=;
- b=bBFnSuz+/bl9OC2UgQWtIVt3n7YgeDUpeh8pSxTE8n661CU44HU8TTshZjDZ6+L6/JWiLFmCR
- fqRC/Pat1bsAJ5yrD039wyRQNtfu1ddmLFoVDYojR9IhQvWwLmeUqQG
+ bh=FwhOWdAgFS7+1O1ZbgLX/1vXBMUsUQ0bukUjcITrw1g=;
+ b=0ke5sPzNYqFQyETLieeUmRmQylGENypMyuQeatPZiHgBSQaGCkg7KqpCR6pWwix6YSup66/g3
+ nQ7yVRAvF7zCq+LE3B9kfLdmj8zStNvm+WkGSSqTGOObZEmYG4XAyU4
 X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
  pk=3vU0qIPJAH8blXmLyqBhKx+nLOjcLwwYhZXelEpw7h4=
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_030333_607980_9986BB53 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20260121_030342_408657_57F99F84 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,55 +93,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the Allwinner A733 RTC and its internal Clock Control
-Unit (CCU). Reuse the rtc-sun6i rtc driver while introducing a new
-SoC-specific RTC CCU driver to handle the hardware's evolved clock
-structure.
+The RTC module in the Allwinner A733 SoC is functionally compatible with
+the sun6i RTC, but its internal Clock Control Unit (CCU) has significant
+changes.
 
-To facilitate this addition and improve driver modularity, transition
-the binding between the RTC and its internal CCU from direct
-cross-subsystem function calls to the auxiliary bus. Also extract shared
-IOSC and 32kHz clock logic into a standalone ccu_rtc module for reuse
-across newer SoC generations.
+The A733 supports selecting the oscillator between three frequencies:
+19.2MHz, 24MHz, and 26MHz. The RTC CCU relies on hardware to detect
+which frequency is actually used on the board. By defining all three
+frequencies as fixed-clocks in the device tree, the driver can identify
+the hardware-detected frequency and expose it to the rest of the system.
 
-The A733 implementation supports hardware detection of three external
-crystal frequencies (19.2MHz, 24MHz and 26MHz), which is represented in
-the driver via read-only mux operations. Implement logic to derive a
-normalized 32kHz reference from these DCXO sources using fixed
-pre-dividers. Additionally, provide several new DCXO gate clocks for
-peripherals, including SerDes, HDMI, and UFS.
+Additionally, the A733 RTC CCU provides several new DCXO gate clocks for
+specific modules, including SerDes, HDMI, and UFS.
 
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
-Junhui Liu (7):
-      dt-bindings: rtc: sun6i: Add Allwinner A733 support
-      rtc: sun6i: Bind internal CCU via auxiliary bus
-      clk: sunxi-ng: sun6i-rtc: Add feature bit for IOSC calibration
-      clk: sunxi-ng: Extract common RTC CCU clock logic
-      clk: sunxi-ng: mux: Add mux read-only clock operations
-      rtc: sun6i: Add support for A733 RTC
-      clk: sunxi-ng: Add Allwinner A733 RTC CCU support
+ .../bindings/rtc/allwinner,sun6i-a31-rtc.yaml      | 38 ++++++++++++++++++++--
+ include/dt-bindings/clock/sun60i-a733-rtc.h        | 16 +++++++++
+ 2 files changed, 52 insertions(+), 2 deletions(-)
 
- .../bindings/rtc/allwinner,sun6i-a31-rtc.yaml      |  38 +++-
- drivers/clk/sunxi-ng/Kconfig                       |   5 +
- drivers/clk/sunxi-ng/Makefile                      |   5 +
- drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.c         | 204 +++++++++++++++++++++
- drivers/clk/sunxi-ng/ccu-sun60i-a733-rtc.h         |  18 ++
- drivers/clk/sunxi-ng/ccu-sun6i-rtc.c               | 184 +++----------------
- drivers/clk/sunxi-ng/ccu_common.h                  |   1 +
- drivers/clk/sunxi-ng/ccu_mux.c                     |  11 ++
- drivers/clk/sunxi-ng/ccu_mux.h                     |   1 +
- drivers/clk/sunxi-ng/ccu_rtc.c                     | 136 ++++++++++++++
- drivers/clk/sunxi-ng/ccu_rtc.h                     |  44 +++++
- drivers/rtc/rtc-sun6i.c                            |  38 +++-
- include/dt-bindings/clock/sun60i-a733-rtc.h        |  16 ++
- include/linux/clk/sunxi-ng.h                       |   2 -
- 14 files changed, 533 insertions(+), 170 deletions(-)
----
-base-commit: 24d479d26b25bce5faea3ddd9fa8f3a6c3129ea7
-change-id: 20251226-a733-rtc-c5167df14e6e
+diff --git a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
+index 9df5cdb6f63f..b18431955783 100644
+--- a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
++++ b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
+@@ -26,6 +26,7 @@ properties:
+           - allwinner,sun50i-h6-rtc
+           - allwinner,sun50i-h616-rtc
+           - allwinner,sun50i-r329-rtc
++          - allwinner,sun60i-a733-rtc
+       - items:
+           - const: allwinner,sun50i-a64-rtc
+           - const: allwinner,sun8i-h3-rtc
+@@ -46,11 +47,11 @@ properties:
+ 
+   clocks:
+     minItems: 1
+-    maxItems: 4
++    maxItems: 6
+ 
+   clock-names:
+     minItems: 1
+-    maxItems: 4
++    maxItems: 6
+ 
+   clock-output-names:
+     minItems: 1
+@@ -156,6 +157,38 @@ allOf:
+         - clocks
+         - clock-names
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: allwinner,sun60i-a733-rtc
++
++    then:
++      properties:
++        clocks:
++          minItems: 5
++          items:
++            - description: Bus clock for register access
++            - description: 19.2 MHz oscillator
++            - description: 24 MHz oscillator
++            - description: 26 MHz oscillator
++            - description: AHB parent for internal SPI clock
++            - description: External 32768 Hz oscillator
++
++        clock-names:
++          minItems: 5
++          items:
++            - const: bus
++            - const: osc19M
++            - const: osc24M
++            - const: osc26M
++            - const: ahb
++            - const: ext-osc32k
++
++      required:
++        - clocks
++        - clock-names
++
+   - if:
+       properties:
+         compatible:
+@@ -164,6 +197,7 @@ allOf:
+               - allwinner,sun8i-r40-rtc
+               - allwinner,sun50i-h616-rtc
+               - allwinner,sun50i-r329-rtc
++              - allwinner,sun60i-a733-rtc
+ 
+     then:
+       properties:
+diff --git a/include/dt-bindings/clock/sun60i-a733-rtc.h b/include/dt-bindings/clock/sun60i-a733-rtc.h
+new file mode 100644
+index 000000000000..8a2b5facad73
+--- /dev/null
++++ b/include/dt-bindings/clock/sun60i-a733-rtc.h
+@@ -0,0 +1,16 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
++
++#ifndef _DT_BINDINGS_CLK_SUN60I_A733_RTC_H_
++#define _DT_BINDINGS_CLK_SUN60I_A733_RTC_H_
++
++#define CLK_IOSC		0
++#define CLK_OSC32K		1
++#define CLK_HOSC		2
++#define CLK_RTC_32K		3
++#define CLK_OSC32K_FANOUT	4
++#define CLK_HOSC_SERDES1	5
++#define CLK_HOSC_SERDES0	6
++#define CLK_HOSC_HDMI		7
++#define CLK_HOSC_UFS		8
++
++#endif /* _DT_BINDINGS_CLK_SUN60I_A733_RTC_H_ */
 
-Best regards,
 -- 
-Junhui Liu <junhui.liu@pigmoral.tech>
+2.52.0
 
 
