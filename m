@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54DD4D262B3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 02:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD35DD2629F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 02:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3MOD7NIE1cxfcxUvm///tnok4l0oY22zZakhR8di0WQ=; b=Xsz4vpumOhrr1aTr6XCMsrRJgs
-	O4IOxWpvHOvL5bzllJfsKHbhCjwK+1cPaDHn+FElskkbK4dnu1WjUuhUBLpWPzZ0pzcGe8mpGTKcF
-	HHohkeKU+lEDnykoUmmL2qUIWJ0lP5c32oyEghLzZcuktPZv37COWstPtOxspj7nca9qihAWXvmUR
-	8esRKw3m5pxY34mFhnPAbzWZYC/ewFozMv6VLs3EZJq+Ry43jSUb/nrYac9ZVkgVaOlMezO45gl1y
-	99nZb1mPOoHhLlWES1kTu55GR/Rgl2MAbSIRuXGT1DTPlC/YowboYxYwm1bfUvjzSXvel87O7Z5ra
-	ZZCZnQew==;
+	bh=OkU8ApuroSqbVEJzvRcYGONePcixpVi5puZ7bfkSA6E=; b=D6nzlMxoMGTK+GFff1LzGWjG9r
+	mglaUm0pQdie8kSxpopNnBCXkqSNpvKan3r2riPZbJXPjbi1I1N9VpkIQqPb7NhDlCNG8KypHxuWu
+	ooTmLLHCQjEEeq8U4KbGzwtJKXrEQQPM9Y6vlfpJFueXgNJw1d6m0Flx1/yv4iutxYkSe23TTZ3jb
+	275b0F7JWjkXhY61Abng98rEPJ07PCC7drpTm06+EjGPtg52Tv6ZX2Ir4BFVBeXj0EQe8VOpzLcCG
+	97k+VU8J4tICJHZdz6GDbqT+Q7Dk21UQ1W3QzuHo/N+JjYvGW6LlBLSgb3AKzDyYry/bpnqtigvZ+
+	rDmkZ2YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNd6-00000004kjl-1rT0;
-	Wed, 21 Jan 2026 02:07:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1viNdr-00000004kpL-3bqZ;
+	Wed, 21 Jan 2026 02:08:19 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viNd4-00000004kjP-1xcZ
+	id 1viNdk-00000004knv-0QHy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 02:07:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C6D2416EA;
-	Wed, 21 Jan 2026 02:07:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC259C16AAE;
-	Wed, 21 Jan 2026 02:07:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768961249;
-	bh=UhRa/hhK1GRwkMusaBuB1dhc0k3sK6FAZHAw1qd42mg=;
+	Wed, 21 Jan 2026 02:08:19 +0000
+Received: from pendragon.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id F067E2D7;
+	Wed, 21 Jan 2026 03:07:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1768961259;
+	bh=9c/Vyx5uG8NjX9q2/14qV8q/mnJjh/fI6PuZbTidzmo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Y3ugkjBmcHRyS3AoS57oEOFQ22Ym/OSCmv9lxyaQmg8ZUrms0j+6EdpH9SbEm4CVK
-	 9yywF6QfgnX9d8ZtiCG+aQonvUFK5pxoVsh+w/0IkXBEXI54+er4iiHfYQinr6+Nyc
-	 KxsPpCJL1MsrJ2zjL218ozcBKbz4a33CU7R77nUJxHZ4+o7s30fAlea1aWlwnEyeiO
-	 ixjpdp7IYv3oZYOgae9T0j7K2tgyoLWAFBEOE0H66O+LfLEUq0ZepzznScuhYUQkoa
-	 pLlDDhxXmVFE9wy3oTDeB989JWf6VQDFkze/W8vKJ3AVguGLBPNpfLzPeUQ5TjEPUX
-	 LKG8HrpLIOZrA==
-Date: Tue, 20 Jan 2026 20:07:28 -0600
-From: Rob Herring <robh@kernel.org>
-To: Joey Lu <a0987203069@gmail.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, krzk+dt@kernel.org,
-	conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
-	richardcochran@gmail.com, alexandre.torgue@foss.st.com,
-	joabreu@synopsys.com, ychuang3@nuvoton.com, schung@nuvoton.com,
-	yclu4@nuvoton.com, peppe.cavallaro@st.com,
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net-next v8 1/3] dt-bindings: net: nuvoton: Add schema
- for Nuvoton MA35 family GMAC
-Message-ID: <20260121020728.GA1671298-robh@kernel.org>
-References: <20260119073342.3132502-1-a0987203069@gmail.com>
- <20260119073342.3132502-2-a0987203069@gmail.com>
+	b=JCf/KKFbao+idj7P0iGL05QQZgAsf1ct1/3HWhGXgrFaeRiK1vDIBDR5oMba8jpBN
+	 GqCpRmSpWLjx5MJSfmF3OMiTAtK8G75skCftCGyegj9vGgpi6dagsGtWHh3ABj1DPO
+	 Mc3dUzZLZE3G62hVpUi/1wTIg7BgK13XWve7S22g=
+Date: Wed, 21 Jan 2026 04:08:08 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	linux-media@vger.kernel.org, linux-staging@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND v2 3/5] media: staging: media: imx6-mipi-csi2: use
+ devm_clk_bulk_get_all() to fetch clocks
+Message-ID: <20260121020808.GG403250@killaraus>
+References: <20260116-stage-csi2-cleanup-v2-0-a56e9cb25196@nxp.com>
+ <20260116-stage-csi2-cleanup-v2-3-a56e9cb25196@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260119073342.3132502-2-a0987203069@gmail.com>
+In-Reply-To: <20260116-stage-csi2-cleanup-v2-3-a56e9cb25196@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_180730_551800_1D60E8B6 
-X-CRM114-Status: GOOD (  18.73  )
+X-CRM114-CacheID: sfid-20260120_180812_284934_FB4DA112 
+X-CRM114-Status: GOOD (  26.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,167 +76,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 03:33:39PM +0800, Joey Lu wrote:
-> Create initial schema for Nuvoton MA35 family Gigabit MAC.
+On Fri, Jan 16, 2026 at 11:17:58AM -0500, Frank Li wrote:
+> Use devm_clk_bulk_get_all_enabled() helper to simplify clock handling.
 > 
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+> Defer all clock prepare and enable to csi2_start(), which previous only
+> enable pix clock here.
+> 
+> Add clk_enable at log_status().
+> 
+> Do that safely because there are not register access before csi2_start().
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  .../bindings/net/nuvoton,ma35d1-dwmac.yaml    | 126 ++++++++++++++++++
->  .../devicetree/bindings/net/snps,dwmac.yaml   |   1 +
->  2 files changed, 127 insertions(+)
->  create mode 100755 Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
-
-This should not be executable.
-
-Rob
-
+> changes in v2
+> - add clk_bulk_prepare_enable() get at csi2_log_status()
+> ---
+>  drivers/staging/media/imx/imx6-mipi-csi2.c | 57 +++++++++---------------------
+>  1 file changed, 16 insertions(+), 41 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml b/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
-> new file mode 100755
-> index 000000000000..8eaddfdc937c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/nuvoton,ma35d1-dwmac.yaml
-> @@ -0,0 +1,126 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/nuvoton,ma35d1-dwmac.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/drivers/staging/media/imx/imx6-mipi-csi2.c b/drivers/staging/media/imx/imx6-mipi-csi2.c
+> index 4f740170d2bbf586ac0a58b5d25f8f8432e9e6a3..e1b4b7fb53131ce9515b9441d8fc420e85d3e993 100644
+> --- a/drivers/staging/media/imx/imx6-mipi-csi2.c
+> +++ b/drivers/staging/media/imx/imx6-mipi-csi2.c
+> @@ -39,9 +39,8 @@ struct csi2_dev {
+>  	struct v4l2_subdev sd;
+>  	struct v4l2_async_notifier notifier;
+>  	struct media_pad pad[CSI2_NUM_PADS];
+> -	struct clk *dphy_clk;
+> -	struct clk *pllref_clk;
+> -	struct clk *pix_clk; /* what is this? */
+> +	struct clk_bulk_data *clks;
+> +	int num_clks;
+>  	void __iomem *base;
+>  
+>  	struct v4l2_subdev *remote;
+> @@ -343,7 +342,7 @@ static int csi2_start(struct csi2_dev *csi2)
+>  	unsigned int lanes;
+>  	int ret;
+>  
+> -	ret = clk_prepare_enable(csi2->pix_clk);
+> +	ret = clk_bulk_prepare_enable(csi2->num_clks, csi2->clks);
+>  	if (ret)
+>  		return ret;
+>  
+> @@ -390,7 +389,7 @@ static int csi2_start(struct csi2_dev *csi2)
+>  err_assert_reset:
+>  	csi2_enable(csi2, false);
+>  err_disable_clk:
+> -	clk_disable_unprepare(csi2->pix_clk);
+> +	clk_bulk_disable_unprepare(csi2->num_clks, csi2->clks);
+>  	return ret;
+>  }
+>  
+> @@ -401,7 +400,7 @@ static void csi2_stop(struct csi2_dev *csi2)
+>  	v4l2_subdev_call(csi2->src_sd, video, post_streamoff);
+>  
+>  	csi2_enable(csi2, false);
+> -	clk_disable_unprepare(csi2->pix_clk);
+> +	clk_bulk_disable_unprepare(csi2->num_clks, csi2->clks);
+>  }
+>  
+>  /*
+> @@ -570,6 +569,11 @@ static int csi2_registered(struct v4l2_subdev *sd)
+>  static int csi2_log_status(struct v4l2_subdev *sd)
+>  {
+>  	struct csi2_dev *csi2 = sd_to_dev(sd);
+> +	int ret;
 > +
-> +title: Nuvoton DWMAC glue layer controller
+> +	ret = clk_bulk_prepare_enable(csi2->num_clks, csi2->clks);
+> +	if (ret)
+> +		return ret;
+>  
+>  	v4l2_info(sd, "-----MIPI CSI status-----\n");
+>  	v4l2_info(sd, "VERSION: 0x%x\n",
+> @@ -601,6 +605,8 @@ static int csi2_log_status(struct v4l2_subdev *sd)
+>  	v4l2_info(sd, "PHY_TST_CTRL1: 0x%x\n",
+>  		  readl(csi2->base + CSI2_PHY_TST_CTRL1));
+>  
+> +	clk_bulk_disable_unprepare(csi2->num_clks, csi2->clks);
 > +
-> +maintainers:
-> +  - Joey Lu <yclu4@nuvoton.com>
+>  	return 0;
+>  }
+>  
+> @@ -749,24 +755,6 @@ static int csi2_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		return ret;
+>  
+> -	csi2->pllref_clk = devm_clk_get(&pdev->dev, "ref");
+> -	if (IS_ERR(csi2->pllref_clk)) {
+> -		v4l2_err(&csi2->sd, "failed to get pll reference clock\n");
+> -		return PTR_ERR(csi2->pllref_clk);
+> -	}
+> -
+> -	csi2->dphy_clk = devm_clk_get(&pdev->dev, "dphy");
+> -	if (IS_ERR(csi2->dphy_clk)) {
+> -		v4l2_err(&csi2->sd, "failed to get dphy clock\n");
+> -		return PTR_ERR(csi2->dphy_clk);
+> -	}
+> -
+> -	csi2->pix_clk = devm_clk_get(&pdev->dev, "pix");
+> -	if (IS_ERR(csi2->pix_clk)) {
+> -		v4l2_err(&csi2->sd, "failed to get pixel clock\n");
+> -		return PTR_ERR(csi2->pix_clk);
+> -	}
+> -
+>  	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+>  	if (!res) {
+>  		v4l2_err(&csi2->sd, "failed to get platform resources\n");
+> @@ -781,20 +769,12 @@ static int csi2_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		return ret;
+>  
+> -	ret = clk_prepare_enable(csi2->pllref_clk);
+> -	if (ret) {
+> -		v4l2_err(&csi2->sd, "failed to enable pllref_clk\n");
+> -		return ret;
+> -	}
+> -
+> -	ret = clk_prepare_enable(csi2->dphy_clk);
+> -	if (ret) {
+> -		v4l2_err(&csi2->sd, "failed to enable dphy_clk\n");
+> -		goto pllref_off;
+> -	}
+> -
+>  	platform_set_drvdata(pdev, &csi2->sd);
+>  
+> +	csi2->num_clks = devm_clk_bulk_get_all(&pdev->dev, &csi2->clks);
+> +	if (csi2->num_clks < 0)
+> +		return dev_err_probe(&pdev->dev, csi2->num_clks, "Failed to get clocks\n");
+
+I'm still really not a fan of devm_clk_bulk_get_all(). I would prefer
+using clk_bulk_get(). The rest looks fine, although I would have split
+this patch in two, one to switch to the bulk API, and one to move
+enabling/disabling of the clocks.
+
+Ah, no, there's one clock that's already enabled at start time, so a
+single patch is fine.
+
 > +
-> +description:
-> +  Nuvoton 10/100/1000Mbps Gigabit Ethernet MAC Controller is based on
-> +  Synopsys DesignWare MAC (version 3.73a).
-> +
-> +allOf:
-> +  - $ref: snps,dwmac.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - nuvoton,ma35d1-dwmac
-> +
-> +  reg:
-> +    maxItems: 1
-> +    description:
-> +      Register range should be one of the GMAC interface.
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: MAC clock
-> +      - description: PTP clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: stmmaceth
-> +      - const: ptp_ref
-> +
-> +  nuvoton,sys:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    items:
-> +      - items:
-> +          - description: phandle to access syscon registers.
-> +          - description: GMAC interface ID.
-> +            enum:
-> +              - 0
-> +              - 1
-> +    description:
-> +      A phandle to the syscon with one argument that configures system registers
-> +      for MA35D1's two GMACs. The argument specifies the GMAC interface ID.
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  reset-names:
-> +    items:
-> +      - const: stmmaceth
-> +
-> +  phy-mode:
-> +    enum:
-> +      - rmii
-> +      - rgmii
-> +      - rgmii-id
-> +      - rgmii-txid
-> +      - rgmii-rxid
-> +
-> +  tx-internal-delay-ps:
-> +    default: 0
-> +    minimum: 0
-> +    maximum: 2000
-> +    description:
-> +      RGMII TX path delay used only when PHY operates in RGMII mode with
-> +      internal delay (phy-mode is 'rgmii-id' or 'rgmii-txid') in pico-seconds.
-> +      Allowed values are from 0 to 2000.
-> +
-> +  rx-internal-delay-ps:
-> +    default: 0
-> +    minimum: 0
-> +    maximum: 2000
-> +    description:
-> +      RGMII RX path delay used only when PHY operates in RGMII mode with
-> +      internal delay (phy-mode is 'rgmii-id' or 'rgmii-rxid') in pico-seconds.
-> +      Allowed values are from 0 to 2000.
-> +
-> +required:
-> +  - clocks
-> +  - clock-names
-> +  - nuvoton,sys
-> +  - resets
-> +  - reset-names
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
-> +    #include <dt-bindings/reset/nuvoton,ma35d1-reset.h>
-> +    ethernet@40120000 {
-> +        compatible = "nuvoton,ma35d1-dwmac";
-> +        reg = <0x40120000 0x10000>;
-> +        interrupts = <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH>;
-> +        interrupt-names = "macirq";
-> +        clocks = <&clk EMAC0_GATE>, <&clk EPLL_DIV8>;
-> +        clock-names = "stmmaceth", "ptp_ref";
-> +
-> +        nuvoton,sys = <&sys 0>;
-> +        resets = <&sys MA35D1_RESET_GMAC0>;
-> +        reset-names = "stmmaceth";
-> +
-> +        phy-mode = "rgmii-id";
-> +        phy-handle = <&eth_phy0>;
-> +        mdio {
-> +            compatible = "snps,dwmac-mdio";
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +
-> +            eth_phy0: ethernet-phy@0 {
-> +                reg = <0>;
-> +            };
-> +        };
-> +    };
-> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> index dd3c72e8363e..10cb5e555750 100644
-> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> @@ -69,6 +69,7 @@ properties:
->          - ingenic,x2000-mac
->          - loongson,ls2k-dwmac
->          - loongson,ls7a-dwmac
-> +        - nuvoton,ma35d1-dwmac
->          - nxp,s32g2-dwmac
->          - qcom,qcs404-ethqos
->          - qcom,sa8775p-ethqos
-> -- 
-> 2.43.0
-> 
+>  	ret = csi2_async_register(csi2);
+>  	if (ret)
+>  		goto clean_notifier;
+> @@ -804,9 +784,6 @@ static int csi2_probe(struct platform_device *pdev)
+>  clean_notifier:
+>  	v4l2_async_nf_unregister(&csi2->notifier);
+>  	v4l2_async_nf_cleanup(&csi2->notifier);
+> -	clk_disable_unprepare(csi2->dphy_clk);
+> -pllref_off:
+> -	clk_disable_unprepare(csi2->pllref_clk);
+>  	return ret;
+>  }
+>  
+> @@ -818,8 +795,6 @@ static void csi2_remove(struct platform_device *pdev)
+>  	v4l2_async_nf_unregister(&csi2->notifier);
+>  	v4l2_async_nf_cleanup(&csi2->notifier);
+>  	v4l2_async_unregister_subdev(sd);
+> -	clk_disable_unprepare(csi2->dphy_clk);
+> -	clk_disable_unprepare(csi2->pllref_clk);
+>  	media_entity_cleanup(&sd->entity);
+>  }
+>  
+
+-- 
+Regards,
+
+Laurent Pinchart
 
