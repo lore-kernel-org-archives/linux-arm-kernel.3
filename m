@@ -4,163 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E36FD46950
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 16:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF26FC44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 16:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yPa6c4nUVPvl2AfDWomDGQDuHSSHWzia3s24AFuNzCw=; b=fnccdgB3MvTrkTq2/qEBL16ZdG
-	8NC0Cyf7LGn6XNSLe1gza7PUWOrLt5OFs7o4B6WG0kZnLErTDl0l3uzrnRsZHLdmoPNP+Wat9eJr0
-	1RGE6WJ/YwXiJ6XKTzXhOvzvXQb9Okj9NmefdVkh6RduAqPQ7vGb14Pck7wt1Jc1JlV1dsQ9BJJgO
-	Mn4oaDAXEvjoVtqE7xdZNaKCkk3kgFHjs+Tqp3IeZVx6QV8mUpXfcVSplYccvy5CshOxlCW9iZ6Kw
-	oNSdeI2+0OFckrqbjGBD/laR/sjYvSu7ZbxE+fYzD/KyxGOTYVKLLv0JGICJN8mP5xJGAiCPrwILo
-	bplHcJYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7MFyGEBMKUH9OPAqYqwZCoqkE5S+eIGaZJE0/gf+bsI=; b=SrLQVrLqjEjzvMJ0MfF3oDhXR0
+	3m25Ppm8Yx/ZlynCgX963+yLGi+lMa3+TxWKUDzWDlFHdSYM0MvB5W7SejutqDAz7iQKzCceo6leL
+	L4Al/spTqFG4TMeWlc7WuPbMNvv9xrOnkhvIi+rbOztMhtJGQXeX4rBqPiQqt13RRRqGP9RJjyraT
+	zNuDDy8u70WueQxJIw5iReqtFDSyK2h6vmVLO2rPQSf7khCV+D4zacrhoHlTK+Est7CuLoBFbDV3M
+	kIHwEZr59K9nFQDoc8dDS2js4LCrOj/lRuKk4H/vxyFFZPiv7Ty++TJnr1lCcr5DKDnwp/04lfRxY
+	KJrXQXYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vib6L-00000005nhY-0KjS;
-	Wed, 21 Jan 2026 16:30:37 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vibBZ-00000005o73-00Jn;
+	Wed, 21 Jan 2026 16:36:01 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vib6I-00000005ngG-2aul;
-	Wed, 21 Jan 2026 16:30:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Y5yxRDTbwhuh2VI+ocoVUXDnPXyVPU85LLyrdkhfVS3Y0ScDUXFjx9zdW+5OgP6jvlK56sRcAWALXB252lGmc/eCvijqmLAPn9FGZHDbY6TbnfLjAfVWv4ydnqFeuv0MVxMbPbJNnoHGsbB4ZZOxAllBZ919zOPxeN6goUtyJy0F4x0OMpRYY4lXZl/m8cQGDNNhL1+47UpbvZs+3ZAKcfIBsiC2VtPKZX7BqCmbcL5cH6h/Uf/tyKSNReXAfsMP5cipt9KzuCPsMFSojW48ZPU6o1o+15xxe79XXOdivNCOGeU3UuweqomFYVD9JhU3Gdh83PRmVjBOrOg0khZnUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yPa6c4nUVPvl2AfDWomDGQDuHSSHWzia3s24AFuNzCw=;
- b=L+hk5av73Rayrzyolm8Eypw7Kk9BcvLpqBKXslGDT81CrP+jeceW77L9fPbnp+NHHUlSMdiNLFtJ5zMapEeu2U03vXNqooAhpUEaI5Z3r03juI3ImbxU5lGlyt4SC+4i832NkhhN5zL1QAYJF5o8I+TcI9QH3eV/aueoBaf3TTcqKzRF35x6Bt3Vt9RtJkR0gj/6TZDMuvzz4H67GO7BGU1P4SfYX2sQcHf0mraVKicJmtl9MV1lNL0ZlBS8coJU++Xt/18xMpPOk1otXoSWl8/cUE0f06k4daKM1SO9C8mvzw+VafxHD34/l1vvcbQ048rnNoNrTRMQFzr2BZrYzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yPa6c4nUVPvl2AfDWomDGQDuHSSHWzia3s24AFuNzCw=;
- b=Flv4vHc+lG5v0kJ8TX6pcpxM7DYsbHpPplR13fk96M/SNEpAL59xXJjuHGCxxVSn41E1I5wetuHcEI3HLYjkqxO2RiRJecTqBw14jHSGcpRA7EnU4nyqX9M5R4jDRNrkcl6a+h9yVRw3h5iEfk7N3XdlhHvDNsRkj7CwrB8PZkdQUuP1PYkz4uPnsmNSFY1OIkMJYVpzo9pVPK7/HaqPyNwNxKr105aUhjGHpFo53dr0whtEG8/qZIYDH3kicqobznbsNhmjkPgAxPRBDoVVijq+3UQ0XHXoVVhI54NNHNxq518DuyKVnAHrfQ6uOstAB39m3kMucJXUi01LminvWg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by DBBPR04MB7897.eurprd04.prod.outlook.com (2603:10a6:10:1e7::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.11; Wed, 21 Jan
- 2026 16:30:20 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9520.011; Wed, 21 Jan 2026
- 16:30:19 +0000
-Date: Wed, 21 Jan 2026 11:30:09 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>,
-	Chaitanya Kulkarni <kch@nvidia.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Koichiro Den <den@valinux.co.jp>, Niklas Cassel <cassel@kernel.org>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
-	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, Damien Le Moal <dlemoal@kernel.org>
-Subject: Re: [PATCH v3 0/9] dmaengine: Add new API to combine configuration
- and descriptor preparation
-Message-ID: <aXD/EYqhhRJEN8oy@lizhi-Precision-Tower-5810>
-References: <20260105-dma_prep_config-v3-0-a8480362fd42@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260105-dma_prep_config-v3-0-a8480362fd42@nxp.com>
-X-ClientProxiedBy: SJ0PR13CA0107.namprd13.prod.outlook.com
- (2603:10b6:a03:2c5::22) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	id 1vibBW-00000005o6B-3wfp
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 21 Jan 2026 16:36:00 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-655af782859so6358a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 08:35:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769013356; x=1769618156; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7MFyGEBMKUH9OPAqYqwZCoqkE5S+eIGaZJE0/gf+bsI=;
+        b=Zb4JdEpUQDvdlps9a5y29c+rr1Ybrv8pSOoCnuStZa+NCOP7XMcPy4xZrf3W8bA5pA
+         Py+NQ7KCP5FHsOcG7egENK0szpQ9A0O4De740yIQM5CRO0Pr4mw7wtB0YsbOIyk2/d0a
+         ZGE713HR9oxioIltoWkPHc4j/78kMAaA04EMOUXQV/a6V1qUN48LK71JgI9M6h96tdgS
+         kD0ulP4FfjgLS4lpSU6kB02B4uXf64kCSF92Qo4c0nisY6u/v41XrhzYuSX5NpEd/Ewk
+         +aRZt9PZPJGQ++0/xFUd7zHUi/lHIvzAbgokgXuby1GLSeU55U7/QuYdBT1TWKZtRMlH
+         wztA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769013356; x=1769618156;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=7MFyGEBMKUH9OPAqYqwZCoqkE5S+eIGaZJE0/gf+bsI=;
+        b=CqfbgIG7FWrpeEtfcuNbYG9Iqi1EwJ1YNTR4FSSN5jy7vq9Hi1yhEdAaZjIAzNjXAv
+         0WTQMtuLRSryRbU/paNBh4CGpvT03cvLkhqA78QqSbFDxh3xwBc+dFMhP+j0iSPH0q2T
+         xxD4IE6LpKRY1DAZM+BgAHXR5UctU69hokgNStYZhFgXZIaYarPhMf702SeepEDmmHrG
+         gtoVI+FMbb5VDQwaLh+231z1PvouNcfJ83X65zD7+UsmUsaFCXUdqGR7sVq08toQwoKm
+         q11HxgGaJcoy4mRHATIbfRCRhflX7yFd5mrt4InnWP5h6LPbCl+fKWwQDV/tHrJ8l87P
+         tC4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXvYRLhLcpvcCSKgZfRZ3k76MgffNHA/RT00a6azU/kGgho8NtQpdXwOLmrmvzeW+Ht/awkuQLlqzLJOcAlxN7f@lists.infradead.org
+X-Gm-Message-State: AOJu0Yymepx32ba+RGA4M9MvF23/t1FmzuHsvvKXrRr2rFhg1C75qM24
+	PzUPEhoOTbZ2mcwaqWwN07ZpG9NR6dJh6+uczYZOViFsuWoetlUJ0N1j
+X-Gm-Gg: AZuq6aKnRaJrMe5sTc83flCu+nharnDlFW6yTwHo7oDhFecLJvJfcSOmw8Y2zncocaP
+	p+sS9OTAYI3U01LlXsPxzbzL8WRSvzvBgb0Lz7Kf/JlWHUkhEITBZHAXfhWmw3FSsL4CLhLvP1J
+	bZ5IpeXrMIlWCQUhyXxF1OQek32E7dturiyX392jdMJ32PCS2oe2JvDCYxKG1pY3q78ua3uaAdY
+	MToenD6r/XmlEhz1NvhqoWdiBdd6EBeY2d+vVUPqEC1Fd8o0P5Yl0xuD7xWpDer3BR+bX3kT3jC
+	WArueir9iOnJgsvR2rgdtJ7QTm+cG9FQyv/Enz61ibVnB45v0EOEtUJZ6j/1nAyMxM5a2gT3ucw
+	rzg11Jps0/kJsd4HLd1knbnroihO55aQWEnPKGHpBdVAwVnJkkRK2mvGZYAsvE5+5pMXX0jMEPE
+	hdunW0Nh/SvRsBhfmUleGvNkT1QU+LM47zxRzRWs6bCpiDMcp06TcU
+X-Received: by 2002:a05:600c:4fc7:b0:480:41f2:b212 with SMTP id 5b1f17b1804b1-48042f7e0e0mr38897745e9.25.1769006884109;
+        Wed, 21 Jan 2026 06:48:04 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4802dc90068sm274897235e9.7.2026.01.21.06.48.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Jan 2026 06:48:03 -0800 (PST)
+Date: Wed, 21 Jan 2026 14:48:02 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: kernel test robot <lkp@intel.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
+ <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
+ Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko
+ Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander
+ Gordeev <agordeev@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, Kees Cook <kees@kernel.org>, "Gustavo A. R.
+ Silva" <gustavoars@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Mark Rutland
+ <mark.rutland@arm.com>, "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard
+ Biesheuvel <ardb@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH v4 3/3] randomize_kstack: Unify random source across
+ arches
+Message-ID: <20260121144802.1287ce3e@pumpkin>
+In-Reply-To: <20260121102017.539b5531@pumpkin>
+References: <20260119130122.1283821-4-ryan.roberts@arm.com>
+	<202601210752.6Nsv9et9-lkp@intel.com>
+	<20260121102017.539b5531@pumpkin>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DBBPR04MB7897:EE_
-X-MS-Office365-Filtering-Correlation-Id: 17b93377-01a9-4ca6-00bf-08de590a5dfe
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|19092799006|7416014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1UPKYGRC3JCX8vTqxqR99BBEcQy94W/RQytFisVmzYEIugLZ9XPRGXLTZj/+?=
- =?us-ascii?Q?SOdlBdtlnL3EtZyYQFf3HErHLHcfTGYgyUTBwo5laF/c57AKDorPOwErncqv?=
- =?us-ascii?Q?Jhc7m0iM1ne4ya88fiR9g304I3G2j/D3cNRHE9EsVg2jIEeLp/LzfmcFHyJq?=
- =?us-ascii?Q?of5jMF6YSfhZVQeepkTph4vvnVy1cVe0CA5ZHKxrsPvGM7BzoslraEVnaxCY?=
- =?us-ascii?Q?Wk/xz2SA+VVDSuW8pbQGYBbR9XBT4UGqBoXJFdNvgAJh7WRO4ccOrWuq4IDQ?=
- =?us-ascii?Q?B8jhV7UaX4oS9xRQkzMBvq99CUVWFLJL/OvVyO3sPb1WVf/+UXCMACq8vtsz?=
- =?us-ascii?Q?Dd3SGcfro5eZUfsODwaNo//HMp3YVWRTvcqjrbgb39yKKpVun0ZVO6ZZwR1W?=
- =?us-ascii?Q?CgTQTwtHpPBGNii9ZweZVy2F/3+iwx5ZHv+NIDzQT2p4sStDVD+35Q0Ni6sx?=
- =?us-ascii?Q?rbF8MFcQ/Ie8nzdw6BcBH0Ecpeh4nHphttx8XwY/LFXleGFH/ikv99zr+rKj?=
- =?us-ascii?Q?NbL/lIcrNfCYkeEBm9FpwSulQQRVz6zx1c0wevxrHSzqEYOzUGD+ND4NxMoW?=
- =?us-ascii?Q?7tyJ8w/kpXBWdAY1PQdP0cYRB/YAqsbQ0mpAfxPo0Rqrsar65DCOrM8C9dXy?=
- =?us-ascii?Q?tmsRglpr/35alhC8BKAB8txjCdFJZZpw0wn6qKWe9kST/f6wHwzETLV22PVE?=
- =?us-ascii?Q?1a+fWMp0j540gKz5itXknS9cYp2076EzRx209PZhQojclyUAoZ9NskepB85O?=
- =?us-ascii?Q?30PD+SnLBwukJi6KMkpVMSdo4KPlQtkJBQcdVekkAl//ibFZq3+bO4iRE5r4?=
- =?us-ascii?Q?nZxaj0LlXeM+wm9udEPybwmGiCSC/VeXnR49mMARKuvUTmi37dHz4RW2GS0n?=
- =?us-ascii?Q?EOzeySrmEaUlmaU7mDkkJ1QuyHQ0IHxVXX/9rFcJHbC2f1m8Vo1p3EbG3H8v?=
- =?us-ascii?Q?FrnQbo46UjVbEKHOIjG3hYAKT0B9xq/eKZ8LH1fy1fbzQcClMbDsae9v1sH5?=
- =?us-ascii?Q?QAWEte06ykbFN8xc0e1snlXvkHw8quX7MsyMAFrqCGSGImSzuVO4dxvYdZTp?=
- =?us-ascii?Q?wyqd6G7+RMMNtOG55upCaUbSayvWRlE/RDoVzdikDqc5+BxzZ5dUkDt3nz/R?=
- =?us-ascii?Q?VF7Ye6Bb3OB7Ec8kddNVA7/zsEJ3Mubw2U59g0GS1IhYfHqSQ4zIIwBR/7Sm?=
- =?us-ascii?Q?K5fqUq9HsjkqNaz6SF8ecPs6cGOv85sn7wriM6Jweq2lGpt3d4qnc2Dj3gXq?=
- =?us-ascii?Q?78zhvT9NgEuQrWmt9ovpHfpqHELQ+yLZdf3t98UcbTFFTpasYZ4yKcxtCpt0?=
- =?us-ascii?Q?5TZXud62DXECwPfbPx2Yspri4i2Zgmq6Y+ozdISwTOsZMfETvRATfZh0I1PM?=
- =?us-ascii?Q?edbP3rPp93d2qUh1aEyK5fg+V+MH+Py8v+tXM3HgQhqO6G8HRRZ79Oejf08i?=
- =?us-ascii?Q?FX/TQwzApaC4oMpuxlFuX7dugW4ZRLtVA2EtOM/QCvh3XNSVTxKZnBn1SwVb?=
- =?us-ascii?Q?yGSOP4gqtjBpnTUDMZvYu3pHDn9I6UJ8Q+0jMo4fcXTOJZF9IM+unYQF4RaS?=
- =?us-ascii?Q?XSWac78uZVnN0ZtJOp+l3MGtXVDOXQCLsCwcp1e2rnCNQcnTf4/69jXjrf3C?=
- =?us-ascii?Q?vMyxLsZb86By9Xntzhr70B4nm+Fr9TbslhURlf5XrBPp?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(19092799006)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?csqkhSw2MsoEZJ+xTuhr6S6wwIVqn7S+83Xe1wiBPSZRMgEqNssWaYc5qObu?=
- =?us-ascii?Q?9xAp2icZ0q4fvfn64P0+dLCMQykbDxBO4nJB4d7cY2z6EAddDW9wxN2E6Hsj?=
- =?us-ascii?Q?j6u91l072a5lN78ds8mnTgCixAf3FDotFlUVPCZBc2k/xX+ODOlqM+XfS5hF?=
- =?us-ascii?Q?IC67bL86w7sMcV1OT6maA4Pf6W5zNVvIxKXjvjGPk6Iv4+7xf78kpR4a+YcY?=
- =?us-ascii?Q?YG8/I3KCqrmk5GB42eInS9DKQAb0jynFQFUpow2ZXUImmjm1mojLWFKz+oG1?=
- =?us-ascii?Q?xOz3FK01Iws4qwpFma5jeB1aI2VHOHLD7f1LJHGgvrx3pJZ63PJnlCEdHtiQ?=
- =?us-ascii?Q?zhAuOz8BUhejj0MLfXiqihQrxf3exC5u0Mnjb492dOV8/jwDn+cLksGjgOLO?=
- =?us-ascii?Q?QeG1FH5Pbwj1gw25HTNHr4ltZjzN5h6DrHiiESsdeE+HRNMCRsx0t+ou7Dbj?=
- =?us-ascii?Q?iufba6dlayODhYnJKk2t90phFnJ1h3hhQBggn8cgNWCeeABlYeK09fzkpFPw?=
- =?us-ascii?Q?DAAVujK3I8q0uUs9FKNUfM6LCEQ/jon69JeYz8GTCtHzZheDowQVxW6wcP8H?=
- =?us-ascii?Q?h8V01atY5ViE4vuPDVhtid+yNOgpAZDQGJ/tkNivsns+04QR26TQryyONK+N?=
- =?us-ascii?Q?TGgQk6KGqMEW8Mt/FqBvaGRkpb1STIQR1U6dyQJzXvuhUx+3kcjgz1gYTiPk?=
- =?us-ascii?Q?FA+kofPYOQq5W84s9axazWDwjlu5ftcdG9LNqZwDLf+NeEzNsJWOMBGvHqiF?=
- =?us-ascii?Q?EkDGHcQ7iCmXSbDKSIzgMedIaZH8yNctt0AGhlq9qi8pVgAUgUsHWD6SU6LU?=
- =?us-ascii?Q?m/2zWY3KYzmn6yrO/pP9kFJ8U6uI/pQ58aTe65dKId+faWCXYz3xndHEjfe9?=
- =?us-ascii?Q?MbxP6iyQjg1N3JhFqI0SLYB987lTNf5vJTGCgqdDPeNNjs1T9UMmwXsiw4E9?=
- =?us-ascii?Q?XUHaU3Mdg1JrIl77FWYfsRDKGLBn35fLNF1ASjFopSGeNaDYHHIuu4kmiK95?=
- =?us-ascii?Q?8b1BdT4fCj/PFsaFqZhTYa3G9IY4xmlL5FbyvgjS1v5t0aCzNO12TnH+Tt5R?=
- =?us-ascii?Q?HDn0s06O0AK5jqw0abVK75fZj9uR8mMS7c8m3rpB0cc7yZWPqUCmVWL0N4Ss?=
- =?us-ascii?Q?MnhhHsJrb8031qaFajM9UOaH5WIJcPEdAHg3Q3I2+Jk77f1Cxa365PG/CHXG?=
- =?us-ascii?Q?8/7lzFmg6kvUSiytfVfvpwEnQboSfTz8PGislWIaFJCJ6vGSKdV1kHf83TjN?=
- =?us-ascii?Q?EBcW6G7fsF09VJTnS00F2qscDcg4DkA6fVt7EppUcI7CBvCdy/3P0X6/icVe?=
- =?us-ascii?Q?87W12WP8lfZFggzfSl4iicUU8W0yTnvFg+u1sr9yZiM4bFcJezG6BgutdfdW?=
- =?us-ascii?Q?J6p+hNy3Z928ro4Nfs8M7IcXnF+PfeV2iTMsFfA636P8ic6LzXPe9O+rhUAk?=
- =?us-ascii?Q?pM4aOfQPRfZX2/+yxXdEeNU4z5FwtCXrDBSC1Z8rjaCBNrzxor4FXY+fYjEJ?=
- =?us-ascii?Q?+YTbFyGyviVTdZl7kyF7CqsxUQpvhNMj2M3K//D8bstGk72I2CiyvkXvDnLD?=
- =?us-ascii?Q?RSpvnuihME+SFsEDTDzWwq93xjqjMhrbg+zdA0nVJi4taPrLNfQgQBXzSJHN?=
- =?us-ascii?Q?RjJcr7gCRAOsWmoT+3AtfxKYmffvPkJ6W8V9hVNEg+HJxCpfpyHEiz8PbtUE?=
- =?us-ascii?Q?Ts3PWxrTlaoKZluL8LHMv8B95D6ZkRLl3dhQWGLkOAcm0RH4Pu5OrDGrXpb+?=
- =?us-ascii?Q?jrrpHlASDQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 17b93377-01a9-4ca6-00bf-08de590a5dfe
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jan 2026 16:30:19.6733
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oSolUvmJg8Uzr9UQyijFgYgpj4o/9mH1nNPJao51sBnKdo4hKZxcnHVrYHWw6U+zNa48lF5k5pp2usdaDeu/dg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7897
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_083034_660730_EC8AB8EA 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20260121_083559_006053_56AF3C1F 
+X-CRM114-Status: GOOD (  27.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,84 +116,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 05, 2026 at 05:46:50PM -0500, Frank Li wrote:
-> Previously, configuration and preparation required two separate calls. This
-> works well when configuration is done only once during initialization.
->
-> However, in cases where the burst length or source/destination address must
-> be adjusted for each transfer, calling two functions is verbose.
->
-> 	if (dmaengine_slave_config(chan, &sconf)) {
-> 		dev_err(dev, "DMA slave config fail\n");
-> 		return -EIO;
-> 	}
->
-> 	tx = dmaengine_prep_slave_single(chan, dma_local, len, dir, flags);
->
-> After new API added
->
-> 	tx = dmaengine_prep_config_single(chan, dma_local, len, dir, flags, &sconf);
->
-> Additional, prevous two calls requires additional locking to ensure both
-> steps complete atomically.
->
->     mutex_lock()
->     dmaengine_slave_config()
->     dmaengine_prep_slave_single()
->     mutex_unlock()
->
-> after new API added, mutex lock can be moved. See patch
->      nvmet: pci-epf: Use dmaengine_prep_config_single_safe() API
->
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
+On Wed, 21 Jan 2026 10:20:17 +0000
+David Laight <david.laight.linux@gmail.com> wrote:
 
-Vinod:
-	Can you take care these patches? At least first 2 patches! So
-I can did more clean up at next kernel release.
+> On Wed, 21 Jan 2026 07:50:16 +0800
+> kernel test robot <lkp@intel.com> wrote:
+> 
+> > Hi Ryan,
+> > 
+> > kernel test robot noticed the following build warnings:
+> > 
+> > [auto build test WARNING on akpm-mm/mm-everything]
+> > [also build test WARNING on linus/master v6.19-rc6 next-20260119]
+> > [cannot apply to tip/sched/core kees/for-next/hardening kees/for-next/execve]
+> > [If your patch is applied to the wrong git tree, kindly drop us a note.
+> > And when submitting patch, we suggest to use '--base' as documented in
+> > https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> > 
+> > url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Roberts/randomize_kstack-Maintain-kstack_offset-per-task/20260119-210329
+> > base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
+> > patch link:    https://lore.kernel.org/r/20260119130122.1283821-4-ryan.roberts%40arm.com
+> > patch subject: [PATCH v4 3/3] randomize_kstack: Unify random source across arches
+> > config: x86_64-allmodconfig (https://download.01.org/0day-ci/archive/20260121/202601210752.6Nsv9et9-lkp@intel.com/config)
+> > compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+> > reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260121/202601210752.6Nsv9et9-lkp@intel.com/reproduce)
+> > 
+> > If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> > the same patch/commit), kindly add following tags
+> > | Reported-by: kernel test robot <lkp@intel.com>
+> > | Closes: https://lore.kernel.org/oe-kbuild-all/202601210752.6Nsv9et9-lkp@intel.com/
+> > 
+> > All warnings (new ones prefixed by >>):
+> >   
+> > >> vmlinux.o: warning: objtool: do_syscall_64+0x2c: call to preempt_count_add() leaves .noinstr.text section
+> > >> vmlinux.o: warning: objtool: __do_fast_syscall_32+0x3d: call to preempt_count_add() leaves .noinstr.text section    
+> >   
+> 
+> When CONFIG_DEBUG_PREEMPT or CONFIG_TRACE_PREEMP_TOGGLE is set
+> the preempt_count_[en|dis]able() calls inside [put|get]_cpu_var()
+> become real functions.
+> 
+> Maybe __preempt_count_[inc|dec]() can be called (with this_cpu_ptr()).
 
-Frank
+Or the code could just use the per-cpu data without disabling preemption.
+Usually that isn't a good idea at all, but it can't matter in this case.
+Might give a noticeable performance gain, disabling preemption is
+non-trivial and/or an atomic operation on some architectures.
 
-> Changes in v3:
-> - collect review tags
-> - create safe version in framework
-> - Link to v2: https://lore.kernel.org/r/20251218-dma_prep_config-v2-0-c07079836128@nxp.com
->
-> Changes in v2:
-> - Use name dmaengine_prep_config_single() and dmaengine_prep_config_sg()
-> - Add _safe version to avoid confuse, which needn't additional mutex.
-> - Update document/
-> - Update commit message. add () for function name. Use upcase for subject.
-> - Add more explain for remove lock.
-> - Link to v1: https://lore.kernel.org/r/20251208-dma_prep_config-v1-0-53490c5e1e2a@nxp.com
->
-> ---
-> Frank Li (9):
->       dmaengine: Add API to combine configuration and preparation (sg and single)
->       dmaengine: Add safe API to combine configuration and preparation
->       PCI: endpoint: pci-epf-test: Use dmaenigne_prep_config_single() to simplify code
->       dmaengine: dw-edma: Use new .device_prep_config_sg() callback
->       dmaengine: dw-edma: Pass dma_slave_config to dw_edma_device_transfer()
->       nvmet: pci-epf: Remove unnecessary dmaengine_terminate_sync() on each DMA transfer
->       nvmet: pci-epf: Use dmaengine_prep_config_single_safe() API
->       PCI: epf-mhi: Use dmaengine_prep_config_single() to simplify code
->       crypto: atmel: Use dmaengine_prep_config_single() API
->
->  Documentation/driver-api/dmaengine/client.rst |   9 ++
->  drivers/crypto/atmel-aes.c                    |  10 +--
->  drivers/dma/dmaengine.c                       |   3 +
->  drivers/dma/dw-edma/dw-edma-core.c            |  41 ++++++---
->  drivers/nvme/target/pci-epf.c                 |  21 ++---
->  drivers/pci/endpoint/functions/pci-epf-mhi.c  |  52 ++++--------
->  drivers/pci/endpoint/functions/pci-epf-test.c |   8 +-
->  include/linux/dmaengine.h                     | 117 ++++++++++++++++++++++++--
->  8 files changed, 177 insertions(+), 84 deletions(-)
-> ---
-> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> change-id: 20251204-dma_prep_config-654170d245a2
->
-> Best regards,
-> --
-> Frank Li <Frank.Li@nxp.com>
->
+If anyone is worried about preemption causing the output be repeated, that
+would be (mostly) mitigated by checking that s[1234] haven't changed prior
+to writing the new values.
+I think a 'not locked at all' compare of two of the four values will
+stop everything except two threads doing system calls at the same time
+getting the same output from the prng.
+
+The whole thing is very unlikely and there will be much easier ways
+to break the prng.
+Provided s[1234] are only written with valid values (ie ones which aren't
+effectively zero) it will continue generating numbers.
+
+	David
+
+
+> 
+> 	David
+> 
+
 
