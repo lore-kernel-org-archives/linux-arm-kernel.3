@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C42D262BD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 03:17:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 504D3D262BD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 03:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3J3oQEO/xh+SVbukC6XlbGUfah97ZWP5SbeXmw4NSIQ=; b=veqGqHaO5U4k50u8TRXqWT25/r
-	3fKAgfYI0bSvCCD9tVjXzsWH3kGUF0aUEe1tPIK+Rvs4mn06jZf/qNjhCycr6OdvcBNZQ8vvFbyJn
-	Gf9EXPRBsEinK21oCVldqUTP+mD9FRh2zcI+gRoyMGf8LAvKbNjOYzTJJ4AH7A5Pz0V382zt+3QAc
-	1/TFe2aXmOneABdKWllbdLRNDWZ64CY5rB6HJn3vc5t4FNiKqURtMRCPYE70hR8NltLK/6YktqNex
-	H6DlQABH+1AgWlUcInj01eQI/bYY61FpL0Xl16RJOtZE1gloeh9VGEmY/kTG+IhCD304dAm7ZLS9u
-	Dv8hJ/Wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vF9xBEexMFrVhcYjmid4zoQnxl0AqiI6XxlKJK5Uvco=; b=CZqZxnCfrouz0at/pHWVQoc5OJ
+	e6+sJmWLsKhkt7JLabncdthcN4ATaMqYM9uO9b+x2uRGRNueYsbe3tvLNlIbsfVIKZjnbFtm3DaFW
+	9I8oaYqTU3OM/VF+F/tl0xdEBW5LI4EkeCZ24cnBC2ydn1A3k8yE2B+RGGLb4LQagMFY9x0aojugO
+	8y3VmIl1a85te3ZYQg7NzmaNZJqF4eEjst4hEyRQzSMpE9K9Ckji0uzgqVeEb73GQXWfLNsQbxAry
+	hSLAy0gdjrc6OT1Sd57NazKCN6LN5sae7sVibJvcbqZrog9qm1NhjY7cxVx/6mAoJymr100jIwlDE
+	uuQAnJTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viOiK-00000004p0X-10i8;
-	Wed, 21 Jan 2026 03:17:00 +0000
-Received: from smtpbgjp3.qq.com ([54.92.39.34])
+	id 1viOia-00000004p38-3Pbf;
+	Wed, 21 Jan 2026 03:17:16 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viOiG-00000004ozp-2Uwz;
-	Wed, 21 Jan 2026 03:16:58 +0000
+	id 1viOiX-00000004p05-3xeL;
+	Wed, 21 Jan 2026 03:17:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1768965361;
-	bh=3J3oQEO/xh+SVbukC6XlbGUfah97ZWP5SbeXmw4NSIQ=;
+	s=altu2504; t=1768965370;
+	bh=vF9xBEexMFrVhcYjmid4zoQnxl0AqiI6XxlKJK5Uvco=;
 	h=From:To:Subject:Date:Message-Id;
-	b=qJZg4z57UofC7yQ44zfLIRxsvBcL+Et8F889+M/5qScmjHJHPiUvGRUQlyV4oJXWD
-	 YJUIUMC0lLa89DD1IlQ7/0MaDS2ST5axPGFUk6qeoVoyGzlx3o6rHoFx/1F2gaQoZl
-	 dBemLhXmDray6gTkCq/anpeMInqgt3dVkTeCNDSo=
-X-QQ-mid: esmtpgz12t1768965359tba34f95e
-X-QQ-Originating-IP: 3MPUnYZ1/su2m2LgqRvqsJ9H2ai/1j9AvtHseSL1brA=
+	b=JVZH5szwiK0hINuTWpZn6L+lYgCXG/R5gzoguy1Vam8Il6nNhDnXJTE4WxyGKP+IX
+	 mfqXLV8/AmlnKFyzjKsyihMGppH0Gjj/B86eHjeErROXKK9o4WjRXHgTLDkSfu1BGL
+	 viOC2LR7cQ2LZR1CSsjbz3gLiB1V305LEq0leWVw=
+X-QQ-mid: esmtpgz12t1768965368t8de48cbe
+X-QQ-Originating-IP: 9ln4DdrihkMVwVkbbbpi6NuAAqxwyC1I6z53O7jLqt0=
 Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 21 Jan 2026 11:15:57 +0800 (CST)
+	id ; Wed, 21 Jan 2026 11:16:01 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 4757405007957753980
+X-BIZMAIL-ID: 6010837920077048805
 EX-QQ-RecipientCnt: 17
 From: Chaoyi Chen <kernel@airkyi.com>
 To: Andrew Lunn <andrew@lunn.ch>,
@@ -60,34 +60,35 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/3] arm64: dts: rockchip: Change gmac phy-mode to rgmii-id for rk3576 board
-Date: Wed, 21 Jan 2026 11:15:45 +0800
-Message-Id: <20260121031548.402-1-kernel@airkyi.com>
+Subject: [PATCH 1/3] arm64: dts: rockchip: Change gmac phy-mode to rgmii-id for rk3576 evb1
+Date: Wed, 21 Jan 2026 11:15:46 +0800
+Message-Id: <20260121031548.402-2-kernel@airkyi.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260121031548.402-1-kernel@airkyi.com>
+References: <20260121031548.402-1-kernel@airkyi.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: Mv9X8DgfILpCDVHvpmKx8qVZRoB/A11vLnwOGvo6pDtMUsP5M6Ea3o+i
-	fR8PsWQgyAQeLLGJEL8RIjoZYvEP/hcTY5MqakiuB3hy6ahMJTHh5uYmXO8frRL83yRLDDH
-	K2lLQsnEHY5tsXeYiVKjw8gypkWgBWf1AMapLAM7ajEHqUwjPnvWI6hEjCIyDJ5ppJuI7EM
-	Ky5rgUYzt7I/ltIegzjYrqCU66QGkTCOZNMaeikn+gl5uVGm7uGW5YWrwRLgRySdtoLZnES
-	Xef5BScAbAcM9q49nblngrcEVI/KA4fx+0Dm5hcAwvDx89jZCer/2uf+kSU3wvjf0kfuFVw
-	wRthktvTy8yN9mMX3KRiGBJy0y3LnQhDZNdavENA/AJRf2VLWSyDk7MmA63PsJhvSb3xd/j
-	b/d28BtCb0rx3fEAOBsNKz0gbF1DW76wAGVUbhtwKAkvTDH5Pl3KWhfqtF5ZL/Il2/Dm/Wh
-	CVtGWTFrOC02zDFsa92/MDNOU9plTS3KliESCNPbVbDacz/0oCEeV9s9MdbQ8U3iI1XIJ2X
-	as7JvRrM0sThyka8KcxZewvElh2Dir6rIsfiEKNUmumGkSYjSPsjnhVwRBlXXk/zQCleS9i
-	uB5STZ6O7Vv1iUOEyyTNPSlfuGqdDJx6uyWz5KV1xL8U96WhEkVtG5agzmW63j4xiyt6+fR
-	F3jd75WvJMpRS10E5DE+YIb0KafeukpIEkiE/KygpJcA8Gd2n0hXL86wOhx3bh2uS6RPLUA
-	bLgy7qmOvaX8gVFCll/BHo3oRVYCLspYo5m0X25EOlW8dqI/lH11uoH8uu2ojk/X/yPRxDz
-	dpl81mWxByCfw+ukXHP9mlv4SwCPkivkDepjZFbkrB5uxAe1WFAvIiY5KG5vjcA7IIjIusS
-	wehUmxMzPqzgKY8inD0qUNqOV7Sx7DwhDZZNdqtxgsEep60+D9pzl5KiwtcsfbjxT0JN7qG
-	Tk2SLWPCE75F8fWzpoGMk1rYLzh7kvXd7+JYWsky0lnaQK3X63LST7s3Qtor39wIf9p27sl
-	2IuB2j/9UvW+7G7SNDUhEcR1rYJfpsGkFaL4lERHNf1jnSJ5lZHEQhPVGpUMLYutRmSN5D6
-	93cxvfLT1+h62WkZnwNtik=
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-XMAILINFO: NjuDfT6zrIZcVGIJ41oghtR0sscROnA8nqM5dSFjo565oO6U5LshTOgN
+	/98Qdy7b+PnI3xCjT6YbV/B/CaLiDFhY0UInuSmzUohEQd2B4jBbMOtJEA5TCPp+nYF2yyW
+	bZ1YQ3EoEJzQ/nVIgd8IodJAKWry3V1WI/ckNzxAmXqxONcVOCrjxKyLYFj3bSm0ztR7bwF
+	kGpW3Fyc1LrFVROH0oMPGWjtZMONEX6FXGuzWUQhS8c0kfpIaLY/Bcj7sZkVH3HvxSCTcN7
+	xZueCBfsCy/BZndF1YAjNCkgA4TWjMbB9IWV/blwoNagNt10HwP33XvbhNI5dWTsMvEETza
+	WF4t1Un4SsQ1PohhSI8Roa3YXt7zmO3TbJgmhDUAjABk9ErziIjCkPk2pLRaLBFYtljsUHL
+	FIBYKY6KvSZuoMZCrvaT3f6IPXRKnZcbC6DzECtOnWUVflNw29G+n8U8n/E0DRK3af0EZHn
+	QnfaOrcIaQlHtRacUt7PAknH2Ep+157c0l9MAPXSpuEOODiauxR+R2hjmZPLtDJ7zNYEQwF
+	48xvqOwtTSDS+iK7QY/pVuw2O2i4Rv9tHEnQgjTT8fnMSWqgYlYpLwsuAjWLRVLBXI/r08X
+	8YmRCLVWHgi1l6kmYbiTqlbQ8LAEhpAiVYO5u5SUMPF0Zsw9iuxYlkZf3Tfn0D2dq59bmNf
+	i6Lm0u3r+NpXY50fkD1aWlmvHtvVpp076tkwEpFFbmEEuZLGMaTcxCdmOyMwdiBVL3/SM9n
+	Y+nrI3/EuDlna3YlqIICcgXhcT/KHm098e9fqbGsSK0WlnUz/lBfYH5ugA9jukMZXi4qS5O
+	CdtfXekXZMIzNSaF1ytGU5iYdPcj6czM+hP4G7amYkwoESlJ/mjv/CPMBPUof/BXLSmuH0Y
+	eCldkKmuXRCzWwOdyPxtg80/6F18yv8YQ5iW9VPk8+p7IYiscqSIx45T79wB85ghq0LbA8h
+	T+3Q/GiZoOtTi3yEXz5rB2LR5cnshmo09kIzTwSbIzzeMShirfZwLciZVN2OJnJR1+orvZG
+	hJCXKUoD739E/GgUTDxm6G8mUU9DI=
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260120_191656_918318_F4B14AA5 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20260120_191715_054921_A020252F 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,30 +113,67 @@ The Rockchip platform has long used the above mentioned PHY modes and
 private delay prop to describe the internal IO delay settings of the
 chip, which is inconsistent with what is described in the documentation.
 
-Some background, for RK3576, you can assume that:
+Let's describe this part of the delay in the PHY and use the more
+reasonable "rgmii-id" mode.
 
-        tx_delay_time(ns) = 0.0579 * delay_line_count + 0.105
-
-For example, tx_delay = <0x20> means:
-
-        time = 0.0579 * 0x20 + 0.105 ns = 1.9578 ns
-
-Recently, Andrew has often mentioned the problem of phy mode in board
-level configuration. So let's start with the RK3576 to modify this.
-
-Please test this series of patches, thanks.
-
-Chaoyi Chen (3):
-  arm64: dts: rockchip: Change gmac phy-mode to rgmii-id for rk3576 evb1
-  arm64: dts: rockchip: Change gmac phy-mode to rgmii-id for
-    roc-rk3576-pc
-  arm64: dts: rockchip: Change gmac phy-mode to rgmii-id for ROCK 4D
-
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+---
  arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 8 ++++----
- arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts   | 5 ++---
- arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts  | 5 ++---
- 3 files changed, 8 insertions(+), 10 deletions(-)
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+index c5584c26db52..3ee76bafafb5 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+@@ -266,7 +266,7 @@ &combphy1_psu {
+ 
+ &gmac0 {
+ 	clock_in_out = "output";
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&rgmii_phy0>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&eth0m0_miim
+@@ -275,14 +275,13 @@ &eth0m0_rx_bus2
+ 		     &eth0m0_rgmii_clk
+ 		     &eth0m0_rgmii_bus
+ 		     &ethm0_clk0_25m_out>;
+-	tx_delay = <0x21>;
+ 	status = "okay";
+ };
+ 
+ &gmac1 {
+ 	clock_in_out = "output";
+ 	phy-handle = <&rgmii_phy1>;
+-	phy-mode = "rgmii-rxid";
++	phy-mode = "rgmii-id";
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&eth1m0_miim
+ 		     &eth1m0_tx_bus2
+@@ -290,7 +289,6 @@ &eth1m0_rx_bus2
+ 		     &eth1m0_rgmii_clk
+ 		     &eth1m0_rgmii_bus
+ 		     &ethm0_clk1_25m_out>;
+-	tx_delay = <0x20>;
+ 	status = "okay";
+ };
+ 
+@@ -721,6 +719,7 @@ rgmii_phy0: ethernet-phy@1 {
+ 		reset-assert-us = <20000>;
+ 		reset-deassert-us = <100000>;
+ 		reset-gpios = <&gpio2 RK_PB5 GPIO_ACTIVE_LOW>;
++		tx-internal-delay-ps = <1950>;
+ 	};
+ };
+ 
+@@ -737,6 +736,7 @@ rgmii_phy1: ethernet-phy@1 {
+ 		reset-assert-us = <20000>;
+ 		reset-deassert-us = <100000>;
+ 		reset-gpios = <&gpio3 RK_PA3 GPIO_ACTIVE_LOW>;
++		tx-internal-delay-ps = <1950>;
+ 	};
+ };
+ 
 -- 
 2.51.1
 
