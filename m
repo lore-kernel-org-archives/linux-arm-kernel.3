@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C56B0C44502
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 10:21:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CC3C44502
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 10:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MQlphm0aZ0LI3nckK4gkA94JRPY/PapSXEl1mwsykiE=; b=vwEbNjDElCUzVxkL+oyB9kCBss
-	2jjkAUcMVGYFCPHaYq6g8+WmOfN+pKtMhQ+kvJahkw2demcBd2Frh4FnIfGGrXOh7PYBj5HEyvWrV
-	eLRqZqhuHij38xfH8L4g97eViu6kVymEZdzZ5DZJJLbzQu1wheyF2S9hPFEh6lbReCVeg5b3pqjU+
-	V3yEJGcS47/b5dtRFZ4VT2P/AR5sT5VDJXFysP70zuX9bay3ZMFfNFW5tLzf45bPHxScauD+FatDQ
-	N4e6ll/KwQpTry59YTMy/0uNlCrQ4rJClABF2IoohcvQDPYRiZgfw/Nkk5GNbCHqQDeFmufqkk+kp
-	6qkpqd+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M+S91k9FvN+Q1z+KwnvmtonUBdwa1+ZfBnBC0GNchH8=; b=3QjBN/EOsTbai5OTw0sV3lOyfk
+	WO+vS3sIPvAaWhecEuIi59go117CxNcBwJ0h4Bou5bKudpapI3dF/LvbIunZ8J8c92qVJ1MPCf+2o
+	+GZB7199BoAgNu0Kco3eeKtEFRfFIyjTheTYTtosuKvfMKNa2lYa5+P/xmyFCS56gQ8EXE51Ec14v
+	/4eUPCdJCrqReERo89f01cmE+CPRoX6Nnhywb9DAw6NOqAhrNmomReP12rbUgislYzmzF62JoQqdx
+	pQGwylQ9Op8LSrb3Sc+AsuCx+EGbzz0XAxaYz02X46OnyrnzzXzvPLzSYh55KtZR/wt/rCxfvc7IC
+	uNEW6KSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viVKf-00000005Guz-3MeU;
-	Wed, 21 Jan 2026 10:21:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viVKd-00000005Gua-26Fm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 10:21:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17BC51476;
-	Wed, 21 Jan 2026 02:20:51 -0800 (PST)
-Received: from [10.1.25.175] (XHFQ2J9959.cambridge.arm.com [10.1.25.175])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4B4003F740;
-	Wed, 21 Jan 2026 02:20:54 -0800 (PST)
-Message-ID: <ee2bf4ba-0121-44dc-a465-4c186dc18f19@arm.com>
-Date: Wed, 21 Jan 2026 10:20:52 +0000
+	id 1viVMS-00000005H54-2Nob;
+	Wed, 21 Jan 2026 10:22:52 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viVMQ-00000005H49-1aHJ;
+	Wed, 21 Jan 2026 10:22:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=Cc:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=M+S91k9FvN+Q1z+KwnvmtonUBdwa1+ZfBnBC0GNchH8=; b=l+gOzbccaGtAI89KYpjIi8YMkD
+	mT6L3IrJSaEGMhm6/fuiIhAJ+RjEOe5TI/Cbh2/5y7rZ+UO/x8y0g7MKuo771qnsrf8Uti5rXi3IK
+	v0vYfd6TsdTiXh+ImJcsL24EKwEnasvwsbekwuiibylVZHp+3gZMwPtiTTzcUk7pwnbIiYjxAFrz4
+	OZZiQEuoCvURVyk47agKV76CaqZeV81Qk6TbH5bGmkqVK9yduZuRySKqmZgcrxosT8EYq8tmiIpgw
+	ZDjs6gltBunfdBTSoYb4njUw/YnXvHY37cKoiuo/TPyf/Ts5sLfGPWqF5LrRJwFr/JQMHDKmScMa1
+	93ogGfjQ==;
+From: Andreas Kemnade <andreas@kemnade.info>
+Date: Wed, 21 Jan 2026 11:22:37 +0100
+Subject: [PATCH] arm64: dts: rockchip: Add TPS65185 for PineNote
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] arm64: mmu: avoid allocating pages while splitting
- the linear mapping
-Content-Language: en-GB
-To: Yeoreum Yun <yeoreum.yun@arm.com>, Yang Shi <yang@os.amperecomputing.com>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
- catalin.marinas@arm.com, akpm@linux-oundation.org, david@kernel.org,
- kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com, dev.jain@arm.com,
- chaitanyas.prakash@arm.com, bigeasy@linutronix.de, clrkwllms@kernel.org,
- rostedt@goodmis.org, lorenzo.stoakes@oracle.com, ardb@kernel.org,
- jackmanb@google.com, vbabka@suse.cz, mhocko@suse.com
-References: <aW5p1ylQBNXTEmmq@willie-the-truck>
- <aW6hISBu3hNYS771@e129823.arm.com>
- <2619166b-13ef-4daa-82c7-1d44035a8d6c@arm.com>
- <aW9LCX92T9t8iDco@e129823.arm.com>
- <baa46ea0-737b-4d9e-b4f4-2eee1476da95@arm.com>
- <aW-k_D1Q8jpYMPoI@willie-the-truck>
- <a6c1f21f-43e4-41d2-adb6-c5f9985b3abd@arm.com>
- <aW+t8S1LfwX3LjRi@e129823.arm.com>
- <11a01f4e-9ae5-4001-9f9c-74a746f898cd@arm.com>
- <02bb61cc-f0be-41e5-b8b2-59768afd5254@os.amperecomputing.com>
- <aXCPHaylUbRJ3CME@e129823.arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aXCPHaylUbRJ3CME@e129823.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260121-rk-tps-v1-1-bc867e1dd200@kemnade.info>
+X-B4-Tracking: v=1; b=H4sIAOyocGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDQyND3aJs3ZKCYl1D4zRLM/PkxMTk1GQloOKCotS0zAqwQdGxtbUA7lg
+ bUlgAAAA=
+X-Change-ID: 20260121-rk-tps-13f967caacec
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Diederik de Haas <didi.debian@cknow.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Andreas Kemnade <andreas@kemnade.info>
+X-Mailer: b4 0.15-dev-a6db3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2572; i=andreas@kemnade.info;
+ h=from:subject:message-id; bh=cCVsmWD5x2Wp9Uyksc6R5cDwZAzUv2EH8wUugsqaG70=;
+ b=owGbwMvMwCUm/rzkS6lq2x3G02pJDJkFKz5pxyVy+dUFzN1zyLO5aVXGdOa6o3ZqyVYtuTe/P
+ K5+cN2xo4SFQYyLQVZMkeWXtYLbJ5VnucFTI+xh5rAygQxh4OIUgIkUdzF8L7m4worHwSC1tvbS
+ ygmB2x2dTSd5rRHZbeV49N+1z/vcGf7Kbdb59mh5Wvy55R0fSlkrDW9e2Osa5lirdmjuOqUNTX6
+ cAA==
+X-Developer-Key: i=andreas@kemnade.info; a=openpgp;
+ fpr=EEC0DB858E66C0DA70620AC07DBD6AC74DE29324
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_022059_623825_227940D1 
-X-CRM114-Status: GOOD (  31.50  )
+X-CRM114-CacheID: sfid-20260121_022250_433326_823AE052 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,97 +80,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/01/2026 08:32, Yeoreum Yun wrote:
->>>> My concern is that if a secondary CPU can race and cause a split, that is
->>>> unsound because we have determined that although the primary CPU supports BBML2,
->>>> at least one of the secondary CPUs does not. So splitting a live mapping is unsafe.
->>>>
->>>> I just had a brief chat with Rutland, and he agrees that this _could_ be a
->>>> problem. Basically there is a window between onlining the secondary cpus and
->>>> entering the stop_machine() where one of those cpus _could_ end up doing
->>>> something that causes us to split the linear map.
->>
->> If I remember correctly, split_kernel_leaf_mapping() does call
->> system_supports_bbml2_noabort() before doing real split. So we basically
->> should fall into two categories:
->>
->> 1. bbml2_noabort is supported on all cpus. Everything is fine.
->> 2. bbml2_noabort is not supported on all cpus. split_kernel_leaf_mapping()
->> just returns 0. Kernel doesn't split page table, so there won't be TLB
->> conflict issue. But the following page prot update may see unexpected block
->> mapping, then a   WARN  will be raised and it will return -EINVAL. So the
->> worst case is the caller will fail (IIRC all the callers of set_memory_*()
->> handle the failure), and we can know who is trying to change linear mapping
->> before the linear mapping gets                    finalized. AFAICT I
->> haven't seen such WARN yet.
+As the TPS65185 driver is now upsteram, add it to the PineNote devietrees.
+This is based on https://ayakael.net/forge/linux-pinenote but modified to
+the binding requirements.
+Without any other out-of-tree materials applied, this enables the
+hwmon temperature reporting and the interrupt counter increments
+by one per reading.
 
-Ahh good point! So this isn't quite as terrible as I was thinking.
+Signed-off-by: Andreas Kemnade <andreas@kemnade.info>
+---
+ arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi | 49 +++++++++++++++++++++++
+ 1 file changed, 49 insertions(+)
 
-> 
-> Thanks for the great detail :)
-> I've missed system_supports_bbml2_noabort() in split_kernel_leaf_mapping().
-> 
->>
->>>>
->>>> I'm not immediately sure how to solve that.
->>
->> Do we need some synchronization mechanism? If the linear mapping is not
->> finalized yet, split_kernel_leaf_mapping() will spin. For example, something
->> like this off the top of my head,
->>
->> DEFINE_STATIC_KEY_FALSE(linear_mapping_finalized);
->>
->> Once the linear mapping is finalized, we can call
->> static_branch_enable(&linear_mapping_finalized);
->>
->> In split_kernel_leaf_mapping(), we can just do:
->>
->> retry:
->>     if (!static_branch_likely(&linear_mapping_finalized))
->>         goto retry;
->>
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi
+index 5c6f8cc401c9..7d490926dbc9 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi
+@@ -499,6 +499,40 @@ typec_hs_usb2phy0: endpoint {
+ 			};
+ 		};
+ 	};
++
++	ebc_pmic: pmic@68 {
++		compatible = "ti,tps65185";
++		reg = <0x68>;
++		interrupt-parent = <&gpio3>;
++		interrupts = <RK_PA6 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-0 = <&ebc_pmic_pins>;
++		pinctrl-names = "default";
++		enable-gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_HIGH>;
++		pwr-good-gpios = <&gpio3 RK_PA7 GPIO_ACTIVE_HIGH>;
++		vcom-ctrl-gpios = <&gpio4 RK_PB2 GPIO_ACTIVE_HIGH>;
++		vin-supply = <&vcc_bat>;
++		wakeup-gpios = <&gpio3 RK_PA5 GPIO_ACTIVE_HIGH>;
++
++		regulators {
++			v3p3: v3p3 {
++				regulator-name = "v3p3";
++				/* Keep it always on because IRQ is pulled up against this line */
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++			};
++
++			vcom: vcom {
++				regulator-name = "vcom";
++			};
++
++			vposneg: vposneg {
++				regulator-name = "vposneg";
++				regulator-min-microvolt = <15000000>;
++				regulator-max-microvolt = <15000000>;
++			};
++		};
++	};
+ };
+ 
+ &i2c5 {
+@@ -563,6 +597,21 @@ bt_wake_h: bt-wake-h {
+ 		};
+ 	};
+ 
++	ebc-pmic {
++		ebc_pmic_pins: ebc-pmic-pins {
++			rockchip,pins = /* wakeup */
++					<3 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>,
++					/* int */
++					<3 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>,
++					/* pwr_good */
++					<3 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none>,
++					/* pwrup */
++					<3 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>,
++					/* vcom_ctrl */
++					<4 RK_PB2 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	led {
+ 		led_pin: led-pin {
+ 			rockchip,pins = <3 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
 
-Yuck... But I guess it might work as long as the primary thread never does
-anything that would cause an attempt to split; otherwise we have a deadlock.
+---
+base-commit: 053966c344dbd346e71305f530e91ea77916189f
+change-id: 20260121-rk-tps-13f967caacec
 
->>
->> There may be better way to handle it. But this case should be very unlikely
->> IMHO. It sounds crazy to have such complicated kernel threads run so early.
->> I'm not sure whether we should pay immediate attention to it or not.
-
-I think we need to figure out if this is actually possible. We bring up the
-secondary cpus, set system caps and finalize the linear map in smp_init().
-That's called from kernel_init_freeable() which is called from kernel_init(),
-which is invoked as a thread pinned to the boot cpu.
-
-sched_init_smp() is called after smp_init() (i.e. after the linear map is
-finalized). I'm guessing (based on the name of sched_init_smp()) that nothing
-other than the idle thread will run on any secondaries until after
-sched_init_smp() is called? (I'd be greatful if anyone can confirm that).
-
-Rutland suggested that it's probably too early for any PM type stuff to be
-running in the idle loop, so based on all of that, perhaps this is not a problem
-after all and there is basically zero chance of a secondary cpu doing anything
-that could cause a linear map split during this window?
-
-I'm inclined to leave this as is for now.
-
-Thanks,
-Ryan
-
-> 
-> Thinking about it again, I’m not sure whether
-> it is acceptable to use a sleepable synchronization mechanism at this stage,
-> like split_kernel_leaf_mapping() does with mutex_lock()
-> (even though it may be technically possible).
-> It also feels odd that this function can be called at this point in time.
-> 
-> If this is indeed considered problematic,
-> I think it would be better to simply return -EINVAL immediately
-> when linear_mapping_finalized has not yet been completed.
-> 
-> --
-> Sincerely,
-> Yeoreum Yun
+Best regards,
+--  
+Andreas Kemnade <andreas@kemnade.info>
 
 
