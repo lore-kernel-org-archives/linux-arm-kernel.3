@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D3FC4453A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8470AC4453B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 13:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fXzQHBcfzaLnN6Lveuvs/XelZu2O0eMLfcdM7y12o5A=; b=Y5uZ23uIx87OCCbFhgsH3afZ02
-	A7W14lhjZsglul/nIbL0RBxuCmWZjnAVV7RjFEri2gqI8vTotLLWv5HoGlRN4njDwgg+rWsCLoJya
-	V18r8lhgeFMXRnA3Zin2XUjSiGGTR6oFCdMnDhJtvU+OoJDbDhuPZyD9ZsPjwta6SPQqC8yFC8div
-	KILup9AmptEVs8PmUrZACeA7Ty7lzIXZs7TIQWagdQPIASJqQQFsA97xFHnBFW7AiVw+kRa3zrcAy
-	/Zt8B5Ouo7YtRoFeSPQIp8Put/7LOZb3G+4Kss1n8MPl0gRDAn2cV/Mp8t/vbunq6YizmfsFOblDw
-	VNfu1JQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qFgsuYFcKp2aiHu+Dr9JQBFDziu8Ye39CXeQpE5eav4=; b=zUCP1cUtvM+XT9ffMlEr8b6Nba
+	FHyE5O1nSSOJIi6a/CCZJYoROy+5iUxStC7Z1MC0G2PSUZB1Jfjf+O9Cgg6qvnAy6FDaTWpnqEJn1
+	rTsnumLhGa/rTzT/ZoRVk//nQXA0b2OL0LZjPv0JAJRuDTmG5+6UrDUwVMmCRJMZVRcxVglqvjFbQ
+	wwWIrq761fwhNBr+BYaa1cIgBRHYHUu0rLzioP083XMFavP3SP9yIGTatzhso55z8bSGHj4v7F5lD
+	+bAsE21h/pAUqEvPfGVCZbdr/9csnck9uFT2olpzpyzbJ5uwA94auud+8WUE1jd3Dxdr56itCm3bB
+	ifQ2Y3jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYZT-00000005Wn9-3VcB;
-	Wed, 21 Jan 2026 13:48:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1viYZV-00000005WpO-3MEh;
+	Wed, 21 Jan 2026 13:48:33 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viYZG-00000005WbF-3Q58
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 13:48:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D0270442A4;
-	Wed, 21 Jan 2026 13:48:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77ED5C116D0;
-	Wed, 21 Jan 2026 13:48:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769003297;
-	bh=VpCP4rWPoedg5kjG3d2wjsJQWbzX2GfdwhAN9xSoVLc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AW2mIWUcA6xvVB3CX2ffd0Gv+2enV+Qb302ghmDEvuHFFUb2Nb8p8O2GzIoCVmqjL
-	 xxpFpUbCtnCm+OHuGUAubzYXYTq65VDS61Vsk13OHdoUZSYKS3W6ukkPBZJgiTt87X
-	 LOQCEY4FubaP3wEGZkIG5IBfNjprOE5zFDrEugixMzsWd35dJ5Y9i5+GxJQorkZzV9
-	 u/8sykpDJ2eb4uNfJIuw9mqYMQzT/jdcSe0zLb4Nd6jPdtvFc5kr095gtiQkRfRVIM
-	 5aRgBdJa9/Q/2664KNUAJsMODwSapoqHbv+jKPP4B6icJzvIainfOrjq3KZi/3fyC0
-	 Gbw2TE7crSvNA==
-Date: Wed, 21 Jan 2026 13:48:10 +0000
-From: Will Deacon <will@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, maz@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, miko.lenczewski@arm.com,
-	kevin.brodsky@arm.com, ardb@kernel.org, suzuki.poulose@arm.com,
-	lpieralisi@kernel.org, yangyicong@hisilicon.com,
-	scott@os.amperecomputing.com, joey.gouly@arm.com,
-	yuzenghui@huawei.com, pbonzini@redhat.com, shuah@kernel.org,
-	mark.rutland@arm.com, arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v11 RESEND 6/9] arm64: futex: support futex with FEAT_LSUI
-Message-ID: <aXDZGhFQDvoSwdc_@willie-the-truck>
-References: <20251214112248.901769-1-yeoreum.yun@arm.com>
- <20251214112248.901769-7-yeoreum.yun@arm.com>
- <aW5dzb0ldp8u8Rdm@willie-the-truck>
- <aW6tix/GeqgXpTUN@e129823.arm.com>
+	id 1viYZO-00000005Wht-1xBz;
+	Wed, 21 Jan 2026 13:48:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769003275; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=lheahf/rqBGLL9wRKdlRo/hKbMuZ66G+Lhp0HOh3O0V6h8c9asYS0QY3Rf9Pds8ViMiMzfESGLh0Qzhmo6AGTtj/KIzvkKgYWQClSRCmx67nr8ctcMBDnwbVOaGZGJCHo5XkRKEyiYQvFWOpQLG8GRyAnCzAhcrAPog96zceKJY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1769003275; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=qFgsuYFcKp2aiHu+Dr9JQBFDziu8Ye39CXeQpE5eav4=; 
+	b=hnxeg2xn4vGqabC2FDRluYhwptcK7pU4Uw5AUiys7yB207p49EQCDWkexA9PVkQA79i0w7zkdOAkxaJsq+fJPUIiK8QDpQrWFF2lre8FGqYNIRMzSjTDWFlL67mdAn7hNnoInEOonnc3ULrS/XkHvbYfJKhIjzemhvAtCuv5pb8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769003275;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=qFgsuYFcKp2aiHu+Dr9JQBFDziu8Ye39CXeQpE5eav4=;
+	b=Vlm7SXMW63gsARKK18CZt2K/X/hHkLzfOAUdTPYaHE3hImUan7op/N+n+Umq9NpK
+	cbhGJh9Q6SMpaYqgKqG4rxbeYAiSsGuD8AEuwbIcwSjuRIJgvnQoIN23CRY1JgXSegX
+	c9aNR+JafHO/bZ+lPT7jWsf+ZcZpP53N2TWqAb8Q=
+Received: by mx.zohomail.com with SMTPS id 1769003273659128.66489880127222;
+	Wed, 21 Jan 2026 05:47:53 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Wed, 21 Jan 2026 14:45:41 +0100
+Subject: [PATCH v6 15/21] drm/rockchip: dw_hdmi_qp: Implement "color
+ format" DRM property
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aW6tix/GeqgXpTUN@e129823.arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260121-color-format-v6-15-7b81a771cd0b@collabora.com>
+References: <20260121-color-format-v6-0-7b81a771cd0b@collabora.com>
+In-Reply-To: <20260121-color-format-v6-0-7b81a771cd0b@collabora.com>
+To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+ Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>
+Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-doc@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_054818_945928_4B67A690 
-X-CRM114-Status: GOOD (  25.18  )
+X-CRM114-CacheID: sfid-20260121_054826_645400_90F3D932 
+X-CRM114-Status: GOOD (  20.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,82 +100,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 19, 2026 at 10:17:47PM +0000, Yeoreum Yun wrote:
-> > > +"2:\n"
-> > > +	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)
-> > > +	: "+r" (ret), "+Q" (*uaddr), "+r" (*oldval)
-> > > +	: "r" (newval)
-> > > +	: "memory");
-> >
-> > Don't you need to update *oldval here if the CAS didn't fault?
-> 
-> No. if CAS doesn't make fault the oldval update already.
+Switch between requested color formats by setting the right bus formats,
+configuring the VO GRF registers, and setting the right output mode.
 
-Sorry, it was the "+r" constraint with a pointer dereference that threw
-me but you have the "memory" clobber so it looks like this will work.
+To do this, the encoder's atomic_check queries the bus format of the
+first bridge, which was determined by the bridge chain recursive format
+selection. Pick the input format if it's !FIXED, otherwise, pick the
+output format.
 
-> > > +
-> > > +	for (i = 0; i < FUTEX_MAX_LOOPS; i++) {
-> > > +		if (get_user(oval64.raw, uaddr64))
-> > > +			return -EFAULT;
-> >
-> > Since oldval is passed to us as an argument, can we get away with a
-> > 32-bit get_user() here?
-> 
-> It's not a probelm. but is there any sigificant difference?
+The previously unused GRF register color format defines are redone as
+well. Both RK3588 and RK3576 use the same defines; it didn't look like
+this as there was a typo in the previously (unused) definition.
 
-I think the code would be clearer if you only read what you actually
-use.
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 107 ++++++++++++++++++++++---
+ 1 file changed, 98 insertions(+), 9 deletions(-)
 
-> > > +		nval64.raw = oval64.raw;
-> > > +
-> > > +		if (futex_on_lo) {
-> > > +			oval64.lo_futex.val = oldval;
-> > > +			nval64.lo_futex.val = newval;
-> > > +		} else {
-> > > +			oval64.hi_futex.val = oldval;
-> > > +			nval64.hi_futex.val = newval;
-> > > +		}
-> > > +
-> > > +		orig64.raw = oval64.raw;
-> > > +
-> > > +		if (__lsui_cmpxchg64(uaddr64, &oval64.raw, nval64.raw))
-> > > +			return -EFAULT;
-> > > +
-> > > +		if (futex_on_lo) {
-> > > +			oldval = oval64.lo_futex.val;
-> > > +			other = oval64.lo_futex.other;
-> > > +			orig_other = orig64.lo_futex.other;
-> > > +		} else {
-> > > +			oldval = oval64.hi_futex.val;
-> > > +			other = oval64.hi_futex.other;
-> > > +			orig_other = orig64.hi_futex.other;
-> > > +		}
-> > > +
-> > > +		if (other == orig_other) {
-> > > +			ret = 0;
-> > > +			break;
-> > > +		}
-> > > +	}
-> > > +
-> > > +	if (!ret)
-> > > +		*oval = oldval;
-> >
-> > Shouldn't we set *oval to the value we got back from the CAS?
-> 
-> Since it's a "success" case, the CAS return and oldval must be the same.
-> That's why it doesn't matter to use got back from the CAS.
-> Otherwise, it returns error and *oval doesn't matter for
-> futex_atomic_cmpxchg_inatomic().
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+index 1a09bcc96c3e..d39a4284b92c 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+@@ -11,6 +11,7 @@
+ #include <linux/gpio/consumer.h>
+ #include <linux/hw_bitfield.h>
+ #include <linux/mfd/syscon.h>
++#include <linux/media-bus-format.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
+ #include <linux/phy/phy.h>
+@@ -43,10 +44,6 @@
+ #define RK3576_8BPC			0x0
+ #define RK3576_10BPC			0x6
+ #define RK3576_COLOR_FORMAT_MASK	GENMASK(7, 4)
+-#define RK3576_RGB			0x9
+-#define RK3576_YUV422			0x1
+-#define RK3576_YUV444			0x2
+-#define RK3576_YUV420			0x3
+ #define RK3576_CECIN_MASK		BIT(3)
+ 
+ #define RK3576_VO0_GRF_SOC_CON14	0x0038
+@@ -74,8 +71,6 @@
+ #define RK3588_8BPC			0x0
+ #define RK3588_10BPC			0x6
+ #define RK3588_COLOR_FORMAT_MASK	GENMASK(3, 0)
+-#define RK3588_RGB			0x0
+-#define RK3588_YUV420			0x3
+ #define RK3588_SCLIN_MASK		BIT(9)
+ #define RK3588_SDAIN_MASK		BIT(10)
+ #define RK3588_MODE_MASK		BIT(11)
+@@ -87,6 +82,11 @@
+ #define HOTPLUG_DEBOUNCE_MS		150
+ #define MAX_HDMI_PORT_NUM		2
+ 
++#define RK_COLOR_FMT_RGB		0x0
++#define RK_COLOR_FMT_YUV422		0x1
++#define RK_COLOR_FMT_YUV444		0x2
++#define RK_COLOR_FMT_YUV420		0x3
++
+ struct rockchip_hdmi_qp {
+ 	struct device *dev;
+ 	struct regmap *regmap;
+@@ -115,6 +115,33 @@ static struct rockchip_hdmi_qp *to_rockchip_hdmi_qp(struct drm_encoder *encoder)
+ 	return container_of(rkencoder, struct rockchip_hdmi_qp, encoder);
+ }
+ 
++/**
++ * dw_hdmi_qp_rockchip_bus_fmt_to_reg - converts a bus format to a GRF reg value
++ * @bus_fmt: One of the MEDIA_BUS_FMT_s allowed by this driver's atomic_check
++ *
++ * Returns: an unshifted value to be written to the COLOR_FORMAT GRF register
++ * on success, or %-EINVAL if the bus format is not supported.
++ */
++static int __pure dw_hdmi_qp_rockchip_bus_fmt_to_reg(u32 bus_fmt)
++{
++	switch (bus_fmt) {
++	case MEDIA_BUS_FMT_RGB888_1X24:
++	case MEDIA_BUS_FMT_RGB101010_1X30:
++		return RK_COLOR_FMT_RGB;
++	case MEDIA_BUS_FMT_UYVY8_1X16:
++	case MEDIA_BUS_FMT_UYVY10_1X20:
++		return RK_COLOR_FMT_YUV422;
++	case MEDIA_BUS_FMT_YUV8_1X24:
++	case MEDIA_BUS_FMT_YUV10_1X30:
++		return RK_COLOR_FMT_YUV444;
++	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
++	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
++		return RK_COLOR_FMT_YUV420;
++	}
++
++	return -EINVAL;
++}
++
+ static void dw_hdmi_qp_rockchip_encoder_enable(struct drm_encoder *encoder)
+ {
+ 	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
+@@ -130,29 +157,83 @@ static void dw_hdmi_qp_rockchip_encoder_enable(struct drm_encoder *encoder)
+ 		hdmi->ctrl_ops->enc_init(hdmi, to_rockchip_crtc_state(crtc->state));
+ }
+ 
++/**
++ * dw_hdmi_qp_rockchip_get_vop_format - get the bus format VOP should output
++ * @encoder: pointer to a &struct drm_encoder
++ * @conn_state: pointer to the current atomic &struct drm_connector_state
++ *
++ * Determines which bus format the Rockchip video processor should output as
++ * to feed into the bridge chain.
++ *
++ * Returns a MEDIA_BUS_FMT_* on success, or %0 on error.
++ */
++static u32 dw_hdmi_qp_rockchip_get_vop_format(struct drm_encoder *encoder,
++					      struct drm_connector_state *conn_state)
++{
++	struct drm_bridge *bridge __free(drm_bridge_put) = NULL;
++	struct drm_bridge_state *bstate;
++
++	bridge = drm_bridge_chain_get_first_bridge(encoder);
++	if (!bridge)
++		return 0;
++
++	bstate = drm_atomic_get_bridge_state(conn_state->state, bridge);
++	if (!bstate)
++		return 0;
++
++	if (bstate->input_bus_cfg.format != MEDIA_BUS_FMT_FIXED)
++		return bstate->input_bus_cfg.format;
++
++	return bstate->output_bus_cfg.format;
++}
++
+ static int
+ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
+ 					 struct drm_crtc_state *crtc_state,
+ 					 struct drm_connector_state *conn_state)
+ {
+-	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
+ 	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
++	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
+ 	union phy_configure_opts phy_cfg = {};
++	u32 ingest_fmt;
+ 	int ret;
+ 
++	ingest_fmt = dw_hdmi_qp_rockchip_get_vop_format(encoder, conn_state);
++	if (!ingest_fmt)
++		return -EINVAL;
++
+ 	if (hdmi->tmds_char_rate == conn_state->hdmi.tmds_char_rate &&
+-	    s->output_bpc == conn_state->hdmi.output_bpc)
++	    s->output_bpc == conn_state->hdmi.output_bpc &&
++	    s->bus_format == ingest_fmt)
+ 		return 0;
+ 
++	switch (ingest_fmt) {
++	case MEDIA_BUS_FMT_RGB888_1X24:
++	case MEDIA_BUS_FMT_RGB101010_1X30:
++	case MEDIA_BUS_FMT_YUV8_1X24:
++	case MEDIA_BUS_FMT_YUV10_1X30:
++		s->output_mode = ROCKCHIP_OUT_MODE_AAAA;
++		break;
++	case MEDIA_BUS_FMT_UYVY8_1X16:
++		s->output_mode = ROCKCHIP_OUT_MODE_YUV422;
++		break;
++	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
++	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
++		s->output_mode = ROCKCHIP_OUT_MODE_YUV420;
++		break;
++	default:
++		return -EINVAL;
++	}
++
+ 	phy_cfg.hdmi.tmds_char_rate = conn_state->hdmi.tmds_char_rate;
+ 	phy_cfg.hdmi.bpc = conn_state->hdmi.output_bpc;
+ 
+ 	ret = phy_configure(hdmi->phy, &phy_cfg);
+ 	if (!ret) {
+ 		hdmi->tmds_char_rate = conn_state->hdmi.tmds_char_rate;
+-		s->output_mode = ROCKCHIP_OUT_MODE_AAAA;
+ 		s->output_type = DRM_MODE_CONNECTOR_HDMIA;
+ 		s->output_bpc = conn_state->hdmi.output_bpc;
++		s->bus_format = ingest_fmt;
+ 	} else {
+ 		dev_err(hdmi->dev, "Failed to configure phy: %d\n", ret);
+ 	}
+@@ -382,6 +463,7 @@ static void dw_hdmi_qp_rk3588_io_init(struct rockchip_hdmi_qp *hdmi)
+ static void dw_hdmi_qp_rk3576_enc_init(struct rockchip_hdmi_qp *hdmi,
+ 				       struct rockchip_crtc_state *state)
+ {
++	int color = dw_hdmi_qp_rockchip_bus_fmt_to_reg(state->bus_format);
+ 	u32 val;
+ 
+ 	if (state->output_bpc == 10)
+@@ -389,12 +471,16 @@ static void dw_hdmi_qp_rk3576_enc_init(struct rockchip_hdmi_qp *hdmi,
+ 	else
+ 		val = FIELD_PREP_WM16(RK3576_COLOR_DEPTH_MASK, RK3576_8BPC);
+ 
++	if (likely(color > 0))
++		val |= FIELD_PREP_WM16(RK3576_COLOR_FORMAT_MASK, color);
++
+ 	regmap_write(hdmi->vo_regmap, RK3576_VO0_GRF_SOC_CON8, val);
+ }
+ 
+ static void dw_hdmi_qp_rk3588_enc_init(struct rockchip_hdmi_qp *hdmi,
+ 				       struct rockchip_crtc_state *state)
+ {
++	int color = dw_hdmi_qp_rockchip_bus_fmt_to_reg(state->bus_format);
+ 	u32 val;
+ 
+ 	if (state->output_bpc == 10)
+@@ -402,6 +488,9 @@ static void dw_hdmi_qp_rk3588_enc_init(struct rockchip_hdmi_qp *hdmi,
+ 	else
+ 		val = FIELD_PREP_WM16(RK3588_COLOR_DEPTH_MASK, RK3588_8BPC);
+ 
++	if (likely(color > 0))
++		val |= FIELD_PREP_WM16(RK3588_COLOR_FORMAT_MASK, color);
++
+ 	regmap_write(hdmi->vo_regmap,
+ 		     hdmi->port_id ? RK3588_GRF_VO1_CON6 : RK3588_GRF_VO1_CON3,
+ 		     val);
 
-Got it, but then the caller you have is very weird because e.g.
-__lsui_futex_atomic_eor() goes and does another get_user() on the next
-iteration instead of using the value returned by the CAS.
+-- 
+2.52.0
 
-It would probably be clearer if you restructured your CAS helper to look
-more like try_cmpxchg() and then the loop around it would be minimal.
-You might need to distinguish the faulting case from the comparison
-failure case with e.g. -EFAULT vs -EAGAIN.
-
-Will
 
