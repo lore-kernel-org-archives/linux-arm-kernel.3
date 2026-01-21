@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F389C44506
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 22:00:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 406C3C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 22:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OuZ9uwQBeUF+b4hmsIGTGQY8EO1bupRCXIA6i0KS9io=; b=dDA7Iyxh0Z5X1jtVsTig/EyZqd
-	ZQcBIVCOaRPj2KTtwT+xmUWJfpX8JEKbRsZipyGQyeCy6GAWgOhNt5UW0gX3URAhDb153MyMQYGSI
-	lBIYFM9M1Z7TGo8mKT+/uSa92v/GVH3JKkVSlo7T2y4V/lkoG/r55uKHGNubOQQtLv5bRab1Q3ZIK
-	sckFgzCB+d3bCYupTcxD8W3mwrQisXQ+LVJzCz8Xgw7UWyqAo+kG1/SQ2oPTbJnPvGPYQTv2t9M4X
-	/jiKeylKOIWkZpU8TC8oMIYqnF2XmKbiF8f7vp6s7VXBEY8emRZuac1Jg16X0zd5G0ueiCKqzVy50
-	47RlpVng==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mvC8NDXiJnJ5VmV3RtYR9Y0Oth/mJSucyrmsDMktgJE=; b=c0o4Y9eDuuIC5q7ncY7GFbaB1j
+	eWtcrOnoCWFrqzXeA/XKlOax8gsPe8KDKag/Ap1/NlAKxupPbRwtfqWgZF/3nSQOWkaQGq2zNdcxq
+	3+YEF9/lfeQ6dbva/F5T2Qle6xSfHb8yj5KzXZGCn0FxQ+ohAVsLJGknUpSNOhBgdnohBwwRnNg9g
+	wcyVKIUsVIZmQmep5rILGKo30nLI1i/vSK/I8IQvDNl6nn8u3Gi1Xkjn0eHAdKdR9V2f6VToG9BrX
+	V+dR0UHAQDARKMAFPU5ayXkmA2eK0PZljV1fx5312Nqk8rajYAj1YsE31Z2WiU9vxYBKxM+vD3CDL
+	qH7flwGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vigFO-000000065rY-1lPU;
+	id 1vigFO-000000065rc-36eg;
 	Wed, 21 Jan 2026 22:00:18 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.228])
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vigFL-000000065qq-1gGq
+	id 1vigFL-000000065qs-2ytk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 22:00:16 +0000
+	Wed, 21 Jan 2026 22:00:17 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 9CA78C00ED5B;
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id AE664C034202;
 	Wed, 21 Jan 2026 14:00:12 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 9CA78C00ED5B
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com AE664C034202
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
 	s=dkimrelay; t=1769032812;
-	bh=g3/bxkBn8gvWh3KBWEL3vyNV4zkCOXwGakLVpiKenIw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RsqEx+YAl97+H87DVdetV7dTSaYhNc/xaSH8IJqLweQH/FFJpEjIPEv2PNzj+6vU2
-	 BfP1i8zJoDMC6n/yislIa2f7YHYtWnoXc7TnYs/LYPMuya4mmYXrle233kN++CS1rL
-	 GnQSZGuxRZqGtdRSMOlrINJcOh+Lp5e+jV0ONYzk=
+	bh=gaBDVDzWa9ERdVCWGD1R7i/41y6YewvQa4xYslxTbxo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Rgq6JmYMcYe9dHioo2XMQ3d1IfgBQb7TrbLLEY+1kkhGYwJsbFGfHB40j1BOCYOeu
+	 LksjzjOwNpkeFERBBzEPj+hgSV424lKA22wdYYskaj2nXt+dotiJQ4BszgB0Ov2ya5
+	 B3L9EUBnBwhJu8q0Z1kBBGDihk2zykLedClRBdCM=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 7C7FF1A187;
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 604321A186;
 	Wed, 21 Jan 2026 14:00:12 -0800 (PST)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: soc@kernel.org
 Cc: Rob Herring <robh@kernel.org>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
 	linux-arm-kernel@lists.infradead.org,
 	arnd@arndb.de,
 	khilman@kernel.org,
 	bcm-kernel-feedback-list@broadcom.com
-Subject: [GIT PULL 2/2] Broadcom devicetree-arm64 changes for 6.20
-Date: Wed, 21 Jan 2026 14:00:11 -0800
-Message-ID: <20260121220011.1171930-2-florian.fainelli@broadcom.com>
+Subject: [GIT PULL 1/2] Broadcom devicetree changes for 6.20
+Date: Wed, 21 Jan 2026 14:00:10 -0800
+Message-ID: <20260121220011.1171930-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260121220011.1171930-1-florian.fainelli@broadcom.com>
-References: <20260121220011.1171930-1-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_140015_484514_4985C712 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20260121_140015_818432_CC338526 
+X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,58 +82,22 @@ The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
 
 are available in the Git repository at:
 
-  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.20/devicetree-arm64
+  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.20/devicetree
 
-for you to fetch changes up to a95e1d848972dd7d5cbabd62921b9b85501d891e:
+for you to fetch changes up to 929dc5b3e06c54f1d19b01c93042174d0e741b99:
 
-  arm64: dts: broadcom: bcm4906-netgear-r8000p: Drop unnecessary "ranges" in partition node (2026-01-16 13:48:58 -0800)
-
-----------------------------------------------------------------
-This pull request contains Broadcom ARM64-based SoCs DT changes for
-6.20, please pull the following:
-
-- Peter enables the RNG on 2712 (Raspberry Pi 5)
-
-- Stanimir adds the watchdog DT node on 2712
-
-- Rob removes undocumneted nodes, reworks clock nodes, fixes the
-  "simple-bus" node names, and cleans up additional properties and nodes
-  for all Broadcom ARM64-based SoCs
+  ARM: dts: broadcom: bcm2711: Fix 'simple-bus' node names (2026-01-08 09:32:39 -0800)
 
 ----------------------------------------------------------------
-Peter Robinson (1):
-      arm64: dts: broadcom: bcm2712: Enable RNG
+This pull request contains Broadcom ARM-based SoCs DT changes for 6.20,
+please pull the following:
 
-Rob Herring (Arm) (11):
-      arm64: dts: broadcom: Remove unused and undocumented nodes
-      arm64: dts: broadcom: stingray: Rework clock nodes
-      arm64: dts: broadcom: stingray: Fix 'simple-bus' node names
-      arm64: dts: broadcom: stingray: Move raid nodes out of bus
-      arm64: dts: broadcom: Use preferred node names
-      arm64: dts: broadcom: ns2-svk: Use non-deprecated at25 properties
-      arm64: dts: broadcom: northstar2: Rework clock nodes
-      arm64: dts: broadcom: northstar2: Drop unused and undocumented "brcm,pcie-ob-oarr-size" properties
-      arm64: dts: broadcom: northstar2: Drop QSPI "clock-names"
-      arm64: dts: broadcom: northstar2: Drop "arm,cci-400-pmu" fallback compatible
-      arm64: dts: broadcom: bcm4906-netgear-r8000p: Drop unnecessary "ranges" in partition node
+- Rob fixes the simple-bus node names in the BCM2711 .dtsi file
 
-Stanimir Varbanov (1):
-      arm64: dts: broadcom: bcm2712: Add watchdog DT node
+----------------------------------------------------------------
+Rob Herring (Arm) (1):
+      ARM: dts: broadcom: bcm2711: Fix 'simple-bus' node names
 
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi          |  15 ++
- .../dts/broadcom/bcmbca/bcm4906-netgear-r8000p.dts |   3 -
- .../boot/dts/broadcom/northstar2/ns2-clock.dtsi    | 105 ------------
- .../arm64/boot/dts/broadcom/northstar2/ns2-svk.dts |  26 +--
- .../arm64/boot/dts/broadcom/northstar2/ns2-xmc.dts |   2 +-
- arch/arm64/boot/dts/broadcom/northstar2/ns2.dtsi   |  87 ++++++++--
- .../boot/dts/broadcom/stingray/bcm958742-base.dtsi |   2 +-
- .../boot/dts/broadcom/stingray/stingray-clock.dtsi | 182 ---------------------
- .../boot/dts/broadcom/stingray/stingray-fs4.dtsi   | 114 ++++++-------
- .../boot/dts/broadcom/stingray/stingray-pcie.dtsi  |   2 +-
- .../dts/broadcom/stingray/stingray-pinctrl.dtsi    |   2 +-
- .../boot/dts/broadcom/stingray/stingray-usb.dtsi   |  21 +--
- .../arm64/boot/dts/broadcom/stingray/stingray.dtsi | 148 +++++++++++++++--
- 13 files changed, 290 insertions(+), 419 deletions(-)
- delete mode 100644 arch/arm64/boot/dts/broadcom/northstar2/ns2-clock.dtsi
- delete mode 100644 arch/arm64/boot/dts/broadcom/stingray/stingray-clock.dtsi
+ arch/arm/boot/dts/broadcom/bcm2711.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
