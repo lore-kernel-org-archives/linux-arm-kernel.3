@@ -4,75 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2903C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 16:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A5ADC44536
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 21 Jan 2026 16:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EIPg/mGpfh9Oy9NFjMRYChG/HWVzI/yjdz0fJkmdMM0=; b=iEI45hpQW4awj+QUkEzYzrp1BE
-	eCRfMWAy8OqhhICyOCXuoA4BrJLDPoaSgbBa64iqMLfBK1uZFMswEPSSDp6IuUvq90Xlx0gpRJAWC
-	L2ooJCU/V9jrkZLNQ8HTwXfxow914AFD4PE5Tgz4UBQheKFJt90o3HWKv18Cy7ybs55zaNtOxfmTI
-	XCoO5vpCoK2M/eaXwLohtL7ONZgJ/N75xJN5DaZfanMAJGoWcq3YAglhi59snyaG+91hsFGR8oA3m
-	8x3v7mqL2jXp/IGy5PjLVN3nGceQO79+BXYDumzjWrq/0vdwrrcxb3OqEjIpAg/BBCVo4J3W+ypJa
-	sSBrk/3Q==;
+	bh=3Fl9BeRxb0RlVEI0fxpQpvxpYW4ryPPVgf7Ef4kRGPU=; b=mC8KwDiz9a9QgsyPX2MpldeepO
+	kiX7NvwZGwkoEgSgmef3f77foiYiAA1sL3k1JfYZVFkHu1GuoJ+kboeQgmUasGZN71IQX8BrmPCbt
+	bPy7WoynjR1EICS+xiTA8/h+1F/oOFUYxAkvLMGG3413NYKAONt9aG9sBXiP6yztPqxRIbXMusxFK
+	b5xtn3iGS3yge2CZBOxW48gWtz/+89uqfNud1JLiJlqPRDtKYPTSlJRCNEOF6YWFiXZ8Xhd8trOrC
+	BmnWlz7L1mAqIS//ltPQBxb7l/wiOqw6EEVyry1x40e2jlCK7rGkT9wLONd+zEXAOUNv1Slo6v4an
+	n5mRggKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vibC8-00000005o8T-1LL7;
-	Wed, 21 Jan 2026 16:36:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vibDV-00000005oE7-3Gd5;
+	Wed, 21 Jan 2026 16:38:01 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vibC7-00000005o8D-1inw
+	id 1vibDR-00000005oDM-0lh8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 21 Jan 2026 16:36:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 335EC6013C;
-	Wed, 21 Jan 2026 16:36:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC97EC4CEF1;
-	Wed, 21 Jan 2026 16:36:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769013393;
-	bh=jyOJK9Brcl5ZhV3njyf4Ouj8+fRI7j/5TDwpUrYhhXY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Zs53a3dzsy5r4PU1K9PbWEb29lqyMc8Z4LfVH4n2J6kl/zuNIeNgEJB8SAe4xCcab
-	 y65vr7O65h02QXskM4MYait5EBO2A7Vcmg+k6p9I9bXjjF/ejdB/Z6iWohzEmIwaT7
-	 VNhVHC3wWxUTaFNoKYxWnQKbdLgzvKVFTXoLehBsnWcr4Z5e7xBxC4vOPhRQ0RIy3z
-	 0d3f/j3ufkuXBv0PZGyZVoNUm351ySV0cr9QbPO5WfkWBLnE3rjkj2q5N6oPRd73ar
-	 xXYMgG+XGNU1PQkCuK8yNt6E/ZgwsiXRKn9Q1WfImTMQXo3jltfuO8wqYg5WmSNca6
-	 R5q/Nl7u8fyjQ==
-Date: Wed, 21 Jan 2026 16:36:26 +0000
-From: Will Deacon <will@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-	catalin.marinas@arm.com, broonie@kernel.org, oliver.upton@linux.dev,
-	miko.lenczewski@arm.com, kevin.brodsky@arm.com, ardb@kernel.org,
-	suzuki.poulose@arm.com, lpieralisi@kernel.org,
-	yangyicong@hisilicon.com, scott@os.amperecomputing.com,
-	joey.gouly@arm.com, yuzenghui@huawei.com, pbonzini@redhat.com,
-	shuah@kernel.org, arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v11 RESEND 9/9] arm64: armv8_deprecated: apply FEAT_LSUI
- for swpX emulation.
-Message-ID: <aXEAitvWkRWX_eiL@willie-the-truck>
-References: <aW5O714hfl7DCl04@willie-the-truck>
- <aW6w6+B21NbUuszA@e129823.arm.com>
- <aW9O6R7v-ybhrm66@J2N7QTR9R3>
- <aW9T5b+Y2b2JOZHk@e129823.arm.com>
- <aW9sBkUVnpAkPkxN@willie-the-truck>
- <aW/Ck3M3Xg02DpQX@e129823.arm.com>
- <aXDbBKhE1SdCW6q4@willie-the-truck>
- <aXDn3iRXEtgaUtnp@e129823.arm.com>
- <aXD81LT6TX32vlTS@willie-the-truck>
- <aXD/YFNirTfoATvN@e129823.arm.com>
+	Wed, 21 Jan 2026 16:38:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1769013474;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3Fl9BeRxb0RlVEI0fxpQpvxpYW4ryPPVgf7Ef4kRGPU=;
+	b=FkcWFzPowlviHyw23aTyP1bdNaY3Dkvpkyra/0VENQW/WomLJF+GXmRLzKuQUDHCR8NCaF
+	Pn/S3Cb8Fpbu2AQIOVq6DOY0soqo+uvawxHv3sivzpWZ2pKkkn9YnWRFi2zgko3gusNkid
+	G86x0+ThGbMn9Cn6W27k5iUl+WEg8C8=
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
+ [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-536-9YSUm1GwO7y6nEt-Vy1IEA-1; Wed, 21 Jan 2026 11:37:52 -0500
+X-MC-Unique: 9YSUm1GwO7y6nEt-Vy1IEA-1
+X-Mimecast-MFC-AGG-ID: 9YSUm1GwO7y6nEt-Vy1IEA_1769013472
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-8905883e793so1611836d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 08:37:52 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769013472; x=1769618272;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3Fl9BeRxb0RlVEI0fxpQpvxpYW4ryPPVgf7Ef4kRGPU=;
+        b=iSrrloZQF4/gdikwiPe5g1saxAT4VAUZ9CGD/1q/HqbUeU8RMyMegOsqheZwSTBErc
+         NxZ80iLJ++EVSTpIH0nTNoIm5tdHTN38bILMoM4VgUW4eCEmS7Zih/8G6JCm7aOjdyre
+         6ygrF+acWoIrBKVGTkZeLN1ut2nf/1NczMLFgGdcZlFn1H4IcGJLZi2Vf90QRb0KiEBd
+         P2khGxXcjg9QWx6WYomHe2huN/Fiqzh2UaG+SehvyacnNmeD8tvy9dxSlwH5a4mGekJP
+         kOjO6yuhI6gRnKh79ZQudPO5AufnV/x1pU+GeQ04kN5jv2YATKYFq0GvJeYu8rurs3fI
+         QmVw==
+X-Forwarded-Encrypted: i=1; AJvYcCV+NXcg8e/kXqKlSe44VBZAmiTVH9nZbN/BbVYsM6B8a6ExtRqNXm8MOJZ2HRfU7q2eCEXENIuUd0M/H3tI2Ld2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5yTVkFlsAP+54n+qFcBbulr70c16pHiQuPY0noqUUuL4o+5bc
+	5evpDduPcSVN5qfkTUk6HelUqyJCtsPLY50pVfzKaNx+FIFtMHKgoYObVULSRm5Q8n14CIg215K
+	A1zbm0wtvnuUQW24lRXnvoLrZ7VoJQlqrdgqGCl0K42x2cm8k48gzm7vfuWh0m/EZih+1y7BkaF
+	ys
+X-Gm-Gg: AZuq6aJ8rTEzlGRXGcd2TGW00gfBTpSOp9erUmgQd20ubaSJ7AK/XhdibZBnsc80kJc
+	6Du+oOy22IBc9jMEiKOY8zuq7/ylBHIgRQ3gkZU06jtNhfBPeIxXfCXClJk0uVQqFJIDW8Mv7kE
+	Y7VaDmpgIl45rfb/qpPM/Zya3nfMHU0Hz9pugwczMLpRjsyfP2+LtiUvFTJqJ3LRWgca2EUTE+x
+	dpMHikVaPMMpnUKAPb95dbVWz5auf4rJeAN6Dx7Dy/ntMKU2hoBPgQRqjf6N6rfmy0S3jF1iHA8
+	pfh+9fSWCdokOEPDc51toGxGcZq4wRToLGIg4QJS/uKYy4YMBSlxT8wSNPCMOdWQHAXVZ96S80Y
+	15sKvYhG6g/eUYNaCrGeyXXthk9hdhwlfhUV45Tsq4USFs2+1SnXJXBCI
+X-Received: by 2002:a05:6214:2aa8:b0:888:23a9:7b01 with SMTP id 6a1803df08f44-8942ddadaa4mr271203926d6.42.1769013472294;
+        Wed, 21 Jan 2026 08:37:52 -0800 (PST)
+X-Received: by 2002:a05:6214:2aa8:b0:888:23a9:7b01 with SMTP id 6a1803df08f44-8942ddadaa4mr271203576d6.42.1769013471819;
+        Wed, 21 Jan 2026 08:37:51 -0800 (PST)
+Received: from ?IPV6:2601:188:c102:b180:1f8b:71d0:77b1:1f6e? ([2601:188:c102:b180:1f8b:71d0:77b1:1f6e])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8942e5e4a3csm133070566d6.5.2026.01.21.08.37.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 Jan 2026 08:37:51 -0800 (PST)
+From: Waiman Long <llong@redhat.com>
+X-Google-Original-From: Waiman Long <longman@redhat.com>
+Message-ID: <f8ba00be-d98c-4962-a32a-98ac0ddef9b2@redhat.com>
+Date: Wed, 21 Jan 2026 11:37:49 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aXD/YFNirTfoATvN@e129823.arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] irqchip/gic-v3-its: Don't acquire rt_spin_lock in
+ allocate_vpe_l1_table()
+To: Vlastimil Babka <vbabka@suse.cz>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Waiman Long <llong@redhat.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rt-devel@lists.linux.dev, Alexei Starovoitov <ast@kernel.org>
+References: <20260107215353.75612-1-longman@redhat.com>
+ <864iowmrx6.wl-maz@kernel.org> <87ms2nsqju.ffs@tglx>
+ <86wm1qlq7l.wl-maz@kernel.org> <87ecnwij44.ffs@tglx>
+ <86v7h8l9ht.wl-maz@kernel.org>
+ <40cec799-f363-4642-969b-24f5a2d56dfb@redhat.com> <87cy3eg94y.ffs@tglx>
+ <5f4bfd8b-8699-4bef-bf49-f29965e95ca4@redhat.com>
+ <20260113115515.98Mc29Nm@linutronix.de>
+ <0c33bdee-6de8-4d9f-92ca-4f72c1b6fb9f@suse.cz>
+In-Reply-To: <0c33bdee-6de8-4d9f-92ca-4f72c1b6fb9f@suse.cz>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: jSUFjmJTc0O8Pyi0RdVAn6mIZOjk_WhQhz7EHbVVybk_1769013472
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260121_083757_339909_D9315A15 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,55 +123,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 04:31:28PM +0000, Yeoreum Yun wrote:
-> On Wed, Jan 21, 2026 at 04:20:36PM +0000, Will Deacon wrote:
-> > On Wed, Jan 21, 2026 at 02:51:10PM +0000, Yeoreum Yun wrote:
-> > > > On Tue, Jan 20, 2026 at 05:59:47PM +0000, Yeoreum Yun wrote:
-> > > > > On second thought, while a CPU that implements LSUI is unlikely to
-> > > > > support AArch32 compatibility,
-> > > > > I don't think LSUI requires the absence of AArch32.
-> > > > > These two are independent features (and in fact our FVP reports/supports both).
-> > > >
-> > > > Did you have to configure the FVP specially for this or that a "default"
-> > > > configuration?
-> > > >
-> > > > > Given that, I'm not sure a WARN is really necessary.
-> > > > > Would it be sufficient to just drop the patch for swpX instead?
-> > > >
-> > > > Given that the whole point of LSUI is to remove the PAN toggling, I think
-> > > > we should make an effort to make sure that we don't retain PAN toggling
-> > > > paths at runtime that could potentially be targetted by attackers. If we
-> > > > drop the SWP emulation patch and then see that we have AArch32 at runtime,
-> > > > we should forcefully disable the SWP emulation but, since we don't actually
-> > > > think we're going to see this in practice, the WARN seemed simpler.
-> > >
-> > > TBH, I missed the FVP configuration option clusterX.max_32bit_el, which
-> > > can disable AArch32 support by setting it to -1 (default: 3).
-> > > Given this, I think it’s reasonable to emit a WARN when LSUI is enabled and
-> > > drop the SWP emulation path under that condition.
-> >
-> > I'm asking about the default value.
-> >
-> > If Arm are going to provide models that default to having both LSUI and
-> > AArch32 EL0 supported, then the WARN is just going to annoy people.
-> >
-> > Please can you find out whether or not that's the case?
-> 
-> Yes. I said the deafult == 3 which means that allow to execute
-> 32-bit in EL0 to EL3 (IOW, ID_AA64PFR0_EL1.EL0 == 0b0010)
-> -- but sorry for lack of explanation.
-> 
-> When I check the latest model's default option value related for this
-> based on FVP version 11.30
-> (https://developer.arm.com/Tools%20and%20Software/Fixed%20Virtual%20Platforms/Arm%20Architecture%20FVPs),
-> 
->   - cluster0.has_lsui=1 default = '0x1'    : Implement additional load and store unprivileged instructions (FEAT_LSUI).
->   - cluster0.max_32bit_el=3 default = '0x3'    : Maximum exception level supporting AArch32 modes. -1: No Support for A32 at any EL, x:[0:3] - All the levels below supplied ELx supports A32 : [0xffffffffffffffff:0x3]
-> 
-> So it would be a annoying to people.
+On 1/14/26 12:59 PM, Vlastimil Babka wrote:
+> On 1/13/26 12:55, Sebastian Andrzej Siewior wrote:
+>> On 2026-01-12 12:14:30 [-0500], Waiman Long wrote:
+>>> On 1/12/26 10:09 AM, Thomas Gleixner wrote:
+>>>> They might be acquired though. Only alloc_pages_nolock() guarantees that
+>>>> no lock is taken IIRC.
+>>> Thanks for the suggestion. I will look into using that for page allocation.
+>>> I had actually attempt to use kmalloc_nolock() to replace kzalloc()
+>>> initially. Even though it removed the call to rmqueue(), but there were
+>>> other spinlocks in the slub code that were still being acquired like the
+>>> local_lock() or the spinlock in the get_random() code. So I gave up using
+> Hmm if get_random() code takes a spinlock, we have an unsolved
+> incompatibility with kmalloc_nolock() and CONFIG_SLAB_FREELIST_RANDOM.
+>
+>>> that. Anyway, kmalloc_nolock() doesn't seem to be fully working yet.
+>> with kmalloc_nolock() you have to be able to deal with a NULL pointer.
+> Yes. So even after we fix the current problems with incompatible context, I
+> think kmalloc_nolock() would still be a bad fit for hw bringup code that
+> should not really fail. Because the possibility of failure will always
+> exist. The BPF use case that motivated it is quite different.
 
-Right, so you can probably do something like setting the 'status'
-field of 'insn_swp' to INSN_UNAVAILABLE if we detect LSUI.
+Yes, it is an issue too that kmalloc_nolock() may fail. If that happens, 
+we don't have another good alternative.
 
-Will
+Cheers,
+Longman
+
 
