@@ -4,93 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18139C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:39:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 983D4C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=knv3eV/uPl+lWimlwaG5qjUbDF4tZn6R2q3+oaVVNBg=; b=GL1AHKGRRNLYvr3dAbD45mClqK
-	KA0ic5+45/AA6tvxCG17RbkrWntGU5pBsSCfJe0Rx5Q19jDrCrhRa0eFJ7TefM2SYdtRVjfmIJHhm
-	Zg/1T0x6vGVasAkWgGjOoQ6pNIPAME5ENlxd8ycXXVBQzBhppDkjUzOIIocjV4QtrDXDv1X2hUBQ6
-	/b9ajgCRG59I+jYF/upEoDJcyXMEtLqWkuT8UTCnV87WZaa05nghco7bbKe2lID11/T5e2VnKjyah
-	GqTSy/C79/ZQlmBPRn0n2wcp/nj9QHtXVgt5z5lIRUIOdgSjp48l3qVtVrKwRzQlH7zKyIeVHqpP4
-	ryoHfcsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BYq0jZQZ4Bi6i53VlGnzVkXUxLyKZYlVP/mx921Y7gI=; b=ZbTO3+nHt6ZNvLjIUs5WEqIl/o
+	/reEeXOkRY4OckzdECNAfwCyXbd+5lh0gPMwjoRhMiCRCmIln70wMtO930uPeLMFRBEwNeMQtp2Ok
+	WtutR3a78WwgTcD1x7DxmTFFwspIzPbKv/wrJgF/0oxYClMbkowAsPCY1xNrD5I7hkMIinan75CW6
+	pZzTWKLySaxisxoENuLzir6Ep1rp5JIdWl6oBK3a3nD/m5zWiUhLYWwkE5PIQdb7IXxKQ2coPdI8Z
+	Sv2UwKvmwHjJTnYcYG82vHM1FzMSvs3CgGTtfTlcC8Gs3rCpSnVpz/QjmEj52uBHl6zhlxAnZqb+o
+	7VwF7Gew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vis5j-00000006rBO-2wqS;
-	Thu, 22 Jan 2026 10:39:07 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1vis6l-00000006rN0-18CM;
+	Thu, 22 Jan 2026 10:40:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vis5g-00000006rA8-3LX3
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 10:39:06 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-43590777e22so490476f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 02:39:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769078342; x=1769683142; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=knv3eV/uPl+lWimlwaG5qjUbDF4tZn6R2q3+oaVVNBg=;
-        b=w/YY+g6XDdRBv687BadBbuMh5URLWN+asZa3asE0DBK+reSs4o91acyaYTQZ1E83g9
-         FmDpHA+pHdXIC1y/s1O3CTsUpYmNcR0LPiZkTRYYfzrame8FTdCJDwPX0yaM9m5oxJ6E
-         n2wD0/YdiNRc06cM6ooMzacNSBD7ew8PpacMtWIc6DLz3FvTqgoxWiyzMGoofzyedo3S
-         gYSljxJdlIn/oBKRVl10WZs8zlmxQ4HFLjWOU8ifUQZ4FA2IH3ylyYJJEXRBeOx3Rj79
-         tLUWbDW34UqHbUv5EYiXu2eQKKSV3rAQVid5y8uj9WjCy6mxFwZz/eodxm2VYCPAHMlT
-         +9Hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769078342; x=1769683142;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=knv3eV/uPl+lWimlwaG5qjUbDF4tZn6R2q3+oaVVNBg=;
-        b=rErTUlvrKR6Dm6Tf+vyjaStJFmQoGmvRimEPt1Klk77RfETzYR+NgvfaNVCWR46Y4W
-         fCau2bW+Tvewea8Do6YvRnbUMpr3zRO57uU/ParG9o75LyAJCGXVmfe/lCrz5UoUUnXy
-         8JPYG/HKAw3mvAaAR0MDBwkMN36y197ubPKvc0R3IXCxF7p3kQ/xHiKMjTEeDRiAcSax
-         jVS2zDAHR0lxliiK3MHEabUppD1XzgCCKc6Kz0x7JIXX5sXaAJFqxP9ZcMJBBd+KP4Us
-         2xDgwIosFB5yHe6SEjqXTXISapZzTCstibD5aKUUA3nsyMmu6ytr188X2CVtqvo8W3LH
-         3okA==
-X-Forwarded-Encrypted: i=1; AJvYcCXqqAmY9a3Yjg/n5tNavi3CHJQibD0PZkSNOXAJiQLhcejDVAGeadbkQdKDGiTWNpnHlQGBTs9xs+8dunXrNNbE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrhYyS7xHV5+Q6u5yqsntdTF4WPILXb/CGwejXI6+TJNYAirc/
-	BehnP1vQ+ILY55Uq8xcm8E1wUAhZ1b3KzVz1CtBWlMEhbY0uO1FXgOyDCao6MYlO8o8=
-X-Gm-Gg: AZuq6aKGTUKAtyheiH5w0wGJifOn5n9M87fH1gejkgNlxkKB4oIWEcLimMqhZldZlmQ
-	MI2SjCkYX/FGeTQ7SJHcEZDhrn/VxnIuCFml72BVQX2ydkybtSAqixDdrjnaPkRWNfxJxmZY5HG
-	lZN+Q11Wnl6DXcrhI3eVEgdKgQJLceJiDCNCX+C4hV0GZfJVFz0Jw7Yc6I+ciMt+xbW3u6ccgJH
-	xN12ftZxAA1DBl7zHFqpselo3tHF+XFiGQwxX5yui4FSmuKZWkjsUT6KqiejU7k+8BqciG+Ct3c
-	3pjqXCycOW6xOyQ6vp+ABdmwa+urNWaTiRhwZozVXSL05bMY4HJMPsUqsHzJJ+AzGXbpO2oc9sH
-	CJLwnyB/kIiHIkGw8ZmtCLE0eNjMRwi1FscA0f6hu7384CO7cJEXXTwNjer5znWD5SOUzuzfqCR
-	YOGVJe+UeeE1Hd7ye8xQ==
-X-Received: by 2002:a05:6000:ece:b0:435:a7fa:24ae with SMTP id ffacd0b85a97d-435a7fa2607mr2707643f8f.18.1769078342064;
-        Thu, 22 Jan 2026 02:39:02 -0800 (PST)
-Received: from draszik.lan ([212.129.87.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4356997e6cdsm45475978f8f.31.2026.01.22.02.39.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Jan 2026 02:39:01 -0800 (PST)
-Message-ID: <7c78f9da40022e7bbf850ae8989c617bdc30cc95.camel@linaro.org>
-Subject: Re: [PATCH next] phy: google: fix build dependency for Google
- Tensor USB PHY
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Roy Luo <royluo@google.com>, Vinod Koul <vkoul@kernel.org>, Neil
- Armstrong	 <neil.armstrong@linaro.org>, Peter Griffin
- <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Joy
- Chakraborty <joychakr@google.com>, Naveen Kumar	 <mnkumar@google.com>
-Cc: linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- kernel test robot
-	 <lkp@intel.com>
-Date: Thu, 22 Jan 2026 10:39:01 +0000
-In-Reply-To: <20260121-next-v1-1-c18068b091b9@google.com>
-References: <20260121-next-v1-1-c18068b091b9@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+build3 
+	id 1vis6j-00000006rLn-1eyp;
+	Thu, 22 Jan 2026 10:40:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 71A97600C4;
+	Thu, 22 Jan 2026 10:40:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6DA0C116C6;
+	Thu, 22 Jan 2026 10:40:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769078408;
+	bh=KU+ZJPPqLdFxTIM95Q/9Ua16kgbz6avWzKANiuJatAI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=gbxBPy+7yiFsK69XpDfOh35vTKAC0wfohEib4CcWHaIFBZrnOh3bzc+4xJVEbXroP
+	 I2FI1y3x/SXqkMw/oD9KM9GIz20OZCXYHumsr/kk3gS/PtcXVedycRVf2yMZqdU+OD
+	 btfGebhcWuQlkhDb0zUdBQtIaOtIHBTr3AwRYOm3axdzn218Hqk01etJ768CJD14Vq
+	 ihOusZjjekyxRBWv1hwuNJ5YCZ8TO6x6wfLNRcN/obVZI8kw0rfZjiyuJ/66lYUuOF
+	 ++4PkCO5qbCb80lJkh/pixHmL5iK73VvyZ/v6cxjseAFiMtgXLvponmTL3JwoQb5qB
+	 ZeQ3MkiZvvZwA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 22 Jan 2026 11:39:45 +0100
+Subject: [PATCH mt76 v2 01/17] wifi: mt76: mt7996: Fix NPU stop procedure
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_023904_859646_FA471AD0 
-X-CRM114-Status: GOOD (  14.84  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260122-mt76-npu-eagle-offload-v2-1-2374614c0de6@kernel.org>
+References: <20260122-mt76-npu-eagle-offload-v2-0-2374614c0de6@kernel.org>
+In-Reply-To: <20260122-mt76-npu-eagle-offload-v2-0-2374614c0de6@kernel.org>
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Kang Yang <kang.yang@airoha.com>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,44 +72,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Roy,
+Move mt7996_npu_hw_stop routine before disabling rx NAPIs in order to
+fix NPU stop procedure used during device L1 SER recovery.
+Add missing usleep_range in mt7996_npu_hw_stop().
 
-On Wed, 2026-01-21 at 22:21 +0000, Roy Luo wrote:
-> The Google Tensor USB PHY driver uses the Type-C switch framework to
-> handle orientation changes. However, the Kconfig did not specify a
-> dependency on the TYPEC framework, leading to undefined reference
-> errors when building for architectures or configurations where
-> CONFIG_TYPEC is disabled or configured as a module.
->=20
-> Add 'depends on TYPEC' to the PHY_GOOGLE_USB entry to ensure all
-> required symbols are available during linking.
->=20
-> Fixes: cbce66669c82 ("phy: Add Google Tensor SoC USB PHY driver")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202601210825.ELrpQeED-lkp@i=
-ntel.com/
-> Signed-off-by: Roy Luo <royluo@google.com>
-> ---
-> =C2=A0drivers/phy/Kconfig | 1 +
-> =C2=A01 file changed, 1 insertion(+)
->=20
-> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-> index 142e7b0ef2efb9209781800ee47b820a91b115ae..5531ff31d8156cb164c32e3e5=
-2d4a57b26a62d8d 100644
-> --- a/drivers/phy/Kconfig
-> +++ b/drivers/phy/Kconfig
-> @@ -49,6 +49,7 @@ config GENERIC_PHY_MIPI_DPHY
-> =C2=A0
-> =C2=A0config PHY_GOOGLE_USB
-> =C2=A0 tristate "Google Tensor SoC USB PHY driver"
-> + depends on TYPEC
+Fixes: 377aa17d2aedc ("wifi: mt76: mt7996: Add NPU offload support to MT7996 driver")
+Tested-by: Kang Yang <kang.yang@airoha.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/mac.c |  3 +--
+ drivers/net/wireless/mediatek/mt76/mt7996/npu.c | 23 ++++++++++++++---------
+ 2 files changed, 15 insertions(+), 11 deletions(-)
 
-Can you make this
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+index aab79c042b52fbc67e14352665e0905397e4a301..db2eda2f1c4c097aafc55245e523e39c7bc71e34 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+@@ -2542,6 +2542,7 @@ void mt7996_mac_reset_work(struct work_struct *work)
+ 	if (mtk_wed_device_active(&dev->mt76.mmio.wed))
+ 		mtk_wed_device_stop(&dev->mt76.mmio.wed);
+ 
++	mt7996_npu_hw_stop(dev);
+ 	ieee80211_stop_queues(mt76_hw(dev));
+ 
+ 	set_bit(MT76_RESET, &dev->mphy.state);
+@@ -2568,8 +2569,6 @@ void mt7996_mac_reset_work(struct work_struct *work)
+ 
+ 	mutex_lock(&dev->mt76.mutex);
+ 
+-	mt7996_npu_hw_stop(dev);
+-
+ 	mt76_wr(dev, MT_MCU_INT_EVENT, MT_MCU_INT_EVENT_DMA_STOPPED);
+ 
+ 	if (mt7996_wait_reset_state(dev, MT_MCU_CMD_RESET_DONE)) {
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/npu.c b/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
+index 29bb735da4cb8f5998c9483567c65f3e3530c771..067ef647e404073173833aad3a2800d6591a5188 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
+@@ -320,33 +320,38 @@ int mt7996_npu_hw_init(struct mt7996_dev *dev)
+ int mt7996_npu_hw_stop(struct mt7996_dev *dev)
+ {
+ 	struct airoha_npu *npu;
+-	int i, err;
++	int i, err = 0;
+ 	u32 info;
+ 
++	mutex_lock(&dev->mt76.mutex);
++
+ 	npu = rcu_dereference_protected(dev->mt76.mmio.npu, &dev->mt76.mutex);
+ 	if (!npu)
+-		return 0;
++		goto unlock;
+ 
+ 	err = mt76_npu_send_msg(npu, 4, WLAN_FUNC_SET_WAIT_INODE_TXRX_REG_ADDR,
+ 				0, GFP_KERNEL);
+ 	if (err)
+-		return err;
++		goto unlock;
+ 
+ 	for (i = 0; i < 10; i++) {
+ 		err = mt76_npu_get_msg(npu, 3, WLAN_FUNC_GET_WAIT_NPU_INFO,
+ 				       &info, GFP_KERNEL);
+-		if (err)
+-			continue;
++		if (!err && !info)
++			break;
+ 
+-		if (info) {
+-			err = -ETIMEDOUT;
+-			continue;
+-		}
++		err = -ETIMEDOUT;
++		usleep_range(10000, 15000);
+ 	}
+ 
+ 	if (!err)
+ 		err = mt76_npu_send_msg(npu, 6,
+ 					WLAN_FUNC_SET_WAIT_INODE_TXRX_REG_ADDR,
+ 					0, GFP_KERNEL);
++	else
++		dev_err(dev->mt76.dev, "npu stop failed\n");
++unlock:
++	mutex_unlock(&dev->mt76.mutex);
++
+ 	return err;
+ }
 
-depends on TYPEC || COMPILE_TEST
+-- 
+2.52.0
 
-to allow some better test coverage?
-
-Cheers,
-Andre
 
