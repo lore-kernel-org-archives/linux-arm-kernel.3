@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F31ABD3EE96
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 17:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6BD2D3EE92
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 17:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nkKZJfMjTDB8lAw9IWYb+OaqA51WbP/wnidMObn3Nr0=; b=oYaDA1vIq2KViCRdDJ4mFfcRST
-	5ybAurXk7I2XlvmxHVviBWhEIlpwYamTelmFZPQDYaw0AmbzHb0oGlsSzB1VVffwgo6pO4Am34Qqy
-	2IQZS05ifQyHZbxDJShYVA5/fCs4QJLfd38UsAKCBbqTqY7Q0Cx8qzgo37uSv0CZKuCumvuuP/mFM
-	zLTBZQo9TeJRW2bQGc1/0t+mcfEqV1ek+68XpF0X71/8t2jTYGpyrarZEFg7xDvIhxjwnH8Lh9RMT
-	7UxsNJMOErfIFjT4aE2X3WrXS53aS9FaYagrluoIg9ZCvjBGi4vF32pwHfHh5RNnsFsRgZ863A7tj
-	rdiPS72g==;
+	bh=Hhc3I3a02gAF7Y2SEs85YJYgHnvzTB5GosZcnrbfzB0=; b=0liPQuahP/7dFZbgvlntrNCNT6
+	3nwEO8rxHXVnu8N8jn2l9YIgwJRnxIBdDsbo8nbVgkROOaJFWrw3cnvTiILAcn+zhDGQcix/ncggi
+	7p5ZYW8tGLmN6j3+BVO34I90hb7oVLO/eEVjnRNJ88PaoXD52cIMhuTBA2p4Boz9KYz7nsBHXhVvd
+	QoX24AFIRGVAVZRi3WNUZIA3dARz06GpVb8uqwLel2Y49YDXOUBVxolYymwPbQ3KCfNhKFS6bimvp
+	SoedyzpzGcyUBintkEUX6e2ESm0wKHWSM/ZSKcov0jwaCuTGQmNXh8Wt1blvaSkyhk7xovB/I1dMd
+	htUygn4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viy2X-00000007WGH-3Ny8;
-	Thu, 22 Jan 2026 17:00:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1viy2Y-00000007WGY-0Rib;
+	Thu, 22 Jan 2026 17:00:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viy2P-00000007WEF-2C94
+	id 1viy2S-00000007WEp-1pKu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 17:00:05 +0000
+	Thu, 22 Jan 2026 17:00:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F1102600C3;
-	Thu, 22 Jan 2026 17:00:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2C66C116C6;
-	Thu, 22 Jan 2026 17:00:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DAA856012A;
+	Thu, 22 Jan 2026 17:00:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CA2CC19423;
+	Thu, 22 Jan 2026 17:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769101204;
-	bh=p2U71IBNMwdMRbRUPojDVJ/6PrIbK24gx2RAKTiUKMw=;
+	s=k20201202; t=1769101207;
+	bh=/kVRH7OmN6EDRj9qO26TDaI1PWDz6NtgN64FPwIvgqY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YhQwsgXIc9/1ZX1LAvCh8aGaYnxZJSOO233dLEO+B8AkFDZ9zqsw9ZZSUgOefPq+5
-	 C0JUc9kd7p6Z+3qrq++YyBJuFwAHoYROx1OYRN3ZILCy2rqELNx/U/vuWTMIpD9Bfx
-	 /Kbf9cAujOcgM1rwNaU/EC6HZwHSKYwh+knXhUtk2Qn2r/6Zgz41lMcmkh5hcJluIh
-	 ImOD43sV4vDQNf2puB0/UY5lKFsu5jv2Wjt7za/2Mb3RgKIPOeg4jCFF/NiNb4XJOf
-	 1Q1bRrpSdHfeBS6aCSC9wMs6GUOjkZ4NnWNkwUSBfnCQN01XNWEox0XtMDGfXDKFWw
-	 8tcpV/krKXhBA==
+	b=X6WtaTXS+RGPqz3QNaE5Z975zw7cbweVuLPVUBi3sjk5fgA4wSwQzRSiNmj2RmftH
+	 5cFVLOJj7VkznY2vRcU7F1/MWr0RINqXQLrZNhlc9O1iYCQ1lWIvQlfoudkGLYnGSs
+	 Bw6sxvcNOBJ2f3i3RzUd4aCq3oDT3duvCP3hkpn04iDVYROxBeSwmyHCIjjeB+GKdi
+	 bRfULfJk0UF7HYJX+LsS6qd+evo3dx+jEjeQwVqNJ8WHF8RbmpHZgSEgeSNvacjz2Z
+	 5RXLg+I9uwiHsZkIIMXjPrOwtZ1+8nf2SQnWu6RKyyjRkKGFJKF+1WiLSaZihOtXpj
+	 nEYVQ+aekpsOw==
 From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Cc: kernel-team@android.com,
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Marc Zyngier <maz@kernel.org>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH] kselftest/arm64: Use syscall() macro over nolibc my_syscall()
-Date: Thu, 22 Jan 2026 16:59:43 +0000
-Message-ID: <176908087035.2055150.7814472104716413827.b4-ty@kernel.org>
+	Mark Rutland <mark.rutland@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 0/3] arm64: Unconditionally compile LSE/PAN/EPAN support
+Date: Thu, 22 Jan 2026 16:59:44 +0000
+Message-ID: <176907700325.2035103.13197425164234703706.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260117-nolibc-mysyscall-arm64-v1-1-f70266a3db15@weissschuh.net>
-References: <20260117-nolibc-mysyscall-arm64-v1-1-f70266a3db15@weissschuh.net>
+In-Reply-To: <20260107180701.2858276-1-maz@kernel.org>
+References: <20260107180701.2858276-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,22 +77,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 17 Jan 2026 13:10:51 +0100, Thomas Weißschuh wrote:
-> The my_syscall*() macros are internal implementation details of nolibc.
-> Nolibc also provides the regular syscall(2), which is also a macro
-> and directly expands to the correct my_syscall().
-> 
-> Use syscall() instead.
-> 
-> As a side-effect this fixes some return value checks, as my_syscall()
-> returns the raw value as set by the kernel and does not set errno.
+On Wed, 07 Jan 2026 18:06:58 +0000, Marc Zyngier wrote:
+> FEAT_LSE and FEAT_PAN have been around for a *very* long time (ARMv8.1
+> was published 11 years ago), and it is about time we enable these by
+> default. The additional text is very small, the advantages pretty
+> large in terms of performance (LSE) and security (PAN), and it is very
+> hard to find a semi-modern machine that doesn't have these (even the
+> RPi5 is ARMv8.2...).
 > 
 > [...]
 
-Applied to arm64 (for-next/selftests), thanks!
+Applied first two to arm64 (for-next/cpufeature), thanks!
 
-[1/1] kselftest/arm64: Use syscall() macro over nolibc my_syscall()
-      https://git.kernel.org/arm64/c/2a369c494248
+[1/3] arm64: Unconditionally enable LSE support
+      https://git.kernel.org/arm64/c/6191b25d8bd9
+[2/3] arm64: Unconditionally enable PAN support
+      https://git.kernel.org/arm64/c/018a231b0260
 
 Cheers,
 -- 
