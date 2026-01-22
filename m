@@ -4,64 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021F2D3EE74
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1518D3EE7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a57X3Ufhsvd1TQxvNP3ZYZFgsodRlfD0KvNOTCSzduY=; b=lhbPopWHXL15jDAqUc/LBgKmJ6
-	GJ8PlTiz7AJLkdw7+LritNUiyiLGZFkzPV29CLadtvwgf44e1xiguU0PJ39Sh7XbUxeRRK8/unMLg
-	w2/tbdhhWYo03F2a4okjX+JMzn9kUfSk1ZPVTy/hKUi+TWR8UVLsMitRSbP0x1aMMz3MvdJjUDGtF
-	g0ACiEDcg3aplx6nZcKuCPYIfCesbGWu3C7awYywn4jZvD5B+SJJgOJCWcy62a8Sc9NfPySRLEUVx
-	L0/4KoW20O+Bq0+aVyFt3VG3kbyXkVGJupBVaufmTMaI7a8augM7CCIK/YqD+zrFKot2p1X2WOuYo
-	zfmMD4Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lzAEWNw7xIDU6Qma5W4V2uyv1QJcDew2ZdPCdfflUZk=; b=VTHf/Nkuz+ftVPJnOem4oyyvIn
+	w9RypqlMG2bFddbghbVO9jtyXbnMkIShm5vsitnPgdWySQ4UI7e58tuM5Xea9MTUiDvwEFu/WlyP8
+	7oCMvjkx+wVqtfWmNeiOWfdUSFv9D7hIJqXQxVHj6p2CMw9SwkTdq4su1K+0ve9sEpajzbJqyPMgB
+	wrtsfPZnfYLM41wPBuzuf20WG6awg7maLfC3l15/u3nN58kP6U0IFO+abJpPinXGzWtW5qzvW+mUF
+	QeNt4BRXzyWdLphIFcS/BtVUPwG9WIFQeO37nun3x/UAkclN80+3QQTtX3ag+nKxL2lm5ihM5rtAV
+	1gMoLwYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwUs-00000007KDD-3ZHj;
-	Thu, 22 Jan 2026 15:21:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1viwn2-00000007Llz-23B3;
+	Thu, 22 Jan 2026 15:40:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwUp-00000007KCo-2OUN;
-	Thu, 22 Jan 2026 15:21:21 +0000
+	id 1viwn1-00000007Llo-1iVn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 Jan 2026 15:40:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5869E408F3;
-	Thu, 22 Jan 2026 15:21:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1D66C116D0;
-	Thu, 22 Jan 2026 15:21:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E7A50600CB;
+	Thu, 22 Jan 2026 15:40:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E57C8C116C6;
+	Thu, 22 Jan 2026 15:40:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769095278;
-	bh=a57X3Ufhsvd1TQxvNP3ZYZFgsodRlfD0KvNOTCSzduY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aLau4aEXXVJ9BNfzDqhRe5v5Rf3iMiEeJCO+t7WoE58yzRW/q4hK/F1Sa8ZHpJdAD
-	 We5md7hnrPwn49kABw80qJju+mQC5OICrx9VKNlemb0l74v6uK/cDjWA0p84jpOGTn
-	 OQYSwfFbDUVB8KdZhrTNgIP4s6JExmWGgSyKcb4cSiTOGk3sRbfeYxL40z7Mn8VGLa
-	 TnzZd9Jxe9oiGifVA0UYsOFd30b8Orw5/HjMG0Bxd6xfRk1K9K1YPfeIm0UOv5JXST
-	 lMITd0vPoWmCn1wRyx2qdTDZ2HKtaQM7mHpkwTM2tQyBpnN/+aSGji7Nfg4F4FgrfQ
-	 tvvjU4BdSmUiw==
-Date: Thu, 22 Jan 2026 16:21:15 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, kernel@collabora.com, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/6] Rockchip DRM use-after-free & null-ptr-deref fixes
-Message-ID: <20260122-classic-impressive-marmoset-f4723a@houat>
-References: <20260122-drm-rk-fixes-v1-0-3942f185750e@collabora.com>
+	s=k20201202; t=1769096405;
+	bh=C7Mi9PoGVmDU4/HclEBpFnCro2Ug+Lv/WjZwexBjJ48=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RHFgK3dJNLgm2pbXg7xFLZqImJpX/3wH5mvrlGBQmk0o4rV9F0JkGztYH8RGuCLUv
+	 uxoo23DJiVt+SCaJY8rMK+0PYEjZTwyCn/xhm0ElI55T0Q2BCeV+80UHgXnCmQoFgz
+	 bFWmVbdZ7+hEWqqR6s2QThFHaxvyBKBw0neqrubzO+Hl41wKgahFXZ8XsHx//pvpo2
+	 WP+8mQjEMPP6XhlxvdN45/E5sBbIQlQUTGd8Zk9d13/FEYUlF3/siuDOErulDNsNSt
+	 5ssFwFZ7Sb54cmR8XwOvx80NEgkfhAdul9/FLCJr2ZqbAaPvj16L7xeovd8o6H2zRW
+	 42nkFgaE+j2mQ==
+Message-ID: <7410a807-b68d-411b-b155-1106746e2d4b@kernel.org>
+Date: Thu, 22 Jan 2026 16:40:01 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="br2javf3yomklohz"
-Content-Disposition: inline
-In-Reply-To: <20260122-drm-rk-fixes-v1-0-3942f185750e@collabora.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_072119_627407_562C11E5 
-X-CRM114-Status: GOOD (  10.54  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [GIT PULL] arm64: dts: juno/vexpress: Updates for v6.20/v7.0
+To: Sudeep Holla <sudeep.holla@arm.com>, ARM SoC Team <arm@kernel.org>,
+ SoC Team <soc@kernel.org>, ALKML <linux-arm-kernel@lists.infradead.org>
+Cc: Arnd Bergmann <arnd@kernel.org>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>
+References: <20260112115021.2551442-1-sudeep.holla@arm.com>
+ <20260112115021.2551442-2-sudeep.holla@arm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260112115021.2551442-2-sudeep.holla@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +115,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 12/01/2026 12:50, Sudeep Holla wrote:
+> Hi ARM SoC Team,
+> 
+> Please pull !
+> 
+> Regards,
+> Sudeep
+> 
+> -->8
+> 
+> The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+> 
+>   Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/juno-updates-7.0
+> 
+> for you to fetch changes up to f0d0f087227c4b63538e4ed8292f1fa26f8d6633:
+> 
+>   arm64: dts: arm: Use hyphen in node names (2026-01-01 17:31:07 +0000)
 
---br2javf3yomklohz
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 0/6] Rockchip DRM use-after-free & null-ptr-deref fixes
-MIME-Version: 1.0
 
-On Thu, Jan 22, 2026 at 01:17:33AM +0200, Cristian Ciocaltea wrote:
-> The first three patches in the series are fixes for use-after-free &
-> null-ptr-deref related issues found in dw_dp and inno-hdmi Rockchip DRM
-> drivers.
->=20
-> The remaining ones provide a few minor improvements to dw_dp and
-> dw_hdmi_qp.
->=20
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+It seems pw-bot did not TY this one, so to confirm - I merged this, thanks.
 
-Just FYI, you'll also need to sprinkle the driver with
-drm_dev_enter/exit to make this actually safe.
+Best regards,
+Krzysztof
 
-Maxime
-
---br2javf3yomklohz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaXJAZAAKCRAnX84Zoj2+
-di78AX9GenUV8sOcDvlr+fIdWUk7lR/nWSQHmZbpG3kUXCPc5lbeaOOmVYhDJzfH
-f3QDG/0BfigN4FkQKxpTyIwbPBdIP43bV7hU7d4LvzHS3PDKeFEwkYtAr4JfOiRo
-rCcF/mvqzw==
-=9Hz2
------END PGP SIGNATURE-----
-
---br2javf3yomklohz--
 
