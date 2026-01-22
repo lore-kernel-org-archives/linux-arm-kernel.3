@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4023DD3EE72
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021F2D3EE74
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TGhYmi3u5t6DP2EW3BTkPsk33UVET+7pJHl39Ch1Ymc=; b=YANAAfjr6/X7og8A/CkqodDjK0
-	TccWjcsJOC0CFP0WnPtwGdTelwIWYg/vSqN/HBURH2s1bB6XtK9HHLJeEE4OOvQyvITkmgtzh8nsM
-	9GONQjm4AY3ASyFHRFXis6yHSQBH42KJnXJy+8vynS1K5qRALhnz2/YpwyZg87RH12C002E7zaEei
-	q0XVLGZ/lZvLFy9/DhW1tAD4WIpqvcNmV3SLqQSFbB3xmLHhmqBNP0mqYrQciz0s2IaoPCDoK9H0K
-	TYkqXLPcv36dlD6A9zMctfBecrceCVPiTRHdr5k+Ejf0olmkvkm+ZwST07N6JhEx5nBWc0WY+7/fU
-	nhl2BFcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a57X3Ufhsvd1TQxvNP3ZYZFgsodRlfD0KvNOTCSzduY=; b=lhbPopWHXL15jDAqUc/LBgKmJ6
+	GJ8PlTiz7AJLkdw7+LritNUiyiLGZFkzPV29CLadtvwgf44e1xiguU0PJ39Sh7XbUxeRRK8/unMLg
+	w2/tbdhhWYo03F2a4okjX+JMzn9kUfSk1ZPVTy/hKUi+TWR8UVLsMitRSbP0x1aMMz3MvdJjUDGtF
+	g0ACiEDcg3aplx6nZcKuCPYIfCesbGWu3C7awYywn4jZvD5B+SJJgOJCWcy62a8Sc9NfPySRLEUVx
+	L0/4KoW20O+Bq0+aVyFt3VG3kbyXkVGJupBVaufmTMaI7a8augM7CCIK/YqD+zrFKot2p1X2WOuYo
+	zfmMD4Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwRa-00000007Je1-0krx;
-	Thu, 22 Jan 2026 15:17:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwRY-00000007Jd5-05EO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 15:17:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0CD3B1517;
-	Thu, 22 Jan 2026 07:17:46 -0800 (PST)
-Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 33DD73F632;
-	Thu, 22 Jan 2026 07:17:50 -0800 (PST)
-From: Leonardo Bras <leo.bras@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Tian Zheng <zhengtian10@huawei.com>,
-	oliver.upton@linux.dev,
-	catalin.marinas@arm.com,
-	corbet@lwn.net,
-	pbonzini@redhat.com,
-	will@kernel.org,
-	linux-kernel@vger.kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	yezhenyu2@huawei.com,
-	xiexiangyou@huawei.com,
-	zhengchuan@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v2 1/5] arm64/sysreg: Add HDBSS related register information
-Date: Thu, 22 Jan 2026 15:16:29 +0000
-Message-ID: <aXI_TV5jgM-iK152@devkitleo>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <aXI-XHF2jz7arOwg@devkitleo>
-References: <20251121092342.3393318-1-zhengtian10@huawei.com> <20251121092342.3393318-2-zhengtian10@huawei.com> <86wm3iqlz8.wl-maz@kernel.org> <aXI-XHF2jz7arOwg@devkitleo>
+	id 1viwUs-00000007KDD-3ZHj;
+	Thu, 22 Jan 2026 15:21:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viwUp-00000007KCo-2OUN;
+	Thu, 22 Jan 2026 15:21:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5869E408F3;
+	Thu, 22 Jan 2026 15:21:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1D66C116D0;
+	Thu, 22 Jan 2026 15:21:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769095278;
+	bh=a57X3Ufhsvd1TQxvNP3ZYZFgsodRlfD0KvNOTCSzduY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aLau4aEXXVJ9BNfzDqhRe5v5Rf3iMiEeJCO+t7WoE58yzRW/q4hK/F1Sa8ZHpJdAD
+	 We5md7hnrPwn49kABw80qJju+mQC5OICrx9VKNlemb0l74v6uK/cDjWA0p84jpOGTn
+	 OQYSwfFbDUVB8KdZhrTNgIP4s6JExmWGgSyKcb4cSiTOGk3sRbfeYxL40z7Mn8VGLa
+	 TnzZd9Jxe9oiGifVA0UYsOFd30b8Orw5/HjMG0Bxd6xfRk1K9K1YPfeIm0UOv5JXST
+	 lMITd0vPoWmCn1wRyx2qdTDZ2HKtaQM7mHpkwTM2tQyBpnN/+aSGji7Nfg4F4FgrfQ
+	 tvvjU4BdSmUiw==
+Date: Thu, 22 Jan 2026 16:21:15 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, kernel@collabora.com, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/6] Rockchip DRM use-after-free & null-ptr-deref fixes
+Message-ID: <20260122-classic-impressive-marmoset-f4723a@houat>
+References: <20260122-drm-rk-fixes-v1-0-3942f185750e@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="br2javf3yomklohz"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260122-drm-rk-fixes-v1-0-3942f185750e@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_071756_149711_6379C777 
-X-CRM114-Status: GOOD (  23.56  )
+X-CRM114-CacheID: sfid-20260122_072119_627407_562C11E5 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,67 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 03:12:28PM +0000, Leonardo Bras wrote:
-> On Sat, Nov 22, 2025 at 12:40:27PM +0000, Marc Zyngier wrote:
-> > On Fri, 21 Nov 2025 09:23:38 +0000,
-> > Tian Zheng <zhengtian10@huawei.com> wrote:
-> > > 
-> > > From: eillon <yezhenyu2@huawei.com>
-> > > 
-> > > The ARM architecture added the HDBSS feature and descriptions of
-> > > related registers (HDBSSBR/HDBSSPROD) in the DDI0601(ID121123) version,
-> > > add them to Linux.
-> > > 
-> > > Signed-off-by: eillon <yezhenyu2@huawei.com>
-> > > Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
-> > > ---
-> > >  arch/arm64/include/asm/esr.h     |  2 ++
-> > >  arch/arm64/include/asm/kvm_arm.h |  1 +
-> > >  arch/arm64/tools/sysreg          | 28 ++++++++++++++++++++++++++++
-> > >  3 files changed, 31 insertions(+)
-> > > 
-> > > diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-> > > index e1deed824464..a6f3cf0b9b86 100644
-> > > --- a/arch/arm64/include/asm/esr.h
-> > > +++ b/arch/arm64/include/asm/esr.h
-> > > @@ -159,6 +159,8 @@
-> > >  #define ESR_ELx_CM 		(UL(1) << ESR_ELx_CM_SHIFT)
-> > > 
-> > >  /* ISS2 field definitions for Data Aborts */
-> > > +#define ESR_ELx_HDBSSF_SHIFT	(11)
-> > > +#define ESR_ELx_HDBSSF		(UL(1) << ESR_ELx_HDBSSF_SHIFT)
-> > >  #define ESR_ELx_TnD_SHIFT	(10)
-> > >  #define ESR_ELx_TnD 		(UL(1) << ESR_ELx_TnD_SHIFT)
-> > >  #define ESR_ELx_TagAccess_SHIFT	(9)
-> > > diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-> > > index 1da290aeedce..b71122680a03 100644
-> > > --- a/arch/arm64/include/asm/kvm_arm.h
-> > > +++ b/arch/arm64/include/asm/kvm_arm.h
-> > > @@ -124,6 +124,7 @@
-> > >  			 TCR_EL2_ORGN0_MASK | TCR_EL2_IRGN0_MASK)
-> > > 
-> > >  /* VTCR_EL2 Registers bits */
-> > > +#define VTCR_EL2_HDBSS		(1UL << 45)
-> > 
-> > I think it is time to convert VTCR_EL2 to the sysreg infrastructure
-> > instead of adding extra bits here.
-> 
-> 
-> Hi Marc, Tian,
-> 
-> Marc, IIUC the above was implemented by 
-> https://lore.kernel.org/all/20251210173024.561160-1-maz@kernel.org
-> 
-> Which was recently applied to next, and it its way to mainstream.
-> 
-> Tian, I think it's worth rebasing this patchset on top of the above.
 
-(before applying the changes recommended by Marc)
+--br2javf3yomklohz
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 0/6] Rockchip DRM use-after-free & null-ptr-deref fixes
+MIME-Version: 1.0
 
-> 
-> BTW, I am working on using the feature enabled by this patchset on a new 
-> optimization, so please include me on any new release.
-> 
-> Thanks!
-> Leo
+On Thu, Jan 22, 2026 at 01:17:33AM +0200, Cristian Ciocaltea wrote:
+> The first three patches in the series are fixes for use-after-free &
+> null-ptr-deref related issues found in dw_dp and inno-hdmi Rockchip DRM
+> drivers.
+>=20
+> The remaining ones provide a few minor improvements to dw_dp and
+> dw_hdmi_qp.
+>=20
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+
+Just FYI, you'll also need to sprinkle the driver with
+drm_dev_enter/exit to make this actually safe.
+
+Maxime
+
+--br2javf3yomklohz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaXJAZAAKCRAnX84Zoj2+
+di78AX9GenUV8sOcDvlr+fIdWUk7lR/nWSQHmZbpG3kUXCPc5lbeaOOmVYhDJzfH
+f3QDG/0BfigN4FkQKxpTyIwbPBdIP43bV7hU7d4LvzHS3PDKeFEwkYtAr4JfOiRo
+rCcF/mvqzw==
+=9Hz2
+-----END PGP SIGNATURE-----
+
+--br2javf3yomklohz--
 
