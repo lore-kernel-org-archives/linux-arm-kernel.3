@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E55D3EE96
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D29D3EE92
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:55:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
 	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ANZB4nsW0oD2Yy9bdDZ7x29IcTZAs2bHCHMIwFReZjE=; b=d4wJLbRt0rAzHDhxCmSsqwcalk
-	l1gNjkjPHupYD8mGEq84bFDnnmc0C2NPOM0TA5/2bwcyK8TRIGssg6cbgPCJss32pR0UB+A6ozZ/m
-	djeyD7ozpH66IPjCS1ty61aNFiXgi1GrCSVAKZQ3FVM0gCBoMPmnBnd4oxTEJ2BF2U5VzfUNZlJOK
-	5B1VjynEi6NDS5X6yhntiwLCctAGy5S5iVx0OFwvl343sxIIE51uKOhh9JCT/Pc+PiHQOLlbHl7f5
-	0n2P8h0q+tTcJQKS0RGm5l9nX9yWpm5iZfjGYM8FgB/WRQY2QrrpAr42DdC6WaXLs9mbc5AD0u38T
-	0TyqhnLA==;
+	bh=ad2GwIvXnuBM0K5HE3V72oHuf8IYiJKy1/A8wVQtlzk=; b=PwH3iuH0Suii8DbnZQ+mVtLmrc
+	Agzseg8IJ+NDCkerx0VFpEGo/PxXPLaliPaqtclMm8XfgluF2kIm3eBeszW29xrDmrxNRwctZZccU
+	e+MysbaOPQ4M9G1AfgSMgMvyYwTjTmJyVdLA78WDe3vR3yXcQ1B1NcTJmyJNyAXnR/iN86lP/phuD
+	Ps2sSyRhXfOQ5j9wBQnaTNyzSJnWAAZZtkQaHoURHbKhFY26F4WzVljVBN67iLhyOrRwbnMkktxWV
+	CBNtMf4qRMt3jcx21jtkxMb4HGoeqD8TInIQytNJ3c/TzUwiTHMupsZRA/1z/4dFH/eAmmhkl67WG
+	YRrU3WkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixxF-00000007TyC-1geP;
-	Thu, 22 Jan 2026 16:54:45 +0000
+	id 1vixxJ-00000007U5S-41YU;
+	Thu, 22 Jan 2026 16:54:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixwz-00000007Tkq-4ByO
+	id 1vixxB-00000007TtA-100w
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 Jan 2026 16:54:30 +0000
+	Thu, 22 Jan 2026 16:54:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ANZB4nsW0oD2Yy9bdDZ7x29IcTZAs2bHCHMIwFReZjE=; b=PkSH6gXNb4xgmTj9CJMBssh9v8
-	/1Ryl/P091R/F2q54y2EbW80Z4GfZNTq3apTSyHelKbSXX64XZ4sS0/xjCR4I6mOqPd5xnOeH0fgf
-	7IX6+m6uhlNm/myN3F0/7ThyTP2XHnfKZAUrQdTvfkyIX84Yh+HaSJU7oxxNQVa9tlpzGN8FhENix
-	YWig24DzrvYbKs7JfpLiyYt6rOpqfpDlQnWqjtcLixQI4yEOvrWfBihejeis2wuuIF8JOyBdNYP3m
-	JSaF5a5OOFIUjW6j1uA7u8GW3+LSXfv4T0se+KWzwFyJFf1Z95tESZWLyeZfIogU4C+OUMB4FbHtF
-	fDMsug4A==;
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	bh=ad2GwIvXnuBM0K5HE3V72oHuf8IYiJKy1/A8wVQtlzk=; b=nlU1PRZyR1oiZvSUe2UjfGm8ZY
+	U1qYNUVNwHfSp5pFarAYrT7NA107EbfuV2FgTXZ6EBrO3pGH24t0tpD1D2PTM0oG1JR04yUx2NKzl
+	z1F7fOlbMq9uLkH31E/hvCNImM9dO/PVrnICq4wvYCO8o5YBVGbP89rgixV/cCHd5XZvUhvoLfw3G
+	YZnw5AKt08ygQs4qwALed8X5bH8KDjljlwY8iJZyDXWcLXj+4w5k55LfL6sprazxSUdfKEYxXI13F
+	5uApnqObHAMCD67HTCP+JUnrJuzlJ7ewpdKkksNyo08GDWFdEVuK1QM2yvd5SW06t6f07NfWDZG/E
+	YmhidWLQ==;
+Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixwv-00000000oUX-3vps
+	id 1vixx5-00000000oYr-2wHy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 16:54:27 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b6b9c1249fso2215425eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 08:54:25 -0800 (PST)
+	Thu, 22 Jan 2026 16:54:37 +0000
+Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-123349958b2so4890499c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 08:54:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769100864; x=1769705664; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769100873; x=1769705673; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=ANZB4nsW0oD2Yy9bdDZ7x29IcTZAs2bHCHMIwFReZjE=;
-        b=ClqIAaq47a6g8o0peyV/XPfTgrTKfIoBoxIFn3tu+GvxFASLNgIFpDS9FH1Vtt8MI7
-         TEV7PbTj5av656/KHVOEOo6sAHHRq9ltUet7sHUKcynJwtdlV8cqNSz1x0N7KcTVS/3q
-         qIrXW/5p+GoOedTKxELIRA28gKB6zKYvOHfyrGF4gIEJrfHpQjNpdGqs69mJTIHiq42R
-         RleJqfknDCspd54Xl4lrynVYhHg/gpDjgIaJLxKJpaNtaUMjcaO9zn1G+MkU4CQ8vtkq
-         lQ9/5LXtZrJ9x/kJf5QY+5Y2Wd8aD2Am7V1qRjTuF/NY0m+v9hHCyIbUi7uJE+VOcxg8
-         0euQ==
+        bh=ad2GwIvXnuBM0K5HE3V72oHuf8IYiJKy1/A8wVQtlzk=;
+        b=35iKWYHv6rlRSBmBGHhinVGb5m9B7o4uSI1Z7QR7RwST+ljDeO9b6qPMBK3yNBFT7Z
+         1HvhKDaf0InchKPMvnoErvfHsZZudr33BtU56HhZAO+aRlSuGQtmjZvMkjr1KBgUomkO
+         Gyu6PjgbAIwNr+uzlJkkd5agyf8zgbdxDGPPIrPGnHfHWDPMKRwTn2Y6mqdNk1G7UFGa
+         LrW4Im3Lt9MSdQqKSPGxbw2mCY/9xeqsUp2MYpzfgYGYcKKyqNy2T3ourlaEmgUrBTnx
+         f/zmkJCA54cgukdiYYAO+Y6NJG3uAr6pPC9MX4z0iY6pRoj4HwJxo4YmjnymCSRP0IFq
+         eWyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769100864; x=1769705664;
+        d=1e100.net; s=20230601; t=1769100873; x=1769705673;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ANZB4nsW0oD2Yy9bdDZ7x29IcTZAs2bHCHMIwFReZjE=;
-        b=LZQ7rG+65b5jattm1VR20C70qp4mfP+wBhQwym6kxw+x9KF0OeFxtqfUPWXZYK7bu1
-         AHx0r6MIkrWrNlM+rQ20lsswbWG2IYLylYWJxPvdYlrdu/CxXU5rF9GggYPLjnhUprIJ
-         ErKD0m0T+I1Cv6MLHziN5EVsq0YpLOvfj+IZj8hbV1/x6j6UfZvHw72KKf+BVJigjx4A
-         /wptCoRLmXyH2iWHVTWCP19JdZ8uoRaoS3WU9z/cnZ1i3zW5pzSkMgpjMnQhn7I4A2bo
-         hQtvcWWN5VHM9xJBVuz55HhKt+cE8o5yNZ0cXGaCRXPujdBL1lxbtzoyhD/YDg0O5OIM
-         1w3g==
-X-Forwarded-Encrypted: i=1; AJvYcCUyhnGMQAvQn41dKHvwEUGFOfwIFtuQcRZfLTwNOzSv74b/34sLgPeTOy20zzF5rhbjf+GxlxTSR1syCNumWWha@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9FCVoXkyCwOwBQN8iJu8jOOoWEB2sbiT+P8/pb2cghozn42vx
-	0es3pHHgqIwq7ESfJUxxVmVFRNP6tYbyyESV2TeQWOX70TvX8BbmeuUVO4gQBlivfF9+XvFrD9p
-	7RH4yswPzwQ==
-X-Received: from dyx1.prod.google.com ([2002:a05:693c:8201:b0:2ac:2109:f65f])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:550:b0:2b6:a622:25f5
- with SMTP id 5a478bee46e88-2b6b470d64bmr12140816eec.11.1769100863572; Thu, 22
- Jan 2026 08:54:23 -0800 (PST)
-Date: Thu, 22 Jan 2026 08:54:00 -0800
+        bh=ad2GwIvXnuBM0K5HE3V72oHuf8IYiJKy1/A8wVQtlzk=;
+        b=uFDau8xDoCbWSSTcbu1gSucwJKo6NxCgMGjc0gnNDZFZv92yRu/1aLTfqasHFWzsH+
+         D5eda6u1O1w2FviELFrPxRJWNkv1uvcU+USfvJk+lpSjZRdvSr1i3/pRP5V+/TZtqwXQ
+         CO8hmeZuitTPb+1cSM7ximAk/8LYlqRb7GPtZfe/JdEy2UQVc9iXyE3gIfGOHDcV2T1S
+         rWMxNZElHmgU7q8o+sNC0rbvGCLx5b9AzyRDGwzAtX9X0QTsAUmJbVaw3PgoD0RzMC9+
+         jDleXLrdHGz3hyyifEztson1TWH4xjeZT+oGehzpp2Qp7HRijEJTo21FAal8Echog7ZI
+         hI4A==
+X-Forwarded-Encrypted: i=1; AJvYcCUtnHq2+lHAiFWg0hePBPXy2HxHmXtYLHZtkplq3bB5QrFtcI/a+Z3FCmhIQ30qr6LHiTSb0Y8Iuu4bBQFt13ik@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZsUDiArZDwSGKSJpF4688/ZDm+tavUgOdF2fzTalkXUDp8yRv
+	6BZw1xi8ND/zc88mNreT0nvhnW8q4lsQMtNXAPq4jgyRfR4uyQyGNmH5tRyZpXVR+o5s1Rv3LQe
+	v89LieGtFNQ==
+X-Received: from dld13.prod.google.com ([2002:a05:7022:30d:b0:121:79a7:ec2d])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:128b:b0:11f:3483:bbb0
+ with SMTP id a92af1059eb24-1244a72aef2mr18517708c88.19.1769100873225; Thu, 22
+ Jan 2026 08:54:33 -0800 (PST)
+Date: Thu, 22 Jan 2026 08:54:05 -0800
 In-Reply-To: <20260122165407.561888-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260122165407.561888-1-irogers@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260122165407.561888-6-irogers@google.com>
-Subject: [PATCH v2 05/12] perf disasm: Constify use of struct ins_op
+Message-ID: <20260122165407.561888-11-irogers@google.com>
+Subject: [PATCH v2 10/12] perf map_symbol: Switch from holding maps to holding thread
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -103,8 +103,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_165426_113219_B4B937E9 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20260122_165435_997676_ED051A85 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,396 +119,508 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The struct ins_op holds variables to function pointers that are read
-but not written. Change uses to be for a "const struct ins_op *"
-version to capture this immutability.
+maps may belong to >1 thread. In contexts like symbolization
+information from the thread may be useful, such as the ELF machine. As
+the maps can be gained from the thread switch from holding maps in
+struct map_symbol to holding the thread. Holding the maps in
+addr_location is also redundant, switch this to using thread__maps.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/arch/arm/annotate/instructions.c   |  4 +-
- tools/perf/arch/arm64/annotate/instructions.c |  6 +--
- tools/perf/arch/csky/annotate/instructions.c  |  6 +--
- .../arch/loongarch/annotate/instructions.c    |  8 ++--
- tools/perf/arch/mips/annotate/instructions.c  |  4 +-
- .../perf/arch/powerpc/annotate/instructions.c |  6 +--
- .../perf/arch/riscv64/annotate/instructions.c |  4 +-
- tools/perf/arch/s390/annotate/instructions.c  |  8 ++--
- tools/perf/arch/sparc/annotate/instructions.c |  4 +-
- tools/perf/util/disasm.c                      | 46 +++++++++----------
- tools/perf/util/disasm.h                      |  6 +--
- 11 files changed, 51 insertions(+), 51 deletions(-)
+ tools/perf/ui/browsers/annotate.c              |  2 +-
+ tools/perf/ui/browsers/hists.c                 |  3 ++-
+ tools/perf/util/addr_location.c                |  4 ----
+ tools/perf/util/addr_location.h                |  1 -
+ .../util/annotate-arch/annotate-loongarch.c    |  5 +++--
+ tools/perf/util/annotate-arch/annotate-s390.c  |  3 ++-
+ tools/perf/util/callchain.c                    | 12 +++++++-----
+ tools/perf/util/capstone.c                     |  6 ++++--
+ tools/perf/util/db-export.c                    |  1 -
+ tools/perf/util/disasm.c                       |  7 ++++---
+ tools/perf/util/event.c                        |  2 --
+ tools/perf/util/hist.c                         | 18 +++++++++---------
+ tools/perf/util/machine.c                      | 13 +++++++------
+ tools/perf/util/map_symbol.c                   |  5 +++--
+ tools/perf/util/map_symbol.h                   |  3 ++-
+ tools/perf/util/sort.c                         |  2 +-
+ tools/perf/util/unwind-libdw.c                 |  2 +-
+ tools/perf/util/unwind-libunwind-local.c       |  2 +-
+ 18 files changed, 47 insertions(+), 44 deletions(-)
 
-diff --git a/tools/perf/arch/arm/annotate/instructions.c b/tools/perf/arch/arm/annotate/instructions.c
-index 5e667b0f5512..b997d127fedd 100644
---- a/tools/perf/arch/arm/annotate/instructions.c
-+++ b/tools/perf/arch/arm/annotate/instructions.c
-@@ -11,10 +11,10 @@ struct arm_annotate {
- 		jump_insn;
- };
+diff --git a/tools/perf/ui/browsers/annotate.c b/tools/perf/ui/browsers/annotate.c
+index 3df61cd46652..91ded9c271ee 100644
+--- a/tools/perf/ui/browsers/annotate.c
++++ b/tools/perf/ui/browsers/annotate.c
+@@ -601,7 +601,7 @@ static bool annotate_browser__callq(struct annotate_browser *browser,
+ 		return true;
+ 	}
  
--static struct ins_ops *arm__associate_instruction_ops(struct arch *arch, const char *name)
-+static const struct ins_ops *arm__associate_instruction_ops(struct arch *arch, const char *name)
+-	target_ms.maps = ms->maps;
++	target_ms.thread = ms->thread;
+ 	target_ms.map = ms->map;
+ 	target_ms.sym = dl->ops.target.sym;
+ 	annotation__unlock(notes);
+diff --git a/tools/perf/ui/browsers/hists.c b/tools/perf/ui/browsers/hists.c
+index 08fecbe28a52..cfa6386e6e1d 100644
+--- a/tools/perf/ui/browsers/hists.c
++++ b/tools/perf/ui/browsers/hists.c
+@@ -3189,7 +3189,8 @@ static int evsel__hists_browse(struct evsel *evsel, int nr_events, const char *h
+ 		case 'k':
+ 			if (browser->selection != NULL)
+ 				hists_browser__zoom_map(browser,
+-					      maps__machine(browser->selection->maps)->vmlinux_map);
++					maps__machine(thread__maps(browser->selection->thread)
++						     )->vmlinux_map);
+ 			continue;
+ 		case 'V':
+ 			verbose = (verbose + 1) % 4;
+diff --git a/tools/perf/util/addr_location.c b/tools/perf/util/addr_location.c
+index 81a0b79c5e10..57e8217a00f9 100644
+--- a/tools/perf/util/addr_location.c
++++ b/tools/perf/util/addr_location.c
+@@ -7,7 +7,6 @@
+ void addr_location__init(struct addr_location *al)
  {
- 	struct arm_annotate *arm = arch->priv;
--	struct ins_ops *ops;
-+	const struct ins_ops *ops;
- 	regmatch_t match[2];
- 
- 	if (!regexec(&arm->call_insn, name, 2, match, 0))
-diff --git a/tools/perf/arch/arm64/annotate/instructions.c b/tools/perf/arch/arm64/annotate/instructions.c
-index 5099fa36180d..363af2f55122 100644
---- a/tools/perf/arch/arm64/annotate/instructions.c
-+++ b/tools/perf/arch/arm64/annotate/instructions.c
-@@ -63,15 +63,15 @@ static int arm64_mov__parse(const struct arch *arch __maybe_unused,
- static int mov__scnprintf(struct ins *ins, char *bf, size_t size,
- 			  struct ins_operands *ops, int max_ins_name);
- 
--static struct ins_ops arm64_mov_ops = {
-+static const struct ins_ops arm64_mov_ops = {
- 	.parse	   = arm64_mov__parse,
- 	.scnprintf = mov__scnprintf,
- };
- 
--static struct ins_ops *arm64__associate_instruction_ops(struct arch *arch, const char *name)
-+static const struct ins_ops *arm64__associate_instruction_ops(struct arch *arch, const char *name)
+ 	al->thread = NULL;
+-	al->maps = NULL;
+ 	al->map = NULL;
+ 	al->sym = NULL;
+ 	al->srcline = NULL;
+@@ -30,16 +29,13 @@ void addr_location__exit(struct addr_location *al)
  {
- 	struct arm64_annotate *arm = arch->priv;
--	struct ins_ops *ops;
-+	const struct ins_ops *ops;
- 	regmatch_t match[2];
- 
- 	if (!regexec(&arm->jump_insn, name, 2, match, 0))
-diff --git a/tools/perf/arch/csky/annotate/instructions.c b/tools/perf/arch/csky/annotate/instructions.c
-index 14270311d215..4a55c84a320a 100644
---- a/tools/perf/arch/csky/annotate/instructions.c
-+++ b/tools/perf/arch/csky/annotate/instructions.c
-@@ -3,10 +3,10 @@
- 
- #include <linux/compiler.h>
- 
--static struct ins_ops *csky__associate_ins_ops(struct arch *arch,
--					       const char *name)
-+static const struct ins_ops *csky__associate_ins_ops(struct arch *arch,
-+						     const char *name)
- {
--	struct ins_ops *ops = NULL;
-+	const struct ins_ops *ops = NULL;
- 
- 	/* catch all kind of jumps */
- 	if (!strcmp(name, "bt") ||
-diff --git a/tools/perf/arch/loongarch/annotate/instructions.c b/tools/perf/arch/loongarch/annotate/instructions.c
-index 5ebfe629ea68..5010d5d58375 100644
---- a/tools/perf/arch/loongarch/annotate/instructions.c
-+++ b/tools/perf/arch/loongarch/annotate/instructions.c
-@@ -51,7 +51,7 @@ static int loongarch_call__parse(const struct arch *arch, struct ins_operands *o
- 	return 0;
+ 	map__zput(al->map);
+ 	thread__zput(al->thread);
+-	maps__zput(al->maps);
  }
  
--static struct ins_ops loongarch_call_ops = {
-+static const struct ins_ops loongarch_call_ops = {
- 	.parse	   = loongarch_call__parse,
- 	.scnprintf = call__scnprintf,
- };
-@@ -100,15 +100,15 @@ static int loongarch_jump__parse(const struct arch *arch, struct ins_operands *o
- 	return 0;
+ void addr_location__copy(struct addr_location *dst, struct addr_location *src)
+ {
+ 	thread__put(dst->thread);
+-	maps__put(dst->maps);
+ 	map__put(dst->map);
+ 	*dst = *src;
+ 	dst->thread = thread__get(src->thread);
+-	dst->maps = maps__get(src->maps);
+ 	dst->map = map__get(src->map);
  }
+diff --git a/tools/perf/util/addr_location.h b/tools/perf/util/addr_location.h
+index 64b551025216..fdc4d3f3a68b 100644
+--- a/tools/perf/util/addr_location.h
++++ b/tools/perf/util/addr_location.h
+@@ -11,7 +11,6 @@ struct symbol;
  
--static struct ins_ops loongarch_jump_ops = {
-+static const struct ins_ops loongarch_jump_ops = {
- 	.parse	   = loongarch_jump__parse,
- 	.scnprintf = jump__scnprintf,
- };
+ struct addr_location {
+ 	struct thread *thread;
+-	struct maps   *maps;
+ 	struct map    *map;
+ 	struct symbol *sym;
+ 	const char    *srcline;
+diff --git a/tools/perf/util/annotate-arch/annotate-loongarch.c b/tools/perf/util/annotate-arch/annotate-loongarch.c
+index 79dc116ade2f..6c94cb98a104 100644
+--- a/tools/perf/util/annotate-arch/annotate-loongarch.c
++++ b/tools/perf/util/annotate-arch/annotate-loongarch.c
+@@ -11,6 +11,7 @@
+ #include "../map.h"
+ #include "../maps.h"
+ #include "../symbol.h"
++#include "../thread.h"
  
- static
--struct ins_ops *loongarch__associate_ins_ops(struct arch *arch, const char *name)
-+const struct ins_ops *loongarch__associate_ins_ops(struct arch *arch, const char *name)
+ static int loongarch_call__parse(const struct arch *arch, struct ins_operands *ops,
+ 				 struct map_symbol *ms,
+@@ -49,7 +50,7 @@ static int loongarch_call__parse(const struct arch *arch, struct ins_operands *o
+ 		.addr = map__objdump_2mem(map, ops->target.addr),
+ 	};
+ 
+-	if (maps__find_ams(ms->maps, &target) == 0 &&
++	if (maps__find_ams(thread__maps(ms->thread), &target) == 0 &&
+ 	    map__rip_2objdump(target.ms.map, map__map_ip(target.ms.map, target.addr)) == ops->target.addr)
+ 		ops->target.sym = target.ms.sym;
+ 
+@@ -93,7 +94,7 @@ static int loongarch_jump__parse(const struct arch *arch, struct ins_operands *o
+ 
+ 	ops->target.outside = target.addr < start || target.addr > end;
+ 
+-	if (maps__find_ams(ms->maps, &target) == 0 &&
++	if (maps__find_ams(thread__maps(ms->thread), &target) == 0 &&
+ 	    map__rip_2objdump(target.ms.map, map__map_ip(target.ms.map, target.addr)) == ops->target.addr)
+ 		ops->target.sym = target.ms.sym;
+ 
+diff --git a/tools/perf/util/annotate-arch/annotate-s390.c b/tools/perf/util/annotate-arch/annotate-s390.c
+index 7b2d27b62e6b..47573f0310c1 100644
+--- a/tools/perf/util/annotate-arch/annotate-s390.c
++++ b/tools/perf/util/annotate-arch/annotate-s390.c
+@@ -6,6 +6,7 @@
+ #include "../map.h"
+ #include "../maps.h"
+ #include "../symbol.h"
++#include "../thread.h"
+ #include "../annotate.h"
+ #include "../annotate-data.h"
+ 
+@@ -49,7 +50,7 @@ static int s390_call__parse(const struct arch *arch, struct ins_operands *ops,
+ 		.addr = map__objdump_2mem(map, ops->target.addr),
+ 	};
+ 
+-	if (maps__find_ams(ms->maps, &target) == 0 &&
++	if (maps__find_ams(thread__maps(ms->thread), &target) == 0 &&
+ 	    map__rip_2objdump(target.ms.map, map__map_ip(target.ms.map, target.addr)) == ops->target.addr)
+ 		ops->target.sym = target.ms.sym;
+ 
+diff --git a/tools/perf/util/callchain.c b/tools/perf/util/callchain.c
+index 428e5350d7a2..515bb8b5da01 100644
+--- a/tools/perf/util/callchain.c
++++ b/tools/perf/util/callchain.c
+@@ -31,6 +31,7 @@
+ #include "callchain.h"
+ #include "branch.h"
+ #include "symbol.h"
++#include "thread.h"
+ #include "util.h"
+ #include "../perf.h"
+ 
+@@ -1042,7 +1043,7 @@ merge_chain_branch(struct callchain_cursor *cursor,
+ 
+ 	list_for_each_entry_safe(list, next_list, &src->val, list) {
+ 		struct map_symbol ms = {
+-			.maps = maps__get(list->ms.maps),
++			.thread = thread__get(list->ms.thread),
+ 			.map = map__get(list->ms.map),
+ 		};
+ 		callchain_cursor_append(cursor, list->ip, &ms, false, NULL, 0, 0, 0, list->srcline);
+@@ -1147,10 +1148,11 @@ int hist_entry__append_callchain(struct hist_entry *he, struct perf_sample *samp
+ int fill_callchain_info(struct addr_location *al, struct callchain_cursor_node *node,
+ 			bool hide_unresolved)
  {
--	struct ins_ops *ops = NULL;
-+	const struct ins_ops *ops = NULL;
+-	struct machine *machine = node->ms.maps ? maps__machine(node->ms.maps) : NULL;
++	struct machine *machine = NULL;
++
++	if (node->ms.thread)
++		machine = maps__machine(thread__maps(node->ms.thread));
  
- 	if (!strcmp(name, "bl"))
- 		ops = &loongarch_call_ops;
-diff --git a/tools/perf/arch/mips/annotate/instructions.c b/tools/perf/arch/mips/annotate/instructions.c
-index b50b46c613d6..0fbe0a7df95a 100644
---- a/tools/perf/arch/mips/annotate/instructions.c
-+++ b/tools/perf/arch/mips/annotate/instructions.c
-@@ -1,9 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0
+-	maps__put(al->maps);
+-	al->maps = maps__get(node->ms.maps);
+ 	map__put(al->map);
+ 	al->map = map__get(node->ms.map);
+ 	al->sym = node->ms.sym;
+@@ -1163,7 +1165,7 @@ int fill_callchain_info(struct addr_location *al, struct callchain_cursor_node *
+ 		if (al->map == NULL)
+ 			goto out;
+ 	}
+-	if (maps__equal(al->maps, machine__kernel_maps(machine))) {
++	if (maps__equal(thread__maps(al->thread), machine__kernel_maps(machine))) {
+ 		if (machine__is_host(machine)) {
+ 			al->cpumode = PERF_RECORD_MISC_KERNEL;
+ 			al->level = 'k';
+diff --git a/tools/perf/util/capstone.c b/tools/perf/util/capstone.c
+index ce06cfd253ef..9216916f848f 100644
+--- a/tools/perf/util/capstone.c
++++ b/tools/perf/util/capstone.c
+@@ -268,7 +268,8 @@ int symbol__disassemble_capstone(const char *filename __maybe_unused,
+ 	    !strcmp(args->options->disassembler_style, "att"))
+ 		disassembler_style = true;
  
- static
--struct ins_ops *mips__associate_ins_ops(struct arch *arch, const char *name)
-+const struct ins_ops *mips__associate_ins_ops(struct arch *arch, const char *name)
- {
--	struct ins_ops *ops = NULL;
-+	const struct ins_ops *ops = NULL;
+-	if (capstone_init(maps__machine(args->ms->maps), &handle, is_64bit, disassembler_style) < 0)
++	if (capstone_init(maps__machine(thread__maps(args->ms->thread)), &handle, is_64bit,
++			  disassembler_style) < 0)
+ 		goto err;
  
- 	if (!strncmp(name, "bal", 3) ||
- 	    !strncmp(name, "bgezal", 6) ||
-diff --git a/tools/perf/arch/powerpc/annotate/instructions.c b/tools/perf/arch/powerpc/annotate/instructions.c
-index ca567cfdcbdb..d1be55425e35 100644
---- a/tools/perf/arch/powerpc/annotate/instructions.c
-+++ b/tools/perf/arch/powerpc/annotate/instructions.c
-@@ -1,10 +1,10 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <linux/compiler.h>
+ 	needs_cs_close = true;
+@@ -382,7 +383,8 @@ int symbol__disassemble_capstone_powerpc(const char *filename __maybe_unused,
+ 	    !strcmp(args->options->disassembler_style, "att"))
+ 		disassembler_style = true;
  
--static struct ins_ops *powerpc__associate_instruction_ops(struct arch *arch, const char *name)
-+static const struct ins_ops *powerpc__associate_instruction_ops(struct arch *arch, const char *name)
- {
- 	int i;
--	struct ins_ops *ops;
-+	const struct ins_ops *ops;
+-	if (capstone_init(maps__machine(args->ms->maps), &handle, is_64bit, disassembler_style) < 0)
++	if (capstone_init(maps__machine(thread__maps(args->ms->thread)), &handle, is_64bit,
++			  disassembler_style) < 0)
+ 		goto err;
  
- 	/*
- 	 * - Interested only if instruction starts with 'b'.
-@@ -189,7 +189,7 @@ static int cmp_offset(const void *a, const void *b)
- 	return (val1->value - val2->value);
- }
+ 	needs_cs_close = true;
+diff --git a/tools/perf/util/db-export.c b/tools/perf/util/db-export.c
+index 8f52e8cefcf3..ae9a9065aab7 100644
+--- a/tools/perf/util/db-export.c
++++ b/tools/perf/util/db-export.c
+@@ -254,7 +254,6 @@ static struct call_path *call_path_from_sample(struct db_export *dbe,
+ 		addr_location__init(&al);
+ 		al.sym = node->ms.sym;
+ 		al.map = map__get(node->ms.map);
+-		al.maps = maps__get(thread__maps(thread));
+ 		al.addr = node->ip;
+ 		al.thread = thread__get(thread);
  
--static struct ins_ops *check_ppc_insn(struct disasm_line *dl)
-+static const struct ins_ops *check_ppc_insn(struct disasm_line *dl)
- {
- 	int raw_insn = dl->raw.raw_insn;
- 	int opcode = PPC_OP(raw_insn);
-diff --git a/tools/perf/arch/riscv64/annotate/instructions.c b/tools/perf/arch/riscv64/annotate/instructions.c
-index 55cf911633f8..a34798864fab 100644
---- a/tools/perf/arch/riscv64/annotate/instructions.c
-+++ b/tools/perf/arch/riscv64/annotate/instructions.c
-@@ -1,9 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0
- 
- static
--struct ins_ops *riscv64__associate_ins_ops(struct arch *arch, const char *name)
-+const struct ins_ops *riscv64__associate_ins_ops(struct arch *arch, const char *name)
- {
--	struct ins_ops *ops = NULL;
-+	const struct ins_ops *ops = NULL;
- 
- 	if (!strncmp(name, "jal", 3) ||
- 	    !strncmp(name, "jr", 2) ||
-diff --git a/tools/perf/arch/s390/annotate/instructions.c b/tools/perf/arch/s390/annotate/instructions.c
-index 37c1b62641d8..1b22e6276e7d 100644
---- a/tools/perf/arch/s390/annotate/instructions.c
-+++ b/tools/perf/arch/s390/annotate/instructions.c
-@@ -49,7 +49,7 @@ static int s390_call__parse(const struct arch *arch, struct ins_operands *ops,
- 	return 0;
- }
- 
--static struct ins_ops s390_call_ops = {
-+static const struct ins_ops s390_call_ops = {
- 	.parse	   = s390_call__parse,
- 	.scnprintf = call__scnprintf,
- };
-@@ -103,14 +103,14 @@ static int s390_mov__parse(const struct arch *arch __maybe_unused,
- }
- 
- 
--static struct ins_ops s390_mov_ops = {
-+static const struct ins_ops s390_mov_ops = {
- 	.parse	   = s390_mov__parse,
- 	.scnprintf = mov__scnprintf,
- };
- 
--static struct ins_ops *s390__associate_ins_ops(struct arch *arch, const char *name)
-+static const struct ins_ops *s390__associate_ins_ops(struct arch *arch, const char *name)
- {
--	struct ins_ops *ops = NULL;
-+	const struct ins_ops *ops = NULL;
- 
- 	/* catch all kind of jumps */
- 	if (strchr(name, 'j') ||
-diff --git a/tools/perf/arch/sparc/annotate/instructions.c b/tools/perf/arch/sparc/annotate/instructions.c
-index 68c31580ccfc..a08d8734c883 100644
---- a/tools/perf/arch/sparc/annotate/instructions.c
-+++ b/tools/perf/arch/sparc/annotate/instructions.c
-@@ -117,9 +117,9 @@ static int is_branch_float_cond(const char *cond)
- 	return 0;
- }
- 
--static struct ins_ops *sparc__associate_instruction_ops(struct arch *arch, const char *name)
-+static const struct ins_ops *sparc__associate_instruction_ops(struct arch *arch, const char *name)
- {
--	struct ins_ops *ops = NULL;
-+	const struct ins_ops *ops = NULL;
- 
- 	if (!strcmp(name, "call") ||
- 	    !strcmp(name, "jmp") ||
 diff --git a/tools/perf/util/disasm.c b/tools/perf/util/disasm.c
-index d92c0424e8fc..9bc9b1de98db 100644
+index 8c3e9094600a..d81469db0aac 100644
 --- a/tools/perf/util/disasm.c
 +++ b/tools/perf/util/disasm.c
-@@ -33,15 +33,15 @@
+@@ -28,6 +28,7 @@
+ #include "namespaces.h"
+ #include "srcline.h"
+ #include "symbol.h"
++#include "thread.h"
+ #include "util.h"
+ 
  static regex_t	 file_lineno;
+@@ -277,7 +278,7 @@ static int call__parse(const struct arch *arch, struct ins_operands *ops, struct
+ 		.addr = map__objdump_2mem(map, ops->target.addr),
+ 	};
  
- /* These can be referred from the arch-dependent code */
--static struct ins_ops call_ops;
--static struct ins_ops dec_ops;
--static struct ins_ops jump_ops;
--static struct ins_ops mov_ops;
--static struct ins_ops nop_ops;
--static struct ins_ops lock_ops;
--static struct ins_ops ret_ops;
--static struct ins_ops load_store_ops;
--static struct ins_ops arithmetic_ops;
-+static const struct ins_ops call_ops;
-+static const struct ins_ops dec_ops;
-+static const struct ins_ops jump_ops;
-+static const struct ins_ops mov_ops;
-+static const struct ins_ops nop_ops;
-+static const struct ins_ops lock_ops;
-+static const struct ins_ops ret_ops;
-+static const struct ins_ops load_store_ops;
-+static const struct ins_ops arithmetic_ops;
+-	if (maps__find_ams(ms->maps, &target) == 0 &&
++	if (maps__find_ams(thread__maps(ms->thread), &target) == 0 &&
+ 	    map__rip_2objdump(target.ms.map, map__map_ip(target.ms.map, target.addr)) == ops->target.addr)
+ 		ops->target.sym = target.ms.sym;
  
- static int jump__scnprintf(struct ins *ins, char *bf, size_t size,
- 			   struct ins_operands *ops, int max_ins_name);
-@@ -85,7 +85,7 @@ static int arch__grow_instructions(struct arch *arch)
- 	goto out_update_instructions;
- }
- 
--static int arch__associate_ins_ops(struct arch* arch, const char *name, struct ins_ops *ops)
-+static int arch__associate_ins_ops(struct arch *arch, const char *name, const struct ins_ops *ops)
- {
- 	struct ins *ins;
- 
-@@ -334,7 +334,7 @@ static int call__scnprintf(struct ins *ins, char *bf, size_t size,
- 	return scnprintf(bf, size, "%-*s *%" PRIx64, max_ins_name, ins->name, ops->target.addr);
- }
- 
--static struct ins_ops call_ops = {
-+static const struct ins_ops call_ops = {
- 	.parse	   = call__parse,
- 	.scnprintf = call__scnprintf,
- };
-@@ -487,7 +487,7 @@ static void jump__delete(struct ins_operands *ops __maybe_unused)
+@@ -411,7 +412,7 @@ static int jump__parse(const struct arch *arch, struct ins_operands *ops, struct
+ 	 * Actual navigation will come next, with further understanding of how
+ 	 * the symbol searching and disassembly should be done.
  	 */
- }
+-	if (maps__find_ams(ms->maps, &target) == 0 &&
++	if (maps__find_ams(thread__maps(ms->thread), &target) == 0 &&
+ 	    map__rip_2objdump(target.ms.map, map__map_ip(target.ms.map, target.addr)) == ops->target.addr)
+ 		ops->target.sym = target.ms.sym;
  
--static struct ins_ops jump_ops = {
-+static const struct ins_ops jump_ops = {
- 	.free	   = jump__delete,
- 	.parse	   = jump__parse,
- 	.scnprintf = jump__scnprintf,
-@@ -579,7 +579,7 @@ static void lock__delete(struct ins_operands *ops)
- 	zfree(&ops->target.name);
- }
+@@ -1074,7 +1075,7 @@ static int symbol__parse_objdump_line(struct symbol *sym,
+ 			.ms = { .map = map__get(map), },
+ 		};
  
--static struct ins_ops lock_ops = {
-+static const struct ins_ops lock_ops = {
- 	.free	   = lock__delete,
- 	.parse	   = lock__parse,
- 	.scnprintf = lock__scnprintf,
-@@ -688,7 +688,7 @@ static int mov__scnprintf(struct ins *ins, char *bf, size_t size,
- 			 ops->target.name ?: ops->target.raw);
- }
+-		if (!maps__find_ams(args->ms->maps, &target) &&
++		if (!maps__find_ams(thread__maps(args->ms->thread), &target) &&
+ 		    target.ms.sym->start == target.al_addr)
+ 			dl->ops.target.sym = target.ms.sym;
  
--static struct ins_ops mov_ops = {
-+static const struct ins_ops mov_ops = {
- 	.parse	   = mov__parse,
- 	.scnprintf = mov__scnprintf,
- };
-@@ -738,7 +738,7 @@ static int arithmetic__parse(const struct arch *arch __maybe_unused, struct ins_
- 	return 0;
- }
+diff --git a/tools/perf/util/event.c b/tools/perf/util/event.c
+index 2dde1044b5a7..bc045fddf7d5 100644
+--- a/tools/perf/util/event.c
++++ b/tools/perf/util/event.c
+@@ -698,7 +698,6 @@ struct map *thread__find_map(struct thread *thread, u8 cpumode, u64 addr,
+ 	struct machine *machine = maps__machine(maps);
+ 	bool load_map = false;
  
--static struct ins_ops arithmetic_ops = {
-+static const struct ins_ops arithmetic_ops = {
- 	.parse     = arithmetic__parse,
- 	.scnprintf = arithmetic__scnprintf,
- };
-@@ -772,7 +772,7 @@ static int load_store__parse(const struct arch *arch __maybe_unused, struct ins_
- 	return 0;
- }
+-	maps__zput(al->maps);
+ 	map__zput(al->map);
+ 	thread__zput(al->thread);
+ 	al->thread = thread__get(thread);
+@@ -736,7 +735,6 @@ struct map *thread__find_map(struct thread *thread, u8 cpumode, u64 addr,
  
--static struct ins_ops load_store_ops = {
-+static const struct ins_ops load_store_ops = {
- 	.parse     = load_store__parse,
- 	.scnprintf = load_store__scnprintf,
- };
-@@ -813,7 +813,7 @@ static int dec__scnprintf(struct ins *ins, char *bf, size_t size,
- 			 ops->target.name ?: ops->target.raw);
- }
+ 		return NULL;
+ 	}
+-	al->maps = maps__get(maps);
+ 	al->map = maps__find(maps, al->addr);
+ 	if (al->map != NULL) {
+ 		/*
+diff --git a/tools/perf/util/hist.c b/tools/perf/util/hist.c
+index ef4b569f7df4..7ffaa3d9851b 100644
+--- a/tools/perf/util/hist.c
++++ b/tools/perf/util/hist.c
+@@ -251,7 +251,7 @@ void hists__calc_col_len(struct hists *hists, struct hist_entry *h)
  
--static struct ins_ops dec_ops = {
-+static const struct ins_ops dec_ops = {
- 	.parse	   = dec__parse,
- 	.scnprintf = dec__scnprintf,
- };
-@@ -824,11 +824,11 @@ static int nop__scnprintf(struct ins *ins __maybe_unused, char *bf, size_t size,
- 	return scnprintf(bf, size, "%-*s", max_ins_name, "nop");
- }
+ 	if (h->cgroup) {
+ 		const char *cgrp_name = "unknown";
+-		struct cgroup *cgrp = cgroup__find(maps__machine(h->ms.maps)->env,
++		struct cgroup *cgrp = cgroup__find(maps__machine(thread__maps(h->ms.thread))->env,
+ 						   h->cgroup);
+ 		if (cgrp != NULL)
+ 			cgrp_name = cgrp->name;
+@@ -536,7 +536,7 @@ static int hist_entry__init(struct hist_entry *he,
+ 			memset(&he->stat, 0, sizeof(he->stat));
+ 	}
  
--static struct ins_ops nop_ops = {
-+static const struct ins_ops nop_ops = {
- 	.scnprintf = nop__scnprintf,
- };
+-	he->ms.maps = maps__get(he->ms.maps);
++	he->ms.thread = thread__get(he->ms.thread);
+ 	he->ms.map = map__get(he->ms.map);
  
--static struct ins_ops ret_ops = {
-+static const struct ins_ops ret_ops = {
- 	.scnprintf = ins__raw_scnprintf,
- };
+ 	if (he->branch_info) {
+@@ -552,9 +552,9 @@ static int hist_entry__init(struct hist_entry *he,
+ 		memcpy(he->branch_info, template->branch_info,
+ 		       sizeof(*he->branch_info));
  
-@@ -869,7 +869,7 @@ static void ins__sort(struct arch *arch)
- 	qsort(arch->instructions, nmemb, sizeof(struct ins), ins__cmp);
- }
+-		he->branch_info->from.ms.maps = maps__get(he->branch_info->from.ms.maps);
++		he->branch_info->from.ms.thread = thread__get(he->branch_info->from.ms.thread);
+ 		he->branch_info->from.ms.map = map__get(he->branch_info->from.ms.map);
+-		he->branch_info->to.ms.maps = maps__get(he->branch_info->to.ms.maps);
++		he->branch_info->to.ms.thread = thread__get(he->branch_info->to.ms.thread);
+ 		he->branch_info->to.ms.map = map__get(he->branch_info->to.ms.map);
+ 	}
  
--static struct ins_ops *__ins__find(const struct arch *arch, const char *name,
-+static const struct ins_ops *__ins__find(const struct arch *arch, const char *name,
- 				     struct disasm_line *dl)
+@@ -810,7 +810,7 @@ __hists__add_entry(struct hists *hists,
+ 		},
+ 		.cgroup = sample->cgroup,
+ 		.ms = {
+-			.maps	= al->maps,
++			.thread	= al->thread,
+ 			.map	= al->map,
+ 			.sym	= al->sym,
+ 		},
+@@ -890,7 +890,7 @@ struct hist_entry *hists__add_entry_block(struct hists *hists,
+ 		.block_info = block_info,
+ 		.hists = hists,
+ 		.ms = {
+-			.maps = al->maps,
++			.thread = al->thread,
+ 			.map = al->map,
+ 			.sym = al->sym,
+ 		},
+@@ -1020,8 +1020,8 @@ iter_next_branch_entry(struct hist_entry_iter *iter, struct addr_location *al)
+ 	if (iter->curr >= iter->total)
+ 		return 0;
+ 
+-	maps__put(al->maps);
+-	al->maps = maps__get(bi[i].to.ms.maps);
++	thread__put(al->thread);
++	al->thread = thread__get(bi[i].to.ms.thread);
+ 	map__put(al->map);
+ 	al->map = map__get(bi[i].to.ms.map);
+ 	al->sym = bi[i].to.ms.sym;
+@@ -1232,7 +1232,7 @@ iter_add_next_cumulative_entry(struct hist_entry_iter *iter,
+ 		.comm = thread__comm(al->thread),
+ 		.ip = al->addr,
+ 		.ms = {
+-			.maps = al->maps,
++			.thread = al->thread,
+ 			.map = al->map,
+ 			.sym = al->sym,
+ 		},
+diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
+index 30d606fbf040..5b0f5a48ffd4 100644
+--- a/tools/perf/util/machine.c
++++ b/tools/perf/util/machine.c
+@@ -2016,7 +2016,7 @@ static void ip__resolve_ams(struct thread *thread,
+ 	ams->addr = ip;
+ 	ams->al_addr = al.addr;
+ 	ams->al_level = al.level;
+-	ams->ms.maps = maps__get(al.maps);
++	ams->ms.thread = thread__get(al.thread);
+ 	ams->ms.sym = al.sym;
+ 	ams->ms.map = map__get(al.map);
+ 	ams->phys_addr = 0;
+@@ -2037,7 +2037,7 @@ static void ip__resolve_data(struct thread *thread,
+ 	ams->addr = addr;
+ 	ams->al_addr = al.addr;
+ 	ams->al_level = al.level;
+-	ams->ms.maps = maps__get(al.maps);
++	ams->ms.thread = thread__get(al.thread);
+ 	ams->ms.sym = al.sym;
+ 	ams->ms.map = map__get(al.map);
+ 	ams->phys_addr = phys_addr;
+@@ -2120,7 +2120,7 @@ static int append_inlines(struct callchain_cursor *cursor, struct map_symbol *ms
+ 	}
+ 
+ 	ilist_ms = (struct map_symbol) {
+-		.maps = maps__get(ms->maps),
++		.thread = thread__get(ms->thread),
+ 		.map = map__get(map),
+ 	};
+ 	list_for_each_entry(ilist, &inline_node->val, list) {
+@@ -2220,7 +2220,7 @@ static int add_callchain_ip(struct thread *thread,
+ 		iter_cycles = iter->cycles;
+ 	}
+ 
+-	ms.maps = maps__get(al.maps);
++	ms.thread = thread__get(al.thread);
+ 	ms.map = map__get(al.map);
+ 	ms.sym = al.sym;
+ 
+@@ -2383,7 +2383,7 @@ static void save_lbr_cursor_node(struct thread *thread,
+ 	map_symbol__exit(&lbr_stitch->prev_lbr_cursor[idx].ms);
+ 	memcpy(&lbr_stitch->prev_lbr_cursor[idx], cursor->curr,
+ 	       sizeof(struct callchain_cursor_node));
+-	lbr_stitch->prev_lbr_cursor[idx].ms.maps = maps__get(cursor->curr->ms.maps);
++	lbr_stitch->prev_lbr_cursor[idx].ms.thread = thread__get(cursor->curr->ms.thread);
+ 	lbr_stitch->prev_lbr_cursor[idx].ms.map = map__get(cursor->curr->ms.map);
+ 
+ 	lbr_stitch->prev_lbr_cursor[idx].valid = true;
+@@ -2596,7 +2596,8 @@ static bool has_stitched_lbr(struct thread *thread,
+ 		memcpy(&stitch_node->cursor, &lbr_stitch->prev_lbr_cursor[i],
+ 		       sizeof(struct callchain_cursor_node));
+ 
+-		stitch_node->cursor.ms.maps = maps__get(lbr_stitch->prev_lbr_cursor[i].ms.maps);
++		stitch_node->cursor.ms.thread =
++			thread__get(lbr_stitch->prev_lbr_cursor[i].ms.thread);
+ 		stitch_node->cursor.ms.map = map__get(lbr_stitch->prev_lbr_cursor[i].ms.map);
+ 
+ 		if (callee)
+diff --git a/tools/perf/util/map_symbol.c b/tools/perf/util/map_symbol.c
+index 6ad2960bc289..11bc0a7f704c 100644
+--- a/tools/perf/util/map_symbol.c
++++ b/tools/perf/util/map_symbol.c
+@@ -2,10 +2,11 @@
+ #include "map_symbol.h"
+ #include "maps.h"
+ #include "map.h"
++#include "thread.h"
+ 
+ void map_symbol__exit(struct map_symbol *ms)
  {
- 	struct ins *ins;
-@@ -880,7 +880,7 @@ static struct ins_ops *__ins__find(const struct arch *arch, const char *name,
- 		 * For powerpc, identify the instruction ops
- 		 * from the opcode using raw_insn.
- 		 */
--		struct ins_ops *ops;
-+		const struct ins_ops *ops;
- 
- 		ops = check_ppc_insn(dl);
- 		if (ops)
-@@ -916,9 +916,9 @@ static struct ins_ops *__ins__find(const struct arch *arch, const char *name,
- 	return ins ? ins->ops : NULL;
+-	maps__zput(ms->maps);
++	thread__zput(ms->thread);
+ 	map__zput(ms->map);
  }
  
--struct ins_ops *ins__find(const struct arch *arch, const char *name, struct disasm_line *dl)
-+const struct ins_ops *ins__find(const struct arch *arch, const char *name, struct disasm_line *dl)
+@@ -16,7 +17,7 @@ void addr_map_symbol__exit(struct addr_map_symbol *ams)
+ 
+ void map_symbol__copy(struct map_symbol *dst, struct map_symbol *src)
  {
--	struct ins_ops *ops = __ins__find(arch, name, dl);
-+	const struct ins_ops *ops = __ins__find(arch, name, dl);
+-	dst->maps = maps__get(src->maps);
++	dst->thread = thread__get(src->thread);
+ 	dst->map = map__get(src->map);
+ 	dst->sym = src->sym;
+ }
+diff --git a/tools/perf/util/map_symbol.h b/tools/perf/util/map_symbol.h
+index e370bb32ed47..7437e319f4a3 100644
+--- a/tools/perf/util/map_symbol.h
++++ b/tools/perf/util/map_symbol.h
+@@ -4,12 +4,13 @@
  
- 	if (!ops && arch->associate_instruction_ops)
- 		ops = arch->associate_instruction_ops((struct arch *)arch, name);
-diff --git a/tools/perf/util/disasm.h b/tools/perf/util/disasm.h
-index 273a9c906514..dc5233f2a773 100644
---- a/tools/perf/util/disasm.h
-+++ b/tools/perf/util/disasm.h
-@@ -22,7 +22,7 @@ struct arch {
- 	struct ins	*instructions;
- 	size_t		nr_instructions;
- 	size_t		nr_instructions_allocated;
--	struct ins_ops  *(*associate_instruction_ops)(struct arch *arch, const char *name);
-+	const struct ins_ops  *(*associate_instruction_ops)(struct arch *arch, const char *name);
- 	bool		sorted_instructions;
- 	bool		initialized;
- 	const char	*insn_suffix;
-@@ -52,7 +52,7 @@ struct arch {
+ #include <linux/types.h>
  
- struct ins {
- 	const char     *name;
--	struct ins_ops *ops;
-+	const struct ins_ops *ops;
++struct thread;
+ struct maps;
+ struct map;
+ struct symbol;
+ 
+ struct map_symbol {
+-	struct maps   *maps;
++	struct thread *thread;
+ 	struct map    *map;
+ 	struct symbol *sym;
  };
+diff --git a/tools/perf/util/sort.c b/tools/perf/util/sort.c
+index f963d61ac166..01a9d73ae348 100644
+--- a/tools/perf/util/sort.c
++++ b/tools/perf/util/sort.c
+@@ -1016,7 +1016,7 @@ static int hist_entry__cgroup_snprintf(struct hist_entry *he,
+ 	const char *cgrp_name = "N/A";
  
- struct ins_operands {
-@@ -108,7 +108,7 @@ struct annotate_args {
- const struct arch *arch__find(const char *name);
- bool arch__is(const struct arch *arch, const char *name);
+ 	if (he->cgroup) {
+-		struct cgroup *cgrp = cgroup__find(maps__machine(he->ms.maps)->env,
++		struct cgroup *cgrp = cgroup__find(maps__machine(thread__maps(he->ms.thread))->env,
+ 						   he->cgroup);
+ 		if (cgrp != NULL)
+ 			cgrp_name = cgrp->name;
+diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
+index c1646ef5f971..9cb0960ef905 100644
+--- a/tools/perf/util/unwind-libdw.c
++++ b/tools/perf/util/unwind-libdw.c
+@@ -161,7 +161,7 @@ static int entry(u64 ip, struct unwind_info *ui)
+ 	}
  
--struct ins_ops *ins__find(const struct arch *arch, const char *name, struct disasm_line *dl);
-+const struct ins_ops *ins__find(const struct arch *arch, const char *name, struct disasm_line *dl);
+ 	e->ip	  = ip;
+-	e->ms.maps = maps__get(al.maps);
++	e->ms.thread = thread__get(al.thread);
+ 	e->ms.map = map__get(al.map);
+ 	e->ms.sym = al.sym;
  
- bool ins__is_call(const struct ins *ins);
- bool ins__is_jump(const struct ins *ins);
+diff --git a/tools/perf/util/unwind-libunwind-local.c b/tools/perf/util/unwind-libunwind-local.c
+index a24b45106acd..ecf0c01fe51f 100644
+--- a/tools/perf/util/unwind-libunwind-local.c
++++ b/tools/perf/util/unwind-libunwind-local.c
+@@ -666,7 +666,7 @@ static int entry(u64 ip, struct thread *thread,
+ 	e.ms.sym = thread__find_symbol(thread, PERF_RECORD_MISC_USER, ip, &al);
+ 	e.ip     = ip;
+ 	e.ms.map = al.map;
+-	e.ms.maps = al.maps;
++	e.ms.thread = thread__get(al.thread);
+ 
+ 	pr_debug("unwind: %s:ip = 0x%" PRIx64 " (0x%" PRIx64 ")\n",
+ 		 al.sym ? al.sym->name : "''",
 -- 
 2.52.0.457.g6b5491de43-goog
 
