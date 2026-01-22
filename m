@@ -4,93 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B9DC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BDCBC44536
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:23:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Cc:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SXqm8cLyGJINTJnNw7mHjFMFgxY9ML6/1MUEvatflpE=; b=jipmlJXPKeGkBN8tS1HkAjjsCM
-	z6poBAQUCDBENRZ0HpQhCyRHie/+4zL4piE7PWsi/FwuzkLJQJpEVI+MOk8ALtoQUbnwZze9EWDfV
-	POOUpom3isHUbVOhW3YLfA8xxMB5z+GTEw1u0ZVeRHGIMbthskQZeVr1iMzOTTkjCZy5O+ZUVrIoF
-	BYh+gzKW3G4D0rUlQi3JcGx3yBV8VB0HVRbcUt3BYZ2FwdIvCvcSX3hPLsUPrZw6+Ln6zoGgzLegm
-	5bcRBCvrrJggGysm0N9kVT8A0dNBWJuRK4ofmynYf61EsRIj/whqyi5KmVfRDh8itdfMzLqtaQdbZ
-	Hk7e4GFA==;
+	bh=KshWMRaeKt8+Y/udjcsuhr1um7EFjxjytu7mKhSjXro=; b=ON3xqaiD8hTdwV/B67ow2OPc4R
+	+a4zBNpjTUAC+CiIz1jHU1Xfwg865aYCQmSnu7sX3P9qyRUfVfL+iF4NtAGm/6dNOdcIJ0sVheLau
+	fRsfDG/A3bbMBd2RCKjcltksrHZDbCBHZeXgyYmFQeOFJVGqvFErT6x1IHq4/zAtBPsXT3RbyQ5Wd
+	GXOiueLHdM/wjEdDvopVYliPdWER1A9DGOZfri8jsAWhkU91r/hYNmv6N83Bj/mbj//M7Y4fgf3/q
+	4EMKdHbVLc39MZEJdLaeAsa/Hbsdpf9ujpo+o4ckVOJE37pScFuO5n76AE/e64Oi1Fs5kgTJoGDP6
+	wo8TFoLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virn3-00000006opA-00Ay;
-	Thu, 22 Jan 2026 10:19:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1virq7-00000006pOO-3dEA;
+	Thu, 22 Jan 2026 10:22:59 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virn1-00000006oou-3b6T
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 10:19:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DE59860053;
-	Thu, 22 Jan 2026 10:19:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92310C116C6;
-	Thu, 22 Jan 2026 10:19:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769077186;
-	bh=L3IZIC+janpa8bX+oY0ioO1Giiv4Fy8ez5t+eXi0T44=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=N1P/WZwRllaQdaCucmkBP+pPH7El0CU0NjCzFfOIfRnIiBl7Szv1Y+ZjV79tzN9xn
-	 ajY4po3Ld1ovsW50CNxyjMjN5JvsynFADJNZk3qATuDLQ3ml0m+U0rwL3X47A+ouUt
-	 mwh0kEwcMyyGHlw4E3c2iNeL8c7etpIeoDwmlB2skGqjXE1Rs1H1qtFAbbTmnP5CgD
-	 mF/MVPNvgLVcKYukr0STFjfmUVhlW/TWfdoqi3CWowxRQ8YugXv//iesAKhGqaI/Cj
-	 /v6WsfPEpsZJydwSHS/3/q9H+77I3G58POJU8n+jo9ozUSxRl6zKcBcvYHgjwUV5UK
-	 IUGABtKslDErg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1virmy-00000004do1-0e5m;
-	Thu, 22 Jan 2026 10:19:44 +0000
-Date: Thu, 22 Jan 2026 10:19:43 +0000
-Message-ID: <86v7guar0g.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Thomas Gleixner <tglx@kernel.org>,
-	Ankit Soni <Ankit.Soni@amd.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joerg Roedel <joro@8bytes.org>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Sairaj Kodilkar <sarunkod@amd.com>,
-	Vasant Hegde <vasant.hegde@amd.com>,
-	Maxim Levitsky <mlevitsk@redhat.com>,
-	Joao Martins <joao.m.martins@oracle.com>,
-	Francesco Lavra <francescolavra.fl@gmail.com>,
-	David Matlack <dmatlack@google.com>,
-	Naveen Rao <Naveen.Rao@amd.com>,
-	Crystal Wood <crwood@redhat.com>
-Subject: Re: possible deadlock due to irq_set_thread_affinity() calling into the scheduler (was Re: [PATCH v3 38/62] KVM: SVM: Take and hold ir_list_lock across IRTE updates in IOMMU)
-In-Reply-To: <5bea843b-dec8-4f15-bb7c-1d0550542034@redhat.com>
-References: <20250611224604.313496-2-seanjc@google.com>
-	<20250611224604.313496-40-seanjc@google.com>
-	<njhjud3e6wbdftzr3ziyuh5bhyvc5ndt5qvmg7rlvh5isoop2l@f2uxctws2c7d>
-	<42513cb3-3c2e-4aa8-b748-23b6656a5096@redhat.com>
-	<874iovu742.ffs@tglx>
-	<87pl7jsrdg.ffs@tglx>
-	<5bea843b-dec8-4f15-bb7c-1d0550542034@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	id 1virq5-00000006pNX-0HBV;
+	Thu, 22 Jan 2026 10:22:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hFYZxw/WjA5t/U8e4atje0viQuE8MYxMKfgZ8w9sRaK9nWLi6ZC3tIkpi1vhkEzFbGepHHY3E7Y0QggGPRfNDvLEJhTmuEIaA7NCp4us+S9OqZ/m0Gb5DK0i04Rno2LxzEc5dT4i5CfR0bpRh8x0qjTQrwXWD5mGyWNFD1kJsQi3vniuC6cMzBOq8Q9ECHDzL692j7n/tax5nEp2Q+uWixOCOwGzZ0P8DPXeINj9RwJDkV9feaYnuxBoKSJ/pIyMqKbWmjvC4726pCZKalrrXEDT8nSsWC8n4kY/O7wjG9gl4yeqyX6N3Ol4gdIov/NlmPTv2pV6eb4nXbVgHdBW6Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KshWMRaeKt8+Y/udjcsuhr1um7EFjxjytu7mKhSjXro=;
+ b=ARMrBWye7Ph2u5i5OHvwrbeyEl3R/yKcXAv39LM+upn0OO4Q6i74oux/9Vp3PvhaeVxVl0iLPgqkDBMGL403+r7m3dJxNvFeJOmBXL5QCDnEgmC/fhTLbi24HnEbWwLsSmVtFXxuozngGA3YR+I42gmSvgLImkLGZaymoSXiJotHCc9PYYTRtKjVqyqYXvWVGGu+OUeh06LYweWDxTkCOlLxpogefGxaxO+1O4KjqkX28Qoaa94d9H92xCqRjtaDiAtCJT+8sT8Lyn0mWzTI5kwKITRGgtINJYtU2gBrq/JLwp3+H0qWptbu95j1YDbE9WoK/DMpptTTt9Z698wFJg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=linumiz.com; dmarc=pass action=none header.from=linumiz.com;
+ dkim=pass header.d=linumiz.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=linumiz.com;
+Received: from TYZPR06MB6935.apcprd06.prod.outlook.com (2603:1096:405:3c::9)
+ by PUZPR06MB5818.apcprd06.prod.outlook.com (2603:1096:301:f1::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Thu, 22 Jan
+ 2026 10:22:49 +0000
+Received: from TYZPR06MB6935.apcprd06.prod.outlook.com
+ ([fe80::30b6:5b0d:1b00:5a01]) by TYZPR06MB6935.apcprd06.prod.outlook.com
+ ([fe80::30b6:5b0d:1b00:5a01%6]) with mapi id 15.20.9542.008; Thu, 22 Jan 2026
+ 10:22:48 +0000
+Message-ID: <6825d5bf-9d99-4872-a61f-1b145bfd2efa@linumiz.com>
+Date: Thu, 22 Jan 2026 11:22:00 +0100
+User-Agent: Mozilla Thunderbird
+Cc: parthiban@linumiz.com, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ paulk@sys-base.io
+Subject: Re: [PATCH v3 3/6] drm/sun4i: Enable LVDS output on sun20i D1s/T113
+To: =?UTF-8?Q?Kuba_Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>,
+ Maxime Ripard <mripard@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+References: <20251116134609.447043-1-kuba@szczodrzynski.pl>
+ <20251116134835.447357-1-kuba@szczodrzynski.pl>
+Content-Language: en-US
+From: Parthiban <parthiban@linumiz.com>
+Organization: Linumiz
+In-Reply-To: <20251116134835.447357-1-kuba@szczodrzynski.pl>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: pbonzini@redhat.com, tglx@kernel.org, Ankit.Soni@amd.com, seanjc@google.com, oliver.upton@linux.dev, joro@8bytes.org, dwmw2@infradead.org, baolu.lu@linux.intel.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, sarunkod@amd.com, vasant.hegde@amd.com, mlevitsk@redhat.com, joao.m.martins@oracle.com, francescolavra.fl@gmail.com, dmatlack@google.com, Naveen.Rao@amd.com, crwood@redhat.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: BMXP287CA0006.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:b00:2c::18) To TYZPR06MB6935.apcprd06.prod.outlook.com
+ (2603:1096:405:3c::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR06MB6935:EE_|PUZPR06MB5818:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3419be3b-e288-48af-fac7-08de59a030e6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WmxROEU3QmJ3T2gzeGZ3bTJCWjdzMXY3cmZ2eDQ4T0tIWGxmdFpyMU9XbUM4?=
+ =?utf-8?B?bndnOSt2TEE1YU9tZ0RKK3czQzdOTTR0SjExck15cTZuM21mb1hjaS9YckN5?=
+ =?utf-8?B?aWhsekhDMHArSm1heFhUTzJGWmlsM1ZqZ2JXQXlmRnAybkNJTkx6RXJwMTNX?=
+ =?utf-8?B?ajVQdDJxeStCcUQ0RUdNQUhNbGdYK1djUXNBWDlZRTJLb1RZNWd0bGpNNlVs?=
+ =?utf-8?B?NzJ5Y0JmVFE5WEpONXA1dytVSE1zMHVIWVN1NzcydmtkdTlKUFdKNnNTMnN6?=
+ =?utf-8?B?cm1IRXVjU2Rqc3BMVzVPUFlwcm9UUHNIRWROQndkQU5OZzRNVE9yODVYWkpx?=
+ =?utf-8?B?NmJnYy9rLzhmOUc0bjNCclNzbFJCeUtwUXFHeE5aTDdQMk9vRERpeTR4WUYy?=
+ =?utf-8?B?dnk4aCtmOW9VcFJwVkRoZmFpUzF3c29HMnVaUEdQSFNoK2JwT05va3Jlc2wv?=
+ =?utf-8?B?eUZRYzBhS1RleUdKOG10VnBEeFRIMmZoRld0T0Q1MnRycEc0OGlaTTVEOHpJ?=
+ =?utf-8?B?TWdkTENCeWdKT0N2blArdUxBNWMvaUpiYTZnRXhSZWtMMUJ0dVkvV3RNTjgz?=
+ =?utf-8?B?VDNJMkRnZ1JYa1pZZEZGTjF2K2JwUThkTHpLNHJCdGF5YTFMNjRtU1l4WEFO?=
+ =?utf-8?B?aFljTER5aFpHZThqRkJqUGVPdjc4TXBzQWRLVCtQTHdFYmFQQ0pNYjdvSTI3?=
+ =?utf-8?B?NWNFdU5IK2VvSzQ0M001eVRkT0tKenArRGI1b2tEZi9jMnhMMmNzOE03UGNU?=
+ =?utf-8?B?TTdLQ0EzcXBmbk90c1pSbEdVN1h1QUVUd08zZ0NMZ1RZL3RSQTYrR09hMkVE?=
+ =?utf-8?B?SUM4TTVid2VTdUFya2RNWjFsTUpGdWV6NzdISWF6STFwWWZBcnpYZjduTWdj?=
+ =?utf-8?B?VEtBU1NHTVkzSUNHN01nUWljaFdHOU9KTExXODgwU0dxL2ZpOU43a0txNERE?=
+ =?utf-8?B?NU0wWlVrM2dzWDVJK1hFcVc3SWc1REtScFMva2dsZTkyTmpKWnN6eUMrY3Z1?=
+ =?utf-8?B?Z2tRN1QvUjdzbEt4c3dMQXlXN2d0ODdWS2d3cjNWOTZXSFBzTm90QmEzOXlN?=
+ =?utf-8?B?WUs0U0Uwd0VISlVlbEJhajhReVN5alZqcVJIQm9LeVRKVnVERXpLOUdPMSt6?=
+ =?utf-8?B?S25IcHFZTHl3aWRHaHNLbWQxWm81ZmlaTlg0QWRnUzVTMkhydGFwOGg5elBQ?=
+ =?utf-8?B?ZWNZVmVFanlJamhndEJPTTJvZFowRmx2Qzl5ZFlZY0xpcmFYZXBmeUxTWGFE?=
+ =?utf-8?B?TWhlaE9hSmdrZFNaYVNOclkrZWc3RlZkbTB5aEw4STNCYXdCUmNDZHJLb0sx?=
+ =?utf-8?B?ZXRXYW9mc3NqVld1V2lWVE1nVXZDaFpNQ05GTitpNDBFQTQ0TzdSOFcxWGJX?=
+ =?utf-8?B?MmJxc040am9RNnBiZkRpeEQ1SFpaNDNCWUlNNkVhYiszQ0pNQzdITXJ3TG5J?=
+ =?utf-8?B?Q0k4d1ZaSkVPVmpNWUF5Vzk0eC9EL0EyU3hONjVQVmdGa0VYR0NKaG9OYThy?=
+ =?utf-8?B?cmcvZFBYQWpwVU56ZkJtTUtOSWRhS3hMZTlTUjNwRDk5clpzbU45VkxOcmlU?=
+ =?utf-8?B?a0E0RXZVWFcxOEFCN2tDU0lrd0FDZ015RXJrYndBMXF1Y2VTQTR2QTBzdmVP?=
+ =?utf-8?B?TDFhbUVEM1pseVpOa0pyNnBKZkk2VHd4czgzbTNLRlpLM3hoUDduMnJMQTlP?=
+ =?utf-8?B?ZlZtWGtPa2Jic1MzUHpocE1rZVhKUWpXZWhSYTdJR0c3aUhvRllvdy82RHYz?=
+ =?utf-8?B?NWRNQUZYbGJHdEdiVkdmODU1aUxwSUUweG1pZGFhM01Yd2k3MXorUVc0SlZO?=
+ =?utf-8?B?TE9hQmVFNlZVanFHMVNUN2U3MmhJQThaQVM3SDNVa24rQUpRYnZUSUNjcG12?=
+ =?utf-8?B?VTZtaWlDWEtHSFFMTk5CWDd2N04rdGkrRWlXK2J2cjBoTzExWnV1dXJsRmF6?=
+ =?utf-8?B?eE9tV2ZCM3NuTjZUK3pOSVdSSzdkM2ZqbDNDazBrR3dlWGFqemVCWHhib2Iv?=
+ =?utf-8?B?MmJmZW9xUnVyQ1pYRk9DVzdqZXZqV0txT0Q2MnROeUx4SlNNZEtwb2lYZ1Rr?=
+ =?utf-8?B?MU1HT2pzeDNzVHJBTGJXNTJmcXo0SE1nMFBDdVZVVDU2ZEs4cjV3Rkd1aFpJ?=
+ =?utf-8?B?dVBMNElvVjNMMFFuWUhCNlAxdGFkdzlaSEt5MlVBYmc3SHZvSEVHMGdlc2pm?=
+ =?utf-8?B?NGc9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR06MB6935.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bC9vaW04WjY0VVJ2WGJyeDNkN3VTRGFxUjJ5dG9zNk9uTTJucDVOdUlWa1Jm?=
+ =?utf-8?B?SWVLNlRTQ1c2bU1XaUE3MEZ1cjVISVpiRWdVblhYOEh2Q0RxYW9xNmdHSzZ0?=
+ =?utf-8?B?NU94SmlmWHp2SnN4YUxQeG5lSWdWSW1ha092eDcrUTVvNmVNVWdlT0R2aGkz?=
+ =?utf-8?B?M3hPOUVUdE1nMjArMTJIZDBwZEJ3T0lOTm5mcTZMSHhlL2lxRnhxTXY2Z3Zi?=
+ =?utf-8?B?T3ZKemRtcEpnT0ZKM0RpVmhaRHZtc3NWelBLQjBMNjdVZnl1bHJ0bzFXcjJu?=
+ =?utf-8?B?dklBSkx5cHFIQTA4SkhQMWdJMnZzR25yb0dPcXh3blBTZzZrdDk5OGVHaG4r?=
+ =?utf-8?B?QTZTa1JyS1JTZGdLeEZzZjUwcVBYSHNqc0RVVmtLaEcxMEh2aUxzSWtnTTR1?=
+ =?utf-8?B?Z0s1eDViV1lhaUl4UFVlOFNYV2o1SWF1QkRiWXF1NlJ3ei9oWDZudnhvTzFF?=
+ =?utf-8?B?eHVoZ2JZano2V2dvbzI1KzhGR3ZyZ3NFWmNCWld0aTJXWUFtbVNqNi9jaXUx?=
+ =?utf-8?B?a3dOZmJTbUZMS2NiczVFemRKYnRxeFp5L2hHSTI3UHBMbjR6b210dlBTdEhq?=
+ =?utf-8?B?Zit2UWFEWFFoTDJzb0ZWYUR0UDBIczFsQ1VPSVJDeXJmbHc0SFhXZGx1Z3lw?=
+ =?utf-8?B?Unk1Z2JONnNXTThNT3k4UmFEUjBSWlYrL0YrU2JITXdoMCtJb0xlWWdWd25F?=
+ =?utf-8?B?ajhPcmxETG45Y2VEemdnTjJ3RU44eGZxK0Z4SnBmZUJhTVRUTTBpY1NZdUFB?=
+ =?utf-8?B?Mjl1WTF0em54WTZhckNneUYvQ1pkM1NZYnlKSkZlaWhvNXJsODc0L2t4eWlo?=
+ =?utf-8?B?WTd0S0VLaEZSS0hVRUtpNjhpV1ZtWjNpNGJleXh5TGVOYUZVU280QjY5dW9R?=
+ =?utf-8?B?bXBvSE1Nb0JVQ0NlTzQ4TzA0MklLMUdnWEVkUGtiOWdGdHE2S2gwUTdXbHVq?=
+ =?utf-8?B?eUNaWi9naVd6UTBLSjdzTXRDSFFEMGVxTlNGM1ozYW9VdmEyNjNMT240VDUz?=
+ =?utf-8?B?U0o5aGI3T3I5bEFoL3k1TkpkQ25paDdMUVBidXJEU2pYS0c4MWZnTVBad0dz?=
+ =?utf-8?B?a0VlWjZzVEFjeW5YbTBBYnJ3d1Zya2xsVTIzd1lVZGlnT0hYc1VxVFhOdk5B?=
+ =?utf-8?B?dlA1WW9CMEZLMGZHRWt2aDBUOFluTTlOeTN5TFB1Y3NoVElBVUYzUEllZm40?=
+ =?utf-8?B?YWdOMTZEU0FQZ2gyVy92OFpBTnkxbHU2a3llMTNQSzVHSllKT3ArcURuME5p?=
+ =?utf-8?B?MG5JVFh4ZFgwK1RLUGlVT05rVk1XMFN5RlZHbXl0N2RJSWxDNzhQalk3cDdT?=
+ =?utf-8?B?QU9LK3BzdDVFV3E2bE1ybHJyRUNBSGN1QWpWK0xxdExVYml6RUg4WDgzcTh1?=
+ =?utf-8?B?VXVDWmZKbTdWRzA1QUM1UWFhN0Q1bmt0eDg4WUdqN2VaQ3VIeVN5ZmtvSHN5?=
+ =?utf-8?B?SmE1K3dGSytocmVrSkp1Z2s4aTVSL01MZVREMjM5WVk5TDI0S1czVjlsQ0dL?=
+ =?utf-8?B?TkRMS0lCbkc4aVJvZm5kaUE4d1A2bXBDVXBMdk5jNnlUUWEzOHoxQ2lzTCsw?=
+ =?utf-8?B?T1ZQUXRsWjA5MTRURzlyb2lIZFVCdnd1OWhwWHdnVExsWVhBQ1ZtbHZEUzZI?=
+ =?utf-8?B?UkgrbjZ1b2NuV2EzaHZTYmY0cGxPb0xXc0hpK2lKZDhMTDFnQURrN1ZxV2pS?=
+ =?utf-8?B?VitjU2g1OG42UkR3a2hyMk5LRWczR2E4dXF2K1laT2Z1Z255K1U1RTJtOThF?=
+ =?utf-8?B?eUlUNVZYVGtnVWU0SkxaYUJQQXRveFloaDE4YUNSMTV4MGRJSy80V0poM1gv?=
+ =?utf-8?B?bStuVDJPRTVCQXAvWWlNTjl1R1VseGM2bFZBYUlZNXM5eGUyVlhNNG1YUWNO?=
+ =?utf-8?B?aW1OcHRqK2tSYlpwUWlKWnhLanlIT2N5VlhyeTdjYm1EeU1lU1oxRDFjZWU0?=
+ =?utf-8?B?YWY2RXRSOFZzSUYzYTNyZ05odlBxZHlxZzVvSDFqU3hJcDBZZ2JZa3k4OVlz?=
+ =?utf-8?B?NWVYUWU1R25HUVR1SUVub3RkZUFIZEdNbEhxTHFPRWJJUEtyeUw1b2dxSVA3?=
+ =?utf-8?B?VWhWdFU2ZUFLZCt5VmtsMCtVN1d5dmtpV2VXeG94VnR0dTRMUGlaWWluUHZN?=
+ =?utf-8?B?T0U4eXhkUTdtWVdkN2EzYkRzYllLWEoxRG9yQmt0SWNqZ3JjRlQzREVFQnlz?=
+ =?utf-8?B?TTBRUXlGVTY1MGRXaVFqYUhiMWU3ZlloNlRrMmNLSFJHYWNKOUpVUkMyR0Za?=
+ =?utf-8?B?bGl2dVFFcm1ZQk1NODBIa09CZ0pVcTdiQXlIdXJlY1JjN3NwZUxyMFNsUGI0?=
+ =?utf-8?B?SktkOVBleDB0T3lEaG9ZR25NZFAyS2J3c1NqV0tmbXU0WEZORjM2Zz09?=
+X-OriginatorOrg: linumiz.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3419be3b-e288-48af-fac7-08de59a030e6
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR06MB6935.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 10:22:48.5002
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 808466aa-232a-41f4-ac23-289e3a6840d4
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: R2T7vThY1pr01On0i0AerlcY4QetCgDh68Fu6X/29sckFhN6OJotHFUBG+GT31gVjzjvJCC/h0iT7/LX32mq4A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB5818
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260122_022257_111069_295AB7B6 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,66 +188,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 21 Jan 2026 18:13:43 +0000,
-Paolo Bonzini <pbonzini@redhat.com> wrote:
->=20
-> Sorry, not sure how the previous email ended up encrypted.
->=20
-> On 1/8/26 22:53, Thomas Gleixner wrote:
-> > On Thu, Jan 08 2026 at 22:28, Thomas Gleixner wrote:
-> >> On Mon, Dec 22 2025 at 15:09, Paolo Bonzini wrote:
-> >>> Of the three, the most sketchy is (a); notably, __setup_irq() calls
-> >>> wake_up_process outside desc->lock.  Therefore I'd like so much to tr=
-eat
-> >>> it as a kernel/irq/ bug; and the simplest (perhaps too simple...) fix=
- is
-> >>=20
-> >> It's not more sketchy than VIRT assuming that it can do what it wants
-> >> under rq->lock. =F0=9F=99=82
-> >=20
-> > And just for the record, that's not the only place in the irq core which
-> > has that lock chain.
-> >=20
-> > irq_set_affinity_locked()       // invoked with desc::lock held
-> >     if (desc->affinity_notify)
-> >        schedule_work()           // Ends up taking rq::lock
-> >=20
-> > and that's the case since cd7eab44e994 ("genirq: Add IRQ affinity
-> > notifiers"), which was added 15 years ago.
-> >=20
-> > Are you still claiming that this is a kernel/irq bug?
->=20
-> Not really, I did say I'd like to treat it as a kernel/irq bug...
-> but certainly didn't have hopes high enough to "claim" that.
-> I do think that it's ugly to have locks that are internal,
-> non-leaf and held around callbacks; but people smarter than
-> me have thought about it and you can't call it a bug anyway.
->=20
-> For x86/AMD we have a way to fix it, so that part is not a problem.
->=20
-> For the call(*) to irq_set_affinity() in arch/arm64/kvm/'s
-> vgic_v4_load() I think it can be solved as well.
-> kvm_make_request(KVM_REQ_RELOAD_GICv4) will delay vgic_v4_load()
-> to a safe spot, so just cache the previous smp_processor_id() and,
-> if it is different, do the kvm_make_request() and return instead
-> of calling irq_set_affinity().
->=20
-> vgic_v3_load() is the only place that calls it from the preempt
-> notifier, so this behavior can be tied to a "bool delay_set_affinity"
-> argument to vgic_v4_load() or placed in a different function.
->=20
-> Marc/Oliver, does that sound doable?
+Dear Kuba,
 
-Potentially. But there are a few gotchas that may need surgery beyond
-KVM itself, all the way down to the ITS code that abstract the
-differences between v4.0 and v4.1.
+On 11/16/25 2:48 PM, Kuba Szczodrzyński wrote:
+> +static void sun20i_tcon_setup_lvds_dphy(struct sun4i_tcon *tcon,
+> +					const struct drm_encoder *encoder)
+> +{
+> +	union phy_configure_opts opts = { };
+> +
+> +	if (!tcon->quirks->has_combo_dphy || !tcon->dphy)
+> +		return;
+> +
+> +	if (phy_init(tcon->dphy))
+> +		return;
+> +
+> +	if (phy_set_mode(tcon->dphy, PHY_MODE_LVDS))
 
-I'll have a look over the weekend.
+From Documentation/driver-api/phy/phy.rst, set_mode shall be after power_on. But re-order
+will fail to work for our case. Not sure if this is fine.
 
 Thanks,
+Parthiban
 
-	M.
+> +		return;
+> +
+> +	if (phy_configure(tcon->dphy, &opts))
+> +		return;
+> +
+> +	if (phy_power_on(tcon->dphy))
+> +		return;
 
---=20
-Without deviation from the norm, progress is not possible.
+
 
