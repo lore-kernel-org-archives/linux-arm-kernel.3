@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C50AC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC7E9C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:08:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pJU74uGBRgJrBWsLNGKktTljQMQBbf8PGSIW5mHzcHE=; b=eE6wXR+Bp11q0TzQdjVVtcl1Yw
-	kyKe3anUSuEqo6TNC5rGww6D6J9UFqPoW5GT5P4sh1JRKbqP+AzU+8RtW6pVBQgJMWhmfG5nHz6m7
-	x/NQgU+0POZ9X9JCEQWyRJBxY6kcPa+gx8M6mjKi7w9i4ywiUNoAxYTqJqOBDaIEKVeKb2Ud1OJWE
-	acizS7I9QJCqMwbW9f/dR9J68L798eKEjHxxS98CHhprqqlHfJfwMgAJvAl1K9P1ud2Rbb2y6x291
-	29Gm1jBLeZNKqFh8eGyLT2rSZO9ZsnzFkqW83A2B7ZitJZ4RHxRu4XzwL7wVtq8QwXxID6C6lxLlQ
-	sG/n4JSg==;
+	bh=3cYizoDkt5cOwg564x5reQWgQwSV3vBjCW3ZezF54m4=; b=HjTfI/VQASz25BSfohDklRDfqf
+	J1Z4fpe5euOo/aWOzFy5Oe6QjxMf1jtVA27Yhy456oMzS0OV4INUFFlHzP2MLgFGu9ddA1uExP2Fp
+	/bdeESS8NzFvcM39Q5ekWzE9Iu/kZHaMD9UKwiJMI6cyZh+WDtH3etaEiL0gg25FPrUVG3dYg1+gP
+	hPv12b69xVXz4x7tcJBERCLzi3LoaG1CSK7qLoeHqc2mWZCfJFJU6p6iAB+Bv3GwkJ5G8k1lwcNhW
+	kvWdj19hejtv/ByLsl8nokAa0zPXeOMzNPAQogjd3wUwNUCzFWEm0ZAu8NwLbC33PJdnV94/k7p3S
+	LPiGZvFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viqbf-00000006iDs-0GIJ;
-	Thu, 22 Jan 2026 09:03:59 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1viqfS-00000006iQz-3DyI;
+	Thu, 22 Jan 2026 09:07:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viqbc-00000006iCr-3srM
+	id 1viqfP-00000006iQU-32ey
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 09:03:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769072637; x=1800608637;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=4ohGY88eWkGMmFgVvnuEy0jhbn8Jw1vVAxE6b2ba4dM=;
-  b=kWzC2YIYc9tlm0e4E1NFmvbS7eLyDddqoncLX1xOPk3qkuM815teUttG
-   YOA4mMZZvV8lblA+n1G6so8vYmu/LkKFxZTRbCtXEpeEU8kTw5+vZJ+os
-   oE7tiKIsyV+n75bGn4ECSKodl9g7LLgihPsTLr50gqsTLsgn4cHdPpn1w
-   VU8+ZsXxS4ff0x7mtBFH11vSXnlemDpebXInx2aUiDt8LbKF01zOJj8cG
-   5hmxsoitwqY9KsjwQ5jF5+C+M189pKq5+IL4tB3TW7JuAWEQ24WfSYO4W
-   GFcVCcbWGqjQ1Qbp23im8saOSbjoirP/ueWHNB9PuxhvqTxKDZvydWpwj
-   g==;
-X-CSE-ConnectionGUID: /UppbpK0Tm22YJuX1W9Hpw==
-X-CSE-MsgGUID: 6RrXY+zsRFaam0egUNsf8g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11678"; a="57873876"
-X-IronPort-AV: E=Sophos;i="6.21,245,1763452800"; 
-   d="scan'208";a="57873876"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2026 01:03:56 -0800
-X-CSE-ConnectionGUID: 4XmMHhiLTv+BOKI/lEXCsg==
-X-CSE-MsgGUID: SAcLZZBOTEKZrMnpfQ/UzQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,245,1763452800"; 
-   d="scan'208";a="244284372"
-Received: from smoticic-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.225])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2026 01:03:54 -0800
-Date: Thu, 22 Jan 2026 11:03:50 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: abdurrahman@nexthop.ai
-Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] i2c: xiic: switch to generic device property
- accessors
-Message-ID: <aXHn9g_aYmfJ-2ak@smile.fi.intel.com>
-References: <20260122-i2c-xiic-v2-0-134f5d743e8b@nexthop.ai>
- <20260122-i2c-xiic-v2-1-134f5d743e8b@nexthop.ai>
- <aXHnDXHfjEnKpRmg@smile.fi.intel.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXHnDXHfjEnKpRmg@smile.fi.intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+	Thu, 22 Jan 2026 09:07:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8062240A5B;
+	Thu, 22 Jan 2026 09:07:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CEA0C16AAE;
+	Thu, 22 Jan 2026 09:07:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769072870;
+	bh=ui6FN7ArLwvtBIDbQfy5pRl8V5wQYtCl40jZiB+Dt7s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=DlGu7ZQigpyXDRtUNgOEXuz96GQ02SGJ+awi9gUlb0RB5dLcNjp+nd7YxQYOppJmC
+	 c8Tk+A7FzrYzkeVhPojlZxrwf6ms+7n0dUCWry/xEaKpV7s7/st27NXs/4vVODmbby
+	 odzEW6ci2kBbOWtIZyNbTqQNpoyCXlMvNzzTVW3bD76c66SqZqco6ALXFKXeox2ogT
+	 381kKIZPzfZjybMqVT70ivqV5a3UlmXtv/OwTk5Uc4mTbUpjAe6enjDOu0lJT9uU+c
+	 gCYaWKd73PoGOUQ3YRFKRxuWq8guTZ9QJwZlBK8GNu4ijj0PCg8diyySTSsoRH0mWg
+	 6bfAXqNyC1nVA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1viqfM-00000004cQS-0rIx;
+	Thu, 22 Jan 2026 09:07:48 +0000
+Date: Thu, 22 Jan 2026 09:07:47 +0000
+Message-ID: <86wm1aaucc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zenghui Yu <zenghui.yu@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	wanghaibin.wang@huawei.com
+Subject: Re: [PATCH] KVM: arm64: nv: Return correct RES0 bits for FGT registers
+In-Reply-To: <20260121101631.41037-1-zenghui.yu@linux.dev>
+References: <20260121101631.41037-1-zenghui.yu@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: zenghui.yu@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, wanghaibin.wang@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_010356_984533_989A6341 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20260122_010751_783920_E1B7F0CB 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,61 +87,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 11:00:01AM +0200, Andy Shevchenko wrote:
-> On Thu, Jan 22, 2026 at 08:32:31AM +0000, Abdurrahman Hussain via B4 Relay wrote:
-
-...
-
-> > -	i2c = devm_kzalloc(&pdev->dev, sizeof(*i2c), GFP_KERNEL);
-> > +	i2c = devm_kzalloc(dev, sizeof(*i2c), GFP_KERNEL);
-> >  	if (!i2c)
-> >  		return -ENOMEM;
+On Wed, 21 Jan 2026 10:16:31 +0000,
+Zenghui Yu <zenghui.yu@linux.dev> wrote:
 > 
-> This type of changes should go in a separate patch after this one.
-
-...
-
-> >  	mutex_init(&i2c->lock);
+> From: "Zenghui Yu (Huawei)" <zenghui.yu@linux.dev>
 > 
-> Please, consider also switching this (in yet another separate patch) to
-> devm_mutex_init().
+> We had extended the sysreg masking infrastructure to more general
+> registers, instead of restricting it to VNCR-backed registers, since
+> commit a0162020095e ("KVM: arm64: Extend masking facility to arbitrary
+> registers"). Fix kvm_get_sysreg_res0() to reflect this fact.
 
-...
+Huh, what a howler! Thanks a lot for spotting this!
 
-> > -	ret = devm_request_threaded_irq(&pdev->dev, irq, NULL,
-> > -					xiic_process, IRQF_ONESHOT,
-> > -					pdev->name, i2c);
-> > +	ret = devm_request_threaded_irq(dev, irq, NULL, xiic_process,
-> > +					IRQF_ONESHOT, pdev->name, i2c);
-> >  
-> >  	if (ret < 0) {
 > 
-> > -		dev_err_probe(&pdev->dev, ret, "Cannot claim IRQ\n");
-> > +		dev_err_probe(dev, ret, "Cannot claim IRQ\n");
-> >  		goto err_pm_disable;
+> Note that we're sure that we only deal with FGT registers in
+> kvm_get_sysreg_res0(), the
 > 
-> Before doing it, just kill the message, it is a dup since devm_request_*irq*()
-> already prints the similar one on the error cases.
+> 	if (sr < __VNCR_START__)
 > 
-> >  	}
+> is actually a never false, which should probably be removed later.
 
-...
+I think the biggest mistake is to have several places where we perform
+sysreg index to array index conversions. We should try to unify that.
 
-> So, this patch should be transformed to three
+> 
+> Fixes: 69c19e047dfe ("KVM: arm64: Add TCR2_EL2 to the sysreg arrays")
+> Signed-off-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
 
-Ah, to four!
+Cc: stable@vger.kernel.org
 
-(in the following order)
+Thanks again,
 
-- convert to devm_mutex_init()
-
-> - removing a dup message
-> - converting to device propries
-> - utilising the temporary 'dev' variable elsewhere
+	M.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Without deviation from the norm, progress is not possible.
 
