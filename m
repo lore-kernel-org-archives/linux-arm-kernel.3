@@ -4,66 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A719D3EE97
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 17:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F31ABD3EE96
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 17:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TXmOKutpf4oJjvVcdpuA87UDape5QgA7pWscPvH2510=; b=xEpRDEPxMdNaKclDVxUemGrz9o
-	K7T55mStaAvjWO5hLjR2KUrP1cv6gPL7L6qbIVwGQTNgpFDcT4Q7pzord7QranxZswBcuENM4AHbI
-	3Ka1V6LGYCP/PvNo8OfB/olw2v64vpabBtbvFW6/F9aGhWr6c9b2ZO3i4g4u/l0ui+JivOCaH9kRn
-	RCSc0jVKdX5ztVc+AEv/HZxpdfJVso1EirPz6GODZnGCkoeNGXjVmgCxP23Q9RT9ikNibZgi1HPiE
-	0vYjMPvguljl9pv6Z2v9zuGspDpKL6YSjK/mBO3KjncnBfgvRnAZvCy7n22ypn42Fuow3MC/ivsa6
-	LAdHD6kA==;
+	bh=nkKZJfMjTDB8lAw9IWYb+OaqA51WbP/wnidMObn3Nr0=; b=oYaDA1vIq2KViCRdDJ4mFfcRST
+	5ybAurXk7I2XlvmxHVviBWhEIlpwYamTelmFZPQDYaw0AmbzHb0oGlsSzB1VVffwgo6pO4Am34Qqy
+	2IQZS05ifQyHZbxDJShYVA5/fCs4QJLfd38UsAKCBbqTqY7Q0Cx8qzgo37uSv0CZKuCumvuuP/mFM
+	zLTBZQo9TeJRW2bQGc1/0t+mcfEqV1ek+68XpF0X71/8t2jTYGpyrarZEFg7xDvIhxjwnH8Lh9RMT
+	7UxsNJMOErfIFjT4aE2X3WrXS53aS9FaYagrluoIg9ZCvjBGi4vF32pwHfHh5RNnsFsRgZ863A7tj
+	rdiPS72g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viy2Y-00000007WH5-1iOQ;
-	Thu, 22 Jan 2026 17:00:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1viy2X-00000007WGH-3Ny8;
+	Thu, 22 Jan 2026 17:00:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viy2V-00000007WFT-3yku
+	id 1viy2P-00000007WEF-2C94
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 17:00:12 +0000
+	Thu, 22 Jan 2026 17:00:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6305E60053;
-	Thu, 22 Jan 2026 17:00:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C151C116C6;
-	Thu, 22 Jan 2026 17:00:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F1102600C3;
+	Thu, 22 Jan 2026 17:00:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2C66C116C6;
+	Thu, 22 Jan 2026 17:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769101211;
-	bh=V4PTp6AWZI5MWQxX8DtA8YX5B5nuTx9/oXx6sLHPHns=;
+	s=k20201202; t=1769101204;
+	bh=p2U71IBNMwdMRbRUPojDVJ/6PrIbK24gx2RAKTiUKMw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Sll4VSfPLggvYsQbc3VOhucDxRupzWN1AuuHZ54KrRTjWY9lINoovHVXg7KRwOqCk
-	 r6WlpQn5X1ma2kC4jq5sqLD3uD7Rj4Ri7VrdV2k24Un8X/XFxzblxPIWlHEmFpq8Zv
-	 hu6pu2xR7q1aP7xVNQuLYSEQVVTZg5jdd+bIHSaj5Tw0YHuxCZScdzUDn9gKrU4nxj
-	 UiGiDk4X5WV3yCNam86OrMAsRIMZegnv3MLJJ7ZonSSZkHpIZgqjR9gqwLKMV0ByzO
-	 zU9P7UIm7SslBOKhALIOCekPuVHiT7xn6rPnAxGQf0l30MJzM8KN8HT4OqpWpkKtm0
-	 7zDhOUAE+cguQ==
+	b=YhQwsgXIc9/1ZX1LAvCh8aGaYnxZJSOO233dLEO+B8AkFDZ9zqsw9ZZSUgOefPq+5
+	 C0JUc9kd7p6Z+3qrq++YyBJuFwAHoYROx1OYRN3ZILCy2rqELNx/U/vuWTMIpD9Bfx
+	 /Kbf9cAujOcgM1rwNaU/EC6HZwHSKYwh+knXhUtk2Qn2r/6Zgz41lMcmkh5hcJluIh
+	 ImOD43sV4vDQNf2puB0/UY5lKFsu5jv2Wjt7za/2Mb3RgKIPOeg4jCFF/NiNb4XJOf
+	 1Q1bRrpSdHfeBS6aCSC9wMs6GUOjkZ4NnWNkwUSBfnCQN01XNWEox0XtMDGfXDKFWw
+	 8tcpV/krKXhBA==
 From: Will Deacon <will@kernel.org>
-To: catalin.marinas@arm.com,
-	maz@kernel.org,
-	arnd@arndb.de,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	Oliver Upton <oupton@kernel.org>,
-	Zhou Wang <wangzhou1@hisilicon.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <linux@weissschuh.net>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	yangyccccc@gmail.com,
-	prime.zeng@hisilicon.com,
-	xuwei5@huawei.com
-Subject: Re: [PATCH v8 RESEND 0/7] Add support for FEAT_{LS64, LS64_V} and related tests
-Date: Thu, 22 Jan 2026 16:59:45 +0000
-Message-ID: <176908829115.2153926.13840796658975178943.b4-ty@kernel.org>
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH] kselftest/arm64: Use syscall() macro over nolibc my_syscall()
+Date: Thu, 22 Jan 2026 16:59:43 +0000
+Message-ID: <176908087035.2055150.7814472104716413827.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260119022928.149358-1-wangzhou1@hisilicon.com>
-References: <20260119022928.149358-1-wangzhou1@hisilicon.com>
+In-Reply-To: <20260117-nolibc-mysyscall-arm64-v1-1-f70266a3db15@weissschuh.net>
+References: <20260117-nolibc-mysyscall-arm64-v1-1-f70266a3db15@weissschuh.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -81,36 +75,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 Jan 2026 10:29:21 +0800, Zhou Wang wrote:
-> Armv8.7 introduces single-copy atomic 64-byte loads and stores
-> instructions and its variants named under FEAT_{LS64, LS64_V}.
-> Add support for Armv8.7 FEAT_{LS64, LS64_V}:
-> - Add identifying and enabling in the cpufeature list
-> - Expose the support of FEAT_LS64 to userspace through HWCAP3 and cpuinfo
-> - Add related hwcap test
-> - Handle the trap of unsupported memory (normal/uncacheable) access in a VM
+On Sat, 17 Jan 2026 13:10:51 +0100, Thomas Weißschuh wrote:
+> The my_syscall*() macros are internal implementation details of nolibc.
+> Nolibc also provides the regular syscall(2), which is also a macro
+> and directly expands to the correct my_syscall().
+> 
+> Use syscall() instead.
+> 
+> As a side-effect this fixes some return value checks, as my_syscall()
+> returns the raw value as set by the kernel and does not set errno.
 > 
 > [...]
 
-Applied first six to arm64 (for-next/cpufeature), thanks!
+Applied to arm64 (for-next/selftests), thanks!
 
-[1/7] KVM: arm64: Add exit to userspace on {LD,ST}64B* outside of memslots
-      https://git.kernel.org/arm64/c/f174a9ffcd48
-[2/7] KVM: arm64: Add documentation for KVM_EXIT_ARM_LDST64B
-      https://git.kernel.org/arm64/c/902eebac8fa3
-[3/7] KVM: arm64: Handle DABT caused by LS64* instructions on unsupported memory
-      https://git.kernel.org/arm64/c/2937aeec9dc5
-[4/7] arm64: Provide basic EL2 setup for FEAT_{LS64, LS64_V} usage at EL0/1
-      https://git.kernel.org/arm64/c/dea58da4b6fe
-[5/7] KVM: arm64: Enable FEAT_{LS64, LS64_V} in the supported guest
-      https://git.kernel.org/arm64/c/151b92c92a45
-[6/7] arm64: Add support for FEAT_{LS64, LS64_V}
-      https://git.kernel.org/arm64/c/58ce78667a64
-
-and the selftest to (for-next/selftests):
-
-[7/7] kselftest/arm64: Add HWCAP test for FEAT_LS64
-      https://git.kernel.org/arm64/c/57a96356bb69
+[1/1] kselftest/arm64: Use syscall() macro over nolibc my_syscall()
+      https://git.kernel.org/arm64/c/2a369c494248
 
 Cheers,
 -- 
