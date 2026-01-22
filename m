@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4778C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF1CC44536
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Gb/0pO9ZhFEXcQF/4tc/EbwH+IhljJ6XBnX4XBc2RQ=; b=k4yQTgrr8v/Z8Ijb3QHy41LU4m
-	98M1seGcKW+smL4Hns3N09S2Zlq3r+uRWqxW2217B/yEjCQ+CIQeiy4s4ZaLcSsaLsOr29JfcVfWl
-	+gixRV/wMs7OigN1Xb5M1n7LuBhl1SKRU65CwuvdVdp1f+egiQm866K7bQMDDyqivALDsIfHxteTy
-	phafHTQZmlTMVD9R7vqjFgs2m7OsbQKTxRRRigbmNc9O2IxSaPK2LyHo8RBV1XRQbvCQGzjqFIKW1
-	yPZWvATuuNUZvwfSguxOMWqXRCzR0zPWlMBJNOu/cVxlSgu8mZn686jGM8Ss3TZzPcuMu9ZWsnVJe
-	OoJ65ZfQ==;
+	bh=a2pQ+C4SUP4Ig2ZogJ3bhHxA66J4i8YOEkIhS0I/+MI=; b=T0fMqgt/V2k2+4p6NOAunoWjl5
+	g246JclQW41cZGFLzUKsyS9IWAAw6yUs0VhL6xnln+i81eiVsqPrc7xhfgZmaGE9/MvttfOnEhsoy
+	fWML4PE3qLNStlCsUPR6PoH90htp6BU7tZnOYS75VmhPBXy6kmnQrmFInbZl6iQn+kWeabwvD5cZ2
+	yGWYnUHhVsUE+5cQRQv/ZQ0S9b635d+qws1UrqBLBX+FPZIMDQNXZpnO/jGxjHL9FNGE2PQxEooYy
+	LGl/MW01XH0Ww/Xu3ZH3Z1SS0dGYqJ2V89auYN1fmSRSeNNmOYYA8Z1pDfi+6rKahT1QxdPPl5U7e
+	PIuJRisQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virI7-00000006lIx-0wb1;
-	Thu, 22 Jan 2026 09:47:51 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1virIE-00000006lO3-2CQX;
+	Thu, 22 Jan 2026 09:47:58 +0000
+Received: from out199-8.us.a.mail.aliyun.com ([47.90.199.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virI4-00000006lFc-34MI
+	id 1virIB-00000006lKC-27Tq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 09:47:50 +0000
+	Thu, 22 Jan 2026 09:47:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1769075266; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=5Gb/0pO9ZhFEXcQF/4tc/EbwH+IhljJ6XBnX4XBc2RQ=;
-	b=uPkOuCVf3oKcby6JYXfLYTNOHju14fdoHCUqQ6Z2rrbZWsANHBBpBm0R1eYUv9u5WlTYZSx7p3RRSBYLg0S7te/qBPk1wxMDsLKnxNl7bxqh1iXemOVCa9DR8r5UgrjKtmQR5L2YLRZ1GzWj9EaAA4z0J/duU8e9ybp8skKDNao=
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0Wxbuwk0_1769075261 cluster:ay36)
+	t=1769075270; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=a2pQ+C4SUP4Ig2ZogJ3bhHxA66J4i8YOEkIhS0I/+MI=;
+	b=vsxdMiNkkcmF4L+WED2QQEWcAiaRgyP+yH5Zg++FPmSdR7NaxVEt4fIp+f8jTJJ1cXcsRrzftyuZ4JROViqrb4VatV99O/Yzaw29S4IksBWewOM0bMXeaqENpxs61KpG91vIXiD7R3SQ18RxEdQb+aiXJatnjUHtS0KjhLA99TA=
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WxbtZj3_1769075266 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Thu, 22 Jan 2026 17:47:45 +0800
+          Thu, 22 Jan 2026 17:47:50 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -59,17 +59,17 @@ Cc: lenb@kernel.org,
 	zhuo.song@linux.alibaba.com,
 	oliver.yang@linux.alibaba.com,
 	Ruidong Tian <tianruidong@linux.alibaba.com>
-Subject: [PATCH v6 05/16] ras: AEST: Probe RAS system architecture version
-Date: Thu, 22 Jan 2026 17:46:45 +0800
-Message-Id: <20260122094656.73399-6-tianruidong@linux.alibaba.com>
+Subject: [PATCH v6 06/16] ras: AEST: Support RAS Common Fault Injection Model Extension
+Date: Thu, 22 Jan 2026 17:46:46 +0800
+Message-Id: <20260122094656.73399-7-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
 References: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_014748_990251_2E369658 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20260122_014755_818401_FB9D2D1C 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,94 +84,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RAS version of a component can be probed via its ERRDEVARCH register.
-
-In cases where a component (e.g., SMMU) does not implement an ERRDEVARCH
-register, the driver falls back to using the RAS version of the Processing
-Element (PE).
+Add inject register descripted in Common Fault Injection Model
+Extension.
 
 Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 ---
- arch/arm64/include/asm/ras.h |  3 +++
- drivers/ras/aest/aest-core.c | 22 ++++++++++++++++++++++
- drivers/ras/aest/aest.h      |  3 +++
- 3 files changed, 28 insertions(+)
+ drivers/ras/aest/aest-core.c | 15 ++++++++++++++-
+ drivers/ras/aest/aest.h      | 10 ++++++++++
+ 2 files changed, 24 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/ras.h b/arch/arm64/include/asm/ras.h
-index b6640b9972bf..da7c441252fe 100644
---- a/arch/arm64/include/asm/ras.h
-+++ b/arch/arm64/include/asm/ras.h
-@@ -4,6 +4,9 @@
- 
- #include <linux/types.h>
- 
-+/* ERRDEVARCH */
-+#define ERRDEVARCH_REV GENMASK(19, 16)
-+
- struct ras_ext_regs {
- 	u64 err_fr;
- 	u64 err_ctlr;
 diff --git a/drivers/ras/aest/aest-core.c b/drivers/ras/aest/aest-core.c
-index f4a5119dc513..84b2fb8127ff 100644
+index 84b2fb8127ff..1218ae51079c 100644
 --- a/drivers/ras/aest/aest-core.c
 +++ b/drivers/ras/aest/aest-core.c
-@@ -16,6 +16,27 @@ DEFINE_PER_CPU(struct aest_device, percpu_adev);
- #undef pr_fmt
- #define pr_fmt(fmt) "AEST: " fmt
- 
-+static int get_aest_node_ver(struct aest_node *node)
-+{
-+	u64 reg;
-+	void *devarch_base;
-+
-+	if (node->type == ACPI_AEST_GIC_ERROR_NODE) {
-+		devarch_base = ioremap(node->info->interface_hdr->address +
-+					       GIC_ERRDEVARCH,
-+				       PAGE_SIZE);
-+		if (!devarch_base)
-+			return 0;
-+
-+		reg = readl_relaxed(devarch_base);
-+		iounmap(devarch_base);
-+
-+		return FIELD_GET(ERRDEVARCH_REV, reg);
-+	}
-+
-+	return FIELD_GET(ID_AA64PFR0_EL1_RAS_MASK, read_cpuid(ID_AA64PFR0_EL1));
-+}
-+
- static int aest_init_record(struct aest_record *record, int i,
- 			    struct aest_node *node)
+@@ -124,7 +124,7 @@ static int aest_init_node(struct aest_device *adev, struct aest_node *node,
+ 			  struct acpi_aest_node *anode)
  {
-@@ -108,6 +129,7 @@ static int aest_init_node(struct aest_device *adev, struct aest_node *node,
+ 	int i, ret;
+-	u64 address;
++	u64 address, flags;
+ 
  	node->adev = adev;
  	node->info = anode;
- 	node->type = anode->type;
-+	node->version = get_aest_node_ver(node);
- 	node->name = alloc_aest_node_name(node);
- 	if (!node->name)
- 		return -ENOMEM;
+@@ -145,6 +145,19 @@ static int aest_init_node(struct aest_device *adev, struct aest_node *node,
+ 			return -ENOMEM;
+ 	}
+ 
++	flags = anode->interface_hdr->flags;
++	address = node->info->common->fault_inject_register_base;
++	if ((flags & AEST_XFACE_FLAG_FAULT_INJECT) && address) {
++		if (address - anode->interface_hdr->address < node->group->size)
++			node->inj = node->base +
++				    (address - anode->interface_hdr->address);
++		else {
++			node->inj = devm_ioremap(adev->dev, address, PAGE_SIZE);
++			if (!node->inj)
++				return -ENOMEM;
++		}
++	}
++
+ 	ret = aest_node_set_errgsr(adev, node);
+ 	if (ret)
+ 		return ret;
 diff --git a/drivers/ras/aest/aest.h b/drivers/ras/aest/aest.h
-index 31131cce9928..bf0b9a49fdaa 100644
+index bf0b9a49fdaa..505ecd9635bc 100644
 --- a/drivers/ras/aest/aest.h
 +++ b/drivers/ras/aest/aest.h
-@@ -61,6 +61,8 @@
+@@ -60,6 +60,9 @@
+ #define ERXMISC1 0x28
  #define ERXMISC2 0x30
  #define ERXMISC3 0x38
++#define ERXPFGF 0x800
++#define ERXPFGCTL 0x808
++#define ERXPFGCDN 0x810
  
-+#define GIC_ERRDEVARCH 0xFFBC
-+
- struct aest_access {
- 	u64 (*read)(void *base, u32 offset);
- 	void (*write)(void *base, u32 offset, u64 val);
-@@ -141,6 +143,7 @@ struct aest_node {
- 	 *              error events.
- 	 */
- 	unsigned long *status_reporting;
-+	int version;
+ #define GIC_ERRDEVARCH 0xFFBC
  
- 	const struct aest_group *group;
- 	struct aest_device *adev;
+@@ -120,6 +123,7 @@ struct aest_node {
+ 	u8 type;
+ 	void *errgsr;
+ 	void *base;
++	void *inj;
+ 
+ 	/*
+ 	 * This bitmap indicates which of the error records within this error
+@@ -208,6 +212,9 @@ static inline u64 aest_sysreg_read(void *__unused, u32 offset)
+ 		CASE_READ(res, ERXMISC1)
+ 		CASE_READ(res, ERXMISC2)
+ 		CASE_READ(res, ERXMISC3)
++		CASE_READ(res, ERXPFGF)
++		CASE_READ(res, ERXPFGCTL)
++		CASE_READ(res, ERXPFGCDN)
+ 	default :
+ 		res = 0;
+ 	}
+@@ -225,6 +232,9 @@ static inline void aest_sysreg_write(void *base, u32 offset, u64 val)
+ 		CASE_WRITE(val, ERXMISC1)
+ 		CASE_WRITE(val, ERXMISC2)
+ 		CASE_WRITE(val, ERXMISC3)
++		CASE_WRITE(val, ERXPFGF)
++		CASE_WRITE(val, ERXPFGCTL)
++		CASE_WRITE(val, ERXPFGCDN)
+ 	default :
+ 		return;
+ 	}
 -- 
 2.51.2.612.gdc70283dfc
 
