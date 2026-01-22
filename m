@@ -4,85 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F91D3EE8A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:14:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 730DCD3EE89
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=9aRzvjV+Wif6zegr+a6nCLd0Tck/+9rU+CVjUc1JMr0=; b=Fu9TyKPXXkxHQB
-	ydbhGOcN6KGLt2xPjKST5FEKW3hxt4ZFkuY1c6KoEM8j0ozjYVXBMagCExGLrnxypy8s+FXA7AZB2
-	S7ZdLnjoNRWnjwAfGsN0Fh0mtfOvdjHfljWfVpPpMRzN5R2Q15HezsP5S7pN50gvJCkcoOwovrJgb
-	8jVgPjZrSn7P/3uTmEB7z4jfeC2nGFGShCcqV0gS27hx1l6ppgIJB79LGwGWkIJK1ZFQv3n+CL/X+
-	igiy2FkCzVLA7X6UAm2Bx0szclERlRLZY40PiXPKO2+uRQ+yoFx9AmhdT9CzLcsXSfFCmlouZVduo
-	WiUmVztsyS5CIKwFwtLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XRB+elTxMhUwZofvuOHySILcnYl1zyDPHryTdLP+HEc=; b=0LRw6jx+5CEuPHFOgok0HMVUgD
+	LLONhg8/kmYGW2TCGNHmIcDHKdsg43bRUJ9CGTRfhvmSGa9kpPk/SGKxCopavOIKa9qm6MQK6KXz2
+	1RpvrY+CTcL+89PkURbsXunTGaT/SKS5XmE4+gx7cBHO2flIHtRyoJ0WdkqCt5QNHrQLZrhc3uTPh
+	dVjIGcwL+6Jc07lQAVFzYn85vd4gEWrQUlcHEvm4QqA7cd2zIjaO3Dl7Xb73djPOtmrdZZsVqt1Ex
+	JoNNkIFdHO+h45A5qJTZIA0pcpPbiUyYxpGDCH/VEJZVr4VrBya0KgzlthVTjRBKgbh25KmR5C77Y
+	GD9N7iNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixKS-00000007Oct-0qt6;
-	Thu, 22 Jan 2026 16:14:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vixKf-00000007Ofm-2CLz;
+	Thu, 22 Jan 2026 16:14:53 +0000
+Received: from mail-northcentralusazon11010019.outbound.protection.outlook.com ([52.101.193.19] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixKQ-00000007OcJ-1ZWe
+	id 1vixKS-00000007Ocj-1epk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 16:14:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DDFE441B6E;
-	Thu, 22 Jan 2026 16:14:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 911A5C116C6;
-	Thu, 22 Jan 2026 16:14:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769098476;
-	bh=GrBl0GmB4EskXynUW6bH8pp7knC2vNONOphZtdopzwU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=hpSHO+ghl6+V/2A9sZcw97dKURkfaqnoh6fz57v7b/GtWXdfzXyy1Yby0UyhDjKvn
-	 2W+GC9cq47CPQ+TyiGLDn45Swl8siTnsyFJ7on/xxPH49i5KT8MfQ3vmfWawrqtvS/
-	 e0XgagEPSQy8S8MSzhOzpR/YURn2bktJ0b47/jNeBbGfV3QYbH+giEwsut0bvtVELK
-	 rpWCghXqtrEljSmHQ2BL3Elb1FNkrsKZfXYGCYyUHca2y5JEbBVE6ebqtSPa8N/6sE
-	 xvWIAneDy9J19bcgL4eE88SS3YXNHupckNIR5dM3vOtcnyqIgrEjM/GhgZcu+RgECE
-	 P9HBLzh+xmLPQ==
-Date: Thu, 22 Jan 2026 10:14:35 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?utf-8?Q?Koutn=C3=BD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chen Ridong <chenridong@huawei.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
-	linux-mm@kvack.org, linux-pci@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 17/33] PCI: Flush PCI probe workqueue on cpuset isolated
- partition change
-Message-ID: <20260122161435.GA1250260@bhelgaas>
+	Thu, 22 Jan 2026 16:14:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XAjFF8LjCiNxrdYlBWTpa+mogI74lYKTzIH/rAxC/4Kmn/68a3dfhusnQtwrk2qa8wpCCP8jSMfinUGgAkJ2KhbJd7KqMuesNoM+nC2FAwFILEyb4Vsf/glPxCNwBh+9oJVDyTuzj2iVKUGOfASnBsLTDmtmNfY80LgKSQc3/FAxeFjrGEEb/7U/WOaMM81xodmTkhlqsYXb3qun+N3S4PjTEwoVqGUhS5ZB+dbbYv4NGq8pUP2aoSxu+TKeR4zZHPZS33i8ZhgvAa0q3Hvj0iAhduH0AGHC1pheIFxdivYTe40lVCPZ6s4gnkRM9HL8q5wwQR2dh5ho2vGvp8cwHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XRB+elTxMhUwZofvuOHySILcnYl1zyDPHryTdLP+HEc=;
+ b=cgpvBWJSR1wjxRXiqS4ZzQ1fsbJd357QVoTqdqeNlgB5cBw/aEIsmErMsjIumWAe9oqW5J56vePZvcX87ljbeZapVsj477XweOM6Pxo3VTV7/uicy7LL4KMfnkV1dsznfGOlQxL5yAEhYGgksI985DQgkejx/V54aeUUKKlu0iAZr/LQZUsLLsfD8tVoXoCP9YZQRs5kezNrHeiOHr/uV+7luwbggXZn7fLNF9sOc4jg21ew1GPfP0g8dt+rZIQ3ZSyx8dNdVqsj+jeHuV9nxtmLzwLVy82+dLFskfkSl9MQAzbHFK2cQlq+8AvCEvcMASiY4PCp6Ppge3zu2BOI4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=linaro.org smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XRB+elTxMhUwZofvuOHySILcnYl1zyDPHryTdLP+HEc=;
+ b=Dd98CgmyDejspJO+P9jB2i0Ga0o+RY3lECbayBaTtCnB2jCUjjys6g4KhDTSryW1c/BmGhXbsKe5xdnhS/mks9Do5drb22ggfI5rdOSGqyUmNUYigcO92fp7HlC7VCLlH+NM9STW1R4zwIwSqfJGtLOex+D2iS3tpnOvJMKMFOA=
+Received: from DS7PR03CA0357.namprd03.prod.outlook.com (2603:10b6:8:55::10) by
+ CO6PR10MB5538.namprd10.prod.outlook.com (2603:10b6:303:135::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Thu, 22 Jan
+ 2026 16:14:36 +0000
+Received: from DS3PEPF000099DF.namprd04.prod.outlook.com
+ (2603:10b6:8:55:cafe::a3) by DS7PR03CA0357.outlook.office365.com
+ (2603:10b6:8:55::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.11 via Frontend Transport; Thu,
+ 22 Jan 2026 16:14:32 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ DS3PEPF000099DF.mail.protection.outlook.com (10.167.17.202) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.3 via Frontend Transport; Thu, 22 Jan 2026 16:14:34 +0000
+Received: from DFLE205.ent.ti.com (10.64.6.63) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 22 Jan
+ 2026 10:14:31 -0600
+Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 22 Jan
+ 2026 10:14:31 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE212.ent.ti.com
+ (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 22 Jan 2026 10:14:31 -0600
+Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60MGEVNb827155;
+	Thu, 22 Jan 2026 10:14:31 -0600
+Message-ID: <77b3b869-558f-4854-95b0-57980be28032@ti.com>
+Date: Thu, 22 Jan 2026 10:14:31 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260101221359.22298-18-frederic@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62l: support cpufreq
+To: Dhruva Gole <d-gole@ti.com>, Nishanth Menon <nm@ti.com>, "Vignesh
+ Raghavendra" <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Bryan Brattlof <bb@ti.com>, Viresh Kumar
+	<viresh.kumar@linaro.org>
+References: <20260122-am62l-dt-cpufreq-v1-1-fabcc15e25fa@ti.com>
+Content-Language: en-US
+From: Kendall Willis <k-willis@ti.com>
+In-Reply-To: <20260122-am62l-dt-cpufreq-v1-1-fabcc15e25fa@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF000099DF:EE_|CO6PR10MB5538:EE_
+X-MS-Office365-Filtering-Correlation-Id: b8c11caf-e78c-48b0-b189-08de59d15511
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cUJHNUFTNnlGUnNBUW5rR3psNEZlTGpXZnFZUkhxNXRuNUlmbnp3TFJCZHE4?=
+ =?utf-8?B?ZmVVMjJRZzZhUjhhOHkzaFJaWVRkZHdXT3kwVld4aVhTUW9VZnYwbEZtZlBY?=
+ =?utf-8?B?WmxueGY3ZlBjWjhrK3RjQUtyRjlmd3YxUXpEa2NSYmtnei9MYVRXU3B5R2xy?=
+ =?utf-8?B?Zkx2WmVzQllMc1liR09wYkVwNm9vcFU1bFVGQThrYld3KzU5UTZ0VVJKT0Ew?=
+ =?utf-8?B?SityeG9ZK3pkQjdrRnI2dm9xVDhrSFAxWHNwcE5WTzFzUHpyQjlzQVRpblh6?=
+ =?utf-8?B?T29weXN0UTlsZ1NGdklMcktjUlIrUCtUREJqbzVtQjgwMzEyNXBHOUVpaW0v?=
+ =?utf-8?B?dTRTQVlWNUFWZUpSTHJ0akd3ZFVaTHhxQmo3aEFDVkNLU1VvZGxYODV2MkMy?=
+ =?utf-8?B?Sm5pT2txeUZDNHhuSFFNNWhFU1FidTJtbzlQR3J4ZHVNT1ZuSHFDbWUvL3Zx?=
+ =?utf-8?B?bGtFYjlrN09ZMEdDcnBYVVh3NkxzYlRpalcyY0lCSExjY2Ewc1ZoTFJjaGR3?=
+ =?utf-8?B?a2tqb0p1Rk9WME1KNVlIRDQybUF6b1hUUDRRbmVXSTV5K3RMVUV5YzZnL0RV?=
+ =?utf-8?B?YXdpNGRDNFRUNy9ibm1JZ1ZtREoxVlNWeVVCU2hJUmNnS3FnMlAxUm5LZ3pH?=
+ =?utf-8?B?eGdSZ1RYOTF5UW1WWDVVRW5uem5ZOXdlVVp2d2pZVVlZWWVUcXhZREwyc09H?=
+ =?utf-8?B?Y09QOWQ5VXcrdEdhelhkWFY5RlhramVUQUwxQkN6ZEh5RlBaOVU5ZGVYOVJE?=
+ =?utf-8?B?WG9GWjdUcGJabUt6bmwyZDFJU0dqQlJpeTcwVTA4WWF4cXRFQTBDYXc0Wmcr?=
+ =?utf-8?B?VlRvTE1LZWlSVGM0TjNTR1dKY242U3ZPR1IzRy9oUm9BN1Aram5FbFhEQTYw?=
+ =?utf-8?B?Tyt4SkU2bDNJR201S3hoTk5Ba2tVT2h6ZWp4eWtwM3B5VHZhQnJQMHdCaTh6?=
+ =?utf-8?B?RHhPdm9kb1dFZGRJV0l6SERSckMxdWRLT1dJUXNCNnJsRHV1M3M1VjVvMmla?=
+ =?utf-8?B?c2twZ3M1aTRaQXZIQXM0TDJQKy9raVNtb0o2SEhqM1BqSnlReUFxVHBCbFlz?=
+ =?utf-8?B?aFRMZ0NsTHl0MzhhOURLU2ZLaXVZa1NHd3RwSWlZb0JmUXA2Y2wwR2VnVTJ0?=
+ =?utf-8?B?bERqMEY2am5BSkdYbVR5OXJhSUJ6V0lqSGg3eG14NzhQT0p4eXA4RG9Tekw5?=
+ =?utf-8?B?TVNzNlNGQVV4R2QrRldyL0pKTjdpWU9aWXR6akJJTkRMNkFCS1UxeWFaZEFp?=
+ =?utf-8?B?aG85RWx1UC9ZN3MxOTFKcWRtZ0pVamkvT09sMU9PeW85K0hjNkJBRnVGS1hV?=
+ =?utf-8?B?QUk0Nm8vd0lZc1VuWGUzd1o5UFlDamRpQ0laOHpCREFoNmorN2J3NkZJMllw?=
+ =?utf-8?B?VUdaMU5oUndhcTlNdWZwZGVDT0VEZjhvOW8vSzd2UU5hSnFjazUyc3IvNXNL?=
+ =?utf-8?B?RUozYXh1QkFnMlNDcVdFUXR1dFlrK1Z1NE55TVRCVE1XSVBwVjBCN014S1hp?=
+ =?utf-8?B?clhHakR2cjNNWE1kaTdZZ1QrSkdNeTh1d1hDVGhIVUZvL2JOc0NoVXR0R2lW?=
+ =?utf-8?B?djI5ZS81STdPL2sxVlZHUyswWG1vdHpnL3pONnRPemhzdGhVL3I3cUh0bDN4?=
+ =?utf-8?B?bkF5NW9XUk1WN1A2NEl4ekhrVDAyd0VpZGc4bHI3SXFkTzZ1QzlQZUJmeVVz?=
+ =?utf-8?B?OXBVR0tzdklpM0plWVE4NEk0RGI2Q2NmRFUycmJHamVGY2FpUlIxNlFqbzF2?=
+ =?utf-8?B?L3d1VmsxZHhGOEsxVXJrKzZ0Nmg3VUJEeTZBZ0gzQmpvUUt3dTFtSmpRUGhk?=
+ =?utf-8?B?WlRkSEg1M2MxR2tpUysxTzBmT1cxUFFib09Oc0ZUT20rOVNsNWF6N29kdVBW?=
+ =?utf-8?B?Sk91R255ekRuSUt4U1I4MWJab2xpZ2ltZDh5czJSTStIMExvSXlnRm9mbGI1?=
+ =?utf-8?B?R0IyS3B3Q1A4OWhoeXRCaFhxZEZzT1BFRjZCOHROcktGKzRyTytlVEFMVlZX?=
+ =?utf-8?B?MXVuRHdaeERES2p0MXRITFV5OUJvQWJuNXl2TEpXUkQxQW9DUU1GNDQ1M01R?=
+ =?utf-8?B?Z1RKd0gvb1Z0S1RlQ3piM2lxcllWSUhKZGtaNlN5YmoxMnUyZ25wSFl2bHp3?=
+ =?utf-8?B?d2NPN2VCd3ROY0pmVWhGUE1jWVc0T3B2RUZmWkl5cm5HMVpyNVNzOHlwTjll?=
+ =?utf-8?B?d0NGeE5la0k2QWRsL2F1TjdkbXExRFpuNUpMb0tEajdZRjJNeU9NNEdFUll5?=
+ =?utf-8?B?U0RwSXppT21KOFBBdEJRcTlkdU9BPT0=?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 16:14:34.2401
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b8c11caf-e78c-48b0-b189-08de59d15511
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099DF.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR10MB5538
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_081438_460700_4A1FBE9A 
-X-CRM114-Status: GOOD (  27.43  )
+X-CRM114-CacheID: sfid-20260122_081440_464087_97E7E967 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,119 +170,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 01, 2026 at 11:13:42PM +0100, Frederic Weisbecker wrote:
-> The HK_TYPE_DOMAIN housekeeping cpumask is now modifiable at runtime. In
-> order to synchronize against PCI probe works and make sure that no
-> asynchronous probing is still pending or executing on a newly isolated
-> CPU, the housekeeping subsystem must flush the PCI probe works.
+On 1/22/26 04:49, Dhruva Gole wrote:
+> Enable CPUFreq support for AM62L SoC by adding the relevant OPP efuse table
+> syscon to k3-am62l-wakeup.dtsi for speed grade detection.
 > 
-> However the PCI probe works can't be flushed easily since they are
-> queued to the main per-CPU workqueue pool.
+> Add the operating-points-v2 table with CPU frequency steps from 200MHz to
+> 1.25GHz to k3-am62l3.dtsi
 > 
-> Solve this with creating a PCI probe-specific pool and provide and use
-> the appropriate flushing API.
+> Configure CPU clocks to reference the SCMI clock controller for frequency
+> scaling
 > 
-> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> This enables proper CPU frequency scaling capabilities for the AM62L SoC
+> using the ARM SCMI protocol to interact with the power management firmware.
+> 
+> Signed-off-by: Dhruva Gole <d-gole@ti.com>
 
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+Reviewed-by: Kendall Willis <k-willis@ti.com>
 
-> ---
->  drivers/pci/pci-driver.c | 17 ++++++++++++++++-
->  include/linux/pci.h      |  3 +++
->  kernel/sched/isolation.c |  2 ++
->  3 files changed, 21 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
-> index a6111140755c..b902d8adf9a5 100644
-> --- a/drivers/pci/pci-driver.c
-> +++ b/drivers/pci/pci-driver.c
-> @@ -337,6 +337,8 @@ static int local_pci_probe(struct drv_dev_and_id *ddi)
->  	return 0;
->  }
->  
-> +static struct workqueue_struct *pci_probe_wq;
-> +
->  struct pci_probe_arg {
->  	struct drv_dev_and_id *ddi;
->  	struct work_struct work;
-> @@ -407,7 +409,11 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
->  		cpu = cpumask_any_and(cpumask_of_node(node),
->  				      wq_domain_mask);
->  		if (cpu < nr_cpu_ids) {
-> -			schedule_work_on(cpu, &arg.work);
-> +			struct workqueue_struct *wq = pci_probe_wq;
-> +
-> +			if (WARN_ON_ONCE(!wq))
-> +				wq = system_percpu_wq;
-> +			queue_work_on(cpu, wq, &arg.work);
->  			rcu_read_unlock();
->  			flush_work(&arg.work);
->  			error = arg.ret;
-> @@ -425,6 +431,11 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
->  	return error;
->  }
->  
-> +void pci_probe_flush_workqueue(void)
-> +{
-> +	flush_workqueue(pci_probe_wq);
-> +}
-> +
->  /**
->   * __pci_device_probe - check if a driver wants to claim a specific PCI device
->   * @drv: driver to call to check if it wants the PCI device
-> @@ -1762,6 +1773,10 @@ static int __init pci_driver_init(void)
->  {
->  	int ret;
->  
-> +	pci_probe_wq = alloc_workqueue("sync_wq", WQ_PERCPU, 0);
-> +	if (!pci_probe_wq)
-> +		return -ENOMEM;
-> +
->  	ret = bus_register(&pci_bus_type);
->  	if (ret)
->  		return ret;
-> diff --git a/include/linux/pci.h b/include/linux/pci.h
-> index 864775651c6f..f14f467e50de 100644
-> --- a/include/linux/pci.h
-> +++ b/include/linux/pci.h
-> @@ -1206,6 +1206,7 @@ struct pci_bus *pci_create_root_bus(struct device *parent, int bus,
->  				    struct pci_ops *ops, void *sysdata,
->  				    struct list_head *resources);
->  int pci_host_probe(struct pci_host_bridge *bridge);
-> +void pci_probe_flush_workqueue(void);
->  int pci_bus_insert_busn_res(struct pci_bus *b, int bus, int busmax);
->  int pci_bus_update_busn_res_end(struct pci_bus *b, int busmax);
->  void pci_bus_release_busn_res(struct pci_bus *b);
-> @@ -2079,6 +2080,8 @@ static inline int pci_has_flag(int flag) { return 0; }
->  _PCI_NOP_ALL(read, *)
->  _PCI_NOP_ALL(write,)
->  
-> +static inline void pci_probe_flush_workqueue(void) { }
-> +
->  static inline struct pci_dev *pci_get_device(unsigned int vendor,
->  					     unsigned int device,
->  					     struct pci_dev *from)
-> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-> index ec3f15164fd1..5239f556745d 100644
-> --- a/kernel/sched/isolation.c
-> +++ b/kernel/sched/isolation.c
-> @@ -8,6 +8,7 @@
->   *
->   */
->  #include <linux/sched/isolation.h>
-> +#include <linux/pci.h>
->  #include "sched.h"
->  
->  enum hk_flags {
-> @@ -142,6 +143,7 @@ int housekeeping_update(struct cpumask *isol_mask)
->  
->  	synchronize_rcu();
->  
-> +	pci_probe_flush_workqueue();
->  	mem_cgroup_flush_workqueue();
->  	vmstat_flush_workqueue();
->  
-> -- 
-> 2.51.1
-> 
+Best,
+Kendall Willis <k-willis@ti.com>
 
