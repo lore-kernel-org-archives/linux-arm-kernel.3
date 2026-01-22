@@ -4,68 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB38D6CFA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 18:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5FED6CFA1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 18:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xnpg5oj1LTv6Rw9+56wcJfUjrFRQK8Mr/wjgYWPRem0=; b=bgrMO7noZdm86oYAB/fPii6iyG
-	LIF6g/2pIbZuPbLO3Sl4WXMIdU5EXcrr1abIZZZpea/g/ngU/zOHurcjpjwYBvrBnnkPtwmB8nzUm
-	4Sk3QbfBOXmBCugg0Kxe/vylNpKEoR3pSGV7m20cUXgFmVqQFcyRSy7UY/673Z0ZND35pztA8y7nA
-	eq0yoxZUeZgOPG7ys9BARB77IHkjUS3qz8YqklQM//J9F1VzPmaMNdy50dFGMQgS4sg5LCgO8Z4hF
-	55a/Aou8QvKIxQbjgI1ML/TLIvwpKWq4TC2Hycp2Ahefbl5P+nLfj0zlQbS1dFDITsN4034/zGVW9
-	gXpLVmgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ymzZcSSK6dkQBPt+JcVq3udGXDM52ShgdC0k32t+/KE=; b=UVNjH31V9beBZWHxte53eGmXVR
+	UQWrsxNZjOAIL751Pd1oK3nbgxIomVzK8/LnVv0WBRIdkeYGE9f3SAkxMG5c4fZ9xgAMDW4fY7x9R
+	tERnbX/vVyD6Xb5eFIr8bJfCu2qvW/X1AosHvm2euks7knXKJge21+Z3J0DKC5a5e/OvQykuHABuQ
+	MybIJaYZZpWGD87XMt/P50U/SX+6whlAY1Ao8Iggv6E0coRGByOQbLE6Mau5HwdANfenHC8O5smsY
+	vr+NgSGXBN3a1irNU/os5Hqdbzpe8kJu4zy31RyrtgCCP0K98jQ8NwSjWNRAQcL3U+HVqI4gOyZCy
+	Vr5QNC0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vizLr-00000007cze-33LA;
-	Thu, 22 Jan 2026 18:24:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vizUB-00000007dfV-480i;
+	Thu, 22 Jan 2026 18:32:51 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vizLq-00000007czL-0SX8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 Jan 2026 18:24:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=xnpg5oj1LTv6Rw9+56wcJfUjrFRQK8Mr/wjgYWPRem0=; b=rB1MVtUbsJmSQIwSQZ70NHlIFC
-	BFplnkzqNZ9SMAHn8K1faKFMIJYJjNr++CsdshDkUe4sOCwbCrfQLoDkrctDfoPPwHWbQVyQLyilZ
-	yyK5Yk2S4fUMwHTilmbD4jBUN8FIrjkgCfBONB5ySJSZSpoZSqvaGxLTC4eADOJnBLknqvL+ha0FI
-	A3wtpbg/XeD9f0vzCY/HBxJLxrI1knqWqg+AmkeX7Lu5yFhcwlB0YV2DJ0gsD6f8rTgpZT8UfBGSi
-	A9jaG059jqExY4sb9i+I1t3QTwjgNXW9l1VmiRD18Agvi3+K+4A8Z2cixbEJvtig6Pl1QZ7MX025M
-	tcRn30SA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vizLf-000000013WP-3zkU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 18:24:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4166E1476;
-	Thu, 22 Jan 2026 10:23:47 -0800 (PST)
-Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 200B63F694;
-	Thu, 22 Jan 2026 10:23:51 -0800 (PST)
-Date: Thu, 22 Jan 2026 18:23:49 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Zhaoyang Huang <huangzhaoyang@gmail.com>, steve.kang@unisoc.com,
-	"zhaoyang.huang" <zhaoyang.huang@unisoc.com>
-Cc: jeson.gao@unisoc.com, xuewen.yan@unisoc.com
-Subject: Re: [PATCH] arch: arm64: set __nocfi on swsusp_arch_resume
-Message-ID: <176910618702.3974174.11617330390922367750.b4-ty@arm.com>
-References: <20260122114925.624309-1-zhaoyang.huang@unisoc.com>
+	id 1vizU9-00000007dep-3xzr;
+	Thu, 22 Jan 2026 18:32:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=ymzZcSSK6dkQBPt+JcVq3udGXDM52ShgdC0k32t+/KE=; b=hOtsgD7daI87a/1P+kx7D2GSMW
+	lYRgI5G1vpINZZUcxy6g4X0OIbIu4kk/yIdGez5pGs/rF31kkufsxEybfk1BFSOP/ccxNlxPdDCTg
+	GSYE5XUPPpdze4cK0488GlCDvEZqDpXdexLuNreS6I+zK0A/zduWeT3yx9qA4RLA6rZW+oz/EWLdl
+	9l2OeGGyS5iP1ktlMkw2RSgxy4s7+2MiEvwJZMWBELtq8+YmMuU8p8sz1HlZfF/F8SfNSrg8OgczJ
+	nUwdyleAGlZ+ZO0u/Mh/wC4aYWQ5WgU8RqtkEIymRkkUyudbVSJHOGIO016nEaVb/Rnf4EOdpWwzU
+	lq+PkOfQ==;
+Received: from [192.76.154.238] (helo=phil.dip.tu-dresden.de)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vizU2-003rA9-0g; Thu, 22 Jan 2026 19:32:42 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Andreas Kemnade <andreas@kemnade.info>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Add TPS65185 for PineNote
+Date: Thu, 22 Jan 2026 19:32:38 +0100
+Message-ID: <176910675432.726233.11039063781241426145.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20260121-rk-tps-v1-1-bc867e1dd200@kemnade.info>
+References: <20260121-rk-tps-v1-1-bc867e1dd200@kemnade.info>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260122114925.624309-1-zhaoyang.huang@unisoc.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_182404_216536_23D0180C 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260122_103249_981941_77826EB0 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,22 +77,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 22 Jan 2026 19:49:25 +0800, zhaoyang.huang wrote:
-> A DABT is reported[1] on an android based system when resume from hiberate,
-> which is root caused as CFI will plant stub code[2] to verify the
-> swsusp_arch_suspend_exit's authentication, where the hash value is stored
-> before the page that alloced by create_safe_exec_page. We also have
-> tried to copy the hash value together with the function but get failed since
-> the value is not on the desired position(src_start - 4). So we solve
-> this issue by setting __nocfi on swsusp_arch_resume and it works.
+
+On Wed, 21 Jan 2026 11:22:37 +0100, Andreas Kemnade wrote:
+> As the TPS65185 driver is now upsteram, add it to the PineNote devietrees.
+> This is based on https://ayakael.net/forge/linux-pinenote but modified to
+> the binding requirements.
+> Without any other out-of-tree materials applied, this enables the
+> hwmon temperature reporting and the interrupt counter increments
+> by one per reading.
 > 
 > [...]
 
-Applied to arm64 (for-next/fixes), thanks!
+Applied, thanks!
 
-[1/1] arch: arm64: set __nocfi on swsusp_arch_resume
-      (no commit info)
+[1/1] arm64: dts: rockchip: Add TPS65185 for PineNote
+      commit: f1ebfaeee3200b0d12f5f2079c429f0eb1512a79
 
+Best regards,
 -- 
-Catalin
+Heiko Stuebner <heiko@sntech.de>
 
