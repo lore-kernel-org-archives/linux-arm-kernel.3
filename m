@@ -4,161 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8867D3EE66
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 14:51:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9071AD3EE66
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 14:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F9DAoYnzC3Tekox7XcWebl6UCRH9Vy45Ju298aOF2UU=; b=008f++Ew8k8xuD85OLNZAZgn4z
-	v86qRyg5qSvfiihvJg8E+EQoEaKH7ht49sswW0Syo03Vw1AqzATbHYdXrGc1D66fD8Z9i0HU0FWYi
-	Ii/pvQ+XlKJ6Z93aEK6c//NoAw5mKkm5jiDgwqrlHMAMsZUEvDZmjTK+VuzjwJqJOe+hfT+f43fxc
-	RaPVK8JhDP6kaj+lbmLVL42KTL6G7B44eh36ZLwDoaURkOJz9+TLXUmQHQAToA9yPLwqW3HdZe0hT
-	k/3WfVqCn3+sRNKdk01b8JhaMlVK79ODr/sLEI9ad0BjX1mkHnnsnWaYxmjy0qLyj6AJqaGdvwHAN
-	h03yyydA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rUR54Tyd17FTCOVGsEwV6x6lAtcghwoM6kBxhyVcCRI=; b=2Uq2bgC5s1oFOv
+	0zQRVDfkPR21YV4bHqkJepNgEKNp/SdIGUc5V5XVeI/N3Ux/Fh5t0ku0uNHT/o75Fly6VhaMXlkx5
+	q1AfeeMUFaMihnAmfTFVDv4ATMSELa+0KPqV7Nb1lVgoMbitkUxmk9z845EhU7rRqXs7UPEg6/eEw
+	96+XmmfdSdjUdfkvUVMln4bpdjUjD1zsll+sro5FMLgkft0FBfKX3kzqSBqez6l7NyDhP7V9RTXKs
+	W9JONBVnjb3eBGJB7MXf4LFpRDE3xdilHFkYtm/rRUf879QosgCBXtCZMEcxEd/R41WlL51p7dfW4
+	2UC382bzVs895qa44Wbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viw1k-00000007GRl-03cH;
-	Thu, 22 Jan 2026 14:51:16 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1viw32-00000007GYt-2HdN;
+	Thu, 22 Jan 2026 14:52:36 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viw1h-00000007GRK-0QSA
+	id 1viw2z-00000007GY1-0dK9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 14:51:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LQFOGqAKhcrjmqWHGJ1HFPQTwY0pw+PqgFyBx63zCRP/u5vfZ3cqTFW19JtMVzIQ5eUPP4YUOAf5u/AY/rkFmYeT0b42KeIWFXaKTvdZhLj3WfOwq365uZUvmCwn/LAtgjBAhAivfG2gEF2WP3oCpQMo7VXiUNwnB1pgdMMSY8EBpgVdjCwxPGtRcbCP1N9pPWQDwFhes1GfinAwIBRvTA61Im0cdbdKhmauC2VsVZ7kI6cHnYo+Ngg4Naz2BJG6jfHo1yjpUBsLPdZ1hb3VOh1nnPpco/P80wLncR08CJ2DgiWhGIcvS4Jpgqnmr1/2acJb+R+idGZWnJI4wGu3WQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F9DAoYnzC3Tekox7XcWebl6UCRH9Vy45Ju298aOF2UU=;
- b=mEv2cGyytKWH88jC1hSCDznJ1KdqVt9k2g7QJV8O4NUHVJ8oqq9Uz1RJeLGMf04TEjm/JI+SJOtC69ee8lM/5N156eV971Ce+/4gE1hWR8d67K5hRzMib77nVzeUjAwrcwxZLl6q4JoYCKnOhY2Jpca9V4z9TWEvFbXob41LBObfR68ewq/VNgRYFKEbNV5Ikb37tK1FQaMKb9djqnClKkszwuXkIhs/cE4xgYHzyRrW5Ff98mxqEdJ+7OBezVhgsDHqigPepsSE6IYurd++NibY6kRY4liRu6c5HleVYhjmk9Dq+YkYekDnFwcAPllWubNp5sxcT4WhM2J3IhimXg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=F9DAoYnzC3Tekox7XcWebl6UCRH9Vy45Ju298aOF2UU=;
- b=nERk3qkdZNu9XL6/73yDBtRsMMq2Dj0pfoVuYcUxAdsl/xYZARdvX4s9oPY+cqoVYNJzX1nOJK85GJj0MhuAQF+C9fJczsDiyOcbypllgLs6BsgSlxih1RGEGQxXbd4JSqqdaKzsTGR9YV6zkbGm9tRVl4CkJCynkBt72mjbgNkmCOMiBV5De73K62d81x9TLoSetQBQVE9aPaNj+eYXdOvfHfMqZKuSysROV1+qXk3oBEJSU+YemSA6GpMf7G6lB9lyq5MxA8XI8djvJVlehcxHLvINoDiEOo4JOR48sYPaQtdT0pw2ien8nY/ms9qUVQ+G0XiBlSxugVJccKoTCw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PRASPRMB0004.eurprd04.prod.outlook.com (2603:10a6:102:29b::6)
- by DU7PR04MB11161.eurprd04.prod.outlook.com (2603:10a6:10:5b3::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Thu, 22 Jan
- 2026 14:51:05 +0000
-Received: from PRASPRMB0004.eurprd04.prod.outlook.com
- ([fe80::6ab3:f427:606a:1ecd]) by PRASPRMB0004.eurprd04.prod.outlook.com
- ([fe80::6ab3:f427:606a:1ecd%4]) with mapi id 15.20.9520.009; Thu, 22 Jan 2026
- 14:51:05 +0000
-Date: Thu, 22 Jan 2026 09:50:56 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	imx@lists.linux.dev, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH v4 2/2] media: nxp: Add i.MX9 CSI pixel formatter v4l2
- driver
-Message-ID: <aXI5UF9/snwtzpot@lizhi-Precision-Tower-5810>
-References: <20260122-csi_formatter-v4-0-6f6fcad1c33a@nxp.com>
- <20260122-csi_formatter-v4-2-6f6fcad1c33a@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260122-csi_formatter-v4-2-6f6fcad1c33a@nxp.com>
-X-ClientProxiedBy: BYAPR02CA0030.namprd02.prod.outlook.com
- (2603:10b6:a02:ee::43) To PRASPRMB0004.eurprd04.prod.outlook.com
- (2603:10a6:102:29b::6)
+	Thu, 22 Jan 2026 14:52:34 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-432d2c7a8b9so1011345f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 06:52:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1769093550; x=1769698350; darn=lists.infradead.org;
+        h=content-transfer-encoding:organization:autocrypt:content-language
+         :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rUR54Tyd17FTCOVGsEwV6x6lAtcghwoM6kBxhyVcCRI=;
+        b=nTPejH+G8djzOIw9771egx5EgKaedulsPHSj5TkjgAFf05Rzuf0UHxhlPPXQZofQ4P
+         aVBAcBw7lxusofAWqvZt+avERTkDnvD5cAKdfOGgX7q4W3IfWCbRiU86X59WjV0q5F3p
+         RWOCy2UvGLTjKJqZ04HKGKR4hLUsqC0Ippw8xIWie2tZTILuLTAh7wXoCAqh6diSJRTZ
+         mMfNY6mSUTIJlDAzFwkr5+JOqVQKYvmTGbO9lgo6wjw7zwF5HmAKwANffZO6WPbNsAnf
+         +5lZwlR5M9WEKSH0WSUp5pKiyC552UvLt3MVJpAuUxObdehh2sAC+dsAlCeXrSAFV4Gi
+         XrmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769093550; x=1769698350;
+        h=content-transfer-encoding:organization:autocrypt:content-language
+         :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rUR54Tyd17FTCOVGsEwV6x6lAtcghwoM6kBxhyVcCRI=;
+        b=we8nPlyYWbQS1PtoFF/zBH3AjHXxUlbuYnFQY3noJlaZ+gH9EDvsg87dRRgcbDX7k2
+         L9c5yh/s3jl+6L+21WE4j24e21ULJwwU4vwzLEr9aqJj2vh+fQuzvkxTVvaxs/5aEwYM
+         uyRQ7jCRTOeMQlqsxQ/dxxjD4TdcuFtc6L00E9kv0/rAlNN40df2KVhSXuxgZMRNoRFr
+         12uh4FkQGP2Ux/EONefmfwYlueGRol22CRMlv7gIzKVLv9bZ1sVXbM2VCEzDMJOS4yrK
+         DONrFgM+SH+heKL3OdRLAxsAItggBlhlEYXh6dD/f4jsM4FS7OkV8X6INDMLTGDBd86S
+         j5YA==
+X-Forwarded-Encrypted: i=1; AJvYcCUcyFMaoRP7FWfl4FsEiIu0tgeIMCR58MYKv48LfxDGwmTX8EetQF99DjWNJhDIIwFRlJ4FHXJZnvIyOuo/MObz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyoz6R6OK5Vxepjj1wxQ5QNXWV3VtLE4oMQlCzakbJKXugcS+AP
+	u5FL0OB9qgZaIyt5WVvsBSOtlOHvNE7MJ8ln6czVdE4cl7lzNePQAYfh2Py+ydJ8LD0=
+X-Gm-Gg: AZuq6aIZG9tl60Bg8vnMzCDwvU9lkm2gofcRBXWTdKPUgwrKArRsKb86ac707ScwUOk
+	d1oPsSgskv4Xb5+hxHFcTvksxnFOpVsgFpN4TgdxD4km2oo/IswZ8Wiw1KrXbjh8jsQpFt27aNM
+	fUBuTJ6dwRA0AAhgMLWryrbe6is927HZ1bmpDX5lDv3+O31BBD+nb3h4JgHhIJWk7gFeGhKnPyb
+	zxOGatg9z1m1VpvWfgeLerVk/CvgZ+2Ms0e7xc66TLQpoQZfCLBNnlOXiRJI7/BrzE5HYPIK+yz
+	QtIf05MH2TpmNGBESuhlQunO7cTXjI+KqeQhYlSe8Lpnoy4ibPEI3SjSm6j03mGsrPYFOfcRZyl
+	LhAKxUNW1rjYrICvQrlHJcYM+yUtrgh2a9MXAwL7a9kMDl8DVkDKaswGR4JGdwYMF/PaLkdP4MF
+	yHNpn8NIURSTMQSfQkek0/2HB8onyO43AU1eHCYP+aPdcEKkfExw5H7wjgXor/+Ic=
+X-Received: by 2002:a05:6000:1acd:b0:431:656:c73a with SMTP id ffacd0b85a97d-4356a07745fmr33106298f8f.31.1769093550144;
+        Thu, 22 Jan 2026 06:52:30 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:3d9:2080:9dc7:6955:8850:f258? ([2a01:e0a:3d9:2080:9dc7:6955:8850:f258])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4356997df75sm45715217f8f.29.2026.01.22.06.52.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 22 Jan 2026 06:52:29 -0800 (PST)
+Message-ID: <ffd5947f-788a-4fe9-9d64-6298840d0212@linaro.org>
+Date: Thu, 22 Jan 2026 15:52:28 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PRASPRMB0004:EE_|DU7PR04MB11161:EE_
-X-MS-Office365-Filtering-Correlation-Id: 53ad0e4b-11ec-4364-e598-08de59c5ab96
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?N9/UkK43s1risUp5i9fd/kzmiX4WnsGlz0PIbe4zrOXe7LXfUEwt2ImaZjJD?=
- =?us-ascii?Q?vQhbcjEz7zYvC5/Pev60NkSBYv7DDVzEOKeo9AumdMJYkKkkdla8KRgWiVkP?=
- =?us-ascii?Q?u2jE9ziIYJzmi4Jet8VawlYaLfymlm9LHpGeRaKMRW7gFMBwMvlQrIgoFPSs?=
- =?us-ascii?Q?Y+QB+VVE/4bP4OVvyO14mo7kYowI07rrYeOjgMqW4LKZKa2gdYp/6LRli66h?=
- =?us-ascii?Q?h2N8dmYYCRtuhnUkhiA0pFJf+IhoIbQiu62gQuuSqZxTlV4/UX+XFkCfDlt+?=
- =?us-ascii?Q?MSUGZBbOQTAancO+wiY9hnbjU8pd1UzUyv9Th483tsOgI5a+9jnlRWWUd1AM?=
- =?us-ascii?Q?aZxPbX79YTdln4P6VJKI3Zv6GFhDpRB2ItMU9qibKEBc/kfndKDQCnSz0Zxy?=
- =?us-ascii?Q?1bYeQwIhbLsSJxVmehYbZb5kSzEmUoReWrWz4e2mGKjSvWbKxNsR4bcnB3jB?=
- =?us-ascii?Q?hgIT5uROaLUxbLDLdlL09W7cy5GWDraRhBadfsTKfJzowduONW+Czwg6461f?=
- =?us-ascii?Q?DsuznjiemFCFAT58Ofqrd0J2cSCSq8Y+gjI+aLo7h8xiL1L0avB+JF3lfOaJ?=
- =?us-ascii?Q?wZ8dvMwzqfjEmtsKoZisayNmWocpbgfj7FEioTfyJALNl5ui0c5z7Pn6Jn1G?=
- =?us-ascii?Q?KrO+9jJYvnEzG1ASAryT9W300gbgvgSv9MDJWctsk9DL3Oi/sSMDFYEupG+7?=
- =?us-ascii?Q?7D2G1LxkdUWyinn7AooPhq3H8ofLGdhd4CE8SccNEjtZn+vDivpqAlPHQmcr?=
- =?us-ascii?Q?QvqgMA32PCpNq3FdCcHTVZoUAu+ua1i3anmgnWARC/m8ACjCldUhwVPLD+7N?=
- =?us-ascii?Q?UiQ1ADqBzmMHGT0zjIRpE/aATjxuUo0BQpUMg2DgraF12LRCgfuOkrHQ4zLT?=
- =?us-ascii?Q?Q6/adRRWA+F9NoJh4k5f3MglmoFnTHUaMjy1VPi3w8KCvfkz+iWVNzT39dh0?=
- =?us-ascii?Q?nYKuMW/vnyQpmzHc380OFD6wdIf8UeLOW7HuYvZ6uJmWAo3gt1YtvAqgLdTo?=
- =?us-ascii?Q?ZRb1+9Ha0JwO2fa/JFAynBGlQG2/V8fLD907uLX/Jyjt5dXU6SKB9kv4x/Of?=
- =?us-ascii?Q?2Y1pGRwTc2TbxLqwXt5c1sJrVTz+VXqMFc1jF6f2lpct5ZL73eNYdbS2uVa7?=
- =?us-ascii?Q?zkufpbQGxvABYrMCXNxj/qLTstC3FJBVpDc2R3qGR9wtJA6HEZpzrBo8MouN?=
- =?us-ascii?Q?wN7WHWPaQ6g4wIYY7ysNVa2FYNggXIN7J2ZeKAWPUso5dNPQ+piQvlqjqYFa?=
- =?us-ascii?Q?Kuc2fk143DBtcK0SOcs+oqPYKVE01lIYfpfbcJaAWH/H7GNeBElITVil72po?=
- =?us-ascii?Q?vNpJ0afmVk6jJxeXtLeYbqCB+xA8hyOfcZo+IN5QS62Xo7FWkezf5PRbNy3o?=
- =?us-ascii?Q?luNKyBUqsc9Yt2fmasrg+3cUBwK6KHqUwqQQ0hoHA64EXqHF0mPSWY1SCX9+?=
- =?us-ascii?Q?MSEXzNMRxJBl2STPbPEDsw981WvlmZ9Ow0ht2j8FXVbkQ1VBzW1xkWZ14ocp?=
- =?us-ascii?Q?npUjx9jJorIO6UOYz+qFG83zic8GeeGxWsvTlf9iRFmgl2EcpzvqjJ/ibbGQ?=
- =?us-ascii?Q?TXl9JS5z9Iym2fF+oI1Q1Xt0Banpiw7xE6b67bOVwVmVkT3tHK0PJaZkWGK/?=
- =?us-ascii?Q?Dj+XmRWTkSxwTf1kk3lf9oI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PRASPRMB0004.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VtWWesajxAzz+IWZplVWSQJDoZTci4ZjVVfS8T5158cWVjZF6LxUtTS6BiqG?=
- =?us-ascii?Q?l9NwGhTXj3/SopaizA5XvLstlv1/pOj3AHJtlm3oQLDI25QunYuj5Zuk0ntt?=
- =?us-ascii?Q?Zt0aSIlX9o/rZHGbhQY4aHMgy+mByBsZU3MdTUzuqg42CYxHGj1eZrrNBXt4?=
- =?us-ascii?Q?coDMnHUzhoTNopCrwgYzSd3SfQyohXLq4KmAtdecl9rxPUujkFU8j9xbX66o?=
- =?us-ascii?Q?jKVhHzl/zpt1yJ9uOQOHnAwbRDWhyioiqWAh543McSPt+sSTO9JiBMtA0bML?=
- =?us-ascii?Q?KeECVhh2SMool/Z8yTwjowPPSA7MjtJWLXNi2COiuwryxmfbrk+JsAF8TUog?=
- =?us-ascii?Q?bbeF6pAITSkp4zdSklbbD6JF069UzwMcFgKn9Il7A9yVZ4e7YGISdl8vm3K6?=
- =?us-ascii?Q?QET2T8LPoXsBSYJvNDT5jsyQnBzWWZacNpRR5jUN9S5ZEg8bo8Fa/wm7AKtn?=
- =?us-ascii?Q?jfxKsnbPe0FfZD0DIVAdjJpLFffsyVSqYDLPPNzUEDRMh0nPIOHM+R1THszk?=
- =?us-ascii?Q?VgIfedoFU3DvPrnyHuXUVsjmH6CnbxXqQi7XBS/Lc3hKjWElqzltK03w+BuR?=
- =?us-ascii?Q?D9Y7VXCF6fdZMkLimE2EkYwOvhNiN8Dm19tOCUjVUzh1qFDGfRT/9mNnzJIY?=
- =?us-ascii?Q?owfG7+qWc1SOOKl+9Tjeru1U74l4t/vkJji4U3mxLpWJY1zi1bmVbNQI+4zm?=
- =?us-ascii?Q?UscpSNDWT0Vm7o8vB/t2qDlpjX2l5PnC6Fgs9RHCDo4i7Jsi8RyqzloNaHg5?=
- =?us-ascii?Q?5OJ7P9xgBib8MvSM/Ezt8D3yXCZZz/JFh+XApKSnb6TdZ1UI67WRc3OJz++j?=
- =?us-ascii?Q?LUW0hCugNMs3fIdcNQAdnCRIYOTxE1SET4WD+wnKB7UshHRWkho+rstYaUii?=
- =?us-ascii?Q?r59AUoCLJrlQjDKEeXGvqOLTLB1ThqqLDHHAm6y9EUBS8W9J2aKTXUs6XwfV?=
- =?us-ascii?Q?1FudQ1mWgMh7FN1WFaTtE28KMgafxO4ZA6Yj63xpQQTz48LO1gDbVMPq8Z54?=
- =?us-ascii?Q?5e8LGflq5s2ElAN/5Qg2l5/fC0fpoIL2wWqdZtNYmv5xD6XMZo8tU2Jdwzqf?=
- =?us-ascii?Q?DciUtdaAPAvVePcooPLDtE4A43dcQTjuzlamyAN3PjJ/bNQEyJe4uIl+kRo6?=
- =?us-ascii?Q?HVyPPHb0appcm4mFbeiZhERzX6SAFevAuuOM9FLpmUls/zQZXoi8+o0v9W3b?=
- =?us-ascii?Q?+/+oM+IDfGnrtlaT9Ayz+qDCYwFMR5nyiDCZzVwJQxUlYoDmTww1T4AibhBJ?=
- =?us-ascii?Q?+uTzB6fDcFVsui+2zyStujTHZ+n19zWGUUM8p/fpF1uVTvN42RfaxtHtoW1C?=
- =?us-ascii?Q?2b3toF3fs07TNv/zJ/4yTd0D00XcqLAWSS6vJIRvfBUXRn4p2cXGZ/wGQEqX?=
- =?us-ascii?Q?QIMcg15eE/DHQMPvyFGKSW76iPh7Uv3bSBAaQgO/yinrz5D5UKNKPrbTddGT?=
- =?us-ascii?Q?o9cxYW2e58DOs2T+FsvySLxKFyYAGatuEAM1vtvYlQDF1Zur5qSDTLckT7Lf?=
- =?us-ascii?Q?3dFNgh057akulkik4xlb2sPsRlsKaZ1Rvwa4loapIcPH7uTuGf9VWTJkOqPG?=
- =?us-ascii?Q?6RfQc0Zs8shENUYEveezH3S54l8C1qRba/0l1gfXDJLBWNmfDGboVbDusrwk?=
- =?us-ascii?Q?YWgGbKjfPhubPMV/71uPCXmlaW1nbsL9K/Vs11s1JdtXH++KB2IHsSKJfFAm?=
- =?us-ascii?Q?Dmp/+MoTo9rp/s25EOQHBV1PMz+Rfln18i6GgMz5FnmVpqq01MBz1jYJyU9h?=
- =?us-ascii?Q?BIXutn52Tw=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 53ad0e4b-11ec-4364-e598-08de59c5ab96
-X-MS-Exchange-CrossTenant-AuthSource: PRASPRMB0004.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 14:51:05.8232
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AoncD+iZdfq8sCHwBjmIo02octponI/aJm2rTAfJSpPp5cL6GFitHHyxJhu+8kDKB+CZUILSgUhdiWqTZVxH9g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU7PR04MB11161
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: [GIT PULL] Amlogic drivers updates for v6.20
+To: soc@kernel.org, arm@kernel.org
+Cc: linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_065113_503205_7173464B 
-X-CRM114-Status: GOOD (  30.64  )
+X-CRM114-CacheID: sfid-20260122_065233_273605_5AA5D803 
+X-CRM114-Status: UNSURE (   6.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,185 +121,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 03:49:35PM +0800, Guoniu Zhou wrote:
-> From: Guoniu Zhou <guoniu.zhou@nxp.com>
->
-> The CSI pixel formatter is a module found on i.MX95 used to reformat
-> packet info, pixel and non-pixel data from CSI-2 host controller to
-> match Pixel Link(PL) definition.
->
-> Add data formatting support.
->
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> ---
->  MAINTAINERS                                     |   8 +
->  drivers/media/platform/nxp/Kconfig              |  14 +
->  drivers/media/platform/nxp/Makefile             |   1 +
->  drivers/media/platform/nxp/imx9-csi-formatter.c | 884 ++++++++++++++++++++++++
->  4 files changed, 907 insertions(+)
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 5560da0deb716c247c9bf8f245e7bbeb9b69e788..c2c80148e8b225768d32e3069cc4a70115ae21ab 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -18867,6 +18867,14 @@ S:	Maintained
->  F:	Documentation/devicetree/bindings/media/nxp,imx8-jpeg.yaml
->  F:	drivers/media/platform/nxp/imx-jpeg
->
-> +NXP i.MX 9 CSI PIXEL FORMATTER V4L2 DRIVER
-> +M:	Guoniu Zhou <guoniu.zhou@nxp.com>
-> +L:	imx@lists.linux.dev
-> +L:	linux-media@vger.kernel.org
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/media/fsl,imx9-csi-formatter.yaml
-> +F:	drivers/media/platform/nxp/imx9-csi-formatter.c
-> +
->  NXP i.MX CLOCK DRIVERS
->  M:	Abel Vesa <abelvesa@kernel.org>
->  R:	Peng Fan <peng.fan@nxp.com>
-> diff --git a/drivers/media/platform/nxp/Kconfig b/drivers/media/platform/nxp/Kconfig
-> index 40e3436669e213fdc5da70821dc0b420e1821f4f..a7bb62a2b0249659ffdfeac50fa488aee9590a87 100644
-> --- a/drivers/media/platform/nxp/Kconfig
-> +++ b/drivers/media/platform/nxp/Kconfig
-> @@ -28,6 +28,20 @@ config VIDEO_IMX8MQ_MIPI_CSI2
->  	  Video4Linux2 driver for the MIPI CSI-2 receiver found on the i.MX8MQ
->  	  SoC.
->
-> +config VIDEO_IMX9_CSI_FORMATTER
-> +	tristate "NXP i.MX9 CSI Pixel Formatter driver"
-> +	depends on ARCH_MXC || COMPILE_TEST
-> +	depends on VIDEO_DEV
-> +	select MEDIA_CONTROLLER
-> +	select V4L2_FWNODE
-> +	select VIDEO_V4L2_SUBDEV_API
-> +	help
-> +	  This driver provides support for the CSI Pixel Formatter found on
-> +	  i.MX9 series SoC. This module unpacks the pixels received by the
-> +	  formatter and reformats them to meet the pixel link format requirement.
-> +
-> +	  Say Y here to enable CSI Pixel Formater module for i.MX9 SoC.
-> +
->  config VIDEO_IMX_MIPI_CSIS
->  	tristate "NXP MIPI CSI-2 CSIS receiver found on i.MX7 and i.MX8 models"
->  	depends on ARCH_MXC || COMPILE_TEST
-> diff --git a/drivers/media/platform/nxp/Makefile b/drivers/media/platform/nxp/Makefile
-> index 4d90eb71365259ebdda84ea58483e1c4131d3ac7..39ba5660ba923141e7637b01b5b34a021dad7bb3 100644
-> --- a/drivers/media/platform/nxp/Makefile
-> +++ b/drivers/media/platform/nxp/Makefile
-> @@ -6,6 +6,7 @@ obj-y += imx8-isi/
->
->  obj-$(CONFIG_VIDEO_IMX7_CSI) += imx7-media-csi.o
->  obj-$(CONFIG_VIDEO_IMX8MQ_MIPI_CSI2) += imx8mq-mipi-csi2.o
-> +obj-$(CONFIG_VIDEO_IMX9_CSI_FORMATTER) += imx9-csi-formatter.o
->  obj-$(CONFIG_VIDEO_IMX_MIPI_CSIS) += imx-mipi-csis.o
->  obj-$(CONFIG_VIDEO_IMX_PXP) += imx-pxp.o
->  obj-$(CONFIG_VIDEO_MX2_EMMAPRP) += mx2_emmaprp.o
-> diff --git a/drivers/media/platform/nxp/imx9-csi-formatter.c b/drivers/media/platform/nxp/imx9-csi-formatter.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..80f7f6fed91c5f7b3851e5f428ca22a8d84f400c
-> --- /dev/null
-> +++ b/drivers/media/platform/nxp/imx9-csi-formatter.c
-> @@ -0,0 +1,884 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright 2025 NXP
-> + */
-> +
-...
-> +
-> +#define CSI_FORMATTER_PAD_SINK			0
-> +#define CSI_FORMATTER_PAD_SOURCE		1
-> +#define CSI_FORMATTER_PAD_NUM			2
-> +
-> +#define CSI_FORMATTER_DRV_NAME			"csi-pixel-formatter"
+Hi,
 
-Only use once, so needn't define macro here
+Here's drivers updates for Amlogic SoCs, a single new SoC ID addition.
 
-> +#define CSI_FORMATTER_VC_MAX			8
-> +
-> +struct formatter_pix_format {
-> +	u32 code;
-> +	u32 data_type;
-> +};
-> +
-...
-> +
-> +static int csi_formatter_subdev_init(struct csi_formatter *formatter)
-> +{
-> +	struct v4l2_subdev *sd = &formatter->sd;
-> +	int ret;
-> +
-> +	v4l2_subdev_init(sd, &formatter_subdev_ops);
-> +
-> +	snprintf(sd->name, sizeof(sd->name), "%s", dev_name(formatter->dev));
-> +	sd->internal_ops = &formatter_internal_ops;
-> +
-> +	sd->owner = THIS_MODULE;
+Thanks,
+Neil
 
-This is not necessary.
-v4l2_async_register_subdev() will set it.
+The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
 
-> +	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE |
-> +		     V4L2_SUBDEV_FL_HAS_EVENTS |
-> +		     V4L2_SUBDEV_FL_STREAMS;
-> +	sd->entity.function = MEDIA_ENT_F_PROC_VIDEO_PIXEL_FORMATTER;
-> +	sd->entity.ops = &formatter_entity_ops;
-> +	sd->dev = formatter->dev;
-> +
-> +	formatter->pads[CSI_FORMATTER_PAD_SINK].flags = MEDIA_PAD_FL_SINK;
-> +	formatter->pads[CSI_FORMATTER_PAD_SOURCE].flags = MEDIA_PAD_FL_SOURCE;
-> +
-> +	ret = media_entity_pads_init(&sd->entity, CSI_FORMATTER_PAD_NUM,
-> +				     formatter->pads);
-> +	if (ret) {
-> +		dev_err(formatter->dev, "Failed to init pads\n");
-> +		return ret;
-> +	}
-> +
-> +	ret = v4l2_subdev_init_finalize(sd);
-> +	if (ret)
-> +		media_entity_cleanup(&sd->entity);
-> +
-> +	return ret;
-> +}
-...
-> +
-> +static int csi_formatter_system_resume(struct device *dev)
-> +{
-> +	int ret;
-> +
-> +	ret = pm_runtime_force_resume(dev);
-> +	if (ret < 0) {
-> +		dev_err(dev, "force resume %s failed!\n", dev_name(dev));
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
+   Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
 
-These two function is not necessary if use
-DEFINE_RUNTIME_DEV_PM_OPS
+are available in the Git repository at:
 
-Frank
-> +
-> +static int csi_formatter_runtime_suspend(struct device *dev)
-> +{
-> +	struct v4l2_subdev *sd = dev_get_drvdata(dev);
-> +	struct csi_formatter *formatter = sd_to_formatter(sd);
-> +
-> +	clk_disable_unprepare(formatter->clk);
-> +
-> +	return 0;
-> +}
-> +
-...
-> +MODULE_DESCRIPTION("NXP i.MX9 CSI Pixel Formatter driver");
-> +MODULE_LICENSE("GPL");
->
-> --
-> 2.34.1
->
+   https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git tags/amlogic-drivers-for-v6.20
+
+for you to fetch changes up to 31fce0d2b13e6a4a12c9ba016e961418f8c82e34:
+
+   soc: amlogic: meson-gx-socinfo: add new SoC id for S905Y4 (2026-01-13 08:58:58 +0100)
+
+----------------------------------------------------------------
+Amlogic Drivers for v6.20:
+- add new SoC id for S905Y4
+
+----------------------------------------------------------------
+Nick Xie (1):
+       soc: amlogic: meson-gx-socinfo: add new SoC id for S905Y4
+
+  drivers/soc/amlogic/meson-gx-socinfo.c | 1 +
+  1 file changed, 1 insertion(+)
 
