@@ -4,95 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36945D3EE75
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:09:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEE19D3EE75
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0SOD/6X3mG1xpZ/GXzcTSM0w0ZvUC8Ff0nJjpMA7FEg=; b=jxcY190JYef2TSdhPxI8iLU7IA
-	xxNCbitq1npwPj30JpCbbeVCnSmaK39JbcOiMpvY8JUnmjjg7RZ3CUGrO/tBIHcMp8WCBOT53CUtI
-	iFsqQi9BdRYBug2I/GjnG2NMUTBxRS9il4Ny8FmK2zn/VTGkgC4X93h+yHTIvBuDXGh3FLMs2dbnd
-	cwTaQt9rET7y2OVe+i/ZoX1KV/lcdb10avTaL9AmV3gXrPTai6+dyA2rMyfZN1w5XewzVJTNErQtO
-	c+rTS/EnD4irT5HnNgD1EsJc4gua/eurhCZOk/Bo1qqv+GNQlxBxFOSHBXjHsjJngQPs3lqaPn5tb
-	5XSIQQCA==;
+	bh=vvCkmh9jlVByBeKIvdOHUOcBwUtzU/25mi8V73JbEG0=; b=wBVGM7s5h0HB1/Eb1eOveqtiNf
+	8AZ25KJa0hC7Uf/2/jKGA2MGxoYP75t0wZl/AZgmb5hfKyCoZ+E8gdrsbPXgA/UYVl4P0uxEyOorw
+	zWVMIQxzVELu/yA8k8wjoPoWT2x3w2uHfxvZmfKsR9Om+AEUrKOp3vsvHe+C7sUaJWOyMK32TngYB
+	YE8djkFyuftkVU3ecBtZLQ2DeSizMlxHqNaR1GgJTTINbRT1Gd+zHqXMmx2g/ij+Tzor5X0oNzp7o
+	1ZIbyIgcpN+p49tsp99I0C5ZlngiBR58G9N+WDNybZTGxdR3ETtlRcfr/lvdZwC1vs2G3pH7XUgGU
+	9h6ZzSjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwJb-00000007Itw-41Gs;
-	Thu, 22 Jan 2026 15:09:43 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1viwJt-00000007Iyy-3TIb;
+	Thu, 22 Jan 2026 15:10:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwJZ-00000007ItL-1YPU
+	id 1viwJs-00000007IyH-0SSX
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 22 Jan 2026 15:10:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=vvCkmh9jlVByBeKIvdOHUOcBwUtzU/25mi8V73JbEG0=; b=EDS4s6EVitpzWgkOOp8rscm2Zt
+	2JgfJtiCbRw40WeZbXsFcwFP8kjij57xbBPgpMd9HqR5wNwHVGAVLaW7cK4OpWEvbCmacPtPxqBsa
+	ouU6C73AIgwKxlq9yuFtTNx52rjwVwNtcFDlkBv7Eb/+QkItk5o7MlcuEgVhEbxEyHYhC9AHDQyLN
+	RDrDVjBqeT5aNHbMMJUGfGra5A5O1uN42nnEY6zmse7Pzz/bAiMvEXVqLdpe4WY4ol6cJIgFA6dp2
+	IYAutg3xRDquGN6e9ugvUr51QX+zDuqmzzm1U+GTm1Wp5TNe9aZsTGzKBM8packpb2CehAZb1Ghfu
+	T1bSNtvg==;
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viwJp-00000000aVm-03ko
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 15:09:43 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-50299648ae9so360361cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 07:09:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769094579; cv=none;
+	Thu, 22 Jan 2026 15:09:58 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-501511aa012so379771cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 07:09:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769094594; cv=none;
         d=google.com; s=arc-20240605;
-        b=GxrUqJJUhdBMoQzTw9LtI+pjOPaBwquFq4PuLJXdUDmJGjTOEKraIRqwOFNyJEtKDP
-         M/Bl7Fd/9FRh3loANqb6a/WVf7cO0TnhcdwotzLFaFVMFplHMAQDBuWWi06b0w+eZSDG
-         6BkeBvSq6gJFysIB8KC0ZILXGei5AQNN8JekeDSiTrvk1+AP/2U8wnKmuYsDvSoLaOJj
-         vmZZe8wcaMc9dgOudOwLm/PdgXhYTOsOxCqqfzqvYo6NL+8DJYQL1cUXtUBPIdcOoOxP
-         uNGDlBmRQHlpQrqbgSTiHsNF3WziXlGrwZbHXC8VWTUB2yaO84di5wFiIH/G3pdPm7PC
-         dSiw==
+        b=kLouPafBHjdjaUYQdUsCGKX6ncm/ARSVX6p9k9DNIYkz9uvdwtySEMy1Co6i11Tdmq
+         6l/b+Tko9XUMyO/UI9aPxXDtM8IVKAb6e8wc1Exqju6V0BEd7m8pSHga29imVr+cl5Rb
+         bwydJdwIAYs8hhIIxAj0bZuXfm4jMrjYt39vY/TZYFWKvz8TUmucQ+OxkBEjIIQq4sCl
+         KMpLOfiZDf5HGSEjwAqrJPKcwVqXNKAL21rprYJRtMriUyNAOLVp6V9FjmYwYgEi/Kof
+         fAbA7U8Ne0Amu6qx6Gd+zprFF5jkZii5rlar8ho1PeJyUBXkzuqMZI/yaC4YMQwQET1b
+         Ffaw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=0SOD/6X3mG1xpZ/GXzcTSM0w0ZvUC8Ff0nJjpMA7FEg=;
-        fh=uRGtR07YJNalVBim930zPTq9/MeTiqugrDrB5syv/0c=;
-        b=JbY8N+x+lTCDKTyRPbfNuO7bNQgDhm/izrOBVNMTaGnbLN8l81gAsFrE6lR8fDjNaN
-         wKU6B6WeNmk1avSTLrC0dKAwxKcZ9ylHs9LmqlsUV55Na/Ogz1v51gxaLYHZzcqJjo1L
-         9jvLSPuNcT6mgAmi3+/w1pqlm2ywo92mBvMjtaNBSh2IlkxoG5a/a2c7NoenyU0Omvpx
-         dzkTmiUdiVOO/KW/vUKd4aIb75tZr17i+gXqBMDBNlBPx53uMUTaBIzLa/T7cdCNkZep
-         cbD2wQ0BADgK+wh0rqko7oyfoygR0Z/lh/vqihr24pCJulwPAxWM2f0MvBd1jRg7lumw
-         Eryw==;
+        bh=vvCkmh9jlVByBeKIvdOHUOcBwUtzU/25mi8V73JbEG0=;
+        fh=kt0k4BU4FOMp5KMuTZ6Tyd6TVKBohX0YEtbJFxyg2KM=;
+        b=anUPfdVaZtU5GpBoHfyaPtWOYj/QR7CT/qu6AxA90eiV1LYkBlr4aZpo5PB4TmVOi8
+         XMc+/CSVxVZZfBawJVaFHiK/9HTiGnEDOIObKtLrcMGoayHe6LsYVbD6DhEHXyAbETbl
+         5vX1BGCi2EEK7Mv89NTTQRhk3PUYAJn+gd/grLYppgyopHbi8v2QVGObm4jVL62cCmAJ
+         pkVZs5T3+MKqbPFC6knMHVpFSSERph5grQJ5tfwGMtY2Yu5WL+wigOtxIN/tk8KTlBYc
+         UKd3q5HXs6RPwTWpH8907rWJEDbaLtbk0Oyfdtco7IGs8VOWvN21Xewr1QA35WRxkSnr
+         +2/g==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769094579; x=1769699379; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769094594; x=1769699394; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=0SOD/6X3mG1xpZ/GXzcTSM0w0ZvUC8Ff0nJjpMA7FEg=;
-        b=l0r5wL4ctIY1tNpzaX20rVcdRYnPec1cWfA3Z+2l5fVl1jhm8e3VaDxKGHk0SOEtZ2
-         Pa3Hxxh7ahuqnNBgC2UoqkjibEoHZgh85XWKkIl9M3BvK8xBpi9aCLgh6+tOV0GUTEvj
-         Ph0lnQ6k10/gA6B3rzLFpsOPK4qzgOiNgH23oRmEAD9vgaQtVTsN1LuhqFuFUJxhNF0y
-         YCcyM+rtvkftVz505+FXU/Bwm9L8QcrslfFQndCxi+9z97h8IVWUoEj28fzPZCb6yUwM
-         CEH9z1goLOTHWbv4Ann/ZojHcupQf6rfy4z6TINpRCtDNXmoyv0EpxUbtSRgC4GY6WY7
-         RmuQ==
+        bh=vvCkmh9jlVByBeKIvdOHUOcBwUtzU/25mi8V73JbEG0=;
+        b=xNdvwioXw9TAuxAYqKlMtwXAs7m1kzE9DO8Ih8pu3tCYV2QGk8EkRHlLbwvUd5ahwf
+         ghkVVrWZs3lEe0EspiA3cgOKoPUXXc0f69khOUc9QDYeaVgRhFZlc5Ga8tUezGIOiwam
+         ywqcSFJldR/cWBqDFm8Ze7aZZ/DiVXtIzOaRAEwKt37bKiwztHbA8MsDNjMeyRLYiZSL
+         G7+8eR3uvOPNkGMvTQmVvaVB3JC/ZTTRVNVQw4ZBF5uc+XObbzCydIV403Bz+Z4ZaabN
+         EM42+a/PHL1JeJWrYv5mj44ZduHgi7BXpWXUwLJlqpZbdefJHWFb+HqulhxEgEuy+QJ5
+         qQNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769094579; x=1769699379;
+        d=1e100.net; s=20230601; t=1769094594; x=1769699394;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0SOD/6X3mG1xpZ/GXzcTSM0w0ZvUC8Ff0nJjpMA7FEg=;
-        b=ZB+QWBD9iGjdUI+Ohi0E/pnU5Z9Hw4B5F7XDqpsXEURxFDMvWUZ+3y3EOeWACn70qN
-         8CV/r8M2/tvo/9Ie/oKo0z+L6/QvkJXQTvV/A1darSi9qt1YIDbaxc/5Qh1uHAsx+btD
-         elNX8tLjxqSZQSfdxZk3poMLUU1XoSMhm2T9rb2JlpCL02SoThYCIb7hVeQKGa+SljAt
-         6MnBTJrCkpnrW7Nzl/XKxdypwX10DnXUXpYNfj6HZj8tMwCIxN0Yh+oxGU5oRLdBmwCe
-         4H+fae87Vjtok8JW1kNr+SOTS6K4XprkdYY6A5QBrBf4QrfheokkEXfvoF8WPKFMJUxv
-         oTig==
-X-Forwarded-Encrypted: i=1; AJvYcCU7WGLSjSEf65GyEKvC7KdkhHR4oE7Z4W9YfVIYmx2WDOxLHdc4KymIjS3JPhgVeBgi763xliY75EWffJv3G7Qe@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjuZ4z2+ftPCYKVzwqJevsR5WY4VTcOuwteCzPwhjBpyR1Gx4K
-	J6CGeNJWHhmB4iM6C80/KI7Q61tRGxFrtJ5WjytqigGrR0neXnHV8ks1aM5gT5slwzUqHOGxBpF
-	XtQHM7ki6FlO3MfZW7AeSkb1cZ8fLrE11x558HMBxQLBW0nvX6rNs7449ubet3A==
-X-Gm-Gg: AZuq6aIQJNPHUYI1IKyiHqUp+7XlYSBohRRme4at6w5i6KoLHHZMCTy9SadU81NhTRc
-	dAMRR+jsWjYO+mOOvxEXXzUavFV7sVmUr+dk6axYjAPWSUab4SpsUuYCtR3qzZQ3bMPbD0JATpM
-	m9PaSCxf1xhY6mCbBtvKzamQoDniHPGqdB8UnL35nrElaWEF4reliw79S45cOzanPSWunLRmP3C
-	RPH8PXCu8DU4NzVYrL/pz4qyzgT/P0mmSmuJIsBeQfKw+sokkkBbdDpTZ9nEmnX9fVI+9aiTCLc
-	m1ra1e2DqkzHSJaXib8xmEfuBQ==
-X-Received: by 2002:ac8:5d14:0:b0:4f3:7b37:81b with SMTP id
- d75a77b69052e-502ebd86d8bmr12814351cf.18.1769094578876; Thu, 22 Jan 2026
- 07:09:38 -0800 (PST)
+        bh=vvCkmh9jlVByBeKIvdOHUOcBwUtzU/25mi8V73JbEG0=;
+        b=p6DzgYs/yeXPOwVcVqpryk5sOrvNH9IkDqmKJVseI1KcsBTRaTKc6eGXTj3s2fgDqQ
+         Z5AyIGW3BuDtmUDFCL0zxP4AHsiLERGJXdi/9lDAKjLhibJaHU4KMfy1BNkptb9CxROt
+         kfeGrxEnjM5uCsFf9w7sZqdWkkB76Xc4KocadNXwNBUH9TthzsdWU6l0QSKWw1jFdmIi
+         RpQH1Y3pV1vfFoa+8GbYChrT+GLvnlqvLepwamPipPsw7/dmCdSNc0USJSh6mgwJ6fBf
+         WpIlRuNAUGa/aJLWZyoQ/6n6QKU250N0kIpuHLptcTL5NzzHTPAspSMHcjWl5wh50NO2
+         cg4w==
+X-Forwarded-Encrypted: i=1; AJvYcCUTPM3S3FJU6X0Ax0E6OD3xLKm8PDDp6v+vMePKERKLYBXRR/4qGDAKtNFPvbheImBeH2II7eX+MnqBBQch9Drw@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYGqwdi0NuVqfwevoXyUlrr9clr7lk4R757v6VoeQAnAM6fjsG
+	F5g4nD/vnDWnfTLG42/iq1Ef8eFRX4klt38rlIF0gBlpkHU+rruHBVy4Ddn0J9fX2BwCB5+DsSK
+	sZIgFmbI3b3Z+M6FEjR105SuwGjXBa+oD3WbriWgd
+X-Gm-Gg: AZuq6aK0nN+/62H2ihiPkOVNv3GEvk/ivPFoyE7PwIp8TvyCIEqVynpsp5ZGlTc6URX
+	EoC6/ozVduPK6rEbjRBtOaL80jZJmfN8GwwugYcghyiNXPpLlE9SVRkPBo5M7NgEU1raFU6OpaK
+	HihWtP/OxZ4XUt6z6GAaOPA93NETfoaeiCgtiqczbOn3ad4zw+wvOfT7QBnmeX6+P/fJ1ez0uPK
+	tvAWQwFNaiVKlJc1hmk19T3xQNB+NlryF1cr3G0j4+96wpeKf+ojw0RApu1oUGcFVnOe3kuncVQ
+	DugaGH0yy12DR5kr+grSIA6ShhscIHvHnnNZ
+X-Received: by 2002:a05:622a:994:b0:4ff:bf96:db86 with SMTP id
+ d75a77b69052e-502ebd89420mr14663551cf.16.1769094593435; Thu, 22 Jan 2026
+ 07:09:53 -0800 (PST)
 MIME-Version: 1.0
-References: <20260119105651.255693-1-maz@kernel.org> <20260119105651.255693-6-maz@kernel.org>
-In-Reply-To: <20260119105651.255693-6-maz@kernel.org>
+References: <20260119105651.255693-1-maz@kernel.org> <20260119105651.255693-5-maz@kernel.org>
+In-Reply-To: <20260119105651.255693-5-maz@kernel.org>
 From: Fuad Tabba <tabba@google.com>
-Date: Thu, 22 Jan 2026 15:09:02 +0000
-X-Gm-Features: AZwV_Qglbu-3ILOIPveU_u2g6xgRdY1YcuVAE1z9RXMZISdkRuf-Fa9wT3aB0x0
-Message-ID: <CA+EHjTyUdCAB+-sPsK3r+jwJK_tHc52_6q=iZ9UvBWE_7=8Yjw@mail.gmail.com>
-Subject: Re: [PATCH 5/6] KVM: arm64: Kill KVM_PGTABLE_S2_NOFWB
+Date: Thu, 22 Jan 2026 15:09:16 +0000
+X-Gm-Features: AZwV_Qgn974Rn-FnK4kC6GfYpfe9Us7HnF_BLs1xt04WEDzmacqD6_IPgM9DxZw
+Message-ID: <CA+EHjTyWGmnJ+xMGJ4oGaP1pPGWA7tJD9kxDxhdtxAAj6dnFLg@mail.gmail.com>
+Subject: Re: [PATCH 4/6] KVM: arm64: Switch pKVM host S2 over to KVM_PGTABLE_S2_AS_S1
 To: Marc Zyngier <maz@kernel.org>
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -100,8 +115,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Quentin Perret <qperret@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_070941_427701_9080A0A1 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20260122_150957_242354_C536314D 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,14 +133,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Mon, 19 Jan 2026 at 10:56, Marc Zyngier <maz@kernel.org> wrote:
 >
-> Nobody is using this flag anymore, so remove it. This allows
-> some cleanup for stage2_has_fwb(), whic doesn't need to take the
-
-nit: s/whic/which
-
-> pgt as a parameter anymore.
+> Since we have the basics to use the S1 memory attributes as the
+> final ones with FWB, flip the host over to that when FWB is present.
 >
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 49db32f3ddf71..38f66a56a7665 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -19,7 +19,7 @@
+>  #include <nvhe/mem_protect.h>
+>  #include <nvhe/mm.h>
+>
+> -#define KVM_HOST_S2_FLAGS (KVM_PGTABLE_S2_NOFWB | KVM_PGTABLE_S2_IDMAP)
+> +#define KVM_HOST_S2_FLAGS (KVM_PGTABLE_S2_AS_S1 | KVM_PGTABLE_S2_IDMAP)
+>
+>  struct host_mmu host_mmu;
+>
+> @@ -324,6 +324,8 @@ int __pkvm_prot_finalize(void)
+>         params->vttbr = kvm_get_vttbr(mmu);
+>         params->vtcr = mmu->vtcr;
+>         params->hcr_el2 |= HCR_VM;
+> +       if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
+> +               params->hcr_el2 |= HCR_FWB;
 
 Reviewed-by: Fuad Tabba <tabba@google.com>
 
@@ -133,94 +167,8 @@ Cheers,
 /fuad
 
 
-
-
-> ---
->  arch/arm64/include/asm/kvm_pgtable.h |  7 ++-----
->  arch/arm64/kvm/hyp/pgtable.c         | 17 +++++++----------
->  2 files changed, 9 insertions(+), 15 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> index 9ce51a637da0a..2198b62428832 100644
-> --- a/arch/arm64/include/asm/kvm_pgtable.h
-> +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> @@ -229,15 +229,12 @@ struct kvm_pgtable_mm_ops {
->
->  /**
->   * enum kvm_pgtable_stage2_flags - Stage-2 page-table flags.
-> - * @KVM_PGTABLE_S2_NOFWB:      Don't enforce Normal-WB even if the CPUs have
-> - *                             ARM64_HAS_STAGE2_FWB.
->   * @KVM_PGTABLE_S2_IDMAP:      Only use identity mappings.
->   * @KVM_PGTABLE_S2_AS_S1:      Final memory attributes are that of Stage-1.
->   */
->  enum kvm_pgtable_stage2_flags {
-> -       KVM_PGTABLE_S2_NOFWB                    = BIT(0),
-> -       KVM_PGTABLE_S2_IDMAP                    = BIT(1),
-> -       KVM_PGTABLE_S2_AS_S1                    = BIT(2),
-> +       KVM_PGTABLE_S2_IDMAP                    = BIT(0),
-> +       KVM_PGTABLE_S2_AS_S1                    = BIT(1),
->  };
->
->  /**
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index 07561a227f75e..3c2f7967fdc03 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -631,12 +631,9 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
->         return vtcr;
->  }
->
-> -static bool stage2_has_fwb(struct kvm_pgtable *pgt)
-> +static bool stage2_has_fwb(void)
->  {
-> -       if (!cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
-> -               return false;
-> -
-> -       return !(pgt->flags & KVM_PGTABLE_S2_NOFWB);
-> +       return cpus_have_final_cap(ARM64_HAS_STAGE2_FWB);
->  }
->
->  void kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
-> @@ -664,10 +661,10 @@ void kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
->                 kvm_pte_t __attr;                                       \
->                 if((pgt)->flags & KVM_PGTABLE_S2_AS_S1)                 \
->                         __attr = PAGE_S2_MEMATTR(AS_S1,                 \
-> -                                                stage2_has_fwb(pgt));  \
-> +                                                stage2_has_fwb());     \
->                 else                                                    \
->                         __attr = PAGE_S2_MEMATTR(attr,                  \
-> -                                                stage2_has_fwb(pgt));  \
-> +                                                stage2_has_fwb());     \
->                                                                         \
->                 __attr;                                                 \
->         })
-> @@ -879,7 +876,7 @@ static bool stage2_unmap_defer_tlb_flush(struct kvm_pgtable *pgt)
->          * system supporting FWB as the optimization is entirely
->          * pointless when the unmap walker needs to perform CMOs.
->          */
-> -       return system_supports_tlb_range() && stage2_has_fwb(pgt);
-> +       return system_supports_tlb_range() && stage2_has_fwb();
->  }
->
->  static void stage2_unmap_put_pte(const struct kvm_pgtable_visit_ctx *ctx,
-> @@ -1167,7 +1164,7 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
->                 if (mm_ops->page_count(childp) != 1)
->                         return 0;
->         } else if (stage2_pte_cacheable(pgt, ctx->old)) {
-> -               need_flush = !stage2_has_fwb(pgt);
-> +               need_flush = !stage2_has_fwb();
->         }
->
 >         /*
-> @@ -1397,7 +1394,7 @@ int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
->                 .arg    = pgt,
->         };
->
-> -       if (stage2_has_fwb(pgt))
-> +       if (stage2_has_fwb())
->                 return 0;
->
->         return kvm_pgtable_walk(pgt, addr, size, &walker);
+>          * The CMO below not only cleans the updated params to the
 > --
 > 2.47.3
 >
