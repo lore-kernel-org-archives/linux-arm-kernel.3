@@ -4,68 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE04D3EE68
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 13:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A44F2D3EE67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 13:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BFGpp1swby30Mo/6Sr7+DM2vt++ulcUhhsxtyCt5dnU=; b=G9r0/oZzSnlwL6h3Kd0f5pz42l
-	5ao72BevCFsFp2xvtuw+l1Bz8uTKhrMWW4D9n0bn2+vfaxUkSHt+Tu1ciJzqQJ6fcyvhi9q46+Vdl
-	c9vBwBpwudpVd4300oq8rg318s3ZihNMAEbOWIB3u0lC8M8/FzaCQ3oZD4D6uEMGFE5jORpYwb5kd
-	pzaQk6vRB2kUAmAO5tZIDDLomwjKwbQPVN4y/PuIUfDgKaLSxZJw9OgcU9iPIiXZUKm67BqsrhOIv
-	wE1vX+tYK2t2lQdf+oRYo73rMRELLaw3vpPDzc8gHSZNMSmvqA5mZ+nyw6TiVOWvLlt7KDZFR+Ue3
-	LKvLt8uw==;
+	bh=ht9yVCnpd5WU1QT0qKHufnRtyiRwyLcTRWV0zTYSUKU=; b=UIGQv0r/Z16i7zTy0LAvQwdc02
+	a+Fg7+snjESAI5r3eVYufPI85peBNL6U1c3XWqHGLbM5izYlwHWpZiv94DLAjsUwCPKpDBPjwRT+s
+	HVOS1GcI8K3OyGrOhsPuLmLf90tm+23DYmwSDnQnT6kPcJbH2Wn+cpxKkbu0BqeEUrlX0HTzohoNH
+	7bYRw40Znmxa8O9fLJlT1hsK4ALCoPvlU0X1KkNZOUN17ikdEjRmbhQOgJd9Uyrbv7BPMNfD6kt3v
+	JUqO261R3jBUj/Cwb63hdt/bWxbwqbLcmrR4m5wVQ5GUHhg6b4AcXino6lTNpwv6Spd3ZGCJRQvv7
+	KjgAJ60w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viv20-00000007Ar1-45aF;
-	Thu, 22 Jan 2026 13:47:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viv1x-00000007AqN-1ahZ
+	id 1viv3L-00000007AyQ-2eqF;
+	Thu, 22 Jan 2026 13:48:51 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viv3J-00000007Ax1-06h9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 13:47:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E9851476;
-	Thu, 22 Jan 2026 05:47:15 -0800 (PST)
-Received: from [10.57.80.101] (unknown [10.57.80.101])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 404703F632;
-	Thu, 22 Jan 2026 05:47:18 -0800 (PST)
-Message-ID: <41874647-a464-4884-9a39-544723d3e6b6@arm.com>
-Date: Thu, 22 Jan 2026 13:47:16 +0000
+	Thu, 22 Jan 2026 13:48:50 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8A7192DD;
+	Thu, 22 Jan 2026 14:48:10 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1769089691;
+	bh=Ik3isZg69uy819qCA91x8tXe6oJnuxTiAK4/NmF4g1Y=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=Sl2XTA+UElZ9ef4UJoUdLx3lzU+CLfjm8/NBvv/AU0xsmOv2+JWteJQIafdypUJr5
+	 cdOtEzkup0Pg7IjQbxaceKTySqiWWS4yg4aFRXK2zxe8xsszu7t1riuT5Ah18BHFX4
+	 RBbzuz3UeThEbVkULOdhBrYxIjZSE4fc3sN30s2w=
+Message-ID: <53e73b84-e2e1-42d7-afc9-f9bc04e5db37@ideasonboard.com>
+Date: Thu, 22 Jan 2026 15:48:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] arm64: mmu: avoid allocating pages while splitting
- the linear mapping
-Content-Language: en-GB
-To: Yeoreum Yun <yeoreum.yun@arm.com>, Yang Shi <yang@os.amperecomputing.com>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
- catalin.marinas@arm.com, akpm@linux-oundation.org, david@kernel.org,
- kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com, dev.jain@arm.com,
- chaitanyas.prakash@arm.com, bigeasy@linutronix.de, clrkwllms@kernel.org,
- rostedt@goodmis.org, lorenzo.stoakes@oracle.com, ardb@kernel.org,
- jackmanb@google.com, vbabka@suse.cz, mhocko@suse.com
-References: <aW9LCX92T9t8iDco@e129823.arm.com>
- <baa46ea0-737b-4d9e-b4f4-2eee1476da95@arm.com>
- <aW-k_D1Q8jpYMPoI@willie-the-truck>
- <a6c1f21f-43e4-41d2-adb6-c5f9985b3abd@arm.com>
- <aW+t8S1LfwX3LjRi@e129823.arm.com>
- <11a01f4e-9ae5-4001-9f9c-74a746f898cd@arm.com>
- <02bb61cc-f0be-41e5-b8b2-59768afd5254@os.amperecomputing.com>
- <aXCPHaylUbRJ3CME@e129823.arm.com>
- <ee2bf4ba-0121-44dc-a465-4c186dc18f19@arm.com>
- <4c98a1b2-6215-4e71-8bb1-eaeb1722e7b1@os.amperecomputing.com>
- <aXHU02hsrB64Zopo@e129823.arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aXHU02hsrB64Zopo@e129823.arm.com>
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Subject: Re: [PATCH v2 0/4] drm: zynqmp: Make the video plane primary
+To: Sean Anderson <sean.anderson@linux.dev>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ dri-devel@lists.freedesktop.org
+Cc: Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>,
+ linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>,
+ David Airlie <airlied@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ Michal Simek <michal.simek@amd.com>,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Mike Looijmans <mike.looijmans@topic.nl>
+References: <20260106164247.472544-1-sean.anderson@linux.dev>
+Content-Language: en-US
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20260106164247.472544-1-sean.anderson@linux.dev>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_054725_496737_ECE4FB85 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20260122_054849_233860_19DEC865 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +118,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->>> I'm inclined to leave this as is for now.
->>
->> I agree. I don't think this would be a real problem.
->>
->> Thanks,
->> Yang
+Hi,
+
+On 06/01/2026 18:42, Sean Anderson wrote:
+> The graphics plane does not support XRGB8888, which is the default mode
+> X uses for 24-bit color. Because of this, X must be set to use 16-bit
+> color, which has a measurable performance penalty. Make the video plane
+> the primary plane as it natively supports XRGB8888. An alternative
+> approach to add XRGB8888 to the graphics plane is discussed in [1], as
+> well as in patch 2.
 > 
-> Although partially using GFP_ATOMIC might not be an issue given that
-> there is no contention at the moment,
-> technically using a memory allocation API inside stop_machine() is problematic
-> for PREEMPT_RT, and the relevant page tables should be pre-allocated.
+> [1] https://lore.kernel.org/dri-devel/20250627145058.6880-1-mike.looijmans@topic.nl/
 > 
-> That said, taking a step back (I’m not sure why I was being so stubborn about this),
-> since the kernel_alias area is mapped using block mappings,
-> a simple calculation based on your dm_meminfo patch should be sufficient to
-> determine the number of page tables that need to be pre-allocated for
-> splitting the linear mapping, without having to walk the page tables again.
+> Changes in v2:
+> - Allow specifying blend mode default
+> - Advertise coverage instead of premulti, since that's what the hardware
+>   supports.
+> - Set default blend mode to none since that's what the default was
+>   before this series.
 > 
-> So, after your dm_meminfo patch, I plan to respin this patch based on that.
+> Sean Anderson (4):
+>   drm/drm_blend: Allow specifying blend mode default
+>   drm: zynqmp: Check property creation status
+>   drm: zynqmp: Make the video plane primary
+>   drm: zynqmp: Add blend mode property to graphics plane
 > 
-> Am I missing anything?
+>  drivers/gpu/drm/drm_blend.c       | 22 ++++++-------
+>  drivers/gpu/drm/xlnx/zynqmp_kms.c | 53 +++++++++++++++++++++++++------
+>  include/drm/drm_blend.h           | 26 +++++++++++++--
+>  3 files changed, 78 insertions(+), 23 deletions(-)
+> 
 
-Yeoreum and I had an offline chat about all this and I just want to spell out
-the conclusion for everybody;
+I think the series looks fine, but there's still the main question of
+whether making video plane primary is the best choice. I'll summarize my
+understanding of our two options here:
 
-We believe it's impossible for the secondary CPUs to have any scheduled work
-during this window, and therefore it's impossible for the split race to occur,
-and it's impossible for there to be any contention on the page allocator lock.
-All of which means that in practice, there are no bugs here and the code is safe
-as is, even for PREEMPT_RT.
+1) Make video plane primary plane, and thus graphics plane an overlay
+plane. The downside here is that, at least to me, the plane types feel
+like they are the wrong way around, and any existing code that depends
+on the plane type may start to fail. That said, the plane type is
+supposed to be a legacy thing, and a modern userspace should just look
+at the plane properties to decide how to use them (which raises the
+question of why is X/Weston even failing).
 
-That said, allocating memory inside of stop_machine() is a bad smell, so Yeoreum
-will rectify this down the track; it's not urgent though.
+2) Add XRGB format to the graphics plane. This should work fine too, as
+long as we make sure using XRGB with per-pixel alpha will fail (i.e.
+only global alpha supported with XRGB). Afaics that could be done with a
+check in atomic_check.
 
-Thanks,
-Ryan
+Does anyone have strong arguments for either of these options?
 
+ Tomi
 
