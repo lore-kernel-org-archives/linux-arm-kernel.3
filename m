@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6BD2D3EE92
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 17:00:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F6E2D3EE84
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 17:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hhc3I3a02gAF7Y2SEs85YJYgHnvzTB5GosZcnrbfzB0=; b=0liPQuahP/7dFZbgvlntrNCNT6
-	3nwEO8rxHXVnu8N8jn2l9YIgwJRnxIBdDsbo8nbVgkROOaJFWrw3cnvTiILAcn+zhDGQcix/ncggi
-	7p5ZYW8tGLmN6j3+BVO34I90hb7oVLO/eEVjnRNJ88PaoXD52cIMhuTBA2p4Boz9KYz7nsBHXhVvd
-	QoX24AFIRGVAVZRi3WNUZIA3dARz06GpVb8uqwLel2Y49YDXOUBVxolYymwPbQ3KCfNhKFS6bimvp
-	SoedyzpzGcyUBintkEUX6e2ESm0wKHWSM/ZSKcov0jwaCuTGQmNXh8Wt1blvaSkyhk7xovB/I1dMd
-	htUygn4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n0SpgQKDSTMdumq2nqWRW+00PRnLmGzlEu391tEJyo4=; b=A5t/snS7/0me7qCvAqsxoou1Jw
+	VyLh1uqoiKDTlGGymw3IgKlHVUhsEx4PBWhU21Et70EGNjjUnxZQ6nR2XSFedqy95JavjUviO5EFe
+	D0TpPqGWPoeNF6A3eeOSU9yhsTs5/GA9XAN3Z9wZbGHu1p0EAhK4E3GFtbTFFL2YkwzDkVwO2G3AC
+	ShCkMTM0Z/sR+N04Hn20g5AxX4fLgvu+rPJnlTnoEvJbu7wZ4A8OuDQeA9hxCpnJwFpyCJ01XQoAo
+	RgpmttAX+FGbkwfxex5uIHOg6TRdm3/P2E5QAJ6iTfGwGWVTPmHBNcfqURQGXMCZBcM7+UHUx1w67
+	hrWCSFlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viy2Y-00000007WGY-0Rib;
-	Thu, 22 Jan 2026 17:00:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1viy57-00000007WtD-2FSn;
+	Thu, 22 Jan 2026 17:02:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viy2S-00000007WEp-1pKu
+	id 1viy54-00000007WsM-35jM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 17:00:08 +0000
+	Thu, 22 Jan 2026 17:02:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DAA856012A;
-	Thu, 22 Jan 2026 17:00:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CA2CC19423;
-	Thu, 22 Jan 2026 17:00:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5B0C7443A6;
+	Thu, 22 Jan 2026 17:02:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C979C2BCC7;
+	Thu, 22 Jan 2026 17:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769101207;
-	bh=/kVRH7OmN6EDRj9qO26TDaI1PWDz6NtgN64FPwIvgqY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=X6WtaTXS+RGPqz3QNaE5Z975zw7cbweVuLPVUBi3sjk5fgA4wSwQzRSiNmj2RmftH
-	 5cFVLOJj7VkznY2vRcU7F1/MWr0RINqXQLrZNhlc9O1iYCQ1lWIvQlfoudkGLYnGSs
-	 Bw6sxvcNOBJ2f3i3RzUd4aCq3oDT3duvCP3hkpn04iDVYROxBeSwmyHCIjjeB+GKdi
-	 bRfULfJk0UF7HYJX+LsS6qd+evo3dx+jEjeQwVqNJ8WHF8RbmpHZgSEgeSNvacjz2Z
-	 5RXLg+I9uwiHsZkIIMXjPrOwtZ1+8nf2SQnWu6RKyyjRkKGFJKF+1WiLSaZihOtXpj
-	 nEYVQ+aekpsOw==
+	s=k20201202; t=1769101370;
+	bh=8Di+d5LNGkQeLD8QHMF/2WgXm18OJxzuQn6e5pLoWSo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GGFZUicXfLJgtlq2ZWK19Hli0iSf4cGT7AXDv34CmVl85T4HWXWiRBkrN7He/TQrY
+	 JIW8KRgYsXEQCcrDyUgDusbiDPea5gqLbz8wpkje+SKPSY+AkHW7pVZeEBEZbhveF4
+	 4olUq5fAwTYeH6iyVcQGOA5tskAeUTwWAKLEFxM0MbTE/P+AzzPrg43snhKnSz19Io
+	 cST22gK/10YNjAtUV1X51LnodAjX8Z24Yk1+eLKVf1CJLGtrGLwHBiIssKr922tVrp
+	 unoW06EKd94S3n5XFwj+PI5e6vrS/6gAM9bG8IvDh81RdDQsa92lJlcLb/IMGI9wfN
+	 l068kEHkUTHIg==
+Date: Thu, 22 Jan 2026 17:02:44 +0000
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Marc Zyngier <maz@kernel.org>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH 0/3] arm64: Unconditionally compile LSE/PAN/EPAN support
-Date: Thu, 22 Jan 2026 16:59:44 +0000
-Message-ID: <176907700325.2035103.13197425164234703706.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260107180701.2858276-1-maz@kernel.org>
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 2/3] arm64: Unconditionally enable PAN support
+Message-ID: <aXJYNNmg5ZYdx-5c@willie-the-truck>
 References: <20260107180701.2858276-1-maz@kernel.org>
+ <20260107180701.2858276-3-maz@kernel.org>
+ <86sebxc2qq.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86sebxc2qq.wl-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260122_090250_796461_8FB41387 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,28 +77,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 07 Jan 2026 18:06:58 +0000, Marc Zyngier wrote:
-> FEAT_LSE and FEAT_PAN have been around for a *very* long time (ARMv8.1
-> was published 11 years ago), and it is about time we enable these by
-> default. The additional text is very small, the advantages pretty
-> large in terms of performance (LSE) and security (PAN), and it is very
-> hard to find a semi-modern machine that doesn't have these (even the
-> RPi5 is ARMv8.2...).
+Hey Marc,
+
+On Thu, Jan 22, 2026 at 11:21:01AM +0000, Marc Zyngier wrote:
+> On Wed, 07 Jan 2026 18:07:00 +0000,
+> Marc Zyngier <maz@kernel.org> wrote:
+> > 
+> > FEAT_PAN has been around since ARMv8.1 (over 11 years ago), has no compiler
+> > dependency (we have our own accessors), and is a great security benefit.
+> > 
+> > Drop CONFIG_ARM64_PAN, and make the support unconditionnal.
 > 
-> [...]
+> Since you mentioned that you were planning to merge this patch, I'd
+> like to point out that a related change[1] is on its way to Linus via
+> the KVM tree for 6.19. It is also in -next due to dependencies.
+> 
+> Could you please place these patches on a branch that I can pull in
+> the kvmarm tree to resolve the conflict? It really amounts to
+> reverting this patch now that we are guaranteed to have PAN on an
+> PAN- machine.
 
-Applied first two to arm64 (for-next/cpufeature), thanks!
+You can use for-next/cpufeature. It has these plus the LS64 stuff that
+you might also want to pull into the kvm/arm tree.
 
-[1/3] arm64: Unconditionally enable LSE support
-      https://git.kernel.org/arm64/c/6191b25d8bd9
-[2/3] arm64: Unconditionally enable PAN support
-      https://git.kernel.org/arm64/c/018a231b0260
+Please yell if you have any issues.
 
 Cheers,
--- 
-Will
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+Will
 
