@@ -4,106 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1415DC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:40:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E65FFC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2TjTf6zh9Fx3sE0uWzBPNtiySLdHe+lul2+VzXVd1DE=; b=QaPUz+w9h8oeuSpiSOtQ06bO3L
-	50rXBxCfF4kWw3cTgqm3K3b6pOwjMbp7YxS2vlwNBLS9AGlstJMWKWqMTK9cLjV1wfvkzXpKhoU/G
-	6BXxqEr/oK0xO3HIkHsusraRvdmBlPi8SPIfz2GrVzg/RkNNNTYuYhe1yEuKgopH8/9l/R7bgpTCv
-	YhlImtqWmKKE5kKPI+SILIuhiyJgj2Q/41Qr3Wk6++ZgDj9YCCm2QjOsTTTWmIJ54b1RL2Uo5qKN5
-	aUd3F0JW9S/3ZtODKogUMAPrxxb1HO0JOPljufvrAocb5dC7NdSUAHSwyN0NPGYMD65eC4tL3Qd4/
-	9hNeh4KA==;
+	bh=vnmCHgzGK5sCV4n+d8iX5gy1NawC5j7GjLG5PuEIiYY=; b=pQ92wFXzFIrW9oORX+HFpfXxWu
+	09V9s7zA+Gq7twmAbcwbz25eLOGYHYXkEPwuiZwIUxAL4Nil9y3uaOteWRBBnEXf1rKUqMLiUobQi
+	cfc2YvhwH1kB1mHyeyx/OS8fDXY8Cv/VyOxbQs3xxdyBiXM52TJ7DGfiWp2CDaQUYFmq8/muL7Cjr
+	KRRzjI/vF8S2CB0/UDpAbsDt2+UMDPfjFW280NU42yQQciV6IafA86dlFQeK3H+/y/mAIbf/ngGW8
+	D7ftwJD+btP25L8XibxMR6VayMpN4QdtqWmrXm5bsnPCJflh8o1lHwi+xrNa+C6suSRnt8NGCOt3/
+	fDQBxeSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vis6x-00000006rXU-1MaO;
-	Thu, 22 Jan 2026 10:40:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vis74-00000006rfb-2BR1;
+	Thu, 22 Jan 2026 10:40:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vis6r-00000006rRv-4AWN
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 10:40:18 +0000
+	id 1vis6y-00000006rY5-2Hq8;
+	Thu, 22 Jan 2026 10:40:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=vnmCHgzGK5sCV4n+d8iX5gy1NawC5j7GjLG5PuEIiYY=; b=Ur7a/jHdIax1B+RJVZj94u2pJ4
+	vvUePYbQRZ8c88Udef5FaiP5V7J5LBsCPU0ISnWB/e1zsgKbsnxGe8A7p6Rui+qUew1XTRY6hsQy5
+	TtcpmFhFln1EcCQK/Oz+02RJo6BJn6nKwQEIqL473v376l8D1BJ7ZEu5Z9udrNbUVAmPaa9jQPkFp
+	MEUEe+lzRHTnPhq11PKF4HVDSpuXh0lwbETE5FBS/4vM10qzMbZYcgmvZ+TO7A1U0KflPyQt9qZh7
+	horuiZRijdgQD+PsPSOjGE+CIFY6V/zCJWXQakMmjdnq6gEiSUXKxretkI2bSRFgm9uRVCsQ1zvYS
+	bWzBhttg==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vis6u-00000000AKL-0XpY;
+	Thu, 22 Jan 2026 10:40:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E32660128;
-	Thu, 22 Jan 2026 10:40:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D96EC16AAE;
-	Thu, 22 Jan 2026 10:40:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D536344018;
+	Thu, 22 Jan 2026 10:40:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63304C19423;
+	Thu, 22 Jan 2026 10:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769078417;
-	bh=BEb1I6PIOTPD2IpDmM2BMQdP4KohSu2acuASYega7Ps=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kIZQ1rWf21P9xdtR/xYmgNR1wnN2cvRYzRWNnUEoEARNQIwxFNbB8ZoAubFnqjVu4
-	 aPIyUZ2k2pjseF7D0FU//xYtpAAVtNwHfkAkLBf9A+sp0a+z7eKVYn7Z6dFgrrVJVZ
-	 bxo3NwzZuPeIRGVM0PJtk7DO8+myRLr5ikUMl/7RtxczJi7xy+3iWr6quyHYYLHOiY
-	 IJ4u/0yy3CIPb/OZFh0trFrCvHHdhvkWqT91BWCF4aLMOiBzLYLUL46W5E37q1yHGe
-	 SM73QA1lad5bqE/wlG0gLBN+ph/k34vN/qqUlHlmpBpkI3oVvmknqRu97x7Kjafe0C
-	 SrY9xFmC/sDzQ==
-Message-ID: <15119728-7a22-4e2c-8716-9b0c9def24ae@kernel.org>
-Date: Thu, 22 Jan 2026 11:40:12 +0100
+	s=k20201202; t=1769078418;
+	bh=0+Uz7U0K2hAVNFxVHZqznnMry9ZhYLXUD0TV1aT9XQQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=YnmmjHfmcgQkM/2XkMRxUoHmYESTfT7qhstYh0nzkLp03Alqci7O23+Z4XkFjNiXr
+	 R95utEE05/ZouqIi1koR5W17LX4nyxSK8oBQ3PsGG6+dZzkYX1Sa25tSRBfcl+A9Lt
+	 vE+0TXtz1uhvgdIUznBXt7EffdaNE5o0BdIlzsTqZmj7s4yDS+g+Z0xh4u5/otQKE2
+	 9xOALLNhHxrtep/4qtqlzy2tyBRYQPodghqE301A7dkI4qrnGhXq+afX3wnGUQoP7Z
+	 VCVf6GGlAOHz01fRZY3y/sy8Pt2ZISe8EoocPprJcSRUzejdt0XGBhxyfylK0gWUxx
+	 FcoH3jaFVmzaQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 22 Jan 2026 11:39:49 +0100
+Subject: [PATCH mt76 v2 05/17] wifi: mt76: mt7996: Fix wdma_idx for MT7996
+ device if NPU is enabled
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] Add and enable USB nodes for ExynosAutov920 SoC
-To: Pritam Manohar Sutar <pritam.sutar@samsung.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- rosa.pila@samsung.com, dev.tailor@samsung.com, faraz.ata@samsung.com,
- muhammed.ali@samsung.com, selvarasu.g@samsung.com
-References: <CGME20251024114018epcas5p4e09ca8ea47ff2295a08a162864a47284@epcas5p4.samsung.com>
- <20251024114845.2395166-1-pritam.sutar@samsung.com>
- <000001dc8b8a$543269d0$fc973d70$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <000001dc8b8a$543269d0$fc973d70$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260122-mt76-npu-eagle-offload-v2-5-2374614c0de6@kernel.org>
+References: <20260122-mt76-npu-eagle-offload-v2-0-2374614c0de6@kernel.org>
+In-Reply-To: <20260122-mt76-npu-eagle-offload-v2-0-2374614c0de6@kernel.org>
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Kang Yang <kang.yang@airoha.com>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260122_104020_630610_2AD3DDFF 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,51 +91,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/01/2026 11:31, Pritam Manohar Sutar wrote:
-> Hi All, 
-> 
->> -----Original Message-----
->> From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->> Sent: 24 October 2025 05:19 PM
->> To: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
->> alim.akhtar@samsung.com
->> Cc: devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
->> samsung-soc@vger.kernel.org; linux-kernel@vger.kernel.org;
->> rosa.pila@samsung.com; dev.tailor@samsung.com; faraz.ata@samsung.com;
->> muhammed.ali@samsung.com; selvarasu.g@samsung.com;
->> pritam.sutar@samsung.com
->> Subject: [PATCH 0/3] Add and enable USB nodes for ExynosAutov920 SoC
->>
->> This SoC has 2 USB typeC and 2 typeA ports those are DWC3 DRD controllers and
->> amoung them, one is USB3.1 DRD combo phy and three
->> USB2.0 phy controllers. This patchset adds and enables USB and USB-PHY nodes
->> in dts.
->>
->> PMIC driver is not implmented yet, we rely on USB LDOs being enabled by the
->> bootloader and used dummy regulators for now.
->>
->> To drive vbus for host mode, it needs GPIO pin to enable vbus regulator.
->> GPIO expander is present in the dts, we used it to enable the vbus regulator
->> using GPIO.
->>
->> USB ports are configured as OTG, and default mode is configured as peripheral.
->> These configurations might be changed based on requirements.
->>
->> This patchset has dependancy on schema and driver implementation[1] and role
->> switch control from userspace[2] patches.
->> [1]: https://lore.kernel.org/linux-phy/20251010070912.3758334-1-
->> pritam.sutar@samsung.com/
->> [2]: https://lore.kernel.org/linux-usb/20251024085455.789555-1-
->> pritam.sutar@samsung.com/
+This is a preliminary patch to enable NPU offload for MT7996 (Eagle)
+chipset.
 
-This wasn't even a dependency...
+Tested-by: Kang Yang <kang.yang@airoha.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-> 
-> Above dependent patches are merged, can you please review the patchset? 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index 78151197feccb0197e44f3f73c0f01c4589314ae..3aa0a7bf830550a05c6f5925014c7c34e0e99f78 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -2237,6 +2237,10 @@ mt7996_net_fill_forward_path(struct ieee80211_hw *hw,
+ 		path->mtk_wdma.wdma_idx = wed->wdma_idx;
+ 	else
+ #endif
++	if (is_mt7996(&dev->mt76) && mt76_npu_device_active(&dev->mt76) &&
++	    msta_link->wcid.phy_idx == MT_BAND2)
++		path->mtk_wdma.wdma_idx = 1;
++	else
+ 		path->mtk_wdma.wdma_idx = link->mt76.band_idx;
+ 	path->mtk_wdma.bss = link->mt76.idx;
+ 	path->mtk_wdma.queue = 0;
 
-I closed my tree few days ago, so next cycle, but please resend, because
-this is three months old now. I dropped it from my queue long time ago.
+-- 
+2.52.0
 
-Best regards,
-Krzysztof
 
