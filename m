@@ -4,61 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B2B6D3EE6A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 14:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF105D3EE6C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 14:26:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NnlhbM3eNcQ/ckO95S+wk1PoP4QciSKVPRu06xD3lfE=; b=auSETD0j0HHWfFtcmielMN9dCj
-	g7akflkinh759QhOe6Iu1qZ33haifz2FCniVOSd/77unvQokv8gxW9HjuXUCLBt7d0HgwpKIzNSD9
-	GTDJaopSKMf5XDUUpUOc6KhaYWrAJnqhdfyc/caYnkOQmxzlBsb5rDby88hS5Gr0nmaousQgwAv8h
-	5hSM2MIWoNrIM5l450FX8cWZNp9g4bsfqoGo81w4l69uLOa8HbJTgb5XOXzBMSieFUJSpnHcBgm7d
-	QB6Iroq0hOAptfec27fRrV/JbtKvibdfR/tTPSKlu/MY3HTNV2Hb77OgHm8RG5KnPaFpCYde2JgvJ
-	h4d8DMtw==;
+	bh=E7mVwEd6fwIbimNEJlQo8+vfAVD2+XS/xZOfgS1b43M=; b=WyNbYtLtydZ2JGXkzEdpkhkCR8
+	9eJRkUVsyokaYrqvtr0qNsWfPdsGd50K1u3ySWiAWZKULH0xDS63Y2NfOFkap7KHgDhdXB4yRaD8T
+	J1bSsqgRQFSVoHE2fPmri1KO6cbK1D26wbp3/tftBO1MCnHM2WjUfJfH2PCh3LAF7Iaw9uOkOW+23
+	Z+xhmSXhFgjlUZsIxK2T8OqQ2BMuTmHnoQ9kuOgoCS4R8tcPBsv/8YkEP77aYbxnV4/PxLJ9F47zw
+	FU+stOLFR6eHBU7WF6SDvVdnLoj103nbTNz6k9bGh9hLAHIT39ZtocPGnXDllEL12PgBnk9WKMAIu
+	W8dS7Z3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vivUq-00000007DhF-1o7U;
-	Thu, 22 Jan 2026 14:17:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vivdD-00000007Eij-3W3x;
+	Thu, 22 Jan 2026 14:25:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vivUm-00000007Dgo-2yIE
+	id 1vivdC-00000007EiE-2Yii
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 14:17:14 +0000
+	Thu, 22 Jan 2026 14:25:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A02D42A6A;
-	Thu, 22 Jan 2026 14:17:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D38FC116C6;
-	Thu, 22 Jan 2026 14:17:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 94D6E600C3;
+	Thu, 22 Jan 2026 14:25:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3070C116C6;
+	Thu, 22 Jan 2026 14:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769091430;
-	bh=lIfOPZSdVgQApVz2HFCXNthla9jzf7JmOcaDnitp0Pg=;
+	s=k20201202; t=1769091953;
+	bh=Yl2qHTWE9Fz/7zZDgzhuQhCUpz24c+UW8s5oFbDoqv4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hlVz7b3JVVn7pYjcwvd6YEnMJ5g7DRxJ3b3htjZM6QTJ1a2ldo1eruxkHWQ+O6xGV
-	 HjaeTGcceKT5ECiBfocf/YiR4B58ZutUkdHB6OFTnhI5SpbgpF60imXNYrPhTYMBwq
-	 M1+hkwQevPDQjUwRHvnNH0BE+5GGpfwgOHBxrEUk632AHQ2DqlXvMjLeYTuQZEu0rV
-	 +SgqQUxlbLM+VDTeaOlDO+/JU03Fgpy/lkljfWikQmBFhgjqTPKHgFGlhYJkMpJiDK
-	 mWrRxjGrxgiw34Pln9mO3+KC02NwxzrkorYZo+OgdX3JjXq9GwfJrXM0Hl0dUcO5yJ
-	 PTcV9MUuS0Sdg==
-Date: Thu, 22 Jan 2026 14:17:05 +0000
-From: Will Deacon <will@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com,
-	ryan.roberts@arm.com, cl@gentwo.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [v5 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-Message-ID: <aXIxYcAsbFZn3ZNU@willie-the-truck>
-References: <20260107002944.2940963-1-yang@os.amperecomputing.com>
- <965a0b46-f32e-40e6-ab71-211f84d6c3cf@arm.com>
+	b=dgksenNLm8vVcFnylVsW42Tv+ZdtC5W29o1qOctfuLKEDknRSTgAq8uzfYssEItmI
+	 1/wOROGwmmKK4A6J0Uf0YffnAOAuPW+Z6RN9LrRJxi0cMAMDPJW+sHCCBqhwnraKRy
+	 kJJ07EzgsYxVOO45tD2+zF7iBGbuIZkGKgSP05MJZvD+tcbKYbrvLKNW11VeHgFWi+
+	 VU9GuE9ZZl3qbAvIeLSbzdH7Yue/O7ulWuBcayymCEG/yFqi3DTV/nqppK2pyvu/Jm
+	 wh4/199cda1IpN1SL0mJt6msWh7JYksIQOb9a5HPcwS51wHfuEWcY3g1/EH2SLxa1V
+	 CSmkUrJoC7XpQ==
+Date: Thu, 22 Jan 2026 15:25:50 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chen Ridong <chenridong@huawei.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-block@vger.kernel.org, linux-mm@kvack.org,
+	linux-pci@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 29/33] sched/arm64: Move fallback task cpumask to
+ HK_TYPE_DOMAIN
+Message-ID: <aXIzbmitdoJIMFCP@localhost.localdomain>
+References: <20260101221359.22298-1-frederic@kernel.org>
+ <20260101221359.22298-30-frederic@kernel.org>
+ <aW-cAlJCtI5Qtify@willie-the-truck>
+ <aXEHf5nbZMI8LT4b@localhost.localdomain>
+ <aXH0TZU7UNowTmwc@willie-the-truck>
+ <aXIKDduX5qUXvOUX@localhost.localdomain>
+ <aXILtazyRtpb3Yjy@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <965a0b46-f32e-40e6-ab71-211f84d6c3cf@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_061712_767556_137085D3 
-X-CRM114-Status: GOOD (  20.69  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aXILtazyRtpb3Yjy@willie-the-truck>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,45 +101,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 10:39:25AM +0530, Anshuman Khandual wrote:
-> Hello Yang,
+Le Thu, Jan 22, 2026 at 11:36:21AM +0000, Will Deacon a écrit :
+> On Thu, Jan 22, 2026 at 12:29:17PM +0100, Frederic Weisbecker wrote:
+> > Le Thu, Jan 22, 2026 at 09:56:29AM +0000, Will Deacon a écrit :
+> > > On Wed, Jan 21, 2026 at 06:06:07PM +0100, Frederic Weisbecker wrote:
+> > > > Le Tue, Jan 20, 2026 at 03:15:14PM +0000, Will Deacon a écrit :
+> > > > > Hi Frederic,
+> > > > > 
+> > > > > On Thu, Jan 01, 2026 at 11:13:54PM +0100, Frederic Weisbecker wrote:
+> > > > > > When none of the allowed CPUs of a task are online, it gets migrated
+> > > > > > to the fallback cpumask which is all the non nohz_full CPUs.
+> > > > > > 
+> > > > > > However just like nohz_full CPUs, domain isolated CPUs don't want to be
+> > > > > > disturbed by tasks that have lost their CPU affinities.
+> > > > > > 
+> > > > > > And since nohz_full rely on domain isolation to work correctly, the
+> > > > > > housekeeping mask of domain isolated CPUs should always be a superset of
+> > > > > > the housekeeping mask of nohz_full CPUs (there can be CPUs that are
+> > > > > > domain isolated but not nohz_full, OTOH there shouldn't be nohz_full
+> > > > > > CPUs that are not domain isolated):
+> > > > > > 
+> > > > > > 	HK_TYPE_DOMAIN | HK_TYPE_KERNEL_NOISE == HK_TYPE_DOMAIN
+> > > > > > 
+> > > > > > Therefore use HK_TYPE_DOMAIN as the appropriate fallback target for
+> > > > > > tasks and since this cpumask can be modified at runtime, make sure
+> > > > > > that 32 bits support CPUs on ARM64 mismatched systems are not isolated
+> > > > > > by cpusets.
+> > > > > > 
+> > > > > > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> > > > > > Reviewed-by: Waiman Long <longman@redhat.com>
+> > > > > > ---
+> > > > > >  arch/arm64/kernel/cpufeature.c | 18 +++++++++++++++---
+> > > > > >  include/linux/cpu.h            |  4 ++++
+> > > > > >  kernel/cgroup/cpuset.c         | 17 ++++++++++++++---
+> > > > > >  3 files changed, 33 insertions(+), 6 deletions(-)
+> > > > > 
+> > > > > tbh, I'd also be fine just saying that isolation isn't reliable on these
+> > > > > systems and then you don't need to add the extra arch hook.
+> > > > 
+> > > > Hmm, I think I heard about nohz_full usage on arm64 but I'm not sure.
+> > > > And I usually expect isolcpus or cpuset isolated partitions to be even
+> > > > more broadly used, it's lighter isolation with less constraints.
+> > > > 
+> > > > Anyway you're probably right that we could remove isolation support here
+> > > > but I don't want to break any existing user.
+> > > 
+> > > fwiw, I think it's only some Android markets using the mismatched 32-bit
+> > > support and we're definitely not using nohz_full there.
+> > 
+> > Now that removal becomes appealing. And what about isolcpus= / isolated cpuset
+> > which only consist in scheduler domain isolation? Probably not used by android
+> > either.
+> > 
+> > Ok but is there a way to detect on early boot that the system has mismatched
+> > 32 bits support? Because I need to fail nohz_full= and isolcpus= boot parameters
+> > early on top of this information without waiting for secondary CPUs boot.
 > 
-> On 07/01/26 5:59 AM, Yang Shi wrote:
-> > Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
-> > rodata=full"), the direct mapping may be split on some machines instead
-> > keeping static since boot. It makes more sense to show the direct mapping
-> > use in /proc/meminfo than before.
+> Honestly, I'm not sure I'd bother trying to be smart here. Even if the
+> system has enabled support for mismatched 32-bit CPUs, things should
+> still work properly with nohz_full/isolcpus if all the tasks are 64-bit,
+> right?
 > 
-> I guess the direct mapping here refers to linear map ? IIUC it is called
-> direct map on x86 and linear map on arm64 platforms. Then should not it
-> be renamed as s/DirectMap/LinearMap instead ? This will align with names
-> from ptdump as well.
-> 
-> Before the above mentioned commit, linear could get altered with memory
-> hotplug and remove events as well.
-> 
-> > This patch will make /proc/meminfo show the direct mapping use like the
-> > below (4K base page size):
-> > DirectMap4K:	   94792 kB
-> > DirectMap64K:	  134208 kB
-> > DirectMap2M:	 1173504 kB
-> > DirectMap32M:	 5636096 kB
-> > DirectMap1G:	529530880 kB
-> 
-> If /proc/meminfo interface is getting updated via  arch_report_meminfo()
-> why not add stats for all kernel virtual address space ranges including
-> vmemmap, vmalloc etc aka all address range headers in ptdump as many of
-> those could change during system runtime. What makes linear mapping any
-> special ?
+> In which case, I'd just document whatever weird behaviour you get if
+> somebody throws 32-bit tasks into the mix. Adding hooks to the generic
+> code for this use-case just seems like a waste, as they're not going to
+> be used in practice and it increases the maintenance burden.
 
-tbh, I think compatability with x86 is a good argument in this case and
-so the naming and formatting proposed by this patch makes sense to me.
+Ok, how does this updated version look now?
 
-I'm also not sure that it's particularly interesting to see these
-rolled-up numbers for the vmalloc area. You really want information
-about the area, so extending /proc/vmallocinfo to give information
-about the granule size for each entry might be useful but I don't think
-it should be part of this patch.
+---
+From: Frederic Weisbecker <frederic@kernel.org>
+Date: Thu, 24 Jul 2025 23:38:48 +0200
+Subject: [PATCH] sched/arm64: Move fallback task cpumask to HK_TYPE_DOMAIN
 
-Will
+When none of the allowed CPUs of a task are online, it gets migrated
+to the fallback cpumask which is all the non nohz_full CPUs.
+
+However just like nohz_full CPUs, domain isolated CPUs don't want to be
+disturbed by tasks that have lost their CPU affinities.
+
+And since nohz_full rely on domain isolation to work correctly, the
+housekeeping mask of domain isolated CPUs should always be a subset of
+the housekeeping mask of nohz_full CPUs (there can be CPUs that are
+domain isolated but not nohz_full, OTOH there shouldn't be nohz_full
+CPUs that are not domain isolated):
+
+	HK_TYPE_DOMAIN & HK_TYPE_KERNEL_NOISE == HK_TYPE_DOMAIN
+
+Therefore use HK_TYPE_DOMAIN as the appropriate fallback target for
+tasks. Note that cpuset isolated partitions are not supported on those
+systems and may result in undefined behaviour.
+
+Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marco Crivellari <marco.crivellari@suse.com>
+Cc: Michal Hocko <mhocko@suse.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Tejun Heo <tj@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Waiman Long <longman@redhat.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+---
+ Documentation/arch/arm64/asymmetric-32bit.rst | 12 ++++++++----
+ arch/arm64/kernel/cpufeature.c                |  6 +++---
+ 2 files changed, 11 insertions(+), 7 deletions(-)
+
+diff --git a/Documentation/arch/arm64/asymmetric-32bit.rst b/Documentation/arch/arm64/asymmetric-32bit.rst
+index 57b8d7476f71..fc0c350c5e00 100644
+--- a/Documentation/arch/arm64/asymmetric-32bit.rst
++++ b/Documentation/arch/arm64/asymmetric-32bit.rst
+@@ -154,10 +154,14 @@ mode will return to host userspace with an ``exit_reason`` of
+ ``KVM_EXIT_FAIL_ENTRY`` and will remain non-runnable until successfully
+ re-initialised by a subsequent ``KVM_ARM_VCPU_INIT`` operation.
+ 
+-NOHZ FULL
+----------
++SCHEDULER DOMAIN ISOLATION
++--------------------------
+ 
+-To avoid perturbing an adaptive-ticks CPU (specified using
+-``nohz_full=``) when a 32-bit task is forcefully migrated, these CPUs
++To avoid perturbing a boot-defined domain isolated CPU (specified using
++``isolcpus=[domain]``) when a 32-bit task is forcefully migrated, these CPUs
+ are treated as 64-bit-only when support for asymmetric 32-bit systems
+ is enabled.
++
++However as opposed to boot-defined domain isolation, runtime-defined domain
++isolation using cpuset isolated partition is not advised on asymmetric
++32-bit systems and will result in undefined behaviour.
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index c840a93b9ef9..f0e66cb27d17 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -1669,7 +1669,7 @@ const struct cpumask *system_32bit_el0_cpumask(void)
+ 
+ const struct cpumask *task_cpu_fallback_mask(struct task_struct *p)
+ {
+-	return __task_cpu_possible_mask(p, housekeeping_cpumask(HK_TYPE_TICK));
++	return __task_cpu_possible_mask(p, housekeeping_cpumask(HK_TYPE_DOMAIN));
+ }
+ 
+ static int __init parse_32bit_el0_param(char *str)
+@@ -3987,8 +3987,8 @@ static int enable_mismatched_32bit_el0(unsigned int cpu)
+ 	bool cpu_32bit = false;
+ 
+ 	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0)) {
+-		if (!housekeeping_cpu(cpu, HK_TYPE_TICK))
+-			pr_info("Treating adaptive-ticks CPU %u as 64-bit only\n", cpu);
++		if (!housekeeping_cpu(cpu, HK_TYPE_DOMAIN))
++			pr_info("Treating domain isolated CPU %u as 64-bit only\n", cpu);
+ 		else
+ 			cpu_32bit = true;
+ 	}
+-- 
+2.51.1
+
 
