@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EFCBD3EE74
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:03:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 776B2D3EE75
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cNoOeyLdRbrJPSI/I28lkpAsBvsGiM1vvz72sBr9geA=; b=qOPcxUPsnTrKT3e9OKCTW+moMJ
-	iyUj9Ry2vy2+veFFSwu31pzlc/+eLsE7+WGUane9I9etSb+sakqIozp54u99pwA3W+1kvpjg9XB8W
-	SRJVzd7m2RvZ/e/Fe+FJ7rb249PrBFqN0Z6GKIBznb3mRUAJLkfyfgdKMWF6VLPW4/wTFjAXQOo3a
-	0wvttADwiLEbN4BtiGeKJ6ikZ6F1SnHEtuWVnIABr5KKOKmri1ERBbBNhlteEgHU7WO8A2hzAhnAz
-	KvphtfCzP7VPvHO5YyJZXT4b85lKaq19QiSqf1YfqfoVSb5i+C2UetocXq+sIseiQD5FxtpvcgOCB
-	25uDNxaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j0BxcwiL+Qsr+b49XAdCQspH1hqmlax6jstGSGYyVec=; b=r21nNTjerF76WRorXjgfYxGR/u
+	TayfRsolVkKMNqSGrbLfktNBrdP05FhiyBgvJzQ3vZDLZlwyTLaUSgBxwvQvqOL+9ZxbS5l4gjAgo
+	V68GyhewWj6KjhmqrkEiT3ztJZQ/oU4PVH+Nxu0YDOSFkkrKNPmRltfRpKMT9+jqNKtGvatnGAfx3
+	giFohmUzmDmTZN2t7p+xoq9vA+HE7XWfH9y66aWnaDnvLEpzyjubk/EaRHpyfhV68do5vTT3jNMXk
+	PRkm4+6+dqO6uxwSOr8HF9knqOzgHzWmlfzlG3wBIAjuavPXYeDEWbR5bS5Y+MwvpllJqj6IoCRHH
+	WTgU2GiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwDV-00000007I2y-019h;
-	Thu, 22 Jan 2026 15:03:25 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1viwDf-00000007I5b-1H5H;
+	Thu, 22 Jan 2026 15:03:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwDR-00000007I2M-0CX5
+	id 1viwDc-00000007I4W-0rOl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 15:03:23 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 1853AC21AA6;
-	Thu, 22 Jan 2026 15:03:19 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 37575606B6;
-	Thu, 22 Jan 2026 15:03:19 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 47242119B82C7;
-	Thu, 22 Jan 2026 16:03:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769094197; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=cNoOeyLdRbrJPSI/I28lkpAsBvsGiM1vvz72sBr9geA=;
-	b=bT6zFJXHZg4b/0Yur0HKyDxB7YVrRbw3CMxP+5Ir+R40QcBKAyqf+FJzlDonCEznoyVNhA
-	CCIHPkx+8/4GfsBmOyxq6hpQXyXd70tOyjrkZ1mWoKbBcueernf7T74/w7ABXAppVSQiJW
-	gDaaxcO7w2GjB17wCIKYfJ9NoXRjJZZRzjuDGxH5yMy0DAUsRJc3+mgmkPcPsf2LgQ9S45
-	H0XQkUyNrcZeWp/BK1JoD1rGYKDTSlEW4BU1MHdTqjT6VF1rtFC/yC6cD8knyTdXTEnCjH
-	i3JPQ0RGKBnqI0NzKNB/ifdENXRodl2vEY9kS+4LCNKTKV66j0jey1UVBH9f2Q==
-Date: Thu, 22 Jan 2026 16:03:11 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, Jyri Sarha
- <jyri.sarha@iki.fi>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
- <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren
- <tony@atomide.com>, Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Markus
- Schneider-Pargmann <msp@baylibre.com>, Bajjuri Praneeth <praneeth@ti.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, Miguel Gazquez
- <miguel.gazquez@bootlin.com>, Herve Codina <herve.codina@bootlin.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-omap@vger.kernel.org
-Subject: Re: [PATCH v4 20/25] drm/tilcdc: Use devm_drm_of_get_bridge()
- helper
-Message-ID: <20260122160311.658cc219@kmaincent-XPS-13-7390>
-In-Reply-To: <20260122-camouflaged-cat-of-sorcery-7af8cf@houat>
-References: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
-	<20260116-feature_tilcdc-v4-20-2c1c22143087@bootlin.com>
-	<DFSVNE16870S.ABQUMH9BWMDY@bootlin.com>
-	<20260122-camouflaged-cat-of-sorcery-7af8cf@houat>
-Organization: bootlin
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+	Thu, 22 Jan 2026 15:03:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 78288419EF;
+	Thu, 22 Jan 2026 15:03:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8546CC116C6;
+	Thu, 22 Jan 2026 15:03:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769094211;
+	bh=W7OL1DzXiTNMqnoJ2zpzUEZ753uxhw9UxvzRwjFtEyc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JSCY3zfMOG2pyN9chEr5QNrJet6vWraeb0GFj+2Gc2JMh9b4hWS1+dH5uZ4p7MAhk
+	 upJmDaKq1bG8Zb+8Ty/Q6C0SUSOF5KlTmb6rjCcPv/l6AHESoh8YLCL+LjBT2fvZpu
+	 ezEEshS82H3rIKcv2ZCpBcrsikiohMyrjOM4SgDJPeyflNGP128ChDjGV4E47catyY
+	 gFD7Axsn+wCPMvC79Y4+W4ZBnOlQkQk75Vzgw44Jh2Ms4LbkijT+nPTe4xXxkLTaZi
+	 Sya/Z3gch/vT+UyA7cHvGszxfsp2x9f+b+SKtnBRvhJrLyixLHBajT+CiQ2kCuiUqC
+	 U2mHZaJDY1mbQ==
+Date: Thu, 22 Jan 2026 15:03:26 +0000
+From: Will Deacon <will@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 6/6] KVM: arm64: Simplify PAGE_S2_MEMATTR
+Message-ID: <aXI8PqEi0tnn6RP6@willie-the-truck>
+References: <20260119105651.255693-1-maz@kernel.org>
+ <20260119105651.255693-7-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260119105651.255693-7-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_070321_223935_27E97E9D 
-X-CRM114-Status: GOOD (  27.33  )
+X-CRM114-CacheID: sfid-20260122_070332_264580_1D3C5D52 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,53 +75,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 22 Jan 2026 15:03:21 +0100
-Maxime Ripard <mripard@kernel.org> wrote:
+On Mon, Jan 19, 2026 at 10:56:51AM +0000, Marc Zyngier wrote:
+> Restore PAGE_S2_MEMATTR() to its former glory, keeping the use of
+> FWB as an implementation detail.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/include/asm/pgtable-prot.h | 4 ++--
+>  arch/arm64/kvm/hyp/pgtable.c          | 6 ++----
+>  2 files changed, 4 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+> index 161e8660edddc..d27e8872fe3c8 100644
+> --- a/arch/arm64/include/asm/pgtable-prot.h
+> +++ b/arch/arm64/include/asm/pgtable-prot.h
+> @@ -109,10 +109,10 @@ static inline bool __pure lpa2_is_enabled(void)
+>  #define PAGE_KERNEL_EXEC	__pgprot(_PAGE_KERNEL_EXEC)
+>  #define PAGE_KERNEL_EXEC_CONT	__pgprot(_PAGE_KERNEL_EXEC_CONT)
+>  
+> -#define PAGE_S2_MEMATTR(attr, has_fwb)					\
+> +#define PAGE_S2_MEMATTR(attr)						\
+>  	({								\
+>  		u64 __val;						\
+> -		if (has_fwb)						\
+> +		if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))		\
+>  			__val = PTE_S2_MEMATTR(MT_S2_FWB_ ## attr);	\
+>  		else							\
+>  			__val = PTE_S2_MEMATTR(MT_S2_ ## attr);		\
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index 3c2f7967fdc03..34c9afa442932 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -660,11 +660,9 @@ void kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
+>  	({								\
+>  		kvm_pte_t __attr;					\
+>  		if((pgt)->flags & KVM_PGTABLE_S2_AS_S1)			\
+> -			__attr = PAGE_S2_MEMATTR(AS_S1,			\
+> -						 stage2_has_fwb());	\
+> +			__attr = PAGE_S2_MEMATTR(AS_S1);		\
+>  		else							\
+> -			__attr = PAGE_S2_MEMATTR(attr,			\
+> -						 stage2_has_fwb());	\
+> +			__attr = PAGE_S2_MEMATTR(attr);			\
+>  									\
 
-> Hi,
->=20
-> On Mon, Jan 19, 2026 at 10:18:12PM +0100, Luca Ceresoli wrote:
-> > Maxime, I'd appreciate your opinion about the topic below.
-> >=20
-> > > -	int ret;
-> > >
-> > > -	ret =3D drm_of_find_panel_or_bridge(ddev->dev->of_node, 0, 0,
-> > > -					  &panel, &bridge);
-> > > -	if (ret =3D=3D -ENODEV)
-> > > +	bridge =3D devm_drm_of_get_bridge(ddev->dev, ddev->dev->of_node,
-> > > 0, 0);
-> > > +	if (PTR_ERR(bridge) =3D=3D -ENODEV) =20
-> >=20
-> > This patch is technically OK in the sense that the code before and after
-> > would be equivalent. However if it were me I would not do this change. =
-The
-> > reason is that both drm_of_find_panel_or_bridge() and *_of_get_bridge()=
- are
-> > problematic when introducing drm_bridge hotplug, which is the long-term
-> > goal I am working for, but *_of_get_bridge() is more problematic than
-> > drm_of_find_panel_or_bridge().
-> >=20
-> > These functions are still there and not deprecated because there is
-> > currently no better replacement (and drm_bridge hotplug is not yet
-> > supported because of this and other things still to be done). To have a
-> > replacement, the panel_bridge lifetime needs to be reworked first and
-> > that's not going to happen overnight. So, all in all, if this patch is =
-not
-> > crucial to your series I'd consider dropping it. But if it is important=
- I'm
-> > fine with applying it, it won't make a huge difference. =20
->=20
-> Eh. I'm fine either way. I understand what you're saying, but this patch
-> doesn't introduce any *new* problem while it cleans up the driver, so I
-> guess we could merge it still. And further clean it up with what you
-> were suggesting later on.
 
-As you want. I will then keep the patch. If anyone has reasons why these
-patch should not be merged, speak now or forever hold your peace! ^^
+tbh, I'd probably just kill stage2_has_fwb() entirely and use the cap
+everywhere...
 
-Regards,
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+Up to you.
+
+Will
 
