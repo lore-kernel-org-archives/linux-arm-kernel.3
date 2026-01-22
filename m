@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5FED6CFA1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 18:32:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E44D6CFA1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 18:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ymzZcSSK6dkQBPt+JcVq3udGXDM52ShgdC0k32t+/KE=; b=UVNjH31V9beBZWHxte53eGmXVR
-	UQWrsxNZjOAIL751Pd1oK3nbgxIomVzK8/LnVv0WBRIdkeYGE9f3SAkxMG5c4fZ9xgAMDW4fY7x9R
-	tERnbX/vVyD6Xb5eFIr8bJfCu2qvW/X1AosHvm2euks7knXKJge21+Z3J0DKC5a5e/OvQykuHABuQ
-	MybIJaYZZpWGD87XMt/P50U/SX+6whlAY1Ao8Iggv6E0coRGByOQbLE6Mau5HwdANfenHC8O5smsY
-	vr+NgSGXBN3a1irNU/os5Hqdbzpe8kJu4zy31RyrtgCCP0K98jQ8NwSjWNRAQcL3U+HVqI4gOyZCy
-	Vr5QNC0g==;
+	bh=nNcAXA78Lmf4S4GSMOlD97M4xfkehQtEkWEYKY3GGRU=; b=Ken8p8S7MikODUx9QCqhx0U9f7
+	OKnPGrSP8R1ex/YZuWItYBD3A4cSn+N8zJ3yCBCyKPG0JH9T0gpgZ3jTg0+Gq5yxweTMHG2mL5/et
+	xEBO8RHMNkJuq/1EtbY5/Vth5uCG1fmdvdz7W9vgyYP29RCMvyERGxMkw/XfNWW4EUCDd3daY8WXU
+	OvNjNW0KFOJYHypssTOXp502NxBn2oJnnSAeyZlFPzwAigr/dqfyGN/6trq7KnFM0TEpDn6L5w6k9
+	m5Q+8w8EN1dbaYpR4Rmqs2ptElwna5rGImdxNibsraaXzhsnSWNYXah1ECQo6t9ootVw1LLzVyeFx
+	Fi59CtJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vizUB-00000007dfV-480i;
-	Thu, 22 Jan 2026 18:32:51 +0000
+	id 1vizUG-00000007dhU-2I3e;
+	Thu, 22 Jan 2026 18:32:56 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vizU9-00000007dep-3xzr;
-	Thu, 22 Jan 2026 18:32:51 +0000
+	id 1vizUD-00000007dfp-2m7Y;
+	Thu, 22 Jan 2026 18:32:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=ymzZcSSK6dkQBPt+JcVq3udGXDM52ShgdC0k32t+/KE=; b=hOtsgD7daI87a/1P+kx7D2GSMW
-	lYRgI5G1vpINZZUcxy6g4X0OIbIu4kk/yIdGez5pGs/rF31kkufsxEybfk1BFSOP/ccxNlxPdDCTg
-	GSYE5XUPPpdze4cK0488GlCDvEZqDpXdexLuNreS6I+zK0A/zduWeT3yx9qA4RLA6rZW+oz/EWLdl
-	9l2OeGGyS5iP1ktlMkw2RSgxy4s7+2MiEvwJZMWBELtq8+YmMuU8p8sz1HlZfF/F8SfNSrg8OgczJ
-	nUwdyleAGlZ+ZO0u/Mh/wC4aYWQ5WgU8RqtkEIymRkkUyudbVSJHOGIO016nEaVb/Rnf4EOdpWwzU
-	lq+PkOfQ==;
+	bh=nNcAXA78Lmf4S4GSMOlD97M4xfkehQtEkWEYKY3GGRU=; b=j8ymQqVVDP34hMaNDAd6lsm2gA
+	hUkLdSsKEo08LQ7zwkhttJ1uQ1iCfORq3BIFl76ch9eVplwUCTEgGUfte1vxkQO6xtTLlYCsn/r6b
+	yUSE0djpElYDsij7vJBq/8ULeC2Knf8cftaOv6HNLvlcRxYrXci+8ZoXvK4lTEB2A06mc6EwggcUm
+	2C+zdsBr6U+9WtBGfBOGWWtNU2uEh2vP067j0umnicDmUnUCRuD9InXy+2/uMzm+iGW1wDP7Hy9z6
+	C6Y1dQq53pdtcb+SoiNzNE0lasVPeftkQJtaPHMcBKXYJP8Av9KlIKUxFrUDlgS7lN5zgthei3n5Z
+	t/yKgPXw==;
 Received: from [192.76.154.238] (helo=phil.dip.tu-dresden.de)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1vizU2-003rA9-0g; Thu, 22 Jan 2026 19:32:42 +0100
+	id 1vizU1-003rA9-Ny; Thu, 22 Jan 2026 19:32:42 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Andreas Kemnade <andreas@kemnade.info>
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Alexey Charkov <alchark@gmail.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Add TPS65185 for PineNote
-Date: Thu, 22 Jan 2026 19:32:38 +0100
-Message-ID: <176910675432.726233.11039063781241426145.b4-ty@sntech.de>
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3] arm64: dts: rockchip: Explicitly request UFS reset pin on RK3576
+Date: Thu, 22 Jan 2026 19:32:37 +0100
+Message-ID: <176910675436.726233.5945062783721941669.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20260121-rk-tps-v1-1-bc867e1dd200@kemnade.info>
-References: <20260121-rk-tps-v1-1-bc867e1dd200@kemnade.info>
+In-Reply-To: <20260121-ufs-rst-v3-1-35839bcb4ca7@gmail.com>
+References: <20260121-ufs-rst-v3-1-35839bcb4ca7@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_103249_981941_77826EB0 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20260122_103253_701168_7FEFD6C3 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,20 +82,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 21 Jan 2026 11:22:37 +0100, Andreas Kemnade wrote:
-> As the TPS65185 driver is now upsteram, add it to the PineNote devietrees.
-> This is based on https://ayakael.net/forge/linux-pinenote but modified to
-> the binding requirements.
-> Without any other out-of-tree materials applied, this enables the
-> hwmon temperature reporting and the interrupt counter increments
-> by one per reading.
+On Wed, 21 Jan 2026 11:42:13 +0400, Alexey Charkov wrote:
+> Rockchip RK3576 UFS controller uses a dedicated pin to reset the connected
+> UFS device, which can operate either in a hardware controlled mode or as a
+> GPIO pin.
+> 
+> Power-on default is GPIO mode, but the boot ROM reconfigures it to a
+> hardware controlled mode if it uses UFS to load the next boot stage.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: Add TPS65185 for PineNote
-      commit: f1ebfaeee3200b0d12f5f2079c429f0eb1512a79
+[1/1] arm64: dts: rockchip: Explicitly request UFS reset pin on RK3576
+      commit: 79a3286e61829fc43abdd6e3beb31b24930c7af6
 
 Best regards,
 -- 
