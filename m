@@ -4,97 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8647D3EE84
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A6C3D3EE84
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:17:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=y72LtBzeTiCDL7pxTrVmCRaxH7TV4xGm7+Xd0f9GBRg=; b=35L2e/2nNAxsAhJFyWaENIKbAz
-	JihrSaHsr8XPpugDqfjwwHpzGRaPP30+tIfUbYRD0E3oo4DBnXdmhMf1vlsmvKf4mcbM1TDd3qjbF
-	1fe7UNEjXbKgaqAmhl0scXY5R9lQbJ0E7Q+VWpG2rsShFpSPUnokVa6xoDK0s3sqRjNJdgQdeQ1K9
-	jxNjJxbhxidsrM1daXbEyp2ET4oD3O9IHZb6AvXldgf5lg8DdBWDkfEI/TAFEBACLrZ6RPOvwXagD
-	DggqslPLIwGL0v6PuVfK3ETWSt/gmdutb1d8y3A7eQYFTdpA1CUIRGISpIudc82th6T2ap7deyONl
-	ikFG3pcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wkd+rJQQHwMrZGjkb0HBndIJXor1a28QM8PN+I5N/5s=; b=rX06R1X/H6/V5staRmMROpdTBZ
+	i9BDU4RaTiOoQxdJzCErTWLUxkiBrho7LyWAmVJ2sW/NOdqpgvxom/0Xoh6wQyHBovNitzja+HNqr
+	l4KeBmUX7pbBs84jYQK9uiWzV25WM3+DzywKEWbMiae9LDcTV8s5WSp9kl+VldwS2nSJTqcaW2jrX
+	GfaIBDBqlQw4+GZq8Og5E/V2TXzWwtWGTmUJsetFyAvNNZA6EFZhAIILy9Kdaoje09ZAeewu3+N+2
+	4tAYZQwpLqZMTo5tPgHI9tIiEGYubOoH/9U5+jAGzobSBX+6101vdoJYS0LIh2Pr5kJq79PspKk5B
+	kRlQsaYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixLT-00000007OuL-2mXg;
-	Thu, 22 Jan 2026 16:15:43 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1vixMh-00000007P6m-0Y2J;
+	Thu, 22 Jan 2026 16:16:59 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixLP-00000007OtB-46B2
+	id 1vixMd-00000007P6N-2K1v
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 16:15:42 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2a7b23dd036so6501535ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 08:15:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769098538; x=1769703338; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=y72LtBzeTiCDL7pxTrVmCRaxH7TV4xGm7+Xd0f9GBRg=;
-        b=BwYmt+DbBk5twvKbo7sDBx8DihD6DsLXg7LfWAjxPT/RcrClniwe8vNYkt6/uNPgGw
-         Xsb8E9RF9drfDPD70UPjcP0jMogwsbq+8SUimnQLjusOH+hDv/IUe2P45M4FHXeCaILF
-         koH2LQXsYL02imDsYL7R1pV2WKqZ1Z4F8uAXeNhyAktYjUSf0NFbCzz3vzced+TuIY9n
-         lcDlAkyCXZAW5hF8PMOj1C+H5i4sAQe4gE+nb0Q5RIlX9F56p6C+r3NalA3h+Spw2T17
-         jNuUDPj2rAmhHTMtpmskSmaPGMqKcwYyzMT/bbj0ZfQ6VMsJM/ru0VXviVLIoBDqxBsg
-         A5EA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769098538; x=1769703338;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=y72LtBzeTiCDL7pxTrVmCRaxH7TV4xGm7+Xd0f9GBRg=;
-        b=exK6lKDOqHLquT86vAzxRR0OFb4JKFbO5IcAU+8JphtgnH82nOOIOjPwmHlfz5yW/Y
-         0djKLxPaDIkHK8XhnkIvD2wZfjrhPcevsDKTa5qApumtKE+H/fhygVF38OrCbDuWU3bf
-         7/2WTjqAFcg6v+c+vkdLc8pmRkCrDOopiFRJs8q7aGEtN6R2TSUYtvK3y9az1UTPggnL
-         Wopqbqs8cQmKU2FktE25/2uPbhnqVz1Zi+/cS9d0PNVzP8W93KHFjVqPc82cR1z32dvV
-         zgbALzGAV0L4vNfS6UZ1BYMT/MZjbxQFed4p8bjUhyZ9bEw7SSmn1p3C+7PPnqdYmxjR
-         BTew==
-X-Gm-Message-State: AOJu0YzkxvLNp8Ynyn6y6aQHoQ90KoWTCuIaW1/ynaFyMmn4aCXhutrp
-	Q3yaZ4x6ECyha8uxh6fOWI+fQ+iGaFLvNdGcBIFi3Y7QQt0YaKTNeB0m
-X-Gm-Gg: AZuq6aIUY5uzjdGk50d+iQAD8SGgG8q7rfF+Z7k57u5kRCRSL+l0C/E8L/l4kV8qO4e
-	/SZhq5bz6Fd/TnfodX0gwYNFMHbN10VPce0GR9F3iLhmGph/+5R1W9gIbgX1AluPt7wbGb//UCk
-	krCXYkCTTmeAHrApdg0c/GF23rtSTRroJneYIN7F8hpoIgSaFzSXlV9togoWSkmbzMPFpfDdnvS
-	IZvG6ehELewsN+kKZOQ/qpSv6y+PQAWGJn92QG/P9StFP8XLqW9W1ifIvkZVMteIVROtjwiaC4s
-	Y2nv1rjLgOvp/zmVlopOo7xBPbKZxw9l+isFbDrIdb4pBEmdqjMOeiYi1bX2v+QxLK7SdqLETwI
-	1vndBqFuUdX5KiVaA84QKNE/jzV9B7oIb6sKh/vYfSp8o7NR97QCawaITBO4TQXjUlI72kV+3yM
-	eb2oTwKZGKRTaMA9CRsX/3Io0i
-X-Received: by 2002:a17:902:ce02:b0:2a7:5ad3:79eb with SMTP id d9443c01a7336-2a75ad381d9mr96532845ad.35.1769098538381;
-        Thu, 22 Jan 2026 08:15:38 -0800 (PST)
-Received: from junjungu-PC.localdomain ([188.253.124.86])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a7190ce534sm184907145ad.27.2026.01.22.08.15.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Jan 2026 08:15:38 -0800 (PST)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Fri, 23 Jan 2026 00:15:29 +0800
-Subject: [PATCH v2] bus: vexpress-config: Fix device node reference leak in
- probe
+	Thu, 22 Jan 2026 16:16:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ie/QNYvxm5U7RUGUL3alwaqic5iTRkq7SCHVvETCCsBbkyvsiLbaEU6EApeF5FZSBO0H7qoRGfm8IBRypMgYiCbaG4L6rAa8o6DRNiBkY0S5Q8D1xg0wC+loh/seBOMmZO2uH9lTH4w1Y44Bq0k/I1op+kBwvZpuC+kdTE/GWofTcwU55VkdSBpJ4SoLLaTtT8Asn+xidMWowVY6mj+cqwOSg/uadT3QH/rl+Ft1ZaF7WnJcg7JRyMyx4aUmp6wu4vYpKrON4oRM4pp5XMqVsaB00mV2+1EC64DSe17yxdD+JenbOeUc1FU/0jR4CElgYXgG6lLYf+Mk+I70q21qiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wkd+rJQQHwMrZGjkb0HBndIJXor1a28QM8PN+I5N/5s=;
+ b=Pz8D/BAdoUhLRgb3QoHat95bgHop1QohNmmNCwP6oKsb0uyXT39ZSVwerGJmZr/nM+0M5cNci1CkGlbstot/ksRbTnKs4DBVXlVnHjNv89Ha5NlXNSfEQg5Vm7aP463s76+6zKAvAwu99mHjhMuEKw6na3w/iMIuibYlqXNK5pmFgTK7hZ0Dfd1eLS840wEP3MGeQAJW04oKBtw37ONtmI34AgqaQs5bf/QFUby/LJgcfgV3hVAs2F6mr5V8FvDYrorCa4cfIpJ4S/OVveAXcKI4JbOPrmUl15Mt0zyepXWjA3mhJSrRDWptkj9qUEBIdMTBiVhh3plcvAvdlW2dPw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wkd+rJQQHwMrZGjkb0HBndIJXor1a28QM8PN+I5N/5s=;
+ b=BUDjDSkJHZB5B9l3tlqYTQb32NVaSNLWR7ZYKizvALtP11ec/842akZLxlxh0Y2GcbxD76UxcO0uOItZSN/SLx/GBzDV4P+ROlWT8F/qd8ybZ399SmmOqSsjpv9FI9XupFrXVbpOFPjYavyjAWj873Q6YXG5oNPjm4Ggl4xXDxY=
+Received: from SJ0PR05CA0204.namprd05.prod.outlook.com (2603:10b6:a03:330::29)
+ by SA2PR10MB4732.namprd10.prod.outlook.com (2603:10b6:806:fa::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Thu, 22 Jan
+ 2026 16:16:51 +0000
+Received: from SJ1PEPF00001CE6.namprd03.prod.outlook.com
+ (2603:10b6:a03:330:cafe::de) by SJ0PR05CA0204.outlook.office365.com
+ (2603:10b6:a03:330::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.3 via Frontend Transport; Thu,
+ 22 Jan 2026 16:16:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SJ1PEPF00001CE6.mail.protection.outlook.com (10.167.242.22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.3 via Frontend Transport; Thu, 22 Jan 2026 16:16:49 +0000
+Received: from DLEE204.ent.ti.com (157.170.170.84) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 22 Jan
+ 2026 10:16:48 -0600
+Received: from DLEE207.ent.ti.com (157.170.170.95) by DLEE204.ent.ti.com
+ (157.170.170.84) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 22 Jan
+ 2026 10:16:48 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE207.ent.ti.com
+ (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 22 Jan 2026 10:16:48 -0600
+Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60MGGmtm830365;
+	Thu, 22 Jan 2026 10:16:48 -0600
+Message-ID: <093e47d7-283b-470b-893b-318afb5f0afa@ti.com>
+Date: Thu, 22 Jan 2026 10:16:48 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] arm64: dts: ti: k3-am62l: support cpufreq scaling
+To: Dhruva Gole <d-gole@ti.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>, Nishanth Menon <nm@ti.com>, "Vignesh
+ Raghavendra" <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>
+CC: Sebin Francis <sebin.francis@ti.com>, Bryan Brattlof <bb@ti.com>,
+	<linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+References: <20260122-am62l-cpufreq-v5-1-65c50af71681@ti.com>
+Content-Language: en-US
+From: Kendall Willis <k-willis@ti.com>
+In-Reply-To: <20260122-am62l-cpufreq-v5-1-65c50af71681@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260123-b4-vexpress-config-v2-1-8f848ee63e88@gmail.com>
-X-B4-Tracking: v=1; b=H4sIACBNcmkC/32NQQ6CMBBFr0Jm7ZhOC4iuvIdhAaUtkwg1rWkwp
- He3cgCX7//893eIJrCJcKt2CCZxZL8WkKcK9DysziBPhUEK2QqSEscak9lewcSI2q+WHdIkRUN
- dS9NVQRmW0vJ2SB994Znj24fP8ZHol/7VJUJCZYXumlHXFyXubhn4edZ+gT7n/AUPv6/JtAAAA
- A==
-X-Change-ID: 20260122-b4-vexpress-config-1d2051861d93
-To: Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769098532; l=1527;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=+ogL8Y9JfFVT4PZeH3nW6j0mjv5x8NLeWmHACGGNjkI=;
- b=K2I6FuXiRG+/mq50IPEZTztt0Vgtg/jo4mw0PlgUtz8f6zJMPNN/T9iigzUwnmKTDsOqWNXfr
- s1cESgjSG4JAFnY3/PrL2S6ikGp3gN4Of8yZPdjgIqQxoscMfujpmgd
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE6:EE_|SA2PR10MB4732:EE_
+X-MS-Office365-Filtering-Correlation-Id: 16772838-a92c-4d41-07c3-08de59d1a5cd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MXZubHpRR2hHbGljdmx6MU1UTGxMbXVlQXkyTTY1Vjd4K2RYcTBwUU9BYzAw?=
+ =?utf-8?B?NWw4SXp4R0ZLSXFjTjFRc2F0cUhVaTNEUTRZTHZLYmRoVjd1Q24rNzJMOTBV?=
+ =?utf-8?B?QnZRNTBpdEFaa1o1TGdDSXpBYjFhZmYrTDhGMlAvTFVMSVVkVittVk9rSG1U?=
+ =?utf-8?B?ZnRhdVk3cEFMMDJ1SHNLZmdaZ3pSYUpzWi9lR0lJSmNPVUNJRjZSS0s1YmJZ?=
+ =?utf-8?B?UU9paGI4TVRxTVgyNitTWTZEY25qMHF2d3liaktzemd0bEM0NU1xKzZoVkpo?=
+ =?utf-8?B?ZGdIMzdnRStYNHFoWkk5Y3Q1MXhBNEs4djI0SlFUSGZFUzJqMFlPeEo2Q3BU?=
+ =?utf-8?B?eGFTZmI1MkxOSnRYZFdKcGt2TTdUd3pWUCtVUFlaUXVReDY3VzU5UnZ5WHZG?=
+ =?utf-8?B?RTRBZ0paMHdoSS9HZUlFUi9wbDQ1cGM5dFVicWlEZFpSTklZT3NZWTJIaTZM?=
+ =?utf-8?B?WjRndGNGMmZpaU9HWkt1dXh0bTlxeFpwU2gvd3VlbFE0Q00wOU1hQlg0RTJR?=
+ =?utf-8?B?Sktqang1MkZ4OFBZQi9pbEFMUkYvNUlhTHpnd25Wbm16TDA3ZGJyVlhNZDV2?=
+ =?utf-8?B?MC9tdzNwRVd1Z2VLaDZOTjRMcDhLZ1VsR1VCaWxWSER5cXVPdUxnSnNsdWs1?=
+ =?utf-8?B?ZVB6bmgzdWptZE9mWkFBcGp1bmtFY1UxVitPWVBKMytTYWQ5REMxWnBCb2p0?=
+ =?utf-8?B?SFpMS3BRV1pQTHE2NkFod3ZmUGI2OW1wcTZTdGt6L081aHNnamsrQXZOelVk?=
+ =?utf-8?B?QzREQmxUbkgyQzJKODBhazMyZnBVM1NTUjB5L201ZWFxcnBob2RINFpTdU5j?=
+ =?utf-8?B?KzQ2YzF0L3Jvd2VLNEVwTHFhS0JsczVBeERlenVqazgwdzZlREZsYXF6WXRn?=
+ =?utf-8?B?YURUNldEZ1Z5YjkyVHlmMDJ3UFVmWExQeHpKMGppc2kxMlNoWXo1anNhZkRs?=
+ =?utf-8?B?V1FVbldPVW5VN0ZTTXdCWjBTaWtJRFh6WDFtc1RkbDh1Z2hDVmN1ZFlMb1RF?=
+ =?utf-8?B?ZEcrOWdNeWZFTlNiNWpGblhtelBNdFdQNUYxaEtSZFB2WWxXcm5Kb1RCUVg2?=
+ =?utf-8?B?TFBsaWxrZ2xRVEM2RnZPSElXbUlXc2dMT29vT2Y4T0NIR09vNHkxV2dwMUtl?=
+ =?utf-8?B?Nk9EWW5EMmVoMTA1dGxJNnZGM3BYeXNZQ2ZVckp2TmNJZHpwaGdJOTVwUUpE?=
+ =?utf-8?B?bTBGUlN0aVg0SXZvclk2NW5CQk1LUEhWUHBVM2ZaMkx6Q0k4NXRWdkhWcldj?=
+ =?utf-8?B?RE9MQWFNWC81RXE0dTgrVmJzeHFSR2NQS2NnUVNKMVNoN0xyUWdJUFR1TWgy?=
+ =?utf-8?B?K1ErcWloODNUbGhWaEw5Nm9BZjZCOTN1dE9kY1V6TTZuMHlzK29RSE9sQVZX?=
+ =?utf-8?B?WlAxZ2phVFhLVG9LY0I2TFkva2Y3ZDhlRUpqeGZ6ZnJMTm5PbjRoY0JBcGRB?=
+ =?utf-8?B?YUZaYXF3cDByUnZkdmVuTkd5V3Zmc1hpa3dPeXUzbVBZWVF1bDZPaldiK0tC?=
+ =?utf-8?B?a1EzRWQ0SDZKNEUyeUdXS3Yvb2lXZllDcGlwZGpPbzc0TFZuY1pEOGRsZjZB?=
+ =?utf-8?B?NWlua1VyMWxrSGtDNjdMUFZDOVZQTDk0LzIxTEpDekRwejdtVWllZUoyMjZE?=
+ =?utf-8?B?blFYc2c3a1k4OVdEQzNOczVJSnUwRDFPS2hYa0hQVEJ5cWFRZEJ1dWpJNHR6?=
+ =?utf-8?B?NStFT3BpY3VhRVR2WGc5VEYrM1JqaFRHVnB3SVNmZFUvZHd0WHROQkdXSDJP?=
+ =?utf-8?B?Zk5vMjRGbnZTTEthOTk3ZnN5dE9CL2VUaFFNcG5oZXhkZmZYOUxOOGZLa2Jq?=
+ =?utf-8?B?UWQweitxd281ZEVmeGRoS1NVVllKR1g4Z0Y4UWp5RUZpMEx5VG5wV0ZsNjJo?=
+ =?utf-8?B?MDM5MjFXZWJKZTRRaG1XZWZOR29Celh5a3NnL2RxNWFhNHhib2pMYjdHeFVU?=
+ =?utf-8?B?RGk2MkNCSTZ2N0ZpQUhnYXdJNUUvMEkveElRUkZoektoRGludDloNlVIdEYw?=
+ =?utf-8?B?WjBuY1kzdTRmLzY5Mi9SMmtvYTNXUktEbnlsemNxOW9kY3lBYmJidWtaSnlD?=
+ =?utf-8?B?d2ZsaXJNM3RqdW5GWHZEc1hSUlp1ckJQT3NtN1kzUFF2ZjFjT1FHQjZoazdU?=
+ =?utf-8?B?cE5oZ3lGcE1xcXZRTGp3TU9VWno3Tk9oYlA3UnR1T1d1cHJRL2lJeWljMlI3?=
+ =?utf-8?B?cDM3QlI2S1AwMzhndTU2R1FQdkFEa1lESXBnbzR6ZnlpTm1CWHZJdDVaTDRi?=
+ =?utf-8?B?TUdFd2VEVUJMQUJoMTAyY1JqODV3PT0=?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 16:16:49.6603
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 16772838-a92c-4d41-07c3-08de59d1a5cd
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE6.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4732
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_081540_025604_F1E98ABE 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260122_081655_599275_7AD3AC7B 
+X-CRM114-Status: UNSURE (   7.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,46 +171,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In vexpress_syscfg_probe(), of_parse_phandle() is called inside a loop
-but the returned device_node reference is never released.
-Fix this by using the __free(device_node) cleanup handler to automatically
-release the reference when the variable goes out of scope.
+On 1/22/26 09:43, Dhruva Gole wrote:
+> Enable CPUFreq support for AM62L SoC by adding the relevant OPP efuse table
+> syscon for speed grade detection.
+> Add the operating-points-v2 table with CPU frequency steps from 200MHz to
+> 1.25GHz.
+> Specify the CPU clocks to reference the SCMI clock controller for frequency
+> scaling.
+> 
+> Signed-off-by: Dhruva Gole <d-gole@ti.com>
 
-Fixes: a5a38765ac79b ("bus: vexpress-config: simplify config bus probing")
-Acked-by: Liviu Dudau <liviu.dudau@arm.com>
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
-Changes in v2:
-- Remove redundant header file.
-- Add Acked-by from Liviu.
-- Link to v1: https://lore.kernel.org/r/20260122-b4-vexpress-config-v1-1-3f0c85bc4730@gmail.com
----
- drivers/bus/vexpress-config.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+Reviewed-by: Kendall Willis <k-willis@ti.com>
 
-diff --git a/drivers/bus/vexpress-config.c b/drivers/bus/vexpress-config.c
-index 64ee920721ee..c1a7aa63f288 100644
---- a/drivers/bus/vexpress-config.c
-+++ b/drivers/bus/vexpress-config.c
-@@ -390,9 +390,8 @@ static int vexpress_syscfg_probe(struct platform_device *pdev)
- 	}
- 
- 	for_each_compatible_node(node, NULL, "arm,vexpress,config-bus") {
--		struct device_node *bridge_np;
--
--		bridge_np = of_parse_phandle(node, "arm,vexpress,config-bridge", 0);
-+		struct device_node *bridge_np __free(device_node) =
-+			of_parse_phandle(node, "arm,vexpress,config-bridge", 0);
- 		if (bridge_np != pdev->dev.parent->of_node)
- 			continue;
- 
-
----
-base-commit: 053966c344dbd346e71305f530e91ea77916189f
-change-id: 20260122-b4-vexpress-config-1d2051861d93
-
-Best regards,
--- 
-Felix Gu <ustc.gu@gmail.com>
-
+Best,
+Kendall Willis <k-willis@ti.com>
 
