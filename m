@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B009D3EE75
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3671D3EE75
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GAppg2QWAuEvwN5A3xFiGeSUqLA24Ui93MBT+hKcEeo=; b=XwtnWMM0G2GrjhJI0B9GplQZax
-	g56p34nS6uZ6ig5Nrr1jIbxTcj9yIeeV4vtu3xpBMpQ6J1MntE8iQqMBcQ0p1+vFNl9gz18149MjM
-	JPHC2FGf5kR3ik+qb21CGPRmejBXaKSh/q71v7IIPX5fSWXLvl7x3XCpl4pOTqubm112TOPzT6m1h
-	mMhDiy65Jt8DzE7q4EI/FuYwuApUegGpCFEWi/gp+0Ee2LDKMPkujTokoheLaNOSoSLLO2yqmC/7W
-	BGRpxNu6CYtZ41BSwvkWRpTar/XzgJGDK+C7GMlYCBfHORcNuhDV1hW9LE9Q+49fpXg3tGvzVYbsO
-	ojLnui9w==;
+	bh=jZUXoZxMTPcXobJweOdYXLDq4CMQ2TpTaKkm/Wh4w0c=; b=eaL4eezXHHCeIq1IjPBysMJ8Ys
+	2SGYVG3fmDr+8mM+I4Pa3YW5oykFn55kYr7UJLwHN3vmKpbshrq/AHcmQ4ykCH+JAZ8MaR9WfU30W
+	v5o2qUtaCYUPsreEGNJHxjs7KMtC5ftwUCMCAtAIDBy9Epr4UqGkPpV60H/6gfhjPL75YXPYS8qA+
+	V4wKZU5UMbWEeK6Ayr3MtbeAOHDzZX6VPEw/HSCwHXlIF9g3LiTqGhVFTcNQ+wsIRRQ4grnZUtwWh
+	w+TAnDSGk7PvlYHh8wJcenVvgBecPXh65bIFXKRmGO4b8kWPVnqIurCrc5fUxEXYkD2FStWZtajIf
+	FNHaq7Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwE8-00000007IAE-2bNg;
-	Thu, 22 Jan 2026 15:04:04 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1viwEV-00000007IF3-2pJV;
+	Thu, 22 Jan 2026 15:04:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwE6-00000007I9V-2YL7
+	id 1viwER-00000007IE9-2KcX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 15:04:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769094243; x=1800630243;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=28p2vVGccZIm3pnrzlf3VCf9R7Ryv+4T3kD1Z6HKlzI=;
-  b=dY2bsR7gi3HgmWzAd+Y+K9Z4U9z4rJHbrjVPlPPATkDpn57W5dkfG3/5
-   NuMiFXT4PsRzCqgQZ5RKCGzRGf1ScDqpmDLwnQiPDnS1dTova+gCI9rah
-   tbfUIROuwZOcZGcH+EmnnDa4sWEOZhjwXzDDeQQVy0U7qi90YSCPpmY8R
-   I6MKqwiPjbRMtV//LRPL159gquPvourS8YAvNOq+nPzywUaRIOObZFdaV
-   /PJsIsk1BjGQ3b/TJ7i8VG0oAtGHCIykY6QFAW7a/ZUxzmblaN9jkt0Rs
-   0cqRenbkJabMPgVGVu2xgAfBppRVNFYfJi+AcOp6uk1yMbTy69GOsY5Ef
-   A==;
-X-CSE-ConnectionGUID: EgLomy3cTIefzkWuPBfBAA==
-X-CSE-MsgGUID: HxBc62bGTVqyewHW7Wot1Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11679"; a="70237091"
-X-IronPort-AV: E=Sophos;i="6.21,246,1763452800"; 
-   d="scan'208";a="70237091"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2026 07:04:00 -0800
-X-CSE-ConnectionGUID: vtsLTx2NQsmzBOtSMuLquw==
-X-CSE-MsgGUID: nVWxHgAmQvS0eXsrQtQj7Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,246,1763452800"; 
-   d="scan'208";a="206659868"
-Received: from smoticic-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.225])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2026 07:03:57 -0800
-Date: Thu, 22 Jan 2026 17:03:54 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 1/4] ASoC: codec: Remove ak4641
-Message-ID: <aXI8WuxLOJfiUSGe@smile.fi.intel.com>
-References: <20260122-sound-cleanup-v1-0-0a91901609b8@nxp.com>
- <20260122-sound-cleanup-v1-1-0a91901609b8@nxp.com>
+	Thu, 22 Jan 2026 15:04:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0D42642E5C;
+	Thu, 22 Jan 2026 15:04:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C79AC116D0;
+	Thu, 22 Jan 2026 15:04:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769094262;
+	bh=cGpqtKOTFWyChTNyIREce8ooLgtl/FKn1zr/zdRaoCU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ix/Ec5tDrikMzZbccvSYYPF3cgbGhNlwZ6R91UAmxYDz9kU40eU0aLoSgJtyxPQi0
+	 f7a5wVWIFcop9+eLJ4XeiDFHi2cU/ctXBq54VMgCmDCr5hmbY572dlN8EgFPIvGqJR
+	 AZjUKsRtRRJ69DEiwKzM4iPYZfWW/OF2dVg1byyU9C0ZLKrUCr/aFCSyJHVMX0X2fR
+	 S/xHdl+NVFccszwiwauCZBH0wRCAsboxmVFfW6ErPxJ3mrb9ykH12AnfYbM2ayTAcz
+	 1dsCykqcqYWsUsRFdxfR5e40sK+yzKmJGP9ydv0URAHGW20tOPCbNgP/QiLYwusGXm
+	 ogQFtTHugcnWg==
+Date: Thu, 22 Jan 2026 15:04:17 +0000
+From: Will Deacon <will@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 3/6] KVM: arm64: Make stage2_pte_cacheable() return false
+ when S2_AS_S1 is set
+Message-ID: <aXI8cchH7l1SHbQR@willie-the-truck>
+References: <20260119105651.255693-1-maz@kernel.org>
+ <20260119105651.255693-4-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260122-sound-cleanup-v1-1-0a91901609b8@nxp.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20260119105651.255693-4-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_070402_657849_E1D7A7FF 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20260122_070423_611595_670EE20C 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,27 +76,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 08:44:57PM +0800, Peng Fan (OSS) wrote:
-
-> Since commit d6df7df7ae5a0 ("ARM: pxa: remove unused board files"), there
-> has been no in-tree user of the AK4641 codec driver. The last user
-> (HP iPAQ hx4700) was a non-DT PXA board file that instantiated the device
-> via I2C board data; that code was removed as part of the PXA board-file
-> purge.
+On Mon, Jan 19, 2026 at 10:56:48AM +0000, Marc Zyngier wrote:
+> We cannot tell from the S2 attributes whether what we map is memory
+> or not when S2_AS_S1 is set, and issuing a CMO on device memory may
+> not be the best idea.
 > 
-> The AK4641 driver was introduced ~2011 and still probes only via the I2C
-> device-ID table ('.id_table'), without an 'of_match_table', so there are
-> no upstream Devicetree users to retain. With no in-tree users left, remove
-> the driver.
+> In this particular case, pretend that the mapping isn't cacheable.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/hyp/pgtable.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index 3c5f399b1b986..07561a227f75e 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -911,6 +911,14 @@ static void stage2_unmap_put_pte(const struct kvm_pgtable_visit_ctx *ctx,
+>  static bool stage2_pte_cacheable(struct kvm_pgtable *pgt, kvm_pte_t pte)
+>  {
+>  	u64 memattr = pte & KVM_PTE_LEAF_ATTR_LO_S2_MEMATTR;
+> +
+> +	/*
+> +	 * With S2_AS_S1, we have no idea whether the OA is actual memory or
+> +	 * a device. Don't even try a CMO on that.
+> +	 */
+> +	if (pgt->flags & KVM_PGTABLE_S2_AS_S1)
+> +		return false;
+> +
+>  	return kvm_pte_valid(pte) && memattr == KVM_S2_MEMATTR(pgt, NORMAL);
 
-Yep, and if needed they may resurrect it, clean up and resubmit using proper
-(modern) APIs.
+Since KVM_PGTABLE_S2_AS_S1 is only set for the pKVM host stage-2 and
+that doesn't provide any cache maintenance callbacks in its
+kvm_pgtable_mm_ops, I don't think the current code is actually broken,
+although it's harmless to add the check (and the comment might benefit
+from some additional rewording?).
 
-Acked-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Will
 
