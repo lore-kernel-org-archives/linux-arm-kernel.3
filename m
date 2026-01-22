@@ -4,119 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C91C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:35:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 852EFC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CpowxPIs9WsIvTj4/MuMW1Y5/GmzHzBIUQWzh9qqtsQ=; b=G6Xb9j6iHQzsz3HzUa4mvrRpQR
-	qH3lFQbNzApjerfs+KI7/MqE8jm+L0z8OaAB2oXD+ICwdKxXJpRyvZBpMyLTWDoubVIe7QqOO9cse
-	3I/ccOlXGBEShdp9xvXKQ1e3NxAlKFItSGIs2LzQall+8rdFrv517UBZHNAr948H7Lp1OLoUL7wHv
-	hKNrYQMYcgZgopn5FFyw41tPXasx2SKRlYO0RTNXkWTv46Xoo8S3mf7wazHZHHKqlLn/D9CVYTELP
-	fvj0odsF2HJCQ+yxSRA88ThGxxDrOt6i41wUzKPhPHNeuaoQqHbALdL30MVheBBRgVZ8FtD52zQpY
-	gSdFnQ8A==;
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9a+M4WABMCHRC9YvzKt1jIcQpX8yStU/HvIDVdOsiqY=; b=mOaE+ZCb7qH/PcCV8IPzPzvJL7
+	hOMTp9p26txdZLQxn+K+DoFgQ2YAG2YQlyr/WM46qvR418KUzgU2lQEgzs/jtkn6dp7E7NTcc6fhB
+	SlSziizZRxWITssKgsy+Jz7RiXSTkoZ3/uiE/z0wCnCy+VUkPWABnXJlJb2uIz7zTR0UAtFFA9J8q
+	5r8b8wdKzSvCnT+VjZQ+UK6L7YHjvdB3spqQabupx0Ddu15WI1g+mQV9MsNiIcyIpca7CwcH4kQW5
+	ZHN0C4ogB8I8Ux65OyXxwC3MVFObBcsHZM1ZPN08dSvT9H/vpRp5vsDqhKbng7YXnx2SWxlPpCkOC
+	+wXPGGmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vir6U-00000006kPL-0hrY;
-	Thu, 22 Jan 2026 09:35:50 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1virHh-00000006l7v-2tHT;
+	Thu, 22 Jan 2026 09:47:25 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vir6R-00000006kOs-1zX8
+	id 1virHc-00000006l6w-0kP8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 09:35:48 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-65807a2012fso1301885a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 01:35:46 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769074545; cv=none;
-        d=google.com; s=arc-20240605;
-        b=SX80U0YNTj5be3ntm/3DXiEU8xt1KuHZ2unHeVzuHPFRprPj5JvidbTxs6An+oCFF+
-         SKzMznknTh9QrCpgkcZKXnvkiUxe6kmPJ3tKcqHVobuOHVk6+3XC3Q+F6IJsS7DmOygQ
-         Txe3KiTWJqXJhwctTzxRXOlBpKizovJbH1PJtFspuqXmzwzU/TrCgeknOGT0UzQgwlag
-         HUGc3svMFs7gKmI27rS7DBtTTO/Oua+jyx9Hxsy3zN/aWE225hOLc11HaqGhSREPSFL5
-         F8dQwK7FvTQ4Q3q/09+v/OC9OhZ8Jf+00lXAI7poeUe5MhyeHhmg9P83yDSRFxkrbU8j
-         kdVA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=CpowxPIs9WsIvTj4/MuMW1Y5/GmzHzBIUQWzh9qqtsQ=;
-        fh=HJorDDJNUoKjuWa0LmVjjGU6fsXYihmWv81JcK2ISig=;
-        b=dLKc4Ti01UZWL3vtDkYv6WdyDbJBM64fZdbNTwFOADXnEiXR5gJb6+7YGu4K5S1V+g
-         7cY/E3zcZloZ4NwQPsIgiRTbWlZp1AdOJ5w8G+WEQrRveANx6k9GvNzIehVVOKmHbGeq
-         jaXLHWg7xWIUNNsYNJcwTUW88e+P++q1AwtSiA5493u/SMD+0Ycennjc4RKiYTlEhf5h
-         iNoMu1IE5aVO3MV6zAdavZ/lzHsKWyn0T2UT/qZ5mPw3lk2PXkBWhoUi038yrHWmfP/V
-         TuPmX9MtEZdAIIc9NXVXXFiEkLs/d4sjjN1JC8nRyxsU1sGcNLy5HbsCEJbr0s47nWb2
-         JPRg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 22 Jan 2026 09:47:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1769074545; x=1769679345; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CpowxPIs9WsIvTj4/MuMW1Y5/GmzHzBIUQWzh9qqtsQ=;
-        b=hBu5VS9NcQZCzeDAAVv4NqRhCybXQUiHZbCr/4/ET6zeT+qsIOvBbNBfNuwMb1AYmz
-         DgLLmPlnyTBwnv7kqk2Xl9G8Idwj3CrnUB8tD/NfLbwcnQ5s84MO9bi9yDAD2fnK95PV
-         TQm6MTKkx8yA195SvyCZ3Yank3qt7JTYzQ8nYBIOADTvyzbo/A0gFljJJsP9HbvelCRC
-         XNPfORTPffXF0er0NUtrVdlE7hcFmspPJN9XTwTJG5s0eLJRZ/8KYvliI/YLucoc6fZM
-         jN4K13TW3J1CXrObp8Cpy+lA54UEDrO1w5WpN0a9ZoFCf/vf3qNtts1jrgBgghCuOp8R
-         o1lA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769074545; x=1769679345;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=CpowxPIs9WsIvTj4/MuMW1Y5/GmzHzBIUQWzh9qqtsQ=;
-        b=LHXIB0zpPWMsX+iQvVVwiizXtjtGAhW3gLGn7QJZxrdbOV5mVq0yuWDrLqxHWh96zs
-         95wQYjnhkI7CIWs1gy2qh2r0RDhlkhVI7lz++2Au0dAYi/iZ6S3KWXc7l3ogD8rG079n
-         wq2nJULbOcj3LAF4Han4IaipLG7j56a1f0IPQoB/kqE/kHBpyJ6ofgB2dmM8+8M4tfpy
-         2xt3mkpnGjZqHbO0jEOGBao2SW5bmdKFyxmmthHonb0ZrFEtTdPPA9C1SPLG+RQQIqk/
-         R8LHOBsQcPV7dRbn9Y8FHOKJpQTKobgeC3QKjM/u0jkvv4+B9HgeL+OmU90PiOUMTdlI
-         n4qw==
-X-Forwarded-Encrypted: i=1; AJvYcCUstJOIYMaiZVQvqIwBJXi1f7KGmm1HUF8y5helno8aqOODzvGOUZlwmofwgc2V38ElKb8gcrKjz22SXQRLKSBN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOrVwJo7BxPA+DrYY3KcH3yHgbx9TLeDlFuMEexg+ccwoaTWjP
-	vcwAxs4hWfIMhJEWJ8Zl+rBIFYvZWLbrR4qal4YukUmdRJFa6Dem61KoEv8wOpse023IcReQpTn
-	slYli+R3XYc/q06D7xkU+cuID4bcHPKq0uuDAnJpZ7Q==
-X-Gm-Gg: AZuq6aIQ8XoHGrmDwjyDn8V3oHOBrl/inUbJKsa8/AJo/IEzVNOCBd8IeRbDJ4dngZD
-	4gdDoUTKtryt5Z8njLuPsolkNZ6PX9ZmlP7I8iDwXhV8YzTNnXrKMa0FRZcQLjOywurGs+cb+nJ
-	IhMZitOtcymdB7X8wti+a1/4/U4PlbgBNQUe52+lgWZ1SKfGxAjPnVtJ4C0wY2Z3PU6gB6vAcau
-	JXc3etMsUWQYjqWPJRpiJOayQVcgfXwdFD+kTdU42n1UNF72iXYG6CSWlS/9rKlEYxXlp9ufVpD
-	6s7Ai/rC93Ogk1C2snh6bP4nc7ukz0MIsnmlugHRNdMMZald7fADWzAgIlIbqg==
-X-Received: by 2002:a05:6402:f02:b0:658:1304:b68b with SMTP id
- 4fb4d7f45d1cf-6581304b771mr3388171a12.15.1769074544348; Thu, 22 Jan 2026
- 01:35:44 -0800 (PST)
+	d=linux.alibaba.com; s=default;
+	t=1769075230; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
+	bh=9a+M4WABMCHRC9YvzKt1jIcQpX8yStU/HvIDVdOsiqY=;
+	b=aMZnjDUKkOCkzgELwg35SQVL69Mi3u7kNYOko0dV/u20nsxWSt1I0RkvnaJTIGHi97Nrd5Vd0ho05r523KLi4zzXl5yTuDZJJE4F7OtJHBweP1FuVS/TRQFsZ2Jqr7Lw8u9w08P3ftQcVwrtqxDq0oL7WMmydRH8QTDxpt0a81Q=
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WxbuwS7_1769075219 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 22 Jan 2026 17:47:06 +0800
+From: Ruidong Tian <tianruidong@linux.alibaba.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	lpieralisi@kernel.org,
+	guohanjun@huawei.com,
+	sudeep.holla@arm.com,
+	rafael@kernel.org,
+	robin.murphy@arm.com,
+	mark.rutland@arm.com,
+	tony.luck@intel.com,
+	bp@alien8.de,
+	tglx@linutronix.de,
+	peterz@infradead.org
+Cc: lenb@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-edac@vger.kernel.org,
+	mchehab@kernel.org,
+	xueshuai@linux.alibaba.com,
+	zhuo.song@linux.alibaba.com,
+	oliver.yang@linux.alibaba.com,
+	Ruidong Tian <tianruidong@linux.alibaba.com>
+Subject: [PATCH v6 00/16] Support Armv8 RAS Extensions for Kernel-first error handling
+Date: Thu, 22 Jan 2026 17:46:40 +0800
+Message-Id: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
+X-Mailer: git-send-email 2.33.1
 MIME-Version: 1.0
-References: <20260115114021.111324-1-robert.marko@sartura.hr>
- <20260115114021.111324-7-robert.marko@sartura.hr> <CAD++jLmitNVhWmUf9BBqLR2_WsAR7V-+ykVJsLK3MuOSUKQF0A@mail.gmail.com>
-In-Reply-To: <CAD++jLmitNVhWmUf9BBqLR2_WsAR7V-+ykVJsLK3MuOSUKQF0A@mail.gmail.com>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Thu, 22 Jan 2026 10:35:33 +0100
-X-Gm-Features: AZwV_QgGcZewelkI3QjoxNf_Rdp39oV_bH_54mEjrqvn-sBMKJLuqze3gq5di5o
-Message-ID: <CA+HBbNEw_9FNOFxx8Mo63Aq49MxWvvuQ4Sc75mXFYpwtMmETiw@mail.gmail.com>
-Subject: Re: [PATCH v5 06/11] dt-bindings: pinctrl: pinctrl-microchip-sgpio:
- add LAN969x
-To: Linus Walleij <linusw@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
-	claudiu.beznea@tuxon.dev, herbert@gondor.apana.org.au, davem@davemloft.net, 
-	lee@kernel.org, andrew+netdev@lunn.ch, edumazet@google.com, kuba@kernel.org, 
-	pabeni@redhat.com, Steen.Hegelund@microchip.com, daniel.machon@microchip.com, 
-	UNGLinuxDriver@microchip.com, olivia@selenic.com, richard.genoud@bootlin.com, 
-	radu_nicolae.pirea@upb.ro, gregkh@linuxfoundation.org, 
-	richardcochran@gmail.com, horatiu.vultur@microchip.com, 
-	Ryan.Wanner@microchip.com, tudor.ambarus@linaro.org, 
-	kavyasree.kotagiri@microchip.com, lars.povlsen@microchip.com, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-gpio@vger.kernel.org, linux-spi@vger.kernel.org, 
-	linux-serial@vger.kernel.org, luka.perkov@sartura.hr, 
-	Conor Dooley <conor.dooley@microchip.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_013547_545817_5B16ECCB 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20260122_014722_155486_8FA5B702 
+X-CRM114-Status: GOOD (  21.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,40 +83,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 1:44=E2=80=AFPM Linus Walleij <linusw@kernel.org> w=
-rote:
->
-> Hi Robert,
->
-> On Thu, Jan 15, 2026 at 12:41=E2=80=AFPM Robert Marko <robert.marko@sartu=
-ra.hr> wrote:
->
-> > Document LAN969x compatibles for SGPIO.
-> >
-> > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> > Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
->
-> Should I just merge this one patch to the pinctrl tree?
+Motivation: Reliability in Modern Data Centers
+=================================================
+In modern data centers, proactive maintenance is essential for achieving high
+service availability. The practice of using Corrected Errors (CE) to predict
+impending Uncorrected Errors (UE) is already widely deployed at scale across
+the industry, like Alibaba[2], Tencent[4], Intel[1], AMD[2]. By analyzing CE
+telemetry, operators can identify failing hardware and perform migrations
+before catastrophic failures occur.
 
-That would be great as other bindings are slowly being picked into
-their respective trees.
+Problem: Inefficient CE Collection on ARM
+==========================================
+Currently, ARM-based systems primarily rely on "Firmware-First" error
+handling (e.g., via GHES). This path is inherently heavy-weight. To avoid
+significant performance overhead, firmware is often configured with high
+thresholds—reporting to the OS only after thousands of CEs have occurred.
+If the threshold is set lower, the high frequency of errors leads to
+excessive and costly context switching between the OS and firmware.
+Consequently, ARM platforms currently lack an efficient mechanism to collect
+the granular CE data required for high-fidelity error prediction.
 
-Regards,
-Robert
-> Looks good to me.
->
-> Yours,
-> Linus Walleij
+Solution: Kernel-First Handling via AEST
+===========================================
+Other architectures have long utilized "Kernel-First" approaches for
+efficient CE collection: Intel provides CMCI (Corrected Machine Check
+Interrupt), and AMD has recently introduced similar CE interrupt support[5].
 
+On the ARM architecture, hardware already provides the necessary RAS
+Extensions[6], and the ACPI AEST specification[0] defines a standardized way for
+the OS to discover these error source registers. This series implements
+AEST support, enabling the kernel to:
 
+ - Discover error sources directly via ACPI tables.
+ - Handle CE notifications via direct interrupts.
+ - Bypass firmware overhead to collect every CE or use low-latency thresholds.
 
---=20
-Robert Marko
-Staff Embedded Linux Engineer
-Sartura d.d.
-Lendavska ulica 16a
-10000 Zagreb, Croatia
-Email: robert.marko@sartura.hr
-Web: www.sartura.hr
+This implementation provides the missing link for efficient RAS telemetry
+on ARM, bringing it to parity with other enterprise architectures.
+
+Background and Maintenance
+=============================
+This series is based on Tyler Baicar's preliminary patches [7]. I attempted
+to follow up with Tyler in 2022 [8] but received no reply. As he no longer
+appears active on the mailing list, I have picked up this work, updated it
+to align with the latest AEST v2.0 specification, and addressed pending
+feedback to ensure this critical feature is integrated into the mainline.
+
+AEST Driver Architecture
+========================
+
+The AEST driver is structured into three primary components:
+  - AEST device: Responsible for handling interrupts, managing the lifecycle
+                 of AEST nodes, and processing error records.
+  - AEST node: Corresponds directly to a RAS node in the hardware
+  - AEST record: Represents a set of RAS registers associated with a specific
+                 error source.
+
+Comparison with x86 MCA:
+
+RAS record ≈ MCA bank.
+RAS node ≈ A set of MCA banks + CMCI on a core.
+
+The key difference lies in uncore handling: x86 typically maps uncore errors
+(like those from a memory controller) into core-based MCA banks. In contrast,
+ARM requires uncore components to provide their own standalone RAS nodes. When
+a component requires multiple such nodes, they are grouped and managed as a
+"RAS device" in AEST driver. 
+
+These components are organized hierarchically as follows:
+
+ ┌──────────────────────────────────────────────────┐
+ │             AEST Driver Device Management        │
+ │┌─────────────┐    ┌──────────┐     ┌───────────┐ │
+ ││ AEST Device ├─┬─►│AEST Node ├──┬─►│AEST Record│ │
+ │└─────────────┘ │  └──────────┘  │  └───────────┘ │
+ │                │       .        │  ┌───────────┐ │
+ │                │       .        ├─►│AEST Record│ │
+ │                │       .        │  └───────────┘ │
+ │                │  ┌──────────┐  │        .       │
+ │                ├─►│AEST Node │  │        .       │
+ │                │  └──────────┘  │        .       │
+ │                │                │  ┌───────────┐ │
+ │                │  ┌──────────┐  └─►│AEST Record│ │
+ │                └─►│AEST Node │     └───────────┘ │
+ │                   └──────────┘                   │
+ └──────────────────────────────────────────────────┘
+
+AEST Interrupt Handle
+=====================
+
+Upon an AEST interrupt, the driver performs the following sequence:
+1. The AEST device iterates through all registered AEST nodes to identify the
+   specific node(s) and record(s) that reported an error.
+2. Each node typically contains two types of records:
+      - report record: Errors can be located efficiently through a bitmap
+                       in the `ERRGSR` register.
+      - poll record: The node must individually poll all records to determine
+                     if an error has occurred.
+3. process record:
+      - if error is corrected, The CE threshold is reset, and the error event
+        is logged.
+      - if error is defered, Relevant registers are dumped, and
+        `memory_failure()` is invoked.
+      - if error is uncorrected, panic, While UEs typically trigger an
+        exception rather than an interrupt, if detected, the system will panic.
+4. decode record: The AEST driver notifies other relevant drivers, such as
+   EDAC, to further decode the reported RAS register information.
+
+Testing
+===================
+I have tested this series on THead Yitian710 SOC with customized BIOS. Someone
+can also use QEMU[9] for preliminary driver testing.
+
+1. Boot Qemu
+
+qemu-system-aarch64 -smp 4 -m 32G \
+  -cpu host --enable-kvm -machine virt,gic-version=3 \
+  -kernel Image -initrd initrd.cpio.gz \
+  -device virtio-net-pci,netdev=t0 -netdev user,id=t0 \
+  -bios /usr/share/edk2/aarch64/QEMU_EFI.fd  \
+  -append "rdinit=/sbin/init earlycon verbose debug console=ttyAMA0 aest.dyndbg='+pt'" \
+  -nographic -d guest_errors -D qemu.log
+
+2. inject error
+devmem 0x90d0808 l 0xc4800390
+
+2.1 Memory error
+[   64.959849] AEST: {1}[Hardware Error]: Hardware error from AEST memory.90d0000
+[   64.959852] AEST: {1}[Hardware Error]:  Error from memory at SRAT proximity domain 0x0
+[   64.959855] AEST: {1}[Hardware Error]:   ERR0FR: 0x40000080044081
+[   64.959858] AEST: {1}[Hardware Error]:   ERR0CTRL: 0x108
+[   64.959859] AEST: {1}[Hardware Error]:   ERR0STATUS: 0xc4800390
+[   64.959860] AEST: {1}[Hardware Error]:   ERR0ADDR: 0x8400000043344521
+[   64.959861] AEST: {1}[Hardware Error]:   ERR0MISC0: 0x7fff00000000
+[   64.959861] AEST: {1}[Hardware Error]:   ERR0MISC1: 0x0
+[   64.959862] AEST: {1}[Hardware Error]:   ERR0MISC2: 0x0
+[   64.959863] AEST: {1}[Hardware Error]:   ERR0MISC3: 0x0
+[   64.959873] Memory failure: 0x43344: recovery action for free buddy page: Recovered
+
+2.2 CMN error
+[  132.044283] AEST: {2}[Hardware Error]: Hardware error from AEST XP
+[  132.044286] AEST: {2}[Hardware Error]:  Error from vendor hid ARMHC700 uid 0x0
+[  132.044288] AEST: {2}[Hardware Error]:   ERR0FR: 0x48a5
+[  132.044290] AEST: {2}[Hardware Error]:   ERR0CTRL: 0x108
+[  132.044292] AEST: {2}[Hardware Error]:   ERR0STATUS: 0xc4800390
+[  132.044293] AEST: {2}[Hardware Error]:   ERR0ADDR: 0x8400000043344521
+[  132.044295] AEST: {2}[Hardware Error]:   ERR0MISC0: 0x0
+[  132.044296] AEST: {2}[Hardware Error]:   ERR0MISC1: 0x0
+[  132.044298] AEST: {2}[Hardware Error]:   ERR0MISC2: 0x0
+[  132.044299] AEST: {2}[Hardware Error]:   ERR0MISC3: 0x0
+[  132.044302] Memory failure: 0x43344: recovery action for already poisoned page: Failed
+
+[0]: https://developer.arm.com/documentation/den0085/0200/
+[1]: Intel: Predicting Uncorrectable Memory Errors from the Correctable Error History
+[2]: Alibaba. Predicting DRAM-Caused Risky VMs in Large-Scale Clouds. Published in HPCA2025
+[3]: AMD: Physics-informed machinelearning for dram error modeling
+[4]: Tencent: Predicting uncorrectablememory errors for proactive replacement: An empirical study on large-scale field data
+[5]: https://lore.kernel.org/all/20251104-wip-mca-updates-v8-4-66c8eacf67b9@amd.com/
+[6]: https://developer.arm.com/documentation/ihi0100/
+[7]: https://lore.kernel.org/all/20211124170708.3874-1-baicar@os.amperecomputing.com/
+[8]: https://lore.kernel.org/all/b365db02-b28c-1b22-2e87-c011cef848e2@linux.alibaba.com/
+[9]: https://github.com/winterddd/qemu/tree/error_record
+
+Change from V5:
+https://lore.kernel.org/all/20251230090945.43969-1-tianruidong@linux.alibaba.com/
+1. Based on the feedback from Borislav Petkov, I've dropped the idea of a 
+   unified address translation interface across ARM and AMD.
+
+Change from V4:
+https://lore.kernel.org/all/20251222094351.38792-1-tianruidong@linux.alibaba.com/
+1. Fix build warning in 0010 and 0014 report by kernel test robot:
+    https://lore.kernel.org/all/202512230122.CfXZcF76-lkp@intel.com/
+    https://lore.kernel.org/all/202512230007.Vs6IvFVD-lkp@intel.com/
+2. Dropped the extra patch(0014) that was mistakenly included in v4.
+
+Change from V3:
+https://lore.kernel.org/all/20250115084228.107573-1-tianruidong@linux.alibaba.com/
+1. Add vendor AEST node framework and support CMN700
+2. Borislav Petkov
+    - Split into multiple smaller patches for easier review.
+    - refined the English in the cover letter for better flow.
+3. Accept Tomohiro Misono's comment
+
+Change from V2:
+https://lore.kernel.org/all/20240321025317.114621-1-tianruidong@linux.alibaba.com/
+1. Tomohiro Misono
+    - dump register before panic
+2. Baolin Wang & Shuai Xue: accept all comment.
+3. Support AEST V2.
+
+Change from V1:
+https://lore.kernel.org/all/20240304111517.33001-1-tianruidong@linux.alibaba.com/
+1. Marc Zyngier
+  - Use readq/writeq_relaxed instead of readq/writeq for MMIO address.
+  - Add sync for system register operation.
+  - Use irq_is_percpu_devid() helper to identify a per-CPU interrupt.
+  - Other fix.
+2. Set RAS CE threshold in AEST driver.
+3. Enable RAS interrupt explicitly in driver.
+4. UER and UEO trigger memory_failure other than panic.
+
+Ruidong Tian (16):
+  ACPI/AEST: Parse the AEST table
+  ras: AEST: Add probe/remove for AEST driver
+  ras: AEST: support different group format
+  ras: AEST: Unify the read/write interface for system and MMIO register
+  ras: AEST: Probe RAS system architecture version
+  ras: AEST: Support RAS Common Fault Injection Model Extension
+  ras: AEST: Support CE threshold of error record
+  ras: AEST: Enable and register IRQs
+  ras: AEST: Add cpuhp callback
+  ras: AEST: Introduce AEST driver sysfs interface
+  ras: AEST: Add error count tracking and debugfs interface
+  ras: AEST: Allow configuring CE threshold via debugfs
+  ras: AEST: Introduce AEST inject interface to test AEST driver
+  ras: AEST: Add framework to process AEST vendor node
+  ras: AEST: support vendor node CMN700
+  trace, ras: add ARM RAS extension trace event
+
+ Documentation/ABI/testing/debugfs-aest |   99 +++
+ MAINTAINERS                            |   11 +
+ arch/arm64/include/asm/arm-cmn.h       |   47 ++
+ arch/arm64/include/asm/ras.h           |   95 +++
+ drivers/acpi/arm64/Kconfig             |   11 +
+ drivers/acpi/arm64/Makefile            |    1 +
+ drivers/acpi/arm64/aest.c              |  311 +++++++
+ drivers/perf/arm-cmn.c                 |   37 +-
+ drivers/ras/Kconfig                    |    1 +
+ drivers/ras/Makefile                   |    1 +
+ drivers/ras/aest/Kconfig               |   17 +
+ drivers/ras/aest/Makefile              |    8 +
+ drivers/ras/aest/aest-cmn.c            |  330 ++++++++
+ drivers/ras/aest/aest-core.c           | 1054 ++++++++++++++++++++++++
+ drivers/ras/aest/aest-inject.c         |  131 +++
+ drivers/ras/aest/aest-sysfs.c          |  228 +++++
+ drivers/ras/aest/aest.h                |  410 +++++++++
+ drivers/ras/ras.c                      |    3 +
+ include/linux/acpi_aest.h              |   75 ++
+ include/linux/cpuhotplug.h             |    1 +
+ include/linux/ras.h                    |    8 +
+ include/ras/ras_event.h                |   71 ++
+ 22 files changed, 2914 insertions(+), 36 deletions(-)
+ create mode 100644 Documentation/ABI/testing/debugfs-aest
+ create mode 100644 arch/arm64/include/asm/arm-cmn.h
+ create mode 100644 arch/arm64/include/asm/ras.h
+ create mode 100644 drivers/acpi/arm64/aest.c
+ create mode 100644 drivers/ras/aest/Kconfig
+ create mode 100644 drivers/ras/aest/Makefile
+ create mode 100644 drivers/ras/aest/aest-cmn.c
+ create mode 100644 drivers/ras/aest/aest-core.c
+ create mode 100644 drivers/ras/aest/aest-inject.c
+ create mode 100644 drivers/ras/aest/aest-sysfs.c
+ create mode 100644 drivers/ras/aest/aest.h
+ create mode 100644 include/linux/acpi_aest.h
+
+-- 
+2.51.2.612.gdc70283dfc
+
 
