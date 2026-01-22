@@ -4,87 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 572C8D3EE60
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 13:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC1C7D3EE60
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 13:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uaYzvb2XfnnkbyKx6FP5LwKsEl3/GXRkx9jsqA5CXcg=; b=EjKCMC3FF4TsMpK+F25mgvNOqT
-	k9YJqfHJmDhWIWGQbHGCPLtC/eZNlVFhdYsZhCWeQxudy5IjYTLegFzYXAex4dRdfIRc0IecpehAH
-	Z0JlJPyjGqonOcNZH/UPhl7jxkeGjPHGph7xJHUbjXeyAow8MmYHazCyUUNq4tkjB21wRygI2hICP
-	nSOkSsS2ISRb9p9++O8WEv8dlaiEhABMucIKqNOj/6Gq60fDPGU3KIxlyt93OWsN2Aaqs0C24yg+2
-	w9cKsEOZaNwO569knXqkbdv5ZFw3fDZ1+P6Iq8+G0l1mh49LpGAg8AsFqXW5mA2JNsR2Ty6KQPRsg
-	97phthfg==;
+	bh=PVPx498pL63xcPc56dIx1zi60xZFKj+s4Rq+nVTUx5Y=; b=EcQHPzEnOUEpQiiPD9xAaKMAix
+	VWKvkXgcr42TZJguWSGodD0uSfbjqTmOHB6SkInsj4FQEUK3YPMeZ9SXDjmgCGPiYxc5wsqRcagtp
+	K18X4/qa9zgRDEKUZeLwQGTHeVoeOCPH6xMJ6awbB+c7Q5YFU+ypfrbiCLJ4hvxN97WB0Nw8w9q8/
+	K6x9iO0TDBYpA5bG6/V8X6Ooi+JnlGKN6t2IaXdhXLqWShQ/P2YFvAbR06Wf6RQT4kK5FfDVyf4KT
+	jkieS+z9T5wCB+yr4HITx2BpM10pMtN7QNw9MKkY7RJga5RikEWhfdGEnf6XWHOSAm3vgR2/wHTQo
+	5d23I5rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viuIx-000000076I3-0Gnt;
-	Thu, 22 Jan 2026 13:00:55 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1viuO2-000000076Xs-1ySG;
+	Thu, 22 Jan 2026 13:06:10 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viuIq-000000076HE-3gBc;
-	Thu, 22 Jan 2026 13:00:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769086792; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=VKqPDXZqQscCYPdjRAFzVjNUl2wWtTJSvTiRTzEYXbg2KRiiyrzw7Fgd5F4aj/GqLRkPG52NFbg+LSpLjs4GAECVbS01LsWvA9Fz1NjwIAPPjcU/3BNCDvAgEzXUnKfZB2evUSGJlSirmL7GTIXm02Roe2I5pcvUy99ppcqfscg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769086792; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=uaYzvb2XfnnkbyKx6FP5LwKsEl3/GXRkx9jsqA5CXcg=; 
-	b=RJCKftJsR+YMsCXvoJUwTAO3XJ8vrGzxjCCYZQmDVjdkydhhqR4Bgvb/ZHdXIutEzxgIJnul+AxHTbyPdvbqJo6hzUNsBlNrvzLsDYiCWTGUDpqGZqeaDwo+5XzzCEUSynNz4SiSmXQzIFLwIW+bzQeySP1wgm4RvmR24fr4xfU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769086792;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=uaYzvb2XfnnkbyKx6FP5LwKsEl3/GXRkx9jsqA5CXcg=;
-	b=XQ+af+yjMhxPFVDC94pM4PlfhBu+gM6eH/bwFiy44r2PfvdSy4/Aodursm5Hdrqi
-	VZ1oIeM9xzg5jXHXTAll2xKeZgInWMdf2dKrQIFjeVJqLYGJlLr9PJTsgJ/NoOlwVW6
-	ezT5oPGKFoHngWSi9Nrm67krvXYabnOVwbijhWko=
-Received: by mx.zohomail.com with SMTPS id 1769086791692511.35700158955376;
-	Thu, 22 Jan 2026 04:59:51 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Andy Yan <andyshrk@163.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <siqueira@igalia.com>,
- Alex Deucher <alexander.deucher@amd.com>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, kernel@collabora.com,
- amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v7 10/22] drm/rockchip: vop2: Fix YUV444 output
-Date: Thu, 22 Jan 2026 13:59:41 +0100
-Message-ID: <6631107.DvuYhMxLoT@workhorse>
-In-Reply-To: <7ab32c86.7542.19be4d21f69.Coremail.andyshrk@163.com>
-References: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
- <20260121-color-format-v7-10-ef790dae780c@collabora.com>
- <7ab32c86.7542.19be4d21f69.Coremail.andyshrk@163.com>
+	id 1viuNy-000000076XX-2joe
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 Jan 2026 13:06:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769087167; x=1800623167;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=rC6T3O4H3sHc69QHplsUYFl5tJd5RhVrogcigqQQ2PQ=;
+  b=dFt848akYMn5lycZ18g6x3gIdYZ3hz929Ntv3eLZr/OQ0N0b1Y0k2tYF
+   ZwcSxw4+JQZ7MiT0jkXUOj6XIOeBqhzf+wy9VFJYbOwsgxSmafeyLjCGF
+   ROmBKkvv6DtG3rELifB5qulmO97OAtPTpp637dxnP2QNqRpv0CbvKchAw
+   a3vR6PKYKHp9X2UZsAcBD/e4sbEM6zUhgeRsKjW0UbzcP//QLdYMPz+AJ
+   8gd2pG/Sa3AmAOBKgsreg9NItGDjz5TCDXQFRtXyomSPri0565RWUPRzX
+   ewsRCODXdUpfH6DDdzMtXrnuebwEDnxxJZte4FZLAh51yK7dthFvaLk7d
+   w==;
+X-CSE-ConnectionGUID: 7tlPk5uDSu+syvJgn9WUaQ==
+X-CSE-MsgGUID: qOcXFDCpQZuLOKqM7G6jgg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11678"; a="57892421"
+X-IronPort-AV: E=Sophos;i="6.21,246,1763452800"; 
+   d="scan'208";a="57892421"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2026 05:06:05 -0800
+X-CSE-ConnectionGUID: 079ECkJBSHqbNlHT4t7v0w==
+X-CSE-MsgGUID: Wl0Myg7PSjGDi9QeczkPvA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,246,1763452800"; 
+   d="scan'208";a="206991199"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 22 Jan 2026 05:06:01 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1viuNr-00000000Sqn-1c5V;
+	Thu, 22 Jan 2026 13:05:59 +0000
+Date: Thu, 22 Jan 2026 21:05:10 +0800
+From: kernel test robot <lkp@intel.com>
+To: Carlos Song <carlos.song@nxp.com>, andi.shyti@kernel.org,
+	aisheng.dong@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, vz@mleia.com,
+	pandy.gao@nxp.com, B38611@freescale.com, wsa@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Carlos Song <carlos.song@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [Patch V3] i2c: imx-lpi2c: fix SMBus block read NACK after byte
+ count
+Message-ID: <202601222033.Qhu55YA4-lkp@intel.com>
+References: <20260121094837.2651035-1-carlos.song@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260121094837.2651035-1-carlos.song@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_050049_025495_8A1F279E 
-X-CRM114-Status: GOOD (  20.25  )
+X-CRM114-CacheID: sfid-20260122_050606_705814_00D6FD02 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,143 +93,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday, 22 January 2026 09:28:54 Central European Standard Time Andy Y=
-an wrote:
->=20
-> Hello Nicolas=EF=BC=8C
->=20
-> At 2026-01-21 22:45:17, "Nicolas Frattaroli" <nicolas.frattaroli@collabor=
-a.com> wrote:
-> >YUV444 (aka YCbCr444) output isn't working quite right on RK3588. The
-> >resulting image on the display, while identifying itself as YUV444, has
-> >some components swapped, even after adding the necessary DRM formats to
-> >the conversion functions.
-> >
-> >Judging by downstream, this is because YUV444 also needs an rb swap
-> >performed in the AFBC case.
-> >
-> >Add the DRM formats to the appropriate switch statements, and add a
-> >function for checking whether an rb swap needs to be performed in the
-> >AFBC case.
-> >
-> >Fixes: 604be85547ce ("drm/rockchip: Add VOP2 driver")
-> >Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> >---
-> > drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 19 +++++++++++++++++++
-> > 1 file changed, 19 insertions(+)
-> >
-> >diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/=
-drm/rockchip/rockchip_drm_vop2.c
-> >index ec3b4fde10db..469c63dd97d5 100644
-> >--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> >+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> >@@ -176,6 +176,7 @@ static enum vop2_data_format vop2_convert_format(u32=
- format)
-> > 	case DRM_FORMAT_ARGB2101010:
-> > 	case DRM_FORMAT_XBGR2101010:
-> > 	case DRM_FORMAT_ABGR2101010:
-> >+	case DRM_FORMAT_VUY101010:
-> > 		return VOP2_FMT_XRGB101010;
-> > 	case DRM_FORMAT_XRGB8888:
-> > 	case DRM_FORMAT_ARGB8888:
-> >@@ -184,6 +185,7 @@ static enum vop2_data_format vop2_convert_format(u32=
- format)
-> > 		return VOP2_FMT_ARGB8888;
-> > 	case DRM_FORMAT_RGB888:
-> > 	case DRM_FORMAT_BGR888:
-> >+	case DRM_FORMAT_VUY888:
-> > 		return VOP2_FMT_RGB888;
-> > 	case DRM_FORMAT_RGB565:
-> > 	case DRM_FORMAT_BGR565:
-> >@@ -225,6 +227,7 @@ static enum vop2_afbc_format vop2_convert_afbc_forma=
-t(u32 format)
-> > 	case DRM_FORMAT_ARGB2101010:
-> > 	case DRM_FORMAT_XBGR2101010:
-> > 	case DRM_FORMAT_ABGR2101010:
-> >+	case DRM_FORMAT_VUY101010:
-> > 		return VOP2_AFBC_FMT_ARGB2101010;
-> > 	case DRM_FORMAT_XRGB8888:
-> > 	case DRM_FORMAT_ARGB8888:
-> >@@ -233,6 +236,7 @@ static enum vop2_afbc_format vop2_convert_afbc_forma=
-t(u32 format)
-> > 		return VOP2_AFBC_FMT_ARGB8888;
-> > 	case DRM_FORMAT_RGB888:
-> > 	case DRM_FORMAT_BGR888:
-> >+	case DRM_FORMAT_VUY888:
->=20
-> How did you test this format? It seems tools like modetest don=E2=80=99t =
-support testing this pattern.
->=20
+Hi Carlos,
 
-Hi Andy,
+kernel test robot noticed the following build errors:
 
-using the rest of this series, which implements the "color format"
-DRM property, and the corresponding weston MR that makes use of it[1].
+[auto build test ERROR on linus/master]
+[also build test ERROR on v6.19-rc6 next-20260121]
+[cannot apply to andi-shyti/i2c/i2c-host]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-I create a ~/.config/weston.ini with the following contents:
+url:    https://github.com/intel-lab-lkp/linux/commits/Carlos-Song/i2c-imx-lpi2c-fix-SMBus-block-read-NACK-after-byte-count/20260121-175629
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20260121094837.2651035-1-carlos.song%40nxp.com
+patch subject: [Patch V3] i2c: imx-lpi2c: fix SMBus block read NACK after byte count
+config: m68k-allmodconfig (https://download.01.org/0day-ci/archive/20260122/202601222033.Qhu55YA4-lkp@intel.com/config)
+compiler: m68k-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260122/202601222033.Qhu55YA4-lkp@intel.com/reproduce)
 
-    [output]
-    name=3DHDMI-A-1
-    color-format=3Dyuv444
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601222033.Qhu55YA4-lkp@intel.com/
 
-This will make Weston try to set the output format to 10-bit YUV444. To
-limit it to 8-bit, you can add `max-bpc=3D8`. The monitor's EDID needs to
-report YUV444 support, otherwise that Weston version won't let you set
-this property.
+All errors (new ones prefixed by >>):
 
-Link: https://gitlab.freedesktop.org/wayland/weston/-/merge_requests/1859 [=
-1]
-
-Kind regards,
-Nicolas Frattaroli
-
->=20
->=20
-> > 		return VOP2_AFBC_FMT_RGB888;
-> > 	case DRM_FORMAT_RGB565:
-> > 	case DRM_FORMAT_BGR565:
-> >@@ -270,6 +274,19 @@ static bool vop2_win_rb_swap(u32 format)
-> > 	}
-> > }
-> >=20
-> >+static bool vop2_afbc_rb_swap(u32 format)
-> >+{
-> >+	switch (format) {
-> >+	case DRM_FORMAT_NV24:
-> >+	case DRM_FORMAT_NV30:
-> >+	case DRM_FORMAT_VUY888:
-> >+	case DRM_FORMAT_VUY101010:
-> >+		return true;
-> >+	default:
-> >+		return false;
-> >+	}
-> >+}
-> >+
-> > static bool vop2_afbc_uv_swap(u32 format)
-> > {
-> > 	switch (format) {
-> >@@ -1291,6 +1308,7 @@ static void vop2_plane_atomic_update(struct drm_pl=
-ane *plane,
-> > 		 /* It's for head stride, each head size is 16 byte */
-> > 		stride =3D ALIGN(stride, block_w) / block_w * 16;
-> >=20
-> >+		rb_swap =3D vop2_afbc_rb_swap(fb->format->format);
-> > 		uv_swap =3D vop2_afbc_uv_swap(fb->format->format);
-> > 		/*
-> > 		 * This is a workaround for crazy IC design, Cluster
-> >@@ -1308,6 +1326,7 @@ static void vop2_plane_atomic_update(struct drm_pl=
-ane *plane,
-> > 			vop2_win_write(win, VOP2_WIN_AFBC_ENABLE, 1);
-> > 		vop2_win_write(win, VOP2_WIN_AFBC_FORMAT, afbc_format);
-> > 		vop2_win_write(win, VOP2_WIN_AFBC_UV_SWAP, uv_swap);
-> >+		vop2_win_write(win, VOP2_WIN_AFBC_RB_SWAP, rb_swap);
-> > 		/*
-> > 		 * On rk3566/8, this bit is auto gating enable,
-> > 		 * but this function is not work well so we need
-> >
->=20
+   In file included from drivers/i2c/busses/i2c-imx-lpi2c.c:19:
+   drivers/i2c/busses/i2c-imx-lpi2c.c: In function 'lpi2c_imx_read_init':
+>> drivers/i2c/busses/i2c-imx-lpi2c.c:93:29: error: implicit declaration of function 'FIELD_GET' [-Wimplicit-function-declaration]
+      93 | #define MSR_RDF_ASSERTED(x) FIELD_GET(MSR_RDF, (x))
+         |                             ^~~~~~~~~
+   include/linux/iopoll.h:49:21: note: in definition of macro 'poll_timeout_us'
+      49 |                 if (cond) { \
+         |                     ^~~~
+   include/linux/iopoll.h:193:9: note: in expansion of macro 'read_poll_timeout'
+     193 |         read_poll_timeout(op, val, cond, sleep_us, timeout_us, false, addr)
+         |         ^~~~~~~~~~~~~~~~~
+   include/linux/iopoll.h:228:9: note: in expansion of macro 'readx_poll_timeout'
+     228 |         readx_poll_timeout(readl, addr, val, cond, delay_us, timeout_us)
+         |         ^~~~~~~~~~~~~~~~~~
+   drivers/i2c/busses/i2c-imx-lpi2c.c:569:23: note: in expansion of macro 'readl_poll_timeout'
+     569 |                 ret = readl_poll_timeout(lpi2c_imx->base + LPI2C_MSR, val,
+         |                       ^~~~~~~~~~~~~~~~~~
+   drivers/i2c/busses/i2c-imx-lpi2c.c:570:42: note: in expansion of macro 'MSR_RDF_ASSERTED'
+     570 |                                          MSR_RDF_ASSERTED(val), 1, 1000);
+         |                                          ^~~~~~~~~~~~~~~~
 
 
+vim +/FIELD_GET +93 drivers/i2c/busses/i2c-imx-lpi2c.c
 
+    70	
+    71	#define MCR_MEN		BIT(0)
+    72	#define MCR_RST		BIT(1)
+    73	#define MCR_DOZEN	BIT(2)
+    74	#define MCR_DBGEN	BIT(3)
+    75	#define MCR_RTF		BIT(8)
+    76	#define MCR_RRF		BIT(9)
+    77	#define MSR_TDF		BIT(0)
+    78	#define MSR_RDF		BIT(1)
+    79	#define MSR_SDF		BIT(9)
+    80	#define MSR_NDF		BIT(10)
+    81	#define MSR_ALF		BIT(11)
+    82	#define MSR_MBF		BIT(24)
+    83	#define MSR_BBF		BIT(25)
+    84	#define MIER_TDIE	BIT(0)
+    85	#define MIER_RDIE	BIT(1)
+    86	#define MIER_SDIE	BIT(9)
+    87	#define MIER_NDIE	BIT(10)
+    88	#define MCFGR1_AUTOSTOP	BIT(8)
+    89	#define MCFGR1_IGNACK	BIT(9)
+    90	#define MRDR_RXEMPTY	BIT(14)
+    91	#define MDER_TDDE	BIT(0)
+    92	#define MDER_RDDE	BIT(1)
+  > 93	#define MSR_RDF_ASSERTED(x) FIELD_GET(MSR_RDF, (x))
+    94	
 
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
