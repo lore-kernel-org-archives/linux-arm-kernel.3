@@ -4,91 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6484D6CFA2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 19:24:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC0F7D6CFA2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 19:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R1gfDRebGX8h9HwfZ81icDjDx7dxW6g0V3ctKkIDrxQ=; b=hbN4PfpJ1HF8Rk9p81cBo1gj78
-	8kouuS1EIX5gY2NdN5S7Xcr9qwVohNSnKTOYyb5CdsTckLMGu1Uc+8RRUXZM0sxDY4eLQZ1zdPED6
-	Ca707NPDIBjIjZK05CclEO2HHxwaU1leFXF9hATKkxoyzdAEmSXKMsCEgy6Re/WzC1W8eYKOvuYqB
-	4sZdeXw4q/whkM6gR8tktJBc/opz1cKiGkgZt51xlwYtfJ2JABnRa3JB9Q8DlTric2Q3pQyH/v2mx
-	9KnfqvNW6RqQcKJReAZr5Z1BEyM0KCh7hcbOzzLzIjJQaNoB3JEwsKWj/wYQx7kjoOC/5A8t5fapK
-	VeoF84vQ==;
+	bh=4UUagfqRa3jCP2fBiA3Ur8fXwirA3RKoOMc660AuSI0=; b=DQmo7WqSWOxMimGFxkVwH/v128
+	Pdzpz8faIbGqkE1Kvn//RfHOctetzlU+dEr/WxglR76JcSjGE3Rp+hGmNLtOfylEg+Da/bFHOnDBk
+	JXu1ozbPi6zsvC/WqO9MrUkB8nH4Q2ER4MSg1hKw7gaXLUa18331lM5WcBg/QJRQa+CknDZQ/byqZ
+	1opvsps0wmHnfndwl/4y0vvdB31JWMB3NBSKL0wznlpSk0UB9/cQLR5eaSwW3sC4Mf0t9UiouIjJC
+	0CmaLLem6JXRJckCPgm+PC5N2hrojbUcU2jAzGmNTZTybPaC+StXv5UPQS7ncgvGnfrOs3CnrXbgz
+	YSu4qlDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj0IN-00000007h5f-2ol7;
-	Thu, 22 Jan 2026 19:24:43 +0000
-Received: from mail-dl1-x1261.google.com ([2607:f8b0:4864:20::1261])
+	id 1vj0KZ-00000007hKb-1l5V;
+	Thu, 22 Jan 2026 19:26:59 +0000
+Received: from mail-pg1-x563.google.com ([2607:f8b0:4864:20::563])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj0IL-00000007h5B-3ABt
+	id 1vj0KW-00000007hK5-3hhF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 19:24:43 +0000
-Received: by mail-dl1-x1261.google.com with SMTP id a92af1059eb24-121a0bcd364so2462691c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 11:24:41 -0800 (PST)
+	Thu, 22 Jan 2026 19:26:58 +0000
+Received: by mail-pg1-x563.google.com with SMTP id 41be03b00d2f7-c56188aef06so566876a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 11:26:56 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769109881; x=1769714681;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=R1gfDRebGX8h9HwfZ81icDjDx7dxW6g0V3ctKkIDrxQ=;
-        b=sJ8vnl2KwnD1PoTXono8JErZWkUWg2Wonb7Rq6R7GlAIbMjq01Np39jPgw6pUjkCYl
-         ka7b4lIRM3FHJQFOjEqXfKGPCMKkJ8BcsXQgRlKiH7HKLb3QtpI8/WOSd7UfHZDYn3k3
-         fJi5ehE86j2qN9txocv8xu7qPVXXq3j37xgkgSTMcvOse+qbYZXJ3b2sa+UiLFcBajfK
-         g2qyKd9X2Lz62Miu68BHvUraGH33OWUNHXAiozKHtuNkzMwIe7BQglmF4Fs49qlLBJ8d
-         D0GuuOTOpAALVd1nGIuiYY0NC6dYKhuGmh0GjhvtE5jp4Ek7H096H/0vJNymv0u8x5Fu
-         WrvA==
-X-Forwarded-Encrypted: i=1; AJvYcCUTFC+CHn7TD/V3RaQX/ZpWslIRgjL7EQXVzEGJH8CytRJId3hi+NuTTLQHHq4QAh37p+DtpSMeCngdgmRS74sm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzsh69O1pBh7tZnp+591OQd0VRquKXvfqRCmOAPA1BcKfXMYFa0
-	GrTPbZ66N3cXIgokMmV9pCc2rb4/kdw4RGxY0awWnVHyXYqVe0ZqDDrxiDiFZox8KR0LPiwnCp6
-	dxMDdKLiannQI8yGGnu1wHkMU39mROIegVVsqZRQRiYNEzo8T4hq0usE1OLlLHkKQP4mQNpSKu6
-	NwIlFhq7L5KAkr+kh41D8xH8vQMMHxkiyNIdkxNQrGHV3ZOqCHr9cwJ6BwWQyZRWmKY+jdYB/T3
-	eu5KRlHtv3qwkSy1Bp6p1Y4gaSEA9idklg=
-X-Gm-Gg: AZuq6aLynmxZjxlaWasgog5xwySohnZIVMW/QQqSBDJpiB3z7K4xD0kkkjVP3qN153E
-	2Fk49k3V7w8kJMPzQCCsHuPPMXEjxtnrH2Rvxm3iVlN7GEZHy3StmA1RHD98QNvfHmW8wYHMPuN
-	mqVRcU31B7BTYeYxsHSP+5Mx1tfeT6nk8R9fW2VHtMaeuVG/wJNS5C1ViAc2t9TQwr1z//652sD
-	19FxaTOm/54q77v9aMzBu8sH6xIhv3fS/Dlyj+AD4zjjJ7JB2oH8qmjVXI0b8xaWvgQh5DN2UFt
-	m5bU0AO6C23bxWo627re6g53lw8vFTCmAnicMZr0TG10RZnlxV7BGpPZQoioX1x3B2MJLF2hy7y
-	ks3ev0vcIXb5Cjyyz2iUUu8fA0HHsYAQDgZyrSXA2L+o5XKhW0B/EaMe+9Pla+gctY3owsHqTfz
-	53t9ki+lxNi3zu/JBJdB2n9F4Tzpm2wJxrMVI/V/kBay5sC5M=
-X-Received: by 2002:a05:7022:608e:b0:124:64a7:db0c with SMTP id a92af1059eb24-1247dc09391mr173051c88.45.1769109880701;
-        Thu, 22 Jan 2026 11:24:40 -0800 (PST)
+        d=1e100.net; s=20230601; t=1769110015; x=1769714815;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4UUagfqRa3jCP2fBiA3Ur8fXwirA3RKoOMc660AuSI0=;
+        b=rYs3DC+xURt6jx5+FqR2c71RDO0B3Z+3pdrAarQEV2G3UIZhumdhoBMrd5VUXCwmEg
+         eCdecpVcCApWqKp8APFXRYOaiVcXvEX8Ndpwuk9lpjZKJl6IFs/QqBomffLRdpW20frv
+         Dg8CiMFGbHNKyWXJW2nyTLVL1cZ042/35pyoK8Jwu8c4oHG99aKeYKvl0dGv4cXfQjOi
+         9ZUIFPeRpKdonwtk3PsLkKxoJ35707B2iU2lHfAQVToMrBTcRylLZu/ugsoBai6Qm503
+         DgRREmtyVoOhG7YyhfXnvWL+JV/uH0I/CCl2VVQ9MjKO3R4ax9J766CqlklsiSOt3ule
+         oYVg==
+X-Forwarded-Encrypted: i=1; AJvYcCUpHgg9zjxJAVksAJIuPFIS3ouPl4rOaMQC8k+Egy8kgI9hV/cm91pBL2dq8BYCrWDkxUvKl4S74PL2SbAnoam3@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtvlPFcVy6QzmkpWeysIlA+6lVW61LGgLo01uNs0HhaXYg+nfu
+	QIR+eZGWSarebZlbMff+UisY8do9hoiE4aClUQMXcWpKj1azS+smBxY0qHnATPrEq3Kb7MGGV8Y
+	j+eIpmOiaA6o6frOdlyawbiF8hIhFOIJRsyE3kqXHhIllnMHTrzMOXtnqOwy9kfj18Xxpq+8mnm
+	3F2gSQKLq1Ahuopa3B3RTBJgoS8P0GhMN1lmMkr1gAepmHxCWNRTUsb+4NcOP7Hs+j16HBlZxri
+	IbMxaolxzNZ1AVupylAEYfv9KcSuWkBIWY=
+X-Gm-Gg: AZuq6aK4+O9/SFSiOja/OcPVlsmIbi1EL9bwTIV1G2RupTESlyhqtaIOWkF8is6O9Zj
+	aCe9PgmAhY6rcqdjXgqIv79AZC2bL+6Xo+T2ff+jcZjHW1xOrvp5NUD3v0r3gJQ5a6QhUO2b8z4
+	Qzfzdltq9t81oqU2FF4UjcmW/HCTkl0xSiLu+wcn0LG3DQYtdKg5jhI+rELYnUxhmbhbWuYrqyM
+	BBs5+rEh6YFs3+O1YHVqKN20+5o6qtd9wFfRYl7IamALt/zGtjC3N5iby/Eefo7UhzZiRPBVc6x
+	FJ/NEJTS4rDp6rgeASYLAPBYYSDwnMgmBixqb3Ah9B7uxcOhl+8RNNuJcT12YgN5CO8xa/T6K3r
+	mGunmMzrGnHMgk2zNxjsD0qYb/RAf/s4fB74tP9XGZ4FmGRRX90rTjEqcg50FoT30lOu1fga5e6
+	/DxCW3KPHP4qcMCTqyN4QXEVo6LrmZ+xmRW3/PvnATY4D3InE=
+X-Received: by 2002:a17:90b:2749:b0:34c:a29d:992a with SMTP id 98e67ed59e1d1-35368b4c07fmr409798a91.34.1769110015463;
+        Thu, 22 Jan 2026 11:26:55 -0800 (PST)
 Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-2.dlp.protect.broadcom.com. [144.49.247.2])
-        by smtp-relay.gmail.com with ESMTPS id a92af1059eb24-1247d99b08esm59753c88.6.2026.01.22.11.24.40
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-353354d8198sm470144a91.8.2026.01.22.11.26.55
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 22 Jan 2026 11:24:40 -0800 (PST)
+        Thu, 22 Jan 2026 11:26:55 -0800 (PST)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-2b71c5826fbso1346993eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 11:24:39 -0800 (PST)
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-123349958b2so5509010c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 11:26:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1769109879; x=1769714679; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=R1gfDRebGX8h9HwfZ81icDjDx7dxW6g0V3ctKkIDrxQ=;
-        b=CQbkoTPBmk5bM6c6xiU3r9/QSF7Avd1hF7VzTaHAfYSzDoVxWttuWjx9MmpatzOEE4
-         bMXMzOZdGKuMmqlDMaEPTb1mpOrKsXQLApPq5jHv5/0PDAqakpU/1BZVA5R0ZzlgbXtK
-         Jfzy9L7TYmHp5ZQ6+H8yg2bYrP3dpNNlb+24g=
-X-Forwarded-Encrypted: i=1; AJvYcCVIq2tQ7aH98WodgVpJZOeY0R4FH3g5Ei34iASNWNz0G3X//jgy2QBahzqrMOu/uQOD9B443ez8vNf1AijSwYoG@lists.infradead.org
-X-Received: by 2002:a05:7300:2150:b0:2b7:29f3:8db9 with SMTP id 5a478bee46e88-2b739bce1d7mr176225eec.40.1769109878699;
-        Thu, 22 Jan 2026 11:24:38 -0800 (PST)
-X-Received: by 2002:a05:7300:2150:b0:2b7:29f3:8db9 with SMTP id 5a478bee46e88-2b739bce1d7mr176213eec.40.1769109878206;
-        Thu, 22 Jan 2026 11:24:38 -0800 (PST)
+        d=broadcom.com; s=google; t=1769110014; x=1769714814; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=4UUagfqRa3jCP2fBiA3Ur8fXwirA3RKoOMc660AuSI0=;
+        b=c6opTB+GEL8ckDKRhL0CIo7hSKhT/Xnh6qcwHeKi5LyWJmE/2t7eXZ78t1+r+lRcan
+         TaQxMMTiUich2rDX/yu7KYvUShAMI7bRqdOtOfi5eDc5szGZlFRVxiTdFmDujB2AcwP+
+         w9w3xZv06qeUoUi6d2972jgZzWW1JsMxxU3QM=
+X-Forwarded-Encrypted: i=1; AJvYcCXLpSynZZoYioDnR8Y9CFzSsVhfZBYquS4TS67GDVOQbUSfcvNchrnSg/KNtxOJh6O2zoeDrmvR8PLcFDIkzENL@lists.infradead.org
+X-Received: by 2002:a05:7022:438e:b0:11d:fc72:e17f with SMTP id a92af1059eb24-1247dbbba5bmr270192c88.18.1769110013236;
+        Thu, 22 Jan 2026 11:26:53 -0800 (PST)
+X-Received: by 2002:a05:7022:438e:b0:11d:fc72:e17f with SMTP id a92af1059eb24-1247dbbba5bmr270169c88.18.1769110012532;
+        Thu, 22 Jan 2026 11:26:52 -0800 (PST)
 Received: from [10.63.25.133] ([12.75.221.34])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b73a6c4a68sm400450eec.12.2026.01.22.11.24.34
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1247d90ce0dsm597516c88.4.2026.01.22.11.26.49
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Jan 2026 11:24:37 -0800 (PST)
-Message-ID: <a7b2f013-965b-436d-95f0-8ce1e2ec0c41@broadcom.com>
-Date: Thu, 22 Jan 2026 11:24:35 -0800
+        Thu, 22 Jan 2026 11:26:51 -0800 (PST)
+Message-ID: <ba9005ab-f757-4018-96ed-a10bcef08165@broadcom.com>
+Date: Thu, 22 Jan 2026 11:26:47 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] gpio: brcmstb: allow parent_irq to wake
+Subject: Re: [PATCH 2/3] gpio: brcmstb: implement irq_mask_ack
+From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: Andy Shevchenko <andy.shevchenko@gmail.com>
 Cc: linux-kernel@vger.kernel.org, Doug Berger <opendmb@gmail.com>,
  Broadcom internal kernel review list
@@ -99,10 +100,10 @@ Cc: linux-kernel@vger.kernel.org, Doug Berger <opendmb@gmail.com>,
  "moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE"
  <linux-arm-kernel@lists.infradead.org>
 References: <20260122010516.1200630-1-florian.fainelli@broadcom.com>
- <20260122010516.1200630-4-florian.fainelli@broadcom.com>
- <CAHp75VfhEZ60F7ZHkjNDZ3JR6B6tNF5ORUDPoN8ZibbvF=js8w@mail.gmail.com>
+ <20260122010516.1200630-3-florian.fainelli@broadcom.com>
+ <CAHp75Vc=ejHPwA05MHBxJQdJWv49pcuTNax0VikXruvwVM+Y9A@mail.gmail.com>
+ <cb4ef2ed-ba94-4475-b02a-5b6e39943e81@broadcom.com>
 Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
  M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
@@ -135,13 +136,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <CAHp75VfhEZ60F7ZHkjNDZ3JR6B6tNF5ORUDPoN8ZibbvF=js8w@mail.gmail.com>
+In-Reply-To: <cb4ef2ed-ba94-4475-b02a-5b6e39943e81@broadcom.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_112441_797489_E010290E 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20260122_112656_928412_B1AB6DEB 
+X-CRM114-Status: GOOD (  20.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,77 +159,91 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 1/21/2026 11:42 PM, Andy Shevchenko wrote:
-> On Thu, Jan 22, 2026 at 3:06 AM Florian Fainelli
-> <florian.fainelli@broadcom.com> wrote:
+On 1/22/2026 11:17 AM, Florian Fainelli wrote:
 > 
->> The classic parent_wake_irq can only occur after the system has
->> been placed into a hardware managed power management state. This
->> prevents its use for waking from software managed suspend states
->> like s2idle.
+> 
+> On 1/21/2026 11:36 PM, Andy Shevchenko wrote:
+>> On Thu, Jan 22, 2026 at 3:06 AM Florian Fainelli
+>> <florian.fainelli@broadcom.com> wrote:
+>>>
+>>> From: Doug Berger <opendmb@gmail.com>
+>>>
+>>> The irq_mask_ack operation is slightly more efficient than doing
+>>> irq_mask and irq_ack separately.
 >>
->> By allowing the parent_irq to be enabled for wake enabled GPIO
->> during suspend, these GPIO can now be used to wake from these
->> states. The 'suspended' boolean is introduced to support wake
->> event accounting.
+>> I would refer to the callbacks as
+>>
+>> .irq_mask()
+>> .irq_ack()
+>>
+>> et cetera.
 > 
->> Signed-off-by: Doug Berger <opendmb@gmail.com>
->> [florian: port changes after generic gpio chip conversion]
+> Ack.
 > 
-> Likewise in the previous patch I think this deserves the Co-developed-by tag.
+>>
+>>> More importantly for this driver it bypasses the check of
+>>> irqd_irq_masked ensuring a previously masked but still active
+>>> interrupt gets remasked if unmasked at the hardware level. This
+>>> allows the driver to more efficiently unmask the wake capable
+>>> interrupts when quiescing without needing to enable the irqs
+>>> individually to clear the irqd_irq_masked state.
+>>
+>> ...
+>>
+>>> -// Copyright (C) 2015-2017 Broadcom
+>>> +// Copyright (C) 2015-2026 Broadcom
+>>
+>> Shouldn't it be rather 2015-2017,2026 ? (In one case when I updated a
+>> driver for Intel, I went via Git history to gather the info.)
+> 
+> Ack.
+> 
+>>
+>> ...
+>>
+>>>   static void brcmstb_gpio_set_imask(struct brcmstb_gpio_bank *bank,
+>>> -               unsigned int hwirq, bool enable)
+>>> +               unsigned int hwirq, bool enable, bool ack)
+>>
+>> This type of interface is usually discouraged as it makes code harder
+>> to read and follow. Since there are a lot of duplication, I recommend
+>> to move the ack op to a separate helper.
+> 
+> Good point, knowing the order and what set in those parameters can be 
+> confusing.
+> 
+>>
+>> ...
+>>
+>>> -       gpio_generic_write_reg(&bank->chip,
+>>> -                              priv->reg_base + GIO_MASK(bank->id), 
+>>> imask);
+>>> +       if (ack)
+>>> +               gpio_generic_write_reg(&bank->chip,
+>>> +                                      priv->reg_base + 
+>>> GIO_MASK(bank->id),
+>>> +                                      imask);
+>>
+>> Id est this piece...
+>>
+>>
+>>
+>>> +static void brcmstb_gpio_irq_mask_ack(struct irq_data *d)
+>>> +{
+>>> +       struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
+>>> +       struct brcmstb_gpio_bank *bank = gpiochip_get_data(gc);
+>>> +
+>>> +       brcmstb_gpio_set_imask(bank, d->hwirq, false, true);
+>>
+>> ...and call it here explicitly (seems the only place for it, so it can
+>> even be just moved here without an intermediate helper).
 
-OK.
-
-> 
->> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> 
-> ...
-> 
->> +               if (priv->suspended && bank->wake_active & (u32)status) {
-> 
-> Why casting?
-
-status is an unsigned long, which is what for_each_set_bit() expects, so 
-it is intended here to ensure the top bits are not participating in the 
-comparison, I think this is just being extra explicit with intent here.
-
-> 
->> +                       priv->suspended = false;
->> +                       pm_wakeup_event(&priv->pdev->dev, 0);
->> +               }
-> 
-> ...
-> 
->>   static void brcmstb_gpio_shutdown(struct platform_device *pdev)
->>   {
->> +       struct brcmstb_gpio_priv *priv = dev_get_drvdata(&pdev->dev);
-> 
->> +       /* disable interrupts */
-> 
-> A useless comment.
-
-Indeed.
-
-> 
->> +       if (priv->parent_irq > 0)
->> +               disable_irq(priv->parent_irq);
->> +
->>          /* Enable GPIO for S5 cold boot */
->> -       brcmstb_gpio_quiesce(&pdev->dev, false);
->> +       brcmstb_gpio_quiesce(priv, false);
->>   }
-> 
-> ...
-> 
->>   static const struct dev_pm_ops brcmstb_gpio_pm_ops = {
-> 
->> +       .suspend_noirq = pm_sleep_ptr(brcmstb_gpio_suspend_noirq),
->>          .resume_noirq = pm_sleep_ptr(brcmstb_gpio_resume),
-> 
-> May we use one of the PM macros for these two assignments?
-
-Sure, can do that!
--- 
+Actually we need it to be part of brcmsftb_gpio_set_imask() because this 
+is where the guard(gpio_generic_lock_irqsave) resides. I can't really 
+see a better alternative, short of create two implementations: of 
+brcmstb_gpio_set_imask() and brcmstb_gpio_set_imask_ack() which does not 
+feel any better than the proposed patch.
+--
 Florian
 
 
