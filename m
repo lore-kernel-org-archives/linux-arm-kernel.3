@@ -4,62 +4,201 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E10FD3EE84
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:20:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F70BD3EE8A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ODV6DWyWwyzHacyT284vh1CWiBZdSB41LmGUHqCHHtc=; b=DY2uH8FRX2IyK76+dJxFg4zx8s
-	QMDgcDqAP0Sy+uT3cCQ60C4FKFX8YZpbYvwrbSpr1knJvV9ew4wUMaQ5j2gYxQD2jCVNOghQlS3Kq
-	Ja49OA16YDMQSUldI4eMo+fkcHZWErrqUGhuudlUzNShKAY8Is/5HOaswgMsNhQ4jF0/ElK/dBxh2
-	XkXdUlFkzUzT3GrBU7mBJh8fSsnuCYLmLRXSiSeQrenX6U4EFdb5kUuEiqteckf8HL3EDBF87bBvE
-	m9LEpbJJnesoP+k+Xc6D94XImAP/Hhq3r08O4G6Wzxbk0IgDq2KPpsaLcj7aN149mNQ9KRuiZ20pJ
-	G4RQCyzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=srWL9bt58H8X54p4YAG4fjaV9EEKOcR5MTMc7HXPiu0=; b=X35ND2UxQQMyy51z5fmOeNe9rr
+	879EzXMLL8TR+3sYeBc5yM6NNwm7MGv62wERe/pCxc+fnts/rr0NK7VK6IS+fZspAFZc8rTu+WNWL
+	VNsFpks/uM9fhoO7ZLEywf4SyKaYp0cSb9wSUZl00+Zgy9T0UvvGgkjDIepAg6b9fUiGZJKVU4AcD
+	mgjtpodBKzDX8EtLNV3fUbqmDV1aN0H/LwPjNpgMrsZMgFLJwP8YDzkn39jTBH2T0Wlsz6ELegtER
+	hej9eNSIWyQn4h4Eo4/16o+UJqIdyjJTRU7Y6pqEe4NVR3kU4w1wFG2hXs7ju0ezVxfuNcOR2mNlm
+	ZvtaB/IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixPh-00000007Pz4-1num;
-	Thu, 22 Jan 2026 16:20:05 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1vixPo-00000007Q2C-115Z;
+	Thu, 22 Jan 2026 16:20:12 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixPd-00000007Pxm-1cYq
+	id 1vixPk-00000007Pzz-2gtl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 16:20:03 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 94E9B1F80057
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 16:19:50 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 13B16B1BB52; Thu, 22 Jan 2026 16:19:48 +0000 (UTC)
-Received: from shepard (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id 427D3B1BB4D;
-	Thu, 22 Jan 2026 16:19:47 +0000 (UTC)
-Date: Thu, 22 Jan 2026 17:19:44 +0100
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Richard Genoud <richard.genoud@bootlin.com>
-Cc: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/4] Introduce Allwinner H616 PWM controller
-Message-ID: <aXJOILxGXv_-f3PE@shepard>
-References: <20251217082504.80226-1-richard.genoud@bootlin.com>
+	Thu, 22 Jan 2026 16:20:10 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60MGIYsp1516258;
+	Thu, 22 Jan 2026 17:19:45 +0100
+Received: from osppr02cu001.outbound.protection.outlook.com (mail-norwayeastazon11013000.outbound.protection.outlook.com [40.107.159.0])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4buh90ssm7-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 22 Jan 2026 17:19:44 +0100 (CET)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I2uuWBcnwIULUesQR/JjDJW+LzFGPcbE4Ij3MwoS52aM4TTy13sRZTVO1BbMfOPuunF0dgSd9ibXFqyEtGAR8MMB7TOrqKkb89Q6j933bExOqf6EnYnLp14gI8xoOtSpMBgOyUVJphv4tG+AJw2wR7nV4yWLcPXJQluixYJprGqMsrUXXqmSmeDkKWGftG3vJ5caSS06IHm4EDcR5v5aGLs3X9J0C8s92HzP+fZpqGsv4Vw771sXPrrHn6Bl8iF3SWAkonfewz/DUXkWGYAvUT3atu06ihMAfh22yRg7xB2U/abPWivduGseHXm9Qq4uovnRfmMCSqjiUmYbLeZi5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=srWL9bt58H8X54p4YAG4fjaV9EEKOcR5MTMc7HXPiu0=;
+ b=oNMVlZzQ/5oxZz3ys6eCKR6kUf9asutm+nPvQPEiA+2aKbUDdJJPuPSqf2JOk1882R3w11MbyS2Seyn6K3JO83oMDc64gpX65IOUeFaAocHnBB8EAG0h+N2e8GTCkgduUZPt/j6zw8WnKqUz+G6zQAcbo9kNBmQ1F8OoCOymKNZLWeLusdyMflYIEDdBDPHdOysShS7r0jGdmZvA+hltdtAU0mIGSpEC4UhrNwknWLjd5YImN9n1IhSokDAhEUHSN0etgybPYeNk+cLQZyozzd6cbFogkzDg1/zadnNyiB488xi5QEPdyy2kJB4cmBGWXFCg5woE92jiOx9P3yb5hA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=srWL9bt58H8X54p4YAG4fjaV9EEKOcR5MTMc7HXPiu0=;
+ b=XwUtQDyPpzK3MZ/HB+1VActGMzp58mi/pvkFzI7iFbY0Zs0ZM4WJgcO+WYhHaKraXR0O1sGXsks0F8RC6h605MMLxIaln2ogdQ10GgsSVOxyL7rJEl8p/1znfBC/ycQFde5gQMifcxhkndg/R05g736NANMxexvjlmEt7ULkVPuxhvoLCNgecti0q/aF1Dc/C+6uybapsKyLuTn47igFma9TlI/UeUYCe9AXurCjbWCzGT69+Mrfx9DpznFV83cpN/mR4quMBowQdZVGsnXSqeYKd09sHIbkw+hgiU+I/O061YGGLaVkZ+8RNQsdE83WoOaygsytXG3zkhrJI91DBw==
+Received: from DU7P194CA0008.EURP194.PROD.OUTLOOK.COM (2603:10a6:10:553::25)
+ by VI1PR10MB3503.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:13e::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Thu, 22 Jan
+ 2026 16:19:38 +0000
+Received: from DB5PEPF00014B9C.eurprd02.prod.outlook.com
+ (2603:10a6:10:553:cafe::be) by DU7P194CA0008.outlook.office365.com
+ (2603:10a6:10:553::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.10 via Frontend Transport; Thu,
+ 22 Jan 2026 16:19:37 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DB5PEPF00014B9C.mail.protection.outlook.com (10.167.8.170) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.3 via Frontend Transport; Thu, 22 Jan 2026 16:19:38 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 22 Jan
+ 2026 17:20:58 +0100
+Received: from localhost (10.48.86.212) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 22 Jan
+ 2026 17:19:37 +0100
+From: Gatien Chevallier <gatien.chevallier@foss.st.com>
+Date: Thu, 22 Jan 2026 17:19:14 +0100
+Subject: [PATCH v4 01/12] dt-bindings: document access-controllers property
+ for coresight peripherals
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cf9nCAdpa1F+/l8I"
-Content-Disposition: inline
-In-Reply-To: <20251217082504.80226-1-richard.genoud@bootlin.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260122-debug_bus-v4-1-28f0f2a25f2c@foss.st.com>
+References: <20260122-debug_bus-v4-0-28f0f2a25f2c@foss.st.com>
+In-Reply-To: <20260122-debug_bus-v4-0-28f0f2a25f2c@foss.st.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Leo Yan
+	<leo.yan@linux.dev>,
+        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?=
+	<legoffic.clement@gmail.com>,
+        Linus Walleij <linusw@kernel.org>,
+        "Maxime
+ Coquelin" <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        <jens.wiklander@linaro.org>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-gpio@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        Gatien Chevallier <gatien.chevallier@foss.st.com>
+X-Mailer: b4 0.14.3
+X-Originating-IP: [10.48.86.212]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB5PEPF00014B9C:EE_|VI1PR10MB3503:EE_
+X-MS-Office365-Filtering-Correlation-Id: 96256049-793e-403d-baaf-08de59d20a62
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|7416014|376014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aXcxWDVHNFZGa1JaUXVoYkZxZ1Z1c1I3VWRaWXlTNGFJc3dKeGFlZHk5NUpz?=
+ =?utf-8?B?WG5JYktmc2REYWxDZUkxdVk2WExUWlIyTnNjRkZ0WThsMEJrVy9mMS8ybUE2?=
+ =?utf-8?B?OTlGMkNJVWZEeFFjNUI0ZnUyM3BxenBWaktOeFRJSWg5VjhwclJERXhZS3A5?=
+ =?utf-8?B?eVNiNXI3ek5keUZ2anBEQmNvZ2NBKzlDSzZkVndIZEE4SE9SZHNpWjhGRVdt?=
+ =?utf-8?B?RW5hNEdUbXBJV0lkSHJmZGVCZEFDSi91c1UvaTJtVTdQMlA4eXdkZGFoMXZG?=
+ =?utf-8?B?VmdmSCtRZ3QxUmdDVzR0WlVCdUJVNjZoanluN3A0N1BydDNRZTI4VWFBdFV0?=
+ =?utf-8?B?ekRsZXg4Mk5pQnArU0E5TmNwQXJkVmJQTnR0YXJrRzNRbjRoMUFoSmhDY1px?=
+ =?utf-8?B?b3hobGNMeTUxbjdsdW9CSUNqdnBVaFdjRGV0dllZaEg4cjV5ZnI3amc4M1VD?=
+ =?utf-8?B?RG9lVEl1M3RGU0ZaRStWZXJ4MTJpOXBqNlFvTjFDWDc0V1dob2pybDQrRnBq?=
+ =?utf-8?B?Tjhob05OV3kyNVV5MWJ5OVhMaGVzaldjOEJTT2dGMjBGRkczUVY3bEorVTFJ?=
+ =?utf-8?B?elJQMDJkUEJHV3NlMlRrRXlJaUpiZnlnQTVYMmNnUHBWVnhJdndqNTNEOHJC?=
+ =?utf-8?B?bjdQcUx0MkRENUllT2NubjVUL0RzMHBqTEJVTVQ4THo4dklKQ2xieGtxY0di?=
+ =?utf-8?B?VDlWcnd3cVo1dXN5Z3ZUZzRrek5KMU5tVThpcyt0OFJHVnJYSDdmTHVtc0Z4?=
+ =?utf-8?B?NVp0L1NDTGxDTW9ZeFl6UEVmckJVZDZ4V29qSlpUOFM4UEczSXpYKzJnZmtX?=
+ =?utf-8?B?alBMTGhNU2hUQzhZMERqV1hrUEJlVDFnUW9LckErcjJpK0VOYkhDNEptWjNz?=
+ =?utf-8?B?TGZsZ2J0K011Lzl6SDZlcVpGem1qd2ZsVHRMNHdTTnV0Rm1KYnVIeksvTVE3?=
+ =?utf-8?B?Vzd4M1grQ2VPdXFnR1R4UGxTckVtN1lhb2NtOUVMakZOZFV6dUlnaSt2NGdk?=
+ =?utf-8?B?OHhIU280MTNMLzFjdHJvUHNFSFVOWW5uek9RaGZwdzVBQ3BsSXFMOW9uT1ls?=
+ =?utf-8?B?ajZZaS9XTHhNQm1pYXdvK281K1ZOMWQ4ZXY3ckEvRFdYc0w2cXRnYURVWThl?=
+ =?utf-8?B?NVVkcTZmRTBmdnNuMjdYalh3akxrOGpybGNzM1FBekpIdUV0QklMaEhONUJF?=
+ =?utf-8?B?REFMenQybDk3VWU5OVlUQlErVmVyR0thQ2MyRDJBVHUzdVBjM2kwbE9ocmRs?=
+ =?utf-8?B?UjVHSE83QmZ3NFZwR2M5cWpKUlF6Szh6SmFZb3lpRm5pVFA0VWxzN3BxbmNT?=
+ =?utf-8?B?MkpYcUo5SWxzNyszYzdQTWlKWHVpMUV6SHZ6QVVOeHBINXFmWERTT3NZQjc5?=
+ =?utf-8?B?Nzdnd2VYcXovWXNaUTBiUHhMMGp4NFdDdTFmN3BQL3dPZXIwN2F5QTZZZDVk?=
+ =?utf-8?B?Qnprb0RUOVlDSHBCamM1bmRpOFFpQ0wvK0hBWXZJbENNYjQyNzFsNTZqdXdQ?=
+ =?utf-8?B?RHBUU1NjSWU3RmlnK3ZJSm5neFlUalVDSS9Sc2VMSGlseVBDM1lNMDhBN21B?=
+ =?utf-8?B?ZFl5MUdYY3dyb2RYRTRaZS9CdmtVNStXRzR2OGdpVWw2ajhSa1dUcWlsaWNp?=
+ =?utf-8?B?TWdzdTNib3VBd2R5YkZ4dU1XUnhHZnBTMFY1elM2MzBlM0p4YS9sOGs1VjZO?=
+ =?utf-8?B?QTc5amtwTmRRKzYwUEladWpjcVBrMGl2VXZQbVRxcFF6YjMvNXhLdHcvbjRG?=
+ =?utf-8?B?NWZ1akxTOUhxTUdWY0lOOXNmN0hIYUtTcEZGYmpzbVZzWGMzV1I4TjFvTjAw?=
+ =?utf-8?B?b1l6UjA0RmVxRldBT3JuWi9nVVRSNTFlU29NTHJtNmM3ZStJR3RYcUhUYWRw?=
+ =?utf-8?B?YmJuN0tIVERoRUJtNWZ5MVVWQTFKVGcxTVJzQS8wSjNnTXVYUVphZ0haUG9v?=
+ =?utf-8?B?STE4eDY0Q1QyWWV6aGYrZ1NUdXpXS0dJVGNKeFFFVXVsZmlITCtaYVdzK0tt?=
+ =?utf-8?B?bzVzK3JwTytCL2VEU0FENnE0dXlPd2VzSUpzckpJSnZQRE9zN2hEWDFXRDNl?=
+ =?utf-8?B?bUg1UHZYeUhHWGpRaitsU0ZpNnlicUpIMGs3c1J6bGlleXBhUEg1YlJYSmRK?=
+ =?utf-8?B?eE51M0dkYTgyM0t0OVBCQlA5QzFMTVFCNTJsU2dCVWtCT1Z0bU9lU0p3NWZY?=
+ =?utf-8?B?Y3BIS1ZiS0o3aVF2RzAzakdqZHpvTFppUXJjbk4rQ0w2ZDZRWVVKU1hOZldE?=
+ =?utf-8?Q?VxGU3HIDD1BNCVRMeO9OFTwq7Pp1el9259PwEw8us4=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(7416014)(376014)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 16:19:38.4295
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96256049-793e-403d-baaf-08de59d20a62
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B9C.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB3503
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTIyMDEyNSBTYWx0ZWRfX0ZzPedDpnt1q
+ 69IOwlX880CLwOuL1Nb4qU8/YyAUz2/ihJlrwf8JoFte7CZH/zXZKlx0r/8rZicedACF2sPDBy7
+ S+QWBpKOlDhLAwo7cuiU6y3GcE0nB9yeI6bU7RGR4KkBZ5lJN41L8bgZEi9CLygkSfqp8h4Cz9S
+ GGHj3PVDqNrgxIUpK48myaF+GRQ/8xO6P4TO2qvDEhCaw56fqSK1kOn2Twv7H0NyDF/ZxScASGc
+ 0L1GBi4CQhj2ibO/zfGXlCdNKL14LlDt32F7WJNdPMlfBVw+EOMZJe3OQ4gTKX0v7x3Ry0+yH2B
+ CjLFPUKYV90pM4VUu7bKjtoZiwP47m76forA1e9KX7H1RlXv4SV/NmJGJHXIWr9gcCCfWN2kbXp
+ XwQjQm3QnIUVWdHTb9JBPCwqoCfazcAb3xvdlOJAjA6ZwPz92hPoXaS7WfvRZ/aaw0Mglis1joD
+ kkZStqyv7Qr4Iqq/DXQ==
+X-Proofpoint-ORIG-GUID: LGTEZainu_V0ObD7Xs37UOkzbmCWPAb3
+X-Authority-Analysis: v=2.4 cv=GbEaXAXL c=1 sm=1 tr=0 ts=69724e20 cx=c_pps
+ a=896zWVB3lkap0gFnCg6oog==:117 a=uCuRqK4WZKO1kjFMGfU4lQ==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=rg8MelPR9j8A:10 a=IkcTkHD0fZMA:10
+ a=vUbySO9Y5rIA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=VwQbUJbxAAAA:8
+ a=zA8jFupHd_524mN9yHMA:9 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
+X-Proofpoint-GUID: LGTEZainu_V0ObD7Xs37UOkzbmCWPAb3
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
+ definitions=2026-01-22_02,2026-01-22_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ priorityscore=1501 phishscore=0 malwarescore=0 suspectscore=0 spamscore=0
+ adultscore=0 clxscore=1015 lowpriorityscore=0 impostorscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601220125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_082001_758316_14B81600 
-X-CRM114-Status: GOOD (  28.70  )
+X-CRM114-CacheID: sfid-20260122_082009_071738_BF5A3599 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,149 +213,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Document the access-controllers for coresight peripherals in case some
+access checks need to be performed to use them.
 
---cf9nCAdpa1F+/l8I
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml           | 3 +++
+ .../devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml          | 3 +++
+ Documentation/devicetree/bindings/arm/arm,coresight-etm.yaml           | 3 +++
+ Documentation/devicetree/bindings/arm/arm,coresight-stm.yaml           | 3 +++
+ Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml           | 3 +++
+ Documentation/devicetree/bindings/arm/arm,coresight-tpiu.yaml          | 3 +++
+ 6 files changed, 18 insertions(+)
 
-Hello Richard,
+diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+index 2a91670ccb8c..949444aba1f8 100644
+--- a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
++++ b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+@@ -128,6 +128,9 @@ properties:
+   "#address-cells":
+     const: 1
+ 
++  access-controllers:
++    maxItems: 1
++
+ patternProperties:
+   '^trig-conns@([0-9]+)$':
+     type: object
+diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml
+index b74db15e5f8a..b0693cd46d27 100644
+--- a/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml
++++ b/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml
+@@ -78,6 +78,9 @@ properties:
+         description: Output connection to CoreSight Trace bus
+         $ref: /schemas/graph.yaml#/properties/port
+ 
++  access-controllers:
++    maxItems: 1
++
+ required:
+   - compatible
+   - reg
+diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-etm.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-etm.yaml
+index 71f2e1ed27e5..10ebbbeadf93 100644
+--- a/Documentation/devicetree/bindings/arm/arm,coresight-etm.yaml
++++ b/Documentation/devicetree/bindings/arm/arm,coresight-etm.yaml
+@@ -118,6 +118,9 @@ properties:
+         description: Output connection from the ETM to CoreSight Trace bus.
+         $ref: /schemas/graph.yaml#/properties/port
+ 
++  access-controllers:
++    maxItems: 1
++
+ required:
+   - compatible
+   - clocks
+diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-stm.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-stm.yaml
+index 378380c3f5aa..f243e76f597f 100644
+--- a/Documentation/devicetree/bindings/arm/arm,coresight-stm.yaml
++++ b/Documentation/devicetree/bindings/arm/arm,coresight-stm.yaml
+@@ -73,6 +73,9 @@ properties:
+         description: Output connection to the CoreSight Trace bus.
+         $ref: /schemas/graph.yaml#/properties/port
+ 
++  access-controllers:
++    maxItems: 1
++
+ required:
+   - compatible
+   - reg
+diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml
+index 96dd5b5f771a..9dc096698c65 100644
+--- a/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml
++++ b/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml
+@@ -128,6 +128,9 @@ properties:
+       - const: tracedata
+       - const: metadata
+ 
++  access-controllers:
++    maxItems: 1
++
+ required:
+   - compatible
+   - reg
+diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-tpiu.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-tpiu.yaml
+index a207f6899e67..29bbc3961fdf 100644
+--- a/Documentation/devicetree/bindings/arm/arm,coresight-tpiu.yaml
++++ b/Documentation/devicetree/bindings/arm/arm,coresight-tpiu.yaml
+@@ -70,6 +70,9 @@ properties:
+         description: Input connection from the CoreSight Trace bus.
+         $ref: /schemas/graph.yaml#/properties/port
+ 
++  access-controllers:
++    maxItems: 1
++
+ required:
+   - compatible
+   - reg
 
-On Wed 17 Dec 25, 09:25, Richard Genoud wrote:
-> Allwinner H616 PWM controller is quite different from the A10 one.
+-- 
+2.43.0
 
-Thanks for your patches!
-
-For context here, the PWM controller in the H616 is an instance of the seco=
-nd
-generation Allwinner PWM controller, which was first seen in the V5 chip fr=
-om
-2018.
-
-It is also present in the following SoCs: V5, A50, H616, V536, T7, A133, V8=
-33,
-R329, D1/T113, R128, V851, A523 and A733.
-
-You probably missed it, but there is already an ongonig series to add suppo=
-rt
-for that second generation PWM controller from Aleksandr Shubin:
-https://patchwork.ozlabs.org/project/linux-pwm/list/?series=3D454353&archiv=
-e=3Dboth&state=3D*
-
-And a patch was also proposed to add H616 support:
-https://patchwork.ozlabs.org/project/linux-pwm/list/?series=3D409036&archiv=
-e=3Dboth&state=3D*
-
-So you should probably try these series and coordinate with their authors
-instead of adding this new driver. I understand it's unfortunate that the w=
-ork
-was already done on your side.
-
-All the best,
-
-Paul
-
-> It can drive 6 PWM channels, and like for the A10, each channel has a
-> bypass that permits to output a clock, bypassing the PWM logic, when
-> enabled.
->=20
-> But, the channels are paired 2 by 2, sharing a first set of
-> MUX/prescaler/gate.
-> Then, for each channel, there's another prescaler (that will be bypassed
-> if the bypass is enabled for this channel).
->=20
-> It looks like that:
->             _____      ______      ________
-> OSC24M --->|     |    |      |    |        |
-> APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
->            |_____|    |______|    |________|
->                           ________
->                          |        |
->                       +->| /div_k |---> PWM_clock_x
->                       |  |________|
->                       |    ______
->                       |   |      |
->                       +-->| Gate |----> PWM_bypass_clock_x
->                       |   |______|
-> PWM_clock_src_xy -----+   ________
->                       |  |        |
->                       +->| /div_k |---> PWM_clock_y
->                       |  |________|
->                       |    ______
->                       |   |      |
->                       +-->| Gate |----> PWM_bypass_clock_y
->                           |______|
->=20
-> Where xy can be 0/1, 2/3, 4/5
->=20
-> PWM_clock_x/y serve for the PWM purpose.
-> PWM_bypass_clock_x/y serve for the clock-provider purpose.
-> The common clock framework has been used to manage those clocks.
->=20
-> This PWM driver serves as a clock-provider for PWM_bypass_clocks.
-> This is needed for example by the embedded AC300 PHY which clock comes
-> from PMW5 pin (PB12).
->=20
-> This series is based onto v6.19-rc1
->=20
-> Changes since v1:
-> - rebase onto v6.19-rc1
-> - add missing headers
-> - remove MODULE_ALIAS (suggested by Krzysztof)
-> - use sun4i-pwm binding instead of creating a new one (suggested by Krzys=
-ztof)
-> - retrieve the parent clocks from the devicetree
-> - switch num_parents to unsigned int
->=20
-> Richard Genoud (4):
->   dt-bindings: pwm: allwinner: add h616 pwm compatible
->   pwm: sun50i: Add H616 PWM support
->   arm64: dts: allwinner: h616: add PWM controller
->   MAINTAINERS: Add entry on Allwinner H616 PWM driver
->=20
->  .../bindings/pwm/allwinner,sun4i-a10-pwm.yaml |  19 +-
->  MAINTAINERS                                   |   5 +
->  .../arm64/boot/dts/allwinner/sun50i-h616.dtsi |  47 +
->  drivers/pwm/Kconfig                           |  12 +
->  drivers/pwm/Makefile                          |   1 +
->  drivers/pwm/pwm-sun50i-h616.c                 | 892 ++++++++++++++++++
->  6 files changed, 975 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/pwm/pwm-sun50i-h616.c
->=20
->=20
-> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> --=20
-> 2.47.3
->=20
->=20
-
---=20
-Paul Kocialkowski,
-
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
-
-Expert in multimedia, graphics and embedded hardware support with Linux.
-
---cf9nCAdpa1F+/l8I
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmlyTiAACgkQhP3B6o/u
-lQwblQ//TuPP2uld56j19mxOPONXVvcqYj35vWi7jaFpTG/5FlLyAkltozy7KB35
-EMNLfc1FsB+x4oxoyW7dz2QLl0X78frqioZx95jUiwZrsPW7dBP178sqdXvkqTh5
-QHK43gywMn5FShGZtbkVTDKSr0Wp91MU7L63Pg+eCxf9+jknWQuroGGFR7nzl1Dt
-Q2ScdsOBmu41MAs2iRCBcuob+6vhH1cf0ymT7M7TsXRmDciwcv3BVdleQWvWYGI6
-OA2RHjCUZ2nQdUyaeGsDUtjvHJXbYFBiSmTjkXYGN4yml44WiW0FNxa3CZERZpsL
-66an8uc+l1HQNJ4vwd32EGF/ctPaYe6x0VLXu4RQoleu027q9cvsnVJVJwWQoT+f
-H3Pr/c0+t/SSZTWsH8FmWoi4BseughzJIinOf+6tlXfCCY6DaNnk29ptztAJPBTv
-v4z0olpZw+4liXqSUmxHCgdzc1KYIJxjiKU6kZAX2sy/6F+BR0B+MZ2JkxjhU1WS
-kE8HmHUhfRhxBmt6MkkRbGSpUXhyjk/EVhVQBVQabydBH3QZ2rZEFI94z2qQtPaQ
-l2qr5a++/fbo1QTn6HArX3+R/UCgJR8DS8qkGFOmvQTYByzgNBL/0JgwDky2PftG
-KsCvLqfxfnNE8Jt1oD+xkMf4TlQAum+mdcl8CAJm/gp1i5qySHI=
-=4RNE
------END PGP SIGNATURE-----
-
---cf9nCAdpa1F+/l8I--
 
