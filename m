@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB37D3EE96
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 17:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56592D3EE95
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 17:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sg3mstwPx9oJZyIhS7v/2xVHVPTloMYUdmL0l0V98jg=; b=IhbphY6jlyL158JX9irHm/IUcD
-	dhGwtblyCqFinmxz5YiS7kfwVR34huJxPfVn0644KBksfveA3icT5CKqGdt2B4NDjAA8jdCFIVFUS
-	uQeVyTWwkzwwKMt5beXXqgsJRHfwAs9I/Pn49RDSf/I2hYjWGOvRIZr875QQ1l28nH7VEcIKdqN1o
-	M67NtCiDglrVHvzs2iHHY1MT1L5FUBmnpHxbNuOvUCxCgassp3xNsr1m71VefOx1n6pgvz44QQz4h
-	xT2mwq6CunvIA6PSspMvz4KHhfcWNBabAGlEd8l0oIu5qf1L7MhH6Y6PRQjnRJnXHCicrumHmEHxz
-	jBsQDbRg==;
+	bh=Vs0J0OmrF0vBW4/xabK+Y2RxzbYluA80dV+Xe9eXSxk=; b=nIkNg5VmtGjHklG4mX0oF+2203
+	bmpbgVFTcgh8fgKbFSWX+98oFSCMWBamb4oO+XrIjnqW4hAJdY4ZiwalkCk/vpjfilqLrJXgqJpVv
+	rNRTQMGvFeQqgoR6HdY9k9ElvtLxIeMKvnw3/afVw+WPgcagbndqHDAgCaB6SjyDHXRstnTHhQXBb
+	WGZmbFWk+JWb7+oqV2mQh2qGPz1d7NRlQs/1y3LeR8ANSCiI0lnXlB+WzFx2qzjL3WHZY4BstpR30
+	wkgrz6XmHzmhw4xXDnneTOF5TPv/pOor2K81M4XxCCdWN0PYt9ahiO9i9oaKpzbUKz0kxzynQ5/pa
+	YyW4H93Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viyHX-00000007XrW-3WUv;
-	Thu, 22 Jan 2026 17:15:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1viyHc-00000007XsV-0X1B;
+	Thu, 22 Jan 2026 17:15:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viyHW-00000007XrK-1JjN
+	id 1viyHV-00000007Xr5-02pX
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 22 Jan 2026 17:15:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 43BF860053;
-	Thu, 22 Jan 2026 17:15:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5D8EC116D0;
+	by sea.source.kernel.org (Postfix) with ESMTP id 026C740205;
 	Thu, 22 Jan 2026 17:15:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC466C116C6;
+	Thu, 22 Jan 2026 17:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769102141;
-	bh=N9oFGV1anFSCqAhvjOLt+RZdXVcBw3i84bo9rshL1SQ=;
+	s=k20201202; t=1769102139;
+	bh=Y3D9E7japclI7UuExtcL6bPuCRUqGKopPtgcI3tpo7Y=;
 	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
-	b=e1j5uwa2Jh9xvShduArkxH2jrqY6+wIqNScwE+maPU9o59yceVhFbRw4jX9+wjK7B
-	 o4+19Sp1fdtWOBbFRSEGz24FD3nO7xWYEQe46nK8Zx05wkMSjsUrTmf/5Tz6KpZmPg
-	 cXuT/UaUKp2KZel1MiUvgv3DQLtf/Ou0IGoWDhfKzWIXN7aAldcfT5t01rCAZ8vpPl
-	 2S3WSfGsJwQEtYzFlQcAhXYYL0q7fOpk1empJ7AMYAY5Owu5q7BtZLschxquM36vLi
-	 igq1QdZ96Y4in3jUpzHUqDPo39nDnATSA4rqkLJSH1SiiXO+W8i+ew9FN01rFy+Zve
-	 XGTjQDah2U6Zg==
+	b=jTQTg8Gu2G1yoe/UvGnuAwgLgBGxCYlqGnyfSceJG959OW2YlVwhPsA/PR0l2qA9w
+	 8zdYytO9RmmHcwx7lGtPhbxjvtUszkOMmSk1gGd6xSGHTwNbK0/jXMHjM9ZgqksdNJ
+	 zOoWhDmtS6HdKUpqyb4zk5SwropokIu3Y5vEX2eWIbg82ohHpB8RHiVQaa8qtSK7GG
+	 OkB7ha3F1qdqLg2DlrHm76NbY4Guja+oBX3TWdgSnvlH2THT/rCgYDER3Kv3JSPVmX
+	 vGrfH7RiYDRIWz5zden6QseDozqL/maNI66WE4Y73NorzzXTGu3KGnglxL4eU8yLgP
+	 wg6bKKvp7MGgQ==
 From: Rob Herring <robh@kernel.org>
-Date: Thu, 22 Jan 2026 11:15:40 -0600
+Date: Thu, 22 Jan 2026 11:15:38 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Cc: Michael Turquette <mturquette@baylibre.com>, imx@lists.linux.dev, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Peng Fan <peng.fan@nxp.com>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, dri-devel@lists.freedesktop.org, 
- Robert Foss <rfoss@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@denx.de>, 
- devicetree@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, 
- linux-kernel@vger.kernel.org, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Frank Li <Frank.Li@nxp.com>, 
- Abel Vesa <abelvesa@kernel.org>, David Airlie <airlied@gmail.com>, 
- linux-clk@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- linux-arm-kernel@lists.infradead.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, 
- Francesco Valla <francesco@valla.it>
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-In-Reply-To: <20260122-dcif-upstreaming-v7-0-19ea17eb046f@oss.nxp.com>
-References: <20260122-dcif-upstreaming-v7-0-19ea17eb046f@oss.nxp.com>
-Message-Id: <176910209242.2703312.10656685930266629109.robh@kernel.org>
-Subject: Re: [PATCH v7 0/9] Add support for i.MX94 DCIF
+Cc: alim.akhtar@samsung.com, conor+dt@kernel.org, krzk+dt@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, rosa.pila@samsung.com, 
+ selvarasu.g@samsung.com, linux-samsung-soc@vger.kernel.org, 
+ muhammed.ali@samsung.com, faraz.ata@samsung.com, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ dev.tailor@samsung.com
+To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+In-Reply-To: <20260122130721.205664-1-pritam.sutar@samsung.com>
+References: <CGME20260122125130epcas5p4ac37f540c609f3016ff02f5708e897a2@epcas5p4.samsung.com>
+ <20260122130721.205664-1-pritam.sutar@samsung.com>
+Message-Id: <176910209177.2703219.7993114273484886473.robh@kernel.org>
+Subject: Re: [PATCH v2 0/3] Add and enable USB nodes for ExynosAutov920 SoC
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260122_091541_088889_3DB17566 
+X-CRM114-Status: GOOD (  19.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,126 +77,41 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 22 Jan 2026 09:01:38 +0000, Laurentiu Palcu wrote:
-> Hi,
+On Thu, 22 Jan 2026 18:37:18 +0530, Pritam Manohar Sutar wrote:
+> This SoC has 2 USB typeC and 2 typeA ports those are DWC3 DRD
+> controllers and among them, one single USB3.1 DRD combo phy and three
+> USB2.0 only phy controllers. This patchset adds and enables USB and
+> USB-PHY nodes in dts.
 > 
-> This patch-set adds support for the i.MX94 Display Control Interface.
-> It depends on Peng Fan's DTS patch [1] that was not yet merged.
+> PMIC is not implemented yet, we rely on USB LDOs being enabled by the
+> bootloader and used dummy regulators for now.
 > 
-> Also, included in the patch-set are a few extra patches that the DCIF
-> driver depends on for functioning properly:
->  * 1/9 - 3/9 : add support for i.MX94 to fsl-ldb driver. It also
->                contains a patch (2/9) from Liu Ying that was already reviewed
->                and was part of another patch-set ([2]), but was never merged;
+> To drive vbus for host mode, it needs GPIO pin to enable vbus regulator.
+> GPIO expander is present in the dts, we used it to enable the regulator
+> using GPIO.
 > 
-> Thanks,
-> Laurentiu
+> USB ports are configured as OTG, and default mode is configured as
+> peripheral. It will be changed based on requirements.
 > 
-> [1] https://lkml.org/lkml/2025/7/7/84
-> [2] https://lkml.org/lkml/2024/11/14/262
-> 
-> ---
-> Changes in v7:
-> - Rebased to latest linux-next;
-> - Addressed some new checkpatch warnings: kzalloc -> kzalloc_obj;
-> - Fixed a couple of static check warnings in probe();
-> - Added Luca's r-b tag for bridge refcounting;
-> - Link to v6: https://lore.kernel.org/r/20251103-dcif-upstreaming-v6-0-76fcecfda919@oss.nxp.com
-> 
-> Changes in v6:
-> - 2/9: Collected r-b tag from Francesco;
-> - 3/9: Removed ch_max_clk_khz variable as suggested by Luca and added
->   his r-b tag;
-> - 4/9: Collected r-b tag;
-> - 5/9: Call drm_bridge_put() automatically in
->   dcif_crtc_query_output_bus_format() by using a cleanup action (Luca);
-> - 6/9: Moved allOf: block after required: block (Krzysztof). Collected
->   r-b tag;
-> - Link to v5: https://lore.kernel.org/r/20250911-dcif-upstreaming-v5-0-a1e8dab8ae40@oss.nxp.com
-> 
-> Changes in v5:
-> - 4/9: Removed "bindings for" from the title, changed the port
->   definition and simplified the example;
-> - 6/9: Fixed the way 'ldb' child node is declared: declare the
->   'ldb' child node out of if:then: block and set the property
->   to false for compatibles other than nxp,imx94-lvds-csr;
-> - Link to v4: https://lore.kernel.org/r/20250903123332.2569241-1-laurentiu.palcu@oss.nxp.com
-> 
-> Changes in v4:
-> - Addressed remaining DCIF driver comments from Frank;
-> - Limit the 'ldb' child node only to CSRs compatible with 'nxp,imx94-lvds-csr'
->   in the binding file. Since LVDS CSRs are a minority, I chose to
->   use the if:then: construct instead of if:not:then:;
-> - Remove the '#address-cells' and '#size-cells' from the ldb node, in
->   imx94.dtsi, as they're not needed;
-> - Link to v3: https://lore.kernel.org/r/20250806150521.2174797-1-laurentiu.palcu@oss.nxp.com
-> 
-> Changes in v3:
-> - Removed the BLK CTL patches and created a separate patch set [2] for them;
-> - Collected r-b tags for 1/9, 2/9, 3/9 and 9/9;
-> - Removed the DCIF QoS functionality until I find a better way to
->   implement it through syscon. QoS functionality will be added in
->   subsequent patches. Also, used devm_clk_bulk_get_all() and used
->   dev_err_probe() as suggested;
-> - Addressed Frank's and Krzysztof's comments on the DCIF bindings;
-> - Addressed Frank's comments on dtsi and dts files;
-> - Added a new binding patch, 6/9, for adding 'ldb' optional property to
->   nxp,imx95-blk-ctl.yaml;
-> - Link to v2: https://lore.kernel.org/r/20250716081519.3400158-1-laurentiu.palcu@oss.nxp.com
-> 
+> changelog
+> ----------
 > Changes in v2:
-> - reworked the BLK_CTL patch and split in 2 to make it easier for
->   review;
-> - split the dts and dtsi patch in 2 separate ones;
-> - addressed Frank's comments in DCIF driver;
-> - addressed Rob's comments for the bindings files;
-> - addressed a couple of checkpatch issues;
-> - Link to v1: https://lore.kernel.org/r/20250709122332.2874632-1-laurentiu.palcu@oss.nxp.com
+> - As v1 was pushed 3 months back, resending this patchset.
+> - Since dependencies are merged, removed links from coverletter.
+>   link for v1: https://lore.kernel.org/linux-devicetree/20251024114845.2395166-1-pritam.sutar@samsung.com/
 > 
-> ---
-> Laurentiu Palcu (7):
->       dt-bindings: display: fsl,ldb: Add i.MX94 LDB
->       drm/bridge: fsl-ldb: Add support for i.MX94
->       dt-bindings: display: imx: Add i.MX94 DCIF
->       dt-bindings: clock: nxp,imx95-blk-ctl: Add ldb child node
->       arm64: dts: imx943: Add display pipeline nodes
->       arm64: dts: imx943-evk: Add display support using IT6263
->       MAINTAINERS: Add entry for i.MX94 DCIF driver
+> Pritam Manohar Sutar (3):
+>   arm64: dts: exynos: ExynosAutov920: Add USB and USB-phy nodes
+>   arm64: dts: exynos: ExynosAutov920: Add regulators for the USB
+>   arm64: dts: exynos: ExynosAutov920: Enable USB nodes
 > 
-> Liu Ying (1):
->       drm/bridge: fsl-ldb: Get the next non-panel bridge
+>  .../boot/dts/exynos/exynosautov920-sadk.dts   | 160 +++++++++++++++++
+>  .../arm64/boot/dts/exynos/exynosautov920.dtsi | 162 ++++++++++++++++++
+>  2 files changed, 322 insertions(+)
 > 
-> Sandor Yu (1):
->       drm/imx: Add support for i.MX94 DCIF
-> 
->  .../bindings/clock/nxp,imx95-blk-ctl.yaml          |  26 +
->  .../bindings/display/bridge/fsl,ldb.yaml           |   2 +
->  .../bindings/display/imx/nxp,imx94-dcif.yaml       |  82 +++
->  MAINTAINERS                                        |   9 +
->  arch/arm64/boot/dts/freescale/imx943-evk.dts       |  59 ++
->  arch/arm64/boot/dts/freescale/imx943.dtsi          |  53 +-
->  drivers/gpu/drm/bridge/fsl-ldb.c                   |  46 +-
->  drivers/gpu/drm/imx/Kconfig                        |   1 +
->  drivers/gpu/drm/imx/Makefile                       |   1 +
->  drivers/gpu/drm/imx/dcif/Kconfig                   |  15 +
->  drivers/gpu/drm/imx/dcif/Makefile                  |   5 +
->  drivers/gpu/drm/imx/dcif/dcif-crc.c                | 211 +++++++
->  drivers/gpu/drm/imx/dcif/dcif-crc.h                |  52 ++
->  drivers/gpu/drm/imx/dcif/dcif-crtc.c               | 695 +++++++++++++++++++++
->  drivers/gpu/drm/imx/dcif/dcif-drv.c                | 228 +++++++
->  drivers/gpu/drm/imx/dcif/dcif-drv.h                |  86 +++
->  drivers/gpu/drm/imx/dcif/dcif-kms.c                | 100 +++
->  drivers/gpu/drm/imx/dcif/dcif-plane.c              | 269 ++++++++
->  drivers/gpu/drm/imx/dcif/dcif-reg.h                | 267 ++++++++
->  19 files changed, 2185 insertions(+), 22 deletions(-)
-> ---
-> base-commit: cd8eb1cf3dad15dad65060f5d18a59ab99485d01
-> change-id: 20250911-dcif-upstreaming-3e16d89c3385
-> prerequisite-patch-id: b2acaaf7e92a5c8e377e6b56f3a9ee7409f64b00
-> 
-> Best regards,
 > --
-> Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> 2.34.1
+> 
 > 
 > 
 
@@ -227,37 +131,24 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Deps: looking for dependencies matching 1 patch-ids
- Deps: Applying prerequisite patch: [PATCH v3 6/6] arm64: dts: imx943: Add LVDS/DISPLAY CSR nodes
- Base: base-commit cd8eb1cf3dad15dad65060f5d18a59ab99485d01 not known, ignoring
  Base: attempting to guess base-commit...
- Base: tags/next-20260121 (best guess, 6/8 blobs matched)
+ Base: tags/next-20260121 (exact match)
  Base: tags/next-20260121 (use --merge-base to override)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20260122-dcif-upstreaming-v7-0-19ea17eb046f@oss.nxp.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20260122130721.205664-1-pritam.sutar@samsung.com:
 
-arch/arm64/boot/dts/freescale/imx943-evk.dtb: lvds-to-hdmi-bridge@4c (ite,it6263): 'ivdd-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/display/bridge/ite,it6263.yaml
-arch/arm64/boot/dts/freescale/imx943-evk.dtb: lvds-to-hdmi-bridge@4c (ite,it6263): 'ovdd-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/display/bridge/ite,it6263.yaml
-arch/arm64/boot/dts/freescale/imx943-evk.dtb: lvds-to-hdmi-bridge@4c (ite,it6263): 'txavcc18-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/display/bridge/ite,it6263.yaml
-arch/arm64/boot/dts/freescale/imx943-evk.dtb: lvds-to-hdmi-bridge@4c (ite,it6263): 'txavcc33-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/display/bridge/ite,it6263.yaml
-arch/arm64/boot/dts/freescale/imx943-evk.dtb: lvds-to-hdmi-bridge@4c (ite,it6263): 'pvcc1-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/display/bridge/ite,it6263.yaml
-arch/arm64/boot/dts/freescale/imx943-evk.dtb: lvds-to-hdmi-bridge@4c (ite,it6263): 'pvcc2-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/display/bridge/ite,it6263.yaml
-arch/arm64/boot/dts/freescale/imx943-evk.dtb: lvds-to-hdmi-bridge@4c (ite,it6263): 'avcc-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/display/bridge/ite,it6263.yaml
-arch/arm64/boot/dts/freescale/imx943-evk.dtb: lvds-to-hdmi-bridge@4c (ite,it6263): 'anvdd-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/display/bridge/ite,it6263.yaml
-arch/arm64/boot/dts/freescale/imx943-evk.dtb: lvds-to-hdmi-bridge@4c (ite,it6263): 'apvdd-supply' is a required property
-	from schema $id: http://devicetree.org/schemas/display/bridge/ite,it6263.yaml
+arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb-phy0 (usb-nop-xceiv): '#phy-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/usb/usb-nop-xceiv.yaml
+arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb-phy1 (usb-nop-xceiv): '#phy-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/usb/usb-nop-xceiv.yaml
+arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb-phy2 (usb-nop-xceiv): '#phy-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/usb/usb-nop-xceiv.yaml
+arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb-phy3 (usb-nop-xceiv): '#phy-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/usb/usb-nop-xceiv.yaml
 
 
 
