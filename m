@@ -4,88 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B013C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 11:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23279C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 11:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HTFmffWcUZMiXbLCD1+D1ZWQQg5xf8H7xFg9wcW8zuo=; b=ZxfpFVZuuoZJdaEFVxITJEVT56
-	k5HGsMM7A5qwztcvHg6q6K399RBbRLyCBEaiFMlFZOc+2TtEyH9txRCa9UG6uPnlIUZFlCLlDfRIM
-	kfYe/xSkj+QbWSQthfirvzDhBrJbDwZ/R/JSM4fajicSnTTywbz2uCrtuOipqeQTANjo2dccA2qbT
-	esVRyfJ3ZwFboV+N7tHTfEnDA2xVFlYIZufNEBkoTYzCWoqPUcuvuSCjjJFcFh5dkiC0wxPWj53rP
-	rixEhaECeoQMOhq2+lk2PeKP0j9SKDaLdjNX3e97xmOD42Do+MqYQJ4GraRCPJ59F7H9lrjlKGD+x
-	zvwTFY7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0wNs9tyPabqN3sAug4aUnrZjg9O+jb6nYLQLd09yp0k=; b=vx7gGhk/MTS5BvA0qu7JNxGGO4
+	f+w7dGfftD0C9qPc2M/EwnVIHHh1igmejm1Cwfrs3WXoUZK9Jt5b+1jhlD+VUOlt43bMD4T/DnlBe
+	2RXZz4cKtoNyNx2ZOKdU9wSL57SbmU5Hv1bMaFp+G6z//HICd1rOqq3Hbbw1fCe+fYoHwQcfgs24T
+	MMx3sGEsj6G5svAGQ7xem9H2Kdn025CF2ni2Ou1VwDQoBA+8bDQIlToqwJ3aEuSJck0klgndx+fpN
+	31k9La+HUKNSn3lWZL8+Zq+FQdAabo+qVaPJk9x/f5/qbjgstEVsuieUxHecHGJHQA26oJ0v5+RXQ
+	fSsenAPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viszJ-00000006ysj-2Vlw;
-	Thu, 22 Jan 2026 11:36:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vit0G-00000006yz5-1vXc;
+	Thu, 22 Jan 2026 11:37:32 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viszJ-00000006ysZ-0OhA
+	id 1vit0C-00000006yy8-15GG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 11:36:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E7CF5600CB;
-	Thu, 22 Jan 2026 11:36:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A76CC116C6;
-	Thu, 22 Jan 2026 11:36:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769081791;
-	bh=ENaX1Ni1MjEYqWK5DUAycRHraRvMcIc+oNSelx9/l2Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZDryn4r3pVEndSSCPyKyGmEaA5BTct8VAHmY8jYwQGX6bZIuzGBK2tyiehlMSViCM
-	 Ei7gUubm2NpO0vLH1gLLEG7shYisa/qu58z1kPKCeHT7psSLc0dFIUNS20igfaqR8y
-	 H0JYR5Y3GLo2UHCzTKrQTDQA5CIsBsQX04/nfiZiuS1HDLzqsOcDFUUSDSixFNi2cA
-	 bcka/tqaxHdr2hWnQ1CWDAu9Vo3BBVN03Rl8iRMbmoAtVSYCecBSZ7PNzldFeiHaHe
-	 bmQniStX0qxItibPa8e+b/txibvQDRMzP6YVhz2gBqk8YlXoX44FzT/wg3EmzCppge
-	 Qf8lkGFsAGPRA==
-Date: Thu, 22 Jan 2026 11:36:21 +0000
-From: Will Deacon <will@kernel.org>
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chen Ridong <chenridong@huawei.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-block@vger.kernel.org, linux-mm@kvack.org,
-	linux-pci@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 29/33] sched/arm64: Move fallback task cpumask to
- HK_TYPE_DOMAIN
-Message-ID: <aXILtazyRtpb3Yjy@willie-the-truck>
-References: <20260101221359.22298-1-frederic@kernel.org>
- <20260101221359.22298-30-frederic@kernel.org>
- <aW-cAlJCtI5Qtify@willie-the-truck>
- <aXEHf5nbZMI8LT4b@localhost.localdomain>
- <aXH0TZU7UNowTmwc@willie-the-truck>
- <aXIKDduX5qUXvOUX@localhost.localdomain>
+	Thu, 22 Jan 2026 11:37:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1769081845;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0wNs9tyPabqN3sAug4aUnrZjg9O+jb6nYLQLd09yp0k=;
+	b=VVTA/Gw7XHuchA69uxohE01fq0YYwRN+kd06H5AQA6+NZ1T2S3767ZNpUkJmJo3G3LdkqT
+	hTRZUexEIMu2MUyjf/1/ECnAB50ufUvsnmUwHFkVpgIJ+Vza+lxnwKJ5mZ4cLiFdhLZNr2
+	B+nymQ6AwYvMf3cMcd4dG12t5cmTIPw=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-695-efjjrVJSM-qHMqn2hLBRqw-1; Thu, 22 Jan 2026 06:37:21 -0500
+X-MC-Unique: efjjrVJSM-qHMqn2hLBRqw-1
+X-Mimecast-MFC-AGG-ID: efjjrVJSM-qHMqn2hLBRqw_1769081840
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-47edf8ba319so7032625e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 03:37:21 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769081840; x=1769686640;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0wNs9tyPabqN3sAug4aUnrZjg9O+jb6nYLQLd09yp0k=;
+        b=b0Wj4A8ct03vlcuCLv5ipZVghSNPj+zpKn/SepahUG3NWHlQPdz+3FNkdHy670hNmS
+         ktTsin/SLzl5XhU/dyPiGyW5GXca6qGeAiJAZN55W4Xln5j2yW89dLZyllnSkSHg1nLi
+         bHufx0fRWX0MoxrqO1EYMhW3trPZtqeewRQ+gjGLhqS/a2m/6t880UkfbS7lp8IUIPnC
+         e3HF/8Dz6129VVH/kjk/Mlbzu79YUiXJy6UFAs/s0QshAEKj5nTgx6kQCv5VpEcjkCN8
+         q9PzotU1BZw+dxzo3ZHUnXl1SUktVAsdvG4MAiPrQ8xIQrEE577KTqc+JJgZ0qfLddEE
+         iVMw==
+X-Forwarded-Encrypted: i=1; AJvYcCU3JpHuzadgbwe+Xi78EDDGpGYnt5b1Q50ZWwMLKwP3R7jbtLhJYPi70DtFJ1gYjuGglFhm0mW51e/IPYv2d9eF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzffmqn+6N/Jge8C64YQ0bTmB/qJxcu00FnwwqUtpA63uC9MzDH
+	vTpxcIoo+kZlVnTLfkY2t72D4VPI9icyM6UyvCUaH4tnXVlX50/R1LzLzDd1fk6TOg+GMHkvrX0
+	+D3EVpJMALoV2qvUs4CzaHp5JBI1k30ImNDLA+umwwDaQh77HrRQNVjdmx1/ibjKwek6sa/QnIf
+	yE
+X-Gm-Gg: AZuq6aL1VZwB5yV8BCN4LVIGzaSpCBrKkWdX7n1i4fCBLUmZ6Tauk6lfLKUN6nAztyy
+	SJtdX9xh+YMivRRS49jShklWgOY3yRbu17OXr+30FbzFDOo9cfSZ+ao2/m24SVi3z/NptSe5hKV
+	JDUnpG9zTTPo6EbYOtXXgoAL+U3HKr8kRxq+o7/h/aFoj83BQ3M8uQPwlrwa85NEhm+7MSN3S95
+	kdODaOXSNYJQx5MKD21St6NI2Dk+vt29VhN9Jj4YHGaur1+8r29bp8sNGd0hS2lqepnm+/72jCv
+	TRzjG4OdAj724rMQO0HNfpm758CUJUEKeZgfineiQnweApG/1qf+k8SwMInRIp7+v3dN9a5U8ar
+	uZN61zVDCjFPK
+X-Received: by 2002:a05:600c:34d3:b0:479:1348:c614 with SMTP id 5b1f17b1804b1-4803e7f03fdmr128686805e9.26.1769081840533;
+        Thu, 22 Jan 2026 03:37:20 -0800 (PST)
+X-Received: by 2002:a05:600c:34d3:b0:479:1348:c614 with SMTP id 5b1f17b1804b1-4803e7f03fdmr128686445e9.26.1769081840134;
+        Thu, 22 Jan 2026 03:37:20 -0800 (PST)
+Received: from [192.168.88.32] ([216.128.11.175])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-480424b18cesm51351875e9.4.2026.01.22.03.37.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 22 Jan 2026 03:37:19 -0800 (PST)
+Message-ID: <86b8feca-8e82-465e-a17a-b751758306ce@redhat.com>
+Date: Thu, 22 Jan 2026 12:37:17 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aXIKDduX5qUXvOUX@localhost.localdomain>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3 1/3] net: phy: add a new phy_device flag to
+ keep preamble before sfd
+To: Stefan Eichenberger <eichest@gmail.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ linux-stm32@st-md-mailman.stormreply.com, maxime.chevallier@bootlin.com,
+ francesco.dolcini@toradex.com
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Stefan Eichenberger <stefan.eichenberger@toradex.com>
+References: <20260120203905.23805-1-eichest@gmail.com>
+ <20260120203905.23805-2-eichest@gmail.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20260120203905.23805-2-eichest@gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: msSGR88RuxQp9A5KEsRhw6gr5vEizID9SoLzsT79SEA_1769081840
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260122_033728_395884_3DE77EBF 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,70 +120,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 12:29:17PM +0100, Frederic Weisbecker wrote:
-> Le Thu, Jan 22, 2026 at 09:56:29AM +0000, Will Deacon a écrit :
-> > On Wed, Jan 21, 2026 at 06:06:07PM +0100, Frederic Weisbecker wrote:
-> > > Le Tue, Jan 20, 2026 at 03:15:14PM +0000, Will Deacon a écrit :
-> > > > Hi Frederic,
-> > > > 
-> > > > On Thu, Jan 01, 2026 at 11:13:54PM +0100, Frederic Weisbecker wrote:
-> > > > > When none of the allowed CPUs of a task are online, it gets migrated
-> > > > > to the fallback cpumask which is all the non nohz_full CPUs.
-> > > > > 
-> > > > > However just like nohz_full CPUs, domain isolated CPUs don't want to be
-> > > > > disturbed by tasks that have lost their CPU affinities.
-> > > > > 
-> > > > > And since nohz_full rely on domain isolation to work correctly, the
-> > > > > housekeeping mask of domain isolated CPUs should always be a superset of
-> > > > > the housekeeping mask of nohz_full CPUs (there can be CPUs that are
-> > > > > domain isolated but not nohz_full, OTOH there shouldn't be nohz_full
-> > > > > CPUs that are not domain isolated):
-> > > > > 
-> > > > > 	HK_TYPE_DOMAIN | HK_TYPE_KERNEL_NOISE == HK_TYPE_DOMAIN
-> > > > > 
-> > > > > Therefore use HK_TYPE_DOMAIN as the appropriate fallback target for
-> > > > > tasks and since this cpumask can be modified at runtime, make sure
-> > > > > that 32 bits support CPUs on ARM64 mismatched systems are not isolated
-> > > > > by cpusets.
-> > > > > 
-> > > > > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> > > > > Reviewed-by: Waiman Long <longman@redhat.com>
-> > > > > ---
-> > > > >  arch/arm64/kernel/cpufeature.c | 18 +++++++++++++++---
-> > > > >  include/linux/cpu.h            |  4 ++++
-> > > > >  kernel/cgroup/cpuset.c         | 17 ++++++++++++++---
-> > > > >  3 files changed, 33 insertions(+), 6 deletions(-)
-> > > > 
-> > > > tbh, I'd also be fine just saying that isolation isn't reliable on these
-> > > > systems and then you don't need to add the extra arch hook.
-> > > 
-> > > Hmm, I think I heard about nohz_full usage on arm64 but I'm not sure.
-> > > And I usually expect isolcpus or cpuset isolated partitions to be even
-> > > more broadly used, it's lighter isolation with less constraints.
-> > > 
-> > > Anyway you're probably right that we could remove isolation support here
-> > > but I don't want to break any existing user.
-> > 
-> > fwiw, I think it's only some Android markets using the mismatched 32-bit
-> > support and we're definitely not using nohz_full there.
+On 1/20/26 9:30 PM, Stefan Eichenberger wrote:
+> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 > 
-> Now that removal becomes appealing. And what about isolcpus= / isolated cpuset
-> which only consist in scheduler domain isolation? Probably not used by android
-> either.
+> Add a new flag, PHY_F_KEEP_PREAMBLE_BEFORE_SFD, to indicate that the PHY
+> shall not remove the preamble before the SFD if it supports it. MACs
+> that do not support receiving frames without a preamble can set this
+> flag.
 > 
-> Ok but is there a way to detect on early boot that the system has mismatched
-> 32 bits support? Because I need to fail nohz_full= and isolcpus= boot parameters
-> early on top of this information without waiting for secondary CPUs boot.
+> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 
-Honestly, I'm not sure I'd bother trying to be smart here. Even if the
-system has enabled support for mismatched 32-bit CPUs, things should
-still work properly with nohz_full/isolcpus if all the tasks are 64-bit,
-right?
+I understand this has been suggested by Russell, and LGTM, but still it
+would be nice explicit ack from the phy lib crew to ensure it matches
+expectations.
 
-In which case, I'd just document whatever weird behaviour you get if
-somebody throws 32-bit tasks into the mix. Adding hooks to the generic
-code for this use-case just seems like a waste, as they're not going to
-be used in practice and it increases the maintenance burden.
+Thanks,
 
-Will
+Paolo
+
 
