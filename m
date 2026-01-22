@@ -4,89 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF105D3EE6C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 14:26:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97F5BD3EE6B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 14:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E7mVwEd6fwIbimNEJlQo8+vfAVD2+XS/xZOfgS1b43M=; b=WyNbYtLtydZ2JGXkzEdpkhkCR8
-	9eJRkUVsyokaYrqvtr0qNsWfPdsGd50K1u3ySWiAWZKULH0xDS63Y2NfOFkap7KHgDhdXB4yRaD8T
-	J1bSsqgRQFSVoHE2fPmri1KO6cbK1D26wbp3/tftBO1MCnHM2WjUfJfH2PCh3LAF7Iaw9uOkOW+23
-	Z+xhmSXhFgjlUZsIxK2T8OqQ2BMuTmHnoQ9kuOgoCS4R8tcPBsv/8YkEP77aYbxnV4/PxLJ9F47zw
-	FU+stOLFR6eHBU7WF6SDvVdnLoj103nbTNz6k9bGh9hLAHIT39ZtocPGnXDllEL12PgBnk9WKMAIu
-	W8dS7Z3g==;
+	bh=/XLf9lz5xbJG58Fpx5WiwNTdWNe5R5jaeh5LiYGSWIw=; b=umWcIhRtBa5MbK6HRkKDbdeGU2
+	zwSdz12Z2b6Lik0TI6TGuirGqLeRGj/6KYtNhbo8YezUkJJvelKfOaFYKJTlIHCjnZTI/L324ZQOT
+	BgAArEnh4D73ZXhC0ey2XpkpgBmnUl0fc33lTfn+Bjbn2tVS3biK2arFP3OHTtmsaaQi6mxGGQFKZ
+	e81eajehDcuBIUN9BzpypRAQwnvKpqHYHhKDtYBYhuZYH+MMiiciYJJQIZHL1dPoDz4Zwy9g3lRnu
+	3lBVsP3HgY+gMbtRK7hwxaFuDwq9MZQZ5F0e4egpKwBwgQYjM6lmMfaArs9Kls/dR0ZXt5q3sfKDR
+	VtctEP7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vivdD-00000007Eij-3W3x;
-	Thu, 22 Jan 2026 14:25:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vivke-00000007F9J-2pnC;
+	Thu, 22 Jan 2026 14:33:36 +0000
+Received: from mail-francecentralazon11013054.outbound.protection.outlook.com ([40.107.162.54] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vivdC-00000007EiE-2Yii
+	id 1vivkc-00000007F8k-0Edh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 14:25:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 94D6E600C3;
-	Thu, 22 Jan 2026 14:25:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3070C116C6;
-	Thu, 22 Jan 2026 14:25:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769091953;
-	bh=Yl2qHTWE9Fz/7zZDgzhuQhCUpz24c+UW8s5oFbDoqv4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dgksenNLm8vVcFnylVsW42Tv+ZdtC5W29o1qOctfuLKEDknRSTgAq8uzfYssEItmI
-	 1/wOROGwmmKK4A6J0Uf0YffnAOAuPW+Z6RN9LrRJxi0cMAMDPJW+sHCCBqhwnraKRy
-	 kJJ07EzgsYxVOO45tD2+zF7iBGbuIZkGKgSP05MJZvD+tcbKYbrvLKNW11VeHgFWi+
-	 VU9GuE9ZZl3qbAvIeLSbzdH7Yue/O7ulWuBcayymCEG/yFqi3DTV/nqppK2pyvu/Jm
-	 wh4/199cda1IpN1SL0mJt6msWh7JYksIQOb9a5HPcwS51wHfuEWcY3g1/EH2SLxa1V
-	 CSmkUrJoC7XpQ==
-Date: Thu, 22 Jan 2026 15:25:50 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chen Ridong <chenridong@huawei.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-block@vger.kernel.org, linux-mm@kvack.org,
-	linux-pci@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 29/33] sched/arm64: Move fallback task cpumask to
- HK_TYPE_DOMAIN
-Message-ID: <aXIzbmitdoJIMFCP@localhost.localdomain>
-References: <20260101221359.22298-1-frederic@kernel.org>
- <20260101221359.22298-30-frederic@kernel.org>
- <aW-cAlJCtI5Qtify@willie-the-truck>
- <aXEHf5nbZMI8LT4b@localhost.localdomain>
- <aXH0TZU7UNowTmwc@willie-the-truck>
- <aXIKDduX5qUXvOUX@localhost.localdomain>
- <aXILtazyRtpb3Yjy@willie-the-truck>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+	Thu, 22 Jan 2026 14:33:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LHo14Clgg9t6wpc5cjGZntQLXzR1XZ3e1NKIMuE6dCdhj1TvN3azO9Ii/S39m0CgjHtKov6VZSpiGYFwPDM0ev54WMHIeJEs5LCW82Iib5D3GSDQS+1hihCAxohsJIfNSSayv51C2MqfKcgCH5Ob1iCoZ7mfQwIlxg4zxYDHNPUzZb1Fsl6mepaclJOlknUew+Fxomi8NT2bfNw/d/XQsSBLLdS537KIuM1cUoEe8WGOsJJlt9uNFZfnXQcRKh6YpCSAHIxL5PELZwJhHKJJ1zvs7baArJtf2MBuLRPH8KnSkwoItnFv7CbF1XRJmk6ajsITFtunF4JHzJDiG9IKuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/XLf9lz5xbJG58Fpx5WiwNTdWNe5R5jaeh5LiYGSWIw=;
+ b=eVWCkpEB7PHNvvAm3faVoc1xawlxARmX06zCcKLgTwkKSj1kCA6HYxefj0iltJbgmFa8ki7HVCBfkkWCkXkuJatTf489KHB/dKIAzv2IkRdG3BA85QlgvHCGlCeiGJe86e6BzuhwYgIQL2jyJq1vw6yVF86ZaCdbnIhFu6Cy1FGVvESjWHm/qkGbVud9KSiw9vppa9KoikdlO7blo11RtDUKEbISRJiNpw9h+f1pMnrqU94EfN2qnVTStiCve4dgTzSdEb6CKlWnT6q3MJ+lJJqSW4AapymjFCt1HSYkO68WxrserStEOdHeYsE7ivl7M9lcjVjMabaYnGj9D9ZA/A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/XLf9lz5xbJG58Fpx5WiwNTdWNe5R5jaeh5LiYGSWIw=;
+ b=Ph+tyateFlMsUDWmNgCkoeEDA2yC8CfwsaNQX5IbJv+OYdotZ4tYfs/uz0Kgf8gRUURsrNMgyHJNXz4Qyh0arKDNg0rYa5bbymvhYFVWBVxQh/l8efxOzsqoWmyN8F7ARar5QLpeZsrnpsE4AEpvjB8HmXwFViEr67GK4NU82Eu1gAANB6FrfxobpceVR/NUt3vHUEuKcluLh6qUD/rU/t5natZNzt5ogR1cIO8CeAnjT1VW6u5XhrbuuLDr1zgjabveLT9ETQSmeSLvuuAdhcFCzi4b/A3lK/05UIJx+8F2z4bEO7x8Uf4D05hrHdR0xbSipLQ5hS4U3PSawEBS4A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PRASPRMB0004.eurprd04.prod.outlook.com (2603:10a6:102:29b::6)
+ by AM9PR04MB8383.eurprd04.prod.outlook.com (2603:10a6:20b:3ed::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Thu, 22 Jan
+ 2026 14:33:28 +0000
+Received: from PRASPRMB0004.eurprd04.prod.outlook.com
+ ([fe80::6ab3:f427:606a:1ecd]) by PRASPRMB0004.eurprd04.prod.outlook.com
+ ([fe80::6ab3:f427:606a:1ecd%4]) with mapi id 15.20.9520.009; Thu, 22 Jan 2026
+ 14:33:27 +0000
+Date: Thu, 22 Jan 2026 09:33:17 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Lukasz Majewski <lukma@nabladev.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] clk: vf610: Add support for the Ethernet switch clocks
+Message-ID: <aXI1LazRJ/jH2n7p@lizhi-Precision-Tower-5810>
+References: <20260122130649.4150338-1-lukma@nabladev.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aXILtazyRtpb3Yjy@willie-the-truck>
+In-Reply-To: <20260122130649.4150338-1-lukma@nabladev.com>
+X-ClientProxiedBy: PH7P220CA0096.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32d::25) To PRASPRMB0004.eurprd04.prod.outlook.com
+ (2603:10a6:102:29b::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PRASPRMB0004:EE_|AM9PR04MB8383:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1a445bc8-1d72-42ee-1bb9-08de59c334dd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|52116014|366016|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?N9TYv8Jj3si03emnE2LMchl3ziTR4YKjKWFcmxWK8Pqalx5yKdiHcakAEt5x?=
+ =?us-ascii?Q?y7wh6jomD8RL3AWSwGri49Z9nkxTt1qAhPe8evNuZpOUFFuOr/6hYPeF1g9c?=
+ =?us-ascii?Q?LG7wDC7997qhS5uhplsWXHXbpsNsy81dIn1kMFHsKZe0nQbUnIMzLN88/dx7?=
+ =?us-ascii?Q?P8GfJhfCea7FBusZ8lrwsKntI+buPihFq5WQE6lV9Pmg6movMM/m00mQcTpG?=
+ =?us-ascii?Q?Kfy9R7fX2QtUdUglcpuCefnCGQe6z5Myx0ah9/KeluGBd9M81FLIGkUygDWO?=
+ =?us-ascii?Q?QuLt78UaFDnfOljYF4p9GKR6nDL1+GGZzrdDWOgsjcpDbn83uRQR3hxBF6Lz?=
+ =?us-ascii?Q?A20vg6ACjxC6Ez+Kierkgd+jCuUlRpe/Q64mtwB9wnGHBhvTFJLlivCp+0tD?=
+ =?us-ascii?Q?iQUmOcs97+zGApkDs0sbvsWcxPqDOJ9a67/SJ7sRMbfSWoFdQl7Dy8/jjnG9?=
+ =?us-ascii?Q?ezr4LLWZWoKOIv5mq8QKT83aDwO6vKovuR4ytjVc6NLM3hlNA7g8Kc8VJESL?=
+ =?us-ascii?Q?Jy6DdB9jV8WgK9je+A4csN7KnfoncwtU9mjVKKWSaVvWiToGoWwFRo9FRfQJ?=
+ =?us-ascii?Q?oz9rnS5EfbT4x/zXKjGLIUhvM5AzIAtKiIf2di5FijtFxn6kRF+CKku4PGtG?=
+ =?us-ascii?Q?ZC0nQbSAe+O3avdK1ksn+MZczVuum+VZZGW3l5YL/wyhilpqlL63SJrfBsjo?=
+ =?us-ascii?Q?xuuWXUo0U4KuBwa0QqoRmQ1RIuzGIgc6Tf0aLUtQZLT/ib0QkZjrHRtgdD4k?=
+ =?us-ascii?Q?diAi2M0TaiWEhkhJKkFMrDQqSes1mMDcmejAUsWTgc2UL0HHqyIwyDubXG9Y?=
+ =?us-ascii?Q?j1QPMYvOMd48IoxAB9y6wQvGmCpqoRh7NmQHsPLUnvLiz21GvPpCwwBk31SW?=
+ =?us-ascii?Q?CqAOz1N2WM+jaWIbz17dwp8+IGs07asuA6MBYc3QvP/evL5dahwIj8KPutU/?=
+ =?us-ascii?Q?5/LiG/tfDna8K4L+lFJSRptdZ4ESDBQRjtWgCHNrEeqSLuY/CTM7ANBQwj10?=
+ =?us-ascii?Q?lh85sn7lN+yz3M0HdW0YArRVkhBSuhXKEXRVavfn1bzQqcLMB0Kg1Q7Vi2AT?=
+ =?us-ascii?Q?0X8VgYOxpyDGCifYHYhYaDDpdG3mUTt2fVQcPws/YBU6FJIqKGs03QpjyhQd?=
+ =?us-ascii?Q?MyVaZA6jgVrIDu0+Fls2kKI6JSAmMYdstMxj3k9g2Ja0R5SHMaQSaK/67vXf?=
+ =?us-ascii?Q?JbGYQQLUYMxbmPKdn/dlWYDz6Ph0xDfpo2YMWwxDy1YKhQSh/KUNliEofUlV?=
+ =?us-ascii?Q?M+kTHYxd8DQnUujggyfWX87x7rMf0dJqkHzdNHph63vAhJ6kftLCWkk6cQcd?=
+ =?us-ascii?Q?gDEcNTJiPXgxv/LEZ5++NBKtywdDgtfOqLkulwtGQSOZDmvULuPYQXZQJ9ME?=
+ =?us-ascii?Q?cmMpOYdUKkTtAsUrQv+1z41XxFeBl09S/BviZre/UBg8oZl33HBWQAFCvnmC?=
+ =?us-ascii?Q?OZ+9rKbCBTapjnVbr5ECiKa14elGcgeTpNfHmXJDPAr46IFoh1usfBWtWKHI?=
+ =?us-ascii?Q?d2tOZytrWPEhUJ7QY8Is+k1T5oEUvpzNbENLA9eS/FWj2HiF+xQbhdK2KSKB?=
+ =?us-ascii?Q?WvY5il1Wy4YxZxGOLtg52nUHKae8+zEjhK+44jzpMieUlnOfrK4dawNhGeil?=
+ =?us-ascii?Q?jwWGiW32CAz8ezhLlLqqiI0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PRASPRMB0004.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(52116014)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oduEt8hcu03Qokhr9DjDnY673d/+B1CDdRt45HxhjwIPnUbP0ZRIGx49z9eY?=
+ =?us-ascii?Q?Hp8qbJKImNMmez4SwGM7gSVAHpKx+IAlnraKR5ieWwRgLachC5vNOKN/TlUk?=
+ =?us-ascii?Q?1EA8qlsF+cs61lELPzgjCk8w7Iqn6RsO5Pr1PBEM5NWiNJvm418+GVog+v7D?=
+ =?us-ascii?Q?/y+2tyBKhe54MWAwG20YveYQH0bjlforbqVVtpoko4Ua6pjZ2vvx5Jj5NDpx?=
+ =?us-ascii?Q?KsmjBADl9SDcb1sHpXCIylW32Y8WNevyBD/19dtrX2Ntj6OwGdqEp6/A7mpV?=
+ =?us-ascii?Q?23sasAh0hCC8YzFa6Di6zBfARfczcpKnAEHY4fCTeZj+xQS/+n+M9k8ko4zV?=
+ =?us-ascii?Q?9OePU05+EqP06kktVr2sgqtA6PmUmLRB18Fx3WVjK5SmlCt2xZ8ce8F6fWgC?=
+ =?us-ascii?Q?XOrTPwAHs9wElrGyk+4jf6/F7zPXLc0GOnId6ILcVKeHZAE3vQU+pB3bqqlJ?=
+ =?us-ascii?Q?KK7W0cS/IYoDr8P3jxnlwtxw7n1IPjBI8T79QyZXw6B8npCjw/s8tH4B2e/5?=
+ =?us-ascii?Q?X5V6KmUDpALeeao0t9U+fj7Ce3LzoMKYlh9zrRE+IeClHd6UE6O+9w3znSnR?=
+ =?us-ascii?Q?qrvZS9cUQ+OcCaj20EN6BbnqYvmzk8x86HOaaoc0y64LemBudY4jeKNDvtMn?=
+ =?us-ascii?Q?tAXSQUSOFNSikCPuIQAI7XdKBsQwj1oY1BOVUuHCWismnIHlOK5rxp9CunlH?=
+ =?us-ascii?Q?A65TUNl/dM/zxKPXWAXOsi8IuJ9bHgz4XxUf2ZISHkXJSGy+niAJYg2sakY1?=
+ =?us-ascii?Q?OyIiDwxJ4ttVzRbXYGBsAd3pzJbyzZ0Kuyqs95pR3MIbEq55D+znO9gJmE9g?=
+ =?us-ascii?Q?buHluzDsabw8cBwV+zNmpG5KSv75sKhf+5KD9RXiMCE5Ke9SMUWFqk8IOS30?=
+ =?us-ascii?Q?rtmuIhLg2rRnurLigvyHjOV2QvmQ6cxmUgAZH2hOtQvHht8cuTblpsKMV8S5?=
+ =?us-ascii?Q?kDQAaLfcvH0w0HP7Zi2YiQeKIbftmqyijKB7oZ3xsRLuOr5PFBW4Ncu/jjmm?=
+ =?us-ascii?Q?MVAVgJCs6iuQVdrBzy5FxCyevJvuA1klUmEz8OS5elsZikiJgrpDu0aB4Zum?=
+ =?us-ascii?Q?MT55lcoPChfqY7zYgf5Em7gb14gU2b8r6msnTzc7z6VOMIgRp+2t/2Hk6MDz?=
+ =?us-ascii?Q?6ZJu6Y/67FdndbATdZtMeh8XZrAfFI7RN4g3XJ4GY9+5ZFAQW/A4ghkEWffI?=
+ =?us-ascii?Q?Cd+2ETkiQ62Ps/OwDfKf6u6Xwz5h+Xo+ZNd4Y11ymOOsE6woyP0ChfkHVe9N?=
+ =?us-ascii?Q?vUXvyhKGK6x959UktSoyhzzMic9xOdAb3Hxl2Ij9K9io4Rmf9ls0sj19L/jc?=
+ =?us-ascii?Q?7dgkwpTTLbCh+Qo4djAuo6jOrX7/ciBMi0SZiWwJtmfcX2/Cal60zSa1lFwm?=
+ =?us-ascii?Q?IExI/zi0KCXObULISwYhZAA0dlXtNUr5AF9YyHxR+h4UntaiDRxXLOy1VTg7?=
+ =?us-ascii?Q?SF84NyyfvA4pAUXF4M6lV4pfx55CbmWfS33V4TRvu2JKTK4dy9VSk/PE1E1O?=
+ =?us-ascii?Q?5R/1dbV+YXag0WM7Vz6W/6/vrNq5mVAjFh+IhkaGtEj31EBq5yntbu1+Oixi?=
+ =?us-ascii?Q?0sG+abMAZkC8wGaA+lau/1d/DwOt1JOIWNWMS9jXgMkiGV99x9TYW6vflAQE?=
+ =?us-ascii?Q?4sR5IeNgbsH9jgH8l/B9RD/djMarLm61x0YW0O2w7H8facNttZTVBHAObJ7a?=
+ =?us-ascii?Q?K4M0PhOGwcW7E0Z6YeMxFAjBqItJsuBHISD2sEgBPX4mXxqlDaJTqT8GWivN?=
+ =?us-ascii?Q?E8Vz9W/iVg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1a445bc8-1d72-42ee-1bb9-08de59c334dd
+X-MS-Exchange-CrossTenant-AuthSource: PRASPRMB0004.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 14:33:27.8222
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: V8BJMKLNjb/D/aTFVVmfGSMl5bw23yZpuZNr4+YIIfvfKNwrm0Cv7NKV96nukgWx09527bVafviGSqWKHDdSIw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8383
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260122_063334_104786_E80011D3 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,161 +167,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Thu, Jan 22, 2026 at 11:36:21AM +0000, Will Deacon a écrit :
-> On Thu, Jan 22, 2026 at 12:29:17PM +0100, Frederic Weisbecker wrote:
-> > Le Thu, Jan 22, 2026 at 09:56:29AM +0000, Will Deacon a écrit :
-> > > On Wed, Jan 21, 2026 at 06:06:07PM +0100, Frederic Weisbecker wrote:
-> > > > Le Tue, Jan 20, 2026 at 03:15:14PM +0000, Will Deacon a écrit :
-> > > > > Hi Frederic,
-> > > > > 
-> > > > > On Thu, Jan 01, 2026 at 11:13:54PM +0100, Frederic Weisbecker wrote:
-> > > > > > When none of the allowed CPUs of a task are online, it gets migrated
-> > > > > > to the fallback cpumask which is all the non nohz_full CPUs.
-> > > > > > 
-> > > > > > However just like nohz_full CPUs, domain isolated CPUs don't want to be
-> > > > > > disturbed by tasks that have lost their CPU affinities.
-> > > > > > 
-> > > > > > And since nohz_full rely on domain isolation to work correctly, the
-> > > > > > housekeeping mask of domain isolated CPUs should always be a superset of
-> > > > > > the housekeeping mask of nohz_full CPUs (there can be CPUs that are
-> > > > > > domain isolated but not nohz_full, OTOH there shouldn't be nohz_full
-> > > > > > CPUs that are not domain isolated):
-> > > > > > 
-> > > > > > 	HK_TYPE_DOMAIN | HK_TYPE_KERNEL_NOISE == HK_TYPE_DOMAIN
-> > > > > > 
-> > > > > > Therefore use HK_TYPE_DOMAIN as the appropriate fallback target for
-> > > > > > tasks and since this cpumask can be modified at runtime, make sure
-> > > > > > that 32 bits support CPUs on ARM64 mismatched systems are not isolated
-> > > > > > by cpusets.
-> > > > > > 
-> > > > > > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> > > > > > Reviewed-by: Waiman Long <longman@redhat.com>
-> > > > > > ---
-> > > > > >  arch/arm64/kernel/cpufeature.c | 18 +++++++++++++++---
-> > > > > >  include/linux/cpu.h            |  4 ++++
-> > > > > >  kernel/cgroup/cpuset.c         | 17 ++++++++++++++---
-> > > > > >  3 files changed, 33 insertions(+), 6 deletions(-)
-> > > > > 
-> > > > > tbh, I'd also be fine just saying that isolation isn't reliable on these
-> > > > > systems and then you don't need to add the extra arch hook.
-> > > > 
-> > > > Hmm, I think I heard about nohz_full usage on arm64 but I'm not sure.
-> > > > And I usually expect isolcpus or cpuset isolated partitions to be even
-> > > > more broadly used, it's lighter isolation with less constraints.
-> > > > 
-> > > > Anyway you're probably right that we could remove isolation support here
-> > > > but I don't want to break any existing user.
-> > > 
-> > > fwiw, I think it's only some Android markets using the mismatched 32-bit
-> > > support and we're definitely not using nohz_full there.
-> > 
-> > Now that removal becomes appealing. And what about isolcpus= / isolated cpuset
-> > which only consist in scheduler domain isolation? Probably not used by android
-> > either.
-> > 
-> > Ok but is there a way to detect on early boot that the system has mismatched
-> > 32 bits support? Because I need to fail nohz_full= and isolcpus= boot parameters
-> > early on top of this information without waiting for secondary CPUs boot.
-> 
-> Honestly, I'm not sure I'd bother trying to be smart here. Even if the
-> system has enabled support for mismatched 32-bit CPUs, things should
-> still work properly with nohz_full/isolcpus if all the tasks are 64-bit,
-> right?
-> 
-> In which case, I'd just document whatever weird behaviour you get if
-> somebody throws 32-bit tasks into the mix. Adding hooks to the generic
-> code for this use-case just seems like a waste, as they're not going to
-> be used in practice and it increases the maintenance burden.
+On Thu, Jan 22, 2026 at 02:06:49PM +0100, Lukasz Majewski wrote:
+> The vf610 device has built in the MoreThanIP L2 switch. For proper
+> operation it is required to enable ESW and MAC table lookup
+> clocks.
+>
+> The MAC table spans from 0x400E_C000 for 0x4000 and it is necessary
+> to provide clocks for each AIPS1-"slot", which size is 0x1000
+> (hence four separate entries).
+>
+> Those can be enabled via clock gating CCM_CCGR10 register
+> (0x4006_B068).
+>
+> Signed-off-by: Lukasz Majewski <lukma@nabladev.com>
+> ---
 
-Ok, how does this updated version look now?
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
----
-From: Frederic Weisbecker <frederic@kernel.org>
-Date: Thu, 24 Jul 2025 23:38:48 +0200
-Subject: [PATCH] sched/arm64: Move fallback task cpumask to HK_TYPE_DOMAIN
-
-When none of the allowed CPUs of a task are online, it gets migrated
-to the fallback cpumask which is all the non nohz_full CPUs.
-
-However just like nohz_full CPUs, domain isolated CPUs don't want to be
-disturbed by tasks that have lost their CPU affinities.
-
-And since nohz_full rely on domain isolation to work correctly, the
-housekeeping mask of domain isolated CPUs should always be a subset of
-the housekeeping mask of nohz_full CPUs (there can be CPUs that are
-domain isolated but not nohz_full, OTOH there shouldn't be nohz_full
-CPUs that are not domain isolated):
-
-	HK_TYPE_DOMAIN & HK_TYPE_KERNEL_NOISE == HK_TYPE_DOMAIN
-
-Therefore use HK_TYPE_DOMAIN as the appropriate fallback target for
-tasks. Note that cpuset isolated partitions are not supported on those
-systems and may result in undefined behaviour.
-
-Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Marco Crivellari <marco.crivellari@suse.com>
-Cc: Michal Hocko <mhocko@suse.com>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Tejun Heo <tj@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Waiman Long <longman@redhat.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
----
- Documentation/arch/arm64/asymmetric-32bit.rst | 12 ++++++++----
- arch/arm64/kernel/cpufeature.c                |  6 +++---
- 2 files changed, 11 insertions(+), 7 deletions(-)
-
-diff --git a/Documentation/arch/arm64/asymmetric-32bit.rst b/Documentation/arch/arm64/asymmetric-32bit.rst
-index 57b8d7476f71..fc0c350c5e00 100644
---- a/Documentation/arch/arm64/asymmetric-32bit.rst
-+++ b/Documentation/arch/arm64/asymmetric-32bit.rst
-@@ -154,10 +154,14 @@ mode will return to host userspace with an ``exit_reason`` of
- ``KVM_EXIT_FAIL_ENTRY`` and will remain non-runnable until successfully
- re-initialised by a subsequent ``KVM_ARM_VCPU_INIT`` operation.
- 
--NOHZ FULL
-----------
-+SCHEDULER DOMAIN ISOLATION
-+--------------------------
- 
--To avoid perturbing an adaptive-ticks CPU (specified using
--``nohz_full=``) when a 32-bit task is forcefully migrated, these CPUs
-+To avoid perturbing a boot-defined domain isolated CPU (specified using
-+``isolcpus=[domain]``) when a 32-bit task is forcefully migrated, these CPUs
- are treated as 64-bit-only when support for asymmetric 32-bit systems
- is enabled.
-+
-+However as opposed to boot-defined domain isolation, runtime-defined domain
-+isolation using cpuset isolated partition is not advised on asymmetric
-+32-bit systems and will result in undefined behaviour.
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c840a93b9ef9..f0e66cb27d17 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -1669,7 +1669,7 @@ const struct cpumask *system_32bit_el0_cpumask(void)
- 
- const struct cpumask *task_cpu_fallback_mask(struct task_struct *p)
- {
--	return __task_cpu_possible_mask(p, housekeeping_cpumask(HK_TYPE_TICK));
-+	return __task_cpu_possible_mask(p, housekeeping_cpumask(HK_TYPE_DOMAIN));
- }
- 
- static int __init parse_32bit_el0_param(char *str)
-@@ -3987,8 +3987,8 @@ static int enable_mismatched_32bit_el0(unsigned int cpu)
- 	bool cpu_32bit = false;
- 
- 	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0)) {
--		if (!housekeeping_cpu(cpu, HK_TYPE_TICK))
--			pr_info("Treating adaptive-ticks CPU %u as 64-bit only\n", cpu);
-+		if (!housekeeping_cpu(cpu, HK_TYPE_DOMAIN))
-+			pr_info("Treating domain isolated CPU %u as 64-bit only\n", cpu);
- 		else
- 			cpu_32bit = true;
- 	}
--- 
-2.51.1
-
+>  drivers/clk/imx/clk-vf610.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/drivers/clk/imx/clk-vf610.c b/drivers/clk/imx/clk-vf610.c
+> index 9e11f1c7c397..88c9b656f244 100644
+> --- a/drivers/clk/imx/clk-vf610.c
+> +++ b/drivers/clk/imx/clk-vf610.c
+> @@ -309,6 +309,11 @@ static void __init vf610_clocks_init(struct device_node *ccm_node)
+>  	clk[VF610_CLK_ENET_TS] = imx_clk_gate("enet_ts", "enet_ts_sel", CCM_CSCDR1, 23);
+>  	clk[VF610_CLK_ENET0] = imx_clk_gate2("enet0", "ipg_bus", CCM_CCGR9, CCM_CCGRx_CGn(0));
+>  	clk[VF610_CLK_ENET1] = imx_clk_gate2("enet1", "ipg_bus", CCM_CCGR9, CCM_CCGRx_CGn(1));
+> +	clk[VF610_CLK_ESW] = imx_clk_gate2("esw", "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(8));
+> +	clk[VF610_CLK_ESW_MAC_TAB0] = imx_clk_gate2("esw_tab0", "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(12));
+> +	clk[VF610_CLK_ESW_MAC_TAB1] = imx_clk_gate2("esw_tab1", "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(13));
+> +	clk[VF610_CLK_ESW_MAC_TAB2] = imx_clk_gate2("esw_tab2", "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(14));
+> +	clk[VF610_CLK_ESW_MAC_TAB3] = imx_clk_gate2("esw_tab3", "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(15));
+>
+>  	clk[VF610_CLK_PIT] = imx_clk_gate2("pit", "ipg_bus", CCM_CCGR1, CCM_CCGRx_CGn(7));
+>
+> --
+> 2.39.5
+>
 
