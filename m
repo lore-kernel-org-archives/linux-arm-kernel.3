@@ -4,86 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27378D3EE8A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 349ABD3EE8A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RXPPA+2hVnuz9+lpDAGfbv/AXvnSUFySkKsxMNbKNAk=; b=0nWjxAJmLGv50VjSZlPqAmSqpQ
-	jbm0JwnEyV3WY1VPm9Agrm2o8T9pMmRYAb5fXpQ4EbHYM/5jHHu4NHRDt0WydOQBKJq5yL5R7mTPK
-	brB8Itn0ANwBqLLsn9AD+97oyM19RvYfej8qANZdFFG6Lt+e6oZIyGF/M1jxt9b1gOHMuSLpfaumi
-	k610Vqk/sIPHA50ZjyKOeBXAS2qKCldHJDF1B7IdNTwuqgOKtC9ZRG31LATY8plxCuU41YZt/RaEu
-	jQIydh5h5vr7GEoHQ5D+0W1lr/SHgRHqtO+mrepyWmSjenVwcgZDE9FCWapbWs62EZ3U4/EKqMz5B
-	nOYBNc9w==;
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QeePwCzK/dPdZ6+vRrt8I/+j/w5DSfZBVSMbTPS53gg=; b=LEUeKtnU7nJQRoBfchq+dPMoNO
+	SPyTuMfejHuVbJUWw2p5rUgN6ku5XwqGzHxRam3y2hrF0sOYFR9Om0v37TbjVQY/UUMBkIsVELSHZ
+	1QKC4hgLq4mlhCoWTbKk7OOKbObUXdEsOw2HEDurJkS+6d4eJfipfPSonoQbcVTASP70gq8gFDWG0
+	hnZMMZ+7rrerPqYLzU2qMXT9KSZSLGJa5MiCReAFJKbjvccmxsvsq8kOzuxX09Y5dEgaRhjmz6/9X
+	Sbvdu4VNSL2p5+oPZWQv8lqGOA1UN4BZ8iYj/qmFfL5asuKLjvYGyCzpZfaGgFqenK84CfpCd8eRo
+	MaDTQUiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixNJ-00000007PBn-1vsH;
-	Thu, 22 Jan 2026 16:17:37 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1vixNT-00000007PFn-1HI9;
+	Thu, 22 Jan 2026 16:17:47 +0000
+Received: from mail-northcentralusazon11013068.outbound.protection.outlook.com ([40.107.201.68] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixNG-00000007PAN-34Zl
+	id 1vixNP-00000007PEA-3ygn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 16:17:36 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-37fd6e91990so11868711fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 08:17:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769098651; x=1769703451; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RXPPA+2hVnuz9+lpDAGfbv/AXvnSUFySkKsxMNbKNAk=;
-        b=LZhuxaBmmUEw/Ti9Xmsfnxg6vWzuHM5OtdTQpKUStAu+amrnmjuFAdXTHKjKcmgJob
-         x6TI0eapT3mELw0vNR6I8wS/l9kygi/QDMskbeLZxNwTk+Jpy95OkDqAL9R9bsovc+e9
-         8PFByh3uXNf0RvVOs7l898enPCmLbqVmFnl18R2kcOgOOH6BK+mfbi5HMhFsZldCEVzm
-         TwsgnKw8Dgecw17dCFPdJRH8jhrWFJGE+dvlUkrnRGsE51bWagoysfJ5PrleNwZHvWfk
-         xqYh8iFuJnH/3D4GioBdBvk1TCldGya0T8t5t60nkou7qdWJ8ZWkSjKwA02VvFB9rkxL
-         1XLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769098651; x=1769703451;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RXPPA+2hVnuz9+lpDAGfbv/AXvnSUFySkKsxMNbKNAk=;
-        b=dfyxBiL3VJ9mTZbFQD1lrHMfvb//3KRAO0gdkEEw8lzJT/BzM1W8HqsQ/+f47lfhUQ
-         YEHy+psJdD7JPHonKb7D2U0mX9oOaXI0oTiCWEmz802EXnZhqcaVfLRELXYMOLNX6nTP
-         1+g5BFb1SwHMf4etDXSBapzVDRdv37aqpRkcc4mzMHJn/ijX1zmVqLLiXUD6NaOmVD8M
-         2FNbBqnnwAPy0AeUh7g5foh5HIHZ3xtytVyuhn8mo4cW42OG4t3Te5X07JV6qPkdVb4W
-         ylfcxz13Kkx2AHD7OLTlmZZVrm2EM26cXqSTsenRDG49Sp8WFR0tNFiQ0NoGCmXk7KZP
-         CYWA==
-X-Forwarded-Encrypted: i=1; AJvYcCVE5yG0aV4kJx6Wjtn+WgZK8YtVw5CKbMTubP1e1Q3yj5OCSzaZqufPNSuD87kTSUzstRAog3Vajz5EZOC2F7QF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYwStE2IBvO0HT/EI7AykGIhyLfW5IXK+4vmuf1T2bJ7ibhCft
-	SSaEycyWiRmA3aWc2sMrLKiyDPxYAz1OznTwCBhM+G4ZnBdOg7FelRQD
-X-Gm-Gg: AZuq6aKbc1MWn5WyHnGmGKEMIkuN4gqlJXXMbSnhU+9oluCpE4eotqtAvtUjpb8q+Ad
-	5Hpn4mBZD6VwFs8AnVjr5wNDmiDipt2ncbHYbldhwEXVKQ2Cmqnd7Y1D0Wio9BFyitW3oqlsTdo
-	wQMBsX9RtXpVRY9eix8HNytHpzJa63c4pXpJ7mi51PBkETCl7FMVXMLHDZPd7WsB8KNueqH9iNM
-	PVmpTbCGteNLa9TIIwGyJy+QFBoZlIK+ix8aWO+/9Awu38kUqtLPRY4l7Sn/lmOyPSO6S4bDAb5
-	tligbCg3IAErGKEkzRQr4yAsLsQhF4SDZoEjDI730eebsp/MB7CCMwn6SmhTYGh2ETN8+KUtBM6
-	NSN1f6NmU/qW+ao3BXzxiy2KeW6mFuo4qd8ilbuiT8+o1xpv0YGczD2UiQZ/g3flY1egLOP6jNl
-	xjvURDxcEk2RTEvULOZwl4jda9G329eg==
-X-Received: by 2002:a05:651c:31c6:b0:37a:84e5:a1cc with SMTP id 38308e7fff4ca-38386a37928mr72388961fa.22.1769098650866;
-        Thu, 22 Jan 2026 08:17:30 -0800 (PST)
-Received: from NB-6746.corp.yadro.com ([188.243.183.148])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-38384fb94f6sm56092161fa.49.2026.01.22.08.17.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Jan 2026 08:17:30 -0800 (PST)
-From: Artem Shimko <a.shimko.dev@gmail.com>
-To: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: Artem Shimko <a.shimko.dev@gmail.com>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] firmware: arm_scmi: extract domain ID validation helpers
-Date: Thu, 22 Jan 2026 19:17:27 +0300
-Message-ID: <20260122161728.1225583-1-a.shimko.dev@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 22 Jan 2026 16:17:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Op4ttfDpILJtwuaNl9oqXFyigKMAFi2HMmuNAX76wYemTUSZh8I0mA4hW0nGVWN4W1TfgHqVj4DEbTsm1FEYyae9K/Us90lAcnIdJo2qBQcHofDXEZUwziwbd27KcCr7oQKAABZ7imF/Ze7A4AWcwlYq8VfYzciuJzPJFnjTRSjEQ6/OpN48zARpJhT/nm0MH0q9d5h3TebvnPTLy2v7XaWJnUIUB1/M1xuMxAKeWRvec/FZgKeRfWHeXSSuwOrro1qFMGVb5CjqOHxXqJ1cgfMZbfEexgyzDOE5siMQA7L5StGxRrIsgdU115fPcEX1cgS4BoOtInitLkjw+f87QA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QeePwCzK/dPdZ6+vRrt8I/+j/w5DSfZBVSMbTPS53gg=;
+ b=DQnS3z1lbz1HpqWYU9KQ/sJdOWTg8+ZXu5hm+z5Nq75G35SEUSJnZtzpd55W0FsmGQnn4h73pJeqClWNRsTpxnLrCiae601SSp7MqlLRC8qENz8zmm9gmUHvfwtXg6zYNJeuyRcwj8PQ89SrvDCWRoANEM7qCE2n1N1OzqwTn2Ft55KGZwobwVOoBf4DSFczuqIxSpuX5bAS4CKiVYd/rYK0hIfT4wSz6NFJ7er/kmlPXjnHLxnqzS8JoZ6GL2proso8AxBo+LZFKdtaKxZibizs13yrl74CEavXUOz81prK1KLNy/BibOIzc5dDbB8cheiHNEf465DM3b2UuUYbmw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=linaro.org smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QeePwCzK/dPdZ6+vRrt8I/+j/w5DSfZBVSMbTPS53gg=;
+ b=O2pgEM5VqDU/T2WZqmvvZDrKtnzHAjJgD/U3frpTGYql/T+NaXwUdQhqvmwjwlbL1YyWXx9V68lTVfHENtM6Mw3AwINIzB/hLR3JysEMyC6czfNgJ0T44txD0Rx/AUotvmiBb/fNw4kalMXaWjak4UVtHxmwlzaorCLzO4Mhybs=
+Received: from SJ0PR13CA0069.namprd13.prod.outlook.com (2603:10b6:a03:2c4::14)
+ by PH5PR10MB997735.namprd10.prod.outlook.com (2603:10b6:510:34d::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Thu, 22 Jan
+ 2026 16:17:38 +0000
+Received: from SJ1PEPF00001CE4.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c4:cafe::bf) by SJ0PR13CA0069.outlook.office365.com
+ (2603:10b6:a03:2c4::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.3 via Frontend Transport; Thu,
+ 22 Jan 2026 16:17:36 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ SJ1PEPF00001CE4.mail.protection.outlook.com (10.167.242.20) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.3 via Frontend Transport; Thu, 22 Jan 2026 16:17:38 +0000
+Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 22 Jan
+ 2026 10:17:37 -0600
+Received: from DLEE208.ent.ti.com (157.170.170.97) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 22 Jan
+ 2026 10:17:37 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE208.ent.ti.com
+ (157.170.170.97) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 22 Jan 2026 10:17:37 -0600
+Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60MGHbhl702694;
+	Thu, 22 Jan 2026 10:17:37 -0600
+Message-ID: <1878d1e8-df99-445e-82d9-1a76c934fda1@ti.com>
+Date: Thu, 22 Jan 2026 10:17:37 -0600
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-am62l: support cpufreq
+From: Kendall Willis <k-willis@ti.com>
+To: Dhruva Gole <d-gole@ti.com>, Nishanth Menon <nm@ti.com>, "Vignesh
+ Raghavendra" <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Bryan Brattlof <bb@ti.com>, Viresh Kumar
+	<viresh.kumar@linaro.org>
+References: <20260122-am62l-dt-cpufreq-v1-1-fabcc15e25fa@ti.com>
+ <77b3b869-558f-4854-95b0-57980be28032@ti.com>
+Content-Language: en-US
+In-Reply-To: <77b3b869-558f-4854-95b0-57980be28032@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE4:EE_|PH5PR10MB997735:EE_
+X-MS-Office365-Filtering-Correlation-Id: c4c26640-eec6-4e00-db1d-08de59d1c2c0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RllQYktUOUFuUjBwSzd6YVU2dGlXTEFISkIyOU1KY29VTlZBclRPQnduYk9m?=
+ =?utf-8?B?cjhHYVhuem1hdjZMM1Z2VXJpdU5ZMW5CN0lpeW1OU0RyeFlaeG9kS1JhMHl4?=
+ =?utf-8?B?RzdsVjFoSlVZYyszOWlqdnArKzUzL2Zhb1dvdkpiY2cxMGxiUjBBbTRFZzR1?=
+ =?utf-8?B?cys2eHQrSTA4aEk0V2FsdW5Pc3lUbmc5NllFc1c5cDFHR3hhZVhzeDhCSmY1?=
+ =?utf-8?B?VlFZK1lTY2RBMSs2aytldS9tSzNCSnhrTUl2WUpGQVZESUpiTmVUOXE3VHZ6?=
+ =?utf-8?B?S0RtSFRlZFhOUElGNDNlUVNWMDRXNHV3Mmp0TnI4MjJkTVZ2UjZWaVF2V2Nt?=
+ =?utf-8?B?WmJXRXRNN255NTY5dkV5czRsOHQ1T0lwV3F5QmUrK0MvVlFwOXNCdmxHdEJs?=
+ =?utf-8?B?QmZkMW9PZ3lRM2EyYlN5OEt0eEE3cGtMZ3NPUkNNNzByZldwS25uaVQ5NGpi?=
+ =?utf-8?B?QUhJajV1YXFERVZTR3ZGNTdId1JNdnZySGtpT25vK2N0NEhPYmcvNHRicGlQ?=
+ =?utf-8?B?dzlVM2FOeVdnZUp6VitTN3EyaFRsUWQwSHVvVTk5cDcvNW4zL2lWTUNlbW9V?=
+ =?utf-8?B?amtmTHRsSzB2SmI1b09SOVV1N3VzL0I0ekpBYk44K2tPNkhHZ1RYeDFXNDhO?=
+ =?utf-8?B?ZjA3ZXppQjV1L0d0S0U3THNmVVdpamIyeEhGTXAxc1owZld4RG94eld3VnZt?=
+ =?utf-8?B?emxHQkVQa29scTF6c0hZUHJIVkJQekNwT2VIQUVaV3JjcEUwdGlVc2xldjFV?=
+ =?utf-8?B?UFlXdTBuUUVtV0VjdVFjZWFlSTY1ZU1qUFpzTXMvdzlqbzBMNnlvOFI3bTM4?=
+ =?utf-8?B?eFoyOTQ4Tm5DTUl3MHlrbGR3dXczZVhGRW1ZcTBUT0FMb3kyWG5TcVNoalBt?=
+ =?utf-8?B?RkVXZFZKYlhjRGkyVE83VHU3c0N4bWFFSkpwY1lhMmllVTlka0VQeHRRUmxT?=
+ =?utf-8?B?dy80bmdhaUEzMDlwd3NqZVBpNjg1NHNlM1B4TW9seE9XYWgwT0F5d2NRSHNl?=
+ =?utf-8?B?MGptTWg4dUE3SDE1eHN6SzNnOUpKa1hMeFFHOGFyUDVIN3h6Z3JjQ09JSGVk?=
+ =?utf-8?B?dEFDMFlYc1VZRVZWYXg5MkJ1VWJxSFkxYVE3dW5zMm9Na2g3QU5iT2lXTVRV?=
+ =?utf-8?B?SGh2eWZDYy9BekNUM2RsOTRONzZqdmhGZFZoR09PVXMrR0t1RjZYaUlFSWoz?=
+ =?utf-8?B?MGdvNlkwdlNGWDJuYkt1Tmd1VFpDdVhjc0o1dlFQaFFJUEt4VjVLYko0RG1M?=
+ =?utf-8?B?MGFWQkRSL0ZGcU8zRm9mR2I5ZHNNNDBCNVM4amE0dy93TVFCU0sycEUrWHg5?=
+ =?utf-8?B?WkFoZVllRkdTQjlhVUJySlVKUXQxcVlYNW5oRnczamtJLytjNEFiaFB5NTcw?=
+ =?utf-8?B?UGJDaWltalpBcDJ4VldDTVl1a25kUXNHcUh2OG8wUWFSd2ZrckZTZjhxYXR0?=
+ =?utf-8?B?WFdQbWYwQkJ4MlRSWHIzMmt3OXdDa0JtSmxpZUdOZWZPckNUQjd4SitXeThP?=
+ =?utf-8?B?S2kvS1BhcHcrL0tRYUhEK1BjWVRTNExWL2ZFelVtTzBVWkk2ZHFpRHNLcHd0?=
+ =?utf-8?B?UUJwOXREd0hjM3ZMU0hOZXQzNzVXa2FRcVJ1OHM2Q0ludVV0QnFTVzUrMWwv?=
+ =?utf-8?B?QW5oZ2hHenB4ODRyNGVZWGUzazhGNHBKYkM4VGp3MkcyRDM2clNva2dNS0Mw?=
+ =?utf-8?B?Ukc3Q2RoOHpOeXRsVmJKS1RaSURBamEzdVdncGpOcDdqTXRPRkYxOTc0K21i?=
+ =?utf-8?B?cXpnTzAxU0xvWTlueXErR0xSSDNaWmMzVXVRL0pSOWdtbjY5cXBnQ1k1bFZt?=
+ =?utf-8?B?Zlg3clNSSWlpbWw2M0ZlR1M3cGRSaXhZV2Z6WXc3TzRIclpnYUtRRzU1Tzkv?=
+ =?utf-8?B?V0hHdTBxOHJRc2RCYTREd29yNEcwbVU0UnNRNXJMNnl0TS9CeVRZb2JQTFRn?=
+ =?utf-8?B?SjNraTh0bHdaQm5YOTd0MFNwMmtJNXB6NHJSTGErVEVrNnR6RW82QVVRM05U?=
+ =?utf-8?B?YjU1THlrZTFRNFE0M0JYNVNiaHBYbGpDY2xBbm1ZYTA5ZE1ZVjV6OXFEdHF6?=
+ =?utf-8?B?VFJSV1UvdEthUGcxVnZuZWx4TG53dnlwNXY3ZGt3cHNRZExIQjh0Z083NlRD?=
+ =?utf-8?B?Q1NsKysxY2xONGpaTXJIWXkxdzh3NGcwbGxKWVNQVCsxTWR6cVY2djg0RnZ4?=
+ =?utf-8?B?aDh5ZzlWbHRPZnBTNjZpUmhRdCtqOEgyYXAyWTJmVTJ4SVNwSjFpWGFPcW1n?=
+ =?utf-8?B?MjVxekhuTE8zR0lWTndYYksxR0NRPT0=?=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 16:17:38.2370
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c4c26640-eec6-4e00-db1d-08de59d1c2c0
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE4.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH5PR10MB997735
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_081734_813168_1C7A15DF 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20260122_081743_992002_5507B912 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,163 +171,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor the voltage protocol implementation by moving repeated domain
-ID boundary checks into dedicated inline functions. This reduces code
-duplication and improves maintainability.
+On 1/22/26 10:14, Kendall Willis wrote:
+> On 1/22/26 04:49, Dhruva Gole wrote:
+>> Enable CPUFreq support for AM62L SoC by adding the relevant OPP efuse 
+>> table
+>> syscon to k3-am62l-wakeup.dtsi for speed grade detection.
+>>
+>> Add the operating-points-v2 table with CPU frequency steps from 200MHz to
+>> 1.25GHz to k3-am62l3.dtsi
+>>
+>> Configure CPU clocks to reference the SCMI clock controller for frequency
+>> scaling
+>>
+>> This enables proper CPU frequency scaling capabilities for the AM62L SoC
+>> using the ARM SCMI protocol to interact with the power management 
+>> firmware.
+>>
+>> Signed-off-by: Dhruva Gole <d-gole@ti.com>
+> 
+> Reviewed-by: Kendall Willis <k-willis@ti.com>
+> 
+> Best,
+> Kendall Willis <k-willis@ti.com>
 
-The new helpers are scmi_voltage_domain_validate_id() which validates
-a domain ID and returns an error code, and scmi_voltage_domain_lookup()
-which returns a pointer to the domain structure or an error pointer.
-These are used consistently across the voltage operations.
-No functional changes are introduced - the validation logic remains
-identical to the original inline checks.
+Oops sent my reviewed by on the wrong revision.
 
-Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
----
-Hello maintainers and reviewers,
-
-Continuing the refactoring work from the previous one [1], this patch
-extracts repeated domain ID boundary checks in the voltage protocol into
-dedicated helper functions. This improves code maintainability by reducing
-duplication and centralizing the validation logic.
-
-The patch introduces two inline helpers:
-* scmi_voltage_domain_validate_id(): validates domain ID and returns an
-error code
-* scmi_voltage_domain_lookup(): returns pointer to domain struct or error
-
-Thank you!
-
-[1] https://lore.kernel.org/all/20251103161044.2269377-1-a.shimko.dev@gmail.com/T/#u
---
-Regards,
-artem
-
- drivers/firmware/arm_scmi/voltage.c | 59 ++++++++++++++++++++---------
- 1 file changed, 41 insertions(+), 18 deletions(-)
-
-diff --git a/drivers/firmware/arm_scmi/voltage.c b/drivers/firmware/arm_scmi/voltage.c
-index 17127880e10a..62010df24053 100644
---- a/drivers/firmware/arm_scmi/voltage.c
-+++ b/drivers/firmware/arm_scmi/voltage.c
-@@ -262,15 +262,37 @@ static int scmi_voltage_descriptors_get(const struct scmi_protocol_handle *ph,
- 	return ret;
- }
- 
-+static inline int
-+scmi_voltage_domain_validate_id(const struct scmi_protocol_handle *ph, u32 domain_id)
-+{
-+	struct voltage_info *vinfo = ph->get_priv(ph);
-+
-+	if (domain_id >= vinfo->num_domains)
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
-+static inline struct scmi_voltage_info *
-+scmi_voltage_domain_lookup(const struct scmi_protocol_handle *ph, u32 domain_id)
-+{
-+	struct voltage_info *vinfo = ph->get_priv(ph);
-+
-+	if (domain_id >= vinfo->num_domains)
-+		return ERR_PTR(-EINVAL);
-+
-+	return vinfo->domains + domain_id;
-+}
-+
- static int __scmi_voltage_get_u32(const struct scmi_protocol_handle *ph,
- 				  u8 cmd_id, u32 domain_id, u32 *value)
- {
- 	int ret;
- 	struct scmi_xfer *t;
--	struct voltage_info *vinfo = ph->get_priv(ph);
- 
--	if (domain_id >= vinfo->num_domains)
--		return -EINVAL;
-+	ret = scmi_voltage_domain_validate_id(ph, domain_id);
-+	if (ret)
-+		return ret;
- 
- 	ret = ph->xops->xfer_get_init(ph, cmd_id, sizeof(__le32), 0, &t);
- 	if (ret)
-@@ -290,11 +312,11 @@ static int scmi_voltage_config_set(const struct scmi_protocol_handle *ph,
- {
- 	int ret;
- 	struct scmi_xfer *t;
--	struct voltage_info *vinfo = ph->get_priv(ph);
- 	struct scmi_msg_cmd_config_set *cmd;
- 
--	if (domain_id >= vinfo->num_domains)
--		return -EINVAL;
-+	ret = scmi_voltage_domain_validate_id(ph, domain_id);
-+	if (ret)
-+		return ret;
- 
- 	ret = ph->xops->xfer_get_init(ph, VOLTAGE_CONFIG_SET,
- 				     sizeof(*cmd), 0, &t);
-@@ -325,25 +347,23 @@ static int scmi_voltage_level_set(const struct scmi_protocol_handle *ph,
- {
- 	int ret;
- 	struct scmi_xfer *t;
--	struct voltage_info *vinfo = ph->get_priv(ph);
- 	struct scmi_msg_cmd_level_set *cmd;
--	struct scmi_voltage_info *v;
-+	struct scmi_voltage_info *vi;
- 
--	if (domain_id >= vinfo->num_domains)
--		return -EINVAL;
-+	vi = scmi_voltage_domain_lookup(ph, domain_id);
-+	if (IS_ERR(vi))
-+		return PTR_ERR(vi);
- 
- 	ret = ph->xops->xfer_get_init(ph, VOLTAGE_LEVEL_SET,
- 				      sizeof(*cmd), 0, &t);
- 	if (ret)
- 		return ret;
- 
--	v = vinfo->domains + domain_id;
--
- 	cmd = t->tx.buf;
- 	cmd->domain_id = cpu_to_le32(domain_id);
- 	cmd->voltage_level = cpu_to_le32(volt_uV);
- 
--	if (!v->async_level_set || mode != SCMI_VOLTAGE_LEVEL_SET_AUTO) {
-+	if (!vi->async_level_set || mode != SCMI_VOLTAGE_LEVEL_SET_AUTO) {
- 		cmd->flags = cpu_to_le32(0x0);
- 		ret = ph->xops->do_xfer(ph, t);
- 	} else {
-@@ -356,7 +376,7 @@ static int scmi_voltage_level_set(const struct scmi_protocol_handle *ph,
- 			if (le32_to_cpu(resp->domain_id) == domain_id)
- 				dev_dbg(ph->dev,
- 					"Voltage domain %d set async to %d\n",
--					v->id,
-+					vi->id,
- 					le32_to_cpu(resp->voltage_level));
- 			else
- 				ret = -EPROTO;
-@@ -377,13 +397,16 @@ static int scmi_voltage_level_get(const struct scmi_protocol_handle *ph,
- static const struct scmi_voltage_info * __must_check
- scmi_voltage_info_get(const struct scmi_protocol_handle *ph, u32 domain_id)
- {
--	struct voltage_info *vinfo = ph->get_priv(ph);
-+	struct scmi_voltage_info *vi;
- 
--	if (domain_id >= vinfo->num_domains ||
--	    !vinfo->domains[domain_id].num_levels)
-+	vi = scmi_voltage_domain_lookup(ph, domain_id);
-+	if (IS_ERR(vi))
- 		return NULL;
- 
--	return vinfo->domains + domain_id;
-+	if (!vi->num_levels)
-+		return NULL;
-+
-+	return vi;
- }
- 
- static int scmi_voltage_domains_num_get(const struct scmi_protocol_handle *ph)
--- 
-2.43.0
-
+Best,
+Kendall Willis
 
