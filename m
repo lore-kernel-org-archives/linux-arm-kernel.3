@@ -4,168 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF2E4C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41647C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hgRWl7dvcHPI/iM3lLLq/fDWsyOLgllUFc6gqOMV6G8=; b=08iCfa/9WIwg12+u2p0pCuDdFQ
-	wJNUwaORmTTWaZsbXn9rGhVTomiLRu4XttlwTWs5Iy29eBbJ1JsKLpovYd/jxP9GNTu3A3Hdtw72P
-	CpnbhOFhdzTDQuHjRqTWmciD3VgtmW4N9lXLaVUyrrSlxmr1FPuHh1wZEL+C9Hq3orU4lMCaPpcvg
-	085Ea4cSdAfU70EkKzvAVSG1e7GTDvTEYkvpBaR52cjxDewyPImtpP0e1mfObO6JSgdNCoCSeno47
-	fzJkP9Jb2exqHRoszlAdmIjAS5P9U+xXN83dNOEciV7MexSXL/Ekx5m0lBqOKN48y20P43tMFLRyT
-	v0kIwGKQ==;
+	bh=j0CRLAaM9RCahJaw7qWL++ooA7vv8R4s+eYUvhv27Ts=; b=A9/I5HNngswAT/L5dtDwRQxXpq
+	VRRE+dq5kun1WS+qqsPEec/PD4bdEJYQZt//meY7YglnvAgE0vQHdJt8vDeRBVwyigSBd3fAB1iU/
+	x2g0hsW7XPnqiJJst9x9ltfn2JlPSaTJ0czFv6HhE5mzCimRMm6NR1QIzpi+RjuYMnyKUMe3QJr2y
+	onPR40BkdFRCSrIazdF9fKwxhjFFNKpvfWY13Xe2NZK+AfcbdQjpy5owCwKCOrdk1/theNu2D8fGt
+	prMHTNYIjYeUQYzS3P22gN36M09dIBqnxJQkjHvhWMkYV/rAByZxu2xCWSspSg3QBGfsE0OX9Bf1d
+	7e9ybsqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vis8P-00000006tKO-2Vq4;
-	Thu, 22 Jan 2026 10:41:53 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1visAD-00000006tnz-0Nj7;
+	Thu, 22 Jan 2026 10:43:45 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vis8M-00000006tGV-2RVL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 Jan 2026 10:41:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=hgRWl7dvcHPI/iM3lLLq/fDWsyOLgllUFc6gqOMV6G8=; b=KBAK+YltM9DJm+p3I/Q4/zckkl
-	+UvoDLNLmsiIUgVnrEXAFfNMg3Xec2onEvXGdFt1+Gg3o+hcDUq2ShLhsj5QPHRnjKY6mCMHQxS67
-	E1iJj5+Xm67fqCYN7o5jpty3epSgIUfBgkqWrPSMBq97yFivg5jD1j/98OaPestV2xpFm31sLJuC9
-	2z1pqtR7jS7J9EapovOLwYoR/W812783YcW3TT/0a1vKBeFxJ3ro9yn0sEEzZkjL4X+QCiZ44/IdY
-	dQBF8hTKrdpFxrs3WlPdRqAJKEb0tYWBsuyAIwn/SJBnVtytygzJPs+qfALGJg0fu0qq8LoGjsdLZ
-	9UCbVgHg==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vis8I-00000000BpK-1mjj
+	id 1visAA-00000006tnG-2Qdq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 10:41:49 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60M8p6uk3463159
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 10:41:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	hgRWl7dvcHPI/iM3lLLq/fDWsyOLgllUFc6gqOMV6G8=; b=m0QEvOtzDYFZji+V
-	YmKfUTj2q1Otp1mzrvY1xBBwnc5brRdiH4A35CJ6lRGECohlj+C2tciAkwyWYYk6
-	hO6hxZrQMwFO/gVx6S7IPp+nX1vulSSGfU7KLSest8L6svN9gAD2QcvEWBhx4uGA
-	6FI1bmpeix+nDNZM/Ijfl0rb5/vM6W9YBb4mgJX2hrk54ZAHKq7c6OE2RWwi5j/d
-	fxtpqcmqRDE1QWD5h2jtoezT02vJUJypah/VjXJ9R6/Q7IR+d0EH9k5zlH2uEW1v
-	sU+Z7XfpVhuBaa02pSGpu2Qjtun50eBheFJlClPawnrfzzayxDWladmTUfT31BtV
-	ysIxZg==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bu0653hhc-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 10:41:44 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8ba026720eeso251832885a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 02:41:44 -0800 (PST)
+	Thu, 22 Jan 2026 10:43:43 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-47edd9024b1so6642935e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 02:43:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1769078504; x=1769683304; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hgRWl7dvcHPI/iM3lLLq/fDWsyOLgllUFc6gqOMV6G8=;
-        b=bzT1GJwk0xm2QV/i/VdUsCWVmwgJl1Cp3W+BEIFEcim7vb6woLt8Yy9Uez4zC3fNzn
-         h0DUrDx5KoC3kdcYlxxT4i27rmxuYwnaetmnTxrc0cnHNXVXXWVGmZyZbfdpRF/nmAJg
-         D3SGZ3sT51DaTEtUbaVdG2wER4TYzO8G0fhBbIQXS1KUxQNYyxQGcNk/8oQU0kp3agOb
-         msSFXO5Cy4Vcz7WFArIVpLZas72cNz9MuTZeBjnoRIB6G5hAfPp0H2CwC0thg9figK8H
-         HA/Nk4KQIZpLM7Keg0jo9NF/f6RcD1tF8pTPBOGHrS2BTsZ8a4jUbdZrDy6ec6JSS0US
-         omSg==
+        d=linaro.org; s=google; t=1769078620; x=1769683420; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=j0CRLAaM9RCahJaw7qWL++ooA7vv8R4s+eYUvhv27Ts=;
+        b=bTEOnmZc6P/93xncuEOloboOlRltGMpqnBMXnEGkJayzD/lTuiBJY4h6FH64d9Lu2K
+         5+k/96vKiDc7NsMbjDRV3/oco2zzmeCsHFe+svXsWD7t2hB/HuG6++65cT+4m4gP5aA0
+         EhXyLuRMzL6uOYt9Q8NMgw/SC1wF/LCkPDDEkmIEqK/bphOHoRYVuI0heQOkrRurWWub
+         ebsUBAxDYoc2KlB0m7rc71ALR4vAlSiQ00u67CPNKQrSVvgUXxSezbMt0S6pka4FNXdE
+         eEti0psEYVTJVlbp/YciFuYlO4/4lghk0SwbIxZ6yS8i6sOpulSZIu+lH0nEz2VWTJnk
+         N1zA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769078504; x=1769683304;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=hgRWl7dvcHPI/iM3lLLq/fDWsyOLgllUFc6gqOMV6G8=;
-        b=ZKEyPS5z1TS2m3rV8vO9YOd7CbF2cty/2QDnDl2gZ/4XseaXmV2/L6VbLXZaqa7szD
-         3WTYH+4WRKUmFDAjzrns222qQxH3vNFHlKcsHAclHEpVuWv7gcnHishS6H/vVVxOhVOJ
-         8nUfqxcMLrQdkYToXIbxb0Qmh1iNC/4eq99KizI4E2H5AxGRCvLLvR9tXHrJJQaRokzd
-         t2xzfaFael4qcLCsFxbLMEJQjMRWQYWdPBCpKnnVuktGg71XHpVzTSoslB/xL1ArKGPJ
-         ZKvP1GtGgSfIbEYO+X1b8RkxTQDIQVppb1cBAtoSSw330pxq1p8ujxC5YS/Ne1JoQWiW
-         jFjw==
-X-Forwarded-Encrypted: i=1; AJvYcCUCgUiESLr+ADU3WM+EMbUWZ/YDtIaUQQO4lBZR8N898Tt1meRvFteehP6rOh6m0zxG3xHlS+N9bWiDHNL5PrAH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx99lqg7smoiUi2O9U+84XknGiQhWTInxQbj7RN7xT+QkpBOGfl
-	xVERaH818ZGTwjZCEE/nj1o/+r+6ahp30iNw0Csdm8DM96soT4QRg9mBM1NlkgCarMzAVTxizDn
-	8TnYI8cPXLccjUucv5dqudFjrTxSdPTzMELg9P67/jatlHRZikXpNHwTT2aBsjKWdpfeIAnF6Uf
-	s/mQ==
-X-Gm-Gg: AZuq6aJenxCSohgNlpljP1om8V42179TzFVNPrfoxTCoTEZMwh21X27EE9W8avTfgci
-	ktSXWbpYNd1Oxb1YukTgaMNlz7fqOwmCQRUCrFUITx7fadCOs6Gec6Vuxf2gzKF+DRSoAIcMdyE
-	jX+BOoWuJI8xh255RNY/gCcqJxqKnpUQxzPgK45lHCRBg/oC90k/2thB6FjmkrJdoWoTIPtSxpK
-	Gjlh9j8dU+p4+2dR/QlL+wKfZVXUnyx5YcFBEN6Cir+cg/B9WO6omXkHfTSZbxYrlgqswkOuBYp
-	8wlM2NEAFQci1hNMBaTnT8pJmrcTI1NPIJcSsON/fVLKWkcASHeRz5+G4DQpqvGiB7TTBRq/zgX
-	RSITKJQKvMx0/jr76/5JhaJK1eSqxirFn+Ku5uNSjCiuoA50OwzmLTYacOLSwiQYplLEoMiCrn8
-	e5
-X-Received: by 2002:a05:620a:3910:b0:8c5:38f2:810e with SMTP id af79cd13be357-8c6a67a411emr2605787285a.82.1769078503719;
-        Thu, 22 Jan 2026 02:41:43 -0800 (PST)
-X-Received: by 2002:a05:620a:3910:b0:8c5:38f2:810e with SMTP id af79cd13be357-8c6a67a411emr2605785685a.82.1769078503284;
-        Thu, 22 Jan 2026 02:41:43 -0800 (PST)
-Received: from WENMLIU-LAB01.ap.qualcomm.com (Global_NAT1_IAD_FW.qualcomm.com. [129.46.232.65])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c6a7260229sm1387868685a.42.2026.01.22.02.41.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Jan 2026 02:41:42 -0800 (PST)
-From: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
-Date: Thu, 22 Jan 2026 18:40:50 +0800
-Subject: [PATCH v4 5/5] arm64: dts: qcom: talos-evk-camera: Add DT overlay
+        d=1e100.net; s=20230601; t=1769078620; x=1769683420;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=j0CRLAaM9RCahJaw7qWL++ooA7vv8R4s+eYUvhv27Ts=;
+        b=GPrDH1Ck0lDffsy/jfgC62sgpxYMlrMOOG5RLtwSY2NnhCSd4QUIjmZMPx3+M8xUKd
+         1HECALhh47JIPwK/ErdiXTSLS+/tq7WvV3AxjGjABGLhIL75e4+RX1iMZ671Aru2SZGN
+         exRJBQWUpuy/Kr4/CUK+GOzfXC2yCt8AM8gdrUW7Hjd2R/Uir+hkKYZqdbCllGbbFNAs
+         25hKyCH+ca1qQNLastwRBctoUuAfygpud9dxD55fCcElUMUfUlUjeweOF4vTHTKvLilL
+         mx2Njl6qxFSaI5N5wqRx+mduI2R1J1aIyd9Ut6cuA8XRCnF9OtEfEk64N+Fq4aOXnV+M
+         qP9g==
+X-Forwarded-Encrypted: i=1; AJvYcCWnmKQ9g9yimmTmSvWWlkcx8rWzX5A/JDFoAo/CDYPGB48uClKSyuCrof8Xqo0ArbeIy599bB68dXv+bfa8ST1I@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+0ET7UpzonbJ7cQWbdTkxDCF8jhQgX303K6biwXjvUI9VFglB
+	YdXbXsrfV4ETeCCsZiGuxB0aI7O5nfQgH6fxuExbRIPE4nPnKNd97nhOVy9hCzOorn0=
+X-Gm-Gg: AZuq6aLecSFUfzuAQBpb8nJc338ms3t9WivgNKT+VBILNv9i2+x01UD4pqN0bUEEmsy
+	mZbmBDZl7RKWQHrf3fFd6+LiL9utR1cuIlB5NLDOy24PZDlbp/Wvi4mz18xB8mycIYOoO7RrPFb
+	bV/kPF56y4rR9yfBHdyBSCpkMwDUaPl2xROzeHcp+s3ITFsCqwQSrY31wor00gIj/KAhzN9NDsr
+	kvY1/1BcHytFLLfzujIYwDX/U637E27vBS4ovvUCwuHr0ZM3e4Ix9VOJf2Vow6ggW+kR+By8bMX
+	m9YihPymCiNj5AKzIJhNeyk8J5GdnFDB2M+RNUY4Ww+txDfnLhlAriQo0OBVd7ml7nrs40F95oA
+	yIYaAa1Skne8Rp7q6fNeSWE/tnunOMyow4wga7tjVGH8rHryV9y5WHSVKHOlZDxXC+ttigNsNS3
+	c+yec1kTVoSa05/xfG
+X-Received: by 2002:a05:600c:674f:b0:477:9b35:3e49 with SMTP id 5b1f17b1804b1-4801eaba084mr256056335e9.3.1769078620209;
+        Thu, 22 Jan 2026 02:43:40 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4804703b90bsm68693945e9.6.2026.01.22.02.43.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 22 Jan 2026 02:43:39 -0800 (PST)
+Message-ID: <9fd8375c-2de7-4305-ac3e-42ff8f919964@linaro.org>
+Date: Thu, 22 Jan 2026 10:43:38 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 00/11] perf annotate arch clean up
+To: Ian Rogers <irogers@google.com>
+References: <20260122073127.375139-1-irogers@google.com>
+Content-Language: en-US
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+ Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ Zecheng Li <zecheng@google.com>, Tianyou Li <tianyou.li@intel.com>,
+ Thomas Falcon <thomas.falcon@intel.com>, Julia Lawall
+ <Julia.Lawall@inria.fr>, Suchit Karunakaran <suchitkarunakaran@gmail.com>,
+ Athira Rajeev <atrajeev@linux.ibm.com>,
+ Aditya Bodkhe <aditya.b1@linux.ibm.com>, Howard Chu <howardchu95@gmail.com>,
+ =?UTF-8?Q?Krzysztof_=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>,
+ "Dr. David Alan Gilbert" <linux@treblig.org>,
+ Shimin Guo <shimin.guo@skydio.com>, Sergei Trofimovich <slyich@gmail.com>,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260122073127.375139-1-irogers@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260122-sm6150_evk-v4-5-a908d49892e7@oss.qualcomm.com>
-References: <20260122-sm6150_evk-v4-0-a908d49892e7@oss.qualcomm.com>
-In-Reply-To: <20260122-sm6150_evk-v4-0-a908d49892e7@oss.qualcomm.com>
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Robert Foss <rfoss@kernel.org>,
-        Todor Tomov <todor.too@gmail.com>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>
-Cc: linux-i2c@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-media@vger.kernel.org, imx@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org,
-        Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769078453; l=3019;
- i=wenmeng.liu@oss.qualcomm.com; s=20250925; h=from:subject:message-id;
- bh=t5OG46p4ljnSn6Ugt7/7Wx2T2LZF7712SOUc7lxrUEc=;
- b=n986DyQp3CsKwqwcFIuFzEWA3NaquONuV/voJTXw9fQ2RNi8BCnuw6M5vTv6vfYrct4IBiw01
- XcK3Aznm7QFBudn4AHwfEtODiasgAacyDuP/OgV5lAl0gYRNYY+fCyR
-X-Developer-Key: i=wenmeng.liu@oss.qualcomm.com; a=ed25519;
- pk=fQJjf9C3jGDjE1zj2kO3NQLTbQEaZObVcXAzx5WLPX0=
-X-Authority-Analysis: v=2.4 cv=HOHO14tv c=1 sm=1 tr=0 ts=6971fee8 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=C3Dk8TwHQYyIj7nOf9RCJw==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8
- a=G5RPoKDYpsqj7oBEIzsA:9 a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: BjLD6TgYfvZRRXjSJih7PHnSFH52FRA5
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTIyMDA3NiBTYWx0ZWRfX5qX4Dybr/btP
- nZhgZRWdgrKqQ9V1YUDM6pDutD/B9hm2gk69xQhAaXNSOBJjdx09I9nvUZpsxi795LzA08uRYHY
- o6Bc6Hn3Kgk+Als3rtUvX699BqUIXGoWVEuNg/0/xx1AvQzZRBDAE3wOE68ErVFxi1uYLmeseI4
- GSus8JpaOfhdz9bCqwDPaDFSaSHYLGCIx9XcT4OHot+09sQEOUsRynmiAAZHLMpRRr2INs3wZvD
- T+O1wyOYDu2Zss8MGmlBzyuQCB1cJU0MUQKjI0m2bPycJooAK7qrMlpWqOKdsrwE6cPsrCh1DiD
- hr951no0DFQ0XW3tiEqB24g/t6if+xf9nfk3v4mxPa+GaFJXNYBShP9PyiQsr/nEUU9sv131z6o
- EVCoeUvr6CwqOSkaY/7L9pbbXdxeEYvkfR9CfbTkM5W9xz11ysBCK+xDAbqWWeBbi3CqlehPWvX
- CrLgrSaKdKeyOO9B+gQ==
-X-Proofpoint-GUID: BjLD6TgYfvZRRXjSJih7PHnSFH52FRA5
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
- definitions=2026-01-22_01,2026-01-20_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 adultscore=0 impostorscore=0 malwarescore=0
- spamscore=0 bulkscore=0 suspectscore=0 clxscore=1015 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601220076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_104146_706816_FF0BE648 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20260122_024342_665642_62F23AA5 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,106 +122,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable IMX577 via CCI on Taloss EVK Core Kit.
 
-The Talos EVK board does not include a camera sensor
-by default, this DTSO has enabled the Arducam 12.3MP
-IMX577 Mini Camera Module on the CSI-1 interface.
 
-Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/Makefile                  |  3 ++
- .../boot/dts/qcom/talos-evk-camera-imx577.dtso     | 63 ++++++++++++++++++++++
- 2 files changed, 66 insertions(+)
+On 22/01/2026 7:31 am, Ian Rogers wrote:
+> 2 initial memory leak fix patches for perf annotate.
+> 
+> Move the disasm.c #included arch files into a new util/annotate-arch
+> directory. Make the code compile standalone. Try to better encapsulate
+> architecture specific code within the files and with a
+> arch__new_<arch> function that allows additional data to be associated
+> with the struct arch using the standard container_of trick.
+> 
+> Make the lookup of struct arch use the ELF machine gather from a
+> thread rather than an evsel. For example, the evsel can't determine
+> the difference between EM_386 and EM_X86_64 so generally the latter
+> has currently been used. This means the dwarf registers are off as
+> register 1 is CX with EM_386 and DX with EM_X86_64. To facilitate this
+> change map_symbol is refactored to use a struct thread rather than a
+> struct maps, the maps being obtainable from the thread.
+> 
+> To make in and out arguments clearer, for safety, etc. try to constify
+> struct arch and its related structs.
+> 
 
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index a2e48b58323c10735c8b98996cee6669e4f918e7..b505b5b1aa2feaaae691977b35a2d872751c4a46 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -349,8 +349,11 @@ dtb-$(CONFIG_ARCH_QCOM)	+= sm8650-qrd.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-mtp.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-qrd.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk.dtb
-+dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-camera-imx577.dtbo
-+talos-evk-camera-imx577-dtbs	:= talos-evk.dtb talos-evk-camera-imx577.dtbo
- talos-evk-lvds-auo,g133han01-dtbs	:= \
- 	talos-evk.dtb talos-evk-lvds-auo,g133han01.dtbo
-+dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-camera-imx577.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-lvds-auo,g133han01.dtb
- x1e001de-devkit-el2-dtbs	:= x1e001de-devkit.dtb x1-el2.dtbo
- dtb-$(CONFIG_ARCH_QCOM)	+= x1e001de-devkit.dtb x1e001de-devkit-el2.dtb
-diff --git a/arch/arm64/boot/dts/qcom/talos-evk-camera-imx577.dtso b/arch/arm64/boot/dts/qcom/talos-evk-camera-imx577.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..53006a861878f9112673b9a0ad954bed7a5fdca5
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/talos-evk-camera-imx577.dtso
-@@ -0,0 +1,63 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/qcom,qcs615-camcc.h>
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&camss {
-+	vdd-csiphy-1p2-supply = <&vreg_l11a>;
-+	vdd-csiphy-1p8-supply = <&vreg_l12a>;
-+
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			csiphy1_ep: endpoint {
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&imx577_ep1>;
-+			};
-+		};
-+	};
-+};
-+
-+&cci {
-+	status = "okay";
-+};
-+
-+&cci_i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	camera@1a {
-+		compatible = "sony,imx577";
-+		reg = <0x1a>;
-+
-+		reset-gpios = <&tlmm 29 GPIO_ACTIVE_LOW>;
-+		pinctrl-0 = <&cam2_default>;
-+		pinctrl-names = "default";
-+
-+		clocks = <&camcc CAM_CC_MCLK2_CLK>;
-+		assigned-clocks = <&camcc CAM_CC_MCLK2_CLK>;
-+		assigned-clock-rates = <24000000>;
-+
-+		avdd-supply = <&vreg_s4a>;
-+
-+		port {
-+			imx577_ep1: endpoint {
-+				link-frequencies = /bits/ 64 <600000000>;
-+				data-lanes = <1 2 3 4>;
-+				remote-endpoint = <&csiphy1_ep>;
-+			};
-+		};
-+	};
-+};
+Hi Ian,
 
--- 
-2.34.1
+I get this crash, not sure which commit causes it exactly but it 
+happened 2/2 times on both x86 and arm:
+
+  $ perf record -- true
+  $ perf report
+
+  < Select first sample >
+  < Select annotate >
+
+perf: Segmentation fault
+-------- backtrace --------
+     #0 0x5df8f58ba973 in ui__signal_backtrace setup.c:110
+     #1 0x74373a642520 in __restore_rt libc_sigaction.c:0
+     #2 0x5df8f5963f0d in dso__kernel dso.h:532
+     #3 0x5df8f5965d0a in __map__const_kmap map.c:627
+     #4 0x5df8f5965a36 in map__rip_2objdump map.c:531
+     #5 0x5df8f58e5bef in symbol__parse_objdump_line disasm.c:1032
+     #6 0x5df8f58e498b in symbol__disassemble_objdump disasm.c:1503
+     #7 0x5df8f58e3852 in symbol__disassemble disasm.c:1621
+     #8 0x5df8f58c638d in symbol__annotate annotate.c:1055
+     #9 0x5df8f58c8628 in symbol__annotate2 annotate.c:2209
+     #10 0x5df8f58a36b7 in __hist_entry__tui_annotate annotate.c:1189
+     #11 0x5df8f58adf86 in do_annotate hists.c:2488
+     #12 0x5df8f58ad762 in evsel__hists_browse hists.c:3441
+     #13 0x5df8f58b78f2 in perf_evsel_menu__run hists.c:3556
+     #14 0x5df8f58adabc in __evlist__tui_browse_hists hists.c:3643
+     #15 0x5df8f58abf3b in evlist__tui_browse_hists hists.c:3691
+     #16 0x5df8f571ac3a in report__browse_hists builtin-report.c:688
+     #17 0x5df8f5719943 in __cmd_report builtin-report.c:1177
+     #18 0x5df8f57181bc in cmd_report builtin-report.c:1890
+     #19 0x5df8f57b5c3a in run_builtin perf.c:348
+     #20 0x5df8f57b53b3 in handle_internal_command perf.c:398
+     #21 0x5df8f57b5b2f in run_argv perf.c:445
+     #22 0x5df8f57b5091 in main perf.c:551
+     #23 0x74373a629d90 in __libc_start_call_main libc_start_call_main.h:58
+     #24 0x74373a629e40 in __libc_start_main@@GLIBC_2.34 libc-start.c:128
+     #25 0x5df8f56ead35 in _start perf[55d35]
+
+
+> Ian Rogers (11):
+>    perf maps: Fix reference count leak in maps__find_ams
+>    perf annotate: Fix args leak of map_symbol
+>    perf disasm: Constify use of struct arch
+>    perf disasm: Constify use of struct ins_op
+>    perf disasm: Constify use of struct ins
+>    perf disasm: Rework the string arch__is to use the ELF machine
+>    perf disasm: Don't include C files from the arch directory
+>    perf disasm: Refactor ins__is_call/jump to avoid exposing arch ins_ops
+>    perf map_symbol: Switch from holding maps to holding thread
+>    perf disasm: Refactor arch__find and initialization of arch structs
+>    perf disasm: Minor layout tweaks for struct arch
+> 
+>   tools/perf/arch/arc/annotate/instructions.c   |  11 -
+>   .../perf/arch/riscv64/annotate/instructions.c |  36 --
+>   tools/perf/ui/browsers/annotate.c             |   6 +-
+>   tools/perf/ui/browsers/hists.c                |   3 +-
+>   tools/perf/util/Build                         |   1 +
+>   tools/perf/util/addr_location.c               |   4 -
+>   tools/perf/util/addr_location.h               |   1 -
+>   tools/perf/util/annotate-arch/Build           |  11 +
+>   tools/perf/util/annotate-arch/annotate-arc.c  |  18 +
+>   .../annotate-arch/annotate-arm.c}             |  48 +-
+>   .../annotate-arch/annotate-arm64.c}           |  59 +--
+>   .../annotate-arch/annotate-csky.c}            |  29 +-
+>   .../annotate-arch/annotate-loongarch.c}       |  57 ++-
+>   .../annotate-arch/annotate-mips.c}            |  29 +-
+>   .../annotate-arch/annotate-powerpc.c}         | 125 +++++-
+>   .../util/annotate-arch/annotate-riscv64.c     |  41 ++
+>   .../annotate-arch/annotate-s390.c}            |  59 ++-
+>   .../annotate-arch/annotate-sparc.c}           |  26 +-
+>   .../annotate-arch/annotate-x86.c}             |  89 ++--
+>   tools/perf/util/annotate-data.c               |  12 +-
+>   tools/perf/util/annotate-data.h               |   2 +-
+>   tools/perf/util/annotate.c                    |  88 ++--
+>   tools/perf/util/annotate.h                    |  10 +-
+>   tools/perf/util/callchain.c                   |  12 +-
+>   tools/perf/util/capstone.c                    |  18 +-
+>   tools/perf/util/db-export.c                   |   1 -
+>   tools/perf/util/disasm.c                      | 424 +++++++-----------
+>   tools/perf/util/disasm.h                      |  95 ++--
+>   tools/perf/util/event.c                       |   2 -
+>   tools/perf/util/hist.c                        |  18 +-
+>   tools/perf/util/llvm.c                        |   8 +-
+>   tools/perf/util/machine.c                     |  13 +-
+>   tools/perf/util/map_symbol.c                  |   5 +-
+>   tools/perf/util/map_symbol.h                  |   3 +-
+>   tools/perf/util/maps.c                        |   1 +
+>   tools/perf/util/sort.c                        |   2 +-
+>   tools/perf/util/unwind-libdw.c                |   2 +-
+>   tools/perf/util/unwind-libunwind-local.c      |   2 +-
+>   38 files changed, 752 insertions(+), 619 deletions(-)
+>   delete mode 100644 tools/perf/arch/arc/annotate/instructions.c
+>   delete mode 100644 tools/perf/arch/riscv64/annotate/instructions.c
+>   create mode 100644 tools/perf/util/annotate-arch/Build
+>   create mode 100644 tools/perf/util/annotate-arch/annotate-arc.c
+>   rename tools/perf/{arch/arm/annotate/instructions.c => util/annotate-arch/annotate-arm.c} (59%)
+>   rename tools/perf/{arch/arm64/annotate/instructions.c => util/annotate-arch/annotate-arm64.c} (70%)
+>   rename tools/perf/{arch/csky/annotate/instructions.c => util/annotate-arch/annotate-csky.c} (67%)
+>   rename tools/perf/{arch/loongarch/annotate/instructions.c => util/annotate-arch/annotate-loongarch.c} (66%)
+>   rename tools/perf/{arch/mips/annotate/instructions.c => util/annotate-arch/annotate-mips.c} (59%)
+>   rename tools/perf/{arch/powerpc/annotate/instructions.c => util/annotate-arch/annotate-powerpc.c} (73%)
+>   create mode 100644 tools/perf/util/annotate-arch/annotate-riscv64.c
+>   rename tools/perf/{arch/s390/annotate/instructions.c => util/annotate-arch/annotate-s390.c} (70%)
+>   rename tools/perf/{arch/sparc/annotate/instructions.c => util/annotate-arch/annotate-sparc.c} (85%)
+>   rename tools/perf/{arch/x86/annotate/instructions.c => util/annotate-arch/annotate-x86.c} (93%)
+> 
 
 
