@@ -4,61 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A232D3EE8A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:23:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22179D3EE8A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x2dQyO1BXqOqYRRXDNe0klaUkU2ZBvXuHHMcmtAYPNU=; b=wcfTHwHoKyOKMCjo9nUjL42jyu
-	92dehFfvFkmv0sRqSkANMF0TG0gZ/UPMWoVg/5eUjUP+vjnQ7NDbXV443euK7RE9gGc6VWcI85AxM
-	Qfm1QR3pM6Zj0+M9uOZG3nPvqln/BVp+p0keT0q0P1M8mCSk/sA1T9dtGP3dMCx/Ff5/DdZt7xiL5
-	Mndtgd6TRBegJUv3Y4YzWHJzw9DZnA8Pstt8hhW01Iu19tEoWLaKT9JRvntoWYUyrMb+u+Is9ccPZ
-	ARREHNsNjEmHF3BQHiwRdwYMejDkAont9sUtBkt/cdRPnm1QSShmCJLgxmZmrWyNByKICGcV+w/L1
-	hdj3QK7A==;
+	bh=msBPQcKa9Pi82skiLurLLBBE1pPfHvZLFHZhZk+T5i4=; b=Eb4yXzXw+2T/Su5TrfmXTca8TA
+	brdn1/XceRJ5RcU6GYkHdrUOTXr04OSF8d0IJZLs0E8TxF3ko+IbdNFtnpgOrWCwcIEG1oC88z9LZ
+	1Qr8WGTVI1I2+jIaDsF6xxBcoGuu7QPxmQHVKKqOlk4hakV+8ucEUPtuTVfW7NY7D79jo/khGpdZC
+	8WaxQlLKOcC4Ep3A6y3Zy9PvypJP8c8DqkP62CZLr2g7By4DIAANN/yjt8dTX0qT8vx0Z5lKzsIPJ
+	HL95s39cspUt9N1D+vS5Wy/usc2FU2oMhW7eRII94ovt4+GddEK7vroYfZ7tsygwjTAX4MEsSJbLL
+	7Bq4IZRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixTI-00000007RWA-1FDs;
-	Thu, 22 Jan 2026 16:23:48 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vixYq-00000007Rza-25GV;
+	Thu, 22 Jan 2026 16:29:32 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixTE-00000007RVN-3UJd
+	id 1vixYn-00000007Ryv-3bEX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 16:23:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=x2dQyO1BXqOqYRRXDNe0klaUkU2ZBvXuHHMcmtAYPNU=; b=2FSC/6chOM83HZdThImQ2Mqwik
-	RbgUT06piy1N76UQgy/ONN32jyONLx0rF6yc82LY0mRTZT3/3pCeDK69+BzEkqPY5vYVxL/tc+F6I
-	A+wyepZpn6X39oZfy+/yZGUicb6j8/gZxPZ3v/SH16ukqz+eCEfAgp7PxBYVlleQ5JSM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vixT3-00401P-QJ; Thu, 22 Jan 2026 17:23:33 +0100
-Date: Thu, 22 Jan 2026 17:23:33 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Lukasz Majewski <lukma@nabladev.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] clk: vf610: Add support for the Ethernet switch clocks
-Message-ID: <4a593537-e848-4ed2-b6c9-fd2e6b165f73@lunn.ch>
-References: <20260122130649.4150338-1-lukma@nabladev.com>
+	Thu, 22 Jan 2026 16:29:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nRHL7Tn/zdEzdem1ROJvnoGLDImvGqjm2I/C1y7ooup3PLcDCO7X/6t9a4p3doiMYudGjy3htcmJQafiKkxIlzZE3D9toOcjqZZ5318+EmsvAb77flgK2WMeve47H0Jn221S7Ghp1ltgtSyOVvOQFONLaHIP385oIfLMRbSgjX2qi0mzPXljpMFQR4swMkGq29olb/Y1o19wrViDpzmDlNR/VeY/VG21l+rRoYDt9lqpuZ47ATemGaLJ/ExpNisQmTqOS20S+nBiVJpmTkJM0hkCNqNUvzIr+EGgdR0d963kkeHudApGldiQzyqpWg/JFiEc47U+Ecva5pWsriCX2w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=msBPQcKa9Pi82skiLurLLBBE1pPfHvZLFHZhZk+T5i4=;
+ b=InpTsNpkUHpCzQrKvC3+avtDs/k2xrqmaWg6vEKx/XMoYYzZD1FNX1VdKlwOZVeHvfY5jtokSK7idMiIcqdIna1qXCUVa/cFaCbQxS1Z1BpJJ3LCpmyxu6TPg6MGe3JimFI0MiuRDVb7eFc/2dzBRyH361rpzjVCTcCR2rJc2rFvANOvgy7jaAxGPwLdSRgn8kdMHlLZmmOFZlZhjp1J+71E0h7jOFowXJxitO/2ACZJNCermlKGcuSrrW53gka/2Z96Fj5k4QBXYdEQ0J8zp6lxKLvbjmpt5ggBEMEiMia7gJAZJ/0SQrMvxuAjDDcaC04wBajiHX1Kc4in5x/kiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=msBPQcKa9Pi82skiLurLLBBE1pPfHvZLFHZhZk+T5i4=;
+ b=IHOlGbBMdiSC7MEJf681e8A1Qe8EZlSK5RRtjnHWKBiDvbVRA5EWC2jlD6cGCWelM7DpDDZYCSRQueDMsfJNA6NQTVmEH8tB87NZHSG9W3psyryfdkLcGPrMQDC47ZokiNMACF3RexKK4pwzkE95OjrGaMyybjspOfUi0daRv6Wz+iseLbssuK+MQbCc3cLqVFfsq+TBZpI8G6mCvQEB4TlVJw5j7KhjbztjO8l8Se66omZ9GNn1ShQJCEwk8PhnCcJ54PhLUvXayZ5nDk+tDa7jR9DPBWiFNolAF3rG53mROfW5xHeELL1wUR0fIcGpkDRd76H5fgjhQMM0tqTwvw==
+Received: from SJ0PR13CA0230.namprd13.prod.outlook.com (2603:10b6:a03:2c1::25)
+ by DS4PR12MB9563.namprd12.prod.outlook.com (2603:10b6:8:282::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Thu, 22 Jan
+ 2026 16:29:22 +0000
+Received: from SJ1PEPF00002318.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c1:cafe::9d) by SJ0PR13CA0230.outlook.office365.com
+ (2603:10b6:a03:2c1::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.3 via Frontend Transport; Thu,
+ 22 Jan 2026 16:29:14 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SJ1PEPF00002318.mail.protection.outlook.com (10.167.242.228) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.3 via Frontend Transport; Thu, 22 Jan 2026 16:29:22 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 22 Jan
+ 2026 08:29:13 -0800
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Thu, 22 Jan 2026 08:29:12 -0800
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 22 Jan 2026 08:29:11 -0800
+Date: Thu, 22 Jan 2026 08:29:10 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <dan.j.williams@intel.com>, Jonathan Cameron
+	<jonathan.cameron@huawei.com>, "Tian, Kevin" <kevin.tian@intel.com>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "bhelgaas@google.com" <bhelgaas@google.com>,
+	"joro@8bytes.org" <joro@8bytes.org>, "praan@google.com" <praan@google.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, <linux-cxl@vger.kernel.org>
+Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Message-ID: <aXJQVprkiMCWxDyp@Asurada-Nvidia>
+References: <cover.1768624180.git.nicolinc@nvidia.com>
+ <d1768bb6384050a23769f20ca28216f520f77e26.1768624181.git.nicolinc@nvidia.com>
+ <BL1PR11MB5271F0BDC68C2D7F172122E98C96A@BL1PR11MB5271.namprd11.prod.outlook.com>
+ <20260121100307.00004e60@huawei.com>
+ <20260121130315.GE1134360@nvidia.com>
+ <6971b9406d069_1d33100df@dwillia2-mobl4.notmuch>
+ <20260122131432.GJ1134360@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20260122130649.4150338-1-lukma@nabladev.com>
+In-Reply-To: <20260122131432.GJ1134360@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002318:EE_|DS4PR12MB9563:EE_
+X-MS-Office365-Filtering-Correlation-Id: 51cea509-d37b-4140-3176-08de59d3667e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4lo0yMN7ccUpuqL0Dp11LkLiL75M3pW+bmp0jPTVl6qdvaJYCVmcTOcy84gq?=
+ =?us-ascii?Q?z/tBq7tV27mAnoZAFTBfq0mN+/gY+MpvoOrE5OW11ENGU0Hxo0hCrzdfU3/4?=
+ =?us-ascii?Q?EDT3fo1Y89YG30+Qw4OaANliV5pr10gi4XbHv7FWErAJohLf3Jorr7tqpl5y?=
+ =?us-ascii?Q?yoC1d1fhafWF3tLGAg/v1ooiutfaSltaWmKvT09ECjnT+/lifTcrW3M9lF13?=
+ =?us-ascii?Q?TSpFEXsITu8VYEmton8fRsWUUtXCv5BZNNiW2N+yaQighEh1WAT0x4S1kHvc?=
+ =?us-ascii?Q?VkxU4AyTvksbOkR3yUu/97u1Z7woyKxjF3bBqsR7xyY1oBO77e+7aeun0Rid?=
+ =?us-ascii?Q?DQ8GycYDTvKVZni3CLFESbU86m01T/mKixt0RHg/+qwbzXMzvdNU30y4uz11?=
+ =?us-ascii?Q?sZ3u2zEmS+jsX5xlbZGfa++uTUXEKFl2XFLH1jbM8iEApzcmR2gyPiqm6SGR?=
+ =?us-ascii?Q?OhFxTMrboXwiAefvMwq+c/lifPd/cQt9+Re1m3dprVV9O9TOS+waPqDVJrqc?=
+ =?us-ascii?Q?3HmOCu9TjclchHje4E/y1Loz1kOT+/TYk5Urlqnagyl8aR7D1lcglj2fPyxj?=
+ =?us-ascii?Q?6rQWXeCEjZ2l8Bit33rlUinkIuK07R4i055pbtCC1dxhO/Mgq7uwjs46mfpn?=
+ =?us-ascii?Q?yrGmYpnMb+0mSeybOavADo87fDTSwNAzao7/E5vwV9DSWOC0crbvUSr04NqZ?=
+ =?us-ascii?Q?JLQkX3LiRh/jtzatI5eEZtErfjjkIUiQPCHXa8R/cY+MZbgLp14AKGPcVcV7?=
+ =?us-ascii?Q?CRAcFyeByO88P2bwoxXbZTkaMOgfH4XWvcVFS8G1tyOin7U/q2A0cZxwfMMF?=
+ =?us-ascii?Q?FRL2qsIKgTHDmj5YsSKehvIhPLNRmKqMobPNr11DtVZpy7m/arM3MNOwZFjj?=
+ =?us-ascii?Q?z5PEwuSdZrejBcw4QzBW/0aLYLfOEuqx3n0gnMk+vu29uANQ5vBXsOkVcd7v?=
+ =?us-ascii?Q?gPv32TysJkKVY7UzBGAzXNCyUvtH/wVD6jOskXBK3pUjjg7jC9t7y9DR42O9?=
+ =?us-ascii?Q?Wj33vFgIQEiaoGQpjFz8g81+L2lWY9yLzlvteB1t6eikM8VUolc0Zc0NC06S?=
+ =?us-ascii?Q?N7CZRnALykLR59yqnNbllHvYtA4mABIy6En45UlZ2DMb+z/LnCNouV8rgpRP?=
+ =?us-ascii?Q?g6gDjHgmC2dGxj8jn0l6lBJWAO2IdArbCeCJVrw3ramJ+0sav85AYTrKp2+0?=
+ =?us-ascii?Q?5lDxEXfP8FSsg+GfYaOhcp+SesRJx3ATMt4CJE1+dEcDSMbXBMWkJrpMdPwe?=
+ =?us-ascii?Q?R3MVOS3rJmpd0jI9IGKk0VevO0HC2nswdnbEzXheAfXAWza3B4iJqC0QrbOT?=
+ =?us-ascii?Q?JBjJqUnxF+2WwBSW1SBxo3zPEtPiDVPQmOjE8Dbs/38B4oOkJ4v1BR80+Pwm?=
+ =?us-ascii?Q?di0AdvONhzUI1XhhZacJsr5v2aaZY+7pRhkeGgUskaaDUnWDVGA+R2AVVEqt?=
+ =?us-ascii?Q?gqdoaSmqTVvLX8dwcgVyD4V3RUQG4RDwjFb1OZp7SMCN8tUxjEEKFUb60xxQ?=
+ =?us-ascii?Q?cpWSqP+F1UfhcxvTxHyD8jO/K913GcYVfc39NlBynWpjw7iuYbELi3iKj0KX?=
+ =?us-ascii?Q?2ZcNjipqMiEsov4yRn82HrJpSMsrxSI7XXdJMrLHnwtckxPNSknG52HyVj3H?=
+ =?us-ascii?Q?i/eJp39SzFzjkyx8Yye+Q0o6WjBFfWymH6FARmn20kSY6EI3fEkFPxTJQWmZ?=
+ =?us-ascii?Q?O1uxKw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 16:29:22.5480
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 51cea509-d37b-4140-3176-08de59d3667e
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002318.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9563
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_082344_869180_D69D13E5 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20260122_082930_111010_FEEC06FD 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,24 +169,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 02:06:49PM +0100, Lukasz Majewski wrote:
-> The vf610 device has built in the MoreThanIP L2 switch. For proper
-> operation it is required to enable ESW and MAC table lookup
-> clocks.
+On Thu, Jan 22, 2026 at 09:14:32AM -0400, Jason Gunthorpe wrote:
+> On Wed, Jan 21, 2026 at 09:44:32PM -0800, dan.j.williams@intel.com wrote:
+> > "We have a less than perfect legacy way (PCI untrusted flag) to nod at
+> >  ATS security problems. Let us ignore even that for a new class of
+> >  devices that advertise they can trigger all the old security problems
+> >  plus new ones."
 > 
-> The MAC table spans from 0x400E_C000 for 0x4000 and it is necessary
-> to provide clocks for each AIPS1-"slot", which size is 0x1000
-> (hence four separate entries).
-> 
-> Those can be enabled via clock gating CCM_CCGR10 register
-> (0x4006_B068).
+> Ah, I missed that we are already force disabling ATS in this untrusted
+> case, so we should ensure that continues to be the case here
+> too. Nicolin does it need a change?
 
-Sorry, i lost track of the state of the switch driver. Is there also a
-patch to add consumers of these clocks?
+pci_ats_always_on() validates against !pci_ats_supported(pdev), so
+we ensured that untrusted devices would not be always on.
 
-> Signed-off-by: Lukasz Majewski <lukma@nabladev.com>
+Perhaps we should highlight in the commit message, as it's a topic?
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-
-    Andrew
+Nicolin
 
