@@ -4,167 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 464C3C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 02:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDAF9C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 02:39:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TIzNPk1zWI4Tr6TssY4Q8ypTEUMvQakkormrKBcoWcI=; b=WyscHImaddDkVnUtbzmT+OyVFo
-	a4VFr2lC/3y09nmhyEyOBSSvNL8avqviao8TpDj2STe06TfHwbrWGKt4sBLEtr4mTx48hvFXRf5u4
-	vIQTfvsmj+9vEFaqFANhPiPBYQZfEOw5C/qdczu0NR90cbBsnotdCdj1xrhzxOTvWD9ikCc5bYMGR
-	MWUbFs7NOGTpwqMs5Qpcep6NW5Z9B85n+3pGN7pvk7hQj5PmsEec/K5dC8W2PqquhC5FFEpszTtlw
-	1kIU+AGPJNKtVNmhZ0lbI27jYGKlt5JRjC2qm25ZYnv2lkmJKG3l1wb3fV5XtF4TZRK4c7Gj8lb3e
-	mOkCQS5Q==;
+	bh=rxitm8n7F29DifZwUQzj7gNr+yPEqpgmZn1ppHGtpbk=; b=v4dWF6SO9wXZO5BYdr3sPjdWU0
+	MWpYvOxs834c6s/O1spm9ikXnDAio+oJg4ow1oKaMHq4f56mrF1evQVHq9/+lmxQs1nyfKAubD0Be
+	JT02J0hJ6q+Lzt+TKAAOw2mmIWPj9dRll+RLPIytyei/GNvvDkIvDfvKFwHX3MvjTomI+WIcOTmB3
+	l2WnJORMZFGAuDLckm4HUYz3SzmPcCTWIHaqdsWzG/OhHIxCgc2bKSTrQSpvYkAFm2AviQAgsToWB
+	XGLDT8NdbAL7hmIka48DtBMKJDh+THuI1QwoRmmvVaswZ5VKTtnPfpO5KENk5EqgGmGmzc1FLR/5Y
+	+aaCmRiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vikTt-00000006Kdt-3BLS;
-	Thu, 22 Jan 2026 02:31:33 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vikbq-00000006KtW-0Fi6;
+	Thu, 22 Jan 2026 02:39:46 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vikTr-00000006KdW-0I5p
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 02:31:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eqzgy2W93suTQx7Ma78IZ+4/xAB034x1kEAqMKDJEI2t9qvgovr0yUqB3FOsKolEjA6Ex5lm/jSSDL61vk0ZDCtI0JYuirTUfQq93SduH2H+Wu8qcJBNl9kMutezZZR17NpEMa53a96M7V8AlPW02TGJApPGq62RNtUO6fqs8bBe4IT8FuZBLRvT5XXbDvSW7BvhWE4BOTppQzAMHVeWfu2hC4l1ARsr3EsKfCbtA5exCyXUTjzNbx04HC2Y9wVqk8b5OcoEF8DA5Y9Rgzi4PP8wTP3jCKyGV4KhR2kz7GV99etXxCQkwCt+imlZ22cDuQn4jDVLypjPM5EH0GEI8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TIzNPk1zWI4Tr6TssY4Q8ypTEUMvQakkormrKBcoWcI=;
- b=uWqCswsB4B3Zuhd/PgvJ+1EAPXHYxy7aBXfrnpM4MHl77WfHnmsiR45K8mz31Sq3Q0oUaVsy7Grln6oFNxz0B1R+A/nenDg2vJn31ErXC7yqoR1WA7O4uRTLxze6RtStaS75LDuGToZZdJ0Hvv54k9Cix2navM8fYSrukWGDcqC6yivCNLt46iL/Nb6qz6BodDacfcAN1Hhan3Ktf3dlOPLa4SeWbK8f2XBSMEpx+9SNjm7QDEP6B/VaV9kagZrIBoflJ4H0FrLS3jClnm6tRAax/UBgZ7ZjoUODf4HnlI+oVxKTwT0/ddFnOFC9rR0aPdZXBZHZqYAh6dy1fUq57Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TIzNPk1zWI4Tr6TssY4Q8ypTEUMvQakkormrKBcoWcI=;
- b=COAHFkd/hMQhlTHrnGGvz0/qRbVjFMG8KCsj1GG3i1KcDL6QoWxErKRvvxCvKp3yKsK3bspd4ydAxx7E50K5+1GxXu8IrWfXh4E8Gau49TA8uUJRNq7UXjF81XKQFspzjP4r4Mg7/7gSNikaoJ8txUFwEf465EZxJR3pvnpfpjwPlGLTOb3qj0uovJsqlfuM+GXLFugTYTnEFqt9O+p8nJ9Sf2Kuad6L0P7J1Re7ctBdravRVqUk+8gRUVF+qKhEMqkAN/Zq5f9cK2u+k51TpIP3TfxGzKE2hvV/LmOsO3wZjn5FGpx3uE1ZKgTDMUXtYYdxwzggV/FHoT0WG0KQxA==
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by AM7PR04MB6885.eurprd04.prod.outlook.com
- (2603:10a6:20b:10d::24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Thu, 22 Jan
- 2026 02:31:26 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::2943:c36f:6a8c:81f7]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::2943:c36f:6a8c:81f7%5]) with mapi id 15.20.9542.009; Thu, 22 Jan 2026
- 02:31:26 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: Rob Herring <robh@kernel.org>
-CC: Hongxing Zhu <hongxing.zhu@nxp.com>, "l.stach@pengutronix.de"
-	<l.stach@pengutronix.de>, "bhelgaas@google.com" <bhelgaas@google.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org"
-	<kwilczynski@kernel.org>, "mani@kernel.org" <mani@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>, Frank Li <frank.li@nxp.com>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH 01/10] dt-bindings: PCI: fsl,imx6q-pcie: Add reset GPIO in
- Root Port node
-Thread-Topic: [PATCH 01/10] dt-bindings: PCI: fsl,imx6q-pcie: Add reset GPIO
- in Root Port node
-Thread-Index: AQHciSrkYtB9tLTqMki47vkTAR4KwbVc1tcAgACkYFA=
-Date: Thu, 22 Jan 2026 02:31:26 +0000
-Message-ID: <VI0PR04MB12114175B7AEB0045908223119297A@VI0PR04MB12114.eurprd04.prod.outlook.com>
-References: <20260119100235.1173839-1-sherry.sun@nxp.com>
- <20260119100235.1173839-2-sherry.sun@nxp.com>
- <20260121164002.GA3427694-robh@kernel.org>
-In-Reply-To: <20260121164002.GA3427694-robh@kernel.org>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|AM7PR04MB6885:EE_
-x-ms-office365-filtering-correlation-id: 89f71ce5-44fa-4dab-a529-08de595e577c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|19092799006|366016|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?e3LFYvfv7Qaqr7HGNpylpczMwwSEU8RaFN6P/Q6DzwZv0IMnzT2hDChb38BH?=
- =?us-ascii?Q?C68HGhyzUvSpxSzfzc7GYQcWlVWnEZJI5w0VI+SGjDzskb+OZQbKg3ZH7P7E?=
- =?us-ascii?Q?00iyqiGCY6SsQ0aPW6dpsWiKjTR4sOU2ILd8rScIDrp2h7V89yChAfrmmGr4?=
- =?us-ascii?Q?NAOfYrMEw963z+h0hPs6aXLbxfFrwPrm+rsFUpLmM+eoFIKTSuOpYmfkYwlz?=
- =?us-ascii?Q?Z4Rx6oJc/nWz5OOi/MYsi/tM7QLDGWVTbJgceKC3XkF6XyrDH6lDkQqA4sL8?=
- =?us-ascii?Q?MNFeTjnsCMtaVfAtHltkEBhJWlOXqspLcpd+ep/TjWSEIKsdl/9xqxO0t2WZ?=
- =?us-ascii?Q?SVzIMWe30aPATFCFf0fIZWN8ac4SJXgM36aohSQEi5pbMCpaCDDIY6s3wvWM?=
- =?us-ascii?Q?6fF/jppnRU1g+mUSd26xQWoatRfBzCciZyEcgPdT2N8A9MaZEe3Ju9sSrAn0?=
- =?us-ascii?Q?Gqyb1CGDcKpjebnfrRsd0fhAOy7ioqLleVG282X0DV9EE6bpLlieYkP70Oay?=
- =?us-ascii?Q?P3gBmpjX4CEGeVdC2fMHcCcBKz1UyX4CEclkG9+J9nOeS6H4fNLESFAN8eWc?=
- =?us-ascii?Q?Nl71Ua9RmiUV+2aXlONSAQEhEwI0R4J2bOkgDCVViJUE5L23H79km722dbrM?=
- =?us-ascii?Q?sJP2uQIRtfTiKM6WuNxXoq4DT3xJVqWKDSa2z92/hp3XsPJjfR8+liZMxLxc?=
- =?us-ascii?Q?2uvGfJ26i7tJQQZneXb0IhmPBn9JtNd2j9YczOu8kLECSHioTrflbqf9KIEI?=
- =?us-ascii?Q?8+jXbxBCtfdkdpd8zvZFt/qc++BOMA6TJVeIslWGtXOsetSwbXoUcyImV7f1?=
- =?us-ascii?Q?mqScSf6KyDardnXwOkaI1Qg0WB5fL6WPWgv/posVjjrLmEI4qfdbjl88HBVA?=
- =?us-ascii?Q?JQhnXdEkCUzgpY+c/3PI0gxPIlPD2QqHUFMCXrzT7l3GWRdcQrdJz3i5TYhj?=
- =?us-ascii?Q?AclyFHr+RnFRUFKQ/LFyUcsTXfc7vZTzIMw+HyO0LHDVScmWnZe+Z/sak1bq?=
- =?us-ascii?Q?RG7psq8Gp3oqUhU3y1riuoZHzBbDup8kSJ8hYIdFsvhd5fud+onVTbZhynJv?=
- =?us-ascii?Q?N5qoU1STFkH9xLmcyzIeaMQT0lb3QbABjlFw25CSuEVhnoyql0pKYo+JdC9w?=
- =?us-ascii?Q?a7B4UTchkX2AgORW2twLsnENXA1TmcziBvinzh2I5hlqmolpzTDR5ncejCg+?=
- =?us-ascii?Q?L3jbjBBPtfr9R4FWoYMxK/M9ts/YyYpWGURcgquGbnH1L0FD/D7KqeHGJ6Gc?=
- =?us-ascii?Q?fJp/WQ2n2MPoAEOHT5CAU+mfWni14lmJ2hyjW34IYccJ+lmE68EZ70yzM0YR?=
- =?us-ascii?Q?i1TJm4sdG7Brf89jhMNssOzi/Ahfmeu9mmiQWbvFSE5/23gg7bNnPjb87RIT?=
- =?us-ascii?Q?/xAFVrnOVXiuwzTKcPysVLa9FDPwrna22YkuckD6LiaoEchSiOsptfSTNXDq?=
- =?us-ascii?Q?0dp0CvCRJ8Fle6bbmsjeEjH08puE11CxrsnhtruqLGPghIzQpZlty28YYTWL?=
- =?us-ascii?Q?46SRmiT1rmgJWtibHR4zaDBFv9qfE+A9Qo6GrfVhzwyXo7ztbKd5nDvINe4Z?=
- =?us-ascii?Q?jsoBls34jYeMuOlbE92BrUKjtyMo/nuzYj8pIEXV78NjCwBz7cqPt4sMlXsk?=
- =?us-ascii?Q?l9rvDuFDeVFjjMTw3ttEX6k=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(19092799006)(366016)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Nh8xsZ81NgWb8mOq7fWBu2Q0ymbzMGvVNpyHU5+/5gkhsGGHHvd4oD3+ydx8?=
- =?us-ascii?Q?khgHstYrm/BJDZeJpqGGC+u01Ii1SX3qYU8tpLA3uEAvftzefKNHXbwOqimQ?=
- =?us-ascii?Q?p8d4t3uHAzGniNXC2Rg1RdiMiLPgjYKDLRPqDCmtgQvJO4utOhPDvGo1Dk5l?=
- =?us-ascii?Q?m9i0V+y0jXvQuc6p1Q1dJ+C9lfuYNhfZzF9rZX1q7ogulcMzgw8ayMj+DoAp?=
- =?us-ascii?Q?u3px+q6h6rF2N+eIbFlOaVTwDntfueGiFvmf0zA6rPAIKlwhAHZjh1RiAfvm?=
- =?us-ascii?Q?bZPmZW+rDg+jYkndswt8hpMtMFgIqAwt5K6+eAdzMF2ugp9rZwwZxUY8gTkZ?=
- =?us-ascii?Q?OSNDW00+sSOgOIXM6R/bH83rokVzkpID0dGLibukNP57UCWMXYYnfSqMEhuY?=
- =?us-ascii?Q?/99pbp0CBQ2SFc/7YXMDKbEwQspuM8vHbEfl3Mt4yafpYOyNvCQMng5Z5AT3?=
- =?us-ascii?Q?FlWHgon1MnQEdc8Z7oMsPZPpl2U1c+9w4uhDb6ydGKoR0hGlUsouGiHvmDot?=
- =?us-ascii?Q?H5FSPEAJfG5T2dVMuKs0kq1rPQ+hAjaot+V05XBodes3zi1fNgG4Xuyi5Hey?=
- =?us-ascii?Q?K+GpMozbfpd2Aj/RDCfmAxMf0IJkXaGAu6I7YDShvzQeRJXCI1YLGlj4x3uc?=
- =?us-ascii?Q?+q4n9154VnnaBF0fqu7f5Sv4PzrYF5jHs1B/CKTqxDkPBwCyxBnImBLmxz3i?=
- =?us-ascii?Q?B5h1I2b2eVc0t1bkqL5XZC0TPG5Dzg8AxHOycm4LYPXeqg7sqx9PGr+/iHVB?=
- =?us-ascii?Q?P4XgWfpyLYCPYySh7dV9+20T81kWlsMPfWBJgFYHI1B6F/ybt+aj2qgmGYF5?=
- =?us-ascii?Q?ybgOLhVKP0m+2l+W7dVVXsrnUsLOat0gNfoq187Imru6QI9ZIeC9bl8cwqJ9?=
- =?us-ascii?Q?fxv9/lKSc05LwDDYPUuczGWFq2OtqQ8PBh0jvJG/PYw+tRF8Ki3wiyrkiIsM?=
- =?us-ascii?Q?9jlZecdUyK2YRIvWR2v6t480dbXhnh+MYCrS2R1e0JzvotWTqFbrrrvnotYx?=
- =?us-ascii?Q?UsStDBaVA6DyFnjueHaL4cqRF0exgbowCpXFgRvMTOgm/0/qNDDXaMIz7wyV?=
- =?us-ascii?Q?gjq300Hu1Inf/xxVqFNv1FFvAVhDljCmMxDhVUqsSRQi3gWPheG1gbp12mbM?=
- =?us-ascii?Q?1CsFkQbPX1oAyqMzn4dEPLonjqLL8DyIj1Uf5mkVTC9t/CQezWcDU59gAZha?=
- =?us-ascii?Q?F0LM6SgW65UzWuj5JLJS+fHoTy6THlwAvoImaapVvTEpK3FhvsKJmWF49buG?=
- =?us-ascii?Q?RWInu5itKj3SWjnutDmI6AYkpKodnmot7USYFgWYk2vOIbKGmqHReF3mbpFR?=
- =?us-ascii?Q?Sa3E4cbwOAptQ4b2c9lvBiLKPZvaFRglBRvdyR3EHECkacJ4NAJZ7Efzkudm?=
- =?us-ascii?Q?Pyk0TG5cwk3BtMIzVdMrvF+qHTRUDqQe22E1Hx1RQoiFFV876x3Uw2peX4lD?=
- =?us-ascii?Q?6bHks9vFDKNmqPTbVbSvnL6Qb1F4kiY0GT67rCuC4CULwXVEFABPGRFUHomx?=
- =?us-ascii?Q?mxKq4Z868Fc6goL2uIa5FBCDBaasKfmB0I2LkoI0qj+Cc5km6pfJf29HvdfN?=
- =?us-ascii?Q?uWpzRuZTqhsTemkdeLFasYV17vFiNWzKZV6LXxHV518M9xXQHC+PGQCFs6tx?=
- =?us-ascii?Q?abVWb0jstv8LaXWepFNujiIYuawAvsh+mcVG5uTiAGsaMAKgABO0KmiiNGzS?=
- =?us-ascii?Q?yGLmeQ2bBmIRncvojdaHkAbzqwU6GK5yKIDyq+/OuyGIIr8X?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1vikbn-00000006Ksj-30g2;
+	Thu, 22 Jan 2026 02:39:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=rxitm8n7F29DifZwUQzj7gNr+yPEqpgmZn1ppHGtpbk=; b=3BtsDdP4E9nfirUm02GGHVDQt4
+	7yGO1G/HoirThUsiWq8UGJ7P1cU2lCcrJVq48RV2+DdzRu/zYPOARWsn0x5AAsLt2TSM19d3qA/cg
+	xrx4J68dgh+qNshT277mxchcUfeU0HTPrCtl2bcObOQHwwfqiNu25SzrJfLP7244JMqs=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vikbN-003uAS-MA; Thu, 22 Jan 2026 03:39:17 +0100
+Date: Thu, 22 Jan 2026 03:39:17 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Chaoyi Chen <kernel@airkyi.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Jonas Karlman <jonas@kwiboo.se>, Hsun Lai <i@chainsx.cn>,
+	John Clark <inindev@gmail.com>, Jimmy Hon <honyuenkwun@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Andy Yan <andy.yan@rock-chips.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/2] arm64: dts: rockchip: Add rk3576 evb2 board
+Message-ID: <b61182f9-36ca-40c6-aaf7-ae7d21698285@lunn.ch>
+References: <20260121015357.291-1-kernel@airkyi.com>
+ <20260121015357.291-3-kernel@airkyi.com>
+ <aec69818-9fd0-4e50-bab9-f5e36304a4a2@lunn.ch>
+ <305c6ceb-2b4d-496a-95c1-e6a0454347a5@rock-chips.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 89f71ce5-44fa-4dab-a529-08de595e577c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Jan 2026 02:31:26.2455
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: nEA2P5EnOACBkxZcdHGo2q2O+HZUNnpDVZR+Ow7MbXbZ6EEx/wI0cKOTodOLNUcZMimkGxZ8A3qYYjU1WwVBMQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6885
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <305c6ceb-2b4d-496a-95c1-e6a0454347a5@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_183131_113453_B8CDC620 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20260121_183943_757887_744FC4D0 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,53 +83,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Mon, Jan 19, 2026 at 06:02:26PM +0800, Sherry Sun wrote:
-> > Update the fsl,imx6q-pcie.yaml to include the reset-gpios property in
-> > the Root Port node.
+On Thu, Jan 22, 2026 at 09:41:19AM +0800, Chaoyi Chen wrote:
+> Hi Andrew,
+> 
+> On 1/21/2026 9:15 PM, Andrew Lunn wrote:
+> >> +&mdio0 {
+> >> +	rgmii_phy0: ethernet-phy@1 {
+> >> +		compatible = "ethernet-phy-ieee802.3-c22";
+> >> +		reg = <0x1>;
+> >> +		pinctrl-names = "default";
+> >> +		pinctrl-0 = <&rgmii_phy0_rst>;
+> >> +		reset-assert-us = <20000>;
+> >> +		reset-deassert-us = <100000>;
+> >> +		reset-gpios = <&gpio3 RK_PD3 GPIO_ACTIVE_LOW>;
+> >> +		tx-internal-delay-ps = <1900>;
+> > 
+> > What PHY is this? Does it actually implement this property?
+> > 
+> > It is also close to the 2000ps default. Have you put the board in an
+> > environment chamber and run tests at -20C to +70C to see if it will
+> > work with the default 2000ps?
 > >
-> > There is already 'reset-gpios' property defined for PERST# in
-> > pci-bus-common.yaml, so use that property instead of 'reset-gpio' in
-> > this file, for backward compatibility, do not remove the existing
-> > property in the bridge node, but mark them as 'deprecated' instead.
-> >
-> > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-> > ---
-> >  .../bindings/pci/fsl,imx6q-pcie.yaml          | 29 +++++++++++++++++++
-> >  1 file changed, 29 insertions(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> > b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> > index 12a01f7a5744..74156b42e7a2 100644
-> > --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> > +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> > @@ -59,9 +59,12 @@ properties:
-> >        - const: dma
-> >
-> >    reset-gpio:
-> > +    deprecated: true
-> >      description: Should specify the GPIO for controlling the PCI bus d=
-evice
-> >        reset signal. It's not polarity aware and defaults to active-low=
- reset
-> >        sequence (L=3Dreset state, H=3Doperation state) (optional requir=
-ed).
-> > +      This property is deprecated, instead of referencing this propert=
-y from
-> the
-> > +      host bridge node, use the reset-gpios property from the root por=
-t
-> node.
-> >
-> >    reset-gpio-active-high:
->=20
-> Probably this needs to be deprecated too?
+> 
+> It is MotorComm yt8xxx PHY. I chose 1950 here because I find that
+> the MotorComm PHY binding only offer the options of 1950 or 2100. 
 
-Hi Rob,
-Yes, I will also mark this property as deprecated in V2, thanks!
+Without the property it should default to something near to 2000. Most
+MAC/PHY pairs should work without this property, if the board is
+designed correctly. So i suggest you only have a tx-internal-delay-ps
+if it is required.
 
-Best Regards
-Sherry
-
->=20
-> >      description: If present then the reset sequence using the GPIO
+   Andrew
 
