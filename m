@@ -4,55 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34E55D3EE66
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 14:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E06CD3EE6C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 14:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6eCzkj1176VlHCYcYnZQ6VEts1T0yp1oiCUKCwQDMg=; b=1Nv+LXoCs9b+N6NPuIuyrUFq+T
-	J2xmS8zl1+bWZ1/bxU41oibQqAZvQ/b0pSIT6M1CVVf+z4L6eEz6qw0spAOlxGmcr8g02L1Nkcvpa
-	w1DKVXmnkSJVVpamMVQ8bzTaesgr67Cvbt4b9pQrDrTUEV1iDyutCZCJMctlQXm3wyEGQj/h7YZ2Q
-	xHVggcEBsbMnnM4KTvv++Fb4Jzk/XtAe8lF0xocN2SDXiUCWswT0ujHfHHSP/dUnShZuCdklUgDqW
-	cC/uOV+4+wsDdVngEFQlt57eEUORikRijK5SMIGwt35EBdai8YRyoxdw1HBvSynyJBCS0Gfr8fThH
-	PkvQvvlA==;
+	bh=j08CZYreWkoiN+l1Th5hMC9vcpfI9DQRPaNd9bd6GEg=; b=Vw+Qe2OomQuIKtAcbPE6+Ows6G
+	Ew6pAuMJ420ZutaAjlbkPojJZDpvikK75BhJNNrp+Iiwhdl/iW//UbXMkHEpLmB21pPVQ9IajxzSD
+	PJopmAMEq/RaaVIFOKRLe4ghf9vzffhnwQmtP2DYFMO0gMqqq34BR62RAkMDlNQW3W8GbqfzjQIyW
+	ylqXEy5QhZg2tMLGa+uk+Ji8P756+FYjykbnWUV3sKfp+8KnTnmQbiX8SqHmpTIr3QK3Jetg1xewr
+	vNaR7WkVo9tH+21Cllx66yVM/9jcrjdsLQVaA5TeSeATwyd5rmy9uM5NPDJCsJGbFnGmGvV2JhbZn
+	4EMGdXcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vivuJ-00000007Fzy-0mAA;
-	Thu, 22 Jan 2026 14:43:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vivuC-00000007FzR-1N41
+	id 1vivzX-00000007GHI-02O8;
+	Thu, 22 Jan 2026 14:48:59 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vivzT-00000007GGt-0hgs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 14:43:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F2CE91476;
-	Thu, 22 Jan 2026 06:43:19 -0800 (PST)
-Received: from [10.57.80.101] (unknown [10.57.80.101])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC2AD3F694;
-	Thu, 22 Jan 2026 06:43:24 -0800 (PST)
-Message-ID: <b3122ea6-7bbc-4c07-b329-3355bbb16db9@arm.com>
-Date: Thu, 22 Jan 2026 14:43:23 +0000
+	Thu, 22 Jan 2026 14:48:57 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id A2132C21AA4;
+	Thu, 22 Jan 2026 14:48:49 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id AFB01606B6;
+	Thu, 22 Jan 2026 14:48:49 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4717D119B80D3;
+	Thu, 22 Jan 2026 15:48:41 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1769093328; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=j08CZYreWkoiN+l1Th5hMC9vcpfI9DQRPaNd9bd6GEg=;
+	b=n6CtIly1fP5j1hMNuel0x4IJ8soH2Y27mG0LvBri9txYrMg8cZER1vYfcL9yJtxNrKMBg+
+	rhXDMCJe+gffQTTjPsRnAH7GqnCpy+BTRhK4TmLM0H+MioItDgnC/qM8EWsQkjvIqHBxI0
+	lz950Po5n0+lcL1n2z1iy3FS3INpMLlJ0IJbO0YhH4dXKoWEZMSQZNhWNaDdSDtSy8Ll4c
+	foHOGs+RryPdVSdBNpvFEfNqQPMPM8AUk25pQs+GJVPhH8b/mLgSdHbneG40g9D018R6gX
+	MR0icGk6lg1P12qn75OSgYLvo+G9C5LZCF1f/YdytVkqUFWXkVUi94cv/tXShQ==
+Date: Thu, 22 Jan 2026 15:48:40 +0100
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Cc: "Jyri Sarha" <jyri.sarha@iki.fi>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
+ "Bartosz Golaszewski" <brgl@bgdev.pl>, "Tony Lindgren" <tony@atomide.com>,
+ "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Markus
+ Schneider-Pargmann" <msp@baylibre.com>, "Bajjuri Praneeth"
+ <praneeth@ti.com>, "Louis Chauvet" <louis.chauvet@bootlin.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
+ <miguel.gazquez@bootlin.com>, "Herve Codina" <herve.codina@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-omap@vger.kernel.org>
+Subject: Re: [PATCH v4 18/25] drm/tilcdc: Convert to DRM managed resources
+Message-ID: <20260122154840.5185671a@kmaincent-XPS-13-7390>
+In-Reply-To: <DFSVOBV5UY37.3HTQHOJT3A40N@bootlin.com>
+References: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
+	<20260116-feature_tilcdc-v4-18-2c1c22143087@bootlin.com>
+	<DFSVOBV5UY37.3HTQHOJT3A40N@bootlin.com>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v5 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, cl@gentwo.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260107002944.2940963-1-yang@os.amperecomputing.com>
- <aWZYXhrT6D2M-7-N@willie-the-truck>
- <bdd7bd07-dbed-432e-ae87-dc6381c05ddd@arm.com>
- <70b37582-fd26-4d23-a6d6-9a98e3f2eecf@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <70b37582-fd26-4d23-a6d6-9a98e3f2eecf@os.amperecomputing.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_064328_445495_3304D069 
-X-CRM114-Status: GOOD (  58.62  )
+X-CRM114-CacheID: sfid-20260122_064855_352352_BB99C087 
+X-CRM114-Status: GOOD (  32.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,321 +95,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/01/2026 22:44, Yang Shi wrote:
-> 
-> 
-> On 1/21/26 9:23 AM, Ryan Roberts wrote:
->> On 13/01/2026 14:36, Will Deacon wrote:
->>> On Tue, Jan 06, 2026 at 04:29:44PM -0800, Yang Shi wrote:
->>>> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
->>>> rodata=full"), the direct mapping may be split on some machines instead
->>>> keeping static since boot. It makes more sense to show the direct mapping
->>>> use in /proc/meminfo than before.
->>>> This patch will make /proc/meminfo show the direct mapping use like the
->>>> below (4K base page size):
->>>> DirectMap4K:       94792 kB
->>>> DirectMap64K:      134208 kB
->>>> DirectMap2M:     1173504 kB
->>>> DirectMap32M:     5636096 kB
->>>> DirectMap1G:    529530880 kB
->>>>
->>>> Although just the machines which support BBML2_NOABORT can split the
->>>> direct mapping, show it on all machines regardless of BBML2_NOABORT so
->>>> that the users have consistent view in order to avoid confusion.
->>>>
->>>> Although ptdump also can tell the direct map use, but it needs to dump
->>>> the whole kernel page table. It is costly and overkilling. It is also
->>>> in debugfs which may not be enabled by all distros. So showing direct
->>>> map use in /proc/meminfo seems more convenient and has less overhead.
->>>>
->>>> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->>>> ---
->>>> v5: * Rebased to v6.19-rc4
->>>>      * Fixed the build error for !CONFIG_PROC_FS
->>>> v4: * Used PAGE_END instead of _PAGE_END(VA_BITS_MIN) per Ryan
->>>>      * Used shorter name for the helpers and variables per Ryan
->>>>      * Fixed accounting for memory hotunplug
->>>> v3: * Fixed the over-accounting problems per Ryan
->>>>      * Introduced helpers for add/sub direct map use and #ifdef them with
->>>>        CONFIG_PROC_FS per Ryan
->>>>      * v3 is a fix patch on top of v2
->>>> v2: * Counted in size instead of the number of entries per Ryan
->>>>      * Removed shift array per Ryan
->>>>      * Use lower case "k" per Ryan
->>>>      * Fixed a couple of build warnings reported by kernel test robot
->>>>      * Fixed a couple of poential miscounts
->>>>
->>>>   arch/arm64/mm/mmu.c | 202 +++++++++++++++++++++++++++++++++++++++-----
->>>>   1 file changed, 181 insertions(+), 21 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>>> index 8e1d80a7033e..422441c9a992 100644
->>>> --- a/arch/arm64/mm/mmu.c
->>>> +++ b/arch/arm64/mm/mmu.c
->>>> @@ -29,6 +29,7 @@
->>>>   #include <linux/mm_inline.h>
->>>>   #include <linux/pagewalk.h>
->>>>   #include <linux/stop_machine.h>
->>>> +#include <linux/proc_fs.h>
->>>>     #include <asm/barrier.h>
->>>>   #include <asm/cputype.h>
->>>> @@ -171,6 +172,85 @@ static void init_clear_pgtable(void *table)
->>>>       dsb(ishst);
->>>>   }
->>>>   +enum dm_type {
->>>> +    PTE,
->>>> +    CONT_PTE,
->>>> +    PMD,
->>>> +    CONT_PMD,
->>>> +    PUD,
->>>> +    NR_DM_TYPE,
->>>> +};
->>>> +
->>>> +#ifdef CONFIG_PROC_FS
->>>> +static unsigned long dm_meminfo[NR_DM_TYPE];
->>>> +
->>>> +void arch_report_meminfo(struct seq_file *m)
->>>> +{
->>>> +    char *size[NR_DM_TYPE];
->>> const?
->>>
->>>> +
->>>> +#if defined(CONFIG_ARM64_4K_PAGES)
->>>> +    size[PTE] = "4k";
->>>> +    size[CONT_PTE] = "64k";
->>>> +    size[PMD] = "2M";
->>>> +    size[CONT_PMD] = "32M";
->>>> +    size[PUD] = "1G";
->>>> +#elif defined(CONFIG_ARM64_16K_PAGES)
->>>> +    size[PTE] = "16k";
->>>> +    size[CONT_PTE] = "2M";
->>>> +    size[PMD] = "32M";
->>>> +    size[CONT_PMD] = "1G";
->>>> +#elif defined(CONFIG_ARM64_64K_PAGES)
->>>> +    size[PTE] = "64k";
->>>> +    size[CONT_PTE] = "2M";
->>>> +    size[PMD] = "512M";
->>>> +    size[CONT_PMD] = "16G";
->>>> +#endif
->>>> +
->>>> +    seq_printf(m, "DirectMap%s:    %8lu kB\n",
->>>> +            size[PTE], dm_meminfo[PTE] >> 10);
->>>> +    seq_printf(m, "DirectMap%s:    %8lu kB\n",
->>>> +            size[CONT_PTE],
->>>> +            dm_meminfo[CONT_PTE] >> 10);
->>>> +    seq_printf(m, "DirectMap%s:    %8lu kB\n",
->>>> +            size[PMD], dm_meminfo[PMD] >> 10);
->>>> +    seq_printf(m, "DirectMap%s:    %8lu kB\n",
->>>> +            size[CONT_PMD],
->>>> +            dm_meminfo[CONT_PMD] >> 10);
->>>> +    if (pud_sect_supported())
->>>> +        seq_printf(m, "DirectMap%s:    %8lu kB\n",
->>>> +            size[PUD], dm_meminfo[PUD] >> 10);
->>> This seems a bit brittle to me. If somebody adds support for l1 block
->>> mappings for !4k pages in future, they will forget to update this and
->>> we'll end up returning kernel stack in /proc/meminfo afaict.
->>>
->>>> +static inline bool is_dm_addr(unsigned long addr)
->>>> +{
->>>> +    return (addr >= PAGE_OFFSET) && (addr < PAGE_END);
->>>> +}
->>>> +
->>>> +static inline void dm_meminfo_add(unsigned long addr, unsigned long size,
->>>> +                  enum dm_type type)
->>>> +{
->>>> +    if (is_dm_addr(addr))
->>>> +        dm_meminfo[type] += size;
->>>> +}
->>>> +
->>>> +static inline void dm_meminfo_sub(unsigned long addr, unsigned long size,
->>>> +                  enum dm_type type)
->>>> +{
->>>> +    if (is_dm_addr(addr))
->>>> +        dm_meminfo[type] -= size;
->>>> +}
->>>> +#else
->>>> +static inline void dm_meminfo_add(unsigned long addr, unsigned long size,
->>>> +                  enum dm_type type)
->>>> +{
->>>> +}
->>>> +
->>>> +static inline void dm_meminfo_sub(unsigned long addr, unsigned long size,
->>>> +                  enum dm_type type)
->>>> +{
->>>> +}
->>>> +#endif
->>>> +
->>>>   static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
->>>>                phys_addr_t phys, pgprot_t prot)
->>>>   {
->>>> @@ -236,6 +316,11 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned
->>>> long addr,
->>>>             init_pte(ptep, addr, next, phys, __prot);
->>>>   +        if (pgprot_val(__prot) & PTE_CONT)
->>>> +            dm_meminfo_add(addr, (next - addr), CONT_PTE);
->>>> +        else
->>>> +            dm_meminfo_add(addr, (next - addr), PTE);
->>>> +
->>>>           ptep += pte_index(next) - pte_index(addr);
->>>>           phys += next - addr;
->>>>       } while (addr = next, addr != end);
->>>> @@ -266,6 +351,17 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr,
->>>> unsigned long end,
->>>>               (flags & NO_BLOCK_MAPPINGS) == 0) {
->>>>               pmd_set_huge(pmdp, phys, prot);
->>>>   +            /*
->>>> +             * It is possible to have mappings allow cont mapping
->>>> +             * but disallow block mapping. For example,
->>>> +             * map_entry_trampoline().
->>>> +             * So we have to increase CONT_PMD and PMD size here
->>>> +             * to avoid double counting.
->>>> +             */
->>>> +            if (pgprot_val(prot) & PTE_CONT)
->>>> +                dm_meminfo_add(addr, (next - addr), CONT_PMD);
->>>> +            else
->>>> +                dm_meminfo_add(addr, (next - addr), PMD);
->>> I don't understand the comment you're adding here. If somebody passes
->>> NO_BLOCK_MAPPINGS then that also prevents contiguous entries except at
->>> level 3.
->>>
->>> It also doesn't look you handle the error case properly when the mapping
->>> fails.
->>>
->>>> -static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
->>>> +static void unmap_hotplug_pte_range(pte_t *ptep, unsigned long addr,
->>>>                       unsigned long end, bool free_mapped,
->>>>                       struct vmem_altmap *altmap)
->>>>   {
->>>> -    pte_t *ptep, pte;
->>>> +    pte_t pte;
->>>>         do {
->>>> -        ptep = pte_offset_kernel(pmdp, addr);
->>>>           pte = __ptep_get(ptep);
->>>>           if (pte_none(pte))
->>>>               continue;
->>>>             WARN_ON(!pte_present(pte));
->>>>           __pte_clear(&init_mm, addr, ptep);
->>>> +        dm_meminfo_sub(addr, PAGE_SIZE, PTE);
->>>>           flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
->>>>           if (free_mapped)
->>>>               free_hotplug_page_range(pte_page(pte),
->>>>                           PAGE_SIZE, altmap);
->>> Is the existing code correct for contiguous entries here? I'd have
->>> thought that we'd need to make the range non-contiguous before knocking
->>> out the TLB.
->> The Arm ARM has this, which makes me think you are probably correct:
->>
->> IVNXYF:
->> The architecture does not require descriptors with the Contiguous bit set to 1
->> to be cached as a single TLB entry for the contiguous region. To avoid TLB
->> coherency issues, software is required to perform TLB maintenance on the entire
->> address region that results from using the Contiguous bit.
->>
->> I've asked for clarification internally. But I think we should hoist out the tlb
->> flush regardless because it will be faster if we just invalidate a single range.
->> I can handle that as a separate patch if you like.
-> 
-> Thanks, Ryan.
+On Mon, 19 Jan 2026 22:19:26 +0100
+"Luca Ceresoli" <luca.ceresoli@bootlin.com> wrote:
 
-Of course it's not quite as simple as hoisting for the vmemmap unmapping case
-since that is also freeing the memory, so we need to issue the tlbi before freeing.
+> On Fri Jan 16, 2026 at 6:02 PM CET, Kory Maincent (TI.com) wrote:
+> > Convert the tilcdc driver to use DRM managed resources (drmm_* APIs)
+> > to eliminate resource lifetime issues, particularly in probe deferral
+> > scenarios.
+> >
+> > This conversion addresses potential use-after-free bugs by ensuring
+> > proper cleanup ordering through the DRM managed resource framework.
+> > The changes include:
+> > - Replace drm_crtc_init_with_planes() with drmm_crtc_alloc_with_planes()
+> > - Replace drm_universal_plane_init() with drmm_universal_plane_alloc()
+> > - Replace drm_simple_encoder_init() with drmm_simple_encoder_alloc()
+> > - Remove manual cleanup in tilcdc_crtc_destroy() and error paths
+> > - Remove drm_encoder_cleanup() from encoder error handling paths
+> > - Use drmm_add_action_or_reset() for remaining cleanup operations
+> >
+> > This approach is recommended by the DRM subsystem for improved resource
+> > lifetime management and is particularly important for drivers that may
+> > experience probe deferral.
+> >
+> > Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
+> > ---
+> >
+> > Change in v4:
+> > - Newt patch. =20
+>=20
+> Why? Adding patches along the way does not help getting your series merged
+> timely. If there's a good reason for adding a new patch, please mention it
+> here.
 
-vmemmap never uses contiguous mappings so could continue with the current
-strategy for that and only hoist the tlbi-range for the unmapping the linear map
-case.
+Thanks for your review.
 
-Or could do a 2 phase approach for vmemmap where we first set VALID=0 for all
-entries, then flush tlb, then walk again, to free clear the pte and free the
-pointed to page.
+Sorry for that. The reason is that I faced a null pointer dereference koops=
+ if
+for example the panel module is not installed. Then the
+drm_of_find_panel_or_bridge() function return eprobe defer and something go=
+es
+wrong with the DRM resources. Using DRM managed resources solves it.
+I will mention it for the v5.
 
-Other ideas welcome... I'll have a play.
+> > +	tilcdc_crtc =3D drmm_crtc_alloc_with_planes(dev, struct tilcdc_crtc,
+> > base,
+> > +						  &primary->base,
+> > +						  NULL,
+> > +						  &tilcdc_crtc_funcs,
+> > +						  "tilcdc crtc");
+> > +	if (IS_ERR(tilcdc_crtc)) {
+> > +		dev_err(dev->dev, "Failed to init CRTC: %pe\n",
+> > tilcdc_crtc);
+> > +		return PTR_ERR(tilcdc_crtc);
+> > +	}
+> > +
+> > +	tilcdc_crtc->primary =3D primary; =20
+>=20
+> (*) see below
+>=20
+> >
+> >  	init_completion(&tilcdc_crtc->palette_loaded);
+> >  	tilcdc_crtc->palette_base =3D dmam_alloc_coherent(dev->dev,
+> > @@ -978,10 +992,6 @@ int tilcdc_crtc_create(struct drm_device *dev)
+> >
+> >  	crtc =3D &tilcdc_crtc->base;
+> >
+> > -	ret =3D tilcdc_plane_init(dev, &tilcdc_crtc->primary);
+> > -	if (ret < 0)
+> > -		goto fail;
+> > -
+> >  	mutex_init(&tilcdc_crtc->enable_lock);
+> >
+> >  	init_waitqueue_head(&tilcdc_crtc->frame_done_wq);
+> > @@ -989,20 +999,12 @@ int tilcdc_crtc_create(struct drm_device *dev)
+> >  	spin_lock_init(&tilcdc_crtc->irq_lock);
+> >  	INIT_WORK(&tilcdc_crtc->recover_work, tilcdc_crtc_recover_work);
+> >
+> > -	ret =3D drm_crtc_init_with_planes(dev, crtc,
+> > -					&tilcdc_crtc->primary,
+> > -					NULL,
+> > -					&tilcdc_crtc_funcs,
+> > -					"tilcdc crtc");
+> > -	if (ret < 0)
+> > -		goto fail;
+> > -
+> >  	drm_crtc_helper_add(crtc, &tilcdc_crtc_helper_funcs);
+> >
+> > +	ret =3D drmm_add_action_or_reset(dev, tilcdc_crtc_destroy, priv);
+> > +	if (ret)
+> > +		return ret; =20
+>=20
+> Not related to your patch, but if the dmam_alloc_coherent() (not visible =
+in
+> the diff) fails, tilcdc_crtc_destroy() won't be called. Is this intended?
+> At first sight this drmm_add_action_or_reset() should be moved at (*), ju=
+st
+> after the allocation.
 
-> 
->>
->>
->> However, I think there may be another problem; IIUC, any old range of memory can
->> be hot-unplugged as long as it is section aligned. It doesn't have to be the
->> same range that was previously hot-plugged. But if the linear map is block
->> mapped, the range being unplugged may cover a partial block mapping.
->>
->> For example, with 4K pages, the section size is 128M, so you could hot unmap
->> 128M from a PUD leaf mapping (1G). What am I missing that means this doesn't go
->> bang?
->>
->> This would have been an issue for the non-rodata-full config so predates the
->> work to split the linear map dynamically. I'm not really sure how to solve this
->> for systems without BBML2 but without non--rodata-full.
->>
->> I must be misunderstanding something crucial here... I'll dig some more.
-> 
-> I'm not expert on memory hotplug. I'm not 100% confident my understanding is
-> correct. But I noticed something that I misunderstood before, when I was testing
-> the patch.
-> 
-> The hotunplug actually has two stages: offline and unplug (physically remove the
-> device).
-> 
-> When we echo offline to the sysfs file, it actually just does offline. The
-> offline just isolates the memory from buddy, but it does *NOT* unmap the memory
-> from the linear mapping. The linear mapping will be unmapped at unplug stage. I
-> tested the patch with QEMU, I just can emulate hotplug/hotunplug the whole dimm,
-> for example, hotplug 1G, then hotunplug the same 1G. I can't emulate hotunplug
-> in the smaller size. I thought it may be the limitation of QEMU in the first
-> place. But I realized we can't hotunplug a part of dimm physically either,
-> right? For example, we insert 1G dimm to the board, we can't take out 128M from
-> the dimm physically. So IIUC the partial unmap of linear mapping should never
-> happen.
+You are totally right.
 
-Looking at the code, it looks to me like memory_hotplug.c doesn't care and will
-try to unplug any span of memory that it is asked to, as long as start and end
-are aligned to memory_block_size_bytes() (which for arm64 is section size = 128M
-for 4K base pages).
+> However being not related to your patch I'd leave this for another series
+> anyway, to avoid making this series a moving target.
 
-But it looks like all the higher level users will only ever unplug in the same
-granularity that was plugged in (I might be wrong but that's the sense I get).
+I think it is related to this patch.
+Before this patch there was no need for cleanup as the only action before t=
+he
+dmam_alloc_coherent() was a devm_kzalloc().
+Now the plane and the crtc are initialize before the dmam_alloc_coherent() =
+so
+the cleanup need to happen if it fails an error.
 
-arm64 adds the constraint that it won't unplug any memory that was present at
-boot - see prevent_bootmem_remove_notifier().
+> I find this patch hard to read and I think because it is converting
+> multiple things at once. Splitting it in small steps would have been nice,
+> even thought I'm not 100% sure it would have been doable.
 
-So in practice this is probably safe, though perhaps brittle.
+Yes, it brought more error when not converting the whole to DRM Managed
+resources in one go.
 
-Some options:
+>=20
+> Nevertheless it looks correct, so:
+>=20
+> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
- - leave it as is and worry about it if/when something shifts and hits the
-   problem.
+Thanks, but I will remove it due to the small change.=20
+Or maybe it is ok for you if I keep it with only the move of
+drmm_add_action_or_reset().
 
- - Enhance prevent_bootmem_remove_notifier() to reject unplugging memory blocks
-   whose boundaries are within leaf mappings.
-
- - For non-bbml2_noabort systems, map hotplug memory with a new flag to ensure
-   that leaf mappings are always <= memory_block_size_bytes(). For
-   bbml2_noabort, split at the block boundaries before doing the unmapping.
-
-Given I don't think this can happen in practice, probably the middle option is
-the best? There is no runtime impact and it will give us a warning if it ever
-does happen in future.
-
-What do you think?
-
-Thanks,
-Ryan
-
-> 
-> If I read the code correctly, the code does unmap the linear mapping on memory
-> block granularity. The block linear mapping is unmapped when removing the first
-> block if it covers multiple memory blocks. Then the page table will be none when
-> removing the later blocks, but it is ok, the code just continue.
-> 
-> Thanks,
-> Yang
-> 
->>
->> Thanks,
->> Ryan
->>
->>
->>
->>> Will
-> 
-
+Regards.
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
