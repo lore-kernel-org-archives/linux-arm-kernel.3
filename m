@@ -4,74 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D79CD3EE66
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:01:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C712BD3EE75
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0LC2JUV8CUJ2J1XRF5YZfCktBg9LAbLRSIFc8a3lxPA=; b=ZhM4XQ8K/XNPXm5iM1UpjPJp4e
-	2cbU4+Ng/DR2A1xEdbHSu6HgWV+xQsX4tOfeThi04G0v7mEAInKdxivmQxLBc/VEcwwiMXx63+YoL
-	xfQueNMy5lCBWWTCfPBpl5GUJBuDlhd1JyKw6GRSwaPy3XXNzy50y/U8Zo7tx3m1/BgnliQckJLWm
-	uEAfluPfBBKkztB9cq6MH42zQ5KuwTyZBk20M3gYT/uHdEIwABHfQmHyiBKbdWCxbM8jn4/BxYz4Q
-	XnTpqXbsSQLu1MS8coWfT+6NFKyGWyLq4xN+7bxcdqMk+SS+Pc7dSXNphe2D+30YAWZD6VDVWG54r
-	rjzyC7Ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NxwedwyogLQilWvweKyY+aR4T1jYt+aDjCdUunkRE0I=; b=QEWzxswP6JluqWjMEmvM+WPyx2
+	jfLudV5jxT4MnT9kHLxzumYQqJjhuX4deluxs6sWxyAgvFZeroPV0YYFf+TkhlKktresdpxCD9S3u
+	fUFnELAnhURigYlGFc3Efo+4Bhe8+izF9UriflnpiY9cIroLBpvH2X+83IQSHtCJvFe8X4DUNHw/G
+	LvRklVxe3kVbN880roSERzTPrsQKYOq42Vzhx7BWJbVfeDriHydwplSFGlExqJt1Ckno7T93KSNOr
+	uERESffcshHSgq7JdxLuDRTzktilNKyljXBFFo4iR0Kf33l7vfwKuWN6CDqhQOxZTRrpJRCpOzWPO
+	4SS7JVVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwBk-00000007HkW-31q0;
-	Thu, 22 Jan 2026 15:01:36 +0000
-Received: from mout.web.de ([212.227.15.14])
+	id 1viwCE-00000007Hs0-2Ggx;
+	Thu, 22 Jan 2026 15:02:06 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwBg-00000007Hj3-44wY
+	id 1viwCC-00000007HrI-0a8T
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 15:01:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1769094069; x=1769698869; i=markus.elfring@web.de;
-	bh=0LC2JUV8CUJ2J1XRF5YZfCktBg9LAbLRSIFc8a3lxPA=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=LDgSjIzpu5pPGPM0NY9ZQrk94d87rbNAee5i8spe/P2E8YEXf1QzP/mmHBuqPoJt
-	 lOZbRJGGCrKZKOJQ6uIc1CDj++RMjZdFtGyy28Gab7RYFS9hovG3GezQ2KghVCe/v
-	 L+PBuV3K22Q+r9MMw0s1YJcd2LFvzTm/U+25ABqporJJ2I0AomggC9mj2shM+Gt/5
-	 qrhjEzABpYuWhYV8tWv+dqN8bYEVOrLD29I/4nzU07Z64jHbgZw+h7/5sW/s0qIIa
-	 Y+9kMEbaNQ9zcR7VJHgATCb0qSS1Trd7rzczPklqaWsPwLpzHpCuiVxljqa39Bulb
-	 R1a9gr6XWOYW4nRyXw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.92.239]) by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MECGX-1vbTv61lxd-00AEfw; Thu, 22
- Jan 2026 16:01:09 +0100
-Message-ID: <a69e08ea-c4b6-43a5-95ca-eba9263e8211@web.de>
-Date: Thu, 22 Jan 2026 16:01:07 +0100
+	Thu, 22 Jan 2026 15:02:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769094124; x=1800630124;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=l77IAsVXahcW5YI/IdZW6IxkK1iQnfGhw6G2mzcbNLw=;
+  b=JSZLFxsY5jjvVj9hLSRqiZoXoWI+ayoQUE3F1rE7Fza7fXeYCpiWn/ZR
+   p0br/nO1Ul8/AgcGlzojAp++4uzF+E6cXvMvjpsCy5xtMvtAs8ZP0+MUJ
+   ww4rbJnjsqSFlc5K8NarkhLbH5/NGRxZFrgp463jExdMITb7dbO0IKyxf
+   QJvsAj2Ldk7yk76cM+xL4pQqbo4AholKw+YO+tqzgYTm66BZ+UnlT9Yo+
+   PNZATmJsCQVaP7tBzfmLCoXXxPcla4/ODxjTD1Xa44aXISGVwfhoIAOrs
+   9C4CWeGIpIPQT7ec573yfG+aY1Xz1Za3jubnKXe657sgypLh65MCnPHho
+   w==;
+X-CSE-ConnectionGUID: zxOOZ5cdQsaUfaDcFsfA+A==
+X-CSE-MsgGUID: ekM9QOoLSQe8lvwTcMvLLw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11679"; a="70384597"
+X-IronPort-AV: E=Sophos;i="6.21,246,1763452800"; 
+   d="scan'208";a="70384597"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2026 07:02:04 -0800
+X-CSE-ConnectionGUID: NW67R4G3RdaUyuKfqBUm4A==
+X-CSE-MsgGUID: n2EU29aJRAySn/f0MLrr3A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,246,1763452800"; 
+   d="scan'208";a="206805571"
+Received: from smoticic-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.225])
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2026 07:02:00 -0800
+Date: Thu, 22 Jan 2026 17:01:57 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 3/4] ASoC: pxa2xx-ac97: Remove platform_data
+Message-ID: <aXI75VDA60hRIrYQ@smile.fi.intel.com>
+References: <20260122-sound-cleanup-v1-0-0a91901609b8@nxp.com>
+ <20260122-sound-cleanup-v1-3-0a91901609b8@nxp.com>
+ <aXI7LlXOiLSD2K1a@smile.fi.intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Felix Gu <ustc.gu@gmail.com>, imx@lists.linux.dev, kernel@pengutronix.de,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org
-Cc: LKML <linux-kernel@vger.kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>,
- Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>
-References: <20260121-b4-scu-pd-v1-1-f993e4082089@gmail.com>
-Subject: Re: [PATCH] firmware: imx: scu-pd: Fix device_node reference leak in
- imx_sc_pd_get_console_rsrc()
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20260121-b4-scu-pd-v1-1-f993e4082089@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:+H6pZaKyymJWYd84hJBe78XHubU65IuQq4W/oAJCt2DHb+OJ4kS
- CFhYbrMFxabwIGt9Co6NhWSfcOJGJUzZjki4pWXLU7WZHng9St0qLcMt9pcS6jmuQCOI1g+
- WcNhVuHLbZybqbTyMmupbaT8DqbGm45ARgG7sN+qw7vYJ+rbKzYKXG741z+PtgeG/GDzkD2
- z/89F3VUqiFEEB9wzls6w==
-UI-OutboundReport: notjunk:1;M01:P0:2pLqjF6h4A0=;ylnJFJCx+YvnX2kdFqnx2MUK9kt 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
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aXI7LlXOiLSD2K1a@smile.fi.intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_070133_459741_6673EABD 
-X-CRM114-Status: UNSURE (   4.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260122_070204_214407_AE4BF24C 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,13 +95,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> In imx_sc_pd_get_console_rsrc(), it does not release the reference.
+On Thu, Jan 22, 2026 at 04:58:59PM +0200, Andy Shevchenko wrote:
+> On Thu, Jan 22, 2026 at 08:44:59PM +0800, Peng Fan (OSS) wrote:
 
-See also once more:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
-cumentation/process/submitting-patches.rst?h=3Dv6.19-rc6#n94
+...
 
-Regards,
-Markus
+> > +	if (dev->dev.of_node) {
+> > +		reset_gpio = of_get_named_gpio(dev->dev.of_node, "reset-gpios", 0);
+> > +		if (reset_gpio == -ENOENT)
+> > +			reset_gpio = -1;
+> > +		else if (reset_gpio < 0)
+> > +			return reset_gpio;
+> 
+> No, please convert to devm_gpiod_get*() or even better to use reset-gpio driver.
+> TL;DR: no (reinstantiated) of_get_named_gpio() or alike must be in the kernel.
+
+Ah, you do it in the followup, right?
+If that is the case (I'm going to look into it after this one)
+Acked-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+
+And thanks for cleaning it up, eventually!
+
+> >  	} else {
+> >  		if (cpu_is_pxa27x())
+> >  			reset_gpio = 113;
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
