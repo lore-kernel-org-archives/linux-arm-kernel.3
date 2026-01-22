@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56592D3EE95
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 17:15:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65CD5D3EE9C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 17:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vs0J0OmrF0vBW4/xabK+Y2RxzbYluA80dV+Xe9eXSxk=; b=nIkNg5VmtGjHklG4mX0oF+2203
-	bmpbgVFTcgh8fgKbFSWX+98oFSCMWBamb4oO+XrIjnqW4hAJdY4ZiwalkCk/vpjfilqLrJXgqJpVv
-	rNRTQMGvFeQqgoR6HdY9k9ElvtLxIeMKvnw3/afVw+WPgcagbndqHDAgCaB6SjyDHXRstnTHhQXBb
-	WGZmbFWk+JWb7+oqV2mQh2qGPz1d7NRlQs/1y3LeR8ANSCiI0lnXlB+WzFx2qzjL3WHZY4BstpR30
-	wkgrz6XmHzmhw4xXDnneTOF5TPv/pOor2K81M4XxCCdWN0PYt9ahiO9i9oaKpzbUKz0kxzynQ5/pa
-	YyW4H93Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dfn6vnVnX/KCerEi1dQoZze0gUnqj9K4r4skiCF+1HU=; b=YeeBL6WlB2BZOySa104E9BGs/f
+	MaKDxcz0MBBbMj5k6YYB4nnGH/JvAVJ0b80wM6Ar8W5o5ryPcoJXcwboYu2NwfjsMMlrVcyXW/dcz
+	H5cXG8Pi9M5G9OgIFlau9/7cZn0XonDsSesZdpd0mYviCuIczW9bKFNKvzOu26NR4Gl5Ab3XL0ZLp
+	5b8joS/hUxo3/QQdqiGKTXr5UN9Joul0JM1lY4vFTiB2e3v4paOEot5bo9bhqtVik0KUSPAds7RJm
+	1xrS8Is1TxAGree2cNoyyGp1hCb2GDaWncjZQct9eK0VIClnGpS1R6MquYs/SmDRqQTJeX+/LZyXM
+	yzQYujbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viyHc-00000007XsV-0X1B;
-	Thu, 22 Jan 2026 17:15:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1viyKe-00000007YEt-2xpN;
+	Thu, 22 Jan 2026 17:18:56 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viyHV-00000007Xr5-02pX
+	id 1viyKb-00000007YDY-0sJ6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 17:15:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 026C740205;
-	Thu, 22 Jan 2026 17:15:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC466C116C6;
-	Thu, 22 Jan 2026 17:15:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769102139;
-	bh=Y3D9E7japclI7UuExtcL6bPuCRUqGKopPtgcI3tpo7Y=;
-	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
-	b=jTQTg8Gu2G1yoe/UvGnuAwgLgBGxCYlqGnyfSceJG959OW2YlVwhPsA/PR0l2qA9w
-	 8zdYytO9RmmHcwx7lGtPhbxjvtUszkOMmSk1gGd6xSGHTwNbK0/jXMHjM9ZgqksdNJ
-	 zOoWhDmtS6HdKUpqyb4zk5SwropokIu3Y5vEX2eWIbg82ohHpB8RHiVQaa8qtSK7GG
-	 OkB7ha3F1qdqLg2DlrHm76NbY4Guja+oBX3TWdgSnvlH2THT/rCgYDER3Kv3JSPVmX
-	 vGrfH7RiYDRIWz5zden6QseDozqL/maNI66WE4Y73NorzzXTGu3KGnglxL4eU8yLgP
-	 wg6bKKvp7MGgQ==
-From: Rob Herring <robh@kernel.org>
-Date: Thu, 22 Jan 2026 11:15:38 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 22 Jan 2026 17:18:55 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20260122171843epoutp013a38821e23b8569090c23b09fb0be35e~NHTC4Gt6K2335623356epoutp01a
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 17:18:43 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20260122171843epoutp013a38821e23b8569090c23b09fb0be35e~NHTC4Gt6K2335623356epoutp01a
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1769102323;
+	bh=Dfn6vnVnX/KCerEi1dQoZze0gUnqj9K4r4skiCF+1HU=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=ryVfEHiU6GYG3TT7YIICp09GzE4uN19pZ82TY1rOkgrFM0YChnQKtk6xuIahLw2Dw
+	 gJJU45/rmi0RNa9LapJPvAJBE5LNjqKRU00sGcC3GkEp3YCxMCS8rNsnZnP4S+fyug
+	 J1aGArqHicu5J/JCTDa4lU/qNO5q0RPR2rS51V+s=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20260122171843epcas5p2b3340d2681a466691e75f7f855960b8d~NHTCgrdNT2323723237epcas5p2H;
+	Thu, 22 Jan 2026 17:18:43 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.90]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4dxnpV2MhJz6B9m5; Thu, 22 Jan
+	2026 17:18:42 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20260122171841epcas5p44be34d8fa6f05a6c2f6804156dd092cc~NHTA8qE-w0552605526epcas5p4p;
+	Thu, 22 Jan 2026 17:18:41 +0000 (GMT)
+Received: from INBRO000519 (unknown [107.122.1.150]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20260122171837epsmtip2fa2844309b889494e61cc6ceb0ebd998~NHS8qaLTF1550615506epsmtip2L;
+	Thu, 22 Jan 2026 17:18:36 +0000 (GMT)
+From: "Faraz Ata" <faraz.ata@samsung.com>
+To: <andi.shyti@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <alim.akhtar@samsung.com>
+Cc: <linux-i2c@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <rosa.pila@samsung.com>,
+	<pritam.sutar@samsung.com>, <dev.tailor@samsung.com>
+In-Reply-To: 
+Subject: RE: [PATCH] dt-bindings: i2c: exynos5: add exynosautov920-hsi2c
+ compatible
+Date: Thu, 22 Jan 2026 22:48:27 +0530
+Message-ID: <04e501dc8bc3$27a48810$76ed9830$@samsung.com>
 MIME-Version: 1.0
-Cc: alim.akhtar@samsung.com, conor+dt@kernel.org, krzk+dt@kernel.org, 
- linux-arm-kernel@lists.infradead.org, rosa.pila@samsung.com, 
- selvarasu.g@samsung.com, linux-samsung-soc@vger.kernel.org, 
- muhammed.ali@samsung.com, faraz.ata@samsung.com, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- dev.tailor@samsung.com
-To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-In-Reply-To: <20260122130721.205664-1-pritam.sutar@samsung.com>
-References: <CGME20260122125130epcas5p4ac37f540c609f3016ff02f5708e897a2@epcas5p4.samsung.com>
- <20260122130721.205664-1-pritam.sutar@samsung.com>
-Message-Id: <176910209177.2703219.7993114273484886473.robh@kernel.org>
-Subject: Re: [PATCH v2 0/3] Add and enable USB nodes for ExynosAutov920 SoC
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQMyl6jZ32DHOO134xOI05SqoiCOxQG1dU1GsosmcDCAGYRjoA==
+Content-Language: en-us
+X-CMS-MailID: 20260122171841epcas5p44be34d8fa6f05a6c2f6804156dd092cc
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250904071941epcas5p1ffa00f3f1cb69f7a10d08c1e96174cf1
+References: <CGME20250904071941epcas5p1ffa00f3f1cb69f7a10d08c1e96174cf1@epcas5p1.samsung.com>
+	<20250904072844.358759-1-faraz.ata@samsung.com> 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_091541_088889_3DB17566 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20260122_091853_906320_A9966575 
+X-CRM114-Status: GOOD (  20.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,82 +96,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+HI Andi/Rob
 
-On Thu, 22 Jan 2026 18:37:18 +0530, Pritam Manohar Sutar wrote:
-> This SoC has 2 USB typeC and 2 typeA ports those are DWC3 DRD
-> controllers and among them, one single USB3.1 DRD combo phy and three
-> USB2.0 only phy controllers. This patchset adds and enables USB and
-> USB-PHY nodes in dts.
-> 
-> PMIC is not implemented yet, we rely on USB LDOs being enabled by the
-> bootloader and used dummy regulators for now.
-> 
-> To drive vbus for host mode, it needs GPIO pin to enable vbus regulator.
-> GPIO expander is present in the dts, we used it to enable the regulator
-> using GPIO.
-> 
-> USB ports are configured as OTG, and default mode is configured as
-> peripheral. It will be changed based on requirements.
-> 
-> changelog
-> ----------
-> Changes in v2:
-> - As v1 was pushed 3 months back, resending this patchset.
-> - Since dependencies are merged, removed links from coverletter.
->   link for v1: https://lore.kernel.org/linux-devicetree/20251024114845.2395166-1-pritam.sutar@samsung.com/
-> 
-> Pritam Manohar Sutar (3):
->   arm64: dts: exynos: ExynosAutov920: Add USB and USB-phy nodes
->   arm64: dts: exynos: ExynosAutov920: Add regulators for the USB
->   arm64: dts: exynos: ExynosAutov920: Enable USB nodes
-> 
->  .../boot/dts/exynos/exynosautov920-sadk.dts   | 160 +++++++++++++++++
->  .../arm64/boot/dts/exynos/exynosautov920.dtsi | 162 ++++++++++++++++++
->  2 files changed, 322 insertions(+)
-> 
-> --
-> 2.34.1
-> 
-> 
-> 
+Kindly help to review and merge the patch.
 
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20260121 (exact match)
- Base: tags/next-20260121 (use --merge-base to override)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20260122130721.205664-1-pritam.sutar@samsung.com:
-
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb-phy0 (usb-nop-xceiv): '#phy-cells' is a required property
-	from schema $id: http://devicetree.org/schemas/usb/usb-nop-xceiv.yaml
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb-phy1 (usb-nop-xceiv): '#phy-cells' is a required property
-	from schema $id: http://devicetree.org/schemas/usb/usb-nop-xceiv.yaml
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb-phy2 (usb-nop-xceiv): '#phy-cells' is a required property
-	from schema $id: http://devicetree.org/schemas/usb/usb-nop-xceiv.yaml
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb-phy3 (usb-nop-xceiv): '#phy-cells' is a required property
-	from schema $id: http://devicetree.org/schemas/usb/usb-nop-xceiv.yaml
-
-
-
+> -----Original Message-----
+> From: Faraz Ata <faraz.ata=40samsung.com>
+> Sent: Tuesday, January 6, 2026 11:17 PM
+> To: 'andi.shyti=40kernel.org' <andi.shyti=40kernel.org>; 'robh=40kernel.o=
+rg'
+> <robh=40kernel.org>; 'krzk+dt=40kernel.org' <krzk+dt=40kernel.org>;
+> 'conor+dt=40kernel.org' <conor+dt=40kernel.org>; 'alim.akhtar=40samsung.c=
+om'
+> <alim.akhtar=40samsung.com>
+> Cc: 'linux-i2c=40vger.kernel.org' <linux-i2c=40vger.kernel.org>;
+> 'devicetree=40vger.kernel.org' <devicetree=40vger.kernel.org>; 'linux-arm=
+-
+> kernel=40lists.infradead.org' <linux-arm-kernel=40lists.infradead.org>; '=
+linux-
+> samsung-soc=40vger.kernel.org' <linux-samsung-soc=40vger.kernel.org>;
+> 'linux-kernel=40vger.kernel.org' <linux-kernel=40vger.kernel.org>;
+> 'rosa.pila=40samsung.com' <rosa.pila=40samsung.com>;
+> 'pritam.sutar=40samsung.com' <pritam.sutar=40samsung.com>;
+> 'dev.tailor=40samsung.com' <dev.tailor=40samsung.com>
+> Subject: RE: =5BPATCH=5D dt-bindings: i2c: exynos5: add exynosautov920-hs=
+i2c
+> compatible
+>=20
+> HI Andi/Rob
+>=20
+> I want to follow up on the below dt-binding patch submitted.
+> Please let me know if the patch is under review or anything else needs to=
+ be
+> done.
+>=20
+> Reference  - https://lore.kernel.org/all/83338b57-2e8e-4b77-9e93-
+> fadfb0f6a5fc=40kernel.org/
+>=20
+> > -----Original Message-----
+> > From: Faraz Ata <faraz.ata=40samsung.com>
+> > Sent: Thursday, September 4, 2025 12:59 PM
+> > To: andi.shyti=40kernel.org; robh=40kernel.org; krzk+dt=40kernel.org;
+> > conor+dt=40kernel.org; alim.akhtar=40samsung.com
+> > Cc: linux-i2c=40vger.kernel.org; devicetree=40vger.kernel.org; linux-ar=
+m-
+> > kernel=40lists.infradead.org; linux-samsung-soc=40vger.kernel.org; linu=
+x-
+> > kernel=40vger.kernel.org; rosa.pila=40samsung.com;
+> > pritam.sutar=40samsung.com; dev.tailor=40samsung.com;
+> > faraz.ata=40samsung.com
+> > Subject: =5BPATCH=5D dt-bindings: i2c: exynos5: add exynosautov920-hsi2=
+c
+> > compatible
+> >
+> > Add =22samsung,exynosautov920-hsi2c=22 dedicated compatible for HSI2C
+> > found in ExynosAutov920 SoC.
+> >
+> > Signed-off-by: Faraz Ata <faraz.ata=40samsung.com>
+> > ---
+> >  Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml =7C 1 +
+> >  1 file changed, 1 insertion(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
+> > b/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
+> > index 7ae8c7b1d006..207b95e392e5 100644
+> > --- a/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
+> > +++ b/Documentation/devicetree/bindings/i2c/i2c-exynos5.yaml
+> > =40=40 -38,6 +38,7 =40=40 properties:
+> >                - google,gs101-hsi2c
+> >                - samsung,exynos2200-hsi2c
+> >                - samsung,exynos850-hsi2c
+> > +              - samsung,exynosautov920-hsi2c
+> >            - const: samsung,exynosautov9-hsi2c
+> >        - const: samsung,exynos5-hsi2c    =23 Exynos5250 and Exynos5420
+> >          deprecated: true
+> > --
+> > 2.34.1
 
 
 
