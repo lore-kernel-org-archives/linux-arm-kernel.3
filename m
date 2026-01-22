@@ -4,97 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFF7C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 08:40:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 543B6C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 08:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hpMnG7yo/s/EPaRILMIXawP8xxRqeEWUw6ffTIMdA+E=; b=qFo+oDrZUZ8VZ0jdIAuTpxW38C
-	8bTrIIP4cNSSBCbP4Z55uI/LE1/QW2SajMMowh73zq15P9AUjKy3HYeUlv6FXxmb+kY4Az22tJjXX
-	qnYa2jiML3bYgMsQnoOn8WnrjbVspPIoAdWc7plorDDh2nkVRG8e1CZo3o+UtX0sjklFOf++UU3e1
-	4rc9tOtiFvP01gKIRWEOrywMzkw+1L/YnAfn7TAgnrmHMZZ2TJg7hjDzUfNC0Tt6A3GhZrxi+Rmfu
-	YhLgrgAGY7RDWH81CFNjKd+Qf8uJ6JJ5p8JiSzQRHmcribqxlOhLPw3V1XZDmRS6SaRaYUjtJZH1I
-	uDoY05Og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=u18d0TAQrgGkGJgo2/pqjGTY0PNHW4fsBRHe5OIMRK8=; b=Kte7it/mBDS827aN4CyJrUU76M
+	4FqM+pq0tLX4lgWcJtQAcWruBjq03O+K4xOg4EgBhUXN+aKsGXj2madZ37tcVZj+QlqlMO+UZDLgq
+	P+ETZXbc8VhfFo6blbQkMV+aCoMDHiovm4KfEZA7LKnpFFOCgs82c8Csdc1klw1+/iv7iADnopU5+
+	lw8vSgBmhEYvbDbBucSZKZWYRtvl4oRuUtZMQ+FiyDGNg4Trbi+UN1GTbUxYUHqvEjnDmV7+vbUbv
+	0dImslIRCUj5Dm1q7+Pyj7mi9ZVzzoDOy4HKTnS37X4MgprQVUXXxIZv5TPIMuUQcgoEzbW8yqz+J
+	U01UYWLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viqEl-00000006fEM-43ai;
-	Thu, 22 Jan 2026 08:40:19 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1viqHp-00000006fU7-2Rgf;
+	Thu, 22 Jan 2026 08:43:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viqEi-00000006fDg-48Jx
+	id 1viqHo-00000006fTw-10cd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 08:40:18 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2a0c20ee83dso7077965ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 00:40:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769071215; x=1769676015; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=hpMnG7yo/s/EPaRILMIXawP8xxRqeEWUw6ffTIMdA+E=;
-        b=W6K+9S9BnixsvoKpRQqL1Fau7sKUfcUZvMkL6HKozUDxUe2mZjMCA2ijEcilW9dRSq
-         l0nj5L9k8stGoFmtQY3/8Zv+n3D2apXJHHqYYEYMZiM7Ekgom5ICcFwW2/1FPC/TgyjU
-         H9kZJ7CteO8W1jOwP3zs+67NZnvgpO9jsM0kjQSoWxnjZRvbrn4wx1oF8v/uU70izI5h
-         zubwsDTopxf+CWTCCAreWAOhuqc3kF/J0SQe188bMkIfzT9GqNm3ekMuTqJ/Ccj3ugYu
-         l96HdWYDF1pRVBNFqdEN0wrErfqvLMxBZsfViF9QsYQ+MbhMOqUyfdhvqhl4vR+nU/Jd
-         o2Tw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769071215; x=1769676015;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hpMnG7yo/s/EPaRILMIXawP8xxRqeEWUw6ffTIMdA+E=;
-        b=t9CPxt6Bc4IbXe8QohzJnmk/SjULCGgGgvh1bHcwpu2MIrgOBDsteHF9pq7VxzWdVf
-         dWeChrNexgexCpv4LnQaBOg1A20U9LOSsB6WEgBiJNSX4jTmCwVZiFeCS8Avx/kqxCly
-         zqa8L4S03qrl2GJUGkvT23hWAGZQPW8SarEQBfketJ3RO/2Q5ZBLwUq+Kcwk1ODDgP2E
-         IQJQOlvaLcFyulNmRTiQXcdVsjduSKeY9Alr9eEmRE0rmn6Yu+zzPdMUV0jeg4m/XMMg
-         uo3XTW73bW9dDmUUXhXkQt1FndqBcZbpM7etXliFBj0rpOsAF7zP2xn9oiDU7FERYqMc
-         Pc6Q==
-X-Gm-Message-State: AOJu0Yy7NfVdJyYQjGEBVlRWRrErVbiKyqhT46aFAGAMUGjElgQGTIe+
-	ZLaEiwnb3twESlFHty/6PIb4d4uY1cM1tdwKaHEthEzwGKRSsNbL7wUAooTDGw==
-X-Gm-Gg: AZuq6aIn4IuXSp/u23a10rozAU+LAhwK0gpIrkLOqHMUE7U+YFZDpkFmjY16+RDGgjd
-	qgBU9Za0PEiGsYhvkAdQm5/Ur+psQgADl5zF1F9RctgHYg64/UXzlVXUxy1N+UALTlznZM7YjF3
-	JVpJ2kwXm/pqqNSxDhXPiYFWIsf6zF0mZ0FZgkZHpfcV1XmYRxpTn6+iZflCLRE6pkR/fYyEsEI
-	tbI3t44/fdj0yJmZ/Ko6u9faTN9ergPCG2r0k4C7wBcw4I//6CxaTKzQWejss8tddOiHTKGyve8
-	wD913CY/axqQcLNq2ZdLCviV2k23E6od4JI5rYGp3yKrit2csKL6E8CijOQXamLdIg9HGCHYfMk
-	RGty3EvmeKcuhwHXiX3y/NVv7AmuLWOhi9W4RDhouD3G6ctBH5h//921uL0QuCaRvpBkANkdDAp
-	IONStmLLwuo8/xF8OEZb2g2TYg5NT4TJaWcTfKpId9nYGuW1Op+W9vriUErQeYdvQ=
-X-Received: by 2002:a17:903:2b04:b0:2a0:c1fc:3de5 with SMTP id d9443c01a7336-2a7176c5798mr159612595ad.51.1769071215454;
-        Thu, 22 Jan 2026 00:40:15 -0800 (PST)
-Received: from localhost.localdomain (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a7b03945c7sm38423085ad.102.2026.01.22.00.40.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Jan 2026 00:40:15 -0800 (PST)
-From: Potin Lai <potin.lai.pt@gmail.com>
-Date: Thu, 22 Jan 2026 16:37:56 +0800
-Subject: [PATCH] soc: aspeed: soninfo: mask table entries for accurate SoC
- ID matching
+	Thu, 22 Jan 2026 08:43:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 53DFD600C3;
+	Thu, 22 Jan 2026 08:43:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DDB4C116C6;
+	Thu, 22 Jan 2026 08:43:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769071407;
+	bh=vTwi/NHZEXCw8rQu6gDRc7cezwzkz+PlJrNrSxFuyc8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AsrB5/y4IELmNV85mprWCwbOfZcQjFBmRNqpt8p5c6PX9mdMaKmpjYt9FZZq3390J
+	 bm+QwFU1ebCuZBKq5EF/oKXHfOYp/n78Z01vriAFeqEoh2/mdCWa/KrEvl0IbkMTDw
+	 oEw1g5sxrFtfLP6kHTFloHn2yDJNrsRyclW4CCiQ7EyMgdzcvDUlShSqGB6oEnn1lH
+	 /hU+El7E2us7zlWV/paJN1+qANdXY97RwqFfQ+dRkcvPhugNcrI2nyyruTLZmyU6VY
+	 GROXszF1gTBsC865B11qEAPdUBv0HfPfz1dvfKei2CJMkRgaTYznoFpb15B9GDerVx
+	 OEjW3dcup1/bA==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>,
+	soc@lists.linux.dev
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] arm64: dts: samsung: dts for v6.20, part two
+Date: Thu, 22 Jan 2026 09:43:21 +0100
+Message-ID: <20260122084321.20861-2-krzk@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260122-soc_aspeed_name_fix-v1-1-33a847f2581c@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAOThcWkC/x2MQQqAIBAAvyJ7TsglIvpKhCy61R4ycSEC6e9Jx
- xmYqaBchBVmU6HwLSpXauA6A+GgtLOV2Biwx7F3iFav4Ekzc/SJTvabPJbGIWxEGKchQCtz4ab
- /67K+7wevLlqeZQAAAA==
-To: Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
- linux-kernel@vger.kernel.org, Patrick Williams <patrick@stwcx.xyz>, 
- Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
- Potin Lai <potin.lai.pt@gmail.com>
-X-Mailer: b4 0.12.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769071213; l=1296;
- i=potin.lai.pt@gmail.com; s=20240724; h=from:subject:message-id;
- bh=NcA+4V/eKoD7laEnrtITGzEvL6h6C7wMkK//E+tf3IU=;
- b=rLkSU4ZR7LLrHUbxt3uEiBVvpobZHIDelmOZTOc6BulV862CLv2zf2tyIwEKQpsl0CCu7vUkh
- pdED0LZMfZGCPrqpPmWs9sJdqSz+cplTG8ilFHqfaN5x1F2PlHwB6nJ
-X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
- pk=6Z4H4V4fJwLteH/WzIXSsx6TkuY5FOcBBP+4OflJ5gM=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_004017_031109_D7C34C96 
-X-CRM114-Status: GOOD (  13.08  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1491; i=krzk@kernel.org; h=from:subject; bh=vTwi/NHZEXCw8rQu6gDRc7cezwzkz+PlJrNrSxFuyc8=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpceMpEY9BpcVQTRSK8N/qEzFBd9x5yxM0Exjzf faLCT6yKTuJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaXHjKQAKCRDBN2bmhouD 15fFD/9CMh4H0Pyi2zGifs2Who2Sm9eAp3+0CQiPzpVUXj1sCnH9NSlR7RwJz37L/+qR1a2E3lT zrtXsKaiDg2bCtE3xXT3RBXb0q2ijO+BiQE2vQFEEPt3UGnj29hdTadjbrcaDhF9pBQkVrhJq59 pblvipcGom4IuC56GzyR+eSDkC9CH10OntYn6kJALtSDGYzyfjA9jGti+7m4WnEZTPlFj+CjzHN licpRLI5Zq+mqaD291CjQBtHTgbPrHTs7KmpPpinFhS+C9vwq6eX8hQ1CQD2WsAHxtSBXZqJ2sX a/hSiRfMi6SYHgrz2+B8LPl1PCXeDXs2TaNo5QR8yGQZsOXNEcUej/c2TeYVjTJ5vxGZaL+rTSX o+e0fwspdPt1UQu333RGtcxCCQDWH1Iq4sTUvtXDKgCbdDHwkWIHY4Y6fS9+Mg9/qUeVCYkOy5/ F7JtBgtFVV/O6pcLiGDSubfsGB9br9/Mwgmt8BKMZjlvZpBforLa4YXc2QBmXFzx6pqQCgK3VcU DIl4n/4Ske0aJtfXRMnq/ry95wjKuAkc6jGkXq36t4lSvSJgVfv1xd/63EGkhn7iL2ILpWsklMU 39wd3RNgcmfCbJpKzd36Ep+TEJ+hMJdCFf+skOrX49pOmGHpn097xRmwdqFXsZ8BOACXTkm6PSw aUVoncaoBE6La+Q==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,41 +73,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The siliconid_to_name function currently masks the input silicon ID with
-0xff00ffff, but compares it against unmasked table entries. This causes
-matching to fail if the table entries contain non-zero values in the
-bits covered by the mask (bits 16-23).
+Hi Arnd and SoC folks,
 
-Update the logic to apply the 0xff00ffff mask to the table entries
-during comparison. This ensures that only the relevant model and
-revision bits are considered, providing a consistent match across
-different manufacturing batches.
+On top of previous pull request:
+https://patchwork.kernel.org/project/linux-soc/patch/20260117180406.9361-5-krzk@kernel.org/
 
-Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
----
- drivers/soc/aspeed/aspeed-socinfo.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/soc/aspeed/aspeed-socinfo.c b/drivers/soc/aspeed/aspeed-socinfo.c
-index 67e9ac3d08ec..a90b100f4d10 100644
---- a/drivers/soc/aspeed/aspeed-socinfo.c
-+++ b/drivers/soc/aspeed/aspeed-socinfo.c
-@@ -39,7 +39,7 @@ static const char *siliconid_to_name(u32 siliconid)
- 	unsigned int i;
- 
- 	for (i = 0 ; i < ARRAY_SIZE(rev_table) ; ++i) {
--		if (rev_table[i].id == id)
-+		if ((rev_table[i].id & 0xff00ffff) == id)
- 			return rev_table[i].name;
- 	}
- 
-
----
-base-commit: 24d479d26b25bce5faea3ddd9fa8f3a6c3129ea7
-change-id: 20260122-soc_aspeed_name_fix-a64cfaa2d84c
 
 Best regards,
--- 
-Potin Lai <potin.lai.pt@gmail.com>
+Krzysztof
 
+
+The following changes since commit 9afdf3e1a59e23180540ecb1fe3287c308cc8113:
+
+  arm64: dts: exynos: gs101: add OTP node (2025-12-28 12:32:42 +0100)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-dt64-6.20-2
+
+for you to fetch changes up to 024d8f4aa35970c4563c6ef0c4170133719b2103:
+
+  arm64: dts: exynos: gs101: add cmu_dpu and sysreg_dpu dt nodes (2026-01-17 20:32:20 +0100)
+
+----------------------------------------------------------------
+Samsung DTS ARM64 changes for v6.20, part two
+
+Add DPU clock management unit nodes to Google GS101.
+
+----------------------------------------------------------------
+Krzysztof Kozlowski (1):
+      Merge branch 'for-v6.20/dt-bindings-clk' into next/dt64
+
+Peter Griffin (3):
+      dt-bindings: clock: google,gs101-clock: fix alphanumeric ordering
+      dt-bindings: clock: google,gs101-clock: Add DPU clock management unit
+      arm64: dts: exynos: gs101: add cmu_dpu and sysreg_dpu dt nodes
+
+ .../bindings/clock/google,gs101-clock.yaml         | 21 ++++++++++++-
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi       | 17 ++++++++++
+ include/dt-bindings/clock/google,gs101.h           | 36 ++++++++++++++++++++++
+ 3 files changed, 73 insertions(+), 1 deletion(-)
 
