@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BE5DD6CFAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 23:21:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5806D6CFAB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 23:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RNxCi1LUgE2WtbJvo+nDDGJEJjrwbQyC+R6ym2uc7+M=; b=2vS8TXd8+1YbBEXrlPoWnmHA/4
-	KnNQ9qGWHRrJ0Stmvqxsi2pzeTzRT+D8HPYPJQWJIHHG3Umea180bMWMFuM0hKOkf7H8C2Oqt6Uz5
-	Z6gjeuXeboL8B9NZZKQS0/QxULa9mgWte4LQ2RZeFSsSQsOiu2WCQcUiQv8OJXxJ70699fpdj1ecq
-	TY4Qa9kc4T0RCHrZs5kjJVPQW9qsBM3+QuV8tXT96dt2seJ+/+VmmGBXLmGZ990UrdGj6lGTJFSiG
-	UCPC95COvtuzi4yURwpCeNkazSQq+dTPT0eGExr0V4m2SMZeVOjXYkChuZdE2AZsyashvoZfPgutT
-	jaVo8wUg==;
+	bh=Ds6MxIz57+EQt3GFy/c/f25baeN3rG57nK8GSqNpjtc=; b=vu4T5WxTQUnSGyZLSLKdKr8pYf
+	oBNBa58hAFcLUsQz8Zzs4z6i0TSjeV4HVHa5UAe7/9z1JvuzROixcOc7RV10nztorckBxS8UldTFh
+	4Kd7q7TyWgPkg4jwlO6EGMu1G7Z/4wN4k9Hqqxajxvg3OPe60pVKqfUYuZMaqcBuOcf9x9RuvXBEk
+	muE71z7VNU52Qmuk4VwO1vFPVC3jkn6sIKy7MI0gA6R0T83N+6TBdTASBWOWZVwX9aRCrGYr++VCK
+	mUNfiFAqBYu4fSZDjwTvjJV4ttDjvZpja9yud43W0d+q6iN29xKc/99vUsbas4hVx1VAR0EBMewVi
+	Ay3EHobA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj3zi-00000007sUC-1vmP;
-	Thu, 22 Jan 2026 23:21:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vj403-00000007sWD-3Cmf;
+	Thu, 22 Jan 2026 23:22:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj3zh-00000007sU5-2A0k
+	id 1vj401-00000007sW1-3g7v
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 23:21:41 +0000
+	Thu, 22 Jan 2026 23:22:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ED6176001A;
-	Thu, 22 Jan 2026 23:21:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D927C116C6;
-	Thu, 22 Jan 2026 23:21:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C1164601D0;
+	Thu, 22 Jan 2026 23:22:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CD40C116C6;
+	Thu, 22 Jan 2026 23:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769124100;
-	bh=vUOqLJV03qwaBfmuHwqXoOQ/IdKsiWbk/K4GdntR+BM=;
+	s=k20201202; t=1769124120;
+	bh=0IUxVmF2NPKqpazQLWHp4Nykdc7shfwJu1ETfcq9Hwk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lekxa4NhA2b+jIufWjek4xt/AQ3UGxjRXVopuVx1/yJ3TyznR95IhK28K94qlOC/r
-	 tpV6+BC7k9LYA8mY2TdXOpSrt2T0yF+mJTw6i8m2OHig9F1tS3l/Sk1L/d0cVM0CVt
-	 oK74KFnQgA5DDSTwKyG74sZTZ+wce0e/PocViI6eAvbGwbtrSlqbsIqD71V5IjQOLA
-	 dv9AKO58oxXnJ+aiqVLuWEyt0KUrdvfIL4tKzqm/6uw++PY4MUC4yHtMwZmW0A5z9+
-	 ui5GBZeoi2YRPwQBZUkLHTD6I2D/AjciWG+/gVNRAsDgxex/iI5ywdTjUUuv4Fka8/
-	 TfVxHvjFAtCKw==
-Date: Thu, 22 Jan 2026 17:21:39 -0600
-From: Rob Herring <robh@kernel.org>
-To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	=?iso-8859-1?Q?Cl=E9ment?= Le Goffic <legoffic.clement@gmail.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	jens.wiklander@linaro.org, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v4 03/12] dt-bindings: bus: document the stm32 debug bus
-Message-ID: <20260122232139.GA3717629-robh@kernel.org>
-References: <20260122-debug_bus-v4-0-28f0f2a25f2c@foss.st.com>
- <20260122-debug_bus-v4-3-28f0f2a25f2c@foss.st.com>
- <b8175f5e-f6fc-43ff-a36a-dfb8e15230da@foss.st.com>
+	b=ToH44nn3h9jLWpKIeZ/udSdD1Q2SrCSVgbdzlnkRQBsibIgRKZToBvVSbiKRt3arg
+	 p3L/brphpR6zhKDk2ER0YJyXAf+ea/bu8kDC+lOKr7aIJ4kMzErZik8UyOKO1OgPpj
+	 3O6sM3kQFks9cmeZujPW7oaN1v94lKvhFyPVdgzS7yek8gzlX31m8uveWFdHhOKKlE
+	 3TZkuD3/x3YveWYg2LNRlnvwEtr+PzpffV9Yk/gH40IyvvyrgG1PcQOZ2V/MzsGbkb
+	 awpHNck8L2xo+5+R6IgmaHeqqc/O2UXJGuF1FHYFx1S9lSPzOwOqOI1Or5hSbtT9DA
+	 ibtmf25Bjd+tw==
+Date: Thu, 22 Jan 2026 17:21:59 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Elad Nachman <enachman@marvell.com>
+Cc: chris.packham@alliedtelesis.co.nz, linux-kernel@vger.kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	linux-arm-kernel@lists.infradead.org, pali@kernel.org,
+	mrkiko.rs@gmail.com, devicetree@vger.kernel.org, robh+dt@kernel.org,
+	andrew@lunn.ch, gregory.clement@bootlin.com, conor+dt@kernel.org,
+	sebastian.hesselbarth@gmail.com
+Subject: Re: [PATCH 1/3] dt-bindings: arm64: add Marvell 7k COMe boards
+Message-ID: <176912411877.3721391.1140277184360139715.robh@kernel.org>
+References: <20260122165923.2316510-1-enachman@marvell.com>
+ <20260122165923.2316510-2-enachman@marvell.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <b8175f5e-f6fc-43ff-a36a-dfb8e15230da@foss.st.com>
+In-Reply-To: <20260122165923.2316510-2-enachman@marvell.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,118 +73,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 05:22:21PM +0100, Gatien CHEVALLIER wrote:
+
+On Thu, 22 Jan 2026 18:59:21 +0200, Elad Nachman wrote:
+> From: Elad Nachman <enachman@marvell.com>
 > 
+> Add dt bindings for:
+> Armada 7020 COM Express CPU module
+> Falcon DB-98CX85x0 COM Express type 7 Carrier board
+> Falcon DB-98CX85x0 COM Express type 7 Carrier board
+> with an Armada 7020 COM Express CPU module
 > 
-> On 1/22/26 17:19, Gatien Chevallier wrote:
-> > Document the stm32 debug bus. The debug bus is responsible for
-> > checking the debug sub-system accessibility before probing any related
-> > drivers.
-> > 
-> > Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
-> > ---
-> >   .../bindings/bus/st,stm32mp131-dbg-bus.yaml        | 77 ++++++++++++++++++++++
-> >   1 file changed, 77 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/bus/st,stm32mp131-dbg-bus.yaml b/Documentation/devicetree/bindings/bus/st,stm32mp131-dbg-bus.yaml
-> > new file mode 100644
-> > index 000000000000..57f01d301e75
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/bus/st,stm32mp131-dbg-bus.yaml
-> > @@ -0,0 +1,77 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/bus/st,stm32mp131-dbg-bus.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: STM32 Coresight bus
-> > +
-> > +maintainers:
-> > +  - Gatien Chevallier <gatien.chevallier@foss.st.com>
-> > +
-> > +description:
-> > +  The STM32 debug bus is in charge of checking the debug configuration
-> > +  of the platform before probing the peripheral drivers that rely on the debug
-> > +  domain.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    items:
-> > +      - enum:
-> > +          - st,stm32mp131-dbg-bus
-> > +          - st,stm32mp151-dbg-bus
-> > +
-> > +  "#address-cells":
-> > +    const: 1
-> > +
-> > +  "#size-cells":
-> > +    const: 1
-> > +
-> > +  ranges: true
+> Signed-off-by: Elad Nachman <enachman@marvell.com>
+> ---
+>  .../devicetree/bindings/arm/marvell/armada-7k-8k.yaml | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
 > 
-> Maybe maxItems:2 is preferred here, no?
 
-Wouldn't it be 1 as there is only 1 range? Up to you whether you want to 
-limit it or not.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-> 
-> > +
-> > +  reg:
-> > +    maxItems: 1
-
-Should be dropped?
-
-> > +
-> > +  "#access-controller-cells":
-> > +    const: 1
-> > +    description:
-> > +      Contains the debug profile necessary to access the peripheral.
-> > +
-> > +patternProperties:
-> > +  "^.*@[0-9a-f]+$":
-
-This can be: "@[0-9a-f]+$"
-
-> > +    description: Debug related peripherals
-> > +    type: object
-> > +
-> > +    additionalProperties: true
-> > +
-> > +    required:
-> > +      - access-controllers
-> > +
-> > +required:
-> > +  - "#access-controller-cells"
-> > +  - "#address-cells"
-> > +  - "#size-cells"
-> > +  - compatible
-> > +  - ranges
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/stm32mp1-clks.h>
-> > +
-> > +    dbg_bus: bus@50080000 {
-
-Drop unused labels.
-
-> > +      compatible = "st,stm32mp131-dbg-bus";
-> > +      #address-cells = <1>;
-> > +      #size-cells = <1>;
-> > +      #access-controller-cells = <1>;
-> > +      ranges = <0x50080000 0x50080000 0x3f80000>;
-> > +
-> > +      cs_cti_trace: cti@50094000 {
-> > +        compatible = "arm,coresight-cti", "arm,primecell";
-> > +        reg = <0x50094000 0x1000>;
-> > +        clocks = <&rcc CK_DBG>;
-> > +        clock-names = "apb_pclk";
-> > +        access-controllers = <&dbg_bus 0>;
-> > +      };
-> > +    };
-> > 
-> 
 
