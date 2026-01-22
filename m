@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF13C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 08:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87044C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 08:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jJMq3zTAlSiJhQdrQ5h7apWaEqr+jV1XVllsyVIWCB4=; b=ROiJQAMzOehJccDJqUJkokxTe5
-	09MPK97Rw9CHC43Yd8iqCzc3OGsEZHT2xVJinhDl5gxynYBD6qzxAdZ2P52dIY/QHoyHzczKxzZi3
-	IBhUhYqGW62laPybJ0UkUoZ4KOx+BXJADkNXQ7Y9674FMo+lzzPUhGuqk1DlbI8GdLvXP2js0f8cJ
-	1YaY9O9kj4tFG304wk9z4JE408dEntmruLRkCEr0XA6P/nxfSPDFi3UbOdgjb+llasXDqvmMMOWdL
-	kQF2E5/oqDgDj8JTHtTWNA0n3CrkwoLkbqoF4QLVWfhQYUdhq1BVulDRaSaDcHyKxHAhGnGvb17lc
-	sydTQzeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YpHkF0PLrAmWgJ2y41sYnkiBbZA8Rmsqiunwuw1wlLQ=; b=3i3LQzXQn+f8IcTqfgvzTlcA76
+	3Kgt7cl0KRuXLGEucF+Mm/YZegqAqtSCOe9iv4/NPmbcB8x3Z6gU5xSxPiq/413+kJjCsUGwc3r9c
+	5tHhu1Z2sGmolOp0WvDXu0gO3kysfE1bUQ1qgOBL6k04fI0wVd9dWh06gItmz7CdxlAZ066u4/EKa
+	h1X4OzIFYlynN8x9AaoZCyk4di2Ub+UFwAecie/NNiH4uEEmMTPjtdSwYfzQaAOv8xamDI3v/6aqG
+	DS/q0+tIUjfd18NYm+S0XksEA6GZRj4go8gwgI0tcReNYzR76YpxoxJwfFiOLgii6nbwsxVj4OayO
+	MEiO2wNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vipts-00000006dNm-19ZT;
-	Thu, 22 Jan 2026 08:18:44 +0000
-Received: from mail.8bytes.org ([2a01:238:42d9:3f00:e505:6202:4f0c:f051])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viptp-00000006dNN-2DxL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 08:18:43 +0000
-Received: from 8bytes.org (p4ffe051a.dip0.t-ipconnect.de [79.254.5.26])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.8bytes.org (Postfix) with ESMTPSA id 0012B1C03FC;
-	Thu, 22 Jan 2026 09:18:39 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
-	s=default; t=1769069920;
-	bh=7CIJ7TMjYpB8LpC3GI/NHJut7LLEZIAawxgiBGDf2Sk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PvMWY5ufBPgoOXsVdUw8Vj0CniCI9dAvxLDn4lDpuXmCKwHf2Gc0icqZELzs5/bxF
-	 hNLma+GYNrjzkPOB2Qi4+AsUIA14s87i2YIrIns6zc4PhvuV2MRETKhUZppOhAc+ZO
-	 QGhIF9P8a4rD10CKsr/W1YkuraSl0HsyvSmpxqlG2GQMDNQAFqIbyjiclWtBAR7EBY
-	 rwJVIzSjmh5iHWabfQ7oKB0IW2zjK9M184vYXLOwjmqd4/Z2zhJpdOFOGEe0Bw4xGJ
-	 PUWjW1bFZxAX6H9BTIBQAsDq7KiGmJLoJoO7pCJbKEBPMHsAltRtUIfPrAsN/CBAPq
-	 YvZDKQkPYin5g==
-Date: Thu, 22 Jan 2026 09:18:38 +0100
-From: =?utf-8?B?SsO2cmcgUsO2ZGVs?= <joro@8bytes.org>
-To: Danilo Krummrich <dakr@kernel.org>
-Cc: gregkh@linuxfoundation.org, rafael@kernel.org, broonie@kernel.org, 
-	will@kernel.org, robin.murphy@arm.com, robin.clark@oss.qualcomm.com, 
-	hanguidong02@gmail.com, quic_c_gdjako@quicinc.com, dmitry.baryshkov@oss.qualcomm.com, 
-	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH] iommu/arm-smmu-qcom: do not register driver in probe()
-Message-ID: <mo5v74ryxfwik4ggr56c2xha34sfwq2kq6suxi65pbqxrdppnj@oqkirr2kgrey>
-References: <20260121141215.29658-1-dakr@kernel.org>
+	id 1viq4z-00000006eCC-2zU3;
+	Thu, 22 Jan 2026 08:30:13 +0000
+Received: from m16.mail.163.com ([220.197.31.4])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1viq4t-00000006eBC-3tzx;
+	Thu, 22 Jan 2026 08:30:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=YpHkF0PLrAmWgJ2y41sYnkiBbZA8Rmsqiunwuw1wlLQ=; b=M
+	Eo/pl72xhjpuqjVaZfsFCyfB0Jh4pcQR8hNh9TA5djbetuG/xfJYoxILUJImg8AH
+	fGBfo1HuBNK7EGFiatWzQPWm0SBPqH7vU+l4ltBzyClTtclqaG6uKFX1pBcY3PLL
+	O+77urt1O+GXqgJAc6BU7gQPjJWhJbGQ3HLEz4iJNM=
+Received: from andyshrk$163.com ( [110.83.51.2] ) by
+ ajax-webmail-wmsvr-40-107 (Coremail) ; Thu, 22 Jan 2026 16:28:54 +0800
+ (CST)
+X-Originating-IP: [110.83.51.2]
+Date: Thu, 22 Jan 2026 16:28:54 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>
+Cc: "Harry Wentland" <harry.wentland@amd.com>, "Leo Li" <sunpeng.li@amd.com>,
+	"Rodrigo Siqueira" <siqueira@igalia.com>,
+	"Alex Deucher" <alexander.deucher@amd.com>,
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+	"David Airlie" <airlied@gmail.com>,
+	"Simona Vetter" <simona@ffwll.ch>,
+	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+	"Maxime Ripard" <mripard@kernel.org>,
+	"Thomas Zimmermann" <tzimmermann@suse.de>,
+	"Andrzej Hajda" <andrzej.hajda@intel.com>,
+	"Neil Armstrong" <neil.armstrong@linaro.org>,
+	"Robert Foss" <rfoss@kernel.org>,
+	"Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
+	"Jonas Karlman" <jonas@kwiboo.se>,
+	"Jernej Skrabec" <jernej.skrabec@gmail.com>,
+	"Sandy Huang" <hjc@rock-chips.com>,
+	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+	"Andy Yan" <andy.yan@rock-chips.com>,
+	"Jani Nikula" <jani.nikula@linux.intel.com>,
+	"Rodrigo Vivi" <rodrigo.vivi@intel.com>,
+	"Joonas Lahtinen" <joonas.lahtinen@linux.intel.com>,
+	"Tvrtko Ursulin" <tursulin@ursulin.net>,
+	"Dmitry Baryshkov" <lumag@kernel.org>,
+	"Sascha Hauer" <s.hauer@pengutronix.de>,
+	"Rob Herring" <robh@kernel.org>, "Jonathan Corbet" <corbet@lwn.net>,
+	kernel@collabora.com, amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org
+Subject: Re:[PATCH v7 10/22] drm/rockchip: vop2: Fix YUV444 output
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20251222(83accb85) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <20260121-color-format-v7-10-ef790dae780c@collabora.com>
+References: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
+ <20260121-color-format-v7-10-ef790dae780c@collabora.com>
+X-CM-CTRLMSGS: AbTxoXBsdXM9MTc2OTA3MDUzMzU4OV82OGJjODgyMTUxZmVjNWI2OWI5YzM2M
+ zgyYTBiMjU2Mw==
+X-NTES-SC: AL_Qu2dC/ycv00o4iSRY+kfmUgWjuw/WsG1v/Ul1YBSP556jCHp1zA+YHtOI0XuzsGkOiqykTu2XSVH2/VTe6BkepsbUyHYPfMpAkwhfRVxHtZeeA==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260121141215.29658-1-dakr@kernel.org>
+Message-ID: <7ab32c86.7542.19be4d21f69.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: aygvCgDXvwTG33FpCKpcAA--.14948W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbCxQbfPmlx38b4GQAA3C
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_001841_783560_27FBF6A6 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20260122_003008_378975_A8F43EDA 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,46 +105,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 03:12:01PM +0100, Danilo Krummrich wrote:
-> Commit 0b4eeee2876f ("iommu/arm-smmu-qcom: Register the TBU driver in
-> qcom_smmu_impl_init") intended to also probe the TBU driver when
-> CONFIG_ARM_SMMU_QCOM_DEBUG is disabled, but also moved the corresponding
-> platform_driver_register() call into qcom_smmu_impl_init() which is
-> called from arm_smmu_device_probe().
-> 
-> However, it neither makes sense to register drivers from probe()
-> callbacks of other drivers, nor does the driver core allow registering
-> drivers with a device lock already being held.
-> 
-> The latter was revealed by commit dc23806a7c47 ("driver core: enforce
-> device_lock for driver_match_device()") leading to a deadlock condition
-> described in [1].
-> 
-> Additionally, it was noted by Robin that the current approach is
-> potentially racy with async probe [2].
-> 
-> Hence, fix this by registering the qcom_smmu_tbu_driver from
-> module_init(). Unfortunately, due to the vendoring of the driver, this
-> requires an indirection through arm-smmu-impl.c.
-> 
-> Reported-by: Mark Brown <broonie@kernel.org>
-> Closes: https://lore.kernel.org/lkml/7ae38e31-ef31-43ad-9106-7c76ea0e8596@sirena.org.uk/
-> Link: https://lore.kernel.org/lkml/DFU7CEPUSG9A.1KKGVW4HIPMSH@kernel.org/ [1]
-> Link: https://lore.kernel.org/lkml/0c0d3707-9ea5-44f9-88a1-a65c62e3df8d@arm.com/ [2]
-> Fixes: dc23806a7c47 ("driver core: enforce device_lock for driver_match_device()")
-> Fixes: 0b4eeee2876f ("iommu/arm-smmu-qcom: Register the TBU driver in qcom_smmu_impl_init")
-> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
-
-Acked-by: Joerg Roedel <joerg.roedel@amd.com>
-
-This patch should go via the branch that contains
-
-	dc23806a7c47 ("driver core: enforce device_lock for driver_match_device()").
-	
-Otherwise we add a Fixes tag pointing to a commit which comes later in the git
-history.
-
-
--Joerg
-
+CgpIZWxsbyBOaWNvbGFz77yMCgpBdCAyMDI2LTAxLTIxIDIyOjQ1OjE3LCAiTmljb2xhcyBGcmF0
+dGFyb2xpIiA8bmljb2xhcy5mcmF0dGFyb2xpQGNvbGxhYm9yYS5jb20+IHdyb3RlOgo+WVVWNDQ0
+IChha2EgWUNiQ3I0NDQpIG91dHB1dCBpc24ndCB3b3JraW5nIHF1aXRlIHJpZ2h0IG9uIFJLMzU4
+OC4gVGhlCj5yZXN1bHRpbmcgaW1hZ2Ugb24gdGhlIGRpc3BsYXksIHdoaWxlIGlkZW50aWZ5aW5n
+IGl0c2VsZiBhcyBZVVY0NDQsIGhhcwo+c29tZSBjb21wb25lbnRzIHN3YXBwZWQsIGV2ZW4gYWZ0
+ZXIgYWRkaW5nIHRoZSBuZWNlc3NhcnkgRFJNIGZvcm1hdHMgdG8KPnRoZSBjb252ZXJzaW9uIGZ1
+bmN0aW9ucy4KPgo+SnVkZ2luZyBieSBkb3duc3RyZWFtLCB0aGlzIGlzIGJlY2F1c2UgWVVWNDQ0
+IGFsc28gbmVlZHMgYW4gcmIgc3dhcAo+cGVyZm9ybWVkIGluIHRoZSBBRkJDIGNhc2UuCj4KPkFk
+ZCB0aGUgRFJNIGZvcm1hdHMgdG8gdGhlIGFwcHJvcHJpYXRlIHN3aXRjaCBzdGF0ZW1lbnRzLCBh
+bmQgYWRkIGEKPmZ1bmN0aW9uIGZvciBjaGVja2luZyB3aGV0aGVyIGFuIHJiIHN3YXAgbmVlZHMg
+dG8gYmUgcGVyZm9ybWVkIGluIHRoZQo+QUZCQyBjYXNlLgo+Cj5GaXhlczogNjA0YmU4NTU0N2Nl
+ICgiZHJtL3JvY2tjaGlwOiBBZGQgVk9QMiBkcml2ZXIiKQo+U2lnbmVkLW9mZi1ieTogTmljb2xh
+cyBGcmF0dGFyb2xpIDxuaWNvbGFzLmZyYXR0YXJvbGlAY29sbGFib3JhLmNvbT4KPi0tLQo+IGRy
+aXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jIHwgMTkgKysrKysrKysr
+KysrKysrKysrKwo+IDEgZmlsZSBjaGFuZ2VkLCAxOSBpbnNlcnRpb25zKCspCj4KPmRpZmYgLS1n
+aXQgYS9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcDIuYyBiL2RyaXZl
+cnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jCj5pbmRleCBlYzNiNGZkZTEw
+ZGIuLjQ2OWM2M2RkOTdkNSAxMDA2NDQKPi0tLSBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9y
+b2NrY2hpcF9kcm1fdm9wMi5jCj4rKysgYi9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2No
+aXBfZHJtX3ZvcDIuYwo+QEAgLTE3Niw2ICsxNzYsNyBAQCBzdGF0aWMgZW51bSB2b3AyX2RhdGFf
+Zm9ybWF0IHZvcDJfY29udmVydF9mb3JtYXQodTMyIGZvcm1hdCkKPiAJY2FzZSBEUk1fRk9STUFU
+X0FSR0IyMTAxMDEwOgo+IAljYXNlIERSTV9GT1JNQVRfWEJHUjIxMDEwMTA6Cj4gCWNhc2UgRFJN
+X0ZPUk1BVF9BQkdSMjEwMTAxMDoKPisJY2FzZSBEUk1fRk9STUFUX1ZVWTEwMTAxMDoKPiAJCXJl
+dHVybiBWT1AyX0ZNVF9YUkdCMTAxMDEwOwo+IAljYXNlIERSTV9GT1JNQVRfWFJHQjg4ODg6Cj4g
+CWNhc2UgRFJNX0ZPUk1BVF9BUkdCODg4ODoKPkBAIC0xODQsNiArMTg1LDcgQEAgc3RhdGljIGVu
+dW0gdm9wMl9kYXRhX2Zvcm1hdCB2b3AyX2NvbnZlcnRfZm9ybWF0KHUzMiBmb3JtYXQpCj4gCQly
+ZXR1cm4gVk9QMl9GTVRfQVJHQjg4ODg7Cj4gCWNhc2UgRFJNX0ZPUk1BVF9SR0I4ODg6Cj4gCWNh
+c2UgRFJNX0ZPUk1BVF9CR1I4ODg6Cj4rCWNhc2UgRFJNX0ZPUk1BVF9WVVk4ODg6Cj4gCQlyZXR1
+cm4gVk9QMl9GTVRfUkdCODg4Owo+IAljYXNlIERSTV9GT1JNQVRfUkdCNTY1Ogo+IAljYXNlIERS
+TV9GT1JNQVRfQkdSNTY1Ogo+QEAgLTIyNSw2ICsyMjcsNyBAQCBzdGF0aWMgZW51bSB2b3AyX2Fm
+YmNfZm9ybWF0IHZvcDJfY29udmVydF9hZmJjX2Zvcm1hdCh1MzIgZm9ybWF0KQo+IAljYXNlIERS
+TV9GT1JNQVRfQVJHQjIxMDEwMTA6Cj4gCWNhc2UgRFJNX0ZPUk1BVF9YQkdSMjEwMTAxMDoKPiAJ
+Y2FzZSBEUk1fRk9STUFUX0FCR1IyMTAxMDEwOgo+KwljYXNlIERSTV9GT1JNQVRfVlVZMTAxMDEw
+Ogo+IAkJcmV0dXJuIFZPUDJfQUZCQ19GTVRfQVJHQjIxMDEwMTA7Cj4gCWNhc2UgRFJNX0ZPUk1B
+VF9YUkdCODg4ODoKPiAJY2FzZSBEUk1fRk9STUFUX0FSR0I4ODg4Ogo+QEAgLTIzMyw2ICsyMzYs
+NyBAQCBzdGF0aWMgZW51bSB2b3AyX2FmYmNfZm9ybWF0IHZvcDJfY29udmVydF9hZmJjX2Zvcm1h
+dCh1MzIgZm9ybWF0KQo+IAkJcmV0dXJuIFZPUDJfQUZCQ19GTVRfQVJHQjg4ODg7Cj4gCWNhc2Ug
+RFJNX0ZPUk1BVF9SR0I4ODg6Cj4gCWNhc2UgRFJNX0ZPUk1BVF9CR1I4ODg6Cj4rCWNhc2UgRFJN
+X0ZPUk1BVF9WVVk4ODg6CgpIb3cgZGlkIHlvdSB0ZXN0IHRoaXMgZm9ybWF0PyBJdCBzZWVtcyB0
+b29scyBsaWtlIG1vZGV0ZXN0IGRvbuKAmXQgc3VwcG9ydCB0ZXN0aW5nIHRoaXMgcGF0dGVybi4K
+CgoKPiAJCXJldHVybiBWT1AyX0FGQkNfRk1UX1JHQjg4ODsKPiAJY2FzZSBEUk1fRk9STUFUX1JH
+QjU2NToKPiAJY2FzZSBEUk1fRk9STUFUX0JHUjU2NToKPkBAIC0yNzAsNiArMjc0LDE5IEBAIHN0
+YXRpYyBib29sIHZvcDJfd2luX3JiX3N3YXAodTMyIGZvcm1hdCkKPiAJfQo+IH0KPiAKPitzdGF0
+aWMgYm9vbCB2b3AyX2FmYmNfcmJfc3dhcCh1MzIgZm9ybWF0KQo+K3sKPisJc3dpdGNoIChmb3Jt
+YXQpIHsKPisJY2FzZSBEUk1fRk9STUFUX05WMjQ6Cj4rCWNhc2UgRFJNX0ZPUk1BVF9OVjMwOgo+
+KwljYXNlIERSTV9GT1JNQVRfVlVZODg4Ogo+KwljYXNlIERSTV9GT1JNQVRfVlVZMTAxMDEwOgo+
+KwkJcmV0dXJuIHRydWU7Cj4rCWRlZmF1bHQ6Cj4rCQlyZXR1cm4gZmFsc2U7Cj4rCX0KPit9Cj4r
+Cj4gc3RhdGljIGJvb2wgdm9wMl9hZmJjX3V2X3N3YXAodTMyIGZvcm1hdCkKPiB7Cj4gCXN3aXRj
+aCAoZm9ybWF0KSB7Cj5AQCAtMTI5MSw2ICsxMzA4LDcgQEAgc3RhdGljIHZvaWQgdm9wMl9wbGFu
+ZV9hdG9taWNfdXBkYXRlKHN0cnVjdCBkcm1fcGxhbmUgKnBsYW5lLAo+IAkJIC8qIEl0J3MgZm9y
+IGhlYWQgc3RyaWRlLCBlYWNoIGhlYWQgc2l6ZSBpcyAxNiBieXRlICovCj4gCQlzdHJpZGUgPSBB
+TElHTihzdHJpZGUsIGJsb2NrX3cpIC8gYmxvY2tfdyAqIDE2Owo+IAo+KwkJcmJfc3dhcCA9IHZv
+cDJfYWZiY19yYl9zd2FwKGZiLT5mb3JtYXQtPmZvcm1hdCk7Cj4gCQl1dl9zd2FwID0gdm9wMl9h
+ZmJjX3V2X3N3YXAoZmItPmZvcm1hdC0+Zm9ybWF0KTsKPiAJCS8qCj4gCQkgKiBUaGlzIGlzIGEg
+d29ya2Fyb3VuZCBmb3IgY3JhenkgSUMgZGVzaWduLCBDbHVzdGVyCj5AQCAtMTMwOCw2ICsxMzI2
+LDcgQEAgc3RhdGljIHZvaWQgdm9wMl9wbGFuZV9hdG9taWNfdXBkYXRlKHN0cnVjdCBkcm1fcGxh
+bmUgKnBsYW5lLAo+IAkJCXZvcDJfd2luX3dyaXRlKHdpbiwgVk9QMl9XSU5fQUZCQ19FTkFCTEUs
+IDEpOwo+IAkJdm9wMl93aW5fd3JpdGUod2luLCBWT1AyX1dJTl9BRkJDX0ZPUk1BVCwgYWZiY19m
+b3JtYXQpOwo+IAkJdm9wMl93aW5fd3JpdGUod2luLCBWT1AyX1dJTl9BRkJDX1VWX1NXQVAsIHV2
+X3N3YXApOwo+KwkJdm9wMl93aW5fd3JpdGUod2luLCBWT1AyX1dJTl9BRkJDX1JCX1NXQVAsIHJi
+X3N3YXApOwo+IAkJLyoKPiAJCSAqIE9uIHJrMzU2Ni84LCB0aGlzIGJpdCBpcyBhdXRvIGdhdGlu
+ZyBlbmFibGUsCj4gCQkgKiBidXQgdGhpcyBmdW5jdGlvbiBpcyBub3Qgd29yayB3ZWxsIHNvIHdl
+IG5lZWQKPgo+LS0gCj4yLjUyLjAKPgo=
 
