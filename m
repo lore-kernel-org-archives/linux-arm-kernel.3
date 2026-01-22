@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C712BD3EE75
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EFCBD3EE74
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NxwedwyogLQilWvweKyY+aR4T1jYt+aDjCdUunkRE0I=; b=QEWzxswP6JluqWjMEmvM+WPyx2
-	jfLudV5jxT4MnT9kHLxzumYQqJjhuX4deluxs6sWxyAgvFZeroPV0YYFf+TkhlKktresdpxCD9S3u
-	fUFnELAnhURigYlGFc3Efo+4Bhe8+izF9UriflnpiY9cIroLBpvH2X+83IQSHtCJvFe8X4DUNHw/G
-	LvRklVxe3kVbN880roSERzTPrsQKYOq42Vzhx7BWJbVfeDriHydwplSFGlExqJt1Ckno7T93KSNOr
-	uERESffcshHSgq7JdxLuDRTzktilNKyljXBFFo4iR0Kf33l7vfwKuWN6CDqhQOxZTRrpJRCpOzWPO
-	4SS7JVVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cNoOeyLdRbrJPSI/I28lkpAsBvsGiM1vvz72sBr9geA=; b=qOPcxUPsnTrKT3e9OKCTW+moMJ
+	iyUj9Ry2vy2+veFFSwu31pzlc/+eLsE7+WGUane9I9etSb+sakqIozp54u99pwA3W+1kvpjg9XB8W
+	SRJVzd7m2RvZ/e/Fe+FJ7rb249PrBFqN0Z6GKIBznb3mRUAJLkfyfgdKMWF6VLPW4/wTFjAXQOo3a
+	0wvttADwiLEbN4BtiGeKJ6ikZ6F1SnHEtuWVnIABr5KKOKmri1ERBbBNhlteEgHU7WO8A2hzAhnAz
+	KvphtfCzP7VPvHO5YyJZXT4b85lKaq19QiSqf1YfqfoVSb5i+C2UetocXq+sIseiQD5FxtpvcgOCB
+	25uDNxaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwCE-00000007Hs0-2Ggx;
-	Thu, 22 Jan 2026 15:02:06 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1viwDV-00000007I2y-019h;
+	Thu, 22 Jan 2026 15:03:25 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwCC-00000007HrI-0a8T
+	id 1viwDR-00000007I2M-0CX5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 15:02:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769094124; x=1800630124;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=l77IAsVXahcW5YI/IdZW6IxkK1iQnfGhw6G2mzcbNLw=;
-  b=JSZLFxsY5jjvVj9hLSRqiZoXoWI+ayoQUE3F1rE7Fza7fXeYCpiWn/ZR
-   p0br/nO1Ul8/AgcGlzojAp++4uzF+E6cXvMvjpsCy5xtMvtAs8ZP0+MUJ
-   ww4rbJnjsqSFlc5K8NarkhLbH5/NGRxZFrgp463jExdMITb7dbO0IKyxf
-   QJvsAj2Ldk7yk76cM+xL4pQqbo4AholKw+YO+tqzgYTm66BZ+UnlT9Yo+
-   PNZATmJsCQVaP7tBzfmLCoXXxPcla4/ODxjTD1Xa44aXISGVwfhoIAOrs
-   9C4CWeGIpIPQT7ec573yfG+aY1Xz1Za3jubnKXe657sgypLh65MCnPHho
-   w==;
-X-CSE-ConnectionGUID: zxOOZ5cdQsaUfaDcFsfA+A==
-X-CSE-MsgGUID: ekM9QOoLSQe8lvwTcMvLLw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11679"; a="70384597"
-X-IronPort-AV: E=Sophos;i="6.21,246,1763452800"; 
-   d="scan'208";a="70384597"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2026 07:02:04 -0800
-X-CSE-ConnectionGUID: NW67R4G3RdaUyuKfqBUm4A==
-X-CSE-MsgGUID: n2EU29aJRAySn/f0MLrr3A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,246,1763452800"; 
-   d="scan'208";a="206805571"
-Received: from smoticic-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.225])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Jan 2026 07:02:00 -0800
-Date: Thu, 22 Jan 2026 17:01:57 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 3/4] ASoC: pxa2xx-ac97: Remove platform_data
-Message-ID: <aXI75VDA60hRIrYQ@smile.fi.intel.com>
-References: <20260122-sound-cleanup-v1-0-0a91901609b8@nxp.com>
- <20260122-sound-cleanup-v1-3-0a91901609b8@nxp.com>
- <aXI7LlXOiLSD2K1a@smile.fi.intel.com>
+	Thu, 22 Jan 2026 15:03:23 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 1853AC21AA6;
+	Thu, 22 Jan 2026 15:03:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 37575606B6;
+	Thu, 22 Jan 2026 15:03:19 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 47242119B82C7;
+	Thu, 22 Jan 2026 16:03:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1769094197; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=cNoOeyLdRbrJPSI/I28lkpAsBvsGiM1vvz72sBr9geA=;
+	b=bT6zFJXHZg4b/0Yur0HKyDxB7YVrRbw3CMxP+5Ir+R40QcBKAyqf+FJzlDonCEznoyVNhA
+	CCIHPkx+8/4GfsBmOyxq6hpQXyXd70tOyjrkZ1mWoKbBcueernf7T74/w7ABXAppVSQiJW
+	gDaaxcO7w2GjB17wCIKYfJ9NoXRjJZZRzjuDGxH5yMy0DAUsRJc3+mgmkPcPsf2LgQ9S45
+	H0XQkUyNrcZeWp/BK1JoD1rGYKDTSlEW4BU1MHdTqjT6VF1rtFC/yC6cD8knyTdXTEnCjH
+	i3JPQ0RGKBnqI0NzKNB/ifdENXRodl2vEY9kS+4LCNKTKV66j0jey1UVBH9f2Q==
+Date: Thu, 22 Jan 2026 16:03:11 +0100
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, Jyri Sarha
+ <jyri.sarha@iki.fi>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Russell King
+ <linux@armlinux.org.uk>, Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren
+ <tony@atomide.com>, Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
+ Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Markus
+ Schneider-Pargmann <msp@baylibre.com>, Bajjuri Praneeth <praneeth@ti.com>,
+ Louis Chauvet <louis.chauvet@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, Miguel Gazquez
+ <miguel.gazquez@bootlin.com>, Herve Codina <herve.codina@bootlin.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-omap@vger.kernel.org
+Subject: Re: [PATCH v4 20/25] drm/tilcdc: Use devm_drm_of_get_bridge()
+ helper
+Message-ID: <20260122160311.658cc219@kmaincent-XPS-13-7390>
+In-Reply-To: <20260122-camouflaged-cat-of-sorcery-7af8cf@houat>
+References: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
+	<20260116-feature_tilcdc-v4-20-2c1c22143087@bootlin.com>
+	<DFSVNE16870S.ABQUMH9BWMDY@bootlin.com>
+	<20260122-camouflaged-cat-of-sorcery-7af8cf@houat>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXI7LlXOiLSD2K1a@smile.fi.intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_070204_214407_AE4BF24C 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20260122_070321_223935_27E97E9D 
+X-CRM114-Status: GOOD (  27.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,34 +96,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 04:58:59PM +0200, Andy Shevchenko wrote:
-> On Thu, Jan 22, 2026 at 08:44:59PM +0800, Peng Fan (OSS) wrote:
+On Thu, 22 Jan 2026 15:03:21 +0100
+Maxime Ripard <mripard@kernel.org> wrote:
 
-...
+> Hi,
+>=20
+> On Mon, Jan 19, 2026 at 10:18:12PM +0100, Luca Ceresoli wrote:
+> > Maxime, I'd appreciate your opinion about the topic below.
+> >=20
+> > > -	int ret;
+> > >
+> > > -	ret =3D drm_of_find_panel_or_bridge(ddev->dev->of_node, 0, 0,
+> > > -					  &panel, &bridge);
+> > > -	if (ret =3D=3D -ENODEV)
+> > > +	bridge =3D devm_drm_of_get_bridge(ddev->dev, ddev->dev->of_node,
+> > > 0, 0);
+> > > +	if (PTR_ERR(bridge) =3D=3D -ENODEV) =20
+> >=20
+> > This patch is technically OK in the sense that the code before and after
+> > would be equivalent. However if it were me I would not do this change. =
+The
+> > reason is that both drm_of_find_panel_or_bridge() and *_of_get_bridge()=
+ are
+> > problematic when introducing drm_bridge hotplug, which is the long-term
+> > goal I am working for, but *_of_get_bridge() is more problematic than
+> > drm_of_find_panel_or_bridge().
+> >=20
+> > These functions are still there and not deprecated because there is
+> > currently no better replacement (and drm_bridge hotplug is not yet
+> > supported because of this and other things still to be done). To have a
+> > replacement, the panel_bridge lifetime needs to be reworked first and
+> > that's not going to happen overnight. So, all in all, if this patch is =
+not
+> > crucial to your series I'd consider dropping it. But if it is important=
+ I'm
+> > fine with applying it, it won't make a huge difference. =20
+>=20
+> Eh. I'm fine either way. I understand what you're saying, but this patch
+> doesn't introduce any *new* problem while it cleans up the driver, so I
+> guess we could merge it still. And further clean it up with what you
+> were suggesting later on.
 
-> > +	if (dev->dev.of_node) {
-> > +		reset_gpio = of_get_named_gpio(dev->dev.of_node, "reset-gpios", 0);
-> > +		if (reset_gpio == -ENOENT)
-> > +			reset_gpio = -1;
-> > +		else if (reset_gpio < 0)
-> > +			return reset_gpio;
-> 
-> No, please convert to devm_gpiod_get*() or even better to use reset-gpio driver.
-> TL;DR: no (reinstantiated) of_get_named_gpio() or alike must be in the kernel.
+As you want. I will then keep the patch. If anyone has reasons why these
+patch should not be merged, speak now or forever hold your peace! ^^
 
-Ah, you do it in the followup, right?
-If that is the case (I'm going to look into it after this one)
-Acked-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-
-And thanks for cleaning it up, eventually!
-
-> >  	} else {
-> >  		if (cpu_is_pxa27x())
-> >  			reset_gpio = 113;
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
