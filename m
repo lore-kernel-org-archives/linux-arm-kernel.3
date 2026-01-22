@@ -4,93 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62440C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 12:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C62A5C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 12:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Aw8PwRqcSFnjHYu9kruFq08beZFwPpI2ZTR02sRsPTY=; b=1xbNhVxTWzERqFpjTyW8UqxeSB
-	XR0uABFb/QWWHBwtYrivJuwJOuK0HETKcnJT1BINqPfHzA96Yz/rTqCqXfYeOQvHNK1sXNWS7oLDg
-	vA1bDRxEmoaZdkep1LZKsNU9Yxg9YYBS1BZ8qBaWEiM5RblFeFrdBajVS9XI8r0vm5vCEIMtZKSuP
-	zz37WabdcjZAFz3LsQuIUV1IiBVU7/8RfvKxHC0AMWaVdJfr/h7kLcejG5TT5dxVWBuW5dzS6ykTp
-	zhNpyb1K6KRfF3OZ2UAZVpM/p6bnbSe+fmPbBwixqJomRXuMeZhvO9QF8cBY862hHVrAJB2xYxw4T
-	DahF4jKw==;
+	bh=MnONHadiHlGxqKbve/p4kfBxT1gNFOR6bKW+t+kxRsI=; b=Kv3r2/7ix2Wy6ILAATx1BryKhl
+	Ox0vpmfedER/UaCP/cJUC9O7lhKPzKVNchHCrmSfTrnatTyXsTjNKYDmWj9b6Fic2KUU8kwlXb/DN
+	vterX6n0PR64kTO53Fj1kF2XCADjJqJCDRZhDaE8YTtlPzykI4Tm5rSr1JuIgb0dTXQwyEDzVtPo+
+	jRW+ZVZIVE0qzmcBip4K8nX1PeV49hvSmuy7v63Fr+a+0spLXfsQ0sID9AsktQ5/+43Ig8exMo/qt
+	NkgUap/1oE/dTMrRVhZsvM7S5yc1SLeNMbsyBqwa5eStgnZn6ZPP7Ad3x8sJRLciIC4QJ0S+Ing7g
+	u/Xe5hRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viteP-000000072jh-1nOb;
-	Thu, 22 Jan 2026 12:19:01 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vitfi-0000000733E-3QK7;
+	Thu, 22 Jan 2026 12:20:22 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viteN-000000072jE-1bqm
+	id 1vitfg-0000000732j-0rJW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 12:19:00 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48049955f7fso5425835e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 04:18:58 -0800 (PST)
+	Thu, 22 Jan 2026 12:20:21 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4327555464cso592889f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 04:20:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769084336; x=1769689136; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1769084417; x=1769689217; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Aw8PwRqcSFnjHYu9kruFq08beZFwPpI2ZTR02sRsPTY=;
-        b=c9vPot9T6CqevAiaX8dNT7K1E99FR0VisAyZHK+u5oYp8n7ugGgtPBh7tdejZ2vBCZ
-         nx/XIprX001mJyNgMFwOx2ExSMMaNi5ii8wWnbvxU1zAJMI6wFfqoQ19VT2826JPoNwR
-         geGze8snDCXsqJetjefcNap/fde29zfLoXcV4mlMj4pYBQpW9+h74T4+jYac36hEDQfK
-         QmlWfw58plzFOK/vvy2Ywh+kukIl6V7pn7VXjJOU/vBhC/RUuHrOa7md2Hb52YDsYSp5
-         RKGjR2X6kzA57evBb4vUQ8RWnxucEV0qP3pz+jX9DPqnClatX3CAvL8BieIzWLavsL+C
-         qDig==
+        bh=MnONHadiHlGxqKbve/p4kfBxT1gNFOR6bKW+t+kxRsI=;
+        b=UygqwqAhECTKsZhDjJ4701FZw4KMaweqUzFzzZTAMpUvdxwx99s53Okqy524VIYeiy
+         niTRXuEhnXm07xgD7/XBqMscy4/vDhvkxnfD+YkXLLjvtNCGM04TutuO2EgSlP9sEJKn
+         gYq1uC/qc2SheJnvLk5JsfzhckqjsfmLdRymxvtKOPcBUs8qnOqdLhhICNNdclA+hMM/
+         fCfu+Dy7IMDZ1RMsupQdJUg9R9FXiVF5Oah72swBW6H9ismFiU/tGLoqtRfS3OfA62in
+         SBUvLSD6lJ71dmnaEf/gN8++WFZgJp5o9XATdgC0yB5rarWtY8tRAl84Gp1civuN2OIP
+         xpcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769084336; x=1769689136;
+        d=1e100.net; s=20230601; t=1769084417; x=1769689217;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Aw8PwRqcSFnjHYu9kruFq08beZFwPpI2ZTR02sRsPTY=;
-        b=JLHp7HgiEKRUZ99sPLztH2IZNpGh8p73hvq8T7JBWtOJJR22iWtKUThXsy5DAuzu0T
-         zIMScGDdf39KeUuyb2YWBzueOZsmmxwZ5PuP9/OY92wy2+dJfnAjV51W3mmKuEjDySof
-         g5ZpkIZVQcic/MPztUAxAUx1A+1KRh5K37vUHRrQuSsCVeXGcix2luHYc7/dQxovr6Aa
-         jMxYSmK+MHDU7kQIXWMlYIFopcBIFSyOg1LC4c2a10T8UsLouZT4UPtOUC1XtWXWbkUV
-         BM9f6rIqaiUy/dSlprDMv2ATLHYWwkjiBw1CfEox+6vmxDF202NO3P+Yy9M93qhImbrC
-         SJCA==
-X-Forwarded-Encrypted: i=1; AJvYcCXOueCngVsnyWm3RRAoyGANcdQv/2mOQE/n1lNxn5lrMBxdDD3o9giLFGvJGpV39qWi3TV91CDNDVJdlM8fYofy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy70iBjN+mDcdeXFs3OK5Kv+yFZP2OovGeJZFJ6byQa/FwJW2OE
-	qiVfjOYc1Cgm5zppfO+N7PofB9Bp8Ih6Y+BWsjfjYiKDKcYXElqS0y5b
-X-Gm-Gg: AZuq6aJ/T1uOnU+S7cllo0oJftK4vq9X7PiOFAntJr8NclYy0Xy9nyl/b27uYwN2yLP
-	uLzcEL5eKs3UQLwHrsB5OAl38rTBZ6OJFaCzshupTfXCSOCKNkIuW/zOmkf8xy3z68tBTO87T1l
-	Uk3ngS/+BwsMsN1/oH6wIlQZchqgSQo+Og6EuR7xA++kLVuCwRdnA6ztxa+uZNyxBOhIScxX1GD
-	0qNZg3Lf3TB5I6dWZefCpzuYFwUf2IWMA5M4LgvyPclbdVxjKynpg77CxTDfQ3EHqWHSJRpd/N+
-	b+w1XlKX3PfgE81NR5WGKEk/jFqi7j+lUNxqoVRJHNb31uCVp7+cWN2QlUiHAzB4Sno5lACwIbM
-	bcQbTiA9h5NNAAAxH1HHXfQWP8LGElp9LeWkx87EusHpbWM7ItejcOesV2/VQLzVLdr0yvHP8B+
-	xfXVgGDR2oEjgSRfA5OAA19w==
-X-Received: by 2002:a05:600c:3e07:b0:480:3ad0:93bf with SMTP id 5b1f17b1804b1-4803ad094b1mr190051015e9.24.1769084335819;
-        Thu, 22 Jan 2026 04:18:55 -0800 (PST)
-Received: from eichest-laptop ([77.109.188.37])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43595e0a6fasm16302233f8f.10.2026.01.22.04.18.54
+        bh=MnONHadiHlGxqKbve/p4kfBxT1gNFOR6bKW+t+kxRsI=;
+        b=gFvl7Tc9onnNt67betYWYmM9Af6Nq8kzVltQpwc4wXbzPc+LIfdY5FOlZqo9PAsq60
+         Zs2dzc2siZSNbOEFLQqSGWX3ElrkOJZKjHohxkBPPd9s+2HdF6Yu27jMzk1QjVpmxpC2
+         I5de3tJXE7OiYeVGSfM4QLZ8FsCsDdFgB3K2XWlvVIB7/wrZ2yHkLkE4xhAoPJdf5Kwr
+         MV/ypgT4qFv9b38UH1PsrnFr42UFJPVgyt05Q2WUw0vBeeVQNp6AJjgSFPo8pJLT7XYz
+         40ysOfHB16/TS77tekbRkifRTgNKk8akvqvZFT8Cq4FTyZ8WD0GpxMnlv/+8u3Yow5Sb
+         SbIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVSrl2iQML2NZpE24LujniODZkn4j/oaZlWrFMQU3ADllaazncsL/9ouf6HNeA2ze9xSL3j0i2HnB0Lhmrgq2wD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoLTaRKMrsbIp2++6tC0OVQ8JZyHY/ccDIUgOwfKveUKaUP2hz
+	2LcJ6oxHULvsA0srWLQJOTSN11Piw1MICvLJSTfQKtm5oM62CDpAVqoK
+X-Gm-Gg: AZuq6aL99eOKmxApQMw2P0X9KDbTnYrt4i0SlYk9+isiQVbvdOqFQKzStrNnM10mSEx
+	UjL/DSQ0b9f/RsvK1Uwnu1nZKcOLyz+WavWeFbXC64Cxos/KuSVhpF2EajIAtf/dvwavOEoYmw6
+	D7mRk85Qyldhel7ONnPZvubGHZQ9kKstXqD5Iy7MlB15M7u9FkJKfR7GDIQleYjqF/CLvfoU8Fe
+	3B3UufCjCbR3oZwHTdY3hCpQpvfYXxfMEqP9BYcdQ8LsFBvEtEM+rdyltdNis5lWV+J/edEgu3a
+	9u4PXKU8C4GDyfcZj+XR57N3bTcpP0LQfQrkG957iIHeGAbqushq8fIalSH2uy6qz/0e9mGc08U
+	7RqyYDdO0EaGw1o1pUYSSl9Q1okAMAl1QImTlvtyFclxBn4OBw9lnha7EwirzcLu2qZmAWQg7a+
+	ffVC8fszD3fhwZk8tZS06w7d7CCzy49DWf5VnmOwRcjYihIxujxksyWrTTNpP/SMFaZV0z2Shp9
+	w==
+X-Received: by 2002:a05:6000:402a:b0:435:8d80:1b81 with SMTP id ffacd0b85a97d-4358ff4487emr14838984f8f.21.1769084416943;
+        Thu, 22 Jan 2026 04:20:16 -0800 (PST)
+Received: from orome (p200300e41f0ffa00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f0f:fa00:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435ab458d85sm4603429f8f.26.2026.01.22.04.20.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Jan 2026 04:18:55 -0800 (PST)
-Date: Thu, 22 Jan 2026 13:18:52 +0100
-From: Stefan Eichenberger <eichest@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>, o.rempel@pengutronix.de,
-	kernel@pengutronix.de, shawnguo@kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
-	s.hauer@pengutronix.de, festevam@gmail.com,
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	bsp-development.geo@leica-geosystems.com
-Subject: Re: [PATCH V3 1/2] i2c: imx: preserve error state in block data
- length handler
-Message-ID: <aXIVrFdTB4V6pnBh@eichest-laptop>
-References: <20260116111906.3413346-1-Qing-wu.Li@leica-geosystems.com.cn>
- <20260116111906.3413346-2-Qing-wu.Li@leica-geosystems.com.cn>
- <aXH_agPD8D2QIVs0@zenone.zhora.eu>
+        Thu, 22 Jan 2026 04:20:15 -0800 (PST)
+Date: Thu, 22 Jan 2026 13:20:13 +0100
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, arm@kernel.org, soc@kernel.org, 
+	Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: Re: [GIT PULL 1/4] dt-bindings: Changes for v6.20-rc1
+Message-ID: <aXIVmW_mjb0AdDwe@orome>
+References: <20260118080304.2646387-1-thierry.reding@gmail.com>
+ <20260122-hidden-goat-of-excellence-a43b9f@quoll>
+ <CAMuHMdUZqJa3KEWZReA734=ZV98JTD=HPztkszEe6ARFWiuhww@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="wfu6iycbl7nspgf5"
 Content-Disposition: inline
-In-Reply-To: <aXH_agPD8D2QIVs0@zenone.zhora.eu>
+In-Reply-To: <CAMuHMdUZqJa3KEWZReA734=ZV98JTD=HPztkszEe6ARFWiuhww@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_041859_463937_42127ED5 
-X-CRM114-Status: GOOD (  27.78  )
+X-CRM114-CacheID: sfid-20260122_042020_268179_73BADA8F 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,66 +102,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andi and Li,
 
-On Thu, Jan 22, 2026 at 11:48:54AM +0100, Andi Shyti wrote:
-> Hi Li,
-> 
-> I'm adding also Stefan in the Cc list as he has authored the
-> lines you are changing.
-> 
-> On Fri, Jan 16, 2026 at 11:19:05AM +0000, LI Qingwu wrote:
-> > When a block read returns an invalid length, zero or >I2C_SMBUS_BLOCK_MAX,
-> > the length handler sets the state to IMX_I2C_STATE_FAILED. However,
-> > i2c_imx_master_isr() unconditionally overwrites this with
-> > IMX_I2C_STATE_READ_CONTINUE, causing an endless read loop that overruns
-> > buffers and crashes the system.
-> > 
-> > Guard the state transition to preserve error states set by the length
-> > handler.
-> > 
-> > Signed-off-by: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
-> 
-> I asked you to add the Fixes tag here. Perhaps you need to add:
-> 
-> Fixes: 5f5c2d4579ca ("i2c: imx: prevent rescheduling in non dma mode")
-> Cc Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> Cc: <stable@vger.kernel.org> # v6.13+
-> 
-> You can get the information above with "git blame".
-> 
-> I'll wait for comments from Oleksij and/or Stefan here.
-> 
-> Andi
-> 
-> > ---
-> >  drivers/i2c/busses/i2c-imx.c | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-> > index 205cc132fdec..05ba41144648 100644
-> > --- a/drivers/i2c/busses/i2c-imx.c
-> > +++ b/drivers/i2c/busses/i2c-imx.c
-> > @@ -1102,7 +1102,8 @@ static irqreturn_t i2c_imx_master_isr(struct imx_i2c_struct *i2c_imx, unsigned i
-> >  
-> >  	case IMX_I2C_STATE_READ_BLOCK_DATA_LEN:
-> >  		i2c_imx_isr_read_block_data_len(i2c_imx);
-> > -		i2c_imx->state = IMX_I2C_STATE_READ_CONTINUE;
-> > +		if (i2c_imx->state == IMX_I2C_STATE_READ_BLOCK_DATA_LEN)
-> > +			i2c_imx->state = IMX_I2C_STATE_READ_CONTINUE;
-> >  		break;
-> >  
-> >  	case IMX_I2C_STATE_WRITE:
-> > -- 
-> > 2.43.0
-> > 
+--wfu6iycbl7nspgf5
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [GIT PULL 1/4] dt-bindings: Changes for v6.20-rc1
+MIME-Version: 1.0
 
-It looks good to me, thanks for the fix. I wonder if the functions in
-the isr should instead better return a status and based on that we
-decide if we have to change the state or not. Then we would have the
-decision to what state we swtich at one place. However, this would
-probably be too much rework for that fix.
+On Thu, Jan 22, 2026 at 12:02:04PM +0100, Geert Uytterhoeven wrote:
+> Hi Krzysztof,
+>=20
+> On Thu, 22 Jan 2026 at 11:08, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> > On Sun, Jan 18, 2026 at 09:03:00AM +0100, Thierry Reding wrote:
+> > > The following changes since commit 8f0b4cce4481fb22653697cced8d0d0402=
+7cb1e8:
+> > >
+> > >   Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+> > >
+> > > are available in the Git repository at:
+> > >
+> > >   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/=
+tegra-for-6.20-dt-bindings
+> > >
+> > > for you to fetch changes up to b2788f6320722d6059f849f35a77eb082608c6=
+27:
+> > >
+> > >   ASoC: dt-bindings: realtek,rt5640: Document port node (2026-01-17 0=
+1:58:18 +0100)
+> > >
+> > > Thanks,
+> > > Thierry
+> > >
+> > > ----------------------------------------------------------------
+> > > dt-bindings: Changes for v6.20-rc1
+> > >
+> > > This series updates various DT bindings for Tegra architecture,
+> > > primarily focusing on schema validation fixes and new feature
+> > > documentation for Tegra234 and Tegra264 SoCs. Key changes include
+> > > correcting realtek,rt5640 audio codec bindings (adding missing ports,
+> > > clocks, and jack-detect sources), converting Tegra20 NAND bindings to
+> > > YAML, and updating memory, DMA, and IOMMU definitions for Tegra264
+> > > (introducing CMDQV and DBB clock support). Additionally, it resolves
+> > > legacy warnings for Tegra30/132 display and VI interfaces.
+> >
+> > Same comment as was for Geert, I am surprised to see DT bindings as
+> > separate pull and I see drivers were alerady merged, so I will defer
+> > entire Tegra pull to Arnd.
+>=20
+> The soc tree used to have a separate branch for dt-bindings.
+> Hence several soc submaintainers still use that split for their PRs.
 
-Therefore, if you add the fixes tag suggested by Andi:
-Reviewed-by: Stefan Eichenberger <eichest@gmail.com>
+Yeah. I usually also only put things in the PR for ARM SoC that have no
+related driver changes (fixups, conversions, ...) and therefore nobody
+else feels responsible for picking up.
+
+Thierry
+
+--wfu6iycbl7nspgf5
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmlyFf0ACgkQ3SOs138+
+s6Gh5A/5AfOWWZlWQRR6QIPJvWj+TJAELr21m/e0TryGwrAkQJfn8/JzMy7CUVDM
+D17V/AYBsq+jqwHbo1jqn8pnHL7ivzFYRBS4j31U93plbm0FowXbS4smlMWAPCbS
+jW+PJ5pjoQ3LxSN8LgAAJJxvX8xuMy07prqt+Aj45ZDlVXJ3Ie7FoxwkzsMaK5AJ
+6iHcVTYZFVr/kOUbwv9JzxuuRSgV8kFKrZfWyXpNJJN0EYbB3WJd3zz9cJ1jWgOg
+JI4O4OvPHZavoRaRIGw6nqQhhIFGiO8HHn9rXppwtYbQ3pZBQkOt5uZBt+e8xfTB
+H6Ix2BAdtziymhzCCQNhrUC1V+iBgtZDK2lMKGc5p+fxtNewrT3ilC8zfkyZU4jY
+j1hxGXOCTcjYCwtBjxUhE8KlUxRhAYIXcGF9u40BWteZc1r1Ze2ZFAqwYNL0DxU6
+cy65ffKqyb9CvUTU406+zydeSJoal7xQ1y9Kd2wn7oGUh8oCGJeLniD24mgKqjuk
+XKLNPipq8aqDQ+6dVxI5uiV423FCxphIzx0hNlDt5+CS8feulUYgLVazJYJ3foeB
+ezwk0RPmgbh3PTqL32oCGMvvjkK9gtjdjvt9LW4TkePpO62tN7rm3dkI6EofbyZK
+7bHIrJGPrUA3QtUrWsU/SoqnM33HOhjDM62NU6BA3EJb6AWZr04=
+=8zEd
+-----END PGP SIGNATURE-----
+
+--wfu6iycbl7nspgf5--
 
