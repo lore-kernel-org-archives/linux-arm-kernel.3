@@ -4,165 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EA47C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B983C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=r05tQHc7HMBa2so/wpdZQdRDePJzCfJiaeIowMd3cVg=; b=qC6LN5MQsf3fumha5IR6Y0k9Ep
-	DqRj28zx5Rt2KGjnresxSEI2aKT04qH8RNAGosICK8ZHrhNZHPWBy6AGmXFJNQ7nl8M2H0eag1MZi
-	yriaAmSb01mqhCTSWVS/jv60wC8wI63g0zvaqwEfVnzGmgTeIXyZAmekGtYjsQI5cp72ZKi3+VPAB
-	OZrIYrYitSa2b0qSxlNiIvARdGTwXwYvY8O4ULBxfhBQpGLERg7b68xjHS8XeKOk66iWlWzrgewTY
-	k8W+2zp0r5KnX7BRWKXoi+0EzZ2m538oxYVKuA0Jlct0D29lPag9FxaKgmJAaQ94hHtEZeQVdp7lA
-	L9OJEX+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hgRWl7dvcHPI/iM3lLLq/fDWsyOLgllUFc6gqOMV6G8=; b=QhgtwJfc2oZsGsEz9i7EPEFiNW
+	Zq6nlwcy4k7o0jwSVl0vnMxbQ0rIet4M5UuPkMOjvX1e9CfmUOPCdXWcljEVrVfYBNVoH84DeXzYa
+	n0gjM3RPKThGVIkPMrQuXkTZejHjDjPo5cuSkEvSI8cp0mZpc+H5ID97WbECoG/p48HWhpAIPvqVp
+	Hkp0f8O50e8F25piqKU4xJkHM8DmI97Mt2eThVYa3Lzj2GCfeHj0trxk5ugXNAbFGhl5++opmlUCF
+	iek3suvo6q2D6CUZ+/yPrfyJVB/h3onp0DOUqASqrSoL3ryAnBOpMemU6uK8zTeDCBfW40OI4UTua
+	UrbFhfcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1visGZ-00000006urD-0E1i;
-	Thu, 22 Jan 2026 10:50:19 +0000
-Received: from mail-centralusazon11011064.outbound.protection.outlook.com ([52.101.62.64] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1visGc-00000006uu5-3hcD;
+	Thu, 22 Jan 2026 10:50:22 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1visGU-00000006uoJ-0S1m
+	id 1visGZ-00000006ur6-0APk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 10:50:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wDREKTvf+TW3zClkv6/yHfRkPqnDPad/8PN2cjoiRqly1O1O69+FHjJf0RoSYmf7drlnjpGwUgrS4+shTdpdTpgMptxJoPbMfkJbWXpUIBFpzBfVdBt3e1tgN+iS3j4SgQ5SdfZP1CHH5ikMjKXYB64Y0Q+Czx7AAjaMKIG9LYV/90bZOvd4cwzRjjTU2ZXeZsNi3Q+QNigoNjfZCKHFLVpIviajn2S+6YYT7P+RojVMabLOX+KFA8DKfQMqOk6w8Aqyp8s0RBnwIcQ97a4OUxfczR3370HjZloseoTMamJBWctDSwS6UCUb+llSKSYLHaAWJRZ68P3qjPv/Q38TtA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r05tQHc7HMBa2so/wpdZQdRDePJzCfJiaeIowMd3cVg=;
- b=ILaQVY9ff0mPTOMMWLsWNbFksECtXzRThGm08vYv6GAi1egeW1tN87u1TZ6gM5+iXL4xjCMUHuPLZzARpkVIJ/g3dajiOhdMHwNQgv6V9T1msCBKrjrsSJqprTRLLYJPHTXD59LfFyJaOQ2MqRSGEji11HRsLPrcJDCVxex2NrWK+hWxD235R7D5Kydgg+deyuvmOPmtmdrZWL6xzoNkfOt8duav6RsEAaCDMuyl6FpPV5yrfZWSerSc2NuAPZM71hfIBqRlNSOAwq3xPAF/kyB85F2crNP76EybrAnSMk31HdHKf0scSlhxETgn12Lro6uUTXerGeJ6Xk9N6yVIlA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r05tQHc7HMBa2so/wpdZQdRDePJzCfJiaeIowMd3cVg=;
- b=rp9uyG4QjZxtEmSX4uJoJpHxEGanZw1XqDJ4tNrBoDDjmZ1jQ4Og+S3+JrOpD12jV6ugWcYWdEEXHz0eON5gIme+jzK8KEt2B91o+NJFxgnqG8burEwNYUiW+iwRDGzqWNYOv4ThLnkmNjgOcflMW06D5CY/Zz1Ob4+202J4SD0=
-Received: from CH0PR03CA0307.namprd03.prod.outlook.com (2603:10b6:610:118::8)
- by SJ0PR10MB4800.namprd10.prod.outlook.com (2603:10b6:a03:2da::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Thu, 22 Jan
- 2026 10:50:10 +0000
-Received: from CH1PEPF0000AD81.namprd04.prod.outlook.com
- (2603:10b6:610:118:cafe::14) by CH0PR03CA0307.outlook.office365.com
- (2603:10b6:610:118::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.10 via Frontend Transport; Thu,
- 22 Jan 2026 10:49:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CH1PEPF0000AD81.mail.protection.outlook.com (10.167.244.89) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.3 via Frontend Transport; Thu, 22 Jan 2026 10:50:07 +0000
-Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 22 Jan
- 2026 04:49:50 -0600
-Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 22 Jan
- 2026 04:49:49 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 22 Jan 2026 04:49:49 -0600
-Received: from [127.0.1.1] (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60MAnj3m438214;
-	Thu, 22 Jan 2026 04:49:46 -0600
-From: Dhruva Gole <d-gole@ti.com>
-Date: Thu, 22 Jan 2026 16:19:08 +0530
-Subject: [PATCH] arm64: dts: ti: k3-am62l: support cpufreq
+	Thu, 22 Jan 2026 10:50:20 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60M87tAC2277184
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 10:50:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	hgRWl7dvcHPI/iM3lLLq/fDWsyOLgllUFc6gqOMV6G8=; b=evXaYxiBSZQaEWYv
+	+VBuSfXwQhkd87y/Bj0AHJ4meuEOTVNM3rFH+6b6vkpPYPLtrpoSCazdObFE9RVm
+	IonjcAU5x4ETLTB5Yn9UvT5Xo/h5bfa21u7un59kndyipQpR9CXspqStcZuZAT46
+	4lyMnPqj5eav6fTHpuCjJmfdtx2lkIIqA40WwvjweTn6NoLF2Az80URxgSKuZHXT
+	vGgWTDza2YHIG7adWsaelUD7iTnHW5e/pJMCXZqiroRNv7ZsAAc/NATZp5PbHF0L
+	Kht9wN38j6taR7a5lTHZZoB3LDAenpIIA4YG48TuvmtrnL7baItNL6IpoVj88zxb
+	IOKEFQ==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bu7fat0u6-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 10:50:18 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-5014d8b3ae0so20237651cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 02:50:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1769079017; x=1769683817; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hgRWl7dvcHPI/iM3lLLq/fDWsyOLgllUFc6gqOMV6G8=;
+        b=EfKdYTOAemh7/naJ3AOjUhfZBPAs9cXZOA7tc96EChAxV2SM1CMsHnLFK2j4+U4DvU
+         cC0MzCFTWBeECEFH3TrxkdxrDPJEM3VESULboed0UJlTTS2ciQ0hPfQfaJ/GZZjpTnbm
+         3Pae+2lIZ3wjN+b5Oh3seXhW0KAykm8tXTLDksM0dwDt8Tbkab/zzgF/SzDdx+sV93wf
+         SlmLzAUWlmmbZnlQlWecu5X0k1mdd3M/VumMfHr3CdzsDXSC8hJpSe4DJgiwXzjK+0FW
+         7pUvJes9FeTKD5cBWEVxaIJMq9KabjqJ+zr9jG3LLgaco2enlCx7qWOQDUPfKk5SnSiZ
+         ZXiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769079017; x=1769683817;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=hgRWl7dvcHPI/iM3lLLq/fDWsyOLgllUFc6gqOMV6G8=;
+        b=kdITyZ5THIVadNohV3/aC4rSlX3v+DVuz5oJpWsUfYtkwg8XoD3d8S2a6WchKNI0CE
+         z37aTGpgJ0UgUy1A2VFYFdFO17IbpfuxTUP/GeCE1pTGwYRzHvGzRkxM1ngEEIGVcn/Q
+         tKI7W2SQGsTUxLcomIGvPhwuJyNsCY89A/QPBqNe1XrrYezrnvkP6nrhaWLtAfrQkNxR
+         EIjZZfKT6HkgbJSz+QtVWYFZ0iFCzBMvXvVI1Cch6lGC6KAKssjM/7MXqqTgLPERM31D
+         3xJeACJbYTanylAuniCezGkfje7SJNLsUzS1cSejBuRT2YN5dTfR/5WRg52x0n9lYk7f
+         MPbg==
+X-Forwarded-Encrypted: i=1; AJvYcCWSA7rfADFoGQ6HdJtas4Lh8muWQj+GLTw3qBWrNpEcsXYH2t8YHMsN4+mqsqWCGwuqkgTXxV4sZZUsMQ7T0q3w@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAucuXerDzGsTQmmUN6aMnTKPyjv6vhG7bDhjNEhwz6SOK+gVD
+	E5HAliGAF3Hv96rdowfkKZGeWsaehy2a17J4PyZOHzLRmlWpRy2JQyShC/UJZYEB3npCYdLlzyn
+	1TL6l+xaFfiNq2uVuFgJB5nr69dptQY1mjG7gv5z64AmWtIHt6fR0Dd4sPEVvH00rsbBUv4YSWZ
+	FQOw==
+X-Gm-Gg: AZuq6aLq7jcmpjeHeYL4jGR9RzUIKVDA7edIR4y1TK7kaLfbLkWuSyvH+nXm6K7iUlk
+	N0TMhDaBBv0NQNDpLOhTX9JA/NZrHBW2hv/LF8YTsnp2MehJG+6wHd/y76jbqHjHpcgVJsiQsPc
+	8PEA/7gZ1abl+oFViAZa/jyGJBqbqlFoBePqqyRfcl5N/x6XXMTVCwhxJXYpf0wKJZw5007VEbz
+	VCMy4U7cUX7DmNMSv+BZNhgbLj5UQ3ImvyInPTutzCHxWzMIzyTC9aWCuyRnWNNl+pOm1wXZ6NB
+	roOQJHSQqFIZsTyxKLiElKvu3X1qkFjTaCEBBY4BuuKg08XCqYgvT5zOKJhTrAxhcTDlR+/Wbqe
+	B1GSPrNR3QIz7ucEXe5+VW/Krq+VWQy7jmuYDFjf4jt4erKSExpskOSBwQkvfaCQFghczl0fw26
+	yR
+X-Received: by 2002:ac8:5fca:0:b0:4e7:2210:295f with SMTP id d75a77b69052e-502d84b0ca5mr104417581cf.13.1769079017250;
+        Thu, 22 Jan 2026 02:50:17 -0800 (PST)
+X-Received: by 2002:ac8:5fca:0:b0:4e7:2210:295f with SMTP id d75a77b69052e-502d84b0ca5mr104417371cf.13.1769079016824;
+        Thu, 22 Jan 2026 02:50:16 -0800 (PST)
+Received: from WENMLIU-LAB01.ap.qualcomm.com (Global_NAT1_IAD_FW.qualcomm.com. [129.46.232.65])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-502a1d9ee19sm121704901cf.14.2026.01.22.02.50.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Jan 2026 02:50:16 -0800 (PST)
+From: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
+Date: Thu, 22 Jan 2026 18:48:56 +0800
+Subject: [PATCH v5 5/5] arm64: dts: qcom: talos-evk-camera: Add DT overlay
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260122-am62l-dt-cpufreq-v1-1-fabcc15e25fa@ti.com>
-X-B4-Tracking: v=1; b=H4sIAKMAcmkC/x3MPQqAMAxA4atIZgNt1A5eRRxKm2rA31ZFEO9uc
- fyG9x5IHIUTtMUDkS9Jsi4ZuizAjXYZGMVnAykyShOhnQ1N6A902xki7+ioDooqY71uIGdb5CD
- 3v+z69/0AuspmzmIAAAA=
-X-Change-ID: 20260122-am62l-dt-cpufreq-c24f0236ad15
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Tero
- Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Kendall Willis <k-willis@ti.com>, "Bryan
- Brattlof" <bb@ti.com>, Viresh Kumar <viresh.kumar@linaro.org>, Dhruva Gole
-	<d-gole@ti.com>
+Message-Id: <20260122-sm6150_evk-v5-5-039b170450a3@oss.qualcomm.com>
+References: <20260122-sm6150_evk-v5-0-039b170450a3@oss.qualcomm.com>
+In-Reply-To: <20260122-sm6150_evk-v5-0-039b170450a3@oss.qualcomm.com>
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Robert Foss <rfoss@kernel.org>,
+        Todor Tomov <todor.too@gmail.com>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>
+Cc: linux-i2c@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-media@vger.kernel.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org,
+        Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769078986; l=3821;
- i=d-gole@ti.com; h=from:subject:message-id;
- bh=yswjAnuTkwC000Wn0FE235l5J8AUL16whf8wkH6H3UE=;
- b=WxCqEyaSJsKgDhQ/mG/bsyXUNUdmzH/vH99SVgmAmwTXZ1O78ILAYfCLgVEjVvK1+FfY8cEYa
- 6GAgScsJvrrBcubzKb10xPgCaUpqaOIbPC1Tp2I9EZZXaq8cEfMXDhp
-X-Developer-Key: i=d-gole@ti.com; a=ed25519;
- pk=k8NnY4RbxVqeqGsYfTHeVn4hPOHkjg7Mii0Ixs4rghM=
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD81:EE_|SJ0PR10MB4800:EE_
-X-MS-Office365-Filtering-Correlation-Id: f6bbf2b0-6d19-485d-a628-08de59a401f1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?L1VQcE1wWFNWL3pQaGcrWVhoQ1RaZW9OV0w3VFFsNGd2aE14ekxQMVpvQ1cr?=
- =?utf-8?B?cWE3MlpqVXlXN2hQVmxuMlFuQnlsZ0FoUHZzSmJoZC9uR2I0QlpvR0dZRVdv?=
- =?utf-8?B?ZCt0OFBXVGVXaXd0UFZIeDBNRnkrVkF5OURVc0VzcmFEbXhoazFGTGRGdFhp?=
- =?utf-8?B?dHJCV2tscVNqdStnVjRNUVhsT0doM2twTVNTNHQwYVpzWGpYblBVTDRNOVJo?=
- =?utf-8?B?MFdLRzNrQm1zVCtBZ1phbEt1MlVYNUZoSmUrKytJY3FqMnZ4ZEZhNHpVL1lp?=
- =?utf-8?B?QXFuMzNsNkZBNndaRXZaemIrQlFvUEFrRVNQelRwVk1BK2t4K0dud0xta1dC?=
- =?utf-8?B?Nm15eGlqWElGYXl2bUpwQlVWdnRhUDhudUZqaEd3djFsNVVTN3ZDZDM3enBN?=
- =?utf-8?B?aGhqalNHNllQV3VObGwxWWNjSmpFallzSVlIVTJkMEkvVk1WMkhuSVFkMGxW?=
- =?utf-8?B?V1FIczZFVk9oMkRvdGVUMXdwWjZxOGU2dWkvYlJjYUF3YjNUSzBtaVp0Zm1o?=
- =?utf-8?B?ZVl0V2xEamhaWEpPdU52RWZqTDA5Z3FGVWpMUndVSzJiUnh2M0hhT1Z0MUV6?=
- =?utf-8?B?a2p2Yytpc2tQWSsyZVZiWnc3dEt1K1NUbmcyL2ptcXdOaXR2Z0QwNTJEVTU0?=
- =?utf-8?B?dkYya0R2eXU4bnV0dkJ3VG1DL1hvVVZpdHpUZXJXM3dmZGlJTGREeFh2QmNi?=
- =?utf-8?B?TzBCM1VzVjlxUGxBVkNjMFB6clloNk8zcmZrbDBTRldvOXF3Rk5GWUR1Q0hH?=
- =?utf-8?B?NUt6Rk0wUDh4Zyt2b0lXWVU4QkQ3Qm9wejFOQWMrUkY2bVNoK1hCaDNvS08z?=
- =?utf-8?B?MTdhajFkV3cyRG80MERiMDNWY3l5OE5EVEhKNVh6aC84Ym9WOGtPdFFaVkJM?=
- =?utf-8?B?bFk1TnJIU1pwanNYb0JveHRTTkk3ZUdOUy9rb094WlpaVmJpU0wvckRwZzd5?=
- =?utf-8?B?OVpRS2VTbk95Vk5IZ3liR044STR6WlF3eW5Sc3ZvNzZYMi9Bc3Z0VjNUK3ph?=
- =?utf-8?B?NlZya3AvKy90cE5ERVg5MWpTeHl1SGo5aXk3L3hGQVlnNXV5WXNKR3ExRzk3?=
- =?utf-8?B?TXF5bFFaVXFZbm54OExWa2NENitnSDJsWWQ3V3VMOGF3VStIcS9nVXFGTTRy?=
- =?utf-8?B?SWlzWE9vYXZMRlBKOUVyT0VIRG1XblFWMWx0TlRva0ZGRm1MRFBiSk9qa3Zv?=
- =?utf-8?B?bzMxL2YxRFRBT3BhS3I0QTBMY0pUcExOM1Jod0x2Tkk0aDBBVExtVk54dFph?=
- =?utf-8?B?cG1jMzN3UUcrV0w3L1Z0S09zUDluczg2RkJGUFU1cmk0SFpDLzBJUkJYaVdx?=
- =?utf-8?B?ZGdMSEJ1TmZoblZ5VFlyZ2V2YkIreERReDlvTGxRY0lVQmVvZVA4clZOdEFT?=
- =?utf-8?B?R3lZeEZzN3RqYU43YkZlQ0pRTEVZYXpDWGZadGExa01nNmhwalJZRi9ldnUr?=
- =?utf-8?B?UHJadWVKYmwzTy9UZWREbWhOVlUyU0NDbWpFL251SkxkUnlMSmI2T0lyMUVv?=
- =?utf-8?B?WWozczFZRjB4OUE4VU1GYm5FZzJzRUdkMzdraGcyYnJGdTRkRnpieVIwZEtW?=
- =?utf-8?B?NXp1WlZ4L2gxQnRic3hhZmNLUmdDdGtqeG1ESlhPR25LeVlwWUlQU3BJaTg3?=
- =?utf-8?B?SHlIa3FHSW12NEJNSE9FNlRSdHFZSDM0SEo5NG1ZT3dsMm5hOXRwWkZycXkw?=
- =?utf-8?B?Y29abWswcFNVN281dU85bVk5SzVQeXBuVDM2UHZERGI4V0tMVE1VZk01YzdG?=
- =?utf-8?B?RkpzbHAvekU4M1gxNFUwVzd3a0JVZjEwS1VyMGtWNGpMODF3ZUZleFNVNVZB?=
- =?utf-8?B?N0E1Wmc3TVdHeTVKUmFISCt2VnlqOWZJS2hMa0pBOElGcHFLNHJTVmw4Qlk1?=
- =?utf-8?B?UU1HKzBNYmEwOVJQY2Fqa1dXbDBUcDlIK2NlbDRqbVcyazhBdTlzN2ZFWTgx?=
- =?utf-8?B?bUZOeEt5QldPc1ZWM1U4UGdTZmNvMTZOUXJxSEVnenB0c2ROMGhyTUpmbm05?=
- =?utf-8?B?ckplM3VsRDQrN3U4cW1xOU9idmZUNHJGRGpZZFZ5azBhWTNlb2E3VEdDWXJQ?=
- =?utf-8?B?b0ZyTGdsL3N6dVNpUDhmQXBxRDhNTmIzSjI3ajYrWmpOSTZ2Y2hIZWZhY0xs?=
- =?utf-8?B?OTc0REx3MFptL1RkMW1RNHkwLys5Uld1WkRlRllaMm82Wnh1eXIrTGgyOEk0?=
- =?utf-8?B?NzVreDcrWkl1cUdRdGtRVnB4MUd3WDNWWEo5K0hodmxZN3NrK0RRYzZyMnp6?=
- =?utf-8?B?UDZYQjcyWS9BQi9GNUlDaXZpNGZBPT0=?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 10:50:07.4391
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f6bbf2b0-6d19-485d-a628-08de59a401f1
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD81.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB4800
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769078967; l=3019;
+ i=wenmeng.liu@oss.qualcomm.com; s=20250925; h=from:subject:message-id;
+ bh=t5OG46p4ljnSn6Ugt7/7Wx2T2LZF7712SOUc7lxrUEc=;
+ b=URKlVySI9bGyFKXmi/af25h80gqnu4VJjSXLLRwz6zqMcNzAll63j7bl35RrIxcIpvsSQ5ynL
+ ezsaxvknZJCB/yHb/I0v1nG7WDk2WKAFwlUKpi7YznekQBDOvCW2je9
+X-Developer-Key: i=wenmeng.liu@oss.qualcomm.com; a=ed25519;
+ pk=fQJjf9C3jGDjE1zj2kO3NQLTbQEaZObVcXAzx5WLPX0=
+X-Authority-Analysis: v=2.4 cv=Hrx72kTS c=1 sm=1 tr=0 ts=697200ea cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=C3Dk8TwHQYyIj7nOf9RCJw==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8
+ a=G5RPoKDYpsqj7oBEIzsA:9 a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTIyMDA3NyBTYWx0ZWRfXxhZnUWQrmMx9
+ 4KJiQ/Mtso/uQSKn/ZXy+UNSIRKYukrBveeX6y3rb3pX0OJ5gxQNOxb8PawnWC7D2dI3Bw1OO+h
+ UaqUFZU8CQ2pHfbnpWxgAqT92tQJgwHFkQNk9dh4k87WKjACHtQ6ffJhb2/0M90jXcueeGQOXRS
+ affIHSw60+yS2YtHiYLnZYCvTpYUWKUkRCqpL9x5KPdjFRPmwAMnuXOM0+eQV6NoqObj2sejluI
+ 3//I6fw1JLhVmzJaSPmzRdDhkMpNFjHJE1Nq1FpHLNEIx2GUp4HUQDATCqg2x8Q/oWUjUxSJue5
+ tyOkUNJ8QbXwLo1n2Vmpd3nty56Kzl2+pQXpTBHaOicCEjsY4sI95nPkk7IsK6LrMYKgxNfhZe/
+ 9P7gu6TAs1B/eAM7xC+gHgJgdPEJjXPq412Mr4LqL7d0E+k0m5WHy5F3rWjoUrQCUTQwBzH+mc4
+ w7JhkcPN8SovTQ2wSUA==
+X-Proofpoint-ORIG-GUID: SjpEfW9RxGl3JOSpc1e5dy9MRr0o_T_7
+X-Proofpoint-GUID: SjpEfW9RxGl3JOSpc1e5dy9MRr0o_T_7
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
+ definitions=2026-01-22_01,2026-01-20_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 lowpriorityscore=0 clxscore=1015
+ impostorscore=0 bulkscore=0 suspectscore=0 adultscore=0 phishscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
+ definitions=main-2601220077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_025014_162115_2F776FDB 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20260122_025019_102060_72797848 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,132 +166,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable CPUFreq support for AM62L SoC by adding the relevant OPP efuse table
-syscon to k3-am62l-wakeup.dtsi for speed grade detection.
+Enable IMX577 via CCI on Taloss EVK Core Kit.
 
-Add the operating-points-v2 table with CPU frequency steps from 200MHz to
-1.25GHz to k3-am62l3.dtsi
+The Talos EVK board does not include a camera sensor
+by default, this DTSO has enabled the Arducam 12.3MP
+IMX577 Mini Camera Module on the CSI-1 interface.
 
-Configure CPU clocks to reference the SCMI clock controller for frequency
-scaling
-
-This enables proper CPU frequency scaling capabilities for the AM62L SoC
-using the ARM SCMI protocol to interact with the power management firmware.
-
-Signed-off-by: Dhruva Gole <d-gole@ti.com>
+Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
 ---
-The driver changes were merged previously [0], and so the DT patch
-is now being posted seperately. 
+ arch/arm64/boot/dts/qcom/Makefile                  |  3 ++
+ .../boot/dts/qcom/talos-evk-camera-imx577.dtso     | 63 ++++++++++++++++++++++
+ 2 files changed, 66 insertions(+)
 
-Logs:
-
-root@am62lxx-evm:~# cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_available_frequencies
-200000 400000 600000 800000 1000000 1250000
-200000 400000 600000 800000 1000000 1250000
-
-Changelog:
-- fix the bit fiels in the OPPs as per Kendall's suggestion
-- Fix the scmi_clk ID of the second A53 core
-
-[1] https://lore.kernel.org/all/20260120-am62l-cpufreq-v3-0-8c69b80168a3@ti.com/
----
- arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi |  5 +++
- arch/arm64/boot/dts/ti/k3-am62l3.dtsi       | 47 +++++++++++++++++++++++++++++
- 2 files changed, 52 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-index 61bfcdcfc66ea8d802a36ed43cd01fbbf3decc70..a42ccd0d2fcc4d204cae81508f839c44ce83f558 100644
---- a/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-@@ -127,6 +127,11 @@ chipid: chipid@14 {
- 			bootph-all;
- 		};
- 
-+		opp_efuse_table: syscon@18 {
-+			compatible = "ti,am62-opp-efuse-table", "syscon";
-+			reg = <0x18 0x4>;
-+		};
+diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
+index a2e48b58323c10735c8b98996cee6669e4f918e7..b505b5b1aa2feaaae691977b35a2d872751c4a46 100644
+--- a/arch/arm64/boot/dts/qcom/Makefile
++++ b/arch/arm64/boot/dts/qcom/Makefile
+@@ -349,8 +349,11 @@ dtb-$(CONFIG_ARCH_QCOM)	+= sm8650-qrd.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-mtp.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= sm8750-qrd.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk.dtb
++dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-camera-imx577.dtbo
++talos-evk-camera-imx577-dtbs	:= talos-evk.dtb talos-evk-camera-imx577.dtbo
+ talos-evk-lvds-auo,g133han01-dtbs	:= \
+ 	talos-evk.dtb talos-evk-lvds-auo,g133han01.dtbo
++dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-camera-imx577.dtb
+ dtb-$(CONFIG_ARCH_QCOM)	+= talos-evk-lvds-auo,g133han01.dtb
+ x1e001de-devkit-el2-dtbs	:= x1e001de-devkit.dtb x1-el2.dtbo
+ dtb-$(CONFIG_ARCH_QCOM)	+= x1e001de-devkit.dtb x1e001de-devkit-el2.dtb
+diff --git a/arch/arm64/boot/dts/qcom/talos-evk-camera-imx577.dtso b/arch/arm64/boot/dts/qcom/talos-evk-camera-imx577.dtso
+new file mode 100644
+index 0000000000000000000000000000000000000000..53006a861878f9112673b9a0ad954bed7a5fdca5
+--- /dev/null
++++ b/arch/arm64/boot/dts/qcom/talos-evk-camera-imx577.dtso
+@@ -0,0 +1,63 @@
++// SPDX-License-Identifier: BSD-3-Clause
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
 +
- 		cpsw_mac_syscon: ethernet-mac-syscon@2000 {
- 			compatible = "ti,am62p-cpsw-mac-efuse", "syscon";
- 			reg = <0x2000 0x8>;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62l3.dtsi b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-index da220b85151227c63f59b2b8ec48ae2ebb37e7bf..26d3040ff53259daba21b39a55bb8a2ed65d4e8f 100644
---- a/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-@@ -39,6 +39,8 @@ cpu0: cpu@0 {
- 			d-cache-line-size = <64>;
- 			d-cache-sets = <128>;
- 			next-level-cache = <&l2_0>;
-+			operating-points-v2 = <&a53_opp_table>;
-+			clocks = <&scmi_clk 356>;
- 		};
- 
- 		cpu1: cpu@1 {
-@@ -53,6 +55,8 @@ cpu1: cpu@1 {
- 			d-cache-line-size = <64>;
- 			d-cache-sets = <128>;
- 			next-level-cache = <&l2_0>;
-+			operating-points-v2 = <&a53_opp_table>;
-+			clocks = <&scmi_clk 357>;
- 		};
- 	};
- 
-@@ -64,4 +68,47 @@ l2_0: l2-cache0 {
- 		cache-line-size = <64>;
- 		cache-sets = <256>;
- 	};
++/dts-v1/;
++/plugin/;
 +
-+	a53_opp_table: opp-table {
-+		compatible = "operating-points-v2-ti-cpu";
-+		opp-shared;
-+		syscon = <&opp_efuse_table>;
++#include <dt-bindings/clock/qcom,qcs615-camcc.h>
++#include <dt-bindings/gpio/gpio.h>
 +
-+		opp-200000000 {
-+			opp-hz = /bits/ 64 <200000000>;
-+			opp-supported-hw = <0x01 0x0003>;
-+			clock-latency-ns = <6000000>;
-+		};
++&camss {
++	vdd-csiphy-1p2-supply = <&vreg_l11a>;
++	vdd-csiphy-1p8-supply = <&vreg_l12a>;
 +
-+		opp-400000000 {
-+			opp-hz = /bits/ 64 <400000000>;
-+			opp-supported-hw = <0x01 0x0003>;
-+			clock-latency-ns = <6000000>;
-+		};
++	status = "okay";
 +
-+		opp-600000000 {
-+			opp-hz = /bits/ 64 <600000000>;
-+			opp-supported-hw = <0x01 0x0003>;
-+			clock-latency-ns = <6000000>;
-+		};
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
 +
-+		opp-800000000 {
-+			opp-hz = /bits/ 64 <800000000>;
-+			opp-supported-hw = <0x01 0x0003>;
-+			clock-latency-ns = <6000000>;
-+		};
++		port@1 {
++			reg = <1>;
 +
-+		opp-1000000000 {
-+			opp-hz = /bits/ 64 <1000000000>;
-+			opp-supported-hw = <0x01 0x0003>;
-+			clock-latency-ns = <6000000>;
-+		};
-+
-+		opp-1250000000 {
-+			opp-hz = /bits/ 64 <1250000000>;
-+			opp-supported-hw = <0x01 0x0002>;
-+			clock-latency-ns = <6000000>;
-+			opp-suspend;
++			csiphy1_ep: endpoint {
++				data-lanes = <0 1 2 3>;
++				remote-endpoint = <&imx577_ep1>;
++			};
 +		};
 +	};
- };
++};
++
++&cci {
++	status = "okay";
++};
++
++&cci_i2c1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	camera@1a {
++		compatible = "sony,imx577";
++		reg = <0x1a>;
++
++		reset-gpios = <&tlmm 29 GPIO_ACTIVE_LOW>;
++		pinctrl-0 = <&cam2_default>;
++		pinctrl-names = "default";
++
++		clocks = <&camcc CAM_CC_MCLK2_CLK>;
++		assigned-clocks = <&camcc CAM_CC_MCLK2_CLK>;
++		assigned-clock-rates = <24000000>;
++
++		avdd-supply = <&vreg_s4a>;
++
++		port {
++			imx577_ep1: endpoint {
++				link-frequencies = /bits/ 64 <600000000>;
++				data-lanes = <1 2 3 4>;
++				remote-endpoint = <&csiphy1_ep>;
++			};
++		};
++	};
++};
 
----
-base-commit: e3b32dcb9f23e3c3927ef3eec6a5842a988fb574
-change-id: 20260122-am62l-dt-cpufreq-c24f0236ad15
-
-Best regards,
 -- 
-Dhruva Gole <d-gole@ti.com>
+2.34.1
 
 
