@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16BC6C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 11:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E5CC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 11:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iPm5vFolVch7stGt9c6SQIgR5RmbJCU/xzHlFiInPh4=; b=BTsSxpawczrP90Ej7mIEvKrndV
-	mSxs3BfhWY66PjNiKyPPVAnF6BscAe/8Bk55Ndtr0CW2n2wFseGCxA5k65D/FlAwFzYREoY6X5MKR
-	cpHXn+Uh617rr0EADWUz7WBnpZ1Bh6IDLhEo0S7l54s+1nbWbxgba+3fNpCt8Kmmuez/JY21v/ZH4
-	/xjca1WbSBRe5ty90mCpQp7NPKSlnz19aOF4afy+845t8y/PG3c2YMYHgNzSBcAjH4vHQpD7tKtfC
-	Aub2mNT8Lg52xa+EYn3WWG6qEMz9tedEf4CLVY90x2pstEo4/2Hx0ComKlfV4NwXzqawoXswnxoIU
-	Vb94DQqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
+	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8bKk78/cUBVMRsGmIHB9eHx8NN7HqTjyj+NpF8y77Vk=; b=Beujc0u/YRR3vXA4liWuZCMaS2
+	qgcR8iGdpP69n5XkdXAKV4NxmReUvtrGYxQxEFddyJvwmE2+X6kb93QmtLp4ebkAEJ54LqcHAo3kw
+	DToRjNxVP48pNDqq4cjRvlX7QOPjFAe2BzQGSzEOmmPeaARjauPFr7SMoci3Mm8jhOvYoKw8z1gXx
+	ueA1GHxkwMDYgSsyi7TLTxGifIY+UEHeQinxouLmSXM7pKXFEvxLuuBtjmg7uQhoDZQL2f5l0tUMc
+	RPfAPYZhrKNMILRV8F+ZNa93fnmjPqaGn+BtdxqO+BcSdNsQMtb/N/o0JvS7FXNFy1nYFFf9Dx0uK
+	/A8LIMvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vitEp-000000070o7-3Sz3;
-	Thu, 22 Jan 2026 11:52:35 +0000
-Received: from mx1.unisoc.com ([222.66.158.135] helo=SHSQR01.spreadtrum.com)
+	id 1vitF9-000000070sL-0Zc6;
+	Thu, 22 Jan 2026 11:52:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vitEj-0000000705F-1AHS
+	id 1vitF6-000000070rT-2VdZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 11:52:34 +0000
-Received: from dlp.unisoc.com ([10.29.3.86])
-	by SHSQR01.spreadtrum.com with ESMTP id 60MBneg9046666;
-	Thu, 22 Jan 2026 19:49:40 +0800 (+08)
-	(envelope-from zhaoyang.huang@unisoc.com)
-Received: from SHDLP.spreadtrum.com (BJMBX01.spreadtrum.com [10.0.64.7])
-	by dlp.unisoc.com (SkyGuard) with ESMTPS id 4dxfNC2RHYz2Mdt31;
-	Thu, 22 Jan 2026 19:43:55 +0800 (CST)
-Received: from bj03382pcu03.spreadtrum.com (10.0.73.40) by
- BJMBX01.spreadtrum.com (10.0.64.7) with Microsoft SMTP Server (TLS) id
- 15.0.1497.48; Thu, 22 Jan 2026 19:49:38 +0800
-From: "zhaoyang.huang" <zhaoyang.huang@unisoc.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        James Morse <james.morse@arm.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Zhaoyang Huang <huangzhaoyang@gmail.com>, <steve.kang@unisoc.com>
-CC: <jeson.gao@unisoc.com>, <xuewen.yan@unisoc.com>
-Subject: [PATCH] arch: arm64: set __nocfi on swsusp_arch_resume
-Date: Thu, 22 Jan 2026 19:49:25 +0800
-Message-ID: <20260122114925.624309-1-zhaoyang.huang@unisoc.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.0.73.40]
-X-ClientProxiedBy: SHCAS03.spreadtrum.com (10.0.1.207) To
- BJMBX01.spreadtrum.com (10.0.64.7)
-X-MAIL: SHSQR01.spreadtrum.com 60MBneg9046666
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=unisoc.com;
-	s=default; t=1769082586;
-	bh=iPm5vFolVch7stGt9c6SQIgR5RmbJCU/xzHlFiInPh4=;
-	h=From:To:CC:Subject:Date;
-	b=OEXDiBZwoztppQH5XCCkSY52J/+K9sHnEK+Hpz3V1cTbRHWIK7eDsKFIzE3nKWMFJ
-	 R42auKNelWFSM/HwNeSqk5U+/CWlVg7EAsYYmBeccDJl72yCilB6sUT4zwiFLU6cSG
-	 24UT5H0ySPdgRgrfvgzxzP2Q1aXnVOHl+ZQ8hTG9cRv3l2pUoCA3XqFwi2J7e7i6rj
-	 8dmmq5WlJkUzpg+g/ehtjfEEh+a/mE/0AocTt12BNTXHHbBAaU8qFz82DOazPXPOWS
-	 dQ0LWYs+TZbi+GVNUojV8Yin2qiE4y3uzAznpHMUHwEnqscXy/krO1SFMaFjvDVp6z
-	 P+QhWtudmol3w==
+	Thu, 22 Jan 2026 11:52:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C917A4435C;
+	Thu, 22 Jan 2026 11:52:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85833C116C6;
+	Thu, 22 Jan 2026 11:52:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769082771;
+	bh=8bKk78/cUBVMRsGmIHB9eHx8NN7HqTjyj+NpF8y77Vk=;
+	h=Date:From:Subject:Cc:To:References:In-Reply-To:From;
+	b=WKFhd6eJG/25Tu4S4NiFeifgs5vRUp2FvhIhO9DOqZHowGyVhBvqgg+aZaszjdrFy
+	 n8ifSpsyn0O3b7M/uwQxbFTWBoIGqFRrA0fOKwQmHJfBSJKzPzpjU35UML3nFzwV3d
+	 h1HO3UU/PT6kDfE77KwS+bMvGFQe9bACXaz7I9U4odtNTE0CReW60VkX7xP9WENuQq
+	 oZejainJFYp9vFSx8K4TusF1lRA37G6EGikufyzZTh33VEHyqTfkDKkn/yRepN++LK
+	 kbVe0vhEaP7/NZeO5EYTlnbJr7dV9TGOu02iQc9ozWBuabmlwKqMhPgDHI0Yb/cZLj
+	 gaR7SJwmgt8gg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 22 Jan 2026 12:52:46 +0100
+Message-Id: <DFV3I3D5UIZP.38TNCAJWQGI3O@kernel.org>
+From: "Danilo Krummrich" <dakr@kernel.org>
+Subject: Re: [PATCH] iommu/arm-smmu-qcom: do not register driver in probe()
+Cc: <gregkh@linuxfoundation.org>, <rafael@kernel.org>, <broonie@kernel.org>,
+ <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+ <robin.clark@oss.qualcomm.com>, <hanguidong02@gmail.com>,
+ <quic_c_gdjako@quicinc.com>, <dmitry.baryshkov@oss.qualcomm.com>,
+ <driver-core@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+ <linux-arm-msm@vger.kernel.org>
+To: "Ioana Ciornei" <ioana.ciornei@nxp.com>
+References: <20260121141215.29658-1-dakr@kernel.org>
+ <6oogrqe3n5sxtpdydjqo4ucwp7n3ipqoupxtekvzbnqd7dae3s@q22wc7fpbtya>
+In-Reply-To: <6oogrqe3n5sxtpdydjqo4ucwp7n3ipqoupxtekvzbnqd7dae3s@q22wc7fpbtya>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_035230_562462_2AB1191B 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20260122_035252_657626_44F18390 
+X-CRM114-Status: UNSURE (   6.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,99 +78,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
+On Thu Jan 22, 2026 at 10:21 AM CET, Ioana Ciornei wrote:
+> The boot lockup was visible also on the NXP LX2160ARDB. This patch fixes
+> it.
 
-A DABT is reported[1] on an android based system when resume from hiberate,
-which is root caused as CFI will plant stub code[2] to verify the
-swsusp_arch_suspend_exit's authentication, where the hash value is stored
-before the page that alloced by create_safe_exec_page. We also have
-tried to copy the hash value together with the function but get failed since
-the value is not on the desired position(src_start - 4). So we solve
-this issue by setting __nocfi on swsusp_arch_resume and it works.
+Interesting, this means that qcom_smmu_impl_init() must be called on this
+machine, is this expected?
 
-[1]
-[   22.991934][    T1] Unable to handle kernel paging request at virtual address 0000000109170ffc
-[   22.991934][    T1] Mem abort info:
-[   22.991934][    T1]   ESR = 0x0000000096000007
-[   22.991934][    T1]   EC = 0x25: DABT (current EL), IL = 32 bits
-[   22.991934][    T1]   SET = 0, FnV = 0
-[   22.991934][    T1]   EA = 0, S1PTW = 0
-[   22.991934][    T1]   FSC = 0x07: level 3 translation fault
-[   22.991934][    T1] Data abort info:
-[   22.991934][    T1]   ISV = 0, ISS = 0x00000007, ISS2 = 0x00000000
-[   22.991934][    T1]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-[   22.991934][    T1]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-[   22.991934][    T1] [0000000109170ffc] user address but active_mm is swapper
-[   22.991934][    T1] Internal error: Oops: 0000000096000007 [#1] PREEMPT SMP
-[   22.991934][    T1] Dumping ftrace buffer:
-[   22.991934][    T1]    (ftrace buffer empty)
-[   22.991934][    T1] Modules linked in:
-[   22.991934][    T1] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 6.6.98-android15-8-g0b1d2aee7fc3-dirty-4k #1 688c7060a825a3ac418fe53881730b355915a419
-[   22.991934][    T1] Hardware name: Unisoc UMS9360-base Board (DT)
-[   22.991934][    T1] pstate: 804000c5 (Nzcv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[   22.991934][    T1] pc : swsusp_arch_resume+0x2ac/0x344
-[   22.991934][    T1] lr : swsusp_arch_resume+0x294/0x344
-[   22.991934][    T1] sp : ffffffc08006b960
-[   22.991934][    T1] x29: ffffffc08006b9c0 x28: 0000000000000000 x27: 0000000000000000
-[   22.991934][    T1] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000820
-[   22.991934][    T1] x23: ffffffd0817e3000 x22: ffffffd0817e3000 x21: 0000000000000000
-[   22.991934][    T1] x20: ffffff8089171000 x19: ffffffd08252c8c8 x18: ffffffc080061058
-[   22.991934][    T1] x17: 00000000529c6ef0 x16: 00000000529c6ef0 x15: 0000000000000004
-[   22.991934][    T1] x14: ffffff8178c88000 x13: 0000000000000006 x12: 0000000000000000
-[   22.991934][    T1] x11: 0000000000000015 x10: 0000000000000001 x9 : ffffffd082533000
-[   22.991934][    T1] x8 : 0000000109171000 x7 : 205b5d3433393139 x6 : 392e32322020205b
-[   22.991934][    T1] x5 : 000000010916f000 x4 : 000000008164b000 x3 : ffffff808a4e0530
-[   22.991934][    T1] x2 : ffffffd08058e784 x1 : 0000000082326000 x0 : 000000010a283000
-[   22.991934][    T1] Call trace:
-[   22.991934][    T1]  swsusp_arch_resume+0x2ac/0x344
-[   22.991934][    T1]  hibernation_restore+0x158/0x18c
-[   22.991934][    T1]  load_image_and_restore+0xb0/0xec
-[   22.991934][    T1]  software_resume+0xf4/0x19c
-[   22.991934][    T1]  software_resume_initcall+0x34/0x78
-[   22.991934][    T1]  do_one_initcall+0xe8/0x370
-[   22.991934][    T1]  do_initcall_level+0xc8/0x19c
-[   22.991934][    T1]  do_initcalls+0x70/0xc0
-[   22.991934][    T1]  do_basic_setup+0x1c/0x28
-[   22.991934][    T1]  kernel_init_freeable+0xe0/0x148
-[   22.991934][    T1]  kernel_init+0x20/0x1a8
-[   22.991934][    T1]  ret_from_fork+0x10/0x20
-[   22.991934][    T1] Code: a9400a61 f94013e0 f9438923 f9400a64 (b85fc110)
+> Tested-by: Ioana Ciornei <ioana.ciornei@nxp.com> #LX2160ARDB
 
-[2]
-0xffffffd08064a878 <swsusp_arch_resume+596>:	mov	x0, x24
-0xffffffd08064a87c <swsusp_arch_resume+600>:	mov	x1, x20
-0xffffffd08064a880 <swsusp_arch_resume+604>:	mov	x2, x21
-0xffffffd08064a884 <swsusp_arch_resume+608>:	mov	x3, x22
-0xffffffd08064a888 <swsusp_arch_resume+612>:	mov	x4, x23
-0xffffffd08064a88c <swsusp_arch_resume+616>:	ldur	w16, [x25, #-4]
-0xffffffd08064a890 <swsusp_arch_resume+620>:	movk	w17, #0x5d7b
-0xffffffd08064a894 <swsusp_arch_resume+624>:	movk	w17, #0xb6ad, lsl #16
-0xffffffd08064a898 <swsusp_arch_resume+628>:	cmp	w16, w17
-0xffffffd08064a89c <swsusp_arch_resume+632>:	b.eq	0xffffffd08064a8a4 <swsusp_arch_resume+640>  // b.none
-0xffffffd08064a8a0 <swsusp_arch_resume+636>:	brk	#0x8239
-0xffffffd08064a8a4 <swsusp_arch_resume+640>:	blr	x25
-
-Co-developed-by: Jeson Gao <jeson.gao@unisoc.com>
-Signed-off-by: Jeson Gao <jeson.gao@unisoc.com>
-Signed-off-by: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
----
- arch/arm64/kernel/hibernate.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
-index 18749e9a6c2d..9717568518ba 100644
---- a/arch/arm64/kernel/hibernate.c
-+++ b/arch/arm64/kernel/hibernate.c
-@@ -402,7 +402,7 @@ int swsusp_arch_suspend(void)
-  * Memory allocated by get_safe_page() will be dealt with by the hibernate code,
-  * we don't need to free it here.
-  */
--int swsusp_arch_resume(void)
-+int __nocfi swsusp_arch_resume(void)
- {
- 	int rc;
- 	void *zero_page;
--- 
-2.25.1
-
+Thanks for testing!
 
