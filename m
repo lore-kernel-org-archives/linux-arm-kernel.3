@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D93D3EE62
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 13:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8E9D3EE60
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 13:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eHlZeP2l22y+3oS6OgQo/4EpWW7DL9eFw1xliUsKTHQ=; b=BawwO7qAGSeR2n4pDGL7j3ylT9
-	b/KXzW/R4cZwCCzpqD10/ZdSOgOoVkF0vh2naxJfBYmlYL+6wjY9G803W+fqYVCmOtRQHyKhPMhxv
-	xC+yNk9muxjZ6ayUKDv8zWi0YM6oJWlHViEjfzBLUuEm8ATY0ygIIkwJmlKDjmk5j9+PVy2mHu/Yn
-	pMawQQgHZYuQXXFvMs/CjDElADY+VoAiLoQtu4vSZa5D/36DRVytmPRxO+kV1PJ4hNnv2xINz4Q6J
-	ThWo2j9Wlp4HZUjGDCMZB+odOuowLV02Uv5GjcSf6jypTQh76f71FrBiNAMaFpcwvCczMR5Co3duy
-	/G8nKToA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KnFAk7g/m7NTHo0WShHwxF9UDg2vS4hjkgx+k4Md7KA=; b=Lzkj6k4d4/sGvsUD/cHf2K1Tl/
+	j3k+FG6l5yVuqlfWJpPuuHVDYQfVkFmuiw69zexodwMsj6HpWNntKwOkRzfKjNbpwbR1C5LVtpfXW
+	8PYLog7q3NE4krEUdZO3CzAum+UkvJo9yNFquQsHvx65Ukb9x3HXKV2lb5g+AmN38XyPjgh2UNyif
+	Eio+sICbQPX43Q+p1vrJS3wkWMhYtOKJAk/HuE5Shu9X+qRWtKr8+EzFslkb1BA4BRiL4Pe0G231y
+	zRyezIoODDYhjf34QxskDrWHbmjVBRWrD7XWwCOohAEkDNdNynjDP/2l7szOpfM2UOPQNTHctE6iz
+	I/bsi1TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viuP8-000000076hJ-0dgF;
-	Thu, 22 Jan 2026 13:07:18 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1viuQo-000000076tG-0eTr;
+	Thu, 22 Jan 2026 13:09:02 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viuP5-000000076fk-3SkJ
+	id 1viuQm-000000076ss-1w2b
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 13:07:17 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0F7A6100151;
-	Thu, 22 Jan 2026 14:07:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1769087226; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=eHlZeP2l22y+3oS6OgQo/4EpWW7DL9eFw1xliUsKTHQ=;
-	b=T660OUd8MYBP9SbKpg0SF1r6d2nxtwv3Lqb6/LpTHE6x2LB61qTAPyKIEUQWDjqnfdsjQz
-	3eDNdK224SvcheR4taJiPgNsdYiu29XTIzKwmwU7Cl4LvfdvU1/FIo6GGfCg3tV/+dLX6i
-	S0SEdjk1J9VzKrDAKMHKEppvtflDbaiDBchiqs2RSiwM67tSBKIUEM8AjLGE9I/kYqGFXe
-	Yhd1KOVU4LdwkCy7DTD3MXnUzLfDMXASelxPDpmUtFyudwbjLcwj196lGZasK1xypdz+Jr
-	kSoyBbVlFYZbppRMS3bGf8+iui6dLCeZfYcuDKolsicRj2676kcKYlYbFncVXA==
-From: Lukasz Majewski <lukma@nabladev.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-clk@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Lukasz Majewski <lukma@nabladev.com>
-Subject: [PATCH] clk: vf610: Add support for the Ethernet switch clocks
-Date: Thu, 22 Jan 2026 14:06:49 +0100
-Message-Id: <20260122130649.4150338-1-lukma@nabladev.com>
-X-Mailer: git-send-email 2.39.5
+	Thu, 22 Jan 2026 13:09:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=KnFAk7g/m7NTHo0WShHwxF9UDg2vS4hjkgx+k4Md7KA=; b=sxNERvfwImwq2hpz8UEHmzuuSA
+	WyWsZgwK6IaUlaLtYMLsWGPSskeKeJRGVPjW2hWlhwJAS2ik5MOL7AjxVCVxOJsFCAYTgmgCSYmcn
+	FEQoVCgOOqpyVR0ai1ZWVyWvecrcxwA9ZZ224mK+ImvY28wM0zYoQ1TH383oZ4mWCkDM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1viuQS-003yEj-RC; Thu, 22 Jan 2026 14:08:40 +0100
+Date: Thu, 22 Jan 2026 14:08:40 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Stefan Eichenberger <eichest@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	hkallweit1@gmail.com, linux@armlinux.org.uk,
+	linux-stm32@st-md-mailman.stormreply.com,
+	maxime.chevallier@bootlin.com, francesco.dolcini@toradex.com,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: Re: [PATCH net-next v3 1/3] net: phy: add a new phy_device flag to
+ keep preamble before sfd
+Message-ID: <6e75eb92-e1b9-4d5c-8662-5674cc01f102@lunn.ch>
+References: <20260120203905.23805-1-eichest@gmail.com>
+ <20260120203905.23805-2-eichest@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260120203905.23805-2-eichest@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_050716_088386_B47D1EC2 
-X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-CacheID: sfid-20260122_050900_516588_081FE4FD 
+X-CRM114-Status: UNSURE (   9.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,39 +78,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vf610 device has built in the MoreThanIP L2 switch. For proper
-operation it is required to enable ESW and MAC table lookup
-clocks.
+On Tue, Jan 20, 2026 at 09:30:02PM +0100, Stefan Eichenberger wrote:
+> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+> 
+> Add a new flag, PHY_F_KEEP_PREAMBLE_BEFORE_SFD, to indicate that the PHY
+> shall not remove the preamble before the SFD if it supports it. MACs
+> that do not support receiving frames without a preamble can set this
+> flag.
+> 
+> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 
-The MAC table spans from 0x400E_C000 for 0x4000 and it is necessary
-to provide clocks for each AIPS1-"slot", which size is 0x1000
-(hence four separate entries).
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Those can be enabled via clock gating CCM_CCGR10 register
-(0x4006_B068).
-
-Signed-off-by: Lukasz Majewski <lukma@nabladev.com>
----
- drivers/clk/imx/clk-vf610.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/clk/imx/clk-vf610.c b/drivers/clk/imx/clk-vf610.c
-index 9e11f1c7c397..88c9b656f244 100644
---- a/drivers/clk/imx/clk-vf610.c
-+++ b/drivers/clk/imx/clk-vf610.c
-@@ -309,6 +309,11 @@ static void __init vf610_clocks_init(struct device_node *ccm_node)
- 	clk[VF610_CLK_ENET_TS] = imx_clk_gate("enet_ts", "enet_ts_sel", CCM_CSCDR1, 23);
- 	clk[VF610_CLK_ENET0] = imx_clk_gate2("enet0", "ipg_bus", CCM_CCGR9, CCM_CCGRx_CGn(0));
- 	clk[VF610_CLK_ENET1] = imx_clk_gate2("enet1", "ipg_bus", CCM_CCGR9, CCM_CCGRx_CGn(1));
-+	clk[VF610_CLK_ESW] = imx_clk_gate2("esw", "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(8));
-+	clk[VF610_CLK_ESW_MAC_TAB0] = imx_clk_gate2("esw_tab0", "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(12));
-+	clk[VF610_CLK_ESW_MAC_TAB1] = imx_clk_gate2("esw_tab1", "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(13));
-+	clk[VF610_CLK_ESW_MAC_TAB2] = imx_clk_gate2("esw_tab2", "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(14));
-+	clk[VF610_CLK_ESW_MAC_TAB3] = imx_clk_gate2("esw_tab3", "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(15));
- 
- 	clk[VF610_CLK_PIT] = imx_clk_gate2("pit", "ipg_bus", CCM_CCGR1, CCM_CCGRx_CGn(7));
- 
--- 
-2.39.5
-
+    Andrew
 
