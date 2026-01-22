@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D158AD3EE6A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 14:03:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A43D3EE6A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 14:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SA/rTtFuPO36XbwdG7fUcVsS2n9aNqszm+UpGUtM7M0=; b=YTNRMXN6t2xEe1GEku1+0yL1Ru
-	phGfdnwY7i0UYhfF3RiLp3QzqGIOtXlfoX3KUAQkFdnavraGUw6ULKPImVXTvbnyC9wzxm2GTEHWr
-	m5vJ7OdDfdCx4YrkKiiPn4mXrKba8Te81302EAsZw6g4jfi+zFqxyQnBBB//FXfgH0BQxVKtq/Vtc
-	vGAxy9B0xQQ4+5YI6Uc9FDho5UHfthNq+2NroHy5SLPZShdnZFGYb1Q4wLglCk41tH9PNVuQrAujk
-	TOnZR5tVlYugMga0P51VpkrTqk57kwK+5Un1CqzdaNgtMeIGghg+WRRdicJ8rYoB/bf7QRAquB0mI
-	aAzwGZKw==;
+	bh=N1c2ulb4XZV93JtF6QiBkHh80gbkCl7xW5ML51pLQ1Y=; b=WbxmyHJQwoINQABRDAVQV2Kf4F
+	xRXQC8rWB/OZzMBI4Xg3Ohtu7S274cR3Jaj+1ow7rg7eQL/AhsB3CRZQuXbu7t33je/mMraisUlAm
+	+ACAG5y9WotjzED70FfgrbMz5FZkQPNl35lys9Mwt7DHBzuzEWLk1rMkN3lHZZPopDiDDU2E8BkHC
+	OWcOlBLSYaaYBbf1Q4B38CoZ9GblTEK9JMqrYSda5Xtpnmg3cxm4cHq+/HIlAc21Rh4xTLZv6q4Zt
+	tXB6x0FAH2lAAVbZVjVfdEUzAimJEbvC+5YAkyWkY2condbYV6f3jKOKOMtyipstdUbM8DHQJIfbh
+	qYtZoNKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vivHS-00000007CRs-3ZS1;
-	Thu, 22 Jan 2026 14:03:26 +0000
+	id 1vivQP-00000007D2v-3lzD;
+	Thu, 22 Jan 2026 14:12:41 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vivHR-00000007CRR-2IEw
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 14:03:25 +0000
+	id 1vivQO-00000007D2m-2HvZ;
+	Thu, 22 Jan 2026 14:12:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C03D600CB;
-	Thu, 22 Jan 2026 14:03:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8EDDC116D0;
-	Thu, 22 Jan 2026 14:03:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9720C60053;
+	Thu, 22 Jan 2026 14:12:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8684C116C6;
+	Thu, 22 Jan 2026 14:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769090604;
-	bh=3SHkyRGYKQ9i0FYPx3pRbT9QJT80ZePTrHdczjnXiWo=;
+	s=k20201202; t=1769091159;
+	bh=ymxs9hipH3MSqO+EtSgebsTWpLkwdhKqEdneib0tRSw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OkiQK3BsP1UxoTEIDr+vIclBy0qGP6nUp9EjpTxDWH9+CXX0/Yg8JbgmmhpdMGcmE
-	 m94q7Pd0mQ7BV6F03TkQSVNiAafPQovTzjZc94OJCSjdokwbyUwLcYO+AEewleCh48
-	 AcsaREyJ5cy9B2bPVQHiGkMVPQpUkuL9V66imBc/Bwb0ta+3tfFvB1849FiTOvBRVz
-	 QyW3l/vevpPBhqN/QiaV1oSh+AQNTJGMdZDqHiI8caRNophFKmbgV8E636M1tVj4BS
-	 yjU5uAkTD0p85/R/NXcxrqZ8/TIaiSvPHehb33T9zC58dBVZgS4SDAYmyFgCBi9inm
-	 E0yYHmJO68rlQ==
-Date: Thu, 22 Jan 2026 15:03:21 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, 
-	Jyri Sarha <jyri.sarha@iki.fi>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Tony Lindgren <tony@atomide.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Markus Schneider-Pargmann <msp@baylibre.com>, 
-	Bajjuri Praneeth <praneeth@ti.com>, Louis Chauvet <louis.chauvet@bootlin.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Miguel Gazquez <miguel.gazquez@bootlin.com>, 
-	Herve Codina <herve.codina@bootlin.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
-Subject: Re: [PATCH v4 20/25] drm/tilcdc: Use devm_drm_of_get_bridge() helper
-Message-ID: <20260122-camouflaged-cat-of-sorcery-7af8cf@houat>
-References: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
- <20260116-feature_tilcdc-v4-20-2c1c22143087@bootlin.com>
- <DFSVNE16870S.ABQUMH9BWMDY@bootlin.com>
+	b=hODvGDmjEMpnNSE/AOUDtxnF6/OV7V6piVNP+5RR6/2HKcDHe28W+kp/NIv49sT+l
+	 tosLBcyWDzhINlcaAedBwHLjIjWvKMCcC0Q6zqDTcFtBD3Nk1BTAKeLBJJXpSUKvQ+
+	 ykQ9RFg405pb7DpzxmcP8ghnnvrHQIimvJtQjdhcfzYWeXZ6Wk4AHQjwJAlrXU9Sgf
+	 O5EROBbioRHV3gtjEClqORtd+8ZPT/38sBn2oubpmMEfgnyK2m+CbnZVRbqnHMMsQn
+	 VUXeNEE7zkq4E60i+HnVAjz6HeHdC5f+NhuXURm11BGSUCX9MJlCkxQXgSKExzJMPw
+	 H7NgjxCWRG8lg==
+Date: Thu, 22 Jan 2026 14:12:33 +0000
+From: Lee Jones <lee@kernel.org>
+To: Joseph Chen <chenjh@rock-chips.com>
+Cc: Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: [GIT PULL] Immutable branch between MFD and Regulator due for the
+ v6.20 merge window
+Message-ID: <20260122141233.GJ3831112@google.com>
+References: <20260112124351.17707-1-chenjh@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="koxasmrivanfnujl"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <DFSVNE16870S.ABQUMH9BWMDY@bootlin.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260112124351.17707-1-chenjh@rock-chips.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,93 +74,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Enjoy!
 
---koxasmrivanfnujl
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 20/25] drm/tilcdc: Use devm_drm_of_get_bridge() helper
-MIME-Version: 1.0
+The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
 
-Hi,
+  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
 
-On Mon, Jan 19, 2026 at 10:18:12PM +0100, Luca Ceresoli wrote:
-> Maxime, I'd appreciate your opinion about the topic below.
->=20
-> On Fri Jan 16, 2026 at 6:02 PM CET, Kory Maincent (TI.com) wrote:
-> > Replace drm_of_find_panel_or_bridge() with the newer
-> > devm_drm_of_get_bridge() helper which simplifies the code by:
-> > - Automatically handling both panel and bridge cases internally
-> > - Managing the panel-to-bridge conversion when needed
-> > - Using devres for resource management, eliminating manual cleanup
-> >
-> > This removes the need for explicit panel-to-bridge conversion via
-> > devm_drm_panel_bridge_add_typed() and the associated error handling pat=
-h.
-> >
-> > Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
-> > ---
-> >
-> > Change in v4:
-> > - New patch
-> > ---
-> >  drivers/gpu/drm/tilcdc/tilcdc_encoder.c | 18 ++++--------------
-> >  1 file changed, 4 insertions(+), 14 deletions(-)
-> >
-> > diff --git a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c b/drivers/gpu/drm/=
-tilcdc/tilcdc_encoder.c
-> > index a34a10337f6a8..546fe7e6ee815 100644
-> > --- a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-> > +++ b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-> > @@ -55,15 +55,12 @@ int tilcdc_encoder_create(struct drm_device *ddev)
-> >  	struct tilcdc_drm_private *priv =3D ddev_to_tilcdc_priv(ddev);
-> >  	struct tilcdc_encoder *encoder;
-> >  	struct drm_bridge *bridge;
-> > -	struct drm_panel *panel;
-> > -	int ret;
-> >
-> > -	ret =3D drm_of_find_panel_or_bridge(ddev->dev->of_node, 0, 0,
-> > -					  &panel, &bridge);
-> > -	if (ret =3D=3D -ENODEV)
-> > +	bridge =3D devm_drm_of_get_bridge(ddev->dev, ddev->dev->of_node, 0, 0=
-);
-> > +	if (PTR_ERR(bridge) =3D=3D -ENODEV)
->=20
-> This patch is technically OK in the sense that the code before and after
-> would be equivalent. However if it were me I would not do this change. The
-> reason is that both drm_of_find_panel_or_bridge() and *_of_get_bridge() a=
-re
-> problematic when introducing drm_bridge hotplug, which is the long-term
-> goal I am working for, but *_of_get_bridge() is more problematic than
-> drm_of_find_panel_or_bridge().
->=20
-> These functions are still there and not deprecated because there is
-> currently no better replacement (and drm_bridge hotplug is not yet
-> supported because of this and other things still to be done). To have a
-> replacement, the panel_bridge lifetime needs to be reworked first and
-> that's not going to happen overnight. So, all in all, if this patch is not
-> crucial to your series I'd consider dropping it. But if it is important I=
-'m
-> fine with applying it, it won't make a huge difference.
+are available in the Git repository at:
 
-Eh. I'm fine either way. I understand what you're saying, but this patch
-doesn't introduce any *new* problem while it cleans up the driver, so I
-guess we could merge it still. And further clean it up with what you
-were suggesting later on.
+  git://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git ib-mfd-regulator-v6.20
 
-Maxime
+for you to fetch changes up to 3e10bbd9c8a6d5d016b8e52c5d4ceba93a2304a0:
 
---koxasmrivanfnujl
-Content-Type: application/pgp-signature; name="signature.asc"
+  regulator: rk808: Add RK801 support (2026-01-20 14:58:12 +0000)
 
------BEGIN PGP SIGNATURE-----
+----------------------------------------------------------------
+Immutable branch between MFD and Regulator due for the v6.20 merge window
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaXIuKQAKCRAnX84Zoj2+
-dmgwAYDLY4OXhO7mg+WUhmw0Yc4L5lUQhZ+IdcuEGFz8PoHCodhBLdEMRMEQeyrZ
-Lg3ek6YBgKnjvmAsvQieYruFGJdc16JOzCVf95Xa7TlPn2/TL9Du2bGHrv7SWGiW
-2GbEtp3WOw==
-=T8Px
------END PGP SIGNATURE-----
+----------------------------------------------------------------
+Joseph Chen (3):
+      dt-bindings: mfd: Add rk801 binding
+      mfd: rk8xx: Add RK801 support
+      regulator: rk808: Add RK801 support
 
---koxasmrivanfnujl--
+ .../devicetree/bindings/mfd/rockchip,rk801.yaml    | 197 +++++++++++++++++
+ drivers/mfd/Kconfig                                |   6 +-
+ drivers/mfd/rk8xx-core.c                           |  81 +++++++
+ drivers/mfd/rk8xx-i2c.c                            |  33 ++-
+ drivers/regulator/rk808-regulator.c                | 243 +++++++++++++++++++++
+ include/linux/mfd/rk808.h                          | 118 ++++++++++
+ 6 files changed, 674 insertions(+), 4 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/mfd/rockchip,rk801.yaml
+
+-- 
+Lee Jones [李琼斯]
 
