@@ -4,58 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D768D62613
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 12:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C13AC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 12:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ks9aOOnJV8ZvfT0lESW+Np17jMD5IyrJjVGDkF9d6CU=; b=BZhXUl9LUOgtLAbFyR23xF2Sj8
-	CrGroi7O0MvjXQvheXrCHZLjmyf/qh+yTnNUWdrAziWfi7SsOL6Ox/Qa9XgDSH+woXl86Z5R2Pp9s
-	5iT7GWMSc/hoCeVX82h340zRaKmYJhdeyt9CYMXlHOKqpGEuMmFDXXr+ls7N2QK7vdnhC2TFe1c/q
-	I/iHt83aOomL37l6QKEv2q3qAABrvtxTv5NvnCBv51aQIyqCV0YQ/kdcZKLcee6j/S7KYGEJt0Mou
-	buEsWYTygAu58z+dBsfjF3AvPTEVKc+OJkxY3lRfPQWlvF/0v+62Bt7cQon+Ag4cusDAHD59bdRlC
-	7LsIAsdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=99WeiO5u+l3PtnXWsgEb1Ggl01P6ZHYFWERHUSgNsgI=; b=m6hMytRTVWs+580XS+XihcMu3N
+	QjHaS8j6fzsD+z1QsFtsXeb3Ul1P/BYT8ye9i2epj3plRsR1AkLLhGGkcqJq022fofINaXtbT2vxQ
+	amsUTIy9WzBArltmbBjqhXPkC2uA3NOQmDphxmvV5fQrHLp3LxoaDpcjp6R3FMeew5qZLBlwVmUhF
+	yD1RmnUZDdcMxa7KBlekpEjh8fhUEIlnI/YFZ2wlH3ArPPyJEQqxityAUNtJs1C1xbSWiJrpSmkH8
+	hW1e6xf1GMoSse6a7mbZ6XnQvjBbWQorvPVezCGHSoiqfm2xi2xvLXzvXdXjDj8KiURc1JllN2IIG
+	2wqwrBcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vitYd-0000000725j-2W7X;
-	Thu, 22 Jan 2026 12:13:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vitYa-0000000724b-1Clz
+	id 1vitZ0-000000072Bj-3o8i;
+	Thu, 22 Jan 2026 12:13:26 +0000
+Received: from pandora.armlinux.org.uk ([78.32.30.218])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vitYx-000000072A9-3jzb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 12:13:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A97831476;
-	Thu, 22 Jan 2026 04:12:51 -0800 (PST)
-Received: from [10.57.51.35] (unknown [10.57.51.35])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B38FB3F740;
-	Thu, 22 Jan 2026 04:12:55 -0800 (PST)
-Message-ID: <d2ddbb72-30a8-44da-b761-876b2d37567e@arm.com>
-Date: Thu, 22 Jan 2026 12:12:53 +0000
+	Thu, 22 Jan 2026 12:13:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=99WeiO5u+l3PtnXWsgEb1Ggl01P6ZHYFWERHUSgNsgI=; b=iyD8MTpBQ4AJ8EUuEnND0jx9k8
+	tsG6pbPaRaORNoZBNHSVbFHVoJYD2c3zOuR1xwZJpuuir+y/nMifRqKAFGb6EebfoWcDqFy/E3iWo
+	483US66ALS+CQtAu36tdq29upmjLkNeRgZ4t1SV3fgHqVelgbg/sJa0Kq8nt9zuUM12sFjo76OQEP
+	XVSssTnrgQZ2mQ0AeX2zrkL5aEzwzAkl1WxpEhnHDXPrV0ZINtPPwZj4jIE7nHiLp731Qtud22sU1
+	HyrBZVcYHPb6iDXfWigJ9+2o+xlwW9949IWohqC1eqmPcx7N5zB9WYbGP0uxlrCJEj4CE9P0inQMD
+	HTG2wdyQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51682)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vitYi-000000000LC-0kvR;
+	Thu, 22 Jan 2026 12:13:08 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vitYf-000000000zX-1d0f;
+	Thu, 22 Jan 2026 12:13:05 +0000
+Date: Thu, 22 Jan 2026 12:13:05 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Stefan Eichenberger <eichest@gmail.com>, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, hkallweit1@gmail.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	maxime.chevallier@bootlin.com, francesco.dolcini@toradex.com,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: Re: [PATCH net-next v3 1/3] net: phy: add a new phy_device flag to
+ keep preamble before sfd
+Message-ID: <aXIUUStYnRt2Ad0x@shell.armlinux.org.uk>
+References: <20260120203905.23805-1-eichest@gmail.com>
+ <20260120203905.23805-2-eichest@gmail.com>
+ <86b8feca-8e82-465e-a17a-b751758306ce@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu-qcom: do not register driver in probe()
-To: Danilo Krummrich <dakr@kernel.org>, Ioana Ciornei <ioana.ciornei@nxp.com>
-Cc: gregkh@linuxfoundation.org, rafael@kernel.org, broonie@kernel.org,
- will@kernel.org, joro@8bytes.org, robin.clark@oss.qualcomm.com,
- hanguidong02@gmail.com, quic_c_gdjako@quicinc.com,
- dmitry.baryshkov@oss.qualcomm.com, driver-core@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org
-References: <20260121141215.29658-1-dakr@kernel.org>
- <6oogrqe3n5sxtpdydjqo4ucwp7n3ipqoupxtekvzbnqd7dae3s@q22wc7fpbtya>
- <DFV3I3D5UIZP.38TNCAJWQGI3O@kernel.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <DFV3I3D5UIZP.38TNCAJWQGI3O@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86b8feca-8e82-465e-a17a-b751758306ce@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_041300_402275_CDBCC17B 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20260122_041324_214902_509753B0 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,28 +89,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-01-22 11:52 am, Danilo Krummrich wrote:
-> On Thu Jan 22, 2026 at 10:21 AM CET, Ioana Ciornei wrote:
->> The boot lockup was visible also on the NXP LX2160ARDB. This patch fixes
->> it.
+On Thu, Jan 22, 2026 at 12:37:17PM +0100, Paolo Abeni wrote:
+> On 1/20/26 9:30 PM, Stefan Eichenberger wrote:
+> > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+> > 
+> > Add a new flag, PHY_F_KEEP_PREAMBLE_BEFORE_SFD, to indicate that the PHY
+> > shall not remove the preamble before the SFD if it supports it. MACs
+> > that do not support receiving frames without a preamble can set this
+> > flag.
+> > 
+> > Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 > 
-> Interesting, this means that qcom_smmu_impl_init() must be called on this
-> machine, is this expected?
+> I understand this has been suggested by Russell, and LGTM, but still it
+> would be nice explicit ack from the phy lib crew to ensure it matches
+> expectations.
 
-Yup, same as on the Juno boards and probably others - an Arm SMMU is 
-present, which means if ARM_SMMU_QCOM is enabled then 
-arm_smmu_impl_init() is going to offer it to ask "hey, is this one of 
-yours that you might want to do something with based on your extensive 
-and complicated match list that we don't want to maintain in the common 
-impl code?", wherein qcom_smmu_impl_init() *should* return without doing 
-anything at all as it's not a match...
+Since I suggested it, I feel it would only be right for Andrew to ack
+it to show his agreement with my suggestion.
 
-Cheers,
-Robin.
-
-> 
->> Tested-by: Ioana Ciornei <ioana.ciornei@nxp.com> #LX2160ARDB
-> 
-> Thanks for testing!
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
