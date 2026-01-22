@@ -4,84 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FBFD3EE6B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:00:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6274BD3EE66
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:00:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cf62LPsNBJJc+nNviKSXYVgB/daStsOOACWI2sWPQ/U=; b=wjW7WVGrLr4sMoFs4Tzzi6hiYp
-	oYuzxHoHMPuaLzKWDHa02w15TuC3Iwh6yQArTJ/gHJ78c+OH30mfm3LRFPCcwb0ZNt44MYuTL1JUE
-	sVDFuuscQOLasnc/J9ajYwRKtsYqFo11cISzObsJNz1/BtLbLrquki8cc4AZClhfEyzxVfdXpzDUS
-	jlLkevX4u7f6nnjymOReXg+EuDCffFetBkRUFZmY9VitDVeDOoguNVoKlFL92yiHFad24kGAvCUL+
-	ziPaoPMsPRsca/bwge5K+902o5oZxXXjZCMpPWFDnIz25GUmbm7h8qh+Q++1KHX/o47N59peORw6B
-	lKuEqs/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7iOfBDtHc5rUXY7Ed9OAnlf74Pe8rVgMc+uTMls4Fm8=; b=jLXahNftVM6hVRJI3FENIRZ7UX
+	GahdlO1ifx1oHnKbCNoq0tbfNF69mbO/5zmI8SIqGFW16TbsQDvcyXus699TD2y2KidM+VGyaH1VW
+	C2Ls505pxplCEKYCRQ0RX8F+O92Iius0kEOA4dXys5GJHrobdOu4tbcgxuQn1kGbwdgxzB/uD9WOg
+	7t1C2sr2P2LEa/Ra5N9gjXAT6pN1JnuaHZ3/iSPU5k16jTLE1hFfDmzSf+bKWLEVj+GHeJq9FlVGA
+	nm/E7qJPB3DaZDaCQLi3nlGVJ6Jbh/fN9Rg7d6LPl+WzxuJG3AIEiHMLV0J54cubnN+NURA5t6VU3
+	BtcWwzFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwA9-00000007HT7-1cEG;
-	Thu, 22 Jan 2026 14:59:57 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1viwAt-00000007HaU-47ce;
+	Thu, 22 Jan 2026 15:00:43 +0000
+Received: from mail-norwayeastazon11013022.outbound.protection.outlook.com ([40.107.159.22] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwA5-00000007HSI-28v3
+	id 1viwAr-00000007HYn-1IwN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 14:59:56 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id CB125C21AA4;
-	Thu, 22 Jan 2026 14:59:49 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id EAC72606B6;
-	Thu, 22 Jan 2026 14:59:49 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 80F09119B808A;
-	Thu, 22 Jan 2026 15:59:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769093988; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Cf62LPsNBJJc+nNviKSXYVgB/daStsOOACWI2sWPQ/U=;
-	b=Dk2p8KNEABiQBml98LmxVUAcMkPc20waRc+crQnRxhxC4u/aWW0IaOQAVE2ujhMZr/4az9
-	6X+M2Hxp0mWZijF1E2E4E62Vpr5O4v0WS45YGiH7DedTpWWieWeIX2vVZjghsX2QZtfgAP
-	4JxbQGbu5Y/QMxWxT00qjAU6k8OMoSQkF/gpHWW+a5nYhYCoy8KUeF4NHtkixatyFTxiKE
-	RX1ip4glQdHhVFXm9IMawRXlLXJw+GS9ndCv/p7LDCQb6hwhmlpGIcs/Ci5KnrBS/tJWyC
-	VOE5/yW9gj2SC6G3WdZ6B+LZJCF39KPRTTu8htJ5g4dhXxSSRGY8KXpJZ7wXLQ==
-Date: Thu, 22 Jan 2026 15:59:41 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Cc: "Jyri Sarha" <jyri.sarha@iki.fi>, "Tomi Valkeinen"
- <tomi.valkeinen@ideasonboard.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
- "Bartosz Golaszewski" <brgl@bgdev.pl>, "Tony Lindgren" <tony@atomide.com>,
- "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Markus
- Schneider-Pargmann" <msp@baylibre.com>, "Bajjuri Praneeth"
- <praneeth@ti.com>, "Louis Chauvet" <louis.chauvet@bootlin.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
- <miguel.gazquez@bootlin.com>, "Herve Codina" <herve.codina@bootlin.com>,
- <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-omap@vger.kernel.org>
-Subject: Re: [PATCH v4 19/25] drm/tilcdc: Convert to drm_device-based
- logging helpers
-Message-ID: <20260122155941.400e2f56@kmaincent-XPS-13-7390>
-In-Reply-To: <DFSRFUYPL99P.WTKNJRWA36F7@bootlin.com>
-References: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
-	<20260116-feature_tilcdc-v4-19-2c1c22143087@bootlin.com>
-	<DFSRFUYPL99P.WTKNJRWA36F7@bootlin.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+	Thu, 22 Jan 2026 15:00:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=m+U9VWBUYfHFXJR6E3D6Y3y9omPD2aw7SYe65wzT35NO5d3lI3uqK0Mw4Oi7Ym/9C7Nru2oheyWZl5DGMFpv/3/HwlCZnEmePs1lfsnN2vRugP6kRxrbWXyiFlC0rgpGijREgl3L6jZVYSbObQ+uSRw704nU5urXJDi9P4DQx1BO81RLO9pESl63j4fjE2Lb99Y+zH1X24kSjjofrmv1K57bcc6j4bSya0hUbX+oqndK7zK1zVbUWrT52XVlc99OMtKI8a7Mhuh6TLL2IOh0BTokzH8zMMOZrMgJLXrF1Sv7gt1mNYb7gurs702TnwSqZ+JbAcsD6HsJ58I+hBDWDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7iOfBDtHc5rUXY7Ed9OAnlf74Pe8rVgMc+uTMls4Fm8=;
+ b=H1Pm7hzL7Ah8ChQOAKl0nbS/2Nwqm7+mCYfLNM9I5e5JEApMkwjuy50S+zEqzOrNK1IZfdoT+Es6rsOlRg6CGc2ot8eIzDm868v/gELo6xHEzbDbU5l6T008Jr6AFO3DN526deh8s9VdQPHz8quTzYL23Oi4YeWt70VuVouuuYcQ/dvDLBY8sO+1B2reQ3D7x1A7d5OHklgUQ2HiAg66XcMGSCmI1UZ1w+ydQZzEzenXE4vBeBbdbrBDnyygGZ78pUSBoJBoZwmphW8QRdMebU3LmGMINy5ruwK4LlYKtXRD+7Y5LAtT+9UP3PaKSRn9w879WTAUDt1iqlbSIDS2rQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7iOfBDtHc5rUXY7Ed9OAnlf74Pe8rVgMc+uTMls4Fm8=;
+ b=iqDa8xTFlnIf2jdm5KpJ7HJN2LdKkRma7d5yW+L4hqcI/WC80VKsUSkZ7Dt6w2t4r9al3AlLXXbvmI0CFmUK+h5mWpUwsSqiWwHt0UQS+F0W+aTFZW0hmAxwZE6yCVEwpc77arSp/jgzgCa2Pyv7z46Tm44Zqnuzcx9MlFRV9SMwaZVhNvm3gIqlvW85IEfV4StS2+SZrDwtfhmTgH3kIz5XrBRona2u+AkzYpgk5Uy2BKEx1SExHqhvurQzllwEIN/teIMUb0KpC9tl3WEAbJtLBL2qeEkqYMLfAxUSKLzepJsmEtW3y7EjBg/TqWvDkyzaAiCzYwtvy0k3MPpPdg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PRASPRMB0004.eurprd04.prod.outlook.com (2603:10a6:102:29b::6)
+ by PAXPR04MB8653.eurprd04.prod.outlook.com (2603:10a6:102:21c::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Thu, 22 Jan
+ 2026 15:00:33 +0000
+Received: from PRASPRMB0004.eurprd04.prod.outlook.com
+ ([fe80::6ab3:f427:606a:1ecd]) by PRASPRMB0004.eurprd04.prod.outlook.com
+ ([fe80::6ab3:f427:606a:1ecd%4]) with mapi id 15.20.9520.009; Thu, 22 Jan 2026
+ 15:00:33 +0000
+Date: Thu, 22 Jan 2026 10:00:24 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>, stable@vger.kernel.org
+Subject: Re: [PATCH] remoteproc: imx_rproc: Not report loaded resource table
+ when none
+Message-ID: <aXI7iL2Zf282uFlh@lizhi-Precision-Tower-5810>
+References: <20260122-imx-rproc-fix-v1-1-36cc64369a40@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260122-imx-rproc-fix-v1-1-36cc64369a40@nxp.com>
+X-ClientProxiedBy: PH8PR20CA0020.namprd20.prod.outlook.com
+ (2603:10b6:510:23c::21) To PRASPRMB0004.eurprd04.prod.outlook.com
+ (2603:10a6:102:29b::6)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PRASPRMB0004:EE_|PAXPR04MB8653:EE_
+X-MS-Office365-Filtering-Correlation-Id: 44bf2d9f-53a5-4653-d84d-08de59c6fdc2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?y9F2BjWaY3xwMff5loJOSuLvtMPucm6qd/W8nXV2pkBdh7Y/ybOfyraahKOb?=
+ =?us-ascii?Q?Y+/l3sfG3RVKAK3IvzpUfzyL0c3/DudqWqs8eeKVlTJhE1uqGywIc7p4sCRz?=
+ =?us-ascii?Q?qNfRrONTlAaRuWD53Kb2lQ6OSL0JW3iGbNZxATxPKiK5NJdhQMfHXbbPQ9cT?=
+ =?us-ascii?Q?tV02GHfE7ekTBL4WE+d00uKvl8q02X/f/Hjph8hDOWL1umnr5vGMf93L5xtf?=
+ =?us-ascii?Q?Y2WrX+CE/0jUakEtIHmg1yaoeuma0rqa91mz+6lL9hVtdFJUBP66as7A3Fsj?=
+ =?us-ascii?Q?ubJZLHTm7o/8LMn2misRdKODdHi6EbE3cGoxVvPYwShy036td5aeXWyCENHE?=
+ =?us-ascii?Q?2QHR0+G7DT/vGYCV05mj2RPn8wI+0AD1t2Sd1GI9/bP0HJTlSGhA/70lxHaU?=
+ =?us-ascii?Q?DZSUTZK6ilbRObAZ5DrIbnRWEmUfpkxpMszDblJHFIJhPpspageV9m57NvPd?=
+ =?us-ascii?Q?UwsDIxUc6sI8d4BxaIhEzDF21Fak6gWBs7efg0oZKhjaSAVaKcLqh6CouOku?=
+ =?us-ascii?Q?fWZoQvBUQnn4MWDTMTxhoD7a6FY3IapdHw05dM+NSQUW8I7xJ98JdafxDieg?=
+ =?us-ascii?Q?B7O+nUkzRCe168IJl7g706DKv3EoiFGLRJnpmHYOE+vr+Vqp1tSNLV/5K2/L?=
+ =?us-ascii?Q?KoeIlQ7h/MLGWJvzJQrV5ysaWYhuGqOeeaGLq5tYCr2vBMe3Qa5bWzGbqMUk?=
+ =?us-ascii?Q?rn0ufpYvcalIN3U4JdhB7ZTxXWOD9fB8W5bnX8RE1dg5WQP6RM/0zcFJmMBd?=
+ =?us-ascii?Q?2bWJA6BhqoiokkX5zfkUJ9xoU5fXFjCwcOOUvtKI9Nnap/BrUtV7vmWawjAU?=
+ =?us-ascii?Q?D3mKxDg8Yi46qEWZ7Jw+jGOJV6uxsEOP+yWtXhl6xciZ+ZI1PsAkBp2YpHDV?=
+ =?us-ascii?Q?UjuCFlRE0YH06tr97R1bzwcZuSqf421vFFXS8QntuKmCFS6KprQTM00OA8sY?=
+ =?us-ascii?Q?S/V2iyQbusQGXMxezlEYbouAszEoih/zT0XRRmRQ/s/4h20R0oSNBoR5O5Ml?=
+ =?us-ascii?Q?HrzMSlmGk011Te/uS6YqF04o2oK3fIQI9VJ/cptkYxFRKmjO7U1h90bJ0yfu?=
+ =?us-ascii?Q?I+IW6Jav9ISSbhLXGS28DRW4nJDOdGyY3sdTzM+gEKP8dPmssb5LzOpdENz4?=
+ =?us-ascii?Q?y/AOZGDm2hETZwHdidSaq7xoQl1h8Brm/HJ10Hxvcdg9U/4axU/sZFAyfJkH?=
+ =?us-ascii?Q?0+cgj946gaeTXiMRoc6eeQ4CdTgGS0eNfvSloMsnA4YQFrxyfTokk/FAfX01?=
+ =?us-ascii?Q?Q9q+tspCqzHsxnc310njn0YaLrJRjZGCTINBjuL8bNnjfXAVz6JPfQlIFsgd?=
+ =?us-ascii?Q?ZqvVEoeOtRdmHVwIBTJgNU5+ji5jQnf0eN4f7yPQuksAIUnXtDizuuijwxq9?=
+ =?us-ascii?Q?x/miBvCLego9c2bRaWoFyM0BgnRBl1W8dGC6ohejStP08urdI/I8YyavWZmq?=
+ =?us-ascii?Q?oxVE7jVTB2tgI1VU8PL7qSQZ/pB+iw1igi90BfhWFwGLoJHxi35WPt9YVlkH?=
+ =?us-ascii?Q?ZZp+6SCytVAEDZ7/LO0yXdzGc7HQPJ6SpwiV7w9rABWo9PT8XGGBWjoRmIfG?=
+ =?us-ascii?Q?ORneY1PAibShtYpesdVY0tunlh4Fwtd0KJTI6ObTZcowbTtp4U4CN3ckbquc?=
+ =?us-ascii?Q?PuajvqdZC0pcFrXyMLGGEB4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PRASPRMB0004.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hj2V4wpotXdkVfGHxzDaI1np1oFgCiNeBWzDGdS/ygUCsu4gUtnFL+PPmp+/?=
+ =?us-ascii?Q?GKav0/55ig3aRzkQcw/Vx8O9yUiCORSuMg5i22zF2WX5cwRHU9m46we80YB9?=
+ =?us-ascii?Q?Si7MTzgt4QNssot1nRNPxu4ufAwUjHdoNvrMFmmKAQ/kjs5gAMuMenrtIRMJ?=
+ =?us-ascii?Q?Tqe4n5u6JFqhmXrGWef27qKgd+qD53bIn+hHUQ5mV5HtvJicopiDAswnQlQ1?=
+ =?us-ascii?Q?xpY286aBEZupzEtXwv8ASWOVw87adqUHSIzjthXpDxw7i6TJJJsDDptnpvM4?=
+ =?us-ascii?Q?+jyh66Xu8II92bij80HhiFykkKgtwOKqXkbxHuIm+2ls7xlDOO8thOhtlsrX?=
+ =?us-ascii?Q?G91NeBGUkou0VyFEZKOKamerjEVZSIBZaqAU7gzzvTtLRyYxIEoKIENip8ih?=
+ =?us-ascii?Q?a3IE77su1rOPgYqaTOrljv+B1npioSD5SYwX9RaGFRKRBF3+dKwA7GSmXv9N?=
+ =?us-ascii?Q?oAttN9yhMZ9r8zH/J1czwiNTQLo/G/3iLA4Jq2O5vmXMen/OmUE2vPXSLrnI?=
+ =?us-ascii?Q?PA+E3fDRgYymNAOrVGkoaqSbJAfmb7NRzrhGkhHDX2jkq2tLq/1ARFkbuSL5?=
+ =?us-ascii?Q?QTA48afCvYbcz2ziUem8bJ/8nEfH91x9Y0Lj80+6esuh53FYqw1rag3wUk4x?=
+ =?us-ascii?Q?VcdviHEe3xrE91NggjoRHpvJobgssGYjoi3J1OypORw2k7H2WUCLp20ldsEP?=
+ =?us-ascii?Q?zN0yXFpTRqOKlGqTZLvyT8e5+KfZTQd7NEitXJKqH6MOoLvDqO+gHCRD+ITy?=
+ =?us-ascii?Q?gS20zAAWJ2S8lJXke/8EJvJ3iO92zdK+umfa5nYNwo2eHd3xlFO+8oXLcHsS?=
+ =?us-ascii?Q?g/KL4J66ygBXYP4DGEmQit9iTdVIGd7+22ukJUzeB2FOeoS7lbuuxg1igzvf?=
+ =?us-ascii?Q?q//AEvAth78B9krl6MyqiPl3wvoH16gv+9hjILYlgAyfdgFi0lLOQpwRYM+Y?=
+ =?us-ascii?Q?OP4Kuuk39R9t5Ro5Khf5EWxTopyGfccvs7TzHqGunKkMdbUKPlqK3X+CuayX?=
+ =?us-ascii?Q?71BuhNGBMopqmjsDiPqz5MpWaqvjzuyOvHpkA3mRNbG5pTWRxFj69XqlMbSq?=
+ =?us-ascii?Q?RUuRpvnhUi0T00n8kvUpnqY1I1cI/2vuyUYF52ZnEaIjrws/Q7I5FF3G5Px9?=
+ =?us-ascii?Q?Zg0M1hkZEl4EszyIlaK/cPOjFgtoSQa6KoZBJrtjLaw6w3OtZAP09YdmbGBl?=
+ =?us-ascii?Q?++/Vlv9FcxnRz6/aox2vIdkbAcGFMABhFoIgoxmoWHkSbhrQxoS4vkM3pz/F?=
+ =?us-ascii?Q?sHNzpkKyFgoIzaSc2b5GYCyMnGaXEqz0cGMcDYKWifBDJd4B5AywLH4rxURE?=
+ =?us-ascii?Q?C/vKJsyHyMqTXoFJlhbc+wtiq+MRrP0N+7LjQR36iO1S+f2TDZhBuYgys2ij?=
+ =?us-ascii?Q?IpfsCGwEfKCqUPTZ/KcZY153wWpVEyLyNnty6+zf94tt/4MgwBMf0I/YUAAZ?=
+ =?us-ascii?Q?duaLHqVJPYTzh6N4I9i/kFsesRdcuL9pc1CIsqTQe3DoZqVY+Vb2sRWjPuYn?=
+ =?us-ascii?Q?f6oL92x5tj4ULPq0ISNUf4M+A5fyrTh3P5Rgjft1X8W7ZJ/0V+m/R6F/0KBH?=
+ =?us-ascii?Q?rSmMbqquzaCLHrRgx/LPTHf4FDPRXdZxXse6JaGaziEO1Qmc4DyHNhrzCUwZ?=
+ =?us-ascii?Q?mJUrBf/GJlvwBJBRtidpqrY+4lqJ0xJA67ktH+nQOV3o5l4ZAoAzR0Lj7ri8?=
+ =?us-ascii?Q?WlLrxpANmK1gnH0eSx+kVIIsC4K08YV53Ny0OzkNeAfi46AF?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 44bf2d9f-53a5-4653-d84d-08de59c6fdc2
+X-MS-Exchange-CrossTenant-AuthSource: PRASPRMB0004.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 15:00:33.0443
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 59G9Smft2l8UsGNKuJGB3Stc/bYNO9GjFa8jcnj8tR8aLxC4nxZOV916VMuGieOHuESRU9SK7YAbnjyAUdsDzA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8653
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_065953_684745_04F53B95 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20260122_070041_354586_5695E41F 
+X-CRM114-Status: GOOD (  25.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +170,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 Jan 2026 19:00:18 +0100
-"Luca Ceresoli" <luca.ceresoli@bootlin.com> wrote:
+On Thu, Jan 22, 2026 at 11:24:43AM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> When starting a firmware without a resource table after previously running
+> one that had a resource table, imx_rproc_elf_find_loaded_rsc_table() may
+> incorrectly return a valid device memory pointer (priv->rsc_table).
+>
+> In this case rproc->cached_table is NULL because the current firmware does
+> not contain a resource table, but the remoteproc core still interprets the
+> non-NULL return value as a loaded resource table and attempts to memcpy()
+> from rproc->cached_table, leading to a NULL pointer dereference and kernel
+> panic.
+>
+> Fix this by returning NULL from imx_rproc_elf_find_loaded_rsc_table() when
+> there is no cached resource table for the current firmware. This ensures
+> that a loaded resource table is only reported when a valid cached_table
+> exists, which matches the remoteproc core expectations.
+>
+> This issue can be reproduced by:
+>   1) start a firmware with a resource table
+>   2) stop the remote processor
+>   3) start a firmware without a resource table
+>
+> With this change, starting a firmware without a resource table no longer
+> causes kernel dump.
+>
+> Fixes: e954a1bd1610 ("remoteproc: imx_rproc: Use imx specific hook for find_loaded_rsc_table")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
 
-> On Fri Jan 16, 2026 at 6:02 PM CET, Kory Maincent (TI.com) wrote:
-> > Replace dev_* logging calls with their DRM equivalents.
-> > This aligns with the DRM subsystem's logging infrastructure and provides
-> > better integration with DRM debugging mechanisms. The drm_* helpers
-> > automatically include device information and integrate with DRM's
-> > debug category filtering.
-> >
-> > Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
-> > ---
-> >
-> > Change in v4:
-> > - New patch. =20
->=20
-> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
->=20
-> But please avoid adding more patches to a v2+ series unless there is a
-> specific need. It does not help getting it applied.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Thanks for your reviews and sorry for that.
-This indeed does not help reviewers to easily keep track in the review proc=
-ess.
-
-Regards,
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+>  drivers/remoteproc/imx_rproc.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 375de79168a1c8d11b87ac1bd63774a3feac106d..cf044b385b58fe1e17d0fc440c243d76ecf020ae 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -729,6 +729,10 @@ imx_rproc_elf_find_loaded_rsc_table(struct rproc *rproc, const struct firmware *
+>  {
+>  	struct imx_rproc *priv = rproc->priv;
+>
+> +	/* No resource table in the firmware */
+> +	if (!rproc->cached_table)
+> +		return NULL;
+> +
+>  	if (priv->rsc_table)
+>  		return (struct resource_table *)priv->rsc_table;
+>
+>
+> ---
+> base-commit: e3b32dcb9f23e3c3927ef3eec6a5842a988fb574
+> change-id: 20260122-imx-rproc-fix-e206f8e6e477
+>
+> Best regards,
+> --
+> Peng Fan <peng.fan@nxp.com>
+>
 
