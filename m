@@ -4,65 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6698D3EE62
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 13:09:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD7B1D3EE64
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 13:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KkhVBB+QgzcCgYyqL44Qur19CLLRdKf0hGWKGZRHDXM=; b=vNKSNjbvMm+cuQtIsC09lTY8tf
-	hvb8ll+dQr5qsn8t1XaNyySw0hBTbLUqtubQrcfy2oEVAAlbUOHFA4Ih48i31IG4aJ9MZdCCZFdXt
-	eqNhq8DZCTaUwTyIOr7n4MK3QtEQWjuhl5xAF2xXjoayKPFPS9AAyeq8ue0AgbMwEaueQe4lP+rdR
-	Kt3PErqQkHvSaZuJKqQ0PBssUd2QonLR4yWvKZpbFEK0MC7ALTG1JVMDNWPQovG6TH3cwIZJkO/kL
-	3AdUH2DzTEQBLo7UacJsWuR87/gOWz9Yx2efoYMvS4qbkPzRz28yfjciQ7nYGaCxcls5hp4YuCxSl
-	agSALr5w==;
+	bh=vzBFsjCUMeWApgIagprm6rUbDfFQlSRRGjGulktrXh8=; b=PReZqCCTF6DUIbpKf6LPFZRz9i
+	PZmzw1qD9JFshTugwTw6+ldV8TnHhR5P92AH0zwXSJ0q4CX/9NndVHzYU5H1OV9PmxR4UD6o9QRkA
+	kTsBC/ubpz58jsMXBo7B1EcTolP+hnK9uwl8noagjgiNO/JVzalk7ItBW1Zo/oi253sdUEsxOStks
+	P4M9ff2+q4mPENKSYgQj7LyuVu9iKtUxZGL7lJQsJ6fnQyWDE3FMHOa5qHcr0rT8DdKLtfBFCToA0
+	nW+TT1olDVlpC/10joeJlzTQKXEqn6n/Pum+MNZ2ZMbzjamVkg5/cUbxcLXBmsXoYep5AUe19lPEq
+	ed8/AmGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viuRC-000000076xm-3DpH;
-	Thu, 22 Jan 2026 13:09:26 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1viuWM-000000077SL-1uHf;
+	Thu, 22 Jan 2026 13:14:46 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viuRA-000000076wy-18J1
+	id 1viuWJ-000000077Rc-3Mf0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 13:09:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=KkhVBB+QgzcCgYyqL44Qur19CLLRdKf0hGWKGZRHDXM=; b=3wbYFeC4l3BuZgViSmTjQ/upiU
-	dBWtE6sepWEKwD6lbSg8mRK7p26bIka0HVof7t/10AMQrdbIO5y8JFcbLVA319b37CaMPRi7FeKcT
-	TX/GWvVdkBXLRZ1Xb+iIo0rrO9sySy3HvUK95WGYquFBA2tSAjxiRZ21T91QCfGPoXmo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1viuR0-003yGm-Mo; Thu, 22 Jan 2026 14:09:14 +0100
-Date: Thu, 22 Jan 2026 14:09:14 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Stefan Eichenberger <eichest@gmail.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	hkallweit1@gmail.com, linux@armlinux.org.uk,
-	linux-stm32@st-md-mailman.stormreply.com,
-	maxime.chevallier@bootlin.com, francesco.dolcini@toradex.com,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Subject: Re: [PATCH net-next v3 3/3] net: stmmac: dwmac-imx: keep preamble
- before sfd on i.MX8MP
-Message-ID: <96f2c395-82f0-4399-be3b-6b0e3f07f90e@lunn.ch>
-References: <20260120203905.23805-1-eichest@gmail.com>
- <20260120203905.23805-4-eichest@gmail.com>
-MIME-Version: 1.0
+	Thu, 22 Jan 2026 13:14:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oC1/44dK9ZiaFrfk1EkZP49VYqkG6eDcXdACMQSLmK2w+MgjHTsMCACCtGmtxRxnS0bBJ8h1fWIH84Z5yMdCLKMxyMxuvEnknzV4qGVEsp7Zk4br3ErqVgAY8z+72UdWCt6x4zRgOHRacBOGP5TNDegXEQy7yQQcIH7ahNMTC8h/9F7QyxrlQdT7NCf8zXedoCi56OULV0/60ZRKI2kg4ft+EmYbNTa3x2mBpUFS/+NwvsXnM4FjUAKKMjzZ389i0TZa9Gv/WqlRuNwp9p+5BBmivvBId6KS7sLpLuDe1BkC8q7X/dkma9zaqQzWjPY8VJNRvG336KX9EJsa9FOHGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vzBFsjCUMeWApgIagprm6rUbDfFQlSRRGjGulktrXh8=;
+ b=dFQUSE3QHmfboabLcphUyLIN76cmr688Hyb9KB+yI1+C8Vz5mklBbaVuLdqryIXGNVBUk3OmkttP0pM1Q7k4kbDkliS65srN4YUoNsrb2U6ekMJNXO+3iHk/NcPmOLSK/4zvHABbGBfkemPPceqnEx69riYpteAG9KdRTGcmPk8eI1j45uZDEjoZowvTq/y6Cvwh7Ru+kDzsR/mKU6E3WSuyimjocG0cClukZ6b5RtTWJjBB5JqPMGxkKwkzIKXV3ym/pr4HVO5emX1m8I7mDsqbCZGwqhIh2G72SMu7i/mYZlGviSwS0ZLn/kZu/PDehJi7PQ2577vFdvBsukY7Qg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vzBFsjCUMeWApgIagprm6rUbDfFQlSRRGjGulktrXh8=;
+ b=bM4NmwlZxzQqFIC/srMoiV3SkyfXNJCt0agYmDHYjXQGVTj5f5y1DQeKu+aBcdX5oIwC1/8zQ1cAYEDd3XyRdUOIDIfCwNzCoV0OEB1X4Q+kqEFkegENFNKJHt9LWQEgaAmct+FuWeYPFaYItTVdxNueCzxkZ/BtysxwzEoAUE2oGMf4P5IqsOlzmt88XCcYYqWNuIPoby7sBcJOYj19ojqWVXDLQecHLMZf5JSigRrLaHr4Xc+bI+SXgUYCVXtHiubCIc4rkcK+MePDiKCY6VWb5li1q4LB5cH8HEqfAT+GRtuYn7KiIlWRSyhO25utU9bYUmAOLnG3Bq+tGPGoXQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by PH0PR12MB7983.namprd12.prod.outlook.com (2603:10b6:510:28e::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Thu, 22 Jan
+ 2026 13:14:36 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9542.010; Thu, 22 Jan 2026
+ 13:14:35 +0000
+Date: Thu, 22 Jan 2026 09:14:32 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: dan.j.williams@intel.com
+Cc: Jonathan Cameron <jonathan.cameron@huawei.com>,
+	"Tian, Kevin" <kevin.tian@intel.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"praan@google.com" <praan@google.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	linux-cxl@vger.kernel.org
+Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Message-ID: <20260122131432.GJ1134360@nvidia.com>
+References: <cover.1768624180.git.nicolinc@nvidia.com>
+ <d1768bb6384050a23769f20ca28216f520f77e26.1768624181.git.nicolinc@nvidia.com>
+ <BL1PR11MB5271F0BDC68C2D7F172122E98C96A@BL1PR11MB5271.namprd11.prod.outlook.com>
+ <20260121100307.00004e60@huawei.com>
+ <20260121130315.GE1134360@nvidia.com>
+ <6971b9406d069_1d33100df@dwillia2-mobl4.notmuch>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260120203905.23805-4-eichest@gmail.com>
+In-Reply-To: <6971b9406d069_1d33100df@dwillia2-mobl4.notmuch>
+X-ClientProxiedBy: BL0PR01CA0006.prod.exchangelabs.com (2603:10b6:208:71::19)
+ To LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH0PR12MB7983:EE_
+X-MS-Office365-Filtering-Correlation-Id: 25823723-25cc-4c85-8c07-08de59b83005
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+20kGrW6IAF0vaDeEuCaqAfFjNHXj3OHm1ui2uHt+LGylfAUXbMdzxoKz12v?=
+ =?us-ascii?Q?Zr6dynmpoGaZxvmRE2G3LQ2gF42/gE8cE0MuqYuLAxNyY4eLKoPDE1uZSkck?=
+ =?us-ascii?Q?uS4NUG841UqnHr2nwgV/Go1sx5iC63PZpcY/qWUZ4XXxwyOsI37Hg8RJe+cW?=
+ =?us-ascii?Q?heVoWG6C0/HinAJXidYSSQorXqQloq/L82HoBxp1yZ1vUbCg2+vhGASmwe2p?=
+ =?us-ascii?Q?7q1rl8bLr4jv6wRIeJ5EfU9aHwbBUBay6a4XcC8hvAPyUM59lYGCI+MqSONH?=
+ =?us-ascii?Q?zL7IHT/Him3UZbUK+3LJzT7K++Ozuaowa2Ut1mkeqijPxRE9fGLPAPHULyp7?=
+ =?us-ascii?Q?GdJzoOlVs8a1eBzn9tsy3U1GRzL5a/7vSTQtov6M7W92k4lclBVCG4SQID1P?=
+ =?us-ascii?Q?7AlstITWQlp7r2YY7+VRyz7XF/trZwTYAi+0wNKCx5hZbxe4SBEuFK4hpuJc?=
+ =?us-ascii?Q?A/Ma1v1aA6ups5DXFX/ULGtuq8YCE+CkjyBEqs7a17NPdshCnVwpg17OKIPD?=
+ =?us-ascii?Q?l6WMtSX/4yjEBLzCOa+cj5kvp1LjQSZdfrVXjLBn04dLBAMEITpyg5oah/BR?=
+ =?us-ascii?Q?fy71G59y4f7ft58FvDsXUlQW/ZkzDhTXdOV5Mr46Wfv21BS/JncIrYB55naL?=
+ =?us-ascii?Q?EkfbVW+KlQPJg6if2BW+q6aiGytTOahcqBVdAJAOVnJbPbPxpqJWA96qvjRY?=
+ =?us-ascii?Q?UcZ7KkBE9mgJ5osh9GcSoNngYUCcuRjjvYa+pUWIGlVubtC5uTmRwXTeRxzs?=
+ =?us-ascii?Q?HpFYHAxH+joUUpFrvyvBZhPnvhEaLI/I/PARCbIOK9xuvAHKIagHYZ1dLoBO?=
+ =?us-ascii?Q?5BaiMAt0B8feWHye9K8vy2iUFjh8j6NxGiZ+2qQdrD2WMNR4lBjgd4YZ9o2l?=
+ =?us-ascii?Q?tGq3FJjdEmtHnyjMDJJ4iGAoYCJ58BZkLD7303clFOiHmN9ijbjt6ZlZ5L+f?=
+ =?us-ascii?Q?ymNE2LN6hIVjLPSKK+uYZ1k68sRm9973t1H1axSC0cHbHj6Zlun9sShSasGL?=
+ =?us-ascii?Q?2nTE2IzRqfraFzRNaJ5uohqhMbrvDjYBP0edgjs34UpH0z4DDLKJo+lidehn?=
+ =?us-ascii?Q?CBKPNe9qflI4CO23PuKQlCvdIpNPYijVRABPRtrAYhW/46tOtbbCbdRJbEz5?=
+ =?us-ascii?Q?Z++xkChXhLb/KTwz4+Rw7Ox34K6/CKRMkkQY6YgYkI06wf0eAjvnda8zhNTG?=
+ =?us-ascii?Q?wiczgqdtveBg/QGJuq8JEOhnGtUEfnDQpKTnL3XqfkmU1/Jlf6oKaaj0IXly?=
+ =?us-ascii?Q?CQtIbkrlRWbt508T7bh6yrDGU/mMMjdp2S1zDgZuJk/LbdxTgigB9vsUeMom?=
+ =?us-ascii?Q?73imb+zKmVqccn7jMfNvBcqEFTrtMfjEHv2SGi/KisAlgrx3sPHgKsPpsqvt?=
+ =?us-ascii?Q?N7KQEg4iEbzDlMfu07ZjYfkM8ZQn2Z6jHFQZsw0Fl0wLMI5b6Uo6Nid+Jlhh?=
+ =?us-ascii?Q?4cdDzz7hO/H0q5Mec0CWeCB1S6C7+oQcqgdOtOiJZT+ECT1lO9Ky33c9ANSF?=
+ =?us-ascii?Q?IP4ec+Vp6CYRTngRws8YCV1T0m0NI24WEW+tXXcdTbeCtQgzO1iOJU9+nz0M?=
+ =?us-ascii?Q?vvMstE6ChfKILmOHDlU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CvhDhdDyn02LEEIcYwpwxeW5ZkySRaFsqmDFlo+VO38T0MKUjwv66Ji/YPvB?=
+ =?us-ascii?Q?Q8rBhXesDAb4LmQwYpQhK5u1H9ZNWUP7nA3SkEr4c1eSmlHurUKqD8zRwNtf?=
+ =?us-ascii?Q?inajiM2fgW5mTNj1A6fTfWUMYDTaeqvnpwwRHFC3Uq8qHeGrsN4fFXIknvT4?=
+ =?us-ascii?Q?AaeDoU1d/JqnDa07HK7V094z+Nj5MAeOE3Me5Ta5CwuoWA+IqvZtM8LTe2ZE?=
+ =?us-ascii?Q?w+jgMMQFdoH9A2ZzADzXh1MCy3BNCq/ivoQ96alp4nEn7Z8yc33JXwQT/ilF?=
+ =?us-ascii?Q?RBbeS82iwfC+AlQjKvjE2tXecrhDK0OlLj7A0bU5CxofC+4ZXt4Wya1PZysp?=
+ =?us-ascii?Q?MMxPKZFStVmxwPT40cX6LC14zoV3+BFTz9utqBj44pqA4/cmI9WKFJ9K1l07?=
+ =?us-ascii?Q?z7yqzU7cpb74pJy0P2qfg7pNrGbZqRXzicYNsk63RdK9tmf182M2nEAmZwFL?=
+ =?us-ascii?Q?bHFQ1PSJNtpwTZukhAE1uLXfSn5Y8e4lifcXJxGZIxGUCbVsbyw1KOqM1aKj?=
+ =?us-ascii?Q?ttO9vGEP2u2DZ8ym6d8y9FL063EStRKCiEGX8lo7+F4KzQeQEGXwEirlIpxZ?=
+ =?us-ascii?Q?YRz+T6x7xg9r7ITNxFgDXreJaBteWVsYszrHcI5dmrZ1US1RJ2htZLBaa/z3?=
+ =?us-ascii?Q?RA3VHfexZBoVBVlwyFf08LLbzFSQG1aFQbW0VP8ihISAUE5TItsiBJg14xiB?=
+ =?us-ascii?Q?oo5xU5yVc2LeWmuUAOJeyR+iljlJaywoI/GQKQmqV/h23H7Mpz4UPdnqO0cw?=
+ =?us-ascii?Q?a0Z91g6JWgJrCP+Hid+mzZSrprFhpTnZRVItFBS2A7lfdKbveD4lywdGe6KN?=
+ =?us-ascii?Q?AKyBZPlGOFyg0DGNhgvJTivdaVi43pKJPpUha03pQ/aPTmoF+7k06eRiFJjS?=
+ =?us-ascii?Q?WQIvurdkLRSfr13QLXyqhgA87qYCQzE8bBr3xZYX5N6zTw6mW9dwBrVCzqBE?=
+ =?us-ascii?Q?r/T0hUEQWV0VAgRYN+UjUvcDGDgNHy2Hw093iTE1dfsFcJMLQqm0rItvSWvF?=
+ =?us-ascii?Q?fdstL1XDG0kmbhkEmI368abAJrvAdhvSqvNFxzvezbr5kyvj20z9LDQ0m39f?=
+ =?us-ascii?Q?jRqVYCMY7zgEuH/ipeIWI6qTJvPnCUzJuH9Na74XcRoYdoEqqo5lpSOeCVmN?=
+ =?us-ascii?Q?aKpuhz2BTruspJxNPgNhqLKPvobkXOyPDuAp/HQSGmA7nXfhYUKPkPJYSb2T?=
+ =?us-ascii?Q?dJmwPU8ulETZ3VTVOnC/A5WmXceHFSsKgzJKSX1wp02l15RX/XQg4JOkkxWn?=
+ =?us-ascii?Q?z7Ts40rkjwt5kZNqkfDtkiybQORPWN79rD/QF7LNtrL/2lXSslcoKfrdnQOx?=
+ =?us-ascii?Q?NBaSFcUHV1gpHFcRzSVAvtTmXs9QlvVrdX11xyDwvlJbRYj0SD7MuIpZZuM7?=
+ =?us-ascii?Q?fwVRfx6bFqLzrATt6fpIhVYLIIfw36CBLB8WCNIsWouVJnn4DRF5F6/QCnlU?=
+ =?us-ascii?Q?CS3b8PdisecDU9HxWTVRY3bHvqbvymeUU9vuI7aQwyR2SF5VQO/vDNIOBoRR?=
+ =?us-ascii?Q?hctR1x45HUq5MIP4h+4xxvw978Y7N7f4WuQ0Y1s7DBOtdLZeNTzc89xj3uBI?=
+ =?us-ascii?Q?XZaRxk40oLaDvynV0puV2FJVztB4LOrF5LrRMhQfXHySKvIadBBO35iMSmQY?=
+ =?us-ascii?Q?q3Z3G32j96h9s3vMymdTZ4Jdq1VrnhvC7N7rhNpB4i6hJmsLZVuUzAFaoCuP?=
+ =?us-ascii?Q?OZG+Qv5G+9Rwb2p/JflICTJdXeE9wIyQ6nyacLnXux8zXeBV0SgdXei2M5uV?=
+ =?us-ascii?Q?dLJNb+hCRw=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 25823723-25cc-4c85-8c07-08de59b83005
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 13:14:35.2600
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: neMu/T5LwQ/RPTQCkbkLaXYZU38CwTVqkhaszt9t5hP1h4bEX928LH/Q0uERer4j
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7983
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_050924_310664_26ECB59A 
-X-CRM114-Status: GOOD (  19.94  )
+X-CRM114-CacheID: sfid-20260122_051443_844046_AF9EA8A0 
+X-CRM114-Status: GOOD (  24.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,54 +179,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 09:30:04PM +0100, Stefan Eichenberger wrote:
-> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+On Wed, Jan 21, 2026 at 09:44:32PM -0800, dan.j.williams@intel.com wrote:
+> Jason Gunthorpe wrote:
+> > On Wed, Jan 21, 2026 at 10:03:07AM +0000, Jonathan Cameron wrote:
+> > > On Wed, 21 Jan 2026 08:01:36 +0000
+> > > "Tian, Kevin" <kevin.tian@intel.com> wrote:
+> > > 
+> > > > +Dan. I recalled an offline discussion in which he raised concern on
+> > > > having the kernel blindly enable ATS for cxl.cache device instead of
+> > > > creating a knob for admin to configure from userspace (in case
+> > > > security is viewed more important than functionality, upon allowing
+> > > > DMA to read data out of CPU caches)...
+> > > > 
+> > > 
+> > > +CC Linux-cxl
+> > 
+> > A cxl.cache device supporting ATS will automatically enable ATS today
+> > if the kernel option to enable translation is set.
+> > 
+> > Even if the device is marked untrusted by the PCI layer (eg an
+> > external port).
+> > 
+> > Yes this is effectively a security issue, but it is not really a CXL
+> > specific problem.
 > 
-> The stmmac implementation used by NXP for the i.MX8MP SoC is subject to
-> errata ERR050694. According to this errata, when no preamble byte is
-> transferred before the SFD from the PHY to the MAC, the MAC will discard
-> the frame.
-> 
-> Setting the PHY_F_KEEP_PREAMBLE_BEFORE_SFD flag instructs PHYs that
-> support it to keep the preamble byte before the SFD. This ensures that
-> the MAC successfully receives frames.
-> 
-> As this is an issue in the MAC implementation, only enable the flag for
-> the i.MX8MP SoC where the errata applies but not for other SoCs using a
-> working stmmac implementation.
-> 
-> The exact wording of the errata ERR050694 from NXP:
-> The IEEE 802.3 standard states that, in MII/GMII modes, the byte
-> preceding the SFD (0xD5), SMD-S (0xE6,0x4C, 0x7F, or 0xB3), or SMD-C
-> (0x61, 0x52, 0x9E, or 0x2A) byte can be a non-PREAMBLE byte or there can
-> be no preceding preamble byte. The MAC receiver must successfully
-> receive a packet without any preamble(0x55) byte preceding the SFD,
-> SMD-S, or SMD-C byte.
-> However due to the defect, in configurations where frame preemption is
-> enabled, when preamble byte does not precede the SFD, SMD-S, or SMD-C
-> byte, the received packet is discarded by the MAC receiver. This is
-> because, the start-of-packet detection logic of the MAC receiver
-> incorrectly checks for a preamble byte.
-> 
-> NXP refers to IEEE 802.3 where in clause 35.2.3.2.2 Receive case (GMII)
-> they show two tables one where the preamble is preceding the SFD and one
-> where it is not. The text says:
-> The operation of 1000 Mb/s PHYs can result in shrinkage of the preamble
-> between transmission at the source GMII and reception at the destination
-> GMII. Table 35-3 depicts the case where no preamble bytes are conveyed
-> across the GMII. This case may not be possible with a specific PHY, but
-> illustrates the minimum preamble with which MAC shall be able to
-> operate. Table 35-4 depicts the case where the entire preamble is
-> conveyed across the GMII.
-> 
-> This workaround was tested on a Verdin iMX8MP by enforcing 10 MBit/s:
-> ethtool -s end0 speed 10
-> Without keeping the preamble, no packet were received. With keeping the
-> preamble, everything worked as expected.
-> 
-> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+> My contention is that it is a worse or at least different problem in the
+> CXL case because now you have a new toolkit in an attack that wants to
+> exfiltrate data from CPU caches.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+?? I don't see CXL as meaningfully different than PCI in terms of what
+data can be accessed with Translated requests. If the IOMMU doesn't
+block Translated requests the whole systems is open. CXL doesn't make
+it more open.
 
-    Andrew
+> "We have a less than perfect legacy way (PCI untrusted flag) to nod at
+>  ATS security problems. Let us ignore even that for a new class of
+>  devices that advertise they can trigger all the old security problems
+>  plus new ones."
+
+Ah, I missed that we are already force disabling ATS in this untrusted
+case, so we should ensure that continues to be the case here
+too. Nicolin does it need a change?
+
+> I do not immediately see what is wrong with requiring userspace policy
+> opt-in. That naturally gets replaced by installing the device's
+> certificate (for native PCI CMA), authenticating the device with the
+> TSM (for PCI IDE), or obviated by secure-ATS if that arrives.
+
+I think that goes back to the discussion about not loading drivers
+before validating the device.
+
+It would also make alot of sense to leave the IOMMU blocking until the
+driver is loaded for these secure situations. The blocking translation
+should block ATS too.
+
+Then the flow you are describing will work well:
+
+1) At pre-boot the IOMMU will block all DMA including Translated.
+2) The OS activates the IOMMU driver and keeps blocking.
+3) Instead of immediately binding a default domain the IOMMU core
+   leaves the translation blocking.
+4) The OS defers loading the driver to userspace.
+5) Userspace measures the device and "accepts" it by loading the
+   driver
+6) IOMMU core attaches a non-blocking default domain and activates ATS
+
+Jason
 
