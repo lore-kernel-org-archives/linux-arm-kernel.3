@@ -4,52 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24103C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:48:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29108C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:48:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QcihiQmex/U1JPCJ48hvx3ZiYeIXF1MRCpJ0DSZDo4k=; b=UwNufBUPQtCcVUsCRybRd0Be7s
-	Rp2mXB2eH8rHtgWG/XwExZnMp1V2bLVi24YBm8X0gJllS4ahbYakGy3NzPZYIgLpMawTkUoHgdmV3
-	Xes1aJukA7BXSHDAiDc0t+Dwu1+udAnHAbSMW/6tutYRHRHfBARL58VnOizLB0JhT0OmqsvBfCYBg
-	2dSBrymz9pj2lP4eKgh49qsEEoz+wsy9RrNqtYOQpAciNJr1wSqr4mJpq2/yiDvS1yXigtKMpzyBx
-	XPmu6WVyMXo++UYeiPpxMFXEGCcOqdb5Ky+yUJjhcEMzral5PsD0Bu0G2cbppbpcaP3drErSzImX1
-	R6+dhx8g==;
+	bh=X5CrQ5BRNqlsZgtv/fi6RZSuKr5nRtuxSxetuKVXTfg=; b=jaIdc5NibK7mM/D4zSM/NmY46L
+	egErjT24QtDnqoy2Mn+YIOYQZBkmDSTpVHNGq/W1aHzbvunkQfqPAAoDS5lETM/MkEMcudB5blC2s
+	WvrnUNs1VG7pRUL8RAZ9DsoVcUjC761mVTHowOqk3vsTP0QKlS2xLW+vWOu1s/mz8Za8ShZR1dc93
+	5n3Nug6NxKN6TSe4bhyRKkZBAJ2+7ooiHCvESOOY08bk/CafrOxUNoIV0HF+QSNI8JTGlm0I2Q6RE
+	zt2fCFl4wjy5tFkFRur5AngJCKUT847VnJ95d9YOO/OWyf4+iL0qZdUiNu9PerGt2w/2M61OBpvDZ
+	8i54+BuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virIZ-00000006lcO-1LTv;
+	id 1virIZ-00000006lcy-31W4;
 	Thu, 22 Jan 2026 09:48:19 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virIW-00000006lZH-0Lmr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 Jan 2026 09:48:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=QcihiQmex/U1JPCJ48hvx3ZiYeIXF1MRCpJ0DSZDo4k=; b=igE4BESrTrYykG5j3LPp8ASsEm
-	jUZ/yPFNf+W7BO9bCB6VqZuHR1uX2ZEHwt5tOGCNvL7rnF/MWcSAZ8kzBVnE21bDv3KBrLwFdpMUb
-	j5kNtPNG9cqbp1KN4DrH9I0g6yQWZvpyKmIHDMaWTHyYd/1o+egQckEs8nAc8JGWeG+KFKn2SQzDk
-	jGpjQk8SpWL7H+e4w29NNHrKjTLGRnnKAmWMD9UXq4NL2aEEgTCo6wsf1ePe5ZdOkSYYnwmL0Aeqg
-	hgEoHuUEBNyMQuSCcSqPoOQJfeCB4x+cRYvweF698d5Lh1MhdFScxHYkGnVUKNkKwjF+7esY+q/qQ
-	GtypXCOg==;
-Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virIS-0000000088b-0SOp
+	id 1virIW-00000006lXl-3ghn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 09:48:14 +0000
+	Thu, 22 Jan 2026 09:48:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1769075278; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=QcihiQmex/U1JPCJ48hvx3ZiYeIXF1MRCpJ0DSZDo4k=;
-	b=SnIzE3ZR7UHsIPOcR718TgiuQYaTNKqFDI3Wkp7952GN5hAf35LuBSGeuNdkzA8CBiFGwF/gufC1s/amL04lX9yRSqKcJ38o1qDW5cnNXJs2Jz1OsqanvHSNM4Q8+wjoe/tZHrtUxB2aOKFenUe54UI8vUWlR93OMeCt4a8yYi0=
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WxbtZlR_1769075272 cluster:ay36)
+	t=1769075292; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=X5CrQ5BRNqlsZgtv/fi6RZSuKr5nRtuxSxetuKVXTfg=;
+	b=uzSwk61LycJCC9iuU6qohdVhkYC8RPW1204+ZVVaAhGCZyA/1vncoYf9iDLuCemvTk3yl8c5hieKxkt0hWa6kT15L2sikeHdDvP7GAOucnepZhl+oi2KmVddE8tDQnTikBg398zrQoqAHy9tjrchO68u+FO2CrTUzF6YcAa8dwY=
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0Wxbuak8_1769075288 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Thu, 22 Jan 2026 17:47:57 +0800
+          Thu, 22 Jan 2026 17:48:11 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -74,17 +59,17 @@ Cc: lenb@kernel.org,
 	zhuo.song@linux.alibaba.com,
 	oliver.yang@linux.alibaba.com,
 	Ruidong Tian <tianruidong@linux.alibaba.com>
-Subject: [PATCH v6 07/16] ras: AEST: Support CE threshold of error record
-Date: Thu, 22 Jan 2026 17:46:47 +0800
-Message-Id: <20260122094656.73399-8-tianruidong@linux.alibaba.com>
+Subject: [PATCH v6 10/16] ras: AEST: Introduce AEST driver sysfs interface
+Date: Thu, 22 Jan 2026 17:46:50 +0800
+Message-Id: <20260122094656.73399-11-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
 References: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_094812_395027_302B5107 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20260122_014817_144169_EE16DF25 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,224 +84,310 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CE threshold defines the number of Correctable Errors (CE) that
-must occur in a record before triggering an interrupt. Error records
-support multiple threshold configurations, including 8B, 16B, and 32B.
-This patch detects the supported threshold settings for error records
-and sets the default threshold to 1, ensuring an interrupt is generated
-for every CE occurrence.
+Exposes certain AEST driver information to userspace.
+
+Only ROOT can access these interface because it includes
+hardware-sensitive information:
+
+  ls /sys/kernel/debug/aest/
+  memory<id> smmu<id> ...
+
+  ls /sys/kernel/debug/aest/memory<id>/
+  record0 record1 ...
+
+All details at:
+        Documentation/ABI/testing/debugfs-aest
 
 Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 ---
- arch/arm64/include/asm/ras.h | 41 ++++++++++++++++++++
- drivers/ras/aest/aest-core.c | 74 ++++++++++++++++++++++++++++++++++++
- drivers/ras/aest/aest.h      | 17 +++++++++
- include/linux/acpi_aest.h    |  3 ++
- 4 files changed, 135 insertions(+)
+ Documentation/ABI/testing/debugfs-aest |  32 +++++++
+ MAINTAINERS                            |   1 +
+ drivers/ras/aest/Makefile              |   1 +
+ drivers/ras/aest/aest-core.c           |  13 +++
+ drivers/ras/aest/aest-sysfs.c          | 118 +++++++++++++++++++++++++
+ drivers/ras/aest/aest.h                |   8 ++
+ 6 files changed, 173 insertions(+)
+ create mode 100644 Documentation/ABI/testing/debugfs-aest
+ create mode 100644 drivers/ras/aest/aest-sysfs.c
 
-diff --git a/arch/arm64/include/asm/ras.h b/arch/arm64/include/asm/ras.h
-index da7c441252fe..6c51d27520c0 100644
---- a/arch/arm64/include/asm/ras.h
-+++ b/arch/arm64/include/asm/ras.h
-@@ -4,9 +4,50 @@
+diff --git a/Documentation/ABI/testing/debugfs-aest b/Documentation/ABI/testing/debugfs-aest
+new file mode 100644
+index 000000000000..8bacc6bb20b6
+--- /dev/null
++++ b/Documentation/ABI/testing/debugfs-aest
+@@ -0,0 +1,32 @@
++What:		/sys/kernel/debug/aest/<name>.<id>/
++Date:		Dec 2025
++KernelVersion:	6.19
++Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
++Description:
++		Directory represented a AEST device, <name> means device type,
++		like:
++
++		- processor
++		- memory
++		- smmu
++		- ...
++
++		<id> is the unique ID for this device.
++
++What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/*
++Date:		Dec 2025
++KernelVersion:	6.19
++Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
++Description:
++		Attibute for aest node which belong this device, the format
++		of node name is: <Node Type>-<Node Address>
++
++		See more at:
++			https://developer.arm.com/documentation/den0085/latest/
++
++What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/record<index>/err_*
++Date:		Dec 2025
++KernelVersion:	6.19
++Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
++Description:
++		(RO) Read err_* register and return val.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 3d56d3b791e4..e4b249823051 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -346,6 +346,7 @@ M:	Ruidong Tian <tianruidond@linux.alibaba.com>
+ L:	linux-acpi@vger.kernel.org
+ L:	linux-arm-kernel@lists.infradead.org
+ S:	Supported
++F:	Documentation/ABI/testing/debugfs-aest
+ F:	arch/arm64/include/asm/ras.h
+ F:	drivers/acpi/arm64/aest.c
+ F:	drivers/ras/aest/
+diff --git a/drivers/ras/aest/Makefile b/drivers/ras/aest/Makefile
+index a6ba7e36fb43..75495413d2b6 100644
+--- a/drivers/ras/aest/Makefile
++++ b/drivers/ras/aest/Makefile
+@@ -3,3 +3,4 @@
+ obj-$(CONFIG_AEST) 	+= aest.o
  
- #include <linux/types.h>
- 
-+/* ERR<n>FR */
-+#define ERR_FR_CE GENMASK_ULL(54, 53)
-+#define ERR_FR_RP BIT(15)
-+#define ERR_FR_CEC GENMASK_ULL(14, 12)
-+
-+#define ERR_FR_RP_SINGLE_COUNTER 0
-+#define ERR_FR_RP_DOUBLE_COUNTER 1
-+
-+#define ERR_FR_CEC_0B_COUNTER 0
-+#define ERR_FR_CEC_8B_COUNTER BIT(1)
-+#define ERR_FR_CEC_16B_COUNTER BIT(2)
-+
-+/* ERR<n>MISC0 */
-+
-+/* ERR<n>FR.CEC == 0b010, ERR<n>FR.RP == 0  */
-+#define ERR_MISC0_8B_OF BIT(39)
-+#define ERR_MISC0_8B_CEC GENMASK_ULL(38, 32)
-+
-+/* ERR<n>FR.CEC == 0b100, ERR<n>FR.RP == 0  */
-+#define ERR_MISC0_16B_OF BIT(47)
-+#define ERR_MISC0_16B_CEC GENMASK_ULL(46, 32)
-+
-+#define ERR_MISC0_CEC_SHIFT 31
-+
-+#define ERR_8B_CEC_MAX (ERR_MISC0_8B_CEC >> ERR_MISC0_CEC_SHIFT)
-+#define ERR_16B_CEC_MAX (ERR_MISC0_16B_CEC >> ERR_MISC0_CEC_SHIFT)
-+
-+/* ERR<n>FR.CEC == 0b100, ERR<n>FR.RP == 1  */
-+#define ERR_MISC0_16B_OFO BIT(63)
-+#define ERR_MISC0_16B_CECO GENMASK_ULL(62, 48)
-+#define ERR_MISC0_16B_OFR BIT(47)
-+#define ERR_MISC0_16B_CECR GENMASK_ULL(46, 32)
-+
- /* ERRDEVARCH */
- #define ERRDEVARCH_REV GENMASK(19, 16)
- 
-+enum ras_ce_threshold {
-+	RAS_CE_THRESHOLD_0B,
-+	RAS_CE_THRESHOLD_8B,
-+	RAS_CE_THRESHOLD_16B,
-+	RAS_CE_THRESHOLD_32B,
-+	UNKNOWN,
-+};
-+
- struct ras_ext_regs {
- 	u64 err_fr;
- 	u64 err_ctlr;
+ aest-y		:= aest-core.o
++aest-y		+= aest-sysfs.o
 diff --git a/drivers/ras/aest/aest-core.c b/drivers/ras/aest/aest-core.c
-index 1218ae51079c..5cfe91a6d72a 100644
+index 686dde6f2e68..3bcc635cf8e4 100644
 --- a/drivers/ras/aest/aest-core.c
 +++ b/drivers/ras/aest/aest-core.c
-@@ -16,6 +16,79 @@ DEFINE_PER_CPU(struct aest_device, percpu_adev);
+@@ -20,6 +20,9 @@ DEFINE_PER_CPU(struct aest_device, percpu_adev);
  #undef pr_fmt
  #define pr_fmt(fmt) "AEST: " fmt
  
-+static enum ras_ce_threshold aest_get_ce_threshold(struct aest_record *record)
++#ifdef CONFIG_DEBUG_FS
++struct dentry *aest_debugfs;
++#endif
+ /*
+  * This memory pool is only to be used to save AEST node in AEST irq context.
+  * There can be 500 AEST node at most.
+@@ -940,6 +943,8 @@ static int aest_device_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, adev);
+ 
++	aest_dev_init_debugfs(adev);
++
+ 	aest_dev_dbg(adev, "Node cnt: %x, id: %x\n", adev->node_cnt, adev->id);
+ 
+ 	return 0;
+@@ -955,12 +960,20 @@ static struct platform_driver aest_driver = {
+ 
+ static int __init aest_init(void)
+ {
++#ifdef CONFIG_DEBUG_FS
++	aest_debugfs = debugfs_create_dir("aest", NULL);
++#endif
++
+ 	return platform_driver_register(&aest_driver);
+ }
+ module_init(aest_init);
+ 
+ static void __exit aest_exit(void)
+ {
++#ifdef CONFIG_DEBUG_FS
++	debugfs_remove(aest_debugfs);
++#endif
++
+ 	platform_driver_unregister(&aest_driver);
+ }
+ module_exit(aest_exit);
+diff --git a/drivers/ras/aest/aest-sysfs.c b/drivers/ras/aest/aest-sysfs.c
+new file mode 100644
+index 000000000000..f3b5427ff4f0
+--- /dev/null
++++ b/drivers/ras/aest/aest-sysfs.c
+@@ -0,0 +1,118 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * ARM Error Source Table Support
++ *
++ * Copyright (c) 2025, Alibaba Group.
++ */
++
++#include "aest.h"
++
++/*******************************************************************************
++ *
++ * Attribute for AEST record
++ *
++ ******************************************************************************/
++
++#define DEFINE_AEST_DEBUGFS_ATTR(name, offset) \
++static int name##_get(void *data, u64 *val) \
++{ \
++	struct aest_record *record = data; \
++	*val = record_read(record, offset); \
++	return 0; \
++} \
++static int name##_set(void *data, u64 val) \
++{ \
++	struct aest_record *record = data; \
++	record_write(record, offset, val); \
++	return 0; \
++} \
++DEFINE_DEBUGFS_ATTRIBUTE(name##_ops, name##_get, name##_set, "%#llx\n")
++
++DEFINE_AEST_DEBUGFS_ATTR(err_fr, ERXFR);
++DEFINE_AEST_DEBUGFS_ATTR(err_ctrl, ERXCTLR);
++DEFINE_AEST_DEBUGFS_ATTR(err_status, ERXSTATUS);
++DEFINE_AEST_DEBUGFS_ATTR(err_addr, ERXADDR);
++DEFINE_AEST_DEBUGFS_ATTR(err_misc0, ERXMISC0);
++DEFINE_AEST_DEBUGFS_ATTR(err_misc1, ERXMISC1);
++DEFINE_AEST_DEBUGFS_ATTR(err_misc2, ERXMISC2);
++DEFINE_AEST_DEBUGFS_ATTR(err_misc3, ERXMISC3);
++
++static void aest_record_init_debugfs(struct aest_record *record)
 +{
-+	u64 err_fr, err_fr_cec, err_fr_rp = -1;
-+
-+	err_fr = record_read(record, ERXFR);
-+	err_fr_cec = FIELD_GET(ERR_FR_CEC, err_fr);
-+	err_fr_rp = FIELD_GET(ERR_FR_RP, err_fr);
-+
-+	if (err_fr_cec == ERR_FR_CEC_0B_COUNTER)
-+		return RAS_CE_THRESHOLD_0B;
-+	else if (err_fr_rp == ERR_FR_RP_DOUBLE_COUNTER)
-+		return RAS_CE_THRESHOLD_32B;
-+	else if (err_fr_cec == ERR_FR_CEC_8B_COUNTER)
-+		return RAS_CE_THRESHOLD_8B;
-+	else if (err_fr_cec == ERR_FR_CEC_16B_COUNTER)
-+		return RAS_CE_THRESHOLD_16B;
-+	else
-+		return UNKNOWN;
++	debugfs_create_file("err_fr", 0600, record->debugfs, record,
++								&err_fr_ops);
++	debugfs_create_file("err_ctrl", 0600, record->debugfs, record,
++								&err_ctrl_ops);
++	debugfs_create_file("err_status", 0600, record->debugfs, record,
++								&err_status_ops);
++	debugfs_create_file("err_addr", 0600, record->debugfs, record,
++								&err_addr_ops);
++	debugfs_create_file("err_misc0", 0600, record->debugfs, record,
++								&err_misc0_ops);
++	debugfs_create_file("err_misc1", 0600, record->debugfs, record,
++								&err_misc1_ops);
++	debugfs_create_file("err_misc2", 0600, record->debugfs, record,
++								&err_misc2_ops);
++	debugfs_create_file("err_misc3", 0600, record->debugfs, record,
++								&err_misc3_ops);
 +}
 +
-+static const struct ce_threshold_info ce_info[] = {
-+	[RAS_CE_THRESHOLD_0B] = { 0 },
-+	[RAS_CE_THRESHOLD_8B] = {
-+		.max_count = ERR_8B_CEC_MAX,
-+		.mask = ERR_MISC0_8B_CEC,
-+		.shift = ERR_MISC0_CEC_SHIFT,
-+	},
-+	[RAS_CE_THRESHOLD_16B] = {
-+		.max_count = ERR_16B_CEC_MAX,
-+		.mask = ERR_MISC0_16B_CEC,
-+		.shift = ERR_MISC0_CEC_SHIFT,
-+	},
-+};
-+
-+static void aest_set_ce_threshold(struct aest_record *record)
++static void
++aest_node_init_debugfs(struct aest_node *node)
 +{
-+	u64 err_misc0;
-+	struct ce_threshold *ce = &record->ce;
-+	const struct ce_threshold_info *info;
++	int i;
++	struct aest_record *record;
 +
-+	record->threshold_type = aest_get_ce_threshold(record);
++	for (i = 0; i < node->record_count; i++) {
++		record = &node->records[i];
++		if (!record->name)
++			continue;
++		record->debugfs = debugfs_create_dir(record->name,
++								node->debugfs);
++		aest_record_init_debugfs(record);
++	}
++}
 +
-+	switch (record->threshold_type) {
-+	case RAS_CE_THRESHOLD_0B:
-+		aest_record_dbg(record, "do not support CE threshold!\n");
++static void
++aest_oncore_dev_init_debugfs(struct aest_device *adev)
++{
++	int cpu, i;
++	struct aest_node *node;
++	struct aest_device *percpu_dev;
++	char name[16];
++
++	for_each_possible_cpu(cpu) {
++		percpu_dev = this_cpu_ptr(adev->adev_oncore);
++
++		snprintf(name, sizeof(name), "processor%u", cpu);
++		percpu_dev->debugfs = debugfs_create_dir(name, aest_debugfs);
++
++		for (i = 0; i < adev->node_cnt; i++) {
++			node = &adev->nodes[i];
++
++			node->debugfs = debugfs_create_dir(node->name,
++							percpu_dev->debugfs);
++			aest_node_init_debugfs(node);
++		}
++	}
++}
++
++void aest_dev_init_debugfs(struct aest_device *adev)
++{
++	int i;
++	struct aest_node *node;
++
++	adev->debugfs = debugfs_create_dir(dev_name(adev->dev), aest_debugfs);
++	if (aest_dev_is_oncore(adev)) {
++		aest_oncore_dev_init_debugfs(adev);
 +		return;
-+	case RAS_CE_THRESHOLD_8B:
-+		aest_record_dbg(record, "support 8 bit CE threshold!\n");
-+		break;
-+	case RAS_CE_THRESHOLD_16B:
-+		aest_record_dbg(record, "support 16 bit CE threshold!\n");
-+		break;
-+	case RAS_CE_THRESHOLD_32B:
-+		aest_record_dbg(record, "not support 32 bit CE threshold!\n");
-+		break;
-+	default:
-+		aest_record_dbg(record, "Unknown misc0 ce threshold!\n");
 +	}
 +
-+	err_misc0 = record_read(record, ERXMISC0);
-+	info = &ce_info[record->threshold_type];
-+	ce->info = info;
-+
-+	// Default CE threshold is 1.
-+	ce->count = info->max_count;
-+	ce->threshold = DEFAULT_CE_THRESHOLD;
-+	ce->reg_val = err_misc0 | info->mask;
-+
-+	record_write(record, ERXMISC0, ce->reg_val);
-+	aest_record_dbg(record, "CE threshold is %llx, controlled by Kernel",
-+			ce->threshold);
++	for (i = 0; i < adev->node_cnt; i++) {
++		node = &adev->nodes[i];
++		if (!node->name)
++			continue;
++		node->debugfs = debugfs_create_dir(node->name, adev->debugfs);
++		aest_node_init_debugfs(node);
++	}
 +}
-+
- static int get_aest_node_ver(struct aest_node *node)
- {
- 	u64 reg;
-@@ -54,6 +127,7 @@ static int aest_init_record(struct aest_record *record, int i,
- 	record->addressing_mode = test_bit(i, node->info->addressing_mode);
- 	record->index = i;
- 	record->node = node;
-+	aest_set_ce_threshold(record);
- 
- 	aest_record_dbg(record, "base: %p, index: %d, address mode: %x\n",
- 			record->regs_base, record->index,
 diff --git a/drivers/ras/aest/aest.h b/drivers/ras/aest/aest.h
-index 505ecd9635bc..85eeed79bcbe 100644
+index f85e81ff35a6..ceb9e32bcee3 100644
 --- a/drivers/ras/aest/aest.h
 +++ b/drivers/ras/aest/aest.h
-@@ -9,6 +9,7 @@
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/acpi_aest.h>
  #include <asm/ras.h>
++#include <linux/debugfs.h>
  
  #define MAX_GSI_PER_NODE 2
-+#define DEFAULT_CE_THRESHOLD 1
+ #define DEFAULT_CE_THRESHOLD 1
+@@ -67,6 +68,8 @@
  
- #define record_read(record, offset) \
- 	record->access->read(record->regs_base, offset)
-@@ -71,6 +72,19 @@ struct aest_access {
- 	void (*write)(void *base, u32 offset, u64 val);
- };
+ #define GIC_ERRDEVARCH 0xFFBC
  
-+struct ce_threshold_info {
-+	const u64 max_count;
-+	const u64 mask;
-+	const u64 shift;
-+};
++extern struct dentry *aest_debugfs;
 +
-+struct ce_threshold {
-+	const struct ce_threshold_info *info;
-+	u64 count;
-+	u64 threshold;
-+	u64 reg_val;
-+};
-+
- struct aest_record {
- 	char *name;
- 	int index;
-@@ -88,6 +102,9 @@ struct aest_record {
- 	int addressing_mode;
- 	struct aest_node *node;
- 	const struct aest_access *access;
-+
-+	struct ce_threshold ce;
-+	enum ras_ce_threshold threshold_type;
+ struct aest_event {
+ 	struct llist_node llnode;
+ 	char *node_name;
+@@ -133,6 +136,7 @@ struct aest_record {
+ 
+ 	struct ce_threshold ce;
+ 	enum ras_ce_threshold threshold_type;
++	struct dentry *debugfs;
  };
  
  struct aest_group {
-diff --git a/include/linux/acpi_aest.h b/include/linux/acpi_aest.h
-index 77187ce43d44..a7898c643896 100644
---- a/include/linux/acpi_aest.h
-+++ b/include/linux/acpi_aest.h
-@@ -13,6 +13,9 @@
- /* AEST interrupt */
- #define AEST_INTERRUPT_MODE BIT(0)
+@@ -201,6 +205,7 @@ struct aest_node {
  
-+#define AEST_INTERRUPT_FHI_UE_SUPPORT		BIT(0)
-+#define AEST_INTERRUPT_FHI_UE_NO_SUPPORT		BIT(1)
+ 	int record_count;
+ 	struct aest_record *records;
++	struct dentry *debugfs;
+ 	struct aest_node __percpu *oncore_node;
+ };
+ 
+@@ -215,6 +220,7 @@ struct aest_device {
+ 	struct work_struct aest_work;
+ 	struct gen_pool *pool;
+ 	struct llist_head event_list;
++	struct dentry *debugfs;
+ 	struct aest_device __percpu *adev_oncore;
+ };
+ 
+@@ -344,3 +350,5 @@ static inline bool aest_dev_is_oncore(struct aest_device *adev)
+ {
+ 	return adev->type == ACPI_AEST_PROCESSOR_ERROR_NODE;
+ }
 +
- #define AEST_MAX_INTERRUPT_PER_NODE 2
- 
- /* AEST interface */
++void aest_dev_init_debugfs(struct aest_device *adev);
 -- 
 2.51.2.612.gdc70283dfc
 
