@@ -4,149 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97C70C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:36:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18139C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y6/OuiF3EVS++6wyCQZUZdqgy9pv8KIXpYmHHOr78os=; b=r8ZFbOhgB8pb735zNRlNBsQjEP
-	gvAEvLi7ksyJdRYNCn3JzjC6epZzucesBLGsVHPKL0N1bx9CXVMCDl4C2WJ4pXlipREUtpcZiLcV/
-	ijI+QNa4bcvvW5B2oaXTSAWE1O6wh/74Ox6ZGvOD5k2R2arCj7dpdynjNOLHpeyya41AHz2thsxOd
-	ih36kyOFEL1woFQTbqMzq3mF0MoV96TqOqTI4F2HaiQw6yPUM6toZKSnaGteO7Wg810nM2+xm8vFA
-	gsKHRgtbA5LlFb7a2aNWM3TluSEOxZ+sVeM3KeKw91OU3J2KaGzQeUjKjxhkx5q4c2n8TZm0qF+Cn
-	8xTrrpcw==;
+	bh=knv3eV/uPl+lWimlwaG5qjUbDF4tZn6R2q3+oaVVNBg=; b=GL1AHKGRRNLYvr3dAbD45mClqK
+	KA0ic5+45/AA6tvxCG17RbkrWntGU5pBsSCfJe0Rx5Q19jDrCrhRa0eFJ7TefM2SYdtRVjfmIJHhm
+	Zg/1T0x6vGVasAkWgGjOoQ6pNIPAME5ENlxd8ycXXVBQzBhppDkjUzOIIocjV4QtrDXDv1X2hUBQ6
+	/b9ajgCRG59I+jYF/upEoDJcyXMEtLqWkuT8UTCnV87WZaa05nghco7bbKe2lID11/T5e2VnKjyah
+	GqTSy/C79/ZQlmBPRn0n2wcp/nj9QHtXVgt5z5lIRUIOdgSjp48l3qVtVrKwRzQlH7zKyIeVHqpP4
+	ryoHfcsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vis32-00000006qz0-1YDh;
-	Thu, 22 Jan 2026 10:36:20 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1vis5j-00000006rBO-2wqS;
+	Thu, 22 Jan 2026 10:39:07 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vis2y-00000006qyf-27gS
+	id 1vis5g-00000006rA8-3LX3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 10:36:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bLfkT7rXMVa2jcCYPvmiaPp1aRxnBIBAJ3BcWMbPrKRo2xW8hhVprPr6DxCT6JvGtKRvOJrxH53Iyiv5cgULPSh8dSVkq+jzU2siZB64Rx5h7WFyI8ufDZ/jFhKGskDlk9xmuW/sZIeifD+PcA2gqNqz6uLP8ruMx29zTG93IDiu5s537Io0lkaDYPGbWIG917Yhtk7mn5wCOdrxm0ONoPbuoF9KOFpVRGbsxo4plpgYuUCotmIvsY53I2fUcxReG7rYiWcq4KeTOK/I3/pc35D8KtDq845y0rJqkgcwEEpprOtFIHooHkQOuRZTvfHePY717PkBHJxubK6HcnfJGQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Y6/OuiF3EVS++6wyCQZUZdqgy9pv8KIXpYmHHOr78os=;
- b=kPCYhq39OBZltYLmYBRLlR6xYEjotOVruoMesfsZkalWMfdUPUIdfsrGsX+tdxePw6jErKD2p85xDmnBB0X8XgWJVX5aXy+S1IYLvgR/QJAQYTn2V8M7yo91s2EmXZVxeVlH/ZIBJmr7jM5evmSn5gFcjSeMHXUTzJwh8ld9diKaqwRNeYnzidrxewoKKtXh+/osiw+/1EGWms0XduvMkqnPD7g/nsvppitrozC5wFwnZ+kz4Irud6AAVfBLD1eOmaU1jD5KEie3gFtkei+4xCngOvc2AZzpXDodbxScwXGfWTqkMf4rBxHwaL+phwKGZfiGq2RreJJLaCBfGBi/2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Y6/OuiF3EVS++6wyCQZUZdqgy9pv8KIXpYmHHOr78os=;
- b=Y1PjLB316w1zBfGl3sdBApowd07OP5vG3GeM/CSfvdEW1I3n7l3rppVdXXafjT7Sw8O/ql9FaOwh57bRSbbO6spKsyrYzXauuy46Xw/K0M32tTzyykGKVG5t5f6Qq6L7AJKwKM+quc/4rge5gz/tso80VpEzmQAxnkG6ye4SIEk=
-Received: from BN0PR02CA0024.namprd02.prod.outlook.com (2603:10b6:408:e4::29)
- by PH0PR10MB5627.namprd10.prod.outlook.com (2603:10b6:510:fa::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Thu, 22 Jan
- 2026 10:36:11 +0000
-Received: from BN3PEPF0000B373.namprd21.prod.outlook.com
- (2603:10b6:408:e4:cafe::81) by BN0PR02CA0024.outlook.office365.com
- (2603:10b6:408:e4::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.11 via Frontend Transport; Thu,
- 22 Jan 2026 10:36:00 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BN3PEPF0000B373.mail.protection.outlook.com (10.167.243.170) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.0 via Frontend Transport; Thu, 22 Jan 2026 10:36:09 +0000
-Received: from DLEE213.ent.ti.com (157.170.170.116) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 22 Jan
- 2026 04:36:08 -0600
-Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE213.ent.ti.com
- (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 22 Jan
- 2026 04:36:08 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE205.ent.ti.com
- (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 22 Jan 2026 04:36:08 -0600
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60MAa7Sv293668;
-	Thu, 22 Jan 2026 04:36:07 -0600
-Date: Thu, 22 Jan 2026 16:06:06 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Kendall Willis <k-willis@ti.com>
-CC: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar
-	<viresh.kumar@linaro.org>, Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Sebin Francis <sebin.francis@ti.com>, Bryan Brattlof
-	<bb@ti.com>, <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
-Subject: Re: [PATCH v3 3/3] arm64: dts: ti: k3-am62l: support cpufreq
-Message-ID: <20260122103606.wsuwl7pyyfxo5xlw@lcpd911>
-References: <20260120-am62l-cpufreq-v3-0-8c69b80168a3@ti.com>
- <20260120-am62l-cpufreq-v3-3-8c69b80168a3@ti.com>
- <652d6b5a-57cc-4985-87fb-94eb53c520be@ti.com>
+	Thu, 22 Jan 2026 10:39:06 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-43590777e22so490476f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 02:39:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1769078342; x=1769683142; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=knv3eV/uPl+lWimlwaG5qjUbDF4tZn6R2q3+oaVVNBg=;
+        b=w/YY+g6XDdRBv687BadBbuMh5URLWN+asZa3asE0DBK+reSs4o91acyaYTQZ1E83g9
+         FmDpHA+pHdXIC1y/s1O3CTsUpYmNcR0LPiZkTRYYfzrame8FTdCJDwPX0yaM9m5oxJ6E
+         n2wD0/YdiNRc06cM6ooMzacNSBD7ew8PpacMtWIc6DLz3FvTqgoxWiyzMGoofzyedo3S
+         gYSljxJdlIn/oBKRVl10WZs8zlmxQ4HFLjWOU8ifUQZ4FA2IH3ylyYJJEXRBeOx3Rj79
+         tLUWbDW34UqHbUv5EYiXu2eQKKSV3rAQVid5y8uj9WjCy6mxFwZz/eodxm2VYCPAHMlT
+         +9Hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769078342; x=1769683142;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=knv3eV/uPl+lWimlwaG5qjUbDF4tZn6R2q3+oaVVNBg=;
+        b=rErTUlvrKR6Dm6Tf+vyjaStJFmQoGmvRimEPt1Klk77RfETzYR+NgvfaNVCWR46Y4W
+         fCau2bW+Tvewea8Do6YvRnbUMpr3zRO57uU/ParG9o75LyAJCGXVmfe/lCrz5UoUUnXy
+         8JPYG/HKAw3mvAaAR0MDBwkMN36y197ubPKvc0R3IXCxF7p3kQ/xHiKMjTEeDRiAcSax
+         jVS2zDAHR0lxliiK3MHEabUppD1XzgCCKc6Kz0x7JIXX5sXaAJFqxP9ZcMJBBd+KP4Us
+         2xDgwIosFB5yHe6SEjqXTXISapZzTCstibD5aKUUA3nsyMmu6ytr188X2CVtqvo8W3LH
+         3okA==
+X-Forwarded-Encrypted: i=1; AJvYcCXqqAmY9a3Yjg/n5tNavi3CHJQibD0PZkSNOXAJiQLhcejDVAGeadbkQdKDGiTWNpnHlQGBTs9xs+8dunXrNNbE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrhYyS7xHV5+Q6u5yqsntdTF4WPILXb/CGwejXI6+TJNYAirc/
+	BehnP1vQ+ILY55Uq8xcm8E1wUAhZ1b3KzVz1CtBWlMEhbY0uO1FXgOyDCao6MYlO8o8=
+X-Gm-Gg: AZuq6aKGTUKAtyheiH5w0wGJifOn5n9M87fH1gejkgNlxkKB4oIWEcLimMqhZldZlmQ
+	MI2SjCkYX/FGeTQ7SJHcEZDhrn/VxnIuCFml72BVQX2ydkybtSAqixDdrjnaPkRWNfxJxmZY5HG
+	lZN+Q11Wnl6DXcrhI3eVEgdKgQJLceJiDCNCX+C4hV0GZfJVFz0Jw7Yc6I+ciMt+xbW3u6ccgJH
+	xN12ftZxAA1DBl7zHFqpselo3tHF+XFiGQwxX5yui4FSmuKZWkjsUT6KqiejU7k+8BqciG+Ct3c
+	3pjqXCycOW6xOyQ6vp+ABdmwa+urNWaTiRhwZozVXSL05bMY4HJMPsUqsHzJJ+AzGXbpO2oc9sH
+	CJLwnyB/kIiHIkGw8ZmtCLE0eNjMRwi1FscA0f6hu7384CO7cJEXXTwNjer5znWD5SOUzuzfqCR
+	YOGVJe+UeeE1Hd7ye8xQ==
+X-Received: by 2002:a05:6000:ece:b0:435:a7fa:24ae with SMTP id ffacd0b85a97d-435a7fa2607mr2707643f8f.18.1769078342064;
+        Thu, 22 Jan 2026 02:39:02 -0800 (PST)
+Received: from draszik.lan ([212.129.87.109])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4356997e6cdsm45475978f8f.31.2026.01.22.02.39.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 Jan 2026 02:39:01 -0800 (PST)
+Message-ID: <7c78f9da40022e7bbf850ae8989c617bdc30cc95.camel@linaro.org>
+Subject: Re: [PATCH next] phy: google: fix build dependency for Google
+ Tensor USB PHY
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Roy Luo <royluo@google.com>, Vinod Koul <vkoul@kernel.org>, Neil
+ Armstrong	 <neil.armstrong@linaro.org>, Peter Griffin
+ <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Joy
+ Chakraborty <joychakr@google.com>, Naveen Kumar	 <mnkumar@google.com>
+Cc: linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ kernel test robot
+	 <lkp@intel.com>
+Date: Thu, 22 Jan 2026 10:39:01 +0000
+In-Reply-To: <20260121-next-v1-1-c18068b091b9@google.com>
+References: <20260121-next-v1-1-c18068b091b9@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-2+build3 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <652d6b5a-57cc-4985-87fb-94eb53c520be@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B373:EE_|PH0PR10MB5627:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ac16076-cb7e-4137-71de-08de59a20e93
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700013|376014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MJgUA+gk4vpIVP3KoBRSVva+DXMRko4f3qfRFPf3hYRdVFVQbbkQAvj56D7a?=
- =?us-ascii?Q?dY18G7nwh4BY/RunI7NR02uyFrmkKwBvkUijlG/UwPv9T4ASarQky/zFm7Nl?=
- =?us-ascii?Q?6XAQU0kvEFOjKt41nCRRiXKPWuFha1N+ylGzQJ4nWv4Gp2OH1oYX40ZITLIS?=
- =?us-ascii?Q?Be5ymITH9phO6IEtNM6p1GzVzpojtbb46U/WnW6ccUZJx/PsTlNjv27Y7dP6?=
- =?us-ascii?Q?kByHKkoQgherHdmrlZRfaAEltUxsczL4E9QMb8wFWOzTzHX5q7E8jyteArZj?=
- =?us-ascii?Q?8gfZnUxT7T6iC6fUwjnuPIIUmQWMyDEL8qrgxfPUh3dXwCzRIz2x8x4hmsb1?=
- =?us-ascii?Q?mUFBAIkT6ogG3292y/KXxsArNfG0PHv87gLmU72vBSVS6cYf7IICSBcAe0ON?=
- =?us-ascii?Q?BwlCsbivQoEOPYFMb+xJC9yIj+QIn/zXfXKGYlKOhCkMKMvp9DiHSGqu94cm?=
- =?us-ascii?Q?eiFfWcFUWNsIQkZf3XZYDLLMFLcPCH5GeLuhSxZUovMNNdk1Z/RcE98Y89uT?=
- =?us-ascii?Q?trJJc0kFHOo3JUR8rRA8ejtS5jH0XxaHkk5vuX4yWETN5iPVnFucpW+C2v9U?=
- =?us-ascii?Q?nGPb2yJ/2rVpv0c9+a5tMy7GgAtNR+0hAGuh3hGac0IPZjIJ5O5lcCpxC8JB?=
- =?us-ascii?Q?9VEa3g6dRDjus1r5gHZlkd/ePP7X7kFtGY+s+JGqUYemnaWvdka2oJ92s1Ua?=
- =?us-ascii?Q?2s7RGL0YKgSiPbT1lDjENJ06HZ2+xjYg4mT08VqSs6sC795j5Pey888DPYYb?=
- =?us-ascii?Q?NqqKKWWuygctN3ZR+HQY02Tx529dOFy/OsB8pzzh5e3UTcNUhdResbVCXXtP?=
- =?us-ascii?Q?+5/3OxK619R+dUNNSJTDFSWZvj4z1AdwlpZI8sVf6NO/hOwzva9oErqg8cde?=
- =?us-ascii?Q?QcNL83FNNUKt1s9wVVqo3EBpGNnyXn8uqh106FBR7UQWyeSMbG/Ak5E2Orll?=
- =?us-ascii?Q?FdPYTmJ3tiXlz8UtLWPGr1xOLVvGFxb6lrwEZ2E01mBE6aVrBISlhjxxKHG5?=
- =?us-ascii?Q?A8OMR7sAGRtpL/5pOmCIx12gzaz7NK2RQktPzwa1hk4+5rpmJ2D7u8Xzv3la?=
- =?us-ascii?Q?+anZCZhfEWFDRUKvqeAIGS4IqfEj7RTYkWQQnRjdtxQY2A6SGkZB7xrBxi4N?=
- =?us-ascii?Q?g4ZaXN3WrKgkAebjwyreqPg8nySFAHxdaAymGVgXtuaJk+kghEMcUAApHFkk?=
- =?us-ascii?Q?CSpzQOAqBekBuyeMUaujFQfgVSKr0kF79scDtw0xVSBqsPKy4YbS67t78wNc?=
- =?us-ascii?Q?XD79euoetq9KJh3uOeoGMue1ykJcq4Pihts4ufkhKXkgOHT3GgUJY5bOUsz3?=
- =?us-ascii?Q?V3APINVeZAz2HZsr29LSbWO/VYfsq+IlmGb7PZICIuEYXkPrgwjqmkkZwUC7?=
- =?us-ascii?Q?0j+wlKrlSHM5Lyp9z8nquFY1Fkm+xEeVF69nr70SBYtj3SscnEpFw8fw137f?=
- =?us-ascii?Q?6aathtCdhnWMwW13SQ1lv2+1uItraq2Rv8HX67zt+/ataf1Jdf7TbxTMilgC?=
- =?us-ascii?Q?GqLQneQ7YbYYliUgTDaCAJ3mqgzOk/pbchEX96xTyeQfkYuIlUlgTFxXSjmD?=
- =?us-ascii?Q?5OweXuHrI/AFI1I7cfvDlvVCefo6Uji/abS1xjRGLpL6Zoxe36PU9qTAZbAd?=
- =?us-ascii?Q?pp44hyBuSi5M3LILSMPNe/8B4x/1AGCfW4zYK49MNZnrZNHzc/4tEi893F2o?=
- =?us-ascii?Q?SdIfmA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 10:36:09.6038
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ac16076-cb7e-4137-71de-08de59a20e93
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B373.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB5627
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_023616_570456_3E6D9943 
-X-CRM114-Status: GOOD (  22.73  )
+X-CRM114-CacheID: sfid-20260122_023904_859646_FA471AD0 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,120 +105,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Jan 21, 2026 at 10:27:15 -0600, Kendall Willis wrote:
-> On 1/20/26 05:47, Dhruva Gole wrote:
-> > Enable CPUFreq support for AM62L SoC by adding the relevant OPP efuse table
-> > syscon to k3-am62l-wakeup.dtsi for speed grade detection.
-> > 
-> > Add the operating-points-v2 table with CPU frequency steps from 200MHz to
-> > 1.25GHz to k3-am62l3.dtsi
-> > 
-> > Configure CPU clocks to reference the SCMI clock controller for frequency
-> > scaling
-> > 
-> > This enables proper CPU frequency scaling capabilities for the AM62L SoC
-> > using the ARM SCMI protocol to interact with the power management firmware.
-> > 
-> > Signed-off-by: Dhruva Gole <d-gole@ti.com>
-> > ---
-> >   arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi |  5 +++
-> >   arch/arm64/boot/dts/ti/k3-am62l3.dtsi       | 47 +++++++++++++++++++++++++++++
-> >   2 files changed, 52 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-> > index 61bfcdcfc66ea8d802a36ed43cd01fbbf3decc70..a42ccd0d2fcc4d204cae81508f839c44ce83f558 100644
-> > --- a/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-> > +++ b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-> > @@ -127,6 +127,11 @@ chipid: chipid@14 {
-> >   			bootph-all;
-> >   		};
-> > +		opp_efuse_table: syscon@18 {
-> > +			compatible = "ti,am62-opp-efuse-table", "syscon";
-> > +			reg = <0x18 0x4>;
-> > +		};
-> > +
-> >   		cpsw_mac_syscon: ethernet-mac-syscon@2000 {
-> >   			compatible = "ti,am62p-cpsw-mac-efuse", "syscon";
-> >   			reg = <0x2000 0x8>;
-> > diff --git a/arch/arm64/boot/dts/ti/k3-am62l3.dtsi b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-> > index da220b85151227c63f59b2b8ec48ae2ebb37e7bf..f7146421918f7037c6a192cc4765e8814a508afc 100644
-> > --- a/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-> > +++ b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-> > @@ -39,6 +39,8 @@ cpu0: cpu@0 {
-> >   			d-cache-line-size = <64>;
-> >   			d-cache-sets = <128>;
-> >   			next-level-cache = <&l2_0>;
-> > +			operating-points-v2 = <&a53_opp_table>;
-> > +			clocks = <&scmi_clk 356>;
-> >   		};
-> >   		cpu1: cpu@1 {
-> > @@ -53,6 +55,8 @@ cpu1: cpu@1 {
-> >   			d-cache-line-size = <64>;
-> >   			d-cache-sets = <128>;
-> >   			next-level-cache = <&l2_0>;
-> > +			operating-points-v2 = <&a53_opp_table>;
-> > +			clocks = <&scmi_clk 356>;
-> >   		};
-> >   	};
-> > @@ -64,4 +68,47 @@ l2_0: l2-cache0 {
-> >   		cache-line-size = <64>;
-> >   		cache-sets = <256>;
-> >   	};
-> > +
-> > +	a53_opp_table: opp-table {
-> > +		compatible = "operating-points-v2-ti-cpu";
-> > +		opp-shared;
-> > +		syscon = <&opp_efuse_table>;
-> > +
-> > +		opp-200000000 {
-> > +			opp-hz = /bits/ 64 <200000000>;
-> > +			opp-supported-hw = <0x01 0x0007>;
-> > +			clock-latency-ns = <6000000>;
-> > +		};
-> > +
-> > +		opp-400000000 {
-> > +			opp-hz = /bits/ 64 <400000000>;
-> > +			opp-supported-hw = <0x01 0x0007>;
-> > +			clock-latency-ns = <6000000>;
-> > +		};
-> > +
-> > +		opp-600000000 {
-> > +			opp-hz = /bits/ 64 <600000000>;
-> > +			opp-supported-hw = <0x01 0x0007>;
-> > +			clock-latency-ns = <6000000>;
-> > +		};
-> > +
-> > +		opp-800000000 {
-> > +			opp-hz = /bits/ 64 <800000000>;
-> > +			opp-supported-hw = <0x01 0x0007>;
-> > +			clock-latency-ns = <6000000>;
-> > +		};
-> > +
-> > +		opp-1000000000 {
-> > +			opp-hz = /bits/ 64 <1000000000>;
-> > +			opp-supported-hw = <0x01 0x0006>;
-> > +			clock-latency-ns = <6000000>;
-> > +		};
-> > +
-> > +		opp-1250000000 {
-> > +			opp-hz = /bits/ 64 <1250000000>;
-> > +			opp-supported-hw = <0x01 0x0003>;
-> 
-> What is determining the opp-supported-hw values? To my understanding based
-> on the DT bindings docs, the values should be based on the number of unique
-> speed grades, which there are two for AM62L. Looking at the values used
-> here, it looks like it shows 3 unique speed grades.
-> 
-> By this logic, the value of opp-supported-hw should be something like 0x03
-> for all OPPs below 833 MHz and 0x02 for all values above it.
+Hi Roy,
 
-That's an astute observation indeed, and I will go fix it right now.
-Thanks for reviewing thoroughly! I will anyway send this patch on it's
-own now that the driver patches are merged and the DT needs to go
-separately at this point.
+On Wed, 2026-01-21 at 22:21 +0000, Roy Luo wrote:
+> The Google Tensor USB PHY driver uses the Type-C switch framework to
+> handle orientation changes. However, the Kconfig did not specify a
+> dependency on the TYPEC framework, leading to undefined reference
+> errors when building for architectures or configurations where
+> CONFIG_TYPEC is disabled or configured as a module.
+>=20
+> Add 'depends on TYPEC' to the PHY_GOOGLE_USB entry to ensure all
+> required symbols are available during linking.
+>=20
+> Fixes: cbce66669c82 ("phy: Add Google Tensor SoC USB PHY driver")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202601210825.ELrpQeED-lkp@i=
+ntel.com/
+> Signed-off-by: Roy Luo <royluo@google.com>
+> ---
+> =C2=A0drivers/phy/Kconfig | 1 +
+> =C2=A01 file changed, 1 insertion(+)
+>=20
+> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
+> index 142e7b0ef2efb9209781800ee47b820a91b115ae..5531ff31d8156cb164c32e3e5=
+2d4a57b26a62d8d 100644
+> --- a/drivers/phy/Kconfig
+> +++ b/drivers/phy/Kconfig
+> @@ -49,6 +49,7 @@ config GENERIC_PHY_MIPI_DPHY
+> =C2=A0
+> =C2=A0config PHY_GOOGLE_USB
+> =C2=A0 tristate "Google Tensor SoC USB PHY driver"
+> + depends on TYPEC
 
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+Can you make this
+
+depends on TYPEC || COMPILE_TEST
+
+to allow some better test coverage?
+
+Cheers,
+Andre
 
