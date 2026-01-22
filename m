@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A00C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 01:06:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63BDAD4695A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 01:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nx5EKq4dyhumw2LnOic/xvfs1IGOiiLpCQZRqE/dz8I=; b=ndEB6I5FlcBnQI68UdwLaEgDFi
-	qMA4GVm9bc6Y0llDHYqHb1hE/RKFQ5cecCb+iE+JPYSXd8SjQMe33eirdb6pPYfLEmCQvM8y+eYtH
-	Swj4k/DpuOf4+58P5BdSkvvjPDa/HrDOMJ+TPh2Q+aEHdz4IbIxlB3qf1LtwVk3D9i2fcYpGsT8kK
-	WDRG/oJfT5Z3zw2w9+MWNEHiYXWG2N6YxfOKKvD0aPrM7HFqNTC39ykBdoq6J2tsdentxfnduq6m+
-	/SlNSb5hN/5qB6yr/5i17SImevPcwdvZfWqLj31Kdvj7K1u/87cQRZKYNr25IS3VYmrJ6FwDWL+zY
-	Lv1s52Vw==;
+	bh=QRY3d2qgp0x7QYzcmqCOxlY9T2DP5Au2s4d7dlDz17k=; b=oJ6TKW0VispPcfjcr+kVFEKJ7r
+	zoROurjFR25PNs1GA2OeBnpXQfh+y0jjhbw+o6B6KijqJ8JFHFcldlagCBphWpWTkixJUkJr65hrP
+	aEzxXlyCSvONyvIKouBogV62kj6EZw9f36FAfGP6XlxM0tOfVKGvXw20gbKdzLwLLSvaPGh4zQgj+
+	JKVRK9y3p/oZSAjcYbE+YLnki87K2ObmBmdJMEXzZyvXwIs2GjtOtzctg6jbKXEav/XKHf7bkroMO
+	jAIcBy+c7JdfgFV1LaItux/d6YkTGTttky3EzyZ3AqimYfpuSQ83Fzn/EtqSjp6Wt6Evej9CwlIT1
+	3gkdX9/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vij9Z-00000006EZa-2LQV;
+	id 1vij9Z-00000006EZW-1BsR;
 	Thu, 22 Jan 2026 01:06:29 +0000
 Received: from relay.smtp-ext.broadcom.com ([192.19.166.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vij9W-00000006EYF-2lTT
+	id 1vij9W-00000006EYG-2laO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 01:06:28 +0000
+	Thu, 22 Jan 2026 01:06:27 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id D80C7C008DE2;
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id B1161C008DE1;
 	Wed, 21 Jan 2026 17:06:25 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com D80C7C008DE2
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com B1161C008DE1
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
 	s=dkimrelay; t=1769043985;
-	bh=HexbE4h+Gs6KykT03gyu0tt3owJKTbjX9Kje2L/OQiw=;
+	bh=HTp+Do+BE5EGcVI/v3yRKJyoUKPYpIeDXAWsrGMIs+E=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sFSILUUstI5k7lriBf2QCHl67LS53vbe/58GskyRyAtxx10FwZ7dODCUNBjXb8oTv
-	 Bg+qhFOc+HDU3LP+yvsDZgOHbSC150w2nGQi15V62EfFCc6Y1nRb2ovQmEZL76kW9m
-	 YPgythBoocXN2rvmriuuZCE6Sqp9x2bCJAYvgVJM=
+	b=nsUvtL+kfOAq+lSzB9gWV8gk/+wPQbgTDEHbbWICbYWqeNAUNBkVw4B1yf1qZrAO8
+	 iCxoYXBU89u7Sr35hgzAQZ+Wwaf8xObeyjLEfOo+kpdOz3EB04qZHdR8Tbb9NIoRc8
+	 foZEM+kOqwWM9K8dS7vbDQUz1ofY5yWYDmayLSr4=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id B8AC119CDA;
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 924B019CD8;
 	Wed, 21 Jan 2026 17:06:25 -0800 (PST)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: linux-kernel@vger.kernel.org
@@ -55,17 +55,17 @@ Cc: Doug Berger <opendmb@gmail.com>,
 	Christophe Leroy <chleroy@kernel.org>,
 	linux-gpio@vger.kernel.org (open list:GPIO SUBSYSTEM),
 	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE)
-Subject: [PATCH 2/3] gpio: brcmstb: implement irq_mask_ack
-Date: Wed, 21 Jan 2026 17:05:15 -0800
-Message-ID: <20260122010516.1200630-3-florian.fainelli@broadcom.com>
+Subject: [PATCH 1/3] gpio: brcmstb: correct hwirq to bank map
+Date: Wed, 21 Jan 2026 17:05:14 -0800
+Message-ID: <20260122010516.1200630-2-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260122010516.1200630-1-florian.fainelli@broadcom.com>
 References: <20260122010516.1200630-1-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_170626_720895_43CF1AFE 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20260121_170626_720915_67541D6F 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,90 +82,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Doug Berger <opendmb@gmail.com>
 
-The irq_mask_ack operation is slightly more efficient than doing
-irq_mask and irq_ack separately.
+The brcmstb_gpio_hwirq_to_bank() function was designed to
+accommodate the downward numbering of dynamic GPIOs by
+traversing the bank list in the reverse order. However, the
+dynamic numbering has changed to increment upward which can
+produce an incorrect mapping.
 
-More importantly for this driver it bypasses the check of
-irqd_irq_masked ensuring a previously masked but still active
-interrupt gets remasked if unmasked at the hardware level. This
-allows the driver to more efficiently unmask the wake capable
-interrupts when quiescing without needing to enable the irqs
-individually to clear the irqd_irq_masked state.
+The function is modified to no longer assume an ordering of
+the list to accommodate either option.
 
+Fixes: 7b61212f2a07 ("gpiolib: Get rid of ARCH_NR_GPIOS")
 Signed-off-by: Doug Berger <opendmb@gmail.com>
-[florian: forward ported change after switch to guard()]
 Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
 ---
- drivers/gpio/gpio-brcmstb.c | 23 +++++++++++++++++------
- 1 file changed, 17 insertions(+), 6 deletions(-)
+ drivers/gpio/gpio-brcmstb.c | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/gpio/gpio-brcmstb.c b/drivers/gpio/gpio-brcmstb.c
-index 2352d099709c..5fb6612c2aa5 100644
+index af9287ff5dc4..2352d099709c 100644
 --- a/drivers/gpio/gpio-brcmstb.c
 +++ b/drivers/gpio/gpio-brcmstb.c
-@@ -1,5 +1,5 @@
- // SPDX-License-Identifier: GPL-2.0-only
--// Copyright (C) 2015-2017 Broadcom
-+// Copyright (C) 2015-2026 Broadcom
- 
- #include <linux/bitops.h>
- #include <linux/gpio/driver.h>
-@@ -96,7 +96,7 @@ static int brcmstb_gpio_hwirq_to_offset(irq_hw_number_t hwirq,
- }
- 
- static void brcmstb_gpio_set_imask(struct brcmstb_gpio_bank *bank,
--		unsigned int hwirq, bool enable)
-+		unsigned int hwirq, bool enable, bool ack)
+@@ -301,12 +301,10 @@ static struct brcmstb_gpio_bank *brcmstb_gpio_hwirq_to_bank(
+ 		struct brcmstb_gpio_priv *priv, irq_hw_number_t hwirq)
  {
- 	struct brcmstb_gpio_priv *priv = bank->parent_priv;
- 	u32 mask = BIT(brcmstb_gpio_hwirq_to_offset(hwirq, bank));
-@@ -110,8 +110,10 @@ static void brcmstb_gpio_set_imask(struct brcmstb_gpio_bank *bank,
- 		imask |= mask;
- 	else
- 		imask &= ~mask;
--	gpio_generic_write_reg(&bank->chip,
--			       priv->reg_base + GIO_MASK(bank->id), imask);
-+	if (ack)
-+		gpio_generic_write_reg(&bank->chip,
-+				       priv->reg_base + GIO_MASK(bank->id),
-+				       imask);
- }
+ 	struct brcmstb_gpio_bank *bank;
+-	int i = 0;
  
- static int brcmstb_gpio_to_irq(struct gpio_chip *gc, unsigned offset)
-@@ -132,7 +134,15 @@ static void brcmstb_gpio_irq_mask(struct irq_data *d)
- 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
- 	struct brcmstb_gpio_bank *bank = gpiochip_get_data(gc);
- 
--	brcmstb_gpio_set_imask(bank, d->hwirq, false);
-+	brcmstb_gpio_set_imask(bank, d->hwirq, false, false);
-+}
-+
-+static void brcmstb_gpio_irq_mask_ack(struct irq_data *d)
-+{
-+	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
-+	struct brcmstb_gpio_bank *bank = gpiochip_get_data(gc);
-+
-+	brcmstb_gpio_set_imask(bank, d->hwirq, false, true);
- }
- 
- static void brcmstb_gpio_irq_unmask(struct irq_data *d)
-@@ -140,7 +150,7 @@ static void brcmstb_gpio_irq_unmask(struct irq_data *d)
- 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
- 	struct brcmstb_gpio_bank *bank = gpiochip_get_data(gc);
- 
--	brcmstb_gpio_set_imask(bank, d->hwirq, true);
-+	brcmstb_gpio_set_imask(bank, d->hwirq, true, false);
- }
- 
- static void brcmstb_gpio_irq_ack(struct irq_data *d)
-@@ -471,6 +481,7 @@ static int brcmstb_gpio_irq_setup(struct platform_device *pdev,
- 	priv->irq_chip.name = dev_name(dev);
- 	priv->irq_chip.irq_disable = brcmstb_gpio_irq_mask;
- 	priv->irq_chip.irq_mask = brcmstb_gpio_irq_mask;
-+	priv->irq_chip.irq_mask_ack = brcmstb_gpio_irq_mask_ack;
- 	priv->irq_chip.irq_unmask = brcmstb_gpio_irq_unmask;
- 	priv->irq_chip.irq_ack = brcmstb_gpio_irq_ack;
- 	priv->irq_chip.irq_set_type = brcmstb_gpio_irq_set_type;
+-	/* banks are in descending order */
+-	list_for_each_entry_reverse(bank, &priv->bank_list, node) {
+-		i += bank->chip.gc.ngpio;
+-		if (hwirq < i)
++	list_for_each_entry(bank, &priv->bank_list, node) {
++		if (hwirq >= bank->chip.gc.offset &&
++		    hwirq < (bank->chip.gc.offset + bank->chip.gc.ngpio))
+ 			return bank;
+ 	}
+ 	return NULL;
 -- 
 2.43.0
 
