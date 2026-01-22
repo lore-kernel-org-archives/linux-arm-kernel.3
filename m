@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87530D3EE84
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 17:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A719D3EE97
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 17:00:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ghzVbDJfTcsBpXb8PT/USBa5XHlrzCqpswIw0aCtc9c=; b=RRzg2uYEPzc22wiKIPkGvxrY/F
-	N9Wmu9ItEbG/aH3PDrjI/k1zGSxL9HQsG7IH5E6MdHt1KzE6zAu6krqGvtJcnC2KVuyberfnTAWay
-	0jWO++VSEkWq8CQFgcgnlvb/aT148TawkHQ1phIsPHNLhINRsmU3JimGHOfKHQlcwFagV3oVBV38r
-	I+CPXkoeYBFZYsna9qJwPke6P4nqQeW06A9zP4CFY3MSJQarHQoFXsqKxa817iyuFaIodzNpxtx7e
-	aZAuL2tlJ/UBnhlLvAlfn/lIUUKbzbbWkyOyO/Bd/w9IDTRPWfEwRmNIPS0kq/rOUCbuIDKUaGYMK
-	Vp/K1pZA==;
+	bh=TXmOKutpf4oJjvVcdpuA87UDape5QgA7pWscPvH2510=; b=xEpRDEPxMdNaKclDVxUemGrz9o
+	K7T55mStaAvjWO5hLjR2KUrP1cv6gPL7L6qbIVwGQTNgpFDcT4Q7pzord7QranxZswBcuENM4AHbI
+	3Ka1V6LGYCP/PvNo8OfB/olw2v64vpabBtbvFW6/F9aGhWr6c9b2ZO3i4g4u/l0ui+JivOCaH9kRn
+	RCSc0jVKdX5ztVc+AEv/HZxpdfJVso1EirPz6GODZnGCkoeNGXjVmgCxP23Q9RT9ikNibZgi1HPiE
+	0vYjMPvguljl9pv6Z2v9zuGspDpKL6YSjK/mBO3KjncnBfgvRnAZvCy7n22ypn42Fuow3MC/ivsa6
+	LAdHD6kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viy2X-00000007WFv-293S;
-	Thu, 22 Jan 2026 17:00:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1viy2Y-00000007WH5-1iOQ;
+	Thu, 22 Jan 2026 17:00:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viy2N-00000007WDc-0aNa
+	id 1viy2V-00000007WFT-3yku
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 17:00:04 +0000
+	Thu, 22 Jan 2026 17:00:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3705A41B58;
-	Thu, 22 Jan 2026 17:00:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 345ABC116D0;
-	Thu, 22 Jan 2026 17:00:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6305E60053;
+	Thu, 22 Jan 2026 17:00:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C151C116C6;
+	Thu, 22 Jan 2026 17:00:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769101202;
-	bh=rPpScL91nAP4eFthfPLVzCQGAbbZTdBbJLpRlIgAIZk=;
+	s=k20201202; t=1769101211;
+	bh=V4PTp6AWZI5MWQxX8DtA8YX5B5nuTx9/oXx6sLHPHns=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BoPA510QkhV5qhF+73Pqcq38YGatWYZty2SmPiwTRPHb+1pTrjsMxrd6kSgZXI4AR
-	 R3yaEiUuKDCntKL25Kf43EKyeHzmxUaLJrAFKny2AtGw9JDuP5myybufUmi4vt7Wf2
-	 2GiJB5Bs5OaSCGf+mYaAQ3epdUjAk3Lw5DA6Fqpo5u8HdYbssOvCfHgpcoMYHqGQ6i
-	 +Mo0mILuro80Ee3FqG+ILvKhnNssZVCGGhcgMYN69U2z5Ti31dnBIF/aItAsGc49Fy
-	 ZytQiebGwjrSjm+hA+ufVxsGPEmkfdSuuMHALh7B7fjH0aDRBRxuxYtpI9K42K34lM
-	 Halreo3OzkHlw==
+	b=Sll4VSfPLggvYsQbc3VOhucDxRupzWN1AuuHZ54KrRTjWY9lINoovHVXg7KRwOqCk
+	 r6WlpQn5X1ma2kC4jq5sqLD3uD7Rj4Ri7VrdV2k24Un8X/XFxzblxPIWlHEmFpq8Zv
+	 hu6pu2xR7q1aP7xVNQuLYSEQVVTZg5jdd+bIHSaj5Tw0YHuxCZScdzUDn9gKrU4nxj
+	 UiGiDk4X5WV3yCNam86OrMAsRIMZegnv3MLJJ7ZonSSZkHpIZgqjR9gqwLKMV0ByzO
+	 zU9P7UIm7SslBOKhALIOCekPuVHiT7xn6rPnAxGQf0l30MJzM8KN8HT4OqpWpkKtm0
+	 7zDhOUAE+cguQ==
 From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Breno Leitao <leitao@debian.org>
+To: catalin.marinas@arm.com,
+	maz@kernel.org,
+	arnd@arndb.de,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	Oliver Upton <oupton@kernel.org>,
+	Zhou Wang <wangzhou1@hisilicon.com>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel-team@meta.com,
-	clm@fb.com
-Subject: Re: [PATCH] arm64: mm: warn once for ioremap attempts on RAM mappings
-Date: Thu, 22 Jan 2026 16:59:42 +0000
-Message-ID: <176908082966.2054641.12981520784317252855.b4-ty@kernel.org>
+	kvmarm@lists.linux.dev,
+	yangyccccc@gmail.com,
+	prime.zeng@hisilicon.com,
+	xuwei5@huawei.com
+Subject: Re: [PATCH v8 RESEND 0/7] Add support for FEAT_{LS64, LS64_V} and related tests
+Date: Thu, 22 Jan 2026 16:59:45 +0000
+Message-ID: <176908829115.2153926.13840796658975178943.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251222-arm64_ioremap-v1-1-30ff5f718b61@debian.org>
-References: <20251222-arm64_ioremap-v1-1-30ff5f718b61@debian.org>
+In-Reply-To: <20260119022928.149358-1-wangzhou1@hisilicon.com>
+References: <20260119022928.149358-1-wangzhou1@hisilicon.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_090003_213224_554C7AA5 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,20 +81,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 22 Dec 2025 07:28:55 -0800, Breno Leitao wrote:
-> Replace WARN_ON with WARN_ONCE when detecting attempts to ioremap
-> RAM. This prevents log spam when a misbehaving driver repeatedly tries
-> to map RAM via ioremap.
-> 
-> A single warning is more than enough to show the broken code path, and
-> extra reports don't add extra information.
+On Mon, 19 Jan 2026 10:29:21 +0800, Zhou Wang wrote:
+> Armv8.7 introduces single-copy atomic 64-byte loads and stores
+> instructions and its variants named under FEAT_{LS64, LS64_V}.
+> Add support for Armv8.7 FEAT_{LS64, LS64_V}:
+> - Add identifying and enabling in the cpufeature list
+> - Expose the support of FEAT_LS64 to userspace through HWCAP3 and cpuinfo
+> - Add related hwcap test
+> - Handle the trap of unsupported memory (normal/uncacheable) access in a VM
 > 
 > [...]
 
-Applied to arm64 (for-next/misc), thanks!
+Applied first six to arm64 (for-next/cpufeature), thanks!
 
-[1/1] arm64: mm: warn once for ioremap attempts on RAM mappings
-      https://git.kernel.org/arm64/c/53f45f045cbe
+[1/7] KVM: arm64: Add exit to userspace on {LD,ST}64B* outside of memslots
+      https://git.kernel.org/arm64/c/f174a9ffcd48
+[2/7] KVM: arm64: Add documentation for KVM_EXIT_ARM_LDST64B
+      https://git.kernel.org/arm64/c/902eebac8fa3
+[3/7] KVM: arm64: Handle DABT caused by LS64* instructions on unsupported memory
+      https://git.kernel.org/arm64/c/2937aeec9dc5
+[4/7] arm64: Provide basic EL2 setup for FEAT_{LS64, LS64_V} usage at EL0/1
+      https://git.kernel.org/arm64/c/dea58da4b6fe
+[5/7] KVM: arm64: Enable FEAT_{LS64, LS64_V} in the supported guest
+      https://git.kernel.org/arm64/c/151b92c92a45
+[6/7] arm64: Add support for FEAT_{LS64, LS64_V}
+      https://git.kernel.org/arm64/c/58ce78667a64
+
+and the selftest to (for-next/selftests):
+
+[7/7] kselftest/arm64: Add HWCAP test for FEAT_LS64
+      https://git.kernel.org/arm64/c/57a96356bb69
 
 Cheers,
 -- 
