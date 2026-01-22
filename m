@@ -4,87 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C41C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:04:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1054C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:08:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WjZeD6b4nbdVUDFjV+MNLvvnzANax8CpheXBkOJIi68=; b=GXCPsKoTjpspbM6JIHDbsAQKwk
-	qyFKCqNoRu8X/+Y+TlsabFhHHFceoHPcIWs7JdNY++ealVruSMXR4lUCxh/RVQhDgOe/7EGor0bnl
-	22g/EmdmvK+XrgrEKQtYodFeJNdfEBwcZCJEuh4LqN148dDFjbpky6cIPJMCXAQb25PrZvzauJ1iA
-	hQXrzAdmociqT9KdPeQ18JHLoDQ6vikzeyu8HZUUNvNA/ytthUgsBQH0oWYpHnFYllz90xlmDZ+4C
-	KCG4DCod/Va9qmPQfs1QJ8vbSLQZ1QUo4leqmgPGzNhQMOQlv2DbYZBT9+nKllUWfH/KqX2fL9YnH
-	WrmBKz7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qz2jBtAAa++4Q3j8hazgRo9C7PlMfBWbWDI06fqnqyI=; b=ZdOH77q3pgxvsWvp9EgavSnv4G
+	1BVp+zv1qGbbARYHt6L8ZRNMakO5CyY8Md/lENUOKxduDLyZs/S4ClGEHvKDRXHy5P4gbgbUWn2nl
+	GLDFHjXp9VWUt0uK1aV8qGiCapP8+5NO5aE52qA+euxKBzlaFedWQ4mVKkHxH9oUe0ShCtQ7Ijw2l
+	GGncU6ZNg/3Hg76M2UzfrDBZPvJjzP/kQ/3ogRVu1zH8M2NxQ8Zh2N3US25iHbx2tX/bw2Ep0AuT2
+	bTwstWKq4k9YM/F3hsWCxSoTmz/DQquWyn0xlKC2KnpEEIcC6hM1mQWO/2rePafOKc+fEt1xtL61l
+	FVLobwBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virY9-00000006nbx-04St;
-	Thu, 22 Jan 2026 10:04:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virY7-00000006nbk-1PTT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 Jan 2026 10:04:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=WjZeD6b4nbdVUDFjV+MNLvvnzANax8CpheXBkOJIi68=; b=imx+5WJ6WPzFgfopc2sGqwar9p
-	9OEuUWvGaBpWGqymo9I9Cup5RY7ey/xecqRFWwzBtYDNAiqj26G6nSPEJW0l9PR6EN6Lb0gu2X1Lp
-	4sRwCJ9gvzcWwX8L2rZBdrDeq3qsJye+4zBKZNzcn4cAacCv8OwkkO4NCqPCgYN4cDUKKmIY+itp8
-	9WBKe3f1YSUxj+JeXe9VCeei9WOZUUp5h40isRgkAR2GYYHAjEKbgGdo2lByl2T+smdACy+Yj5CDx
-	SrucqPsYEDE6KWNcpTAeVG9R0PWoxZwBSNsC7y5RtnYLxbEBnri31WzpJUc5aM7NxpVOt3IM6AWrm
-	PbwIgwwA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virY3-000000006cD-3Siy
+	id 1virbm-00000006nru-03aK;
+	Thu, 22 Jan 2026 10:08:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1virbj-00000006nrV-41hA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 10:04:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5CD27416AA;
-	Thu, 22 Jan 2026 10:04:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AFD1C116C6;
-	Thu, 22 Jan 2026 10:03:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769076226;
-	bh=yL/NrddG1CawfKhoy4ZH1/4SsxmbBqbip9rUrRWJ+qM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BpS+5mmuQZCe173jMQU+eRlim0YQxsGfPb0rhy4QSByTDjeNk8vcjdoLnBsMQNvay
-	 14sD4Tx+hYBzYuiyNWBJN+FO/l/8r5YhCtGPPaEHbFbNv/qJIlE1d3HZGTdnPdhmg5
-	 j2I3/qxwfyTlw5rqZ5Zg2Ypq5sspCPJkG9zibheIhO0NyR4janbnDOFA89yShhAnmI
-	 7kj42mLTLdODw95p3T+NQnWiX46ZgsffM1lsx39s3oj7TGKSGNlHg5SujnnMZUFKJe
-	 mxtWDvaFp8RXaYicrJb/h09nkogt17BpUo6tISRX0nO2e9QjaZ7VlIVfXqE9SoNJQI
-	 opFU4u9VTB2vg==
-Date: Thu, 22 Jan 2026 12:03:35 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Eugen Hristev <eugen.hristev@linaro.org>
-Cc: david@redhat.com, linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	tglx@linutronix.de, andersson@kernel.org, pmladek@suse.com,
-	rdunlap@infradead.org, corbet@lwn.net, mhocko@suse.com,
-	tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-hardening@vger.kernel.org, jonechou@google.com,
-	rostedt@goodmis.org, linux-doc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org
-Subject: Re: [PATCH 18/26] mm/memblock: Add MEMBLOCK_INSPECT flag
-Message-ID: <aXH190NDVl7JAl7A@kernel.org>
-References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
- <20251119154427.1033475-19-eugen.hristev@linaro.org>
- <aVImIneFgOngYdSn@kernel.org>
- <4b8953ac-567b-4d68-9c25-72a69afdf1b3@linaro.org>
- <aVlsqdgXSBLIE9Xi@kernel.org>
- <ae85df64-b6b7-43d7-ba50-9c0525481299@linaro.org>
+	Thu, 22 Jan 2026 10:08:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B15EC1476;
+	Thu, 22 Jan 2026 02:07:57 -0800 (PST)
+Received: from [10.57.9.125] (unknown [10.57.9.125])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D5243F740;
+	Thu, 22 Jan 2026 02:08:01 -0800 (PST)
+Message-ID: <f78f72ec-9b57-4373-a7f0-a9295326832b@arm.com>
+Date: Thu, 22 Jan 2026 10:07:59 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ae85df64-b6b7-43d7-ba50-9c0525481299@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 3/8] coresight: tmc: Introduce sysfs_read_ops to wrap
+ sysfs read operations
+Content-Language: en-GB
+To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+ Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20260122-enable-byte-cntr-for-ctcu-v10-0-22978e3c169f@oss.qualcomm.com>
+ <20260122-enable-byte-cntr-for-ctcu-v10-3-22978e3c169f@oss.qualcomm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260122-enable-byte-cntr-for-ctcu-v10-3-22978e3c169f@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_100420_764557_EC637A74 
-X-CRM114-Status: GOOD (  31.42  )
+X-CRM114-CacheID: sfid-20260122_020808_114549_E8C9E10C 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,63 +75,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 05:13:43PM +0200, Eugen Hristev wrote:
+On 22/01/2026 02:08, Jie Gan wrote:
+> Introduce sysfs_read_ops as a wrapper, wrap sysfs read operations, for reading
+> trace data from the TMC buffer.
 > 
+> Reviewed-by: Mike Leach <mike.leach@linaro.org>
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-tmc-core.c | 50 +++++++++++-------------
+>   drivers/hwtracing/coresight/coresight-tmc.h      | 17 ++++++++
+>   2 files changed, 40 insertions(+), 27 deletions(-)
 > 
-> On 1/3/26 21:23, Mike Rapoport wrote:
-> > On Sat, Jan 03, 2026 at 08:36:40AM +0200, Eugen Hristev wrote:
-> >>
-> >>
-> >> On 12/29/25 08:56, Mike Rapoport wrote:
-> >>> Hi Eugen,
-> >>>
-> >>> On Wed, Nov 19, 2025 at 05:44:19PM +0200, Eugen Hristev wrote:
-> >>>> This memblock flag indicates that a specific block is registered
-> >>>> into an inspection table.
-> >>>> The block can be marked for inspection using memblock_mark_inspect()
-> >>>> and cleared with memblock_clear_inspect()
-> >>>
-> >>> Can you explain why memblock should treat memory registered for inspection
-> >>> differently?
-> >>
-> >> It should not, at a first glance.
-> >>
-> >> The purpose of the flag is to let memblock be aware of it.
-> >> The flag is there to have a "memblock way" of registering the memory,
-> >> which inside memblock , it can translate to a meminspect way of
-> >> registering the memory. It's just an extra layer on top of meminspect.
-> >> With this, it would be avoided to call meminspect all over the places it
-> >> would be required, but rather use the memblock API.
-> > 
-> > memblock APIs are not available after boot on many architectures, most
-> > notable being x86.
-> > 
-> > But regardless, I can't say I understand why using memblock APIs for
-> > meminspect is better than using meminspect directly.
-> > I'd imagine that using meminspect register APIs would actually make it more
-> > consistent and it would be easier to identify what memory is registered
-> > with meminspect.
-> > 
-> > In the end, memblock_alloc*() returns dynamically allocated memory, just
-> > like kmalloc(), the difference is that memblock is active very early at
-> > boot and disappears after core MM initialization.
-> 
-> Hi Mike,
-> 
-> Thanks for sharing your opinion.
-> 
-> David, what do you think, does it make sense to have this flag or we can
-> ditch it and use meminspect directly ?
-> 
-> Also, for some memory blocks, they do not disappear ever, e.g. the
-> printk log buffer, it's allocated early and never freed, so it's
-> required to have some memblocks marked for inspection.
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> index 1ea255ffa67c..8b0397a77e57 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> @@ -232,17 +232,10 @@ static int tmc_read_prepare(struct tmc_drvdata *drvdata)
+>   {
+>   	int ret = 0;
+>   
+> -	switch (drvdata->config_type) {
+> -	case TMC_CONFIG_TYPE_ETB:
+> -	case TMC_CONFIG_TYPE_ETF:
+> -		ret = tmc_read_prepare_etb(drvdata);
+> -		break;
+> -	case TMC_CONFIG_TYPE_ETR:
+> -		ret = tmc_read_prepare_etr(drvdata);
+> -		break;
+> -	default:
+> +	if (drvdata->sysfs_ops)
+> +		ret = drvdata->sysfs_ops->read_prepare(drvdata);
+> +	else
+>   		ret = -EINVAL;
+> -	}
+>   
+>   	if (!ret)
+>   		dev_dbg(&drvdata->csdev->dev, "TMC read start\n");
+> @@ -254,17 +247,10 @@ static int tmc_read_unprepare(struct tmc_drvdata *drvdata)
+>   {
+>   	int ret = 0;
+>   
+> -	switch (drvdata->config_type) {
+> -	case TMC_CONFIG_TYPE_ETB:
+> -	case TMC_CONFIG_TYPE_ETF:
+> -		ret = tmc_read_unprepare_etb(drvdata);
+> -		break;
+> -	case TMC_CONFIG_TYPE_ETR:
+> -		ret = tmc_read_unprepare_etr(drvdata);
+> -		break;
+> -	default:
+> +	if (drvdata->sysfs_ops)
+> +		ret = drvdata->sysfs_ops->read_unprepare(drvdata);
+> +	else
+>   		ret = -EINVAL;
+> -	}
+>   
+>   	if (!ret)
+>   		dev_dbg(&drvdata->csdev->dev, "TMC read end\n");
+> @@ -291,13 +277,8 @@ static int tmc_open(struct inode *inode, struct file *file)
+>   static ssize_t tmc_get_sysfs_trace(struct tmc_drvdata *drvdata, loff_t pos, size_t len,
+>   				   char **bufpp)
+>   {
+> -	switch (drvdata->config_type) {
+> -	case TMC_CONFIG_TYPE_ETB:
+> -	case TMC_CONFIG_TYPE_ETF:
+> -		return tmc_etb_get_sysfs_trace(drvdata, pos, len, bufpp);
+> -	case TMC_CONFIG_TYPE_ETR:
+> -		return tmc_etr_get_sysfs_trace(drvdata, pos, len, bufpp);
+> -	}
+> +	if (drvdata->sysfs_ops)
+> +		return drvdata->sysfs_ops->get_trace_data(drvdata, pos, len, bufpp);
 
-The allocated memory does not disappear, the memblock metadata does.
+minor nit: Please could we bail out in tmc_open() if the 
+drvdata->sysfs_ops is not set. That way, we don't have to sprinkle it 
+everywhere. And also, we don't expect to see this case anyways.
 
-> Eugen
+>   
+>   	return -EINVAL;
+>   }
+> @@ -769,6 +750,18 @@ static void register_crash_dev_interface(struct tmc_drvdata *drvdata,
+>   			"Valid crash tracedata found\n");
+>   }
+>   
+> +static const struct sysfs_read_ops tmc_etb_sysfs_read_ops = {
 
--- 
-Sincerely yours,
-Mike.
+minor nit: please could we rename the struct type to :
+
+struct tmc_sysfs_ops
+
+and then use
+
+etb_sysfs_ops = {}
+etr_sysfs_ops = {}
+
+
+Rest looks fine to me
+
+Suzuki
+
+> +	.read_prepare	= tmc_read_prepare_etb,
+> +	.read_unprepare	= tmc_read_unprepare_etb,
+> +	.get_trace_data	= tmc_etb_get_sysfs_trace,
+> +};
+> +
+> +static const struct sysfs_read_ops tmc_etr_sysfs_read_ops = {
+> +	.read_prepare	= tmc_read_prepare_etr,
+> +	.read_unprepare	= tmc_read_unprepare_etr,
+> +	.get_trace_data	= tmc_etr_get_sysfs_trace,
+> +};
+> +
+>   static int __tmc_probe(struct device *dev, struct resource *res)
+>   {
+>   	int ret = 0;
+> @@ -828,6 +821,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+>   		desc.subtype.sink_subtype = CORESIGHT_DEV_SUBTYPE_SINK_BUFFER;
+>   		desc.ops = &tmc_etb_cs_ops;
+>   		dev_list = &etb_devs;
+> +		drvdata->sysfs_ops = &tmc_etb_sysfs_read_ops;
+>   		break;
+>   	case TMC_CONFIG_TYPE_ETR:
+>   		desc.groups = coresight_etr_groups;
+> @@ -841,6 +835,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+>   		mutex_init(&drvdata->idr_mutex);
+>   		dev_list = &etr_devs;
+>   		INIT_LIST_HEAD(&drvdata->etr_buf_list);
+> +		drvdata->sysfs_ops = &tmc_etr_sysfs_read_ops;
+>   		break;
+>   	case TMC_CONFIG_TYPE_ETF:
+>   		desc.groups = coresight_etf_groups;
+> @@ -849,6 +844,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+>   		desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_FIFO;
+>   		desc.ops = &tmc_etf_cs_ops;
+>   		dev_list = &etf_devs;
+> +		drvdata->sysfs_ops = &tmc_etb_sysfs_read_ops;
+>   		break;
+>   	default:
+>   		pr_err("%s: Unsupported TMC config\n", desc.name);
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+> index 9b3c4e6f0a5e..c9a82ff6cd00 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc.h
+> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+> @@ -221,6 +221,8 @@ struct etr_buf_node {
+>   	struct list_head	node;
+>   };
+>   
+> +struct sysfs_read_ops;
+> +
+>   /**
+>    * struct tmc_drvdata - specifics associated to an TMC component
+>    * @atclk:	optional clock for the core parts of the TMC.
+> @@ -258,6 +260,7 @@ struct etr_buf_node {
+>    *		 Used by ETR/ETF.
+>    * @etr_buf_list: List that is used to manage allocated etr_buf.
+>    * @reading_node: Available buffer_node for byte-cntr reading.
+> + * @sysfs_ops:	Read operations for sysfs mode.
+>    */
+>   struct tmc_drvdata {
+>   	struct clk		*atclk;
+> @@ -290,6 +293,20 @@ struct tmc_drvdata {
+>   	struct tmc_resrv_buf	crash_mdata;
+>   	struct list_head        etr_buf_list;
+>   	struct etr_buf_node     *reading_node;
+> +	const struct sysfs_read_ops	*sysfs_ops;
+> +};
+> +
+> +/**
+> + * struct sysfs_read_ops - read operations for TMC and its helper devices
+> + * @read_prepare:	prepare operation.
+> + * @read_unprepare:	unprepare operation.
+> + * @get_trace_data:	read operation.
+> + */
+> +struct sysfs_read_ops {
+> +	int (*read_prepare)(struct tmc_drvdata *drvdata);
+> +	int (*read_unprepare)(struct tmc_drvdata *drvdata);
+> +	ssize_t (*get_trace_data)(struct tmc_drvdata *drvdata, loff_t pos,
+> +				  size_t len, char **bufpp);
+>   };
+>   
+>   struct etr_buf_operations {
+> 
+
 
