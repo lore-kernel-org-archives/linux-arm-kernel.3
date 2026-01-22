@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC7E9C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:08:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46B48C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3cYizoDkt5cOwg564x5reQWgQwSV3vBjCW3ZezF54m4=; b=HjTfI/VQASz25BSfohDklRDfqf
-	J1Z4fpe5euOo/aWOzFy5Oe6QjxMf1jtVA27Yhy456oMzS0OV4INUFFlHzP2MLgFGu9ddA1uExP2Fp
-	/bdeESS8NzFvcM39Q5ekWzE9Iu/kZHaMD9UKwiJMI6cyZh+WDtH3etaEiL0gg25FPrUVG3dYg1+gP
-	hPv12b69xVXz4x7tcJBERCLzi3LoaG1CSK7qLoeHqc2mWZCfJFJU6p6iAB+Bv3GwkJ5G8k1lwcNhW
-	kvWdj19hejtv/ByLsl8nokAa0zPXeOMzNPAQogjd3wUwNUCzFWEm0ZAu8NwLbC33PJdnV94/k7p3S
-	LPiGZvFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TMs7LYDRjNVYBzS8Mju/lFTBd+stxm/ObxawGRdrtrE=; b=f5rJAfZMyE6Gb/34tLDvKVzrWf
+	pQuxk704rvuEsTUV/phKov0hpTUFbbPVHna1tWLkRsYI5RNX669FkpWnlnGB1T4p3tdJW6tZ0quwy
+	pKd3+a+o9K1pSIOf2+AD88HAQfKwZ49eMmG3DwSHcKMmavYr3sjwNwg+BoRtzJPzbM27A5I5MCzmw
+	M+KZgeYc5hNaLDZpd0Qp1Fb6LK2Kqh5wP6xow1IlLtfRMBW2r0EkX4qAPHhnyDlMQciyfyyvIp7m6
+	xE8YMmx8NWhAFk67FEP79WYIGRz8qnK3zB+/sX2eRRg+c2FC/M63MTcZW5UYF7uKeJANkEwOHGGkg
+	RoL6LpKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viqfS-00000006iQz-3DyI;
-	Thu, 22 Jan 2026 09:07:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1viqig-00000006ido-1CpJ;
+	Thu, 22 Jan 2026 09:11:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viqfP-00000006iQU-32ey
+	id 1viqif-00000006idZ-1CgQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 09:07:52 +0000
+	Thu, 22 Jan 2026 09:11:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8062240A5B;
-	Thu, 22 Jan 2026 09:07:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CEA0C16AAE;
-	Thu, 22 Jan 2026 09:07:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8DBD2600C4;
+	Thu, 22 Jan 2026 09:11:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A891C16AAE;
+	Thu, 22 Jan 2026 09:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769072870;
-	bh=ui6FN7ArLwvtBIDbQfy5pRl8V5wQYtCl40jZiB+Dt7s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DlGu7ZQigpyXDRtUNgOEXuz96GQ02SGJ+awi9gUlb0RB5dLcNjp+nd7YxQYOppJmC
-	 c8Tk+A7FzrYzkeVhPojlZxrwf6ms+7n0dUCWry/xEaKpV7s7/st27NXs/4vVODmbby
-	 odzEW6ci2kBbOWtIZyNbTqQNpoyCXlMvNzzTVW3bD76c66SqZqco6ALXFKXeox2ogT
-	 381kKIZPzfZjybMqVT70ivqV5a3UlmXtv/OwTk5Uc4mTbUpjAe6enjDOu0lJT9uU+c
-	 gCYaWKd73PoGOUQ3YRFKRxuWq8guTZ9QJwZlBK8GNu4ijj0PCg8diyySTSsoRH0mWg
-	 6bfAXqNyC1nVA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	s=k20201202; t=1769073070;
+	bh=LFW90VWHJHnmtxUoM+a3yP6IR8eMMDNjSdMlhzJlmnY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=eYUHP9Ncnk0czUylGrVq34W4sQ/D7IQEbxX3lFNcK07HFU+/P66K09I5iXwhp/npo
+	 aoMFUOJVQ0ayjKypW5RvEdqI6n1OCNUnjO/TxvoKQjVBLyuxnWfAnMyVRdsPp92r8m
+	 hZ1jaJUCuEFW8oEu7yr41IM+T/OZ8hknrwoMRRuQJWQMGLpN8Pj746v4TUPyTm02cf
+	 jM8ps15g6A9f9zyAQ1yck8CmomoXPzp/hM0S75bbz7EvASiiz63yO83QzNnCUXb0Hl
+	 Tg/s5e44Be8OV2bjDdo+6OIUU4D9308id5Al3MqRCAOyQhN6rUAhb7E77h4Yz+6Ewy
+	 r8CZvY/aepsUA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1viqfM-00000004cQS-0rIx;
-	Thu, 22 Jan 2026 09:07:48 +0000
-Date: Thu, 22 Jan 2026 09:07:47 +0000
-Message-ID: <86wm1aaucc.wl-maz@kernel.org>
+	id 1viqia-00000004cWq-0JnX;
+	Thu, 22 Jan 2026 09:11:08 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: Zenghui Yu <zenghui.yu@linux.dev>
-Cc: kvmarm@lists.linux.dev,
+To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	wanghaibin.wang@huawei.com
-Subject: Re: [PATCH] KVM: arm64: nv: Return correct RES0 bits for FGT registers
-In-Reply-To: <20260121101631.41037-1-zenghui.yu@linux.dev>
-References: <20260121101631.41037-1-zenghui.yu@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Nathan Chancellor <nathan@kernel.org>
+Subject: Re: [PATCH] KVM: arm64: Always populate FGT masks at boot time
+Date: Thu, 22 Jan 2026 09:11:05 +0000
+Message-ID: <176907305595.536564.11529095810436212819.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260122085153.535538-1-maz@kernel.org>
+References: <20260122085153.535538-1-maz@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: zenghui.yu@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, wanghaibin.wang@huawei.com
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, nathan@kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_010751_783920_E1B7F0CB 
-X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,39 +84,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 21 Jan 2026 10:16:31 +0000,
-Zenghui Yu <zenghui.yu@linux.dev> wrote:
+On Thu, 22 Jan 2026 08:51:53 +0000, Marc Zyngier wrote:
+> We currently only populate the FGT masks if the underlying HW does
+> support FEAT_FGT. However, with the addition of the RES1 support for
+> system registers, this results in a lot of noise at boot time, as
+> reported by Nathan.
 > 
-> From: "Zenghui Yu (Huawei)" <zenghui.yu@linux.dev>
+> That's because even if FGT isn't supported, we still check for the
+> attribution of the bits to particular features, and not keeping the
+> masks up-to-date leads to (fairly harmess) warnings.
 > 
-> We had extended the sysreg masking infrastructure to more general
-> registers, instead of restricting it to VNCR-backed registers, since
-> commit a0162020095e ("KVM: arm64: Extend masking facility to arbitrary
-> registers"). Fix kvm_get_sysreg_res0() to reflect this fact.
+> [...]
 
-Huh, what a howler! Thanks a lot for spotting this!
+Applied to next, thanks!
 
-> 
-> Note that we're sure that we only deal with FGT registers in
-> kvm_get_sysreg_res0(), the
-> 
-> 	if (sr < __VNCR_START__)
-> 
-> is actually a never false, which should probably be removed later.
+[1/1] KVM: arm64: Always populate FGT masks at boot time
+      commit: 54adbfe40e3b6d238293cc36ef071ed9f35c8af7
 
-I think the biggest mistake is to have several places where we perform
-sysreg index to array index conversions. We should try to unify that.
-
-> 
-> Fixes: 69c19e047dfe ("KVM: arm64: Add TCR2_EL2 to the sysreg arrays")
-> Signed-off-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
-
-Cc: stable@vger.kernel.org
-
-Thanks again,
+Cheers,
 
 	M.
-
 -- 
 Without deviation from the norm, progress is not possible.
+
+
 
