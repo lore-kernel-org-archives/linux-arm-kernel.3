@@ -4,65 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55922C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:41:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE955D62613
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:41:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jEPRC8dkQkQK0oj5H65u2rdRQmlYOINdOPCvpzDCVus=; b=xtr21Wqp8/NF4dG4DcGMzjapmR
-	kHqrrgiL6S5RKZmCK0AZy44eRobEmE0C/tB4QXNOi8wYHpiV1/AsirYhyd2H4tY+9vf0Bla7OVC+B
-	LGzQcN5+R3x8EkwQiiAPqzpnLB6ampPqnC4W0DLFv/rLGd7OP4WjSYkDALq76LfmVjEBKXVyd5Ue0
-	420VAbnBg24SDnUoxMjdejc15p+7nz2jegjlgKQC53fkxsbm5IqnbUA8g0tdJCpEznFvUfcepcigj
-	zVQj/iPKwVOK/bL8nuwAdQDA6SDV6Kgv19H8TK6yvliLILmiDYRkWxeqf/MnUlNOLRifWvxg0qNJm
-	uLcx75uw==;
+	bh=1ePs9oLQx+ASceiPBfdfxBNJeoen+WsYKE+jP3d8Zrc=; b=qmeDWniKDpUat9sm608C9ZCEiA
+	+1NUVs8MGK/OVQFvbji9mGA/CTzpRO+ZsXesJhmK3qhfv5sQ5j8uDAZ5unXWrVh+ZUCUROrKTuOL/
+	9/C6ruAmNWfcE59AwW3OImdS8oCidvtoe8qD7dCfOeSU8jva1V2jApmBTh7lLPDhe9SPgWdRpcZiC
+	e+32nIMuwtky1cY52oLIXmDCHtfm+fODcJiiA0yjlKeADkZw6duOVrRdg+6fg7OFMwKeGKbmqb4x2
+	KTk50FvekJ77keNcLKXDT3JGUd2qMikMhWNSkUQE50W35P0L4hSCX9QrKzw+2kX7oZ0yWyteS+NAp
+	98txEY9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vis7b-00000006sMA-3l4v;
-	Thu, 22 Jan 2026 10:41:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vis7f-00000006sS9-1UxJ;
+	Thu, 22 Jan 2026 10:41:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vis7I-00000006rtR-3v2P;
-	Thu, 22 Jan 2026 10:40:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=jEPRC8dkQkQK0oj5H65u2rdRQmlYOINdOPCvpzDCVus=; b=jhD4hDOlsHCwgqPG2TsPNdoOwE
-	qI/Xt1+S6NMenb95HviST+wayDbW7vVkhtj4DQtaaZkbV/x11bVdzI2ODmdI3nZKHg6jfoFCA/YUQ
-	UxDxdXF/aM9u0UzSkApiIkArC0qfCbeLqYf5pRMrIuPLxb5VFgUnaFGlS5TtMyEox+k/hqsgwa0lw
-	CWtFLY4yyuVHvN0web2A+RRxybpEopBOXxMvIXWMbyMI204LqwPxJtbWMLciDj4BpH8MPNFqN/uEq
-	WUJ5POBqEALn18YlUpoCmWKPfZAYf615px2NLDKsKlcllfjIOG/WEIJG3VqN/yPk+RpBjuXE4LI62
-	BZZylIdw==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vis7F-00000000AN0-0e3h;
-	Thu, 22 Jan 2026 10:40:43 +0000
+	id 1vis7O-00000006s33-0YXw;
+	Thu, 22 Jan 2026 10:40:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EA2C64174F;
-	Thu, 22 Jan 2026 10:40:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 788D3C116C6;
-	Thu, 22 Jan 2026 10:40:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 15EF44174F;
+	Thu, 22 Jan 2026 10:40:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9738AC19425;
+	Thu, 22 Jan 2026 10:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769078438;
-	bh=tFzAvVC+OlZ0dgOfKIpcbq6JqJ96VvuvXp19jvWZlXg=;
+	s=k20201202; t=1769078449;
+	bh=MywH8r2SZSBalpNJ9OdEdz5o7Oc0QkcvnF7g3fOHIaw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ABbg1rd38mhgBWXgcoqJIhmetmigaZ7y28dL6MvXNd89lo+z9gEGhLBg2qYgeCfFn
-	 gRmnrdKr9byglTSUfaGT+4OdPyvfiMS1MwgUnnIcQ7Y/HPlSsb/EU0bnyikyGb7MHK
-	 oay4tTy0ZMcj3186wkG2iRTyQDJdpyh0rkQC8PXcDmxF4MNeRsATerqUiBid5uwhSF
-	 D9QNVbm/W8PHfXoWsfTe66la+aVrx+7JK+lZ5yeg4a6wYQplYts0beNI4y0VJcbUDD
-	 HCaMSDWLo4jj/MA0aQ8g+puKtHeMg5Noe0v3rKMQSF23sBCruJyi+wM2oz/m3Es3E7
-	 gahmO2s85fFFw==
+	b=TC8ohXA6IiBnc/nKJg7Pm0o2ptWQhR6DVq0InMjbU4HQhDSmVv8HoC1xHh880V8xO
+	 CiUNZoExm2UWkrdIat0/58ghctnxtKE/8A43ruqGPNdLHAWk5ZVv8mbxtpy93BwD9f
+	 zOQNM/fEUl7PPsXTKtl4LwJxPrRVzAyn+rWHsio1S2s1FS7/SZid8H7d5qOVN04olR
+	 0nXg2ME7CpTz5RBP/nPOa/q0/gr2dEFr/ogkkyVQJQ1sPhbbkC7SYj533vE9OHWm08
+	 AXxokDpQ+iIt6WjRDibvbJOfuOaA4g/sXnVvbTlzeTP1wvbkcy9kB6Ckm/7fYtxKlK
+	 40pRPifW56/9Q==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 22 Jan 2026 11:39:57 +0100
-Subject: [PATCH mt76 v2 13/17] wifi: mt76: mt7996: Move RRO dma start in a
- dedicated routine
+Date: Thu, 22 Jan 2026 11:40:01 +0100
+Subject: [PATCH mt76 v2 17/17] wifi: mt76: Enable NPU support for MT7996
+ devices
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260122-mt76-npu-eagle-offload-v2-13-2374614c0de6@kernel.org>
+Message-Id: <20260122-mt76-npu-eagle-offload-v2-17-2374614c0de6@kernel.org>
 References: <20260122-mt76-npu-eagle-offload-v2-0-2374614c0de6@kernel.org>
 In-Reply-To: <20260122-mt76-npu-eagle-offload-v2-0-2374614c0de6@kernel.org>
 To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
@@ -74,8 +60,9 @@ Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, Kang Yang <kang.yang@airoha.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_104041_851269_8572501D 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20260122_024050_263578_74C0675E 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,145 +77,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a preliminary patch to properly enable NPU offloading for MT7996
-chipset since NPU initialization must be completed before kicking rx
-queues.
+Enable NPU offloading for MT7990 chipset.
 
 Tested-by: Kang Yang <kang.yang@airoha.com>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/wireless/mediatek/mt76/mt7996/dma.c    | 69 ++++++++++++----------
- drivers/net/wireless/mediatek/mt76/mt7996/init.c   |  2 +
- drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  1 +
- 3 files changed, 41 insertions(+), 31 deletions(-)
+ drivers/net/wireless/mediatek/mt76/npu.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-index 07212d93bc62df69720963f5ba04090bc82003fc..1a4f5f5b2a8435933070bb7d8feab26a0c174922 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-@@ -521,7 +521,7 @@ static void mt7996_dma_enable(struct mt7996_dev *dev, bool reset)
- int mt7996_dma_rro_init(struct mt7996_dev *dev)
- {
- 	struct mt76_dev *mdev = &dev->mt76;
--	u32 irq_mask, size;
-+	u32 size;
- 	int ret;
+diff --git a/drivers/net/wireless/mediatek/mt76/npu.c b/drivers/net/wireless/mediatek/mt76/npu.c
+index bc8f2012be9dbe2c7fc1fc885b6135d796d8c0d6..c4c7c0af63217a7e85b2d97b37febba16899e332 100644
+--- a/drivers/net/wireless/mediatek/mt76/npu.c
++++ b/drivers/net/wireless/mediatek/mt76/npu.c
+@@ -450,10 +450,6 @@ int mt76_npu_init(struct mt76_dev *dev, phys_addr_t phy_addr, int type)
+ 	struct airoha_npu *npu;
+ 	int err = 0;
  
- 	if (dev->mt76.hwrro_mode == MT76_HWRRO_V3_1) {
-@@ -548,7 +548,8 @@ int mt7996_dma_rro_init(struct mt7996_dev *dev)
- 			mt76_queue_reset(dev, &mdev->q_rx[MT_RXQ_RRO_RXDMAD_C],
- 					 true);
- 		}
--		goto start_hw_rro;
-+
-+		return 0;
- 	}
+-	/* NPU offloading is only supported by MT7992 */
+-	if (!is_mt7992(dev))
+-		return 0;
+-
+ 	mutex_lock(&dev->mutex);
  
- 	/* ind cmd */
-@@ -615,43 +616,49 @@ int mt7996_dma_rro_init(struct mt7996_dev *dev)
- 			return ret;
- 	}
+ 	npu = airoha_npu_get(dev->dev);
+@@ -486,7 +482,7 @@ int mt76_npu_init(struct mt76_dev *dev, phys_addr_t phy_addr, int type)
+ 	dev->mmio.phy_addr = phy_addr;
+ 	dev->mmio.npu_type = type;
+ 	/* NPU offloading requires HW-RRO for RX packet reordering. */
+-	dev->hwrro_mode = MT76_HWRRO_V3_1;
++	dev->hwrro_mode = is_mt7996(dev) ? MT76_HWRRO_V3 : MT76_HWRRO_V3_1;
+ 	dev->rx_token_size = 32768;
  
--start_hw_rro:
--	if (mtk_wed_device_active(&mdev->mmio.wed)) {
--		irq_mask = mdev->mmio.irqmask |
-+	return 0;
-+}
-+
-+void mt7996_dma_rro_start(struct mt7996_dev *dev)
-+{
-+	u32 irq_mask;
-+
-+	if (mtk_wed_device_active(&dev->mt76.mmio.wed)) {
-+		irq_mask = dev->mt76.mmio.irqmask |
- 			   MT_INT_TX_DONE_BAND2;
- 
- 		mt76_wr(dev, MT_INT_MASK_CSR, irq_mask);
--		mtk_wed_device_start_hw_rro(&mdev->mmio.wed, irq_mask, false);
-+		mtk_wed_device_start_hw_rro(&dev->mt76.mmio.wed, irq_mask,
-+					    false);
- 		mt7996_irq_enable(dev, irq_mask);
--	} else {
--		if (is_mt7996(&dev->mt76)) {
--			mt76_queue_rx_init(dev, MT_RXQ_MSDU_PAGE_BAND1,
--					   mt76_dma_rx_poll);
--			mt76_queue_rx_init(dev, MT_RXQ_MSDU_PAGE_BAND2,
--					   mt76_dma_rx_poll);
--			mt76_queue_rx_init(dev, MT_RXQ_RRO_BAND2,
--					   mt76_dma_rx_poll);
--		} else {
--			mt76_queue_rx_init(dev, MT_RXQ_RRO_BAND1,
--					   mt76_dma_rx_poll);
--		}
-+		return;
-+	}
- 
--		mt76_queue_rx_init(dev, MT_RXQ_RRO_BAND0, mt76_dma_rx_poll);
--		if (dev->mt76.hwrro_mode == MT76_HWRRO_V3_1) {
--			mt76_queue_rx_init(dev, MT_RXQ_RRO_RXDMAD_C,
--					   mt76_dma_rx_poll);
--		} else {
--			mt76_queue_rx_init(dev, MT_RXQ_RRO_IND,
--					   mt76_dma_rx_poll);
--			mt76_queue_rx_init(dev, MT_RXQ_MSDU_PAGE_BAND0,
--					   mt76_dma_rx_poll);
--		}
-+	if (is_mt7996(&dev->mt76)) {
-+		mt76_queue_rx_init(dev, MT_RXQ_MSDU_PAGE_BAND1,
-+				   mt76_dma_rx_poll);
-+		mt76_queue_rx_init(dev, MT_RXQ_MSDU_PAGE_BAND2,
-+				   mt76_dma_rx_poll);
-+		mt76_queue_rx_init(dev, MT_RXQ_RRO_BAND2,
-+				   mt76_dma_rx_poll);
-+	} else {
-+		mt76_queue_rx_init(dev, MT_RXQ_RRO_BAND1,
-+				   mt76_dma_rx_poll);
-+	}
- 
--		if (!mt76_npu_device_active(&dev->mt76))
--			mt7996_irq_enable(dev, MT_INT_RRO_RX_DONE);
-+	mt76_queue_rx_init(dev, MT_RXQ_RRO_BAND0, mt76_dma_rx_poll);
-+	if (dev->mt76.hwrro_mode == MT76_HWRRO_V3_1) {
-+		mt76_queue_rx_init(dev, MT_RXQ_RRO_RXDMAD_C,
-+				   mt76_dma_rx_poll);
-+	} else {
-+		mt76_queue_rx_init(dev, MT_RXQ_RRO_IND,
-+				   mt76_dma_rx_poll);
-+		mt76_queue_rx_init(dev, MT_RXQ_MSDU_PAGE_BAND0,
-+				   mt76_dma_rx_poll);
- 	}
- 
--	return 0;
-+	if (!mt76_npu_device_active(&dev->mt76))
-+		mt7996_irq_enable(dev, MT_INT_RRO_RX_DONE);
- }
- 
- int mt7996_dma_init(struct mt7996_dev *dev)
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-index 526a2cb298fd7f9dc8d0fcdd8de0e4071c07338f..de4ae79073fbfe364994d5284ee19ee652bda6c8 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-@@ -1721,6 +1721,8 @@ int mt7996_register_device(struct mt7996_dev *dev)
- 	if (ret)
- 		return ret;
- 
-+	mt7996_dma_rro_start(dev);
-+
- 	ret = mt76_register_device(&dev->mt76, true, mt76_rates,
- 				   ARRAY_SIZE(mt76_rates));
- 	if (ret)
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-index 3928e059fd2a41aa7d4aa41b0d303b0763384523..a823292814ee589070fb5930a70a16d165855300 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-@@ -879,6 +879,7 @@ int mt7996_mtk_init_debugfs(struct mt7996_phy *phy, struct dentry *dir);
- #endif
- 
- int mt7996_dma_rro_init(struct mt7996_dev *dev);
-+void mt7996_dma_rro_start(struct mt7996_dev *dev);
- 
- #ifdef CONFIG_MT7996_NPU
- int __mt7996_npu_hw_init(struct mt7996_dev *dev);
+ 	rcu_assign_pointer(dev->mmio.npu, npu);
 
 -- 
 2.52.0
