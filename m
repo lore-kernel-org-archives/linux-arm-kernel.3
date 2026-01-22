@@ -4,37 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9126D62609
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:49:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E31AD6260B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:49:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IB6qe+WiM6Jdm4e2JZteSt/S9JwOmUm8EGeoq5GhI0A=; b=dLgNBIF+MV3ax66qToQrmTiz/F
-	U6Ih6eGjQvD7+EtqXpLy/22NuIMBSXPSunYeqMW4fncygf21gA8DRi4Ms6vEJezTt9OGnmhgeiLSv
-	uMxX4jZ6arSE39ZcxhjytZIaGFE/F41uifls2O+vdCi6opDHZWKPaZLK2DqqzT8DWsUb0hYCynjYQ
-	DRt2o9zJatV7vG06VwDJr7WoE1tvmpxDzEva6CW5fBseSwZbgO0Hx7prC0K79Y1hTndLO9w72I/wu
-	3m5a0VWomC4TLFCTlG6cRVAjNoX1VBh1ShpYSYnlEdhg9PLQwHIQqRUmm72n3RxgA2WkER9Y8oIit
-	ITvT5yVA==;
+	bh=F3sZ4Yf6WwtX3/wcIrvWpRHHa87NxwTBt9HNKiubwwU=; b=jdn9UCxsEnCSDFOZkZkfCdvktE
+	Vw1qZyNTQTD5xpQyU8Krafnjvxi983ikLlZPkoBmGrfE2lpt7gMl+ezg2YW/X0lt+w79VPj01cLOy
+	rxocx0USmvOv7hNNn1Picui/8rPA51s4RJ0btHn4EKdbzCjVNpyhWMNF9KwqWETdLtfMCCpow526Q
+	O9Yz8LsdDickWHhr7uYWEaKDB4Vq7vbf+k2GuVdHlV9yamntDVX9W9UO6emJEPx9/62aDYYkDLR44
+	Za63B0CkAadpxRjqf6D8VLonP9Qg/BzSiriNSDsc96/MYVzFmMyJNGn6qMXlPZ4mHQ4ATyLza26Yi
+	tZB7R/Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virJA-00000006m8g-179q;
+	id 1virJA-00000006m9u-42gu;
 	Thu, 22 Jan 2026 09:48:56 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virJ4-00000006m1r-2Tkw
-	for linux-arm-kernel@lists.infradead.org;
+	id 1virJ7-00000006m6f-2zxx
+	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 22 Jan 2026 09:48:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=F3sZ4Yf6WwtX3/wcIrvWpRHHa87NxwTBt9HNKiubwwU=; b=PrCcboP6yLyV5MrCoLNiiLMgsN
+	JvqFXasKr4NCXAUFra4OPNNIJsnFmP0ucmT+r+oPIy7qkqtdu0o0d9+3dOaSRe3USueOnt17Fsazz
+	bRAYgy9iiB5NDhdW/nhF6r3EPdbDoGGcrJ2KnxPwwwqdyzIH+JlCymZj36D48jZ3+OfV8lHyab2nK
+	E9CW1wnr/uRQ/yWeOvjqjkjLdylBMyaZVQzrOMPrfxyp3+4ylIW4gHqPPxRh3OoXxnrHK02FDQHbt
+	L1+R15ij31yo+YUqxoJEmG/xB/Y+8FLvlPyx5MNOxLfoIyJqKKlCdrQ9C/7S0vpxFMS5HQFWlEhPS
+	NuIyFVBQ==;
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1virJ4-000000008GK-0xdE
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 Jan 2026 09:48:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1769075326; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=IB6qe+WiM6Jdm4e2JZteSt/S9JwOmUm8EGeoq5GhI0A=;
-	b=qTu1xlFk0GuZWZqOOhcRDRPH2m1KeplmUBGLA1g9/4IfcVTAeB3QKUqd7GhfQ9WwjyaQ7mbwDN6Mf6BnL1m4rucwqdLsr04gmrebHOK1AciD4HQpuQ5M3TQUFK8/1VU7zBaZrQh08NiAbY33oQpPxnjm7e/Md/L67XB/IMcL5Jk=
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WxbwhFR_1769075322 cluster:ay36)
+	t=1769075309; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=F3sZ4Yf6WwtX3/wcIrvWpRHHa87NxwTBt9HNKiubwwU=;
+	b=h0Q7juKWTaKuLWKkn6UxW/SizhEHpXoUYRLfkeFWNrC/bhbaPyvclUAVMPE1FAnLI2OpzaxOXV2WDCGuTRXJpB1KtWK2TBIf2G4a4Ftq165FPDZ4gZ6eqR14VuvlnGLHzR0LmW/0c9fvi4lY499iAwoUrV43FWjoO6KRNN6P3NI=
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WxbuarO_1769075305 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Thu, 22 Jan 2026 17:48:45 +0800
+          Thu, 22 Jan 2026 17:48:28 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -59,17 +74,17 @@ Cc: lenb@kernel.org,
 	zhuo.song@linux.alibaba.com,
 	oliver.yang@linux.alibaba.com,
 	Ruidong Tian <tianruidong@linux.alibaba.com>
-Subject: [PATCH v6 16/16] trace, ras: add ARM RAS extension trace event
-Date: Thu, 22 Jan 2026 17:46:56 +0800
-Message-Id: <20260122094656.73399-17-tianruidong@linux.alibaba.com>
+Subject: [PATCH v6 13/16] ras: AEST: Introduce AEST inject interface to test AEST driver
+Date: Thu, 22 Jan 2026 17:46:53 +0800
+Message-Id: <20260122094656.73399-14-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
 References: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_014851_937990_CFE55E57 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20260122_094850_806515_D70BA262 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,137 +99,329 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a trace event for hardware errors reported by the ARMv8
-RAS extension registers. userspace app can monitor this
-trace event and decode error information.
+AEST offers both soft and hard injection. Soft injection simulates errors
+in software, providing flexibility to define the error register content.
+Hard injection, on the other hand, utilizes error injection registers to
+introduce hardware faults, strictly requiring values that adhere to their
+specifications.
+
+Read Documentation/ABI/testing/debugfs-aest to learn how to use them.
 
 Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 ---
- drivers/ras/aest/aest-core.c |  6 +++
- drivers/ras/ras.c            |  3 ++
- include/ras/ras_event.h      | 71 ++++++++++++++++++++++++++++++++++++
- 3 files changed, 80 insertions(+)
+ Documentation/ABI/testing/debugfs-aest |  37 +++++++
+ drivers/ras/aest/Makefile              |   1 +
+ drivers/ras/aest/aest-core.c           |  24 +++--
+ drivers/ras/aest/aest-inject.c         | 131 +++++++++++++++++++++++++
+ drivers/ras/aest/aest-sysfs.c          |   8 +-
+ drivers/ras/aest/aest.h                |   2 +
+ 6 files changed, 193 insertions(+), 10 deletions(-)
+ create mode 100644 drivers/ras/aest/aest-inject.c
 
+diff --git a/Documentation/ABI/testing/debugfs-aest b/Documentation/ABI/testing/debugfs-aest
+index 4d160072d37a..cc41ea7032c7 100644
+--- a/Documentation/ABI/testing/debugfs-aest
++++ b/Documentation/ABI/testing/debugfs-aest
+@@ -60,3 +60,40 @@ KernelVersion	6.19
+ Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
+ Description:
+ 		(RO) Outputs error statistics for all this records.
++
++What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/record<index>/inject/err_*
++Date:		Dec 2025
++KernelVersion	6.19
++Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
++Description:
++		(RW) These registers are used to simulate soft injection errors
++		by holding error register values. You can write any values
++		to them. To trigger the injection, you need to write soft_inject
++		at last. The validity of the injected error depends on the
++		value written to err_status.
++
++		Accepts values -  any.
++
++What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/record<index>/inject/soft_inject
++Date:		Dec 2025
++KernelVersion	6.19
++Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
++Description:
++		(WO) Write any value to this file to trigger the error
++		injection. Make sure you have specified all necessary error
++		parameters, i.e. this write should be the last step when
++		injecting errors.
++
++		Accepts values -  any.
++
++What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/record<index>/inject/hard_inject
++Date:		Dec 2025
++KernelVersion	6.19
++Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
++Description:
++		(WO) If the AEST table provides error injection registers,
++		you can write to them via this interface. For instance,
++		values can be written to the ERXPFGCTL register. The post-injection
++		behavior is then determined by the hardware specification.
++
++		Accepts values - any.
+diff --git a/drivers/ras/aest/Makefile b/drivers/ras/aest/Makefile
+index 75495413d2b6..5ee10fc8b2e9 100644
+--- a/drivers/ras/aest/Makefile
++++ b/drivers/ras/aest/Makefile
+@@ -4,3 +4,4 @@ obj-$(CONFIG_AEST) 	+= aest.o
+ 
+ aest-y		:= aest-core.o
+ aest-y		+= aest-sysfs.o
++aest-y		+= aest-inject.o
 diff --git a/drivers/ras/aest/aest-core.c b/drivers/ras/aest/aest-core.c
-index bbf8b1142be7..6a2d84b47721 100644
+index 75cca98024ad..a290b482bf8b 100644
 --- a/drivers/ras/aest/aest-core.c
 +++ b/drivers/ras/aest/aest-core.c
-@@ -13,6 +13,8 @@
- #include <linux/genalloc.h>
- #include <linux/ras.h>
- 
-+#include <ras/ras_event.h>
-+
- #include "aest.h"
- 
- DEFINE_PER_CPU(struct aest_device, percpu_adev);
-@@ -90,6 +92,10 @@ static void aest_print(struct aest_event *event)
- 		pr_err("%s  ERR%dMISC3: 0x%llx\n", pfx_seq, index,
- 		       regs->err_misc[3]);
- 	}
-+
-+	trace_arm_ras_ext_event(event->type, event->id0, event->id1,
-+				event->index, event->hid, &event->regs,
-+				event->vendor_data, event->vendor_data_size);
+@@ -273,7 +273,7 @@ static void aest_panic(struct aest_record *record, struct ras_ext_regs *regs,
+ 	panic(msg);
  }
  
- static void aest_handle_memory_failure(u64 addr)
-diff --git a/drivers/ras/ras.c b/drivers/ras/ras.c
-index 2a5b5a9fdcb3..28ef30ddfeaf 100644
---- a/drivers/ras/ras.c
-+++ b/drivers/ras/ras.c
-@@ -111,6 +111,9 @@ EXPORT_TRACEPOINT_SYMBOL_GPL(extlog_mem_event);
- EXPORT_TRACEPOINT_SYMBOL_GPL(mc_event);
- EXPORT_TRACEPOINT_SYMBOL_GPL(non_standard_event);
- EXPORT_TRACEPOINT_SYMBOL_GPL(arm_event);
-+#ifdef CONFIG_ARM64_RAS_EXTN
-+EXPORT_TRACEPOINT_SYMBOL_GPL(arm_ras_ext_event);
-+#endif
- 
- static int __init parse_ras_param(char *str)
+-static void aest_proc_record(struct aest_record *record, void *data)
++void aest_proc_record(struct aest_record *record, void *data, bool fake)
  {
-diff --git a/include/ras/ras_event.h b/include/ras/ras_event.h
-index eaecc3c5f772..3a4a0c0e4dbe 100644
---- a/include/ras/ras_event.h
-+++ b/include/ras/ras_event.h
-@@ -377,6 +377,77 @@ TRACE_EVENT(aer_event,
- 			"Not available")
- );
- #endif /* CONFIG_PCIEAER */
-+
+ 	struct ras_ext_regs regs = { 0 };
+ 	int *count = data;
+@@ -315,9 +315,15 @@ static void aest_proc_record(struct aest_record *record, void *data)
+ 	/* panic if unrecoverable and uncontainable error encountered */
+ 	ue = FIELD_GET(ERR_STATUS_UET, regs.err_status);
+ 	if ((regs.err_status & ERR_STATUS_UE) &&
+-	    (ue == ERR_STATUS_UET_UC || ue == ERR_STATUS_UET_UEU))
+-		aest_panic(record, &regs,
+-			   "AEST: unrecoverable error encountered");
++	    (ue == ERR_STATUS_UET_UC || ue == ERR_STATUS_UET_UEU)) {
++		if (fake)
++			aest_record_info(
++				record,
++				"Simulated error! Skip panic due to fault injection\n");
++		else
++			aest_panic(record, &regs,
++				   "AEST: unrecoverable error encountered");
++	}
+ 
+ 	aest_log(record, &regs);
+ 
+@@ -335,7 +341,8 @@ static void aest_proc_record(struct aest_record *record, void *data)
+ 	record_write(record, ERXSTATUS, regs.err_status);
+ }
+ 
+-static void aest_node_foreach_record(void (*func)(struct aest_record *, void *),
++static void aest_node_foreach_record(void (*func)(struct aest_record *, void *,
++						  bool),
+ 				     struct aest_node *node, void *data,
+ 				     unsigned long *bitmap)
+ {
+@@ -344,7 +351,7 @@ static void aest_node_foreach_record(void (*func)(struct aest_record *, void *),
+ 	for_each_clear_bit(i, bitmap, node->record_count) {
+ 		aest_select_record(node, i);
+ 
+-		func(&node->records[i], data);
++		func(&node->records[i], data, false);
+ 
+ 		aest_sync(node);
+ 	}
+@@ -379,7 +386,7 @@ static int aest_proc(struct aest_node *node)
+ 			if (test_bit(i * BITS_PER_LONG + j,
+ 				     node->status_reporting))
+ 				continue;
+-			aest_proc_record(&node->records[j], &count);
++			aest_proc_record(&node->records[j], &count, false);
+ 		}
+ 	}
+ 
+@@ -595,7 +602,8 @@ static int aest_init_record(struct aest_record *record, int i,
+ 	return 0;
+ }
+ 
+-static void aest_online_record(struct aest_record *record, void *data)
++static void aest_online_record(struct aest_record *record, void *data,
++			       bool __unused)
+ {
+ 	if (record_read(record, ERXFR) & ERR_FR_CE)
+ 		aest_set_ce_threshold(record);
+diff --git a/drivers/ras/aest/aest-inject.c b/drivers/ras/aest/aest-inject.c
+new file mode 100644
+index 000000000000..fe6ccac8338e
+--- /dev/null
++++ b/drivers/ras/aest/aest-inject.c
+@@ -0,0 +1,131 @@
++// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * ARM RAS Extension Events Report
++ * ARM Error Source Table Support
 + *
-+ * This event is generated when an error reported by the ARM RAS extension
-+ * hardware is detected.
++ * Copyright (c) 2024, Alibaba Group.
 + */
 +
-+#ifdef CONFIG_ARM64_RAS_EXTN
-+#include <asm/ras.h>
-+TRACE_EVENT(arm_ras_ext_event,
++#include "aest.h"
 +
-+	TP_PROTO(const u8 type,
-+		 const u32 id0,
-+		 const u32 id1,
-+		 const u32 index,
-+		 char *hid,
-+		 struct ras_ext_regs *regs,
-+		 const u8 *data,
-+		 const u32 len),
++static struct ras_ext_regs regs_inj;
 +
-+	TP_ARGS(type, id0, id1, index, hid, regs, data, len),
++struct inj_attr {
++	struct attribute attr;
++	ssize_t (*show)(struct aest_node *n, struct inj_attr *a, char *b);
++	ssize_t (*store)(struct aest_node *n, struct inj_attr *a, const char *b,
++				size_t c);
++};
 +
-+	TP_STRUCT__entry(
-+		__field(u8,  type)
-+		__field(u32, id0)
-+		__field(u32, id1)
-+		__field(u32, index)
-+		__field(char *, hid)
-+		__field(u64, err_fr)
-+		__field(u64, err_ctlr)
-+		__field(u64, err_status)
-+		__field(u64, err_addr)
-+		__field(u64, err_misc0)
-+		__field(u64, err_misc1)
-+		__field(u64, err_misc2)
-+		__field(u64, err_misc3)
-+		__field(u32, len)
-+		__dynamic_array(u8, buf, len)
-+	),
++struct aest_inject {
++	struct aest_node *node;
++	struct kobject kobj;
++};
 +
-+	TP_fast_assign(
-+		__entry->type = type;
-+		__entry->id0 = id0;
-+		__entry->id1 = id1;
-+		__entry->index = index;
-+		__entry->hid = hid;
-+		__entry->err_fr = regs->err_fr;
-+		__entry->err_ctlr = regs->err_ctlr;
-+		__entry->err_status = regs->err_status;
-+		__entry->err_addr = regs->err_addr;
-+		__entry->err_misc0 = regs->err_misc[0];
-+		__entry->err_misc1 = regs->err_misc[1];
-+		__entry->err_misc2 = regs->err_misc[2];
-+		__entry->err_misc3 = regs->err_misc[3];
-+		__entry->len = len;
-+		memcpy(__get_dynamic_array(buf), data, len);
-+	),
++#define to_inj(k)	container_of(k, struct aest_inject, kobj)
++#define to_inj_attr(a)	container_of(a, struct inj_attr, attr)
 +
-+	TP_printk("type: %d; id0: %d; id1: %d; index: %d; hid: %s; "
-+		  "ERR_FR: %llx; ERR_CTLR: %llx; ERR_STATUS: %llx; "
-+		  "ERR_ADDR: %llx; ERR_MISC0: %llx; ERR_MISC1: %llx; "
-+		  "ERR_MISC2: %llx; ERR_MISC3: %llx; data len:%d; raw data:%s",
-+		  __entry->type, __entry->id0, __entry->id1, __entry->index,
-+		  __entry->hid, __entry->err_fr, __entry->err_ctlr,
-+		  __entry->err_status, __entry->err_addr, __entry->err_misc0,
-+		  __entry->err_misc1, __entry->err_misc2, __entry->err_misc3,
-+		  __entry->len,
-+		  __print_hex(__get_dynamic_array(buf), __entry->len))
-+);
-+#endif /* CONFIG_ARM64_RAS_EXTN */
- #endif /* _TRACE_HW_EVENT_MC_H */
++static u64 aest_sysreg_read_inject(void *__unused, u32 offset)
++{
++	u64 *p = (u64 *)&regs_inj;
++
++	return p[offset/8];
++}
++
++static void aest_sysreg_write_inject(void *base, u32 offset, u64 val)
++{
++	u64 *p = (u64 *)&regs_inj;
++
++	p[offset/8] = val;
++}
++
++static u64 aest_iomem_read_inject(void *base, u32 offset)
++{
++	u64 *p = (u64 *)&regs_inj;
++
++	return p[offset/8];
++}
++
++static void aest_iomem_write_inject(void *base, u32 offset, u64 val)
++{
++	u64 *p = (u64 *)&regs_inj;
++
++	p[offset/8] = val;
++}
++
++static struct aest_access aest_access_inject[] = {
++	[ACPI_AEST_NODE_SYSTEM_REGISTER] = {
++		.read = aest_sysreg_read_inject,
++		.write = aest_sysreg_write_inject,
++	},
++
++	[ACPI_AEST_NODE_MEMORY_MAPPED] = {
++		.read = aest_iomem_read_inject,
++		.write = aest_iomem_write_inject,
++	},
++	[ACPI_AEST_NODE_SINGLE_RECORD_MEMORY_MAPPED] = {
++		.read = aest_iomem_read_inject,
++		.write = aest_iomem_write_inject,
++	},
++	{ }
++};
++
++static int soft_inject_store(void *data, u64 val)
++{
++	int count = 0;
++	struct aest_record record_inj, *record = data;
++	struct aest_node node_inj, *node = record->node;
++
++	memcpy(&node_inj, node, sizeof(*node));
++	node_inj.name = "AEST-injection";
++
++	record_inj.access = &aest_access_inject[node->info->interface_hdr->type];
++	record_inj.node = &node_inj;
++	record_inj.index = record->index;
++
++	regs_inj.err_status |= ERR_STATUS_V;
++
++	aest_proc_record(&record_inj, &count, true);
++
++	if (count != 1)
++		return -EIO;
++
++	return 0;
++}
++DEFINE_DEBUGFS_ATTRIBUTE(soft_inject_ops, NULL, soft_inject_store, "%llu\n");
++
++static int hard_inject_store(void *data, u64 val)
++{
++	struct aest_record *record = data;
++	struct aest_node *node = record->node;
++
++	if (!node->inj)
++		return -EPERM;
++
++	aest_select_record(node, record->index);
++	record_write(record, ERXPFGCTL, val);
++	record_write(record, ERXPFGCDN, 0x100);
++	aest_sync(node);
++
++	return 0;
++}
++DEFINE_DEBUGFS_ATTRIBUTE(hard_inject_ops, NULL, hard_inject_store, "%llu\n");
++
++void aest_inject_init_debugfs(struct aest_record *record)
++{
++	struct dentry *inj;
++
++	inj = debugfs_create_dir("inject", record->debugfs);
++
++	debugfs_create_u64("err_fr", 0600, inj, &regs_inj.err_fr);
++	debugfs_create_u64("err_ctrl", 0600, inj, &regs_inj.err_ctlr);
++	debugfs_create_u64("err_status", 0600, inj, &regs_inj.err_status);
++	debugfs_create_u64("err_addr", 0600, inj, &regs_inj.err_addr);
++	debugfs_create_u64("err_misc0", 0600, inj, &regs_inj.err_misc[0]);
++	debugfs_create_u64("err_misc1", 0600, inj, &regs_inj.err_misc[1]);
++	debugfs_create_u64("err_misc2", 0600, inj, &regs_inj.err_misc[2]);
++	debugfs_create_u64("err_misc3", 0600, inj, &regs_inj.err_misc[3]);
++	debugfs_create_file("soft_inject", 0400, inj, record, &soft_inject_ops);
++
++	if (record->node->inj)
++		debugfs_create_file("hard_inject", 0400, inj, record, &hard_inject_ops);
++}
+diff --git a/drivers/ras/aest/aest-sysfs.c b/drivers/ras/aest/aest-sysfs.c
+index 392e7ad8328e..66e9c1103f99 100644
+--- a/drivers/ras/aest/aest-sysfs.c
++++ b/drivers/ras/aest/aest-sysfs.c
+@@ -158,6 +158,7 @@ static void aest_record_init_debugfs(struct aest_record *record)
+ 						&aest_record_err_count_fops);
+ 	debugfs_create_file("ce_threshold", 0600, record->debugfs, record,
+ 						&record_ce_threshold_ops);
++	aest_inject_init_debugfs(record);
+ }
  
- /* This part must be outside protection */
+ static void
+@@ -190,8 +191,8 @@ aest_oncore_dev_init_debugfs(struct aest_device *adev)
+ 	for_each_possible_cpu(cpu) {
+ 		percpu_dev = this_cpu_ptr(adev->adev_oncore);
+ 
+-		snprintf(name, sizeof(name), "processor%u", cpu);
+-		percpu_dev->debugfs = debugfs_create_dir(name, aest_debugfs);
++		snprintf(name, sizeof(name), "processor%u%u", cpu);
++		percpu_dev->debugfs = debugfs_create_dir(name, adev->debugfs);
+ 
+ 		for (i = 0; i < adev->node_cnt; i++) {
+ 			node = &adev->nodes[i];
+@@ -208,6 +209,9 @@ void aest_dev_init_debugfs(struct aest_device *adev)
+ 	int i;
+ 	struct aest_node *node;
+ 
++	if (!aest_debugfs)
++		dev_err(adev->dev, "debugfs not enabled\n");
++
+ 	adev->debugfs = debugfs_create_dir(dev_name(adev->dev), aest_debugfs);
+ 	if (aest_dev_is_oncore(adev)) {
+ 		aest_oncore_dev_init_debugfs(adev);
+diff --git a/drivers/ras/aest/aest.h b/drivers/ras/aest/aest.h
+index 802430857dc4..2f6a7b9ca4ef 100644
+--- a/drivers/ras/aest/aest.h
++++ b/drivers/ras/aest/aest.h
+@@ -362,3 +362,5 @@ static inline bool aest_dev_is_oncore(struct aest_device *adev)
+ }
+ 
+ void aest_dev_init_debugfs(struct aest_device *adev);
++void aest_inject_init_debugfs(struct aest_record *record);
++void aest_proc_record(struct aest_record *record, void *data, bool fake);
 -- 
 2.51.2.612.gdc70283dfc
 
