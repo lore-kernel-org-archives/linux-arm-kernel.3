@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7068D3EE92
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:54:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC9BD3EE92
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:54:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
 	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zalmwLrK8cPj7cYoTUj/KkGE6/xfnap/Tev3VqTduZw=; b=tO2E8RNmcQLVa6t7i8EGOgADFX
-	B4y0CE40qsB5Mg5UhMj9gCN0DkO5+W7eXuW1LdjVE8S5kMbTf3C0ldiCn6QskHjCIcplf2XHbnT+B
-	4X6D99eZuh9xliSJv6WbGQWq3qBjm73gNvywxBiDUH2jHMjsUz0gH+7zRyujfgW4UGMFZ13rQSvG2
-	0VDtYpOd1pVkMCPmtak6yXz4/3jQt1+jAJ/x8x8YcL4hVeNN3xibSZ7cdy09IxPtnCNkGdjfyK/+5
-	c/XDVi0ZFTwl/nICsTUw8ztuIr13k01Zcv+Np33FVlumYqhz3OqotTKX0oKNZxK+ZqhlbqP6+kxuE
-	QSJlXGEQ==;
+	bh=DnbHjkP7sr2MY8dvLIuI6wPgadGKGFiX6WTYohRo5Kw=; b=xkf02p5oCWGswWHd3rT7+Wprql
+	QDk+5fz4P/Tu7VTQUKNYhkLiZtIrL0hw01lSp31e4utUbp7V4kKtbRa2vzhxNZ3vQ6myooTlMhT57
+	b1W83SGEM0lMGnrX69jHT7B+0t5tHconhHBdOueXKoZ/hqvo42ytBfd8rvS/T6QkRises/+PBtDtH
+	VtEMOsnvOtNLGYGgiqpZBRYBENWCSGQkck8/cN3r8Cw99s4ItZul3VyHQp/DZtfkPGnHv+3OUZprs
+	IMTyjm7oi9THuSWBrAQmApidM1/2qKn4Glju37QKaOIYmVcYUHacDQ4N3X2SwYNoAAY0j4v20zemk
+	wmedNTUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixwt-00000007Tgb-4AF0;
-	Thu, 22 Jan 2026 16:54:24 +0000
-Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
+	id 1vixwy-00000007TkC-25CH;
+	Thu, 22 Jan 2026 16:54:28 +0000
+Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixwo-00000007Td5-3KxH
+	id 1vixwr-00000007Tep-3D6a
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 16:54:20 +0000
-Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-121b1cb8377so2489708c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 08:54:17 -0800 (PST)
+	Thu, 22 Jan 2026 16:54:23 +0000
+Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b6f0b345e3so6299670eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 08:54:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769100856; x=1769705656; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769100860; x=1769705660; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=zalmwLrK8cPj7cYoTUj/KkGE6/xfnap/Tev3VqTduZw=;
-        b=3gqe7CFUGvzeV1S0/tIW1RMh3X+0VhkHAa8AO7g73gRp1bUYYkjjQpwcH0o/1FmJmr
-         fW1ykP7MkvAqXa9zRxi4MQ2VE36VPJJiIfDmUcpHz4BcWjs6ARk6WeDlBUyahcnL+f3B
-         UNbPpRvGUkxg1P0x0vVeBK/grYT8gJwdAPgKKfb6gDZ11v9eNErz6T+73k1rwzgmO538
-         sUBmbWbZf630bZ4EvRlSX2B01D/UHT4RYp4zHmDG4FXYVx3mQCKj1cGz/iinzBSxipBe
-         evd4cLSLEKV0Xro1fL0pii2LlHCiYsb5OG8kIuLDevj11B4dXGfTe9lMOkRxXGtDcaak
-         VHcw==
+        bh=DnbHjkP7sr2MY8dvLIuI6wPgadGKGFiX6WTYohRo5Kw=;
+        b=3Ma5bSIby52OQBCAx8tqlfO5Jqu22E96JVJIrG3TsRMx2YJPpkPdEyM2g3h3v1eRzU
+         AM6q4gEipurVk9iOZbdZxkKD4ULnC1VmwNVgtp8lS5wpzOuJftkv4ijSxAqV1PBQgq0R
+         5SfS8cOMqXbttdGhWkVoWR0SOAqT03BIcmUhwb/fzBSVQdxOKHaVEU+KjgRQQDkmvgqj
+         hBB8rcIWsnDKvdsT7cWuR1lgXbiU4c799XOd9cH+9bdMnIzGhZ3R+vfdXEqZZzmr3isf
+         T04anTkrVPez5wEjGziBWp4QMJie1CVuoaU5WpXvJzxGZOBzz1SdKyEVgINcSHR5zvMm
+         8odw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769100856; x=1769705656;
+        d=1e100.net; s=20230601; t=1769100860; x=1769705660;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zalmwLrK8cPj7cYoTUj/KkGE6/xfnap/Tev3VqTduZw=;
-        b=worc+gBP4pbPS4mhslKTMJFU6/DH8bFw3qUm9XfpqT0DP9W6LrrzwNp639oqY+KR99
-         rMYgMYA8GDDM8NmgkyRuajgchnEwFE44exVYoT20akVVx01ojZ7a/pSdqEbe46NebjJc
-         keGfOYEsN2kLdnKuy/5d4vXnoUiIp4HVK86NxTvAPO8mXdfua9f/64vWCfBPCobshhLD
-         7YOSr8Xqo+ArS8c9U8mCC0rVMT42nM1QuOH4/sUsOtuApt+ctHJxPqhYgnpmCNqeI0lf
-         TwganugfZlPagHqrfQhXewQ1kGNk6pBu7zOZPWhbahQNdIqIjgG1Xr+sa8D+Zpzu5sv1
-         U8pQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVylk5T0xd1ojyYWhTusQhLwXHSa8gsicPa0c9pxm9kR0cv4v98qC6662usTSDZ56+335899OvLf7KcF+Ce5cOj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7KoW5XVx4c7xJV3rmNBOAqGvoK/DWpOtbYHPX4i6MkHc0oUxb
-	IbrWWdWSGcoXU853JWFsdfW+0Q3LEz27Wtj4+9TwHR+hQnk4J6RQwbRWrxTeDjGgnUkanh2/it3
-	OjUflgtMDBw==
-X-Received: from dlbqj5.prod.google.com ([2002:a05:7022:ec05:b0:123:2b17:f461])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:4582:b0:11b:95fe:bee3
- with SMTP id a92af1059eb24-1246aabf3f6mr7269627c88.37.1769100856331; Thu, 22
- Jan 2026 08:54:16 -0800 (PST)
-Date: Thu, 22 Jan 2026 08:53:56 -0800
+        bh=DnbHjkP7sr2MY8dvLIuI6wPgadGKGFiX6WTYohRo5Kw=;
+        b=mWT0eIEpl+q58LKessriYsXMAsnkwzJtMHLF5S+TK263NkBqXAW10X1/x/gpuAr9qW
+         4MWkf6fsZl8XApEVtwX4ohTcEyQyrHR7PZAd+Pj8UsYTabxvsa92rtCnkjkyvvp1BS+2
+         PvbiCqH1FvcVoF6rVq2n6pAM8crRSa7QmdmeA7ScDAhkycVUnz3N7DrHwpiprAUpg1CM
+         jRCEPrq8cHzZOnFImDYKh6x+QU0JhekfqpheeUUudFoOjLyqMDc2zDvPLB08QgjCwXhN
+         Yd3l7cuykGfIfgwh9KjK6PRVoYxkN47beDgZSdHKZ27OvmOHGBK3/rEQf4RDsFVYNyvs
+         FHAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXWx+4/kQ4K5roakDAzg/7MWtP74qLzLA7XRwLoxjP8bnRsoiV9gcYTIiHW7Lz/60/b7bI6L9tkW2zLLiB2tHwQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZyg2w0nr7VvPCRjYF2w/9JJePLfPJbvdCudjbaLp0Cc7rjRTP
+	55vQK//SZ69sjz16QAQTOdeFcSeCvgMbpHDBl/4zpwqiR+6gdVrJR+wA6o66eHuFxrez/5Op5y4
+	wY+G12hvNLw==
+X-Received: from dycue4.prod.google.com ([2002:a05:7300:84:b0:2ae:5283:d72f])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:7c13:b0:2ae:824e:31ba
+ with SMTP id 5a478bee46e88-2b6b3eed5d9mr19877803eec.7.1769100860046; Thu, 22
+ Jan 2026 08:54:20 -0800 (PST)
+Date: Thu, 22 Jan 2026 08:53:58 -0800
 In-Reply-To: <20260122165407.561888-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260122165407.561888-1-irogers@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260122165407.561888-2-irogers@google.com>
-Subject: [PATCH v2 01/12] perf header: Fix memory leaks in process_cpu_domain_info
+Message-ID: <20260122165407.561888-4-irogers@google.com>
+Subject: [PATCH v2 03/12] perf maps: Fix reference count leak in maps__find_ams
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -88,8 +88,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_085418_836841_1DFAAEEB 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20260122_085421_820108_C3F6E927 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,62 +104,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-do_read_string returns a string in allocated memory, for some reason
-there was unused memory allocations and unnecessary strdups. Remove
-these and make the "perf annotate basic tests" leak sanitizer clean.
+ams and so ams->ms.map is an in argument, however, it is also
+overwritten. As a map is reference counted, ensure a map__put is done
+before overwriting it.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
-Fixes: d40c68a49f69 ("perf header: Support CPU DOMAIN relation info")
+Fixes: 42fd623b58db ("perf maps: Get map before returning in maps__find")
 ---
- tools/perf/util/header.c | 17 ++++-------------
- 1 file changed, 4 insertions(+), 13 deletions(-)
+ tools/perf/util/maps.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/tools/perf/util/header.c b/tools/perf/util/header.c
-index 9a15dd4b7640..eefd1cd73b6a 100644
---- a/tools/perf/util/header.c
-+++ b/tools/perf/util/header.c
-@@ -3634,6 +3634,7 @@ static int process_cpu_domain_info(struct feat_fd *ff, void *data __maybe_unused
- 			if (!d_info)
- 				return -1;
- 
-+			assert(cd_map[cpu]->domains[domain] == NULL);
- 			cd_map[cpu]->domains[domain] = d_info;
- 			d_info->domain = domain;
- 
-@@ -3642,30 +3643,20 @@ static int process_cpu_domain_info(struct feat_fd *ff, void *data __maybe_unused
- 				if (!dname)
- 					return -1;
- 
--				d_info->dname = zalloc(strlen(dname) + 1);
--				if (!d_info->dname)
--					return -1;
--
--				d_info->dname = strdup(dname);
-+				d_info->dname = dname;
- 			}
- 
- 			cpumask = do_read_string(ff);
- 			if (!cpumask)
- 				return -1;
- 
--			d_info->cpumask = zalloc(strlen(cpumask) + 1);
--			if (!d_info->cpumask)
--				return -1;
--			d_info->cpumask = strdup(cpumask);
-+			d_info->cpumask = cpumask;
- 
- 			cpulist = do_read_string(ff);
- 			if (!cpulist)
- 				return -1;
- 
--			d_info->cpulist = zalloc(strlen(cpulist) + 1);
--			if (!d_info->cpulist)
--				return -1;
--			d_info->cpulist = strdup(cpulist);
-+			d_info->cpulist = cpulist;
- 		}
- 	}
- 
+diff --git a/tools/perf/util/maps.c b/tools/perf/util/maps.c
+index 8ccc46d515b6..4092211cff62 100644
+--- a/tools/perf/util/maps.c
++++ b/tools/perf/util/maps.c
+@@ -708,6 +708,7 @@ int maps__find_ams(struct maps *maps, struct addr_map_symbol *ams)
+ 	if (ams->addr < map__start(ams->ms.map) || ams->addr >= map__end(ams->ms.map)) {
+ 		if (maps == NULL)
+ 			return -1;
++		map__put(ams->ms.map);
+ 		ams->ms.map = maps__find(maps, ams->addr);
+ 		if (ams->ms.map == NULL)
+ 			return -1;
 -- 
 2.52.0.457.g6b5491de43-goog
 
