@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4B0C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 03:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 671E4C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 03:47:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=okh8zWSHKFocd5l2jAesU+e5BZx6GIo/R20i3Ev7X/U=; b=44xLf0vkzNcx6m+seWD8LNIxnu
-	/2tIpSq8bH2Hex6gCeEzh5i5S0iC1Xu0Roq+lu3d0xvuhYQEQlosBTy8CMEvPFZKs5qFqDAzMIFHO
-	Yq9kCsrFkAHYZ3QPDsG94izF9k8JIlv4fgOEuwxoKsCDTSz6q2xsd8mQ2ed18qHpjLcvLV97mESjP
-	Vb/SIRCLvigPZ+b9q5faEwdsuN9/V93bMwEo5kVh5P+fjgwqkkyIucjYbHapoC4rAkZH9T95WSecB
-	HDsyIL4sijRRH6EiTgbKClBEWaqol/8tC67L2YGA1/swn8CJedJMXAxNi3I8I4ChH7ny3dOs/Rvu1
-	kkI7IGbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aHBcrZaZ3XZ9Ax9HJ9pSOMesWVXsq+AvMrIgPhLHKW0=; b=f0HUbwb0GQXDemWkRFRRlirsKP
+	hynyrcOIS/F1CSbbJRKfmVKc9fryaEercsBBKvjAph+O73mudgv3pewHXP7gz33bH0+oK2uHaFRnz
+	rq7jSftwjAicChHpNzU/js7K2bMmYAHPY08bPmYFn5lRrFqfP67sQ6OOYTanjKaustpU49RKCuo2u
+	ROlsTdY+Iv87fPJnCoStinFkg69ucp7xzyh3c3EcGTE5Nd1ocAKlFX5kaywmLrmaLcZ98Aoer9U1X
+	7Gu5BUvo63m3PLvj4vyv6w2v6caGwSoqOTRYS5txKRbnysyAlcbvhykINsilrxp+KfIy64HO8ivS+
+	c4lYs6ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vilOp-00000006NWh-117P;
-	Thu, 22 Jan 2026 03:30:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vilfZ-00000006OAG-20W9;
+	Thu, 22 Jan 2026 03:47:41 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vilOo-00000006NWV-06AV;
-	Thu, 22 Jan 2026 03:30:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 20E0560132;
-	Thu, 22 Jan 2026 03:30:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C648BC116C6;
-	Thu, 22 Jan 2026 03:30:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769052620;
-	bh=VE0iS3pWhp6so1Npva7qmx2mCLeL878OmKehB3Ye6Og=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=tZwgaI77P+JBPQJRfwCjgWjgBKL1AI5szg6OnUW3QdB5dzwq2oWIgA6ltGY6CufSV
-	 6m/USVvfKGbvMAVtFD08gU6iQnuhn520D/ApINoaXr3iYsXJ4oOTBCSqja6U9UFN2e
-	 6zjTDCZbraviVYC2j3CxpK83nDswupz+gMBTkAPLnQQwUw1JhHA3QI2ekeMJp87ToR
-	 nNGEkTDTt5ZTddlQyuGcqkM2qQudFkAVTWDuuTsftEWILjXAuk73FDdXVf90mkOEIj
-	 tsIeKWkeosMVPNHHJfEw6Lxod9h6i3xz0Bg6eN/fLgQZOMCb740VX+Iz1Y5obRkyzS
-	 JGchDmWWPdvDw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id C8E8B3808200;
-	Thu, 22 Jan 2026 03:30:18 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v4 0/2] airoha: Add the capability to read
- firmware binary names from dts for Airoha NPU driver
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176905261759.1542867.17011579181219560528.git-patchwork-notify@kernel.org>
-Date: Thu, 22 Jan 2026 03:30:17 +0000
-References: <20260120-airoha-npu-firmware-name-v4-0-88999628b4c1@kernel.org>
-In-Reply-To: <20260120-airoha-npu-firmware-name-v4-0-88999628b4c1@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- andrew@lunn.ch, krzysztof.kozlowski@oss.qualcomm.com
+	id 1vilfW-00000006O9c-3YGe
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 Jan 2026 03:47:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769053659; x=1800589659;
+  h=date:from:to:cc:subject:message-id;
+  bh=b5fY51pn58cxYPFdDBUy5Z8NiHocnrZPhTlK8SDvdB4=;
+  b=JsWA6RMsk/NoWF+bgCPhAPz+FsI9lRs4KzgVMtBVZHvMNHiESdmssl0H
+   8/MFfyS1YIzuOhCjRxvMhgLfeyaVvSFFWSx3dPJRG8eP4RMgMiCudufs6
+   oAxIQo7U6O3WKOZgaCL2NakweV8oE3FlnkqCb9AWlESV/xUgy63m2uGII
+   0gj3Fhh906u3BEk6WUVSGStSM5mFWVsxr4ZmupztZf+yFSwh/4kdQLiju
+   dakz0jRiW/XfzzyqCmu0QvCCv8WBFq9SFh4Zb8b2BqaOocztKix1RXr2x
+   A4MaPLGdzHO2qg6LQ/eEbFVP+iScs+lRxBR58z0LrM+AZznppur4QBy+g
+   g==;
+X-CSE-ConnectionGUID: n3qT32PHTHSbApdERBxtow==
+X-CSE-MsgGUID: pExVUScyQNSw+uB5u0X0MQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11678"; a="70344842"
+X-IronPort-AV: E=Sophos;i="6.21,245,1763452800"; 
+   d="scan'208";a="70344842"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2026 19:47:36 -0800
+X-CSE-ConnectionGUID: UvpE2o2qT/ygsfGzoIN8LQ==
+X-CSE-MsgGUID: pEwKMV07Tcedmxoi9DIxug==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,245,1763452800"; 
+   d="scan'208";a="206531447"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 21 Jan 2026 19:47:34 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vilfP-00000000SOh-0uO1;
+	Thu, 22 Jan 2026 03:47:31 +0000
+Date: Thu, 22 Jan 2026 11:47:21 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:firmware/optee] BUILD SUCCESS
+ 94ea7063fae835e800768d3b0507f0994ef03878
+Message-ID: <202601221115.VPEX0qrN-lkp@intel.com>
+User-Agent: s-nail v14.9.25
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260121_194738_909230_702AF1A1 
+X-CRM114-Status: UNSURE (   5.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,35 +83,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git firmware/optee
+branch HEAD: 94ea7063fae835e800768d3b0507f0994ef03878  optee: make read-only array attr static const
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+elapsed time: 729m
 
-On Tue, 20 Jan 2026 11:17:16 +0100 you wrote:
-> This patch is needed because NPU firmware binaries are board specific since
-> they depend on the MediaTek WiFi chip used on the board (e.g. MT7996 or
-> MT7992). This is a preliminary patch to enable MT76 NPU offloading if
-> the Airoha SoC is equipped with MT7996 (Eagle) WiFi chipset.
-> 
-> ---
-> Changes in v4:
-> - Add missing MODULE_FIRMWARE definitions for EN7581_7996_FIRMWARE
->   binaries
-> - Link to v3: https://lore.kernel.org/r/20260119-airoha-npu-firmware-name-v3-0-cba88eed96cc@kernel.org
-> 
-> [...]
+configs tested: 221
+configs skipped: 2
 
-Here is the summary with links:
-  - [net-next,v4,1/2] dt-bindings: net: airoha: npu: Add firmware-name property
-    https://git.kernel.org/netdev/net-next/c/03135a5a6ed3
-  - [net-next,v4,2/2] net: airoha: npu: Add the capability to read firmware names from dts
-    https://git.kernel.org/netdev/net-next/c/3847173525e3
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+tested configs:
+alpha                             allnoconfig    gcc-15.2.0
+alpha                            allyesconfig    gcc-15.2.0
+alpha                               defconfig    gcc-15.2.0
+arc                              allmodconfig    clang-16
+arc                              allmodconfig    gcc-15.2.0
+arc                               allnoconfig    gcc-15.2.0
+arc                              allyesconfig    clang-22
+arc                              allyesconfig    gcc-15.2.0
+arc                                 defconfig    gcc-15.2.0
+arc                 nsimosci_hs_smp_defconfig    gcc-15.2.0
+arc                   randconfig-001-20260122    gcc-15.2.0
+arc                   randconfig-002-20260122    gcc-15.2.0
+arm                               allnoconfig    clang-22
+arm                               allnoconfig    gcc-15.2.0
+arm                              allyesconfig    clang-16
+arm                              allyesconfig    gcc-15.2.0
+arm                         axm55xx_defconfig    clang-22
+arm                                 defconfig    gcc-15.2.0
+arm                         mv78xx0_defconfig    gcc-15.2.0
+arm                   randconfig-001-20260122    gcc-15.2.0
+arm                   randconfig-002-20260122    gcc-15.2.0
+arm                   randconfig-003-20260122    gcc-15.2.0
+arm                   randconfig-004-20260122    gcc-15.2.0
+arm                        spear3xx_defconfig    clang-22
+arm64                            allmodconfig    clang-19
+arm64                            allmodconfig    clang-22
+arm64                             allnoconfig    gcc-15.2.0
+arm64                               defconfig    gcc-15.2.0
+arm64                 randconfig-001-20260122    gcc-15.2.0
+arm64                 randconfig-002-20260122    gcc-15.2.0
+arm64                 randconfig-003-20260122    gcc-15.2.0
+arm64                 randconfig-004-20260122    gcc-15.2.0
+csky                             allmodconfig    gcc-15.2.0
+csky                              allnoconfig    gcc-15.2.0
+csky                                defconfig    gcc-15.2.0
+csky                  randconfig-001-20260122    gcc-15.2.0
+csky                  randconfig-002-20260122    gcc-15.2.0
+hexagon                          allmodconfig    clang-17
+hexagon                          allmodconfig    gcc-15.2.0
+hexagon                           allnoconfig    clang-22
+hexagon                           allnoconfig    gcc-15.2.0
+hexagon                             defconfig    gcc-15.2.0
+hexagon               randconfig-001-20260122    gcc-15.2.0
+hexagon               randconfig-002-20260122    gcc-15.2.0
+i386                             allmodconfig    clang-20
+i386                              allnoconfig    gcc-14
+i386                              allnoconfig    gcc-15.2.0
+i386                             allyesconfig    clang-20
+i386        buildonly-randconfig-001-20260122    clang-20
+i386        buildonly-randconfig-002-20260122    clang-20
+i386        buildonly-randconfig-003-20260122    clang-20
+i386        buildonly-randconfig-004-20260122    clang-20
+i386        buildonly-randconfig-005-20260122    clang-20
+i386        buildonly-randconfig-006-20260122    clang-20
+i386                                defconfig    gcc-15.2.0
+i386                  randconfig-001-20260122    gcc-14
+i386                  randconfig-002-20260122    gcc-14
+i386                  randconfig-003-20260122    gcc-14
+i386                  randconfig-004-20260122    gcc-14
+i386                  randconfig-005-20260122    gcc-14
+i386                  randconfig-006-20260122    gcc-14
+i386                  randconfig-007-20260122    gcc-14
+i386                  randconfig-011-20260122    clang-20
+i386                  randconfig-012-20260122    clang-20
+i386                  randconfig-013-20260122    clang-20
+i386                  randconfig-014-20260122    clang-20
+i386                  randconfig-015-20260122    clang-20
+i386                  randconfig-016-20260122    clang-20
+i386                  randconfig-017-20260122    clang-20
+loongarch                        allmodconfig    clang-19
+loongarch                        allmodconfig    clang-22
+loongarch                         allnoconfig    clang-22
+loongarch                         allnoconfig    gcc-15.2.0
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20260122    gcc-15.2.0
+loongarch             randconfig-002-20260122    gcc-15.2.0
+m68k                             allmodconfig    gcc-15.2.0
+m68k                              allnoconfig    gcc-15.2.0
+m68k                             allyesconfig    clang-16
+m68k                             allyesconfig    gcc-15.2.0
+m68k                         amcore_defconfig    gcc-15.2.0
+m68k                                defconfig    clang-19
+m68k                       m5275evb_defconfig    gcc-15.2.0
+m68k                        m5407c3_defconfig    gcc-15.2.0
+m68k                       m5475evb_defconfig    gcc-15.2.0
+m68k                            mac_defconfig    gcc-15.2.0
+m68k                        mvme147_defconfig    gcc-15.2.0
+microblaze                        allnoconfig    gcc-15.2.0
+microblaze                       allyesconfig    gcc-15.2.0
+microblaze                          defconfig    clang-19
+mips                             allmodconfig    gcc-15.2.0
+mips                              allnoconfig    gcc-15.2.0
+mips                             allyesconfig    gcc-15.2.0
+mips                       bmips_be_defconfig    gcc-15.2.0
+mips                  cavium_octeon_defconfig    gcc-15.2.0
+mips                     cu1000-neo_defconfig    gcc-15.2.0
+mips                        maltaup_defconfig    gcc-15.2.0
+mips                       rbtx49xx_defconfig    gcc-15.2.0
+nios2                            allmodconfig    clang-22
+nios2                             allnoconfig    clang-22
+nios2                             allnoconfig    gcc-11.5.0
+nios2                               defconfig    clang-19
+nios2                 randconfig-001-20260122    gcc-15.2.0
+nios2                 randconfig-002-20260122    gcc-15.2.0
+openrisc                         allmodconfig    clang-22
+openrisc                          allnoconfig    clang-22
+openrisc                          allnoconfig    gcc-15.2.0
+openrisc                            defconfig    gcc-15.2.0
+parisc                           allmodconfig    gcc-15.2.0
+parisc                            allnoconfig    clang-22
+parisc                            allnoconfig    gcc-15.2.0
+parisc                           allyesconfig    clang-19
+parisc                           allyesconfig    gcc-15.2.0
+parisc                              defconfig    gcc-15.2.0
+parisc                randconfig-001-20260122    gcc-10.5.0
+parisc                randconfig-002-20260122    gcc-10.5.0
+parisc64                            defconfig    clang-19
+powerpc                          allmodconfig    gcc-15.2.0
+powerpc                           allnoconfig    clang-22
+powerpc                           allnoconfig    gcc-15.2.0
+powerpc                    amigaone_defconfig    clang-22
+powerpc                       eiger_defconfig    gcc-15.2.0
+powerpc                          g5_defconfig    clang-22
+powerpc                       holly_defconfig    clang-22
+powerpc                      mgcoge_defconfig    clang-22
+powerpc               randconfig-001-20260122    gcc-10.5.0
+powerpc               randconfig-002-20260122    gcc-10.5.0
+powerpc                     tqm8540_defconfig    gcc-15.2.0
+powerpc                     tqm8541_defconfig    gcc-15.2.0
+powerpc64             randconfig-001-20260122    gcc-10.5.0
+powerpc64             randconfig-002-20260122    gcc-10.5.0
+riscv                            allmodconfig    clang-22
+riscv                             allnoconfig    clang-22
+riscv                             allnoconfig    gcc-15.2.0
+riscv                            allyesconfig    clang-16
+riscv                               defconfig    gcc-15.2.0
+riscv                 randconfig-001-20260122    clang-18
+riscv                 randconfig-002-20260122    clang-18
+s390                             allmodconfig    clang-18
+s390                             allmodconfig    clang-19
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.2.0
+s390                                defconfig    gcc-15.2.0
+s390                  randconfig-001-20260122    clang-18
+s390                  randconfig-002-20260122    clang-18
+sh                               allmodconfig    gcc-15.2.0
+sh                                allnoconfig    clang-22
+sh                                allnoconfig    gcc-15.2.0
+sh                               allyesconfig    clang-19
+sh                               allyesconfig    gcc-15.2.0
+sh                                  defconfig    gcc-14
+sh                          r7780mp_defconfig    clang-22
+sh                    randconfig-001-20260122    clang-18
+sh                    randconfig-002-20260122    clang-18
+sh                           se7343_defconfig    gcc-15.2.0
+sh                           se7712_defconfig    gcc-15.2.0
+sh                           se7721_defconfig    gcc-15.2.0
+sh                           sh2007_defconfig    gcc-15.2.0
+sh                   sh7724_generic_defconfig    clang-22
+sh                   sh7724_generic_defconfig    gcc-15.2.0
+sparc                             allnoconfig    clang-22
+sparc                             allnoconfig    gcc-15.2.0
+sparc                               defconfig    gcc-15.2.0
+sparc                 randconfig-001-20260122    gcc-8.5.0
+sparc                 randconfig-002-20260122    gcc-8.5.0
+sparc64                          allmodconfig    clang-22
+sparc64                             defconfig    gcc-14
+sparc64               randconfig-001-20260122    gcc-8.5.0
+sparc64               randconfig-002-20260122    gcc-8.5.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    gcc-14
+um                               allyesconfig    gcc-15.2.0
+um                                  defconfig    gcc-14
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20260122    gcc-8.5.0
+um                    randconfig-002-20260122    gcc-8.5.0
+um                           x86_64_defconfig    gcc-14
+x86_64                           alldefconfig    gcc-15.2.0
+x86_64                           allmodconfig    clang-20
+x86_64                            allnoconfig    clang-20
+x86_64                            allnoconfig    clang-22
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20260122    clang-20
+x86_64      buildonly-randconfig-002-20260122    clang-20
+x86_64      buildonly-randconfig-003-20260122    clang-20
+x86_64      buildonly-randconfig-004-20260122    clang-20
+x86_64      buildonly-randconfig-005-20260122    clang-20
+x86_64      buildonly-randconfig-006-20260122    clang-20
+x86_64                              defconfig    gcc-14
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20260122    clang-20
+x86_64                randconfig-002-20260122    clang-20
+x86_64                randconfig-003-20260122    clang-20
+x86_64                randconfig-004-20260122    clang-20
+x86_64                randconfig-005-20260122    clang-20
+x86_64                randconfig-006-20260122    clang-20
+x86_64                randconfig-011-20260122    clang-20
+x86_64                randconfig-012-20260122    clang-20
+x86_64                randconfig-013-20260122    clang-20
+x86_64                randconfig-014-20260122    clang-20
+x86_64                randconfig-015-20260122    clang-20
+x86_64                randconfig-016-20260122    clang-20
+x86_64                randconfig-071-20260122    clang-20
+x86_64                randconfig-072-20260122    clang-20
+x86_64                randconfig-073-20260122    clang-20
+x86_64                randconfig-074-20260122    clang-20
+x86_64                randconfig-075-20260122    clang-20
+x86_64                randconfig-076-20260122    clang-20
+x86_64                               rhel-9.4    clang-20
+x86_64                           rhel-9.4-bpf    gcc-14
+x86_64                          rhel-9.4-func    clang-20
+x86_64                    rhel-9.4-kselftests    clang-20
+x86_64                         rhel-9.4-kunit    gcc-14
+x86_64                           rhel-9.4-ltp    gcc-14
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    clang-22
+xtensa                            allnoconfig    gcc-15.2.0
+xtensa                           allyesconfig    clang-22
+xtensa                randconfig-001-20260122    gcc-8.5.0
+xtensa                randconfig-002-20260122    gcc-8.5.0
 
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
