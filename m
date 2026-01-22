@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67C08C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 08:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9947C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 08:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vwW8IDXkqMvABMcJ3/3TswD7cwMa2d9rG/SJRnyai2A=; b=kgxNBPuDRjVajftIVuyj6Q4Pzr
-	BYrbPR2FdUVpPaEs8HSS3tv96xE/BTHOz95WgJpsRXqWFBGXVMXJGtPfFPnuoguAgwTRic/LMM/qG
-	cac/kq25SWJOg+nJNg8OJLy6+d/1YUGnqpeWZH8hQvfTOvctveBHJOUMwMj76XQCkQcVTZY59+mqC
-	4OOVqYFt37bPFIvZB48kBazlOu1yC0wTToi6CBoHDLeWXEzGIdRM936dUh8WqS5x8ZPNrSFfK0gb6
-	h+XGc8bsWhsoL7QRW5LDq7PcPYJBbci0MI8b2gZLnu96vKcLfZXy2KLpI7BVKUaNLh3PU4XXWuN4H
-	0b0bqOrQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
+	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fTva8UzxxbQ8NujKh6DyVU6h5IoA86xjeQEiXl752lA=; b=H4gnhiz31NZizx4jg9mCDmZF3i
+	Pr4gQrvuidqgK2tT4bxXzeeQ4Tu3TGUP45XEnDmURLuum6lFhbHRHCubLzz/SiqL9C3K4Yysk9Dcc
+	KWYeMScO7Vg6z+t4BR11rEphBjg0z8aTpTRLZI1EPP2B0+J4+A5cnTmeOC8BLw294uPEC5/h5M2Ep
+	UsFDnEery3Hh9qmgCfvoEKUdHLhgvHGDfWAbG2RZlQe7Tz3xZqwMVjANvG0nMPV+KpMD3oE8QJ3Pb
+	HCu08Qq3cKnNYc5C8Xce89DwwAXDOHh1i5JBpuTdGscdKf8TdPTwgKBSWhs+AV+hJ1wlFFS3cxd3B
+	jA90huEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viq7P-00000006eVJ-4BYP;
-	Thu, 22 Jan 2026 08:32:44 +0000
+	id 1viqCO-00000006evz-0D08;
+	Thu, 22 Jan 2026 08:37:52 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viq7J-00000006eSX-2jIl
+	id 1viqCL-00000006evb-0PEt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 08:32:38 +0000
+	Thu, 22 Jan 2026 08:37:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2850F41987;
-	Thu, 22 Jan 2026 08:32:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 005B8C116C6;
-	Thu, 22 Jan 2026 08:32:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 72BB44405B;
+	Thu, 22 Jan 2026 08:37:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FE8FC19423;
+	Thu, 22 Jan 2026 08:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769070756;
-	bh=LLhB3J4m5a0dTpoW8ctYFKn5mu2uLbvwih+4M0rsLMw=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=qciHDGOcWXwHztpkMdmH5sLi8OjH1DY+ZUWSXH601WIdcAWIP9ISwgcYJnGOCb2XP
-	 Y01ALQVWn+WrE/cxwMPMR14HQu8nGNDzVZEUBnJGdqKzeNfKLe8IJogQxWtnh0rVgS
-	 0+XcpadOE9ZsgTlJDimoXUjSm13GpZ/b63WsSVPyOyNHYOZ86hckTJJFCtp6rsXsj/
-	 mJ0ZPBl/3Rdki1ks5bH8xfCHHwjXrHQ0ScCXJ/JLYFnP+9MTdd+8LeVL1+VZUkWvwd
-	 Q7C0a3QioPL6QJSdmJzh/puEvq28qZMtv3+0wionsM+QUMwbFqWkeHdqn7Hz1hnXoq
-	 v5Ad19SPOIFUw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E1820C44500;
-	Thu, 22 Jan 2026 08:32:35 +0000 (UTC)
-From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
-Subject: [PATCH v2 0/2] i2c: xiic: use generic device property accessors
-Date: Thu, 22 Jan 2026 08:32:30 +0000
-Message-Id: <20260122-i2c-xiic-v2-0-134f5d743e8b@nexthop.ai>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJ7gcWkC/03MQQqDQAxA0atI1o2MsYp21XuULqJmOlk4SsYWQ
- bx7h666fPD5ByQxlQS34gCTjyZdYgZdChgDx5egTtlAjlpXEaHSiLvqiPXAXe99I9zXkPPVxOv
- +Wz2e2d6WGbdgwn+DqnGOumtbUlN3PVbIw/Q24zBzvEfZt7CsJSuc5xfG2wXWmgAAAA==
-X-Change-ID: 20260122-i2c-xiic-3ba89ff5ea93
-To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Abdurrahman Hussain <abdurrahman@nexthop.ai>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769070755; l=951;
- i=abdurrahman@nexthop.ai; s=20260119; h=from:subject:message-id;
- bh=LLhB3J4m5a0dTpoW8ctYFKn5mu2uLbvwih+4M0rsLMw=;
- b=+tZ5Zf3eiPLTTqfzu0IBnoNfd1f4U1RPJdxysXHB1nD2bss1wzmnJw6G50cAfKiONnI38O2zC
- /Y+ZUkpeoGvAl2HZE38t5EzilD1jGZquagjFfSeVLJwpxFXF18IjUyc
-X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
- pk=S+ysnf+NwMcBdHBlyKIUEAtaFGSIhQwcJcgcXhq0osg=
-X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/20260119 with
- auth_id=608
-X-Original-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+	s=k20201202; t=1769071068;
+	bh=SfmvWqRZsDc45SxQJtfNXD/CqX0o2X+iPrylB7CAmNk=;
+	h=Date:From:Subject:Cc:To:References:In-Reply-To:From;
+	b=Ip8L3Q6roPH4UT/uSKbKbAbbRltqOIGkmay/HPfUl4xOxKE9pV5oLwcT6fPS/he35
+	 +k5/K+5iCTmB2ygSQfiKco4SQ+kQn7NtnU19Rd7kt2W/1BoMaJMrqmBFKhJlUEXvO2
+	 dU+DiANH90rxClaSjP9Od6bF5Pi6Mb6pul5ny/wd4YsKkijB75nRcyBihea4Pgb6LH
+	 EAMVLPrL9UzLTZEdYYYEalM6t9Ob8NzK5T2oxYnUkzUVkffiQHWPE+Gkz4est3G90q
+	 h/ZU833scwAHuAZp7qfgLt9wGdShw5XCq/R+7UHnK8W9594lTUDo4K8f9GQL7o/4Gk
+	 Ny9lzyTKrzlZQ==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 22 Jan 2026 09:37:44 +0100
+Message-Id: <DFUZCRCTYP67.358VJGW8MOFSH@kernel.org>
+From: "Danilo Krummrich" <dakr@kernel.org>
+Subject: Re: [PATCH] iommu/arm-smmu-qcom: do not register driver in probe()
+Cc: <gregkh@linuxfoundation.org>, <rafael@kernel.org>, <broonie@kernel.org>,
+ <will@kernel.org>, <robin.murphy@arm.com>, <robin.clark@oss.qualcomm.com>,
+ <hanguidong02@gmail.com>, <quic_c_gdjako@quicinc.com>,
+ <dmitry.baryshkov@oss.qualcomm.com>, <driver-core@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <iommu@lists.linux.dev>, <linux-arm-msm@vger.kernel.org>
+To: =?utf-8?q?J=C3=B6rg_R=C3=B6del?= <joro@8bytes.org>
+References: <20260121141215.29658-1-dakr@kernel.org>
+ <mo5v74ryxfwik4ggr56c2xha34sfwq2kq6suxi65pbqxrdppnj@oqkirr2kgrey>
+In-Reply-To: <mo5v74ryxfwik4ggr56c2xha34sfwq2kq6suxi65pbqxrdppnj@oqkirr2kgrey>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_003237_721926_5F17EFD7 
-X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-CacheID: sfid-20260122_003749_177973_01A038A3 
+X-CRM114-Status: UNSURE (   6.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,38 +74,19 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: abdurrahman@nexthop.ai
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch to generic device property accessors and make minor code
-refactoring.
+On Thu Jan 22, 2026 at 9:18 AM CET, J=C3=B6rg R=C3=B6del wrote:
+> Acked-by: Joerg Roedel <joerg.roedel@amd.com>
+>
+> This patch should go via the branch that contains
+>
+> 	dc23806a7c47 ("driver core: enforce device_lock for driver_match_device(=
+)").
 
-Make the clock optional since the driver is designed to operate without
-explicit configuration in firmware thus making it useful on platforms
-where clock is not or cannot be provided.
+Yes, I will take it through the driver-core tree.
 
-Changed in v2:
-
-* Split the patch into two independent changes.
-* Added struct device *dev at the top of probe() and remove() to re-use.
-* Switched to device_set_node(...)
-
-Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
----
-Abdurrahman Hussain (2):
-      i2c: xiic: switch to generic device property accessors
-      i2c: xiic: make the clock optional
-
- drivers/i2c/busses/i2c-xiic.c | 60 +++++++++++++++++++------------------------
- 1 file changed, 27 insertions(+), 33 deletions(-)
----
-base-commit: 944aacb68baf7624ab8d277d0ebf07f025ca137c
-change-id: 20260122-i2c-xiic-3ba89ff5ea93
-
-Best regards,
--- 
-Abdurrahman Hussain <abdurrahman@nexthop.ai>
-
-
+Thanks,
+Danilo
 
