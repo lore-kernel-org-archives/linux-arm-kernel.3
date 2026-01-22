@@ -4,89 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9213C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 01:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F197EC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 01:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yc0a8PWb9mctHhnhvkrqQTqLqxJyQxYacnbEY305YYs=; b=aI+tQii7gFKu4xd5nBOcsfUrjn
-	ebMeIW8RMQ1IO8h5eGTkVJx50IPi+G8/ArBtCyXTtGa/ItUYcXOtCAxvpQtK29Q4BylTCv4AM2ny2
-	clV2TxYVbtd6feKshO7BJUwZ4LCvppW5k68uL67u+iqEJXdcBnJ7Vj6WoTh9et2rzd2vmKFdsHJ1B
-	IdxQKfWC8gqEDFm/OIg3y/aLnKTWFBvprnYqaSFpWV1LII6LRqSD2M4Yz8VBV8NCGNCSH9AtUtVDo
-	6GZFyfHJVNS2IykL9kaGSlSAcT5hvnByFtDayhJWPRQxL+di8u/ve0uB3Rb0MJ9OyV04T8/S1rRTM
-	2xHRXn+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aoHGXEZqHJv+HodEqkbH6xmAHw76g4B+3LcovDVRA8E=; b=HTK0z4SPHvwDEi3FOvaHeywitW
+	A3wD9YzWy0hK6FA1jurspig+63k1JeMkIeX4zJJoIFNAPq8V60y6VcgHX0LXqh+CkbsN3TGecLYtF
+	9kBadc+O5yXnaVaIPmU7glKUCeRcGfkegJl2xE82K31cLzARXo+rAo0EHLHS07lsE7hVLwdf4NqE1
+	tG1yFUs8OK1IolHuVR7MOnvxrfAx9AMxiAyRbcufSQ8cDea4nMc5cqFgbbKUGwaOaXaAU/1M/zXp/
+	pfVCY9IjqYS544MBkboic/Li7JZ9GH8A25rK4ebEbwI5yYesyTea+H/o86DQ1x+lZnlqkWjJL36dn
+	9PCkH4uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vijKU-00000006F84-33Ch;
-	Thu, 22 Jan 2026 01:17:48 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1vijRP-00000006FgO-1bkr;
+	Thu, 22 Jan 2026 01:24:55 +0000
+Received: from mail-northcentralusazon11010008.outbound.protection.outlook.com ([52.101.193.8] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vijKR-00000006F7Z-33OI
+	id 1vijRM-00000006Ffe-18me
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 01:17:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769044664; x=1800580664;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=X/ZqB3F3uxrlq5fnYhJF9YmflnuXgYbIuIyXLKPZrBg=;
-  b=G/q5pk2AHxmsFjCEYTrv4lY5ahdfNLm/kwUVxKJDO4fycHAuCf+J4FT9
-   uldKSmgyp2FxbZK7Jz9pNEtnYHflRuHAh4ZUpl6R0/lZy2EymqHIQQrt2
-   gb51LtSJ5PgGhH9TvQ7/mz1PQ6WzMaNpHnf6n66DoDijXDq2uZZBHAaSq
-   LljQZ79LbpgoSsTOhvJyABDIgFxNWhpvaZjPJsmXlNEzNmwzHXUXi91us
-   P2EyHvzqHTJwjrM5aYOjy2W+CV1j0speDR+VK6ooyOZRKJgRhzdW4ie2s
-   Pa8+KVHA6fy8QNCMzMXMc0GQx4mKiPSgbExcBXUvqA6fCdV9s7/26/hbJ
-   w==;
-X-CSE-ConnectionGUID: I+0WVbI1SYGypLLNzISwsg==
-X-CSE-MsgGUID: 3upN/59OSiGI+gkIxB4+aw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11678"; a="69480626"
-X-IronPort-AV: E=Sophos;i="6.21,244,1763452800"; 
-   d="scan'208";a="69480626"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2026 17:17:38 -0800
-X-CSE-ConnectionGUID: TRMk+zZkTl2jUQY/JKcenQ==
-X-CSE-MsgGUID: dNgfp8zFQiqosj5IRWLZPw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,244,1763452800"; 
-   d="scan'208";a="211449798"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2026 17:17:34 -0800
-Message-ID: <fa3e55e1-3cf4-4b73-8b5e-192a19a18f3b@linux.intel.com>
-Date: Thu, 22 Jan 2026 09:17:27 +0800
+	Thu, 22 Jan 2026 01:24:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=P++V6UwwgsCJo+xVG/bFCzL1uEIvYK/P9DuCHAn674npewmevCsVTE5GKYmqpFKYyWhplBBpuCCPxfXHajsBZ8HxObBs4M0HXIY65l1Vcbk5LCTVBWsgPC9a2dnnAG07FSrNhxZk2N4ziutfCksVjpgURXHMajPkms8XTzBovRGF/+VcwrayU3ZrF75z+CYw9DQ71/t5KSfNJROK5y97ilrB6ROa9LRg0bEbkNk8vuSCuKl5UKgyKVSUkZDyNiswezn8KlAUOGi9Jx804cxllKZ7cjXOvHT7cwMyGyvzT8EkrKp4Thy0kf/VsqdqYTOPmExMK4CmtRbIFzNwcVZ2jQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aoHGXEZqHJv+HodEqkbH6xmAHw76g4B+3LcovDVRA8E=;
+ b=k33DGfvCefWaDx2JoqsfR1rgpqZ9tAvTe+/P3UuzeTp9/YPF8Pu6gwX9JJeacGkufXdGEj+PH74xyrwJh5MRExtonWl/1LN9ap4z6QyaTLUstN6bDi3c3y8N1izXpMxp8AOEHmWmYFlOJHMpeSl0Qv2UPkAXDv/jXlQGWVD57Y+K8kPyZr9tNFXOG8E45wAarVlgX1VAZhfu8ZGccIthB5yGQDGnvIJddhmPXMD+gfVFf/Ln1HuGzrukQq3q1teYH9H+rvGh4QiLVK9Ywd05OEYclXCoQmDmFD9FGTHy8JmxtWotKWUQFnYvLZfzX+Z5gg3TuCMiYLwywVPT3vHVkg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aoHGXEZqHJv+HodEqkbH6xmAHw76g4B+3LcovDVRA8E=;
+ b=jGrPuHeDzidbxV39jV0EnjfNOtYmXlsaZa6n+aiN3q2NZPi22nhIhUzwAg1b1MsV95ceELa52LmjHBMCYL2LFzm0rVKxCQnrdNfQBr05Bx1utozswv3asqeQ7DlT3Mf2RBbbZj6jC5KRFqJKwDNo9OfQN8ginsqPKT2rk9zMM9aMXQX7mn3JDwVXvm0nfERFd0ZRSddl4GBjbyOiDiP8ZNvjbtEmkuyAeek/93wtYbFZtIy0NKAHqiOGdHkARAehXHSG4CLT2MGxFG6tVUV22T367lvBAn2MKyOiU86eRZZiQfqNSZXQPtMgX8T39OzdU9JnG/9ALovKjoGoiDtmtA==
+Received: from PH7P220CA0039.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32b::26)
+ by DM3PR12MB9389.namprd12.prod.outlook.com (2603:10b6:0:46::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9542.9; Thu, 22 Jan 2026 01:24:44 +0000
+Received: from SA2PEPF000015CC.namprd03.prod.outlook.com
+ (2603:10b6:510:32b:cafe::81) by PH7P220CA0039.outlook.office365.com
+ (2603:10b6:510:32b::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.10 via Frontend Transport; Thu,
+ 22 Jan 2026 01:24:41 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SA2PEPF000015CC.mail.protection.outlook.com (10.167.241.202) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.3 via Frontend Transport; Thu, 22 Jan 2026 01:24:43 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 21 Jan
+ 2026 17:24:37 -0800
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Wed, 21 Jan 2026 17:24:36 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.12) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Wed, 21 Jan 2026 17:24:36 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>
+CC: <joro@8bytes.org>, <jpb@kernel.org>, <praan@google.com>,
+	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<patches@lists.linux.dev>
+Subject: [PATCH v2 00/10] iommu/arm-smmu-v3: Share domain across SMMU/vSMMU instances
+Date: Wed, 21 Jan 2026 17:24:18 -0800
+Message-ID: <cover.1769044718.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-To: Jason Gunthorpe <jgg@nvidia.com>,
- Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: "Tian, Kevin" <kevin.tian@intel.com>, Nicolin Chen <nicolinc@nvidia.com>,
- "will@kernel.org" <will@kernel.org>,
- "robin.murphy@arm.com" <robin.murphy@arm.com>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "Williams, Dan J" <dan.j.williams@intel.com>,
- "joro@8bytes.org" <joro@8bytes.org>, "praan@google.com" <praan@google.com>,
- "miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- linux-cxl@vger.kernel.org
-References: <cover.1768624180.git.nicolinc@nvidia.com>
- <d1768bb6384050a23769f20ca28216f520f77e26.1768624181.git.nicolinc@nvidia.com>
- <BL1PR11MB5271F0BDC68C2D7F172122E98C96A@BL1PR11MB5271.namprd11.prod.outlook.com>
- <20260121100307.00004e60@huawei.com> <20260121130315.GE1134360@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20260121130315.GE1134360@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015CC:EE_|DM3PR12MB9389:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0c7f46c9-1824-40c6-a98c-08de595505ac
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700013|376014|1800799024|82310400026|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?j2Q066qucWRi/MiVYvcvLG49l368t4wIUJePwW1QrvFeyXAcRDpF8i1TAsAC?=
+ =?us-ascii?Q?tTS7LTITnyZlpBQ1wB1G7VSPIcTz7j+PNK0pGsfdNeXhZd9/pikW5AHNRjU7?=
+ =?us-ascii?Q?yN9D9t+lXtmMVPIFxubuwInV/M6R19R1z6BJ2v+TAChkYhqJJjKdrRV3esm2?=
+ =?us-ascii?Q?ihXV11enu/h4+FJogTuoPL33k0cBPORQGnsV65R5ZJ4IXpEKuBrXvlhiqjxw?=
+ =?us-ascii?Q?TOujznHXX2oi9sHs+qP47EvsjgUsAdKse+CvBt3DJebAjXwF76AoV9yYFI56?=
+ =?us-ascii?Q?iQ9FwW31wvwAFJzY46FrWr/7pO1HRprf4IYuN09Lpe0kLrlWn9B5o3ZKdcu9?=
+ =?us-ascii?Q?KD6kqWUKbQM/LJAaCWYcJOjFCshFroaG9Wd+2RsLDaeh0lkffX33JRzJqaqm?=
+ =?us-ascii?Q?Rdm0pBCetIc4XPHA+ojYfJJ+ijeFLmz4uZHK5igqFeNte89q9f47e4UMVTWo?=
+ =?us-ascii?Q?WtvBjD+7MdN8l7eRcK9Hd54cAB9txc0iheMVKMochwPU+DT3rZU9cq5VyvxR?=
+ =?us-ascii?Q?rK1eNh+AxkS9skbnME9DAsIczSgPnxA5NyBrYNPJ1YpItj8YJv4ZN0bKuqU5?=
+ =?us-ascii?Q?ntqD1MWEjRU2gMFIz687siPWOmOVP4C6AyvlQwcF4W75uhTywZKCR1v/fK+i?=
+ =?us-ascii?Q?5RZfBDwJ/n+36mOE3GksVj1vH40xDRDZpJPdwv4zYxP6wK+jRNjHVCntO7IS?=
+ =?us-ascii?Q?x4RGZ3ivzbBXrQutKHFGQef7gZkVhA1CqFpH/on9AWEpb7bH5GpSpZeI0s4X?=
+ =?us-ascii?Q?lTzyDEO/ib1VbaX2XLbmc9cu0mKSt5AMMRSo9N8bDkrpaGWA3Pm4MeAipsMM?=
+ =?us-ascii?Q?mEpx/SdHOMVy1A3HWFLwFWa+HZTAc3nAc7zteY4GpaAu2cfGTHgQ096H7dOf?=
+ =?us-ascii?Q?Ucf/3RfBTImuBe0r25K5ujUMJtSaHe9Xckix88rnVId8bXzXYrlCRcFFvE2t?=
+ =?us-ascii?Q?ZNrlmLlLGBhJE9iDV2ZF3dlSAr11mJ8rnEly6JAy5yOt42NQmDUkiRk8u9jP?=
+ =?us-ascii?Q?SXOgdQLWhlCfk6XJyuOotCx/4uP4tNscVA6VKadiyzA8H6QYYA0MppdSul5Y?=
+ =?us-ascii?Q?1FaSXdCk2UYypgyF9lxVRGdF1tJH+eR6DZaGNo5/B04RKtuDX6BPJAGdvKrS?=
+ =?us-ascii?Q?DZcczSQinCyAWJGqcQnSp2Epa8QT+BccoipH+1xmSJv5eZHf03VsmrHQSYeE?=
+ =?us-ascii?Q?DW3ipBQ0jchRBojzNm5zzAmBMzP+zeMchMh5D6KqTLOsmRlb57uHpT3YV4yC?=
+ =?us-ascii?Q?DcQkagikHZLfTHbYKRJpr5c5+415BnGma72k5YB1Nx8tOgrSmzwMJHvj0NMI?=
+ =?us-ascii?Q?8aQNW9VE36T5gK3D/jHAiKbLiJjEgYgkIY8fKuVr8BzSFt+5ZTB4stIB86Gh?=
+ =?us-ascii?Q?PrH8exkmwg/bkcTphpHZKxCU/l/c6QBruAez2qbugIscmH1lCdgZ6f2e6CY4?=
+ =?us-ascii?Q?YtPtIVszSYI1u7olJvO/PpGP9TiZNp2uyeUUAkZoDH+BLbYxisaGFyafHDN5?=
+ =?us-ascii?Q?YWwV3qwob83aiZT5/I//oA4/gzwCuCWM9R7jvfofZTA8yoeVPOYocu2BpbG2?=
+ =?us-ascii?Q?zisyuNNh2wMsnbzlwR7h9HoopWOh/V75eDdL/4eWC5DHUAiMlWwa7GiqLyFb?=
+ =?us-ascii?Q?6CH7rgYpQf5g166+qpAo9jjaJ1rD0zfEScM0mVDf/bYBgWfOp4jn33kttRBi?=
+ =?us-ascii?Q?xpsDOQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(36860700013)(376014)(1800799024)(82310400026)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 01:24:43.4130
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0c7f46c9-1824-40c6-a98c-08de595505ac
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CC.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR12MB9389
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_171743_799109_8231BBE2 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20260121_172452_327449_F2533698 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,55 +151,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/21/26 21:03, Jason Gunthorpe wrote:
-> On Wed, Jan 21, 2026 at 10:03:07AM +0000, Jonathan Cameron wrote:
->> On Wed, 21 Jan 2026 08:01:36 +0000
->> "Tian, Kevin"<kevin.tian@intel.com> wrote:
->>
->>> +Dan. I recalled an offline discussion in which he raised concern on
->>> having the kernel blindly enable ATS for cxl.cache device instead of
->>> creating a knob for admin to configure from userspace (in case
->>> security is viewed more important than functionality, upon allowing
->>> DMA to read data out of CPU caches)...
->>>
->> +CC Linux-cxl
-> A cxl.cache device supporting ATS will automatically enable ATS today
-> if the kernel option to enable translation is set.
-> 
-> Even if the device is marked untrusted by the PCI layer (eg an
-> external port).
+In a system with multiple physical SMMU instances, multiple devices can be
+passed through to a VM. Currently, a VM would allocate one domain per SMMU
+instance that might be shared across devices that sit behind the same SMMU
+instance. However, the gPA->PA mappings (either an S1 unmanaged domain or
+an S2 nesting parent domain) can be shared across all the devices that sit
+behind different SMMU instances as well, provided that the shared I/O page
+table is compatible with all the SMMU instances.
 
-I don't follow here. The untrusted check is now in pci_ats_supported():
+The major difficulty in sharing the domain has been invalidation, since a
+change to the shared I/O page table results in an invalidation on all SMMU
+instances. A traditional approach involves building a linked list of SMMUs
+within the domain, which is very inefficient for the invalidation path as
+the linked list has to be locked.
 
-/**
-  * pci_ats_supported - check if the device can use ATS
-  * @dev: the PCI device
-  *
-  * Returns true if the device supports ATS and is allowed to use it, false
-  * otherwise.
-  */
-bool pci_ats_supported(struct pci_dev *dev)
-{
-         if (!dev->ats_cap)
-                 return false;
+To address this, the SMMUv3 driver now uses an RCU-protected invalidation
+array. Any new device (and its SMMU) is preloaded into the array during a
+device attachment. This array maintains all necessary information, such as
+ASID/VMID and which SMMU instance (CMDQ) to issue the command to.
 
-         return (dev->untrusted == 0);
-}
-EXPORT_SYMBOL_GPL(pci_ats_supported);
+The second issue concerns the lifecycle of the iotlb tag. Currently, ASID
+or VMID is allocated per domain and kept in the domain structure (cd->asid
+or s2_cfg->vmid). This does not work ideally when the domain (e.g. S2) is
+shared, as the VMID will have to be global across all SMMU instances, even
+if a VM is not using all of them. This results in wasted VMID resources in
+the bitmaps of unused SMMU instances.
 
-The iommu drivers (intel/amd/arm-smmuv3) all call pci_ats_supported()
-before enabling ATS on a device. Anything I missed?
+Instead, an iotlb tag should be allocated per SMMU instance. Consequently,
+these tags must be allocated and maintained separately. Since ASID or VMID
+is only used when a CD or STE is installed to the HW (which happens during
+device attachment), and the invalidation array is built right before that,
+it is ideal to allocate a new iotlb tag before arm_smmu_invs_merge():
+ - when a device attaches, the driver first searches for an existing iotlb
+   tag for the SMMU the device sits behind
+ - If a match is found, the "users" counter is incremented
+ - otherwise, a new tag is allocated.
 
-> 
-> Yes this is effectively a security issue, but it is not really a CXL
-> specific problem.
-> 
-> We might perfer to not enable ATS for untrusted devices and then fail to
-> load drivers for "ats always on" cases.
-> 
-> Or maybe we can enable one of the ATS security features someday,
-> though I wonder if those work for CXL..
+A nested domain case is slightly unique as certain HW requires the VMID at
+the vSMMU init stage v.s. a device attachment (to the nested domain). Thus
+ - allocate/free a vmid in vsmmu_init/vsmmu_destroy and store in vSMMU
+ - introduce an INV_TYPE_S2_VMID_VSMMU to separate it from a naked S2 case
+ - retrieve the vmid from the vSMMU during attachment instead of allocation
 
-Thanks,
-baolu
+With this, deprecate the cd->asid and s2_cfg->vmid from struct smmu_domain,
+and replace them with the iotlb tag stored in the smmu_domain->invs array.
+
+Finally, allow sharing a domain across the SMMU instances, so long as they
+passes a compatibility test.
+
+This is on Github:
+https://github.com/nicolinc/iommufd/commits/smmuv3_share_domain-v2
+
+This is based on the series "Introduce an RCU-protected invalidation array"
+https://lore.kernel.org/all/cover.1766013662.git.nicolinc@nvidia.com/
+So the whole implementation follows the path Jason envisioned initially.
+
+A earlier effort to share S2 domain can be found:
+https://lore.kernel.org/all/cover.1744692494.git.nicolinc@nvidia.com/
+
+Changelog
+v2
+ * Add arm_smmu_domain_get_iotlb_tag()
+ * Drop asid array and vmid from master structure, and get the iotlb
+   tag in the smmu_domain->invs array
+ * Introduce INV_TYPE_S2_VMID_VSMMU for vSMMU type, and separate the
+   nested attach case from a naked S2 attach case
+v1
+ https://lore.kernel.org/all/cover.1766088962.git.nicolinc@nvidia.com/
+
+Thanks
+Nicolin
+
+Nicolin Chen (10):
+  iommu/arm-smmu-v3: Store IOTLB cache tags in struct
+    arm_smmu_attach_state
+  iommu/arm-smmu-v3: Pass in IOTLB cache tag to CD and STE
+  iommu/arm-smmu-v3: Look for existing iotlb tag in smmu_domain->invs
+  iommu/arm-smmu-v3: Allocate IOTLB cache tag if no id to reuse
+  iommu/arm-smmu-v3: Flush iotlb in arm_smmu_iotlb_tag_free()
+  iommu/arm-smmu-v3: Allocate vmid in arm_vsmmu_init
+  iommu/arm-smmu-v3: Pass in vsmmu to arm_smmu_domain_get_iotlb_tag()
+  iommu/arm-smmu-v3: Introduce INV_TYPE_S2_VMID_VSMMU
+  iommu/arm-smmu-v3: Remove ASID/VMID from arm_smmu_domain
+  iommu/arm-smmu-v3: Allow sharing domain across SMMUs
+
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  53 +++-
+ .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     |  50 ++-
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |  42 ++-
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |  21 +-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 286 ++++++++++--------
+ .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    |   1 +
+ 6 files changed, 266 insertions(+), 187 deletions(-)
+
+-- 
+2.43.0
+
 
