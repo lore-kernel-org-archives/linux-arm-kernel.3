@@ -4,121 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D540CD3EE8A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:06:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52A04D3EE89
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z+AIbIK3eQTohbEi9mUjrpLQdvDbJl+5v84GWpefTnM=; b=pfKOWTqr5ERRjf4zfrjAlWqYz5
-	v3TDHJHmHeZtcAJZ5kGofuh7NSojnibO6KcQ74djDESqgm9Jxvxv1ydragfAZQ5mST1sGWAQjxUlq
-	c6qlTI2PbUTmjVrxuZd/aC+Q+BnkMAoKufsYYJUjNtKtDZ/vAriehZsZbxJObJXppHVlX6ax40Hzk
-	aWUQjUqa8pJ81YB1YJVgfPy7l7n0uAFpECYV3GZfJKs3U6IHoOKh/rrcdZjA9O966zoXEXDD+L3U0
-	S5TEBO7irCkqHQTjkErpbptfW8HlMowgSAJVgavG1+vvvUyyN69747CM1Htc8gdmi2Tv6nn1xOnS8
-	90dSgrDg==;
+	bh=foXvwYKbYB8CyKEYmZ4+Fr8gBVI1/yFp9iUKgNiyQ0I=; b=0JQkTcyiMT9a1F3Poz3uSYp9UC
+	2+95Wekh8Na4D5sv3RXQNi3tF8PU+Sp2lZzY2Bu6JsctRZ99AD8Os2SXVIrvGSAYFIk9sSNsUTfNI
+	bgF4AlrafZOWpBvx18T9SHnoS79IcUv4NhLYO370CghYXlvZE5wp61SxVqK3odxQWZwbAduGSIqM/
+	fr/9OjgdMF6iwvDZsEDM7MnU80YY12iU0haL2WSXZp7YtDB6Anzh5H05buBoWNmw78qpl1VY8tL22
+	KGtFllbvDPSPyI680e3r82jexRNvqhXbVtQ9d1ubksXp1GvB77hqLJptJ4o40N8zQsd4879rkFyIy
+	tryCwuTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixCJ-00000007Nws-0rzI;
-	Thu, 22 Jan 2026 16:06:15 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1vixG3-00000007OGD-3Sv1;
+	Thu, 22 Jan 2026 16:10:07 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixCG-00000007NwA-1AXB
+	id 1vixG0-00000007OFp-2RX9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 16:06:13 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2a35ae38bdfso77625ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 08:06:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769097971; cv=none;
-        d=google.com; s=arc-20240605;
-        b=LDFiVrNZ1lfHsKa44fZtEUHmBBIbhd8qGh1ttxPg2HqW8+PkKg1dvHbKMmlVTX2feH
-         6DPkQSIShcN3a/2kYpsuBmc9aL4XtxErdwGM40uISaq2XDJYNzF00TLzw1aPePmFgIxi
-         WIfTnY2vKp59PX2DapVgZDGMle29RvpLpEXrtKd5xGeGtKX068UbMem8FPQB8yPsTIN4
-         kZrTdmQY/7cEkTheZE0M8rbztWHbq8RSv39dTF/YPJfzhEmJ/bSYUzd9ozU+i4cjWmxw
-         Q3vS+pfu4q+zpFo4KAkJ2CcWIzdpJ7qKNNQR3sVzJFHwvY3VJRcFheqYjNE4Iga9jGc5
-         7EtQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Z+AIbIK3eQTohbEi9mUjrpLQdvDbJl+5v84GWpefTnM=;
-        fh=qmzqEAQx+lzPBQQcYKzr0dqYshJV6/mofkGIVhGcn8I=;
-        b=TCDEO/7mSK2lCQDGBI6+wBIu87gSX3AzZlX8NVKVqg4UBCfQKvCOKqm5AQCGPkrst7
-         ZBmxTdDPBpuAFbobbST5UUbbnBoXaR/O2biWNQ+y4sPrSMPJhPr1ZfHXYfL5nDXV8MFz
-         XElYk0+QEVWi3EGXyloPvV/8+8sC38nwUMwcaZZRiC2Ps9Q1cJf+QwQUFfu0p0XNZ4iN
-         54yTEgw60MA1olWncUsg9Tt67lQrNet4Lr3gXswUR8HRTKdM3S9L/3DkjeEtYzNregav
-         5HLKe0ZtvTPLIudUNHytXC90pyVNV2sIHGpIwVAKpu0uIqXRN+QiUOPByDZSPUGls11+
-         JurA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769097971; x=1769702771; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Z+AIbIK3eQTohbEi9mUjrpLQdvDbJl+5v84GWpefTnM=;
-        b=Bi7OMwADVfZA17I+/9oJyeMpKwNiAR0bPopJjm0pjY69UpyM89eEtvPA8BJGQkJJa0
-         DJkpwjznYZuaARLz7BdgSlW4nnGzTL6xs+7SrD6QKzBI0Hx8sVYpgb7oue07ETRN/iYW
-         tWKmCLsd/9If07X5ouPCrGBE0mbmefddfvBwRgNbPzjeYILFOBHiwhQNN5V3VWS2Pv/Y
-         jAAJodRVTtEUuvKxeeoUEwHcDpw4bJSRimZ2lMD7g185DPZDEsoaAYIai67Vti9bUtUs
-         nYIik7DN7xmpImotJUXwZRzMYrXqK4HYq0pniWlgevwzDnyL5pj3Iv9Dad0p990oCrRM
-         9C+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769097971; x=1769702771;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Z+AIbIK3eQTohbEi9mUjrpLQdvDbJl+5v84GWpefTnM=;
-        b=eO/BLqfSNZEOef00c6i1bQ70P13t7eo5iUjaDBkCfLB7w3+jjg7K3ppT7E5p9OyMpI
-         J70yDKWP+qjj2ttxQl+5n1HFaLHMZolC/+Ay4jEFNCCBJ7WKsjftq1JicLykstxiQtnN
-         dnuY1kCTsagnRZfPJEJ6RZW2QQwFQf2cE3lI/lKILIbGN8Z+O6xOfsxZJsi8aJ4cwz/Q
-         Lm+rhZF1WyC+aXQ04cbnmkoYX7jOd9KiPRG/FWodZwFlzEusC1ytSIrxTmsEEAlb5Ypt
-         i93O2Q0HaD8lzNGBzaoJxOykIr27OcVkaQPJgcqOscUEmyDqbUGyzYjoscCMR5ObjsE4
-         DogQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVq1OZw4Hfyti1Ci2y/Q3S1KnZMh54AmaqIsUydBTwnTPZ1NJmIp9HhRaiVBfVje3I0av80CUklJel5bSzUJOoT@lists.infradead.org
-X-Gm-Message-State: AOJu0YyG+m3ZlHbeIjZYBN8cBFT+rpNMmJR+wzA6d7neXLYJqnqqP6DX
-	AWeHuSVnFhPVfozFTttkH1oArra1Zotbk33xnpymDC5XyC03kidiIGyFfXGSS5WQHpjw67QVGKj
-	8AL0+DgSejGIxwBM+uLKMjAkyQ2j/hJ9Og9egMurg
-X-Gm-Gg: AZuq6aLECLTmkAWFBBXmkCeX2DL4LCOA8aaP8n1VVSR7j095nn01Z0Di7GeRvRa2YEt
-	tOEXOVV/lYBbwhQs61FPoAFjYWRaN9bphk6hmNLQahTQHcl89Qbk2N/DoZgzd+Oj4MGoESyMgfu
-	BTwKWvtcgpOnf+9MlhOJ4zAQ9/yRdrqt4dTc1BEjsv5Nbfvh7u/Azrejw7fz9x3QsfB68N1+5Fr
-	LmWx1OtvCWEDyxZVFnmhOl+r+144GIUC2JHV7s2QZqUFW/e9bv0HBpCXNPvXwpisdhN+0wNJJm1
-	V5Uo1oJBN9RMAIVCjW5zmGOObw==
-X-Received: by 2002:a17:903:2b06:b0:29f:2563:7772 with SMTP id
- d9443c01a7336-2a7d417846bmr3095405ad.8.1769097970607; Thu, 22 Jan 2026
- 08:06:10 -0800 (PST)
+	Thu, 22 Jan 2026 16:10:07 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id BAE184E421F2
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 16:10:00 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8B53560711;
+	Thu, 22 Jan 2026 16:10:00 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 09487119A836B;
+	Thu, 22 Jan 2026 17:09:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1769098199; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=foXvwYKbYB8CyKEYmZ4+Fr8gBVI1/yFp9iUKgNiyQ0I=;
+	b=GChQ+vEiWnYyfng9HTHtiOKy6C18v4CXN/G5K3X4JkgfXLGiZpjLkQq0pCFI5lHExcS5VE
+	/Mt6uNde8abCqUd0/ztnyplmplLJ+RXF5o3nt5MGZCbMZRT/vYSVSI/3+sJ++k3nC/2N3+
+	TGkCeyaxom5wizhxTNLPgLS2hcXmL4AA3oWzI0MtAXR8G6AZ4XLCDeDQfxQSYfLKg14T4j
+	QbaQnavUKZl9LwpNTfyatjJ0iw9vLUFnv0I5Dbskv/jKgCSSDqtKa+uaS8LxCYbmW1c7gh
+	0NbuZxCG1vHfNUjOeuy1Mdqh5Hrd07CWG/GphlLmrT180epC0vgEwDwdznfU1g==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Elad Nachman <enachman@marvell.com>, "Rob Herring (Arm)"
+ <robh@kernel.org>, Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
+ <devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>
+Subject: RE: [EXTERNAL] Re: [PATCH] arm/arm64: dts: marvell: Drop unused .dtsi
+In-Reply-To: <BN9PR18MB4251D2180A5AB41DC29DB5EFDB97A@BN9PR18MB4251.namprd18.prod.outlook.com>
+References: <20260113200744.4174940-1-robh@kernel.org>
+ <87fr7yklud.fsf@BLaptop.bootlin.com>
+ <BN9PR18MB4251D2180A5AB41DC29DB5EFDB97A@BN9PR18MB4251.namprd18.prod.outlook.com>
+Date: Thu, 22 Jan 2026 17:09:55 +0100
+Message-ID: <87cy31ljcc.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-References: <20260122073127.375139-1-irogers@google.com> <20260122073127.375139-3-irogers@google.com>
- <CAO9wTFh01Qzn9tAiXf8_eGd7AAJiKzjmHNw-hBBCzcYR9Mb8xg@mail.gmail.com>
-In-Reply-To: <CAO9wTFh01Qzn9tAiXf8_eGd7AAJiKzjmHNw-hBBCzcYR9Mb8xg@mail.gmail.com>
-From: Ian Rogers <irogers@google.com>
-Date: Thu, 22 Jan 2026 08:05:58 -0800
-X-Gm-Features: AZwV_QheLkTE1KRcO3TYQKQs82VaNUxHiDT9G3Jcm0FUvq93zpwYWIu1qRjGJAw
-Message-ID: <CAP-5=fUg=Gna1=HyugczBijYE07SnFHOO9OPutYQa+s8QcXBmw@mail.gmail.com>
-Subject: Re: [PATCH v1 02/11] perf annotate: Fix args leak of map_symbol
-To: Suchit Karunakaran <suchitkarunakaran@gmail.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, 
-	Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	Zecheng Li <zecheng@google.com>, Tianyou Li <tianyou.li@intel.com>, 
-	Thomas Falcon <thomas.falcon@intel.com>, Julia Lawall <Julia.Lawall@inria.fr>, 
-	Athira Rajeev <atrajeev@linux.ibm.com>, Aditya Bodkhe <aditya.b1@linux.ibm.com>, 
-	Howard Chu <howardchu95@gmail.com>, 
-	=?UTF-8?Q?Krzysztof_=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>, 
-	"Dr. David Alan Gilbert" <linux@treblig.org>, Shimin Guo <shimin.guo@skydio.com>, 
-	Sergei Trofimovich <slyich@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_080612_317759_52BA9138 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20260122_081004_915293_9408EE86 
+X-CRM114-Status: GOOD (  27.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,55 +81,468 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 3:47=E2=80=AFAM Suchit Karunakaran
-<suchitkarunakaran@gmail.com> wrote:
->
-> > @@ -1119,7 +1121,7 @@ static int symbol__parse_objdump_line(struct symb=
-ol *sym,
-> >                                       struct annotate_args *args,
-> >                                       char *parsed_line, int *line_nr, =
-char **fileloc)
-> >  {
-> > -       struct map *map =3D args->ms.map;
-> > +       struct map *map =3D args->ms->map;
-> >         struct annotation *notes =3D symbol__annotation(sym);
-> >         struct disasm_line *dl;
-> >         char *tmp;
-> > @@ -1151,7 +1153,7 @@ static int symbol__parse_objdump_line(struct symb=
-ol *sym,
-> >         args->line    =3D parsed_line;
-> >         args->line_nr =3D *line_nr;
-> >         args->fileloc =3D *fileloc;
-> > -       args->ms.sym  =3D sym;
-> > +       args->ms->sym  =3D sym;
-> >
-> >         dl =3D disasm_line__new(args);
-> >         (*line_nr)++;
-> > @@ -1172,7 +1174,7 @@ static int symbol__parse_objdump_line(struct symb=
-ol *sym,
-> >                         .ms =3D { .map =3D map, },
-> >                 };
-> >
-> > -               if (!maps__find_ams(args->ms.maps, &target) &&
-> > +               if (!maps__find_ams(args->ms->maps, &target) &&
-> >                     target.ms.sym->start =3D=3D target.al_addr)
-> >                         dl->ops.target.sym =3D target.ms.sym;
-> >         }
->
-> Hi, a noob here so please correct me if I'm wrong.
-> Looking at symbol__parse_objdump_line(), shouldn't we be calling
-> map__get() when initializing the target struct? Since maps__find_ams()
-> now calls map__put() (after patch 1).
-> struct addr_map_symbol target =3D {
->     .addr =3D dl->ops.target.addr,
->     .ms =3D { .map =3D map__get(map), },
-> };
-> This would match the pattern used in call__parse() and jump__parse()
-> that were fixed in patch 2.
+Elad Nachman <enachman@marvell.com> writes:
 
-Agreed this is another problem. I'll add the missing put and
-addr_map_symbol__exit missing here.
+> Hi,
+>
+>>=20
+>>=20
+>> From: Gregory CLEMENT <gregory.clement@bootlin.com>
+>> Sent: Thursday, January 22, 2026 12:01 PM
+>> To: Rob Herring (Arm) <robh@kernel.org>; Andrew Lunn <andrew@lunn.ch>; S=
+ebastian Hesselbarth <sebastian.hesselbarth@gmail.com>; Krzysztof Kozlowski=
+ <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Elad Nachman <en=
+achman@marvell.com>
+>> Cc: linux-arm-kernel@lists.infradead.org; devicetree@vger.kernel.org; li=
+nux-kernel@vger.kernel.org
+>> Subject: [EXTERNAL] Re: [PATCH] arm/arm64: dts: marvell: Drop unused .dt=
+si
+>>=20
+>> Hello Rob,
+>> > These .dtsi files are not included anywhere in the tree and can't be
+>> > tested.
+>> > > Signed-off-by: Rob Herring (Arm) <robh@=E2=80=8Akernel.=E2=80=8Aorg>=
+ > ---
+>> > arch/arm/boot/dts/marvell/armada-380.=E2=80=8Adtsi | 148
+>> Hello Rob,
+>>=20
+>> > These .dtsi files are not included anywhere in the tree and can't be
+>> > tested.
+>> >
+>> > Signed-off-by: Rob Herring (Arm) <mailto:robh@kernel.org>
+>> > ---
+>> >  arch/arm/boot/dts/marvell/armada-380.dtsi     | 148 ------------------
+>> >  arch/arm64/boot/dts/marvell/armada-7020.dtsi  |  10 --
+>> >  arch/arm64/boot/dts/marvell/armada-8020.dtsi  |  20 ---
+>> >  .../boot/dts/marvell/armada-ap806-dual.dtsi   |  60 -------
+>>=20
+>> For these ones I agree removing them
+>
+> armada-7020.dtsi uses armada-ap806-dual.dtsi
+> armada-7020.dtsi is used by several of our boards, I have submitted the f=
+ollowing commit:
+> https://lkml.org/lkml/2023/12/18/1024
+> But for some reason I did not get any response for it.
+> If we merge it, these two DTSI files (7020 and ap806-dual) will be
+> used.
 
-Thanks,
-Ian
+
+Even in the lore, it is not easy to find these emails, and indeed I
+missed them while I merged the previous series sent.
+Could you rebase and send it again ?
+
+Gregory
+
+>
+>>=20
+>> >  .../dts/marvell/cn9130-db-comexpress.dtsi     |  96 ------------
+>>=20
+>> I am a bit more concerned about this one, as it really seems to be an
+>> existing module. I would like to get feedback from Elad Nachman, who
+>> submitted it, to find out if there is any dts board that can be
+>> submitted to keep this dtsi or, conversely, if we can indeed remove the
+>> dtsi.
+>
+> Currently we only have a Com-Express board for CN9131, so for now you can=
+ drop this one.
+>
+>>=20
+>> Gregory
+>>=20
+>> >  5 files changed, 334 deletions(-)
+>> >  delete mode 100644 arch/arm/boot/dts/marvell/armada-380.dtsi
+>> >  delete mode 100644 arch/arm64/boot/dts/marvell/armada-7020.dtsi
+>> >  delete mode 100644 arch/arm64/boot/dts/marvell/armada-8020.dtsi
+>> >  delete mode 100644 arch/arm64/boot/dts/marvell/armada-ap806-dual.dtsi
+>> >  delete mode 100644 arch/arm64/boot/dts/marvell/cn9130-db-comexpress.d=
+tsi
+>> >
+>> > diff --git a/arch/arm/boot/dts/marvell/armada-380.dtsi b/arch/arm/boot=
+/dts/marvell/armada-380.dtsi
+>> > deleted file mode 100644
+>> > index e94f22b0e9b5..000000000000
+>> > --- a/arch/arm/boot/dts/marvell/armada-380.dtsi
+>> > +++ /dev/null
+>> > @@ -1,148 +0,0 @@
+>> > -// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>> > -/*
+>> > - * Device Tree Include file for Marvell Armada 380 SoC.
+>> > - *
+>> > - * Copyright (C) 2014 Marvell
+>> > - *
+>> > - * Lior Amsalem <mailto:alior@marvell.com>
+>> > - * Gregory CLEMENT <mailto:gregory.clement@free-electrons.com>
+>> > - * Thomas Petazzoni <mailto:thomas.petazzoni@free-electrons.com>
+>> > - */
+>> > -
+>> > -#include "armada-38x.dtsi"
+>> > -
+>> > -/ {
+>> > -	model =3D "Marvell Armada 380 family SoC";
+>> > -	compatible =3D "marvell,armada380";
+>> > -
+>> > -	cpus {
+>> > -		#address-cells =3D <1>;
+>> > -		#size-cells =3D <0>;
+>> > -		enable-method =3D "marvell,armada-380-smp";
+>> > -
+>> > -		cpu@0 {
+>> > -			device_type =3D "cpu";
+>> > -			compatible =3D "arm,cortex-a9";
+>> > -			reg =3D <0>;
+>> > -		};
+>> > -	};
+>> > -
+>> > -	soc {
+>> > -		internal-regs {
+>> > -			pinctrl@18000 {
+>> > -				compatible =3D "marvell,mv88f6810-pinctrl";
+>> > -			};
+>> > -		};
+>> > -
+>> > -		pcie {
+>> > -			compatible =3D "marvell,armada-370-pcie";
+>> > -			status =3D "disabled";
+>> > -			device_type =3D "pci";
+>> > -
+>> > -			#address-cells =3D <3>;
+>> > -			#size-cells =3D <2>;
+>> > -
+>> > -			msi-parent =3D <&mpic>;
+>> > -			bus-range =3D <0x00 0xff>;
+>> > -
+>> > -			ranges =3D
+>> > -			       <0x82000000 0 0x80000 MBUS_ID(0xf0, 0x01) 0x80000 0 0x00002=
+000
+>> > -				0x82000000 0 0x40000 MBUS_ID(0xf0, 0x01) 0x40000 0 0x00002000
+>> > -				0x82000000 0 0x44000 MBUS_ID(0xf0, 0x01) 0x44000 0 0x00002000
+>> > -				0x82000000 0 0x48000 MBUS_ID(0xf0, 0x01) 0x48000 0 0x00002000
+>> > -				0x82000000 0x1 0     MBUS_ID(0x08, 0xe8) 0 1 0 /* Port 0 MEM */
+>> > -				0x81000000 0x1 0     MBUS_ID(0x08, 0xe0) 0 1 0 /* Port 0 IO  */
+>> > -				0x82000000 0x2 0     MBUS_ID(0x04, 0xe8) 0 1 0 /* Port 1 MEM */
+>> > -				0x81000000 0x2 0     MBUS_ID(0x04, 0xe0) 0 1 0 /* Port 1 IO  */
+>> > -				0x82000000 0x3 0     MBUS_ID(0x04, 0xd8) 0 1 0 /* Port 2 MEM */
+>> > -				0x81000000 0x3 0     MBUS_ID(0x04, 0xd0) 0 1 0 /* Port 2 IO  */>;
+>> > -
+>> > -			/* x1 port */
+>> > -			pcie@1,0 {
+>> > -				device_type =3D "pci";
+>> > -				assigned-addresses =3D <0x82000800 0 0x80000 0 0x2000>;
+>> > -				reg =3D <0x0800 0 0 0 0>;
+>> > -				#address-cells =3D <3>;
+>> > -				#size-cells =3D <2>;
+>> > -				interrupt-names =3D "intx";
+>> > -				interrupts-extended =3D <&gic GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
+>> > -				#interrupt-cells =3D <1>;
+>> > -				ranges =3D <0x82000000 0 0 0x82000000 0x1 0 1 0
+>> > -					  0x81000000 0 0 0x81000000 0x1 0 1 0>;
+>> > -				bus-range =3D <0x00 0xff>;
+>> > -				interrupt-map-mask =3D <0 0 0 7>;
+>> > -				interrupt-map =3D <0 0 0 1 &pcie1_intc 0>,
+>> > -						<0 0 0 2 &pcie1_intc 1>,
+>> > -						<0 0 0 3 &pcie1_intc 2>,
+>> > -						<0 0 0 4 &pcie1_intc 3>;
+>> > -				marvell,pcie-port =3D <0>;
+>> > -				marvell,pcie-lane =3D <0>;
+>> > -				clocks =3D <&gateclk 8>;
+>> > -				status =3D "disabled";
+>> > -
+>> > -				pcie1_intc: interrupt-controller {
+>> > -					interrupt-controller;
+>> > -					#interrupt-cells =3D <1>;
+>> > -				};
+>> > -			};
+>> > -
+>> > -			/* x1 port */
+>> > -			pcie@2,0 {
+>> > -				device_type =3D "pci";
+>> > -				assigned-addresses =3D <0x82001000 0 0x40000 0 0x2000>;
+>> > -				reg =3D <0x1000 0 0 0 0>;
+>> > -				#address-cells =3D <3>;
+>> > -				#size-cells =3D <2>;
+>> > -				interrupt-names =3D "intx";
+>> > -				interrupts-extended =3D <&gic GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
+>> > -				#interrupt-cells =3D <1>;
+>> > -				ranges =3D <0x82000000 0 0 0x82000000 0x2 0 1 0
+>> > -					  0x81000000 0 0 0x81000000 0x2 0 1 0>;
+>> > -				bus-range =3D <0x00 0xff>;
+>> > -				interrupt-map-mask =3D <0 0 0 7>;
+>> > -				interrupt-map =3D <0 0 0 1 &pcie2_intc 0>,
+>> > -						<0 0 0 2 &pcie2_intc 1>,
+>> > -						<0 0 0 3 &pcie2_intc 2>,
+>> > -						<0 0 0 4 &pcie2_intc 3>;
+>> > -				marvell,pcie-port =3D <1>;
+>> > -				marvell,pcie-lane =3D <0>;
+>> > -				clocks =3D <&gateclk 5>;
+>> > -				status =3D "disabled";
+>> > -
+>> > -				pcie2_intc: interrupt-controller {
+>> > -					interrupt-controller;
+>> > -					#interrupt-cells =3D <1>;
+>> > -				};
+>> > -			};
+>> > -
+>> > -			/* x1 port */
+>> > -			pcie@3,0 {
+>> > -				device_type =3D "pci";
+>> > -				assigned-addresses =3D <0x82001800 0 0x44000 0 0x2000>;
+>> > -				reg =3D <0x1800 0 0 0 0>;
+>> > -				#address-cells =3D <3>;
+>> > -				#size-cells =3D <2>;
+>> > -				interrupt-names =3D "intx";
+>> > -				interrupts-extended =3D <&gic GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
+>> > -				#interrupt-cells =3D <1>;
+>> > -				ranges =3D <0x82000000 0 0 0x82000000 0x3 0 1 0
+>> > -					  0x81000000 0 0 0x81000000 0x3 0 1 0>;
+>> > -				bus-range =3D <0x00 0xff>;
+>> > -				interrupt-map-mask =3D <0 0 0 7>;
+>> > -				interrupt-map =3D <0 0 0 1 &pcie3_intc 0>,
+>> > -						<0 0 0 2 &pcie3_intc 1>,
+>> > -						<0 0 0 3 &pcie3_intc 2>,
+>> > -						<0 0 0 4 &pcie3_intc 3>;
+>> > -				marvell,pcie-port =3D <2>;
+>> > -				marvell,pcie-lane =3D <0>;
+>> > -				clocks =3D <&gateclk 6>;
+>> > -				status =3D "disabled";
+>> > -
+>> > -				pcie3_intc: interrupt-controller {
+>> > -					interrupt-controller;
+>> > -					#interrupt-cells =3D <1>;
+>> > -				};
+>> > -			};
+>> > -		};
+>> > -	};
+>> > -};
+>> > diff --git a/arch/arm64/boot/dts/marvell/armada-7020.dtsi b/arch/arm64=
+/boot/dts/marvell/armada-7020.dtsi
+>> > deleted file mode 100644
+>> > index 570f901b4f4a..000000000000
+>> > --- a/arch/arm64/boot/dts/marvell/armada-7020.dtsi
+>> > +++ /dev/null
+>> > @@ -1,10 +0,0 @@
+>> > -// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>> > -/*
+>> > - * Copyright (C) 2016 Marvell Technology Group Ltd.
+>> > - *
+>> > - * Device Tree file for the Armada 7020 SoC, made of an AP806 Dual and
+>> > - * one CP110.
+>> > - */
+>> > -
+>> > -#include "armada-ap806-dual.dtsi"
+>> > -#include "armada-70x0.dtsi"
+>> > diff --git a/arch/arm64/boot/dts/marvell/armada-8020.dtsi b/arch/arm64=
+/boot/dts/marvell/armada-8020.dtsi
+>> > deleted file mode 100644
+>> > index b6fc18876093..000000000000
+>> > --- a/arch/arm64/boot/dts/marvell/armada-8020.dtsi
+>> > +++ /dev/null
+>> > @@ -1,20 +0,0 @@
+>> > -// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>> > -/*
+>> > - * Copyright (C) 2016 Marvell Technology Group Ltd.
+>> > - *
+>> > - * Device Tree file for the Armada 8020 SoC, made of an AP806 Dual and
+>> > - * two CP110.
+>> > - */
+>> > -
+>> > -#include "armada-ap806-dual.dtsi"
+>> > -#include "armada-80x0.dtsi"
+>> > -
+>> > -/* The RTC requires external oscillator. But on Aramda 80x0, the RTC =
+clock
+>> > - * in CP master is not connected (by package) to the oscillator. So
+>> > - * disable it. However, the RTC clock in CP slave is connected to the
+>> > - * oscillator so this one is let enabled.
+>> > - */
+>> > -
+>> > -&cp0_rtc {
+>> > -	status =3D "disabled";
+>> > -};
+>> > diff --git a/arch/arm64/boot/dts/marvell/armada-ap806-dual.dtsi b/arch=
+/arm64/boot/dts/marvell/armada-ap806-dual.dtsi
+>> > deleted file mode 100644
+>> > index 82f4dedfc25e..000000000000
+>> > --- a/arch/arm64/boot/dts/marvell/armada-ap806-dual.dtsi
+>> > +++ /dev/null
+>> > @@ -1,60 +0,0 @@
+>> > -// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>> > -/*
+>> > - * Copyright (C) 2016 Marvell Technology Group Ltd.
+>> > - *
+>> > - * Device Tree file for Marvell Armada AP806.
+>> > - */
+>> > -
+>> > -#include "armada-ap806.dtsi"
+>> > -
+>> > -/ {
+>> > -	cpus {
+>> > -		#address-cells =3D <1>;
+>> > -		#size-cells =3D <0>;
+>> > -
+>> > -		cpu0: cpu@0 {
+>> > -			device_type =3D "cpu";
+>> > -			compatible =3D "arm,cortex-a72";
+>> > -			reg =3D <0x000>;
+>> > -			enable-method =3D "psci";
+>> > -			#cooling-cells =3D <2>;
+>> > -			clocks =3D <&cpu_clk 0>;
+>> > -			i-cache-size =3D <0xc000>;
+>> > -			i-cache-line-size =3D <64>;
+>> > -			i-cache-sets =3D <256>;
+>> > -			d-cache-size =3D <0x8000>;
+>> > -			d-cache-line-size =3D <64>;
+>> > -			d-cache-sets =3D <256>;
+>> > -			next-level-cache =3D <&l2>;
+>> > -		};
+>> > -		cpu1: cpu@1 {
+>> > -			device_type =3D "cpu";
+>> > -			compatible =3D "arm,cortex-a72";
+>> > -			reg =3D <0x001>;
+>> > -			enable-method =3D "psci";
+>> > -			#cooling-cells =3D <2>;
+>> > -			clocks =3D <&cpu_clk 0>;
+>> > -			i-cache-size =3D <0xc000>;
+>> > -			i-cache-line-size =3D <64>;
+>> > -			i-cache-sets =3D <256>;
+>> > -			d-cache-size =3D <0x8000>;
+>> > -			d-cache-line-size =3D <64>;
+>> > -			d-cache-sets =3D <256>;
+>> > -			next-level-cache =3D <&l2>;
+>> > -		};
+>> > -
+>> > -		l2: l2-cache {
+>> > -			compatible =3D "cache";
+>> > -			cache-size =3D <0x80000>;
+>> > -			cache-line-size =3D <64>;
+>> > -			cache-sets =3D <512>;
+>> > -			cache-level =3D <2>;
+>> > -			cache-unified;
+>> > -		};
+>> > -	};
+>> > -
+>> > -	thermal-zones {
+>> > -		/delete-node/ ap-thermal-cpu2;
+>> > -		/delete-node/ ap-thermal-cpu3;
+>> > -	};
+>> > -};
+>> > diff --git a/arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi b/a=
+rch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi
+>> > deleted file mode 100644
+>> > index 028496ebc473..000000000000
+>> > --- a/arch/arm64/boot/dts/marvell/cn9130-db-comexpress.dtsi
+>> > +++ /dev/null
+>> > @@ -1,96 +0,0 @@
+>> > -// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+>> > -/*
+>> > - * Copyright (C) 2023 Marvell International Ltd.
+>> > - *
+>> > - * Device tree for the CN9130-DB Com Express CPU module board.
+>> > - */
+>> > -
+>> > -#include "cn9130-db.dtsi"
+>> > -
+>> > -/ {
+>> > -	model =3D "Marvell Armada CN9130-DB COM EXPRESS type 7 CPU module bo=
+ard";
+>> > -	compatible =3D "marvell,cn9130-cpu-module", "marvell,cn9130",
+>> > -		     "marvell,armada-ap807-quad", "marvell,armada-ap807";
+>> > -
+>> > -};
+>> > -
+>> > -&ap0_reg_sd_vccq {
+>> > -	regulator-max-microvolt =3D <1800000>;
+>> > -	states =3D <1800000 0x1 1800000 0x0>;
+>> > -	/delete-property/ gpios;
+>> > -};
+>> > -
+>> > -&cp0_reg_usb3_vbus0 {
+>> > -	/delete-property/ gpio;
+>> > -};
+>> > -
+>> > -&cp0_reg_usb3_vbus1 {
+>> > -	/delete-property/ gpio;
+>> > -};
+>> > -
+>> > -&cp0_reg_sd_vcc {
+>> > -	status =3D "disabled";
+>> > -};
+>> > -
+>> > -&cp0_reg_sd_vccq {
+>> > -	status =3D "disabled";
+>> > -};
+>> > -
+>> > -&cp0_sdhci0 {
+>> > -	status =3D "disabled";
+>> > -};
+>> > -
+>> > -&cp0_eth0 {
+>> > -	status =3D "disabled";
+>> > -};
+>> > -
+>> > -&cp0_eth1 {
+>> > -	status =3D "okay";
+>> > -	phy =3D <&phy0>;
+>> > -	phy-mode =3D "rgmii-id";
+>> > -};
+>> > -
+>> > -&cp0_eth2 {
+>> > -	status =3D "disabled";
+>> > -};
+>> > -
+>> > -&cp0_mdio {
+>> > -	status =3D "okay";
+>> > -	pinctrl-0 =3D <&cp0_ge_mdio_pins>;
+>> > -	phy0: ethernet-phy@0 {
+>> > -		status =3D "okay";
+>> > -	};
+>> > -};
+>> > -
+>> > -&cp0_syscon0 {
+>> > -	cp0_pinctrl: pinctrl {
+>> > -		compatible =3D "marvell,cp115-standalone-pinctrl";
+>> > -
+>> > -		cp0_ge_mdio_pins: ge-mdio-pins {
+>> > -			marvell,pins =3D "mpp40", "mpp41";
+>> > -			marvell,function =3D "ge";
+>> > -		};
+>> > -	};
+>> > -};
+>> > -
+>> > -&cp0_sdhci0 {
+>> > -	status =3D "disabled";
+>> > -};
+>> > -
+>> > -&cp0_spi1 {
+>> > -	status =3D "okay";
+>> > -};
+>> > -
+>> > -&cp0_usb3_0 {
+>> > -	status =3D "okay";
+>> > -	usb-phy =3D <&cp0_usb3_0_phy0>;
+>> > -	phy-names =3D "usb";
+>> > -	/delete-property/ phys;
+>> > -};
+>> > -
+>> > -&cp0_usb3_1 {
+>> > -	status =3D "okay";
+>> > -	usb-phy =3D <&cp0_usb3_0_phy1>;
+>> > -	phy-names =3D "usb";
+>> > -	/delete-property/ phys;
+>> > -};
+>> > --
+>> > 2.51.0
+>> >
+>>=20
+>> --
+>> Gr=C3=A9gory CLEMENT, Bootlin
+>> Embedded Linux and Kernel engineering
+>
+> Thanks,
+>
+> Elad.
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
