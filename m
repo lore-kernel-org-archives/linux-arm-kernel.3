@@ -4,84 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D30E8C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:49:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 609E8C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 09:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FceONJwVjg8vdGz5WZuq5fGe+EXqsU2TZx7AP6HAvqc=; b=CBf1C2yvxlAvKubFbM6VjgxiCh
-	iKZYIAtWO5xNwZnX7Xtamly6YdPtT+s9cpcsrJWJBzWTF3+ym8mlD9VZl5I3/M6Y3544A3Pe5kPsi
-	glq474VHj7GfT1jAVAPPbAyCNPW1U6EyuC5wwXlS3WUiRcLiqJ8f1t8T+MrVCapDU+qfjAIJn6cWW
-	aT6XEFFA6POiR49GX6N2fYN1x5jvuovuwZV07/VgqJAn493/tAwlH+MlzoFz5mP/BSAOXYLWEZy/y
-	SBbEvBp/teLXgSJNqOfTR6R2iN+9W5ZPkhr6yjc95C2KqPR6gHQahYOtYXRXO3fVbzFpe6ONvjOnB
-	IjyQWk/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hyn3QjrTtRTLodNMi1k9CKwpfN90X4xBtJ4HlPnOTY8=; b=4LWyMZkXvHcsa8/x7+mk9hp+h0
+	+GjWfIbJ0q6Sr6Pq+4Yr/MWBUY6fBOaBl59Pl2cVwNNGdlBf036Y+xoHLxJUiy9x+j72+OEow0fIj
+	0gd626qAAymYBLF0Vdmgnwq6NWxC0DfUwGm9nGfDZFvlRXolLVh/NeW5NzbeQEHwAQm1dqIqeIfyM
+	O69xZ+8nj0HzPoS8Z97JxLkqTKxamZWPL1HKXLuQ84hISlYfBHLqRU3TAPxTL+GOSFBBEEriqWk5t
+	guMM+woznI3pR9sY11qniE5JYVH4IP9SzGzSW+tBJ7/dWFjIfugIbEqbT1Gk14sEaLj1Xyi5DNi7p
+	u2fv0dvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virJA-00000006m9B-2aMg;
-	Thu, 22 Jan 2026 09:48:56 +0000
+	id 1virQo-00000006n2i-2o1C;
+	Thu, 22 Jan 2026 09:56:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virJ7-00000006m6d-2tRe
+	id 1virQm-00000006n2P-1zMu
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 Jan 2026 09:48:53 +0000
+	Thu, 22 Jan 2026 09:56:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=FceONJwVjg8vdGz5WZuq5fGe+EXqsU2TZx7AP6HAvqc=; b=Pate9klqfR4bep8IGZ18lL18ek
-	CtwS9wSGM+IYCSAsiFj4/1JKGr0rYifsg0JrEMfzrTu/xOUCjx3pAv6Ek0aA+int04l03g8EU+qbo
-	TYxgkdMIG62UrkyX0Dt6U2uKwUXfm6S//XKSXHh8eIiTD0ToLIQD8O+LurnBC1CxQkqd0nNlu2cU8
-	q3J2J/ijnOvGLY++aGS4Jt8GpREPF1N3qtSzM/kcg3hRMWXuRaHj1iAz3iX0V7m7uVo0/6Mh6FTwB
-	G/OaOPKy9gV8fkFzcigdUYgKPpkJQhnAdltkALOyGC5RB+uONkaFjr1rpl/KO28akTtkA5a1oV2Yf
-	MB9G2JSg==;
-Received: from out199-12.us.a.mail.aliyun.com ([47.90.199.12])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Hyn3QjrTtRTLodNMi1k9CKwpfN90X4xBtJ4HlPnOTY8=; b=nNzmR6HSurp74Qy8sSCmE09rUS
+	kqI0MN8NI2pL13d1xqy2Hj8qCAVcbzxQvYW76CTnunjYey2Pvym1zyysNjNtljFzJNRjgyXPZU3jd
+	d6Jpw5iIz1kpVH6NYW3XPdQAS4vh1TGfwFptGsEqLzjre5mEDu54lzmXaaHIn/1CBjuoE3C4YQrM/
+	zG1Qy6w99VvYKpaEAXD6hOtHXOpGQxcy03NJAFOn7TOI8exonhTXWIGDuIlLCVNBxrRaKQSBc4ql8
+	f3cjWNaPg9/JM7rSJWlZQMJtScCCesaH5StCE1EsWtwJa+fyAdo9479pdEZtAByRkWZHdZMFYWkwF
+	ucunjdIg==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virIl-000000004vg-3ISX
+	id 1virQh-000000005nA-3lX8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 09:48:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1769075304; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=FceONJwVjg8vdGz5WZuq5fGe+EXqsU2TZx7AP6HAvqc=;
-	b=ds1CjAwLfavFRMRzMTflAik37IA2LcvAGz65rfDUXdgkDFVEo3D07iSDgfrBk+kihygjWeTqV7lDk++f8kB5uK29yXxVhsvi3u0zWfc08yQfQLUut+SUMn5dWBrBHAtrG95BQ2HtfWSdYpvVWdthKNw+cqhLJSYVybiV0x8U+mQ=
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0Wxbwgq9_1769075300 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 22 Jan 2026 17:48:23 +0800
-From: Ruidong Tian <tianruidong@linux.alibaba.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	lpieralisi@kernel.org,
-	guohanjun@huawei.com,
-	sudeep.holla@arm.com,
-	rafael@kernel.org,
-	robin.murphy@arm.com,
-	mark.rutland@arm.com,
-	tony.luck@intel.com,
-	bp@alien8.de,
-	tglx@linutronix.de,
-	peterz@infradead.org
-Cc: lenb@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-edac@vger.kernel.org,
-	mchehab@kernel.org,
-	xueshuai@linux.alibaba.com,
-	zhuo.song@linux.alibaba.com,
-	oliver.yang@linux.alibaba.com,
-	Ruidong Tian <tianruidong@linux.alibaba.com>
-Subject: [PATCH v6 12/16] ras: AEST: Allow configuring CE threshold via debugfs
-Date: Thu, 22 Jan 2026 17:46:52 +0800
-Message-Id: <20260122094656.73399-13-tianruidong@linux.alibaba.com>
-X-Mailer: git-send-email 2.33.1
-In-Reply-To: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
-References: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
+	Thu, 22 Jan 2026 09:56:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 045A743603;
+	Thu, 22 Jan 2026 09:56:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C295C116C6;
+	Thu, 22 Jan 2026 09:56:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769075799;
+	bh=dcxoVFz6LVoWrvVHVZ3y55Q4k5TKYzriByuTAgV3hWY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hyxzfZGLcbvHXsYMNZmY0TclxVsCDges/uNr7rTIWjU7dEvvZWpe3y8gLjHiYPb4P
+	 gQ8LoHdGdjymvWkmBREjtD/TG+AEf+cNOi5i4o70izpt1KJpjylatpowbVYkbk7pcP
+	 CYG9UP7rOsgwnKAYwORRJM/imqq2YlfQqXjjGRf+llG3fqyyNKe9qA6NTgQgEwPWK+
+	 4+DoR3K0+SIxnm4RP+gCIp20fsGJqFTdW3y9d/2ZeCn3W21XRuLsQe7Cps94/KFLsY
+	 n7FdKC9l8vf+Jalgv6nJj7/fkB0Dp2sCnCpXPIvgQZsI0TX7LhQzCf/hGB0UgxDjcv
+	 PJXfg+UrhfKbw==
+Date: Thu, 22 Jan 2026 09:56:29 +0000
+From: Will Deacon <will@kernel.org>
+To: Frederic Weisbecker <frederic@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chen Ridong <chenridong@huawei.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-block@vger.kernel.org, linux-mm@kvack.org,
+	linux-pci@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 29/33] sched/arm64: Move fallback task cpumask to
+ HK_TYPE_DOMAIN
+Message-ID: <aXH0TZU7UNowTmwc@willie-the-truck>
+References: <20260101221359.22298-1-frederic@kernel.org>
+ <20260101221359.22298-30-frederic@kernel.org>
+ <aW-cAlJCtI5Qtify@willie-the-truck>
+ <aXEHf5nbZMI8LT4b@localhost.localdomain>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <aXEHf5nbZMI8LT4b@localhost.localdomain>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260122_095644_462858_93708736 
+X-CRM114-Status: GOOD (  29.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,118 +116,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit introduces the ability to configure the Corrected Error (CE)
-threshold for AEST records through debugfs. This allows administrators to
-dynamically adjust the CE threshold for error reporting.
+On Wed, Jan 21, 2026 at 06:06:07PM +0100, Frederic Weisbecker wrote:
+> Le Tue, Jan 20, 2026 at 03:15:14PM +0000, Will Deacon a écrit :
+> > Hi Frederic,
+> > 
+> > On Thu, Jan 01, 2026 at 11:13:54PM +0100, Frederic Weisbecker wrote:
+> > > When none of the allowed CPUs of a task are online, it gets migrated
+> > > to the fallback cpumask which is all the non nohz_full CPUs.
+> > > 
+> > > However just like nohz_full CPUs, domain isolated CPUs don't want to be
+> > > disturbed by tasks that have lost their CPU affinities.
+> > > 
+> > > And since nohz_full rely on domain isolation to work correctly, the
+> > > housekeeping mask of domain isolated CPUs should always be a superset of
+> > > the housekeeping mask of nohz_full CPUs (there can be CPUs that are
+> > > domain isolated but not nohz_full, OTOH there shouldn't be nohz_full
+> > > CPUs that are not domain isolated):
+> > > 
+> > > 	HK_TYPE_DOMAIN | HK_TYPE_KERNEL_NOISE == HK_TYPE_DOMAIN
+> > > 
+> > > Therefore use HK_TYPE_DOMAIN as the appropriate fallback target for
+> > > tasks and since this cpumask can be modified at runtime, make sure
+> > > that 32 bits support CPUs on ARM64 mismatched systems are not isolated
+> > > by cpusets.
+> > > 
+> > > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> > > Reviewed-by: Waiman Long <longman@redhat.com>
+> > > ---
+> > >  arch/arm64/kernel/cpufeature.c | 18 +++++++++++++++---
+> > >  include/linux/cpu.h            |  4 ++++
+> > >  kernel/cgroup/cpuset.c         | 17 ++++++++++++++---
+> > >  3 files changed, 33 insertions(+), 6 deletions(-)
+> > 
+> > tbh, I'd also be fine just saying that isolation isn't reliable on these
+> > systems and then you don't need to add the extra arch hook.
+> 
+> Hmm, I think I heard about nohz_full usage on arm64 but I'm not sure.
+> And I usually expect isolcpus or cpuset isolated partitions to be even
+> more broadly used, it's lighter isolation with less constraints.
+> 
+> Anyway you're probably right that we could remove isolation support here
+> but I don't want to break any existing user.
 
-Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
----
- Documentation/ABI/testing/debugfs-aest | 16 ++++++++++
- drivers/ras/aest/aest-sysfs.c          | 42 ++++++++++++++++++++++++++
- 2 files changed, 58 insertions(+)
+fwiw, I think it's only some Android markets using the mismatched 32-bit
+support and we're definitely not using nohz_full there.
 
-diff --git a/Documentation/ABI/testing/debugfs-aest b/Documentation/ABI/testing/debugfs-aest
-index 295df9e9b455..4d160072d37a 100644
---- a/Documentation/ABI/testing/debugfs-aest
-+++ b/Documentation/ABI/testing/debugfs-aest
-@@ -24,6 +24,14 @@ Description:
- 		See more at:
- 			https://developer.arm.com/documentation/den0085/latest/
- 
-+What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/ce_threshold
-+Date:		Dec 2025
-+KernelVersion	6.19
-+Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
-+Description:
-+		(WO) Write the ce threshold to all records of this node. Failed
-+		if input exceeded the maximum threshold
-+
- What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/err_count
- Date:		Dec 2025
- KernelVersion	6.19
-@@ -38,6 +46,14 @@ Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
- Description:
- 		(RO) Read err_* register and return val.
- 
-+What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/record<index>/ce_threshold
-+Date:		Dec 2025
-+KernelVersion	6.19
-+Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
-+Description:
-+		(RW) Read and write the ce threshold to this record. Failed
-+		if input exceeded the maximum threshold
-+
- What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/record<index>/err_count
- Date:		Dec 2025
- KernelVersion	6.19
-diff --git a/drivers/ras/aest/aest-sysfs.c b/drivers/ras/aest/aest-sysfs.c
-index b54e879506aa..392e7ad8328e 100644
---- a/drivers/ras/aest/aest-sysfs.c
-+++ b/drivers/ras/aest/aest-sysfs.c
-@@ -7,6 +7,25 @@
- 
- #include "aest.h"
- 
-+static void
-+aest_store_threshold(struct aest_record *record, void *data)
-+{
-+	u64 err_misc0, *threshold = data;
-+	struct ce_threshold *ce = &record->ce;
-+
-+	if (*threshold > ce->info->max_count)
-+		return;
-+
-+	ce->threshold = *threshold;
-+	ce->count = ce->info->max_count - ce->threshold + 1;
-+
-+	err_misc0 = record_read(record, ERXMISC0);
-+	ce->reg_val = (err_misc0 & ~ce->info->mask) |
-+			(ce->count << ce->info->shift);
-+
-+	record_write(record, ERXMISC0, ce->reg_val);
-+}
-+
- static void
- aest_error_count(struct aest_record *record, void *data)
- {
-@@ -77,6 +96,27 @@ DEFINE_AEST_DEBUGFS_ATTR(err_misc1, ERXMISC1);
- DEFINE_AEST_DEBUGFS_ATTR(err_misc2, ERXMISC2);
- DEFINE_AEST_DEBUGFS_ATTR(err_misc3, ERXMISC3);
- 
-+static int record_ce_threshold_get(void *data, u64 *val)
-+{
-+	struct aest_record *record = data;
-+
-+	*val = record->ce.threshold;
-+	return 0;
-+}
-+
-+static int record_ce_threshold_set(void *data, u64 val)
-+{
-+	u64 threshold = val;
-+	struct aest_record *record = data;
-+
-+	aest_store_threshold(record, &threshold);
-+
-+	return 0;
-+}
-+
-+DEFINE_DEBUGFS_ATTRIBUTE(record_ce_threshold_ops, record_ce_threshold_get,
-+					record_ce_threshold_set, "%llu\n");
-+
- static int aest_record_err_count_show(struct seq_file *m, void *data)
- {
- 	struct aest_record *record = m->private;
-@@ -116,6 +156,8 @@ static void aest_record_init_debugfs(struct aest_record *record)
- 								&err_misc3_ops);
- 	debugfs_create_file("err_count", 0400, record->debugfs, record,
- 						&aest_record_err_count_fops);
-+	debugfs_create_file("ce_threshold", 0600, record->debugfs, record,
-+						&record_ce_threshold_ops);
- }
- 
- static void
--- 
-2.51.2.612.gdc70283dfc
-
+Will
 
