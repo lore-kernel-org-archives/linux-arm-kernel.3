@@ -4,107 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C91F2D3EE96
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:55:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C810CD3EE96
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 16:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ACMl4tEoxoHusBUNvHd7v0jfYpL5OX8OF2Pn3Unqkyk=; b=0dM8j5pB3b7Nc09qRLfEgRPLN1
-	3ZZFj9VQ2yt3Cz8OVS1GuX27HK5Iv6P0Nkd1uaZcvrASGQl80QuD9kSuNJuNHg4GQXYh4yDQUkqKO
-	SWftpqWwX4DdL677DZ+K8NDMbjWcfrQrJp2aDalzj6T1Y664vo/IRr2i30rjM1eIaDbi3ymMiu8y3
-	I3xzjSRXU3fRr+I9K82wSmya9WjqrNgvdS9k/jVVVZdLavHWYTtbPl0h52G8LmxIOZHy2Y5CjHlfO
-	eGDuYhyiMLNcy0S/Ksr+Q6LZWa9Do1a+RRPaaIyWbcHHAvQrbVhG99SrQvyEUf2dpDSoQ5Nc4bxV+
-	g+C0BI7A==;
+	bh=FdfhEphug/ocRpRg69bu5daK7dedQM8NBydcgmWK9ik=; b=zbozwmh0Wcepv/roEU6jvHdhnm
+	Xuyhyo5ENGJ8gMC/vWp/0rDvIsJw/uPmk2uaCnpEsXSny8HeZLA2GDnxlyN1ewq2YbGiFHK3uG7TL
+	6uLDQufkQXgHq5pkAseaGIxAVprqAQx2cw2nAYi4QbJKPbKbV3gM2rqcHfvJCIVRHjPnVRK9JKjye
+	POVkabqa4dFF/5lTIDnNiFO7nVCPL7VautwHmXBJXzMa2k8JVqxLY6ohvapP9duUNgQgs6j5cHvaE
+	LHtGz9NGUuw+33Mclk2p/D6nfL3xL6M7lBOTsH/8Ruo9FqS5qMt8Z4FQk6odgtiBkBC6TGRKpJS52
+	D6NED8BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixxH-00000007U22-49cP;
-	Thu, 22 Jan 2026 16:54:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1viy1E-00000007W0o-2Cfu;
+	Thu, 22 Jan 2026 16:58:52 +0000
+Received: from mail-eastusazon11011028.outbound.protection.outlook.com ([52.101.52.28] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixx5-00000007ToS-0Rg6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 22 Jan 2026 16:54:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ACMl4tEoxoHusBUNvHd7v0jfYpL5OX8OF2Pn3Unqkyk=; b=KZAFhvFD31nIO4ByTGqo6j0X/3
-	DHrcwl7VrOxQbUW5R69onvTN3O7YWPAh2m5jhlpy78ru+F5lWw87xLJGlsAmwqiL/NwQQwQz0IKik
-	aXKjqFcdP27hWd6h2rDO3jD66ybjZq/AwBRqgcDkc+g50bKDOe20G8iQfyk+RyeHKx3hpJpWCVIOY
-	cx201rR6te1KEE/g0ORpClpCJRlRieCVRCKrjVu039o1KPnKXiFnT9U21qxkVQ9xuKq6Psr6y5kbW
-	OEBF7tg1fAd240AU8GjVSp/i5V5AVh7d8wJ05uv4lvv6Dca02BP8uVEPl4ayJR2BP2z1mDYGA6aUn
-	7YUMh/Zw==;
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vixx1-00000000oX1-3Ca1
+	id 1viy1B-00000007VzL-0rGp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 16:54:33 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b71041d135so1516876eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 08:54:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769100870; x=1769705670; darn=lists.infradead.org;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ACMl4tEoxoHusBUNvHd7v0jfYpL5OX8OF2Pn3Unqkyk=;
-        b=JxW0RgZnWciqrW0gQzVPDfmdBTKFQCX7zElodZWiJw1Pf9CcxfW8DPyO9gKouve4nO
-         lH+tBwrxf4+c3J6XIXkehZFXZ5az52WxB4JSniJMb3xC/U/va8l+iS8Dgds6Ul5XX3zN
-         ZO4Qj6sEQ0oTwteq4uoa/0BHhw36bddeNNP9W2KZhn5ZiiYk5Je0qUiA0+zeR8a9ooYw
-         bXDc4mNc5Gv6+NQBoemenDMxug6yj85IUhatU9/rzcxKFLVzjbC2KfXORQu20IS1dxei
-         drCkbKk0hdv5RYNF+kxjqavq1rnA/Za1XjBwrblmEYF7uuZYqrdp1kwbABxV7Y46jlgl
-         euuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769100870; x=1769705670;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ACMl4tEoxoHusBUNvHd7v0jfYpL5OX8OF2Pn3Unqkyk=;
-        b=LBY+oNM+beqZF8h/LhlPw7GXd98Yqq2cF3ig3pyDt/F2ZcEOGgEFZ1H2RzndFVGDlA
-         3xplLs70/Zg/N0oKTQEIy1dtldnywuG1lLoKbmMbK5+y7k7at7ouzVKQas8rW2vzTy+x
-         3hvmK4AtwKLgYhxxrQfHKUSyDIwxEEeSea5rrOJgrq5aOi4QwSweHXWu7NWXWsDZZvp5
-         3xGEs1XTLSLvyGZ7nli3IklS7jsmCKBEe2JO9NPgwGBZqYavMbGGERVb7hR2qaKHE4Na
-         Dnz0l7PgfUpZ2dYPt7o22DBUU7prpojDJgPj63J3rg55gAA3CHnx7jBb8USCggK0Pkz9
-         hOSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXBwRPy/rmH4jFAnoFSEOHJHHjpMS6a5ixpdYm5XCkGyGXi1luZVnXyPGlLTZ3HA2fIAC/n29CDjMzjn6qsyRfA@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywc7hLbUr8iVPeaRLIZTsJyI4K0SSRUAnRmcCXpWvo/mozZ45np
-	AmMAPjWH6dbPoqh/1WGLAZkBHvgVRHuqF4hHYiCtAA0sfE1WduAjY/bUA7QHXCRa78Cp1AWFeQa
-	7M7g3rUCO8g==
-X-Received: from dlf16.prod.google.com ([2002:a05:7022:410:b0:11f:3d13:8e65])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:488:b0:11d:fd41:62c8
- with SMTP id a92af1059eb24-1247d778de2mr27365c88.13.1769100869572; Thu, 22
- Jan 2026 08:54:29 -0800 (PST)
-Date: Thu, 22 Jan 2026 08:54:03 -0800
-In-Reply-To: <20260122165407.561888-1-irogers@google.com>
-Mime-Version: 1.0
-References: <20260122165407.561888-1-irogers@google.com>
-X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260122165407.561888-9-irogers@google.com>
-Subject: [PATCH v2 08/12] perf disasm: Don't include C files from the arch directory
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	James Clark <james.clark@linaro.org>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Zecheng Li <zecheng@google.com>, 
-	Tianyou Li <tianyou.li@intel.com>, Thomas Falcon <thomas.falcon@intel.com>, 
-	Julia Lawall <Julia.Lawall@inria.fr>, Suchit Karunakaran <suchitkarunakaran@gmail.com>, 
-	Athira Rajeev <atrajeev@linux.ibm.com>, Aditya Bodkhe <aditya.b1@linux.ibm.com>, 
-	Howard Chu <howardchu95@gmail.com>, 
-	"=?UTF-8?q?Krzysztof=20=C5=81opatowski?=" <krzysztof.m.lopatowski@gmail.com>, 
-	"Dr. David Alan Gilbert" <linux@treblig.org>, Shimin Guo <shimin.guo@skydio.com>, 
-	Sergei Trofimovich <slyich@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 22 Jan 2026 16:58:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yN7bV4vp/gVvyu7qT1mYIXUIWq9wOOdlNHXc+zyO/KD22M+wnpntLu1C09Jumro8+vaIrEJfXNJPoIE/eUyF00GilZg+gbxVNotcxrM9doMPYa8mWCyXkmVW8odKo7/c0vXAEdHwthNbJBl7qY6HnDGCePb1jK2HWAwKY4vnAPIfL8QwHRihXJ7ZIBMtbI1u0FCNf84orJVqOPsDMZIV4s/9cBcjomrgkMBEhXD0L1OkNRAXDcoMdhGSPSqhnpRT8zTq7eWrtkxp40LsnRAJ9eSp7+9uNRYHjfkO3g92ly2+B1O9bp9cwfX4KZdkDczQOqWNyoT4Kj6+CscQfN5fAQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FdfhEphug/ocRpRg69bu5daK7dedQM8NBydcgmWK9ik=;
+ b=nlFdoWNAwhAb1pVQtM4G/x2lHDsU6Cg9jXb+PhnIhzpj+iwIKqvaZiAo/J9S80NVe8zJHaVNSNGLfCdiAqYqrmpNt9uTZSTpdP+EBm9/WaIXo4bIdgDXPFvebLbm6ZBZWMCr6NXGY4Q7G82nABAPRK4gMEkD76Ox8uU+jOhTIS+1gE6ZGRp9zbnlpSeRyUXjxHUy00VNZGbfN1N6R97wn7BVOtGapKeVo9RElWXw3ZrcZCfwUEh7sbkAChnWafCnPDKAWu9qztOfJAMP8wQmS45ud01y2wNKa8D1ci0lm2ODxhiKgfG+Yr18DX8WJsN3d/y2kumMzrFmPtCeISxUPw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FdfhEphug/ocRpRg69bu5daK7dedQM8NBydcgmWK9ik=;
+ b=B69s5Uzx/+e1zk8sWfnW++ifj3SdoCac/+GFSDEINy5Xz2/1u0Him8JE4dVA3SvbaAVPcQ4C4NzpFfvzCPOK4JgFHDa3UPlfuj+APqGft/5Ylm+ce/Losiu30gxBJ6ko4iagoXb29V/arEmdBfeQIpMcG5boOUj7wyhXNZ8CwwuiLra4KhiMvgmCnwr7QFE9wHmTxa+mrw+ErGMBQcSCh5VFZTEkoJ4mdbSbQ4wsPSwVvcdFz5uD0Nf3HiKWxj995e9pJFPY/bkNRJ+rov9hECuUcn1iaYV2f+u3nV5b1WeZDRYh7odArX9ABxkdNiY/qcsfixi1Ft7xRSPNauHQiA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by PH0PR12MB8174.namprd12.prod.outlook.com (2603:10b6:510:298::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Thu, 22 Jan
+ 2026 16:58:28 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9542.010; Thu, 22 Jan 2026
+ 16:58:28 +0000
+Date: Thu, 22 Jan 2026 12:58:27 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: dan.j.williams@intel.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	"Tian, Kevin" <kevin.tian@intel.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"praan@google.com" <praan@google.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	linux-cxl@vger.kernel.org
+Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Message-ID: <20260122165827.GS1134360@nvidia.com>
+References: <cover.1768624180.git.nicolinc@nvidia.com>
+ <d1768bb6384050a23769f20ca28216f520f77e26.1768624181.git.nicolinc@nvidia.com>
+ <BL1PR11MB5271F0BDC68C2D7F172122E98C96A@BL1PR11MB5271.namprd11.prod.outlook.com>
+ <20260121100307.00004e60@huawei.com>
+ <20260121130315.GE1134360@nvidia.com>
+ <6971b9406d069_1d33100df@dwillia2-mobl4.notmuch>
+ <20260122131432.GJ1134360@nvidia.com>
+ <aXJQVprkiMCWxDyp@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aXJQVprkiMCWxDyp@Asurada-Nvidia>
+X-ClientProxiedBy: MN0PR05CA0024.namprd05.prod.outlook.com
+ (2603:10b6:208:52c::32) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH0PR12MB8174:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5717b7b9-ba9c-4e94-8795-08de59d776fe
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7IomQ0pZ/Zb2N2UjOJz11Ay8s4PUg+GxnU1HPP6GMpzez/f2iYK7edgiKaOi?=
+ =?us-ascii?Q?tO4kr3eV1U4hVgj8Ipjqi8qy7/E+Ue+w7qUCSMQZx70tt4eb8q/JSaXfnZ3H?=
+ =?us-ascii?Q?2vpMiR857ID+Ub18tAE+fS6uZ0pkkZ6JpoheQsUzPaq/6yKJ8x3i5nNMyYfv?=
+ =?us-ascii?Q?ry6Y3WQWpmONRrgwwQPvMhvRBqIOXPskUgL34YoaPQ/+5LUvirNdnpu5fB5m?=
+ =?us-ascii?Q?ZzNXd4G9ZhmgBud70tNYcwyMcysogfSk/0nXls9gFDylN2sriNYKjS1FRYMt?=
+ =?us-ascii?Q?g3F8CX18hYuHHZRC4/mCHc6syugFpUKhLO6HiUL3KOIEmrl2Q9wT2mOcGL/k?=
+ =?us-ascii?Q?EH8Zr5uL/E8+h4Hs7pxNyLyiJpW16RllqPjdD523bkjMq7M1WZVWTOJmhy4g?=
+ =?us-ascii?Q?4ZMsXmnYW05z+qMZEujuRgbso+BohNxCm5DVfYl+o+ukEYCh7kTJYBW/JuVM?=
+ =?us-ascii?Q?Q+iLXjDMqCaVpTJM0fckHvJeyfyeKM567VPbsxbN4lL/ZvBUi333KOstp8YI?=
+ =?us-ascii?Q?ifRI/Lj/j82eDdCL7SVQ0IecsdzCjhqI6+SS/8Is2NJp9Jzkl3WsKE1MqLkJ?=
+ =?us-ascii?Q?EmbkAF9wFmQFHf2lS4J8wcwIZTiyFT5nDCHxhHMJHOZhzWga88iFAlsre6+0?=
+ =?us-ascii?Q?i3s4U4dpOkNYxKep4YYtqJwQHeP+Y6xGvHTvqNbPcypYKpVWhQgR7Wpb2vaZ?=
+ =?us-ascii?Q?RqFLNN+fr5nM78xKRmHL6mohudWO2pBNtAXGia/pBUAOzKQfrY6AbGy2VpvB?=
+ =?us-ascii?Q?9zHcNZO5aS8mjw5M4ZWIXUAdLdbCfk3PoSz2iKMijmPhCxZiUac+P2vFYUTq?=
+ =?us-ascii?Q?3TWxlbv8f7MumJ4FeLc5I7we+P76O2Efkaqk5N38t7M9pEmHypBqq97uJqB6?=
+ =?us-ascii?Q?/YlYfIFJgNpn3eESn89Th6Rxx0X14ekmQE2owEB5H8OZQLoZWOL+IRUIel//?=
+ =?us-ascii?Q?50/1D0QoqKFmpGSIhbGpxTFZ46DjwI87Tt7LWPF3WPIbh0Gbihejk1vgeBoY?=
+ =?us-ascii?Q?2Ezm9SIG0hrumTQTk2Iwavm2HBlA57Ui/PF+yrmnjzGXokdIn25EA18aFhEO?=
+ =?us-ascii?Q?FP3En5oENnDJUAbcSB5C49PkbhbTbPmxNM6r2VoYevYBVyn5BDyjPQ+vm1st?=
+ =?us-ascii?Q?+CPRfNHJAAD7PaYbUu7l4o8FZryBpn0/uXSqd1q0sd6Zs25I1cWu9ZtiOsWJ?=
+ =?us-ascii?Q?gkdtEzp2lsr1lTHgDQxDZHiOcyWN3NJA5zeerngG0gMVCdHZcOYyCKRB4xEC?=
+ =?us-ascii?Q?XaoWMdKtoQ6nFm5+/ytivJb+NS+RIPeRYNmIAAdSfPyiLkU47Kvo02U14T41?=
+ =?us-ascii?Q?Rm0lOp6xawZiYCqwFrD2cSGFyyyXn+UkuzIXYvEIY71h9SFQLWa3hXbdioiH?=
+ =?us-ascii?Q?tkRwJKEEj7dx9XWHX8fV/yWEIBRpjfkugdP8/12W1eX2FLWMNpV60AQK3MMK?=
+ =?us-ascii?Q?RAk+AaiAIiAxNXM/Cgh5fItH4v4BBUi4IN2W4qggqD5LOMwijeOpaASrGWrU?=
+ =?us-ascii?Q?yzjGNBTq9dtgcIRUlPVuFEI+JwW6006XBla2Y4gbeBwOLlHlPnOYAN20xTAg?=
+ =?us-ascii?Q?dIdJcqowJKY95xFFl08=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CC6uAKEKbrvNk0zXZeT5HE0Xi/TSPH2rwpXnGLzC3sblsMd9EPV9jC3X3gEX?=
+ =?us-ascii?Q?Z9KvR+/2k5LG7QzIzPjxobSnH78kYh6PdO80LTBawo2Y15cpBymCcFMhabsn?=
+ =?us-ascii?Q?U4BhWdbpGr5SMuzah+O2h7B3VKRlT7APIdc4LxtqOaDG85pWSIZM2+DCqL/z?=
+ =?us-ascii?Q?awTYGsQ5iQWBmQ2VeFQ6r5u4wjt20rjUOANecVV9a6hASoXXJUe6t/j/Vp73?=
+ =?us-ascii?Q?wCoykhsTlnr30C50raCk0GpjoGaM9j3g6pSb7Xxyaay0/+2rhtv0gH4s8LDM?=
+ =?us-ascii?Q?B8nTSxkBUdGy8knmuqpDrBH97+4oQQVUig36odve1ztx1Z1m5C6xw799K8H3?=
+ =?us-ascii?Q?9/AVMpsKxvB+SwS6iB0Bz6QHdX4Tpndwmix2hI+9V+ukV6ClT2u6bPgFYJrZ?=
+ =?us-ascii?Q?EtHgg5ttxhNHex1RgingkgJ86wf51jjxaI+YQ41OZfZf2lt7vQ1FvGAabUDD?=
+ =?us-ascii?Q?Bekfb9l+KINsXjDH0nxwT4o3X8aXh8RpbEW2cGNsRtks5Vx1q4mFC/xejpue?=
+ =?us-ascii?Q?YImtjssU0GypWA8mp0+n3aOZ09hBglQnYqQMy1/UiBqjDTFd8td97tpLI7mq?=
+ =?us-ascii?Q?e4zlQHbtEPt4nuAhidhZHfgRs/pUN4zQjYCqvyxU+VoxECJqKJuW/xEfsYaf?=
+ =?us-ascii?Q?RJUukBumT2CSmbe00C5VhnK1yaYTXCRNTPCVjOYC5hT+fIjgR6bW++fHzHj3?=
+ =?us-ascii?Q?B8AN6cuepgaswDiBShmC//F3uXZCaJZ2MNV7gWjOjzoauiY5vgoWs5MVuecZ?=
+ =?us-ascii?Q?15fspfad+NSZxHS8Z1eif9zYqGX+PVpQFT/283tPl5xfUwXZb+JVF0rEL1Mw?=
+ =?us-ascii?Q?HNd0wida/OcW/FEhb81WbS0WYjEphr4z1XV5VTxHv9umP289xc/LyDgmMFxC?=
+ =?us-ascii?Q?IMv0nrBx0036UH9jPL6RKO7b361CpeZ8PpR6JmSeGlUweIBO2rhkwXzAzlAV?=
+ =?us-ascii?Q?6InQa644QRXhHf56bIXyBzG7aDZgbK9UvOPjC6xTQy+yaxSJf/9LSCaotBOs?=
+ =?us-ascii?Q?elYCCzteEioKITI6fWK2LAbPK1wfllr3MTjnWLJ/X1zd7PkUcOuJW3JdzOmi?=
+ =?us-ascii?Q?u37bs+9wzUGld3hXkBT+8IMD5EGyAmAk31e52bXedmmOjIRZ5C6x1LWq8yoG?=
+ =?us-ascii?Q?TmYVDoGz+Z0Q8vWeyQ8E/4CAibtaUdBh8ek0cnOOe1Ie2VWwerbA5BN3D11M?=
+ =?us-ascii?Q?7SUZAaxBR50hmLOU7OJFi2k7nRrG0XuiQ8+DZ89OcgUjeXwD8t6m9V8i3yrH?=
+ =?us-ascii?Q?+g/EL2TukR0t46V78OJdNRDFrFwKX8Y3Crc3mVSLQigz1TT0MbDC1U7CPPh3?=
+ =?us-ascii?Q?YU5ROPUFhk71uE8d4W69xZmKRGM+T2gu42fc/AAaS1a2Tp+8wl4HRIq0l/sd?=
+ =?us-ascii?Q?d3rR8WqYe49hwOARe6HmOrCw71ARj4jux0UFpQsHdA9QnEPrqcAGXwAXhWiu?=
+ =?us-ascii?Q?Q9+XraGI6KeaBV1r8AZ0nXDqxoLmWhfE2TcTohwyWlwfnwlBLLdXhQHSuCO3?=
+ =?us-ascii?Q?jkBVQ0wr4FrdVFoU41x8tkx69aI1L96f0bdUwZ10QNSAHpZxW9VlefMz7G7f?=
+ =?us-ascii?Q?RrWOrIFSrHTzPnhcPgSQVj7gVSix4zwD2kNJDKtsA+EnTKNLhrPUTW28Sqe2?=
+ =?us-ascii?Q?gJok3EUJNDVHSS99vcOXFgAOHx8E7N9Z7vSQOcS1Z0dd7A8IXMrlmKm4OtjA?=
+ =?us-ascii?Q?wcXDN000V2moWPrdawoWYx2Je99dMfra4tpfdrJCYRBLJU6/ezMDLbBLT7zn?=
+ =?us-ascii?Q?nZHR2Jyw0A=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5717b7b9-ba9c-4e94-8795-08de59d776fe
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 16:58:28.4162
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: r9fD8gVbHh3RaN35WqeXVfxfRo6V72+0HVJODacNHQxxETFij1qXXiG8xfKeqoTS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8174
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_165432_025105_ED96A48F 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20260122_085849_270960_10FB4C5F 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,1086 +182,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the arch instructions.c files into appropriately named files in
-annotate-arch in the util directory. Don't #include to compile the
-code, switch to building the files and fix up the #includes
-accordingly. Move powerpc specific disasm code out of disasm.c and
-into annotate-powerpc.c. Declarations and static removed as
-appropriate for the code to compile as separate compilation units. The
-e_machine and e_flags set up is moved to the disasm.c architectures
-array so that later patches can sort by them.
+On Thu, Jan 22, 2026 at 08:29:10AM -0800, Nicolin Chen wrote:
+> On Thu, Jan 22, 2026 at 09:14:32AM -0400, Jason Gunthorpe wrote:
+> > On Wed, Jan 21, 2026 at 09:44:32PM -0800, dan.j.williams@intel.com wrote:
+> > > "We have a less than perfect legacy way (PCI untrusted flag) to nod at
+> > >  ATS security problems. Let us ignore even that for a new class of
+> > >  devices that advertise they can trigger all the old security problems
+> > >  plus new ones."
+> > 
+> > Ah, I missed that we are already force disabling ATS in this untrusted
+> > case, so we should ensure that continues to be the case here
+> > too. Nicolin does it need a change?
+> 
+> pci_ats_always_on() validates against !pci_ats_supported(pdev), so
+> we ensured that untrusted devices would not be always on.
+> 
+> Perhaps we should highlight in the commit message, as it's a topic?
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/util/Build                         |   1 +
- tools/perf/util/annotate-arch/Build           |  11 +
- .../annotate-arch/annotate-arc.c}             |   5 +-
- .../annotate-arch/annotate-arm.c}             |   9 +-
- .../annotate-arch/annotate-arm64.c}           |  14 +-
- .../annotate-arch/annotate-csky.c}            |  11 +-
- .../annotate-arch/annotate-loongarch.c}       |  15 +-
- .../annotate-arch/annotate-mips.c}            |   6 +-
- .../annotate-arch/annotate-powerpc.c}         | 105 ++++++++-
- .../annotate-arch/annotate-riscv64.c}         |   6 +-
- .../annotate-arch/annotate-s390.c}            |  15 +-
- .../annotate-arch/annotate-sparc.c}           |   7 +-
- .../annotate-arch/annotate-x86.c}             |  85 +++++---
- tools/perf/util/disasm.c                      | 199 ++++--------------
- tools/perf/util/disasm.h                      |  38 ++++
- 15 files changed, 289 insertions(+), 238 deletions(-)
- create mode 100644 tools/perf/util/annotate-arch/Build
- rename tools/perf/{arch/arc/annotate/instructions.c => util/annotate-arch/annotate-arc.c} (53%)
- rename tools/perf/{arch/arm/annotate/instructions.c => util/annotate-arch/annotate-arm.c} (90%)
- rename tools/perf/{arch/arm64/annotate/instructions.c => util/annotate-arch/annotate-arm64.c} (90%)
- rename tools/perf/{arch/csky/annotate/instructions.c => util/annotate-arch/annotate-csky.c} (83%)
- rename tools/perf/{arch/loongarch/annotate/instructions.c => util/annotate-arch/annotate-loongarch.c} (93%)
- rename tools/perf/{arch/mips/annotate/instructions.c => util/annotate-arch/annotate-mips.c} (94%)
- rename tools/perf/{arch/powerpc/annotate/instructions.c => util/annotate-arch/annotate-powerpc.c} (76%)
- rename tools/perf/{arch/riscv64/annotate/instructions.c => util/annotate-arch/annotate-riscv64.c} (91%)
- rename tools/perf/{arch/s390/annotate/instructions.c => util/annotate-arch/annotate-s390.c} (91%)
- rename tools/perf/{arch/sparc/annotate/instructions.c => util/annotate-arch/annotate-sparc.c} (96%)
- rename tools/perf/{arch/x86/annotate/instructions.c => util/annotate-arch/annotate-x86.c} (97%)
+Yes
 
-diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-index c30ff257f8b4..b9925c6902ca 100644
---- a/tools/perf/util/Build
-+++ b/tools/perf/util/Build
-@@ -1,6 +1,7 @@
- include $(srctree)/tools/scripts/Makefile.include
- include $(srctree)/tools/scripts/utilities.mak
- 
-+perf-util-y += annotate-arch/
- perf-util-y += arm64-frame-pointer-unwind-support.o
- perf-util-y += addr2line.o
- perf-util-y += addr_location.o
-diff --git a/tools/perf/util/annotate-arch/Build b/tools/perf/util/annotate-arch/Build
-new file mode 100644
-index 000000000000..23316743fdc5
---- /dev/null
-+++ b/tools/perf/util/annotate-arch/Build
-@@ -0,0 +1,11 @@
-+perf-util-y += annotate-arc.o
-+perf-util-y += annotate-arm.o
-+perf-util-y += annotate-arm64.o
-+perf-util-y += annotate-csky.o
-+perf-util-y += annotate-loongarch.o
-+perf-util-y += annotate-mips.o
-+perf-util-y += annotate-x86.o
-+perf-util-y += annotate-powerpc.o
-+perf-util-y += annotate-riscv64.o
-+perf-util-y += annotate-s390.o
-+perf-util-y += annotate-sparc.o
-diff --git a/tools/perf/arch/arc/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-arc.c
-similarity index 53%
-rename from tools/perf/arch/arc/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-arc.c
-index e5619770a1af..d7ca08ca5600 100644
---- a/tools/perf/arch/arc/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-arc.c
-@@ -1,11 +1,10 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <linux/compiler.h>
-+#include "../disasm.h"
- 
--static int arc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int arc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	arch->initialized = true;
- 	arch->objdump.comment_char = ';';
--	arch->e_machine = EM_ARC;
--	arch->e_flags = 0;
- 	return 0;
- }
-diff --git a/tools/perf/arch/arm/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-arm.c
-similarity index 90%
-rename from tools/perf/arch/arm/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-arm.c
-index b997d127fedd..08c49067c3c9 100644
---- a/tools/perf/arch/arm/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-arm.c
-@@ -1,10 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <stdlib.h>
- #include <linux/compiler.h>
- #include <linux/zalloc.h>
- #include <errno.h>
--#include <sys/types.h>
- #include <regex.h>
--#include <stdlib.h>
-+#include "../annotate.h"
-+#include "../disasm.h"
- 
- struct arm_annotate {
- 	regex_t call_insn,
-@@ -28,7 +29,7 @@ static const struct ins_ops *arm__associate_instruction_ops(struct arch *arch, c
- 	return ops;
- }
- 
--static int arm__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int arm__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	struct arm_annotate *arm;
- 	int err;
-@@ -54,8 +55,6 @@ static int arm__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- 	arch->associate_instruction_ops   = arm__associate_instruction_ops;
- 	arch->objdump.comment_char	  = ';';
- 	arch->objdump.skip_functions_char = '+';
--	arch->e_machine = EM_ARM;
--	arch->e_flags = 0;
- 	return 0;
- 
- out_free_call:
-diff --git a/tools/perf/arch/arm64/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-arm64.c
-similarity index 90%
-rename from tools/perf/arch/arm64/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-arm64.c
-index 44db33854dba..d2ea32984b0d 100644
---- a/tools/perf/arch/arm64/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-arm64.c
-@@ -1,9 +1,12 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <linux/compiler.h>
- #include <errno.h>
--#include <sys/types.h>
--#include <regex.h>
- #include <stdlib.h>
-+#include <string.h>
-+#include <linux/zalloc.h>
-+#include <regex.h>
-+#include "../annotate.h"
-+#include "../disasm.h"
- 
- struct arm64_annotate {
- 	regex_t call_insn,
-@@ -60,9 +63,6 @@ static int arm64_mov__parse(const struct arch *arch __maybe_unused,
- 	return -1;
- }
- 
--static int mov__scnprintf(const struct ins *ins, char *bf, size_t size,
--			  struct ins_operands *ops, int max_ins_name);
--
- static const struct ins_ops arm64_mov_ops = {
- 	.parse	   = arm64_mov__parse,
- 	.scnprintf = mov__scnprintf,
-@@ -87,7 +87,7 @@ static const struct ins_ops *arm64__associate_instruction_ops(struct arch *arch,
- 	return ops;
- }
- 
--static int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	struct arm64_annotate *arm;
- 	int err;
-@@ -114,8 +114,6 @@ static int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- 	arch->associate_instruction_ops   = arm64__associate_instruction_ops;
- 	arch->objdump.comment_char	  = '/';
- 	arch->objdump.skip_functions_char = '+';
--	arch->e_machine = EM_AARCH64;
--	arch->e_flags = 0;
- 	return 0;
- 
- out_free_call:
-diff --git a/tools/perf/arch/csky/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-csky.c
-similarity index 83%
-rename from tools/perf/arch/csky/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-csky.c
-index 4a55c84a320a..0b0b09b068ec 100644
---- a/tools/perf/arch/csky/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-csky.c
-@@ -1,7 +1,8 @@
- // SPDX-License-Identifier: GPL-2.0
- // Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd.
--
-+#include <string.h>
- #include <linux/compiler.h>
-+#include "../disasm.h"
- 
- static const struct ins_ops *csky__associate_ins_ops(struct arch *arch,
- 						     const char *name)
-@@ -38,16 +39,10 @@ static const struct ins_ops *csky__associate_ins_ops(struct arch *arch,
- 	return ops;
- }
- 
--static int csky__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int csky__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	arch->initialized = true;
- 	arch->objdump.comment_char = '/';
- 	arch->associate_instruction_ops = csky__associate_ins_ops;
--	arch->e_machine = EM_CSKY;
--#if defined(__CSKYABIV2__)
--	arch->e_flags = EF_CSKY_ABIV2;
--#else
--	arch->e_flags = EF_CSKY_ABIV1;
--#endif
- 	return 0;
- }
-diff --git a/tools/perf/arch/loongarch/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-loongarch.c
-similarity index 93%
-rename from tools/perf/arch/loongarch/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-loongarch.c
-index 5010d5d58375..32df10f6fed5 100644
---- a/tools/perf/arch/loongarch/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-loongarch.c
-@@ -4,11 +4,17 @@
-  *
-  * Copyright (C) 2020-2023 Loongson Technology Corporation Limited
-  */
-+#include <stdlib.h>
-+#include <string.h>
-+#include <linux/compiler.h>
-+#include "../disasm.h"
-+#include "../map.h"
-+#include "../maps.h"
-+#include "../symbol.h"
- 
- static int loongarch_call__parse(const struct arch *arch, struct ins_operands *ops,
- 				 struct map_symbol *ms,
- 				 struct disasm_line *dl __maybe_unused)
--
- {
- 	char *c, *endptr, *tok, *name;
- 	struct map *map = ms->map;
-@@ -51,7 +57,7 @@ static int loongarch_call__parse(const struct arch *arch, struct ins_operands *o
- 	return 0;
- }
- 
--static const struct ins_ops loongarch_call_ops = {
-+const struct ins_ops loongarch_call_ops = {
- 	.parse	   = loongarch_call__parse,
- 	.scnprintf = call__scnprintf,
- };
-@@ -100,7 +106,7 @@ static int loongarch_jump__parse(const struct arch *arch, struct ins_operands *o
- 	return 0;
- }
- 
--static const struct ins_ops loongarch_jump_ops = {
-+const struct ins_ops loongarch_jump_ops = {
- 	.parse	   = loongarch_jump__parse,
- 	.scnprintf = jump__scnprintf,
- };
-@@ -130,15 +136,12 @@ const struct ins_ops *loongarch__associate_ins_ops(struct arch *arch, const char
- 	return ops;
- }
- 
--static
- int loongarch__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	if (!arch->initialized) {
- 		arch->associate_instruction_ops = loongarch__associate_ins_ops;
- 		arch->initialized = true;
- 		arch->objdump.comment_char = '#';
--		arch->e_machine = EM_LOONGARCH;
--		arch->e_flags = 0;
- 	}
- 
- 	return 0;
-diff --git a/tools/perf/arch/mips/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-mips.c
-similarity index 94%
-rename from tools/perf/arch/mips/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-mips.c
-index 0fbe0a7df95a..f14b34ed77d3 100644
---- a/tools/perf/arch/mips/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-mips.c
-@@ -1,4 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <string.h>
-+#include <linux/compiler.h>
-+#include "../disasm.h"
- 
- static
- const struct ins_ops *mips__associate_ins_ops(struct arch *arch, const char *name)
-@@ -33,15 +36,12 @@ const struct ins_ops *mips__associate_ins_ops(struct arch *arch, const char *nam
- 	return ops;
- }
- 
--static
- int mips__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	if (!arch->initialized) {
- 		arch->associate_instruction_ops = mips__associate_ins_ops;
- 		arch->initialized = true;
- 		arch->objdump.comment_char = '#';
--		arch->e_machine = EM_MIPS;
--		arch->e_flags = 0;
- 	}
- 
- 	return 0;
-diff --git a/tools/perf/arch/powerpc/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-powerpc.c
-similarity index 76%
-rename from tools/perf/arch/powerpc/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-powerpc.c
-index d1be55425e35..593c138c8104 100644
---- a/tools/perf/arch/powerpc/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-powerpc.c
-@@ -1,5 +1,97 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <string.h>
- #include <linux/compiler.h>
-+#include <linux/kernel.h>
-+#include "../annotate-data.h"
-+#include "../debug.h"
-+#include "../disasm.h"
-+
-+#define PPC_OP(op)	(((op) >> 26) & 0x3F)
-+#define PPC_21_30(R)	(((R) >> 1) & 0x3ff)
-+#define PPC_22_30(R)	(((R) >> 1) & 0x1ff)
-+
-+#define MINUS_EXT_XO_FORM	234
-+#define SUB_EXT_XO_FORM		232
-+#define	ADD_ZERO_EXT_XO_FORM	202
-+#define	SUB_ZERO_EXT_XO_FORM	200
-+
-+static int arithmetic__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		struct ins_operands *ops, int max_ins_name)
-+{
-+	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name,
-+			ops->raw);
-+}
-+
-+/*
-+ * Sets the fields: multi_regs and "mem_ref".
-+ * "mem_ref" is set for ops->source which is later used to
-+ * fill the objdump->memory_ref-char field. This ops is currently
-+ * used by powerpc and since binary instruction code is used to
-+ * extract opcode, regs and offset, no other parsing is needed here.
-+ *
-+ * Dont set multi regs for 4 cases since it has only one operand
-+ * for source:
-+ * - Add to Minus One Extended XO-form ( Ex: addme, addmeo )
-+ * - Subtract From Minus One Extended XO-form ( Ex: subfme )
-+ * - Add to Zero Extended XO-form ( Ex: addze, addzeo )
-+ * - Subtract From Zero Extended XO-form ( Ex: subfze )
-+ */
-+static int arithmetic__parse(const struct arch *arch __maybe_unused, struct ins_operands *ops,
-+		struct map_symbol *ms __maybe_unused, struct disasm_line *dl)
-+{
-+	int opcode = PPC_OP(dl->raw.raw_insn);
-+
-+	ops->source.mem_ref = false;
-+	if (opcode == 31) {
-+		if ((opcode != MINUS_EXT_XO_FORM) && (opcode != SUB_EXT_XO_FORM) &&
-+		    (opcode != ADD_ZERO_EXT_XO_FORM) && (opcode != SUB_ZERO_EXT_XO_FORM))
-+			ops->source.multi_regs = true;
-+	}
-+
-+	ops->target.mem_ref = false;
-+	ops->target.multi_regs = false;
-+
-+	return 0;
-+}
-+
-+static const struct ins_ops arithmetic_ops = {
-+	.parse     = arithmetic__parse,
-+	.scnprintf = arithmetic__scnprintf,
-+};
-+
-+static int load_store__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		struct ins_operands *ops, int max_ins_name)
-+{
-+	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name,
-+			ops->raw);
-+}
-+
-+/*
-+ * Sets the fields: multi_regs and "mem_ref".
-+ * "mem_ref" is set for ops->source which is later used to
-+ * fill the objdump->memory_ref-char field. This ops is currently
-+ * used by powerpc and since binary instruction code is used to
-+ * extract opcode, regs and offset, no other parsing is needed here
-+ */
-+static int load_store__parse(const struct arch *arch __maybe_unused, struct ins_operands *ops,
-+		struct map_symbol *ms __maybe_unused, struct disasm_line *dl __maybe_unused)
-+{
-+	ops->source.mem_ref = true;
-+	ops->source.multi_regs = false;
-+	/* opcode 31 is of X form */
-+	if (PPC_OP(dl->raw.raw_insn) == 31)
-+		ops->source.multi_regs = true;
-+
-+	ops->target.mem_ref = false;
-+	ops->target.multi_regs = false;
-+
-+	return 0;
-+}
-+
-+static const struct ins_ops load_store_ops = {
-+	.parse     = load_store__parse,
-+	.scnprintf = load_store__scnprintf,
-+};
- 
- static const struct ins_ops *powerpc__associate_instruction_ops(struct arch *arch, const char *name)
- {
-@@ -49,10 +141,6 @@ static const struct ins_ops *powerpc__associate_instruction_ops(struct arch *arc
- 	return ops;
- }
- 
--#define PPC_OP(op)	(((op) >> 26) & 0x3F)
--#define PPC_21_30(R)	(((R) >> 1) & 0x3ff)
--#define PPC_22_30(R)	(((R) >> 1) & 0x1ff)
--
- struct insn_offset {
- 	const char	*name;
- 	int		value;
-@@ -189,7 +277,7 @@ static int cmp_offset(const void *a, const void *b)
- 	return (val1->value - val2->value);
- }
- 
--static const struct ins_ops *check_ppc_insn(struct disasm_line *dl)
-+const struct ins_ops *check_ppc_insn(struct disasm_line *dl)
- {
- 	int raw_insn = dl->raw.raw_insn;
- 	int opcode = PPC_OP(raw_insn);
-@@ -302,15 +390,16 @@ static void update_insn_state_powerpc(struct type_state *state,
- }
- #endif /* HAVE_LIBDW_SUPPORT */
- 
--static int powerpc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int powerpc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	if (!arch->initialized) {
- 		arch->initialized = true;
- 		arch->associate_instruction_ops = powerpc__associate_instruction_ops;
- 		arch->objdump.comment_char      = '#';
- 		annotate_opts.show_asm_raw = true;
--		arch->e_machine = EM_PPC;
--		arch->e_flags = 0;
-+#ifdef HAVE_LIBDW_SUPPORT
-+		arch->update_insn_state = update_insn_state_powerpc;
-+#endif
- 	}
- 
- 	return 0;
-diff --git a/tools/perf/arch/riscv64/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-riscv64.c
-similarity index 91%
-rename from tools/perf/arch/riscv64/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-riscv64.c
-index a34798864fab..15526824037a 100644
---- a/tools/perf/arch/riscv64/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-riscv64.c
-@@ -1,4 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <string.h>
-+#include <linux/compiler.h>
-+#include "../disasm.h"
- 
- static
- const struct ins_ops *riscv64__associate_ins_ops(struct arch *arch, const char *name)
-@@ -21,15 +24,12 @@ const struct ins_ops *riscv64__associate_ins_ops(struct arch *arch, const char *
- 	return ops;
- }
- 
--static
- int riscv64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	if (!arch->initialized) {
- 		arch->associate_instruction_ops = riscv64__associate_ins_ops;
- 		arch->initialized = true;
- 		arch->objdump.comment_char = '#';
--		arch->e_machine = EM_RISCV;
--		arch->e_flags = 0;
- 	}
- 
- 	return 0;
-diff --git a/tools/perf/arch/s390/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-s390.c
-similarity index 91%
-rename from tools/perf/arch/s390/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-s390.c
-index 1b22e6276e7d..81db102b3e15 100644
---- a/tools/perf/arch/s390/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-s390.c
-@@ -1,5 +1,13 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <string.h>
- #include <linux/compiler.h>
-+#include "../debug.h"
-+#include "../disasm.h"
-+#include "../map.h"
-+#include "../maps.h"
-+#include "../symbol.h"
-+#include "../annotate.h"
-+#include "../annotate-data.h"
- 
- static int s390_call__parse(const struct arch *arch, struct ins_operands *ops,
- 			    struct map_symbol *ms,
-@@ -49,7 +57,7 @@ static int s390_call__parse(const struct arch *arch, struct ins_operands *ops,
- 	return 0;
- }
- 
--static const struct ins_ops s390_call_ops = {
-+const struct ins_ops s390_call_ops = {
- 	.parse	   = s390_call__parse,
- 	.scnprintf = call__scnprintf,
- };
-@@ -159,7 +167,7 @@ static int s390__cpuid_parse(struct arch *arch, char *cpuid)
- 	return -1;
- }
- 
--static int s390__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int s390__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	int err = 0;
- 
-@@ -170,8 +178,7 @@ static int s390__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- 			if (s390__cpuid_parse(arch, cpuid))
- 				err = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
- 		}
--		arch->e_machine = EM_S390;
--		arch->e_flags = 0;
-+		arch->objdump.comment_char = '#';
- 	}
- 
- 	return err;
-diff --git a/tools/perf/arch/sparc/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-sparc.c
-similarity index 96%
-rename from tools/perf/arch/sparc/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-sparc.c
-index a08d8734c883..66a0174376dd 100644
---- a/tools/perf/arch/sparc/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-sparc.c
-@@ -1,4 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <string.h>
-+#include <linux/compiler.h>
-+#include "../../util/disasm.h"
- 
- static int is_branch_cond(const char *cond)
- {
-@@ -157,14 +160,12 @@ static const struct ins_ops *sparc__associate_instruction_ops(struct arch *arch,
- 	return ops;
- }
- 
--static int sparc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int sparc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	if (!arch->initialized) {
- 		arch->initialized = true;
- 		arch->associate_instruction_ops = sparc__associate_instruction_ops;
- 		arch->objdump.comment_char = '#';
--		arch->e_machine = EM_SPARC;
--		arch->e_flags = 0;
- 	}
- 
- 	return 0;
-diff --git a/tools/perf/arch/x86/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-x86.c
-similarity index 97%
-rename from tools/perf/arch/x86/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-x86.c
-index ffca3029388b..0c7957fe60da 100644
---- a/tools/perf/arch/x86/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-x86.c
-@@ -1,4 +1,16 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <string.h>
-+#include <linux/compiler.h>
-+#include <assert.h>
-+#include <inttypes.h>
-+#include "../annotate-data.h"
-+#include "../debug.h"
-+#include "../disasm.h"
-+#include "../dso.h"
-+#include "../map.h"
-+#include "../string2.h" // strstarts
-+#include "../symbol.h"
-+
- /*
-  * x86 instruction nmemonic table to parse disasm lines for annotate.
-  * This table is searched twice - one for exact match and another for
-@@ -191,37 +203,6 @@ static int x86__cpuid_parse(struct arch *arch, char *cpuid)
- 	return -1;
- }
- 
--static int x86__annotate_init(struct arch *arch, char *cpuid)
--{
--	int err = 0;
--
--	if (arch->initialized)
--		return 0;
--
--	if (cpuid) {
--		if (x86__cpuid_parse(arch, cpuid))
--			err = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
--	}
--
--#ifndef NDEBUG
--	{
--		static bool sorted_check;
--
--		if (!sorted_check) {
--			for (size_t i = 0; i < arch->nr_instructions - 1; i++) {
--				assert(strcmp(arch->instructions[i].name,
--					      arch->instructions[i + 1].name) <= 0);
--			}
--			sorted_check = true;
--		}
--	}
--#endif
--	arch->e_machine = EM_X86_64;
--	arch->e_flags = 0;
--	arch->initialized = true;
--	return err;
--}
--
- #ifdef HAVE_LIBDW_SUPPORT
- static void update_insn_state_x86(struct type_state *state,
- 				  struct data_loc_info *dloc, Dwarf_Die *cu_die,
-@@ -795,3 +776,45 @@ static void update_insn_state_x86(struct type_state *state,
- 	/* Case 4. memory to memory transfers (not handled for now) */
- }
- #endif
-+
-+int x86__annotate_init(struct arch *arch, char *cpuid)
-+{
-+	int err = 0;
-+
-+	if (arch->initialized)
-+		return 0;
-+
-+	if (cpuid) {
-+		if (x86__cpuid_parse(arch, cpuid))
-+			err = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
-+	}
-+
-+	arch->instructions = x86__instructions;
-+	arch->nr_instructions = ARRAY_SIZE(x86__instructions);
-+#ifndef NDEBUG
-+	{
-+		static bool sorted_check;
-+
-+		if (!sorted_check) {
-+			for (size_t i = 0; i < arch->nr_instructions - 1; i++) {
-+				assert(strcmp(arch->instructions[i].name,
-+					      arch->instructions[i + 1].name) <= 0);
-+			}
-+			sorted_check = true;
-+		}
-+	}
-+#endif
-+	arch->sorted_instructions = true;
-+	arch->objdump.comment_char = '#';
-+	arch->objdump.register_char = '%';
-+	arch->objdump.memory_ref_char = '(';
-+	arch->objdump.imm_char = '$';
-+	arch->insn_suffix = "bwlq";
-+	arch->e_machine = EM_X86_64;
-+	arch->e_flags = 0;
-+	arch->initialized = true;
-+#ifdef HAVE_LIBDW_SUPPORT
-+	arch->update_insn_state = update_insn_state_x86;
-+#endif
-+	return err;
-+}
-diff --git a/tools/perf/util/disasm.c b/tools/perf/util/disasm.c
-index b7523256c4ad..845c2d0f39b1 100644
---- a/tools/perf/util/disasm.c
-+++ b/tools/perf/util/disasm.c
-@@ -33,20 +33,15 @@
- static regex_t	 file_lineno;
- 
- /* These can be referred from the arch-dependent code */
--static const struct ins_ops call_ops;
--static const struct ins_ops dec_ops;
--static const struct ins_ops jump_ops;
--static const struct ins_ops mov_ops;
--static const struct ins_ops nop_ops;
--static const struct ins_ops lock_ops;
--static const struct ins_ops ret_ops;
--static const struct ins_ops load_store_ops;
--static const struct ins_ops arithmetic_ops;
--
--static int jump__scnprintf(const struct ins *ins, char *bf, size_t size,
--			   struct ins_operands *ops, int max_ins_name);
--static int call__scnprintf(const struct ins *ins, char *bf, size_t size,
--			   struct ins_operands *ops, int max_ins_name);
-+const struct ins_ops call_ops;
-+const struct ins_ops dec_ops;
-+const struct ins_ops jump_ops;
-+const struct ins_ops mov_ops;
-+const struct ins_ops nop_ops;
-+const struct ins_ops lock_ops;
-+const struct ins_ops ret_ops;
-+const struct ins_ops load_store_ops;
-+const struct ins_ops arithmetic_ops;
- 
- static void ins__sort(struct arch *arch);
- static int disasm_line__parse(char *line, const char **namep, char **rawp);
-@@ -86,7 +81,7 @@ static int arch__grow_instructions(struct arch *arch)
- 	goto out_update_instructions;
- }
- 
--static int arch__associate_ins_ops(struct arch *arch, const char *name, const struct ins_ops *ops)
-+int arch__associate_ins_ops(struct arch *arch, const char *name, const struct ins_ops *ops)
- {
- 	struct ins *ins;
- 
-@@ -106,90 +101,66 @@ static int arch__associate_ins_ops(struct arch *arch, const char *name, const st
- 	return 0;
- }
- 
--#include "arch/arc/annotate/instructions.c"
--#include "arch/arm/annotate/instructions.c"
--#include "arch/arm64/annotate/instructions.c"
--#include "arch/csky/annotate/instructions.c"
--#include "arch/loongarch/annotate/instructions.c"
--#include "arch/mips/annotate/instructions.c"
--#include "arch/x86/annotate/instructions.c"
--#include "arch/powerpc/annotate/instructions.c"
--#include "arch/riscv64/annotate/instructions.c"
--#include "arch/s390/annotate/instructions.c"
--#include "arch/sparc/annotate/instructions.c"
--
- static struct arch architectures[] = {
- 	{
- 		.name = "arc",
- 		.init = arc__annotate_init,
-+		.e_machine = EM_ARC,
- 	},
- 	{
- 		.name = "arm",
- 		.init = arm__annotate_init,
-+		.e_machine = EM_ARM,
- 	},
- 	{
- 		.name = "arm64",
- 		.init = arm64__annotate_init,
-+		.e_machine = EM_AARCH64,
- 	},
- 	{
- 		.name = "csky",
- 		.init = csky__annotate_init,
-+		.e_machine = EM_CSKY,
-+#if defined(__CSKYABIV2__)
-+		.e_flags = EF_CSKY_ABIV2,
-+#else
-+		.e_flags = EF_CSKY_ABIV1,
-+#endif
- 	},
- 	{
- 		.name = "mips",
- 		.init = mips__annotate_init,
--		.objdump = {
--			.comment_char = '#',
--		},
-+		.e_machine = EM_MIPS,
- 	},
- 	{
- 		.name = "x86",
- 		.init = x86__annotate_init,
--		.instructions = x86__instructions,
--		.nr_instructions = ARRAY_SIZE(x86__instructions),
--		.sorted_instructions = true,
--		.insn_suffix = "bwlq",
--		.objdump =  {
--			.comment_char = '#',
--			.register_char = '%',
--			.memory_ref_char = '(',
--			.imm_char = '$',
--		},
--#ifdef HAVE_LIBDW_SUPPORT
--		.update_insn_state = update_insn_state_x86,
--#endif
-+		.e_machine = EM_X86_64, // TODO: EM_386 too.
- 	},
- 	{
- 		.name = "powerpc",
- 		.init = powerpc__annotate_init,
--#ifdef HAVE_LIBDW_SUPPORT
--		.update_insn_state = update_insn_state_powerpc,
--#endif
-+		.e_machine = EM_PPC, // TODO: EM_PPC64 too.
- 	},
- 	{
- 		.name = "riscv64",
- 		.init = riscv64__annotate_init,
-+		.e_machine = EM_RISCV,
- 	},
- 	{
- 		.name = "s390",
- 		.init = s390__annotate_init,
--		.objdump =  {
--			.comment_char = '#',
--		},
-+		.e_machine = EM_S390,
- 	},
- 	{
- 		.name = "sparc",
- 		.init = sparc__annotate_init,
--		.objdump = {
--			.comment_char = '#',
--		},
-+		.e_machine = EM_SPARC,
- 	},
- 	{
- 		.name = "loongarch",
- 		.init = loongarch__annotate_init,
--		.objdump = {
--			.comment_char = '#',
--		},
-+		.e_machine = EM_LOONGARCH,
- 	},
- };
- 
-@@ -248,14 +219,14 @@ static void ins_ops__delete(struct ins_operands *ops)
- 	zfree(&ops->target.name);
- }
- 
--static int ins__raw_scnprintf(const struct ins *ins, char *bf, size_t size,
--			      struct ins_operands *ops, int max_ins_name)
-+int ins__raw_scnprintf(const struct ins *ins, char *bf, size_t size,
-+			   struct ins_operands *ops, int max_ins_name)
- {
- 	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name, ops->raw);
- }
- 
--static int ins__scnprintf(const struct ins *ins, char *bf, size_t size,
--			  struct ins_operands *ops, int max_ins_name)
-+int ins__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		   struct ins_operands *ops, int max_ins_name)
- {
- 	if (ins->ops->scnprintf)
- 		return ins->ops->scnprintf(ins, bf, size, ops, max_ins_name);
-@@ -326,8 +297,8 @@ static int call__parse(const struct arch *arch, struct ins_operands *ops, struct
- 	goto find_target;
- }
- 
--static int call__scnprintf(const struct ins *ins, char *bf, size_t size,
--			   struct ins_operands *ops, int max_ins_name)
-+int call__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		      struct ins_operands *ops, int max_ins_name)
- {
- 	if (ops->target.sym)
- 		return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name, ops->target.sym->name);
-@@ -341,7 +312,7 @@ static int call__scnprintf(const struct ins *ins, char *bf, size_t size,
- 	return scnprintf(bf, size, "%-*s *%" PRIx64, max_ins_name, ins->name, ops->target.addr);
- }
- 
--static const struct ins_ops call_ops = {
-+const struct ins_ops call_ops = {
- 	.parse	   = call__parse,
- 	.scnprintf = call__scnprintf,
- };
-@@ -453,8 +424,8 @@ static int jump__parse(const struct arch *arch, struct ins_operands *ops, struct
- 	return 0;
- }
- 
--static int jump__scnprintf(const struct ins *ins, char *bf, size_t size,
--			   struct ins_operands *ops, int max_ins_name)
-+int jump__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		      struct ins_operands *ops, int max_ins_name)
- {
- 	const char *c;
- 
-@@ -494,7 +465,7 @@ static void jump__delete(struct ins_operands *ops __maybe_unused)
- 	 */
- }
- 
--static const struct ins_ops jump_ops = {
-+const struct ins_ops jump_ops = {
- 	.free	   = jump__delete,
- 	.parse	   = jump__parse,
- 	.scnprintf = jump__scnprintf,
-@@ -586,7 +557,7 @@ static void lock__delete(struct ins_operands *ops)
- 	zfree(&ops->target.name);
- }
- 
--static const struct ins_ops lock_ops = {
-+const struct ins_ops lock_ops = {
- 	.free	   = lock__delete,
- 	.parse	   = lock__parse,
- 	.scnprintf = lock__scnprintf,
-@@ -687,103 +658,19 @@ static int mov__parse(const struct arch *arch, struct ins_operands *ops,
- 	return -1;
- }
- 
--static int mov__scnprintf(const struct ins *ins, char *bf, size_t size,
--			   struct ins_operands *ops, int max_ins_name)
-+int mov__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		     struct ins_operands *ops, int max_ins_name)
- {
- 	return scnprintf(bf, size, "%-*s %s,%s", max_ins_name, ins->name,
- 			 ops->source.name ?: ops->source.raw,
- 			 ops->target.name ?: ops->target.raw);
- }
- 
--static const struct ins_ops mov_ops = {
-+const struct ins_ops mov_ops = {
- 	.parse	   = mov__parse,
- 	.scnprintf = mov__scnprintf,
- };
- 
--#define PPC_22_30(R)    (((R) >> 1) & 0x1ff)
--#define MINUS_EXT_XO_FORM	234
--#define SUB_EXT_XO_FORM		232
--#define	ADD_ZERO_EXT_XO_FORM	202
--#define	SUB_ZERO_EXT_XO_FORM	200
--
--static int arithmetic__scnprintf(const struct ins *ins, char *bf, size_t size,
--		struct ins_operands *ops, int max_ins_name)
--{
--	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name,
--			ops->raw);
--}
--
--/*
-- * Sets the fields: multi_regs and "mem_ref".
-- * "mem_ref" is set for ops->source which is later used to
-- * fill the objdump->memory_ref-char field. This ops is currently
-- * used by powerpc and since binary instruction code is used to
-- * extract opcode, regs and offset, no other parsing is needed here.
-- *
-- * Dont set multi regs for 4 cases since it has only one operand
-- * for source:
-- * - Add to Minus One Extended XO-form ( Ex: addme, addmeo )
-- * - Subtract From Minus One Extended XO-form ( Ex: subfme )
-- * - Add to Zero Extended XO-form ( Ex: addze, addzeo )
-- * - Subtract From Zero Extended XO-form ( Ex: subfze )
-- */
--static int arithmetic__parse(const struct arch *arch __maybe_unused, struct ins_operands *ops,
--		struct map_symbol *ms __maybe_unused, struct disasm_line *dl)
--{
--	int opcode = PPC_OP(dl->raw.raw_insn);
--
--	ops->source.mem_ref = false;
--	if (opcode == 31) {
--		if ((opcode != MINUS_EXT_XO_FORM) && (opcode != SUB_EXT_XO_FORM) \
--				&& (opcode != ADD_ZERO_EXT_XO_FORM) && (opcode != SUB_ZERO_EXT_XO_FORM))
--			ops->source.multi_regs = true;
--	}
--
--	ops->target.mem_ref = false;
--	ops->target.multi_regs = false;
--
--	return 0;
--}
--
--static const struct ins_ops arithmetic_ops = {
--	.parse     = arithmetic__parse,
--	.scnprintf = arithmetic__scnprintf,
--};
--
--static int load_store__scnprintf(const struct ins *ins, char *bf, size_t size,
--		struct ins_operands *ops, int max_ins_name)
--{
--	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name,
--			ops->raw);
--}
--
--/*
-- * Sets the fields: multi_regs and "mem_ref".
-- * "mem_ref" is set for ops->source which is later used to
-- * fill the objdump->memory_ref-char field. This ops is currently
-- * used by powerpc and since binary instruction code is used to
-- * extract opcode, regs and offset, no other parsing is needed here
-- */
--static int load_store__parse(const struct arch *arch __maybe_unused, struct ins_operands *ops,
--		struct map_symbol *ms __maybe_unused, struct disasm_line *dl __maybe_unused)
--{
--	ops->source.mem_ref = true;
--	ops->source.multi_regs = false;
--	/* opcode 31 is of X form */
--	if (PPC_OP(dl->raw.raw_insn) == 31)
--		ops->source.multi_regs = true;
--
--	ops->target.mem_ref = false;
--	ops->target.multi_regs = false;
--
--	return 0;
--}
--
--static const struct ins_ops load_store_ops = {
--	.parse     = load_store__parse,
--	.scnprintf = load_store__scnprintf,
--};
--
- static int dec__parse(const struct arch *arch __maybe_unused, struct ins_operands *ops,
- 		      struct map_symbol *ms __maybe_unused,
- 		      struct disasm_line *dl __maybe_unused)
-@@ -820,7 +707,7 @@ static int dec__scnprintf(const struct ins *ins, char *bf, size_t size,
- 			 ops->target.name ?: ops->target.raw);
- }
- 
--static const struct ins_ops dec_ops = {
-+const struct ins_ops dec_ops = {
- 	.parse	   = dec__parse,
- 	.scnprintf = dec__scnprintf,
- };
-@@ -831,11 +718,11 @@ static int nop__scnprintf(const struct ins *ins __maybe_unused, char *bf, size_t
- 	return scnprintf(bf, size, "%-*s", max_ins_name, "nop");
- }
- 
--static const struct ins_ops nop_ops = {
-+const struct ins_ops nop_ops = {
- 	.scnprintf = nop__scnprintf,
- };
- 
--static const struct ins_ops ret_ops = {
-+const struct ins_ops ret_ops = {
- 	.scnprintf = ins__raw_scnprintf,
- };
- 
-diff --git a/tools/perf/util/disasm.h b/tools/perf/util/disasm.h
-index db7f1ee3d8e7..83503c5075f9 100644
---- a/tools/perf/util/disasm.h
-+++ b/tools/perf/util/disasm.h
-@@ -109,6 +109,28 @@ const struct arch *arch__find(const char *name);
- bool arch__is_x86(const struct arch *arch);
- bool arch__is_powerpc(const struct arch *arch);
- 
-+extern const struct ins_ops call_ops;
-+extern const struct ins_ops dec_ops;
-+extern const struct ins_ops jump_ops;
-+extern const struct ins_ops mov_ops;
-+extern const struct ins_ops nop_ops;
-+extern const struct ins_ops lock_ops;
-+extern const struct ins_ops ret_ops;
-+
-+int arch__associate_ins_ops(struct arch *arch, const char *name, const struct ins_ops *ops);
-+
-+int arc__annotate_init(struct arch *arch, char *cpuid);
-+int arm__annotate_init(struct arch *arch, char *cpuid);
-+int arm64__annotate_init(struct arch *arch, char *cpuid);
-+int csky__annotate_init(struct arch *arch, char *cpuid);
-+int loongarch__annotate_init(struct arch *arch, char *cpuid);
-+int mips__annotate_init(struct arch *arch, char *cpuid);
-+int powerpc__annotate_init(struct arch *arch, char *cpuid);
-+int riscv64__annotate_init(struct arch *arch, char *cpuid);
-+int s390__annotate_init(struct arch *arch, char *cpuid);
-+int sparc__annotate_init(struct arch *arch, char *cpuid);
-+int x86__annotate_init(struct arch *arch, char *cpuid);
-+
- const struct ins_ops *ins__find(const struct arch *arch, const char *name, struct disasm_line *dl);
- 
- bool ins__is_call(const struct ins *ins);
-@@ -117,12 +139,28 @@ bool ins__is_fused(const struct arch *arch, const char *ins1, const char *ins2);
- bool ins__is_ret(const struct ins *ins);
- bool ins__is_lock(const struct ins *ins);
- 
-+extern const struct ins_ops s390_call_ops;
-+extern const struct ins_ops loongarch_call_ops;
-+extern const struct ins_ops loongarch_jump_ops;
-+const struct ins_ops *check_ppc_insn(struct disasm_line *dl);
-+
- struct disasm_line *disasm_line__new(struct annotate_args *args);
- void disasm_line__free(struct disasm_line *dl);
- 
- int disasm_line__scnprintf(struct disasm_line *dl, char *bf, size_t size,
- 			   bool raw, int max_ins_name);
- 
-+int ins__raw_scnprintf(const struct ins *ins, char *bf, size_t size,
-+			   struct ins_operands *ops, int max_ins_name);
-+int ins__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		   struct ins_operands *ops, int max_ins_name);
-+int call__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		    struct ins_operands *ops, int max_ins_name);
-+int jump__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		    struct ins_operands *ops, int max_ins_name);
-+int mov__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		   struct ins_operands *ops, int max_ins_name);
-+
- int symbol__disassemble(struct symbol *sym, struct annotate_args *args);
- 
- char *expand_tabs(char *line, char **storage, size_t *storage_len);
--- 
-2.52.0.457.g6b5491de43-goog
-
+Jason
 
