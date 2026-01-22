@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A16C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 12:24:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BA16C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 12:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+sRNUDR6BGPZ0oT2ok7Rny6ujm7T4UE8rOOtHPjQVRI=; b=4yibOiS8M90kyX5H/T3pmN1ja6
-	yqckBYBqhUhZGdYk9BoXZU1R6nGe9PTFKIdKANYCdMwiAjzYyKji5m8phMhHSrUHiKOghpgmUU0IP
-	4Zjin5e4i7t7UVpJdw3Rr2oMcxOD9tzJWLu/0fSNyxD72kryRA56fEoE2fgP532DT0un/Pd9qagbU
-	2llg/sr6XMzhl27ecya/bRMIXQrem0Kp06WLKH6Qa7eMc1qMw/3U0o02+ui8zotP0V6JGJFVQoqKa
-	JaFaLq1/4vCN6ukH4eFwGan60zMIU9b4YDA6ziBeMKmos+hzAWls0ALQVtuSzOvRmIwKM+jv08ll/
-	KsItDieg==;
+	bh=/bAvcc3Ftus2hZoxR3vN3x/TCpUZp4ds8W7Oy4K3Dq0=; b=skAB8bWQYsuIqLu9asPJ9hID8N
+	/EDBxaL6povG33Ovc0bYxwaAmZJWol6i1WbwHdMqfAB+W76qZE/DK1UZt6BTQXOHiNgU3xbx6c070
+	H8PxXM0xkvK+q/OEL2BA9sPt5CR/iCSyj3sagHbV9GRUs5QiIaHGOX6vik7TPl+k28sDIIQr8LUXZ
+	znRFIsPdEwpn7Xgqz3/s+E0hvmvxadUJc2TnhO4f7C+b3XI/zgX2HPWLHgKL8yHSixypPtWsNgqpr
+	01G+ef9LXe9M/9LhEFaM02NlswL58hL1fNQBPLZFzUzRzc0tMgig6/FYaA9GIpLZf3RW7ZxbyTH8Y
+	lROKvftA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vitjq-000000073JO-0BJ9;
-	Thu, 22 Jan 2026 12:24:38 +0000
+	id 1vitki-000000073Pm-1aDW;
+	Thu, 22 Jan 2026 12:25:32 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vitjn-000000073Ih-1PSv
+	id 1vitkf-000000073P3-38Kj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 12:24:36 +0000
+	Thu, 22 Jan 2026 12:25:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 87CCE4052B;
-	Thu, 22 Jan 2026 12:24:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97D93C116C6;
-	Thu, 22 Jan 2026 12:24:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 627E1409BA;
+	Thu, 22 Jan 2026 12:25:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F4A6C116D0;
+	Thu, 22 Jan 2026 12:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769084674;
-	bh=UJUvp+7GyqS1uy550kFefEcVuGXyfuC911Lc+u7GvDE=;
+	s=k20201202; t=1769084729;
+	bh=PCkOwqNi3U6oGSdDkbyRnZsslygP62vGIxEK1b/bxQ0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mYjcO0H1WIL6gJTC3GKryp+fmOIsr5XYsbHBHHy6mP2c0gisB5bNeEUXEGlAb2LWJ
-	 zMQKgmdOipApvVZO5zwikAajfAUiTBNCPgIaWqkiyMEdShaLeX7ZJtgDt+6Yf39Uz1
-	 lS1wF7Vw3OLziqRpIKBnRsNG81W3MBJlaOC4wbeijSdd5pccAncc+eT0QFTsrM4VtX
-	 ++8QxAU+BrkFg0fNPSiPgqXKeo9Eyq4zXx+PIi+IkNJOtrUzvWW8KkTw1nfQu8iZ6I
-	 3bXGJZeZ0KOooOdOkMYmpZwqVWZFURGwbut93FYuuiRKJrQge3AA3AF/wFBhaF/WXT
-	 CMFjgA8vCYAOw==
-Date: Thu, 22 Jan 2026 12:24:29 +0000
+	b=PQZMG8wWZN9e21tL896qXExBf7Ly8WOAxcQfgRRBjdV6c6MB5ESaYKNZ/2KMxoiW7
+	 CEkJA4YasricHEv39yRk1rCaoeHwXaCkH35QI/T3ltW+D9wVl3xlwzE5d2B2FAf2nF
+	 U/xDGrHK+cYsRSMDLkevmErJFF+lHFAkuod9FY9uiJuTIY9JvZvRt2xpaVuiuLqv0d
+	 fn+Fi6hBDHOYEjM4dtBg2HVZ0vBtXoM0xnBxS5iRROpt27H8Ku0N9ctgRWOb7IO9E3
+	 HbcLDNorXm4IDySDEM+U2zT9kvZA6VIxyXw9RC9k89aF1vH8KN73OCb9H3UYb8lwuQ
+	 1DKiIMglmMPXQ==
+Date: Thu, 22 Jan 2026 12:25:24 +0000
 From: Will Deacon <will@kernel.org>
-To: Zhaoyang Huang <huangzhaoyang@gmail.com>
-Cc: "zhaoyang.huang" <zhaoyang.huang@unisoc.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+To: "zhaoyang.huang" <zhaoyang.huang@unisoc.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	James Morse <james.morse@arm.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	steve.kang@unisoc.com, jeson.gao@unisoc.com, xuewen.yan@unisoc.com
-Subject: Re: [RESEND PATCH] arch: arm64: set __nocfi on swsusp_arch_resume
-Message-ID: <aXIW_U72IIEETsi0@willie-the-truck>
-References: <20260120060619.469565-1-zhaoyang.huang@unisoc.com>
- <aXH8ppr2bdc-lWUH@willie-the-truck>
- <CAGWkznFBLDr44tTCME1RVNTZ9SLDZA+By0eoTQ+-HrfnTBAoqw@mail.gmail.com>
+	Zhaoyang Huang <huangzhaoyang@gmail.com>, steve.kang@unisoc.com,
+	jeson.gao@unisoc.com, xuewen.yan@unisoc.com
+Subject: Re: [PATCH] arch: arm64: set __nocfi on swsusp_arch_resume
+Message-ID: <aXIXNC_zJu0rOG4L@willie-the-truck>
+References: <20260122114925.624309-1-zhaoyang.huang@unisoc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGWkznFBLDr44tTCME1RVNTZ9SLDZA+By0eoTQ+-HrfnTBAoqw@mail.gmail.com>
+In-Reply-To: <20260122114925.624309-1-zhaoyang.huang@unisoc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_042435_392621_5ABEAB73 
-X-CRM114-Status: GOOD (  17.68  )
+X-CRM114-CacheID: sfid-20260122_042529_805482_1CBC9D1B 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,40 +74,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 07:39:34PM +0800, Zhaoyang Huang wrote:
-> On Thu, Jan 22, 2026 at 6:32 PM Will Deacon <will@kernel.org> wrote:
-> > On Tue, Jan 20, 2026 at 02:06:19PM +0800, zhaoyang.huang wrote:
-> > > diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
-> > > index 18749e9a6c2d..9717568518ba 100644
-> > > --- a/arch/arm64/kernel/hibernate.c
-> > > +++ b/arch/arm64/kernel/hibernate.c
-> > > @@ -402,7 +402,7 @@ int swsusp_arch_suspend(void)
-> > >   * Memory allocated by get_safe_page() will be dealt with by the hibernate code,
-> > >   * we don't need to free it here.
-> > >   */
-> > > -int swsusp_arch_resume(void)
-> > > +int __nocfi swsusp_arch_resume(void)
-> > >  {
-> > >       int rc;
-> > >       void *zero_page;
-> >
-> > Why does is the '__nocfi' annotation here rather than on the
-> > 'hibernate_exit' pointer?
-> Our first try is to have the callee function(swsusp_arch_suspend_exit)
-> waived by set __nocfi but failed. It seems like the CFI watched the
-> caller of function pointer and plant stub code.
+On Thu, Jan 22, 2026 at 07:49:25PM +0800, zhaoyang.huang wrote:
+> From: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
+> 
+> A DABT is reported[1] on an android based system when resume from hiberate,
+> which is root caused as CFI will plant stub code[2] to verify the
+> swsusp_arch_suspend_exit's authentication, where the hash value is stored
+> before the page that alloced by create_safe_exec_page. We also have
+> tried to copy the hash value together with the function but get failed since
+> the value is not on the desired position(src_start - 4). So we solve
+> this issue by setting __nocfi on swsusp_arch_resume and it works.
 
-Thinking about this some more, you're right that the '__nocfi'
-annotation has to happen at the call-site, because that's where the
-check takes place.
-
-I did start looking at what it would take to emit the CFI type prefix
-for swsusp_arch_suspend_exit() using SYM_TYPED_FUNC_START() but it's a
-bit grotty having to offset into .hibernate_exit.text when jumping to
-the copy and, given that trans_pgd_idmap_page doesn't seem to bother
-with BTI at all, your patch looks like the simplest point fix.
-
-I'll ack the resend...
+Acked-by: Will Deacon <will@kernel.org>
 
 Will
 
