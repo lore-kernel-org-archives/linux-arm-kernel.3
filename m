@@ -4,61 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 543B6C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 08:43:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17EE6C44536
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 08:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=u18d0TAQrgGkGJgo2/pqjGTY0PNHW4fsBRHe5OIMRK8=; b=Kte7it/mBDS827aN4CyJrUU76M
-	4FqM+pq0tLX4lgWcJtQAcWruBjq03O+K4xOg4EgBhUXN+aKsGXj2madZ37tcVZj+QlqlMO+UZDLgq
-	P+ETZXbc8VhfFo6blbQkMV+aCoMDHiovm4KfEZA7LKnpFFOCgs82c8Csdc1klw1+/iv7iADnopU5+
-	lw8vSgBmhEYvbDbBucSZKZWYRtvl4oRuUtZMQ+FiyDGNg4Trbi+UN1GTbUxYUHqvEjnDmV7+vbUbv
-	0dImslIRCUj5Dm1q7+Pyj7mi9ZVzzoDOy4HKTnS37X4MgprQVUXXxIZv5TPIMuUQcgoEzbW8yqz+J
-	U01UYWLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fTA80FuqYhWOuMXsi1m55riPj78ukM7kbnYx2MFukug=; b=LxrDqexVLp3pU/PIYpWHZRWqGB
+	fH2nN3u0YAFnZwxP1/uXavBrKFBX4dnK57EWutMih8I+wefoKg5OmlPshKDe6FAh4xGFsMm5NdUcG
+	PmU4opzQbYPA2Sp4FtH5o1AOQWi8xZY5ybJU9S5d675FYwQ+D7yo+yE0lgfXctng9owYwocu6EXoc
+	muLX7aiQJDAxNEzNgQ4KfaCBSyqqhSboYcqw2KW0qNcbBO/V7c/M8cxY9VxfYqys6lFY/EGRGXVTe
+	56F+1rIRXnvX2+OeuVkyXnlmIbamWOPiQjk5Z41l3KZVMu1sqoZE2pNRzhSlCwdSdKaxd4nRB+/Xx
+	gJltEdKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viqHp-00000006fU7-2Rgf;
-	Thu, 22 Jan 2026 08:43:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1viqIA-00000006fXT-0ZzP;
+	Thu, 22 Jan 2026 08:43:50 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viqHo-00000006fTw-10cd
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 08:43:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 53DFD600C3;
-	Thu, 22 Jan 2026 08:43:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DDB4C116C6;
-	Thu, 22 Jan 2026 08:43:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769071407;
-	bh=vTwi/NHZEXCw8rQu6gDRc7cezwzkz+PlJrNrSxFuyc8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=AsrB5/y4IELmNV85mprWCwbOfZcQjFBmRNqpt8p5c6PX9mdMaKmpjYt9FZZq3390J
-	 bm+QwFU1ebCuZBKq5EF/oKXHfOYp/n78Z01vriAFeqEoh2/mdCWa/KrEvl0IbkMTDw
-	 oEw1g5sxrFtfLP6kHTFloHn2yDJNrsRyclW4CCiQ7EyMgdzcvDUlShSqGB6oEnn1lH
-	 /hU+El7E2us7zlWV/paJN1+qANdXY97RwqFfQ+dRkcvPhugNcrI2nyyruTLZmyU6VY
-	 GROXszF1gTBsC865B11qEAPdUBv0HfPfz1dvfKei2CJMkRgaTYznoFpb15B9GDerVx
-	 OEjW3dcup1/bA==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	soc@lists.linux.dev
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
+	id 1viqI6-00000006fWZ-47we;
+	Thu, 22 Jan 2026 08:43:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=fTA80FuqYhWOuMXsi1m55riPj78ukM7kbnYx2MFukug=; b=E
+	XxVLKR4JFoLFd4tAIFASWJYld+cUVz83lO658BVm3W046UVIQAKtz3wbssJG1PBx
+	qeybRO4NxGiXAaFrm4KPM9F40TBO7+8iYJlYKFm+U1aoqqlUzrvwMSVa4JXZiaEt
+	oaIUWJCX8t5g+8SmxBxe5EYEakz+D22bplz0HrqscA=
+Received: from andyshrk$163.com ( [110.83.51.2] ) by
+ ajax-webmail-wmsvr-40-107 (Coremail) ; Thu, 22 Jan 2026 16:42:32 +0800
+ (CST)
+X-Originating-IP: [110.83.51.2]
+Date: Thu, 22 Jan 2026 16:42:32 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>
+Cc: "Harry Wentland" <harry.wentland@amd.com>, "Leo Li" <sunpeng.li@amd.com>,
+	"Rodrigo Siqueira" <siqueira@igalia.com>,
+	"Alex Deucher" <alexander.deucher@amd.com>,
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+	"David Airlie" <airlied@gmail.com>,
+	"Simona Vetter" <simona@ffwll.ch>,
+	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+	"Maxime Ripard" <mripard@kernel.org>,
+	"Thomas Zimmermann" <tzimmermann@suse.de>,
+	"Andrzej Hajda" <andrzej.hajda@intel.com>,
+	"Neil Armstrong" <neil.armstrong@linaro.org>,
+	"Robert Foss" <rfoss@kernel.org>,
+	"Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
+	"Jonas Karlman" <jonas@kwiboo.se>,
+	"Jernej Skrabec" <jernej.skrabec@gmail.com>,
+	"Sandy Huang" <hjc@rock-chips.com>,
+	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+	"Andy Yan" <andy.yan@rock-chips.com>,
+	"Jani Nikula" <jani.nikula@linux.intel.com>,
+	"Rodrigo Vivi" <rodrigo.vivi@intel.com>,
+	"Joonas Lahtinen" <joonas.lahtinen@linux.intel.com>,
+	"Tvrtko Ursulin" <tursulin@ursulin.net>,
+	"Dmitry Baryshkov" <lumag@kernel.org>,
+	"Sascha Hauer" <s.hauer@pengutronix.de>,
+	"Rob Herring" <robh@kernel.org>, "Jonathan Corbet" <corbet@lwn.net>,
+	kernel@collabora.com, amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] arm64: dts: samsung: dts for v6.20, part two
-Date: Thu, 22 Jan 2026 09:43:21 +0100
-Message-ID: <20260122084321.20861-2-krzk@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org
+Subject: Re:[PATCH v7 12/22] drm/rockchip: vop2: Recognise 10/12-bit YUV422
+ as YUV formats
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20251222(83accb85) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <20260121-color-format-v7-12-ef790dae780c@collabora.com>
+References: <20260121-color-format-v7-0-ef790dae780c@collabora.com>
+ <20260121-color-format-v7-12-ef790dae780c@collabora.com>
+X-CM-CTRLMSGS: JAf/VHBsdXM9MTc2OTA3MTM1MTA2N185NzcxMDNkMTY1YzkwNTg0MDdmOWY0M
+ zliMmZkZDZhZQ==
+X-NTES-SC: AL_Qu2dC/ycvksu5CCdZukfmUgWjuw/WsG1v/Ul1YBSP556jCHp1zA+YHtOI0XuzsGkOiqykTu2XSVH2/VTe6BkepsbgpnbONL2klcdDdTogoXoxQ==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1491; i=krzk@kernel.org; h=from:subject; bh=vTwi/NHZEXCw8rQu6gDRc7cezwzkz+PlJrNrSxFuyc8=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpceMpEY9BpcVQTRSK8N/qEzFBd9x5yxM0Exjzf faLCT6yKTuJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaXHjKQAKCRDBN2bmhouD 15fFD/9CMh4H0Pyi2zGifs2Who2Sm9eAp3+0CQiPzpVUXj1sCnH9NSlR7RwJz37L/+qR1a2E3lT zrtXsKaiDg2bCtE3xXT3RBXb0q2ijO+BiQE2vQFEEPt3UGnj29hdTadjbrcaDhF9pBQkVrhJq59 pblvipcGom4IuC56GzyR+eSDkC9CH10OntYn6kJALtSDGYzyfjA9jGti+7m4WnEZTPlFj+CjzHN licpRLI5Zq+mqaD291CjQBtHTgbPrHTs7KmpPpinFhS+C9vwq6eX8hQ1CQD2WsAHxtSBXZqJ2sX a/hSiRfMi6SYHgrz2+B8LPl1PCXeDXs2TaNo5QR8yGQZsOXNEcUej/c2TeYVjTJ5vxGZaL+rTSX o+e0fwspdPt1UQu333RGtcxCCQDWH1Iq4sTUvtXDKgCbdDHwkWIHY4Y6fS9+Mg9/qUeVCYkOy5/ F7JtBgtFVV/O6pcLiGDSubfsGB9br9/Mwgmt8BKMZjlvZpBforLa4YXc2QBmXFzx6pqQCgK3VcU DIl4n/4Ske0aJtfXRMnq/ry95wjKuAkc6jGkXq36t4lSvSJgVfv1xd/63EGkhn7iL2ILpWsklMU 39wd3RNgcmfCbJpKzd36Ep+TEJ+hMJdCFf+skOrX49pOmGHpn097xRmwdqFXsZ8BOACXTkm6PSw aUVoncaoBE6La+Q==
-X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+Message-ID: <3e736769.79ad.19be4de9900.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: aygvCgDHlU_44nFpZLBcAA--.14934W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbC7hitDGlx4vgiFwAA3g
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260122_004347_390171_5E761291 
+X-CRM114-Status: UNSURE (   5.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,44 +106,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd and SoC folks,
-
-On top of previous pull request:
-https://patchwork.kernel.org/project/linux-soc/patch/20260117180406.9361-5-krzk@kernel.org/
-
-
-Best regards,
-Krzysztof
-
-
-The following changes since commit 9afdf3e1a59e23180540ecb1fe3287c308cc8113:
-
-  arm64: dts: exynos: gs101: add OTP node (2025-12-28 12:32:42 +0100)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-dt64-6.20-2
-
-for you to fetch changes up to 024d8f4aa35970c4563c6ef0c4170133719b2103:
-
-  arm64: dts: exynos: gs101: add cmu_dpu and sysreg_dpu dt nodes (2026-01-17 20:32:20 +0100)
-
-----------------------------------------------------------------
-Samsung DTS ARM64 changes for v6.20, part two
-
-Add DPU clock management unit nodes to Google GS101.
-
-----------------------------------------------------------------
-Krzysztof Kozlowski (1):
-      Merge branch 'for-v6.20/dt-bindings-clk' into next/dt64
-
-Peter Griffin (3):
-      dt-bindings: clock: google,gs101-clock: fix alphanumeric ordering
-      dt-bindings: clock: google,gs101-clock: Add DPU clock management unit
-      arm64: dts: exynos: gs101: add cmu_dpu and sysreg_dpu dt nodes
-
- .../bindings/clock/google,gs101-clock.yaml         | 21 ++++++++++++-
- arch/arm64/boot/dts/exynos/google/gs101.dtsi       | 17 ++++++++++
- include/dt-bindings/clock/google,gs101.h           | 36 ++++++++++++++++++++++
- 3 files changed, 73 insertions(+), 1 deletion(-)
+CgpIZWxsbyBOaWNvbGFz77yMCkF0IDIwMjYtMDEtMjEgMjI6NDU6MTksICJOaWNvbGFzIEZyYXR0
+YXJvbGkiIDxuaWNvbGFzLmZyYXR0YXJvbGlAY29sbGFib3JhLmNvbT4gd3JvdGU6Cj5UaGUgUm9j
+a2NoaXAgVk9QMiB2aWRlbyBvdXRwdXQgZHJpdmVyIGhhcyBhICJpc195dXZfb3V0cHV0IiBmdW5j
+dGlvbiwKPndoaWNoIHJldHVybnMgdHJ1ZSB3aGVuIGEgZ2l2ZW4gYnVzIGZvcm1hdCBpcyBhIFlV
+ViBmb3JtYXQsIGFuZCBmYWxzZQo+b3RoZXJ3aXNlLgo+Cj5UaGlzIHN3aXRjaCBzdGF0ZW1lbnQg
+aXMgbGFja2luZyB0aGUgYnVzIGZvcm1hdCB1c2VkIGZvciBZVVY0MjIgMTAtYml0LAo+YXMgd2Vs
+bCBhcyB0aGUgYnVzIGZvcm1hdCB1c2VkIGZvciBZVVY0MjIgMTItYml0Lgo+Cj5BZGQgTUVESUFf
+QlVTX0ZNVF9ZVVlWMTBfMVgyMCBhbmQgTUVESUFfQlVTX0ZNVF9ZVVlWMTJfMVgyNCB0bwo+aXNf
+eXV2X291dHB1dCdzIHN3aXRjaCBjYXNlcyB0byByZXNvbHZlIHRoaXMuCj4KPkZpeGVzOiA2MDRi
+ZTg1NTQ3Y2UgKCJkcm0vcm9ja2NoaXA6IEFkZCBWT1AyIGRyaXZlciIpCj5TaWduZWQtb2ZmLWJ5
+OiBOaWNvbGFzIEZyYXR0YXJvbGkgPG5pY29sYXMuZnJhdHRhcm9saUBjb2xsYWJvcmEuY29tPgo+
+LS0tCj4gZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMgfCAzICsr
+Kwo+IDEgZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKykKPgo+ZGlmZiAtLWdpdCBhL2RyaXZl
+cnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jIGIvZHJpdmVycy9ncHUvZHJt
+L3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMKPmluZGV4IGYyMWVmYmNhNDJlNi4uM2RkN2I3
+NTcxNDg3IDEwMDY0NAo+LS0tIGEvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2Ry
+bV92b3AyLmMKPisrKyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9w
+Mi5jCj5AQCAtMzY5LDYgKzM2OSw5IEBAIHN0YXRpYyBib29sIGlzX3l1dl9vdXRwdXQodTMyIGJ1
+c19mb3JtYXQpCj4gCXN3aXRjaCAoYnVzX2Zvcm1hdCkgewo+IAljYXNlIE1FRElBX0JVU19GTVRf
+WVVWOF8xWDI0Ogo+IAljYXNlIE1FRElBX0JVU19GTVRfWVVWMTBfMVgzMDoKPisJY2FzZSBNRURJ
+QV9CVVNfRk1UX1lVWVYxMF8xWDIwOgo+KwljYXNlIE1FRElBX0JVU19GTVRfVVlWWTEwXzFYMjA6
+Cgo+KwljYXNlIE1FRElBX0JVU19GTVRfWVVZVjEyXzFYMjQ6CgogICAgICAgICBNRURJQV9CVVNf
+Rk1UX1lVWVYxMl8xWDI0IGlzIG5vdCBzdXBwb3J0ZWQgYnkgVk9QLCAgdGhlIG1heCBvdXRwdXQg
+ZGVwdGggb2YgVk9QIGlzIDEwCgoKCgo+IAljYXNlIE1FRElBX0JVU19GTVRfVVlZVllZOF8wXzVY
+MjQ6Cj4gCWNhc2UgTUVESUFfQlVTX0ZNVF9VWVlWWVkxMF8wXzVYMzA6Cj4gCWNhc2UgTUVESUFf
+QlVTX0ZNVF9ZVVlWOF8yWDg6Cj4KPi0tIAo+Mi41Mi4wCj4K
 
