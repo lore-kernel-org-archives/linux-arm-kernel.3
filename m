@@ -4,168 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07065D3EE86
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DF2D3EE86
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 15:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=utDrOUZb6fj6m2dtLUymPdx0QdMFlxQJd04KLEOZjo0=; b=d7RCUVrR77kQ0ek8tlfzJ4BTS0
-	E55b4XE8ihbG6AgaMKv0EVSx3kFZS9Y+u/4YN0fiTC5lY8QsVwo8cQPotCJU0gcWThK5hfONBSdPm
-	eMC9nAA1f7RuabSL0BpHcS3tDIe9hP1Z4dYYkizmbZEzMluEa/4iErrR0xC/UQN8QaWw+MEV+MzVy
-	BrbBWp6h0lxRO8TJQTLqTTqotYpiQFKB4KZhroE8ohQ5lSrw2mQUkkcFrm/17DyNMF1p8S1hZAVqY
-	igeUN2FlL7AYhGCw9jS/3YyYbAVmZSMkOuhyf339QVe1w/By7LqzI8IXdHO4MwfdwhyK5WJHm2JR6
-	MPnIU64A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YiBYDdwf7o92W92u31+mXbb6d9oGiuCDv1WeALnfb+I=; b=DCcLmZ1FH6Z8CbvgX8G8I4UFFc
+	QHInEjwYZyiRuV5GkAPAjFGfHaRrHyDrL1yMdA0dEma1z4ZM0q+J48Zp08kB2n9MbLKrN2uFC4oeq
+	Z2yLRnK3G93gF+RjgIK9TFNjgmTkC5XUQYfb/qdub9tjkfBO5svgheFwlajZCBIOPDP9aL9fGA95N
+	tGhNSCbVKry9MLQJOzJm/vcy7SlnuefYzsi7DTRIiV4C1LYmAcoAy+99PTLPJbUaOoGSA4pbSxDLF
+	6Z9zQuDETL5k3/l465RnDBaFkpCmoH9+ucVzSPQ9HQMiz0vEKuJdvA4unfBBdhStvXFyY/5nw5lIp
+	66+9r19Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwsp-00000007MUR-3hXv;
-	Thu, 22 Jan 2026 15:46:07 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1vix0x-00000007Mua-0arQ;
+	Thu, 22 Jan 2026 15:54:31 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1viwsn-00000007MTf-1IFC
+	id 1vix0q-00000007Mti-2njf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 15:46:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FwPWNALW32WDOVFkzvX2bp8eyQrJ8Ggu2+5rY/oIPmWwh1js0VJ6gS0QffRZd8FLATQ1yHfMqivnaygoWQRUY2LWVfjjqE68uAH5gu44HbTwp4a+AsCTqsRf1pn1BTDrKzBXl0dhQ7nSFFVm9TjbGpbYdKaY+H1IGc2I+QCIkcroKry5Z/egQC3nfUQ2pWtzTrd4uKCyEsOj3L/0nx7GRKL/pZT0CSlwPnDN18/tIbPJrNB0rSbYzOJWIw1dcNkeb8Xu/XxmhmaTmAtglKg2DoCgo5g/11loT13ltvKND2t6yUXvYCsi2TWylC5aEmxfYpX6hL2kXPBZ31M+/2plig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=utDrOUZb6fj6m2dtLUymPdx0QdMFlxQJd04KLEOZjo0=;
- b=yT/vRtAnUYdONPFcyoaYHP6f9GAEawtjZjg5U94SbVq10jSZoRzChc4zeFsA0OVcjNkxwZUdKnG4L/02gjPpCWSpGaSV/PwuAIoj2/SPbczid+WKO30bS6Ph8YJtXqTocz3Ah7hsxQmtKme3sS2ORjvcojbnq7fPGFFWTUwgOLCR0G0umFN3YvxfIS1ROYWpaaCVyIzDiIwLnIHQLbpZkbzGTTZyuC36Kzl5gXcut3eKQKlcAP2zUXCZGZ+75fr3eiF8o6S6be6yq/iq1S/lSRImJ+iwHG9D7SvWg8RKGZS7dvik09hQZRtG75RVuE9IfYY8z7aM4RzYaSZ2GszhHg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=utDrOUZb6fj6m2dtLUymPdx0QdMFlxQJd04KLEOZjo0=;
- b=ZfKAqiu9bnq6Z8IOYGaitTp1JD6Zg3iQH6eHsdGmLGnyTo5ybkf8EfWIcvjzMd9RGrBGY0r1zOxuq18lRSGXWVeWiZp+VNGE4vhw1T3pkj0M5JuJI2z7TWbMscwJpm+vTsX+rpQwMqDfoSOEEFWSfu/HZEIiKfsskiRZvwV05NI=
-Received: from BY3PR05CA0009.namprd05.prod.outlook.com (2603:10b6:a03:254::14)
- by DS0PR10MB7407.namprd10.prod.outlook.com (2603:10b6:8:15c::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Thu, 22 Jan
- 2026 15:45:56 +0000
-Received: from MWH0EPF000989E7.namprd02.prod.outlook.com
- (2603:10b6:a03:254:cafe::7a) by BY3PR05CA0009.outlook.office365.com
- (2603:10b6:a03:254::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.3 via Frontend Transport; Thu,
- 22 Jan 2026 15:45:50 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- MWH0EPF000989E7.mail.protection.outlook.com (10.167.241.134) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9542.4 via Frontend Transport; Thu, 22 Jan 2026 15:45:56 +0000
-Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 22 Jan
- 2026 09:45:55 -0600
-Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 22 Jan
- 2026 09:45:54 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 22 Jan 2026 09:45:54 -0600
-Received: from [127.0.1.1] (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60MFjoWD786230;
-	Thu, 22 Jan 2026 09:45:50 -0600
-From: Dhruva Gole <d-gole@ti.com>
-Date: Thu, 22 Jan 2026 21:13:57 +0530
-Subject: [PATCH v5] arm64: dts: ti: k3-am62l: support cpufreq scaling
+	Thu, 22 Jan 2026 15:54:30 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-34c3259da34so690191a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 07:54:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769097262; cv=none;
+        d=google.com; s=arc-20240605;
+        b=hB+yZK5YZqiAGCQHhcCoKlKYvBvJiKgBCS+u2se55atwIU4m7sJWBOVVqkvNKBjzWY
+         zYfCHKLKk0U6bxuFr3AM+eU166rOlXDtq1kJso73+u8OelyDac9siI7XvRSdZgpVRrui
+         vTojmw9A6/MWd4XQmeqiLgg9vRdsPLlsTsPun1mbnENMM0zVUIXvNc4HregEvvImppIn
+         A+pvvx9FBkmFTjHDCeubPAku6FQL54CZpYUbbTpTptgkf/k4WTX5H9P/brB95H36eUC0
+         ju5EuG2sErW+j23Mc+ts7IvQtNFrLRPP7GAGbiRiPDTG2jWYr/PgF4k45eZlp0kOtCdG
+         lqhA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=YiBYDdwf7o92W92u31+mXbb6d9oGiuCDv1WeALnfb+I=;
+        fh=8T/BuQcHEL5dun5hcHRIIWqHuTwsi6h7XhpMRBXtrtw=;
+        b=JGx46ixzM6InB1peI82U2nkzXIWOtvSGMM9h00DSUqrv1cAunbN+llDJ+AgSG8jUjE
+         it1JZUYpjE3q47HMS3KzqIElaK3Mw+aEX+R07yN3EvFE2Bz1V1UZNKY8LUnE5owePDuY
+         DKhPe83oyh4QY6j+45RLwpJ6CVefvICuEpYowJ7NL5MwL1qTIVufuQryT2BpJTVg194g
+         0fAZd0vhrFAOHA7EiCIcMDMsS+srAjsaXYD+LO7NqfOglTaFfIFvaZcbwX/0vBa5Eb+S
+         CiCy/3P6rYGyuAnhlCQtHy04shUS0Xjz3T+mkmXdLgJQi+ck1EMCrJBQQOLoB6OApOSc
+         xNRA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769097262; x=1769702062; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YiBYDdwf7o92W92u31+mXbb6d9oGiuCDv1WeALnfb+I=;
+        b=MvVWVA8nljsxdDySddEiaLMQ2f1SEf9zx5TOyuPXvx0a5mxG0QNSO10l1BPrELPDbl
+         7HaMZreyppVgsgFrI2uyaFuOlNx67JsZok454XxTdsEx0tKh5I7ZgMmpE+LQMxYtDxE+
+         qNyqbmT001AtZGanNuXjQpRTloq9S9mlGoOz92XnNng4u8c/G9qVJINM+R+cMKvAAkh9
+         aSlWoQ2OfDo8YrbA3cWi4wHKCQq7ElTP+TXncAMskMK5i2jRwu65hXuid1EPKMsZnX3Q
+         vGmOxvJTw9xzIBNEC6qlxzjNEbB7iCybYxmIS2kDwAIxNbdHbbvzd5P3gRhPekhU3t6p
+         4Fgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769097262; x=1769702062;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=YiBYDdwf7o92W92u31+mXbb6d9oGiuCDv1WeALnfb+I=;
+        b=Pha/SlOnmBy7Pb7atJNLyQYdBbKtV9YZLhQG32/o5dBYgV/FJp/qR4DntSPTyxm7m2
+         Ke+jPtoBeeoM7dc72ezKm29S25ksokS6gT8Y/IUgfTDB0D3iaJsZq3P2czVWNWjiJ1Ax
+         6OjtdvtaO1JWolDSUAAB+nroemcric/JCruTGRkuNgToTd5qMwOBCPBWuThMP1C11ruA
+         l3tK+9ybT06vznj3ZX18t0cZVOnd8TnWXAqUbrEdiBZ38N/9rctj1H6SF2HWJf9cmFZC
+         5hctYuCswRBgj8LhEfnK4oV6f7hb1CoskvENrf5oEkjDoPqLlCTubd+isj2tSjf5qaVA
+         sw8w==
+X-Forwarded-Encrypted: i=1; AJvYcCW4p4ibHt8i3ZWBTJ1GnZuoP57TqYTQSAuucxmSMnY3sayqaB+k8YMw1sE2J97xjP+0mJljNKjJTJ02sF25pORw@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwYDlNGC/TX1C4XsZnzxrMjjxDIy0tDfOi9aYjjFL4WGZ1Dg4m
+	9o0JltZ68ImMLaosU1e3Un4lUjouIn1P5fqQ+oss8BiUYBKwE8xKpiif/PWqVC/bCuGQKhwzjZj
+	Q72e1XI1Rw7YSTn8bHKxZpAG6/PwR3/M=
+X-Gm-Gg: AZuq6aITmXJ9IMO3AXPS0aE5itIq6fAXc7qOfRvCsYpbPl58WT0AY0omF8/c+EjM11W
+	a2I8FZou1ufHidQ5Jpz1Ab5X+P5vNiHjgwjS7lIcHqS0nigs8eh4pWowETqqI73ugvT6L7RW5UY
+	qoG4SbxTNWWvLMCzM0RvFQaoMv8fj9DYQgHtk4hwoiur/0/wGR9/tlYBOtShUZ7TElDqMSXHpIR
+	0a2rOsV7nAzMmvezpof1X6B8Y8yaORDoaUWH6cB4bjZEX9f2oL4RvvYQv1/rSFnlbUXvfOrtonk
+	l5bg05rgeAP4jc3lqF4Tv8tnntPw
+X-Received: by 2002:a17:90b:3881:b0:32e:3c57:8a9e with SMTP id
+ 98e67ed59e1d1-35272fcb836mr19032172a91.35.1769097261943; Thu, 22 Jan 2026
+ 07:54:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260122-am62l-cpufreq-v5-1-65c50af71681@ti.com>
-X-B4-Tracking: v=1; b=H4sIALxFcmkC/33MSw7CIBSF4a00jMXARW+pI/dhHCC9tST2IVSia
- bp3aQdGTXR4TvL9IwvkHQW2y0bmKbrgujaN7Spjtjbtmbgr02YgAIWUyE2DcOG2v1WerlwWOjd
- iY7BCzZLpPVXuvvQOx7RrF4bOP5Z8lPP7qxQlFxxVKRCUzA0V+8GtbdewORPhL4VEydicgHJdw
- idVbxTEN1WJaovFSQuJ2qgXnabpCfrjMe0dAQAA
-X-Change-ID: 20260116-am62l-cpufreq-1987a04a6f68
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar
-	<viresh.kumar@linaro.org>, Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>
-CC: Kendall Willis <k-willis@ti.com>, Sebin Francis <sebin.francis@ti.com>,
-	Bryan Brattlof <bb@ti.com>, <linux-pm@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, Dhruva Gole <d-gole@ti.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769096750; l=4535;
- i=d-gole@ti.com; h=from:subject:message-id;
- bh=MJDrG/lwfSMZjdO0wj3kn+Mmxsu6SEwXq5kJpFDqes0=;
- b=qtjkNabRwP8Og1bGgfJxWbsLjIWT7vme56zSBdTYSEBETPAKPskWpPu0gO3VQERN9yo3YRFbt
- lvM0cMJRRDmDJX3jnLpmZFHgQncH7dSwABm6uJk0JCKXgIw+by7Ecae
-X-Developer-Key: i=d-gole@ti.com; a=ed25519;
- pk=k8NnY4RbxVqeqGsYfTHeVn4hPOHkjg7Mii0Ixs4rghM=
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000989E7:EE_|DS0PR10MB7407:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0c869833-5870-4b27-4642-08de59cd551f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YzU2STF5Mkcra0RSa1VKaEY0TmxRbnZuLytjWHM4NHRNRW1MM2lFUzdkOVRw?=
- =?utf-8?B?QkF1am9NM2REWm9zRWd4VkRMdnIwSzVkWWs1aWlEMHFGMjlUb3RXZUF3S24r?=
- =?utf-8?B?WW5sQWxDVTM4ck5VV2dOanZuYUtjWWE3S244T3BJSHlQWklveDBkOExCbnZR?=
- =?utf-8?B?ZEZCL0RJQWQvclNVdGhGVHRKR21UcTJiQUNpemFMQlNROVNZU1RGU055SHA0?=
- =?utf-8?B?WjRqNFFGdU16QjMreXJuNFB4ZGxvUFc1dG9STExJZmdVeUNWVW12ZGVNTHU4?=
- =?utf-8?B?RlV5MmpFd1NTc3E2NWk5cjJYcXlzQ3lNVEplaHllK3BUQlJXaUIyejBJNkNO?=
- =?utf-8?B?MmV2MzYyNVFOY1M0MzlNenZOaTgwVFNJWU1TMjgrSkxXQU50eG56ZnY3WVZ1?=
- =?utf-8?B?RXNVLzk2T2MxdlZ4b3R5Ri9rMFZXR2cxMjRPZTFOK2ZhK3BpQURIKzlncEps?=
- =?utf-8?B?dzlyNC9zYm0vSlNVbmNGbzh1TkhlazNxZEIxZktjZTgrNDdBV1I0T29RZk10?=
- =?utf-8?B?SFhrQnJYa1hHTklibitoSlVLR3g5MkVNUEpYKzZ6endac0owSHJteVdFbHJI?=
- =?utf-8?B?dU9oL0plcXBycEJWN1dEQTdiUis5dmdqTmdhcFArNGV2THJ3TnlrWjZxT1JE?=
- =?utf-8?B?V0t0U05EUUpFZGpnZnZaZmQySnB3Zlh0VjNSVkZ3VEZoY3M3ZVBNRTd6amt1?=
- =?utf-8?B?MFd4Z25VOHBXcFlqaitrVmZweW5senZjSVZPWUxBUmhiakJvTVpOOTdYWDRS?=
- =?utf-8?B?am4vTGZvTUR5ck5obXBkeHp3eVlMb1BocVpldnpNZ3h4OU54SDRETGpCUDJq?=
- =?utf-8?B?NG1QR1I5Z2ljdGNTNW13K0NHQUl0WkQ4M0RwdkUxVWhGaUY0QkVMbkR1SEFI?=
- =?utf-8?B?REFFOU0rOHZzSDNaTzRNN0VRSkNPSzdOaEozaEh4ZGtwVVJVM01oaG5aNlNW?=
- =?utf-8?B?Y2ZXVDhzTjFWNlpHdmlEWWtmeU5Qb0dMU3VQdmhwMitoNjFyTUN2QnlocTFD?=
- =?utf-8?B?VHNRTVFBaldQUENYem1NaEhsRDg4UFhwcmY2U2RNY0d6djRzQ2E0ZEFxSHNo?=
- =?utf-8?B?OFR5d2RKemkzZjdydEdaeEJiU0lrOGEvV3B6VzRUai9TL1V4Y2hQZmF2elBB?=
- =?utf-8?B?amg3V3p2dWU1UjFUVWh3Vi9JM0c0bmJScEFva3lJUzAxUmpoTVJWZU5pT3dj?=
- =?utf-8?B?NW9ubkhoTExQRUFwVGUvVGx3eTZ4Y21Va2UwWUtaNXpLY0lzdWl2UG5UQlRa?=
- =?utf-8?B?NGNsYU1YN2d1NWJYcW0wR0wwcVQrV1lqYlcyTzBZWlQySk1YSXRRL1VZSUpY?=
- =?utf-8?B?V0J0WGV6L2xLd0JuSitTUER1VGoyd1JlWDM1ZkptYmVnK2g2Sm5RUG5EMlRa?=
- =?utf-8?B?RWFab2NldHpBejNRSWdqR3ZiR1hsb3o1UXo3V0FmSTFuUzlDT1dZL2sydjdN?=
- =?utf-8?B?QTc3WExINWVEcDduSWtjNHpzZDRZMzdVd3ZUMHNCRTl5VFVTQjRUbGZUZCtQ?=
- =?utf-8?B?U2VLRFlxMDV3Q2FybnlWVG1sQXpqeUg2VG9remJIT0h3OUdTaHVlZW5BdGZL?=
- =?utf-8?B?UVd6aG5SUjlXUDRQNHNuQ0NKazFWK1BiMFVWUENlVDY1MDEzRVR2NXJGUXBS?=
- =?utf-8?B?ZlJ3VithbXVqN2hia1NOMjNOSXdwWnYxUUo3ZEF5bHBXZFQ2VlF1TzlGaWR6?=
- =?utf-8?B?QnN4UTBlMGlRSmpqNW4vdHhablpBUGh4eENKZUZnUVQrYTVKZTB3QzBLU2t5?=
- =?utf-8?B?aFdsek5BRDNLeXMyZERRbklmK1JCaXZxdWN1ZGRHSnV5SEsvS01XUVovbnZ0?=
- =?utf-8?B?WWFrdFNJU3luZkRrVXgvSjREN0RpUzVKZnd5bHJ1bnE2TUl1SjZIRmZtT0NJ?=
- =?utf-8?B?cytURjZtUDE5YWhOUzJ5S21mUzBDTFhDb2hTS1BOeC8vTlVoU3RVcUFScndG?=
- =?utf-8?B?WU0rMFBLTEVZT1VZbkxaaEg5MTUzSExiYThwdjROR2M0azZ5U3BVa0ZFb1ZB?=
- =?utf-8?B?WG1mampidTJUTGY4Z3NRM3hldDc4MTNCVythUlNSZHdKZlpLVG9TSmFXejVz?=
- =?utf-8?B?ZDZXN0FLaUdRR0ZQMXhnRmRqc1psRjN3RkJ2dkVlUnBqcTZ3MGVwZW1talhH?=
- =?utf-8?B?bUl0RGFLeHFKYUxrSHN1aGdxcEJnWG5qMndZeUNDcG5WZEc2NFhEeFFHRmZU?=
- =?utf-8?B?MlhrV04wV0lUS0duQzdZeThOTy9wZEpheWpmeTR5ZkNlZnpubTIrTmJ6eWpa?=
- =?utf-8?B?MXl2RS92ZVk1L1p1TTBlMlpMaW5RPT0=?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 15:45:56.3074
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c869833-5870-4b27-4642-08de59cd551f
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000989E7.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7407
+References: <20260122-b4-vexpress-config-v1-1-3f0c85bc4730@gmail.com> <aXImjNHQMeqMbcAu@e142607>
+In-Reply-To: <aXImjNHQMeqMbcAu@e142607>
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Thu, 22 Jan 2026 23:54:09 +0800
+X-Gm-Features: AZwV_Qi6Q9dL0Fitgz_IMok5VkTaCCdHNVapMoj_b9GgxMngUHM3kODnl8vCL7U
+Message-ID: <CAN4SLj1z07jqJOuZQ3x-ND=-aViMUhZgaBf3n4k0-R_SryzNFg@mail.gmail.com>
+Subject: Re: [PATCH] bus: vexpress-config: Fix device node reference leak in probe
+To: Liviu Dudau <liviu.dudau@arm.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Rob Herring <robh@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_074605_353103_9C3B0712 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20260122_075424_738289_59585154 
+X-CRM114-Status: GOOD (  25.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,146 +117,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable CPUFreq support for AM62L SoC by adding the relevant OPP efuse table
-syscon for speed grade detection.
-Add the operating-points-v2 table with CPU frequency steps from 200MHz to
-1.25GHz.
-Specify the CPU clocks to reference the SCMI clock controller for frequency
-scaling.
+Hi Liviu,
+Thanks for the review.
+I will remove the header file and send out V2.
 
-Signed-off-by: Dhruva Gole <d-gole@ti.com>
----
-Hello,
-
-This series adds CPU frequency scaling support for the TI AM62L3 SoC.
-
-The AM62L3 is a low-power, low-cost SoC from Texas Instruments. This
-series enables cpufreq support by:
-1. Adding the SoC to the cpufreq-dt-platdev blocklist to prevent the generic driver from probing.
-2. Extending the ti-cpufreq driver to support AM62L3 speed grading by reading the efuse.
-3. Updating the device tree with the necessary operating points and clock configurations.
-
-Tested on AM62L3 EVM [1]
-
-[1] https://gist.github.com/DhruvaG2000/6dcceb80cf7bbd1e624ec210532538cb
----
-Changes in v5:
-- Update the opp-supported-hw value of 1Ghz entry to 0x02
-- Minor reword of commit message
-- Link to v4: https://lore.kernel.org/all/20260122-am62l-dt-cpufreq-v1-1-fabcc15e25fa@ti.com/
-
-Changes in v4:
-- Sent as a stand alone patch.
-- Fix the bit fields in the OPPs as per Kendall's suggestion
-- Fix the scmi_clk ID of the second A53 core
-- Link to v3: https://lore.kernel.org/r/20260120-am62l-cpufreq-v3-0-8c69b80168a3@ti.com
-
-Changes in v3:
-- Sorted the #defines and structs for am62l as well after am62a
-- Pick the R-by tag from Kendall
-- Link to v2: https://lore.kernel.org/r/20260116-am62l-cpufreq-v2-0-eac7e2e78d29@ti.com
-
-Changes in v2:
-- Sort alphabetically while adding AM62L as per Krzysztof's comments
-- Link to v1: https://lore.kernel.org/r/20260116-am62l-cpufreq-v1-0-63d062317ae9@ti.com
----
- arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi |  5 +++
- arch/arm64/boot/dts/ti/k3-am62l3.dtsi       | 47 +++++++++++++++++++++++++++++
- 2 files changed, 52 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-index 61bfcdcfc66ea8d802a36ed43cd01fbbf3decc70..a42ccd0d2fcc4d204cae81508f839c44ce83f558 100644
---- a/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62l-wakeup.dtsi
-@@ -127,6 +127,11 @@ chipid: chipid@14 {
- 			bootph-all;
- 		};
- 
-+		opp_efuse_table: syscon@18 {
-+			compatible = "ti,am62-opp-efuse-table", "syscon";
-+			reg = <0x18 0x4>;
-+		};
-+
- 		cpsw_mac_syscon: ethernet-mac-syscon@2000 {
- 			compatible = "ti,am62p-cpsw-mac-efuse", "syscon";
- 			reg = <0x2000 0x8>;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62l3.dtsi b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-index da220b85151227c63f59b2b8ec48ae2ebb37e7bf..fc514e19f57d5318f851bad2756817dd7ec29b38 100644
---- a/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62l3.dtsi
-@@ -39,6 +39,8 @@ cpu0: cpu@0 {
- 			d-cache-line-size = <64>;
- 			d-cache-sets = <128>;
- 			next-level-cache = <&l2_0>;
-+			operating-points-v2 = <&a53_opp_table>;
-+			clocks = <&scmi_clk 356>;
- 		};
- 
- 		cpu1: cpu@1 {
-@@ -53,6 +55,8 @@ cpu1: cpu@1 {
- 			d-cache-line-size = <64>;
- 			d-cache-sets = <128>;
- 			next-level-cache = <&l2_0>;
-+			operating-points-v2 = <&a53_opp_table>;
-+			clocks = <&scmi_clk 357>;
- 		};
- 	};
- 
-@@ -64,4 +68,47 @@ l2_0: l2-cache0 {
- 		cache-line-size = <64>;
- 		cache-sets = <256>;
- 	};
-+
-+	a53_opp_table: opp-table {
-+		compatible = "operating-points-v2-ti-cpu";
-+		opp-shared;
-+		syscon = <&opp_efuse_table>;
-+
-+		opp-200000000 {
-+			opp-hz = /bits/ 64 <200000000>;
-+			opp-supported-hw = <0x01 0x0003>;
-+			clock-latency-ns = <6000000>;
-+		};
-+
-+		opp-400000000 {
-+			opp-hz = /bits/ 64 <400000000>;
-+			opp-supported-hw = <0x01 0x0003>;
-+			clock-latency-ns = <6000000>;
-+		};
-+
-+		opp-600000000 {
-+			opp-hz = /bits/ 64 <600000000>;
-+			opp-supported-hw = <0x01 0x0003>;
-+			clock-latency-ns = <6000000>;
-+		};
-+
-+		opp-800000000 {
-+			opp-hz = /bits/ 64 <800000000>;
-+			opp-supported-hw = <0x01 0x0003>;
-+			clock-latency-ns = <6000000>;
-+		};
-+
-+		opp-1000000000 {
-+			opp-hz = /bits/ 64 <1000000000>;
-+			opp-supported-hw = <0x01 0x0002>;
-+			clock-latency-ns = <6000000>;
-+		};
-+
-+		opp-1250000000 {
-+			opp-hz = /bits/ 64 <1250000000>;
-+			opp-supported-hw = <0x01 0x0002>;
-+			clock-latency-ns = <6000000>;
-+			opp-suspend;
-+		};
-+	};
- };
-
----
-base-commit: 9b7977f9e39b7768c70c2aa497f04e7569fd3e00
-change-id: 20260116-am62l-cpufreq-1987a04a6f68
-
-Best regards,
--- 
-Dhruva Gole <d-gole@ti.com>
-
+Best regars,
+Felix
+On Thu, Jan 22, 2026 at 9:32=E2=80=AFPM Liviu Dudau <liviu.dudau@arm.com> w=
+rote:
+>
+> Hello,
+>
+> On Thu, Jan 22, 2026 at 08:33:04PM +0800, Felix Gu wrote:
+> > In vexpress_syscfg_probe(), of_parse_phandle() is called inside a loop
+> > but the returned device_node reference is never released.
+> > Fix this by using the __free(device_node) cleanup handler to automatica=
+lly
+> > release the reference when the variable goes out of scope.
+> >
+> > Fixes: a5a38765ac79b ("bus: vexpress-config: simplify config bus probin=
+g")
+> > Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+> > ---
+> >  drivers/bus/vexpress-config.c | 6 +++---
+> >  1 file changed, 3 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/drivers/bus/vexpress-config.c b/drivers/bus/vexpress-confi=
+g.c
+> > index 64ee920721ee..a1fa583e9f5d 100644
+> > --- a/drivers/bus/vexpress-config.c
+> > +++ b/drivers/bus/vexpress-config.c
+> > @@ -4,6 +4,7 @@
+> >   * Copyright (C) 2014 ARM Limited
+> >   */
+> >
+> > +#include <linux/cleanup.h>
+>
+> Not sure this is needed. of.h includes cleanup.h, so we don't run the ris=
+k of
+> not getting the cleanup macros defined.
+>
+> >  #include <linux/err.h>
+> >  #include <linux/init.h>
+> >  #include <linux/io.h>
+> > @@ -390,9 +391,8 @@ static int vexpress_syscfg_probe(struct platform_de=
+vice *pdev)
+> >       }
+> >
+> >       for_each_compatible_node(node, NULL, "arm,vexpress,config-bus") {
+> > -             struct device_node *bridge_np;
+> > -
+> > -             bridge_np =3D of_parse_phandle(node, "arm,vexpress,config=
+-bridge", 0);
+> > +             struct device_node *bridge_np __free(device_node) =3D
+> > +                     of_parse_phandle(node, "arm,vexpress,config-bridg=
+e", 0);
+> >               if (bridge_np !=3D pdev->dev.parent->of_node)
+> >                       continue;
+> >
+>
+> Otherwise, patch looks good to me. Thanks for the fix!
+>
+> Acked-by: Liviu Dudau <liviu.dudau@arm.com>
+>
+> Best regards,
+> Liviu
+>
+> >
+> > ---
+> > base-commit: 053966c344dbd346e71305f530e91ea77916189f
+> > change-id: 20260122-b4-vexpress-config-1d2051861d93
+> >
+> > Best regards,
+> > --
+> > Felix Gu <ustc.gu@gmail.com>
+> >
 
