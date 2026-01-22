@@ -4,144 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA631D6CFA1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 19:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89705D6CFA1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 19:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=71tizYyQqK+qEeiQ91p1bi+H6ziLWzyeylLQFrcF44E=; b=bkvOduLPpsq/hTFIfM7Wlflgfu
-	TZdKX1SyzAYAQByq90+Tgfv6Zh/82HqTuw4cQuRo62l9IPRsuuRa/5MZk8uMfnNzZS6TRHhcXXIqo
-	N2XxBI75W/87cI+BlzANj9QEu6Gu8QO6XCRPyzfLD7qLBx3IYxwEU9G2tw54KjXVuRBeNW1aMoDB+
-	tdqPtWEzXdypD4Mi48mjcXPRTvdqXXGwTcMUxyqynIj3hRG8+qBUhuZ3tdezUbXm5TFKi3yFBhqig
-	bUbne6DWw0OMyD5QA4Q8DW+7GxVWHMrU8gugCKO4yvv0zcdZ/24RUzZZNmK7/bwEmsDBLHxEbgmRl
-	4HaexYxg==;
+	bh=6Od+DPMtD5to2A0BufNITjmJhKQ0ptW5p2YHxn8s3B8=; b=Q8GW5gB9qOEa3Im3v+UWmQgHfp
+	RlOF/DYOXL8X6v36L5rioNqVu5i0P9LoLFxg04iTg7u9PlbSX9tVQiJ08TEAQLZJYOa0/sedhrlwh
+	JgdJwXzCE1UXg5LCRK7izTsTkS7jv1t4SyAlp8WcCbVSXHGTuHtE0MfPt5IMiRSnPkkDsJPqxA/6M
+	FDBVZMhkHqhcy5UNMg0ncFP+b6pFuRMpij0jtUr3jERODqhgfvUAwDrwUB+2ReO+jTR+sDj+wva2L
+	uQZSjgye3HgCjA52GOoQgLWp87a6C7M8xz2T9Y/9PcyaXETUeLBnmYTms+Zph7MiNGkfw2nz7j2Ph
+	U8cTxi3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj0BU-00000007geL-2NLR;
-	Thu, 22 Jan 2026 19:17:36 +0000
-Received: from mail-pl1-x661.google.com ([2607:f8b0:4864:20::661])
+	id 1vj0EB-00000007glf-0Y3M;
+	Thu, 22 Jan 2026 19:20:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj0BS-00000007gdx-01aB
+	id 1vj0E9-00000007glQ-1bYx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 22 Jan 2026 19:20:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=6Od+DPMtD5to2A0BufNITjmJhKQ0ptW5p2YHxn8s3B8=; b=CD6lYF5fVE/+6VdC4K5FQVOZyn
+	SkWWrSLOH1u7oO+YWhcsEmknnfgpT/sH2onc9OBZoAbTIrQxfoVwSZrYNH7WFCjRO4Fpy7U0CUrsf
+	5gddbHzGy1iWzUN/25x1s5lyrfJhVJwT27WqLlYLIECJGdYpKZOoEE6ybj2aX8WC5mSoXoRFwMwpQ
+	+yA6Faamu6aK+uk8j/vjhStFNRoV3tC/EFr0D7tFs2ULSQk1FFd8ZaMRu3gFoMwUvhgnq0JurFX0S
+	xVpqvUaldObEYNG3nHeXnXccNeIh7XHU8fUfXAYuNKQ3VRtESo8roXHi2g7Ni9MCA0HS1F861I19V
+	Tsu0H7gQ==;
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vj0E6-0000000196u-22xY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 19:17:35 +0000
-Received: by mail-pl1-x661.google.com with SMTP id d9443c01a7336-2a09d981507so9377975ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 11:17:33 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769109452; x=1769714252;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=71tizYyQqK+qEeiQ91p1bi+H6ziLWzyeylLQFrcF44E=;
-        b=XJE9q25gA25m45tfTtVWmRdJvp26hII4efk499c5tHG/uG/Ds+Lhzzw5NjikZDe5Lt
-         MBpLJJDTrhVbulvutg/WI6iJBf/ylUjUSk/ldyGWzpNTyvlOUyglbLA19ntlF7oVDjAa
-         69bnCqBKsUE1XxhEaG53G9oDK4gOxH+GqLl5DuXaCAOJXB5S/rPqY7RiJ1mLdMo+3Kop
-         yL1md6bvnN/1/h6JW1XRL855uA/1ULobSU0QWTfUfvsTVl87dEA1mOb6/DR3A0fdbAnd
-         TdN5hNUdAD3cB1hyYMmBUKhtwLHTYTKlxXe6eW3k/E3ri1zxhytPwSq/v8S9BgBC0YvG
-         5JVA==
-X-Forwarded-Encrypted: i=1; AJvYcCUU9ICtVVTibgq8oz/8RF6FrHXm3eIhTL3AIJy3E96PlWl2p2HU9LdzNm0NViHesG2jL6GbIZzH6oD0fLyJDd35@lists.infradead.org
-X-Gm-Message-State: AOJu0YxruwfccrtbCOxT+k7pyliCHPt8XxQctOhUKGHaULgFiu0hjpuq
-	uO5aBHMur/twek+uZAuL+GbL3BbL6X2Jd7kNrW/qPaPQUdMcj6Dj/qY8JxOhefXP2i5X1+KFqm1
-	9Li6KfD2SE9ResHzffdNrspQdriJ4QI4AmV0+7GqQwqE5jGzhZt4ZwTput3f39f1cJ/lfbe7wzq
-	ToKl+k6W3oHGPZcZB7FTLZ8F/SxHFQ001xU97mGpoSvGcgNrMiEApwSAxXPueU+FfFgyyxtAn+l
-	+TJdG1f3S9mMdYCSGIUSUa4GlGeoPHrTvs=
-X-Gm-Gg: AZuq6aLEhtfYgi1HHBv4U3p1K15Y9oLdp7j4NxtQRl/JHAr4r2OsYAQNsAtGwt9Udlj
-	o7+bxyNQAd5vU0z9cfOMHPrcnCIMA0DgCrVrwR4bDJWZYmtL8QPh7o9iNYhEeQ0N9rxYe6Twzy8
-	eaIvUA/hEbeL73qGAXcpqcB4NcHN6NugjvHvJF5cA0j77EW54eS/qyeuBa9x6DYUw9lJzACXAf4
-	BYxgxThHshwBTpD5eRhprPH4zWD9l/HqFjIlE7HBab7021Ea/6mFpQpNkjI8uatBdZS86q6sh7m
-	8342Rzdsd4GpyNly8ZRXtp732AB4keqcug0Gbg9gjLCfS0rXaSZ3qeHAV+KzSbwDw0BrK+WQD+l
-	OZgCcXX+f7upVl1IrE6vr4UD1bmiB5Z8s/52FlHN6N4fYICZqu0HSWK3VOu8ISxjZmRzUf5cbzT
-	fjbzL9GVQh8qNJaHjbzfx+8m+QP3wZoiBgcNWKMtoo2BOvBn5O9A==
-X-Received: by 2002:a17:902:e744:b0:2a7:cb46:7069 with SMTP id d9443c01a7336-2a7d2fbaf36mr31617855ad.25.1769109452451;
-        Thu, 22 Jan 2026 11:17:32 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-11.dlp.protect.broadcom.com. [144.49.247.11])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-353354ba8b2sm486157a91.6.2026.01.22.11.17.32
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 22 Jan 2026 11:17:32 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-11b21dfe918so993089c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 11:17:31 -0800 (PST)
+	Thu, 22 Jan 2026 19:20:20 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2a76b39587aso10795ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 11:20:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769109616; cv=none;
+        d=google.com; s=arc-20240605;
+        b=dhzCQFErjrFW1A0OrlVzj3KPoZqck49WC0Pzt6e+fkC25ZbZHgif/ZGdSTw/MXB1Cd
+         OdJ5XM26kI9kMvMSjW9sR43n5GkP8avmUjuxKsyXKjviN0PfBXE4P0bg1vO17ZCRyoOv
+         mQT/kOaGwRCQ1ySb34LLBOTw1MigcEdBF7vDZYCtXPKKmp85NQYoytGWj2L7prreTYo+
+         XtVM6SkBL+L/aO2cxqJWzM+QBAaxqmzicCmq8pQatZAmL2m9cKQZw+yJFq5lLIvATGgR
+         7+GC3U9xpAHCa9fl/I8U2orjld3djGk+n2FW+8WEo99lK/f2hQqnK+mnRZLznWZjptwj
+         8LBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=6Od+DPMtD5to2A0BufNITjmJhKQ0ptW5p2YHxn8s3B8=;
+        fh=WVSXzbkzwG7ypNkzyM099GYURU4gz3pGoxtyXf3wH8A=;
+        b=bwe+145k96dKGNEWJvqh0ckAwukIZANSetybZAeJOdvrOZQO+qHE0s0MHlj1RnMF3/
+         SpFnmuwoocBAlcvsUH/22CHvY4HTOso+5247x/37R05ziIxmoRgGg8g9dzJ5YIM0SrXD
+         uu2tyK2CabYrhF6Sm5jm+gRzCv5xbSxsXhjjx64PMJeSFHbkGjvj7STI+tFm/wBfix6q
+         Parf1u0gFRHll8X+ypvl3NOg1og7rw4r0LxBLtO77GrOGIsjZDsmo4M25asds5eXkuT8
+         czyA25Z+uXzBJHTqa24WuyJj+oHxu4AOeu6UtPXbkdwcuFiF8SJ2CNTZ/v5o7xEZ6GB4
+         aIKA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1769109450; x=1769714250; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=71tizYyQqK+qEeiQ91p1bi+H6ziLWzyeylLQFrcF44E=;
-        b=YBVP4WuyOIsqP8/7CUi3/EuyXcDG0KCOV01rpMDoM7H8EQ3ZIoNXP+ADXyizdGOA2I
-         qxEV66ShZjB6E3qzcaOqpzIg9+AlXq3CNdHYlsSk09UURUbVzTF/K5ERBouDa438xE9G
-         J4xpUj9RjRb8I1b9tO+2vmjsndsHHr9E3TfRo=
-X-Forwarded-Encrypted: i=1; AJvYcCWq/3cZnn8zRhIE+QEFqW9MCozs1258m5FFwGhrCPe0G/yXFPLni4XBSiEqxOn+CO8I9N/9FouTN9AXwIwhTBqF@lists.infradead.org
-X-Received: by 2002:a05:7022:613:b0:11b:c86b:3870 with SMTP id a92af1059eb24-1247d74215cmr260418c88.4.1769109449829;
-        Thu, 22 Jan 2026 11:17:29 -0800 (PST)
-X-Received: by 2002:a05:7022:613:b0:11b:c86b:3870 with SMTP id a92af1059eb24-1247d74215cmr260397c88.4.1769109449292;
-        Thu, 22 Jan 2026 11:17:29 -0800 (PST)
-Received: from [10.63.25.133] ([12.75.221.34])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1247d997f7bsm611297c88.11.2026.01.22.11.17.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Jan 2026 11:17:28 -0800 (PST)
-Message-ID: <cb4ef2ed-ba94-4475-b02a-5b6e39943e81@broadcom.com>
-Date: Thu, 22 Jan 2026 11:17:24 -0800
+        d=google.com; s=20230601; t=1769109616; x=1769714416; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6Od+DPMtD5to2A0BufNITjmJhKQ0ptW5p2YHxn8s3B8=;
+        b=C61WpgBFSAwo1YVCMWqDA44vhT7rfG14JHKEfP06sQ7F9OWo2H9sdYsqU1pSxjFWix
+         KnXnhXxi4ESyqjVl52PIREO0XCtWWer/rM2pvlBk1Q2vmhELlDqoOvA5SPIsfF/r7z1/
+         uPzL0naGfrkDi3hciALpALg7JGGOtGfCJeEPTP7PT/gQVDK1mqUPF1OrqXyhPRTcFctf
+         Xwzm17MyfDUcUqa1proD+OWDm7ve5M2q5Xm8YY1yam9hWgwj0r3pB2GYpCuCtXe6uDgE
+         x8d/ZCpg6P9fPAQYSQ4OKKAXWRfJR3FDGUgYWxEetqXYwH4VZX2d4P7J0635ILbMvAtm
+         zrvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769109616; x=1769714416;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=6Od+DPMtD5to2A0BufNITjmJhKQ0ptW5p2YHxn8s3B8=;
+        b=cs3ulsKSGFGv+8rxS16XwKtJvsMJxNxQ+HMxS1zLlssbVn49t7OTESt3xVwtFikgbh
+         eFBdhhgRqpBv2uRk88cXkd+jHBd2w3kNLu9CdeUWInBjUZ/JeocYa77cohJw7YW/WTTD
+         U+vgnikVSzHeMuTD5GOMFg207u8d0Fg+wzIodWP0xhGC3VW34pVD+oXw8QmpSOB/WBe6
+         UgBNywD3LBW5IpihEZ2r362Ana2vTfMB1GK2Tuc5Lw0qIobuwEAMtJtO+lQjntsY4PXR
+         MKOf8AR1jLKpWE60ENIwh1RaacJ8Eayh2p4mEIhsu5felccjblxd+ODsI09ZWQ5hKrgu
+         dQvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXNw4r/ePpDa3blxX38GrtmpehOSKNp9udyJEcR2r6+uy0Ph7kVT+2kkxdByDGK17TbZEhclP7BSKGtj7m/1yiK@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuqvOzE4RIrj+TkFKPTTAZI4TFQM5chjU4D9rnnQTQHo9zrGKi
+	50o3RvF/QQ5ewfjZUzKHaI/nnsmMjSQh4/ZMDUDvPJyD2NtuscQR4Gx0Z+V3vWtbAuNiD2c+6PW
+	4YaUy78hDn5nPqsUAI189EKxGmZ16zRF7/gxqthId
+X-Gm-Gg: AZuq6aL5wApUtsDhsmikLci3r9J8QVpES+hAeLOIp5t5JWK6Oys6B07KbyXYMtzSQET
+	/+XbwccyFeQPHoiMqPPPefhVMKqT11WtYHgoidx7mYpocIqb2B2ifK4n8MJNY/3DYPBT7xylNQY
+	KsISiRKvi0h+DUrdTJzWiumsXLJALjchTP8asCaKIi4u2B2uawVcjQdaeLC0BzQ9BAffa6+/a+e
+	WGbxWEoCYZ7cB+TPH0U4h8AOu3JSL7AmMGVWP+89SIT1UHBYeK6l72dA3nAtjTxQ3FfE2NT0dtE
+	hfCgmxFFc/KoIxx41VRrj7PJrg==
+X-Received: by 2002:a17:903:28c:b0:298:45b1:6ef4 with SMTP id
+ d9443c01a7336-2a8024db5cdmr326815ad.12.1769109615868; Thu, 22 Jan 2026
+ 11:20:15 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] gpio: brcmstb: implement irq_mask_ack
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Doug Berger <opendmb@gmail.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>, Christophe Leroy
- <chleroy@kernel.org>, "open list:GPIO SUBSYSTEM"
- <linux-gpio@vger.kernel.org>,
- "moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>
-References: <20260122010516.1200630-1-florian.fainelli@broadcom.com>
- <20260122010516.1200630-3-florian.fainelli@broadcom.com>
- <CAHp75Vc=ejHPwA05MHBxJQdJWv49pcuTNax0VikXruvwVM+Y9A@mail.gmail.com>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <CAHp75Vc=ejHPwA05MHBxJQdJWv49pcuTNax0VikXruvwVM+Y9A@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+References: <20260122165407.561888-1-irogers@google.com> <20260122165407.561888-12-irogers@google.com>
+ <CAO9wTFjA8_YH+_VW4YHze3dUu-HisA-m_GzfpeS_L=ya7FC9uA@mail.gmail.com>
+In-Reply-To: <CAO9wTFjA8_YH+_VW4YHze3dUu-HisA-m_GzfpeS_L=ya7FC9uA@mail.gmail.com>
+From: Ian Rogers <irogers@google.com>
+Date: Thu, 22 Jan 2026 11:20:04 -0800
+X-Gm-Features: AZwV_QhOWCsKoUPsWSGYxkhbT75uIENmhM4kJsBNx_hb2S0JYW2XYOxu90HvPh0
+Message-ID: <CAP-5=fVS90cUNXbs2BD-_cEBb9c=1+UN1BvGF1kvtDKy-=O0ZA@mail.gmail.com>
+Subject: Re: [PATCH v2 11/12] perf disasm: Refactor arch__find and
+ initialization of arch structs
+To: Suchit Karunakaran <suchitkarunakaran@gmail.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, James Clark <james.clark@linaro.org>, 
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, 
+	Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Zecheng Li <zecheng@google.com>, Tianyou Li <tianyou.li@intel.com>, 
+	Thomas Falcon <thomas.falcon@intel.com>, Julia Lawall <Julia.Lawall@inria.fr>, 
+	Athira Rajeev <atrajeev@linux.ibm.com>, Aditya Bodkhe <aditya.b1@linux.ibm.com>, 
+	Howard Chu <howardchu95@gmail.com>, 
+	=?UTF-8?Q?Krzysztof_=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>, 
+	"Dr. David Alan Gilbert" <linux@treblig.org>, Shimin Guo <shimin.guo@skydio.com>, 
+	Sergei Trofimovich <slyich@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_111734_089174_8C2991B6 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20260122_192018_573957_C0C8EEFA 
+X-CRM114-Status: GOOD (  22.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,84 +149,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jan 22, 2026 at 10:45=E2=80=AFAM Suchit Karunakaran
+<suchitkarunakaran@gmail.com> wrote:
+> On Thu, 22 Jan 2026 at 22:24, Ian Rogers <irogers@google.com> wrote:
+[snip]
+> > --- a/tools/perf/util/annotate-arch/annotate-arm64.c
+> > +++ b/tools/perf/util/annotate-arch/annotate-arm64.c
+> > @@ -8,9 +8,10 @@
+> >  #include "../annotate.h"
+> >  #include "../disasm.h"
+> >
+> > -struct arm64_annotate {
+> > -       regex_t call_insn,
+> > -               jump_insn;
+> > +struct arch_arm64 {
+> > +       struct arch arch;
+> > +       regex_t call_insn;
+> > +       regex_t jump_insn;
+> >  };
+> >
+> >  static int arm64_mov__parse(const struct arch *arch __maybe_unused,
+> > @@ -70,7 +71,7 @@ static const struct ins_ops arm64_mov_ops =3D {
+> >
+> >  static const struct ins_ops *arm64__associate_instruction_ops(struct a=
+rch *arch, const char *name)
+> >  {
+> > -       struct arm64_annotate *arm =3D arch->priv;
+> > +       struct arch_arm64 *arm =3D container_of(arch, struct arch_arm64=
+, arch);
+> >         const struct ins_ops *ops;
+> >         regmatch_t match[2];
+> >
+> > @@ -87,38 +88,44 @@ static const struct ins_ops *arm64__associate_instr=
+uction_ops(struct arch *arch,
+> >         return ops;
+> >  }
+> >
+> > -int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused=
+)
+> > +const struct arch *arch__new_arm64(const struct e_machine_and_e_flags =
+*id,
+> > +                                  const char *cpuid __maybe_unused)
+> >  {
+> > -       struct arm64_annotate *arm;
+> >         int err;
+> > +       struct arch_arm64 *arm =3D zalloc(sizeof(*arm));
+> > +       struct arch *arch;
+> >
+> > -       if (arch->initialized)
+> > -               return 0;
+> > +       if (!arm)
+> > +               return NULL;
+> > +
+> > +       arch =3D &arm->arch;
+> > +       arch->name =3D "arm64";
+> > +       arch->id =3D *id;
+> > +       arch->objdump.comment_char        =3D '/';
+> > +       arch->objdump.skip_functions_char =3D '+';
+> > +       arch->associate_instruction_ops   =3D arm64__associate_instruct=
+ion_ops;
+> >
+> >         arm =3D zalloc(sizeof(*arm));
+> >         if (!arm)
+> > -               return ENOMEM;
+> > +               return NULL;
+>
+> Please correct me if I'm wrong, but I think there's double allocation
+> here for the variable arm since we've already allocated memory for at
+> the start of the function.
 
+Yes, I will fix it in v3. Clearly I was working too late :-)
 
-On 1/21/2026 11:36 PM, Andy Shevchenko wrote:
-> On Thu, Jan 22, 2026 at 3:06 AM Florian Fainelli
-> <florian.fainelli@broadcom.com> wrote:
->>
->> From: Doug Berger <opendmb@gmail.com>
->>
->> The irq_mask_ack operation is slightly more efficient than doing
->> irq_mask and irq_ack separately.
-> 
-> I would refer to the callbacks as
-> 
-> .irq_mask()
-> .irq_ack()
-> 
-> et cetera.
+> >
+> >         /* bl, blr */
+> >         err =3D regcomp(&arm->call_insn, "^blr?$", REG_EXTENDED);
+> >         if (err)
+> >                 goto out_free_arm;
+> > +
+> >         /* b, b.cond, br, cbz/cbnz, tbz/tbnz */
+> >         err =3D regcomp(&arm->jump_insn, "^[ct]?br?\\.?(cc|cs|eq|ge|gt|=
+hi|hs|le|lo|ls|lt|mi|ne|pl|vc|vs)?n?z?$",
+> >                       REG_EXTENDED);
+> >         if (err)
+> >                 goto out_free_call;
+> >
+> > -       arch->initialized =3D true;
+> > -       arch->priv        =3D arm;
+> > -       arch->associate_instruction_ops   =3D arm64__associate_instruct=
+ion_ops;
+> > -       arch->objdump.comment_char        =3D '/';
+> > -       arch->objdump.skip_functions_char =3D '+';
+> > -       return 0;
+> > +       return arch;
+> >
+> >  out_free_call:
+> >         regfree(&arm->call_insn);
+> >  out_free_arm:
+> >         free(arm);
+> > -       return SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_REGEXP;
+> > +       errno =3D SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_REGEXP;
+> > +       return NULL;
+> >  }
+[snip]
+> > diff --git a/tools/perf/util/annotate-arch/annotate-powerpc.c b/tools/p=
+erf/util/annotate-arch/annotate-powerpc.c
+> > index 593c138c8104..004e6137aa03 100644
+> > --- a/tools/perf/util/annotate-arch/annotate-powerpc.c
+> > +++ b/tools/perf/util/annotate-arch/annotate-powerpc.c
+> > @@ -390,17 +390,21 @@ static void update_insn_state_powerpc(struct type=
+_state *state,
+> >  }
+> >  #endif /* HAVE_LIBDW_SUPPORT */
+> >
+> > -int powerpc__annotate_init(struct arch *arch, char *cpuid __maybe_unus=
+ed)
+> > +const struct arch *arch__new_powerpc(const struct e_machine_and_e_flag=
+s *id,
+> > +                                    const char *cpuid __maybe_unused)
+> >  {
+> > -       if (!arch->initialized) {
+> > -               arch->initialized =3D true;
+> > -               arch->associate_instruction_ops =3D powerpc__associate_=
+instruction_ops;
+> > -               arch->objdump.comment_char      =3D '#';
+> > -               annotate_opts.show_asm_raw =3D true;
+> > +       struct arch *arch =3D zalloc(sizeof(*arch));
+> > +
+> > +       if (!arch)
+> > +               return NULL;
+> > +
+> > +       arch->name =3D "powerpc";
+> > +       arch->id =3D *id;
+> > +       arch->objdump.comment_char =3D '#';
+> > +       annotate_opts.show_asm_raw =3D true;
+> > +       arch->associate_instruction_ops =3D powerpc__associate_instruct=
+ion_ops;
+> >  #ifdef HAVE_LIBDW_SUPPORT
+> > -               arch->update_insn_state =3D update_insn_state_powerpc;
+> > +       arch->update_insn_state =3D update_insn_state_powerpc;
+> >  #endif
+> > -       }
+> > -
+> >         return 0;
+>
+> Shouldn't we return arch here?
 
-Ack.
+Agreed.
 
-> 
->> More importantly for this driver it bypasses the check of
->> irqd_irq_masked ensuring a previously masked but still active
->> interrupt gets remasked if unmasked at the hardware level. This
->> allows the driver to more efficiently unmask the wake capable
->> interrupts when quiescing without needing to enable the irqs
->> individually to clear the irqd_irq_masked state.
-> 
-> ...
-> 
->> -// Copyright (C) 2015-2017 Broadcom
->> +// Copyright (C) 2015-2026 Broadcom
-> 
-> Shouldn't it be rather 2015-2017,2026 ? (In one case when I updated a
-> driver for Intel, I went via Git history to gather the info.)
+> >  }
+[snip]
+> > diff --git a/tools/perf/util/annotate-arch/annotate-sparc.c b/tools/per=
+f/util/annotate-arch/annotate-sparc.c
+> > index 66a0174376dd..fe7a37966261 100644
+> > --- a/tools/perf/util/annotate-arch/annotate-sparc.c
+> > +++ b/tools/perf/util/annotate-arch/annotate-sparc.c
+> > @@ -1,6 +1,7 @@
+> >  // SPDX-License-Identifier: GPL-2.0
+> >  #include <string.h>
+> >  #include <linux/compiler.h>
+> > +#include <linux/zalloc.h>
+> >  #include "../../util/disasm.h"
+> >
+> >  static int is_branch_cond(const char *cond)
+> > @@ -160,13 +161,17 @@ static const struct ins_ops *sparc__associate_ins=
+truction_ops(struct arch *arch,
+> >         return ops;
+> >  }
+> >
+> > -int sparc__annotate_init(struct arch *arch, char *cpuid __maybe_unused=
+)
+> > +const struct arch *arch__new_sparc(const struct e_machine_and_e_flags =
+*id,
+> > +                                  const char *cpuid __maybe_unused)
+> >  {
+> > -       if (!arch->initialized) {
+> > -               arch->initialized =3D true;
+> > -               arch->associate_instruction_ops =3D sparc__associate_in=
+struction_ops;
+> > -               arch->objdump.comment_char =3D '#';
+> > -       }
+> > +       struct arch *arch =3D zalloc(sizeof(*arch));
+> > +
+> > +       if (!arch)
+> > +               return NULL;
+> >
+> > +       arch->name =3D "sparc";
+> > +       arch->id =3D *id;
+> > +       arch->associate_instruction_ops =3D sparc__associate_instructio=
+n_ops;
+> > +       arch->objdump.comment_char =3D '#';
+> >         return 0;
+>
+> Same here as well, 0 is returned instead of the arch pointer.
 
-Ack.
+Agreed.
 
-> 
-> ...
-> 
->>   static void brcmstb_gpio_set_imask(struct brcmstb_gpio_bank *bank,
->> -               unsigned int hwirq, bool enable)
->> +               unsigned int hwirq, bool enable, bool ack)
-> 
-> This type of interface is usually discouraged as it makes code harder
-> to read and follow. Since there are a lot of duplication, I recommend
-> to move the ack op to a separate helper.
-
-Good point, knowing the order and what set in those parameters can be 
-confusing.
-
-> 
-> ...
-> 
->> -       gpio_generic_write_reg(&bank->chip,
->> -                              priv->reg_base + GIO_MASK(bank->id), imask);
->> +       if (ack)
->> +               gpio_generic_write_reg(&bank->chip,
->> +                                      priv->reg_base + GIO_MASK(bank->id),
->> +                                      imask);
-> 
-> Id est this piece...
-> 
-> 
-> 
->> +static void brcmstb_gpio_irq_mask_ack(struct irq_data *d)
->> +{
->> +       struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
->> +       struct brcmstb_gpio_bank *bank = gpiochip_get_data(gc);
->> +
->> +       brcmstb_gpio_set_imask(bank, d->hwirq, false, true);
-> 
-> ...and call it here explicitly (seems the only place for it, so it can
-> even be just moved here without an intermediate helper).
-
-Will do, thanks!
--- 
-Florian
-
+Thanks,
+Ian
 
