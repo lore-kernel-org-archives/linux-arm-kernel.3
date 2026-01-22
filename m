@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B371D6CFA1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 18:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76670D6CFA3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 18:40:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eU9nAAzm7tuhsde9kPZ3jwJ1ZSEJF+Z3udZWl8Q5Jwg=; b=CmrJE43maUyb7XnH7C62GszSlo
-	Py5lR55WmZ22J+Cx7iRnKmQRWjvVage+uYhkbMNfTYBdh+hjqArrsqLS3O8EcrNxL4qWC6W5LoUeo
-	ryPjoc4dKcNbLSYZxVvVQNlfsZaUD2bw473zUXNkWnIeIwm6Tq5aw2U0SHQB/cJYJXP1d/k0Gl2xA
-	WuTm9Rc6ii0VpEcbx/wqIEHUPlyWGwZe3mQvRZdysyq8NXXihXbNPusgDh1G2+jMFf73WZINg2D50
-	9dQlmjufcdSBnGbFubjIh5oQ12GtnI77Ck6EkkHmQWZuScHcBzHUe5bFlp2KtJMoi59FTvkEjNdv2
-	D/+p7+ug==;
+	bh=Kh3llz159zOHhYjpa3DZZY1B3AUjD9TXdEvBojqy5mg=; b=LcspEdX6iZ8GOOdUoDyQWy5n0z
+	OlHNhUK+aLG7ooH83hEeOIooP6F4ZOLUqB7MzvZdEBAAWD4N9mpxLRaOorwV0QczcYstni9pj0s0M
+	Mpck8cA0fnj714RjPpu3CBAJEW/JMzb27rmhNAMwMx4M3E+Qug4HUk2o3S7ncqAnpygOfCK/n+NG+
+	lbqlJk4mF4zQTFe7NNEUiCGflPqXKgDAy9GB9hYBN5nzg0L7dX017NmHubhcZB+Jf1iswp97roDun
+	WirpD2yFH3MePfI4N8Qg/lWOQSS9CO13HadmOEoxwx3X3XrNxHY8p39Me8wHAeMIi1TiNbjxuKZfG
+	ZBdhJzPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vizau-00000007eEE-2w4j;
-	Thu, 22 Jan 2026 18:39:48 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1vizbr-00000007eHz-0MGV;
+	Thu, 22 Jan 2026 18:40:47 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vizas-00000007eDo-0y3P
+	id 1vizbo-00000007eHW-45rT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 18:39:48 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c2af7d09533so786029a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 10:39:45 -0800 (PST)
+	Thu, 22 Jan 2026 18:40:46 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2a7aa9efc55so8882415ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 10:40:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1769107185; x=1769711985; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1769107244; x=1769712044; darn=lists.infradead.org;
         h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=eU9nAAzm7tuhsde9kPZ3jwJ1ZSEJF+Z3udZWl8Q5Jwg=;
-        b=Es1v1Q1LGBw5UEw5OH46++a2cfyW7V2m70TLRK1pXxt41ciEdC4rWE3IKPW/kfCPrU
-         wROpZ/6mbHrsQMJmyUhGtWaB1WssVYPomFsnEPVFZh6uj0EEGzClLaa50RfzJQtRhC2U
-         L17A1LsbBlLX/t/FEuWhKPy9ZaqfN/joynXCoMIhhQ7ubOlSeytqaSJmAGLiLnVzSuYB
-         zZm6wQ74ftCFL/TPOnvZDQIeW9rpohrMH8YtkStdSBgTKBE/GuP8IolcnMsfkX4bJRd2
-         T73YDvgSmuZHTUAVWURzYNQQM5aePKZkhWZUoivz0Q62trOTbKoH/cprDJarPdJk+n3U
-         gWxA==
+        bh=Kh3llz159zOHhYjpa3DZZY1B3AUjD9TXdEvBojqy5mg=;
+        b=G96tA+bSSJowuHCvyv5+M0//Q5J7MeF4M7uYF0FXpokMkpj3LKxZDJdKupkJtxq7xX
+         WA0euVBvebtgQNmNN9jQZ+9MTFC97RnB9fGtBfEQWPnCWNfmDQWXG6uH2a4lpK43YEjY
+         uUmgHFn1eS1XkBX1eD2kvbVe3AECL5EO+r0oKyNcxtJ1o49kn3ES0xnLcIrnbsK1NB1c
+         rFzXU1VWwS0xt3LI4ZoOD0l9Wh8xwEcIo79WJ5ndzcau+PHRIK7Ld9QJBG3IUUVAneM/
+         yQM6ilma3dofdFFyEStbDlAZq+Z5NnEXidEeks69QqtI4XwMhh1EJ/MqGJvDT4QEfqBQ
+         +CNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769107185; x=1769711985;
+        d=1e100.net; s=20230601; t=1769107244; x=1769712044;
         h=mime-version:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eU9nAAzm7tuhsde9kPZ3jwJ1ZSEJF+Z3udZWl8Q5Jwg=;
-        b=bcivS9So5P+G0UYNY4b6Whk1SncsC/zJyjubtT6WTLRrWNmkHPk+hT+AauAt5mMaXl
-         3fxaA/QVO4+c0n3abn+Pws3WAfB6Wyjt7kpX/6JUOb+1IrGtnH1xb+bo3AskgB0Z60Bd
-         1PaUW4s+K9z3gEPm1kyT9A2jEDa1lEoY9YTiBZzUQd1YI3jhbbztKNNWytgKkl86i5r6
-         uQrmFnoWuPxEOwOEImBoTyIcRjq0bHihIqQYq6da1CD1cHl0648QczzSNqiMWR3gigBd
-         68PvNYya8jWQxd08Wgt4BiUXPtbrsf/73U9IjP0PZ22Z1VIelrQr0Crmbmjhe46pGv8R
-         hhWw==
-X-Forwarded-Encrypted: i=1; AJvYcCUOV0Y8RYefRSMH9q3Jr1K5bJ8yQpOJ5i44e43O55EyUJm8a3/FmsPenEJwiGz2jrP/v6SyemVnBWhMcuFPKxN/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGz18MF/fIABf5truHxmpwXEXg3TKAKm88AGaG9YLqL58XsR8I
-	CRkf1P31lqf+laI2rvT4LVZTqxNTkHYQuxbZp3bYOdxkhChycqDg37Jw/a2tnHSLMoU=
-X-Gm-Gg: AZuq6aJL66PO6k06J1SOFeNW6iCrDHMQW4G42cRWDCm7NivLQ+EPj4EyYk3p3spXUtS
-	lYj6CQaeZEoWTEclTZ7XOrnmXOCpZUHcrbBykt09+vbft87nzKLqiU8I8vEHm5wtGOEIWlFFTNT
-	DwqRBW+FPuJoygGIrMZRkz4amt1s5GXnF3qNuGQzP4zIC9Zlqn20Qye4wiQxXjKtsp+JeDfoosq
-	Vr9AYSccwfGGjVEvPZgjBOyQJeTMeAE5BAc3vGQMpJ0dt6GPU3gdutGfPtFe8/gck6/7mEfRjyK
-	MVjF/pWvdSt9WU+DVBHEN7dXw59SQS/9iSpFMo/n7nbqf685Z485YnZtU91QMic2qPHuzxTfaGm
-	h6uT9+0JF7TLaV6U51Y/ESIsNKcmpObfd6P7v1ZzDrBFdjbw4f6kqxhJ5LW/yVoJ1M88CeE5vfZ
-	4AcD530uC7Rj0dShCsPWM=
-X-Received: by 2002:a05:6a20:7485:b0:366:14ac:e1f0 with SMTP id adf61e73a8af0-38e6f83ae57mr387123637.66.1769107184746;
-        Thu, 22 Jan 2026 10:39:44 -0800 (PST)
+        bh=Kh3llz159zOHhYjpa3DZZY1B3AUjD9TXdEvBojqy5mg=;
+        b=c2m1wmd+iXufi+pIvK0PqlDnjcznGYs8TUN/mDNby4ij6oXuOf1zWITfC+tQI+3jBE
+         lof8DJ7Dfz1W2qU5FNhO1LMGrGnO2jTbwj17d97O86rMCBImHxMAoa90iisTs9UcVS+6
+         0Ra8giFPvgYhKlrj6tEyoRiTwzhDDUs5SBNJZgyzQZFstXPKow2gr34MbrhW3zFAXoL6
+         p3Cfy9PwJ8DSZod5A1yXqP1x3uYhn8UpJFQdKtAlJEUdOiVzfoSTyOlrLIXv5dpKPwPf
+         tsS6OXqftB4lCo9KDAiyRSXmWhZvwIhKMQ8YUioIlgARa4oaRobisaXsWQUc/ziv4ni7
+         0q1A==
+X-Forwarded-Encrypted: i=1; AJvYcCWAFwb/YZ5P/EJW3p6vDLB98zseq5cIU+lv6FoGq0Ig/fQMYoqR9vM9r3sTLuWDSDW76hymSqNlNDsHUI7AUlqq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHrp5+idZuiWqRCcC0tVYwdv7gqg6uLo+LNfvlsLqc9ZKFkVSy
+	7jVNv8CLrhugidWNyQECwhSEReD065W6RGQFewYPjvuYNbja1IWnGhFZTWGJlePeiys=
+X-Gm-Gg: AZuq6aLc+MDSTBSGEP2NkB9hD5IplcxexGReVvNfp4Dcj6nKMtM11qklZHO+9Ghd2Wh
+	UI9A/0v/8zmGNsinl0PNzEZdKLwHWVW3lVvPmMnGfqFA8NU/GgNNUxDFEfJiA1pwoBCQ74cPJFE
+	Y3BDbnTg5+LOWBoOSqzBO/iLk0hKJZGU2uUVKnP31ig+enqBppoSmi0VzRT0SGJtrLRPLOJC3ey
+	kyA08rugjloeWHMr2sMZYE76ABPDGAdAK5qePMvi7fWLN21ljy9pHwsDjP1rYMbfQT3RypBoCFz
+	73rhZk3qAY8EowwkL7g7L+iEXJhWLl0avYUIdy/XRSJ7UmJui7vk3s51qUyrn0Wpd+39QUjDL5d
+	NHJb7Av0mmUni/6F4We+jsZVCg22iUbfXrdRdr08T5FVo60VKfOD8ePfYMz+3CWc5VCH3e6/JRr
+	THjclOSg6o
+X-Received: by 2002:a17:902:e851:b0:29f:1bf:642a with SMTP id d9443c01a7336-2a7fe43ee93mr2949225ad.12.1769107243616;
+        Thu, 22 Jan 2026 10:40:43 -0800 (PST)
 Received: from localhost ([71.212.200.220])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c635a3f2ddcsm41909a12.17.2026.01.22.10.39.43
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a7b03945c7sm52280935ad.102.2026.01.22.10.40.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 22 Jan 2026 10:39:43 -0800 (PST)
+        Thu, 22 Jan 2026 10:40:43 -0800 (PST)
 From: Kevin Hilman <khilman@baylibre.com>
 To: soc@lists.linux.dev
 Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] ARM: dts: OMAP updates for v6.20
-Date: Thu, 22 Jan 2026 10:39:43 -0800
-Message-ID: <7h7bt97aq8.fsf@baylibre.com>
+Subject: [GIT PULL] ARM: omap: soc updates for v6.20
+Date: Thu, 22 Jan 2026 10:40:42 -0800
+Message-ID: <7h343x7aol.fsf@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_103946_405646_E6671044 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20260122_104045_019265_D32A2FEE 
+X-CRM114-Status: UNSURE (   6.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,52 +99,23 @@ The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v6.20/dt-signed
+  git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v6.20/soc-signed
 
-for you to fetch changes up to 76f88d2edd9f21acad7be8422069403118708455:
+for you to fetch changes up to dc717e24deb4e626f4ad4896dd722815ef32311a:
 
-  ARM: dts: omap: dra7: Remove bogus #syscon-cells property (2026-01-05 12:11:31 -0800)
-
-----------------------------------------------------------------
-ARM: dts: OMAP updates for v6.20
+  ARM: omap1: drop unused Kconfig symbol (2026-01-05 12:11:02 -0800)
 
 ----------------------------------------------------------------
-Alexander Stein (1):
-      ARM: dts: tps65910: Add gpio & interrupt properties
+ARM: omap: soc updates for v6.20
 
-Andreas Kemnade (2):
-      ARM: dts: ti/omap: omap4-epson-embt2ws: add powerbutton
-      ARM: dts: ti/omap: omap*: fix watchdog node names
+----------------------------------------------------------------
+Randy Dunlap (1):
+      ARM: omap1: drop unused Kconfig symbol
 
-Kory Maincent (TI.com) (1):
-      ARM: dts: Drop am335x-base0033 devicetree
+Wentao Liang (1):
+      ARM: omap2: Fix reference count leaks in omap_control_init()
 
-Rob Herring (Arm) (1):
-      ARM: dts: ti: Drop unused .dtsi
-
-Vladimir Zapolskiy (1):
-      ARM: dts: omap: dra7: Remove bogus #syscon-cells property
-
-Yegor Yefremov (1):
-      ARM: dts: omap: enable panic-indicator option
-
- arch/arm/boot/dts/ti/omap/Makefile                |   1 -
- arch/arm/boot/dts/ti/omap/am335x-baltos-leds.dtsi |   1 +
- arch/arm/boot/dts/ti/omap/am335x-base0033.dts     |  92 -----------------------------------------------------------------------------
- arch/arm/boot/dts/ti/omap/am3703.dtsi             |  14 ------------
- arch/arm/boot/dts/ti/omap/am3715.dtsi             |  10 ---------
- arch/arm/boot/dts/ti/omap/dra7-l4.dtsi            |   1 -
- arch/arm/boot/dts/ti/omap/omap2430.dtsi           |   2 +-
- arch/arm/boot/dts/ti/omap/omap3.dtsi              |   2 +-
- arch/arm/boot/dts/ti/omap/omap3430es1-clocks.dtsi | 237 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- arch/arm/boot/dts/ti/omap/omap4-epson-embt2ws.dts |   5 +++++
- arch/arm/boot/dts/ti/omap/omap4-l4-abe.dtsi       |   2 +-
- arch/arm/boot/dts/ti/omap/omap4-l4.dtsi           |   2 +-
- arch/arm/boot/dts/ti/omap/omap5-l4.dtsi           |   2 +-
- arch/arm/boot/dts/tps65910.dtsi                   |   4 ++++
- 14 files changed, 15 insertions(+), 360 deletions(-)
- delete mode 100644 arch/arm/boot/dts/ti/omap/am335x-base0033.dts
- delete mode 100644 arch/arm/boot/dts/ti/omap/am3703.dtsi
- delete mode 100644 arch/arm/boot/dts/ti/omap/am3715.dtsi
- delete mode 100644 arch/arm/boot/dts/ti/omap/omap3430es1-clocks.dtsi
+ arch/arm/mach-omap1/Kconfig   |  1 -
+ arch/arm/mach-omap2/control.c | 14 ++++++++++----
+ 2 files changed, 10 insertions(+), 5 deletions(-)
 
