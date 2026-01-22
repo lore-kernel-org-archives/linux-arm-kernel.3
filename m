@@ -4,92 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D68D6CFA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 21:36:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF62FD6CFA6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 21:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ACMl4tEoxoHusBUNvHd7v0jfYpL5OX8OF2Pn3Unqkyk=; b=cFmUE8x50F7KR8CcMI29rUHBJY
-	Teg3kd7kGBa4+1Ap1nPR02IcXvUwLwMvy4TkVRx7QFmmWRe739QVpRnlAsMPR8mmGdd9n/0XR4cbz
-	U78pDAyq8+Im+yeNVOA5D93OygIWRq/obLmEJP/vGMw2aOpOZ8d4keBnl2A6AXdRF9xEODF479lDX
-	CLrZkfyTmP2w3mmPy7IkCEulWuNTL1tv53sU9BvSkpMWyYLt+HWNUccJtd2TjNYRQyweLfnn+chDr
-	bz5ErOk8pSRO9ehmJ4iJtVB3AC/EYKp0Bsj55blfVjXQQZ2R4Lo9WPzmAYw4ZZEmS61XDzgNtZwqM
-	4tf94RaA==;
+	bh=w6hrXrC2weCSJVsSNGyEN4oY/7kd2W0EtsvP0IFDu6Q=; b=pMUQDFWYmkNx5vhmg2V5g+lndZ
+	rm3XYaIWMbWyZ3zUkyuNJUfJ18soM6Nd+hy/3dmZg9G8gJyxVuyBTSdYZecO+9BUoVQ2Kf1JvpNEo
+	kxmY20+aB6HS9+MuX3df9TZd+LaOpXIlQ2VqBEtMhQduFjwXb19b1UT51iJnRavLYsux1UoM6UyhC
+	A/w07XFf6lVkgcFRYzzbyIvuY+LiCHVeDVNd3pBj3I34eBqq5W9ePuJVpFX9AdvQt4J/CLRjDCWUr
+	rmEEUew2/t2JT8K/GZOFj1avO2ob3yT2iWjtddDfyUy9n/4uPiYT6cDet0XbXFNhmz5KESNJq6HtX
+	G9awuL1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj2LL-00000007mVx-0dza;
-	Thu, 22 Jan 2026 21:35:55 +0000
-Received: from mail-dy1-x1349.google.com ([2607:f8b0:4864:20::1349])
+	id 1vj2Qu-00000007oK3-2foF;
+	Thu, 22 Jan 2026 21:41:40 +0000
+Received: from mail-westcentralusazon11020132.outbound.protection.outlook.com ([40.93.198.132] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj2L6-00000007mO1-08Wn
+	id 1vj2Qr-00000007oJe-26Ps
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 21:35:41 +0000
-Received: by mail-dy1-x1349.google.com with SMTP id 5a478bee46e88-2b72a9a9715so4557583eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 13:35:39 -0800 (PST)
+	Thu, 22 Jan 2026 21:41:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=InJK8Ls01kZmBgIOtU+q8+IJac3sxe8AklfGxVtHHIg0D8YXKchF/yul1TabwH2f6hBYOYeNznx0/3RO/DWKUwVcVDM3dQGZgNegN112LfNkbhzBMRoQSwJTy2nLxOqYEfH8PEX/hGxAm9E8QRZLJL2mdvg406QFNsXuol36WTmmEfozCrpObVNVpGn+C7T6Ij9Z2iQ3+mxq+eimxXKTfqMCPOb7cAM6idGTkKYslrDPM7rknYyU4KJ9a8WFCGst0RlBjOb79X7JupWNR7Pr18VcmmySbzR0nXluWFSwU3kiDaRPRgOudQRUwLfMTvpslkiYxp+Uk6gFH3xkNG/7qQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w6hrXrC2weCSJVsSNGyEN4oY/7kd2W0EtsvP0IFDu6Q=;
+ b=npUFQs7tKOKWB/eAxStQ8sItqjYoW8sCY8G9OokcPkv+h/z5h4XU1bvY6xyTPa9+UXPyRVPFP1IecAajUzI0yMJFlriMBA0oSre9AU3GlZ/+sGoDSn34uI1XUomw4J+FdcqaLdw3PSdUubHxNceUES8bZUZliqra+XyCodRuY9HxIfRlZa4yJPhHDsqgOqzvxZmGyjo1+8oehMy1EmknTm5mkW3LOrevzCMAPi0d3m3yb6bSGS08EcvYn+qyAmsHKlyDY+Yo3JMHZHgDe3DMX54JP5uBytAzbx8nSxZezZiqTrmMZTIFrxwisY3bNQrmVWDT4X6evaIHwqFHnerzCQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769117739; x=1769722539; darn=lists.infradead.org;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ACMl4tEoxoHusBUNvHd7v0jfYpL5OX8OF2Pn3Unqkyk=;
-        b=UFXiWW/eqCJ9MBEECT/j7xDFODrF2mHDQTywvo6Y5cSBwUhPgTqdCXQQPeboJdK9Wj
-         +dpAyCUDLVEJ5MHv97pGSiiqKWzWLLU6O3TtrKqJnVy089iUo4hs99o+nP6H8FSwoWwX
-         oxZqAcmtv5vjDCXtgnz0tgLXHBd03eZgCjAZhLAOtQJNe1AQiZVq68MpDC+uLVKs4Tvy
-         +ERZSXV8KPXV/zB4HzTY21IaQbnWQRtEVl4pDkh24KMCU176ZXYEddxu230fdYenLrMR
-         S/sZHmCRY0cLqNql3ny76K/liat8A3wfc9cX21c4TttCXcFxuwBLHlW1drjj9jD01wMk
-         yQzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769117739; x=1769722539;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ACMl4tEoxoHusBUNvHd7v0jfYpL5OX8OF2Pn3Unqkyk=;
-        b=ICJh4dduH3XW8yEMTNiqr7uMyP7ybjfFv+idX75+3r5bli8sKNDCQNimaKI2HC+15j
-         HfGmVC1XuaoRwJd9tLBIE+hPQS8HyPD2HepDSlcxxUsge3qxKdvNlrcx65A2dwvlniR+
-         YbLmNNw0heqxD/yY7bHEX3peByYUeM3H9OU9kyVLDQ1DXp8nRpqb4gxz3wEFHgrv36Vn
-         PSG+IHxWrUrzjnJX7HG3Df2XBbJaOe9stl3W8n/2lChS/XBojovHz1DaHcDDgHa2gcdF
-         Mg6MW507ryWyCk4ECv+6RtfcaG9dAtuUy0BGFFZTq3fqAaKCqjHa0oMfPCrCsG7+kYWS
-         0pwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVIElVyaSDUAYZ2N51esge11t9vqlAcI3vswHIWdWaTt8IT3OMLFysX8W3619J8OzR26Ggaasu56Pubcy33IPER@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlOi5JvYUBCruADtZwMfeSTvu4Uy9VMaabe/nZEI+NOib3Gznb
-	RdVvp/KuoI5CdLmWDxWQX5lfXJmBWIWP41PVAq9QqsuGni6Zjaob5eZdoY8Nq5f5syVe3L6nd/U
-	X7lzZJNyuTA==
-X-Received: from dycnm5.prod.google.com ([2002:a05:7300:d185:b0:2ac:3545:743c])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:9f03:b0:2b7:1d5d:47dc
- with SMTP id 5a478bee46e88-2b739b8d7a7mr430086eec.22.1769117738792; Thu, 22
- Jan 2026 13:35:38 -0800 (PST)
-Date: Thu, 22 Jan 2026 13:35:12 -0800
-In-Reply-To: <20260122213516.671089-1-irogers@google.com>
-Mime-Version: 1.0
-References: <20260122213516.671089-1-irogers@google.com>
-X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260122213516.671089-9-irogers@google.com>
-Subject: [PATCH v3 08/12] perf disasm: Don't include C files from the arch directory
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	James Clark <james.clark@linaro.org>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Zecheng Li <zecheng@google.com>, 
-	Tianyou Li <tianyou.li@intel.com>, Thomas Falcon <thomas.falcon@intel.com>, 
-	Julia Lawall <Julia.Lawall@inria.fr>, Suchit Karunakaran <suchitkarunakaran@gmail.com>, 
-	Athira Rajeev <atrajeev@linux.ibm.com>, Aditya Bodkhe <aditya.b1@linux.ibm.com>, 
-	Howard Chu <howardchu95@gmail.com>, 
-	"=?UTF-8?q?Krzysztof=20=C5=81opatowski?=" <krzysztof.m.lopatowski@gmail.com>, 
-	"Dr. David Alan Gilbert" <linux@treblig.org>, Shimin Guo <shimin.guo@skydio.com>, 
-	Sergei Trofimovich <slyich@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=w6hrXrC2weCSJVsSNGyEN4oY/7kd2W0EtsvP0IFDu6Q=;
+ b=cB9mW8ji4ZKGHQIDojC+M7SH6Rwc6MzMI6OkZbk71si/8KDdQqIPgQM/pTmmZASlUV6AP3XBn0bvmzNtUZxPk2D1RyYGteHWxL7Qsvg2xAQz6KlQfovBvv4CMN9m2fGhVGe7dvNRTRq86zb0rG/5aMVSuh2oOd6XNvcSaLM86Zw=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ PH0PR01MB6571.prod.exchangelabs.com (2603:10b6:510:95::6) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9542.11; Thu, 22 Jan 2026 21:41:32 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::46eb:64a3:667c:c1a0%4]) with mapi id 15.20.9542.010; Thu, 22 Jan 2026
+ 21:41:31 +0000
+Message-ID: <fb5dff48-3181-4f5b-9be2-623785fc2da9@os.amperecomputing.com>
+Date: Thu, 22 Jan 2026 13:41:28 -0800
+User-Agent: Mozilla Thunderbird
+From: Yang Shi <yang@os.amperecomputing.com>
+Subject: Re: [v5 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
+To: Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com,
+ will@kernel.org, ryan.roberts@arm.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260107002944.2940963-1-yang@os.amperecomputing.com>
+ <965a0b46-f32e-40e6-ab71-211f84d6c3cf@arm.com>
+Content-Language: en-US
+In-Reply-To: <965a0b46-f32e-40e6-ab71-211f84d6c3cf@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CY8PR10CA0042.namprd10.prod.outlook.com
+ (2603:10b6:930:4b::15) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH0PR01MB6571:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1cf7d5cb-9de8-409a-00f3-08de59ff01fc
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?T2I4dytnK1NybW5pb3lRdlNTZG51ZnhjbzRDbXJraVBtU1hEMjNMWFVDMjFu?=
+ =?utf-8?B?MkVUREpNeUlZTmtIQXhSSjRLbFJKbHdFMmQwNElKbXo5c1ExOEt1MXVGV2tz?=
+ =?utf-8?B?SUtwZ0R0YUMxRkRDOGtkWlN4anJBRFg0Y3o2SHhjc002ZFRvcWhDcjhhQWFt?=
+ =?utf-8?B?cHZoUWFKcEQ1R2w0OHE0Wk9OUCtnUzZYYTVrTGlRZFZxem1Dc3ZYOWZHdFJT?=
+ =?utf-8?B?Y0hiMjYwcTEyckYyb3NvOHo5SU5aVnVNcWgvYmpWbkRpakNMeGFYbkUxTkth?=
+ =?utf-8?B?MlN3U3B1T2R0TUZOTWFBRFN3RTBsZ051Q3N0T2xwRHJ1VEs1MUN4eTNlKzdT?=
+ =?utf-8?B?VjZWQU5jZ2dkaVhNd3JRZk1lcENzTnl2YXZSY0lYa21STVJ3SGVnQ3FWTTlL?=
+ =?utf-8?B?cm1hdWZyNnl0U1Z2YUdyQjZuZHZmQ0JEU1JGeFVkRWU4UFIzQU5uWXRXTmk3?=
+ =?utf-8?B?Y1Z6WDNLVUNvM1grS0g1V0xTU0NXTU9CMURwRWxQMSthdHc5UmpTbC8wRVFZ?=
+ =?utf-8?B?b1JjdVk4TzVtVFZpV1VxLzdta2k3a2E0QjRDakg4bm8ybUZVTUZsS014WSs1?=
+ =?utf-8?B?cjM2SFJwVTg0RmdpUFp4K0kxM2svcURyVVFIc2tqK29VMks5N3FJdG50VThs?=
+ =?utf-8?B?WUxITjN2Mk5udTlqL0FuckQvdU1pUjhwQkx0Q2JUb2ltQjNLZ3krNFd2RzhK?=
+ =?utf-8?B?ek9mbjNCb2hKd2tyb0lCT0FCWXlVVjJYMHdLb1VJMUloUEF2cnBGN1Y2eG5w?=
+ =?utf-8?B?YlFRNUFuV1B2TmtzZ3piSms5RjZmRzRnTmI3TW1SUkpBZkJqWWdWb2JQTmlp?=
+ =?utf-8?B?S3poQWUrQVFETy8yMFc0NW5sQ3hpckVjM3h0S3V3QW5hR2RHSThNcFIrRWZ5?=
+ =?utf-8?B?T0ZsY0k0czBEUUhLZVA3YnhodDJDMEw0WCtCNTBSWWdGM082YmZGaEp1WEJ2?=
+ =?utf-8?B?Sld4VDdVOThXRXlScmhzcTQ0Z3Flai9MZVRjeDh5dHN1bGdUUW4wbzZJN1FX?=
+ =?utf-8?B?YmRLQ09NOG04c3RhTjFJZ2ZPeEg2M3BpNllyaDkyY3JHRGYvQXBuck90QWZO?=
+ =?utf-8?B?RnU1VzNoY0lxL0tZd2dNakhiSXYySEJURmpaMmova01IUlp2SW1WNEFVbzdV?=
+ =?utf-8?B?eVpiNWFBRkdUYWFVczJXSFo4dURwaGtlNVlNWEplTTJ4Qis3b20ydERNV0JB?=
+ =?utf-8?B?d25nQnhVNHl3c3ZiS2kzbktPQnNPR01IVzd4V2F6Mkw2NEIwaTRTNTdJS0lw?=
+ =?utf-8?B?VnZ6WCthU3ZaTXBlWEs0eUJQcDFtdGRGcWNmMzdCdzkrcDFmUTJVUUYzeGo2?=
+ =?utf-8?B?ejAwaGZRV09MVkhqdjZGK3J3c3pmdHRuQTUwaTZUOTJBQ3pkUThpRnR5dlll?=
+ =?utf-8?B?WDZlU2I3N3J2VlVJOU5mMXBFd204VHFnYloyZzN6MXZzekNUb092Y3V3QlM3?=
+ =?utf-8?B?SUdRV3E2RElIb0Y3U3ZiajNHM3BXdkZaeVo5Y1ROSWtOcGJNQ0VaL2wwcmt0?=
+ =?utf-8?B?a3JBc2J5TDZ5ZmVDeUllMTZtdTBPQm5HWTRPdUpsVmFjS0phSHhJbDYzbmdi?=
+ =?utf-8?B?TXNFOVlPRkQ1RExmMEZEd1ZqZDh5V0dWczVHaDk1bkFkK2I5ODRJRlRYeE5K?=
+ =?utf-8?B?SGt3QnhuTlFDZC9Kdm1hMVpocHhYd1BMdG5sRSs3V0pRSmlZRms0cUFGY2ph?=
+ =?utf-8?B?V3p6aGRnN3Y1Mzl4ckdwVUtTM1ZYcklTcm1hZUFhUnR3emUydXFMWEIycWVD?=
+ =?utf-8?B?cjdJTTh3SFZNVFNsNUkwN3k1TVJRMzh1dTFrZkI5TURiOEJyYXpUeXVvTEZh?=
+ =?utf-8?B?OGRYMm5pbkFCZ09ndkxVZ2JRYlZxQll2NzNWUU1NRzhYa2R4NVNyVzFSWW1L?=
+ =?utf-8?B?eFYyc2N3WlhJS0xlRThnUGpCQUwyQUJpekZycHg5VEtvajhRTkNPOTBqQ0Q5?=
+ =?utf-8?B?RjE2VDRJNHZ4NkJ6UmNKRUg2Z2R2dFJkRnhBNXUvd0Fua3VmTzlHS3ZSTURi?=
+ =?utf-8?B?TWE4NWtVbldaKzRLY2xoSVpNLzh0VkJ4MVVscEFDLy9IUEJOZVZmZXFtNGt1?=
+ =?utf-8?B?WkpEamhBTFVsSU9mSDlJb21ybDFsbHltRXRUN0taQXh3aU9IOGQ1K3l6QjNQ?=
+ =?utf-8?Q?Sb9M=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZHk4Y09zWmxDZFA4bm1NNi9xTmJNM3pTNHVNTWFQMnZwcTBacnpqTHgzTWFi?=
+ =?utf-8?B?R1QvK2dEQ3hFMk9jNFdNaW92TjFhZ0xJcUtES1ZFRTc5OWtYOUNsTWZsSlJG?=
+ =?utf-8?B?dEJiS0M0emJxS3kxckoyWkFCWFVrRFdYeU1ucWYxcnd1NG5PYzBrZU1vOHVY?=
+ =?utf-8?B?Q3k0N043L1BENnFEYXYvN1VlVjdlTzhacmN4NUgzeEI2NDhPbFJWeTA5WUJx?=
+ =?utf-8?B?Tzh1YXRIRUw5ZVJ2QTdadDQ4N0dCenVEZlBnRm02NGo2T2hrSHU5djlHNFVa?=
+ =?utf-8?B?c2tmSUQwdlM2Qy81UEtEYVIvZmVsK21ZVWQ2Y1VxRjF3WndFSW9meUZod09s?=
+ =?utf-8?B?SjhPaTI5Wld1d2pKZTY3OG5kdE1OcWxRVWVodnpEc29YbjcvaS9rb1lTNjBV?=
+ =?utf-8?B?OXIzZ3QvUi83bW9ZaVRwY3JZZWw3N0JCMCtscFVnbmRvT0Z5cUpIZExQdE9Q?=
+ =?utf-8?B?WldRTGxnM0Q2UGlPem1hTUZmQjlJTm5xd3dsNzNpL21Ja0daeEhHeFJCVHhu?=
+ =?utf-8?B?M3NxcWVEbE9Ha1dxYWtuTDk2amliYVNxa2VCVmVZV2hTejhJUktPTjY1L1Jo?=
+ =?utf-8?B?aXM4cHhob2VlZlkxTkpJUDlxU0VpZjdoYVNVZkJmeVpnY1dUTkN6a0NteHgx?=
+ =?utf-8?B?SWJMMjJJY0cwNm51WmlpTFE3UURsSDJTYTBnSEplK0xIMU13bTdZQ1p6eVhl?=
+ =?utf-8?B?MHpRS2FwaWkwanQxdTR3eEQwbXBtUGt0OG1ZUXBqb1QyK1ZiU1VBY2dRa0lN?=
+ =?utf-8?B?K0o4dDJHYlN0UTdCbmVhZmxkVXdiR1QzUjVyQXhoL1V3Y09ZaEQrTUM1VXVp?=
+ =?utf-8?B?bDVNeWQ4akgySDFqaDVOcUpEekFLSzBEQ1UwOUxvYUl0Q0prYWk0Wko3dTAx?=
+ =?utf-8?B?SE55ZkZBWFJOT2hUWGVoQ29tWE12Nlc4emsvRWdURTVQQTBvQ1FWTHh5czJ4?=
+ =?utf-8?B?Y1YwRnRTaG5kOUtMNnU0N2p4aDlaWWlqNVQ2TTE5dmhkR2NkWHRyZmFBS3NT?=
+ =?utf-8?B?b2dLTWl4VzFVZVcwT0Y5TDNMWGc2UFRJcTJyVVJUZU5Geit5bVpJcktscmtr?=
+ =?utf-8?B?dlJXU0NBaGQxOTE2T0dsN0U2aVZhRTB5RDdtcWVOSzlqWVVTcXNMYmVYcVBS?=
+ =?utf-8?B?dVhLOWMvM3NpSWFaM2s2YWc5bmtXc2JRSC9JazRQckVHeGU5Tnp1ek83MGll?=
+ =?utf-8?B?QjQwdGkzVEI4U29FcjNBMW5aY0Nmc0R1Slorc0VIRi9NL3dqdWtiK0VnYTAy?=
+ =?utf-8?B?QTJoclhJMGhUd05rVGVUWVB2dkdBRlhlMGJKeEkzVkFwS2xHUENzbHJsS3h6?=
+ =?utf-8?B?Ym9McXVLbVlXYW8xbCszOUttcDhVeUdlc1Y1dUhDcjlKYUVsQkpFdWdTRFBD?=
+ =?utf-8?B?RDVaQXRCWi96TUVUc0JRVC9UWTFHMUwxb3lnZGQ2bVpBN3d1LzJIZWQ4Lzhr?=
+ =?utf-8?B?WU1iY1dPVXNTOEV0QmtoMjB5c21xRWNZa3l5cE9DaWREK2xhNlJvRkZ5ZFc1?=
+ =?utf-8?B?eHg3SG1LcUNKY1E2ZjFlZkJ2T3p1TDJJRklHODllZ0dXZkM5YmJwSERha3N5?=
+ =?utf-8?B?WElXeFlMOVUwNndDRitYOG5ocHpKWVFjMVBxWm5SQ0FSblpSQlBEMytzbTdO?=
+ =?utf-8?B?R1pUS2c3TlNyU1hwNzNhLzJ4VVA2d0xSa0FwcDc0UUxqekFPSVoxZ2xORnpr?=
+ =?utf-8?B?clVZeU51RGYvdldJeElhWGxBNGptYksyVG5vNHY3bUNLVnYxSm1IenpuejUy?=
+ =?utf-8?B?ajczTklrTW02Q0ZSMGh1RGFaTThoSFlucWVaQ3g5aWFXRGZucjZoYXhJek82?=
+ =?utf-8?B?VXdpSW1uQm5TTFI0ZXJQQ2o4cXJCYlA4UXIxUEF4aUk0OHV0akNNdUx2K3JJ?=
+ =?utf-8?B?aU5EK2FEV0NJQ0huVkJEL3hvNFZmSUQwOWdlWDBKQUJ2M0wrbWYybmMzK3Rr?=
+ =?utf-8?B?aUxqVTJKZHV3V2pvYk9TR1NyRkNSNWRIdEtzdkphTXJWZWsrYkVZbG5rcCtD?=
+ =?utf-8?B?VSt5eFdnc3ZEQ3p0S0VYMVB3Z2xwSDY2L05WK01EcktrcjlQNVk1ZlMwY2NV?=
+ =?utf-8?B?c0lrc0pLUkZ3ZW5KeUdKekp1RTFpVXlXZEd0VEpPVmNlVVdxVE8weVBlZVlp?=
+ =?utf-8?B?YnlTRWlybEZBRUp3L2QvRTVoZTRIZkhpYnUrNk5HUnE4TzRwdml5YjR3L2Fi?=
+ =?utf-8?B?SUljak04UlZDbnE1VytSREdCRVhWamFuL2EvdnFKTDdjcURnMlh5SGlHQU5L?=
+ =?utf-8?B?QXFJak9ZTUgrbXZwbVdjRHdjWmk0QTc3b2taV0MySThCL2huWFB3dHNZMVRH?=
+ =?utf-8?B?ZEsyN0htQ3RRM2lOWkZra3hLWlNYeDRFbVlCbGdYbWNXWHhPcHRNeGxHenVC?=
+ =?utf-8?Q?vF9WJgcjuqxfnutA=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1cf7d5cb-9de8-409a-00f3-08de59ff01fc
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 21:41:31.9137
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: M7nMBtGlJq/3s0TB2LIhwM2S6EUpf/c9idaUut5eIUH6XJMpGiDR61avROvMX4nOsz3ZJMSMgcotXcLUnzjRpg4X+qut7aCr0gW/Q8zTBJ0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB6571
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_133540_141028_593177E0 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20260122_134137_604820_B028D741 
+X-CRM114-Status: GOOD (  27.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,1086 +184,486 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the arch instructions.c files into appropriately named files in
-annotate-arch in the util directory. Don't #include to compile the
-code, switch to building the files and fix up the #includes
-accordingly. Move powerpc specific disasm code out of disasm.c and
-into annotate-powerpc.c. Declarations and static removed as
-appropriate for the code to compile as separate compilation units. The
-e_machine and e_flags set up is moved to the disasm.c architectures
-array so that later patches can sort by them.
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/util/Build                         |   1 +
- tools/perf/util/annotate-arch/Build           |  11 +
- .../annotate-arch/annotate-arc.c}             |   5 +-
- .../annotate-arch/annotate-arm.c}             |   9 +-
- .../annotate-arch/annotate-arm64.c}           |  14 +-
- .../annotate-arch/annotate-csky.c}            |  11 +-
- .../annotate-arch/annotate-loongarch.c}       |  15 +-
- .../annotate-arch/annotate-mips.c}            |   6 +-
- .../annotate-arch/annotate-powerpc.c}         | 105 ++++++++-
- .../annotate-arch/annotate-riscv64.c}         |   6 +-
- .../annotate-arch/annotate-s390.c}            |  15 +-
- .../annotate-arch/annotate-sparc.c}           |   7 +-
- .../annotate-arch/annotate-x86.c}             |  85 +++++---
- tools/perf/util/disasm.c                      | 199 ++++--------------
- tools/perf/util/disasm.h                      |  38 ++++
- 15 files changed, 289 insertions(+), 238 deletions(-)
- create mode 100644 tools/perf/util/annotate-arch/Build
- rename tools/perf/{arch/arc/annotate/instructions.c => util/annotate-arch/annotate-arc.c} (53%)
- rename tools/perf/{arch/arm/annotate/instructions.c => util/annotate-arch/annotate-arm.c} (90%)
- rename tools/perf/{arch/arm64/annotate/instructions.c => util/annotate-arch/annotate-arm64.c} (90%)
- rename tools/perf/{arch/csky/annotate/instructions.c => util/annotate-arch/annotate-csky.c} (83%)
- rename tools/perf/{arch/loongarch/annotate/instructions.c => util/annotate-arch/annotate-loongarch.c} (93%)
- rename tools/perf/{arch/mips/annotate/instructions.c => util/annotate-arch/annotate-mips.c} (94%)
- rename tools/perf/{arch/powerpc/annotate/instructions.c => util/annotate-arch/annotate-powerpc.c} (76%)
- rename tools/perf/{arch/riscv64/annotate/instructions.c => util/annotate-arch/annotate-riscv64.c} (91%)
- rename tools/perf/{arch/s390/annotate/instructions.c => util/annotate-arch/annotate-s390.c} (91%)
- rename tools/perf/{arch/sparc/annotate/instructions.c => util/annotate-arch/annotate-sparc.c} (96%)
- rename tools/perf/{arch/x86/annotate/instructions.c => util/annotate-arch/annotate-x86.c} (97%)
 
-diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-index c30ff257f8b4..b9925c6902ca 100644
---- a/tools/perf/util/Build
-+++ b/tools/perf/util/Build
-@@ -1,6 +1,7 @@
- include $(srctree)/tools/scripts/Makefile.include
- include $(srctree)/tools/scripts/utilities.mak
- 
-+perf-util-y += annotate-arch/
- perf-util-y += arm64-frame-pointer-unwind-support.o
- perf-util-y += addr2line.o
- perf-util-y += addr_location.o
-diff --git a/tools/perf/util/annotate-arch/Build b/tools/perf/util/annotate-arch/Build
-new file mode 100644
-index 000000000000..23316743fdc5
---- /dev/null
-+++ b/tools/perf/util/annotate-arch/Build
-@@ -0,0 +1,11 @@
-+perf-util-y += annotate-arc.o
-+perf-util-y += annotate-arm.o
-+perf-util-y += annotate-arm64.o
-+perf-util-y += annotate-csky.o
-+perf-util-y += annotate-loongarch.o
-+perf-util-y += annotate-mips.o
-+perf-util-y += annotate-x86.o
-+perf-util-y += annotate-powerpc.o
-+perf-util-y += annotate-riscv64.o
-+perf-util-y += annotate-s390.o
-+perf-util-y += annotate-sparc.o
-diff --git a/tools/perf/arch/arc/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-arc.c
-similarity index 53%
-rename from tools/perf/arch/arc/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-arc.c
-index e5619770a1af..d7ca08ca5600 100644
---- a/tools/perf/arch/arc/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-arc.c
-@@ -1,11 +1,10 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <linux/compiler.h>
-+#include "../disasm.h"
- 
--static int arc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int arc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	arch->initialized = true;
- 	arch->objdump.comment_char = ';';
--	arch->e_machine = EM_ARC;
--	arch->e_flags = 0;
- 	return 0;
- }
-diff --git a/tools/perf/arch/arm/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-arm.c
-similarity index 90%
-rename from tools/perf/arch/arm/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-arm.c
-index b997d127fedd..08c49067c3c9 100644
---- a/tools/perf/arch/arm/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-arm.c
-@@ -1,10 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <stdlib.h>
- #include <linux/compiler.h>
- #include <linux/zalloc.h>
- #include <errno.h>
--#include <sys/types.h>
- #include <regex.h>
--#include <stdlib.h>
-+#include "../annotate.h"
-+#include "../disasm.h"
- 
- struct arm_annotate {
- 	regex_t call_insn,
-@@ -28,7 +29,7 @@ static const struct ins_ops *arm__associate_instruction_ops(struct arch *arch, c
- 	return ops;
- }
- 
--static int arm__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int arm__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	struct arm_annotate *arm;
- 	int err;
-@@ -54,8 +55,6 @@ static int arm__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- 	arch->associate_instruction_ops   = arm__associate_instruction_ops;
- 	arch->objdump.comment_char	  = ';';
- 	arch->objdump.skip_functions_char = '+';
--	arch->e_machine = EM_ARM;
--	arch->e_flags = 0;
- 	return 0;
- 
- out_free_call:
-diff --git a/tools/perf/arch/arm64/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-arm64.c
-similarity index 90%
-rename from tools/perf/arch/arm64/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-arm64.c
-index 44db33854dba..d2ea32984b0d 100644
---- a/tools/perf/arch/arm64/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-arm64.c
-@@ -1,9 +1,12 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <linux/compiler.h>
- #include <errno.h>
--#include <sys/types.h>
--#include <regex.h>
- #include <stdlib.h>
-+#include <string.h>
-+#include <linux/zalloc.h>
-+#include <regex.h>
-+#include "../annotate.h"
-+#include "../disasm.h"
- 
- struct arm64_annotate {
- 	regex_t call_insn,
-@@ -60,9 +63,6 @@ static int arm64_mov__parse(const struct arch *arch __maybe_unused,
- 	return -1;
- }
- 
--static int mov__scnprintf(const struct ins *ins, char *bf, size_t size,
--			  struct ins_operands *ops, int max_ins_name);
--
- static const struct ins_ops arm64_mov_ops = {
- 	.parse	   = arm64_mov__parse,
- 	.scnprintf = mov__scnprintf,
-@@ -87,7 +87,7 @@ static const struct ins_ops *arm64__associate_instruction_ops(struct arch *arch,
- 	return ops;
- }
- 
--static int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	struct arm64_annotate *arm;
- 	int err;
-@@ -114,8 +114,6 @@ static int arm64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- 	arch->associate_instruction_ops   = arm64__associate_instruction_ops;
- 	arch->objdump.comment_char	  = '/';
- 	arch->objdump.skip_functions_char = '+';
--	arch->e_machine = EM_AARCH64;
--	arch->e_flags = 0;
- 	return 0;
- 
- out_free_call:
-diff --git a/tools/perf/arch/csky/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-csky.c
-similarity index 83%
-rename from tools/perf/arch/csky/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-csky.c
-index 4a55c84a320a..0b0b09b068ec 100644
---- a/tools/perf/arch/csky/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-csky.c
-@@ -1,7 +1,8 @@
- // SPDX-License-Identifier: GPL-2.0
- // Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd.
--
-+#include <string.h>
- #include <linux/compiler.h>
-+#include "../disasm.h"
- 
- static const struct ins_ops *csky__associate_ins_ops(struct arch *arch,
- 						     const char *name)
-@@ -38,16 +39,10 @@ static const struct ins_ops *csky__associate_ins_ops(struct arch *arch,
- 	return ops;
- }
- 
--static int csky__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int csky__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	arch->initialized = true;
- 	arch->objdump.comment_char = '/';
- 	arch->associate_instruction_ops = csky__associate_ins_ops;
--	arch->e_machine = EM_CSKY;
--#if defined(__CSKYABIV2__)
--	arch->e_flags = EF_CSKY_ABIV2;
--#else
--	arch->e_flags = EF_CSKY_ABIV1;
--#endif
- 	return 0;
- }
-diff --git a/tools/perf/arch/loongarch/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-loongarch.c
-similarity index 93%
-rename from tools/perf/arch/loongarch/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-loongarch.c
-index 5010d5d58375..32df10f6fed5 100644
---- a/tools/perf/arch/loongarch/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-loongarch.c
-@@ -4,11 +4,17 @@
-  *
-  * Copyright (C) 2020-2023 Loongson Technology Corporation Limited
-  */
-+#include <stdlib.h>
-+#include <string.h>
-+#include <linux/compiler.h>
-+#include "../disasm.h"
-+#include "../map.h"
-+#include "../maps.h"
-+#include "../symbol.h"
- 
- static int loongarch_call__parse(const struct arch *arch, struct ins_operands *ops,
- 				 struct map_symbol *ms,
- 				 struct disasm_line *dl __maybe_unused)
--
- {
- 	char *c, *endptr, *tok, *name;
- 	struct map *map = ms->map;
-@@ -51,7 +57,7 @@ static int loongarch_call__parse(const struct arch *arch, struct ins_operands *o
- 	return 0;
- }
- 
--static const struct ins_ops loongarch_call_ops = {
-+const struct ins_ops loongarch_call_ops = {
- 	.parse	   = loongarch_call__parse,
- 	.scnprintf = call__scnprintf,
- };
-@@ -100,7 +106,7 @@ static int loongarch_jump__parse(const struct arch *arch, struct ins_operands *o
- 	return 0;
- }
- 
--static const struct ins_ops loongarch_jump_ops = {
-+const struct ins_ops loongarch_jump_ops = {
- 	.parse	   = loongarch_jump__parse,
- 	.scnprintf = jump__scnprintf,
- };
-@@ -130,15 +136,12 @@ const struct ins_ops *loongarch__associate_ins_ops(struct arch *arch, const char
- 	return ops;
- }
- 
--static
- int loongarch__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	if (!arch->initialized) {
- 		arch->associate_instruction_ops = loongarch__associate_ins_ops;
- 		arch->initialized = true;
- 		arch->objdump.comment_char = '#';
--		arch->e_machine = EM_LOONGARCH;
--		arch->e_flags = 0;
- 	}
- 
- 	return 0;
-diff --git a/tools/perf/arch/mips/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-mips.c
-similarity index 94%
-rename from tools/perf/arch/mips/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-mips.c
-index 0fbe0a7df95a..f14b34ed77d3 100644
---- a/tools/perf/arch/mips/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-mips.c
-@@ -1,4 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <string.h>
-+#include <linux/compiler.h>
-+#include "../disasm.h"
- 
- static
- const struct ins_ops *mips__associate_ins_ops(struct arch *arch, const char *name)
-@@ -33,15 +36,12 @@ const struct ins_ops *mips__associate_ins_ops(struct arch *arch, const char *nam
- 	return ops;
- }
- 
--static
- int mips__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	if (!arch->initialized) {
- 		arch->associate_instruction_ops = mips__associate_ins_ops;
- 		arch->initialized = true;
- 		arch->objdump.comment_char = '#';
--		arch->e_machine = EM_MIPS;
--		arch->e_flags = 0;
- 	}
- 
- 	return 0;
-diff --git a/tools/perf/arch/powerpc/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-powerpc.c
-similarity index 76%
-rename from tools/perf/arch/powerpc/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-powerpc.c
-index d1be55425e35..593c138c8104 100644
---- a/tools/perf/arch/powerpc/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-powerpc.c
-@@ -1,5 +1,97 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <string.h>
- #include <linux/compiler.h>
-+#include <linux/kernel.h>
-+#include "../annotate-data.h"
-+#include "../debug.h"
-+#include "../disasm.h"
-+
-+#define PPC_OP(op)	(((op) >> 26) & 0x3F)
-+#define PPC_21_30(R)	(((R) >> 1) & 0x3ff)
-+#define PPC_22_30(R)	(((R) >> 1) & 0x1ff)
-+
-+#define MINUS_EXT_XO_FORM	234
-+#define SUB_EXT_XO_FORM		232
-+#define	ADD_ZERO_EXT_XO_FORM	202
-+#define	SUB_ZERO_EXT_XO_FORM	200
-+
-+static int arithmetic__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		struct ins_operands *ops, int max_ins_name)
-+{
-+	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name,
-+			ops->raw);
-+}
-+
-+/*
-+ * Sets the fields: multi_regs and "mem_ref".
-+ * "mem_ref" is set for ops->source which is later used to
-+ * fill the objdump->memory_ref-char field. This ops is currently
-+ * used by powerpc and since binary instruction code is used to
-+ * extract opcode, regs and offset, no other parsing is needed here.
-+ *
-+ * Dont set multi regs for 4 cases since it has only one operand
-+ * for source:
-+ * - Add to Minus One Extended XO-form ( Ex: addme, addmeo )
-+ * - Subtract From Minus One Extended XO-form ( Ex: subfme )
-+ * - Add to Zero Extended XO-form ( Ex: addze, addzeo )
-+ * - Subtract From Zero Extended XO-form ( Ex: subfze )
-+ */
-+static int arithmetic__parse(const struct arch *arch __maybe_unused, struct ins_operands *ops,
-+		struct map_symbol *ms __maybe_unused, struct disasm_line *dl)
-+{
-+	int opcode = PPC_OP(dl->raw.raw_insn);
-+
-+	ops->source.mem_ref = false;
-+	if (opcode == 31) {
-+		if ((opcode != MINUS_EXT_XO_FORM) && (opcode != SUB_EXT_XO_FORM) &&
-+		    (opcode != ADD_ZERO_EXT_XO_FORM) && (opcode != SUB_ZERO_EXT_XO_FORM))
-+			ops->source.multi_regs = true;
-+	}
-+
-+	ops->target.mem_ref = false;
-+	ops->target.multi_regs = false;
-+
-+	return 0;
-+}
-+
-+static const struct ins_ops arithmetic_ops = {
-+	.parse     = arithmetic__parse,
-+	.scnprintf = arithmetic__scnprintf,
-+};
-+
-+static int load_store__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		struct ins_operands *ops, int max_ins_name)
-+{
-+	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name,
-+			ops->raw);
-+}
-+
-+/*
-+ * Sets the fields: multi_regs and "mem_ref".
-+ * "mem_ref" is set for ops->source which is later used to
-+ * fill the objdump->memory_ref-char field. This ops is currently
-+ * used by powerpc and since binary instruction code is used to
-+ * extract opcode, regs and offset, no other parsing is needed here
-+ */
-+static int load_store__parse(const struct arch *arch __maybe_unused, struct ins_operands *ops,
-+		struct map_symbol *ms __maybe_unused, struct disasm_line *dl __maybe_unused)
-+{
-+	ops->source.mem_ref = true;
-+	ops->source.multi_regs = false;
-+	/* opcode 31 is of X form */
-+	if (PPC_OP(dl->raw.raw_insn) == 31)
-+		ops->source.multi_regs = true;
-+
-+	ops->target.mem_ref = false;
-+	ops->target.multi_regs = false;
-+
-+	return 0;
-+}
-+
-+static const struct ins_ops load_store_ops = {
-+	.parse     = load_store__parse,
-+	.scnprintf = load_store__scnprintf,
-+};
- 
- static const struct ins_ops *powerpc__associate_instruction_ops(struct arch *arch, const char *name)
- {
-@@ -49,10 +141,6 @@ static const struct ins_ops *powerpc__associate_instruction_ops(struct arch *arc
- 	return ops;
- }
- 
--#define PPC_OP(op)	(((op) >> 26) & 0x3F)
--#define PPC_21_30(R)	(((R) >> 1) & 0x3ff)
--#define PPC_22_30(R)	(((R) >> 1) & 0x1ff)
--
- struct insn_offset {
- 	const char	*name;
- 	int		value;
-@@ -189,7 +277,7 @@ static int cmp_offset(const void *a, const void *b)
- 	return (val1->value - val2->value);
- }
- 
--static const struct ins_ops *check_ppc_insn(struct disasm_line *dl)
-+const struct ins_ops *check_ppc_insn(struct disasm_line *dl)
- {
- 	int raw_insn = dl->raw.raw_insn;
- 	int opcode = PPC_OP(raw_insn);
-@@ -302,15 +390,16 @@ static void update_insn_state_powerpc(struct type_state *state,
- }
- #endif /* HAVE_LIBDW_SUPPORT */
- 
--static int powerpc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int powerpc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	if (!arch->initialized) {
- 		arch->initialized = true;
- 		arch->associate_instruction_ops = powerpc__associate_instruction_ops;
- 		arch->objdump.comment_char      = '#';
- 		annotate_opts.show_asm_raw = true;
--		arch->e_machine = EM_PPC;
--		arch->e_flags = 0;
-+#ifdef HAVE_LIBDW_SUPPORT
-+		arch->update_insn_state = update_insn_state_powerpc;
-+#endif
- 	}
- 
- 	return 0;
-diff --git a/tools/perf/arch/riscv64/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-riscv64.c
-similarity index 91%
-rename from tools/perf/arch/riscv64/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-riscv64.c
-index a34798864fab..15526824037a 100644
---- a/tools/perf/arch/riscv64/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-riscv64.c
-@@ -1,4 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <string.h>
-+#include <linux/compiler.h>
-+#include "../disasm.h"
- 
- static
- const struct ins_ops *riscv64__associate_ins_ops(struct arch *arch, const char *name)
-@@ -21,15 +24,12 @@ const struct ins_ops *riscv64__associate_ins_ops(struct arch *arch, const char *
- 	return ops;
- }
- 
--static
- int riscv64__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	if (!arch->initialized) {
- 		arch->associate_instruction_ops = riscv64__associate_ins_ops;
- 		arch->initialized = true;
- 		arch->objdump.comment_char = '#';
--		arch->e_machine = EM_RISCV;
--		arch->e_flags = 0;
- 	}
- 
- 	return 0;
-diff --git a/tools/perf/arch/s390/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-s390.c
-similarity index 91%
-rename from tools/perf/arch/s390/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-s390.c
-index 1b22e6276e7d..81db102b3e15 100644
---- a/tools/perf/arch/s390/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-s390.c
-@@ -1,5 +1,13 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <string.h>
- #include <linux/compiler.h>
-+#include "../debug.h"
-+#include "../disasm.h"
-+#include "../map.h"
-+#include "../maps.h"
-+#include "../symbol.h"
-+#include "../annotate.h"
-+#include "../annotate-data.h"
- 
- static int s390_call__parse(const struct arch *arch, struct ins_operands *ops,
- 			    struct map_symbol *ms,
-@@ -49,7 +57,7 @@ static int s390_call__parse(const struct arch *arch, struct ins_operands *ops,
- 	return 0;
- }
- 
--static const struct ins_ops s390_call_ops = {
-+const struct ins_ops s390_call_ops = {
- 	.parse	   = s390_call__parse,
- 	.scnprintf = call__scnprintf,
- };
-@@ -159,7 +167,7 @@ static int s390__cpuid_parse(struct arch *arch, char *cpuid)
- 	return -1;
- }
- 
--static int s390__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int s390__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	int err = 0;
- 
-@@ -170,8 +178,7 @@ static int s390__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- 			if (s390__cpuid_parse(arch, cpuid))
- 				err = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
- 		}
--		arch->e_machine = EM_S390;
--		arch->e_flags = 0;
-+		arch->objdump.comment_char = '#';
- 	}
- 
- 	return err;
-diff --git a/tools/perf/arch/sparc/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-sparc.c
-similarity index 96%
-rename from tools/perf/arch/sparc/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-sparc.c
-index a08d8734c883..66a0174376dd 100644
---- a/tools/perf/arch/sparc/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-sparc.c
-@@ -1,4 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <string.h>
-+#include <linux/compiler.h>
-+#include "../../util/disasm.h"
- 
- static int is_branch_cond(const char *cond)
- {
-@@ -157,14 +160,12 @@ static const struct ins_ops *sparc__associate_instruction_ops(struct arch *arch,
- 	return ops;
- }
- 
--static int sparc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
-+int sparc__annotate_init(struct arch *arch, char *cpuid __maybe_unused)
- {
- 	if (!arch->initialized) {
- 		arch->initialized = true;
- 		arch->associate_instruction_ops = sparc__associate_instruction_ops;
- 		arch->objdump.comment_char = '#';
--		arch->e_machine = EM_SPARC;
--		arch->e_flags = 0;
- 	}
- 
- 	return 0;
-diff --git a/tools/perf/arch/x86/annotate/instructions.c b/tools/perf/util/annotate-arch/annotate-x86.c
-similarity index 97%
-rename from tools/perf/arch/x86/annotate/instructions.c
-rename to tools/perf/util/annotate-arch/annotate-x86.c
-index ffca3029388b..0c7957fe60da 100644
---- a/tools/perf/arch/x86/annotate/instructions.c
-+++ b/tools/perf/util/annotate-arch/annotate-x86.c
-@@ -1,4 +1,16 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include <string.h>
-+#include <linux/compiler.h>
-+#include <assert.h>
-+#include <inttypes.h>
-+#include "../annotate-data.h"
-+#include "../debug.h"
-+#include "../disasm.h"
-+#include "../dso.h"
-+#include "../map.h"
-+#include "../string2.h" // strstarts
-+#include "../symbol.h"
-+
- /*
-  * x86 instruction nmemonic table to parse disasm lines for annotate.
-  * This table is searched twice - one for exact match and another for
-@@ -191,37 +203,6 @@ static int x86__cpuid_parse(struct arch *arch, char *cpuid)
- 	return -1;
- }
- 
--static int x86__annotate_init(struct arch *arch, char *cpuid)
--{
--	int err = 0;
--
--	if (arch->initialized)
--		return 0;
--
--	if (cpuid) {
--		if (x86__cpuid_parse(arch, cpuid))
--			err = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
--	}
--
--#ifndef NDEBUG
--	{
--		static bool sorted_check;
--
--		if (!sorted_check) {
--			for (size_t i = 0; i < arch->nr_instructions - 1; i++) {
--				assert(strcmp(arch->instructions[i].name,
--					      arch->instructions[i + 1].name) <= 0);
--			}
--			sorted_check = true;
--		}
--	}
--#endif
--	arch->e_machine = EM_X86_64;
--	arch->e_flags = 0;
--	arch->initialized = true;
--	return err;
--}
--
- #ifdef HAVE_LIBDW_SUPPORT
- static void update_insn_state_x86(struct type_state *state,
- 				  struct data_loc_info *dloc, Dwarf_Die *cu_die,
-@@ -795,3 +776,45 @@ static void update_insn_state_x86(struct type_state *state,
- 	/* Case 4. memory to memory transfers (not handled for now) */
- }
- #endif
-+
-+int x86__annotate_init(struct arch *arch, char *cpuid)
-+{
-+	int err = 0;
-+
-+	if (arch->initialized)
-+		return 0;
-+
-+	if (cpuid) {
-+		if (x86__cpuid_parse(arch, cpuid))
-+			err = SYMBOL_ANNOTATE_ERRNO__ARCH_INIT_CPUID_PARSING;
-+	}
-+
-+	arch->instructions = x86__instructions;
-+	arch->nr_instructions = ARRAY_SIZE(x86__instructions);
-+#ifndef NDEBUG
-+	{
-+		static bool sorted_check;
-+
-+		if (!sorted_check) {
-+			for (size_t i = 0; i < arch->nr_instructions - 1; i++) {
-+				assert(strcmp(arch->instructions[i].name,
-+					      arch->instructions[i + 1].name) <= 0);
-+			}
-+			sorted_check = true;
-+		}
-+	}
-+#endif
-+	arch->sorted_instructions = true;
-+	arch->objdump.comment_char = '#';
-+	arch->objdump.register_char = '%';
-+	arch->objdump.memory_ref_char = '(';
-+	arch->objdump.imm_char = '$';
-+	arch->insn_suffix = "bwlq";
-+	arch->e_machine = EM_X86_64;
-+	arch->e_flags = 0;
-+	arch->initialized = true;
-+#ifdef HAVE_LIBDW_SUPPORT
-+	arch->update_insn_state = update_insn_state_x86;
-+#endif
-+	return err;
-+}
-diff --git a/tools/perf/util/disasm.c b/tools/perf/util/disasm.c
-index b7523256c4ad..845c2d0f39b1 100644
---- a/tools/perf/util/disasm.c
-+++ b/tools/perf/util/disasm.c
-@@ -33,20 +33,15 @@
- static regex_t	 file_lineno;
- 
- /* These can be referred from the arch-dependent code */
--static const struct ins_ops call_ops;
--static const struct ins_ops dec_ops;
--static const struct ins_ops jump_ops;
--static const struct ins_ops mov_ops;
--static const struct ins_ops nop_ops;
--static const struct ins_ops lock_ops;
--static const struct ins_ops ret_ops;
--static const struct ins_ops load_store_ops;
--static const struct ins_ops arithmetic_ops;
--
--static int jump__scnprintf(const struct ins *ins, char *bf, size_t size,
--			   struct ins_operands *ops, int max_ins_name);
--static int call__scnprintf(const struct ins *ins, char *bf, size_t size,
--			   struct ins_operands *ops, int max_ins_name);
-+const struct ins_ops call_ops;
-+const struct ins_ops dec_ops;
-+const struct ins_ops jump_ops;
-+const struct ins_ops mov_ops;
-+const struct ins_ops nop_ops;
-+const struct ins_ops lock_ops;
-+const struct ins_ops ret_ops;
-+const struct ins_ops load_store_ops;
-+const struct ins_ops arithmetic_ops;
- 
- static void ins__sort(struct arch *arch);
- static int disasm_line__parse(char *line, const char **namep, char **rawp);
-@@ -86,7 +81,7 @@ static int arch__grow_instructions(struct arch *arch)
- 	goto out_update_instructions;
- }
- 
--static int arch__associate_ins_ops(struct arch *arch, const char *name, const struct ins_ops *ops)
-+int arch__associate_ins_ops(struct arch *arch, const char *name, const struct ins_ops *ops)
- {
- 	struct ins *ins;
- 
-@@ -106,90 +101,66 @@ static int arch__associate_ins_ops(struct arch *arch, const char *name, const st
- 	return 0;
- }
- 
--#include "arch/arc/annotate/instructions.c"
--#include "arch/arm/annotate/instructions.c"
--#include "arch/arm64/annotate/instructions.c"
--#include "arch/csky/annotate/instructions.c"
--#include "arch/loongarch/annotate/instructions.c"
--#include "arch/mips/annotate/instructions.c"
--#include "arch/x86/annotate/instructions.c"
--#include "arch/powerpc/annotate/instructions.c"
--#include "arch/riscv64/annotate/instructions.c"
--#include "arch/s390/annotate/instructions.c"
--#include "arch/sparc/annotate/instructions.c"
--
- static struct arch architectures[] = {
- 	{
- 		.name = "arc",
- 		.init = arc__annotate_init,
-+		.e_machine = EM_ARC,
- 	},
- 	{
- 		.name = "arm",
- 		.init = arm__annotate_init,
-+		.e_machine = EM_ARM,
- 	},
- 	{
- 		.name = "arm64",
- 		.init = arm64__annotate_init,
-+		.e_machine = EM_AARCH64,
- 	},
- 	{
- 		.name = "csky",
- 		.init = csky__annotate_init,
-+		.e_machine = EM_CSKY,
-+#if defined(__CSKYABIV2__)
-+		.e_flags = EF_CSKY_ABIV2,
-+#else
-+		.e_flags = EF_CSKY_ABIV1,
-+#endif
- 	},
- 	{
- 		.name = "mips",
- 		.init = mips__annotate_init,
--		.objdump = {
--			.comment_char = '#',
--		},
-+		.e_machine = EM_MIPS,
- 	},
- 	{
- 		.name = "x86",
- 		.init = x86__annotate_init,
--		.instructions = x86__instructions,
--		.nr_instructions = ARRAY_SIZE(x86__instructions),
--		.sorted_instructions = true,
--		.insn_suffix = "bwlq",
--		.objdump =  {
--			.comment_char = '#',
--			.register_char = '%',
--			.memory_ref_char = '(',
--			.imm_char = '$',
--		},
--#ifdef HAVE_LIBDW_SUPPORT
--		.update_insn_state = update_insn_state_x86,
--#endif
-+		.e_machine = EM_X86_64, // TODO: EM_386 too.
- 	},
- 	{
- 		.name = "powerpc",
- 		.init = powerpc__annotate_init,
--#ifdef HAVE_LIBDW_SUPPORT
--		.update_insn_state = update_insn_state_powerpc,
--#endif
-+		.e_machine = EM_PPC, // TODO: EM_PPC64 too.
- 	},
- 	{
- 		.name = "riscv64",
- 		.init = riscv64__annotate_init,
-+		.e_machine = EM_RISCV,
- 	},
- 	{
- 		.name = "s390",
- 		.init = s390__annotate_init,
--		.objdump =  {
--			.comment_char = '#',
--		},
-+		.e_machine = EM_S390,
- 	},
- 	{
- 		.name = "sparc",
- 		.init = sparc__annotate_init,
--		.objdump = {
--			.comment_char = '#',
--		},
-+		.e_machine = EM_SPARC,
- 	},
- 	{
- 		.name = "loongarch",
- 		.init = loongarch__annotate_init,
--		.objdump = {
--			.comment_char = '#',
--		},
-+		.e_machine = EM_LOONGARCH,
- 	},
- };
- 
-@@ -248,14 +219,14 @@ static void ins_ops__delete(struct ins_operands *ops)
- 	zfree(&ops->target.name);
- }
- 
--static int ins__raw_scnprintf(const struct ins *ins, char *bf, size_t size,
--			      struct ins_operands *ops, int max_ins_name)
-+int ins__raw_scnprintf(const struct ins *ins, char *bf, size_t size,
-+			   struct ins_operands *ops, int max_ins_name)
- {
- 	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name, ops->raw);
- }
- 
--static int ins__scnprintf(const struct ins *ins, char *bf, size_t size,
--			  struct ins_operands *ops, int max_ins_name)
-+int ins__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		   struct ins_operands *ops, int max_ins_name)
- {
- 	if (ins->ops->scnprintf)
- 		return ins->ops->scnprintf(ins, bf, size, ops, max_ins_name);
-@@ -326,8 +297,8 @@ static int call__parse(const struct arch *arch, struct ins_operands *ops, struct
- 	goto find_target;
- }
- 
--static int call__scnprintf(const struct ins *ins, char *bf, size_t size,
--			   struct ins_operands *ops, int max_ins_name)
-+int call__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		      struct ins_operands *ops, int max_ins_name)
- {
- 	if (ops->target.sym)
- 		return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name, ops->target.sym->name);
-@@ -341,7 +312,7 @@ static int call__scnprintf(const struct ins *ins, char *bf, size_t size,
- 	return scnprintf(bf, size, "%-*s *%" PRIx64, max_ins_name, ins->name, ops->target.addr);
- }
- 
--static const struct ins_ops call_ops = {
-+const struct ins_ops call_ops = {
- 	.parse	   = call__parse,
- 	.scnprintf = call__scnprintf,
- };
-@@ -453,8 +424,8 @@ static int jump__parse(const struct arch *arch, struct ins_operands *ops, struct
- 	return 0;
- }
- 
--static int jump__scnprintf(const struct ins *ins, char *bf, size_t size,
--			   struct ins_operands *ops, int max_ins_name)
-+int jump__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		      struct ins_operands *ops, int max_ins_name)
- {
- 	const char *c;
- 
-@@ -494,7 +465,7 @@ static void jump__delete(struct ins_operands *ops __maybe_unused)
- 	 */
- }
- 
--static const struct ins_ops jump_ops = {
-+const struct ins_ops jump_ops = {
- 	.free	   = jump__delete,
- 	.parse	   = jump__parse,
- 	.scnprintf = jump__scnprintf,
-@@ -586,7 +557,7 @@ static void lock__delete(struct ins_operands *ops)
- 	zfree(&ops->target.name);
- }
- 
--static const struct ins_ops lock_ops = {
-+const struct ins_ops lock_ops = {
- 	.free	   = lock__delete,
- 	.parse	   = lock__parse,
- 	.scnprintf = lock__scnprintf,
-@@ -687,103 +658,19 @@ static int mov__parse(const struct arch *arch, struct ins_operands *ops,
- 	return -1;
- }
- 
--static int mov__scnprintf(const struct ins *ins, char *bf, size_t size,
--			   struct ins_operands *ops, int max_ins_name)
-+int mov__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		     struct ins_operands *ops, int max_ins_name)
- {
- 	return scnprintf(bf, size, "%-*s %s,%s", max_ins_name, ins->name,
- 			 ops->source.name ?: ops->source.raw,
- 			 ops->target.name ?: ops->target.raw);
- }
- 
--static const struct ins_ops mov_ops = {
-+const struct ins_ops mov_ops = {
- 	.parse	   = mov__parse,
- 	.scnprintf = mov__scnprintf,
- };
- 
--#define PPC_22_30(R)    (((R) >> 1) & 0x1ff)
--#define MINUS_EXT_XO_FORM	234
--#define SUB_EXT_XO_FORM		232
--#define	ADD_ZERO_EXT_XO_FORM	202
--#define	SUB_ZERO_EXT_XO_FORM	200
--
--static int arithmetic__scnprintf(const struct ins *ins, char *bf, size_t size,
--		struct ins_operands *ops, int max_ins_name)
--{
--	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name,
--			ops->raw);
--}
--
--/*
-- * Sets the fields: multi_regs and "mem_ref".
-- * "mem_ref" is set for ops->source which is later used to
-- * fill the objdump->memory_ref-char field. This ops is currently
-- * used by powerpc and since binary instruction code is used to
-- * extract opcode, regs and offset, no other parsing is needed here.
-- *
-- * Dont set multi regs for 4 cases since it has only one operand
-- * for source:
-- * - Add to Minus One Extended XO-form ( Ex: addme, addmeo )
-- * - Subtract From Minus One Extended XO-form ( Ex: subfme )
-- * - Add to Zero Extended XO-form ( Ex: addze, addzeo )
-- * - Subtract From Zero Extended XO-form ( Ex: subfze )
-- */
--static int arithmetic__parse(const struct arch *arch __maybe_unused, struct ins_operands *ops,
--		struct map_symbol *ms __maybe_unused, struct disasm_line *dl)
--{
--	int opcode = PPC_OP(dl->raw.raw_insn);
--
--	ops->source.mem_ref = false;
--	if (opcode == 31) {
--		if ((opcode != MINUS_EXT_XO_FORM) && (opcode != SUB_EXT_XO_FORM) \
--				&& (opcode != ADD_ZERO_EXT_XO_FORM) && (opcode != SUB_ZERO_EXT_XO_FORM))
--			ops->source.multi_regs = true;
--	}
--
--	ops->target.mem_ref = false;
--	ops->target.multi_regs = false;
--
--	return 0;
--}
--
--static const struct ins_ops arithmetic_ops = {
--	.parse     = arithmetic__parse,
--	.scnprintf = arithmetic__scnprintf,
--};
--
--static int load_store__scnprintf(const struct ins *ins, char *bf, size_t size,
--		struct ins_operands *ops, int max_ins_name)
--{
--	return scnprintf(bf, size, "%-*s %s", max_ins_name, ins->name,
--			ops->raw);
--}
--
--/*
-- * Sets the fields: multi_regs and "mem_ref".
-- * "mem_ref" is set for ops->source which is later used to
-- * fill the objdump->memory_ref-char field. This ops is currently
-- * used by powerpc and since binary instruction code is used to
-- * extract opcode, regs and offset, no other parsing is needed here
-- */
--static int load_store__parse(const struct arch *arch __maybe_unused, struct ins_operands *ops,
--		struct map_symbol *ms __maybe_unused, struct disasm_line *dl __maybe_unused)
--{
--	ops->source.mem_ref = true;
--	ops->source.multi_regs = false;
--	/* opcode 31 is of X form */
--	if (PPC_OP(dl->raw.raw_insn) == 31)
--		ops->source.multi_regs = true;
--
--	ops->target.mem_ref = false;
--	ops->target.multi_regs = false;
--
--	return 0;
--}
--
--static const struct ins_ops load_store_ops = {
--	.parse     = load_store__parse,
--	.scnprintf = load_store__scnprintf,
--};
--
- static int dec__parse(const struct arch *arch __maybe_unused, struct ins_operands *ops,
- 		      struct map_symbol *ms __maybe_unused,
- 		      struct disasm_line *dl __maybe_unused)
-@@ -820,7 +707,7 @@ static int dec__scnprintf(const struct ins *ins, char *bf, size_t size,
- 			 ops->target.name ?: ops->target.raw);
- }
- 
--static const struct ins_ops dec_ops = {
-+const struct ins_ops dec_ops = {
- 	.parse	   = dec__parse,
- 	.scnprintf = dec__scnprintf,
- };
-@@ -831,11 +718,11 @@ static int nop__scnprintf(const struct ins *ins __maybe_unused, char *bf, size_t
- 	return scnprintf(bf, size, "%-*s", max_ins_name, "nop");
- }
- 
--static const struct ins_ops nop_ops = {
-+const struct ins_ops nop_ops = {
- 	.scnprintf = nop__scnprintf,
- };
- 
--static const struct ins_ops ret_ops = {
-+const struct ins_ops ret_ops = {
- 	.scnprintf = ins__raw_scnprintf,
- };
- 
-diff --git a/tools/perf/util/disasm.h b/tools/perf/util/disasm.h
-index db7f1ee3d8e7..83503c5075f9 100644
---- a/tools/perf/util/disasm.h
-+++ b/tools/perf/util/disasm.h
-@@ -109,6 +109,28 @@ const struct arch *arch__find(const char *name);
- bool arch__is_x86(const struct arch *arch);
- bool arch__is_powerpc(const struct arch *arch);
- 
-+extern const struct ins_ops call_ops;
-+extern const struct ins_ops dec_ops;
-+extern const struct ins_ops jump_ops;
-+extern const struct ins_ops mov_ops;
-+extern const struct ins_ops nop_ops;
-+extern const struct ins_ops lock_ops;
-+extern const struct ins_ops ret_ops;
-+
-+int arch__associate_ins_ops(struct arch *arch, const char *name, const struct ins_ops *ops);
-+
-+int arc__annotate_init(struct arch *arch, char *cpuid);
-+int arm__annotate_init(struct arch *arch, char *cpuid);
-+int arm64__annotate_init(struct arch *arch, char *cpuid);
-+int csky__annotate_init(struct arch *arch, char *cpuid);
-+int loongarch__annotate_init(struct arch *arch, char *cpuid);
-+int mips__annotate_init(struct arch *arch, char *cpuid);
-+int powerpc__annotate_init(struct arch *arch, char *cpuid);
-+int riscv64__annotate_init(struct arch *arch, char *cpuid);
-+int s390__annotate_init(struct arch *arch, char *cpuid);
-+int sparc__annotate_init(struct arch *arch, char *cpuid);
-+int x86__annotate_init(struct arch *arch, char *cpuid);
-+
- const struct ins_ops *ins__find(const struct arch *arch, const char *name, struct disasm_line *dl);
- 
- bool ins__is_call(const struct ins *ins);
-@@ -117,12 +139,28 @@ bool ins__is_fused(const struct arch *arch, const char *ins1, const char *ins2);
- bool ins__is_ret(const struct ins *ins);
- bool ins__is_lock(const struct ins *ins);
- 
-+extern const struct ins_ops s390_call_ops;
-+extern const struct ins_ops loongarch_call_ops;
-+extern const struct ins_ops loongarch_jump_ops;
-+const struct ins_ops *check_ppc_insn(struct disasm_line *dl);
-+
- struct disasm_line *disasm_line__new(struct annotate_args *args);
- void disasm_line__free(struct disasm_line *dl);
- 
- int disasm_line__scnprintf(struct disasm_line *dl, char *bf, size_t size,
- 			   bool raw, int max_ins_name);
- 
-+int ins__raw_scnprintf(const struct ins *ins, char *bf, size_t size,
-+			   struct ins_operands *ops, int max_ins_name);
-+int ins__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		   struct ins_operands *ops, int max_ins_name);
-+int call__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		    struct ins_operands *ops, int max_ins_name);
-+int jump__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		    struct ins_operands *ops, int max_ins_name);
-+int mov__scnprintf(const struct ins *ins, char *bf, size_t size,
-+		   struct ins_operands *ops, int max_ins_name);
-+
- int symbol__disassemble(struct symbol *sym, struct annotate_args *args);
- 
- char *expand_tabs(char *line, char **storage, size_t *storage_len);
--- 
-2.52.0.457.g6b5491de43-goog
+On 1/21/26 9:09 PM, Anshuman Khandual wrote:
+> Hello Yang,
+>
+> On 07/01/26 5:59 AM, Yang Shi wrote:
+>> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
+>> rodata=full"), the direct mapping may be split on some machines instead
+>> keeping static since boot. It makes more sense to show the direct mapping
+>> use in /proc/meminfo than before.
+> I guess the direct mapping here refers to linear map ? IIUC it is called
+> direct map on x86 and linear map on arm64 platforms. Then should not it
+> be renamed as s/DirectMap/LinearMap instead ? This will align with names
+> from ptdump as well.
+
+Yes, linear map refers to direct map. They are interchangeable in this 
+patch. Using "DirectMap" keeps the compatibility with x86.
+
+>
+> Before the above mentioned commit, linear could get altered with memory
+> hotplug and remove events as well.
+>
+>> This patch will make /proc/meminfo show the direct mapping use like the
+>> below (4K base page size):
+>> DirectMap4K:	   94792 kB
+>> DirectMap64K:	  134208 kB
+>> DirectMap2M:	 1173504 kB
+>> DirectMap32M:	 5636096 kB
+>> DirectMap1G:	529530880 kB
+> If /proc/meminfo interface is getting updated via  arch_report_meminfo()
+> why not add stats for all kernel virtual address space ranges including
+> vmemmap, vmalloc etc aka all address range headers in ptdump as many of
+> those could change during system runtime. What makes linear mapping any
+> special ?
+
+Other than what Will suggested, /proc/meminfo does show vmalloc info:
+
+VmallocTotal:   135288315904 kB
+VmallocUsed:      114200 kB
+VmallocChunk:          0 kB
+
+AFAICT, large block mapping for vmalloc has not been widely used by 
+arm64 yet.
+"cat /sys/kernel/debug/kernel_page_tables | grep -e BLK" doesn't show 
+any large block mapping on my AmpereOne machine with v6.19-rc4 kernel. 
+If we get more large block mappings for vmalloc, we can add the mapping 
+size info in the future.
+
+Thanks,
+Yang
+
+>
+>> Although just the machines which support BBML2_NOABORT can split the
+>> direct mapping, show it on all machines regardless of BBML2_NOABORT so
+>> that the users have consistent view in order to avoid confusion.
+>>
+>> Although ptdump also can tell the direct map use, but it needs to dump
+>> the whole kernel page table. It is costly and overkilling. It is also
+>> in debugfs which may not be enabled by all distros. So showing direct
+>> map use in /proc/meminfo seems more convenient and has less overhead.
+> Agreed a /proc/meminfo based broader kernel virtual address space stats
+> display will complement ptdump which provides more granular information
+> about their mapping (with additional cost and setup) but it should cover
+> all the regions in kernel virtual space.
+>
+>> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+>> ---
+>> v5: * Rebased to v6.19-rc4
+>>      * Fixed the build error for !CONFIG_PROC_FS
+>> v4: * Used PAGE_END instead of _PAGE_END(VA_BITS_MIN) per Ryan
+>>      * Used shorter name for the helpers and variables per Ryan
+>>      * Fixed accounting for memory hotunplug
+>> v3: * Fixed the over-accounting problems per Ryan
+>>      * Introduced helpers for add/sub direct map use and #ifdef them with
+>>        CONFIG_PROC_FS per Ryan
+>>      * v3 is a fix patch on top of v2
+>> v2: * Counted in size instead of the number of entries per Ryan
+>>      * Removed shift array per Ryan
+>>      * Use lower case "k" per Ryan
+>>      * Fixed a couple of build warnings reported by kernel test robot
+>>      * Fixed a couple of poential miscounts
+>>
+>>   arch/arm64/mm/mmu.c | 202 +++++++++++++++++++++++++++++++++++++++-----
+>>   1 file changed, 181 insertions(+), 21 deletions(-)
+>>
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index 8e1d80a7033e..422441c9a992 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -29,6 +29,7 @@
+>>   #include <linux/mm_inline.h>
+>>   #include <linux/pagewalk.h>
+>>   #include <linux/stop_machine.h>
+>> +#include <linux/proc_fs.h>
+>>   
+>>   #include <asm/barrier.h>
+>>   #include <asm/cputype.h>
+>> @@ -171,6 +172,85 @@ static void init_clear_pgtable(void *table)
+>>   	dsb(ishst);
+>>   }
+>>   
+>> +enum dm_type {
+>> +	PTE,
+>> +	CONT_PTE,
+>> +	PMD,
+>> +	CONT_PMD,
+>> +	PUD,
+>> +	NR_DM_TYPE,
+>> +};
+>> +
+>> +#ifdef CONFIG_PROC_FS
+>> +static unsigned long dm_meminfo[NR_DM_TYPE];
+>> +
+>> +void arch_report_meminfo(struct seq_file *m)
+>> +{
+>> +	char *size[NR_DM_TYPE];
+>> +
+>> +#if defined(CONFIG_ARM64_4K_PAGES)
+>> +	size[PTE] = "4k";
+>> +	size[CONT_PTE] = "64k";
+>> +	size[PMD] = "2M";
+>> +	size[CONT_PMD] = "32M";
+>> +	size[PUD] = "1G";
+>> +#elif defined(CONFIG_ARM64_16K_PAGES)
+>> +	size[PTE] = "16k";
+>> +	size[CONT_PTE] = "2M";
+>> +	size[PMD] = "32M";
+>> +	size[CONT_PMD] = "1G";
+>> +#elif defined(CONFIG_ARM64_64K_PAGES)
+>> +	size[PTE] = "64k";
+>> +	size[CONT_PTE] = "2M";
+>> +	size[PMD] = "512M";
+>> +	size[CONT_PMD] = "16G";
+>> +#endif
+>> +
+>> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+>> +			size[PTE], dm_meminfo[PTE] >> 10);
+>> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+>> +			size[CONT_PTE],
+>> +			dm_meminfo[CONT_PTE] >> 10);
+>> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+>> +			size[PMD], dm_meminfo[PMD] >> 10);
+>> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+>> +			size[CONT_PMD],
+>> +			dm_meminfo[CONT_PMD] >> 10);
+>> +	if (pud_sect_supported())
+>> +		seq_printf(m, "DirectMap%s:	%8lu kB\n",
+>> +			size[PUD], dm_meminfo[PUD] >> 10);
+>> +}
+>> +
+>> +static inline bool is_dm_addr(unsigned long addr)
+>> +{
+>> +	return (addr >= PAGE_OFFSET) && (addr < PAGE_END);
+>> +}
+>> +
+>> +static inline void dm_meminfo_add(unsigned long addr, unsigned long size,
+>> +				  enum dm_type type)
+>> +{
+>> +	if (is_dm_addr(addr))
+>> +		dm_meminfo[type] += size;
+>> +}
+>> +
+>> +static inline void dm_meminfo_sub(unsigned long addr, unsigned long size,
+>> +				  enum dm_type type)
+>> +{
+>> +	if (is_dm_addr(addr))
+>> +		dm_meminfo[type] -= size;
+>> +}
+>> +#else
+>> +static inline void dm_meminfo_add(unsigned long addr, unsigned long size,
+>> +				  enum dm_type type)
+>> +{
+>> +}
+>> +
+>> +static inline void dm_meminfo_sub(unsigned long addr, unsigned long size,
+>> +				  enum dm_type type)
+>> +{
+>> +}
+>> +#endif
+>> +
+>>   static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+>>   		     phys_addr_t phys, pgprot_t prot)
+>>   {
+>> @@ -236,6 +316,11 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+>>   
+>>   		init_pte(ptep, addr, next, phys, __prot);
+>>   
+>> +		if (pgprot_val(__prot) & PTE_CONT)
+>> +			dm_meminfo_add(addr, (next - addr), CONT_PTE);
+>> +		else
+>> +			dm_meminfo_add(addr, (next - addr), PTE);
+>> +
+>>   		ptep += pte_index(next) - pte_index(addr);
+>>   		phys += next - addr;
+>>   	} while (addr = next, addr != end);
+>> @@ -266,6 +351,17 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>>   		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+>>   			pmd_set_huge(pmdp, phys, prot);
+>>   
+>> +			/*
+>> +			 * It is possible to have mappings allow cont mapping
+>> +			 * but disallow block mapping. For example,
+>> +			 * map_entry_trampoline().
+>> +			 * So we have to increase CONT_PMD and PMD size here
+>> +			 * to avoid double counting.
+>> +			 */
+>> +			if (pgprot_val(prot) & PTE_CONT)
+>> +				dm_meminfo_add(addr, (next - addr), CONT_PMD);
+>> +			else
+>> +				dm_meminfo_add(addr, (next - addr), PMD);
+>>   			/*
+>>   			 * After the PMD entry has been populated once, we
+>>   			 * only allow updates to the permission attributes.
+>> @@ -389,6 +485,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+>>   		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+>>   			pud_set_huge(pudp, phys, prot);
+>>   
+>> +			dm_meminfo_add(addr, (next - addr), PUD);
+>>   			/*
+>>   			 * After the PUD entry has been populated once, we
+>>   			 * only allow updates to the permission attributes.
+>> @@ -575,16 +672,21 @@ pgd_pgtable_alloc_special_mm(enum pgtable_type pgtable_type)
+>>   	return  __pgd_pgtable_alloc(NULL, GFP_PGTABLE_KERNEL, pgtable_type);
+>>   }
+>>   
+>> -static void split_contpte(pte_t *ptep)
+>> +static void split_contpte(unsigned long addr, pte_t *ptep)
+>>   {
+>>   	int i;
+>>   
+>> +	dm_meminfo_sub(addr, CONT_PTE_SIZE, CONT_PTE);
+>> +
+>>   	ptep = PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * CONT_PTES);
+>>   	for (i = 0; i < CONT_PTES; i++, ptep++)
+>>   		__set_pte(ptep, pte_mknoncont(__ptep_get(ptep)));
+>> +
+>> +	dm_meminfo_add(addr, CONT_PTE_SIZE, PTE);
+>>   }
+>>   
+>> -static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
+>> +static int split_pmd(unsigned long addr, pmd_t *pmdp, pmd_t pmd, gfp_t gfp,
+>> +		     bool to_cont)
+>>   {
+>>   	pmdval_t tableprot = PMD_TYPE_TABLE | PMD_TABLE_UXN | PMD_TABLE_AF;
+>>   	unsigned long pfn = pmd_pfn(pmd);
+>> @@ -606,8 +708,13 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
+>>   	if (to_cont)
+>>   		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+>>   
+>> +	dm_meminfo_sub(addr, PMD_SIZE, PMD);
+>>   	for (i = 0; i < PTRS_PER_PTE; i++, ptep++, pfn++)
+>>   		__set_pte(ptep, pfn_pte(pfn, prot));
+>> +	if (to_cont)
+>> +		dm_meminfo_add(addr, PMD_SIZE, CONT_PTE);
+>> +	else
+>> +		dm_meminfo_add(addr, PMD_SIZE, PTE);
+>>   
+>>   	/*
+>>   	 * Ensure the pte entries are visible to the table walker by the time
+>> @@ -619,16 +726,21 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
+>>   	return 0;
+>>   }
+>>   
+>> -static void split_contpmd(pmd_t *pmdp)
+>> +static void split_contpmd(unsigned long addr, pmd_t *pmdp)
+>>   {
+>>   	int i;
+>>   
+>> +	dm_meminfo_sub(addr, CONT_PMD_SIZE, CONT_PMD);
+>> +
+>>   	pmdp = PTR_ALIGN_DOWN(pmdp, sizeof(*pmdp) * CONT_PMDS);
+>>   	for (i = 0; i < CONT_PMDS; i++, pmdp++)
+>>   		set_pmd(pmdp, pmd_mknoncont(pmdp_get(pmdp)));
+>> +
+>> +	dm_meminfo_add(addr, CONT_PMD_SIZE, PMD);
+>>   }
+>>   
+>> -static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
+>> +static int split_pud(unsigned long addr, pud_t *pudp, pud_t pud, gfp_t gfp,
+>> +		     bool to_cont)
+>>   {
+>>   	pudval_t tableprot = PUD_TYPE_TABLE | PUD_TABLE_UXN | PUD_TABLE_AF;
+>>   	unsigned int step = PMD_SIZE >> PAGE_SHIFT;
+>> @@ -651,8 +763,13 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
+>>   	if (to_cont)
+>>   		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+>>   
+>> +	dm_meminfo_sub(addr, PUD_SIZE, PUD);
+>>   	for (i = 0; i < PTRS_PER_PMD; i++, pmdp++, pfn += step)
+>>   		set_pmd(pmdp, pfn_pmd(pfn, prot));
+>> +	if (to_cont)
+>> +		dm_meminfo_add(addr, PUD_SIZE, CONT_PMD);
+>> +	else
+>> +		dm_meminfo_add(addr, PUD_SIZE, PMD);
+>>   
+>>   	/*
+>>   	 * Ensure the pmd entries are visible to the table walker by the time
+>> @@ -707,7 +824,7 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
+>>   	if (!pud_present(pud))
+>>   		goto out;
+>>   	if (pud_leaf(pud)) {
+>> -		ret = split_pud(pudp, pud, GFP_PGTABLE_KERNEL, true);
+>> +		ret = split_pud(addr, pudp, pud, GFP_PGTABLE_KERNEL, true);
+>>   		if (ret)
+>>   			goto out;
+>>   	}
+>> @@ -725,14 +842,14 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
+>>   		goto out;
+>>   	if (pmd_leaf(pmd)) {
+>>   		if (pmd_cont(pmd))
+>> -			split_contpmd(pmdp);
+>> +			split_contpmd(addr, pmdp);
+>>   		/*
+>>   		 * PMD: If addr is PMD aligned then addr already describes a
+>>   		 * leaf boundary. Otherwise, split to contpte.
+>>   		 */
+>>   		if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
+>>   			goto out;
+>> -		ret = split_pmd(pmdp, pmd, GFP_PGTABLE_KERNEL, true);
+>> +		ret = split_pmd(addr, pmdp, pmd, GFP_PGTABLE_KERNEL, true);
+>>   		if (ret)
+>>   			goto out;
+>>   	}
+>> @@ -749,7 +866,7 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
+>>   	if (!pte_present(pte))
+>>   		goto out;
+>>   	if (pte_cont(pte))
+>> -		split_contpte(ptep);
+>> +		split_contpte(addr, ptep);
+>>   
+>>   out:
+>>   	return ret;
+>> @@ -835,7 +952,7 @@ static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
+>>   	int ret = 0;
+>>   
+>>   	if (pud_leaf(pud))
+>> -		ret = split_pud(pudp, pud, gfp, false);
+>> +		ret = split_pud(addr, pudp, pud, gfp, false);
+>>   
+>>   	return ret;
+>>   }
+>> @@ -849,8 +966,8 @@ static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
+>>   
+>>   	if (pmd_leaf(pmd)) {
+>>   		if (pmd_cont(pmd))
+>> -			split_contpmd(pmdp);
+>> -		ret = split_pmd(pmdp, pmd, gfp, false);
+>> +			split_contpmd(addr, pmdp);
+>> +		ret = split_pmd(addr, pmdp, pmd, gfp, false);
+>>   
+>>   		/*
+>>   		 * We have split the pmd directly to ptes so there is no need to
+>> @@ -868,7 +985,7 @@ static int split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
+>>   	pte_t pte = __ptep_get(ptep);
+>>   
+>>   	if (pte_cont(pte))
+>> -		split_contpte(ptep);
+>> +		split_contpte(addr, ptep);
+>>   
+>>   	return 0;
+>>   }
+>> @@ -1444,37 +1561,57 @@ static bool pgtable_range_aligned(unsigned long start, unsigned long end,
+>>   	return true;
+>>   }
+>>   
+>> -static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
+>> +static void unmap_hotplug_pte_range(pte_t *ptep, unsigned long addr,
+>>   				    unsigned long end, bool free_mapped,
+>>   				    struct vmem_altmap *altmap)
+>>   {
+>> -	pte_t *ptep, pte;
+>> +	pte_t pte;
+>>   
+>>   	do {
+>> -		ptep = pte_offset_kernel(pmdp, addr);
+>>   		pte = __ptep_get(ptep);
+>>   		if (pte_none(pte))
+>>   			continue;
+>>   
+>>   		WARN_ON(!pte_present(pte));
+>>   		__pte_clear(&init_mm, addr, ptep);
+>> +		dm_meminfo_sub(addr, PAGE_SIZE, PTE);
+>>   		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+>>   		if (free_mapped)
+>>   			free_hotplug_page_range(pte_page(pte),
+>>   						PAGE_SIZE, altmap);
+>> -	} while (addr += PAGE_SIZE, addr < end);
+>> +	} while (ptep++, addr += PAGE_SIZE, addr < end);
+>> +}
+>> +
+>> +static void unmap_hotplug_cont_pte_range(pmd_t *pmdp, unsigned long addr,
+>> +					 unsigned long end, bool free_mapped,
+>> +					 struct vmem_altmap *altmap)
+>> +{
+>> +	unsigned long next;
+>> +	pte_t *ptep, pte;
+>> +
+>> +	do {
+>> +		next = pte_cont_addr_end(addr, end);
+>> +		ptep = pte_offset_kernel(pmdp, addr);
+>> +		pte = __ptep_get(ptep);
+>> +
+>> +		if (pte_present(pte) && pte_cont(pte)) {
+>> +			dm_meminfo_sub(addr, CONT_PTE_SIZE, CONT_PTE);
+>> +			dm_meminfo_add(addr, CONT_PTE_SIZE, PTE);
+>> +		}
+>> +
+>> +		unmap_hotplug_pte_range(ptep, addr, next, free_mapped, altmap);
+>> +	} while (addr = next, addr < end);
+>>   }
+>>   
+>> -static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
+>> +static void unmap_hotplug_pmd_range(pmd_t *pmdp, unsigned long addr,
+>>   				    unsigned long end, bool free_mapped,
+>>   				    struct vmem_altmap *altmap)
+>>   {
+>>   	unsigned long next;
+>> -	pmd_t *pmdp, pmd;
+>> +	pmd_t pmd;
+>>   
+>>   	do {
+>>   		next = pmd_addr_end(addr, end);
+>> -		pmdp = pmd_offset(pudp, addr);
+>>   		pmd = READ_ONCE(*pmdp);
+>>   		if (pmd_none(pmd))
+>>   			continue;
+>> @@ -1482,6 +1619,7 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
+>>   		WARN_ON(!pmd_present(pmd));
+>>   		if (pmd_sect(pmd)) {
+>>   			pmd_clear(pmdp);
+>> +			dm_meminfo_sub(addr, PMD_SIZE, PMD);
+>>   
+>>   			/*
+>>   			 * One TLBI should be sufficient here as the PMD_SIZE
+>> @@ -1494,7 +1632,28 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
+>>   			continue;
+>>   		}
+>>   		WARN_ON(!pmd_table(pmd));
+>> -		unmap_hotplug_pte_range(pmdp, addr, next, free_mapped, altmap);
+>> +		unmap_hotplug_cont_pte_range(pmdp, addr, next, free_mapped, altmap);
+>> +	} while (pmdp++, addr = next, addr < end);
+>> +}
+>> +
+>> +static void unmap_hotplug_cont_pmd_range(pud_t *pudp, unsigned long addr,
+>> +					 unsigned long end, bool free_mapped,
+>> +					 struct vmem_altmap *altmap)
+>> +{
+>> +	unsigned long next;
+>> +	pmd_t *pmdp, pmd;
+>> +
+>> +	do {
+>> +		next = pmd_cont_addr_end(addr, end);
+>> +		pmdp = pmd_offset(pudp, addr);
+>> +		pmd = READ_ONCE(*pmdp);
+>> +
+>> +		if (pmd_leaf(pmd) && pmd_cont(pmd)) {
+>> +			dm_meminfo_sub(addr, CONT_PMD_SIZE, CONT_PMD);
+>> +			dm_meminfo_add(addr, CONT_PMD_SIZE, PMD);
+>> +		}
+>> +
+>> +		unmap_hotplug_pmd_range(pmdp, addr, next, free_mapped, altmap);
+>>   	} while (addr = next, addr < end);
+>>   }
+>>   
+>> @@ -1515,6 +1674,7 @@ static void unmap_hotplug_pud_range(p4d_t *p4dp, unsigned long addr,
+>>   		WARN_ON(!pud_present(pud));
+>>   		if (pud_sect(pud)) {
+>>   			pud_clear(pudp);
+>> +			dm_meminfo_sub(addr, PUD_SIZE, PUD);
+>>   
+>>   			/*
+>>   			 * One TLBI should be sufficient here as the PUD_SIZE
+>> @@ -1527,7 +1687,7 @@ static void unmap_hotplug_pud_range(p4d_t *p4dp, unsigned long addr,
+>>   			continue;
+>>   		}
+>>   		WARN_ON(!pud_table(pud));
+>> -		unmap_hotplug_pmd_range(pudp, addr, next, free_mapped, altmap);
+>> +		unmap_hotplug_cont_pmd_range(pudp, addr, next, free_mapped, altmap);
+>>   	} while (addr = next, addr < end);
+>>   }
+>>   
 
 
