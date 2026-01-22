@@ -4,53 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A58EC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 06:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 396E8C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 06:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=56hq6CN6zb28SyomINCcPHK5hiKeP4DMKkk5xC3YOW4=; b=dlPD3U20ZcBdt0hBjlSC9fXe2n
-	91J4UU/U5lV7CkKK4EXNxzW+ytd7HVvYlvevzVy+iAj6gPj5m5YFWduB1YG1308Vy7w7sa6x3k50U
-	PYWGnOPP8h8YPZ02W6KXHSK094di+XaEpPkRtRUX0ZAspDkDjaRXG8uvPKe3r6f7UjhrGQdYwzSkZ
-	3FG4pWvJ8eHepHrtlAeFb/yHGD/lfXVoHPP0JSx2OHvhPKbLsFckhZbpwTOI6gFLHbTQFv7Ettkoy
-	0Kbopr3ygtykXvMvt44hACmkMellySK5qWCDB9e5UfA89FQSfHy22NLrWq6TC7NX4PQuz4MIDjAJn
-	wrMBsEoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RUqf4gjQo4WjKianzeCQnqBmQYy1o2Sr4EBdvm0RlTE=; b=oo2MSnsWXfAPRYPx2a0ajdlg+n
+	ST57kF6Skyvo/664CBcugACSiPn/wW2ebIeYGjjwUr9iNLWavZeyU9wWoklNtpc+W7SnPsceowgdQ
+	D83ECbx2d0fYQCBkcy+xc3bJTXws1seMWqHLqn4/3r81bmj6Ei9JMYjHSSW3nB+BT+6CQevhcZUFp
+	BzrwOQr+F3lb1SCKzrCi+2NsXMg7lvJkjmCh56+N2orP78H/AcTeMCEHR0JJaEJyiB1ylR3Jpp7au
+	R9iOgXhcCOveq3gW+RKZ5bZxb6zVy291yK6ZLl2y/WTRLJyMOHnw8NPnv5hFQKKGWe5T0xwCEvUJQ
+	dDBrniaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vioEk-00000006VDJ-28go;
-	Thu, 22 Jan 2026 06:32:10 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vioZe-00000006W8U-2zxz;
+	Thu, 22 Jan 2026 06:53:46 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vioEh-00000006VBn-3VUF;
-	Thu, 22 Jan 2026 06:32:09 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c30:59ca:af14:f475:ddf6:11d2])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 320DD324;
-	Thu, 22 Jan 2026 07:31:29 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1769063489;
-	bh=Vi92szvXqaUmT6nXzA3SWjH7v8LKB3F9o7uzbHYqMmc=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=YPIa5Yi1heC1oWwvr/3+9cePsh0NGmGcJ8/0QmZbavVEpEjloTHYB6a554cNtwb+W
-	 evwZGskeO4eZlYMk53YZeNYtla7bTMP0wAf3hTgjHcyIc8RlHEwpdlCleLbRvYMyWe
-	 MdH2r5F8/BVfEJdn3VpiVYORfOhlgcwlO4DDUNyg=
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <4dec6316-0ae3-44bf-b23d-8b05f3c2c607@gmx.net>
-References: <20260113-b4-vchiq-isp-v1-0-ea0b300bffc8@ideasonboard.com> <4dec6316-0ae3-44bf-b23d-8b05f3c2c607@gmx.net>
-Subject: Re: [PATCH 00/10] media: Add support for Raspberry Pi 4 ISP
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Kieran Bingham <kieran.bingham@ideasonboard.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, Naushir Patuck <naush@raspberrypi.com>, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, Dave Stevenson <dave.stevenson@raspberrypi.org>, Umang Jain <uajain@igalia.com>
-To: Florian Fainelli <florian.fainelli@broadcom.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, Tomasz Figa <tfiga@chromium.org>
-Date: Thu, 22 Jan 2026 12:01:57 +0530
-Message-ID: <176906351709.9154.11222619502063088695@freya>
-User-Agent: alot/0.12.dev62+gb9d6144a6
+	id 1vioZb-00000006W86-41Re
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 Jan 2026 06:53:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769064824; x=1800600824;
+  h=date:from:to:cc:subject:message-id;
+  bh=vbxquyYo3c1nmWY/8KdkVTbNMksDJ0GBY5cxf+Y441I=;
+  b=KRt/WYxfp4+/3VY+bPZX4PYcRt4ztjSWBVOqNsuxXRKU6S8zP/5IdUpd
+   IZ9Rw34JCKqxGuRpzuBhmtv3mlS6hDFun5XV8vAisBmSKVyVXN5LKERS5
+   fyC/JR+mpSW70WCMX0Iid7uxiMUx8KtV5ZlOx0XyGiZuZo4AebMgPv0cg
+   6qHygpWImXFUPmVQ/PYchrPSojKgnqe+gVJYS5/TGLMRR9XDmOtGwSs5e
+   s08fnA7AIgFQs2Yd++ABY7wQrcK7jnEd6FJJ3Nmswv9oYtWErXUdIKnpu
+   YHnX7u8dbjcxBqpxJE19AJn1btvN5KCZnvLJrAZUo1xvFMKebBNkCiHz2
+   g==;
+X-CSE-ConnectionGUID: AHZNUJePQiGOBJfwp5IxQQ==
+X-CSE-MsgGUID: A7H4/MaWSm2llirahtHy7A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11678"; a="87715650"
+X-IronPort-AV: E=Sophos;i="6.21,245,1763452800"; 
+   d="scan'208";a="87715650"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2026 22:53:43 -0800
+X-CSE-ConnectionGUID: cBrjCTdaRPiWEt1LBJD5GA==
+X-CSE-MsgGUID: CjR+TZoqTri8RWm42tLYwA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,245,1763452800"; 
+   d="scan'208";a="206702588"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 21 Jan 2026 22:53:41 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vioZW-00000000SXD-3qAI;
+	Thu, 22 Jan 2026 06:53:38 +0000
+Date: Thu, 22 Jan 2026 14:52:46 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:firmware/amdtee] BUILD SUCCESS
+ a0db08f47c836251fbaccf711e12fe8428235465
+Message-ID: <202601221441.4Ss5g8Zb-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_223208_019620_15EB9EA6 
-X-CRM114-Status: GOOD (  28.55  )
+X-CRM114-CacheID: sfid-20260121_225344_069287_31E66C3B 
+X-CRM114-Status: UNSURE (   5.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,133 +83,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git firmware/amdtee
+branch HEAD: a0db08f47c836251fbaccf711e12fe8428235465  tee: amdtee: Remove unused return variables
 
-Quoting Stefan Wahren (2026-01-22 00:06:23)
-> Hi Jai,
->=20
-> Am 13.01.26 um 10:05 schrieb Jai Luthra:
-> > Hi,
-> >
-> > This series adds support for the ISP used in Raspberry Pi 4 (and earlier
-> > variants) by adding the bcm2835-isp V4L2 driver.
-> could you please point me to the upstream patch, which enables VCHIQ=20
-> support for Raspberry Pi 4?
+elapsed time: 914m
 
-The VCHIQ driver currently in upstream is working fine in my testing with
-the ISP on Raspberry Pi 4.
+configs tested: 228
+configs skipped: 8
 
-arch/arm/boot/dts/broadcom/bcm2711-rpi.dts inherits the vchiq device tree
-node from bcm2835-rpi.dts, which uses the "brcm,bcm2835-vchiq" compatible.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
->=20
-> AFAIR only Raspberry Pi 0 - 3 were officially supported.
->=20
+tested configs:
+alpha                             allnoconfig    gcc-15.2.0
+alpha                            allyesconfig    gcc-15.2.0
+alpha                               defconfig    gcc-15.2.0
+arc                              allmodconfig    clang-16
+arc                              allmodconfig    gcc-15.2.0
+arc                               allnoconfig    gcc-15.2.0
+arc                              allyesconfig    clang-22
+arc                              allyesconfig    gcc-15.2.0
+arc                                 defconfig    gcc-15.2.0
+arc                 nsimosci_hs_smp_defconfig    gcc-15.2.0
+arc                   randconfig-001-20260122    gcc-15.2.0
+arc                   randconfig-002-20260122    gcc-15.2.0
+arm                               allnoconfig    clang-22
+arm                               allnoconfig    gcc-15.2.0
+arm                              allyesconfig    clang-16
+arm                              allyesconfig    gcc-15.2.0
+arm                         axm55xx_defconfig    clang-22
+arm                                 defconfig    gcc-15.2.0
+arm                         mv78xx0_defconfig    gcc-15.2.0
+arm                          pxa910_defconfig    gcc-15.2.0
+arm                   randconfig-001-20260122    gcc-15.2.0
+arm                   randconfig-002-20260122    gcc-15.2.0
+arm                   randconfig-003-20260122    gcc-15.2.0
+arm                   randconfig-004-20260122    gcc-15.2.0
+arm                        spear3xx_defconfig    clang-22
+arm64                            allmodconfig    clang-19
+arm64                            allmodconfig    clang-22
+arm64                             allnoconfig    gcc-15.2.0
+arm64                               defconfig    gcc-15.2.0
+arm64                 randconfig-001-20260122    gcc-15.2.0
+arm64                 randconfig-002-20260122    gcc-15.2.0
+arm64                 randconfig-003-20260122    gcc-15.2.0
+arm64                 randconfig-004-20260122    gcc-15.2.0
+csky                             allmodconfig    gcc-15.2.0
+csky                              allnoconfig    gcc-15.2.0
+csky                                defconfig    gcc-15.2.0
+csky                  randconfig-001-20260122    gcc-15.2.0
+csky                  randconfig-002-20260122    gcc-15.2.0
+hexagon                          allmodconfig    clang-17
+hexagon                          allmodconfig    gcc-15.2.0
+hexagon                           allnoconfig    clang-22
+hexagon                           allnoconfig    gcc-15.2.0
+hexagon                             defconfig    gcc-15.2.0
+hexagon               randconfig-001-20260122    gcc-15.2.0
+hexagon               randconfig-002-20260122    gcc-15.2.0
+i386                             allmodconfig    clang-20
+i386                              allnoconfig    gcc-14
+i386                              allnoconfig    gcc-15.2.0
+i386                             allyesconfig    clang-20
+i386        buildonly-randconfig-001-20260122    clang-20
+i386        buildonly-randconfig-002-20260122    clang-20
+i386        buildonly-randconfig-003-20260122    clang-20
+i386        buildonly-randconfig-004-20260122    clang-20
+i386        buildonly-randconfig-005-20260122    clang-20
+i386        buildonly-randconfig-006-20260122    clang-20
+i386                                defconfig    gcc-15.2.0
+i386                  randconfig-001-20260122    gcc-14
+i386                  randconfig-002-20260122    gcc-14
+i386                  randconfig-003-20260122    gcc-14
+i386                  randconfig-004-20260122    gcc-14
+i386                  randconfig-005-20260122    gcc-14
+i386                  randconfig-006-20260122    gcc-14
+i386                  randconfig-007-20260122    gcc-14
+i386                  randconfig-011-20260122    clang-20
+i386                  randconfig-012-20260122    clang-20
+i386                  randconfig-013-20260122    clang-20
+i386                  randconfig-014-20260122    clang-20
+i386                  randconfig-015-20260122    clang-20
+i386                  randconfig-016-20260122    clang-20
+i386                  randconfig-017-20260122    clang-20
+loongarch                        allmodconfig    clang-19
+loongarch                        allmodconfig    clang-22
+loongarch                         allnoconfig    clang-22
+loongarch                         allnoconfig    gcc-15.2.0
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20260122    gcc-15.2.0
+loongarch             randconfig-002-20260122    gcc-15.2.0
+m68k                             allmodconfig    gcc-15.2.0
+m68k                              allnoconfig    gcc-15.2.0
+m68k                             allyesconfig    clang-16
+m68k                             allyesconfig    gcc-15.2.0
+m68k                         amcore_defconfig    gcc-15.2.0
+m68k                          amiga_defconfig    gcc-15.2.0
+m68k                                defconfig    clang-19
+m68k                       m5275evb_defconfig    gcc-15.2.0
+m68k                        m5407c3_defconfig    gcc-15.2.0
+m68k                       m5475evb_defconfig    gcc-15.2.0
+m68k                            mac_defconfig    gcc-15.2.0
+m68k                        mvme147_defconfig    gcc-15.2.0
+microblaze                        allnoconfig    gcc-15.2.0
+microblaze                       allyesconfig    gcc-15.2.0
+microblaze                          defconfig    clang-19
+mips                             allmodconfig    gcc-15.2.0
+mips                              allnoconfig    gcc-15.2.0
+mips                             allyesconfig    gcc-15.2.0
+mips                       bmips_be_defconfig    gcc-15.2.0
+mips                  cavium_octeon_defconfig    gcc-15.2.0
+mips                     cu1000-neo_defconfig    gcc-15.2.0
+mips                        maltaup_defconfig    gcc-15.2.0
+mips                       rbtx49xx_defconfig    gcc-15.2.0
+nios2                            allmodconfig    clang-22
+nios2                             allnoconfig    clang-22
+nios2                             allnoconfig    gcc-11.5.0
+nios2                               defconfig    clang-19
+nios2                 randconfig-001-20260122    gcc-15.2.0
+nios2                 randconfig-002-20260122    gcc-15.2.0
+openrisc                         allmodconfig    clang-22
+openrisc                         allmodconfig    gcc-15.2.0
+openrisc                          allnoconfig    clang-22
+openrisc                          allnoconfig    gcc-15.2.0
+openrisc                            defconfig    gcc-15.2.0
+parisc                           allmodconfig    gcc-15.2.0
+parisc                            allnoconfig    clang-22
+parisc                            allnoconfig    gcc-15.2.0
+parisc                           allyesconfig    clang-19
+parisc                           allyesconfig    gcc-15.2.0
+parisc                              defconfig    gcc-15.2.0
+parisc                randconfig-001-20260122    gcc-10.5.0
+parisc                randconfig-002-20260122    gcc-10.5.0
+parisc64                            defconfig    clang-19
+powerpc                          allmodconfig    gcc-15.2.0
+powerpc                           allnoconfig    clang-22
+powerpc                           allnoconfig    gcc-15.2.0
+powerpc                    amigaone_defconfig    clang-22
+powerpc                       eiger_defconfig    gcc-15.2.0
+powerpc                          g5_defconfig    clang-22
+powerpc                       holly_defconfig    clang-22
+powerpc                      mgcoge_defconfig    clang-22
+powerpc                 mpc834x_itx_defconfig    gcc-15.2.0
+powerpc               randconfig-001-20260122    gcc-10.5.0
+powerpc               randconfig-002-20260122    gcc-10.5.0
+powerpc                     tqm8540_defconfig    gcc-15.2.0
+powerpc                     tqm8541_defconfig    gcc-15.2.0
+powerpc64             randconfig-001-20260122    gcc-10.5.0
+powerpc64             randconfig-002-20260122    gcc-10.5.0
+riscv                            alldefconfig    gcc-15.2.0
+riscv                            allmodconfig    clang-22
+riscv                             allnoconfig    clang-22
+riscv                             allnoconfig    gcc-15.2.0
+riscv                            allyesconfig    clang-16
+riscv                               defconfig    gcc-15.2.0
+riscv                 randconfig-001-20260122    clang-18
+riscv                 randconfig-002-20260122    clang-18
+s390                             allmodconfig    clang-18
+s390                             allmodconfig    clang-19
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.2.0
+s390                                defconfig    gcc-15.2.0
+s390                  randconfig-001-20260122    clang-18
+s390                  randconfig-002-20260122    clang-18
+sh                               allmodconfig    gcc-15.2.0
+sh                                allnoconfig    clang-22
+sh                                allnoconfig    gcc-15.2.0
+sh                               allyesconfig    clang-19
+sh                               allyesconfig    gcc-15.2.0
+sh                                  defconfig    gcc-14
+sh                        dreamcast_defconfig    gcc-15.2.0
+sh                          r7780mp_defconfig    clang-22
+sh                    randconfig-001-20260122    clang-18
+sh                    randconfig-002-20260122    clang-18
+sh                           se7343_defconfig    gcc-15.2.0
+sh                           se7712_defconfig    gcc-15.2.0
+sh                           se7721_defconfig    gcc-15.2.0
+sh                           sh2007_defconfig    gcc-15.2.0
+sh                   sh7724_generic_defconfig    clang-22
+sh                   sh7724_generic_defconfig    gcc-15.2.0
+sparc                             allnoconfig    clang-22
+sparc                             allnoconfig    gcc-15.2.0
+sparc                               defconfig    gcc-15.2.0
+sparc                 randconfig-001-20260122    gcc-8.5.0
+sparc                 randconfig-002-20260122    gcc-8.5.0
+sparc64                          allmodconfig    clang-22
+sparc64                             defconfig    gcc-14
+sparc64               randconfig-001-20260122    gcc-8.5.0
+sparc64               randconfig-002-20260122    gcc-8.5.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    gcc-14
+um                               allyesconfig    gcc-15.2.0
+um                                  defconfig    gcc-14
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20260122    gcc-8.5.0
+um                    randconfig-002-20260122    gcc-8.5.0
+um                           x86_64_defconfig    gcc-14
+x86_64                           alldefconfig    gcc-15.2.0
+x86_64                           allmodconfig    clang-20
+x86_64                            allnoconfig    clang-20
+x86_64                            allnoconfig    clang-22
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20260122    clang-20
+x86_64      buildonly-randconfig-002-20260122    clang-20
+x86_64      buildonly-randconfig-003-20260122    clang-20
+x86_64      buildonly-randconfig-004-20260122    clang-20
+x86_64      buildonly-randconfig-005-20260122    clang-20
+x86_64      buildonly-randconfig-006-20260122    clang-20
+x86_64                              defconfig    gcc-14
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20260122    clang-20
+x86_64                randconfig-002-20260122    clang-20
+x86_64                randconfig-003-20260122    clang-20
+x86_64                randconfig-004-20260122    clang-20
+x86_64                randconfig-005-20260122    clang-20
+x86_64                randconfig-006-20260122    clang-20
+x86_64                randconfig-011-20260122    clang-20
+x86_64                randconfig-012-20260122    clang-20
+x86_64                randconfig-013-20260122    clang-20
+x86_64                randconfig-014-20260122    clang-20
+x86_64                randconfig-015-20260122    clang-20
+x86_64                randconfig-016-20260122    clang-20
+x86_64                randconfig-071-20260122    clang-20
+x86_64                randconfig-072-20260122    clang-20
+x86_64                randconfig-073-20260122    clang-20
+x86_64                randconfig-074-20260122    clang-20
+x86_64                randconfig-075-20260122    clang-20
+x86_64                randconfig-076-20260122    clang-20
+x86_64                               rhel-9.4    clang-20
+x86_64                           rhel-9.4-bpf    gcc-14
+x86_64                          rhel-9.4-func    clang-20
+x86_64                    rhel-9.4-kselftests    clang-20
+x86_64                         rhel-9.4-kunit    gcc-14
+x86_64                           rhel-9.4-ltp    gcc-14
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    clang-22
+xtensa                            allnoconfig    gcc-15.2.0
+xtensa                           allyesconfig    clang-22
+xtensa                          iss_defconfig    gcc-15.2.0
+xtensa                randconfig-001-20260122    gcc-8.5.0
+xtensa                randconfig-002-20260122    gcc-8.5.0
 
-Ah my bad. Do you know which peripheral requires the changes to VCHIQ and
-DMA to function properly on Pi 4?
-
-I saw the downstream tree defines new bcm2711-* compatibles for the DMA
-engine and VCHIQ, mostly for 36-bit address support. I had those patches in
-my tree at some point while debugging, but dropped them as the issue was
-found in the firmware clock management.
-
-If 36-bit addresses are indeed required for some ISP feature I didn't
-notice, I can add those patches back before posting the next revision.
-
-> Best regards
-> >
-> > The underlying hardware for the ISP is accessed through the VideoCore
-> > VPU, via the VCHIQ/MMAL interface that was recently destaged under
-> > platform/raspberrypi. The ISP driver, and thus this series depends on
-> > VCSM CMA driver for shared memory support (for lens shading buffers):
-> >
-> > https://lore.kernel.org/all/20260105-b4-vc-sm-cma-v2-0-4daea749ced9@ide=
-asonboard.com/
-> >
-> > The ISP driver introduced in this series has been taken from the one
-> > present in the downstream raspberrypi 6.12 tree, squashing together
-> > various commits, along with minor cleanups and renaming directories. For
-> > testing it with libcamera, please use this branch that supports upstream
-> > unicam and the correct base ID for ISP controls:
-> >
-> > https://github.com/jailuthra/libcamera/tree/pi4-upstream
-> >
-> > Thanks,
-> > Jai
-
-Thanks,
-    Jai
-
-> >
-> > Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
-> > ---
-> > Dave Stevenson (1):
-> >        media: videobuf2: Allow exporting of a struct dmabuf
-> >
-> > Jai Luthra (5):
-> >        platform/raspberrypi: vchiq-mmal: Move headers to include/linux
-> >        platform/raspberrypi: vchiq-mmal: Support ISP parameters and sta=
-ts
-> >        platform/raspberrypi: vchiq-mmal: Support bayer and gray formats
-> >        platform/raspberrypi: vchiq: Add helpers for vchiq driver data
-> >        media: platform: broadcom: Move unicam driver to subdir
-> >
-> > Naushir Patuck (4):
-> >        media: uapi: v4l-ctrls: Add CID base for the bcm2835-isp driver
-> >        media: uapi: v4l2-core: Add ISP statistics output V4L2 fourcc ty=
-pe
-> >        media: platform: broadcom: Add bcm2835-isp driver
-> >        platform/raspberrypi: vchiq: Load bcm2835_isp driver from vchiq
-> >
-> >   Documentation/admin-guide/media/bcm2835-isp.rst    |  127 ++
-> >   .../userspace-api/media/drivers/index.rst          |    1 +
-> >   .../userspace-api/media/v4l/meta-formats.rst       |    1 +
-> >   .../media/v4l/pixfmt-meta-bcm2835-isp-stats.rst    |   35 +
-> >   MAINTAINERS                                        |   12 +-
-> >   drivers/media/common/videobuf2/videobuf2-core.c    |   21 +-
-> >   drivers/media/platform/broadcom/Kconfig            |   23 +-
-> >   drivers/media/platform/broadcom/Makefile           |    3 +-
-> >   .../media/platform/broadcom/bcm2835-isp/Kconfig    |   14 +
-> >   .../media/platform/broadcom/bcm2835-isp/Makefile   |    4 +
-> >   .../broadcom/bcm2835-isp/bcm2835-isp-ctrls.h       |   73 +
-> >   .../broadcom/bcm2835-isp/bcm2835-isp-fmts.h        |  558 ++++++
-> >   .../broadcom/bcm2835-isp/bcm2835-v4l2-isp.c        | 1836 +++++++++++=
-+++++++++
-> >   .../media/platform/broadcom/bcm2835-unicam/Kconfig |   23 +
-> >   .../platform/broadcom/bcm2835-unicam/Makefile      |    3 +
-> >   .../{ =3D> bcm2835-unicam}/bcm2835-unicam-regs.h     |    0
-> >   .../broadcom/{ =3D> bcm2835-unicam}/bcm2835-unicam.c |    0
-> >   drivers/media/v4l2-core/v4l2-ioctl.c               |    1 +
-> >   .../raspberrypi/vchiq-interface/vchiq_arm.c        |    2 +
-> >   .../platform/raspberrypi/vchiq-mmal/mmal-vchiq.c   |    9 +-
-> >   .../linux/raspberrypi}/mmal-common.h               |    2 +
-> >   .../linux/raspberrypi}/mmal-encodings.h            |   68 +
-> >   .../linux/raspberrypi}/mmal-msg-common.h           |    0
-> >   .../linux/raspberrypi}/mmal-msg-format.h           |    0
-> >   .../linux/raspberrypi}/mmal-msg-port.h             |    0
-> >   .../linux/raspberrypi}/mmal-msg.h                  |    0
-> >   .../linux/raspberrypi}/mmal-parameters.h           |   86 +
-> >   .../linux/raspberrypi}/mmal-vchiq.h                |    0
-> >   include/linux/raspberrypi/vchiq_arm.h              |    1 +
-> >   include/linux/raspberrypi/vchiq_bus.h              |   10 +
-> >   include/media/videobuf2-core.h                     |   15 +
-> >   include/uapi/linux/bcm2835-isp.h                   |  347 ++++
-> >   include/uapi/linux/v4l2-controls.h                 |    6 +
-> >   include/uapi/linux/videodev2.h                     |    1 +
-> >   34 files changed, 3252 insertions(+), 30 deletions(-)
-> > ---
-> > base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> > change-id: 20250923-b4-vchiq-isp-7e8c22c2860c
-> > prerequisite-message-id: 20260105-b4-vc-sm-cma-v2-0-4daea749ced9@ideaso=
-nboard.com
-> > prerequisite-patch-id: 07e50207cc947f44e1d626b31d0ace7e12a8f3a1
-> > prerequisite-patch-id: 3d82a2605799686668729fdc2677c3f6b7c2aa0d
-> > prerequisite-patch-id: f65e3f6e8db823fcfc37421da10a76f92cf56d9d
-> > prerequisite-patch-id: dbfc2fc4237c738e499e802be972dd8f2736a714
-> > prerequisite-patch-id: 1898d91213e9bd75be3109180527fb0caf6d7174
-> > prerequisite-patch-id: d0cfc49c673c8c4a4c13d44a547104c24f57cb49
-> >
-> > Best regards,
->
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
