@@ -4,89 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10879C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:25:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5AFBC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 10:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DU8rGFe6B3mE/xdQKQTWoBiiNLtj1+ih/vdN/GH7wsM=; b=kyUleSknGMqctjRjZ62MwibMPj
-	DvaID8fF6FM3i4aaA/ImywIPF/YErFwizouHg1QgLjGzSb2xVVujMJKTm/6kNElg7+Tt+oLWZeVJm
-	gPThnHZIeMCtQWMzpGlo8NLnETiAa9oiL/hu1l3S/bJhUXujx+/+anppEbK+PUGu7KTf07I9gSrKW
-	Wubvr+mZv0hFxLC26NVcA/QeIlWLQn+G0u5hD8GWbrMQa6k0xta0QWYFoLSuvPzWSkXWJ1SQ7M/Aq
-	PnETXGWynghY9I6hLYfaHlrgkW7Y/ADm1P9/KNtmsQ60l+xcSIX2HaiMDol4kU1AOeMLcdJiXOuPM
-	cuavFwTw==;
+	bh=wXDPqyiLdtmkhDH20FlxniffaDaFHsn7ICjIijsgMVg=; b=XfkZ/1CA4bS9NFM3jw/RRs75Sv
+	AMDs85iTClk4CLSSU5/gJW6MvtavP92/rJ88C47lavIH5KG9G1RD9Iorr6P+doUdLPwMIRuPccmfG
+	t4mP/r6qYGaa6ZAckk6/FIDffNroncyoHaskWJp4GrABqynLHgb9rJrRFVpkeQHKD0zegWB6Mdcj+
+	cqa9jJ+1FsTdGa67YSeDaEKuzI2YdhG9reMyRrwT7051WkF5V2AJ6B61W604Z+n0m7BA93P39kgew
+	5dIztEskUEY2Il7OgnMR4jxrzyoGk+d0PWRKUcvP5SXFtcLku33q4XQ8G9z6YMGYBpiIwEy1Tyl6A
+	IHZrEjpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virsJ-00000006prp-382R;
-	Thu, 22 Jan 2026 10:25:15 +0000
-Received: from mail-ua1-f66.google.com ([209.85.222.66])
+	id 1virso-00000006pvd-1UUm;
+	Thu, 22 Jan 2026 10:25:46 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1virsH-00000006pqx-00JM
+	id 1virsk-00000006pv1-46WZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 10:25:14 +0000
-Received: by mail-ua1-f66.google.com with SMTP id a1e0cc1a2514c-9412512e9f3so198357241.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 02:25:12 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769077511; x=1769682311;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DU8rGFe6B3mE/xdQKQTWoBiiNLtj1+ih/vdN/GH7wsM=;
-        b=nQwn7xkRGCQaPaxXHZ27+FAxJKLqCXiyiruVMGLxPry+av9/3Ymn0/Bui1kORUib/H
-         BvAGuS9+PBuQ4Ky5pACrrcf3ogpXhinB4nSsxHIbPoCMHAhjdYmMooRHbh5LX7wfgvTT
-         tQcDNE4fXZWVlDrUnIsTvYxBKzrCYLItpMQ5jlgdbr8/b+ga4TAKKfr+Inob2vZaxHSF
-         uGaL8JD+U7vQGlD9DjKdhZV5nm1bmjRVy4H44qnzwz2gs25ldU3oPPtFsfCmZ1yBXr5E
-         uovYzAVZoRxzND8jX+pCvAFSWLpWAq5N2+4n/KZPslcgqJr5nDe6DueMcSN7Nv1vUulp
-         azTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUDw9hFLsi/Vgu+SChg0W2LrHW2lNQSezf5RXzO9wja9kkHsIkJM1OZLZ6kC8cm6lroSrlopR34rztNpmEJYSGh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzayEKmApeLd35WdjrtCjPKfG0/Y7qQx9zkbNAbpwNB9okODuoX
-	r0ip1tjc9ZLY+a1mtVWNUbNmRm1DV4EF/R57HZ9RgtLU26eFnNAVssny++yv/uK4
-X-Gm-Gg: AZuq6aIb1bnQVwRuA4KFS14teptau2osUU+d98LUCYot987TReQ01JTX1sShYG7LLne
-	jWmcuZC799+h/kkbE2bbrCE2yBlz0y7r652NJ8DCdlIBOilWiwd6OCNAKh1aP6KVtJRuaj+Y8fd
-	Z8Nk6YrkbVa9QhFNEBfPwkV7++9Tidms2wyUvXGOM6qT+ljGwCznTghbSF0HjvdM/zEgYQrYJds
-	f0be7lTZyMGonefajoIXZNzxNwOaibDHRxVBBOPcU7ZyFf+/AycZPiArUTvryusO70g6KcmoZoS
-	x3JxVgz1q2JcFc0mI9l0wVDd33kLUs1wor5k4RYJGPsHigFEjEFb9hdjgu1KrKikFmTuFkJtn+L
-	p0d1fHnbuzCsXpAWid/KXZaJ4zJEbPosP+Bg34qAOzXe13KpMpv0N1NAZr/6KnYupgYi+ry5m9L
-	gAkNF+mYuXXM882rBKT15xRtT5AdG35JoqHUMEDjIWE00f46Fs
-X-Received: by 2002:a05:6102:c47:b0:5dd:b100:47df with SMTP id ada2fe7eead31-5f1a6fa452fmr5579042137.4.1769077511104;
-        Thu, 22 Jan 2026 02:25:11 -0800 (PST)
-Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5f5337d089bsm376875137.7.2026.01.22.02.25.10
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Jan 2026 02:25:10 -0800 (PST)
-Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-948104feb8eso195881241.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 02:25:10 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCV+x9dd6td4N9t3YD8Ns+kX0KJD6SNq+2SZYT2wvyA+GMb/BxBbeR3uB1gSKGOygikPo6hc8AngJOwPAlNHCYj5@lists.infradead.org
-X-Received: by 2002:a05:6102:c8e:b0:5f5:3826:3cfb with SMTP id
- ada2fe7eead31-5f5382646b2mr467462137.27.1769077510009; Thu, 22 Jan 2026
- 02:25:10 -0800 (PST)
+	Thu, 22 Jan 2026 10:25:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cX6roxmy1QPbTnYrCOmqTFeaoE0nJzIxFzDhZ2GqHh65Y9I/imWDA9HZXahDI/gQvG88rznwCXsCj3j24Jn61TYjxrg/XQE/mOaccFMVf1UsaHUZAzUpY7gXTWkCKD/sdsQs7WyNJzNJX1pbhHZPrXIe5Ppe/NDSsvCJEJJzKX7o/1pj3RbhZJRZqAFysmRbxUPi+4naBqJCdfp+0oNGCujtcvb/Sok4qbVELLihJjaqRSQSl8a5QQ3u8f1TpdxfzIxie5AHLFjWDIvwNPpjU+n8WHFim22uB2ztvVeT+ZE6xgdJLZTDjDaxQGLh5tdWJcYo78xWmtkA7XUHKQNJrQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wXDPqyiLdtmkhDH20FlxniffaDaFHsn7ICjIijsgMVg=;
+ b=aofN4Sq7fHVrvOi5S7ttncSq5WM44vyd+FNulwU8cOi6BqCIiYxk0xc+TxPXugx8tdtgSNZhUC7Wk1JrTUg94hpEQTElIqpXmiXaFlb2rTdpFhFldYBE//dQZ68U2OsfMQHC6LB7RmD1W7tq6O/KCbspcFMPabTlgX1lpPn0v44BFMagS/YoPH0VEla06z4H8aaYZXJyj8fXPRLYOVV8f2WbL9vEEAbgQWDej1OgqizkxsQsjkXaAfaVO2fasJx10xJAdkHLo1wzH/Zu2w+m/pjjZZXQkGkqQeeieZ0qszjkAvqrXK+Dh0I0MkCVek/cgkBSIHyGDH6Wl/dE9Tp/6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wXDPqyiLdtmkhDH20FlxniffaDaFHsn7ICjIijsgMVg=;
+ b=15mqkIwhrW9rHMcZmEht6XgWgxbbhJhsfGJS0Xs7oRcFXCeAfWKkX74f/U+3jg1kf0DovFQsDngt0wBkl9391uqbksg2/eaiXJXkZsY7Wz7UBSXDqdtLK6NBHWyWapXCU5CMDC8S5P1Ds0HmeveN/IQMbi2ZeMU4xvNQC+dJEwM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from MN2PR12MB4205.namprd12.prod.outlook.com (2603:10b6:208:198::10)
+ by IA1PR12MB7710.namprd12.prod.outlook.com (2603:10b6:208:422::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Thu, 22 Jan
+ 2026 10:25:38 +0000
+Received: from MN2PR12MB4205.namprd12.prod.outlook.com
+ ([fe80::cdcb:a990:3743:e0bf]) by MN2PR12MB4205.namprd12.prod.outlook.com
+ ([fe80::cdcb:a990:3743:e0bf%6]) with mapi id 15.20.9542.010; Thu, 22 Jan 2026
+ 10:25:38 +0000
+Message-ID: <adf64600-1124-4e9e-9d31-b0f18f66496a@amd.com>
+Date: Thu, 22 Jan 2026 10:24:58 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFCv1 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Content-Language: en-US
+To: Jason Gunthorpe <jgg@nvidia.com>,
+ Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: "Tian, Kevin" <kevin.tian@intel.com>, Nicolin Chen <nicolinc@nvidia.com>,
+ "will@kernel.org" <will@kernel.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,
+ "Williams, Dan J" <dan.j.williams@intel.com>,
+ "joro@8bytes.org" <joro@8bytes.org>, "praan@google.com" <praan@google.com>,
+ "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+ "miko.lenczewski@arm.com" <miko.lenczewski@arm.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ linux-cxl@vger.kernel.org
+References: <cover.1768624180.git.nicolinc@nvidia.com>
+ <d1768bb6384050a23769f20ca28216f520f77e26.1768624181.git.nicolinc@nvidia.com>
+ <BL1PR11MB5271F0BDC68C2D7F172122E98C96A@BL1PR11MB5271.namprd11.prod.outlook.com>
+ <20260121100307.00004e60@huawei.com> <20260121130315.GE1134360@nvidia.com>
+From: Alejandro Lucero Palau <alucerop@amd.com>
+In-Reply-To: <20260121130315.GE1134360@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DU2PR04CA0263.eurprd04.prod.outlook.com
+ (2603:10a6:10:28e::28) To DM6PR12MB4202.namprd12.prod.outlook.com
+ (2603:10b6:5:219::22)
 MIME-Version: 1.0
-References: <20260118135038.8033-1-marek.vasut+renesas@mailbox.org>
- <20260118135038.8033-10-marek.vasut+renesas@mailbox.org> <CAMuHMdWfkHMQFvUzaHpso-fMFAS5u8ABHpEA9ZXq1fxcR-oN6Q@mail.gmail.com>
- <6f817993-1b4a-4600-a771-d6c25efc668b@mailbox.org>
-In-Reply-To: <6f817993-1b4a-4600-a771-d6c25efc668b@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 22 Jan 2026 11:24:58 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX0iuyUhGRPFf4x==e_ZEMjaB_dP6mrM81F+yxqwam0FA@mail.gmail.com>
-X-Gm-Features: AZwV_QjuP8FSEPCU0Lg3L4U6GH5gFTYqAWXZrFYKPuIZu4sDlAHvOrdK6rQ4B2g
-Message-ID: <CAMuHMdX0iuyUhGRPFf4x==e_ZEMjaB_dP6mrM81F+yxqwam0FA@mail.gmail.com>
-Subject: Re: [PATCH v2 9/9] arm64: dts: renesas: ebisu: Describe PCIe/USB3.0
- clock generator
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Mark Brown <broonie@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR12MB4205:EE_|IA1PR12MB7710:EE_
+X-MS-Office365-Filtering-Correlation-Id: 133c675d-a8a7-4914-c44b-08de59a0886f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WStpUlJ2Q0xXb3FyNWFvNlJlMXpzemZZY0IwUzVzbTdCQWxwRE52VlVRMDhn?=
+ =?utf-8?B?bTdyWG5VcThqRldxTzZIU1dERThGQmNuWGxYRkVaWkFJdFhvVy9taE81SXM0?=
+ =?utf-8?B?b0FLK04yRElqVlFxbWlSWGZaRmVNWXd3YUVYUjFEeGc3SmhEUGdSeGVoQUVP?=
+ =?utf-8?B?Sy9Kbm5CdW5zR2Y1UWJSM3B0QWxlR3JQQzhYRlkwQm9NVEVhUWJvUSt3MEt5?=
+ =?utf-8?B?SU5zZjJvYjlyZ2wvaDN1M1gydEpBejVSQ2JNRlo4UlJMWktzalVlTHdiNVlT?=
+ =?utf-8?B?eTBjQmdSUnloV3A1T1VSdGU4Wi9SZXlaRGlWM0ErNlh2YmJCRVFTTXFlcGxI?=
+ =?utf-8?B?T3A5N0JySU50eWVKeFRwSkdkcGVsWDFKRmFkdlpGa1k4Q0thc1JXajVlYzJo?=
+ =?utf-8?B?SlZ4SHpOOXkwWFVUaFYzNmZnUDJNZjM3TkZjUW9QdFM1R0xJbXkwdzFIcUho?=
+ =?utf-8?B?enlZY2orK2JBU0xpQ25RSnRRcTNaU2ZZSkhkUitZNWQ4bjBaUDhybTdPcE4r?=
+ =?utf-8?B?dWtNK0lMdExRTTdYeVcrU3o3MEtvbXJWYVpVc0RzTnBXRTlsZFVYUzIzWGJN?=
+ =?utf-8?B?K1RiQXlYOGg3UmkraXg0N29tbSt1WW5KYWVuS3JlTzVPVkVhMmlpR3RTa1dP?=
+ =?utf-8?B?NlFvd1M1SjQ3Z1dBRERTNmdISU9mV2Z6TEh6Q2ZseFU2QkVKS0FvdC9UbXBM?=
+ =?utf-8?B?UGRIcytJZnI4VjNvSE5jNDFzUTdBdngzaTk3eDZraGJwb2NEaTJnWHJBWTMw?=
+ =?utf-8?B?YzBlUTNWdFc5VytjamlhSlJEd1pIZlQvOU1wNno2czVoOGk0MFhNWXJCQnY2?=
+ =?utf-8?B?WDBnS0pNUG95ZFFPQ0JBcksvczdJSlRTdTlNWFhOZ2dzY29PbjlOV1pBTU9k?=
+ =?utf-8?B?a0pTa0RkRGNPRGc3YmhrR1cvcCtUUXFTYjB6L25XRWg4amliTjBrdk9ndFcr?=
+ =?utf-8?B?Wjd6QVRha05xMmZTWDI0ZkhwaGF6VXp6V2ptanBPSXhvRGQzcVVrdUpBR2lm?=
+ =?utf-8?B?TGUwMWdFM2VLTUl0S3FvYkJRNEx0b3haWkRpT25BTytwR01RZlBJSXZKZlp5?=
+ =?utf-8?B?SlBlWW10RFlDNDhrZ0pucXNrOFlhUDdMblFXVHRmT2xEalpOcU9COUlUSTlR?=
+ =?utf-8?B?YVM5TzZDYVZ0YlptcW80ck9KMmhtb2dnd2QvcytBakpETktrbGNlK1dheFVr?=
+ =?utf-8?B?Yko1SVFmNEh0UWhYZXlRVmVSVnBKdTNWYTJIdjhVaG9ZUlNtVTd4QkVaejJB?=
+ =?utf-8?B?MGxRZTQzM2ljVmdIakZ4eTFRaGgvOFZKK3pHK24xWTlib1BabmRibExjRUdh?=
+ =?utf-8?B?OXNJZjN4blJob2xvYXE5M0p3bEd1NXoxM09SRy8yT1NZZ0x6VGlvNXlGV1M1?=
+ =?utf-8?B?RkxFakhpVU81R1NiMnIwdWh2MWJiRC9JYlJvTU4ySkxvWDBsbzJvWkFpVEl5?=
+ =?utf-8?B?MXMyMTk1QWR1cWM4aW1LdXdWZE1wT1I5VU52cE8reld6a0F4RXFaSmRzWFQ2?=
+ =?utf-8?B?SzZSeHZuNUY1TDlsVE52cVNZa2hJVTZqRXovR3BmYnIxdjBlaVJyS3Qrc3ox?=
+ =?utf-8?B?aHZwQXVEQjRmV0x6M0kxZmt5UW9uS0lHYlBpaTRKQmg1RGErTEtHcWZoK2xB?=
+ =?utf-8?B?WWEzM3JmNnBHOW1nRVRtRitHQVhXUXY5WTdRcHdNWXdicjNESXNOUTdTSWR1?=
+ =?utf-8?B?QWFncEY1UVlLcWxZUmxBMU5jY1cwZXBESys3bjcwaHlUWHlMbWpndk9xMnNO?=
+ =?utf-8?B?UkFVUDJWYkhnQ2ZEUURGZHAwekFsWFVDbk1TNyt6OEpIdGRNdm9yTTYrTkI1?=
+ =?utf-8?B?N1I4cDBkUWxEcVVWVzdJSWhBK1VFSXlLSEtGNHNZNDNwNzZQT0ZPY2grb0l4?=
+ =?utf-8?B?eEM4eHg0U2dxOThrVkFIVHptTHNSNTk1WU9DM29EUWh3RDk2cE0weE50QWpJ?=
+ =?utf-8?B?SHVZbTZHRlNOOFI1Zlc1RmZJYTNMSDdkbXRkOFZFVFBSZWhzcDY3RTc1ajJE?=
+ =?utf-8?B?ZlhzNjBFeXRoTGxxeUdSUWY2WFl6VjRzdE41dElHUldGbVYrU3hGcjF1UHli?=
+ =?utf-8?Q?3anO6f?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB4205.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N2FBYWllN3NKaVpjcGg4dysxQ2hEQTFmamNTZDF3TlY0Q292MUd6RXJqVDdV?=
+ =?utf-8?B?Q29DSTR4eXJyZnhpR0Q3ditkU24wSGFEalppTHVLWWZnWXRlMWVQa1oyZ3Fy?=
+ =?utf-8?B?VG5HK0RvRWEvR3VWYUV3RHdydVUvd3N3UG1MNk5sRVhNcjduYnd1bFIvTVVk?=
+ =?utf-8?B?cmJ2L0laYUJlK3k1U0UxSzkwN3hTTUc5RXVDNG1UUkttU1B1eVREZWRrWW1J?=
+ =?utf-8?B?Q201MUw1Z2tuRHoyUm1NZHZYR28wZU9TYmdmckhsOUF1L0hNdGFvdERaRVFw?=
+ =?utf-8?B?TGU0Nk52bWJBandCWU9vZmw4Vi9RZVdGalBzYmJFbHBQNkZMUVBVb0FVU0lL?=
+ =?utf-8?B?dFFEOTdvMkxNMENBckNwa2laK3B3TE8yUTVMR2hOOXZIMnJmbXpucWdhNUhv?=
+ =?utf-8?B?aEMyS0dIa3IzcWJrKy9iWWJRMHhrUllmTDZ3Ym43bCsxSXFlWlhRb1BKVHdu?=
+ =?utf-8?B?OW5pTUI4UTFkQ29jNWVpeWFERkFaOHo5RFkvYWhHcWswVnpJeGJEbkJ5NkpS?=
+ =?utf-8?B?NGY0Y1JsYU9YZkhXQ3dreEZ5UjJWQUhmQVpyeDkxQjNmdkZlYTJ4SUV6Z1BH?=
+ =?utf-8?B?OEJSY1RoOE1oUXlsRFE4U29RNTNpcWtVZlVIdkhzV0RBRi9qc1NMSmpKemxY?=
+ =?utf-8?B?SlZTWmllVy96WEZFYlU4SzRra3JDL3BaekFiZExiQXFYR1VyMUNWKzV6V2tB?=
+ =?utf-8?B?akFBK2k4MzYxVEpDaUV4dnpFbEgzMXNhK0pJbU85dDRMazBhWjN2cm5yV25E?=
+ =?utf-8?B?OGV5aUdVK1BhNEZENkNnbEJENFlwUG1IWE1EMUdHODJtVjlTcVJTWUJWVnND?=
+ =?utf-8?B?ZmlqRTZJeFFxVFFyNjk3emNnYWI0QjJmU0tYWW8zVGdweFB2U2hyV3QzcDll?=
+ =?utf-8?B?YXBNRXVSQ0FmZEVZL01pMXFnREhjOThzLzQ4ZkZtRlZMM21tckh5Uk9OMUpx?=
+ =?utf-8?B?VHpTeHMzT1ZKdER2SHNLVTVzSTdQR1BiTTM4TVc4bERxZGNTbVhMZENZcUlw?=
+ =?utf-8?B?dVpLNlF6NGNxbi80Y1c5b1B6dGpyeTlkRE1nZ2pwZ0pKUXFRRkFPNmoxc215?=
+ =?utf-8?B?dzhRclFRRjl6OVRXSisvbmhJWW5ZU2N2TjN0cGt5bm5yWGRlam5oak9hYURm?=
+ =?utf-8?B?UjU0YVFHNHBCQVV5OUpZZVhjL0pFNUxGNlJlejR1SWQ4N1ZhcmpQdEhPdFZD?=
+ =?utf-8?B?YWRyQSszQW9IN3BBdFZCZzlscTFkbGkxNEMvT2tSeTZTYmd6ZjNpVkxwWDdM?=
+ =?utf-8?B?QkxNbzU5L2NzenRNbWh3RnFSR3lJWnNhOHM4eHRkV3E4aWQxVmsrTlBCaHFI?=
+ =?utf-8?B?Ym5hbXpBaU1tL3Q4c045MFZMRFltT2YyZnY4Yzk4dFlPY2Jaa1dBVDVyZUlJ?=
+ =?utf-8?B?RFhubFlYVUU2SXhWQkFOUGJmblhWZi9VWXgydEJTeHRlckREaVFOSGdJUDlw?=
+ =?utf-8?B?TW16eXVRZVpyU0Vtd2JKVTNTTktOU1U2U1ZCRitYdVZzWWdnZ0JTRWc5UVBq?=
+ =?utf-8?B?ZVNsSkF1a0VWMXJEOFVVKzNDME5VS3MzRlNZNEZJYkc1YlFiWU1FenhtQTYx?=
+ =?utf-8?B?TERDWG9tQTFXdkFGQ0xxUFIydTljeitwcGdYSC9TNFBxRUYyUXR5Y0ptNTJi?=
+ =?utf-8?B?cHlJamMyREd6UjgyMGhEU2h5SHVGL1RDSlpOVHNMSkg2a0hlWGoxR2wzdW5W?=
+ =?utf-8?B?cGxrREk1aExhUmFWTE1jSXM1VW9yaTNiWWs3RXRsYjh4TlJxUElielpSblEy?=
+ =?utf-8?B?RnV2NEJQVjNzWHNWRFNvMExLeThrOVMwOE03M1hSN1VrTXpwaE1JOVl0Y2F1?=
+ =?utf-8?B?dzlnbXZ6N2JEZUJqWG5MRUlwSEVIb0hqRlRPNFJTWGtFblZUMk1BSEwwNVZK?=
+ =?utf-8?B?Q1VnS0JoVFZxcGN2d2hWQ3doa3NlNW4yZEFSbGFLOGJ1Kyt4QUVOV1lmdTVM?=
+ =?utf-8?B?WVJFYUFaZEUrRG9aelo2d2w3RjBBbE9VeWJqVkhKV1AveWxVY3IxbEtNOHAw?=
+ =?utf-8?B?VjdNaWFjSzBsUGl3UTREcnpPN2JydVk2WElXQW80Z3pqUDZ1NVM2SjFieDhm?=
+ =?utf-8?B?TVVLb2FUR29QQllPaFRQSDYwTFBQNlIrZHZSUzdtWUYxR3lVdnRhcWdrVDJY?=
+ =?utf-8?B?OHVndzJ5VkVhV1dCOUZJZ0VVWjlBY1lGaGpjcktLUlY4L2xUNndTMFhSeHVD?=
+ =?utf-8?B?M2VhWnB4RWtIUFM2RU43MnRGa3hJK3pVMFEvdGEvYkc4WG1oOGNFM3NtMHgr?=
+ =?utf-8?B?REM5QSt2dEMzUkw0TVZCczVWRHZwakJsVEd1NFlvUDE1aHR6Y00xZjMxM0pE?=
+ =?utf-8?B?MXVlNlE3L1pHRXpzTUQ4L1RobitJMDc0UmttOWdoWGFGd3JFcDZ3UT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 133c675d-a8a7-4914-c44b-08de59a0886f
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4202.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 10:25:38.6380
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BBGj7luZOrz6HeYDU0yjS0woIXVAlS/GAHI6Kv2onqCfzthhqLoRuHgcVp4zMqO5iJUbI98SE7p685vwNy//ug==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7710
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_022513_037851_09595ED1 
-X-CRM114-Status: GOOD (  26.77  )
+X-CRM114-CacheID: sfid-20260122_022543_209227_D0C8F506 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,60 +196,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
 
-On Wed, 21 Jan 2026 at 23:44, Marek Vasut <marek.vasut@mailbox.org> wrote:
-> On 1/21/26 2:48 PM, Geert Uytterhoeven wrote:
-> >> @@ -871,7 +902,19 @@ &usb2_phy0 {
-> >>          status = "okay";
-> >>   };
-> >>
-> >> +&usb3_phy0 {
-> >> +       clocks = <&pcie_usb_clk 6>;
-> >> +       status = "okay";
-> >> +};
-> >
-> > This does not work, probing fails with:
-> >
-> >      usb_phy_generic usb-phy: dummy supplies not allowed for exclusive
-> > requests (id=vbus)
-> >
-> > Adding a fixed regulator that serves as vbus-supply like in commit
-> > fec2d8fcdedaeeb0 ("arm64: dts: freescale: imx93-phyboard-nash: Add USB
-> > vbus regulators") fixes that issue (and my USB3.0 FLASH driver is
-> > detected, yeah!), but a more accurate description would be better.
+On 1/21/26 13:03, Jason Gunthorpe wrote:
+> On Wed, Jan 21, 2026 at 10:03:07AM +0000, Jonathan Cameron wrote:
+>> On Wed, 21 Jan 2026 08:01:36 +0000
+>> "Tian, Kevin" <kevin.tian@intel.com> wrote:
+>>
+>>> +Dan. I recalled an offline discussion in which he raised concern on
+>>> having the kernel blindly enable ATS for cxl.cache device instead of
+>>> creating a knob for admin to configure from userspace (in case
+>>> security is viewed more important than functionality, upon allowing
+>>> DMA to read data out of CPU caches)...
+>>>
+>> +CC Linux-cxl
+> A cxl.cache device supporting ATS will automatically enable ATS today
+> if the kernel option to enable translation is set.
 >
-> This piece of code in drivers/usb/phy/phy-generic.c [1] shouldn't fail
-> the probe if "vbus-supply" property is not present in DT. If
-> "vbus-supply" property is not present in DT, then
-> PTR_ERR(nop->vbus_draw) == -ENODEV is true, nop->vbus_draw will be set
-> to NULL, but won't encode error, so the dev_err_probe() won't trigger.
+> Even if the device is marked untrusted by the PCI layer (eg an
+> external port).
 >
-> "
-> 259         nop->vbus_draw = devm_regulator_get_exclusive(dev, "vbus");
-> 260         if (PTR_ERR(nop->vbus_draw) == -ENODEV)
-> 261                 nop->vbus_draw = NULL;
-> 262         if (IS_ERR(nop->vbus_draw))
-> 263                 return dev_err_probe(dev, PTR_ERR(nop->vbus_draw),
-> 264                                      "could not get vbus regulator\n");
-> "
+> Yes this is effectively a security issue, but it is not really a CXL
+> specific problem.
 >
-> [1]
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/usb/phy/phy-generic.c#n259
+> We might perfer to not enable ATS for untrusted devices and then fail to
+> load drivers for "ats always on" cases.
+>
+> Or maybe we can enable one of the ATS security features someday,
+> though I wonder if those work for CXL..
 
-Sorry, you are right. I missed the PHY driver ignores the error and
-probes successfully, and thus didn't bother doing "echo ee000000.usb >
-/sys/bus/platform/drivers/xhci-renesas-hcd/bind" after /lib/firmware
-became available.
 
-Gr{oetje,eeting}s,
+I raised my concerns about CXL.cache and virtualization at LPC: 
+https://lpc.events/event/19/contributions/2173/attachments/1842/3940/LPC_2025_CXL_CACHE.pdf
 
-                        Geert
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+I expose there some concerns, although I admit some could be due to my 
+twisted understanding of what CXL specs states, but regarding IOMMU/ATS, 
+my view is ATS is not safe enough ... what I guess is a matter of 
+opinion (trusted device based on vendor confirming it is an "official" 
+device not enough for paranoid mode with vendors subjected to 
+governments "agencies" actions/pressures). But this links to what I 
+think Jason points out about ATS security features where the IOMMU 
+hardware can be configured for checking those translated PCIe accesses 
+as well, if the host owner/admin paranoid mind decides so. With CXL 
+cache that is not possible since the route is through a different link 
+and AFAIK, there is no support for something like this by current 
+implementations. I think it could be implemented without impacting the 
+gains from CXL.cache, but that is another story.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+
+So, FWIW, I think it should not be enabled by default.
+
+
+Thank you,
+
+Alejandro
+
+
+
+> Jason
+>
 
