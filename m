@@ -4,93 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B95B3C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 02:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8592CD2ED14
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 02:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4S7MYaH7h8nndiHX3gAaR7wl1QXZK6Ax3Fty3WumKsg=; b=zZd/XjRfdJyxU+2EfYugic42E4
-	YH/bkdmZn1XqMhl/obCZkKlOR1+lhCjgWUBviWWQn1+KTOvdf7vHxap8DsKT0dNB44iJtt7KnAW34
-	Kfi8eDRStVh03P/r0bFcbHcT2dGiCRO+IwRdTz/kQsRYnj6KMr4ne/DW6JQhbMJSgAHnO97SjMXbS
-	Fl/BA7+Cy+SEHbVijFMhDIGZFfy3ZwbY9fsUcAGyS6TOLiwWpGV0Yi2T1SfcCUNNyox85JX8uVx1T
-	PAUs7EQnlezkHG/9VRwMXtUQI8rQuFsp9Gz39ZHlpScyu2Qt6cJ4VGNsbZhSOt+WtgRg9TnVvE7vN
-	WqQo/YnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=w6PObcjwIg/Fosc91JX07ivYl/s0K1Jex2A4JyQ5NLk=; b=ONCxd28TTwWACc
+	twpF4baOzwXndyq/e/1xl4B0z673tDQ5zXOOyOnJ+93B73/wfTJkynw0HIIsUpOqGfjlFvhlEiyq6
+	DGIJaexB5B323XmsG5Ncj7IiMyR8tbSwHGounGUe0oho/BDntSlW/VE3juaAl5zU7yjMUhf7Y3cNf
+	b8b13uNy5LQ1jlCVTSejB97jOrj66CeGGOPVWlLSGY8Hy5MKXJ7O6z5ctEAE8M8ahTgcTpSUmx/39
+	UpQAFKHS6ySwuC5sPzBkQRakB8x5maQ5idBStZ4jWwGmmSCPX+RnfChCY6KJUZtU2oflZ2Q+AMquG
+	/Pc54lVr35Xba+NjD3Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vik57-00000006ITW-2WRR;
-	Thu, 22 Jan 2026 02:05:57 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1vik7t-00000006IjP-0K4D;
+	Thu, 22 Jan 2026 02:08:49 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vik54-00000006IT3-3HOr;
-	Thu, 22 Jan 2026 02:05:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769047555; x=1800583555;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=Z5B5wh//Qt82C/gDTTGyeFpKCNKDQxO0GBvNPK37V/A=;
-  b=TeWcpIrINsKBUWUPUhovA1Mrucvn/x73Pl88/aNvuE3wYbTp0RXUCCO1
-   MmzVmyp9vzQSqK95oXANRfSYzn1eVxjz/4kqnLyN3nJG54ViFhUKioToP
-   HQ9rahJkDbcLKLY8PWiQXhLC+s3vtcn+/pQ7q3+j0WzyM4SMUYgey19GC
-   XdQClPaS/CLRmQAvOkPmcfeQNHd9rhArcUO885rP6jKbq4VncbLC1iC5A
-   LxyWyQhGuNrqeaKFM8WR9MW/inTzs1UM/iUyOYNpL20x3CfudEfQZk7SV
-   oDbaY1hlx/fcbwzPFUzhqP8fhDg88sxbNzTSpy2869LeRzsvC4odGsKem
-   g==;
-X-CSE-ConnectionGUID: Cx+UuUjaRlaLb87YpdfHlg==
-X-CSE-MsgGUID: mdKg5zHiQKaqilJa/nyPtQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11678"; a="87699335"
-X-IronPort-AV: E=Sophos;i="6.21,244,1763452800"; 
-   d="scan'208";a="87699335"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2026 18:05:54 -0800
-X-CSE-ConnectionGUID: nc8BKj1qQESfmr2ZlalFVA==
-X-CSE-MsgGUID: 2VjWfv2qTjmYLOW/Xg0vYw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,244,1763452800"; 
-   d="scan'208";a="229579471"
-Received: from unknown (HELO [10.238.3.254]) ([10.238.3.254])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jan 2026 18:05:46 -0800
-Message-ID: <e600bf85-c4f0-42fa-95fd-33000830f28d@linux.intel.com>
-Date: Thu, 22 Jan 2026 10:05:43 +0800
+	id 1vik7q-00000006Iiu-0F6d
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 22 Jan 2026 02:08:47 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60LLNWCY788893
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 02:08:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=w6PObcjwIg/Fosc91JX07i
+	vYl/s0K1Jex2A4JyQ5NLk=; b=OyfHjI1IU/5DBhyr6u+2+uFo/r/tB5mGP6CSda
+	/VbVCMO0ExMfmx48FAVklooV7MYgox1e0V9zxpfpHUi/9E6aONKJG4SthRW5D4nv
+	e5wwgoT0j81apwPWsp69OJmGciVuoFbjqbfW7RXaFuFymeN6XSC5ogZY2gJ3mAas
+	xZ+5B+LNprQy+oeUj7PKGhCbMfokBESQ0cZllZ8ggkoHy7Lt8G2apLBTx8ZzEcjm
+	dTkywbZ0VzTRvvVX9QLRoPn6q5MKpylUv4nGpl+2WEbc3SG5O03TAuTYvqTQo7no
+	hfbRkM2/R+Qboe6wkzU70xQxcuJ+yFWo8uTbV4p37tYXx9BQ==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bu6p1gn1t-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 02:08:43 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2a377e15716so9162495ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 18:08:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1769047722; x=1769652522; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=w6PObcjwIg/Fosc91JX07ivYl/s0K1Jex2A4JyQ5NLk=;
+        b=ckbXZz8/aaMhPfTKZCIf+12B+j9KEbfTORBr0JNjdxomk+vrKCY1K8KTMpUm+bAmPq
+         upBqv8AAR93hSxKsXxcc1pMfzuoU/M9Oqq+vRGhollUK+qj3WkdYYXIEsga5FKX0cjMH
+         xShcmqL6llXaEw3OSFhI6Slb/95fBAOVhOb+H21lP9psqyCsbI+TTob9fP3sSvK3KMu0
+         7U9sMTv5VIf510xt5g/BDtVZRFoNFcBlOd8mvJBeLNgOm2ASaDtJ8I/sSDWtPZdFCvfx
+         fZCoY4e4dAcZpiWLmI3pKgF3ONg8L0MFTiLDu2R0+ScA8PIrU9abE7SBe+KcASLxDD0I
+         WGzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769047722; x=1769652522;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=w6PObcjwIg/Fosc91JX07ivYl/s0K1Jex2A4JyQ5NLk=;
+        b=A9mFoMoFW0cPxFe5LW4PAyFlTWn3wvyvQHN9WPNZLMWvQ27trx9/dBU6Hk6AStJxcQ
+         pVNSr/N3Wm+lABc7O7n/vLdCkyWi1MUAzOZMBYZA9rzN+loJLu2EapbBNBVE4TrELJv8
+         jmUKAT61+5hD6oW7xbSMJHP/1Mc3ZtpQsicJoLyP/WvwzwwbvudxKM38Yd31LN0ebRDF
+         xDycdqxsXiE8Sc80ghfGqNL9dKKmli6TmvnFBJ83y8woapVL1VR1a3GEZPIdbR2gdAoi
+         dFx0OxDpYjx4ZzODHlbEaeSogxNEGXf57dcKWJqiYXviTufc44s+x3XxHmP8YeBU41Ow
+         HjBw==
+X-Forwarded-Encrypted: i=1; AJvYcCUkKUkUeCO+iG7AxLyYQyFNOVDQXhJNbnCEugKhiXDL+3+9NaqTKqL7UBqTctpvB/9yCnWwUKkc+qL4EC1sNO3u@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEoXCshn/BexaLEbGgqMP0p2H69Ofqy7glZJJI6+lxNI+0q7Ab
+	QuKkd/Airy7hfj681tEL7Ml5p90oSTg/h5R2gT4vNH4p9udmEV/Rl6Eg3RbzHWLLe8jf4w5nmmH
+	jgwrkD2NEjxK2xt64sXLSx50oNhGOUGrBaObMjK3SOJDjbw4rwI/+QbmKL9lD5ILIDYmdA7Y0Ke
+	+0KB1yn4rjNg==
+X-Gm-Gg: AZuq6aIAoxy+dnhA/KNe6JKnGkwUWLQEQCJgkmPg4Z2TrDu/Ud7Y2zQD/0C2WQRVMRr
+	cLiX3OruuMzoWtH9Rp2L08ban32MjPjd49zowXWSxWmt2I6IZFZSx0pazXZLw4pWMTwqKX6XaG1
+	gUASiQGIigw8DK8hViPcd0aX4k4zJygzXvYB5CBvbLdDfTIV5qIJq10gQyHYOoP2gzJnBw6Zh31
+	1buSO8OHX7ouZ/EgxqQvwFriBVrW0W9Gnb7DvL1fcDeoiWSRR2gD/Durfe1YBuXz82XoOPM+fIx
+	dc+Lw89balkDuH+swmfgfh2IRjCtWz/1ZXQ5fiPyT05wjJMxy4LR94fd4hAqpXDci0A4KCRxKZf
+	zOoq5aHfx3xViRJhYpzLrbI4+9Z4OBe7ZeO0zzspotib7Njg4NI5p44xv359IZG5cS5fmqxWK
+X-Received: by 2002:a17:902:d4c7:b0:295:1e50:e7cb with SMTP id d9443c01a7336-2a718894b9fmr176740675ad.23.1769047721851;
+        Wed, 21 Jan 2026 18:08:41 -0800 (PST)
+X-Received: by 2002:a17:902:d4c7:b0:295:1e50:e7cb with SMTP id d9443c01a7336-2a718894b9fmr176740265ad.23.1769047721212;
+        Wed, 21 Jan 2026 18:08:41 -0800 (PST)
+Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a780a4631csm49710305ad.18.2026.01.21.18.08.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 21 Jan 2026 18:08:40 -0800 (PST)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+Subject: [PATCH v10 0/8] coresight: ctcu: Enable byte-cntr function for TMC
+ ETR
+Date: Thu, 22 Jan 2026 10:08:13 +0800
+Message-Id: <20260122-enable-byte-cntr-for-ctcu-v10-0-22978e3c169f@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] perf regs: Refactor use of arch__sample_reg_masks to
- perf_reg_name
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
- Adrian Hunter <adrian.hunter@intel.com>, James Clark
- <james.clark@linaro.org>, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>,
- Guo Ren <guoren@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Shimin Guo <shimin.guo@skydio.com>,
- Athira Rajeev <atrajeev@linux.ibm.com>,
- Stephen Brennan <stephen.s.brennan@oracle.com>,
- Howard Chu <howardchu95@gmail.com>, Thomas Falcon <thomas.falcon@intel.com>,
- Andi Kleen <ak@linux.intel.com>, "Dr. David Alan Gilbert"
- <linux@treblig.org>, Dmitry Vyukov <dvyukov@google.com>,
- =?UTF-8?Q?Krzysztof_=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>,
- Chun-Tse Shao <ctshao@google.com>, Aditya Bodkhe <aditya.b1@linux.ibm.com>,
- Haibo Xu <haibo1.xu@intel.com>, Sergei Trofimovich <slyich@gmail.com>,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20260121021735.3625244-1-irogers@google.com>
- <56bb6d4d-ad9e-485f-af15-e0f6fbc261c1@linux.intel.com>
- <CAP-5=fWS+1412_ZOca3QfbjLzsZRbrYoLh9zGHDx5G_ZpTdg6Q@mail.gmail.com>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <CAP-5=fWS+1412_ZOca3QfbjLzsZRbrYoLh9zGHDx5G_ZpTdg6Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAI6GcWkC/33NTQqDMBAF4KuUrDtifpSkq96jdKFxUgNq2kRDR
+ bx7o3TRRXEz8B68bxYS0FsM5HJaiMdog3VDCjQ/n4huq+GBYJtUEJazgrKcAw5V3SHU84igh9G
+ DcR70qCcoKlFLaZjBWpG0f3o09r3jt3vKrQ2j8/P+K8qt/aqUHqhRQg4cKTOGU04VvboQstdUd
+ dr1fZYO2fCofkAmjkCVQClLLYQqDTbiD7iu6wfn3lWgGwEAAA==
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769047714; l=6693;
+ i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
+ bh=wsPMFRTGVtujrwEckG9FwibRpPp8G9fD/l0bRmCc/xo=;
+ b=RW2TC1pv1lh0GmYuJa7Ycm5bYI0F9NlbbS+/OvQpzyn9KNe9HymW/na/+8SXRCzCPVoxTwZU/
+ 7IVYkXRqlhKDO60lFuBBWd91Vo4kFejtBz0btjJk31vXUaFM6PzZqkG
+X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
+ pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
+X-Proofpoint-ORIG-GUID: EH0AE6_jndqM7Imp9K7IzO-C1-6rjxNv
+X-Authority-Analysis: v=2.4 cv=N7ck1m9B c=1 sm=1 tr=0 ts=697186ab cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
+ a=VhXNoj4JT-yUwxqwOhYA:9 a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: EH0AE6_jndqM7Imp9K7IzO-C1-6rjxNv
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTIyMDAxNSBTYWx0ZWRfXwOUc1hqKHohk
+ 2KPTWoJATk6/C8l9oFL1/LxSni269+EkmUEtQmdcqMgyBvy04q4NC1KxVpKsx/u2Q3jmvNpObZM
+ 1yhHwCCy78vRQJ8kERknOWUv5CgBGrWxoIZQsXdM7Wkcnhu/4vEcSDjTaeL0Z6rKvJKrp0N2YBk
+ sVj+vslZnLnxvNQqWtVOJBh1bpjNI0gSZ0MnpgXJTTIVEXl8Pd8Gkn/f9g5ZVIpEkr3tWF3s/t5
+ 8w5C8m5OR6/3kTQQvTMlIem+lNJdbf93TA/TvdW1Diali+rrs46CnQX3y4deynKJdA3i9DlIXNf
+ f/qbnzD4pyQBM1a+Hyrkv/gcETft2S2mVDoEaRRd+iC8Xms9O0Eh41dnlWpn0qefhR13LvYhNxv
+ pYwfNx5GYNYSKCJDRN33yB11H55re3gxmLqsZrY5Mq8gWUFHdnwZZKf8VOIcUkiDpqDWX1VwDw0
+ 4pIY7DVu3Ad/ZPju49A==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
+ definitions=2026-01-21_04,2026-01-20_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 lowpriorityscore=0 phishscore=0 clxscore=1015 priorityscore=1501
+ malwarescore=0 adultscore=0 impostorscore=0 suspectscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601220015
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_180554_914195_6F9CF01B 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20260121_180846_221780_C1E9B407 
+X-CRM114-Status: GOOD (  27.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,700 +164,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The byte-cntr function provided by the CTCU device is used to count the
+trace data entering the ETR. An interrupt is triggered if the data size
+exceeds the threshold set in the BYTECNTRVAL register. The interrupt
+handler counts the number of triggered interruptions.
 
-On 1/21/2026 10:38 PM, Ian Rogers wrote:
-> On Wed, Jan 21, 2026 at 12:28 AM Mi, Dapeng <dapeng1.mi@linux.intel.com> wrote:
->>
->> On 1/21/2026 10:17 AM, Ian Rogers wrote:
->>> arch__sample_reg_masks isn't supported on ARM(32), csky, loongarch,
->>> MIPS, RISC-V and s390. The table returned by the function just has the
->>> name of a register paired with the corresponding sample_regs_user mask
->>> value. For a given perf register we can compute the name with
->>> perf_reg_name and the mask is just 1 left-shifted by the perf register
->>> number. Change __parse_regs to use this method for finding registers
->>> rather than arch__sample_reg_masks, thereby adding __parse_regs
->>> support for ARM(32), csky, loongarch, MIPS, RISC-V and s390. As
->>> arch__sample_reg_masks is then unused, remove the now unneeded
->>> declarations.
->>>
->>> Signed-off-by: Ian Rogers <irogers@google.com>
->>> ---
->>> v2: Correct the setting of reg mask for registers that need >1 bit set
->>>     like XMMs.
->>>
->>> The idea for this patch came up in conversation with Dapeng Mi to
->>> avoid additional functions and tables for x86 APX support:
->>> https://lore.kernel.org/lkml/CAP-5=fWOsvAXuu8qx0tk9q8j8BoXPMJB3Gxto+iu6wf06i4cVA@mail.gmail.com/
->>>
->>> The patch is on top of the dwfl clean up patches that switch perf
->>> register functions to using e_machine as an argument rather than the
->>> arch string, this means that EM_HOST can be used with perf_reg_name:
->>> https://lore.kernel.org/lkml/20260117052849.2205545-1-irogers@google.com/
->>> ---
->>>  tools/perf/arch/arm/util/perf_regs.c          |   9 --
->>>  tools/perf/arch/arm64/util/machine.c          |  14 +--
->>>  tools/perf/arch/arm64/util/perf_regs.c        |  45 +------
->>>  tools/perf/arch/csky/util/perf_regs.c         |   9 --
->>>  tools/perf/arch/loongarch/util/perf_regs.c    |   9 --
->>>  tools/perf/arch/mips/util/perf_regs.c         |   9 --
->>>  tools/perf/arch/powerpc/util/perf_regs.c      |  68 ----------
->>>  tools/perf/arch/riscv/util/perf_regs.c        |   9 --
->>>  tools/perf/arch/s390/util/perf_regs.c         |   9 --
->>>  tools/perf/arch/x86/util/perf_regs.c          |  47 -------
->>>  .../util/arm64-frame-pointer-unwind-support.c |   3 +-
->>>  tools/perf/util/parse-regs-options.c          | 116 +++++++++++-------
->>>  tools/perf/util/perf_regs.c                   |   9 --
->>>  tools/perf/util/perf_regs.h                   |  12 --
->>>  14 files changed, 81 insertions(+), 287 deletions(-)
->>>
->>> diff --git a/tools/perf/arch/arm/util/perf_regs.c b/tools/perf/arch/arm/util/perf_regs.c
->>> index f94a0210c7b7..03a5bc0cf64c 100644
->>> --- a/tools/perf/arch/arm/util/perf_regs.c
->>> +++ b/tools/perf/arch/arm/util/perf_regs.c
->>> @@ -2,10 +2,6 @@
->>>  #include "perf_regs.h"
->>>  #include "../../../util/perf_regs.h"
->>>
->>> -static const struct sample_reg sample_reg_masks[] = {
->>> -     SMPL_REG_END
->>> -};
->>> -
->>>  uint64_t arch__intr_reg_mask(void)
->>>  {
->>>       return PERF_REGS_MASK;
->>> @@ -15,8 +11,3 @@ uint64_t arch__user_reg_mask(void)
->>>  {
->>>       return PERF_REGS_MASK;
->>>  }
->>> -
->>> -const struct sample_reg *arch__sample_reg_masks(void)
->>> -{
->>> -     return sample_reg_masks;
->>> -}
->>> diff --git a/tools/perf/arch/arm64/util/machine.c b/tools/perf/arch/arm64/util/machine.c
->>> index aab1cc2bc283..80fb13c958d9 100644
->>> --- a/tools/perf/arch/arm64/util/machine.c
->>> +++ b/tools/perf/arch/arm64/util/machine.c
->>> @@ -1,18 +1,12 @@
->>>  // SPDX-License-Identifier: GPL-2.0
->>>
->>> -#include <inttypes.h>
->>> -#include <stdio.h>
->>> -#include <string.h>
->>> -#include "debug.h"
->>> -#include "symbol.h"
->>> -#include "callchain.h"
->>> +#include "callchain.h" // prototype of arch__add_leaf_frame_record_opts
->>>  #include "perf_regs.h"
->>>  #include "record.h"
->>> -#include "util/perf_regs.h"
->>> +
->>> +#define SMPL_REG_MASK(b) (1ULL << (b))
->>>
->>>  void arch__add_leaf_frame_record_opts(struct record_opts *opts)
->>>  {
->>> -     const struct sample_reg *sample_reg_masks = arch__sample_reg_masks();
->>> -
->>> -     opts->sample_user_regs |= sample_reg_masks[PERF_REG_ARM64_LR].mask;
->>> +     opts->sample_user_regs |= SMPL_REG_MASK(PERF_REG_ARM64_LR);
->>>  }
->>> diff --git a/tools/perf/arch/arm64/util/perf_regs.c b/tools/perf/arch/arm64/util/perf_regs.c
->>> index 09308665e28a..9bb768e1bea1 100644
->>> --- a/tools/perf/arch/arm64/util/perf_regs.c
->>> +++ b/tools/perf/arch/arm64/util/perf_regs.c
->>> @@ -12,48 +12,12 @@
->>>  #include "../../../util/event.h"
->>>  #include "../../../util/perf_regs.h"
->>>
->>> +#define SMPL_REG_MASK(b) (1ULL << (b))
->>> +
->>>  #ifndef HWCAP_SVE
->>>  #define HWCAP_SVE    (1 << 22)
->>>  #endif
->>>
->>> -static const struct sample_reg sample_reg_masks[] = {
->>> -     SMPL_REG(x0, PERF_REG_ARM64_X0),
->>> -     SMPL_REG(x1, PERF_REG_ARM64_X1),
->>> -     SMPL_REG(x2, PERF_REG_ARM64_X2),
->>> -     SMPL_REG(x3, PERF_REG_ARM64_X3),
->>> -     SMPL_REG(x4, PERF_REG_ARM64_X4),
->>> -     SMPL_REG(x5, PERF_REG_ARM64_X5),
->>> -     SMPL_REG(x6, PERF_REG_ARM64_X6),
->>> -     SMPL_REG(x7, PERF_REG_ARM64_X7),
->>> -     SMPL_REG(x8, PERF_REG_ARM64_X8),
->>> -     SMPL_REG(x9, PERF_REG_ARM64_X9),
->>> -     SMPL_REG(x10, PERF_REG_ARM64_X10),
->>> -     SMPL_REG(x11, PERF_REG_ARM64_X11),
->>> -     SMPL_REG(x12, PERF_REG_ARM64_X12),
->>> -     SMPL_REG(x13, PERF_REG_ARM64_X13),
->>> -     SMPL_REG(x14, PERF_REG_ARM64_X14),
->>> -     SMPL_REG(x15, PERF_REG_ARM64_X15),
->>> -     SMPL_REG(x16, PERF_REG_ARM64_X16),
->>> -     SMPL_REG(x17, PERF_REG_ARM64_X17),
->>> -     SMPL_REG(x18, PERF_REG_ARM64_X18),
->>> -     SMPL_REG(x19, PERF_REG_ARM64_X19),
->>> -     SMPL_REG(x20, PERF_REG_ARM64_X20),
->>> -     SMPL_REG(x21, PERF_REG_ARM64_X21),
->>> -     SMPL_REG(x22, PERF_REG_ARM64_X22),
->>> -     SMPL_REG(x23, PERF_REG_ARM64_X23),
->>> -     SMPL_REG(x24, PERF_REG_ARM64_X24),
->>> -     SMPL_REG(x25, PERF_REG_ARM64_X25),
->>> -     SMPL_REG(x26, PERF_REG_ARM64_X26),
->>> -     SMPL_REG(x27, PERF_REG_ARM64_X27),
->>> -     SMPL_REG(x28, PERF_REG_ARM64_X28),
->>> -     SMPL_REG(x29, PERF_REG_ARM64_X29),
->>> -     SMPL_REG(lr, PERF_REG_ARM64_LR),
->>> -     SMPL_REG(sp, PERF_REG_ARM64_SP),
->>> -     SMPL_REG(pc, PERF_REG_ARM64_PC),
->>> -     SMPL_REG(vg, PERF_REG_ARM64_VG),
->>> -     SMPL_REG_END
->>> -};
->>> -
->>>  /* %xNUM */
->>>  #define SDT_OP_REGEX1  "^(x[1-2]?[0-9]|3[0-1])$"
->>>
->>> @@ -175,8 +139,3 @@ uint64_t arch__user_reg_mask(void)
->>>       }
->>>       return PERF_REGS_MASK;
->>>  }
->>> -
->>> -const struct sample_reg *arch__sample_reg_masks(void)
->>> -{
->>> -     return sample_reg_masks;
->>> -}
->>> diff --git a/tools/perf/arch/csky/util/perf_regs.c b/tools/perf/arch/csky/util/perf_regs.c
->>> index 6b1665f41180..2cf7a54106e0 100644
->>> --- a/tools/perf/arch/csky/util/perf_regs.c
->>> +++ b/tools/perf/arch/csky/util/perf_regs.c
->>> @@ -2,10 +2,6 @@
->>>  #include "perf_regs.h"
->>>  #include "../../util/perf_regs.h"
->>>
->>> -static const struct sample_reg sample_reg_masks[] = {
->>> -     SMPL_REG_END
->>> -};
->>> -
->>>  uint64_t arch__intr_reg_mask(void)
->>>  {
->>>       return PERF_REGS_MASK;
->>> @@ -15,8 +11,3 @@ uint64_t arch__user_reg_mask(void)
->>>  {
->>>       return PERF_REGS_MASK;
->>>  }
->>> -
->>> -const struct sample_reg *arch__sample_reg_masks(void)
->>> -{
->>> -     return sample_reg_masks;
->>> -}
->>> diff --git a/tools/perf/arch/loongarch/util/perf_regs.c b/tools/perf/arch/loongarch/util/perf_regs.c
->>> index f94a0210c7b7..03a5bc0cf64c 100644
->>> --- a/tools/perf/arch/loongarch/util/perf_regs.c
->>> +++ b/tools/perf/arch/loongarch/util/perf_regs.c
->>> @@ -2,10 +2,6 @@
->>>  #include "perf_regs.h"
->>>  #include "../../../util/perf_regs.h"
->>>
->>> -static const struct sample_reg sample_reg_masks[] = {
->>> -     SMPL_REG_END
->>> -};
->>> -
->>>  uint64_t arch__intr_reg_mask(void)
->>>  {
->>>       return PERF_REGS_MASK;
->>> @@ -15,8 +11,3 @@ uint64_t arch__user_reg_mask(void)
->>>  {
->>>       return PERF_REGS_MASK;
->>>  }
->>> -
->>> -const struct sample_reg *arch__sample_reg_masks(void)
->>> -{
->>> -     return sample_reg_masks;
->>> -}
->>> diff --git a/tools/perf/arch/mips/util/perf_regs.c b/tools/perf/arch/mips/util/perf_regs.c
->>> index 6b1665f41180..2cf7a54106e0 100644
->>> --- a/tools/perf/arch/mips/util/perf_regs.c
->>> +++ b/tools/perf/arch/mips/util/perf_regs.c
->>> @@ -2,10 +2,6 @@
->>>  #include "perf_regs.h"
->>>  #include "../../util/perf_regs.h"
->>>
->>> -static const struct sample_reg sample_reg_masks[] = {
->>> -     SMPL_REG_END
->>> -};
->>> -
->>>  uint64_t arch__intr_reg_mask(void)
->>>  {
->>>       return PERF_REGS_MASK;
->>> @@ -15,8 +11,3 @@ uint64_t arch__user_reg_mask(void)
->>>  {
->>>       return PERF_REGS_MASK;
->>>  }
->>> -
->>> -const struct sample_reg *arch__sample_reg_masks(void)
->>> -{
->>> -     return sample_reg_masks;
->>> -}
->>> diff --git a/tools/perf/arch/powerpc/util/perf_regs.c b/tools/perf/arch/powerpc/util/perf_regs.c
->>> index bd36cfd420a2..779073f7e992 100644
->>> --- a/tools/perf/arch/powerpc/util/perf_regs.c
->>> +++ b/tools/perf/arch/powerpc/util/perf_regs.c
->>> @@ -18,69 +18,6 @@
->>>  #define PVR_POWER10          0x0080
->>>  #define PVR_POWER11          0x0082
->>>
->>> -static const struct sample_reg sample_reg_masks[] = {
->>> -     SMPL_REG(r0, PERF_REG_POWERPC_R0),
->>> -     SMPL_REG(r1, PERF_REG_POWERPC_R1),
->>> -     SMPL_REG(r2, PERF_REG_POWERPC_R2),
->>> -     SMPL_REG(r3, PERF_REG_POWERPC_R3),
->>> -     SMPL_REG(r4, PERF_REG_POWERPC_R4),
->>> -     SMPL_REG(r5, PERF_REG_POWERPC_R5),
->>> -     SMPL_REG(r6, PERF_REG_POWERPC_R6),
->>> -     SMPL_REG(r7, PERF_REG_POWERPC_R7),
->>> -     SMPL_REG(r8, PERF_REG_POWERPC_R8),
->>> -     SMPL_REG(r9, PERF_REG_POWERPC_R9),
->>> -     SMPL_REG(r10, PERF_REG_POWERPC_R10),
->>> -     SMPL_REG(r11, PERF_REG_POWERPC_R11),
->>> -     SMPL_REG(r12, PERF_REG_POWERPC_R12),
->>> -     SMPL_REG(r13, PERF_REG_POWERPC_R13),
->>> -     SMPL_REG(r14, PERF_REG_POWERPC_R14),
->>> -     SMPL_REG(r15, PERF_REG_POWERPC_R15),
->>> -     SMPL_REG(r16, PERF_REG_POWERPC_R16),
->>> -     SMPL_REG(r17, PERF_REG_POWERPC_R17),
->>> -     SMPL_REG(r18, PERF_REG_POWERPC_R18),
->>> -     SMPL_REG(r19, PERF_REG_POWERPC_R19),
->>> -     SMPL_REG(r20, PERF_REG_POWERPC_R20),
->>> -     SMPL_REG(r21, PERF_REG_POWERPC_R21),
->>> -     SMPL_REG(r22, PERF_REG_POWERPC_R22),
->>> -     SMPL_REG(r23, PERF_REG_POWERPC_R23),
->>> -     SMPL_REG(r24, PERF_REG_POWERPC_R24),
->>> -     SMPL_REG(r25, PERF_REG_POWERPC_R25),
->>> -     SMPL_REG(r26, PERF_REG_POWERPC_R26),
->>> -     SMPL_REG(r27, PERF_REG_POWERPC_R27),
->>> -     SMPL_REG(r28, PERF_REG_POWERPC_R28),
->>> -     SMPL_REG(r29, PERF_REG_POWERPC_R29),
->>> -     SMPL_REG(r30, PERF_REG_POWERPC_R30),
->>> -     SMPL_REG(r31, PERF_REG_POWERPC_R31),
->>> -     SMPL_REG(nip, PERF_REG_POWERPC_NIP),
->>> -     SMPL_REG(msr, PERF_REG_POWERPC_MSR),
->>> -     SMPL_REG(orig_r3, PERF_REG_POWERPC_ORIG_R3),
->>> -     SMPL_REG(ctr, PERF_REG_POWERPC_CTR),
->>> -     SMPL_REG(link, PERF_REG_POWERPC_LINK),
->>> -     SMPL_REG(xer, PERF_REG_POWERPC_XER),
->>> -     SMPL_REG(ccr, PERF_REG_POWERPC_CCR),
->>> -     SMPL_REG(softe, PERF_REG_POWERPC_SOFTE),
->>> -     SMPL_REG(trap, PERF_REG_POWERPC_TRAP),
->>> -     SMPL_REG(dar, PERF_REG_POWERPC_DAR),
->>> -     SMPL_REG(dsisr, PERF_REG_POWERPC_DSISR),
->>> -     SMPL_REG(sier, PERF_REG_POWERPC_SIER),
->>> -     SMPL_REG(mmcra, PERF_REG_POWERPC_MMCRA),
->>> -     SMPL_REG(mmcr0, PERF_REG_POWERPC_MMCR0),
->>> -     SMPL_REG(mmcr1, PERF_REG_POWERPC_MMCR1),
->>> -     SMPL_REG(mmcr2, PERF_REG_POWERPC_MMCR2),
->>> -     SMPL_REG(mmcr3, PERF_REG_POWERPC_MMCR3),
->>> -     SMPL_REG(sier2, PERF_REG_POWERPC_SIER2),
->>> -     SMPL_REG(sier3, PERF_REG_POWERPC_SIER3),
->>> -     SMPL_REG(pmc1, PERF_REG_POWERPC_PMC1),
->>> -     SMPL_REG(pmc2, PERF_REG_POWERPC_PMC2),
->>> -     SMPL_REG(pmc3, PERF_REG_POWERPC_PMC3),
->>> -     SMPL_REG(pmc4, PERF_REG_POWERPC_PMC4),
->>> -     SMPL_REG(pmc5, PERF_REG_POWERPC_PMC5),
->>> -     SMPL_REG(pmc6, PERF_REG_POWERPC_PMC6),
->>> -     SMPL_REG(sdar, PERF_REG_POWERPC_SDAR),
->>> -     SMPL_REG(siar, PERF_REG_POWERPC_SIAR),
->>> -     SMPL_REG_END
->>> -};
->>> -
->>>  /* REG or %rREG */
->>>  #define SDT_OP_REGEX1  "^(%r)?([1-2]?[0-9]|3[0-1])$"
->>>
->>> @@ -233,8 +170,3 @@ uint64_t arch__user_reg_mask(void)
->>>  {
->>>       return PERF_REGS_MASK;
->>>  }
->>> -
->>> -const struct sample_reg *arch__sample_reg_masks(void)
->>> -{
->>> -     return sample_reg_masks;
->>> -}
->>> diff --git a/tools/perf/arch/riscv/util/perf_regs.c b/tools/perf/arch/riscv/util/perf_regs.c
->>> index 6b1665f41180..2cf7a54106e0 100644
->>> --- a/tools/perf/arch/riscv/util/perf_regs.c
->>> +++ b/tools/perf/arch/riscv/util/perf_regs.c
->>> @@ -2,10 +2,6 @@
->>>  #include "perf_regs.h"
->>>  #include "../../util/perf_regs.h"
->>>
->>> -static const struct sample_reg sample_reg_masks[] = {
->>> -     SMPL_REG_END
->>> -};
->>> -
->>>  uint64_t arch__intr_reg_mask(void)
->>>  {
->>>       return PERF_REGS_MASK;
->>> @@ -15,8 +11,3 @@ uint64_t arch__user_reg_mask(void)
->>>  {
->>>       return PERF_REGS_MASK;
->>>  }
->>> -
->>> -const struct sample_reg *arch__sample_reg_masks(void)
->>> -{
->>> -     return sample_reg_masks;
->>> -}
->>> diff --git a/tools/perf/arch/s390/util/perf_regs.c b/tools/perf/arch/s390/util/perf_regs.c
->>> index 6b1665f41180..2cf7a54106e0 100644
->>> --- a/tools/perf/arch/s390/util/perf_regs.c
->>> +++ b/tools/perf/arch/s390/util/perf_regs.c
->>> @@ -2,10 +2,6 @@
->>>  #include "perf_regs.h"
->>>  #include "../../util/perf_regs.h"
->>>
->>> -static const struct sample_reg sample_reg_masks[] = {
->>> -     SMPL_REG_END
->>> -};
->>> -
->>>  uint64_t arch__intr_reg_mask(void)
->>>  {
->>>       return PERF_REGS_MASK;
->>> @@ -15,8 +11,3 @@ uint64_t arch__user_reg_mask(void)
->>>  {
->>>       return PERF_REGS_MASK;
->>>  }
->>> -
->>> -const struct sample_reg *arch__sample_reg_masks(void)
->>> -{
->>> -     return sample_reg_masks;
->>> -}
->>> diff --git a/tools/perf/arch/x86/util/perf_regs.c b/tools/perf/arch/x86/util/perf_regs.c
->>> index 12fd93f04802..a7ca4154fdf9 100644
->>> --- a/tools/perf/arch/x86/util/perf_regs.c
->>> +++ b/tools/perf/arch/x86/util/perf_regs.c
->>> @@ -13,48 +13,6 @@
->>>  #include "../../../util/pmu.h"
->>>  #include "../../../util/pmus.h"
->>>
->>> -static const struct sample_reg sample_reg_masks[] = {
->>> -     SMPL_REG(AX, PERF_REG_X86_AX),
->>> -     SMPL_REG(BX, PERF_REG_X86_BX),
->>> -     SMPL_REG(CX, PERF_REG_X86_CX),
->>> -     SMPL_REG(DX, PERF_REG_X86_DX),
->>> -     SMPL_REG(SI, PERF_REG_X86_SI),
->>> -     SMPL_REG(DI, PERF_REG_X86_DI),
->>> -     SMPL_REG(BP, PERF_REG_X86_BP),
->>> -     SMPL_REG(SP, PERF_REG_X86_SP),
->>> -     SMPL_REG(IP, PERF_REG_X86_IP),
->>> -     SMPL_REG(FLAGS, PERF_REG_X86_FLAGS),
->>> -     SMPL_REG(CS, PERF_REG_X86_CS),
->>> -     SMPL_REG(SS, PERF_REG_X86_SS),
->>> -#ifdef HAVE_ARCH_X86_64_SUPPORT
->>> -     SMPL_REG(R8, PERF_REG_X86_R8),
->>> -     SMPL_REG(R9, PERF_REG_X86_R9),
->>> -     SMPL_REG(R10, PERF_REG_X86_R10),
->>> -     SMPL_REG(R11, PERF_REG_X86_R11),
->>> -     SMPL_REG(R12, PERF_REG_X86_R12),
->>> -     SMPL_REG(R13, PERF_REG_X86_R13),
->>> -     SMPL_REG(R14, PERF_REG_X86_R14),
->>> -     SMPL_REG(R15, PERF_REG_X86_R15),
->>> -#endif
->>> -     SMPL_REG2(XMM0, PERF_REG_X86_XMM0),
->>> -     SMPL_REG2(XMM1, PERF_REG_X86_XMM1),
->>> -     SMPL_REG2(XMM2, PERF_REG_X86_XMM2),
->>> -     SMPL_REG2(XMM3, PERF_REG_X86_XMM3),
->>> -     SMPL_REG2(XMM4, PERF_REG_X86_XMM4),
->>> -     SMPL_REG2(XMM5, PERF_REG_X86_XMM5),
->>> -     SMPL_REG2(XMM6, PERF_REG_X86_XMM6),
->>> -     SMPL_REG2(XMM7, PERF_REG_X86_XMM7),
->>> -     SMPL_REG2(XMM8, PERF_REG_X86_XMM8),
->>> -     SMPL_REG2(XMM9, PERF_REG_X86_XMM9),
->>> -     SMPL_REG2(XMM10, PERF_REG_X86_XMM10),
->>> -     SMPL_REG2(XMM11, PERF_REG_X86_XMM11),
->>> -     SMPL_REG2(XMM12, PERF_REG_X86_XMM12),
->>> -     SMPL_REG2(XMM13, PERF_REG_X86_XMM13),
->>> -     SMPL_REG2(XMM14, PERF_REG_X86_XMM14),
->>> -     SMPL_REG2(XMM15, PERF_REG_X86_XMM15),
->>> -     SMPL_REG_END
->>> -};
->>> -
->>>  struct sdt_name_reg {
->>>       const char *sdt_name;
->>>       const char *uprobe_name;
->>> @@ -276,11 +234,6 @@ int arch_sdt_arg_parse_op(char *old_op, char **new_op)
->>>       return SDT_ARG_VALID;
->>>  }
->>>
->>> -const struct sample_reg *arch__sample_reg_masks(void)
->>> -{
->>> -     return sample_reg_masks;
->>> -}
->>> -
->>>  uint64_t arch__intr_reg_mask(void)
->>>  {
->>>       struct perf_event_attr attr = {
->>> diff --git a/tools/perf/util/arm64-frame-pointer-unwind-support.c b/tools/perf/util/arm64-frame-pointer-unwind-support.c
->>> index 958afe8b821e..858ce2b01812 100644
->>> --- a/tools/perf/util/arm64-frame-pointer-unwind-support.c
->>> +++ b/tools/perf/util/arm64-frame-pointer-unwind-support.c
->>> @@ -2,7 +2,6 @@
->>>  #include "arm64-frame-pointer-unwind-support.h"
->>>  #include "callchain.h"
->>>  #include "event.h"
->>> -#include "perf_regs.h" // SMPL_REG_MASK
->>>  #include "unwind.h"
->>>  #include <string.h>
->>>
->>> @@ -15,6 +14,8 @@ struct entries {
->>>       size_t length;
->>>  };
->>>
->>> +#define SMPL_REG_MASK(b) (1ULL << (b))
->>> +
->>>  static bool get_leaf_frame_caller_enabled(struct perf_sample *sample)
->>>  {
->>>       struct regs_dump *regs;
->>> diff --git a/tools/perf/util/parse-regs-options.c b/tools/perf/util/parse-regs-options.c
->>> index cda1c620968e..c0d0ef9fd495 100644
->>> --- a/tools/perf/util/parse-regs-options.c
->>> +++ b/tools/perf/util/parse-regs-options.c
->>> @@ -5,15 +5,54 @@
->>>  #include <string.h>
->>>  #include <stdio.h>
->>>  #include "util/debug.h"
->>> +#include <dwarf-regs.h>
->>>  #include <subcmd/parse-options.h>
->>>  #include "util/perf_regs.h"
->>>  #include "util/parse-regs-options.h"
->>>
->>> +static void list_perf_regs(FILE *fp, uint64_t mask)
->>> +{
->>> +     const char *last_name = NULL;
->>> +
->>> +     fprintf(fp, "available registers: ");
->>> +     for (int reg = 0; reg < 64; reg++) {
->> Could we not use the magic number 64? It's not safe, the supported GP
->> register number could exceed 64 in the future, then the exceeded register
->> won't be iterated.
-> How will such a register appear in sample_regs_user/sample_regs_intr?
-> There's a requirement that perf registers be indices into the 64-bit
-> mask.
+Based on this concept, the irq_cnt can be used to determine whether
+the etr_buf is full. The ETR device will be disabled when the active
+etr_buf is nearly full or a timeout occurs. The nearly full buffer will
+be switched to background after synced. A new buffer will be picked from
+the etr_buf_list, then restart the ETR device.
 
-In theory, if the GPRs exceeds 64, then sample_regs_user/sample_regs_intr
-could become an u64 array. So if the user missed to modify the magic number
-64, then there would be something wrong. IMO, the below change looks safer
-and I personally doesn't like the magic number. :)
+The byte-cntr reading functions can access data from the synced and
+deactivated buffer, transferring trace data from the etr_buf to userspace
+without stopping the ETR device.
 
+The byte-cntr read operation has integrated with the file node tmc_etr,
+for example:
+/dev/tmc_etr0
+/dev/tmc_etr1
 
->
->> How about this?
->>
->> diff --git a/tools/perf/util/parse-regs-options.c
->> b/tools/perf/util/parse-regs-options.c
->> index c0d0ef9fd495..5177016a7ad4 100644
->> --- a/tools/perf/util/parse-regs-options.c
->> +++ b/tools/perf/util/parse-regs-options.c
->> @@ -15,7 +15,7 @@ static void list_perf_regs(FILE *fp, uint64_t mask)
->>         const char *last_name = NULL;
->>
->>         fprintf(fp, "available registers: ");
->> -       for (int reg = 0; reg < 64; reg++) {
->> +       for (unsigned long reg = 0; reg < sizeof(mask) * BITS_PER_BYTE;
->> reg++) {
->>                 const char *name;
->>
->>                 if (((1ULL << reg) & mask) == 0)
->>
->>
->>> +             const char *name;
->>> +
->>> +             if (((1ULL << reg) & mask) == 0)
->>> +                     continue;
->>> +
->>> +             name = perf_reg_name(reg, EM_HOST);
->>> +             if (name && (!last_name || strcmp(last_name, name)))
->>> +                     fprintf(fp, "%s%s", reg > 0 ? " " : "", name);
->>> +             last_name = name;
->>> +     }
->>> +     fputc('\n', fp);
->>> +}
->>> +
->>> +static uint64_t name_to_perf_reg_mask(const char *to_match, uint64_t mask)
->>> +{
->>> +     uint64_t reg_mask = 0;
->>> +
->>> +     for (int reg = 0; reg < 64; reg++) {
->> ditto.
->>
->>
->>> +             const char *name;
->>> +
->>> +             if (((1ULL << reg) & mask) == 0)
->>> +                     continue;
->>> +
->>> +             name = perf_reg_name(reg, EM_HOST);
->>> +             if (!name)
->>> +                     continue;
->>> +
->>> +             if (!strcasecmp(to_match, name))
->>> +                     reg_mask |= 1ULL << reg;
->> How much register names are expected to match here? It seems the function
->> expects to match only one register name. If so, we can "break" here.
-> Registers like XMM0 double up so that they have two 64-bit slots in
-> the sample data. You need to match the name multiple times so that all
-> bits can be set in the mask.
+There are two scenarios for the tmc_etr file node with byte-cntr function:
+1. BYTECNTRVAL register is configured and byte-cntr is enabled -> byte-cntr read
+2. BYTECNTRVAL register is reset or byte-cntr is disabled -> original behavior
 
-Oh, yes. I missed XMM registers. Thanks.
+Shell commands to enable byte-cntr reading for etr0:
+echo 0x10000 > /sys/bus/coresight/devices/ctcu0/irq_threshold0
+echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
+echo 1 > /sys/bus/coresight/devices/etm0/enable_source
+cat /dev/tmc_etr0
 
+Reset the BYTECNTR register for etr0:
+echo 0 > /sys/bus/coresight/devices/ctcu0/irq_threshold0
 
->
-> Thanks,
-> Ian
->
->> Thanks.
->>
->>
->>> +     }
->>> +     return reg_mask;
->>> +}
->>> +
->>>  static int
->>>  __parse_regs(const struct option *opt, const char *str, int unset, bool intr)
->>>  {
->>>       uint64_t *mode = (uint64_t *)opt->value;
->>> -     const struct sample_reg *r = NULL;
->>>       char *s, *os = NULL, *p;
->>>       int ret = -1;
->>>       uint64_t mask;
->>> @@ -27,50 +66,41 @@ __parse_regs(const struct option *opt, const char *str, int unset, bool intr)
->>>       if (*mode)
->>>               return -1;
->>>
->>> -     if (intr)
->>> -             mask = arch__intr_reg_mask();
->>> -     else
->>> -             mask = arch__user_reg_mask();
->>> -
->>>       /* str may be NULL in case no arg is passed to -I */
->>> -     if (str) {
->>> -             /* because str is read-only */
->>> -             s = os = strdup(str);
->>> -             if (!s)
->>> -                     return -1;
->>> -
->>> -             for (;;) {
->>> -                     p = strchr(s, ',');
->>> -                     if (p)
->>> -                             *p = '\0';
->>> -
->>> -                     if (!strcmp(s, "?")) {
->>> -                             fprintf(stderr, "available registers: ");
->>> -                             for (r = arch__sample_reg_masks(); r->name; r++) {
->>> -                                     if (r->mask & mask)
->>> -                                             fprintf(stderr, "%s ", r->name);
->>> -                             }
->>> -                             fputc('\n', stderr);
->>> -                             /* just printing available regs */
->>> -                             goto error;
->>> -                     }
->>> -                     for (r = arch__sample_reg_masks(); r->name; r++) {
->>> -                             if ((r->mask & mask) && !strcasecmp(s, r->name))
->>> -                                     break;
->>> -                     }
->>> -                     if (!r || !r->name) {
->>> -                             ui__warning("Unknown register \"%s\", check man page or run \"perf record %s?\"\n",
->>> -                                         s, intr ? "-I" : "--user-regs=");
->>> -                             goto error;
->>> -                     }
->>> -
->>> -                     *mode |= r->mask;
->>> -
->>> -                     if (!p)
->>> -                             break;
->>> -
->>> -                     s = p + 1;
->>> +     if (!str)
->>> +             return -1;
->>> +
->>> +     mask = intr ? arch__intr_reg_mask() : arch__user_reg_mask();
->>> +
->>> +     /* because str is read-only */
->>> +     s = os = strdup(str);
->>> +     if (!s)
->>> +             return -1;
->>> +
->>> +     for (;;) {
->>> +             uint64_t reg_mask;
->>> +
->>> +             p = strchr(s, ',');
->>> +             if (p)
->>> +                     *p = '\0';
->>> +
->>> +             if (!strcmp(s, "?")) {
->>> +                     list_perf_regs(stderr, mask);
->>> +                     goto error;
->>> +             }
->>> +
->>> +             reg_mask = name_to_perf_reg_mask(s, mask);
->>> +             if (reg_mask == 0) {
->>> +                     ui__warning("Unknown register \"%s\", check man page or run \"perf record %s?\"\n",
->>> +                             s, intr ? "-I" : "--user-regs=");
->>> +                     goto error;
->>>               }
->>> +             *mode |= reg_mask;
->>> +
->>> +             if (!p)
->>> +                     break;
->>> +
->>> +             s = p + 1;
->>>       }
->>>       ret = 0;
->>>
->>> diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
->>> index b58d59b84fb1..ec602da1aeb6 100644
->>> --- a/tools/perf/util/perf_regs.c
->>> +++ b/tools/perf/util/perf_regs.c
->>> @@ -22,15 +22,6 @@ uint64_t __weak arch__user_reg_mask(void)
->>>       return 0;
->>>  }
->>>
->>> -static const struct sample_reg sample_reg_masks[] = {
->>> -     SMPL_REG_END
->>> -};
->>> -
->>> -const struct sample_reg * __weak arch__sample_reg_masks(void)
->>> -{
->>> -     return sample_reg_masks;
->>> -}
->>> -
->>>  const char *perf_reg_name(int id, uint16_t e_machine)
->>>  {
->>>       const char *reg_name = NULL;
->>> diff --git a/tools/perf/util/perf_regs.h b/tools/perf/util/perf_regs.h
->>> index 7bfc6a34c02b..2c2a8de6912d 100644
->>> --- a/tools/perf/util/perf_regs.h
->>> +++ b/tools/perf/util/perf_regs.h
->>> @@ -7,17 +7,6 @@
->>>
->>>  struct regs_dump;
->>>
->>> -struct sample_reg {
->>> -     const char *name;
->>> -     uint64_t mask;
->>> -};
->>> -
->>> -#define SMPL_REG_MASK(b) (1ULL << (b))
->>> -#define SMPL_REG(n, b) { .name = #n, .mask = SMPL_REG_MASK(b) }
->>> -#define SMPL_REG2_MASK(b) (3ULL << (b))
->>> -#define SMPL_REG2(n, b) { .name = #n, .mask = SMPL_REG2_MASK(b) }
->>> -#define SMPL_REG_END { .name = NULL }
->>> -
->>>  enum {
->>>       SDT_ARG_VALID = 0,
->>>       SDT_ARG_SKIP,
->>> @@ -26,7 +15,6 @@ enum {
->>>  int arch_sdt_arg_parse_op(char *old_op, char **new_op);
->>>  uint64_t arch__intr_reg_mask(void);
->>>  uint64_t arch__user_reg_mask(void);
->>> -const struct sample_reg *arch__sample_reg_masks(void);
->>>
->>>  const char *perf_reg_name(int id, uint16_t e_machine);
->>>  int perf_reg_value(u64 *valp, struct regs_dump *regs, int id);
+Changes in v10:
+1. fix a free memory issue that is reported by robot for patch 2.
+Link to v9: https://lore.kernel.org/r/20251224-enable-byte-cntr-for-ctcu-v9-0-886c4496fed4@oss.qualcomm.com
+
+Changes in v9:
+1. Drop the patch: add a new API to retrieve the helper device
+2. Add a new patch to refactor the tmc_etr_get_catu_device function,
+   making it generic to support all types of helper devices associated with ETR.
+3. Optimizing the code for creating irq_threshold sysfs node.
+4. Remove interrupt-name property and obtain the IRQ based on the
+   in-port number.
+Link to v8: https://lore.kernel.org/r/20251211-enable-byte-cntr-for-ctcu-v8-0-3e12ff313191@oss.qualcomm.com
+
+Changes in V8:
+1. Optimizing the patch 1 and patch 2 according to Suzuki's comments.
+2. Combine the patch 3 and patch 4 together.
+3. Rename the interrupt-name to prevent confusion, for example:etr0->etrirq0.
+Link to V7 - https://lore.kernel.org/all/20251013-enable-byte-cntr-for-ctcu-v7-0-e1e8f41e15dd@oss.qualcomm.com/
+
+Changes in V7:
+1. rebased on tag next-20251010
+2. updated info for sysfs node document
+Link to V6 - https://lore.kernel.org/all/20250908-enable-byte-cntr-for-tmc-v6-0-1db9e621441a@oss.qualcomm.com/
+
+Changes in V6:
+1. rebased on next-20250905.
+2. fixed the issue that the dtsi file has re-named from sa8775p.dtsi to
+   lemans.dtsi.
+3. fixed some minor issues about comments.
+Link to V5 - https://lore.kernel.org/all/20250812083731.549-1-jie.gan@oss.qualcomm.com/
+
+Changes in V5:
+1. Add Mike's reviewed-by tag for patchset 1,2,5.
+2. Remove the function pointer added to helper_ops according to Mike's
+   comment, it also results the patchset has been removed.
+3. Optimizing the paired create/clean functions for etr_buf_list.
+4. Remove the unneeded parameter "reading" from the etr_buf_node.
+Link to V4 - https://lore.kernel.org/all/20250725100806.1157-1-jie.gan@oss.qualcomm.com/
+
+Changes in V4:
+1. Rename the function to coresight_get_in_port_dest regarding to Mike's
+comment (patch 1/10).
+2. Add lock to protect the connections regarding to Mike's comment
+(patch 2/10).
+3. Move all byte-cntr functions to coresight-ctcu-byte-cntr file.
+4. Add tmc_read_ops to wrap all read operations for TMC device.
+5. Add a function in helper_ops to check whether the byte-cntr is
+enabkled.
+6. Call byte-cntr's read_ops if byte-cntr is enabled when reading data
+from the sysfs node.
+Link to V3 resend - https://lore.kernel.org/all/20250714063109.591-1-jie.gan@oss.qualcomm.com/
+
+Changes in V3 resend:
+1. rebased on next-20250711.
+Link to V3 - https://lore.kernel.org/all/20250624060438.7469-1-jie.gan@oss.qualcomm.com/
+
+Changes in V3:
+1. The previous solution has been deprecated.
+2. Add a etr_buf_list to manage allcated etr buffers.
+3. Add a logic to switch buffer for ETR.
+4. Add read functions to read trace data from synced etr buffer.
+Link to V2 - https://lore.kernel.org/all/20250410013330.3609482-1-jie.gan@oss.qualcomm.com/
+
+Changes in V2:
+1. Removed the independent file node /dev/byte_cntr.
+2. Integrated the byte-cntr's file operations with current ETR file
+   node.
+3. Optimized the driver code of the CTCU that associated with byte-cntr.
+4. Add kernel document for the export API tmc_etr_get_rwp_offset.
+5. Optimized the way to read the rwp_offset according to Mike's
+   suggestion.
+6. Removed the dependency of the dts patch.
+Link to V1 - https://lore.kernel.org/all/20250310090407.2069489-1-quic_jiegan@quicinc.com/
+
+Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+---
+Jie Gan (8):
+      coresight: core: Refactoring ctcu_get_active_port and make it generic
+      coresight: tmc: add create/clean functions for etr_buf_list
+      coresight: tmc: Introduce sysfs_read_ops to wrap sysfs read operations
+      coresight: etr: refactor the tmc_etr_get_catu_device function
+      dt-bindings: arm: add an interrupt property for Coresight CTCU
+      coresight: ctcu: enable byte-cntr for TMC ETR devices
+      coresight: tmc: integrate byte-cntr's read_ops with sysfs file_ops
+      arm64: dts: qcom: lemans: add interrupts to CTCU device
+
+ .../ABI/testing/sysfs-bus-coresight-devices-ctcu   |   8 +
+ .../bindings/arm/qcom,coresight-ctcu.yaml          |  10 +
+ arch/arm64/boot/dts/qcom/lemans.dtsi               |   3 +
+ drivers/hwtracing/coresight/Makefile               |   2 +-
+ drivers/hwtracing/coresight/coresight-catu.c       |   3 +-
+ drivers/hwtracing/coresight/coresight-core.c       |  24 ++
+ .../hwtracing/coresight/coresight-ctcu-byte-cntr.c | 366 +++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-ctcu-core.c  | 122 +++++--
+ drivers/hwtracing/coresight/coresight-ctcu.h       |  77 ++++-
+ drivers/hwtracing/coresight/coresight-priv.h       |   2 +
+ drivers/hwtracing/coresight/coresight-tmc-core.c   | 104 ++++--
+ drivers/hwtracing/coresight/coresight-tmc-etr.c    | 144 +++++++-
+ drivers/hwtracing/coresight/coresight-tmc.h        |  40 ++-
+ 13 files changed, 833 insertions(+), 72 deletions(-)
+---
+base-commit: 47b7b5e32bb7264b51b89186043e1ada4090b558
+change-id: 20251203-enable-byte-cntr-for-ctcu-5a4b88f2feb9
+
+Best regards,
+-- 
+Jie Gan <jie.gan@oss.qualcomm.com>
+
 
