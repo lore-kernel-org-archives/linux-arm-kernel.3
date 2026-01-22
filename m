@@ -4,226 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1BB2C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 07:43:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B7AFC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 07:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3GoXCWyzlhu5giElwo9I/z4e9F7KUioGTVFS8hYcLJ8=; b=0yxomlJ8UO80XuRIdXTa0aRBMA
-	he31TNbPXvCxNPZkobs4jNZVI0EXl3ADc6qQdApgnxtZBzf9ShEbMGrTccsAODh0I34WYgfvJzd5E
-	RePapSPBQSDpuYZ5B+wR5Z0yjLFgw6k+ir/JHV0bZ1fzcYWLuwUhxZaHO+PWkq689Pv0M9FFYBNnt
-	nCih5HI1q1SOZ9v+6kYVNchETyT98JLNhMYahXd7sbrHeKQ2ayBnlvWagsBT5oudb2A9jGVuZEYMA
-	CIPnpJgG+/yLJqgUwZuspH8EWexKUGTTcvmK4ZWADkyL1hCWmDJ4b6jlMs5C+ISngy7d74h2brL1q
-	UZbhYnUg==;
+	bh=EFGHcstC2p5i5Rnbgkl4MqcI8PeiMZ+c7LYfxJtXf7E=; b=i7ClW+GdFtt5/Zkw1Mfotcp7hk
+	b1Aav0/2PiXuB8NQ9Q7GVJ0sWBTrI4GBF2W4eYDYCwk6+hJ7J0gHnQ0DZtGc+erFkd/8yWTcR3med
+	sNwIR/KtOYToIEWBa3pFjHa4VxiqBymdV8xjLR4FFHyoFNq0gITBCRK9mF6AntbC0blHkepPtlVRG
+	hT+m4QWJTczL2xROfFj5cf94bq+tlIyPWxF7RcYo0KkXCxosxZmG3xhCt0DLQ6Sy/Ke635LnE3z/3
+	94fJald4nyTNeQ3aLCRnrRGJ8Zy3ZsmntSiNAqH+peh8S51vZ169tU6Yav9OWpID97NlqpwhrncwD
+	oUPJ45WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vipLq-00000006bDd-3pKR;
-	Thu, 22 Jan 2026 07:43:34 +0000
-Received: from mail-norwayeastazon11013000.outbound.protection.outlook.com ([40.107.159.0] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vipNi-00000006bTM-47Ut;
+	Thu, 22 Jan 2026 07:45:30 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vipLn-00000006bBp-0dN4
+	id 1vipNg-00000006bSy-38UZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 07:43:33 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=QOvGLVs2byFPRsiHblPA9vSESlZd9ipGqoyNnRO0vR2/yOwg19UZpBduXMz2G9f8hImBnNRxBo/WI5KzuEEogA91aQ3fn28IxQte4vGTt1jpJmJ8j5svfd17KSSlR21gDDAu5qskjvGSeS2gZCUiqOFfkfEiUAUXX3kAOLwT+rhV+Uw0kfzXS8/XO6a6zgQszePZ8ZnnWG5SAvWLF4oktyPbOxN+z3eYl1kAGFApcCrLvMg1fECjQ8XGVTYC4936ZO18gIAE+n/pGS5G/KggcLCk0soOZJYrRPw2KrJutgPKzyerKyuq54HZeNBDzPfohie9YBz18T7AlwtEqJK6BQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3GoXCWyzlhu5giElwo9I/z4e9F7KUioGTVFS8hYcLJ8=;
- b=s4EuxgT3EG9yEqeVA9S4eCKY9q34v+A6yF4rrQfgvDiLXK1AZvNoqyDe2Y7AVpy7VnJ2JKC4Jbc0BUTN61ygUAdaFmRl+R+DUza6FrcXHpCmgLu89v3Ne2xXELR2l/Foo4hLIsSZNoNcvBEGOEeg7dIZiumNzSNWdJtUZL1iQk9QOoTHpDvGtkKOWeLBUddsjIsWGLQpUwFthoTJzqqCRNBAcEaHzLVwauwvPq+Y5oZ9xI2GK50nCW0LybFMZIljGvAI5bVSN5nGbkV8oqqlU3jmeBq4pfzzv6cR9nFY7M51nuZY3aos6vbxBUK5hYKtdSryfKRcoaoG04Hxyhso1A==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=os.amperecomputing.com smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3GoXCWyzlhu5giElwo9I/z4e9F7KUioGTVFS8hYcLJ8=;
- b=T4+u26V5Q49doZaGKSE10t/kuIqGvT9uOd8iA0alZJTdkF9IAJLobpMoMwS313PBl4c55AhvBSsK9j6lkOAUooHmB7TSHWxibmLmUMbC6sWHBLXMCJsp44v8WmKIQJPKkcXrplHH9f6p69MKOkOnTq9/7Pk4f0ABKunkBE/VOQM=
-Received: from CWLP123CA0094.GBRP123.PROD.OUTLOOK.COM (2603:10a6:401:5b::34)
- by AM8PR08MB5747.eurprd08.prod.outlook.com (2603:10a6:20b:1c7::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Thu, 22 Jan
- 2026 07:43:20 +0000
-Received: from AMS1EPF00000040.eurprd04.prod.outlook.com
- (2603:10a6:401:5b:cafe::52) by CWLP123CA0094.outlook.office365.com
- (2603:10a6:401:5b::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.10 via Frontend Transport; Thu,
- 22 Jan 2026 07:43:20 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS1EPF00000040.mail.protection.outlook.com (10.167.16.37) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.3
- via Frontend Transport; Thu, 22 Jan 2026 07:43:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WPGZkTt9VDqlYRqRJiSU7vjMS/y6k3UCet1xPFY5zBfEL4shSKa+4zvFVqDpBh94hPw4bm9vvA/i7xXZwmJ+o92dUd7FG4dZ3J/WX6BJGNYKlEE/yktYdHXfJuwQ9V/4BV2BcnBpBvQJ+HvV8TEDkvlseDlGRGIDedtsCieoPI7Zr+zdCCR0VzCshUk5+LFI8Fss3I9szaQ64F4Qk2ENbvyg/gvQVXqp/FVB1kOfyJKrjeCmCUijBeYdsxOSHE1alyvEDlZXMlYwsg4zCXfQ3RwA4dhsSWlhflLWI6NnGChN5OCGV9zVijWaGa5dZtpBbnFddhnDRuq51pBtzw+Y3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3GoXCWyzlhu5giElwo9I/z4e9F7KUioGTVFS8hYcLJ8=;
- b=AQ52pZ6LSC41ztqlgSDMJLSTe2I7RQgFv3kjjQamPCzSNLxkZ/7KgeRMNGwf+sx1QzHdx5zh5KIu5svrVYSJHCbZEI2gdWkQAHh81bERbCg045ebLm/V/8IC00ltlU559woTg3Vt7tOXHtywnoAItrS+9PixWYhbCgRJbmrdeP0BdL9GsBrA4ccbBSEnvpahvLW/Zvvja7cz2RIIEzu7tkjStXOtOpqjyVWe/WnJmsEIVH1Q87R8obRK41+/wANR08Ycj/29c2WuEcd5H9QdDKvz22vE+aUFW/9snKpxWV+4fM3RLRCmPRt/+N+3T6ZDspV5TyRPRGQqLgdelCtn3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3GoXCWyzlhu5giElwo9I/z4e9F7KUioGTVFS8hYcLJ8=;
- b=T4+u26V5Q49doZaGKSE10t/kuIqGvT9uOd8iA0alZJTdkF9IAJLobpMoMwS313PBl4c55AhvBSsK9j6lkOAUooHmB7TSHWxibmLmUMbC6sWHBLXMCJsp44v8WmKIQJPKkcXrplHH9f6p69MKOkOnTq9/7Pk4f0ABKunkBE/VOQM=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by AS4PR08MB7781.eurprd08.prod.outlook.com
- (2603:10a6:20b:515::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9520.5; Thu, 22 Jan
- 2026 07:42:15 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::8c9b:58d2:2080:eb98%3]) with mapi id 15.20.9542.009; Thu, 22 Jan 2026
- 07:42:15 +0000
-Date: Thu, 22 Jan 2026 07:42:11 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Yang Shi <yang@os.amperecomputing.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev, catalin.marinas@arm.com,
-	akpm@linux-oundation.org, david@kernel.org, kevin.brodsky@arm.com,
-	quic_zhenhuah@quicinc.com, dev.jain@arm.com,
-	chaitanyas.prakash@arm.com, bigeasy@linutronix.de,
-	clrkwllms@kernel.org, rostedt@goodmis.org,
-	lorenzo.stoakes@oracle.com, ardb@kernel.org, jackmanb@google.com,
-	vbabka@suse.cz, mhocko@suse.com
-Subject: Re: [PATCH v5 2/3] arm64: mmu: avoid allocating pages while
- splitting the linear mapping
-Message-ID: <aXHU02hsrB64Zopo@e129823.arm.com>
-References: <aW9LCX92T9t8iDco@e129823.arm.com>
- <baa46ea0-737b-4d9e-b4f4-2eee1476da95@arm.com>
- <aW-k_D1Q8jpYMPoI@willie-the-truck>
- <a6c1f21f-43e4-41d2-adb6-c5f9985b3abd@arm.com>
- <aW+t8S1LfwX3LjRi@e129823.arm.com>
- <11a01f4e-9ae5-4001-9f9c-74a746f898cd@arm.com>
- <02bb61cc-f0be-41e5-b8b2-59768afd5254@os.amperecomputing.com>
- <aXCPHaylUbRJ3CME@e129823.arm.com>
- <ee2bf4ba-0121-44dc-a465-4c186dc18f19@arm.com>
- <4c98a1b2-6215-4e71-8bb1-eaeb1722e7b1@os.amperecomputing.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <4c98a1b2-6215-4e71-8bb1-eaeb1722e7b1@os.amperecomputing.com>
-X-ClientProxiedBy: LO4P265CA0110.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2c3::14) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Thu, 22 Jan 2026 07:45:29 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b8010b8f078so96534266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 21 Jan 2026 23:45:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769067927; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gljgt7H4L/8cneSWS83Xk8U/E8EnJq3B4cGbsRLO+/tu9goURgG2xtiMkLyAZOYU5c
+         vN+w/hgrgFM7c0FSzpfJLQFj5LwRuW+EXBObjhaKpj2m9XP8+mQpvLE5y2Hy0skhxO3z
+         kcb7368TDxi0RvBGUo3rmgij40iunowpniyF/EabsP6WgwVNIp0V+pKpfS9rAE+i52Tv
+         ufsw/IUs/6atp63kyTuEhrsz5+kTNvK26Kh/SS/2Tyv6nANBgppAyHgP9vTB7GLzUiHp
+         2jepte7DwCq2y9zlJfB6burHhgeXIbiwToMJqIAfUEPBEhIyWROc0xKBZu6pPYO3rN04
+         vbuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=EFGHcstC2p5i5Rnbgkl4MqcI8PeiMZ+c7LYfxJtXf7E=;
+        fh=KmAi+bKsJnfLfYbaUrhRQy51NDC6HsH1kfsxWIHLAFA=;
+        b=VScALpZzlt3A6GLJbu2Oy93lW+AKGbs8bmFW9M97RMaUpv9okeNfhE2pydVY4ebiRT
+         Wu+TDZSanVHIeHhJrcvh2KWi2N65qy4DcNbCZydHqRCYzWwjgKYXvpgJdb8U3Nu5p8HB
+         EtZkiUCWd77Zg878uLi3am3iK27G5FUvwDrHyPg8799LwHOkKTrSK5MJwoffn18jlE9J
+         wT1syqj59moFwWJbghp2XwibjfuIaWc2bxPDzWwsDb+KO7eVcqb2NdksG/wKyNCmqV5U
+         ktRwt/w3Wm7fSuVZUbUXLetfqAUlJlv+4v/TE7a/izjHjrsbnIzCtTZfHaP/NZrpMgUM
+         3lJg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769067927; x=1769672727; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EFGHcstC2p5i5Rnbgkl4MqcI8PeiMZ+c7LYfxJtXf7E=;
+        b=XiUZo+WQ3yoE8Hu52bISriAqYwlNruQbxt7hLtIESTmezuGqlogte33qgWD1frPMyf
+         AMXg96hc6CC4yvA+mFulfNEnHhZg8VuufTmqcn4YIYdZz7zhXVwV1S+yKWagjyQbAtz7
+         GZDeItakN5jD5WhY4xNfa+Xj8XSQHWRV7kvHkgTgrJEr8HyQkoK4AKEnmNCR0Ga2uQCh
+         gwkCMEeymw8L4TuvU2t4uoYmZvvfRbasg3j/oC2m9dAwJYExUwbXFvcH334whrVm13um
+         ohAisAasmXyJV+9epXTEksKTv0AITklu7Ozqy431qGtyFdA/AWgraueo79mUuYRKgPV8
+         V/JQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769067927; x=1769672727;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=EFGHcstC2p5i5Rnbgkl4MqcI8PeiMZ+c7LYfxJtXf7E=;
+        b=MXxVpjEed49qPdbhhWyqU93Fmjydk0Yd/tOfdPXEc3w/OPZ0g0QegxPQzKBrxpIPkT
+         yhs3tF0rzZynlqhk6tlp1Zi/jKpAlp/CfHzqLFbdSpo83BdQlML1rr8jxyTBryvMUCaL
+         p1WyyUy8X1qoC1Qk4Cn7RWoxF1tS/d75Bj9nOO8xj5zpoqdzq7wZgwKsZWOPj7p8ExdK
+         QGIPziCtzpcUiMs+lwwCKhuYk9Q2CvuZMddhwbT6B8PRttNBhyheXi78RlH3ae1/1md/
+         HrfHls6y6YCFV1Zi1laEHsqr+XpgCopqdHXHE95lYdvW4sOJlmGTEfRIeCezoEi6vuEL
+         KFTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWrp9YQwjsd8+E48Y94+JSrDgtpXvf8cacpUI0ClEKT6n6BzQLoFulYL5VfgFErbtyq3aRbxEt13jLlCvLGWN0P@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzyuw3ch99Ls9Tx81ZkpMoJ4R4J/lKKaky2SVI9oVKEQGvUe6I7
+	2mn13Ds6h3XiWLyOwgi0tFqCiLh61iCKN14T7IXPgB8oBU4iVQFyOM70nqQDrNtero2KBYtVwOD
+	vgF2NerychWnHTSclD8v+3iyBg6E6lZA=
+X-Gm-Gg: AZuq6aLAeNWpztFQLMLp96laANoLwuS+2XWcxt4Pf0Mqb0k5g6Ecduhh1rMAd3Zd1kR
+	LnY+7Xd08+piWJ1BJTbgkBddhqIfyO092xhAsG8iz3/3TjtIymefM2TGI0ZuwPrA2unb+rMFMhz
+	NflQWzuFHnLt8T12C5Yj0p6RNwYbh9BjduobjNMT5qSUoagGsleTf223al3/y1tICAOpZPf0tbm
+	EwslkpeZkxmeExvtX5DpvghoZSj7OiG/TeXUQzXGiGT9CKPj0bFvyLteCgxeqTfTv869bFiZITR
+	k02qK2U2VmaenS3Ge3XlIEvtMXwDTtiSrFSp+DfCGHe/UZQjWWYCy+gf3x6RBP9AVGqF+9glLU8
+	hHdbPxw==
+X-Received: by 2002:a17:906:dc94:b0:b87:31b5:d68 with SMTP id
+ a640c23a62f3a-b8796c137aemr1598800166b.65.1769067926666; Wed, 21 Jan 2026
+ 23:45:26 -0800 (PST)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS4PR08MB7781:EE_|AMS1EPF00000040:EE_|AM8PR08MB5747:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9f3625f0-d5d1-4a33-047f-08de5989ea24
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|366016|376014|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?c05vVEU4OXdvTXlUZUVlVVNPSnV2Q3lrVWhrdE9rSFNwWjJ1UmJHTmorSk1I?=
- =?utf-8?B?TEI2YlNLM1JZWUhNRjJKVWhiQmlvcU5RQm1naFRqMzlvcnRzZmw4OUpmbE9j?=
- =?utf-8?B?bEUyT3JjVUNsMTRMYVFJUERiSmxKTFhNU0x0V2FaOUdmTWNiQ014V0NGOE1B?=
- =?utf-8?B?bWtTajlrTUU4VzV2cG9GNEFva0dTM3dKVHp2YXd1OGRzS2tuYkFaS1BrL3NY?=
- =?utf-8?B?b05iYS9IdHRNSmh1WENMaitlUEs5NVozL1crTVRjQTRRQTVwaG5hNUJwUFhx?=
- =?utf-8?B?dm5RakYxV3ZFOUp3bnJENVlHN3dqOFhyd3NOV1FhSGllWXFiU0Fhb3Z2WEtE?=
- =?utf-8?B?Y0JuaFJJdGFidmhDbW9tdytwdjhVWTJWUUg1RlJ1eGd0bm1ZV0pDQVNXREtC?=
- =?utf-8?B?dUx5WUtVK3Y3MGl1eUxVNzM0TW1lT0JuaDJuejB3V0VzUU5pTFRPdFlXZk5l?=
- =?utf-8?B?UllteW9rVHliSkoycDlXY1RRRnV1Ym9YQm1iL2ZPdG9VanNVUm4rOHl3NzBC?=
- =?utf-8?B?RmpneUZtd1ZtNXN3NE9KbVJIQmE3dGF1ZTN4YXJVOUJHL0FBWHBQdzJBcERs?=
- =?utf-8?B?RWxVRlVHNWl5Yng1OHRKaGg5TWtYQXdlQVZZaVVwaTFubFE0UXd1MHMzb1pU?=
- =?utf-8?B?SHRyYUZXN0ZTUGhUaWJndmpQUWdhY0xoMGtYdDNJRzlaQVNXYkRTWjFubFRI?=
- =?utf-8?B?K2l2YTMvbmdySkMxVFNtM1B6Q3N0TWRLZVErdmRCaW1FYUl5d1NaRjhGYlhu?=
- =?utf-8?B?RHVSa0trNUdOWmtOM2hLdENlU1huNitDaG8zVEFTZTFXTmdFbzl2Rm9LRU9r?=
- =?utf-8?B?cmtUS0dpSFNqT0t0cWZ5U09sNlY1bGE0aG81ZWRqa1Q1OGROYXRTSlREamts?=
- =?utf-8?B?U1FWMzBZRHU1ZGNLWWJ5Z1ljdXVibXoya2JtOWIva0oyZVdGOUEvQ3E0R2ph?=
- =?utf-8?B?bGFTZU5zTS9CVGRrcExmRTRBM3RycXpUOG91c2p4QUN3VWFaTjhvdDVyK1ZV?=
- =?utf-8?B?WmxmWktlaFM2alR4ei9CWnBiUHNXMm1yWStYMWJJckEzQWdBeE1DZDZxYUdB?=
- =?utf-8?B?S2pMSkdYM1h5dDYxdExhMUZlN01JUnJKVlRQNVFYelQzOHE3UzdEOHJGWTZL?=
- =?utf-8?B?eHI3YWRCdmFacHQ5TzFNWnBFaGVnMnNidXNZRVh3UFNSZXp5RnNvSk9WRUgv?=
- =?utf-8?B?NkpOVUlJdXlkUGM3Zkh5U0ZBbWt4UldYaUJXTUFBOUovOGJXazlML2ZpOWZD?=
- =?utf-8?B?YmZxcXlvbDQzbHZBbVA3NGxGMThMeVo3L3JZSzl6aWJHWFJJRlAvUGVmSDRj?=
- =?utf-8?B?NFlTYVJuVXVnRkd4aUNKTS81bUpQUFJIeGV5WUdXL3NzNXVkbFl3V0FlU2Jo?=
- =?utf-8?B?ajZaZFZkMDB2QkM2dGpqOHo4MTgzNnkzdUtNVFp4ZUpQSnFsditCeVBtdXd1?=
- =?utf-8?B?T29PMWdRN1JqRWYraU96dWVCekdIZmMvZ0MveVh2Rjk2M3hLeWJicnZ3emZa?=
- =?utf-8?B?TjBwaG5RWnFwemlUeWJvSHUraE84RnhXMGJ2eXFzbUQxZmlkcjg2ZkI4WUFu?=
- =?utf-8?B?ZnB5TWVhQnhBMjh1cjZ4Vm1aUWZYOEtlSjFKdkE1ajBseUNkOTB3c1YwU05M?=
- =?utf-8?B?RDh1QjBTc1pvMVZmN0h1K0dFYWlnWkpyUzN6UDVBS295TmdIL0RNNFpISWVJ?=
- =?utf-8?B?ZnZ5MzZNc2VaVkkvRmNJQ2RrazJ3a0J4UFpYMWlVK2VwNEsrTG5CdU40YkdP?=
- =?utf-8?B?UVZ3YzNwZFI1L0lsdlFjTFpmM21nb0ErQklSTWR2NThUQlJLelR6QXJpTWpl?=
- =?utf-8?B?ejgzZUNlMDZzcVdTZmJ6ZTBNL1phQTBkOWZyOVNERzltK1k1VStrWmZQSm1t?=
- =?utf-8?B?QjByU2JwMy9VWW9JWTN1WWZrNkh0Z29PS0xsQ1VWbUNsQjlUR0szemdYbDdw?=
- =?utf-8?B?Zy9xWFRMWTU5bnBPRDcxeDdrZG9tQUVHNDRQdFRxTUhQTzBWUVpFelA4aTZH?=
- =?utf-8?B?S2hUZ1gzNDZXL1hIUlNna1U2Q0UwVHcwcXVKeU8vRmZQR1hBZVpJbHdnRkRa?=
- =?utf-8?B?YTBsWFlCVDk5WUpzdDBVOVc5bnRJUWZReGs0UUJUbDZ4MjlPVHA5OFk3Wld6?=
- =?utf-8?Q?/oKA=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB7781
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF00000040.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 194684d6-4478-4f27-30cb-08de5989c2ee
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|30052699003|376014|36860700013|35042699022|1800799024|14060799003|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NGJhNHJCdW5HeDhESndneDI5SXAzQ2h4WXlpRnFMQ1VvR2dJYk5sOFhqNTIv?=
- =?utf-8?B?Tm1ZK0JEaGtIY2h5Q2JmMGk1TUlyeTJCeTU2N05XRGFaZTZpV3VzcEYwcDlx?=
- =?utf-8?B?R1Q2N0NQQ1daMUphQkVBOGl3Um82Yzg0a3pCMnNlVHpPRkZDd0lFOC83cDBC?=
- =?utf-8?B?OUlZMnRCcW0vaDNaaGU0L3JVQURNYUM2VzBPay93bWt6RTVNWk9MZC90UUs1?=
- =?utf-8?B?YzZDSzN4WDFPa0dtYmw4U0Y3RTVibXZWditjMkFpM01sMG1OeEhOSGcrOUVG?=
- =?utf-8?B?UHdxV3pZQzMzUWFqQWhQcEoxQ25zTkdXRUloN2hBOURIQVloUm1EN3ArdXQx?=
- =?utf-8?B?YnZySzlUbStLRERlbyt2UXo3OFVpdHpPMkZkUTFIVGRDZDkwRktJNkZ5dzJO?=
- =?utf-8?B?WjU4aGFaL1BkcXVLOEFZVThhM3RDbWdMaUdkMklEa2tKMlhyOWh2aTdIOWhi?=
- =?utf-8?B?TFNBZDA3USs0VjZveUVPUHJ5alVKVGxRSGhIelRaS2VZNWpQNHdEVFAyRVlL?=
- =?utf-8?B?M3BRUWtTdkVTbWRKUXdpR2xWMktqdXJ3SW5MK2NCbWFxL1RTcllGMWd3TEFR?=
- =?utf-8?B?WXpnb1FnbmlJbWRwQ3paUnlaRXE3WHZjUjJ4eUt0cENmTXlxdWJCZmRTVkJR?=
- =?utf-8?B?cHdUY3RQOHB6bWRKOXJqM081S3dvRkNGb1RjSVowbitERHVrOUYrTGthR0Jk?=
- =?utf-8?B?NlBUUDVaak5XeSt3RGRPQy9QdGIrNS9MaWFLZlgwdk5hc2VsR3M2WWFQN1E2?=
- =?utf-8?B?UHRtMmpkbytRdXlEMlIra1dtUFo4S1Zzdm9IK2xIZUxwbTdQVUxyUUJRNzVk?=
- =?utf-8?B?RWRZRXVLUlJCb2NreXk3ZHhSR21qN0xRSlh3MEYvQTFuSlpxV0pENitoMVRR?=
- =?utf-8?B?SmZNZGR1TEkwWDhOUEprWHZDKzZOdmlEdVZNdThDV0h2cmh0OHRQb2tFYTF0?=
- =?utf-8?B?dm1ZOTFRcmdNdVg3TVo3ZEc5VTlNWU9KK3JVaE1seWF0alZ2YzdiWjN0NzlH?=
- =?utf-8?B?WmEvRmJBOGJaejlNZGhVRU1HM0hLWHZLUzdqREpkNVNxK3dzY3JqS3FOdTJy?=
- =?utf-8?B?aTNUN1ZmWkdDdWNwU2UvVHF6akhIMklPd3ErVVE4aUhzZmtaRjBKZW5NV0dz?=
- =?utf-8?B?WGNBN2JIQk0ySXQzUkpBZ1ZIdHR5ckRJNFBxWjQ1ajhhMDVLTDcvVDltYTJy?=
- =?utf-8?B?QmtaU083d3c0aWhLa1lKN0t5bzY1SEthbkwraUhBTXIvaTVxN0gwcWRkelJY?=
- =?utf-8?B?cjJmS2t2SG1UdXo0ejhHaGx2TVo2c0xkSmowY0lpWkVxblp0WThqdXMwYUhh?=
- =?utf-8?B?WXFzQSs2TFRkQXpIN05tTTBuTGZjdVpmeUVOS1lwenhWWWtJTnhGT2xVZjcv?=
- =?utf-8?B?M243ejZNdVBuUTFWcWxyS3NUNXM4bjA0TG15Yzd3TEFzMXJ2MVlYdm52L2gr?=
- =?utf-8?B?Wm4zSFlwZTg5cUVmRHRhaXc3OUFacUJreU5UaGM0SjVVL284YlJ6US92MTdR?=
- =?utf-8?B?VGFqTkdqYXV6eFpQL0xjRXZuYklnUURQVHg5YWRxWEd5YUU3dnQ2ZDczemxB?=
- =?utf-8?B?YkhDZzREajJ1ai95YzYrQXVqck1zamdsRmVYZTlCZWxVNmRMb3ZIdXVqNExt?=
- =?utf-8?B?eVU3cVBkOXgwb0tuc0U3UTlHUHpFZkZwUHdNQVZ4d2dMTTdudTc2NDdmQnZ0?=
- =?utf-8?B?MlMxYTU5M0QyNnB4b3RyQloyREU4U09MdWNUSTJSV09CN21jcXErcmtGbkc0?=
- =?utf-8?B?RFpyZWpYMFpzVzBSWE1QYVFzWTRFcU43eitzS0FDN2duSTNzRkpWd2JTamY1?=
- =?utf-8?B?Z2k3NUpqb1QxbkRqNTlVTDRaWGhUTjltV21zZ29DaEE3T05sdEdzMlVOcDBU?=
- =?utf-8?B?Y1FaN3dDY0pFdmJHeExUSzlPeEo4NDQyTjQ0UkEyS05acVpCbG4vZWtnU0px?=
- =?utf-8?B?RnIxdHVQaFpPMXBBNWZmWlJiRlBleUJ1TE9MRFozTGlPeUdua1BoT3VEWGtq?=
- =?utf-8?B?NGVyVVQra3Z0VTIybHJjUkpFMVpNMit3L0hYM09DWVlhcHBQRWJDemd1K0Vp?=
- =?utf-8?B?VXgvYUpnM3dBN1F1blRzcVQ4aWdkTWVsNjVWREZ1L0toVXU1cnpEWlo3amlI?=
- =?utf-8?B?K0tBdUZwamN2NkZlSVV4NlhqRGJZMWlQTG1WWFRIVDZmREhNeFNud2k5OVZB?=
- =?utf-8?B?cEdkVUJvdUVEaW1yYTNaei9LRlViclFxNkttaW5WQzdEYVNVM25rWFE0SS9W?=
- =?utf-8?B?NjlXRGM5U1FqckJ0NUNmNkwyLzVRPT0=?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(30052699003)(376014)(36860700013)(35042699022)(1800799024)(14060799003)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 07:43:20.5849
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f3625f0-d5d1-4a33-047f-08de5989ea24
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000040.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB5747
+References: <20260122010516.1200630-1-florian.fainelli@broadcom.com> <20260122010516.1200630-4-florian.fainelli@broadcom.com>
+In-Reply-To: <20260122010516.1200630-4-florian.fainelli@broadcom.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Thu, 22 Jan 2026 09:44:48 +0200
+X-Gm-Features: AZwV_Qgm_3igw06Hxix0lt5ONLXFKPF8H-PgfUJ9mf-T9zeen77Y_WpXql1l6r4
+Message-ID: <CAHp75Vdyfq_9sCY0t8TXst6XhcOM079y2zYprSZDX4_GTJL6AA@mail.gmail.com>
+Subject: Re: [PATCH 3/3] gpio: brcmstb: allow parent_irq to wake
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-kernel@vger.kernel.org, Doug Berger <opendmb@gmail.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Christophe Leroy <chleroy@kernel.org>, 
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260121_234331_483626_4A575876 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20260121_234528_827584_49DDFF00 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -238,100 +120,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 02:57:28PM -0800, Yang Shi wrote:
->
->
-> On 1/21/26 2:20 AM, Ryan Roberts wrote:
-> > On 21/01/2026 08:32, Yeoreum Yun wrote:
-> > > > > > My concern is that if a secondary CPU can race and cause a split, that is
-> > > > > > unsound because we have determined that although the primary CPU supports BBML2,
-> > > > > > at least one of the secondary CPUs does not. So splitting a live mapping is unsafe.
-> > > > > >
-> > > > > > I just had a brief chat with Rutland, and he agrees that this _could_ be a
-> > > > > > problem. Basically there is a window between onlining the secondary cpus and
-> > > > > > entering the stop_machine() where one of those cpus _could_ end up doing
-> > > > > > something that causes us to split the linear map.
-> > > > If I remember correctly, split_kernel_leaf_mapping() does call
-> > > > system_supports_bbml2_noabort() before doing real split. So we basically
-> > > > should fall into two categories:
-> > > >
-> > > > 1. bbml2_noabort is supported on all cpus. Everything is fine.
-> > > > 2. bbml2_noabort is not supported on all cpus. split_kernel_leaf_mapping()
-> > > > just returns 0. Kernel doesn't split page table, so there won't be TLB
-> > > > conflict issue. But the following page prot update may see unexpected block
-> > > > mapping, then a   WARN  will be raised and it will return -EINVAL. So the
-> > > > worst case is the caller will fail (IIRC all the callers of set_memory_*()
-> > > > handle the failure), and we can know who is trying to change linear mapping
-> > > > before the linear mapping gets                    finalized. AFAICT I
-> > > > haven't seen such WARN yet.
-> > Ahh good point! So this isn't quite as terrible as I was thinking.
->
-> Yeah.
->
-> >
-> > > Thanks for the great detail :)
-> > > I've missed system_supports_bbml2_noabort() in split_kernel_leaf_mapping().
-> > >
-> > > > > > I'm not immediately sure how to solve that.
-> > > > Do we need some synchronization mechanism? If the linear mapping is not
-> > > > finalized yet, split_kernel_leaf_mapping() will spin. For example, something
-> > > > like this off the top of my head,
-> > > >
-> > > > DEFINE_STATIC_KEY_FALSE(linear_mapping_finalized);
-> > > >
-> > > > Once the linear mapping is finalized, we can call
-> > > > static_branch_enable(&linear_mapping_finalized);
-> > > >
-> > > > In split_kernel_leaf_mapping(), we can just do:
-> > > >
-> > > > retry:
-> > > >      if (!static_branch_likely(&linear_mapping_finalized))
-> > > >          goto retry;
-> > > >
-> > Yuck... But I guess it might work as long as the primary thread never does
-> > anything that would cause an attempt to split; otherwise we have a deadlock.
-> >
-> > > > There may be better way to handle it. But this case should be very unlikely
-> > > > IMHO. It sounds crazy to have such complicated kernel threads run so early.
-> > > > I'm not sure whether we should pay immediate attention to it or not.
-> > I think we need to figure out if this is actually possible. We bring up the
-> > secondary cpus, set system caps and finalize the linear map in smp_init().
-> > That's called from kernel_init_freeable() which is called from kernel_init(),
-> > which is invoked as a thread pinned to the boot cpu.
-> >
-> > sched_init_smp() is called after smp_init() (i.e. after the linear map is
-> > finalized). I'm guessing (based on the name of sched_init_smp()) that nothing
-> > other than the idle thread will run on any secondaries until after
-> > sched_init_smp() is called? (I'd be greatful if anyone can confirm that).
-> >
-> > Rutland suggested that it's probably too early for any PM type stuff to be
-> > running in the idle loop, so based on all of that, perhaps this is not a problem
-> > after all and there is basically zero chance of a secondary cpu doing anything
-> > that could cause a linear map split during this window?
-> >
-> > I'm inclined to leave this as is for now.
->
-> I agree. I don't think this would be a real problem.
->
-> Thanks,
-> Yang
+On Thu, Jan 22, 2026 at 3:06=E2=80=AFAM Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
 
-Although partially using GFP_ATOMIC might not be an issue given that
-there is no contention at the moment,
-technically using a memory allocation API inside stop_machine() is problematic
-for PREEMPT_RT, and the relevant page tables should be pre-allocated.
+> The classic parent_wake_irq can only occur after the system has
+> been placed into a hardware managed power management state. This
+> prevents its use for waking from software managed suspend states
+> like s2idle.
+>
+> By allowing the parent_irq to be enabled for wake enabled GPIO
+> during suspend, these GPIO can now be used to wake from these
+> states. The 'suspended' boolean is introduced to support wake
+> event accounting.
 
-That said, taking a step back (I’m not sure why I was being so stubborn about this),
-since the kernel_alias area is mapped using block mappings,
-a simple calculation based on your dm_meminfo patch should be sufficient to
-determine the number of page tables that need to be pre-allocated for
-splitting the linear mapping, without having to walk the page tables again.
+...
 
-So, after your dm_meminfo patch, I plan to respin this patch based on that.
+> -static void brcmstb_gpio_quiesce(struct device *dev, bool save)
+> +static void brcmstb_gpio_quiesce(struct brcmstb_gpio_priv *priv, bool sa=
+ve)
+>  {
+> -       struct brcmstb_gpio_priv *priv =3D dev_get_drvdata(dev);
+>         struct brcmstb_gpio_bank *bank;
+>         u32 imask;
+>
+> -       /* disable non-wake interrupt */
+> -       if (priv->parent_irq >=3D 0)
+> -               disable_irq(priv->parent_irq);
+> -
+>         list_for_each_entry(bank, &priv->bank_list, node) {
+>                 if (save)
+>                         brcmstb_gpio_bank_save(priv, bank);
 
-Am I missing anything?
+>  static void brcmstb_gpio_shutdown(struct platform_device *pdev)
 
---
-Sincerely,
-Yeoreum Yun
+One more thing, how is "save" being used? I can't see it other than a dead =
+code.
+
+
+
+--=20
+With Best Regards,
+Andy Shevchenko
 
