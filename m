@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66D1CD6CFAB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 22 Jan 2026 23:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED62D6CFAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 00:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kf/+wm9T8K+0mpA0ud88MFs+EQUKYAWohz0EXddAFIo=; b=UOTdRjAmOqDF0oj1U9UCg+m741
-	d5rPhBMR/k3FS1xa/CCGPl2dYqY3Dtph1M7QGjQFEVZkhABWVFSh3FAKIOlZXKaAOexLPm6IY4zXo
-	EoOMnasZuB71uL1N6AR3vVymK2QjD5Yaw09clnRv1sJPTpAke147N6tUPN5PkoZ46eUe4ksZrIoj4
-	fyZ+vQILGM0guurd5SDZRCPdlmwt9KnPSRbxbYvpUYfPJHn9qwZAyGc5AF2r+QOyHYGarVf8okKeC
-	EpIifNs25lyrQ8rpZ/v2QA3wNL0fu93QPE+23Xe80f5dyt20YGZE29/QUb1+DMsiCv0xV/9ibEBfX
-	qLhEG+KQ==;
+	bh=wGcZxyIZT+Aj2hnPEsKrGnmdmebFAUQj4hVUmH5+oTA=; b=Xxww3Aq0sLos1cWnW4E/ohQQXJ
+	+rkIBM0v6Ej5jdJSsQalNgjN5CSq4ZoUePsSh2iKmNdr1SUiX2sp1IEF9S8KeLCsUW9DcirOKqTXR
+	eSjFrT+0HOCpRlS4IUpCmpFR9vXObTgiiQwyB6cLkDKdrlIz33fvG9q5F8u4O/JURSSQmngCelX/b
+	meew5lRM4YGHusEAL0V9X9zSeaJcQH8N7Wf9uLvTBnupUqIkXGwMYeBjHKtCkz5Yh8clrsnU17Q+I
+	gVyDkQ7HljNMsm5R6YUc2NAY+vOihWK2x1emHFet/HXovA6+/cB9JcSMuGD0ALzkjlxBb5a8z2WA7
+	rq7jdV1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj479-00000007syO-0DRy;
-	Thu, 22 Jan 2026 23:29:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vj4bf-00000007uew-2fnl;
+	Fri, 23 Jan 2026 00:00:55 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj477-00000007syE-1k9O
+	id 1vj4bd-00000007ueW-0Ewg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 22 Jan 2026 23:29:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D3B3760146;
-	Thu, 22 Jan 2026 23:29:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2B31C116C6;
-	Thu, 22 Jan 2026 23:29:18 +0000 (UTC)
-Authentication-Results: smtp.kernel.org;
-	dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com header.b="AR0pJ+JM"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
-	t=1769124557;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=kf/+wm9T8K+0mpA0ud88MFs+EQUKYAWohz0EXddAFIo=;
-	b=AR0pJ+JMGvnU92uFTU2T54v518VZAvj/JhSPeH2ruQ2iUnWODCMzwcyklRasNyjc5Nirfc
-	hjplmDuzJ7dqi5gWcnTH9DnHPuorX8VguNrcy3/iL6SFHksUcHvzRrHBIlaMQhqWQWghLd
-	CzN32ZUihqTaUd1w5/EzDixALWTTABY=
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 3fea361c (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
-	Thu, 22 Jan 2026 23:29:17 +0000 (UTC)
-Date: Fri, 23 Jan 2026 00:29:10 +0100
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Andy Lutomirski <luto@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Theodore Ts'o <tytso@mit.edu>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org
-Subject: Re: [PATCH 15/15] random: vDSO: remove ifdeffery
-Message-ID: <aXKyxviscQhQlGig@zx2c4.com>
-References: <20260114-vdso-header-cleanups-v1-0-803b80ee97b4@linutronix.de>
- <20260114-vdso-header-cleanups-v1-15-803b80ee97b4@linutronix.de>
+	Fri, 23 Jan 2026 00:00:54 +0000
+Received: from pendragon.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 1736B14C7;
+	Fri, 23 Jan 2026 01:00:15 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1769126416;
+	bh=m5cqibSmGWvJs1iTmsUdJGmNIvWdxJWw6DAZhp/XEtU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vI5FuHEDtyvsGR7I+74xw3BEghRy9D0pz3wBqB8fgVcNWpS5dSzFj35THsAmPnHi+
+	 cmMdlBN/d80XEDgOc+mp9Pykg1JH+yXEJydkugCjTzRq7h718rhbJAM9QiFKXTxWxJ
+	 dirV0g+CyT+AbI4lMach4Y+q7c9hgGYL+l3L2VPw=
+Date: Fri, 23 Jan 2026 02:00:47 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger-Novakovic <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5] media: nxp: Add dev_err_probe() to all error paths in
+ *async_register() helpers
+Message-ID: <20260123000047.GG215800@killaraus>
+References: <20260121-cam_cleanup-v5-1-01d1ab38db9d@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260114-vdso-header-cleanups-v1-15-803b80ee97b4@linutronix.de>
+In-Reply-To: <20260121-cam_cleanup-v5-1-01d1ab38db9d@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260122_160053_239818_4A25A69C 
+X-CRM114-Status: GOOD (  28.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,13 +76,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 14, 2026 at 09:01:47AM +0100, Thomas Weißschuh wrote:
-> Recent cleanups of the vDSO headers allow the unconditional inclusion of
-> vdso/datapage.h and the declarations it provides. This also means that
-> the declaration of vdso_k_rng_data is always visible and its usage does
-> not need to be guarded by ifdefs anymore. Instead use IS_ENABLED().
-> 
-> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+Hi Frank,
 
-Reviewed-by: Jason A. Donenfeld <Jason@zx2c4.com>
+Thank you for the patch.
+
+On Wed, Jan 21, 2026 at 03:42:03PM -0500, Frank Li wrote:
+> Add dev_err_probe() to all error branches in the *async_register() helpers
+> to provide clearer diagnostic information when device registration fails.
+> 
+> Drop the explicit error message after returning from
+> mipi_csis_async_register(), as the error is already reported by this
+> helper.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Some trivial patch to reduce goto at probe functions.
+> ---
+> Changes in v5:
+> - rebase to https://gitlab.freedesktop.org/linux-media/users/pinchartl.git tags/next-media-nxp-20260120
+> - Link to v4: https://lore.kernel.org/r/20260116-cam_cleanup-v4-0-29ce01640443@nxp.com
+> 
+> Changes in v4:
+> - collect alex's review tag
+> - fix grammer in error message
+> - Link to v3: https://lore.kernel.org/r/20251215-cam_cleanup-v3-0-a61995068f38@nxp.com
+> 
+> Changes in v3:
+> - rebase to v6.19-rc1
+> - avoid use __free() == NULL according to cleanup.h
+> - Link to v2: https://lore.kernel.org/r/20251119-cam_cleanup-v2-0-df732cc83ff1@nxp.com
+> 
+> Changes in v2:
+> - add new patch media: nxp: Add dev_err_probe() to all error paths in *async_register() helpers
+> - detail change see each patch's change log.
+> - Link to v1: https://lore.kernel.org/r/20251117-cam_cleanup-v1-0-6cd42872db79@nxp.com
+> ---
+> Change in v5
+> - remove "no functional change" in commit message
+> - fix error message.
+> 
+> change in v2
+> - new patch
+> ---
+>  drivers/media/platform/nxp/imx-mipi-csis.c    | 31 ++++++++++++++++-----------
+>  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 27 ++++++++++++++---------
+>  2 files changed, 35 insertions(+), 23 deletions(-)
+> 
+> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+> index 9a43fd1eb0bcee7ac0c47f28ad89012de45a70d9..06ea96b8eaf61058d6979b7be747496480c4bc69 100644
+> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> @@ -1359,18 +1359,18 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
+>  		fwnode_graph_get_endpoint_by_id(dev_fwnode(csis->dev), 0, 0,
+>  						FWNODE_GRAPH_ENDPOINT_NEXT);
+>  	if (!ep)
+> -		return -ENOTCONN;
+> +		return dev_err_probe(csis->dev, -ENOTCONN,
+> +				     "failed to get local endpoint\n");
+>  
+>  	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
+>  	if (ret)
+> -		return ret;
+> +		return dev_err_probe(csis->dev, ret,
+> +				     "failed to parse endpoint\n");
+>  
+>  	for (i = 0; i < vep.bus.mipi_csi2.num_data_lanes; ++i) {
+> -		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1) {
+> -			dev_err(csis->dev,
+> -				"data lanes reordering is not supported");
+> -			return -EINVAL;
+> -		}
+> +		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1)
+> +			return dev_err_probe(csis->dev, -EINVAL,
+> +					     "data lanes reordering is not supported\n");
+>  	}
+>  
+>  	csis->bus = vep.bus.mipi_csi2;
+> @@ -1382,15 +1382,22 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
+>  	asd = v4l2_async_nf_add_fwnode_remote(&csis->notifier, ep,
+>  					      struct v4l2_async_connection);
+>  	if (IS_ERR(asd))
+> -		return PTR_ERR(asd);
+> +		return dev_err_probe(csis->dev, PTR_ERR(asd),
+> +				     "failed to add remote fnnode to notifier\n");
+
+s/fnnode/fwnode/
+
+>  
+>  	csis->notifier.ops = &mipi_csis_notify_ops;
+>  
+>  	ret = v4l2_async_nf_register(&csis->notifier);
+>  	if (ret)
+> -		return ret;
+> +		return dev_err_probe(csis->dev, ret,
+> +				     "failed to register notifier\n");
+>  
+> -	return v4l2_async_register_subdev(&csis->sd);
+> +	ret = v4l2_async_register_subdev(&csis->sd);
+> +	if (ret)
+> +		return dev_err_probe(csis->dev, ret,
+> +				     "failed to register subdev\n");
+> +
+> +	return 0;
+>  }
+>  
+>  /* -----------------------------------------------------------------------------
+> @@ -1549,10 +1556,8 @@ static int mipi_csis_probe(struct platform_device *pdev)
+>  	platform_set_drvdata(pdev, &csis->sd);
+>  
+>  	ret = mipi_csis_async_register(csis);
+> -	if (ret < 0) {
+> -		dev_err(dev, "async register failed: %d\n", ret);
+> +	if (ret < 0)
+>  		goto err_cleanup;
+> -	}
+>  
+>  	/* Initialize debugfs. */
+>  	mipi_csis_debugfs_init(csis);
+> diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> index 9d946b68cf59d9f4fb3413fc90219efd380d9d95..8304b3d3a338394d6325929d28aa69d865ac8a92 100644
+> --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> @@ -727,18 +727,18 @@ static int imx8mq_mipi_csi_async_register(struct csi_state *state)
+>  		fwnode_graph_get_endpoint_by_id(dev_fwnode(state->dev), 0, 0,
+>  						FWNODE_GRAPH_ENDPOINT_NEXT);
+>  	if (!ep)
+> -		return -ENOTCONN;
+> +		return dev_err_probe(state->dev, -ENOTCONN,
+> +				     "failed to get remote endpoint fwnode\n");
+
+s/remote/local/
+
+>  
+>  	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
+>  	if (ret)
+> -		return ret;
+> +		return dev_err_probe(state->dev, ret,
+> +				     "failed to parse endpoint fwnode\n");
+
+s/ fwnode//
+
+to match the message above.
+
+With that,
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+I'll apply the changes locally, no need to submit a v6.
+
+>  
+>  	for (i = 0; i < vep.bus.mipi_csi2.num_data_lanes; ++i) {
+> -		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1) {
+> -			dev_err(state->dev,
+> -				"data lanes reordering is not supported");
+> -			return -EINVAL;
+> -		}
+> +		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1)
+> +			return dev_err_probe(state->dev, -EINVAL,
+> +					     "data lanes reordering is not supported");
+>  	}
+>  
+>  	state->bus = vep.bus.mipi_csi2;
+> @@ -750,15 +750,22 @@ static int imx8mq_mipi_csi_async_register(struct csi_state *state)
+>  	asd = v4l2_async_nf_add_fwnode_remote(&state->notifier, ep,
+>  					      struct v4l2_async_connection);
+>  	if (IS_ERR(asd))
+> -		return PTR_ERR(asd);
+> +		return dev_err_probe(state->dev, PTR_ERR(asd),
+> +				     "failed to add fwnode to notifier\n");
+>  
+>  	state->notifier.ops = &imx8mq_mipi_csi_notify_ops;
+>  
+>  	ret = v4l2_async_nf_register(&state->notifier);
+>  	if (ret)
+> -		return ret;
+> +		return dev_err_probe(state->dev, ret,
+> +				     "failed to register notifier\n");
+>  
+> -	return v4l2_async_register_subdev(&state->sd);
+> +	ret = v4l2_async_register_subdev(&state->sd);
+> +	if (ret)
+> +		return dev_err_probe(state->dev, ret,
+> +				     "failed to register subdev\n");
+> +
+> +	return 0;
+>  }
+>  
+>  /* -----------------------------------------------------------------------------
+> 
+> ---
+> base-commit: b7af7c950e1076a9e3d855045571be2de4ce9f2c
+> change-id: 20250807-cam_cleanup-b6d90ba9dac3
+
+-- 
+Regards,
+
+Laurent Pinchart
 
