@@ -4,109 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BB99D778BD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 22:25:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE3BD6CFA7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 22:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:In-Reply-To:References:From:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uq0Bbktbk8y7WGuikPOCqhYRMF8Z5/AnUPjwZmM3BjA=; b=xfEtvXe//7OpNr2L09XOpAWlvI
-	tA8J5e93VCC4wKzVjHn2jfpVQfJwj4X1KphcLmWqXb4igUAp0H5ty6pgzj+zS3pQnaSufQTjbEAoq
-	7qWa2+QCCtaLqftdAn/KRbrkKkkuYW5DUeEnMPmnjqxqmSnY2pzaBqpwJ3xyutjOcJs1arz3G7otw
-	mi18QEH+lRsbXSjNDddDDJj408xsCXqrSNk8xD1iepPiyn4g0VFO185K5q4J9hnA/dajcPn7Rbhh3
-	iuaytYPCiQbQlPX1UOOEaL8dG8Id4bos06qSdDuOzrAep7rvTWIjuu9z9aI17009h+nIjFFctbZ8/
-	+OqYKwcQ==;
+	bh=L6uKlu5RUoZsmMwKTCOwrXYvhlyeoe4THBPgxqZrCnY=; b=056/TVhbfLTGzQ6gwZmV6CiCyi
+	l+Mvtu9mYCyYfyZ9SAPdDXZinTJFcZZSMCfR7+sTwc36bXEH0GJ54MDAGnoWkFyXMvOqP6Qg4y/Lc
+	E8wweV4eHLzFALynndJk4OhsRrDHXu884E+xXpjdRm+5PSkKqA9WyZ3lQilQ9gWP+Umk5w+AldUuq
+	CrZVIXkMYBLzd+VEDhJB1wGOew5P33/+ohEsxRoKa5+lJSWcb8kBSaV/0rsy9zc6VrLo/TdktUTAH
+	dIIikV4Ibd1eXFrDgWRqUQMVoYRGrcvf9ianF5wW1oADDWCJumxH6C0QkXrAGOlKFOH9+qBeRhxEd
+	3tP8dpaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjPaZ-00000009YFo-3bSQ;
-	Fri, 23 Jan 2026 22:25:11 +0000
-Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
+	id 1vjPzE-00000009Ysa-1Xwe;
+	Fri, 23 Jan 2026 22:50:40 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjPaW-00000009YFN-2zd4
+	id 1vjPz9-00000009Ys3-3YPe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 22:25:09 +0000
-Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-649523de91fso2247764d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 14:25:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769207107; cv=none;
-        d=google.com; s=arc-20240605;
-        b=MPpSZs8THx6hpbd6a5v0D/LyXXXGe7W1m0nLEP1VeuXvHbb9lzPA4LAg2aqsZdbrUp
-         RiRyUk/Lcq0Rmh4t0o/x4P2vSlqLu6ecVUZEG3xdrxmLW8qEeZ9SB3ksY4sNZ40Oup3H
-         AqjFwqoRKAouROP9oy646HcbA+FXIhshknAVxa3YhIQOHFw36SCiQYkBKpj9Kr8vz0j0
-         U71ya2M5mX1EvAb0VsnSiQbZQF8v96V7fVpRQ3ztGG0waEvVCAlPh+GUZi39joQ5wr7a
-         +ZIGvjPwz19NSLQSFf5xR7u9eagwlbf1IBCYScTwZbcn+IGtED/XbuHVUgH80gLKqzxO
-         HSxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:in-reply-to:references:from
-         :mime-version:dkim-signature;
-        bh=uq0Bbktbk8y7WGuikPOCqhYRMF8Z5/AnUPjwZmM3BjA=;
-        fh=b/lb7AANd9vnii4f5+ynpkAwM3JRcRLSzAsDIqQ1U9g=;
-        b=LL3cyvyS9oZTaUn7XiAB69//5wna8BuUeLyxAdzHTfTef+gLgqokMXl2wXuznPzU8L
-         K0+DC5At7K6+6CH5XnXy51lYMNn8pTwTyhRvABOn2VVsAoDwk58lxbZwSk4hNu+/odo8
-         EegE4Fl68aCQas9h3TjJlD0eizDHYEktZmZR4Jn9YqzBuG/Dmg/ExaDK12W1bqOiFSTm
-         SimvnCJ1z4xilL0U/SZDaUS+Lh6E85CbkdM8kJYqlIRvdn7oI4XX+QwEwVxzn3C6whoU
-         OugzDV5WbfadpnsqQXAFk521EKtX1OxpTy4ZeeJNhqgk6ntCB2E87AAtJzUF4MJBXxXj
-         bDQw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1769207107; x=1769811907; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:in-reply-to:references:from
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=uq0Bbktbk8y7WGuikPOCqhYRMF8Z5/AnUPjwZmM3BjA=;
-        b=g8VqSl/Qs/v5MGWHhtCg8ENI2rRoAkLLQQRVMdKc8GAV0XUcndS5ukkBWtsMUE+4s6
-         fWYJoVj15QRsdkJnVXE9B8CvDq7essLzhGbvbMEQ7RkfkTQrfr7QdAdvfcgn+DtAhyKi
-         1DnEBcvk5Lg2fWaEdq35uB04JziSKBBpXbfNm/vOIHffH3TdSlfpIscbcMnF/SBcP8Fc
-         YViIOj+ykhGoPzFIC9T5gM+RmZobht5VFXjpzrkncqsCYW/XgAAijcJxeaAcbswVlgEr
-         hhmgUSgZGnGItUW+2Malpb45RDRHT2onLlrvzJRs5BKl76uli8SrkOP+hu8QCb/UUV43
-         CueQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769207107; x=1769811907;
-        h=cc:to:subject:message-id:date:in-reply-to:references:from
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uq0Bbktbk8y7WGuikPOCqhYRMF8Z5/AnUPjwZmM3BjA=;
-        b=mh0NXmbAfwfO68POLVbvIKVcXsIEpDTYZMNiVFtDOt5Q+wB2eWcpcdK+Xtq3juEfj7
-         DkDJR3+NsxqG6/SUUs4ifnGglfK4RiQZ6naNhwTKcV9yDWgEvnHXJKvaxZw4e8u2efuK
-         TN54FqQ0ii5BwYpQ/wubAUQYT5JD5KKFKGeSFzpTpPT7YGIIH4Q9lCYzBsQ1Ce0geHTm
-         G63dJWILLpF+zsZaz5ctM+svBsJNO6zalr1Q6xn9bQvRZA8wA5/pRn6N5blruV/8t3a7
-         sbj/vSdglJHc1z4wvfAPY+o3ocgx/JBFhrzk8NIVX5v+Gsx1kLDby8vKdL0dkCcEm9iw
-         +Dyg==
-X-Forwarded-Encrypted: i=1; AJvYcCXAnnRUIxZFWaNPmqHmOhEDnkGONiKeokFwaVE+ccT4p9WilJ4GSRBPK5kOP+95SO6+y4gACzGAjRB2UjZ7v0Tn@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywy74bFTYYcMbvgNjgLNc9ciB5vOQp3hxhY6Vc9rJNEbrzdmper
-	7zYUKvT8Qo5bqDh+lJtMNvCvDVCa5RCbbZDp8LwdUL0P2Q5/z5vpUIGG9zpOJcAIMfFZ8uETLTZ
-	7UTIJe78mE/X/lBB6sVcDiEVRqOy/ohtS6xcijjUMcQ==
-X-Gm-Gg: AZuq6aLY6ksgOBjl3LCHb1CTbRsOhJLkSjCq+Kj0JfOvI2fmziFSUI+k9CeWGuiMCIi
-	A1SSb7XUR1eh++n7gP+AENOnNL/9h7NKEMR5qd3WsHiHe94JBcaKqqNCOH30zoA5VkYYCR0zm93
-	WSwoA9qkAORcSfeFFQX+5CGeBT/oOXMVFVQS1otM6NKCV1rzK0wBD4D5S3AAome+fO1CPLjK0G2
-	pjhXQE+ueDDxMeycqEurmLiI5sJaqPg3dXuh2tifDzkpdBNpMQ5FqMNfJMcNsq1LuXUyfCE
-X-Received: by 2002:a05:690e:4146:b0:641:f5bc:6984 with SMTP id
- 956f58d0204a3-6495c0291b1mr3421254d50.80.1769207107135; Fri, 23 Jan 2026
- 14:25:07 -0800 (PST)
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 23 Jan 2026 17:25:06 -0500
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 23 Jan 2026 17:25:06 -0500
-Mime-Version: 1.0
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-X-Mailer: aerc 0.21.0
-References: <20260123-i2c-xiic-v3-0-eb7cd4254dfb@nexthop.ai>
- <20260123-i2c-xiic-v3-2-eb7cd4254dfb@nexthop.ai> <efe4e155-e307-481f-8332-783cca8a098a@lunn.ch>
- <CAGYn4vz3YuJ251JZFk7M=wsJr=bMY0Wq7x4Er=mjS_spyT5jLA@mail.gmail.com> <df4e0611-ce76-464c-be01-e3802b04877f@lunn.ch>
-In-Reply-To: <df4e0611-ce76-464c-be01-e3802b04877f@lunn.ch>
-Date: Fri, 23 Jan 2026 17:25:06 -0500
-X-Gm-Features: AZwV_Qgn9XTijMwGH37i_MRyx6zWVhVWzL58EFtO9uJwNOMjVACM4iIsDuD-mAk
-Message-ID: <CAGYn4vwg5pk4-HaO6_RXq9e4cC0oHBNpBBuLyXJ7zRLoP=gokg@mail.gmail.com>
-Subject: Re: [PATCH v3 2/5] i2c: xiic: switch to managed version of mutex_init
-To: Andrew Lunn <andrew@lunn.ch>, Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@intel.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 23 Jan 2026 22:50:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769208636; x=1800744636;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=cE/ifPyGb0uJSZu6c77p/l+R3iUkMviEt2g3Hy6PAdM=;
+  b=HAMv8n8S1cT2kHmixr76g6E9TghySlRxoIzW5oaa4mDTXZ6WWlxLV381
+   zB5W4Z6H3xXl6Vg1ib+gXDWAUd2QbPS0tBvxwhJks//xpzrkcLG75qxyN
+   GmZZZeopxfz60mUK/FPTyvgo+E3JYBQM0GE0U8xFT2v8/ExJ02Nhy4fvh
+   m7aiZZumSImf8i/P7ZwSuzbDCFJYsJ7xjS893WbsGB7wBptUQZbvfbfNz
+   KWREjE2CiBQxSZT4hF03MJInf1NlgPxWeMMiunKguOEq3iDKKl6QiEfeP
+   u0t6i5cW+v3Z1ic75LM61k640xAlTLaAAhl43qtoFNukZg6TEqOyiVnOi
+   Q==;
+X-CSE-ConnectionGUID: Vsgq9AVhRtKIt/Gt6DgB7g==
+X-CSE-MsgGUID: mwL24km3S2iXMf4K7v3yQw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11680"; a="70515840"
+X-IronPort-AV: E=Sophos;i="6.21,249,1763452800"; 
+   d="scan'208";a="70515840"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2026 14:50:35 -0800
+X-CSE-ConnectionGUID: 42sUTua/SDGbTI7keqKF5w==
+X-CSE-MsgGUID: g5pysrIvQSKbBXsaPDQoIA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,249,1763452800"; 
+   d="scan'208";a="211996523"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by fmviesa004.fm.intel.com with ESMTP; 23 Jan 2026 14:50:30 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vjPz1-00000000UYI-1pDn;
+	Fri, 23 Jan 2026 22:50:27 +0000
+Date: Sat, 24 Jan 2026 06:50:03 +0800
+From: kernel test robot <lkp@intel.com>
+To: Parvathi Pudi <parvathi@couthit.com>, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	pabeni@redhat.com, danishanwar@ti.com, rogerq@kernel.org,
+	pmohan@couthit.com, basharath@couthit.com, afd@ti.com
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	alok.a.tiwari@oracle.com, horms@kernel.org, pratheesh@ti.com,
+	j-rameshbabu@ti.com, vigneshr@ti.com, praneeth@ti.com, srk@ti.com,
+	rogerq@ti.com, krishna@couthit.com
+Subject: Re: [PATCH net-next v12 1/3] net: ti: icssm-prueth: Add helper
+ functions to configure and maintain FDB
+Message-ID: <202601240612.E2dA0Rll-lkp@intel.com>
+References: <20260123135932.535735-2-parvathi@couthit.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260123135932.535735-2-parvathi@couthit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_142508_771362_D3642F12 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20260123_145037_396589_199BA1CC 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,29 +95,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Jan 23, 2026 at 9:36 PM UTC, Andrew Lunn wrote:
-> On Fri, Jan 23, 2026 at 12:20:54PM -0800, Abdurrahman Hussain wrote:
->> On Fri Jan 23, 2026 at 7:22 PM UTC, Andrew Lunn wrote:
->> > On Fri, Jan 23, 2026 at 08:02:45AM +0000, Abdurrahman Hussain via B4 Relay wrote:
->> >> From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
->> >>
->> >> Simplify the error path by switching to a managed version of mutex_init.
->> >
->> > How does this simplify the error path? You don't remove anything from
->> > the error path.
->> >
->> >     Andrew
->>
->>
->> Thank you for the feedback. In v4, as suggested by Andy, I introduced managed
->> versions of the pm_runtime_ functions which do simplify the error handling.
->
-> But this patch is not about pm_runtime_, it is about a mutex. How does
-> this patch make the error path simpler? Please make sure your commit
-> messages are accurate.
->
+Hi Parvathi,
 
-You are right. In the case of mutex there was no error path. I should have
-worded it differently. In v4 pm_runtime changes were added to the same
-patch, so the wording might actually be correct now.
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on net-next/main]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Parvathi-Pudi/net-ti-icssm-prueth-Add-helper-functions-to-configure-and-maintain-FDB/20260123-220750
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20260123135932.535735-2-parvathi%40couthit.com
+patch subject: [PATCH net-next v12 1/3] net: ti: icssm-prueth: Add helper functions to configure and maintain FDB
+config: csky-allmodconfig (https://download.01.org/0day-ci/archive/20260124/202601240612.E2dA0Rll-lkp@intel.com/config)
+compiler: csky-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260124/202601240612.E2dA0Rll-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601240612.E2dA0Rll-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c: In function 'icssm_prueth_sw_init_fdb_table':
+>> drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c:570:27: error: implicit declaration of function 'kmalloc_obj'; did you mean 'kmalloc_node'? [-Wimplicit-function-declaration]
+     570 |         prueth->fdb_tbl = kmalloc_obj(*prueth->fdb_tbl, GFP_KERNEL);
+         |                           ^~~~~~~~~~~
+         |                           kmalloc_node
+>> drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c:570:25: error: assignment to 'struct fdb_tbl *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+     570 |         prueth->fdb_tbl = kmalloc_obj(*prueth->fdb_tbl, GFP_KERNEL);
+         |                         ^
+
+
+vim +570 drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c
+
+   564	
+   565	int icssm_prueth_sw_init_fdb_table(struct prueth *prueth)
+   566	{
+   567		if (prueth->emac_configured)
+   568			return 0;
+   569	
+ > 570		prueth->fdb_tbl = kmalloc_obj(*prueth->fdb_tbl, GFP_KERNEL);
+   571		if (!prueth->fdb_tbl)
+   572			return -ENOMEM;
+   573	
+   574		icssm_prueth_sw_fdb_tbl_init(prueth);
+   575	
+   576		return 0;
+   577	}
+   578	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
