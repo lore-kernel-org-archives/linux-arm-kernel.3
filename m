@@ -4,155 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EDE0D72348
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:13:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF16ED72349
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QroEcfN4Oeu0CQYLHwFgyZ3OLbGZF3KpIN302CnXCwM=; b=TjrwqWGPld6i5gW/JW6wu4uy+1
-	+GqifwtZB5pb3C6AfGUkwiBILm+wToCxcfI3mMdgbh2Qn7ms4JscZnNUhCq6PsPJZhyYbFGF81986
-	wi617PnpfHBQAV0PimXPC9Zya4zmddSjO9XzukgZNuxZELBFprOvPszCbGv1FitZihp4FyDmbFhf9
-	h8Pomp365qU0Ryn8oUuUbmOrkamRYnniX4jysGyE8S01+RYbQQ2qke7uV5VygpHoiWDHGLTlCoJkP
-	2o4Ge0Xxc54XVDPEdgQOagbvgE2AF0PGCRZitQXheIQ7lwDmoiLAXFSnWCFdiMhTFV/HLPZT74GTb
-	udJD2BBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nA8sXD0FqzkneEAx9yV9Y9lTP0hUm1k+5svU6+Gfnes=; b=Y5PjeLlymlm/4pmZvI2htaHFsq
+	LChgEBQ4cA4eiik7NlUPBAT7eNGsFt2q0hejB5vxN8qCgjSTWXIo/iyfLOgWbEow/KzM7SRaJJYTN
+	CeTZu7aBT4u9ujap1vw0k8c0nmuDjdo/ivWGg33ltZy2B7R9Fm6ScR41P/esn2hKcIydZQT0tWlhK
+	LZQNy5PkRtixADw18dhDPLxVATku3a2qzRypfyy2wsiIrLrihWLs8NidcvINshjpcm1Qlh84JgKeD
+	1TISgx/DUJFvyaBkHHB2ldZ2SSH7oqsZjSkQNfeX5+/+YjbqVQxhn7idIV1Z9Km9h8xzUWT5zvsqt
+	gUeB4dYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjCIG-00000008RPb-3tEB;
-	Fri, 23 Jan 2026 08:13:24 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vjCIW-00000008RTh-48wx;
+	Fri, 23 Jan 2026 08:13:41 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjCID-00000008ROC-31E0;
-	Fri, 23 Jan 2026 08:13:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IjlJgh0JBt9dW9qJdBJcA8eKr23gCZmq4irmL+E6MWGEEXz0Cq/ZEHJ8BOwtvGxWewjQ5tXD1Nu3mx9OPdYmyvZ92ZRkc4fQL5nRwWRiPPdl6erIBnGF+BdMQP4NaFQYZmun4RpUMY0fetIpDOqJvqcb4q1XDwsvIZDAI5JR7WzedOuWM9k/p+3JWDGR06N91s3LMun5gVMj/FKb2ybFbv7zQH8ySrzBjq/mkDCD7VdHlZDXHjun6xvYdkhmY1/C6TcInr3hKRvkwxoQuAgURKokKuC2MDEDVoMKhQ8zoCucTN47rMroUKwZt1FHM079ExUmABYpmekyyF6tNOjUtg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QroEcfN4Oeu0CQYLHwFgyZ3OLbGZF3KpIN302CnXCwM=;
- b=DtOVFiHOTa4RPmGjblK0hhvJxF98Xt7HEdiB4XV0BpRuxC3UoiR3op3gt9ASG+f2+p3oAujrel32sVpWMr3GBpWWjaCXFIFb/BswFG+dbA9/Sr9wOY4BHN7tpVuIC0ZvUE3hjlA8zc+FIDnksIPBOZN/5hDli/ibm79EZp19/qbrjytr6VRSSVUZCGsVFT5e06u+HCLETrkPgyo+6adLyHF7l5XFPHjJBpNVsTmaNAkA+0Q0eTkv3wYeY48MYtyk7lCYb+ICIQoAzN04UnTIJKMJXOKuYFUmucsbjZ2O3y8HOb1rD2Z0j8QdSWh23WLYjiStsbnDBvFwtwj42sQetg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QroEcfN4Oeu0CQYLHwFgyZ3OLbGZF3KpIN302CnXCwM=;
- b=FyaMpsfPWsWKrQyuqI1yaHDo4vFRuOki3NbJiBpyNqM+e5tEORzIjFX+9cJW87UY4ghGoHEK2R2UM1mSEtK7RcI3Lol4FIPxrPaPPuHsqN41U/XiU8IYNR7A7UJtNE7HRNeHWl77MzSGFoAqp0EZdzLfUKRtAb7SXHA7mtKBsMpV0tT8HlmZJ6wBhfZ24knjAhqlBqpXowSgUhdFzkg42KQYsRzuQ3K8FQamrOtiMwwmyAMPPYoxIaD1Qd6fF141aq8JR4QFHV2Pk+nPD+7syS+iwvVP1UWzh7r/IJs8/b1rA9rJgQV2W6u0lCpzESDEq2iXJwFzkrHZxYGhi6RvbQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8829.eurprd04.prod.outlook.com (2603:10a6:102:20c::17)
- by PAWPR04MB10054.eurprd04.prod.outlook.com (2603:10a6:102:38b::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Fri, 23 Jan
- 2026 08:13:09 +0000
-Received: from PAXPR04MB8829.eurprd04.prod.outlook.com
- ([fe80::cdc5:713a:9592:f7ad]) by PAXPR04MB8829.eurprd04.prod.outlook.com
- ([fe80::cdc5:713a:9592:f7ad%7]) with mapi id 15.20.9520.003; Fri, 23 Jan 2026
- 08:13:08 +0000
-Date: Fri, 23 Jan 2026 16:05:48 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Frank Li <Frank.li@nxp.com>, vkoul@kernel.org, 
-	neil.armstrong@linaro.org, shawnguo@kernel.org, kernel@pengutronix.de, festevam@gmail.com, 
-	jun.li@nxp.com, linux-phy@lists.infradead.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] phy: fsl-imx8mq-usb: add debugfs to access control
- register
-Message-ID: <5qogopa335bhootpiprw37f3uhxiftj3rqmouknyvyzrogrsoi@b4wfrxrebpzt>
-References: <20260108083641.2119616-1-xu.yang_2@nxp.com>
- <aV/Qha0CQ+LJHo76@lizhi-Precision-Tower-5810>
- <das6ud7gep5hrcdn4bnmoyl2pb7okbxslpnawch2osaezd6xm5@psbizlufjec4>
- <6d27a8b1-1407-40ff-945b-927ef0a39eb1@lunn.ch>
- <fmdje7ftwna5vv5xrzt5e7hpv4juzwjurhvdzzrfeifaeyyblj@givopw2u7vmn>
- <06ae1272-9874-4ce7-9e4f-01d521a5f27f@lunn.ch>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <06ae1272-9874-4ce7-9e4f-01d521a5f27f@lunn.ch>
-X-ClientProxiedBy: SI2PR06CA0003.apcprd06.prod.outlook.com
- (2603:1096:4:186::14) To PAXPR04MB8829.eurprd04.prod.outlook.com
- (2603:10a6:102:20c::17)
+	id 1vjCIT-00000008RSE-1zN9
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 Jan 2026 08:13:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1769156016;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=nA8sXD0FqzkneEAx9yV9Y9lTP0hUm1k+5svU6+Gfnes=;
+	b=aBMJS16Zh3rD6wqirlwv+vT82mpO0Ts/dYHrR2oUYVNgvRAP3b1HjscD/crZ47GDCP44cl
+	aeDFxDvRxIo/ogp88gJe9J4C/E+sP334A8AMT+v76ihZx5VqWWg27RIQYxYhpuQ9wCM2qp
+	/R73tRdSXZDW4C7u++fI++jbP52itg4=
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
+ [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-458-ABqTYDsdMqmBQ0o31A7ctg-1; Fri, 23 Jan 2026 03:13:32 -0500
+X-MC-Unique: ABqTYDsdMqmBQ0o31A7ctg-1
+X-Mimecast-MFC-AGG-ID: ABqTYDsdMqmBQ0o31A7ctg_1769156011
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-82323cc7594so12014b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 00:13:31 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769156011; x=1769760811;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nA8sXD0FqzkneEAx9yV9Y9lTP0hUm1k+5svU6+Gfnes=;
+        b=jVEx3D1teyKWPbZB6NQlwIAIgAV2M5PIAT82Gl2jxW8odXVIPAJpOjNRHDQy0tQXsm
+         x6ylOUP+k1RIsofAgyGQJwGiEq9KU1LONHxX5VPhwrdoHaVLPDumNyk/Ny2DU8ZFH7HM
+         2jAQPPXM6QMW+QVRuVg8sAqWJ+Ig04EQaoqrGXBI2CufW7AUos8HMYPlg3gbZHL/ivfS
+         Y6INrPkXY/mJUAtRUtQKGcWIdKBtCb3KcX8KTbu0JrDc+5qnr3dIqpo+RmeEu1dhHXpp
+         535iW7GoS8Jo31yWrLATVLLRVaqiRujY98fxy3uQO6THQJQbSZZnZQu4l2Z4lIiGPvon
+         q/Pg==
+X-Forwarded-Encrypted: i=1; AJvYcCWeewJEHkfTX3/+Wu0xyC0VXl0MV+V2UC02jjPmq42XJ7rw1954HO+mxMDErXRLdGvQdPx88b6JzKhBsdsrKUdT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3tLR22orC5rmRKs/wZWcu8g0dWWnleR98BU9tOzFClLY20JBN
+	ftura6fBSrvk+F1n6ouBG23kdGbobsK62yQSVyWXMnQzJNQlavtACh6bHbtP3YNUJcdx+dzLeP+
+	FulpVeEZxBXUfxGe/E8lvEGttjeJqWjeZ/oTbERohF1QeAL6tWSyuvLAt/9+CIDAIMvUh2xX0Mg
+	iv
+X-Gm-Gg: AZuq6aKUNbqg4QIxsqmU2j8/l86e6Ix5eRb5KPmOuv0O4lN0oO4vJgzCu1Krl+ghc29
+	ydeklDf1Y0MzYjitxVMcsk7q7AGlyWRE04+4Cm0qnLp2/QOqWYhsViGUNuB87lhADuL4W4e3rhj
+	OHH1mMtUBGHJRgL3FRdYMHx3Eve3Zn5T0UmeXV4QGaNWomXC057YTQHV8Z0whccVRjn8AOp0LZk
+	L3EdWhZ13DX58C4FLMI7fsoYGOGoRZ6OkwNLeNOHruYWCq2oCFhngMkz54vFUh7oLkz6/IscMjW
+	2zWqbL5ZLLBnckMowvs7VcEIC4CBAH10iL1n3PNeFVESSd6MQOkmmbM/zvShJe9FeA13NBZydWy
+	t
+X-Received: by 2002:a05:6a00:1885:b0:81f:46ba:1817 with SMTP id d2e1a72fcca58-8232178898amr325075b3a.66.1769156010905;
+        Fri, 23 Jan 2026 00:13:30 -0800 (PST)
+X-Received: by 2002:a05:6a00:1885:b0:81f:46ba:1817 with SMTP id d2e1a72fcca58-8232178898amr325043b3a.66.1769156010374;
+        Fri, 23 Jan 2026 00:13:30 -0800 (PST)
+Received: from localhost ([209.132.188.88])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8231876f736sm1443202b3a.64.2026.01.23.00.13.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 23 Jan 2026 00:13:29 -0800 (PST)
+From: Coiby Xu <coxu@redhat.com>
+To: kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>,
+	Baoquan he <bhe@redhat.com>,
+	Dave Young <dyoung@redhat.com>,
+	Kairui Song <ryncsn@gmail.com>,
+	Pingfan Liu <kernelfans@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Saravana Kannan <saravanak@kernel.org>,
+	linux-kernel@vger.kernel.org (open list),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE)
+Subject: [PATCH v3] arm64/kdump: pass dm-crypt keys to kdump kernel
+Date: Fri, 23 Jan 2026 16:13:25 +0800
+Message-ID: <20260123081326.1362666-1-coxu@redhat.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8829:EE_|PAWPR04MB10054:EE_
-X-MS-Office365-Filtering-Correlation-Id: 49e3bad3-daae-4772-0658-08de5a573e55
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xd++BCdogTHVLIuRYhALq7GMJuOhuQMTLQAXrNPnErk+Ri9isfqQ3ZjbwvT0?=
- =?us-ascii?Q?5fwZjhVoQbv+C9hS+HEbms1nxFJo6KCGi7jcVoUD7yX16jK5uKGepMsdi6Hp?=
- =?us-ascii?Q?4uDPjJQOtB3aLIYNcYNgU5++/7eBEUcVzcclXoYSxGKclvtZnzPCn5qpPNDX?=
- =?us-ascii?Q?Hpxk7ovstiEIKB7UunUDRkTcjpDDv3Ti+q/n6pQNoTJNcNEHHodbxpYer0e4?=
- =?us-ascii?Q?4Mlpj5M4tYMwc/XXUpGKKzBVwnYTeYCV3ZGySAbb86rWVo25TKX5v+PJOwvK?=
- =?us-ascii?Q?3AqdP9ms35gSNBbrAHMyJEVTTTgFVy0J4L5sbvpM0Gm+qF0FoYTcxuHietMz?=
- =?us-ascii?Q?lLSZXa84VVY7+Qagk003hVpW8WQ0dZgQygB1G0YGJXVhKyshcI84bc0ebGDE?=
- =?us-ascii?Q?dv6RbZWFR4eVm96jQQbQtaGIGOGMb60wqHx22ciDkhQbm+y9JtpCRNWhfq0e?=
- =?us-ascii?Q?dmuk2kqq0YTaAYceg0ZgqY/Y05QtkOSAQWkC0Vak1L/Pz52PAP7tq1L7Xug2?=
- =?us-ascii?Q?uTXf8guFYZ+4rvhPaMs0N2kBbeGW6znHQamo9dIBjyXiO+r8izt1fVCOp/qp?=
- =?us-ascii?Q?swLSNhhMqXqU+WWBu2wzN5IOz4Dmd5bvwOhiLi5N3V0dD42rS1Jr5SNigCin?=
- =?us-ascii?Q?kZAl7kk5ogJKAYLpJ3cc42gwI3Pb7HzKxtalC9q6Vtwj/bRz1H0kG24jvn0g?=
- =?us-ascii?Q?VuQpAi5yiAzAcmuHxgE5/XMnq5dSQTCqKTazKuca/cYpbfwaztbZuEv5iC1N?=
- =?us-ascii?Q?EZDm14E8F3Ixcu7BezVrvldjkrvjYc03adp/3a5SkG78enHN7AByqCb7ISDQ?=
- =?us-ascii?Q?20Y84C6Lfde5XaOT9d1IgBWPAPHGKdXtNsrM62GSH4BcztvMnjont4Kg9dTp?=
- =?us-ascii?Q?iTsMgZ7wvI5y7VHyxlHHvSmoMAtW0rBfFNNg2sM05ZWVmcfIEmVOFs3x1ko6?=
- =?us-ascii?Q?im7aUdKHNXpr2sVyl5F9cGHIuymAQT1t0cB+/kmBgBckDIdx8kb5LCkGsWLB?=
- =?us-ascii?Q?t4vDV/ucA6a8WwwZwGLjfzJK0SAAqSaVEJoofAitT/2/WbGih0RLAcrtp7ec?=
- =?us-ascii?Q?j7Cv5XIr04XJTgp0WM5bW1Fmhmb9FJJqT/b1yD0PWk4pa7bxs81fao+BMJW+?=
- =?us-ascii?Q?3JQm7Cx80f3QK9K/uspzVjkElvZNoYvYFZvbzmsAO6moCLQG2tOG6sGtKjBs?=
- =?us-ascii?Q?L1Lrt/HtIkbGmL+ftN8ELZnqEXU0Yq/yB368DaHTBYUD3zQheidocrM2tYKa?=
- =?us-ascii?Q?RMnPmEvEOHh31k50xDVTykkbld9QuGYQMMeld5c/BWS2vmxcG4bqquHOCMaS?=
- =?us-ascii?Q?zR/jG41YNbbNMbTVgvJhmLF5e/BxWi+X2XkeKQ7KCIYTWJSn3MJwvUJwDdSb?=
- =?us-ascii?Q?vHG+zMmsQ/MAcozAt07G/4Xsw2VYhl7FIM4n0Z3x76i7bNgNj0xztkMnSfdk?=
- =?us-ascii?Q?66RYueleokQ8zY6JcbBYtRQdfoS2Wo81NFRi1wn/Ziq7Ka114KiPjOrVJbmZ?=
- =?us-ascii?Q?uF2z65bRntPyxIPWcDqgfOo8gcGm3AkytM1JheLeGIOpJBl1P6CrLZWRf1Bm?=
- =?us-ascii?Q?qkfrU04mts1O50ncn+FLxQEu1XAi7S7plhaGCzVy?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8829.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+kFX+3K62LJFHlgwonHGCr9FbzDbWtTRlyqZy9iotzYgb1xxtpN1ad9PO5Bs?=
- =?us-ascii?Q?hZVQqtPf1+49afJ5LZAq6BbVhE7rvv2FGOp2YPiXU2im+F5MndhgerRdJjoA?=
- =?us-ascii?Q?4T1lrxSMH7ylpF2nfE21HvZl2Ji8WqKjer/q9WsB/PYLI99JtwFi+i3xvOU9?=
- =?us-ascii?Q?yFnFnzeTiTl25IMckvVoCCM6sFZUjENmYrXr0h2TgaerxC5JJc1M42/4Fo76?=
- =?us-ascii?Q?HPCvHPkJWUzE+jzaFb/kVstDa9YYzkCjNuNErmrvPSKabbcHHnCY+uzImhUh?=
- =?us-ascii?Q?H0ymu6DRWUOo5zjrINGl6bUobOd8JczHCkhZmJS1QWq53p+f9d6POf+Id64b?=
- =?us-ascii?Q?+UvGijSdbbPJ5bfRGUYReXhe7A6wt4BovxececbxjJtY9Bgfn+YxydaLojbE?=
- =?us-ascii?Q?iYXZntK04HDK7QsK4F326fopWVGF4zJFN6SR8dXpqFYpjijLvse1WKGh8s4b?=
- =?us-ascii?Q?2Vd33tvS/pOryCCC4UFzFzDj1mgKIJuAIIzTKxzRM8vVBWBfnVb4rQC7nf4U?=
- =?us-ascii?Q?Wvc1PiEFvONyuovz9MAaqLIs6ceNCTy+QkMsGIuVI2LeoC6Ne5aRpxpi3ZEv?=
- =?us-ascii?Q?qd6D7eUG+k5xxz5BGa9nPyZrN2e9Bbzk0AL0uKLmWvzyGwbtOKHWokYuVfIb?=
- =?us-ascii?Q?E79I0P3o5B2tkp+k7YyKHVzf+f2cn/4nsiFYzktXR3qi6iiasB/cmvdMV3AD?=
- =?us-ascii?Q?bwm74lA1i8C/dpzvt3o91sL+A2+3FxfR+ZfUxHS1PsXL+Qu4kwPIgVHNNBYN?=
- =?us-ascii?Q?bI46v0Iej94xsXqUDjnmjeWACLLxLgAh2ME+Z7ZXBtnxdIKhk5Vx/3eQT3mg?=
- =?us-ascii?Q?Kfup8vQqlfMss4yslnA+ySJsOXaAFhm369OSUwLy/nS75/LU1abeaFHf6dyD?=
- =?us-ascii?Q?PWt/tGGlqVbaqGhVPPmMbGngdNb2p5OTqGQVQZ6p20q2XT5PhHEA3QaGS2/M?=
- =?us-ascii?Q?aEfTB/bAi80GDepHcRB1WcIq0itrUXXL1ZQs5xQtTTfD+DjcVM6ZqlGXwqlA?=
- =?us-ascii?Q?nqdrCL5Rm34Tm7CXyOaG9Zg1SR1fAOEpqjzaZQissTEJcCh9YHdmJ+9HoJy4?=
- =?us-ascii?Q?3VO8ddcerUF9rBvhrDJ4AeI/z63lqnvU9OcMENindUwyUt51/V6OArleAWdO?=
- =?us-ascii?Q?ew5+UtQ8YNsLOQMHjmkXaKn/yggZIe0uPcpSxFIjDyGjPbSDA4aWcW1l+2tN?=
- =?us-ascii?Q?CPQGdFt2UZ47MUKfG1o4cy1E0lQG0r2KMAwyivqoNYC7oYeFer9bkUoAhaxJ?=
- =?us-ascii?Q?xw/9+tsXY37nfPIPktRJo5Paf7GdMv1x1iALriZJEYC/JJJFfZxLGcBSaEKe?=
- =?us-ascii?Q?hBM+BCXF1reV6/tcpZuef0NXymkrNIyIvEZqhYr4E7vbyd4KSXa7MXK470nb?=
- =?us-ascii?Q?72w4W5KOmndponXwmzZDU9FlpVigIMjZ0k3CTMxpy9f4fYH+rWMs6NskR0Tt?=
- =?us-ascii?Q?zJDm0WPggI8kj3xC96rBYPkeJV4QkguYwzgH8oyqyKheWhBz8mg5jKRx0QkA?=
- =?us-ascii?Q?n3S3YmnY78btig9vsPl4krY3K9vJIxAUgCc1+mPknRWqrby14pgQ615y8CKI?=
- =?us-ascii?Q?oOpY2iyycpr7uKh1hHyVhyuvq7QQNwF2YFh/2ziBBtTy3eXdRqME5Fvu2jq7?=
- =?us-ascii?Q?npHbcbjyFdVXbOfJM93INblFOtviiNAs60jj6xBAJKd7KmUy5AevPj/4xziv?=
- =?us-ascii?Q?BiMvG61Cd99zEYLk1fL9ZV8J9td73/wNDWCzWWl1W5dAOpQaSajzMKC/q9zJ?=
- =?us-ascii?Q?VPv903zW3Q=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 49e3bad3-daae-4772-0658-08de5a573e55
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8829.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 08:13:08.9279
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5kzN7AKqM2xBInUoanTB24yp8tqPvMHBUkFSoeN9qode3Cvzx2LYYblb4olTl7fgN3wAiPrN7c+OaVGqd+d89A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB10054
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: QCK4l2APt4HP9da8zhs5bof82k1pO1KGLcglQb8oUtQ_1769156011
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_001321_783548_A92349C2 
-X-CRM114-Status: GOOD (  28.99  )
+X-CRM114-CacheID: sfid-20260123_001337_585013_75C6E017 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,73 +118,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 20, 2026 at 02:32:30PM +0100, Andrew Lunn wrote:
-> > > Rather than reinvent the wheel, could you use regmap?
-> > > 
-> > > https://elixir.bootlin.com/linux/v6.12.1/source/drivers/base/regmap/regmap-debugfs.c#L546
-> > > 
-> > > Regmap should be able to provide a debugfs interface for you, no
-> > > driver code needed.
-> > > 
-> > > This will also help you with the abstraction between the core generic
-> > > part of the PHY driver and the SoC integration glue. You pass the
-> > > regmap to the core driver, and the funny muxing through two registers
-> > > is hidden away from the core. If the next SoC integrated uses plan
-> > > MMIO, that SoC glue driver can instantiate an MMIO regmap.
-> > > 
-> > > Using regmap is a good idea for core generic drivers which can be
-> > > integrated into SoCs in different ways. It hides the SoC details
-> > > behind a well known API.
-> > 
-> > Thanks for your suggestion.
-> > 
-> > Using regmap is generally a good fit for reusable driver and I aggre it
-> > helps abstract Soc-specific details.
-> > 
-> > However, the regmap defbugfs has its own limitations:
-> > 1. By default the register is read-only, add write operation require rebuild
-> >    the kernel which make it inconvenient to debug the issue on the spot.
-> 
-> That is somewhat deliberate. We don't want a nice API which can be
-> used for user space binary blob drivers. In networking, which is my
-> more normal area, we pretty much reject any sort of write interface,
-> other than official kernel APIs.
+CONFIG_CRASH_DM_CRYPT has been introduced to support LUKS-encrypted
+device dump target by addressing two challenges [1],
+ - Kdump kernel may not be able to decrypt the LUKS partition. For some
+   machines, a system administrator may not have a chance to enter the
+   password to decrypt the device in kdump initramfs after the 1st kernel
+   crashes
 
-OK.
+ - LUKS2 by default use the memory-hard Argon2 key derivation function
+   which is quite memory-consuming compared to the limited memory reserved
+   for kdump.
 
-> 
-> >    Refer to: "09c6ecd39410 regmap: Add support for writing to regmap registers
-> >               via debugfs"
-> > 
-> >     # ls /sys/kernel/debug/regmap/2-0050/ -l
-> >     total 0
-> >     -r-------- 1 root root 0 Jan 20 07:45 access
-> >     -r-------- 1 root root 0 Jan 20 07:45 name
-> >     -r-------- 1 root root 0 Jan 20 07:45 range
-> >     -r-------- 1 root root 0 Jan 20 07:45 registers
-> > 
-> > 2. It can't randomly read specific one register with common linux commands. Besides,
-> >    the read operation is inefficient especially when the range is a bit large because
-> >    when you cat the register it always read and output all the registers. 
-> 
-> You are debugging. Do you need efficient output?
-> 
-> If you have a specific debug tasks in mind, maybe you should be
-> thinking of an official kernel API? In the past, there has been
-> interest in getting SERDES eye information out of PHYs, and being able
-> to change the configuration parameters of the eye. Could a generic API
-> be added for that? Some of these PHYs also support pseudo random bit
-> sequence generators, and there has been interest in adding APIs for
-> configuring them.
+To also enable this feature for ARM64, we only need to add device tree
+property dmcryptkeys [2] as similar to elfcorehdr to pass the memory
+address of the stored info of dm-crypt keys to the kdump kernel. Since
+this property is only needed by the kdump kenrel, it won't be exposed to
+user space.
 
-After an internal discussion, we prefer to simply export Soc specific control
-register access regmap in debugfs and let usespace read or write internal
-registers according to CR port accessing sequence. With this, no needs for
-a generic API for now.
+[1] https://lore.kernel.org/all/20250502011246.99238-1-coxu@redhat.com/
+[2] https://github.com/devicetree-org/dt-schema/pull/181
 
-Thanks for your comments.
+Cc: Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>
+Cc: Baoquan he <bhe@redhat.com>
+Cc: Dave Young <dyoung@redhat.com>
+Cc: Kairui Song <ryncsn@gmail.com>
+Cc: Pingfan Liu <kernelfans@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Signed-off-by: Coiby Xu <coxu@redhat.com>
+---
+v3
+- Delete the property after reading it [Rob Herring]
 
-Best Regards,
-Xu Yang
+v2
+- Krzysztof
+  - Use imperative mood for commit message
+  - Add dt-schema ABI Documentation 
+    https://github.com/devicetree-org/dt-schema/pull/181
+- Don't print dm-crypt keys address via pr_debug
+
+
+ arch/arm64/kernel/machine_kexec_file.c |  9 +++++++++
+ drivers/of/fdt.c                       | 21 +++++++++++++++++++++
+ drivers/of/kexec.c                     | 19 +++++++++++++++++++
+ 3 files changed, 49 insertions(+)
+
+diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+index 410060ebd86d..5f3bad8ca96d 100644
+--- a/arch/arm64/kernel/machine_kexec_file.c
++++ b/arch/arm64/kernel/machine_kexec_file.c
+@@ -134,6 +134,15 @@ int load_other_segments(struct kimage *image,
+ 
+ 		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+ 			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
++
++		ret = crash_load_dm_crypt_keys(image);
++
++		if (ret == -ENOENT) {
++			kexec_dprintk("No dm crypt key to load\n");
++		} else if (ret) {
++			pr_err("Failed to load dm crypt keys\n");
++			goto out_err;
++		}
+ 	}
+ #endif
+ 
+diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+index 331646d667b9..2967e4aff807 100644
+--- a/drivers/of/fdt.c
++++ b/drivers/of/fdt.c
+@@ -866,6 +866,26 @@ static void __init early_init_dt_check_for_elfcorehdr(unsigned long node)
+ 		 elfcorehdr_addr, elfcorehdr_size);
+ }
+ 
++static void __init early_init_dt_check_for_dmcryptkeys(unsigned long node)
++{
++	const char *prop_name = "linux,dmcryptkeys";
++	const __be32 *prop;
++
++	if (!IS_ENABLED(CONFIG_CRASH_DM_CRYPT))
++		return;
++
++	pr_debug("Looking for dmcryptkeys property... ");
++
++	prop = of_get_flat_dt_prop(node, prop_name, NULL);
++	if (!prop)
++		return;
++
++	dm_crypt_keys_addr = dt_mem_next_cell(dt_root_addr_cells, &prop);
++
++	/* Property only accessible to crash dump kernel */
++	fdt_delprop(initial_boot_params, node, prop_name);
++}
++
+ static unsigned long chosen_node_offset = -FDT_ERR_NOTFOUND;
+ 
+ /*
+@@ -1097,6 +1117,7 @@ int __init early_init_dt_scan_chosen(char *cmdline)
+ 
+ 	early_init_dt_check_for_initrd(node);
+ 	early_init_dt_check_for_elfcorehdr(node);
++	early_init_dt_check_for_dmcryptkeys(node);
+ 
+ 	rng_seed = of_get_flat_dt_prop(node, "rng-seed", &l);
+ 	if (rng_seed && l > 0) {
+diff --git a/drivers/of/kexec.c b/drivers/of/kexec.c
+index 1ee2d31816ae..4bfb1ea5744e 100644
+--- a/drivers/of/kexec.c
++++ b/drivers/of/kexec.c
+@@ -432,6 +432,25 @@ void *of_kexec_alloc_and_setup_fdt(const struct kimage *image,
+ 		if (ret)
+ 			goto out;
+ 
++		if (image->dm_crypt_keys_addr != 0) {
++			ret = fdt_appendprop_addrrange(fdt, 0, chosen_node,
++						       "linux,dmcryptkeys",
++						       image->dm_crypt_keys_addr,
++						       image->dm_crypt_keys_sz);
++
++			if (ret)
++				goto out;
++
++			/*
++			 * Avoid dmcryptkeys from being stomped on in kdump kernel by
++			 * setting up memory reserve map.
++			 */
++			ret = fdt_add_mem_rsv(fdt, image->dm_crypt_keys_addr,
++					      image->dm_crypt_keys_sz);
++			if (ret)
++				goto out;
++		}
++
+ #ifdef CONFIG_CRASH_DUMP
+ 		/* add linux,usable-memory-range */
+ 		ret = fdt_appendprop_addrrange(fdt, 0, chosen_node,
+
+base-commit: c072629f05d7bca1148ab17690d7922a31423984
+-- 
+2.52.0
 
 
