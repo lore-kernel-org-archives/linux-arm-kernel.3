@@ -4,56 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684FED77880
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:51:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FE06D77880
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:57:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PZP0mAC2HVzeIwzomXWZTDpY7KbSipKd2ORfFLQyEbo=; b=ZKZtlOgFaAS9/+fgwR1svzaciH
-	5Mvx0D44GKcMOiedZc3ChGBx5K8wsu6FPdV6c0T6aZpaLw1OhqetLWXFy2sSQsv912Ti6kI3SRC1N
-	TpaVNPZypzwrxlz1e8oHVeiBNX5EUiSC4tMaAK56vS9F/WctdQkd6dMfAz93/VT42REMfKVH7xEwB
-	/EgvdGSgkPGn3ZJvyLzMEFaOLpeaVMqDGN39+SIB7mweoyor5vNlOE3xuBLBdQr6vkA/PIAFM1YIz
-	fkEV4qUCfJ8zlRJHUtw98MyDAqu18kBrL8UrAV8HRO+8tnWi9OEMatslKOm/49vsmPycpZ9gOUnNW
-	XBYLK+vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v8nfTUegB8fjxclWjlfclgW0KhQ588wIU7+kJJcS9SQ=; b=D5fbI9pbMxPXkyFHVfoygg+1y3
+	c3i7cBjux2YHqvp2EizvL/3SPtPi4x5cAqw7iZbjbpXnQ6EgCtJ6r4v4NNBsbJvRqTG7iadJ8+Yna
+	GnajTQh00KCod9zTN8GN+1yP4VNughp/Eowrn/yGG89po1Rr0fY8i6yTdAbT6LrlAEEqY/9/2HiWx
+	LFbALnomhjZGKPijaxLHBWkPxlWR0c0JbtwLe2JW1PT+B6wlbv2PfhIefpo15407JBLTaVGqL5N0R
+	/TeKtfNK3QkpMOgnyfEWCBvpSI+ijkvaU03XpYfsL3Qn+zFnYxQlVwRJatuNrld024957EeRHeBQT
+	l/1U5GyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjKNo-00000009EPG-3nZy;
-	Fri, 23 Jan 2026 16:51:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjKNZ-00000009EC8-23Bl
+	id 1vjKT3-00000009FQt-1eTK;
+	Fri, 23 Jan 2026 16:57:05 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjKT0-00000009FQL-4C14
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 16:51:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D65461691;
-	Fri, 23 Jan 2026 08:51:17 -0800 (PST)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 126323F694;
-	Fri, 23 Jan 2026 08:51:22 -0800 (PST)
-From: Joey Gouly <joey.gouly@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: alexandru.elisei@arm.com,
-	andrew.jones@linux.dev,
-	eric.auger@redhat.com,
-	joey.gouly@arm.com,
-	maz@kernel.org,
-	kvmarm@lists.linux.dev,
-	Oliver Upton <oliver.upton@linux.dev>
-Subject: [kvm-unit-tests PATCH v6 13/14] arm64: debug: skip tests at EL2
-Date: Fri, 23 Jan 2026 16:50:52 +0000
-Message-Id: <20260123165053.2250754-14-joey.gouly@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260123165053.2250754-1-joey.gouly@arm.com>
-References: <20260123165053.2250754-1-joey.gouly@arm.com>
+	Fri, 23 Jan 2026 16:57:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769187423; x=1800723423;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ETja2x9jbkMhnduG6jPpAI5mgl3pccMdrptMXW31rbs=;
+  b=jxzXRfYSst2hYkW+EOgsOtyQmYWO69nuXA6WKHMq4c5ApdiUwgLjQEBm
+   1ksOys9ZUVYj9cMB+CY4KcX+dg5X+vhbiZatkkeX/wuHTrmc3R1ttMvxt
+   Jjq3t3fkIDRA/Za6BErVgs0UPct18L4vo4N9I/iVuYbbhK7EkZBhPAu+h
+   mZoAQKDnQZcCdeZCcgSHY55lx7Omkf2YLFQGgBX23UWE60X/zqRBaF5VS
+   GMD/0IK7bNUybwa6J2lsoCizh3lycdOv7PENe2fW1F88n6r5sjQA1XDVX
+   zQTn8cFL10aNYjeoaGt+8dTM9OX2FysCh2SVifaB0pwgh9cKAwVTDMaMC
+   w==;
+X-CSE-ConnectionGUID: 5ywXMlc7SveXgTvUY9Y/IQ==
+X-CSE-MsgGUID: yIUEZZgVQ3OZJPnkor59Ow==
+X-IronPort-AV: E=McAfee;i="6800,10657,11680"; a="70501038"
+X-IronPort-AV: E=Sophos;i="6.21,248,1763452800"; 
+   d="scan'208";a="70501038"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2026 08:57:01 -0800
+X-CSE-ConnectionGUID: MwOpywMySKGwSHbVjeVEAg==
+X-CSE-MsgGUID: tv6wIPEiRhqocY18Bga9dw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,248,1763452800"; 
+   d="scan'208";a="206185987"
+Received: from rvuia-mobl.ger.corp.intel.com (HELO localhost) ([10.245.244.112])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2026 08:56:58 -0800
+Date: Fri, 23 Jan 2026 18:56:55 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: abdurrahman@nexthop.ai
+Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 0/5] i2c: xiic: use generic device property accessors
+Message-ID: <aXOoV-rbEGRur_UI@smile.fi.intel.com>
+References: <20260123-i2c-xiic-v4-0-4a3eba3510ce@nexthop.ai>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260123-i2c-xiic-v4-0-4a3eba3510ce@nexthop.ai>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_085125_631968_C7C5CB1C 
-X-CRM114-Status: UNSURE (   7.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260123_085703_078026_6B06316C 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,42 +86,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These tests are currently broken and need investigation.
+On Fri, Jan 23, 2026 at 04:34:13PM +0000, Abdurrahman Hussain via B4 Relay wrote:
+> Switch to generic device property accessors.
+> 
+> Switch to managed devm_ functions to simplify error handling.
+> 
+> Make the clock optional since the driver is designed to operate without
+> explicit configuration in firmware thus making it useful on platforms
+> where clock is not or cannot be provided.
 
-Signed-off-by: Joey Gouly <joey.gouly@arm.com>
----
- arm/debug.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+...
 
-diff --git a/arm/debug.c b/arm/debug.c
-index 572786a9..0299fd28 100644
---- a/arm/debug.c
-+++ b/arm/debug.c
-@@ -267,6 +267,11 @@ static noinline void test_hw_bp(bool migrate)
- 	int num_bp = get_num_hw_bp();
- 	int i;
- 
-+	if (current_level() == CurrentEL_EL2) {
-+		report_skip("test broken for EL2");
-+		return;
-+	}
-+
- 	install_exception_handler(EL1H_SYNC, ESR_EC_HW_BP_CURRENT, hw_bp_handler);
- 
- 	reset_debug_state();
-@@ -314,6 +319,11 @@ static noinline void test_wp(bool migrate)
- 	int num_wp = get_num_wp();
- 	int i;
- 
-+	if (current_level() == CurrentEL_EL2) {
-+		report_skip("test broken for EL2");
-+		return;
-+	}
-+
- 	install_exception_handler(EL1H_SYNC, ESR_EC_WP_CURRENT, wp_handler);
- 
- 	reset_debug_state();
+> Changes in v4:
+> - Reorder the cosmetic patch to be the first in the series.
+
+No. that's not what I meant. I meant that the line that adds a temporary
+variable should be moved from the last patch to the first one. The order
+of the _patches_ was fine, now it's broken again.
+
+Take your time and try to play with the patches locally to see my point.
+
+Next week v5 would be nice to have that addresses my point.
+
+> - Amend the mutex_init patch to also switch to the managed pm_runtime_
+>   variant.
+
 -- 
-2.25.1
+With Best Regards,
+Andy Shevchenko
+
 
 
