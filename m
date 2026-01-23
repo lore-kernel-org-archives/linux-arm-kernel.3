@@ -4,102 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9E9D72369
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 10:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C32AD72369
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 10:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WdvsWMn8beTdjIK6lkBJg9GRWjIq3YAyiniskGCkgR0=; b=oV4F79u6co1c9pr4jLljfcn55+
-	vR6jsa6vcMyBs0pEWxsi2HukElz6tm4RBOLUbmRPfrnxChyzesLodx3asnTTKpTM/3CDPH+BJ+Wiw
-	rYzgcojwnb+tiLAPnhobhM4eHBe3W2odwurd5hWp2DRnQqC/BLeR2Urjcx0l/0aYeKbDzF/sr3U4d
-	S+BdeKZpo5aBXBYshgDhRcILiWCOCZ1g6VjASKIv/++A0jeqh3q/dN12f/i1CjOMbGYFiV6L1JULm
-	ye/2SBombGT20+AfO18cwWkJOq5xizTG6R4wbXncYS7ma5Oj3nrsZvtTCpGHxvrlsqECQsOWvUHBu
-	NxkfzyQg==;
+	bh=pjRn17qTj5JIzb79hd2QW4bSxWOXcG7YBW2By7jO6Ro=; b=r+9+9IU6qzbyc6vCQNnqvV4XIq
+	v3hNdHe26Dau8KUI8qq43hVUCcOPnNyF1/tPmrBV902AUpDgljT0gNig5Vuu6qM+2HOKvHKRWAaYy
+	6b37zIDSET2Lkjt0TsEdSeG58YlCSjdbdTYaYcSIZKWPB+ZhEnOtJ00G/W6Gdc2mdzzCGa3iRbeXr
+	SNzD4Zya9eT92aqBdiTqmbaTUJ1Qfd5NoHoj1zNf5kQGqYdbKmOsjnV2ZU7NfllMJceBJ2Baimj21
+	QQIqkWofyj2m2phkqJJb+u5kT0h2QFJe3hIMAkENyC8CcE4up4tobq4Se3jR5e7YWjDOaIF9A+GA/
+	ADhAxXuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjE7T-00000008gOc-2pWA;
-	Fri, 23 Jan 2026 10:10:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vjEBR-00000008gy4-0ZW2;
+	Fri, 23 Jan 2026 10:14:29 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjE7M-00000008gLh-25Fs
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 23 Jan 2026 10:10:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=WdvsWMn8beTdjIK6lkBJg9GRWjIq3YAyiniskGCkgR0=; b=i+yZ3MgyGnLmYJsfp/UjdbIWU7
-	WsvZakVF//jwPYbdLn9OvzzFwQ/FOgNa5sAnRMQbAbFrGWcldKlIJEsqfZg3WMJSlbmV3LUA5tLIt
-	RaRFjD1FZT2kGwpwiLS+zfhCZ0D+M6OOXcImDOx9r6Kx6oJbtJNM6Iu/GuMeHJhUQUZgIeV5D/qby
-	vBjwFrQxlj/ekk3KPmeT8dbzQDk3XaSw9z1FrHno4s4NC9QVRCguWq1MCFCZdaf02bRhCrQUlJBLQ
-	qkCCXsONpf726yJ+SzxV+pUc1bwHVBeeqT+UQ3UEoDrJcIelsst/AFxI1gIkz2cRj1Ng8cDNxE1Z2
-	lArgPtgQ==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjE7J-000000027ti-1jDt
+	id 1vjEBO-00000008gwo-1CmI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 10:10:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9347744578;
-	Fri, 23 Jan 2026 10:10:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5D282C2BC86;
-	Fri, 23 Jan 2026 10:10:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769163008;
-	bh=RpuvS/OU3cDGNJU63M+FGhd0mL4ebzcaU0GV1X+GVxY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=PlddiiL6mJyUFa5UHe9+bLWHLSHeBW1Pe2qdYPANWdPUdaozxUjCxLFazU0KmobhG
-	 5BHQn2aN9QZBn5GGj0uznMnFYwAQ7Fjhe1b8AVCZDoajpd2gpuzKnQG4hfpkKjSq2E
-	 fS6xphmPLtl9dPAELYC9jUylXJ4DpZXs4ISYuqQfpc5IrnGBFtQYdF5tUtwb1O4OgQ
-	 wVpreka5+m5stGSuBrivZslyG66i9dFpySc23gqR8T3/nTgyTGly7fPE1upI3nYDWa
-	 adzXKll4MyLPx5H81Jb60hsqFBZhkDIJSsI51pwKkBoTHBYiBRc3f0sjlGMXpUT3jo
-	 YBxkQ3XykCx6g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 570AFD7236D;
-	Fri, 23 Jan 2026 10:10:08 +0000 (UTC)
-From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Fri, 23 Jan 2026 11:09:57 +0100
-Subject: [PATCH v3 4/4] stmmac: s32: enable support for Multi-IRQ mode
+	Fri, 23 Jan 2026 10:14:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=u0AEooozk4hMZR6x8Nv0A5GopYmjzfDostTy4eueuPkgxpRMfTDwKKpH53YnMO8Mb94IkSaHvhvg+BusBBh6Rvz5cKtFbrcU/meyHz8WWb42QFMAqdhTCsa7eYnULcLYJds8jwTBri4W8T2Lo1wKyzD9YSojVHNY2tOsaYGtc4inY4EPOWqh/6z+UpCocJDIUMasa9t4OzlOtje5b0xOxB7Ol+wFEu4xsuxPUi8qjqnCchV93Ov9qLgYw2BWeObOO3AC1TafRPvFEET0LpYwaqwQfITA9pDPYhw9pia5kT9ggGHBaG0Z+9XzSQ8YgBv8leNSClVNl4xd09XwfKhxhA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pjRn17qTj5JIzb79hd2QW4bSxWOXcG7YBW2By7jO6Ro=;
+ b=xaXEvOsrKGYC+due4bjDUyb7o+1rZY0ZC2Pey+HepmwuMu87ZOUeCq3NtdV2rd3zrTxrvgFSKE1th1IYzbAtosw5dyuc5PxbJMf/P+d/jMgcmbnKTy8TjtXIswh31i57vBM+DC76OFegmgUtNUlxDG6WRAJtMTVNtiCY4mLipCttbd0mMLnxT8+fSf9cET4lchvN/Ej+5z777O6vC2pX+2ffrfQkA2LGVrPx62gBxupNZPjwnpBnTVl0HC0Wr4YGpAJI17M5dTqMCewhxXWku9ryIk4Nyx6Fa6kX/wQzYeTyyTVbqgCZNf4vuC5s45ksO5SOKc8bPxhpRpIeC/n5fA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=dh-electronics.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pjRn17qTj5JIzb79hd2QW4bSxWOXcG7YBW2By7jO6Ro=;
+ b=augjAaoEUW3lkQw8N1sosV8CJwUClydgsBoHQ01TgoN/RdRk7TaoYkZMu1Nf+ZqaUUYgTIT7nNWSx7hJ8+y3E3VVtNNUrj7sAg0IHtROqzYCliYDum/8w5UHrLzaB2H0PSmF0mZszpMg3qM/SX2lSPvneBFRA85Ef1ZzqYBUTfgbQKmTtwsWAbMtyjX4W++u+3A2kPdj0j3W/OUjLANQDyrEivzLX4nVnFpSOrqXlQKQqPege/B/dVUjyz2hKGOO8ZmRvmIc4lmUDFkzIuJ9Ym1nZo4lKV/6PV6y3R4xM/IV99WnPPx+Km1HzLOXOcog3skXVZhIN7ZMIGc5a22dsQ==
+Received: from AM0P190CA0017.EURP190.PROD.OUTLOOK.COM (2603:10a6:208:190::27)
+ by AM7PR10MB3939.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:171::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Fri, 23 Jan
+ 2026 10:14:18 +0000
+Received: from AM4PEPF00027A6B.eurprd04.prod.outlook.com
+ (2603:10a6:208:190:cafe::3c) by AM0P190CA0017.outlook.office365.com
+ (2603:10a6:208:190::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.10 via Frontend Transport; Fri,
+ 23 Jan 2026 10:14:05 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ AM4PEPF00027A6B.mail.protection.outlook.com (10.167.16.89) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.3 via Frontend Transport; Fri, 23 Jan 2026 10:14:17 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Fri, 23 Jan
+ 2026 11:15:27 +0100
+Received: from localhost (10.252.18.201) by STKDAG1NODE1.st.com
+ (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Fri, 23 Jan
+ 2026 11:14:06 +0100
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Fri, 23 Jan 2026 11:14:05 +0100
+Subject: [PATCH v5 3/6] ARM: dts: stm32: Add boot phase tags for
+ STMicroelectronics h7 boards
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260123-dwmac_multi_irq-v3-4-cc53f2be8961@oss.nxp.com>
-References: <20260123-dwmac_multi_irq-v3-0-cc53f2be8961@oss.nxp.com>
-In-Reply-To: <20260123-dwmac_multi_irq-v3-0-cc53f2be8961@oss.nxp.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, devicetree@vger.kernel.org, 
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769163006; l=3825;
- i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=N8KG6zSNZaJ0litROq6rIn2vyXQTszprIi2ECHATg2I=;
- b=K0mcEfqhyMu5f3uTCyaUbLXj0uh8y5ZYcUWiyycFQVQZIOShQ6q9eWSQu/+crDBF8QHP+ikdv
- V7cmIGc473sDiWBF7ZrF4GzFsIC3opc2igEXAerVNX0/FFBHco23s1t
-X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
- pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
-X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
- auth_id=217
-X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+Message-ID: <20260123-upstream_uboot_properties-v5-3-5167929d5af5@foss.st.com>
+References: <20260123-upstream_uboot_properties-v5-0-5167929d5af5@foss.st.com>
+In-Reply-To: <20260123-upstream_uboot_properties-v5-0-5167929d5af5@foss.st.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Patrick Delaunay <patrick.delaunay@foss.st.com>, Christoph Niedermaier
+	<cniedermaier@dh-electronics.com>, Marek Vasut <marex@denx.de>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<kernel@dh-electronics.com>, Patrice Chotard <patrice.chotard@foss.st.com>
+X-Mailer: b4 0.14.3
+X-Originating-IP: [10.252.18.201]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM4PEPF00027A6B:EE_|AM7PR10MB3939:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2b8e7a83-b4b2-450a-ec30-08de5a682af5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cysrajAxQm9rNWpTNkNaLzE4RUNDamVQczkyamRpaGc0cmlwb0tlc2dZUHpk?=
+ =?utf-8?B?VnZsY1ppVzkrQTJBeklUV2lBWE52cUo4L2k3V1BsV0pKdUhjWVdwUW5BdGNw?=
+ =?utf-8?B?VEQxc1hyVCtGRWY4QWR5WjdrRlhScHpDT2Zmck8wNTMwOVhzQjlWSng0T3NM?=
+ =?utf-8?B?b0FIcWlwanV3dC8rZUN0VVRnYzBXcWRCVjYyK1JzZzZ6bW1LemlvbFJxdGtO?=
+ =?utf-8?B?Q2hETDhERG8rMUVlK3FYRHd6WVl4S3FuakJwZXhDOUtHNERlQlI4eERnS1FR?=
+ =?utf-8?B?Y0owSDY5dmZoYjVSTk43b0RpcmVPN20zTTM3VHh6WDI2MDFrOVFlOC9XeG9T?=
+ =?utf-8?B?U1V4MTV5ZnMya2hlejRreGlpK2tiZTd5dVFJNTdwUTNRdnpPM3AySzN0bHlY?=
+ =?utf-8?B?VHRoZmN0b3JlaVVOb0ttMGQ3ZXZ0MUJFT1cwRis1dVQ5WFNGQTZuUk5CUElV?=
+ =?utf-8?B?dDNiVVQzOTFTT1Z1ekI4ZHNHYjJWU0lCV21QSjZiWTBvVHkzTjkza2lLSVk1?=
+ =?utf-8?B?ci9kK2c0U29iU0hRUEs3RXJPZFJOaitrSFRPaldVM0pOd3d5YXRSNlcvTGVV?=
+ =?utf-8?B?c2RpM0hFZjhVY3orbVppY2hibmJPZlpKU3M5cXpnZmNOOStGQldBTEZOakZs?=
+ =?utf-8?B?MDhtV29rR3FZVlNCakNxcHVCWGM4QURFSUVkclhKcEJQRzRsZDVaMmJRUkZm?=
+ =?utf-8?B?SGhWaHhXQjB4VC9TeUF1a3FrYk1XSDFjTDZPNWFDcXpJWWRIYk94ZFd1V0pa?=
+ =?utf-8?B?Slo5UURRVWFYM3NCMFoxUStULzRmeStvTWVTRXdCand5TSt5Vmtla3kvK0FN?=
+ =?utf-8?B?QmhvQ05XNy9vcnczYmRkR09FWXJMbVpxNjhlTkZzNGdyeURkcThJK0ZFNWVj?=
+ =?utf-8?B?TTlwTUtSUVFsNTBGeDhwdUtaRjc3MWhIQXlIOEJHc09IWHVFVGN2OG8xaGl1?=
+ =?utf-8?B?eFZabGlmWFJVclZhbXBvUWx2QmxqL3lOVjh0UW9tUUtpUVZoMUFlK3JmRDI1?=
+ =?utf-8?B?THhEcElNdTV5Tmo5d3VZWjFDM1RVTG9UTnR4bEVEbkJodXN4NzNlUCtRU0tx?=
+ =?utf-8?B?azZlWDJ1V1RWZEZERGE1U2dTdUtLNi9RWjhlM3NmK2VyTWRrWkk2NkVoTTFi?=
+ =?utf-8?B?WHFncEUwYUJJVVJXN25ZcmRYc3E5cldIUy9iem9BR0drV3R0L2VDQmtBWTlv?=
+ =?utf-8?B?OWI0RkxXS1JCNmpIZXpiVWtJZll4cTJoWEhHR0E5OU12Yk1rVFJra3cvSUZJ?=
+ =?utf-8?B?TlNkMEhRUUpXK1c2cmx4dEFhRjdUYnVsWjFCWHNHaEF1R1RqaWRmaWpvM3hr?=
+ =?utf-8?B?eStnSWNGM0c1WVhPbm01SjNncmNad2w5K2xOQnhGUTlTSzJkZjNHbUdsTCs0?=
+ =?utf-8?B?WGFsTWQvRENzckljQmxFWW1Xb3JBelcyR2dURXF5SzlvRmk1NUZhRjNHM2c2?=
+ =?utf-8?B?QktSR0tleEdHVWxYNHZ1ditTOFhrdExqc1BmVjRTeHhualMybm1sMnkvYzMv?=
+ =?utf-8?B?bUJWdHhRYUk3ZnluM21oTDNkRFlod1lHeVBZUUIrTUhxTmVPN0lNem1BQ2Nr?=
+ =?utf-8?B?RExKTHBZNUtxZ0hMREM2Smxyc2pIRW5rSDFqbFdSbDN4bFQ1SVo3eHFyRnNn?=
+ =?utf-8?B?ZlluZEpiT3IyV3BaUXhaclVJQmxqS0R6c3dvSUx0Q1lTT21iaGxKL1VzMzl2?=
+ =?utf-8?B?NlVlOWJNZmJnQTJkV3pxRGY3UDJiWXpHZGluVjI3ME53NXB5RmlHQVZGT2lW?=
+ =?utf-8?B?dmlHUDZtSDd5a3N4Q1ZBTjVwOHFvVWJEZVl1UFRpOWFpNTU5bzduZFl1WXVY?=
+ =?utf-8?B?RHBTY0lmQldMZWlZSmx3aDMzOTQrYnZQN2hpa2IySy9OeWJmY0pTTzRSMjBs?=
+ =?utf-8?B?akJQUnZDcHpUbjl2SjZWaVJZQjVXbmJ4WHBWc2loQXNNNWMxdjRob1E4M0hv?=
+ =?utf-8?B?cE9LSlpkQ2kvYlVRWE15QTZWRXF3UmQ2MWpLQkdIamlWN0NqaE9aNXFHM0U1?=
+ =?utf-8?B?VzFJMmUzODlia2Z0bitidDZPMEN6TGxDYllxTG1lWlJrUHA5MlM4WVlBUHA1?=
+ =?utf-8?B?VXkxb2lxOThidlZFM0FNQmxCRVpXMFRwYW8zVDdmUVZ5WEp3NFlsSWVwdG9a?=
+ =?utf-8?B?MHkzcWs4VG5VOHdzKzZkNDNLNjdXUUpOd3EyUmF3S1N5ek1TL21mZ1hRdmgx?=
+ =?utf-8?B?cHJPYWt4N2I3SFF6RHJJamFnN2JNL0tzWTdiT1FSODVTVVJvZk0vRjdVZ3lz?=
+ =?utf-8?B?MGJLRzJweGQ2SDdIdmlYV3hlSFd3PT0=?=
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: asbhLMhgYyttAjku9ceUqI/FVwTWtD6N/dqMvI5A0VkI5HcDUYGPb+H0SziNn+RcUIfzT7vYpcHfnsf30KQkGLk7Xk3oJgxHvSBE7xHR1etqYKcbqJ03CLAK48q0CYL1SJnMGJnlanrS0NzzqH8M6mEv5NxcsXBcQCgaDWQk6jJAlNDjeSEXJ4tCFH9cPVx04B43UqDVVZhP2Ie3V79T3h8WsfJGZSaUmbZkCUScZ2FDvdTYcD21Xhr9Xmg53izjPkfpq8Xoojx5BDzj89+9shtbVQAZWSrcVtNLD0TbPiHkFgBxUuhSF6fAJrhdqdY62Laio01NyBlcp52KIgRaZVRQoXc9fFci4e4po+0INFhzYqJJ4aZAS9eX0y30rwS95QEnhGFjlQOJ9OAbTkm4ieKyRCleLKXioqjtmEiR3sy10VPYsMmdQVzXvYUvQHL2bk8P7a4XrAZ2hwNoHzEyWuDlwd+7bDnHic8/FzkgQmWo5MUr+sSmcuamQBwQUS3+BSp6xOMN96NSkFO5galIK9z9woadHpRDFNZD018Owq2HujsKHLbTemplGEnds22wm0HwkqrLzfoyal8MMFCBYgRorhioKKelp7Gjyp7oWh2HEi5smjqczOIdILmvgdTIgFN5JYsB9HUQ6/U2ZLA210hHNVx79x613WV+x4SsPKOhDbChuhs5Wu3BHvDSN/j5RlfXWpqwd4A4RvSqMHir3g==
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 10:14:17.6171
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b8e7a83-b4b2-450a-ec30-08de5a682af5
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A6B.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR10MB3939
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_101013_913396_E075B229 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20260123_021426_955694_34DC8F46 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,115 +166,410 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+The bootph-all flag was introduced in dt-schema
+(dtschema/schemas/bootph.yaml) to define node usage across
+different boot phases.
 
-To get enabled Multi-IRQ mode, the driver checks:
+To ensure SD boot, timer, gpio, syscfg, clock and uart nodes need to be
+present in all boot stages, so add missing bootph-all phase flag
+to these nodes to support SD boot.
 
-  1) property of 'snps,mtl-xx-config' subnode
-     defines 'snps,xx-queues-to-use' bigger then one, ie:
-
-     ethernet@4033c000 {
-         compatible = "nxp,s32g2-dwmac";
-         ...
-         snps,mtl-rx-config = <&mtl_rx_setup>;
-         ...
-
-         mtl_rx_setup: rx-queues-config {
-             snps,rx-queues-to-use = <2>;
-         };
-
-  2) queue based IRQs are set, ie:
-
-     ethernet@4033c000 {
-         compatible = "nxp,s32g2-dwmac";
-         ...
-         interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
-                      /* CHN 0: tx, rx */
-                      <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
-                      <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
-                      /* CHN 1: tx, rx */
-                      <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
-                      <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
-         interrupt-names = "macirq",
-                           "tx-queue-0", "rx-queue-0",
-                           "tx-queue-1", "rx-queue-1";
-
-If those prerequisites are met, the driver switch to Multi-IRQ mode,
-using per-queue IRQs for rx/tx data pathr:
-
-[    1.387045] s32-dwmac 4033c000.ethernet: Multi-IRQ mode (per queue IRQ) selected
-
-Now the driver owns all queues IRQs:
-
-root@s32g399aevb3:~# grep eth /proc/interrupts
- 29:    0    0    0    0    0    0    0    0    GICv3  89 Level   eth0:mac
- 30:    0    0    0    0    0    0    0    0    GICv3  91 Level   eth0:rx-0
- 31:    0    0    0    0    0    0    0    0    GICv3  93 Level   eth0:rx-1
- 32:    0    0    0    0    0    0    0    0    GICv3  95 Level   eth0:rx-2
- 33:    0    0    0    0    0    0    0    0    GICv3  97 Level   eth0:rx-3
- 34:    0    0    0    0    0    0    0    0    GICv3  99 Level   eth0:rx-4
- 35:    0    0    0    0    0    0    0    0    GICv3  90 Level   eth0:tx-0
- 36:    0    0    0    0    0    0    0    0    GICv3  92 Level   eth0:tx-1
- 37:    0    0    0    0    0    0    0    0    GICv3  94 Level   eth0:tx-2
- 38:    0    0    0    0    0    0    0    0    GICv3  96 Level   eth0:tx-3
- 39:    0    0    0    0    0    0    0    0    GICv3  98 Level   eth0:tx-4
-
-Otherwise, if one of the prerequisite don't met, the driver
-continue with MAC IRQ mode:
-
-[    1.387045] s32-dwmac 4033c000.ethernet: MAC IRQ mode selected
-
-And only MAC IRQ will be attached:
-
-root@s32g399aevb3:~# grep eth /proc/interrupts
- 29:    0    0    0    0    0    0    0    0    GICv3  89 Level   eth0:mac
-
-What represents the original MAC IRQ mode and is fully backward
-compatible.
-
-Reviewed-by: Matthias Brugger <mbrugger@suse.com>
-Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/st/stm32h743i-disco.dts  | 69 ++++++++++++++++++++++++++++++
+ arch/arm/boot/dts/st/stm32h743i-eval.dts   | 69 ++++++++++++++++++++++++++++++
+ arch/arm/boot/dts/st/stm32h747i-disco.dts  | 69 ++++++++++++++++++++++++++++++
+ arch/arm/boot/dts/st/stm32h750i-art-pi.dts | 69 ++++++++++++++++++++++++++++++
+ 4 files changed, 276 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-index 5a485ee98fa7..342091045714 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-@@ -2,7 +2,7 @@
- /*
-  * NXP S32G/R GMAC glue layer
-  *
-- * Copyright 2019-2024 NXP
-+ * Copyright 2019-2026 NXP
-  *
-  */
+diff --git a/arch/arm/boot/dts/st/stm32h743i-disco.dts b/arch/arm/boot/dts/st/stm32h743i-disco.dts
+index 8451a54a9a08..368035d96158 100644
+--- a/arch/arm/boot/dts/st/stm32h743i-disco.dts
++++ b/arch/arm/boot/dts/st/stm32h743i-disco.dts
+@@ -73,6 +73,59 @@ v3v3: regulator-v3v3 {
  
-@@ -149,6 +149,16 @@ static int s32_dwmac_probe(struct platform_device *pdev)
- 	plat->core_type = DWMAC_CORE_GMAC4;
- 	plat->pmt = 1;
- 	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
+ &clk_hse {
+ 	clock-frequency = <25000000>;
++	bootph-all;
++};
 +
-+	/* Check for multi-IRQ config. Assumption: symetrical rx/tx queues */
-+	if (plat->rx_queues_to_use > 1 &&
-+	    (res.rx_irq[0] >= 0 || res.tx_irq[0] >= 0)) {
-+		plat->flags |= STMMAC_FLAG_MULTI_MSI_EN;
-+		dev_info(dev, "Multi-IRQ mode (per queue IRQ) selected\n");
-+	} else {
-+		dev_info(dev, "MAC IRQ mode selected\n");
-+	}
++&clk_lse {
++	bootph-all;
++};
 +
- 	plat->rx_fifo_size = 20480;
- 	plat->tx_fifo_size = 20480;
++&clk_i2s {
++	bootph-all;
++};
++
++&gpioa {
++	bootph-all;
++};
++
++&gpiob {
++	bootph-all;
++};
++
++&gpioc {
++	bootph-all;
++};
++
++&gpiod {
++	bootph-all;
++};
++
++&gpioe {
++	bootph-all;
++};
++
++&gpiof {
++	bootph-all;
++};
++
++&gpiog {
++	bootph-all;
++};
++
++&gpioh {
++	bootph-all;
++};
++
++&gpioi {
++	bootph-all;
++};
++
++&gpioj {
++	bootph-all;
++};
++
++&gpiok {
++	bootph-all;
+ };
  
+ &mac {
+@@ -92,6 +145,18 @@ phy0: ethernet-phy@0 {
+ 	};
+ };
+ 
++&pinctrl {
++	bootph-all;
++};
++
++&pwrcfg {
++	bootph-all;
++};
++
++&rcc {
++	bootph-all;
++};
++
+ &sdmmc1 {
+ 	pinctrl-names = "default", "opendrain", "sleep";
+ 	pinctrl-0 = <&sdmmc1_b4_pins_a>;
+@@ -104,6 +169,10 @@ &sdmmc1 {
+ 	status = "okay";
+ };
+ 
++&timer5 {
++	bootph-all;
++};
++
+ &usart2 {
+ 	pinctrl-0 = <&usart2_pins_a>;
+ 	pinctrl-names = "default";
+diff --git a/arch/arm/boot/dts/st/stm32h743i-eval.dts b/arch/arm/boot/dts/st/stm32h743i-eval.dts
+index 4b0ced27b80e..ec525411431a 100644
+--- a/arch/arm/boot/dts/st/stm32h743i-eval.dts
++++ b/arch/arm/boot/dts/st/stm32h743i-eval.dts
+@@ -99,6 +99,59 @@ adc1: adc@0 {
+ 
+ &clk_hse {
+ 	clock-frequency = <25000000>;
++	bootph-all;
++};
++
++&clk_lse {
++	bootph-all;
++};
++
++&clk_i2s {
++	bootph-all;
++};
++
++&gpioa {
++	bootph-all;
++};
++
++&gpiob {
++	bootph-all;
++};
++
++&gpioc {
++	bootph-all;
++};
++
++&gpiod {
++	bootph-all;
++};
++
++&gpioe {
++	bootph-all;
++};
++
++&gpiof {
++	bootph-all;
++};
++
++&gpiog {
++	bootph-all;
++};
++
++&gpioh {
++	bootph-all;
++};
++
++&gpioi {
++	bootph-all;
++};
++
++&gpioj {
++	bootph-all;
++};
++
++&gpiok {
++	bootph-all;
+ };
+ 
+ &i2c1 {
+@@ -130,6 +183,18 @@ phy0: ethernet-phy@0 {
+ 	};
+ };
+ 
++&pinctrl {
++	bootph-all;
++};
++
++&pwrcfg {
++	bootph-all;
++};
++
++&rcc {
++	bootph-all;
++};
++
+ &sdmmc1 {
+ 	pinctrl-names = "default", "opendrain", "sleep";
+ 	pinctrl-0 = <&sdmmc1_b4_pins_a &sdmmc1_dir_pins_a>;
+@@ -144,6 +209,10 @@ &sdmmc1 {
+ 	status = "okay";
+ };
+ 
++&timer5 {
++		bootph-all;
++};
++
+ &usart1 {
+ 	pinctrl-0 = <&usart1_pins_a>;
+ 	pinctrl-names = "default";
+diff --git a/arch/arm/boot/dts/st/stm32h747i-disco.dts b/arch/arm/boot/dts/st/stm32h747i-disco.dts
+index 99f0255dae8e..a481326ad9e6 100644
+--- a/arch/arm/boot/dts/st/stm32h747i-disco.dts
++++ b/arch/arm/boot/dts/st/stm32h747i-disco.dts
+@@ -91,6 +91,59 @@ button-5 {
+ 
+ &clk_hse {
+ 	clock-frequency = <25000000>;
++	bootph-all;
++};
++
++&clk_lse {
++	bootph-all;
++};
++
++&clk_i2s {
++	bootph-all;
++};
++
++&gpioa {
++	bootph-all;
++};
++
++&gpiob {
++	bootph-all;
++};
++
++&gpioc {
++	bootph-all;
++};
++
++&gpiod {
++	bootph-all;
++};
++
++&gpioe {
++	bootph-all;
++};
++
++&gpiof {
++	bootph-all;
++};
++
++&gpiog {
++	bootph-all;
++};
++
++&gpioh {
++	bootph-all;
++};
++
++&gpioi {
++	bootph-all;
++};
++
++&gpioj {
++	bootph-all;
++};
++
++&gpiok {
++	bootph-all;
+ };
+ 
+ &mac {
+@@ -110,6 +163,18 @@ phy0: ethernet-phy@0 {
+ 	};
+ };
+ 
++&pinctrl {
++	bootph-all;
++};
++
++&pwrcfg {
++	bootph-all;
++};
++
++&rcc {
++	bootph-all;
++};
++
+ &sdmmc1 {
+ 	pinctrl-names = "default", "opendrain", "sleep";
+ 	pinctrl-0 = <&sdmmc1_b4_pins_a>;
+@@ -123,6 +188,10 @@ &sdmmc1 {
+ 	status = "okay";
+ };
+ 
++&timer5 {
++		bootph-all;
++};
++
+ &usart1 {
+ 	pinctrl-0 = <&usart1_pins_b>;
+ 	pinctrl-names = "default";
+diff --git a/arch/arm/boot/dts/st/stm32h750i-art-pi.dts b/arch/arm/boot/dts/st/stm32h750i-art-pi.dts
+index 56c53e262da7..8dddc70c37a1 100644
+--- a/arch/arm/boot/dts/st/stm32h750i-art-pi.dts
++++ b/arch/arm/boot/dts/st/stm32h750i-art-pi.dts
+@@ -114,6 +114,15 @@ wlan_pwr: regulator-wlan {
+ 
+ &clk_hse {
+ 	clock-frequency = <25000000>;
++	bootph-all;
++};
++
++&clk_lse {
++	bootph-all;
++};
++
++&clk_i2s {
++	bootph-all;
+ };
+ 
+ &dma1 {
+@@ -124,6 +133,50 @@ &dma2 {
+ 	status = "okay";
+ };
+ 
++&gpioa {
++	bootph-all;
++};
++
++&gpiob {
++	bootph-all;
++};
++
++&gpioc {
++	bootph-all;
++};
++
++&gpiod {
++	bootph-all;
++};
++
++&gpioe {
++	bootph-all;
++};
++
++&gpiof {
++	bootph-all;
++};
++
++&gpiog {
++	bootph-all;
++};
++
++&gpioh {
++	bootph-all;
++};
++
++&gpioi {
++	bootph-all;
++};
++
++&gpioj {
++	bootph-all;
++};
++
++&gpiok {
++	bootph-all;
++};
++
+ &mac {
+ 	status = "disabled";
+ 	pinctrl-0 = <&ethernet_rmii>;
+@@ -141,6 +194,18 @@ phy0: ethernet-phy@0 {
+ 	};
+ };
+ 
++&pinctrl {
++	bootph-all;
++};
++
++&pwrcfg {
++	bootph-all;
++};
++
++&rcc {
++	bootph-all;
++};
++
+ &sdmmc1 {
+ 	pinctrl-names = "default", "opendrain", "sleep";
+ 	pinctrl-0 = <&sdmmc1_b4_pins_a>;
+@@ -196,6 +261,10 @@ partition@0 {
+ 	};
+ };
+ 
++&timer5 {
++		bootph-all;
++};
++
+ &usart2 {
+ 	pinctrl-0 = <&usart2_pins_a>;
+ 	pinctrl-names = "default";
 
 -- 
-2.47.0
-
+2.43.0
 
 
