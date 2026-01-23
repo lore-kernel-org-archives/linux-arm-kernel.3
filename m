@@ -4,58 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8845D72345
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 07:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C9BD72347
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 07:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HvtrGumHQsVFtFDm6zrMR1kuxvoQXy8G0c215Tp0diA=; b=EvmAFhQs/t/ifDpXvjYst2oC6U
-	LZJKL2K6M/iphv9acXc7MWuehm0Qmo5ZJb0sRQxF7C+8WW9/pDBqSvSsuc0evu833OPz4CEDBeDvS
-	HVxHxbTrhxcSwqFTeYGoIIzRdS6PcWBR+9r33JH7ulxLrtlkMXwdbbFET1vGn5mxVIrfn1AaDabPJ
-	4vDx+Gl14YBS/NWXvlH1ZINNDTt3GvI+MbSeumoeRy4/RR2UxlWzAUgUaZFZCWHxo9nU9GNeqW+5i
-	fMeprAltQY8EG06j0pLUDvTss/b/qRCjClfDf7jZttfwoggVWpZ2NxMhh25ThwMIfZxdanm140QUe
-	v0o4sQ/w==;
+	bh=RFhDNObzyKL+zmfrwI3yVZZiIVDosVmt3D3aJWSEdHI=; b=VtXrM4+u6DwQKu60J/5ky7dx6P
+	EtgUqExwfXQXzCNbrdl5wFDSqmxjfIfE8edhRiiyt8U6onOnIJG1Dcvv1QPn1r7VIkoD8fCQY+niX
+	8ihYvg6xdmEXLCPdLyON+CxU9hYt+YRJ17H1mwjb7DVhnoWOEflun7l87MdIOGIX/ssUomz0ECD7U
+	7opTovgfO5CW+/dLNGyZHpyp5mrqGDffBltJZCTxagGX6Rxb3l7myZKpemTZVKXsX3WiI0mCMRqjj
+	uDruUTn89vmEPU9S7x7Op0NiMpgv5vNOcmlsyz0pppSHVhKk2xtchAgUEsS+UJ5cA0dx1ThefkQNL
+	e0Wyjd7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjBpf-00000008OCz-2RJz;
-	Fri, 23 Jan 2026 07:43:51 +0000
+	id 1vjBtC-00000008OVM-1BhP;
+	Fri, 23 Jan 2026 07:47:30 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjBpd-00000008OCU-0Xwg
+	id 1vjBtA-00000008OUz-06gu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 07:43:50 +0000
+	Fri, 23 Jan 2026 07:47:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 837F543677;
-	Fri, 23 Jan 2026 07:43:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 759B0C19422;
-	Fri, 23 Jan 2026 07:43:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 87B9540357;
+	Fri, 23 Jan 2026 07:47:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F08A8C4CEF1;
+	Fri, 23 Jan 2026 07:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769154228;
-	bh=hNJqMGM1DGrrZMHfT+TOWmjcktsysNTRhH0t2zsZwh8=;
+	s=k20201202; t=1769154447;
+	bh=dOll45aJteWe/IdVv749+twRkEY8CjTGFq0bhB2NtGs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TKvTDXH4yniIjS5R/1KBh2KeniWAQxfMVz0eMyGploKWx6CpIQ0CqJDezf/md0DRx
-	 q4EyisajkmDpFeCVX8KcTMXHMrwtwUI/HJg21w0CAha7cLQaG2d9yGsGZCkPfYDdBi
-	 8fQnr9vYA48tSoL3yDO4uCysLDG3EqSNZ/Im62iIz39fMASmzdl0WUlkXTszdm/zwT
-	 vSIY8wYQy8qcoF+ktKkMdsbgIEM7yXKm6+ZI6RSH7OdztUQ8DNth0lVm9izBBDiOHe
-	 YzRG93qVaQLPVa3h1aDIfM7uG5tRvJ7DnsuGOZEmEyC6Aig4wYph0SZGtDLi15FrH4
-	 EXICVgOjgeUYA==
-Message-ID: <684526d5-f1ac-46d5-b147-1fb906ba2248@kernel.org>
-Date: Fri, 23 Jan 2026 08:43:44 +0100
+	b=fbYgL7Kelmvg0PKpKns0GUwSXw+tu1FNKrGVh/a0hMA/06TjoN1BrgTfAon9el6kg
+	 ZzhuNlUKPE9xgFOgs3AEqoRGtow9Q4eg8oe2kXs0jVodl3vXUGaVEpvh+mELyhLylg
+	 pDpTmGL4JXU09G094RhJsq3oOHCZSY95cdJSzSYTaMUxFdA0EIjZ6+jE2Zzsx0odnI
+	 CE4rNTgHJwWdFhfsW4n22bol68M6JBM003248Sb+L+PB38qUT/adHBOIMpTqMk/5Re
+	 pT+MrKNZa7Br+V2TM3yb/uQRaIsIx75NzwPWASImZOKna7tdk43HyeOay25n6ZeJoo
+	 3yQLOLDyVrYjg==
+Message-ID: <53d3a98f-3ad8-43c0-9094-39f229a5b698@kernel.org>
+Date: Fri, 23 Jan 2026 08:47:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [GIT PULL 1/4] dt-bindings: Changes for v6.20-rc1
-To: Thierry Reding <thierry.reding@gmail.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: arm@kernel.org, soc@kernel.org, Jon Hunter <jonathanh@nvidia.com>,
- linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Geert Uytterhoeven <geert+renesas@glider.be>
+To: Thierry Reding <thierry.reding@gmail.com>, arm@kernel.org, soc@kernel.org
+Cc: Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
 References: <20260118080304.2646387-1-thierry.reding@gmail.com>
- <20260122-hidden-goat-of-excellence-a43b9f@quoll>
- <CAMuHMdUZqJa3KEWZReA734=ZV98JTD=HPztkszEe6ARFWiuhww@mail.gmail.com>
- <aXIVmW_mjb0AdDwe@orome>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,12 +96,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aXIVmW_mjb0AdDwe@orome>
+In-Reply-To: <20260118080304.2646387-1-thierry.reding@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_234349_218288_80A688B1 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20260122_234728_112464_98A39684 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,67 +116,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/01/2026 13:20, Thierry Reding wrote:
-> On Thu, Jan 22, 2026 at 12:02:04PM +0100, Geert Uytterhoeven wrote:
->> Hi Krzysztof,
->>
->> On Thu, 22 Jan 2026 at 11:08, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>> On Sun, Jan 18, 2026 at 09:03:00AM +0100, Thierry Reding wrote:
->>>> The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
->>>>
->>>>   Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
->>>>
->>>> are available in the Git repository at:
->>>>
->>>>   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.20-dt-bindings
->>>>
->>>> for you to fetch changes up to b2788f6320722d6059f849f35a77eb082608c627:
->>>>
->>>>   ASoC: dt-bindings: realtek,rt5640: Document port node (2026-01-17 01:58:18 +0100)
->>>>
->>>> Thanks,
->>>> Thierry
->>>>
->>>> ----------------------------------------------------------------
->>>> dt-bindings: Changes for v6.20-rc1
->>>>
->>>> This series updates various DT bindings for Tegra architecture,
->>>> primarily focusing on schema validation fixes and new feature
->>>> documentation for Tegra234 and Tegra264 SoCs. Key changes include
->>>> correcting realtek,rt5640 audio codec bindings (adding missing ports,
->>>> clocks, and jack-detect sources), converting Tegra20 NAND bindings to
->>>> YAML, and updating memory, DMA, and IOMMU definitions for Tegra264
->>>> (introducing CMDQV and DBB clock support). Additionally, it resolves
->>>> legacy warnings for Tegra30/132 display and VI interfaces.
->>>
->>> Same comment as was for Geert, I am surprised to see DT bindings as
->>> separate pull and I see drivers were alerady merged, so I will defer
->>> entire Tegra pull to Arnd.
->>
->> The soc tree used to have a separate branch for dt-bindings.
->> Hence several soc submaintainers still use that split for their PRs.
+On 18/01/2026 09:03, Thierry Reding wrote:
+> Hi ARM SoC maintainers,
 > 
-> Yeah. I usually also only put things in the PR for ARM SoC that have no
-> related driver changes (fixups, conversions, ...) and therefore nobody
-> else feels responsible for picking up.
+> The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+> 
+>   Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.20-dt-bindings
+> 
+> for you to fetch changes up to b2788f6320722d6059f849f35a77eb082608c627:
+> 
+>   ASoC: dt-bindings: realtek,rt5640: Document port node (2026-01-17 01:58:18 +0100)
+> 
+> Thanks,
+> Thierry
+> 
+> ----------------------------------------------------------------
+> dt-bindings: Changes for v6.20-rc1
+> 
+> This series updates various DT bindings for Tegra architecture,
+> primarily focusing on schema validation fixes and new feature
+> documentation for Tegra234 and Tegra264 SoCs. Key changes include
+> correcting realtek,rt5640 audio codec bindings (adding missing ports,
+> clocks, and jack-detect sources), converting Tegra20 NAND bindings to
+> YAML, and updating memory, DMA, and IOMMU definitions for Tegra264
+> (introducing CMDQV and DBB clock support). Additionally, it resolves
+> legacy warnings for Tegra30/132 display and VI interfaces.
+> 
+> ----------------------------------------------------------------
+> Ashish Mhetre (1):
+>       dt-bindings: iommu: Add NVIDIA Tegra CMDQV support
+> 
+> Charan Pedumuru (1):
+>       dt-bindings: mtd: nvidia,tegra20-nand: convert to DT schema
 
-Why these are still separate? There are few options here:
-1. These were needed by the drivers you sent in pull: should be in that
-driver pull. It seems Geert confirmed this was the case with Renesas.
-BTW, checkpatch asks for that somewhat - you will have checkpatch
-warning of undocumented compatibles and you are not suppose to have such
-warnings.
+This should go via MTD. I think Miquel is not ignoring bindings.
 
-2. These were needed by the new DTS you sent in pull: should be in that
-DTS pull.
+> 
+> Jon Hunter (4):
+>       dt-bindings: tegra: pmc: Update aotag as an optional aperture
 
-3. These were not needed by anything yet or they document compatibles
-already in the tree: that's the only case I imagine having them on
-separate branch. You can take such bindings when subsystem maintainers
-do not - they ignore them. 90% of bindings in this pull are not like that!
+...
 
-I will respond to that as well in separate email.
+>       ASoC: dt-bindings: realtek,rt5640: Document mclk
+>       ASoC: dt-bindings: realtek,rt5640: Update jack-detect
+>       ASoC: dt-bindings: realtek,rt5640: Document port node
+
+No, Mark always promptly picks up bindings patches, so I do not
+understand why these are here. These should go via subsystem maintainer.
+> 
+> Svyatoslav Ryhel (2):
+>       dt-bindings: display: tegra: document Tegra132 MIPI calibration device
+>       dt-bindings: display: tegra: document Tegra30 VI and VIP
+> 
+> Thierry Reding (1):
+>       dt-bindings: memory: tegra: Document DBB clock for Tegra264
+
+And this one was never publicly acknowledged that you applied it and
+lead to ACTUAL warning/review comment from my side postponing your other
+patch.
+
+If you took this patch for DTS, then it must be on the DTS branch BEFORE
+the DTS uses it. There is explicit rule about this in writing bindings.
+You even sent it like that, look:
+https://lore.kernel.org/all/176856655186.139432.6919318227218814446.b4-ty@nvidia.com/
+1/3: DT binding
+2/3: driver
+3/3: DTS
+
+so why a correct posting you would disorganize and break the
+bisectability rule by applying binding separate?
+
+> 
+> sheetal (1):
+>       dt-bindings: dma: Update ADMA bindings for tegra264
+
+Vinod also picks up such bindings. If this is for DTS then should be in
+DTS branch.
 
 Best regards,
 Krzysztof
+
 
