@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8990ED778B2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 19:16:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13262D778B1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 19:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Shu8WDHjhF9859vMN3SVh+oioaL3K//boAb8Dj4WGYo=; b=hXFB4CG2gi3JHCdgcSja1dWlxm
-	nVHtQ7RLyJJOXXZMRmRqo/jlyKOp6mIsGAXyzsBeRMRhDgbTOlxIVAON6i+ZSz54ISPBoUYysnbVL
-	qvysZHhu5XvLlV9Mw5ShKIb7tU0OMRxJwsHamwCUZv6NVWEHID2hbDNmXMNRe5JAirNFVpZwEMpgu
-	gzfavX/J6yQ6qFrRT9RrDryCuuj6b/h47lPkCM0KzR6cjSyKKOuzpYLhF9JwjbSaQOgFmnM4rSAG7
-	rD7UtV4L026kJaSAU3nTaCDoxJwlPWdH18ror/suemRYRa9ySZNOmTrXiGvdOkGric7U5mAkLQyQX
-	NL0JIrww==;
+	bh=+TLFN4riCcqXZkp92Q66t46OcbVEJsrrLmZNN8b9T4w=; b=AZntZ0QzJp6eipe6Di3RndZMm7
+	vQyeVFYFE2wU02kObPvWUQgkbBMfNeqGoJK+xKmpKxBaeRB6IJG2chU1hSmGZT+k5j9aUJ4EfVVxO
+	FqFcnCkvQ5gHn7vv8YL/dfzRgWIaTNItBW4Oh5QURFFkRD35IXBOsFcgtHLHCMJtkwThp9ifxpewC
+	Nnf72sA22GZ5qyvtnElgaLIe0B/OZz86dsLconGUiWUz/bfpCtxUAOk9TYhLns4FpPDt3ainhE3V9
+	DDxiHrcojQ5euIl+hHYY0WZ4HNEs36q6pUwqGXSeNuC/PLjslqd/Mhd2GQ+CRGYOKgaZUz5QlphC6
+	wGU+QoLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjMeI-00000009O3I-2u8f;
+	id 1vjMeI-00000009O2s-1ej7;
 	Fri, 23 Jan 2026 19:16:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjMeC-00000009Nze-0QUs
+	id 1vjMeB-00000009Nzf-3Ha2
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 23 Jan 2026 19:16:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4112943FE3;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C44E4407B;
 	Fri, 23 Jan 2026 19:16:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C3C9C19425;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AF54C2BCB0;
 	Fri, 23 Jan 2026 19:16:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1769195803;
-	bh=n8p4GrhZYc/onaCNYcYnYrmgdPoNoakZKm18N6u1jVQ=;
+	bh=SCVycz0ZO5P/i92rYNjTN7t6tRCsvv/79dcDHaL+Sdo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Dae/CMo9WVTAbR9xlmhMMsDeB10WJNVdTqCsN7nkMEPXqI2os8k60js0t7tQU13Oy
-	 ckO/zn2h5kHz57V5IiUhBGAtT2BbUyJtKP8D1z/b1QEuTEYQ8Z3k8BTaPxggn5rp3w
-	 vrh8TgIAOP4Yec5Gjpr/r5vO6FCJzZ1ylAk9PZDH85LqiVDJuW1ky7hDt6jqXgoInM
-	 a15RZrn/FT4Su510kmJxqf3RlK7jPPbAi5Rt7/Gr+mbCRuYUrrQVgxZzy5F4GQEczq
-	 /ZyoLcgoZU0OIDuSdIjTf40PSyvzkrYcuIwSjh/Kx/K/NgdMKjyKhvZKLpF0/GAcS1
-	 n3BoEsxJ0tIrg==
+	b=GAZeuFdQnyOloHnDJx1XJwxnAIomurEvtVDyNyFsg2WdGCrBVgA/+IPvT+FSkoXPs
+	 t0e5RyOBFPvy/Mj60a1Un9CL2Kd3VxeFOqot7g3DHJfaFtyY61vIZW3gfAYB9XNvfX
+	 nk01pfZyqbsNwOMZ6JS8VnCpzFHA6zXUy4oNfEsFe4ZhO+iGZUOObnoQPK6QQN3Af5
+	 DoI26PwoUeb3kskc2eu37FW5v14xpq0v/9VYaRa/nYSepJ3anOr/pRaC1+4Gsac6zH
+	 hoDIwwdp2yksnIYCA6CBZaJKduhCI1ibsS3IDais/dMqVlYO+YHDdoKbVEIM6ebkqR
+	 CXXlJ7wUd8QJA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vjMe9-00000005A2V-16kd;
+	id 1vjMe9-00000005A2V-2Agh;
 	Fri, 23 Jan 2026 19:16:41 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Quentin Perret <qperret@google.com>,
 	Fuad Tabba <tabba@google.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v2 3/5] KVM: arm64: Switch pKVM host S2 over to KVM_PGTABLE_S2_AS_S1
-Date: Fri, 23 Jan 2026 19:16:35 +0000
-Message-ID: <20260123191637.715429-4-maz@kernel.org>
+Subject: [PATCH v2 4/5] KVM: arm64: Kill KVM_PGTABLE_S2_NOFWB
+Date: Fri, 23 Jan 2026 19:16:36 +0000
+Message-ID: <20260123191637.715429-5-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260123191637.715429-1-maz@kernel.org>
 References: <20260123191637.715429-1-maz@kernel.org>
@@ -72,8 +72,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_111644_156453_7B110121 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260123_111643_866365_552FBEFB 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,38 +88,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since we have the basics to use the S1 memory attributes as the
-final ones with FWB, flip the host over to that when FWB is present.
+Nobody is using this flag anymore, so remove it. This allows
+some cleanup by removing stage2_has_fwb(), which is can be replaced
+by a direct check on the capability.
 
 Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+Reviewed-by: Fuad Tabba <tabba@google.com>
 Tested-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_pgtable.h |  7 ++-----
+ arch/arm64/kvm/hyp/pgtable.c         | 21 ++++++---------------
+ 2 files changed, 8 insertions(+), 20 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 49db32f3ddf71..38f66a56a7665 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -19,7 +19,7 @@
- #include <nvhe/mem_protect.h>
- #include <nvhe/mm.h>
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 9ce51a637da0a..2198b62428832 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -229,15 +229,12 @@ struct kvm_pgtable_mm_ops {
  
--#define KVM_HOST_S2_FLAGS (KVM_PGTABLE_S2_NOFWB | KVM_PGTABLE_S2_IDMAP)
-+#define KVM_HOST_S2_FLAGS (KVM_PGTABLE_S2_AS_S1 | KVM_PGTABLE_S2_IDMAP)
+ /**
+  * enum kvm_pgtable_stage2_flags - Stage-2 page-table flags.
+- * @KVM_PGTABLE_S2_NOFWB:	Don't enforce Normal-WB even if the CPUs have
+- *				ARM64_HAS_STAGE2_FWB.
+  * @KVM_PGTABLE_S2_IDMAP:	Only use identity mappings.
+  * @KVM_PGTABLE_S2_AS_S1:	Final memory attributes are that of Stage-1.
+  */
+ enum kvm_pgtable_stage2_flags {
+-	KVM_PGTABLE_S2_NOFWB			= BIT(0),
+-	KVM_PGTABLE_S2_IDMAP			= BIT(1),
+-	KVM_PGTABLE_S2_AS_S1			= BIT(2),
++	KVM_PGTABLE_S2_IDMAP			= BIT(0),
++	KVM_PGTABLE_S2_AS_S1			= BIT(1),
+ };
  
- struct host_mmu host_mmu;
+ /**
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index c52a24c15ff28..00e33a16494bd 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -631,14 +631,6 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
+ 	return vtcr;
+ }
  
-@@ -324,6 +324,8 @@ int __pkvm_prot_finalize(void)
- 	params->vttbr = kvm_get_vttbr(mmu);
- 	params->vtcr = mmu->vtcr;
- 	params->hcr_el2 |= HCR_VM;
-+	if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
-+		params->hcr_el2 |= HCR_FWB;
+-static bool stage2_has_fwb(struct kvm_pgtable *pgt)
+-{
+-	if (!cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
+-		return false;
+-
+-	return !(pgt->flags & KVM_PGTABLE_S2_NOFWB);
+-}
+-
+ void kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
+ 				phys_addr_t addr, size_t size)
+ {
+@@ -661,14 +653,13 @@ void kvm_tlb_flush_vmid_range(struct kvm_s2_mmu *mmu,
+ 
+ #define KVM_S2_MEMATTR(pgt, attr)					\
+ 	({								\
++		bool __fwb = cpus_have_final_cap(ARM64_HAS_STAGE2_FWB);	\
+ 		kvm_pte_t __attr;					\
+ 									\
+ 		if ((pgt)->flags & KVM_PGTABLE_S2_AS_S1)		\
+-			__attr = PAGE_S2_MEMATTR(AS_S1,			\
+-						 stage2_has_fwb(pgt));	\
++			__attr = PAGE_S2_MEMATTR(AS_S1,	__fwb);		\
+ 		else							\
+-			__attr = PAGE_S2_MEMATTR(attr,			\
+-						 stage2_has_fwb(pgt));	\
++			__attr = PAGE_S2_MEMATTR(attr, __fwb);		\
+ 									\
+ 		__attr;							\
+ 	})
+@@ -880,7 +871,7 @@ static bool stage2_unmap_defer_tlb_flush(struct kvm_pgtable *pgt)
+ 	 * system supporting FWB as the optimization is entirely
+ 	 * pointless when the unmap walker needs to perform CMOs.
+ 	 */
+-	return system_supports_tlb_range() && stage2_has_fwb(pgt);
++	return system_supports_tlb_range() && cpus_have_final_cap(ARM64_HAS_STAGE2_FWB);
+ }
+ 
+ static void stage2_unmap_put_pte(const struct kvm_pgtable_visit_ctx *ctx,
+@@ -1160,7 +1151,7 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ 		if (mm_ops->page_count(childp) != 1)
+ 			return 0;
+ 	} else if (stage2_pte_cacheable(pgt, ctx->old)) {
+-		need_flush = !stage2_has_fwb(pgt);
++		need_flush = !cpus_have_final_cap(ARM64_HAS_STAGE2_FWB);
+ 	}
  
  	/*
- 	 * The CMO below not only cleans the updated params to the
+@@ -1390,7 +1381,7 @@ int kvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ 		.arg	= pgt,
+ 	};
+ 
+-	if (stage2_has_fwb(pgt))
++	if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
+ 		return 0;
+ 
+ 	return kvm_pgtable_walk(pgt, addr, size, &walker);
 -- 
 2.47.3
 
