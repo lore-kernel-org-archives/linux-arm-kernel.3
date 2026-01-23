@@ -4,112 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF427D72349
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FC8ED72349
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D6871S3cgg/MI3Kz6nbe2JCLIUHoxXa5lkOzmfHtAtI=; b=t4g5kCHu5u6DWmepX/+y6Sc4dd
-	ZiSxxjVtfBDRp2tRiFnYzyNHIIS5biHUV6JsD2xQb2t9mbSwHr3+f38hS1Wm6wtTrTdFaQF3vapFJ
-	lCyTzJnmqzxctoH2/lDZthw8NG9xalvoqY1etzAH46zdF3e8p7eL+65Papmwp0uZVDalGu4q88tWO
-	pf8qd+d2zx2NaKiVeUkJKsGN8EBkqcPw3DvHlUt+vknpFkXMRdprPpRem9xPLOQlrG07FlLm3U2+j
-	Djsqk8rLmzuKOlHFTyUCeEADpnoLprcEPXbVwCRiKm3Qb3yTm5LV05EskYJqxmNGjNjBZt6ThzQPx
-	NbbLw5yA==;
+	bh=RCqTEfTykEiz2CNjpeF8sSdmKnv+ngiRI6OD1IcW20g=; b=ypxxbnfM5gNA1Tqq9b/Rj5Ku3e
+	16vZN45T/pN0YHqZSysXRAI+2dL7MZQ6vgBK3aWDpW4mT5Hv2qFPZU3TsLBgYgBdAwApTc4fg5Zc5
+	6Rq54D3ZhlX5sqY28a+FVtMNnY/zEmdrdL8JFD556v/J81RJRdjqsY1xdDPUR7x1DMvpBo0Ktzi5c
+	iNerTLjOZiDu3ja4R6yHk3WvsMFCg0F8b+Cd8lhYMOUA5YMWDHSCrHTouhxn3ekLnzBiv5gTeJ8cS
+	jchRRe2fZSyzfs56YHx/aCI+puyiJ28YyIRSEjxJgkf3sn6hY4Ua4KJOL7mKwXLUMAlse1TXixD6Y
+	1gi7Z4ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjCB1-00000008Q3C-2qhk;
-	Fri, 23 Jan 2026 08:05:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vjCBZ-00000008QAr-3nio;
+	Fri, 23 Jan 2026 08:06:29 +0000
+Received: from mail-francesouthazon11011040.outbound.protection.outlook.com ([40.107.130.40] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjCAy-00000008Q2M-3AFM
+	id 1vjCBU-00000008Q8D-1rUM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 08:05:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6970543F4D;
-	Fri, 23 Jan 2026 08:05:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C90D9C2BC86;
-	Fri, 23 Jan 2026 08:05:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769155552;
-	bh=V1FdaZ25aGYeOty1rl0AuBOmbBydQ/xQQKiBVhm8jIk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XRswF+HacCGFheH5cfJumV2FCUBc1FpKzhxR+J3SYOxUW5BGT9GHbeoJfp5lLYLZp
-	 B/ma6+utU2AaWszUwNJMCV+a+dP9ZI5GlciUAcNP2h/pEYxuvKZILLr5hjGfC4Uwzx
-	 hFXCCnmCLmnI21rJ3u2Td5beZ9quK43cOrkdCAP8GEmCgfTeza6O/ZeCinixU2oj3L
-	 EX/r7v1NdSgYbzDNP3P/5L/K9S+DR8zxfu9fqTITMy7UfNJDCJlYAYr0AoDt3NjIf2
-	 hSTJhYUW1a59X/Aaqvvi7vQ28Cnr5nvr5SPIs79T6hnO7ZBKNY/hi9Skw4d1+4kT8P
-	 lnk7945jTZRrw==
-Message-ID: <15e8aac4-6633-49b0-87fb-4b29f62afb2f@kernel.org>
-Date: Fri, 23 Jan 2026 09:05:46 +0100
+	Fri, 23 Jan 2026 08:06:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v/l9PjJH63Z6zNI5cjQPz8b9z3po4u/L6KnZtkQq/Bgayvbjis5oDpzwKNdsPL1MfD1MwXp3qIcpVc9mnoNW+ADmaEUFyKkJXOuCVnh39FPkuPt3b4QrHlOmPgw0ZYZdQlpcR6HaMs1EpWvjh/FJ/o2xomgQUiubmOyI3glM/1V3c91BLbWi+EIvEQBESWUR/m6dUit/chXlG7Ry9VHUckoxw7fzaEoIaoEJ5gw4jOz13qpoFTmDuSH+CXy+VrLDOm+tLqwaNUf5pr4RabtE7c4L6utKvQl83BqosDQ+SzKJymcqXbN0liYrvqnPYptuxAQTMM/xij9BjLev6OFuyw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RCqTEfTykEiz2CNjpeF8sSdmKnv+ngiRI6OD1IcW20g=;
+ b=mZRhfOPfGj49T+dYdbSAeT50S15VIbE5TfXAZA66zQxDdbAgYOI2TMc6FXj/JpP8iVKFAgGnXTOM6mywbgJMvNxhRpBG3jUK02hnYHysp1VbzMkQmBKaOJxnEdW0Bh0qSRU+SnJ2S8R3OMyBrRZ7k5Kk4n0ppZapTq9YChgPsxt0RHp5omwW3ALgMPpk7uoY+sXQdbamwquXzD7d0k+bQsFTOu01E+KWRfKl2QsYHZFpTkPf8tPhyg/3fZ/7YKAsdLTEOLB4BOxxzOzhtq4/URBvn5m3hQNjGdhrZH+09ZuMKBPFMQGtoiGSDrYURB2prrch90DRY1GYMTleJEdoGA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RCqTEfTykEiz2CNjpeF8sSdmKnv+ngiRI6OD1IcW20g=;
+ b=nkfxO8OGEEFM19mJdSMPONB393xWImkzeSapBPtD5xmpRwBIqqMZ+LTCYNBWr+PPZ8tDU8JmXbwCoUgmJn8GRguks4QQUcaiTfS+aPLDyUcIDwqx0VOXEGPAFud7j0RtfINh+3T8HFdLPeUEsuDZ1ZP4SuuRLd5xnB9wMTtDg0j2WhrL3IdusHCy/8PNoEYhNYFqw/PYPGcpIhLhPJx8Fcga8tKVdoU4GAdHOG53MkqUjs3zlT4DzNs+p+bQG0b+sidEQPqglycc1fs3bWnqTWC09fARWvit7Zjha+lFHky0/WbZVHt8FBCoW8FwY6AwFgkoliyBSUOa4NAUjd37LA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA6PR04MB11910.eurprd04.prod.outlook.com
+ (2603:10a6:102:516::16) by PAXPR04MB8624.eurprd04.prod.outlook.com
+ (2603:10a6:102:21b::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Fri, 23 Jan
+ 2026 08:06:17 +0000
+Received: from PA6PR04MB11910.eurprd04.prod.outlook.com
+ ([fe80::d3f0:3c24:f717:4989]) by PA6PR04MB11910.eurprd04.prod.outlook.com
+ ([fe80::d3f0:3c24:f717:4989%4]) with mapi id 15.20.9542.008; Fri, 23 Jan 2026
+ 08:06:17 +0000
+From: Antoine Bouyer <antoine.bouyer@nxp.com>
+To: julien.vuillaumier@nxp.com,
+	alexi.birlinger@nxp.com,
+	daniel.baluta@nxp.com,
+	peng.fan@nxp.com,
+	frank.li@nxp.com,
+	jacopo.mondi@ideasonboard.com,
+	laurent.pinchart@ideasonboard.com,
+	mchehab@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Antoine Bouyer <antoine.bouyer@nxp.com>
+Subject: [RFC v1 01/11] media: uapi: v4l2-isp: Add v4l2 ISP extensible statistics definitions
+Date: Fri, 23 Jan 2026 09:09:28 +0100
+Message-ID: <20260123080938.3367348-2-antoine.bouyer@nxp.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260123080938.3367348-1-antoine.bouyer@nxp.com>
+References: <20260123080938.3367348-1-antoine.bouyer@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: FR4P281CA0026.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:c9::11) To PA6PR04MB11910.eurprd04.prod.outlook.com
+ (2603:10a6:102:516::16)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] arm64: dts: exynos: ExynosAutov920: Enable USB
- nodes
-To: Pritam Manohar Sutar <pritam.sutar@samsung.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- rosa.pila@samsung.com, dev.tailor@samsung.com, faraz.ata@samsung.com,
- muhammed.ali@samsung.com, selvarasu.g@samsung.com
-References: <20260122130721.205664-1-pritam.sutar@samsung.com>
- <CGME20260122125136epcas5p2db0fa3d04671ddc915e60ae8c5bcfb98@epcas5p2.samsung.com>
- <20260122130721.205664-4-pritam.sutar@samsung.com>
- <6f381f88-3a51-4fc8-844c-41b167b07628@kernel.org>
- <000f01dc8c3e$2b6dcf30$82496d90$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <000f01dc8c3e$2b6dcf30$82496d90$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA6PR04MB11910:EE_|PAXPR04MB8624:EE_
+X-MS-Office365-Filtering-Correlation-Id: e213c87b-2f02-4d61-e2b5-08de5a56491b
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|19092799006|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/woFGUCNnZ8OIPd+hX+ZaD1kGhdaKzNI61mNrRO4Cd+v8CjXAvVgVNn1fXXC?=
+ =?us-ascii?Q?s5lIUqOds8+t3YsliI6G46tq0TLXv5dhmkG94jz4FtBxntJ8QHkW5TCvCXhO?=
+ =?us-ascii?Q?72XOT1YECkjaNhmdzwEDuWOfbUcB8ub1LvPe+sA/qHnZ2mZbVz+p3xq4pKU4?=
+ =?us-ascii?Q?5eygHjbucpGW3kpfWLI6Knyec89tzjQg/dPLVmRslsQtzKEk7kvlGSK/YHGS?=
+ =?us-ascii?Q?6CzbVRMwXGRskzySF5u/A/RfOe18FeJSD329OQC1YQp/mYyhqoiHlmgLZdcw?=
+ =?us-ascii?Q?K/7Ueb9JEo/GhJWMVTK5cJNKj2VPlNlRcGTCnq0YmVyxzsQoSf5vqTjPmT6E?=
+ =?us-ascii?Q?JwNrZB/uHMOKD3hOYGxK7b+HUFOOpxCITxG5QkaTfAoPFEwy1uWgykhIaW9O?=
+ =?us-ascii?Q?t/zuJ6VndlL39Ii36d2mktEj5r7+ABgQpiK03wyWgwoZcOFm6RAQ6N6eNvIM?=
+ =?us-ascii?Q?yc6TaA4jrI5gZhp7CjD6usDv2QJ2b9vPxXjoVrwTlC29Gy09WamFDYY7IbZ1?=
+ =?us-ascii?Q?L2G8Oaxj9ePtuVTo61jYlOj48ufgLQN9G11wkZXWfixZTrMIuPvrQyOBDftU?=
+ =?us-ascii?Q?FawD89Tt0lyVWPxReptozBNa/Av0yoSh0pPOo3WNlMApaXqWVvADJl3cuBhC?=
+ =?us-ascii?Q?u7oMhR8vx7DA5GJpw7Wq63xA39X1sXu/WyrJK5RfTJbUhL/qzK9qUQrgnplY?=
+ =?us-ascii?Q?5fcEglGqSHdHPUL426QD1ggTgUxpTgZmu6Zgqxyb1SKAh3Ipor8qWdjCJEiJ?=
+ =?us-ascii?Q?RJhkDH7KeqWZQ7d+RyLnkMZALG0W78/gl+T1mH12Ed6cHa27ODiOw7SSfVNp?=
+ =?us-ascii?Q?MXR88JEh+HBtklG20hVmxyEdoiicYUchw60JkXs9cgu7qsEwQ6JzzgvKBbgO?=
+ =?us-ascii?Q?fOxhMfhuzDsiNIQ/Da/URmP0QXrJbNh7ERsHtZKZfLZQ/MsNquyl272zcobq?=
+ =?us-ascii?Q?Pu2WliY5s6OoGB7hO2TE5qB+mi2e6O+5aBynfdajCESHjoExwcULuTEaLHRC?=
+ =?us-ascii?Q?W1BSlMHxdoCX4DZe3TPB5wvfCoWYqnLNR2v+INlfkPG8fD+Kj9esK9WokaUK?=
+ =?us-ascii?Q?ESAJcTgf/qys9GuNjabO6ty2ChL9y8PJNO2FBUW5NRxIqRVkrx2O04glFhyl?=
+ =?us-ascii?Q?HeuHzkfHO0HFPxFzqVhSzH5chYL8tX8jEFCgT1fSNIAzWVE52g9nF9DiwrLn?=
+ =?us-ascii?Q?kxGjWCw++ijRetzrRA9w/SQZIBQs0D742s+tAtAOKYXhPR5Zu7hxH3/Hclvo?=
+ =?us-ascii?Q?d+p43a6dqV8Y256IH88Wx4XykjEkLdlCSdfoyeVNrEIYN0sRorMyM1zX6NMh?=
+ =?us-ascii?Q?j2IFOQ/BeZrYFpmCu6/lvD/2xGtN2BmgBWrSNzqfUe5PxzH9S4l15U6ERADl?=
+ =?us-ascii?Q?NUajWu1rso5ZreKKDs1auwFkScy8XP2aNNizxhzGALctFyNUUcrujJJGi8aF?=
+ =?us-ascii?Q?5nrRIaGxOedgNtsqOS/WlkZ+CNff8DRKKaAp3gdD+48gK2MRe1q6SExdBnMS?=
+ =?us-ascii?Q?Tg1EGTgB3yvpx0Byfx5snAgBmguQ3ejn9AO+pYMo7/voymYE7etlYrMqSxXy?=
+ =?us-ascii?Q?mqwXMIa2AfkoPhi2LefxhAp0CK3QIOz2QKqXI75sySRGTcsvW55ZRkb3Dg07?=
+ =?us-ascii?Q?P+JcEcUalJIm1ICCRPXn2G2ykx9/8O1OdfTEebWYFm+8?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR04MB11910.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(19092799006)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6VyQiOsOvsYNhhjWLU9kGNCN1qydim7x2sRPzYi1UAYILbIANm9CSlvBrsXP?=
+ =?us-ascii?Q?xRJH77tB9awYY36pUVO6AEQOn7C7F2wI6Fw+64W96d3nX2Phk+rULfcXet55?=
+ =?us-ascii?Q?RgVAPJBJ0r+9orRM7DwUmBHJUhUC9WIwnN0fIm8lC4WaSizADK2Rm13G0CLM?=
+ =?us-ascii?Q?z/bxG4UCPPLqhK4RXvCC+KcIcgcdlMlp0OyhkH8qZsAo6ZkVwgKLbHimaeUk?=
+ =?us-ascii?Q?I1PPb5iexYPB35xFdmj1j2/8hwExuzPkidNEwJ/yszbOzfxzcr+ORjyZoUk9?=
+ =?us-ascii?Q?dgXoEzXAdbNJ0uiuUMv6jXKPNQB0yPpR95UsA+Ehu0IZVYZ7kRx/WBmxyt2z?=
+ =?us-ascii?Q?/7gelDPrNZ3gY53iHL8IB3MuD86usdGEB91bbOeL35HZ6bxODRWaxJUWKKWr?=
+ =?us-ascii?Q?YgqyqbWeme3YgObmcRHbDy8aDJDL3paQtESNOzCsD9S0aKvjzxKR+o4l/1Y2?=
+ =?us-ascii?Q?DuqoO7+i5gEzT+3DhDPB2fxnCTYdm6RrZ+vWsFvgojM5vEvozzoBjpXjLZMD?=
+ =?us-ascii?Q?Y+F/UCFKMna5tXheYAIuVFDO61bGcC/0zR4dT4qoB6cYN/0jV1Ssz4GA4ex0?=
+ =?us-ascii?Q?Pf3rQEMQu9Iao1EX1VwYz7WgGBqNSjwfBIFWm9v7GpWtS/kL3o8VXWfJcbf/?=
+ =?us-ascii?Q?TP9P1d4j2FPNCj1sEKQrsIC7dMnLd0XuoMtPNG5xoQJ3DLRAt9Oyq/IhPn1Q?=
+ =?us-ascii?Q?+iE+UHaVnIftb77FnpqI7VsRIl8ffoxB7iPQ12opIMSHdY3uVKGShLuwUlQg?=
+ =?us-ascii?Q?0pfTJfE07y3JpHO/dAIZAbN9ORocKWZrr3/DUNMcRAVJ8/6i0Cx3nbAlhq3w?=
+ =?us-ascii?Q?Xl0rmnSswQPz8fIrUJViIC3cZ+zHFQNYTgjI/7Tm58Sy9Bn0J7ZfSeUIjtv7?=
+ =?us-ascii?Q?X/xIFxuMUmGXDqyzMisMP3vF40D7sNlhQIReIlj2O68b4FxmwGz/ecuvRprB?=
+ =?us-ascii?Q?hNVJUnisZCD3+4x4DT7r7CmV0GPzBmUyJu+veSzshWhxQElM7QSTgw1n6HM7?=
+ =?us-ascii?Q?VUcZ1FFKe7Tbhw+tKT7BLnBFR0EiQGh1c59piNO6stv7eR9J8LbMOAauKH9x?=
+ =?us-ascii?Q?dSHtaLvfARGdd6HB+euDgTl1nyo/Fwgx/uJ2BenYTZakbVqnw4XRpQKLn7nW?=
+ =?us-ascii?Q?PGSXQTSN07MdMt0zm/77ijqCRYIBotLMTcgAqv6VKwCrV8mYMq6bIh+0LI38?=
+ =?us-ascii?Q?88tfYWFaQV63wCmeVrWhkDp1gPRfGGktXPZ6jzZiTUINGKbruXG3OcVbxddK?=
+ =?us-ascii?Q?4Vbb0mvrc0+jhHzs3ui5SJnFAcS7LJtXcnIrcBuiya0eKAdy7Z857PleON/d?=
+ =?us-ascii?Q?06NlZp/7KNzf3tzWXzYDld3yD/n2GxUQWo6oGmTj4e8byy1XP1fWYN4GxQgE?=
+ =?us-ascii?Q?vzKfRB2qYn7Gl/+UHK1tAgyrm2+7cXPmd80eH6AQEo2xa9USaaRG9WpEEr8N?=
+ =?us-ascii?Q?+3MxRq3g2YOsXK0ToTip5g+BRwIA9ssUeUW9RmtcpNGaHXUw/jGoxUNOhxJa?=
+ =?us-ascii?Q?DYaWPqzCSDm5Ik/T/4kX58xod6TnsMZkuPEFZItHyV3YZ2FLFZE5y5EoV7pP?=
+ =?us-ascii?Q?QkYEOBoLiVr2MvgdKqeo/0BJnTgz+e1ozu5gHrPm8wQ+X9TZeoNNRaNwljY+?=
+ =?us-ascii?Q?byPFiPzbrJRBI6tgzvrh5f4IXlqIRkWxDJAb39NFPr+k/2T5IIN92o/DrcmF?=
+ =?us-ascii?Q?YX43ru74BGt2LuBT5eno0mxAqJApoTfafUf5TjWVX4t//Z6aPRS9odCHyhfa?=
+ =?us-ascii?Q?bSqzw2k4Hw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e213c87b-2f02-4d61-e2b5-08de5a56491b
+X-MS-Exchange-CrossTenant-AuthSource: PA6PR04MB11910.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 08:06:17.6402
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Fb6tukg8ZCTyC90pZOZLcyXdGv99NZKU2B3iU+RrYB0CTVTPw3dKw5PQS1E5BRj/kNkHVZ7UnVZXWULr1F2Yxw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8624
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_000552_835895_A8CCF11A 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20260123_000624_485351_864D6989 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,88 +180,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/01/2026 08:59, Pritam Manohar Sutar wrote:
-> Hi Krzysztof,
-> 
-> Thank you for your feedback. 
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: 22 January 2026 07:05 PM
->> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>; robh@kernel.org;
->> krzk+dt@kernel.org; conor+dt@kernel.org; alim.akhtar@samsung.com
->> Cc: devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
->> samsung-soc@vger.kernel.org; linux-kernel@vger.kernel.org;
->> rosa.pila@samsung.com; dev.tailor@samsung.com;
->> faraz.ata@samsung.com; muhammed.ali@samsung.com;
->> selvarasu.g@samsung.com
->> Subject: Re: [PATCH v2 3/3] arm64: dts: exynos: ExynosAutov920: Enable USB
->> nodes
->>
->> On 22/01/2026 14:07, Pritam Manohar Sutar wrote:
->>> Enable USB PHY and DWC3 USB controllers' nodes.
->>>
->>> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->>> ---
->>>  .../boot/dts/exynos/exynosautov920-sadk.dts   | 21
->> +++++++++++++++++++
->>>  1 file changed, 21 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
->>> b/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
->>> index f90f7704597c..5896dd69334a 100644
->>> --- a/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
->>> +++ b/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
->>> @@ -160,15 +160,20 @@ &xtcxo {
->>>  &usbdrd31_ssphy {
->>>  	dvdd-supply = <&dummy_regulator>;
->>>  	vdd18-supply = <&dummy_regulator>;
->>> +	status = "okay";
->>
->> You just added the node in the previous patch, so why it cant be enavled
->> there?
->>
->>>  };
->>>
->>>  &usbdrd31_hsphy {
->>>  	dvdd-supply = <&dummy_regulator>;
->>>  	vdd18-supply = <&dummy_regulator>;
->>>  	vdd33-supply = <&dummy_regulator>;
->>> +	status = "okay";
->>>  };
->>>
->>>  &usbdrd31_dwc3 {
->>> +	dr_mode = "otg";
->>> +	usb-role-switch;
->>> +	role-switch-default-mode = "peripheral";
->>
->> Why did you add incomplete node in previous commit?
-> 
-> The commit was added to align with the existing convention of separating 
-> node addition and enabling logic in USB configurations. This approach is 
+Extend the v4l2-isp extensible format introduced for isp parameters buffer
+to the statistics buffer as well.
 
-There was never such convention for Qualcomm or Samsung. Do not make up
-fake conventions.
+Like for ISP configuration purpose, that will help supporting various ISP
+hardware versions reporting different statistics data with less impact on
+userspace.
 
-> referenced from commits such as:
+The `v4l2_isp_stats_buffer` reuses the `v4l2_isp_params_buffer` container
+definitions, with similar header, versions and flags. V0 and V1 versions
+are provided to match with params versions. On the other side, ENABLE and
+DISABLE flags are not really meaningfull for statistics purpose. So VALID
+and INVALID flags are introduced. Purpose is to force ISP driver to
+validate a statistics buffer, before it is consumed by userspace.
 
-No, it is not.
+Signed-off-by: Antoine Bouyer <antoine.bouyer@nxp.com>
+---
+ include/uapi/linux/media/v4l2-isp.h | 85 +++++++++++++++++++++++++++++
+ 1 file changed, 85 insertions(+)
 
-> 
-> https://lore.kernel.org/all/20250710-resends-july-exynos990-dt-v2-5-55033f73d1b0@mentallysanemainliners.org/
-> https://lore.kernel.org/all/20240429-usb-dts-gs101-v2-2-7c1797c9db80@linaro.org/
+diff --git a/include/uapi/linux/media/v4l2-isp.h b/include/uapi/linux/media/v4l2-isp.h
+index 779168f9058e..ed1279b86694 100644
+--- a/include/uapi/linux/media/v4l2-isp.h
++++ b/include/uapi/linux/media/v4l2-isp.h
+@@ -99,4 +99,89 @@ struct v4l2_isp_params_buffer {
+ 	__u8 data[] __counted_by(data_size);
+ };
+ 
++/**
++ * enum v4l2_isp_stats_version - V4L2 ISP statistics versioning
++ *
++ * @V4L2_ISP_STATS_VERSION_V0: First version of the V4L2 ISP statistics format
++ *			       (for compatibility)
++ * @V4L2_ISP_STATS_VERSION_V1: First version of the V4L2 ISP statistics format
++ *
++ * V0 and V1 are identical, and comply with V4l2 ISP parameters versions. So
++ * both V0 and V1 refers to the first version of the V4L2 ISP statistics
++ * format.
++ *
++ * Future revisions of the V4L2 ISP statistics format should start from the
++ * value of 2.
++ */
++enum v4l2_isp_stats_version {
++	V4L2_ISP_STATS_VERSION_V0 = 0,
++	V4L2_ISP_STATS_VERSION_V1,
++};
++
++#define V4L2_ISP_PARAMS_FL_BLOCK_VALID		(1U << 0)
++#define V4L2_ISP_PARAMS_FL_BLOCK_INVALID	(1U << 1)
++
++/*
++ * Reserve the first 8 bits for V4L2_ISP_STATS_FL_* flag.
++ *
++ * Driver-specific flags should be defined as:
++ * #define DRIVER_SPECIFIC_FLAG0     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(0))
++ * #define DRIVER_SPECIFIC_FLAG1     ((1U << V4L2_ISP_STATS_FL_DRIVER_FLAGS(1))
++ */
++#define V4L2_ISP_STATS_FL_DRIVER_FLAGS(n)       ((n) + 8)
++
++/**
++ * struct v4l2_isp_stats_block_header - V4L2 extensible statistics block header
++ * @type: The statistics block type (driver-specific)
++ * @flags: A bitmask of block flags (driver-specific)
++ * @size: Size (in bytes) of the statistics block, including this header
++ *
++ * This structure represents the common part of all the ISP statistics blocks.
++ * Each statistics block shall embed an instance of this structure type as its
++ * first member, followed by the block-specific statistics data.
++ *
++ * The @type field is an ISP driver-specific value that identifies the block
++ * type. The @size field specifies the size of the parameters block.
++ *
++ * The @flags field is a bitmask of per-block flags V4L2_STATS_ISP_FL_* and
++ * driver-specific flags specified by the driver header.
++ */
++struct v4l2_isp_stats_block_header {
++	__u16 type;
++	__u16 flags;
++	__u32 size;
++} __attribute__((aligned(8)));
++
++/**
++ * struct v4l2_isp_stats_buffer - V4L2 extensible statistics data
++ * @version: The statistics buffer version (driver-specific)
++ * @data_size: The statistics data effective size, excluding this header
++ * @data: The statistics data
++ *
++ * This structure contains the statistics information of the ISP hardware,
++ * serialized for userspace into a data buffer. Each statistics block is
++ * represented by a block-specific structure which contains a
++ * :c:type:`v4l2_isp_stats_block_header` entry as first member. Driver
++ * populates the @data buffer with statistics information of the ISP blocks it
++ * intends to share to userspace. As a consequence, the data buffer effective
++ * size changes according to the number of ISP blocks that driver intends to
++ * provide and is set by the driver in the @data_size field.
++ *
++ * The statistics buffer is versioned by the @version field to allow modifying
++ * and extending its definition. Driver shall populate the @version field to
++ * inform the userpsace about the version it intends to use. The userspace will
++ * parse and handle the @data buffer according to the data layout specific to
++ * the indicated version.
++ *
++ * For each ISP block that driver wants to report, a block-specific structure
++ * is appended to the @data buffer, one after the other without gaps in
++ * between. Driver shall populate the @data_size field with the effective
++ * size, in bytes, of the @data buffer.
++ */
++struct v4l2_isp_stats_buffer {
++	__u32 version;
++	__u32 data_size;
++	__u8 data[] __counted_by(data_size);
++};
++
+ #endif /* _UAPI_V4L2_ISP_H_ */
+-- 
+2.52.0
 
-Just look at these commits - they add complete node override to DTS. Not
-half node now and half node later to the DTS file!
-
-> 
-> Please let me know if this commit to be merged in previous commit.
-
-Just look at the commits there.
-
-> 
-
-
-Best regards,
-Krzysztof
 
