@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A6ACD72361
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:34:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3613BD7235E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aRHUhUQElWm45tRxPNhFePFW/HsuYpmnmVm/z34Giec=; b=NHhiMTBdWpdvgXv7lDkeDQOPz6
-	vMxo1yF1oi4Z9UCG/UUmaqZn1gXIDKRgb0+0PB0aXz5fc5gYZm2X1yIeyllJjBwYqI7IRZz0Hx+2z
-	FDf090FlxPj3UUakLZ57KPUt5t+GdydNfRbKmWxn7mJSjDwYJyDh+LY0U3SJwsoNAeJxLHeW73/in
-	AJXqtKtcYvVmnTCcUxeGCW14LzWQWDZ8ODsICmxrQfSmrEKLNiLcg/5sB2cwPBCPgoSGL7kkhKkwp
-	nYHX2eyhidvJVquXmYtiRT6kfvAxIwOT76U2PEk1tPu06Lbti+dYxtIBvzOPcRhz3jzCgQGffOWhD
-	Llvqgi8A==;
+	bh=6HdXNZ3Nba+GjaEjoZsm3NjZLI9rre4BgbexuF1mMZI=; b=S/mmffSfKSud+AlhH0XXfLlsDk
+	4HIFDhNcFfQkzGXN4YnAuNqEuh9NCZrkSm6s7gDoik6jhdvHoK3VYfc7U4GRGV4Uys/T6tgy8Qwus
+	C/JsDRjujvPe8T/c9kAQ/tbIh9dxBYKlE4l0ShFTeOJ2DM8MqgV6UVc2XByogChgWtvN/r96nW0d1
+	Uuw8YwtD0ABMf77Jhu3e9V8AlCoXfZJfQuh6A/tj0KJBGWIBnxkUng9erAlzqBCwTESjzROfo1wkD
+	IDeSA1ubDawxs/eYECYmXwhECNi3npxQkXnkbW4qlcCPQEtvs74g8mpyrwLpT5ZVOXsrZ6/M3cfwb
+	uKOUUqgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDYI-00000008ayT-0Loe;
+	id 1vjDYI-00000008azI-2mOc;
 	Fri, 23 Jan 2026 09:34:02 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDY9-00000008avS-0aXh
+	id 1vjDYA-00000008aw8-1gfX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 09:33:54 +0000
+	Fri, 23 Jan 2026 09:33:55 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 2AAD54E42217;
-	Fri, 23 Jan 2026 09:33:51 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id F276B4E42218;
+	Fri, 23 Jan 2026 09:33:52 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0036A6070A;
-	Fri, 23 Jan 2026 09:33:51 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 85B37119A879D;
-	Fri, 23 Jan 2026 10:33:48 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C68606070A;
+	Fri, 23 Jan 2026 09:33:52 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 742EF119A879B;
+	Fri, 23 Jan 2026 10:33:50 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769160829; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1769160831; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=aRHUhUQElWm45tRxPNhFePFW/HsuYpmnmVm/z34Giec=;
-	b=NVNPbezpnmAIsby6thuM0qbC03Y0Zf96x+ESj82VFrPLinMcbeAI1342sZATNE9BPxtwjl
-	5bPXo4z+FRo+7IXjz94KPBAVKA0JAoQ1sqvb0MfxLVm6nQbVOa1BAEiI3ixbYeCjU9Tp6T
-	TKuLiBeYcp67MT33RCFitDZEFj6NSogB65cGX8QjkvAiSuIzfTz7pVzo4qVBYEaf66lhnQ
-	MjBPhOr7ap5MQRqGTgdMWEwNBijF3DNGr0lYdR5djFB/m0iQ3OJKf9drY975KiSPozBs3h
-	eqEfKRK2e+4cs6/vnHGBqKANILyPXZImL6I5IUIBKpFXBrn5wQjF3unBholQ1Q==
+	bh=6HdXNZ3Nba+GjaEjoZsm3NjZLI9rre4BgbexuF1mMZI=;
+	b=SBj3gjtJo/1rgjyDl7/r5f9nceA8TyQzz6LvG0/gA6DDvoG+96GwNz7Kv6prMAItwE0JKX
+	WdLOrIQ7+9MDcHUVFxpUPsliWfeMACv6NKH1l6zqyuogefVe2KqXYyePwE+IZs2Q2i3pCh
+	YoKw1eecQLU5X5yGwfEiEkDgRcK/inTj36l5jF67Sc2UUGHI5NZ20mQ06GOtLqF1FkI0Pn
+	F/yZSP6oQs3oNrjwL5wsfAU0qUSUyM3/FLbcOQ2ADrO34wXMCF451TsyGXF7JOi6KPAmFz
+	+gSeJIdNrKn5CPY1hyaMrSIKM2Xnuxyxrqv7DorfreZX3yV/14o8E9rA4Xwlyw==
 From: Richard Genoud <richard.genoud@bootlin.com>
 To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
 	Rob Herring <robh@kernel.org>,
@@ -61,9 +61,9 @@ Cc: Paul Kocialkowski <paulk@sys-base.io>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH v3 3/4] arm64: dts: allwinner: h616: add PWM controller
-Date: Fri, 23 Jan 2026 10:33:21 +0100
-Message-ID: <20260123093322.1327389-4-richard.genoud@bootlin.com>
+Subject: [PATCH v3 4/4] MAINTAINERS: Add entry on Allwinner H616 PWM driver
+Date: Fri, 23 Jan 2026 10:33:22 +0100
+Message-ID: <20260123093322.1327389-5-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260123093322.1327389-1-richard.genoud@bootlin.com>
 References: <20260123093322.1327389-1-richard.genoud@bootlin.com>
@@ -71,8 +71,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_013353_332323_69C8B329 
-X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-CacheID: sfid-20260123_013354_581056_F896AE5F 
+X-CRM114-Status: UNSURE (   9.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,81 +88,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The H616 has a PWM controller that can provide PWM signals, but also
-plain clocks.
-
-Add the PWM controller node and pins in the device tree.
+Add myself as maintainer of Allwinner H616 PWM driver and device-tree
+bindings.
 
 Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 ---
- .../arm64/boot/dts/allwinner/sun50i-h616.dtsi | 47 +++++++++++++++++++
- 1 file changed, 47 insertions(+)
+ MAINTAINERS | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-index 8d1110c14bad..1c7628a6e4bb 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-@@ -236,6 +236,17 @@ watchdog: watchdog@30090a0 {
- 			clocks = <&osc24M>;
- 		};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 765ad2daa218..ac7b07f4eddf 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -903,6 +903,11 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/sound/allwinner,sun50i-h6-dmic.yaml
+ F:	sound/soc/sunxi/sun50i-dmic.c
  
-+		pwm: pwm@300a000 {
-+			compatible = "allwinner,sun50i-h616-pwm";
-+			reg = <0x0300a000 0x400>;
-+			clocks = <&osc24M>, <&ccu CLK_BUS_PWM>;
-+			clock-names = "mod", "bus";
-+			resets = <&ccu RST_BUS_PWM>;
-+			#pwm-cells = <3>;
-+			#clock-cells = <1>;
-+			status = "disabled";
-+		};
++ALLWINNER H616 PWM DRIVER
++M:	Richard Genoud <richard.genoud@bootlin.com>
++S:	Maintained
++F:	drivers/pwm/pwm-sun50i-h616.c
 +
- 		pio: pinctrl@300b000 {
- 			compatible = "allwinner,sun50i-h616-pinctrl";
- 			reg = <0x0300b000 0x400>;
-@@ -340,6 +351,42 @@ nand_rb1_pin: nand-rb1-pin {
- 				bias-pull-up;
- 			};
- 
-+			/omit-if-no-ref/
-+			pwm0_pin: pwm0-pin {
-+				pins = "PD28";
-+				function = "pwm0";
-+			};
-+
-+			/omit-if-no-ref/
-+			pwm1_pin: pwm1-pin {
-+				pins = "PG19";
-+				function = "pwm1";
-+			};
-+
-+			/omit-if-no-ref/
-+			pwm2_pin: pwm2-pin {
-+				pins = "PH2";
-+				function = "pwm2";
-+			};
-+
-+			/omit-if-no-ref/
-+			pwm3_pin: pwm3-pin {
-+				pins = "PH0";
-+				function = "pwm3";
-+			};
-+
-+			/omit-if-no-ref/
-+			pwm4_pin: pwm4-pin {
-+				pins = "PI14";
-+				function = "pwm4";
-+			};
-+
-+			/omit-if-no-ref/
-+			pwm5_pin: pwm5-pin {
-+				pins = "PA12";
-+				function = "pwm5";
-+			};
-+
- 			/omit-if-no-ref/
- 			spi0_pins: spi0-pins {
- 				pins = "PC0", "PC2", "PC4";
+ ALLWINNER HARDWARE SPINLOCK SUPPORT
+ M:	Wilken Gottwalt <wilken.gottwalt@posteo.net>
+ S:	Maintained
 -- 
 2.47.3
 
