@@ -4,52 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B658BD778B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 19:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA37D778B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 19:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WgyfA8bLWtgBT6AEFVwbcndytImbd3mWgEXRHNi491E=; b=NJx07rdKn4EPFQNybKUBA/lHKl
-	Iw6BEYL9gtxNx9HHETd6ow7FNOq4I/mAIl0/v49L9y2P7przlLNYHYkLu7ULf+yIRnVrAfDIp4/1v
-	XGNz2FiuEP4QPAjqp5lVX++2a/OKna+sQM8auX+BdJctDkMybcPjHGfb0AXokNuEffq1x3go+dqMb
-	/gMkDNWUuT5bzgfyi4duhUn1mN+dv30C1Hg03SkEGZ93xfHPuRC41gvMsTjbJZn543GoEuhXS8qru
-	+tFBRE2Jry+kfl20chqy9qTY5xeCZn4mlOgZiA4wqjWptjKQHIt4X7+WGECeffet2ouBgfdZcMAg6
-	L6f06CEg==;
+	bh=m+r5fZhkf3GNfegUj1BRvCyBl5daCwtOKvn2OSlQg7k=; b=KqRqr85MRc8oZKPslEl24LMKEB
+	42O+GMVG//xWNx6n5vcAIJ20j2pg6lo/IkdJiX5fKz2pXLbQIapmXbirqpg0wW22wJQh20Wt3cjpn
+	wicYvbrj4HrGM4zZXM7LPB27K6NMs85vm7TLx7LZZCo4gXzN1Ubag+TV24mL7GMuA9PciIGAsuwnm
+	SDWiIFhzEfQ/jr03Yh6SqKSYeP/uciLRL8vxwozL0FVMDy+tpunmjlns//M+oZOafGuouxJvwfNLu
+	SMcXd9l2TbwZNtB7BgvU2b8bzMr9Y83EKqKCnfYrV/7scSpt09dd9H9ewIDMPRy6344FX4TKsIdKD
+	mPQ4TIUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjMrU-00000009QZy-16Re;
-	Fri, 23 Jan 2026 19:30:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjMrO-00000009QYc-26VA
+	id 1vjMtk-00000009QhG-3INl;
+	Fri, 23 Jan 2026 19:32:48 +0000
+Received: from mail-francecentralazon11013042.outbound.protection.outlook.com ([40.107.162.42] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjMti-00000009Qgs-0yo0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 19:30:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E35301476;
-	Fri, 23 Jan 2026 11:30:14 -0800 (PST)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A7A83F632;
-	Fri, 23 Jan 2026 11:30:20 -0800 (PST)
-Date: Fri, 23 Jan 2026 19:30:15 +0000
-From: Joey Gouly <joey.gouly@arm.com>
-To: Andrew Jones <andrew.jones@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, alexandru.elisei@arm.com,
-	eric.auger@redhat.com, maz@kernel.org, kvmarm@lists.linux.dev,
-	Oliver Upton <oliver.upton@linux.dev>
-Subject: Re: [kvm-unit-tests PATCH v6 00/14] arm64: EL2 support
-Message-ID: <20260123193015.GA2258507@e124191.cambridge.arm.com>
-References: <20260123165053.2250754-1-joey.gouly@arm.com>
- <ixq5fcyiey4prwl5luzlemznvjd6hk2pqj73rmlinnl233gfdy@b6mns7sf3dv5>
-MIME-Version: 1.0
+	Fri, 23 Jan 2026 19:32:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=u3Vyv3oxPILiFHlN87ybY2y0/5/W5Z7HIC/t4kNegeJ8uuvbEeRCJFbz8ekYBKh4AJB45bQg0wOEbU1jgRb8CjYXiWJy3ubJHyqpPBkJcjO9+Go3kk67WwIEDTXHJpgiHcJdKM26/DGKkrK9mU79Qi220KPo2fGGnIC6vWOJvwuNraAyFfO/fo8SxJX4HdxYRVxTD+HVkfHVMxgSxPHcaxm1DkVAP38F3vhYvvGfWTL95hWSpVvLa1aZQS2Uvuhq6GN3JRCJ9Tq+XD6ziU9KBNmYNJbetKuVfyHQ0xTPs/GYj3Nnm+MhgV8lnyBwudYcM+hv4u6DwbPtO0PlhGNaUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=m+r5fZhkf3GNfegUj1BRvCyBl5daCwtOKvn2OSlQg7k=;
+ b=xt6zTS8F+Pr4TPwxboADXweww5baURJq/DoLdg4O6kUhISQZNz6+UbL52RP0lV1EQPasJFCuwqumL2aCj6ievsnEBPVuF75QO+tcpc+2bCUZXifTOtBPjnMibVnncVtXIvajWeF1EO44ohM6qiVNzpIOQOVoNxFlPVcVqyfzTGbgFebnF07lzIA8D5ugQRBZ+w2InNXCaewFvrihvP+RzMC8tfChI+BBKvkexrhDbhkPVYt9PrpqsGye9WYiYHsWOp7RYpNlQ1iyp4JM5Hg3wmIo/4XjT+vzIklp4qoG+bP6eaCGqWkKnUyVCiRVE45Se2waBUpoiqUmClWLW7pSYQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=m+r5fZhkf3GNfegUj1BRvCyBl5daCwtOKvn2OSlQg7k=;
+ b=UFDwoMCZ719QxwuaQeG2AQN0sM1pslmzCSG297PGW91AEjIEi5IrO6G45yf0VYPqvQmWIb6iALN6QsRo7pgzVjpT4pjTpF9QlDNkuMmFgL7Ih8ezbg5TMJebAitj49v+knvb8myRlBnIY8I9yDVUV+ft8VzVfwgmeS5tIuPP/aeDu9Rrvf+x4yHEUFVzpxdG2Qpc8i6u8VRWck/S2SjyPszKvJrVWxGPBfnL39BkM359llgHrY099x98V/rmN9mAvR/sLpEaOSUF6MbKxW2Nxgr/cVUpO4Czp21HqHuUj3HK2zFXlobe4c+321BJLAdtLsJBNBzwEc8TTcwJS+PkVA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8957.eurprd04.prod.outlook.com (2603:10a6:102:20c::5)
+ by GV2PR04MB11591.eurprd04.prod.outlook.com (2603:10a6:150:2b0::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Fri, 23 Jan
+ 2026 19:32:41 +0000
+Received: from PAXPR04MB8957.eurprd04.prod.outlook.com
+ ([fe80::9c5d:8cdf:5a78:3c5]) by PAXPR04MB8957.eurprd04.prod.outlook.com
+ ([fe80::9c5d:8cdf:5a78:3c5%3]) with mapi id 15.20.9499.005; Fri, 23 Jan 2026
+ 19:32:41 +0000
+Date: Fri, 23 Jan 2026 14:32:25 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Felix Gu <ustc.gu@gmail.com>
+Cc: Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Trent Piepho <tpiepho@impinj.com>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] PCI: imx6: Fix device node reference leak in
+ imx_pcie_probe()
+Message-ID: <aXPMyYeFVvDjSMhZ@lizhi-Precision-Tower-5810>
+References: <20260124-pci_imx6-v1-1-6f4379fc5160@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ixq5fcyiey4prwl5luzlemznvjd6hk2pqj73rmlinnl233gfdy@b6mns7sf3dv5>
+In-Reply-To: <20260124-pci_imx6-v1-1-6f4379fc5160@gmail.com>
+X-ClientProxiedBy: BY5PR17CA0056.namprd17.prod.outlook.com
+ (2603:10b6:a03:167::33) To PRASPRMB0004.eurprd04.prod.outlook.com
+ (2603:10a6:102:29b::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8957:EE_|GV2PR04MB11591:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6d98bb98-5f6d-4c78-2c70-08de5ab62c52
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|52116014|7416014|376014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PCNAz6SwERwyMUG1sFl+PNzStiJv0YR6s62+rGSrnzVljwflBNji1nl9EeJk?=
+ =?us-ascii?Q?VrbgQlO4ADMFZa0Fm2dkhVzPh+Ht+taermT2pwrXO3nRTnPExo8TqcxcKn7B?=
+ =?us-ascii?Q?FZ57asfD8b2/gh3iZCYl2ofA7rsGGMOkee9a8k8tloXVEl8+0LSwroKxP0B7?=
+ =?us-ascii?Q?7D7oFUrMqb+oejoBtQjxtoFGizCVWyCjTZnpFuIvPhB1yyi5l2pAGOTv/AUL?=
+ =?us-ascii?Q?1f7Mpxv/wpRV6k+ZxutIJjGZqQ5BmVinayjLkWpLgsX1XZk+zmmV9DaLh+VY?=
+ =?us-ascii?Q?INssAufy9x1VIZr7n55++nKicwpMurIXutxxZ/xOr9xWO29W6PeI0xnLZB2H?=
+ =?us-ascii?Q?YOPebccoQUUSjYJ73jrNDWWzt5j81WHFEE1VC5i/4pqSyiMuDp31ckR+Nl2m?=
+ =?us-ascii?Q?84bDwv19lQTvNBIt0uQyv0dRCWeLXtFNu+0TzLhrde4SXD89RW0QFSHvl8M6?=
+ =?us-ascii?Q?7WLZATX9jkAHfOwiCimvNv+Y8Egkg0kQ3xDTW5MQzkU82fe0mNOziEr/Y+K9?=
+ =?us-ascii?Q?qDtEM3OUtO+1xZluamFEqnEzfeFDa7eTG9PxOvQwoyYH5FUz8F+oEvV8QsqZ?=
+ =?us-ascii?Q?C8zdIN863DSgDRuu1Ca9yDTd6jB36tYXN1IS23MbAqYewoCvjTUMrwV7EARC?=
+ =?us-ascii?Q?aUylY2P4oUqPoZZkE6Bkta6zID4lK1DZzvOxjluYzKFwJq9my4f55QVlH9XX?=
+ =?us-ascii?Q?zxK+QOSW3Gk+kDT51zRLCbgVhDLIasfVD0vj8kGwF/nl8VmoUJcSWflY6ES4?=
+ =?us-ascii?Q?43IpH83Q3RF/2OC9wnZzKkoI0gwm3+01TR2ZIuTyZPVe/bo+/0M7S+0/mp9z?=
+ =?us-ascii?Q?XLRk87ezXN/Ei7nNNNi3swlsg5NMYA/0IC+k6IPH4uV2gqWNZDEiDwa3521Y?=
+ =?us-ascii?Q?XZyfWgPBTJwFRgYXDEU2hyuWAokt6uU3GmrNDj2UdV7Aryx5ZulYboZ7IU+6?=
+ =?us-ascii?Q?tUEMDxxw1uleQtLRNXSUIXrYuTcGa11U2/RZ3r6i01nT12r2hrtRjS+SrZIH?=
+ =?us-ascii?Q?SeURgZq+Edq1jEdyLbdUclfRV9rRNfeUM+fziObX7BXx4RNMxKzoAVY0DqVF?=
+ =?us-ascii?Q?YWlloirnU591/CVwv3FDdZvi5D3Gotlhv/Af5Xi7WfGvYWma5qmds9Tcn/3i?=
+ =?us-ascii?Q?uYB6lmp5poY8gg/esBDZujLWGGuXXsYUZLpsiEW4bIN57bxuwQLM05CkgEeM?=
+ =?us-ascii?Q?y5Jz5sA4fKHKiJwOgX6jOEmhnQhCrIaUiEwB8u8h5Nx1M4ShNACShRh6nz0b?=
+ =?us-ascii?Q?2BUVV8226oQ0NaAMItImIbeylkqQHCAfWYpEKLw2U6GeoceNucR2pK5BhFMd?=
+ =?us-ascii?Q?hCF0srNiKNHf/+2ZHjIhxFMR1DBP82fO/drsTS7EulZ16NbQQtC+QWwkbxQl?=
+ =?us-ascii?Q?sKtTc7rJD16bxF0ywAHd0PS6XqZGGxsOwyQ3uxkUiZsypMywWafdAmxA16cH?=
+ =?us-ascii?Q?mj2CchsGx4rixwQYSyqjJsxFfqrELFcbhlVRqcNv3kI5EFEDLa0Mo6lYd22b?=
+ =?us-ascii?Q?icnVIq1X3P3RC5JOMovrGan0pdxN8DqFkqQzz881nrkhmGBjLmycze0O8KPb?=
+ =?us-ascii?Q?W6utAPZTiuRJg0tpZet0+q8JZTmczkAwN6Vn8MB5jiTE34y6bm4pX7XhSUa/?=
+ =?us-ascii?Q?98QmGa7fCqNwvuDzx++wRjc=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8957.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(52116014)(7416014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?d2xg38LJi4vBFawPa9u9HIT6vBcfa1rWm2LGe9WFyBv439NCcFfxlQ/ZXK7y?=
+ =?us-ascii?Q?yC4cFGF2JTPFQAMWt3MCzdguTsQaq3lptcgEWlR/L5jdEgrwworeC6COtw1I?=
+ =?us-ascii?Q?JV8SFGANu9W4k6y5M+7iy7ZLDgEYTjPhVlZG6sDwx4ASL1tDfWMQzJ4fYb3l?=
+ =?us-ascii?Q?n+wp6R+fOndyCTmaik6AJXiGbKyAJNgLB/PLR0Y0Rt7KRGbD6/9txAi3tg92?=
+ =?us-ascii?Q?mjVND5CcoyL3jhIwuqTaH+m63ysJS7uTa5p6YZlWHW3ex+hAr+pZgewMV131?=
+ =?us-ascii?Q?Sf1ENUGTcomG0I0LdBj/+TYifjYEeX/WiwVRJzyNXgm4L32GSpXOKTLrnuD8?=
+ =?us-ascii?Q?YnGH8CSEVC5dPBwRS/Mat48NWCbT4GOlM3O9uYhZRamquSxYnGAO65O7HH6Z?=
+ =?us-ascii?Q?mrRnxUXoZGBCVdp4bbypGXomGZwNoqLtYRQ/ZSZNY0tj19CaPR4/NeCS9YfU?=
+ =?us-ascii?Q?iZS5ct2X3tqt8XcSv2Zv3OZLMD1t9tMOM1uMoU4gbZ/nrt6o+G3UsM+zb8EK?=
+ =?us-ascii?Q?R9zeRHdnZWokRx2vrZXIc1ftU+28M4E/khWeBMq3RXE87kWl2ObivlsoxA6S?=
+ =?us-ascii?Q?SxE1/OWpW/4dSvVyWBYGbXzXKtlkxobDIMasjS8mMrUOcyd6xEl0UxXbqAsT?=
+ =?us-ascii?Q?s5wCb8Njb0g3AbP8ORwEYtvtcKnyhAXLlCmpGNZS4Xu5b6kNwEIGKBAv1pcu?=
+ =?us-ascii?Q?9dArmjl2rQCY8C8rXwr16s9ITX01WXt1S6R7ooeFAKcNb5tlVLBH14CnktNN?=
+ =?us-ascii?Q?xxBkx9R86Y1JDeqxjDFX2tB60k1j0EycnrD5aslqZ5QgjQk9dP2dI+SoTmLF?=
+ =?us-ascii?Q?PJCGesVJL66Y2YSJg0ouu0YfLaMSaXxHScWmLoDQRzH6H3GvsdN1KHITBBOJ?=
+ =?us-ascii?Q?jZUt5U6HJxya4Z40rkSTP0527ZP8vmRemyUa8KX8tfmJtl2TkF4mJQxXonVT?=
+ =?us-ascii?Q?hzxlERghYnGxK357NyYLG17fyao90OgRDsEy8a/vTj/gwASiVUZLaGgQ2yIj?=
+ =?us-ascii?Q?sbUMPVCZBcuclMeU13f0yOJlXe2IxJlh8DDqPF/5ixcDDhPzfErp7spQgDyX?=
+ =?us-ascii?Q?2BvtdM+xm59rQgPT9D/oMsXtDt9lTEhhjYoCfIPjp9Obn+iDrcWaK4HZ780+?=
+ =?us-ascii?Q?e1osb7lbxrafSJwTV5bNvCu1Hik/4Qg71bn9azGSD4X/eSIIKEb9rYO5Ilvo?=
+ =?us-ascii?Q?EAuNri7Cb7sP1WyamnInZMDUh+beHjMrgZwoNmKjAnX5KE2h+n9as3/g0c/J?=
+ =?us-ascii?Q?d1D2+8RcSQK9dRim5h9LDmw6L+5nwpvJsrlsCpLYYWEbCRvxUuxSS3AYn6LG?=
+ =?us-ascii?Q?nNqoqIhjMuHolTLSIFFvMRj4eYLDeXAngRZmDDfrVwhb6gQbaFxxZq/EyoiM?=
+ =?us-ascii?Q?F/dxbxp5dgbMGWdOiTx9VIxdU96Wf2QBXB2bpd0ISl+i4BN6c1bAkGeLJJLv?=
+ =?us-ascii?Q?L9575Y9qjwTeXIUKy2aYn8iP9s68jP6NR4IvxI6FkHzZXaRxdvdYSygTwo/B?=
+ =?us-ascii?Q?e5hXLLPihOcWn4Mm6gG7+a4lq1XQe7HWOKp8DJJ2JZmAcfE0FT7uL5BW6pIS?=
+ =?us-ascii?Q?vTTeFm3smDTNXbSwAW+KOfkPSd0Q8lVORT0V5BGPTUFojmwk0FekSM9Rud83?=
+ =?us-ascii?Q?EI1gKLaBJ0DmqQgZ7JWPk7k9EN7Bb8oVPcNgJteZmByV+NxnIaF0OlWcFFWT?=
+ =?us-ascii?Q?uFGuVkptWjll8yKJWYIxk4428zzi0KEWZLWbJDVu30AKpoo5SlH5YPwY0RfG?=
+ =?us-ascii?Q?omarzNX/ew=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6d98bb98-5f6d-4c78-2c70-08de5ab62c52
+X-MS-Exchange-CrossTenant-AuthSource: PRASPRMB0004.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 19:32:41.5389
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Itch5WbShKT+PMBmHsqTIaZ04+jgwfomtXUhQIaTGu5Etjk7Ca44uVPnAM/yX11rNKplZS2ESpkFhw+jQWqDZQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11591
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_113022_678161_BA39410F 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20260123_113246_301332_5C785000 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,85 +173,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 01:23:41PM -0600, Andrew Jones wrote:
-> On Fri, Jan 23, 2026 at 04:50:39PM +0000, Joey Gouly wrote:
-> > Hi all,
-> > 
-> > This series is for adding support to running the kvm-unit-tests at EL2.
-> > 
-> > Changes since v5[1]:
-> > 	- make debug bp/wp skip on EL2
-> > 	- fix microbench test
-> > 	- add to CI
-> > 	- applied the fixup's Drew talked about in v5
-> > 
-> > About this failure in micro-bench:
-> > 
-> > 	- micro-bench hits the assert in gicv3_lpi_alloc_tables()
-> > 		lib/arm/gic-v3.c:183: assert failed: gicv3_data.redist_base[cpu]: Redistributor for cpu0 not initialized. Did cpu0 enable the GIC?	
-> > 
-> > in micro-bench.c lpi_prep() looks like this:
-> > 
-> > 	static bool lpi_prep(void)
-> > 	{
-> > 	        struct its_collection *col1;
-> > 	        struct its_device *dev2;
-> > 	        if (!gicv3_its_base())
-> > 	                return false;
-> > 
-> > QEMU by default runs with gic-v2, so gicv3_its_base() should have returned
-> > false and the lpi tests skipped. However because of the overflow mentioned in
-> > the first commit (new to v6), the its_data.base was being overwritten to a
-> > non-zero value.  This meant the test tried to do gic-v3 things on a gic-v2.
-> 
-> Nice work on the micro-bench/gic issue. Unfortunately the timer test still
-> times out, and that breaks the new CI since that test is listed.
+On Sat, Jan 24, 2026 at 02:18:49AM +0800, Felix Gu wrote:
+> In imx_pcie_probe, np is obtained by of_parse_phandle() and must
+> be released with of_node_put() when it is no longer needed.
+> Add the missing of_node_put() after of_address_to_resource() to fix the
+> leak.
+>
+> Fixes: 1df82ec46600 ("PCI: imx: Add workaround for e10728, IMX7d PCIe PLL failure")
+> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 1d8677d7de04..3ae02712d3f0 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -1675,6 +1675,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  		struct resource res;
+>
 
-Can you drop the timer from the CI commit while I investigate? It passes here,
-but I can try look more into. If everything else is working will be nice to
-merge.
+Please use auto cleanup
 
+	struct device_node *np __free(device_node) =
+		of_parse_phandle(node, "fsl,imx7d-pcie-phy", 0);
 
-Thanks,
-Joey
+Frank
 
-> 
-> # No EL2
-> 
-> $ ./run_tests.sh -g timer
-> PASS timer (18 tests)
-> 
-> # EL2
-> 
-> $ EL2=y ./run_tests.sh -g timer
-> FAIL timer (timeout; duration=10s)
-> 
-> $ TIMEOUT=90s EL2=y ./run_tests.sh -g timer
-> FAIL timer (timeout; duration=90s)
-> 
-> $ cat logs/timer.log
-> timeout -k 1s --foreground 90s /usr/bin/qemu-system-aarch64 -nodefaults -machine virt,virtualization=on -accel tcg -cpu max -device virtio-serial-device -device virtconsole,chardev=ctd -chardev testdev,id=ctd -device pci-testdev -display none -serial stdio -kernel arm/timer.flat -smp 1 # -initrd /tmp/tmp.N15fhaPbhB
-> CNTFRQ_EL0   : 0x0000000003b9aca0
-> CNTPCT_EL0   : 0x00000000001d3a1f
-> CNTP_CTL_EL0 : 0x0000000000000000
-> CNTP_CVAL_EL0: 0x0000000000000000
-> CNTVCT_EL0   : 0x00000000001d5884
-> CNTV_CTL_EL0 : 0x0000000000000000
-> CNTV_CVAL_EL0: 0x0000000000000000
-> INFO: vtimer-busy-loop: After timer: 0x000000000027ae86
-> INFO: vtimer-busy-loop: Expected   : 0x000000000027415b
-> INFO: vtimer-busy-loop: Difference : 450 us
-> PASS: vtimer-busy-loop: latency within 10 ms
-> FAIL: vtimer-busy-loop: interrupt received
-> PASS: vtimer-busy-loop: not pending before
-> FAIL: vtimer-busy-loop: interrupt signal pending
-> PASS: vtimer-busy-loop: no interrupt when timer is disabled
-> PASS: vtimer-busy-loop: interrupt signal no longer pending
-> PASS: vtimer-busy-loop: interrupt signal not pending
-> INFO: vtimer-busy-loop: waiting for interrupt...
-> qemu-system-aarch64: terminating on signal 15 from pid 112137 (timeout)
-> 
-> 
-> Thanks,
-> drew
+>  		ret = of_address_to_resource(np, 0, &res);
+> +		of_node_put(np);
+>  		if (ret) {
+>  			dev_err(dev, "Unable to map PCIe PHY\n");
+>  			return ret;
+>
+> ---
+> base-commit: a0c666c25aeefd16f4b088c6549a6fb6b65a8a1d
+> change-id: 20260124-pci_imx6-f97d70887dfc
+>
+> Best regards,
+> --
+> Felix Gu <ustc.gu@gmail.com>
+>
 
