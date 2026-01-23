@@ -4,59 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3344D778AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 20:58:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06EA4D778B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 21:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=98sXlw4H+t60FxBp3pMa1NWBBRyhdZF6mH0QeaS0AJE=; b=r/hlffOa+Vn0G2j+3LtkaoYRFt
-	AeNZ1tbSFXf7MDsZNaR3IAaELEknnQY+LbxVTX/f5knYgyt7DwNoh8ljajfTMUfWJKoscu9YdkSX9
-	odrsqauEmU+y4I9IFeNBzqd0RLeK0ktdw5uDDjE70dxIAZkTOgYVdBgQPaHdHGWziO/0TB5YSIKa8
-	FgWuMCmylaVSE59HV0ZMb4JIpDMM1wyut9La0FdRIUCeozgWaXKeTuIBAN93nX4QlejVKQFvmekOG
-	9Sz3vQ1gHbRX1aA3dRh6u1zBLrVpnYtrLCcFvk+fhkzir6oRZCXEn4ijUpN19/6OK0wHMDIWgSiTq
-	f3ns7QIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oNRxze2Fb4jAa3NU1q+qZ6MvoeIK07yRAN5JSVYEztg=; b=l6HrbnHCQ5M9tH3tylEoPLjtST
+	r9chAqNbQY1dNjW8DWwhGfMT/sPKN8tKCbVMXQtxaxRcMLPgmHTLQEuQoo6LVIhPqIWLUwjMZyMH2
+	UbYloZ+pd4UwiNY2MMvxm9nOyAuXSdoglE5hX83Y8TSHEYhEHnVygFjggzMNOTYB8ITGLEU1g9eZz
+	G4Gk/rsiLtjWv3CfbuS8l3HdlaeL56qDs6f/tRc7FlnxNBMX08PULGxVbCr6ZvFBXDBXGb9YP7wMV
+	FzE7qqAaNZsVtMZhPXyMv6lg3y2iEMsjeriptWsmNb+yoJLZT7P4T25gYRwQ5hdr7KdPGsQrmUjG/
+	dhid+jmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjOEJ-00000009Ulp-030N;
-	Fri, 23 Jan 2026 20:58:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjOEF-00000009UlM-3Vzz;
-	Fri, 23 Jan 2026 20:58:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 122ED1476;
-	Fri, 23 Jan 2026 12:57:48 -0800 (PST)
-Received: from [10.57.51.35] (unknown [10.57.51.35])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C2A1B3F632;
-	Fri, 23 Jan 2026 12:57:52 -0800 (PST)
-Message-ID: <e9fd0005-bfbb-4052-8c2a-9200eb0b60ac@arm.com>
-Date: Fri, 23 Jan 2026 20:57:50 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] gpio: rockchip: mark the GPIO controller as sleeping
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Linus Walleij <linusw@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>
-References: <20260106090011.21603-1-bartosz.golaszewski@oss.qualcomm.com>
- <aWGSQYCXP4R08koQ@venus>
- <CAMRc=Mf0tRxRrh7tn5OaDn3a47N_qvUcjO=zqbTi-GhY-Y9hOg@mail.gmail.com>
- <447e8d5a-916b-4d58-b39c-3467c152379c@arm.com>
- <CAMRc=Md0h5b=N9CqV-9L9sOtCNbiL1-y6RE0x4+w9HYXE8=pEQ@mail.gmail.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <CAMRc=Md0h5b=N9CqV-9L9sOtCNbiL1-y6RE0x4+w9HYXE8=pEQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	id 1vjOeF-00000009Vtx-0r2K;
+	Fri, 23 Jan 2026 21:24:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjOeD-00000009Vtc-0BN6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 Jan 2026 21:24:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A0EA9434C8;
+	Fri, 23 Jan 2026 21:24:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E540C4CEF1;
+	Fri, 23 Jan 2026 21:24:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769203491;
+	bh=VNE+m3Pfw/5+DeSp+zS9BpD2eDtyYG3WMUZep7z42kk=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=FRU2es7KDBQsIuGPn/Zwj/zskcTTWOFBo7wXszdenmmDoS82otCCJjnCgrE/qh0fH
+	 katSaRxM3a6b2D5aO2mhWIMfYrNap8jxC6v63bsnL64JHxMAxFFF/tvn8l3nY7tVsn
+	 DjZpZv58jbEdgUzg1AEj0Uljw6Io5dse6V3atpAkYpo/T5djglhmQPnfJYa3cmGe1d
+	 OTE6NmcobUHSqOe7hIiq6xR91QJ8qOt9BqxRFR+QsTHL2osbkJx21aCrqSD4nksQMj
+	 HqzXVaL7+P43LV9OyBbO0HofT5RNPXeyNlFmCCoEKrL5fi1nJB5TFU8j8GkDpDcqD1
+	 k519Lg0mBvhzA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 8BA0B3808200;
+	Fri, 23 Jan 2026 21:24:48 +0000 (UTC)
+Subject: Re: [GIT PULL] pmdomain fixes for v6.19-rc7
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20260123121435.245253-1-ulf.hansson@linaro.org>
+References: <20260123121435.245253-1-ulf.hansson@linaro.org>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <20260123121435.245253-1-ulf.hansson@linaro.org>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.19-rc3-2
+X-PR-Tracked-Commit-Id: 861d21c43c98478eef70e68e31d4ff86400c6ef7
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 9731fa48beb346bb9804cb81e34b3260ce65e561
+Message-Id: <176920348722.2720183.9624545632206323526.pr-tracker-bot@kernel.org>
+Date: Fri, 23 Jan 2026 21:24:47 +0000
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_125804_009447_6D8EB6FD 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20260123_132453_103597_F1817462 
+X-CRM114-Status: UNSURE (   4.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,61 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-01-23 7:27 pm, Bartosz Golaszewski wrote:
-> On Fri, Jan 23, 2026 at 2:27 PM Robin Murphy <robin.murphy@arm.com> wrote:
->>
->>>>
->>>> It's not a big issue for the hdmirx driver specifically, but I wonder
->>>> how many more (less often tested) rockchip drivers use GPIOs from their
->>>> IRQ handler.
->>
->> Yeah, seems this finally reached my distro kernel and now the kernel log
->> on one of my boards is totally flooded from gpio_ir_recv_irq()
->> (legitimately) calling gpio_get_value()... that's not really OK :/
->>
-> 
-> This has always been a sleeping driver. The driver does not know the
-> firmware configuration it'll be passed and - as I explained above -
-> depending on the lookup flags, we may call .direction_output() and
-> descend into pinctrl which uses mutexes. Ideally, we'd make
-> GPIO-facing pinctrl operations not sleeping but this is a long-time
-> project and quite complex. Telling the GPIO core that it cannot sleep
-> is simply incorrect - even if it worked for this particular use-case -
-> and has an impact on paths we're choosing.
-> 
-> Can the GPIO reading in the gpio-ir-recv driver be done from a
-> high-priority workqueue by any chance? Or can we make it a threaded
-> interrupt?
+The pull request you sent on Fri, 23 Jan 2026 13:14:35 +0100:
 
-rockchip_gpio_get() is essentially nothing but a readl(), please explain 
-how that could sleep? Saying that countless in-tree and out-of-tree 
-arbitrary GPIO consumer drivers should pointlessly refactor just to 
-avoid the GPIO core spewing spurious WARN()s is not reasonable.
+> git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.19-rc3-2
 
-I appreciate there are cases where the warning most definitely *is* 
-relevant, which is why I picked up this discussion rather than proposing 
-a revert, even though the documentation says:
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/9731fa48beb346bb9804cb81e34b3260ce65e561
 
-  * @can_sleep: flag must be set iff get()/set() methods sleep, as they
+Thank you!
 
-where since neither rockchip_gpio_get() nor rockchip_gpio_set() 
-themselves sleep, apparently this flag must *not* be set. It's 
-irrelevant that a higher-level gpiod_set_value() invocation might end up 
-calling .set_direction before it gets as far as calling .set - that's 
-not the gpio_chip's fault, and gpiolib knows exactly what it's doing.
-
-What I'm getting at is that getting, and even (directly) setting a 
-GPIO's value can reasonably be expected to be more common and applicable 
-in a wider range of circumstances than changing its configuration, so 
-the former should not be unfairly penalised because of the latter. This 
-case is clearly distinct from external GPIO expanders on buses that 
-fundamentally can't guarantee fast memory-mapped access at all, so 
-trying to conflate it under the same flag doesn't fit, and that needs 
-fixing ASAP, before the reverts *do* start piling in. Maybe that just 
-means some new dir_can_sleep or more abstract dir_needs_pinctrl flag 
-might suffice, maybe it's something more involved; I don't really know, 
-and I don't have the bandwidth to take this on myself.
-
-Thanks,
-Robin.
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
