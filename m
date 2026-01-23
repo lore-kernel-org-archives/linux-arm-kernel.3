@@ -4,90 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF033D72369
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0013D72367
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ePKEQ0GejUBw1iTzV1iSOFdxHwY73KC0ci9l7qDVv0U=; b=nv2zjmCu/BYoxwWfbNwL6d4ICG
-	0ScxBiSvIxubO7g/pnurSde109KA4ORDruzFfViTB1rJMYrbekkikwz7+j8FS94yXltOLoqUp5CIW
-	LvmO1j11UIo7QztgNXbbxkFZ4m4/qbHgP/agkGxlZMRt6RWY/Njo7L43mPXgAl/vQCt0fg+Xhkrka
-	pg5Jf4TQOWuSr8W/912s5bFYyHyHvKpaZJuZJRDaaZzE1w6HDRz0iII7rjrECMn5qDKoqJCmePjJ/
-	fTmWn8slLQbK5Fhb9hgu6LJCA2soZ9WbIJC4pre0ZIpaJWMCCKtyteVv6XIjuztozaNmCyR1+FbJ4
-	pWzCdiIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RB2N5YBeKWLxz5FkrVnsyiEuGQy3JJP6HUJk3toQkcs=; b=QDWia6USwUfRK6bFHZfVh6l1q9
+	SiQ9fj5DFM78ObxOe03Nf08rwG6CxiD8QXzteV4jCC+kDkkzK0nvDxDCVgVdHQ/m0UsmTVU0uc/eY
+	F6WG/9CERpSmjsj1VEh1ANC3aVsBdsMUNjW7Bc/rwOLe7NuHxxZAYQyITFoExkkphhdIKaffT2q7k
+	KDyiAn8rk8i9SHekLQkWRwsYn565mnFkOH1yvmrmKKupyciE6zXqlxSxzii1N6poktrF6B/2GnYAq
+	en3zNkFIKUC9NwvKIXebSPLEl9H5jdxYQrCRQda+wvtqWl24LEpIqE2Xvv2GsZ6QaZpNPVY9iudeW
+	Bon8k76g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDrH-00000008cmU-0iRd;
-	Fri, 23 Jan 2026 09:53:39 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1vjDrP-00000008cr5-43Wo;
+	Fri, 23 Jan 2026 09:53:49 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDrD-00000008cjo-21b5
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 09:53:36 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2a1462573caso102095ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 01:53:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769162014; x=1769766814; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ePKEQ0GejUBw1iTzV1iSOFdxHwY73KC0ci9l7qDVv0U=;
-        b=J+XihFgYCwqvp2+95BNp8Q5rNLQphnADt0vlpeMpzZXLds9Hxuctb9l2Yz+4SZ6UVv
-         hEBj+hFQFrUVOf6aAa5n1BaR5xS8vuHez+kXQIdpJF8z6p5Zps/Y6ivJ3aWx4PvBQwIe
-         PsHOblS/kLs6I7XQaaLlv+lSRx1m3rDJ6x2X/LOjIt0Dvv5iFNQVfOAQgn5l2SFtWg/B
-         pVx9TFSrk2zlDITH75Mi8cuDsHeoOETBWH4KhrsEn8zkm7ok78im7WsFdJQ2F+9ImpsE
-         eS8tlhrrv9SZGHmU89HdygkI0CTa3i29Y8oa+KMXJ+VPw3RXnUXA/03y/lBaSqVvU0Q7
-         MGaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769162014; x=1769766814;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ePKEQ0GejUBw1iTzV1iSOFdxHwY73KC0ci9l7qDVv0U=;
-        b=obDsXax2BH2JYzarA1YA2jX9Qf2H6gp5/dqbOhE4uuPI8bCmJVqeSnW0aQGyxe9EVn
-         JDvlNqn8P93DIhveHssiOmdYDZtHwNuM8LKoCMeAzz/VO/6j9o6ExoV3BTQw7ypwHGT2
-         GFkMLZ5kzX8GoUBar/Kh2kOUT4FKk1cmg5KprnEK7wDJ0dwvGVoKbbM3+ok3rj3QmIAG
-         y+nkEn3Ig27yFxUuehNyK4m7F0F1W8qBGH9QDx+Zyuf8widlY6at3MesXbLh6TFeDqhV
-         a2Jqc6U9equnk+ZhhXUrEpJW22woje4ShaxdKGZbTY92XksPSBwxYci3pyukYa2Kj2Hu
-         67zw==
-X-Forwarded-Encrypted: i=1; AJvYcCU4Vpokg9TSjmaymXb/sl+koHku+C/cWqhqfcDptEILSMCFOy4txQoKm7bTfGiuzKpE6jrnOZkS81SpuM09Y28H@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwoDhkU9kSFDEDYgcfW45gvY8F1YaWOU1MldnbyFkPORX37hTJ
-	OYwT8tB0eSqyoL+xn2K/MeQb5SwP5C8a/h5uPxsq/Il+FDnQJj9IVg5So8iJbnBlSA==
-X-Gm-Gg: AZuq6aIqzIztZ8JfB6K8MAiBycmtHYYMrnTSE2uMq+Zy0Ow7f8Cff0gQhP99eX3iKmB
-	k7hb1DbxaWHbq6upW8bhSd8DVWNxM9iDvxoQNiIY1kKc2Hn1lQbT/obbTPu/yKAWBBv2uRRZf0m
-	yHuVJYZdyY7DBkq3CG0Id0uUFrIYri4FxW/u6PzRwa+m0NCf6k3LF8ZhtMCkR5fRT0shidna16A
-	tdfDDZqK/Z12hN95Hkr2aFIbgRqnz2iu0nPMqrzX0roLmMyooDidOAHM8NwuADEclRS+Hx1ckfC
-	THJy73AYziTTypYJYZqGhDE+By8V4wVAtEbMkuwdjDm4eC0/zn4Q12bvrAGGfAFJ4vjLCM4Cm6i
-	ioWqaTn711k5lODth/1gvPNcNHbbv/yV4ZwVw2123h2cvy3Hz6O9lqcnWO9L4jWj+jLN/L0EBUB
-	4pc4vSX1ZMa+NtTovvjfDCMgQyjwl56ldM4/gRpR/ZQa03SR6I
-X-Received: by 2002:a17:903:40cc:b0:2a3:cd98:f07 with SMTP id d9443c01a7336-2a805c91485mr1873745ad.3.1769162014172;
-        Fri, 23 Jan 2026 01:53:34 -0800 (PST)
-Received: from google.com (222.245.187.35.bc.googleusercontent.com. [35.187.245.222])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a802f97a81sm15301165ad.47.2026.01.23.01.53.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Jan 2026 01:53:33 -0800 (PST)
-Date: Fri, 23 Jan 2026 09:53:28 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, jean-philippe@linaro.org, robin.murphy@arm.com,
-	joro@8bytes.org, jgg@nvidia.com, balbirs@nvidia.com,
-	miko.lenczewski@arm.com, peterz@infradead.org, kevin.tian@intel.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 3/7] iommu/arm-smmu-v3: Introduce a per-domain
- arm_smmu_invs array
-Message-ID: <aXNFGNM5MmEuyUSG@google.com>
-References: <cover.1766174731.git.nicolinc@nvidia.com>
- <8c94c5194871ee1a0f3a6b49e18818b88f51226d.1766174731.git.nicolinc@nvidia.com>
+	id 1vjDrK-00000008cnc-3oCK;
+	Fri, 23 Jan 2026 09:53:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=RB2N5YBeKWLxz5FkrVnsyiEuGQy3JJP6HUJk3toQkcs=; b=OJh+UbqpXGzgNLQw4ZhZxoEZUL
+	AWFW9By2KGYgehufm4Mb5Nk6zq95RQG4lqyttOOnucyLaMuJPrqUzcHP/hP4SbF72Bd6wVqbdyc1D
+	R8oqIEOAHGPzoxDvz25LjIiVI9lOMlvCG526lDuYRphs+0CnlI+RX+Svc0rZG9wgBho4XDzABaakJ
+	PpYmBOEOL4MH44e2WH0toRwkk97G08dRR8wvSn2viWfUFdfNEtIPkdPw1h8uJgDJxSc3rT8gpfH0u
+	uNHqemYYcX35lwXoet0Eni1BPKqTZmcRjxCENTW2kKu9kYBh+9Goz5+dmCTC+mGu0wx3+vWKi/rnQ
+	3aaj3Hag==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:52716 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vjDrD-000000001ai-0NWu;
+	Fri, 23 Jan 2026 09:53:35 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vjDrB-00000005fQF-412k;
+	Fri, 23 Jan 2026 09:53:34 +0000
+In-Reply-To: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
+References: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH net-next v2 03/14] phy: qcom-sgmii-eth: add .set_mode() and
+ .validate() methods
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <8c94c5194871ee1a0f3a6b49e18818b88f51226d.1766174731.git.nicolinc@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vjDrB-00000005fQF-412k@rmk-PC.armlinux.org.uk>
+Date: Fri, 23 Jan 2026 09:53:33 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_015335_521263_836EBB4F 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20260123_015343_356935_276C2378 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,43 +94,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 19, 2025 at 12:11:25PM -0800, Nicolin Chen wrote:
-> From: Jason Gunthorpe <jgg@nvidia.com>
-> 
-> Create a new data structure to hold an array of invalidations that need to
-> be performed for the domain based on what masters are attached, to replace
-> the single smmu pointer and linked list of masters in the current design.
-> 
-> Each array entry holds one of the invalidation actions - S1_ASID, S2_VMID,
-> ATS or their variant with information to feed invalidation commands to HW.
-> It is structured so that multiple SMMUs can participate in the same array,
-> removing one key limitation of the current system.
-> 
-> To maximize performance, a sorted array is used as the data structure. It
-> allows grouping SYNCs together to parallelize invalidations. For instance,
-> it will group all the ATS entries after the ASID/VMID entry, so they will
-> all be pushed to the PCI devices in parallel with one SYNC.
-> 
-> To minimize the locking cost on the invalidation fast path (reader of the
-> invalidation array), the array is managed with RCU.
-> 
-> Provide a set of APIs to add/delete entries to/from an array, which cover
-> cannot-fail attach cases, e.g. attaching to arm_smmu_blocked_domain. Also
-> add kunit coverage for those APIs.
-> 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Co-developed-by: Nicolin Chen <nicolinc@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  98 +++++++
->  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |  92 +++++++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 258 ++++++++++++++++++
->  3 files changed, 448 insertions(+)
-> 
+qcom-sgmii-eth is an Ethernet SerDes supporting only Ethernet mode
+using SGMII, 1000BASE-X and 2500BASE-X.
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Add an implementation of the .set_mode() method, which can be used
+instead of or as well as the .set_speed() method. The Ethernet
+interface modes mentioned above all have a fixed data rate, so
+setting the mode is sufficient to fully specify the operating
+parameters.
 
-Thanks,
-Praan
+Add an implementation of the .validate() method, which will be
+necessary to allow discovery of the SerDes capabilities for platform
+independent SerDes support in the stmmac network driver.
+
+Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Acked-by: Vinod Koul <vkoul@kernel.org>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/phy/qualcomm/phy-qcom-sgmii-eth.c | 43 +++++++++++++++++++++++
+ 1 file changed, 43 insertions(+)
+
+diff --git a/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c b/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
+index 5b1c82459c12..4ea3dce7719f 100644
+--- a/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
++++ b/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
+@@ -7,6 +7,7 @@
+ #include <linux/ethtool.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
++#include <linux/phy.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+@@ -286,6 +287,37 @@ static int qcom_dwmac_sgmii_phy_power_off(struct phy *phy)
+ 	return 0;
+ }
+ 
++static int qcom_dwmac_sgmii_phy_speed(enum phy_mode mode, int submode)
++{
++	if (mode != PHY_MODE_ETHERNET)
++		return -EINVAL;
++
++	if (submode == PHY_INTERFACE_MODE_SGMII ||
++	    submode == PHY_INTERFACE_MODE_1000BASEX)
++		return SPEED_1000;
++
++	if (submode == PHY_INTERFACE_MODE_2500BASEX)
++		return SPEED_2500;
++
++	return -EINVAL;
++}
++
++static int qcom_dwmac_sgmii_phy_set_mode(struct phy *phy, enum phy_mode mode,
++					 int submode)
++{
++	struct qcom_dwmac_sgmii_phy_data *data = phy_get_drvdata(phy);
++	int speed;
++
++	speed = qcom_dwmac_sgmii_phy_speed(mode, submode);
++	if (speed < 0)
++		return speed;
++
++	if (speed != data->speed)
++		data->speed = speed;
++
++	return qcom_dwmac_sgmii_phy_calibrate(phy);
++}
++
+ static int qcom_dwmac_sgmii_phy_set_speed(struct phy *phy, int speed)
+ {
+ 	struct qcom_dwmac_sgmii_phy_data *data = phy_get_drvdata(phy);
+@@ -296,10 +328,21 @@ static int qcom_dwmac_sgmii_phy_set_speed(struct phy *phy, int speed)
+ 	return qcom_dwmac_sgmii_phy_calibrate(phy);
+ }
+ 
++static int qcom_dwmac_sgmii_phy_validate(struct phy *phy, enum phy_mode mode,
++					 int submode,
++					 union phy_configure_opts *opts)
++{
++	int ret = qcom_dwmac_sgmii_phy_speed(mode, submode);
++
++	return ret < 0 ? ret : 0;
++}
++
+ static const struct phy_ops qcom_dwmac_sgmii_phy_ops = {
+ 	.power_on	= qcom_dwmac_sgmii_phy_power_on,
+ 	.power_off	= qcom_dwmac_sgmii_phy_power_off,
++	.set_mode	= qcom_dwmac_sgmii_phy_set_mode,
+ 	.set_speed	= qcom_dwmac_sgmii_phy_set_speed,
++	.validate	= qcom_dwmac_sgmii_phy_validate,
+ 	.calibrate	= qcom_dwmac_sgmii_phy_calibrate,
+ 	.owner		= THIS_MODULE,
+ };
+-- 
+2.47.3
+
 
