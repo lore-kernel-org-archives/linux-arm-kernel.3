@@ -4,167 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90550D7234A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:26:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF74D7234A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sejhjkVY2p/rcZMQX+CYFiumQa/B/pqzUSgU503ADPc=; b=wwtpNxk5NdyEcwOC4Qt0zhpWo2
-	sxEn2LzPZR8W5UdVRe+xOpE2Wir51p3Ut6ag2A0VrhxD7qtCDcv5Nko8gFBoz3Zz9gt/5F06XgCkq
-	uX72BpltqaU19LLtsw+lPaot/7xq35JXlgIHDHHipXjlaYw82+ectnXVCOePYHwhdsp6exdAGVJvR
-	XpuIZkpE5Y3YMJwGKijXg9DJUYwxXQckw3iS7zhXkbTs+PBQVBPrfqfzRMYO0APNXh+dmAN7Wk2t3
-	yuCwe2V+LMPQct4BytHQaXs+5JEuIKjD60FdUx9EX1UxHSMFHLPsP10xuwrj8ZnWqp+vnn+0ocElz
-	olVaD/rQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6CFcSuHr7dWPiV/hrXVfNULTjd0rP0Xmx2/h4KqK09k=; b=seEKZdnzuIPCx51objVr0ttBJF
+	ED7DmlPacu6gfCgGrPAZTzkskDOtjL/Sqhq/2wk3NZbRrS5OIHlC2FUHo68gXH394P81qbrXU/4XB
+	RPQtNhqhgJbjOBlYwsZzdLpX7PlYXY5zq73YLjEzfmR9NHYFtnV8YIEsUo2pRlDN5fK7Dn4kpiwCe
+	ENZTzXyFmDjJ4XQwLsatzs1o6Hfqk9TtBn1T7W3ek14CC4Jb8z1GxPkX1END0KShOazN+CY2jFnhu
+	yeBOdWqw2VkuJ2IxUd+Np5/ZOKV1bP4mSpDEIigtZkvcnuksWd0Tqu+LjlBZx/NtI9jgpu2d3Iyvt
+	XgdHc0uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjCUb-00000008Stg-1l8E;
-	Fri, 23 Jan 2026 08:26:09 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vjCWd-00000008TFf-20xG;
+	Fri, 23 Jan 2026 08:28:15 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjCUV-00000008SoD-1URv
+	id 1vjCWb-00000008TF2-0rE4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 08:26:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T/KquuEdIINZk4NIG84v1oXdS9K+WtYFwvgm+kqA9qkZXQcqpofIS2OTMs2/Wlv4c8oP6lvnroVKPuBP2B8t1aYQRz/OnYYzxNg0+z/C6tVIr/V8JY+IucYg6dq7Y1EE7zaZWYUkQslmOVWSsQuL6B4qWplR2oY0J6opI3aJ/rX8cbyMODZOxuigbuvC15/axNzCNKuw6pN7rzlTdx49rzODv4RcoOHPEf76ajYVfDc8g42vbavrbj6ajOyiUfPmPI+ZHnoYZSLhexqRFsSdGJjbOu7NaHhggUK8PwngXRB/ZmhLlLqBwLmOxta7GbRtAmQH9qtX/wGXXqDG5KOTiw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sejhjkVY2p/rcZMQX+CYFiumQa/B/pqzUSgU503ADPc=;
- b=RPhP4ycXD4EdFe9IAfmCjXIauZEcLh1WysZXhc+LLxBk5DfUGH4IDYtYwv0wf/AVr6q0MK2hGHwCseV+KBLg0Poel7DHoIGZwq9ph4SE/4VYpn3nCu1Q2hqsolhncqKhUQvq72hiepcc2e1D0P6ix2bLA+0C5e3LYJCy3APnDelaqdiNjAltLybbyEWZSalsFMkbI31AKLN1vH9vQDWea2mKd+XIFlXaWNllxWI51e9iw7M4ISE+M2exCJuIVYyD7u8JGSgggZ0c1+qr/EHslPOKyNYDEKQ+2SHx2vHwQxhoLkAGu+Nzz+qmgUs9xO76V9MegiS3ug57VTbnLDBbUA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sejhjkVY2p/rcZMQX+CYFiumQa/B/pqzUSgU503ADPc=;
- b=GId+iDBs4Q4t/01O1Flw/CfdyvMHvmSk4Bx5Hmjb94dxo73ol23bXwZzAh/V60AtquFDV/GFL3irwZfqeUX8qjknfdlu7OIHDrmkNk5bjd2KHOokhlWOEHCyu7Hkx3sn8mmgLgoTXTzULRz44S0a8/cO22Qwo5Nn+/1GzhUIMPm4vKi4HT1memykdEwMIplBlAc1RJqEEu90ivTorI14uJa4nRQUEi0hcHo/GjRBG5IZnouABc1htSOAyYIF75Y+1XG7kvrqIjJjtLDSMWIN5AE0r2TismxjYuPyK87T14ExoVtqTGKq9Hs7FySc7IsRtXiVO9n+ArpXl0/78L2uUg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
- by AS5PR04MB9730.eurprd04.prod.outlook.com (2603:10a6:20b:677::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Fri, 23 Jan
- 2026 08:25:50 +0000
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::bab2:d15c:fcf8:ef2b]) by AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::bab2:d15c:fcf8:ef2b%7]) with mapi id 15.20.9542.010; Fri, 23 Jan 2026
- 08:25:50 +0000
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
-To: shengjiu.wang@gmail.com,
-	Xiubo.Lee@gmail.com,
-	festevam@gmail.com,
-	nicoleotsuka@gmail.com,
-	lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	linux-sound@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 4/4] ASoC: fsl_sai: Add AUDMIX mode support on i.MX952
-Date: Fri, 23 Jan 2026 16:25:01 +0800
-Message-Id: <20260123082501.4050296-5-shengjiu.wang@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20260123082501.4050296-1-shengjiu.wang@nxp.com>
-References: <20260123082501.4050296-1-shengjiu.wang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0006.apcprd02.prod.outlook.com
- (2603:1096:4:194::8) To AM0PR04MB7044.eurprd04.prod.outlook.com
- (2603:10a6:208:191::20)
+	Fri, 23 Jan 2026 08:28:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769156893; x=1800692893;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=f65dWROhIgQSllIOrHPg4GN88gqDR35g4mKGzowJeJ8=;
+  b=EfUHxJkQnn5L5+Lut0OQ011I9W17hn5aN98vQpx1MIl5ilVzTszw/duw
+   k0yrYrFx4HVwy4AIvGUSjyq4ZujxuYMMdXaco6ax8lEzxYeioFZFp3pKq
+   U5THiSyYpPjuE888t8RRdES6UurItpKRIjavPCos9GlQ+34dyCbbml7UZ
+   qAj02/w/BVBxQBXMqNmhDPn6MKt8hPs0MEAIiig/BdavnroQI+r6+Bx0S
+   YcK5phicYxvJ4zI8geJxEvvqpIqn40ZOHifsicP6oDkIXOTxFq8cVaky9
+   xTlzblcNzAhZqHOTgp9BCH2+9Vypk5+cydqU2scca5Ti5aWRazJSilus7
+   w==;
+X-CSE-ConnectionGUID: bn1dvtqTScm/9wY+d86TBQ==
+X-CSE-MsgGUID: OsIiMGp7Rziu+N6mAA5u4A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11679"; a="81851014"
+X-IronPort-AV: E=Sophos;i="6.21,248,1763452800"; 
+   d="scan'208";a="81851014"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2026 00:28:12 -0800
+X-CSE-ConnectionGUID: rlqY79jXTOKaQE/biOXfOw==
+X-CSE-MsgGUID: qOMa2TYySp+eDSwebWS2wA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,248,1763452800"; 
+   d="scan'208";a="211091828"
+Received: from rvuia-mobl.ger.corp.intel.com (HELO localhost) ([10.245.244.112])
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2026 00:28:10 -0800
+Date: Fri, 23 Jan 2026 10:28:07 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: abdurrahman@nexthop.ai
+Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 5/5] i2c: xiic: minor cosmetic cleanup
+Message-ID: <aXMxF45gX1qS-CeU@smile.fi.intel.com>
+References: <20260123-i2c-xiic-v3-0-eb7cd4254dfb@nexthop.ai>
+ <20260123-i2c-xiic-v3-5-eb7cd4254dfb@nexthop.ai>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|AS5PR04MB9730:EE_
-X-MS-Office365-Filtering-Correlation-Id: 80e60e31-f6bd-4254-1abb-08de5a590429
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|52116014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vfzLWawikXWpY2Vab2ahZMQSjtXxOXHrYzejUqmeu6GWQLprjZ3uhWPpLIHZ?=
- =?us-ascii?Q?R55jG250o2DRlNSGgkhtrAB8m/rg6/BGM4v3r5oj7UWH3vtJ7cNjkzLLIeEd?=
- =?us-ascii?Q?nwITTV1foLL9/1UaHEMsOh59k9yea77Q3Y4a7FQHVfUfBgDWAnRcA7fCgt3l?=
- =?us-ascii?Q?EcWlJgUhUYyxcxDECteD7LDPU/I01M8mdc+fVEPcVBfMMXh2my4kyevPGvAs?=
- =?us-ascii?Q?BRcNkza1y9T8YXZZtlhH5sB7LXqnQ+A88ACCPyOQXNM3ZaKE3hf/vkEQ8+3X?=
- =?us-ascii?Q?YhkTmHw45GlR2RTAE7fm+4OpVTM/JrVaiKb/EazB82ffn6rbsKMFnC8d0aM5?=
- =?us-ascii?Q?EX/o3T21jw0k+9IF6fL6AeVotjBlqhmd2C9uEmdtttT4PfMrrGyHa/aMueJ5?=
- =?us-ascii?Q?nHuWqnj5Tl6h7N2agt6K1ftBVyzVKZ6A2t72HgmIdWDEP5Iqn/MbQVwXho7D?=
- =?us-ascii?Q?cmtsbmV8c+lOpXkOdVONM1ouoJKqs/r7/YCUZLXmXUnnSb/sOd6+IaBlkEB2?=
- =?us-ascii?Q?K4qGNVzDLan7GPk3P2Wec6Mq32vqDOQ1Wv770Tp4m4QVvbmhLZoneiPcvr1t?=
- =?us-ascii?Q?ZfHtOpXvl87Rqp2rDeOu/BHRJDenuF4/ulsZMCjmx06PmjRu/8i9LnTkfV7n?=
- =?us-ascii?Q?foLmC2PULwjd2ksaeCwIjcdQ8EK2MDR/uDqMn0A6CcoQM4bEaIP9YHeG5kMT?=
- =?us-ascii?Q?4snEnfzSOvFaorK7/ycCrxMAqk3znrLpRH5G5caQ5tGySiSPcGDL3mxqTfAN?=
- =?us-ascii?Q?+bE87XxN+/WTnfnLbD4sZiHptwiCz0WWtrKToBNaDi1fMYYJNqB74yQ7XKN+?=
- =?us-ascii?Q?6ACk9FP4hXRwln+BsNNI7EMIB3Q9wD81ABgiYO0a4/bmG7j59P/dbcUteveo?=
- =?us-ascii?Q?ML9SoyDJAAFt+EX6bkF/n0niYMRsvs/ob+KnFXYt9tZDGji86G64FeCCSJKQ?=
- =?us-ascii?Q?TJCFY1Tm1ToR8JJKD/qcNyHgiwgSCJwcRTzFQGdxaN7Qf9M9Pz+4lfkRQNWW?=
- =?us-ascii?Q?QLac8qAx+byrHBiyOOGVJxgc9ZALaf0LCPRXOixFHD3tjydiSrOVL/UxSdiU?=
- =?us-ascii?Q?MM8lk5SpQGpgzsVWM5vVGJlin4bhWsHPw+DTw0AnruR7oO/Xvy1jZiqmretK?=
- =?us-ascii?Q?N4cnFeDyVU+JQubj1CFaknfJhtGNbpAkJT9BbPGxdvjF55OnzMY3LyVRJJJP?=
- =?us-ascii?Q?w+ru7AqhWLbDPkC1wZtUu6DDzG1qFPAGQfBNasWmB7ZXdFgSfls1aNqqWgDJ?=
- =?us-ascii?Q?krOyVhf+vWhip6N/BWVhWrnfU9HCXbRboMn4h77hzsQLztPu7z8lrqWR5gtt?=
- =?us-ascii?Q?fJYMs557mB5NOCPCRX1iyLnA90ALWo7PLFtuyQ5CSeYmGEhItoUKS5yMmNgs?=
- =?us-ascii?Q?AuDBq79MxniVa6/AxaJGWjh1S63iUguADyLiqjjK587tWS26nUWRaVbFfQPa?=
- =?us-ascii?Q?/9Fl/S1gAGKCKPErpDZ7mlbDo9UsNyCfw5ytQu5s3LI/I4e1yrlts/knl+za?=
- =?us-ascii?Q?oKs3Ml+tG3LDc4ZdZlFfv5yC9UAZVD8Iu+l1U70TeOVl7kUXuyag8kPMHct9?=
- =?us-ascii?Q?Z4L2k/2Aoj6I0EJL0T0c0sFyOGZD+RslUwSk94kCCGCYHGkswo8XJgnpkG9D?=
- =?us-ascii?Q?OLaHuQd/ejZyf/YdahV9qZX52eXsEl4qWzeNXWVFFbG0?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(52116014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ncrqxCtAreMdtViZKuevMBtzBpzDligtW+1BbX8Rb0tjss/buG5nUqqCLD01?=
- =?us-ascii?Q?h93x21bgTlSGtJqTvlZdQIINvusVshj67hivN6WC38gCSZDk3EKXjbBimcBZ?=
- =?us-ascii?Q?3EPg6Xf2BMNlD8YqgxE36J0Nr3KVK+YxRXbAbqAV9KvmoxLMtoWn6AFS91Qn?=
- =?us-ascii?Q?szRhOxzqy//9m8c8q7nJf2rxJ1Gl4Qh+ABiNvJnb9++M4DkGeiXo8S9vwXnP?=
- =?us-ascii?Q?DBPZtJJZrg+mukFlsbWPB54NYyidn+F33Lq4ZqLmpzq6nzIdFSjdlvqR5xcS?=
- =?us-ascii?Q?AhQXDkE7GDrqKr9kQZUhOfUfRCsNnR07aZywHcDCAAuCKzvD+zGxxwIBSc43?=
- =?us-ascii?Q?CwaLGaeUIxENP0fSteBek5Eft1jTM3gwvjRuSr6W1yS7QU8B9cLX51HGpn/0?=
- =?us-ascii?Q?yQfdGlqn4+wd1Fz0uNBEQgBrHgXpS6XgepZn8c8vtO/5xdvfV0mdhiwilm4c?=
- =?us-ascii?Q?PRAqjjXHSoSWcnqE0SrkXUjabMHRVMVYPrL7p+4XUcUJQN8qCDK/etuPPcBG?=
- =?us-ascii?Q?GAzqj4H8IPN7DBIKncn2f26m+b0a3KSKwQc654IGR3Py0k9lGyCvcgHqG280?=
- =?us-ascii?Q?57LqRDKQKCDJ7TGQCtJG3xqNgOiiay1D6eHbD5lihgLFFl9nddE/RiHLSthB?=
- =?us-ascii?Q?do+jlaZlr30weOv+72PTMBc+txoDDW3uXgFrJKDCXzX/WXu/rdHEBzuDS9n9?=
- =?us-ascii?Q?QdunAagOprs+g+w/AuBSPxa/97Qwou6fkU5RHaPuN4Tj9ypZckWaPjd7fb1s?=
- =?us-ascii?Q?8LLvjy8hl9FCejVxQMktjK2qR9Ugz3T5UeWhFpLIuX3H6yuUK7Li/45VlfDH?=
- =?us-ascii?Q?Gg/OEYFXD2EU/5bW6Br37WqXTbrFYFTAWlcqsJTf6xrCHjs4IPfNAMGy85t0?=
- =?us-ascii?Q?MfAsKIyIyk/kfca3+TQlD9u0VUOlCZOY/9hn7aWaVLpPPzY9m69IyltC5yxa?=
- =?us-ascii?Q?o/lCBslru2EpiC5/TIQSNrXzwDi15Nb/SBztQQDB3zHSHba86ECrt/oWJE2O?=
- =?us-ascii?Q?xIfTh0a7NF8ujP+4B4HRObyVxjsEfgM91Bave/GXPVtlsqNwN7V9O/oF2pUu?=
- =?us-ascii?Q?Kydw4Tb/aK15HJygVlsJLH6Q+UTysjavtOCHO6saVcqzHJap4u3OOEIB2ov8?=
- =?us-ascii?Q?CCh7brkUdLQQ6WQGxFWlu1Pjn7uFAKuXmHIFlyHWryHCCHXZAu25jl6a9rvR?=
- =?us-ascii?Q?l2P3YEH4jzasAbwzknwelc9xYBOg2ooqwOcD/JTUizQUJ4FYajEXAWGaTFcn?=
- =?us-ascii?Q?Bjz0fjIPdxIbZzPYIcYZ9Uxf9xjS1IbB55p7UfNZF3psln+oSWbhiDjlo2w+?=
- =?us-ascii?Q?MN2Z3+U3wnITLcsIn6g10cZDij/5ez3O7tQ0Lg5L4Kgz23XPq4EZ4hqqGgxe?=
- =?us-ascii?Q?S4kQIuuC71dLzoAyuoxGWweoScOciCCuTPhzsmeaMQvhu/JMz0FmvKWUdA6O?=
- =?us-ascii?Q?9SmQ5OTMIKE9Th4wyEtl2ldiDcyyKVOCU2buLk0/btlE/BfnceZK+kkhu5jL?=
- =?us-ascii?Q?xlMl6OZtFIaKEN0lgKJurclNT+5iRhX4R1HqYqMvRHtxY3+2Yp9Ta35IfX7A?=
- =?us-ascii?Q?UlMHzWKI4wjXtUQOLkpGO/zdPizG1JoLopVmTW+6nq34T5jnCgIJ971ons3O?=
- =?us-ascii?Q?X9RQuOQqBLTATRqFi5IWnM5hj3hhk582r5sVtgT1Z+nYJ7RMSedai6m6H0L+?=
- =?us-ascii?Q?bYQ5DbNo7xb4uLQmpCXuLfe4DXE8uKx6t6cynzu7iJn2M2T6Afal1zyi/WxL?=
- =?us-ascii?Q?l1boEmXWmw=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 80e60e31-f6bd-4254-1abb-08de5a590429
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 08:25:50.4699
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pyYhbexbhDf3M9vEOp2U3wxQElZrAwBuBLubvhaAcZlKcJK1b/Wss2eyp1YMBs+voOS/v4+6M0fejZn2MvoGKg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9730
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260123-i2c-xiic-v3-5-eb7cd4254dfb@nexthop.ai>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_002603_418294_EE1011FC 
-X-CRM114-Status: GOOD (  18.28  )
+X-CRM114-CacheID: sfid-20260123_002813_282852_0DD92DD4 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,106 +88,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-One of SAI interfaces is connected to AUDMIX in the i.MX952 chip, but
-AUDMIX can be bypassed or not bypassed on the i.MX952 platform.
+On Fri, Jan 23, 2026 at 08:02:48AM +0000, Abdurrahman Hussain via B4 Relay wrote:
+> 
+> Add a temporary dev variable and reuse it instead of referencing pdev->dev
+> everywhere.
 
-There are three use cases:
-1) SAI -> Codec (No AUDMIX between SAI and Codec)
-2) SAI -> Codec (Has AUDMIX, but AUDMIX is bypassed)
-3) SAI -> AUDMIX -> Codec (Has AUDMIX and used)
+...
 
-So add 'fsl,sai-amix-mode' property for this feature
+> +	struct device *dev = &pdev->dev;
 
-fsl,sai-amix-mode = "none": is for case 1)
-fsl,sai-amix-mode = "bypass": is for case 2)
-fsl,sai-amix-mode = "audmix": is for case 3)
+No, this part should go earlier because of other patches that use it.
 
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
----
- include/linux/firmware/imx/sm.h |  2 ++
- sound/soc/fsl/fsl_sai.c         | 21 +++++++++++++++++++++
- sound/soc/fsl/fsl_sai.h         |  4 ++++
- 3 files changed, 27 insertions(+)
+devm_clk_get*()
+device_get_match_data()
 
-diff --git a/include/linux/firmware/imx/sm.h b/include/linux/firmware/imx/sm.h
-index a33b45027356..ba5d93bd6158 100644
---- a/include/linux/firmware/imx/sm.h
-+++ b/include/linux/firmware/imx/sm.h
-@@ -26,6 +26,8 @@
- #define SCMI_IMX94_CTRL_SAI3_MCLK	5U	/*!< WAKE SAI3 MCLK */
- #define SCMI_IMX94_CTRL_SAI4_MCLK	6U	/*!< WAKE SAI4 MCLK */
- 
-+#define SCMI_IMX952_CTRL_BYPASS_AUDMIX	8U      /* WAKE AUDMIX */
-+
- #if IS_ENABLED(CONFIG_IMX_SCMI_MISC_DRV)
- int scmi_imx_misc_ctrl_get(u32 id, u32 *num, u32 *val);
- int scmi_imx_misc_ctrl_set(u32 id, u32 val);
-diff --git a/sound/soc/fsl/fsl_sai.c b/sound/soc/fsl/fsl_sai.c
-index 2fa14fbdfe1a..148e09e58dfa 100644
---- a/sound/soc/fsl/fsl_sai.c
-+++ b/sound/soc/fsl/fsl_sai.c
-@@ -7,6 +7,7 @@
- #include <linux/clk.h>
- #include <linux/delay.h>
- #include <linux/dmaengine.h>
-+#include <linux/firmware/imx/sm.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/pinctrl/consumer.h>
-@@ -1425,10 +1426,12 @@ static int fsl_sai_probe(struct platform_device *pdev)
- 	struct fsl_sai *sai;
- 	struct regmap *gpr;
- 	void __iomem *base;
-+	const char *str = NULL;
- 	char tmp[8];
- 	int irq, ret, i;
- 	int index;
- 	u32 dmas[4];
-+	u32 val;
- 
- 	sai = devm_kzalloc(dev, sizeof(*sai), GFP_KERNEL);
- 	if (!sai)
-@@ -1598,6 +1601,24 @@ static int fsl_sai_probe(struct platform_device *pdev)
- 	if (ret < 0 && ret != -ENOSYS)
- 		goto err_pm_get_sync;
- 
-+	if (of_device_is_compatible(np, "fsl,imx952-sai") &&
-+	    !of_property_read_string(np, "fsl,sai-amix-mode", &str)) {
-+		if (!strcmp(str, "bypass"))
-+			val = FSL_SAI_AMIX_BYPASS;
-+		else if (!strcmp(str, "audmix"))
-+			val = FSL_SAI_AMIX_AUDMIX;
-+		else
-+			val = FSL_SAI_AMIX_NONE;
-+
-+		if (val < FSL_SAI_AMIX_NONE) {
-+			ret = scmi_imx_misc_ctrl_set(SCMI_IMX952_CTRL_BYPASS_AUDMIX, val);
-+			if (ret) {
-+				dev_err_probe(dev, ret, "Error setting audmix mode\n");
-+				goto err_pm_get_sync;
-+			}
-+		}
-+	}
-+
- 	/*
- 	 * Register platform component before registering cpu dai for there
- 	 * is not defer probe for platform component in snd_soc_add_pcm_runtime().
-diff --git a/sound/soc/fsl/fsl_sai.h b/sound/soc/fsl/fsl_sai.h
-index 6c917f79c6b0..7605cbaca3d8 100644
---- a/sound/soc/fsl/fsl_sai.h
-+++ b/sound/soc/fsl/fsl_sai.h
-@@ -230,6 +230,10 @@
- #define FSL_SAI_DL_I2S		BIT(0)
- #define FSL_SAI_DL_PDM		BIT(1)
- 
-+#define FSL_SAI_AMIX_BYPASS	0
-+#define FSL_SAI_AMIX_AUDMIX	1
-+#define FSL_SAI_AMIX_NONE	2
-+
- struct fsl_sai_soc_data {
- 	bool use_imx_pcm;
- 	bool use_edma;
+Without this you add an unneeded churn.
+
 -- 
-2.34.1
+With Best Regards,
+Andy Shevchenko
+
 
 
