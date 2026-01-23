@@ -4,65 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29371D6CFB7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 03:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 555EAD6CFBA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 03:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=StPYHwUSDQufhHQWKnr8XsQlJ7qmJI/TO11gqzFkJJE=; b=0NINOFU0LG6wF/
-	EBa6IznSiLWFmi9FWaMTyDxWCfEjAZxs/erVf5hH/t8DW2B1Sf/ptxMB0WyAbMG0U7famcqCqXcwC
-	RPjzElBs2tjbwJFIn1SL+GcEUxZFNmoV9Z+UxeQ9FlU8PiT3HTqGNNe905d8EbAQS9lEt02OviKM+
-	f9eNwQE0QreRuJ2go7DxuPH9i8z0XWes47ytEysgjWwXTIwUaHDgqlM7psPogAZLqBACwxW5iBaoU
-	u7tJ5qIr27eC+AMGf1IFlkVyeXHV5Xh1BJOFsPMcRRqnmfhVCUbENIbv1/NY1I0bG3WtFG+fn3Gaw
-	zUfIwx7opFPFlz4a5Mhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dJHynTuDMBnf9JE73UWIlx2NQTx4K9WIcuFHV3EWnz4=; b=qqtXqAaAXVgeumanAFAlmxrY+f
+	6lUXY28OWWAQqQrj5dB34zBdW1tAR51dW5Z1PKVtITamLxLHodfMnVpv7ZQ2u8EHUnICTnD+VSCCC
+	rjP/jO8/IG41FnwuMfaEg6a3NC4fJXrgIXGOFHcXRyP0E9L9kP7TLL5lfUNe/igYmpHcSTnxsm099
+	1PL/H7HPwC8AAwyQWCxID9W6E/CTNoH6uAAZcSG7xdOv2v1+yoZtuaPMAhZ6w4BeNTI61299R69r7
+	8MCTp+YxinJdZ3wH4G/bJF5Yrt2PN/FAlZOABwJEnhPa2U8E4K7W81S7UDB7Jk4mQFp0ylXMq12bR
+	tQFMnV4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj7WG-000000084jT-1pDR;
-	Fri, 23 Jan 2026 03:07:32 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1vj7bC-00000008526-0Xus;
+	Fri, 23 Jan 2026 03:12:38 +0000
+Received: from mail-swedencentralazon11013054.outbound.protection.outlook.com ([52.101.83.54] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj7WD-000000084iQ-0jAf
+	id 1vj7b8-0000000850I-11jb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 03:07:31 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=StPYHwUSDQufhHQWKnr8XsQlJ7qmJI/TO11gqzFkJJE=;
-	b=DjPSqhChlLeKEVvdwep7OhMdiR4wUbke766gZUGGVFjPEjwHkGNWatRFsGG5VcBAvZhKSYssu
-	b3MSkRYIc963vleNWzIxNPeElso4WhaLiw2f4ogfnGf1C3jfqz0XVmrb5uym8Pehj8Zu4tAfiiP
-	hifE9iN7DxTnfdhZSDPT4r4=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4dy2nX0D0czmVX8;
-	Fri, 23 Jan 2026 11:03:44 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7969A40565;
-	Fri, 23 Jan 2026 11:07:09 +0800 (CST)
-Received: from huawei.com (10.50.85.135) by kwepemr500001.china.huawei.com
- (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 23 Jan
- 2026 11:07:08 +0800
-From: Jinjiang Tu <tujinjiang@huawei.com>
-To: <akpm@linux-foundation.org>, <david@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <zengheng4@huawei.com>,
-	<tujinjiang@huawei.com>, <ryan.roberts@arm.com>, <anshuman.khandual@arm.com>,
-	<wangkefeng.wang@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mm@kvack.org>
-Subject: [PATCH] arm64: mm: explicitly use kernel pte for ioremap_prot()
-Date: Fri, 23 Jan 2026 11:02:38 +0800
-Message-ID: <20260123030238.835748-1-tujinjiang@huawei.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
+	Fri, 23 Jan 2026 03:12:36 +0000
+Received: from AS5PR04MB9797.eurprd04.prod.outlook.com (2603:10a6:20b:679::10)
+ by DU4PR04MB11031.eurprd04.prod.outlook.com (2603:10a6:10:592::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Fri, 23 Jan
+ 2026 03:12:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jDz2UxNV0plkiVAqa99raGBd/XT4aMGPZIyf+e7UQ/yRj+t+NcWtc1joCGQUOuPo3PXpQjXhP8QqZ4+IYfmTqCaV26yGtFekRfVC2hOKdwjmmXNmJ2JxnVk2jEa42Gorouo7+MuADnErMs9h/ibainVUmLo0bVBLvZ5/fTZ0iQ/9A5UaxTOhZcyKF1RwGm0k0LuvXCBOQVAq42IP55WBkwqhxnRekTl/bBbDFr/dc/RRn0WRLUu6fV0GO4ZGtlE3vQ79CJksWGFaxc+iKfauEhtKO57wTU0+hAAYp661vUXOEzZfwm7WWU4g+QiliUE3QUiwJWzOn+3yKE6HHO314A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dJHynTuDMBnf9JE73UWIlx2NQTx4K9WIcuFHV3EWnz4=;
+ b=sCsirRkORXObK13HwRmbFPzbjAPUd/DAKON3IT00ijpsBvReL96VYAYLCDyh6VAMZHzYWqGw49cuNpEfwol6KoX2SDISNonXsXlbsDOcpc+6zSEQkk/XD4PPiNETjVfbOYFCe3J5WdBGJ6n1EGoYRYHuSWle6NZymf1hJKj8DgijaxMN6oIFeA3HXWdwMDraYgU6x5pyz9/T+dkSWyDIoGw2F+EyGvYGtnrdtH0v1qn4aBIS0zfuiIZ30Ej9qkw92kejOkpU+aawbZz/Ke4oD/tXYQS+sKyA2ItM6Y8ioZqmVq827Nf0acjCyzquLytO5zjqv49caWILPyAmF3KaFQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dJHynTuDMBnf9JE73UWIlx2NQTx4K9WIcuFHV3EWnz4=;
+ b=F0DRfP4JrKLsnx2oDIppHnN5P1n3uIcqG5c28Cs8Lu4cZp+kGDUqqMrmXTNpIpWNKD3VOVrw/ln+GCd9UPQ1ztu09Alvyy+mMoksahIdL1STRb9RSibmiZM+oXwo1BFi9fc7yk8L6baFHPFwa9Gfhe+QIXgUjtW/MqueAJ/zfI93IhxrMgpxgfhhOQfSIhTbzPVqmQaeZC/2wt4fjTrBvJ9KSP5VP8GQ8dpzmqfl+JPlVHNC+TOpDDmKUv9ApF6+Rvk1i/qYuO0Y0StQP9UFcTC9UZ6JgEHWkok5rlTMN34GCUI7HNKdQ+BULPfXGy56W7f53fzJG3GYQ4VYvleslw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by AS5PR04MB9797.eurprd04.prod.outlook.com
+ (2603:10a6:20b:679::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Fri, 23 Jan
+ 2026 02:45:58 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::2943:c36f:6a8c:81f7%5]) with mapi id 15.20.9542.010; Fri, 23 Jan 2026
+ 02:45:58 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	frank.li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com,
+	daniel.baluta@nxp.com,
+	dario.binacchi@amarulasolutions.com,
+	alexander.stein@ew.tq-group.com,
+	Markus.Niebel@tq-group.com,
+	matthias.schiffer@tq-group.com,
+	y.moog@phytec.de,
+	josua@solid-run.com,
+	francesco.dolcini@toradex.com,
+	primoz.fiser@norik.com
+Cc: kernel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V2 0/2] Add i.MX93 Wireless EVK board support
+Date: Fri, 23 Jan 2026 10:44:46 +0800
+Message-Id: <20260123024448.3909345-1-sherry.sun@nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.50.85.135]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr500001.china.huawei.com (7.202.194.229)
+X-ClientProxiedBy: SGXP274CA0010.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::22)
+ To VI0PR04MB12114.eurprd04.prod.outlook.com (2603:10a6:800:315::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|AS5PR04MB9797:EE_|DU4PR04MB11031:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4b27ec0f-c877-4aaf-e11e-08de5a29899d
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|1800799024|376014|52116014|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Tp+1wM8094iOnRHrXBfiblYjCQb9swFHBHmUMv7gtb2YEdI7puuxxUu+YbuS?=
+ =?us-ascii?Q?M9cqEnwrFk8D8We/Qy+UcckS1qYraK9yjXKcHS9sy9W4ohU1G+f5qDaEFMVU?=
+ =?us-ascii?Q?l2prlvohN+GUqAV4toelm2qh9Kt39nXA5Y5xn1POOjYzIJT2RMuRKnKJwikr?=
+ =?us-ascii?Q?M8vv6ffX7Z6Cxs0/3T0ecEOq9njqnxUaMzDJ1wQtID7N2jP6lwW+c1ADbHrc?=
+ =?us-ascii?Q?EKnQDo19KQFDUJL+qqVmr9JTRnzpiaftzdiRl/1nnB6+DScUbBdoMmiN/xLk?=
+ =?us-ascii?Q?TZzDs4B63OQZnlRjba4/Ze+kbRD/0R+0blYikYw6DUSS8uicwW/nZnbRPvBE?=
+ =?us-ascii?Q?L1piy2G0E13V5suWG2olfYAFCV1VJHeXNOo3rN1nC9xBfsMHps13gf1DhBBr?=
+ =?us-ascii?Q?ZOhTT4urB473Tapamdy1enVy3UGiwwAvggQQ4SdJIGxj49S2If4maOo2WtgX?=
+ =?us-ascii?Q?CcuQGjf1I5zWT1/moITJq9x/ECJiJ9BGfmxxhiUQ1I4Ffrke/86L7gGgSStg?=
+ =?us-ascii?Q?MTv1mr+9bdzI3y1Fgdksj6CRZe6y3y83uYmocf0twl/GfHaUCYvcIqa4z5q0?=
+ =?us-ascii?Q?hVZmCSGVdYWZkChvDwtArLWYtSX+lJKPANXvQuCkWgZnQw7wuRtWv80jDLkM?=
+ =?us-ascii?Q?VRfgQSi+BmqLDQnCjOUDedCBP0ruehY5RVe11I98n/uGlLBivGn3nvBPHQaC?=
+ =?us-ascii?Q?lkOU//PPsaY4C2LXYF3DAOd1V/5upX2lVAuCYGdja7GO++rZ2MZ2mbaAQD+l?=
+ =?us-ascii?Q?KLXOWeBTefS4YtzHpfoIy5C/PhP7L0lpnV8rscUkIJ4jSPI6MI8XoVD1pAJv?=
+ =?us-ascii?Q?b1QrsYAgB8J+0ZhyWUEqV06M/rT6EJ5495bjAgbLttuDrNXwGYBVYb8TRYTs?=
+ =?us-ascii?Q?mIrlx4qCUjY7ORdRET+oQrT85rMOhdvEsExvQOhKQiThcdzQfUOoM4WKUaDs?=
+ =?us-ascii?Q?j99MZLKg8vw9oGlVDbhpK5Drq3b3ri0mvWhBZFCbX3t7vnqfsRNRArbnIEbj?=
+ =?us-ascii?Q?PitrSOTzzbSBbSfsy+mYgvhQaSHW2zURer0FMX25k+hvopM926x/aVa1bvm2?=
+ =?us-ascii?Q?bXX7nozqK64sngCcYHumQaO7LDdnCVgO1B5jGvQtlvzn52AHarre8M3TYn+O?=
+ =?us-ascii?Q?MN8OTreskzFxY3V4sa9jOuSJm14fML61XexUNiWBZWYH6CsnVu2WiYmKf9rH?=
+ =?us-ascii?Q?eRszLd72w5VsjOXRdPzn4D9l70nJdllP7COKSzo7iqOEOhBknSgKQlZmFltc?=
+ =?us-ascii?Q?epyazsg0KNGj9+GfyK0QPdlGillQoqzPPQanoybKHD9DFrcp7rVfdCSE515Z?=
+ =?us-ascii?Q?6HWSXw2ifFt5PmVTfK3VwFrl8QfmvqzmN/GuV8SWMMB9wc/pM7ehO52c8wcH?=
+ =?us-ascii?Q?pffgabPEqgYO/pFucnYClCtT3ESZt2ON4l41h5++gCWRmS5cMtZTadt40EF+?=
+ =?us-ascii?Q?W/iMEaX9URVwhC6Yp+RoBLhUTEtek6EsN81+vSEOlxc+qMdcSmmXup4K8pPn?=
+ =?us-ascii?Q?zrcvv8dkBDC9xO41qas4hIDBeymnk7TiCoAFzrOEJ/YKjVIqJss2N8zkLw+9?=
+ =?us-ascii?Q?uRNhyn9mvRTdYrtYb9IKuRKCe6zE0UW0zGDrvMlH5/eZDGTcbGdxi7jwGXhe?=
+ =?us-ascii?Q?sLSNm49NQhR45tnFjXlFTwYU8va1Uno4/kDAE4rt3vDY?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(1800799024)(376014)(52116014)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yCvPWcYc/YkcmruetcHBRT/EGSNfU6k91nyI3dchLo9dd4Z9z0rBwASJ2dWy?=
+ =?us-ascii?Q?nGyxY/hUbNYWfPwMgexadQxPXCfwPuzfy8nr77efkNDsfaCwL+atBUD9j0GD?=
+ =?us-ascii?Q?ONkZ6Etm/nzP4PL7U7I/VZi5WaiNZQ0tnO4aTGVqW1KY6v7Pne+NQj0owkHA?=
+ =?us-ascii?Q?Zz/1eIgtpcE2JqQlQspegMk6hnd5tG0CJkX8HjX9FrZCSfw7qV9HwvUUz0hf?=
+ =?us-ascii?Q?UmvshAbahw1NB8PEAcASlVJckBJ8OcPWC6KwXOdeu1DueLCT7R+djxujQVs2?=
+ =?us-ascii?Q?Clbvj9wXk+nPbjtih8B4aiJYWELSTmuTA3Vo/mOir6LzLWpEmGbc8+pauqRb?=
+ =?us-ascii?Q?RZ/Au+R9owD+A/laFidkQCoerxLPEqCCA0ClDUNUljbeiCdT10LrScIK3KT/?=
+ =?us-ascii?Q?qEItyznBuQ/23PUwG05qP1G2jzYdc72SwnTJ1b71j4J2hWuYfcgURkT/dwWx?=
+ =?us-ascii?Q?MQZeNyv+XvG4TTm8snWYKpzLtJxHNQVm8sNkDY0wNjgheSTXUpaBmNSOdpcO?=
+ =?us-ascii?Q?Y8wucmWPfcsC5lzOZoF2T+ovcB207vDi6siSnkYdIauQTG85fJFK/ARjhi4p?=
+ =?us-ascii?Q?45J5pH8SdLpN7xV/emW8ug6I9PyBAQs2A/pDezP5mFFRpTpXr9o1TpXUD3C7?=
+ =?us-ascii?Q?p5Tf3mThIA0flWlMqfE4wjPLatSYw0V+uiiKbaSsL8Z4fkQn2jBWM0XqKoJZ?=
+ =?us-ascii?Q?6Ap/XyM02Wz3qmlsbNS0E5DdpPLJvnbmLrhyLKcEgRkOj1jMIj8jLV1xraDc?=
+ =?us-ascii?Q?cLsm3PuNCbEk6SavxnxPhACcpVEkBh1hZ1NDGg6awqBSy+99XTr8jy3h8s2G?=
+ =?us-ascii?Q?hsVrBCeurVZmcl0O/hLtvlXtSka5FhiyelNZ1fbmFRAkJGrkKZSSivBuQjj1?=
+ =?us-ascii?Q?qWNnWfmpNnYAqGvfGmo5nk1ol0v8Ep8KQzmKoKCfMHv5lZaXVXHw5aGVAkKP?=
+ =?us-ascii?Q?VJZ1J7ng0JnXtJUR1L3dqSNN5vq4NCe4nvZOIJk5YknCe7ItrE4XRrqZ+qJr?=
+ =?us-ascii?Q?hEY1+tQ+vDsbqM+ypqi/yOjc2PBk8Tc1KMvDasZhhylLeRv8QPX/P03VgqnL?=
+ =?us-ascii?Q?SXtCX1kT1MXPXRIi+k3sxCrTNuR0405k9442Asgs26yr1QoGJEzD90EtnIdy?=
+ =?us-ascii?Q?HlMYp1RArKVdm3RvcA6epUJ6qwfohIcKJ1VlgzUsBdgyNvvwgYF0XbMj+UES?=
+ =?us-ascii?Q?JERZ32rkjSL97MgK9eGk2MZqs9Lo+JBP3FkWlaNlqZoj5x/uDy4eleqy8hVp?=
+ =?us-ascii?Q?H+FMUkE8C1EhClqtULvKTeTQMeJKhdWRdrcq+xxF6pz3069UsHrTBUY3mjBw?=
+ =?us-ascii?Q?Yh5r/soiGmPhIT2iRxkx4BAgWFngNVLfaenKwBaNuywc8fd2jac6/Uz0AdAI?=
+ =?us-ascii?Q?y5O5d3p+iSpjZwpnvvuJIF4ZzO7wNtG4yzkaw2o1Ki2oz11F8nNlun3IKvyk?=
+ =?us-ascii?Q?ewEIudujSkLJ/axn8KJKB9sH+fZxJfRfF8X4RIjIdvHk0Emmcb+zG8iMmxzd?=
+ =?us-ascii?Q?BVr4thNZUIn8zET76LgV2s2DgsU+En2e7D7O61mDhH3BvL6DIjysMiGDdV3W?=
+ =?us-ascii?Q?g3YSRS4AlvNMYr3oUxEETkwcUe7vDfVaL5NMWALeagE4AnJVVuNWUrTsKjDK?=
+ =?us-ascii?Q?sEyjl7nA1gaRhkaltSKrTR3mGvPg0iMsDvXOaAOwj8Mf1r00gOy327pJhH1s?=
+ =?us-ascii?Q?THejXc0+tm1dUlkj+wvJbEuo60Am0vDpfrznDHOuvD9+fySWe0uDz6zdlU1F?=
+ =?us-ascii?Q?G6l82hD9jw=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4b27ec0f-c877-4aaf-e11e-08de5a29899d
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 02:45:58.4979
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ev5QRcZRfkxsgX/UU/2+T8rQJMtWsuCi8fqbqsWcrtnNgDJiT6qfqHqAs75nXw0UOG+f6880og7xAruinTtUJQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9797
+X-OriginatorOrg: nxp.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_190729_860077_F8481322 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20260122_191234_284186_22E84050 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,104 +184,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Here is a syzkaller error log:
-  [0000000020ffc000] pgd=080000010598d403, p4d=080000010598d403, pud=0800000125ddb403,
-                     pmd=080000007833c403, pte=01608000007fcfcf
-  Unable to handle kernel read from unreadable memory at virtual address ffff80008ea89000
-  KASAN: probably user-memory-access in range [0x0000000475448000-0x0000000475448007]
-  Mem abort info:
-    ESR = 0x000000009600000f
-    EC = 0x25: DABT (current EL), IL = 32 bits
-    SET = 0, FnV = 0
-    EA = 0, S1PTW = 0
-    FSC = 0x0f: level 3 permission fault
-  Data abort info:
-    ISV = 0, ISS = 0x0000000f, ISS2 = 0x00000000
-    CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-    GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-  swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000001244aa000
-  [ffff80008ea89000] pgd=100000013ffff403, p4d=100000013ffff403, pud=100000013fffe403,
-		     pmd=100000010a453403, pte=01608000007fcfcf
-  Internal error: Oops: 000000009600000f [#1] SMP
-  Modules linked in: team
-  CPU: 1 PID: 10840 Comm: syz.9.83 Kdump: loaded Tainted: G
-  Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
-  pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-  pc : __memcpy_fromio+0x80/0xf8
-  lr : generic_access_phys+0x20c/0x2b8
-  sp : ffff8000a0507960
-  x29: ffff8000a0507960 x28: 1ffff000140a0f44 x27: ffff00003833cfe0
-  x26: 0000000000000000 x25: 0000000000001000 x24: 0010000000000001
-  x23: ffff80008ea89000 x22: ffff00004ea63000 x21: 0000000000001000
-  x20: ffff80008ea89000 x19: ffff00004ea62000 x18: 0000000000000000
-  x17: 0000000000000000 x16: 0000000000000000 x15: ffff8000806f1e3c
-  x14: ffff8000806f1d44 x13: 0000000041b58ab3 x12: ffff7000140a0f23
-  x11: 1ffff000140a0f22 x10: ffff7000140a0f22 x9 : ffff800080579d24
-  x8 : 0000000000000004 x7 : 0000000000000003 x6 : 0000000000000001
-  x5 : ffff8000a0507910 x4 : ffff7000140a0f22 x3 : dfff800000000000
-  x2 : 0000000000001000 x1 : ffff80008ea89000 x0 : ffff00004ea62000
-  Call trace:
-    __memcpy_fromio+0x80/0xf8
-    generic_access_phys+0x20c/0x2b8
-    __access_remote_vm+0x46c/0x5b8
-    access_remote_vm+0x18/0x30
-    environ_read+0x238/0x3e8
-    vfs_read+0xe4/0x2b0
-    ksys_read+0xcc/0x178
-    __arm64_sys_read+0x4c/0x68
-    invoke_syscall+0x68/0x1a0
-    el0_svc_common.constprop.0+0x11c/0x150
-    do_el0_svc+0x38/0x50
-    el0_svc+0x50/0x258
-    el0t_64_sync_handler+0xc0/0xc8
-    el0t_64_sync+0x1a4/0x1a8
-  Code: 91002339 aa1403f7 8b190276 d503201f (f94002f8)
+i.MX93 Wireless SiP is created by integrating i.MX93 and IW610 WLCSP
+(Wi-Fi + BLE + 802.15.4). And i.MX93 Wireless EVK board with the i.MX93
+Wireless SiP basically reuse the i.MX93 11x11 EVK board, with some minor
+functional and pin connection differences.
 
-The local syzkaller first maps I/O address from /dev/mem to userspace,
-overiding the stack vma with MAP_FIXED flag. As a result, when reading
-/proc/$pid/environ, generic_access_phys() is called to access the region,
-which triggers a PAN permission-check fault and causes a kernel access
-fault.
+Add device tree and dt-binding for i.MX93 Wireless EVK.
 
-The root cause is that generic_access_phys() passes a user pte to
-ioremap_prot(), the user pte sets PTE_USER and PTE_NG bits.  Consequently,
-any subsequent kernel-mode access to the remapped address raises a fault.
-
-To fix it, similar to ioremap_prot() in x86, use _PAGE_KERNEL as template,
-and update PTE_WRITE and PTE_ATTRINDX according to the pgprot argument.
-
-Fixes: 893dea9ccd08 ("arm64: Add HAVE_IOREMAP_PROT support")
-Signed-off-by: Zeng Heng <zengheng4@huawei.com>
-Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
 ---
- arch/arm64/mm/ioremap.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+Changes in V2:
+1. Rename the compatible string to fsl,imx93-wireless-evk which is more
+   clearer and better aligned with the naming convention used on previous
+   NXP boards.
+2. Impreove the patch#1 commit message to add more info. 
+---
+Sherry Sun (2):
+  dt-bindings: arm: fsl: Add i.MX93 Wireless EVK board
+  arch: arm64: imx93-wevk: Add i.MX93 Wireless EVK board support
 
-diff --git a/arch/arm64/mm/ioremap.c b/arch/arm64/mm/ioremap.c
-index 10e246f11271..78a63a14465f 100644
---- a/arch/arm64/mm/ioremap.c
-+++ b/arch/arm64/mm/ioremap.c
-@@ -18,6 +18,7 @@ void __iomem *ioremap_prot(phys_addr_t phys_addr, size_t size,
- 			   pgprot_t pgprot)
- {
- 	unsigned long last_addr = phys_addr + size - 1;
-+	unsigned long new_pgprot_val;
- 
- 	/* Don't allow outside PHYS_MASK */
- 	if (last_addr & ~PHYS_MASK)
-@@ -27,6 +28,11 @@ void __iomem *ioremap_prot(phys_addr_t phys_addr, size_t size,
- 	if (WARN_ON(pfn_is_map_memory(__phys_to_pfn(phys_addr))))
- 		return NULL;
- 
-+	new_pgprot_val = _PAGE_KERNEL & ~(PTE_WRITE | PTE_ATTRINDX_MASK);
-+	new_pgprot_val |= (pgprot_val(pgprot) & PTE_WRITE)
-+				| (pgprot_val(pgprot) & PTE_ATTRINDX_MASK);
-+	pgprot = __pgprot(new_pgprot_val);
-+
- 	/*
- 	 * If a hook is registered (e.g. for confidential computing
- 	 * purposes), call that now and barf if it fails.
+ .../devicetree/bindings/arm/fsl.yaml          |  1 +
+ arch/arm64/boot/dts/freescale/Makefile        |  1 +
+ arch/arm64/boot/dts/freescale/imx93w-evk.dts  | 73 +++++++++++++++++++
+ 3 files changed, 75 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93w-evk.dts
+
 -- 
-2.43.0
+2.37.1
 
 
