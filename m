@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B42D7788E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 17:11:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E88D7788E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 17:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d2NVwvwSi35pArDDlEu6pzDU1jdP7XXQibZm4KpstCg=; b=vhu2Z/IEyuQLesZpClZs1fJUgf
-	f2DA1ZCSLvmC5X30PtmrvIu2mV1vXvXNgD08AbEzSTW42fKIgG7Mxf5uWVfztPEKImbx5H+HhXRaZ
-	BlsUewBgpKVzJL0WlXBFOH6Z6HaTQBy/neNdSWq7l5iQBHhX7NIHcxf2mJ3WbZ/EzEExg12DUDKbS
-	OA4uOMHed/DquG22OcBOT4wMwIedhWmB0DkJw9avG9Rt0j3DMLOHdOA6gi2QgmNGx7Oht2KmLl4cK
-	CBf8ZblRafjAhOxcsBnWjbSgS+J53eQtEtSZ+tiwFudxPYc29K7TO1qQXati/ZOspsh4T8pIwJ5w/
-	3xMsztpQ==;
+	bh=SUEaIvsYVTkYsmteQTdpBzoxVfYMxybLQA5tTl2ERQA=; b=YrZBi+IXBMiKUnexu0oDIqe87a
+	04ysMAaa8vuQL+TEu1oRYrfDC+vdfxH+Na3Lh2AdscrK83AVyxb8QBnnz/2bmv8NHA+UgpX+Ing0I
+	kT89e9sua9r+kRYtWoB/iWYqPZ7pezCgnxCJAhEl8GYyDu3FxYQ+WX9EwgWhmFO0TzKlbBTCkUPUR
+	HLWEP7F6Aj2B8EAmUMWC7ta1DIEb2wPWOyNi5WuO46PKZjYBlbo/KsmPyIRW8RlzgQJKhZeSO5g51
+	+Iw1bSFpcg8Thim9NaKdGg0my6XIiFn+yaVpweoQxF7dS9Xah6x3Xed5URLX7CyazuJ0pd803MSPi
+	rPNrvrNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjKgW-00000009GL7-3sST;
-	Fri, 23 Jan 2026 17:11:00 +0000
+	id 1vjKig-00000009GTk-1a8W;
+	Fri, 23 Jan 2026 17:13:14 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjKgV-00000009GKy-1b5M
+	id 1vjKid-00000009GTQ-0ZRH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 17:10:59 +0000
+	Fri, 23 Jan 2026 17:13:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 81CB160018;
-	Fri, 23 Jan 2026 17:10:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8FEAC19422;
-	Fri, 23 Jan 2026 17:10:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 82EAB60134;
+	Fri, 23 Jan 2026 17:13:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBCF9C4CEF1;
+	Fri, 23 Jan 2026 17:13:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769188258;
-	bh=lO0XoMvaSm4zmRJXg0BjRuB2G9xf1KKNimz3m5o3Otk=;
+	s=k20201202; t=1769188390;
+	bh=wtBeifSy7qkeJSaa0IMYScFgBsLsttybf7MyqZ5Ulws=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Omjz6D4ZpCbXYm6LHQszcy7YdAn4FZwmhBSVgTULkdCLbyJ5+hiz3M0nO9ghSZQLw
-	 wwGIlwsMxs9/S2JlTYEwCHUUHyrKllIPaF69bGdAslFwoRKd/tMkGMq6cZhEnL7qTg
-	 QnknNLuoGvFwWY4WJAsQrRffIXke1VG0SRcH3/+j2Q5NIgu/tJXOoZrcY2um6/3l1+
-	 /puP1oGW/c87h9I6rv6cWG1RZnM4Um8QGAkpA180f9DDLJtFM6VdKAgUvGnUp0+VI+
-	 Xm/f02uK0UQhgD9c3wfID5CkwPLuYNUb1ohUh4VJZFYmNRZvohlhjKfglFnm70+9c9
-	 WtWElzomfp5VA==
-Date: Fri, 23 Jan 2026 17:10:52 +0000
-From: Will Deacon <will@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org,
-	jgg@nvidia.com, balbirs@nvidia.com, miko.lenczewski@arm.com,
-	peterz@infradead.org, kevin.tian@intel.com, praan@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 6/7] iommu/arm-smmu-v3: Add arm_smmu_invs based
- arm_smmu_domain_inv_range()
-Message-ID: <aXOrnMLLzZL9BtRT@willie-the-truck>
-References: <cover.1766174731.git.nicolinc@nvidia.com>
- <06999367d001283744fd98eb7c1823afd516ce84.1766174731.git.nicolinc@nvidia.com>
- <aXOqVcX9YEC-Ikdt@willie-the-truck>
+	b=k79oYPse/L1sv/YX6gJcWkGhylaU8B9HD6kaP3063X795y8ZtfqlzuF/03WXxJi0I
+	 RySylMiECpmbkzxUtu6VSA6Lju9ytkyWDU5ckRNmSGAMXcKixifqtgHXWzgLkpdbE4
+	 ev3ivypvrafmMuRIMWDRLumU69o7D0cIF/Yok4Ch2VT88EQ9QmLuyYo6MCGrNvfNMz
+	 qkpoySzejqbuf2/Dmw2VzKz5l/HifyMAqAZJyF+bwxIR8fmbP6frLNA6ABpTeo3H6h
+	 oFzKh7cTYWbL+OPuA7UlMYXpejTqSs4dRSJ8lnP2yQwuzuGDIAB4pL/yhEJucaCv/I
+	 VAcjpLHqFD/Fw==
+Date: Fri, 23 Jan 2026 17:13:03 +0000
+From: Conor Dooley <conor@kernel.org>
+To: jan.petrous@oss.nxp.com
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 2/4] dt-bindings: net: nxp,s32-dwmac: Declare
+ per-queue interrupts
+Message-ID: <20260123-dinner-aloft-e57deb6c546a@spud>
+References: <20260123-dwmac_multi_irq-v3-0-cc53f2be8961@oss.nxp.com>
+ <20260123-dwmac_multi_irq-v3-2-cc53f2be8961@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pzRpkmi5BmiBkcB1"
 Content-Disposition: inline
-In-Reply-To: <aXOqVcX9YEC-Ikdt@willie-the-truck>
+In-Reply-To: <20260123-dwmac_multi_irq-v3-2-cc53f2be8961@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +87,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 05:05:31PM +0000, Will Deacon wrote:
-> On Fri, Dec 19, 2025 at 12:11:28PM -0800, Nicolin Chen wrote:
-> > +	/*
-> > +	 * We are committed to updating the STE. Ensure the invalidation array
-> > +	 * is visible to concurrent map/unmap threads, and acquire any racing
-> > +	 * IOPTE updates.
-> > +	 *
-> > +	 *  [CPU0]                        | [CPU1]
-> > +	 *                                |
-> > +	 *  change IOPTEs and TLB flush:  |
-> > +	 *  arm_smmu_domain_inv_range() { | arm_smmu_install_old_domain_invs {
-> > +	 *    ...                         |   rcu_assign_pointer(new_invs);
-> > +	 *    smp_mb(); // ensure IOPTEs  |   smp_mb(); // ensure new_invs
-> > +	 *    ...                         |   kfree_rcu(old_invs, rcu);
-> > +	 *    // load invalidation array  | }
-> > +	 *    invs = rcu_dereference();   | arm_smmu_install_ste_for_dev {
-> > +	 *                                |   STE = TTB0 // read new IOPTEs
-> > +	 */
-> > +	smp_mb();
-> 
-> I don't think we need to duplicate this comment three times, you can just
-> refer to the first function (e.g. "See ordering comment in
-> arm_smmu_domain_inv_range()").
-> 
-> However, isn't the comment above misleading for this case?
-> arm_smmu_install_old_domain_invs() has the sequencing the other way
-> around on CPU 1: we should update the STE first.
 
-I also think we probably want a dma_mb() instead of an smp_mb() for all
-of these examples? It won't make any practical difference but I think it
-helps readability given that one of the readers is the PTW.
+--pzRpkmi5BmiBkcB1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Will
+On Fri, Jan 23, 2026 at 11:09:55AM +0100, Jan Petrous via B4 Relay wrote:
+> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+>=20
+> The DWMAC IP on NXP S32G/R SoCs has connected queue-based IRQ lines,
+> set them to allow using Multi-IRQ mode when supported.
+
+The binding only supports s32{g,r} devices, why is the existing minimum
+retained? What devices are going to not have all 11 interrupts
+connected?
+
+Cheers,
+Conor.
+
+>=20
+> Reviewed-by: Matthias Brugger <mbrugger@suse.com>
+> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+> ---
+>  .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 42 ++++++++++++++++=
++++---
+>  1 file changed, 37 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml b/D=
+ocumentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+> index 2b8b74c5feec..31d1dfeb098e 100644
+> --- a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+> @@ -1,5 +1,5 @@
+>  # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> -# Copyright 2021-2024 NXP
+> +# Copyright 2021-2026 NXP
+>  %YAML 1.2
+>  ---
+>  $id: http://devicetree.org/schemas/net/nxp,s32-dwmac.yaml#
+> @@ -33,10 +33,22 @@ properties:
+>        - description: GMAC PHY mode control register
+> =20
+>    interrupts:
+> -    maxItems: 1
+> +    minItems: 1
+> +    maxItems: 11
+> =20
+>    interrupt-names:
+> -    const: macirq
+> +    items:
+> +      - const: macirq
+> +      - const: tx-queue-0
+> +      - const: rx-queue-0
+> +      - const: tx-queue-1
+> +      - const: rx-queue-1
+> +      - const: tx-queue-2
+> +      - const: rx-queue-2
+> +      - const: tx-queue-3
+> +      - const: rx-queue-3
+> +      - const: tx-queue-4
+> +      - const: rx-queue-4
+> =20
+>    clocks:
+>      items:
+> @@ -75,8 +87,28 @@ examples:
+>          reg =3D <0x0 0x4033c000 0x0 0x2000>, /* gmac IP */
+>                <0x0 0x4007c004 0x0 0x4>;    /* GMAC_0_CTRL_STS */
+>          interrupt-parent =3D <&gic>;
+> -        interrupts =3D <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+> -        interrupt-names =3D "macirq";
+> +        interrupts =3D <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
+> +                     /* CHN 0: tx, rx */
+> +                     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
+> +                     /* CHN 1: tx, rx */
+> +                     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
+> +                     /* CHN 2: tx, rx */
+> +                     <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
+> +                     /* CHN 3: tx, rx */
+> +                     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>,
+> +                     /* CHN 4: tx, rx */
+> +                     <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
+> +                     <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
+> +        interrupt-names =3D "macirq",
+> +                          "tx-queue-0", "rx-queue-0",
+> +                          "tx-queue-1", "rx-queue-1",
+> +                          "tx-queue-2", "rx-queue-2",
+> +                          "tx-queue-3", "rx-queue-3",
+> +                          "tx-queue-4", "rx-queue-4";
+>          snps,mtl-rx-config =3D <&mtl_rx_setup>;
+>          snps,mtl-tx-config =3D <&mtl_tx_setup>;
+>          clocks =3D <&clks 24>, <&clks 17>, <&clks 16>, <&clks 15>;
+>=20
+> --=20
+> 2.47.0
+>=20
+>=20
+
+--pzRpkmi5BmiBkcB1
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaXOsHwAKCRB4tDGHoIJi
+0hDtAQDBlMUSfWsHHQg8yRbhsQ71gVddQ3WlmA98T1YtlwurwgEAj6PZ1+oZoTDk
+mOqOpsArfAkfNxVnyMEO1zFuSv7QAAs=
+=Tnki
+-----END PGP SIGNATURE-----
+
+--pzRpkmi5BmiBkcB1--
 
