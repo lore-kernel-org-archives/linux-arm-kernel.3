@@ -4,54 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F4B2D7237F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 12:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9415D7237D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 12:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Z/83YbtV088zyoX0OD3/pWQXCZpS3v4RXqrhoiNfSw=; b=IXFWlrmu0YGSR6y4FK7wU2OZJB
-	mJVGFy6a3mMdWwo54k3wv1fAgxWazi84TsjtVyoze/XEi30O2cNuo+6ETtGG8OyirGftHdd4nKPEz
-	L59QF0BFMIcGQYY31c4d7xpNlcVz4RmqYiD2P/4soKd0JH8RC1QnEFYVVNvk9y4oSNGu0Xc0rbUT+
-	u953kBnmV5N/EKmKvHMFCyqAkAkiM0/NJUocar/J9gV7TnHsZby2WcGXbZGUVGlZh8LiWDXyMldxs
-	OgY28ks3H0StLOTVwvm5wJgH9YwgktV0ALvHa7KEUaM3aB5uTRyWYaTRNWcfwlFynPRHHTYAxGevn
-	vI/6Ofjg==;
+	bh=LS3boldlDBGIc8QYsfZE5HOqjztG1rbfsuMsJHuInYU=; b=W1ZrWYCYW2i1pVP/AI2sBkPI6j
+	ZSfCROL4fbn+8i/le0PfHaLZ0QJaypE+KeluSgDkFSJ+5F+QFPBCtX0kyJCoZ7qpuoYTtkCcWoWIP
+	n75T69XpFiiSA6b1vaiyIySFUdw/YaVRS0yOuNVfNDnLycYpljiOjELUbvBSDzMIJ1/AiDKVsjPl4
+	DKHFP5IKYYDOeVrudB0imdAK8an+P62RTvVh+79v/eSq4O0r3CkDHpRC8GZyqEhbPOOWsj3oyguwj
+	bfnYpFkj++qr+VIdGhSgUqX724QhP48/Nba9ANZht/qIkefKKNg42DrUQKxTsaad+/vaaD3y9Y9LZ
+	lKIvt7Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGC1-00000008to8-1aCI;
-	Fri, 23 Jan 2026 12:23:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGBy-00000008tnm-0I3U
+	id 1vjGDI-00000008twP-0B9A;
+	Fri, 23 Jan 2026 12:24:33 +0000
+Received: from mail-m32105.qiye.163.com ([220.197.32.105])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjGDE-00000008tuc-3uAS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 12:23:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD64A1476;
-	Fri, 23 Jan 2026 04:22:58 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 776043F740;
-	Fri, 23 Jan 2026 04:23:03 -0800 (PST)
-Date: Fri, 23 Jan 2026 12:22:58 +0000
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH 0/6] KVM: arm64: ... and FWB for all
-Message-ID: <aXNoIrrjNnoQKkAg@raptor>
-References: <20260119105651.255693-1-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260119105651.255693-1-maz@kernel.org>
+	Fri, 23 Jan 2026 12:24:30 +0000
+Received: from localhost.localdomain (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 31c0b4b04;
+	Fri, 23 Jan 2026 20:24:23 +0800 (GMT+08:00)
+From: Shawn Lin <shawn.lin@rock-chips.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Wei Xu <xuwei5@hisilicon.com>
+Cc: linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Jaehoon Chung <jh80.chung@samsung.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>
+Subject: [PATCH v2 1/3] arm64: dts: hisilicon: hikey960/970: Convert to use standard mmc alias
+Date: Fri, 23 Jan 2026 20:24:07 +0800
+Message-Id: <1769171049-74327-2-git-send-email-shawn.lin@rock-chips.com>
+X-Mailer: git-send-email 2.7.4
+In-Reply-To: <1769171049-74327-1-git-send-email-shawn.lin@rock-chips.com>
+References: <1769171049-74327-1-git-send-email-shawn.lin@rock-chips.com>
+X-HM-Tid: 0a9bead0145b09cckunm9fc1f74e1df6d6
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGksfSFZDSUlCShoaQkJOHR1WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=i4KnQ4KsZOYlsv0Sahhfx88QTbKdFHGn6waCF1wwldp3TEAcvfp1dBOCygxOn7jF5WL3igCEaPfRzJFAvqikpKFX/tXKj/GSuhOTk9XjevRlUhY7BLsWzGBgQmh53TPpl9sy05umbeGTG3A3EoBCQxswH9AMakOiPxnmR4DkWxc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=LS3boldlDBGIc8QYsfZE5HOqjztG1rbfsuMsJHuInYU=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_042310_149596_634326E8 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20260123_042429_624095_70BA23C4 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,64 +71,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Convert the long-deprecated mshc alias to standard mmc alias.
 
-On Mon, Jan 19, 2026 at 10:56:45AM +0000, Marc Zyngier wrote:
-> [Yes, you can tell what I was listening to]
-> 
-> Today, running in protected mode puts the host under it's own S2 with
-> FWB=0, even if the rest of the guests are running with FWB=1. The
-> rationale for this special-casing of the host is that we want the
-> combined attributes to actually reflect the ones exposed by S1.
-> 
-> We therefore use NormalCacheable (which is the weakest memory type) as
-> the default attributes at S2 so that S1 can only strengthen the final
-> memory type.
-> 
-> But there is no reason why we cannot achieve the same effect with
-> FWB. We normally use FWB to enforce cacheable memory from S2,
-> irrespective of S1. But it is possible to configure the S2 attributes
-> as "pass-through", so that the S1 attributes are always used.
+Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
+---
 
-Would you mind clarifying why FWB is preferable? Is it so that pkvm uses
-the same approach for configuring stage 2 for the host as for a guest? Or
-is it something else?
+Changes in v2: None
 
-> 
-> This small series implements that change, adding a flag that actually
-> describes what we are trying to do (instead of the NOFWB flag which is
-> pretty obscure), and fixes an interesting gotcha with CMOs.
-> Interestingly, CMOs never actually worked with NOFWB on an FWB-aware
-> platform...
+ arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts | 4 ++--
+ arch/arm64/boot/dts/hisilicon/hi3670-hikey970.dts | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-Hmm... as far I can tell pkvm doesn't populate
-mm_ops->dcache_clean_inval_poc for host_mmu, so pKVM doesn't issue CMOs for
-the host s2, with or without these changes.
+diff --git a/arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts b/arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts
+index ed84ab9..c6056a8 100644
+--- a/arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts
++++ b/arch/arm64/boot/dts/hisilicon/hi3660-hikey960.dts
+@@ -20,8 +20,8 @@
+ 	compatible = "hisilicon,hi3660-hikey960", "hisilicon,hi3660";
+ 
+ 	aliases {
+-		mshc1 = &dwmmc1;
+-		mshc2 = &dwmmc2;
++		mmc1 = &dwmmc1;
++		mmc2 = &dwmmc2;
+ 		serial0 = &uart0;
+ 		serial1 = &uart1;
+ 		serial2 = &uart2;
+diff --git a/arch/arm64/boot/dts/hisilicon/hi3670-hikey970.dts b/arch/arm64/boot/dts/hisilicon/hi3670-hikey970.dts
+index 7c32f5f..65764b3 100644
+--- a/arch/arm64/boot/dts/hisilicon/hi3670-hikey970.dts
++++ b/arch/arm64/boot/dts/hisilicon/hi3670-hikey970.dts
+@@ -19,8 +19,8 @@
+ 	compatible = "hisilicon,hi3670-hikey970", "hisilicon,hi3670";
+ 
+ 	aliases {
+-		mshc1 = &dwmmc1;
+-		mshc2 = &dwmmc2;
++		mmc1 = &dwmmc1;
++		mmc2 = &dwmmc2;
+ 		serial0 = &uart0;
+ 		serial1 = &uart1;
+ 		serial2 = &uart2;
+-- 
+2.7.4
 
-Thanks,
-Alex
-
-> 
-> Patches on top of 6.19-rc5.
-> 
-> Marc Zyngier (6):
->   arm64: Add MT_S2{,_FWB}_AS_S1 encodings
->   KVM: arm64: Add KVM_PGTABLE_S2_AS_S1 flag
->   KVM: arm64: Make stage2_pte_cacheable() return false when S2_AS_S1 is
->     set
->   KVM: arm64: Switch pKVM host S2 over to KVM_PGTABLE_S2_AS_S1
->   KVM: arm64: Kill KVM_PGTABLE_S2_NOFWB
->   KVM: arm64: Simplify PAGE_S2_MEMATTR
-> 
->  arch/arm64/include/asm/kvm_pgtable.h  |  7 +++---
->  arch/arm64/include/asm/memory.h       | 11 ++++++---
->  arch/arm64/include/asm/pgtable-prot.h |  4 ++--
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c |  4 +++-
->  arch/arm64/kvm/hyp/pgtable.c          | 32 +++++++++++++++++++--------
->  5 files changed, 39 insertions(+), 19 deletions(-)
-> 
-> -- 
-> 2.47.3
-> 
-> 
 
