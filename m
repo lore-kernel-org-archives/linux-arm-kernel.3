@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3499AD778BC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 21:53:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AB90D778BD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 22:04:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ba85GeB3B1ichKlJAwFJYf43g8jypI7q6DIILljSC8=; b=JOj4cZFYitR3IEYKOFHNLr4G5N
-	wqdgJZ8y2hamIzF1MtW01dhazYk1HLWtg+cr99r3gjoQOMo2Ji6Xgx7worPE9x0lqtNGxS3cf639o
-	s3cfcvWa3oqoiisLv/fRvBH9hP2hjAYhSTYiIdYj9DR0If/u4J/mfRmbqr6GK26fEphaW+BF0xJWs
-	Sg2PQTLBTVuYhUHjYOyff4OhPQd9/8IfTVoRovgyiIZKotYEcHa24fjuOjgrYHFeJnLL//1MS2qT4
-	oFN4JzpdJoAJ5Py5mryzOu250SDt9pxL3EH+UzL9wL1zv+VRXAW7vrg3P7RevtRJTiodAYqLWX2vF
-	NMRRG6WA==;
+	bh=x2mpCO9JlhKqni0TfYjgdsxcs7R5ACWH6kA0kbTCQoQ=; b=BvofFc0fyYoS6PMYSR8BxtF7YQ
+	xFqnJrL2i5bIWQNiRZQsADONUk81eLyF1ZNK9xQV5jBeEhNZIx8lEsviK/kJyOWrZVm0tGGiAFrJ1
+	smJuatTH7oVl1n8zdLXojaWcmK9BOGS6BrDYpOLhmrKLKz98mMT/gOzwPIGylxMHnjDVTkLnVQFot
+	C5pmm2pj1SmDO/uTz5VKka6dV6gAh4M8RbuN4/wWosw7XasPhj0RVbfAnOxLzLNmdgbm8CO5px8Nm
+	t3dXVP0F/H+oV1oqS5bzcGV0NCbDO/QUKfcTz6HfLNlt1+l5M+VvEvNv3Wuq3TUKEpb2y4Q6xX0s+
+	kaWqzLuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjP5Q-00000009Wp6-3tCf;
-	Fri, 23 Jan 2026 21:53:00 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vjPGT-00000009XBl-3EPJ;
+	Fri, 23 Jan 2026 22:04:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjP5O-00000009WoJ-3Xap;
-	Fri, 23 Jan 2026 21:52:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=2ba85GeB3B1ichKlJAwFJYf43g8jypI7q6DIILljSC8=; b=XGBYIJBF9Cua6CZ2MaiR035mIb
-	OnQz3xs6o1QG8YZvT1Q1ZkLDhkI0Uax3dy3wuYs4cY4FELSY0MVhSShd6voxGmC5HCh9dM5t5wmdQ
-	APq7/Fu06NAi3mww/CjOsdNoQ2a0Dwvr9d+pQCdxsH0MKQlv5juPhu478N1ckK4jgj8ApjbBxuYrm
-	//1Fu8hkvfe2iKI0Ab+oxEg19Mqsd1K502wzzsGlMxHfaHPWo+tpqTGO2+91smcrJo8Qq7O5q70ef
-	YZboFx5KtrwIyNs/4wOuKtGc6OYvCNwtiM5z+wJ8sL0twPB/8QEbiD9udIq9l1eabjk+9tWPDnc5r
-	J+mtcrOQ==;
-Received: from i53875b18.versanet.de ([83.135.91.24] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vjP53-0042yn-Kl; Fri, 23 Jan 2026 22:52:38 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Bartosz Golaszewski <brgl@kernel.org>, Robin Murphy <robin.murphy@arm.com>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Linus Walleij <linusw@kernel.org>, linux-gpio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Marek Szyprowski <m.szyprowski@samsung.com>
-Subject: Re: [PATCH] gpio: rockchip: mark the GPIO controller as sleeping
-Date: Fri, 23 Jan 2026 22:52:37 +0100
-Message-ID: <16771005.dW097sEU6C@diego>
-In-Reply-To: <e9fd0005-bfbb-4052-8c2a-9200eb0b60ac@arm.com>
-References: <20260106090011.21603-1-bartosz.golaszewski@oss.qualcomm.com>
- <CAMRc=Md0h5b=N9CqV-9L9sOtCNbiL1-y6RE0x4+w9HYXE8=pEQ@mail.gmail.com>
- <e9fd0005-bfbb-4052-8c2a-9200eb0b60ac@arm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_135258_912152_C4844149 
-X-CRM114-Status: GOOD (  33.33  )
+	id 1vjPGS-00000009XBc-1ajG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 Jan 2026 22:04:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 582F060128;
+	Fri, 23 Jan 2026 22:03:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09F4DC116D0;
+	Fri, 23 Jan 2026 22:03:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769205833;
+	bh=Ho8xfshsVSbQoZIVYaWDgYNUfedQj1qZA2B0BJX+LQY=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=qWITp95QAuplDbtz1uX5OUuLW20BRAYRj5Z0wZ3YU79C+637yK0T2Dn2m+KVqMSJd
+	 Xeu2yIkH/+pddEa+YzLsWEENQYewEQW2U13fALJniufjvtrNOSo1+nkXzFghAhfOPF
+	 XAqPuTGRFZyuz3epET3pvVk7HTxDkk1l/S0CAg1XzTFRusz4/j2gHpsp8u03IDFQtd
+	 qlfj0TOfzNQ3TVPfteD/pV2mnB6PyMkGroUkrVMzZ5QVRzrmdyarvUCOigib5de0mt
+	 mdNszdpiKnxdioRQkSmA3y1n7kJlryspubw6jwMRITt+Ml3DXWECm0pzUiFuAYWGl9
+	 J2zMiu8510kkg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 118E83808200;
+	Fri, 23 Jan 2026 22:03:50 +0000 (UTC)
+Subject: Re: [GIT PULL] arm64 fixes for 6.19-rc7
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <aXO_6oqyqGevo4XW@arm.com>
+References: <aXO_6oqyqGevo4XW@arm.com>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <aXO_6oqyqGevo4XW@arm.com>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+X-PR-Tracked-Commit-Id: e2f8216ca2d8e61a23cb6ec355616339667e0ba6
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: e85d3e9d581eb6047a2a79f088b1934e30d81a9b
+Message-Id: <176920582864.2729567.1245186046879666996.pr-tracker-bot@kernel.org>
+Date: Fri, 23 Jan 2026 22:03:48 +0000
+To: Catalin Marinas <cmarinas@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,89 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 23. Januar 2026, 21:57:50 Mitteleurop=C3=A4ische Normalzeit sch=
-rieb Robin Murphy:
-> On 2026-01-23 7:27 pm, Bartosz Golaszewski wrote:
-> > On Fri, Jan 23, 2026 at 2:27=E2=80=AFPM Robin Murphy <robin.murphy@arm.=
-com> wrote:
-> >>
-> >>>>
-> >>>> It's not a big issue for the hdmirx driver specifically, but I wonder
-> >>>> how many more (less often tested) rockchip drivers use GPIOs from th=
-eir
-> >>>> IRQ handler.
-> >>
-> >> Yeah, seems this finally reached my distro kernel and now the kernel l=
-og
-> >> on one of my boards is totally flooded from gpio_ir_recv_irq()
-> >> (legitimately) calling gpio_get_value()... that's not really OK :/
-> >>
-> >=20
-> > This has always been a sleeping driver. The driver does not know the
-> > firmware configuration it'll be passed and - as I explained above -
-> > depending on the lookup flags, we may call .direction_output() and
-> > descend into pinctrl which uses mutexes. Ideally, we'd make
-> > GPIO-facing pinctrl operations not sleeping but this is a long-time
-> > project and quite complex. Telling the GPIO core that it cannot sleep
-> > is simply incorrect - even if it worked for this particular use-case -
-> > and has an impact on paths we're choosing.
-> >=20
-> > Can the GPIO reading in the gpio-ir-recv driver be done from a
-> > high-priority workqueue by any chance? Or can we make it a threaded
-> > interrupt?
->=20
-> rockchip_gpio_get() is essentially nothing but a readl(), please explain=
-=20
-> how that could sleep? Saying that countless in-tree and out-of-tree=20
-> arbitrary GPIO consumer drivers should pointlessly refactor just to=20
-> avoid the GPIO core spewing spurious WARN()s is not reasonable.
->=20
-> I appreciate there are cases where the warning most definitely *is*=20
-> relevant, which is why I picked up this discussion rather than proposing=
-=20
-> a revert, even though the documentation says:
->=20
->   * @can_sleep: flag must be set iff get()/set() methods sleep, as they
->=20
-> where since neither rockchip_gpio_get() nor rockchip_gpio_set()=20
-> themselves sleep, apparently this flag must *not* be set. It's=20
-> irrelevant that a higher-level gpiod_set_value() invocation might end up=
-=20
-> calling .set_direction before it gets as far as calling .set - that's=20
-> not the gpio_chip's fault, and gpiolib knows exactly what it's doing.
->=20
-> What I'm getting at is that getting, and even (directly) setting a=20
-> GPIO's value can reasonably be expected to be more common and applicable=
-=20
-> in a wider range of circumstances than changing its configuration, so=20
-> the former should not be unfairly penalised because of the latter. This=20
-> case is clearly distinct from external GPIO expanders on buses that=20
-> fundamentally can't guarantee fast memory-mapped access at all, so=20
-> trying to conflate it under the same flag doesn't fit, and that needs=20
-> fixing ASAP, before the reverts *do* start piling in. Maybe that just=20
-> means some new dir_can_sleep or more abstract dir_needs_pinctrl flag=20
-> might suffice, maybe it's something more involved; I don't really know,=20
-> and I don't have the bandwidth to take this on myself.
+The pull request you sent on Fri, 23 Jan 2026 18:37:30 +0000:
 
-the sadest part here is, that the dive from gpio to pinctrl is sort of
-a remant of the past. Originally it was meant to "automatically" set
-the gpio pinmux, but nowadays we (at least try to) have pinctrl entries
-doing that separately.
+> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
 
-But of course that's hard to enforce now, because we can't really know
-where gpios without pinctrl might hide, and of course newer kernels
-need to still run with old DTBs.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/e85d3e9d581eb6047a2a79f088b1934e30d81a9b
 
-But...
+Thank you!
 
-rockchip_pmx_gpio_set_direction()'s only function is to set the GPIO
-pinmux - it does not handle the actual the actual direction.
-
-Can't we move the pinctrl_gpio_direction_input/_output() call just over
-to the request callback of the gpiochip?
-
-
-Heiko
-
-
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
