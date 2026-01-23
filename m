@@ -4,106 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C9C2D72367
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C6C7D72366
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 10:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3LIzbWVdgCXnrKY5TjdEj2KcXOi2/TbdKDHeIlt1MwA=; b=N5fIikr3hMMXkAVyJ7bUvzBr6a
-	A1ldX3WviNCD81I1abr/dbvEiU5Um/Ko7tdb00sgVTJr39HIhgd98RnuYiCe0DbhdNW5Q7O+2P+bp
-	1pfGg8Fpq7D4arSEei1rjoY2ltJ+8PUWivhRmsAIi0vRuOnLci6AdZnQGQC+JCWe1EpwsqiH7jEea
-	NhnWiZwI9Urm6PNMRgbXqXJUOGY7tHVfPWQuieiVuD0eslQeiEYUJcQlSOYH8xb8IqFaD4BtDk0LB
-	nOeGGfpMwcx5A4A/MKZ96Koglxe2SNWMUiETO/phS8ea7SGHSldha+DzVT7fUFItcOUY+iOW0/3kW
-	7CqxgJ6w==;
+	bh=dsgKRlQF0bZ4+Ihv37h1aNFXuDBMMPzrxr0zEMDpGcs=; b=jSSuV+r1RFotxvKVEwPErNiMzr
+	KKZj2hz3oH66x7w4lLu1StxNCKCWytMw1tfmXp6tp+mhDEZA35hqMIzDLI4Y4Ckfy9ybQXjFG+GkS
+	SKrQBQgv09J3341XFwu0c9jI7NbN/LsBEa+c0U5nNNi9ZE06a1C7CPphJ4tE21cZM/Do+NDqmy8am
+	z7r1V8SDmf/22/xVXb1NLw+Dh/DeIxXea6wwW6FN3HJY0ibMcc/vTzeMUNLVVCcHdhVFyF7xelB6t
+	Zn8kAVmoGeU2iG+UtHbd9iuAFNDQy2QVdoWAixwBcD5JoSlt4ojh2UbGadsgsmMevU3A7IBEigW12
+	FhuZ6iZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDxE-00000008fIX-3loj;
-	Fri, 23 Jan 2026 09:59:48 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1vjE0o-00000008fXG-0oXf;
+	Fri, 23 Jan 2026 10:03:30 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDxC-00000008fHi-2Jnn
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 09:59:47 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-34e730f5fefso1497313a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 01:59:46 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769162385; cv=none;
-        d=google.com; s=arc-20240605;
-        b=f9oVPdNZ9ejTwGpF1mSYWf10qzBVwtnhAMQZe3kn9wXvoaTC2TGBttYyGTi62yoKPy
-         neSAOePHuEDx+daxeCbNQ8okiBwnfSGseJRhNj8U8+pYNwhYKNwZU+ZOW0Dl47ymMN80
-         zBXLHlaiSwrIHEdYq64iLkFFtMsfiYpQWBpkQy1wSbUL75RWipRH3Z7uAzBfQDs/JBT3
-         O2MB8jVv6N4uQMz+3xKS8uORXrTR+8X1Jr5MGmPVN3YDI0Baqpf0QnPDWf9apT+9jtHS
-         A/Wlo994D8JtTf7bh4+Rc2mLLbyOSJreyzHYq9aN3vq9Iv/LQFNLVJ2+4jlmSV5kSMSN
-         DRaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=3LIzbWVdgCXnrKY5TjdEj2KcXOi2/TbdKDHeIlt1MwA=;
-        fh=Z529oI1ahZFCwvOBzf65HeE+iDuuu/ZwRlfhuedTM3g=;
-        b=TIUXXK+pdiEPg8w6SGi5KnIbhb50dX3I302uejhdfrVeEJVVo4QaRbteM1kSuCxFFx
-         tSN0XuheuN+AmxVmY8NA9kBfSncoqXyfU4EB354YtlIqX87VpkeD6vPleeMpXmqq6NIX
-         qX7p/tx92eSQOqkY1zn98gKij8H/xYJ0KFPtUpbQQlaBTvKD6Vvp2YLJT+b7ENorubto
-         k9SxyU3ASehhk0oToVaSrdN9btagNmP+8LXNgSEuT5SsWK3MpFLx6hK9GuEQDYIJGNdj
-         uebdtv8q6nVMIQVd/KlVnsl5HKzzzYFG4BUpHeNqhQ2nnUlWKWA39IeOSDMwzZJ+2ufJ
-         6ADA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769162385; x=1769767185; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3LIzbWVdgCXnrKY5TjdEj2KcXOi2/TbdKDHeIlt1MwA=;
-        b=awynsqGTbK9X8Jg8Ett2tt9jMtsi5fhxqCiC5JBjEbJTgrUqA3opf1qK2lWLzTpURT
-         1D0b06JpH3WJmsLCK/22W0No/Ywwwoso7owdkjzJXwHcJK87v9bRqoiBjmpqwNP3oH+w
-         J+XG231RDvY58slMijofr7Wmdh3Spl7l2ckkjb0AQpUMUPmY4oduEfCqDmpM0+tOqXPc
-         Um2jwrwbP/2XF2sIz/wuztg8JNr4TgMoThOgLb/gLW0DlfrRg3R8Ohmj79oViYjCNpqZ
-         1OHZ2umaxT3NDudxQryRayjG/RZ4ZLi57m4w/Xu7v6RhMw1/rb/60U5hW4hT5qLwTm10
-         SYQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769162385; x=1769767185;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=3LIzbWVdgCXnrKY5TjdEj2KcXOi2/TbdKDHeIlt1MwA=;
-        b=tcK8JturxIp8BskQ+/RiUQJMRGxz8dOFAwZJtaCzT9JaYwCXjsJ+U3v6BODXbBIOuU
-         Rs/zWX7MOsiLwfw8cRJY/WTqu1548eewv13DR4aWd7nnSd0u7UpcPyNgk0qrZtX/q61U
-         s+VHrJpRcLfESro9L43j2tcXJEomfC+mm9MZtelW0DgbctfDzUB3CdlWHMeJEfOJFhG4
-         VX7rGHVS3lYspyNCt8EeSk0Ip2M9UQR2gmrHH9gViu/q9SV3AfTwGCcI2oKJyiLablZf
-         CDFVVTK8r1oYK/W75DY7ecacnw9yMpPfOlXkgjZ8RL3qSJV2z6LbKwKEmO+sexzowEOu
-         rRYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXNOKYEEORSHmbgOwn2paWFUPQeVZbl9Af6QHeHkkrGgn99RP4xVQRB6QEsxwUDqQQyp8xlG+vdEjIKTmBKNTey@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHj/jiNyx9aL8gdcFvnH56UYNvjmcSXSuFdsEhNnQ59jx6kfKO
-	p0A3PN/qAgqFqWhcTzfrp9JA5KoeEE/KQijOfxjLDNJD2SGyHbFfy747R0WXH7swZ6liUgJfOAd
-	UAKMoweh1OnhBUcsp+L7EMpY1jSt8xDw=
-X-Gm-Gg: AZuq6aIJ1otixqzw7emAiBsv4+JMmFHr02YPq2jcbkBlXpK94mvbDHB6ZPluYAL81zn
-	+c4LmxdntmmVEYzzyXPa5ol23YSZ2hOZUfpcnBtFkZXK4jXA4avpqSHjX7fXZZsYVoNlObpMfZi
-	ZY5NGk/YodZtH3y28MTijzzcejztL6XbgdaaijNTVhLCqD+NNg+CqVYC066g0h/wbEg2N+ajS0y
-	4e7zkCodpBAAXCpUsj1jdr8f+v/fFT0197eVzhFrqCpsYJ+yl5RXQ1m2oWWU3EvPL/by2usQTiX
-	R/AE2w==
-X-Received: by 2002:a17:90b:1d86:b0:34f:62e7:4cfd with SMTP id
- 98e67ed59e1d1-3536894da60mr2059229a91.24.1769162385274; Fri, 23 Jan 2026
- 01:59:45 -0800 (PST)
+	id 1vjE0m-00000008fWf-07B9;
+	Fri, 23 Jan 2026 10:03:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=dsgKRlQF0bZ4+Ihv37h1aNFXuDBMMPzrxr0zEMDpGcs=; b=cYFAKX9zFJIfDsoOZ5aK1qWAqY
+	rYnFQe0UtKXISm4jOb8JfRlWFSQmS2LexgZSNrn3sufmMqoyiA84dIIJNWbV3VbMdtLy48ZNF8pcX
+	b3dzdcRmp8zRV99NHQl/cUIA6EYzsV5Q+QG5MJ74w/LArT2aZUBmtgblDYmrLJfoMD5AbIa2FXaha
+	Si60ovn1UABJhxCgFuhasj2tFOup8k1opN8LiuUNmkEDPHjgmz917BOcSKxGfKdHls5vvvx+CStzU
+	hLGRE3LnpEdCLvFjN3jaxSQ1iBHtgmia1/I2S2O6rdqu0Wft+9WYiOV2Tqh8RBZKz7ZnaDd7BdJrN
+	9iPfVs7Q==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:40630 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vjDs5-000000001d7-31g4;
+	Fri, 23 Jan 2026 09:54:30 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vjDrq-00000005fR1-42rX;
+	Fri, 23 Jan 2026 09:54:15 +0000
+In-Reply-To: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
+References: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH net-next v2 11/14] net: stmmac: add struct stmmac_pcs_info
 MIME-Version: 1.0
-References: <20260123084844.4051570-1-shengjiu.wang@nxp.com> <59773aa2-5949-490c-bced-b8d110152505@oss.nxp.com>
-In-Reply-To: <59773aa2-5949-490c-bced-b8d110152505@oss.nxp.com>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Fri, 23 Jan 2026 17:59:33 +0800
-X-Gm-Features: AZwV_QjBHIga33vSKBW1pabNQ2XL3EH5NV4mXw7-SfWsbUjsOOrrguhwtZWL6PY
-Message-ID: <CAA+D8AOSzBNOoET0_aJRYhf9dsDu4mQqGWso9YNN_HNQU1582w@mail.gmail.com>
-Subject: Re: [PATCH] bus: imx-aipstz: set default value for opacr registers
-To: Daniel Baluta <daniel.baluta@oss.nxp.com>
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, laurentiu.mihalcea@nxp.com, 
-	daniel.baluta@nxp.com, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vjDrq-00000005fR1-42rX@rmk-PC.armlinux.org.uk>
+Date: Fri, 23 Jan 2026 09:54:14 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_015946_590215_0DAFB7B7 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20260123_020328_068090_A45883C7 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,45 +93,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 5:11=E2=80=AFPM Daniel Baluta <daniel.baluta@oss.nx=
-p.com> wrote:
->
-> On 1/23/26 10:48, Shengjiu Wang wrote:
-> > The sdma script app_2_mcu needs the permission to access the peripheral
-> > devices, so need to clear the Supervisor Protect bit of SPBA2, otherwis=
-e
-> > the sdma script can't work.
-> >
-> > As the imx-aipstz is a common driver for all apis bus, so set default
-> > value for all opacr registers, that the peripheral does not require
-> > supervisor privilege level for accesses.
-> >
-> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> > ---
-> >  drivers/bus/imx-aipstz.c | 20 ++++++++++++++++++++
-> >  1 file changed, 20 insertions(+)
-> >
-> <snip>
-> >  static const struct of_device_id imx_aipstz_match_table[] =3D {
-> > @@ -84,6 +99,11 @@ static const struct dev_pm_ops imx_aipstz_pm_ops =3D=
+We need to describe one more register (offset and field bitmask) to
+the PCS code. Move the existing PCS offset and interrupt enable bits
+to a new struct and pass that in to stmmac_integrated_pcs_init().
+
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c | 9 ++++++---
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c    | 8 ++++++--
+ drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c     | 8 ++++----
+ drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h     | 9 +++++++--
+ 4 files changed, 23 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+index af566636fad9..a3ef237de1b8 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+@@ -22,14 +22,17 @@
+ #include "stmmac_ptp.h"
+ #include "dwmac1000.h"
+ 
++static const struct stmmac_pcs_info dwmac1000_pcs_info = {
++	.pcs_offset = GMAC_PCS_BASE,
++	.int_mask = GMAC_INT_DISABLE_PCSLINK | GMAC_INT_DISABLE_PCSAN,
++};
++
+ static int dwmac1000_pcs_init(struct stmmac_priv *priv)
  {
-> >   */
-> >  static const struct imx_aipstz_config imx8mp_aipstz_default_cfg =3D {
-> >       .mpr0 =3D 0x77777777,
-> > +     .opacr0 =3D 0x0,
-> > +     .opacr1 =3D 0x0,
-> > +     .opacr2 =3D 0x0,
-> > +     .opacr3 =3D 0x0,
-> > +     .opacr4 =3D 0x0,
-> >  };
-> >
-> No need to zero these fields as they are zero by default being part of a =
-global var.
+ 	if (!priv->dma_cap.pcs)
+ 		return 0;
+ 
+-	return stmmac_integrated_pcs_init(priv, GMAC_PCS_BASE,
+-					  GMAC_INT_DISABLE_PCSLINK |
+-					  GMAC_INT_DISABLE_PCSAN);
++	return stmmac_integrated_pcs_init(priv, &dwmac1000_pcs_info);
+ }
+ 
+ static void dwmac1000_core_init(struct mac_device_info *hw,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+index 623868afe93d..7f4949229288 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+@@ -22,13 +22,17 @@
+ #include "dwmac4.h"
+ #include "dwmac5.h"
+ 
++static const struct stmmac_pcs_info dwmac4_pcs_info = {
++	.pcs_offset = GMAC_PCS_BASE,
++	.int_mask = GMAC_INT_PCS_LINK | GMAC_INT_PCS_ANE,
++};
++
+ static int dwmac4_pcs_init(struct stmmac_priv *priv)
+ {
+ 	if (!priv->dma_cap.pcs)
+ 		return 0;
+ 
+-	return stmmac_integrated_pcs_init(priv, GMAC_PCS_BASE,
+-					  GMAC_INT_PCS_LINK | GMAC_INT_PCS_ANE);
++	return stmmac_integrated_pcs_init(priv, &dwmac4_pcs_info);
+ }
+ 
+ static void dwmac4_core_init(struct mac_device_info *hw,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
+index aae4d6ad9f9b..c67041c49d9b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
+@@ -195,8 +195,8 @@ int stmmac_integrated_pcs_get_phy_intf_sel(struct stmmac_priv *priv,
+ 	return -EINVAL;
+ }
+ 
+-int stmmac_integrated_pcs_init(struct stmmac_priv *priv, unsigned int offset,
+-			       u32 int_mask)
++int stmmac_integrated_pcs_init(struct stmmac_priv *priv,
++			       const struct stmmac_pcs_info *pcs_info)
+ {
+ 	struct stmmac_pcs *spcs;
+ 	int ret;
+@@ -206,8 +206,8 @@ int stmmac_integrated_pcs_init(struct stmmac_priv *priv, unsigned int offset,
+ 		return -ENOMEM;
+ 
+ 	spcs->priv = priv;
+-	spcs->base = priv->ioaddr + offset;
+-	spcs->int_mask = int_mask;
++	spcs->base = priv->ioaddr + pcs_info->pcs_offset;
++	spcs->int_mask = pcs_info->int_mask;
+ 	spcs->pcs.ops = &dwmac_integrated_pcs_ops;
+ 
+ 	if (priv->plat->serdes) {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
+index 845bcad9d0f7..a7c71f40f952 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
+@@ -27,6 +27,11 @@
+ 
+ struct stmmac_priv;
+ 
++struct stmmac_pcs_info {
++	unsigned int pcs_offset;
++	u32 int_mask;
++};
++
+ struct stmmac_pcs {
+ 	struct stmmac_priv *priv;
+ 	void __iomem *base;
+@@ -45,8 +50,8 @@ void stmmac_integrated_pcs_irq(struct stmmac_priv *priv, u32 status,
+ 			       struct stmmac_extra_stats *x);
+ int stmmac_integrated_pcs_get_phy_intf_sel(struct stmmac_priv *priv,
+ 					   phy_interface_t interface);
+-int stmmac_integrated_pcs_init(struct stmmac_priv *priv, unsigned int offset,
+-			       u32 int_mask);
++int stmmac_integrated_pcs_init(struct stmmac_priv *priv,
++			       const struct stmmac_pcs_info *pcs_info);
+ 
+ /**
+  * dwmac_ctrl_ane - To program the AN Control Register.
+-- 
+2.47.3
 
-right,  I will remove them.
-
-Best regards
-Shengjiu Wang
->
->
 
