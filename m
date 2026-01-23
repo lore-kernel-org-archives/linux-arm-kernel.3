@@ -4,91 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1177D7236A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 10:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE3ABD7236D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 10:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yLGKmlwBcsKRuVnvcwfFo05Whu7tqMAU3ZkpCbq+6NY=; b=tGyatPksKbYOrWensKwjK310RP
-	XBTP/AVnzy9fSDaeBhTzTuiTcMHVMK7prsKOJvJIzBdV3rPrMWbeH4vEwbdn3hh/V2ZqrrLMs6pcS
-	iRhcMi+pr+YM1rrt81B3ecuKc7SPUHCgLcO1p5XSR3KuZm6hZn2S1CMPC+8XvBO4KIEq4imeVSR5p
-	PlYRSFvCnatbmexhSIXjXKCndQ0U5Wuo+usxHB/2AqOYgZH2uuk0cgsmzZ2EUTg+7vTVlNTziS+GM
-	1jIKGYODIdme4ciDpFHyMkqb+WIjeAJ9PHGm/9JiZekgqHTNo2XGjHvO7ONtg7vIbar7g2tQloIsf
-	EBsGCxwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zVnDqXmEcQEMLQx9Wyukvv79S94HVJ93tXLPh1eYr60=; b=eT9MSPdtiEcSXpm/h5SEKbglz3
+	nccuPWUMJOHGh1SlOKEVhNx5nq9gyiD2gYzBQFwiJo9RD5KfYSCKow5ngGiUfDiPA3NSm3PwkRIcS
+	d/4FyFEd5dMPx6JM8hHLQBQhFIomYK9cu1Ojbv9tyQRHRW+OIdG4AiYELDZ25WPLyPtjOAiVFIHbl
+	6KE3Oz1I2RK3jtQ9FC+IQdcHVuzVoWp9ciT0cdLW5oCfh5AtReSiQi6ygXJrL35ci19C2662myNL0
+	CLgytQeLAD+VJ42oDvSspCGKoNns57cOHsnVF3dPJ24JYxwblWCao+XLv0wpMX17flK3XS+JHDHOR
+	8HqeDaXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjECa-00000008hZT-0qpa;
-	Fri, 23 Jan 2026 10:15:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vjEOB-00000008iss-2gEV;
+	Fri, 23 Jan 2026 10:27:39 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjECY-00000008hXu-0KKs
+	id 1vjEO8-00000008isF-3w0Y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 10:15:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DF74043950;
-	Fri, 23 Jan 2026 10:15:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B76DDC19422;
-	Fri, 23 Jan 2026 10:15:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769163336;
-	bh=k/b+dJITvtNnuA/A7jPw9p34GBhaE6Jxv5uMmkmw/W4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=fqxIU8P3qW1iTDPRn+vmRzJmUvNot1gnGLmmU9CFWV/c1zC5/uhdPjeITG4pX294e
-	 ZJYA7s0Q9+RA58irFOhiTfBWZpp3NG3cntuYoFqhAaI3CPiHdXqt5nqunvuNK/zEdh
-	 gdaCdrelppotw2h4CSedAbKO6dcv7dK7ZJQPfbbQD/D3w6mXhS6yntSOHq1nepSXtj
-	 O3WVy8rL9kpN1injEzqkVq5zmP9LpQkCLbDa2ULzsYUtpbuMPm1NPYs4BN6DtqDuCK
-	 cfPuue9/zzqBCcIPBUg4yExSiTP5OGHDk0RoOSLtichoj0GL90ff5VR5aNVT16w6eO
-	 D0ORhNzQW6Smw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vjECU-000000050O1-0jQR;
-	Fri, 23 Jan 2026 10:15:34 +0000
-Date: Fri, 23 Jan 2026 10:15:33 +0000
-Message-ID: <86qzrgbpoa.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Tian Zheng <zhengtian10@huawei.com>,
-	oliver.upton@linux.dev,
-	catalin.marinas@arm.com,
-	corbet@lwn.net,
-	pbonzini@redhat.com,
-	will@kernel.org,
-	linux-kernel@vger.kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	yezhenyu2@huawei.com,
-	xiexiangyou@huawei.com,
-	zhengchuan@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v2 1/5] arm64/sysreg: Add HDBSS related register information
-In-Reply-To: <aXI-XHF2jz7arOwg@devkitleo>
-References: <20251121092342.3393318-1-zhengtian10@huawei.com>
-	<20251121092342.3393318-2-zhengtian10@huawei.com>
-	<86wm3iqlz8.wl-maz@kernel.org>
-	<aXI-XHF2jz7arOwg@devkitleo>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: leo.bras@arm.com, zhengtian10@huawei.com, oliver.upton@linux.dev, catalin.marinas@arm.com, corbet@lwn.net, pbonzini@redhat.com, will@kernel.org, linux-kernel@vger.kernel.org, yuzenghui@huawei.com, wangzhou1@hisilicon.com, yezhenyu2@huawei.com, xiexiangyou@huawei.com, zhengchuan@huawei.com, linuxarm@huawei.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, suzuki.poulose@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 23 Jan 2026 10:27:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s5JY+WME4pnyMaf0LxnT5ehMjPChDILu4oA3w0E39qq8t57363I+UIy0BDatvow2/9mLcRcL6NWRsyMqE1eOHerhwwCcB4WSJJqGqKnA9nybPl9/w4j8I7ykTvbYmJ6VU81QbsocPjk0EErkVVTGffD0nqHzJEsVnaGHMjQHsxN17Gh0OQ4HunpH7CseqSFw3O4pPz16Fxd0mHO8la9sfX6v91MfBy9RiBqBmPfjniG0UgCEOvuTPYcF/7XI9j439r+Y9Epr3sF+MuzROMaadq00xMuZkWLdjHc69I1X88pvqfo4tXJMgWOX0t9iHepSF2K0HuxVYywu3Lj2FnzzKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zVnDqXmEcQEMLQx9Wyukvv79S94HVJ93tXLPh1eYr60=;
+ b=gROhzVf1dMNdGBb/WKK3zdntHY2J08PeDs5PJY9dgdRteQZIz3GydCwaO5YKDWd7YKrU76qwGfpkdDYWYmwFS3CyVTDMIDbsebTiYmgK9/rRYy7iZQr48niWPdBC8MweeRAi2Ml0j/1TNCcfT45i5M4oKB1XBGhAzCpiWKOQbCimmYxySKhGIvJvpkNzhuy7/vNXujPmSZTzB7ZzYBPErjugvneMz2j6/w6MjD4IYQj/ihv5l8B+RLEA9HkkDI60ZFkkHAzdSzS8q/ihnOqgbAWdWBmTx3TqOZJt1BJoZZ5DZ1TmQyAIQV4DcMPz7Lj8XLRhgtyGDR+ao+05m+8NGA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zVnDqXmEcQEMLQx9Wyukvv79S94HVJ93tXLPh1eYr60=;
+ b=eyOpk+QPx1eJRGqAnxo/HkAcbLmatPDjIGbb9ZFKgbnugY9ZDBcghqqamZkq0Jw0ezLiNOlK+WO0m9OgYEwdo9ljjeg7H18kjNTZHj+qtXngRdnydVgs/pM/5HOgnNfNfy7M8LH0WaFAfYDT4Gi7M0MEjYUfZJJ1Y/7Ovd4ibObj8aHcEWFOdfZ46vgHl8tLsficGtPcfAMnJPg/wBCl+kkrBy5B+fQmW9MWr/EiHjEQVfpXgI9+WTO21BWV2u9pfet0+1KYL1s2iMFSWUz/5cflL6SBRMvaqmZ20zWogfbHCWaiHz0YibE4wG/sAd5FUsWncHnxvlrpw+8BRQYlMA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
+ by GVXPR04MB10520.eurprd04.prod.outlook.com (2603:10a6:150:1df::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Fri, 23 Jan
+ 2026 10:27:30 +0000
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c]) by AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c%4]) with mapi id 15.20.9499.003; Fri, 23 Jan 2026
+ 10:27:30 +0000
+From: Joy Zou <joy.zou@nxp.com>
+Date: Fri, 23 Jan 2026 18:26:27 +0800
+Subject: [PATCH v2] arm64: dts: imx95: Reserve eDMA channels 0-1 for V2X
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260123-b4-imx95-v2x-v2-1-0497a9814668@nxp.com>
+X-B4-Tracking: v=1; b=H4sIANJMc2kC/32NsQ6DIBRFf8Uwl4b3FIRO/Y+mgyBWhqqBhtAY/
+ 73o0C7WMF1ezjkzCdY7G8ilmIm30QU3DnngqSCmb4aHpa7NmyBDwQAZ1RV1z6Q4jZhoaRmYWhs
+ hJZCMTN52Lm262z3v3oXX6N+bPcL6+0cUgeYnJLQctAHA65Cmsxmfq/UA4ajzlWusG/ZF1nLEo
+ xpmtOGlYYoxvl8rdxDNsTZd1Uqh1K+2LMsH2HGalEcBAAA=
+X-Change-ID: 20260120-b4-imx95-v2x-3e01c7bc6881
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+ Peng Fan <peng.fan@nxp.com>, Ye Li <ye.li@nxp.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, Joy Zou <joy.zou@nxp.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SG2PR01CA0139.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:8f::19) To AS4PR04MB9386.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4e9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9386:EE_|GVXPR04MB10520:EE_
+X-MS-Office365-Filtering-Correlation-Id: fb0ca39d-bc87-487e-7c1e-08de5a6a0346
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|52116014|376014|7416014|921020|38350700014|7142099003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?N1UxS2tXYU1HRFJRcC9ibnk5YlQ0TW9FaUQzT2g0dFRwUWRGQitwTG5tTStu?=
+ =?utf-8?B?eTVEalVIdGs5ZTNOdWRnZ1cwWlJKdE5ZbWRZbjNGSDgxb1NSRmFLR1NyeGFy?=
+ =?utf-8?B?TjFOYkwxV2lTSnV3Y1FsZzlxUUNQQU05MENZcmU5Ynk1bnI5Tm13Yno3eDM3?=
+ =?utf-8?B?RUxnNitOQWtMRUNMWkJPd1A1NnNienNJeVIvVEE0TWZjeUkvM29WYzBXSjZk?=
+ =?utf-8?B?QzdwdGZsNWgwd21XRzZwT09XRGlJREJYT3dkMmFBZ1lmRkY3SjNWM1BoSEZF?=
+ =?utf-8?B?aUVwTHh1eGV3UmxQL1FIZDN6SldVV2Z3Nm85dmFablREWFh6SXdRVE5xaGV6?=
+ =?utf-8?B?bkREUnppU3RuQ0JoZDJsVlhXUGpBcjFNUWkyYjg5QVVtV29PN09aTy9DWU43?=
+ =?utf-8?B?OFU2TkdvdHAzajVMRG9VTGoyejZKYnMxV0c4R3ZYVU1kaE1IaGxsY3lZem9l?=
+ =?utf-8?B?M01Nd01rSGo0ZndwK05tTDFSdmR6cFcyOWlBQzRMNXgzdXowaHF6YjMvVnQ4?=
+ =?utf-8?B?Y0NiY2VLdHlHNjdCWFd4aXZhY09pQlhNTjRScWwydFVMdGFrRzhoQnU1TzNs?=
+ =?utf-8?B?UG9LSjFGc1JtZkFuQVlaL2U2U2Z3M1Q2Q2RXbUFyaVVnMUpsWDk5MkFKbmJE?=
+ =?utf-8?B?LzZUTEZ3OVd2Wmh6dUIvS0lKaFF2VFg5TXNvSzJ6QndDYWtZcWlqdHhBNGpN?=
+ =?utf-8?B?UmN6NTV4WlRaWDB4cXNuYzlhb1hSTElCMlJYR0ttc0ljekJtcW5ZejRVTEZL?=
+ =?utf-8?B?cmdIL2JpMDN5dlFFKzBGZ3E3a2ZBMUtQTndzWWxpVEdOeUprL1hrSGE0d0gv?=
+ =?utf-8?B?NGhCMWdmL0ZZTmlPMnV0dGZQcmRsRVFzdDN5aGZ2VWJVazJqbDJNNGhzcXcy?=
+ =?utf-8?B?NWRZWGF0V01nRFdEZEdOcXBtSjJQc2UrYXEzNnhkcE43NWdiM2pCNmEzNDdM?=
+ =?utf-8?B?Yk5LZWcvRHFHREJUaHFqQ1JCNWVuV3Z3cVBYcHhJS2JLUC9NbHc2MEIzLzhK?=
+ =?utf-8?B?TVNNUEgrbW1lRHZWTG5oeFRhbCtlbERBWFcwVnlTekpwMXNRTTRwcHZvZnNj?=
+ =?utf-8?B?RStvUThvTDh0aW1CNFlNT2hyWUhrV2JsN1dFcjhJQ2lTOVl3MGRxN0M3WDRz?=
+ =?utf-8?B?dzdqbTFsamY5ZUtHUHlZdjBETWhUM0QwWThGaFVLK2xuUmtlZGJDUkVHeEdX?=
+ =?utf-8?B?ckE3RVlRWWt5R0w5dzNkZWwrYTJ2b0lMNEhrUkQ3aFFtM1ZMeGdzelN3VHNJ?=
+ =?utf-8?B?SWxUdDI5dll4UjMzU2dJb3FvcVBvZHZsL0VvREhGTUw3SGtIc0NFN1g5azRr?=
+ =?utf-8?B?a1dlNWptQitNSU1ldkd3aEVvUVBEY0hGV0ZGWGQ1OG42cGE2NzladzhFU291?=
+ =?utf-8?B?ZUZhT1BLdmZOREFiYXI1N1FqWkMyN3RWMmlyeWtBY1JZbDN6dFg0MjEwRm9u?=
+ =?utf-8?B?NnVidDI0b0hpZkZLZWQvMFBIeUMxM05ZOHdnUURuWXo3QVBwdEtXRGJIbVFv?=
+ =?utf-8?B?cHZ0VHFNVHhQMmlZRzEvc2dKZ01uMEM0aGxpWE1DR3B0TGMzb3lSZDZMTExS?=
+ =?utf-8?B?N241ZlFsUFhNOG1BN0orK0Q3SmFjcHJZRVlyV3p2Mzk4eEhnTFUyUGMxNHgy?=
+ =?utf-8?B?c2UxSXNNVWdBeXUzOHhXZFZPeEJLSGVhNlptMC9Pb1NZT0ZxcFdmakY5VmR5?=
+ =?utf-8?B?MENpRzVPWXdNdHlubVF5b1BNcGtaVzZVVDh0b1lFNWhtenZyTkpWTVExQ0Yz?=
+ =?utf-8?B?SW9GWHR1WWxpUUxseWs2WWwvU1ZJK1hCY3M5OStHOE1aTE85djJvNXhhVXY0?=
+ =?utf-8?B?emYwSFphQkkzWktNRVN6NmJwUllaUnBCYlo3U1VDdEZEUFFlSm5WZXBjRVNr?=
+ =?utf-8?B?RGwycUplQmJPK0Vkc3lFNlJYL25iKzFOQnBua3JPNy9MWWlkL0J1MzIyN3JW?=
+ =?utf-8?B?ZUc5cDE3eWo4RVZaNWQ5VU1jdW1lOHlYTUdWeGZNc3dONHcrSFN6T2doZGRi?=
+ =?utf-8?B?WUZiT0Z2VFdhaFVYS2ZZMWVzdm5yaG90bzRoT2w2dnNKM21NUG9wTko4KzJJ?=
+ =?utf-8?B?NnBKWDZYNU9EdVhZdk0yVnVxZHVsQVkwMHpRT0NpMThrYysyUHZZMlZ3dVFT?=
+ =?utf-8?B?Z2JvZkY5Y3FyQmEvZ212RTgzdCtTYUxCLzFVbnpTT245bENkZ1lPeVVkNFhB?=
+ =?utf-8?Q?zqLX4R4mvNahg38+cLlQ1/zsGIKU2GA0TMidbIhwb9WR?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(52116014)(376014)(7416014)(921020)(38350700014)(7142099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UTJvcENvazg3QVhJN2hZSkNLWlEzaStPNGx0SVJzRmR2YjZIRHlXMWdoMjg3?=
+ =?utf-8?B?dVJhYWlrZVhEbnJuRU5xMHdPMnNqYUQzOE94MVcwcmZMYXYzck9JVmZlR1RI?=
+ =?utf-8?B?OTN6M1kwSkM2NUhoZFpOMnV5UUdOeU9TMXhnMjRrS0ZXK0l4ZmE0TTJxKzhl?=
+ =?utf-8?B?VmNMaEQ1RXk0QUplRVFPVFZGZmZ6b0FKc2lIMjNRTXdSYlhPcnZMd21ETCtR?=
+ =?utf-8?B?V3c4eW1VbW1PbVAvRER4L1k0VUhtTlE5QjEwcDYwZ2twWForVW5pclFNOHBt?=
+ =?utf-8?B?MXpVOXhNaGZmTldCbnJmeDZaMyt0T092QWNrNnd1d2tNdFluSUNHMnFMNXd4?=
+ =?utf-8?B?TXc3Z2E4emtkcFdLQnlwcjJWRWxZcVdzYlYwMmdPYVI2blN3Y3VBVTQwZEJt?=
+ =?utf-8?B?MmFkSllFaHQ1c25Fek9ZSlAwaXJIUzhKU0RkeUlzb0lEakJ1KytoajZqTW1q?=
+ =?utf-8?B?dFdZY25ERVBldWtLMFJ6UjhIV0NUa2QxTFlFbDJYNDhqRUtjQk0rQVBEVUg3?=
+ =?utf-8?B?ZG1JdVJ3U1FGT2Y1VVR4RGhvYnRpRE5lWHFqSTRjaUFqTS96U3QzVTRMTTc5?=
+ =?utf-8?B?Sk90Yzh6eDdsV2xXZy90d0ZLU2c1Z1pNOXh2VWJQeS9YYWZpamYrRi9lSk1k?=
+ =?utf-8?B?elY1bkREZS9XU1hTeWQvdHRiaXNkRzZTT0tTOG5iL2gvWkl2dHJoTjk3ZkN1?=
+ =?utf-8?B?dTFydXRTTTlndVNwd1hqaEFwQU9wYUpnMmVDbHVFQTQyUXpSOC9WQnJRUTh5?=
+ =?utf-8?B?QlBISzdVa2lnUEJKbzdsVHFWZWN6bXYveGVCWWRmT0ZRU2pwSEtESWlDM0w5?=
+ =?utf-8?B?blh1R1pra3hpOVh2UVZGKzBzTE4zUDIrdFhKY2I2dGMxTTFLbW92dFFKZDVa?=
+ =?utf-8?B?U3Z4RzFCZVFjdjBJY1AvSFhRcDhiMm9JV3VORnFDOVZyYUxRRWtxRm83U3Rh?=
+ =?utf-8?B?N0JlWEhQYUN6RnY3V0JsN252ZU5kemdNcS9JOUlCck1VMmVTMkxKaDI2WGpz?=
+ =?utf-8?B?dHM2SHYzR014SkhCUXcrYmI5VnhBQUJQYkQwa28zeCs1WFB1OG0zM2RtVEdK?=
+ =?utf-8?B?Nmk5MUR1dGpwMjFpN1hiTlJHeUs3T3BlWFpRcS93a3R1SDY2bkp5RHEramtE?=
+ =?utf-8?B?OTFZUjFqY0xBd1B6OVVWR1NLWU1rMUtSNGJBTHZ2SXJjTGtMTXZqYmszMDBi?=
+ =?utf-8?B?RlM3MjNGaWhUVjVudHB5TERCWnA5SWcvOTk2VmtaMzBzMGwyTlN0MWsyQm1k?=
+ =?utf-8?B?Vnprd2ZJUlZnbzJ1V0R3MklIWUZNdEU1Z2ZZTTJGZXpMYTA0RVVxVld5Zzdm?=
+ =?utf-8?B?cWk4REVkS2JmOENsNGFJdWlmNG1yazhoYVl3cHloRXJ3d2dMdVNtQVBtczQy?=
+ =?utf-8?B?NzNUZHFNWGpxdVpqWVRyRUp3KzB4TWc1NDcxMFlneHhYTXJhTmU2OVRmbzJ4?=
+ =?utf-8?B?MGF5QVd0THVaSTYyZUpaMy9Pdm9ONlo3VlhYQXdEY3VPMnUxaHNzZkx2bzZP?=
+ =?utf-8?B?V0NScm1FcURYdUJCZlFuR1JyWTljUmFveEJobWVFejVqdEV2YWFwUjFHUHJZ?=
+ =?utf-8?B?TGpCUkF3ZDNjMDREYXp2VTBJb3FmdXVES0RjODFaemhRZUdGZHA4MXlia3lM?=
+ =?utf-8?B?cm9pOHZpQzlRRTVMM0krcGRPblhVZjQxRTBaemgvVmdoaURkM3JRcy92TCtZ?=
+ =?utf-8?B?dEtyMWRXaW5uZUxWTDJ5Wjd0UmtBZ3c3TTNHa3NYc1lpMkN3cnZ2eTRZbUI3?=
+ =?utf-8?B?NVV5NU95M0RQVHV1anhyejBYMW03Y1J3aTcvRGFtMkNSU0RlVHNmNGhkNE5V?=
+ =?utf-8?B?Y2NDMlFOaVhSNXpSTlRmVDE5MVg4YW4rd3U3YStpZHZROHVrRk5HTUxiZ1BD?=
+ =?utf-8?B?dlBMQWZUTGNVWWZNQVQvVHRlQXZFdEJRVmVDQytSTENkVGRFZVRJOGw0SVNT?=
+ =?utf-8?B?Wk0xU3FhblBnMGw3a0tjUG1qb0pTOW9TZWY2ZHBTbHUzM1E0eFQzbVQwYVpO?=
+ =?utf-8?B?ekZVZHRMYzVLbkpjWGtVQVoraE9GdHkyeEVuS0FaajhkREkrSEJINW5BMUpl?=
+ =?utf-8?B?NTVYeUFYMXRHbjVVV3U2YXZydXZVOUlOaWVvYWJpaVc4bkc0aEx1d0V3bGZo?=
+ =?utf-8?B?WFNQL3lvdDFTOGtSd3hnM2NTbURzcEwwVjgwYzI4S0g2UDd2R0Jjand6cXlr?=
+ =?utf-8?B?TS9KRjNKVlhYbEttSlE4UEM2Kzhyb0U3SDBNcFlPNEtlOFNhU1Z1VXJ1Vjgx?=
+ =?utf-8?B?eE5GSVl0NUJyTzVKV013SW9UUlZlZ21QVWtkUFQxRzZCU1JYcSthN0I1MnFi?=
+ =?utf-8?Q?P0HTY0Heddlm0V8vCe?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb0ca39d-bc87-487e-7c1e-08de5a6a0346
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 10:27:30.2928
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TxWSvxaLSyKAf8xMJ1Y5pXNNnB2xlP0Oa9TdOxoYLWkeSPrKu0km68AL5lZQSCRO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10520
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_021538_172681_18FEE3EB 
-X-CRM114-Status: GOOD (  26.51  )
+X-CRM114-CacheID: sfid-20260123_022737_020315_334B9320 
+X-CRM114-Status: GOOD (  12.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,73 +189,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 22 Jan 2026 15:12:28 +0000,
-Leonardo Bras <leo.bras@arm.com> wrote:
-> 
-> On Sat, Nov 22, 2025 at 12:40:27PM +0000, Marc Zyngier wrote:
-> > On Fri, 21 Nov 2025 09:23:38 +0000,
-> > Tian Zheng <zhengtian10@huawei.com> wrote:
-> > > 
-> > > From: eillon <yezhenyu2@huawei.com>
-> > > 
-> > > The ARM architecture added the HDBSS feature and descriptions of
-> > > related registers (HDBSSBR/HDBSSPROD) in the DDI0601(ID121123) version,
-> > > add them to Linux.
-> > > 
-> > > Signed-off-by: eillon <yezhenyu2@huawei.com>
-> > > Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
-> > > ---
-> > >  arch/arm64/include/asm/esr.h     |  2 ++
-> > >  arch/arm64/include/asm/kvm_arm.h |  1 +
-> > >  arch/arm64/tools/sysreg          | 28 ++++++++++++++++++++++++++++
-> > >  3 files changed, 31 insertions(+)
-> > > 
-> > > diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-> > > index e1deed824464..a6f3cf0b9b86 100644
-> > > --- a/arch/arm64/include/asm/esr.h
-> > > +++ b/arch/arm64/include/asm/esr.h
-> > > @@ -159,6 +159,8 @@
-> > >  #define ESR_ELx_CM 		(UL(1) << ESR_ELx_CM_SHIFT)
-> > > 
-> > >  /* ISS2 field definitions for Data Aborts */
-> > > +#define ESR_ELx_HDBSSF_SHIFT	(11)
-> > > +#define ESR_ELx_HDBSSF		(UL(1) << ESR_ELx_HDBSSF_SHIFT)
-> > >  #define ESR_ELx_TnD_SHIFT	(10)
-> > >  #define ESR_ELx_TnD 		(UL(1) << ESR_ELx_TnD_SHIFT)
-> > >  #define ESR_ELx_TagAccess_SHIFT	(9)
-> > > diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-> > > index 1da290aeedce..b71122680a03 100644
-> > > --- a/arch/arm64/include/asm/kvm_arm.h
-> > > +++ b/arch/arm64/include/asm/kvm_arm.h
-> > > @@ -124,6 +124,7 @@
-> > >  			 TCR_EL2_ORGN0_MASK | TCR_EL2_IRGN0_MASK)
-> > > 
-> > >  /* VTCR_EL2 Registers bits */
-> > > +#define VTCR_EL2_HDBSS		(1UL << 45)
-> > 
-> > I think it is time to convert VTCR_EL2 to the sysreg infrastructure
-> > instead of adding extra bits here.
-> 
-> 
-> Hi Marc, Tian,
-> 
-> Marc, IIUC the above was implemented by 
-> https://lore.kernel.org/all/20251210173024.561160-1-maz@kernel.org
-> 
-> Which was recently applied to next, and it its way to mainstream.
+Reserve eDMA channels 0 and 1 on the AXI eDMA controller for exclusive
+use by V2X (Vehicle-to-Everything) fast hash operations.
 
-Yes.
+Reviewed-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Tested-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Signed-off-by: Joy Zou <joy.zou@nxp.com>
+---
+Changes in v2:
+- modify imx95-19x19-evk-sof.dts dma-channel-mask property.
+- add comments for mask channel.
+- add Reviewed-by and Tested-by tag, tested on MX95-15x15-FRDM, MX95-19x19-EVK.
+- Link to v1: https://lore.kernel.org/r/20260120-b4-imx95-v2x-v1-1-52b2025b27a0@nxp.com
+---
+ arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts | 7 +++++--
+ arch/arm64/boot/dts/freescale/imx95.dtsi              | 2 ++
+ 2 files changed, 7 insertions(+), 2 deletions(-)
 
-> Tian, I think it's worth rebasing this patchset on top of the above.
+diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
+index 808a9fe3ebb2b9557be9e428583e76c32517de08..264703f6eef64813d64fe07713cf92fd02fa0778 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
++++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
+@@ -55,8 +55,11 @@ sound-wm8962 {
+ };
+ 
+ &edma2 {
+-	/* channels 30 and 31 reserved for FW usage */
+-	dma-channel-mask = <0xc0000000>, <0x0>;
++	/*
++	 * channels 0 and 1 reserved for V2X fast hash,
++	 * channels 30 and 31 reserved for FW usage
++	 */
++	dma-channel-mask = <0xc0000003>, <0x0>;
+ };
+ 
+ &sai3 {
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index 55e2da094c889fc7c1096d0e36f31ae118d2a982..9ac82da2ff440e08ae8378d7ff830a568d50a354 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -631,6 +631,8 @@ edma2: dma-controller@42000000 {
+ 				reg = <0x42000000 0x210000>;
+ 				#dma-cells = <3>;
+ 				dma-channels = <64>;
++				/* channels 0 and 1 reserved for V2X fast hash */
++				dma-channel-mask = <0x3>;
+ 				interrupts = <GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>,
+ 					     <GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>,
+ 					     <GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH>,
 
-Probably not on top of the series, but cherry-picking the patch is
-fine. In general, developing anything on top of -next is a terrible
-idea.
+---
+base-commit: d08c85ac8894995d4b0d8fb48d2f6a3e53cd79ab
+change-id: 20260120-b4-imx95-v2x-3e01c7bc6881
 
-Thanks,
-
-	M.
-
+Best regards,
 -- 
-Without deviation from the norm, progress is not possible.
+Joy Zou <joy.zou@nxp.com>
+
 
