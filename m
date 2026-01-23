@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E339DD72367
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:55:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B847AD72367
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5TAztR/SKkxFL9LrFN/vZ3+wYKAD6G2KcgcKxu7a/Y4=; b=qwt7Rlqc/xYWPSiUah6EqYhHDT
-	HOkmQp/G/+LMRrNQKdb/zd1cOFo3XCdPz8LffsWlZj8UEEfCErHETpCcfrL95Im6jOllTQfj85JpN
-	Q88GpEo0FpA0ukY84c4OhxY8LDWFdZAJT/0hJ9O/u1unm4DP0OkQ04NSb8bori/z+pjJ8iFozcE0D
-	WUDEcFZWHTvONEZDUrsgoKrABxTRlp6Gq0fBfFL5qBKUwqsSjpLPwbGXw66tKDm7mSeEdpqPOYprb
-	9dHhDvdHR88UfcB3Vw+0znn3RcVue4xRSHsrAgWz6Vcs1n0UktrMolJBIzr7e/PRRo1KIQFDAbL8a
-	lDx+ZRtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+AC/7ch07dBjpTRIT9l75rK+n+kJUZ9IIAXe4YZ5E90=; b=M0bcGq5Fq3u1stCRP2HSLp5pQY
+	+u1qmnqu1JmyCnnrKYSaRB0RvmJ6bkUhUTIMyxMvu4ZCq1GmBHoHhYmQ8kKBwmQgeqAyMiDlmWbHw
+	I6WC9lMq5fWYzHMu12FDx49ufumhg10o/Njj9wi5nPoQzgWqwbcIOpVVMz6E4GE5UPzxXqlCclrCV
+	/b/30rQlS2ZxFqfZew1NI0ApGyuseZSogEEeZErIJ6YhZ8fsF8PoI+gGPTJpn1ZFwrMsUJhnFGrbn
+	4DpIlBjZCQazJt4mY5gcbzoF2uMBVqlgRVVXGr5ksAIy55KKESeWMUPZGNmFSISmzlXCIXJqHV1LU
+	rQ2N45Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDss-00000008e3O-0chU;
-	Fri, 23 Jan 2026 09:55:18 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vjDub-00000008eoQ-07dc;
+	Fri, 23 Jan 2026 09:57:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDsX-00000008dkl-1VFZ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 09:55:02 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 07D50C21ABD;
-	Fri, 23 Jan 2026 09:54:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CC6516070A;
-	Fri, 23 Jan 2026 09:54:55 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 17948119A87A5;
-	Fri, 23 Jan 2026 10:54:53 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769162094; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=5TAztR/SKkxFL9LrFN/vZ3+wYKAD6G2KcgcKxu7a/Y4=;
-	b=ydk61KpWorIcazjx/CCWr81dtORy2Ga12nZ1s+WeuBgU0kKYIok4hpT76N4qFCn+NXdpxh
-	r7P58cpcMCDl1QzvOa9yP722QfNME+SEQIF07HKi5NWF5FAA8czxkedir8OwbDVsDLCRWH
-	Zq1xVqY7auaAV5Sfd59rGVkEUVewXpNzPGmDp76MoBaih1QnUICAWGp/HnyAOtEKxHajDw
-	KAkdpRnzQ9cgd9XezVsfHmI4vBPdL9SYjdy3sWLvCHxeoAyhLiFwPbaBIcQ/9GRIuIwKT0
-	g1qwFj0Xof4wHnzXkVWI2ydeiQFT//+XNYfC/26Dl3/T3gpAq+lR3IVu/zc/ig==
-From: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
-Date: Fri, 23 Jan 2026 10:54:32 +0100
-Subject: [PATCH v2 3/5] mfd: aaeon: Add SRG-IMX8PL MCU driver
+	id 1vjDuZ-00000008eoH-41Vd;
+	Fri, 23 Jan 2026 09:57:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=+AC/7ch07dBjpTRIT9l75rK+n+kJUZ9IIAXe4YZ5E90=; b=O9v4H4Ls//wZdB28FFxybjFbYF
+	Uy8Db5LZi0BZoqdqL/WOKyFMuu3BGl4cqhGdrFPSqZoOwOz/VHzuqm+9yhYZ/7kp3Qg5MBnHqrWSj
+	Oubf9daS9n7orYDh6c89c3K2m+7FY84K0aJwectJs9cKL/Pk5bOTnqrVlcZIsdSZz/IWQK9MHJPiM
+	LNEFBFnzFH84aAB8VrvGOJWwOFbKUlLvb/bbpeyGubCPcOsOso+PW2uwU87da6YxN8jD/CnbaNLhs
+	RahFabnbi2UxbkAUsCCMV7hSyEJDBs2a4ZxYxI+hPJgodHGjoIG9uUj3sDzbQkBueieShu6FAxDSm
+	iOZ3JghQ==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjDuX-0000000264n-0PUj;
+	Fri, 23 Jan 2026 09:57:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=+AC/7ch07dBjpTRIT9l75rK+n+kJUZ9IIAXe4YZ5E90=; b=REh8jgmKGQyduBMK5s5o9CAA2F
+	ZiqkpdCcUWj3hKY9eh7gmLi50Qozyas94d0+KYiGp2aqp/hOsmpPX57BgttXSZ6ACv1slzIA18Pbc
+	UPLkWvOQc5KKUg6VevMZVvCjwM/zDzVYK7mvVn2qdKXui20GiZ1kkT07BHtJckVPCS0o/ZXMmdt7Y
+	xj5SL3WMHwAO1xuZ/QqX4GSF1mun42tWtJpbiZFfOUhu8FS518Ek83bWyMWajL34StkMu/vIIm+3W
+	1gOklBZq5ZlJWupv24/G0m6vDl7XNdvMIb6ANAFIB/rp7Cm7iX/cEHdx0kNXIYNlxJfs2Zqv31rZC
+	7QoSiA0A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46288)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vjDuR-000000001eh-0hS5;
+	Fri, 23 Jan 2026 09:56:55 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vjDuO-000000001zY-39SO;
+	Fri, 23 Jan 2026 09:56:52 +0000
+Date: Fri, 23 Jan 2026 09:56:52 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next v2 00/14] net: stmmac: SerDes, PCS, BASE-X, and
+ inband goodies
+Message-ID: <aXNF5A2cUg5kslF9@shell.armlinux.org.uk>
+References: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260123-dev-b4-aaeon-mcu-driver-v2-3-9f4c00bfb5cb@bootlin.com>
-References: <20260123-dev-b4-aaeon-mcu-driver-v2-0-9f4c00bfb5cb@bootlin.com>
-In-Reply-To: <20260123-dev-b4-aaeon-mcu-driver-v2-0-9f4c00bfb5cb@bootlin.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- =?utf-8?q?J=C3=A9r=C3=A9mie_Dautheribes?= <jeremie.dautheribes@bootlin.com>, 
- Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7158;
- i=thomas.perrot@bootlin.com; h=from:subject:message-id;
- bh=2jQAU8PZ36wRhzQAA4HmvuTMuMEUrPlyUdqbYeQTm2w=;
- b=owEB7QES/pANAwAKAZ/ACwVx/grtAcsmYgBpc0VjlsheaQ05e/WPXMkNvPJ9swDiN6f5FMzbw
- teXgN8cWXCJAbMEAAEKAB0WIQSHQHfGpqMKIwOoEiGfwAsFcf4K7QUCaXNFYwAKCRCfwAsFcf4K
- 7Z1iC/9h5RK4Fa44MB5aIDlVR8YnH8ITIfQoigJ50M0gN+VHZV2i7a6XX0zNKCsA7POE7wOm5Md
- 7NT+Zlg2vxw1PUSw95ou10HMO0E45iw0mnILKbAGtIkVzupE21KrFKxf1zysIcipnbZE4Wk3usG
- cixlDqnjnMDynyRwGinSgocR0WD4FVSfJszdddvjmEotItvuEBEXhghAxNQexeA1TWv4seLtzNH
- rHgJorRnCKxalasVgwgkIRp+DUv23ECUN+2jxFwtgx1+4Ds3aVtbHUrUVmCfSmVXpXvkZ6LxGq2
- j4zMOrA3ywlGKz6N4EHF64JjYe1yaOBcbMwrTyb94xHO8cSo+FC+DpsT3VBh4qz2LSMU5eDeOVY
- 3eu2w9eX/AwLDS/uN86P7pfH0R8L59UxfdypWKLFPpJaMXCKaIK7AnpMhGm10dzIWi0DhfvKZTX
- wYWKFlcVhelWCOTNdKbmBYGi957Af9FEC/kVLYuEhWGfj00+Pj/+ZzAa8pfuoGd5/o1zU=
-X-Developer-Key: i=thomas.perrot@bootlin.com; a=openpgp;
- fpr=874077C6A6A30A2303A812219FC00B0571FE0AED
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_015500_060396_C33099CE 
-X-CRM114-Status: GOOD (  22.38  )
+X-CRM114-CacheID: sfid-20260123_095701_169071_8B3D04E4 
+X-CRM114-Status: GOOD (  43.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,242 +103,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Multi-Function Device (MFD) driver for the Aaeon SRG-IMX8PL
-embedded controller. This driver provides the core I2C communication
-interface and registers child devices (GPIO and watchdog controllers).
+Please note that gmail is now rejecting this patch series because it's
+spam. From now on, I will be dropping all gmail.com email addresses from
+patch series that are sent out.
 
-The MCU firmware version is queried during probe and logged for
-diagnostic purposes. All I2C transactions are serialized using a mutex
-to ensure proper communication with the microcontroller.
+If you care about Linux, stop using gmail and giving Google an excessive
+amount of power over email.
 
-Co-developed-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
-Signed-off-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
-Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
----
- MAINTAINERS                   |   2 +
- drivers/mfd/Kconfig           |   9 +++
- drivers/mfd/Makefile          |   2 +
- drivers/mfd/aaeon-mcu.c       | 129 ++++++++++++++++++++++++++++++++++++++++++
- include/linux/mfd/aaeon-mcu.h |  31 ++++++++++
- 5 files changed, 173 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 10f7d5b183795376b3fcdedc9c3835eecb9d0a3b..175c1e1b28b8151580ed340207d4a6fd59aa8853 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -191,6 +191,8 @@ M:	Thomas Perrot <thomas.perrot@bootlin.com>
- R:	Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8pl-mcu.yaml
-+F:	drivers/mfd/aaeon-mcu.c
-+F:	include/linux/mfd/aaeon-mcu.h
- 
- AAEON UPBOARD FPGA MFD DRIVER
- M:	Thomas Richard <thomas.richard@bootlin.com>
-diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-index aace5766b38aa5e46e32a8a7b42eea238159fbcf..befcc36c12931b273e8e45fe968e9556514fb959 100644
---- a/drivers/mfd/Kconfig
-+++ b/drivers/mfd/Kconfig
-@@ -1574,6 +1574,15 @@ config AB8500_CORE
- 	  the irq_chip parts for handling the Mixed Signal chip events.
- 	  This chip embeds various other multimedia functionalities as well.
- 
-+config MFD_AAEON_MCU
-+	tristate "Aaeon SRG-IMX8PL MCU Driver"
-+	depends on I2C
-+	help
-+	  Select this option to enable support for the Aaeon SRG-IMX8PL
-+	  onboard microcontroller (MCU). This driver provides the core
-+	  functionality to communicate with the MCU over I2C. The MCU
-+	  provides GPIO and watchdog functionality.
-+
- config MFD_DB8500_PRCMU
- 	bool "ST-Ericsson DB8500 Power Reset Control Management Unit"
- 	depends on UX500_SOC_DB8500
-diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
-index e75e8045c28afae975ac61d282b3b85af5440119..0bc3a10c787c55730131224fc1053fe35657dd71 100644
---- a/drivers/mfd/Makefile
-+++ b/drivers/mfd/Makefile
-@@ -304,3 +304,5 @@ obj-$(CONFIG_MFD_RSMU_SPI)	+= rsmu_spi.o rsmu_core.o
- obj-$(CONFIG_MFD_UPBOARD_FPGA)	+= upboard-fpga.o
- 
- obj-$(CONFIG_MFD_LOONGSON_SE)	+= loongson-se.o
-+
-+obj-$(CONFIG_MFD_AAEON_MCU)	+= aaeon-mcu.o
-diff --git a/drivers/mfd/aaeon-mcu.c b/drivers/mfd/aaeon-mcu.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..b496fb6618ca49296c574531b778fcbb653a48f5
---- /dev/null
-+++ b/drivers/mfd/aaeon-mcu.c
-@@ -0,0 +1,129 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Aaeon MCU driver
-+ *
-+ * Copyright (C) 2025 Bootlin
-+ * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
-+ * Author: Thomas Perrot <thomas.perrot@bootlin.com>
-+ */
-+
-+#include <linux/err.h>
-+#include <linux/i2c.h>
-+#include <linux/mfd/aaeon-mcu.h>
-+#include <linux/mfd/core.h>
-+#include <linux/platform_device.h>
-+
-+#define AAEON_MCU_FW_VERSION	0x76
-+
-+static struct mfd_cell aaeon_mcu_devs[] = {
-+	{
-+		.name = "aaeon-mcu-wdt",
-+	},
-+	{
-+		.name = "aaeon-mcu-gpio",
-+	},
-+};
-+
-+static int aaeon_mcu_read_version(struct device *dev, u8 index, u8 *version)
-+{
-+	u8 cmd[3] = { AAEON_MCU_FW_VERSION, index, 0x00 };
-+
-+	return aaeon_mcu_i2c_xfer(dev, cmd, sizeof(cmd), version, sizeof(*version));
-+}
-+
-+static int aaeon_mcu_print_fw_version(struct i2c_client *client)
-+{
-+	struct device *dev = &client->dev;
-+	u8 major, minor;
-+	int ret;
-+
-+	ret = aaeon_mcu_read_version(dev, 0x00, &major);
-+	if (ret)
-+		return ret;
-+
-+	ret = aaeon_mcu_read_version(dev, 0x01, &minor);
-+	if (ret)
-+		return ret;
-+
-+	dev_info(dev, "firmware version: v%d.%d\n", major, minor);
-+
-+	return 0;
-+}
-+
-+int aaeon_mcu_i2c_xfer(struct device *dev,
-+		       const u8 *cmd, int cmd_len,
-+		       u8 *rsp, int rsp_len)
-+{
-+	struct i2c_client *client = to_i2c_client(dev);
-+	struct aaeon_mcu_dev *mcu = i2c_get_clientdata(client);
-+	int ret;
-+
-+	mutex_lock(&mcu->i2c_lock);
-+
-+	ret = i2c_master_send(client, cmd, cmd_len);
-+	if (ret < 0)
-+		goto unlock;
-+
-+	ret = i2c_master_recv(client, rsp, rsp_len);
-+	if (ret < 0)
-+		goto unlock;
-+
-+	if (ret != rsp_len) {
-+		dev_err(dev,
-+			"i2c recv count error (expected: %d, actual: %d)\n",
-+			rsp_len, ret);
-+		ret = -EIO;
-+		goto unlock;
-+	}
-+
-+	ret = 0;
-+
-+unlock:
-+	mutex_unlock(&mcu->i2c_lock);
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(aaeon_mcu_i2c_xfer);
-+
-+static int aaeon_mcu_probe(struct i2c_client *client)
-+{
-+	struct aaeon_mcu_dev *mcu;
-+	int ret;
-+
-+	mcu = devm_kzalloc(&client->dev, sizeof(*mcu), GFP_KERNEL);
-+	if (!mcu)
-+		return -ENOMEM;
-+
-+	i2c_set_clientdata(client, mcu);
-+	mcu->dev = &client->dev;
-+	mutex_init(&mcu->i2c_lock);
-+
-+	ret = aaeon_mcu_print_fw_version(client);
-+	if (ret) {
-+		dev_err(&client->dev, "unable to read firmware version\n");
-+		return ret;
-+	}
-+
-+	return devm_mfd_add_devices(mcu->dev, PLATFORM_DEVID_NONE, aaeon_mcu_devs,
-+				    ARRAY_SIZE(aaeon_mcu_devs), NULL, 0, NULL);
-+}
-+
-+static const struct of_device_id aaeon_mcu_of_match[] = {
-+	{ .compatible = "aaeon,srg-imx8pl-mcu" },
-+	{},
-+};
-+
-+MODULE_DEVICE_TABLE(of, aaeon_mcu_of_match);
-+
-+static struct i2c_driver aaeon_mcu_driver = {
-+	.driver = {
-+		.name = "aaeon_mcu",
-+		.of_match_table = aaeon_mcu_of_match,
-+	},
-+	.probe = aaeon_mcu_probe,
-+};
-+
-+module_i2c_driver(aaeon_mcu_driver);
-+
-+MODULE_DESCRIPTION("Aaeon MCU Driver");
-+MODULE_AUTHOR("Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>");
-+MODULE_LICENSE("GPL");
-diff --git a/include/linux/mfd/aaeon-mcu.h b/include/linux/mfd/aaeon-mcu.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..c9dc7a9adbc86c489f03a550e7776d3b1da4e7b2
---- /dev/null
-+++ b/include/linux/mfd/aaeon-mcu.h
-@@ -0,0 +1,31 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * Aaeon MCU driver definitions
-+ *
-+ * Copyright (C) 2025 Bootlin
-+ * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
-+ * Author: Thomas Perrot <thomas.perrot@bootlin.com>
-+ */
-+
-+#ifndef __LINUX_MFD_AAEON_MCU_H
-+#define __LINUX_MFD_AAEON_MCU_H
-+
-+#include <linux/mutex.h>
-+#include <linux/types.h>
-+
-+/**
-+ * struct aaeon_mcu_dev - Internal representation of the Aaeon MCU
-+ * @dev: Pointer to kernel device structure
-+ * @i2c_lock: Mutex to serialize I2C bus access
-+ */
-+
-+struct aaeon_mcu_dev {
-+	struct device *dev;
-+	struct mutex i2c_lock;
-+};
-+
-+int aaeon_mcu_i2c_xfer(struct device *dev,
-+		       const u8 *cmd, int cmd_len,
-+		       u8 *rsp, int rsp_len);
-+
-+#endif /*  __LINUX_MFD_AAEON_MCU_H */
+On Fri, Jan 23, 2026 at 09:52:00AM +0000, Russell King (Oracle) wrote:
+> This is the v1 submission: if it doesn't get tested but review goes
+> well, it'll end up in net-next and mainline without testing on the
+> affected hardware!
+> 
+> Mentioned previously, I've been trying to sort out the PCS support in
+> stmmac, and this series represents the current state of play.
+> 
+> Previous posted patches centred around merely getting autonegotiation
+> to be configured correctly, to a point where the manual configuration
+> can be removed from the qcom-ethqos driver. The qcom-ethqos driver
+> uses both SGMII and 2500BASE-X, manually configuring the dwmac's
+> integrated PCS appropriately.
+> 
+> This *untested* series attempts to take this further. The patches:
+> 
+> - clean up qcom-ethqos only-written mac_base member.
+> - convert qcom-ethqos to use the set_clk_tx_rate() method for setting
+>   the link clock rate.
+> - add support for phy_set_mode_ext() to the qcom "SGMII" ethernet
+>   SerDes driver (which is really only what it needs. Note that
+>   phy_set_mode_ext() is an expected call to be made, where as
+>   phy_set_speed() is optional and not. See PHY documentation.)
+> - add platform-glue independent SerDes support to the stmmac core
+>   driver. Currently, only qcom-ethqos will make use of this, and
+>   I suspect as we haven't had this, it's going to be difficult to
+>   convert other platform glue to use this - but had this existed
+>   earlier, we could've pushed people to use PHY to abstract some
+>   of the platform glue differences. Adding it now makes it available
+>   for future platform glue.
+> - convert qcom-ethqos to use this core SerDes support.
+> - arrange for stmmac_pcs.c to supply the phy_intf_sel field value
+>   if the integrated PCS will be used. (PHY_INTF_SEL_SGMII requires
+>   the integrated PCS rather than an external PCS.)
+> - add BASE-X support to the integrated PCS driver, and use it for
+>   BASE-X modes. This fully supports in-band mode, including reading
+>   the link partner advertisement.
+> - add in-band support for SGMII, reading the state from the RGSMII
+>   status field.
+> 
+> As we leave qcom-ethqos' manual configuration of the PCS in place at
+> the moment, the last patch adds reporting of any changes in its
+> configuration that the qcom-ethqos driver does beyond what phylink
+> requested, thus providing a path to debug and eventually remove
+> qcom-ethqos' manual configuration.
+> 
+> One patch is not included in this set - which adds a phy_intf_sel
+> value for external PCS (using PHY_INTF_SEL_GMII_MII). I believe all
+> external PCS use this mode when connected to a MAC capable of up to
+> 2.5G. However, no platform glue that provides the mac_select_pcs()
+> method also provide the set_phy_intf_sel() method, so we can safely
+> ignore this for now.
+> 
+> I would like to get this into net-next before the next merge window,
+> so testing would be appreciated. If there are issues with these patches
+> applied, please check whether the issue exists without these patches
+> and only report regressions caused by this patch set. For example,
+> I'm aware that qcom-ethqos has issues with 10Mbps mode due to an AQR
+> PHY being insanely provisioned to use SGMII in 1000M mode but with
+> rate matching with 10M media. This is not an issue that is relevant
+> to this patch series, but a problem with the PHY provisioning.
+> 
+> rfc->v1:
+>  - fix SGMII link status
+>  - avoid calling phy_get_mode() if PHY is null
+> v2:
+>  - fix further AI review bot dribble that could've been raised on
+>    the rfc version but wasn't.
+>  
+>  drivers/net/ethernet/stmicro/stmmac/Makefile       |   2 +-
+>  drivers/net/ethernet/stmicro/stmmac/common.h       |   1 -
+>  .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    |  74 ++-----
+>  drivers/net/ethernet/stmicro/stmmac/dwmac1000.h    |  12 +-
+>  .../net/ethernet/stmicro/stmmac/dwmac1000_core.c   |  11 +-
+>  drivers/net/ethernet/stmicro/stmmac/dwmac4.h       |  10 +-
+>  drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c  |  10 +-
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  |  69 +++++--
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c   | 222 +++++++++++++++++++--
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h   |  53 ++---
+>  .../net/ethernet/stmicro/stmmac/stmmac_serdes.c    | 111 +++++++++++
+>  .../net/ethernet/stmicro/stmmac/stmmac_serdes.h    |  16 ++
+>  drivers/phy/qualcomm/phy-qcom-sgmii-eth.c          |  43 ++++
+>  include/linux/stmmac.h                             |   2 +
+>  14 files changed, 491 insertions(+), 145 deletions(-)
+> 
+> -- 
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> 
 
 -- 
-2.52.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
