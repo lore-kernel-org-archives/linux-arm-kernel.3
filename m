@@ -4,175 +4,191 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2203BD6CFAE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 03:33:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0AC3D6CFBC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 03:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ysfuNm8oLCgm5Ybfm8iXO3Cbe6pLGHUc+UhCGNuCmB8=; b=QQHOaOMyKPzJ4uyKSO67gc+w3g
-	htF4NVGxFF7nzlgeTkS/y4FAUxTxsrXa2AC2IXx6uD7T9faM8i1t7QJHRNm8x44veAJFdI1oBsns2
-	/AxZ9cut6GRe1lBhy1bHXAp2oHt1V3NecnMkAmCy9Th4ctBlqn5AA+O/hf5CW8vvjRHVf9nsbO837
-	h2d6PUXkj+wXfFoCBdgDTCpT3uk4lvu6iqWX8YekrMIJ6hpcwZb7aeCRyP6RwW7ckATHyajBOaQCi
-	Hx20L57scYo+TnrhIqcjfyqSasishHhxp9rPdi5ctNsObZqHdcDK/cNJeAlqOW8wf8ebfEfckdTSQ
-	3R/s820w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0bUPfcGNZUOpgOteig7ud1scd8XgJ5Vi/zV/lbw6KHM=; b=Vh8Ti0DRU2snH9enoRih7m7XZu
+	zvX+Ax5p+OJxW8Xee7dKsRV+LjzRkm2Iufeho9rTtXmLb3FD6tO2sMJux2935noWO0uy2LhmO4L8b
+	Y8thQvBtyvv8S21BeLyh/FnPs2wOfYdmMLytLIJ2UEfsFgJSFMhGMP9qX4fMjP+XPEyrp7kyf3Qf0
+	bW0GVg0aEO+42RbFvC1WsdlCU+V6ewSiMOvbf7fR4KpBdHmt2pgVIBjQ8CT72eLGwMaPQ2tVKV/f+
+	AkMjWWP36tupJsw3kcQ8QXhIUNa1vGLTFlNTDds5GQi1ZlJLV06Uv7yTgfXFCnwdr5yCxwq0jpHKj
+	/LRrVkTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj7vB-000000088Ju-0dV0;
-	Fri, 23 Jan 2026 03:33:17 +0000
-Received: from mail-westus3azon11021096.outbound.protection.outlook.com ([40.107.208.96] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vj7ye-000000088em-1ECI;
+	Fri, 23 Jan 2026 03:36:52 +0000
+Received: from mail-northeuropeazon11011032.outbound.protection.outlook.com ([52.101.65.32] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj7v8-000000088Im-1MW9
+	id 1vj7yc-000000088eE-1PpT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 03:33:16 +0000
+	Fri, 23 Jan 2026 03:36:51 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f3QQIquMTC3O7MjTjDskNL1I3cxeZgKryCzqT1yhi/jZ3gK2A1q962tbfM8rd9n038aq/OJGZJ4k587MvJ461LqrOt+Q2BGTkYQQEQfe2DMp4B/aPW8aKbUXTzxHxxtNaEnW2v/Vp/WguuQ3dxVz4h3CLNwHpB1KHIdWL1sYS1XboM79QPZSbSPwzefCKQysLOQFc3MnARNtqK3NK5qeBLc6GvaPueLI2BZdKvG4HHiKBcXrjucQcGiKCRFKjc7EBbGcVw70mU89WLIqwHN2weShECXD/mmYhxHFTc+OTILzorfKTCCxb7kPSaGn23bw+jeE4TF/K1Jmp4wVRPmZbg==
+ b=q2tQPTE0tp6JtACMiZNRBPtQweYClky98bbcVwpYekNsisW0JWYMB0GcaHKYYlL3awuMlqygLG7W891zbGHtDoePfT+dRP48EkI+G+XsB5iCoFdT4WHV9P8Gopv4YYLnLJ2rG4RMVXFMkM3FUdoA/jScr4S/oxzpKJd5s7ZGNXogvprYEMupJkdZQvD4hTl6Ks4oGzqHBvD8rNUJtSL72d50jZbjKy+tnfCDJviemnpx4HF/SKQKKxwBZKwrC4U6BZbnJdgNEjm6V9xCoY5N0CGmFRkOaN3QHZ64jxw8YXBpKbBRBiTlbzWVYlHYMG8+kxWXTCi48d4PR+HWcRAZEA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ysfuNm8oLCgm5Ybfm8iXO3Cbe6pLGHUc+UhCGNuCmB8=;
- b=npei73QqXqN8l/738QQI8k0QaUqUyf3j5iyQUDHncJWi98TsLS4GR24Cf6s+JDM5PWOURMxzGVJW3cnGMNrxrxPPZ0cPYfzz099mgtmq310vL7MpmkqdzgPaELRNVHtZuZ1LEf6mFjEU0xMOslFLVeZW4w/T4FKND8VRwA0jr3ZPY3C/q03XdMFZ8kS5EG4ez5wYOYQ/cq+znQ5csKEoyzsTBGV70T1CDfLIYNDOOW4a4gXGwykSW4YjHE3RGJLR5dof7e3Lw6E5PQBVSOJ6fVd3XF+SrTkJLz6+C+XAZKW4zjNImfVTUlBhrGahC4gY1IQIVp2FN7o/pMRjKWwxLQ==
+ bh=0bUPfcGNZUOpgOteig7ud1scd8XgJ5Vi/zV/lbw6KHM=;
+ b=h0VJDA7OUGyZr0n9xVavgfQk4XH2eK82QnCss4PEMONsbnJfwcK+5sI9sBJvFJWR932ZQmY5fW4/M3Rj4AokZJqLLNBx1Oacu35daQKaiePMlf/A8gjjVGJDpMtyEX+5+xEhS5opte/AwfXuPeNfowND59lShnA/wtURsKFbhr+3i4c+G9tFvzK5Zeq+do8IP0Z9XZPV+G63NFths3wDWeTgj5bAeTzbPhVeBLoJgbjaIq9Tj7JSDk1m4aWWeuZ9tR5Hj31qYfgzZ2htTFfGFfL1Vt/PQJtrQva0IXSx83Tvqq93AlrVeg3zoXVmZT0Mhkc2Eq1xEkkQMh+SQMlM7w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ysfuNm8oLCgm5Ybfm8iXO3Cbe6pLGHUc+UhCGNuCmB8=;
- b=IZR+kGIAzu065hOpb66dUqzdYPTZmchTLQ2noxwsbrmiaXyvBQe8HSWAlQmI5Rj/QqSgjwiA6u6UNSOhLUMa5v9K6MZ3qAkeLl7iUP5cSsgERAFaORjoTnyBuf5vtJ9+HgjmWQKuWdtfUAkMeCS93unoZxcgEOqHJVT/Al0lE9M=
+ bh=0bUPfcGNZUOpgOteig7ud1scd8XgJ5Vi/zV/lbw6KHM=;
+ b=x1xKpPAtwBe/fwwah6CsknQU7tAiRKYhS4AaU3wSrJHGNAro0GO7or+p+GyA5gcfxL4zZxH8MByHkuLQz4vASH/mW2/a6Sk6kWegctmL6j4dgAglfzbH2x+Eo3zGvEEqNoeo5rsGJOpsG4F70l14P//MrG9Ekc/OOpp+WQwJmEOmHkjZThSjvyAEHW7T+biYuxJZKiO6mE4WqD412HiPAZjU3yIe05q1o4HpTX0pYN/q1M2+FVhCXCGnb1abXgsfBmwg7ISuGHrKOfoCI1c0ZSvMSburot93G6XNrU7x8RYELaMKCqGWaKN7Rh6Qezwn8SZmn+gCURgKUeU4YeUE1g==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- MN0PR01MB7754.prod.exchangelabs.com (2603:10b6:208:37d::22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9542.9; Thu, 22 Jan 2026 21:59:57 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0%4]) with mapi id 15.20.9542.010; Thu, 22 Jan 2026
- 21:59:57 +0000
-Message-ID: <a0aeed19-02d2-4d74-b82a-f906dc41e240@os.amperecomputing.com>
-Date: Thu, 22 Jan 2026 13:59:54 -0800
-User-Agent: Mozilla Thunderbird
-From: Yang Shi <yang@os.amperecomputing.com>
-Subject: Re: [v5 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-To: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, cl@gentwo.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260107002944.2940963-1-yang@os.amperecomputing.com>
- <aWZYXhrT6D2M-7-N@willie-the-truck>
- <bdd7bd07-dbed-432e-ae87-dc6381c05ddd@arm.com>
- <70b37582-fd26-4d23-a6d6-9a98e3f2eecf@os.amperecomputing.com>
- <b3122ea6-7bbc-4c07-b329-3355bbb16db9@arm.com>
-Content-Language: en-US
-In-Reply-To: <b3122ea6-7bbc-4c07-b329-3355bbb16db9@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CY5PR22CA0091.namprd22.prod.outlook.com
- (2603:10b6:930:65::9) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+ by AS8PR04MB9174.eurprd04.prod.outlook.com (2603:10a6:20b:449::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Fri, 23 Jan
+ 2026 03:36:42 +0000
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.20.9542.010; Fri, 23 Jan 2026
+ 03:36:41 +0000
+From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Date: Fri, 23 Jan 2026 11:36:20 +0800
+Subject: [PATCH v2] media: nxp: imx8-isi: Fix potential out-of-bounds
+ issues
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260123-isi-v2-1-0d03b8097f86@nxp.com>
+X-B4-Tracking: v=1; b=H4sIALPscmkC/1WMQQ6CMBBFr0Jm7Rg6kKKuuIdhAXUqs7AlrWkwp
+ He3sGP5ft5/G0QOwhEe1QaBk0TxrgBdKjDz6N6M8ioMVJOuFREWA7vW3jo7TfdRWyjmEtjKelS
+ eQ+FZ4teH3xFNal/P/6RQoWnYaCbdWtX0bl2uxn9gyDn/AWzIDIOUAAAA
+X-Change-ID: 20260122-isi-74f87fbb9a6f
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Stefan Riedmueller <s.riedmueller@phytec.de>, 
+ Jacopo Mondi <jacopo@jmondi.org>, Christian Hemp <c.hemp@phytec.de>, 
+ Frank Li <frank.li@nxp.com>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, linux-media@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>, 
+ stable@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769139400; l=3910;
+ i=guoniu.zhou@nxp.com; s=20250815; h=from:subject:message-id;
+ bh=00TVgTGKW5d8Ko+WL1Hlqykufz4DsHx6G4ZWRhC5Co8=;
+ b=tF9/dQwVUtDGGEwSIxxmcFWsRwvD4i6bt7XKivhhT6pSLpuNOkvEQyy5fN5GrHI3jx07YWMVi
+ 1VRv2r8PxvSDzEWowuJObWs7RJx1TqW0m218m7vesiF6QF5li4Es0Uy
+X-Developer-Key: i=guoniu.zhou@nxp.com; a=ed25519;
+ pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
+X-ClientProxiedBy: SI2PR01CA0022.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::14) To AS8PR04MB9080.eurprd04.prod.outlook.com
+ (2603:10a6:20b:447::16)
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|MN0PR01MB7754:EE_
-X-MS-Office365-Filtering-Correlation-Id: 98101f52-1332-4a61-8757-08de5a0194aa
-X-MS-Exchange-AtpMessageProperties: SA
+X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|AS8PR04MB9174:EE_
+X-MS-Office365-Filtering-Correlation-Id: e4314ec2-c118-4582-b291-08de5a309fb2
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cUNseUR6Rlk3UDNOT0dmZFUxMEkwNk10cFZNZk15L0xYbHYwcld5T2w1Skdi?=
- =?utf-8?B?d0l6cUtSaWpsbFdGTWpLSWU4TlhPeVpPVG9rQ1MxT0J0LzRpWmtnYkxHY0RF?=
- =?utf-8?B?WEVxKzMxM1lTSWlRUTlFUXcyd2FYQksxck1UdXRMMm9PMFFsa1VNVkZlSGZl?=
- =?utf-8?B?ZTlVUTErTFBMU1JEMlhYTnZkakhWWE9YbXhBTXVQZEJGNWtGbGw2aXFqTWNO?=
- =?utf-8?B?dE1RTXFCTmJYMktzN2JjRWVpY3h6TVVRNXk4OWZKbDh6YUgvWmhlbTZOWE03?=
- =?utf-8?B?bENFSktBK0h5WTh5QjZuM3JzQUE1am1CWnQ3VVJzVUx5ek13VnZXMEYrOEg0?=
- =?utf-8?B?cFZFeXhqSk5mTVdwN1hZSWxVL0YzS1hSVEJmZEEwY3FBeDEyRzg5ZVAzODVG?=
- =?utf-8?B?L3M0anA1V2xkNUtCWkVuQ044T1FjTXNZMW45N2hJUlZRQzdsTjdJMlhTb1Jo?=
- =?utf-8?B?NGxnNE5Bc2Rjek5LZGJ3WkF6dU14UTV0SXg2NDNiY2MrRmwzbHhEeno3aUFP?=
- =?utf-8?B?bER1SEh2YXR2MmdsVFVqN1VNdENCMXpmTGtNTjdhT1Y4T0FwZUdmZGRsNFZx?=
- =?utf-8?B?UGlPZFcwd1dPMFNwU2w2b1dSRDJNdytzQ2pxNFlCNWtGSHQ0ZDQwekJHWFVw?=
- =?utf-8?B?MXZuZ0VCTEpEMXhLUkFLNG1hRy82ZHR6UHltejNtU1dNU1R0Z1UvRjc2SWt6?=
- =?utf-8?B?QnR2K2xvK2h0cEpQMDBER1psVXVSNnhwWHVNV01rL0I3N25tNFUyc3dJSytq?=
- =?utf-8?B?a1hOSnAyL2JjVnNWN3pYRlN1LytweGtOUWRoYlhiUjBtVkFDS3dwYnFTTTBi?=
- =?utf-8?B?TWlPTi9UcmVkRDlRQmM3QmRVaTRLUFd5U0xDMDZOajgzRnFidml1ZS9oM2ZL?=
- =?utf-8?B?UmIrK0Q4NFBrRFhaTWgxSStZaXNmSTBXL3lLNmZYeit2ZnNsM1hKVWpkVllL?=
- =?utf-8?B?NVdLWlJ0M2QvdHdRSVFKSDZkTlRhL20xYkJjNHVqcUhIYXFyd080aHI1WENP?=
- =?utf-8?B?ODRPcVZ3THNlalVRY2Q0VWlMbFVxSHZCcExJbEZuYXQ5d2pmbkFlc3lWUFEz?=
- =?utf-8?B?RXZQSWkzMWRvVFpLZVFZYnZWb3Q2RCsrMStFWWFvM0M4YlpZaUZjRTlsbnIx?=
- =?utf-8?B?TFlNMUUvbFBBNStQQmx1RGRRTVZuZEpZTkJNSnRFNHNnK1FHOXVOT3pIdkFF?=
- =?utf-8?B?YVcxa0lVYlVvL2dYUFYwbGI1U1VwTjZ6cmxwYTM1RWJsczRrVFBidUkwTzlK?=
- =?utf-8?B?R1FBMmZ5UXY2YnJmbXFZeHY1QzN1SmIwSHlXQy9uSHFNMFhsVVAzUXl6YWxM?=
- =?utf-8?B?UDNONGN1VHl4dWVqbGhFMnlXR0YyMWdmRU0xWjMyMTZaSllpS3BnSW1Bdm1T?=
- =?utf-8?B?SmJLczVXZWVaTzNxRGgxdDNSZkYzUlEwMUNId3dNUTlnU05mN1JURG1kV3Bj?=
- =?utf-8?B?NytPcVptYjAwRTl5STF4NENKdGVrK1FvVWx1SXVBQ2JBMXhqcE11VXFOc0ZX?=
- =?utf-8?B?QmF2MXV2SEk2U2tmamptek4yNytUaCsycGgzZUlHRFhwVVBPbitSMmFLVnlQ?=
- =?utf-8?B?WEVzNjY0dVM0U3lEa2trb01EWVVxdnZFU0ZCUHJFYk5lM2NxV25Ha3NCWGxx?=
- =?utf-8?B?WHQzRndDVmVqSTJPcW9HRG5sVys4MEhqcWJ1UHM2WHJzL25oeFExNDFFMmQ4?=
- =?utf-8?B?d3R1MUM3bHpVdXM1aCtEcDhxaktIclpWVE9UamMyR0lZNXZFOWlzM0l2emlt?=
- =?utf-8?B?VXpNWHI5S3RuUnBmbmUwRCtzTHVJT3M3d3lURnhQeUZzckEray9xVWlMR1Jo?=
- =?utf-8?B?R2l0QXU1VmthU2hTZVVkT0xHbHZ1THlabW0zZkEzUXBYR1FpV0M4T1NGb0d0?=
- =?utf-8?B?V3lZN21XbkMwdGl0d1hxMTRNb01reXNuOGE3VjI3aGJVZ0RzTldhUXp5YWRt?=
- =?utf-8?B?MnRDMjNvb3g5Y0RPRUNoeHdjc29YVjFQMVhmN2RNR3BLVktzaSt1TUFpQ0Vl?=
- =?utf-8?B?a21yVllqMjA0SE1JQkkxcVdXUHBkM0l4SldGbE16UjAyK25wUk5wU3ViSktl?=
- =?utf-8?B?bldMMDBhN2ZydXFTdUhNZngyUTlsUi84TGRFc2dGRTlvNUNzVHVvRUJ3eCtn?=
- =?utf-8?Q?XNAo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|52116014|376014|19092799006|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eU8zVDMzcGVUTS9vS3VoWVcwTTZkT3JCTVlpcWlhZkIrNnhaSlMwdHR0bHBT?=
+ =?utf-8?B?S01GSnpIYWYxcmVCQ1JvZm5mRzBnam1KREhOaEdnTlg4OFRkQ04rVDY2VFRm?=
+ =?utf-8?B?UDNQeENzU2xPL0lGY3BzR0lvTWdXOU14OW44cTc2UmtYNDZvL3d2TkFndmpH?=
+ =?utf-8?B?MnJTR3pxa2tJMC8zNGUwZVJ1M0ZqYlpncEl0c0pkOHQvZmtSUGVUMytBZmsz?=
+ =?utf-8?B?cjJuWHpFek1vN01adkowQ0QzbGh3c2xsbmhoWUwzRmppRWVqWHA4c2NnQ0gy?=
+ =?utf-8?B?WEV5WmV4UHhSMTBIWGRGeWNTVVZWTnRxUDFuMllvbEJsV1pnTHlTZnZsemU5?=
+ =?utf-8?B?YWpuQlZpNTdjNmxkMmJPM3VNNUxxV0ZSUTZlQll6MnlkUVhzbVhaN0tvVE9E?=
+ =?utf-8?B?OE5iOTJPNnRKeTdBMXUvQjhxb2hCY3pmbldCZ0lVSnIybEhUUnpPeFZTUU0x?=
+ =?utf-8?B?RjJCRUZoOXdJNm4zTVhSdW8yZkJQQ1lVQS9wdHo2WFprM2g0RTd5ZFo5UktX?=
+ =?utf-8?B?bXZlVG8vSHpjTjlQRFBoWHlLUHB4bE01OUJCdVdvSjRGTjRSdFdWc1JjTE1q?=
+ =?utf-8?B?bEw1VENMa3I0cXAvWStEL0p5Ly9SbGo5cVh2QlNRZ2VKdVlaWkFaY2s3c2lU?=
+ =?utf-8?B?Sm1pR1hRS0hLdXFuZ1VFUWNTS1YweXg0bWNHZ0R5Y1NPRlNFckhKQXpGSXZu?=
+ =?utf-8?B?ZEV1TTZZa2ZyY1ZnNjdDQUxkSmMyL1Z1Rm0vNmFXdTBoVzZtMk9abmlqOFpn?=
+ =?utf-8?B?ZVcrbUhoTFN4MDlJbzMxYktMbzIzc3lpeW84dTgyZDMwanU3ZjJubjM3aUFz?=
+ =?utf-8?B?bEVpLzB0QTFGbUxsdWt3MDZ0K3RndG5NUHM3OVlBOGZPRnpFdTlrcTI5SlQw?=
+ =?utf-8?B?SVVVdnlsUDB6bWhqZUFVOGc4TDB6aGJhVXF0Y3RMVFNRaFZ0bzV4ZldEWFpa?=
+ =?utf-8?B?TnFHZGJ3TFN3cjUyUEQ3TXN6cEpoYXNkcnN5ZUpQM0plSFMzSmdFZUJjOEww?=
+ =?utf-8?B?akRtOVpPNUV5RUphUmN3R2ZNcnpTdks3V1hLVHBCQkhEd2lWV2xjMWZWOFdT?=
+ =?utf-8?B?VXBQeGlIL0RyK0kvaGhxNTlKOE0yckQ1MjloR2J6d0RWMHVSLy9EeC9JQXVP?=
+ =?utf-8?B?aHlzVFFoYUJnUHVNMEZFS2UrOGxFQ3pSSlRUbnczQVl1TURqMUE1cktpUGtV?=
+ =?utf-8?B?RER0T1VwVERVNnBUTDVMTk9wVkRkUkxSa3RObGdBMTZXUGxqSHNvWmNib2l4?=
+ =?utf-8?B?RzV2TWNyaGdSd21ReFh1NUVBQk8xb2RRaU81bjczc1lEelAwL1AzbUlwR3l4?=
+ =?utf-8?B?K3BMZm8zczRCZVRLbDU5UXVFRGJMTXFKU0NzcFFvMUxRa1RMY0lmcjhpc1k1?=
+ =?utf-8?B?V3RNT2JEdG1tM2tpUU5UTzk2THFZLzJwblBpY3djdXU3ZlY5OGtodmxmUElH?=
+ =?utf-8?B?c3JHcEhveGhMcVhhN3QzSUVlcWhNbEZJRUszdXFrODFGWW9zUEJOYUQyRkxm?=
+ =?utf-8?B?MVIvTThRV0lReXAxLzk2MCswQUdESDl2RzJSWmM1MWwvcFBUQkRJZ09PT0tq?=
+ =?utf-8?B?Tmp0VXNvWXUyWnM3UkFuYnY4a3NyQ1dFaG0vQ3g3ZUxBakZ1cjhZU3QvSFNk?=
+ =?utf-8?B?QmdqU1I0Yy9Ma2RmN1ZMWUtCdGN4aEd1YlFIanYrc0hTQThvZ0tLaDNNWXJM?=
+ =?utf-8?B?TlBuUWxPNXVqRkw1SHoxZ2cwbXBmWStRZWdPYmxhRG9RYWtKZ0RQb1dhUHUz?=
+ =?utf-8?B?TUNSRVNxNnRIUWt6SDFlWFVVUkdIWnVVSFdUVCs0cDQ4TFU0UE5vdnJPbGxC?=
+ =?utf-8?B?MktzM1N1UkljMytKei9aemU3MDZIQ3dnUlVyTFRVbUtpRTVWNFBYWm51QmR5?=
+ =?utf-8?B?ZzBXdkFkSDhnWnF1YnRXd0tvZWIxeTVqM1NhWEhEMlU2Q0U2dllvOXJMZTM1?=
+ =?utf-8?B?NUltSTBHQk5SMGFXbFI2VkVaUEJTTE1QN0d0QVhYb2ZzZTV0TUxZcXFLck5Z?=
+ =?utf-8?B?aW9mUkdvcHZxN1NjRHJtTVlWMmpHSlBMRjVOZlZ1L3hybno0SmJKZU9ZdEIx?=
+ =?utf-8?B?Z28rdXhnbTh3bHc1QlhsWDArTW5vd0VsUnI5UkpEK2pPVFdlV0ZYREhsR1lL?=
+ =?utf-8?B?TmVwRm0waVQwSEhjNkRSM1FEam4yNDhCbW9vcFVDY1ArOTg1NnZhTElzSEty?=
+ =?utf-8?Q?tO5mc76ffWojM7UFRgW/TsGbh3xrzA5MKW6N26/+nBWV?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(52116014)(376014)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?emhYY2V3ejZGb0pHVWd4ZEZ5WWw0WWk3bGJaUFREQmp5MUhjR292UzIvbW0z?=
- =?utf-8?B?TTlVSDZZQmZCVFdCaElHcTk5UTFZMlF0c3R6b29hNHNXQ1B1SkprNjNQMWc0?=
- =?utf-8?B?T3VmbVZnc2tRQVZxQ3ZTeG5nYlIydzdtRk1JOERNQ3poNnNKUmNDVHVxVWNy?=
- =?utf-8?B?S0lHWGVtaTVoYy9aL0FtM3FiTytzb0I2VlZnSHpEc0x6dXp6RzNTUldTMWR5?=
- =?utf-8?B?SkZ2TTlCNUR3VHlmTjJSMUI1U1ZGTHRqeHJ2SC9ES3M0QXQyd0FFZnN1dnNY?=
- =?utf-8?B?NWhIYkx2VWlQTHdpTFR2WlJkTklka0xBSHhmamhKYVIrRnFaR1JVdkhpODd3?=
- =?utf-8?B?cWwvZXpCKzZEWWhEVEZvNDlvREx2T1JyV25BN0NTUjNRVkR1RFB2Q3RWMXVI?=
- =?utf-8?B?a1V3cUc1RDVCdm9UbVZnTjUwZkROTUJOUEN1UVBGUnNpRGdLNlN1RmhOWE95?=
- =?utf-8?B?YXpudDlOQldIZGppcGlDYTh2eFpXNWl2V0JuSHBrMlVSYnpkVEtML0FjamVw?=
- =?utf-8?B?RmoyYklFZE1HSFBKNEZCVEZaalUvOVhNOU1qRkZ2TWcrMFFYNmFQMU5iQThv?=
- =?utf-8?B?WTVxcTNuTE9wZkpSSXR2MTEyMnhuTFE3dXJOWVIzZ3dJS2l3ckg3WmlaR28y?=
- =?utf-8?B?bmJEbFBFc2dWVDF3VGNWTGcxWWlwK011L1JmSTlnMWQvUXVyVzVPSit5RExV?=
- =?utf-8?B?TlZzZkVGbnBXbG0zOG4yeGZHZ291eEpYZnpwNVlYVm1TeVB6cVlWeHdELzNx?=
- =?utf-8?B?MnNDNE8wSlRqSlFCVVMzcjI5ZEUxS3JRZllWNWQyOEVmc0w5VlFuRFgyMEov?=
- =?utf-8?B?K1dTcnFEWWdjQnhHM0lOTkdBSXlzaXA0b04rZ0h3TkZUOTNUeHNNYUtPczFN?=
- =?utf-8?B?Q0RBOHZTT014VlRBRXZhYnZ5WU8zME9zZVkrQ2pCOVcxZUdGV0RoQ0wxWURt?=
- =?utf-8?B?ejRDSm5RRG40TTBObG5oSStsR2F4b0huRFJXRjRlNFhIQTR4UnZYR1Q1RlRj?=
- =?utf-8?B?RGFlb2FKMnFZWWc0KzFKM1RaUEg1RS9mSkNZOC9hN0VWSjFqL0RhR3ZPYTht?=
- =?utf-8?B?Y1EyTnBFckV0clIwUjlwMU5hV0FmaFVtMEJhQUFkUDJOQ0o2WWFKOStQTURT?=
- =?utf-8?B?RXNyd1pZUWI4bGtlMlNhM01BSDBoWC9wK2xRWExpdGNuMnhNdWNHbWdjNlRL?=
- =?utf-8?B?bDc1YmsvbFM4RldLQU96cXQ2WTZMTWFYaHBpeWtxVGtnZlp2dHJndWs3Y0I2?=
- =?utf-8?B?U29JQi9kTURJcFhMUUJDR0ZVUEJYVllXcjAyMHpBREhVR1RpRGlzQlVMQ1hU?=
- =?utf-8?B?VDAzNk9ySXprVWpQdTJleGVTd1ZMOVZYRG1pZDdBeW1sblVtZ2FBdWVtUUdU?=
- =?utf-8?B?YWlQWDNTNFNmN2piU3VnZ1RxVHd3bDdpUmt4VUw3Z2FKZFl6TmdxTWc3cDR1?=
- =?utf-8?B?L09MR3BaNUtHQnJNM1FGa2pGSmdpNG5WSnlzd2RZUzN3c2EzaldKWHNrd0FT?=
- =?utf-8?B?SVFJdHl2KzV3WHpKTlhpMS8vWFVvc3FWV2ZvUlRDaUQyZmhOMENLdGZzMEpF?=
- =?utf-8?B?czVLU3hOMXJYM3lSSWd1YjBzVlZHZ2pOTWVqWlM4dmdJRGcrdkc0RUlIM2JD?=
- =?utf-8?B?OGE5UkdGdFRHUzF4Q0V3NUN3M0Zmem1DNXFrcGxMMnhla05FTEs1a1pPYUFO?=
- =?utf-8?B?WHBTUXlOblFSdVVTQVlvREFJbnNSTDQ4em9UcldzZXFXUVl4Y1d5d1dYZVVj?=
- =?utf-8?B?VGFVZ2tLcm1qeUlXMFdRRUw4TkN6a2lPdnhlQjduUng4M2RsdFpOcWJ0cVYv?=
- =?utf-8?B?Qk56NzlUUHJiTEhkUmg0WkhkMDBkR1NPbE56UEU2YW54NUorUDRZbzgyUDZy?=
- =?utf-8?B?VXh6UGNFL0FVclJFWHg2SkNrWTd1N3dKUUVkTC94b0FVRWdnaFlDS0dWVTNG?=
- =?utf-8?B?SDR2YXdSVjE4eGdCc2tTbW43SW43WXJmMUhpZ3JKKzU5UUV0NU5aM2FrdlRk?=
- =?utf-8?B?UDQ1L1VybVBqanF3TjBRS1AwSVU0SFdqalBmTzIwNGo0MGYyTUNqUjJyQVF5?=
- =?utf-8?B?aXZ3aldObVZhbUp4RmIwYTU1WExuZS82Ti9MRnhFMkRmZWVpRzBtNzN1U3Az?=
- =?utf-8?B?QVQ4eEVhaFJ1dkVZRTFhRXZqVVBQbVZNWEtrd1hZS0FZem93TkU0dkVWTjll?=
- =?utf-8?B?a0tNQ08wZ3pSb3J1Y1RmRjA5V1hnT0R1NEU5NUQ0WWdzS0dLTXVQME5nY2xH?=
- =?utf-8?B?bUJkRHd6UWJlUUcwNTE2WW1UMVVCTDRVWnZqdGZ6SW5tNHZFb25XV3NjNUd3?=
- =?utf-8?B?VGppYk5meFFqRUJGc0R1cTU2RFIyLzhaaGsyOUVpT1piT1JNRUZVcWsvd2RG?=
- =?utf-8?Q?1jm0hn9XTtBVm+Qs=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 98101f52-1332-4a61-8757-08de5a0194aa
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ekpQcVAveDM1YytDWUpCZ0N1bGR3MWdnU1QyYkxBWVpobHo0NmJmeVIvSm5U?=
+ =?utf-8?B?bVB3RFVpNjVCQ085bXlpNWVBK1hiWU43TDFGd05kem5NdnM2dTJrQ2xtNDJL?=
+ =?utf-8?B?TXhaNTRXV1ZpMGJvQStTd2ZkVWw3Zy9KVisvNTUwd0Q3QUoxY01RVFRpWjRu?=
+ =?utf-8?B?SWd2WHFyVzI4REJXNXZoalErOW9JUUd5OVc2OUZxTFk0MkY0N1A2MEtxWjc0?=
+ =?utf-8?B?eVlWR01VZXhOdkkzNVl5Ynd2bDJkeUlCdE1vVkpvZG9WODRvdFVWNllRRzhX?=
+ =?utf-8?B?TjVRZ3FsamJiM3ZGUVlUUFZtN3lVOFNKc3lpekpTR3FCRnlYQ0ZTOFg0ODA3?=
+ =?utf-8?B?a2xFT0xDUWFHU1FGeUxrQkJuOTBGcTZ5Z3NPdmZmVU5haUgvc09tUTRNT0kz?=
+ =?utf-8?B?UUV0YmZ3RGNWWjY5aytsNERqaUZ0Q0M5bkU5QUxwMlVqREJrOWd4VE5abHF2?=
+ =?utf-8?B?YzNnV2VoR0JhTlBkR1NPQkhqSlNkMFhqemdRL3A1MXdpWlNkNGZ1TW1Nekp0?=
+ =?utf-8?B?TXN6elRqOHp5VjhsVzNCMUsvVmpOcDZ5ZlJtL0FFWUQ3RVJwWkNFWGVoT0l1?=
+ =?utf-8?B?KzV0c1ZjKy96YS8vY2dCWDhYWE9RUWF0RFZBTERYMUMxZ2NEbWV0MmM5c3FL?=
+ =?utf-8?B?dTNRM216eElyU3FYdGExd1hjcGMrU1BKcFplZEpwMk9aMTJFdHc0cHMrSkJ4?=
+ =?utf-8?B?WXZSWTBQYk92UGFCeHpTNHZ5bzJYalRNaUlTRkJwU0hCOFRjd2dCOW1BWDk3?=
+ =?utf-8?B?SU9acFhzY0tJUU95NjJJOEdMei9lY3UveS9FYnlISVAwM2V0K0NwRGVtUXpo?=
+ =?utf-8?B?K28xL1plVDJLeEIreHMvWmpHRXdkRm5PSVc1UWh3NzRJMUFxR0loRG5WeEVX?=
+ =?utf-8?B?bVU2M21JRllUZDl0RGl4RlUrR3FZTkhHYVRONmFFOVJySFlCczNOeUhWemdK?=
+ =?utf-8?B?YnRURWFEcUMrZ2JCL3dKQmpkeDcybmJKdW0xNUVyZHRmRzNSaVV6T05LUklG?=
+ =?utf-8?B?blFuZk8xVmJ6R3FjVU9YZ0tDb3FGN3dJSlVucWxLSGZHdXRLVHRHRUlBaXJF?=
+ =?utf-8?B?aENFV2E4ckJtMkMvcGtIYWRnTjNMRURUUWNUV0VsZFBEQXhSRVozR21VOWNn?=
+ =?utf-8?B?U3VmdXpPd0hqV2ZKOGlGV3J4czBhenRHdTdodFdiMzBXYUJxZzlXZjB5YmRj?=
+ =?utf-8?B?clArY1RXdThYUkNTMU1tczlKN2VZWlJPRzlocW9LNGNjSDBycXVMUHNPQS9u?=
+ =?utf-8?B?MXh2QmhQV1dUUitRZW01UVhPODNMZnRiSTdvYjRsdlphaHd1NndCTEhNeUgv?=
+ =?utf-8?B?dXluN2ZhdG91YVBrblZPV01iZXpNTlluTTlsQThFRTJKSEwxTGtNU0p1Y1BS?=
+ =?utf-8?B?OUw1RVdUbGQxMWNid2JVZklXNmJXZGJRbGtianJBU2tBNWE2MHh5cG1iZWtt?=
+ =?utf-8?B?SWc4bWw4aTJVc3c2Y0tZUWRQMzEwWDMyd1J1ZGRDUVlQYlN4KzhsRGd1RTls?=
+ =?utf-8?B?Rkx2VXBhK0s1YTZHZVlyZDkyT09OSjg0d1ZkOXRYWXo5dFJuVkxsM05tMXEz?=
+ =?utf-8?B?SzZWNmNWUjRGWHBlbXVYY2RRN0xLRy9YZFF1MXdNRkFsYWp6SjJ2M2FESUlm?=
+ =?utf-8?B?cDdtZWU0ZEt1YWpGbVpySW9uUDYyYzF6d1dmdDVUUWVVdTdoeEgxbDBIVTRG?=
+ =?utf-8?B?M3o1cStEd28wWDRsSGlINlg4ampLcDcxSE1QZjcwMy9YSnI1dm43bnhVVVFS?=
+ =?utf-8?B?ci94aEU4SXo5TFRMei9jOFZaMnJQSTNROE1TVkpZaHZxdTMxMjNJZW5kNHRR?=
+ =?utf-8?B?eFdJeDhiQ1RIYXJWZjFSZDd5cER3bzJWQjBhSUk3cnF1L1QzQTJoVDN5QzV5?=
+ =?utf-8?B?c0o2cVh5Q3UxZUVOUDRXMnQ2SlN3eTV2WDFoNURkVytEQ0NxSFE1UWZhUE9w?=
+ =?utf-8?B?KzE5OEVHUW05ZmRsWTYyRGhmRE5SdG9JYzYrVXNiMDNpdTdEL2RTU0JoR0d3?=
+ =?utf-8?B?RTZ6dFdpM09tM1hMY0UrYkJYK3NzdWlKRHBhdU53VUhxeEI3bzdyUVVMaGox?=
+ =?utf-8?B?UGlRc3FDdnFxaE40ZEYycythZDVKaVZubnppekMwWUZSZ1RTRmpab0lsRlIz?=
+ =?utf-8?B?K1RHRWwxWHJqd0NvemVWOXcrZCtNK2JPaEVTQ25scXlQN0xNYjdnUkVJem05?=
+ =?utf-8?B?QTRNQjFjdkU5cVdzTGpjK01VV1J6MDRjZUk1WVdKSE5LQlBBOUNkQWtzdEdv?=
+ =?utf-8?B?Ni9iRi84eU5Yck4xaVJYaWtydW5vVVN5K1F2aW1JbFZLRHAxcDFFRlpkYjBY?=
+ =?utf-8?B?MUlLQVBubXR1dzNEODcydXh1dFI3N2owQ0NYa3c0Z0FyRzJMYUFYUT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e4314ec2-c118-4582-b291-08de5a309fb2
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2026 21:59:56.9984
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 03:36:41.8947
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ljRRdvr3A7m2sklsmP8ZRKWVUeRjwKP3oe43oHayJoNMH0/F+qrBhIYxhMphWUximY8apdIA31ygBBN/TeOI6FoVVyAwVuTeIraVeywO3u0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR01MB7754
+X-MS-Exchange-CrossTenant-UserPrincipalName: CLcLKW/lHxdgzZZ7+4cFrmId0rjtCxeOA3uHpC6eFNAyLXHlNRP19sYU1PIKQRA1+eJf8Hky5x3vn4lyuxWADg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9174
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_193314_411837_5B5C275C 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20260122_193650_549681_A2169E97 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,337 +203,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Guoniu Zhou <guoniu.zhou@nxp.com>
 
+The maximum downscaling factor supported by ISI can be up to 16. Add
+minimum value constraint before applying the setting to hardware.
+Otherwise, the process will not respond even when Ctrl+C is executed.
 
-On 1/22/26 6:43 AM, Ryan Roberts wrote:
-> On 21/01/2026 22:44, Yang Shi wrote:
->> On 1/21/26 9:23 AM, Ryan Roberts wrote:
->>> On 13/01/2026 14:36, Will Deacon wrote:
->>>> On Tue, Jan 06, 2026 at 04:29:44PM -0800, Yang Shi wrote:
->>>>> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
->>>>> rodata=full"), the direct mapping may be split on some machines instead
->>>>> keeping static since boot. It makes more sense to show the direct mapping
->>>>> use in /proc/meminfo than before.
->>>>> This patch will make /proc/meminfo show the direct mapping use like the
->>>>> below (4K base page size):
->>>>> DirectMap4K:       94792 kB
->>>>> DirectMap64K:      134208 kB
->>>>> DirectMap2M:     1173504 kB
->>>>> DirectMap32M:     5636096 kB
->>>>> DirectMap1G:    529530880 kB
->>>>>
->>>>> Although just the machines which support BBML2_NOABORT can split the
->>>>> direct mapping, show it on all machines regardless of BBML2_NOABORT so
->>>>> that the users have consistent view in order to avoid confusion.
->>>>>
->>>>> Although ptdump also can tell the direct map use, but it needs to dump
->>>>> the whole kernel page table. It is costly and overkilling. It is also
->>>>> in debugfs which may not be enabled by all distros. So showing direct
->>>>> map use in /proc/meminfo seems more convenient and has less overhead.
->>>>>
->>>>> Signed-off-by: Yang Shi<yang@os.amperecomputing.com>
->>>>> ---
->>>>> v5: * Rebased to v6.19-rc4
->>>>>       * Fixed the build error for !CONFIG_PROC_FS
->>>>> v4: * Used PAGE_END instead of _PAGE_END(VA_BITS_MIN) per Ryan
->>>>>       * Used shorter name for the helpers and variables per Ryan
->>>>>       * Fixed accounting for memory hotunplug
->>>>> v3: * Fixed the over-accounting problems per Ryan
->>>>>       * Introduced helpers for add/sub direct map use and #ifdef them with
->>>>>         CONFIG_PROC_FS per Ryan
->>>>>       * v3 is a fix patch on top of v2
->>>>> v2: * Counted in size instead of the number of entries per Ryan
->>>>>       * Removed shift array per Ryan
->>>>>       * Use lower case "k" per Ryan
->>>>>       * Fixed a couple of build warnings reported by kernel test robot
->>>>>       * Fixed a couple of poential miscounts
->>>>>
->>>>>    arch/arm64/mm/mmu.c | 202 +++++++++++++++++++++++++++++++++++++++-----
->>>>>    1 file changed, 181 insertions(+), 21 deletions(-)
->>>>>
->>>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>>>> index 8e1d80a7033e..422441c9a992 100644
->>>>> --- a/arch/arm64/mm/mmu.c
->>>>> +++ b/arch/arm64/mm/mmu.c
->>>>> @@ -29,6 +29,7 @@
->>>>>    #include <linux/mm_inline.h>
->>>>>    #include <linux/pagewalk.h>
->>>>>    #include <linux/stop_machine.h>
->>>>> +#include <linux/proc_fs.h>
->>>>>      #include <asm/barrier.h>
->>>>>    #include <asm/cputype.h>
->>>>> @@ -171,6 +172,85 @@ static void init_clear_pgtable(void *table)
->>>>>        dsb(ishst);
->>>>>    }
->>>>>    +enum dm_type {
->>>>> +    PTE,
->>>>> +    CONT_PTE,
->>>>> +    PMD,
->>>>> +    CONT_PMD,
->>>>> +    PUD,
->>>>> +    NR_DM_TYPE,
->>>>> +};
->>>>> +
->>>>> +#ifdef CONFIG_PROC_FS
->>>>> +static unsigned long dm_meminfo[NR_DM_TYPE];
->>>>> +
->>>>> +void arch_report_meminfo(struct seq_file *m)
->>>>> +{
->>>>> +    char *size[NR_DM_TYPE];
->>>> const?
->>>>
->>>>> +
->>>>> +#if defined(CONFIG_ARM64_4K_PAGES)
->>>>> +    size[PTE] = "4k";
->>>>> +    size[CONT_PTE] = "64k";
->>>>> +    size[PMD] = "2M";
->>>>> +    size[CONT_PMD] = "32M";
->>>>> +    size[PUD] = "1G";
->>>>> +#elif defined(CONFIG_ARM64_16K_PAGES)
->>>>> +    size[PTE] = "16k";
->>>>> +    size[CONT_PTE] = "2M";
->>>>> +    size[PMD] = "32M";
->>>>> +    size[CONT_PMD] = "1G";
->>>>> +#elif defined(CONFIG_ARM64_64K_PAGES)
->>>>> +    size[PTE] = "64k";
->>>>> +    size[CONT_PTE] = "2M";
->>>>> +    size[PMD] = "512M";
->>>>> +    size[CONT_PMD] = "16G";
->>>>> +#endif
->>>>> +
->>>>> +    seq_printf(m, "DirectMap%s:    %8lu kB\n",
->>>>> +            size[PTE], dm_meminfo[PTE] >> 10);
->>>>> +    seq_printf(m, "DirectMap%s:    %8lu kB\n",
->>>>> +            size[CONT_PTE],
->>>>> +            dm_meminfo[CONT_PTE] >> 10);
->>>>> +    seq_printf(m, "DirectMap%s:    %8lu kB\n",
->>>>> +            size[PMD], dm_meminfo[PMD] >> 10);
->>>>> +    seq_printf(m, "DirectMap%s:    %8lu kB\n",
->>>>> +            size[CONT_PMD],
->>>>> +            dm_meminfo[CONT_PMD] >> 10);
->>>>> +    if (pud_sect_supported())
->>>>> +        seq_printf(m, "DirectMap%s:    %8lu kB\n",
->>>>> +            size[PUD], dm_meminfo[PUD] >> 10);
->>>> This seems a bit brittle to me. If somebody adds support for l1 block
->>>> mappings for !4k pages in future, they will forget to update this and
->>>> we'll end up returning kernel stack in /proc/meminfo afaict.
->>>>
->>>>> +static inline bool is_dm_addr(unsigned long addr)
->>>>> +{
->>>>> +    return (addr >= PAGE_OFFSET) && (addr < PAGE_END);
->>>>> +}
->>>>> +
->>>>> +static inline void dm_meminfo_add(unsigned long addr, unsigned long size,
->>>>> +                  enum dm_type type)
->>>>> +{
->>>>> +    if (is_dm_addr(addr))
->>>>> +        dm_meminfo[type] += size;
->>>>> +}
->>>>> +
->>>>> +static inline void dm_meminfo_sub(unsigned long addr, unsigned long size,
->>>>> +                  enum dm_type type)
->>>>> +{
->>>>> +    if (is_dm_addr(addr))
->>>>> +        dm_meminfo[type] -= size;
->>>>> +}
->>>>> +#else
->>>>> +static inline void dm_meminfo_add(unsigned long addr, unsigned long size,
->>>>> +                  enum dm_type type)
->>>>> +{
->>>>> +}
->>>>> +
->>>>> +static inline void dm_meminfo_sub(unsigned long addr, unsigned long size,
->>>>> +                  enum dm_type type)
->>>>> +{
->>>>> +}
->>>>> +#endif
->>>>> +
->>>>>    static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
->>>>>                 phys_addr_t phys, pgprot_t prot)
->>>>>    {
->>>>> @@ -236,6 +316,11 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned
->>>>> long addr,
->>>>>              init_pte(ptep, addr, next, phys, __prot);
->>>>>    +        if (pgprot_val(__prot) & PTE_CONT)
->>>>> +            dm_meminfo_add(addr, (next - addr), CONT_PTE);
->>>>> +        else
->>>>> +            dm_meminfo_add(addr, (next - addr), PTE);
->>>>> +
->>>>>            ptep += pte_index(next) - pte_index(addr);
->>>>>            phys += next - addr;
->>>>>        } while (addr = next, addr != end);
->>>>> @@ -266,6 +351,17 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr,
->>>>> unsigned long end,
->>>>>                (flags & NO_BLOCK_MAPPINGS) == 0) {
->>>>>                pmd_set_huge(pmdp, phys, prot);
->>>>>    +            /*
->>>>> +             * It is possible to have mappings allow cont mapping
->>>>> +             * but disallow block mapping. For example,
->>>>> +             * map_entry_trampoline().
->>>>> +             * So we have to increase CONT_PMD and PMD size here
->>>>> +             * to avoid double counting.
->>>>> +             */
->>>>> +            if (pgprot_val(prot) & PTE_CONT)
->>>>> +                dm_meminfo_add(addr, (next - addr), CONT_PMD);
->>>>> +            else
->>>>> +                dm_meminfo_add(addr, (next - addr), PMD);
->>>> I don't understand the comment you're adding here. If somebody passes
->>>> NO_BLOCK_MAPPINGS then that also prevents contiguous entries except at
->>>> level 3.
->>>>
->>>> It also doesn't look you handle the error case properly when the mapping
->>>> fails.
->>>>
->>>>> -static void unmap_hotplug_pte_range(pmd_t *pmdp, unsigned long addr,
->>>>> +static void unmap_hotplug_pte_range(pte_t *ptep, unsigned long addr,
->>>>>                        unsigned long end, bool free_mapped,
->>>>>                        struct vmem_altmap *altmap)
->>>>>    {
->>>>> -    pte_t *ptep, pte;
->>>>> +    pte_t pte;
->>>>>          do {
->>>>> -        ptep = pte_offset_kernel(pmdp, addr);
->>>>>            pte = __ptep_get(ptep);
->>>>>            if (pte_none(pte))
->>>>>                continue;
->>>>>              WARN_ON(!pte_present(pte));
->>>>>            __pte_clear(&init_mm, addr, ptep);
->>>>> +        dm_meminfo_sub(addr, PAGE_SIZE, PTE);
->>>>>            flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
->>>>>            if (free_mapped)
->>>>>                free_hotplug_page_range(pte_page(pte),
->>>>>                            PAGE_SIZE, altmap);
->>>> Is the existing code correct for contiguous entries here? I'd have
->>>> thought that we'd need to make the range non-contiguous before knocking
->>>> out the TLB.
->>> The Arm ARM has this, which makes me think you are probably correct:
->>>
->>> IVNXYF:
->>> The architecture does not require descriptors with the Contiguous bit set to 1
->>> to be cached as a single TLB entry for the contiguous region. To avoid TLB
->>> coherency issues, software is required to perform TLB maintenance on the entire
->>> address region that results from using the Contiguous bit.
->>>
->>> I've asked for clarification internally. But I think we should hoist out the tlb
->>> flush regardless because it will be faster if we just invalidate a single range.
->>> I can handle that as a separate patch if you like.
->> Thanks, Ryan.
-> Of course it's not quite as simple as hoisting for the vmemmap unmapping case
-> since that is also freeing the memory, so we need to issue the tlbi before freeing.
->
-> vmemmap never uses contiguous mappings so could continue with the current
-> strategy for that and only hoist the tlbi-range for the unmapping the linear map
-> case.
->
-> Or could do a 2 phase approach for vmemmap where we first set VALID=0 for all
-> entries, then flush tlb, then walk again, to free clear the pte and free the
-> pointed to page.
->
-> Other ideas welcome... I'll have a play.
->
->>> However, I think there may be another problem; IIUC, any old range of memory can
->>> be hot-unplugged as long as it is section aligned. It doesn't have to be the
->>> same range that was previously hot-plugged. But if the linear map is block
->>> mapped, the range being unplugged may cover a partial block mapping.
->>>
->>> For example, with 4K pages, the section size is 128M, so you could hot unmap
->>> 128M from a PUD leaf mapping (1G). What am I missing that means this doesn't go
->>> bang?
->>>
->>> This would have been an issue for the non-rodata-full config so predates the
->>> work to split the linear map dynamically. I'm not really sure how to solve this
->>> for systems without BBML2 but without non--rodata-full.
->>>
->>> I must be misunderstanding something crucial here... I'll dig some more.
->> I'm not expert on memory hotplug. I'm not 100% confident my understanding is
->> correct. But I noticed something that I misunderstood before, when I was testing
->> the patch.
->>
->> The hotunplug actually has two stages: offline and unplug (physically remove the
->> device).
->>
->> When we echo offline to the sysfs file, it actually just does offline. The
->> offline just isolates the memory from buddy, but it does *NOT* unmap the memory
->> from the linear mapping. The linear mapping will be unmapped at unplug stage. I
->> tested the patch with QEMU, I just can emulate hotplug/hotunplug the whole dimm,
->> for example, hotplug 1G, then hotunplug the same 1G. I can't emulate hotunplug
->> in the smaller size. I thought it may be the limitation of QEMU in the first
->> place. But I realized we can't hotunplug a part of dimm physically either,
->> right? For example, we insert 1G dimm to the board, we can't take out 128M from
->> the dimm physically. So IIUC the partial unmap of linear mapping should never
->> happen.
-> Looking at the code, it looks to me like memory_hotplug.c doesn't care and will
-> try to unplug any span of memory that it is asked to, as long as start and end
-> are aligned to memory_block_size_bytes() (which for arm64 is section size = 128M
-> for 4K base pages).
->
-> But it looks like all the higher level users will only ever unplug in the same
-> granularity that was plugged in (I might be wrong but that's the sense I get).
->
-> arm64 adds the constraint that it won't unplug any memory that was present at
-> boot - see prevent_bootmem_remove_notifier().
->
-> So in practice this is probably safe, though perhaps brittle.
->
-> Some options:
->
->   - leave it as is and worry about it if/when something shifts and hits the
->     problem.
+Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+Cc: stable@vger.kernel.org
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+---
+Changes in v2:
+- Fix possible side-effects caused by 'max_val' in CLAMP_DOWNSCALE_16 macro.
+- Add space line between two paragraph in comment.
+- Link to v1: https://lore.kernel.org/r/20260122-isi-v1-1-c3ec6e264f13@nxp.com
+---
+ drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h | 16 ++++++++++++++++
+ drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c  |  6 +++---
+ drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c |  6 ++----
+ 3 files changed, 21 insertions(+), 7 deletions(-)
 
-Seems like the most simple way :-)
+diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+index 3cbd35305af0f8026c4f76b5eb5d0864f8e36dc3..84e134f4d5fb26be652ac3e6aecd459bb2a0d1c6 100644
+--- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
++++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+@@ -59,6 +59,22 @@ struct v4l2_m2m_dev;
+ #define MXC_ISI_M2M			"mxc-isi-m2m"
+ #define MXC_MAX_PLANES			3
+ 
++/*
++ * ISI scaling engine works in two parts: it performs pre-decimation of
++ * the image followed by bilinear filtering to achieve the desired
++ * downscaling factor.
++ *
++ * The decimation filter provides a maximum downscaling factor of 8, and
++ * the subsequent bilinear filter provides a maximum downscaling factor
++ * of 2. Combined, the maximum scaling factor can be up to 16.
++ */
++#define CLAMP_DOWNSCALE_16(val, max_val)			\
++({								\
++	typeof(max_val) __max_val = (max_val);			\
++								\
++	clamp((val), max(1U, __max_val >> 4), __max_val);	\
++})
++
+ struct mxc_isi_dev;
+ struct mxc_isi_m2m_ctx;
+ 
+diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+index f425ac7868547da401e86ce5a9b70a9890e72541..8860d89713667d06abc94e6024526fabac46feb7 100644
+--- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
++++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+@@ -509,9 +509,9 @@ __mxc_isi_m2m_try_fmt_vid(struct mxc_isi_m2m_ctx *ctx,
+ 			  const enum mxc_isi_video_type type)
+ {
+ 	if (type == MXC_ISI_VIDEO_M2M_CAP) {
+-		/* Downscaling only  */
+-		pix->width = min(pix->width, ctx->queues.out.format.width);
+-		pix->height = min(pix->height, ctx->queues.out.format.height);
++		/* Downscaling one-sixteenth only  */
++		pix->width = CLAMP_DOWNSCALE_16(pix->width, ctx->queues.out.format.width);
++		pix->height = CLAMP_DOWNSCALE_16(pix->height, ctx->queues.out.format.height);
+ 	}
+ 
+ 	return mxc_isi_format_try(ctx->m2m->pipe, pix, type);
+diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+index a41c51dd9ce0f2eeb779e9aa2461593b0d635f41..c3ffc8a38d1269c0a4e6493b4d75690f01cc87bb 100644
+--- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
++++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+@@ -647,10 +647,8 @@ static int mxc_isi_pipe_set_selection(struct v4l2_subdev *sd,
+ 
+ 		sel->r.left = 0;
+ 		sel->r.top = 0;
+-		sel->r.width = clamp(sel->r.width, MXC_ISI_MIN_WIDTH,
+-				     format->width);
+-		sel->r.height = clamp(sel->r.height, MXC_ISI_MIN_HEIGHT,
+-				      format->height);
++		sel->r.width = CLAMP_DOWNSCALE_16(sel->r.width, format->width);
++		sel->r.height = CLAMP_DOWNSCALE_16(sel->r.height, format->height);
+ 
+ 		rect = mxc_isi_pipe_get_pad_compose(pipe, state,
+ 						    MXC_ISI_PIPE_PAD_SINK);
 
->   - Enhance prevent_bootmem_remove_notifier() to reject unplugging memory blocks
->     whose boundaries are within leaf mappings.
+---
+base-commit: eb4ee870747c3a77a9c3c84d84efb64bd481013a
+change-id: 20260122-isi-74f87fbb9a6f
 
-I don't quite get why we should enhance 
-prevent_bootmem_remove_notifier(). If I read the code correctly, it just 
-simply reject offline boot memory. Offlining a single memory block is 
-fine. If you check the boundaries there, will it prevent from offlining 
-a single memory block?
-
-I think you need enhance try_remove_memory(). But kernel may unmap 
-linear mapping by memory blocks if altmap is used. So you should need an 
-extra page table walk with the start and the size of unplugged dimm 
-before removing the memory to tell whether the boundaries are within 
-leaf mappings or not IIUC. Can it be done in arch_remove_memory()? It 
-seems not because arch_remove_memory() may be called on memory block 
-granularity if altmap is used.
-
->   - For non-bbml2_noabort systems, map hotplug memory with a new flag to ensure
->     that leaf mappings are always <= memory_block_size_bytes(). For
->     bbml2_noabort, split at the block boundaries before doing the unmapping.
-
-The linear mapping will be at most 128M (4K page size), it sounds sub 
-optimal IMHO.
-
-> Given I don't think this can happen in practice, probably the middle option is
-> the best? There is no runtime impact and it will give us a warning if it ever
-> does happen in future.
->
-> What do you think?
-
-I agree it can't happen in practice, so why not just take option #1 
-given the complexity added by option #2?
-
-Thanks,
-Yang
-
-> Thanks,
-> Ryan
->
->> If I read the code correctly, the code does unmap the linear mapping on memory
->> block granularity. The block linear mapping is unmapped when removing the first
->> block if it covers multiple memory blocks. Then the page table will be none when
->> removing the later blocks, but it is ok, the code just continue.
->>
->> Thanks,
->> Yang
->>
->>> Thanks,
->>> Ryan
->>>
->>>
->>>
->>>> Will
+Best regards,
+-- 
+Guoniu Zhou <guoniu.zhou@nxp.com>
 
 
