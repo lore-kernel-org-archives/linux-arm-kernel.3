@@ -4,158 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC90D3EE9A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 06:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 782E8D3EE9A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 06:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s0VLzkj7kBAIvIeyO4Yw8QzJDHtyD3yHiv4q5/eKWxs=; b=1++U0MesWp9pObbcatUtuEQqZo
-	xOR5d5ISDcJWtsKA8QG3Qpr3XNoG73cixi8Snq/PUXxMWNB4CbZX9CujxmKEcOCZryFLjFGXnfTBi
-	6Ej1bQw+EeGyKUQnZZ2tT6CS82KYuXAtLtjINhDbm2CwXS6J+VCVuyFRjeKHcxG7AB3b76+bG2G1/
-	6AB4/n4j+8J7Flnkg1w3v5dg4Pls111ugdi+fZllirKGwAxLzKDCrflAeNey/DgiQ8ROyNcCx+haj
-	CqkyyVVkBikWczi1gPKlxavsQvdj011kBmmfX63ISc2QtLzGg4GMdgfz5ZMd1JMuUeLfkvFW82NzC
-	P1WxZnIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3W5KGDF+4ZSNzkZPNTUZ4xY9Uzf4sa6XWuctlKpQZLI=; b=oxNWdyM+bgBi7q
+	6BPrsfa+ynpCOOfRwSdyGyCMOwLRgv3ov3st2JtK3cIDvEKuJKickffzKEi2tn8DSuxaWsWJRI8qg
+	6XGlSeP6kMx846N+ZXwNMDlVQ2Z5e3+3vpyvvByTk8Ro/8+be49tElObo1YLqEzPqOHEuz5zr2C77
+	qVpBfJ6FhHSMoFc0qCZCJtdyVBA7yr9EHoX5oE6WSyxYWXZSJ07hxvopwBRTdjR74iwuw7frxtWH6
+	IGsVfOFATIM185o5lkQ9jgShhe1K5oUCCR7bvDMF8dOMA9sUx6TAXWO8ccc2fdiOZRVEtYjaPjNVJ
+	YVnbuic5oNekvruaE4gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjB3P-00000008KNe-0Wm4;
-	Fri, 23 Jan 2026 06:53:59 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vjB5d-00000008Ka7-0am3;
+	Fri, 23 Jan 2026 06:56:17 +0000
+Received: from mail-centralusazon11010003.outbound.protection.outlook.com ([52.101.61.3] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjB3M-00000008KMc-3gGO
+	id 1vjB5a-00000008KZP-0ZB1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 06:53:58 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60N69laJ2910302
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 06:53:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	s0VLzkj7kBAIvIeyO4Yw8QzJDHtyD3yHiv4q5/eKWxs=; b=b2/i92SUYiaESdwo
-	VjpgHSfUiI9ApnLF4g+bN9LAW7zupMgnhCP4F9o8tLoJO7gv+VIdRuAgKrfweDLy
-	YiZLR7ffNcNbVFBysSa3ZrZ0kOuzbK4SK/MykF6F/4rmfOTJy/xFloC7XR/3Cm7a
-	00MPHEI8J1dbYMJ/4d2KB+bpBTZ6ZWt5ay5qh5w2ArRGpwyGy5wTEDUuU88a9ISf
-	RJZcc39lq2fkNIq04SmCjD7HPi4JCp8INMfsq8smh0uOtBljMhR81ImMqt7kjgJH
-	onVApRORNsJUohMQArtR0lksWoi4QJHICWbMkiMzJi91TVVjajjnQ/R5efOFfgxb
-	Ijc6AQ==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4buvs1sg8u-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 06:53:55 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-88a2d8b7ea5so21916886d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 22:53:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769151234; cv=none;
-        d=google.com; s=arc-20240605;
-        b=TvHVZz3oyJifSRdbZW1AGsnaNeOiRw3n3uC6in/yK7Hl6EXdm94f9zEwH+F0jWMQ/M
-         qsstyhkSySQR03wJXnTIRfC8l/IuDd2kNxw67uJ1Z+u3TnH6ZUXvy2TaCPUPLDOWb5EA
-         /2DyUKzPJRQNdOov2Z+FuFEl8hNWUYX19tEailRkkckHMoWUK1EBj8HOJGAWzTIxtbeD
-         bBmLIVgOrgU6voG/hRXhtPdHtg/uwX74wJ2lvMIx4S5ywxLZikp1pq4LcOX2N1qNdvZH
-         xbMkvDgSA5ULQs6+1GU69EI1AjNN9a5tddPW2UhNg9H+Uhtf0wlpjcHrlPZe/B9B7eEj
-         3Cxw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=s0VLzkj7kBAIvIeyO4Yw8QzJDHtyD3yHiv4q5/eKWxs=;
-        fh=d4bdOll1OWsmC1B0mfcczxKM2C8mGAzSEQWTAA5zL3E=;
-        b=ONTAly/80x9LZb7G/ed7j1Upg5UPsrW9OtPBTFPcm2pcd2Cd8VzNkHBZLh+2uOGJBi
-         M+WiwPKxDshI+gP3VHVZTLEO4Yq1/I0kOKtFLEtjoQEl3xHMPp3CIZATWKXMbwADVdda
-         kY38KRw+aqV+hfMOLk3XgoTX/qf7YTeWEOD8p9PWh9EVyUAFBhpTd0pQxizCgpP6Rsk1
-         5cdlgrTIgJFd8VTmSpv2sCCjUgqweC9HywlQyhlGMhNgFcAXX9qdiby2dTeO5bh8VCU2
-         bnk5hiQNikivrFtZr5N2xqSkEwwTVkYnTWHWb8+FoAsnf/bfPiin/OkEA93eSG3n6lR7
-         rPvQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1769151234; x=1769756034; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=s0VLzkj7kBAIvIeyO4Yw8QzJDHtyD3yHiv4q5/eKWxs=;
-        b=eQsQbyRuPzSdaVIjCc4roXu4IdDZt6IYCWXtrQVxFSER4QMrgdFlxHglg6NVYG5ck0
-         K0U0824jGV2b+/yGv2srtpg5ZUSsITZHe07rSNwT3KnHhUI49KlbZ4mSg5gLWAA4bZbU
-         Hle1JRrtQRc+mNJ+H/06OC05fXglohH3i9ENfQzyvYTao24oO5Jpd/8oTkb5pOVGWxq8
-         GhQOSdGRq9WhifWtLa942GW6u3drlrTXOdMaMg/bOs/D93Dd4cuxZbDayqbZwr6g9PGW
-         wzzc4CjAfNtW06GdhR/NZOBPmGAcIorTWP3jYmAna4XHgpPfuwVCfex69pyH+QK15qre
-         30bA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769151234; x=1769756034;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=s0VLzkj7kBAIvIeyO4Yw8QzJDHtyD3yHiv4q5/eKWxs=;
-        b=HH3XHOq2JCtMZ6Ru35okYK2O6zbEwpmN4b3gtgXQRr/jVolKwHLg/bTBvOn260oVo0
-         PChVAaz4bO/iERy4zbg0aO2e4y0UiAa+5rD2EG3X/6QyBF0ytC72dJipS/QqX8AfOMqj
-         fz5hWqe8vhZotX0LvXrYMt/yy+8sssPG4WpBicrklDNt71XYvfHgwp+iTkBk+PLew+jx
-         w3SnGD/Fgqk6Lt7cYrW/9DrxqiBEVxubuTdfzqoPPoCoHN6+x3NC9sBNvT7hkl96IZvJ
-         PIbXdzCWyCD3ndkzQFzaXsog1mUubz+3YRixYOpusk59NMPkEso4kmRFCtFstnfjx/gc
-         NAIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVAtC2edM/EwmCzEY9hEmYZ/GQ0afoV33D2X/ctb2nFkfCPRfHBptVlvR0cjXE3tvc5mMh3egk5mOxUIt2mpvc/@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywla+Ge/J5307BteZ1fGmvJO01oq9G5u7rx/cOsu7GE/HXjpo8d
-	9A6S/7JgA92q2Uu2mkVPtIiQZ6hB5pI/EQnEofjXzwxlpagWQye0HnsAryru2LpIWglX/8Xs+dG
-	3Wh47KsE6tZUZwJ7suZEfvGP2C5oxrq/QvfitEwBaFrpkkZIN18aE3WoJeYXX9+/WRfFIpMgrDP
-	KFYA2pJ/BNnowhkTNewnc+dBPf4P4wk1jpcknV5+80/qHRSk0G4PYG
-X-Gm-Gg: AZuq6aJpx2qgsk7WqwDSLquqiG4gCKNEV2FXoK2V2OnkI8Pym8TjHcF3k8HUR/dpE3K
-	ZutqA/KnCHJVmBzzhlUInJTqgYG3mBBfvozA1uDa3PsfTak4vPDD/5v4TFuI5NBDIVUu6epvvNx
-	DBwg+jCVoFoP1YKjjylrmVFYMJfkTLjP1eHWjSwyeVzQ3zsfoPfGw982hTXdpNxovtGRZ459eR1
-	e8UILUdA40fXh3zZrvIC+aW
-X-Received: by 2002:ad4:5def:0:b0:880:63b1:3f57 with SMTP id 6a1803df08f44-8949020d656mr29225136d6.38.1769151233713;
-        Thu, 22 Jan 2026 22:53:53 -0800 (PST)
-X-Received: by 2002:ad4:5def:0:b0:880:63b1:3f57 with SMTP id
- 6a1803df08f44-8949020d656mr29224416d6.38.1769151232692; Thu, 22 Jan 2026
- 22:53:52 -0800 (PST)
+	Fri, 23 Jan 2026 06:56:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XwHdTNE2boKLDf24pRsAsB83aG7MATKT4m5Ao8SdDSyj7atpQ7gwMj2LiCb3vXCMYWDM2tuoCydzy3wHZGZqxbzBV1+6C1DUlJh3PhGhzLd9zP43ACdSH+sQLvhvHjs+3hDYR3/pU5sFRpWaWABKXtLLbjBGmYQesnOhqq5CiQMo8x99Psbjc4B4mmmWjW7fpGHV6uVrqKXHtS7cZV78TBkkZ44pm2kjPunZ2n1AeAgaAwxQXJfhSutsoIC99lpetCZ6WR9ngVLRql3H4VXbXcGny2owjKYiVZ7iGgYRzWS+oVLklwp5EByWtajGJ/OyPWsbqWu8id1s90dzLjMSBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3W5KGDF+4ZSNzkZPNTUZ4xY9Uzf4sa6XWuctlKpQZLI=;
+ b=dpNNmceMQIcfBtD8JcsopXZyKVN44TZswqYnwzoQBwXJ6N9Ab0p01HSYOU12YJVhkUA0hZYKUYA8VJIJU5n6KJBYZyGShoGuAMfJutx8wAdgk3lcvdfAuVLY1/8gKcNP16zatFtuJWVeFlw9ECafyXxGXbBNp3tbo8VakLNuj+rc7vKb51i3JggCLwY+Ta3CgPBe0w8zilzEBqqqa+3AWZCjZEy8dUzQ3NgJS/ZqHpTh/h8W6cSekb1ya7GrQWFmLd1zXz63XZ1CUUQuMNvvCJU49Y67iSquK0MA830VE8KwUAnZg4GlaMX0phPDwq6blWiv+2Gt4SuburLpW4jKnw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3W5KGDF+4ZSNzkZPNTUZ4xY9Uzf4sa6XWuctlKpQZLI=;
+ b=BDgtLnBsu3KQ9SrFCzrUuALYkUrmCVvJ+qcdbaySw76fWj4clc2tXEJLIQ9kA7plf1yG+SFouXnwfeinsx9Be96D9ISVg/Hr1F6G2zxte+zBQuT7P7at+Ke4T+4I5lAsT7SY7X/lS+sZPQf4/m33nPls8KAO5/ro8XzT90JXDQg=
+Received: from SA9PR13CA0075.namprd13.prod.outlook.com (2603:10b6:806:23::20)
+ by DS4PR10MB997575.namprd10.prod.outlook.com (2603:10b6:8:31e::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Fri, 23 Jan
+ 2026 06:56:09 +0000
+Received: from SN1PEPF000252A3.namprd05.prod.outlook.com
+ (2603:10b6:806:23:cafe::21) by SA9PR13CA0075.outlook.office365.com
+ (2603:10b6:806:23::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.3 via Frontend Transport; Fri,
+ 23 Jan 2026 06:56:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ SN1PEPF000252A3.mail.protection.outlook.com (10.167.242.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.3 via Frontend Transport; Fri, 23 Jan 2026 06:56:08 +0000
+Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 23 Jan
+ 2026 00:56:04 -0600
+Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 23 Jan
+ 2026 00:56:04 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE201.ent.ti.com
+ (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 23 Jan 2026 00:56:04 -0600
+Received: from psdkl-workstation0.dhcp.ti.com (psdkl-workstation0.dhcp.ti.com [172.24.234.127])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 60N6u01R1765468;
+	Fri, 23 Jan 2026 00:56:01 -0600
+From: Aniket Limaye <a-limaye@ti.com>
+Subject: [PATCH v4 0/2] ti-sci-intr: Support level+pulse interrupt sources
+ together
+Date: Fri, 23 Jan 2026 12:25:44 +0530
+Message-ID: <20260123-ul-driver-i2c-j722s-v4-0-b08625c487d5@ti.com>
 MIME-Version: 1.0
-References: <20260122-sm6150_evk-v4-0-a908d49892e7@oss.qualcomm.com> <20260122-sm6150_evk-v4-2-a908d49892e7@oss.qualcomm.com>
-In-Reply-To: <20260122-sm6150_evk-v4-2-a908d49892e7@oss.qualcomm.com>
-From: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Date: Fri, 23 Jan 2026 07:53:41 +0100
-X-Gm-Features: AZwV_QgW9xaHk1V60VCFg-RSltJOSQPj7qJ8VK_VnWofnB4yGozL2VT2va8zIr4
-Message-ID: <CAFEp6-3qrfnn5EdLXX1+1qGtAZa=L4QS1nyCs23JnKq+oy=pqg@mail.gmail.com>
-Subject: Re: [PATCH v4 2/5] dt-bindings: i2c: qcom-cci: Document sm6150 compatible
-To: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Robert Foss <rfoss@kernel.org>,
-        Todor Tomov <todor.too@gmail.com>,
-        "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>, linux-i2c@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-GUID: W480Q7U7UWq8hTbNN7FjYVO79V1YgKO2
-X-Proofpoint-ORIG-GUID: W480Q7U7UWq8hTbNN7FjYVO79V1YgKO2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTIzMDA1MSBTYWx0ZWRfX2aaBWxpfMs9r
- u58gUM7SP1agNMpA6yD1Qo0bz/NFWcAzjj4omY/jnt/PHa3AljOOfx5jEgppbnjW+WpQ+VTwecr
- u2tY+iwEEQHSOsr8QsZG2njQuX8DUvXF9UfMQdQZD03HkPNKlrtv+IvdItxXPkhXVD04XRwbSqX
- afWpxi2m1dOPJ931hjXvaSQZTKhvpQOUvRhSt29IWs0F/SvH/yxT/TwIO4fyyKwFQtoHBZOMHUe
- QThsoWoJshRv0DTf4oMyHjluaDJNtfIYJlEcJb/8RfTHLYRn7PYIt/njyI897NPykroHzWb9ppx
- Q59hkG48IC6prKOUmwCbEWGVeL8PVPGKAiNjuU1Jab2bH2OSwHGunOh6fkgeCFuCNgyR93uY17c
- pJL6glQgiybeDDKz7UZe5QuJTXoFUOJIHHkVki5mzHhANe99zMRshGjl+aS4EcQP2jGCe+nArHb
- R8Zp3Vi+Qd4samxPaLA==
-X-Authority-Analysis: v=2.4 cv=faSgCkQF c=1 sm=1 tr=0 ts=69731b03 cx=c_pps
- a=wEM5vcRIz55oU/E2lInRtA==:117 a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8
- a=AGkvFC_LJttw-4NvuOEA:9 a=QEXdDO2ut3YA:10 a=OIgjcC2v60KrkQgK7BGD:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
- definitions=2026-01-22_06,2026-01-22_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 priorityscore=1501 malwarescore=0 phishscore=0 suspectscore=0
- lowpriorityscore=0 bulkscore=0 spamscore=0 impostorscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601230051
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHAbc2kC/33NQQ6CMBCF4auQrq0p06YUV97DuIB2kDEKpsVGQ
+ 7i7hYXBhLj8XzLfjCygJwzskI3MY6RAfZdC7TJm26q7ICeXmoEALfJc8+eNO08RPSew/FoABK5
+ MAyBNWbrasXT58NjQa1FP59QthaH37+VJzOf1vxdzLrgFg6aupKlKPA60t/2dzViEFQBiG4AEG
+ AmiLKyutWp+ALkGYBuQCVBopSpMI43WX2Capg9kzE1INQEAAA==
+X-Change-ID: 20260116-ul-driver-i2c-j722s-48f223899dbd
+To: Vignesh Raghavendra <vigneshr@ti.com>, <u-kumar1@ti.com>, Nishanth Menon
+	<nm@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
+	<ssantosh@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>
+CC: <j-mcarthur@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>, Aniket Limaye
+	<a-limaye@ti.com>
+X-Mailer: b4 0.14.3
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000252A3:EE_|DS4PR10MB997575:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3bf03eb0-2aae-466c-13c3-08de5a4c7c4d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?QlNDZzFlTzMwZDJIUDZ0N3oxbzltOWxWYm9ZZC9CVWVQT3FVWUY4NjJPY0JH?=
+ =?utf-8?B?WmJYVkZiRzRDV3FTeTN5ZFhmME9qMGZPUU9FYlBZWldmNEQ0bEVqZlFSMERi?=
+ =?utf-8?B?dFQ4OFV2Q1VOTFFobW5MaElkTEpRQ2pMUTZ0VGZLY05NVzluWlNjMXhvcWlr?=
+ =?utf-8?B?ODlsMTlFRFl6V291VzIxdGg5QmVGSWpSN2ZybURJTWRLbEFweXVyNmpCcWJu?=
+ =?utf-8?B?Vk51QnRqUTdBSjBrcDBnZmk5U2lqRDZLeXQ0NEFIRXZWNnB0elZoRi94Zzl0?=
+ =?utf-8?B?c1JhMVpacWpXRjJKalJMR1ZhbUFRNTYzclFpMmltWXdCekMzREZ6Z2hjSGtT?=
+ =?utf-8?B?RE5hOFZtQXNLZmFsQ2ZiaDFHRGVzWEhRb3F2R1hSd0RWNlR5ZTBiVmUzYW1t?=
+ =?utf-8?B?SGJ4WHZoRmhpaXpxQUVBN0UzK1ZRelR4WjVjeS9iSnVRM09DZEF6MnNmOVp4?=
+ =?utf-8?B?ZWdPUXI4MHRmU0tBM3Fyb1ZJOEdrK3ZXR3RMYVV2ZzFDanRKSm5BaUNQcmxk?=
+ =?utf-8?B?eDZxeDJZSGJ2WndmOUJyY3gzUGxzaklrWkJWQitqcU5IUXlKMnRoVk9pLzNy?=
+ =?utf-8?B?dVY5NlR6QXJLbW9RS2lCZTZUcytldE5HREZpcVZYRnhqWnBBaFdxcE5KWG1z?=
+ =?utf-8?B?NGRsUFlWUkptdUVUeU9oWjNzV0JNdHZMa09OWlVSTmpkS3dLZ2JQTzhLWDlQ?=
+ =?utf-8?B?SmF3RnlxSHVrNWp0SjA3cWVKQTdtQ3I0QnJzRnpvTUtFeHRNSDViaEJkUXlI?=
+ =?utf-8?B?dVNtN2EyQlk4aFhuWkNQOWp0RkhKdWVCRDZaOUt3b1pjaW45Z3pPNzB4bzMw?=
+ =?utf-8?B?eXBFbm9OOVlkbzNxNzJmVmgzUmhoM3k2THJXMGs1TFZGb1ZwemllYW1lditk?=
+ =?utf-8?B?cVFLSVEwRUd6bURCbXd2K0wvU3NTN1VWN0xrQkZNTmsvV1d4NklBVXB5NUdv?=
+ =?utf-8?B?Tlh4UTRReklrcnFDKzZVa2VDSkN4RjlQWUUxNWRTM09uN29ja1ZLelFicDJJ?=
+ =?utf-8?B?MXkyZ2JpYm0xUEh5ZXRQVHovdzFnWUsxU3BiUklORzFDU1ZDZ2VXL3pid3h3?=
+ =?utf-8?B?T2I2OThheHJyTzNxSkNlRURHNjlxYWpJWFFaODgwdGJYcWJOSFZ4UzM5TUZt?=
+ =?utf-8?B?WFNQb2NwUmcvWmNTUi9LRDc3bDdkNFZjTjhId0RhZHdXbVRPTkdHQzBLWHMv?=
+ =?utf-8?B?SkZha2VKYmdKY0RpdFpvRkZxcUhVd3NWM2NMVXZuQm1iREM2SDVFck05QnJM?=
+ =?utf-8?B?aUdQRGJkNUMwbHk5bUQxb3BKZ2hlSlFKNGVvL3g2RW5RSnNTNXllWXRMQVdQ?=
+ =?utf-8?B?SHNvWVlBZUhyVUFCWmg0TkJoUFNwc0Rya2hnMkVVU0YrZTNSYkZzMzhxVXdC?=
+ =?utf-8?B?WTFOTndrWUVLYTk5SHRTT2JuWU5OMW1EMjcrWG1jM0hDU2JzZzBwakxqVXBl?=
+ =?utf-8?B?SGZ4dUk2VTdSVHN2cHRmNHQxbzI5SnhEUzc3ZkhxakZjZ2hJRjE5clVLV1Bv?=
+ =?utf-8?B?am1VNkdDZkxteUVBQ08zVUVXWTRwaWo1L01xRlZUWUlrTjJCMmk5TkpHT3ps?=
+ =?utf-8?B?NjQxN1VUbEszSDdBUkNydGhHOTZscENrMXVzN1FIY3VLNklicitPWlAvTy82?=
+ =?utf-8?B?Q0QwOWI0WS9sVitpSWVFZ1FJdDJ4UVVkUHJUZjd6T211OHVOS0dvc0hIUlgw?=
+ =?utf-8?B?MlhPZXRobHhaQjZmSmQxT2xQNU1yaWpMY2xlc0JCNE9CQlp3VmJGNEFZRXpn?=
+ =?utf-8?B?VmxyZVcxMjlNcWhDbkp1QSs5bkFrZTdFeGRWbnovTVVMSmQ5d3VweUdrQnNX?=
+ =?utf-8?B?bmdlRVVaTmptblBKekwwNnFXZG9DVWdmMk0vdVNsRVYyUFpBN20wb3lWd1JY?=
+ =?utf-8?B?MWxROWZkL0RwVWptOUpQU0FSQm1qS2FoT3pmTzA4b0Z5NUMxdWlwOXk0OUZx?=
+ =?utf-8?B?QzB6Mm9IM3VTRjBURGx1WFJBWEw5T2lCTXYrZ285TG9zMGNMMnRWNHBHaXRo?=
+ =?utf-8?B?bTMvVGFrbS9FM293Z1YvTzU1alNDOGwyOUlXeVB4K1N4YzF6d3J1OWt0OFhz?=
+ =?utf-8?B?b1MwZ0lYU044aE9YNkNyWEFoY0IrbkZzcUtvZWR4a0ROdTJKdWtqUUJSdng0?=
+ =?utf-8?B?R3U3QXd4c1kzMDc5N09MVkFQeHVNM3FnZ2EwR3dpYWtjV3VLaXJHenFDcHU0?=
+ =?utf-8?B?MVp4NWxYYSsxNERUR0xES0ZYdmJiVittNlZqZEZzVHVxQWpHV0Q5eExjNGYv?=
+ =?utf-8?B?a1U2cHdCY1JQQjBDODh6SUNJdXpnPT0=?=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 06:56:08.1866
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3bf03eb0-2aae-466c-13c3-08de5a4c7c4d
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000252A3.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR10MB997575
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_225357_028536_D4E8C9B5 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20260122_225614_391003_5492FB30 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,50 +173,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 11:41=E2=80=AFAM Wenmeng Liu
-<wenmeng.liu@oss.qualcomm.com> wrote:
->
-> Add the sm6150 CCI device string compatible.
->
-> SM6150 include three clock:
-> bus: Bus clock responsible for data transfer.
-> iface: Interface clock responsible for register read and write.
-> cci: Clock for CCI core operations.
->
-> Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-> Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
+The interrupt router does not support interrupt type conversion and
+forwards both level and pulse interrupts to the parent (GIC) unchanged.
 
-Reviewed-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Hence update the INTR bindings and driver such that
+1. If "ti,intr-trigger-type" is absent, parse the interrupt-type
+   declared by the source, per-line, and use that to allocate interrupt
+   from its interrupt-parent.
+2. Else, the global setting specified for the property is used for all
+   output lines. This maintains compatibility with existing platform
+   DTs with no changes.
 
+This change is needed because:
+main_i2c4 on J722S is a level type interrupt source while the rest of
+the interrupt sources for Main GPIOMUX INTR router are pulse interrupts.
+main_i2c4 on J722S is not present in it's dts yet and will be added
+through another patch series after this one gets merged.
 
-> ---
->  Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml b/Do=
-cumentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
-> index a3fe1eea6aece9685674feaa5ec53765c1ce23d8..d3f87da54fcc14a8f808f34c9=
-4551583d8deaabc 100644
-> --- a/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
-> +++ b/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
-> @@ -33,6 +33,7 @@ properties:
->                - qcom,sc8280xp-cci
->                - qcom,sdm670-cci
->                - qcom,sdm845-cci
-> +              - qcom,sm6150-cci
->                - qcom,sm6350-cci
->                - qcom,sm8250-cci
->                - qcom,sm8450-cci
-> @@ -249,6 +250,7 @@ allOf:
->            contains:
->              enum:
->                - qcom,sa8775p-cci
-> +              - qcom,sm6150-cci
->                - qcom,sm8550-cci
->                - qcom,sm8650-cci
->                - qcom,x1e80100-cci
->
-> --
-> 2.34.1
->
+Testing:
+- Enable I2C4 (additional DT patch) on j722s-evm and run i2cdetect [0].
+- Add testcode to ignore the NACK interrupt, which results in an irq
+  storm -> showing that GIC is actually receiving level interrupt from
+  the INTR [1].
+
+[0]: https://gist.github.com/aniket-l/b5825cd8f2c1d11da4580e011c656ed7#file-j722s-evm-i2c4-working-logs-txt
+[1]: https://gist.github.com/aniket-l/b5825cd8f2c1d11da4580e011c656ed7#file-j722s-evm-i2c4-irqstorm-logs-txt
+
+Signed-off-by: Aniket Limaye <a-limaye@ti.com>
+---
+Changes in v4:
+- 1/2 Don't repeat property descriptions at multiple places in dt-bindings
+- 1/2 Use generic name for DT example node and remove the label
+- 1/2 Collected R-b from Rob
+- Link to v3: https://lore.kernel.org/r/20260122-ul-driver-i2c-j722s-v3-0-4ec3478f3866@ti.com
+
+Changes in v3:
+- Avoid new redundant value IRQ_TYPE_DEFAULT for "ti,intr-trigger-type"
+  when "#interrupt-cells"==2. Instead, make this property optional and
+  check for its absence to use the per-line interrupt-type setting.
+- Link to v2: https://lore.kernel.org/r/20260120-ul-driver-i2c-j722s-v2-0-832097c6b64f@ti.com
+
+Changes in v2:
+- Use correct Patch Subject prefix
+- Reword Commit msgs to better describe the patches
+- Fix function argument alignment as per coding style
+- Fix variable declaration ordering as per coding style
+- Link to v1: https://lore.kernel.org/r/20260116-ul-driver-i2c-j722s-v1-0-c28e8ba38a9e@ti.com
+
+---
+Aniket Limaye (2):
+      dt-bindings: interrupt-controller: ti,sci-intr: Per-line interrupt-types
+      irqchip/ti-sci-intr: Allow parsing interrupt-types per-line
+
+ .../bindings/interrupt-controller/ti,sci-intr.yaml | 38 ++++++++++++++---
+ drivers/irqchip/irq-ti-sci-intr.c                  | 49 ++++++++++++++++------
+ 2 files changed, 69 insertions(+), 18 deletions(-)
+---
+base-commit: a66191c590b3b58eaff05d2277971f854772bd5b
+change-id: 20260116-ul-driver-i2c-j722s-48f223899dbd
+
+Best regards,
+-- 
+Aniket Limaye <a-limaye@ti.com>
+
 
