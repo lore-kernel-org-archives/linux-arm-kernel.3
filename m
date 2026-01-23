@@ -4,103 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CCBBD72345
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 07:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8845D72345
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 07:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BybO1XLVfdhod5yqmV9OoExkCCsTqBLc4oAzOMgKi/0=; b=TJkGs4ZdS6Ejf2IPxFG4jKWJUX
-	Oj5dDqXewREDTAsvRpSEVBTlVdMcANdYlaxezqtjvQvzTixHOsK6oxseihtDoJ/gseebJEiXCKLEr
-	HGXBD3iJ4VUmn9uctKqQ1U3UgrUYUKSUQkJmVfooGYHEnDzA7EVGrUJuiQOw1YETRZJqTwVI99rCf
-	yWtQlmldBc7wxi/57qsXgeZmAfvLUFADXit9zr7fJYpTPJkT5vODCCJazX/l9/TlrHef/EtXkw8ZF
-	cUI7UKIZzRzzNFKL533E11HOoRcVgZbmEHPnJqSi7npTFT9+wBzqsM5YMpqLStbSWFtgwcxh+0M91
-	BxDBYztw==;
+	bh=HvtrGumHQsVFtFDm6zrMR1kuxvoQXy8G0c215Tp0diA=; b=EvmAFhQs/t/ifDpXvjYst2oC6U
+	LZJKL2K6M/iphv9acXc7MWuehm0Qmo5ZJb0sRQxF7C+8WW9/pDBqSvSsuc0evu833OPz4CEDBeDvS
+	HVxHxbTrhxcSwqFTeYGoIIzRdS6PcWBR+9r33JH7ulxLrtlkMXwdbbFET1vGn5mxVIrfn1AaDabPJ
+	4vDx+Gl14YBS/NWXvlH1ZINNDTt3GvI+MbSeumoeRy4/RR2UxlWzAUgUaZFZCWHxo9nU9GNeqW+5i
+	fMeprAltQY8EG06j0pLUDvTss/b/qRCjClfDf7jZttfwoggVWpZ2NxMhh25ThwMIfZxdanm140QUe
+	v0o4sQ/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjBn6-00000008O05-2OjW;
-	Fri, 23 Jan 2026 07:41:12 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1vjBpf-00000008OCz-2RJz;
+	Fri, 23 Jan 2026 07:43:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjBn4-00000008Nzk-0m9N
+	id 1vjBpd-00000008OCU-0Xwg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 07:41:11 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-3530e7b3dc2so1890597a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 23:41:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769154069; x=1769758869; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BybO1XLVfdhod5yqmV9OoExkCCsTqBLc4oAzOMgKi/0=;
-        b=Y7nwKjxvGqdp+JHlLtlh0+MlAiYoFFdHQop+w96t/JMgukMhrYzAi8eFYPW/pGCZ/O
-         YfSAX2fkDLfbgxqb1Siq/V8suvnCS6F6j6S5gj44GwOv9goKHh4iH3yqPKZvw13dPltK
-         kc/968NVK6UA7EAM+11ChMyiAHyO0rbOjI42ZMHywpbKWD/a2e0zK2iydVLHNWRBAaeO
-         okABLXMs7z8MnaT+rQusHlFv2UUPXaT3oKcMF4/dAcx/teC5y+Wy4sctEOxitAqvo8lf
-         GaP5L666jK+Ks2XPxxfBjRuuvgFAY71mnlYAnXFYkcokItB+Pt9jxH9Z3mcAJPRq63Zx
-         6kxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769154069; x=1769758869;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BybO1XLVfdhod5yqmV9OoExkCCsTqBLc4oAzOMgKi/0=;
-        b=hvuv04GWii5L3GfBQumKcVyh5voMw+PuR94TkNOUYddc1Qssb5LexROzzeOr6GQEqN
-         U2HHmsU1IrE/1xDCeQUyaC5xyCpVUF1EWJe4e/7EWvthFmbuF1Am9vWkczQsQDLNyPA9
-         TqJ1D1qwEmKcHXJUAJ5j8hCFAe/3WzEzzCap6w19ufohpMUBm5zgY/msfCuXyfWjx3g6
-         veHonetbY4XeyDBmN8TPmN+AGkOm5tLJqceVpACOjqUCK899UqPb+RWwHebdY2SyD9MS
-         t75w3wpdTJ9iP7p264fgjVXc1VvzMAdc3fJ7Zu+7QMEkjm1PChLoUgWx9c/U7mf7bAq8
-         J1Ag==
-X-Forwarded-Encrypted: i=1; AJvYcCVqpuSbGYqXG/5d8GMy4sAhoPeSXmTMGp/EjY5Wbn/gbf02yrqKUu7oNtMFBbJDJkGeNkK1pxbWvgj9JxxrrCCL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzs1bU6Daz792KLQvB8rFenYK/orHifXuwBWKUK/qlvhRftQcC6
-	hHC5cBEGndFZvi7YOT13tJUJPfKFA1QF3grFtqgcSgzduig3wi+ZGsNo
-X-Gm-Gg: AZuq6aKF/4a7gTqmf8FeetbVa5F4X4YqdX2jeq/FKh9njV8/QQApZ5hOTD2I8SFWmTo
-	LECExzF40IBOPgaI7iK8dBG9F72AKBh63StmBEr/sPkCDlwtnjjMW4x0bRz7drRxjEBIt1rxMOh
-	dmgQKc9iARmn7dxAq4oc1Ccdttd0j6j/fJBtQ87/lb08X9pLtjuBlArOeqitcnDeIA3PHiSqHdy
-	19ECZDikQZwCTxSPMdXMsRaFb2NxUuY/zfISre63Okrz3Yx9Z0V2DqWzQckPg8mLD9n3vE5HN8U
-	C/qes1sJ9wpYJCoUtbtpkFn1FYgywCiPWbWL92JYGIONB1ifdMgzzWYqw5c8v6CeAq1L5WTkIZZ
-	gGAq3MvP5KEtK60Hk31EGQjnn3LgNaCyVVs+0JzkS+Og12Qv2nYqcxQhSTOpRM0sf/ZnBl0+Wdp
-	gZh8vs5duaWcsZ
-X-Received: by 2002:a17:90b:2d8c:b0:33b:be31:8194 with SMTP id 98e67ed59e1d1-3536911f08amr1801422a91.34.1769154068601;
-        Thu, 22 Jan 2026 23:41:08 -0800 (PST)
-Received: from [192.168.0.13] ([172.92.174.155])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3536dc506dbsm1276411a91.14.2026.01.22.23.41.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 Jan 2026 23:41:07 -0800 (PST)
-Message-ID: <abf12a3f-9cdd-472d-a02e-af4da594b84f@gmail.com>
-Date: Thu, 22 Jan 2026 23:39:29 -0800
+	Fri, 23 Jan 2026 07:43:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 837F543677;
+	Fri, 23 Jan 2026 07:43:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 759B0C19422;
+	Fri, 23 Jan 2026 07:43:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769154228;
+	bh=hNJqMGM1DGrrZMHfT+TOWmjcktsysNTRhH0t2zsZwh8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TKvTDXH4yniIjS5R/1KBh2KeniWAQxfMVz0eMyGploKWx6CpIQ0CqJDezf/md0DRx
+	 q4EyisajkmDpFeCVX8KcTMXHMrwtwUI/HJg21w0CAha7cLQaG2d9yGsGZCkPfYDdBi
+	 8fQnr9vYA48tSoL3yDO4uCysLDG3EqSNZ/Im62iIz39fMASmzdl0WUlkXTszdm/zwT
+	 vSIY8wYQy8qcoF+ktKkMdsbgIEM7yXKm6+ZI6RSH7OdztUQ8DNth0lVm9izBBDiOHe
+	 YzRG93qVaQLPVa3h1aDIfM7uG5tRvJ7DnsuGOZEmEyC6Aig4wYph0SZGtDLi15FrH4
+	 EXICVgOjgeUYA==
+Message-ID: <684526d5-f1ac-46d5-b147-1fb906ba2248@kernel.org>
+Date: Fri, 23 Jan 2026 08:43:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] dt-bindings: ethernet: eswin: add clock sampling
- control
-To: Andrew Lunn <andrew@lunn.ch>, =?UTF-8?B?5p2O5b+X?=
- <lizhi2@eswincomputing.com>
-Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- rmk+kernel@armlinux.org.uk, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- ningyu@eswincomputing.com, linmin@eswincomputing.com,
- pinkesh.vaghela@einfochips.com, weishangjuan@eswincomputing.com
-References: <20260109080601.1262-1-lizhi2@eswincomputing.com>
- <20260109080859.1285-1-lizhi2@eswincomputing.com>
- <00b7b42f-2f9d-402a-82f0-21641ea894a1@lunn.ch>
- <308b676.2d03.19bb0caebed.Coremail.lizhi2@eswincomputing.com>
- <59cec617-0189-4dc3-bc3f-6346155a62ae@lunn.ch>
- <4e2a55e7.3662.19be8cb9c3c.Coremail.lizhi2@eswincomputing.com>
- <c5c0bfdb-316d-4796-afa0-f6f018ceb414@lunn.ch>
+Subject: Re: [GIT PULL 1/4] dt-bindings: Changes for v6.20-rc1
+To: Thierry Reding <thierry.reding@gmail.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: arm@kernel.org, soc@kernel.org, Jon Hunter <jonathanh@nvidia.com>,
+ linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Geert Uytterhoeven <geert+renesas@glider.be>
+References: <20260118080304.2646387-1-thierry.reding@gmail.com>
+ <20260122-hidden-goat-of-excellence-a43b9f@quoll>
+ <CAMuHMdUZqJa3KEWZReA734=ZV98JTD=HPztkszEe6ARFWiuhww@mail.gmail.com>
+ <aXIVmW_mjb0AdDwe@orome>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Bo Gan <ganboing@gmail.com>
-In-Reply-To: <c5c0bfdb-316d-4796-afa0-f6f018ceb414@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aXIVmW_mjb0AdDwe@orome>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_234110_234229_56C9C7BC 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20260122_234349_218288_80A688B1 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,42 +121,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
-
-On 1/22/26 19:19, Andrew Lunn wrote:
->>> You say internal. So the skew is fixed, it is a property of the
->>> silicon? If so, why a DT property? Why not just hard code it in the
->>> driver? Since it is internal, different boards should not need it set
->>> differently?
+On 22/01/2026 13:20, Thierry Reding wrote:
+> On Thu, Jan 22, 2026 at 12:02:04PM +0100, Geert Uytterhoeven wrote:
+>> Hi Krzysztof,
+>>
+>> On Thu, 22 Jan 2026 at 11:08, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>> On Sun, Jan 18, 2026 at 09:03:00AM +0100, Thierry Reding wrote:
+>>>> The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+>>>>
+>>>>   Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+>>>>
+>>>> are available in the Git repository at:
+>>>>
+>>>>   git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.20-dt-bindings
+>>>>
+>>>> for you to fetch changes up to b2788f6320722d6059f849f35a77eb082608c627:
+>>>>
+>>>>   ASoC: dt-bindings: realtek,rt5640: Document port node (2026-01-17 01:58:18 +0100)
+>>>>
+>>>> Thanks,
+>>>> Thierry
+>>>>
+>>>> ----------------------------------------------------------------
+>>>> dt-bindings: Changes for v6.20-rc1
+>>>>
+>>>> This series updates various DT bindings for Tegra architecture,
+>>>> primarily focusing on schema validation fixes and new feature
+>>>> documentation for Tegra234 and Tegra264 SoCs. Key changes include
+>>>> correcting realtek,rt5640 audio codec bindings (adding missing ports,
+>>>> clocks, and jack-detect sources), converting Tegra20 NAND bindings to
+>>>> YAML, and updating memory, DMA, and IOMMU definitions for Tegra264
+>>>> (introducing CMDQV and DBB clock support). Additionally, it resolves
+>>>> legacy warnings for Tegra30/132 display and VI interfaces.
 >>>
->> Thanks for the question.
+>>> Same comment as was for Geert, I am surprised to see DT bindings as
+>>> separate pull and I see drivers were alerady merged, so I will defer
+>>> entire Tegra pull to Arnd.
 >>
->> EIC7700 has two Ethernet MACs. Only eth1 has this internal RXC/RXD skew,
->> eth0 does not.
->>
->> So this is not a chip-wide constant that can be hardcoded in the driver.
->> We need a way to distinguish the two MAC instances, which is why this is
->> described per-port in DTS.
+>> The soc tree used to have a separate branch for dt-bindings.
+>> Hence several soc submaintainers still use that split for their PRs.
 > 
-> I assume the address of the interface is fixed. So you can just key
-> off that to distinguish the two instances.
-> 
-> Since this is an internal property, not a board property, it is not
-> clear it actually belongs on DT.
-> 
->      Andrew
+> Yeah. I usually also only put things in the PR for ARM SoC that have no
+> related driver changes (fixups, conversions, ...) and therefore nobody
+> else feels responsible for picking up.
 
-IMO, they should be in DT to provide maximum flexibility. The SoC .dtsi
-can provide some sane defaults, and the board vendor can later override
-them if the mac/phy requires further tuning. Applying such tuning by
-the address of MAC seems messy and it hides the parameters used behind
-driver. Through DT, everything becomes really clear.
+Why these are still separate? There are few options here:
+1. These were needed by the drivers you sent in pull: should be in that
+driver pull. It seems Geert confirmed this was the case with Renesas.
+BTW, checkpatch asks for that somewhat - you will have checkpatch
+warning of undocumented compatibles and you are not suppose to have such
+warnings.
 
-I assume this is not uncommon: E.g., starfive/jh7110:
-https://lore.kernel.org/all/20230714104521.18751-3-samin.guo@starfivetech.com/
+2. These were needed by the new DTS you sent in pull: should be in that
+DTS pull.
 
-BTW, no need to worry about backward compat. ESWIN hasn't checked-in any
-DT for eth yet. As you and Russell said, they need to do it, pronto.
+3. These were not needed by anything yet or they document compatibles
+already in the tree: that's the only case I imagine having them on
+separate branch. You can take such bindings when subsystem maintainers
+do not - they ignore them. 90% of bindings in this pull are not like that!
 
-Bo
+I will respond to that as well in separate email.
+
+Best regards,
+Krzysztof
 
