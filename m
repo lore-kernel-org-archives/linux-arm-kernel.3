@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41BE9D778AC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 18:25:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E546D778AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 18:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c5e6KHQNxi0zfVxaoY8XkYNiy4vKr9eRDqbXHFKlre4=; b=NQes6CDQmQgoVJxc4N6q3VJ/LV
-	9VoyU4/yj4P6uvOYLvBxg7Gr8WadumXzabhNaSs/MSZd1ccPvelCDxS+tG7j81cHB7VK8a3Xhx4An
-	ZP+6EH77KYDLgM8hf3GGcvp6vHt1OrqjFUbqK+N3ctAJMlqIcxnv62nc6xKlaHldceckhxrXpbWcM
-	m7sknnIEfAzNP66kU25hYh8n+dNLaXSxO68ynbhso7bgqD/PzlwVMaFZYMmDvDLSaGDWTrNOSat8P
-	UQzozXTOsfk3feLLO+baBcCoNMrafudmAb9SMEJlynJ6TNXc74Rav7IegZOc11Gq7VddJEwJAZcS3
-	88eM5QYA==;
+	bh=PR6z6GPJq0iWQpb7yn8bJsX4OzmaTEOBXMrzD47WGoo=; b=mmQzu+jaXsCTkTRSjE63ZJe8eE
+	ej7LjFrs/jqWBDbtVPYXX6Geqb9KZHRixGi2oCcNOF7XOO59zCqe3if0/AlspevG3e5PmLuxP8GG9
+	tG/6gr/C5trJsH9TMGxDly12Z8w9fHF4wHJXsRkMjZuhZPP6Ok/g3xF+3GEyCpAJkKVRLCSmCisbe
+	eGwWGXiPy87VgWPX4wmuzz0aQUjF2Ypv8ukBGPHTo2jqDvly+0vVgS3IOiPsOCG2PyevCF+LuPYt+
+	r5bXuTDzSROrd+talMapqmN2zbqSBxi8JK+vGRikYEJ+biPTc2B2JEBd0KcEbQaJsdD/GHEWA3poV
+	ftHndKMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjLqm-00000009Le9-3MOZ;
-	Fri, 23 Jan 2026 18:25:40 +0000
+	id 1vjLx8-00000009Lut-2SYD;
+	Fri, 23 Jan 2026 18:32:14 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjLqk-00000009Ldn-2Kdu
+	id 1vjLx6-00000009LuY-03bi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 18:25:39 +0000
-Received: from [100.65.200.94] (unknown [20.236.10.163])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 1046020B716A;
-	Fri, 23 Jan 2026 10:25:37 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1046020B716A
+	Fri, 23 Jan 2026 18:32:13 +0000
+Received: from [100.65.200.94] (unknown [20.236.11.185])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 75C0E20B7167;
+	Fri, 23 Jan 2026 10:32:10 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 75C0E20B7167
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1769192737;
-	bh=c5e6KHQNxi0zfVxaoY8XkYNiy4vKr9eRDqbXHFKlre4=;
+	s=default; t=1769193131;
+	bh=PR6z6GPJq0iWQpb7yn8bJsX4OzmaTEOBXMrzD47WGoo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rj9O+27xqHx44G8G+ZgJSTJd8WaNlkr14SPuNQ3jcmYOILcXTHDjQbS+fXzPZRo30
-	 hYrXEXE8WoPwmCzsIMoB+eNwFEuShQJrSebppRXY4JFTpEeKY9sUVqUBgUuprSq4jM
-	 iUaQ0NcK6Yx0HC9oQBssLw3jxfHX7Bw+KEzb4KlU=
-Message-ID: <eeb79431-47e6-4334-b97a-4dd64474e539@linux.microsoft.com>
-Date: Fri, 23 Jan 2026 10:25:36 -0800
+	b=mVFmwEB63pYU4wq0GsN/n45tf2rziTWSvpMG1zgCYncexD2J7OunjirP9kptmN8rm
+	 smgrkqeQgjeB817l9mTwTGk6upRV/KOa2jTMQvSIlrnR00bvwXCmXAvNPig7kQgJaT
+	 Mk0D0b29RJoagWXshB/uJDTGCouSgd0KC3Lg13S8=
+Message-ID: <82082744-2e2f-4ea2-8ab4-cdd3e69ffd8f@linux.microsoft.com>
+Date: Fri, 23 Jan 2026 10:32:09 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v0 05/15] mshv: Declarations and definitions for VFIO-MSHV
- bridge device
+Subject: Re: [PATCH v0 06/15] mshv: Implement mshv bridge device for VFIO
 To: Mukesh R <mrathor@linux.microsoft.com>, linux-kernel@vger.kernel.org,
  linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  iommu@lists.linux.dev, linux-pci@vger.kernel.org, linux-arch@vger.kernel.org
@@ -55,15 +54,15 @@ Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
  robh@kernel.org, bhelgaas@google.com, arnd@arndb.de, mhklinux@outlook.com,
  romank@linux.microsoft.com
 References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
- <20260120064230.3602565-6-mrathor@linux.microsoft.com>
+ <20260120064230.3602565-7-mrathor@linux.microsoft.com>
 Content-Language: en-US
 From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <20260120064230.3602565-6-mrathor@linux.microsoft.com>
+In-Reply-To: <20260120064230.3602565-7-mrathor@linux.microsoft.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_102538_651002_D96E60D4 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20260123_103212_107553_E10D19A1 
+X-CRM114-Status: GOOD (  27.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,99 +80,269 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 1/19/2026 10:42 PM, Mukesh R wrote:
 > From: Mukesh Rathor <mrathor@linux.microsoft.com>
 > 
-> Add data structs needed by the subsequent patch that introduces a new
-> module to implement VFIO-MSHV pseudo device.
+> Add a new file to implement VFIO-MSHV bridge pseudo device. These
+> functions are called in the VFIO framework, and credits to kvm/vfio.c
+> as this file was adapted from it.
+> 
+> Original author: Wei Liu <wei.liu@kernel.org>
+> (Slightly modified from the original version).
 > 
 > Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+
+Since the code is very similar to Wei's original commit, the way I'd
+recommend to do it is:
+1. Change the commit author to Wei, using git commit --amend --author=
+and
+2. Put his signed-off line before yours:
+
+Signed-off-by: Wei Liu <wei.liu@kernel.org>
+Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+
+This shows he is the author of the commit but you ported it.
+
+If you feel you changed it enough that it should be considered
+co-authored, you can instead keep your authorship of the commit and
+put:
+
+Co-developed-by: Wei Liu <wei.liu@kernel.org>
+Signed-off-by: Wei Liu <wei.liu@kernel.org>
+Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+
 > ---
->  drivers/hv/mshv_root.h    | 23 +++++++++++++++++++++++
->  include/uapi/linux/mshv.h | 31 +++++++++++++++++++++++++++++++
->  2 files changed, 54 insertions(+)
+>  drivers/hv/Makefile    |   3 +-
+>  drivers/hv/mshv_vfio.c | 210 +++++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 212 insertions(+), 1 deletion(-)
+>  create mode 100644 drivers/hv/mshv_vfio.c
 > 
-> diff --git a/drivers/hv/mshv_root.h b/drivers/hv/mshv_root.h
-> index c3753b009fd8..42e1da1d545b 100644
-> --- a/drivers/hv/mshv_root.h
-> +++ b/drivers/hv/mshv_root.h
-> @@ -220,6 +220,29 @@ struct port_table_info {
->  	};
->  };
+> diff --git a/drivers/hv/Makefile b/drivers/hv/Makefile
+> index a49f93c2d245..eae003c4cb8f 100644
+> --- a/drivers/hv/Makefile
+> +++ b/drivers/hv/Makefile
+> @@ -14,7 +14,8 @@ hv_vmbus-y := vmbus_drv.o \
+>  hv_vmbus-$(CONFIG_HYPERV_TESTING)	+= hv_debugfs.o
+>  hv_utils-y := hv_util.o hv_kvp.o hv_snapshot.o hv_utils_transport.o
+>  mshv_root-y := mshv_root_main.o mshv_synic.o mshv_eventfd.o mshv_irq.o \
+> -	       mshv_root_hv_call.o mshv_portid_table.o mshv_regions.o
+> +	       mshv_root_hv_call.o mshv_portid_table.o mshv_regions.o \
+> +               mshv_vfio.o
+>  mshv_vtl-y := mshv_vtl_main.o
 >  
-> +struct mshv_device {
-> +	const struct mshv_device_ops *device_ops;
-> +	struct mshv_partition *device_pt;
-> +	void *device_private;
-> +	struct hlist_node device_ptnode;
+>  # Code that must be built-in
+> diff --git a/drivers/hv/mshv_vfio.c b/drivers/hv/mshv_vfio.c
+> new file mode 100644
+> index 000000000000..6ea4d99a3bd2
+> --- /dev/null
+> +++ b/drivers/hv/mshv_vfio.c
+> @@ -0,0 +1,210 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * VFIO-MSHV bridge pseudo device
+> + *
+> + * Heavily inspired by the VFIO-KVM bridge pseudo device.
+> + */
+> +#include <linux/errno.h>
+> +#include <linux/file.h>
+> +#include <linux/list.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/slab.h>
+> +#include <linux/vfio.h>
+> +
+> +#include "mshv.h"
+> +#include "mshv_root.h"
+> +
+> +struct mshv_vfio_file {
+> +	struct list_head node;
+> +	struct file *file;	/* list of struct mshv_vfio_file */
 > +};
 > +
-> +struct mshv_device_ops {
-> +	const char *device_name;
-> +	long (*device_create)(struct mshv_device *dev, u32 type);
-> +	void (*device_release)(struct mshv_device *dev);
-> +	long (*device_set_attr)(struct mshv_device *dev,
-> +				struct mshv_device_attr *attr);
-> +	long (*device_has_attr)(struct mshv_device *dev,
-> +				struct mshv_device_attr *attr);
+> +struct mshv_vfio {
+> +	struct list_head file_list;
+> +	struct mutex lock;
 > +};
 > +
-> +extern struct mshv_device_ops mshv_vfio_device_ops;
-> +int mshv_vfio_ops_init(void);
-> +void mshv_vfio_ops_exit(void);
-> +long mshv_partition_ioctl_create_device(struct mshv_partition *partition,
-> +					void __user *user_args);
+> +static bool mshv_vfio_file_is_valid(struct file *file)
+> +{
+> +	bool (*fn)(struct file *file);
+> +	bool ret;
 > +
->  int mshv_update_routing_table(struct mshv_partition *partition,
->  			      const struct mshv_user_irq_entry *entries,
->  			      unsigned int numents);
-> diff --git a/include/uapi/linux/mshv.h b/include/uapi/linux/mshv.h
-> index dee3ece28ce5..b7b10f9e2896 100644
-> --- a/include/uapi/linux/mshv.h
-> +++ b/include/uapi/linux/mshv.h
-> @@ -252,6 +252,7 @@ struct mshv_root_hvcall {
->  #define MSHV_GET_GPAP_ACCESS_BITMAP	_IOWR(MSHV_IOCTL, 0x06, struct mshv_gpap_access_bitmap)
->  /* Generic hypercall */
->  #define MSHV_ROOT_HVCALL		_IOWR(MSHV_IOCTL, 0x07, struct mshv_root_hvcall)
-> +#define MSHV_CREATE_DEVICE		_IOWR(MSHV_IOCTL, 0x08, struct mshv_create_device)
->  
-
-With this commit, the IOCTL number is exposed to userspace but it doesn't work.
-Ideally the IOCTL number should be added in the commit where it becomes usable.
-
->  /*
->   ********************************
-> @@ -402,4 +403,34 @@ struct mshv_sint_mask {
->  /* hv_hvcall device */
->  #define MSHV_HVCALL_SETUP        _IOW(MSHV_IOCTL, 0x1E, struct mshv_vtl_hvcall_setup)
->  #define MSHV_HVCALL              _IOWR(MSHV_IOCTL, 0x1F, struct mshv_vtl_hvcall)
+> +	fn = symbol_get(vfio_file_is_valid);
+> +	if (!fn)
+> +		return false;
 > +
-> +/* device passhthru */
-> +#define MSHV_CREATE_DEVICE_TEST		1
+> +	ret = fn(file);
 > +
-> +enum {
-> +	MSHV_DEV_TYPE_VFIO,
-> +	MSHV_DEV_TYPE_MAX,
+> +	symbol_put(vfio_file_is_valid);
+> +
+> +	return ret;
+> +}
+> +
+> +static long mshv_vfio_file_add(struct mshv_device *mshvdev, unsigned int fd)
+> +{
+> +	struct mshv_vfio *mshv_vfio = mshvdev->device_private;
+> +	struct mshv_vfio_file *mvf;
+> +	struct file *filp;
+> +	long ret = 0;
+> +
+> +	filp = fget(fd);
+> +	if (!filp)
+> +		return -EBADF;
+> +
+> +	/* Ensure the FD is a vfio FD. */
+> +	if (!mshv_vfio_file_is_valid(filp)) {
+> +		ret = -EINVAL;
+> +		goto out_fput;
+> +	}
+> +
+> +	mutex_lock(&mshv_vfio->lock);
+> +
+> +	list_for_each_entry(mvf, &mshv_vfio->file_list, node) {
+> +		if (mvf->file == filp) {
+> +			ret = -EEXIST;
+> +			goto out_unlock;
+> +		}
+> +	}
+> +
+> +	mvf = kzalloc(sizeof(*mvf), GFP_KERNEL_ACCOUNT);
+> +	if (!mvf) {
+> +		ret = -ENOMEM;
+> +		goto out_unlock;
+> +	}
+> +
+> +	mvf->file = get_file(filp);
+> +	list_add_tail(&mvf->node, &mshv_vfio->file_list);
+> +
+> +out_unlock:
+> +	mutex_unlock(&mshv_vfio->lock);
+> +out_fput:
+> +	fput(filp);
+> +	return ret;
+> +}
+> +
+> +static long mshv_vfio_file_del(struct mshv_device *mshvdev, unsigned int fd)
+> +{
+> +	struct mshv_vfio *mshv_vfio = mshvdev->device_private;
+> +	struct mshv_vfio_file *mvf;
+> +	long ret;
+> +
+> +	CLASS(fd, f)(fd);
+> +
+> +	if (fd_empty(f))
+> +		return -EBADF;
+> +
+> +	ret = -ENOENT;
+> +	mutex_lock(&mshv_vfio->lock);
+> +
+> +	list_for_each_entry(mvf, &mshv_vfio->file_list, node) {
+> +		if (mvf->file != fd_file(f))
+> +			continue;
+> +
+> +		list_del(&mvf->node);
+> +		fput(mvf->file);
+> +		kfree(mvf);
+> +		ret = 0;
+> +		break;
+> +	}
+> +
+> +	mutex_unlock(&mshv_vfio->lock);
+> +	return ret;
+> +}
+> +
+> +static long mshv_vfio_set_file(struct mshv_device *mshvdev, long attr,
+> +			      void __user *arg)
+> +{
+> +	int32_t __user *argp = arg;
+> +	int32_t fd;
+> +
+> +	switch (attr) {
+> +	case MSHV_DEV_VFIO_FILE_ADD:
+> +		if (get_user(fd, argp))
+> +			return -EFAULT;
+> +		return mshv_vfio_file_add(mshvdev, fd);
+> +
+> +	case MSHV_DEV_VFIO_FILE_DEL:
+> +		if (get_user(fd, argp))
+> +			return -EFAULT;
+> +		return mshv_vfio_file_del(mshvdev, fd);
+> +	}
+> +
+> +	return -ENXIO;
+> +}
+> +
+> +static long mshv_vfio_set_attr(struct mshv_device *mshvdev,
+> +			      struct mshv_device_attr *attr)
+> +{
+> +	switch (attr->group) {
+> +	case MSHV_DEV_VFIO_FILE:
+> +		return mshv_vfio_set_file(mshvdev, attr->attr,
+> +					  u64_to_user_ptr(attr->addr));
+> +	}
+> +
+> +	return -ENXIO;
+> +}
+> +
+> +static long mshv_vfio_has_attr(struct mshv_device *mshvdev,
+> +			      struct mshv_device_attr *attr)
+> +{
+> +	switch (attr->group) {
+> +	case MSHV_DEV_VFIO_FILE:
+> +		switch (attr->attr) {
+> +		case MSHV_DEV_VFIO_FILE_ADD:
+> +		case MSHV_DEV_VFIO_FILE_DEL:
+> +			return 0;
+> +		}
+> +
+> +		break;
+> +	}
+> +
+> +	return -ENXIO;
+> +}
+> +
+> +static long mshv_vfio_create_device(struct mshv_device *mshvdev, u32 type)
+> +{
+> +	struct mshv_device *tmp;
+> +	struct mshv_vfio *mshv_vfio;
+> +
+> +	/* Only one VFIO "device" per VM */
+> +	hlist_for_each_entry(tmp, &mshvdev->device_pt->pt_devices,
+> +			     device_ptnode)
+> +		if (tmp->device_ops == &mshv_vfio_device_ops)
+> +			return -EBUSY;
+> +
+> +	mshv_vfio = kzalloc(sizeof(*mshv_vfio), GFP_KERNEL_ACCOUNT);
+> +	if (mshv_vfio == NULL)
+> +		return -ENOMEM;
+> +
+> +	INIT_LIST_HEAD(&mshv_vfio->file_list);
+> +	mutex_init(&mshv_vfio->lock);
+> +
+> +	mshvdev->device_private = mshv_vfio;
+> +
+> +	return 0;
+> +}
+> +
+> +/* This is called from mshv_device_fop_release() */
+> +static void mshv_vfio_release_device(struct mshv_device *mshvdev)
+> +{
+> +	struct mshv_vfio *mv = mshvdev->device_private;
+> +	struct mshv_vfio_file *mvf, *tmp;
+> +
+> +	list_for_each_entry_safe(mvf, tmp, &mv->file_list, node) {
+> +		fput(mvf->file);
+> +		list_del(&mvf->node);
+> +		kfree(mvf);
+> +	}
+> +
+> +	kfree(mv);
+> +	kfree(mshvdev);
+> +}
+> +
+> +struct mshv_device_ops mshv_vfio_device_ops = {
+> +	.device_name = "mshv-vfio",
+> +	.device_create = mshv_vfio_create_device,
+> +	.device_release = mshv_vfio_release_device,
+> +	.device_set_attr = mshv_vfio_set_attr,
+> +	.device_has_attr = mshv_vfio_has_attr,
 > +};
-> +
-> +struct mshv_create_device {
-> +	__u32	type;	     /* in: MSHV_DEV_TYPE_xxx */
-> +	__u32	fd;	     /* out: device handle */
-> +	__u32	flags;	     /* in: MSHV_CREATE_DEVICE_xxx */
-> +};
-> +
-> +#define MSHV_DEV_VFIO_FILE      1
-> +#define MSHV_DEV_VFIO_FILE_ADD	1
-> +#define MSHV_DEV_VFIO_FILE_DEL	2
-> +
-> +struct mshv_device_attr {
-> +	__u32	flags;		/* no flags currently defined */
-> +	__u32	group;		/* device-defined */
-> +	__u64	attr;		/* group-defined */
-> +	__u64	addr;		/* userspace address of attr data */
-> +};
-> +
-> +/* Device fds created with MSHV_CREATE_DEVICE */
-> +#define MSHV_SET_DEVICE_ATTR	_IOW(MSHV_IOCTL, 0x00, struct mshv_device_attr)
-> +#define MSHV_HAS_DEVICE_ATTR	_IOW(MSHV_IOCTL, 0x01, struct mshv_device_attr)
-> +
->  #endif
 
 
