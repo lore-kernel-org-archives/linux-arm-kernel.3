@@ -4,147 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E766CD77899
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 17:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEC1DD7789D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 17:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ljao5ViJq6W7qt0/lxFs7Wy1IQIoqrGV5TOWwOAv5s=; b=ojZqSVlRzz59gFVyICMwB+LKMt
-	oHQqfuz2Vgn86ggTJk6SAihE5HwyWkJPrYp6vkRA/SKqRVgxXjhPUHZxJHxxfMq1SrtQwszaJlgpM
-	rEDl7cu/Dizr123OteA6Z7/sGWIpMTeB4ZNw3UZKzp07Li6XOzV4bq3sFd8MgLDcgRZk1YSMS4mpB
-	GXuLTqYRn98gwMTFXAmQmmj91XUZOUdjjJuDLiz05oU5Tvd4FqujSTtEqd/RxKtYOYRaC0pqroj99
-	1TKk733xtlQEmAgmSinZZfbcj8TOUlhKOW+hAv1MhC/7N5EQYrhdFiGNb8lM2NCNzXx+ZSnODMiiU
-	gneo+XAw==;
+	bh=CXvuPYQD/fisJzCKsA/DBraI1phkxdS4K0wIHG10zkI=; b=CKRD2JOh+AZW5PBfSSzdm0kGKt
+	yVdD4zHor27b2W7UI/yK4rDzTjARVcPpR7naIqiVnJaSmZ3R8tUGBYaY31MrYkTyTrV44cj30uiPM
+	G6rIPCZsKWECrCLiKc/aLuM/8AiUajSyGlVvPkQ+1xfD1EIeFaxNJNKF1mYTepXM2F8WWHKVJN3Lp
+	7O5QbIBn8WrDRE/VqiH9f1E0OtTQvQ8Zygw2schraclk5CUR1cTXEQpuBnge9FBmuJr0mUA+5h+Ot
+	/OjoeCyQiJoS3+ccInRmoJNl80qbw4T6nwCn0A+sPBgRcU2XgPHFNgHcYwpoLcwSflWvmXlOZD38I
+	jdjmTV9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjLC1-00000009IuD-3KT4;
-	Fri, 23 Jan 2026 17:43:33 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vjLFb-00000009J3w-1h6W;
+	Fri, 23 Jan 2026 17:47:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjLBx-00000009Itp-3tQ9
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 17:43:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mcSKhkNamuQY/y6INloDI7m5TYx1RHY6ejPOi/YEKAahr9sy9gjjokySSapkQoZYV6Olts5/DzjQgJ4NpjAXq1FVRDeeGcjYiNssKCchYNkKMaXdkyZliqWqrBoZjIEtS875fyBqa5dVBHdIqdPWWEsLoyR2mP7KpVM2hRiYAcoBDr14tTbxFBWk425b3ISidOn3N2FwdbH5gIvS2AD+yeT7gdLUJaXbm/bbEviYJpeKF9ctQJ1W+MZcpgY2MbQAey+D1tJAivPsKWWmcSOz04e7/feqkAMrterPELad/Mtxo+JHJsAIh50r60KN97xcOpy0NHmpk3kDEiovkcx+aQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4ljao5ViJq6W7qt0/lxFs7Wy1IQIoqrGV5TOWwOAv5s=;
- b=nxSslU9vIQpRf68SY0gJGOqV2seXLWJxueQFBgWKOW7eymu93q4tSIltoZHYxicwnYFpIVezufDP1fLjPZVncbvR6Zk3+aDVcNcnnI/YE943ZH6Cim3d9Z2/vzbOv5uK532LA3xudn4gLc23PGtG6EpqhHNOzZ3HThdXsfoidT7WQ0T+ExzFp5JHma+9PFfViwS+ywdi1PZD02JBG8FkQ+wRZ5Mw7MAJQrBCK+LiWIGoTkLE02+oQJcmzOU2VzS0Bqg4xZ83bmawggqMH6+AkdHYkbmckYz+fU+v3/TrVG6uskbnxSjP0re0JewQNZwbbHxxuJz7w12F+Bum/SJG8w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4ljao5ViJq6W7qt0/lxFs7Wy1IQIoqrGV5TOWwOAv5s=;
- b=nFOdGvYF+6esDulMEhd3REOAzZebCK+aTWGGbAl0e+ocyIdfIWZgYw8ApKdrKFOhTvdzA7YQzirGS6BAfPbETF8optSdP3RkzNcTrXWgTyVRe+ePr2+bqA1VVPD92KvexBnr5rAfxNuWmzLesSbhz7cBF8auWX6urvrfeiBZ5Ac51V9XjD+Tp79+mFeS17T1Q/m+Z67nlWK1gYroQxbR0GNkPOLt8WQrV6OOfYptPrn7WOWac4iO2ZG95rfz+7mtOi7I8W3TZdrjWPboVnMj4z9xZMoV6T4+0LUcWHHt1zWEnm8X8FWs608z/oh1QCznb2eXvm29XxDcT8dZXUyYJw==
-Received: from CH2PR04CA0008.namprd04.prod.outlook.com (2603:10b6:610:52::18)
- by CY8PR12MB7436.namprd12.prod.outlook.com (2603:10b6:930:50::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Fri, 23 Jan
- 2026 17:43:22 +0000
-Received: from CH2PEPF00000141.namprd02.prod.outlook.com
- (2603:10b6:610:52:cafe::47) by CH2PR04CA0008.outlook.office365.com
- (2603:10b6:610:52::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.11 via Frontend Transport; Fri,
- 23 Jan 2026 17:43:02 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CH2PEPF00000141.mail.protection.outlook.com (10.167.244.74) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.3 via Frontend Transport; Fri, 23 Jan 2026 17:43:22 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 23 Jan
- 2026 09:43:06 -0800
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 23 Jan
- 2026 09:43:06 -0800
-Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.8)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 23 Jan 2026 09:43:05 -0800
-Date: Fri, 23 Jan 2026 09:43:03 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>
-CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jgg@nvidia.com>, <balbirs@nvidia.com>, <miko.lenczewski@arm.com>,
-	<peterz@infradead.org>, <kevin.tian@intel.com>, <praan@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v9 6/7] iommu/arm-smmu-v3: Add arm_smmu_invs based
- arm_smmu_domain_inv_range()
-Message-ID: <aXOzJwQJ7z8qKcEH@Asurada-Nvidia>
-References: <cover.1766174731.git.nicolinc@nvidia.com>
- <06999367d001283744fd98eb7c1823afd516ce84.1766174731.git.nicolinc@nvidia.com>
- <aXOqVcX9YEC-Ikdt@willie-the-truck>
- <aXOrnMLLzZL9BtRT@willie-the-truck>
+	id 1vjLFZ-00000009J3n-3euv;
+	Fri, 23 Jan 2026 17:47:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EAE8460147;
+	Fri, 23 Jan 2026 17:47:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20E4DC4CEF1;
+	Fri, 23 Jan 2026 17:47:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769190432;
+	bh=Fvul9cTQTipTMlqs6XhjhLKNYQVXUkoZrLxvwUon1vQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EnJs6i5cTHOlKaNlU87cLSBa8KHPBnahqPMdwuu7AmNbJl+0lAV32DFm2xxVfJ+s1
+	 M2VjiYN269iF/Fz1hKsagkuBCbTtBLNmI4o76vHdDNuWy/vP5qfM2NmJrjsyIOGpPz
+	 oTtEljWa8LRkKv211KZkl0aIhoPn1LelEFGMrNm/2rbvJtBG7YzZmU8K7BwP43X2yn
+	 1wBqL6mh9sWW8eYykQfWb4HzEVFhMmOcgdtcmohtx/ru/FspacPOjG336TlE1GCTPo
+	 coPzT9tMq0lspF7y77DhDjko2h+ZmGKtWz/GJJj+42BGTI1U9g+GPumXQVn5Jhy7gw
+	 sGkBR+CQRM/Lw==
+Date: Fri, 23 Jan 2026 14:47:09 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Zecheng Li <zecheng@google.com>, Tianyou Li <tianyou.li@intel.com>,
+	Thomas Falcon <thomas.falcon@intel.com>,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Suchit Karunakaran <suchitkarunakaran@gmail.com>,
+	Athira Rajeev <atrajeev@linux.ibm.com>,
+	Aditya Bodkhe <aditya.b1@linux.ibm.com>,
+	Howard Chu <howardchu95@gmail.com>,
+	Krzysztof =?utf-8?Q?=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>,
+	"Dr. David Alan Gilbert" <linux@treblig.org>,
+	Shimin Guo <shimin.guo@skydio.com>,
+	Sergei Trofimovich <slyich@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 11/12] perf disasm: Refactor arch__find and
+ initialization of arch structs
+Message-ID: <aXO0Hao8t-McaAU3@x1>
+References: <20260122213516.671089-1-irogers@google.com>
+ <20260122213516.671089-12-irogers@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aXOrnMLLzZL9BtRT@willie-the-truck>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF00000141:EE_|CY8PR12MB7436:EE_
-X-MS-Office365-Filtering-Correlation-Id: cd33ac59-a2f5-4dd2-8c51-08de5aa6e724
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|36860700013|1800799024|3613699012;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6i87ZF5EzUyEyz4Ar3oqXT6dWP5Q4yxMS5adzlkT+CXCdcFJsS7VRk/Xa/Um?=
- =?us-ascii?Q?wRXVRExL9EaRA7BuX2lfX8I5alaP/yrB8DGKXAjyyuaDvCBwLQpklq9ENooY?=
- =?us-ascii?Q?Qs6JfMAHALs4CYso7blIkFf+PUH7HJxS21LtZNH9xSjdR3BYdxXfAhI3gEbd?=
- =?us-ascii?Q?lrcC6UX7xGdadJDEMj2zFNa5hy7VNy1mpuuAH9y6VYc/0ZBG8IseOP9vQ03X?=
- =?us-ascii?Q?W0KGatbHmLwiYSfPj/Lffyj+hIfb0PnWjpQ3ZzpPhHfASSdOns6UBwcqlQ/3?=
- =?us-ascii?Q?Am2py9LjHG2iSyVIFvWtzSRoywvMj8S+SCXgu0DAoaVDhew1a9YHR7lFah9t?=
- =?us-ascii?Q?Rp16OAwrl84L57LXlECznf0Q6MyC5RCJUpGc/aMaaurxR4V1MkClDkjV+DlN?=
- =?us-ascii?Q?tJx0mdolmLxuvOWujH1djmP14nAMLUyGTZIhmSJ5Eh1Ei6RpLzk02LNtfJl0?=
- =?us-ascii?Q?XHA6wilE4xCxojQQkl1bykczLy0n235eUoyaYL0x71zaW4yyNs0dXCHdug3V?=
- =?us-ascii?Q?8fxfCJ73sTTgFJ0cwpbQAgG7j/r2r0zElsFPw3oYt6Tv4/8IQG9QV4tGuGZU?=
- =?us-ascii?Q?OXJrAF/0UzCWybpXemjA7h5TcKIS9N2g3JvN99MAv4WD1h8PEKpIDqs7ztm+?=
- =?us-ascii?Q?yjOlZ7lDJGJ1SPA7WTXXxLprWIk71SgnRFaaelTdfq8KlzpyNRgMj3pnGZwe?=
- =?us-ascii?Q?Q2uTY0CG5tKfl0HvoR0qLJCQPG7SIReesNMK9FbyHnVjnFHvjgeeECPaVCaw?=
- =?us-ascii?Q?n0d3rDCVdRBDK5yn7J30z3/XxPQV3pmnjmEoxzqCR25mi2U87gykB8Kcl5dJ?=
- =?us-ascii?Q?pSm+FKuyOEBSl5rMb84VL9hfWGXCQ4Pb0rU2YlKDAkiis6/BSIuAx8Meurdj?=
- =?us-ascii?Q?g8g19iYCA8b2wLFKZZeRb82Z6ROOXVwHg5rotJ8SPozVmr5VsLX0lWbZperx?=
- =?us-ascii?Q?yrodu5gXyLN47tswsuArew7M1u92g6QCWZmsZMpC5UbYfoWlIHCTJvzCA4UN?=
- =?us-ascii?Q?aag1H5z+wXs/hK93QOPtw0ydkS3Y0TRXlsmwv7GSZMJdnBtRrfvrAHugmI3t?=
- =?us-ascii?Q?XHz+l/eLY571qqAt9qZsb1HCPzhqZMAb0vf0Gq+z4Hwn4j17Q9Zuukxa8k2Z?=
- =?us-ascii?Q?r1K2vARoRx0Rki635epS0AKkftNV3U7FZYqYg1iEtrCBOEmO5DpLNCoVP4pO?=
- =?us-ascii?Q?o+stpYNBVy5vAKFi9zpSlEtlu3Jjd2wogmqIivgHu18oYIc1pPaTIkYJR0sq?=
- =?us-ascii?Q?0ncesXWXsGNmBKqhUKAYT1T/iPINxcEfChVMVTuRxvs2PpSkEOojezddBtZR?=
- =?us-ascii?Q?mAK8cjqUq+SjL9DTvhV/dSnaTNRQb5MBpYUpstDbKMQkUiXYKTUXAYACrDHq?=
- =?us-ascii?Q?fF1y9ApMw48GLMKMKd6AthaZ/AxxTfPLZOYimPOoeR/JvLNd0M6JZ2XIeVUx?=
- =?us-ascii?Q?1BxMMNkydVR2xXj6VHOkv4XkUx63la6sOL+FXfV3AteFXFZ248NA4RwEwVAG?=
- =?us-ascii?Q?uHp5QP5EeqSV26hTy+pvvuag6AHatrQqWhfg08xaTzGeGYDAxcpQE4DXt3sB?=
- =?us-ascii?Q?w6aosbOwU0SfuEjjNgOhttvDEjOtpCwhM23yeuq/dLPp56WG7Kb4SuTDYKdn?=
- =?us-ascii?Q?JHUgRggiqIpkEvJmvzm6allyRtISXFzfYni1Xe1oRo/YcyXHbzoxYb7dYaWm?=
- =?us-ascii?Q?lAp1xBtTixoL52+0YaYCa3wP3Ew=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(36860700013)(1800799024)(3613699012);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 17:43:22.0621
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cd33ac59-a2f5-4dd2-8c51-08de5aa6e724
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000141.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7436
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_094331_386250_CF0173BB 
-X-CRM114-Status: GOOD (  19.18  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260122213516.671089-12-irogers@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,45 +96,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 05:10:52PM +0000, Will Deacon wrote:
-> On Fri, Jan 23, 2026 at 05:05:31PM +0000, Will Deacon wrote:
-> > On Fri, Dec 19, 2025 at 12:11:28PM -0800, Nicolin Chen wrote:
-> > > +	/*
-> > > +	 * We are committed to updating the STE. Ensure the invalidation array
-> > > +	 * is visible to concurrent map/unmap threads, and acquire any racing
-> > > +	 * IOPTE updates.
-> > > +	 *
-> > > +	 *  [CPU0]                        | [CPU1]
-> > > +	 *                                |
-> > > +	 *  change IOPTEs and TLB flush:  |
-> > > +	 *  arm_smmu_domain_inv_range() { | arm_smmu_install_old_domain_invs {
-> > > +	 *    ...                         |   rcu_assign_pointer(new_invs);
-> > > +	 *    smp_mb(); // ensure IOPTEs  |   smp_mb(); // ensure new_invs
-> > > +	 *    ...                         |   kfree_rcu(old_invs, rcu);
-> > > +	 *    // load invalidation array  | }
-> > > +	 *    invs = rcu_dereference();   | arm_smmu_install_ste_for_dev {
-> > > +	 *                                |   STE = TTB0 // read new IOPTEs
-> > > +	 */
-> > > +	smp_mb();
-> > 
-> > I don't think we need to duplicate this comment three times, you can just
-> > refer to the first function (e.g. "See ordering comment in
-> > arm_smmu_domain_inv_range()").
+On Thu, Jan 22, 2026 at 01:35:15PM -0800, Ian Rogers wrote:
+> Switch arch__find to using an ELF machine number rather than a
+> string. Rather than an array of fixed size arch structs turn the init
+> functions into new functions indexed by the ELF machine they
+> correspond to. This allows data to be stored with a struct arch with
+> the container_of trick, so the priv variable can be removed. Switch to
+> using the thread to find the arch rather than the evsel as the evsel
+> only has limited notions of the running thread upon which disassembly
+> is performed. Factor out the e_machine and e_flags into their own
+> struct to make them easier to pass around.
 
-I'll drop the duplicates.
+Added:
 
-> > However, isn't the comment above misleading for this case?
-> > arm_smmu_install_old_domain_invs() has the sequencing the other way
-> > around on CPU 1: we should update the STE first.
+⬢ [acme@toolbx perf-tools-next]$ git diff
+diff --git a/tools/perf/util/disasm.c b/tools/perf/util/disasm.c
+index 46740d1e58580004..4f60726247d62764 100644
+--- a/tools/perf/util/disasm.c
++++ b/tools/perf/util/disasm.c
+@@ -1,5 +1,9 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ #include <ctype.h>
++#include <elf.h>
++#ifndef EF_CSKY_ABIMASK
++#define EF_CSKY_ABIMASK        0XF0000000
++#endif
+ #include <errno.h>
+ #include <fcntl.h>
+ #include <inttypes.h>
 
-Ah, that's true. It installs new domain invs first then ste, and
-lastly updates the old domain invs.
 
-> I also think we probably want a dma_mb() instead of an smp_mb() for all
-> of these examples? It won't make any practical difference but I think it
-> helps readability given that one of the readers is the PTW.
+With:
 
-OK. I'll change to dma_mb().
+    [ Include elf.h for EM_CSKY and friends and also conditionally define EM_CSKY_ABIMASK for old distros ]
 
-Nicolin
 
