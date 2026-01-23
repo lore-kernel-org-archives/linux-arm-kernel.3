@@ -4,103 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF2D1D72343
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 07:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 186D5D72343
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 07:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3wGYuKIP/EpvOevgps8iR2vaiu5EFDILH9BKclivBpM=; b=yLlKj9vQnuy8UxC0onpitCoyit
-	tGmn0SJMLjZGNU7wRz8OQlKkMyjJHgeUJP3XXCIcdIVQ2AmVFEkVOMdqR4B3BHl/+5TC5Qu3lLKgU
-	DiufcPNCJnYsl46u1PSyc1StKtRgy2c3vap0Ywc3Y3mgZ+gNGXaY2965+NdxFtNcsSqTCSoJAWIJ9
-	XHKlZ//tMmg53U+wvU6NqnK4vwhkhDoh1gl+FBPbGUqPmBrv/5ZUpAE2ktbwbEMX430CV4yvrvyJm
-	lIB4d0UCy0vDQLMWuyXMWn4VHyJ31/0UzOSNOyENuOyiK+yDdW3kETuTt0KqCKD6Mvg1G24GYEDcz
-	uy3NacIw==;
+	bh=F+3k78bx1aX7CBbym1BrLkgKSsh2Cn7diJb826znBUg=; b=eCirrjFdeVmD40AOC07IN6j/tk
+	UvG1vJEeDiLy7FftNiQC2venHIMFGdq8lb7TSlUraENXoVxTGBECdvoK5OJrpQGUD1rMX3dcqNA69
+	ui0idvWZcjFyN0OFDt4C1slFqKh6Y7ZnGB2b3b2K442X+sCa5XOx1cUuwI7C2+PN2Cwg9HyrPVi+0
+	176Ejn1Pa8ScxeINHiXY1ZnGNZwtaIPHWdXGhgmLUoZBVDQznOIcU1BgPcjxdboTycIgKNh4m9Nwi
+	Y5PKGkxS46gVeBomF+Rmtj6Pvx7INl4YczDDv9tcNAMe9wfaBShm8KUG0+92INM5LIMe9iEqeojwG
+	qXVtitIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjBya-00000008OrX-2puX;
-	Fri, 23 Jan 2026 07:53:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vjC4q-00000008PBF-2h5W;
+	Fri, 23 Jan 2026 07:59:32 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjByZ-00000008OrQ-3Blp
+	id 1vjC4l-00000008PAV-3M89
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 07:53:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D088A60054;
-	Fri, 23 Jan 2026 07:53:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5E94C4CEF1;
-	Fri, 23 Jan 2026 07:53:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769154782;
-	bh=fdjWwUx70rzOT6gTwPdZN4jya1ec3IMb128z7o2sobw=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=mJLOmlxs7Cf8hqwYUTSmfbVtii7xXc2V5lFdSYsQFqzVGENvAPzkoqKbGF8LDK8eD
-	 H4FW/RbJjV/tRX0iMQIzHItkgfegG+xs3LgZoxWYcRkxaKqaG/3kb2vZZVlgLWbwD0
-	 ef7O08jUuk7UsZZgIlW/nMPrdzuwPboqgk8NlYNyCfxfMPHUvLiMpQL0hZFQ5yTW3w
-	 pwE1u3C4j44eQE8xg4RA3WZM+0sse+ZB2/KAJ3wbKpkn+RpiBHP2z4ersFlzbyTJwO
-	 xnjxGLd13Gwne8B0EjNQ1mRuloF3/G0JweseD4wS7Xs3neRGLGIkdvggQ0D7+gm240
-	 bXThbfJTA41Hg==
-Message-ID: <3b81369e-8cc7-4e9f-98ca-e6f528e1cab8@kernel.org>
-Date: Fri, 23 Jan 2026 08:52:58 +0100
+	Fri, 23 Jan 2026 07:59:31 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20260123075920epoutp0429452d30c3fcc809e1b5c0515c7aafeb~NTT7FkO6C2978829788epoutp04d
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 07:59:20 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20260123075920epoutp0429452d30c3fcc809e1b5c0515c7aafeb~NTT7FkO6C2978829788epoutp04d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1769155160;
+	bh=F+3k78bx1aX7CBbym1BrLkgKSsh2Cn7diJb826znBUg=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=QfJDIxQFm9JlURO19h5MsBM1YjXfD2k+Tb4byGG7QcOLb/Fk1QupI1JK2VaaA2yiV
+	 h5O/6i1+BaI8bm+zakquLqF4LUDuwKf50s7BpTEkjKzvxY2/PMqy/ZfqwkBV+Ue2dD
+	 1rlqYBoC6euYYXkdx7zlG0+JH4N+YaUZaNwMdxXg=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20260123075920epcas5p1a8e1797ca9ca254f0784b76c549cc8d1~NTT6rkSWT0288002880epcas5p1b;
+	Fri, 23 Jan 2026 07:59:20 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.87]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4dy9Lb0skfz2SSKj; Fri, 23 Jan
+	2026 07:59:19 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20260123075918epcas5p44ea70a01dc6d73b60ce3276e189f8aa0~NTT5LwGGK3122531225epcas5p42;
+	Fri, 23 Jan 2026 07:59:18 +0000 (GMT)
+Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20260123075914epsmtip2caf2751058022b16f1134256e4821cb3~NTT1XNrGb2636326363epsmtip2k;
+	Fri, 23 Jan 2026 07:59:13 +0000 (GMT)
+From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>
+Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
+	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
+In-Reply-To: <6f381f88-3a51-4fc8-844c-41b167b07628@kernel.org>
+Subject: RE: [PATCH v2 3/3] arm64: dts: exynos: ExynosAutov920: Enable USB
+ nodes
+Date: Fri, 23 Jan 2026 13:29:09 +0530
+Message-ID: <000f01dc8c3e$2b6dcf30$82496d90$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL 1/4] dt-bindings: Changes for v6.20-rc1
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Thierry Reding <thierry.reding@gmail.com>, arm@kernel.org, soc@kernel.org
-Cc: Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>
-References: <20260118080304.2646387-1-thierry.reding@gmail.com>
- <53d3a98f-3ad8-43c0-9094-39f229a5b698@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <53d3a98f-3ad8-43c0-9094-39f229a5b698@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQEa27yOGkcSyej7W4JCG0x5iKXFKwH8TUbRAqvnhIQBf1ky2raxgCUA
+Content-Language: en-in
+X-CMS-MailID: 20260123075918epcas5p44ea70a01dc6d73b60ce3276e189f8aa0
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20260122125136epcas5p2db0fa3d04671ddc915e60ae8c5bcfb98
+References: <20260122130721.205664-1-pritam.sutar@samsung.com>
+	<CGME20260122125136epcas5p2db0fa3d04671ddc915e60ae8c5bcfb98@epcas5p2.samsung.com>
+	<20260122130721.205664-4-pritam.sutar@samsung.com>
+	<6f381f88-3a51-4fc8-844c-41b167b07628@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260122_235928_508199_7282E027 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,31 +98,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/01/2026 08:47, Krzysztof Kozlowski wrote:
-> 
->>
->> Jon Hunter (4):
->>       dt-bindings: tegra: pmc: Update aotag as an optional aperture
-> 
-> ...
-> 
->>       ASoC: dt-bindings: realtek,rt5640: Document mclk
->>       ASoC: dt-bindings: realtek,rt5640: Update jack-detect
->>       ASoC: dt-bindings: realtek,rt5640: Document port node
-> 
-> No, Mark always promptly picks up bindings patches, so I do not
-> understand why these are here. These should go via subsystem maintainer.
+Hi Krzysztof,
 
-Heh, and Mark actually did take them on 9th of Jan, so you just
-duplicated the patches by taking them one week later. Mark also sends TY
-letters so you were notified these are picked up.
+Thank you for your feedback.=20
 
-Also Rob was fixing the same in separate patchset and Mark also took
-these, but then Mark handles the conflicts since its all in his own tree.
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: 22 January 2026 07:05 PM
+> To: Pritam Manohar Sutar <pritam.sutar=40samsung.com>; robh=40kernel.org;
+> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com
+> Cc: devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org;=
+ linux-
+> samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org;
+> rosa.pila=40samsung.com; dev.tailor=40samsung.com;
+> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
+> selvarasu.g=40samsung.com
+> Subject: Re: =5BPATCH v2 3/3=5D arm64: dts: exynos: ExynosAutov920: Enabl=
+e USB
+> nodes
+>=20
+> On 22/01/2026 14:07, Pritam Manohar Sutar wrote:
+> > Enable USB PHY and DWC3 USB controllers' nodes.
+> >
+> > Signed-off-by: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
+> > ---
+> >  .../boot/dts/exynos/exynosautov920-sadk.dts   =7C 21
+> +++++++++++++++++++
+> >  1 file changed, 21 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
+> > b/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
+> > index f90f7704597c..5896dd69334a 100644
+> > --- a/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
+> > +++ b/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
+> > =40=40 -160,15 +160,20 =40=40 &xtcxo =7B
+> >  &usbdrd31_ssphy =7B
+> >  	dvdd-supply =3D <&dummy_regulator>;
+> >  	vdd18-supply =3D <&dummy_regulator>;
+> > +	status =3D =22okay=22;
+>=20
+> You just added the node in the previous patch, so why it cant be enavled
+> there?
+>=20
+> >  =7D;
+> >
+> >  &usbdrd31_hsphy =7B
+> >  	dvdd-supply =3D <&dummy_regulator>;
+> >  	vdd18-supply =3D <&dummy_regulator>;
+> >  	vdd33-supply =3D <&dummy_regulator>;
+> > +	status =3D =22okay=22;
+> >  =7D;
+> >
+> >  &usbdrd31_dwc3 =7B
+> > +	dr_mode =3D =22otg=22;
+> > +	usb-role-switch;
+> > +	role-switch-default-mode =3D =22peripheral=22;
+>=20
+> Why did you add incomplete node in previous commit?
 
-These should have never been picked up one week later after Mark to
-Tegra soc tree. Please drop.
+The commit was added to align with the existing convention of separating=20
+node addition and enabling logic in USB configurations. This approach is=20
+referenced from commits such as:
 
-Best regards,
-Krzysztof
+https://lore.kernel.org/all/20250710-resends-july-exynos990-dt-v2-5-55033f7=
+3d1b0=40mentallysanemainliners.org/
+https://lore.kernel.org/all/20240429-usb-dts-gs101-v2-2-7c1797c9db80=40lina=
+ro.org/
+
+Please let me know if this commit to be merged in previous commit.
+
+>=20
+>=20
+> Best regards,
+> Krzysztof
+
+Regards,
+Pritam
+
 
