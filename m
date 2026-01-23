@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF229D6CFAE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 01:45:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3DAED6CFAE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 01:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
 	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sY4/2c8C+DeLPYZmSS72l0HDYcRT8AK2R4LsC3Dy15Y=; b=ZEiD5t4HNhKIy17ZZDu1tai0fa
-	Vnki4ErESFpuORtkF5XHqM37ZySupAgGdBsii6vRn+2v1JKQwoK6TUxlhL1p0ECoCkkngN0aqGfrU
-	Xu3JtcVRHaU8WFRJBDb861k8/sxY66+H+RfPuzy0zBtyhPueFz5v0zPgy5XFdV4vg2VDTr76wWkf/
-	B8wTUgf+Bms27+pvJzXRQv4Nz0xmtRK7+cmBCrTwBu3K4oSJB7Y5nprsb4E+rXcuR6ItWk+4VVllC
-	FzXiI7o9p0pHPfny8R430L8p6pBL9XhYj///T/A8GmswGk7mgw0b4x8xOhvQKplcJNADMSq+IlbnQ
-	Qbiv034A==;
+	bh=S3zi7Cs5yb+b4cX4asMUomLRUx2T6EiDtE7IRZ9uGbE=; b=Swi4wCWp5l1crGzjYnMoNa+HRb
+	S3iOceEatkjPRdFQT7DhtXqfi3617eTUlt29Pvv5K8LdzD4WaaxLV8jqxOf/Hb97/9B4xrNsSo9Kk
+	oDLuokNp7qt2/bUCo1YVzXzOWRWD7AtHloa6qi/1+i8a50JRdonXTX+1cxkAisEiie1Nt5OeL7EMo
+	Tgk6WYij7Bu23/RppLPV60wjxJBmTUkSMm7oddElY7XuFKBb8Bm9wj4A+LGAdqqOz0Lr/4RbhDXsr
+	HEnov7XuG72232gDB1dAlabveNrPHQVXfTIO7t6NXMZa6L25s8DrRqstvEob013MVkxLbYAJfo8RD
+	SPUPxj/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj6Ed-00000007z6B-04sE;
-	Fri, 23 Jan 2026 01:45:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vj6Eh-00000007z8b-0Ihl;
+	Fri, 23 Jan 2026 01:45:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj6Ea-00000007z5F-0rm8;
-	Fri, 23 Jan 2026 01:45:12 +0000
+	id 1vj6Ef-00000007z7C-0CAW;
+	Fri, 23 Jan 2026 01:45:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 57A8E60018;
-	Fri, 23 Jan 2026 01:45:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0251BC116C6;
-	Fri, 23 Jan 2026 01:45:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3EDAD43C23;
+	Fri, 23 Jan 2026 01:45:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED26CC19422;
+	Fri, 23 Jan 2026 01:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769132711;
-	bh=sY4/2c8C+DeLPYZmSS72l0HDYcRT8AK2R4LsC3Dy15Y=;
+	s=k20201202; t=1769132716;
+	bh=S3zi7Cs5yb+b4cX4asMUomLRUx2T6EiDtE7IRZ9uGbE=;
 	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=OP2tzqpr3RzeOOos1pyEkrshJ6SxS8YupTvMFbSp50IMcStUP9IbeznNaSUyV6Ion
-	 fsMrmRP3fD3y3GfEb5cxlmbPfPTdp2EMB0o8t9cKS7c5WwH3TV9R1+r/wdfTgbu3On
-	 fOqxMBgKwy+V6Dk4fvDwthqwsOJT4SWLU23GP7sETmzAusrLxxaVxyS5pjWRRJM7BV
-	 BFbdnHjEOaPEva9mNY8LwwndXwRokEfwu7sfdaG9nQpd+sk24uRhLKG3b2+2HhVTNs
-	 iNq14oZoeErw/PgAVDRcwjbEYLF6jWNQnxa4ZN/J37l7QyJER8h25ICXs/QwWlwdje
-	 fncW8NgJIaklQ==
+	b=ts0x65zAxMz2H0YAVA/kGOCLaWdLxg4aEU9swNSUPcJU1K3nQcxIWLGmOCB4Zlqy1
+	 JgD/iB6NT7JFx2hlayM5FcT3lOrZRA4tAREStVwtAqVAvF++8csySgPGxpFKRXHe8o
+	 +WfMLeRHA9wb8a1YltdRp23bP1GQEP2oEDdRgalI6BFyjPs0bjEKy9lv3BR1JSclZQ
+	 QXQ3QGOzEwXsYZBP1AYWNR9CdcuwUO4S9oDhGIj3jnhR9cvtTGPERkr00pIXw1Y6Ia
+	 Pv1deqrxH7225uqxDHAEwIw9k71EfLBMY3lm+H6lr9CfZJEn1jhwv0VeQDmswG6KbX
+	 q+KPjL1ue1T0Q==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20251215-mtk-pll-rpm-v3-4-5afb3191e869@collabora.com>
-References: <20251215-mtk-pll-rpm-v3-0-5afb3191e869@collabora.com> <20251215-mtk-pll-rpm-v3-4-5afb3191e869@collabora.com>
-Subject: Re: [PATCH RESEND v3 4/5] clk: mediatek: Refactor pllfh registration to pass device
+In-Reply-To: <20251215-mtk-pll-rpm-v3-3-5afb3191e869@collabora.com>
+References: <20251215-mtk-pll-rpm-v3-0-5afb3191e869@collabora.com> <20251215-mtk-pll-rpm-v3-3-5afb3191e869@collabora.com>
+Subject: Re: [PATCH RESEND v3 3/5] clk: mediatek: Pass device to clk_hw_register for PLLs
 From: Stephen Boyd <sboyd@kernel.org>
 Cc: kernel@collabora.com, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>, Chia-I Wu <olvaffe@gmail.com>, Dong Aisheng <aisheng.dong@nxp.com>, Laura Nao <laura.nao@collabora.com>, Matthias Brugger <matthias.bgg@gmail.com>, Michael Turquette <mturquette@baylibre.com>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, =?utf-8?q?N=C3=ADcolas?= F. R. A. Prado <nfraprado@collabora.com>, Yassine Oudjana <y.oudjana@protonmail.com>
-Date: Thu, 22 Jan 2026 18:45:09 -0700
-Message-ID: <176913270925.4027.3070477572441104376@lazor>
+Date: Thu, 22 Jan 2026 18:45:14 -0700
+Message-ID: <176913271422.4027.11922127679844362573@lazor>
 User-Agent: alot/0.11
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260122_174517_109119_90716DDC 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,14 +70,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Nicolas Frattaroli (2025-12-15 03:24:01)
-> After refactoring all of PLL to pass the device, it's now fairly easy to
-> refactor pllfh and its users, as pllfh registration wraps PLL
-> registration.
+Quoting Nicolas Frattaroli (2025-12-15 03:24:00)
+> Passing the struct device pointer to clk_hw_register allows for runtime
+> power management to work for the registered clock controllers. However,
+> the mediatek PLL clocks do not do this.
 >=20
-> Do this refactor and move all of the pllfh users to pass the device as
-> well.
+> Change this by adding a struct device pointer argument to
+> mtk_clk_register_pll, and fix up the only other user of it. Also add a
+> new member to the struct mtk_clk_pll for the struct device pointer,
+> which is set by mtk_clk_register_pll and is used by
+> mtk_clk_register_pll_ops.
 >=20
+> If mtk_clk_register_pll is called with a NULL struct device pointer,
+> then everything still works as expected; the clock core will simply
+> treat them as previously, i.e. without runtime power management.
+>=20
+> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
 ora.com>
 > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
