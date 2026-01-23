@@ -4,114 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADC4D74ED8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 13:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD8F1D74EC2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 14:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GGE0nuYpaKQHKtQZCEQ7uetRNJ215gHEdrxyGaPgKyU=; b=UkCRiZtnmPHJ0RAaRwPbnP5BrF
-	Vyd2kUGuN+IHA4w/tYje+MsLxr8JArrfOPjMMsIqA3XFl8e0VHtsOdEzYkHo99IJF9T8C/Pch4H4n
-	nbv1ijYatt57DZRkrtIXNzp9vjkijZtBVTmg4s9wJYrj7iwwvo8uKVl+GCnSgk5yOMfaTFJVeRw/D
-	2NWgNbNmX7kydI/IP/SMV1ho50b7juqKP9qNqfyY7LT0CcI5TuhA+X2z1P9PAO5R4D4ri0MEB1YrC
-	P8i+313aAmKpFTQmQzmetdVjI/RFgDRhwhrLNAadlFHJDMbeyJmSi1OgZFa+77NYsY0QgtlcmMZUs
-	rgN8pduQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NgEC5eyhY4+MSKOnKWY7Zr1eM/SeG2+0WBioc9ofS1k=; b=NqdVeRt1qMSukp55YFpawsWR+t
+	eRE6mvkeXBaWkipabAO5zRxn9WBaBhylVKl0MchCTiC72OWn7ivcwuR+44yuSAa3mOZR3n28wU7Xu
+	x//xpdwsFMTpjGU7t7F/NsWdcfd0z9QlnqeGVh7EjufmWcUWhMox7tR9IVGTwynOl2Sox4UH7sU75
+	m/okWfmkxuqQ+kMir+lkntWeo9wMppOsoAcIQlvbn2aYYBDtv7g4euJPg264TvKZANH+JApZvm5Xu
+	3EIlqNqUHk5KQBCKWHQzzXh050Vixi+rabfzghxhwwhgU9eBQk52S9658u8jfCxJ63Tuec4Qxqb+t
+	0NdUkW7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjHg0-00000008zr2-19Cw;
-	Fri, 23 Jan 2026 13:58:16 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1vjHjQ-0000000903j-1N0L;
+	Fri, 23 Jan 2026 14:01:48 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjHfx-00000008zqX-3C8J
+	id 1vjHjJ-0000000900U-2Jn5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 13:58:14 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-6505d141d02so3273269a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 05:58:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769176691; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ks5HmHFN14pFA69J9ZnI3C/8Vs6l8eMv4lcnO72S20PbtRpS2AEfZFh6DUj6DAyQxo
-         tw1wBDbpWPKShHKxYBz0dKgFV38U+3Z7CqEj8NSA56e3a9LnRKjy7j0tkt5MB60pp0IQ
-         Ry9hycaciez5grVsvAQJIdkvOlte+4c6cHvTIgNCzI5RAOxQ9vkJjXC8YJVcyDxkeCk4
-         k4Pp/PCrF3rw0hlTx65wU4g6lX3AzWWLFReq+qbFnY9BEMYKZ4c24p5ATgCyVOb1BkJi
-         oFQ9tl15kDIGReCiq39XqO0FjSU6oq1Y2/23w0zgFZZSvBWVLW1fXDWInErviS4KI4Ox
-         2Nfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=GGE0nuYpaKQHKtQZCEQ7uetRNJ215gHEdrxyGaPgKyU=;
-        fh=QLyEYW17WmK4dSo0ZCzP3j5mtLHbqcmzT7Ft2rL5Z5E=;
-        b=dyDATEvPCU9xxawjD6l6dKJCEDq1pyZbecXAMcnnZTKycILemkGG2lZM6eh+2IsDsi
-         S93ouUObH6f5hB5wp+tKuIY2eJkMCo+Z6TDZnOspOgJCfqKeSCe5UxBA4QnzgbP8Pynu
-         f0aDJyyYc+4KibKtIle/AlyUxXDZOu68lGgXlYSAsZKrYep0v6yvn3ZdQF8lAgqDnojT
-         sZf3ves7y2tqKAO6y+8jCwmcqpZuMxRnava72KqJKLKXc5vM5SgIUnkHcDJOkwDts3uk
-         ty7Tp+NvYtHbz1LGHGwjd3BO2ZdXjnISCUkpteU/55Lwv8kUSeP2POsh0q8/YuN0SuFu
-         MLlw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769176691; x=1769781491; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=GGE0nuYpaKQHKtQZCEQ7uetRNJ215gHEdrxyGaPgKyU=;
-        b=BYQnsg5kJ6jOLOgGwujfJaHjZXNuDei8NuyxVJ4h7ZFZ61kzfJ8UyZhsinVYfro3RH
-         WFMwsGqdTejG4pAWHQrh+Y0H9CgN8H3R1MI8BecYXaR1JnDuG18ZKXfp/zjeu0UsLJ8h
-         Rc2YuNKrwJZg4xlojemx9UQOZ7xgywZPLelCKOKLqnej7FDf/8VgUG2aAi8CLuegp2PH
-         xKpWYywwKMfSb6rF612IaVrFrqySZqhRKtBBkLzXMV4ZT4vWXDzvh1sbjOlo1+nMeNnM
-         OXiw86jF88wc40RmFAbZTEINTQpa6LEDXpdSUG9owwNxQOajWGVpcq9XuBs39oSzW47f
-         DzUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769176691; x=1769781491;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GGE0nuYpaKQHKtQZCEQ7uetRNJ215gHEdrxyGaPgKyU=;
-        b=He9yEWp0yC0A+x14utKgE6glcp9rpsAj7lHx/JPLQNFOfezsm9Np/yMzvPT9WhMQ11
-         PpsMdM2Z+7led9s1orRHp7PxIo31HKPw+yfdSQKFpYhYCiVBX8Aq/NvmXdbsiT+HZ6ge
-         7nvwEvDNKxlcXbCIV/ObL3EKKmbbue+hI6IaKwDfl/05Txl82AvZcsV80HGlSfZSf0xS
-         GK8iW9TOKtWTyoFzVQQP0NaEoMzBUb5EQsNMGJ78/VwX6c1qw56O7T6wRkMSkMpm5kX4
-         FHZP0ddcaV409V6gnjXJPBINvm3tf6qmFOzv7WUwn7bmeeRLePptU0BZ9Pb8WfYiG7N2
-         uFdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX9EASMh+jaQTrMbwEoQVY55VCryUVbmIbNZVbQjxzJ7tOzft0fMFCdaCSo8UkU6OAGNV/KWSj0hcfBcEDkK4db@lists.infradead.org
-X-Gm-Message-State: AOJu0Yww8s061e5dm7IXN9YgPkdKzVqEwSRWLNu+PgmsyD2gtbQPmiKD
-	xsqyrN+5lQO9oGYqMhC1BK315n+yV06mda6pTnldOIAJ9vSK8NpF9UwEU5iMMX/8wpCmpN1i/mP
-	xSPdrJoo8ru/lN8Y2tJODEyXg6l9TamXiQWNKMRzV7A==
-X-Gm-Gg: AZuq6aIq7O22QgcTG7AtF+Bpp831TLIRSBcc6MmP3k1FSTaFB3KFkT3OXtqNPJbYWRV
-	mYHqOinVY96Lc2QRvtnz2+ziojAJCJohfoIAja+ZWVBYKsXAb6J4OZUJG//T8x2100lgtXZ+3y6
-	m9lkxx+KZx1F5lGWnvT6IL5/jY0E/tVA3gYYFALJg8MAXn5wBcjKyjtC3R9UPS4rQ6EwsyNsxky
-	FylseHSvTJiAWJfC9CN5kqgzLZm5qYFRmm7VyLQDFCLNFLGGTfO4NfdYD6q9XG4MBicOSpyM+wX
-	0JvZwNp6V2mX0OEKljeXz5Mu
-X-Received: by 2002:a05:6402:144b:b0:64d:4a01:fc23 with SMTP id
- 4fb4d7f45d1cf-65848762170mr2202436a12.10.1769176691377; Fri, 23 Jan 2026
- 05:58:11 -0800 (PST)
+	Fri, 23 Jan 2026 14:01:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=NgEC5eyhY4+MSKOnKWY7Zr1eM/SeG2+0WBioc9ofS1k=; b=RqgsE/wKEuFKi15n6x6OT9ey+Z
+	TOJy61jND2YPMidG+oYXW9j1E81MsC7FZOetxevcmx4VApXPOvzQdPNrIZyQUo49qP4458rWLv+vK
+	zPJiFb7y6Uwfq1N/Zdel2HEeLVpIbxmABnd16q6ocIbCOJl1lSRhuYLpIIX4QLZPjAuIWdVGOuZ9s
+	u35oifjXRAO510UAHhDfPJnpgw3s/+Hn9z3WnHr96WQn8z1CI5gBR3Nn6xsHC5lIGRWPrx+We11Wc
+	vIPh/+ydxrYsC6O+S+egVPv+ULez3y7CNOqNDaPpDTtEIP9Rlx2Ux+HRbOeRz5o7bP6iUgXH5PObc
+	EeCyfB9Q==;
+Received: from [122.175.9.182] (port=43860 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpa (Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1vjHiX-0000000Dg3T-32co;
+	Fri, 23 Jan 2026 09:00:54 -0500
+From: Parvathi Pudi <parvathi@couthit.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	danishanwar@ti.com,
+	parvathi@couthit.com,
+	rogerq@kernel.org,
+	pmohan@couthit.com,
+	basharath@couthit.com,
+	afd@ti.com
+Cc: linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	alok.a.tiwari@oracle.com,
+	horms@kernel.org,
+	pratheesh@ti.com,
+	j-rameshbabu@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	mohan@couthit.com
+Subject: [PATCH net-next v12 0/3] STP/RSTP SWITCH support for PRU-ICSSM Ethernet driver
+Date: Fri, 23 Jan 2026 19:27:49 +0530
+Message-ID: <20260123135932.535735-1-parvathi@couthit.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260120115923.3463866-1-khristineandreea.barbulescu@oss.nxp.com> <20260120115923.3463866-7-khristineandreea.barbulescu@oss.nxp.com>
-In-Reply-To: <20260120115923.3463866-7-khristineandreea.barbulescu@oss.nxp.com>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Fri, 23 Jan 2026 14:57:58 +0100
-X-Gm-Features: AZwV_QiAQsZA5zBmebv7whc3eQu-e3v4RPd4MoMEVVMDs04rAsUL7nt2fdX8y_w
-Message-ID: <CAKfTPtD6LOMFGhzG3dhiSQCNbYrGLjBiT83eqz9mmwaDVpNV=w@mail.gmail.com>
-Subject: Re: [PATCH v8 06/10] pinctrl: s32g2: change the driver to also be
- probed as an MFD cell
-To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
-	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
-	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_055813_836036_188ED1FF 
-X-CRM114-Status: GOOD (  25.00  )
+X-CRM114-CacheID: sfid-20260123_060141_621656_8660EF75 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,137 +102,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 20 Jan 2026 at 12:59, Khristine Andreea Barbulescu
-<khristineandreea.barbulescu@oss.nxp.com> wrote:
->
-> From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
->
-> The old pinctrl bindings for SIUL2 are deprecated by a previous commit.
-> The new bindings for the SIUL2 represent it as an MFD device:
-> - one cell for combined pinctrl&GPIO
-> - two cella acting as syscon providers for SoC registers access
->
-> This commit allows the existing driver to also be probed as an MFD cell.
-> The changes only impact the way the driver initializes the regmaps for
-> accessing MSCR and IMCR registers.
->
-> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+Hi,
 
-[..]
+The DUAL-EMAC patch series for Megabit Industrial Communication Sub-system
+(ICSSM), which provides the foundational support for Ethernet functionality
+over PRU-ICSS on the TI SOCs (AM335x, AM437x, and AM57x), was merged into
+net-next recently [1].
 
-> @@ -969,12 +1017,28 @@ int s32_pinctrl_probe(struct platform_device *pdev,
->         s32_pinctrl_desc->confops = &s32_pinconf_ops;
->         s32_pinctrl_desc->owner = THIS_MODULE;
->
-> +       ipctl->regions = devm_kcalloc(&pdev->dev, soc_data->mem_regions,
-> +                                     sizeof(*ipctl->regions), GFP_KERNEL);
-> +       if (!ipctl->regions)
-> +               return -ENOMEM;
-> +
-> +       ipctl->legacy = soc_data->legacy;
-> +       if (soc_data->legacy)
-> +               ret = legacy_s32_pinctrl_regmap_init(pdev, ipctl);
-> +       else
-> +               ret = s32_pinctrl_mfd_regmap_init(pdev, ipctl);
-> +
-> +       if (ret)
-> +               return dev_err_probe(&pdev->dev, ret,
-> +                                    "Failed to init driver regmap!\n");
-> +
->         ret = s32_pinctrl_probe_dt(pdev, ipctl);
->         if (ret)
->                 return dev_err_probe(&pdev->dev, ret,
->                                      "Fail to probe dt properties\n");
->
-> -       ret = devm_pinctrl_register_and_init(&pdev->dev, s32_pinctrl_desc,
-> +       ret = devm_pinctrl_register_and_init(s32_get_dev(ipctl),
+This patch series enhances the PRU-ICSSM Ethernet driver to support bridge
+(STP/RSTP) SWITCH mode, which has been implemented using the "switchdev"
+framework and interacts with the "mstp daemon" for STP and RSTP management
+in userspace.
 
-you should better add a child node for your pinctrl mfd device in its
-"nxp,s32g2-siul2" parent instead of registering the pinctrl device on
-the parent device. This would fix phandle to gpio too
+When the  SWITCH mode is enabled, forwarding of Ethernet packets using
+either the traditional store-and-forward mechanism or via cut-through is
+offloaded to the two PRU based Ethernet interfaces available within the
+ICSSM. The firmware running on the PRU inspects the bridge port states and
+performs necessary checks before forwarding a packet. This improves the
+overall system performance and significantly reduces the packet forwarding
+latency.
 
+Protocol switching from Dual-EMAC to bridge (STP/RSTP) SWITCH mode can be
+done as follows.
 
+Assuming eth2 and eth3 are the two physical ports of the ICSS2 instance:
 
-> +                                            s32_pinctrl_desc,
->                                              ipctl, &ipctl->pctl);
->         if (ret)
->                 return dev_err_probe(&pdev->dev, ret,
-> diff --git a/drivers/pinctrl/nxp/pinctrl-s32g2.c b/drivers/pinctrl/nxp/pinctrl-s32g2.c
-> index c49d28793b69..2d56ffb1a109 100644
-> --- a/drivers/pinctrl/nxp/pinctrl-s32g2.c
-> +++ b/drivers/pinctrl/nxp/pinctrl-s32g2.c
-> @@ -3,7 +3,7 @@
->   * NXP S32G pinctrl driver
->   *
->   * Copyright 2015-2016 Freescale Semiconductor, Inc.
-> - * Copyright 2017-2018, 2020-2022 NXP
-> + * Copyright 2017-2018, 2020-2022, 2024-2025 NXP
->   * Copyright (C) 2022 SUSE LLC
->   */
->
-> @@ -762,7 +762,7 @@ static const struct pinctrl_pin_desc s32_pinctrl_pads_siul2[] = {
->         S32_PINCTRL_PIN(S32G_IMCR_SIUL_EIRQ31),
->  };
->
-> -static const struct s32_pin_range s32_pin_ranges_siul2[] = {
-> +static const struct s32_pin_range legacy_s32_pin_ranges_siul2[] = {
->         /* MSCR pin ID ranges */
->         S32_PIN_RANGE(0, 101),
->         S32_PIN_RANGE(112, 122),
-> @@ -773,27 +773,47 @@ static const struct s32_pin_range s32_pin_ranges_siul2[] = {
->         S32_PIN_RANGE(942, 1007),
->  };
->
-> -static const struct s32_pinctrl_soc_data s32_pinctrl_data = {
-> +static const struct s32_pinctrl_soc_data legacy_s32_pinctrl_data = {
->         .pins = s32_pinctrl_pads_siul2,
->         .npins = ARRAY_SIZE(s32_pinctrl_pads_siul2),
-> -       .mem_pin_ranges = s32_pin_ranges_siul2,
-> -       .mem_regions = ARRAY_SIZE(s32_pin_ranges_siul2),
-> +       .mem_pin_ranges = legacy_s32_pin_ranges_siul2,
-> +       .mem_regions = ARRAY_SIZE(legacy_s32_pin_ranges_siul2),
-> +       .legacy = true,
->  };
->
->  static const struct of_device_id s32_pinctrl_of_match[] = {
->         {
->                 .compatible = "nxp,s32g2-siul2-pinctrl",
-> -               .data = &s32_pinctrl_data,
-> +               .data = &legacy_s32_pinctrl_data,
->         },
->         { /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, s32_pinctrl_of_match);
->
-> +static const struct s32_pin_range s32_pin_ranges_siul2[] = {
-> +       /* MSCR pin ID ranges */
-> +       S32_PIN_RANGE(0, 101),
-> +       S32_PIN_RANGE(112, 190),
-> +       /* IMCR pin ID ranges */
-> +       S32_PIN_RANGE(512, 595),
-> +       S32_PIN_RANGE(631, 1007),
-> +};
-> +
-> +static const struct s32_pinctrl_soc_data s32_pinctrl_data = {
-> +       .pins = s32_pinctrl_pads_siul2,
-> +       .npins = ARRAY_SIZE(s32_pinctrl_pads_siul2),
-> +       .mem_pin_ranges = s32_pin_ranges_siul2,
-> +       .mem_regions = ARRAY_SIZE(s32_pin_ranges_siul2),
-> +       .legacy = false,
-> +};
-> +
->  static int s32g_pinctrl_probe(struct platform_device *pdev)
->  {
->         const struct s32_pinctrl_soc_data *soc_data;
->
->         soc_data = of_device_get_match_data(&pdev->dev);
-> +       if (!soc_data)
-> +               soc_data = &s32_pinctrl_data;
->
->         return s32_pinctrl_probe(pdev, soc_data);
->  }
-> --
-> 2.50.1
->
+>> brctl addbr br0
+>> ip maddr add 01:80:c2:00:00:00 dev br0
+>> ip link set dev br0 address $(cat /sys/class/net/eth2/address)
+>> brctl addif br0 eth2
+>> brctl addif br0 eth3
+>> mstpd
+>> brctl stp br0 on
+# STP to RSTP mode
+>> mstpctl setforcevers br0 rstp
+>> ip link set dev br0 up
+
+To revert back to the default dual EMAC mode, the steps are as follows:
+
+>> ip link set dev br0 down
+>> brctl delif br0 eth2
+>> brctl delif br0 eth3
+>> brctl delbr br0
+
+The patches presented in this series have gone through the patch verification
+tools and no warnings or errors are reported.
+
+Sample test logs obtained from AM33x, AM43x and AM57x verifying the
+functionality on Linux next kernel are available here:
+
+[Interface up Testing](https://gist.github.com/ParvathiPudi/15cf30edaa4e2756bc9e76e3f93df53f)
+
+[Ping Testing](https://gist.github.com/ParvathiPudi/8da7c44ab811c8a7b48cf2bd42e2bd60)
+
+[Iperf Testing](https://gist.github.com/ParvathiPudi/f654f41332078d06bb08a2bec2d3e47a)
+
+[1] https://lore.kernel.org/all/20250912104741.528721-1-parvathi@couthit.com/
+
+This is the v12 of the patch series [v1]. This version of the patchset
+addresses the comments made on [v11] of the series.
+
+Changes from v11 to v12:
+
+*) Addressed Paolo Abeni comments on patch 1 and 3 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v10 to v11:
+
+*) Dropped the RFC tag.
+*) No code changes were made, only the version was updated.
+*) Rebased the series on latest net-next.
+
+Changes from v9 to v10:
+
+*) Added RFC tag as net-next is closed now.
+*) Addressed applicable AI review warnings, including clearing the host lock before returning on
+timeout, avoiding a race on hw_bridge_dev and adding a conditional check to avoid null
+pointer dereferences.
+*) Rebased the series on latest net-next.
+
+Changes from v8 to v9:
+
+*) Added RFC tag as net-next is closed now.
+*) Addressed  Jakub Kicinski comments on patch 1 and 2 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v7 to v8:
+
+*) Modified dev_hold/dev_put reference to netdev_hold/netdev_put in patch 2 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v6 to v7:
+
+*) Addressed Jakub Kicinski comments on patch 2 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v5 to v6:
+
+*) Addressed Simon Horman comments on patch 1, 2 and 3 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v4 to v5:
+
+*) Addressed ALOK TIWARI comments on patch 1 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v3 to v4:
+
+*) Addressed Andrew Lunn comments on patch 1 and 2 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v2 to v3:
+
+*) Dropped the RFC tag.
+*) Addressed  MD Danish Anwar comments on patch 3 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v1 to v2 :
+
+*) Added RFC tag as net-next is closed now.
+*) Updated the cover letter of the series to generalize and indicate support for
+both STP and RSTP along with subject change as per Andrew Lunn's suggestion.
+*) Addressed the Andrew Lunn's comments on patch 1 of the series.
+*) Rebased the series on latest net-next.
+
+[v1] https://lore.kernel.org/all/20250925141246.3433603-1-parvathi@couthit.com/
+[v2] https://lore.kernel.org/all/20251006104908.775891-1-parvathi@couthit.com/
+[v3] https://lore.kernel.org/all/20251014124018.1596900-1-parvathi@couthit.com/
+[v4] https://lore.kernel.org/all/20251110125539.31052-1-parvathi@couthit.com/
+[v5] https://lore.kernel.org/all/20251113101229.675141-1-parvathi@couthit.com/
+[v6] https://lore.kernel.org/all/20251124135800.2219431-1-parvathi@couthit.com/
+[v7] https://lore.kernel.org/all/20251126124602.2624264-1-parvathi@couthit.com/
+[v8] https://lore.kernel.org/all/20251126163056.2697668-1-parvathi@couthit.com/
+[v9] https://lore.kernel.org/all/20251205123146.462397-1-parvathi@couthit.com/
+[v10] https://lore.kernel.org/all/20251216132641.1313026-1-parvathi@couthit.com/
+[v11] https://lore.kernel.org/all/20260105122549.1808390-1-parvathi@couthit.com/
+
+Thanks and Regards,
+Parvathi.
+
+Roger Quadros (3):
+  net: ti: icssm-prueth: Add helper functions to configure and maintain
+    FDB
+  net: ti: icssm-prueth: Add switchdev support for icssm_prueth driver
+  net: ti: icssm-prueth: Add support for ICSSM RSTP switch
+
+ drivers/net/ethernet/ti/Makefile              |    2 +-
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  |  533 ++++++++-
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  |   20 +-
+ .../ethernet/ti/icssm/icssm_prueth_fdb_tbl.h  |   76 ++
+ .../ethernet/ti/icssm/icssm_prueth_switch.c   | 1065 +++++++++++++++++
+ .../ethernet/ti/icssm/icssm_prueth_switch.h   |   37 +
+ drivers/net/ethernet/ti/icssm/icssm_switch.h  |  103 ++
+ .../net/ethernet/ti/icssm/icssm_switchdev.c   |  333 ++++++
+ .../net/ethernet/ti/icssm/icssm_switchdev.h   |   13 +
+ .../ti/icssm/icssm_vlan_mcast_filter_mmap.h   |  120 ++
+ 10 files changed, 2279 insertions(+), 23 deletions(-)
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_fdb_tbl.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_switch.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switchdev.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switchdev.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_vlan_mcast_filter_mmap.h
+
+-- 
+2.43.0
+
 
