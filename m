@@ -4,160 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFACAD74ED8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 14:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC0DD74EDA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 14:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0znYzDIJeubZ8Rq91erQsdfVqehlDe/vcyhx78hSFGc=; b=k2cFfylPaUfAD6QhkGpQ8PXyhQ
-	GytAbqx8cSm4X7rJA9ksbIqsF19nUttvSsTCl4OX/c6Kp0BCSRiJZ4c0J/f78NUohDJCnSYAAsV8S
-	c7sDsBEf3B4zI1uRgftvTRIPvauyt95iiyl851HXtR2N2EK524HXmRiMjCHcocij39KflSt2DNuqP
-	QZLGVI8zts2ur7oOS1vjC+W/OtBNYIIzeN3kDHn8B+WOValxLrK5J1jFaMcKR7S4nkduZH7T0p7WP
-	fa/kdb3k8okokcQcXoP58Nv9Ty1rOvBEZOB8FrxDngegbSX6WFyf4USN4K9sMIjTb1+9MZLCJYG6Q
-	xLEvk2VA==;
+	bh=4SEXU5/9cwn7qlvL5YlcV2Y9fFA1BSHNr+ixC+uLgoM=; b=STQLRRckc1y3z5cd3PHV68qiR+
+	E46LwTPmFXKizvzfIrhDaiJxmr9XH83TIlSOGMAvHCxlVI8Y1U7olTqBmQUSZ9hqxWXkKW5sSZLQs
+	Y0SJSgcbSL13QEPQLPBKVQmu8Xc/BWQNY3yXjZkoCfgtOoQbMqRjSRVnFIBggmaRT7dCXw6X2SDgz
+	hho9o9g6sKE5Fc1wYSRNlKWocWgwVSPt7Utp5Y/EDpBWfrMzWiv00JL6f7WScBea5riibFrSy3y3g
+	jkQ/+B3y1wTUKcrHBtJB0hQ5ZJgAOjU9S43LAIR4IVRIkFekM5z3KSYYgHmr12Dh1XyorbnUfqRQ2
+	l4qyWrCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjI2r-0000000921A-1jKm;
-	Fri, 23 Jan 2026 14:21:53 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjI2p-0000000920K-27iB
+	id 1vjIAf-000000092lv-0Hmr;
+	Fri, 23 Jan 2026 14:29:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjIAb-000000092l4-1Uhh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 14:21:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WOxbf2CnbTtVAXI8j+hl3xBnbM3Z8VvOS1+GiqWB0rDw5jYCruhWF/ku+nheVOr04oXR2W4kjtqOMUcRxydh//Pe2aXfyZsKScaRxupDk6bZ9iB16bpP/BBt2iUuJIvCDtv0yuc0YnNLPLRKeuTIQ6Hms7MZ1QWqlvfhr8jenZ8xXoMsPF86wHFHENK6UnYdXsRhdpHWhiwLpAxHUByFEe7YJBJb1Ox0iMSv/yZsRp5B0ZK41Q5IQoydE8rInt4osbFJV+YSUKpP3eaZhsh3UBgw0t13RsaWC409FO3RHNRp9jV66nwq96E67xtyKWSUOS40vt+Wd8GNeUfLzPdRJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0znYzDIJeubZ8Rq91erQsdfVqehlDe/vcyhx78hSFGc=;
- b=NZtelT5bF5IO7R5rstuskc2IUv0GEfA4VZ5GqBXEsV2fOoc7rFaeuDcW2S0+0ieyzrwHwYQ/UbBlZ80EuzV7VVhgLM6Y0RLM5o9lTxAOi6PYsf3YzQNByhBmTdBOAGgAfnXgSYAf3U8S54+r/aKVFYPo9c+HroWLFrWkpQ7jsIvZz4oM+XF5EVz1/g9C28NmBPO3JtYTIm4XplU6v01gwMPrQ0uhdLuVWWz4rvFXfhBo8t+enrZL+0BSP7daORGeyPkw8OK28jB2/aKRw24KsIzHPyBeujK5kIylUyxFWt6WKVhWiooSj0ahS6lZvUTIaWbXATkbnFq0yYp6LWyyQg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0znYzDIJeubZ8Rq91erQsdfVqehlDe/vcyhx78hSFGc=;
- b=BRJR1qgytdxVOiuE5lgQOig1qbReHuJBqI84qGuBsIw18okJvWvral8OwbcsSQTY7IC+9zIsD1JjpyaV6Nf8g4QgCvUWZKKh4mugHyQR9fx426wefwVmAOEAMZwru7sd3t4GvpERhYjYN9xRPariLn/M/4CZsXIOW8U3tFxeVzTIP/zid0PphSVIjUo8EEfZiisLn3HA+NY+tL54M7bLbuddQuYV9yzrrTwUBXcO1Mk4xUO4Kf9UuciKg4QBN2C5+Ex7Y5AkmjUOBcROxrKSvF3Qk1y0M7onB25vGxhcWL5oB+2OiDp7OGHjhUm2S4FEtlqC0E20IUVvOZiVuAkhMw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8957.eurprd04.prod.outlook.com (2603:10a6:102:20c::5)
- by PR3PR04MB7322.eurprd04.prod.outlook.com (2603:10a6:102:8e::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Fri, 23 Jan
- 2026 14:21:46 +0000
-Received: from PAXPR04MB8957.eurprd04.prod.outlook.com
- ([fe80::9c5d:8cdf:5a78:3c5]) by PAXPR04MB8957.eurprd04.prod.outlook.com
- ([fe80::9c5d:8cdf:5a78:3c5%3]) with mapi id 15.20.9499.005; Fri, 23 Jan 2026
- 14:21:46 +0000
-Date: Fri, 23 Jan 2026 09:21:37 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger-Novakovic <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5] media: nxp: Add dev_err_probe() to all error paths in
- *async_register() helpers
-Message-ID: <aXOD8VHX3BQLlt8t@lizhi-Precision-Tower-5810>
-References: <20260121-cam_cleanup-v5-1-01d1ab38db9d@nxp.com>
- <20260123000047.GG215800@killaraus>
+	Fri, 23 Jan 2026 14:29:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CEE1B1476;
+	Fri, 23 Jan 2026 06:29:43 -0800 (PST)
+Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 18F8F3F740;
+	Fri, 23 Jan 2026 06:29:44 -0800 (PST)
+Date: Fri, 23 Jan 2026 14:29:42 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+	dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+	fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+	jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+	quic_jiles@quicinc.com, reinette.chatre@intel.com,
+	rohit.mathew@arm.com, scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com,
+	xhao@linux.alibaba.com, will@kernel.org, corbet@lwn.net,
+	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v3 06/47] arm64: mpam: Context switch the MPAM registers
+Message-ID: <aXOF1gYB_HEK8QPX@arm.com>
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-7-ben.horgan@arm.com>
+ <aWkqt37FJ5l6QD0E@arm.com>
+ <f19cab15-0626-4d13-b25e-1c194294e62f@arm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260123000047.GG215800@killaraus>
-X-ClientProxiedBy: BY1P220CA0003.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:59d::10) To PAXPR04MB8957.eurprd04.prod.outlook.com
- (2603:10a6:102:20c::5)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8957:EE_|PR3PR04MB7322:EE_
-X-MS-Office365-Filtering-Correlation-Id: a54c639e-07e9-489d-efcb-08de5a8abd56
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?me0DhdVwV7p3G9lDdMIKQAJI9HQgA6wW9d5aobRw/ieganbzKfp4mKGPT7WL?=
- =?us-ascii?Q?PUX9rPhP5yMi345jg64+nxwtK0/kyO1LTTacZCNW9uoE/wdiE4c0itnVXnrB?=
- =?us-ascii?Q?YfvKBT+Zntoi9aQ1/wkYYDrPcT/DMg1pbTqUXe+yQcwIH/y2OcPrYoeOkUfU?=
- =?us-ascii?Q?zMPCRmrX5g6JqaW1h3HrPwOaniXdNt28UVEJR+K9/220yb1wTr7qPcPT1EAd?=
- =?us-ascii?Q?jRtgF0ROrf/HI4jVIfJ+AMDj6zcCl1jVTawVsK5TrPuhaOaaQq877FMss//0?=
- =?us-ascii?Q?njBLo0m3YVaTZhlPCMFqa/Tduq/8fHd0gl7njSO8cMyTGXWE5bG8fZX4JFhr?=
- =?us-ascii?Q?FFiNkIrKmt2c0F0COmGTtzt8PTgTp0rHBxvPiFL+nwCSmpdC+sRIRqP1vvX7?=
- =?us-ascii?Q?fFanvEmnTVON6M3Vs6Fv5H4AyU4IIGuIYgDGM62bh3qWHkB4LvzEaNPaEBPl?=
- =?us-ascii?Q?nBPIem25GzXx6R3weQcYvjRn4hd9LXwH8AhwCbwKedrNgOGidEd6z0Y2d1qT?=
- =?us-ascii?Q?TsWpGdpQXBt9E54nKOzOv5gh08OV1yFTgf6CXmahnj43rtqD+TaUXNYVk2m3?=
- =?us-ascii?Q?Y1AVFF017x5W/sIaDxKgi+ntm/zcGo1iX48ECtt7hyd+//5Ks8stYciBZoBK?=
- =?us-ascii?Q?GQgURPvcyUHTCZLnLLS0ReXtxfyvqfnlet24cuFbTbzmOiqEPLFyjzD8DBfe?=
- =?us-ascii?Q?UnFsx4MOAMyaGNtF6Ar1vjbQ8D8CIgsUuyDCcG6m1WFP31AYG+wkenbdwwl8?=
- =?us-ascii?Q?iqoBTdOVJkBazoy3nH/IhBUYWghBrF6hP9TMyhhQQtX4oA8JovcCzOiYlPam?=
- =?us-ascii?Q?UsefZUSXFCTCqyBronr7wqexKthQbv1wD4pp3zVgk+6ZSK0CnWdiTpv9TXBZ?=
- =?us-ascii?Q?ekL7XiVo6Rr9AnFnTb+lcQ9ewhFfLfeSgIF97YFc0MOCjLO2BWv3B8yja7Wb?=
- =?us-ascii?Q?oH6AbV2HjYA/HWouR97w91wYnqlM/F7T7j5/+8EKZMyWl5jQRoedXHTY7JDg?=
- =?us-ascii?Q?eB+g3D7Mi3Sewi24D3ghkdz4ls0p3SJQUOI8EhBzfR9ljx6YWr2Zz0mwDi6Y?=
- =?us-ascii?Q?ThuDsEw759BNZ2twogNGgjoTp+jxcNcjhr94tD8aIs/vzElU0KMCimObCXh6?=
- =?us-ascii?Q?xqWTDrPolGnTQYL+VK+WWTCGn4Z/hphBa7nOMHzmzIhC4+2NOi0t6HIeL6Xr?=
- =?us-ascii?Q?B7MKZZshwhNw8iJ7fejCkDYEwjluUsqzGncSsCqzFISiVP1gYTWAN98cHH95?=
- =?us-ascii?Q?TgEqV/OUfXJGeHc6pq8Y6H6wTHz8E/Gwa6fFef1UGdDQWKecbE0ZKCMq2wwg?=
- =?us-ascii?Q?YZ/hXgeQUYGGIqRwVWsMCUP5J0Cz28M/NYsT94RSUngn0/8AtCUl3gR7HR4v?=
- =?us-ascii?Q?ILmM+q0W7gcJsUhD77JcfMZsO0i+bTaJwJXcg/KV3Hol4WfdcWPCRrOQQN49?=
- =?us-ascii?Q?zNgOuV+bUk6a1iB8kSP0qnn5yI+LEA/GyaWesknKjf7+baKwXjFvo5k5wDJR?=
- =?us-ascii?Q?/vNGCODcPk+5g+hYG9Wm5zcSPIqi3ehNmSplbKJKm6S/LNJMLmMnw0HVb0U+?=
- =?us-ascii?Q?I/uXcf4MvITaSZqj8ek=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8957.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Rciu8/vGFpkDtZ4o+tmq7Hy81VcfLneLW/7baEGcfUs04mLFCrbnhL8zW10M?=
- =?us-ascii?Q?j02vtUzxfCLNSt2Kco6MADkqT7rAf6kCaWa3TAqlSJregToezzoZiq7CIIuK?=
- =?us-ascii?Q?3xv1WB/J1jhjuzZBH3NKNuv5zXRnICPOOesxGkhiFNb+oXRuy+Ph0QxNTq3M?=
- =?us-ascii?Q?6g1cZ96vT1+Fzv0mMABnXkhZeQa6/WUYICM78gi/SN2VkOuWrCKNfW4P5ICt?=
- =?us-ascii?Q?WNYaEjJTY+2zSZsTTomU92Se58eqXOcT2M1f3oBWInxEMw+SBiYdAYpUWxRy?=
- =?us-ascii?Q?/s9/rdDMatlxwVdLwXAW/25pIBo0tHn1FuvkOgnQdoMI3DqmVI0mSbrgvmq0?=
- =?us-ascii?Q?8kTSmiFgRpM8fg7yYU1Sxyw9da74Ib597lnE3eLndHdfAGKjEXVPWyYTyl5z?=
- =?us-ascii?Q?aHQcamSFi2kDf5dLkBOfO4/HAtaM0G0I7GOKntHOO2GXHyFaPxRnO5g6Nl4h?=
- =?us-ascii?Q?0CKMXM8Xa5CAALls8o7dG2MeOy8GgGDRA/OpSYyJiy15ROM6KI1BWdLXDV4h?=
- =?us-ascii?Q?QlzuTNQU3EaDg/O7wjsmD4cKLCXd0OUFtqLM7jtWRi/Fl63GKN+FtRnWHEWr?=
- =?us-ascii?Q?BMBkG0dTaTEuiU2xV01q80DKTHbCu5m28hB5hXyibugr6f+Q+hb2DvZ1nOSC?=
- =?us-ascii?Q?Fzx98/X0MwpnBkLZAuxpxECitp68EN+wPyTaupgoXBNhBoHGjPlkjJcOPa4X?=
- =?us-ascii?Q?qJpG31bamLUUaPmlIkvAmsrHci/o/SiPFkkqMeVRBKq6Enxad90tvppTN8mZ?=
- =?us-ascii?Q?8F+dO3Gid6CGJEJOjJzoT+0gPihn9kahngtz6o3EXuhRDuA1U48nh8dhUePA?=
- =?us-ascii?Q?Nuen9OL3Dxoaod8qj36Lg08REBgqHOxjKBV17GAfAFXv4kYunFrEKuUAP9bC?=
- =?us-ascii?Q?lKSEQUCMYgMfIGt+V6LpOR+a4fTveL8IoIjdSEV6kKiH4/UmzWhF6HO2ZnTQ?=
- =?us-ascii?Q?UarIDYSradan8T68eAtQtOi2c2alzmC0ZykT2PWspw590qjwyQPl3whfTE5I?=
- =?us-ascii?Q?ph4Ul5A2eP0x4sQWv9Ty8Itg7dSeX4+9SrBHCIOTexusFyXh3HiTXbrBsRwr?=
- =?us-ascii?Q?5+Esiea3eMYK7xCYCd4+BdF6aHhIi10L+x0KqHPVp0RpVqS7/XDnnmMeqsXV?=
- =?us-ascii?Q?fIt2RrElotn5AE2n1ajLthCqDZDx9GVWOqZYAjOLlRfZH2i6wVijARXqqo0E?=
- =?us-ascii?Q?mJFWR5/aEixcIA09SOfKYmlLCShKlRnk6Y8d4y+pcRjjZG7LrTDjffBopK/W?=
- =?us-ascii?Q?BoL0fKOBUwmNHl4xH5WB/qTfjkEo0AzNLiKqIL2eAXn8xB01ZNR+W7pbu5uC?=
- =?us-ascii?Q?FkvPUY6LUfCsgOcvgNdwCX7B0SGEsp7vs7OoIbeuzCKd/tf8viYPZd6fNG0s?=
- =?us-ascii?Q?a9lBI1a+hsIL7x9G8wpEQGYWwIot9nnwOlY+ajS7chGYqUlLja8UOw2prtxJ?=
- =?us-ascii?Q?BJJA7fGiAwKpD9M2pFqZL30fk/ICyCNMGhVlIvsGn12Qg0gRomVj5zp3b0a6?=
- =?us-ascii?Q?X4mXCAt+ItuMda1oNKl2+BaTRGHf33Y+7tPd2iWr/VZavEj0jG8+WkozFdmB?=
- =?us-ascii?Q?yxJI0Fd49LXbNwQxfUImI2BJmOendjXvUS8kgUMJeT9Vuo6UbFqfE77LwgVP?=
- =?us-ascii?Q?H44S8E9C4ec38AtVlfO5M2ixPOigUiQ7YKh3aX8VOzT7kUnk2+75nR35Jg+/?=
- =?us-ascii?Q?LoespMuteLNcGcV7RUcUsiLraagtLqibYa3kwOtSV8LR4IYrO8AeEcK9//Ti?=
- =?us-ascii?Q?50OD1QVmLg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a54c639e-07e9-489d-efcb-08de5a8abd56
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8957.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 14:21:46.3302
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lsWyRK3KcfAhOVTgixnmO0zlm1P4ZfJI9bcPJhJwCDfPgqz5gEYc4uFLMve4jYnyEH2y/DQAOmUOhoHRvwu9Jg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7322
+In-Reply-To: <f19cab15-0626-4d13-b25e-1c194294e62f@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_062151_701480_CB2577D4 
-X-CRM114-Status: GOOD (  32.69  )
+X-CRM114-CacheID: sfid-20260123_062953_484364_0ACFC74D 
+X-CRM114-Status: GOOD (  39.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,207 +76,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 02:00:47AM +0200, Laurent Pinchart wrote:
-> Hi Frank,
->
-> Thank you for the patch.
->
-> On Wed, Jan 21, 2026 at 03:42:03PM -0500, Frank Li wrote:
-> > Add dev_err_probe() to all error branches in the *async_register() helpers
-> > to provide clearer diagnostic information when device registration fails.
-> >
-> > Drop the explicit error message after returning from
-> > mipi_csis_async_register(), as the error is already reported by this
-> > helper.
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> > Some trivial patch to reduce goto at probe functions.
-> > ---
-> > Changes in v5:
-> > - rebase to https://gitlab.freedesktop.org/linux-media/users/pinchartl.git tags/next-media-nxp-20260120
-> > - Link to v4: https://lore.kernel.org/r/20260116-cam_cleanup-v4-0-29ce01640443@nxp.com
-> >
-> > Changes in v4:
-> > - collect alex's review tag
-> > - fix grammer in error message
-> > - Link to v3: https://lore.kernel.org/r/20251215-cam_cleanup-v3-0-a61995068f38@nxp.com
-> >
-> > Changes in v3:
-> > - rebase to v6.19-rc1
-> > - avoid use __free() == NULL according to cleanup.h
-> > - Link to v2: https://lore.kernel.org/r/20251119-cam_cleanup-v2-0-df732cc83ff1@nxp.com
-> >
-> > Changes in v2:
-> > - add new patch media: nxp: Add dev_err_probe() to all error paths in *async_register() helpers
-> > - detail change see each patch's change log.
-> > - Link to v1: https://lore.kernel.org/r/20251117-cam_cleanup-v1-0-6cd42872db79@nxp.com
-> > ---
-> > Change in v5
-> > - remove "no functional change" in commit message
-> > - fix error message.
-> >
-> > change in v2
-> > - new patch
-> > ---
-> >  drivers/media/platform/nxp/imx-mipi-csis.c    | 31 ++++++++++++++++-----------
-> >  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 27 ++++++++++++++---------
-> >  2 files changed, 35 insertions(+), 23 deletions(-)
-> >
-> > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-> > index 9a43fd1eb0bcee7ac0c47f28ad89012de45a70d9..06ea96b8eaf61058d6979b7be747496480c4bc69 100644
-> > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> > @@ -1359,18 +1359,18 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
-> >  		fwnode_graph_get_endpoint_by_id(dev_fwnode(csis->dev), 0, 0,
-> >  						FWNODE_GRAPH_ENDPOINT_NEXT);
-> >  	if (!ep)
-> > -		return -ENOTCONN;
-> > +		return dev_err_probe(csis->dev, -ENOTCONN,
-> > +				     "failed to get local endpoint\n");
-> >
-> >  	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
-> >  	if (ret)
-> > -		return ret;
-> > +		return dev_err_probe(csis->dev, ret,
-> > +				     "failed to parse endpoint\n");
-> >
-> >  	for (i = 0; i < vep.bus.mipi_csi2.num_data_lanes; ++i) {
-> > -		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1) {
-> > -			dev_err(csis->dev,
-> > -				"data lanes reordering is not supported");
-> > -			return -EINVAL;
-> > -		}
-> > +		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1)
-> > +			return dev_err_probe(csis->dev, -EINVAL,
-> > +					     "data lanes reordering is not supported\n");
-> >  	}
-> >
-> >  	csis->bus = vep.bus.mipi_csi2;
-> > @@ -1382,15 +1382,22 @@ static int mipi_csis_async_register(struct mipi_csis_device *csis)
-> >  	asd = v4l2_async_nf_add_fwnode_remote(&csis->notifier, ep,
-> >  					      struct v4l2_async_connection);
-> >  	if (IS_ERR(asd))
-> > -		return PTR_ERR(asd);
-> > +		return dev_err_probe(csis->dev, PTR_ERR(asd),
-> > +				     "failed to add remote fnnode to notifier\n");
->
-> s/fnnode/fwnode/
->
-> >
-> >  	csis->notifier.ops = &mipi_csis_notify_ops;
-> >
-> >  	ret = v4l2_async_nf_register(&csis->notifier);
-> >  	if (ret)
-> > -		return ret;
-> > +		return dev_err_probe(csis->dev, ret,
-> > +				     "failed to register notifier\n");
-> >
-> > -	return v4l2_async_register_subdev(&csis->sd);
-> > +	ret = v4l2_async_register_subdev(&csis->sd);
-> > +	if (ret)
-> > +		return dev_err_probe(csis->dev, ret,
-> > +				     "failed to register subdev\n");
-> > +
-> > +	return 0;
-> >  }
-> >
-> >  /* -----------------------------------------------------------------------------
-> > @@ -1549,10 +1556,8 @@ static int mipi_csis_probe(struct platform_device *pdev)
-> >  	platform_set_drvdata(pdev, &csis->sd);
-> >
-> >  	ret = mipi_csis_async_register(csis);
-> > -	if (ret < 0) {
-> > -		dev_err(dev, "async register failed: %d\n", ret);
-> > +	if (ret < 0)
-> >  		goto err_cleanup;
-> > -	}
-> >
-> >  	/* Initialize debugfs. */
-> >  	mipi_csis_debugfs_init(csis);
-> > diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > index 9d946b68cf59d9f4fb3413fc90219efd380d9d95..8304b3d3a338394d6325929d28aa69d865ac8a92 100644
-> > --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > @@ -727,18 +727,18 @@ static int imx8mq_mipi_csi_async_register(struct csi_state *state)
-> >  		fwnode_graph_get_endpoint_by_id(dev_fwnode(state->dev), 0, 0,
-> >  						FWNODE_GRAPH_ENDPOINT_NEXT);
-> >  	if (!ep)
-> > -		return -ENOTCONN;
-> > +		return dev_err_probe(state->dev, -ENOTCONN,
-> > +				     "failed to get remote endpoint fwnode\n");
->
-> s/remote/local/
->
-> >
-> >  	ret = v4l2_fwnode_endpoint_parse(ep, &vep);
-> >  	if (ret)
-> > -		return ret;
-> > +		return dev_err_probe(state->dev, ret,
-> > +				     "failed to parse endpoint fwnode\n");
->
-> s/ fwnode//
->
-> to match the message above.
->
-> With that,
->
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
->
-> I'll apply the changes locally, no need to submit a v6.
+Hi Ben,
 
-Sorry for typo.
+On Mon, Jan 19, 2026 at 12:23:13PM +0000, Ben Horgan wrote:
+> On 1/15/26 17:58, Catalin Marinas wrote:
+> > On Mon, Jan 12, 2026 at 04:58:33PM +0000, Ben Horgan wrote:
+> >> +static inline void mpam_thread_switch(struct task_struct *tsk)
+> >> +{
+> >> +	u64 oldregval;
+> >> +	int cpu = smp_processor_id();
+> >> +	u64 regval = mpam_get_regval(tsk);
+> >> +
+> >> +	if (!static_branch_likely(&mpam_enabled))
+> >> +		return;
+> >> +
+> >> +	if (regval == READ_ONCE(arm64_mpam_global_default))
+> >> +		regval = READ_ONCE(per_cpu(arm64_mpam_default, cpu));
+> >> +
+> >> +	oldregval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
+> >> +	if (oldregval == regval)
+> >> +		return;
+> >> +
+> >> +	write_sysreg_s(regval, SYS_MPAM1_EL1);
+> >> +	isb();
+> >> +
+> >> +	/* Synchronising the EL0 write is left until the ERET to EL0 */
+> >> +	write_sysreg_s(regval, SYS_MPAM0_EL1);
+> > 
+> > Since we have an isb() already, does it make any difference if we write
+> > MPAM0 before the barrier? Similar question for other places where we
+> > write these two registers.
+> 
+> The reason for the isb() placement is to document that it's not required
+> for the MPAM0_EL1. All instructions running at EL1take their MPAM
+> configuration from MPAM1_EL1. This includes LDTR and STTR as you asked
+> about in a different thread.
 
-Thanks
+It's fine to keep it this way if LDTR/STTR are not affected by the MPAM0
+register.
 
-Frank
->
-> >
-> >  	for (i = 0; i < vep.bus.mipi_csi2.num_data_lanes; ++i) {
-> > -		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1) {
-> > -			dev_err(state->dev,
-> > -				"data lanes reordering is not supported");
-> > -			return -EINVAL;
-> > -		}
-> > +		if (vep.bus.mipi_csi2.data_lanes[i] != i + 1)
-> > +			return dev_err_probe(state->dev, -EINVAL,
-> > +					     "data lanes reordering is not supported");
-> >  	}
-> >
-> >  	state->bus = vep.bus.mipi_csi2;
-> > @@ -750,15 +750,22 @@ static int imx8mq_mipi_csi_async_register(struct csi_state *state)
-> >  	asd = v4l2_async_nf_add_fwnode_remote(&state->notifier, ep,
-> >  					      struct v4l2_async_connection);
-> >  	if (IS_ERR(asd))
-> > -		return PTR_ERR(asd);
-> > +		return dev_err_probe(state->dev, PTR_ERR(asd),
-> > +				     "failed to add fwnode to notifier\n");
-> >
-> >  	state->notifier.ops = &imx8mq_mipi_csi_notify_ops;
-> >
-> >  	ret = v4l2_async_nf_register(&state->notifier);
-> >  	if (ret)
-> > -		return ret;
-> > +		return dev_err_probe(state->dev, ret,
-> > +				     "failed to register notifier\n");
-> >
-> > -	return v4l2_async_register_subdev(&state->sd);
-> > +	ret = v4l2_async_register_subdev(&state->sd);
-> > +	if (ret)
-> > +		return dev_err_probe(state->dev, ret,
-> > +				     "failed to register subdev\n");
-> > +
-> > +	return 0;
-> >  }
-> >
-> >  /* -----------------------------------------------------------------------------
-> >
-> > ---
-> > base-commit: b7af7c950e1076a9e3d855045571be2de4ce9f2c
-> > change-id: 20250807-cam_cleanup-b6d90ba9dac3
->
-> --
-> Regards,
->
-> Laurent Pinchart
+> >> +
+> >> +	WRITE_ONCE(per_cpu(arm64_mpam_current, cpu), regval);
+> > 
+> > Is it too expensive to read the MPAM sysregs and avoid carrying around
+> > another per-CPU state? You use it for pm restoring but we could just
+> > save it in cpu_do_suspend() like other sysregs. Not a big issue, it just
+> > feels like this function got unnecessarily complicated (it took me a bit
+> > to figure out what it all does).
+> 
+> It's done this way as it matches what's done in x86. I expect it would
+> be cheap enough to read the register to check whether a write is required.
+
+Since you use it for CPU suspend/resume, I guess it's fine, it saves us
+from having to preserve it in the low-level asm sleep code. I don't have
+a strong preference either way.
+
+> > A related question - is resctrl_arch_set_cdp_enabled() always called in
+> > non-preemptible contexts? We potentially have a race between setting
+> > current->mpam_partid_msg and arm64_mpam_global_default, so the check in
+> > mpam_thread_switch() can get confused.
+> 
+> The resctrl filesystem can only ever get mounted once and
+> resctrl_arch_set_cdp_enabled() is always called in mount. In
+> rdt_get_tree(), rdt_enable_ctx() calls resctrl_arch_set_cdp_enabled().
+> This is done while holding the rdtgroup_mutex and the user can't change
+> the mpam configuration from the default until the mutex is released and
+> it can claim it.
+
+What if resctrl_arch_set_cdp_enabled() gets preempted between updating
+current task partid and setting arm64_mpam_global_default? The mutex
+doesn't help.
+
+> > And I couldn't figure out where the MPAMx_EL1 registers are written. If
+> > any global/per-cpu/per-task value is changed, does the kernel wait until
+> > the next thread switch to write the sysreg? The only places I can found
+> > touching these sysregs are the thread switch, pm notifiers and KVM.
+> 
+> If the task configuration is changed then the MPAM sysreg will only be
+> updated the next time it goes into the kernel.
+
+Is it updated when it goes into the kernel or when we have a context
+switch? If you have a long-running user thread that is never scheduled
+out, it may not notice the update even if it entered the kernel (but no
+context switch).
+
+> So, just eventually
+> consistent. For cpu configuration, update_closid_rmid() gets called
+> which ipis the cpus and ends up calling mpam_thread_switch() from
+> resctrl_arch_sched_in().
+
+I see, it should be fine.
+
+-- 
+Catalin
 
