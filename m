@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1611D6CFAE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 03:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD9ABD6CFAE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 03:19:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3yqWZOB8QJMNyMRCjmmVjLcxBnBoHVVIPBVyJGlzB0c=; b=H2PYrR9PLOmfzSIzX0Un0pxp72
-	dq7b4SSICf854ZoqBqRJixP/VwM5T2SvJPzaFBrHYwrqkfegOkiouvcss7k9lhu5eQT2y0njHlTPb
-	kCFWW85UYh9TgripkSA5nfWdvcm6RqMsiNguiuLpJX3i604c0zlhx26EffsT6fJr1+0TNCTOy7j8M
-	6sNUm3ARafeOaBu5EgfHjJSe9a5COA0BjLvaxfTJ5xE7KBFO+y48FdtzgYeK0tEkgkLlcmIn8EHQN
-	MMNAgdIpnJA3JGtuGCOx/zCbRqu95hzYNOxKU3EwIwB+j/NStOGiKzYV/gK1Icxob+6ux49k+VSXF
-	uqi0O0VQ==;
+	bh=LgF2IiBBgl+4u3dsiq9jM64amSwPsMv70P78RqO6sxo=; b=e8eiGR5GQGbv+mF2gpNqfOv68E
+	kiGbd1Vh2m+fO8tifXX4sHs/B+1IBAHq0+w9bKpGR6QSEQPrCpX+Sg697gMhRFsDVhTTnA2lJBYa3
+	nxCZTQc23KrBokBUSuUwc7OeWyIESsCf9dKR64W1qYqMtZP1Nl/YCMf019pf5BWPU//2ysijpqMQD
+	ZLq/ErIVRiqgei1cI84ziQnm6UQdtEBcbNHrSABWyS2bc9NYXr1xNgPTvPTMu6R6IOfY+78orXGi5
+	QwFUUpCC94o1f2Q/hIalqNtCvz7do5sgbuju8EJ10XQBcvMQPO4JgyG4IBKA9UNBFHM1syG55BiuQ
+	1TfhQhww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj7gL-0000000862g-2gln;
-	Fri, 23 Jan 2026 03:17:57 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1vj7hk-000000086sQ-3kgH;
+	Fri, 23 Jan 2026 03:19:24 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj7fy-000000085XK-3IDh;
-	Fri, 23 Jan 2026 03:17:36 +0000
-X-UUID: 0e028a5cf80a11f0a16f0188aa809bee-20260122
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From; bh=3yqWZOB8QJMNyMRCjmmVjLcxBnBoHVVIPBVyJGlzB0c=;
-	b=gOH+QRtIl3MjxSQScD4iSNd2PwLDxi1CGm4GSr9AILP2JW2gQCYkF/Meg6/m8bi2HD7cPeDdLd7yAnW2Waz1MIFO6es/pKFhQMxP/ibMaR7jHcFbDkM85DQpR69+ejUsc6Sa3g6j+qB/GAhHRs9Rp/5DKc2naiNdAocadqtagWY=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.11,REQID:a92bb0e6-bc6d-4593-b3e5-484f4b4d73a0,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:89c9d04,CLOUDID:c7061e7a-8c8a-4fc4-88c0-3556e7711556,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI
-	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 0e028a5cf80a11f0a16f0188aa809bee-20260122
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 655331038; Thu, 22 Jan 2026 20:17:31 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 23 Jan 2026 11:17:29 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Fri, 23 Jan 2026 11:17:28 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH v12 11/12] media: mediatek: jpeg: add jpeg compatible
-Date: Fri, 23 Jan 2026 11:17:12 +0800
-Message-ID: <20260123031713.14621-12-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20260123031713.14621-1-kyrie.wu@mediatek.com>
-References: <20260123031713.14621-1-kyrie.wu@mediatek.com>
+	id 1vj7hi-000000086ry-3U0L
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 Jan 2026 03:19:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=LgF2IiBBgl+4u3dsiq9jM64amSwPsMv70P78RqO6sxo=; b=05t0QzxOYG0GgefSQyI6Wi1w1U
+	2gTAblBFaFFhnSPxoky6SKiUn7tFZ2UvP1Oug0CKFzQFiQ+h5bEQrju3lJJjOcuKky2LUiEfnTtsz
+	aTSK2BgJ2+AEmxkzxFHvJPJzsd+rfstWlHx+jNP8wjLH2XPYoGX55LK4X3m3VIX5b5bs=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vj7hR-0043xL-7b; Fri, 23 Jan 2026 04:19:05 +0100
+Date: Fri, 23 Jan 2026 04:19:05 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: =?utf-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ningyu@eswincomputing.com, linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com, weishangjuan@eswincomputing.com
+Subject: Re: Re: Re: [PATCH v1 1/2] dt-bindings: ethernet: eswin: add clock
+ sampling control
+Message-ID: <c5c0bfdb-316d-4796-afa0-f6f018ceb414@lunn.ch>
+References: <20260109080601.1262-1-lizhi2@eswincomputing.com>
+ <20260109080859.1285-1-lizhi2@eswincomputing.com>
+ <00b7b42f-2f9d-402a-82f0-21641ea894a1@lunn.ch>
+ <308b676.2d03.19bb0caebed.Coremail.lizhi2@eswincomputing.com>
+ <59cec617-0189-4dc3-bc3f-6346155a62ae@lunn.ch>
+ <4e2a55e7.3662.19be8cb9c3c.Coremail.lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4e2a55e7.3662.19be8cb9c3c.Coremail.lizhi2@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_191734_847170_50C6629D 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20260122_191922_864840_C269ABB4 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,104 +80,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add jpeg dec and enc compatible for mt8196
+> > You say internal. So the skew is fixed, it is a property of the
+> > silicon? If so, why a DT property? Why not just hard code it in the
+> > driver? Since it is internal, different boards should not need it set
+> > differently?
+> > 
+> Thanks for the question.
+> 
+> EIC7700 has two Ethernet MACs. Only eth1 has this internal RXC/RXD skew,
+> eth0 does not.
+> 
+> So this is not a chip-wide constant that can be hardcoded in the driver.
+> We need a way to distinguish the two MAC instances, which is why this is
+> described per-port in DTS.
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
----
- .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 34 +++++++++++++++++++
- .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  |  3 ++
- .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  |  3 ++
- 3 files changed, 40 insertions(+)
+I assume the address of the interface is fixed. So you can just key
+off that to distinguish the two instances.
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index e5aad89294e9..8f37619f4920 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -1916,6 +1916,19 @@ static struct mtk_jpeg_variant mtk8195_jpegenc_drvdata = {
- 	.jpeg_worker = mtk_jpegenc_worker,
- };
- 
-+static struct mtk_jpeg_variant mtk8196_jpegenc_drvdata = {
-+	.formats = mtk_jpeg_enc_formats,
-+	.num_formats = MTK_JPEG_ENC_NUM_FORMATS,
-+	.qops = &mtk_jpeg_enc_qops,
-+	.m2m_ops = &mtk_jpeg_multicore_enc_m2m_ops,
-+	.dev_name = "mtk-jpeg-enc",
-+	.ioctl_ops = &mtk_jpeg_enc_ioctl_ops,
-+	.out_q_default_fourcc = V4L2_PIX_FMT_YUYV,
-+	.cap_q_default_fourcc = V4L2_PIX_FMT_JPEG,
-+	.multi_core = true,
-+	.jpeg_worker = mtk_jpegenc_worker,
-+};
-+
- static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata = {
- 	.formats = mtk_jpeg_dec_formats,
- 	.num_formats = MTK_JPEG_DEC_NUM_FORMATS,
-@@ -1929,6 +1942,19 @@ static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata = {
- 	.jpeg_worker = mtk_jpegdec_worker,
- };
- 
-+static const struct mtk_jpeg_variant mtk8196_jpegdec_drvdata = {
-+	.formats = mtk_jpeg_dec_formats,
-+	.num_formats = MTK_JPEG_DEC_NUM_FORMATS,
-+	.qops = &mtk_jpeg_dec_qops,
-+	.m2m_ops = &mtk_jpeg_multicore_dec_m2m_ops,
-+	.dev_name = "mtk-jpeg-dec",
-+	.ioctl_ops = &mtk_jpeg_dec_ioctl_ops,
-+	.out_q_default_fourcc = V4L2_PIX_FMT_JPEG,
-+	.cap_q_default_fourcc = V4L2_PIX_FMT_YUV420M,
-+	.multi_core = true,
-+	.jpeg_worker = mtk_jpegdec_worker,
-+};
-+
- static const struct of_device_id mtk_jpeg_match[] = {
- 	{
- 		.compatible = "mediatek,mt8173-jpgdec",
-@@ -1950,6 +1976,14 @@ static const struct of_device_id mtk_jpeg_match[] = {
- 		.compatible = "mediatek,mt8195-jpgdec",
- 		.data = &mtk8195_jpegdec_drvdata,
- 	},
-+	{
-+		.compatible = "mediatek,mt8196-jpgenc",
-+		.data = &mtk8196_jpegenc_drvdata,
-+	},
-+	{
-+		.compatible = "mediatek,mt8196-jpgdec",
-+		.data = &mtk8196_jpegdec_drvdata,
-+	},
- 	{},
- };
- 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-index 3ee51efb966d..da034c866a6d 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-@@ -45,6 +45,9 @@ static const struct of_device_id mtk_jpegdec_hw_ids[] = {
- 	{
- 		.compatible = "mediatek,mt8195-jpgdec-hw",
- 	},
-+	{
-+		.compatible = "mediatek,mt8196-jpgdec-hw",
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_jpegdec_hw_ids);
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-index 5d45ab5dc63a..1a71e36d2a52 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-@@ -52,6 +52,9 @@ static const struct of_device_id mtk_jpegenc_drv_ids[] = {
- 	{
- 		.compatible = "mediatek,mt8195-jpgenc-hw",
- 	},
-+	{
-+		.compatible = "mediatek,mt8196-jpgenc-hw",
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_jpegenc_drv_ids);
--- 
-2.45.2
+Since this is an internal property, not a board property, it is not
+clear it actually belongs on DT.
 
+    Andrew
 
