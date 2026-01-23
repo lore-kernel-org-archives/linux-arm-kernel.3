@@ -4,108 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62317D778AF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 19:56:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA29D778AF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 19:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:In-Reply-To:References:From:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pRzQmM1lz2CLbIKhXyUz8czg2mNynwC1/VV/UsQgqnQ=; b=SPK+wUVPe6xdi5/ccTuXRPCPcx
-	4Z26tVf7Dov1EihRdodocrGXRG8zro3gx909nOyMkdop3SimcHyRwwkh8KhmmP5fFI+AAQgZvz8nw
-	/Myh5Rqw6aHN9LxUjsRsdWaaouLiA0ddh+8JrKpmcB6swIs+W/I0kUFetTjqVGgIJwcjY+JxtQF7f
-	UwaqH52LmEmuObf8gbTYKnWfMDxLHwPrLVZ+U0+DtuLM7pxcSS9HJUB39PWBHFTZ5wBy0XOIzZDr7
-	5BeoGD72K0O6Q1s46E6+aPfjKyXoKNoi0wvg4DiJAiP4YPUtRw7+T4KayJHk2cOm7ncrUh+HNSm3f
-	LEdjN3PA==;
+	bh=+23FDVkyidR5ZUkaEyPxSOupAMWK9iYp0kt6TwQqyec=; b=TD5KmDPiBuPzXzjMZx9rwgGSfC
+	8TxV0qqg4MjdXLpFvZdLaExUDyNvp9eBfrjZZvy1vqSSJLRkr8hjEf67CJXPdq/sUaxwjG91+YKCE
+	3RBBRFDjaAl/e9K5UoTd9S4k8g2EWstnzgrExNRKLZ5tRE1X/rPpbLZW1af6ZxLWpWp5sQVDIoQ9o
+	86qE1Lh3LB1fRFcCcOKABaIbOtQCPXwars9wELSzvixJyGLgL7w71BFlTTTpKd6gVAP9nZ5VC7sZs
+	Vz6ciDr8/ghV1vqvmEXB5cmxPaMQfF1tKF9OX3u2L+Z8FTv+68f64WB/pFCTmkJtUkfvVTwDC3KO2
+	xWl3+Xqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjNGS-00000009Rlq-2nug;
-	Fri, 23 Jan 2026 19:56:16 +0000
-Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
+	id 1vjNHe-00000009Rs8-0A1W;
+	Fri, 23 Jan 2026 19:57:30 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjNGP-00000009RlR-2VA5
+	id 1vjNHa-00000009RrN-2POy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 19:56:15 +0000
-Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-78fba1a1b1eso43471007b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 11:56:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769198172; cv=none;
-        d=google.com; s=arc-20240605;
-        b=gJXODvxAF2bbf32PiZeKmyZrgEZ2nS7YUEtiWP0LS7JdkQsm2h3YiWSWlW/9EwFthd
-         +XKw3VFvIcXZ/pjhzMv1vvBayCBFuQnb6Dr2LrgcUhsJJhETmmu5mWI87vaNmJElat2A
-         Sqivw35r1g3YEV2st8hXZ8NMXkFjbBZipqo0psp0asbrXGqzSuD+G0/q0VIy4Lt6T+bs
-         cm1UnWCxO3fe2Y1nxHRTM3yHqKtH6IDhiOhl2CoRnShCBeGNjXR3dhY1unqEepfjQA6Z
-         c6H+Lc15rax4l0GJ/6QW+nJVgd/X5yQl39jfg0+eLMKR4zrmRdYbdxSFMPG57+MPPrYz
-         Byyw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:in-reply-to:references:from
-         :mime-version:dkim-signature;
-        bh=pRzQmM1lz2CLbIKhXyUz8czg2mNynwC1/VV/UsQgqnQ=;
-        fh=ZQDm2xrLg7oO0MEJrLNkeOdRRr+xpYxsKbuZEdzlRbg=;
-        b=iS9RhQjG/xFp6lx6jmCLnVFSJX4NpbEVAksDqufBghcnAF19Con5egv2hCGZI59NAy
-         xNNQ22KzTF2GMXS9W20LKnA9LDyRJF9Na4rQrSNMyjXCdE+WrB0soM98Dha+W3W9duZA
-         ZTa2SLdGnt7CwJcMRNNzcWcrZFoxTxRE1C4RTntamw1FTFgexTgd2InoMhI6SoU4qcQW
-         b+S6aM4Ms6lux941fWX6K8OHoMBgo9E6lYS98MjCrIvgj+xIgGFeXUB0eWFg+KzBbTTO
-         Db9Dzm/+aujR/uOQGBPUfzMQKyjgHHWoxu2NURB7W8Uo3/9TJsA5Alt4VWQjezrb1z4i
-         5IuA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1769198172; x=1769802972; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:in-reply-to:references:from
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=pRzQmM1lz2CLbIKhXyUz8czg2mNynwC1/VV/UsQgqnQ=;
-        b=b+jVvYoFEBrzPEIzbn39cXTf6T+7ZyaUCzUlf0T2xNUjuB/Oh0YlD0qnrrHI99qzuq
-         Z7YWpSMplf+tWmOfLdKWchiu72Sg+Es+JPncngc+tVjfp8y5AIPfYAsitcyQ1jrLfLzc
-         CN9uPL5dgX8FwAwxg1bmMD5LJj2Sf4YYa0AG0NA6zTnXUzocaNOeyig6hTcKKJmhHR3z
-         OswUQZQW7fbC1HdBmL8pY0p6PlYaH4U6EAQ9qip3FP7zSMEqKRUMPOmrmLB3KS8BImZ2
-         fsipvRJzseq+lfYtn6vvSGU+Di1kvthyBe8qulmG/BYDvYEzIzZb7Z5ugdXU6tzam2Sn
-         0g6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769198172; x=1769802972;
-        h=cc:to:subject:message-id:date:in-reply-to:references:from
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pRzQmM1lz2CLbIKhXyUz8czg2mNynwC1/VV/UsQgqnQ=;
-        b=ZQoi1oZeGwJRU4BUEoyZBd3ZstnInZE+z87iZ418OMXz5e+Y65RoSntrlDbUr24fJl
-         R+THnNLjuSsAhtUce9OcB3ZgHZ2rB2xxip6F68MMOfiqv3/VcNkBb/x4fa1Cm0S8nABu
-         7o8CMNt3Ly+gDwJaANQuA4Few/ObeIoWdVIFKWW0ukM7AJxE/3SGTn39MGhxi3GsCRQp
-         YWlav7wCweqSBKPFqFNDQhtjJ7RFP6U1lqmtIXWurlN91+qPhrjaozfLE7oaIiwIEa+J
-         IfNp4FLOkHT3GN2J5U7aJ0mhGL0fjDmb4IYQ81GEEQ3wUFo8cI0hxOZymzWuJCalRZNe
-         rpqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVBsuRD93ebo10GmUuMw9TVToM6y2zYDSrBMfSPqVRzr3fqZmNWtDRY4CgRom3HY6jnR1MLFT4QPCtBF3pplHTq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6boWxZIXgjhecxpjCuphS0u5UOVElyAMZk0W4v60QgRWSXQrd
-	tlpLT+nFt9Q5DLmeeYPg51gLuJPivOKC+DM2D+qI9B7jqYLRWB8zFA3vgx+26M/l9yHKiMswnpv
-	tCIokffqsvZBzD8LRbBIBSO6lMUjQgcqk3b9rTgeTkQ==
-X-Gm-Gg: AZuq6aKPmwG90V/5qLbKUKT17MKw9qiCL2cq90fTx/K6BqM1JX9Q5tkm7Y3Hgk6q9GY
-	wXIiEI63nEFre23chRN+eb8/d7SbV7UVUsKxPcdULaV2+kD0/KbDAj9Gv7zEoO45Hn6guC1kg9F
-	RgOr7PKJkI4graGYcmwqZx8H0Qy7XqLEo4jnLkKyPks/gUgkhDzXd4RvF8Q540bVasVDD1TjD1G
-	/OXek7YwsLv9x5hWacevtDe2ymNluPAk0JBWCQmjCOmiyzovqni5Q7enkz4ssCT2RAZdaoM
-X-Received: by 2002:a05:690c:6c91:b0:787:badd:4f with SMTP id
- 00721157ae682-7942a82216emr57835217b3.17.1769198171795; Fri, 23 Jan 2026
- 11:56:11 -0800 (PST)
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 23 Jan 2026 11:56:10 -0800
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 23 Jan 2026 11:56:10 -0800
-Mime-Version: 1.0
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-X-Mailer: aerc 0.21.0
-References: <20260123-i2c-xiic-v3-0-eb7cd4254dfb@nexthop.ai>
- <20260123-i2c-xiic-v3-1-eb7cd4254dfb@nexthop.ai> <df9e1a39-3928-491a-920f-fd45120d8024@lunn.ch>
-In-Reply-To: <df9e1a39-3928-491a-920f-fd45120d8024@lunn.ch>
-Date: Fri, 23 Jan 2026 11:56:10 -0800
-X-Gm-Features: AZwV_QhUfRUwIxUyrcfux8-cCvxAaxEfux0jZWXnZ-3_tfujqzHxVqC7g82XeGk
-Message-ID: <CAGYn4vw55SPn4vKuYwM1nTgpzdExtEuv1H3JNkx0XngBd6mjYg@mail.gmail.com>
-Subject: Re: [PATCH v3 1/5] i2c: xiic: make the clock optional
-To: Andrew Lunn <andrew@lunn.ch>, abdurrahman@nexthop.ai
-Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@intel.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 23 Jan 2026 19:57:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769198246; x=1800734246;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ltOq6SCjupE7BLOIATjhL+BWeHyh5Ngusu9gTtz8HpE=;
+  b=mOwfXG22i4sSU20WzBNlf+xEIixSNgYx5ukDXqlBwVxGuEzLMvIzH09U
+   GpQ8Q/sF9a3uyog/hvQbd0I0Z0g+sHMgwF4ZbkPQEPC/Rgumx9tJCAxcL
+   7ofQZbY16yDHbRRCDQ8yfwdXFd24oDnU5YJ/Rs3GWiRPkcEOF6g+hkvFa
+   rxBU6SOJn8g66yxwfH0H/B457fZAPNZKunxlfbodQbogJ5aY+UoKG0fkJ
+   M3oSRfcmRucsxBSHVVfkKVPp6YUfn4p0U3afLs8y2aHMCRmR6/UjSYNhr
+   MC1NIkRFEGNcPUT4zYqy2BGXrWmnlY68pDcp1HI3wraJl1aXRUNmhLFVo
+   g==;
+X-CSE-ConnectionGUID: miGQG3SqRDie8pUJgcbTyg==
+X-CSE-MsgGUID: k7tEdQFUQsOAWlbAB/BkaQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11680"; a="70621903"
+X-IronPort-AV: E=Sophos;i="6.21,248,1763452800"; 
+   d="scan'208";a="70621903"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2026 11:57:25 -0800
+X-CSE-ConnectionGUID: eDHf0z5qT4K4NYlUNgWJEA==
+X-CSE-MsgGUID: hEhj3cZ7RfOGQf1SGFtXBw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,248,1763452800"; 
+   d="scan'208";a="244728318"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa001.jf.intel.com with ESMTP; 23 Jan 2026 11:57:20 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vjNHS-00000000UP4-1mM9;
+	Fri, 23 Jan 2026 19:57:18 +0000
+Date: Sat, 24 Jan 2026 03:56:21 +0800
+From: kernel test robot <lkp@intel.com>
+To: Richard Genoud <richard.genoud@bootlin.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: oe-kbuild-all@lists.linux.dev, Paul Kocialkowski <paulk@sys-base.io>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Genoud <richard.genoud@bootlin.com>
+Subject: Re: [PATCH v3 2/4] pwm: sun50i: Add H616 PWM support
+Message-ID: <202601240328.Lv73l3dC-lkp@intel.com>
+References: <20260123093322.1327389-3-richard.genoud@bootlin.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260123093322.1327389-3-richard.genoud@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_115613_673661_7E4CCE13 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20260123_115726_663620_32C8A1EE 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,27 +98,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Jan 23, 2026 at 7:20 PM UTC, Andrew Lunn wrote:
-> On Fri, Jan 23, 2026 at 08:02:44AM +0000, Abdurrahman Hussain via B4 Relay wrote:
->> From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
->>
->> The xiic driver is designed to operate without explicit clock configuration
->> when clocks are not specified in the firmware. This functionality is
->> already implemented in xiic_setclk(), which performs an early return when
->> either i2c_clk or input_clk are zero:
->>
->> This condition is satisfied when clocks are missing, as clk_get_rate(NULL)
->> returns zero, allowing the driver to rely on hardware-configured timing.
->
-> https://elixir.bootlin.com/linux/v6.18.6/source/Documentation/devicetree/bindings/i2c/xlnx,xps-iic-2.00.a.yaml#L42
->
-> The binding indicates the clock is required. You need to update the
-> binding to match the code.
->
-> 	Andrew
+Hi Richard,
 
-Absolutely! Let me take care of it in v5. Will add the doc change before the
-code changes.
+kernel test robot noticed the following build warnings:
 
-Abdurrahman
+[auto build test WARNING on 9ace4753a5202b02191d54e9fdf7f9e3d02b85eb]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Richard-Genoud/dt-bindings-pwm-allwinner-add-h616-pwm-compatible/20260123-174342
+base:   9ace4753a5202b02191d54e9fdf7f9e3d02b85eb
+patch link:    https://lore.kernel.org/r/20260123093322.1327389-3-richard.genoud%40bootlin.com
+patch subject: [PATCH v3 2/4] pwm: sun50i: Add H616 PWM support
+config: arc-allyesconfig (https://download.01.org/0day-ci/archive/20260124/202601240328.Lv73l3dC-lkp@intel.com/config)
+compiler: arc-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260124/202601240328.Lv73l3dC-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601240328.Lv73l3dC-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   drivers/pwm/pwm-sun50i-h616.c: In function 'h616_add_composite_clk':
+>> drivers/pwm/pwm-sun50i-h616.c:720:28: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+     720 |                 mux->reg = (u64)mux->reg + reg;
+         |                            ^
+   drivers/pwm/pwm-sun50i-h616.c:730:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+     730 |                 gate->reg = (u64)gate->reg + reg;
+         |                             ^
+   drivers/pwm/pwm-sun50i-h616.c:740:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+     740 |                 rate->reg = (u64)rate->reg + reg;
+         |                             ^
+
+
+vim +720 drivers/pwm/pwm-sun50i-h616.c
+
+   704	
+   705	static int h616_add_composite_clk(struct clk_pwm_data *data,
+   706					  void __iomem *reg, spinlock_t *lock,
+   707					  struct device *dev, struct clk_hw **hw)
+   708	{
+   709		const struct clk_ops *mux_ops = NULL, *gate_ops = NULL, *rate_ops = NULL;
+   710		struct clk_hw *mux_hw = NULL, *gate_hw = NULL, *rate_hw = NULL;
+   711		struct device_node *node = dev->of_node;
+   712	
+   713		if (data->mux_hw) {
+   714			struct clk_mux *mux;
+   715	
+   716			mux_hw = data->mux_hw;
+   717			mux = to_clk_mux(mux_hw);
+   718			mux->lock = lock;
+   719			mux_ops = mux_hw->init->ops;
+ > 720			mux->reg = (u64)mux->reg + reg;
+   721		}
+   722	
+   723		if (data->gate_hw) {
+   724			struct clk_gate *gate;
+   725	
+   726			gate_hw = data->gate_hw;
+   727			gate = to_clk_gate(gate_hw);
+   728			gate->lock = lock;
+   729			gate_ops = gate_hw->init->ops;
+   730			gate->reg = (u64)gate->reg + reg;
+   731		}
+   732	
+   733		if (data->rate_hw) {
+   734			struct clk_divider *rate;
+   735	
+   736			rate_hw = data->rate_hw;
+   737			rate = to_clk_divider(rate_hw);
+   738			rate_ops = rate_hw->init->ops;
+   739			rate->lock = lock;
+   740			rate->reg = (u64)rate->reg + reg;
+   741	
+   742			if (rate->table) {
+   743				const struct clk_div_table *clkt;
+   744				int table_size = 0;
+   745	
+   746				for (clkt = rate->table; clkt->div; clkt++)
+   747					table_size++;
+   748				rate->width = order_base_2(table_size);
+   749			}
+   750		}
+   751	
+   752		/*
+   753		 * Retrieve the parent clock names from DTS for pwm-clk-srcxy
+   754		 */
+   755		if (!data->parent_names) {
+   756			data->num_parents = of_clk_get_parent_count(node);
+   757			if (data->num_parents == 0)
+   758				return -ENOENT;
+   759	
+   760			data->parent_names = devm_kzalloc(dev,
+   761							  sizeof(*data->parent_names),
+   762							  GFP_KERNEL);
+   763			for (unsigned int i = 0; i < data->num_parents; i++)
+   764				data->parent_names[i] = of_clk_get_parent_name(node, i);
+   765		}
+   766	
+   767		*hw = clk_hw_register_composite(dev, data->name, data->parent_names,
+   768						data->num_parents, mux_hw,
+   769						mux_ops, rate_hw, rate_ops,
+   770						gate_hw, gate_ops, data->flags);
+   771	
+   772		return PTR_ERR_OR_ZERO(*hw);
+   773	}
+   774	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
