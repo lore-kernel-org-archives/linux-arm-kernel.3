@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D8ABD7236A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 10:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FBBD7236B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 10:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Js0Fe0K4Dy4ilMWE812X2F6F1JfzVk3zeg9j6B+qb3w=; b=SCqt08mZUIp74onGYWz274ZWPk
-	nbp0Qfgm6jCqlsfv96j33e08ZikF5dehrS6ZUYNNF7u1R1J8znf/iDlpYUVGmnhbENrmBUQWVab2g
-	PLCk14ButMoguhTFaFOEUPsufl2KNE1vA3728jjyp9r9mPbqmbujvcHxxvFnX7lhOBbXBXdYnU/qB
-	z+liaNHxo4JjakwGJYIWunD9E9ceX/C8a3xh26NrDo5QBouiL07xtSBFlrcQ0F1RuGJSMejyMwRrM
-	CvmU+MEKXy2Dr9kmZSTUktA1PF9Sn1q2WXARnkKnHn5VbLfS+0oF9fl3JKVvd7tsBcd259VueewkX
-	4f1wY7yg==;
+	bh=XBRozeY46vg8PADZW3WHHCDnP3wk7FIh0T+8LKbhSV8=; b=2tNTwDDvI5xE59/4IlVdUKMr72
+	Q5v2cEPF+qLi3g9Qtl4IVq2nDhfnks7Bk4PXD6I0R+ezkUNNJceqQLuGOEFk3RXlrXYN2aV4xiDUF
+	ICCDzpuUydUk3qb9DSCkiu5DzZrqAxwdze9hZ0tI1Ji38dLXI6qbaGvce8EgwyjW9zIYZGbYEhRKs
+	fTknp+UL2pk1X4wXhRSPIpRUtlKtr1GZuMDKuw8+LoCwX9S8uIY+Pn0ixjePmijUPcG2vzUopId7P
+	J+pYpI+XMMlgwlaTHG/YFZV2Z/wQaqX6ReZr35fxvOO1hsr4rEuESdMb+DShH2YcnojrYexOGAOsk
+	qmZgNmNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjE7G-00000008gK2-41kp;
-	Fri, 23 Jan 2026 10:10:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vjE7L-00000008gLA-12Ms;
+	Fri, 23 Jan 2026 10:10:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjE7F-00000008gJP-1oJi
+	id 1vjE7F-00000008gJO-2Vhy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 10:10:09 +0000
+	Fri, 23 Jan 2026 10:10:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 88D3D60134;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6E5F144482;
 	Fri, 23 Jan 2026 10:10:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2C304C116D0;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 416D2C19422;
 	Fri, 23 Jan 2026 10:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1769163008;
-	bh=QhbxPJILpUk0pmN0IL18GV2yR3tp2vcg7M3uxmouMsQ=;
+	bh=/sAomtMqIiV4lWIWGav839h/zFzdTQirNdkOR5mNhU0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Zgm42Y57P4bEBUkXZ9JnR+C4rIgdA0tQIN01kx67BYQMc7augWO1Xb5jIelMl69Cw
-	 4f9DNnfpqGbZU/CRERCHf8pzft82N2wX/OL6JPYpJNaJaz+Yd8d8uG5AUpxf+zWljG
-	 OdWwoHEXG8x9SbzAfu0Dqr7xTpaU+Md7DgzCcoNGHVulT5HxVmoI34bRrXp34axpzS
-	 Ifpmu2fKVLcWY4+wH3IbcmsCfMgVoLtTfikE27eeIlQ5/B1IqEVjqWbeu+C9J1Mx1B
-	 uzmqkzxMouduPf6zM2G3ERD4MmoEMqj9DqEHaYjAulpLK1lrIt+ufMhuK/pkcaSdfX
-	 PVSENJL2dXfgA==
+	b=fyhP8r3ZXRrOygHw67HEbOfFrYr7wWWZ33H1k8HOZJryMJuDch4T8temjkk5GYmC7
+	 9tQjG93bTEMnxLIX/ht2tTnXiocUObiU2liyb0k9mFVD/BhXVDi2GrsCJeIg6zKxm0
+	 CI8gKz6FvqZ4I4+3deULJrj6O88Fg4XpsRZO84uW8lKuGI2imi8kN471wSIB+MVf8n
+	 TNKvExpmxg5vqFpx63SWjc94jx9exZIipf2MNRDb/78Qfml60uRZUCztDciIh1Il5I
+	 B5i+78VhSFNmduFyFaHhKXq9H1vhOU/0dCMitzFM8wH5aEJnpetIwWwgKMtLGM57SM
+	 iI6UuMOUlMTmQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1D7EAD72369;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 32040D7236A;
 	Fri, 23 Jan 2026 10:10:08 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Fri, 23 Jan 2026 11:09:54 +0100
-Subject: [PATCH v3 1/4] net: stmmac: platform: read channels irq
+Date: Fri, 23 Jan 2026 11:09:55 +0100
+Subject: [PATCH v3 2/4] dt-bindings: net: nxp,s32-dwmac: Declare per-queue
+ interrupts
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260123-dwmac_multi_irq-v3-1-cc53f2be8961@oss.nxp.com>
+Message-Id: <20260123-dwmac_multi_irq-v3-2-cc53f2be8961@oss.nxp.com>
 References: <20260123-dwmac_multi_irq-v3-0-cc53f2be8961@oss.nxp.com>
 In-Reply-To: <20260123-dwmac_multi_irq-v3-0-cc53f2be8961@oss.nxp.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -72,16 +73,19 @@ Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
  imx@lists.linux.dev, devicetree@vger.kernel.org, 
  "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769163006; l=2267;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769163006; l=3065;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=I69CIaOrsVjsk2qKie1opY8Sk2GVcG8xJRTXN7Y+zQc=;
- b=WvOceTE3VPOC4NTuTUvuhTgwBZGNIEPH2jVhDbCEigXBb+g1OVDllXFDqyQGO9zyvwhux9uZV
- 0jOywyej101AgVoOEW86ing0WPCg66Y/BTfnKts+8xKtx/9xfmJzv63
+ bh=QlhAxzb6ufWFEeVPNUgM7miu/hiQulE6Q8b8EApJlOk=;
+ b=OW/N7V1HzGLYrGTMeffBI/HGQ18ys4ES2yPHazroIv1gnwyf9JRv+gEL7NA03PioA7+PoHsTa
+ PkFniBERZY5D/FcV4Av9/tuTz5HjUFghDQKkw2aw6wRJwduwYjVNzSI
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
  auth_id=217
 X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260123_021009_693852_CFB1C689 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,71 +103,82 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-Read IRQ resources for all rx/tx channels, to allow Multi-IRQ mode
-for platform glue drivers.
+The DWMAC IP on NXP S32G/R SoCs has connected queue-based IRQ lines,
+set them to allow using Multi-IRQ mode when supported.
 
 Reviewed-by: Matthias Brugger <mbrugger@suse.com>
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_platform.c  | 38 +++++++++++++++++++++-
- 1 file changed, 37 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 42 +++++++++++++++++++---
+ 1 file changed, 37 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 8979a50b5507..f10a691b8add 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -700,6 +700,9 @@ EXPORT_SYMBOL_GPL(stmmac_pltfr_find_clk);
- int stmmac_get_platform_resources(struct platform_device *pdev,
- 				  struct stmmac_resources *stmmac_res)
- {
-+	char name[16];
-+	int i;
-+
- 	memset(stmmac_res, 0, sizeof(*stmmac_res));
+diff --git a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+index 2b8b74c5feec..31d1dfeb098e 100644
+--- a/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
+@@ -1,5 +1,5 @@
+ # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+-# Copyright 2021-2024 NXP
++# Copyright 2021-2026 NXP
+ %YAML 1.2
+ ---
+ $id: http://devicetree.org/schemas/net/nxp,s32-dwmac.yaml#
+@@ -33,10 +33,22 @@ properties:
+       - description: GMAC PHY mode control register
  
- 	/* Get IRQ information early to have an ability to ask for deferred
-@@ -743,7 +746,40 @@ int stmmac_get_platform_resources(struct platform_device *pdev,
+   interrupts:
+-    maxItems: 1
++    minItems: 1
++    maxItems: 11
  
- 	stmmac_res->addr = devm_platform_ioremap_resource(pdev, 0);
+   interrupt-names:
+-    const: macirq
++    items:
++      - const: macirq
++      - const: tx-queue-0
++      - const: rx-queue-0
++      - const: tx-queue-1
++      - const: rx-queue-1
++      - const: tx-queue-2
++      - const: rx-queue-2
++      - const: tx-queue-3
++      - const: rx-queue-3
++      - const: tx-queue-4
++      - const: rx-queue-4
  
--	return PTR_ERR_OR_ZERO(stmmac_res->addr);
-+	if (IS_ERR(stmmac_res->addr))
-+		return PTR_ERR(stmmac_res->addr);
-+
-+	/* RX channels irq */
-+	for (i = 0; i < MTL_MAX_RX_QUEUES; i++) {
-+		scnprintf(name, sizeof(name), "rx-queue-%d", i);
-+		stmmac_res->rx_irq[i] = platform_get_irq_byname_optional(pdev,
-+									 name);
-+		if (stmmac_res->rx_irq[i] < 0) {
-+			if (stmmac_res->rx_irq[i] == -EPROBE_DEFER)
-+				return -EPROBE_DEFER;
-+			dev_dbg(&pdev->dev, "IRQ rx-queue-%d not found\n", i);
-+
-+			/* Stop on first unset rx-queue-%i property member */
-+			break;
-+		}
-+	}
-+
-+	/* TX channels irq */
-+	for (i = 0; i < MTL_MAX_TX_QUEUES; i++) {
-+		scnprintf(name, sizeof(name), "tx-queue-%d", i);
-+		stmmac_res->tx_irq[i] = platform_get_irq_byname_optional(pdev,
-+									 name);
-+		if (stmmac_res->tx_irq[i] < 0) {
-+			if (stmmac_res->tx_irq[i] == -EPROBE_DEFER)
-+				return -EPROBE_DEFER;
-+			dev_dbg(&pdev->dev, "IRQ tx-queue-%d not found\n", i);
-+
-+			/* Stop on first unset tx-queue-%i property member */
-+			break;
-+		}
-+	}
-+
-+	return 0;
- }
- EXPORT_SYMBOL_GPL(stmmac_get_platform_resources);
- 
+   clocks:
+     items:
+@@ -75,8 +87,28 @@ examples:
+         reg = <0x0 0x4033c000 0x0 0x2000>, /* gmac IP */
+               <0x0 0x4007c004 0x0 0x4>;    /* GMAC_0_CTRL_STS */
+         interrupt-parent = <&gic>;
+-        interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+-        interrupt-names = "macirq";
++        interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
++                     /* CHN 0: tx, rx */
++                     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
++                     /* CHN 1: tx, rx */
++                     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
++                     /* CHN 2: tx, rx */
++                     <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
++                     /* CHN 3: tx, rx */
++                     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>,
++                     /* CHN 4: tx, rx */
++                     <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
++        interrupt-names = "macirq",
++                          "tx-queue-0", "rx-queue-0",
++                          "tx-queue-1", "rx-queue-1",
++                          "tx-queue-2", "rx-queue-2",
++                          "tx-queue-3", "rx-queue-3",
++                          "tx-queue-4", "rx-queue-4";
+         snps,mtl-rx-config = <&mtl_rx_setup>;
+         snps,mtl-tx-config = <&mtl_tx_setup>;
+         clocks = <&clks 24>, <&clks 17>, <&clks 16>, <&clks 15>;
 
 -- 
 2.47.0
