@@ -4,75 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18675D7234A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:30:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8ACD72345
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AZBMt67m6JLzWx3hVir/vPDPmNeGcdV84vmId0uhgts=; b=WdfSEyviAxn4WUUho+70L/o1O9
-	1hJ+9vUoq3V7L2xED1qraBJj8KTivhUdnOFEzr2CWI6Zjdxw9lRf5ljLZvMf/rXZ4EhYGkhKOxpcA
-	2m6pDqLnqSQByzQwHk7EpYINR/UZlxNqiGo/9iCOQ80DLJiOdrHed4lWoQErqYqeCgYIr1ZDQRcms
-	5RzkrJS8A2y+A0tdbtOWIHkODPp2QINyLAOkD3vKvpN0WPUWsfg8RvTPnko1X2fFOreOgYcNlg8qo
-	eiE50l6jRgpovb31kwofFW4z259gg7n/1nApSkqCDBCnG5mY+fpIqbqdPTkg663zmwO6z5FoCMOx/
-	KB5q9nwQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OblqumAF9NiAcSleiI+cSnH1Mm+ViWrsYKgUqu17glM=; b=JFS1XQAUIvVKnn1Km8WGcZIHqW
+	npbDoG7lL2S8sK8GtocaECkpbZarUV7F6SIs6ZyjnkwFb0mv2ZPEz//g5TjOr39xJ9ZIzXrXiPjOF
+	VEtFI5pmqwkN6wNCiyss/UaESMeK0/PSibby0FjAeGK2KN17mh6rqFrTL7WspvBiL9zt6GAmFx+QF
+	+HoW2Qh3k3BpMtT2IL4ZAIYlwH+YQ6Z/0ngzScNJ/i7rA64JiOGc3izbKiXH3scd+fvnhBAccKGw5
+	+Lrp0Gelf1rbSwMRx5zmgAd8ABDDoRyVB+VQl9booxvMMA5fgfleD5jjT9uV6j5dcQZ8Ln6XDDk7M
+	3XU1v6CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjCYX-00000008TSv-13TY;
-	Fri, 23 Jan 2026 08:30:13 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1vjCYr-00000008TXi-2TC8;
+	Fri, 23 Jan 2026 08:30:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjCYV-00000008TSV-1Vmn
+	id 1vjCYp-00000008TVs-3cOH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 08:30:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769157011; x=1800693011;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=hh5sToR9AGwKIbDihovytp3JPE3xlUNC/QVFWChK7OA=;
-  b=InC87shZsVrfXEJgM3wQW1yhrAXW2UnLQqSzl3OitotcnkYrE1bFCfuC
-   8+0zD1TEVNBo0nWrb314og4BUGCfXGuaAPrcMvgfxhrZfwJTq3VKkvEJW
-   6e/f+hCQIut1EUnLmCGcrnDDm4v3pr12Alj2doRyuPXC6O3qDQ8CMq+3U
-   dvxETxqygvN+Wsnr7KmEfOBuyXD//2UcC7bDynSPuF4/p+g0Z/lLwFg94
-   is9+suC+Wh9DAhcnKijGnIELaohVNx8PLCcHJfkBkwufjomdMiO7QRqEH
-   TyjAxoteLyRUUbFajpkbhu5tns8hiBQ0bUWFtwM40wnxkeJGtsFJW6TzG
-   g==;
-X-CSE-ConnectionGUID: r2bnhbNDQISPN0XW5v6oNQ==
-X-CSE-MsgGUID: evss0sL4SSe6YEvwTt+kKw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11679"; a="70324201"
-X-IronPort-AV: E=Sophos;i="6.21,248,1763452800"; 
-   d="scan'208";a="70324201"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2026 00:30:11 -0800
-X-CSE-ConnectionGUID: rPNXQazcRA6HQjCwhWtTmQ==
-X-CSE-MsgGUID: wkDdG5swQYmFViiTm5NO7Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,248,1763452800"; 
-   d="scan'208";a="238228011"
-Received: from rvuia-mobl.ger.corp.intel.com (HELO localhost) ([10.245.244.112])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2026 00:30:09 -0800
-Date: Fri, 23 Jan 2026 10:30:06 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: abdurrahman@nexthop.ai
-Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/5] i2c: xiic: switch to managed version of mutex_init
-Message-ID: <aXMxjo-KcfEOtsX7@smile.fi.intel.com>
-References: <20260123-i2c-xiic-v3-0-eb7cd4254dfb@nexthop.ai>
- <20260123-i2c-xiic-v3-2-eb7cd4254dfb@nexthop.ai>
+	Fri, 23 Jan 2026 08:30:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D03C344579;
+	Fri, 23 Jan 2026 08:30:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A1CBFC19423;
+	Fri, 23 Jan 2026 08:30:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769157030;
+	bh=hwCyQcZBbd1CxtM6jAHkplhjj5WWWGRjHESp3qHcyz8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=I6BWgXtHd5gAZjJiq2vT0WQ1ByejXBFYgRVHFSkMmRC5kdgM6nORIw9xr+fka+xl5
+	 7z/uPY3ybJHQCE7drr18XFM54cfydmgTgckg2xAhxNOOb5mZOvODobkePGk9SutV6c
+	 csf1D/woMpLQIS+HSjCfmBSbkZMvPAqRCpkVoDFE1Y1UZLWtG3TiFzlZnHh3R6HHPn
+	 beDJS7v5nyEWLK69sWhShz2zvAO98Gdq1wVknV3x0dV0MPu6aGViwx3ChAi3rMA+0/
+	 SMdXGKtfWNpa7IalSEns111cY8Oh3wj+S1aHBhRvKjJh1MA6a4McR8A4OT695JUw+y
+	 8ThWNzmSrdlAA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 99D53D7234B;
+	Fri, 23 Jan 2026 08:30:30 +0000 (UTC)
+From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
+Date: Fri, 23 Jan 2026 09:30:28 +0100
+Subject: [PATCH v5 1/5] dt-bindings: arm: fsl: Add GOcontroll Moduline
+ IV/Mini
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260123-i2c-xiic-v3-2-eb7cd4254dfb@nexthop.ai>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260123-mini_iv-v5-1-29bef040f236@gocontroll.com>
+References: <20260123-mini_iv-v5-0-29bef040f236@gocontroll.com>
+In-Reply-To: <20260123-mini_iv-v5-0-29bef040f236@gocontroll.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Matti Vaittinen <mazziesaccount@gmail.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Maud Spierings <maudspierings@gocontroll.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769157029; l=1193;
+ i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
+ bh=FPnVFuGZ4VvNvtuoCGBWX/d1Nj9ZPjClvU+nyhEftj4=;
+ b=JSjU4HbXvU3WmGRV+yrCT0RszWCpRZI7l8CjvSvavtnFF3OXVmOK0FdMfFlIqgmfnC9JkIEDm
+ fAmziTVDOAoDlmv+zmHqFgVSUa+qfBbrJ4oKPapHRoqw8b23t4kmPsG
+X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
+ pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
+X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
+ with auth_id=341
+X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_003011_444584_55F27E6F 
-X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-CacheID: sfid-20260123_003031_949972_1C7116AF 
+X-CRM114-Status: UNSURE (   8.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,25 +92,44 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 08:02:45AM +0000, Abdurrahman Hussain via B4 Relay wrote:
+From: Maud Spierings <maudspierings@gocontroll.com>
 
-> Simplify the error path by switching to a managed version of mutex_init.
+Document the compatible strings for the Moduline IV and Mini.
+Also add a compatible for the Ka-Ro Electronics TX8M-1610 SoM that they
+are based on.
 
-...
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-> -	mutex_init(&i2c->lock);
-> +	ret = devm_mutex_init(&pdev->dev, &i2c->lock);
-> +	if (ret < 0)
-> +		return ret;
-
-Should use 'dev' instead (see comment on the patches 1 and 5).
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 5716d701292c..c76c1731b4f7 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -996,6 +996,14 @@ properties:
+           - const: engicam,icore-mx8mm             # i.MX8MM Engicam i.Core MX8M Mini SoM
+           - const: fsl,imx8mm
+ 
++      - description: Ka-Ro Electronics TX8M-1610 based boards
++        items:
++          - enum:
++              - gocontroll,moduline-iv-306-d
++              - gocontroll,moduline-mini-111
++          - const: karo,imx8mm-tx8m-1610
++          - const: fsl,imx8mm
++
+       - description: Kontron BL i.MX8MM (N801X S) Board
+         items:
+           - const: kontron,imx8mm-bl
 
 -- 
-With Best Regards,
-Andy Shevchenko
+2.52.0
 
 
 
