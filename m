@@ -4,80 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EBDFD72379
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 11:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4C7DD72379
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 11:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JrOhy2hQ7D7K1pp/d34klSH1BeVFqpGIBGtRmxugz+8=; b=Y9DUDHWAzEKYVz6sq/4+I1RGbF
-	i5v2tLHUwuvNjXyJ/13+ibj6yN0ZsmU5k4qE6WZrD252iv9UO1LoHu+kZ+Em1jpGPPREoBBN/fsHl
-	qTAJIt3r1wXvZ8QfKEGBSNpRifHjblN8BNboaWE+mC3BcjpbLKFPn/Y//TxBxWYFtYGTuLwPNAr8d
-	F0eqvt4a/A3mNRehP7LB9YkxekKlm/AhVoYuDnjT7R4FoU/Bo/MBD8o3HGzfTt6SKS9F8LQMh3zGC
-	xTGs4I9rtH3J7FNqR2R4iCEMNU0dOONXYZJDYIpfHb1Ao7J1ZwIvEj3ygw2FJEZt4izgntJMeTSNe
-	Ankf5WCQ==;
+	bh=rW+PAWZxGnF9Ct2ExEsv2LYHIZ9WUP+SeTviE1CEkbQ=; b=fuH8XqgmoEFV9T4sCiTpkjj3dL
+	LLRv0j3K8Yi8VoTm7LC2E4J8qdNOOi6/iEzrirIoIHt0/h39IJWH2vhR/gU/xZVZWCVdCP36h6PqA
+	Yv6bjApRf6RvQKV9VMfUwOqcYf3j3b/ehjPsUdEUqHOlWvJ+HVEK1HKd6aA6nmaJVUKukU5g+SCyB
+	KGtQYPHRYczpukFyqkK7MsG76RF9d+ilI9jB+nNpT07Cc0QgFkpoXnQCy6/xJlgcXukFOYLNU4vwp
+	06h+oz+P9bF7KfaRf0iwZ4wltVe+3CkFxx331WBnEG9E7va6uZjidxGHYoxTld7bzaCpxOB9l3/d0
+	0xjzzKqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjFO3-00000008qJJ-2B1V;
-	Fri, 23 Jan 2026 11:31:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vjFTd-00000008r9K-2hnE;
+	Fri, 23 Jan 2026 11:37:21 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjFO1-00000008qHg-3Hmv
+	id 1vjFTb-00000008r7i-45Xz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 11:31:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BAE07601EF;
-	Fri, 23 Jan 2026 11:31:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 52ADBC2BC86;
-	Fri, 23 Jan 2026 11:31:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769167892;
-	bh=I+GVZKcx+MBYS1PuUVaF2l26z5GWB2GsAag9y9Lqrb0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=jC7l93+aFbKEamIHQywtZW2r2l/k9wiQHB6Cn8V7cvo6kRmhAU6/aDJDTqqBMtwy4
-	 orI6zs2cs7dMc1x+rIkNs+ver88aThjklPUZSxNA8lByKyAah1F7HOEFqaQaiFgXz9
-	 1rDKOsR1FRfz0umqFvh0rsJRFxejq0hkUOGZzqd9wSsg8Q31ddvGTaoiEDYeayLxJr
-	 YZc+Ajvkg3eNDuV45sgRIFtUGae484AbrLuJm21D3REZIp37yGKGXWiDMJ+HWOb7Ab
-	 i3omf03OQ2xBZMHOECGZSi8MF/UJZau2XekBaTcPm+Zhl0m2oPdFei0wWEjq87GsHq
-	 H6X8boe4301Jg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 49818D72379;
-	Fri, 23 Jan 2026 11:31:32 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Fri, 23 Jan 2026 12:31:30 +0100
-Subject: [PATCH v7 1/4] dt-bindings: backlight: Add max25014 support
+	Fri, 23 Jan 2026 11:37:21 +0000
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1769168235;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rW+PAWZxGnF9Ct2ExEsv2LYHIZ9WUP+SeTviE1CEkbQ=;
+	b=zffOZK+MJrBMe4/16DzgMn02IFh1NGTwWSuZc3A6y3frjvDTWjkLG7VWunfUWnsDzia7as
+	quCXNFgX3r3ZCD56XLbAgt0+UlDrojzHcbDdtg07HxtmeaKW+W/7sQnkbxdZoJPMSOkG4w
+	Ap/boKIuWmq8x6qgjC13NgUIzCMx4FUroW4L7EVCoA8DmwDqehU+XNh9jUg5W3ioYKR+dl
+	4rCtOnMEYh6SX8jk9Qhk3CaQWplcYCLzQWRAOdvuj0IBSXuU8iv7TI0REYHctVrHkFXQOb
+	5fOhkjdvbLtkekvluCfiXgRogSQxnxOscQEf2ZXmZBYKge+TpZOsNGbRbCoCKw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1769168235;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rW+PAWZxGnF9Ct2ExEsv2LYHIZ9WUP+SeTviE1CEkbQ=;
+	b=KOYwv177IAVesLbfPWb2vMFuU+K1PnUs5QaCQ2xKmM+aoDfRPHS/+8jtMQwteTN2CPJiT0
+	cM5NBEY7NonIRYAg==
+To: linux-kernel@vger.kernel.org
+Cc: linux-rt-devel@lists.linux.dev,
+	Thomas Gleixner <tglx@kernel.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Linus Walleij <linusw@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 08/21] ARM: versatile: Remove IRQF_ONESHOT
+Date: Fri, 23 Jan 2026 12:36:54 +0100
+Message-ID: <20260123113708.416727-9-bigeasy@linutronix.de>
+In-Reply-To: <20260123113708.416727-1-bigeasy@linutronix.de>
+References: <20260123113708.416727-1-bigeasy@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260123-max25014-v7-1-15e504b9acc7@gocontroll.com>
-References: <20260123-max25014-v7-0-15e504b9acc7@gocontroll.com>
-In-Reply-To: <20260123-max25014-v7-0-15e504b9acc7@gocontroll.com>
-To: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
- Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-fbdev@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Maud Spierings <maudspierings@gocontroll.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769167891; l=3636;
- i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=ZOQsl8OAiJDWwB3K+E4EP5ngBND6aBuPtx4fJEq8WZA=;
- b=pbAsLA7HaokmGS2MoTnWAZR9eNOgYVunL9bwZ6CEwq8mJr7yBqsDHh6YlJXJ2Y6dNHGPYLX2d
- ksZSkvy3C/PD+v5LNVaOo//Ar0Ln0bhEG7At/mxePpLmworMFnuF2l4
-X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
- pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
-X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
- with auth_id=341
-X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260123_033720_153629_2392318A 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,144 +79,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maud Spierings <maudspierings@gocontroll.com>
+Passing IRQF_ONESHOT ensures that the interrupt source is masked until
+the secondary (threaded) handler is done. If only a primary handler is
+used then the flag makes no sense because the interrupt can not fire
+(again) while its handler is running.
 
-The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
-with integrated boost controller.
+Revert adding IRQF_ONESHOT to irqflags.
 
-Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: Liviu Dudau <liviu.dudau@arm.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
+ arch/arm/mach-versatile/spc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-In the current implementation the control registers for channel 1,
-control all channels. So only one led subnode with led-sources is
-supported right now. If at some point the driver functionality is
-expanded the bindings can be easily extended with it.
----
- .../bindings/leds/backlight/maxim,max25014.yaml    | 91 ++++++++++++++++++++++
- MAINTAINERS                                        |  5 ++
- 2 files changed, 96 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
-new file mode 100644
-index 000000000000..c499e6224a8f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
-@@ -0,0 +1,91 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/leds/backlight/maxim,max25014.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Maxim max25014 backlight controller
-+
-+maintainers:
-+  - Maud Spierings <maudspierings@gocontroll.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - maxim,max25014
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 0
-+
-+  default-brightness:
-+    minimum: 0
-+    maximum: 100
-+    default: 50
-+
-+  enable-gpios:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  power-supply:
-+    description: Regulator which controls the boost converter input rail.
-+
-+  pwms:
-+    maxItems: 1
-+
-+  maxim,iset:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    maximum: 15
-+    default: 11
-+    description:
-+      Value of the ISET field in the ISET register. This controls the current
-+      scale of the outputs, a higher number means more current.
-+
-+  maxim,strings:
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    description:
-+      A 4-bit bitfield that describes which led strings to turn on.
-+    minItems: 4
-+    maxItems: 4
-+    items:
-+      maximum: 1
-+    default:
-+      [1 1 1 1]
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    i2c {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        backlight@6f {
-+            compatible = "maxim,max25014";
-+            reg = <0x6f>;
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+            default-brightness = <50>;
-+            enable-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
-+            interrupt-parent = <&gpio1>;
-+            interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
-+            power-supply = <&reg_backlight>;
-+            pwms = <&pwm1>;
-+            maxim,iset = <7>;
-+            maxim,strings = <1 1 1 0>;
-+        };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 9b1b87d08fac..eb248f4634ac 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -15515,6 +15515,11 @@ F:	Documentation/userspace-api/media/drivers/max2175.rst
- F:	drivers/media/i2c/max2175*
- F:	include/uapi/linux/max2175.h
- 
-+MAX25014 BACKLIGHT DRIVER
-+M:	Maud Spierings <maudspierings@gocontroll.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
-+
- MAX31335 RTC DRIVER
- M:	Antoniu Miclaus <antoniu.miclaus@analog.com>
- L:	linux-rtc@vger.kernel.org
-
--- 
-2.52.0
-
+diff --git a/arch/arm/mach-versatile/spc.c b/arch/arm/mach-versatile/spc.c
+index 812db32448fcd..2d27777a00d33 100644
+--- a/arch/arm/mach-versatile/spc.c
++++ b/arch/arm/mach-versatile/spc.c
+@@ -459,8 +459,8 @@ int __init ve_spc_init(void __iomem *baseaddr, u32 a15_=
+clusid, int irq)
+=20
+ 	readl_relaxed(info->baseaddr + PWC_STATUS);
+=20
+-	ret =3D request_irq(irq, ve_spc_irq_handler, IRQF_TRIGGER_HIGH
+-				| IRQF_ONESHOT, "vexpress-spc", info);
++	ret =3D request_irq(irq, ve_spc_irq_handler, IRQF_TRIGGER_HIGH,
++			  "vexpress-spc", info);
+ 	if (ret) {
+ 		pr_err(SPCLOG "IRQ %d request failed\n", irq);
+ 		kfree(info);
+--=20
+2.51.0
 
 
