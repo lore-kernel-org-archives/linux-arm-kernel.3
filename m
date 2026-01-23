@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26E62D74ECB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 13:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC3FD74ECF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 13:34:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZFcVCUbs6+A4DjohoDcTbMd4NWYz6AemlNmvZZNsXj8=; b=DVVNnkp98e61ty3palySzrDidg
-	BRv4IicYbKAKetfaO/fcdpiJmh5Cx0JfpcKbELCgK4LhyzjkFNRGwMMMyefMnR5ZaL+4k8lWGdrg8
-	/zuJMfgdIewwGjcrWil/9aH5ewOUTh1JNkhSHxS4vr4jrBVt+OTwe6HLwsjq4xkq8iGRG08EozzdF
-	jCOTvEpRkL2pFJZKgb4E0wlQCknL38ClVe0asoSNO2M/o/pus17//7qlGmJDat+2tjZwgegzXhY9x
-	UDvpZ0gPDIcTNOEEXHx/D+GuicqRbfGDINWeQKZM+9Lk6PHOtXIFEnoPV4rMu3bptrNTkTKtdklR5
-	OEtNXDrw==;
+	bh=/FaJ17quXgLj3q7lesyxJ1BD4hQkqNGO4klrnGmMXe0=; b=05t4CuONNesiBMVfZkxo2sMmGO
+	DA4NeDbh6QyEJA8UtMcASCeRHV/dTxkHWrMkWQddKZfD/7zReDcHIU0e0BMSsqVl/iw8T1/RQsy7Y
+	fp5S1/kV9b73TYKP7uAHjm+Zv+bOmCr6gkoCNrGg2sVBHlI/DUEPG1yNeCUxkqYxMOJW724aEUfH1
+	PhvJnUnerIBpSxniqg/YMfSurrPcLE5MqMtaiAizegGQxuqxdO4rcVZihJAL3kZOSjVipLUf0WI93
+	+FnMJX6icfJm/1iGin3geFnrM43JR8vcxlB7Vn8zJA16dE/H3ojxsYrKgRmGKD18sto3bU53BUpgP
+	H03vNSxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjHH8-00000008yHt-43eg;
-	Fri, 23 Jan 2026 13:32:35 +0000
-Received: from mail-vk1-f169.google.com ([209.85.221.169])
+	id 1vjHIx-00000008yS7-2KvH;
+	Fri, 23 Jan 2026 13:34:27 +0000
+Received: from mail-ua1-f65.google.com ([209.85.222.65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjHH6-00000008yG7-2tbn
+	id 1vjHIu-00000008yRS-3Uja
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 13:32:33 +0000
-Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-566474a6e10so217472e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 05:32:32 -0800 (PST)
+	Fri, 23 Jan 2026 13:34:26 +0000
+Received: by mail-ua1-f65.google.com with SMTP id a1e0cc1a2514c-94388cfa259so554393241.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 05:34:24 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769175151; x=1769779951;
+        d=1e100.net; s=20230601; t=1769175263; x=1769780063;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZFcVCUbs6+A4DjohoDcTbMd4NWYz6AemlNmvZZNsXj8=;
-        b=qWbHxgBmr/IiMQ4KONJrgv/pLGQqoT7BHIqrh6PfIQ7uwLtAw1d5BT29OPpJpeVkbh
-         QHMwpcMFHoFvlfTKHTOZRgP/7ZhP9s8oYyHfVrt9O6xMBgISM5bK8vAXljZk7ut3Cauc
-         jEdW87mrFS8YWPdt53zJ5Dnj9Sr7mC9S5k3+aW414ro1/Rukg3xqnTzbeqsJG31ilEUV
-         tU4H/JZQyoEGcjwgJ2fzv/klCXB0RCbVkZcTKqIVpiH0VXQpsvetSMocDgOVT8paKQM9
-         NGPw36DSDtvfTosYvw1Pl9f1aqsQdbtvcAL5eEasn7tH2fhZE8ZDPQEK2eWj4El84e2T
-         v3Ig==
-X-Gm-Message-State: AOJu0Yw5HSBh4+ChwntzoKjiIRSCqaFSiE6udC7kKuqdpC7rg4fehsBt
-	UYQGGFRfqE5Lobis8RVfW9RX6CfDZUvTISAcq5U/mlm89l5Gjqq1aIE6kMrlJtMh
-X-Gm-Gg: AZuq6aJbrT4CExxGtAHnWabVXp7SKRRBhvahMdzfRyzvg8Rxym3cZxOcEhVFE4BvdN1
-	eBOt8R5PGtgqqutlJgI7Y7RcIOd8/HdkcrF4+OUGykcIOJft2ZwMF6tMSRC9emabkiZhejLVDOD
-	6vchWPRtjzSGn4OuujquPmpHYYQDMkh0mjhKZ7Q1hjq7MnzpBi8tQTj9bG/qDZ5YnWkw7aMnMgw
-	4Jvbpo6XZKMchDSeTr9/YfRnRQrjnIts1oDl/3stl+awJZFt/ahkOyhXlyRkVeRlzZBu1Jcq5ld
-	ftOxNgCSxjHZ+fzAtP2BdupE1x+K9N4a+n98HdgXDwQuMhBRufGY94XpkY7oYDD4wJ4VsPYbxJy
-	4Lr/y/Qt2BQRgCXYxtTWOymuEXM/Mf5gRiPxQwvjHb0PY3XsjHmMlEknD4SOBU1Fcc+5bbQmnWq
-	8d46NoUeg5ydOI10h+2Fc2OzmDhl5cHD2hRroCHerF3KUM7zrC2JBzJleQjVoqJ9E=
-X-Received: by 2002:a05:6102:c91:b0:5f5:3bc4:725f with SMTP id ada2fe7eead31-5f54bcef2bamr853743137.37.1769175151138;
-        Fri, 23 Jan 2026 05:32:31 -0800 (PST)
-Received: from mail-vk1-f180.google.com (mail-vk1-f180.google.com. [209.85.221.180])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5f54d66c977sm537635137.12.2026.01.23.05.32.30
+        bh=/FaJ17quXgLj3q7lesyxJ1BD4hQkqNGO4klrnGmMXe0=;
+        b=JENn8bawvnO2DUZoftz2rEhoJu8DKQ1hUsNqNHNKhMwr/o0OHWVyBnmfcEvwuR68wz
+         SuYyBdPe1js5KcW/Y9CbzFXtP8b2eWsF6qj9MIJYJeNah1Qv/O5fNfrnrH2M6NeSbgnN
+         jAEEtE931jW7HCAY6zs2JtixKPZRr7KcUuAlcGX7JRNVheWet/dzP/U4CQaxjoTdbYYw
+         9HgOhlqMmjdo+Dk+Vwe+HofzGosvNUvMf4XOhNJv2pc2Rgt/aKlpoAE6ikZ0O80irh99
+         LUrWrb+aUknekbZfq7kpqtPycYCq86JKN1c9ehIxiBgwOu901R2V9NmIpU7ryCuMAktT
+         u2LQ==
+X-Gm-Message-State: AOJu0YyBltdbKPkyZhummJYvt4ubztzHBuYOeFByHF44nZ/m+UhNSigf
+	Td3CYmzfdtZ+305ldrBYDmodGH2kvIbHWZekvocwtDUbR8J5RXN+rN+RPZ065XuOYQU=
+X-Gm-Gg: AZuq6aKeRad9ol/0/xyyjTJQgx5UNWm50i6AkrGdo7uRD4hvN8YbqEinKOSwGO97S2G
+	spY2CESUSy+g/ZFcjJKKCYKatZgiwDHtAuDms4WaNJignzUq0FCT1m1nILo0UKoq4eauOUOKCUn
+	E4BGnHL/SqX781NYqrCioLcwmJlCPgdJtwchZ1TZNBNzj7FYVw5lSBqSsgDLaAWCWozsdSDk3nt
+	/Hjcl/VXVosgKB+fQOIbuLxCC3WC+lIGsTHwN+o6RsBUlW0u5sygZ2yuos9lcSVC2OkUQzcsVJJ
+	8f4nMSVoEXbvw1UP51qXG7rGwAWK3Vp1dSV8GAciruqhBVMAVilGp/fymwFDgK9+US0hiaRwTEV
+	3NtJSkBbObexsFwWkvQEiBvx6Vne97eoRCfeSyFauc9OCJn5lbTMorutTYlXMVd0enJ+8HWwTWr
+	phXTRYJz1npAr3TyU0c8pXyva3XhN0XLSlks3Huw0iwHWwhMBi
+X-Received: by 2002:a05:6102:3594:b0:5f5:4055:4558 with SMTP id ada2fe7eead31-5f54b9dd693mr944041137.2.1769175263374;
+        Fri, 23 Jan 2026 05:34:23 -0800 (PST)
+Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5f54d3d849dsm502014137.2.2026.01.23.05.34.22
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 23 Jan 2026 05:32:30 -0800 (PST)
-Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-566474a6e10so217461e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 05:32:30 -0800 (PST)
-X-Received: by 2002:a05:6102:f14:b0:5ef:a9fb:f1f3 with SMTP id
- ada2fe7eead31-5f54bae7a41mr1054952137.11.1769175150254; Fri, 23 Jan 2026
- 05:32:30 -0800 (PST)
+        Fri, 23 Jan 2026 05:34:23 -0800 (PST)
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-94388cfa259so554378241.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 05:34:22 -0800 (PST)
+X-Received: by 2002:a05:6102:3753:b0:5ef:aeff:8304 with SMTP id
+ ada2fe7eead31-5f54bccac8amr893050137.33.1769175260730; Fri, 23 Jan 2026
+ 05:34:20 -0800 (PST)
 MIME-Version: 1.0
-References: <20260118135038.8033-1-marek.vasut+renesas@mailbox.org> <20260118135038.8033-7-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260118135038.8033-7-marek.vasut+renesas@mailbox.org>
+References: <20260118135038.8033-1-marek.vasut+renesas@mailbox.org> <20260118135038.8033-8-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260118135038.8033-8-marek.vasut+renesas@mailbox.org>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 23 Jan 2026 14:32:18 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUaPJCdzx5nGgmO4=z5TL6UYiYDaEgL1ezWABh6vPJOCA@mail.gmail.com>
-X-Gm-Features: AZwV_QiSLMv1d8wTOd_fggCZcAN0A0pAIafduPy_jaGRkU9OQ3Tlbc0VC45o0gg
-Message-ID: <CAMuHMdUaPJCdzx5nGgmO4=z5TL6UYiYDaEgL1ezWABh6vPJOCA@mail.gmail.com>
-Subject: Re: [PATCH v2 6/9] arm64: dts: renesas: r8a77990: Add USB 3.0 PHY and
- USB3S0 clock nodes
+Date: Fri, 23 Jan 2026 14:34:08 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUhqLnfZdg_9-JmH7Nrae1MfzM73R_NUFuwXioYnNoQ8g@mail.gmail.com>
+X-Gm-Features: AZwV_Qj-XKrZ6tI1NWPXXvOntE-HmWyNH8CYB4F0u4KrKnplhkYq6k74VqQHwH0
+Message-ID: <CAMuHMdUhqLnfZdg_9-JmH7Nrae1MfzM73R_NUFuwXioYnNoQ8g@mail.gmail.com>
+Subject: Re: [PATCH v2 7/9] arm64: dts: renesas: salvator-common: Describe
+ PCIe/USB3.0 clock generator
 To: Marek Vasut <marek.vasut+renesas@mailbox.org>
 Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
@@ -81,8 +81,8 @@ Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
 	linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_053232_727775_B2C37635 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20260123_053425_734428_4EF96B01 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,18 +99,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Sun, 18 Jan 2026 at 14:51, Marek Vasut
 <marek.vasut+renesas@mailbox.org> wrote:
-> Add USB 3.0 PHY and PHY clock node for R8877990 E3 . The PHY node is
-> different in that it does not have control registers and extal clock,
-> which are not routed to the SoC pads on E3, therefore describe the
-> PHY as usb-nop-xceiv simple PHY. Add USB3S0 clock pad fixed-clock
-> node, the frequency has to be overridden at board level.
+> Describe the 9FGV0841 PCIe and USB3.0 clock generator present on both
+> Salvator-X and Salvator-XS boards. The clock generator supplies 100 MHz
+> differential clock for both PCIe ports, as well as for the USB 3.0 PHY.
 >
 > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-> V2: Describe PHY as usb-nop-xceiv and update commit message
-
 Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 i.e. will queue in renesas-devel for v6.21.
+
+> --- a/arch/arm64/boot/dts/renesas/salvator-common.dtsi
+> +++ b/arch/arm64/boot/dts/renesas/salvator-common.dtsi
+> @@ -641,16 +654,27 @@ &ohci1 {
+>
+>  &pcie_bus_clk {
+>         clock-frequency = <100000000>;
+
+I will drop the clock-frequency while applying, as there is no point
+in changing it in a disabled node.
+
+> +       status = "disabled";
+>  };
+
+> @@ -1038,11 +1062,13 @@ &usb3_peri0 {
+>  };
+>
+>  &usb3_phy0 {
+> +       clocks = <&cpg CPG_MOD 328>, <&pcie_usb_clk 6>, <&usb_extal_clk>;
+>         status = "okay";
+>  };
+>
+>  &usb3s0_clk {
+>         clock-frequency = <100000000>;
+
+Likewise.
+
+> +       status = "disabled";
+>  };
 
 Gr{oetje,eeting}s,
 
