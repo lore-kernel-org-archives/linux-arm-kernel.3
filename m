@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F9D4D6CFBA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69582D6CFBE
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 03:41:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,21 +12,21 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NkiOTGthYXsjkhUeYJrOcXZXnSL0fCmN14NQXn0FZ/8=; b=fpDKjTvBz8QlpZbnxBLB4JeE3S
-	wU0ZS11PeFTOrdi/As5oOOP90l2SXh0QkxIkGzCObPBJITa+fAvlYL2OFYDxO7Emokdbl8HeZZPoq
-	gVMXycKMqD6qr4MF/5D8SObDdk1ml4Xa8vYDsRFoGKViUjNfixJhNVbBnN7cQ3IOiV90V5PmwD2Y3
-	YJferxE21xHTdmXWkJTC7GgAdRyyLlrTLbsSHGuq4XXrsLTBNq4OZYF8U9TFJUpEs7+IJpu+zxVXH
-	nBK/srZY+AgVThNqySnB6tQEGSCXAkaINxAQ273P8SEPMg7gOyO4rKAIo3H3oXtJ0nNZaB35eeU5f
-	hPA4duqQ==;
+	bh=VDlcKDCKBJXB0kZu/3N7nSu0mQpdffCpp/02ACXENpQ=; b=y0jaZKHS9+UseICcew5TfBkD7o
+	D9cbraV/CWjPrkHhXwrwQAL2kaP6jP9dmh0wKWTUgSlW2/j1WvL0xgW/eaU926f05+hCa6yl3flNl
+	Q0xVbmgLtYFmYp8zSFEMl4WHCCczNcNK3BQHYLLgsMVOy82MhjtKnXyAvXBuAXdh9NZ0G81Fx0l0d
+	n2cyFaVPo+zpOY+nbBkdaSjK1U9i/hIFxD0+fIHzQ/EN+wdPLdIKuAyWDmb5UxUaYIiU6nv/gS0oh
+	gHGsgDf5/vtujWrtypEztxaKehLE0s0c+gpLZJO35EmuUi4gs+UHXa1DPhB+rOjrjJWKSmCzGulZQ
+	+S302C/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj83G-000000088zZ-455U;
+	id 1vj83G-000000088yk-1Ugd;
 	Fri, 23 Jan 2026 03:41:38 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj83D-000000088wH-3ifm
+	id 1vj83A-000000088wH-2tWp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 03:41:36 +0000
+	Fri, 23 Jan 2026 03:41:33 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 23 Jan
@@ -35,13 +35,13 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Fri, 23 Jan 2026 11:41:23 +0800
 From: Billy Tsai <billy_tsai@aspeedtech.com>
-Date: Fri, 23 Jan 2026 11:41:25 +0800
-Subject: [PATCH v2 3/3] pinctrl: single: unify pinconf offset mapping with
- pinmux
+Date: Fri, 23 Jan 2026 11:41:23 +0800
+Subject: [PATCH v2 1/3] pinctrl: single: add per-pin binding support for
+ bit-per-mux
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260123-upstream_pinctrl_single-v2-3-40f8063cc5a2@aspeedtech.com>
+Message-ID: <20260123-upstream_pinctrl_single-v2-1-40f8063cc5a2@aspeedtech.com>
 References: <20260123-upstream_pinctrl_single-v2-0-40f8063cc5a2@aspeedtech.com>
 In-Reply-To: <20260123-upstream_pinctrl_single-v2-0-40f8063cc5a2@aspeedtech.com>
 To: Tony Lindgren <tony@atomide.com>, Haojian Zhuang
@@ -51,17 +51,16 @@ CC: <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>,
 	<andrew@codeconstruct.com.au>, <BMC-SW@aspeedtech.com>, Billy Tsai
 	<billy_tsai@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769139683; l=1379;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769139683; l=5457;
  i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
- bh=1vs5PnqoRJopA2dwgDUvGNiB2XTPfNa8BYVIucjFDdw=;
- b=Xp+BDMZ+3vaiU6jyDkaMScaJOdePBtsGF/KOHL1afJ3zopelMclYGGgwILAFD7hAz7G4wP5bN
- 7jfPptDOS6oACgRrjZJDyiV6XJuUfdj59sGqewOponSW1LMKzgFcZAw
+ bh=mLpIgJBdohwcrKeJ7RCQJzIRtJYXXrUcbvE9Zo7aONY=;
+ b=KwIq7vVGhjbAhEhx26OUgaWYrMkkXqPRuQTsp/1E1Ub3O2z7Mx085EQDtjsNyjPzvca/CIW0+
+ SUpHnwBMj6kBeylvbR0HjoCkfK85s/Nz3U0WmhILd5KdzDGmRAScZff
 X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
  pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_194135_931796_F503FD52 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260122_194132_734352_9A9DAD12 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +75,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the same register offset calculation for pinconf as pinmux to
-properly handle bit-per-mux configurations. Ensures consistent and
-correct offset mapping for pin configuration operations.
+Add support for binding where bit-per-mux users specify pins as
+<pin_index func_sel> pairs. Prefer explicit bits binding when present,
+but fall back to the new per-pin binding for improved flexibility.
+This approach is intended to adapt to hardware with a regular register
+layout, where pin functions are arranged with a fixed stride. For example,
+the function of pin 0 is controlled by bits [3:0] at offset 0, the
+function of pin 1 by bits [7:4] at the same offset, and so on.
 
 Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 ---
- drivers/pinctrl/pinctrl-single.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/pinctrl/pinctrl-single.c | 132 +++++++++++++++++++++++++++++----------
+ 1 file changed, 100 insertions(+), 32 deletions(-)
 
 diff --git a/drivers/pinctrl/pinctrl-single.c b/drivers/pinctrl/pinctrl-single.c
-index e65ae737b4c5..aaf830315c5d 100644
+index 998f23d6c317..757c22cc09f3 100644
 --- a/drivers/pinctrl/pinctrl-single.c
 +++ b/drivers/pinctrl/pinctrl-single.c
-@@ -505,7 +505,8 @@ static int pcs_pinconf_get(struct pinctrl_dev *pctldev,
- 			continue;
+@@ -1041,29 +1041,81 @@ static int pcs_parse_one_pinctrl_entry(struct pcs_device *pcs,
+ 			break;
  		}
  
--		offset = pin * (pcs->width / BITS_PER_BYTE);
-+		/* Use the same offset mapping as pinmux (handles bit-per-mux) */
-+		offset = pcs_pin_reg_offset_get(pcs, pin);
- 		data = pcs->read(pcs->base + offset) & func->conf[i].mask;
- 		switch (func->conf[i].param) {
- 		/* 4 parameters */
-@@ -573,7 +574,8 @@ static int pcs_pinconf_set(struct pinctrl_dev *pctldev,
- 			if (param != func->conf[i].param)
- 				continue;
+-		offset = pinctrl_spec.args[0];
+-		vals[found].reg = pcs->base + offset;
++		/*
++		 * For legacy (non bit-per-mux) users the first cell is the
++		 * register offset and the second (and optional third) cell is
++		 * the value to be written.
++		 *
++		 * For bit-per-mux users we want a simpler binding where the
++		 * first cell is the pin index and the second cell is the
++		 * function selector. Translate that into register offset,
++		 * value and mask here so the rest of the driver can stay
++		 * Register based.
++		 */
++		if (!pcs->bits_per_mux) {
++			offset = pinctrl_spec.args[0];
++			vals[found].reg = pcs->base + offset;
  
--			offset = pin * (pcs->width / BITS_PER_BYTE);
-+			/* Use the same offset mapping as pinmux (handles bit-per-mux) */
-+			offset = pcs_pin_reg_offset_get(pcs, pin);
- 			data = pcs->read(pcs->base + offset);
- 			arg = pinconf_to_config_argument(configs[j]);
- 			switch (param) {
+-		switch (pinctrl_spec.args_count) {
+-		case 2:
+-			vals[found].val = pinctrl_spec.args[1];
+-			break;
+-		case 3:
+-			vals[found].val = (pinctrl_spec.args[1] | pinctrl_spec.args[2]);
+-			break;
+-		}
++			switch (pinctrl_spec.args_count) {
++			case 2:
++				vals[found].val = pinctrl_spec.args[1];
++				break;
++			case 3:
++				vals[found].val = (pinctrl_spec.args[1] |
++						   pinctrl_spec.args[2]);
++				break;
++			}
+ 
+-		dev_dbg(pcs->dev, "%pOFn index: 0x%x value: 0x%x\n",
+-			pinctrl_spec.np, offset, vals[found].val);
++			dev_dbg(pcs->dev, "%pOFn offset: 0x%x value: 0x%x\n",
++				 pinctrl_spec.np, offset, vals[found].val);
+ 
+-		pin = pcs_get_pin_by_offset(pcs, offset);
+-		if (pin < 0) {
+-			dev_err(pcs->dev,
+-				"could not add functions for %pOFn %ux\n",
+-				np, offset);
+-			break;
++			pin = pcs_get_pin_by_offset(pcs, offset);
++			if (pin < 0) {
++				dev_err(pcs->dev,
++					"could not add functions for %pOFn %ux\n",
++					np, offset);
++				break;
++			}
++			pins[found++] = pin;
++		} else {
++			unsigned int pin_index, func_sel;
++			unsigned int shift, mask, val;
++
++			/* Expect <pin_index func_sel> for bit-per-mux users. */
++			if (pinctrl_spec.args_count < 2) {
++				dev_err(pcs->dev,
++					"invalid args_count for bit-per-mux spec: %i\n",
++					pinctrl_spec.args_count);
++				break;
++			}
++
++			pin_index = pinctrl_spec.args[0];
++			func_sel = pinctrl_spec.args[1];
++
++			if (pin_index >= pcs->desc.npins) {
++				dev_err(pcs->dev,
++					"pin index out of range for %pOFn: %u (npins %u)\n",
++					np, pin_index, pcs->desc.npins);
++				break;
++			}
++
++			offset = pcs_pin_reg_offset_get(pcs, pin_index);
++			shift = pcs_pin_shift_reg_get(pcs, pin_index);
++
++			mask = pcs->fmask << shift;
++			val = (func_sel << shift) & mask;
++
++			vals[found].reg = pcs->base + offset;
++			vals[found].val = val;
++			vals[found].mask = mask;
++
++			dev_dbg(pcs->dev,
++				 "%pOFn pin: %u offset: 0x%x func: 0x%x val: 0x%x mask: 0x%x\n",
++				 pinctrl_spec.np, pin_index, offset,
++				 func_sel, val, mask);
++
++			pins[found++] = pin_index;
+ 		}
+-		pins[found++] = pin;
+ 	}
+ 
+ 	pgnames[0] = np->name;
+@@ -1280,21 +1332,37 @@ static int pcs_dt_node_to_map(struct pinctrl_dev *pctldev,
+ 	}
+ 
+ 	if (pcs->bits_per_mux) {
+-		ret = pcs_parse_bits_in_pinctrl_entry(pcs, np_config, map,
+-				num_maps, pgnames);
+-		if (ret < 0) {
+-			dev_err(pcs->dev, "no pins entries for %pOFn\n",
+-				np_config);
+-			goto free_pgnames;
++		/*
++		 * For bit-per-mux users there are two possible bindings:
++		 * - pinctrl-single,bits: offset/value/mask triples
++		 * - pinctrl-single,pins: <pin_index func_sel> pairs
++		 *
++		 * Prefer the explicit bits binding when present so existing
++		 * users keep their current behaviour, otherwise fall back
++		 * to the per-pin binding.
++		 */
++		if (of_find_property(np_config, "pinctrl-single,bits", NULL)) {
++			ret = pcs_parse_bits_in_pinctrl_entry(pcs, np_config,
++							      map, num_maps,
++							      pgnames);
++		} else if (of_find_property(np_config,
++					    "pinctrl-single,pins", NULL)) {
++			ret = pcs_parse_one_pinctrl_entry(pcs, np_config, map,
++							  num_maps, pgnames);
++		} else {
++			ret = -EINVAL;
+ 		}
+ 	} else {
+-		ret = pcs_parse_one_pinctrl_entry(pcs, np_config, map,
+-				num_maps, pgnames);
+-		if (ret < 0) {
+-			dev_err(pcs->dev, "no pins entries for %pOFn\n",
+-				np_config);
+-			goto free_pgnames;
+-		}
++		if (of_find_property(np_config, "pinctrl-single,pins", NULL))
++			ret = pcs_parse_one_pinctrl_entry(pcs, np_config, map,
++							  num_maps, pgnames);
++		else
++			ret = -EINVAL;
++	}
++
++	if (ret < 0) {
++		dev_err(pcs->dev, "no pins entries for %pOFn\n", np_config);
++		goto free_pgnames;
+ 	}
+ 
+ 	return 0;
 
 -- 
 2.34.1
