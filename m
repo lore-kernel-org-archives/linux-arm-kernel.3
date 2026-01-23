@@ -4,59 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDCE4D7788E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 17:20:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D8AFD77897
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 17:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=z3UTT4Ddm4zSBf5O+DmvwBEkvt0fzneTnv+oGgJD2f4=; b=Vtckgm7xXrCeqsAdtzK+SSdOoc
-	eGYPTJEwhhcQIMwbO+aBSfZT8mwyRlIp+5unOJ36qB2eCqLsKn7ywRPehZp1H/L8fi5r66QUeQxWH
-	8D/hDBNwgzOptfGiXRlgmzQ0wBbxeoZp9ixaqGRErQWamWCbpTLc3Z0XwvcVFFN0BQ0ChYeRHLZDC
-	FAET+W914waf7lXvN2v32H0nii84zotY22XKBocagmmztanC4014OCcGbNWqWxwf+VtCgKTx5V4o4
-	nJN+x6TKwJ+tYAXQYU8G+DQrCyaEglWIujuYDTSuvDaj4AE9TlEkVctNf8+1bmuRe92wX2ErtPvzr
-	Cn/vxdtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ATqUy5/Sp0hLV7kTQCotJYn2id+kgnBDhi2Bfu1dxMw=; b=hFnWaXJDnF/zR8/rfre/HTa/Qo
+	3kWAsiZOlMSpi3cHTatFG0Ua51WqPNgWe+bw3WmwfVkvNolrCnEe/uZIpcnZ8LZ/gv9DbQGRLF+s3
+	GdJVXe3AqwndW8rcDAkSUJ9Yikc7g06FM8YFOeizoyKForGUv3cCx801Z+7c/zK0MemP6Wy1R3BmS
+	kn7vRq1tdktwMMMExKnByxqefNGG2vy/pWbjve00YelVhx59IoZWrKeZoGjlX2juoKvg8NpBL5O37
+	Z8EnvjfqV6kr144p3KutOUD6yZd6HZ27o02+SPbOIt4QPfhMw66zlkhhTfWlXUjzTwNLhcPwhbk28
+	uO+wMOZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjKpG-00000009HPa-249H;
-	Fri, 23 Jan 2026 17:20:02 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vjKw9-00000009Hxs-0BTT;
+	Fri, 23 Jan 2026 17:27:09 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjKpD-00000009HOj-46LI
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 17:20:01 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 3F2881A2A2D;
-	Fri, 23 Jan 2026 17:19:58 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 149E26070A;
-	Fri, 23 Jan 2026 17:19:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 80E3C119A87DF;
-	Fri, 23 Jan 2026 18:19:56 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769188797; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=z3UTT4Ddm4zSBf5O+DmvwBEkvt0fzneTnv+oGgJD2f4=;
-	b=i0VFNvRI9JKzaW9mLKbKKVI51vd6z6MT95G2ub5pvHDif4v7xalaGH12klGfeXrmS6B8fE
-	AHqYPUey2Dpeejr728Oe5MsIgNk25hFnvXiqH5mySvmFWQI21DASd8ctU9aF191UNSz5H1
-	QiA7mHyVDHj4k8otv/+d49NB65Pa0r4xqFjbfgypZjtL54woxEinyGF+W/RJxeorEsEXoi
-	NuXltGtjWQHUrIRIGbCakA3OXLkQI/gnuasIf9AjyMG1T28lJDjOO5qgRPAig6cTy97KwU
-	5TNNNe5fm2hxwWl+CELYNNsOdhVAIDlH1vfaANK6Kv9tBoNaN5qzvSdxlrblqQ==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Arnd Bergmann <arnd@arndb.de>,  <arm@kernel.org>, soc@kernel.org
-Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
- <sebastian.hesselbarth@gmail.com>, <linux-arm-kernel@lists.infradead.org>
-Subject: [GIT PULL] ARM: mvebu: dt64 for v6.20 (#1)
-Date: Fri, 23 Jan 2026 18:19:55 +0100
-Message-ID: <87zf64jlfo.fsf@BLaptop.bootlin.com>
+	id 1vjKw5-00000009Hvn-3Euu;
+	Fri, 23 Jan 2026 17:27:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ATqUy5/Sp0hLV7kTQCotJYn2id+kgnBDhi2Bfu1dxMw=; b=WbE7SAtucfXWKA5HnfaYgijWAA
+	7L0Et33+VW7YE0lTPtIg91YcJfGT/yqR4XWo1hOw3m7+aVG65JgF7eEHkVJ2uucFrEz9d3yS0RouW
+	pT+Tki0zV5+Z5Jy3b1t3Syzoa/LXYZcZEwiBOglSDeN7qf+1Dhgk0Mv06lfV2fsphs/ho1GU7SiPk
+	7Lup2A1+JyjmwnTix8YwXKrcGF4aBOn7KZ/kjR695XoY5LJlDU4d/Hqm0YJmltDvCL7s3/OAaJ++m
+	ZpZK6f8PfdvQq5KpcTqsfmSNWwQZtHE4V5fTLx3oUaU2CZ+leNEvhXGF4mPe+8IT6GbIMaS6sLY5/
+	Fp2PCgHA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42282)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vjKvr-000000002Mn-2kBY;
+	Fri, 23 Jan 2026 17:26:51 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vjKvn-000000002GB-2S0Y;
+	Fri, 23 Jan 2026 17:26:47 +0000
+Date: Fri, 23 Jan 2026 17:26:47 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next v2 00/14] net: stmmac: SerDes, PCS, BASE-X, and
+ inband goodies
+Message-ID: <aXOvV-XRmn_Pe-ca@shell.armlinux.org.uk>
+References: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
+ <aXN5BFXMshnhwBQ7@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aXN5BFXMshnhwBQ7@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_092000_757191_441101A2 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20260123_092705_809334_BC878931 
+X-CRM114-Status: GOOD (  29.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,85 +90,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, Jan 23, 2026 at 07:05:00PM +0530, Mohd Ayaan Anwar wrote:
+> Hello Russell,
+> On Fri, Jan 23, 2026 at 09:52:00AM +0000, Russell King (Oracle) wrote:
+> > This is the v1 submission: if it doesn't get tested but review goes
+> > well, it'll end up in net-next and mainline without testing on the
+> > affected hardware!
+> > 
+> > Mentioned previously, I've been trying to sort out the PCS support in
+> > stmmac, and this series represents the current state of play.
+> > 
+> > Previous posted patches centred around merely getting autonegotiation
+> > to be configured correctly, to a point where the manual configuration
+> > can be removed from the qcom-ethqos driver. The qcom-ethqos driver
+> > uses both SGMII and 2500BASE-X, manually configuring the dwmac's
+> > integrated PCS appropriately.
+> > 
+> 
+> Thank you for CC'ing me on this series. Sorry, but I have been M.I.A.
+> for the past couple of months due to some health issues, which caused a
+> backlog at work that I had to power through. I haven't been able to
+> monitor the mailing list for stmmac patches.
 
-Here is the first pull request for dt64 for mvebu for v6.20.
+Sorry to hear that, but if it's any consolation, you're not alone. On
+new year's eve, I had three teeth extracted, including one that was
+laying horizontally in the palate of the mouth buried in bone, and
+needed in bone graft (modern bone grafts are quite different from what
+you'd expect btw.) It's been quite sore/painful as it heals.
 
-Gregory
+> I tested v1 last night and just picked up v2. Here are my observations
+> and logs (phylink logs are enabled). I haven't had time to debug the
+> issues, but they are not seen on the net-next tree. One thing that I
+> remember from our last discussion is the need to test with comma
+> detection enabled; I will test that next.
+> 
+> Tested on the QCS9100 Ride R3 board with 2X AQR115C PHYs. I have one
+> more board that I can test next week (IQ8275, which has a single
+> QCA8081 PHY, but that is limited to 2.5G because the PHY switches its
+> mode according to the speed).
 
-The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+Thanks for testing!
 
-  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+Given the results you've given, my suggestion would be that the
+following patches are probably the most risky:
 
-are available in the Git repository at:
+Patch 2 "net: stmmac: qcom-ethqos: convert to set_clk_tx_rate() method"
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/gclement/mvebu.git tags/mve=
-bu-dt64-6.20-1
+This changes the way the clock is configured. It would be worth
+testing that and giving a tested-by for the first two patches if
+that's successful.
 
-for you to fetch changes up to fcaf733ca526b69595ed1d227e2cc59ddd24eff7:
+Patch 6 "net: stmmac: qcom-ethqos: convert to dwmac generic SerDes
+support"
 
-  MAINTAINERS: Add Falcon DB (2026-01-23 10:30:41 +0100)
+This changes how the SerDes is handled, which is a significant change.
+It's possible that the PHY calibration needs some other state to be
+appropriately configured, and that's not happening in the same order.
 
-----------------------------------------------------------------
-mvebu dt64 for 6.20 (part 1)
+Either of these two would account for what appears to be an unstable
+SerDes link.
 
-Add support for Armada 7020 Express Type 7 CPU module board by Marvell, inc=
-luding:
- - COM Express CPU module and carrier board (Marvell DB-98CX85x0)
-  - DDR4 memory, 1Gbit OOB Ethernet, 10G KR Ethernet, NAND/SPI flash, PCIe,=
- SATA, USB, and UART interfaces
-Add SoC-specific compatibles for SafeXcel crypto engine on Armada 37xx and =
-CP11x
-Fix regulator type from "regulator-gpio" to "regulator-fixed" where no GPIO=
- control is present
-Add missing GPIO properties for "nxp,pca9536" on cn9131-cf-solidwan
-Fix and clean up pinctrl-names properties and typos
-Add missing "#phy-cells" to "usb-nop-xceiv" nodes
-MAINTAINERS: Add Falcon DB to the list of maintained Marvell Armada dts fil=
-es
+As for the NULL pointer deref, I'll look at that in a bit (waiting
+for a build to complete so I can hopefully pinpoint where the oops
+is happening.)
 
-----------------------------------------------------------------
-AngeloGioacchino Del Regno (1):
-      arm64: dts: marvell: Add SoC specific compatibles to SafeXcel crypto
-
-Elad Nachman (2):
-      arm64: dts: a7k: add COM Express boards
-      MAINTAINERS: Add Falcon DB
-
-Rob Herring (Arm) (4):
-      arm64: dts: marvell: Add missing "#phy-cells" to "usb-nop-xceiv"
-      arm64: dts: marvell: Fix stray and typo "pinctrl-names" properties
-      arm64: dts: marvell: cn9131-cf-solidwan: Add missing GPIO properties =
-on "nxp,pca9536"
-      arm64: dts: marvell: change regulator-gpio to regulator-fixed
-
- MAINTAINERS                                        |   1 +
- arch/arm64/boot/dts/marvell/Makefile               |   1 +
- arch/arm64/boot/dts/marvell/armada-3720-db.dts     |   1 +
- .../dts/marvell/armada-3720-espressobin-ultra.dts  |   2 +-
- .../boot/dts/marvell/armada-3720-gl-mv1000.dts     |   9 +-
- arch/arm64/boot/dts/marvell/armada-37xx.dtsi       |   3 +-
- .../boot/dts/marvell/armada-7020-comexpress.dtsi   | 161 +++++++++++++++++=
-++++
- arch/arm64/boot/dts/marvell/armada-70x0.dtsi       |   7 +
- arch/arm64/boot/dts/marvell/armada-8040-db.dts     |   2 +
- arch/arm64/boot/dts/marvell/armada-ap806-dual.dtsi |   4 +-
- arch/arm64/boot/dts/marvell/armada-cp11x.dtsi      |   3 +-
- arch/arm64/boot/dts/marvell/cn9130-cf-base.dts     |   2 +-
- arch/arm64/boot/dts/marvell/cn9130-crb.dtsi        |   3 +-
- arch/arm64/boot/dts/marvell/cn9130-db.dtsi         |   4 +-
- arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts |   2 +
- .../boot/dts/marvell/cn9131-db-comexpress.dtsi     |   3 +-
- arch/arm64/boot/dts/marvell/cn9131-db.dtsi         |   1 +
- arch/arm64/boot/dts/marvell/cn9132-db.dtsi         |   3 +-
- .../boot/dts/marvell/db-falcon-carrier-a7k.dts     |  27 ++++
- arch/arm64/boot/dts/marvell/db-falcon-carrier.dtsi |  22 +++
- 20 files changed, 243 insertions(+), 18 deletions(-)
- create mode 100644 arch/arm64/boot/dts/marvell/armada-7020-comexpress.dtsi
- create mode 100644 arch/arm64/boot/dts/marvell/db-falcon-carrier-a7k.dts
- create mode 100644 arch/arm64/boot/dts/marvell/db-falcon-carrier.dtsi
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
