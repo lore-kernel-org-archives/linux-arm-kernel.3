@@ -4,174 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9A34D6CFBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 03:12:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A79CAD6CFBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 03:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iL1YVRiEzhaST9gVc7iT80300rPIMmixigr4AGj+sTQ=; b=hSv+CqvheQX+wMcvrbhPmwWaKX
-	oXOCwfdZJN61KhTRz7AQdOh5I5YoPizLj03ceUNx6imKVunnrKZEAIwAr1DceKPZL01/qsl05RuUn
-	IFWlX3e7AW20sJVZs0CYp7tJwTXdWOe8BDmEYIJh1m1ErF2g5OrPZZrSP2+3LnObwHINTbllR6mdd
-	LnPs/T0VyhfdYLh7d6DMxkUJY9dQp+bZJ2A4P/10jpV/0zSiPVXkjlp3TB/EgzW2Ls9Ea/STO6bcv
-	DNnUdWlBBvvSmj5f1q+rjFt3Gq+xOngosMlxeYWaqHXln6pA0lTRZRoozyBQbrwbGTUyOEAWMqBWx
-	0ihBQD9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RIFnxf34/2b3Zka9f6+yWjfHqMratcg6PlHz+i9+3hY=; b=2oaweXym7IyGLX
+	6aaOUnou/LX4tHRMupWWYuEbVgL6Tyo5u7KETihTXieol/UOtC6VZszKX1nOz//qeDnNTtLB+XTbS
+	1lYd/s4hVskMgRupR4MF7b9yP/rXuB0TTQDs8mBTdipgQh0QZvOz/PsopmPwn23usf482Qio4qusN
+	iEc2jhGBMQQnDdDkTIErhbf0n4DQXB6HuY0iNbUk4ijm7ev2eToh3pcIDjlqBI8qAzWOMgi+lfOgh
+	V67kppDKR5NCQ1y1LVS22Q0Tvs/PBF8jfH3yFg+5SlH0pZmIzr6Dc8+GH0vQCPZrF7DqJ5r6MZ+oR
+	McPlaklgfvprIv48uuUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj7bC-0000000852P-2744;
-	Fri, 23 Jan 2026 03:12:38 +0000
-Received: from mail-northeuropeazon11012014.outbound.protection.outlook.com ([52.101.66.14] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vj7fv-000000085VG-0DCn;
+	Fri, 23 Jan 2026 03:17:31 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj7b8-0000000850L-3ujw
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 03:12:36 +0000
-Received: from AS5PR04MB9797.eurprd04.prod.outlook.com (2603:10a6:20b:679::10)
- by VI1PR04MB7087.eurprd04.prod.outlook.com (2603:10a6:800:12a::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Fri, 23 Jan
- 2026 03:12:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QzVAMBbVcpLHqq5T6GfJG45+Gl0fLt6OijiW00vTRfykq+dxh+5kkDoGg/+Ig0NUCZSkwbugkuCs8RgT8plF7N4KGeF9Z+VOm96RtUz6C6cXlfgE/N6bgA79us4EItaZkNhszs9XKcBE0gPnYBXm5PLk9GwuV34W81F0NA3O6wHZvxjjPzV1hberJMaXb6JZIY8uQ8Phe4+P+CQny2oqGlu/yQm9HwzkN5y6mf4XFb98v1VIuTxJyqJTZ5iog3Lfbo2AruDs0byc98ThfpkpjV+DtRHWQrHgQcVMb9loI8pKA30KXEO44g4RkDhBzyEDf0l3Ib8cGVi+znY+XCnPlw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iL1YVRiEzhaST9gVc7iT80300rPIMmixigr4AGj+sTQ=;
- b=Uk782SbBelsIAR/+bWnWM1Fp5D64dNtAm9HaUC16Cnp2c9WktV1b42A58iyMcVrhydit2njHMKuaKKAQp0UgauOjLdIvzlxbljebNTBLLTMa5qi5kLTM+c3Ti8VhnrjfHBTZwwdxGgL3aGicufo10LnaW5hxQTnumLtBHYXXfUECFHiGrKPgkUq4ovUZj6qnuC3wtag8eU+VHZcl0b6oBa94ZhPfLW5sqppAe99hZO8KkVVEJBb7rhQ37fWNMy/qIrOhA2fOo0TaqJv0oe3a1FTWxE2S7OaouijpYYT+b31ssIozVA+9Kdm4tJMOODuzDp7XL+4EZNYcN8Uypk2IoA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iL1YVRiEzhaST9gVc7iT80300rPIMmixigr4AGj+sTQ=;
- b=Jv3O5is258GvRztYmfq3oOllzRarnFxvuTisw4qGBXXFSOIE3CM7v5ArjEcmXl7PB1Oul4lPcSLGk85TSXsNZXko4TLMpmUuFLiRKQm8B5l3M4C5lR4ezEhMnQKF1r+X2JZp8yiTcintw4XgblB56uLCUIMHj/7TMCMiUtrV503f4PD3VOaaVpKmSNQdN6xWZ9C0TUn2U/kkXdIM91RsgnuzZjRcXJf2uAX+EEhY6UXAzyCR8krdtiZPEw15dfLCobkun2lW+o6fa17ZjxVp9UJ6SrCyNjzhv7jvU7lq1Z9IyHaw1pDPqhZO4ppsGsTRJ8WJWvFBagwMXWoxipP4aQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by AS5PR04MB9797.eurprd04.prod.outlook.com
- (2603:10a6:20b:679::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Fri, 23 Jan
- 2026 02:46:05 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::2943:c36f:6a8c:81f7]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::2943:c36f:6a8c:81f7%5]) with mapi id 15.20.9542.010; Fri, 23 Jan 2026
- 02:46:05 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	frank.li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com,
-	daniel.baluta@nxp.com,
-	dario.binacchi@amarulasolutions.com,
-	alexander.stein@ew.tq-group.com,
-	Markus.Niebel@tq-group.com,
-	matthias.schiffer@tq-group.com,
-	y.moog@phytec.de,
-	josua@solid-run.com,
-	francesco.dolcini@toradex.com,
-	primoz.fiser@norik.com
-Cc: kernel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V2 1/2] dt-bindings: arm: fsl: Add i.MX93 Wireless EVK board
-Date: Fri, 23 Jan 2026 10:44:47 +0800
-Message-Id: <20260123024448.3909345-2-sherry.sun@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20260123024448.3909345-1-sherry.sun@nxp.com>
-References: <20260123024448.3909345-1-sherry.sun@nxp.com>
+	id 1vj7fs-000000085TG-2L7p;
+	Fri, 23 Jan 2026 03:17:29 +0000
+X-UUID: 085ca736f80a11f0ad39f32c34db0b1c-20260122
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From; bh=RIFnxf34/2b3Zka9f6+yWjfHqMratcg6PlHz+i9+3hY=;
+	b=lE9AmAv5FbWXaQkXOdfi+8lSTvAnUszuW908fOIbMEwQrjApQXSNcLDP+w0xIeu+pKY93aoLTGg59GxMBwVmnpNNj9qV4lBN6ONRyZe4DKwAuo82q480XQF2MhE8a2AHBCr4kOy4jP7zlxXmzSvTG6sUQG0eWhfkHxeMZIIjL6k=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:2691a172-f395-4aea-adaa-f342ccc9dbce,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:4e061e7a-8c8a-4fc4-88c0-3556e7711556,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA
+	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 085ca736f80a11f0ad39f32c34db0b1c-20260122
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2067578077; Thu, 22 Jan 2026 20:17:22 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Fri, 23 Jan 2026 11:17:19 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Fri, 23 Jan 2026 11:17:19 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: [PATCH v12 00/12] Enable jpeg enc & dec multi-hardwares for MT8196
+Date: Fri, 23 Jan 2026 11:17:01 +0800
+Message-ID: <20260123031713.14621-1-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SGXP274CA0010.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::22)
- To VI0PR04MB12114.eurprd04.prod.outlook.com (2603:10a6:800:315::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|AS5PR04MB9797:EE_|VI1PR04MB7087:EE_
-X-MS-Office365-Filtering-Correlation-Id: 03cd525c-0e80-495f-443f-08de5a298e07
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|1800799024|376014|52116014|366016|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JcDRSaHx2lMyzT5qMfZb3aOOZi0grGbtdaxM51vonHv1Dn3GZKDfoG8IrBjQ?=
- =?us-ascii?Q?1oWOEncw7CX6Z4fA/B6VmI7Y32/Y1LopYVPBi1V84ejPIKgLquk98wBBuMUu?=
- =?us-ascii?Q?8O9n7ff/Xa31p4TjNQX9fsAzGsV57l00jyBhxjqagh5B6ffhifWwb8ott0tC?=
- =?us-ascii?Q?1uNtHMf+8S5235lELA9V4Qsl/guOhM/R3pL7Mk+NJ43bmqlp57s5FeHnWWAu?=
- =?us-ascii?Q?B8h6y0KTczjtfIxQL1SgdvvaDnNfa6EyNvkniKX8WYixKMRlKH6BvV8w7m7C?=
- =?us-ascii?Q?Iqzxae0BZVuydlWprbr+fFZQLsds32HArmBMxP4Z4p6rr+Cj1GkUUt5qaAvo?=
- =?us-ascii?Q?VV1o+BSpas6c05fC38Oqi+0zqcn01hH6iCpHNgq0VWDoyAbBjM3g92qQK+5t?=
- =?us-ascii?Q?iZlhkAqwG93jEkFhmRSC0RwZULj+fvwpC5V7vULdqgGRPRALRgZ+CTD7/dDd?=
- =?us-ascii?Q?rM6mg+vgUgwpulJVBZLsnrppKhilJRCpy3ToAGGDH3H1DUl9MMmAuCqo3/Es?=
- =?us-ascii?Q?YIxBvxABgn+M5ktSzxrfXuZbFXRuC/2zQ+T4aeDsJfHK6PS17ZK7LIOmu1kA?=
- =?us-ascii?Q?v07hqpkdF0TpWslcJhJ8hzmzyKMOKMZYh4ug9qexbhLEKLlu+0nSFtpOH8Ad?=
- =?us-ascii?Q?9zXZwtkkYWftQZ8GDMLmpWtGncLz3XaxeMJIukJ1mVX6EZdh8E8s3s2+76d3?=
- =?us-ascii?Q?AVChW9ehJgeZxxhc3sdmVGKbEsdv8rkBytSfbLiekVg3V1p8g+qhRYT3QUIK?=
- =?us-ascii?Q?Gn4PdkpmAKOTijxdSjswROPrl79tT5TmZacGm4x+fTON+gwT6vkNUHsjH4Hl?=
- =?us-ascii?Q?9seSECokUlwMVTF8F80gOMcN8dHQJp2IpnKtwKtbiEBtTa3Im46Q/OO7ICEx?=
- =?us-ascii?Q?T/usmLMx3NIMFdjQqn0zmTYnzX9qER47LA7tC3lfA0ISC+lFwxOLXRhq08mG?=
- =?us-ascii?Q?SnlfldkanwAZPWc6nMZxJiTIkAEQVef6Sks4A7szTVNslI6w8VFPlX+/VlkC?=
- =?us-ascii?Q?MYcqbqFfGG7ruHOWGQTrFv5OU/lVj0S6g2BKcJ31LeCDInTAnaj91bQLq9Ir?=
- =?us-ascii?Q?VprZcLR73Y6ZziI6sWdoQ2j2X/NLZpcKhfRi+dlkkQckAZHdJFU8J+UHdps5?=
- =?us-ascii?Q?gSzPbyzhLK5hKuE84mZ4urxuL+YeChwnlXcqFD5YpCO7hFxLcx3/J5dFmJFm?=
- =?us-ascii?Q?j/ExsEcISQ73USXP6kkWHhZcivLIV9j4fNkP9NwvTUvYcfls9Fp0MYBdRIjz?=
- =?us-ascii?Q?078001019XnJk8W1k8A++TEWkd9ff5iGD2nW2w5zzm2RldGiA9polfqjC5ok?=
- =?us-ascii?Q?6kj7H0XrHXErrsFKRI7zGNUGn+4U321dV5sbhzE7hQg+0SS2l0cZh0w2xxwZ?=
- =?us-ascii?Q?QzMjlaYY/+VAlwWDka9pQc3kfBCeaAA3Sb2EuMSRXF0zko7rIUoybaSJTyic?=
- =?us-ascii?Q?F3z0DfLOT5s114Q6VAUaJJG+2wB75TpQz1vuKA8bxM1GkKKlgkNNCfhB97qn?=
- =?us-ascii?Q?syuGI11+YXXNg+j4ui42nd6lBPptPHp2jjC0bp9bjfWdF6mm6rbNZ6LBvmHY?=
- =?us-ascii?Q?kOxrX/RID85S+HTtHqDm9BrEow7tcNUrhcoWqN210buiFqcUc/xVy3FfsCLK?=
- =?us-ascii?Q?4qWpIRfGvJIijtGhJxrmwLxiuZDhhXHoBewzoM/r6RCX?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(1800799024)(376014)(52116014)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IBqNFlvOORGRPe12bgw8Q8Mbng4iJQrKm6vd/v1xmGuVeH+4FzPT4MhswDYb?=
- =?us-ascii?Q?4nGpyIsXGWkUpQYgEK/6bJu1I7OAnWlW94Xb3fxUOWBwaD8MUzH2ZMIG2TDK?=
- =?us-ascii?Q?RWkBUi5Ddo7MVPISLJE3Y9MzYoHjZYVy8DG+W2gsmZZOw88261MlNmrbcJuI?=
- =?us-ascii?Q?zhZ9eqWHUnLTKyq0XGB2+88OILlbRiPunAdwQ/jjcQk0fOM7ncd7dXh/JpyG?=
- =?us-ascii?Q?XC1nGvsoNvdFKvc+7YO5yJvstAfAfn/vOG4/aRLBp4DbgaZY2RXxA7Z9ZDh4?=
- =?us-ascii?Q?cnAzK0fiL4+AiON/dK2AH6rb3fdIc9IAfCvw8UZ5fI+9JqAveCFvl9b1KNWH?=
- =?us-ascii?Q?BP0i1k6gwozY4V8vCBrxSD7SVv+pI3olmy9QM7W6zSehWwhqfE4VuhUX6JrV?=
- =?us-ascii?Q?n+nuv+iZqymGns3snHLv6AzaYiP4sVRl2+QqLeDOrYZPZy3hH7YyBr+MDSyd?=
- =?us-ascii?Q?SktGlXM5ikVyZ3Ye8Chtc73gTEQftkOGnB4WQCXzb49ULTbFIFCTa/4fmIeR?=
- =?us-ascii?Q?SkcMd7PvZrpqi49zkIALRmvZr9djbSslUHFz912QmOe3OrvXvQ3GXB6ruhjX?=
- =?us-ascii?Q?+4RDLzLs2XtWGRMMppgdkCftIBIUgMI7XSusV/JLC81egAp5jMh0VhE7gsma?=
- =?us-ascii?Q?lZuj7vV6tQQmFZzM7B+TSE3VCACGYAktMl8S6Vy84XIYKEcpnexBhpvKvLo6?=
- =?us-ascii?Q?w00dbmQAI+KIyrqSS/tm75/k4TP3ul5Jlv5LiY9FMcIUbcCKIysiz9ezb4LE?=
- =?us-ascii?Q?YMZ33O9KFJY89p3or55LwuRjGhnhcWN9Y/31Q9oemtmtRseLA9HZlfhgl9G+?=
- =?us-ascii?Q?fOZ+0fGFvqISKo22oNEeCarOXnN2v+3sjMSKlNVQMIkNdQ7Xg9niWv/ASHnS?=
- =?us-ascii?Q?A+YBsORVQZpVhp3+A4aB2EBi7XufqbLU7BeliksO5azw3WwmOtxHdNqNgKJ4?=
- =?us-ascii?Q?wGfBSEzFUR/KqfEPgmRsKh8vO2XKWoG6v4HglCHwBmzNpZB86KCHo7vLVDrv?=
- =?us-ascii?Q?ZhJ9F3ZgX+bGU6sRE/2wq1LODIrSivurVrH0EQYDXYtjeUPcRsaw8SLYJCeo?=
- =?us-ascii?Q?vdnLAtO8ERh9fIlfDcPrbyhPbVXCTDPFucWRFLnFoC73arpjjt5yuIFvuRRJ?=
- =?us-ascii?Q?BL2gGAz6WYn+BowwvqhphVa5t/9ZUpRTwVcyp41M6owjovhUBzkkN+0e0IUF?=
- =?us-ascii?Q?Pp/77ENeY1u8I5/h8J0ZzlL2RGNU6XXhcqbXAuMZirjVn0ZznHvbZOs1AMQR?=
- =?us-ascii?Q?2lsId01aerPduUUcmij1ZOk6G7+hJlXnWA2IwJLXjyiqPJx1A5gV72E1jZWE?=
- =?us-ascii?Q?87edlNgbxJJQo+Jo7EmTdFMwB3qVyX1/DuL5MIZhq9jGa3dlNMwTiBzPOlUJ?=
- =?us-ascii?Q?CO5DVCQ74Qzp345PDarNsJMO1LSjbjYI9vEdw2pjqqMvd2uW2+Dl8vHzGOBf?=
- =?us-ascii?Q?YcTxIBIbKne1Qb4SQuVwGfUme5g/n4v6VcU7AHEL7vc69X0bnwIcdGc8/hYO?=
- =?us-ascii?Q?fN0rFB9Kq51wE7qQBlazReYxgUujNO5oAF+yJEtuHMORO/gbgxrSHQ2IKWZ5?=
- =?us-ascii?Q?n6mlFJimKnum/GqHv2ctCGS5S5TRe+s+dpXvYAhDrpetUYns3rARARx2uKSJ?=
- =?us-ascii?Q?y6BfOv39NWjkP5u7gULlPewusUV9wqLwLkC+DkATA8ecZMPiZn8EJmyDyVLQ?=
- =?us-ascii?Q?00u12xnBCUnZCGwCS5ZGCCnuNfSrMAOzTYyNHQE/30rsH3PIegrjukYGKqyn?=
- =?us-ascii?Q?eXig3e2WTg=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 03cd525c-0e80-495f-443f-08de5a298e07
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 02:46:05.8978
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bRUn+olBEzfcqee2B0/Oq7cCRCD1CjL8m6aGAsWkSb87UsXMN8v2Rx6FzHR0brHJ1VdwbdBBWZWw/zRVyU2zmw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9797
-X-OriginatorOrg: nxp.com
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_191235_020692_06168DDE 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260122_191728_611300_3ACCF811 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,34 +89,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT compatible string for NXP i.MX93 Wireless EVK board.
+This series have the follow changing:
+Firstly fix some bugs, including resolution change handleing, stop
+streaming sw flow, fix buffer layout and clock setting to support multi-hw
+jpeg working and others.
+Secondly add mt8196 jpegdec and jpegenc compatible to support MT8196
+kernel driver.
+Lastly, Add smmu setting to support smmu and iommu at the same time.
 
-i.MX93 Wireless SiP is created by integrating i.MX93 and IW610 WLCSP
-(Wi-Fi + BLE + 802.15.4). And i.MX93 Wireless EVK board with the i.MX93
-Wireless SiP basically reuse the i.MX93 11x11 EVK board, with some minor
-functional and pin connection differences.
+This series has been tested with MT8196 tast test.
+Encoding and decoding worked for this chip.
 
-The detailed differences between i.MX93 Wireless EVK and i.MX93 11x11
-EVK board can be found in i.MX93 Wireless EVK DTS patch commit message.
+Patches 1 fix jpeg hw count setting to support different chips.
+Patches 2 fix jpeg buffer payload setting to handle buffer
+size bug while resolution changed.
+Patches 3 fix jpeg dst buffer layout.
+Patches 4 fix multi-core stop streaming flow
+Patches 5 fix multi-core clk suspend/resume setting
+Patches 6 fix decoding buffer number setting timing issue
+Patches 7 fix decoding resolution change operation
+Patches 8 fix remove buffer operation
+Patches 9-11 Adds jpeg encoder and decoder compatible.
+Patches 12 add jpeg smmu sid setting.
 
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
 ---
- Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Changes compared with v11:
+--Rebased on top of the latest media tree
+--Some modifications for patch v11's review comments.
+--add reviewer to commit messages
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 5716d701292c..df01b928c6c5 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1441,6 +1441,7 @@ properties:
-               - fsl,imx93-11x11-evk       # i.MX93 11x11 EVK Board
-               - fsl,imx93-11x11-frdm      # i.MX93 11x11 FRDM Board
-               - fsl,imx93-14x14-evk       # i.MX93 14x14 EVK Board
-+              - fsl,imx93-wireless-evk    # i.MX93 and IW610G WLCSP (Wi-Fi + BLE + 802.15.4) SiP EVK Board
-           - const: fsl,imx93
- 
-       - description: i.MX94 based Boards
+Changes compared with v10:
+--Rebased on top of the latest media tree
+--add reviewer to commit messages
+
+Changes compared with v9:
+--Rebased on top of the latest media tree
+
+Changes compared with v8:
+--Rebased on top of the latest media tree
+
+Changes compared with v7:
+--Rebased on top of the latest media tree
+
+Changes compared with v6:
+--Rebased on top of the latest media tree
+
+Changes compared with v5:
+--reorder the patches set.
+--fix commit message of patch 1-8.
+
+Changes compared with v4:
+--fix kernel robot build errors for patch 4.
+--add reviewer for patch 1 and patch 2.
+
+Changes compared with v3:
+--change patch subject of jpeg encoder and decoder compatible.
+
+Changes compared with v2:
+--refactor smmu sid setting function interface
+--Some modifications for patch v2's review comments.
+
+Changes compared with v1:
+--refine jpeg dt-bindings for MT8196
+--optimize software code to manage jpeg HW count
+--refactor smmu sid setting function interface
+--Some modifications for patch v1's review comments.
+
+Kyrie Wu (12):
+  media: mediatek: jpeg: fix jpeg cores' amounts setting
+  media: mediatek: jpeg: fix jpeg buffer payload size setting
+  media: mediatek: jpeg: fix buffer structure size and layout
+  media: mediatek: jpeg: Fix buffer completion on multi-core streaming
+    stop
+  media: mediatek: jpeg: Fix multi-core clk suspend and resume setting
+  media: mediatek: jpeg: fix decoding buffer number setting timing issue
+  media: mediatek: jpeg: fix resolution change event handling in decoder
+  media: mediatek: jpeg: fix remove buffer removal timing for multi-core
+  media: dt-bindings: mediatek,jpeg: Add mediatek, mt8196-jpgdec
+    compatible
+  media: dt-bindings: mediatek,jpeg: Add mediatek, mt8196-jpgenc
+    compatible
+  media: mediatek: jpeg: add jpeg compatible
+  media: mediatek: jpeg: add jpeg smmu sid setting
+
+ .../media/mediatek,mt8195-jpegdec.yaml        |   8 +-
+ .../media/mediatek,mt8195-jpegenc.yaml        |   8 +-
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 151 +++++++++++++-----
+ .../platform/mediatek/jpeg/mtk_jpeg_core.h    |  19 ++-
+ .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  |  87 +++++++++-
+ .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  |  88 +++++++++-
+ 6 files changed, 307 insertions(+), 54 deletions(-)
+
 -- 
-2.37.1
+2.45.2
 
 
