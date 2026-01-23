@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7746D778AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 20:00:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5CAD778AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 20:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2dvHLrUlmqkQeL19Sblxu6Z+6kt6QSvJtvxPDdkLrTI=; b=DZfPDE2r8G+hHnHBnC4/Fn3PLG
-	47R1WFqzI7NfbgO9Nxy143zGt3bqi3H4Not4UTmXBG/xNf7+Vb6IVRqJPsxQgR3BSGacBBVxfuBsd
-	TGYLqXTN+9N7DUavfd87u0leoR2PD+5E8ofHRINlMwpW0UJAinOOZurCQLt1k9NfF2PpBuq0VFDI1
-	Cx8hHtfbn8e8yz4aSMTo/2dikuoGVStmlrdMFbjFuspIcbpt2lzHuUTlh4tqEnDsSYfO7nsGdG/gG
-	1RWASG9ZBNawvn9KJU0pJbR26JqDKFFkkdYmbCor8u5GBuXSYHLjGeHgvF2TLrEFgbZ9Dlns7kxoi
-	nXBxUTJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZZ1FOsHm/vGJer214zga1vzlRDmrTUC/1ttgjjuK9w4=; b=g5werBpLhF3X7GASueYAr/bnIs
+	FeWC8iGJK2v91PlhT8VXsU0JYFeYkOsK+nS0Nrs6/zOrHzcx1PErZfWotANlfoRR3C1P+PPnx6Ihh
+	x1IY0TbNENTWFoPuXPlbehpPSdBuSB0lRHxTBz0uV7S649nEDAj0CokPHZ4BooGktzar0hhEuhs/+
+	gQRfHcvyyG6jPV71MZ+auM7oQ2RM5P/Oj9UjTeGEGXynK/y+HyFs0/LG6hvtCigPYinHH5j6SGeIm
+	Xoe/a0QsBICTIrZirwM6bupPn5K1N9svPtfDzjUFT70VPntlMwxaHxsu0HaDCAmbH54tkhbwX8sK6
+	udaKDhJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjNKV-00000009SF4-0ME9;
-	Fri, 23 Jan 2026 20:00:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vjNMW-00000009SZH-2iVc;
+	Fri, 23 Jan 2026 20:02:32 +0000
+Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjNKT-00000009SDy-1gw4
+	id 1vjNMS-00000009SYu-2ewK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 20:00:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2DF7760053;
-	Fri, 23 Jan 2026 20:00:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC7C6C4CEF1;
-	Fri, 23 Jan 2026 20:00:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769198423;
-	bh=U8CShDL+HLmggcuSs2HkcE9CVVxs2HO1HfWPj5PHjlA=;
-	h=From:Date:Subject:To:Cc:From;
-	b=B2xgJ2F8xg/452CkkJj6fFPSUl6q6Y2wanezT63cUfBnAJCVrXViSOyOfpp0dzIy6
-	 N594T5gpXhfOLblN0ShunDy8yIBxilTVL9eGkPdj2q2LKGZLUceRMIGLN1Z3LgGyS9
-	 iPNCsZhsAPql4/9tstcmHwWI7LAYim9R8b5JaQDAc7KSuF7K/C6c+hynt8bjMBxKAH
-	 VYbMq3gZfHZZfIhjiG9CPSOIdn0dzF0FoDeUjaegA8pdFxNKhN5lKzjdluTC9ZjiIw
-	 2cXn5Gg+1XfavKg4LCmQ9xvLuNGv9NSPvWSmm11jZMD+EfkFFlGKfXf2VeuRKbm6Qv
-	 w1MfF5pMBZ8hw==
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 23 Jan 2026 21:00:21 +0100
-Subject: [PATCH] ARM: dts: gemini: Fix partition offsets
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260123-gemini-fix-sq201-fis-offset-v1-1-a046625f8846@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MQQqDQAwAvyI5N7BJZQt+RTxYm9UcuuqmiLD4d
- 0NvMzBMBZOiYtA1FYocarpmF3o0MC1jngX14w4cOAbiJ87y1ayY9ETbOZCT4ZqSyQ/Ta6JAI3N
- s3+CHrYh3/3s/XNcNeelQvm0AAAA=
-X-Change-ID: 20260123-gemini-fix-sq201-fis-offset-f7c101a2264b
-To: soc@vger.kernel.org, Hans Ulli Kroll <ulli.kroll@googlemail.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.14.3
+	Fri, 23 Jan 2026 20:02:30 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1769198542;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZZ1FOsHm/vGJer214zga1vzlRDmrTUC/1ttgjjuK9w4=;
+	b=dlboqydsKNghsrFWuPNRagiwi1t7kf6ZpeRDUYxpBOt5Bgm7i7dDMVbYEEIX5+Qjbu4zCY
+	Q3IcOju9We+KxQMeUxju3nidaGOXnZaCxjudffnb9viEsM4n5SMUxSpSmF9jhl/O7UzMrq
+	iO0N5qPRjJ0CUov460DoNxN9VPe7gerLszUgtU9fQ7ZcbAiPggSE0p+ws73LzRm3/9UFWP
+	vgpdRko+lhzXbFBi4D1At7e3AzWszyAjJ19GF+h90twaJh9MVqV3U6D1LmlNkinlPuFk+z
+	S5XJWTt3pdUBIn1eRSlcI0sXiQX7MFhhKhS6/ad4C3w85Y0Udd67CxOpp4LhEQ==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 23 Jan 2026 21:02:19 +0100
+Message-Id: <DFW8JGOI41QK.2AFPP8SSK8TH1@cknow-tech.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Robin Murphy" <robin.murphy@arm.com>, "Bartosz Golaszewski"
+ <brgl@kernel.org>, "Sebastian Reichel" <sebastian.reichel@collabora.com>
+Cc: "Bartosz Golaszewski" <bartosz.golaszewski@oss.qualcomm.com>, "Linus
+ Walleij" <linusw@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>,
+ <linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <stable@vger.kernel.org>, "Marek Szyprowski" <m.szyprowski@samsung.com>
+Subject: Re: [PATCH] gpio: rockchip: mark the GPIO controller as sleeping
+References: <20260106090011.21603-1-bartosz.golaszewski@oss.qualcomm.com>
+ <aWGSQYCXP4R08koQ@venus>
+ <CAMRc=Mf0tRxRrh7tn5OaDn3a47N_qvUcjO=zqbTi-GhY-Y9hOg@mail.gmail.com>
+ <447e8d5a-916b-4d58-b39c-3467c152379c@arm.com>
+In-Reply-To: <447e8d5a-916b-4d58-b39c-3467c152379c@arm.com>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260123_120229_393841_8E10DABA 
+X-CRM114-Status: GOOD (  22.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,55 +77,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These FIS partition offsets were never right: the comment clearly
-states the FIS index is at 0xfe0000 and 0x7f * 0x200000 is
-0xfe0000.
+On Fri Jan 23, 2026 at 2:27 PM CET, Robin Murphy wrote:
+> On 2026-01-12 9:08 am, Bartosz Golaszewski wrote:
+>> On Sat, Jan 10, 2026 at 12:55=E2=80=AFAM Sebastian Reichel
+>> <sebastian.reichel@collabora.com> wrote:
+>>> On Tue, Jan 06, 2026 at 10:00:11AM +0100, Bartosz Golaszewski wrote:
+>>>> The GPIO controller is configured as non-sleeping but it uses generic
+>>>> pinctrl helpers which use a mutex for synchronization.
+>>>>
+>>>> This can cause the following lockdep splat with shared GPIOs enabled o=
+n
+>>>> boards which have multiple devices using the same GPIO:
+>>>>
+>>=20
+>> [snip]
+>>=20
+>>>>
+>>>> Fixes: 936ee2675eee ("gpio/rockchip: add driver for rockchip gpio")
+>>>> Cc: stable@vger.kernel.org
+>>>> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+>>>> Closes: https://lore.kernel.org/all/d035fc29-3b03-4cd6-b8ec-001f93540b=
+c6@samsung.com/
+>>>> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.c=
+om>
+>>>> ---
+>>>>   drivers/gpio/gpio-rockchip.c | 1 +
+>>>>   1 file changed, 1 insertion(+)
+>>>>
+>>>> diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip=
+.c
+>>>> index 47174eb3ba76..bae2061f15fc 100644
+>>>> --- a/drivers/gpio/gpio-rockchip.c
+>>>> +++ b/drivers/gpio/gpio-rockchip.c
+>>>> @@ -593,6 +593,7 @@ static int rockchip_gpiolib_register(struct rockch=
+ip_pin_bank *bank)
+>>>>        gc->ngpio =3D bank->nr_pins;
+>>>>        gc->label =3D bank->name;
+>>>>        gc->parent =3D bank->dev;
+>>>> +     gc->can_sleep =3D true;
+>>>
+>>> This means all operations are marked as can_sleep, even though
+>>> pinctrl operations are only used for the direction setting.
+>>> I.e. the common get/set operations always worked in atomic mode,
+>>> but now complain. See for example:
+>>>
+>>> https://lore.kernel.org/all/20260108-media-synopsys-hdmirx-fix-gpio-can=
+sleep-v1-1-3570518d8bab@kernel.org/
+>>>
+>>> It's not a big issue for the hdmirx driver specifically, but I wonder
+>>> how many more (less often tested) rockchip drivers use GPIOs from their
+>>> IRQ handler.
+>
+> Yeah, seems this finally reached my distro kernel and now the kernel log=
+=20
+> on one of my boards is totally flooded from gpio_ir_recv_irq()=20
+> (legitimately) calling gpio_get_value()... that's not really OK :/
 
-Tested on the iTian SQ201.
+Yeah, I'm getting it too on several of my boards, like on Rock64:
+https://paste.sr.ht/~diederik/154c5023a3a50d77f1da2195e7bb9a96f6a88555
+(that's just a fraction as dmesg ran out of its buffer ...)
+Also mentioned here:
+https://lore.kernel.org/all/DFOEGOTI1AQ9.175GP7V1VK1XU@cknow-tech.com/
 
-Fixes: d88b11ef91b1 ("ARM: dts: Fix up SQ201 flash access")
-Fixes: b5a923f8c739 ("ARM: dts: gemini: Switch to redboot partition parsing")
-Signed-off-by: Linus Walleij <linusw@kernel.org>
----
-SoC folks: please apply this patch directly for fixes.
----
- arch/arm/boot/dts/gemini/gemini-sl93512r.dts | 2 +-
- arch/arm/boot/dts/gemini/gemini-sq201.dts    | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+Diederik
 
-diff --git a/arch/arm/boot/dts/gemini/gemini-sl93512r.dts b/arch/arm/boot/dts/gemini/gemini-sl93512r.dts
-index 4992ec276de9..341dec9b636a 100644
---- a/arch/arm/boot/dts/gemini/gemini-sl93512r.dts
-+++ b/arch/arm/boot/dts/gemini/gemini-sl93512r.dts
-@@ -146,7 +146,7 @@ flash@30000000 {
- 			partitions {
- 				compatible = "redboot-fis";
- 				/* Eraseblock at 0xfe0000 */
--				fis-index-block = <0x1fc>;
-+				fis-index-block = <0x7f>;
- 			};
- 		};
- 
-diff --git a/arch/arm/boot/dts/gemini/gemini-sq201.dts b/arch/arm/boot/dts/gemini/gemini-sq201.dts
-index f8c6f6e5cdea..bfd1e8581ad6 100644
---- a/arch/arm/boot/dts/gemini/gemini-sq201.dts
-+++ b/arch/arm/boot/dts/gemini/gemini-sq201.dts
-@@ -134,7 +134,7 @@ flash@30000000 {
- 			partitions {
- 				compatible = "redboot-fis";
- 				/* Eraseblock at 0xfe0000 */
--				fis-index-block = <0x1fc>;
-+				fis-index-block = <0x7f>;
- 			};
- 		};
- 
-
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20260123-gemini-fix-sq201-fis-offset-f7c101a2264b
-
-Best regards,
--- 
-Linus Walleij <linusw@kernel.org>
+>
+> Thanks,
+> Robin.
+>
+>>> Considering setting or getting the GPIO from atomic context is much
+>>> more common than changing the direction - is there some way to
+>>> describe the sleep behavior in a more specific way in the GPIO
+>>> controller?
+>>>
+>>=20
+>> No, there's no such switch at the moment. This is because there are
+>> paths that we can take, where we *do* end up setting direction from
+>> gpiod_set_value(). For instance:
+>>=20
+>> gpiod_set_value()
+>>    gpiod_set_value_nocheck()
+>>      gpio_set_open_drain_value_commit()
+>>        gpiochip_direction_output()
+>>=20
+>> I'm afraid, for correctness, it has to be either sleeping, or not. I
+>> would love - at some point - to make pinctrl mostly lockless with
+>> SRCU, like we did with GPIO. That would solve this issue correctly.
+>> But until then, I'm afraid we need to keep a chip-global switch for
+>> sleeping.
+>>=20
+>> Bartosz
+>>=20
+>> _______________________________________________
+>> Linux-rockchip mailing list
+>> Linux-rockchip@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+>
+>
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
 
 
