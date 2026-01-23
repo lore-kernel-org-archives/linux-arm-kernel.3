@@ -4,92 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAFDAD72350
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9BDD72361
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=42GEtX+KF8PV1SXMltWgUuBtFY4WZcL8hCIPkAOOUUo=; b=aUgAzvHhf5psYa1g26sO71+8ax
-	0ACyq4W2gGqzehI7U4fQHQNWILzOedxRONwN20t6iMQoEEPB+ppJmGoOynBiwFcl/QWRzI1tEM25e
-	/vxRrMFuEL6JJI1+rGVCh7UTveJ/AqLj14ETeeC1EMCHviuywP7UKGc3+QUOv8NnyY/RhlYsnmLtX
-	sTGAE1vuBYK00qysjZciJSs2/wgBT99aZliWXNtgalTJPtO4QBJHwPfZwawEPPuhOVoCjUv0suTFk
-	YT6d5BXoaVgX1639Rgj40dBciHhEycB1RpFEPZE0ujyNFSNMQS2EuoM/KNASf9KaOod+rIFdiJr0m
-	a3YzfpEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LXDjO0Zits+baQGNf4iaD7rt+XiqyDuXVlNSdn+765A=; b=B9ZfSl8OeGrAgN
+	T/Xk3lUMB5nhmUYWRXorZU3G+Z7VJrQFi0o7MQb4/l70B4NDTGpT5EQbvY04uKAK81/LEa3WRArbs
+	In9CSuE1KdjOp+4WFfcetmdGnFeaLAiYCrDZO+CsYvNJ6IGzvQtNfgC6Japcb3xJ/cbA7rruWgTSY
+	LLjnXyKPLrUnX61q62Epuhd/hb5agDK+imOs/itAPZSvkzKg/AgH29zuoZuHe9C0uBa6uZa+zZBHB
+	P+gP+z7hblg+ttMKEkds5I+r29PGCBUhQa3ZhYXrAIzugFiEaNxO7E4Y/eEAo4nYT+2Z3gI7TFaw4
+	PwlYmtstW3xCH95+AkVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDPv-00000008Yhv-2WMp;
-	Fri, 23 Jan 2026 09:25:23 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1vjDR6-00000008Ysv-387s;
+	Fri, 23 Jan 2026 09:26:36 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDPs-00000008YhY-2n0i
+	id 1vjDR4-00000008YsP-3PuH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 09:25:23 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-42fbbc3df8fso1248267f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 01:25:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1769160318; x=1769765118; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=42GEtX+KF8PV1SXMltWgUuBtFY4WZcL8hCIPkAOOUUo=;
-        b=mIzSQvEpA+YqIKQRGm8+UQMcpVgq2ZTJALqTidPr+cC6EXDfQ8hJgCFWQV4dP3N9jT
-         bORYqzGK5zEt0IEBDCqtcbyD1wyvL7CTyKD6aoTuiwnM4WJ+94ElmhyQvQUfi7wNqwmU
-         X0Tkq+G3qdRT8/P30xNPFI6K221fqYCKaWBzp/QhCYMKrMwAb6AA+zjfhtds92SXGq8t
-         y6RyR7FibRUagz/x92tKiOYrhQ9BdjFA+4hZGy96G89ll4wmD/jvo90TJ3rPeiF/dE4g
-         dfTTojCHaKEPrEXOZzZE2kfROk2k2z7L/8C69EubzpwqtaFcKqTh/KJCuWy2sU5vZKB/
-         vmdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769160318; x=1769765118;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=42GEtX+KF8PV1SXMltWgUuBtFY4WZcL8hCIPkAOOUUo=;
-        b=XpZlyYMgeJ19LAOYNmUv6oPJxuiuNjk2rbjbvHLnlhG7lqfeHbFqW241ZvULnw8Ero
-         2b2Wn2RtC+NsskurOg9WXkctsLjq9P2DrjjQ6p85PnDbiTSEpRWsjecrVSY1526bDXbS
-         f8nPw8vmEdyPMiwX8uR0oxUj4XudgYaFCrGi5as7Q2PeDJE2bT30GKKpWfP+gLjEwJwR
-         zFnTHBeQhwVEVGcRjyTgHQ8eBN1XGhuYp0WiotdnM3i7uV8xf8y/xdPYArCrMDZ2WAXU
-         NeHvV1akGAZJvKxjehDXeJ24CdKhAJHz1QAMjfWynX0YQhS4rv6aW5oxZgDXH7YA4Qhj
-         78Zw==
-X-Gm-Message-State: AOJu0YyOKNaXJjAdqKZ/zyetzQHmVJMP2qkXGtCHTI2+hngf0VHZc1B6
-	w5W5AzL032uYH+kRmCKJtpQDC7izl1Wo5bm6f6bfL95y8E3GlJB2oTnd8xA4Ue2+BpT8VmpWUgS
-	5Opkm
-X-Gm-Gg: AZuq6aJjGX9o6CpA7qWYz+5w+Sz3r1r8nK2OM3sZTvugcNpZ6u0IA0UYzTMc9FzxtQY
-	dMha2tX/oy0yI/AeZ3m6N/pCH0dkEjvOoQTxe6WhHyx/HPp/cPE+mPwQLmnLn/+TCQ2hzyorLNM
-	tIwNYSLoCNCokFc8d+C33sZs3QmO4PMkTtJSDarKmHBIxMKDLJPIQjwTvTETq+Gp5Tc8BEQHd1e
-	5ilBHbZl/+LoB/Vl0I9IW1ohobBGPI+MoXb9faFKoo0tbqkljObOyHuR5OSZzEJE+bWcxgL53z/
-	eooCaXdvb7FnfDeI0V9HLfLBXYOY1SatuICvW7JoKaQZ8Bzt3iqYL/xCx/ouVmsBt3NBurpDAyQ
-	97WLSQe/Dpomlx9HTXtbCMSKJZklPJySF1wMpkQvVyyPWbCmUhnGYsa+C2mlyfj35GDwsuz35bq
-	9H2viu2EwPDmnnpdJj/Q==
-X-Received: by 2002:a05:6000:2c12:b0:435:a3b9:9b8 with SMTP id ffacd0b85a97d-435b15de04cmr4007181f8f.24.1769160318186;
-        Fri, 23 Jan 2026 01:25:18 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.31])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435b1f73855sm5141283f8f.29.2026.01.23.01.25.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 23 Jan 2026 01:25:17 -0800 (PST)
-Message-ID: <38eb1632-4541-40e2-adc5-9c25fad9df7e@tuxon.dev>
-Date: Fri, 23 Jan 2026 11:25:16 +0200
+	Fri, 23 Jan 2026 09:26:36 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 23 Jan
+ 2026 17:26:26 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Fri, 23 Jan 2026 17:26:26 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+Subject: [PATCH v2 0/6] Add Aspeed G7 sgpio support
+Date: Fri, 23 Jan 2026 17:26:25 +0800
+Message-ID: <20260123-upstream_sgpio-v2-0-69cfd1631400@aspeedtech.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH] ARM: dts: microchip: Drop usb_a9g20-dab-mmx.dtsi
-To: "Rob Herring (Arm)" <robh@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260122202345.3387936-2-robh@kernel.org>
-Content-Language: en-US
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260122202345.3387936-2-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAME+c2kC/13Myw6CMBCF4Vchs7amU+SiK9/DEFPLFGYBbVokG
+ tJ3t7B0+Z/kfBtECkwRbsUGgVaO7OYc6lSAGfU8kOA+NyipKlSqFG8fl0B6esbBsxON7FusTH3
+ ReIV88oEsfw7w0eUeOS4ufA9/xX3dqVoiNv/UikKKtpJkS2tfdSvvOnqifiEzno2boEsp/QB37
+ HVnsQAAAA==
+X-Change-ID: 20251223-upstream_sgpio-70d815c64a19
+To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+CC: <linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, "Andrew
+ Jeffery" <andrew@aj.id.au>, <devicetree@vger.kernel.org>,
+	<bmc-sw@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769160386; l=1733;
+ i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
+ bh=GhxpaNbciIaCWw72u2Iibpyx+V9XGyJ6u4X/43gCPWI=;
+ b=ha0IbVquhucHyhVDOj7Ik/OXkimaaMGrNIIgmEHWVcXtkMlFT8YWsrZpZun6A/6r2OrwYLp2p
+ +c/MUBgaX6/DJhz3EpuHv5ijNQ47OZCitYyPv5W1+HSOefr3kae3Oh6
+X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
+ pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_012520_894285_BC27F6F4 
-X-CRM114-Status: UNSURE (   7.26  )
+X-CRM114-CacheID: sfid-20260123_012634_855644_8672E5AF 
+X-CRM114-Status: UNSURE (   9.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,14 +81,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The Aspeed 7th generation SoC features two SGPIO master controllers: both
+with 256 serial inputs and outputs. The main difference from the previous
+generation is that the control logic has been updated to support
+per-pin control, allowing each pin to have its own 32-bit register for
+configuring value, interrupt type, and more.
+This patch serial also add low-level operations (llops) to abstract the
+register access for SGPIO registers making it easier to extend the driver
+to support different hardware register layouts.
 
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+---
+Changes in v2:
+- Split the IRQ-related llops conversion into a separate patch to keep changes logically scoped.
+- Minimized unrelated changes (such as variable renaming) to reduce diff noise and ease review.
+- Clarified the llops design intent and semantics.
+- Link to v1: https://lore.kernel.org/r/20260117-upstream_sgpio-v1-0-850ef3ffb680@aspeedtech.com
 
-On 1/22/26 22:23, Rob Herring (Arm) wrote:
-> This .dtsi file is not included anywhere in the tree and can't be
-> tested.
-> 
-> Acked-by: Alexandre Belloni<alexandre.belloni@bootlin.com>
-> Signed-off-by: Rob Herring (Arm)<robh@kernel.org>
+---
+Billy Tsai (6):
+      gpio: aspeed-sgpio: Change the macro to support deferred probe
+      gpio: aspeed-sgpio: Remove unused bank name field
+      gpio: aspeed-sgpio: Create llops to handle hardware access
+      gpio: aspeed-sgpio: Convert IRQ functions to use llops callbacks
+      dt-bindings: gpio: aspeed,sgpio: Support ast2700
+      gpio: aspeed-sgpio: Support G7 Aspeed sgpiom controller
 
-Applied to at91-dt, thanks!
+ .../devicetree/bindings/gpio/aspeed,sgpio.yaml     |   4 +-
+ drivers/gpio/gpio-aspeed-sgpio.c                   | 362 +++++++++++++--------
+ 2 files changed, 227 insertions(+), 139 deletions(-)
+---
+base-commit: 39d3389331abd712461f50249722f7ed9d815068
+change-id: 20251223-upstream_sgpio-70d815c64a19
+
+Best regards,
+-- 
+Billy Tsai <billy_tsai@aspeedtech.com>
+
 
