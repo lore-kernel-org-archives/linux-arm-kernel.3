@@ -4,105 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A7ED778AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 18:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D194D778AD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 18:23:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PWeU1UwAO4pe3zvezy5Kiy+/X4gvo5C+nKCDnSN6RYs=; b=jFBKdIitYuNTC7LrA6qL49GJUL
-	3TnKavuO0VHw534W8FyBOKa49KHVbx3mNz++sA1xtTrsb5+oZDq8YJQTV0nHXjZT/JdIS98gV/NEU
-	7YtE4NACyfjDQYLlJwO2OYILh0fSLLXWJMyqcfC4IWx+J6RJB4QPFmBwhwcnKaQfhHgqPXps5+Swo
-	9alsXAvVhvLIClcx4N+jw6rYfljRk2pHTDrHPkubLfjpyIk0jNPVx2RtlbAYMZW2xvT+bXBCZkcNl
-	QjlAkpv3lpjNjG7ipJCXLU0ZibdJJu2YxwvjF2NjDHcni1ThZj4a7Y+D1h+55tZfO+nrrGt0ghLEq
-	bpTNV7Xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oEGl/tnoimH8y8JY83vb7PwQ86H3tjg5VxpV1bbsBJ8=; b=X2rtgss2yuInLAbxKRMs+SoWzt
+	qGoRHMCl9S91bZvsB4gfGhx9thVO28U6gqXDXOpLsaWV+ddfqZXBuS8OCOZmlzz0Dpji3lNXpEFau
+	AlfHKJak9G6cpbs1JoDOq2nRFWuSvCrLyC4vcMkUlGcSeijXCZutEeh8YVYxAA0od+Od+djN9ac5x
+	oFAed/EYXmPsyPSfp+qNxP58Pqtfwssfclolqwlv2uqP2JbdjZvkt/1rd0jeP/FIZ6GK0KlPcmoyp
+	X1cQBsxFXzwJqoXipjtE48hMOKlXc2SIynIp/ClIaq3nY+f98nXVXEgFrh5yQ8MVeuFiefsyAkIJk
+	LU3nzzlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjLkM-00000009Kw7-2akh;
-	Fri, 23 Jan 2026 18:19:02 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjLkJ-00000009KvY-2hNA
+	id 1vjLoN-00000009LTx-15KA;
+	Fri, 23 Jan 2026 18:23:11 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjLoK-00000009LTU-10fs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 18:19:01 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-8230c33f477so1100364b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 10:18:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769192338; x=1769797138; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=PWeU1UwAO4pe3zvezy5Kiy+/X4gvo5C+nKCDnSN6RYs=;
-        b=DKfVmRRTh9B3ZbppkgHZpvR/BBHv5apzBYH9QJQH0vc1yJftzTFNTLQ6jn+lJ0YlxF
-         eO1p333gFJniEKd5B++tbDEJmx5Xxb5j3pnu/SXQuuXizFGz9tLUR7V9kwqVasGaw2OB
-         JPB3N5Qs2vV6roTMVFvIk2XuQhn7DtyGICXHGhroJSTRgZE09idiN6IKi8VNzHHs56Kz
-         IK86y2AIE74/nlQdUruy6LK90/e4J4nCi4An4F5B95mBzvQyvhVzSm3PO8cbauXK+klQ
-         VA/G/Tc1NKci3fcWtIq31RYlDdcuds5mMF5t3o2yuPn2nk3xO2lv2iL60cKg3aP9rsLL
-         832A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769192338; x=1769797138;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PWeU1UwAO4pe3zvezy5Kiy+/X4gvo5C+nKCDnSN6RYs=;
-        b=W2NFRuOBNwf+0yTivrV6PxXhoz5YzaaWE2nksp8sEXXEd3ljx3eEjE7WxijCAISSO8
-         AKMd7gBiyvq0eOZyZkCT4eCOepV3HLeK9A1ukyVbuddGARiTeXFvpTXV3vOwIViPf1Rd
-         iJtmvsH0scIcGUTDsjfP10IWXyz4XQsqsCnlmA1XC7XR25HAHZugeonDME5uwmKbjJl2
-         ANUMK15tbqPMnS8ZnkT84Y5acCPwHwPl5vaJtWQdJpZGxTP5ft+ChR+My5Y+l994mTC6
-         ZckWcx6R+FFKJtOI57YgyzoX8p9Zru+oXM2aVhmSSP0OgngtCG5ozmQlO22yBMZ1II+L
-         F9+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUsM0UGbG/gz2n0fyPftdwKbEmM/Y/mqi/PmsbOrdModGGmyl61MlLU2jFFN3dPmc1ln+9Fc1wfIxKBQiA9/gr1@lists.infradead.org
-X-Gm-Message-State: AOJu0YxauHXgD0z0og3iJmcAJkGP6rE0YjXIEIRaUdJltzUu+4u9S9pm
-	v69PLqQwzHjrJZpPCqrLKwKbutt2dDPQkPuXd8AdnGXOycn3OQIXkDJMDvLmIKnYBQo=
-X-Gm-Gg: AZuq6aLeeW0R2XOzsqqGK5K2weqtxAE/7OTte1SEoGgEeXX40ZZheblTMaPfkbNsvkA
-	AkwZnA3PClv7N/0+r8bkJEsWYU0F7Ky9TWm+5fCGPsNi23zd+m6qHGK4W2G1Dh2eTpbcwF0HvHy
-	UDBbP9fcmWeSHxbV+Tg1hfbqldLoY7nuIPGcrr6PtkGOBTe9c1JalQBSZR8JKCRa3vZ/RESaJXb
-	//5srCZQMFAY9CZWn9fXjB4IcbKV/1EkLq+D7LEC29CJljEicxC25WI6mrZqv0vbw+8+AxcDa9C
-	LTGEeQscd5uCKj3x6Uye8txgdJP3C+ODobIvyUry8ohE0GU7g2UMIxfaKFtowu+s2srrPxYlgCv
-	PrnRIjvCAz1TZ6WfQYB5SD+hanGR263QhlyDjWPpHeyRPdXZfI2oWRZIktLwm/Jbq1FqFlT92m/
-	5PKeuHcZwg2rsOeyEbgyxo9BCK
-X-Received: by 2002:a05:6a00:e0a:b0:81e:63b9:5830 with SMTP id d2e1a72fcca58-823215d894cmr1814046b3a.18.1769192337818;
-        Fri, 23 Jan 2026 10:18:57 -0800 (PST)
-Received: from junjungu-PC.localdomain ([188.253.124.89])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8231873fa99sm2737765b3a.58.2026.01.23.10.18.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Jan 2026 10:18:57 -0800 (PST)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Sat, 24 Jan 2026 02:18:49 +0800
-Subject: [PATCH] PCI: imx6: Fix device node reference leak in
- imx_pcie_probe()
+	Fri, 23 Jan 2026 18:23:09 +0000
+Received: from [100.65.200.94] (unknown [20.236.11.185])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 1B6BA20B7167;
+	Fri, 23 Jan 2026 10:23:05 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1B6BA20B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1769192585;
+	bh=oEGl/tnoimH8y8JY83vb7PwQ86H3tjg5VxpV1bbsBJ8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QjSCNtxzEhRg6U/ueRjHRaw98P/cSWWNtXZUsYDH4gc80MbbvPU+CmjXRiqGgAABx
+	 eS3DvI7hcfflcEy7gCrCztVGp4KlDCM3MgwSjQUThwsnGKn1EN/XeharNXH43mpcrD
+	 LKzop3RyFjrOANn6ow1GGzaeYELgTRK66NHfiu8o=
+Message-ID: <420bf947-2dc5-4a6b-9766-0eff4d1e1618@linux.microsoft.com>
+Date: Fri, 23 Jan 2026 10:23:04 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v0 04/15] mshv: Provide a way to get partition id if
+ running in a VMM process
+To: Mukesh R <mrathor@linux.microsoft.com>, linux-kernel@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, linux-pci@vger.kernel.org, linux-arch@vger.kernel.org
+Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+ decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
+ will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ robh@kernel.org, bhelgaas@google.com, arnd@arndb.de, mhklinux@outlook.com,
+ romank@linux.microsoft.com
+References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+ <20260120064230.3602565-5-mrathor@linux.microsoft.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <20260120064230.3602565-5-mrathor@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260124-pci_imx6-v1-1-6f4379fc5160@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAIi7c2kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDQyMT3YLkzPjM3Aoz3TRL8xRzAwsL85S0ZCWg8oKi1LTMCrBR0bG1tQD
- csCPOWgAAAA==
-X-Change-ID: 20260124-pci_imx6-f97d70887dfc
-To: Richard Zhu <hongxing.zhu@nxp.com>, 
- Lucas Stach <l.stach@pengutronix.de>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Trent Piepho <tpiepho@impinj.com>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769192332; l=1059;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=5m2pAtLwQAG5n3tjRHX6phbB0BVWp/5Ljs87oOwdj8o=;
- b=c1kmFZYTjUboD6aDt5uIFJ4j1wdUwKwQCWHZWpd6SRlVQvVyjHEumpT4BDWjLBheMuh5h0/MJ
- gOEw7yXl6kNAAkxZ6ysWS9FtiCJsvPbL0qMBG7hJkMn20pzp7jVkVau
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_101859_712209_7BA45C6D 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20260123_102308_315145_134079C9 
+X-CRM114-Status: GOOD (  21.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,36 +78,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In imx_pcie_probe, np is obtained by of_parse_phandle() and must
-be released with of_node_put() when it is no longer needed.
-Add the missing of_node_put() after of_address_to_resource() to fix the
-leak.
+On 1/19/2026 10:42 PM, Mukesh R wrote:
+> From: Mukesh Rathor <mrathor@linux.microsoft.com>
+> 
+> Many PCI passthru related hypercalls require partition id of the target
+> guest. Guests are actually managed by MSHV driver and the partition id
+> is only maintained there. Add a field in the partition struct in MSHV
+> driver to save the tgid of the VMM process creating the partition,
+> and add a function there to retrieve partition id if valid VMM tgid.
+> 
+> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+> ---
+>  drivers/hv/mshv_root.h         |  1 +
+>  drivers/hv/mshv_root_main.c    | 35 +++++++++++++++++++++++++++-------
+>  include/asm-generic/mshyperv.h |  1 +
+>  3 files changed, 30 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/hv/mshv_root.h b/drivers/hv/mshv_root.h
+> index 3c1d88b36741..c3753b009fd8 100644
+> --- a/drivers/hv/mshv_root.h
+> +++ b/drivers/hv/mshv_root.h
+> @@ -134,6 +134,7 @@ struct mshv_partition {
+>  
+>  	struct mshv_girq_routing_table __rcu *pt_girq_tbl;
+>  	u64 isolation_type;
+> +	pid_t pt_vmm_tgid;
+>  	bool import_completed;
+>  	bool pt_initialized;
+>  };
+> diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+> index 1134a82c7881..83c7bad269a0 100644
+> --- a/drivers/hv/mshv_root_main.c
+> +++ b/drivers/hv/mshv_root_main.c
+> @@ -1823,6 +1823,20 @@ mshv_partition_release(struct inode *inode, struct file *filp)
+>  	return 0;
+>  }
+>  
+> +/* Given a process tgid, return partition id if it is a VMM process */
+> +u64 mshv_pid_to_partid(pid_t tgid)
+> +{
+> +	struct mshv_partition *pt;
+> +	int i;
+> +
+> +	hash_for_each_rcu(mshv_root.pt_htable, i, pt, pt_hnode)
+> +		if (pt->pt_vmm_tgid == tgid)
+> +			return pt->pt_id;
+> +
+> +	return HV_PARTITION_ID_INVALID;
+> +}
+> +EXPORT_SYMBOL_GPL(mshv_pid_to_partid);
+> +
+>  static int
+>  add_partition(struct mshv_partition *partition)
+>  {
+> @@ -1987,13 +2001,20 @@ mshv_ioctl_create_partition(void __user *user_arg, struct device *module_dev)
+>  		goto delete_partition;
+>  
+>  	ret = mshv_init_async_handler(partition);
+> -	if (!ret) {
+> -		ret = FD_ADD(O_CLOEXEC, anon_inode_getfile("mshv_partition",
+> -							   &mshv_partition_fops,
+> -							   partition, O_RDWR));
+> -		if (ret >= 0)
+> -			return ret;
+> -	}
+> +	if (ret)
+> +		goto rem_partition;
+> +
+> +	ret = FD_ADD(O_CLOEXEC, anon_inode_getfile("mshv_partition",
+> +						   &mshv_partition_fops,
+> +						   partition, O_RDWR));
+> +	if (ret < 0)
+> +		goto rem_partition;
+> +
+> +	partition->pt_vmm_tgid = current->tgid;
+> +
+> +	return ret;
+> +
+> +rem_partition:
+>  	remove_partition(partition);
+>  delete_partition:
+>  	hv_call_delete_partition(partition->pt_id);
+> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+> index ecedab554c80..e46a38916e76 100644
+> --- a/include/asm-generic/mshyperv.h
+> +++ b/include/asm-generic/mshyperv.h
+> @@ -211,6 +211,7 @@ void __init ms_hyperv_late_init(void);
+>  int hv_common_cpu_init(unsigned int cpu);
+>  int hv_common_cpu_die(unsigned int cpu);
+>  void hv_identify_partition_type(void);
+> +u64 mshv_pid_to_partid(pid_t tgid);
 
-Fixes: 1df82ec46600 ("PCI: imx: Add workaround for e10728, IMX7d PCIe PLL failure")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 1 +
- 1 file changed, 1 insertion(+)
+This should go inside the #if IS_ENABLED(CONFIG_MSHV_ROOT) section.
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 1d8677d7de04..3ae02712d3f0 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -1675,6 +1675,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 		struct resource res;
- 
- 		ret = of_address_to_resource(np, 0, &res);
-+		of_node_put(np);
- 		if (ret) {
- 			dev_err(dev, "Unable to map PCIe PHY\n");
- 			return ret;
-
----
-base-commit: a0c666c25aeefd16f4b088c6549a6fb6b65a8a1d
-change-id: 20260124-pci_imx6-f97d70887dfc
-
-Best regards,
--- 
-Felix Gu <ustc.gu@gmail.com>
+>  
+>  /**
+>   * hv_cpu_number_to_vp_number() - Map CPU to VP.
 
 
