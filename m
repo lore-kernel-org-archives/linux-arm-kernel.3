@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F6CD74EC2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 13:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8901D74ECB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 13:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7uRZVas5P6xxkBpdwTHJQR+xs1A0EdTWP84ona+zohk=; b=JX6UHvCmum8nnNHgrzXQXnNO+o
-	jgB0Nic+i2B6Z+8/oBlqFMQlHoVlSF/fCtr/PT3iCHCFpDRJIkRBjWOTV3EhgI14iPnvSWZPWNTAz
-	MY550VpUYNRw4AbcsLdaaxru0DuCqsrl4zyyAo32oJ/UUaXRr+AZccfjTxlywA1swtd62FtHPlufK
-	fEX1iwymn+ewckn10759xrTUIhjAb5ursridDSxYBgc2Xjb/MOJu9iFMchtfI+Vd84DOj+4vnd8xb
-	v69zBWcjtMTQj4UuZ6sRwxNrybZX9ADUrv7nHqIeLwltVZUv+tEu4BzfPxKcftW4Dl115PzNzbMeT
-	9YU4bsUg==;
+	bh=7uRZVas5P6xxkBpdwTHJQR+xs1A0EdTWP84ona+zohk=; b=Cx2MvBuvhA8uDjeb0cmjbawS+Q
+	mAqKZ8/4szBVO0OAew9UmbRT5ftYcaK9sswQeaSP2XpUwRkeT7SP8gzMDh4WDSta5NdudImYraMc8
+	YwwHJd8gtl/0MB7xkTEMX/NYKrwv6tOFNf0FQLxY0HPw/5WRAuznNjhXCuPOG/6MrTB+YcJ2bSbaq
+	hSNIT2oPitXrAxgjIlE2pXz4ZcKb4J2d/SVkfFQKGboa9KV5GIvRryXgL6kxeHWcq8S6Zdcs+UWFN
+	wWYsIJnsq6EDyGqBq6iN9mVrv/Ti/C/2tEdfwHOcTGptN4iRdmdgprNtKH/2KLgXJ1eaiIM0WoM8f
+	ApUetrEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjHE0-00000008xmN-33t4;
-	Fri, 23 Jan 2026 13:29:20 +0000
-Received: from mail-ua1-f51.google.com ([209.85.222.51])
+	id 1vjHEN-00000008xps-1Dnp;
+	Fri, 23 Jan 2026 13:29:43 +0000
+Received: from mail-ua1-f54.google.com ([209.85.222.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjHDy-00000008xlY-2MMY
+	id 1vjHEL-00000008xol-0QG6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 13:29:19 +0000
-Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-93f64ae67dbso534626241.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 05:29:18 -0800 (PST)
+	Fri, 23 Jan 2026 13:29:42 +0000
+Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-9480078b2fbso2245768241.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 05:29:40 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769174957; x=1769779757;
+        d=1e100.net; s=20230601; t=1769174980; x=1769779780;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
         bh=7uRZVas5P6xxkBpdwTHJQR+xs1A0EdTWP84ona+zohk=;
-        b=pfi+uDN2KIeps89Y7So+uDmsTuxZN+bsntCsv866LcR6zRcvrJidztYZa/8IFwI3UW
-         SBUROr5oujGUJDv6CYcX/Q2zgtw1aeR/IKMYV+uXkS4RYn/G3zfwiFxxCCaGTjnnvX20
-         43MaXH9c7o6NBWS9QDylhEyK5/WuocsTU34a9BwpZb16yghfHbPSUMPM32b0gBjnQL87
-         GubM61vkf3TJaC94F6LUMXAf0+MPMV14nLhKxaioMmeXx08wqtYwnspDQA1TXC6RevDi
-         N1oRvIxnfJZHacffOS0VuwCzopfHMsgTNUubtnAvTkvMqMfvV9BhszmgEDZDggSMi/2l
-         hiuw==
-X-Gm-Message-State: AOJu0YwXqiFc7HO1t1OlXW6NeRJL499PFQxVeixhqBIAjrTDdtlrNjJF
-	LWSksRFZuGF9kZqRLqIvjlUhHRtqb4l3iWCsYIX3xmjpjywadrbuMpmZvld7PiNW
-X-Gm-Gg: AZuq6aLyUGN1m90mL5PfwxDmbAOq2Ds7Pf+AzcCgdIfZN019LvuAveSzgpAMqDLW9pX
-	5klqbDqb2aL3k14v/zqMohQEpIjx9YdaZUbg5CfNPKTjRp3N2OD7e0c9BWhMdaDb4GhiBUfHksW
-	JdGljT/tP6YtqfkcY2NAWdC9pZUXd2U+z1tGnX0O5cAPo84I9iw64+Gm2SQKzjwt0rX3h7e1QP4
-	4d+7wcDYdN32Iwtdrw0GEBziSGtCAAnPn3m9vhtHQ73KV7cqMZK4B/J64mvokSeyBiYQvsyUaJo
-	xDPCUwT3RzJ+aVfv41IIq0mTVQnRRUzF9ithBZ6Q+klOPPRRLRHQH2bV1uuSosE+tBEYo2k3KpU
-	KT99usO7MzXbdXI/Akft/v/PBRlOvsuvwiic0Hp2w3/RhyN7k2GSfhCNNjueqWixKyzwzBMoc56
-	LFKOxBbP/FPfFasqlsJllIkM4slXFdaM1WqgiCJzqLisb88epi
-X-Received: by 2002:a05:6102:292c:b0:5f5:266a:d8ac with SMTP id ada2fe7eead31-5f54bd5abb5mr848625137.45.1769174957067;
-        Fri, 23 Jan 2026 05:29:17 -0800 (PST)
-Received: from mail-vs1-f46.google.com (mail-vs1-f46.google.com. [209.85.217.46])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-9482e2aa79asm503659241.2.2026.01.23.05.29.15
+        b=IttzvfE5hh3p/oe1pWNsJNiaXCSH7nvi+7zfaUYG8DhXKrmUm6XY2Zge+kngT7ajgq
+         5WD3jtduoPExMrd5AB+NltoCfIZBCX2ggCi6cERn8KAdsHvYidLtAgZZ3gM4pwQissPh
+         zZ0XknW0g2iuqEZBrIMfORPw2HxAzXDkKOxkNDDE3WtDszuA5QISx33xP/aOY0cr9Gu1
+         UtyZQhM7VQXcHieD7e848llFzYxtSJcPvCZAcn3stjXlYy/NQD/U1xfw+bRTM9LHJKqW
+         b6wyOXBShzdtVdCfnap8r/w8YcnSf0xN7wqIoSL1CzyOami+S3rHSIOOEMV6J7Ntw3mh
+         3LAw==
+X-Gm-Message-State: AOJu0Ywc8+fN3/JPfzlvgvqeqPSlZ4lBFOJaHQIdfagHl9Og77/E5UKp
+	NR7b1p7zqVgG5xjJ//WYm4qEtCp2fdBlF7nNqUyEkvMPhunS2M5XT6nfyAL3aC/Q
+X-Gm-Gg: AZuq6aJTMEd26NKbFEXmEj+UrZc4I8c67Zt5hrBW0L8cH40Pkt/UbJuz0Yupsjx/N2G
+	PI+uHjvzWLzFERsV1n+SaFtmETOuisC23JeRITejhhbkyJeF2zxVMacqsqvJC7Ex/Sk+Sdrhe5d
+	2WnAryO2FMKVYGMvJYFcgp4MA2gQXiHFVy4tLz7w9WkUrbAZsLNBVct/HYJM9y7VXFaFK5WxA21
+	yLSiMarsAHbC4DVp5kI0n6L/8LDqXlU737atZFsd5tU7Osrq/aJ8/3MRhT+iCH17ODGn5tsC8bC
+	/jUJ9W5apONM0GzaOrJeb1gUwsFrlvtXOYsc4ZDaTY4r1vZLLDB6qtPVbDTMbteWHo0DPWmkIG5
+	jcE3Rw21+Dm7pMVrIdZGSa1L5H26WT9mwMWwNfBr/fgzKDt4bCGRHdt3I8i9W5CSaAEQ3oBd1jt
+	9FfxrmUdrOvLbAsmSkilEE/RtrRQXhEQCOsMRelTTz9dANou72
+X-Received: by 2002:a05:6102:d87:b0:5f1:5be2:114b with SMTP id ada2fe7eead31-5f532eef721mr2327304137.20.1769174979830;
+        Fri, 23 Jan 2026 05:29:39 -0800 (PST)
+Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com. [209.85.222.50])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5f55118c549sm366806137.7.2026.01.23.05.29.38
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 23 Jan 2026 05:29:16 -0800 (PST)
-Received: by mail-vs1-f46.google.com with SMTP id ada2fe7eead31-5f53021703aso755846137.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 05:29:15 -0800 (PST)
-X-Received: by 2002:a05:6102:12d9:b0:5f5:5c89:12e8 with SMTP id
- ada2fe7eead31-5f55c891584mr122473137.3.1769174954825; Fri, 23 Jan 2026
- 05:29:14 -0800 (PST)
+        Fri, 23 Jan 2026 05:29:39 -0800 (PST)
+Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-93f5910b06cso1473137241.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 05:29:38 -0800 (PST)
+X-Received: by 2002:a05:6102:3752:b0:5ef:a3c1:86e1 with SMTP id
+ ada2fe7eead31-5f532e93002mr1974929137.11.1769174978693; Fri, 23 Jan 2026
+ 05:29:38 -0800 (PST)
 MIME-Version: 1.0
-References: <20260118135038.8033-1-marek.vasut+renesas@mailbox.org> <20260118135038.8033-2-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260118135038.8033-2-marek.vasut+renesas@mailbox.org>
+References: <20260118135038.8033-1-marek.vasut+renesas@mailbox.org> <20260118135038.8033-3-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260118135038.8033-3-marek.vasut+renesas@mailbox.org>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 23 Jan 2026 14:29:03 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWW6KwSXqKkYBGVDpbhSn+eznA1Y1-9iPs4jR9W9pJb3A@mail.gmail.com>
-X-Gm-Features: AZwV_Qja41EG5GwRG8B7m5dFnkBsNMOHUZuH503OCKweOMnCriK-91TiyZZrpMw
-Message-ID: <CAMuHMdWW6KwSXqKkYBGVDpbhSn+eznA1Y1-9iPs4jR9W9pJb3A@mail.gmail.com>
-Subject: Re: [PATCH v2 1/9] arm64: dts: renesas: r8a77951: Describe PCIe root ports
+Date: Fri, 23 Jan 2026 14:29:27 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdW9XAn1RfkFpof0yUeYhfmQOnZMSNBAA1rQFBNX_Z3TMQ@mail.gmail.com>
+X-Gm-Features: AZwV_Qi8xIqx9SrRtjX9A1sHdg0UhI1C_69Cyb2P2OJhm9AIJr1Yv60yV3PReM0
+Message-ID: <CAMuHMdW9XAn1RfkFpof0yUeYhfmQOnZMSNBAA1rQFBNX_Z3TMQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/9] arm64: dts: renesas: r8a77960: Describe PCIe root ports
 To: Marek Vasut <marek.vasut+renesas@mailbox.org>
 Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
@@ -80,7 +80,7 @@ Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
 	linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_052918_594928_3DA9D1DD 
+X-CRM114-CacheID: sfid-20260123_052941_132228_A38337E2 
 X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
