@@ -4,86 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA29D778AF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 19:57:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 582A9D778AF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 19:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+23FDVkyidR5ZUkaEyPxSOupAMWK9iYp0kt6TwQqyec=; b=TD5KmDPiBuPzXzjMZx9rwgGSfC
-	8TxV0qqg4MjdXLpFvZdLaExUDyNvp9eBfrjZZvy1vqSSJLRkr8hjEf67CJXPdq/sUaxwjG91+YKCE
-	3RBBRFDjaAl/e9K5UoTd9S4k8g2EWstnzgrExNRKLZ5tRE1X/rPpbLZW1af6ZxLWpWp5sQVDIoQ9o
-	86qE1Lh3LB1fRFcCcOKABaIbOtQCPXwars9wELSzvixJyGLgL7w71BFlTTTpKd6gVAP9nZ5VC7sZs
-	Vz6ciDr8/ghV1vqvmEXB5cmxPaMQfF1tKF9OX3u2L+Z8FTv+68f64WB/pFCTmkJtUkfvVTwDC3KO2
-	xWl3+Xqg==;
+	bh=yWEaBSuKKtwBn2eSR075U5Z5M1wAEIAAleaHafzIPm0=; b=3SXd8Zaavrg6SKELVnSEryGfpd
+	pVGMh4dCzeoklpAX4SiAZxXpS2RnMKdbI4+M+/esSx6mM+G6jgOINA875AZUm8xqVp5da7egsNRmG
+	6ICvb30MfIaQBiOgeX6LD/L2i1d8mPennqOU1AQyqR2BSN0Tp9WuHOiT7rv7vWx/5TuvD//NIcxD2
+	f3IjX+4x/RZ0YTzN1JXzrZedKn3cOgaeKbGOJwG2tlNX42ZNmdTGkSub6Vc2czw7IFOPG9h0T1N1P
+	B4fsuLR97I8qvc408bgicvjXKAdY2f0NR+pDLPOWZbxvIpir5yPVt5q8OhVlbeeusyHfTw0j025o9
+	/HAtSifw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjNHe-00000009Rs8-0A1W;
-	Fri, 23 Jan 2026 19:57:30 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1vjNJu-00000009RzP-2M7d;
+	Fri, 23 Jan 2026 19:59:50 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjNHa-00000009RrN-2POy
+	id 1vjNJs-00000009Rz2-3pBS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 19:57:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769198246; x=1800734246;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ltOq6SCjupE7BLOIATjhL+BWeHyh5Ngusu9gTtz8HpE=;
-  b=mOwfXG22i4sSU20WzBNlf+xEIixSNgYx5ukDXqlBwVxGuEzLMvIzH09U
-   GpQ8Q/sF9a3uyog/hvQbd0I0Z0g+sHMgwF4ZbkPQEPC/Rgumx9tJCAxcL
-   7ofQZbY16yDHbRRCDQ8yfwdXFd24oDnU5YJ/Rs3GWiRPkcEOF6g+hkvFa
-   rxBU6SOJn8g66yxwfH0H/B457fZAPNZKunxlfbodQbogJ5aY+UoKG0fkJ
-   M3oSRfcmRucsxBSHVVfkKVPp6YUfn4p0U3afLs8y2aHMCRmR6/UjSYNhr
-   MC1NIkRFEGNcPUT4zYqy2BGXrWmnlY68pDcp1HI3wraJl1aXRUNmhLFVo
-   g==;
-X-CSE-ConnectionGUID: miGQG3SqRDie8pUJgcbTyg==
-X-CSE-MsgGUID: k7tEdQFUQsOAWlbAB/BkaQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11680"; a="70621903"
-X-IronPort-AV: E=Sophos;i="6.21,248,1763452800"; 
-   d="scan'208";a="70621903"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Jan 2026 11:57:25 -0800
-X-CSE-ConnectionGUID: eDHf0z5qT4K4NYlUNgWJEA==
-X-CSE-MsgGUID: hEhj3cZ7RfOGQf1SGFtXBw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,248,1763452800"; 
-   d="scan'208";a="244728318"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 23 Jan 2026 11:57:20 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vjNHS-00000000UP4-1mM9;
-	Fri, 23 Jan 2026 19:57:18 +0000
-Date: Sat, 24 Jan 2026 03:56:21 +0800
-From: kernel test robot <lkp@intel.com>
-To: Richard Genoud <richard.genoud@bootlin.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: oe-kbuild-all@lists.linux.dev, Paul Kocialkowski <paulk@sys-base.io>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Genoud <richard.genoud@bootlin.com>
-Subject: Re: [PATCH v3 2/4] pwm: sun50i: Add H616 PWM support
-Message-ID: <202601240328.Lv73l3dC-lkp@intel.com>
-References: <20260123093322.1327389-3-richard.genoud@bootlin.com>
-MIME-Version: 1.0
+	Fri, 23 Jan 2026 19:59:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gercXt/JQb4jCQhnv4LL+7TiSF/aOaDayiPp43qpyF5UvOU4r9uelzB8PtF0m5Fb70Zz6tlfiaGnqBopnbIJm3QbMB0MOsHAuKdJpnvLN9ASlg/aeReSgbQhGXS0z29mDBH6rZmvDDXXeFMyoxWwM6YwZVvqJHBfrhKPsA5pYGXHJ5Dod+6NINVFb01YLHmJ6Rg1lwHiZ55CsU2A2k5bnVjOKuCwZN7XhMOnrg2kmI+EisgcAJBdf5wmDyIbGMryffBh3kiVtYzNm8YmtZOziWl5gp16+bDBvGRql/NsjuvHWvL8yM0ThMwKdAcjnxIgKepPQmABzUnhT4x5j54cIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yWEaBSuKKtwBn2eSR075U5Z5M1wAEIAAleaHafzIPm0=;
+ b=tQqZnoo+ZAlXnZUzYMa/TuHYRFOVyLyDIrTcjYtuQu/4TlxTwzQyUO0HcSK+PMejGhj+hq7nrDFaAgaTcVvnWRXeOebAO1fQh5Jcd/662LwYcbU3iWG+0JNbSa1dpTuYQ4p63Z/QbXnGqXCupvGxfsPtMja77kOpzeGZEBcSmxFMVUu7iZdSTWrIsxE5WtITlUeIjJCMZ6UB1M56TaXTtKOgDD8rMxdde5EOk0sqFdOo/OOS76F8QRTAbSvIZhc2JQYyLybS1fmKIgk/gpJG3ypxOf+mcy/cMVzHgAElcbHhRBVpgjx9u/tnpKw8fCdMyec6w4R6XC+xFimVFRdX+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yWEaBSuKKtwBn2eSR075U5Z5M1wAEIAAleaHafzIPm0=;
+ b=lpYblUSQBvCZUiYsN7L3sBhjz0FjlVXz5PkKIdFQauSoSvsnbfCGodjxPVfeEW0pcHgu94ahGiOP9U5VrtTI0a9bLcY8+pJSmjmA9CqOShFXQ92WZe0LXzrLU4D2pOB7t2uKcVjr+rKCX8HrgeSH5TB3PoTAO9WK8DmwXMw617UBUj+mnrduCMMQGHcKDdMcFgekO4pMAqqTfuBDCTK20ZAMSU8xDOyfL/HQhGtz7ZC4FjzHMFvuSrVt3nFglvPvEquJmXhCY983TqH7S6bhBSBdidlt1D8wUuRtt1KETOTAmTkRdG5D7nZDPylVpLCpThulNAGfIKUITJ9RQk4spQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by PH0PR12MB8128.namprd12.prod.outlook.com (2603:10b6:510:294::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.12; Fri, 23 Jan
+ 2026 19:59:40 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9542.010; Fri, 23 Jan 2026
+ 19:59:40 +0000
+Date: Fri, 23 Jan 2026 15:59:39 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Will Deacon <will@kernel.org>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, jean-philippe@linaro.org,
+	robin.murphy@arm.com, joro@8bytes.org, balbirs@nvidia.com,
+	miko.lenczewski@arm.com, peterz@infradead.org, kevin.tian@intel.com,
+	praan@google.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 7/7] iommu/arm-smmu-v3: Perform per-domain
+ invalidations using arm_smmu_invs
+Message-ID: <20260123195939.GE1134360@nvidia.com>
+References: <cover.1766174731.git.nicolinc@nvidia.com>
+ <308ed579c724879a4a20b19ccdcb33e917597d77.1766174731.git.nicolinc@nvidia.com>
+ <aXOqwymxe-nzYpwU@willie-the-truck>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260123093322.1327389-3-richard.genoud@bootlin.com>
+In-Reply-To: <aXOqwymxe-nzYpwU@willie-the-truck>
+X-ClientProxiedBy: MN2PR04CA0026.namprd04.prod.outlook.com
+ (2603:10b6:208:d4::39) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH0PR12MB8128:EE_
+X-MS-Office365-Filtering-Correlation-Id: 776d31e1-a778-4ef1-0cc8-08de5ab9f185
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3+g0jO87HELbcdoju/eHJ9WPJz4em/wDpEHL+SQYLHioZvdc9gK0BreiGfkF?=
+ =?us-ascii?Q?ImyYMY0cEfLOIk12n/X0rkN6ig2jyzncSmsW6ebuVGnlmKeQcmutC41mwxQC?=
+ =?us-ascii?Q?qMdDHr8RWbrWAndC7AAbhyDQbRHB+yI7LHbyQf4skUWCk90OcyKLEKUg155c?=
+ =?us-ascii?Q?hU5ANe47iPIuQSvIvBluVDfjT//KDWRvHRfYQLmjin3nQbMTY6pFxMJNhkpg?=
+ =?us-ascii?Q?INBS3pJDK4zOAutkgQLEaDgzeMDfV4eoTYRN6lKiEfXVGDiXSj8ighIc0wAh?=
+ =?us-ascii?Q?9nMYwpKxMyZWs36N7K71ot6ivnHLfrZ4OViCc0hR5q59GWl9gschbjEWSeTj?=
+ =?us-ascii?Q?fpDvAQD05TonYYCX4IAGEO2KWAFOnnpzFQvFwrQjLnApX+0W/le5O/DRBKpS?=
+ =?us-ascii?Q?JumqjQM+z50oCB7EL6NFUjzdoC2Asz+MC4LzikuT+SOBShBuyq0rl/hAPQxG?=
+ =?us-ascii?Q?BfjHjs74p+LhCxvaoKB7FVay1rvde1Y+400XUGJ1T1nfoy2zBPuvZxB3J6+5?=
+ =?us-ascii?Q?6C2zBUmciHAs1LbhquGlMtszsWfOXWd1IFoiFCUeZn3G6gPK8gOMlzVpQsJn?=
+ =?us-ascii?Q?dmuQF7AkE5fG3aGXUY2bV2i3JlZZRK6rh0NDKsNSsK3P6zn5SBZOgw6qsgik?=
+ =?us-ascii?Q?F24rJCxUceThSjpc6WRambZOCweJJEoNCWCd8IZwgvY912tUrnHLaqZqtJbu?=
+ =?us-ascii?Q?d69dUdiCBpY8yjngrTXHolAGDwNvIgOlyFilaJT6XO09PqHKYGswWUm8ByBg?=
+ =?us-ascii?Q?k/gHX53LKHMwbiN14sQ7eCunD+3lyVcOjRCSH/d+Nbb4fOIaWUVVFB5uSXzv?=
+ =?us-ascii?Q?fQ5mZpNVbOEt4LrP1c2GIn0GrQQktq/pFzkfqYJn/bAg9KVqyDqtnRQAPMwc?=
+ =?us-ascii?Q?P4QganpNAcTSDW4x9ujr0VcADkOkV5DQm39fQlVsbiA81RcauYz5uB+a3o10?=
+ =?us-ascii?Q?lLjKD+CBDUmVKtp0GgNSxZSQyD9Q9n1AJkBnTr706t2SU6smnmVIaZEV21Mq?=
+ =?us-ascii?Q?haHET9+twOdtUiJDE/KDM9AOf18in7ldNdu6zoVfnwPaunWD5OhMdgITVKnM?=
+ =?us-ascii?Q?YeVoqmso/hL/2qbqDjLLcaV7Yz0/He5T2CfiaOTSYiaHn5cn9IvxYJRjWgp6?=
+ =?us-ascii?Q?VpTnjgnCkdx4n5BMTLD4T9LnAPKn1DNvR58wWe/4vnKX434bLnuM8vVH4BeU?=
+ =?us-ascii?Q?9EwSKdknVSBI9h1e8rXXuk9BMsUw1W7LceJs/jBzaxT+6fZwY/hMdRFpfCWY?=
+ =?us-ascii?Q?2FeX5aWvhq3O1EinJn8xNjyXOnHoPBpX830lXZi4OhksprmkkMoscgoZQNjv?=
+ =?us-ascii?Q?zUSpt2Fh05jo9hZtdEYRAT43CLPzQPf9JEH+EMg3iTr+Em5MZ1ccqZHepcip?=
+ =?us-ascii?Q?tAmPKGf8kCMlknt8hKa3yHKooK2l1lSH7aPxp/b2kFuHTfnXhN33tgkKnE+x?=
+ =?us-ascii?Q?uVFEXAszBcg2TR/Qp4D0iZ7snikcGJtd4bQA4yYsC+qPfQmoYQSDxpZuw06Q?=
+ =?us-ascii?Q?n3wRO7GqotAVQtK1Iv9o/EnIHX4pSnamOpVEMUPSAiJbBVBzyIMH9AyoGzJt?=
+ =?us-ascii?Q?m1qWOuhP5VK9fdZwv1M=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1LyJEIsc+upO3pr9qAuNQgqN4Q3HvNBnQ1EenLU6QUZUljOtqyBdCA36Q1NH?=
+ =?us-ascii?Q?G2HtqVhijWUMB69nQ/FsbbKQ4eZs3wcMVf+ESkSmuiJckUc1z35eZzvmyBfu?=
+ =?us-ascii?Q?pX1qOUR1+zNNNMWoB6ZSEd5EK8OSz/mQtMRxkmOqUqaVjprWlfF2OMpJ7Fms?=
+ =?us-ascii?Q?pMQ49GDIOQa4i+ILgdf9NTYTroj+lajsHoGK5W6oIh3G45OKNf3YxJgpa0Uo?=
+ =?us-ascii?Q?7qq5DmaBTsM3UNiBWXiw31xiXbJO7FsBwPokw19POJ+H7zr+/0LVyu2Skds+?=
+ =?us-ascii?Q?DWlu9Wp9bU3Dlo5o5npPmjGb0tYJOkL0JWkbScFVuKJgpfB75Ycq5O1FX83e?=
+ =?us-ascii?Q?uPsRuf0FUyafITHweC64/sUJZdRbyptPgnxyH7lVzulOaUvYKde48173GBgJ?=
+ =?us-ascii?Q?IrVO2nL+2h9Q655DvrIC/CvEr1t4+gwTe8Vyhr/0usXtprRKy1oiYNPaBM4W?=
+ =?us-ascii?Q?RiZf1eSzqPNmgNpPVcH6ku8eSIP4yC5IlU1576O6hTmsa7KSxMkDVvtxqcT1?=
+ =?us-ascii?Q?YL9rSkYOJ74zK3tHW1bReIA5XL44OwNjxFMO20nYFredzVOqlykaUbuEAZTb?=
+ =?us-ascii?Q?w1S/FCiASmHaODIbCI7s6X8/9IRZn0QwjqU67oiTwwXnXyRODjE5yDucOBxY?=
+ =?us-ascii?Q?KiEXre5XNhA+PzQudlW/sC0AS0sfD+FN2LQ+O8wPOuH0sgB2K7vE66M6y6tw?=
+ =?us-ascii?Q?fPUdHgBdQWVKUd2sS+219I138ByPAzJ1eaGh82ADMfc1erhTMFosiVTgwosx?=
+ =?us-ascii?Q?GzVmjkBruAbTpGNb1BSvYZ4WhPNa8P5Mfu6lVm97my1QdN5g6l6ci2eJJjvu?=
+ =?us-ascii?Q?uX70n46wrBQShqhZAx9m8Fyw0hTelZLwoyek2BDPpXU/qe9l6jPz8shYnwad?=
+ =?us-ascii?Q?rRTWTIH5gcThHVjbpF+cGP68HWk0SvwwjvDbGjNpMPOeqvyBgO7UAZ2L8W6e?=
+ =?us-ascii?Q?t1DRyUbWfJPGVUY2mB7yD93rEMnn31XcrfdBtMs2JWN1ZzmuFdX1RLSsRdW+?=
+ =?us-ascii?Q?UlWz8NfzOJstp+GmP1n1uj1yB8a/MsmYQOwOygwKhB0RChRoDlvQNjjxWIb8?=
+ =?us-ascii?Q?vyoIagQnmfIQAsroTTYfmLVivDMR9kg9KdS2h2FCqIk4xBpwXpU2wUPS2zf/?=
+ =?us-ascii?Q?kMQ/8+7VxmlKBeziejO5BxdjX6u7H8jMyVdi+FNhA6bip9g7JiGRJAPqboKU?=
+ =?us-ascii?Q?zopRJMVWZGG1fz14BwWp/MMrHFS4FsDelgeaVABVhWzJsPZ+8rTqg7S8DlW7?=
+ =?us-ascii?Q?3DJE60nCY4i8wAxXaRTgCKqGgDHywz2VLYuMkbcc41gbaIGzX7kueMDRvWVl?=
+ =?us-ascii?Q?mJeY5SS4eblNikQwq+ERK2b/J+QX7IeVihOEIxlmlSPaVUCk00j5syfKHpof?=
+ =?us-ascii?Q?f76PsB4ezyx/SxEWPyQB/lEtSApA+SYgKVVW6iKFmXwKxi5SizlihpStIQEv?=
+ =?us-ascii?Q?7Mzmugj7t4nHieHEFWRibJssVI7DIJsxnRNFEBDEuKhr1HHH50+ajBeBDlcn?=
+ =?us-ascii?Q?V7oqo6SHJ0FKVFbC2owqModvsQBUPmHwGjyti6vJmIRIc8P2Yul6hcYmLZVv?=
+ =?us-ascii?Q?1wf0lHyhoBDw9gx3J4NVKMdEXpNN2yBEZiEWEgbazxz1R3zfYDWqsya7Tg6P?=
+ =?us-ascii?Q?K1MrO08//HpIoOpiB9abW8tqYUSzG5p1dy0SCd6ftQDa747xzsZozYyrDR/m?=
+ =?us-ascii?Q?0+mxaD3Dxx0z1OugU+K0touk7h4I3+/mCKXwDF6MLr2N5HoKKQNo+mywCKSe?=
+ =?us-ascii?Q?FHGnVKmNpg=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 776d31e1-a778-4ef1-0cc8-08de5ab9f185
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 19:59:40.2165
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KsNfpm4TGbwpGT5ocmJ5eKgmO2Hvd0jWrR7JspHipZV2N+DOGhzMLTn8djM4VwDF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8128
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_115726_663620_32C8A1EE 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20260123_115948_955168_E37BB542 
+X-CRM114-Status: GOOD (  29.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,114 +167,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Richard,
+On Fri, Jan 23, 2026 at 05:07:15PM +0000, Will Deacon wrote:
+> On Fri, Dec 19, 2025 at 12:11:29PM -0800, Nicolin Chen wrote:
+> > Replace the old invalidation functions with arm_smmu_domain_inv_range() in
+> > all the existing invalidation routines. And deprecate the old functions.
+> > 
+> > The new arm_smmu_domain_inv_range() handles the CMDQ_MAX_TLBI_OPS as well,
+> > so drop it in the SVA function.
+> > 
+> > Since arm_smmu_cmdq_batch_add_range() has only one caller now, and it must
+> > be given a valid size, add a WARN_ON_ONCE to catch any missed case.
+> > 
+> > Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> > ---
+> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   7 -
+> >  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |  29 +--
+> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 165 +-----------------
+> >  3 files changed, 11 insertions(+), 190 deletions(-)
+> 
+> It's one thing replacing the invalidation implementation but I think you
+> need to update some of the old ordering comments, too. In particular,
+> the old code relies on the dma_wmb() during cmdq insertion to order
+> updates to in-memory structures, which includes the pgtable in non-strict
+> mode.
+> 
+> I don't think any of that is true now?
 
-kernel test robot noticed the following build warnings:
+You are talking about this comment?
 
-[auto build test WARNING on 9ace4753a5202b02191d54e9fdf7f9e3d02b85eb]
+	/*
+	 * NOTE: when io-pgtable is in non-strict mode, we may get here with
+	 * PTEs previously cleared by unmaps on the current CPU not yet visible
+	 * to the SMMU. We are relying on the dma_wmb() implicit during cmd
+	 * insertion to guarantee those are observed before the TLBI. Do be
+	 * careful, 007.
+	 */
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Richard-Genoud/dt-bindings-pwm-allwinner-add-h616-pwm-compatible/20260123-174342
-base:   9ace4753a5202b02191d54e9fdf7f9e3d02b85eb
-patch link:    https://lore.kernel.org/r/20260123093322.1327389-3-richard.genoud%40bootlin.com
-patch subject: [PATCH v3 2/4] pwm: sun50i: Add H616 PWM support
-config: arc-allyesconfig (https://download.01.org/0day-ci/archive/20260124/202601240328.Lv73l3dC-lkp@intel.com/config)
-compiler: arc-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260124/202601240328.Lv73l3dC-lkp@intel.com/reproduce)
+Maybe we can restate that a little bit:
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601240328.Lv73l3dC-lkp@intel.com/
+	/*
+	 * If the DMA API is running in non-strict mode then another CPU could
+	 * have changed the page table and not invoked any flush op. Instead the
+	 * other CPU will do an atomic_read() and this CPU will have done an
+	 * atomic_write(). That handshake is enough to acquire the page table
+	 * writes from the other CPU.
+	 *
+	 * All command execution has a dma_wmb() to release all the in-memory
+	 * structures written by this CPU, that barrier must also release the
+	 * writes acquired from all the other CPUs too.
+	 *
+	 * There are other barriers and atomics on this path, but the above is
+	 * the essential mechanism for ensuring that HW sees the page table
+	 * writes from another CPU before it executes the IOTLB invalidation.
+	 */
 
-All warnings (new ones prefixed by >>):
+I'm sure this series adds more barriers that might move things earlier
+in the sequence, but that isn't why those barries exist.
 
-   drivers/pwm/pwm-sun50i-h616.c: In function 'h616_add_composite_clk':
->> drivers/pwm/pwm-sun50i-h616.c:720:28: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
-     720 |                 mux->reg = (u64)mux->reg + reg;
-         |                            ^
-   drivers/pwm/pwm-sun50i-h616.c:730:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
-     730 |                 gate->reg = (u64)gate->reg + reg;
-         |                             ^
-   drivers/pwm/pwm-sun50i-h616.c:740:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
-     740 |                 rate->reg = (u64)rate->reg + reg;
-         |                             ^
+I think the original documentation was on to something important so
+I'd like to keep the information, though perhaps the comment belongs
+in dma-iommu.c as it really applies to all iommu drivers on all
+architectures.
 
+It is also why things were done as a smp_XX not a dma_XX. The
+intention was not to release things all the way to DMA, but just to
+release things enough that the thread writing the STE can acquire
+them and it will ensure they are released to DMA.
 
-vim +720 drivers/pwm/pwm-sun50i-h616.c
+For instance on UP it is fine to have no barriers at all in the
+invalidation code, the dma_wmb() in the STE store command is
+sufficient.
 
-   704	
-   705	static int h616_add_composite_clk(struct clk_pwm_data *data,
-   706					  void __iomem *reg, spinlock_t *lock,
-   707					  struct device *dev, struct clk_hw **hw)
-   708	{
-   709		const struct clk_ops *mux_ops = NULL, *gate_ops = NULL, *rate_ops = NULL;
-   710		struct clk_hw *mux_hw = NULL, *gate_hw = NULL, *rate_hw = NULL;
-   711		struct device_node *node = dev->of_node;
-   712	
-   713		if (data->mux_hw) {
-   714			struct clk_mux *mux;
-   715	
-   716			mux_hw = data->mux_hw;
-   717			mux = to_clk_mux(mux_hw);
-   718			mux->lock = lock;
-   719			mux_ops = mux_hw->init->ops;
- > 720			mux->reg = (u64)mux->reg + reg;
-   721		}
-   722	
-   723		if (data->gate_hw) {
-   724			struct clk_gate *gate;
-   725	
-   726			gate_hw = data->gate_hw;
-   727			gate = to_clk_gate(gate_hw);
-   728			gate->lock = lock;
-   729			gate_ops = gate_hw->init->ops;
-   730			gate->reg = (u64)gate->reg + reg;
-   731		}
-   732	
-   733		if (data->rate_hw) {
-   734			struct clk_divider *rate;
-   735	
-   736			rate_hw = data->rate_hw;
-   737			rate = to_clk_divider(rate_hw);
-   738			rate_ops = rate_hw->init->ops;
-   739			rate->lock = lock;
-   740			rate->reg = (u64)rate->reg + reg;
-   741	
-   742			if (rate->table) {
-   743				const struct clk_div_table *clkt;
-   744				int table_size = 0;
-   745	
-   746				for (clkt = rate->table; clkt->div; clkt++)
-   747					table_size++;
-   748				rate->width = order_base_2(table_size);
-   749			}
-   750		}
-   751	
-   752		/*
-   753		 * Retrieve the parent clock names from DTS for pwm-clk-srcxy
-   754		 */
-   755		if (!data->parent_names) {
-   756			data->num_parents = of_clk_get_parent_count(node);
-   757			if (data->num_parents == 0)
-   758				return -ENOENT;
-   759	
-   760			data->parent_names = devm_kzalloc(dev,
-   761							  sizeof(*data->parent_names),
-   762							  GFP_KERNEL);
-   763			for (unsigned int i = 0; i < data->num_parents; i++)
-   764				data->parent_names[i] = of_clk_get_parent_name(node, i);
-   765		}
-   766	
-   767		*hw = clk_hw_register_composite(dev, data->name, data->parent_names,
-   768						data->num_parents, mux_hw,
-   769						mux_ops, rate_hw, rate_ops,
-   770						gate_hw, gate_ops, data->flags);
-   771	
-   772		return PTR_ERR_OR_ZERO(*hw);
-   773	}
-   774	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Jason
 
