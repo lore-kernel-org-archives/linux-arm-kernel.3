@@ -4,92 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E10D74EF8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:04:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9C00D74EF5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HRaAyzpQLD9z0tMt/n74ydmpLXpoLNEfmnc5Kofzl7k=; b=uLllaHhpyL2orB3xILPHsCT1v0
-	8HoQrKfVb0m0ezllr4nUp0p/FTQCumyHRjwCOWlH1pZBzakWhFRv2kduFX4UFLZ4d1XM2KGyeu0zF
-	Dv25xRO8BimFmzl4fP7wgZvGDO+OHAf2+E/IXbF2nqDlwDXex+r7Odxox3I3NeesqCf+O3sNNzpcO
-	7uI6H9/ThQnTaGlnO9eNy9ucgITkpMA+5ApLFgvdUisYA+pvTySGVXdF7gxO5H0Vl2tVPgANm3sME
-	xxM0h3Zd3su+IR5dCIe62GRljsbYMhqM37EWfxAEi/J9G2ohjv72ABAziLv5Z2VkDhtEoVxnORuKZ
-	cLAiifaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vI3kzpZHjcjHFtL3p8Qx+S2TsVWIlODIqyNcUXdrzhU=; b=FzQScchFxhkrs9LAh98rnX1ync
+	cS7SMtLBFeoj/T+VLQxt+0ax8AkwL29CCwwGqCMFW0fPRylcT8LmKWtHYn9evxOhL4oH4R58nIJT/
+	eGVFGXEMvAbui9mCkWEXKZsRBES4WkYdxluNQeAkIDaGw0h9KiK8dBwpdN4DEcrcKq/fMSmlzUD2G
+	ciRTfuyyEhOcxB0pLtssvmSxQJlP0rLmVsYLYRBRepGeeZ1fgQp1DoMCVnLx7mg4YYyE/ogWAz73H
+	fQEN5aYBnSh6dNR7BIbXViSbPy25YpT0OwabLddAqtbjtj/YeoHxsaS7zZSZhoQypv1twhJOBlkdc
+	uPje0aTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJe1-000000098s0-24Kx;
-	Fri, 23 Jan 2026 16:04:21 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1vjJgd-0000000990Z-1eYq;
+	Fri, 23 Jan 2026 16:07:03 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJdy-000000098re-0kBu
+	id 1vjJgZ-000000098zR-2hcw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 16:04:19 +0000
-Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-47fedb7c68dso24102735e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 08:04:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769184256; x=1769789056; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=HRaAyzpQLD9z0tMt/n74ydmpLXpoLNEfmnc5Kofzl7k=;
-        b=pScLfRR4029VNt6bFh6mh2ghlUpF4I0er7xqjkhgyjEdJBba23CHRPIdF8wQKgY0YF
-         Ql0HtYePT2PSVBL3LCZmAWiOeLSjZkXvBJm3O8qmpmIK4inQv1uAJX1sYYUw5Lzz0jyx
-         wLgVtv48ENGYMW8GM9WQlCITmzGgyZ37leb15hkrB8Xp50yYPswQNbi7MVwP493pP8vt
-         Z90pnEL0QMdT39eGJlaZZHqMC80GYLiaFXJ2m8hwAgtaUbJc5hlBH5mfphzlTXIEUiRi
-         cT4gMaJtQpM1H3lvcHn61fdpun4+h0UNc4MNnaI0fmaTFhrH+PW4tAiCp7Q6uMpJ+aTc
-         LLWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769184256; x=1769789056;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HRaAyzpQLD9z0tMt/n74ydmpLXpoLNEfmnc5Kofzl7k=;
-        b=Fi5rjeVJqS6jh/JjLCdBACy1A+MNFT/mSmywRx9DM3O0UAsSwJU1NlNxYV4X/D+cke
-         Y43GmN4+u0UpsAoiuY1vQl0bfBlbnSjdW8gqzUwjzsOQs/cgY4YGvMeSLcju/EpXFRl7
-         NxCDuMvipRlbFmDPL8F6R5YXsrL4MoSrXMjX9r5helj0lvsf8iS7LyO/5GkoulbHiugZ
-         B37DlwncDgrDQ3b9g8qKC9ZybtWCbNej+LO7IOXhTXVXKWH7TLDF0DTkUUePXGdaQAzI
-         km7q2nn80QNLsENQvXXGKv8KU+Zz638zbqSsNIvdmOnCZk4MG6nIxBzjyftsFHdhCCnd
-         6+6w==
-X-Gm-Message-State: AOJu0YxNWjU1KkbTn34S8ZgYyN+SQGlDdC8XZ9EhxILA5fdWXSOpBcH0
-	S7LMUlZ/arFTD1ZAiGAJhIh8jMz4samUC+agPB6qXhEVIq0kf4dzCrsrN8Ted+GVus8=
-X-Gm-Gg: AZuq6aJPoTSu4+pLHUM1D8q2azvDEldhEYknTrKbM5P46EhCcHxg3Lw9G7haEiMMufX
-	8alzy2NqJM23+PBcIeytiY73Ue5Z5/40uVrts9uFe+7m2XNdaCQTGa2Cy3w7jWpVNUNCUCiEWqf
-	pomCW1IreNHPVHpCD/a4rXLPUBnHWDrBoIHlrOncVmD9QJE/R/OS25LTu1R+BBkd/x+VBJuPmvV
-	PnasFz1IgLUypqkDSjpLC8guTdU86mULnY+C070R93MtF4uIiZ7mUUOJm/ZbR2TgSEx0xcY1PFG
-	c8eljlOCHVk5sJMuPCSO8Z0Hi6vUJgbFAo6XHd0qX4HJeWSjp0U0njfnd5/V2Qjo4G0NMZsC8oh
-	/X4MAaWPN4G7T5u7dy3MCTt1Vw8L1Hhc2lgmqfS495F9BByHF5wJFzXXwO28c2rZ22ADLfT4YSE
-	svJdd8BPH2V3M8rQ8dnvL8
-X-Received: by 2002:a05:600c:638e:b0:480:4ae2:def1 with SMTP id 5b1f17b1804b1-480511f42d4mr29154775e9.13.1769184256022;
-        Fri, 23 Jan 2026 08:04:16 -0800 (PST)
-Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435b1f7b4d8sm7382016f8f.38.2026.01.23.08.04.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Jan 2026 08:04:15 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-Date: Fri, 23 Jan 2026 16:03:53 +0000
-Subject: [PATCH] perf: arm_spe: Add barrier before enabling profiling
- buffer
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260123-james-spe-relaxation-v1-1-4ccb88fa7bc5@linaro.org>
-X-B4-Tracking: v=1; b=H4sIAOibc2kC/x3MSwqAMAwA0auUrA3YClW8irgImmrET2lEBPHuF
- pezePOAchJWaM0DiS9ROfYctjAwzLRPjDLmBlc6X1pX4UIbK2pkTLzSTWcGOHrv7FCTb0KATGP
- iIPe/7fr3/QABhG0pZgAAAA==
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Alexandru Elisei <Alexandru.Elisei@arm.com>, 
- Anshuman Khandual <Anshuman.Khandual@arm.com>, 
- Rob Herring <Rob.Herring@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, 
- Robin Murphy <Robin.Murphy@arm.com>, Leo Yan <leo.yan@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
+	Fri, 23 Jan 2026 16:07:01 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 2DF7C1A2A43;
+	Fri, 23 Jan 2026 16:06:54 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id EF04B6070A;
+	Fri, 23 Jan 2026 16:06:53 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E8585119A87D8;
+	Fri, 23 Jan 2026 17:06:42 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1769184412; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=vI3kzpZHjcjHFtL3p8Qx+S2TsVWIlODIqyNcUXdrzhU=;
+	b=V31Kh61SiJ4UoGViGvd1QA6OuNo9J5Xldz9y000yE1WlWlYr3MvhI6MMiynQPIvr3K8uCo
+	zFWne7arjeQjfTIwX7nzcL/m3a0te273RWNXGh4HGND5PgTCtX3XXzPx4vctvkt0elUwxG
+	qID7HpSkALXkMmH8PZX6hU5OHSsmlsAdoIxKnUtFkxVEnW9JVjSk7VYNbgzbHU5Jy8XkSy
+	txpjBNoDiZ0A2YHfd2PvqOpbf4m9kGiUPApCKhjHuBmCiIscq94G9mPT0ko2QIGX9RqJAb
+	djDT///e9tFXC6373e6T9i+Qt+ViNTC/9qTFLOo3MCW23wHjDfI4IXPhHS3f6g==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 23 Jan 2026 17:06:41 +0100
+Message-Id: <DFW3J1ZV9CXE.2JJTGIA40MU5K@bootlin.com>
+Subject: Re: [PATCH v4 18/25] drm/tilcdc: Convert to DRM managed resources
+Cc: "Jyri Sarha" <jyri.sarha@iki.fi>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
+ "Bartosz Golaszewski" <brgl@bgdev.pl>, "Tony Lindgren" <tony@atomide.com>,
+ "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Markus
+ Schneider-Pargmann" <msp@baylibre.com>, "Bajjuri Praneeth"
+ <praneeth@ti.com>, "Louis Chauvet" <louis.chauvet@bootlin.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
+ <miguel.gazquez@bootlin.com>, "Herve Codina" <herve.codina@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-omap@vger.kernel.org>
+To: "Kory Maincent" <kory.maincent@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20260116-feature_tilcdc-v4-0-2c1c22143087@bootlin.com>
+ <20260116-feature_tilcdc-v4-18-2c1c22143087@bootlin.com>
+ <DFSVOBV5UY37.3HTQHOJT3A40N@bootlin.com>
+ <20260122154840.5185671a@kmaincent-XPS-13-7390>
+In-Reply-To: <20260122154840.5185671a@kmaincent-XPS-13-7390>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_080418_258421_81EA4265 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20260123_080659_816942_F600A58F 
+X-CRM114-Status: GOOD (  36.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,103 +95,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Arm ARM known issues document [1] states that the architecture will
-be relaxed so that the profiling buffer must be correctly configured
-when ProfilingBufferEnabled() && !SPEProfilingStopped() &&
-PMBLIMITR_EL1.FM != DISCARD:
+On Thu Jan 22, 2026 at 3:48 PM CET, Kory Maincent wrote:
+> On Mon, 19 Jan 2026 22:19:26 +0100
+> "Luca Ceresoli" <luca.ceresoli@bootlin.com> wrote:
+>
+>> On Fri Jan 16, 2026 at 6:02 PM CET, Kory Maincent (TI.com) wrote:
+>> > Convert the tilcdc driver to use DRM managed resources (drmm_* APIs)
+>> > to eliminate resource lifetime issues, particularly in probe deferral
+>> > scenarios.
+>> >
+>> > This conversion addresses potential use-after-free bugs by ensuring
+>> > proper cleanup ordering through the DRM managed resource framework.
+>> > The changes include:
+>> > - Replace drm_crtc_init_with_planes() with drmm_crtc_alloc_with_planes=
+()
+>> > - Replace drm_universal_plane_init() with drmm_universal_plane_alloc()
+>> > - Replace drm_simple_encoder_init() with drmm_simple_encoder_alloc()
+>> > - Remove manual cleanup in tilcdc_crtc_destroy() and error paths
+>> > - Remove drm_encoder_cleanup() from encoder error handling paths
+>> > - Use drmm_add_action_or_reset() for remaining cleanup operations
+>> >
+>> > This approach is recommended by the DRM subsystem for improved resourc=
+e
+>> > lifetime management and is particularly important for drivers that may
+>> > experience probe deferral.
+>> >
+>> > Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
+>> > ---
+>> >
+>> > Change in v4:
+>> > - Newt patch.
+>>
+>> Why? Adding patches along the way does not help getting your series merg=
+ed
+>> timely. If there's a good reason for adding a new patch, please mention =
+it
+>> here.
+>
+> Thanks for your review.
+>
+> Sorry for that. The reason is that I faced a null pointer dereference koo=
+ps if
+> for example the panel module is not installed. Then the
+> drm_of_find_panel_or_bridge() function return eprobe defer and something =
+goes
+> wrong with the DRM resources. Using DRM managed resources solves it.
+> I will mention it for the v5.
+>
+>> > +	tilcdc_crtc =3D drmm_crtc_alloc_with_planes(dev, struct tilcdc_crtc,
+>> > base,
+>> > +						  &primary->base,
+>> > +						  NULL,
+>> > +						  &tilcdc_crtc_funcs,
+>> > +						  "tilcdc crtc");
+>> > +	if (IS_ERR(tilcdc_crtc)) {
+>> > +		dev_err(dev->dev, "Failed to init CRTC: %pe\n",
+>> > tilcdc_crtc);
+>> > +		return PTR_ERR(tilcdc_crtc);
+>> > +	}
+>> > +
+>> > +	tilcdc_crtc->primary =3D primary;
+>>
+>> (*) see below
+>>
+>> >
+>> >  	init_completion(&tilcdc_crtc->palette_loaded);
+>> >  	tilcdc_crtc->palette_base =3D dmam_alloc_coherent(dev->dev,
+>> > @@ -978,10 +992,6 @@ int tilcdc_crtc_create(struct drm_device *dev)
+>> >
+>> >  	crtc =3D &tilcdc_crtc->base;
+>> >
+>> > -	ret =3D tilcdc_plane_init(dev, &tilcdc_crtc->primary);
+>> > -	if (ret < 0)
+>> > -		goto fail;
+>> > -
+>> >  	mutex_init(&tilcdc_crtc->enable_lock);
+>> >
+>> >  	init_waitqueue_head(&tilcdc_crtc->frame_done_wq);
+>> > @@ -989,20 +999,12 @@ int tilcdc_crtc_create(struct drm_device *dev)
+>> >  	spin_lock_init(&tilcdc_crtc->irq_lock);
+>> >  	INIT_WORK(&tilcdc_crtc->recover_work, tilcdc_crtc_recover_work);
+>> >
+>> > -	ret =3D drm_crtc_init_with_planes(dev, crtc,
+>> > -					&tilcdc_crtc->primary,
+>> > -					NULL,
+>> > -					&tilcdc_crtc_funcs,
+>> > -					"tilcdc crtc");
+>> > -	if (ret < 0)
+>> > -		goto fail;
+>> > -
+>> >  	drm_crtc_helper_add(crtc, &tilcdc_crtc_helper_funcs);
+>> >
+>> > +	ret =3D drmm_add_action_or_reset(dev, tilcdc_crtc_destroy, priv);
+>> > +	if (ret)
+>> > +		return ret;
+>>
+>> Not related to your patch, but if the dmam_alloc_coherent() (not visible=
+ in
+>> the diff) fails, tilcdc_crtc_destroy() won't be called. Is this intended=
+?
+>> At first sight this drmm_add_action_or_reset() should be moved at (*), j=
+ust
+>> after the allocation.
+>
+> You are totally right.
+>
+>> However being not related to your patch I'd leave this for another serie=
+s
+>> anyway, to avoid making this series a moving target.
+>
+> I think it is related to this patch.
+> Before this patch there was no need for cleanup as the only action before=
+ the
+> dmam_alloc_coherent() was a devm_kzalloc().
+> Now the plane and the crtc are initialize before the dmam_alloc_coherent(=
+) so
+> the cleanup need to happen if it fails an error.
+>
+>> I find this patch hard to read and I think because it is converting
+>> multiple things at once. Splitting it in small steps would have been nic=
+e,
+>> even thought I'm not 100% sure it would have been doable.
+>
+> Yes, it brought more error when not converting the whole to DRM Managed
+> resources in one go.
+>
+>>
+>> Nevertheless it looks correct, so:
+>>
+>> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+>
+> Thanks, but I will remove it due to the small change.
+> Or maybe it is ok for you if I keep it with only the move of
+> drmm_add_action_or_reset().
 
-  R24557
+If you only move the drmm_add_action_or_reset() where I suggested you can
+keep it.
 
-  While the Profiling Buffer is enabled, profiling is not stopped, and
-  Discard mode is not enabled, all of the following must be true:
+Luca
 
-  * The current write pointer must be at least one sample record below
-    the write limit pointer.
-
-The same relaxation also says that writes may be completely ignored:
-
-  When the Profiling Buffer is enabled, profiling is not stopped, and
-  Discard mode is not enabled, the PE might ignore a direct write to any
-  of the following Profiling Buffer registers, other than a direct write
-  to PMBLIMITR_EL1 that clears PMBLIMITR_EL1.E from 1 to 0:
-
-  * The current write pointer, PMBPTR_EL1.
-  * The Limit pointer, PMBLIMITR_EL1.
-  * PMBSR_EL1.
-
-When arm_spe_pmu_start() occurs, SPEProfilingStopped() is false
-(PMBSR_EL1.S == 0) meaning that the write to PMBLIMITR_EL1 now becomes
-the point where the buffer configuration must be correct by, rather than
-the "When profiling becomes enabled" (StatisticalProfilingEnabled())
-from the old rule which is much later when PMSCR_EL1 is written.
-
-If the writes to PMBLIMITR_EL1 and PMBPTR_EL1 are re-ordered then a
-misconfigured state could be observed, resulting in a buffer management
-event. Or the write to PMBPTR_EL1 could be ignored.
-
-Fix it by adding an isb() after the write to PMBPTR_EL1 to ensure that
-this completes before enabling the buffer.
-
-To avoid redundant isb()s in the IRQ handler, remove the isb() between
-the PMBLIMITR_EL1 write and SYS_PMBSR_EL1 as it doesn't matter which
-order these happen in now that all the previous configuration is covered
-by the new isb().
-
-This issue is only present in arm_spe_pmu_start() and not in the IRQ
-handler because SPEProfilingStopped() is true in the IRQ handler. Jumps
-to the out_write_limit label will skip the isb() but this is ok as they
-only happen if discard mode is set or the buffer isn't enabled so
-correct configuration is not required.
-
-[1]: https://developer.arm.com/documentation/102105/latest/
-
-Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
-Signed-off-by: James Clark <james.clark@linaro.org>
----
-A previous version of this was posted here [1] bundled with other
-changes to support running in a guest. Since then the known issues doc
-linked in the commit message has been released so this is a resend of
-only the critical part that also needs to be fixed for hosts.
-
-A redundant isb() has also been removed in this version which is not
-present in the previous version.
-
-[1]: https://lore.kernel.org/linux-arm-kernel/20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org/
----
- drivers/perf/arm_spe_pmu.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index 4801115f2b54..62ae409fd5b4 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -639,6 +639,7 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
- 	limit += (u64)buf->base;
- 	base = (u64)buf->base + PERF_IDX2OFF(handle->head, buf);
- 	write_sysreg_s(base, SYS_PMBPTR_EL1);
-+	isb();
- 
- out_write_limit:
- 	write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
-@@ -780,10 +781,8 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
- 		 * PMBPTR might be misaligned, but we'll burn that bridge
- 		 * when we get to it.
- 		 */
--		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED)) {
-+		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED))
- 			arm_spe_perf_aux_output_begin(handle, event);
--			isb();
--		}
- 		break;
- 	case SPE_PMU_BUF_FAULT_ACT_SPURIOUS:
- 		/* We've seen you before, but GCC has the memory of a sieve. */
-
----
-base-commit: c072629f05d7bca1148ab17690d7922a31423984
-change-id: 20260123-james-spe-relaxation-d6621c7a68ff
-
-Best regards,
--- 
-James Clark <james.clark@linaro.org>
-
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
