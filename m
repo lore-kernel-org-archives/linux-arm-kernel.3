@@ -4,71 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB587D72361
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575D2D72362
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QoUg3Uk7+e8l5mq7yG+QFMWRIs9FeJl/CwglzOQSrcA=; b=3VLdP1TNpCPzZnniZNELPgl+lc
-	BLakf0zThqzBtDTu9KPGPID2rQzYOeD0UCho4QJHfeqNI+pfYXjNtcJXtFD6wLDngLT6baruGmaIL
-	TmbBF3fG+gKliwLr4ggceK5/CCyNZ4fGEpy7+pbWX0khhNUy/1R5uTyP4s/hEVB7sV/UuwnBndaBd
-	66LP0oEUQa2sCvv4UC/slvhC+3tKW5AKMwt2tBuBgCmOevDXikTrw+eSFAGKn/tK5xaxyDrZITVO+
-	bFcwERbxiCTDmiJ3Wf3v7vGIcOGSVUVOpY4/LuSZVF/+IJeZqtn36FYeKql31z5bBDtj2ugAVzFrv
-	boTmHVEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DdGV2q8VqSVtP4E9fSkJzN0ctdcn5f2zfgYJOWtRzJc=; b=0h4ldXJHn3UM2DzlwzU4Aw24Sa
+	wgFExwz+sSjpG6IEBuabHIFFEZ9qtpQ3ygFrWBj483LxdTMBLP+/98vTxVHf/BX7EMtdo9TQDdIyg
+	rRTWHgGVw/9KsASAv0RprfCJKJP3PnSrVlX28lV5XHKHDF7hhC7ZblHCpNWu9b8QGoHk54a9c7xQ2
+	oRK7fh3HamxFE3h+2QDl80rVby+LdL1iYtnLzH8aTrK9QRhanRg36QULvGFNNZaUP1F9T6PG4+epZ
+	7mz6qLBh6hOlRB5vCyj3KYLdRp3gFwrAHWknI5GXc9dbO8r3DaG20RgCms6kj86I0RJc/jRMclx5n
+	K+UPBPVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDL1-00000008Xz9-3Odx;
-	Fri, 23 Jan 2026 09:20:19 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vjDMb-00000008YFa-0qkJ;
+	Fri, 23 Jan 2026 09:21:57 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDKy-00000008Xy7-0dRX
+	id 1vjDMZ-00000008YEk-00IE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 09:20:18 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 95A661A2AED;
-	Fri, 23 Jan 2026 09:20:11 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 69FA46070A;
-	Fri, 23 Jan 2026 09:20:11 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2D07C119A8792;
-	Fri, 23 Jan 2026 10:20:04 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769160009; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=QoUg3Uk7+e8l5mq7yG+QFMWRIs9FeJl/CwglzOQSrcA=;
-	b=ouCeHIuYjsbzgDHldVpAkuh/B5AtCWHh58OIV/MdbRM+XeewIili9URv6x4IBIDo6adSjk
-	5F5HKuSEJZDSvQ7rjF9z2bgNUYp/a+TJxDR7euP2NxpA9zLHH7Fiave4pisKcrDRgx8wyd
-	6GTMTDnkUVqVyq2XpofKxjsGfE75V0YDJ9tFadQwT4Euf0e+w7amNzUOuIvkrgDcHXzEDM
-	4I/7CZz2QztBW2vXrPVnks3KiDKtPIr0snQ5oh/k2Ocqn8UVaGeXgXGPOpPl3cUmjIKA4o
-	zcgC4p2JlEcTpIYeWOKP3i4fSQa/Nz/qOmU7+S8ehBJNueZhnHGWB2WOdHOuQQ==
-Message-ID: <dc6e60ec-f460-4713-b1cc-97ceb2d344f5@bootlin.com>
-Date: Fri, 23 Jan 2026 10:20:03 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] arm64: dts: a7k: add COM Express boards
-To: Gregory CLEMENT <gregory.clement@bootlin.com>,
- Rob Herring <robh@kernel.org>, Elad Nachman <enachman@marvell.com>,
- andrew@lunn.ch
-Cc: conor+dt@kernel.org, linux-kernel@vger.kernel.org, robh+dt@kernel.org,
- chris.packham@alliedtelesis.co.nz, pali@kernel.org,
- devicetree@vger.kernel.org, mrkiko.rs@gmail.com,
- sebastian.hesselbarth@gmail.com, linux-arm-kernel@lists.infradead.org,
- krzysztof.kozlowski+dt@linaro.org
-References: <20260122165923.2316510-1-enachman@marvell.com>
- <176910484185.3007016.14688980539020105749.robh@kernel.org>
- <87a4y4lmn4.fsf@BLaptop.bootlin.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <87a4y4lmn4.fsf@BLaptop.bootlin.com>
-Content-Type: text/plain; charset=UTF-8
+	Fri, 23 Jan 2026 09:21:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ob2spziT+66LK9zgTjRoIw5uaI2qkrs6haO6YL1+yid25Fe5YuBtGFwKWpxTLsVSPhG24upf7YKWrlqh7/LI1XL2DMAcTQqeEZaIx+Xmrj3EYlCzmjhB2v7msjUwTaH3Up/padCtiJyZV+Dbq8dgssrAr5ZIuRc26XK/dbqeuaiJnkI1xs4sBJjdFxVJkYuAt6MhV07kMRikDeUK2L63VwPammbEaGMr+AoHo91o9bPRQa+lTB6IsM/8239rR5M1WD4PnJh8rJ0VkWK2aXEZMoaTOL5l4zc6JNpvY5eB59osxrJU3OrKqCuza0FIKxuBC1QHH9OVlJJf6mXt5ay/Yw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DdGV2q8VqSVtP4E9fSkJzN0ctdcn5f2zfgYJOWtRzJc=;
+ b=HkqNMlJhCvPkDJf+VOX7Ru527SPlUSNw0nQt+N0OrmNIDPbCkTT9xVC69GAiBeeBox3FfCn5Lvmo83uyXYLrPGjNj6Xk2ESs5pQHPiY3mqEXDtxcHtorzyn+nUfCHEIOzPH1ax+MF7HFKuPNHU4uWgFbuNGWp2IjAqKnLPaFGOGKeHITQfwcWN9JGsCgY0sLCHM/4P00SAJPboRxa+rBawVg9oapqj96n75vmzAaN0B6qEMuOPr1qK9DFcecaVflih54btarr2sN+o903qJOSt80jlCgjX784H76V4zwKCuEvhtwAsKLvY0BD+u5X/019AyGUldzR+JqQ0TYz6U6xQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DdGV2q8VqSVtP4E9fSkJzN0ctdcn5f2zfgYJOWtRzJc=;
+ b=jEBhjTA2TS6M75HbvQdG39QlssP87M+y1i357PGLUIqYGENqbc0bhUALV42s1qlDnp9lvddVeexN8XpD9rVJASmuczSj1thGxGYZP0+bYnCDLG1gPjxc05ty2LeQhPuUnIzHIuSmxcM51tDLpuWKqlwY7PctKTftelUWF96yqZ99rOW/tn1l0Bhpdpgu9IowRGpkEZUT567wrBwWdSbxLQt1qxbLLN9wfm+TVwXt3VDedgPbvE91VRv+p3mUqHNsY459OD7CLEJl7p9IaiER0sV80GbA699rv6LFwcqYnTC3wVljT9/DkFS/sTxekfabXEtlIWuWsBay0K/3YLlYPA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by DB9PR04MB8282.eurprd04.prod.outlook.com (2603:10a6:10:24a::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Fri, 23 Jan
+ 2026 09:21:48 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%4]) with mapi id 15.20.9542.010; Fri, 23 Jan 2026
+ 09:21:48 +0000
+From: Liu Ying <victor.liu@nxp.com>
+Subject: [PATCH 0/3] drm/bridge: imx: A few fixes
+Date: Fri, 23 Jan 2026 17:22:14 +0800
+Message-Id: <20260123-imx8qxp-drm-bridge-fixes-v1-0-8bb85ada5866@nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-B4-Tracking: v=1; b=H4sIAMY9c2kC/x2LQQqEMAwAvyI5b6AGrbJfkT3YNmoOupqCFMS/G
+ zwOM3NBZhXO8K0uUD4ly38zqD8VxGXcZkZJxkCOvKuJUNbSH2XHpCsGlWTFJIUzptjFQK1vWuf
+ B9l35FXYPv/t+AE5++dRqAAAA
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Liu Ying <victor.liu@nxp.com>
+X-Mailer: b4 0.13.0
+X-ClientProxiedBy: SG2P153CA0014.APCP153.PROD.OUTLOOK.COM (2603:1096::24) To
+ AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DB9PR04MB8282:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4115adbb-dba4-4901-e2b2-08de5a60d5c3
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|52116014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?am5YT2trQzl0QUFRV0lBVU5ZUGpnQmk3UEFqT0Rjd1ArNW5hYzZOeXhHMHdv?=
+ =?utf-8?B?cVBOdlJrQlQ0NVhZWFUzRFB6bHFtVWhoblU4N0FIV1NmeFZuYVVoS05zSXMw?=
+ =?utf-8?B?ZVY2K0RxS0RPL3duWFdQcGdHRWxQb2M5VXhsNm1kb3lzVzNZYWNsSGVEUVRL?=
+ =?utf-8?B?VzAvbnIzNENjMW0rWGZuNlBWa2c1c1ZOYWxudGJBdEtsdWhRUmhXRlBET2sw?=
+ =?utf-8?B?dWNFOXBnRXNrVUMwajYvVCtXTlhZRnRxUDl1YjVDbGlocGVPVkpDdk52LzBO?=
+ =?utf-8?B?L0FKNWRKdGk5ZXpBUWFpVVlzOXNaeUN5RFd3U0RXcDdLQVpXZFVjY0QyazAx?=
+ =?utf-8?B?UnhFSkR0WkNDWU82UVNWSEZFQ3dyYURjaWpvWGdMSENIcmdXV1plc0F5Skds?=
+ =?utf-8?B?L1VwU2JyNGpxNS9LSXlpaFViZDV6QVA4ZHdsWjUzWEd3NFppbnhXS0JZUHJl?=
+ =?utf-8?B?YnpCNjd5MzdTcm5QNDFOd2NrdzZndi9Vd2Rqc21oVi9KeGZlanRKeFgvWmNG?=
+ =?utf-8?B?M2lHZXdxRHFCNDZGUVljU21HWWM0K2Y4anY2ZFE1TjJ2UXFOYXBTeHNqeGFD?=
+ =?utf-8?B?K0ZjTi9uTzV6QWl0TFFnSzZCZjR0L09jMnpRbExGc01vSFF6U0JlVEVjQmlH?=
+ =?utf-8?B?cSthL1g5cTBoYS8xZHhFcU1SS2QwcVdCcE00Ykh4dkpMclNGN2g3SzE0bEtF?=
+ =?utf-8?B?SzVMRkpUY0FJTE5meHlJQjhBcFdmSEs3MTY4T3A4YnFQTzFUUnJVTlZ3RWZ5?=
+ =?utf-8?B?SkwrcVBkdjViUnFTUVVtamZGV1dTYnRTZUd0RjN1SmdvOW1uTXdTNThOVjJ4?=
+ =?utf-8?B?RFFRdWZsTWtZSjAwR3hSbEFBQmlqTHVRK2NJUFN0SjQwakc4UEZVdzc4UWo1?=
+ =?utf-8?B?L0QwVU54b0ZZWGN2eVNWS2R4L0xiWGJEcWxSN3U3eXIyU2xGSVh4K2NiUTl5?=
+ =?utf-8?B?ZHdsc20xcUZSU1ZoZ2tKQkhlODJ0SEZvRlpTYURmK0lvY3Z6Y3JPb0NSWkFn?=
+ =?utf-8?B?OTRvMDVlOGZ5V0JWc3NHSW9CWVRzTWJValpKaEg1VEhreVZaRFBLUUxmMjUx?=
+ =?utf-8?B?eG8vZkJkdTZEK2JMdnYyTXRhWTRsTm9KTWU4aW93bENiYXZBazVxOVpDWE0y?=
+ =?utf-8?B?WEJqWHVsR21KRVZ3WEhxMVlQemI1VEVaMVQ2WnRZcEdURjFiQ1pIU1ZOU0U3?=
+ =?utf-8?B?MmxzM2tIRTJoNVEvRE1KcGp6NlhnQ0YwSlNDQXIyeXErUWtSSnhySzJGZk1a?=
+ =?utf-8?B?T1Fnb1VZOHAwTFk4eXA3MmV1ckl2REEwcnFhQkpiQ0hybzdKdjMzdGlzcWFq?=
+ =?utf-8?B?YWNMT0VqWnljNm1maFp3ZDQ4cWRHc2hVRlV0Q3FzbVA1dnZpdVpKeWZGOWpY?=
+ =?utf-8?B?LzJ4ZzVnamVkcEZyMUl3VHZabCtQNUhadTdaOXdQcHA3bjVoWXp4bDA2NVQ0?=
+ =?utf-8?B?aGd1Q0dxSitlTi81blZCaDhueHdTNUdqSDhteXZXdnlSTWtYOGlDSUJCMWJL?=
+ =?utf-8?B?ckp5S0F1cUwvUUFZOXFvckc2bEZURWUrYWVKbkNDdE94R0NTSDA1eU1xYzFz?=
+ =?utf-8?B?SWFjMDB4WG10Y2YzWXFYbXRBVHkrV2dyQVRFRzRMOG5lMDdtUCtrZkpqVGp2?=
+ =?utf-8?B?ek83RTRzYWRJalFMNXBFZkhxK3dRMEZkcHZWTXV2d0psRTJJWU9VUVVTbkdx?=
+ =?utf-8?B?QzAwb3VuckJIWUljTFhUeU9DclJYTUhaVDRVTGhiWCt1SjM3RzdidWt6bHF2?=
+ =?utf-8?B?eXlqR2VjanhQNEZTVFpBVkRDNU9lQmRkNjdFUkNsSUpuYkp5OC9jOEk5K0Y5?=
+ =?utf-8?B?Z0NMb0w2OVZNdXR0cWZLNTlqMWlPeUtBRERmcmlTVXVrZWdkUll1bXd0aFZn?=
+ =?utf-8?B?bzdsckRzMkhQeng2anVjN01mbmZjY2tuRHhlbnVwcW04dlFrTldZclhvMkRR?=
+ =?utf-8?B?ZkJRdS93UjVhRk9ObTRteGV6aE1jQllIckN5c25yTStKRWF3bzYwWjJCbjNM?=
+ =?utf-8?B?bXNLNWNJZ2liT2JoU3E0RFhjMnRBUC90Z3RPWVA4SW1mS3hXb2lMYmVQUnFR?=
+ =?utf-8?B?VW9BZkVlRVlSUURPSXU2dDY5UDhWUncvaHhMdEh1NCs4U3p5d012eC9vcnVi?=
+ =?utf-8?B?WWdjUFNKUDBzdUZJdXozS1IrVUhFK0ppcHUvTTVzTnlGYlI2ankyZzNNY00y?=
+ =?utf-8?Q?Y1vy04NqEgMydYUFotUVj1Y+zDWp5Mpn6HrFJhWyYOK9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(52116014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NlQreXlXeU5WZ1N0WVFIeE1XeEZzYytqQUtnZENCMlN2bkJoUzZlZFVNYkpS?=
+ =?utf-8?B?alhQcUtmZUFleFg2Mmt6RlBOUGhjUGh1ZWdTd2xVYzJNbmQ0QkxHYXFlUHRL?=
+ =?utf-8?B?MkRkWlVReXh5NXU1YWd4d1lKcllBblpjUzNsTlA1Smp0UzI4cTVDdDM5b2or?=
+ =?utf-8?B?ZUg1Zkc2Ny9wcnRkK0pNckE3dUhhd0hGNzNBb0hJLytUcHVjcVM0ckhRdjJk?=
+ =?utf-8?B?YXpqYXcyeUp4QUt5dWZxTE5jREtuTUwxbmhOd3E5bmZVMVF2bjVtcjVCWE9M?=
+ =?utf-8?B?V0pqNFh2TGp0ZkpMN1BhbllmS0pVNk1IRVErTlN0UlRKeDM5ZUZBZHp3SVgv?=
+ =?utf-8?B?RHNZMTk4blNKMVV6ZGNoaGZtaHZiOXpDR0dxWTZOKzMzM1hCa2g3dk5rZ0pS?=
+ =?utf-8?B?TVJmekJ4ZXkrbllZYW1xbFJseGhqcTVnMmVpYWg5Q1ZrZ21QbzltNEhFbVhS?=
+ =?utf-8?B?R1BTTXFyditBWTZHU1QrQzIwRUVKd2FudE9ialF4d1pHK3hibDJQTUFVQXIr?=
+ =?utf-8?B?TzFhUFgxc2FqNjViVWd0Yk5WYWFNblFpT015NEZTV2hWOHJzdG5mNFVqZ2Ft?=
+ =?utf-8?B?UDhsaWtpNHZNdzY3aWZLQkRpQ0J2NWYwV2dGWXVNR1VpSXNheEJNVEkzc2pU?=
+ =?utf-8?B?aW1CUHBhY2o4LytmUlY1U2xGQUVUYy9hR2w2amgzY1lEZVF6QytBRzg5NVBW?=
+ =?utf-8?B?eHdDZlpheWE0cS9IM3g0TlEyRFh5ckU2UHJMTUZaWnNxSXVJSDhSRnVMS0sr?=
+ =?utf-8?B?czNxRytVeXZteXdUMzd1VzR6aFVqdklVQ2VVQndvZjh2cnBVZWxFakttUG0z?=
+ =?utf-8?B?YVVsSVpZZllHRHdIN1lpOE45SWJaQWxVRjl1b0RxS2lXMkhZWEF1WnZRc21p?=
+ =?utf-8?B?R3laV2t2UXhYSGg3SmMxZnZ4eFFkRGNrTndPY2lMcC90OXRTbEhUdXFhMmpH?=
+ =?utf-8?B?UzBFZ0Ryb0RaaXBkZnpMclA4RkR3NmE5UnJFeE0wejRTVC9pT2lwdXZ6Vmxl?=
+ =?utf-8?B?YWZSZCt2S2lQOG14aThYelR0ZGF6MGhIWmpGR3VhSisyb1hqWnBCMGR3RnZu?=
+ =?utf-8?B?SEZCYVFTc2Y2U0FwVkZQOHhxbERvWXp0dnNZU1hJNDFzR2ZOazF6RHNIRVVj?=
+ =?utf-8?B?NUM3UmFsOVJzeVZrbjRDd2U1MGdRSUJKM2VNZFJpZkZJTVVaMXZWU0FudWo3?=
+ =?utf-8?B?WTNIOWFnRmowUy9DY2dCejJ5Wmtod0oybUxmOVh3S2JrNlB3dFYvNGdaeGZC?=
+ =?utf-8?B?aTM0anZJMXNVRHIvUHNleVBtTmFtaSs4eUZ2aGhUNTMxbmNWM21xdFR0Mytm?=
+ =?utf-8?B?K2o5NmQ3aDdqcHppZ3I2S2FVUm9QdVFRV2Y5VzZYQkZsaUV0ejF1UksxRjV4?=
+ =?utf-8?B?ZnRmc0d0a2RUWWsxNUxjdHQvTW05NkJCSk5SbmlwWWlXL1JUWnMraTJ0K1lQ?=
+ =?utf-8?B?TDd1SHVvMTdGK3dWZ2NZU0JnQ2N5aVltZ1A5UjNFd0ZyMmpxWTN2TmlKU3Fx?=
+ =?utf-8?B?NXQvRzJQUWkvSEhubko1Q2Zjc3pjV2hZeHFKSlZBc1RtYVRUMU1TNEJaa1or?=
+ =?utf-8?B?a1lvWk0yc21xYnZoR3pWMUt4WENsY3lJTit0TVA1cmVRcGI5T3dzc0lkN3ly?=
+ =?utf-8?B?SWU5am5OZEpFVytoc2RBdTkrdXd3bHRacVQ5MThidnNIWnJXd0g4VDcvRTVB?=
+ =?utf-8?B?SnpYNTJoZXdvQ1RMK09iVm8zZlN6Z2VIa3IwSDRGZC9MeFZ1MVQ2eUQzcXpY?=
+ =?utf-8?B?RUtaMXpoSDdMOTh4L1Fnd054UW1vaFovM1d6WDd4NXJtb29ZcGpLNDNzd294?=
+ =?utf-8?B?WjFGWk4xd2RCZ25HNldKbExYZnBGK1Y3K0pIR3FMN0s2TTdDZVRHcXRyOE1Y?=
+ =?utf-8?B?ZjlnMmZqWXJGRkdET0dja2p5VHJrYjM4VWlVVXZmcXRrSEVVcnkxTkxiSXpR?=
+ =?utf-8?B?dTFwY1NrWlRaKy9tWi9FZDcvRmlOWmhWRXpKdXg4bE0wQjZQQ0xGbmJ6SFR4?=
+ =?utf-8?B?dFp5VnNsWkNHbTFmY2lOWDdMdWZGM3FtSENYeTV2TVR3U3VobkRPQitYT2Jw?=
+ =?utf-8?B?Y2o4TzQ4RHB2VHZZb3kxL2ZFTU9ZMG04cVhyQ1h0V1h6NmdySWJVblUvTk1Z?=
+ =?utf-8?B?QWNPN0ppVGs3cDdycVZMTWJIbk5ENGVndjlaR2k4SWJSY1VyNUtWRU1JMm9x?=
+ =?utf-8?B?M0lrazZSSEpMQzVUNTZqYytOT1JNUDRmL0tpZzhVNUtYMWZuMWJ0SGs0bTlZ?=
+ =?utf-8?B?OUo1S041aE1qait0Y24zdVVNYVNSSmYweDJZNjIvdk1nekpETzEramFPd0cv?=
+ =?utf-8?B?c2F4ejBqRTUvTzExODFOTzNVY1NIVk1Hd0M1MDBpUHEvVTlraGs5QT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4115adbb-dba4-4901-e2b2-08de5a60d5c3
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 09:21:48.4402
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QjLye9wjJjQiwnvVllToTX2I0x5ZI8l18nj6iWkEYhBGo+5NT+OhBJuh74arI3ypyf+h24jUR6+SLREwm8AZ3A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8282
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_012016_327632_600657ED 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20260123_012155_073025_07CCD78B 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,84 +195,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On 23/01/2026 10:10, Gregory CLEMENT wrote:
-> Hello,
-> 
->> On Thu, 22 Jan 2026 18:59:20 +0200, Elad Nachman wrote:
->>> From: Elad Nachman <enachman@marvell.com>
->>>
->>> Add support for Armada 7020 Express Type 7 CPU module board by Marvell.
->>> Add device tree bindings for this board.
->>> Define this COM Express CPU module as dtsi and provide a dtsi file for
->>> the carrier board (Marvell DB-98CX85x0 COM Express type 7 carrier board).
->>> Add the Falcon DB to the MAINTAINERS list
->>>
->>> Since memory is soldered on CPU module, memory node is on CPU module
->>> dtsi file.
->>>
->>> This Carrier board only utilizes the PCIe link, hence no special device
->>> or driver support is provided by this dtsi file.
->>> Devise a dts file for the combined com express carrier and CPU module.
->>>
->>> The Aramda 7020 CPU COM Express board offers the following features:
->>>
->>> 1.  Armada 7020 CPU, with dual ARM A72 cores
->>> 2.  DDR4 memory, 8GB, on board soldered
->>> 3.  1Gbit Out of Band Ethernet via RGMII to PHY and RJ45 connector,
->>>     all are present on A7K CPU module (none on the carrier)
->>> 4.  Optional 10G KR Ethernet going via the COM Express type 7 connector
->>> 5.  On-board 8 Gbit, 8-bit bus width NAND flash
->>> 6.  On-board 512 Mbit SPI flash
->>> 7.  PCIe Root Complex, 4 lanes PCIe gen3 connectivity, going via the
->>>     COM Express type 7 connector
->>> 8.  m.2 SATA connector
->>> 9.  Micro-SD card connector
->>> 10. USB 2.0 via COM Express type 7 connector
->>> 11. Two i2c interfaces - one to the CPU module, and one to the
->>>     carrier board via the COM Express type 7 connector
->>> 12. UART (mini USB connector by virtue of FT2232D UART to USB
->>>     converter, connected to the Armada 7020 UART0)
->>>
+This patch series contains 3 bug fixes for i.MX8QXP DRM bridges.
+Each patch fixes a NULL pointer dereference issue and stands alone.
 
- [...]
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
+---
+Liu Ying (3):
+      drm/bridge: imx8qxp-ldb: Fix NULL pointer dereference in imx8qxp_ldb_bridge_destroy()
+      drm/bridge: imx8qxp-pxl2dpi: Fix NULL pointer dereference in imx8qxp_pxl2dpi_bridge_destroy()
+      drm/bridge: imx8qxp-pixel-combiner: Fix bailout for imx8qxp_pc_bridge_probe()
 
->> My bot found new DTB warnings on the .dts files added or changed in this
->> series.
->>
->> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
->> are fixed by another series. Ultimately, it is up to the platform
->> maintainer whether these warnings are acceptable or not. No need to reply
->> unless the platform maintainer has comments.
->>
->> If you already ran DT checks and didn't see these error(s), then
->> make sure dt-schema is up to date:
->>
->>   pip3 install dtschema --upgrade
->>
->>
->> This patch series was applied (using b4) to base:
->>  Base: attempting to guess base-commit...
->>  Base: tags/next-20260121 (exact match)
->>  Base: tags/next-20260121 (use --merge-base to override)
->>
->> If this is not the correct base, please add 'base-commit' tag
->> (or use b4 which does this automatically)
->>
->>
->> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/marvell/' for 20260122165923.2316510-1-enachman@marvell.com:
->>
->> arch/arm64/boot/dts/marvell/db-falcon-carrier-a7k.dtb: ethernet@0 (marvell,armada-7k-pp22): ethernet-port@0:phy-mode:0: '10gbase-kr' is not one of ['gmii', 'sgmii', 'rgmii-id', '1000base-x', '2500base-x', '5gbase-r', 'rxaui', '10gbase-r']
->> 	from schema $id:
->> http://devicetree.org/schemas/net/marvell,pp2.yaml
-> 
-> Does this mean we should add 10gbase-kr to the phy-mode enum list in
-> Documentation/devicetree/bindings/net/marvell?
+ drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c            | 7 +++++--
+ drivers/gpu/drm/bridge/imx/imx8qxp-pixel-combiner.c | 2 +-
+ drivers/gpu/drm/bridge/imx/imx8qxp-pxl2dpi.c        | 3 +++
+ 3 files changed, 9 insertions(+), 3 deletions(-)
+---
+base-commit: e3b32dcb9f23e3c3927ef3eec6a5842a988fb574
+change-id: 20260122-imx8qxp-drm-bridge-fixes-dc7cb2564506
 
-No, 10gbase-kr is legacy, one should use "10gbase-r" instead, cf commit
+Best regards,
+-- 
+Liu Ying <victor.liu@nxp.com>
 
-e0f909bc3a24 ("net: switch to using PHY_INTERFACE_MODE_10GBASER rather than 10GKR")
-
-That should probably be documented in the bindings at some point :)
-
-Maxime
 
