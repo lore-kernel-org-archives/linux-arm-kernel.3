@@ -4,74 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F174FD72348
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:03:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF427D72349
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cNiZvOfwOByF8KmxjWZgS27gOg1frvtxYZOA+6xaR8M=; b=UBmvBRRgfALZDryWEi7Y8P+FN0
-	Fj3onXYYYsnnpwmDd/I044fBSBywd85Rn5U6xMSWHOor7Ocm4xHiWslKwfjffQ0soUJXUBSrkewDg
-	1gAHupB6cH/46T/WcH9VrnfjG1uTrR7+ESj89C3NcbPPRVdjwrHuRFoYgMpHbnJ/ygwXXLHrYzLYZ
-	tf9EdNQRaRU6d64/NKuQEcWq0RZVJ/5TyjzIuQjqi9ZBI9/DFzb7an+cTPdG/bDeThVrWeblaUL77
-	Id9SoPrfsoyq+/iFovNLq5++2egwAbEeV0gCvbCX9kPZoejqumLpknRV2jWPc6F2Lk+4bDjZPua7O
-	KCl/yCvg==;
+	bh=D6871S3cgg/MI3Kz6nbe2JCLIUHoxXa5lkOzmfHtAtI=; b=t4g5kCHu5u6DWmepX/+y6Sc4dd
+	ZiSxxjVtfBDRp2tRiFnYzyNHIIS5biHUV6JsD2xQb2t9mbSwHr3+f38hS1Wm6wtTrTdFaQF3vapFJ
+	lCyTzJnmqzxctoH2/lDZthw8NG9xalvoqY1etzAH46zdF3e8p7eL+65Papmwp0uZVDalGu4q88tWO
+	pf8qd+d2zx2NaKiVeUkJKsGN8EBkqcPw3DvHlUt+vknpFkXMRdprPpRem9xPLOQlrG07FlLm3U2+j
+	Djsqk8rLmzuKOlHFTyUCeEADpnoLprcEPXbVwCRiKm3Qb3yTm5LV05EskYJqxmNGjNjBZt6ThzQPx
+	NbbLw5yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjC8Y-00000008PaY-2XgX;
-	Fri, 23 Jan 2026 08:03:22 +0000
+	id 1vjCB1-00000008Q3C-2qhk;
+	Fri, 23 Jan 2026 08:05:55 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjC8I-00000008PSo-0YTd
+	id 1vjCAy-00000008Q2M-3AFM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 08:03:08 +0000
+	Fri, 23 Jan 2026 08:05:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6ACA044261;
-	Fri, 23 Jan 2026 08:03:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4D969C2BCAF;
-	Fri, 23 Jan 2026 08:03:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6970543F4D;
+	Fri, 23 Jan 2026 08:05:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C90D9C2BC86;
+	Fri, 23 Jan 2026 08:05:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769155385;
-	bh=g1/bpjPALCXzFTU1aCqorrXRSWoTWnnLLxTvD1XePRM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=jQcDd3QUMiq5RhjifeRiKMJlCG5K2ins0Zlz+MaV/v5Do3u1d3q52FBgw17RIUaau
-	 Zzh9hjIaWd66O1Ir/6qmYFs8NUcwLCbNAJ+qibI3E1Hr9vzRQSHFufBSS84w5cvlQJ
-	 dqu/tsRXcao+JDNdzrmgfvurBfF/wVlwczpiGO3xjf2HFTgTpUyAkytNtwo+hXJZGo
-	 wlatOIbNJCU9Qty3zTouOk97RVliY50Vp7MI9DFesGrxMBkHID6DR4cIAOGO994cSP
-	 P5wXZLUFkRhFw/ecej3/cCcWfKTP116rF2YEojykvw1H7E29RDo/SxrrpgDgvLVGfu
-	 yUZIizWOZdGSg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 45D92D7234B;
-	Fri, 23 Jan 2026 08:03:05 +0000 (UTC)
-From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
-Date: Fri, 23 Jan 2026 08:02:48 +0000
-Subject: [PATCH v3 5/5] i2c: xiic: minor cosmetic cleanup
+	s=k20201202; t=1769155552;
+	bh=V1FdaZ25aGYeOty1rl0AuBOmbBydQ/xQQKiBVhm8jIk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XRswF+HacCGFheH5cfJumV2FCUBc1FpKzhxR+J3SYOxUW5BGT9GHbeoJfp5lLYLZp
+	 B/ma6+utU2AaWszUwNJMCV+a+dP9ZI5GlciUAcNP2h/pEYxuvKZILLr5hjGfC4Uwzx
+	 hFXCCnmCLmnI21rJ3u2Td5beZ9quK43cOrkdCAP8GEmCgfTeza6O/ZeCinixU2oj3L
+	 EX/r7v1NdSgYbzDNP3P/5L/K9S+DR8zxfu9fqTITMy7UfNJDCJlYAYr0AoDt3NjIf2
+	 hSTJhYUW1a59X/Aaqvvi7vQ28Cnr5nvr5SPIs79T6hnO7ZBKNY/hi9Skw4d1+4kT8P
+	 lnk7945jTZRrw==
+Message-ID: <15e8aac4-6633-49b0-87fb-4b29f62afb2f@kernel.org>
+Date: Fri, 23 Jan 2026 09:05:46 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] arm64: dts: exynos: ExynosAutov920: Enable USB
+ nodes
+To: Pritam Manohar Sutar <pritam.sutar@samsung.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ rosa.pila@samsung.com, dev.tailor@samsung.com, faraz.ata@samsung.com,
+ muhammed.ali@samsung.com, selvarasu.g@samsung.com
+References: <20260122130721.205664-1-pritam.sutar@samsung.com>
+ <CGME20260122125136epcas5p2db0fa3d04671ddc915e60ae8c5bcfb98@epcas5p2.samsung.com>
+ <20260122130721.205664-4-pritam.sutar@samsung.com>
+ <6f381f88-3a51-4fc8-844c-41b167b07628@kernel.org>
+ <000f01dc8c3e$2b6dcf30$82496d90$@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <000f01dc8c3e$2b6dcf30$82496d90$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260123-i2c-xiic-v3-5-eb7cd4254dfb@nexthop.ai>
-References: <20260123-i2c-xiic-v3-0-eb7cd4254dfb@nexthop.ai>
-In-Reply-To: <20260123-i2c-xiic-v3-0-eb7cd4254dfb@nexthop.ai>
-To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Abdurrahman Hussain <abdurrahman@nexthop.ai>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769155384; l=5149;
- i=abdurrahman@nexthop.ai; s=20260119; h=from:subject:message-id;
- bh=dTX1v7vOgEB5f4WNaQT/jsmJZcS4w/ksW0v2dImQznM=;
- b=YkuZyZUnFWIQcqKGtIzEEqTu0nG2pvhfKHVLBIwNPqZO8JRdoP+A6eOQbjPfDocoF8qn/1Ze8
- 26xjEhNk3jbDoYp/BLH1klsKrt0PBzwDV52/hdf6qW753oo2jvdLHmM
-X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
- pk=S+ysnf+NwMcBdHBlyKIUEAtaFGSIhQwcJcgcXhq0osg=
-X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/20260119 with
- auth_id=608
-X-Original-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_000306_218797_8120A850 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20260123_000552_835895_A8CCF11A 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,176 +121,91 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: abdurrahman@nexthop.ai
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+On 23/01/2026 08:59, Pritam Manohar Sutar wrote:
+> Hi Krzysztof,
+> 
+> Thank you for your feedback. 
+> 
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: 22 January 2026 07:05 PM
+>> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>; robh@kernel.org;
+>> krzk+dt@kernel.org; conor+dt@kernel.org; alim.akhtar@samsung.com
+>> Cc: devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+>> samsung-soc@vger.kernel.org; linux-kernel@vger.kernel.org;
+>> rosa.pila@samsung.com; dev.tailor@samsung.com;
+>> faraz.ata@samsung.com; muhammed.ali@samsung.com;
+>> selvarasu.g@samsung.com
+>> Subject: Re: [PATCH v2 3/3] arm64: dts: exynos: ExynosAutov920: Enable USB
+>> nodes
+>>
+>> On 22/01/2026 14:07, Pritam Manohar Sutar wrote:
+>>> Enable USB PHY and DWC3 USB controllers' nodes.
+>>>
+>>> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+>>> ---
+>>>  .../boot/dts/exynos/exynosautov920-sadk.dts   | 21
+>> +++++++++++++++++++
+>>>  1 file changed, 21 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
+>>> b/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
+>>> index f90f7704597c..5896dd69334a 100644
+>>> --- a/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
+>>> +++ b/arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts
+>>> @@ -160,15 +160,20 @@ &xtcxo {
+>>>  &usbdrd31_ssphy {
+>>>  	dvdd-supply = <&dummy_regulator>;
+>>>  	vdd18-supply = <&dummy_regulator>;
+>>> +	status = "okay";
+>>
+>> You just added the node in the previous patch, so why it cant be enavled
+>> there?
+>>
+>>>  };
+>>>
+>>>  &usbdrd31_hsphy {
+>>>  	dvdd-supply = <&dummy_regulator>;
+>>>  	vdd18-supply = <&dummy_regulator>;
+>>>  	vdd33-supply = <&dummy_regulator>;
+>>> +	status = "okay";
+>>>  };
+>>>
+>>>  &usbdrd31_dwc3 {
+>>> +	dr_mode = "otg";
+>>> +	usb-role-switch;
+>>> +	role-switch-default-mode = "peripheral";
+>>
+>> Why did you add incomplete node in previous commit?
+> 
+> The commit was added to align with the existing convention of separating 
+> node addition and enabling logic in USB configurations. This approach is 
 
-Add a temporary dev variable and reuse it instead of referencing pdev->dev
-everywhere.
+There was never such convention for Qualcomm or Samsung. Do not make up
+fake conventions.
 
-Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
----
- drivers/i2c/busses/i2c-xiic.c | 60 +++++++++++++++++++++----------------------
- 1 file changed, 30 insertions(+), 30 deletions(-)
+> referenced from commits such as:
 
-diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index 3af2d60d3e32..3c0ec33aefd4 100644
---- a/drivers/i2c/busses/i2c-xiic.c
-+++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -1420,6 +1420,7 @@ MODULE_DEVICE_TABLE(of, xiic_of_match);
- 
- static int xiic_i2c_probe(struct platform_device *pdev)
- {
-+	struct device *dev = &pdev->dev;
- 	struct xiic_i2c *i2c;
- 	struct xiic_i2c_platform_data *pdata;
- 	const struct xiic_version_data *data;
-@@ -1428,11 +1429,11 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	u8 i;
- 	u32 sr;
- 
--	i2c = devm_kzalloc(&pdev->dev, sizeof(*i2c), GFP_KERNEL);
-+	i2c = devm_kzalloc(dev, sizeof(*i2c), GFP_KERNEL);
- 	if (!i2c)
- 		return -ENOMEM;
- 
--	data = device_get_match_data(&pdev->dev);
-+	data = device_get_match_data(dev);
- 	if (data)
- 		i2c->quirks = data->quirks;
- 
-@@ -1444,52 +1445,50 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	if (irq < 0)
- 		return irq;
- 
--	pdata = dev_get_platdata(&pdev->dev);
-+	pdata = dev_get_platdata(dev);
- 
- 	/* hook up driver to tree */
- 	platform_set_drvdata(pdev, i2c);
- 	i2c->adap = xiic_adapter;
- 	i2c_set_adapdata(&i2c->adap, i2c);
--	i2c->adap.dev.parent = &pdev->dev;
--	device_set_node(&i2c->adap.dev, dev_fwnode(&pdev->dev));
-+	i2c->adap.dev.parent = dev;
-+	device_set_node(&i2c->adap.dev, dev_fwnode(dev));
- 	snprintf(i2c->adap.name, sizeof(i2c->adap.name),
- 		 DRIVER_NAME " %s", pdev->name);
- 
--	ret = devm_mutex_init(&pdev->dev, &i2c->lock);
-+	ret = devm_mutex_init(dev, &i2c->lock);
- 	if (ret < 0)
- 		return ret;
- 
- 	spin_lock_init(&i2c->atomic_lock);
- 
--	i2c->clk = devm_clk_get_optional_enabled(&pdev->dev, NULL);
-+	i2c->clk = devm_clk_get_optional_enabled(dev, NULL);
- 	if (IS_ERR(i2c->clk))
--		return dev_err_probe(&pdev->dev, PTR_ERR(i2c->clk),
-+		return dev_err_probe(dev, PTR_ERR(i2c->clk),
- 				     "failed to enable input clock.\n");
- 
--	i2c->dev = &pdev->dev;
--	pm_runtime_set_autosuspend_delay(i2c->dev, XIIC_PM_TIMEOUT);
--	pm_runtime_use_autosuspend(i2c->dev);
--	pm_runtime_set_active(i2c->dev);
--	pm_runtime_enable(i2c->dev);
-+	i2c->dev = dev;
-+	pm_runtime_set_autosuspend_delay(dev, XIIC_PM_TIMEOUT);
-+	pm_runtime_use_autosuspend(dev);
-+	pm_runtime_set_active(dev);
-+	pm_runtime_enable(dev);
- 
- 	/* SCL frequency configuration */
- 	i2c->input_clk = clk_get_rate(i2c->clk);
--	ret = device_property_read_u32(&pdev->dev, "clock-frequency",
--				       &i2c->i2c_clk);
-+	ret = device_property_read_u32(dev, "clock-frequency", &i2c->i2c_clk);
-+
- 	/* If clock-frequency not specified in DT, do not configure in SW */
- 	if (ret || i2c->i2c_clk > I2C_MAX_FAST_MODE_PLUS_FREQ)
- 		i2c->i2c_clk = 0;
- 
--	ret = devm_request_threaded_irq(&pdev->dev, irq, NULL,
--					xiic_process, IRQF_ONESHOT,
--					pdev->name, i2c);
-+	ret = devm_request_threaded_irq(dev, irq, NULL, xiic_process,
-+					IRQF_ONESHOT, pdev->name, i2c);
- 
- 	if (ret < 0) {
- 		goto err_pm_disable;
- 	}
- 
--	i2c->singlemaster =
--		device_property_read_bool(&pdev->dev, "single-master");
-+	i2c->singlemaster = device_property_read_bool(dev, "single-master");
- 
- 	/*
- 	 * Detect endianness
-@@ -1505,7 +1504,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 
- 	ret = xiic_reinit(i2c);
- 	if (ret < 0) {
--		dev_err_probe(&pdev->dev, ret, "Cannot xiic_reinit\n");
-+		dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
- 		goto err_pm_disable;
- 	}
- 
-@@ -1522,38 +1521,39 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 			i2c_new_client_device(&i2c->adap, pdata->devices + i);
- 	}
- 
--	dev_dbg(&pdev->dev, "mmio %08lx irq %d scl clock frequency %d\n",
-+	dev_dbg(dev, "mmio %08lx irq %d scl clock frequency %d\n",
- 		(unsigned long)res->start, irq, i2c->i2c_clk);
- 
- 	return 0;
- 
- err_pm_disable:
--	pm_runtime_disable(&pdev->dev);
--	pm_runtime_set_suspended(&pdev->dev);
-+	pm_runtime_disable(dev);
-+	pm_runtime_set_suspended(dev);
- 
- 	return ret;
- }
- 
- static void xiic_i2c_remove(struct platform_device *pdev)
- {
-+	struct device *dev = &pdev->dev;
- 	struct xiic_i2c *i2c = platform_get_drvdata(pdev);
- 	int ret;
- 
- 	/* remove adapter & data */
- 	i2c_del_adapter(&i2c->adap);
- 
--	ret = pm_runtime_get_sync(i2c->dev);
-+	ret = pm_runtime_get_sync(dev);
- 
- 	if (ret < 0)
--		dev_warn(&pdev->dev, "Failed to activate device for removal (%pe)\n",
-+		dev_warn(dev, "Failed to activate device for removal (%pe)\n",
- 			 ERR_PTR(ret));
- 	else
- 		xiic_deinit(i2c);
- 
--	pm_runtime_put_sync(i2c->dev);
--	pm_runtime_disable(&pdev->dev);
--	pm_runtime_set_suspended(&pdev->dev);
--	pm_runtime_dont_use_autosuspend(&pdev->dev);
-+	pm_runtime_put_sync(dev);
-+	pm_runtime_disable(dev);
-+	pm_runtime_set_suspended(dev);
-+	pm_runtime_dont_use_autosuspend(dev);
- }
- 
- static const struct dev_pm_ops xiic_dev_pm_ops = {
+No, it is not.
 
--- 
-2.52.0
+> 
+> https://lore.kernel.org/all/20250710-resends-july-exynos990-dt-v2-5-55033f73d1b0@mentallysanemainliners.org/
+> https://lore.kernel.org/all/20240429-usb-dts-gs101-v2-2-7c1797c9db80@linaro.org/
+
+Just look at these commits - they add complete node override to DTS. Not
+half node now and half node later to the DTS file!
+
+> 
+> Please let me know if this commit to be merged in previous commit.
+
+Just look at the commits there.
+
+> 
 
 
+Best regards,
+Krzysztof
 
