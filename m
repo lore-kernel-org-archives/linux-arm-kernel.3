@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2885FD6CFDE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 06:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE37DD6CFDC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 06:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z3Z3rjhmNdGJCDWg2OgWwviEOCLrWrBdYmPVnd2329o=; b=cl/E2S+Z6aHSqakYkabUdrbdLH
-	vVzkdJSqbSYBMjoYXNyOItDZ47mH89cCw0qP4GCUmtru9YUzzEGI2jVs3aNKBsdUjXKUKrLCOo06M
-	rMyvjuQiigW5mzT3aCQf8/IXNGpHSl0BG2hSMa4jkDfBkykFMt6w8yNhSVmi1Ilto1aqacnuw/R6z
-	hM6no5h8s/FPx/tBR0nRqVE0sP6VjO6lh8vfRDB9N9k2254TYFHInmeuihMR6tcWsDTWLLDJC80xb
-	ITBHAhkd64ltLTsWPS+0mmaWkh+KlRDV+W6jrg9mkLSJGqdj1RggcXQoeH74m077UhF4iT+nBs+kg
-	1Cpzn+Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fBcCQm9NyZ0vqrWTWSks2RCjzRprPiaBDpkQYmaQu7M=; b=OlAsNVAGTxU3z3
+	dS8H4Oshu1dLLmGlLhlDDOd2PyY5zmS+RcH/bnulj6v5L1JdSPB2BMJjhD/hmVXHcZKqUNYJPJ+77
+	Wl6BkqRTUE4XTc1W6VeZQzJTTBLzm03pbgPSM3qhu0pRTSHVrkjK6hyKF8TTJthu/GVzuTb2frwzg
+	DcBZ87YOdbygQBxfxWoLVzFj3KXuZjhw0t8xU7M0UJak23B7WcsNXegVisxwLsE2G8Fn0aKMeX1i7
+	zsZddj0Yl8YN5Tb8/9xIU1VNa5P81NnJggucxlBv5wYiatCl1nuDmWUiM7ZDCOP30BHFCwWxBW3au
+	aOGulEoM1/QuEqP5AbKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjAtD-00000008JGl-1hjD;
-	Fri, 23 Jan 2026 06:43:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vjAt4-00000008JEC-42DI;
+	Fri, 23 Jan 2026 06:43:18 +0000
+Received: from inva021.nxp.com ([92.121.34.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjAt6-00000008JEG-0c4O
+	id 1vjAt2-00000008JD0-0O4A
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 06:43:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0258443AFF
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 06:43:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7290C19423
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 06:43:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769150596;
-	bh=aqk2LM6hpgCOWfRb/Un7WlOl38/KprMa96AWrDKyW7U=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=kjOxoAKISOSipxhNkp7rcWXClzHO5+wQuY8f8sMdSLvB6df0sxsIcrwA/kv9Bu7/E
-	 jrE7kBrIUvy1ocDNdaXtU6OKF+R7x41xcMrrnq+sOtCJjqNAYhaDr9jJfdGw2PzHeJ
-	 iUOH0CcdGewOhrzCC2Lods9oUOKpxiiC+tisLhsZ70HGAzy5ADAVKIKDkp43pWvmx+
-	 41Rg9WHt84DgcrdQKMxhswhcR4Nq3hTDLOgP/ANgQS6QPKIVH7+rfC6PYZ4wHJTr2F
-	 QoY08v2/bQRP6AcgI3wec97UWQ52bDIq5rOrfqHFwWz59uwvxPqYG7U2yGSmLX8ALE
-	 tonCMCVGJAPiA==
-Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-c2dd0c24e5cso614749a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 22:43:16 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWYXOReHdn9cv2ck5Qb3f6kxsBGJiReo42v17FN3DG4W+2ngOOs/Yz7JEf9hFqaJy0B4ZBrUf5dNqe1G5Lu0YsI@lists.infradead.org
-X-Gm-Message-State: AOJu0YysvsBkn2NigzKCHuoLqj16IivmUXUUCNSjr67vY7xsQE692PmF
-	ucP3mU4qo92K06pCOLGTZ5y6GlO7QPNZAyyuEs23NtXT1XN+lLNZ68pxJ+wpiCkK151ailpDPPE
-	7sJgzIxvuNlh/7wJ+25ZgFxVDrIIRrIk=
-X-Received: by 2002:a17:90b:48c7:b0:353:3f04:1b78 with SMTP id
- 98e67ed59e1d1-35378ba82c3mr165587a91.4.1769150596446; Thu, 22 Jan 2026
- 22:43:16 -0800 (PST)
+	Fri, 23 Jan 2026 06:43:17 +0000
+Received: from inva021.nxp.com (localhost [127.0.0.1])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 3DA5C201A6A;
+	Fri, 23 Jan 2026 07:43:12 +0100 (CET)
+Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 06633201A58;
+	Fri, 23 Jan 2026 07:43:12 +0100 (CET)
+Received: from lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com (lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com [10.52.9.11])
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id 33F661800098;
+	Fri, 23 Jan 2026 14:43:09 +0800 (+08)
+From: Yanan Yang <yanan.yang@nxp.com>
+Subject: [PATCH v4 0/2] Add NXP FRDM-IMX91S board support
+Date: Fri, 23 Jan 2026 15:41:58 +0900
+Message-Id: <20260123-imx91s-frdm-v4-0-1bab038faee9@nxp.com>
 MIME-Version: 1.0
-References: <20260119164747.1402434-6-ardb+git@google.com> <20260119164747.1402434-7-ardb+git@google.com>
- <d5c7ed76-2b54-4c6e-961f-6ba1e4011467@arm.com>
-In-Reply-To: <d5c7ed76-2b54-4c6e-961f-6ba1e4011467@arm.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 23 Jan 2026 07:43:04 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXG8Q+VjXP08-hZhQ16Fe39+_JiSpPfh389gQ7twHr7eBQ@mail.gmail.com>
-X-Gm-Features: AZwV_Qha-p15Q9tTNXYW38TrzPMT-C7I_9EAbgr6vtgxZom2Hdl3sYGASm7Mtes
-Message-ID: <CAMj1kXG8Q+VjXP08-hZhQ16Fe39+_JiSpPfh389gQ7twHr7eBQ@mail.gmail.com>
-Subject: Re: [PATCH 1/4] arm64: Move fixmap page tables to end of kernel image
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, will@kernel.org, 
-	catalin.marinas@arm.com, mark.rutland@arm.com, 
-	Ryan Roberts <ryan.roberts@arm.com>, Liz Prucka <lizprucka@google.com>, 
-	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>, 
-	linux-hardening@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADYYc2kC/23MSw6CMBSF4a2Qjq3pvUDxOnIfxgH0IR3wSGsaD
+ GHvFhKjGIfnJN8/s2C8M4Gds5l5E11wQ59GcciYauv+brjTaTMUWAKKkrtuIgjcet1xVHlOjVJ
+ opWVJjN5YN2216y3t1oXH4J9bPML6/u9E4ILXVkulBSgkuvTTeFRDx9ZKxC8JPxKTPFVEstF1X
+ ZLay/wtpQCQe5knSSdZgTayICw/clmWFynZPG8YAQAA
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ yanan.yang@nxp.com, qijian.guo@nxp.com, justin.jiang@nxp.com, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Daniel Baluta <daniel.baluta@nxp.com>, Lei Xu <lei.xu@nxp.com>, 
+ Xiaofeng Wei <xiaofeng.wei@nxp.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769150588; l=2468;
+ i=yanan.yang@nxp.com; s=20251205; h=from:subject:message-id;
+ bh=67q89WD0bKZAOBMLjge5JhBMek2CR8lI575BsdEeo1g=;
+ b=m6aU0YC/6tLLPp25SYwaax61igDTFxTO3DMgGOxCJLOEyn5QiPmAZHze+aMwnK7N7l8rPQDIH
+ xll//jyCjQCCuORqPqQedqRcpMmmXDibk0bq0D9/gSmpf1sShl4AB0k
+X-Developer-Key: i=yanan.yang@nxp.com; a=ed25519;
+ pk=d4hHTp5SW/PyyxexLEo/3c2RAaQDwym0zuYlifH95PI=
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_224320_220280_FA604EDC 
-X-CRM114-Status: GOOD (  22.38  )
+X-CRM114-CacheID: sfid-20260122_224316_407646_FFBC9534 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,71 +84,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Anshuman,
+This patch set introduces DeviceTree support for the NXP FRDM-IMX91S
+development board based on the i.MX91 SoC. FRDM-IMX91S is a cost-optimized
+variant of FRDM-IMX91 and differs in several hardware aspects:
 
-On Fri, 23 Jan 2026 at 07:12, Anshuman Khandual
-<anshuman.khandual@arm.com> wrote:
->
->
->
-> On 19/01/26 10:17 PM, Ard Biesheuvel wrote:
-> > From: Ard Biesheuvel <ardb@kernel.org>
-> >
-> > Move the fixmap page tables out of the BSS section, and place them at
-> > the end of the image, right before the init_pg_dir section where some of
-> > the other statically allocated page tables live.
-> >
-> > These page tables are currently the only data objects in vmlinux that
-> > are meant to be accessed via the kernel image's linear alias, and so
-> > placing them together allows the remainder of the data/bss section to be
-> > remapped read-only or unmapped entirely.
-> >
-> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > ---
-> >  arch/arm64/kernel/vmlinux.lds.S | 5 +++++
-> >  arch/arm64/mm/fixmap.c          | 7 ++++---
-> >  2 files changed, 9 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-> > index ad6133b89e7a..df530e6f3e53 100644
-> > --- a/arch/arm64/kernel/vmlinux.lds.S
-> > +++ b/arch/arm64/kernel/vmlinux.lds.S
-> > @@ -334,6 +334,11 @@ SECTIONS
-> >       __pi___bss_start = __bss_start;
-> >
-> >       . = ALIGN(PAGE_SIZE);
-> > +     .pgdir : {
-> > +             __pgdir_start = .;
->
-> Does __fixmap_pgdir_start with an end marker __fixmap_pgdir_end sound better ?
->
+- 512MB LPDDR4 (FRDM-IMX91 uses 1GB)
+- 256MB FlexSPI-NAND (FRDM-IMX91 uses 8GB eMMC)
+- Single GbE port (FRDM-IMX91 has dual GbE)
+- PMIC PF9453 (FRDM-IMX91 uses PCA9451A)
 
-No. __pgdir_start covers the init_pg_dir as well. And I don't think we
-should be adding end markers that we do not intend to use.
+This patch has been tested on FRDM-IMX91S board and verified for basic
+functionality.
 
-> > +             *(.fixmap_bss)
-> > +     }
-> > +
-> >       __pi_init_pg_dir = .;
-> >       . += INIT_DIR_SIZE;
-> >       __pi_init_pg_end = .;
-> > diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-> > index c5c5425791da..b649ea1a46e4 100644
-> > --- a/arch/arm64/mm/fixmap.c
-> > +++ b/arch/arm64/mm/fixmap.c
-> > @@ -31,9 +31,10 @@ static_assert(NR_BM_PMD_TABLES == 1);
-> >
-> >  #define BM_PTE_TABLE_IDX(addr)       __BM_TABLE_IDX(addr, PMD_SHIFT)
-> >
-> > -static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __page_aligned_bss;
-> > -static pmd_t bm_pmd[PTRS_PER_PMD] __page_aligned_bss __maybe_unused;
-> > -static pud_t bm_pud[PTRS_PER_PUD] __page_aligned_bss __maybe_unused;
-> > +#define __fixmap_bss __section(".fixmap_bss") __aligned(PAGE_SIZE)
-> > +static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __fixmap_bss;
-> > +static pmd_t bm_pmd[PTRS_PER_PMD] __fixmap_bss __maybe_unused;
-> > +static pud_t bm_pud[PTRS_PER_PUD] __fixmap_bss __maybe_unused;
-> >
-> >  static inline pte_t *fixmap_pte(unsigned long addr)
-> >  {
->
+For more details about the FRDM-IMX91S board, see:
+https://www.nxp.com/design/design-center/development-boards-and-designs/FRDM-IMX91S
+
+Signed-off-by: Yanan Yang <yanan.yang@nxp.com>
+---
+Changes in v4:
+- Remove the board-specific "fsl,imx6sx-sdb-mqs" compatible from the sound-mqs node
+- Remove redundant address and size cells from lpi2c2 node
+- Link to v3: https://lore.kernel.org/r/20260116-imx91s-frdm-v3-0-98671de64925@nxp.com
+
+Changes in v3:
+- add bootph- property for nodes should be kept in bootloader phase
+- add code-review trailers
+- Link to v2: https://lore.kernel.org/r/20251215-imx91s-frdm-v2-0-87996bdaa59c@nxp.com
+
+Changes in v2:
+- Correct author name: removed extra period in "Yanan.Yang"
+- Removed aliases pointing to disabled nodes from DTS
+- Add "rtc0 = &pcf2131;" in aliases to make external RTC the primary device
+- Fix DT node name: change
+  "usdhc1_pwrseq: usdhc1_pwrseq" to "usdhc1_pwrseq: usdhc1-pwrseq"
+- Renamed LED node from 'status' to 'led-0' to comply with gpio-leds binding
+- Replace regulator-based transceiver (reg_can_stby) with CAN PHY (nxp,tja1051)
+- Replaced 'xceiver-supply' property with 'phys' in flexcan1 node
+- Adjusted alignment in fsl,pins property: used spaces between pin names and values for proper DTS style.
+- Refined commit message in dt binding patch to clarify board differences
+- Link to v1: https://lore.kernel.org/r/20251205-imx91s-frdm-v1-0-afd6cd01c299@nxp.com
+
+---
+Yanan Yang (2):
+      dt-bindings: arm: fsl: Add FRDM-IMX91S board
+      arm64: dts: freescale: add NXP FRDM-IMX91S board support
+
+ Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
+ arch/arm64/boot/dts/freescale/Makefile             |   1 +
+ .../boot/dts/freescale/imx91-11x11-frdm-s.dts      | 769 +++++++++++++++++++++
+ 3 files changed, 771 insertions(+)
+---
+base-commit: bc04acf4aeca588496124a6cf54bfce3db327039
+change-id: 20251205-imx91s-frdm-2c339bcc2f6f
+
+Best regards,
+-- 
+Yanan Yang <yanan.yang@nxp.com>
+
 
