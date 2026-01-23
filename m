@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F315CD7237B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 12:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29EC3D7237B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 12:47:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mX6mZXpzNbCV2TDnbq4WSLxIQVd6E20AX9MWOyS2Ky8=; b=o+KllaSCW0efbjl89DME0Rv7wz
-	9V+Segq+XdEm/pxNPffeqLRZL7nP9NztSnkCAmY2oRx/q0DnwLkD3WertS6lNlwxnPPhxgffELvBY
-	h8LDcp2iH+lKIoGANIyRP0812xHe0ifPrnH28hYkkOa2Hmgkw8rw5RHR21OxGcD86/Ne4J2DDkN0P
-	F3ViTd8Ogm0XCj9wM58Mw0iUlkegloM6Pi0eroaCyhMTRQl4bmdOC72+yOh2VtZRfEi7NH8roJNph
-	vstA2xHhRoOe3VcrTH1j3cfUS3I6XNFyHzS1W/SI1neL6/0T/UrN4x9NHnta0TOPTPqQTUsmZtIGr
-	kNu0H2gg==;
+	bh=tER9zLyv9s7xM8IYun6q3wufHZ1C6TKFo/QhWPfNERo=; b=MGzGIBN3KJA72VcxzHUbeVIHh2
+	gBV8Y66pNonK/9Ufz/dgLcPUUK6+8m4qr8OOqLoXH64TQ3mNcFggH4Wh2y5hHujBnWOhwrJhuYm//
+	CTmKAb5IYeeVVblM+ahWDRxlko+Fr75oyKmxt1V1tlGLxJWLYyYVeVhRjC9DMgH+FUHbXnwE8CTvb
+	lyyoanOn4FFzSpa+Ie1L/nvxihs56auvTYqR+jBiM5BStzMO5tts1IlN4rKlP5JtZXh7aVo2BQ1EX
+	/Ksmt6je2QBSyc7rJbqs655PGOOvCfxg+pDyYyogM6dOV4WUjpsQ3QCrubwojnjnbTsB/1iE2nMOw
+	TIWcYXfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGZN-00000008vem-2a0j;
-	Fri, 23 Jan 2026 12:47:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vjGZl-00000008vhE-3sbF;
+	Fri, 23 Jan 2026 12:47:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGZL-00000008veR-1UMW
+	id 1vjGZj-00000008vgu-01tE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 12:47:20 +0000
+	Fri, 23 Jan 2026 12:47:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 99B3F44093;
-	Fri, 23 Jan 2026 12:47:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70597C4CEF1;
-	Fri, 23 Jan 2026 12:47:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F01F460054;
+	Fri, 23 Jan 2026 12:47:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D0B0C19421;
+	Fri, 23 Jan 2026 12:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769172438;
-	bh=SpX5nlI+FpfkHYgP+EVPBN97fd681gAviX/lFFZNJ+8=;
+	s=k20201202; t=1769172461;
+	bh=W0JXEqdFkknxnY80SKobVw6uWbZ5fonni3fohUHvIIE=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ElqLJZSz5em091t3wwNsbj3EjkzZsPNajERR83xC126xn2ZlETjjwYY5Xfhc+Eq0T
-	 Ry7QyC9VVuyUs36KXpRrAd3yrMFaohmY69mkcc/mKhPsWdSihRmHNEDcrbZHTvKmrU
-	 aElVMF+AiEyTg5qRXU1l/IE/4PVNnNU/AgfhJ6scksN5htvf6kwlSvFC848cjaUhud
-	 11MFzjsrAkfzSzlgUhAoiNOxbRvht4Fh7fl5eLs9ObYC7DCZkpjm5nhQln9FxRDx8b
-	 WJUHkkV70HlRrVr9OGDba1wkRNIR4gv+PaU9e7qvsy/ijccFRLwandNAF3AFWeJy0r
-	 d5h0eX5253SZA==
+	b=j9nKCbYzJANFAx6sZYkqZxDkD0nhP//6TR3P0kvaxyOpVaOl2Gq7Ejvhau1K5YKTc
+	 Kv9UVXpaFr4gB1qsml4zeyPxqHUxv6JEOB1e83wX0TA/iaqaoaGhY5+N6laTTaiAuz
+	 /tZLbA8cjU1e1qbD1+xaWI1251TORCrqqT9/KNr6WNBMtd1Xl0nUrK5CTXz2KBVLLg
+	 KW8hdWPOuHyAp+Nr74NKU7RdS/xQlPengcwH25sF8BIKBGjBdJg0UUZJdUP1NckCF4
+	 g+U4nUiH4xf6yNEorex09Oc8d0zHYuP6cjw6FynQQUGNf9Ldh19oUCcIDPQiaUVV4e
+	 x9Z0kZFFsAqRw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vjGZI-000000053M0-0V7n;
-	Fri, 23 Jan 2026 12:47:16 +0000
-Date: Fri, 23 Jan 2026 12:47:15 +0000
-Message-ID: <86o6mkbing.wl-maz@kernel.org>
+	id 1vjGZf-000000053Mp-2ggF;
+	Fri, 23 Jan 2026 12:47:39 +0000
+Date: Fri, 23 Jan 2026 12:47:39 +0000
+Message-ID: <86ms24bims.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Vincent Donnefort <vdonnefort@google.com>
 Cc: rostedt@goodmis.org,
@@ -69,11 +69,12 @@ Cc: rostedt@goodmis.org,
 	kernel-team@android.com,
 	linux-kernel@vger.kernel.org
 Subject: Re: [PATCH v9 29/30] KVM: arm64: Add selftest event support to nVHE/pKVM hyp
-In-Reply-To: <aXNmKpHqVw93BegX@google.com>
+In-Reply-To: <aXNnsJqqsskXyJu7@google.com>
 References: <20251202093623.2337860-1-vdonnefort@google.com>
 	<20251202093623.2337860-30-vdonnefort@google.com>
 	<868qe9mnx5.wl-maz@kernel.org>
 	<aXNmKpHqVw93BegX@google.com>
+	<aXNnsJqqsskXyJu7@google.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -83,9 +84,6 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: vdonnefort@google.com, rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_044719_884061_781C4259 
-X-CRM114-Status: GOOD (  21.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,51 +98,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 23 Jan 2026 12:14:34 +0000,
+On Fri, 23 Jan 2026 12:21:04 +0000,
 Vincent Donnefort <vdonnefort@google.com> wrote:
 > 
-> On Wed, Jan 07, 2026 at 03:40:22PM +0000, Marc Zyngier wrote:
-> > On Tue, 02 Dec 2025 09:36:22 +0000,
-> > Vincent Donnefort <vdonnefort@google.com> wrote:
+> On Fri, Jan 23, 2026 at 12:14:34PM +0000, Vincent Donnefort wrote:
+> > On Wed, Jan 07, 2026 at 03:40:22PM +0000, Marc Zyngier wrote:
+> > > On Tue, 02 Dec 2025 09:36:22 +0000,
+> > > Vincent Donnefort <vdonnefort@google.com> wrote:
+> > > > 
+> > > > Add a selftest event that can be triggered from a `write_event` tracefs
+> > > > file. This intends to be used by trace remote selftests.
+> > > > 
+> > > > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> > > > 
+> > > > diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> > > > index 37c015b54ff6..e2de7ad64938 100644
+> > > > --- a/arch/arm64/include/asm/kvm_asm.h
+> > > > +++ b/arch/arm64/include/asm/kvm_asm.h
+> > > > @@ -96,6 +96,7 @@ enum __kvm_host_smccc_func {
+> > > >  	__KVM_HOST_SMCCC_FUNC___tracing_update_clock,
+> > > >  	__KVM_HOST_SMCCC_FUNC___tracing_reset,
+> > > >  	__KVM_HOST_SMCCC_FUNC___tracing_enable_event,
+> > > > +	__KVM_HOST_SMCCC_FUNC___tracing_write_event,
+> > > >  };
+> > > >  
+> > > >  #define DECLARE_KVM_VHE_SYM(sym)	extern char sym[]
+> > > > diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
+> > > > index 268b3cd7a1b2..c276fd28e0bf 100644
+> > > > --- a/arch/arm64/include/asm/kvm_hypevents.h
+> > > > +++ b/arch/arm64/include/asm/kvm_hypevents.h
+> > > > @@ -42,4 +42,15 @@ HYP_EVENT(hyp_exit,
+> > > >  	),
+> > > >  	HE_PRINTK("reason=%s", __hyp_enter_exit_reason_str(__entry->reason))
+> > > >  );
+> > > > +
+> > > > +HYP_EVENT(selftest,
+> > > > +	HE_PROTO(u64 id),
+> > > > +	HE_STRUCT(
+> > > > +		he_field(u64, id)
+> > > > +	),
+> > > > +	HE_ASSIGN(
+> > > > +		__entry->id = id;
+> > > > +	),
+> > > > +	RE_PRINTK("id=%llu", __entry->id)
 > > > 
-> > Not strictly related to this patch, but I find that the trace itself
-> > lacks context. For example:
+> > > Not strictly related to this patch, but I find that the trace itself
+> > > lacks context. For example:
+> > > 
+> > > [001]	  323.847422: hyp_enter reason=hvc
+> > > [001]	  323.847423: hyp_exit reason=eret_host
+> > > [001]	  323.847688: hyp_enter reason=hvc
+> > > [001]	  323.847688: hyp_exit reason=eret_host
+> > > [001]	  323.847706: hyp_enter reason=hvc
+> > > [001]	  323.847707: hyp_exit reason=eret_host
+> > > [001]	  323.847722: hyp_enter reason=hvc
+> > > [001]	  323.847723: hyp_exit reason=eret_host
+> > > 
+> > > That's all fine as long as I'm dealing with a single guest, or even
+> > > with a single vcpu. Trying to trace multiple guests, or even multiple
+> > > vcpus makes the whole thing completely unusable, because I have no
+> > > idea what I'm looking at.
+> > > 
+> > > To make this useful, having some context provided by the host really
+> > > is required.
 > > 
-> > [001]	  323.847422: hyp_enter reason=hvc
-> > [001]	  323.847423: hyp_exit reason=eret_host
-> > [001]	  323.847688: hyp_enter reason=hvc
-> > [001]	  323.847688: hyp_exit reason=eret_host
-> > [001]	  323.847706: hyp_enter reason=hvc
-> > [001]	  323.847707: hyp_exit reason=eret_host
-> > [001]	  323.847722: hyp_enter reason=hvc
-> > [001]	  323.847723: hyp_exit reason=eret_host
-> > 
-> > That's all fine as long as I'm dealing with a single guest, or even
-> > with a single vcpu. Trying to trace multiple guests, or even multiple
-> > vcpus makes the whole thing completely unusable, because I have no
-> > idea what I'm looking at.
-> > 
-> > To make this useful, having some context provided by the host really
-> > is required.
+> > I could add to the event header the VM pid related to the currently loaded vCPU
+> > (if any). I can access it easily with host_kvm->userspace_pid. WDYS?
 > 
-> I could add to the event header the VM pid related to the currently loaded vCPU
-> (if any). I can access it easily with host_kvm->userspace_pid. WDYS?
+> Or actually directly kvm_vcpu->pid?
 
-It really should be the thread name, just like we already have for the
-kernel tracing. For example:
-
-vgic_irq-2007    [005] ..... 180926.476735: kvm_sys_access: PC: 4119e4 SYS_ICC_DIR_EL1 (3,0,12,11,1) write
-vgic_irq-2010    [005] ..... 180926.534771: kvm_sys_access: PC: 40254c SYS_CNTV_CVAL_EL0 (3,3,14,3,2) write
-vgic_irq-2010    [005] ..... 180926.534777: kvm_sys_access: PC: 402554 SYS_CNTV_CTL_EL0 (3,3,14,3,1) write
-vgic_irq-2010    [005] ..... 180926.534789: kvm_sys_access: PC: 4025b8 SYS_CNTV_CTL_EL0 (3,3,14,3,1) write
-vgic_irq-2011    [010] ..... 180926.534790: kvm_sys_access: PC: 40254c SYS_CNTV_CVAL_EL0 (3,3,14,3,2) write
-vgic_irq-2010    [005] ..... 180926.534793: kvm_sys_access: PC: 4119e4 SYS_ICC_DIR_EL1 (3,0,12,11,1) write
-
-This is a single guest, with concurrent vcpus. I'd like to be able to
-correlate that with what the hypervisor tracing outputs. At the very
-least the thread's PID. But the VM itself is pretty much irrelevant.
-
-Thanks,
+More like it indeed.
 
 	M.
 
