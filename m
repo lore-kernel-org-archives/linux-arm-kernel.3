@@ -4,112 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E741D778AC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 18:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A94D778AC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 19:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZS1VP6COkKjKYZmCvco4g4510UVwVXjW35gfix/QdJA=; b=nnsEfq9dLfDRnoCaRsjcinUTNJ
-	PK4SlHWlMQp3r5KZGwNtu8XXqvl+w5fCKWMI/teKowk/hQkjrlGkAQHKgRmi3NQsCgBvWEoYXSXJ6
-	hRYNSBYNmCw+UrCZrMCsZL4gbGRW/xb86eHxZpPudmFVWfS2/x6SIFttL2FZO5PZwNSK2bD/+2dpJ
-	sBlWWqnceEH/7Z2btRadNpcmVyAsTl+NswQ5vvysESBYh197u84Vx/sxZBh2DdWErClx0OwYsNV21
-	wtbeR5SX2KJEZEIT9FTJif/mR3zhZFz4zMwQfoU8IsfzfOw519/7/8497rPb8PWT8xmUBifWC1Gw5
-	2U1B/Urg==;
+	bh=cT5TBo/dI90+wcDSKNtZ1iy//ljekx3o3pFpFS1CjKM=; b=u4hSwrrVXS2o4xDJgZCEIgA+fV
+	BIyBo6AXWIwAh3n7P1SGAtfRNdqpTxDKL/ybncXb4UuVCl1bR/B+AwCRiED0B2nqU8MkeznT9H4wI
+	16VjAOAQKGpLGnH+Ssri4HTEp7q7rWdJ6LQvX+KhTI2xw7aWJHQ0Rh6HbFGWhasbmUcODJYSFyUzs
+	4R8jWferD3TGpoZckyRqA070OdPpTJ7XG09FTS7UFSV207dh6Xi6+DqJpMqscFceOKAjviyO34tRA
+	O2KQYQca85rM4g1QVHEWwb48xHI+lC+eTOaeJ4urBEYqX4Lfp1ZKRWcAYXkCN/3kHpQJwl0lkO7FD
+	ijOL+n8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjMM0-00000009NFN-0WbU;
-	Fri, 23 Jan 2026 18:57:56 +0000
-Received: from mail-ua1-x92a.google.com ([2607:f8b0:4864:20::92a])
+	id 1vjMPl-00000009NRc-2x3M;
+	Fri, 23 Jan 2026 19:01:49 +0000
+Received: from mail-oa1-x62.google.com ([2001:4860:4864:20::62])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjMLy-00000009NEm-1EDC
+	id 1vjMPi-00000009NRC-3Gn3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 18:57:55 +0000
-Received: by mail-ua1-x92a.google.com with SMTP id a1e0cc1a2514c-93f56804894so1844384241.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 10:57:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769194672; cv=none;
-        d=google.com; s=arc-20240605;
-        b=UHTTv+Eugp2JjCwahLfqQiab2Tg5gIDeLcUbiF7GR734863bS+tNbsDw5Xy80iv+sR
-         jBv/nDFOvImUrrk2huNsy2gvPElohBSZ79OiU0S6Bx+yc/gV050Cjx2dd8qPX9H010Yt
-         tfAYGljYC53SXc78ZnkmR3qikFKtKKPqk2Z09rhExe3+N1sCSlLDBIhHS6Qgc+D82qMJ
-         YrTkN8JCVjR/1KUpjBNSm2BRX+XJWWda/X7BFJTFm6hI3wVDJvPqEQAsBVNnUwy86Atf
-         H8I3NoXAdmmWNCPTy6cgIRAusVj9OC3pdqMTJw1eJ6uTDkaze0fESwTsT5wjaZX7iA4j
-         6KNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ZS1VP6COkKjKYZmCvco4g4510UVwVXjW35gfix/QdJA=;
-        fh=67MYya2Ja6wdFa5OOJT7NjMYh47NZBr1sgfknfTP1Z8=;
-        b=Q7dMEEAP8OmtBYtylmSo/TpjSsEMi4NffiPIcSBOpjR2YnZ14rAQ+itOn6MDS1qshX
-         IHFO4Zl+cD1ECpUnyecMZ5SAM9Wt15976IanGzz+XpwrwMpUwisd/f8pvZ/WmNJIg5nT
-         DvuC43sUmbO0MIbJF8aaOgE6mEWEWJZnCs5BYjXMscw4UY3ramvKYvQovUsnj4Hq88JO
-         0dkyHjHgYHxGGTGcnNTv8gmN9I2BKmekfW3mjqnnJkBg7OOGMgqHYS62yENTxsm+sLSl
-         7ErHYpk+IQ1sNuHkBq+8ncHEv+lYzUBuxBlb1k1Asz+MCVHcFblfOS1QhxKquwMFlmYG
-         8dcQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769194672; x=1769799472; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZS1VP6COkKjKYZmCvco4g4510UVwVXjW35gfix/QdJA=;
-        b=MLBaHLgMzYDTa3puHoNV92Vc2l32+5dS9KZPbfLCp9ul86qJlQU+E+ymlxiCTB3Nt8
-         kCqP23ZBiDq4XZi+MdLeb/sZlNOIxr3mRiF7trfMhhBTOfQMXS+Ur4gNDE6DT3T1V42S
-         MVBmGvEdSXduyunf4zHs88vSDQ3w+p29j8KZoUo3DYHEbHy50Uyayu67VzIHyQzIDd0U
-         IstwraUmDYjCDi1ixAjQml/AbIcaTh7IRCpQ9h5ZJLV3VfKKVjeAokwNpuBPSQRQ5PGk
-         KcKSz1kzDYnbLPVaRNqESCJQKQ4GSps698BoNUh2faua2NCq1diUu3wQyp1l+H3YOyiy
-         /azA==
+	Fri, 23 Jan 2026 19:01:48 +0000
+Received: by mail-oa1-x62.google.com with SMTP id 586e51a60fabf-3f9ebb269c3so1165930fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 11:01:45 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769194672; x=1769799472;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ZS1VP6COkKjKYZmCvco4g4510UVwVXjW35gfix/QdJA=;
-        b=tEptcGVfVzLhHEVKsPthtduuCdurtWh3rIYi3n7Szl5i5KuD6q41KDYZAOotJqYN7i
-         SLMNsLRz+E8RDQaHWVsj/kPYvc/3+ZoTPlzXPI7Foa3WJQfeud0FkaBugL6fTKWn1b1I
-         v9rOyWEOQuvLlYf7e8aHyB8Ynxsau2sKBhQt57WO0EAqFfRfORrC9eoYJHd0qsvsAf/D
-         8aBvI9MuBrUm7K9D4BYSJ20i/VgcK4xK6G25fzM9zX/14xqpzpBju15Nl+hZyTLtjhQN
-         QKOQgG/1utKakTxIjIr5k38ZK72Qz1FXEegw2SqE0oudHNeOrnTUHPME5ms9kh3GknYo
-         Z33A==
-X-Forwarded-Encrypted: i=1; AJvYcCULU9nBH9b+tY2NT3p4HpLfyWELI41T88xmtpZqkWYWv3LygADLuOegtkJkP6i1sFGaI6YPVOPvj/K9XzpS5ev6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxUefIkV85wFsX3T9dNe78hwqaH51gLstefzAF+qGG29YVE+vb
-	qXLPlmRTtvigThJKw4lqrZ2RLZNp+IKwjG30uEGuKEVIyXSyTSYVm1ByoPK9DLQKltAYwLY7NNR
-	3UGPo+Rf64rBShsJQLOqOUT432Pb9Y4U7JrTPrQ30V8DLBA1OMUO19fryoe4=
-X-Gm-Gg: AZuq6aKWVo5+wBF2qCo0Wztqtxc4E6uUIFoJ7573ihBL7V/2L0LpX1jTcbi+yDn17GM
-	1hdAJ57nmTvwM8Dq8Z4hIvmLrZP+l75MyCHwDLRBWK5AkWXT4zMQqtCJ/34tYSNIU5ci0PA6HLG
-	W4Swf8uNc2uz2yTNYRtyprmNN5nj/EqpPyBOiAro4mCfHDZ2WIvwru3eWxgMd/w/m2NZXDjqSqW
-	pETlgpcfJsC2B59eiJuX4PsjE9unU3KEA+bRqzTCDHyYejG35uHqfagsi6F47OjtX1igRwFaNMl
-	ySoWHnpjR/SlsOagYLWlf5IEPA==
-X-Received: by 2002:a05:6102:dd1:b0:5ef:2457:8011 with SMTP id
- ada2fe7eead31-5f54bc628a1mr1369126137.21.1769194671879; Fri, 23 Jan 2026
- 10:57:51 -0800 (PST)
+        d=1e100.net; s=20230601; t=1769194904; x=1769799704;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=cT5TBo/dI90+wcDSKNtZ1iy//ljekx3o3pFpFS1CjKM=;
+        b=jQaiFTt1l1zn9bB+HXpakcaMYZcEQ/xuL+MEHRuaMhS2d5mStEQ/4oo+5ynEoBkOZe
+         LLMbCERUJMPXzmUfHJ/OljcqyYp3I4a3eOxgKEs0kJfHniflzWuHs6EuT2z4p40nIDBR
+         I/w0B8hy18TKN6ZQidMHHD0ll/gS+8J0Jd42JqbSwRc98DX8hEwX2pSC6125e29Aultf
+         ZC9Opjc16vhmW9VXRqE3WRCo1sgYCZY2u1uw7ZcC+hZtRKulnUN0+y3pDqbRyfjA3M1J
+         p+yg/dK5xchVowCBthx+XXL2vB7e8s+09aKsaFVuVp1L4BaeThhNgpOVqPmXjX8ABimf
+         9+ww==
+X-Forwarded-Encrypted: i=1; AJvYcCUoerZzioic7cbUSLYhsqKznFYq69I22+ZocA1RupGaKRocFWmbD2WItVGggDS7BKJhGPX47XQAnf6M3xZB6mgh@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoSou3sZKGE+9AvDlqlNjIqF2ZCMi+QRhtnLaH6JRe7zvvC0As
+	KDWPQd7r+/6e8qeAJWCxIxaM1+j2OKtQoLkKkS7QxxRQYZxH39AhwK4kM/sjzT+1EbkPSaFuB7N
+	QboKbYJIsb6qsFJq0YhCoC7aAzeeeJQG55Fa70CoZaJXwvBZgGobRadFCCgyVxu7hGM0YDlySN5
+	Jj0PdiX+CkZcbmAQUBwjb3LC1Y6eGkO4CV1OyV2Bl9SrvycT024H0FsvbnMoDbxxjyQmDX7vpXQ
+	0PAA+0b4PgChfrF+vkfKaHi5Cwlvq1oKto=
+X-Gm-Gg: AZuq6aJNYpWmIKoxtIB2kGA7/ba05y+EPfgtQ1ssfxm1HW9CHIhidELIynVmCyNHKSq
+	vSGOfAdVG8b2kMtlHewS012vAgqkY97GW937QPwsWUcUtRwG4PkiTQe4ey8kYxlG5KrWxVQ3QB8
+	c+r6bdF5e6DKRvJB/QOKglsMAXT4n1JYpCpv2hFaHJ3eXrjw+ueaG/K7gt8DQ5CrAnaHqvud+j0
+	DKCIiEZCRLwaxDFVoifD7hk1RT5DqvCbDUZNE/Epmp2x0QEJR94AZkTCLWumqVcnb5MV1v2xUIF
+	SnNYIkrKuOlhNY7670soTzocguBWoAUORyJw0Qg/ZimDNZo52CIny42eJmInHuCjcbyFt9NNfVc
+	RA4RCWQTnR9Hi+wvQCkksEX7xGxZ9+OqMfssjYR5pjwWSZ3yi7e6Q+ZmHt2C1dzNZWBbw6KsT7l
+	HOBxYjKJsnH3kXUavycVimE0iADnb27nTf5l6fJcaMgsf3iBclCcFj
+X-Received: by 2002:a05:6870:b50c:b0:3fa:6ac:ec6f with SMTP id 586e51a60fabf-408ab6a47e0mr1996121fac.26.1769194904217;
+        Fri, 23 Jan 2026 11:01:44 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-102.dlp.protect.broadcom.com. [144.49.247.102])
+        by smtp-relay.gmail.com with ESMTPS id 586e51a60fabf-408af888d37sm310147fac.6.2026.01.23.11.01.43
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 23 Jan 2026 11:01:44 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-2b7174ab5faso2755340eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 11:01:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1769194902; x=1769799702; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=cT5TBo/dI90+wcDSKNtZ1iy//ljekx3o3pFpFS1CjKM=;
+        b=P7aBAfuk6V57UY/kce7TTTyySz6aMpLi+sR93NP5IlRlJflB4lZVTOuclBg/L3SH4q
+         EQyD6jmHhNrZipTknHuqVdcAD3ejEJFRG03Spn3UYqwjBW+svQmGK4a91VQqYK0u+PrS
+         dzvlHlsgCIG51enbluOWxLQzbKReP2OXCqcjI=
+X-Forwarded-Encrypted: i=1; AJvYcCVl0KubNTUswzNL3AQKbQVEWujUTP/ZLLw2NtRlT5xO55K4x0d1AHW/750vf592Wd83F9k3ZIIyWKcttJ0G6R3t@lists.infradead.org
+X-Received: by 2002:a05:7022:248c:b0:11b:2de8:6271 with SMTP id a92af1059eb24-1247dc0b07emr1814345c88.39.1769194901686;
+        Fri, 23 Jan 2026 11:01:41 -0800 (PST)
+X-Received: by 2002:a05:7022:248c:b0:11b:2de8:6271 with SMTP id a92af1059eb24-1247dc0b07emr1814325c88.39.1769194900947;
+        Fri, 23 Jan 2026 11:01:40 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1247d91ca0fsm5379709c88.8.2026.01.23.11.01.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 23 Jan 2026 11:01:39 -0800 (PST)
+Message-ID: <ad346f69-c2f1-4319-ad59-cadbf2554322@broadcom.com>
+Date: Fri, 23 Jan 2026 11:01:37 -0800
 MIME-Version: 1.0
-References: <20251217101125.91098-1-steven.price@arm.com> <20251217101125.91098-23-steven.price@arm.com>
-In-Reply-To: <20251217101125.91098-23-steven.price@arm.com>
-From: Alper Gun <alpergun@google.com>
-Date: Fri, 23 Jan 2026 10:57:38 -0800
-X-Gm-Features: AZwV_QhZYPGr8z6s2H9r2lNS2DnUjwnSFq4bTCqpFEvFz2mvBWHpQWX_DZm5pNo
-Message-ID: <CABpDEumQ=62nZ_xEN6oMHw=J+6ps=Gy=1vx8i=6Hz+BacO1Ymg@mail.gmail.com>
-Subject: Re: [PATCH v12 22/46] arm64: RMI: Create the realm descriptor
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
-	Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, 
-	Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve <vannapurve@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] gpio: brcmstb: implement irq_mask_ack
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Doug Berger <opendmb@gmail.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Linus Walleij <linusw@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Christophe Leroy
+ <chleroy@kernel.org>, "open list:GPIO SUBSYSTEM"
+ <linux-gpio@vger.kernel.org>,
+ "moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>
+References: <20260122010516.1200630-1-florian.fainelli@broadcom.com>
+ <20260122010516.1200630-3-florian.fainelli@broadcom.com>
+ <CAHp75Vc=ejHPwA05MHBxJQdJWv49pcuTNax0VikXruvwVM+Y9A@mail.gmail.com>
+ <cb4ef2ed-ba94-4475-b02a-5b6e39943e81@broadcom.com>
+ <ba9005ab-f757-4018-96ed-a10bcef08165@broadcom.com>
+Content-Language: en-US, fr-FR
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <ba9005ab-f757-4018-96ed-a10bcef08165@broadcom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_105754_351988_7AD41B0D 
-X-CRM114-Status: GOOD (  27.18  )
+X-CRM114-CacheID: sfid-20260123_110146_917976_E011CC5D 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,164 +158,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 17, 2025 at 2:13=E2=80=AFAM Steven Price <steven.price@arm.com>=
- wrote:
->
-> Creating a realm involves first creating a realm descriptor (RD). This
-> involves passing the configuration information to the RMM. Do this as
-> part of realm_ensure_created() so that the realm is created when it is
-> first needed.
->
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> New patch for v12
-> ---
->  arch/arm64/kvm/rmi.c | 117 ++++++++++++++++++++++++++++++++++++++++++-
->  1 file changed, 115 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> index b51e68e56d56..18edc7eeb5fa 100644
-> --- a/arch/arm64/kvm/rmi.c
-> +++ b/arch/arm64/kvm/rmi.c
-> @@ -500,6 +500,106 @@ static void realm_unmap_shared_range(struct kvm *kv=
-m,
->                              start, end);
->  }
->
-> +/* Calculate the number of s2 root rtts needed */
-> +static int realm_num_root_rtts(struct realm *realm)
-> +{
-> +       unsigned int ipa_bits =3D realm->ia_bits;
-> +       unsigned int levels =3D 4 - get_start_level(realm);
-> +       unsigned int sl_ipa_bits =3D levels * (RMM_PAGE_SHIFT - 3) +
-> +                                  RMM_PAGE_SHIFT;
-> +
-> +       if (sl_ipa_bits >=3D ipa_bits)
-> +               return 1;
-> +
-> +       return 1 << (ipa_bits - sl_ipa_bits);
-> +}
-> +
-> +static int realm_create_rd(struct kvm *kvm)
-> +{
-> +       struct realm *realm =3D &kvm->arch.realm;
-> +       struct realm_params *params =3D realm->params;
-> +       void *rd =3D NULL;
-> +       phys_addr_t rd_phys, params_phys;
-> +       size_t pgd_size =3D kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtc=
-r);
-> +       int i, r;
-> +       int rtt_num_start;
-> +
-> +       realm->ia_bits =3D VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
-> +       rtt_num_start =3D realm_num_root_rtts(realm);
-> +
-> +       if (WARN_ON(realm->rd || !realm->params))
-> +               return -EEXIST;
-> +
-> +       if (pgd_size / RMM_PAGE_SIZE < rtt_num_start)
-> +               return -EINVAL;
-> +
-> +       rd =3D (void *)__get_free_page(GFP_KERNEL);
-> +       if (!rd)
-> +               return -ENOMEM;
-> +
-> +       rd_phys =3D virt_to_phys(rd);
-> +       if (rmi_granule_delegate(rd_phys)) {
-> +               r =3D -ENXIO;
-> +               goto free_rd;
-> +       }
-> +
-> +       for (i =3D 0; i < pgd_size; i +=3D RMM_PAGE_SIZE) {
-> +               phys_addr_t pgd_phys =3D kvm->arch.mmu.pgd_phys + i;
-> +
-> +               if (rmi_granule_delegate(pgd_phys)) {
-> +                       r =3D -ENXIO;
-> +                       goto out_undelegate_tables;
-> +               }
-> +       }
-> +
-> +       params->s2sz =3D VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
-> +       params->rtt_level_start =3D get_start_level(realm);
-> +       params->rtt_num_start =3D rtt_num_start;
-> +       params->rtt_base =3D kvm->arch.mmu.pgd_phys;
-> +       params->vmid =3D realm->vmid;
+On 1/22/26 11:26, Florian Fainelli wrote:
+> 
+> 
+> On 1/22/2026 11:17 AM, Florian Fainelli wrote:
+>>
+>>
+>> On 1/21/2026 11:36 PM, Andy Shevchenko wrote:
+>>> On Thu, Jan 22, 2026 at 3:06 AM Florian Fainelli
+>>> <florian.fainelli@broadcom.com> wrote:
+>>>>
+>>>> From: Doug Berger <opendmb@gmail.com>
+>>>>
+>>>> The irq_mask_ack operation is slightly more efficient than doing
+>>>> irq_mask and irq_ack separately.
+>>>
+>>> I would refer to the callbacks as
+>>>
+>>> .irq_mask()
+>>> .irq_ack()
+>>>
+>>> et cetera.
+>>
+>> Ack.
+>>
+>>>
+>>>> More importantly for this driver it bypasses the check of
+>>>> irqd_irq_masked ensuring a previously masked but still active
+>>>> interrupt gets remasked if unmasked at the hardware level. This
+>>>> allows the driver to more efficiently unmask the wake capable
+>>>> interrupts when quiescing without needing to enable the irqs
+>>>> individually to clear the irqd_irq_masked state.
+>>>
+>>> ...
+>>>
+>>>> -// Copyright (C) 2015-2017 Broadcom
+>>>> +// Copyright (C) 2015-2026 Broadcom
+>>>
+>>> Shouldn't it be rather 2015-2017,2026 ? (In one case when I updated a
+>>> driver for Intel, I went via Git history to gather the info.)
+>>
+>> Ack.
+>>
+>>>
+>>> ...
+>>>
+>>>>   static void brcmstb_gpio_set_imask(struct brcmstb_gpio_bank *bank,
+>>>> -               unsigned int hwirq, bool enable)
+>>>> +               unsigned int hwirq, bool enable, bool ack)
+>>>
+>>> This type of interface is usually discouraged as it makes code harder
+>>> to read and follow. Since there are a lot of duplication, I recommend
+>>> to move the ack op to a separate helper.
+>>
+>> Good point, knowing the order and what set in those parameters can be 
+>> confusing.
+>>
+>>>
+>>> ...
+>>>
+>>>> -       gpio_generic_write_reg(&bank->chip,
+>>>> -                              priv->reg_base + GIO_MASK(bank->id), 
+>>>> imask);
+>>>> +       if (ack)
+>>>> +               gpio_generic_write_reg(&bank->chip,
+>>>> +                                      priv->reg_base + 
+>>>> GIO_MASK(bank->id),
+>>>> +                                      imask);
+>>>
+>>> Id est this piece...
+>>>
+>>>
+>>>
+>>>> +static void brcmstb_gpio_irq_mask_ack(struct irq_data *d)
+>>>> +{
+>>>> +       struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
+>>>> +       struct brcmstb_gpio_bank *bank = gpiochip_get_data(gc);
+>>>> +
+>>>> +       brcmstb_gpio_set_imask(bank, d->hwirq, false, true);
+>>>
+>>> ...and call it here explicitly (seems the only place for it, so it can
+>>> even be just moved here without an intermediate helper).
+> 
+> Actually we need it to be part of brcmsftb_gpio_set_imask() because this 
+> is where the guard(gpio_generic_lock_irqsave) resides. I can't really 
+> see a better alternative, short of create two implementations: of 
+> brcmstb_gpio_set_imask() and brcmstb_gpio_set_imask_ack() which does not 
+> feel any better than the proposed patch.
 
-I don't see a way to configure rpv and hash_algo anymore. I assume they
-are gone for a minimal userspace interface. Will there be a way to set
-them going forward?
-
-> +
-> +       params_phys =3D virt_to_phys(params);
-> +
-> +       if (rmi_realm_create(rd_phys, params_phys)) {
-> +               r =3D -ENXIO;
-> +               goto out_undelegate_tables;
-> +       }
-> +
-> +       if (WARN_ON(rmi_rec_aux_count(rd_phys, &realm->num_aux))) {
-> +               WARN_ON(rmi_realm_destroy(rd_phys));
-> +               r =3D -ENXIO;
-> +               goto out_undelegate_tables;
-> +       }
-> +
-> +       realm->rd =3D rd;
-> +       WRITE_ONCE(realm->state, REALM_STATE_NEW);
-> +       /* The realm is up, free the parameters.  */
-> +       free_page((unsigned long)realm->params);
-> +       realm->params =3D NULL;
-> +
-> +       return 0;
-> +
-> +out_undelegate_tables:
-> +       while (i > 0) {
-> +               i -=3D RMM_PAGE_SIZE;
-> +
-> +               phys_addr_t pgd_phys =3D kvm->arch.mmu.pgd_phys + i;
-> +
-> +               if (WARN_ON(rmi_granule_undelegate(pgd_phys))) {
-> +                       /* Leak the pages if they cannot be returned */
-> +                       kvm->arch.mmu.pgt =3D NULL;
-> +                       break;
-> +               }
-> +       }
-> +       if (WARN_ON(rmi_granule_undelegate(rd_phys))) {
-> +               /* Leak the page if it isn't returned */
-> +               return r;
-> +       }
-> +free_rd:
-> +       free_page((unsigned long)rd);
-> +       return r;
-> +}
-> +
->  static int realm_unmap_private_page(struct realm *realm,
->                                     unsigned long ipa,
->                                     unsigned long *next_addr)
-> @@ -803,8 +903,21 @@ static int realm_init_ipa_state(struct kvm *kvm,
->
->  static int realm_ensure_created(struct kvm *kvm)
->  {
-> -       /* Provided in later patch */
-> -       return -ENXIO;
-> +       int ret;
-> +
-> +       switch (kvm_realm_state(kvm)) {
-> +       case REALM_STATE_NONE:
-> +               break;
-> +       case REALM_STATE_NEW:
-> +               return 0;
-> +       case REALM_STATE_DEAD:
-> +               return -ENXIO;
-> +       default:
-> +               return -EBUSY;
-> +       }
-> +
-> +       ret =3D realm_create_rd(kvm);
-> +       return ret;
->  }
->
->  static int set_ripas_of_protected_regions(struct kvm *kvm)
-> --
-> 2.43.0
->
+Or creating yet another set of intermediary helpers that are not 
+including the locking, and then using them in places where the locking 
+needs to be used, yes, that's probably the cleanest, let me do that.
+-- 
+Florian
 
