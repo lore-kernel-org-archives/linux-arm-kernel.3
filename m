@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D6BFD74EE7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 15:36:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D13DDD74EDE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 15:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zAUkfiLygEMeS191w3n1EDUBTXgMuCq386mzawqLbSA=; b=oFIk3nplbg33UkDx4kQouPpWp+
-	HfT9+yYpIlKrofmosdV77LtXw3GDD6zeMVUej98bwXhu+sUE4XfVTjlt/vYyl07zteQN6soMfwW1H
-	Fr4pMMhxxf4ESx8cZDfhl4OjLJ6RRjH7BKKZkL2AU2zXFsdeJTO5bsvQLLI6km0VCgUqyRnbt279M
-	sbgMe23yVpua0kXViX+3cmGJmC7Ve42KDyEXXxJaXLSCY8aeOv/pX2iwsltT5zvmmRV6BKq0QCigD
-	z8OHIJw+Bi3q1OhFaAUEJJ+FG3tY3CjEx0t8vhn3cnTJ7T/lqSnn2QtJBeiAmLOIIsiAKy0v6BIeZ
-	t6N9Dltg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EKIZGMQIyFIPLyCGSOYC7IbcvQsfF7qx2cMcNenv5mQ=; b=tFBFkP5ks1/jRhJ9mk41VESbCo
+	OXiyLcytrbjM0gOUqigQvgdmUk2+pAXmJYf4C5uoh3yPNf6NvwJ11gshLyYff8hliEsYYbkuuGP5+
+	gZx3qLb6WbETe2VYLmdQyx4m+J7JO/14xwWV1uomESaAFlW06S5/z3pYqLA0z7kF6tZ4Qjob4EzAm
+	qkogb361dpwzwSX1VGNQhW+VCkCgn8Fv8QAKwGM4/a9CqLqEv2tQxvTWjZXStMZYhlQ9Gaqu4bNHS
+	wPbtCKCdLetS8ikgA8+VTa/zpq1e32NznpHBUkhP/EwtKSPokjy6TImlYfJHL7WwPEgCzkQZPWPnb
+	3siHH7aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJCt-000000096o3-0SfI;
-	Fri, 23 Jan 2026 15:36:19 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vjJLO-000000097Cy-29uk;
+	Fri, 23 Jan 2026 15:45:06 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJCq-000000096ni-09wY
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 15:36:17 +0000
-Received: from pendragon.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id CE1AE9CE;
-	Fri, 23 Jan 2026 16:35:38 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1769182539;
-	bh=veP5Zq0B8RmCRU3vzf5VmdMpehKE3iDoJc4G6/L9dd8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r0+peo8QYRalO+QSLfjqcbJOcDTsJiZrHlspFkoCh6updd9oxLVN3ckGQ6x58TG6a
-	 ZdNFAlc8UCrRa2PReYeGZlrZ9ppWSfl35ZYlx+ncbKYWmHogHAKcY6aZz7xqr9YJ4l
-	 Vq9/RU2fUpHO0jXZWWEsC5ElIDg9FwEYu/Kz0QNk=
-Date: Fri, 23 Jan 2026 17:36:10 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Nick Huang <sef1548@gmail.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Michal Simek <michal.simek@amd.com>, linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kusogame68@gmail.com
-Subject: Re: [PATCH] drm/xcsi2rxss: use str_true_false() for boolean dev_info
- output
-Message-ID: <20260123153610.GB415966@killaraus>
-References: <20260123153108.19204-1-sef1548@gmail.com>
+	id 1vjJLL-000000097CE-0Dx8;
+	Fri, 23 Jan 2026 15:45:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=EKIZGMQIyFIPLyCGSOYC7IbcvQsfF7qx2cMcNenv5mQ=; b=BPrfNPwXKh4u+9NJJm2EB9fgcd
+	nck8GtTefULPgGdXxo5a9Lst1ph9Oo8oHXlFr2G2L5mlo1B9405o1sHxThT+iHFiCzPNcQ+lybMo0
+	d4IwoyvwsXG0n6s7/RXUbysRpjZOHlL8+sh9OqUNWibJ/EPOACqoJAEZ/SYzSC8Lyr+do5WWGcVKX
+	QbW4E0yUHbJoUZDwqEp0P7566grUPXwUggUYas9QOJ2EkM4CidYQuCITue97mvk+F4v4B7j9btm4S
+	sX2RRIX8U/1ECP+orelcVg8netSV6iTIkyFMvhqoTmvBeM35ZWRIM/BykptDLwRqcuYuiCsNO7xSv
+	slFW2TgA==;
+Received: from [189.89.57.42] (helo=[192.168.18.14])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1vjJL3-008xSQ-Vv; Fri, 23 Jan 2026 16:44:46 +0100
+Message-ID: <c74a8884-9322-45c8-a960-a6bb1227f553@igalia.com>
+Date: Fri, 23 Jan 2026 12:44:39 -0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260123153108.19204-1-sef1548@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/4] clk: bcm: rpi: Let V3D consumers manage clock rate
+To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Stefan Wahren <wahrenst@gmx.net>, Maxime Ripard <mripard@kernel.org>,
+ Iago Toral Quiroga <itoral@igalia.com>,
+ Chema Casanova <jmcasanova@igalia.com>, Dom Cobley <popcornmix@gmail.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+References: <20260116-v3d-power-management-v3-0-4e1874e81dd6@igalia.com>
+ <20260116-v3d-power-management-v3-1-4e1874e81dd6@igalia.com>
+Content-Language: en-US
+From: Melissa Wen <mwen@igalia.com>
+In-Reply-To: <20260116-v3d-power-management-v3-1-4e1874e81dd6@igalia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_073616_235776_FC649D09 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20260123_074503_387825_F4FC1D78 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,77 +84,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 03:31:04PM +0000, Nick Huang wrote:
-> Refactor dev_info calls in xcsi2rxss_log_status() to use the
-> str_true_false() helper instead of inline ternary operators
-> ("true" : "false"). This makes the code cleaner, more readable,
-> and easier to maintain.
 
-That's a matter of personal preference, and I disagree with that. Please
-don't post this kind of refactoring that doesn't bring actual
-improvements, that's not a good use of reviewers and maintainers' time.
 
-> Added #include <linux/string_choices.h>
-> for future use if symbolic flag printing is needed.
-> 
-> Signed-off-by: Nick Huang <sef1548@gmail.com>
+On 16/01/2026 17:19, Maíra Canal wrote:
+> Remove the `maximize` infrastructure and don't set `minimize` for the
+> V3D clock, giving consumers full control over its rate.
+>
+> On some firmware versions, RPI_FIRMWARE_SET_CLOCK_STATE doesn't
+> actually power off the clock. To achieve meaningful power consumption
+> reduction, consumers need to set the clock rate to minimum before
+> disabling it. Forcing the clock to maximum rate in the clock framework
+> prevents this, as consumers don't have any flexibility over the clock
+> rate.
+>
+> This change enables the v3d driver to control the clock rate directly
+> in its suspend/resume callbacks.
+
+Acked-by: Melissa Wen <mwen@igalia.com>
+
+>
+> Fixes: 6526402b9bac ("clk: bcm: rpi: Maximize V3D clock")
+> Signed-off-by: Maíra Canal <mcanal@igalia.com>
 > ---
->  drivers/media/platform/xilinx/xilinx-csi2rxss.c | 17 +++++++++--------
->  1 file changed, 9 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/media/platform/xilinx/xilinx-csi2rxss.c b/drivers/media/platform/xilinx/xilinx-csi2rxss.c
-> index 146131b8f..e0c5b2ceb 100644
-> --- a/drivers/media/platform/xilinx/xilinx-csi2rxss.c
-> +++ b/drivers/media/platform/xilinx/xilinx-csi2rxss.c
-> @@ -17,6 +17,7 @@
->  #include <linux/of_irq.h>
->  #include <linux/platform_device.h>
->  #include <linux/v4l2-subdev.h>
-> +#include <linux/string_choices.h>
->  #include <media/media-entity.h>
->  #include <media/mipi-csi2.h>
->  #include <media/v4l2-common.h>
-> @@ -400,19 +401,19 @@ static int xcsi2rxss_log_status(struct v4l2_subdev *sd)
->  	dev_info(dev, "***** Core Status *****\n");
->  	data = xcsi2rxss_read(xcsi2rxss, XCSI_CSR_OFFSET);
->  	dev_info(dev, "Short Packet FIFO Full = %s\n",
-> -		 data & XCSI_CSR_SPFIFOFULL ? "true" : "false");
-> +		 str_true_false(data & XCSI_CSR_SPFIFOFULL));
->  	dev_info(dev, "Short Packet FIFO Not Empty = %s\n",
-> -		 data & XCSI_CSR_SPFIFONE ? "true" : "false");
-> +		 str_true_false(data & XCSI_CSR_SPFIFONE));
->  	dev_info(dev, "Stream line buffer full = %s\n",
-> -		 data & XCSI_CSR_SLBF ? "true" : "false");
-> +		 str_true_false(data & XCSI_CSR_SLBF));
->  	dev_info(dev, "Soft reset/Core disable in progress = %s\n",
-> -		 data & XCSI_CSR_RIPCD ? "true" : "false");
-> +		 str_true_false(data & XCSI_CSR_RIPCD));
->  
->  	/* Clk & Lane Info  */
->  	dev_info(dev, "******** Clock Lane Info *********\n");
->  	data = xcsi2rxss_read(xcsi2rxss, XCSI_CLKINFR_OFFSET);
->  	dev_info(dev, "Clock Lane in Stop State = %s\n",
-> -		 data & XCSI_CLKINFR_STOP ? "true" : "false");
-> +		 str_true_false(data & XCSI_CLKINFR_STOP));
->  
->  	dev_info(dev, "******** Data Lane Info *********\n");
->  	dev_info(dev, "Lane\tSoT Error\tSoT Sync Error\tStop State\n");
-> @@ -421,9 +422,9 @@ static int xcsi2rxss_log_status(struct v4l2_subdev *sd)
->  		data = xcsi2rxss_read(xcsi2rxss, reg);
->  
->  		dev_info(dev, "%d\t%s\t\t%s\t\t%s\n", i,
-> -			 data & XCSI_DLXINFR_SOTERR ? "true" : "false",
-> -			 data & XCSI_DLXINFR_SOTSYNCERR ? "true" : "false",
-> -			 data & XCSI_DLXINFR_STOP ? "true" : "false");
-> +			 str_true_false(data & XCSI_DLXINFR_SOTERR),
-> +			 str_true_false(data & XCSI_DLXINFR_SOTSYNCERR),
-> +			 str_true_false(data & XCSI_DLXINFR_STOP));
->  
->  		reg += XCSI_NEXTREG_OFFSET;
->  	}
+>   drivers/clk/bcm/clk-raspberrypi.c | 5 -----
+>   1 file changed, 5 deletions(-)
+>
+> diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
+> index 1a9162f0ae31e330c46f6eafdd00350599b0eede..9783385d5859836898683209e320fcc928dfdc71 100644
+> --- a/drivers/clk/bcm/clk-raspberrypi.c
+> +++ b/drivers/clk/bcm/clk-raspberrypi.c
+> @@ -68,7 +68,6 @@ struct raspberrypi_clk_variant {
+>   	char		*clkdev;
+>   	unsigned long	min_rate;
+>   	bool		minimize;
+> -	bool		maximize;
+>   	u32		flags;
+>   };
+>   
+> @@ -136,7 +135,6 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+>   	},
+>   	[RPI_FIRMWARE_V3D_CLK_ID] = {
+>   		.export = true,
+> -		.maximize = true,
+>   	},
+>   	[RPI_FIRMWARE_PIXEL_CLK_ID] = {
+>   		.export = true,
+> @@ -387,9 +385,6 @@ static struct clk_hw *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
+>   		}
+>   	}
+>   
+> -	if (variant->maximize)
+> -		variant->min_rate = max_rate;
+> -
+>   	if (variant->min_rate) {
+>   		unsigned long rate;
+>   
+>
 
--- 
-Regards,
-
-Laurent Pinchart
 
