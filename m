@@ -4,92 +4,216 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFF0CD74EC2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 14:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD951D74ED8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 14:15:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MSoFRjOknm4ZIK2K843jWlQuurgBVP2u+fSilxIZ85g=; b=QciDMzFKOcFZF85oOXXlKT1WgS
-	i1OAvWRk+ATraQb/Grzvx8f+4APbQr6V9lwO+5e+c588G/G1qihCBJu8g0OY3kXWry+9MLFpNV0ik
-	lxWt/jGhbRWxJZx416TU6hTxmWlukfYANlEVxujKK9QDzuFOiXkwdDNGKC2SQz6uhqHQ7Jirdlbbc
-	4gI87p+y3+b0iRtFMyh6623suPTwxFiBdWL2Xe4uOMzz26Wm4UAjFaeBqFjbaF50jGTCW5qn+anoh
-	rRNHUHS9W3RzwCpdMWEuhwGph3Io7HImh978eWPtPGU8FunUt8iylHgbyBvBibWiMaFxXGqK4P1gB
-	VHjg+lvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DwBUMDy/zOmT5J3dWznJh8mjzL/yAouyAokgKarzMms=; b=WCJHMTepqos4ePE6uctRK2BzsE
+	BzfFfZbY1gTi31vQBk68KbHrgwCV0M6EMx02kDRSTgHXN8Il87ZH4DmKExA6RKhYlFXJuEY37UkM/
+	EnMq+oiFf/FH7K8K+lswRZQT+/605dxdBPvxAG8qr+WnqfAVbzrHkbeFatwH+XeRKson+LEPsriDh
+	rpVAdfvim+HttD2tMe1FE9YqUBn9/vjvgRXGF2fJ1u3ZjZh7jN9xZ36kXpGYNiRIrCQQVTffFiNau
+	kK8Hit8t2ZDCizKjiETP1YyWXsxO0WY/N0/7XMDcWwY2a+tER2z8kSRmXv8MaBoTWBUE/ZK0+CRrB
+	YPf1TURg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjHk6-000000090GA-285G;
-	Fri, 23 Jan 2026 14:02:30 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1vjHw8-0000000910R-0CJ0;
+	Fri, 23 Jan 2026 14:14:56 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjHjw-0000000903B-1n94
+	id 1vjHw5-000000090zU-3W3m
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 14:02:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=MSoFRjOknm4ZIK2K843jWlQuurgBVP2u+fSilxIZ85g=; b=aYbQ8J0qB8cbO2VlTXW7Hlw4Dz
-	HmdMG2ObiGyspuVP+Q7CaZXkYzNXwFmLaPGdgWuuF6JqYufLB5d8KZhDtOzvdN5PPNJ21Qp9tErFs
-	qEwjY+RUtW771bQAG96lkCXOIlX9TeBA/VJG7Eo5n3BNkz3UJkhum2nKprvTVt+ijpEiZ+sz8V3IV
-	LQGRvY6ZnVlTmD1a6Ke6Q4bLVSYn8JRzLGYFV8slnYWddQO11GXriqlaYbpTYN+8f2LeCL9DZUxSY
-	EagRhSMrWe9VvrtrMF475Tqp1PDYHv5OsCvNNkSqJyOxYLbxofAHl+qRfxWeCQePOe0RKzRtV/WLc
-	sbRD0yrQ==;
-Received: from [122.175.9.182] (port=43860 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpa (Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1vjHjF-0000000Dg3T-0VAa;
-	Fri, 23 Jan 2026 09:01:37 -0500
-From: Parvathi Pudi <parvathi@couthit.com>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	danishanwar@ti.com,
-	parvathi@couthit.com,
-	rogerq@kernel.org,
-	pmohan@couthit.com,
-	basharath@couthit.com,
-	afd@ti.com
-Cc: linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	alok.a.tiwari@oracle.com,
-	horms@kernel.org,
-	pratheesh@ti.com,
-	j-rameshbabu@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	krishna@couthit.com,
-	mohan@couthit.com
-Subject: [PATCH net-next v12 3/3] net: ti: icssm-prueth: Add support for ICSSM RSTP switch
-Date: Fri, 23 Jan 2026 19:27:52 +0530
-Message-ID: <20260123135932.535735-4-parvathi@couthit.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260123135932.535735-1-parvathi@couthit.com>
-References: <20260123135932.535735-1-parvathi@couthit.com>
+	Fri, 23 Jan 2026 14:14:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=D7g0FHjtQFH3peMEbau1GO9Tn3klzv8Zu+jxShHtwesOqyALKku8o4+HfAcwm1NttsMYb7nTokOhVvVvmWf1sNi3R2J/0z3byWl+ucrE4LWip7THMeNbtfNE7RcH2AFQDcpNS8LIX8jryRFhdZvP1IUeD2N4BliiJbm8+cW3hySnEe+Iwv9yMgk0C4z90x6hUue60tHw8fmW3nrvFiwRr8ZBinDSuhKWbyUW0+5E4Vzc4Nt2NFnWqLSw+4QqLOAyxU2QiRRyPmulNGWhB6CBYHKb2gBwSSTvp1yzEIwrO2eeiEhVB1fNT8dJPjsKGsDJ8hI1qv+8swCHxQyk+PWjZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DwBUMDy/zOmT5J3dWznJh8mjzL/yAouyAokgKarzMms=;
+ b=dxOOSFQMEFhy4UUzprATd+kSaEKh13lfCAv+ghfeGpBncGM5VVrE+POvqsM8nOZjAIiFSegZdjAVqiobd4nAFcESzTCGRfozLK3ogxkkJzT1aNpTXNBxKRd5kio6/zabBxx43R6Lq3QYUPoQZfiA1v0tZupy6DczblXkMXStu5MQq8I7f2EGcblEJBF+MMRNtQJ0wr5Dxb5yfycjtroTvG43uJjbpZhG4FtwmyRo+Cdyj8+j4P4YFcXQTYgJziB4AUCwQ41b9uzpdqy0aTwlL/rkNMY5rlcOZTbVCPjWj+SZn2kJVpxVyTWbw8YCsz/oQevzE/XvopICE5O78zeIRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DwBUMDy/zOmT5J3dWznJh8mjzL/yAouyAokgKarzMms=;
+ b=oMq/yW8Y9VQ6V4UPIcsy6PxP5yUJ+eRUjgigVuk3BxKHkl0hzWum0aoOHeerK6bDdgBJFdIrnIfe///oI7UMEiAgPteuiWP3/Odyj+mo+aUCVCWWzPeCBJ0RLYfjGt11ivx6jM3EJ/WBUGP/gD8+xNDfE+LzWEwagf5zVna/GyQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SJ2PR12MB8109.namprd12.prod.outlook.com (2603:10b6:a03:4f5::8)
+ by LV8PR12MB9136.namprd12.prod.outlook.com (2603:10b6:408:18e::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Fri, 23 Jan
+ 2026 14:14:44 +0000
+Received: from SJ2PR12MB8109.namprd12.prod.outlook.com
+ ([fe80::7f35:efe7:5e82:5e30]) by SJ2PR12MB8109.namprd12.prod.outlook.com
+ ([fe80::7f35:efe7:5e82:5e30%4]) with mapi id 15.20.9542.010; Fri, 23 Jan 2026
+ 14:14:33 +0000
+Message-ID: <c0310e06-4a50-47e8-9de7-581eff6f53ec@amd.com>
+Date: Fri, 23 Jan 2026 15:14:22 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] spi: xilinx: use device property accessors.
+To: Mark Brown <broonie@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, abdurrahman@nexthop.ai,
+ linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260122-spi-xilinx-v3-1-8cea20e82f0b@nexthop.ai>
+ <d6c5547b-0426-40d0-85b9-b64f183d37b6@lunn.ch>
+ <ac0c9ceb-0c34-49f2-a486-1d87e488f607@amd.com>
+ <a979b1eb-87c9-4c08-8d30-0fe18ad07a26@sirena.org.uk>
+Content-Language: en-US
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ xsFNBFFuvDEBEAC9Amu3nk79+J+4xBOuM5XmDmljuukOc6mKB5bBYOa4SrWJZTjeGRf52VMc
+ howHe8Y9nSbG92obZMqsdt+d/hmRu3fgwRYiiU97YJjUkCN5paHXyBb+3IdrLNGt8I7C9RMy
+ svSoH4WcApYNqvB3rcMtJIna+HUhx8xOk+XCfyKJDnrSuKgx0Svj446qgM5fe7RyFOlGX/wF
+ Ae63Hs0RkFo3I/+hLLJP6kwPnOEo3lkvzm3FMMy0D9VxT9e6Y3afe1UTQuhkg8PbABxhowzj
+ SEnl0ICoqpBqqROV/w1fOlPrm4WSNlZJunYV4gTEustZf8j9FWncn3QzRhnQOSuzTPFbsbH5
+ WVxwDvgHLRTmBuMw1sqvCc7CofjsD1XM9bP3HOBwCxKaTyOxbPJh3D4AdD1u+cF/lj9Fj255
+ Es9aATHPvoDQmOzyyRNTQzupN8UtZ+/tB4mhgxWzorpbdItaSXWgdDPDtssJIC+d5+hskys8
+ B3jbv86lyM+4jh2URpnL1gqOPwnaf1zm/7sqoN3r64cml94q68jfY4lNTwjA/SnaS1DE9XXa
+ XQlkhHgjSLyRjjsMsz+2A4otRLrBbumEUtSMlPfhTi8xUsj9ZfPIUz3fji8vmxZG/Da6jx/c
+ a0UQdFFCL4Ay/EMSoGbQouzhC69OQLWNH3rMQbBvrRbiMJbEZwARAQABzSlNaWNoYWwgU2lt
+ ZWsgKEFNRCkgPG1pY2hhbC5zaW1la0BhbWQuY29tPsLBlAQTAQgAPgIbAwULCQgHAgYVCgkI
+ CwIEFgIDAQIeAQIXgBYhBGc1DJv1zO6bU2Q1ajd8fyH+PR+RBQJn8lwDBQkaRgbLAAoJEDd8
+ fyH+PR+RCNAP/iHkKbpP0XXfgfWqf8yyrFHjGPJSknERzxw0glxPztfC3UqeusQ0CPnbI85n
+ uQdm5/zRgWr7wi8H2UMqFlfMW8/NH5Da7GOPc26NMTPA2ZG5S2SG2SGZj1Smq8mL4iueePiN
+ x1qfWhVm7TfkDHUEmMAYq70sjFcvygyqHUCumpw36CMQSMyrxyEkbYm1NKORlnySAFHy2pOx
+ nmXKSaL1yfof3JJLwNwtaBj76GKQILnlYx9QNnt6adCtrZLIhB3HGh4IRJyuiiM0aZi1G8ei
+ 2ILx2n2LxUw7X6aAD0sYHtNKUCQMCBGQHzJLDYjEyy0kfYoLXV2P6K+7WYnRP+uV8g77Gl9a
+ IuGvxgEUITjMakX3e8RjyZ5jmc5ZAsegfJ669oZJOzQouw/W9Qneb820rhA2CKK8BnmlkHP+
+ WB5yDks3gSHE/GlOWqRkVZ05sUjVmq/tZ1JEdOapWQovRQsueDjxXcMjgNo5e8ttCyMo44u1
+ pKXRJpR5l7/hBYWeMlcKvLwByep+FOGtKsv0xadMKr1M6wPZXkV83jMKxxRE9HlqWJLLUE1Q
+ 0pDvn1EvlpDj9eED73iMBsrHu9cIk8aweTEbQ4bcKRGfGkXrCwle6xRiKSjXCdzWpOglNhjq
+ 1g8Ak+G+ZR6r7QarL01BkdE2/WUOLHdGHB1hJxARbP2E3l46zsFNBFFuvDEBEACXqiX5h4IA
+ 03fJOwh+82aQWeHVAEDpjDzK5hSSJZDE55KP8br1FZrgrjvQ9Ma7thSu1mbr+ydeIqoO1/iM
+ fZA+DDPpvo6kscjep11bNhVa0JpHhwnMfHNTSHDMq9OXL9ZZpku/+OXtapISzIH336p4ZUUB
+ 5asad8Ux70g4gmI92eLWBzFFdlyR4g1Vis511Nn481lsDO9LZhKyWelbif7FKKv4p3FRPSbB
+ vEgh71V3NDCPlJJoiHiYaS8IN3uasV/S1+cxVbwz2WcUEZCpeHcY2qsQAEqp4GM7PF2G6gtz
+ IOBUMk7fjku1mzlx4zP7uj87LGJTOAxQUJ1HHlx3Li+xu2oF9Vv101/fsCmptAAUMo7KiJgP
+ Lu8TsP1migoOoSbGUMR0jQpUcKF2L2jaNVS6updvNjbRmFojK2y6A/Bc6WAKhtdv8/e0/Zby
+ iVA7/EN5phZ1GugMJxOLHJ1eqw7DQ5CHcSQ5bOx0Yjmhg4PT6pbW3mB1w+ClAnxhAbyMsfBn
+ XxvvcjWIPnBVlB2Z0YH/gizMDdM0Sa/HIz+q7JR7XkGL4MYeAM15m6O7hkCJcoFV7LMzkNKk
+ OiCZ3E0JYDsMXvmh3S4EVWAG+buA+9beElCmXDcXPI4PinMPqpwmLNcEhPVMQfvAYRqQp2fg
+ 1vTEyK58Ms+0a9L1k5MvvbFg9QARAQABwsF8BBgBCAAmAhsMFiEEZzUMm/XM7ptTZDVqN3x/
+ If49H5EFAmfyXCkFCRpGBvgACgkQN3x/If49H5GY5xAAoKWHRO/OlI7eMA8VaUgFInmphBAj
+ fAgQbW6Zxl9ULaCcNSoJc2D0zYWXftDOJeXyVk5Gb8cMbLA1tIMSM/BgSAnT7As2KfcZDTXQ
+ DJSZYWgYKc/YywLgUlpv4slFv5tjmoUvHK9w2DuFLW254pnUuhrdyTEaknEM+qOmPscWOs0R
+ dR6mMTN0vBjnLUeYdy0xbaoefjT+tWBybXkVwLDd3d/+mOa9ZiAB7ynuVWu2ow/uGJx0hnRI
+ LGfLsiPu47YQrQXu79r7RtVeAYwRh3ul7wx5LABWI6n31oEHxDH+1czVjKsiozRstEaUxuDZ
+ jWRHq+AEIq79BTTopj2dnW+sZAsnVpQmc+nod6xR907pzt/HZL0WoWwRVkbg7hqtzKOBoju3
+ hftqVr0nx77oBZD6mSJsxM/QuJoaXaTX/a/QiB4Nwrja2jlM0lMUA/bGeM1tQwS7rJLaT3cT
+ RBGSlJgyWtR8IQvX3rqHd6QrFi1poQ1/wpLummWO0adWes2U6I3GtD9vxO/cazWrWBDoQ8Da
+ otYa9+7v0j0WOBTJaj16LFxdSRq/jZ1y/EIHs3Ysd85mUWXOB8xZ6h+WEMzqAvOt02oWJVbr
+ ZLqxG/3ScDXZEUJ6EDJVoLAK50zMk87ece2+4GWGOKfFsiDfh7fnEMXQcykxuowBYUD0tMd2
+ mpwx1d8=
+In-Reply-To: <a979b1eb-87c9-4c08-8d30-0fe18ad07a26@sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VI1PR0102CA0056.eurprd01.prod.exchangelabs.com
+ (2603:10a6:803::33) To SJ2PR12MB8109.namprd12.prod.outlook.com
+ (2603:10b6:a03:4f5::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB8109:EE_|LV8PR12MB9136:EE_
+X-MS-Office365-Filtering-Correlation-Id: 78d30b1a-8596-4422-bdcb-08de5a89bb02
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dXI3aC9Zc0ZORm5nV1EydEJobWxWdm9SWXp6Zzd4ZTlYa2gvZ0NoelIrRExC?=
+ =?utf-8?B?SkR6b24wblJoQVNNWlRIZVZHemVZeWJVdCt6K3g1Z3FDRzA5MEpRMjBFYXlO?=
+ =?utf-8?B?eXltYTJkeDlhbmIybzdnd3hFRVhEbXZna1VTVldINVVYb0hZUTM4NkQ0eXFa?=
+ =?utf-8?B?SDJkaXk5RjVBdUt1N1FnR0hBSE5PS3QxVklFQS85M3FSUVQ4QlZ3RE5wNlQy?=
+ =?utf-8?B?MEo1cmwzZlN1Q3dTYWtlbkExdjdrZUlCR21hcERVVElxeWtYaXpSaDRqY3hZ?=
+ =?utf-8?B?eU1xeG1aYjJXM1JqVmUzSWN4RmtRQWlsZG45bGZNNktNNDErcko5QmVtSFR0?=
+ =?utf-8?B?STdQemlzNjZiNWl0MXk2YTlRM25WNzRuc2tEZG16Nnltc2d5blVaVDdjZzZx?=
+ =?utf-8?B?Nm1DUVF3UmcwTUZpN2tscGdZc3FaWjRVeEFuT3hhekpXcEZQS0hjOEFXTVJl?=
+ =?utf-8?B?MlhKeHpIZkN6NjQvMVJ6QTF6MUp3d1VJeGZiS2UvdDBhQmtwdmlyL2RFY0xX?=
+ =?utf-8?B?QlZjOTBHNnZDcVljMVRUd05zcVZndnI4R2IrQ1lVVmhQNmNsQXNWdElMYnUw?=
+ =?utf-8?B?NEMyZlp2SW5YZWRQZTQyRlAxQTF4cUJEejZQOThMY09tL1pKRUJLTG1TTHRl?=
+ =?utf-8?B?VnZXNWNaT3NlcXA3YVEwRkxJVkJHZS93aUdZZWliaVN6bGp0WUpwR0x0b0ZM?=
+ =?utf-8?B?ZXlBYTc2UWhDai9HN1FCNkhPVmVCWnlnQ1Q0V0ROZzhXd3k4d1hzT01WNGg2?=
+ =?utf-8?B?RHZ1TG9TWHR2dDlwelB3SlQ4czJBMmQ1ZlB0blpxem0xWGp0VU5oSUlIZVhI?=
+ =?utf-8?B?Q2dxZE53VHR3UWNTbzZiRmcya3ZvTmNXRWhvaDdDaUd3a0lXYlpOK2FvUnVN?=
+ =?utf-8?B?cEF2T3U5eWFVdUJIVTY1ejZISHJtUkdjWmp5NXNBL3lGeUJSbXJmRE1Hc0JX?=
+ =?utf-8?B?Vm91TC9RNDZhcmxjRlBvN1owQ1hXcVVRUFNWNTJsOWhOcjhoY1Mvd3lJSTdU?=
+ =?utf-8?B?M0k5bDE0NHpHdFVEdHplMU8vSFNFVHdOSDVFSmVaa3lyMFBjU1JackFkNUlq?=
+ =?utf-8?B?NlQrelROaXJnSktiYndneG9Oc1R2UkJvTGwyelAyMmphRll3VDU2QWJMcUFT?=
+ =?utf-8?B?ZnlILzVrUlpYclUzWFNBYk16Yk9RTFAxeGUzbjlzQzA5OGgzVy9td2UzWGtz?=
+ =?utf-8?B?QkJnbkkxb3dpWUUrVUJ5eHEwL3JHTmtadFQ1dVJDeXhJQ0pBSE9vdnVwUkRZ?=
+ =?utf-8?B?ZmJuMUszT0k1Sy81cGdQSzdCMXNpbzBzZEJ4NGhWOEhjNE1vaEVuZnFyZVph?=
+ =?utf-8?B?WTJSWjFvZkFWYzhlNzZ0SHhRd0lDeGU2MzRXNG0vcGxkY3JieWhGUGx2VzBL?=
+ =?utf-8?B?Y0prdUNkRWdtR09ZclRvUDFvcnNTdFdTMU1ObEcxcHpIb0xrNG40cktjL0NC?=
+ =?utf-8?B?Rm9YMGVtKzV0NmJJVGcyR054Z0tLcnVKbFBZNURoSXVINFRVYTF0M3duWVl2?=
+ =?utf-8?B?VnJOY2tLajhGY1RvYk5pZHoxamlNRXk4ZHdLYzM1cGJydGFZbysreWFhemFX?=
+ =?utf-8?B?c3BlM0p0M3BqdHVWQ2VmN3NUblU3Ty8wMDBYR1hZS09UWjFlRXdlQjgyVCti?=
+ =?utf-8?B?K01vcWpjajVoMzhnYnhrM1crcU9DS2cvMUc2bFJHYTZxREdrOG1lbU5QVlhS?=
+ =?utf-8?B?Z3NoM0xOaHJXTUJTRFhKbnd3VXlJTFU5ajNodjRvQmRuRlF5N2FCaTVFQUt1?=
+ =?utf-8?B?bytSaXh2NzVIQzl5Q0FabUFxUUpBQjc5bnFrckVjVFN3aHlrZmtjSG1DUVZC?=
+ =?utf-8?B?cDdqdmpqblRUcHo3VVF5RFU2QjR0QVAxU1h3OWorbnpvZjYwZkEyLzBFTUEv?=
+ =?utf-8?B?dVIvN1NQSTdudjVTcUt0K2o4SmE1V1Y1S1FUVE9vVWFQSjNBZEhNS3JkcTVD?=
+ =?utf-8?B?MzJXL0QwdVV4b1l4b21GK1o0Q09raTZnYkRzOUw0Y0k3dVpsbGJ3Y0g3S1RP?=
+ =?utf-8?B?MVNBdnBvZmQ2UXpTa3VuVDJnTENrNWdsKzFhZ2FValYvQnp2RHo5bWk2R0VR?=
+ =?utf-8?B?RjZINmdMQlQzbnB6ZThkOTcvSVVUYnRTdGc2SzhDUFJxZjhQd1NJTElqT2NS?=
+ =?utf-8?Q?0kgM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8109.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b3JKQlYzbGIrZFgrMXVaSHNBdnlWSlNSbHlUeVJ6ZjdQd3l5ZGNwN0JVbS9x?=
+ =?utf-8?B?NFkxaldOR0s4ZHhOTzAzTWdEMFAvTlMrYmswSWlneUlFTFBVT3RIRWRhK2Ez?=
+ =?utf-8?B?eDRkMjhLUTdpSVhkZk5FMUY0NFFSTWMzaDZTUEJ6cEJWZDJieGFYSG9hUnZJ?=
+ =?utf-8?B?WVBHeTFQOSswblptMXpkUXFKSEpFTDY5WXFBTWJpVlBWa0loV1VVL1pRR1JX?=
+ =?utf-8?B?Wm5vV09qSFRSUmZuVUxqaWlyZGc0YStHNVNrSnNpTXA3TnZoYVBvUHJiR0Vy?=
+ =?utf-8?B?TG9JakNDMVl1TS9tM0hQUjdJTTFqVmNSelNwMW41RlRmQzdjbFQ4N2FyNUxZ?=
+ =?utf-8?B?blVlNm9ST2lXcHFHNnRSOFRPaElvWnA5MlEvZHhRUHF0SEdhanowa2ljekVB?=
+ =?utf-8?B?SWY2b0RjSTBhRURUbW1QNDNXdng0c1EwcXdLUUtCRzN5WTYxWjdJV3p3SmNW?=
+ =?utf-8?B?Mk5BNEFuVGFIc3BIVDVNVTNoWGFra2hVUjVuaWJzTFhvKzVZSlZiVk1ITVdZ?=
+ =?utf-8?B?My9zbEFEOEFsUWlZQk1sUmg0WEk5WVhVczlicUZ5WnllNzNiNzZXcXRMUTBF?=
+ =?utf-8?B?Nk9pZU5ROHB5Y2VHcGFURTloQ1pkNnJBdEdKVVhkb3ZPOE1PYUJNSFNTNmps?=
+ =?utf-8?B?S3IrSzd5Z0VtdUxsTmhPeDRUZGt0a0ljZXhXK2JXQm5pcS9MeFlXRm1EL2JE?=
+ =?utf-8?B?bkhadUxsQjFjSGhDN21CbE5kVktGVkpWamJnMFhrdmZBaXBnUis0eWFnQk9k?=
+ =?utf-8?B?cnlJSnJCcmEyV1lqQS9ZV0R6aVVRdUE0NzE3NE9mcEVMTFVBbldzWDVSeFBk?=
+ =?utf-8?B?YW1FODkvQVgzOFlMeFhXVGxlZ1IzQU5xb1E5RUo3WFczV21XazFEZTdCNEFn?=
+ =?utf-8?B?bStPQ1k0SVNOZE1aK2k5ZVJMU2RUZktnUmc1QXV0eW43VXB5V0RWZm5TSXFN?=
+ =?utf-8?B?b3dqNEJXMTk2VERqNGRnQ2RLK1FocW5qcUwvLy9ETCt6R1VZSTlONHBvNGdV?=
+ =?utf-8?B?U1V1TGxTYTg0N1REZ093NWtEWUpjYSt1OUV5ZUxFclI2NGh6SytpT3d0TzFz?=
+ =?utf-8?B?U3RtSHBaeVpGM2oybDBkZEZHUHNaWGFyUm00S3d3RUR4MW1UZjkraFd1YUda?=
+ =?utf-8?B?QlJtUUxROU1ITDF6S3EyS0xGQnI1djQyMlpzb1V1ekVWVXhpNkNxNDcxL2Zt?=
+ =?utf-8?B?ek1ydFJCUGF0Mm4xUU80R3hmWERRTHVudnhJQ1lMWGhaMENtYkJIMFAwS3F0?=
+ =?utf-8?B?OUVsYk01VGlSa0I1TEJ3eWdxemdjOGoxbFltZnRueGt0Rm5nam44ZTdXRkJT?=
+ =?utf-8?B?RmppZ3k2ZUVzaVBFa0NZVndPQkdaL0J1U1F5S0FSODN3QlRKOEwzaXE3Zko5?=
+ =?utf-8?B?M3ZFeVBnNDhmMGJPWVNPOVNTZlQ4emxEZzNjTms5VDNRUlpZaDUrVitjZWgy?=
+ =?utf-8?B?NktkUXhxdTJDbFVzb1hoNThSQUljKzM3aU5qWDNSK2p5NmJZOW13U3MwdjJT?=
+ =?utf-8?B?SGNIT2hBSURZN1JqTVJ6cGN0N1NFREZFSGtmelIrREN6aURVRm4yc0JNeThD?=
+ =?utf-8?B?cDhsSnBqYUwwVFpsQ2Q2aGFnbDRjc1NoQTdUTGJzTmx4TDZsOHR5YjlCdllZ?=
+ =?utf-8?B?Z3hJTkEreUxLMEVtYWp1TW1tOUxrcGFFbGZrV2RiRVRtUVVKcUl3alltMXRN?=
+ =?utf-8?B?R3hadE9YQ2VReWh2SzJ1U1l5ODYwSnJoUXNJdXFpdkVuMEhUaXdMUGNJN2RV?=
+ =?utf-8?B?d3dZVmpBdW1zNUxXeTVISWhNM0lGcTc1cFNXOC9pSTdWc3FBcDZlNGZGa2Rl?=
+ =?utf-8?B?OTFKRDc5RkVGUDdEL1IrRzRqUU9qZHpSSDNYU1N6SmIxamQvMVF1STlkRUEv?=
+ =?utf-8?B?YzVDL3hoQjZYaGVEUld0Z1d2YmFTd24vTVVEd0MxMFFwMTdSZEtOS3BPQlRl?=
+ =?utf-8?B?dElhSUY0YWtVV1AzM3h3L0RaTjBTMGpZZ1dTSFc5M0wzb2ZRSE9PbUhVRkFi?=
+ =?utf-8?B?cCtJY3RwakpoeWZ4VmZ4QnUxanRabXJrZTNUR0dWalVNaWxDSEVwYjd6cTJ3?=
+ =?utf-8?B?dW5pR0NUUXlsSCtrcE9ubnFRWHdEenVmRGpkbUh5WXIwSFJLQjJmd0VUUHZy?=
+ =?utf-8?B?cnJyUnB5RHRVME85VmRQaFlITHJUOXY1UEVWTnJweGRaUllnS1VWb3Q0UEt0?=
+ =?utf-8?B?eitLUHFITnVUL3gwM0dFTUI1QU94QzNlYjgzbkpBYy9KU2kvWXZXNHpna3Ji?=
+ =?utf-8?B?WUxDa2FZWUttOHpqcDcwSDY4UVR1MHRwUit1RDNEdXZITTZINnhCcmJPaGdq?=
+ =?utf-8?B?K0RHeWdwQmJ1Q0RYZ3FSZEJjYjhsQnJpRUNXcWpCa0xZcDJhZStVdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 78d30b1a-8596-4422-bdcb-08de5a89bb02
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8109.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 14:14:33.1181
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Da+qyAFBQ6jFGl8Hc12u/YQoP5dNf+fF63nH2NMl1/neYbTlSKk+Wb73ADZkTi0y
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9136
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_060222_924416_8943D757 
-X-CRM114-Status: GOOD (  23.30  )
+X-CRM114-CacheID: sfid-20260123_061453_915990_2A48362D 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,1187 +228,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roger Quadros <rogerq@ti.com>
 
-Add support for RSTP switch mode by enhancing the existing ICSSM dual EMAC
-driver with switchdev support.
 
-Enable the PRU-ICSSM to operate in switch mode, with the 2 PRU ports acting
-as external ports and the host acting as an internal port. Packets received
-from the PRU ports will be forwarded to the host (store and forward mode)
-and also to the other PRU port (either using store and forward mode or via
-cut-through mode). Packets coming from the host will be transmitted either
-from one or both of the PRU ports (depending on the FDB decision).
+On 1/23/26 13:40, Mark Brown wrote:
+> On Fri, Jan 23, 2026 at 08:11:47AM +0100, Michal Simek wrote:
+>> On 1/22/26 17:18, Andrew Lunn wrote:
+>>> On Thu, Jan 22, 2026 at 09:00:29AM +0000, Abdurrahman Hussain via B4 Relay wrote:
+> 
+>>>> +		ret = device_property_read_u32(&pdev->dev,
+>>>> +					       "xlnx,num-transfer-bits",
+>>>> +					       &bits_per_word);
+> 
+>>> It could be my grep foo is broken, but there does not appear to be any
+>>> users of xlnx,num-transfer-bits and xlnx,num-ss-bits. So it would be
+>>> better to just remove them. There is no point Maintaining an API
+>>> nobody uses. And it would be silly to spread that API to ACPI if
+>>> nobody it going to use it.
+> 
+> There are no upstream users of this driver at all so obviously no use of
+> the properties.
 
-By default, the dual EMAC firmware will be loaded in the PRU-ICSS
-subsystem. To configure the PRU-ICSS to operate as a switch, a different
-firmware must to be loaded.
+We are not wiring this driver in any DT because it is soft IP but it doesn't 
+mean that it is not used.
+But as you see Abdurrahman is able to use this driver is one configuration.
+These properties are stable for years and well documented.
 
-Signed-off-by: Roger Quadros <rogerq@ti.com>
-Signed-off-by: Andrew F. Davis <afd@ti.com>
-Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
----
- drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 353 +++++++++++++++-
- drivers/net/ethernet/ti/icssm/icssm_prueth.h  |   6 +
- .../ethernet/ti/icssm/icssm_prueth_switch.c   | 385 ++++++++++++++++++
- .../ethernet/ti/icssm/icssm_prueth_switch.h   |   8 +
- drivers/net/ethernet/ti/icssm/icssm_switch.h  |  77 ++++
- 5 files changed, 808 insertions(+), 21 deletions(-)
-
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-index b779096c09e8..b828c22afdca 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-@@ -147,7 +147,7 @@ static const struct prueth_queue_info queue_infos[][NUM_QUEUES] = {
- 	},
- };
- 
--static const struct prueth_queue_desc queue_descs[][NUM_QUEUES] = {
-+const struct prueth_queue_desc queue_descs[][NUM_QUEUES] = {
- 	[PRUETH_PORT_QUEUE_HOST] = {
- 		{ .rd_ptr = P0_Q1_BD_OFFSET, .wr_ptr = P0_Q1_BD_OFFSET, },
- 		{ .rd_ptr = P0_Q2_BD_OFFSET, .wr_ptr = P0_Q2_BD_OFFSET, },
-@@ -207,9 +207,9 @@ static void icssm_prueth_hostconfig(struct prueth *prueth)
- 
- static void icssm_prueth_mii_init(struct prueth *prueth)
- {
-+	u32 txcfg_reg, txcfg, txcfg2;
- 	struct regmap *mii_rt;
- 	u32 rxcfg_reg, rxcfg;
--	u32 txcfg_reg, txcfg;
- 
- 	mii_rt = prueth->mii_rt;
- 
-@@ -237,17 +237,23 @@ static void icssm_prueth_mii_init(struct prueth *prueth)
- 		(TX_START_DELAY << PRUSS_MII_RT_TXCFG_TX_START_DELAY_SHIFT) |
- 		(TX_CLK_DELAY_100M << PRUSS_MII_RT_TXCFG_TX_CLK_DELAY_SHIFT);
- 
-+	txcfg2 = txcfg;
-+	if (!PRUETH_IS_EMAC(prueth))
-+		txcfg2 |= PRUSS_MII_RT_TXCFG_TX_MUX_SEL;
-+
- 	/* Configuration of Port 0 Tx */
- 	txcfg_reg = PRUSS_MII_RT_TXCFG0;
- 
--	regmap_write(mii_rt, txcfg_reg, txcfg);
-+	regmap_write(mii_rt, txcfg_reg, txcfg2);
- 
--	txcfg |= PRUSS_MII_RT_TXCFG_TX_MUX_SEL;
-+	txcfg2 = txcfg;
-+	if (PRUETH_IS_EMAC(prueth))
-+		txcfg2 |= PRUSS_MII_RT_TXCFG_TX_MUX_SEL;
- 
- 	/* Configuration of Port 1 Tx */
- 	txcfg_reg = PRUSS_MII_RT_TXCFG1;
- 
--	regmap_write(mii_rt, txcfg_reg, txcfg);
-+	regmap_write(mii_rt, txcfg_reg, txcfg2);
- 
- 	txcfg_reg = PRUSS_MII_RT_RX_FRMS0;
- 
-@@ -294,7 +300,10 @@ static void icssm_prueth_hostinit(struct prueth *prueth)
- 		icssm_prueth_clearmem(prueth, PRUETH_MEM_DRAM1);
- 
- 	/* Initialize host queues in shared RAM */
--	icssm_prueth_hostconfig(prueth);
-+	if (!PRUETH_IS_EMAC(prueth))
-+		icssm_prueth_sw_hostconfig(prueth);
-+	else
-+		icssm_prueth_hostconfig(prueth);
- 
- 	/* Configure MII_RT */
- 	icssm_prueth_mii_init(prueth);
-@@ -501,19 +510,24 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
- 	struct prueth_queue_desc __iomem *queue_desc;
- 	const struct prueth_queue_info *txqueue;
- 	struct net_device *ndev = emac->ndev;
-+	struct prueth *prueth = emac->prueth;
- 	unsigned int buffer_desc_count;
- 	int free_blocks, update_block;
- 	bool buffer_wrapped = false;
- 	int write_block, read_block;
- 	void *src_addr, *dst_addr;
- 	int pkt_block_size;
-+	void __iomem *sram;
- 	void __iomem *dram;
- 	int txport, pktlen;
- 	u16 update_wr_ptr;
- 	u32 wr_buf_desc;
- 	void *ocmc_ram;
- 
--	dram = emac->prueth->mem[emac->dram].va;
-+	if (!PRUETH_IS_EMAC(prueth))
-+		dram = prueth->mem[PRUETH_MEM_DRAM1].va;
-+	else
-+		dram = emac->prueth->mem[emac->dram].va;
- 	if (eth_skb_pad(skb)) {
- 		if (netif_msg_tx_err(emac) && net_ratelimit())
- 			netdev_err(ndev, "packet pad failed\n");
-@@ -526,7 +540,10 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
- 	pktlen = skb->len;
- 	/* Get the tx queue */
- 	queue_desc = emac->tx_queue_descs + queue_id;
--	txqueue = &queue_infos[txport][queue_id];
-+	if (!PRUETH_IS_EMAC(prueth))
-+		txqueue = &sw_queue_infos[txport][queue_id];
-+	else
-+		txqueue = &queue_infos[txport][queue_id];
- 
- 	buffer_desc_count = icssm_get_buff_desc_count(txqueue);
- 
-@@ -592,7 +609,11 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
-        /* update first buffer descriptor */
- 	wr_buf_desc = (pktlen << PRUETH_BD_LENGTH_SHIFT) &
- 		       PRUETH_BD_LENGTH_MASK;
--	writel(wr_buf_desc, dram + readw(&queue_desc->wr_ptr));
-+	sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
-+	if (!PRUETH_IS_EMAC(prueth))
-+		writel(wr_buf_desc, sram + readw(&queue_desc->wr_ptr));
-+	else
-+		writel(wr_buf_desc, dram + readw(&queue_desc->wr_ptr));
- 
- 	/* update the write pointer in this queue descriptor, the firmware
- 	 * polls for this change so this will signal the start of transmission
-@@ -606,7 +627,6 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
- void icssm_parse_packet_info(struct prueth *prueth, u32 buffer_descriptor,
- 			     struct prueth_packet_info *pkt_info)
- {
--	pkt_info->shadow = !!(buffer_descriptor & PRUETH_BD_SHADOW_MASK);
- 	pkt_info->port = (buffer_descriptor & PRUETH_BD_PORT_MASK) >>
- 			 PRUETH_BD_PORT_SHIFT;
- 	pkt_info->length = (buffer_descriptor & PRUETH_BD_LENGTH_MASK) >>
-@@ -715,11 +735,19 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
- 		src_addr += actual_pkt_len;
- 	}
- 
-+	if (PRUETH_IS_SWITCH(emac->prueth)) {
-+		skb->offload_fwd_mark = READ_ONCE(emac->offload_fwd_mark);
-+		if (!pkt_info->lookup_success)
-+			icssm_prueth_sw_learn_fdb(emac, skb->data + ETH_ALEN);
-+	}
-+
- 	skb_put(skb, actual_pkt_len);
- 
- 	/* send packet up the stack */
- 	skb->protocol = eth_type_trans(skb, ndev);
-+	local_bh_disable();
- 	netif_receive_skb(skb);
-+	local_bh_enable();
- 
- 	/* update stats */
- 	emac->stats.rx_bytes += actual_pkt_len;
-@@ -745,6 +773,7 @@ static int icssm_emac_rx_packets(struct prueth_emac *emac, int budget)
- 
- 	shared_ram = emac->prueth->mem[PRUETH_MEM_SHARED_RAM].va;
- 
-+	/* Start and end queue is made common for EMAC, RSTP */
- 	start_queue = emac->rx_queue_start;
- 	end_queue = emac->rx_queue_end;
- 
-@@ -755,8 +784,10 @@ static int icssm_emac_rx_packets(struct prueth_emac *emac, int budget)
- 	/* search host queues for packets */
- 	for (i = start_queue; i <= end_queue; i++) {
- 		queue_desc = emac->rx_queue_descs + i;
--		rxqueue = &queue_infos[PRUETH_PORT_HOST][i];
--
-+		if (PRUETH_IS_SWITCH(emac->prueth))
-+			rxqueue = &sw_queue_infos[PRUETH_PORT_HOST][i];
-+		else
-+			rxqueue = &queue_infos[PRUETH_PORT_HOST][i];
- 		overflow_cnt = readb(&queue_desc->overflow_cnt);
- 		if (overflow_cnt > 0) {
- 			emac->stats.rx_over_errors += overflow_cnt;
-@@ -881,6 +912,13 @@ static int icssm_emac_request_irqs(struct prueth_emac *emac)
- 	return ret;
- }
- 
-+/* Function to free memory related to sw */
-+static void icssm_prueth_free_memory(struct prueth *prueth)
-+{
-+	if (PRUETH_IS_SWITCH(prueth))
-+		icssm_prueth_sw_free_fdb_table(prueth);
-+}
-+
- static void icssm_ptp_dram_init(struct prueth_emac *emac)
- {
- 	void __iomem *sram = emac->prueth->mem[PRUETH_MEM_SHARED_RAM].va;
-@@ -943,20 +981,38 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
- 	if (!prueth->emac_configured)
- 		icssm_prueth_init_ethernet_mode(prueth);
- 
--	icssm_prueth_emac_config(emac);
-+	/* reset and start PRU firmware */
-+	if (PRUETH_IS_SWITCH(prueth)) {
-+		ret = icssm_prueth_sw_emac_config(emac);
-+		if (ret)
-+			return ret;
-+
-+		ret = icssm_prueth_sw_init_fdb_table(prueth);
-+		if (ret)
-+			return ret;
-+	} else {
-+		icssm_prueth_emac_config(emac);
-+	}
- 
- 	if (!prueth->emac_configured) {
- 		icssm_ptp_dram_init(emac);
- 		ret = icss_iep_init(prueth->iep, NULL, NULL, 0);
- 		if (ret) {
- 			netdev_err(ndev, "Failed to initialize iep: %d\n", ret);
--			goto iep_exit;
-+			goto free_mem;
- 		}
- 	}
- 
--	ret = icssm_emac_set_boot_pru(emac, ndev);
--	if (ret)
--		goto iep_exit;
-+	if (!PRUETH_IS_EMAC(prueth)) {
-+		ret = icssm_prueth_sw_boot_prus(prueth, ndev);
-+		if (ret)
-+			goto iep_exit;
-+	} else {
-+		/* boot the PRU */
-+		ret = icssm_emac_set_boot_pru(emac, ndev);
-+		if (ret)
-+			goto iep_exit;
-+	}
- 
- 	ret = icssm_emac_request_irqs(emac);
- 	if (ret)
-@@ -971,19 +1027,25 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
- 	icssm_prueth_port_enable(emac, true);
- 
- 	prueth->emac_configured |= BIT(emac->port_id);
--
-+	if (PRUETH_IS_SWITCH(prueth))
-+		icssm_prueth_sw_set_stp_state(prueth, emac->port_id,
-+					      BR_STATE_LEARNING);
- 	if (netif_msg_drv(emac))
- 		dev_notice(&ndev->dev, "started\n");
- 
- 	return 0;
- 
- rproc_shutdown:
--	rproc_shutdown(emac->pru);
-+	if (!PRUETH_IS_EMAC(prueth))
-+		icssm_prueth_sw_shutdown_prus(emac, ndev);
-+	else
-+		rproc_shutdown(emac->pru);
- 
- iep_exit:
- 	if (!prueth->emac_configured)
- 		icss_iep_exit(prueth->iep);
--
-+free_mem:
-+	icssm_prueth_free_memory(emac->prueth);
- 	return ret;
- }
- 
-@@ -1012,17 +1074,73 @@ static int icssm_emac_ndo_stop(struct net_device *ndev)
- 	hrtimer_cancel(&emac->tx_hrtimer);
- 
- 	/* stop the PRU */
--	rproc_shutdown(emac->pru);
-+	if (!PRUETH_IS_EMAC(prueth))
-+		icssm_prueth_sw_shutdown_prus(emac, ndev);
-+	else
-+		rproc_shutdown(emac->pru);
- 
- 	/* free rx interrupts */
- 	free_irq(emac->rx_irq, ndev);
- 
-+	/* free memory related to sw */
-+	icssm_prueth_free_memory(emac->prueth);
-+
-+	if (!prueth->emac_configured)
-+		icss_iep_exit(prueth->iep);
-+
- 	if (netif_msg_drv(emac))
- 		dev_notice(&ndev->dev, "stopped\n");
- 
- 	return 0;
- }
- 
-+static int icssm_prueth_change_mode(struct prueth *prueth,
-+				    enum pruss_ethtype mode)
-+{
-+	bool portstatus[PRUETH_NUM_MACS];
-+	struct prueth_emac *emac;
-+	struct net_device *ndev;
-+	int i, ret;
-+
-+	for (i = 0; i < PRUETH_NUM_MACS; i++) {
-+		emac = prueth->emac[i];
-+		ndev = emac->ndev;
-+
-+		portstatus[i] = netif_running(ndev);
-+		if (!portstatus[i])
-+			continue;
-+
-+		ret = ndev->netdev_ops->ndo_stop(ndev);
-+		if (ret < 0) {
-+			netdev_err(ndev, "failed to stop: %d", ret);
-+			return ret;
-+		}
-+	}
-+
-+	if (mode == PRUSS_ETHTYPE_EMAC || mode == PRUSS_ETHTYPE_SWITCH) {
-+		prueth->eth_type = mode;
-+	} else {
-+		dev_err(prueth->dev, "unknown mode\n");
-+		return -EINVAL;
-+	}
-+
-+	for (i = 0; i < PRUETH_NUM_MACS; i++) {
-+		emac = prueth->emac[i];
-+		ndev = emac->ndev;
-+
-+		if (!portstatus[i])
-+			continue;
-+
-+		ret = ndev->netdev_ops->ndo_open(ndev);
-+		if (ret < 0) {
-+			netdev_err(ndev, "failed to start: %d", ret);
-+			return ret;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- /* VLAN-tag PCP to priority queue map for EMAC/Switch/HSR/PRP used by driver
-  * Index is PCP val / 2.
-  *   low  - pcp 0..3 maps to Q4 for Host
-@@ -1291,6 +1409,15 @@ static void icssm_emac_ndo_set_rx_mode(struct net_device *ndev)
- 		icssm_emac_mc_filter_bin_allow(emac, hash);
- 	}
- 
-+	/* Add bridge device's MC addresses as well */
-+	if (prueth->hw_bridge_dev) {
-+		netdev_for_each_mc_addr(ha, prueth->hw_bridge_dev) {
-+			hash = icssm_emac_get_mc_hash(ha->addr,
-+						      emac->mc_filter_mask);
-+			icssm_emac_mc_filter_bin_allow(emac, hash);
-+		}
-+	}
-+
- unlock:
- 	spin_unlock_irqrestore(&emac->addr_lock, flags);
- }
-@@ -1353,6 +1480,7 @@ static enum hrtimer_restart icssm_emac_tx_timer_callback(struct hrtimer *timer)
- static int icssm_prueth_netdev_init(struct prueth *prueth,
- 				    struct device_node *eth_node)
- {
-+	const struct prueth_private_data *fw_data = prueth->fw_data;
- 	struct prueth_emac *emac;
- 	struct net_device *ndev;
- 	enum prueth_port port;
-@@ -1443,6 +1571,14 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
- 	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_Pause_BIT);
- 	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_Asym_Pause_BIT);
- 
-+	/* Protocol switching
-+	 * Enabling L2 Firmware offloading
-+	 */
-+	if (fw_data->support_switch) {
-+		ndev->features |= NETIF_F_HW_L2FW_DOFFLOAD;
-+		ndev->hw_features |= NETIF_F_HW_L2FW_DOFFLOAD;
-+	}
-+
- 	ndev->dev.of_node = eth_node;
- 	ndev->netdev_ops = &emac_netdev_ops;
- 
-@@ -1490,6 +1626,156 @@ bool icssm_prueth_sw_port_dev_check(const struct net_device *ndev)
- 	return false;
- }
- 
-+static int icssm_prueth_port_offload_fwd_mark_update(struct prueth *prueth)
-+{
-+	int set_val = 0;
-+	int i, ret = 0;
-+	u8 all_slaves;
-+
-+	all_slaves = BIT(PRUETH_PORT_MII0) | BIT(PRUETH_PORT_MII1);
-+
-+	if (prueth->br_members == all_slaves)
-+		set_val = 1;
-+
-+	dev_dbg(prueth->dev, "set offload_fwd_mark %d, mbrs=0x%x\n",
-+		set_val, prueth->br_members);
-+
-+	for (i = 0; i < PRUETH_NUM_MACS; i++)
-+		WRITE_ONCE(prueth->emac[i]->offload_fwd_mark, set_val);
-+
-+	/* Bridge is created, load switch firmware,
-+	 * if not already in that mode
-+	 */
-+	if (set_val && !PRUETH_IS_SWITCH(prueth)) {
-+		ret = icssm_prueth_change_mode(prueth, PRUSS_ETHTYPE_SWITCH);
-+		if (ret < 0)
-+			dev_err(prueth->dev, "Failed to enable Switch mode\n");
-+		else
-+			dev_info(prueth->dev,
-+				 "TI PRU ethernet now in Switch mode\n");
-+	}
-+
-+	/* Bridge is deleted, switch to Dual EMAC mode */
-+	if (!prueth->br_members && !PRUETH_IS_EMAC(prueth)) {
-+		ret = icssm_prueth_change_mode(prueth, PRUSS_ETHTYPE_EMAC);
-+		if (ret < 0)
-+			dev_err(prueth->dev, "Failed to enable Dual EMAC mode\n");
-+		else
-+			dev_info(prueth->dev,
-+				 "TI PRU ethernet now in Dual EMAC mode\n");
-+	}
-+
-+	return ret;
-+}
-+
-+static int icssm_prueth_ndev_port_link(struct net_device *ndev,
-+				       struct net_device *br_ndev)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct prueth *prueth = emac->prueth;
-+	unsigned long flags;
-+	int ret = 0;
-+
-+	dev_dbg(prueth->dev, "%s: br_mbrs=0x%x %s\n",
-+		__func__, prueth->br_members, ndev->name);
-+
-+	spin_lock_irqsave(&emac->addr_lock, flags);
-+
-+	if (!prueth->br_members) {
-+		prueth->hw_bridge_dev = br_ndev;
-+	} else {
-+		/* This is adding the port to a second bridge,
-+		 * this is unsupported
-+		 */
-+		if (prueth->hw_bridge_dev != br_ndev) {
-+			spin_unlock_irqrestore(&emac->addr_lock, flags);
-+			return -EOPNOTSUPP;
-+		}
-+	}
-+
-+	prueth->br_members |= BIT(emac->port_id);
-+
-+	spin_unlock_irqrestore(&emac->addr_lock, flags);
-+
-+	ret = icssm_prueth_port_offload_fwd_mark_update(prueth);
-+
-+	return ret;
-+}
-+
-+static int icssm_prueth_ndev_port_unlink(struct net_device *ndev)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct prueth *prueth = emac->prueth;
-+	unsigned long flags;
-+	int ret = 0;
-+
-+	dev_dbg(prueth->dev, "emac_sw_ndev_port_unlink\n");
-+
-+	spin_lock_irqsave(&emac->addr_lock, flags);
-+
-+	prueth->br_members &= ~BIT(emac->port_id);
-+
-+	spin_unlock_irqrestore(&emac->addr_lock, flags);
-+
-+	ret = icssm_prueth_port_offload_fwd_mark_update(prueth);
-+
-+	spin_lock_irqsave(&emac->addr_lock, flags);
-+
-+	if (!prueth->br_members)
-+		prueth->hw_bridge_dev = NULL;
-+
-+	spin_unlock_irqrestore(&emac->addr_lock, flags);
-+
-+	return ret;
-+}
-+
-+static int icssm_prueth_ndev_event(struct notifier_block *unused,
-+				   unsigned long event, void *ptr)
-+{
-+	struct net_device *ndev = netdev_notifier_info_to_dev(ptr);
-+	struct netdev_notifier_changeupper_info *info;
-+	int ret = NOTIFY_DONE;
-+
-+	if (!icssm_prueth_sw_port_dev_check(ndev))
-+		return NOTIFY_DONE;
-+
-+	switch (event) {
-+	case NETDEV_CHANGEUPPER:
-+		info = ptr;
-+		if (netif_is_bridge_master(info->upper_dev)) {
-+			if (info->linking)
-+				ret = icssm_prueth_ndev_port_link
-+					(ndev, info->upper_dev);
-+			else
-+				ret = icssm_prueth_ndev_port_unlink(ndev);
-+		}
-+		break;
-+	default:
-+		return NOTIFY_DONE;
-+	}
-+
-+	return notifier_from_errno(ret);
-+}
-+
-+static int icssm_prueth_register_notifiers(struct prueth *prueth)
-+{
-+	int ret = 0;
-+
-+	prueth->prueth_netdevice_nb.notifier_call = icssm_prueth_ndev_event;
-+	ret = register_netdevice_notifier(&prueth->prueth_netdevice_nb);
-+	if (ret) {
-+		dev_err(prueth->dev,
-+			"register netdevice notifier failed ret: %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = icssm_prueth_sw_register_notifiers(prueth);
-+	if (ret)
-+		unregister_netdevice_notifier(&prueth->prueth_netdevice_nb);
-+
-+	return ret;
-+}
-+
- static int icssm_prueth_probe(struct platform_device *pdev)
- {
- 	struct device_node *eth0_node = NULL, *eth1_node = NULL;
-@@ -1709,6 +1995,12 @@ static int icssm_prueth_probe(struct platform_device *pdev)
- 			prueth->emac[PRUETH_MAC1]->ndev;
- 	}
- 
-+	ret = icssm_prueth_register_notifiers(prueth);
-+	if (ret) {
-+		dev_err(dev, "can't register switchdev notifiers");
-+		goto netdev_unregister;
-+	}
-+
- 	dev_info(dev, "TI PRU ethernet driver initialized: %s EMAC mode\n",
- 		 (!eth0_node || !eth1_node) ? "single" : "dual");
- 
-@@ -1769,6 +2061,9 @@ static void icssm_prueth_remove(struct platform_device *pdev)
- 	struct device_node *eth_node;
- 	int i;
- 
-+	unregister_netdevice_notifier(&prueth->prueth_netdevice_nb);
-+	icssm_prueth_sw_unregister_notifiers(prueth);
-+
- 	for (i = 0; i < PRUETH_NUM_MACS; i++) {
- 		if (!prueth->registered_netdevs[i])
- 			continue;
-@@ -1868,11 +2163,16 @@ static struct prueth_private_data am335x_prueth_pdata = {
- 	.fw_pru[PRUSS_PRU0] = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am335x-pru0-prueth-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_SWITCH] =
-+			"ti-pruss/am335x-pru0-prusw-fw.elf",
- 	},
- 	.fw_pru[PRUSS_PRU1] = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am335x-pru1-prueth-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_SWITCH] =
-+			"ti-pruss/am335x-pru1-prusw-fw.elf",
- 	},
-+	.support_switch = true,
- };
- 
- /* AM437x SoC-specific firmware data */
-@@ -1881,11 +2181,16 @@ static struct prueth_private_data am437x_prueth_pdata = {
- 	.fw_pru[PRUSS_PRU0] = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am437x-pru0-prueth-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_SWITCH] =
-+			"ti-pruss/am437x-pru0-prusw-fw.elf",
- 	},
- 	.fw_pru[PRUSS_PRU1] = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am437x-pru1-prueth-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_SWITCH] =
-+			"ti-pruss/am437x-pru1-prusw-fw.elf",
- 	},
-+	.support_switch = true,
- };
- 
- /* AM57xx SoC-specific firmware data */
-@@ -1894,11 +2199,17 @@ static struct prueth_private_data am57xx_prueth_pdata = {
- 	.fw_pru[PRUSS_PRU0] = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am57xx-pru0-prueth-fw.elf",
-+	.fw_name[PRUSS_ETHTYPE_SWITCH] =
-+			"ti-pruss/am57xx-pru0-prusw-fw.elf",
- 	},
- 	.fw_pru[PRUSS_PRU1] = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am57xx-pru1-prueth-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_SWITCH] =
-+			"ti-pruss/am57xx-pru1-prusw-fw.elf",
-+
- 	},
-+	.support_switch = true,
- };
- 
- static const struct of_device_id prueth_dt_match[] = {
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-index f95c8c3a7ee5..d5b49b462c24 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-@@ -182,10 +182,12 @@ enum pruss_device {
-  * struct prueth_private_data - PRU Ethernet private data
-  * @driver_data: PRU Ethernet device name
-  * @fw_pru: firmware names to be used for PRUSS ethernet usecases
-+ * @support_switch: boolean to indicate if switch is enabled
-  */
- struct prueth_private_data {
- 	enum pruss_device driver_data;
- 	const struct prueth_firmware fw_pru[PRUSS_NUM_PRUS];
-+	bool support_switch;
- };
- 
- struct prueth_emac_stats {
-@@ -233,6 +235,7 @@ struct prueth_emac {
- 
- 	struct hrtimer tx_hrtimer;
- 	struct prueth_emac_stats stats;
-+	int offload_fwd_mark;
- };
- 
- struct prueth {
-@@ -261,8 +264,11 @@ struct prueth {
- 	unsigned int eth_type;
- 	size_t ocmc_ram_size;
- 	u8 emac_configured;
-+	u8 br_members;
- };
- 
-+extern const struct prueth_queue_desc queue_descs[][NUM_QUEUES];
-+
- void icssm_parse_packet_info(struct prueth *prueth, u32 buffer_descriptor,
- 			     struct prueth_packet_info *pkt_info);
- int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c b/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c
-index 89c66264a92e..fa9959ad966d 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c
-@@ -29,6 +29,176 @@ struct icssm_prueth_sw_fdb_work {
- 	int event;
- };
- 
-+const struct prueth_queue_info sw_queue_infos[][NUM_QUEUES] = {
-+	[PRUETH_PORT_QUEUE_HOST] = {
-+		[PRUETH_QUEUE1] = {
-+			P0_Q1_BUFFER_OFFSET,
-+			P0_QUEUE_DESC_OFFSET,
-+			P0_Q1_BD_OFFSET,
-+			P0_Q1_BD_OFFSET + ((HOST_QUEUE_1_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE2] = {
-+			P0_Q2_BUFFER_OFFSET,
-+			P0_QUEUE_DESC_OFFSET + 8,
-+			P0_Q2_BD_OFFSET,
-+			P0_Q2_BD_OFFSET + ((HOST_QUEUE_2_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE3] = {
-+			P0_Q3_BUFFER_OFFSET,
-+			P0_QUEUE_DESC_OFFSET + 16,
-+			P0_Q3_BD_OFFSET,
-+			P0_Q3_BD_OFFSET + ((HOST_QUEUE_3_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE4] = {
-+			P0_Q4_BUFFER_OFFSET,
-+			P0_QUEUE_DESC_OFFSET + 24,
-+			P0_Q4_BD_OFFSET,
-+			P0_Q4_BD_OFFSET + ((HOST_QUEUE_4_SIZE - 1) * BD_SIZE),
-+		},
-+	},
-+	[PRUETH_PORT_QUEUE_MII0] = {
-+		[PRUETH_QUEUE1] = {
-+			P1_Q1_BUFFER_OFFSET,
-+			P1_Q1_BUFFER_OFFSET +
-+				((QUEUE_1_SIZE - 1) * ICSS_BLOCK_SIZE),
-+			P1_Q1_BD_OFFSET,
-+			P1_Q1_BD_OFFSET + ((QUEUE_1_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE2] = {
-+			P1_Q2_BUFFER_OFFSET,
-+			P1_Q2_BUFFER_OFFSET +
-+				((QUEUE_2_SIZE - 1) * ICSS_BLOCK_SIZE),
-+			P1_Q2_BD_OFFSET,
-+			P1_Q2_BD_OFFSET + ((QUEUE_2_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE3] = {
-+			P1_Q3_BUFFER_OFFSET,
-+			P1_Q3_BUFFER_OFFSET +
-+				((QUEUE_3_SIZE - 1) * ICSS_BLOCK_SIZE),
-+			P1_Q3_BD_OFFSET,
-+			P1_Q3_BD_OFFSET + ((QUEUE_3_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE4] = {
-+			P1_Q4_BUFFER_OFFSET,
-+			P1_Q4_BUFFER_OFFSET +
-+				((QUEUE_4_SIZE - 1) * ICSS_BLOCK_SIZE),
-+			P1_Q4_BD_OFFSET,
-+			P1_Q4_BD_OFFSET + ((QUEUE_4_SIZE - 1) * BD_SIZE),
-+		},
-+	},
-+	[PRUETH_PORT_QUEUE_MII1] = {
-+		[PRUETH_QUEUE1] = {
-+			P2_Q1_BUFFER_OFFSET,
-+			P2_Q1_BUFFER_OFFSET +
-+				((QUEUE_1_SIZE - 1) * ICSS_BLOCK_SIZE),
-+			P2_Q1_BD_OFFSET,
-+			P2_Q1_BD_OFFSET + ((QUEUE_1_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE2] = {
-+			P2_Q2_BUFFER_OFFSET,
-+			P2_Q2_BUFFER_OFFSET +
-+				((QUEUE_2_SIZE - 1) * ICSS_BLOCK_SIZE),
-+			P2_Q2_BD_OFFSET,
-+			P2_Q2_BD_OFFSET + ((QUEUE_2_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE3] = {
-+			P2_Q3_BUFFER_OFFSET,
-+			P2_Q3_BUFFER_OFFSET +
-+				((QUEUE_3_SIZE - 1) * ICSS_BLOCK_SIZE),
-+			P2_Q3_BD_OFFSET,
-+			P2_Q3_BD_OFFSET + ((QUEUE_3_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE4] = {
-+			P2_Q4_BUFFER_OFFSET,
-+			P2_Q4_BUFFER_OFFSET +
-+				((QUEUE_4_SIZE - 1) * ICSS_BLOCK_SIZE),
-+			P2_Q4_BD_OFFSET,
-+			P2_Q4_BD_OFFSET + ((QUEUE_4_SIZE - 1) * BD_SIZE),
-+		},
-+	},
-+};
-+
-+static const struct prueth_queue_info rx_queue_infos[][NUM_QUEUES] = {
-+	[PRUETH_PORT_QUEUE_HOST] = {
-+		[PRUETH_QUEUE1] = {
-+			P0_Q1_BUFFER_OFFSET,
-+			HOST_QUEUE_DESC_OFFSET,
-+			P0_Q1_BD_OFFSET,
-+			P0_Q1_BD_OFFSET + ((HOST_QUEUE_1_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE2] = {
-+			P0_Q2_BUFFER_OFFSET,
-+			HOST_QUEUE_DESC_OFFSET + 8,
-+			P0_Q2_BD_OFFSET,
-+			P0_Q2_BD_OFFSET + ((HOST_QUEUE_2_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE3] = {
-+			P0_Q3_BUFFER_OFFSET,
-+			HOST_QUEUE_DESC_OFFSET + 16,
-+			P0_Q3_BD_OFFSET,
-+			P0_Q3_BD_OFFSET + ((HOST_QUEUE_3_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE4] = {
-+			P0_Q4_BUFFER_OFFSET,
-+			HOST_QUEUE_DESC_OFFSET + 24,
-+			P0_Q4_BD_OFFSET,
-+			P0_Q4_BD_OFFSET + ((HOST_QUEUE_4_SIZE - 1) * BD_SIZE),
-+		},
-+	},
-+	[PRUETH_PORT_QUEUE_MII0] = {
-+		[PRUETH_QUEUE1] = {
-+			P1_Q1_BUFFER_OFFSET,
-+			P1_QUEUE_DESC_OFFSET,
-+			P1_Q1_BD_OFFSET,
-+			P1_Q1_BD_OFFSET + ((QUEUE_1_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE2] = {
-+			P1_Q2_BUFFER_OFFSET,
-+			P1_QUEUE_DESC_OFFSET + 8,
-+			P1_Q2_BD_OFFSET,
-+			P1_Q2_BD_OFFSET + ((QUEUE_2_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE3] = {
-+			P1_Q3_BUFFER_OFFSET,
-+			P1_QUEUE_DESC_OFFSET + 16,
-+			P1_Q3_BD_OFFSET,
-+			P1_Q3_BD_OFFSET + ((QUEUE_3_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE4] = {
-+			P1_Q4_BUFFER_OFFSET,
-+			P1_QUEUE_DESC_OFFSET + 24,
-+			P1_Q4_BD_OFFSET,
-+			P1_Q4_BD_OFFSET + ((QUEUE_4_SIZE - 1) * BD_SIZE),
-+		},
-+	},
-+	[PRUETH_PORT_QUEUE_MII1] = {
-+		[PRUETH_QUEUE1] = {
-+			P2_Q1_BUFFER_OFFSET,
-+			P2_QUEUE_DESC_OFFSET,
-+			P2_Q1_BD_OFFSET,
-+			P2_Q1_BD_OFFSET + ((QUEUE_1_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE2] = {
-+			P2_Q2_BUFFER_OFFSET,
-+			P2_QUEUE_DESC_OFFSET + 8,
-+			P2_Q2_BD_OFFSET,
-+			P2_Q2_BD_OFFSET + ((QUEUE_2_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE3] = {
-+			P2_Q3_BUFFER_OFFSET,
-+			P2_QUEUE_DESC_OFFSET + 16,
-+			P2_Q3_BD_OFFSET,
-+			P2_Q3_BD_OFFSET + ((QUEUE_3_SIZE - 1) * BD_SIZE),
-+		},
-+		[PRUETH_QUEUE4] = {
-+			P2_Q4_BUFFER_OFFSET,
-+			P2_QUEUE_DESC_OFFSET + 24,
-+			P2_Q4_BD_OFFSET,
-+			P2_Q4_BD_OFFSET + ((QUEUE_4_SIZE - 1) * BD_SIZE),
-+		},
-+	},
-+};
-+
- void icssm_prueth_sw_free_fdb_table(struct prueth *prueth)
- {
- 	if (prueth->emac_configured)
-@@ -678,3 +848,218 @@ int icssm_prueth_sw_purge_fdb(struct prueth_emac *emac)
- 	queue_work(system_long_wq, &fdb_work->work);
- 	return 0;
- }
-+
-+void icssm_prueth_sw_hostconfig(struct prueth *prueth)
-+{
-+	void __iomem *dram1_base = prueth->mem[PRUETH_MEM_DRAM1].va;
-+	void __iomem *dram;
-+
-+	/* queue information table */
-+	dram = dram1_base + P0_Q1_RX_CONTEXT_OFFSET;
-+	memcpy_toio(dram, sw_queue_infos[PRUETH_PORT_QUEUE_HOST],
-+		    sizeof(sw_queue_infos[PRUETH_PORT_QUEUE_HOST]));
-+
-+	/* buffer descriptor offset table*/
-+	dram = dram1_base + QUEUE_DESCRIPTOR_OFFSET_ADDR;
-+	writew(P0_Q1_BD_OFFSET, dram);
-+	writew(P0_Q2_BD_OFFSET, dram + 2);
-+	writew(P0_Q3_BD_OFFSET, dram + 4);
-+	writew(P0_Q4_BD_OFFSET, dram + 6);
-+
-+	/* buffer offset table */
-+	dram = dram1_base + QUEUE_OFFSET_ADDR;
-+	writew(P0_Q1_BUFFER_OFFSET, dram);
-+	writew(P0_Q2_BUFFER_OFFSET, dram + 2);
-+	writew(P0_Q3_BUFFER_OFFSET, dram + 4);
-+	writew(P0_Q4_BUFFER_OFFSET, dram + 6);
-+
-+	/* queue size lookup table */
-+	dram = dram1_base + QUEUE_SIZE_ADDR;
-+	writew(HOST_QUEUE_1_SIZE, dram);
-+	writew(HOST_QUEUE_1_SIZE, dram + 2);
-+	writew(HOST_QUEUE_1_SIZE, dram + 4);
-+	writew(HOST_QUEUE_1_SIZE, dram + 6);
-+
-+	/* queue table */
-+	dram = dram1_base + P0_QUEUE_DESC_OFFSET;
-+	memcpy_toio(dram, queue_descs[PRUETH_PORT_QUEUE_HOST],
-+		    sizeof(queue_descs[PRUETH_PORT_QUEUE_HOST]));
-+}
-+
-+static int icssm_prueth_sw_port_config(struct prueth *prueth,
-+				       enum prueth_port port_id)
-+{
-+	unsigned int tx_context_ofs_addr, rx_context_ofs, queue_desc_ofs;
-+	void __iomem *dram, *dram_base, *dram_mac;
-+	struct prueth_emac *emac;
-+	void __iomem *dram1_base;
-+
-+	dram1_base = prueth->mem[PRUETH_MEM_DRAM1].va;
-+	emac = prueth->emac[port_id - 1];
-+	switch (port_id) {
-+	case PRUETH_PORT_MII0:
-+		tx_context_ofs_addr     = TX_CONTEXT_P1_Q1_OFFSET_ADDR;
-+		rx_context_ofs          = P1_Q1_RX_CONTEXT_OFFSET;
-+		queue_desc_ofs          = P1_QUEUE_DESC_OFFSET;
-+
-+		/* for switch PORT MII0 mac addr is in DRAM0. */
-+		dram_mac = prueth->mem[PRUETH_MEM_DRAM0].va;
-+		break;
-+	case PRUETH_PORT_MII1:
-+		tx_context_ofs_addr     = TX_CONTEXT_P2_Q1_OFFSET_ADDR;
-+		rx_context_ofs          = P2_Q1_RX_CONTEXT_OFFSET;
-+		queue_desc_ofs          = P2_QUEUE_DESC_OFFSET;
-+
-+		/* for switch PORT MII1 mac addr is in DRAM1. */
-+		dram_mac = prueth->mem[PRUETH_MEM_DRAM1].va;
-+		break;
-+	default:
-+		netdev_err(emac->ndev, "invalid port\n");
-+		return -EINVAL;
-+	}
-+
-+	/* setup mac address */
-+	memcpy_toio(dram_mac + PORT_MAC_ADDR, emac->mac_addr, 6);
-+
-+	/* Remaining switch port configs are in DRAM1 */
-+	dram_base = prueth->mem[PRUETH_MEM_DRAM1].va;
-+
-+	/* queue information table */
-+	memcpy_toio(dram_base + tx_context_ofs_addr,
-+		    sw_queue_infos[port_id],
-+		    sizeof(sw_queue_infos[port_id]));
-+
-+	memcpy_toio(dram_base + rx_context_ofs,
-+		    rx_queue_infos[port_id],
-+		    sizeof(rx_queue_infos[port_id]));
-+
-+	/* buffer descriptor offset table*/
-+	dram = dram_base + QUEUE_DESCRIPTOR_OFFSET_ADDR +
-+	       (port_id * NUM_QUEUES * sizeof(u16));
-+	writew(sw_queue_infos[port_id][PRUETH_QUEUE1].buffer_desc_offset, dram);
-+	writew(sw_queue_infos[port_id][PRUETH_QUEUE2].buffer_desc_offset,
-+	       dram + 2);
-+	writew(sw_queue_infos[port_id][PRUETH_QUEUE3].buffer_desc_offset,
-+	       dram + 4);
-+	writew(sw_queue_infos[port_id][PRUETH_QUEUE4].buffer_desc_offset,
-+	       dram + 6);
-+
-+	/* buffer offset table */
-+	dram = dram_base + QUEUE_OFFSET_ADDR +
-+	       port_id * NUM_QUEUES * sizeof(u16);
-+	writew(sw_queue_infos[port_id][PRUETH_QUEUE1].buffer_offset, dram);
-+	writew(sw_queue_infos[port_id][PRUETH_QUEUE2].buffer_offset,
-+	       dram + 2);
-+	writew(sw_queue_infos[port_id][PRUETH_QUEUE3].buffer_offset,
-+	       dram + 4);
-+	writew(sw_queue_infos[port_id][PRUETH_QUEUE4].buffer_offset,
-+	       dram + 6);
-+
-+	/* queue size lookup table */
-+	dram = dram_base + QUEUE_SIZE_ADDR +
-+	       port_id * NUM_QUEUES * sizeof(u16);
-+	writew(QUEUE_1_SIZE, dram);
-+	writew(QUEUE_2_SIZE, dram + 2);
-+	writew(QUEUE_3_SIZE, dram + 4);
-+	writew(QUEUE_4_SIZE, dram + 6);
-+
-+	/* queue table */
-+	memcpy_toio(dram_base + queue_desc_ofs,
-+		    &queue_descs[port_id][0],
-+		    4 * sizeof(queue_descs[port_id][0]));
-+
-+	emac->rx_queue_descs = dram1_base + P0_QUEUE_DESC_OFFSET;
-+	emac->tx_queue_descs = dram1_base +
-+		rx_queue_infos[port_id][PRUETH_QUEUE1].queue_desc_offset;
-+
-+	return 0;
-+}
-+
-+int icssm_prueth_sw_emac_config(struct prueth_emac *emac)
-+{
-+	struct prueth *prueth = emac->prueth;
-+	u32 sharedramaddr, ocmcaddr;
-+	int ret;
-+
-+	/* PRU needs local shared RAM address for C28 */
-+	sharedramaddr = ICSS_LOCAL_SHARED_RAM;
-+	/* PRU needs real global OCMC address for C30*/
-+	ocmcaddr = (u32)prueth->mem[PRUETH_MEM_OCMC].pa;
-+
-+	if (prueth->emac_configured & BIT(emac->port_id))
-+		return 0;
-+
-+	ret = icssm_prueth_sw_port_config(prueth, emac->port_id);
-+	if (ret)
-+		return ret;
-+
-+	if (!prueth->emac_configured) {
-+		/* Set in constant table C28 of PRUn to ICSS Shared memory */
-+		pru_rproc_set_ctable(prueth->pru0, PRU_C28, sharedramaddr);
-+		pru_rproc_set_ctable(prueth->pru1, PRU_C28, sharedramaddr);
-+
-+		/* Set in constant table C30 of PRUn to OCMC memory */
-+		pru_rproc_set_ctable(prueth->pru0, PRU_C30, ocmcaddr);
-+		pru_rproc_set_ctable(prueth->pru1, PRU_C30, ocmcaddr);
-+	}
-+	return 0;
-+}
-+
-+int icssm_prueth_sw_boot_prus(struct prueth *prueth, struct net_device *ndev)
-+{
-+	const struct prueth_firmware *pru_firmwares;
-+	const char *fw_name, *fw_name1;
-+	int ret;
-+
-+	if (prueth->emac_configured)
-+		return 0;
-+
-+	pru_firmwares = &prueth->fw_data->fw_pru[PRUSS_PRU0];
-+	fw_name = pru_firmwares->fw_name[prueth->eth_type];
-+	pru_firmwares = &prueth->fw_data->fw_pru[PRUSS_PRU1];
-+	fw_name1 = pru_firmwares->fw_name[prueth->eth_type];
-+
-+	ret = rproc_set_firmware(prueth->pru0, fw_name);
-+	if (ret) {
-+		netdev_err(ndev, "failed to set PRU0 firmware %s: %d\n",
-+			   fw_name, ret);
-+		return ret;
-+	}
-+	ret = rproc_boot(prueth->pru0);
-+	if (ret) {
-+		netdev_err(ndev, "failed to boot PRU0: %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = rproc_set_firmware(prueth->pru1, fw_name1);
-+	if (ret) {
-+		netdev_err(ndev, "failed to set PRU1 firmware %s: %d\n",
-+			   fw_name1, ret);
-+		goto rproc0_shutdown;
-+	}
-+	ret = rproc_boot(prueth->pru1);
-+	if (ret) {
-+		netdev_err(ndev, "failed to boot PRU1: %d\n", ret);
-+		goto rproc0_shutdown;
-+	}
-+
-+	return 0;
-+
-+rproc0_shutdown:
-+	rproc_shutdown(prueth->pru0);
-+	return ret;
-+}
-+
-+int icssm_prueth_sw_shutdown_prus(struct prueth_emac *emac,
-+				  struct net_device *ndev)
-+{
-+	struct prueth *prueth = emac->prueth;
-+
-+	if (prueth->emac_configured)
-+		return 0;
-+
-+	rproc_shutdown(prueth->pru0);
-+	rproc_shutdown(prueth->pru1);
-+
-+	return 0;
-+}
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.h b/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.h
-index 218cbe1d3c50..e6111bba166e 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.h
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_switch.h
-@@ -16,6 +16,8 @@ void icssm_prueth_sw_set_stp_state(struct prueth *prueth,
- u8 icssm_prueth_sw_get_stp_state(struct prueth *prueth,
- 				 enum prueth_port port);
- 
-+extern const struct prueth_queue_info sw_queue_infos[][4];
-+
- void icssm_prueth_sw_fdb_tbl_init(struct prueth *prueth);
- int icssm_prueth_sw_init_fdb_table(struct prueth *prueth);
- void icssm_prueth_sw_free_fdb_table(struct prueth *prueth);
-@@ -26,4 +28,10 @@ void icssm_prueth_sw_fdb_del(struct prueth_emac *emac,
- 			     struct switchdev_notifier_fdb_info *fdb);
- int icssm_prueth_sw_learn_fdb(struct prueth_emac *emac, u8 *src_mac);
- int icssm_prueth_sw_purge_fdb(struct prueth_emac *emac);
-+void icssm_prueth_sw_hostconfig(struct prueth *prueth);
-+int icssm_prueth_sw_emac_config(struct prueth_emac *emac);
-+int icssm_prueth_sw_boot_prus(struct prueth *prueth, struct net_device *ndev);
-+int icssm_prueth_sw_shutdown_prus(struct prueth_emac *emac,
-+				  struct net_device *ndev);
-+
- #endif /* __NET_TI_PRUETH_SWITCH_H */
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_switch.h b/drivers/net/ethernet/ti/icssm/icssm_switch.h
-index 4200ccb1b425..5ba9ce14da44 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_switch.h
-+++ b/drivers/net/ethernet/ti/icssm/icssm_switch.h
-@@ -117,6 +117,15 @@
- #define STATISTICS_OFFSET	0x1F00
- #define STAT_SIZE		0x98
- 
-+/* The following offsets indicate which sections of the memory are used
-+ * for switch internal tasks
-+ */
-+#define SWITCH_SPECIFIC_DRAM0_START_SIZE		0x100
-+#define SWITCH_SPECIFIC_DRAM0_START_OFFSET		0x1F00
-+
-+#define SWITCH_SPECIFIC_DRAM1_START_SIZE		0x300
-+#define SWITCH_SPECIFIC_DRAM1_START_OFFSET		0x1D00
-+
- /* Offset for storing
-  * 1. Storm Prevention Params
-  * 2. PHY Speed Offset
-@@ -146,6 +155,74 @@
- /* 4 bytes ? */
- #define STP_INVALID_STATE_OFFSET	(STATISTICS_OFFSET + STAT_SIZE + 33)
- 
-+/* DRAM1 Offsets for Switch */
-+/* 4 queue descriptors for port 0 (host receive) */
-+#define P0_QUEUE_DESC_OFFSET		0x1E7C
-+#define P1_QUEUE_DESC_OFFSET		0x1E9C
-+#define P2_QUEUE_DESC_OFFSET		0x1EBC
-+/* collision descriptor of port 0 */
-+#define P0_COL_QUEUE_DESC_OFFSET	0x1E64
-+#define P1_COL_QUEUE_DESC_OFFSET	0x1E6C
-+#define P2_COL_QUEUE_DESC_OFFSET	0x1E74
-+/* Collision Status Register
-+ *    P0: bit 0 is pending flag, bit 1..2 indicates which queue,
-+ *    P1: bit 8 is pending flag, 9..10 is queue number
-+ *    P2: bit 16 is pending flag, 17..18 is queue number, remaining bits are 0.
-+ */
-+#define COLLISION_STATUS_ADDR		0x1E60
-+
-+#define INTERFACE_MAC_ADDR		0x1E58
-+#define P2_MAC_ADDR			0x1E50
-+#define P1_MAC_ADDR			0x1E48
-+
-+#define QUEUE_SIZE_ADDR			0x1E30
-+#define QUEUE_OFFSET_ADDR		0x1E18
-+#define QUEUE_DESCRIPTOR_OFFSET_ADDR	0x1E00
-+
-+#define COL_RX_CONTEXT_P2_OFFSET_ADDR	(COL_RX_CONTEXT_P1_OFFSET_ADDR + 12)
-+#define COL_RX_CONTEXT_P1_OFFSET_ADDR	(COL_RX_CONTEXT_P0_OFFSET_ADDR + 12)
-+#define COL_RX_CONTEXT_P0_OFFSET_ADDR	(P2_Q4_RX_CONTEXT_OFFSET + 8)
-+
-+/* Port 2 Rx Context */
-+#define P2_Q4_RX_CONTEXT_OFFSET		(P2_Q3_RX_CONTEXT_OFFSET + 8)
-+#define P2_Q3_RX_CONTEXT_OFFSET		(P2_Q2_RX_CONTEXT_OFFSET + 8)
-+#define P2_Q2_RX_CONTEXT_OFFSET		(P2_Q1_RX_CONTEXT_OFFSET + 8)
-+#define P2_Q1_RX_CONTEXT_OFFSET		RX_CONTEXT_P2_Q1_OFFSET_ADDR
-+#define RX_CONTEXT_P2_Q1_OFFSET_ADDR	(P1_Q4_RX_CONTEXT_OFFSET + 8)
-+
-+/* Port 1 Rx Context */
-+#define P1_Q4_RX_CONTEXT_OFFSET		(P1_Q3_RX_CONTEXT_OFFSET + 8)
-+#define P1_Q3_RX_CONTEXT_OFFSET		(P1_Q2_RX_CONTEXT_OFFSET + 8)
-+#define P1_Q2_RX_CONTEXT_OFFSET		(P1_Q1_RX_CONTEXT_OFFSET + 8)
-+#define P1_Q1_RX_CONTEXT_OFFSET		(RX_CONTEXT_P1_Q1_OFFSET_ADDR)
-+#define RX_CONTEXT_P1_Q1_OFFSET_ADDR	(P0_Q4_RX_CONTEXT_OFFSET + 8)
-+
-+/* Host Port Rx Context */
-+#define P0_Q4_RX_CONTEXT_OFFSET		(P0_Q3_RX_CONTEXT_OFFSET + 8)
-+#define P0_Q3_RX_CONTEXT_OFFSET		(P0_Q2_RX_CONTEXT_OFFSET + 8)
-+#define P0_Q2_RX_CONTEXT_OFFSET		(P0_Q1_RX_CONTEXT_OFFSET + 8)
-+#define P0_Q1_RX_CONTEXT_OFFSET		RX_CONTEXT_P0_Q1_OFFSET_ADDR
-+#define RX_CONTEXT_P0_Q1_OFFSET_ADDR	(COL_TX_CONTEXT_P2_Q1_OFFSET_ADDR + 8)
-+
-+/* Port 2 Tx Collision Context */
-+#define COL_TX_CONTEXT_P2_Q1_OFFSET_ADDR (COL_TX_CONTEXT_P1_Q1_OFFSET_ADDR + 8)
-+/* Port 1 Tx Collision Context */
-+#define COL_TX_CONTEXT_P1_Q1_OFFSET_ADDR (P2_Q4_TX_CONTEXT_OFFSET + 8)
-+
-+/* Port 2 */
-+#define P2_Q4_TX_CONTEXT_OFFSET		(P2_Q3_TX_CONTEXT_OFFSET + 8)
-+#define P2_Q3_TX_CONTEXT_OFFSET		(P2_Q2_TX_CONTEXT_OFFSET + 8)
-+#define P2_Q2_TX_CONTEXT_OFFSET		(P2_Q1_TX_CONTEXT_OFFSET + 8)
-+#define P2_Q1_TX_CONTEXT_OFFSET		TX_CONTEXT_P2_Q1_OFFSET_ADDR
-+#define TX_CONTEXT_P2_Q1_OFFSET_ADDR	(P1_Q4_TX_CONTEXT_OFFSET + 8)
-+
-+/* Port 1 */
-+#define P1_Q4_TX_CONTEXT_OFFSET		(P1_Q3_TX_CONTEXT_OFFSET + 8)
-+#define P1_Q3_TX_CONTEXT_OFFSET		(P1_Q2_TX_CONTEXT_OFFSET + 8)
-+#define P1_Q2_TX_CONTEXT_OFFSET		(P1_Q1_TX_CONTEXT_OFFSET + 8)
-+#define P1_Q1_TX_CONTEXT_OFFSET		TX_CONTEXT_P1_Q1_OFFSET_ADDR
-+#define TX_CONTEXT_P1_Q1_OFFSET_ADDR	SWITCH_SPECIFIC_DRAM1_START_OFFSET
-+
- /* DRAM Offsets for EMAC
-  * Present on Both DRAM0 and DRAM1
-  */
--- 
-2.43.0
-
+Thanks,
+Michal
 
