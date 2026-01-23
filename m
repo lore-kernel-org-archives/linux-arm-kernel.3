@@ -4,83 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C8AD6CFA7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 12:37:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957BAD6CFD1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 12:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q38jzkPx1g60SamYoKJC73aUm2LWWuKa/1fao66YJYU=; b=q/aZeX70nimfeEF1bdGD8KA1jd
-	7hKIvQ9gk4fWWMh6iqfX43ofjz+IZd8kHQShFDlx1g0c0Y4l0NMCsNDIFqrKSZ0uh7ub6T2s/o4V7
-	5FCm67FnhJF0RcNow3v89qCVn9KrtMcWUiYWufOAfOZ7v1irIZIvyappPyt2HyZKM24HKCL3zKAaL
-	NcQ5fo9vHQ2aMB9aK15RQUXAiwP81DwTDzrlJubhgr7ftLp3fQve/zITadVnUhW6YW+qre20HyP9+
-	drA3mAQPz5qIJgz/gEELzATDes2vbX8JENScWwqObdrRzfcfG5ZMDO1DgRJ0wiMJx9vtjFpWD9cKY
-	pBIfVbgg==;
+	bh=incYLjmvdrUZqGoD7bRH6AAIqH+0Eqi7dk8/M+BO/1w=; b=WyOFAtkQ3pnexRLqhadQCx6IFm
+	kLJPn65NFjbSENmZ1Z7fB+Y2sUgzax1i52Pgq+tEFxr+nxp/r31yQMxlqAKc0sdhK7/p1IqFo6eAZ
+	Xa6AyxIY3IPu+ftzdWkUyArMWg+A9tieINOZxGDqrhzsgeKHInC9wDWgKhzYKCTvYqbkIWUReyY/P
+	USKtwsnZxEVUXuhteqx9HuCmHSOC/ClS7L08ISz1QYO9kztP8qvaxs+q9sRnZ/XLq9hlUFqWCRHoY
+	4vr4YgPe+B+VWiYosEJQ3owbl7Z1uSuWdg5liL/rbKl2x5F5IxylV2nTVWWoa5OFNW7BFREKESCdb
+	zzvXkEdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGPj-00000008vBv-1dbe;
-	Fri, 23 Jan 2026 12:37:23 +0000
-Received: from mail-vs1-f66.google.com ([209.85.217.66])
+	id 1vjGSs-00000008vRl-38z0;
+	Fri, 23 Jan 2026 12:40:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGPg-00000008vBH-1bh7
+	id 1vjGSr-00000008vRV-3hsI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 12:37:21 +0000
-Received: by mail-vs1-f66.google.com with SMTP id ada2fe7eead31-5f547823192so417912137.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 04:37:19 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769171838; x=1769776638;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=q38jzkPx1g60SamYoKJC73aUm2LWWuKa/1fao66YJYU=;
-        b=gwNTp+iQyqHh0lep0NKoa2XHAcuZeCupbENL/SQK7VQPVbDf/4RmL2aJex5eHILYAE
-         4reT7ITR1X37Oj3Ta1xvEx3zskwDeSevTtTXw4qnHlnwLBp6NQ6OOn6+t5tEP4cU7jXc
-         sBWioTCsLNc8d8Yj++Mz9CVYVDhwlJv6PMy9WHOMdkuC+pPQTrPLFNjsRY3VGYmSzyDm
-         54t5dK4Jy3pcw7duZV/Tu1CukyQmbh4vQIURWnc80RWA3M+r+64tNw7kcNGQyd5WinsG
-         HyEonp/Xk/qM89bnAisPpgrpMitmW8AR4JOdh+zA9miBM8wlf02x9lXK2d9iaTtPUDDX
-         5ZTQ==
-X-Gm-Message-State: AOJu0YxK39CrmD/orN8W0xkjIE3NcBCh48Mu5x09hJy446r31Vx2/2tg
-	J8fPROgs/qUK0MQ9ithKp4tOWh6w1awKM2BEVkGGSV4nMjgIUV4BKPQB7B07xjbjMWk=
-X-Gm-Gg: AZuq6aIZuDu+Z7Rz+9JQMjpwjQgKkpWt/lJXDRAkHPd5csCRgn6mExg0ypPe2qtZPly
-	YyfOxnUTfqxLcFCiQzU6V0Q8bvv3bM1OJTHlfaT6e13D2Qm+Xgduf6H6oa+08GRhEYabgd49s13
-	i8R7+/SQapmN/aWSJl6OqB+ghfDenwPWQ51RR4tHRzHgMuUB0JzBuxRuqVrJIth6s0FS3SCHdNe
-	lIxVJ8U3VgudHjrfa0nARnNcNVHn1++/us7iRtuIJyl8ePTyUt/N4Xuz99eArzhMCmiXraLUW4n
-	Jqb9bzooheWKDjsglhxFKswbyV2Js7OXrBZnFMLJ9sBkdSEy10xMwaJ/UPlNCm0b4wbphuQlvLO
-	M/RGOgWtFw4xU6j3WapMfuwbMMwySvcAQdC1Es94LUhzMmi6/xrNy5Q+her9Qv8nCuOS7MsU/mi
-	otwASewTATxrPqPGnLyMy67Z/V+TF/ABekiDnAKHK/9LwGTieA
-X-Received: by 2002:a05:6102:510a:b0:5dd:a616:69fc with SMTP id ada2fe7eead31-5f54b9e82a7mr762399137.9.1769171838027;
-        Fri, 23 Jan 2026 04:37:18 -0800 (PST)
-Received: from mail-vs1-f53.google.com (mail-vs1-f53.google.com. [209.85.217.53])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5f54d40ff71sm516616137.5.2026.01.23.04.37.17
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 23 Jan 2026 04:37:17 -0800 (PST)
-Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-5f547823192so417901137.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 04:37:17 -0800 (PST)
-X-Received: by 2002:a05:6102:943:b0:5de:db29:5c07 with SMTP id
- ada2fe7eead31-5f54bb837a7mr778264137.19.1769171836999; Fri, 23 Jan 2026
- 04:37:16 -0800 (PST)
+	Fri, 23 Jan 2026 12:40:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0148D60010;
+	Fri, 23 Jan 2026 12:40:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A7DAC4CEF1;
+	Fri, 23 Jan 2026 12:40:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769172036;
+	bh=KA0auLM2WZmdiUqzVD7z426D8s2j5QylO9g+IVKSsos=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r6A/UhutrltXKg0Ze3Z88CXbsT8kV7KLPdZaxgk9/sV+5erkF1IOxrr2uTLhstJhU
+	 pHUmdDhYj1L8O9W7i57NDBgQJeehkvSrqv9lYGP+eVcEnFlaQJT1u1CyEJ69BYnqlt
+	 CIAH3/umq6ixwmD4Gk9PxhTPpOC/MevbBxhNXp1YK69CBkobxtl5uV7RcM8Bz8vUGx
+	 7AlZHgAvE9fabl9y1jhzc3sH79fLLYMC043soa1Fxeqj75J5F6MwHdLCj2jK7oKHW6
+	 k0LtpjN22uIedkIwJ8N4Zsoh8F7ZA0v6PWjPfFdacpgkUFUEstl2qU4wubMaXgi4gp
+	 lqBcaOrTr2jsQ==
+Date: Fri, 23 Jan 2026 12:40:32 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Michal Simek <michal.simek@amd.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, abdurrahman@nexthop.ai,
+	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] spi: xilinx: use device property accessors.
+Message-ID: <a979b1eb-87c9-4c08-8d30-0fe18ad07a26@sirena.org.uk>
+References: <20260122-spi-xilinx-v3-1-8cea20e82f0b@nexthop.ai>
+ <d6c5547b-0426-40d0-85b9-b64f183d37b6@lunn.ch>
+ <ac0c9ceb-0c34-49f2-a486-1d87e488f607@amd.com>
 MIME-Version: 1.0
-References: <20260112234642.225993-1-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260112234642.225993-1-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 23 Jan 2026 13:37:06 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdXEVbpMS3WHeKM+0ceBe6kL4=n+Cqvx5cMqru8wtBitkQ@mail.gmail.com>
-X-Gm-Features: AZwV_Qiqc9hwYXhdCgYeyWKGptEN-lT8NQP_8jN-_ExihaOm9H0gRxTpdmQNyzc
-Message-ID: <CAMuHMdXEVbpMS3WHeKM+0ceBe6kL4=n+Cqvx5cMqru8wtBitkQ@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: renesas: sparrow-hawk: Mark OTP and HSCIF0
- pins as bootph-all
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_043720_423112_C40CB792 
-X-CRM114-Status: GOOD (  18.53  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="MYMPkRZsPXfWaiNo"
+Content-Disposition: inline
+In-Reply-To: <ac0c9ceb-0c34-49f2-a486-1d87e488f607@amd.com>
+X-Cookie: HAIR TONICS, please!!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,28 +73,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 13 Jan 2026 at 00:46, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> The U-Boot SPL is responsible for initializing the hardware and it does
-> also initialize HSCIF0 and its pinmux, mark the HSCIF0 pinmux as needed
-> in all bootloader stages. The SPL also uses OTP to determine the exact
-> V4H SoC variant during DRAM initialization, to determine which is the
-> maximum allowed DRAM rate, mark OTP as required in all bootloader stages
-> as well.
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v6.21.
+--MYMPkRZsPXfWaiNo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Gr{oetje,eeting}s,
+On Fri, Jan 23, 2026 at 08:11:47AM +0100, Michal Simek wrote:
+> On 1/22/26 17:18, Andrew Lunn wrote:
+> > On Thu, Jan 22, 2026 at 09:00:29AM +0000, Abdurrahman Hussain via B4 Relay wrote:
 
-                        Geert
+> > > +		ret = device_property_read_u32(&pdev->dev,
+> > > +					       "xlnx,num-transfer-bits",
+> > > +					       &bits_per_word);
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> > It could be my grep foo is broken, but there does not appear to be any
+> > users of xlnx,num-transfer-bits and xlnx,num-ss-bits. So it would be
+> > better to just remove them. There is no point Maintaining an API
+> > nobody uses. And it would be silly to spread that API to ACPI if
+> > nobody it going to use it.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+There are no upstream users of this driver at all so obviously no use of
+the properties.
+
+> "xlnx,num-transfer-bits"
+> bits_per_word is initializing bytes_per_word which is used in code for
+> transfer sizes calculations.
+
+The example AML posted was setting xlnx,num-transfer-bits to the default
+value of 8 bits FWIW.
+
+--MYMPkRZsPXfWaiNo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlzbD8ACgkQJNaLcl1U
+h9BU3wf/XVcT8SnLwiHP1ScW3J/ygfIAVS0Cm7z0h9+wPmUAy4PsRCrRXMSi8iDx
+zKCwAuFxw1+rAEI4YNVqJDOOdiOls1RL3xnUWpHMLep2iZHDFAKTPHpdPQTNSu9/
+OryXysdQU1MV+03dvuFm45jJinr6+/y5XMF5PtOLxbcaLkeQk+nrJ05l+D0zCo1Z
+oS9SGIi2pZwyraKRSrLT63plf3C712i/5ZuZE+Zcuhxg9CFF+fVo48yeTW9sxuLc
+CzsXNBt7U1PSO5Wi31+V1HFHqguDVpevKxq98Q3yjZ376HmtGYLwSXrKbrHKUz/G
+WC6K1k3uTu5agtsgKMFVmFxRZYf+Pg==
+=8eDh
+-----END PGP SIGNATURE-----
+
+--MYMPkRZsPXfWaiNo--
 
