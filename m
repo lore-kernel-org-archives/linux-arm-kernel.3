@@ -4,95 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB7C2D778AF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 19:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62317D778AF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 19:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:In-Reply-To:References:From:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MNmEBAcCOcnCArGc8pe5UUOL3dPUYv44y06uRTFe1O4=; b=uJ0cCDv5J/aiBwfElXxG45lGOn
-	PHeIC0xWGkJ7+RgQv89+9NSR/zg66IX3b2YokY0ZF6FLReqMbglwQHVHwMVZ+zka6I0JYmhriyS5y
-	mFDcDhjYgdcvbjzXYqo8cQ0spKHNJ+Ah4BPj9DErbmxuwH4q7Kg2SxaSUsSFw82t/DI2pyHsTr7O5
-	2Cy9j7NEI/fFIt2rGFKosQDOahbeSi81S0ULuy0mtCR211Xsuuu1Nw9f5TLrJOH/T1mhM34Ivv3cQ
-	nVtrpYiX+03tgnVudidWlWTks6fNb6wvsbES8ledV56aSY3it8wy2SUTRW05vFeHsidb22TjSgrFq
-	lTg9oMqg==;
+	bh=pRzQmM1lz2CLbIKhXyUz8czg2mNynwC1/VV/UsQgqnQ=; b=SPK+wUVPe6xdi5/ccTuXRPCPcx
+	4Z26tVf7Dov1EihRdodocrGXRG8zro3gx909nOyMkdop3SimcHyRwwkh8KhmmP5fFI+AAQgZvz8nw
+	/Myh5Rqw6aHN9LxUjsRsdWaaouLiA0ddh+8JrKpmcB6swIs+W/I0kUFetTjqVGgIJwcjY+JxtQF7f
+	UwaqH52LmEmuObf8gbTYKnWfMDxLHwPrLVZ+U0+DtuLM7pxcSS9HJUB39PWBHFTZ5wBy0XOIzZDr7
+	5BeoGD72K0O6Q1s46E6+aPfjKyXoKNoi0wvg4DiJAiP4YPUtRw7+T4KayJHk2cOm7ncrUh+HNSm3f
+	LEdjN3PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjNBo-00000009RRt-1WQC;
-	Fri, 23 Jan 2026 19:51:28 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1vjNGS-00000009Rlq-2nug;
+	Fri, 23 Jan 2026 19:56:16 +0000
+Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjNBm-00000009RQw-0LTu
+	id 1vjNGP-00000009RlR-2VA5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 19:51:27 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-47d59da3d81so23445615e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 11:51:25 -0800 (PST)
+	Fri, 23 Jan 2026 19:56:15 +0000
+Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-78fba1a1b1eso43471007b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 11:56:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769198172; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gJXODvxAF2bbf32PiZeKmyZrgEZ2nS7YUEtiWP0LS7JdkQsm2h3YiWSWlW/9EwFthd
+         +XKw3VFvIcXZ/pjhzMv1vvBayCBFuQnb6Dr2LrgcUhsJJhETmmu5mWI87vaNmJElat2A
+         Sqivw35r1g3YEV2st8hXZ8NMXkFjbBZipqo0psp0asbrXGqzSuD+G0/q0VIy4Lt6T+bs
+         cm1UnWCxO3fe2Y1nxHRTM3yHqKtH6IDhiOhl2CoRnShCBeGNjXR3dhY1unqEepfjQA6Z
+         c6H+Lc15rax4l0GJ/6QW+nJVgd/X5yQl39jfg0+eLMKR4zrmRdYbdxSFMPG57+MPPrYz
+         Byyw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:in-reply-to:references:from
+         :mime-version:dkim-signature;
+        bh=pRzQmM1lz2CLbIKhXyUz8czg2mNynwC1/VV/UsQgqnQ=;
+        fh=ZQDm2xrLg7oO0MEJrLNkeOdRRr+xpYxsKbuZEdzlRbg=;
+        b=iS9RhQjG/xFp6lx6jmCLnVFSJX4NpbEVAksDqufBghcnAF19Con5egv2hCGZI59NAy
+         xNNQ22KzTF2GMXS9W20LKnA9LDyRJF9Na4rQrSNMyjXCdE+WrB0soM98Dha+W3W9duZA
+         ZTa2SLdGnt7CwJcMRNNzcWcrZFoxTxRE1C4RTntamw1FTFgexTgd2InoMhI6SoU4qcQW
+         b+S6aM4Ms6lux941fWX6K8OHoMBgo9E6lYS98MjCrIvgj+xIgGFeXUB0eWFg+KzBbTTO
+         Db9Dzm/+aujR/uOQGBPUfzMQKyjgHHWoxu2NURB7W8Uo3/9TJsA5Alt4VWQjezrb1z4i
+         5IuA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769197884; x=1769802684; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=MNmEBAcCOcnCArGc8pe5UUOL3dPUYv44y06uRTFe1O4=;
-        b=TZwmV3rfMf6P2RZfDf+hEJE4ZfQU7hENlnfDZApVHv6AbIoUhvo+fDQUSTQk+Xm7rQ
-         Rz40S01+JUx1BKNVnPZIDspnnHhpQgwOL6Y2GGdHpqELWLy+32teMBDrEiPoKRRNESVs
-         tsTxxOg8Yue9iO3ek2S+GhJkTw5am2W/FCXh6HV+It/zeDE6ns6lcODZkFICfD1eBgSi
-         w/qXG8LBxOVjYgJ/k8rguB+8Z88Yv+xzNhQxgse5bZwZOrg6Xe1QSHJmFQXpoI2eNcSg
-         7UQAqps8tAz5PidtfTthRMgRqvNnt7/9tuVi3B/fPGNBhvO83QMUyNm883yxraQbalbq
-         gHHA==
+        d=nexthop.ai; s=google; t=1769198172; x=1769802972; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:in-reply-to:references:from
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=pRzQmM1lz2CLbIKhXyUz8czg2mNynwC1/VV/UsQgqnQ=;
+        b=b+jVvYoFEBrzPEIzbn39cXTf6T+7ZyaUCzUlf0T2xNUjuB/Oh0YlD0qnrrHI99qzuq
+         Z7YWpSMplf+tWmOfLdKWchiu72Sg+Es+JPncngc+tVjfp8y5AIPfYAsitcyQ1jrLfLzc
+         CN9uPL5dgX8FwAwxg1bmMD5LJj2Sf4YYa0AG0NA6zTnXUzocaNOeyig6hTcKKJmhHR3z
+         OswUQZQW7fbC1HdBmL8pY0p6PlYaH4U6EAQ9qip3FP7zSMEqKRUMPOmrmLB3KS8BImZ2
+         fsipvRJzseq+lfYtn6vvSGU+Di1kvthyBe8qulmG/BYDvYEzIzZb7Z5ugdXU6tzam2Sn
+         0g6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769197884; x=1769802684;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MNmEBAcCOcnCArGc8pe5UUOL3dPUYv44y06uRTFe1O4=;
-        b=kQviIzxjl0g9Kx4mpFIh7TZ3kSARsDLH3dU7N3S0cEgw0UrWsDrT+JYEeEex9NYdew
-         LPX1SJrwe4Ll5xvutU40QbwgxaX82334HQ1DMRGOvvdKxQpzwwNgN3A/JYm1UeUYzi0E
-         OsXIK1PJtAdjYKT0Ma2DlMqVviGBvVEjJKvbOQbO3BL+fNoa9e1vSjBnd4qajKn0X7TD
-         BJOZCSwxxO2QqKqTxMeArHeLUk/YuHqZpL6HylE5E4ao7WxD3fFdvETB1zJn/vf6TFnn
-         N4wSW3gTb1jAN9ytlhNMXlPIbAAfbsA8tMJaEY1gy6tPNKnmR3pT6nuBLnMyHd1yrbNA
-         T/Zg==
-X-Forwarded-Encrypted: i=1; AJvYcCX4/T2CcMGhzciR8mD7cf0SWj1Y+9TZOL84aeWJHymNclY0WAHr+27cQ8VMYP/s5DvjNvRSBjILT0aFFzrle3ny@lists.infradead.org
-X-Gm-Message-State: AOJu0YytqAAJW+4LCdviX0JzrdS3c7CHKvm1QGEZjIMtTREkwHJ5odJf
-	h/MIlSeMxlqyfzcR1BC5ns5VKVKOMwI5oMwsPy/2HGAUUBxFRQ+roDahmJqYAvSuAyU=
-X-Gm-Gg: AZuq6aJqIY8Ppl6CURsPYAS0tgJMHeF3+Ys0bSpWTAMGr6PQiJGVz+AKkUZ+f8kyXVr
-	rD4YdU1p38qiT3pNL9wP/RuuU0da+eRGDpw146GTDw9vZ+t4I57OH0JEUsaGjWV+R+CzlDu9mq7
-	bAHKA7r9mHlCKZC6fvaTnFOzB8tv1VKDy9UuH5C2RsIPlimh+55f00GEMjorgJUlP+Irhc5WVa5
-	IbLWvY1YOOUjpGuvU5Rsh95+noarXr83QhcaUwKule1/Du5/RyNpeDlYDNhj/0qgJgigST8cN4s
-	7nepVhNgTLCpUPJTRfLfS9xjqANt0i6FcmN3iUJC7C1bnAVwm9iB2mq9wkiHB1GYdMUMilfje4d
-	XQYQHdKS/fo0k0imwudIyfyVUCyNaaVLLR1j4gBdXdgDc/tJi1O4On2FcsDABlyhfsaA93qc2Zk
-	6tEFdg5sR6mqCivB69
-X-Received: by 2002:a05:600c:3e0e:b0:46f:a2ba:581f with SMTP id 5b1f17b1804b1-4804d307b0cmr68595535e9.16.1769197884089;
-        Fri, 23 Jan 2026 11:51:24 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-480470bfe42sm156761385e9.9.2026.01.23.11.51.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Jan 2026 11:51:23 -0800 (PST)
-Date: Fri, 23 Jan 2026 22:51:20 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Chester Lin <chester62515@gmail.com>
-Cc: Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Frank Li <Frank.li@nxp.com>, linaro-s32@linaro.org,
-	netdev@vger.kernel.org
-Subject: [PATCH v4 3/3] dts: s32g: Add GPR syscon region
-Message-ID: <34ac20223cf6833a0fe4291cfb2db5309f4e5eed.1769195864.git.dan.carpenter@linaro.org>
-References: <cover.1769195864.git.dan.carpenter@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1769195864.git.dan.carpenter@linaro.org>
+        d=1e100.net; s=20230601; t=1769198172; x=1769802972;
+        h=cc:to:subject:message-id:date:in-reply-to:references:from
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pRzQmM1lz2CLbIKhXyUz8czg2mNynwC1/VV/UsQgqnQ=;
+        b=ZQoi1oZeGwJRU4BUEoyZBd3ZstnInZE+z87iZ418OMXz5e+Y65RoSntrlDbUr24fJl
+         R+THnNLjuSsAhtUce9OcB3ZgHZ2rB2xxip6F68MMOfiqv3/VcNkBb/x4fa1Cm0S8nABu
+         7o8CMNt3Ly+gDwJaANQuA4Few/ObeIoWdVIFKWW0ukM7AJxE/3SGTn39MGhxi3GsCRQp
+         YWlav7wCweqSBKPFqFNDQhtjJ7RFP6U1lqmtIXWurlN91+qPhrjaozfLE7oaIiwIEa+J
+         IfNp4FLOkHT3GN2J5U7aJ0mhGL0fjDmb4IYQ81GEEQ3wUFo8cI0hxOZymzWuJCalRZNe
+         rpqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVBsuRD93ebo10GmUuMw9TVToM6y2zYDSrBMfSPqVRzr3fqZmNWtDRY4CgRom3HY6jnR1MLFT4QPCtBF3pplHTq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6boWxZIXgjhecxpjCuphS0u5UOVElyAMZk0W4v60QgRWSXQrd
+	tlpLT+nFt9Q5DLmeeYPg51gLuJPivOKC+DM2D+qI9B7jqYLRWB8zFA3vgx+26M/l9yHKiMswnpv
+	tCIokffqsvZBzD8LRbBIBSO6lMUjQgcqk3b9rTgeTkQ==
+X-Gm-Gg: AZuq6aKPmwG90V/5qLbKUKT17MKw9qiCL2cq90fTx/K6BqM1JX9Q5tkm7Y3Hgk6q9GY
+	wXIiEI63nEFre23chRN+eb8/d7SbV7UVUsKxPcdULaV2+kD0/KbDAj9Gv7zEoO45Hn6guC1kg9F
+	RgOr7PKJkI4graGYcmwqZx8H0Qy7XqLEo4jnLkKyPks/gUgkhDzXd4RvF8Q540bVasVDD1TjD1G
+	/OXek7YwsLv9x5hWacevtDe2ymNluPAk0JBWCQmjCOmiyzovqni5Q7enkz4ssCT2RAZdaoM
+X-Received: by 2002:a05:690c:6c91:b0:787:badd:4f with SMTP id
+ 00721157ae682-7942a82216emr57835217b3.17.1769198171795; Fri, 23 Jan 2026
+ 11:56:11 -0800 (PST)
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 23 Jan 2026 11:56:10 -0800
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 23 Jan 2026 11:56:10 -0800
+Mime-Version: 1.0
+From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+X-Mailer: aerc 0.21.0
+References: <20260123-i2c-xiic-v3-0-eb7cd4254dfb@nexthop.ai>
+ <20260123-i2c-xiic-v3-1-eb7cd4254dfb@nexthop.ai> <df9e1a39-3928-491a-920f-fd45120d8024@lunn.ch>
+In-Reply-To: <df9e1a39-3928-491a-920f-fd45120d8024@lunn.ch>
+Date: Fri, 23 Jan 2026 11:56:10 -0800
+X-Gm-Features: AZwV_QhUfRUwIxUyrcfux8-cCvxAaxEfux0jZWXnZ-3_tfujqzHxVqC7g82XeGk
+Message-ID: <CAGYn4vw55SPn4vKuYwM1nTgpzdExtEuv1H3JNkx0XngBd6mjYg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/5] i2c: xiic: make the clock optional
+To: Andrew Lunn <andrew@lunn.ch>, abdurrahman@nexthop.ai
+Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@intel.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_115126_138486_08604307 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20260123_115613_673661_7E4CCE13 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,67 +120,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the GPR syscon region for the s32 chipset.
+On Fri Jan 23, 2026 at 7:20 PM UTC, Andrew Lunn wrote:
+> On Fri, Jan 23, 2026 at 08:02:44AM +0000, Abdurrahman Hussain via B4 Relay wrote:
+>> From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+>>
+>> The xiic driver is designed to operate without explicit clock configuration
+>> when clocks are not specified in the firmware. This functionality is
+>> already implemented in xiic_setclk(), which performs an early return when
+>> either i2c_clk or input_clk are zero:
+>>
+>> This condition is satisfied when clocks are missing, as clk_get_rate(NULL)
+>> returns zero, allowing the driver to rely on hardware-configured timing.
+>
+> https://elixir.bootlin.com/linux/v6.18.6/source/Documentation/devicetree/bindings/i2c/xlnx,xps-iic-2.00.a.yaml#L42
+>
+> The binding indicates the clock is required. You need to update the
+> binding to match the code.
+>
+> 	Andrew
 
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
----
-v4: no change
-v3: no change
-v2: Remove #address-cells and #size-cells
+Absolutely! Let me take care of it in v5. Will add the doc change before the
+code changes.
 
- arch/arm64/boot/dts/freescale/s32g2.dtsi | 6 ++++++
- arch/arm64/boot/dts/freescale/s32g3.dtsi | 6 ++++++
- 2 files changed, 12 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-index 51d00dac12de..b954952d962b 100644
---- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-@@ -325,6 +325,11 @@ usdhc0-200mhz-grp4 {
- 			};
- 		};
- 
-+		gpr: syscon@4007c000 {
-+			compatible = "nxp,s32g2-gpr", "syscon";
-+			reg = <0x4007c000 0x3000>;
-+		};
-+
- 		ocotp: nvmem@400a4000 {
- 			compatible = "nxp,s32g2-ocotp";
- 			reg = <0x400a4000 0x400>;
-@@ -731,6 +736,7 @@ gmac0: ethernet@4033c000 {
- 			compatible = "nxp,s32g2-dwmac";
- 			reg = <0x4033c000 0x2000>, /* gmac IP */
- 			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
-+			nxp,phy-sel = <&gpr 0x4>;
- 			interrupt-parent = <&gic>;
- 			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
-diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-index e314f3c7d61d..be03db737384 100644
---- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-@@ -383,6 +383,11 @@ usdhc0-200mhz-grp4 {
- 			};
- 		};
- 
-+		gpr: syscon@4007c000 {
-+			compatible = "nxp,s32g3-gpr", "syscon";
-+			reg = <0x4007c000 0x3000>;
-+		};
-+
- 		ocotp: nvmem@400a4000 {
- 			compatible = "nxp,s32g3-ocotp", "nxp,s32g2-ocotp";
- 			reg = <0x400a4000 0x400>;
-@@ -808,6 +813,7 @@ gmac0: ethernet@4033c000 {
- 			compatible = "nxp,s32g2-dwmac";
- 			reg = <0x4033c000 0x2000>, /* gmac IP */
- 			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
-+			nxp,phy-sel = <&gpr 0x4>;
- 			interrupt-parent = <&gic>;
- 			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
--- 
-2.51.0
-
+Abdurrahman
 
