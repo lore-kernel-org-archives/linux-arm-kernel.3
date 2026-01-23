@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F48D7789E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 17:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFFA1D7789E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 17:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FUQ80tT39T4u+sBGcCQr2xBd8jfOQG1EAgviS/fe1Lc=; b=VXM9URjDyjRW6uorqUeoKOSHsi
-	q6bIVqj0VU/jbaYsAcrZbQzQ0UydtxlMYnuJOb+kjGdqXFMdi6AIdZu2eoq53tiGhoWW+n4Uv17h9
-	6rj3hSegYohIIUB7GHUmKHX8AFQJ7GXpfxytNQPZF7CoY9BRrHNQKfsA79WsKz6FIYN+Divlkimz0
-	PRXoNJVlaAAQw8Hi9PpPHRbLM1OUFnpBif261jvjGuAmfVTCJ1okjLwbTD00iCNXcJ8gZ0YnGosKQ
-	u7GndySS3h9V07KDprOBgYKcXKR6OvGnQEM43ciy3kIS/p4zuc9+ptcCcQ3Jp6/DO/+IgwL6YyfgX
-	6u3h9G5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V/GIgI3H6N7By0zmQzJ1ShQOzer3L8f1EVXd7hbBqLg=; b=3Wf3ZJ1IyqXVq2QnOIpgW6zNRY
+	q0TQ4T8fwy+Xjd5qvMxqHk8RFTPSg95DvB36ij7Ww50wry/sdTbpWOw6eQyDwoVSkzz0f2zAkDmrm
+	SKI2VTvSnnyP4yOQacj0er/GeypOM5tHK8Q93PN7LogptPK7X7DO6ylgz0Z9/IEPxaAhG/V8eoXtR
+	H5PLh8GeOk7l+MwN3mFRU3fQ1dVHRs5Iz6ccB2uFPMw5bgpar5YT+BPDtrFUJ4DvBlVINNYl2f/mJ
+	cnkkkCRCJfT7rJSnuhEVWAm5y5zXT/0Xe9Gyh9x9NwE5tXqHk9reEGJPiVtavspFAB8CVxYGTGYTU
+	624B/OAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjLIZ-00000009JSz-0JsM;
-	Fri, 23 Jan 2026 17:50:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vjLKC-00000009Jm3-20hP;
+	Fri, 23 Jan 2026 17:52:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjLIT-00000009JRC-3SwF
+	id 1vjLKB-00000009Jlw-0mOX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 17:50:15 +0000
+	Fri, 23 Jan 2026 17:51:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 88AE243D31;
-	Fri, 23 Jan 2026 17:50:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A758DC4CEF1;
-	Fri, 23 Jan 2026 17:50:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9A45C601DC;
+	Fri, 23 Jan 2026 17:51:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB979C4CEF1;
+	Fri, 23 Jan 2026 17:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769190613;
-	bh=z3Bkw+uCwa+AmqSOg8BkgucGwYEm4VJUl7mTJocV5Vs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kls8J8JcGWnLYZ1oI/Gbuulwg2rMGumK3WW/nshCN6eLZwwh+kAqca8tNMthI9M+n
-	 bfUVJoInxPWzmg1Iplv3IwMHSa7RbNAFWyQID12LTGLXROthWfvsXArkMrppiKyNLg
-	 VGIbhPJqdB6c9srdKrpgyl/9jUHc4XiL18+tvXSb5DhaCTSiz9edo28rzWfxjvQjox
-	 GrhRl+m34X3dlZgqrqZuRmm/SRpC08GeGA2eXTsSf4EabE3I/fSct5+x9RoLQlh8do
-	 MmwYrb9tcBOzRPm0yProMLQUqgZvZswr4aUro5J8+Z+ppcCczb5wfWLB9tc2lnk35e
-	 OY/zFWkpR5c7Q==
+	s=k20201202; t=1769190718;
+	bh=hvF0TEDnYwT7/9fDIPj1Uln1puS77Z3p/8YlfCj6ZKc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c1O3Tr00NjhkWBu2cym1RRPv0vh+e8ksJSG1tfk30d9wnpWW2NL6H1TU0sXlYeXPD
+	 zIYT0vKx88QYOw2XOmY9pdrxdJTkaPCHFkrpJQwD5DTXytUDKY/xkYjilu6NlHpNbv
+	 ybh0YF7ZovMl8TU0tfqC9Ms0y/4CR53jkvgiQkLlNvLGfPw2HzP945qYoSooRk+fM3
+	 AN6B1bC8dSuyl+skcUOQRp/BAy6lnEeYlpysrRWKVzN6k+zOSrK+ElZJxm4QlBSqeC
+	 kkTl1zkifyMZDUOnNWVwL8vsA5O5jyCjD1rNCoace0QnHHMdbGv6JowIJDE0CNpw98
+	 PBDDw3INvJ7zw==
+Date: Fri, 23 Jan 2026 17:51:52 +0000
 From: Will Deacon <will@kernel.org>
 To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	robin.murphy@arm.com,
-	joro@8bytes.org,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	skolothumtho@nvidia.com,
-	praan@google.com,
-	xueshuai@linux.alibaba.com,
-	smostafa@google.com,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Subject: Re: [PATCH rc v7 0/4] iommu/arm-smmu-v3: Fix hitless STE update in nesting cases
-Date: Fri, 23 Jan 2026 17:49:51 +0000
-Message-ID: <176917607019.801728.614554722771260022.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1768501336.git.nicolinc@nvidia.com>
-References: <cover.1768501336.git.nicolinc@nvidia.com>
+Cc: jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org,
+	jgg@nvidia.com, balbirs@nvidia.com, miko.lenczewski@arm.com,
+	peterz@infradead.org, kevin.tian@intel.com, praan@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 3/7] iommu/arm-smmu-v3: Introduce a per-domain
+ arm_smmu_invs array
+Message-ID: <aXO1OLrOsCkep3V8@willie-the-truck>
+References: <cover.1766174731.git.nicolinc@nvidia.com>
+ <8c94c5194871ee1a0f3a6b49e18818b88f51226d.1766174731.git.nicolinc@nvidia.com>
+ <aXOpzjkAgODnh2HU@willie-the-truck>
+ <aXOxfi8ZQAkr4zHU@Asurada-Nvidia>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_095013_888760_D661C492 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aXOxfi8ZQAkr4zHU@Asurada-Nvidia>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,33 +75,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 15 Jan 2026 10:23:27 -0800, Nicolin Chen wrote:
-> Occasional C_BAD_STE errors were observed in nesting setups where a device
-> attached to a nested bypass/identity domain enables PASID.
+On Fri, Jan 23, 2026 at 09:35:58AM -0800, Nicolin Chen wrote:
+> On Fri, Jan 23, 2026 at 05:03:10PM +0000, Will Deacon wrote:
+> > On Fri, Dec 19, 2025 at 12:11:25PM -0800, Nicolin Chen wrote:
+> > > +struct arm_smmu_inv {
+> > > +	struct arm_smmu_device *smmu;
+> > > +	u8 type;
+> > > +	u8 size_opcode;
+> > > +	u8 nsize_opcode;
+> > > +	u32 id; /* ASID or VMID or SID */
+> > > +	union {
+> > > +		size_t pgsize; /* ARM_SMMU_FEAT_RANGE_INV */
+> > > +		u32 ssid; /* INV_TYPE_ATS */
+> > > +	};
+> > > +
+> > > +	refcount_t users; /* users=0 to mark as a trash to be purged */
+> > 
+> > The refcount_t API uses atomics with barrier semantics. Do we actually
+> > need those properties when updating the refcounts here? The ASID lock
+> > gives us pretty strong serialisation even after this patch series and
+> > we rely heavily on that.
 > 
-> This occurred when the physical STE was updated from S2-only mode to S1+S2
-> nesting mode, but the update failed to use the hitless routine that it was
-> supposed to use. Instead, it cleared STE.V bit to load the CD table, while
-> the default substream was still actively performing DMA.
-> 
-> [...]
+> But we can't use that mutex in the invalidation function that
+> might be an IRQ context?
 
-Applied to iommu (arm/smmu/updates), thanks!
+My question, really, is why do you need the atomic properties in this patch
+series? It just looks like overhead at the moment.
 
-[1/4] iommu/arm-smmu-v3: Add update_safe bits to fix STE update sequence
-      https://git.kernel.org/iommu/c/2781f2a930ab
-[2/4] iommu/arm-smmu-v3: Mark STE MEV safe when computing the update sequence
-      https://git.kernel.org/iommu/c/f3c1d372dbb8
-[3/4] iommu/arm-smmu-v3: Mark EATS_TRANS safe when computing the update sequence
-      https://git.kernel.org/iommu/c/7cad80048595
-[4/4] iommu/arm-smmu-v3-test: Add nested s1bypass/s1dssbypass coverage
-      https://git.kernel.org/iommu/c/a4f976edcb87
-
-Cheers,
--- 
 Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
 
