@@ -4,82 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0013D72367
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B38D1D72367
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RB2N5YBeKWLxz5FkrVnsyiEuGQy3JJP6HUJk3toQkcs=; b=QDWia6USwUfRK6bFHZfVh6l1q9
-	SiQ9fj5DFM78ObxOe03Nf08rwG6CxiD8QXzteV4jCC+kDkkzK0nvDxDCVgVdHQ/m0UsmTVU0uc/eY
-	F6WG/9CERpSmjsj1VEh1ANC3aVsBdsMUNjW7Bc/rwOLe7NuHxxZAYQyITFoExkkphhdIKaffT2q7k
-	KDyiAn8rk8i9SHekLQkWRwsYn565mnFkOH1yvmrmKKupyciE6zXqlxSxzii1N6poktrF6B/2GnYAq
-	en3zNkFIKUC9NwvKIXebSPLEl9H5jdxYQrCRQda+wvtqWl24LEpIqE2Xvv2GsZ6QaZpNPVY9iudeW
-	Bon8k76g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R2dnjTDdAxtFe1SNVIGyD//Zr6oIkw6elS/2GxgPMzM=; b=3/X6AtSRtbQxFtcX4qqFKZvzx9
+	x2SiV+1UZJUm9+ptrMfgRZ/e1ih+uPJBTfHpi/7gs8+Uk0vxz2Bz3JHHd0dQ4ZELp6ZhWLceY0p1j
+	mK43VJI7FXVWQXAWmIK0mKqJLsQRW0f25RfOWaGI2v/c4Vstg5co+m5VP9DHBRhvJbpF4unuLVL3v
+	RI1GSmSlHgd3/aiAmlZW2spgHr9tcgzjAcFBokg98QjARYq1GZpm4fkIRYzRHz/DoeDVWc+j1T6IB
+	lTVTidOb3IWGmE1uZPJohjAOVDJrbR1F1PnkIcxlimlNbjpAgn0YNUw23VJA3WEtDXrApa/r6Z+W7
+	mh2CQhYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDrP-00000008cr5-43Wo;
-	Fri, 23 Jan 2026 09:53:49 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vjDrd-00000008czi-2Y9m;
+	Fri, 23 Jan 2026 09:54:01 +0000
+Received: from mail-m32110.qiye.163.com ([220.197.32.110])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDrK-00000008cnc-3oCK;
-	Fri, 23 Jan 2026 09:53:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=RB2N5YBeKWLxz5FkrVnsyiEuGQy3JJP6HUJk3toQkcs=; b=OJh+UbqpXGzgNLQw4ZhZxoEZUL
-	AWFW9By2KGYgehufm4Mb5Nk6zq95RQG4lqyttOOnucyLaMuJPrqUzcHP/hP4SbF72Bd6wVqbdyc1D
-	R8oqIEOAHGPzoxDvz25LjIiVI9lOMlvCG526lDuYRphs+0CnlI+RX+Svc0rZG9wgBho4XDzABaakJ
-	PpYmBOEOL4MH44e2WH0toRwkk97G08dRR8wvSn2viWfUFdfNEtIPkdPw1h8uJgDJxSc3rT8gpfH0u
-	uNHqemYYcX35lwXoet0Eni1BPKqTZmcRjxCENTW2kKu9kYBh+9Goz5+dmCTC+mGu0wx3+vWKi/rnQ
-	3aaj3Hag==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:52716 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vjDrD-000000001ai-0NWu;
-	Fri, 23 Jan 2026 09:53:35 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vjDrB-00000005fQF-412k;
-	Fri, 23 Jan 2026 09:53:34 +0000
-In-Reply-To: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
-References: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
+	id 1vjDrb-00000008cuS-0CQP
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 Jan 2026 09:54:00 +0000
+Received: from albert-OptiPlex-7080.. (unknown [112.65.126.162])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 31bc9a75e;
+	Fri, 23 Jan 2026 17:53:50 +0800 (GMT+08:00)
+From: Albert Yang <yangzh0906@thundersoft.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ge Gordon <gordon.ge@bst.ai>,
+	Arnd Bergmann <arnd@arndb.de>
+Cc: BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
+	linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Vinod Koul <vkoul@kernel.org>
-Subject: [PATCH net-next v2 03/14] phy: qcom-sgmii-eth: add .set_mode() and
- .validate() methods
+	linux-kernel@vger.kernel.org,
+	Albert Yang <yangzh0906@thundersoft.com>
+Subject: [PATCH v5 0/6] mmc: add support for BST C1200 SDHCI controller
+Date: Fri, 23 Jan 2026 17:53:36 +0800
+Message-ID: <20260123095342.272505-1-yangzh0906@thundersoft.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vjDrB-00000005fQF-412k@rmk-PC.armlinux.org.uk>
-Date: Fri, 23 Jan 2026 09:53:33 +0000
+X-HM-Tid: 0a9bea463c2709cckunm2b675df11c3d86
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaSEpCVhhMGhpNShhPQh1OT1YVFAkWGhdVEwETFh
+	oSFyQUDg9ZV1kYEgtZQVlKSklVTU5VSklNVUpNSVlXWRYaDxIVHRRZQVlPS0hVSktJT09PSFVKS0
+	tVSkJLS1kG
+DKIM-Signature: a=rsa-sha256;
+	b=FEab32P+zcZXZFCMSdiOH2kEhavXVqtATqWfMdbsLa6WtU+tCRK7IPsRE4ZRAPHVYjRt6HVq0//JaBoziCAsfatIhgmD+UOPKYxxOhpXa4fjRDpD5d7VeTlh2EeAn4etETjKyxTjktIqdl373jo1nWddkLB/v+culGDEinl2SCw=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
+	bh=R2dnjTDdAxtFe1SNVIGyD//Zr6oIkw6elS/2GxgPMzM=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_015343_356935_276C2378 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20260123_015359_493855_18F7DAAD 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,100 +77,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-qcom-sgmii-eth is an Ethernet SerDes supporting only Ethernet mode
-using SGMII, 1000BASE-X and 2500BASE-X.
+This series adds MMC/eMMC controller support for Black Sesame Technologies
+C1200 SoC. BST is a leading automotive-grade computing SoC provider focusing
+on intelligent driving, computer vision, and AI capabilities for ADAS and
+autonomous driving applications. More information: https://bst.ai
 
-Add an implementation of the .set_mode() method, which can be used
-instead of or as well as the .set_speed() method. The Ethernet
-interface modes mentioned above all have a fixed data rate, so
-setting the mode is sufficient to fully specify the operating
-parameters.
+== Background ==
 
-Add an implementation of the .validate() method, which will be
-necessary to allow discovery of the SerDes capabilities for platform
-independent SerDes support in the stmmac network driver.
+This is the MMC portion split from the original v4 series [1] following
+feedback from Arnd Bergmann [2]. The platform support (vendor-prefix,
+SoC bindings, Kconfig ARCH_BST, base DTS, defconfig ARCH_BST) has already
+been merged into Linux 6.19 through the SoC tree [3].
 
-Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Acked-by: Vinod Koul <vkoul@kernel.org>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/phy/qualcomm/phy-qcom-sgmii-eth.c | 43 +++++++++++++++++++++++
- 1 file changed, 43 insertions(+)
+== Series Overview ==
 
-diff --git a/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c b/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
-index 5b1c82459c12..4ea3dce7719f 100644
---- a/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
-+++ b/drivers/phy/qualcomm/phy-qcom-sgmii-eth.c
-@@ -7,6 +7,7 @@
- #include <linux/ethtool.h>
- #include <linux/module.h>
- #include <linux/of.h>
-+#include <linux/phy.h>
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
-@@ -286,6 +287,37 @@ static int qcom_dwmac_sgmii_phy_power_off(struct phy *phy)
- 	return 0;
- }
- 
-+static int qcom_dwmac_sgmii_phy_speed(enum phy_mode mode, int submode)
-+{
-+	if (mode != PHY_MODE_ETHERNET)
-+		return -EINVAL;
-+
-+	if (submode == PHY_INTERFACE_MODE_SGMII ||
-+	    submode == PHY_INTERFACE_MODE_1000BASEX)
-+		return SPEED_1000;
-+
-+	if (submode == PHY_INTERFACE_MODE_2500BASEX)
-+		return SPEED_2500;
-+
-+	return -EINVAL;
-+}
-+
-+static int qcom_dwmac_sgmii_phy_set_mode(struct phy *phy, enum phy_mode mode,
-+					 int submode)
-+{
-+	struct qcom_dwmac_sgmii_phy_data *data = phy_get_drvdata(phy);
-+	int speed;
-+
-+	speed = qcom_dwmac_sgmii_phy_speed(mode, submode);
-+	if (speed < 0)
-+		return speed;
-+
-+	if (speed != data->speed)
-+		data->speed = speed;
-+
-+	return qcom_dwmac_sgmii_phy_calibrate(phy);
-+}
-+
- static int qcom_dwmac_sgmii_phy_set_speed(struct phy *phy, int speed)
- {
- 	struct qcom_dwmac_sgmii_phy_data *data = phy_get_drvdata(phy);
-@@ -296,10 +328,21 @@ static int qcom_dwmac_sgmii_phy_set_speed(struct phy *phy, int speed)
- 	return qcom_dwmac_sgmii_phy_calibrate(phy);
- }
- 
-+static int qcom_dwmac_sgmii_phy_validate(struct phy *phy, enum phy_mode mode,
-+					 int submode,
-+					 union phy_configure_opts *opts)
-+{
-+	int ret = qcom_dwmac_sgmii_phy_speed(mode, submode);
-+
-+	return ret < 0 ? ret : 0;
-+}
-+
- static const struct phy_ops qcom_dwmac_sgmii_phy_ops = {
- 	.power_on	= qcom_dwmac_sgmii_phy_power_on,
- 	.power_off	= qcom_dwmac_sgmii_phy_power_off,
-+	.set_mode	= qcom_dwmac_sgmii_phy_set_mode,
- 	.set_speed	= qcom_dwmac_sgmii_phy_set_speed,
-+	.validate	= qcom_dwmac_sgmii_phy_validate,
- 	.calibrate	= qcom_dwmac_sgmii_phy_calibrate,
- 	.owner		= THIS_MODULE,
- };
+Patch 1: dt-bindings: mmc: add binding for BST DWCMSHC SDHCI controller
+Patch 2: mmc: sdhci: allow drivers to pre-allocate bounce buffer
+Patch 3: mmc: sdhci: add Black Sesame Technologies BST C1200 controller driver
+Patch 4: arm64: dts: bst: enable eMMC controller in C1200 CDCU1.0 board
+Patch 5: arm64: defconfig: enable BST SDHCI controller
+Patch 6: MAINTAINERS: add MMC files to BST entry
+
+== Testing ==
+
+  - checkpatch.pl: PASS (all patches)
+  - dt_binding_check: PASS
+  - dtbs_check (CHECK_DTBS=y): PASS
+  - Build tested with ARCH=arm64 defconfig
+
+== Changes since v4 ==
+
+  - Split: Platform patches merged separately via SoC tree; this series is
+    MMC-only, submitted to MMC maintainers
+
+  DT binding (patch 1):
+  - Rename file from bst,dwcmshc-sdhci.yaml to bst,c1200-sdhci.yaml
+  - Fix example compatible string to match property definition
+
+  Driver (patch 3):
+  - Fix compatible string to match dt-bindings (bst,c1200-sdhci)
+  - Simplify clock divider calculation with clearer frequency range logic
+  - Add linux/bits.h and linux/bitfield.h headers
+  - Remove unused linux/ioport.h header
+  - Rename SDHCI_TUNING_COUNT to BST_TUNING_COUNT
+  - Rename BST_EMMC_CTRL_BIT2 to BST_EMMC_CTRL_RST_N
+  - Fix BST_DEFAULT_MAX_FREQ from 2MHz to 200MHz
+  - Convert kernel-doc to regular comments (per Adrian Hunter)
+  - Add sdhci_bst_free_bounce_buffer() helper (per Adrian Hunter)
+
+
+== References ==
+
+[1] v4: https://lore.kernel.org/lkml/20250923-v4-patch-final-v1-0-2283ad7cbf88@thundersoft.com/
+[2] Split: https://lore.kernel.org/lkml/09b1318e-21dc-4354-8733-866b70696295@app.fastmail.com/
+[3] Merged via soc-newsoc-6.19
+
+Albert Yang (6):
+  dt-bindings: mmc: add binding for BST DWCMSHC SDHCI controller
+  mmc: sdhci: allow drivers to pre-allocate bounce buffer
+  mmc: sdhci: add Black Sesame Technologies BST C1200 controller driver
+  arm64: dts: bst: enable eMMC controller in C1200 CDCU1.0 board
+  arm64: defconfig: enable BST SDHCI controller
+  MAINTAINERS: add MMC files to BST entry
+
+ .../bindings/mmc/bst,c1200-sdhci.yaml         |  70 +++
+ MAINTAINERS                                   |   2 +
+ .../dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts    |  19 +
+ arch/arm64/boot/dts/bst/bstc1200.dtsi         |  18 +
+ arch/arm64/configs/defconfig                  |   1 +
+ drivers/mmc/host/Kconfig                      |  14 +
+ drivers/mmc/host/Makefile                     |   1 +
+ drivers/mmc/host/sdhci-of-bst.c               | 521 ++++++++++++++++++
+ drivers/mmc/host/sdhci.c                      |   7 +
+ 9 files changed, 653 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mmc/bst,c1200-sdhci.yaml
+ create mode 100644 drivers/mmc/host/sdhci-of-bst.c
+
+base-commit: 0f61b1860cc3f52aef9036d7235ed1f017632193
 -- 
-2.47.3
+2.43.0
 
 
