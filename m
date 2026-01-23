@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED5B9D7237B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 11:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB12D72379
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 11:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I23DJBulHpzqgAw0h9OUkWIRLOPUsnKkbol9Lbu8HEU=; b=B2vbjPKEoILJmh//Z6wMCRLHDm
-	oNs02qJXl3WmxGnxhbUyglr2vhZtS5vDDlkgvNpuslNMhF7r6lJZiUg7PuhuIJwuIh3pZFBJUItWt
-	Z5qr1Vh0qn6cqr6v+93ET1v0jPTgsdLj5dBkBzEU8I7l9vKhJuxANTQbsPL797lEyXvmuaf1iZbg+
-	8yY7BukF930n3a51jTA9VGPpSK4PbehLeHeL9eIMtp5temcZHgYMotImfZ83KwxwYhHh0ZcQZDFW5
-	4s5uqzDwiteevM1f48EzeRXtmQ2hGqaFdQU0YFMu0EAxWX/KJ9d4kBA0aGVROzD1eQHcB8bm2RqTl
-	UBb8n76A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u6klDEegI2rxfEJIiHp/d0Fjdi4gSg49mfHVxoiJv1Y=; b=k/tPNQlegEKsrhVthrZeszybnU
+	3P7ZtQB8r/1o/1UFg1iAHCbKPTeQYouUsGkXd/76h/ISUiMtijkIS4emi4z9n9DqTC4aQ6s7a8cFF
+	OYIdnR++PxgxjI+mfkHGSJBUhqWeyLDhZ6TaU1IH2HUAEJ3flQaIJcBz0T3gK1NTmwhU4g/H5dYQA
+	+2hDQtBYyqa1zctc7ka1EiK6lABmra4voDuOZ3PiJ1CkkoezB6+Ou7vR13BA+C5DrHS6cObXyJ2mx
+	m2tk0TYzIsHemU0tAMmN4jFHPQkIltRd3a9QXLOUZTxtXycZI3SqCnwZ7HuXnBegLnrcawD3gZcJZ
+	quWWOmGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjFTh-00000008rAI-1cBD;
-	Fri, 23 Jan 2026 11:37:25 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vjFUQ-00000008rMH-0LwK;
+	Fri, 23 Jan 2026 11:38:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjFTc-00000008r8H-3PoF
+	id 1vjFUO-00000008rLe-1k4v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 11:37:22 +0000
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1769168239;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=I23DJBulHpzqgAw0h9OUkWIRLOPUsnKkbol9Lbu8HEU=;
-	b=e9sCCxnqqjeoO4DxK090wj83SyzN4cbjLqFK2qtREIZJHFh0ahBUeABPtVMuGQx11wT1TB
-	//SA/A7LlUYmtmEANfOTWL2hVsJjMyjUFaw0TzamdUagQn/LqUjOkaSQKealVDz9o9dSJ3
-	oWKU8q11QrMToy2BR5jAifjqD3jdfl/kW34IKyoSe8Rf3mBXQYN+2xPnGsol4Z1xs1HkSb
-	q+jqxX52G0BV5IoGS+pI+CNTkQEdrU2YLnEG7zVP8u/+BXJknqTBvy/koQMqOx/F8LKsoZ
-	iyd9T+c3TU+Mw/9Ik3id+/BwGeEXOF4XjJFZjGDG/VZC51Slyzv5oxeQcwRAeg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1769168239;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=I23DJBulHpzqgAw0h9OUkWIRLOPUsnKkbol9Lbu8HEU=;
-	b=e/FGfCGw4PQm3cyF+oX/zpaEurklrzAnx7eetDocbSXoSdtioeURqNrLhEHiLnmOqf63Fg
-	eIFe7/TntY1CXLDA==
-To: linux-kernel@vger.kernel.org
-Cc: linux-rt-devel@lists.linux.dev,
-	Thomas Gleixner <tglx@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-cxl@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 16/21] perf/cxlpmu: Replace IRQF_ONESHOT with IRQF_NO_THREAD
-Date: Fri, 23 Jan 2026 12:37:02 +0100
-Message-ID: <20260123113708.416727-17-bigeasy@linutronix.de>
-In-Reply-To: <20260123113708.416727-1-bigeasy@linutronix.de>
-References: <20260123113708.416727-1-bigeasy@linutronix.de>
+	Fri, 23 Jan 2026 11:38:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 84C2160010;
+	Fri, 23 Jan 2026 11:38:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1606EC19422;
+	Fri, 23 Jan 2026 11:38:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769168287;
+	bh=6AsOP4H1gPx88LFV+WRcrIxpnKRWhNEYhBcF0D/GriM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=hE9mGaxfuFAvwhvqFlfTyugmXbwz4VSiW0dixHmngkIHl3Xt3fGK/CdYOoUJs8KkO
+	 Gf4Ygs+GP1wC6jFJ2m8FVuie8OHaUqgBbc0DcT7G6dNmELd9Fh4PRvIbTJyXQ0NLgm
+	 ulZcVGtmCZoJ3IWZJQj9q2345NSHi1zlEWZa5051o144g3C+w6S6Nampm6mA6xGL6C
+	 asbLHM0iUvyrj4iM8HwW+NBsuVgXV1Fdr9I60Ky0dBNlPXopXIh2RKL2/59pCHD7Q8
+	 3DLmovcKV7K2qoHRZUbSJQ9x50s42ajC5bFxfQP3HocAryXYwPkM9wWBSpal/Mp4yA
+	 i+NdBW2k7xPnw==
+Date: Fri, 23 Jan 2026 05:38:06 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_033721_008071_A6EDFFD1 
-X-CRM114-Status: GOOD (  11.52  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-gpio@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>, 
+ linux-kernel@vger.kernel.org, Linus Walleij <linusw@kernel.org>, 
+ Lee Jones <lee@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+ linux-watchdog@vger.kernel.org, Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+ Guenter Roeck <linux@roeck-us.net>, 
+ =?utf-8?q?J=C3=A9r=C3=A9mie_Dautheribes?= <jeremie.dautheribes@bootlin.com>, 
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>
+To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
+In-Reply-To: <20260123-dev-b4-aaeon-mcu-driver-v2-2-9f4c00bfb5cb@bootlin.com>
+References: <20260123-dev-b4-aaeon-mcu-driver-v2-0-9f4c00bfb5cb@bootlin.com>
+ <20260123-dev-b4-aaeon-mcu-driver-v2-2-9f4c00bfb5cb@bootlin.com>
+Message-Id: <176916828626.1389324.17938615184098184972.robh@kernel.org>
+Subject: Re: [PATCH v2 2/5] dt-bindings: mfd: Add AAEON embedded controller
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +78,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Passing IRQF_ONESHOT ensures that the interrupt source is masked until
-the secondary (threaded) handler is done. If only a primary handler is
-used then the flag makes no sense because the interrupt can not fire
-(again) while its handler is running.
-The flag also disallows force-threading of the primary handler and the
-irq-core will warn about this.
 
-The intention here was probably not allowing forced-threading.
+On Fri, 23 Jan 2026 10:54:31 +0100, Thomas Perrot (Schneider Electric) wrote:
+> Add device tree binding documentation for the AAEON embedded controller
+> (MCU). This microcontroller is found on AAEON embedded boards, it is
+> connected via I2C and  and provides a GPIO control and watchdog timer.
+> 
+> Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
+> ---
+>  .../bindings/mfd/aaeon,srg-imx8pl-mcu.yaml         | 56 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  6 +++
+>  2 files changed, 62 insertions(+)
+> 
 
-Replace IRQF_ONESHOT with IRQF_NO_THREAD.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Cc: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-cxl@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
----
- drivers/perf/cxl_pmu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+yamllint warnings/errors:
 
-diff --git a/drivers/perf/cxl_pmu.c b/drivers/perf/cxl_pmu.c
-index d094030220bf2..68a54d97d2a8a 100644
---- a/drivers/perf/cxl_pmu.c
-+++ b/drivers/perf/cxl_pmu.c
-@@ -877,7 +877,7 @@ static int cxl_pmu_probe(struct device *dev)
- 	if (!irq_name)
- 		return -ENOMEM;
-=20
--	rc =3D devm_request_irq(dev, irq, cxl_pmu_irq, IRQF_SHARED | IRQF_ONESHOT,
-+	rc =3D devm_request_irq(dev, irq, cxl_pmu_irq, IRQF_SHARED | IRQF_NO_THRE=
-AD,
- 			      irq_name, info);
- 	if (rc)
- 		return rc;
---=20
-2.51.0
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/aaeon,srg-imx8pl-mcu.example.dtb: embedded-controller@62 (aaeon,srg-imx8pl-mcu): '#gpio-cells', 'gpio-controller', 'gpio-line-names' do not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/mfd/aaeon,srg-imx8pl-mcu.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260123-dev-b4-aaeon-mcu-driver-v2-2-9f4c00bfb5cb@bootlin.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
