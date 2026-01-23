@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1506FD7788C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 17:05:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1690DD7788C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 17:07:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SeEU5PoGjomPSXc9pkCxlvxMxfIL7NrL+60jQyPag50=; b=jQWA0HbF7htILSVaDUHc1oalNl
-	886BCn9IYiBzjBoXqLMaPoEUyhaA1gML2lcdhfxyPfKnL7PslR/364bS+P5leetnjVUjQO1M68c5S
-	okT+tQMdD8rKYK+dFTTZK8Q2fDWOGI+LhAv6lFnPIEkPL/FqXYFKi5komHKtAO8Pb9VEKFo74f0TK
-	I+2OT6I8PyTWnLllCZ2mL1UtUyWOU6ef/WJtrrHO4mhpcEVjoooQXhJV7jeZvokMihmrdGhxnN7W3
-	xS6ghPuONCIyo2+71szOmD7ygHjohnrBuenUGY3DOYQDRyDhIQGAyjeQuwQWxchTmDzSNFyIwSyq9
-	yEmrwGpQ==;
+	bh=0eNPEXbGjjbaiO5gLWYNnJe8fknrZY7YEqet0rgTKPw=; b=TyuM9wMh1NWGf2V1xnM3FPHixX
+	mVFaBALqq1X58w9wdOwj9OCvyHWH9LYlHaT5YfWKVWPWJymsjrwVcEO5efcQVGy133hZLCxomJ8v/
+	g02LB5RFK9YoRBFuccuaQDemug78BBsrFQz9CjXcpywFd5aA+M+p5wiC6VLG+Dkkm3J9mbLGX5Mun
+	/NptP9uHOYjg09LPVapRXr2rWgWUtv/YcW68MW9Qb1yJNu2sxvndt7/5/IfEEqAoeMgwfkbGuT4a5
+	zAhJu+CvJqycD5T3t94YpfnqPrb/c2znEosR5h6N7iG4YvAvelJtJSe2Sx5/LCfGIr2Zeg8SlWY/D
+	jKIopZ2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjKbE-00000009G0X-3MC0;
-	Fri, 23 Jan 2026 17:05:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vjKd2-00000009G9v-1Guh;
+	Fri, 23 Jan 2026 17:07:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjKbE-00000009G0R-1bUF
+	id 1vjKd0-00000009G9Q-1K9R
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 17:05:32 +0000
+	Fri, 23 Jan 2026 17:07:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7F4CA600C3;
-	Fri, 23 Jan 2026 17:05:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7C7FC19421;
-	Fri, 23 Jan 2026 17:05:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D1DDD44042;
+	Fri, 23 Jan 2026 17:07:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39F0EC4CEF1;
+	Fri, 23 Jan 2026 17:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769187931;
-	bh=WO63o5Q2VVInqzhmP1GbbfLkgfmmJvMmamxU+orQc3w=;
+	s=k20201202; t=1769188041;
+	bh=9rUMilIkpNWtjs/T2EfzZx31jZHYz4VdqIi8b2c0JrE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gxhiRxd1Hfn5KzlrT15FtbckKVsEmE1qomTLIiIT4CjXs35d9bZI0CVlysgsOw/c+
-	 00xFonQe2mFliwip/9Ie1xiwKPO2hEoboAvuv7WHBo/UnLtvDmxFRU2YJAVs3BaKKy
-	 3FwkGK/af7rVb1ZTuveuAuYBMnarC1CUHF/h1S3UU/dC4xKWWm51/dIjjhAKAS6k8E
-	 D1Gm4E/iI1pR5kyZzfuotZglN+wU/5X0/8vjp1ZdTNBf79TEjskTdpqqpKQ1uSnrGB
-	 Z7n3+2TPD0zsO4x1wR6s5dzV+oxQVsjx0+PgapJVl+ZW3pIRwHdIlP1v1C8JSuMLAl
-	 BBtfU1TBDFlXw==
-Date: Fri, 23 Jan 2026 17:05:25 +0000
+	b=msNaMqX6KYDUOvOEOGX9DVjUrkfHhPyna2/uTUXTB1Mfn+jEouENQNmTCEeDZsCUQ
+	 7SEUmcw+ZzoflGOLJj6bzpvd15muSZMZusyAh16GZxVIHtyyCAfsIKaB+aztqt0iBc
+	 1T+jQA2nkNA+9mqK+3Fpl1Ur8V8EHOECXJNmRyAyOU4rsuRPcajnBjjAhYMjlv5HnA
+	 YEuyQ+5VMes+kenXZydHFB/m8Cb6C7qahbmGdBLHQco0BTexSVJx85JvQ4fIkhYxiy
+	 1+EckLMegEbN8q7kcDmD9JKuBndnt0J0TsZb2yDqbrDuitgksHiCrdW7gimjgfIwVg
+	 LWPxkLhqs6vDw==
+Date: Fri, 23 Jan 2026 17:07:15 +0000
 From: Will Deacon <will@kernel.org>
 To: Nicolin Chen <nicolinc@nvidia.com>
 Cc: jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org,
@@ -50,15 +50,18 @@ Cc: jean-philippe@linaro.org, robin.murphy@arm.com, joro@8bytes.org,
 	peterz@infradead.org, kevin.tian@intel.com, praan@google.com,
 	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 6/7] iommu/arm-smmu-v3: Add arm_smmu_invs based
- arm_smmu_domain_inv_range()
-Message-ID: <aXOqVcX9YEC-Ikdt@willie-the-truck>
+Subject: Re: [PATCH v9 7/7] iommu/arm-smmu-v3: Perform per-domain
+ invalidations using arm_smmu_invs
+Message-ID: <aXOqwymxe-nzYpwU@willie-the-truck>
 References: <cover.1766174731.git.nicolinc@nvidia.com>
- <06999367d001283744fd98eb7c1823afd516ce84.1766174731.git.nicolinc@nvidia.com>
+ <308ed579c724879a4a20b19ccdcb33e917597d77.1766174731.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <06999367d001283744fd98eb7c1823afd516ce84.1766174731.git.nicolinc@nvidia.com>
+In-Reply-To: <308ed579c724879a4a20b19ccdcb33e917597d77.1766174731.git.nicolinc@nvidia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260123_090722_396666_928DC0C7 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,115 +76,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 19, 2025 at 12:11:28PM -0800, Nicolin Chen wrote:
-> +void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
-> +			       unsigned long iova, size_t size,
-> +			       unsigned int granule, bool leaf)
-> +{
-> +	struct arm_smmu_invs *invs;
-> +
-> +	/*
-> +	 * An invalidation request must follow some IOPTE change and then load
-> +	 * an invalidation array. In the meantime, a domain attachment mutates
-> +	 * the array and then stores an STE/CD asking SMMU HW to acquire those
-> +	 * changed IOPTEs. In other word, these two are interdependent and can
-> +	 * race.
-> +	 *
-> +	 * In a race, the RCU design (with its underlying memory barriers) can
-> +	 * ensure the invalidation array to always get updated before loaded.
-> +	 *
-> +	 * smp_mb() is used here, paired with the smp_mb() following the array
-> +	 * update in a concurrent attach, to ensure:
-> +	 *  - HW sees the new IOPTEs if it walks after STE installation
-> +	 *  - Invalidation thread sees the updated array with the new ASID.
-> +	 *
-> +	 *  [CPU0]                        | [CPU1]
-> +	 *                                |
-> +	 *  change IOPTEs and TLB flush:  |
-> +	 *  arm_smmu_domain_inv_range() { | arm_smmu_install_new_domain_invs {
-> +	 *    ...                         |   rcu_assign_pointer(new_invs);
-> +	 *    smp_mb(); // ensure IOPTEs  |   smp_mb(); // ensure new_invs
-> +	 *    ...                         |   kfree_rcu(old_invs, rcu);
-> +	 *    // load invalidation array  | }
-> +	 *    invs = rcu_dereference();   | arm_smmu_install_ste_for_dev {
-> +	 *                                |   STE = TTB0 // read new IOPTEs
-> +	 */
-> +	smp_mb();
-> +
-> +	rcu_read_lock();
-> +	invs = rcu_dereference(smmu_domain->invs);
-> +
-> +	/*
-> +	 * Avoid locking unless ATS is being used. No ATC invalidation can be
-> +	 * going on after a domain is detached.
-> +	 */
-> +	if (invs->has_ats) {
-> +		read_lock(&invs->rwlock);
-> +		__arm_smmu_domain_inv_range(invs, iova, size, granule, leaf);
-> +		read_unlock(&invs->rwlock);
-> +	} else {
-> +		__arm_smmu_domain_inv_range(invs, iova, size, granule, leaf);
-> +	}
-> +
-> +	rcu_read_unlock();
-> +}
-> +
->  static void arm_smmu_tlb_inv_page_nosync(struct iommu_iotlb_gather *gather,
->  					 unsigned long iova, size_t granule,
->  					 void *cookie)
-> @@ -3285,6 +3483,23 @@ arm_smmu_install_new_domain_invs(struct arm_smmu_attach_state *state)
->  		return;
->  
->  	rcu_assign_pointer(*invst->invs_ptr, invst->new_invs);
-> +	/*
-> +	 * We are committed to updating the STE. Ensure the invalidation array
-> +	 * is visible to concurrent map/unmap threads, and acquire any racing
-> +	 * IOPTE updates.
-> +	 *
-> +	 *  [CPU0]                        | [CPU1]
-> +	 *                                |
-> +	 *  change IOPTEs and TLB flush:  |
-> +	 *  arm_smmu_domain_inv_range() { | arm_smmu_install_new_domain_invs {
-> +	 *    ...                         |   rcu_assign_pointer(new_invs);
-> +	 *    smp_mb(); // ensure IOPTEs  |   smp_mb(); // ensure new_invs
-> +	 *    ...                         |   kfree_rcu(old_invs, rcu);
-> +	 *    // load invalidation array  | }
-> +	 *    invs = rcu_dereference();   | arm_smmu_install_ste_for_dev {
-> +	 *                                |   STE = TTB0 // read new IOPTEs
-> +	 */
-> +	smp_mb();
->  	kfree_rcu(invst->old_invs, rcu);
->  }
->  
-> @@ -3334,6 +3549,23 @@ arm_smmu_install_old_domain_invs(struct arm_smmu_attach_state *state)
->  		return;
->  
->  	rcu_assign_pointer(*invst->invs_ptr, new_invs);
-> +	/*
-> +	 * We are committed to updating the STE. Ensure the invalidation array
-> +	 * is visible to concurrent map/unmap threads, and acquire any racing
-> +	 * IOPTE updates.
-> +	 *
-> +	 *  [CPU0]                        | [CPU1]
-> +	 *                                |
-> +	 *  change IOPTEs and TLB flush:  |
-> +	 *  arm_smmu_domain_inv_range() { | arm_smmu_install_old_domain_invs {
-> +	 *    ...                         |   rcu_assign_pointer(new_invs);
-> +	 *    smp_mb(); // ensure IOPTEs  |   smp_mb(); // ensure new_invs
-> +	 *    ...                         |   kfree_rcu(old_invs, rcu);
-> +	 *    // load invalidation array  | }
-> +	 *    invs = rcu_dereference();   | arm_smmu_install_ste_for_dev {
-> +	 *                                |   STE = TTB0 // read new IOPTEs
-> +	 */
-> +	smp_mb();
+On Fri, Dec 19, 2025 at 12:11:29PM -0800, Nicolin Chen wrote:
+> Replace the old invalidation functions with arm_smmu_domain_inv_range() in
+> all the existing invalidation routines. And deprecate the old functions.
+> 
+> The new arm_smmu_domain_inv_range() handles the CMDQ_MAX_TLBI_OPS as well,
+> so drop it in the SVA function.
+> 
+> Since arm_smmu_cmdq_batch_add_range() has only one caller now, and it must
+> be given a valid size, add a WARN_ON_ONCE to catch any missed case.
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   7 -
+>  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |  29 +--
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 165 +-----------------
+>  3 files changed, 11 insertions(+), 190 deletions(-)
 
-I don't think we need to duplicate this comment three times, you can just
-refer to the first function (e.g. "See ordering comment in
-arm_smmu_domain_inv_range()").
+It's one thing replacing the invalidation implementation but I think you
+need to update some of the old ordering comments, too. In particular,
+the old code relies on the dma_wmb() during cmdq insertion to order
+updates to in-memory structures, which includes the pgtable in non-strict
+mode.
 
-However, isn't the comment above misleading for this case?
-arm_smmu_install_old_domain_invs() has the sequencing the other way
-around on CPU 1: we should update the STE first.
+I don't think any of that is true now?
 
 Will
 
