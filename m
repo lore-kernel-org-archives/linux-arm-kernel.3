@@ -4,120 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 007A2D74EFB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:30:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56CADD77881
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vOkRLjnifceecHRFjfFtA9Hu0YVFrmdtZP58mWOpjc8=; b=AguLuwFSXtI8Hrn8OiPVwdOlgL
-	SM2KLPgyJjavJPIiRw+hYx0WOJJCbyTsfkXpFy5CHTtUVbD572hVPDGrBw4fCxln5dbnHY6OqF1GS
-	iSSx+NI3NxyNs3ilGc/4OTFba9nugUquhRHm4szGqbbCjKlI7wzgH8cNXadqZAhgJvvTbcjJBlnpQ
-	gBnVvZ/p6Ilb+qmMHWW9YJNKwy/pB77NmK+t4g2x3VR0HVV00tonYEsyfFflZ5GMVHMoojG2QCn49
-	8IOPzikty/YJi8RR4J1V8iQ6XJ9CNxESltwSTOI4Vjxw9T19bw7g7lwTylY9+mmGz5bSl6joPS09c
-	IVTPT2vw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=swqKW/G3UM+k6f3+e2uz1ef9o1dF12z26c9GwoD0rlc=; b=4wen9Yo/HzZL1MgpwU10VU2nUb
+	X/ZwZTjZYC+SUVJntfRh3oNqXsAfUOZ5gBf0gpIaOWgd/hrntgdXOsYvArJWHOJI561GtegTmlIMA
+	gfiF8TJJcMIEyjPd5geP08zLsjmJ1nW9rvS9lOEzn5s0So81lBV2iNGh69S1frnebqkE6Xw3sWEdJ
+	Nh8ZR0m6q6lOU1mGXFzin4Mgl8NHJ6bcBZUZ+t+etrbxMPyIth90q4kN+qzbRSHef/dVB1U/tfqSN
+	llxOXZt+3yf5F4CyuWX0/oDYuf2ItVull2f/qRqXeXGeRt0xa9zRnbxZFFxV9hwxhZkfejzYyex+G
+	NsP0ZhZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjK3T-00000009CaP-1CoH;
-	Fri, 23 Jan 2026 16:30:39 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vjK72-00000009CtG-0AIC;
+	Fri, 23 Jan 2026 16:34:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjK3Q-00000009CZh-32cU
+	id 1vjK70-00000009CrZ-0jXE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 16:30:38 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2a76b39587aso120995ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 08:30:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769185835; cv=none;
-        d=google.com; s=arc-20240605;
-        b=QjuJ0vxS7u2hD9/IYte+qnDLgAV1HYFAsLvm2M9ApwipQ/UGTk+JG5ganZMY1jZaFM
-         FHsEh7y9jl9NAfEvvFCK+9dH82tkGhJirqd2sDYdYYmapYXMEVAdgbs49vbWmLkSoMxZ
-         wQgycuYAACYMglXHcOwE7pQEazUO/Vkb4zy1sFCOPggv/5vO3gh9gMHqw7cfNq5ZHJ1T
-         y/Y/qEptDC/+fa3owPZIFwdatv3GP3QpBt8ngpZ1iNmmuBY+ZbGjKhyrTaUCSdvb0nqC
-         LC9JqYAeYerCMQQFw+tarn+BMla9VEMp1I/GKVvPM4FXKyiKI+CpzJkqCGC39DB7EJc1
-         suLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=vOkRLjnifceecHRFjfFtA9Hu0YVFrmdtZP58mWOpjc8=;
-        fh=Fo2UmYVsixyQkF4YKHPvHhdC5xlOg9w+gg3gjhazM0I=;
-        b=fjuye9sLPBCb+HPdgpaVKS/rgv4Yhmwyul0sx1mBDlwIoDRTW6E2rEp/Dq/ulMhQ7o
-         OmbbE45S0MlsCQGlEjIJ32Kr/AkGPo34ec2Jhs+r+2AeIfb0v03UaV3b4KU6r6e6Q5t+
-         sxv+pkqTG5Y9wXZH/xkJy1mIEdEeM3FraU++B8svcmEUvnlYiY8vePAw1fprn+dYtq8g
-         r2MaVnPh8RdlS2LbArOkMURihgOIqfyImbZpmU+NhbAAGs+kKOZRPnIyrIMhT3uuWBGT
-         J4VHdaHor1JpUqFfGR5grYvgvix6yZg5GDtCfowFLm017f6voZUbW+UmP2HBOM3vfGHB
-         juzA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769185835; x=1769790635; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vOkRLjnifceecHRFjfFtA9Hu0YVFrmdtZP58mWOpjc8=;
-        b=rqTRurjId1+36FhA1ipsJ4ILjta1zkSafRC6j6O/NkwxRy4SapCpCK+sFS6ClgKIOc
-         5RScswGD91zpgZGeDNP1pOus4yGPejfN9EoKIYIMcl6feNMfzDYVcp6OqSoHpzkJ5tRh
-         53Xmw87P7AgRsuuLQOHcJMxBV13ApDAQ0MSKZv9glRorCcRediTO/4BI5xGH6TPE0AKW
-         8+DrwXD3ehC70lXaoE/ZEQjaLAr5O2uNr/mGDsODgTCMlPq8F8/FPhCsfD55mWk1rN8l
-         tu5MTri4nyCrtzs38WqYdOFjVtL86nVQOEnGq/mW16AeBN4WoFkCirV9ne0mCUH77sKM
-         z58A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769185835; x=1769790635;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=vOkRLjnifceecHRFjfFtA9Hu0YVFrmdtZP58mWOpjc8=;
-        b=NV0Njhv67TqF16Fm9nLLD9LMTgsLR1jtK1tRe9dH9krgb6GoowB89gvpwDNTgec2G0
-         /U+s0gIPB3vifGXLhVKcxsGokKE3WAPttPof1uRSgujVzKmTwUqgTwPt5MsBHuhrTze7
-         Qh0HHly7i2JYr1t348QckU4cSzjaKdEMk6TurOLK1T1pCQ6owWOlAlucjCE01PhICM4H
-         tS8HpGw6CRuqhAA/fU15QzVo7vLGyG/HiagJjr00V8CZXq9JCa3ps9fybQD+XSdKJKTC
-         11St47kI5v0dbgcnGO90XWYvzzwhFtXZXBQR3CwDemQcV96OsXz5fDfS8huzotq+q+wx
-         QVwA==
-X-Forwarded-Encrypted: i=1; AJvYcCWrTgaCuewNdl3WFvtB7oLVr+yDMVJbZVLfq7CO/uETsGNvhsEyJAytuPc9WRMeAO/yMfNF1HuSXu5VHlQzZ/3q@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqUN43Sa4HrKAvAUQakaHzyqWBCqN3ge44F6QeUUuEotckhIvP
-	vHVJC12801rZUW5yFQJo2pk6+kdCmE5+5wvtEstmjWVa1F7R1e6vkHY6ShKuYpxpYHBmBfmspAS
-	/V3RJt6vWBflFHKDYeOKWkIM6hb1I6pDbbShgYgf1
-X-Gm-Gg: AZuq6aJWBqiqlZ20Jz6wY3ZdL8MOxiDZM0pFvSDb25O+bE8zoomdJm7YY9/Z/rpF0h/
-	5Qxg5KS2EeHx1BOZp/76/7ghFE89kbR/B6CexvzGAKSa+n4eJT3kAynRui2zrPb3kpw90sO1DRQ
-	dSHC6Z3FFs+1oLgV2nlDHRs0rTkbrLUTKYwi/Tw+PTi6YUPaMGpliGRr3Pa0zQOF/N50vGUVUEE
-	xAOkYbNBTOSPXUiW+HVMA7uKyrPowiTjg30or98vHhspU9ib7BZTaECObRdvUJTsPqsLfFE3O9g
-	Nj3s1wcFuHWl5jyKuPgVRcdXWQ==
-X-Received: by 2002:a17:902:cf01:b0:2a1:3cda:8e99 with SMTP id
- d9443c01a7336-2a805d45517mr2449745ad.21.1769185834577; Fri, 23 Jan 2026
- 08:30:34 -0800 (PST)
+	Fri, 23 Jan 2026 16:34:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1AF8C600C3;
+	Fri, 23 Jan 2026 16:34:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BFEECC4CEF1;
+	Fri, 23 Jan 2026 16:34:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769186056;
+	bh=SH2RWWiwpkeWyZQeIGuiuLmQkTXrbQiB6gtTSnYx/14=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=sB4/yzzkOfQLoN8l/lgSi5tZTxM7tgMUq6hWreDNSMaD1xDGceibW2az5uI8+3kzZ
+	 DaEeXuOENCQqd5GaaLRjZVnsv1pV1VijOek8nOEXxKRrxPwNiYORyOzg1TcLZPMLqC
+	 jo7jDjeeEwsctyuwmiEdcfSUcJOqIsgitv1NqZTh3+lVihmwvMgC8BDdkUhwjLmyby
+	 Wz7Ok39SsXjEbZH09zZy/WE3ISqxkqRNpQtGWu5R8sfYTcCIUt7+rXRgTP9ZfraLA6
+	 ayNXYViPwNBIeyBywPnQ7lLPHBVEnZdicaNEkQ0zZo19LuTWa8I0PApniCQz5ElpDw
+	 Jp+tQbAmzbuRg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B8534D74EF7;
+	Fri, 23 Jan 2026 16:34:16 +0000 (UTC)
+From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
+Subject: [PATCH v4 0/5] i2c: xiic: use generic device property accessors
+Date: Fri, 23 Jan 2026 16:34:13 +0000
+Message-Id: <20260123-i2c-xiic-v4-0-4a3eba3510ce@nexthop.ai>
 MIME-Version: 1.0
-References: <20260122213516.671089-1-irogers@google.com> <1310a240-077a-49f6-b83a-a8a4fd52127b@linaro.org>
-In-Reply-To: <1310a240-077a-49f6-b83a-a8a4fd52127b@linaro.org>
-From: Ian Rogers <irogers@google.com>
-Date: Fri, 23 Jan 2026 08:30:22 -0800
-X-Gm-Features: AZwV_QjNay75wDxp2FcK9a1wDgjF2FHge-tLUo_wNfVirsr-f2GGtodRNG80OvI
-Message-ID: <CAP-5=fWrJoej0XprvPmYg5qa7SRU2s3yeCF-hWgj+3MTdTZLzQ@mail.gmail.com>
-Subject: Re: [PATCH v3 00/12] perf annotate arch clean up
-To: James Clark <james.clark@linaro.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Zecheng Li <zecheng@google.com>, 
-	Tianyou Li <tianyou.li@intel.com>, Thomas Falcon <thomas.falcon@intel.com>, 
-	Julia Lawall <Julia.Lawall@inria.fr>, Suchit Karunakaran <suchitkarunakaran@gmail.com>, 
-	Athira Rajeev <atrajeev@linux.ibm.com>, Aditya Bodkhe <aditya.b1@linux.ibm.com>, 
-	Howard Chu <howardchu95@gmail.com>, 
-	=?UTF-8?Q?Krzysztof_=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>, 
-	"Dr. David Alan Gilbert" <linux@treblig.org>, Shimin Guo <shimin.guo@skydio.com>, 
-	Sergei Trofimovich <slyich@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_083036_778418_0E39B27A 
-X-CRM114-Status: GOOD (  31.77  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAWjc2kC/22OQQ6CMBBFr2K6dkiZtgiuvIdxUejUzkIgBQmGc
+ HcLK0xcvuS/l7+IgSLTIK6nRUSaeOCuTaDPJ9EE2z4J2CUWKLGQOSIwNjAzN6BqW1beG7KVEmn
+ eR/I876n7I7GP3QvGEMkeArmREktdZGhUWUEOtnbvGG142fbW0jyGrs8sb73Aw9jFz/5swq365
+ 8SEICFX2ht30YrK+hjZXkzqaKqDqZJJ9aVxGo12/tdc1/UL3bsVxBsBAAA=
+X-Change-ID: 20260122-i2c-xiic-3ba89ff5ea93
+To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Abdurrahman Hussain <abdurrahman@nexthop.ai>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769186056; l=1708;
+ i=abdurrahman@nexthop.ai; s=20260119; h=from:subject:message-id;
+ bh=SH2RWWiwpkeWyZQeIGuiuLmQkTXrbQiB6gtTSnYx/14=;
+ b=flb3w1tYsbw3Rosf7jIaipmBHlhMiYFVpLk6X/cKjH494wEKjC4uGWHOqcn+Seh/WM9J0DYCi
+ PsXPY+dxdfnD7Pt5LDibPjYywOKDLlBX9IKIV7N3hsOt6CzxS1vxM2X
+X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
+ pk=S+ysnf+NwMcBdHBlyKIUEAtaFGSIhQwcJcgcXhq0osg=
+X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/20260119 with
+ auth_id=608
+X-Original-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,151 +83,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: abdurrahman@nexthop.ai
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 3:02=E2=80=AFAM James Clark <james.clark@linaro.org=
-> wrote:
->
->
->
-> On 22/01/2026 9:35 pm, Ian Rogers wrote:
-> > 3 initial memory leak fix patches for perf annotate.
-> >
-> > Move the disasm.c #included arch files into a new util/annotate-arch
-> > directory. Make the code compile standalone. Try to better encapsulate
-> > architecture specific code within the files and with a
-> > arch__new_<arch> function that allows additional data to be associated
-> > with the struct arch using the standard container_of trick.
-> >
-> > Make the lookup of struct arch use the ELF machine gather from a
-> > thread rather than an evsel. For example, the evsel can't determine
-> > the difference between EM_386 and EM_X86_64 so generally the latter
-> > has currently been used. This means the dwarf registers are off as
-> > register 1 is CX with EM_386 and DX with EM_X86_64. To facilitate this
-> > change map_symbol is refactored to use a struct thread rather than a
-> > struct maps, the maps being obtainable from the thread.
-> >
-> > To make in and out arguments clearer, for safety, etc. try to constify
-> > struct arch and its related structs.
-> >
-> > v3: Fix arch initialization on arm, arm64, powerpc and sparc as spotted=
- by Suchit
-> >      Karunakaranw.
-> >
-> > v2: Add a patch to fix a domain info memory leak that was blocking
-> >      leak sanitizer analysis. Fix more map_symbol leaks or uses after
-> >      reference count put (Suchit Karunakaranw
-> >      <suchitkarunakaran@gmail.com>).  Try to repro annotate test crash
-> >      (James Clark) but suspect it was addressed in the other reference
-> >      count fixes.
-> >      https://lore.kernel.org/lkml/20260122165407.561888-1-irogers@googl=
-e.com/
-> >
-> > v1: https://lore.kernel.org/lkml/20260122073127.375139-1-irogers@google=
-.com/
-> >
-> > Ian Rogers (12):
-> >    perf header: Fix memory leaks in process_cpu_domain_info
-> >    perf annotate: Fix args leak of map_symbol
-> >    perf maps: Fix reference count leak in maps__find_ams
-> >    perf disasm: Constify use of struct arch
-> >    perf disasm: Constify use of struct ins_op
-> >    perf disasm: Constify use of struct ins
-> >    perf disasm: Rework the string arch__is to use the ELF machine
-> >    perf disasm: Don't include C files from the arch directory
-> >    perf disasm: Refactor ins__is_call/jump to avoid exposing arch ins_o=
-ps
-> >    perf map_symbol: Switch from holding maps to holding thread
-> >    perf disasm: Refactor arch__find and initialization of arch structs
-> >    perf disasm: Minor layout tweaks for struct arch
-> >
-> >   tools/perf/arch/arc/annotate/instructions.c   |  11 -
-> >   .../perf/arch/riscv64/annotate/instructions.c |  36 --
-> >   tools/perf/ui/browsers/annotate.c             |   6 +-
-> >   tools/perf/ui/browsers/hists.c                |   3 +-
-> >   tools/perf/util/Build                         |   1 +
-> >   tools/perf/util/addr_location.c               |   4 -
-> >   tools/perf/util/addr_location.h               |   1 -
-> >   tools/perf/util/annotate-arch/Build           |  11 +
-> >   tools/perf/util/annotate-arch/annotate-arc.c  |  18 +
-> >   .../annotate-arch/annotate-arm.c}             |  50 +-
-> >   .../annotate-arch/annotate-arm64.c}           |  59 +--
-> >   .../annotate-arch/annotate-csky.c}            |  29 +-
-> >   .../annotate-arch/annotate-loongarch.c}       |  71 +--
-> >   .../annotate-arch/annotate-mips.c}            |  29 +-
-> >   .../annotate-arch/annotate-powerpc.c}         | 127 +++++-
-> >   .../util/annotate-arch/annotate-riscv64.c     |  41 ++
-> >   .../annotate-arch/annotate-s390.c}            |  70 +--
-> >   .../annotate-arch/annotate-sparc.c}           |  28 +-
-> >   .../annotate-arch/annotate-x86.c}             |  89 ++--
-> >   tools/perf/util/annotate-data.c               |  12 +-
-> >   tools/perf/util/annotate-data.h               |   2 +-
-> >   tools/perf/util/annotate.c                    |  88 ++--
-> >   tools/perf/util/annotate.h                    |  10 +-
-> >   tools/perf/util/callchain.c                   |  12 +-
-> >   tools/perf/util/capstone.c                    |  18 +-
-> >   tools/perf/util/db-export.c                   |   1 -
-> >   tools/perf/util/disasm.c                      | 428 +++++++----------=
--
-> >   tools/perf/util/disasm.h                      |  95 ++--
-> >   tools/perf/util/event.c                       |   2 -
-> >   tools/perf/util/header.c                      |  17 +-
-> >   tools/perf/util/hist.c                        |  18 +-
-> >   tools/perf/util/llvm.c                        |   8 +-
-> >   tools/perf/util/machine.c                     |  13 +-
-> >   tools/perf/util/map_symbol.c                  |   5 +-
-> >   tools/perf/util/map_symbol.h                  |   3 +-
-> >   tools/perf/util/maps.c                        |   1 +
-> >   tools/perf/util/sort.c                        |   2 +-
-> >   tools/perf/util/unwind-libdw.c                |   2 +-
-> >   tools/perf/util/unwind-libunwind-local.c      |   2 +-
-> >   39 files changed, 775 insertions(+), 648 deletions(-)
-> >   delete mode 100644 tools/perf/arch/arc/annotate/instructions.c
-> >   delete mode 100644 tools/perf/arch/riscv64/annotate/instructions.c
-> >   create mode 100644 tools/perf/util/annotate-arch/Build
-> >   create mode 100644 tools/perf/util/annotate-arch/annotate-arc.c
-> >   rename tools/perf/{arch/arm/annotate/instructions.c =3D> util/annotat=
-e-arch/annotate-arm.c} (59%)
-> >   rename tools/perf/{arch/arm64/annotate/instructions.c =3D> util/annot=
-ate-arch/annotate-arm64.c} (70%)
-> >   rename tools/perf/{arch/csky/annotate/instructions.c =3D> util/annota=
-te-arch/annotate-csky.c} (67%)
-> >   rename tools/perf/{arch/loongarch/annotate/instructions.c =3D> util/a=
-nnotate-arch/annotate-loongarch.c} (60%)
-> >   rename tools/perf/{arch/mips/annotate/instructions.c =3D> util/annota=
-te-arch/annotate-mips.c} (59%)
-> >   rename tools/perf/{arch/powerpc/annotate/instructions.c =3D> util/ann=
-otate-arch/annotate-powerpc.c} (73%)
-> >   create mode 100644 tools/perf/util/annotate-arch/annotate-riscv64.c
-> >   rename tools/perf/{arch/s390/annotate/instructions.c =3D> util/annota=
-te-arch/annotate-s390.c} (66%)
-> >   rename tools/perf/{arch/sparc/annotate/instructions.c =3D> util/annot=
-ate-arch/annotate-sparc.c} (85%)
-> >   rename tools/perf/{arch/x86/annotate/instructions.c =3D> util/annotat=
-e-arch/annotate-x86.c} (93%)
-> >
->
-> Reviewed-by: James Clark <james.clark@linaro.org>
+Switch to generic device property accessors.
 
-Thanks James!
+Switch to managed devm_ functions to simplify error handling.
 
-Arnaldo, it'd be nice for this to land so I can look into addressing
-the missing e_flags issue - namely, we should optionally read the
-e_flags along with the e_machine so that we have a proper e_flags
-value to make csky work properly (not an issue on anything else). At
-the same time I think some of the e_machine should be made more robust
-like with:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
-t/commit/tools/perf?h=3Dperf-tools-next&id=3De99d544c7f3691eb321c88fdbadf04=
-b777c114c4
-but here:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
-t/tree/tools/perf/util/thread.c?h=3Dperf-tools-next#n452
-the code should probably be shared.
-Anyway, this series does enough without adding all that to it and
-waiting for more tags.
+Make the clock optional since the driver is designed to operate without
+explicit configuration in firmware thus making it useful on platforms
+where clock is not or cannot be provided.
 
-Thanks,
-Ian
+Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+---
+Changes in v4:
+- Reorder the cosmetic patch to be the first in the series.
+- Amend the mutex_init patch to also switch to the managed pm_runtime_
+  variant.
+- Link to v3: https://lore.kernel.org/r/20260123-i2c-xiic-v3-0-eb7cd4254dfb@nexthop.ai
+
+Changes in v3:
+- Reorder the "optional clock" patch to be the first in the series. 
+- Add a patch to switch to devm_mutex_init().
+- Remove dup message in error path.
+- Cosmetic: use temporary dev variable.
+- Link to v2: https://lore.kernel.org/r/20260122-i2c-xiic-v2-0-134f5d743e8b@nexthop.ai
+
+Changes in v2:
+- Split the patch into two independent changes.
+- Added struct device *dev at the top of probe() and remove() to re-use.
+- Switched to device_set_node(...)
+
+---
+Abdurrahman Hussain (5):
+      i2c: xiic: minor cosmetic cleanup
+      i2c: xiic: make the clock optional
+      i2c: xiic: switch to devm_ managed apis to simplify the error code paths
+      i2c: xiic: remove duplicate error message
+      i2c: xiic: switch to generic device property accessors
+
+ drivers/i2c/busses/i2c-xiic.c | 83 ++++++++++++++++++-------------------------
+ 1 file changed, 35 insertions(+), 48 deletions(-)
+---
+base-commit: 24d479d26b25bce5faea3ddd9fa8f3a6c3129ea7
+change-id: 20260122-i2c-xiic-3ba89ff5ea93
+
+Best regards,
+-- 
+Abdurrahman Hussain <abdurrahman@nexthop.ai>
+
+
 
