@@ -4,110 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C3E1D72373
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 11:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C94FD72372
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 11:03:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jv/G1MGb+4f8ZIWOhwVSNcothLIoyDDC/IvXUwLAuxo=; b=qcRwtteF8gY37LsxEyVpHalCfc
-	7BTlp3e9kHeu109P5Xj5/I/kXx5fcsiCfSudvzlAolDIHk2IixIaEaYkz0AZQR1N/LkIgoZGlgn5+
-	Q/hrh7cJXDoPNU/TPIxGo9TCXT3eVW8fAEhtw6aPHDdDTELJCbl6BDyMkZCaCCRLVIAYPjC7c4KkI
-	Hnf7UYC+Vz+eoNmG8Hh/EPIK7Wa5ExNemyU2B39WeIbPGqztFyBtSN96VjJtb9KR+Ln+df97N/JU6
-	5lCwgC9uOA52KHa3y9n7zapm3Hf6GnR6jRP2vOtLdPoALew2j4JVLJ0Rqzojrbp2A5/O1/JYHiWO5
-	9aS17EGg==;
+	bh=3vbOcszqA5Hufjdy8TMCsw0OsErRSBDMsgH/AbrRhjY=; b=a1ctIGip+VL7on6xs15N5OnKI6
+	/E8I5RhzOIzjxMnENEYX1Mf9jmdsEZg6FypbcAl+SsULSu3OgzQ+DISDrPZwBnkgItoyHCWP60PYG
+	M3BVnGAwlUEGJfBXiT0NXY2RINMUGbGz8g2YBIl9/aZxziexEl8Ds18feMkXcevZ7g0fK6ZqeZ6YJ
+	4pMep7u87nS3J0E8CqY36fXS+cno0Z2WLCfdigh4WJSVLx33qKIn0Uf+P/CRJpTCPFusCj3y6rXCu
+	XXNKl/fioKEeAKxF7foUD2p7akWMmk6j+N5t8xObV8T5RiOfjQzAUuy+cbAAbcaNffb8gkQFzA1yG
+	PJrXwckw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjEvk-00000008n8M-28wd;
-	Fri, 23 Jan 2026 11:02:20 +0000
-Received: from mail-wm1-f67.google.com ([209.85.128.67])
+	id 1vjEwo-00000008np2-3eVK;
+	Fri, 23 Jan 2026 11:03:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjEva-00000008mwU-3oCu
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 11:02:15 +0000
-Received: by mail-wm1-f67.google.com with SMTP id 5b1f17b1804b1-4801d7c72a5so15198255e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 03:02:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769166128; x=1769770928; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Jv/G1MGb+4f8ZIWOhwVSNcothLIoyDDC/IvXUwLAuxo=;
-        b=GOSiJygCKv4EpAkFrZ2icuS4mQpv/r5Cy+CQ7GmmHaaJngGspQ2kI9a5PwYFfN67GG
-         CAAjFY6ACIDx6YD1yjLADBJDhGzltVvBBatqBfUpMh7Wvg0P603rF36nDhpOWxJfXsBI
-         Ey8Vv0gOGIEp1eIcwfByd62qpvhXDWXBte2prmNiQsyowM7awpTeX0N561xWznyNFohB
-         X1cHSoSMI74eiY9RqxGOkNM6EgbFPDiDEp31tueS6Zh5c/DQR8gM4IGWxa5E0qB9pnI9
-         mjGuXFfmkTzabkCWFb7AwJqN8fIG0Um9rGqwcOQxSsG+x0qUrq7QdCOAUoZaO9oc+5o7
-         KwBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769166128; x=1769770928;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Jv/G1MGb+4f8ZIWOhwVSNcothLIoyDDC/IvXUwLAuxo=;
-        b=Sb2ol86ae38CA3GM5s5T0WImzaUBijT35pMLASPScjCM5ti2Kdx1UVPyQsm1nVM/KN
-         OZBKZCS9p3b+ECVzCFZDjiywSVurZmp1oD2yGr1nByEklvo6UgFkgFxfuitxsBWo3EQP
-         uax74RoiXN5kq7tbYJfqIJeU12aVwAb+bHreJHESFwqaKjHV74n+WnJGU5QbAbqueaD9
-         /5RNOBeT3CU9Jb6D569vBzXajrAOhGcVQHjg5Wxs5PXUe0R/NGcXKc9Wsaa81X2s7lgq
-         FsRgcf2lqHy5UyjedtiMuXc9KWN9aPPLOrlKxA+LwRUI6Xfpcuxjiz7ettEt+rp1g2px
-         Ww8A==
-X-Forwarded-Encrypted: i=1; AJvYcCVqaJts9HM1cunvWgQcZtKk7zYiSt/Ahrbed3X47x+jLkpR9ns7OdRxPGifB9d+wRrOmL37AOvpJMnKN/NffyBF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyt44jiYjoFWqpCnws+HyLgtspdjqPiRZL5XWB/fD5+/94f7VoJ
-	cfvVnb7jjtkTtFfnzsVBZdX+0ak7qNrK1gWsrz80RlSWBi/Fv8GsWjvKUQIly28LFcE=
-X-Gm-Gg: AZuq6aJs/XUKgkGuZtRqCe+77SP41hR1x1FLNIBohXa9r/pyWE49XPIhqVEVUl+Ybp2
-	VcV4jQxhIWjsvBzMTik1GIgadDTQ8IXl1T/3U9a7rMIXi+KVN8HZRNbQe5vYD9g8f27dpv+04+S
-	E63NZBU4DmoEJRIDHvPevhxFmlCe+nTr6F51GR/h/x69+8fKm/ZWNQgh98XSRgR/agrFYJ38+VV
-	tcqPfLa5gRzju3OmnV42YQgR0ADXasf/odn6E1U6+ZNBvFUvyYJe8cllZQlBgFgT9I4X+SJFwjP
-	p9j1lHz0iBDd9b8+9OmQzMz+TYgfwn76ZRjpbVpf4hLPvUiErHHd7FN2V2B9hVldw8ef03ZBes3
-	t/yYXRw1jdimNb2gqqK3F0GHCDHAf1Lhb9bGPxjuLsn/T7toC1+NCFfx/tFiukHRXoJ6QCOcaxn
-	eIJ0kdjhq6H2eMEcyS
-X-Received: by 2002:a05:600c:3b18:b0:46e:49fb:4776 with SMTP id 5b1f17b1804b1-4804c94c4c4mr36618455e9.11.1769166127961;
-        Fri, 23 Jan 2026 03:02:07 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4804dbc0d84sm18454735e9.6.2026.01.23.03.02.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 23 Jan 2026 03:02:07 -0800 (PST)
-Message-ID: <1310a240-077a-49f6-b83a-a8a4fd52127b@linaro.org>
-Date: Fri, 23 Jan 2026 11:02:05 +0000
+	id 1vjEwn-00000008nni-0lU9;
+	Fri, 23 Jan 2026 11:03:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description;
+	bh=3vbOcszqA5Hufjdy8TMCsw0OsErRSBDMsgH/AbrRhjY=; b=XRd+9ANSMknwv9WVI9lEleDMom
+	Vev8iQpUy75t5DfXNseEkAOlCs5IN3g3Jc5utj7nDbZK7+Vxf6yiYHYxf7CxkFIx1N7FssU5TjoJf
+	+V97bwmyG1wVLKatj3xVCMGzlfFTQXp2uhTvP+xFv9WMhb5SSpc8t7CAz1u0NTYr7OrNMuTac50gQ
+	vYm26qxgVUevgVro4+ZLHqTdRmatBa0xp/l/x0xRv0r1K9aTucL38msfaMd2lGQ0j1YlPxLUXL/TB
+	wLzxsSwoAJdWAy86eYyxcWxEwsczHQ3tvvyV39ojA5HQlBhS56shbjhKC4rdV9cwNZQvwtCry+ONN
+	UaNZLYLg==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjEwk-00000002Dn9-0k2m;
+	Fri, 23 Jan 2026 11:03:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=3vbOcszqA5Hufjdy8TMCsw0OsErRSBDMsgH/AbrRhjY=; b=mctqiiGGN8WR5x1MAnPYxzVOrB
+	hW/YNnc4+XsqzbSjcux3yWUSkWbrcV89QTkMfoUzcGw4uKE3c9ZyEE+zcwU8CJI6HNLipjvR+MZME
+	NwFANr6Ocw1GWk+idpJmjFUBg0MHJa7kVbZ1L6DS67liOjlrsJCLOh0ETHSyHBnVQHCwoN+9pqm9v
+	U9+hgr0TByN7XR8nS+ip30jhH2e4hAf4rJUF+gGhYRsmRPYlOqJqZhGjgnePGibL9j2SXs20J2Uip
+	emZT6Lmwjj3r+yM2pcs7XZ5+kMKiJ2RhZ//syit5ACxyFD6tunNJU8r/5JfiVs/3J0BaDlP1XP0Ws
+	7ZtzbRJw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:55782 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vjEvV-000000001sJ-42NE;
+	Fri, 23 Jan 2026 11:02:06 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vjEvV-00000005ghc-0ZkO;
+	Fri, 23 Jan 2026 11:02:05 +0000
+In-Reply-To: <aXNUlVZilT-CTgph@shell.armlinux.org.uk>
+References: <aXNUlVZilT-CTgph@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 21/21] net: stmmac: rk: rk3506, rk3528 and kk3588
+ have rmii_mode in clock register
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/12] perf annotate arch clean up
-To: Ian Rogers <irogers@google.com>
-References: <20260122213516.671089-1-irogers@google.com>
-Content-Language: en-US
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
- Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Zecheng Li <zecheng@google.com>, Tianyou Li <tianyou.li@intel.com>,
- Thomas Falcon <thomas.falcon@intel.com>, Julia Lawall
- <Julia.Lawall@inria.fr>, Suchit Karunakaran <suchitkarunakaran@gmail.com>,
- Athira Rajeev <atrajeev@linux.ibm.com>,
- Aditya Bodkhe <aditya.b1@linux.ibm.com>, Howard Chu <howardchu95@gmail.com>,
- =?UTF-8?Q?Krzysztof_=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>,
- "Dr. David Alan Gilbert" <linux@treblig.org>,
- Shimin Guo <shimin.guo@skydio.com>, Sergei Trofimovich <slyich@gmail.com>,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
- linux-riscv@lists.infradead.org
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260122213516.671089-1-irogers@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vjEvV-00000005ghc-0ZkO@rmk-PC.armlinux.org.uk>
+Date: Fri, 23 Jan 2026 11:02:05 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_030211_091282_CADF1BAF 
-X-CRM114-Status: GOOD (  24.47  )
+X-CRM114-CacheID: sfid-20260123_110322_394535_8987092F 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,111 +102,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+rk3506, rk3528 and rk3588 have the rmii_mode bit in the clock GRF
+register rather than the gmac GRF register. Provide a mask for this
+field in the clock register, and convert these SoCs to use this.
+Add the necessary code in rk_gmac_powerup() to write this field.
 
+This allows us to get rid of these SoCs set_to_rmii() function. As
+such, we need to mark these SoCs as supporting RMII mode.
 
-On 22/01/2026 9:35 pm, Ian Rogers wrote:
-> 3 initial memory leak fix patches for perf annotate.
-> 
-> Move the disasm.c #included arch files into a new util/annotate-arch
-> directory. Make the code compile standalone. Try to better encapsulate
-> architecture specific code within the files and with a
-> arch__new_<arch> function that allows additional data to be associated
-> with the struct arch using the standard container_of trick.
-> 
-> Make the lookup of struct arch use the ELF machine gather from a
-> thread rather than an evsel. For example, the evsel can't determine
-> the difference between EM_386 and EM_X86_64 so generally the latter
-> has currently been used. This means the dwarf registers are off as
-> register 1 is CX with EM_386 and DX with EM_X86_64. To facilitate this
-> change map_symbol is refactored to use a struct thread rather than a
-> struct maps, the maps being obtainable from the thread.
-> 
-> To make in and out arguments clearer, for safety, etc. try to constify
-> struct arch and its related structs.
-> 
-> v3: Fix arch initialization on arm, arm64, powerpc and sparc as spotted by Suchit
->      Karunakaranw.
-> 
-> v2: Add a patch to fix a domain info memory leak that was blocking
->      leak sanitizer analysis. Fix more map_symbol leaks or uses after
->      reference count put (Suchit Karunakaranw
->      <suchitkarunakaran@gmail.com>).  Try to repro annotate test crash
->      (James Clark) but suspect it was addressed in the other reference
->      count fixes.
->      https://lore.kernel.org/lkml/20260122165407.561888-1-irogers@google.com/
-> 
-> v1: https://lore.kernel.org/lkml/20260122073127.375139-1-irogers@google.com/
-> 
-> Ian Rogers (12):
->    perf header: Fix memory leaks in process_cpu_domain_info
->    perf annotate: Fix args leak of map_symbol
->    perf maps: Fix reference count leak in maps__find_ams
->    perf disasm: Constify use of struct arch
->    perf disasm: Constify use of struct ins_op
->    perf disasm: Constify use of struct ins
->    perf disasm: Rework the string arch__is to use the ELF machine
->    perf disasm: Don't include C files from the arch directory
->    perf disasm: Refactor ins__is_call/jump to avoid exposing arch ins_ops
->    perf map_symbol: Switch from holding maps to holding thread
->    perf disasm: Refactor arch__find and initialization of arch structs
->    perf disasm: Minor layout tweaks for struct arch
-> 
->   tools/perf/arch/arc/annotate/instructions.c   |  11 -
->   .../perf/arch/riscv64/annotate/instructions.c |  36 --
->   tools/perf/ui/browsers/annotate.c             |   6 +-
->   tools/perf/ui/browsers/hists.c                |   3 +-
->   tools/perf/util/Build                         |   1 +
->   tools/perf/util/addr_location.c               |   4 -
->   tools/perf/util/addr_location.h               |   1 -
->   tools/perf/util/annotate-arch/Build           |  11 +
->   tools/perf/util/annotate-arch/annotate-arc.c  |  18 +
->   .../annotate-arch/annotate-arm.c}             |  50 +-
->   .../annotate-arch/annotate-arm64.c}           |  59 +--
->   .../annotate-arch/annotate-csky.c}            |  29 +-
->   .../annotate-arch/annotate-loongarch.c}       |  71 +--
->   .../annotate-arch/annotate-mips.c}            |  29 +-
->   .../annotate-arch/annotate-powerpc.c}         | 127 +++++-
->   .../util/annotate-arch/annotate-riscv64.c     |  41 ++
->   .../annotate-arch/annotate-s390.c}            |  70 +--
->   .../annotate-arch/annotate-sparc.c}           |  28 +-
->   .../annotate-arch/annotate-x86.c}             |  89 ++--
->   tools/perf/util/annotate-data.c               |  12 +-
->   tools/perf/util/annotate-data.h               |   2 +-
->   tools/perf/util/annotate.c                    |  88 ++--
->   tools/perf/util/annotate.h                    |  10 +-
->   tools/perf/util/callchain.c                   |  12 +-
->   tools/perf/util/capstone.c                    |  18 +-
->   tools/perf/util/db-export.c                   |   1 -
->   tools/perf/util/disasm.c                      | 428 +++++++-----------
->   tools/perf/util/disasm.h                      |  95 ++--
->   tools/perf/util/event.c                       |   2 -
->   tools/perf/util/header.c                      |  17 +-
->   tools/perf/util/hist.c                        |  18 +-
->   tools/perf/util/llvm.c                        |   8 +-
->   tools/perf/util/machine.c                     |  13 +-
->   tools/perf/util/map_symbol.c                  |   5 +-
->   tools/perf/util/map_symbol.h                  |   3 +-
->   tools/perf/util/maps.c                        |   1 +
->   tools/perf/util/sort.c                        |   2 +-
->   tools/perf/util/unwind-libdw.c                |   2 +-
->   tools/perf/util/unwind-libunwind-local.c      |   2 +-
->   39 files changed, 775 insertions(+), 648 deletions(-)
->   delete mode 100644 tools/perf/arch/arc/annotate/instructions.c
->   delete mode 100644 tools/perf/arch/riscv64/annotate/instructions.c
->   create mode 100644 tools/perf/util/annotate-arch/Build
->   create mode 100644 tools/perf/util/annotate-arch/annotate-arc.c
->   rename tools/perf/{arch/arm/annotate/instructions.c => util/annotate-arch/annotate-arm.c} (59%)
->   rename tools/perf/{arch/arm64/annotate/instructions.c => util/annotate-arch/annotate-arm64.c} (70%)
->   rename tools/perf/{arch/csky/annotate/instructions.c => util/annotate-arch/annotate-csky.c} (67%)
->   rename tools/perf/{arch/loongarch/annotate/instructions.c => util/annotate-arch/annotate-loongarch.c} (60%)
->   rename tools/perf/{arch/mips/annotate/instructions.c => util/annotate-arch/annotate-mips.c} (59%)
->   rename tools/perf/{arch/powerpc/annotate/instructions.c => util/annotate-arch/annotate-powerpc.c} (73%)
->   create mode 100644 tools/perf/util/annotate-arch/annotate-riscv64.c
->   rename tools/perf/{arch/s390/annotate/instructions.c => util/annotate-arch/annotate-s390.c} (66%)
->   rename tools/perf/{arch/sparc/annotate/instructions.c => util/annotate-arch/annotate-sparc.c} (85%)
->   rename tools/perf/{arch/x86/annotate/instructions.c => util/annotate-arch/annotate-x86.c} (93%)
-> 
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 62 +++++++------------
+ 1 file changed, 22 insertions(+), 40 deletions(-)
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+index ebbc09ea572a..759deb66ef2a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+@@ -38,6 +38,7 @@ struct rk_clock_fields {
+ 	u16 gmii_clk_sel_mask;
+ 	u16 rmii_clk_sel_mask;
+ 	u16 rmii_gate_en_mask;
++	u16 rmii_mode_mask;
+ 	u16 mac_speed_mask;
+ };
+ 
+@@ -695,21 +696,15 @@ static int rk3506_init(struct rk_priv_data *bsp_priv)
+ 	}
+ }
+ 
+-static void rk3506_set_to_rmii(struct rk_priv_data *bsp_priv)
+-{
+-	unsigned int id = bsp_priv->id, offset;
+-
+-	offset = (id == 1) ? RK3506_GRF_SOC_CON11 : RK3506_GRF_SOC_CON8;
+-	regmap_write(bsp_priv->grf, offset, RK3506_GMAC_RMII_MODE);
+-}
+-
+ static const struct rk_gmac_ops rk3506_ops = {
+ 	.init = rk3506_init,
+-	.set_to_rmii = rk3506_set_to_rmii,
+ 
+ 	.clock.io_clksel_io_mask = BIT_U16(5),
+ 	.clock.rmii_clk_sel_mask = BIT_U16(3),
+ 	.clock.rmii_gate_en_mask = BIT_U16(2),
++	.clock.rmii_mode_mask = BIT_U16(1),
++
++	.supports_rmii = true,
+ 
+ 	.regs_valid = true,
+ 	.regs = {
+@@ -733,10 +728,6 @@ static const struct rk_gmac_ops rk3506_ops = {
+ #define RK3528_GMAC_CLK_RX_DL_CFG(val)	GRF_FIELD(15, 8, val)
+ #define RK3528_GMAC_CLK_TX_DL_CFG(val)	GRF_FIELD(7, 0, val)
+ 
+-#define RK3528_GMAC0_PHY_INTF_SEL_RMII	GRF_BIT(1)
+-#define RK3528_GMAC1_PHY_INTF_SEL_RGMII	GRF_CLR_BIT(8)
+-#define RK3528_GMAC1_PHY_INTF_SEL_RMII	GRF_BIT(8)
+-
+ static int rk3528_init(struct rk_priv_data *bsp_priv)
+ {
+ 	switch (bsp_priv->id) {
+@@ -744,6 +735,7 @@ static int rk3528_init(struct rk_priv_data *bsp_priv)
+ 		bsp_priv->clock_grf_reg = RK3528_VO_GRF_GMAC_CON;
+ 		bsp_priv->clock.rmii_clk_sel_mask = BIT_U16(3);
+ 		bsp_priv->clock.rmii_gate_en_mask = BIT_U16(2);
++		bsp_priv->clock.rmii_mode_mask = BIT_U16(1);
+ 		bsp_priv->supports_rgmii = false;
+ 		return 0;
+ 
+@@ -753,6 +745,7 @@ static int rk3528_init(struct rk_priv_data *bsp_priv)
+ 		bsp_priv->clock.gmii_clk_sel_mask = GENMASK_U16(11, 10);
+ 		bsp_priv->clock.rmii_clk_sel_mask = BIT_U16(10);
+ 		bsp_priv->clock.rmii_gate_en_mask = BIT_U16(9);
++		bsp_priv->clock.rmii_mode_mask = BIT_U16(8);
+ 		return 0;
+ 
+ 	default:
+@@ -763,9 +756,6 @@ static int rk3528_init(struct rk_priv_data *bsp_priv)
+ static void rk3528_set_to_rgmii(struct rk_priv_data *bsp_priv,
+ 				int tx_delay, int rx_delay)
+ {
+-	regmap_write(bsp_priv->grf, RK3528_VPU_GRF_GMAC_CON5,
+-		     RK3528_GMAC1_PHY_INTF_SEL_RGMII);
+-
+ 	regmap_write(bsp_priv->grf, RK3528_VPU_GRF_GMAC_CON5,
+ 		     DELAY_ENABLE(RK3528, tx_delay, rx_delay));
+ 
+@@ -774,16 +764,6 @@ static void rk3528_set_to_rgmii(struct rk_priv_data *bsp_priv,
+ 		     RK3528_GMAC_CLK_TX_DL_CFG(tx_delay));
+ }
+ 
+-static void rk3528_set_to_rmii(struct rk_priv_data *bsp_priv)
+-{
+-	if (bsp_priv->id == 1)
+-		regmap_write(bsp_priv->grf, RK3528_VPU_GRF_GMAC_CON5,
+-			     RK3528_GMAC1_PHY_INTF_SEL_RMII);
+-	else
+-		regmap_write(bsp_priv->grf, RK3528_VO_GRF_GMAC_CON,
+-			     RK3528_GMAC0_PHY_INTF_SEL_RMII);
+-}
+-
+ static void rk3528_integrated_phy_powerup(struct rk_priv_data *bsp_priv)
+ {
+ 	rk_gmac_integrated_fephy_powerup(bsp_priv, RK3528_VO_GRF_MACPHY_CON0);
+@@ -797,9 +777,11 @@ static void rk3528_integrated_phy_powerdown(struct rk_priv_data *bsp_priv)
+ static const struct rk_gmac_ops rk3528_ops = {
+ 	.init = rk3528_init,
+ 	.set_to_rgmii = rk3528_set_to_rgmii,
+-	.set_to_rmii = rk3528_set_to_rmii,
+ 	.integrated_phy_powerup = rk3528_integrated_phy_powerup,
+ 	.integrated_phy_powerdown = rk3528_integrated_phy_powerdown,
++
++	.supports_rmii = true,
++
+ 	.regs_valid = true,
+ 	.regs = {
+ 		0xffbd0000, /* gmac0 */
+@@ -975,9 +957,6 @@ static const struct rk_gmac_ops rk3576_ops = {
+ #define RK3588_GRF_GMAC_CON0			0X0008
+ #define RK3588_GRF_CLK_CON1			0X0070
+ 
+-#define RK3588_GMAC_CLK_RMII_MODE(id)		GRF_BIT(5 * (id))
+-#define RK3588_GMAC_CLK_RGMII_MODE(id)		GRF_CLR_BIT(5 * (id))
+-
+ static int rk3588_init(struct rk_priv_data *bsp_priv)
+ {
+ 	switch (bsp_priv->id) {
+@@ -987,6 +966,7 @@ static int rk3588_init(struct rk_priv_data *bsp_priv)
+ 		bsp_priv->clock.gmii_clk_sel_mask = GENMASK_U16(3, 2);
+ 		bsp_priv->clock.rmii_clk_sel_mask = BIT_U16(2);
+ 		bsp_priv->clock.rmii_gate_en_mask = BIT_U16(1);
++		bsp_priv->clock.rmii_mode_mask = BIT_U16(0);
+ 		return 0;
+ 
+ 	case 1:
+@@ -995,6 +975,7 @@ static int rk3588_init(struct rk_priv_data *bsp_priv)
+ 		bsp_priv->clock.gmii_clk_sel_mask = GENMASK_U16(8, 7);
+ 		bsp_priv->clock.rmii_clk_sel_mask = BIT_U16(7);
+ 		bsp_priv->clock.rmii_gate_en_mask = BIT_U16(6);
++		bsp_priv->clock.rmii_mode_mask = BIT_U16(5);
+ 		return 0;
+ 
+ 	default:
+@@ -1010,9 +991,6 @@ static void rk3588_set_to_rgmii(struct rk_priv_data *bsp_priv,
+ 	offset_con = bsp_priv->id == 1 ? RK3588_GRF_GMAC_CON9 :
+ 					 RK3588_GRF_GMAC_CON8;
+ 
+-	regmap_write(bsp_priv->php_grf, RK3588_GRF_CLK_CON1,
+-		     RK3588_GMAC_CLK_RGMII_MODE(id));
+-
+ 	regmap_write(bsp_priv->grf, RK3588_GRF_GMAC_CON7,
+ 		     RK3588_GMAC_RXCLK_DLY_ENABLE(id) |
+ 		     RK3588_GMAC_TXCLK_DLY_ENABLE(id));
+@@ -1022,22 +1000,17 @@ static void rk3588_set_to_rgmii(struct rk_priv_data *bsp_priv,
+ 		     RK3588_GMAC_CLK_TX_DL_CFG(tx_delay));
+ }
+ 
+-static void rk3588_set_to_rmii(struct rk_priv_data *bsp_priv)
+-{
+-	regmap_write(bsp_priv->php_grf, RK3588_GRF_CLK_CON1,
+-		     RK3588_GMAC_CLK_RMII_MODE(bsp_priv->id));
+-}
+-
+ static const struct rk_gmac_ops rk3588_ops = {
+ 	.init = rk3588_init,
+ 	.set_to_rgmii = rk3588_set_to_rgmii,
+-	.set_to_rmii = rk3588_set_to_rmii,
+ 
+ 	.gmac_grf_reg = RK3588_GRF_GMAC_CON0,
+ 
+ 	.clock_grf_reg_in_php = true,
+ 	.clock_grf_reg = RK3588_GRF_CLK_CON1,
+ 
++	.supports_rmii = true,
++
+ 	.php_grf_required = true,
+ 	.regs_valid = true,
+ 	.regs = {
+@@ -1412,6 +1385,15 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
+ 			return ret;
+ 	}
+ 
++	if (bsp_priv->clock.rmii_mode_mask) {
++		val = rk_encode_wm16(ret == PHY_INTF_SEL_RMII,
++				     bsp_priv->clock.rmii_mode_mask);
++
++		ret = rk_write_clock_grf_reg(bsp_priv, val);
++		if (ret < 0)
++			return ret;
++	}
++
+ 	/*rmii or rgmii*/
+ 	switch (bsp_priv->phy_iface) {
+ 	case PHY_INTERFACE_MODE_RGMII:
+-- 
+2.47.3
 
 
