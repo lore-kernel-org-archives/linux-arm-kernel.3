@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC28D72368
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:54:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEFED72367
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dt7SFNpRRmwCzfAPdXJL6wTGemkfb+ijvHXnv/nSzY0=; b=COxZUV/U3gYs0sJqxDCw9i2y3v
-	GYgFbSgCrHvfppY29WaWhPd0w7ODInO2ItmCKTW5eCShHUK1RhfBFrC23vvUr0JJ+KM6hgKHQP39m
-	bp021cTO7lMHJwpp+F9VKWibpXXq19VDuCs4a+JyMZ2QD6gqSnEhO12rC6SuBzd9QQhm/oTJSJk18
-	pHWfL16U1KwV8Gm35pbZCS5yj9XuBpwpmWEXx1konzVc15c68cONRsCnpLKekJPChGMHenT0Q5B6x
-	QvX8ky3M6DBPU2dlsxyVCbLSi0PmVNxOph4usdTgetA1Vd9Ku2nAQljvfkHKofWiNLu+bRHaii9Ot
-	7nUzIhEA==;
+	bh=oDBoCS/FqGpILWpLE0lVhiMSxShZ0/G2FgbouoQGO9s=; b=hzeosJXtHfFYtNK1JlOEKG66rm
+	pMfYly6UqM+WOwxxrEZ7qD95R0ILs2g3kkOLyTO7kCXislBjWW2k65Ofb0BtIr2GPENbz5RrNo1It
+	jJgz9Ly1bcsqQatHngsyQfk08STkAgvE2DEzSz6G+CbozsyBfauwxzEMZ7jpGjS9pHWdk6ZiEsv+1
+	KTaiEIPzvGVrggcWACXp6Meby2PG2ZnUrT988HGCzXzo0xmjSkv3CGISzTqPd0pe4umFR/O+Xsa4N
+	HPiGm997uTdtiDkcyKIg6XnhD4eaoH+Qoevt5M+sm9Flc0WxCeK9FbV/phSTfTniw5JKxYNZqGwWM
+	7lyNkt7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDrq-00000008d9D-0H2L;
-	Fri, 23 Jan 2026 09:54:14 +0000
-Received: from mail-m32121.qiye.163.com ([220.197.32.121])
+	id 1vjDs9-00000008dKn-297Q;
+	Fri, 23 Jan 2026 09:54:33 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDrb-00000008cuW-0AlS
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 09:54:02 +0000
-Received: from albert-OptiPlex-7080.. (unknown [112.65.126.162])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 31bc9a762;
-	Fri, 23 Jan 2026 17:53:51 +0800 (GMT+08:00)
-From: Albert Yang <yangzh0906@thundersoft.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ge Gordon <gordon.ge@bst.ai>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
-	linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	id 1vjDrt-00000008d6Q-32Xq;
+	Fri, 23 Jan 2026 09:54:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=oDBoCS/FqGpILWpLE0lVhiMSxShZ0/G2FgbouoQGO9s=; b=ym6HBLF3qcFbUx+4T8B3qfA+Gu
+	M/8ZX0DvkidBXwVdo77as6Z4dRU1srZnR1U5PwLUniEkZzS6RDDiP9LKhW8ZRxNbd8sAuNAAB+cON
+	PL9bU4ITZ3CyCVaLtKDK4/YjA1QAxMXA044ig/XfXjvsGGZdPrtjjdi5qY+zILG39HjFNfZeFhW8S
+	+tNZGKq3pcRRPZwJDB01nkXUIR+7wDtmfL4GYE4FCMtFX0PX4WFrY5HM8NrAbijuCz/uuH7SBygNr
+	Ct2aR90nNTo9oFHsWGXY64/TyXqscGS80N+cxUq4HnQoVgel5hos4p9ZCMWofVmyrbiRrKGjp5IeF
+	/LXeG+Tw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42414 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vjDra-000000001bw-1tIJ;
+	Fri, 23 Jan 2026 09:53:58 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vjDrW-00000005fQe-1kxD;
+	Fri, 23 Jan 2026 09:53:54 +0000
+In-Reply-To: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
+References: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Albert Yang <yangzh0906@thundersoft.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v5 1/6] dt-bindings: mmc: add binding for BST DWCMSHC SDHCI controller
-Date: Fri, 23 Jan 2026 17:53:37 +0800
-Message-ID: <20260123095342.272505-2-yangzh0906@thundersoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260123095342.272505-1-yangzh0906@thundersoft.com>
-References: <20260123095342.272505-1-yangzh0906@thundersoft.com>
+	linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH net-next v2 07/14] net: stmmac: move most PCS register
+ definitions to stmmac_pcs.c
 MIME-Version: 1.0
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9bea46407509cckunm2b675df11c3d92
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDTU1DVkxLTEsaSxhOSR4ZGFYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSklVTU5VSklNVUpNSVlXWRYaDxIVHRRZQVlPS0hVSktJT09PSFVKS0
-	tVSkJLS1kG
-DKIM-Signature: a=rsa-sha256;
-	b=G0Mp+95WLthVROKr3d15RQfSVmDxgMA+rddZtpSIqwfoTEiyB8f5WuTqV1ww8dNuCphKsZh26PEk3K0mqzdYVqJRXpIUe9BVUBXqwXnpvtdDpnT5XMhz+3BGxzl9oHTdBq2CHVbD4hTvvdT4hs5d9nVfUabqxdCIK8ernzoDEQA=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=dt7SFNpRRmwCzfAPdXJL6wTGemkfb+ijvHXnv/nSzY0=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vjDrW-00000005fQe-1kxD@rmk-PC.armlinux.org.uk>
+Date: Fri, 23 Jan 2026 09:53:54 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_015359_497253_D614BE17 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20260123_015419_743123_449C4805 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,117 +94,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for the Black Sesame Technologies
-DWCMSHC SDHCI controller used in C1200 SoC.
+Move most of the PCS register offset definitions to stmmac_pcs.c.
+Since stmmac_pcs.c only ever passes zero into the register offset
+macros, remove that ability, making them simple constant integer
+definitions.
 
-The binding describes a Synopsys DesignWare Cores Mobile Storage
-Host Controller with BST-specific extensions including:
-- Two register regions (core SDHCI and CRM registers)
-- Optional memory-region for bounce buffer support
-- Fixed clock input
+Add appropriate descriptions of the registers, pointing out their
+similarity with their IEEE 802.3 counterparts. Make use of the
+BMSR definitions for the GMAC_AN_STATUS register and remove the
+driver private versions.
 
-Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
-Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Note that BMSR_LSTATUS is non-low-latching, unlike it's 802.3z
+counterpart.
 
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-Changes for v5:
-- Rename file from bst,dwcmshc-sdhci.yaml to bst,c1200-sdhci.yaml
-- Fix example compatible string to match property definition
-- Split from platform series per Arnd's feedback
+ .../net/ethernet/stmicro/stmmac/stmmac_pcs.c  | 22 +++++++++++++++----
+ .../net/ethernet/stmicro/stmmac/stmmac_pcs.h  | 22 -------------------
+ 2 files changed, 18 insertions(+), 26 deletions(-)
 
-Changes for v4:
-- Change \$ref to sdhci-common.yaml#
-- Change compatible to bst,c1200-sdhci
-
-Changes for v3:
-- Switch reg schema to explicit items with descriptions
-- Improve example with bus node wrapper
-
-Changes for v2:
-- Simplify description, correct compatible string
----
- .../bindings/mmc/bst,c1200-sdhci.yaml         | 70 +++++++++++++++++++
- 1 file changed, 70 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mmc/bst,c1200-sdhci.yaml
-
-diff --git a/Documentation/devicetree/bindings/mmc/bst,c1200-sdhci.yaml b/Documentation/devicetree/bindings/mmc/bst,c1200-sdhci.yaml
-new file mode 100644
-index 000000000000..8358bb70c333
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mmc/bst,c1200-sdhci.yaml
-@@ -0,0 +1,70 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mmc/bst,c1200-sdhci.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
+index 10a2eb903d2a..ac588756e450 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
+@@ -3,6 +3,20 @@
+ #include "stmmac_pcs.h"
+ #include "stmmac_serdes.h"
+ 
++/*
++ * GMAC_AN_STATUS is equivalent to MII_BMSR
++ * GMAC_ANE_ADV is equivalent to 802.3z MII_ADVERTISE
++ * GMAC_ANE_LPA is equivalent to 802.3z MII_LPA
++ * GMAC_ANE_EXP is equivalent to MII_EXPANSION
++ * GMAC_TBI is equivalent to MII_ESTATUS
++ *
++ * ADV, LPA and EXP are only available for the TBI and RTBI modes.
++ */
++#define GMAC_AN_STATUS	0x04	/* AN status */
++#define GMAC_ANE_ADV	0x08	/* ANE Advertisement */
++#define GMAC_ANE_LPA	0x0c	/* ANE link partener ability */
++#define GMAC_TBI	0x14	/* TBI extend status */
 +
-+title: Black Sesame Technologies DWCMSHC SDHCI Controller
-+
-+maintainers:
-+  - Ge Gordon <gordon.ge@bst.ai>
-+
-+allOf:
-+  - $ref: sdhci-common.yaml#
-+
-+properties:
-+  compatible:
-+    const: bst,c1200-sdhci
-+
-+  reg:
-+    items:
-+      - description: Core SDHCI registers
-+      - description: CRM registers
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    items:
-+      - const: core
-+
-+  memory-region:
-+    maxItems: 1
-+
-+  dma-coherent: true
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    bus {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        mmc@22200000 {
-+            compatible = "bst,c1200-sdhci";
-+            reg = <0x0 0x22200000 0x0 0x1000>,
-+                  <0x0 0x23006000 0x0 0x1000>;
-+            interrupts = <GIC_SPI 144 IRQ_TYPE_LEVEL_HIGH>;
-+            clocks = <&clk_mmc>;
-+            clock-names = "core";
-+            memory-region = <&mmc0_reserved>;
-+            max-frequency = <200000000>;
-+            bus-width = <8>;
-+            non-removable;
-+            dma-coherent;
-+        };
-+    };
+ static int dwmac_integrated_pcs_enable(struct phylink_pcs *pcs)
+ {
+ 	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
+@@ -76,11 +90,11 @@ void stmmac_integrated_pcs_irq(struct stmmac_priv *priv, u32 status,
+ 			       struct stmmac_extra_stats *x)
+ {
+ 	struct stmmac_pcs *spcs = priv->integrated_pcs;
+-	u32 val = readl(spcs->base + GMAC_AN_STATUS(0));
++	u32 val = readl(spcs->base + GMAC_AN_STATUS);
+ 
+ 	if (status & PCS_ANE_IRQ) {
+ 		x->irq_pcs_ane_n++;
+-		if (val & GMAC_AN_STATUS_ANC)
++		if (val & BMSR_ANEGCOMPLETE)
+ 			dev_info(priv->device,
+ 				 "PCS ANE process completed\n");
+ 	}
+@@ -88,9 +102,9 @@ void stmmac_integrated_pcs_irq(struct stmmac_priv *priv, u32 status,
+ 	if (status & PCS_LINK_IRQ) {
+ 		x->irq_pcs_link_n++;
+ 		dev_info(priv->device, "PCS Link %s\n",
+-			 val & GMAC_AN_STATUS_LS ? "Up" : "Down");
++			 val & BMSR_LSTATUS ? "Up" : "Down");
+ 
+-		phylink_pcs_change(&spcs->pcs, val & GMAC_AN_STATUS_LS);
++		phylink_pcs_change(&spcs->pcs, val & BMSR_LSTATUS);
+ 	}
+ }
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
+index 36bf75fdf478..887c4ff302aa 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h
+@@ -16,13 +16,6 @@
+ 
+ /* PCS registers (AN/TBI/SGMII/RGMII) offsets */
+ #define GMAC_AN_CTRL(x)		(x)		/* AN control */
+-#define GMAC_AN_STATUS(x)	(x + 0x4)	/* AN status */
+-
+-/* ADV, LPA and EXP are only available for the TBI and RTBI interfaces */
+-#define GMAC_ANE_ADV(x)		(x + 0x8)	/* ANE Advertisement */
+-#define GMAC_ANE_LPA(x)		(x + 0xc)	/* ANE link partener ability */
+-#define GMAC_ANE_EXP(x)		(x + 0x10)	/* ANE expansion */
+-#define GMAC_TBI(x)		(x + 0x14)	/* TBI extend status */
+ 
+ /* AN Configuration defines */
+ #define GMAC_AN_CTRL_RAN	BIT_U32(9)	/* Restart Auto-Negotiation */
+@@ -32,21 +25,6 @@
+ #define GMAC_AN_CTRL_LR		BIT_U32(17)	/* Lock to Reference */
+ #define GMAC_AN_CTRL_SGMRAL	BIT_U32(18)	/* SGMII RAL Control */
+ 
+-/* AN Status defines */
+-#define GMAC_AN_STATUS_LS	BIT_U32(2)	/* Link Status 0:down 1:up */
+-#define GMAC_AN_STATUS_ANA	BIT_U32(3)	/* Auto-Negotiation Ability */
+-#define GMAC_AN_STATUS_ANC	BIT_U32(5)	/* Auto-Negotiation Complete */
+-#define GMAC_AN_STATUS_ES	BIT_U32(8)	/* Extended Status */
+-
+-/* ADV and LPA defines */
+-#define GMAC_ANE_FD		BIT_U32(5)
+-#define GMAC_ANE_HD		BIT_U32(6)
+-#define GMAC_ANE_PSE		GENMASK_U32(8, 7)
+-#define GMAC_ANE_PSE_SHIFT	7
+-#define GMAC_ANE_RFE		GENMASK_U32(13, 12)
+-#define GMAC_ANE_RFE_SHIFT	12
+-#define GMAC_ANE_ACK		BIT_U32(14)
+-
+ struct stmmac_priv;
+ 
+ struct stmmac_pcs {
 -- 
-2.43.0
+2.47.3
 
 
