@@ -4,191 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0AC3D6CFBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 03:36:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C87D6CFBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 03:41:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0bUPfcGNZUOpgOteig7ud1scd8XgJ5Vi/zV/lbw6KHM=; b=Vh8Ti0DRU2snH9enoRih7m7XZu
-	zvX+Ax5p+OJxW8Xee7dKsRV+LjzRkm2Iufeho9rTtXmLb3FD6tO2sMJux2935noWO0uy2LhmO4L8b
-	Y8thQvBtyvv8S21BeLyh/FnPs2wOfYdmMLytLIJ2UEfsFgJSFMhGMP9qX4fMjP+XPEyrp7kyf3Qf0
-	bW0GVg0aEO+42RbFvC1WsdlCU+V6ewSiMOvbf7fR4KpBdHmt2pgVIBjQ8CT72eLGwMaPQ2tVKV/f+
-	AkMjWWP36tupJsw3kcQ8QXhIUNa1vGLTFlNTDds5GQi1ZlJLV06Uv7yTgfXFCnwdr5yCxwq0jpHKj
-	/LRrVkTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SRtMqBggb8lD9LPvlyqoJAPVjSFJHwuqxtA3etPiM6M=; b=4lJivm4X5KYo2H
+	GUqhFj9oasT/N0TUTLUcHBZZij5BLgIlaHboR0j3FULc5beKxIi2pP0QzUmBncmlKnGl9PpudpgsT
+	tq83Aop1vGeoUVcOEM2LMLV1xJS0o9j/W7uImOqpySvFiGvnh4YITwvhHhrUUHFir3ZWiitLewT1S
+	/FFB4H1jPiLOFaxYUMAlwE8rUDT87gtSPb4QbVJMU9N8HyvOh46aXXEP+rbZxIAMts9AZPcjIB8Iu
+	M8rfYM+XdbR0sPmnLa/gn7TBAzRw8W9yoOfj/S8e367IeALcerXa99yTjUJc0YrGE0lo3CMXWzHaX
+	RqouN+/jwC4j1eBNUp4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj7ye-000000088em-1ECI;
-	Fri, 23 Jan 2026 03:36:52 +0000
-Received: from mail-northeuropeazon11011032.outbound.protection.outlook.com ([52.101.65.32] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vj83B-000000088wy-0G5k;
+	Fri, 23 Jan 2026 03:41:33 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vj7yc-000000088eE-1PpT
+	id 1vj838-000000088wH-1LCt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 03:36:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q2tQPTE0tp6JtACMiZNRBPtQweYClky98bbcVwpYekNsisW0JWYMB0GcaHKYYlL3awuMlqygLG7W891zbGHtDoePfT+dRP48EkI+G+XsB5iCoFdT4WHV9P8Gopv4YYLnLJ2rG4RMVXFMkM3FUdoA/jScr4S/oxzpKJd5s7ZGNXogvprYEMupJkdZQvD4hTl6Ks4oGzqHBvD8rNUJtSL72d50jZbjKy+tnfCDJviemnpx4HF/SKQKKxwBZKwrC4U6BZbnJdgNEjm6V9xCoY5N0CGmFRkOaN3QHZ64jxw8YXBpKbBRBiTlbzWVYlHYMG8+kxWXTCi48d4PR+HWcRAZEA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0bUPfcGNZUOpgOteig7ud1scd8XgJ5Vi/zV/lbw6KHM=;
- b=h0VJDA7OUGyZr0n9xVavgfQk4XH2eK82QnCss4PEMONsbnJfwcK+5sI9sBJvFJWR932ZQmY5fW4/M3Rj4AokZJqLLNBx1Oacu35daQKaiePMlf/A8gjjVGJDpMtyEX+5+xEhS5opte/AwfXuPeNfowND59lShnA/wtURsKFbhr+3i4c+G9tFvzK5Zeq+do8IP0Z9XZPV+G63NFths3wDWeTgj5bAeTzbPhVeBLoJgbjaIq9Tj7JSDk1m4aWWeuZ9tR5Hj31qYfgzZ2htTFfGFfL1Vt/PQJtrQva0IXSx83Tvqq93AlrVeg3zoXVmZT0Mhkc2Eq1xEkkQMh+SQMlM7w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0bUPfcGNZUOpgOteig7ud1scd8XgJ5Vi/zV/lbw6KHM=;
- b=x1xKpPAtwBe/fwwah6CsknQU7tAiRKYhS4AaU3wSrJHGNAro0GO7or+p+GyA5gcfxL4zZxH8MByHkuLQz4vASH/mW2/a6Sk6kWegctmL6j4dgAglfzbH2x+Eo3zGvEEqNoeo5rsGJOpsG4F70l14P//MrG9Ekc/OOpp+WQwJmEOmHkjZThSjvyAEHW7T+biYuxJZKiO6mE4WqD412HiPAZjU3yIe05q1o4HpTX0pYN/q1M2+FVhCXCGnb1abXgsfBmwg7ISuGHrKOfoCI1c0ZSvMSburot93G6XNrU7x8RYELaMKCqGWaKN7Rh6Qezwn8SZmn+gCURgKUeU4YeUE1g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by AS8PR04MB9174.eurprd04.prod.outlook.com (2603:10a6:20b:449::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Fri, 23 Jan
- 2026 03:36:42 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.20.9542.010; Fri, 23 Jan 2026
- 03:36:41 +0000
-From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Date: Fri, 23 Jan 2026 11:36:20 +0800
-Subject: [PATCH v2] media: nxp: imx8-isi: Fix potential out-of-bounds
- issues
+	Fri, 23 Jan 2026 03:41:32 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 23 Jan
+ 2026 11:41:23 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Fri, 23 Jan 2026 11:41:23 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+Subject: [PATCH v2 0/3] pinctrl: single: bit-per-mux DT flexibility, probe
+ robustness, and consistent pinconf offsets
+Date: Fri, 23 Jan 2026 11:41:22 +0800
+Message-ID: <20260123-upstream_pinctrl_single-v2-0-40f8063cc5a2@aspeedtech.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260123-isi-v2-1-0d03b8097f86@nxp.com>
-X-B4-Tracking: v=1; b=H4sIALPscmkC/1WMQQ6CMBBFr0Jm7Rg6kKKuuIdhAXUqs7AlrWkwp
- He3sGP5ft5/G0QOwhEe1QaBk0TxrgBdKjDz6N6M8ioMVJOuFREWA7vW3jo7TfdRWyjmEtjKelS
- eQ+FZ4teH3xFNal/P/6RQoWnYaCbdWtX0bl2uxn9gyDn/AWzIDIOUAAAA
-X-Change-ID: 20260122-isi-74f87fbb9a6f
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Stefan Riedmueller <s.riedmueller@phytec.de>, 
- Jacopo Mondi <jacopo@jmondi.org>, Christian Hemp <c.hemp@phytec.de>, 
- Frank Li <frank.li@nxp.com>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, linux-media@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>, 
- stable@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769139400; l=3910;
- i=guoniu.zhou@nxp.com; s=20250815; h=from:subject:message-id;
- bh=00TVgTGKW5d8Ko+WL1Hlqykufz4DsHx6G4ZWRhC5Co8=;
- b=tF9/dQwVUtDGGEwSIxxmcFWsRwvD4i6bt7XKivhhT6pSLpuNOkvEQyy5fN5GrHI3jx07YWMVi
- 1VRv2r8PxvSDzEWowuJObWs7RJx1TqW0m218m7vesiF6QF5li4Es0Uy
-X-Developer-Key: i=guoniu.zhou@nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: SI2PR01CA0022.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::14) To AS8PR04MB9080.eurprd04.prod.outlook.com
- (2603:10a6:20b:447::16)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|AS8PR04MB9174:EE_
-X-MS-Office365-Filtering-Correlation-Id: e4314ec2-c118-4582-b291-08de5a309fb2
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|52116014|376014|19092799006|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eU8zVDMzcGVUTS9vS3VoWVcwTTZkT3JCTVlpcWlhZkIrNnhaSlMwdHR0bHBT?=
- =?utf-8?B?S01GSnpIYWYxcmVCQ1JvZm5mRzBnam1KREhOaEdnTlg4OFRkQ04rVDY2VFRm?=
- =?utf-8?B?UDNQeENzU2xPL0lGY3BzR0lvTWdXOU14OW44cTc2UmtYNDZvL3d2TkFndmpH?=
- =?utf-8?B?MnJTR3pxa2tJMC8zNGUwZVJ1M0ZqYlpncEl0c0pkOHQvZmtSUGVUMytBZmsz?=
- =?utf-8?B?cjJuWHpFek1vN01adkowQ0QzbGh3c2xsbmhoWUwzRmppRWVqWHA4c2NnQ0gy?=
- =?utf-8?B?WEV5WmV4UHhSMTBIWGRGeWNTVVZWTnRxUDFuMllvbEJsV1pnTHlTZnZsemU5?=
- =?utf-8?B?YWpuQlZpNTdjNmxkMmJPM3VNNUxxV0ZSUTZlQll6MnlkUVhzbVhaN0tvVE9E?=
- =?utf-8?B?OE5iOTJPNnRKeTdBMXUvQjhxb2hCY3pmbldCZ0lVSnIybEhUUnpPeFZTUU0x?=
- =?utf-8?B?RjJCRUZoOXdJNm4zTVhSdW8yZkJQQ1lVQS9wdHo2WFprM2g0RTd5ZFo5UktX?=
- =?utf-8?B?bXZlVG8vSHpjTjlQRFBoWHlLUHB4bE01OUJCdVdvSjRGTjRSdFdWc1JjTE1q?=
- =?utf-8?B?bEw1VENMa3I0cXAvWStEL0p5Ly9SbGo5cVh2QlNRZ2VKdVlaWkFaY2s3c2lU?=
- =?utf-8?B?Sm1pR1hRS0hLdXFuZ1VFUWNTS1YweXg0bWNHZ0R5Y1NPRlNFckhKQXpGSXZu?=
- =?utf-8?B?ZEV1TTZZa2ZyY1ZnNjdDQUxkSmMyL1Z1Rm0vNmFXdTBoVzZtMk9abmlqOFpn?=
- =?utf-8?B?ZVcrbUhoTFN4MDlJbzMxYktMbzIzc3lpeW84dTgyZDMwanU3ZjJubjM3aUFz?=
- =?utf-8?B?bEVpLzB0QTFGbUxsdWt3MDZ0K3RndG5NUHM3OVlBOGZPRnpFdTlrcTI5SlQw?=
- =?utf-8?B?SVVVdnlsUDB6bWhqZUFVOGc4TDB6aGJhVXF0Y3RMVFNRaFZ0bzV4ZldEWFpa?=
- =?utf-8?B?TnFHZGJ3TFN3cjUyUEQ3TXN6cEpoYXNkcnN5ZUpQM0plSFMzSmdFZUJjOEww?=
- =?utf-8?B?akRtOVpPNUV5RUphUmN3R2ZNcnpTdks3V1hLVHBCQkhEd2lWV2xjMWZWOFdT?=
- =?utf-8?B?VXBQeGlIL0RyK0kvaGhxNTlKOE0yckQ1MjloR2J6d0RWMHVSLy9EeC9JQXVP?=
- =?utf-8?B?aHlzVFFoYUJnUHVNMEZFS2UrOGxFQ3pSSlRUbnczQVl1TURqMUE1cktpUGtV?=
- =?utf-8?B?RER0T1VwVERVNnBUTDVMTk9wVkRkUkxSa3RObGdBMTZXUGxqSHNvWmNib2l4?=
- =?utf-8?B?RzV2TWNyaGdSd21ReFh1NUVBQk8xb2RRaU81bjczc1lEelAwL1AzbUlwR3l4?=
- =?utf-8?B?K3BMZm8zczRCZVRLbDU5UXVFRGJMTXFKU0NzcFFvMUxRa1RMY0lmcjhpc1k1?=
- =?utf-8?B?V3RNT2JEdG1tM2tpUU5UTzk2THFZLzJwblBpY3djdXU3ZlY5OGtodmxmUElH?=
- =?utf-8?B?c3JHcEhveGhMcVhhN3QzSUVlcWhNbEZJRUszdXFrODFGWW9zUEJOYUQyRkxm?=
- =?utf-8?B?MVIvTThRV0lReXAxLzk2MCswQUdESDl2RzJSWmM1MWwvcFBUQkRJZ09PT0tq?=
- =?utf-8?B?Tmp0VXNvWXUyWnM3UkFuYnY4a3NyQ1dFaG0vQ3g3ZUxBakZ1cjhZU3QvSFNk?=
- =?utf-8?B?QmdqU1I0Yy9Ma2RmN1ZMWUtCdGN4aEd1YlFIanYrc0hTQThvZ0tLaDNNWXJM?=
- =?utf-8?B?TlBuUWxPNXVqRkw1SHoxZ2cwbXBmWStRZWdPYmxhRG9RYWtKZ0RQb1dhUHUz?=
- =?utf-8?B?TUNSRVNxNnRIUWt6SDFlWFVVUkdIWnVVSFdUVCs0cDQ4TFU0UE5vdnJPbGxC?=
- =?utf-8?B?MktzM1N1UkljMytKei9aemU3MDZIQ3dnUlVyTFRVbUtpRTVWNFBYWm51QmR5?=
- =?utf-8?B?ZzBXdkFkSDhnWnF1YnRXd0tvZWIxeTVqM1NhWEhEMlU2Q0U2dllvOXJMZTM1?=
- =?utf-8?B?NUltSTBHQk5SMGFXbFI2VkVaUEJTTE1QN0d0QVhYb2ZzZTV0TUxZcXFLck5Z?=
- =?utf-8?B?aW9mUkdvcHZxN1NjRHJtTVlWMmpHSlBMRjVOZlZ1L3hybno0SmJKZU9ZdEIx?=
- =?utf-8?B?Z28rdXhnbTh3bHc1QlhsWDArTW5vd0VsUnI5UkpEK2pPVFdlV0ZYREhsR1lL?=
- =?utf-8?B?TmVwRm0waVQwSEhjNkRSM1FEam4yNDhCbW9vcFVDY1ArOTg1NnZhTElzSEty?=
- =?utf-8?Q?tO5mc76ffWojM7UFRgW/TsGbh3xrzA5MKW6N26/+nBWV?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(52116014)(376014)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ekpQcVAveDM1YytDWUpCZ0N1bGR3MWdnU1QyYkxBWVpobHo0NmJmeVIvSm5U?=
- =?utf-8?B?bVB3RFVpNjVCQ085bXlpNWVBK1hiWU43TDFGd05kem5NdnM2dTJrQ2xtNDJL?=
- =?utf-8?B?TXhaNTRXV1ZpMGJvQStTd2ZkVWw3Zy9KVisvNTUwd0Q3QUoxY01RVFRpWjRu?=
- =?utf-8?B?SWd2WHFyVzI4REJXNXZoalErOW9JUUd5OVc2OUZxTFk0MkY0N1A2MEtxWjc0?=
- =?utf-8?B?eVlWR01VZXhOdkkzNVl5Ynd2bDJkeUlCdE1vVkpvZG9WODRvdFVWNllRRzhX?=
- =?utf-8?B?TjVRZ3FsamJiM3ZGUVlUUFZtN3lVOFNKc3lpekpTR3FCRnlYQ0ZTOFg0ODA3?=
- =?utf-8?B?a2xFT0xDUWFHU1FGeUxrQkJuOTBGcTZ5Z3NPdmZmVU5haUgvc09tUTRNT0kz?=
- =?utf-8?B?UUV0YmZ3RGNWWjY5aytsNERqaUZ0Q0M5bkU5QUxwMlVqREJrOWd4VE5abHF2?=
- =?utf-8?B?YzNnV2VoR0JhTlBkR1NPQkhqSlNkMFhqemdRL3A1MXdpWlNkNGZ1TW1Nekp0?=
- =?utf-8?B?TXN6elRqOHp5VjhsVzNCMUsvVmpOcDZ5ZlJtL0FFWUQ3RVJwWkNFWGVoT0l1?=
- =?utf-8?B?KzV0c1ZjKy96YS8vY2dCWDhYWE9RUWF0RFZBTERYMUMxZ2NEbWV0MmM5c3FL?=
- =?utf-8?B?dTNRM216eElyU3FYdGExd1hjcGMrU1BKcFplZEpwMk9aMTJFdHc0cHMrSkJ4?=
- =?utf-8?B?WXZSWTBQYk92UGFCeHpTNHZ5bzJYalRNaUlTRkJwU0hCOFRjd2dCOW1BWDk3?=
- =?utf-8?B?SU9acFhzY0tJUU95NjJJOEdMei9lY3UveS9FYnlISVAwM2V0K0NwRGVtUXpo?=
- =?utf-8?B?K28xL1plVDJLeEIreHMvWmpHRXdkRm5PSVc1UWh3NzRJMUFxR0loRG5WeEVX?=
- =?utf-8?B?bVU2M21JRllUZDl0RGl4RlUrR3FZTkhHYVRONmFFOVJySFlCczNOeUhWemdK?=
- =?utf-8?B?YnRURWFEcUMrZ2JCL3dKQmpkeDcybmJKdW0xNUVyZHRmRzNSaVV6T05LUklG?=
- =?utf-8?B?blFuZk8xVmJ6R3FjVU9YZ0tDb3FGN3dJSlVucWxLSGZHdXRLVHRHRUlBaXJF?=
- =?utf-8?B?aENFV2E4ckJtMkMvcGtIYWRnTjNMRURUUWNUV0VsZFBEQXhSRVozR21VOWNn?=
- =?utf-8?B?U3VmdXpPd0hqV2ZKOGlGV3J4czBhenRHdTdodFdiMzBXYUJxZzlXZjB5YmRj?=
- =?utf-8?B?clArY1RXdThYUkNTMU1tczlKN2VZWlJPRzlocW9LNGNjSDBycXVMUHNPQS9u?=
- =?utf-8?B?MXh2QmhQV1dUUitRZW01UVhPODNMZnRiSTdvYjRsdlphaHd1NndCTEhNeUgv?=
- =?utf-8?B?dXluN2ZhdG91YVBrblZPV01iZXpNTlluTTlsQThFRTJKSEwxTGtNU0p1Y1BS?=
- =?utf-8?B?OUw1RVdUbGQxMWNid2JVZklXNmJXZGJRbGtianJBU2tBNWE2MHh5cG1iZWtt?=
- =?utf-8?B?SWc4bWw4aTJVc3c2Y0tZUWRQMzEwWDMyd1J1ZGRDUVlQYlN4KzhsRGd1RTls?=
- =?utf-8?B?Rkx2VXBhK0s1YTZHZVlyZDkyT09OSjg0d1ZkOXRYWXo5dFJuVkxsM05tMXEz?=
- =?utf-8?B?SzZWNmNWUjRGWHBlbXVYY2RRN0xLRy9YZFF1MXdNRkFsYWp6SjJ2M2FESUlm?=
- =?utf-8?B?cDdtZWU0ZEt1YWpGbVpySW9uUDYyYzF6d1dmdDVUUWVVdTdoeEgxbDBIVTRG?=
- =?utf-8?B?M3o1cStEd28wWDRsSGlINlg4ampLcDcxSE1QZjcwMy9YSnI1dm43bnhVVVFS?=
- =?utf-8?B?ci94aEU4SXo5TFRMei9jOFZaMnJQSTNROE1TVkpZaHZxdTMxMjNJZW5kNHRR?=
- =?utf-8?B?eFdJeDhiQ1RIYXJWZjFSZDd5cER3bzJWQjBhSUk3cnF1L1QzQTJoVDN5QzV5?=
- =?utf-8?B?c0o2cVh5Q3UxZUVOUDRXMnQ2SlN3eTV2WDFoNURkVytEQ0NxSFE1UWZhUE9w?=
- =?utf-8?B?KzE5OEVHUW05ZmRsWTYyRGhmRE5SdG9JYzYrVXNiMDNpdTdEL2RTU0JoR0d3?=
- =?utf-8?B?RTZ6dFdpM09tM1hMY0UrYkJYK3NzdWlKRHBhdU53VUhxeEI3bzdyUVVMaGox?=
- =?utf-8?B?UGlRc3FDdnFxaE40ZEYycythZDVKaVZubnppekMwWUZSZ1RTRmpab0lsRlIz?=
- =?utf-8?B?K1RHRWwxWHJqd0NvemVWOXcrZCtNK2JPaEVTQ25scXlQN0xNYjdnUkVJem05?=
- =?utf-8?B?QTRNQjFjdkU5cVdzTGpjK01VV1J6MDRjZUk1WVdKSE5LQlBBOUNkQWtzdEdv?=
- =?utf-8?B?Ni9iRi84eU5Yck4xaVJYaWtydW5vVVN5K1F2aW1JbFZLRHAxcDFFRlpkYjBY?=
- =?utf-8?B?MUlLQVBubXR1dzNEODcydXh1dFI3N2owQ0NYa3c0Z0FyRzJMYUFYUT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e4314ec2-c118-4582-b291-08de5a309fb2
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 03:36:41.8947
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CLcLKW/lHxdgzZZ7+4cFrmId0rjtCxeOA3uHpC6eFNAyLXHlNRP19sYU1PIKQRA1+eJf8Hky5x3vn4lyuxWADg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9174
+X-B4-Tracking: v=1; b=H4sIAOLtcmkC/4WNQQ6CMBQFr2L+2hpa0VhX3sMQUsoDfgKlaSvRE
+ O5u5QIuZ5I3b6WIwIh0P6wUsHDk2WVQxwPZwbgegtvMpAp1kUop8fIxBZip9uxsCmMd2fUjhNa
+ 4tZ3soBpNee0DOn7v5WeVeeCY5vDZjxb5s/+bixSFQGmMKYFGn68PEz3QJtjhZOeJqm3bvvbvu
+ qTDAAAA
+X-Change-ID: 20251222-upstream_pinctrl_single-99e8df1fe2b9
+To: Tony Lindgren <tony@atomide.com>, Haojian Zhuang
+	<haojian.zhuang@linaro.org>, Linus Walleij <linusw@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>,
+	<linux-gpio@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<andrew@codeconstruct.com.au>, <BMC-SW@aspeedtech.com>, Billy Tsai
+	<billy_tsai@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769139683; l=3080;
+ i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
+ bh=U+96Oju2LJPPeV4CQsvqyeiTCxkEfhEAD2gIfgrHu/Y=;
+ b=XyvL8ixlWRm0I/KPcKu8gPviLj9PpZERF86sW2+SY/232zH8dRwnaWFUnRu8SMtnSwdkr8mLu
+ NugFB56kQPtDuURaTbb2wK+eBPG0DbpeupVkX4idhvuJZH2wYBP5Ef7
+X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
+ pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_193650_549681_A2169E97 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20260122_194130_383350_033AA9BC 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,95 +79,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Guoniu Zhou <guoniu.zhou@nxp.com>
+This series is motivated by the pinmux and pin configuration register layout
+of the ASPEED AST2700 SoC, which exposes several limitations in the current
+pinctrl-single behavior on bit-per-mux platforms.
 
-The maximum downscaling factor supported by ISI can be up to 16. Add
-minimum value constraint before applying the setting to hardware.
-Otherwise, the process will not respond even when Ctrl+C is executed.
+On AST2700, pinmux registers are laid out contiguously per pin, with each pin
+occupying a fixed-width bitfield and pins packed sequentially within shared
+registers. While the existing pinctrl-single,bits binding can represent this
+layout, doing so requires manually constructing offset/mask/value tuples that
+do not map naturally to the hardware model and are error-prone to maintain.
+In practice, describing pinmux configuration in terms of <pin_index func_sel>
+better reflects the underlying design, improves DTS readability, and reduces
+the chance of mask or shift mistakes, while still preserving
+pinctrl-single,bits as the preferred and fully supported binding when present.
 
-Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-Cc: stable@vger.kernel.org
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+AST2700 pin configuration registers follow the same per-pin packing scheme as
+pinmux, with both multi-bit and single-bit fields arranged sequentially per
+pin. However, the current pinctrl-single pinconf offset calculation assumes a
+linear per-register layout, which does not align with this bit-per-pin scheme
+when bit-per-mux or function-mask configurations are in use. Aligning pinconf
+offset computation with the pinmux logic ensures consistent and predictable
+behavior and avoids incorrect pinconf operations on such platforms.
+
+In addition, on many AST2700 systems the SCU register range containing the
+pinctrl registers is commonly reserved by a top-level syscon node or by
+firmware. In this configuration, devm_request_mem_region() can return -EBUSY
+even though the registers are valid and intended to be shared. Since
+pinctrl-single is a direct MMIO-based driver and does not integrate with
+syscon/regmap, failing probe in this case prevents any pinmux configuration
+from being applied. Treating this condition as a warning allows the driver to
+initialize while still reporting the shared-resource situation.
+
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 ---
 Changes in v2:
-- Fix possible side-effects caused by 'max_val' in CLAMP_DOWNSCALE_16 macro.
-- Add space line between two paragraph in comment.
-- Link to v1: https://lore.kernel.org/r/20260122-isi-v1-1-c3ec6e264f13@nxp.com
----
- drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h | 16 ++++++++++++++++
- drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c  |  6 +++---
- drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c |  6 ++----
- 3 files changed, 21 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-index 3cbd35305af0f8026c4f76b5eb5d0864f8e36dc3..84e134f4d5fb26be652ac3e6aecd459bb2a0d1c6 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-@@ -59,6 +59,22 @@ struct v4l2_m2m_dev;
- #define MXC_ISI_M2M			"mxc-isi-m2m"
- #define MXC_MAX_PLANES			3
- 
-+/*
-+ * ISI scaling engine works in two parts: it performs pre-decimation of
-+ * the image followed by bilinear filtering to achieve the desired
-+ * downscaling factor.
-+ *
-+ * The decimation filter provides a maximum downscaling factor of 8, and
-+ * the subsequent bilinear filter provides a maximum downscaling factor
-+ * of 2. Combined, the maximum scaling factor can be up to 16.
-+ */
-+#define CLAMP_DOWNSCALE_16(val, max_val)			\
-+({								\
-+	typeof(max_val) __max_val = (max_val);			\
-+								\
-+	clamp((val), max(1U, __max_val >> 4), __max_val);	\
-+})
-+
- struct mxc_isi_dev;
- struct mxc_isi_m2m_ctx;
- 
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-index f425ac7868547da401e86ce5a9b70a9890e72541..8860d89713667d06abc94e6024526fabac46feb7 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-@@ -509,9 +509,9 @@ __mxc_isi_m2m_try_fmt_vid(struct mxc_isi_m2m_ctx *ctx,
- 			  const enum mxc_isi_video_type type)
- {
- 	if (type == MXC_ISI_VIDEO_M2M_CAP) {
--		/* Downscaling only  */
--		pix->width = min(pix->width, ctx->queues.out.format.width);
--		pix->height = min(pix->height, ctx->queues.out.format.height);
-+		/* Downscaling one-sixteenth only  */
-+		pix->width = CLAMP_DOWNSCALE_16(pix->width, ctx->queues.out.format.width);
-+		pix->height = CLAMP_DOWNSCALE_16(pix->height, ctx->queues.out.format.height);
- 	}
- 
- 	return mxc_isi_format_try(ctx->m2m->pipe, pix, type);
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-index a41c51dd9ce0f2eeb779e9aa2461593b0d635f41..c3ffc8a38d1269c0a4e6493b4d75690f01cc87bb 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-@@ -647,10 +647,8 @@ static int mxc_isi_pipe_set_selection(struct v4l2_subdev *sd,
- 
- 		sel->r.left = 0;
- 		sel->r.top = 0;
--		sel->r.width = clamp(sel->r.width, MXC_ISI_MIN_WIDTH,
--				     format->width);
--		sel->r.height = clamp(sel->r.height, MXC_ISI_MIN_HEIGHT,
--				      format->height);
-+		sel->r.width = CLAMP_DOWNSCALE_16(sel->r.width, format->width);
-+		sel->r.height = CLAMP_DOWNSCALE_16(sel->r.height, format->height);
- 
- 		rect = mxc_isi_pipe_get_pad_compose(pipe, state,
- 						    MXC_ISI_PIPE_PAD_SINK);
+- Updated the cover letter to better explain the AST2700-specific motivation
+  for this series and why the current pinctrl-single behavior is insufficient
+  on such platforms.
+- Clarified the rationale for allowing probe to continue when the MMIO region
+  is already reserved.
+- No functional changes compared to v1.
+- Link to v1: https://lore.kernel.org/r/20251222-upstream_pinctrl_single-v1-0-e4aaa4eeb936@aspeedtech.com
 
 ---
-base-commit: eb4ee870747c3a77a9c3c84d84efb64bd481013a
-change-id: 20260122-isi-74f87fbb9a6f
+Billy Tsai (3):
+      pinctrl: single: add per-pin binding support for bit-per-mux
+      pinctrl: single: Allow probe to continue if mem region busy
+      pinctrl: single: unify pinconf offset mapping with pinmux
+
+ drivers/pinctrl/pinctrl-single.c | 150 ++++++++++++++++++++++++++++-----------
+ 1 file changed, 110 insertions(+), 40 deletions(-)
+---
+base-commit: dd9b004b7ff3289fb7bae35130c0a5c0537266af
+change-id: 20251222-upstream_pinctrl_single-99e8df1fe2b9
 
 Best regards,
 -- 
-Guoniu Zhou <guoniu.zhou@nxp.com>
+Billy Tsai <billy_tsai@aspeedtech.com>
 
 
