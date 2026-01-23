@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB084D74EFB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:14:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F06BD74EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KWkTccmCT3nJgrNSLZ1R/jzxD1Y0UvqRHyoXQxdCfEk=; b=LNvpggeR43AXNbqlKHw5FyY9TW
-	GZyvO17liuqsuGqCkECu7a6emly0OlEQNAZHXiYsZJmheQqT6XLg8GbtzQnzq7/KqPNoySNrGwJAd
-	1K3bZNoE+7gCgJH0EkKMCcZnObYZWb6o722vpEN5g+L6rR8md4id3xz8NC+ylcfJEPvF4wOSGT7gx
-	JLq768Dnx4JT2Q3rGRdDLaocs9YOhb9g06zSlQtguySiouMBUUVHs7Y4ofgOhJyyWXUXY+EKlPU8E
-	tAxIfSQCqVflOSrETcNVWhsBCswDsBqaa9uHO6RcLh5fxZNao2I/Z9FUoyfroC/SldmxNLi2O+/Q0
-	3WDj+Crg==;
+	bh=YHbKPaDVZD9oIsFLb8cqetcEgclBnBCWZdurRGChSkw=; b=z2mO3i25gRtyEb9AaoJNwdyRTu
+	DEAc1KXrC75jevKNJDFTPTH1D4JXkpku/gToSvD3FnLKHyb/QJzXbhZ5ooWwTD+F9QZMTptu4wtoj
+	TIaKzpQRHiZIWYq2qWfj8DzXLN5X5+dMoNYqZIDN2IQ2J3sjTIPeV61KiuoCjh5Ve0vvekUW4zTEx
+	8Dfe87EBBQYQwE2UweHiEtz7w1gtXaPCveQ7mw+wFzxdLnviicDipQoxapqb6tZiXLM7Lw5LRyjSv
+	FN4nHM7JptRZCuA2XLuAzPUf4z/sA+RP1j8YtlclJBaidUu2yBEWMUu8FaRFmG5rRucTPcikdcirU
+	7n/Op37w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJnc-00000009AkZ-3xU3;
-	Fri, 23 Jan 2026 16:14:16 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vjJnd-00000009AlV-2rCx;
+	Fri, 23 Jan 2026 16:14:17 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJn7-00000009ADV-13De
+	id 1vjJn9-00000009AFi-3JHB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 16:13:50 +0000
+	Fri, 23 Jan 2026 16:13:53 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id AC9634E42225;
-	Fri, 23 Jan 2026 16:13:43 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 607581A2A64;
+	Fri, 23 Jan 2026 16:13:46 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7F3A66070A;
-	Fri, 23 Jan 2026 16:13:43 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4EA9C119A87D8;
-	Fri, 23 Jan 2026 17:13:39 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2D42B6070A;
+	Fri, 23 Jan 2026 16:13:46 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 72451119A87DD;
+	Fri, 23 Jan 2026 17:13:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769184822; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1769184824; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=KWkTccmCT3nJgrNSLZ1R/jzxD1Y0UvqRHyoXQxdCfEk=;
-	b=TaOM18VGmxTiCUeR/4iMknDf61aN4LVb5MlgCerGYbrjEx75KjIRTpr4yKSyGpD6K1gV3z
-	A1qZHsbcApq1LvfTQS2BL0JTMrs4ipv5LPXczRP13nCDp004KEX51k+53d3/3cCw4+WzJ0
-	IeSZZ3iMofLug0XWuRSC5+jgpxP8Gk5N4oN6S9owAH2wgQdyTE7yFQ7r8xFRaRc8pkbzbn
-	EJyZp/x5m7xnYbc5KCaRDH8o5BMFu6Jry7e0oC8CBNrzjDrewoVtJ+CvdLfMroRz+2yPRl
-	ybb1M5mRTwIDE5By9MPVY38CIu7+8CPOtT25nk87hM0IZZAWKcWnqllICd2TRw==
+	bh=YHbKPaDVZD9oIsFLb8cqetcEgclBnBCWZdurRGChSkw=;
+	b=1kWLeA3wkhRHAa49z7tr6TvHUWMjOb7YiYss45br2qDTJiihGY3XM6gt9+Jr7x9jNeTLXk
+	mK+6YZ4gleeCQQhH7HBTeG9Unl3N43Jzw2wH6ThLq+rROOnDRniLzJJJofv6bJgQtc5a51
+	AWM8lWkIqfEiNQwAGZh64i/uNxjHrvN2sPPUT3cJBt7BgVmZ+rSGlmKRAIaz3Gbwmk1eY5
+	pk/GtkzexYBmt3KwkY4JY/p4EBAi0pfzn0swo5wOSEilMp+ZPiLItPYg9nOtJ8Q+M60EBB
+	hLWZasrnZ/BhM5zsOijaKBenESm9Ud1EjVGt9FmCR4botoYt6og1x7EAzSDc7Q==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Fri, 23 Jan 2026 17:12:38 +0100
-Subject: [PATCH v5 20/25] drm/tilcdc: Use devm_drm_of_get_bridge() helper
+Date: Fri, 23 Jan 2026 17:12:39 +0100
+Subject: [PATCH v5 21/25] drm/bridge: tda998x: Remove component support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260123-feature_tilcdc-v5-20-5a44d2aa3f6f@bootlin.com>
+Message-Id: <20260123-feature_tilcdc-v5-21-5a44d2aa3f6f@bootlin.com>
 References: <20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com>
 In-Reply-To: <20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -78,8 +78,8 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.15-dev-47773
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_081345_480316_B3FA7B81 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20260123_081348_054388_F6BFEE62 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,61 +94,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace drm_of_find_panel_or_bridge() with the newer
-devm_drm_of_get_bridge() helper which simplifies the code by:
-- Automatically handling both panel and bridge cases internally
-- Managing the panel-to-bridge conversion when needed
-- Using devres for resource management, eliminating manual cleanup
+The tilcdc driver no longer uses the component framework to bind the
+tda998x bridge driver. The component bind/unbind operations and the
+encoder initialization code are now dead code and can be safely removed.
 
-This removes the need for explicit panel-to-bridge conversion via
-devm_drm_panel_bridge_add_typed() and the associated error handling path.
-
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
+ drivers/gpu/drm/bridge/tda998x_drv.c | 69 +-----------------------------------
+ 1 file changed, 1 insertion(+), 68 deletions(-)
 
-Change in v4:
-- New patch
----
- drivers/gpu/drm/tilcdc/tilcdc_encoder.c | 18 ++++--------------
- 1 file changed, 4 insertions(+), 14 deletions(-)
-
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-index a34a10337f6a8..546fe7e6ee815 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-@@ -55,15 +55,12 @@ int tilcdc_encoder_create(struct drm_device *ddev)
- 	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(ddev);
- 	struct tilcdc_encoder *encoder;
- 	struct drm_bridge *bridge;
--	struct drm_panel *panel;
+diff --git a/drivers/gpu/drm/bridge/tda998x_drv.c b/drivers/gpu/drm/bridge/tda998x_drv.c
+index e636459d91857..865285ba2bd8c 100644
+--- a/drivers/gpu/drm/bridge/tda998x_drv.c
++++ b/drivers/gpu/drm/bridge/tda998x_drv.c
+@@ -4,7 +4,6 @@
+  * Author: Rob Clark <robdclark@gmail.com>
+  */
+ 
+-#include <linux/component.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/hdmi.h>
+ #include <linux/i2c.h>
+@@ -1963,85 +1962,19 @@ static int tda998x_create(struct device *dev)
+ 	return ret;
+ }
+ 
+-/* DRM encoder functions */
+-
+-static int tda998x_encoder_init(struct device *dev, struct drm_device *drm)
+-{
+-	struct tda998x_priv *priv = dev_get_drvdata(dev);
+-	u32 crtcs = 0;
 -	int ret;
- 
--	ret = drm_of_find_panel_or_bridge(ddev->dev->of_node, 0, 0,
--					  &panel, &bridge);
--	if (ret == -ENODEV)
-+	bridge = devm_drm_of_get_bridge(ddev->dev, ddev->dev->of_node, 0, 0);
-+	if (PTR_ERR(bridge) == -ENODEV)
- 		return 0;
--	else if (ret)
--		return ret;
-+	else if (IS_ERR(bridge))
-+		return PTR_ERR(bridge);
- 
- 	encoder = drmm_simple_encoder_alloc(ddev, struct tilcdc_encoder,
- 					    base, DRM_MODE_ENCODER_NONE);
-@@ -73,12 +70,5 @@ int tilcdc_encoder_create(struct drm_device *ddev)
- 	}
- 	priv->encoder = encoder;
- 
--	if (panel) {
--		bridge = devm_drm_panel_bridge_add_typed(ddev->dev, panel,
--							 DRM_MODE_CONNECTOR_DPI);
--		if (IS_ERR(bridge))
--			return PTR_ERR(bridge);
+-
+-	if (dev->of_node)
+-		crtcs = drm_of_find_possible_crtcs(drm, dev->of_node);
+-
+-	/* If no CRTCs were found, fall back to our old behaviour */
+-	if (crtcs == 0) {
+-		dev_warn(dev, "Falling back to first CRTC\n");
+-		crtcs = 1 << 0;
 -	}
 -
- 	return tilcdc_attach_bridge(ddev, bridge);
+-	priv->encoder.possible_crtcs = crtcs;
+-
+-	ret = drm_simple_encoder_init(drm, &priv->encoder,
+-				      DRM_MODE_ENCODER_TMDS);
+-	if (ret)
+-		goto err_encoder;
+-
+-	ret = drm_bridge_attach(&priv->encoder, &priv->bridge, NULL, 0);
+-	if (ret)
+-		goto err_bridge;
+-
+-	return 0;
+-
+-err_bridge:
+-	drm_encoder_cleanup(&priv->encoder);
+-err_encoder:
+-	return ret;
+-}
+-
+-static int tda998x_bind(struct device *dev, struct device *master, void *data)
+-{
+-	struct drm_device *drm = data;
+-
+-	return tda998x_encoder_init(dev, drm);
+-}
+-
+-static void tda998x_unbind(struct device *dev, struct device *master,
+-			   void *data)
+-{
+-	struct tda998x_priv *priv = dev_get_drvdata(dev);
+-
+-	drm_encoder_cleanup(&priv->encoder);
+-}
+-
+-static const struct component_ops tda998x_ops = {
+-	.bind = tda998x_bind,
+-	.unbind = tda998x_unbind,
+-};
+-
+ static int
+ tda998x_probe(struct i2c_client *client)
+ {
+-	int ret;
+-
+ 	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C)) {
+ 		dev_warn(&client->dev, "adapter does not support I2C\n");
+ 		return -EIO;
+ 	}
+ 
+-	ret = tda998x_create(&client->dev);
+-	if (ret)
+-		return ret;
+-
+-	ret = component_add(&client->dev, &tda998x_ops);
+-	if (ret)
+-		tda998x_destroy(&client->dev);
+-	return ret;
++	return tda998x_create(&client->dev);
  }
+ 
+ static void tda998x_remove(struct i2c_client *client)
+ {
+-	component_del(&client->dev, &tda998x_ops);
+ 	tda998x_destroy(&client->dev);
+ }
+ 
 
 -- 
 2.43.0
