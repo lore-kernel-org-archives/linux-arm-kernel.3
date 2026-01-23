@@ -4,53 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 568BCD74EED
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 15:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E10D74EF8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y4V2hjla+bW2QYTmJeImMZ1GnZfmBM9sjn2knDrMUSM=; b=t9nl7HQPXsq2t6DHvGQGFjHukL
-	u5DwovyIYkQI3Jj1rTnL/KmsUv3MtuhIk+kGLGg5FMry+4n3aSfDW9MUZthP2WZGnCVIKnPDN0HYm
-	55l7SMUl4oRBfEM55+SW9AQCtpKwrG1dzh4IjIZIPUB0nTlLky1+mgBvy9qPhe0BgY35Sj8EMeTy5
-	/VhOysBPWxzZPnHHfBDgtvX8gXkGnysCwGKRFnVUGIcYADlIe/7jm6+EKT0y5vyf3O5HnZrTXATnS
-	DCietAtwGUZDl6OdcKKsm9auOJ5oc7nmcMHk+dN6BYURUoZTln73svg5hJ9YTJGVunPA3D7X1R2mm
-	EyvAOGBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HRaAyzpQLD9z0tMt/n74ydmpLXpoLNEfmnc5Kofzl7k=; b=uLllaHhpyL2orB3xILPHsCT1v0
+	8HoQrKfVb0m0ezllr4nUp0p/FTQCumyHRjwCOWlH1pZBzakWhFRv2kduFX4UFLZ4d1XM2KGyeu0zF
+	Dv25xRO8BimFmzl4fP7wgZvGDO+OHAf2+E/IXbF2nqDlwDXex+r7Odxox3I3NeesqCf+O3sNNzpcO
+	7uI6H9/ThQnTaGlnO9eNy9ucgITkpMA+5ApLFgvdUisYA+pvTySGVXdF7gxO5H0Vl2tVPgANm3sME
+	xxM0h3Zd3su+IR5dCIe62GRljsbYMhqM37EWfxAEi/J9G2ohjv72ABAziLv5Z2VkDhtEoVxnORuKZ
+	cLAiifaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJVB-000000097i2-1KbG;
-	Fri, 23 Jan 2026 15:55:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJV8-000000097hO-07bb
+	id 1vjJe1-000000098s0-24Kx;
+	Fri, 23 Jan 2026 16:04:21 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjJdy-000000098re-0kBu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 15:55:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35DF11476;
-	Fri, 23 Jan 2026 07:54:59 -0800 (PST)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 743AF3F694;
-	Fri, 23 Jan 2026 07:55:04 -0800 (PST)
-Date: Fri, 23 Jan 2026 15:55:02 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: "zhaoyang.huang" <zhaoyang.huang@unisoc.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Zhaoyang Huang <huangzhaoyang@gmail.com>, steve.kang@unisoc.com,
-	jeson.gao@unisoc.com, xuewen.yan@unisoc.com
-Subject: Re: [PATCH] arch: arm64: set __nocfi on swsusp_arch_resume
-Message-ID: <aXOZ1vsFvQRkxK9x@J2N7QTR9R3.cambridge.arm.com>
-References: <20260122114925.624309-1-zhaoyang.huang@unisoc.com>
+	Fri, 23 Jan 2026 16:04:19 +0000
+Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-47fedb7c68dso24102735e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 08:04:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1769184256; x=1769789056; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HRaAyzpQLD9z0tMt/n74ydmpLXpoLNEfmnc5Kofzl7k=;
+        b=pScLfRR4029VNt6bFh6mh2ghlUpF4I0er7xqjkhgyjEdJBba23CHRPIdF8wQKgY0YF
+         Ql0HtYePT2PSVBL3LCZmAWiOeLSjZkXvBJm3O8qmpmIK4inQv1uAJX1sYYUw5Lzz0jyx
+         wLgVtv48ENGYMW8GM9WQlCITmzGgyZ37leb15hkrB8Xp50yYPswQNbi7MVwP493pP8vt
+         Z90pnEL0QMdT39eGJlaZZHqMC80GYLiaFXJ2m8hwAgtaUbJc5hlBH5mfphzlTXIEUiRi
+         cT4gMaJtQpM1H3lvcHn61fdpun4+h0UNc4MNnaI0fmaTFhrH+PW4tAiCp7Q6uMpJ+aTc
+         LLWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769184256; x=1769789056;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HRaAyzpQLD9z0tMt/n74ydmpLXpoLNEfmnc5Kofzl7k=;
+        b=Fi5rjeVJqS6jh/JjLCdBACy1A+MNFT/mSmywRx9DM3O0UAsSwJU1NlNxYV4X/D+cke
+         Y43GmN4+u0UpsAoiuY1vQl0bfBlbnSjdW8gqzUwjzsOQs/cgY4YGvMeSLcju/EpXFRl7
+         NxCDuMvipRlbFmDPL8F6R5YXsrL4MoSrXMjX9r5helj0lvsf8iS7LyO/5GkoulbHiugZ
+         B37DlwncDgrDQ3b9g8qKC9ZybtWCbNej+LO7IOXhTXVXKWH7TLDF0DTkUUePXGdaQAzI
+         km7q2nn80QNLsENQvXXGKv8KU+Zz638zbqSsNIvdmOnCZk4MG6nIxBzjyftsFHdhCCnd
+         6+6w==
+X-Gm-Message-State: AOJu0YxNWjU1KkbTn34S8ZgYyN+SQGlDdC8XZ9EhxILA5fdWXSOpBcH0
+	S7LMUlZ/arFTD1ZAiGAJhIh8jMz4samUC+agPB6qXhEVIq0kf4dzCrsrN8Ted+GVus8=
+X-Gm-Gg: AZuq6aJPoTSu4+pLHUM1D8q2azvDEldhEYknTrKbM5P46EhCcHxg3Lw9G7haEiMMufX
+	8alzy2NqJM23+PBcIeytiY73Ue5Z5/40uVrts9uFe+7m2XNdaCQTGa2Cy3w7jWpVNUNCUCiEWqf
+	pomCW1IreNHPVHpCD/a4rXLPUBnHWDrBoIHlrOncVmD9QJE/R/OS25LTu1R+BBkd/x+VBJuPmvV
+	PnasFz1IgLUypqkDSjpLC8guTdU86mULnY+C070R93MtF4uIiZ7mUUOJm/ZbR2TgSEx0xcY1PFG
+	c8eljlOCHVk5sJMuPCSO8Z0Hi6vUJgbFAo6XHd0qX4HJeWSjp0U0njfnd5/V2Qjo4G0NMZsC8oh
+	/X4MAaWPN4G7T5u7dy3MCTt1Vw8L1Hhc2lgmqfS495F9BByHF5wJFzXXwO28c2rZ22ADLfT4YSE
+	svJdd8BPH2V3M8rQ8dnvL8
+X-Received: by 2002:a05:600c:638e:b0:480:4ae2:def1 with SMTP id 5b1f17b1804b1-480511f42d4mr29154775e9.13.1769184256022;
+        Fri, 23 Jan 2026 08:04:16 -0800 (PST)
+Received: from ho-tower-lan.lan ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435b1f7b4d8sm7382016f8f.38.2026.01.23.08.04.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 23 Jan 2026 08:04:15 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+Date: Fri, 23 Jan 2026 16:03:53 +0000
+Subject: [PATCH] perf: arm_spe: Add barrier before enabling profiling
+ buffer
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260122114925.624309-1-zhaoyang.huang@unisoc.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260123-james-spe-relaxation-v1-1-4ccb88fa7bc5@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAOibc2kC/x3MSwqAMAwA0auUrA3YClW8irgImmrET2lEBPHuF
+ pezePOAchJWaM0DiS9ROfYctjAwzLRPjDLmBlc6X1pX4UIbK2pkTLzSTWcGOHrv7FCTb0KATGP
+ iIPe/7fr3/QABhG0pZgAAAA==
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Alexandru Elisei <Alexandru.Elisei@arm.com>, 
+ Anshuman Khandual <Anshuman.Khandual@arm.com>, 
+ Rob Herring <Rob.Herring@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, 
+ Robin Murphy <Robin.Murphy@arm.com>, Leo Yan <leo.yan@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_075510_102456_CB5FBAE1 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20260123_080418_258421_81EA4265 
+X-CRM114-Status: GOOD (  22.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,31 +104,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 07:49:25PM +0800, zhaoyang.huang wrote:
-> From: Zhaoyang Huang <zhaoyang.huang@unisoc.com>
-> 
-> A DABT is reported[1] on an android based system when resume from hiberate,
-> which is root caused as CFI will plant stub code[2] to verify the
-> swsusp_arch_suspend_exit's authentication, where the hash value is stored
-> before the page that alloced by create_safe_exec_page. We also have
-> tried to copy the hash value together with the function but get failed since
-> the value is not on the desired position(src_start - 4). So we solve
-> this issue by setting __nocfi on swsusp_arch_resume and it works.
+The Arm ARM known issues document [1] states that the architecture will
+be relaxed so that the profiling buffer must be correctly configured
+when ProfilingBufferEnabled() && !SPEProfilingStopped() &&
+PMBLIMITR_EL1.FM != DISCARD:
 
-I think this patch is fine for now, but in case anyone is looking into
-this in future, the description isn't quite right.
+  R24557
 
-The problem is that swsusp_arch_suspend_exit() doesn't have a CFI hash
-at all, even before it is copied, since it is marked with SYM_CODE_*().
-There is no hash to copy.
+  While the Profiling Buffer is enabled, profiling is not stopped, and
+  Discard mode is not enabled, all of the following must be true:
 
-Ideally we'd mark swsusp_arch_suspend_exit() with SYM_FUNC_*(), but
-that'd break the expectation that the entrypoint to
-swsusp_arch_suspend_exit() is the first byte of the .hibernate_exit.text
-section. Changing that is a bigger job.
+  * The current write pointer must be at least one sample record below
+    the write limit pointer.
 
-AFAICT there isn't a way to suppress KCFI checks for a specific function
-call, so for now this'll have to do.
+The same relaxation also says that writes may be completely ignored:
 
-Mark.
+  When the Profiling Buffer is enabled, profiling is not stopped, and
+  Discard mode is not enabled, the PE might ignore a direct write to any
+  of the following Profiling Buffer registers, other than a direct write
+  to PMBLIMITR_EL1 that clears PMBLIMITR_EL1.E from 1 to 0:
+
+  * The current write pointer, PMBPTR_EL1.
+  * The Limit pointer, PMBLIMITR_EL1.
+  * PMBSR_EL1.
+
+When arm_spe_pmu_start() occurs, SPEProfilingStopped() is false
+(PMBSR_EL1.S == 0) meaning that the write to PMBLIMITR_EL1 now becomes
+the point where the buffer configuration must be correct by, rather than
+the "When profiling becomes enabled" (StatisticalProfilingEnabled())
+from the old rule which is much later when PMSCR_EL1 is written.
+
+If the writes to PMBLIMITR_EL1 and PMBPTR_EL1 are re-ordered then a
+misconfigured state could be observed, resulting in a buffer management
+event. Or the write to PMBPTR_EL1 could be ignored.
+
+Fix it by adding an isb() after the write to PMBPTR_EL1 to ensure that
+this completes before enabling the buffer.
+
+To avoid redundant isb()s in the IRQ handler, remove the isb() between
+the PMBLIMITR_EL1 write and SYS_PMBSR_EL1 as it doesn't matter which
+order these happen in now that all the previous configuration is covered
+by the new isb().
+
+This issue is only present in arm_spe_pmu_start() and not in the IRQ
+handler because SPEProfilingStopped() is true in the IRQ handler. Jumps
+to the out_write_limit label will skip the isb() but this is ok as they
+only happen if discard mode is set or the buffer isn't enabled so
+correct configuration is not required.
+
+[1]: https://developer.arm.com/documentation/102105/latest/
+
+Fixes: d5d9696b0380 ("drivers/perf: Add support for ARMv8.2 Statistical Profiling Extension")
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+A previous version of this was posted here [1] bundled with other
+changes to support running in a guest. Since then the known issues doc
+linked in the commit message has been released so this is a resend of
+only the critical part that also needs to be fixed for hosts.
+
+A redundant isb() has also been removed in this version which is not
+present in the previous version.
+
+[1]: https://lore.kernel.org/linux-arm-kernel/20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org/
+---
+ drivers/perf/arm_spe_pmu.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+index 4801115f2b54..62ae409fd5b4 100644
+--- a/drivers/perf/arm_spe_pmu.c
++++ b/drivers/perf/arm_spe_pmu.c
+@@ -639,6 +639,7 @@ static void arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
+ 	limit += (u64)buf->base;
+ 	base = (u64)buf->base + PERF_IDX2OFF(handle->head, buf);
+ 	write_sysreg_s(base, SYS_PMBPTR_EL1);
++	isb();
+ 
+ out_write_limit:
+ 	write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
+@@ -780,10 +781,8 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+ 		 * PMBPTR might be misaligned, but we'll burn that bridge
+ 		 * when we get to it.
+ 		 */
+-		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED)) {
++		if (!(handle->aux_flags & PERF_AUX_FLAG_TRUNCATED))
+ 			arm_spe_perf_aux_output_begin(handle, event);
+-			isb();
+-		}
+ 		break;
+ 	case SPE_PMU_BUF_FAULT_ACT_SPURIOUS:
+ 		/* We've seen you before, but GCC has the memory of a sieve. */
+
+---
+base-commit: c072629f05d7bca1148ab17690d7922a31423984
+change-id: 20260123-james-spe-relaxation-d6621c7a68ff
+
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
+
 
