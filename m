@@ -4,112 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC236D72340
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 07:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CCBBD72345
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 07:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3HtWcatUzY5YXlgwtxWVftfsNiV5SSAeItOi9v15MEE=; b=pnJhpBP9vSGDdB6/RW0ihEeENK
-	8vriB1yJux/biBWNXdnqsO1dHfr4WXbOvoAnrpozqgm6SfXqCZ3C+SKBgY/2fqvt3Zp8b+lF//dPa
-	gGZvXumS1M5ggtU4Pohm918f/WdtozeMCQthqBWJsvQzm4ac9ZlHC2hbpwZwhZwujDSNjAfjOnmu8
-	aPsueS8cSqe+7tr+9Wdxh32Xi9X6bk8qtI/3zY2WQs3mc+ej9gmwl0vpYB4RIHRySzLJ+Say8Pjmy
-	uc40RwJ/+ahg+8d2hd6BWJ91dqtIn4VwTKPzlCwgHyDZQhUfg2PdZrhn7fJjFlyBL4oDwyJaznhKL
-	gfXuDqKA==;
+	bh=BybO1XLVfdhod5yqmV9OoExkCCsTqBLc4oAzOMgKi/0=; b=TJkGs4ZdS6Ejf2IPxFG4jKWJUX
+	Oj5dDqXewREDTAsvRpSEVBTlVdMcANdYlaxezqtjvQvzTixHOsK6oxseihtDoJ/gseebJEiXCKLEr
+	HGXBD3iJ4VUmn9uctKqQ1U3UgrUYUKSUQkJmVfooGYHEnDzA7EVGrUJuiQOw1YETRZJqTwVI99rCf
+	yWtQlmldBc7wxi/57qsXgeZmAfvLUFADXit9zr7fJYpTPJkT5vODCCJazX/l9/TlrHef/EtXkw8ZF
+	cUI7UKIZzRzzNFKL533E11HOoRcVgZbmEHPnJqSi7npTFT9+wBzqsM5YMpqLStbSWFtgwcxh+0M91
+	BxDBYztw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjBeA-00000008NT9-2gZR;
-	Fri, 23 Jan 2026 07:31:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vjBn6-00000008O05-2OjW;
+	Fri, 23 Jan 2026 07:41:12 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjBe8-00000008NSn-21tl
+	id 1vjBn4-00000008Nzk-0m9N
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 07:31:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3811D43270;
-	Fri, 23 Jan 2026 07:31:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13884C4CEF1;
-	Fri, 23 Jan 2026 07:31:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769153515;
-	bh=X2aNQyzma6oSvVZ62REhmrqDM/nabK7Jf/HHD65gDKM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NDQ0D3ZY1cLX9VuobpQTa/t3/pZkowH5NbQ+RkDHmDGqpPNhc0ix4/znWJ9I2G/BM
-	 K8eLm7osMK0aj76ceLE+wpTmjZ1Z85VWk3sY20xqk/q1QRo5Od0OkfMszKhyno5RWa
-	 8OcBqrJ0WdnQbNQrNE2S8+2i4geXihTfFSHk2OEsSEyZsHD8T8se5kAc3loayMR16o
-	 eVPjxtGoWlmahVCQ3Fp52rnUXiOuy3cRWr6z2A9mCyUiz3/4pmIDivfYGTBis36T9G
-	 xVhOkQI4Z8ZXDC/WQPm4v8qKOOGbIlac1YdnOvXzOoGcC2beF4lzCTWrtBux3OjcrA
-	 SkefVn0HjLApw==
-Message-ID: <6ac69d62-6b14-4010-9c66-764b7dc2e610@kernel.org>
-Date: Fri, 23 Jan 2026 08:31:50 +0100
+	Fri, 23 Jan 2026 07:41:11 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-3530e7b3dc2so1890597a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 22 Jan 2026 23:41:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769154069; x=1769758869; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=BybO1XLVfdhod5yqmV9OoExkCCsTqBLc4oAzOMgKi/0=;
+        b=Y7nwKjxvGqdp+JHlLtlh0+MlAiYoFFdHQop+w96t/JMgukMhrYzAi8eFYPW/pGCZ/O
+         YfSAX2fkDLfbgxqb1Siq/V8suvnCS6F6j6S5gj44GwOv9goKHh4iH3yqPKZvw13dPltK
+         kc/968NVK6UA7EAM+11ChMyiAHyO0rbOjI42ZMHywpbKWD/a2e0zK2iydVLHNWRBAaeO
+         okABLXMs7z8MnaT+rQusHlFv2UUPXaT3oKcMF4/dAcx/teC5y+Wy4sctEOxitAqvo8lf
+         GaP5L666jK+Ks2XPxxfBjRuuvgFAY71mnlYAnXFYkcokItB+Pt9jxH9Z3mcAJPRq63Zx
+         6kxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769154069; x=1769758869;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BybO1XLVfdhod5yqmV9OoExkCCsTqBLc4oAzOMgKi/0=;
+        b=hvuv04GWii5L3GfBQumKcVyh5voMw+PuR94TkNOUYddc1Qssb5LexROzzeOr6GQEqN
+         U2HHmsU1IrE/1xDCeQUyaC5xyCpVUF1EWJe4e/7EWvthFmbuF1Am9vWkczQsQDLNyPA9
+         TqJ1D1qwEmKcHXJUAJ5j8hCFAe/3WzEzzCap6w19ufohpMUBm5zgY/msfCuXyfWjx3g6
+         veHonetbY4XeyDBmN8TPmN+AGkOm5tLJqceVpACOjqUCK899UqPb+RWwHebdY2SyD9MS
+         t75w3wpdTJ9iP7p264fgjVXc1VvzMAdc3fJ7Zu+7QMEkjm1PChLoUgWx9c/U7mf7bAq8
+         J1Ag==
+X-Forwarded-Encrypted: i=1; AJvYcCVqpuSbGYqXG/5d8GMy4sAhoPeSXmTMGp/EjY5Wbn/gbf02yrqKUu7oNtMFBbJDJkGeNkK1pxbWvgj9JxxrrCCL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzs1bU6Daz792KLQvB8rFenYK/orHifXuwBWKUK/qlvhRftQcC6
+	hHC5cBEGndFZvi7YOT13tJUJPfKFA1QF3grFtqgcSgzduig3wi+ZGsNo
+X-Gm-Gg: AZuq6aKF/4a7gTqmf8FeetbVa5F4X4YqdX2jeq/FKh9njV8/QQApZ5hOTD2I8SFWmTo
+	LECExzF40IBOPgaI7iK8dBG9F72AKBh63StmBEr/sPkCDlwtnjjMW4x0bRz7drRxjEBIt1rxMOh
+	dmgQKc9iARmn7dxAq4oc1Ccdttd0j6j/fJBtQ87/lb08X9pLtjuBlArOeqitcnDeIA3PHiSqHdy
+	19ECZDikQZwCTxSPMdXMsRaFb2NxUuY/zfISre63Okrz3Yx9Z0V2DqWzQckPg8mLD9n3vE5HN8U
+	C/qes1sJ9wpYJCoUtbtpkFn1FYgywCiPWbWL92JYGIONB1ifdMgzzWYqw5c8v6CeAq1L5WTkIZZ
+	gGAq3MvP5KEtK60Hk31EGQjnn3LgNaCyVVs+0JzkS+Og12Qv2nYqcxQhSTOpRM0sf/ZnBl0+Wdp
+	gZh8vs5duaWcsZ
+X-Received: by 2002:a17:90b:2d8c:b0:33b:be31:8194 with SMTP id 98e67ed59e1d1-3536911f08amr1801422a91.34.1769154068601;
+        Thu, 22 Jan 2026 23:41:08 -0800 (PST)
+Received: from [192.168.0.13] ([172.92.174.155])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3536dc506dbsm1276411a91.14.2026.01.22.23.41.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 22 Jan 2026 23:41:07 -0800 (PST)
+Message-ID: <abf12a3f-9cdd-472d-a02e-af4da594b84f@gmail.com>
+Date: Thu, 22 Jan 2026 23:39:29 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] Add and enable USB nodes for ExynosAutov920 SoC
-To: Pritam Manohar Sutar <pritam.sutar@samsung.com>,
- 'Rob Herring' <robh@kernel.org>
-Cc: alim.akhtar@samsung.com, conor+dt@kernel.org, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, rosa.pila@samsung.com,
- selvarasu.g@samsung.com, linux-samsung-soc@vger.kernel.org,
- muhammed.ali@samsung.com, faraz.ata@samsung.com,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- dev.tailor@samsung.com
-References: <CGME20260122125130epcas5p4ac37f540c609f3016ff02f5708e897a2@epcas5p4.samsung.com>
- <20260122130721.205664-1-pritam.sutar@samsung.com>
- <176910209177.2703219.7993114273484886473.robh@kernel.org>
- <000001dc8c30$d83ce2e0$88b6a8a0$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v1 1/2] dt-bindings: ethernet: eswin: add clock sampling
+ control
+To: Andrew Lunn <andrew@lunn.ch>, =?UTF-8?B?5p2O5b+X?=
+ <lizhi2@eswincomputing.com>
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ rmk+kernel@armlinux.org.uk, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ ningyu@eswincomputing.com, linmin@eswincomputing.com,
+ pinkesh.vaghela@einfochips.com, weishangjuan@eswincomputing.com
+References: <20260109080601.1262-1-lizhi2@eswincomputing.com>
+ <20260109080859.1285-1-lizhi2@eswincomputing.com>
+ <00b7b42f-2f9d-402a-82f0-21641ea894a1@lunn.ch>
+ <308b676.2d03.19bb0caebed.Coremail.lizhi2@eswincomputing.com>
+ <59cec617-0189-4dc3-bc3f-6346155a62ae@lunn.ch>
+ <4e2a55e7.3662.19be8cb9c3c.Coremail.lizhi2@eswincomputing.com>
+ <c5c0bfdb-316d-4796-afa0-f6f018ceb414@lunn.ch>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <000001dc8c30$d83ce2e0$88b6a8a0$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: Bo Gan <ganboing@gmail.com>
+In-Reply-To: <c5c0bfdb-316d-4796-afa0-f6f018ceb414@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_233156_567768_3DAE5EC8 
-X-CRM114-Status: GOOD (  26.99  )
+X-CRM114-CacheID: sfid-20260122_234110_234229_56C9C7BC 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,158 +115,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/01/2026 07:23, Pritam Manohar Sutar wrote:
-> Hi Rob,
-> 
-> Thank you for your feedback on the patch series. 
-> 
->> -----Original Message-----
->> From: Rob Herring <robh@kernel.org>
->> Sent: 22 January 2026 10:46 PM
->> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
->> Cc: alim.akhtar@samsung.com; conor+dt@kernel.org; krzk+dt@kernel.org;
->> linux-arm-kernel@lists.infradead.org; rosa.pila@samsung.com;
->> selvarasu.g@samsung.com; linux-samsung-soc@vger.kernel.org;
->> muhammed.ali@samsung.com; faraz.ata@samsung.com; linux-
->> kernel@vger.kernel.org; devicetree@vger.kernel.org;
->> dev.tailor@samsung.com
->> Subject: Re: [PATCH v2 0/3] Add and enable USB nodes for ExynosAutov920
->> SoC
->>
->>
->> On Thu, 22 Jan 2026 18:37:18 +0530, Pritam Manohar Sutar wrote:
->>> This SoC has 2 USB typeC and 2 typeA ports those are DWC3 DRD
->>> controllers and among them, one single USB3.1 DRD combo phy and three
->>> USB2.0 only phy controllers. This patchset adds and enables USB and
->>> USB-PHY nodes in dts.
->>>
->>> PMIC is not implemented yet, we rely on USB LDOs being enabled by the
->>> bootloader and used dummy regulators for now.
->>>
->>> To drive vbus for host mode, it needs GPIO pin to enable vbus regulator.
->>> GPIO expander is present in the dts, we used it to enable the
->>> regulator using GPIO.
->>>
->>> USB ports are configured as OTG, and default mode is configured as
->>> peripheral. It will be changed based on requirements.
->>>
->>> changelog
->>> ----------
->>> Changes in v2:
->>> - As v1 was pushed 3 months back, resending this patchset.
->>> - Since dependencies are merged, removed links from coverletter.
->>>   link for v1:
->>> https://lore.kernel.org/linux-devicetree/20251024114845.2395166-1-prit
->>> am.sutar@samsung.com/
->>>
->>> Pritam Manohar Sutar (3):
->>>   arm64: dts: exynos: ExynosAutov920: Add USB and USB-phy nodes
->>>   arm64: dts: exynos: ExynosAutov920: Add regulators for the USB
->>>   arm64: dts: exynos: ExynosAutov920: Enable USB nodes
->>>
->>>  .../boot/dts/exynos/exynosautov920-sadk.dts   | 160
->> +++++++++++++++++
->>>  .../arm64/boot/dts/exynos/exynosautov920.dtsi | 162
->>> ++++++++++++++++++
->>>  2 files changed, 322 insertions(+)
->>>
->>> --
->>> 2.34.1
->>>
->>>
->>>
->>
->>
->> My bot found new DTB warnings on the .dts files added or changed in this
->> series.
->>
->> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
->> are fixed by another series. Ultimately, it is up to the platform maintainer
->> whether these warnings are acceptable or not. No need to reply unless the
->> platform maintainer has comments.
->>
->> If you already ran DT checks and didn't see these error(s), then make sure dt-
->> schema is up to date:
->>
->>   pip3 install dtschema --upgrade
->>
->>
->> This patch series was applied (using b4) to base:
->>  Base: attempting to guess base-commit...
->>  Base: tags/next-20260121 (exact match)
->>  Base: tags/next-20260121 (use --merge-base to override)
->>
->> If this is not the correct base, please add 'base-commit' tag (or use b4 which
->> does this automatically)
->>
->>
->> New warnings running 'make CHECK_DTBS=y for
->> arch/arm64/boot/dts/exynos/' for 20260122130721.205664-1-
->> pritam.sutar@samsung.com:
->>
->> arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb-phy0 (usb-
->> nop-xceiv): '#phy-cells' is a required property
->> 	from schema $id: https://protect2.fireeye.com/v1/url?k=91401ba9-
->> cedb2354-914190e6-000babff317b-0af64cc1fcd35e1a&q=1&e=e0bf9bed-
->> 20f5-431c-9a8f-
->> ded53e46a366&u=http%3A%2F%2Fdevicetree.org%2Fschemas%2Fusb%2Fu
->> sb-nop-xceiv.yaml
->> arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb-phy1 (usb-
->> nop-xceiv): '#phy-cells' is a required property
->> 	from schema $id: https://protect2.fireeye.com/v1/url?k=b208eda5-
->> ed93d558-b20966ea-000babff317b-f6650041a1e910a7&q=1&e=e0bf9bed-
->> 20f5-431c-9a8f-
->> ded53e46a366&u=http%3A%2F%2Fdevicetree.org%2Fschemas%2Fusb%2Fu
->> sb-nop-xceiv.yaml
->> arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb-phy2 (usb-
->> nop-xceiv): '#phy-cells' is a required property
->> 	from schema $id: https://protect2.fireeye.com/v1/url?k=ce686cfd-
->> 91f35400-ce69e7b2-000babff317b-ccbf1b3c353ecfc0&q=1&e=e0bf9bed-20f5-
->> 431c-9a8f-
->> ded53e46a366&u=http%3A%2F%2Fdevicetree.org%2Fschemas%2Fusb%2Fu
->> sb-nop-xceiv.yaml
->> arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usb-phy3 (usb-
->> nop-xceiv): '#phy-cells' is a required property
->> 	from schema $id: https://protect2.fireeye.com/v1/url?k=633aebf3-
->> 3ca1d30e-633b60bc-000babff317b-ef5a169bc853eddb&q=1&e=e0bf9bed-
->> 20f5-431c-9a8f-
->> ded53e46a366&u=http%3A%2F%2Fdevicetree.org%2Fschemas%2Fusb%2Fu
->> sb-nop-xceiv.yaml
-> 
-> Apologize for any inconvenience caused by the issues you’ve identified. 
+Hi Andrew,
 
-It means you did not test the patches before sending and I find it very
-wasteful of my time.
-
-> Below, Have outlined the changes, will implement to address the warnings 
-> and ensure the patch set aligns with the required standards.
+On 1/22/26 19:19, Andrew Lunn wrote:
+>>> You say internal. So the skew is fixed, it is a property of the
+>>> silicon? If so, why a DT property? Why not just hard code it in the
+>>> driver? Since it is internal, different boards should not need it set
+>>> differently?
+>>>
+>> Thanks for the question.
+>>
+>> EIC7700 has two Ethernet MACs. Only eth1 has this internal RXC/RXD skew,
+>> eth0 does not.
+>>
+>> So this is not a chip-wide constant that can be hardcoded in the driver.
+>> We need a way to distinguish the two MAC instances, which is why this is
+>> described per-port in DTS.
 > 
-> Proposed Changes:
-> 1. Will include #phy-cells = <0>; in the USB PHY nodes 
->   (usb_phy0, usb_phy1, usb_phy2, and usb_phy3) 
-> This is a crucial addition to avoid compilation warnings and ensure compatibility.
+> I assume the address of the interface is fixed. So you can just key
+> off that to distinguish the two instances.
 > 
-> Example:
-> usb_phy0: usb-phy0 {    
->     compatible = "usb-nop-xceiv";    
->     #phy-cells = <0>;    
->     vbus-supply = <&usbdrd31_dwc3_vbus>;    
-> };    
+> Since this is an internal property, not a board property, it is not
+> clear it actually belongs on DT.
 > 
-> 2. The errors were not caught by the make dt_binding_check and make dtbs_check 
->   commands 
->   make -j ARCH=arm64 dt_binding_check dtbs_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
->   make -j ARCH=arm64 dt_binding_check dtbs_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
+>      Andrew
 
-This is not the command you are supposed to run! You MUST CHECK YOUR DTS
-WITH ALL THE BINDINGS. Why would you run only two of them and ignore the
-rest which you still use? What is the logic behind - I will use phy-nop
-binding, but not test against it?
+IMO, they should be in DT to provide maximum flexibility. The SoC .dtsi
+can provide some sane defaults, and the board vendor can later override
+them if the mac/phy requires further tuning. Applying such tuning by
+the address of MAC seems messy and it hides the parameters used behind
+driver. Through DT, everything becomes really clear.
 
-A hint - if your patches are not being picked up, maybe because you send
-buggy code and I am bored to reply - test finally, because I am not your
-testing service.
+I assume this is not uncommon: E.g., starfive/jh7110:
+https://lore.kernel.org/all/20230714104521.18751-3-samin.guo@starfivetech.com/
 
-Best regards,
-Krzysztof
+BTW, no need to worry about backward compat. ESWIN hasn't checked-in any
+DT for eth yet. As you and Russell said, they need to do it, pronto.
+
+Bo
 
