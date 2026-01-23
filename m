@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB63D6CFBB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 05:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C048D6CFD5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 05:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s9Yo3/ql7MbFKqpUVZCOelnBMGGWc4CKq7+A5r+Gd3Q=; b=OGYKCcfxhPiv1cwbNB0gwKA4Fo
-	owmodbPW5kr/VRRbb9Jk1et12ztKaO4zwJ+JvJB/sCZuPlLHYC8h3zEdkcdgnL6IdJfYPQbRn9rCx
-	I9DNyC4kk06vubweaY6YV8MVxLRZmKMbgsWYc9Y3RiLK0MNyVJuw02fNyeMTskvnzfYSvZ1nDw4/o
-	P9XHamgfcvXzg+c7PWxP+UOxhWlTJD6u9oAeVU9s3ktlUnbo7zjPZgpYlFVxcSGfr4y6T/94VHuBm
-	3t4yBTQlBvff5kIqaGKST6ZdxfVYykUQTjBwNpbbZw4Qc7Tj4he1Qy5DK80R1qcL5LZMBnyBNcKFb
-	bsv09+Qw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=40C3j2nY2tbLtCuthkkVNIgY1jKX2kvvJ/ZWUn4ptFY=; b=SWlllQlS+ZNmFltfSj2lcJudOC
+	gsaiMnDDBApaenyaKEmwvUO8egp3i7ms1TLRM24i4gdDTAh0jPUekxqVykwbrFm99N/+zfyIXwfBv
+	c/QiWmekFI+JAo1TgOM1vQYotUprg+qqlJ/1djAZIxBuaBhbSmSZ/At3k7Yb1UAc7jZImbUd13Wnp
+	n9Uv1IUHYgnDUGVUkgQYKEOKfBdCUa4ASQT2XDUVPVzIU7GY7d8Qo1Tei2YiW0jD8ZiFRlH0rEnY4
+	gr2NzHzaYfSWA3kdY6nRqRFIfpPjgtHBK8ikqFzWkFf8KHv2OVpegWmJ4YNfi2X7Ca+m5ynAl+k7c
+	xhmrbB3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjA7v-00000008FGt-1neO;
-	Fri, 23 Jan 2026 05:54:35 +0000
-Received: from abb.hmeau.com ([180.181.231.80])
+	id 1vjA8S-00000008FL3-3mAA;
+	Fri, 23 Jan 2026 05:55:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjA7s-00000008FGV-3iAj
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 05:54:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=s9Yo3/ql7MbFKqpUVZCOelnBMGGWc4CKq7+A5r+Gd3Q=; 
-	b=LZqoBSxjmLw6HD6QWrPdaqNVmk1MJXohNAYRDQEjzYEYO3iqK2rPZzxdPGqrS+7ZeyhablJWXR2
-	nOPCScPAXIihazyabNAbilexhMWCRulqrFmfRNKKfftG+KwvSOjxEjDxVX6nJDj9gK86NtOmm99K5
-	aHzgbJu2RIgwVZUAW34CwZEofmvrGatQESIguvfdR+bepcGtUVmiFeUQ/wLtjxa/q7PICp1gdqcjZ
-	5glNeCuEPJ8vapDXbKshGMY1aAKfgda5yOmPU7MK4mSFrAcZon6TxWBsaLjs77+GWQYXHqSq2Gp4R
-	P+fg4si2+aAOr1EEdQ2D57/7U1CoKu/7ayZA==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1vjA7T-001VLc-2x;
-	Fri, 23 Jan 2026 13:54:08 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 23 Jan 2026 13:54:07 +0800
-Date: Fri, 23 Jan 2026 13:54:07 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Harsh Jain <h.jain@amd.com>
-Cc: davem@davemloft.net, linux-crypto@vger.kernel.org,
-	devicetree@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, mounika.botcha@amd.com,
-	sarat.chand.savitala@amd.com, michal.simek@amd.com,
-	linux-arm-kernel@lists.infradead.org, jay.buddhabhatti@amd.com
-Subject: Re: [PATCH v2 00/14] crypto: zynqmp-aes-gcm: Bug fixes and aes-gcm
- support for Versal
-Message-ID: <aXMM_zaGqzlNMtL7@gondor.apana.org.au>
-References: <20251220155905.346790-1-h.jain@amd.com>
+	id 1vjA8R-00000008FJH-0eft;
+	Fri, 23 Jan 2026 05:55:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5601860138;
+	Fri, 23 Jan 2026 05:55:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E9A44C4CEF1;
+	Fri, 23 Jan 2026 05:55:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769147706;
+	bh=VSIZZ+c6ZCEkcYCJ5xJcHe3I7DscypgkCjD/RMtrCKk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=syeYLa6r9DZkbPSdXSH24uK/Oa5R6LR1yTrwU5+IXO3VG/J/P2by44F1eTtu/y3eC
+	 xvBl7FrKCVZcHAzMume+zs3UMGmJ3YoHHGQDw/nbFbtDMbZP1yw19HmaC9HKpTEQ+v
+	 ZTdVdUVrB5dKi/VxEBHnE6xMo9Ip7Wxc4BCCJO6thVb1yJgpHZtTAO/KCyMg9a/cjN
+	 0EQpwfWm16/kWCbXFTVEFbrmkcHTSSOajBUs6YY1HhHcrtQVYoX6AN3DK2PfgFQ8bi
+	 pehNBezS+pzRGUpaL3s5uVhIP6Kh3YDRctMl8R44FPLAJDuunaFB74L55/i1NtW1uv
+	 A8mlCoMrpwqsQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D2011D6CFD7;
+	Fri, 23 Jan 2026 05:55:05 +0000 (UTC)
+From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
+Date: Fri, 23 Jan 2026 13:54:55 +0800
+Subject: [PATCH v6 1/5] dt-bindings: clock: Add Amlogic A5 SCMI clock
+ controller support
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251220155905.346790-1-h.jain@amd.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_215432_928753_F456CD63 
-X-CRM114-Status: GOOD (  13.92  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260123-a5-clk-v6-1-6d3bbf0ec1ea@amlogic.com>
+References: <20260123-a5-clk-v6-0-6d3bbf0ec1ea@amlogic.com>
+In-Reply-To: <20260123-a5-clk-v6-0-6d3bbf0ec1ea@amlogic.com>
+To: Chuan Liu <chuan.liu@amlogic.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769147703; l=2048;
+ i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
+ bh=4kspprQnq+nsGEHN4lrxioeMwroBsv/rJjwAgDy0myA=;
+ b=PLqruzjeto1unAK+G8UfMAbBeKVb6kYt3WyFxVS/NQLuECtYnkwNyN5n+eXBV8Va6ND2mL9dR
+ lm/2TqlH16DDYljERzZabByDrtq/c+UIxiwmEDpjFZz5C+k0oUXmrFT
+X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
+ pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
+X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
+ auth_id=203
+X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,54 +89,76 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: chuan.liu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 20, 2025 at 09:28:51PM +0530, Harsh Jain wrote:
-> This series includes bug fixes and adds aes-gcm support for Versal device.
-> It is based on cryptodev-2.6 tree.
-> 
-> Changes in V2:
-> - Rebase series to cryptodev-2.6
-> - Register H/W keys with gcm(paes) 
-> 
-> Harsh Jain (14):
->   firmware: zynqmp: Move crypto API's to separate file
->   crypto: zynqmp-aes-gcm: cleanup: Remove union from zynqmp_aead_drv_ctx
->   firmware: zynqmp: Add helper API to self discovery the device
->   dt-bindings: crypto: Mark zynqmp-aes as Deprecated
->   crypto: zynqmp-aes-gcm: Update probe to self discover the device
->   crypto: zynqmp-aes-gcm: Return linux error code instead of firmware
->     error code
->   crypto: zynqmp-aes-gcm: Avoid Encrypt request to fallback for authsize
->     < 16
->   crypto: zynqmp-aes-gcm: Avoid submitting fallback requests to engine
->   crypto: zynqmp-aes-gcm: Register H/W key support with paes
->   crypto: xilinx: Replace zynqmp prefix with xilinx
->   crypto: zynqmp-aes-gcm: Change coherent DMA to streaming DMA API
->   firmware: xilinx: Add firmware API's to support aes-gcm in Versal
->     device
->   crypto: xilinx: cleanup: Remove un-necessary typecast operation
->   crypto: xilinx: Add gcm(aes) support for AMD/Xilinx Versal device
-> 
->  .../bindings/crypto/xlnx,zynqmp-aes.yaml      |    2 +
->  .../firmware/xilinx/xlnx,zynqmp-firmware.yaml |    1 +
->  drivers/crypto/xilinx/zynqmp-aes-gcm.c        | 1007 +++++++++++++----
->  drivers/firmware/xilinx/Makefile              |    2 +-
->  drivers/firmware/xilinx/zynqmp-crypto.c       |  239 ++++
->  drivers/firmware/xilinx/zynqmp.c              |   49 -
->  include/linux/firmware/xlnx-zynqmp-crypto.h   |  119 ++
->  include/linux/firmware/xlnx-zynqmp.h          |   14 +-
->  8 files changed, 1155 insertions(+), 278 deletions(-)
->  create mode 100644 drivers/firmware/xilinx/zynqmp-crypto.c
->  create mode 100644 include/linux/firmware/xlnx-zynqmp-crypto.h
-> 
-> -- 
-> 2.49.1
+From: Chuan Liu <chuan.liu@amlogic.com>
 
-All applied.  Thanks.
+Add the SCMI clock controller dt-bindings for the Amlogic A5 SoC
+family.
+
+Co-developed-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ include/dt-bindings/clock/amlogic,a5-scmi-clkc.h | 44 ++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
+
+diff --git a/include/dt-bindings/clock/amlogic,a5-scmi-clkc.h b/include/dt-bindings/clock/amlogic,a5-scmi-clkc.h
+new file mode 100644
+index 000000000000..1bf027d0110a
+--- /dev/null
++++ b/include/dt-bindings/clock/amlogic,a5-scmi-clkc.h
+@@ -0,0 +1,44 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++/*
++ * Copyright (c) 2024 Amlogic, Inc. All rights reserved.
++ * Author: Chuan Liu <chuan.liu@amlogic.com>
++ */
++
++#ifndef __AMLOGIC_A5_SCMI_CLKC_H
++#define __AMLOGIC_A5_SCMI_CLKC_H
++
++#define CLKID_OSC				0
++#define CLKID_SYS_CLK				1
++#define CLKID_AXI_CLK				2
++#define CLKID_CPU_CLK				3
++#define CLKID_DSU_CLK				4
++#define CLKID_GP1_PLL				5
++#define CLKID_FIXED_PLL_DCO			6
++#define CLKID_FIXED_PLL				7
++#define CLKID_ACLKM				8
++#define CLKID_SYS_PLL_DIV16			9
++#define CLKID_CPU_CLK_DIV16			10
++#define CLKID_FCLK_50M_PREDIV			11
++#define CLKID_FCLK_50M_DIV			12
++#define CLKID_FCLK_50M				13
++#define CLKID_FCLK_DIV2_DIV			14
++#define CLKID_FCLK_DIV2				15
++#define CLKID_FCLK_DIV2P5_DIV			16
++#define CLKID_FCLK_DIV2P5			17
++#define CLKID_FCLK_DIV3_DIV			18
++#define CLKID_FCLK_DIV3				19
++#define CLKID_FCLK_DIV4_DIV			20
++#define CLKID_FCLK_DIV4				21
++#define CLKID_FCLK_DIV5_DIV			22
++#define CLKID_FCLK_DIV5				23
++#define CLKID_FCLK_DIV7_DIV			24
++#define CLKID_FCLK_DIV7				25
++#define CLKID_SYS_MMC_PCLK			26
++#define CLKID_SYS_CPU_CTRL			27
++#define CLKID_SYS_IRQ_CTRL			28
++#define CLKID_SYS_GIC				29
++#define CLKID_SYS_BIG_NIC			30
++#define CLKID_AXI_SYS_NIC			31
++#define CLKID_AXI_CPU_DMC			32
++
++#endif /* __AMLOGIC_A5_SCMI_CLKC_H */
+
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+2.42.0
+
+
 
