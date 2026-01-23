@@ -4,61 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957BAD6CFD1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 12:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F315CD7237B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 12:47:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=incYLjmvdrUZqGoD7bRH6AAIqH+0Eqi7dk8/M+BO/1w=; b=WyOFAtkQ3pnexRLqhadQCx6IFm
-	kLJPn65NFjbSENmZ1Z7fB+Y2sUgzax1i52Pgq+tEFxr+nxp/r31yQMxlqAKc0sdhK7/p1IqFo6eAZ
-	Xa6AyxIY3IPu+ftzdWkUyArMWg+A9tieINOZxGDqrhzsgeKHInC9wDWgKhzYKCTvYqbkIWUReyY/P
-	USKtwsnZxEVUXuhteqx9HuCmHSOC/ClS7L08ISz1QYO9kztP8qvaxs+q9sRnZ/XLq9hlUFqWCRHoY
-	4vr4YgPe+B+VWiYosEJQ3owbl7Z1uSuWdg5liL/rbKl2x5F5IxylV2nTVWWoa5OFNW7BFREKESCdb
-	zzvXkEdQ==;
+	bh=mX6mZXpzNbCV2TDnbq4WSLxIQVd6E20AX9MWOyS2Ky8=; b=o+KllaSCW0efbjl89DME0Rv7wz
+	9V+Segq+XdEm/pxNPffeqLRZL7nP9NztSnkCAmY2oRx/q0DnwLkD3WertS6lNlwxnPPhxgffELvBY
+	h8LDcp2iH+lKIoGANIyRP0812xHe0ifPrnH28hYkkOa2Hmgkw8rw5RHR21OxGcD86/Ne4J2DDkN0P
+	F3ViTd8Ogm0XCj9wM58Mw0iUlkegloM6Pi0eroaCyhMTRQl4bmdOC72+yOh2VtZRfEi7NH8roJNph
+	vstA2xHhRoOe3VcrTH1j3cfUS3I6XNFyHzS1W/SI1neL6/0T/UrN4x9NHnta0TOPTPqQTUsmZtIGr
+	kNu0H2gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGSs-00000008vRl-38z0;
-	Fri, 23 Jan 2026 12:40:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vjGZN-00000008vem-2a0j;
+	Fri, 23 Jan 2026 12:47:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGSr-00000008vRV-3hsI
+	id 1vjGZL-00000008veR-1UMW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 12:40:37 +0000
+	Fri, 23 Jan 2026 12:47:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0148D60010;
-	Fri, 23 Jan 2026 12:40:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A7DAC4CEF1;
-	Fri, 23 Jan 2026 12:40:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 99B3F44093;
+	Fri, 23 Jan 2026 12:47:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70597C4CEF1;
+	Fri, 23 Jan 2026 12:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769172036;
-	bh=KA0auLM2WZmdiUqzVD7z426D8s2j5QylO9g+IVKSsos=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r6A/UhutrltXKg0Ze3Z88CXbsT8kV7KLPdZaxgk9/sV+5erkF1IOxrr2uTLhstJhU
-	 pHUmdDhYj1L8O9W7i57NDBgQJeehkvSrqv9lYGP+eVcEnFlaQJT1u1CyEJ69BYnqlt
-	 CIAH3/umq6ixwmD4Gk9PxhTPpOC/MevbBxhNXp1YK69CBkobxtl5uV7RcM8Bz8vUGx
-	 7AlZHgAvE9fabl9y1jhzc3sH79fLLYMC043soa1Fxeqj75J5F6MwHdLCj2jK7oKHW6
-	 k0LtpjN22uIedkIwJ8N4Zsoh8F7ZA0v6PWjPfFdacpgkUFUEstl2qU4wubMaXgi4gp
-	 lqBcaOrTr2jsQ==
-Date: Fri, 23 Jan 2026 12:40:32 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Michal Simek <michal.simek@amd.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, abdurrahman@nexthop.ai,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	s=k20201202; t=1769172438;
+	bh=SpX5nlI+FpfkHYgP+EVPBN97fd681gAviX/lFFZNJ+8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ElqLJZSz5em091t3wwNsbj3EjkzZsPNajERR83xC126xn2ZlETjjwYY5Xfhc+Eq0T
+	 Ry7QyC9VVuyUs36KXpRrAd3yrMFaohmY69mkcc/mKhPsWdSihRmHNEDcrbZHTvKmrU
+	 aElVMF+AiEyTg5qRXU1l/IE/4PVNnNU/AgfhJ6scksN5htvf6kwlSvFC848cjaUhud
+	 11MFzjsrAkfzSzlgUhAoiNOxbRvht4Fh7fl5eLs9ObYC7DCZkpjm5nhQln9FxRDx8b
+	 WJUHkkV70HlRrVr9OGDba1wkRNIR4gv+PaU9e7qvsy/ijccFRLwandNAF3AFWeJy0r
+	 d5h0eX5253SZA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vjGZI-000000053M0-0V7n;
+	Fri, 23 Jan 2026 12:47:16 +0000
+Date: Fri, 23 Jan 2026 12:47:15 +0000
+Message-ID: <86o6mkbing.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	jstultz@google.com,
+	qperret@google.com,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	kernel-team@android.com,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] spi: xilinx: use device property accessors.
-Message-ID: <a979b1eb-87c9-4c08-8d30-0fe18ad07a26@sirena.org.uk>
-References: <20260122-spi-xilinx-v3-1-8cea20e82f0b@nexthop.ai>
- <d6c5547b-0426-40d0-85b9-b64f183d37b6@lunn.ch>
- <ac0c9ceb-0c34-49f2-a486-1d87e488f607@amd.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="MYMPkRZsPXfWaiNo"
-Content-Disposition: inline
-In-Reply-To: <ac0c9ceb-0c34-49f2-a486-1d87e488f607@amd.com>
-X-Cookie: HAIR TONICS, please!!
+Subject: Re: [PATCH v9 29/30] KVM: arm64: Add selftest event support to nVHE/pKVM hyp
+In-Reply-To: <aXNmKpHqVw93BegX@google.com>
+References: <20251202093623.2337860-1-vdonnefort@google.com>
+	<20251202093623.2337860-30-vdonnefort@google.com>
+	<868qe9mnx5.wl-maz@kernel.org>
+	<aXNmKpHqVw93BegX@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260123_044719_884061_781C4259 
+X-CRM114-Status: GOOD (  21.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,49 +100,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 23 Jan 2026 12:14:34 +0000,
+Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> On Wed, Jan 07, 2026 at 03:40:22PM +0000, Marc Zyngier wrote:
+> > On Tue, 02 Dec 2025 09:36:22 +0000,
+> > Vincent Donnefort <vdonnefort@google.com> wrote:
+> > > 
+> > Not strictly related to this patch, but I find that the trace itself
+> > lacks context. For example:
+> > 
+> > [001]	  323.847422: hyp_enter reason=hvc
+> > [001]	  323.847423: hyp_exit reason=eret_host
+> > [001]	  323.847688: hyp_enter reason=hvc
+> > [001]	  323.847688: hyp_exit reason=eret_host
+> > [001]	  323.847706: hyp_enter reason=hvc
+> > [001]	  323.847707: hyp_exit reason=eret_host
+> > [001]	  323.847722: hyp_enter reason=hvc
+> > [001]	  323.847723: hyp_exit reason=eret_host
+> > 
+> > That's all fine as long as I'm dealing with a single guest, or even
+> > with a single vcpu. Trying to trace multiple guests, or even multiple
+> > vcpus makes the whole thing completely unusable, because I have no
+> > idea what I'm looking at.
+> > 
+> > To make this useful, having some context provided by the host really
+> > is required.
+> 
+> I could add to the event header the VM pid related to the currently loaded vCPU
+> (if any). I can access it easily with host_kvm->userspace_pid. WDYS?
 
---MYMPkRZsPXfWaiNo
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+It really should be the thread name, just like we already have for the
+kernel tracing. For example:
 
-On Fri, Jan 23, 2026 at 08:11:47AM +0100, Michal Simek wrote:
-> On 1/22/26 17:18, Andrew Lunn wrote:
-> > On Thu, Jan 22, 2026 at 09:00:29AM +0000, Abdurrahman Hussain via B4 Relay wrote:
+vgic_irq-2007    [005] ..... 180926.476735: kvm_sys_access: PC: 4119e4 SYS_ICC_DIR_EL1 (3,0,12,11,1) write
+vgic_irq-2010    [005] ..... 180926.534771: kvm_sys_access: PC: 40254c SYS_CNTV_CVAL_EL0 (3,3,14,3,2) write
+vgic_irq-2010    [005] ..... 180926.534777: kvm_sys_access: PC: 402554 SYS_CNTV_CTL_EL0 (3,3,14,3,1) write
+vgic_irq-2010    [005] ..... 180926.534789: kvm_sys_access: PC: 4025b8 SYS_CNTV_CTL_EL0 (3,3,14,3,1) write
+vgic_irq-2011    [010] ..... 180926.534790: kvm_sys_access: PC: 40254c SYS_CNTV_CVAL_EL0 (3,3,14,3,2) write
+vgic_irq-2010    [005] ..... 180926.534793: kvm_sys_access: PC: 4119e4 SYS_ICC_DIR_EL1 (3,0,12,11,1) write
 
-> > > +		ret = device_property_read_u32(&pdev->dev,
-> > > +					       "xlnx,num-transfer-bits",
-> > > +					       &bits_per_word);
+This is a single guest, with concurrent vcpus. I'd like to be able to
+correlate that with what the hypervisor tracing outputs. At the very
+least the thread's PID. But the VM itself is pretty much irrelevant.
 
-> > It could be my grep foo is broken, but there does not appear to be any
-> > users of xlnx,num-transfer-bits and xlnx,num-ss-bits. So it would be
-> > better to just remove them. There is no point Maintaining an API
-> > nobody uses. And it would be silly to spread that API to ACPI if
-> > nobody it going to use it.
+Thanks,
 
-There are no upstream users of this driver at all so obviously no use of
-the properties.
+	M.
 
-> "xlnx,num-transfer-bits"
-> bits_per_word is initializing bytes_per_word which is used in code for
-> transfer sizes calculations.
-
-The example AML posted was setting xlnx,num-transfer-bits to the default
-value of 8 bits FWIW.
-
---MYMPkRZsPXfWaiNo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlzbD8ACgkQJNaLcl1U
-h9BU3wf/XVcT8SnLwiHP1ScW3J/ygfIAVS0Cm7z0h9+wPmUAy4PsRCrRXMSi8iDx
-zKCwAuFxw1+rAEI4YNVqJDOOdiOls1RL3xnUWpHMLep2iZHDFAKTPHpdPQTNSu9/
-OryXysdQU1MV+03dvuFm45jJinr6+/y5XMF5PtOLxbcaLkeQk+nrJ05l+D0zCo1Z
-oS9SGIi2pZwyraKRSrLT63plf3C712i/5ZuZE+Zcuhxg9CFF+fVo48yeTW9sxuLc
-CzsXNBt7U1PSO5Wi31+V1HFHqguDVpevKxq98Q3yjZ376HmtGYLwSXrKbrHKUz/G
-WC6K1k3uTu5agtsgKMFVmFxRZYf+Pg==
-=8eDh
------END PGP SIGNATURE-----
-
---MYMPkRZsPXfWaiNo--
+-- 
+Without deviation from the norm, progress is not possible.
 
