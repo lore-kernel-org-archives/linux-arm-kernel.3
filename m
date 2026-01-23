@@ -4,62 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4559ED77897
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 17:39:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E766CD77899
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 17:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cT0sfHfkdXZJtWBtThtiyXKJcKu021NjvtnVlRQRaaY=; b=gf41qxRobF2HSI2BODNbmTbul5
-	/uJrQAvG7phBj3SEx1/2RrbG0I+uP5s3KhiEoAxRAsuZ/ZAWzKlCNIE7pbR6sjYUpw+BTo9lg5nM8
-	8Q+93LDHHQ57S3XBhsWO8rUljD8SGfr1zPLySo2D7rM8M8todUD4DFenKEd2AK1SwZi5kKyI0oMYu
-	uf0typJhQFg4rnzA5vkNL2EuBC/fHWvmeqEGAvDoUi5cAUyiwTFUPq4I6FMiA7TdanDBdDDK9uMLP
-	ak5iNT9hi5hFZrfGDFpXzOGIb0lqf3/PX7YC1KOi2yvU0lAB1zFG1zNKPsuSeKYoAKpa1FLsq2UGS
-	qhX/o0QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4ljao5ViJq6W7qt0/lxFs7Wy1IQIoqrGV5TOWwOAv5s=; b=ojZqSVlRzz59gFVyICMwB+LKMt
+	oHQqfuz2Vgn86ggTJk6SAihE5HwyWkJPrYp6vkRA/SKqRVgxXjhPUHZxJHxxfMq1SrtQwszaJlgpM
+	rEDl7cu/Dizr123OteA6Z7/sGWIpMTeB4ZNw3UZKzp07Li6XOzV4bq3sFd8MgLDcgRZk1YSMS4mpB
+	GXuLTqYRn98gwMTFXAmQmmj91XUZOUdjjJuDLiz05oU5Tvd4FqujSTtEqd/RxKtYOYRaC0pqroj99
+	1TKk733xtlQEmAgmSinZZfbcj8TOUlhKOW+hAv1MhC/7N5EQYrhdFiGNb8lM2NCNzXx+ZSnODMiiU
+	gneo+XAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjL84-00000009ITP-0Csz;
-	Fri, 23 Jan 2026 17:39:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjL7r-00000009IQv-4BKk
+	id 1vjLC1-00000009IuD-3KT4;
+	Fri, 23 Jan 2026 17:43:33 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjLBx-00000009Itp-3tQ9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 17:39:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AECFF1576;
-	Fri, 23 Jan 2026 09:39:08 -0800 (PST)
-Received: from e137876.arm.com (e137876.arm.com [10.33.10.100])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D03C3F632;
-	Fri, 23 Jan 2026 09:39:13 -0800 (PST)
-From: Debbie Horsfall <debbie.horsfall@arm.com>
-Date: Fri, 23 Jan 2026 17:37:47 +0000
-Subject: [PATCH 2/2] arm64: dts: zena: Add support for Zena CSS
+	Fri, 23 Jan 2026 17:43:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mcSKhkNamuQY/y6INloDI7m5TYx1RHY6ejPOi/YEKAahr9sy9gjjokySSapkQoZYV6Olts5/DzjQgJ4NpjAXq1FVRDeeGcjYiNssKCchYNkKMaXdkyZliqWqrBoZjIEtS875fyBqa5dVBHdIqdPWWEsLoyR2mP7KpVM2hRiYAcoBDr14tTbxFBWk425b3ISidOn3N2FwdbH5gIvS2AD+yeT7gdLUJaXbm/bbEviYJpeKF9ctQJ1W+MZcpgY2MbQAey+D1tJAivPsKWWmcSOz04e7/feqkAMrterPELad/Mtxo+JHJsAIh50r60KN97xcOpy0NHmpk3kDEiovkcx+aQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4ljao5ViJq6W7qt0/lxFs7Wy1IQIoqrGV5TOWwOAv5s=;
+ b=nxSslU9vIQpRf68SY0gJGOqV2seXLWJxueQFBgWKOW7eymu93q4tSIltoZHYxicwnYFpIVezufDP1fLjPZVncbvR6Zk3+aDVcNcnnI/YE943ZH6Cim3d9Z2/vzbOv5uK532LA3xudn4gLc23PGtG6EpqhHNOzZ3HThdXsfoidT7WQ0T+ExzFp5JHma+9PFfViwS+ywdi1PZD02JBG8FkQ+wRZ5Mw7MAJQrBCK+LiWIGoTkLE02+oQJcmzOU2VzS0Bqg4xZ83bmawggqMH6+AkdHYkbmckYz+fU+v3/TrVG6uskbnxSjP0re0JewQNZwbbHxxuJz7w12F+Bum/SJG8w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4ljao5ViJq6W7qt0/lxFs7Wy1IQIoqrGV5TOWwOAv5s=;
+ b=nFOdGvYF+6esDulMEhd3REOAzZebCK+aTWGGbAl0e+ocyIdfIWZgYw8ApKdrKFOhTvdzA7YQzirGS6BAfPbETF8optSdP3RkzNcTrXWgTyVRe+ePr2+bqA1VVPD92KvexBnr5rAfxNuWmzLesSbhz7cBF8auWX6urvrfeiBZ5Ac51V9XjD+Tp79+mFeS17T1Q/m+Z67nlWK1gYroQxbR0GNkPOLt8WQrV6OOfYptPrn7WOWac4iO2ZG95rfz+7mtOi7I8W3TZdrjWPboVnMj4z9xZMoV6T4+0LUcWHHt1zWEnm8X8FWs608z/oh1QCznb2eXvm29XxDcT8dZXUyYJw==
+Received: from CH2PR04CA0008.namprd04.prod.outlook.com (2603:10b6:610:52::18)
+ by CY8PR12MB7436.namprd12.prod.outlook.com (2603:10b6:930:50::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Fri, 23 Jan
+ 2026 17:43:22 +0000
+Received: from CH2PEPF00000141.namprd02.prod.outlook.com
+ (2603:10b6:610:52:cafe::47) by CH2PR04CA0008.outlook.office365.com
+ (2603:10b6:610:52::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.11 via Frontend Transport; Fri,
+ 23 Jan 2026 17:43:02 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CH2PEPF00000141.mail.protection.outlook.com (10.167.244.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.3 via Frontend Transport; Fri, 23 Jan 2026 17:43:22 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 23 Jan
+ 2026 09:43:06 -0800
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 23 Jan
+ 2026 09:43:06 -0800
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.8)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 23 Jan 2026 09:43:05 -0800
+Date: Fri, 23 Jan 2026 09:43:03 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Will Deacon <will@kernel.org>
+CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jgg@nvidia.com>, <balbirs@nvidia.com>, <miko.lenczewski@arm.com>,
+	<peterz@infradead.org>, <kevin.tian@intel.com>, <praan@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v9 6/7] iommu/arm-smmu-v3: Add arm_smmu_invs based
+ arm_smmu_domain_inv_range()
+Message-ID: <aXOzJwQJ7z8qKcEH@Asurada-Nvidia>
+References: <cover.1766174731.git.nicolinc@nvidia.com>
+ <06999367d001283744fd98eb7c1823afd516ce84.1766174731.git.nicolinc@nvidia.com>
+ <aXOqVcX9YEC-Ikdt@willie-the-truck>
+ <aXOrnMLLzZL9BtRT@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260123-zena-css-v1-2-34adb95cdf89@arm.com>
-References: <20260123-zena-css-v1-0-34adb95cdf89@arm.com>
-In-Reply-To: <20260123-zena-css-v1-0-34adb95cdf89@arm.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>, 
- Sudeep Holla <sudeep.holla@arm.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Debbie Horsfall <debbie.horsfall@arm.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769189949; l=23488;
- i=debbie.horsfall@arm.com; s=20260123; h=from:subject:message-id;
- bh=0bl0KqDzZZk7GcEuDtae0fLzTh5nXNwSULKjE7OLTc8=;
- b=UAL+LdTWYJOs/9WyCChu6L+J0xoUGbreNdiBaA8wQE8F2hCIh1dBxh8DcqirqQ29n/rP2hoGz
- sFwA9BIt7YZA7urc5YkXjpc7rxwySjHpyz2mdsrtLwQISUp+A5krkKS
-X-Developer-Key: i=debbie.horsfall@arm.com; a=ed25519;
- pk=PHSQwhhwfluuPcWn1fk950OfqGxCy2cjbyQb7dfAcFY=
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <aXOrnMLLzZL9BtRT@willie-the-truck>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000141:EE_|CY8PR12MB7436:EE_
+X-MS-Office365-Filtering-Correlation-Id: cd33ac59-a2f5-4dd2-8c51-08de5aa6e724
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|36860700013|1800799024|3613699012;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6i87ZF5EzUyEyz4Ar3oqXT6dWP5Q4yxMS5adzlkT+CXCdcFJsS7VRk/Xa/Um?=
+ =?us-ascii?Q?wRXVRExL9EaRA7BuX2lfX8I5alaP/yrB8DGKXAjyyuaDvCBwLQpklq9ENooY?=
+ =?us-ascii?Q?Qs6JfMAHALs4CYso7blIkFf+PUH7HJxS21LtZNH9xSjdR3BYdxXfAhI3gEbd?=
+ =?us-ascii?Q?lrcC6UX7xGdadJDEMj2zFNa5hy7VNy1mpuuAH9y6VYc/0ZBG8IseOP9vQ03X?=
+ =?us-ascii?Q?W0KGatbHmLwiYSfPj/Lffyj+hIfb0PnWjpQ3ZzpPhHfASSdOns6UBwcqlQ/3?=
+ =?us-ascii?Q?Am2py9LjHG2iSyVIFvWtzSRoywvMj8S+SCXgu0DAoaVDhew1a9YHR7lFah9t?=
+ =?us-ascii?Q?Rp16OAwrl84L57LXlECznf0Q6MyC5RCJUpGc/aMaaurxR4V1MkClDkjV+DlN?=
+ =?us-ascii?Q?tJx0mdolmLxuvOWujH1djmP14nAMLUyGTZIhmSJ5Eh1Ei6RpLzk02LNtfJl0?=
+ =?us-ascii?Q?XHA6wilE4xCxojQQkl1bykczLy0n235eUoyaYL0x71zaW4yyNs0dXCHdug3V?=
+ =?us-ascii?Q?8fxfCJ73sTTgFJ0cwpbQAgG7j/r2r0zElsFPw3oYt6Tv4/8IQG9QV4tGuGZU?=
+ =?us-ascii?Q?OXJrAF/0UzCWybpXemjA7h5TcKIS9N2g3JvN99MAv4WD1h8PEKpIDqs7ztm+?=
+ =?us-ascii?Q?yjOlZ7lDJGJ1SPA7WTXXxLprWIk71SgnRFaaelTdfq8KlzpyNRgMj3pnGZwe?=
+ =?us-ascii?Q?Q2uTY0CG5tKfl0HvoR0qLJCQPG7SIReesNMK9FbyHnVjnFHvjgeeECPaVCaw?=
+ =?us-ascii?Q?n0d3rDCVdRBDK5yn7J30z3/XxPQV3pmnjmEoxzqCR25mi2U87gykB8Kcl5dJ?=
+ =?us-ascii?Q?pSm+FKuyOEBSl5rMb84VL9hfWGXCQ4Pb0rU2YlKDAkiis6/BSIuAx8Meurdj?=
+ =?us-ascii?Q?g8g19iYCA8b2wLFKZZeRb82Z6ROOXVwHg5rotJ8SPozVmr5VsLX0lWbZperx?=
+ =?us-ascii?Q?yrodu5gXyLN47tswsuArew7M1u92g6QCWZmsZMpC5UbYfoWlIHCTJvzCA4UN?=
+ =?us-ascii?Q?aag1H5z+wXs/hK93QOPtw0ydkS3Y0TRXlsmwv7GSZMJdnBtRrfvrAHugmI3t?=
+ =?us-ascii?Q?XHz+l/eLY571qqAt9qZsb1HCPzhqZMAb0vf0Gq+z4Hwn4j17Q9Zuukxa8k2Z?=
+ =?us-ascii?Q?r1K2vARoRx0Rki635epS0AKkftNV3U7FZYqYg1iEtrCBOEmO5DpLNCoVP4pO?=
+ =?us-ascii?Q?o+stpYNBVy5vAKFi9zpSlEtlu3Jjd2wogmqIivgHu18oYIc1pPaTIkYJR0sq?=
+ =?us-ascii?Q?0ncesXWXsGNmBKqhUKAYT1T/iPINxcEfChVMVTuRxvs2PpSkEOojezddBtZR?=
+ =?us-ascii?Q?mAK8cjqUq+SjL9DTvhV/dSnaTNRQb5MBpYUpstDbKMQkUiXYKTUXAYACrDHq?=
+ =?us-ascii?Q?fF1y9ApMw48GLMKMKd6AthaZ/AxxTfPLZOYimPOoeR/JvLNd0M6JZ2XIeVUx?=
+ =?us-ascii?Q?1BxMMNkydVR2xXj6VHOkv4XkUx63la6sOL+FXfV3AteFXFZ248NA4RwEwVAG?=
+ =?us-ascii?Q?uHp5QP5EeqSV26hTy+pvvuag6AHatrQqWhfg08xaTzGeGYDAxcpQE4DXt3sB?=
+ =?us-ascii?Q?w6aosbOwU0SfuEjjNgOhttvDEjOtpCwhM23yeuq/dLPp56WG7Kb4SuTDYKdn?=
+ =?us-ascii?Q?JHUgRggiqIpkEvJmvzm6allyRtISXFzfYni1Xe1oRo/YcyXHbzoxYb7dYaWm?=
+ =?us-ascii?Q?lAp1xBtTixoL52+0YaYCa3wP3Ew=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(36860700013)(1800799024)(3613699012);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 17:43:22.0621
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cd33ac59-a2f5-4dd2-8c51-08de5aa6e724
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000141.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7436
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_093916_166343_B46732C9 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20260123_094331_386250_CF0173BB 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,934 +159,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the Zena CSS Fixed Virtual Platform (FVP) dts. This is
-currently the only Zena CSS variant, however the common definitions are
-included in a common dtsi for extensibility.
+On Fri, Jan 23, 2026 at 05:10:52PM +0000, Will Deacon wrote:
+> On Fri, Jan 23, 2026 at 05:05:31PM +0000, Will Deacon wrote:
+> > On Fri, Dec 19, 2025 at 12:11:28PM -0800, Nicolin Chen wrote:
+> > > +	/*
+> > > +	 * We are committed to updating the STE. Ensure the invalidation array
+> > > +	 * is visible to concurrent map/unmap threads, and acquire any racing
+> > > +	 * IOPTE updates.
+> > > +	 *
+> > > +	 *  [CPU0]                        | [CPU1]
+> > > +	 *                                |
+> > > +	 *  change IOPTEs and TLB flush:  |
+> > > +	 *  arm_smmu_domain_inv_range() { | arm_smmu_install_old_domain_invs {
+> > > +	 *    ...                         |   rcu_assign_pointer(new_invs);
+> > > +	 *    smp_mb(); // ensure IOPTEs  |   smp_mb(); // ensure new_invs
+> > > +	 *    ...                         |   kfree_rcu(old_invs, rcu);
+> > > +	 *    // load invalidation array  | }
+> > > +	 *    invs = rcu_dereference();   | arm_smmu_install_ste_for_dev {
+> > > +	 *                                |   STE = TTB0 // read new IOPTEs
+> > > +	 */
+> > > +	smp_mb();
+> > 
+> > I don't think we need to duplicate this comment three times, you can just
+> > refer to the first function (e.g. "See ordering comment in
+> > arm_smmu_domain_inv_range()").
 
-Signed-off-by: Debbie Horsfall <debbie.horsfall@arm.com>
----
- MAINTAINERS                              |   1 +
- arch/arm64/boot/dts/arm/Makefile         |   1 +
- arch/arm64/boot/dts/arm/zena-css-fvp.dts |  55 ++
- arch/arm64/boot/dts/arm/zena-css.dtsi    | 826 +++++++++++++++++++++++++++++++
- 4 files changed, 883 insertions(+)
+I'll drop the duplicates.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 90d88137adf1..d1d2dae6a71e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3727,6 +3727,7 @@ ARM/ZENA CSS PLATFORM
- M:	Debbie Horsfall <debbie.horsfall@arm.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/arm/arm,zena-css.yaml
-+F:	arch/arm64/boot/dts/arm/zena-css*
- 
- ARM/ZYNQ ARCHITECTURE
- M:	Michal Simek <michal.simek@amd.com>
-diff --git a/arch/arm64/boot/dts/arm/Makefile b/arch/arm64/boot/dts/arm/Makefile
-index f30ee045dc95..770fb145b4a9 100644
---- a/arch/arm64/boot/dts/arm/Makefile
-+++ b/arch/arm64/boot/dts/arm/Makefile
-@@ -8,3 +8,4 @@ dtb-$(CONFIG_ARCH_VEXPRESS) += vexpress-v2f-1xv7-ca53x2.dtb
- dtb-$(CONFIG_ARCH_VEXPRESS) += fvp-base-revc.dtb
- dtb-$(CONFIG_ARCH_VEXPRESS) += corstone1000-fvp.dtb corstone1000-mps3.dtb
- dtb-$(CONFIG_ARCH_VEXPRESS) += morello-sdp.dtb morello-fvp.dtb
-+dtb-$(CONFIG_ARCH_VEXPRESS) += zena-css-fvp.dtb
-diff --git a/arch/arm64/boot/dts/arm/zena-css-fvp.dts b/arch/arm64/boot/dts/arm/zena-css-fvp.dts
-new file mode 100644
-index 000000000000..d3c649e894d1
---- /dev/null
-+++ b/arch/arm64/boot/dts/arm/zena-css-fvp.dts
-@@ -0,0 +1,55 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
-+/*
-+ * Copyright (c) 2025, Arm Limited. All rights reserved.
-+ */
-+
-+/dts-v1/;
-+
-+#include "zena-css.dtsi"
-+
-+/ {
-+	model = "Zena CSS Fixed Virtual Platform";
-+	compatible = "arm,zena-css-fvp", "arm,zena-css";
-+
-+	chosen {
-+		stdout-path = &soc_serial0;
-+	};
-+};
-+
-+&soc {
-+	virtio@30060000 {
-+		compatible = "virtio,mmio";
-+		reg = <0x0 0x30060000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 261 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	virtio@30020000 {
-+		compatible = "virtio,mmio";
-+		reg = <0x0 0x30020000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 257 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	virtio@30030000 {
-+		compatible = "virtio,mmio";
-+		reg = <0x0 0x30030000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 258 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	virtio@30040000 {
-+		compatible = "virtio,mmio";
-+		reg = <0x0 0x30040000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 259 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	virtio@30050000 {
-+		compatible = "virtio,mmio";
-+		reg = <0x0 0x30050000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 260 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	virtio@30080000 {
-+		compatible = "virtio,mmio";
-+		reg = <0x0 0x30080000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 263 IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/arm/zena-css.dtsi b/arch/arm64/boot/dts/arm/zena-css.dtsi
-new file mode 100644
-index 000000000000..7825e93df0a6
---- /dev/null
-+++ b/arch/arm64/boot/dts/arm/zena-css.dtsi
-@@ -0,0 +1,826 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
-+/*
-+ * Copyright (c) 2025, Arm Limited. All rights reserved.
-+ */
-+
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+/ {
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	cpus {
-+		#address-cells = <2>;
-+		#size-cells = <0>;
-+
-+		/*
-+		 * The latency and residency numbers below are for illustrative
-+		 * purpose only and may vary on actual silicon. These values are
-+		 * considered just to demonstrate that the cpuidle governor
-+		 * logic works.
-+		 */
-+		idle-states {
-+			entry-method = "psci";
-+
-+			CPU_SLEEP: cpu-sleep {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x0010000>;
-+				local-timer-stop;
-+				entry-latency-us = <800>;
-+				exit-latency-us = <3200>;
-+				min-residency-us = <4200>;
-+			};
-+			CLUSTER_SLEEP: cluster-sleep {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x1010000>;
-+				local-timer-stop;
-+				entry-latency-us = <1000>;
-+				exit-latency-us = <3200>;
-+				min-residency-us = <4500>;
-+			};
-+		};
-+
-+		cpu-map {
-+
-+			cluster0 {
-+
-+				core0 {
-+					cpu = <&CPU0>;
-+				};
-+
-+				core1 {
-+					cpu = <&CPU1>;
-+				};
-+
-+				core2 {
-+					cpu = <&CPU2>;
-+				};
-+
-+				core3 {
-+					cpu = <&CPU3>;
-+				};
-+			};
-+
-+			cluster1 {
-+
-+				core0 {
-+					cpu = <&CPU4>;
-+				};
-+
-+				core1 {
-+					cpu = <&CPU5>;
-+				};
-+
-+				core2 {
-+					cpu = <&CPU6>;
-+				};
-+
-+				core3 {
-+					cpu = <&CPU7>;
-+				};
-+			};
-+
-+			cluster2 {
-+
-+				core0 {
-+					cpu = <&CPU8>;
-+				};
-+
-+				core1 {
-+					cpu = <&CPU9>;
-+				};
-+
-+				core2 {
-+					cpu = <&CPU10>;
-+				};
-+
-+				core3 {
-+					cpu = <&CPU11>;
-+				};
-+			};
-+
-+			cluster3 {
-+
-+				core0 {
-+					cpu = <&CPU12>;
-+				};
-+
-+				core1 {
-+					cpu = <&CPU13>;
-+				};
-+
-+				core2 {
-+					cpu = <&CPU14>;
-+				};
-+
-+				core3 {
-+					cpu = <&CPU15>;
-+				};
-+			};
-+		};
-+
-+		CPU0: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x00>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL0_L2_0>;
-+
-+			CL0_L2_0: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL0_L3>;
-+			};
-+		};
-+
-+		CPU1: cpu@100 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x100>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL0_L2_1>;
-+
-+			CL0_L2_1: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL0_L3>;
-+			};
-+		};
-+
-+		CPU2: cpu@200 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x200>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL0_L2_2>;
-+
-+			CL0_L2_2: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL0_L3>;
-+			};
-+		};
-+
-+		CPU3: cpu@300 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x300>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL0_L2_3>;
-+
-+			CL0_L2_3: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL0_L3>;
-+			};
-+		};
-+
-+		CPU4: cpu@10000 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x10000>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL1_L2_0>;
-+
-+			CL1_L2_0: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL1_L3>;
-+			};
-+		};
-+
-+		CPU5: cpu@10100 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x10100>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL1_L2_1>;
-+
-+			CL1_L2_1: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL1_L3>;
-+			};
-+		};
-+
-+		CPU6: cpu@10200 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x10200>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL1_L2_2>;
-+
-+			CL1_L2_2: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL1_L3>;
-+			};
-+		};
-+
-+		CPU7: cpu@10300 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x10300>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL1_L2_3>;
-+
-+			CL1_L2_3: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL1_L3>;
-+			};
-+		};
-+
-+		CPU8: cpu@20000 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x20000>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL2_L2_0>;
-+
-+			CL2_L2_0: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL2_L3>;
-+			};
-+		};
-+
-+		CPU9: cpu@20100 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x20100>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL2_L2_1>;
-+
-+			CL2_L2_1: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL2_L3>;
-+			};
-+		};
-+
-+		CPU10: cpu@20200 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x20200>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL2_L2_2>;
-+
-+			CL2_L2_2: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL2_L3>;
-+			};
-+		};
-+
-+		CPU11: cpu@20300 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x20300>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL2_L2_3>;
-+
-+			CL2_L2_3: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL2_L3>;
-+			};
-+		};
-+
-+		CPU12: cpu@30000 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x30000>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL3_L2_0>;
-+
-+			CL3_L2_0: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL3_L3>;
-+			};
-+		};
-+
-+		CPU13: cpu@30100 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x30100>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL3_L2_1>;
-+
-+			CL3_L2_1: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL3_L3>;
-+			};
-+		};
-+
-+		CPU14: cpu@30200 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x30200>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL3_L2_2>;
-+
-+			CL3_L2_2: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL3_L3>;
-+			};
-+		};
-+
-+		CPU15: cpu@30300 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a720ae";
-+			reg = <0x00 0x30300>;
-+			enable-method = "psci";
-+			i-cache-size = <0x10000>;
-+			i-cache-line-size = <0x40>;
-+			i-cache-sets = <0x100>;
-+			d-cache-size = <0x10000>;
-+			d-cache-line-size = <0x40>;
-+			d-cache-sets = <0x100>;
-+			clocks = <&scmi_dvfs 0x00>;
-+			cpu-idle-states = <&CPU_SLEEP &CLUSTER_SLEEP>;
-+			next-level-cache = <&CL3_L2_3>;
-+
-+			CL3_L2_3: l2-cache {
-+				compatible = "cache";
-+				cache-unified;
-+				cache-level = <0x02>;
-+				/* 512KB */
-+				cache-size = <0x80000>;
-+				/* 64B */
-+				cache-line-size = <0x40>;
-+				/* 8-way set */
-+				cache-sets = <0x400>;
-+				next-level-cache = <&CL3_L3>;
-+			};
-+		};
-+
-+		CL0_L3: l3-cache0 {
-+			compatible = "cache";
-+			cache-unified;
-+			cache-level = <0x03>;
-+			/* 4MB */
-+			cache-size = <0x400000>;
-+			/* 64B */
-+			cache-line-size = <0x40>;
-+			/* 16-way set */
-+			cache-sets = <0x1000>;
-+		};
-+
-+		CL1_L3: l3-cache1 {
-+			compatible = "cache";
-+			cache-unified;
-+			cache-level = <0x03>;
-+			/* 4MB */
-+			cache-size = <0x400000>;
-+			/* 64B */
-+			cache-line-size = <0x40>;
-+			/* 16-way set */
-+			cache-sets = <0x1000>;
-+		};
-+
-+		CL2_L3: l3-cache2 {
-+			compatible = "cache";
-+			cache-unified;
-+			cache-level = <0x03>;
-+			/* 4MB */
-+			cache-size = <0x400000>;
-+			/* 64B */
-+			cache-line-size = <0x40>;
-+			/* 16-way set */
-+			cache-sets = <0x1000>;
-+		};
-+
-+		CL3_L3: l3-cache3 {
-+			compatible = "cache";
-+			cache-unified;
-+			cache-level = <0x03>;
-+			/* 4MB */
-+			cache-size = <0x400000>;
-+			/* 64B */
-+			cache-line-size = <0x40>;
-+			/* 16-way set */
-+			cache-sets = <0x1000>;
-+		};
-+	};
-+
-+	dsu-pmu-0 {
-+		compatible = "arm,dsu-pmu";
-+		cpus = <&CPU0 &CPU1 &CPU2 &CPU3>;
-+		interrupts = <GIC_SPI 216 IRQ_TYPE_EDGE_RISING>;
-+	};
-+
-+	dsu-pmu-1 {
-+		compatible = "arm,dsu-pmu";
-+		cpus = <&CPU4 &CPU5 &CPU6 &CPU7>;
-+		interrupts = <GIC_SPI 217 IRQ_TYPE_EDGE_RISING>;
-+	};
-+
-+	dsu-pmu-2 {
-+		compatible = "arm,dsu-pmu";
-+		cpus = <&CPU8 &CPU9 &CPU10 &CPU11>;
-+		interrupts = <GIC_SPI 218 IRQ_TYPE_EDGE_RISING>;
-+	};
-+
-+	dsu-pmu-3 {
-+		compatible = "arm,dsu-pmu";
-+		cpus = <&CPU12 &CPU13 &CPU14 &CPU15>;
-+		interrupts = <GIC_SPI 219 IRQ_TYPE_EDGE_RISING>;
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+
-+		/* Bank 0: start = 0x0000_0000_8000_0000, size = ~2 GiB (0x7F00_0000) */
-+		reg = <
-+			0x00000000  0x80000000  0x00000000  0x7F000000
-+			0x00000200  0x00000000  0x00000000  0x80000000
-+		>;
-+	};
-+
-+	timer {
-+		compatible = "arm,armv8-timer";
-+		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-+			<GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-+			<GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-+			<GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-+			<GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	soc_clk24mhz: clock-24000000 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+		clock-output-names = "refclk24mhz";
-+	};
-+
-+	soc: soc {
-+		compatible = "simple-bus";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		timer@1a810000 {
-+			compatible = "arm,armv7-timer-mem";
-+			reg = <0x0 0x1a810000 0 0x10000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			/* Map child space [0x0..0x30000) to parent @ 0x1a810000 */
-+			ranges = <0x0 0x0 0x1a810000 0x00030000>;
-+
-+			frame@20000 {
-+				frame-number = <0>;
-+				interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>;
-+				reg = <0x20000 0x10000>;
-+			};
-+		};
-+
-+		gic: interrupt-controller@20800000 {
-+			compatible = "arm,gic-v3";
-+			#redistributor-regions = <16>;
-+			reg = <0x0 0x20800000 0x0 0x10000>,    /* GICD */
-+				<0x0 0x20880000 0x0 0x40000>,    /* 16 * GICR */
-+				<0x0 0x208c0000 0x0 0x40000>,
-+				<0x0 0x20900000 0x0 0x40000>,
-+				<0x0 0x20940000 0x0 0x40000>,
-+				<0x0 0x20980000 0x0 0x40000>,
-+				<0x0 0x209c0000 0x0 0x40000>,
-+				<0x0 0x20a00000 0x0 0x40000>,
-+				<0x0 0x20a40000 0x0 0x40000>,
-+				<0x0 0x20a80000 0x0 0x40000>,
-+				<0x0 0x20ac0000 0x0 0x40000>,
-+				<0x0 0x20b00000 0x0 0x40000>,
-+				<0x0 0x20b40000 0x0 0x40000>,
-+				<0x0 0x20b80000 0x0 0x40000>,
-+				<0x0 0x20bc0000 0x0 0x40000>,
-+				<0x0 0x20c00000 0x0 0x40000>,
-+				<0x0 0x20c40000 0x0 0x40000>;
-+			#interrupt-cells = <3>;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			ranges;
-+			interrupt-controller;
-+			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+
-+			its1: msi-controller@20840000 {
-+				compatible = "arm,gic-v3-its";
-+				reg = <0x0 0x20840000 0x0 0x40000>;
-+				msi-controller;
-+				#msi-cells = <1>;
-+			};
-+		};
-+
-+		/* UART is fixed as 24MHz, both UARTCLK and PCLK */
-+		soc_serial0: serial@1a400000 {
-+			compatible = "arm,pl011", "arm,primecell";
-+			reg = <0x0 0x1a400000 0x0 0x10000>;
-+			interrupts = <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&soc_clk24mhz>, <&soc_clk24mhz>;
-+			clock-names = "uartclk", "apb_pclk";
-+		};
-+
-+		watchdog@1a420000 {
-+			compatible = "arm,sbsa-gwdt";
-+			reg = <0x0 0x1a420000 0x0 0x10000>,
-+			      <0x0 0x1a430000 0x0 0x10000>;
-+			interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
-+		};
-+
-+		rtc@300d0000 {
-+			compatible = "arm,pl031", "arm,primecell";
-+			reg = <0x0 0x300d0000 0x0 0x10000>;
-+			interrupts = <GIC_SPI 268 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&soc_clk24mhz>;
-+			clock-names = "apb_pclk";
-+		};
-+
-+	};
-+
-+	psci {
-+		compatible = "arm,psci-1.0", "arm,psci-0.2", "arm,psci";
-+		method = "smc";
-+		cpu_suspend = <0xc4000001>;
-+		cpu_off = <0x84000002>;
-+		cpu_on = <0xc4000003>;
-+	};
-+
-+	sram: sram@104000 {
-+		compatible = "mmio-sram";
-+		reg = <0x0 0x104000 0x0 0x00001000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0 0x0 0x104000 0x00001000>;
-+
-+		scmi_shmem_tx: scpshmem-sram-section@0 {
-+			compatible = "arm,scmi-shmem";
-+			reg = <0x0 0x100>;
-+		};
-+		scmi_shmem_rx: scpshmem-sram-section@100 {
-+			compatible = "arm,scmi-shmem";
-+			reg = <0x100 0x100>;
-+		};
-+	};
-+
-+	mbox_db_tx: mailbox@40020000 {
-+		compatible = "arm,mhuv3";
-+		reg = <0x0 0x40020000 0x0 0x30000>;
-+		clocks = <&soc_clk24mhz>;
-+		#mbox-cells = <3>;
-+		interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "combined";
-+	};
-+
-+	mbox_db_rx: mailbox@40060000 {
-+		compatible = "arm,mhuv3";
-+		reg = <0x0 0x40060000 0x0 0x30000>;
-+		clocks = <&soc_clk24mhz>;
-+		#mbox-cells = <3>;
-+		interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "combined";
-+	};
-+
-+	firmware {
-+		scmi {
-+			compatible = "arm,scmi";
-+			mbox-names = "tx", "rx";
-+			mboxes = <&mbox_db_tx 0 0 0 &mbox_db_rx 0 0 0 &mbox_db_rx 0 0 2>;
-+			shmem = <&scmi_shmem_tx &scmi_shmem_rx>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			scmi_dvfs: protocol@13 {
-+				reg = <0x13>;
-+				#clock-cells = <1>;
-+			};
-+		};
-+	};
-+};
+> > However, isn't the comment above misleading for this case?
+> > arm_smmu_install_old_domain_invs() has the sequencing the other way
+> > around on CPU 1: we should update the STE first.
 
--- 
-2.43.0
+Ah, that's true. It installs new domain invs first then ste, and
+lastly updates the old domain invs.
 
+> I also think we probably want a dma_mb() instead of an smp_mb() for all
+> of these examples? It won't make any practical difference but I think it
+> helps readability given that one of the readers is the PTW.
+
+OK. I'll change to dma_mb().
+
+Nicolin
 
