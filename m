@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABBB7D6CFDC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 06:34:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58040D6CFDC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 06:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hnUiivgV1GJFcmOh4pDO9k/tTrjNiMK55wQcL+7/7RA=; b=Liu7tqmJlviu/Qzm09FEgCZlSZ
-	JppBctMNnecK6IMU9de++LFNkgJfQtIO0IP8SVITilmaICD35WNyn8lCLJXqMQiQfwp5Bs6V44bf1
-	ll+e4RdpiysqeWNkK/LOiCWUtG/L/RK7vf2TjaYgKfX3ReMi9eimGiyb8vL9g5APexxfBACd16R+S
-	asjpwAkwmFmMKo0OSlVLdez+WnPDdB/f54EkvgZUpkZEiyojGvGph9RJ9CX8eWFEle+F8JH82QLPu
-	482JG0eBcOpTprqKpWx0T4Cb/SD5BDTWpuJ2zdJ4SFj6eUF3bdXBZAIZuw+FBV0eN+FxczR45wB4M
-	YTIh+lvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4wSlLokNSQ9N2A+8QAx0upmqzT1szuicOLSqjzpsqUs=; b=lAL/efj3dQPEvSbwAs/pDUyhxb
+	Y/G1YdURHOh4Er0LfUCkoO+ek+XaDdyVUmie11HWLd86k2JBrAnar/+JgO96efpHewP0+Qwda8T4z
+	aE+qcOb8BpHogxV5saKfOKcWjfAaWvAbRzO33P96W0uPxEnvMy8OCweY1N9CQtcvksfY+jiN+xrw6
+	nRMw90tnkJUvsF7Eb+9e6fK9Itijp6dgANv8Rif61xNVl2u/+1Co2MSc7C3/NTAvu2zIvbIfP4pT2
+	a6z76yrV103Hh+QZwfNSRMZAOdeRXvfgx9Lt5F+jMIrNfAJCzzJLEvflNe6396AFcxgbEPk7UfhDx
+	Sidc390g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjAk4-00000008IqH-3xDW;
-	Fri, 23 Jan 2026 06:34:00 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1vjAt5-00000008JEH-194P;
+	Fri, 23 Jan 2026 06:43:19 +0000
+Received: from inva020.nxp.com ([92.121.34.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjAk1-00000008IoY-20wf
+	id 1vjAt2-00000008JD5-22UH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 06:33:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1769150028;
-	bh=hnUiivgV1GJFcmOh4pDO9k/tTrjNiMK55wQcL+7/7RA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=W5vjeQeiU0ULdPQtUv9eAf70pYeEokLhFo21iZX0KDC3rHz4fGY+DMK2en6l6RbxT
-	 ubNmsduQCSihVOdVHiTEzDdHb9QYkr88QX2j8Y0dsp5YmXJvKLQrl7WwnQw6bNn8fH
-	 PrRjnuRiUpgy2WQhq7RlsVHnjb5Gj6ve3pEsB2sL0WEcSghQ9ardd/1JuYPoy0Uy6S
-	 81exLyxBAYf1P9Cn3jDbAvZdUypm1nCqymrQniDwLrO25Aq1RzDdM/uDWuLsFnFk0G
-	 P5eHOOXOhs8PCx8JHKccE5MSTsY4jKxFAN9y+R3P8g30Ll0zT6R2KNaIH1tCe8NzlQ
-	 tGFau5QEV+LXg==
-Received: from [192.168.68.117] (unknown [180.150.112.60])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 66DCE7C8E7;
-	Fri, 23 Jan 2026 14:33:44 +0800 (AWST)
-Message-ID: <459f84c56a5010910ecbf8b445c092674f060691.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v3 1/3] Add compatible strings for AST2700 pinctrl to
- the SCU binding.
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Billy Tsai <billy_tsai@aspeedtech.com>, Lee Jones <lee@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley	 <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Linus Walleij
-	 <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>
-Cc: Andrew Jeffery <andrew@aj.id.au>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, 
-	linux-gpio@vger.kernel.org, bmc-sw@aspeedtech.com
-Date: Fri, 23 Jan 2026 17:03:43 +1030
-In-Reply-To: <20260120-upstream_pinctrl-v3-1-868fbf8413b5@aspeedtech.com>
-References: <20260120-upstream_pinctrl-v3-0-868fbf8413b5@aspeedtech.com>
-	 <20260120-upstream_pinctrl-v3-1-868fbf8413b5@aspeedtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Fri, 23 Jan 2026 06:43:17 +0000
+Received: from inva020.nxp.com (localhost [127.0.0.1])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id AFE291A36B3;
+	Fri, 23 Jan 2026 07:43:14 +0100 (CET)
+Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 793481A1A70;
+	Fri, 23 Jan 2026 07:43:14 +0100 (CET)
+Received: from lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com (lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com [10.52.9.11])
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id A6ED4180007B;
+	Fri, 23 Jan 2026 14:43:11 +0800 (+08)
+From: Yanan Yang <yanan.yang@nxp.com>
+Date: Fri, 23 Jan 2026 15:41:59 +0900
+Subject: [PATCH v4 1/2] dt-bindings: arm: fsl: Add FRDM-IMX91S board
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260123-imx91s-frdm-v4-1-1bab038faee9@nxp.com>
+References: <20260123-imx91s-frdm-v4-0-1bab038faee9@nxp.com>
+In-Reply-To: <20260123-imx91s-frdm-v4-0-1bab038faee9@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ yanan.yang@nxp.com, qijian.guo@nxp.com, justin.jiang@nxp.com, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Daniel Baluta <daniel.baluta@nxp.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769150588; l=1455;
+ i=yanan.yang@nxp.com; s=20251205; h=from:subject:message-id;
+ bh=ig0o2/AdDBWgeHs4zPTMbO1pBjSdeLuRVk7AorfG6BE=;
+ b=k1thy3Q4LFFcTPg3goANg3+5nnI3mXJgnAmaNQoQCQ+UC1Gwe90j9RN9D+RtWBqSsRNTFD8kg
+ vlNm1CVYd42BBdRqX1kWE3aCXl+ESoNdnBmOpVxzSJZO6p3cGCks8bL
+X-Developer-Key: i=yanan.yang@nxp.com; a=ed25519;
+ pk=d4hHTp5SW/PyyxexLEo/3c2RAaQDwym0zuYlifH95PI=
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_223357_746041_56FD6515 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20260122_224316_655793_75105D59 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,123 +82,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2026-01-20 at 19:43 +0800, Billy Tsai wrote:
-> AST2700 consists of two interconnected SoC instances. Each SoC has
-> its own pinctrl register block, which needs to be described
-> independently in the device tree.
->=20
-> Introduce "aspeed,ast2700-soc0-pinctrl" for the SoC0 pinctrl, which
-> follows the same usage model as the existing AST2600 pinctrl.
->=20
-> The SoC1 pinctrl registers follow a regular and predictable layout,
-> which allows describing them using an existing generic pinctrl
-> binding without introducing a new SoC-specific compatible string.
->=20
-> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
-> ---
-> =C2=A0Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml | 1 +
-> =C2=A01 file changed, 1 insertion(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yam=
-l b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
-> index da1887d7a8fe..ff6cf8f63cbc 100644
-> --- a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
-> @@ -87,6 +87,7 @@ patternProperties:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
-- aspeed,ast2400-pinctrl
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
-- aspeed,ast2500-pinctrl
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
-- aspeed,ast2600-pinctrl
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - asp=
-eed,ast2700-soc0-pinctrl
-> =C2=A0
-> =C2=A0=C2=A0=C2=A0=C2=A0 required:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - compatible
+Add DT compatible string for NXP FRDM-IMX91S board
 
-So, in addition to Krzysztof's concern about the patch subject, I think
-it's worth mulling over some further concerns that we might address
-with a clean break for the AST2700. Specifically, whether we can tidy
-up historical baggage by exploiting auxiliary bus[0] instead continuing
-to pretend the SCU is an simple-mfd.
+The FRDM-IMX91S is a low-cost, compact development board based on the
+i.MX91 applications processor. It is a cost-optimized variant of the
+FRDM-IMX91 board, with notable hardware differences requiring a separate
+DTS:
+- 512MB LPDDR4 (FRDM-IMX91 uses 1GB)
+- 256MB FlexSPI-NAND (FRDM-IMX91 uses 8GB eMMC)
+- Single GbE port (FRDM-IMX91 has dual GbE)
+- PMIC PF9453 (FRDM-IMX91 uses PCA9451A)
 
-[0]: https://docs.kernel.org/driver-api/auxiliary_bus.html
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Signed-off-by: Yanan Yang <yanan.yang@nxp.com>
+---
+Changes in v3:
+- add code-review trailers
 
-The original AST2400 SCU bindings were cooked up in darker times and
-have been a regular source of regret (same for the LPC bindings - we
-can consider them later). The use of simple-mfd unnecessarily invokes a
-bunch of machinery in the driver core to avoid explicit iteration of
-subnodes in the driver(s), and causes tension between the need to
-specify regs and the typically haphazard register layout of the SCUs.
+Changes in v2:
+- Correct author name: removed extra period in "Yanan.Yang"
+- Refined commit message to clarify board differences
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Related, this entry from "DOs and DON=E2=80=99Ts for designing and writing
-Devicetree bindings"[1] stands out:
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 68a2d5fecc43..82f28be401b8 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1412,6 +1412,7 @@ properties:
+         items:
+           - enum:
+               - fsl,imx91-11x11-evk       # i.MX91 11x11 EVK Board
++              - fsl,imx91-11x11-frdm-s    # FRDM-IMX91S Board
+           - const: fsl,imx91
+ 
+       - description: i.MX93 based Boards
 
- * DON=E2=80=99T create nodes just for the sake of instantiating drivers.
-   Multi-function devices only need child nodes when the child nodes
-   have their own DT resources. A single node can be multiple providers
-   (e.g. clocks and resets).
+-- 
+2.43.0
 
-[1]: https://docs.kernel.org/devicetree/bindings/writing-bindings.html#over=
-all-design
-
-We have a collection of all sorts of odd-ball bits of functionality,
-and all of it can largely be implied by the SCU compatible. Avoiding
-specifying things that are implied is also touched on by[2]:
-
- * DON=E2=80=99T add properties to avoid a specific compatible. DON=E2=80=
-=99T add
-   properties if they are implied by (deducible from) the compatible.
-
-[2]: https://docs.kernel.org/devicetree/bindings/writing-bindings.html#prop=
-erties
-
-So, can we use auxiliary bus instead, and avoid extending the regret in
-the devicetree?
-
-Well, the interesting news is that auxiliary bus is already on the way
-by way of the AST2700 clock and reset drivers[3].
-
-[3]: https://lore.kernel.org/all/20250917020539.3690324-1-ryan_chen@aspeedt=
-ech.com/
-
-A noteworthy observation is the auxiliary bus approach for pinctrl was
-already used by (at least) the mobileye eyeq5 platform:
-
-- Documentation/devicetree/bindings/soc/mobileye/mobileye,eyeq5-olb.yaml
-- arch/mips/boot/dts/mobileye/eyeq5.dtsi
-- arch/mips/boot/dts/mobileye/eyeq5-pins.dtsi
-- drivers/clk/clk-eyeq.c
-- drivers/pinctrl/pinctrl-eyeq5.c
-
-So, we're not inventing anything new here.
-
-Going down this path for pinctrl to fix the SCU situation will require
-some rework of what's already merged for the AST2700. However, we've
-not yet merged either a DTS or DTSI using the compatibles (and by
-extension, aren't using the AST2700 support from the drivers), so I
-hope that allows us to do a course-correction without too much
-collateral damage.
-
-A possible path forward is to:
-
- * Move AST2700 definitions out of mfd/aspeed,ast2x00-scu.yaml into one
-   of:
-    - soc/aspeed/aspeed,ast2700-scu.yaml: Follow the example of
-      mobileye,eyeq5-olb?
-    - arm/aspeed/aspeed,ast2700-scu.yaml: We already have e.g. the secure
-      boot controller documented under arm/aspeed
- * Retain compatible strings but require simple-mfd is not specified
- * Rework AST2700 support introduced in:
-    - drivers/irqchip/irq-aspeed-scu-ic.c
-    - drivers/soc/aspeed/aspeed-socinfo.c
-
-This is my preference, at least for the moment. The change to make the
-SoC0 pinctrl driver compatible with auxiliary bus shouldn't take much
-overall. Unwinding the binding situation is a little more involved, but
-not too much. I think it just needs consensus on the direction from the
-devicetree maintainers.
-
-Andrew
 
