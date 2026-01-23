@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69697D74EFA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C69C5D74EFB
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O0e7oK0+DtrdeS2mjGJxW+Ios+Q8mp3j2SQs5EO70xg=; b=bbT4l2WeOxdmH/uBATuZOrs9jP
-	mLSDa6HBV/hf3UcqRw6mN4GKfdR3h4JxNzhoa+p8A1C1cbbTyhr9TAkXiiavRDs8wOkP0SCOShB8l
-	/7jBjEzbNj+61eAx6eWPnW6c30yETcpVHjfa/AucRis8fxM3WY9lrUiI8/8kV1pQ/wi1FhDsYomCn
-	uyX9RoQCiQEPhT7XOenOp9sEUnlbZNz6dKk5Bx0IhZ8QWKyt/XKwj9k7IwE7C+Up6jscnVfbCRI6C
-	wLwBLg3FPU9j/m/0W6754BxFOK5+3CTgL3F9iVZWFobBrWHwqgUfXDRmnG7cXeT3uxqDhs9p5NT8U
-	SYXCazOQ==;
+	bh=RQxzSr0xNt6vC0C9L4RPe56zXiJ+lC0eJNpDIg7UiBM=; b=Pc0aF+zVn6iS1HGpvWC4FQIh54
+	SNmgoVtI0cDTrZs/dOJR/ztz7llXgvGN7ds/SbGfHrTsPMwcNSZiV3XCaQ/N6hU80p+TFMyCkN45y
+	iQajoGOPV0z9J05mYxqs7DBh7VH3ljTizKBoqOZJxl0+A25yAEMHxUdCtzamypbaznuMd1z8bFt1r
+	vJvIKo3npCHM4F9rRN/5vxPNkgsA6qD3IqONIYlvLz537NhMP5OBHsOP9UekbxS4M/qmCctYbgeYU
+	d0JlYvizghPWhpWVkJvpc3nWkZZwtudnteA2XegRkDY/Gr2ALh3eVrOfUB5vMLWSu5La4yxEP1Dl5
+	4viDkJNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJmU-000000099eq-1Ooc;
+	id 1vjJmU-000000099fF-31zb;
 	Fri, 23 Jan 2026 16:13:06 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJmM-000000099XG-1dFk
+	id 1vjJmP-000000099aY-3tzR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 16:13:01 +0000
+	Fri, 23 Jan 2026 16:13:03 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id D603FC1F1CA;
-	Fri, 23 Jan 2026 16:12:39 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 848811A2A4A;
+	Fri, 23 Jan 2026 16:13:00 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 87F756070A;
-	Fri, 23 Jan 2026 16:12:39 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 80B5E119A87A9;
-	Fri, 23 Jan 2026 17:12:34 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5B0746070A;
+	Fri, 23 Jan 2026 16:13:00 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AF948119A87DE;
+	Fri, 23 Jan 2026 17:12:55 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769184757; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1769184778; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=O0e7oK0+DtrdeS2mjGJxW+Ios+Q8mp3j2SQs5EO70xg=;
-	b=sLwVHkidiHIDfZuSGh2sRDPCpneLh4ZvKNK8EJrcwXsFqE6lVHYTRzYTI4fE/+CwJmhTfr
-	bzXTjSu2Ru4YgqLmubEcynDKIsaXX1eTPnaJFpvPFh12oMSniTn5OkWz6Fc2wH5V63ROao
-	tHD55DhHjB1cAdamR1ytMTVrowVFnHaMflrWFNBjzjYGjjOnLbxsFlRZ0a9BbyErMKxeWg
-	cl2SkR914fIDMVofHcO0TQBHRChiA8gAwhQzckJ1iYaSiz2AqEiIe8+n5bAGnXZP7mGd4M
-	lRQnD3Aep1tJnhma5Rx+J9eV9SV3i2fk9pxkKP/biUUnHjvo5QsOSFJ6/nySbA==
+	bh=RQxzSr0xNt6vC0C9L4RPe56zXiJ+lC0eJNpDIg7UiBM=;
+	b=0MF5/Zn5X+tqjSefk+BpvzhyxxxrjLB6oUcF6pWkNeM8GvnNloOu6VYi+khJT5o8Ug6C6M
+	GJJicFI/JjbPFYFsQYBSp3K2hPODml12uRk4cUK6WUjPAQrtiVb+gmJFuxI0AXbQc/FT2P
+	BCa4KczhsJU5ki8h7apRMt+/YSvX58FUhvAE3xcsVrN5lXhPTY+zoHImkyxIpBLctYCO8J
+	w61FPmOb4HBjNiXAYAoIXod3frfskQY3x5OerwjGJy1VtS4bDsUimp6B2/1ZRCKJVA+z+1
+	WU29eAew/rF3etC9rcN5y5UuDy8qYfjq1x62h15DWa9OCdIXRy7xqfXB07ASLg==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Fri, 23 Jan 2026 17:12:19 +0100
-Subject: [PATCH v5 01/25] dt-bindings: display: tilcdc: Convert to DT
- schema
+Date: Fri, 23 Jan 2026 17:12:25 +0100
+Subject: [PATCH v5 07/25] drm/tilcdc: Remove component framework support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260123-feature_tilcdc-v5-1-5a44d2aa3f6f@bootlin.com>
+Message-Id: <20260123-feature_tilcdc-v5-7-5a44d2aa3f6f@bootlin.com>
 References: <20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com>
 In-Reply-To: <20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -75,13 +74,12 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
  Herve Codina <herve.codina@bootlin.com>, dri-devel@lists.freedesktop.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
- "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
 X-Mailer: b4 0.15-dev-47773
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_081258_757545_EEDEB967 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20260123_081302_107070_6EAE0647 
+X-CRM114-Status: GOOD (  25.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,214 +94,325 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the device tree binding documentation for tilcdc
-from plain text to DT binding schema.
+The tilcdc driver previously used the component framework to bind
+external encoder subdrivers (specifically the TDA998x HDMI encoder).
+With the removal of these subdrivers in previous commits, the component
+framework is no longer needed.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+This commit removes all component framework infrastructure including:
+- Component master operations and bind/unbind callbacks
+- The is_componentized flag and conditional code paths
+- tilcdc_get_external_components() and tilcdc_add_component_encoder()
+- TDA998x-specific panel configuration
+
+The driver now uses a simplified initialization path that directly
+attaches external devices via the DRM bridge API, eliminating the
+complexity of dual code paths for componentized vs non-componentized
+configurations.
+
+This cleanup removes approximately 140 lines of code and makes the
+driver initialization flow more straightforward.
+
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
-Change in v3:
-- Rename binding file to ti,am33xx-tilcdc.yaml.
-- Use generic node name and drop unused label.
----
- .../bindings/display/tilcdc/ti,am33xx-tilcdc.yaml  | 100 +++++++++++++++++++++
- .../devicetree/bindings/display/tilcdc/tilcdc.txt  |  82 -----------------
- 2 files changed, 100 insertions(+), 82 deletions(-)
+ drivers/gpu/drm/tilcdc/tilcdc_crtc.c     | 10 ----
+ drivers/gpu/drm/tilcdc/tilcdc_drv.c      | 80 ++++----------------------------
+ drivers/gpu/drm/tilcdc/tilcdc_drv.h      |  1 -
+ drivers/gpu/drm/tilcdc/tilcdc_external.c | 65 --------------------------
+ drivers/gpu/drm/tilcdc/tilcdc_external.h |  3 --
+ 5 files changed, 9 insertions(+), 150 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/tilcdc/ti,am33xx-tilcdc.yaml b/Documentation/devicetree/bindings/display/tilcdc/ti,am33xx-tilcdc.yaml
-new file mode 100644
-index 0000000000000..eb0ebb678fa87
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/tilcdc/ti,am33xx-tilcdc.yaml
-@@ -0,0 +1,100 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright 2025 Bootlin
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/tilcdc/ti,am33xx-tilcdc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: TI LCD Controller, found on AM335x, DA850, AM18x and OMAP-L138
-+
-+maintainers:
-+  - Kory Maincent <kory.maincent@bootlin.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - ti,am33xx-tilcdc
-+      - ti,da850-tilcdc
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  port:
-+    $ref: /schemas/graph.yaml#/properties/port
-+
-+  ti,hwmods:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      Name of the hwmod associated to the LCDC
-+
-+  max-bandwidth:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The maximum pixels per second that the memory interface / lcd
-+      controller combination can sustain
-+    # maximum: 2048*2048*60
-+    maximum: 251658240
-+
-+  max-width:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The maximum horizontal pixel width supported by the lcd controller.
-+    maximum: 2048
-+
-+  max-pixelclock:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      The maximum pixel clock that can be supported by the lcd controller
-+      in KHz.
-+
-+  blue-and-red-wiring:
-+    enum: [straight, crossed]
-+    description:
-+      This property deals with the LCDC revision 2 (found on AM335x)
-+      color errata [1].
-+       - "straight" indicates normal wiring that supports RGB565,
-+         BGR888, and XBGR8888 color formats.
-+       - "crossed" indicates wiring that has blue and red wires
-+         crossed. This setup supports BGR565, RGB888 and XRGB8888
-+         formats.
-+       - If the property is not present or its value is not recognized
-+         the legacy mode is assumed. This configuration supports RGB565,
-+         RGB888 and XRGB8888 formats. However, depending on wiring, the red
-+         and blue colors are swapped in either 16 or 24-bit color modes.
-+
-+       [1] There is an errata about AM335x color wiring. For 16-bit color
-+       mode the wires work as they should (LCD_DATA[0:4] is for Blue[3:7]),
-+       but for 24 bit color modes the wiring of blue and red components is
-+       crossed and LCD_DATA[0:4] is for Red[3:7] and LCD_DATA[11:15] is
-+       for Blue[3-7]. For more details see section 3.1.1 in AM335x
-+       Silicon Errata
-+       https://www.ti.com/general/docs/lit/getliterature.tsp?baseLiteratureNumber=sprz360
-+
-+required:
-+  - compatible
-+  - interrupts
-+  - reg
-+  - port
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    display-controller@4830e000 {
-+        compatible = "ti,am33xx-tilcdc";
-+        reg = <0x4830e000 0x1000>;
-+        interrupt-parent = <&intc>;
-+        interrupts = <36>;
-+        ti,hwmods = "lcdc";
-+
-+        blue-and-red-wiring = "crossed";
-+
-+        port {
-+            endpoint {
-+                remote-endpoint = <&hdmi_0>;
-+            };
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.txt b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.txt
-deleted file mode 100644
-index 3b3d0bbfcfff4..0000000000000
---- a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.txt
-+++ /dev/null
-@@ -1,82 +0,0 @@
--Device-Tree bindings for tilcdc DRM driver
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
+index 2309a9a0c925d..252e5adaeb6e2 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
+@@ -1021,16 +1021,6 @@ int tilcdc_crtc_create(struct drm_device *dev)
+ 
+ 	drm_crtc_helper_add(crtc, &tilcdc_crtc_helper_funcs);
+ 
+-	if (priv->is_componentized) {
+-		crtc->port = of_graph_get_port_by_id(dev->dev->of_node, 0);
+-		if (!crtc->port) { /* This should never happen */
+-			dev_err(dev->dev, "Port node not found in %pOF\n",
+-				dev->dev->of_node);
+-			ret = -EINVAL;
+-			goto fail;
+-		}
+-	}
 -
--Required properties:
-- - compatible: value should be one of the following:
--    - "ti,am33xx-tilcdc" for AM335x based boards
--    - "ti,da850-tilcdc" for DA850/AM18x/OMAP-L138 based boards
-- - interrupts: the interrupt number
-- - reg: base address and size of the LCDC device
+ 	priv->crtc = crtc;
+ 	return 0;
+ 
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.c b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
+index f03861ed6349d..f865c131dae66 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_drv.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
+@@ -6,7 +6,6 @@
+ 
+ /* LCDC DRM driver, based on da8xx-fb */
+ 
+-#include <linux/component.h>
+ #include <linux/mod_devicetable.h>
+ #include <linux/module.h>
+ #include <linux/pinctrl/consumer.h>
+@@ -220,9 +219,6 @@ static int tilcdc_init(const struct drm_driver *ddrv, struct device *dev)
+ 	platform_set_drvdata(pdev, ddev);
+ 	drm_mode_config_init(ddev);
+ 
+-	priv->is_componentized =
+-		tilcdc_get_external_components(dev, NULL) > 0;
 -
--Recommended properties:
-- - ti,hwmods: Name of the hwmod associated to the LCDC
+ 	priv->wq = alloc_ordered_workqueue("tilcdc", 0);
+ 	if (!priv->wq) {
+ 		ret = -ENOMEM;
+@@ -339,42 +335,32 @@ static int tilcdc_init(const struct drm_driver *ddrv, struct device *dev)
+ 	}
+ #endif
+ 
+-	if (priv->is_componentized) {
+-		ret = component_bind_all(dev, ddev);
+-		if (ret < 0)
+-			goto unregister_cpufreq_notif;
 -
--Optional properties:
-- - max-bandwidth: The maximum pixels per second that the memory
--   interface / lcd controller combination can sustain
-- - max-width: The maximum horizontal pixel width supported by
--   the lcd controller.
-- - max-pixelclock: The maximum pixel clock that can be supported
--   by the lcd controller in KHz.
-- - blue-and-red-wiring: Recognized values "straight" or "crossed".
--   This property deals with the LCDC revision 2 (found on AM335x)
--   color errata [1].
--    - "straight" indicates normal wiring that supports RGB565,
--      BGR888, and XBGR8888 color formats.
--    - "crossed" indicates wiring that has blue and red wires
--      crossed. This setup supports BGR565, RGB888 and XRGB8888
--      formats.
--    - If the property is not present or its value is not recognized
--      the legacy mode is assumed. This configuration supports RGB565,
--      RGB888 and XRGB8888 formats. However, depending on wiring, the red
--      and blue colors are swapped in either 16 or 24-bit color modes.
+-		ret = tilcdc_add_component_encoder(ddev);
+-		if (ret < 0)
+-			goto unbind_component;
+-	} else {
+-		ret = tilcdc_attach_external_device(ddev);
+-		if (ret)
+-			goto unregister_cpufreq_notif;
+-	}
++	ret = tilcdc_attach_external_device(ddev);
++	if (ret)
++		goto unregister_cpufreq_notif;
+ 
+ 	if (!priv->external_connector &&
+ 	    ((priv->num_encoders == 0) || (priv->num_connectors == 0))) {
+ 		dev_err(dev, "no encoders/connectors found\n");
+ 		ret = -EPROBE_DEFER;
+-		goto unbind_component;
++		goto unregister_cpufreq_notif;
+ 	}
+ 
+ 	ret = drm_vblank_init(ddev, 1);
+ 	if (ret < 0) {
+ 		dev_err(dev, "failed to initialize vblank\n");
+-		goto unbind_component;
++		goto unregister_cpufreq_notif;
+ 	}
+ 
+ 	ret = platform_get_irq(pdev, 0);
+ 	if (ret < 0)
+-		goto unbind_component;
++		goto unregister_cpufreq_notif;
+ 	priv->irq = ret;
+ 
+ 	ret = tilcdc_irq_install(ddev, priv->irq);
+ 	if (ret < 0) {
+ 		dev_err(dev, "failed to install IRQ handler\n");
+-		goto unbind_component;
++		goto unregister_cpufreq_notif;
+ 	}
+ 
+ 	drm_mode_config_reset(ddev);
+@@ -392,9 +378,6 @@ static int tilcdc_init(const struct drm_driver *ddrv, struct device *dev)
+ stop_poll:
+ 	drm_kms_helper_poll_fini(ddev);
+ 	tilcdc_irq_uninstall(ddev);
+-unbind_component:
+-	if (priv->is_componentized)
+-		component_unbind_all(dev, ddev);
+ unregister_cpufreq_notif:
+ #ifdef CONFIG_CPU_FREQ
+ 	cpufreq_unregister_notifier(&priv->freq_transition,
+@@ -543,65 +526,20 @@ static int tilcdc_pm_resume(struct device *dev)
+ static DEFINE_SIMPLE_DEV_PM_OPS(tilcdc_pm_ops,
+ 				tilcdc_pm_suspend, tilcdc_pm_resume);
+ 
+-/*
+- * Platform driver:
+- */
+-static int tilcdc_bind(struct device *dev)
+-{
+-	return tilcdc_init(&tilcdc_driver, dev);
+-}
 -
--Optional nodes:
+-static void tilcdc_unbind(struct device *dev)
+-{
+-	struct drm_device *ddev = dev_get_drvdata(dev);
 -
-- - port/ports: to describe a connection to an external encoder. The
--   binding follows Documentation/devicetree/bindings/graph.txt and
--   supports a single port with a single endpoint.
+-	/* Check if a subcomponent has already triggered the unloading. */
+-	if (!ddev->dev_private)
+-		return;
 -
-- - See also Documentation/devicetree/bindings/display/tilcdc/panel.txt and
--   Documentation/devicetree/bindings/display/bridge/ti,tfp410.yaml for connecting
--   tfp410 DVI encoder or lcd panel to lcdc
+-	tilcdc_fini(ddev);
+-	dev_set_drvdata(dev, NULL);
+-}
 -
--[1] There is an errata about AM335x color wiring. For 16-bit color mode
--    the wires work as they should (LCD_DATA[0:4] is for Blue[3:7]),
--    but for 24 bit color modes the wiring of blue and red components is
--    crossed and LCD_DATA[0:4] is for Red[3:7] and LCD_DATA[11:15] is
--    for Blue[3-7]. For more details see section 3.1.1 in AM335x
--    Silicon Errata:
--    https://www.ti.com/general/docs/lit/getliterature.tsp?baseLiteratureNumber=sprz360
+-static const struct component_master_ops tilcdc_comp_ops = {
+-	.bind = tilcdc_bind,
+-	.unbind = tilcdc_unbind,
+-};
 -
--Example:
+ static int tilcdc_pdev_probe(struct platform_device *pdev)
+ {
+-	struct component_match *match = NULL;
+-	int ret;
 -
--	fb: fb@4830e000 {
--		compatible = "ti,am33xx-tilcdc", "ti,da850-tilcdc";
--		reg = <0x4830e000 0x1000>;
--		interrupt-parent = <&intc>;
--		interrupts = <36>;
--		ti,hwmods = "lcdc";
+ 	/* bail out early if no DT data: */
+ 	if (!pdev->dev.of_node) {
+ 		dev_err(&pdev->dev, "device-tree data is missing\n");
+ 		return -ENXIO;
+ 	}
+ 
+-	ret = tilcdc_get_external_components(&pdev->dev, &match);
+-	if (ret < 0)
+-		return ret;
+-	else if (ret == 0)
+-		return tilcdc_init(&tilcdc_driver, &pdev->dev);
+-	else
+-		return component_master_add_with_match(&pdev->dev,
+-						       &tilcdc_comp_ops,
+-						       match);
++	return tilcdc_init(&tilcdc_driver, &pdev->dev);
+ }
+ 
+ static void tilcdc_pdev_remove(struct platform_device *pdev)
+ {
+-	int ret;
 -
--		blue-and-red-wiring = "crossed";
+-	ret = tilcdc_get_external_components(&pdev->dev, NULL);
+-	if (ret < 0)
+-		dev_err(&pdev->dev, "tilcdc_get_external_components() failed (%pe)\n",
+-			ERR_PTR(ret));
+-	else if (ret == 0)
+-		tilcdc_fini(platform_get_drvdata(pdev));
+-	else
+-		component_master_del(&pdev->dev, &tilcdc_comp_ops);
++	tilcdc_fini(platform_get_drvdata(pdev));
+ }
+ 
+ static void tilcdc_pdev_shutdown(struct platform_device *pdev)
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.h b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
+index 79078b4ae7393..c23b593dc61f6 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_drv.h
++++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
+@@ -84,7 +84,6 @@ struct tilcdc_drm_private {
+ 	struct drm_encoder *external_encoder;
+ 	struct drm_connector *external_connector;
+ 
+-	bool is_componentized;
+ 	bool irq_enabled;
+ };
+ 
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_external.c b/drivers/gpu/drm/tilcdc/tilcdc_external.c
+index da755a411d9ff..2970c41d9c3eb 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_external.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_external.c
+@@ -4,7 +4,6 @@
+  * Author: Jyri Sarha <jsarha@ti.com>
+  */
+ 
+-#include <linux/component.h>
+ #include <linux/of_graph.h>
+ 
+ #include <drm/drm_atomic_helper.h>
+@@ -15,19 +14,6 @@
+ #include "tilcdc_drv.h"
+ #include "tilcdc_external.h"
+ 
+-static const struct tilcdc_panel_info panel_info_tda998x = {
+-		.ac_bias                = 255,
+-		.ac_bias_intrpt         = 0,
+-		.dma_burst_sz           = 16,
+-		.bpp                    = 16,
+-		.fdd                    = 0x80,
+-		.tft_alt_mode           = 0,
+-		.invert_pxl_clk		= 1,
+-		.sync_edge              = 1,
+-		.sync_ctrl              = 1,
+-		.raster_order           = 0,
+-};
 -
--		port {
--			lcdc_0: endpoint {
--				remote-endpoint = <&hdmi_0>;
--			};
--		};
--	};
+ static const struct tilcdc_panel_info panel_info_default = {
+ 		.ac_bias                = 255,
+ 		.ac_bias_intrpt         = 0,
+@@ -57,34 +43,6 @@ struct drm_connector *tilcdc_encoder_find_connector(struct drm_device *ddev,
+ 	return NULL;
+ }
+ 
+-int tilcdc_add_component_encoder(struct drm_device *ddev)
+-{
+-	struct tilcdc_drm_private *priv = ddev->dev_private;
+-	struct drm_encoder *encoder = NULL, *iter;
 -
--	tda19988: tda19988 {
--		compatible = "nxp,tda998x";
--		reg = <0x70>;
+-	list_for_each_entry(iter, &ddev->mode_config.encoder_list, head)
+-		if (iter->possible_crtcs & (1 << priv->crtc->index)) {
+-			encoder = iter;
+-			break;
+-		}
 -
--		pinctrl-names = "default", "off";
--		pinctrl-0 = <&nxp_hdmi_bonelt_pins>;
--		pinctrl-1 = <&nxp_hdmi_bonelt_off_pins>;
+-	if (!encoder) {
+-		dev_err(ddev->dev, "%s: No suitable encoder found\n", __func__);
+-		return -ENODEV;
+-	}
 -
--		port {
--			hdmi_0: endpoint {
--				remote-endpoint = <&lcdc_0>;
--			};
--		};
--	};
+-	priv->external_connector =
+-		tilcdc_encoder_find_connector(ddev, encoder);
+-
+-	if (!priv->external_connector)
+-		return -ENODEV;
+-
+-	/* Only tda998x is supported at the moment. */
+-	tilcdc_crtc_set_panel_info(priv->crtc, &panel_info_tda998x);
+-
+-	return 0;
+-}
+-
+ static
+ int tilcdc_attach_bridge(struct drm_device *ddev, struct drm_bridge *bridge)
+ {
+@@ -153,26 +111,3 @@ int tilcdc_attach_external_device(struct drm_device *ddev)
+ 	drm_encoder_cleanup(priv->external_encoder);
+ 	return ret;
+ }
+-
+-static int dev_match_of(struct device *dev, void *data)
+-{
+-	return dev->of_node == data;
+-}
+-
+-int tilcdc_get_external_components(struct device *dev,
+-				   struct component_match **match)
+-{
+-	struct device_node *node;
+-
+-	node = of_graph_get_remote_node(dev->of_node, 0, 0);
+-
+-	if (!of_device_is_compatible(node, "nxp,tda998x")) {
+-		of_node_put(node);
+-		return 0;
+-	}
+-
+-	if (match)
+-		drm_of_component_match_add(dev, match, dev_match_of, node);
+-	of_node_put(node);
+-	return 1;
+-}
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_external.h b/drivers/gpu/drm/tilcdc/tilcdc_external.h
+index fb4476694cd89..285a132f3035d 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_external.h
++++ b/drivers/gpu/drm/tilcdc/tilcdc_external.h
+@@ -7,8 +7,5 @@
+ #ifndef __TILCDC_EXTERNAL_H__
+ #define __TILCDC_EXTERNAL_H__
+ 
+-int tilcdc_add_component_encoder(struct drm_device *dev);
+-int tilcdc_get_external_components(struct device *dev,
+-				   struct component_match **match);
+ int tilcdc_attach_external_device(struct drm_device *ddev);
+ #endif /* __TILCDC_SLAVE_H__ */
 
 -- 
 2.43.0
