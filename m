@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29EC3D7237B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 12:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B332D74EC2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 12:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tER9zLyv9s7xM8IYun6q3wufHZ1C6TKFo/QhWPfNERo=; b=MGzGIBN3KJA72VcxzHUbeVIHh2
-	gBV8Y66pNonK/9Ufz/dgLcPUUK6+8m4qr8OOqLoXH64TQ3mNcFggH4Wh2y5hHujBnWOhwrJhuYm//
-	CTmKAb5IYeeVVblM+ahWDRxlko+Fr75oyKmxt1V1tlGLxJWLYyYVeVhRjC9DMgH+FUHbXnwE8CTvb
-	lyyoanOn4FFzSpa+Ie1L/nvxihs56auvTYqR+jBiM5BStzMO5tts1IlN4rKlP5JtZXh7aVo2BQ1EX
-	/Ksmt6je2QBSyc7rJbqs655PGOOvCfxg+pDyYyogM6dOV4WUjpsQ3QCrubwojnjnbTsB/1iE2nMOw
-	TIWcYXfQ==;
+	bh=ij2RGbSR4/41SvaAzVIlaX6o5oVSqmFdwyLW6lZyVqg=; b=rx3M6FTDhV4L3O4r/2Z42QXZwn
+	d3QBsAtDzXHf+iMiNaJGmukdogwt+uFaUpdzLsYvRo9r/P2JEHmzQ7UIN+m6k4mX3cHwOf01pcrOR
+	wRLVH+uRqbeaoTv9Dm211b7aw24Z9Q6HjrIkRccVqOrT9vsfLhWcL+CgU88lmR73L+ATUjzahoSp/
+	tHeevQJYJ+AThZ+pkV8++UPDFyEyIxzd8ZdaNxinaIK5y1quFClcsYvqk/+P+Ep2Nb1/QYb4r3U7y
+	BWymwjBt7rZ1hBJ9OIHZi4CuVmSR22MhGqeCa945uXWOPE3Mbu/IIfKUJBIwtstiSquSNR45optiE
+	jH96fNDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGZl-00000008vhE-3sbF;
-	Fri, 23 Jan 2026 12:47:45 +0000
+	id 1vjGhb-00000008w23-3aYD;
+	Fri, 23 Jan 2026 12:55:51 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGZj-00000008vgu-01tE
+	id 1vjGha-00000008w1s-2GA8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 12:47:44 +0000
+	Fri, 23 Jan 2026 12:55:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F01F460054;
-	Fri, 23 Jan 2026 12:47:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D0B0C19421;
-	Fri, 23 Jan 2026 12:47:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A646A60010;
+	Fri, 23 Jan 2026 12:55:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8A79C4CEF1;
+	Fri, 23 Jan 2026 12:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769172461;
-	bh=W0JXEqdFkknxnY80SKobVw6uWbZ5fonni3fohUHvIIE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=j9nKCbYzJANFAx6sZYkqZxDkD0nhP//6TR3P0kvaxyOpVaOl2Gq7Ejvhau1K5YKTc
-	 Kv9UVXpaFr4gB1qsml4zeyPxqHUxv6JEOB1e83wX0TA/iaqaoaGhY5+N6laTTaiAuz
-	 /tZLbA8cjU1e1qbD1+xaWI1251TORCrqqT9/KNr6WNBMtd1Xl0nUrK5CTXz2KBVLLg
-	 KW8hdWPOuHyAp+Nr74NKU7RdS/xQlPengcwH25sF8BIKBGjBdJg0UUZJdUP1NckCF4
-	 g+U4nUiH4xf6yNEorex09Oc8d0zHYuP6cjw6FynQQUGNf9Ldh19oUCcIDPQiaUVV4e
-	 x9Z0kZFFsAqRw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vjGZf-000000053Mp-2ggF;
-	Fri, 23 Jan 2026 12:47:39 +0000
-Date: Fri, 23 Jan 2026 12:47:39 +0000
-Message-ID: <86ms24bims.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	mathieu.desnoyers@efficios.com,
-	linux-trace-kernel@vger.kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	jstultz@google.com,
-	qperret@google.com,
-	will@kernel.org,
-	aneesh.kumar@kernel.org,
-	kernel-team@android.com,
+	s=k20201202; t=1769172949;
+	bh=GcaMgzzRJVMZIDYWEMwJdb54aJDPROHZoomAa2LyUcc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pHcFHW/XhoB4yR0c7RrUSgqzjTmQdT1JTb99sdK1mTjrZmaQIQ+gUXZbsp7k9r28E
+	 4p5EX8n2PnELlfa7oVBobJOmjRGf8wAllbJGLU0V7jrNXvvwWrrpMrIY9P9oEwWqIJ
+	 fLD5aEHRJGBACNclN6lUXppO/IjA/xnQ78XsUe3BilaBfZmTcbRB7UN0vZqYFiW3SW
+	 u/lWYw64BNivYn82XTc4GsytJo3C+euWJJ6eyz8xApcXSSqulp2B/e1pVysA3j+L+k
+	 0W9kWRYfZLxhWsLJQnxDAT4WXNPqHZI45GdP0B4pxHA3UGwKfnZwG1nI8wBUNINagx
+	 yVq7lABae2stQ==
+Date: Fri, 23 Jan 2026 12:55:43 +0000
+From: Will Deacon <will@kernel.org>
+To: perlarsen@google.com
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Armelle Laine <armellel@google.com>,
+	Sebastien Ene <sebastianene@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 29/30] KVM: arm64: Add selftest event support to nVHE/pKVM hyp
-In-Reply-To: <aXNnsJqqsskXyJu7@google.com>
-References: <20251202093623.2337860-1-vdonnefort@google.com>
-	<20251202093623.2337860-30-vdonnefort@google.com>
-	<868qe9mnx5.wl-maz@kernel.org>
-	<aXNmKpHqVw93BegX@google.com>
-	<aXNnsJqqsskXyJu7@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: vdonnefort@google.com, rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Subject: Re: [PATCH v5 1/2] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ in
+ host handler
+Message-ID: <aXNvzxoBXr-oRB8r@willie-the-truck>
+References: <20260121-host-direct-messages-v5-0-2c1614c94e80@google.com>
+ <20260121-host-direct-messages-v5-1-2c1614c94e80@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260121-host-direct-messages-v5-1-2c1614c94e80@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,79 +78,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 23 Jan 2026 12:21:04 +0000,
-Vincent Donnefort <vdonnefort@google.com> wrote:
+Per,
+
+On Wed, Jan 21, 2026 at 08:27:12AM +0000, Per Larsen via B4 Relay wrote:
+> From: Sebastian Ene <sebastianene@google.com>
 > 
-> On Fri, Jan 23, 2026 at 12:14:34PM +0000, Vincent Donnefort wrote:
-> > On Wed, Jan 07, 2026 at 03:40:22PM +0000, Marc Zyngier wrote:
-> > > On Tue, 02 Dec 2025 09:36:22 +0000,
-> > > Vincent Donnefort <vdonnefort@google.com> wrote:
-> > > > 
-> > > > Add a selftest event that can be triggered from a `write_event` tracefs
-> > > > file. This intends to be used by trace remote selftests.
-> > > > 
-> > > > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> > > > 
-> > > > diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> > > > index 37c015b54ff6..e2de7ad64938 100644
-> > > > --- a/arch/arm64/include/asm/kvm_asm.h
-> > > > +++ b/arch/arm64/include/asm/kvm_asm.h
-> > > > @@ -96,6 +96,7 @@ enum __kvm_host_smccc_func {
-> > > >  	__KVM_HOST_SMCCC_FUNC___tracing_update_clock,
-> > > >  	__KVM_HOST_SMCCC_FUNC___tracing_reset,
-> > > >  	__KVM_HOST_SMCCC_FUNC___tracing_enable_event,
-> > > > +	__KVM_HOST_SMCCC_FUNC___tracing_write_event,
-> > > >  };
-> > > >  
-> > > >  #define DECLARE_KVM_VHE_SYM(sym)	extern char sym[]
-> > > > diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
-> > > > index 268b3cd7a1b2..c276fd28e0bf 100644
-> > > > --- a/arch/arm64/include/asm/kvm_hypevents.h
-> > > > +++ b/arch/arm64/include/asm/kvm_hypevents.h
-> > > > @@ -42,4 +42,15 @@ HYP_EVENT(hyp_exit,
-> > > >  	),
-> > > >  	HE_PRINTK("reason=%s", __hyp_enter_exit_reason_str(__entry->reason))
-> > > >  );
-> > > > +
-> > > > +HYP_EVENT(selftest,
-> > > > +	HE_PROTO(u64 id),
-> > > > +	HE_STRUCT(
-> > > > +		he_field(u64, id)
-> > > > +	),
-> > > > +	HE_ASSIGN(
-> > > > +		__entry->id = id;
-> > > > +	),
-> > > > +	RE_PRINTK("id=%llu", __entry->id)
-> > > 
-> > > Not strictly related to this patch, but I find that the trace itself
-> > > lacks context. For example:
-> > > 
-> > > [001]	  323.847422: hyp_enter reason=hvc
-> > > [001]	  323.847423: hyp_exit reason=eret_host
-> > > [001]	  323.847688: hyp_enter reason=hvc
-> > > [001]	  323.847688: hyp_exit reason=eret_host
-> > > [001]	  323.847706: hyp_enter reason=hvc
-> > > [001]	  323.847707: hyp_exit reason=eret_host
-> > > [001]	  323.847722: hyp_enter reason=hvc
-> > > [001]	  323.847723: hyp_exit reason=eret_host
-> > > 
-> > > That's all fine as long as I'm dealing with a single guest, or even
-> > > with a single vcpu. Trying to trace multiple guests, or even multiple
-> > > vcpus makes the whole thing completely unusable, because I have no
-> > > idea what I'm looking at.
-> > > 
-> > > To make this useful, having some context provided by the host really
-> > > is required.
-> > 
-> > I could add to the event header the VM pid related to the currently loaded vCPU
-> > (if any). I can access it easily with host_kvm->userspace_pid. WDYS?
+> Allow direct messages to be forwarded from the host. The host should
+> not be sending framework messages so they are filtered out.
 > 
-> Or actually directly kvm_vcpu->pid?
+> Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Signed-off-by: Per Larsen <perlarsen@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 26 ++++++++++++++++++++++++++
+>  1 file changed, 26 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index f731cc4c3f280a32acccca0de92b9ac6c8e05602..9967916278a7ca051500946ef2fcfe7bb40e0e8d 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -862,6 +862,28 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
+>  	hyp_spin_unlock(&host_buffers.lock);
+>  }
+>  
+> +static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
+> +			      struct kvm_cpu_context *ctxt,
+> +			      u64 vm_handle)
+> +{
+> +	DECLARE_REG(u32, flags, ctxt, 2);
+> +
+> +	struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
+> +
+> +	if (vm_handle != HOST_FFA_ID) {
+> +		ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
+> +		return;
+> +	}
 
-More like it indeed.
+Sorry, but this isn't what I had in mind. 'vm_handle' is just a local
+variable and the only caller passes HOST_FFA_ID, so this isn't really
+achieving anything.
 
-	M.
+What you had in v4 dropped the 'vm_handle' argument entirely, which I
+think is the right thing to do. However, the FF-A spec encodes the sender
+ID in bits 31:16 of register W1 and so _that_ is what I think we should
+be checking because _that_ is what the receiver will see.
 
--- 
-Without deviation from the norm, progress is not possible.
+Honestly, we could avoid quite a lot of these review cycles if you
+actually replied to my emails on the list instead of just responding
+with a new patch series each time. It's supposed to be a technical
+discussion...
+
+Will
 
