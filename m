@@ -4,106 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF16ED72349
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:13:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DB41D72348
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nA8sXD0FqzkneEAx9yV9Y9lTP0hUm1k+5svU6+Gfnes=; b=Y5PjeLlymlm/4pmZvI2htaHFsq
-	LChgEBQ4cA4eiik7NlUPBAT7eNGsFt2q0hejB5vxN8qCgjSTWXIo/iyfLOgWbEow/KzM7SRaJJYTN
-	CeTZu7aBT4u9ujap1vw0k8c0nmuDjdo/ivWGg33ltZy2B7R9Fm6ScR41P/esn2hKcIydZQT0tWlhK
-	LZQNy5PkRtixADw18dhDPLxVATku3a2qzRypfyy2wsiIrLrihWLs8NidcvINshjpcm1Qlh84JgKeD
-	1TISgx/DUJFvyaBkHHB2ldZ2SSH7oqsZjSkQNfeX5+/+YjbqVQxhn7idIV1Z9Km9h8xzUWT5zvsqt
-	gUeB4dYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7ak2ukuGBc+Ys62uKbyQTY4W4bSjYwRQNwZcxuDSuWU=; b=HdWKZIIyNz9Oi3kdZ6LJOxNMAE
+	2uSPzUfJEashA1ug72NNLtieVrllRZ9LiDO9WLKFUvtNTL2auJk31EhWB+DfRl/kInWHjG2VuUTdV
+	VbrbHplDx/epiDSqSjttju77oGtMQb1Cok2z/Cq+huK9n2Pog6CtiQlkFTmhca3rZqlnm5JHQLpdZ
+	yVpC+48+ONMTfOhmSgmXisGhXuAqHGjIphP7zyp48O7RRLWkziV+t2NixrGFxkUue39YIAZylW25z
+	aKuT5CAc/0xzb9vzyfk+91yuMO+5BLRil2Od9KWlSUpoTRshb3fql7ff62neEU/ywe4O0IC1L3sLD
+	mOs6ZOUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjCIW-00000008RTh-48wx;
-	Fri, 23 Jan 2026 08:13:41 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vjCJy-00000008RkB-3oPj;
+	Fri, 23 Jan 2026 08:15:10 +0000
+Received: from mail-m21472.qiye.163.com ([117.135.214.72])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjCIT-00000008RSE-1zN9
+	id 1vjCJv-00000008RjJ-0ISM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 08:13:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1769156016;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=nA8sXD0FqzkneEAx9yV9Y9lTP0hUm1k+5svU6+Gfnes=;
-	b=aBMJS16Zh3rD6wqirlwv+vT82mpO0Ts/dYHrR2oUYVNgvRAP3b1HjscD/crZ47GDCP44cl
-	aeDFxDvRxIo/ogp88gJe9J4C/E+sP334A8AMT+v76ihZx5VqWWg27RIQYxYhpuQ9wCM2qp
-	/R73tRdSXZDW4C7u++fI++jbP52itg4=
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
- [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-458-ABqTYDsdMqmBQ0o31A7ctg-1; Fri, 23 Jan 2026 03:13:32 -0500
-X-MC-Unique: ABqTYDsdMqmBQ0o31A7ctg-1
-X-Mimecast-MFC-AGG-ID: ABqTYDsdMqmBQ0o31A7ctg_1769156011
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-82323cc7594so12014b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 00:13:31 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769156011; x=1769760811;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nA8sXD0FqzkneEAx9yV9Y9lTP0hUm1k+5svU6+Gfnes=;
-        b=jVEx3D1teyKWPbZB6NQlwIAIgAV2M5PIAT82Gl2jxW8odXVIPAJpOjNRHDQy0tQXsm
-         x6ylOUP+k1RIsofAgyGQJwGiEq9KU1LONHxX5VPhwrdoHaVLPDumNyk/Ny2DU8ZFH7HM
-         2jAQPPXM6QMW+QVRuVg8sAqWJ+Ig04EQaoqrGXBI2CufW7AUos8HMYPlg3gbZHL/ivfS
-         Y6INrPkXY/mJUAtRUtQKGcWIdKBtCb3KcX8KTbu0JrDc+5qnr3dIqpo+RmeEu1dhHXpp
-         535iW7GoS8Jo31yWrLATVLLRVaqiRujY98fxy3uQO6THQJQbSZZnZQu4l2Z4lIiGPvon
-         q/Pg==
-X-Forwarded-Encrypted: i=1; AJvYcCWeewJEHkfTX3/+Wu0xyC0VXl0MV+V2UC02jjPmq42XJ7rw1954HO+mxMDErXRLdGvQdPx88b6JzKhBsdsrKUdT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3tLR22orC5rmRKs/wZWcu8g0dWWnleR98BU9tOzFClLY20JBN
-	ftura6fBSrvk+F1n6ouBG23kdGbobsK62yQSVyWXMnQzJNQlavtACh6bHbtP3YNUJcdx+dzLeP+
-	FulpVeEZxBXUfxGe/E8lvEGttjeJqWjeZ/oTbERohF1QeAL6tWSyuvLAt/9+CIDAIMvUh2xX0Mg
-	iv
-X-Gm-Gg: AZuq6aKUNbqg4QIxsqmU2j8/l86e6Ix5eRb5KPmOuv0O4lN0oO4vJgzCu1Krl+ghc29
-	ydeklDf1Y0MzYjitxVMcsk7q7AGlyWRE04+4Cm0qnLp2/QOqWYhsViGUNuB87lhADuL4W4e3rhj
-	OHH1mMtUBGHJRgL3FRdYMHx3Eve3Zn5T0UmeXV4QGaNWomXC057YTQHV8Z0whccVRjn8AOp0LZk
-	L3EdWhZ13DX58C4FLMI7fsoYGOGoRZ6OkwNLeNOHruYWCq2oCFhngMkz54vFUh7oLkz6/IscMjW
-	2zWqbL5ZLLBnckMowvs7VcEIC4CBAH10iL1n3PNeFVESSd6MQOkmmbM/zvShJe9FeA13NBZydWy
-	t
-X-Received: by 2002:a05:6a00:1885:b0:81f:46ba:1817 with SMTP id d2e1a72fcca58-8232178898amr325075b3a.66.1769156010905;
-        Fri, 23 Jan 2026 00:13:30 -0800 (PST)
-X-Received: by 2002:a05:6a00:1885:b0:81f:46ba:1817 with SMTP id d2e1a72fcca58-8232178898amr325043b3a.66.1769156010374;
-        Fri, 23 Jan 2026 00:13:30 -0800 (PST)
-Received: from localhost ([209.132.188.88])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8231876f736sm1443202b3a.64.2026.01.23.00.13.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Jan 2026 00:13:29 -0800 (PST)
-From: Coiby Xu <coxu@redhat.com>
-To: kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>,
-	Baoquan he <bhe@redhat.com>,
-	Dave Young <dyoung@redhat.com>,
-	Kairui Song <ryncsn@gmail.com>,
-	Pingfan Liu <kernelfans@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	linux-kernel@vger.kernel.org (open list),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE)
-Subject: [PATCH v3] arm64/kdump: pass dm-crypt keys to kdump kernel
-Date: Fri, 23 Jan 2026 16:13:25 +0800
-Message-ID: <20260123081326.1362666-1-coxu@redhat.com>
-X-Mailer: git-send-email 2.52.0
+	Fri, 23 Jan 2026 08:15:09 +0000
+Received: from [172.16.12.14] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 31b860454;
+	Fri, 23 Jan 2026 16:14:55 +0800 (GMT+08:00)
+Message-ID: <1c275ed9-70ee-4eba-b3d5-0f0c19a3a2d1@rock-chips.com>
+Date: Fri, 23 Jan 2026 16:14:54 +0800
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: QCK4l2APt4HP9da8zhs5bof82k1pO1KGLcglQb8oUtQ_1769156011
-X-Mimecast-Originator: redhat.com
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, oe-kbuild-all@lists.linux.dev,
+ linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Jaehoon Chung <jh80.chung@samsung.com>
+Subject: Re: [PATCH 1/3] mmc: dw_mmc-k3: Remove mshc alias support
+To: kernel test robot <lkp@intel.com>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Wei Xu <xuwei5@hisilicon.com>
+References: <1769132482-177365-2-git-send-email-shawn.lin@rock-chips.com>
+ <202601231543.IzsYNOzJ-lkp@intel.com>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <202601231543.IzsYNOzJ-lkp@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+X-HM-Tid: 0a9be9ebaeb309cckunmd7e25a7d1ac2f7
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxpNQ1ZDTEtNGEhJTEIZT0pWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	xVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=RXAH0D89cH6q4GBkk69sDDStWYj96MI9ROl/xzkurdP1fq3lqI96TU1NMhbcS6teqcUJn7+YeG5v2+7V/bEmEn770Mup6IywksNpKXjV0hGBB4sk2kWxJg5uWp3xQ67LDK30F5xAHbJ/FfbwWPH/gVm4VSQB/xtZtSX/74qCj30=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=7ak2ukuGBc+Ys62uKbyQTY4W4bSjYwRQNwZcxuDSuWU=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_001337_585013_75C6E017 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20260123_001507_782011_30E3CDBB 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,144 +73,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CONFIG_CRASH_DM_CRYPT has been introduced to support LUKS-encrypted
-device dump target by addressing two challenges [1],
- - Kdump kernel may not be able to decrypt the LUKS partition. For some
-   machines, a system administrator may not have a chance to enter the
-   password to decrypt the device in kdump initramfs after the 1st kernel
-   crashes
+在 2026/01/23 星期五 15:59, kernel test robot 写道:
+> Hi Shawn,
+> 
+> kernel test robot noticed the following build warnings:
+> 
+> [auto build test WARNING on robh/for-next]
+> [also build test WARNING on linus/master ulf-hansson-mmc-mirror/next v6.19-rc6 next-20260122]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Shawn-Lin/mmc-dw_mmc-k3-Remove-mshc-alias-support/20260123-095950
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+> patch link:    https://lore.kernel.org/r/1769132482-177365-2-git-send-email-shawn.lin%40rock-chips.com
+> patch subject: [PATCH 1/3] mmc: dw_mmc-k3: Remove mshc alias support
+> config: arc-randconfig-002-20260123 (https://download.01.org/0day-ci/archive/20260123/202601231543.IzsYNOzJ-lkp@intel.com/config)
+> compiler: arc-linux-gcc (GCC) 8.5.0
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260123/202601231543.IzsYNOzJ-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202601231543.IzsYNOzJ-lkp@intel.com/
+> 
+> All warnings (new ones prefixed by >>):
+> 
+>     drivers/mmc/host/dw_mmc-k3.c: In function 'dw_mci_hs_set_timing':
+>     drivers/mmc/host/dw_mmc-k3.c:220:16: error: 'struct dw_mci' has no member named 'mmc'
 
- - LUKS2 by default use the memory-hard Argon2 key derivation function
-   which is quite memory-consuming compared to the limited memory reserved
-   for kdump.
+I think this is a false-positive warning as it's based on latest
+linux-next tree.
 
-To also enable this feature for ARM64, we only need to add device tree
-property dmcryptkeys [2] as similar to elfcorehdr to pass the memory
-address of the stored info of dm-crypt keys to the kdump kernel. Since
-this property is only needed by the kdump kenrel, it won't be exposed to
-user space.
+>       ctrl_id = host->mmc->index;
+>                     ^~
+>>> drivers/mmc/host/dw_mmc-k3.c:217:18: warning: variable 'priv' set but not used [-Wunused-but-set-variable]
+>       struct k3_priv *priv;
+>                       ^~~~
 
-[1] https://lore.kernel.org/all/20250502011246.99238-1-coxu@redhat.com/
-[2] https://github.com/devicetree-org/dt-schema/pull/181
+But this one is indeed a valid warning, will fix.
 
-Cc: Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>
-Cc: Baoquan he <bhe@redhat.com>
-Cc: Dave Young <dyoung@redhat.com>
-Cc: Kairui Song <ryncsn@gmail.com>
-Cc: Pingfan Liu <kernelfans@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Signed-off-by: Coiby Xu <coxu@redhat.com>
----
-v3
-- Delete the property after reading it [Rob Herring]
+Thanks, lkp.
 
-v2
-- Krzysztof
-  - Use imperative mood for commit message
-  - Add dt-schema ABI Documentation 
-    https://github.com/devicetree-org/dt-schema/pull/181
-- Don't print dm-crypt keys address via pr_debug
-
-
- arch/arm64/kernel/machine_kexec_file.c |  9 +++++++++
- drivers/of/fdt.c                       | 21 +++++++++++++++++++++
- drivers/of/kexec.c                     | 19 +++++++++++++++++++
- 3 files changed, 49 insertions(+)
-
-diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-index 410060ebd86d..5f3bad8ca96d 100644
---- a/arch/arm64/kernel/machine_kexec_file.c
-+++ b/arch/arm64/kernel/machine_kexec_file.c
-@@ -134,6 +134,15 @@ int load_other_segments(struct kimage *image,
- 
- 		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
- 			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
-+
-+		ret = crash_load_dm_crypt_keys(image);
-+
-+		if (ret == -ENOENT) {
-+			kexec_dprintk("No dm crypt key to load\n");
-+		} else if (ret) {
-+			pr_err("Failed to load dm crypt keys\n");
-+			goto out_err;
-+		}
- 	}
- #endif
- 
-diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
-index 331646d667b9..2967e4aff807 100644
---- a/drivers/of/fdt.c
-+++ b/drivers/of/fdt.c
-@@ -866,6 +866,26 @@ static void __init early_init_dt_check_for_elfcorehdr(unsigned long node)
- 		 elfcorehdr_addr, elfcorehdr_size);
- }
- 
-+static void __init early_init_dt_check_for_dmcryptkeys(unsigned long node)
-+{
-+	const char *prop_name = "linux,dmcryptkeys";
-+	const __be32 *prop;
-+
-+	if (!IS_ENABLED(CONFIG_CRASH_DM_CRYPT))
-+		return;
-+
-+	pr_debug("Looking for dmcryptkeys property... ");
-+
-+	prop = of_get_flat_dt_prop(node, prop_name, NULL);
-+	if (!prop)
-+		return;
-+
-+	dm_crypt_keys_addr = dt_mem_next_cell(dt_root_addr_cells, &prop);
-+
-+	/* Property only accessible to crash dump kernel */
-+	fdt_delprop(initial_boot_params, node, prop_name);
-+}
-+
- static unsigned long chosen_node_offset = -FDT_ERR_NOTFOUND;
- 
- /*
-@@ -1097,6 +1117,7 @@ int __init early_init_dt_scan_chosen(char *cmdline)
- 
- 	early_init_dt_check_for_initrd(node);
- 	early_init_dt_check_for_elfcorehdr(node);
-+	early_init_dt_check_for_dmcryptkeys(node);
- 
- 	rng_seed = of_get_flat_dt_prop(node, "rng-seed", &l);
- 	if (rng_seed && l > 0) {
-diff --git a/drivers/of/kexec.c b/drivers/of/kexec.c
-index 1ee2d31816ae..4bfb1ea5744e 100644
---- a/drivers/of/kexec.c
-+++ b/drivers/of/kexec.c
-@@ -432,6 +432,25 @@ void *of_kexec_alloc_and_setup_fdt(const struct kimage *image,
- 		if (ret)
- 			goto out;
- 
-+		if (image->dm_crypt_keys_addr != 0) {
-+			ret = fdt_appendprop_addrrange(fdt, 0, chosen_node,
-+						       "linux,dmcryptkeys",
-+						       image->dm_crypt_keys_addr,
-+						       image->dm_crypt_keys_sz);
-+
-+			if (ret)
-+				goto out;
-+
-+			/*
-+			 * Avoid dmcryptkeys from being stomped on in kdump kernel by
-+			 * setting up memory reserve map.
-+			 */
-+			ret = fdt_add_mem_rsv(fdt, image->dm_crypt_keys_addr,
-+					      image->dm_crypt_keys_sz);
-+			if (ret)
-+				goto out;
-+		}
-+
- #ifdef CONFIG_CRASH_DUMP
- 		/* add linux,usable-memory-range */
- 		ret = fdt_appendprop_addrrange(fdt, 0, chosen_node,
-
-base-commit: c072629f05d7bca1148ab17690d7922a31423984
--- 
-2.52.0
+> 
+> 
+> vim +/priv +217 drivers/mmc/host/dw_mmc-k3.c
+> 
+> 0293efddaddfcb Zhangfei Gao        2015-05-14  207
+> d53e39b1131c08 Shawn Lin           2026-01-23  208  static int dw_mci_hs_set_timing(struct dw_mci *host, int timing,
+> 361c7fe9b02eee liwei               2017-08-11  209  				     int smpl_phase)
+> 361c7fe9b02eee liwei               2017-08-11  210  {
+> 361c7fe9b02eee liwei               2017-08-11  211  	u32 drv_phase;
+> 361c7fe9b02eee liwei               2017-08-11  212  	u32 smpl_dly;
+> 361c7fe9b02eee liwei               2017-08-11  213  	u32 use_smpl_dly = 0;
+> 361c7fe9b02eee liwei               2017-08-11  214  	u32 enable_shift = 0;
+> 361c7fe9b02eee liwei               2017-08-11  215  	u32 reg_value;
+> 361c7fe9b02eee liwei               2017-08-11  216  	int ctrl_id;
+> 361c7fe9b02eee liwei               2017-08-11 @217  	struct k3_priv *priv;
+> 361c7fe9b02eee liwei               2017-08-11  218
+> 361c7fe9b02eee liwei               2017-08-11  219  	priv = host->priv;
+> d53e39b1131c08 Shawn Lin           2026-01-23 @220  	ctrl_id = host->mmc->index;
+> d53e39b1131c08 Shawn Lin           2026-01-23  221
+> d53e39b1131c08 Shawn Lin           2026-01-23  222  	if (ctrl_id >= TIMING_MODE)
+> d53e39b1131c08 Shawn Lin           2026-01-23  223  		return -EINVAL;
+> 361c7fe9b02eee liwei               2017-08-11  224
+> 361c7fe9b02eee liwei               2017-08-11  225  	drv_phase = hs_timing_cfg[ctrl_id][timing].drv_phase;
+> 361c7fe9b02eee liwei               2017-08-11  226  	smpl_dly   = hs_timing_cfg[ctrl_id][timing].smpl_dly;
+> 361c7fe9b02eee liwei               2017-08-11  227  	if (smpl_phase == -1)
+> 361c7fe9b02eee liwei               2017-08-11  228  		smpl_phase = (hs_timing_cfg[ctrl_id][timing].smpl_phase_max +
+> 361c7fe9b02eee liwei               2017-08-11  229  			     hs_timing_cfg[ctrl_id][timing].smpl_phase_min) / 2;
+> 361c7fe9b02eee liwei               2017-08-11  230
+> 361c7fe9b02eee liwei               2017-08-11  231  	switch (timing) {
+> 361c7fe9b02eee liwei               2017-08-11  232  	case MMC_TIMING_UHS_SDR104:
+> 361c7fe9b02eee liwei               2017-08-11  233  		if (smpl_phase >= USE_DLY_MIN_SMPL &&
+> 361c7fe9b02eee liwei               2017-08-11  234  				smpl_phase <= USE_DLY_MAX_SMPL)
+> 361c7fe9b02eee liwei               2017-08-11  235  			use_smpl_dly = 1;
+> df561f6688fef7 Gustavo A. R. Silva 2020-08-23  236  		fallthrough;
+> 361c7fe9b02eee liwei               2017-08-11  237  	case MMC_TIMING_UHS_SDR50:
+> 361c7fe9b02eee liwei               2017-08-11  238  		if (smpl_phase >= ENABLE_SHIFT_MIN_SMPL &&
+> 361c7fe9b02eee liwei               2017-08-11  239  				smpl_phase <= ENABLE_SHIFT_MAX_SMPL)
+> 361c7fe9b02eee liwei               2017-08-11  240  			enable_shift = 1;
+> 361c7fe9b02eee liwei               2017-08-11  241  		break;
+> 361c7fe9b02eee liwei               2017-08-11  242  	}
+> 361c7fe9b02eee liwei               2017-08-11  243
+> 361c7fe9b02eee liwei               2017-08-11  244  	mci_writel(host, GPIO, 0x0);
+> 361c7fe9b02eee liwei               2017-08-11  245  	usleep_range(5, 10);
+> 361c7fe9b02eee liwei               2017-08-11  246
+> 361c7fe9b02eee liwei               2017-08-11  247  	reg_value = FIELD_PREP(UHS_REG_EXT_SAMPLE_PHASE_MASK, smpl_phase) |
+> 361c7fe9b02eee liwei               2017-08-11  248  		    FIELD_PREP(UHS_REG_EXT_SAMPLE_DLY_MASK, smpl_dly) |
+> 361c7fe9b02eee liwei               2017-08-11  249  		    FIELD_PREP(UHS_REG_EXT_SAMPLE_DRVPHASE_MASK, drv_phase);
+> 361c7fe9b02eee liwei               2017-08-11  250  	mci_writel(host, UHS_REG_EXT, reg_value);
+> 361c7fe9b02eee liwei               2017-08-11  251
+> 361c7fe9b02eee liwei               2017-08-11  252  	mci_writel(host, ENABLE_SHIFT, enable_shift);
+> 361c7fe9b02eee liwei               2017-08-11  253
+> 361c7fe9b02eee liwei               2017-08-11  254  	reg_value = FIELD_PREP(GPIO_CLK_DIV_MASK, GENCLK_DIV) |
+> 361c7fe9b02eee liwei               2017-08-11  255  			     FIELD_PREP(GPIO_USE_SAMPLE_DLY_MASK, use_smpl_dly);
+> 361c7fe9b02eee liwei               2017-08-11  256  	mci_writel(host, GPIO, (unsigned int)reg_value | GPIO_CLK_ENABLE);
+> 361c7fe9b02eee liwei               2017-08-11  257
+> 361c7fe9b02eee liwei               2017-08-11  258  	/* We should delay 1ms wait for timing setting finished. */
+> 361c7fe9b02eee liwei               2017-08-11  259  	usleep_range(1000, 2000);
+> d53e39b1131c08 Shawn Lin           2026-01-23  260
+> d53e39b1131c08 Shawn Lin           2026-01-23  261  	return 0;
+> 361c7fe9b02eee liwei               2017-08-11  262  }
+> 361c7fe9b02eee liwei               2017-08-11  263
+> 
 
 
