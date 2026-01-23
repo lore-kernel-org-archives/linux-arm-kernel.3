@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A1DD74EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:13:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20DEFD74EFA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VSTYR5rD8uZJr/69XSbhWZhicV+2XxA/spuf43LjPJU=; b=O9N+yPMLk1Z3ArD2osDE3L0Cwt
-	E+KIQLwd7ybwGBpntC7Z62tlB5NS75jEqNHQBMFi1kFAkpl4776cDX57ecSpkYvIBhMCY4aEDBAG2
-	5Wea7B3yNIWtxFKFV2XeJAWmmtUZn1bjEO8YA2Zk4/fASee6za0BxELbLQzXkXMMAVvdVocnAjzhO
-	sLAM5NuOvZ9hmGgQWFIshFAzZkWUG5Dxg7iwgowhOTatLcAjQp3AoL4S73J8bG4HWJIrw0Uj1COR+
-	O6ldyzIAJdU/WmH/d/dM0ckP870VyIwZW4wnWvwN6YCup3c6/GWdrt85CAXehmPLonJ/Kh2V7+tXv
-	OD2lQeqg==;
+	bh=FKUO3Oa2DviqnFLQPOxjYAs0OQkoJeGOWl1jDEu78cI=; b=agUD0eZJuKQYVHrc4XEX6lD9h1
+	OCAbHQ2fEn6qK5YML7esiXOUow2LO/FwAvGVmyCcf4qAXpJ9Hz2sY2tqO41Wy3t2kCXk6lcqnLfOi
+	hNWVXHP4PsYqdoGaLXVsqTalvhW8RVt+UfA/fXIXL1NTmzUNMsZ1ghN2jwjOGtFmcmW28jbF2dCB5
+	Mmq/8cDvh127wpyx/4KL+Sm5ZbY2VIMKyYeyUT0DSMWzbN7kDWgvscUKIFDgbwmqX4NEpDJ/VYozt
+	G4YMjVy+MkNOyVWVytniER96zxwR6vEB2jdp1Va3ZPicEbLPcbqCV6/TIUBzdWNzseZ8pIAvf4UWd
+	R5+4LRyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJmi-000000099p2-1t3L;
-	Fri, 23 Jan 2026 16:13:20 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vjJmk-000000099rc-1Z5Q;
+	Fri, 23 Jan 2026 16:13:22 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJmW-000000099gS-3Uip
+	id 1vjJmg-000000099mj-1Pok
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 16:13:11 +0000
+	Fri, 23 Jan 2026 16:13:19 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 4F01D4E42223;
-	Fri, 23 Jan 2026 16:13:07 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id D5E8D1A2A52;
+	Fri, 23 Jan 2026 16:13:16 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 227E76070A;
-	Fri, 23 Jan 2026 16:13:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2A635119A87A9;
-	Fri, 23 Jan 2026 17:13:02 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id AA48D6070A;
+	Fri, 23 Jan 2026 16:13:16 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9E0F3119A87C6;
+	Fri, 23 Jan 2026 17:13:12 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769184785; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1769184795; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=VSTYR5rD8uZJr/69XSbhWZhicV+2XxA/spuf43LjPJU=;
-	b=UZhtlZNGWPxInEvj9zRuRCXSDZVbFTqJJSyFiNjvvOET/0ffqRgAun11gbwAI+1Kbz3D74
-	4z/TxKl5v2qXjDCry0cvNXmIAbIAwvJzztj3qsNIfUqxtRqXjU1bVg55vctbqM2GTGhMHU
-	bghIzcpn4dKuqzAUb5yrNGNT7DnODZsB6ybgh+0tOG0iDpPJameiFZl6/W2z9jqEB7cb0E
-	kDppaz5k+yqGReI0O0T2EAPfGQ9x2REBp5mvuBm4Xt23+MVclng4UrjKHqYWVKlHU4BdnP
-	smEzUUj30/TMoA1dP8QMC1j7/OetGVo01+iSzGGVFRCBvEcc6SqNrhNheKtahQ==
+	bh=FKUO3Oa2DviqnFLQPOxjYAs0OQkoJeGOWl1jDEu78cI=;
+	b=tw8AgEb3Oz0akZnz6KVA09KWmwdmijcAcS9n8gwPDUvkl2Xg6PD1WrQTJz+kzDoYmMfOFw
+	us7CCvYl3eMlmdLNwzXD2CHS8zAOLK7wl1WODKXhZ3nspmb+PQvYouza4MQRxZLCFhzyCV
+	Z7UMhQfYywAUP7dW+h27aEaAKBkRVLcBa8aorJi9Yihaf1d8XdQEKAWGtozQM2mipEHRLm
+	WXLTfibMMtLBEKQbX/ounBbs1g5g4znpkfGvty8MI6XvVMz2I8cATJQhaKDCVTybdSUny6
+	fW7RihewkG5evYSAdTval3p9jgsm5dTVx1gWyVrdsRjL9OQpZjXkheUB9zeT1Q==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Fri, 23 Jan 2026 17:12:27 +0100
-Subject: [PATCH v5 09/25] drm/tilcdc: Remove redundant #endif/#ifdef in
- debugfs code
+Date: Fri, 23 Jan 2026 17:12:30 +0100
+Subject: [PATCH v5 12/25] drm/tilcdc: Rename tilcdc_external to
+ tilcdc_encoder
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260123-feature_tilcdc-v5-9-5a44d2aa3f6f@bootlin.com>
+Message-Id: <20260123-feature_tilcdc-v5-12-5a44d2aa3f6f@bootlin.com>
 References: <20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com>
 In-Reply-To: <20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -79,9 +79,8 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.15-dev-47773
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_081309_074354_92FEDFEB 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260123_081318_509130_C0864ED5 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +95,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the unnecessary #endif/#ifdef CONFIG_DEBUG_FS pair that splits
-the debugfs code section. This keeps all debugfs-related code within a
-single preprocessor conditional block, improving code readability.
+The tilcdc_external module describes the encoder part of the tilcdc
+driver. Rename it to tilcdc_encoder for better clarity and to make
+the naming more consistent with DRM subsystem conventions, where
+encoder-related files typically use "encoder" in their names.
 
 Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
- drivers/gpu/drm/tilcdc/tilcdc_drv.c | 3 ---
- 1 file changed, 3 deletions(-)
+ drivers/gpu/drm/tilcdc/Makefile                                | 2 +-
+ drivers/gpu/drm/tilcdc/tilcdc_drv.c                            | 2 +-
+ drivers/gpu/drm/tilcdc/{tilcdc_external.c => tilcdc_encoder.c} | 2 +-
+ drivers/gpu/drm/tilcdc/{tilcdc_external.h => tilcdc_encoder.h} | 0
+ 4 files changed, 3 insertions(+), 3 deletions(-)
 
+diff --git a/drivers/gpu/drm/tilcdc/Makefile b/drivers/gpu/drm/tilcdc/Makefile
+index b78204a65ce29..c6b484dad711a 100644
+--- a/drivers/gpu/drm/tilcdc/Makefile
++++ b/drivers/gpu/drm/tilcdc/Makefile
+@@ -6,7 +6,7 @@ endif
+ tilcdc-y := \
+ 	tilcdc_plane.o \
+ 	tilcdc_crtc.o \
+-	tilcdc_external.o \
++	tilcdc_encoder.o \
+ 	tilcdc_drv.o
+ 
+ obj-$(CONFIG_DRM_TILCDC)	+= tilcdc.o
 diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.c b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-index f865c131dae66..fd6764ce80afa 100644
+index 4b9fa819358a2..d0503778b5f6f 100644
 --- a/drivers/gpu/drm/tilcdc/tilcdc_drv.c
 +++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-@@ -429,9 +429,6 @@ static const struct {
- #undef REG
- };
+@@ -26,7 +26,7 @@
  
--#endif
--
--#ifdef CONFIG_DEBUG_FS
- static int tilcdc_regs_show(struct seq_file *m, void *arg)
- {
- 	struct drm_info_node *node = (struct drm_info_node *) m->private;
+ 
+ #include "tilcdc_drv.h"
+-#include "tilcdc_external.h"
++#include "tilcdc_encoder.h"
+ #include "tilcdc_regs.h"
+ 
+ enum tilcdc_variant {
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_external.c b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
+similarity index 98%
+rename from drivers/gpu/drm/tilcdc/tilcdc_external.c
+rename to drivers/gpu/drm/tilcdc/tilcdc_encoder.c
+index 11ac9673ba98a..b1c7b2257df30 100644
+--- a/drivers/gpu/drm/tilcdc/tilcdc_external.c
++++ b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
+@@ -12,7 +12,7 @@
+ #include <drm/drm_simple_kms_helper.h>
+ 
+ #include "tilcdc_drv.h"
+-#include "tilcdc_external.h"
++#include "tilcdc_encoder.h"
+ 
+ static
+ struct drm_connector *tilcdc_encoder_find_connector(struct drm_device *ddev,
+diff --git a/drivers/gpu/drm/tilcdc/tilcdc_external.h b/drivers/gpu/drm/tilcdc/tilcdc_encoder.h
+similarity index 100%
+rename from drivers/gpu/drm/tilcdc/tilcdc_external.h
+rename to drivers/gpu/drm/tilcdc/tilcdc_encoder.h
 
 -- 
 2.43.0
