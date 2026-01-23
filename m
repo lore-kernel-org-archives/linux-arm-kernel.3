@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A14E5D72367
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1529D72369
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CqIzY8uNw+ypdTHIRwXQFWhi6CRiRwX3bbbvW7YCNDw=; b=kwSAx1zABuRTDTzXXSjOzV5KDC
-	2/SsS9WmAYYhYjF6WWzmu4sJU1aSDWS8QGTGbjQPTVHruEPB6up1TKem2iYCcnnDK416YJmBEnZXN
-	gUD3ipZCbaPmGgczqsDtqKlxyhzd4pPUz8UVo4rj0XTBwh6wdXQfKvXNd0cqaGYDPbPFnY72y/kr2
-	vngQn7jat5HKCINb+gzl6wPuJEcr0utdbnRlwD5TM2FUTHG74snTK0BSj34msTs52SDBduiT6gEJf
-	j7srWR8oYHrpH6aYhAzNxRETgs9wk8y4zKWHYEVI1i7qzoVppn64ItrJdETRr0mk/eQIWGQbujFN1
-	0qCz3g2Q==;
+	bh=MarsTdgtHs8teQdoPboCZ01yZL+brlqUeB6u3oqnnnU=; b=ktyD0Q3ttEP11BcB06dQl+8SHi
+	B/LN33VHdZJtfSTDpgeT2fILZG6h2QArjxXUXZxZnQXW9EW7lwE6BD5SOFvYiCpUZchI4cgJb6p9G
+	F3RqUt25jVttSsLmm3kotrDpLBDkActdDmqRBQzu/KKGP+HSe0xM6Ny79WBfJE1zuAlZ36z4wCgOb
+	u+/h2cUzVMGTOiuJGiuVQ3PgHz+IAJL65JrVZYkj6KaCL0kT3sNpjjcBZ3861RBN7NKrJtFSjv30j
+	kIczmgFesb3J02mPa9Jv1J3CAgpx3JAQY1fpFRwWWKO65WJQVJQKds54/HIdcAqXdevj+3CIQ9Jzp
+	XNdg6mHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDrw-00000008dC8-0ipz;
-	Fri, 23 Jan 2026 09:54:20 +0000
-Received: from mail-m15571.qiye.163.com ([101.71.155.71])
+	id 1vjDrx-00000008dCx-0Vpx;
+	Fri, 23 Jan 2026 09:54:21 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDrd-00000008cw7-0mOy
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 09:54:02 +0000
-Received: from albert-OptiPlex-7080.. (unknown [112.65.126.162])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 31bc9a771;
-	Fri, 23 Jan 2026 17:53:55 +0800 (GMT+08:00)
-From: Albert Yang <yangzh0906@thundersoft.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ge Gordon <gordon.ge@bst.ai>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
-	linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	id 1vjDrl-00000008d2Y-0tor;
+	Fri, 23 Jan 2026 09:54:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=MarsTdgtHs8teQdoPboCZ01yZL+brlqUeB6u3oqnnnU=; b=jzAtfmpjcp1cGlyUYb2mCuhVzo
+	M5XxuW+U/wl2DWDe126Ql9Yr7dK7AL8gY3QepJS/bzr5mVcASUWG3brB4/NChFYT5o24NCdW7f4xR
+	l3KVj7UKyaekgyteDjdhBXIcVX/dMAkixK8ryPp2FaCCbOFo0FwsqwQVoN4xLhVpJPb+S1wjub32q
+	HOVVtnCk30IfgKqmIaz49H6ww67bWoI9HjnYft2tsM1jgVEiMFunLrWaKdcwodvWxEBkBotIiJey9
+	AZulNVVRRUSrdx71k4+xoQNpbKer8UES3PGNO9qVj+6a7CvR1X9ZoHa+G1uyDZvwTkAUwTuI4HGa3
+	ok+v8p/A==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42402 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vjDrT-000000001bd-3xmu;
+	Fri, 23 Jan 2026 09:53:52 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vjDrR-00000005fQX-1K9H;
+	Fri, 23 Jan 2026 09:53:49 +0000
+In-Reply-To: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
+References: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Albert Yang <yangzh0906@thundersoft.com>
-Subject: [PATCH v5 5/6] arm64: defconfig: enable BST SDHCI controller
-Date: Fri, 23 Jan 2026 17:53:41 +0800
-Message-ID: <20260123095342.272505-6-yangzh0906@thundersoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260123095342.272505-1-yangzh0906@thundersoft.com>
-References: <20260123095342.272505-1-yangzh0906@thundersoft.com>
+	linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH net-next v2 06/14] net: stmmac: qcom-ethqos: convert to dwmac
+ generic SerDes support
 MIME-Version: 1.0
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9bea4651ab09cckunm2b675df11c3dc7
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDQ0wdVk5PQh0ZSx4eGklPGFYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSklVTU5VSklNVUpNSVlXWRYaDxIVHRRZQVlPS0hVSktJT09PSFVKS0
-	tVSkJLS1kG
-DKIM-Signature: a=rsa-sha256;
-	b=JojwF5MTp9Pg4shEq7MQHx+Wa9D6i3L7XgV23AckiCHQIRo2wNPD2z5248B3Vbm5Cdo6WcaCu5WFkOYKVpIOa+v3Opz0YOI+IbhDL3tpEJOu6BYj7LbKWWr2JDqgTPZ/Uab1NY8VMkdClK7PR0RSC7FGviL8gIbiLDD6xiNJDjQ=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=CqIzY8uNw+ypdTHIRwXQFWhi6CRiRwX3bbbvW7YCNDw=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vjDrR-00000005fQX-1K9H@rmk-PC.armlinux.org.uk>
+Date: Fri, 23 Jan 2026 09:53:49 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_015401_418129_C2556944 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260123_015409_298288_16191D22 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +94,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable CONFIG_MMC_SDHCI_BST to support eMMC on Black Sesame
-Technologies C1200 boards.
+Convert qcom-ethqos to use the dwmac core's generic SerDes support,
+which will handle SerDes initialisation, powering, and mode setting.
 
-Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
+Note that generic support requires the SerDes to support phy_validate()
+in order to probe which PHY interface modes are supported, and
+phy_set_mode_ext() to configure the appropriate PHY interface mode
+(and thus the speed.)
 
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-Changes for v5:
-- Split from platform series per Arnd's feedback
+ .../stmicro/stmmac/dwmac-qcom-ethqos.c        | 50 ++-----------------
+ 1 file changed, 3 insertions(+), 47 deletions(-)
 
-Changes for v4:
-- Move CONFIG_MMC_SDHCI_BST before CONFIG_MMC_SDHCI_F_SDH30
-
-Changes for v3:
-- Split from arm64: dts patch
-
-Changes for v2:
-- Initial defconfig change included in DTS patch
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 45288ec9eaf7..7f4da3117329 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1222,6 +1222,7 @@ CONFIG_MMC_BLOCK_MINORS=32
- CONFIG_MMC_ARMMMCI=y
- CONFIG_MMC_SDHCI=y
- CONFIG_MMC_SDHCI_ACPI=y
-+CONFIG_MMC_SDHCI_BST=y
- CONFIG_MMC_SDHCI_PLTFM=y
- CONFIG_MMC_SDHCI_OF_ARASAN=y
- CONFIG_MMC_SDHCI_OF_ESDHC=y
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+index 80ea69fc8ee5..a0b893d3fbd4 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+@@ -103,8 +103,6 @@ struct qcom_ethqos {
+ 	int (*configure_func)(struct qcom_ethqos *ethqos, int speed);
+ 
+ 	struct clk *link_clk;
+-	struct phy *serdes_phy;
+-	int serdes_speed;
+ 	phy_interface_t phy_mode;
+ 
+ 	const struct ethqos_emac_por *por;
+@@ -584,14 +582,6 @@ static int ethqos_configure_rgmii(struct qcom_ethqos *ethqos, int speed)
+ 	return 0;
+ }
+ 
+-static void ethqos_set_serdes_speed(struct qcom_ethqos *ethqos, int speed)
+-{
+-	if (ethqos->serdes_speed != speed) {
+-		phy_set_speed(ethqos->serdes_phy, speed);
+-		ethqos->serdes_speed = speed;
+-	}
+-}
+-
+ static void ethqos_pcs_set_inband(struct stmmac_priv *priv, bool enable)
+ {
+ 	stmmac_pcs_ctrl_ane(priv, enable, 0);
+@@ -609,17 +599,14 @@ static int ethqos_configure_sgmii(struct qcom_ethqos *ethqos, int speed)
+ 	case SPEED_2500:
+ 		rgmii_setmask(ethqos, RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
+ 			      RGMII_IO_MACRO_CONFIG2);
+-		ethqos_set_serdes_speed(ethqos, SPEED_2500);
+ 		ethqos_pcs_set_inband(priv, false);
+ 		break;
+ 	case SPEED_1000:
+ 		rgmii_setmask(ethqos, RGMII_CONFIG2_RGMII_CLK_SEL_CFG,
+ 			      RGMII_IO_MACRO_CONFIG2);
+-		ethqos_set_serdes_speed(ethqos, SPEED_1000);
+ 		ethqos_pcs_set_inband(priv, true);
+ 		break;
+ 	case SPEED_100:
+-		ethqos_set_serdes_speed(ethqos, SPEED_1000);
+ 		ethqos_pcs_set_inband(priv, true);
+ 		break;
+ 	case SPEED_10:
+@@ -627,7 +614,6 @@ static int ethqos_configure_sgmii(struct qcom_ethqos *ethqos, int speed)
+ 			      FIELD_PREP(RGMII_CONFIG_SGMII_CLK_DVDR,
+ 					 SGMII_10M_RX_CLK_DVDR),
+ 			      RGMII_IO_MACRO_CONFIG);
+-		ethqos_set_serdes_speed(ethqos, SPEED_1000);
+ 		ethqos_pcs_set_inband(priv, true);
+ 		break;
+ 	}
+@@ -648,30 +634,6 @@ static void ethqos_fix_mac_speed(void *priv, int speed, unsigned int mode)
+ 	ethqos_configure(ethqos, speed);
+ }
+ 
+-static int qcom_ethqos_serdes_powerup(struct net_device *ndev, void *priv)
+-{
+-	struct qcom_ethqos *ethqos = priv;
+-	int ret;
+-
+-	ret = phy_init(ethqos->serdes_phy);
+-	if (ret)
+-		return ret;
+-
+-	ret = phy_power_on(ethqos->serdes_phy);
+-	if (ret)
+-		return ret;
+-
+-	return phy_set_speed(ethqos->serdes_phy, ethqos->serdes_speed);
+-}
+-
+-static void qcom_ethqos_serdes_powerdown(struct net_device *ndev, void *priv)
+-{
+-	struct qcom_ethqos *ethqos = priv;
+-
+-	phy_power_off(ethqos->serdes_phy);
+-	phy_exit(ethqos->serdes_phy);
+-}
+-
+ static int ethqos_clks_config(void *priv, bool enabled)
+ {
+ 	struct qcom_ethqos *ethqos = priv;
+@@ -790,12 +752,11 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	ethqos->serdes_phy = devm_phy_optional_get(dev, "serdes");
+-	if (IS_ERR(ethqos->serdes_phy))
+-		return dev_err_probe(dev, PTR_ERR(ethqos->serdes_phy),
++	plat_dat->serdes = devm_phy_optional_get(dev, "serdes");
++	if (IS_ERR(plat_dat->serdes))
++		return dev_err_probe(dev, PTR_ERR(plat_dat->serdes),
+ 				     "Failed to get serdes phy\n");
+ 
+-	ethqos->serdes_speed = SPEED_1000;
+ 	ethqos_set_clk_tx_rate(ethqos, NULL, plat_dat->phy_interface,
+ 			       SPEED_1000);
+ 	ethqos_set_func_clk_en(ethqos);
+@@ -816,11 +777,6 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+ 	if (data->dma_addr_width)
+ 		plat_dat->host_dma_width = data->dma_addr_width;
+ 
+-	if (ethqos->serdes_phy) {
+-		plat_dat->serdes_powerup = qcom_ethqos_serdes_powerup;
+-		plat_dat->serdes_powerdown  = qcom_ethqos_serdes_powerdown;
+-	}
+-
+ 	/* Enable TSO on queue0 and enable TBS on rest of the queues */
+ 	for (i = 1; i < plat_dat->tx_queues_to_use; i++)
+ 		plat_dat->tx_queues_cfg[i].tbs_en = 1;
 -- 
-2.43.0
+2.47.3
 
 
