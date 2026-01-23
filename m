@@ -4,56 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C58CD6CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 06:13:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79C23D6CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 06:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=asr4BOwImGHMGhCGPa+qMP8VPUAkfUmh4Wamxnyaxsg=; b=iqOlY+WX5vMBGcVjTUUkTuLHcb
-	2j9LUEr5ip8haLwCuW1z+Qk30TUxcZ2Sm6fQTYEE/JKJxiqbx/t9nUZwd7vX2NqHkPIcA5+k/0iR4
-	3yCQfML+Oswl+ybajKZcDfDur4UzqgqZInzAUXeJohuieaZ0OD5qEiUYUha4GPI1vOQLwQ2jvChex
-	ODXn1/bKyhIhvAyFbJz590Hq4GFvtrcDfKTEIcPhgD7JxcrVusZUvd5wIX2oGHMQmLd21/GE9NH3E
-	Kuhebud4xiQb59iTM8KtwFhoCwyVkOh2HhKAd70/9BC6/ALYIV0TgZohAO9PXE/4Szcf3iAywioXP
-	X/xnHdig==;
+	bh=QrGbo2L7D0H2RH3iPvh1Ab1HWPKVzZ5/HEW5YJ945H8=; b=KNP1W24hM+n853gOdBbIVW/Q/5
+	vUJzjK8gjNagRTNQhgvYLOpcwTh6Oo7kRiUFWjoKmZ3YcSDXa2lDd/QxEP63y2ptUDWzHSXjqrypy
+	RM0GPXk0tHnUiPBr5P9m+Cal2zHJlsVoLzmpUfOBCi6YmD4FSgltFeLivlFs9puzyEQZ0nNWSNxgf
+	DTt9LCOYKCkuNY/z5aPZVEuelxKysdFLtgupZkWcRSSLRI88KBXtX0C50jHAb2xF+BNV9ggiIDAZK
+	UkaGR0BQPWZ+ujzBfJ01tqRBMzKV+6Ded38AMkW/JYBGmSwMyf5vuULKnErz6NScTJDH698VTWuyu
+	+jyEpMeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjAPg-00000008H9B-3PdM;
-	Fri, 23 Jan 2026 06:12:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjAPd-00000008H8l-1WYE
+	id 1vjAPx-00000008HBy-0UNc;
+	Fri, 23 Jan 2026 06:13:13 +0000
+Received: from mail-westeuropeazon11013041.outbound.protection.outlook.com ([52.101.72.41] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjAPu-00000008HAg-1JzT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 06:12:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9BC821476;
-	Thu, 22 Jan 2026 22:12:41 -0800 (PST)
-Received: from [10.164.18.52] (unknown [10.164.18.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E60603F740;
-	Thu, 22 Jan 2026 22:12:44 -0800 (PST)
-Message-ID: <d5c7ed76-2b54-4c6e-961f-6ba1e4011467@arm.com>
-Date: Fri, 23 Jan 2026 11:42:42 +0530
+	Fri, 23 Jan 2026 06:13:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=r6QStH2MURFv9PmX8dv1d5iSl4cYUMxTWyExu7jqpW0ICvXUXkXROQGTUkin5awdFWiV0R7AJmkCCINt2irY+vo5BGHyc03xsPKT4C340vLJQ8+7XCJiilNenbelQGI+soUoDkiUfFUvJKOUc8GKWD88gmhQCtAMxoipBVzCAkdRPazK9YQygqI+wTGSVGsCI0KPcVJGzZUknAZ3i6r5ZKqfJMQDAnuX0C7d2c3xUBHhAFhQJsuQ9IvkMgBCDHYNwQdDzeG1nPGcr3XncXKz2I2PE8LlbyEkgFcl6j+lP62b+jr0uRsbYYk/qNw1cQgCm6O3Z/vE+3NIdxhm2cP4aw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QrGbo2L7D0H2RH3iPvh1Ab1HWPKVzZ5/HEW5YJ945H8=;
+ b=jV+CBebjrV4IpCg4YIlyqBMYKKjXzFiKRTEL29YaBkyhDb+LBZx+04EjDB+WJudn4yERQkWBBBo3Nljm5W3qNFMFvG5lTNCIsYttGmiD69nfQFy2qEMMkFl/MZQvX37hYjnppQSwD7hsBF5Jia3pFBWLXTRFZorCAo2dh+gYVmH+ZuwrM5j0F2wEAjBkdzApIzfpU0d13isE8zEih5YXFQeTDqCexwxW6kORdUPTT4WR5zDEeKNN/8OmHIocbeUxZNpjOgNPDpeh3mH8Cm7rTa05m7ShOsA4cvcBYiilg9ruOSe1+7LxZ6+Ixne13OhN9T/jT+SCbSwkUIpSngr/HA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QrGbo2L7D0H2RH3iPvh1Ab1HWPKVzZ5/HEW5YJ945H8=;
+ b=u6YjY+W3LBxStBQh2t8ev49nqWQNCZYkkJAceGVZspXRCY0urA5WwrxFi39izTH8tWh+aDaB9c8p+39uR0X6WYXMA+haidPQpBtwUK81rmRNqCTzZ6/pB5Mq0XcH4u7wymL8yrXgqKycopar7g3VUPCKzYcEGsAn2unRvuNwzbtGTaDQ2RG0a08gRnqiure1tnw8PdeQvnFHk9se++j0BktTjc6sebyodPw2KBafabF8bhR1KKYNsv7En/3wfvzeZFTtFNyr19IErl1bLK+GIHitmqK+I8hzuzkBEVx2Gm43yfZf+Tbe2MKkNEPnlISO9QD8cKvxlzaPaEpvDtzfWA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PA4PR04MB7631.eurprd04.prod.outlook.com (2603:10a6:102:e1::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Fri, 23 Jan
+ 2026 06:13:03 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::4972:7eaa:b9f6:7b5e%5]) with mapi id 15.20.9542.009; Fri, 23 Jan 2026
+ 06:13:03 +0000
+Date: Fri, 23 Jan 2026 14:12:51 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Sebin Francis <sebin.francis@ti.com>,
+	Brian Masney <bmasney@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v7 0/6] clk: Support spread spectrum and use it in
+ clk-scmi
+Message-ID: <aXMRY2oXA9PNdsL6@shlinux89>
+References: <20251231-clk-ssc-v7-1-v7-0-380e8b58f9e3@nxp.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251231-clk-ssc-v7-1-v7-0-380e8b58f9e3@nxp.com>
+X-ClientProxiedBy: SG2PR01CA0177.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:28::33) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] arm64: Move fixmap page tables to end of kernel image
-To: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
- catalin.marinas@arm.com, mark.rutland@arm.com,
- Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
- Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
-References: <20260119164747.1402434-6-ardb+git@google.com>
- <20260119164747.1402434-7-ardb+git@google.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260119164747.1402434-7-ardb+git@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA4PR04MB7631:EE_
+X-MS-Office365-Filtering-Correlation-Id: 52590cb5-503b-4b68-863f-08de5a46772a
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OFdqekRMODFwbDRYbzAzNlFVUzFwMldvd0xLQ3BOeGRBMnY4SGhPNGZWMEEx?=
+ =?utf-8?B?aEFYVCtld2VwdGVmWUNIT0JnL1VLbWFmYUxndEE0OUwrQWNzVkF6ajhMWFNm?=
+ =?utf-8?B?MUFKWDlhU0d2anFvVThMak43UmVQSVJlWjh2Q1d0eXQzRGZ1TGx1di8zQ0FH?=
+ =?utf-8?B?TWNXK016aFg0cWgrdDNoclZCT29ab1EyTmViYjlyUlJaTk44QnZMQzdaTWFl?=
+ =?utf-8?B?ZDFsU0VMSW1CYXREVzFPMEZ5QytJdUVDZC9CbWVZc1lXcy94RWNkZm5RUFdH?=
+ =?utf-8?B?ZUdIYkc4R2U1RFBPVjYyeUtGQ29oME52akdsNll2Zzh6S1dEeU85dUExbUww?=
+ =?utf-8?B?c1JlNHZRS0VuQVc2U2JoM3lpc2ZIRUs2OEhjanFXdGg3a3Y3Zy9YamFONmJj?=
+ =?utf-8?B?cFZFUEdWLzNaSWVxYkRQTUpqdTN5d0lGSE9XcHdpUyttNXpnSW1FMHprdFdS?=
+ =?utf-8?B?b1d5NTZ4Z1hnaE1pcFFXTmR1Y2V5d29CNlA2Vm1MblNGME5oTytzSXFLQUY4?=
+ =?utf-8?B?V045QnllN3JSNDZnaFFvWUFNZjNMcjBaOUFhTGhFL3B3Wk5vTWFWZVlHTEgv?=
+ =?utf-8?B?d3RYN0YwRlp5SkoxNXE4OXkrbUY2Z1Z3REw2Y2t6bE9SbXI2NkZEaFJmTDFu?=
+ =?utf-8?B?SEZveTkzUlV5bnl0UVE2R1lxR2pyNXhqQWVQRG44RUFWS1pmV25jczdqTXBB?=
+ =?utf-8?B?em9Vd21zbHFTcktwb0xmbUlUNG9MK2IwMVZkMy9EejVSdy9JUk1ibkh5WHBw?=
+ =?utf-8?B?WWJCTVV0dC85VnNocWpOOFFLN3hjMTQrRW1Dd2hPS3VZQlpIb25qTHFaRVNm?=
+ =?utf-8?B?MnZRMk9uWk80RzNVQkJjdURhSmQyc0ZnQWh4eDZXWWJxMzJpMjV0Zys5Zi95?=
+ =?utf-8?B?SE94L29VUk9ZUi9hWVhoMmxIejZHMHJkcVU4ZktFS3h4YmIwZ0Vvd3F2UFkw?=
+ =?utf-8?B?ZGdXT3RaVnhMQktUOGNORG9saXNlY3ozNmRSeko2T1p3d09vYUdiSENtc3hT?=
+ =?utf-8?B?VEJVWXFHODI0MjhCRFQrUVFTeUpTeFlZc0l1cmFYeG9RcENwcEV3ekducEtS?=
+ =?utf-8?B?S3JnVk1qTXFTYVU2ZkVqUC9GQmZqTVpMb3hQUkNLQUVoN0dGOXpFcERTSEU1?=
+ =?utf-8?B?QlRhSExVRmkzSzZrdHlVQm5EZnZQaWprZExCWmZoM0hWcnNIbEUySFlWVHli?=
+ =?utf-8?B?VTFQY2dnVWx5NXMvd2xldWpTUmp6akI5Vm85SkdjZld6NGtJbEhjSkRETE1x?=
+ =?utf-8?B?S0tmanpmWUJFVjRNamFDWWlzY3ZQbDVUSlEyNDZDQTc5V3RudHlvNHdmY3ZV?=
+ =?utf-8?B?WHViNXR1WUJPTzZ0anJjb2FGbEJzYWZVWi82MzdyVUUzeHp1MUs5K2xlbElO?=
+ =?utf-8?B?cjk1clNLeVNybEsxWkQraU5RcDcyVllPR2k2cnlvaTk3YWJsVDNoSWl4MjF5?=
+ =?utf-8?B?WlpIdUg5bUFtV1JrWXRFV29KNGlVd0o2elFSWnhjSWZWMlhQblFUMUJTeWFF?=
+ =?utf-8?B?OVlGNEE2cFcwWHhuT2szWUpGTXcwSzBKNC9VekN3djA1L2d2ZVliSlh4Yk1I?=
+ =?utf-8?B?dWlva0tIZ3pHVE83TFlBUExoNkVYTlNZU0cyOENRVGtVWHlha2RRRElEcXhp?=
+ =?utf-8?B?WmF6ME85NEJPMEQ0UUo1cEpHYUlMR1NGOTdVZGtHOGxrMmludUJuNDFzQTh1?=
+ =?utf-8?B?enVLUGZGdHY2Y2xoc1VKNHhPQzFwVzE2SEt3ODcvOGN3SC9BQ2dmVHQ0dUJS?=
+ =?utf-8?B?NTNXZ285b2lESDBtUTR6NjRiOGx5MEFEVmVGZWRlWWxTdFNTRVQwTmQrVkRo?=
+ =?utf-8?B?Q053M2pVN1FCMHNpbXR5LzhSYzZmdEVicnlZVU9yM2VQQStqRHFoVHc2QVR1?=
+ =?utf-8?B?RG11ZWFJSmVkdjNESDI2MzRtZXBxdkFBZ2hWbnArTFlRSXdZa3BBdFgrcHdv?=
+ =?utf-8?B?UjlsSmNTQm84VS9TSHczZTVSUzdiWk90WGRjU3lxUm1oSVNTdnBGNUY0ZGlI?=
+ =?utf-8?B?T1FYcTE3U09va2VWWktXYVJ3MWJSNXRNcDMyTnBhaG1BTE9wUjB4d2dkTC8v?=
+ =?utf-8?B?OGtoVTVUUjJRR09IdHlYd0xZQ0FTV0t6elVGNFVCdm9aTnZDOSt3VlpVOUdF?=
+ =?utf-8?B?S3R3TSs0YmRHdDZobWd6MU0rOENHVDlyZVY4V21UQW14cWlNdSsyTEJIWXVX?=
+ =?utf-8?Q?bvar/VKSeHPpN/x2Lfry4vzxJn+ULsvUVDOceRAqu13i?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SkpnMlpmVjd5WUUrZE9UYU1ZNVNnakQrTGNsb0tCdGE3ZEJWalNrd1BuZGx2?=
+ =?utf-8?B?RFdCbUh0bUNiSTBNZEkrRTVRcURTQW5BNEJDUHpVQ0JMaEV0YVkwU0VMTlhF?=
+ =?utf-8?B?L0VsaUphejdyWVVVNjFMQUdWdXhKcklnbjZjN2RKZUhib2t5OXc5cFVnY0Fn?=
+ =?utf-8?B?d0cxR3YxZHcrYmZnN0Jnd0c0N3dYZHhQZllvODI4ays5YnNjL282Kzc2bGM4?=
+ =?utf-8?B?emRBalZlNGZ0Q2ZWbVIxWUdRTXpnSjlaMzhkOG5nY1pkZGZNYXF5a1R2aXVm?=
+ =?utf-8?B?Q1RzNnpUVHA3R1o5UGwzK0U5MGtoZzh0em9YTkZBODZzTVQwZ0ZKYXRGakxP?=
+ =?utf-8?B?R0xGRURDb29Zb3NCNnlnOEEzZlhpYmZsN0htWkVmTmhoSDBYWjJxcUZQcHdN?=
+ =?utf-8?B?Y1AwbEJTK3FRdC91dWJ2L2Z6cUkvelIzcElPSUNkbEFLdHJTamNUZUd3b2Qv?=
+ =?utf-8?B?QlVTWUdNOU9IQ3Z0cUFXcEkrNzlkZzZDUzhmbzFSOUNXQUllR3c5U00xMkdD?=
+ =?utf-8?B?Tzlya1NCbEs0WmJiVW9aWHA1QWNOQ2xFR1JtMEZXMkhpbnJyUVVZblVhYjFj?=
+ =?utf-8?B?TWxTMXdENXNHcms2ZFJtcm1Ta2RES2ZQRGRnbTBueE9iN1BVekIyU05vN096?=
+ =?utf-8?B?SzFVVGRwQUNrVUNmOE5tVytrdXN5aFd1amZXUTNYM1lwbzAvb1pMRDdYK1gy?=
+ =?utf-8?B?MU1NTE1vN3dpcXBIbFB2VERHeVdSV0E5aUg2QmFPRzRYekVtUDdScko4SEY2?=
+ =?utf-8?B?OWZEMmJaZU9EbTNwMUtxaGRlT0lKUU51SC9PMDU1NWpnK3U4c1NFSFRLaktQ?=
+ =?utf-8?B?cERlNU9VSmw1TzJqblQwYWE4RFJxckNoUlFLZWhmZkRMRXd5Wkc2SlFJWWZh?=
+ =?utf-8?B?Z2VWRnQ1eE0vd3hXeUhlNERsWmdmS3VITU1iaFdzaVFoMXhNMWRUSmg2VWp1?=
+ =?utf-8?B?cjNBVy9FRUNQMnZUbTREVmJXSldCanpyVlM2bjRmcmdzTFRjZTRIaDFLTnh6?=
+ =?utf-8?B?VVJtN2I4R3UzRzVMQXVPdUVHWlJpU1pLQWxJcDlHcUxoeG5GUXJKT2Zrd043?=
+ =?utf-8?B?ZDVMUHduZ1phRHlyZkNCdzVlN2NRNE5IaHNjNzJVYTA0Q2NMMzl2WWNFc0ZT?=
+ =?utf-8?B?OTBYcnlxU0NjSXhwMVZ0bXhjVGtmdlBRTlNWR3VGY05ZTFZwbHNWYUJvTWE0?=
+ =?utf-8?B?djJUWGNQNmtEM2dhWXNWNFdzNlhUSm9GUWgxWWpTTlFJRTBkVkFHMU51WE9Y?=
+ =?utf-8?B?ZWRyOUVmU1V2bFJLSTVGKys3TFpBUEUxeUdLcmMwRkVHeElhSGlCdU5ZVXgy?=
+ =?utf-8?B?RUt6NG9wd0lWaXBmZElOVXQ4d202L2JvWDRrWldqU0lHN21TNmllNnNmdlgy?=
+ =?utf-8?B?RldiZ1g1OTU3bUJXR3B4U0F3d0Y3U0JSZ3VDRzN5WGdoaVY4MVlXQzljbmk1?=
+ =?utf-8?B?aTNwa0x3SkFBUFVuOFhOY1l0V3BLMUFxdzQ0eEQyR1FuU2R5OEpNWWFRSVpN?=
+ =?utf-8?B?bVFRRDF5OUFVemFsdm4xOU1TTWxpOFdMTjR1VGltZFlZTnQwSHJvRjRkUmZY?=
+ =?utf-8?B?aHBlNGltUy9jVXVpZy85MjdzM2UrZStVYlhKY0s3M1FrVFFIN0VIS1Uxd2Vh?=
+ =?utf-8?B?U0czZUVHNEk5YnNIOVQxMEpSM1d4WmhJbG43T2NyYkswcU1yWlo2Ty9zdWZR?=
+ =?utf-8?B?bmpEMlhEbElTRWVIVWl6Rzl1OXJiaW95SnRJMTFNcG5IaWJkUXB6NXJxK09F?=
+ =?utf-8?B?NVlOZmgyb0I3c1ZXelZpM2pic08wdHBNazlTQUJQU0poeXk0SXRIODQ2bGU1?=
+ =?utf-8?B?ak1WK0pCdGFUUU16cnhGV0MyZDN6NmdZRWV4MUF0TEUwOUtJS2t2bklTc1pQ?=
+ =?utf-8?B?VjN2Lyt3RUxRZzYzU2pGaS96WCtWQWRNa05sZWtPcFNBLyt2TlYySTNiU1RH?=
+ =?utf-8?B?djNWSlp1a1lkKzgxZzl5QUhhTVI5eXVUUUdITkdrVis4QUY0NHU4ZHVId0xN?=
+ =?utf-8?B?UUxDdTZBSWZpZUkwRnJ2MU8rZVVOZy9NaWNFaVN5VFE1WWd3b0ZzbEFROWsz?=
+ =?utf-8?B?c3daVXR4cjZadTFQU1QxU3VwdnAySFh1S1hqWDluRTNOTU5INDdxcEI5dmky?=
+ =?utf-8?B?bmJxZ2x6TkxOTEVDd0tkRzByZHdhV0JvVVozdjhFWGpvWUxWK2VTWVoxOWY4?=
+ =?utf-8?B?U2lGSmdGdnVSZ0pzTzhYU2dHdS9FVGN0U293WEZMRzIxLzcwUmNVUVJ4aE16?=
+ =?utf-8?B?djdwREcyT0ZydmhuNjZ3RStWdVRPQ3pycGgrOHVqU1JCempUN1cwUnAzVlV3?=
+ =?utf-8?B?VVNZMkRUc3NRSkVhMHI4eXI0TWRKOThub04rNzZobGJ1d0FhLzRFZz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 52590cb5-503b-4b68-863f-08de5a46772a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 06:13:02.9633
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zanq2Cp3pdCs5BNi9HMY8DjEK2C0HYq+Ag1IZ5OLz50NuY561sTGezg8pN6rHkThpesWMOr4T7yqQphrdjq22g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7631
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260122_221253_465059_54800884 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20260122_221310_361224_69F23A19 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,62 +192,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Stephen,
 
+Is this patchset good to you?
 
-On 19/01/26 10:17 PM, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> Move the fixmap page tables out of the BSS section, and place them at
-> the end of the image, right before the init_pg_dir section where some of
-> the other statically allocated page tables live.
-> 
-> These page tables are currently the only data objects in vmlinux that
-> are meant to be accessed via the kernel image's linear alias, and so
-> placing them together allows the remainder of the data/bss section to be
-> remapped read-only or unmapped entirely.
-> 
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/arm64/kernel/vmlinux.lds.S | 5 +++++
->  arch/arm64/mm/fixmap.c          | 7 ++++---
->  2 files changed, 9 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-> index ad6133b89e7a..df530e6f3e53 100644
-> --- a/arch/arm64/kernel/vmlinux.lds.S
-> +++ b/arch/arm64/kernel/vmlinux.lds.S
-> @@ -334,6 +334,11 @@ SECTIONS
->  	__pi___bss_start = __bss_start;
->  
->  	. = ALIGN(PAGE_SIZE);
-> +	.pgdir : {
-> +		__pgdir_start = .;
+Thanks,
+Peng.
 
-Does __fixmap_pgdir_start with an end marker __fixmap_pgdir_end sound better ?
-
-> +		*(.fixmap_bss)
-> +	}
-> +
->  	__pi_init_pg_dir = .;
->  	. += INIT_DIR_SIZE;
->  	__pi_init_pg_end = .;
-> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-> index c5c5425791da..b649ea1a46e4 100644
-> --- a/arch/arm64/mm/fixmap.c
-> +++ b/arch/arm64/mm/fixmap.c
-> @@ -31,9 +31,10 @@ static_assert(NR_BM_PMD_TABLES == 1);
->  
->  #define BM_PTE_TABLE_IDX(addr)	__BM_TABLE_IDX(addr, PMD_SHIFT)
->  
-> -static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __page_aligned_bss;
-> -static pmd_t bm_pmd[PTRS_PER_PMD] __page_aligned_bss __maybe_unused;
-> -static pud_t bm_pud[PTRS_PER_PUD] __page_aligned_bss __maybe_unused;
-> +#define __fixmap_bss	__section(".fixmap_bss") __aligned(PAGE_SIZE)
-> +static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __fixmap_bss;
-> +static pmd_t bm_pmd[PTRS_PER_PMD] __fixmap_bss __maybe_unused;
-> +static pud_t bm_pud[PTRS_PER_PUD] __fixmap_bss __maybe_unused;
->  
->  static inline pte_t *fixmap_pte(unsigned long addr)
->  {
-
+On Wed, Dec 31, 2025 at 06:12:47PM +0800, Peng Fan (OSS) wrote:
+>Since the assigned-clock-sscs property [1] has been accepted into the device
+>tree schema, we can now support it in the Linux clock driver. Therefore,
+>I've picked up the previously submitted work [2] titled "clk: Support
+>spread spectrum and use it in clk-pll144x and clk-scmi."
+>As more than six months have passed since [2] was posted, I’m treating this
+>patchset as a new submission rather than a v3.
+>
+>- Introduce clk_set_spread_spectrum to set the parameters for enabling
+>  spread spectrum of a clock.
+>- Parse 'assigned-clock-sscs' and configure it by default before using the
+>  clock. This property is parsed before parsing clock rate.
+>- Enable this feature for clk-scmi on i.MX95.
+>
+>Because SCMI spec will not include spread spectrum as a standard
+>extension, we still need to use NXP i.MX OEM extension.
+>
+>[1] https://github.com/devicetree-org/dt-schema/pull/154
+>[2] https://lore.kernel.org/all/20250205-clk-ssc-v2-0-fa73083caa92@nxp.com/
+>
+>Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>---
+>Changes in v7:
+>- Add R-b from Sebin
+>- Drop __free usage per comment from Krzysztof in patch 3
+>- Link to v6: https://lore.kernel.org/linux-clk/20251128-clk-ssc-v6-2-v6-0-cfafdb5d6811@nxp.com/
+>
+>Changes in v6:
+>- Add kunit build warning
+>- Update OEM string comparation per Sebin
+>- Link to v5: https://lore.kernel.org/linux-clk/20251009-clk-ssc-v5-1-v5-0-d6447d76171e@nxp.com/
+>
+>Changes in v5:
+>- Per Stephen, export clk_hw_set_spread_spectrum, use enum for method,
+>  add const for set_spread_spectrum and rename clk_ss/conf to ss_conf.
+>- Per Sebin, Cristian, Sudeep, I added clk-scmi-oem.c to support vendor
+>  extensions.
+>- Link to v4: https://lore.kernel.org/arm-scmi/aNQPWO6pfA_3mmxf@redhat.com/T/#me81231bf286e2a8e4e00a68707ed1e525a2b4a3d
+>
+>Changes in v4:
+>- Add R-b for patch 1 from Brian
+>- Drop unecessary change in patch 4 Per Brian
+>- Link to v3: https://lore.kernel.org/r/20250912-clk-ssc-version1-v3-0-fd1e07476ba1@nxp.com
+>
+>Changes in v3:
+>- New patch 1 for dt-bindings per comment from Brian
+>  https://lore.kernel.org/all/aLeEFzXkPog_dt2B@x1/
+>  This might not be good to add a new dt-binding file in v3. But this is
+>  quite a simple file that just has four macros to encode modulation
+>  method. So hope this is fine for DT maintainers.
+>- Add Brain's R-b for patch 2
+>- New patch 3 to add Kunit test per Brain. Since Brain helped
+>  draft part of the code, I added Co-developed-by tag from Brain.
+>- Link to v2: https://lore.kernel.org/r/20250901-clk-ssc-version1-v2-0-1d0a486dffe6@nxp.com
+>
+>Changes in v2:
+>- Simplify the code in patch 2 per Dan Carpenter and Brian Masney
+>- Rebased to next-20250829
+>- Link to v1: https://lore.kernel.org/r/20250812-clk-ssc-version1-v1-0-cef60f20d770@nxp.com
+>
+>---
+>Peng Fan (6):
+>      dt-bindings: clock: Add spread spectrum definition
+>      clk: Introduce clk_hw_set_spread_spectrum
+>      clk: conf: Support assigned-clock-sscs
+>      clk: Add KUnit tests for assigned-clock-sscs
+>      clk: scmi: Introduce common header for SCMI clock interface
+>      clk: scmi: Add i.MX95 OEM extension support for SCMI clock driver
+>
+> drivers/clk/Makefile                               |   8 +-
+> drivers/clk/clk-conf.c                             |  75 +++++++++++++
+> drivers/clk/clk-scmi-oem.c                         | 103 ++++++++++++++++++
+> drivers/clk/clk-scmi.c                             |  44 +++-----
+> drivers/clk/clk-scmi.h                             |  51 +++++++++
+> drivers/clk/clk.c                                  |  27 +++++
+> drivers/clk/clk_test.c                             | 121 ++++++++++++++++++++-
+> drivers/clk/kunit_clk_assigned_rates.h             |  10 ++
+> drivers/clk/kunit_clk_assigned_rates_multiple.dtso |   6 +
+> ...kunit_clk_assigned_rates_multiple_consumer.dtso |   6 +
+> drivers/clk/kunit_clk_assigned_rates_one.dtso      |   3 +
+> .../clk/kunit_clk_assigned_rates_one_consumer.dtso |   3 +
+> .../clk/kunit_clk_assigned_rates_u64_multiple.dtso |   6 +
+> ...t_clk_assigned_rates_u64_multiple_consumer.dtso |   6 +
+> drivers/clk/kunit_clk_assigned_rates_u64_one.dtso  |   3 +
+> .../kunit_clk_assigned_rates_u64_one_consumer.dtso |   3 +
+> drivers/clk/kunit_clk_assigned_sscs_null.dtso      |  16 +++
+> .../clk/kunit_clk_assigned_sscs_null_consumer.dtso |  20 ++++
+> drivers/clk/kunit_clk_assigned_sscs_without.dtso   |  15 +++
+> .../kunit_clk_assigned_sscs_without_consumer.dtso  |  19 ++++
+> drivers/clk/kunit_clk_assigned_sscs_zero.dtso      |  12 ++
+> .../clk/kunit_clk_assigned_sscs_zero_consumer.dtso |  16 +++
+> include/dt-bindings/clock/clock.h                  |  14 +++
+> include/linux/clk-provider.h                       |  31 ++++++
+> 24 files changed, 586 insertions(+), 32 deletions(-)
+>---
+>base-commit: cc3aa43b44bdb43dfbac0fcb51c56594a11338a8
+>change-id: 20251231-clk-ssc-v7-1-402dd4f9e629
+>
+>Best regards,
+>-- 
+>Peng Fan <peng.fan@nxp.com>
+>
 
