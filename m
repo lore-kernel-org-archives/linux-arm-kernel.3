@@ -4,83 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2DB8D74EFC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:14:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 007A2D74EFB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uo3AvkfjrdalsyUZuA1OMe08gwk1pI/nU7JxApdIRbQ=; b=B8vmibjpYDWvAVYvHCZWpphp0j
-	yXivWDQJBim5HFRDXUYjwSTlVDbvsbsuJAwIgjbSD8+wiEqC4iNCvvlGOwEsDKdSylD/xrH1/rKkR
-	I2zwstcGLQfvY0idG3oxINeo9WQxjRbP0v2zSb0FtlBvtHIMaVxHe5m4Nv1KIZ999oqiAF2YDkOj/
-	chNOO57SJd+iioZ/hpheT9+TVat6oaQIO+rOjf/OlDT9Ewtw24qV8f6XoUbI8TKd7oivV+snhEwC2
-	QioeFcIXIrhNcvfHj1WaH+syy9JM5kjzzg1syYUd0VgnQtl38/xOnw9lJyVLhfq3jPH2bXfZqeIFJ
-	AfPIpDJw==;
+	bh=vOkRLjnifceecHRFjfFtA9Hu0YVFrmdtZP58mWOpjc8=; b=AguLuwFSXtI8Hrn8OiPVwdOlgL
+	SM2KLPgyJjavJPIiRw+hYx0WOJJCbyTsfkXpFy5CHTtUVbD572hVPDGrBw4fCxln5dbnHY6OqF1GS
+	iSSx+NI3NxyNs3ilGc/4OTFba9nugUquhRHm4szGqbbCjKlI7wzgH8cNXadqZAhgJvvTbcjJBlnpQ
+	gBnVvZ/p6Ilb+qmMHWW9YJNKwy/pB77NmK+t4g2x3VR0HVV00tonYEsyfFflZ5GMVHMoojG2QCn49
+	8IOPzikty/YJi8RR4J1V8iQ6XJ9CNxESltwSTOI4Vjxw9T19bw7g7lwTylY9+mmGz5bSl6joPS09c
+	IVTPT2vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJnl-00000009Att-2FK9;
-	Fri, 23 Jan 2026 16:14:25 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vjK3T-00000009CaP-1CoH;
+	Fri, 23 Jan 2026 16:30:39 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjJnI-00000009APb-3L6y
+	id 1vjK3Q-00000009CZh-32cU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 16:14:04 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id DF5E11A2A5D;
-	Fri, 23 Jan 2026 16:13:54 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B2DC86070A;
-	Fri, 23 Jan 2026 16:13:54 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C584E119A87A7;
-	Fri, 23 Jan 2026 17:13:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769184833; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Uo3AvkfjrdalsyUZuA1OMe08gwk1pI/nU7JxApdIRbQ=;
-	b=vNzgRP/4QlyxmN1B6SPOg5bar16D4zA4TXor6BZ+mpQqOUe0HiV2XbQdL7hykbou68iU6X
-	VpGFhPUqW5MR7Y70Oj9C5dTtlyjzA02q5Tw/65aEhkfq6WAgVocvqM4qjWIL/8xo6bNqvd
-	0c3KEEjB5AHHbraDfusdIV++OKV22qrY9X7lMojmq6Ddfg5Z/nblofdexcbE6iqUKP8/Lv
-	1qAi5jYGZPIB5PHzTEAIoZJbymgDYOAim8zfFO+n6DXBIxSScOBNwnC3m8GYRfFTn1R53E
-	kNpaZf4w0ia5sj/NMWHM4eSKW2CyZnk3Hyq+fiAgdEb6ZvzN/R55yFanlEa4Sg==
-From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Fri, 23 Jan 2026 17:12:42 +0100
-Subject: [PATCH v5 24/25] drm/bridge: tda998x: Add support for
- DRM_BRIDGE_ATTACH_NO_CONNECTOR
+	Fri, 23 Jan 2026 16:30:38 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2a76b39587aso120995ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 08:30:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769185835; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QjuJ0vxS7u2hD9/IYte+qnDLgAV1HYFAsLvm2M9ApwipQ/UGTk+JG5ganZMY1jZaFM
+         FHsEh7y9jl9NAfEvvFCK+9dH82tkGhJirqd2sDYdYYmapYXMEVAdgbs49vbWmLkSoMxZ
+         wQgycuYAACYMglXHcOwE7pQEazUO/Vkb4zy1sFCOPggv/5vO3gh9gMHqw7cfNq5ZHJ1T
+         y/Y/qEptDC/+fa3owPZIFwdatv3GP3QpBt8ngpZ1iNmmuBY+ZbGjKhyrTaUCSdvb0nqC
+         LC9JqYAeYerCMQQFw+tarn+BMla9VEMp1I/GKVvPM4FXKyiKI+CpzJkqCGC39DB7EJc1
+         suLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=vOkRLjnifceecHRFjfFtA9Hu0YVFrmdtZP58mWOpjc8=;
+        fh=Fo2UmYVsixyQkF4YKHPvHhdC5xlOg9w+gg3gjhazM0I=;
+        b=fjuye9sLPBCb+HPdgpaVKS/rgv4Yhmwyul0sx1mBDlwIoDRTW6E2rEp/Dq/ulMhQ7o
+         OmbbE45S0MlsCQGlEjIJ32Kr/AkGPo34ec2Jhs+r+2AeIfb0v03UaV3b4KU6r6e6Q5t+
+         sxv+pkqTG5Y9wXZH/xkJy1mIEdEeM3FraU++B8svcmEUvnlYiY8vePAw1fprn+dYtq8g
+         r2MaVnPh8RdlS2LbArOkMURihgOIqfyImbZpmU+NhbAAGs+kKOZRPnIyrIMhT3uuWBGT
+         J4VHdaHor1JpUqFfGR5grYvgvix6yZg5GDtCfowFLm017f6voZUbW+UmP2HBOM3vfGHB
+         juzA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1769185835; x=1769790635; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vOkRLjnifceecHRFjfFtA9Hu0YVFrmdtZP58mWOpjc8=;
+        b=rqTRurjId1+36FhA1ipsJ4ILjta1zkSafRC6j6O/NkwxRy4SapCpCK+sFS6ClgKIOc
+         5RScswGD91zpgZGeDNP1pOus4yGPejfN9EoKIYIMcl6feNMfzDYVcp6OqSoHpzkJ5tRh
+         53Xmw87P7AgRsuuLQOHcJMxBV13ApDAQ0MSKZv9glRorCcRediTO/4BI5xGH6TPE0AKW
+         8+DrwXD3ehC70lXaoE/ZEQjaLAr5O2uNr/mGDsODgTCMlPq8F8/FPhCsfD55mWk1rN8l
+         tu5MTri4nyCrtzs38WqYdOFjVtL86nVQOEnGq/mW16AeBN4WoFkCirV9ne0mCUH77sKM
+         z58A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769185835; x=1769790635;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=vOkRLjnifceecHRFjfFtA9Hu0YVFrmdtZP58mWOpjc8=;
+        b=NV0Njhv67TqF16Fm9nLLD9LMTgsLR1jtK1tRe9dH9krgb6GoowB89gvpwDNTgec2G0
+         /U+s0gIPB3vifGXLhVKcxsGokKE3WAPttPof1uRSgujVzKmTwUqgTwPt5MsBHuhrTze7
+         Qh0HHly7i2JYr1t348QckU4cSzjaKdEMk6TurOLK1T1pCQ6owWOlAlucjCE01PhICM4H
+         tS8HpGw6CRuqhAA/fU15QzVo7vLGyG/HiagJjr00V8CZXq9JCa3ps9fybQD+XSdKJKTC
+         11St47kI5v0dbgcnGO90XWYvzzwhFtXZXBQR3CwDemQcV96OsXz5fDfS8huzotq+q+wx
+         QVwA==
+X-Forwarded-Encrypted: i=1; AJvYcCWrTgaCuewNdl3WFvtB7oLVr+yDMVJbZVLfq7CO/uETsGNvhsEyJAytuPc9WRMeAO/yMfNF1HuSXu5VHlQzZ/3q@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqUN43Sa4HrKAvAUQakaHzyqWBCqN3ge44F6QeUUuEotckhIvP
+	vHVJC12801rZUW5yFQJo2pk6+kdCmE5+5wvtEstmjWVa1F7R1e6vkHY6ShKuYpxpYHBmBfmspAS
+	/V3RJt6vWBflFHKDYeOKWkIM6hb1I6pDbbShgYgf1
+X-Gm-Gg: AZuq6aJWBqiqlZ20Jz6wY3ZdL8MOxiDZM0pFvSDb25O+bE8zoomdJm7YY9/Z/rpF0h/
+	5Qxg5KS2EeHx1BOZp/76/7ghFE89kbR/B6CexvzGAKSa+n4eJT3kAynRui2zrPb3kpw90sO1DRQ
+	dSHC6Z3FFs+1oLgV2nlDHRs0rTkbrLUTKYwi/Tw+PTi6YUPaMGpliGRr3Pa0zQOF/N50vGUVUEE
+	xAOkYbNBTOSPXUiW+HVMA7uKyrPowiTjg30or98vHhspU9ib7BZTaECObRdvUJTsPqsLfFE3O9g
+	Nj3s1wcFuHWl5jyKuPgVRcdXWQ==
+X-Received: by 2002:a17:902:cf01:b0:2a1:3cda:8e99 with SMTP id
+ d9443c01a7336-2a805d45517mr2449745ad.21.1769185834577; Fri, 23 Jan 2026
+ 08:30:34 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260123-feature_tilcdc-v5-24-5a44d2aa3f6f@bootlin.com>
-References: <20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com>
-In-Reply-To: <20260123-feature_tilcdc-v5-0-5a44d2aa3f6f@bootlin.com>
-To: Jyri Sarha <jyri.sarha@iki.fi>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren <tony@atomide.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: Markus Schneider-Pargmann <msp@baylibre.com>, 
- Bajjuri Praneeth <praneeth@ti.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Miguel Gazquez <miguel.gazquez@bootlin.com>, 
- Herve Codina <herve.codina@bootlin.com>, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
- "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-X-Mailer: b4 0.15-dev-47773
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20260122213516.671089-1-irogers@google.com> <1310a240-077a-49f6-b83a-a8a4fd52127b@linaro.org>
+In-Reply-To: <1310a240-077a-49f6-b83a-a8a4fd52127b@linaro.org>
+From: Ian Rogers <irogers@google.com>
+Date: Fri, 23 Jan 2026 08:30:22 -0800
+X-Gm-Features: AZwV_QjNay75wDxp2FcK9a1wDgjF2FHge-tLUo_wNfVirsr-f2GGtodRNG80OvI
+Message-ID: <CAP-5=fWrJoej0XprvPmYg5qa7SRU2s3yeCF-hWgj+3MTdTZLzQ@mail.gmail.com>
+Subject: Re: [PATCH v3 00/12] perf annotate arch clean up
+To: James Clark <james.clark@linaro.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, John Garry <john.g.garry@oracle.com>, 
+	Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, Guo Ren <guoren@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Zecheng Li <zecheng@google.com>, 
+	Tianyou Li <tianyou.li@intel.com>, Thomas Falcon <thomas.falcon@intel.com>, 
+	Julia Lawall <Julia.Lawall@inria.fr>, Suchit Karunakaran <suchitkarunakaran@gmail.com>, 
+	Athira Rajeev <atrajeev@linux.ibm.com>, Aditya Bodkhe <aditya.b1@linux.ibm.com>, 
+	Howard Chu <howardchu95@gmail.com>, 
+	=?UTF-8?Q?Krzysztof_=C5=81opatowski?= <krzysztof.m.lopatowski@gmail.com>, 
+	"Dr. David Alan Gilbert" <linux@treblig.org>, Shimin Guo <shimin.guo@skydio.com>, 
+	Sergei Trofimovich <slyich@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_081357_106144_944DDDDC 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20260123_083036_778418_0E39B27A 
+X-CRM114-Status: GOOD (  31.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,201 +132,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag to allow display
-controller drivers to create their own connectors. This modernizes the
-driver to work with the current DRM bridge framework.
+On Fri, Jan 23, 2026 at 3:02=E2=80=AFAM James Clark <james.clark@linaro.org=
+> wrote:
+>
+>
+>
+> On 22/01/2026 9:35 pm, Ian Rogers wrote:
+> > 3 initial memory leak fix patches for perf annotate.
+> >
+> > Move the disasm.c #included arch files into a new util/annotate-arch
+> > directory. Make the code compile standalone. Try to better encapsulate
+> > architecture specific code within the files and with a
+> > arch__new_<arch> function that allows additional data to be associated
+> > with the struct arch using the standard container_of trick.
+> >
+> > Make the lookup of struct arch use the ELF machine gather from a
+> > thread rather than an evsel. For example, the evsel can't determine
+> > the difference between EM_386 and EM_X86_64 so generally the latter
+> > has currently been used. This means the dwarf registers are off as
+> > register 1 is CX with EM_386 and DX with EM_X86_64. To facilitate this
+> > change map_symbol is refactored to use a struct thread rather than a
+> > struct maps, the maps being obtainable from the thread.
+> >
+> > To make in and out arguments clearer, for safety, etc. try to constify
+> > struct arch and its related structs.
+> >
+> > v3: Fix arch initialization on arm, arm64, powerpc and sparc as spotted=
+ by Suchit
+> >      Karunakaranw.
+> >
+> > v2: Add a patch to fix a domain info memory leak that was blocking
+> >      leak sanitizer analysis. Fix more map_symbol leaks or uses after
+> >      reference count put (Suchit Karunakaranw
+> >      <suchitkarunakaran@gmail.com>).  Try to repro annotate test crash
+> >      (James Clark) but suspect it was addressed in the other reference
+> >      count fixes.
+> >      https://lore.kernel.org/lkml/20260122165407.561888-1-irogers@googl=
+e.com/
+> >
+> > v1: https://lore.kernel.org/lkml/20260122073127.375139-1-irogers@google=
+.com/
+> >
+> > Ian Rogers (12):
+> >    perf header: Fix memory leaks in process_cpu_domain_info
+> >    perf annotate: Fix args leak of map_symbol
+> >    perf maps: Fix reference count leak in maps__find_ams
+> >    perf disasm: Constify use of struct arch
+> >    perf disasm: Constify use of struct ins_op
+> >    perf disasm: Constify use of struct ins
+> >    perf disasm: Rework the string arch__is to use the ELF machine
+> >    perf disasm: Don't include C files from the arch directory
+> >    perf disasm: Refactor ins__is_call/jump to avoid exposing arch ins_o=
+ps
+> >    perf map_symbol: Switch from holding maps to holding thread
+> >    perf disasm: Refactor arch__find and initialization of arch structs
+> >    perf disasm: Minor layout tweaks for struct arch
+> >
+> >   tools/perf/arch/arc/annotate/instructions.c   |  11 -
+> >   .../perf/arch/riscv64/annotate/instructions.c |  36 --
+> >   tools/perf/ui/browsers/annotate.c             |   6 +-
+> >   tools/perf/ui/browsers/hists.c                |   3 +-
+> >   tools/perf/util/Build                         |   1 +
+> >   tools/perf/util/addr_location.c               |   4 -
+> >   tools/perf/util/addr_location.h               |   1 -
+> >   tools/perf/util/annotate-arch/Build           |  11 +
+> >   tools/perf/util/annotate-arch/annotate-arc.c  |  18 +
+> >   .../annotate-arch/annotate-arm.c}             |  50 +-
+> >   .../annotate-arch/annotate-arm64.c}           |  59 +--
+> >   .../annotate-arch/annotate-csky.c}            |  29 +-
+> >   .../annotate-arch/annotate-loongarch.c}       |  71 +--
+> >   .../annotate-arch/annotate-mips.c}            |  29 +-
+> >   .../annotate-arch/annotate-powerpc.c}         | 127 +++++-
+> >   .../util/annotate-arch/annotate-riscv64.c     |  41 ++
+> >   .../annotate-arch/annotate-s390.c}            |  70 +--
+> >   .../annotate-arch/annotate-sparc.c}           |  28 +-
+> >   .../annotate-arch/annotate-x86.c}             |  89 ++--
+> >   tools/perf/util/annotate-data.c               |  12 +-
+> >   tools/perf/util/annotate-data.h               |   2 +-
+> >   tools/perf/util/annotate.c                    |  88 ++--
+> >   tools/perf/util/annotate.h                    |  10 +-
+> >   tools/perf/util/callchain.c                   |  12 +-
+> >   tools/perf/util/capstone.c                    |  18 +-
+> >   tools/perf/util/db-export.c                   |   1 -
+> >   tools/perf/util/disasm.c                      | 428 +++++++----------=
+-
+> >   tools/perf/util/disasm.h                      |  95 ++--
+> >   tools/perf/util/event.c                       |   2 -
+> >   tools/perf/util/header.c                      |  17 +-
+> >   tools/perf/util/hist.c                        |  18 +-
+> >   tools/perf/util/llvm.c                        |   8 +-
+> >   tools/perf/util/machine.c                     |  13 +-
+> >   tools/perf/util/map_symbol.c                  |   5 +-
+> >   tools/perf/util/map_symbol.h                  |   3 +-
+> >   tools/perf/util/maps.c                        |   1 +
+> >   tools/perf/util/sort.c                        |   2 +-
+> >   tools/perf/util/unwind-libdw.c                |   2 +-
+> >   tools/perf/util/unwind-libunwind-local.c      |   2 +-
+> >   39 files changed, 775 insertions(+), 648 deletions(-)
+> >   delete mode 100644 tools/perf/arch/arc/annotate/instructions.c
+> >   delete mode 100644 tools/perf/arch/riscv64/annotate/instructions.c
+> >   create mode 100644 tools/perf/util/annotate-arch/Build
+> >   create mode 100644 tools/perf/util/annotate-arch/annotate-arc.c
+> >   rename tools/perf/{arch/arm/annotate/instructions.c =3D> util/annotat=
+e-arch/annotate-arm.c} (59%)
+> >   rename tools/perf/{arch/arm64/annotate/instructions.c =3D> util/annot=
+ate-arch/annotate-arm64.c} (70%)
+> >   rename tools/perf/{arch/csky/annotate/instructions.c =3D> util/annota=
+te-arch/annotate-csky.c} (67%)
+> >   rename tools/perf/{arch/loongarch/annotate/instructions.c =3D> util/a=
+nnotate-arch/annotate-loongarch.c} (60%)
+> >   rename tools/perf/{arch/mips/annotate/instructions.c =3D> util/annota=
+te-arch/annotate-mips.c} (59%)
+> >   rename tools/perf/{arch/powerpc/annotate/instructions.c =3D> util/ann=
+otate-arch/annotate-powerpc.c} (73%)
+> >   create mode 100644 tools/perf/util/annotate-arch/annotate-riscv64.c
+> >   rename tools/perf/{arch/s390/annotate/instructions.c =3D> util/annota=
+te-arch/annotate-s390.c} (66%)
+> >   rename tools/perf/{arch/sparc/annotate/instructions.c =3D> util/annot=
+ate-arch/annotate-sparc.c} (85%)
+> >   rename tools/perf/{arch/x86/annotate/instructions.c =3D> util/annotat=
+e-arch/annotate-x86.c} (93%)
+> >
+>
+> Reviewed-by: James Clark <james.clark@linaro.org>
 
-The implementation includes:
-- Refactoring detection and EDID reading into bridge-usable helpers
-- Adding bridge operations: edid_read, detect, hpd_enable, hpd_disable
-- Setting appropriate bridge ops (DRM_BRIDGE_OP_EDID, DRM_BRIDGE_OP_DETECT,
-  DRM_BRIDGE_OP_HPD) and connector type (HDMIA)
-- Skipping connector creation when DRM_BRIDGE_ATTACH_NO_CONNECTOR is set
-- Handling conditional connector cleanup in bridge_detach
+Thanks James!
 
-The driver maintains backward compatibility by continuing to create its
-own connector when the flag is not set.
+Arnaldo, it'd be nice for this to land so I can look into addressing
+the missing e_flags issue - namely, we should optionally read the
+e_flags along with the e_machine so that we have a proper e_flags
+value to make csky work properly (not an issue on anything else). At
+the same time I think some of the e_machine should be made more robust
+like with:
+https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
+t/commit/tools/perf?h=3Dperf-tools-next&id=3De99d544c7f3691eb321c88fdbadf04=
+b777c114c4
+but here:
+https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
+t/tree/tools/perf/util/thread.c?h=3Dperf-tools-next#n452
+the code should probably be shared.
+Anyway, this series does enough without adding all that to it and
+waiting for more tags.
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
----
- drivers/gpu/drm/bridge/tda998x_drv.c | 96 +++++++++++++++++++++++++++++++-----
- 1 file changed, 85 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/tda998x_drv.c b/drivers/gpu/drm/bridge/tda998x_drv.c
-index fad3c9bfda383..d9b388165de15 100644
---- a/drivers/gpu/drm/bridge/tda998x_drv.c
-+++ b/drivers/gpu/drm/bridge/tda998x_drv.c
-@@ -1193,16 +1193,22 @@ static int tda998x_audio_codec_init(struct tda998x_priv *priv,
- 
- /* DRM connector functions */
- 
--static enum drm_connector_status
--tda998x_connector_detect(struct drm_connector *connector, bool force)
-+static enum drm_connector_status tda998x_conn_detect(struct tda998x_priv *priv)
- {
--	struct tda998x_priv *priv = conn_to_tda998x_priv(connector);
- 	u8 val = cec_read(priv, REG_CEC_RXSHPDLEV);
- 
- 	return (val & CEC_RXSHPDLEV_HPD) ? connector_status_connected :
- 			connector_status_disconnected;
- }
- 
-+static enum drm_connector_status
-+tda998x_connector_detect(struct drm_connector *connector, bool force)
-+{
-+	struct tda998x_priv *priv = conn_to_tda998x_priv(connector);
-+
-+	return tda998x_conn_detect(priv);
-+}
-+
- static const struct drm_connector_funcs tda998x_connector_funcs = {
- 	.reset = drm_atomic_helper_connector_reset,
- 	.fill_modes = drm_helper_probe_single_connector_modes,
-@@ -1276,11 +1282,10 @@ static int read_edid_block(void *data, u8 *buf, unsigned int blk, size_t length)
- 	return ret;
- }
- 
--static int tda998x_connector_get_modes(struct drm_connector *connector)
-+static const struct drm_edid *tda998x_edid_read(struct tda998x_priv *priv,
-+						struct drm_connector *connector)
- {
--	struct tda998x_priv *priv = conn_to_tda998x_priv(connector);
- 	const struct drm_edid *drm_edid;
--	int n;
- 
- 	/*
- 	 * If we get killed while waiting for the HPD timeout, return
-@@ -1298,6 +1303,16 @@ static int tda998x_connector_get_modes(struct drm_connector *connector)
- 	if (priv->rev == TDA19988)
- 		reg_set(priv, REG_TX4, TX4_PD_RAM);
- 
-+	return drm_edid;
-+}
-+
-+static int tda998x_connector_get_modes(struct drm_connector *connector)
-+{
-+	struct tda998x_priv *priv = conn_to_tda998x_priv(connector);
-+	const struct drm_edid *drm_edid;
-+	int n;
-+
-+	drm_edid = tda998x_edid_read(priv, connector);
- 	drm_edid_connector_update(connector, drm_edid);
- 	cec_notifier_set_phys_addr(priv->cec_notify,
- 				   connector->display_info.source_physical_address);
-@@ -1365,10 +1380,8 @@ static int tda998x_bridge_attach(struct drm_bridge *bridge,
- {
- 	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
- 
--	if (flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR) {
--		DRM_ERROR("Fix bridge driver to make connector optional!");
--		return -EINVAL;
--	}
-+	if (flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)
-+		return 0;
- 
- 	return tda998x_connector_init(priv, bridge->dev);
- }
-@@ -1377,7 +1390,8 @@ static void tda998x_bridge_detach(struct drm_bridge *bridge)
- {
- 	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
- 
--	drm_connector_cleanup(&priv->connector);
-+	if (priv->connector.dev)
-+		drm_connector_cleanup(&priv->connector);
- }
- 
- static enum drm_mode_status tda998x_bridge_mode_valid(struct drm_bridge *bridge,
-@@ -1677,6 +1691,59 @@ static void tda998x_bridge_mode_set(struct drm_bridge *bridge,
- 	mutex_unlock(&priv->audio_mutex);
- }
- 
-+static const struct drm_edid *
-+tda998x_bridge_edid_read(struct drm_bridge *bridge,
-+			 struct drm_connector *connector)
-+{
-+	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
-+	const struct drm_edid *drm_edid;
-+	const struct edid *edid;
-+
-+	drm_edid = tda998x_edid_read(priv, connector);
-+	if (!drm_edid) {
-+		dev_dbg(&priv->hdmi->dev, "failed to get edid\n");
-+		return NULL;
-+	}
-+
-+	/*
-+	 * FIXME: This should use connector->display_info.has_audio from
-+	 * a path that has read the EDID and called
-+	 * drm_edid_connector_update().
-+	 */
-+	edid = drm_edid_raw(drm_edid);
-+
-+	dev_dbg(&priv->hdmi->dev, "got edid: width[%d] x height[%d]\n",
-+		edid->width_cm, edid->height_cm);
-+
-+	priv->sink_has_audio = drm_detect_monitor_audio(edid);
-+	cec_notifier_set_phys_addr_from_edid(priv->cec_notify, edid);
-+
-+	return drm_edid;
-+}
-+
-+static enum drm_connector_status
-+tda998x_bridge_detect(struct drm_bridge *bridge,
-+		      struct drm_connector *connector)
-+{
-+	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
-+
-+	return tda998x_conn_detect(priv);
-+}
-+
-+static void tda998x_bridge_hpd_enable(struct drm_bridge *bridge)
-+{
-+	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
-+
-+	cec_write(priv, REG_CEC_RXSHPDINTENA, CEC_RXSHPDLEV_HPD);
-+}
-+
-+static void tda998x_bridge_hpd_disable(struct drm_bridge *bridge)
-+{
-+	struct tda998x_priv *priv = bridge_to_tda998x_priv(bridge);
-+
-+	cec_write(priv, REG_CEC_RXSHPDINTENA, 0);
-+}
-+
- static const struct drm_bridge_funcs tda998x_bridge_funcs = {
- 	.attach = tda998x_bridge_attach,
- 	.detach = tda998x_bridge_detach,
-@@ -1684,6 +1751,10 @@ static const struct drm_bridge_funcs tda998x_bridge_funcs = {
- 	.disable = tda998x_bridge_disable,
- 	.mode_set = tda998x_bridge_mode_set,
- 	.enable = tda998x_bridge_enable,
-+	.edid_read = tda998x_bridge_edid_read,
-+	.detect = tda998x_bridge_detect,
-+	.hpd_enable = tda998x_bridge_hpd_enable,
-+	.hpd_disable = tda998x_bridge_hpd_disable,
- };
- 
- /* I2C driver functions */
-@@ -1872,6 +1943,7 @@ tda998x_probe(struct i2c_client *client)
- 
- 		/* enable HPD irq */
- 		cec_write(priv, REG_CEC_RXSHPDINTENA, CEC_RXSHPDLEV_HPD);
-+		priv->bridge.ops = DRM_BRIDGE_OP_HPD;
- 	}
- 
- 	priv->cec_notify = cec_notifier_conn_register(dev, NULL, NULL);
-@@ -1932,6 +2004,8 @@ tda998x_probe(struct i2c_client *client)
- 	priv->bridge.of_node = dev->of_node;
- #endif
- 
-+	priv->bridge.ops |= DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT;
-+	priv->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
- 	drm_bridge_add(&priv->bridge);
- 
- 	return 0;
-
--- 
-2.43.0
-
+Thanks,
+Ian
 
