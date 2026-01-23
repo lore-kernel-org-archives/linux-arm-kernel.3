@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0791D72372
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 11:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 693E7D72372
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 11:01:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jVLFfVd3X1JU5vZWQqTSvIV4WWcbPJ1JZLcb+HxFgbA=; b=T3PbOe8/nziNT53/qXTb3AVcyX
-	KO9zvv8VGqVDuCKIBAgUobbPqWd35QAxTtS5hhOaLyygDVwnLe0Ngc5pb92XfAA94JrJHZVpf/AUL
-	7E86oLjlwR+bjGdOoRqnPrSXXPx5cJNCgpac9r3GyJU9lO9r18jiUP0U9qZ8AM/zzzCVR8NxbNSU/
-	i2LQb2R+el6TcLUsIFpZqWntEflv4chCwndO64rGKbwSXdkHN6PRk8tsII/tyUHGVUcgCuJjCDIAf
-	DwoGzK6FGJnb+tSOCgFGroyGHWEQfUenu73t3PSr1CvNVk219+xjH1VqavZ1ZIcQfK8Ya4M2Jf/4/
-	V7iwhM0w==;
+	bh=2Yu05EAsl6kTw5F/OQwJby6NHqAfG40p8VrCO9zN6J0=; b=jC2izMP9AcBJ5nAgd0jbNQptbw
+	tIrJH+n5BfbnAd43nAiZrksr8ZecPwbLgr5Za/x8Vb6j7cUmAKjhJzOVFk0nh47KhrontFuEm5Qeb
+	aKhNF8MeNDYOxUNyvfmS6dJWplMKEtrBhA6dUOltEbFApJXMk8VlJhWWzyIr6Z5v+1i4liu8IwhNg
+	CeAY9buivE5cPDT3uPlPdewIr+iItX9Mz9VLUK42L9wYfqCrLSJ1Ypsd1YxoPnQOTcB7sRUcjLjf5
+	irRv3Ik80DoZ6MSePjskqrGWUXrsLr6QbI6ZpPCIK4DVRPC2KHh9a9k2vCY8pP2Ihf/+J4nWiVQpL
+	kEb7yhkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjEuI-00000008lfg-46Is;
-	Fri, 23 Jan 2026 11:00:50 +0000
+	id 1vjEuP-00000008lkw-2jnq;
+	Fri, 23 Jan 2026 11:00:57 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjEuE-00000008lco-3vLY;
-	Fri, 23 Jan 2026 11:00:49 +0000
+	id 1vjEuJ-00000008lfD-2lM1;
+	Fri, 23 Jan 2026 11:00:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=jVLFfVd3X1JU5vZWQqTSvIV4WWcbPJ1JZLcb+HxFgbA=; b=Nrhya/4SaAjCO5DqTlff+X/rgN
-	Vr4HtO7KKm7srX/nwv0mIOlsF6hzUoDrQCt7NK2txSTHBCSSaUtqUfrP0ys1Rvzi4vg09CNZhFz9A
-	MUacWBSgXCtpSzNZlwuq5znFofF03Dc5TPjlfCrBVZBMbH5f8dRt1tuO6met/q4Cb7meAWtcT1uZt
-	SSOAbEGaNqL0rHJoOMV+aC2zIW1ZsoVxWB+ohUEhpLjZtdVwFw+szp9sXc1v1IK8iD8aIep7j8tnK
-	GHsjz1RJe1Oiq9DH2T53n7zhX7bt3EkTC6iHiLfgQNZVMp3OBNnTeuL90irHeIDChzMBts+icTF0z
-	43Wrjw8A==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:49826 helo=rmk-PC.armlinux.org.uk)
+	bh=2Yu05EAsl6kTw5F/OQwJby6NHqAfG40p8VrCO9zN6J0=; b=ChLO/zMjEjZJpXY6i3ZFfGLteY
+	wztHVLpt03/CQJOpFFQHLmQEL//wQB/HvH+f+DUnIkpNlSAF0kzC2GuGgMc+kZypCn3bcgG3xqh9Q
+	kHHsADZqlo8QGzYh8K5wd/LLAerGQ4G8s/xVrRGio1KMEPb6xWcxM79AcnGuBj1Ckj0cN6FkxsKSj
+	OQvMpHMQCREvG4MCrl1ByLZ4lgsGrsw6noVZCJ7u1nreJMxM/NnTrzYrqNcWMoigAmHPVXF6OFATy
+	xnEhJq8oCP7KYWoduOXQ4SEhgx0s0a4pphiK0PWt1mrM2IPTxdFaejTeA9OL0RqDISzg2ivph01C1
+	gPDf5XCg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:57646 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vjEu7-000000001nG-1aCz;
-	Fri, 23 Jan 2026 11:00:39 +0000
+	id 1vjEuC-000000001nZ-0TPW;
+	Fri, 23 Jan 2026 11:00:44 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vjEu6-00000005gfw-0Y88;
-	Fri, 23 Jan 2026 11:00:38 +0000
+	id 1vjEuB-00000005gg2-11xG;
+	Fri, 23 Jan 2026 11:00:43 +0000
 In-Reply-To: <aXNUlVZilT-CTgph@shell.armlinux.org.uk>
 References: <aXNUlVZilT-CTgph@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -63,18 +63,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 04/21] net: stmmac: rk: group MACPHY register offset
- and fields together
+Subject: [PATCH net-next 05/21] net: stmmac: rk: add GMAC_CLK_xx constants,
+ simplify RGMII definitions
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vjEu6-00000005gfw-0Y88@rmk-PC.armlinux.org.uk>
-Date: Fri, 23 Jan 2026 11:00:38 +0000
+Message-Id: <E1vjEuB-00000005gg2-11xG@rmk-PC.armlinux.org.uk>
+Date: Fri, 23 Jan 2026 11:00:43 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_030048_488164_3163D9BD 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260123_030051_867422_1EAC5853 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,41 +88,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Group the MACPHY register offsets and associated bitfields together
-to become self-documenting which definitions are associated with
-which register.
+All the definitions of the RGMII related xxx_GMAC_CLK_xxx definitions
+use the same field values to select the clock rate. Provide common
+defintions for these field values, passing them in to a single macro
+for each variant that generates the appropriate values for the speed
+register.
+
+No change to produced code on aarch64.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 108 ++++++++----------
+ 1 file changed, 45 insertions(+), 63 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index c8b49ed2064a..5f8d2031b97c 100644
+index 5f8d2031b97c..7f8ffd1549bc 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -162,15 +162,17 @@ static int rk_set_clk_mac_speed(struct rk_priv_data *bsp_priv,
- 	 ((rx) ? soc##_GMAC_RXCLK_DLY_ENABLE : soc##_GMAC_RXCLK_DLY_DISABLE))
+@@ -91,6 +91,10 @@ struct rk_priv_data {
+ 	struct regmap *php_grf;
+ };
  
- #define RK_GRF_MACPHY_CON0		0xb00
--#define RK_GRF_MACPHY_CON1		0xb04
--#define RK_GRF_MACPHY_CON2		0xb08
--#define RK_GRF_MACPHY_CON3		0xb0c
--
- #define RK_MACPHY_ENABLE		GRF_BIT(0)
- #define RK_MACPHY_DISABLE		GRF_CLR_BIT(0)
- #define RK_MACPHY_CFG_CLK_50M		GRF_BIT(14)
- #define RK_GMAC2PHY_RMII_MODE		GRF_FIELD(7, 6, 1)
++#define GMAC_CLK_DIV1_125M		0
++#define GMAC_CLK_DIV50_2_5M		2
++#define GMAC_CLK_DIV5_25M		3
 +
-+#define RK_GRF_MACPHY_CON1		0xb04
-+
-+#define RK_GRF_MACPHY_CON2		0xb08
- #define RK_GRF_CON2_MACPHY_ID		GRF_FIELD(15, 0, 0x1234)
-+
-+#define RK_GRF_MACPHY_CON3		0xb0c
- #define RK_GRF_CON3_MACPHY_ID		GRF_FIELD(5, 0, 0x35)
+ static int rk_set_reg_speed(struct rk_priv_data *bsp_priv,
+ 			    const struct rk_reg_speed_data *rsd,
+ 			    unsigned int reg, phy_interface_t interface,
+@@ -299,9 +303,7 @@ static const struct rk_gmac_ops px30_ops = {
+ #define RK3128_GMAC_SPEED_100M         GRF_BIT(10)
+ #define RK3128_GMAC_RMII_CLK_25M       GRF_BIT(11)
+ #define RK3128_GMAC_RMII_CLK_2_5M      GRF_CLR_BIT(11)
+-#define RK3128_GMAC_CLK_125M           GRF_FIELD_CONST(13, 12, 0)
+-#define RK3128_GMAC_CLK_25M            GRF_FIELD_CONST(13, 12, 3)
+-#define RK3128_GMAC_CLK_2_5M           GRF_FIELD_CONST(13, 12, 2)
++#define RK3128_GMAC_CLK(val)           GRF_FIELD_CONST(13, 12, val)
+ #define RK3128_GMAC_RMII_MODE          GRF_BIT(14)
+ #define RK3128_GMAC_RMII_MODE_CLR      GRF_CLR_BIT(14)
  
- static void rk_gmac_integrated_ephy_powerup(struct rk_priv_data *priv)
+@@ -325,9 +327,9 @@ static void rk3128_set_to_rmii(struct rk_priv_data *bsp_priv)
+ }
+ 
+ static const struct rk_reg_speed_data rk3128_reg_speed_data = {
+-	.rgmii_10 = RK3128_GMAC_CLK_2_5M,
+-	.rgmii_100 = RK3128_GMAC_CLK_25M,
+-	.rgmii_1000 = RK3128_GMAC_CLK_125M,
++	.rgmii_10 = RK3128_GMAC_CLK(GMAC_CLK_DIV50_2_5M),
++	.rgmii_100 = RK3128_GMAC_CLK(GMAC_CLK_DIV5_25M),
++	.rgmii_1000 = RK3128_GMAC_CLK(GMAC_CLK_DIV1_125M),
+ 	.rmii_10 = RK3128_GMAC_RMII_CLK_2_5M | RK3128_GMAC_SPEED_10M,
+ 	.rmii_100 = RK3128_GMAC_RMII_CLK_25M | RK3128_GMAC_SPEED_100M,
+ };
+@@ -362,9 +364,7 @@ static const struct rk_gmac_ops rk3128_ops = {
+ #define RK3228_GMAC_SPEED_100M		GRF_BIT(2)
+ #define RK3228_GMAC_RMII_CLK_25M	GRF_BIT(7)
+ #define RK3228_GMAC_RMII_CLK_2_5M	GRF_CLR_BIT(7)
+-#define RK3228_GMAC_CLK_125M		GRF_FIELD_CONST(9, 8, 0)
+-#define RK3228_GMAC_CLK_25M		GRF_FIELD_CONST(9, 8, 3)
+-#define RK3228_GMAC_CLK_2_5M		GRF_FIELD_CONST(9, 8, 2)
++#define RK3228_GMAC_CLK(val)		GRF_FIELD_CONST(9, 8, val)
+ #define RK3228_GMAC_RMII_MODE		GRF_BIT(10)
+ #define RK3228_GMAC_RMII_MODE_CLR	GRF_CLR_BIT(10)
+ #define RK3228_GMAC_TXCLK_DLY_ENABLE	GRF_BIT(0)
+@@ -399,9 +399,9 @@ static void rk3228_set_to_rmii(struct rk_priv_data *bsp_priv)
+ }
+ 
+ static const struct rk_reg_speed_data rk3228_reg_speed_data = {
+-	.rgmii_10 = RK3228_GMAC_CLK_2_5M,
+-	.rgmii_100 = RK3228_GMAC_CLK_25M,
+-	.rgmii_1000 = RK3228_GMAC_CLK_125M,
++	.rgmii_10 = RK3228_GMAC_CLK(GMAC_CLK_DIV50_2_5M),
++	.rgmii_100 = RK3228_GMAC_CLK(GMAC_CLK_DIV5_25M),
++	.rgmii_1000 = RK3228_GMAC_CLK(GMAC_CLK_DIV1_125M),
+ 	.rmii_10 = RK3228_GMAC_RMII_CLK_2_5M | RK3228_GMAC_SPEED_10M,
+ 	.rmii_100 = RK3228_GMAC_RMII_CLK_25M | RK3228_GMAC_SPEED_100M,
+ };
+@@ -440,9 +440,7 @@ static const struct rk_gmac_ops rk3228_ops = {
+ #define RK3288_GMAC_SPEED_100M		GRF_BIT(10)
+ #define RK3288_GMAC_RMII_CLK_25M	GRF_BIT(11)
+ #define RK3288_GMAC_RMII_CLK_2_5M	GRF_CLR_BIT(11)
+-#define RK3288_GMAC_CLK_125M		GRF_FIELD_CONST(13, 12, 0)
+-#define RK3288_GMAC_CLK_25M		GRF_FIELD_CONST(13, 12, 3)
+-#define RK3288_GMAC_CLK_2_5M		GRF_FIELD_CONST(13, 12, 2)
++#define RK3288_GMAC_CLK(val)		GRF_FIELD_CONST(13, 12, val)
+ #define RK3288_GMAC_RMII_MODE		GRF_BIT(14)
+ #define RK3288_GMAC_RMII_MODE_CLR	GRF_CLR_BIT(14)
+ 
+@@ -474,9 +472,9 @@ static void rk3288_set_to_rmii(struct rk_priv_data *bsp_priv)
+ }
+ 
+ static const struct rk_reg_speed_data rk3288_reg_speed_data = {
+-	.rgmii_10 = RK3288_GMAC_CLK_2_5M,
+-	.rgmii_100 = RK3288_GMAC_CLK_25M,
+-	.rgmii_1000 = RK3288_GMAC_CLK_125M,
++	.rgmii_10 = RK3288_GMAC_CLK(GMAC_CLK_DIV50_2_5M),
++	.rgmii_100 = RK3288_GMAC_CLK(GMAC_CLK_DIV5_25M),
++	.rgmii_1000 = RK3288_GMAC_CLK(GMAC_CLK_DIV1_125M),
+ 	.rmii_10 = RK3288_GMAC_RMII_CLK_2_5M | RK3288_GMAC_SPEED_10M,
+ 	.rmii_100 = RK3288_GMAC_RMII_CLK_25M | RK3288_GMAC_SPEED_100M,
+ };
+@@ -543,9 +541,7 @@ static const struct rk_gmac_ops rk3308_ops = {
+ #define RK3328_GMAC_SPEED_100M		GRF_BIT(2)
+ #define RK3328_GMAC_RMII_CLK_25M	GRF_BIT(7)
+ #define RK3328_GMAC_RMII_CLK_2_5M	GRF_CLR_BIT(7)
+-#define RK3328_GMAC_CLK_125M		GRF_FIELD_CONST(12, 11, 0)
+-#define RK3328_GMAC_CLK_25M		GRF_FIELD_CONST(12, 11, 3)
+-#define RK3328_GMAC_CLK_2_5M		GRF_FIELD_CONST(12, 11, 2)
++#define RK3328_GMAC_CLK(val)		GRF_FIELD_CONST(12, 11, val)
+ #define RK3328_GMAC_RMII_MODE		GRF_BIT(9)
+ #define RK3328_GMAC_RMII_MODE_CLR	GRF_CLR_BIT(9)
+ #define RK3328_GMAC_TXCLK_DLY_ENABLE	GRF_BIT(0)
+@@ -580,9 +576,9 @@ static void rk3328_set_to_rmii(struct rk_priv_data *bsp_priv)
+ }
+ 
+ static const struct rk_reg_speed_data rk3328_reg_speed_data = {
+-	.rgmii_10 = RK3328_GMAC_CLK_2_5M,
+-	.rgmii_100 = RK3328_GMAC_CLK_25M,
+-	.rgmii_1000 = RK3328_GMAC_CLK_125M,
++	.rgmii_10 = RK3328_GMAC_CLK(GMAC_CLK_DIV50_2_5M),
++	.rgmii_100 = RK3328_GMAC_CLK(GMAC_CLK_DIV5_25M),
++	.rgmii_1000 = RK3328_GMAC_CLK(GMAC_CLK_DIV1_125M),
+ 	.rmii_10 = RK3328_GMAC_RMII_CLK_2_5M | RK3328_GMAC_SPEED_10M,
+ 	.rmii_100 = RK3328_GMAC_RMII_CLK_25M | RK3328_GMAC_SPEED_100M,
+ };
+@@ -632,9 +628,7 @@ static const struct rk_gmac_ops rk3328_ops = {
+ #define RK3366_GMAC_SPEED_100M		GRF_BIT(7)
+ #define RK3366_GMAC_RMII_CLK_25M	GRF_BIT(3)
+ #define RK3366_GMAC_RMII_CLK_2_5M	GRF_CLR_BIT(3)
+-#define RK3366_GMAC_CLK_125M		GRF_FIELD_CONST(5, 4, 0)
+-#define RK3366_GMAC_CLK_25M		GRF_FIELD_CONST(5, 4, 3)
+-#define RK3366_GMAC_CLK_2_5M		GRF_FIELD_CONST(5, 4, 2)
++#define RK3366_GMAC_CLK(val)		GRF_FIELD_CONST(5, 4, val)
+ #define RK3366_GMAC_RMII_MODE		GRF_BIT(6)
+ #define RK3366_GMAC_RMII_MODE_CLR	GRF_CLR_BIT(6)
+ 
+@@ -666,9 +660,9 @@ static void rk3366_set_to_rmii(struct rk_priv_data *bsp_priv)
+ }
+ 
+ static const struct rk_reg_speed_data rk3366_reg_speed_data = {
+-	.rgmii_10 = RK3366_GMAC_CLK_2_5M,
+-	.rgmii_100 = RK3366_GMAC_CLK_25M,
+-	.rgmii_1000 = RK3366_GMAC_CLK_125M,
++	.rgmii_10 = RK3366_GMAC_CLK(GMAC_CLK_DIV50_2_5M),
++	.rgmii_100 = RK3366_GMAC_CLK(GMAC_CLK_DIV5_25M),
++	.rgmii_1000 = RK3366_GMAC_CLK(GMAC_CLK_DIV1_125M),
+ 	.rmii_10 = RK3366_GMAC_RMII_CLK_2_5M | RK3366_GMAC_SPEED_10M,
+ 	.rmii_100 = RK3366_GMAC_RMII_CLK_25M | RK3366_GMAC_SPEED_100M,
+ };
+@@ -697,9 +691,7 @@ static const struct rk_gmac_ops rk3366_ops = {
+ #define RK3368_GMAC_SPEED_100M		GRF_BIT(7)
+ #define RK3368_GMAC_RMII_CLK_25M	GRF_BIT(3)
+ #define RK3368_GMAC_RMII_CLK_2_5M	GRF_CLR_BIT(3)
+-#define RK3368_GMAC_CLK_125M		GRF_FIELD_CONST(5, 4, 0)
+-#define RK3368_GMAC_CLK_25M		GRF_FIELD_CONST(5, 4, 3)
+-#define RK3368_GMAC_CLK_2_5M		GRF_FIELD_CONST(5, 4, 2)
++#define RK3368_GMAC_CLK(val)		GRF_FIELD_CONST(5, 4, val)
+ #define RK3368_GMAC_RMII_MODE		GRF_BIT(6)
+ #define RK3368_GMAC_RMII_MODE_CLR	GRF_CLR_BIT(6)
+ 
+@@ -731,9 +723,9 @@ static void rk3368_set_to_rmii(struct rk_priv_data *bsp_priv)
+ }
+ 
+ static const struct rk_reg_speed_data rk3368_reg_speed_data = {
+-	.rgmii_10 = RK3368_GMAC_CLK_2_5M,
+-	.rgmii_100 = RK3368_GMAC_CLK_25M,
+-	.rgmii_1000 = RK3368_GMAC_CLK_125M,
++	.rgmii_10 = RK3368_GMAC_CLK(GMAC_CLK_DIV50_2_5M),
++	.rgmii_100 = RK3368_GMAC_CLK(GMAC_CLK_DIV5_25M),
++	.rgmii_1000 = RK3368_GMAC_CLK(GMAC_CLK_DIV1_125M),
+ 	.rmii_10 = RK3368_GMAC_RMII_CLK_2_5M | RK3368_GMAC_SPEED_10M,
+ 	.rmii_100 = RK3368_GMAC_RMII_CLK_25M | RK3368_GMAC_SPEED_100M,
+ };
+@@ -762,9 +754,7 @@ static const struct rk_gmac_ops rk3368_ops = {
+ #define RK3399_GMAC_SPEED_100M		GRF_BIT(7)
+ #define RK3399_GMAC_RMII_CLK_25M	GRF_BIT(3)
+ #define RK3399_GMAC_RMII_CLK_2_5M	GRF_CLR_BIT(3)
+-#define RK3399_GMAC_CLK_125M		GRF_FIELD_CONST(5, 4, 0)
+-#define RK3399_GMAC_CLK_25M		GRF_FIELD_CONST(5, 4, 3)
+-#define RK3399_GMAC_CLK_2_5M		GRF_FIELD_CONST(5, 4, 2)
++#define RK3399_GMAC_CLK(val)		GRF_FIELD_CONST(5, 4, val)
+ #define RK3399_GMAC_RMII_MODE		GRF_BIT(6)
+ #define RK3399_GMAC_RMII_MODE_CLR	GRF_CLR_BIT(6)
+ 
+@@ -796,9 +786,9 @@ static void rk3399_set_to_rmii(struct rk_priv_data *bsp_priv)
+ }
+ 
+ static const struct rk_reg_speed_data rk3399_reg_speed_data = {
+-	.rgmii_10 = RK3399_GMAC_CLK_2_5M,
+-	.rgmii_100 = RK3399_GMAC_CLK_25M,
+-	.rgmii_1000 = RK3399_GMAC_CLK_125M,
++	.rgmii_10 = RK3399_GMAC_CLK(GMAC_CLK_DIV50_2_5M),
++	.rgmii_100 = RK3399_GMAC_CLK(GMAC_CLK_DIV5_25M),
++	.rgmii_1000 = RK3399_GMAC_CLK(GMAC_CLK_DIV1_125M),
+ 	.rmii_10 = RK3399_GMAC_RMII_CLK_2_5M | RK3399_GMAC_SPEED_10M,
+ 	.rmii_100 = RK3399_GMAC_RMII_CLK_25M | RK3399_GMAC_SPEED_100M,
+ };
+@@ -905,9 +895,7 @@ static const struct rk_gmac_ops rk3506_ops = {
+ #define RK3528_GMAC1_CLK_RMII_DIV2	GRF_BIT(10)
+ #define RK3528_GMAC1_CLK_RMII_DIV20	GRF_CLR_BIT(10)
+ 
+-#define RK3528_GMAC1_CLK_RGMII_DIV1	GRF_FIELD_CONST(11, 10, 0)
+-#define RK3528_GMAC1_CLK_RGMII_DIV5	GRF_FIELD_CONST(11, 10, 3)
+-#define RK3528_GMAC1_CLK_RGMII_DIV50	GRF_FIELD_CONST(11, 10, 2)
++#define RK3528_GMAC1_CLK_RGMII(val)	GRF_FIELD_CONST(11, 10, val)
+ 
+ #define RK3528_GMAC0_CLK_RMII_GATE	GRF_BIT(2)
+ #define RK3528_GMAC0_CLK_RMII_NOGATE	GRF_CLR_BIT(2)
+@@ -945,9 +933,9 @@ static const struct rk_reg_speed_data rk3528_gmac0_reg_speed_data = {
+ };
+ 
+ static const struct rk_reg_speed_data rk3528_gmac1_reg_speed_data = {
+-	.rgmii_10 = RK3528_GMAC1_CLK_RGMII_DIV50,
+-	.rgmii_100 = RK3528_GMAC1_CLK_RGMII_DIV5,
+-	.rgmii_1000 = RK3528_GMAC1_CLK_RGMII_DIV1,
++	.rgmii_10 = RK3528_GMAC1_CLK_RGMII(GMAC_CLK_DIV50_2_5M),
++	.rgmii_100 = RK3528_GMAC1_CLK_RGMII(GMAC_CLK_DIV5_25M),
++	.rgmii_1000 = RK3528_GMAC1_CLK_RGMII(GMAC_CLK_DIV1_125M),
+ 	.rmii_10 = RK3528_GMAC1_CLK_RMII_DIV20,
+ 	.rmii_100 = RK3528_GMAC1_CLK_RMII_DIV2,
+ };
+@@ -1099,9 +1087,7 @@ static const struct rk_gmac_ops rk3568_ops = {
+ #define RK3576_GMAC_CLK_RMII_DIV2		GRF_BIT(5)
+ #define RK3576_GMAC_CLK_RMII_DIV20		GRF_CLR_BIT(5)
+ 
+-#define RK3576_GMAC_CLK_RGMII_DIV1		GRF_FIELD_CONST(6, 5, 0)
+-#define RK3576_GMAC_CLK_RGMII_DIV5		GRF_FIELD_CONST(6, 5, 3)
+-#define RK3576_GMAC_CLK_RGMII_DIV50		GRF_FIELD_CONST(6, 5, 2)
++#define RK3576_GMAC_CLK_RGMII(val)		GRF_FIELD_CONST(6, 5, val)
+ 
+ #define RK3576_GMAC_CLK_RMII_GATE		GRF_BIT(4)
+ #define RK3576_GMAC_CLK_RMII_NOGATE		GRF_CLR_BIT(4)
+@@ -1145,9 +1131,9 @@ static void rk3576_set_to_rmii(struct rk_priv_data *bsp_priv)
+ }
+ 
+ static const struct rk_reg_speed_data rk3578_reg_speed_data = {
+-	.rgmii_10 = RK3576_GMAC_CLK_RGMII_DIV50,
+-	.rgmii_100 = RK3576_GMAC_CLK_RGMII_DIV5,
+-	.rgmii_1000 = RK3576_GMAC_CLK_RGMII_DIV1,
++	.rgmii_10 = RK3576_GMAC_CLK_RGMII(GMAC_CLK_DIV50_2_5M),
++	.rgmii_100 = RK3576_GMAC_CLK_RGMII(GMAC_CLK_DIV5_25M),
++	.rgmii_1000 = RK3576_GMAC_CLK_RGMII(GMAC_CLK_DIV1_125M),
+ 	.rmii_10 = RK3576_GMAC_CLK_RMII_DIV20,
+ 	.rmii_100 = RK3576_GMAC_CLK_RMII_DIV2,
+ };
+@@ -1223,12 +1209,8 @@ static const struct rk_gmac_ops rk3576_ops = {
+ #define RK3588_GMA_CLK_RMII_DIV2(id)		GRF_BIT(5 * (id) + 2)
+ #define RK3588_GMA_CLK_RMII_DIV20(id)		GRF_CLR_BIT(5 * (id) + 2)
+ 
+-#define RK3588_GMAC_CLK_RGMII_DIV1(id)		\
+-	(GRF_FIELD_CONST(3, 2, 0) << ((id) * 5))
+-#define RK3588_GMAC_CLK_RGMII_DIV5(id)		\
+-	(GRF_FIELD_CONST(3, 2, 3) << ((id) * 5))
+-#define RK3588_GMAC_CLK_RGMII_DIV50(id)		\
+-	(GRF_FIELD_CONST(3, 2, 2) << ((id) * 5))
++#define RK3588_GMAC_CLK_RGMII(id, val)		\
++	(GRF_FIELD_CONST(3, 2, val) << ((id) * 5))
+ 
+ #define RK3588_GMAC_CLK_RMII_GATE(id)		GRF_BIT(5 * (id) + 1)
+ #define RK3588_GMAC_CLK_RMII_NOGATE(id)		GRF_CLR_BIT(5 * (id) + 1)
+@@ -1275,17 +1257,17 @@ static int rk3588_set_gmac_speed(struct rk_priv_data *bsp_priv,
+ 		if (interface == PHY_INTERFACE_MODE_RMII)
+ 			val = RK3588_GMA_CLK_RMII_DIV20(id);
+ 		else
+-			val = RK3588_GMAC_CLK_RGMII_DIV50(id);
++			val = RK3588_GMAC_CLK_RGMII(id, GMAC_CLK_DIV50_2_5M);
+ 		break;
+ 	case 100:
+ 		if (interface == PHY_INTERFACE_MODE_RMII)
+ 			val = RK3588_GMA_CLK_RMII_DIV2(id);
+ 		else
+-			val = RK3588_GMAC_CLK_RGMII_DIV5(id);
++			val = RK3588_GMAC_CLK_RGMII(id, GMAC_CLK_DIV5_25M);
+ 		break;
+ 	case 1000:
+ 		if (interface != PHY_INTERFACE_MODE_RMII)
+-			val = RK3588_GMAC_CLK_RGMII_DIV1(id);
++			val = RK3588_GMAC_CLK_RGMII(id, GMAC_CLK_DIV1_125M);
+ 		else
+ 			goto err;
+ 		break;
 -- 
 2.47.3
 
