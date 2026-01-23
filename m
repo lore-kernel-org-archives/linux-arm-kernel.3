@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F0CAD77883
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F1DD77882
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 16:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PFmknUFExvntjMXArlo+QGYXCMApnwCGjL0EqgfBfw0=; b=REWHl4M3F5iztzQyW4b7qVZDn0
-	fpLcfmUZ+ZTISo0YHxfm5Ch5NfL7iRBaemjG3k/zxtofdxtOlWlJqcWfCvCZZnyvwcZ1V0aW7IQFq
-	ISGAeHvEbl8PGbjK7gbdXzlH0u01rFKI8Whi0+H+i70yb1T4+A9OnmtdWiR/lUN5dkTpQ2qsR9PUW
-	6seZkVg5P0VS/8DI4ihfnhsxfqQ/seVBycJVh93Es+7rFC6EcOmARIGo2ik1eu4ckljlRg2CIS3Gh
-	tpDPlwRiFn+btMrywRfkb6l6njoG7WZORSggWTTzqehXgXSEmq1BnfoeP/2xpXksYAaCA2cTqg0D2
-	H75m3Q8g==;
+	bh=Un9EaKsRLCtsgm1ZiPFQYob4m1+DxNIOx6FYRQRe8cQ=; b=kEqKYIifiWYEOM1CMz/Rfprjrl
+	qHIOlW4UuV9IT+1CbltHtI/X9FSGNERxrQ8+VOWpJut+F07X7cdzzgEHEMj2PSP4bNHPP/2zI77EP
+	RqACq4AdqcHkFRopn5cguFHPu0x4knmF2qvd2oAYRViKH90T8TZkIohVSJ1jb8C4GIQRj+0zHevHn
+	4n0N24MaK0B4JcArSoPj25WoStfD8AKexY6eT73WQO5ZH8DO5etpl6s4eMjorahEWxJAoRufHzFLt
+	eRaiN6+SnswjbjlYexc+0vA9Hb7d00fsSZAbE0KltN44GwvGX+3FRoUTiiUN0H5hesuqZgK0uSH+K
+	4HAX82dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjKNL-00000009E0x-0ziX;
-	Fri, 23 Jan 2026 16:51:11 +0000
+	id 1vjKNT-00000009E5B-2IzH;
+	Fri, 23 Jan 2026 16:51:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjKNG-00000009Dyr-34Zw
+	id 1vjKNJ-00000009Dzh-2eUe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 16:51:07 +0000
+	Fri, 23 Jan 2026 16:51:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 34A291576;
-	Fri, 23 Jan 2026 08:50:59 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F2646165C;
+	Fri, 23 Jan 2026 08:51:00 -0800 (PST)
 Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4EDD33F694;
-	Fri, 23 Jan 2026 08:51:04 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1ABE53F694;
+	Fri, 23 Jan 2026 08:51:05 -0800 (PST)
 From: Joey Gouly <joey.gouly@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: alexandru.elisei@arm.com,
@@ -42,18 +42,17 @@ Cc: alexandru.elisei@arm.com,
 	maz@kernel.org,
 	kvmarm@lists.linux.dev,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [kvm-unit-tests PATCH v6 02/14] arm64: set SCTLR_EL1 to a known value for secondary cores
-Date: Fri, 23 Jan 2026 16:50:41 +0000
-Message-Id: <20260123165053.2250754-3-joey.gouly@arm.com>
+Subject: [kvm-unit-tests PATCH v6 03/14] arm64: drop to EL1 if booted at EL2
+Date: Fri, 23 Jan 2026 16:50:42 +0000
+Message-Id: <20260123165053.2250754-4-joey.gouly@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260123165053.2250754-1-joey.gouly@arm.com>
 References: <20260123165053.2250754-1-joey.gouly@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_085106_812246_6EBB4AAF 
-X-CRM114-Status: UNSURE (   7.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260123_085109_787156_EE84840A 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,32 +67,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This ensures that primary and secondary cores will have the same values for
-SCTLR_EL1.
+EL2 is not currently supported, drop to EL1 to conitnue booting.
+
+This sets up a minimal EL2 environment. It is similar to el2_setup.h in Linux,
+but since kvm-unit-tests does not currently use any of the features (stage2,
+POE, PIE, BRBE, GCS, ...) covered by that file, only the Fine Grained Traps
+registers are dealt with.
 
 Signed-off-by: Joey Gouly <joey.gouly@arm.com>
-Fixes: 10b65ce77ae7 ("arm64: Configure SCTLR_EL1 at boot")
-Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
+Acked-by: Marc Zyngier <maz@kernel.org>
 ---
- arm/cstart64.S | 5 +++++
- 1 file changed, 5 insertions(+)
+ arm/cstart64.S         | 48 +++++++++++++++++++++++++++++++++++++++---
+ lib/arm64/asm/sysreg.h | 14 ++++++++++++
+ 2 files changed, 59 insertions(+), 3 deletions(-)
 
 diff --git a/arm/cstart64.S b/arm/cstart64.S
-index 014c9c7b..dcdd1516 100644
+index dcdd1516..2b93f234 100644
 --- a/arm/cstart64.S
 +++ b/arm/cstart64.S
-@@ -185,6 +185,11 @@ get_mmu_off:
+@@ -15,6 +15,46 @@
+ #include <asm/thread_info.h>
+ #include <asm/sysreg.h>
+ 
++.macro init_el, tmp
++	mrs	\tmp, CurrentEL
++	cmp	\tmp, CurrentEL_EL2
++	b.ne	1f
++	/* EL2 setup */
++	mrs	\tmp, mpidr_el1
++	msr	vmpidr_el2, \tmp
++	mrs	\tmp, midr_el1
++	msr	vpidr_el2, \tmp
++	/* clear FGT registers if supported */
++	mrs	\tmp, id_aa64mmfr0_el1
++	ubfx	\tmp, \tmp, #ID_AA64MMFR0_EL1_FGT_SHIFT, #4
++	cbz	\tmp, .Lskip_fgt_\@
++	mov	\tmp, #0
++	msr_s	SYS_HFGRTR_EL2, \tmp
++	msr_s	SYS_HFGWTR_EL2, \tmp
++	msr_s	SYS_HFGITR_EL2, \tmp
++	mrs	\tmp, id_aa64mmfr0_el1
++	ubfx	\tmp, \tmp, #ID_AA64MMFR0_EL1_FGT_SHIFT, #4
++	cmp	\tmp, #ID_AA64MMFR0_EL1_FGT_FGT2
++	bne	.Lskip_fgt_\@
++	mov	\tmp, #0
++	msr_s	SYS_HFGRTR2_EL2, \tmp
++	msr_s	SYS_HFGWTR2_EL2, \tmp
++	msr_s	SYS_HFGITR2_EL2, \tmp
++.Lskip_fgt_\@:
++	mov	\tmp, #0
++	msr	cptr_el2, \tmp
++	ldr	\tmp, =(INIT_HCR_EL2_EL1_ONLY)
++	msr	hcr_el2, \tmp
++	mov	\tmp, PSR_MODE_EL1t
++	msr	spsr_el2, \tmp
++	adrp	\tmp, 1f
++	add	\tmp, \tmp, :lo12:1f
++	msr	elr_el2, \tmp
++	eret
++1:
++.endm
++
++
+ #ifdef CONFIG_EFI
+ #include "efi/crt0-efi-aarch64.S"
+ #else
+@@ -56,15 +96,15 @@ start:
+ 	add     x6, x6, :lo12:reloc_end
+ 1:
+ 	cmp	x5, x6
+-	b.hs	1f
++	b.hs	reloc_done
+ 	ldr	x7, [x5]			// r_offset
+ 	ldr	x8, [x5, #16]			// r_addend
+ 	add	x8, x8, x4			// val = base + r_addend
+ 	str	x8, [x4, x7]			// base[r_offset] = val
+ 	add	x5, x5, #24
+ 	b	1b
+-
+-1:
++reloc_done:
++	init_el x4
+ 	/* zero BSS */
+ 	adrp	x4, bss
+ 	add	x4, x4, :lo12:bss
+@@ -185,6 +225,8 @@ get_mmu_off:
  
  .globl secondary_entry
  secondary_entry:
-+	/* set SCTLR_EL1 to a known value */
-+	ldr	x0, =INIT_SCTLR_EL1_MMU_OFF
-+	msr	sctlr_el1, x0
-+	isb
++	init_el x0
 +
- 	/* enable FP/ASIMD and SVE */
- 	mov	x0, #(3 << 20)
- 	orr	x0, x0, #(3 << 16)
+ 	/* set SCTLR_EL1 to a known value */
+ 	ldr	x0, =INIT_SCTLR_EL1_MMU_OFF
+ 	msr	sctlr_el1, x0
+diff --git a/lib/arm64/asm/sysreg.h b/lib/arm64/asm/sysreg.h
+index e537bb46..ed776716 100644
+--- a/lib/arm64/asm/sysreg.h
++++ b/lib/arm64/asm/sysreg.h
+@@ -77,6 +77,9 @@ asm(
+ #define ID_AA64ISAR0_EL1_RNDR_SHIFT	60
+ #define ID_AA64PFR1_EL1_MTE_SHIFT	8
+ 
++#define ID_AA64MMFR0_EL1_FGT_SHIFT	56
++#define ID_AA64MMFR0_EL1_FGT_FGT2	0x2
++
+ #define ICC_PMR_EL1			sys_reg(3, 0, 4, 6, 0)
+ #define ICC_SGI1R_EL1			sys_reg(3, 0, 12, 11, 5)
+ #define ICC_IAR1_EL1			sys_reg(3, 0, 12, 12, 0)
+@@ -113,6 +116,17 @@ asm(
+ #define SCTLR_EL1_TCF0_SHIFT	38
+ #define SCTLR_EL1_TCF0_MASK	GENMASK_ULL(39, 38)
+ 
++#define HCR_EL2_RW		_BITULL(31)
++
++#define INIT_HCR_EL2_EL1_ONLY	(HCR_EL2_RW)
++
++#define SYS_HFGRTR_EL2		sys_reg(3, 4, 1, 1, 4)
++#define SYS_HFGWTR_EL2		sys_reg(3, 4, 1, 1, 5)
++#define SYS_HFGITR_EL2		sys_reg(3, 4, 1, 1, 6)
++#define SYS_HFGRTR2_EL2		sys_reg(3, 4, 3, 1, 2)
++#define SYS_HFGWTR2_EL2		sys_reg(3, 4, 3, 1, 3)
++#define SYS_HFGITR2_EL2		sys_reg(3, 4, 3, 1, 7)
++
+ #define INIT_SCTLR_EL1_MMU_OFF	\
+ 			(SCTLR_EL1_ITD | SCTLR_EL1_SED | SCTLR_EL1_EOS | \
+ 			 SCTLR_EL1_TSCXT | SCTLR_EL1_EIS | SCTLR_EL1_SPAN | \
 -- 
 2.25.1
 
