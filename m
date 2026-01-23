@@ -4,61 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DB41D72348
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA035D7234A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 08:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ak2ukuGBc+Ys62uKbyQTY4W4bSjYwRQNwZcxuDSuWU=; b=HdWKZIIyNz9Oi3kdZ6LJOxNMAE
-	2uSPzUfJEashA1ug72NNLtieVrllRZ9LiDO9WLKFUvtNTL2auJk31EhWB+DfRl/kInWHjG2VuUTdV
-	VbrbHplDx/epiDSqSjttju77oGtMQb1Cok2z/Cq+huK9n2Pog6CtiQlkFTmhca3rZqlnm5JHQLpdZ
-	yVpC+48+ONMTfOhmSgmXisGhXuAqHGjIphP7zyp48O7RRLWkziV+t2NixrGFxkUue39YIAZylW25z
-	aKuT5CAc/0xzb9vzyfk+91yuMO+5BLRil2Od9KWlSUpoTRshb3fql7ff62neEU/ywe4O0IC1L3sLD
-	mOs6ZOUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4zGuRTSFtlLXLV7ehJ8CMU24KuXdASofWlVMIORCOIE=; b=2Leb9oqD4Fn5VbSA0hc2KkK1zK
+	cDCheVJcdv8Ooc5g+w3BZVzpVMrOKbWw4yRcezteZcfHg6kKbnOE/TR0vywD6QRH344LGMe1wNlQK
+	+ZwJKWef4qyLr/DPE3OYvHFYUvuLbp4TOLn+iu1NykN78hCxNI44oLLJiRdV+3VWnzzRRCW7siX9t
+	kUtyTeClJBSfwQFsMI3kuCj1U0F4dIP+UVHYpg+FL3T9kG5EwqL/ezjGELCdgIi+zt2Ox4SFDhnaO
+	Udn5qAN+GvTdEhcniEx9eB7yvrEimr9zGgS4THXDDGEqGPo9C+KG5DggLK8xMiSW1vNl8AY26ecCY
+	uJfBNcAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjCJy-00000008RkB-3oPj;
-	Fri, 23 Jan 2026 08:15:10 +0000
-Received: from mail-m21472.qiye.163.com ([117.135.214.72])
+	id 1vjCU2-00000008SdI-3pui;
+	Fri, 23 Jan 2026 08:25:34 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjCJv-00000008RjJ-0ISM
+	id 1vjCU1-00000008Sco-0k5j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 08:15:09 +0000
-Received: from [172.16.12.14] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 31b860454;
-	Fri, 23 Jan 2026 16:14:55 +0800 (GMT+08:00)
-Message-ID: <1c275ed9-70ee-4eba-b3d5-0f0c19a3a2d1@rock-chips.com>
-Date: Fri, 23 Jan 2026 16:14:54 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, oe-kbuild-all@lists.linux.dev,
- linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Jaehoon Chung <jh80.chung@samsung.com>
-Subject: Re: [PATCH 1/3] mmc: dw_mmc-k3: Remove mshc alias support
-To: kernel test robot <lkp@intel.com>, Ulf Hansson <ulf.hansson@linaro.org>,
- Wei Xu <xuwei5@hisilicon.com>
-References: <1769132482-177365-2-git-send-email-shawn.lin@rock-chips.com>
- <202601231543.IzsYNOzJ-lkp@intel.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <202601231543.IzsYNOzJ-lkp@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Fri, 23 Jan 2026 08:25:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yc4354852dCRx82Urk2z8Ka5rbQXeWCMS/I/Zmx0BoPhJVcdLkO4tXFN2o/njohCjQ3SGzUsODNBc3NbyTGrN3ew8bxlIi1AtNeLb5dsJl0DLOIvN7gmRjND2EY3z61lwdXbEcik5pjaOxuvfNeKXeepkvWNq3ADyGu9FjeZdfsim6ex+i0lLE6F9Yeid56WUCa0DhUvu9k+XMd1IDft8nj4ddDFeC+tgAHsIEd+W8C/Ys/prJDRwz575nyfIv9kocsbZKkouDHCtWrpnlBjlVIQR46hapNWqL5J2BAmqax9mkFeH/DS09jdXNWMk/c4DgNj+0Avz1SUxLgBoCDHDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4zGuRTSFtlLXLV7ehJ8CMU24KuXdASofWlVMIORCOIE=;
+ b=oQ2XPscIe5dECCbI5s2qLcJIbFVppm+by9+GVgq0cvVpeU5tSGpqg+E8NSlDSauDsZI/MEPVPc4r3UUyWjXjuKvebA7w1TY+Cqr5eQyWb8Q5kMElmooZIVtTGtsqMUh7H1sV4seWtABRre6JKqtk3g3REJsI1QTmKoNo4TMuyNfy4wz16hgU5jh6vtfoWVBXCqp3PPLIjKKFB/cWlEXgIKTkH1yT7Z1cfOh9Ynl2TmDFuusDGboEgAjYa/qlvqGClXJwH0azMn4GsrcSBGU3qle+Q1e//TRPl6tg3rwMutvMZ4Bly3+fmZScxuKx15cYk5VB5iRv8XC1AI8xK54RHQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4zGuRTSFtlLXLV7ehJ8CMU24KuXdASofWlVMIORCOIE=;
+ b=EGcEKd8GshWnUprQKbJSxGuDgjATAcIrCYMkXHjoRS3waKMtCMS8o2EV1d+JeAWm+mz+rvsceTqbb1y/YtgfDPWbhTRCLV+5R/338mz5b5zkEGqdivVMK32Gbz3f8R4yydlXlo9aUDeOB9VXFpwWB5GltSxK1sxgjf9He0RZnqCbh3Ubcoaw/VddGVBicz3X1MMde3ztxM5M0bVNCQ6Sa7eevxAmz4BQOzr6YKVdsKcRQemf1T1D7CLuQ/1+H0tcyDEnS882rXfQymD7SvWGdd7y0EcAG8YCIhF8Hx0NeJEOVVMWZ3UIAw9gR5iAyaEs1E4UAaxdWVUtd5hrakYTig==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
+ by AS5PR04MB9730.eurprd04.prod.outlook.com (2603:10a6:20b:677::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Fri, 23 Jan
+ 2026 08:25:27 +0000
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::bab2:d15c:fcf8:ef2b]) by AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::bab2:d15c:fcf8:ef2b%7]) with mapi id 15.20.9542.010; Fri, 23 Jan 2026
+ 08:25:27 +0000
+From: Shengjiu Wang <shengjiu.wang@nxp.com>
+To: shengjiu.wang@gmail.com,
+	Xiubo.Lee@gmail.com,
+	festevam@gmail.com,
+	nicoleotsuka@gmail.com,
+	lgirdwood@gmail.com,
+	broonie@kernel.org,
+	perex@perex.cz,
+	tiwai@suse.com,
+	linux-sound@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 0/4] ASoC: fsl_audmix: Support the i.MX952 platform
+Date: Fri, 23 Jan 2026 16:24:57 +0800
+Message-Id: <20260123082501.4050296-1-shengjiu.wang@nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9be9ebaeb309cckunmd7e25a7d1ac2f7
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxpNQ1ZDTEtNGEhJTEIZT0pWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	xVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=RXAH0D89cH6q4GBkk69sDDStWYj96MI9ROl/xzkurdP1fq3lqI96TU1NMhbcS6teqcUJn7+YeG5v2+7V/bEmEn770Mup6IywksNpKXjV0hGBB4sk2kWxJg5uWp3xQ67LDK30F5xAHbJ/FfbwWPH/gVm4VSQB/xtZtSX/74qCj30=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=7ak2ukuGBc+Ys62uKbyQTY4W4bSjYwRQNwZcxuDSuWU=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR02CA0006.apcprd02.prod.outlook.com
+ (2603:1096:4:194::8) To AM0PR04MB7044.eurprd04.prod.outlook.com
+ (2603:10a6:208:191::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|AS5PR04MB9730:EE_
+X-MS-Office365-Filtering-Correlation-Id: f7fbb7c7-b629-413e-9f6a-08de5a58f681
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|52116014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?REBwf51WVlesZA/hch2fHxCp7msp+s6Ut7h02CmhyxqYfI8CffrbWpxy9w28?=
+ =?us-ascii?Q?V2OK/5i7+f3jbNTQXu9rwtGZkyqYvzm5n21ItHkPC1v1dqw8Bq8AACSb0Pu7?=
+ =?us-ascii?Q?6Rb6SuIxEuUCki7petFd0Rm1J8vH3Q+95EUHH3R2+7Gc1ZwMZFlvi6uUCQRo?=
+ =?us-ascii?Q?KoJEdPOwgWOjrUXPTaiM2yLV2TFEm0ofhyJ86AHFRuDVcImXZX+W2nTVHeuX?=
+ =?us-ascii?Q?tYwm+G+4NZDeUalDpsY6T79oQMLEEUwiN13ybv6SJQIPTK/rE3M0Lc7fTUUR?=
+ =?us-ascii?Q?uRHhlp6728hh6etxbQDMa9SY5l6XVcHFF9Ytq+Nts+F6FhQAD6ZT1w0ivwMW?=
+ =?us-ascii?Q?dj+pz9DNrn5g2rU1mADQV0I/y747y79G7IvFfB0BiS5XZ3+E2dOul8eYLpaX?=
+ =?us-ascii?Q?5IK19jj4vJYD2vbaHMkl8Mc13tlq3jDXp/3Ke5ooaMOG4WmHtmbghf1FCJ9p?=
+ =?us-ascii?Q?eoZ0cb/EMi3/zax1t54eXg0TNVXiyMvoED41BmP7BHbD3dQ2Lcs9KQwLJ0W+?=
+ =?us-ascii?Q?dW0cElbLiqAWLRf/jXh4klRxxLi0m1kOnN16uxSjfRkRxn6lFUDVpWnYRs97?=
+ =?us-ascii?Q?WV3zqy+hwxHLcoKjSOIdnGXJnMeTklC19+mpqJgRsdfevczt8mXQkQFFCyoY?=
+ =?us-ascii?Q?FqoWR7DxCvH/Lm8K8i/4xs8b/8grjH3zwPKSBCSC0f+xdElCy/GHJ4HB8plM?=
+ =?us-ascii?Q?dXke2YaiqvjVH8mfS9NpBqOxZktAl+GJiYVYuKp4qGbf3zobAmuVYdUyaRfW?=
+ =?us-ascii?Q?XutAuulgRz3u4ojxQvv7snVu425UBNmi9d8qCNNThxqod+htUTSKo3/asOox?=
+ =?us-ascii?Q?HkFUnvYUi5frqMjk37dVp+pcPl+V7OoHULJvBNPFRrGPj2Xg/ROEtNIgLsB0?=
+ =?us-ascii?Q?e/Y7joOyfUbbsPVBco5W/8IsKHxthH5oGLQ6PTkWel1adac2HPr/PokfndAt?=
+ =?us-ascii?Q?ZuPEl8w1MmPey6p3W340/h1DJ5gj7bonJKFhE9mBLiRSz9UokbEQr1Qnhe+4?=
+ =?us-ascii?Q?CwgI28Sfu4BS4U3vsorOXDB66WrC+mEmJPzE6QZSqh7J73rNlO5RJJnSVHxY?=
+ =?us-ascii?Q?892LgopQqeWpuKZkSupwdcFc3uWU6EBrYLbuNe5S7UZKHhYn0SNpx7dsY2nJ?=
+ =?us-ascii?Q?KQl7RXVzeCd4sXFeo9VbBArG4oF2xc2XcrfpTAJC2bU3NiQ97QfQy5vAzNJk?=
+ =?us-ascii?Q?u3b15zcSs0QsBs6o0mgjbhQk3TziMQ/BAiprk67s9jNVA7KceGyOvpHYJxT1?=
+ =?us-ascii?Q?JjjJAIoLadumBK6597cB9hc7i02f3pwz5D1u262I3lLvY5AevQsxZhIBBJN9?=
+ =?us-ascii?Q?ve0VZ6Qpjt1Sbg2Y1eIPfLhez8Pz+EZJ/Jv7ewnOevG9Hohmpr7p9FSDszVd?=
+ =?us-ascii?Q?TcotBqL4Je9vMxXNXWt5pZnbRT82VCB4fNZ2rPw67H6LeeMeuqiWckgffQsx?=
+ =?us-ascii?Q?SUbG3jxo5q75Zu9azJOT/n97NVgD04WMeOiSn1R5X1uqV/hsjZvsZ+oYF/QB?=
+ =?us-ascii?Q?vQ/0XEQhky17WsjYcyyI7rcVIA6lvoryu5xudPPFd6Mx82eIiBB+3pvWAGth?=
+ =?us-ascii?Q?30H28Jvg+S2dNnsfYR3rfbP9K7Ia1CSctlSW9q54LIthCVVQF95Nn5adZKEb?=
+ =?us-ascii?Q?gZ8ufo/tm6FHSKztkZ0YzCfe8Ea8ORWlC+FzcBhgStjk?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(52116014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BhmAksiZLK+Avun8mM4z5NIOwimboB5z2bqD8BNxRpLORIrr4sZGSlnrTAIY?=
+ =?us-ascii?Q?TKIegUMu5NO6XpOc8Rmf6GlbffPXJZO6UuKtnJy5ijKFGZK9GiMGESwMF76N?=
+ =?us-ascii?Q?oDCALr1MzJiB8FFSwZxLIeoBJYxu7mXauXPP6jXS/2J5zpx1eqvWT5Hdz8fR?=
+ =?us-ascii?Q?IrmA6j/IVGlXqfgB3BdWey0bGReD/hwx4YewE9nQcMC22wqhWyMQ9JGJYcn0?=
+ =?us-ascii?Q?C/uE0UKFy2pqDYU4SGDNf7zHUWYIuKAtp5m0BzwlXGgGRlKAT9CmqDB3WHNz?=
+ =?us-ascii?Q?tCT2VKLLbP+w/Q8M1kgOHWyrHXJjtvDHIUbzloWJ6fyDukGpSKmRLIquOfbV?=
+ =?us-ascii?Q?8KiCNRVSQdjiFyfHNQHNq3yQZeJCUf5LN9cVfC6fv6S8lsa4uNaoUmf8X561?=
+ =?us-ascii?Q?q/h5w3qxkUAHwtBy8P8ogxYepWv6fDr4wn6OB1HWMo7RKkrVKNDbQ6nGLdkG?=
+ =?us-ascii?Q?M4BS609VyCf0OE1MjOtWNw5cWGjOmGfNrJ6ee8ZC2x6QeutY/eEf8/jhkEze?=
+ =?us-ascii?Q?Dao/cQIkMX43wlQVix5rx/ORIJ14d8pCSFVKJcre2To1wAqA94GCQllyg2oM?=
+ =?us-ascii?Q?kRDMhAJFCGuKdRp2CUdgewCC46LkZ/CfwvxVsBDvBSUG0K5UDT0lgbdk4cY/?=
+ =?us-ascii?Q?UQtOAoQvVz8UrtpuY7onrenNDiViALDbodWKfLTvjqBpQCmtqWYCg6Gm4QQS?=
+ =?us-ascii?Q?l6KOEJRh8XkZfyU+VUPwDmuSzxcMM26WgWHUMwSX4cDCTq0gpyjR2eX/z9yA?=
+ =?us-ascii?Q?rOUZ4hJhu/05uFCzFEOjKxPlKgIilfWYEFTzM1sSP7BiJyOVx7bMv0SQQiJW?=
+ =?us-ascii?Q?4vemCXBsG7l5Q/UJNf1w9CJzIqven21/sX30W8qZORHFdBz8tkosW+S92Jhl?=
+ =?us-ascii?Q?x8c4OWfLasICQIuyJQ5yRXS/eBPFkc1Fyi1HXUHhwlZmM3Lw7+MwO9ywnHvr?=
+ =?us-ascii?Q?H7A12iEhQ3SwNDHL0PUyrRgZXJMgfCDVSdbV1hbTXw6Bjqt865rGS0BjfZeO?=
+ =?us-ascii?Q?sZj6vmA5Nz8xB6eN+FgWczK+evagcrwuhZmG68UxT67s1cku0rY5jbKPkKRl?=
+ =?us-ascii?Q?l65nWuOEx2QcUaqwcaY+jhBfY+ofmE3b9JKbUzUhnRAtElgjWdo9WFkN5s6S?=
+ =?us-ascii?Q?zkKbrD9oXE6d6aLGsHBtDvawquVUXjg2Q7awMgVkcyD2fEPFKthBeT/eDv9A?=
+ =?us-ascii?Q?zvYCG5/yl6c7zsokytghJWHB80EKPS+8MdB/NiiaJNVig7a4rcTD/lggaXqw?=
+ =?us-ascii?Q?zRMJ9d0wCDSnn2fi9qx3rtnAXnNWbkSXWL6Po48YH8K/tInpDkjrTPYsWzpD?=
+ =?us-ascii?Q?aA0UNG+ngVfs50n5UdbzPyZLw4i/pXSUWgMsQCNcEJVLntA5CUGgamLBCbxM?=
+ =?us-ascii?Q?92Vlug/X51jJwce4sEQ00SIucbFptSWgd9sXDKyMv8ufVmCjugUw7363g4NY?=
+ =?us-ascii?Q?YwBO6lNgkTDU+NqJdUiBt3hSlIu6P8qOMqKpmI+ecyKKrUs9G8DljAo7gXuY?=
+ =?us-ascii?Q?m92SLJXuBQ/4Jb79enVml+gnVHs8vF9KR92UBBEbEkea9tAC+OG9H6CsQJh9?=
+ =?us-ascii?Q?bCrr/q2YVVVplAc/3IHTKGyB6bEw5455AwCDhNRc3GesVpS54l4su3UaVqSb?=
+ =?us-ascii?Q?zfMDkNUAy1aSFcip7jPyBblPVVEB6xVTFbkCRURwC+p9mylakQ/HNMJLZTPd?=
+ =?us-ascii?Q?fYS1SG8CMjPH0sQMtrwAPvp81zPtT61MrSiqdv6Oz0nFZHzs+p5pTO191NWk?=
+ =?us-ascii?Q?6+Kt6Qj+gA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f7fbb7c7-b629-413e-9f6a-08de5a58f681
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jan 2026 08:25:27.5850
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qqahAc/HCe09AzzZW8K43s5F8MLfVqWA1e/8HUkaqSikVVtGPsbsgSwpSavX4QWRugqTRuZ5zGKq4fCmKXisCQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9730
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_001507_782011_30E3CDBB 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20260123_002533_219944_ED9ECECA 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,109 +177,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/01/23 星期五 15:59, kernel test robot 写道:
-> Hi Shawn,
-> 
-> kernel test robot noticed the following build warnings:
-> 
-> [auto build test WARNING on robh/for-next]
-> [also build test WARNING on linus/master ulf-hansson-mmc-mirror/next v6.19-rc6 next-20260122]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Shawn-Lin/mmc-dw_mmc-k3-Remove-mshc-alias-support/20260123-095950
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-> patch link:    https://lore.kernel.org/r/1769132482-177365-2-git-send-email-shawn.lin%40rock-chips.com
-> patch subject: [PATCH 1/3] mmc: dw_mmc-k3: Remove mshc alias support
-> config: arc-randconfig-002-20260123 (https://download.01.org/0day-ci/archive/20260123/202601231543.IzsYNOzJ-lkp@intel.com/config)
-> compiler: arc-linux-gcc (GCC) 8.5.0
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260123/202601231543.IzsYNOzJ-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202601231543.IzsYNOzJ-lkp@intel.com/
-> 
-> All warnings (new ones prefixed by >>):
-> 
->     drivers/mmc/host/dw_mmc-k3.c: In function 'dw_mci_hs_set_timing':
->     drivers/mmc/host/dw_mmc-k3.c:220:16: error: 'struct dw_mci' has no member named 'mmc'
+Enable AUDMIX on i.MX952 platform, update dt binding document and
+driver.
 
-I think this is a false-positive warning as it's based on latest
-linux-next tree.
+SAI is connected to AUDMIX, and the AUDMIX can be bypassed, so
+add 'fsl,sai-amix-mode' property in SAI binding document for this
+case.
 
->       ctrl_id = host->mmc->index;
->                     ^~
->>> drivers/mmc/host/dw_mmc-k3.c:217:18: warning: variable 'priv' set but not used [-Wunused-but-set-variable]
->       struct k3_priv *priv;
->                       ^~~~
+Changes in v3:
+- refine the commit messages
+- use string for 'fsl,sai-amix-mode' and add default value.
+- update driver for property change
 
-But this one is indeed a valid warning, will fix.
+Changes in v2:
+- Move the property to SAI binding document
+- The property name is 'fsl,sai-amix-mode'
+- Move the code for above property to SAI driver
 
-Thanks, lkp.
+Shengjiu Wang (4):
+  ASoC: dt-bindings: fsl,audmix: Add support for i.MX952 platform
+  ASoC: dt-bindings: fsl,sai: Add AUDMIX mode support on i.MX952
+  ASoC: fsl_audmix: Add support for i.MX952 platform
+  ASoC: fsl_sai: Add AUDMIX mode support on i.MX952
 
-> 
-> 
-> vim +/priv +217 drivers/mmc/host/dw_mmc-k3.c
-> 
-> 0293efddaddfcb Zhangfei Gao        2015-05-14  207
-> d53e39b1131c08 Shawn Lin           2026-01-23  208  static int dw_mci_hs_set_timing(struct dw_mci *host, int timing,
-> 361c7fe9b02eee liwei               2017-08-11  209  				     int smpl_phase)
-> 361c7fe9b02eee liwei               2017-08-11  210  {
-> 361c7fe9b02eee liwei               2017-08-11  211  	u32 drv_phase;
-> 361c7fe9b02eee liwei               2017-08-11  212  	u32 smpl_dly;
-> 361c7fe9b02eee liwei               2017-08-11  213  	u32 use_smpl_dly = 0;
-> 361c7fe9b02eee liwei               2017-08-11  214  	u32 enable_shift = 0;
-> 361c7fe9b02eee liwei               2017-08-11  215  	u32 reg_value;
-> 361c7fe9b02eee liwei               2017-08-11  216  	int ctrl_id;
-> 361c7fe9b02eee liwei               2017-08-11 @217  	struct k3_priv *priv;
-> 361c7fe9b02eee liwei               2017-08-11  218
-> 361c7fe9b02eee liwei               2017-08-11  219  	priv = host->priv;
-> d53e39b1131c08 Shawn Lin           2026-01-23 @220  	ctrl_id = host->mmc->index;
-> d53e39b1131c08 Shawn Lin           2026-01-23  221
-> d53e39b1131c08 Shawn Lin           2026-01-23  222  	if (ctrl_id >= TIMING_MODE)
-> d53e39b1131c08 Shawn Lin           2026-01-23  223  		return -EINVAL;
-> 361c7fe9b02eee liwei               2017-08-11  224
-> 361c7fe9b02eee liwei               2017-08-11  225  	drv_phase = hs_timing_cfg[ctrl_id][timing].drv_phase;
-> 361c7fe9b02eee liwei               2017-08-11  226  	smpl_dly   = hs_timing_cfg[ctrl_id][timing].smpl_dly;
-> 361c7fe9b02eee liwei               2017-08-11  227  	if (smpl_phase == -1)
-> 361c7fe9b02eee liwei               2017-08-11  228  		smpl_phase = (hs_timing_cfg[ctrl_id][timing].smpl_phase_max +
-> 361c7fe9b02eee liwei               2017-08-11  229  			     hs_timing_cfg[ctrl_id][timing].smpl_phase_min) / 2;
-> 361c7fe9b02eee liwei               2017-08-11  230
-> 361c7fe9b02eee liwei               2017-08-11  231  	switch (timing) {
-> 361c7fe9b02eee liwei               2017-08-11  232  	case MMC_TIMING_UHS_SDR104:
-> 361c7fe9b02eee liwei               2017-08-11  233  		if (smpl_phase >= USE_DLY_MIN_SMPL &&
-> 361c7fe9b02eee liwei               2017-08-11  234  				smpl_phase <= USE_DLY_MAX_SMPL)
-> 361c7fe9b02eee liwei               2017-08-11  235  			use_smpl_dly = 1;
-> df561f6688fef7 Gustavo A. R. Silva 2020-08-23  236  		fallthrough;
-> 361c7fe9b02eee liwei               2017-08-11  237  	case MMC_TIMING_UHS_SDR50:
-> 361c7fe9b02eee liwei               2017-08-11  238  		if (smpl_phase >= ENABLE_SHIFT_MIN_SMPL &&
-> 361c7fe9b02eee liwei               2017-08-11  239  				smpl_phase <= ENABLE_SHIFT_MAX_SMPL)
-> 361c7fe9b02eee liwei               2017-08-11  240  			enable_shift = 1;
-> 361c7fe9b02eee liwei               2017-08-11  241  		break;
-> 361c7fe9b02eee liwei               2017-08-11  242  	}
-> 361c7fe9b02eee liwei               2017-08-11  243
-> 361c7fe9b02eee liwei               2017-08-11  244  	mci_writel(host, GPIO, 0x0);
-> 361c7fe9b02eee liwei               2017-08-11  245  	usleep_range(5, 10);
-> 361c7fe9b02eee liwei               2017-08-11  246
-> 361c7fe9b02eee liwei               2017-08-11  247  	reg_value = FIELD_PREP(UHS_REG_EXT_SAMPLE_PHASE_MASK, smpl_phase) |
-> 361c7fe9b02eee liwei               2017-08-11  248  		    FIELD_PREP(UHS_REG_EXT_SAMPLE_DLY_MASK, smpl_dly) |
-> 361c7fe9b02eee liwei               2017-08-11  249  		    FIELD_PREP(UHS_REG_EXT_SAMPLE_DRVPHASE_MASK, drv_phase);
-> 361c7fe9b02eee liwei               2017-08-11  250  	mci_writel(host, UHS_REG_EXT, reg_value);
-> 361c7fe9b02eee liwei               2017-08-11  251
-> 361c7fe9b02eee liwei               2017-08-11  252  	mci_writel(host, ENABLE_SHIFT, enable_shift);
-> 361c7fe9b02eee liwei               2017-08-11  253
-> 361c7fe9b02eee liwei               2017-08-11  254  	reg_value = FIELD_PREP(GPIO_CLK_DIV_MASK, GENCLK_DIV) |
-> 361c7fe9b02eee liwei               2017-08-11  255  			     FIELD_PREP(GPIO_USE_SAMPLE_DLY_MASK, use_smpl_dly);
-> 361c7fe9b02eee liwei               2017-08-11  256  	mci_writel(host, GPIO, (unsigned int)reg_value | GPIO_CLK_ENABLE);
-> 361c7fe9b02eee liwei               2017-08-11  257
-> 361c7fe9b02eee liwei               2017-08-11  258  	/* We should delay 1ms wait for timing setting finished. */
-> 361c7fe9b02eee liwei               2017-08-11  259  	usleep_range(1000, 2000);
-> d53e39b1131c08 Shawn Lin           2026-01-23  260
-> d53e39b1131c08 Shawn Lin           2026-01-23  261  	return 0;
-> 361c7fe9b02eee liwei               2017-08-11  262  }
-> 361c7fe9b02eee liwei               2017-08-11  263
-> 
+ .../devicetree/bindings/sound/fsl,audmix.yaml | 16 ++++++++++++--
+ .../devicetree/bindings/sound/fsl,sai.yaml    | 16 ++++++++++++++
+ include/linux/firmware/imx/sm.h               |  2 ++
+ sound/soc/fsl/fsl_audmix.c                    |  3 +++
+ sound/soc/fsl/fsl_sai.c                       | 21 +++++++++++++++++++
+ sound/soc/fsl/fsl_sai.h                       |  4 ++++
+ 6 files changed, 60 insertions(+), 2 deletions(-)
+
+-- 
+2.34.1
 
 
