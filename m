@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B332D74EC2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 12:56:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB14CD74EC2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 13:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ij2RGbSR4/41SvaAzVIlaX6o5oVSqmFdwyLW6lZyVqg=; b=rx3M6FTDhV4L3O4r/2Z42QXZwn
-	d3QBsAtDzXHf+iMiNaJGmukdogwt+uFaUpdzLsYvRo9r/P2JEHmzQ7UIN+m6k4mX3cHwOf01pcrOR
-	wRLVH+uRqbeaoTv9Dm211b7aw24Z9Q6HjrIkRccVqOrT9vsfLhWcL+CgU88lmR73L+ATUjzahoSp/
-	tHeevQJYJ+AThZ+pkV8++UPDFyEyIxzd8ZdaNxinaIK5y1quFClcsYvqk/+P+Ep2Nb1/QYb4r3U7y
-	BWymwjBt7rZ1hBJ9OIHZi4CuVmSR22MhGqeCa945uXWOPE3Mbu/IIfKUJBIwtstiSquSNR45optiE
-	jH96fNDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zm5lrGHaaf9sNfErhKfvyH2cd0YHIcDO1gth+1spoB8=; b=v7peletr5lQL4Ad31ND0Mgjpkv
+	MU9UctRUoR1ptjoQAHc5Ao0XLatrVqgJojH6v8cRVv3pGIHffjdSLQA/BezsanF/lOW7BdgJHoQfD
+	Rv57/AryfC2iKnuSwVy1LiXemdBSRDDV3e/Pkr667RA5kWIN6pO3xCb5Id0I4FCfrXAaeKRXeNOCA
+	RQ/VdcD1eRYbL9dJljJ9XphBPAf1CIZCCNWJbOEQ/uUMcCUv+6SaJB0fwX2hZKRZELD51HxG7WdNI
+	HNw0fWg+ZngyRYCVZvUqMGgOF4FVcFgF9k1ynbQfSux4iVZD5xXoguX3PIN34EpnJ88S0EfaOenOR
+	SiPDzZ5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGhb-00000008w23-3aYD;
-	Fri, 23 Jan 2026 12:55:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vjGyQ-00000008wZ8-35J3;
+	Fri, 23 Jan 2026 13:13:14 +0000
+Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGha-00000008w1s-2GA8
+	id 1vjGyO-00000008wYk-0Mwu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 12:55:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A646A60010;
-	Fri, 23 Jan 2026 12:55:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8A79C4CEF1;
-	Fri, 23 Jan 2026 12:55:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769172949;
-	bh=GcaMgzzRJVMZIDYWEMwJdb54aJDPROHZoomAa2LyUcc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pHcFHW/XhoB4yR0c7RrUSgqzjTmQdT1JTb99sdK1mTjrZmaQIQ+gUXZbsp7k9r28E
-	 4p5EX8n2PnELlfa7oVBobJOmjRGf8wAllbJGLU0V7jrNXvvwWrrpMrIY9P9oEwWqIJ
-	 fLD5aEHRJGBACNclN6lUXppO/IjA/xnQ78XsUe3BilaBfZmTcbRB7UN0vZqYFiW3SW
-	 u/lWYw64BNivYn82XTc4GsytJo3C+euWJJ6eyz8xApcXSSqulp2B/e1pVysA3j+L+k
-	 0W9kWRYfZLxhWsLJQnxDAT4WXNPqHZI45GdP0B4pxHA3UGwKfnZwG1nI8wBUNINagx
-	 yVq7lABae2stQ==
-Date: Fri, 23 Jan 2026 12:55:43 +0000
-From: Will Deacon <will@kernel.org>
-To: perlarsen@google.com
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Armelle Laine <armellel@google.com>,
-	Sebastien Ene <sebastianene@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 1/2] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ in
- host handler
-Message-ID: <aXNvzxoBXr-oRB8r@willie-the-truck>
-References: <20260121-host-direct-messages-v5-0-2c1614c94e80@google.com>
- <20260121-host-direct-messages-v5-1-2c1614c94e80@google.com>
+	Fri, 23 Jan 2026 13:13:13 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5595A10D866;
+	Fri, 23 Jan 2026 14:12:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1769173980;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Zm5lrGHaaf9sNfErhKfvyH2cd0YHIcDO1gth+1spoB8=;
+	b=hUtloW+WnY7BFkUDr92urRQbAcA7J4PpX5I9S4Eoma7Ay03UJloEK0eMhdL1lDPcaJNfr7
+	F8meKfTSGHPtqe+RwEi8uV5TenWQEl3QJPZTDP4VX1pe/2o1ikjqXj0RsT3GA5MY/aSJqL
+	HDRhOBLq2lqx4SUw7WU5dVdEzwWbhFYQEAwoKQeIws6qyJVR/avVzSvj7VvcCfum/SGAtX
+	ePXjmzukNk/CMSo0souoGEgm7DjQpe5JAsMM5URo5/pDNs4MP1s6ovqYxxA/mvYMHFisJL
+	e6L/t9yp7n3VzN2Q2wPLNY5hWQZwHLSJ2M6P3EHXzsYQBeBQKpUPLL/UZPyy0Q==
+Date: Fri, 23 Jan 2026 14:12:52 +0100
+From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukma@nabladev.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Michael Turquette <mturquette@baylibre.com>, Abel Vesa
+ <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Stephen Boyd
+ <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Jakub Kicinski <kuba@kernel.org>
+Subject: Re: [PATCH] clk: vf610: Add support for the Ethernet switch clocks
+Message-ID: <20260123141252.3250c6ce@wsk>
+In-Reply-To: <20260122200514.3cdb6fb6@wsk>
+References: <20260122130649.4150338-1-lukma@nabladev.com>
+	<4a593537-e848-4ed2-b6c9-fd2e6b165f73@lunn.ch>
+	<20260122200514.3cdb6fb6@wsk>
+Organization: Nabla
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260121-host-direct-messages-v5-1-2c1614c94e80@google.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260123_051312_345335_69CB50C1 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,55 +78,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Per,
+Hi Andrew,
 
-On Wed, Jan 21, 2026 at 08:27:12AM +0000, Per Larsen via B4 Relay wrote:
-> From: Sebastian Ene <sebastianene@google.com>
+> Hi Andrew,
 > 
-> Allow direct messages to be forwarded from the host. The host should
-> not be sending framework messages so they are filtered out.
+> > On Thu, Jan 22, 2026 at 02:06:49PM +0100, Lukasz Majewski wrote:  
+> > > The vf610 device has built in the MoreThanIP L2 switch. For proper
+> > > operation it is required to enable ESW and MAC table lookup
+> > > clocks.
+> > > 
+> > > The MAC table spans from 0x400E_C000 for 0x4000 and it is
+> > > necessary to provide clocks for each AIPS1-"slot", which size is
+> > > 0x1000 (hence four separate entries).
+> > > 
+> > > Those can be enabled via clock gating CCM_CCGR10 register
+> > > (0x4006_B068).    
+> > 
+> > Sorry, i lost track of the state of the switch driver.  
 > 
-> Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Per Larsen <perlarsen@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 26 ++++++++++++++++++++++++++
->  1 file changed, 26 insertions(+)
+> New year, new MTIP L2 switch patches in preparation :-)
 > 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index f731cc4c3f280a32acccca0de92b9ac6c8e05602..9967916278a7ca051500946ef2fcfe7bb40e0e8d 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -862,6 +862,28 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
->  	hyp_spin_unlock(&host_buffers.lock);
->  }
->  
-> +static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
-> +			      struct kvm_cpu_context *ctxt,
-> +			      u64 vm_handle)
-> +{
-> +	DECLARE_REG(u32, flags, ctxt, 2);
-> +
-> +	struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
-> +
-> +	if (vm_handle != HOST_FFA_ID) {
-> +		ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
-> +		return;
-> +	}
 
-Sorry, but this isn't what I had in mind. 'vm_handle' is just a local
-variable and the only caller passes HOST_FFA_ID, so this isn't really
-achieving anything.
+Just to share:
+https://github.com/lmajewski/linux-imx28-l2switch/commits/vf610-linux-6.6.y-mtipl2sw
 
-What you had in v4 dropped the 'vm_handle' argument entirely, which I
-think is the right thing to do. However, the FF-A spec encodes the sender
-ID in bits 31:16 of register W1 and so _that_ is what I think we should
-be checking because _that_ is what the receiver will see.
+The driver has been tested (after backporting) on v6.6 LTS with
+PREEMPT_RT.
 
-Honestly, we could avoid quite a lot of these review cycles if you
-actually replied to my emails on the list instead of just responding
-with a new patch series each time. It's supposed to be a technical
-discussion...
+Moreover, I've added support for switchdev.
 
-Will
+> > Is there also a
+> > patch to add consumers of these clocks?  
+> 
+> In short - this patch set is a preparatory one for vf610 SoC support
+> of the MTIP L2 switch.
+> 
+> Those changes describe more thoroughly the clock subsystem of this
+> SoC.
+> 
+> >   
+> > > Signed-off-by: Lukasz Majewski <lukma@nabladev.com>    
+> > 
+> > Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> > 
+> >     Andrew  
+> 
+
+
+
+-- 
+Best regards,
+
+Lukasz Majewski
+
+--
+Nabla Software Engineering GmbH
+HRB 40522 Augsburg
+Phone: +49 821 45592596
+E-Mail: office@nabladev.com
+Managing Director : Stefano Babic
 
