@@ -4,91 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B847AD72367
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:57:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8070D72367
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 09:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+AC/7ch07dBjpTRIT9l75rK+n+kJUZ9IIAXe4YZ5E90=; b=M0bcGq5Fq3u1stCRP2HSLp5pQY
-	+u1qmnqu1JmyCnnrKYSaRB0RvmJ6bkUhUTIMyxMvu4ZCq1GmBHoHhYmQ8kKBwmQgeqAyMiDlmWbHw
-	I6WC9lMq5fWYzHMu12FDx49ufumhg10o/Njj9wi5nPoQzgWqwbcIOpVVMz6E4GE5UPzxXqlCclrCV
-	/b/30rQlS2ZxFqfZew1NI0ApGyuseZSogEEeZErIJ6YhZ8fsF8PoI+gGPTJpn1ZFwrMsUJhnFGrbn
-	4DpIlBjZCQazJt4mY5gcbzoF2uMBVqlgRVVXGr5ksAIy55KKESeWMUPZGNmFSISmzlXCIXJqHV1LU
-	rQ2N45Lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cGm0MWwkBdQUJ6VMHylNjNY5VUzuxOyf/oKBwqDK+ZM=; b=2DmJwSFN44pneLwrYAEVhK32J9
+	Hv2C1hYrQZJEVaNHvIlEY0YWLkOGiSOriJ+fJvY+9F9iMAomSihwwRPU+I+vGrpp5tFkRuvDVwXae
+	HMf/koPWD7V1nV7vkQVk0NHoub0YG+ZQ216W9oiPaMMJtlY5uDUcOKb9TDO+B99L4gP2wd/ZuEz3D
+	Dn9CxPvEJoHEu8vMTwDoLAU7PBZKIdRKOSfj3ALZb3DVcx7I7r470Y6JiGIroehvr3CMHG2Qqy0Ss
+	3v0XUVPtV1Z96NfpxlZSfr3CUHmicnn7JgCzBRp4kPJwHrtdVSeGd/lVB+Rg40H/vBkplZZ+/HLuf
+	0a9YCQfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDub-00000008eoQ-07dc;
-	Fri, 23 Jan 2026 09:57:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vjDwV-00000008eza-2dT5;
+	Fri, 23 Jan 2026 09:59:03 +0000
+Received: from mail-m3291.qiye.163.com ([220.197.32.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDuZ-00000008eoH-41Vd;
-	Fri, 23 Jan 2026 09:57:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+AC/7ch07dBjpTRIT9l75rK+n+kJUZ9IIAXe4YZ5E90=; b=O9v4H4Ls//wZdB28FFxybjFbYF
-	Uy8Db5LZi0BZoqdqL/WOKyFMuu3BGl4cqhGdrFPSqZoOwOz/VHzuqm+9yhYZ/7kp3Qg5MBnHqrWSj
-	Oubf9daS9n7orYDh6c89c3K2m+7FY84K0aJwectJs9cKL/Pk5bOTnqrVlcZIsdSZz/IWQK9MHJPiM
-	LNEFBFnzFH84aAB8VrvGOJWwOFbKUlLvb/bbpeyGubCPcOsOso+PW2uwU87da6YxN8jD/CnbaNLhs
-	RahFabnbi2UxbkAUsCCMV7hSyEJDBs2a4ZxYxI+hPJgodHGjoIG9uUj3sDzbQkBueieShu6FAxDSm
-	iOZ3JghQ==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjDuX-0000000264n-0PUj;
-	Fri, 23 Jan 2026 09:57:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=+AC/7ch07dBjpTRIT9l75rK+n+kJUZ9IIAXe4YZ5E90=; b=REh8jgmKGQyduBMK5s5o9CAA2F
-	ZiqkpdCcUWj3hKY9eh7gmLi50Qozyas94d0+KYiGp2aqp/hOsmpPX57BgttXSZ6ACv1slzIA18Pbc
-	UPLkWvOQc5KKUg6VevMZVvCjwM/zDzVYK7mvVn2qdKXui20GiZ1kkT07BHtJckVPCS0o/ZXMmdt7Y
-	xj5SL3WMHwAO1xuZ/QqX4GSF1mun42tWtJpbiZFfOUhu8FS518Ek83bWyMWajL34StkMu/vIIm+3W
-	1gOklBZq5ZlJWupv24/G0m6vDl7XNdvMIb6ANAFIB/rp7Cm7iX/cEHdx0kNXIYNlxJfs2Zqv31rZC
-	7QoSiA0A==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46288)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vjDuR-000000001eh-0hS5;
-	Fri, 23 Jan 2026 09:56:55 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vjDuO-000000001zY-39SO;
-	Fri, 23 Jan 2026 09:56:52 +0000
-Date: Fri, 23 Jan 2026 09:56:52 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next v2 00/14] net: stmmac: SerDes, PCS, BASE-X, and
- inband goodies
-Message-ID: <aXNF5A2cUg5kslF9@shell.armlinux.org.uk>
-References: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
+	id 1vjDwS-00000008eyJ-1Jba
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 23 Jan 2026 09:59:01 +0000
+Received: from albert-OptiPlex-7080.. (unknown [112.65.126.162])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 31bc9a775;
+	Fri, 23 Jan 2026 17:53:56 +0800 (GMT+08:00)
+From: Albert Yang <yangzh0906@thundersoft.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ge Gordon <gordon.ge@bst.ai>,
+	Arnd Bergmann <arnd@arndb.de>
+Cc: BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
+	linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Albert Yang <yangzh0906@thundersoft.com>
+Subject: [PATCH v5 6/6] MAINTAINERS: add MMC files to BST entry
+Date: Fri, 23 Jan 2026 17:53:42 +0800
+Message-ID: <20260123095342.272505-7-yangzh0906@thundersoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260123095342.272505-1-yangzh0906@thundersoft.com>
+References: <20260123095342.272505-1-yangzh0906@thundersoft.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9bea4655bf09cckunm2b675df11c3dd3
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDThhPVhlPHR9OGU0eHR1CQlYVFAkWGhdVEwETFh
+	oSFyQUDg9ZV1kYEgtZQVlKSklVTU5VSklNVUpNSVlXWRYaDxIVHRRZQVlPS0hVSktJT09PSFVKS0
+	tVSkJLS1kG
+DKIM-Signature: a=rsa-sha256;
+	b=WP/u8KwxJExyov9NG3WKDd5xGRSRKPcmAaXaUKvTKPS1xI43q9Z/yXvzqi1T4WnYuNjlBVlo4wmY1F2hIh9O2e8xwbtQPY6w4v6cTSwP7J4x+PTnFyfcXhPOfudd63Drtmk7WMSbhBkeBpC/4sDNiUhkhmARLK2JXut6FSdxpBk=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
+	bh=cGm0MWwkBdQUJ6VMHylNjNY5VUzuxOyf/oKBwqDK+ZM=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_095701_169071_8B3D04E4 
-X-CRM114-Status: GOOD (  43.92  )
+X-CRM114-CacheID: sfid-20260123_015900_524685_5C6CC4FB 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,104 +80,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Please note that gmail is now rejecting this patch series because it's
-spam. From now on, I will be dropping all gmail.com email addresses from
-patch series that are sent out.
+Add the MMC device tree binding and driver files to the existing
+ARM/BST SOC SUPPORT maintainer entry.
 
-If you care about Linux, stop using gmail and giving Google an excessive
-amount of power over email.
+Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
 
-On Fri, Jan 23, 2026 at 09:52:00AM +0000, Russell King (Oracle) wrote:
-> This is the v1 submission: if it doesn't get tested but review goes
-> well, it'll end up in net-next and mainline without testing on the
-> affected hardware!
-> 
-> Mentioned previously, I've been trying to sort out the PCS support in
-> stmmac, and this series represents the current state of play.
-> 
-> Previous posted patches centred around merely getting autonegotiation
-> to be configured correctly, to a point where the manual configuration
-> can be removed from the qcom-ethqos driver. The qcom-ethqos driver
-> uses both SGMII and 2500BASE-X, manually configuring the dwmac's
-> integrated PCS appropriately.
-> 
-> This *untested* series attempts to take this further. The patches:
-> 
-> - clean up qcom-ethqos only-written mac_base member.
-> - convert qcom-ethqos to use the set_clk_tx_rate() method for setting
->   the link clock rate.
-> - add support for phy_set_mode_ext() to the qcom "SGMII" ethernet
->   SerDes driver (which is really only what it needs. Note that
->   phy_set_mode_ext() is an expected call to be made, where as
->   phy_set_speed() is optional and not. See PHY documentation.)
-> - add platform-glue independent SerDes support to the stmmac core
->   driver. Currently, only qcom-ethqos will make use of this, and
->   I suspect as we haven't had this, it's going to be difficult to
->   convert other platform glue to use this - but had this existed
->   earlier, we could've pushed people to use PHY to abstract some
->   of the platform glue differences. Adding it now makes it available
->   for future platform glue.
-> - convert qcom-ethqos to use this core SerDes support.
-> - arrange for stmmac_pcs.c to supply the phy_intf_sel field value
->   if the integrated PCS will be used. (PHY_INTF_SEL_SGMII requires
->   the integrated PCS rather than an external PCS.)
-> - add BASE-X support to the integrated PCS driver, and use it for
->   BASE-X modes. This fully supports in-band mode, including reading
->   the link partner advertisement.
-> - add in-band support for SGMII, reading the state from the RGSMII
->   status field.
-> 
-> As we leave qcom-ethqos' manual configuration of the PCS in place at
-> the moment, the last patch adds reporting of any changes in its
-> configuration that the qcom-ethqos driver does beyond what phylink
-> requested, thus providing a path to debug and eventually remove
-> qcom-ethqos' manual configuration.
-> 
-> One patch is not included in this set - which adds a phy_intf_sel
-> value for external PCS (using PHY_INTF_SEL_GMII_MII). I believe all
-> external PCS use this mode when connected to a MAC capable of up to
-> 2.5G. However, no platform glue that provides the mac_select_pcs()
-> method also provide the set_phy_intf_sel() method, so we can safely
-> ignore this for now.
-> 
-> I would like to get this into net-next before the next merge window,
-> so testing would be appreciated. If there are issues with these patches
-> applied, please check whether the issue exists without these patches
-> and only report regressions caused by this patch set. For example,
-> I'm aware that qcom-ethqos has issues with 10Mbps mode due to an AQR
-> PHY being insanely provisioned to use SGMII in 1000M mode but with
-> rate matching with 10M media. This is not an issue that is relevant
-> to this patch series, but a problem with the PHY provisioning.
-> 
-> rfc->v1:
->  - fix SGMII link status
->  - avoid calling phy_get_mode() if PHY is null
-> v2:
->  - fix further AI review bot dribble that could've been raised on
->    the rfc version but wasn't.
->  
->  drivers/net/ethernet/stmicro/stmmac/Makefile       |   2 +-
->  drivers/net/ethernet/stmicro/stmmac/common.h       |   1 -
->  .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    |  74 ++-----
->  drivers/net/ethernet/stmicro/stmmac/dwmac1000.h    |  12 +-
->  .../net/ethernet/stmicro/stmmac/dwmac1000_core.c   |  11 +-
->  drivers/net/ethernet/stmicro/stmmac/dwmac4.h       |  10 +-
->  drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c  |  10 +-
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  |  69 +++++--
->  drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c   | 222 +++++++++++++++++++--
->  drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h   |  53 ++---
->  .../net/ethernet/stmicro/stmmac/stmmac_serdes.c    | 111 +++++++++++
->  .../net/ethernet/stmicro/stmmac/stmmac_serdes.h    |  16 ++
->  drivers/phy/qualcomm/phy-qcom-sgmii-eth.c          |  43 ++++
->  include/linux/stmmac.h                             |   2 +
->  14 files changed, 491 insertions(+), 145 deletions(-)
-> 
-> -- 
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
-> 
+---
+Changes for v5:
+- Split from platform series per Arnd's feedback
 
+Changes for v4:
+- Changed driver file name to sdhci-of-bst.c
+
+Changes for v3:
+- Consolidate BST maintainer entries
+
+Changes for v2:
+- Initial MAINTAINERS entry in platform patch
+---
+ MAINTAINERS | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0d044a58cbfe..dc7f716f9811 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2596,7 +2596,9 @@ R:	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Supported
+ F:	Documentation/devicetree/bindings/arm/bst.yaml
++F:	Documentation/devicetree/bindings/mmc/bst,c1200-sdhci.yaml
+ F:	arch/arm64/boot/dts/bst/
++F:	drivers/mmc/host/sdhci-of-bst.c
+ 
+ ARM/CALXEDA HIGHBANK ARCHITECTURE
+ M:	Andre Przywara <andre.przywara@arm.com>
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.43.0
+
 
