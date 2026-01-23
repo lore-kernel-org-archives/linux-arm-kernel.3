@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB14CD74EC2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 13:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72123D74EC8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 13:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zm5lrGHaaf9sNfErhKfvyH2cd0YHIcDO1gth+1spoB8=; b=v7peletr5lQL4Ad31ND0Mgjpkv
-	MU9UctRUoR1ptjoQAHc5Ao0XLatrVqgJojH6v8cRVv3pGIHffjdSLQA/BezsanF/lOW7BdgJHoQfD
-	Rv57/AryfC2iKnuSwVy1LiXemdBSRDDV3e/Pkr667RA5kWIN6pO3xCb5Id0I4FCfrXAaeKRXeNOCA
-	RQ/VdcD1eRYbL9dJljJ9XphBPAf1CIZCCNWJbOEQ/uUMcCUv+6SaJB0fwX2hZKRZELD51HxG7WdNI
-	HNw0fWg+ZngyRYCVZvUqMGgOF4FVcFgF9k1ynbQfSux4iVZD5xXoguX3PIN34EpnJ88S0EfaOenOR
-	SiPDzZ5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mLslsDenqM6MKl+CbLo4KmWcBUNKdfnzoGC6T0rmQuY=; b=Oi032nkt4kG/v1LHD5RIPYw71r
+	Egjj7K+lxrVIp02+NiVASq+ZPhPtDAx16GszwBjpv6uQ6iW2Y5Z3MkH1f0ZhQXjnTk0F0k96MN00t
+	/VdjqfVWN+E0x8TuWHq/hOzhWIDgzBVtoWGCAn8J8EJxHgNBb3nU+Bg9G4lmllt+NcIyRmujU45WN
+	FA18wTd6cxWKjsk18XE28P9Tx6PJ9niZ0yEbPViULNKpArI5ryax+75reVpgTljzzf3SzIUKORwMg
+	UCREVuTpPaOC4Asuys/pODTTNDtlEmwQ7L41kt591n9LQKVdlHBhY9ofeq+QZI+vFl3GE1HfwPJRc
+	qaJOcvqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGyQ-00000008wZ8-35J3;
-	Fri, 23 Jan 2026 13:13:14 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1vjH6P-00000008xMo-24rV;
+	Fri, 23 Jan 2026 13:21:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjGyO-00000008wYk-0Mwu
+	id 1vjH6N-00000008xMi-3K2u
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 13:13:13 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5595A10D866;
-	Fri, 23 Jan 2026 14:12:56 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1769173980;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Zm5lrGHaaf9sNfErhKfvyH2cd0YHIcDO1gth+1spoB8=;
-	b=hUtloW+WnY7BFkUDr92urRQbAcA7J4PpX5I9S4Eoma7Ay03UJloEK0eMhdL1lDPcaJNfr7
-	F8meKfTSGHPtqe+RwEi8uV5TenWQEl3QJPZTDP4VX1pe/2o1ikjqXj0RsT3GA5MY/aSJqL
-	HDRhOBLq2lqx4SUw7WU5dVdEzwWbhFYQEAwoKQeIws6qyJVR/avVzSvj7VvcCfum/SGAtX
-	ePXjmzukNk/CMSo0souoGEgm7DjQpe5JAsMM5URo5/pDNs4MP1s6ovqYxxA/mvYMHFisJL
-	e6L/t9yp7n3VzN2Q2wPLNY5hWQZwHLSJ2M6P3EHXzsYQBeBQKpUPLL/UZPyy0Q==
-Date: Fri, 23 Jan 2026 14:12:52 +0100
-From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukma@nabladev.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Michael Turquette <mturquette@baylibre.com>, Abel Vesa
- <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Stephen Boyd
- <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
- imx@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Jakub Kicinski <kuba@kernel.org>
-Subject: Re: [PATCH] clk: vf610: Add support for the Ethernet switch clocks
-Message-ID: <20260123141252.3250c6ce@wsk>
-In-Reply-To: <20260122200514.3cdb6fb6@wsk>
-References: <20260122130649.4150338-1-lukma@nabladev.com>
-	<4a593537-e848-4ed2-b6c9-fd2e6b165f73@lunn.ch>
-	<20260122200514.3cdb6fb6@wsk>
-Organization: Nabla
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
+	Fri, 23 Jan 2026 13:21:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DD12F60010;
+	Fri, 23 Jan 2026 13:21:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B87FC4CEF1;
+	Fri, 23 Jan 2026 13:21:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769174486;
+	bh=xEG1k5Uo5nCdIIR6mYFxMZwRKuY3FCpbvgd9q3J4Ahc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=oDSDuF/etwnCDvURm08ToZTW3MSd5elqP5N1gRNV6L2brykML0L2WPSPBvNqHBKT4
+	 un4L14J/72NYNN9tzxXvK71tnGoWPiAlZVbtODT4us/imdJLcNhbNDW4oKNFq1LxIw
+	 YCTBl+zVfFpmo5N6iBt/cg0Yjg0/+gPnpnLwQXfnjgO9zcq5La37MBtecmQpzmW0ix
+	 D9zAzi0x2XXAs4MS/Vn6DE4epwAshpCxYN3yezgth5KkiAC6eWEFIUukG2gDnHEg10
+	 5Qr4TAcq3MIHwAOfHZy7W6Tt7JfVBe/7w/pJlGbVEo81ZlPqq9lGUkmDQDLknvi0Na
+	 w97Ggl3EK5/jw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vjH6K-000000053l8-1qIw;
+	Fri, 23 Jan 2026 13:21:24 +0000
+Date: Fri, 23 Jan 2026 13:21:24 +0000
+Message-ID: <86ldhobh2j.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 3/6] KVM: arm64: Make stage2_pte_cacheable() return false when S2_AS_S1 is set
+In-Reply-To: <aXI8cchH7l1SHbQR@willie-the-truck>
+References: <20260119105651.255693-1-maz@kernel.org>
+	<20260119105651.255693-4-maz@kernel.org>
+	<aXI8cchH7l1SHbQR@willie-the-truck>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_051312_345335_69CB50C1 
-X-CRM114-Status: GOOD (  21.30  )
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, qperret@google.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,63 +88,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
-
-> Hi Andrew,
+On Thu, 22 Jan 2026 15:04:17 +0000,
+Will Deacon <will@kernel.org> wrote:
 > 
-> > On Thu, Jan 22, 2026 at 02:06:49PM +0100, Lukasz Majewski wrote:  
-> > > The vf610 device has built in the MoreThanIP L2 switch. For proper
-> > > operation it is required to enable ESW and MAC table lookup
-> > > clocks.
-> > > 
-> > > The MAC table spans from 0x400E_C000 for 0x4000 and it is
-> > > necessary to provide clocks for each AIPS1-"slot", which size is
-> > > 0x1000 (hence four separate entries).
-> > > 
-> > > Those can be enabled via clock gating CCM_CCGR10 register
-> > > (0x4006_B068).    
+> On Mon, Jan 19, 2026 at 10:56:48AM +0000, Marc Zyngier wrote:
+> > We cannot tell from the S2 attributes whether what we map is memory
+> > or not when S2_AS_S1 is set, and issuing a CMO on device memory may
+> > not be the best idea.
 > > 
-> > Sorry, i lost track of the state of the switch driver.  
-> 
-> New year, new MTIP L2 switch patches in preparation :-)
-> 
-
-Just to share:
-https://github.com/lmajewski/linux-imx28-l2switch/commits/vf610-linux-6.6.y-mtipl2sw
-
-The driver has been tested (after backporting) on v6.6 LTS with
-PREEMPT_RT.
-
-Moreover, I've added support for switchdev.
-
-> > Is there also a
-> > patch to add consumers of these clocks?  
-> 
-> In short - this patch set is a preparatory one for vf610 SoC support
-> of the MTIP L2 switch.
-> 
-> Those changes describe more thoroughly the clock subsystem of this
-> SoC.
-> 
-> >   
-> > > Signed-off-by: Lukasz Majewski <lukma@nabladev.com>    
+> > In this particular case, pretend that the mapping isn't cacheable.
 > > 
-> > Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/hyp/pgtable.c | 8 ++++++++
+> >  1 file changed, 8 insertions(+)
 > > 
-> >     Andrew  
+> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> > index 3c5f399b1b986..07561a227f75e 100644
+> > --- a/arch/arm64/kvm/hyp/pgtable.c
+> > +++ b/arch/arm64/kvm/hyp/pgtable.c
+> > @@ -911,6 +911,14 @@ static void stage2_unmap_put_pte(const struct kvm_pgtable_visit_ctx *ctx,
+> >  static bool stage2_pte_cacheable(struct kvm_pgtable *pgt, kvm_pte_t pte)
+> >  {
+> >  	u64 memattr = pte & KVM_PTE_LEAF_ATTR_LO_S2_MEMATTR;
+> > +
+> > +	/*
+> > +	 * With S2_AS_S1, we have no idea whether the OA is actual memory or
+> > +	 * a device. Don't even try a CMO on that.
+> > +	 */
+> > +	if (pgt->flags & KVM_PGTABLE_S2_AS_S1)
+> > +		return false;
+> > +
+> >  	return kvm_pte_valid(pte) && memattr == KVM_S2_MEMATTR(pgt, NORMAL);
 > 
+> Since KVM_PGTABLE_S2_AS_S1 is only set for the pKVM host stage-2 and
+> that doesn't provide any cache maintenance callbacks in its
+> kvm_pgtable_mm_ops, I don't think the current code is actually broken,
 
+Frankly, I have no idea how I came to such a stupid conclusion. My
+only way out is to blame Metallica (don't listen to that shit, kids!).
 
+> although it's harmless to add the check (and the comment might benefit
+> from some additional rewording?).
+
+I don't think there is much value in adding something that is not
+useful. I'll drop that patch altogether.
+
+Thanks,
+
+	M.
 
 -- 
-Best regards,
-
-Lukasz Majewski
-
---
-Nabla Software Engineering GmbH
-HRB 40522 Augsburg
-Phone: +49 821 45592596
-E-Mail: office@nabladev.com
-Managing Director : Stefano Babic
+Without deviation from the norm, progress is not possible.
 
