@@ -4,88 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37846D715E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 12:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33B16D715E8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 13:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rd2Zed3zKZmPmdTTOWk/dlMTWvo4vN0lvMRs9ZwBpHc=; b=b4oxyvSoTtewlSPCJvPSyZMICq
-	7uCZ3d7UZxd+v9j4TiyDlJFm5uaVPnexVCAj0msj7ouZBHttvVHGFhMS75vUX3Dm5e0a172ydimCC
-	IlW3H7TtnZ72JBFfJMsDwca9LGjj9T4l9an72o6vo0TZix5NAb1Jq8n7YeAoMgPZtzzZLnIZldCa6
-	n0emVWwWnmT0FEtZZX3Li5PFpouJvRGNAjDKIekTT/XlFJqfJoJiz5701FI7I599ge5Ha/4J909tP
-	dPS/bsjQaU80/W6lLT962AH9lcqos074BGEkbmwaVEJatuI/FjTM2wbQ1dfE7NYyWbXgGFkM0FcZm
-	8FGgaVQg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WScG7iuZQ9eiR9kQ4vhreoRjVXS9H3zvxs3xz4eUmjU=; b=TE5/L+FLnX37vKd9Zbh2v5Zrpc
+	rCFZdKwdKLaq/Q5al9wauFh7aLQwIW8Fz4Mrp90fprzm0liONTIepA/kxHX+v8c0CkUvCn0qUH/W/
+	3Jo/5CUcAjc6ELeG18lLgWUhBZUiOoacRX5szd0w68Uu3QNtNEU6J75/5lPxNoGfVYWKiI4iD0ply
+	ReqiqbJ1MmRUCJIDA8lYxrRug34pY/XnQXveW6XSiDGIviYRevCdJxeZbNrG9wULhNmTXcY1jVPgI
+	M6yS6rSBIW12dYdF9djZZlUiRC/+ZC4VmjW++emJLoIMo68JPqlEanvG1WKch+kvkBRWyzy+V5nrE
+	FfPFOKtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjcov-0000000AG3v-0Tx6;
-	Sat, 24 Jan 2026 12:32:53 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1vjdPx-0000000AGsv-1VyF;
+	Sat, 24 Jan 2026 13:11:09 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjcor-0000000AG3Y-46Yd
+	id 1vjdPu-0000000AGsa-3Bj7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Jan 2026 12:32:51 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2a79998d35aso20001425ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Jan 2026 04:32:49 -0800 (PST)
+	Sat, 24 Jan 2026 13:11:07 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3530715386cso2833691a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Jan 2026 05:11:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769260266; cv=none;
+        d=google.com; s=arc-20240605;
+        b=WJz6zilhbT19R0TkAqhZfSx7ljaeTGjysw+2V6ygd3e6FXmOKhVOWss+hHpy3s/LhF
+         SMuOvcEuuz7Cjv3aoejzbGSvXjhGpwT8pjL4795maP0DEqD26kbj3N2wF9EBIW5vQrFJ
+         HmohV8TpdiGr0pMKcI9SxxZ4TtjOAbvFpecgzNCL6QNFw8ygQEOEy4UVVU1Y9yoXPEWj
+         /LJKw+qwLKzMwxk8KzO0WgFzjPpeUfC+F8iuPBwDJQ7s+lDtVaPmbthZD2nAJQeJabUM
+         hSmRmmAdsQL9lgiaM7zt7j8ZmExaCAJSKcX7ScZsjgJ81fRsi1K7OaHWnqATQkw19HjQ
+         /ycQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=WScG7iuZQ9eiR9kQ4vhreoRjVXS9H3zvxs3xz4eUmjU=;
+        fh=R4VInBe5WRPX7di3bra1Rohp2/sjqO/p0zSZFWs6LfA=;
+        b=L6LQHX5BgPJh3TPmKF5jHP8H5I18pzZd19x7RUL51w/9NNa5M7chSjwHBoXu55Sz/0
+         COGEY3ozwxb28w3TXbOF7adGe/78buTWfzARGhbdCD20n4URVujK2nsiAcH1LUzKdVeK
+         qf2dgXZKq2BrVwVdSD4vG8j7DzAu5HDHn8YoC/6WAxyafUd1RIt0x/xye/hDpnUy0ccv
+         Xqn8Bcq17PAhgRYwE2C6GHd4PhIKCVbGpQ76qvuGuvWv8SG2Q+fgD73PDwcBr9hg+tZ0
+         8J2754KisDuQc9UB4f+K+dvDJz7k9mPu4s8xQr/ghXiMWW09mtqdho32hpITOkqkwK9L
+         xhNw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769257969; x=1769862769; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Rd2Zed3zKZmPmdTTOWk/dlMTWvo4vN0lvMRs9ZwBpHc=;
-        b=NHHoI/9pnI5ZK3RHCRN5gzMPXTQiFKbTCWyl8xWvdA/wdDAGr5Nmkz4h7JfgS582Sx
-         vDmoOMF57jzu8saepEe5lkQ3qyzNi2WEOelX5t7+WoEGmAPjAIb5yuqlxaXlFnp+LWr6
-         neqvhm02uTjN/NMlNvldLZmwrR0FtkxvmzCtTB/xuxjIoHvfd0VkPPD/jwvuB8AdUq4m
-         kUJpeYsvgrki96kQU6SmAuYsj/8pFpo++ODI/boRJ/eCC3LlCRgkUCCab8RhtTsZm5RR
-         eKouQuNxt5q/pVIQz1s6Y6sFIB+4SUUTuKkW5f7WMEAXBHeicmlBpjaLrCwlmxqQzFkG
-         sacA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769257969; x=1769862769;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1769260266; x=1769865066; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Rd2Zed3zKZmPmdTTOWk/dlMTWvo4vN0lvMRs9ZwBpHc=;
-        b=q/LO+m8Q4BVd6OIKgsKB211/iu6gTsO1QEEO15aqVQQQUSLL3V+5FpSGhApkdPFlAk
-         CQZ8DURbC4yj94e2mbJRu6k0m1e0KLGREtyjrOAQ/BvFH6gtHIVZ9CKvY//d/SjRbw8p
-         aIejzND93dNPMbOKuHqP+9A6qv8zlUoy9sO14MAnLTzhH11kCPxH2bOdlkbnTBpU/329
-         acDhyeoefw1bSccKsYMZf4JeFctdVOXDowsWs/S+vy8lJTlr65HBY5ovP8gnk5XdRPh9
-         olOFvelZVZa9mtoqHfjLDRvIgHmNjVpeOzXcWs3mYSCRsmp3kZEbt4TQtSaJQbNmPL2M
-         h3Ww==
-X-Forwarded-Encrypted: i=1; AJvYcCU/CWAJ/qrRsiGcCGzKUpPv4Ai3E6I9K++jSRI/lSLAuE9fiJgMn1pvBZwM5bMZgeczeOp1N2mmrPBGvYYkXlgV@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuuC85ndYO8TFvJ1ifYKoHoO+gW4lVC1pToa+mfVodurBCs2ZC
-	WNejsrurgRU2oCFhYSVuAN5Hyxz6Mqbn8pQXTa8bhpl2pJAOkvatnTm/w6auGO5G
-X-Gm-Gg: AZuq6aJYx6XDeXuLlztTdqObKvJGyMzUI1WtdCBhO6YbK48s3RAIZMv2RwdwFO04cyv
-	oLPVMhoBWlnIKlnPBGy8z7b8QDRRJR4ZM6WhjNqOoissptHH+QllUJFWUnDlHP5R7N3effeLV/B
-	hOcb8FLF4aLW6oVQ6l5Jy0nWQaFKGAsF4CPnemrQdzYRWUOXk7rnUI7kOFyt2fL7KXCXDX8lV41
-	umC89QBlvZY7hBHDAJrY6iu06jhJ8PAjMJJ4ikKWYrw8Q3UoprXiEa69yqUOIxUhgn6BDivnzuT
-	1ksimrjt5sumO4N6Wy+cIhn2PaS725qXZKGfT0TDEIuVKuFQKp0vycOAbyNZqU4DQWjs6Ua6fQZ
-	iFFugarPP6KdweR7z6Uljf1Ey8NPFzMOl0JcIDn/osS30eHM2+5Y1vL17ufCpChVe/l7Kdu/9eO
-	RzwdhBU2OLQd6HIQ6FR8pdOwxZ034oAheyQby3
-X-Received: by 2002:a17:903:360c:b0:29b:e512:752e with SMTP id d9443c01a7336-2a80ec683famr40477875ad.47.1769257968605;
-        Sat, 24 Jan 2026 04:32:48 -0800 (PST)
-Received: from MWDK4CY14F.nvidia.com ([128.77.79.177])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-353354cdcc7sm7366542a91.16.2026.01.24.04.32.46
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 24 Jan 2026 04:32:48 -0800 (PST)
-From: I-Hsin Cheng <richard120310@gmail.com>
-To: catalin.marinas@arm.com
-Cc: will@kernel.org,
-	shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	I-Hsin Cheng <richard120310@gmail.com>
-Subject: [PATCH] kselftest/arm64: Add missing file in .gitignore
-Date: Sat, 24 Jan 2026 20:32:41 +0800
-Message-Id: <20260124123241.3257-1-richard120310@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+        bh=WScG7iuZQ9eiR9kQ4vhreoRjVXS9H3zvxs3xz4eUmjU=;
+        b=PED9emM0UdkNR/QLCL86s+1liXezmi/k3lzD8Vyy6NDTadjgx3TFjONGL6HzteKTD8
+         1Sba2c15tcBVZ10XVkRFhYDfEkCvHJ7Bp+uMuW7TuTuVyn8vMzVtDRqAQy9ogVtT9GfN
+         5KK6rZqIjJSs8S3LatNQpCkHUWan/ZpIY3YJN3n0yON/c/dxuiAj/ecBgTpH/uSQzPbW
+         KDOlbpau5Z4AebuW6WQiiJ9e96WmX0XK1kExusXkEBjYS43HCye0rw+QYK0jXfMpv2fN
+         d4S23+vn09O5sigPj67a15UmykEcV0MPgjdq4E5PppO0nF+7j9CVx01W9Lrx/jv2rI+i
+         IeDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769260266; x=1769865066;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=WScG7iuZQ9eiR9kQ4vhreoRjVXS9H3zvxs3xz4eUmjU=;
+        b=jVNKtYZtMWEsMtS8POg/11dODGm9GlBm964IBiBbiUSZ7pT/yaldx/Kj3fj9wfPu8s
+         K4VZZdS/eDNQIeNuE7uVS47XcaXG+AKyJ24YFXPLS6myTbwhPbGvlhl6uNRRoP5ei9Gd
+         JbNHuEXA9QjSyAHCqTRPEkMTCNZ276sDSxobC2M46XeXngt4tYsc+Sny9vy0q6091UcW
+         9lFFOBhluih2xwNhVneBcCm4ssMh5NXG0sEnFFjCya57W2TLVatF6FN5KMPaq2wor6T8
+         E9GztjYYQee13s9/IRX1cTPRqI//0RTJJNCOtTPxcvI64eGajb+Nin5f2Bl16S26H3+t
+         xtrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX5VqXXKy3TdWyQOlGM6WeMBode55mJlnn68Jsm7XKBgIfOHBqMp1j0aiHxh/GWKJQc8geHdBu1v8Ej5AKwHUxS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqS0ZvDwVfH7J68Nc299fz37C61LHLLiKQTYa5EtciYRlOT5G+
+	Z+RQxm5IrHc6VRKdCnmUyadjdTffVs2NzI1e1XgB3ohBehJWWQAtlLEev6cugO4LGIfaWtjJ0j3
+	k3O0vEk8wREWzGUAPj/HJYluFSLLqhjk=
+X-Gm-Gg: AZuq6aJPKtwgc4zpdl8cs0f4z79s+R+gF09lJAtQ1H77uaGw/fcYGufNSY0UR+d3g1L
+	Hv9666Vk74PJ7Dk1bQSUQKfzdoEYza703ra+n4Q/Ryt6xw7Uqqu/4oJFEwkMkfCcsrgRUrV/PPf
+	Qy0TXhasZYGiZWw2yJNqbgKcz+xVWjT4FkvmeqE53HIO/oC+9FuBmTcglKi5bKThr8tlg9vt9zI
+	xW1Bd+156lGpCureKVLR/p9868PUyFOcspjBr2iv09OhlaLzcR52OyTqMpkzofIMHetybRyfimo
+	41dGqnk2+v0TXRPFovpXm4o8se0+jw==
+X-Received: by 2002:a17:90b:560c:b0:343:f509:aa4a with SMTP id
+ 98e67ed59e1d1-35368f2be10mr5326690a91.36.1769260265480; Sat, 24 Jan 2026
+ 05:11:05 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260124-pci_imx6-v1-1-6f4379fc5160@gmail.com> <aXPMyYeFVvDjSMhZ@lizhi-Precision-Tower-5810>
+In-Reply-To: <aXPMyYeFVvDjSMhZ@lizhi-Precision-Tower-5810>
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Sat, 24 Jan 2026 21:10:53 +0800
+X-Gm-Features: AZwV_QggnlVdXjeVSFlMBfY0oUjAdJOUKqSfuiS6Rl6oqAQRydYTbQJb8y5wbyo
+Message-ID: <CAN4SLj20j8FW_AKAEG3kPBk5GH_hmWMU7fZUQM3TsQfZV7koAA@mail.gmail.com>
+Subject: Re: [PATCH] PCI: imx6: Fix device node reference leak in imx_pcie_probe()
+To: Frank Li <Frank.li@nxp.com>
+Cc: Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Trent Piepho <tpiepho@impinj.com>, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260124_043250_017538_2B2CB017 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260124_051106_803380_CF32BED6 
+X-CRM114-Status: GOOD (  21.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,25 +122,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The binary generated by check_hugetlb_options is missing in .gitignore
-under the directory. Add it into the file so it won't be logged into
-version control.
+On Sat, Jan 24, 2026 at 3:32=E2=80=AFAM Frank Li <Frank.li@nxp.com> wrote:
+>
+> On Sat, Jan 24, 2026 at 02:18:49AM +0800, Felix Gu wrote:
+> > In imx_pcie_probe, np is obtained by of_parse_phandle() and must
+> > be released with of_node_put() when it is no longer needed.
+> > Add the missing of_node_put() after of_address_to_resource() to fix the
+> > leak.
+> >
+> > Fixes: 1df82ec46600 ("PCI: imx: Add workaround for e10728, IMX7d PCIe P=
+LL failure")
+> > Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+> > ---
+> >  drivers/pci/controller/dwc/pci-imx6.c | 1 +
+> >  1 file changed, 1 insertion(+)
+> >
+> > diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/contro=
+ller/dwc/pci-imx6.c
+> > index 1d8677d7de04..3ae02712d3f0 100644
+> > --- a/drivers/pci/controller/dwc/pci-imx6.c
+> > +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> > @@ -1675,6 +1675,7 @@ static int imx_pcie_probe(struct platform_device =
+*pdev)
+> >               struct resource res;
+> >
+>
+> Please use auto cleanup
+>
+>         struct device_node *np __free(device_node) =3D
+>                 of_parse_phandle(node, "fsl,imx7d-pcie-phy", 0);
+>
+> Frank
+Hi Frank,
+Thanks for the review, I will fix it in V2.
 
-Signed-off-by: I-Hsin Cheng <richard120310@gmail.com>
----
- tools/testing/selftests/arm64/mte/.gitignore | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/tools/testing/selftests/arm64/mte/.gitignore b/tools/testing/selftests/arm64/mte/.gitignore
-index 052d0f9f92b3..f6937f890039 100644
---- a/tools/testing/selftests/arm64/mte/.gitignore
-+++ b/tools/testing/selftests/arm64/mte/.gitignore
-@@ -6,3 +6,4 @@ check_mmap_options
- check_prctl
- check_ksm_options
- check_user_mem
-+check_hugetlb_options
--- 
-2.39.5 (Apple Git-154)
-
+Best regards,
+Felix Gu
+>
+> >               ret =3D of_address_to_resource(np, 0, &res);
+> > +             of_node_put(np);
+> >               if (ret) {
+> >                       dev_err(dev, "Unable to map PCIe PHY\n");
+> >                       return ret;
+> >
+> > ---
+> > base-commit: a0c666c25aeefd16f4b088c6549a6fb6b65a8a1d
+> > change-id: 20260124-pci_imx6-f97d70887dfc
+> >
+> > Best regards,
+> > --
+> > Felix Gu <ustc.gu@gmail.com>
+> >
 
