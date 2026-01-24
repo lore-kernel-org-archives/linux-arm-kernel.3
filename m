@@ -4,67 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92BD1D778BF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 02:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B67D6CFB9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 03:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kCVqDvHy5B6w0DimA3jf1nqis+n/ymqDPTFfWJQ9xCQ=; b=Sr+mWP3FgLAETjGFueGhRLLgFb
-	eiQ+iIJANclRmgDK1Y0tH4a8H47fRfQiYxOvOHSlHT7i5KpxUCiSJ5C6KJzriRWO/RNuMT/rcnidU
-	PKGls08PODyL8KUWYD9cSF8w/H7MvvF06Wq8nFqagZAIm7xJv7ZrTZl75JTafmECS+wSuFuW+KAAc
-	n83BY9+cAYOoxHlBU6krlE7MZn2rbrrY0vtq5KK8sA4j2xK2hvpdGhOw1Xu3ljjqNO6Bq6B2YWpBs
-	A3sDIqHCxAoj9TmE+jL4oz7UlMb6voP9RCMgh/DXiNmgjQjGMWikLWGJWiwMJrO9CNkmkJB0napPz
-	HwBI5NrQ==;
+	bh=RnKYwmF6i+rHZr+BY3hLagVUqg34uJpLZi4fqObvuM0=; b=mIze+FsYAAlhD0gwABEs2CX0Fq
+	S1MWl+BraCLduFbZQuNrCG7uQb5deOS/sXd/uOVoR5+M4tDOUsz0PS1vU9FLCHEbLgvdsP30N4BiB
+	ywqG8P3lEow9sxv4atNOFLuEKsLp+Sso53vXj64hq9VTJZ7mhj+aR69IBCmMKFUucmnEflr8yZg/+
+	a/cSSW0EPWbyTcsc7OURli7Dd9zDDNykjLMEPy7EqOYwV0OPwbyPSNlKrJYt9riu9Bs+efZ6snqlF
+	MUC/s/zBCAof67jP/Y2yBgJrLVq51ZYxO4zo/GrDLSF6yn2U1dnc21usGptlYhxzsXyUHE1incI4N
+	ksdM4dDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjTND-00000009nnL-1egn;
-	Sat, 24 Jan 2026 02:27:40 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjTNB-00000009nms-01pq
+	id 1vjUfa-00000009w3i-3MJR;
+	Sat, 24 Jan 2026 03:50:42 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjUfW-00000009w2c-1Jso
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Jan 2026 02:27:38 +0000
-Received: from [100.75.32.59] (unknown [40.78.13.147])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 238F120B7167;
-	Fri, 23 Jan 2026 18:27:35 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 238F120B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1769221655;
-	bh=kCVqDvHy5B6w0DimA3jf1nqis+n/ymqDPTFfWJQ9xCQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mm3uS6lnYTE7qJBLr9zU/W/yLV8ymPsdbCUmrntTDqIEQnaCgtahGfq6XhrFvBXLb
-	 NdvnxrCtd4vngwf37xU01YelLuRbT3RZ7JhQvpfoZueaI4h3cScWInpsmJZbzOoNE7
-	 1ryZR0dNAUUaomPkj6zTA1NLy2Korhz2Ht/j9OCI=
-Message-ID: <8300a3b5-873c-4911-689f-cd3ab2d9d7e4@linux.microsoft.com>
-Date: Fri, 23 Jan 2026 18:27:34 -0800
+	Sat, 24 Jan 2026 03:50:41 +0000
+Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60O3NN14476494;
+	Sat, 24 Jan 2026 03:50:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=RnKYwmF6i+rHZr+BY3hLagVUqg34uJpLZi4fqObvuM0=; b=
+	Tu8BW31sNGkM38OMWZxaUo0JncOv9pcISVi2uAuAllkrj9hV0pbM3gP1X/lCLA02
+	8tEd82YKIVu8/0qOZQOuFElm0h+BhYFwzkzKqQvlXe4PK5WLCf3KZptvY6h2RrFb
+	Xa95EK/IhHtwhsTUkvzC1tF5bzrGuc5LZM1oe9GZnKx4IIDcWjGysVRZBnd2Fsqe
+	+v9XjccRwOTf++lfzsMySNVYdLPPnnEGi3j0y+37qNyjAlFM+omn+MSYrQb7Ty52
+	7AcrQTfGzt/OeFOBm7vT5AbXs8OPeCYipQ0hVslbRxJnt8cFEscZt6UY9pDXS/MY
+	aUSLxanJVi0afR5hfNH4gQ==
+Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4bvmgbr1tr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sat, 24 Jan 2026 03:50:25 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 60O1YA05019835;
+	Sat, 24 Jan 2026 03:50:25 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4bvmhbah6b-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sat, 24 Jan 2026 03:50:24 +0000
+Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 60O3oNSp037773;
+	Sat, 24 Jan 2026 03:50:24 GMT
+Received: from ca-mkp2.ca.oracle.com.com (mpeterse-ol9.allregionaliads.osdevelopmeniad.oraclevcn.com [100.100.251.135])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 4bvmhbah5x-3;
+	Sat, 24 Jan 2026 03:50:24 +0000
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+To: Alim Akhtar <alim.akhtar@samsung.com>,
+        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Peter Griffin <peter.griffin@linaro.org>
+Cc: "Martin K . Petersen" <martin.petersen@oracle.com>,
+        linux-scsi@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        kernel-team@android.com, andre.draszik@linaro.org,
+        willmcvicker@google.com, tudor.ambarus@linaro.org, jyescas@google.com,
+        bvanassche@acm.org
+Subject: Re: [PATCH v3] scsi: ufs: exynos: call phy_notify_state() from hibern8 callbacks
+Date: Fri, 23 Jan 2026 22:50:19 -0500
+Message-ID: <176922262101.2870193.14804934834575560482.b4-ty@oracle.com>
+X-Mailer: git-send-email 2.51.2
+In-Reply-To: <20260109-ufs-exynos-phy_notify_pmstate-v3-1-7eb692e271af@linaro.org>
+References: <20260109-ufs-exynos-phy_notify_pmstate-v3-1-7eb692e271af@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.13.1
-Subject: Re: [PATCH v0 00/15] PCI passthru on Hyper-V (Part I)
-Content-Language: en-US
-To: Jacob Pan <jacob.pan@linux.microsoft.com>
-Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-pci@vger.kernel.org, linux-arch@vger.kernel.org, kys@microsoft.com,
- haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
- longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
- nunodasneves@linux.microsoft.com, mhklinux@outlook.com
-References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
- <20260120134933.00004f2a@linux.microsoft.com>
-From: Mukesh R <mrathor@linux.microsoft.com>
-In-Reply-To: <20260120134933.00004f2a@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
+ definitions=2026-01-24_01,2026-01-22_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 bulkscore=0 phishscore=0
+ mlxlogscore=999 mlxscore=0 spamscore=0 suspectscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2601150000
+ definitions=main-2601240027
+X-Proofpoint-ORIG-GUID: hFwdphNVDjyou4hOz4CtSBr02467BzhY
+X-Proofpoint-GUID: hFwdphNVDjyou4hOz4CtSBr02467BzhY
+X-Authority-Analysis: v=2.4 cv=AqfjHe9P c=1 sm=1 tr=0 ts=69744181 b=1 cx=c_pps
+ a=zPCbziy225d3KhSqZt3L1A==:117 a=zPCbziy225d3KhSqZt3L1A==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=vusFXfun81BZlb0r6IwA:9 a=QEXdDO2ut3YA:10 cc=ntf
+ awl=host:12103
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI0MDAyNyBTYWx0ZWRfX0GGPXLF70t+n
+ 4TL2J8UVVtSDLpFV6+CbbSxmgYDIrZ0kT9SqfShi7bOxJ3QhHfBsabcGLL7iCjSp/VqRzNp4jkx
+ n0ZSudPBjpMFsQrNLRfWcIueyCccfAsUdwVF1pJrWwFSz9L89OuEHAt/SS68oqN6AEUWKkC1DsJ
+ oiAAnG/WoXLWmHvwo4E7E6L+JyOyeI2guhU7zjO+ap8fQxMzGGMBClWEqLtp2RYFdbWRUw3rftL
+ K0GXiIGG43DeGMMBZHl6lkqGWJvoIijdFjRt1Uef/rbaBKnS1NSC/563W1EdwiCxcLhsK+7cTbB
+ Q3g97ACAt8GmZsR9wPySooNhKofyedUGZe7loRuvEHhfyroy/gBF2yE3tNTeBUGyEiOsmJAoDuJ
+ lMNIKcfZP7FfLdjRg4hddGyvo2RUr9htMBLEqC+A1QNOPhHR8GN4as8r48VmWQIDhiO/hc/QUQ6
+ nV2857AhSGKeHCVjOsP9aBRx/xM8wA/dkVun/9P0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_182737_111912_2C9703D5 
-X-CRM114-Status: GOOD (  21.79  )
+X-CRM114-CacheID: sfid-20260123_195039_767102_07FA050F 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,103 +117,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/20/26 13:50, Jacob Pan wrote:
-> Hi Mukesh,
+On Fri, 09 Jan 2026 11:40:14 +0000, Peter Griffin wrote:
+
+> Notify the ufs phy of the hibern8 link state so that it can program the
+> appropriate values.
 > 
-> On Mon, 19 Jan 2026 22:42:15 -0800
-> Mukesh R <mrathor@linux.microsoft.com> wrote:
 > 
->> From: Mukesh Rathor <mrathor@linux.microsoft.com>
->>
->> Implement passthru of PCI devices to unprivileged virtual machines
->> (VMs) when Linux is running as a privileged VM on Microsoft Hyper-V
->> hypervisor. This support is made to fit within the workings of VFIO
->> framework, and any VMM needing to use it must use the VFIO subsystem.
->> This supports both full device passthru and SR-IOV based VFs.
->>
->> There are 3 cases where Linux can run as a privileged VM (aka MSHV):
->>    Baremetal root (meaning Hyper-V+Linux), L1VH, and Nested.
->>
-> I think some introduction/background to L1VH would help.
 
-Ok, i can add something, but l1vh was very well introduced if you
-search the mshv commits for "l1vh".
+Applied to 6.20/scsi-queue, thanks!
 
->> At a high level, the hypervisor supports traditional mapped iommu
->> domains that use explicit map and unmap hypercalls for mapping and
->> unmapping guest RAM into the iommu subsystem.
-> It may be clearer to state that the hypervisor supports Linux IOMMU
-> paging domains through map/unmap hypercalls, mapping GPAs to HPAs using
-> stage?2 I/O page tables.
+[1/1] scsi: ufs: exynos: call phy_notify_state() from hibern8 callbacks
+      https://git.kernel.org/mkp/scsi/c/07959ef517b8
 
-sure.
-
->> Hyper-V also has a
->> concept of direct attach devices whereby the iommu subsystem simply
->> uses the guest HW page table (ept/npt/..). This series adds support
->> for both, and both are made to work in VFIO type1 subsystem.
->>
-> This may warrant introducing a new IOMMU domain feature flag, as it
-> performs mappings but does not support map/unmap semantics in the same
-> way as a paging domain.
-
-Yeah, I was hoping we can get by for now without it. At least in case of
-the cloud hypervisor, entire guest ram is mapped anyways. We can document
-it and work on enhancements which are much easier once we have a baseline.
-For now, it's a paging domain will all pages pinned.. :).
-
->> While this Part I focuses on memory mappings, upcoming Part II
->> will focus on irq bypass along with some minor irq remapping
->> updates.
->>
->> This patch series was tested using Cloud Hypervisor verion 48. Qemu
->> support of MSHV is in the works, and that will be extended to include
->> PCI passthru and SR-IOV support also in near future.
->>
->> Based on: 8f0b4cce4481 (origin/hyperv-next)
->>
->> Thanks,
->> -Mukesh
->>
->> Mukesh Rathor (15):
->>    iommu/hyperv: rename hyperv-iommu.c to hyperv-irq.c
->>    x86/hyperv: cosmetic changes in irqdomain.c for readability
->>    x86/hyperv: add insufficient memory support in irqdomain.c
->>    mshv: Provide a way to get partition id if running in a VMM process
->>    mshv: Declarations and definitions for VFIO-MSHV bridge device
->>    mshv: Implement mshv bridge device for VFIO
->>    mshv: Add ioctl support for MSHV-VFIO bridge device
->>    PCI: hv: rename hv_compose_msi_msg to hv_vmbus_compose_msi_msg
->>    mshv: Import data structs around device domains and irq remapping
->>    PCI: hv: Build device id for a VMBus device
->>    x86/hyperv: Build logical device ids for PCI passthru hcalls
->>    x86/hyperv: Implement hyperv virtual iommu
->>    x86/hyperv: Basic interrupt support for direct attached devices
->>    mshv: Remove mapping of mmio space during map user ioctl
->>    mshv: Populate mmio mappings for PCI passthru
->>
->>   MAINTAINERS                         |    1 +
->>   arch/arm64/include/asm/mshyperv.h   |   15 +
->>   arch/x86/hyperv/irqdomain.c         |  314 ++++++---
->>   arch/x86/include/asm/mshyperv.h     |   21 +
->>   arch/x86/kernel/pci-dma.c           |    2 +
->>   drivers/hv/Makefile                 |    3 +-
->>   drivers/hv/mshv_root.h              |   24 +
->>   drivers/hv/mshv_root_main.c         |  296 +++++++-
->>   drivers/hv/mshv_vfio.c              |  210 ++++++
->>   drivers/iommu/Kconfig               |    1 +
->>   drivers/iommu/Makefile              |    2 +-
->>   drivers/iommu/hyperv-iommu.c        | 1004
->> +++++++++++++++++++++------ drivers/iommu/hyperv-irq.c          |
->> 330 +++++++++ drivers/pci/controller/pci-hyperv.c |  207 ++++--
->>   include/asm-generic/mshyperv.h      |    1 +
->>   include/hyperv/hvgdk_mini.h         |   11 +
->>   include/hyperv/hvhdk_mini.h         |  112 +++
->>   include/linux/hyperv.h              |    6 +
->>   include/uapi/linux/mshv.h           |   31 +
->>   19 files changed, 2182 insertions(+), 409 deletions(-)
->>   create mode 100644 drivers/hv/mshv_vfio.c
->>   create mode 100644 drivers/iommu/hyperv-irq.c
->>
-
+-- 
+Martin K. Petersen
 
