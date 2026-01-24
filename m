@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5926AD715EE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 17:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC38FD715EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 17:10:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PpcSO6uERmh9kHErfStBG+F1jw3KRf4ioMZexXinqck=; b=afQ7OQfn8lbWNkqBUf9sKNrbS9
-	DpTOjwJpSsz6qjruYKdpKk1dNNPYRqKQBqOmPdslbBJeWeBSLDHoc814iH1YCSM202vKkKHezzJvJ
-	tiachP4btkeQryUxu1C2sMQIloE0rs9gkcHvVcv0fqDllFdfir0k9Y8w+ApZeiIr9k33o2PFCn4oh
-	yZH9E7IG3pBkKtgNYFptYbALAAvLoTZZJU30bCde5+4JfzJQKs6Xn5fgQDLTjfijjSCwbhS+Trxyv
-	9aSq4Gj0FEHaUgC5KVRdaU0v1CURd9ldvRmlGqHHuR7uCgk7VFqHHzJCoyD/EbQztIVbv7FVo7Puj
-	EAooik0g==;
+	bh=FuGGQ/SEcIOglN3C1ur29tPR9UsO+YtNa/y88pcV+Ug=; b=d5bqPkqAtLYkQVu0d2fPkxL+E9
+	p1wNbmRKoY9USUFbAxjkIvMXza6ctj3NSHQvpHioXf0jR1+nY31tvFSUo773Cr3Qzj3vsnqrX1Jf2
+	WeU35ps0i0bvvvo5lhE3OgCZEkBSWo6p9PK6z2QRWlrZYHqXE3e9dNqQMDdQiIF/M+ULDITUnill1
+	yTwopociM8D5exCKq8D+QDpfrZuStGp3m55UU7Z2U55tB977CgbZxFY0vg7hHmdbS7j0GYKnSfWbi
+	ygfT29/xL4F7FtpmUTiAv+lml95p9m+BVy/6R1SmtQ2jVkcB3X1EvgxmeOoEp17835o6BmjqpZxgs
+	Zcbxy5uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjh9h-0000000AOGn-0XFw;
+	id 1vjh9h-0000000AOHC-2Nnn;
 	Sat, 24 Jan 2026 17:10:37 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjh9L-0000000AO6D-1Tt0
+	id 1vjh9M-0000000AO6v-1i9X
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Jan 2026 17:10:17 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b88455e6663so464640766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Jan 2026 09:10:14 -0800 (PST)
+	Sat, 24 Jan 2026 17:10:18 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b8837152db5so429733266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Jan 2026 09:10:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769274613; x=1769879413; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1769274615; x=1769879415; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=PpcSO6uERmh9kHErfStBG+F1jw3KRf4ioMZexXinqck=;
-        b=iFMWlF1RpO+JCuE5CWpBDMqPwPWk+JbMJzqLqjXf4P5EwHRSGhfSDfpIdInRyZ+uHQ
-         Aslwv9ByT+L4eYwye5G578qgjf3wzGQFfRslytu0Xy6itowIYWHnjfLiyjiM2ohFd3wt
-         9osfIlnKw5S7LsN7C/rwz21n5QDeqWGcPaCsedRE0AzEQ2b8Q4i4uvjKcoTgKUf1lQ5T
-         dW8OhWBHr9mFJr9ZryRReMGWetEzmvEZLVHZ1pEx2dMv/YGGwbMOGuSO+UXpZAYt99jY
-         MedcJXAQhWehsv2cHgRwXZTX7Wr8FxyjSudOx/J6u5U+iTHUSqFQpqFi6n4FzZeYMxpj
-         YLIw==
+        bh=FuGGQ/SEcIOglN3C1ur29tPR9UsO+YtNa/y88pcV+Ug=;
+        b=lGZUa+qodWjKNHVa2jeS6pWZ2H0gJzTll4FWLLWRuBTRzrldY/R1uSRmo3Ye7ZWRnC
+         gzPZ1/TIevyu3XHmIUlmJw3gmocCzGd00XZFbPJAaCEDXdDIxxw9wDG3RX5qNxu2E79k
+         T8ICZmCCEoBtVJqP5EFzerrsUfKZRRBksP49R10NhNPUQJvHVZ0HgD430wW+UG1PSGgG
+         eZ65AbIBkSmvspwaMMhUM0pf0CBw5nUdEpEycTyZ58Lfs87DUWoIxyRANWxTecLYSMr1
+         LiL2EyGKUnTGMYukQHAKcie5o9xqm1bKmAf5dNAlGwjZBTZa5z4FrBNaFi6nHQsivWxr
+         27mA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769274613; x=1769879413;
+        d=1e100.net; s=20230601; t=1769274615; x=1769879415;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=PpcSO6uERmh9kHErfStBG+F1jw3KRf4ioMZexXinqck=;
-        b=jNtCUeEyKUxYlbPSjywq77vMTB9ATXFHuUYHagwkC5e5W43yHyDitnPESfvFj+mKIq
-         vSEWMq2L63GJtSklEq+KUoFAL883/MsichLodP+OAhA471Ld8a+HYjjW0WZgjlLM+Brf
-         rV/gloOhHmqpRZ1R4wytQ+ha5oDM0/OIPaKc/sFqiQ0V+v1duNSAD5gtMgoIUqyQVhH8
-         8NTfgx6reVbgYl4pCpewZBtSzCnANL8uE72h4lImfNQ9bKXIxs4eRgMkHXRehYKjyboc
-         wm+AcptRt3JQAaA1xuYOx3RIgiHnIEI9oe3+lhif95BIEFAMXN55eWAzU6G8r2QwxTD9
-         FttA==
-X-Forwarded-Encrypted: i=1; AJvYcCWKtElkiC8Cj0q6eDoq8xXSAPywTAnm+IGCi3u2BYlk54UJ5F7sm2oVRaL4I/9O3WeqbXTFSETL1f7xVE9N7K47@lists.infradead.org
-X-Gm-Message-State: AOJu0YxO5rJwAAhRBDAvD790K2BUA5ni7A93NF0Ag3lVp98FJcPdEL5l
-	BqgOpRYQZhclRRrwsAXpmgGvpaq4cg1HieKq/DLoCPRD9/Xo9nGEf8kw
-X-Gm-Gg: AZuq6aLaEn+ozTSalKgdYLEK+Nl15//l7+y8q4ZjRDQ2PC0tQ6PtPh5+0XDhTeJecYS
-	vPWgpw1eXacKAj4dfINcSPeC6EJcbSX0cVH7f4RVIsGOCFNNd3bXLRNz/Y1W5mMikDUz7tLDe6r
-	xNCRMQ6fkIyQ6UmF/UzhRuwEw++X5Yc0cROHU6eLm7loKyDZ2CHkDOSQpUc4/RYG+rKGpm1oAtf
-	Aqvr72/Nn6bHR/HR1MFNS6qdDQnFz2XHJWeb9eOGFYsFzthiix/FIEWBgtQkTtCMUsSBgDyuaPF
-	mHUIlmEcyr8Fwiw3fP7rSV1L6E1nBIrzK5Ey8x4yikT682t16GnGY4LR2rxvsjIL9Uzn+Tsu6ld
-	i4G3aTQfZZtVUNkQQ+HutnHAY+ruHwj40YFizKQthzWeWh5AaqYMv34iitsTN0CJFGgZwSWbM0Q
-	t+oiVr5KTGaTw98P0zBt6EBGYRSrvN4nUXJ1cg0TJjehwZxuqVPWGj7sL3/PevEi2nYXJGvOTbC
-	KE4EnXDSRt54KtkZEtsskjJgpWd/5qqpZg=
-X-Received: by 2002:a17:907:3e26:b0:b86:ef1f:6d19 with SMTP id a640c23a62f3a-b885aea12camr504527666b.59.1769274613142;
-        Sat, 24 Jan 2026 09:10:13 -0800 (PST)
+        bh=FuGGQ/SEcIOglN3C1ur29tPR9UsO+YtNa/y88pcV+Ug=;
+        b=I4jhOCqE4NL1iY7oEboNiIvD187rp4CmZs3khYjidVAMfETwVwsIUZ3fryMzaX03ZP
+         2A1PCbQglJRWiZQoeJJ9bhWiTWx9gvOt7e3ZrfUx4i8d62Z1fvDY1oY1+48zNBjRipO+
+         IAqZWjcR2NNWcxXIyUIme3NpVRIJGkARly7ZRtBVgh+JXGreQ4BetgQAw3e6FGKp9p0J
+         KN3qb/PNStjFr0ifvElC50ZYUlJnkxt35iZQiK7TXS8/KLag64SRrBaUTqEoI9yYeFtN
+         Z2kSqWkEPwqqkd8iIVwXAbZX6SASK+bMmD7KBdlkGbBzkodVirjgdxkIvHDbBaLHygai
+         L3iw==
+X-Forwarded-Encrypted: i=1; AJvYcCWgzccaDF9QXRACrnU3umjWtGI6zHHchR1fMNAoeuUFVGRguNdMiXG5UN0lNKq2JtLmErFYeebbX7mODJXf8NLA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuzgehivecMNh4dG0tHQBZ1dw2beOo1u+S5viXf/1riFfPUeIz
+	26OvJuqSch2r6SME6ACOatpnWMQccuFZ+ujeI3icOaUxU7JrsVIKe4um
+X-Gm-Gg: AZuq6aJ1Fyko0hhWzLiVwyt4RPHJaURXFuohixSBBswcWo3HdgtcoqcvHJHLJm7Sq8L
+	+QfHgF9soKg2l14lpoU9wk3grGzKUihGK/k76kmWqtCMhsn2tJBWBoCtBdmPfaQgujlj/+otfB1
+	LDYoQ6Cto5SyKC9UBlxTRrHa/itrUR3YLb72OCMTECsucD5Vn2r51SHfVDRO8bNPQs7DCtdQnzW
+	qGelGijDtQ0+T5IdsqAB0UwNU2zAdSSTWU3OKiIU7uBMJNNSatdm3aGEHnEYf8AfLsT/tDyfVbT
+	r3FDUEoRO1BAFssCk25XpO8DJN1S0TDs355X477hWLRu5bs93jnDKLLg9LA12cKXtC+32fvj7z1
+	d8vyoyujlW9cfb0aswtu6rjsaaDU//5kswp3xBuHRGIx+g94s5OyVjcnsY5+SVcR3HW7jdiBLUb
+	Sgyp/akTBot1ZLU+MPB1RvVF87csIAhEKYiU5xnhftL4O24RNip87yKg/wDtxlx4ZlJjWfpZHbX
+	UQFyJajdzBw0m9C/XVWN71kU03/kwr7OBfU/90EhLJBoA==
+X-Received: by 2002:a17:907:7208:b0:b83:972c:77fe with SMTP id a640c23a62f3a-b885abf0014mr489898666b.2.1769274614504;
+        Sat, 24 Jan 2026 09:10:14 -0800 (PST)
 Received: from tablet.my.domain (2a01-114f-470e-6200-4c6a-9244-66ab-7c8e.ea.ipv6.supernova.orange.pl. [2a01:114f:470e:6200:4c6a:9244:66ab:7c8e])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b885b3dac6esm302680866b.7.2026.01.24.09.10.12
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b885b3dac6esm302680866b.7.2026.01.24.09.10.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 24 Jan 2026 09:10:12 -0800 (PST)
+        Sat, 24 Jan 2026 09:10:14 -0800 (PST)
 From: Artur Weber <aweber.kernel@gmail.com>
-Date: Sat, 24 Jan 2026 18:10:06 +0100
-Subject: [PATCH RESEND v7 6/7] clk: bcm21664: Add corresponding bus clocks
+Date: Sat, 24 Jan 2026 18:10:07 +0100
+Subject: [PATCH RESEND v7 7/7] clk: bcm281xx: Add corresponding bus clocks
  for peripheral clocks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260124-kona-bus-clock-v7-6-9dffe1bdc08d@gmail.com>
+Message-Id: <20260124-kona-bus-clock-v7-7-9dffe1bdc08d@gmail.com>
 References: <20260124-kona-bus-clock-v7-0-9dffe1bdc08d@gmail.com>
 In-Reply-To: <20260124-kona-bus-clock-v7-0-9dffe1bdc08d@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -93,26 +93,26 @@ Cc: Alex Elder <elder@kernel.org>,
  ~postmarketos/upstreaming@lists.sr.ht, linux-arm-kernel@lists.infradead.org, 
  phone-devel@vger.kernel.org, Artur Weber <aweber.kernel@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5074;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6005;
  i=aweber.kernel@gmail.com; h=from:subject:message-id;
- bh=q4XetRZpWDwA/NUIdchOcpPjBPnX8GimF9SrPpwDUXw=;
- b=owEBbQKS/ZANAwAKAbO7+KEToFFoAcsmYgBpdPzsTZipaB0JvAJssglW+uuqQn6TvPb4zKnfO
- +a711OvaL6JAjMEAAEKAB0WIQTmYwAOrB3szWrSiQ2zu/ihE6BRaAUCaXT87AAKCRCzu/ihE6BR
- aF0GD/9WCEdT2p7uT45LyY3Y2zUgExaXzKNjUZartepNsL20yv9zFA/B56kWfcIBrYdSQqYw2NB
- 4WaKyBreyOOC3soUHaZLNwiGUeOhPmlzfFLT7ZFdms+All15mVOoMi/r/tuAgoE1DBpLMnmQOqm
- 1jwal0aTMcq+ZpKCbyGKUQyN4fNqqiqDb11LsK8AjjudZnNNdAYdWSZkgv8Qn5YDHvoe0MXf8XO
- FiIoMy32WBYoKncfT6K4Cb8hLn7mWvCFgzgtRxKHT81PIqN/XfKRtnf3bjiAhaVyV/0px/KBweL
- N4QsXE0EtHGRc0dweT9EIIaRLxWW6+e+gN1mrlebgrdBVheHZwyO1bumxOSMM2EY0gSu6Puvk8B
- yLJMDMlzT6iPRTQ1hoFa7HIOBMMa7ttn/Zb4ePFHr3zppzO5hTtFvQ4hnd9eFgPxx+tICiNkKec
- im6SUUi5l8C160jg2LK42YwSD8ueYrPbvuq9YgPUApouo7cTKL1Q7i1Q6zK63hd4HomPyzV0FWy
- m1Y5/Ut17fcJDX6C96wb5659hjR4GXQY9w4+llHEUuouMa7DUBOCNZfHYLcaFJv4jxOMUnavKaS
- MTpwn8Sd/gQzvPYX6runjo1TTJYndkPigWaIQw6JBIVw9M0OB7pxUriutAr7rh1h7f2/BrKsxi3
- lIXOodxiEcs+abA==
+ bh=MhD+5si1P/CXfrsB0NWiwFA6wHzB9oyernIPrIXpq00=;
+ b=owEBbQKS/ZANAwAKAbO7+KEToFFoAcsmYgBpdPzsb5s2kJBEIvd7K/fyhhGYwEf/4HXbWBQQH
+ NP+aNdm9fKJAjMEAAEKAB0WIQTmYwAOrB3szWrSiQ2zu/ihE6BRaAUCaXT87AAKCRCzu/ihE6BR
+ aK15D/4qgPBR3x8sx196BYkt2yNN3QbXdsAXq1ijJeEyLVC6SciSw7JzfMEbPHL5IV26nSsZMZF
+ LKpD1/Nohl/CbuP/KfeYDRqG3Oxa9ChFSUGeQw3XVmnzFx27GJIqIfr6AMBNQ7o8OVgrWjuv6mV
+ x29YHf5E9iyct9xSh5dy07nc5TbXK89byQdC2J6lMyZuEaM7V48xW8PbhJc3LoFTpE/VvZbvkkR
+ pVSfpXnFfT+HeXBOnEalT0xRMY9vkD5Sd5mF7Kxu8Y58voaQqD5PRbNuXfjT68OY6U0IvXhZ4xd
+ e400sJUWZ5iM9DMvpqL73xpMTr0orAiO5+hiYKuacVn2UArK4ehOKIM7tupiy6xsj95qCYlohWD
+ 0w+xp83+pHD/xrba0LUkJkhmuHivlfwcKvDOQyUDDzAULm4WqYH4JRmE+gSb4FH8ZKk87PqE8KP
+ GtDNnr9hwT0Fgz+DPFzeXpl1lDBfWZkac6SpNxP/jQDbOS2bwXL+BTN2ws3XVcMS3JDUSkx9ZG4
+ Ai5gDTdF+yiiZ/6UIwFMa3pYg+FTcmnHBYqfKbhRs9i2YgEFPWBsVM0OC93GYtiw0T0sjD9A1BA
+ 1Jy2OSsoNOTwHWXbD+FiW5WDaE8NbtjyjY3/JbRGW9FMu8FyzHQse+9YZdmqTGiMH7IHSYguzpe
+ kBFeHLKXmntsYtA==
 X-Developer-Key: i=aweber.kernel@gmail.com; a=openpgp;
  fpr=E663000EAC1DECCD6AD2890DB3BBF8A113A05168
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260124_091016_495660_51CA124B 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20260124_091016_514513_054B2FA4 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,159 +127,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that bus clock support has been implemented into the Broadcom Kona
-clock driver, add bus clocks corresponding to HUB_TIMER, SDIO, UART and
-BSC, as well as the USB OTG bus clock.
+Add bus clocks corresponding to peripheral clocks currently supported
+by the BCM281xx clock driver.
 
 Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
 ---
 Changes in v4:
 - Adapt to CLOCK_COUNT -> CLK_COUNT rename
-- Change commit summary to match equivalent BCM281xx commit
 
 Changes in v3:
 - Adapt to CLOCK_COUNT defines being moved
 
 Changes in v2:
-- Adapt to dropped prereq clocks
+- Add this patch (BCM281xx bus clocks)
 ---
- drivers/clk/bcm/clk-bcm21664.c | 89 ++++++++++++++++++++++++++++++++++++++++--
- 1 file changed, 86 insertions(+), 3 deletions(-)
+ drivers/clk/bcm/clk-bcm281xx.c | 127 ++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 124 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/clk/bcm/clk-bcm21664.c b/drivers/clk/bcm/clk-bcm21664.c
-index 14b7db824704..4223ac1c35a2 100644
---- a/drivers/clk/bcm/clk-bcm21664.c
-+++ b/drivers/clk/bcm/clk-bcm21664.c
-@@ -41,7 +41,12 @@ static struct peri_clk_data hub_timer_data = {
- 	.trig		= TRIGGER(0x0a40, 4),
+diff --git a/drivers/clk/bcm/clk-bcm281xx.c b/drivers/clk/bcm/clk-bcm281xx.c
+index 62c3bf465625..13fd8a5ea8fa 100644
+--- a/drivers/clk/bcm/clk-bcm281xx.c
++++ b/drivers/clk/bcm/clk-bcm281xx.c
+@@ -59,7 +59,17 @@ static struct peri_clk_data pmu_bsc_var_data = {
+ 	.trig		= TRIGGER(0x0a40, 2),
  };
  
--#define BCM21664_AON_CCU_CLK_COUNT	(BCM21664_AON_CCU_HUB_TIMER + 1)
+-#define BCM281XX_AON_CCU_CLK_COUNT	(BCM281XX_AON_CCU_PMU_BSC_VAR + 1)
 +static struct bus_clk_data hub_timer_apb_data = {
 +	.gate		= HW_SW_GATE(0x0414, 18, 3, 2),
 +	.hyst		= HYST(0x0414, 10, 11),
 +};
 +
-+#define BCM21664_AON_CCU_CLK_COUNT	(BCM21664_AON_CCU_HUB_TIMER_APB + 1)
++static struct bus_clk_data pmu_bsc_apb_data = {
++	.gate		= HW_SW_GATE(0x0418, 18, 3, 2),
++	.hyst		= HYST(0x0418, 10, 11),
++};
++
++#define BCM281XX_AON_CCU_CLK_COUNT	(BCM281XX_AON_CCU_PMU_BSC_APB + 1)
  
  static struct ccu_data aon_ccu_data = {
- 	BCM21664_CCU_COMMON(aon, AON),
-@@ -52,6 +57,8 @@ static struct ccu_data aon_ccu_data = {
- 	.kona_clks	= {
- 		[BCM21664_AON_CCU_HUB_TIMER] =
- 			KONA_CLK(aon, hub_timer, peri),
-+		[BCM21664_AON_CCU_HUB_TIMER_APB] =
+ 	BCM281XX_CCU_COMMON(aon, AON),
+@@ -70,6 +80,10 @@ static struct ccu_data aon_ccu_data = {
+ 			KONA_CLK(aon, pmu_bsc, peri),
+ 		[BCM281XX_AON_CCU_PMU_BSC_VAR] =
+ 			KONA_CLK(aon, pmu_bsc_var, peri),
++		[BCM281XX_AON_CCU_HUB_TIMER_APB] =
 +			KONA_CLK(aon, hub_timer_apb, bus),
- 		[BCM21664_AON_CCU_CLK_COUNT] = LAST_KONA_CLK,
++		[BCM281XX_AON_CCU_PMU_BSC_APB] =
++			KONA_CLK(aon, pmu_bsc_apb, bus),
+ 		[BCM281XX_AON_CCU_CLK_COUNT] = LAST_KONA_CLK,
  	},
  };
-@@ -126,7 +133,27 @@ static struct peri_clk_data sdio4_sleep_data = {
- 	.gate		= HW_SW_GATE(0x0360, 18, 2, 3),
+@@ -178,7 +192,36 @@ static struct peri_clk_data hsic2_12m_data = {
+ 	.trig		= TRIGGER(0x0afc, 5),
  };
  
--#define BCM21664_MASTER_CCU_CLK_COUNT	(BCM21664_MASTER_CCU_SDIO4_SLEEP + 1)
+-#define BCM281XX_MASTER_CCU_CLK_COUNT	(BCM281XX_MASTER_CCU_HSIC2_12M + 1)
 +static struct bus_clk_data sdio1_ahb_data = {
-+	.gate		= HW_SW_GATE(0x0358, 16, 0, 1),
++	.gate		= HW_SW_GATE(0x0358, 16, 1, 0),
 +};
 +
 +static struct bus_clk_data sdio2_ahb_data = {
-+	.gate		= HW_SW_GATE(0x035c, 16, 0, 1),
++	.gate		= HW_SW_GATE(0x035c, 16, 1, 0),
 +};
 +
 +static struct bus_clk_data sdio3_ahb_data = {
-+	.gate		= HW_SW_GATE(0x0364, 16, 0, 1),
++	.gate		= HW_SW_GATE(0x0364, 16, 1, 0),
 +};
 +
 +static struct bus_clk_data sdio4_ahb_data = {
-+	.gate		= HW_SW_GATE(0x0360, 16, 0, 1),
++	.gate		= HW_SW_GATE(0x0360, 16, 1, 0),
++};
++
++static struct bus_clk_data usb_ic_ahb_data = {
++	.gate		= HW_SW_GATE(0x0354, 16, 1, 0),
++};
++
++/* also called usbh_ahb */
++static struct bus_clk_data hsic2_ahb_data = {
++	.gate		= HW_SW_GATE(0x0370, 16, 1, 0),
 +};
 +
 +static struct bus_clk_data usb_otg_ahb_data = {
-+	.gate		= HW_SW_GATE(0x0348, 16, 0, 1),
++	.gate		= HW_SW_GATE(0x0348, 16, 1, 0),
 +};
 +
-+#define BCM21664_MASTER_CCU_CLK_COUNT	(BCM21664_MASTER_CCU_USB_OTG_AHB + 1)
++#define BCM281XX_MASTER_CCU_CLK_COUNT	(BCM281XX_MASTER_CCU_USB_OTG_AHB + 1)
  
  static struct ccu_data master_ccu_data = {
- 	BCM21664_CCU_COMMON(master, MASTER),
-@@ -151,6 +178,16 @@ static struct ccu_data master_ccu_data = {
- 			KONA_CLK(master, sdio3_sleep, peri),
- 		[BCM21664_MASTER_CCU_SDIO4_SLEEP] =
- 			KONA_CLK(master, sdio4_sleep, peri),
-+		[BCM21664_MASTER_CCU_SDIO1_AHB] =
+ 	BCM281XX_CCU_COMMON(master, MASTER),
+@@ -197,6 +240,20 @@ static struct ccu_data master_ccu_data = {
+ 			KONA_CLK(master, hsic2_48m, peri),
+ 		[BCM281XX_MASTER_CCU_HSIC2_12M] =
+ 			KONA_CLK(master, hsic2_12m, peri),
++		[BCM281XX_MASTER_CCU_SDIO1_AHB] =
 +			KONA_CLK(master, sdio1_ahb, bus),
-+		[BCM21664_MASTER_CCU_SDIO2_AHB] =
++		[BCM281XX_MASTER_CCU_SDIO2_AHB] =
 +			KONA_CLK(master, sdio2_ahb, bus),
-+		[BCM21664_MASTER_CCU_SDIO3_AHB] =
++		[BCM281XX_MASTER_CCU_SDIO3_AHB] =
 +			KONA_CLK(master, sdio3_ahb, bus),
-+		[BCM21664_MASTER_CCU_SDIO4_AHB] =
++		[BCM281XX_MASTER_CCU_SDIO4_AHB] =
 +			KONA_CLK(master, sdio4_ahb, bus),
-+		[BCM21664_MASTER_CCU_USB_OTG_AHB] =
++		[BCM281XX_MASTER_CCU_USB_IC_AHB] =
++			KONA_CLK(master, usb_ic_ahb, bus),
++		[BCM281XX_MASTER_CCU_HSIC2_AHB] =
++			KONA_CLK(master, hsic2_ahb, bus),
++		[BCM281XX_MASTER_CCU_USB_OTG_AHB] =
 +			KONA_CLK(master, usb_otg_ahb, bus),
- 		[BCM21664_MASTER_CCU_CLK_COUNT] = LAST_KONA_CLK,
+ 		[BCM281XX_MASTER_CCU_CLK_COUNT] = LAST_KONA_CLK,
  	},
  };
-@@ -231,7 +268,39 @@ static struct peri_clk_data bsc4_data = {
- 	.trig		= TRIGGER(0x0afc, 19),
+@@ -309,7 +366,51 @@ static struct peri_clk_data pwm_data = {
+ 	.trig		= TRIGGER(0x0afc, 15),
  };
  
--#define BCM21664_SLAVE_CCU_CLK_COUNT	(BCM21664_SLAVE_CCU_BSC4 + 1)
+-#define BCM281XX_SLAVE_CCU_CLK_COUNT	(BCM281XX_SLAVE_CCU_PWM + 1)
 +static struct bus_clk_data uartb_apb_data = {
-+	.gate		= HW_SW_GATE_AUTO(0x0400, 16, 0, 1),
++	.gate		= HW_SW_GATE(0x0400, 16, 1, 0),
 +};
 +
 +static struct bus_clk_data uartb2_apb_data = {
-+	.gate		= HW_SW_GATE_AUTO(0x0404, 16, 0, 1),
++	.gate		= HW_SW_GATE(0x0404, 16, 1, 0),
 +};
 +
 +static struct bus_clk_data uartb3_apb_data = {
-+	.gate		= HW_SW_GATE_AUTO(0x0408, 16, 0, 1),
++	.gate		= HW_SW_GATE(0x0408, 16, 1, 0),
++};
++
++static struct bus_clk_data uartb4_apb_data = {
++	.gate		= HW_SW_GATE(0x040c, 16, 1, 0),
++};
++
++static struct bus_clk_data ssp0_apb_data = {
++	.gate		= HW_SW_GATE(0x0410, 16, 1, 0),
++};
++
++static struct bus_clk_data ssp2_apb_data = {
++	.gate		= HW_SW_GATE(0x0418, 16, 1, 0),
 +};
 +
 +static struct bus_clk_data bsc1_apb_data = {
-+	.gate		= HW_SW_GATE_AUTO(0x0458, 16, 0, 1),
++	.gate		= HW_SW_GATE(0x0458, 16, 1, 0),
 +	.hyst		= HYST(0x0458, 8, 9),
 +};
 +
 +static struct bus_clk_data bsc2_apb_data = {
-+	.gate		= HW_SW_GATE_AUTO(0x045c, 16, 0, 1),
++	.gate		= HW_SW_GATE(0x045c, 16, 1, 0),
 +	.hyst		= HYST(0x045c, 8, 9),
 +};
 +
 +static struct bus_clk_data bsc3_apb_data = {
-+	.gate		= HW_SW_GATE_AUTO(0x0470, 16, 0, 1),
-+	.hyst		= HYST(0x0470, 8, 9),
++	.gate		= HW_SW_GATE(0x0484, 16, 1, 0),
++	.hyst		= HYST(0x0484, 8, 9),
 +};
 +
-+static struct bus_clk_data bsc4_apb_data = {
-+	.gate		= HW_SW_GATE_AUTO(0x0474, 16, 0, 1),
-+	.hyst		= HYST(0x0474, 8, 9),
++static struct bus_clk_data pwm_apb_data = {
++	.gate		= HW_SW_GATE(0x0468, 16, 1, 0),
++	.hyst		= HYST(0x0468, 8, 9),
 +};
 +
-+#define BCM21664_SLAVE_CCU_CLK_COUNT	(BCM21664_SLAVE_CCU_BSC4_APB + 1)
++#define BCM281XX_SLAVE_CCU_CLK_COUNT	(BCM281XX_SLAVE_CCU_PWM_APB + 1)
  
  static struct ccu_data slave_ccu_data = {
- 	BCM21664_CCU_COMMON(slave, SLAVE),
-@@ -254,6 +323,20 @@ static struct ccu_data slave_ccu_data = {
+ 	BCM281XX_CCU_COMMON(slave, SLAVE),
+@@ -334,6 +435,26 @@ static struct ccu_data slave_ccu_data = {
  			KONA_CLK(slave, bsc3, peri),
- 		[BCM21664_SLAVE_CCU_BSC4] =
- 			KONA_CLK(slave, bsc4, peri),
-+		[BCM21664_SLAVE_CCU_UARTB_APB] =
+ 		[BCM281XX_SLAVE_CCU_PWM] =
+ 			KONA_CLK(slave, pwm, peri),
++		[BCM281XX_SLAVE_CCU_UARTB_APB] =
 +			KONA_CLK(slave, uartb_apb, bus),
-+		[BCM21664_SLAVE_CCU_UARTB2_APB] =
++		[BCM281XX_SLAVE_CCU_UARTB2_APB] =
 +			KONA_CLK(slave, uartb2_apb, bus),
-+		[BCM21664_SLAVE_CCU_UARTB3_APB] =
++		[BCM281XX_SLAVE_CCU_UARTB3_APB] =
 +			KONA_CLK(slave, uartb3_apb, bus),
-+		[BCM21664_SLAVE_CCU_BSC1_APB] =
++		[BCM281XX_SLAVE_CCU_UARTB4_APB] =
++			KONA_CLK(slave, uartb4_apb, bus),
++		[BCM281XX_SLAVE_CCU_SSP0_APB] =
++			KONA_CLK(slave, ssp0_apb, bus),
++		[BCM281XX_SLAVE_CCU_SSP2_APB] =
++			KONA_CLK(slave, ssp2_apb, bus),
++		[BCM281XX_SLAVE_CCU_BSC1_APB] =
 +			KONA_CLK(slave, bsc1_apb, bus),
-+		[BCM21664_SLAVE_CCU_BSC2_APB] =
++		[BCM281XX_SLAVE_CCU_BSC2_APB] =
 +			KONA_CLK(slave, bsc2_apb, bus),
-+		[BCM21664_SLAVE_CCU_BSC3_APB] =
++		[BCM281XX_SLAVE_CCU_BSC3_APB] =
 +			KONA_CLK(slave, bsc3_apb, bus),
-+		[BCM21664_SLAVE_CCU_BSC4_APB] =
-+			KONA_CLK(slave, bsc4_apb, bus),
- 		[BCM21664_SLAVE_CCU_CLK_COUNT] = LAST_KONA_CLK,
++		[BCM281XX_SLAVE_CCU_PWM_APB] =
++			KONA_CLK(slave, pwm_apb, bus),
+ 		[BCM281XX_SLAVE_CCU_CLK_COUNT] = LAST_KONA_CLK,
  	},
  };
 
