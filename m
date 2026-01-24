@@ -4,97 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE90D715C7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 06:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51257D715D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 07:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KkIWaqEHvViGcgC+2kqW7/inf40Itk/ZRb2srHuSmpo=; b=0ezyiEW87Hu/iCIp8NoerOHh6e
-	tGMi9Lx8wvwewb/AN9BwMX6FvudycWldDLSGI6Hs13Dji/Vf9d5N/2Dek/yE1P9h8hZ6jwgO2RION
-	v/8DFK/tzDqWL3EtLfHyaAv7qTPMxXnDRg0DkGu6Ck3gaUoDi0eVba9lNE401Dni+sv3XGhQe+Y7O
-	d2WlCiu6lFdC2SlPfmKlkIInyaRGSiph/vIhtSygBmSUdqCAecpJm0V29/EYaxu0D5ngG+5D6U7v8
-	2ixcVNQV863a35tu7uRWj68mwhZoX3Tj0r0K917nh6uHL3rsN/XRIw8kDe60Wc3dJOqWrOmUUtinL
-	w0TD4wcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wjMnGoeDh+YdrtLg+xDqC4Hnv8XghUga4m38t6BAP9M=; b=Kxue4aa73LZ6IUtbe6dqJo+W+Z
+	NnIw/m3XvpG1zAt3EDSu0HQpWJ2/g15KR9aCA6YqdgkI7FMMmWqVcAb2LIhBjl9yP+By/XiPdtDSS
+	Jil8cE7nYn64LvnbTLr4JoZigDGG4AvvvUJNQo0KhoFGlxZvFwxWfeUj3h+nQYk6CVn2djKfqwAYb
+	ApIdIPuX61Mx3wKc6Lv8fmAeP16cdKOMLj6hUxp7JMxnZrzJanVNvC/wlze540annugAwhaoU3eI4
+	5+JDBDqsJw7m1OA9dndSMBRXHLGcstB6lff6KiuaQY50/BjENHkFaYCk1i0qh8j9JKJH08GQfuP+H
+	p6TIScgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjXVK-0000000A3BD-1amk;
-	Sat, 24 Jan 2026 06:52:18 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vjYPB-0000000A4gf-318y;
+	Sat, 24 Jan 2026 07:50:01 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjXVG-0000000A3AV-2yJl
+	id 1vjYP8-0000000A4fT-2jFu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Jan 2026 06:52:16 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47ee937ecf2so24683055e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 22:52:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769237532; x=1769842332; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=KkIWaqEHvViGcgC+2kqW7/inf40Itk/ZRb2srHuSmpo=;
-        b=kbisvB4ETfdIvY7hxWkoPDFCCca/19Hcld54dgdNrsCLr4QARwEfo7VMtDxHXCnyay
-         ApcGH39Ok0r8RITzlYYKA/YA+dkr9KR/VxvYdjIPag6BFZUo9/NcnboXCvWYU6QfWcR0
-         w74WnYY6e/HBq11TuEcb2rtn7QUOCupvjZ932cq4VvqWrfsXtBCEuPDsAvvUBJCKisiB
-         S+XbwqhYzanjB6almAyao4FuWg3YTfuJpWNnbxT12+R0qeHKaxcLqvTpVVMQvtTBWq49
-         /9nShEJwoZcxA8b/tlhtDQ9oEqCT8dn4BqaWSGFdGCZ8IP4hWhUfrW9zz4wPGfXMDNp/
-         vFUw==
+	Sat, 24 Jan 2026 07:50:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1769240996;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wjMnGoeDh+YdrtLg+xDqC4Hnv8XghUga4m38t6BAP9M=;
+	b=cpq8/ttedYyjYBsP9cx0bnf+PRJ0SQj1MUvN5WVwzLrtJr7FuCeHLx5tJrd1F9XVkq8TAR
+	6mP4dLWdkdR/GTrtjq0x18StkHESZWJrBT0ldTtcfqcrZ6jcUmAc2FHeoDvVjQNVHB2NUl
+	pXb2kDkPQxJ/Jc0zJrwPRx5EwmcdkYo=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-74-vqJ2BR3eOXCgEdT6s6BGAQ-1; Sat, 24 Jan 2026 02:49:54 -0500
+X-MC-Unique: vqJ2BR3eOXCgEdT6s6BGAQ-1
+X-Mimecast-MFC-AGG-ID: vqJ2BR3eOXCgEdT6s6BGAQ_1769240993
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-430f5dcd4cdso697313f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 23:49:53 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769237532; x=1769842332;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KkIWaqEHvViGcgC+2kqW7/inf40Itk/ZRb2srHuSmpo=;
-        b=YT9ovkDzaYpN4ket9kMSxueh0ip7uTeWO3Vm9QmM0ZNdCvpUoKD2II4nNjg+CWjhvl
-         AzYYTJvumJ0ONQ1RnBtYdrpnphReilrw3kU3UUckOczhkhGZ2hCcaTM7mf81hn5PE4Ym
-         vCukiRy42W9IlCkQ3p0E+j5kDwSB8o0uyBW8iJnvIjd7PeH479U57ATVJgygylfRQw+y
-         xPlczXpVrfTfCvhvk8+6Q6678nOdLqHD8hv4BuMan7ClN57cgPd2rwVc+nHdoenmmqFx
-         0JMzXrPdg1kfLPE0rB8o2CqmblltW23rZWkwluq3mJBfhJmYLupos61e4fOgP9AM27Mx
-         sw5w==
-X-Forwarded-Encrypted: i=1; AJvYcCUO9PHMLBPgxtDSPfnhNS/FQrAsELQWLAyUqXJq0u84HLibAbnhgdGiQaNEvMlgbdJld9sWIDsF2610cS90k6zO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXNkHTzeP1lbfQPBVJhN+2FjAKtB81VIOdmpUQ8Ni/gVV8neuW
-	/cbhM+TuQXGWubUzkEqgmX1FaMSg7TVZ0jw1Yjhmmdi5SR0r2AyX3a39uAA0cg9R8ic=
-X-Gm-Gg: AZuq6aKUOtOljpM28QSL91hM+S5oZNBNGIhm09481JBWDaaqnU303Kn/ySaKGN0XbFx
-	NfOPZ0GRy2tIYdqadNbEQ7FWiXpOclsaoFolNJiEREu1ShUT1WdW+PuVFs86gqDd8b2jkgL3x6w
-	tV6yzNbEzv25ZiHgy2t46AQBkZsCIk2yVqqJcN+c6NQh1KVy0X6soMiHunoKfIHKlBThUXE+ecg
-	HPhOfDBGb62PGC+PS2532gOKZPscP0BTs4gvXbTNf6hDlYVKugFNdt2KcQ28xKCzz6+866cRXSe
-	mJar5GYNr+hkqASP8TSe7PtOT1AIqn2hlBT8BRyyVByNafsZ1aaaEj0oMmkVBfDoaVVfJerm1FW
-	v/rPwHciBTuyGfM1vPtUqweVTlZAwVDShffvNeciJvJDtJwk14wFkqfwTERcxOnvPgG3OrOhalf
-	5RocPiNUo4MUQ2Qixl4A==
-X-Received: by 2002:a05:600c:45ca:b0:477:9e0c:f59 with SMTP id 5b1f17b1804b1-4804d2b151emr92947725e9.2.1769237532137;
-        Fri, 23 Jan 2026 22:52:12 -0800 (PST)
-Received: from draszik.lan ([212.129.87.251])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4804d84588fsm107102385e9.2.2026.01.23.22.52.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Jan 2026 22:52:11 -0800 (PST)
-Message-ID: <eebefae5273bccce2d0fcd97afe3ea28bedf27cd.camel@linaro.org>
-Subject: Re: [PATCH next] phy: google: fix build dependency for Google
- Tensor USB PHY
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Roy Luo <royluo@google.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>,  Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Joy Chakraborty	
- <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>, 
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- kernel test robot	 <lkp@intel.com>
-Date: Sat, 24 Jan 2026 06:52:14 +0000
-In-Reply-To: <CA+zupgwEWM4c9yK1f-Y_Cv5gk=0zYNuUb3kZyZ6O3FDRbPPvKw@mail.gmail.com>
-References: <20260121-next-v1-1-c18068b091b9@google.com>
-	 <7c78f9da40022e7bbf850ae8989c617bdc30cc95.camel@linaro.org>
-	 <CA+zupgw5H5rumo+DxaTfA_=bcvjbBOivm6R+Pw31jgE-sMyEtw@mail.gmail.com>
-	 <f956ccd3f5f694de7a634819da3f790a8dce132b.camel@linaro.org>
-	 <CA+zupgwEWM4c9yK1f-Y_Cv5gk=0zYNuUb3kZyZ6O3FDRbPPvKw@mail.gmail.com>
+        d=1e100.net; s=20230601; t=1769240993; x=1769845793;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=wjMnGoeDh+YdrtLg+xDqC4Hnv8XghUga4m38t6BAP9M=;
+        b=EbNvhfOKt/khCB07JLA84Y3xD+Yxp04OZfbY6ii6ARSMHSVZBgEkLEhlT34n8AUP5Q
+         KYfRmBNcopr0eLfIO/4thm/FUOQwP0ALgh05UY3d93mrnwfOFCjZ07D6PZUxbpNJtWRT
+         OZtVyj+VkrlXijkxJxB02Hl1PvXf/jinCiGbximK0jh0+DViBzoigFcunNutalfKOZAR
+         jzLYaktE8JyQ91VrZyJmZH31dYARtY5YIljNvvCPb5fYqVmDRfKH54HZlN2U/FQGfq/V
+         lGxoOQMoC4zwth5SNj77jyqq8YCAdEhDsPxnBVS34ThpJ9O9J757TiYGvrzxgSVAjYkZ
+         QPiw==
+X-Forwarded-Encrypted: i=1; AJvYcCWJeGsLVKfs5WD94VDRc9okJHH80zyVi34IjNU/FI7SKMF8ceiZvNGlsl3AMYYtLm5koj7pl5pTdx41vT59oQkT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOFykeH3425qHLjp8vfaPcFAhsgCPMtHr/hX8nAY8fhkgqf2QF
+	C9UA9McrapKy1CgrdPFOBmegs1IOfcWM+0xVLO23lBaF5mvvBiHwJhXg9dmvsUgXXPeOAkwExnw
+	IOyrt4O7/OZbReBZ/fpJgHZi1yUmfANIPFH0BRP8xb69+Bo8M1WIkQxXIpRmVsthzCwW63XxROh
+	ZeSx/9Oi7J+DWA85ja6/urSewBKP+4l6sPNO83lboaTe/DmSW1U68=
+X-Gm-Gg: AZuq6aK6WThTZYb1BD0KwcXQLo7ncr8DcbpjvblEoyv2f/h6Rq4Jjm67NLhtnR2X37y
+	ysIjqgkSSax/faibipxAzQGj97Rffijjt3GOZO2IXWcREHWOlVRtxsTqiLi9Dqpc2IGOut8iO2H
+	qaGauvy1GQBk0dbKwuIq/tFXNxfjbcZqvQzeHHIpps0sxR3t5caMJVbM2ZgmwoB2Eaj+4fqsm2Q
+	/ABqse9F6xVIA0HWhdKHhux90r+0RinudHjy4hfrMet8KLMU+TO1EoSxCDsQj1V/cY00w==
+X-Received: by 2002:a05:6000:601:b0:430:fdc8:8bbd with SMTP id ffacd0b85a97d-435b16039damr9146815f8f.41.1769240992702;
+        Fri, 23 Jan 2026 23:49:52 -0800 (PST)
+X-Received: by 2002:a05:6000:601:b0:430:fdc8:8bbd with SMTP id
+ ffacd0b85a97d-435b16039damr9146785f8f.41.1769240992303; Fri, 23 Jan 2026
+ 23:49:52 -0800 (PST)
+MIME-Version: 1.0
+References: <20250611224604.313496-2-seanjc@google.com> <20250611224604.313496-40-seanjc@google.com>
+ <njhjud3e6wbdftzr3ziyuh5bhyvc5ndt5qvmg7rlvh5isoop2l@f2uxctws2c7d>
+ <42513cb3-3c2e-4aa8-b748-23b6656a5096@redhat.com> <874iovu742.ffs@tglx>
+ <87pl7jsrdg.ffs@tglx> <5bea843b-dec8-4f15-bb7c-1d0550542034@redhat.com> <87sebxtrgp.ffs@tglx>
+In-Reply-To: <87sebxtrgp.ffs@tglx>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Date: Sat, 24 Jan 2026 08:49:40 +0100
+X-Gm-Features: AZwV_Qj6aLwVSas8vwNUo-Ndu2FBevRcUQp0THPxC18GLGDTRk3JARciXPkQtdQ
+Message-ID: <CABgObfbijO2k6fe6z03M3u--4ZKXxwPSf2RrasU1=J5rtj9CUg@mail.gmail.com>
+Subject: Re: possible deadlock due to irq_set_thread_affinity() calling into
+ the scheduler (was Re: [PATCH v3 38/62] KVM: SVM: Take and hold ir_list_lock
+ across IRTE updates in IOMMU)
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: Ankit Soni <Ankit.Soni@amd.com>, Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Joerg Roedel <joro@8bytes.org>, 
+	David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Sairaj Kodilkar <sarunkod@amd.com>, Vasant Hegde <vasant.hegde@amd.com>, 
+	Maxim Levitsky <mlevitsk@redhat.com>, Joao Martins <joao.m.martins@oracle.com>, 
+	Francesco Lavra <francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>, 
+	Naveen Rao <Naveen.Rao@amd.com>, Crystal Wood <crwood@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 7ru7QbTJjFw8kabGXasXuGhubbYcuJoq8j_eB1LYGxQ_1769240993
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+build3 
-MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_225214_779153_8C0307C1 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20260123_234958_767790_17FF5E13 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,57 +116,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Roy,
+On Thu, Jan 22, 2026 at 7:47=E2=80=AFPM Thomas Gleixner <tglx@kernel.org> w=
+rote:
+>
+> On Wed, Jan 21 2026 at 19:13, Paolo Bonzini wrote:
+> > On 1/8/26 22:53, Thomas Gleixner wrote:
+> >> Are you still claiming that this is a kernel/irq bug?
+> >
+> > Not really, I did say I'd like to treat it as a kernel/irq bug...
+> > but certainly didn't have hopes high enough to "claim" that.
+> > I do think that it's ugly to have locks that are internal,
+> > non-leaf and held around callbacks; but people smarter than
+> > me have thought about it and you can't call it a bug anyway.
+>
+> Deep core code has a tendency to be ugly. But if it makes your life
+> easier, then these wakeups can be delayed via an irq_work to be outside
+> of the lock. That needs some life-time issues to be addressed, but
+> should be doable.
 
-On Fri, 2026-01-23 at 15:51 -0800, Roy Luo wrote:
-> On Thu, Jan 22, 2026 at 10:28=E2=80=AFPM Andr=C3=A9 Draszik <andre.draszi=
-k@linaro.org> wrote:
-> >=20
-> >=20
-> > COMPILE_TEST is not limited to ARCH_xxx. It allows drivers to be
-> > compile tested even if the current build doesn't enable whatever
-> > option (like TYPEC).
-> >=20
-> > See also https://www.kernel.org/doc/html/latest/kbuild/kconfig-language=
-.html#compile-testing
->=20
-> "If a config symbol has a dependency, but the code controlled by the
-> config symbol can still be compiled if the dependency is not met",
-> TYPEC doesn't fall into this category as it's mandatory for compiling
-> PHY_GOOGLE_USB.
-> With "depends on TYPEC || COMPILE_TEST", this very build error
-> would resurface when TYPEC=3Dn, COMPILE_TEST=3Dy and
-> PHY_GOOGLE_USB=3Dy. Please let me know if I missed anything.
+Thanks for the suggestion---hopefully it's not needed at all and we
+can delay taking the lock in KVM.
 
-No it wouldn't. If you look at the build log & .config from the reported=C2=
-=A0
-failure, the error was because:
+Paolo
 
-CONFIG_PHY_GOOGLE_USB=3Dy
-CONFIG_TYPEC=3Dm
-
-built-in code can not link against code from a module.
-
-The typec APIs are all stubbed out when TYPEC=3Dn.
-
-Cheers,
-Andre'
-
-
-
->=20
-> Thanks,
-> Roy
->=20
-> >=20
-> > Cheers,
-> > Andre'
-> >=20
-> >=20
-> > >=20
-> > > [1] https://lore.kernel.org/all/CA+zupgwgfKwPYqj8G2tNf4pEXNEWA+vL2WYJ=
-PhJ16xExgko7Dw@mail.gmail.com/
-> > >=20
-> > > Regards,
-> > > Roy
 
