@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E34F9D778BF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 00:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A66C2D77898
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 00:39:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=anj7Tg+qdmX0TUbJNiLVovUzrojhpqyhs+YQ/TICQyM=; b=ZQclWPoxVPJ0t7MGQI6AgK2pGF
-	6mkF+e69562bi6vMuABdh9snVQsFydg2uPSWNTm4SBMGvPgK5SmwMWGi5tv2BoLjzesImoAnREJRX
-	QJZpLW4E5OxirZvA9uLcuQGwFSOvpBK47sc/w07/lsCY+k5bch7F1VbszIlzQ76+dRs+nmHm+1UV0
-	bH5QnkJrMJRVDQ36lRUU+RtcuH/vNXeMuvoj2o2UtNATaCCIuMsuih44oDaMGyQ9+FA4DP0eH/mYj
-	zoyvR65DPuqOldFgvyWINJIG/vCmWmHIsa4wjlubFaFCKFxT6zC5fsC/zDX1nvWrRW7AhyO06bozK
-	53UaY1oA==;
+	bh=EooaXTHikFgY2c5b/5Qui7RI5PR9D7e9Nlkv9UbFGyY=; b=BDW8XixqIG18G7I6RlWy28u1hx
+	BjebQKDGaNBvbzY9RPnS/t09fJRm4iq/NOVy1/5tivKhD39z8cfuQWYUAOtes9z8fwgundfMcZXY4
+	P7yhXEtGQCE9nf5RWE7gCm36aYh/0Cs5jtubx+InlwOdxcpUHeK66OCUJxwaJ9NLWUkt9jgqYKEJO
+	5STzOrAkHAJVuKNpCCN6i5JIcEm64MhODYfa7oxP04fmUPYb5mZrfC7vkJNzv7Z4RGtrG67K8wgUq
+	BHmD7g4UrwJWavq8p2Tc3obTj/ujhm8RiWqnhoWadtYfhwOk0Rntgr1yrVPtGoapY/v14lAE4d04z
+	clQv2v4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjRem-00000009dtL-3Mf9;
-	Sat, 24 Jan 2026 00:37:40 +0000
+	id 1vjRg5-00000009e1l-1BBO;
+	Sat, 24 Jan 2026 00:39:01 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjRei-00000009dsX-3Pcf
+	id 1vjRg2-00000009e1O-2iW6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Jan 2026 00:37:39 +0000
+	Sat, 24 Jan 2026 00:38:59 +0000
 Received: from [100.75.32.59] (unknown [40.78.12.246])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 0D39120B7167;
-	Fri, 23 Jan 2026 16:37:35 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 0D39120B7167
+	by linux.microsoft.com (Postfix) with ESMTPSA id E61B920B7167;
+	Fri, 23 Jan 2026 16:38:56 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E61B920B7167
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1769215056;
-	bh=anj7Tg+qdmX0TUbJNiLVovUzrojhpqyhs+YQ/TICQyM=;
+	s=default; t=1769215137;
+	bh=EooaXTHikFgY2c5b/5Qui7RI5PR9D7e9Nlkv9UbFGyY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MlarP2HaOxqk9cD4Bkpz0JckP80lDzz7e7vROBXIt1M8tSJ+Qh2PKhRDRuHYMANBu
-	 x9eBEiChXGuUU0eWNeFIwkAoiH80O4QL8Gi+n3ZEUBLrzjvstK8lFBU+7u0Gq0GRei
-	 LDaPLATMt3ePM5H7PpsN71XqUNbrD1bZ9HvZ+vmg=
-Message-ID: <f3837ce1-cea8-043c-a2c6-0ffa48f8f4de@linux.microsoft.com>
-Date: Fri, 23 Jan 2026 16:37:34 -0800
+	b=Ua9n+eZshb41iJSM0VepkPNs2akDdspbcAC+KpkJ1vXE7KN85qAmzy6YXLGgxOWrM
+	 HFbL7ENaTscuSs5mfxkV9jRnHPj0JaJyBcfZXN0vSEsHue2qBzucYEkZivymiUUWaI
+	 8ogGB/QBfff0uau+8//BaoY1uYmIDQBKP/Io8ejA=
+Message-ID: <669e56da-e27f-1dd7-e7d0-0323ae7beaae@linux.microsoft.com>
+Date: Fri, 23 Jan 2026 16:38:56 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.13.1
-Subject: Re: [PATCH v0 06/15] mshv: Implement mshv bridge device for VFIO
+Subject: Re: [PATCH v0 09/15] mshv: Import data structs around device domains
+ and irq remapping
 Content-Language: en-US
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
- linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
+To: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-pci@vger.kernel.org, linux-arch@vger.kernel.org
-Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
- decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
- will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ linux-pci@vger.kernel.org, linux-arch@vger.kernel.org, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+ longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
  dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
  lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- robh@kernel.org, bhelgaas@google.com, arnd@arndb.de, mhklinux@outlook.com,
+ robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
+ nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
  romank@linux.microsoft.com
 References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
- <20260120064230.3602565-7-mrathor@linux.microsoft.com>
- <82082744-2e2f-4ea2-8ab4-cdd3e69ffd8f@linux.microsoft.com>
+ <20260120064230.3602565-10-mrathor@linux.microsoft.com>
+ <aW_-9KO2DrVvmvSs@skinsburskii.localdomain>
 From: Mukesh R <mrathor@linux.microsoft.com>
-In-Reply-To: <82082744-2e2f-4ea2-8ab4-cdd3e69ffd8f@linux.microsoft.com>
+In-Reply-To: <aW_-9KO2DrVvmvSs@skinsburskii.localdomain>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_163736_889249_A1588BC0 
-X-CRM114-Status: GOOD (  27.13  )
+X-CRM114-CacheID: sfid-20260123_163858_718911_4AF0E7CC 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,282 +82,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/23/26 10:32, Nuno Das Neves wrote:
-> On 1/19/2026 10:42 PM, Mukesh R wrote:
+On 1/20/26 14:17, Stanislav Kinsburskii wrote:
+> On Mon, Jan 19, 2026 at 10:42:24PM -0800, Mukesh R wrote:
 >> From: Mukesh Rathor <mrathor@linux.microsoft.com>
 >>
->> Add a new file to implement VFIO-MSHV bridge pseudo device. These
->> functions are called in the VFIO framework, and credits to kvm/vfio.c
->> as this file was adapted from it.
->>
->> Original author: Wei Liu <wei.liu@kernel.org>
->> (Slightly modified from the original version).
+>> Import/copy from Hyper-V public headers, definitions and declarations that
+>> are related to attaching and detaching of device domains and interrupt
+>> remapping, and building device ids for those purposes.
 >>
 >> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+>> ---
+>>   include/hyperv/hvgdk_mini.h |  11 ++++
+>>   include/hyperv/hvhdk_mini.h | 112 ++++++++++++++++++++++++++++++++++++
+>>   2 files changed, 123 insertions(+)
+>>
 > 
-> Since the code is very similar to Wei's original commit, the way I'd
-> recommend to do it is:
-> 1. Change the commit author to Wei, using git commit --amend --author=
-> and
-> 2. Put his signed-off line before yours:
+> <snip>
 > 
-> Signed-off-by: Wei Liu <wei.liu@kernel.org>
-> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+>> +/* ID for stage 2 default domain and NULL domain */
+>> +#define HV_DEVICE_DOMAIN_ID_S2_DEFAULT 0
+>> +#define HV_DEVICE_DOMAIN_ID_S2_NULL    0xFFFFFFFFULL
+>> +
+>> +union hv_device_domain_id {
+>> +	u64 as_uint64;
+>> +	struct {
+>> +		u32 type : 4;
+>> +		u32 reserved : 28;
+>> +		u32 id;
+>> +	};
+>> +} __packed;
 > 
-> This shows he is the author of the commit but you ported it.
+> Shouldn't the inner struct be packed instead?
 > 
-> If you feel you changed it enough that it should be considered
-> co-authored, you can instead keep your authorship of the commit and
-> put:
+>> +
+>> +struct hv_input_device_domain { /* HV_INPUT_DEVICE_DOMAIN */
+>> +	u64 partition_id;
+>> +	union hv_input_vtl owner_vtl;
+>> +	u8 padding[7];
+>> +	union hv_device_domain_id domain_id;
+>> +} __packed;
+>> +
+>> +union hv_create_device_domain_flags {	/* HV_CREATE_DEVICE_DOMAIN_FLAGS */
+>> +	u32 as_uint32;
+>> +	struct {
+>> +		u32 forward_progress_required : 1;
+>> +		u32 inherit_owning_vtl : 1;
+>> +		u32 reserved : 30;
+>> +	} __packed;
+>> +} __packed;
 > 
-> Co-developed-by: Wei Liu <wei.liu@kernel.org>
-> Signed-off-by: Wei Liu <wei.liu@kernel.org>
-> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+> Why should the union be packed?
 
-Perfect! Thank you, that is exactly the information I was trying to
-seek... makes sense.
+ From GCC docs:
+
+Specifying this attribute for struct and union types is equivalent to
+specifying the packed attribute on each of the structure or union members.
 
 Thanks,
 -Mukesh
 
 
 
->> ---
->>   drivers/hv/Makefile    |   3 +-
->>   drivers/hv/mshv_vfio.c | 210 +++++++++++++++++++++++++++++++++++++++++
->>   2 files changed, 212 insertions(+), 1 deletion(-)
->>   create mode 100644 drivers/hv/mshv_vfio.c
->>
->> diff --git a/drivers/hv/Makefile b/drivers/hv/Makefile
->> index a49f93c2d245..eae003c4cb8f 100644
->> --- a/drivers/hv/Makefile
->> +++ b/drivers/hv/Makefile
->> @@ -14,7 +14,8 @@ hv_vmbus-y := vmbus_drv.o \
->>   hv_vmbus-$(CONFIG_HYPERV_TESTING)	+= hv_debugfs.o
->>   hv_utils-y := hv_util.o hv_kvp.o hv_snapshot.o hv_utils_transport.o
->>   mshv_root-y := mshv_root_main.o mshv_synic.o mshv_eventfd.o mshv_irq.o \
->> -	       mshv_root_hv_call.o mshv_portid_table.o mshv_regions.o
->> +	       mshv_root_hv_call.o mshv_portid_table.o mshv_regions.o \
->> +               mshv_vfio.o
->>   mshv_vtl-y := mshv_vtl_main.o
->>   
->>   # Code that must be built-in
->> diff --git a/drivers/hv/mshv_vfio.c b/drivers/hv/mshv_vfio.c
->> new file mode 100644
->> index 000000000000..6ea4d99a3bd2
->> --- /dev/null
->> +++ b/drivers/hv/mshv_vfio.c
->> @@ -0,0 +1,210 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * VFIO-MSHV bridge pseudo device
->> + *
->> + * Heavily inspired by the VFIO-KVM bridge pseudo device.
->> + */
->> +#include <linux/errno.h>
->> +#include <linux/file.h>
->> +#include <linux/list.h>
->> +#include <linux/module.h>
->> +#include <linux/mutex.h>
->> +#include <linux/slab.h>
->> +#include <linux/vfio.h>
->> +
->> +#include "mshv.h"
->> +#include "mshv_root.h"
->> +
->> +struct mshv_vfio_file {
->> +	struct list_head node;
->> +	struct file *file;	/* list of struct mshv_vfio_file */
->> +};
->> +
->> +struct mshv_vfio {
->> +	struct list_head file_list;
->> +	struct mutex lock;
->> +};
->> +
->> +static bool mshv_vfio_file_is_valid(struct file *file)
->> +{
->> +	bool (*fn)(struct file *file);
->> +	bool ret;
->> +
->> +	fn = symbol_get(vfio_file_is_valid);
->> +	if (!fn)
->> +		return false;
->> +
->> +	ret = fn(file);
->> +
->> +	symbol_put(vfio_file_is_valid);
->> +
->> +	return ret;
->> +}
->> +
->> +static long mshv_vfio_file_add(struct mshv_device *mshvdev, unsigned int fd)
->> +{
->> +	struct mshv_vfio *mshv_vfio = mshvdev->device_private;
->> +	struct mshv_vfio_file *mvf;
->> +	struct file *filp;
->> +	long ret = 0;
->> +
->> +	filp = fget(fd);
->> +	if (!filp)
->> +		return -EBADF;
->> +
->> +	/* Ensure the FD is a vfio FD. */
->> +	if (!mshv_vfio_file_is_valid(filp)) {
->> +		ret = -EINVAL;
->> +		goto out_fput;
->> +	}
->> +
->> +	mutex_lock(&mshv_vfio->lock);
->> +
->> +	list_for_each_entry(mvf, &mshv_vfio->file_list, node) {
->> +		if (mvf->file == filp) {
->> +			ret = -EEXIST;
->> +			goto out_unlock;
->> +		}
->> +	}
->> +
->> +	mvf = kzalloc(sizeof(*mvf), GFP_KERNEL_ACCOUNT);
->> +	if (!mvf) {
->> +		ret = -ENOMEM;
->> +		goto out_unlock;
->> +	}
->> +
->> +	mvf->file = get_file(filp);
->> +	list_add_tail(&mvf->node, &mshv_vfio->file_list);
->> +
->> +out_unlock:
->> +	mutex_unlock(&mshv_vfio->lock);
->> +out_fput:
->> +	fput(filp);
->> +	return ret;
->> +}
->> +
->> +static long mshv_vfio_file_del(struct mshv_device *mshvdev, unsigned int fd)
->> +{
->> +	struct mshv_vfio *mshv_vfio = mshvdev->device_private;
->> +	struct mshv_vfio_file *mvf;
->> +	long ret;
->> +
->> +	CLASS(fd, f)(fd);
->> +
->> +	if (fd_empty(f))
->> +		return -EBADF;
->> +
->> +	ret = -ENOENT;
->> +	mutex_lock(&mshv_vfio->lock);
->> +
->> +	list_for_each_entry(mvf, &mshv_vfio->file_list, node) {
->> +		if (mvf->file != fd_file(f))
->> +			continue;
->> +
->> +		list_del(&mvf->node);
->> +		fput(mvf->file);
->> +		kfree(mvf);
->> +		ret = 0;
->> +		break;
->> +	}
->> +
->> +	mutex_unlock(&mshv_vfio->lock);
->> +	return ret;
->> +}
->> +
->> +static long mshv_vfio_set_file(struct mshv_device *mshvdev, long attr,
->> +			      void __user *arg)
->> +{
->> +	int32_t __user *argp = arg;
->> +	int32_t fd;
->> +
->> +	switch (attr) {
->> +	case MSHV_DEV_VFIO_FILE_ADD:
->> +		if (get_user(fd, argp))
->> +			return -EFAULT;
->> +		return mshv_vfio_file_add(mshvdev, fd);
->> +
->> +	case MSHV_DEV_VFIO_FILE_DEL:
->> +		if (get_user(fd, argp))
->> +			return -EFAULT;
->> +		return mshv_vfio_file_del(mshvdev, fd);
->> +	}
->> +
->> +	return -ENXIO;
->> +}
->> +
->> +static long mshv_vfio_set_attr(struct mshv_device *mshvdev,
->> +			      struct mshv_device_attr *attr)
->> +{
->> +	switch (attr->group) {
->> +	case MSHV_DEV_VFIO_FILE:
->> +		return mshv_vfio_set_file(mshvdev, attr->attr,
->> +					  u64_to_user_ptr(attr->addr));
->> +	}
->> +
->> +	return -ENXIO;
->> +}
->> +
->> +static long mshv_vfio_has_attr(struct mshv_device *mshvdev,
->> +			      struct mshv_device_attr *attr)
->> +{
->> +	switch (attr->group) {
->> +	case MSHV_DEV_VFIO_FILE:
->> +		switch (attr->attr) {
->> +		case MSHV_DEV_VFIO_FILE_ADD:
->> +		case MSHV_DEV_VFIO_FILE_DEL:
->> +			return 0;
->> +		}
->> +
->> +		break;
->> +	}
->> +
->> +	return -ENXIO;
->> +}
->> +
->> +static long mshv_vfio_create_device(struct mshv_device *mshvdev, u32 type)
->> +{
->> +	struct mshv_device *tmp;
->> +	struct mshv_vfio *mshv_vfio;
->> +
->> +	/* Only one VFIO "device" per VM */
->> +	hlist_for_each_entry(tmp, &mshvdev->device_pt->pt_devices,
->> +			     device_ptnode)
->> +		if (tmp->device_ops == &mshv_vfio_device_ops)
->> +			return -EBUSY;
->> +
->> +	mshv_vfio = kzalloc(sizeof(*mshv_vfio), GFP_KERNEL_ACCOUNT);
->> +	if (mshv_vfio == NULL)
->> +		return -ENOMEM;
->> +
->> +	INIT_LIST_HEAD(&mshv_vfio->file_list);
->> +	mutex_init(&mshv_vfio->lock);
->> +
->> +	mshvdev->device_private = mshv_vfio;
->> +
->> +	return 0;
->> +}
->> +
->> +/* This is called from mshv_device_fop_release() */
->> +static void mshv_vfio_release_device(struct mshv_device *mshvdev)
->> +{
->> +	struct mshv_vfio *mv = mshvdev->device_private;
->> +	struct mshv_vfio_file *mvf, *tmp;
->> +
->> +	list_for_each_entry_safe(mvf, tmp, &mv->file_list, node) {
->> +		fput(mvf->file);
->> +		list_del(&mvf->node);
->> +		kfree(mvf);
->> +	}
->> +
->> +	kfree(mv);
->> +	kfree(mshvdev);
->> +}
->> +
->> +struct mshv_device_ops mshv_vfio_device_ops = {
->> +	.device_name = "mshv-vfio",
->> +	.device_create = mshv_vfio_create_device,
->> +	.device_release = mshv_vfio_release_device,
->> +	.device_set_attr = mshv_vfio_set_attr,
->> +	.device_has_attr = mshv_vfio_has_attr,
->> +};
+> Thanks,
+> Stanislav
 > 
+>> +
+>> +struct hv_input_create_device_domain {	/* HV_INPUT_CREATE_DEVICE_DOMAIN */
+>> +	struct hv_input_device_domain device_domain;
+>> +	union hv_create_device_domain_flags create_device_domain_flags;
+>> +} __packed;
+>> +
+>> +struct hv_input_delete_device_domain {	/* HV_INPUT_DELETE_DEVICE_DOMAIN */
+>> +	struct hv_input_device_domain device_domain;
+>> +} __packed;
+>> +
+>> +struct hv_input_attach_device_domain {	/* HV_INPUT_ATTACH_DEVICE_DOMAIN */
+>> +	struct hv_input_device_domain device_domain;
+>> +	union hv_device_id device_id;
+>> +} __packed;
+>> +
+>> +struct hv_input_detach_device_domain {	/* HV_INPUT_DETACH_DEVICE_DOMAIN */
+>> +	u64 partition_id;
+>> +	union hv_device_id device_id;
+>> +} __packed;
+>> +
+>> +struct hv_input_map_device_gpa_pages {	/* HV_INPUT_MAP_DEVICE_GPA_PAGES */
+>> +	struct hv_input_device_domain device_domain;
+>> +	union hv_input_vtl target_vtl;
+>> +	u8 padding[3];
+>> +	u32 map_flags;
+>> +	u64 target_device_va_base;
+>> +	u64 gpa_page_list[];
+>> +} __packed;
+>> +
+>> +struct hv_input_unmap_device_gpa_pages {  /* HV_INPUT_UNMAP_DEVICE_GPA_PAGES */
+>> +	struct hv_input_device_domain device_domain;
+>> +	u64 target_device_va_base;
+>> +} __packed;
+>> +
+>>   #endif /* _HV_HVHDK_MINI_H */
+>> -- 
+>> 2.51.2.vfs.0.1
+>>
 
 
