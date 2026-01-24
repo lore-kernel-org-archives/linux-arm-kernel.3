@@ -4,70 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FAEBD778BF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 00:44:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA3DD778BF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 01:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/jlW+NHyTvf60QbY7cZWvOxIhSju/A15jcdqLApHKow=; b=Q7pxJ0kToXGCGESFoN0tl+A8vd
-	uqwEEDMKsRTwRkQ5MZ79TcfbuZhi66eJDgoVhPkleUVS3nwAiroYReq6B0vmamKZEG8XnIeaWvhGd
-	rHdO4FtRtnh8HaGuN9u/MpUeyZyeBbyzevtYLSxRz5NPuI5r6q7S0hNKGipyNqLw2U14WryUxszb3
-	hiDgC/27qWNAlkRv+db/wOwf7sD5lOCT2SNJEQdQfes/zh5lOjFjlCfEc4rN9DuoA7M8QTTRgBudl
-	W8RML6DzRHQn4wPq9Qce+dsH2ZhW/HHG7OPEzPCwAnmnnFKPEoe3rd6LxeeSBPjgKNK3OUZ0jiTVB
-	i2YDxVxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PxQBocjBKjEC4mv4CNajitmiXw7FC5x1mC5Q0V2nZ7g=; b=3obsXBj/h1C+hTdlpCJrUFVotj
+	V7eoIsvD0RgJUHks4bsjT0r7EyjcxmVE0f1+m8dcitnHvK792rT3GMq3Kx3h2yrnV6rB3UtT+TIbp
+	Q5bQrjYHb6iW4uZQaFXVJzFIm694F/k+YsUI/g20OBvX6N5bmda2J8inpWbmneAS7lYCbJW1H36yC
+	4/utyAB9DgLW+hvaqMPR4+z75o6nePGUufQpsvOBlDCK0V4u5dxJZ+bFtCxo2h5DatWjYog8o5lor
+	E/1LidzWgkuAvtCJavuAGiUQt5OmLFmFT+phAQDLSGaIZzFe1q/tfUv/58hFB7OmvpZZtB8GxUTr8
+	Nm99n6Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjRlA-00000009eSi-05qh;
-	Sat, 24 Jan 2026 00:44:16 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjRl2-00000009eS4-3EJX
+	id 1vjS0P-00000009fky-2PVE;
+	Sat, 24 Jan 2026 01:00:01 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vjS0L-00000009fjh-3ZMS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Jan 2026 00:44:14 +0000
-Received: from [100.75.32.59] (unknown [40.78.12.246])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 463CC20B7167;
-	Fri, 23 Jan 2026 16:44:02 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 463CC20B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1769215443;
-	bh=/jlW+NHyTvf60QbY7cZWvOxIhSju/A15jcdqLApHKow=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fHMkUJRdkFe3V3sABlZHyFtoAfYiThgCmtTel/KJ7P4D5K/tdme/GrXTsp57AM7MU
-	 dS8KBvYoFiTDkGEVI6YttPyGqkOY6sYxAJFsDxY8WF5O1HtkAwtXhyDUBMoRl3CiJJ
-	 8/32edQIN5vJ0CED3gQ02lJtQxYkUg7ZP57LE0KU=
-Message-ID: <8302b48c-bd78-6348-eef2-be957d0e8bc4@linux.microsoft.com>
-Date: Fri, 23 Jan 2026 16:44:01 -0800
+	Sat, 24 Jan 2026 01:00:00 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-42fbb061a08so446676f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 16:59:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769216396; x=1769821196; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=PxQBocjBKjEC4mv4CNajitmiXw7FC5x1mC5Q0V2nZ7g=;
+        b=WRQhXksicJfqY6sxiJq+/quXCYM0jN3/OkaoWZKMSYQh0GlMEnGr9FzMUcrwGBpUaN
+         6HrDNCYWyIfmckoxU0Qy4WAee2NyiMED5VblDJPSfNg7DSdVTsCt5Z1nseK4rU1pqFdA
+         k92IrnPxy45LNd6bijidmqI+R1e2D2EdZ9kFbOz+F9gRnaHeGGU6LivCAdtnyHSS05dN
+         3YyT46/zOLak+DtvLSA8ISTOuEBSP/cw4Yfv13rnZ0fZsGt82U5iOgw+RsWA+u8z/208
+         7o+a0jqeaXDQb6MFvBhmVOKNeBofvYa52kFqMI2IpdO94Ua1P9ktmEQbwGqu9usy3gl6
+         fuGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769216396; x=1769821196;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PxQBocjBKjEC4mv4CNajitmiXw7FC5x1mC5Q0V2nZ7g=;
+        b=aGlOsrpVMNBSNfisB/XPN6GaChAAkOq1KGTlY2puTnUkiqn5nLGFnH/VbAchqHj426
+         6YOAHOQIe6Ozm67A6016Rwb61d9kF+281B84xK8qgtUtt40BFKRjJ2V8/E6KqntLuhrz
+         6rYCI27Zn7o4N531M3MsInOb0Uc7sR8Af3YsnTXXGmg4FGpiCOVqpDXSszyp3yi3lF/w
+         t04LANvH8GvNVQ/wLTN2mECBeBBUfel7WZ+g32x3q8YwEOwPNN24LVXPFKXf7LVBxgQx
+         OY/jwZ6p8fzL8ek61KRHDnzPgc/kPFNkV2mt88KJzvwfFqaGPPmlay3y9mUJ1eysUIhi
+         wX5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVySuUGkkXoI1ERzdEQcQuFCiY8Axv7EIWra9uSvVgSQ1o6dHcWLkly/A6YDeNsVPDLof1EVc1GAMVFPTh18vyl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7E/L5vQMu3pX/nRgQ2rHshIbCDAXzN+f7h1YfpdXqac7bddVH
+	eDkgps74GzV1D/OkWwdjsVAZ8j3zgNjpmWlbQa8XJG++8ytlPGK/MGQT
+X-Gm-Gg: AZuq6aJ1iIycHJ/nnf5wB53MGWdNJ10wY/WHDc16AKy1ew3ajTXAiWN3IYPdDvrkN/c
+	y7P2qrlEcYEN8k/6NI5te5umCHo44nmf5Qqo9ipsZqNFcsswDsLidJ1Gldf+F5g9g9a/UXhWp04
+	gzFtvbLzvm62AXEMtCn17EvYnDIsM7OEnIG5Bw1C4GuVLRsha1uHYUwhRJce95tH5paBA+Px4HT
+	L1Wg1XjHjK2At0xTYI4U84k43CGVJz5JW0zOGcxSBd1KQoNiSb+UyJ9EU2I+JC6hnXjTyqm4g0j
+	YDdd36yRn3oJqjDgJN/bZElrr2hcThTT0a7teFVz8So1KNGv0uY5yZppT/HTaNlsaggjSJq+P7P
+	5F3Qi8jWbwvyL4iyivOkHAgxH3e+yeFmpB89N5x2eczAC/lYCwGmZl4wMfEr7+TwQvCWFBe/YeX
+	k3jg==
+X-Received: by 2002:a05:6000:420c:b0:435:b068:d3d9 with SMTP id ffacd0b85a97d-435bdff681emr1187921f8f.5.1769216395508;
+        Fri, 23 Jan 2026 16:59:55 -0800 (PST)
+Received: from skbuf ([2a02:2f04:d501:d900:1430:8b48:2d45:6c1])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435b1e716b6sm10616033f8f.27.2026.01.23.16.59.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 23 Jan 2026 16:59:54 -0800 (PST)
+Date: Sat, 24 Jan 2026 02:59:51 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next v2 05/14] net: stmmac: add stmmac core serdes
+ support
+Message-ID: <20260124005951.fbkvd2girdqtfxe7@skbuf>
+References: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
+ <E1vjDrM-00000005fQR-0rmB@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.13.1
-Subject: Re: [PATCH v0 11/15] x86/hyperv: Build logical device ids for PCI
- passthru hcalls
-Content-Language: en-US
-To: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-pci@vger.kernel.org, linux-arch@vger.kernel.org, kys@microsoft.com,
- haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
- longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
- nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
- romank@linux.microsoft.com
-References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
- <20260120064230.3602565-12-mrathor@linux.microsoft.com>
- <aXABVTS6xDb2GB2s@skinsburskii.localdomain>
-From: Mukesh R <mrathor@linux.microsoft.com>
-In-Reply-To: <aXABVTS6xDb2GB2s@skinsburskii.localdomain>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1vjDrM-00000005fQR-0rmB@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_164408_837732_42603D4D 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20260123_165959_524944_656FD22F 
+X-CRM114-Status: GOOD (  27.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,183 +111,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/20/26 14:27, Stanislav Kinsburskii wrote:
-> On Mon, Jan 19, 2026 at 10:42:26PM -0800, Mukesh R wrote:
->> From: Mukesh Rathor <mrathor@linux.microsoft.com>
->>
->> On Hyper-V, most hypercalls related to PCI passthru to map/unmap regions,
->> interrupts, etc need a device id as a parameter. A device id refers
->> to a specific device. A device id is of two types:
->>     o Logical: used for direct attach (see below) hypercalls. A logical
->>                device id is a unique 62bit value that is created and
->>                sent during the initial device attach. Then all further
->>                communications (for interrupt remaps etc) must use this
->>                logical id.
->>     o PCI: used for device domain hypercalls such as map, unmap, etc.
->>            This is built using actual device BDF info.
->>
->>     PS: Since an L1VH only supports direct attaches, a logical device id
->>         on an L1VH VM is always a VMBus device id. For non-L1VH cases,
->>         we just use PCI BDF info, altho not strictly needed, to build the
->>         logical device id.
->>
->> At a high level, Hyper-V supports two ways to do PCI passthru:
->>    1. Device Domain: root must create a device domain in the hypervisor,
->>       and do map/unmap hypercalls for mapping and unmapping guest RAM.
->>       All hypervisor communications use device id of type PCI for
->>       identifying and referencing the device.
->>
->>    2. Direct Attach: the hypervisor will simply use the guest's HW
->>       page table for mappings, thus the host need not do map/unmap
->>       hypercalls. A direct attached device must be referenced
->>       via logical device id and never via the PCI device id. For an
->>       L1VH root/parent, Hyper-V only supports direct attaches.
->>
->> Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
->> ---
->>   arch/x86/hyperv/irqdomain.c     | 60 ++++++++++++++++++++++++++++++---
->>   arch/x86/include/asm/mshyperv.h | 14 ++++++++
->>   2 files changed, 70 insertions(+), 4 deletions(-)
->>
->> diff --git a/arch/x86/hyperv/irqdomain.c b/arch/x86/hyperv/irqdomain.c
->> index ccbe5848a28f..33017aa0caa4 100644
->> --- a/arch/x86/hyperv/irqdomain.c
->> +++ b/arch/x86/hyperv/irqdomain.c
->> @@ -137,7 +137,7 @@ static int get_rid_cb(struct pci_dev *pdev, u16 alias, void *data)
->>   	return 0;
->>   }
->>   
->> -static union hv_device_id hv_build_devid_type_pci(struct pci_dev *pdev)
->> +static u64 hv_build_devid_type_pci(struct pci_dev *pdev)
->>   {
->>   	int pos;
->>   	union hv_device_id hv_devid;
->> @@ -197,7 +197,58 @@ static union hv_device_id hv_build_devid_type_pci(struct pci_dev *pdev)
->>   	}
->>   
->>   out:
->> -	return hv_devid;
->> +	return hv_devid.as_uint64;
->> +}
->> +
->> +/* Build device id for direct attached devices */
->> +static u64 hv_build_devid_type_logical(struct pci_dev *pdev)
->> +{
->> +	hv_pci_segment segment;
->> +	union hv_device_id hv_devid;
->> +	union hv_pci_bdf bdf = {.as_uint16 = 0};
->> +	struct rid_data data = {
->> +		.bridge = NULL,
->> +		.rid = PCI_DEVID(pdev->bus->number, pdev->devfn)
->> +	};
->> +
->> +	segment = pci_domain_nr(pdev->bus);
->> +	bdf.bus = PCI_BUS_NUM(data.rid);
->> +	bdf.device = PCI_SLOT(data.rid);
->> +	bdf.function = PCI_FUNC(data.rid);
->> +
->> +	hv_devid.as_uint64 = 0;
->> +	hv_devid.device_type = HV_DEVICE_TYPE_LOGICAL;
->> +	hv_devid.logical.id = (u64)segment << 16 | bdf.as_uint16;
->> +
->> +	return hv_devid.as_uint64;
->> +}
->> +
->> +/* Build device id after the device has been attached */
->> +u64 hv_build_devid_oftype(struct pci_dev *pdev, enum hv_device_type type)
->> +{
->> +	if (type == HV_DEVICE_TYPE_LOGICAL) {
->> +		if (hv_l1vh_partition())
->> +			return hv_pci_vmbus_device_id(pdev);
+On Fri, Jan 23, 2026 at 09:53:44AM +0000, Russell King (Oracle) wrote:
+> Rather than having platform glue implement SerDes PHY support, add it
+> to the core driver, specifically to the stmmac integrated PCS driver
+> as the SerDes is connected to the integrated PCS.
 > 
-> Should this one be renamed into hv_build_devid_type_vmbus() to align
-> with the other two function names?
+> Platforms using external PCS can also populate plat->serdes, and the
+> core driver will call phy_init() and phy_exit() when the administrative
+> state of the interface changes, but the other phy methods will not be
+> called.
+> 
+> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> --
+> rfc->v1: avoid calling phy_get_mode() with NULL serdes PHY
+> v2: add cleanup when dwmac_serdes_set_mode() fails, because AI allegedly
+>   knows better than the author and phylink maintainer, even though this
+>   will result in dwmac_serdes_power_off() being called multiple times
+>   and producing a kernel warning. But if it makes AI happy, then it must
+>   be a good thing. It'll also make Vladimir happy.
 
-No, because hyperv only defines two types of device ids, and it would
-unnecessary at to confusion. vmbus uses one the two types of device
-ids.
+These gratuitous passive-aggressive comments about what makes me happy,
+based on twisted interpretations of conversations, are best kept to yourself.
 
+I remember Jakub's request was only to add a note in the commit message
+about the reason behind the lack of cleanup, not to add cleanup which
+will be executed twice:
+https://lore.kernel.org/netdev/20260120153248.0636f1e9@kernel.org/
 
-> Thanks,
-> Stanislav
-> 
->> +		else
->> +			return hv_build_devid_type_logical(pdev);
->> +	} else if (type == HV_DEVICE_TYPE_PCI)
->> +		return hv_build_devid_type_pci(pdev);
->> +
->> +	return 0;
->> +}
->> +EXPORT_SYMBOL_GPL(hv_build_devid_oftype);
->> +
->> +/* Build device id for the interrupt path */
->> +static u64 hv_build_irq_devid(struct pci_dev *pdev)
->> +{
->> +	enum hv_device_type dev_type;
->> +
->> +	if (hv_pcidev_is_attached_dev(pdev) || hv_l1vh_partition())
->> +		dev_type = HV_DEVICE_TYPE_LOGICAL;
->> +	else
->> +		dev_type = HV_DEVICE_TYPE_PCI;
->> +
->> +	return hv_build_devid_oftype(pdev, dev_type);
->>   }
->>   
->>   /*
->> @@ -221,7 +272,7 @@ int hv_map_msi_interrupt(struct irq_data *data,
->>   
->>   	msidesc = irq_data_get_msi_desc(data);
->>   	pdev = msi_desc_to_pci_dev(msidesc);
->> -	hv_devid = hv_build_devid_type_pci(pdev);
->> +	hv_devid.as_uint64 = hv_build_irq_devid(pdev);
->>   	cpu = cpumask_first(irq_data_get_effective_affinity_mask(data));
->>   
->>   	return hv_map_interrupt(hv_current_partition_id, hv_devid, false, cpu,
->> @@ -296,7 +347,8 @@ static int hv_unmap_msi_interrupt(struct pci_dev *pdev,
->>   {
->>   	union hv_device_id hv_devid;
->>   
->> -	hv_devid = hv_build_devid_type_pci(pdev);
->> +	hv_devid.as_uint64 = hv_build_irq_devid(pdev);
->> +
->>   	return hv_unmap_interrupt(hv_devid.as_uint64, irq_entry);
->>   }
->>   
->> diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
->> index 0d7fdfb25e76..97477c5a8487 100644
->> --- a/arch/x86/include/asm/mshyperv.h
->> +++ b/arch/x86/include/asm/mshyperv.h
->> @@ -188,6 +188,20 @@ bool hv_vcpu_is_preempted(int vcpu);
->>   static inline void hv_apic_init(void) {}
->>   #endif
->>   
->> +#if IS_ENABLED(CONFIG_HYPERV_IOMMU)
->> +static inline bool hv_pcidev_is_attached_dev(struct pci_dev *pdev)
->> +{ return false; }       /* temporary */
->> +u64 hv_build_devid_oftype(struct pci_dev *pdev, enum hv_device_type type);
->> +#else	/* CONFIG_HYPERV_IOMMU */
->> +static inline bool hv_pcidev_is_attached_dev(struct pci_dev *pdev)
->> +{ return false; }
->> +
->> +static inline u64 hv_build_devid_oftype(struct pci_dev *pdev,
->> +				       enum hv_device_type type)
->> +{ return 0; }
->> +
->> +#endif	/* CONFIG_HYPERV_IOMMU */
->> +
->>   u64 hv_pci_vmbus_device_id(struct pci_dev *pdev);
->>   
->>   struct irq_domain *hv_create_pci_msi_domain(void);
->> -- 
->> 2.51.2.vfs.0.1
->>
-> 
-> 
-> 
-> 
-> 
-> 
-> 
-> 
+I only expressed dissatisfaction with the phylink_pcs calling convention
+as it is today, and searched for ways to make the calls balanced. I also
+didn't make any suggestion to make the code worse by performing the
+SerDes power down twice, just subscribed to Jakub's request to leave a
+comment why your v1 is the way that it is:
+https://lore.kernel.org/netdev/20260122112913.svzaie4eywk5nc32@skbuf/
 
+Getting over that dissatisfaction and working within the framework of
+the existing calling convention, but also inserting the comment that I
+was looking to see, I believe that functionally correct code would look
+like this (applies on top of your entire v2 patch set):
+
+-- >8 --
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c
+index d46a071bc383..c4465dca6b93 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_serdes.c
+@@ -59,12 +59,27 @@ int dwmac_serdes_power_on(struct stmmac_priv *priv)
+ {
+ 	int ret;
+ 
++	/* Because the dwmac_integrated_pcs_disable() call path is eventually
++	 * invoked irrespective of the dwmac_integrated_pcs_enable() return
++	 * code, we risk either underflowing the SerDes phy->power_count or
++	 * leaving the lane powered on, depending on the cleanup choice and the
++	 * point of failure. Keeping separate track of the lane power on state
++	 * is a band aid until phylink offers balanced pcs_enable() and
++	 * pcs_disable() calls.
++	 */
++	if (priv->plat->serdes_powered_on)
++		return 0;
++
+ 	ret = phy_power_on(priv->plat->serdes);
+-	if (ret)
++	if (ret) {
+ 		dev_err(priv->device, "failed to power on SerDes: %pe\n",
+ 			ERR_PTR(ret));
++		return ret;
++	}
+ 
+-	return ret;
++	priv->plat->serdes_powered_on = true;
++
++	return 0;
+ }
+ 
+ int dwmac_serdes_init_mode(struct stmmac_priv *priv, phy_interface_t interface)
+@@ -95,10 +110,17 @@ void dwmac_serdes_power_off(struct stmmac_priv *priv)
+ {
+ 	int ret;
+ 
++	if (!priv->plat->serdes_powered_on)
++		return;
++
+ 	ret = phy_power_off(priv->plat->serdes);
+-	if (ret)
++	if (ret) {
+ 		dev_err(priv->device, "failed to power off SerDes: %pe\n",
+ 			ERR_PTR(ret));
++		return;
++	}
++
++	priv->plat->serdes_powered_on = false;
+ }
+ 
+ void dwmac_serdes_exit(struct stmmac_priv *priv)
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 6097f4b6dd12..e62bba38ab60 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -225,6 +225,7 @@ struct plat_stmmacenet_data {
+ 	 */
+ 	phy_interface_t phy_interface;
+ 	struct phy *serdes;
++	bool serdes_powered_on;
+ 	struct stmmac_mdio_bus_data *mdio_bus_data;
+ 	struct device_node *phy_node;
+ 	struct fwnode_handle *port_node;
+-- >8 --
 
