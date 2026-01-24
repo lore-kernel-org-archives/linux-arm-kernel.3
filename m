@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268BED715F3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 20:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93678D715F5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 20:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=k2a2ku10YAyIKnc7mb8BCfoDLvRSneJlNx1wUf3oAcc=; b=W9rexdYh3Rdn12
-	V+nZDMe/lUf+yr7iVACWiWTN9pbPdv5NsuDLpIpr62FOJLuFp6jpOXbZ9wrBA22FpU5HnW/U/ZF+R
-	mNDR7HlP6itrFgoF7b/r0T8UEFee0nSnYAVOl44+Ziz2hBXemgMN9w6ljC5PW/ZbQYI89zn18V26r
-	FWqiYqKT73RuGOQ1DqDZl2eFOTvRdsm641UyzwAgA8qIbYbw8NLxkVaC9Fuwq+LjeqddqigbWC4ZW
-	kV5/TPU0/sQFaBCXfIaOpBPcF+bOPqJQRkqQ9iGTLHCNeNRZhM4/o8FB2OGe7pqeLjPLtF5M+ki4P
-	cD8Q+RlmiJZO/BXTeDnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xYADJ7a3tOQmNGWyLcUEM0xq6x1UhQsh9aMmN/qvP40=; b=n3q2k2B2Uqk9jaqrvrLf/fkF9r
+	r82FzJ6pcHc1aP/4zO5iWvfb5Dxx1+g4BPpPmhUmhhVmq3hqB14WOMP8fWmVG6woBWvuutHCrQblW
+	UtNq5Ori7wkemENmGnN35Ht7Bi5A6CL1rLr0BOeN0dbOhJ10xMFbvAEgjCjxgbPHI4I3HZf5K3jcl
+	hvzKJwZyYwJjwFBh68aZlYIn6w2rX5LQqByBK48h+uKkC/+BB3owsYw5svK67PiCoDtvBHgYTfXy6
+	i+6SahF32XsIdRpqjysdW1rB45udgrq0hwOgO8IJvaE5jklZXxhWd1M0YBAWvTLuylHpu9A8R93YR
+	wEo4994A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjkB4-0000000AVTn-3H14;
-	Sat, 24 Jan 2026 20:24:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vjkOi-0000000AW7L-0Ny3;
+	Sat, 24 Jan 2026 20:38:20 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjkB2-0000000AVTK-0yKG
+	id 1vjkOb-0000000AW6u-0end
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Jan 2026 20:24:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 60516442B6;
-	Sat, 24 Jan 2026 20:24:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FCFFC116D0;
-	Sat, 24 Jan 2026 20:24:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769286248;
-	bh=LZT2FX9gel15TTuzcvgNnRsgxoL3KHhIFCm4WDGiUgg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=NPrFXTkUxmm6z2SJt7Zk0xpvA4Isr1XZNZDuEnXOZ4AM62/fxCWGIGqtcfW4n5SSU
-	 popSQ1aV52CVGz8I/KTa+rbaaExX50emjo3sEmDqnhnu8pHRuIZZA+/OcmV9OCkXGS
-	 3tkjiBe+O/vwOuywv367gvk4wqfcWArTKO47Nbv1Mj/bNewITWpI0a+HnokwY5U7DO
-	 o6CAO6qtPE3X34EMxvGez32L+asROsPOvICwz2yBzDYXitQvgFnMIpwUsGpiAZ8SzY
-	 fSW2nimQXr+Pf4YGb1Z9twJNoJI4ncqPEv8YIqNHJ0bOgolTFtpVsFDa1CknQajsUb
-	 m5BECGosE3DfQ==
-Date: Sat, 24 Jan 2026 14:24:06 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Shawn Guo <shawnguo@kernel.org>,
+	Sat, 24 Jan 2026 20:38:15 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <pza@pengutronix.de>)
+	id 1vjkO3-0005Oc-09; Sat, 24 Jan 2026 21:37:39 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <pza@pengutronix.de>)
+	id 1vjkO2-002JL1-0a;
+	Sat, 24 Jan 2026 21:37:37 +0100
+Received: from pza by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <pza@pengutronix.de>)
+	id 1vjkO1-00CvHY-1B;
+	Sat, 24 Jan 2026 21:37:37 +0100
+Date: Sat, 24 Jan 2026 21:37:37 +0100
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Jacky Bai <ping.bai@nxp.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
+	Lucas Stach <l.stach@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Trent Piepho <tpiepho@impinj.com>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] PCI: imx6: Fix device node reference leak in
- imx_pcie_probe()
-Message-ID: <20260124202406.GA175382@bhelgaas>
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3] pmdomain: imx: gpcv2: Fix the imx8mm gpu hang due to
+ wrong adb400 reset
+Message-ID: <aXUtkR0J0cK98ZQQ@pengutronix.de>
+References: <20260123-imx8mm_gpu_power_domain-v3-1-3752618050c9@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260124-pci_imx6-v2-1-acb8d5187683@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260123-imx8mm_gpu_power_domain-v3-1-3752618050c9@nxp.com>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: pza@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260124_122412_302979_8A055CA2 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20260124_123813_218657_18032C4C 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,61 +88,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 24, 2026 at 11:42:45PM +0800, Felix Gu wrote:
-> In imx_pcie_probe, np is obtained by of_parse_phandle() and must be
-> released when it's no longer needed. However, it doesn't release the
-> reference, which cuases a reference leak.
-> Fix this by using the __free(device_node) cleanup handler to release the
-> reference when it goes out of scope.
+On Fri, Jan 23, 2026 at 10:51:26AM +0800, Jacky Bai wrote:
+> On i.MX8MM, the GPUMIX, GPU2D, and GPU3D blocks share a common reset
+> domain. Due to this hardware limitation, powering off/on GPU2D or GPU3D
+> also triggers a reset of the GPUMIX domain, including its ADB400 port.
+> However, the ADB400 interface must always be placed into power‑down mode
+> before being reset.
+> 
+> Currently the GPUMIX and GPU2D/3D power domains rely on runtime PM to
+> handle dependency ordering. In some corner cases, the GPUMIX power off
+> sequence is skipped, leaving the ADB400 port active when GPU2D/3D reset.
+> This causes the GPUMIX ADB400 port to be reset while still active,
+> leading to unpredictable bus behavior and GPU hangs.
+> 
+> To avoid this, refine the power‑domain control logic so that the GPUMIX
+> ADB400 port is explicitly powered down and powered up as part of the GPU
+> power domain on/off sequence. This ensures proper ordering and prevents
+> incorrect ADB400 reset.
+> 
+> Suggested-by: Lucas Stach <l.stach@pengutronix.de>
+> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
 
-Mani, if you apply this, can you add a blank line between paragraphs
-and:
+Tested-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-  s/imx_pcie_probe,/imx_pcie_probe(),/
-  s/cuases/causes/
+This fixes a sporadic system freeze after a few hours of alternating
+between GPU activity and GPU runtime suspend that I could reproduce on
+i.MX8MM since commit 055467378bf1 ("driver core: Enable fw_devlink=rpm
+by default").
 
-Felix, if you repost this for other reasons, please incorporate those.
-
-> Fixes: 1df82ec46600 ("PCI: imx: Add workaround for e10728, IMX7d PCIe PLL failure")
-> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
-> ---
-> Changes in v2:
-> - Use __free(device_node) clean handler to fix the leak.
-> - Link to v1: https://lore.kernel.org/r/20260124-pci_imx6-v1-1-6f4379fc5160@gmail.com
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 1d8677d7de04..f459d05ecd7d 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -1643,7 +1643,6 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  	struct device *dev = &pdev->dev;
->  	struct dw_pcie *pci;
->  	struct imx_pcie *imx_pcie;
-> -	struct device_node *np;
->  	struct device_node *node = dev->of_node;
->  	int i, ret, domain;
->  	u16 val;
-> @@ -1670,7 +1669,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  		pci->pp.ops = &imx_pcie_host_dw_pme_ops;
->  
->  	/* Find the PHY if one is defined, only imx7d uses it */
-> -	np = of_parse_phandle(node, "fsl,imx7d-pcie-phy", 0);
-> +	struct device_node *np __free(device_node) =
-> +		of_parse_phandle(node, "fsl,imx7d-pcie-phy", 0);
->  	if (np) {
->  		struct resource res;
->  
-> 
-> ---
-> base-commit: a0c666c25aeefd16f4b088c6549a6fb6b65a8a1d
-> change-id: 20260124-pci_imx6-f97d70887dfc
-> 
-> Best regards,
-> -- 
-> Felix Gu <ustc.gu@gmail.com>
-> 
-> 
+regards
+Philipp
 
