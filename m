@@ -4,109 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC67D778B1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 23 Jan 2026 23:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907FAD778BF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 00:04:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NMyJR4UL9NXXcbBjQVATLX3KPNH4xZEghdBa9fkK1fE=; b=c4FCr2eR6L8qjdMrf1iIc2i3Su
-	i/uQ87o3Me+yxhbAfix1760RGo9SZdRtXaAd36GbvCzQsxWsQOS2KdeAna5KvGDYjm6B9QURzVauA
-	K67ksaDAgkhf2YpGx2VNhoFHWDbkiu0jDmoMeys28JoTqOg+xXEoK4ktdyzGaYBNbZ4m6m/NABVsZ
-	kmUkCsj4RHcQyGad40Dip22TM2wNG2czg1OJuGC8k7ioiPeAQe8wGr3n3oMtRMKxY2Li7o03fAj1N
-	UXC9koyukaPhrgvmoN99eG1FuH70ljlDTZbFcBAKh5FITYDBSI5Ppm35JhjjHQtYa9LUsKSDXisUq
-	CMKtbcPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6r2QurZAQWCjh0fiFFVfKXSGYPjUAsKdH07r9CUR7DA=; b=A+P6YOeT8haGw3ET3pNaVI0/Vk
+	RnExBAuFSwIYXvj/rQ0hXIBou9ZtG73aW9f4gtJ2iNw4K6NRJHvfl5AztfNN6Uj8sWWRvMQz1okZJ
+	vvli0bMh08OD+4KBGPnV71UN1SO/q5ScIBieU5XB3iqahMzm781yk58H/uqLE1w0S/cejo671o6ZA
+	RrjB87E6C5/vD1ut3JwXbPDHs40L41nIqh/sglUmky5y2S5SnFfNp9e7cr+NKLqBzGjc+oAAt/ZcT
+	yhWTos7hHwvDFfEDgAZWFhKbkov/nRIw8/Xrpk1+pHmGkkIHkLfoGlAS/glamjSFhD09BoPSEYqDA
+	e+60yAmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjQwZ-00000009aki-1XAh;
-	Fri, 23 Jan 2026 23:51:59 +0000
-Received: from mail-dl1-x122c.google.com ([2607:f8b0:4864:20::122c])
+	id 1vjR8U-00000009bAm-2T0H;
+	Sat, 24 Jan 2026 00:04:18 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjQwW-00000009ajv-13Kb
+	id 1vjR8R-00000009bA1-2tmn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 23 Jan 2026 23:51:58 +0000
-Received: by mail-dl1-x122c.google.com with SMTP id a92af1059eb24-1233702afd3so4007100c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 15:51:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769212313; cv=none;
-        d=google.com; s=arc-20240605;
-        b=YwcJ7DU834jtHCBU/sJ2ACb0DJVjHrLHJ7lTjEwux1D4bzLGL4OeC4d3aPjM4kfyhg
-         m/KfV3xFrdY4GGfgp69j8jpZhGxZKJf8PFv4WUNoafTJ8OaPKtdo6gSla/MWhmecJXMJ
-         RL+XJVLBRPVOPpvnuQg7rylO+PvDUVwZ8ZH6jc0ZAMsBExiS/GfMFSUtNo7p1uKtdJ71
-         u/a8hW+OayuLHZt8ioAvIKGWXzfcEwbPsbarvXCVzjz1gcybC0A+Yl/MoxCodX5ZlNLC
-         l9ER58MfUGKToacrgGvHcu9yNL3nclkxxqa/iPto+6kAXVp0PeowIBN+vPrnAUQxzuRn
-         qw5g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=NMyJR4UL9NXXcbBjQVATLX3KPNH4xZEghdBa9fkK1fE=;
-        fh=5wgPrIgx+b1M3utE3bKUAMK+Mn4bj9ke9YeWMalfuHI=;
-        b=c9Fp/0J1YaXriJCCf8oDc96NOQAJMCTWQ0Z8kDv8OOAMBzRI86XqSVakXMZh16c6N+
-         4wuVIxuFbJv52NEPzFhyjo/NdgM1DFAUGEU1dLq763SLR84nqRNNOgtBSpwca9dURcoj
-         EjzTEortKAFhQkpY2yyzH/A8VThA32MF+KTWWNy9zCjIL9x5jUwHyao7EWBObk2HJ4iX
-         nAKvmugux/4Zm/iIV8cr0ILF5w2fDS+5PleovHnjLsyIxnaaRP7+HBu0kOt0pUFewbtF
-         oG/Le6M2vjlvA7bKzMijOX5WBz0tz6MaStESU0ImLZ3fIg/IWZIjihp0ffKMNghDgLsb
-         zfsw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sat, 24 Jan 2026 00:04:16 +0000
+Received: by mail-wr1-x443.google.com with SMTP id ffacd0b85a97d-4359f35effaso378999f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 16:04:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769212313; x=1769817113; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NMyJR4UL9NXXcbBjQVATLX3KPNH4xZEghdBa9fkK1fE=;
-        b=C+pq8Ml0A7GT2kFquuezSiEUmIyk6zxhD+ExRllA1f67Sl+zUxr/Z/vvWgd1VoDdSf
-         Usff2q+7vE0xAc1zQj0dNcLsV7YdyJH1SFwEWccd78MqNUsdGmyn/T02ZlMy++48iolN
-         yOtpCZbgj0E8SO47ISf5dXb+mRNoAhSmb45KDnk1B4FwJi7FhH6waefeqZylOKgnMuMJ
-         2B8twQkmYkxUXGqL1Iphp8dSwdOBxXMQHBzjVbcTRmEeOSuEkAZD3FHthALzI2caAr0/
-         KXbH3x1V1B5IW83q0xTn9UWDd+zxn3tN1CXdImOJ85zfQI+Wz2PNtO2hJTvDjctSDOrC
-         cc8g==
+        d=gmail.com; s=20230601; t=1769213053; x=1769817853; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6r2QurZAQWCjh0fiFFVfKXSGYPjUAsKdH07r9CUR7DA=;
+        b=kC5GmJNmYpfl7Ahg5nVID8eEDY3zEKPpFEgc1xsoT/yQYx/r6ZY3fNrNxiHtqjssfu
+         K12LmBLLoBJBFVv0xoXkZS92ELb/EvTm1+etPxzRkVNhGK95655hgJNkY/IR6BQ4lwTS
+         qAWmXJ8WjMB+gyLybnKnSXUCmd+BNaMeXs2ewIkjw5XoarDlM604Z2tsGJu0BuXzdqKj
+         JlmVmKQsI6ms1zNM7uXC18fC84QM9Z+6vneOBGP7Ti+pNlYuwHI5gx8VpWm7iTLfONfu
+         BZqdyOnhnuBl4DGEvLZZUjHO0SsCBTo5JixeBUNWkU+OytTTFzfvO3eRY8UV7X+ZpdhB
+         OETw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769212313; x=1769817113;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=NMyJR4UL9NXXcbBjQVATLX3KPNH4xZEghdBa9fkK1fE=;
-        b=QHKyI34ZOkv1OatXPbFGFsAmsVJtb3W4w8neLbRIsVl/rW95ePj5bATN+gHOaAWjF8
-         JbkYZD6MeNQAjNW4fNREnsCWpzJnUz8FkslwrhEhsoi/jO4mpqg5WkjQkeVz5iBMsGuw
-         xXet12hzv8dUIrQ7le2iHLw1ZoyetlPMQEe3K22WWguaDO6y0Ao78AXac/1omH5BFjkY
-         /Ngph7VyQwRw2bIO733lThKTEzw7BpPJuqRFw7qAL9G/gfRF0eQtjZSAc39C9jaNA/Uh
-         SBBIkw7QJroTElyM7C1AUNj8ChYhrhZRNIN5gGIJbtv0mpO2JwUhv6Y3cFoG+FzQaqxi
-         /sGg==
-X-Forwarded-Encrypted: i=1; AJvYcCXvbmctQts9G+2POZSqfPaJT/qIXnnJ1VESx5FH8FTl8qlrlS70TYqiDMgx47fTPyROHN4wZG6R1Wh8sIHO3LBh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxrhRbyOz63MURzNAzGF9Pn4fgsdBPPWBaJPkuKe6TXXKReZzQ
-	PZiDdR16Za3cXI61XPPG35iRk0AQH91lkHBdNyUjcUeG63nO+G/sqYgd7hB0IprdE47sFi1aI2V
-	YFCgPg/0P4BIofEZ/31oGKUuVwNvLqVbjFaUSKxdg
-X-Gm-Gg: AZuq6aLmUMwEl201IbxWDiq8ESfmxKMf6doOzosB9qkyJdhgUao2xjp2ySdRYVBuZKQ
-	RrZSb13Fpq+pgMYoCbBKE/cQA37r1rOk5n9psGhQHoPQwhYBro/d0ogAH5KQpQg7MCz+q4t9Ok9
-	mYaWwMJQ4iJVzd2JhvoyHtCXt7cUMTCR/a352aFLlGMURNQh4bBghF32Y+MV56psAvbE1LmPKWu
-	dmpSNcsSCEb2K+d6N6aL6MnYnYJw0+zOD+f/bUg86osTljlELNzDT43vriOo5yI3bMWkD02wCE7
-	IHEN9aq8U8xVxIqhhbrHXZuMSuBT
-X-Received: by 2002:a05:7022:a8e:b0:11b:9386:a38b with SMTP id
- a92af1059eb24-1247dc161e4mr2737254c88.46.1769212312767; Fri, 23 Jan 2026
- 15:51:52 -0800 (PST)
+        d=1e100.net; s=20230601; t=1769213053; x=1769817853;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6r2QurZAQWCjh0fiFFVfKXSGYPjUAsKdH07r9CUR7DA=;
+        b=s+NtHES7mrSifHVo4WVfgwAt0Ud+SZ8OtQ5yeii302dAEgSiIGJDhMO+eY7S9YijJQ
+         Y2oxMHoEExcNVEOlxf2i4GyUbWRFTtJmU/Tq9aWht1NOb19BRu8Td1kUNU+RA9BUGorO
+         8zF/l+xJ9YK5pIvBkN2UaDg07civ4t/uwRsJqxiO+U8P7X5JuFHi1USTdskcQ3OcYTg9
+         6dSQjVHwEfVEfFh5nFIQv05IE4G2XVrCzNT+0OIZIPtPtbfHOrdAIDt3bgqlrpVTlMqS
+         AQA1HXJ+O+IR5JrZa2r8uPtrz36cMyFtsH2V/1THJQSkRVjdWXnBt6yQJLpCZVY5oRfF
+         a9ew==
+X-Forwarded-Encrypted: i=1; AJvYcCX7s4Xh35T4gFrWha7cvA4HIMNGStMR3nDk57/lseW9ddkfurf0eybZLy6aT1fLBtaYkJnV0J2GlZrup5hRwZwo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtiNqNsu6I0NxnWNpe/hrk4CD/sGYUj21vGumSr0c3omd/bHlo
+	/wMSJ5StZ2mOZMuqFaOE/wBvJbvL40UOXHZaOA8ainHxxyeoHbiUn9hT
+X-Gm-Gg: AZuq6aJ+5b3jmQ9r8MHoXugfUX4uiPqMCpePAYVw636JTBesAvPDPqiwckW2Rxuvjpv
+	EQ7mjKsDU4CvdKtcdvKvvOIHOYYOOV9W2b+oJWpiSa4hElcaZtPzMacG/gY84YYxzOys+9Tcxza
+	SUn7+7avne/ahfOjJUFpKrMBiAIeFxdC82lOyaB8E6U0vOSl/tmOGO8T0GQK1og1X1xXjmeUmym
+	B1y9balDGKDOwkhceMXvEDNy1gfJd9rPYO2Bjyyw9/gtuAnS1Nny9To5KRbi9aBwzqG8uBucRlX
+	XpaxxXdFq1+uc+S0H8hJetXinBQpGnhADa6cS0GcBpAj3P4P678KeqSOdiLZV2F9FmwdNHwQCVg
+	DdZejNYXe1DMeI2Lnvd2vHlmYrcTq8CxtkPyNBbJs0MuOYZhklKeiqHm9plyHx+UY4N/JQn4Vp3
+	ucdw==
+X-Received: by 2002:a05:600c:3b29:b0:47a:8bfa:bd5 with SMTP id 5b1f17b1804b1-480541f9e3cmr11110495e9.8.1769213052988;
+        Fri, 23 Jan 2026 16:04:12 -0800 (PST)
+Received: from skbuf ([2a02:2f04:d501:d900:1430:8b48:2d45:6c1])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435b1e716b6sm10359890f8f.27.2026.01.23.16.04.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 23 Jan 2026 16:04:12 -0800 (PST)
+Date: Sat, 24 Jan 2026 02:04:09 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
+Subject: Re: [PATCH net-next v2 00/14] net: stmmac: SerDes, PCS, BASE-X, and
+ inband goodies
+Message-ID: <20260124000409.36nsxlvkde4zpddk@skbuf>
+References: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
+ <aXNX1oi7nWLcPK28@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <20260121-next-v1-1-c18068b091b9@google.com> <7c78f9da40022e7bbf850ae8989c617bdc30cc95.camel@linaro.org>
- <CA+zupgw5H5rumo+DxaTfA_=bcvjbBOivm6R+Pw31jgE-sMyEtw@mail.gmail.com> <f956ccd3f5f694de7a634819da3f790a8dce132b.camel@linaro.org>
-In-Reply-To: <f956ccd3f5f694de7a634819da3f790a8dce132b.camel@linaro.org>
-From: Roy Luo <royluo@google.com>
-Date: Fri, 23 Jan 2026 15:51:16 -0800
-X-Gm-Features: AZwV_QgoFLO5lJ1lQA8XWJ4HuK52CnYXSZ5eL7UyBrfGdR4s2b17ZCPRTqChT0A
-Message-ID: <CA+zupgwEWM4c9yK1f-Y_Cv5gk=0zYNuUb3kZyZ6O3FDRbPPvKw@mail.gmail.com>
-Subject: Re: [PATCH next] phy: google: fix build dependency for Google Tensor
- USB PHY
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>, linux-phy@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, kernel test robot <lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aXNX1oi7nWLcPK28@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_155156_298827_D44BB3A3 
-X-CRM114-Status: GOOD (  29.15  )
+X-CRM114-CacheID: sfid-20260123_160415_750719_D7E2924C 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,92 +110,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 10:28=E2=80=AFPM Andr=C3=A9 Draszik <andre.draszik@=
-linaro.org> wrote:
->
-> Hi Roy,
->
-> On Thu, 2026-01-22 at 11:00 -0800, Roy Luo wrote:
-> > On Thu, Jan 22, 2026 at 2:39=E2=80=AFAM Andr=C3=A9 Draszik <andre.drasz=
-ik@linaro.org> wrote:
-> > >
-> > > Hi Roy,
-> > >
-> > > On Wed, 2026-01-21 at 22:21 +0000, Roy Luo wrote:
-> > > > The Google Tensor USB PHY driver uses the Type-C switch framework t=
-o
-> > > > handle orientation changes. However, the Kconfig did not specify a
-> > > > dependency on the TYPEC framework, leading to undefined reference
-> > > > errors when building for architectures or configurations where
-> > > > CONFIG_TYPEC is disabled or configured as a module.
-> > > >
-> > > > Add 'depends on TYPEC' to the PHY_GOOGLE_USB entry to ensure all
-> > > > required symbols are available during linking.
-> > > >
-> > > > Fixes: cbce66669c82 ("phy: Add Google Tensor SoC USB PHY driver")
-> > > > Reported-by: kernel test robot <lkp@intel.com>
-> > > > Closes: https://lore.kernel.org/oe-kbuild-all/202601210825.ELrpQeED=
--lkp@intel.com/
-> > > > Signed-off-by: Roy Luo <royluo@google.com>
-> > > > ---
-> > > >  drivers/phy/Kconfig | 1 +
-> > > >  1 file changed, 1 insertion(+)
-> > > >
-> > > > diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-> > > > index 142e7b0ef2efb9209781800ee47b820a91b115ae..5531ff31d8156cb164c=
-32e3e52d4a57b26a62d8d 100644
-> > > > --- a/drivers/phy/Kconfig
-> > > > +++ b/drivers/phy/Kconfig
-> > > > @@ -49,6 +49,7 @@ config GENERIC_PHY_MIPI_DPHY
-> > > >
-> > > >  config PHY_GOOGLE_USB
-> > > >   tristate "Google Tensor SoC USB PHY driver"
-> > > > + depends on TYPEC
-> > >
-> > > Can you make this
-> > >
-> > > depends on TYPEC || COMPILE_TEST
-> > >
-> > > to allow some better test coverage?
-> > >
-> > > Cheers,
-> > > Andre
-> >
-> > Hi Andre,
-> >
-> > Whether to add COMPILE_TEST for build coverage was discussed in
-> > another thread [1]. My takeaway from that discussion is that
-> > COMPILE_TEST is intended to substitute for ARCH_XXX in build
-> > testing and should not be used without it. Once ARCH_GOOGLE is
-> > present, we can add "depends on (ARCH_GOOGLE || COMPILTE_TEST)".
->
-> COMPILE_TEST is not limited to ARCH_xxx. It allows drivers to be
-> compile tested even if the current build doesn't enable whatever
-> option (like TYPEC).
->
-> See also https://www.kernel.org/doc/html/latest/kbuild/kconfig-language.h=
-tml#compile-testing
+On Fri, Jan 23, 2026 at 11:13:26AM +0000, Russell King (Oracle) wrote:
+> According to patchwork, this doesn't apply to net-next. That's odd,
+> it was generated on last night's net next, and although there has been
+> further work, it rebases cleanly on top of this morning's. How can
+> these changes:
+> 
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c   |  6 +++++-
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 20 ++++++++++++++++----
+>  2 files changed, 21 insertions(+), 5 deletions(-)
+> 
+> which happened in net-next overnight result in this change in patch 1:
+> 
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 3 ---
+>  1 file changed, 3 deletions(-)
+> 
+> failing to apply?
+> 
+> No, patchwork is clearly wrong.
 
-"If a config symbol has a dependency, but the code controlled by the
-config symbol can still be compiled if the dependency is not met",
-TYPEC doesn't fall into this category as it's mandatory for compiling
-PHY_GOOGLE_USB.
-With "depends on TYPEC || COMPILE_TEST", this very build error
-would resurface when TYPEC=3Dn, COMPILE_TEST=3Dy and
-PHY_GOOGLE_USB=3Dy. Please let me know if I missed anything.
+Conflicts with commit dc6597fab3e3 ("net: stmmac: dwmac-imx: keep
+preamble before sfd on i.MX8MP"), merged in the meantime.
 
-Thanks,
-Roy
+In include/linux/stmmac.h (your commit "net: stmmac: add stmmac core
+serdes support" adds a "struct phy;" line, but that other commit
+modifies the context by inserting:
 
->
-> Cheers,
-> Andre'
->
->
-> >
-> > [1] https://lore.kernel.org/all/CA+zupgwgfKwPYqj8G2tNf4pEXNEWA+vL2WYJPh=
-J16xExgko7Dw@mail.gmail.com/
-> >
-> > Regards,
-> > Roy
+#define STMMAC_FLAG_KEEP_PREAMBLE_BEFORE_SFD	BIT(14)
+
+(the last stmmac flag in your context, at patch generation time, was:
+#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(13)
+)
 
