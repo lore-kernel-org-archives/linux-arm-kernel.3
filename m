@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 606FED715E8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 13:14:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA180D715E9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 13:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GtAlVLCgyR8wbqQsxHMAT5Bzaa9VE2Y7bjC4iGWq+Q4=; b=0kQQkdPMc57u4E5oJwCxE26ssQ
-	V1T+sFRF4R9MyC5XVIgsTuJgTKYcJHQBUF5nPuBltS/0xi+mlw31/j/LgrNOIRIE+RJmbX04vFUip
-	OZcvQ+QD7Fsv+J+J3pIjwm9IOMqkuD0YGhZ64L/WS6Qxnn9zGbLSNwUAt2wTZueSP7M4TkPArVi5V
-	vyG/pyoCuTnv9phgMPdc0irmhSI4CLgavd88H+EjgMgikToFEir4cb+NEsnP/GXQST77n5mY6wwWw
-	z7RbApCwEZYKCrw6U3LUMQu6zcgxOMsS2ZUT4jUwFDENNIaBa9yeGRnOelD9KPo42Kpxm50aeR13J
-	cQovcCNA==;
+	bh=LyRTE7okq9QLOOTSDvR0cMP+/RA6BDupI57gtIpwVRA=; b=HWf4zyoINetTv+a3wfmoKIH60A
+	Kr7R3gMf9L1LpdHbXe4y/Ioo/t+TkxU6R0LyCKw4rdPI9SoQ2YRwPZdhK9t6cKQkJw/gUKh1bbb8V
+	RTKHE2JNTkO1gwnMd3n9btbJBS91bwm5V8xXMJUOr4btjoBTgTWAtVF9U95A884XuecjrAYLSzKHh
+	4PvT35EJur7dHgD70j76cit2xG8bcczBgxWWh0BmC1paNxzWMvoX7q41TG2HmklbdtJDeFoG2ur4Z
+	oIN6MTev7XBACuDuX3X+uwSaMT1byCcvelTPu4917py5Io4muhCgfDL8iIK1J7xKOymUbTTxHlr03
+	tVIqEZ6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjdTX-0000000AH1s-0Cor;
-	Sat, 24 Jan 2026 13:14:51 +0000
+	id 1vjdd9-0000000AHhU-0UoC;
+	Sat, 24 Jan 2026 13:24:47 +0000
 Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjdTT-0000000AH14-3U0L;
-	Sat, 24 Jan 2026 13:14:49 +0000
+	id 1vjdd5-0000000AHh5-09zq;
+	Sat, 24 Jan 2026 13:24:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1769260481; x=1769865281; i=wahrenst@gmx.net;
-	bh=GtAlVLCgyR8wbqQsxHMAT5Bzaa9VE2Y7bjC4iGWq+Q4=;
+	s=s31663417; t=1769261069; x=1769865869; i=wahrenst@gmx.net;
+	bh=LyRTE7okq9QLOOTSDvR0cMP+/RA6BDupI57gtIpwVRA=;
 	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
 	 References:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding:cc:content-transfer-encoding:
 	 content-type:date:from:message-id:mime-version:reply-to:subject:
 	 to;
-	b=rSRS2IQPmJnEY1CF9zJDYUC3P2atFwOssPFwRFrVzqQcB3t3KL1bVRHTEOMDmKt5
-	 WLbSnwaSleUeGVRSrcrU0nuZgREAIq7LWk5mH/T2X+AprPm1lY0eP82IgSKtaTpq/
-	 YHCJLRs3VUVUVHsDVqQryG6O2ck9fgyddZIbNMba/a7q/hx50kDsEvaPq5WEBNZld
-	 LKgMB9G3XT+XuxORtmvLzvAiUQ0O+/h6qG7OvaKXZcEKaIF57mQEL4e8+anSg5Zi4
-	 FVy8HzBWuWWzuQAIIqmEPutqeeshWwJx4lUg/GGKC/pnZmBEJ8z9SloHSawfJPia9
-	 FlDj333xkkv8cezAdg==
+	b=kD5LdK3YouCW0+1zcwddNUg8buOS9BgpXzH+geWjlT8WK4E7L8mB5PZVttncmmXr
+	 lQcPjT9QWfvJhRqmPpzhZJDQcHTMNxcd7Zon1RrrCYTg0mZ9/ls1lXdKd3shVBlY9
+	 ffAs7BPE7A7/hzlKQaEeKZZ2N/8r8zmGjwoa08sHY3xlzJWaD6ou9QF2l1/G8+UM5
+	 GzkEHcXWqcIrNlopTe2YdxTTtKB5DlrOwvB+2AGKAxFileXQucSg0Z/WzyBh8pvuz
+	 B531yiw+11PPLcRRLVLVGDaLGgNFUiLy3+vHC+AwTMrEdMC6+bhS3Mdr7gYBGjVhU
+	 GutQ1DgWfjykhhRrdg==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
 Received: from [192.168.1.156] ([91.41.209.202]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MGz1f-1vXJY20k1z-00G7dq; Sat, 24
- Jan 2026 14:14:41 +0100
-Message-ID: <4003c61a-1d3f-4deb-b1ac-293cd5c8f2df@gmx.net>
-Date: Sat, 24 Jan 2026 14:14:35 +0100
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MKsnF-1vTLI81g2n-00IuJ9; Sat, 24
+ Jan 2026 14:24:29 +0100
+Message-ID: <a3e4972d-c9d0-4121-9a11-6c6b30b8f798@gmx.net>
+Date: Sat, 24 Jan 2026 14:24:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/10] media: Add support for Raspberry Pi 4 ISP
-To: Jai Luthra <jai.luthra@ideasonboard.com>,
+Subject: Re: [PATCH v3 1/4] clk: bcm: rpi: Let V3D consumers manage clock rate
+To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
  Florian Fainelli <florian.fainelli@broadcom.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Tomasz Figa <tfiga@chromium.org>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Maxime Ripard <mripard@kernel.org>, Melissa Wen <mwen@igalia.com>,
+ Iago Toral Quiroga <itoral@igalia.com>,
+ Chema Casanova <jmcasanova@igalia.com>, Dom Cobley <popcornmix@gmail.com>,
  Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Naushir Patuck <naush@raspberrypi.com>,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-media@vger.kernel.org, Dave Stevenson
- <dave.stevenson@raspberrypi.org>, Umang Jain <uajain@igalia.com>
-References: <20260113-b4-vchiq-isp-v1-0-ea0b300bffc8@ideasonboard.com>
- <4dec6316-0ae3-44bf-b23d-8b05f3c2c607@gmx.net>
- <176906351709.9154.11222619502063088695@freya>
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+References: <20260116-v3d-power-management-v3-0-4e1874e81dd6@igalia.com>
+ <20260116-v3d-power-management-v3-1-4e1874e81dd6@igalia.com>
 Content-Language: en-US
 From: Stefan Wahren <wahrenst@gmx.net>
 Autocrypt: addr=wahrenst@gmx.net; keydata=
@@ -76,18 +75,18 @@ Autocrypt: addr=wahrenst@gmx.net; keydata=
  f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
  V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
  aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <176906351709.9154.11222619502063088695@freya>
+In-Reply-To: <20260116-v3d-power-management-v3-1-4e1874e81dd6@igalia.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:sg0mUwNd4e4R0MVc6ZnIpJYng6d2k8VDKINY6KGg3yS2Rqevbsv
- LvaInL3aBUmk4qn087/uuM8KUWGBbAC9k2rTZcGy2MbdS4os6TsHEWkSTjxv/Mf3lt8zRIF
- Csm5Nbev9vgW28ioGVwamQj76jvh2jB+UKrkp1KhpuPHmW1mMGDFav5et1PwEekNGVoCKZk
- sviY40IKh1uGhRMsnuD8w==
-UI-OutboundReport: notjunk:1;M01:P0:u+GLRfYdk34=;3scIIoAHewWKAbdlBkjOpnkStQa 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 Ji2iAOA8=
+X-Provags-ID: V03:K1:2CoNgnS1QXyNkjmUn48A98WCovsAz9HkyW5Ac9DY3lqHrbJrBKY
+ 1rp+WzDgDZcjmUpSraU8g09EExwXTIp4bCnDzkfRfn4xyXy6oswf9cEWQcVuIZGaZ8RXPPS
+ PH/FnHbxI4guSe9DGWdrilpWu2jSU5s/g50gM1MxZnc+4Q/j0nQ4wQZo16VUbNgkBD2mXyn
+ tBjGUa7hTx9i4Bnt9/UTQ==
+UI-OutboundReport: notjunk:1;M01:P0:YeGbiL4MQ+U=;sxvzDXKCJwiRlqCogqkLN0LjMRc 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260124_051448_229309_661F4480 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20260124_052443_384637_90DC208D 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,61 +101,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jai,
+Hi Ma=C3=ADra,
 
-Am 22.01.26 um 07:31 schrieb Jai Luthra:
-> Hi Stefan,
+Am 16.01.26 um 21:19 schrieb Ma=C3=ADra Canal:
+> Remove the `maximize` infrastructure and don't set `minimize` for the
+> V3D clock, giving consumers full control over its rate.
 >
-> Quoting Stefan Wahren (2026-01-22 00:06:23)
->> Hi Jai,
->>
->> Am 13.01.26 um 10:05 schrieb Jai Luthra:
->>> Hi,
->>>
->>> This series adds support for the ISP used in Raspberry Pi 4 (and earli=
-er
->>> variants) by adding the bcm2835-isp V4L2 driver.
->> could you please point me to the upstream patch, which enables VCHIQ
->> support for Raspberry Pi 4?
-> The VCHIQ driver currently in upstream is working fine in my testing wit=
-h
-> the ISP on Raspberry Pi 4.
-This is good :-)
->
-> arch/arm/boot/dts/broadcom/bcm2711-rpi.dts inherits the vchiq device tre=
-e
-> node from bcm2835-rpi.dts, which uses the "brcm,bcm2835-vchiq" compatibl=
-e.
-Yes, I remember this wasn't intended in the first place, which resulted=20
-in situation that somethings on Raspberry Pi 4 didn't work (don't=20
-remember exactly), but fixing wasn't really possible because the DTB=20
-files has already been shipped and we didn't want to cause a regression=20
-by excluding Raspberry Pi 4 afterwards.
->
->> AFAIR only Raspberry Pi 0 - 3 were officially supported.
->>
-> Ah my bad. Do you know which peripheral requires the changes to VCHIQ an=
-d
-> DMA to function properly on Pi 4?
->
-> I saw the downstream tree defines new bcm2711-* compatibles for the DMA
-> engine and VCHIQ, mostly for 36-bit address support. I had those patches=
- in
-> my tree at some point while debugging, but dropped them as the issue was
-> found in the firmware clock management.
->
-> If 36-bit addresses are indeed required for some ISP feature I didn't
-> notice, I can add those patches back before posting the next revision.
-This isn't trivial, because AFAIK the DMA driver needs to be extended=20
-before. Dave Stevenson send the last patches regarding this topic.
-
-I currently don't have the time to review the series in depth, but I'm=20
-fine without 36-bit support as ISP works on Raspberry Pi 4.
-
-But I've a small request for this series. Could you please drop the=20
-suggesting passages that Raspberry 4 is officially supported?
-You can still leave, the statement that it has been successfully tested=20
-on Raspberry 4.
+> On some firmware versions, RPI_FIRMWARE_SET_CLOCK_STATE doesn't
+> actually power off the clock. To achieve meaningful power consumption
+> reduction, consumers need to set the clock rate to minimum before
+> disabling it. Forcing the clock to maximum rate in the clock framework
+> prevents this, as consumers don't have any flexibility over the clock
+> rate.
+not sure, if it's worth to document this important paragraph as a=20
+comment in the driver?
 
 Best regards
+> This change enables the v3d driver to control the clock rate directly
+> in its suspend/resume callbacks.
+>
+> Fixes: 6526402b9bac ("clk: bcm: rpi: Maximize V3D clock")
+> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
+> ---
+>   drivers/clk/bcm/clk-raspberrypi.c | 5 -----
+>   1 file changed, 5 deletions(-)
+>
+> diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-ras=
+pberrypi.c
+> index 1a9162f0ae31e330c46f6eafdd00350599b0eede..9783385d5859836898683209=
+e320fcc928dfdc71 100644
+> --- a/drivers/clk/bcm/clk-raspberrypi.c
+> +++ b/drivers/clk/bcm/clk-raspberrypi.c
+> @@ -68,7 +68,6 @@ struct raspberrypi_clk_variant {
+>   	char		*clkdev;
+>   	unsigned long	min_rate;
+>   	bool		minimize;
+> -	bool		maximize;
+>   	u32		flags;
+>   };
+>  =20
+> @@ -136,7 +135,6 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] =
+=3D {
+>   	},
+>   	[RPI_FIRMWARE_V3D_CLK_ID] =3D {
+>   		.export =3D true,
+> -		.maximize =3D true,
+>   	},
+>   	[RPI_FIRMWARE_PIXEL_CLK_ID] =3D {
+>   		.export =3D true,
+> @@ -387,9 +385,6 @@ static struct clk_hw *raspberrypi_clk_register(struc=
+t raspberrypi_clk *rpi,
+>   		}
+>   	}
+>  =20
+> -	if (variant->maximize)
+> -		variant->min_rate =3D max_rate;
+> -
+>   	if (variant->min_rate) {
+>   		unsigned long rate;
+>  =20
+>
+
 
