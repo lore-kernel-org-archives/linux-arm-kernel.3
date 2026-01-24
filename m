@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB644D715E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 13:32:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6236AD715EB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 13:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y4G9MVhOxej2u9n2lGIIuHLqIN9naxKqNEi8higlo4g=; b=L9jwu0suM3jWgXbPPhzLW8vFjl
-	YNTP9R6flu8f/gHtUhigqOIZ4sLytBfEo+VyDGOGImTQTB5PaXiLylan+r0tSoiwE/5nl2LKyUzt0
-	6v4bG9wdSItzO98gHC7TypFjhO6GyIJ+w0Md9vZ/GeWD3LkJRvF5/dnHoQ7cbxn3JFHv+vahkHs2U
-	4uirKwq0/Sjp3bw1tVsyhP7V26jFeZiQg0nrFDWahj1Fd/5ZoSo056/gxXKxftleyB6QmjdlsJHO5
-	bXeltbUFSBVLiHdpjI5CbGms+qmT996cs15R4RVdorkjzrvX7fti0rCIxwsSyjJjoLOaFMvlK7JCu
-	5LQxzdSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mklat3V6lPC6tcY+1ZK8dWl61Dm7SUQT3yFTtiyVHqg=; b=ttQB/rios3mVOnd7rh9xV3x4UT
+	aCUPVieWPDcpPnSduFXwrg83i4Mh3TC2W2c6cdzdTOtWPKvpGNVzTB2cBomhTjClcFu7cnpBX6nn6
+	nu9MBq5Lko9laSZ6yBAo4lxDNEB5ZadeB7CYHP0SPw05+kzUawD+08t0u+5CQ9F66SYtyffZhD/fS
+	5/BMHh00nmdvoJJ06iVPD+NCu/gcmW2n7i5u9AGh6klKxngg8wA5Z0x1lrsFgqStpnw82N7YD4ymR
+	IfvvRdDXTh++CFpqJDcVZt6BQTu5NjbW/ldOFHLEtirqY6VCCKUMIERO6B8baxOxAAO1ElAgHUxQ7
+	OnTCo34g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjdkf-0000000AI0q-0qfv;
-	Sat, 24 Jan 2026 13:32:33 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1vje81-0000000AIaB-0FxE;
+	Sat, 24 Jan 2026 13:56:41 +0000
+Received: from ms.puri.sm ([2a01:4f9:c012:9260::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjdkc-0000000AI0O-3XRj;
-	Sat, 24 Jan 2026 13:32:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1769261548; x=1769866348; i=wahrenst@gmx.net;
-	bh=Y4G9MVhOxej2u9n2lGIIuHLqIN9naxKqNEi8higlo4g=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=og/phbewYd81Ifmn2sULazawrU4buKhGdRnuejIGGtikrr/tr5SRXRw3xNjnsczj
-	 AoXeFappuCgNyzduz+pd9d+cWBrQTZ+2dPSqoj3L7NUMntogLSugSgZIM3isbnqgV
-	 mCj+GcNKfGQ/fVuXSARyaYQb8NBD1P5+3bmH1cXwnBZW1xmUzW4a61rFfut6Q5/GX
-	 JG5QA4y2MPhjk+oomLym4KGYLtonv55rW9HPR6dLa0cd77WmyDWvQdmZ38QCEazhS
-	 ydZWzld4bMQzRwvgy0mi9kBAbvc+vYJ34Ars0GAMQ8aNy7Yu97hcBI+vTX1NGXAvA
-	 vIc+GBI+a7Szj7EyQA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.1.156] ([91.41.209.202]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MNbox-1vQbhP059P-00MmEi; Sat, 24
- Jan 2026 14:32:28 +0100
-Message-ID: <826c5f19-4ccd-499a-8d35-2aecf43c373b@gmx.net>
-Date: Sat, 24 Jan 2026 14:32:27 +0100
+	id 1vje7w-0000000AIZq-1fVB
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 24 Jan 2026 13:56:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=puri.sm; s=smtp2;
+	t=1769262990; bh=WaEx9JbT1ocsMl2cCjYOFkLVa63KbyoeWsW4DzXeu8U=;
+	h=From:Date:Subject:To:Cc;
+	b=dJu4UK7LBLqigMU+MyvMDtZQWVZXVuxpmTkQXpBDCE2ZgWZIfUmk3Yx9E8z7u3X2v
+	 mueA4zRtqzocWrHZ0GDaU0Q6Lt4ftaijCWUnRXOS6lJ/A5zjaYdSHvJmZhta5X/OSf
+	 w617NY14nUw3u8JgOXV/TVHWEwLqphBKMmyZ+jqmGfy4WJtco3+NXxjU+oZ7LCWeJE
+	 RDLMu/IvUvpZs7I0RMjEfQD4yyNI8mjZUTfWYQX6Kjspvbx6gCzPkMEVKe3tH7Yv6z
+	 AhR7/NX8G6po7wqTVIEIAPrAm7l4xa1dcEpgh2DNE8OOFDc14/yzUrK0jCeKaWLDyK
+	 XvfLuIw/5KUfw==
+Received: from pliszka.localdomain (79.184.64.12.ipv4.supernova.orange.pl [79.184.64.12])
+	by ms.puri.sm (Postfix) with ESMTPSA id A41371FC84;
+	Sat, 24 Jan 2026 05:56:28 -0800 (PST)
+From: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
+Date: Sat, 24 Jan 2026 14:55:48 +0100
+Subject: [PATCH] arm64: dts: imx8mq: Set the correct gpu_ahb clock
+ frequency
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] clk: bcm: rpi: Mark PIXEL_CLK and HEVC_CLK as
- CLK_IGNORE_UNUSED
-To: Melissa Wen <mwen@igalia.com>, =?UTF-8?Q?Ma=C3=ADra_Canal?=
- <mcanal@igalia.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Maxime Ripard <mripard@kernel.org>, Iago Toral Quiroga <itoral@igalia.com>,
- Chema Casanova <jmcasanova@igalia.com>, Dom Cobley <popcornmix@gmail.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
-References: <20260116-v3d-power-management-v3-0-4e1874e81dd6@igalia.com>
- <20260116-v3d-power-management-v3-2-4e1874e81dd6@igalia.com>
- <3cf75fc2-1a20-40ba-9d7e-f3ef50a95d0c@igalia.com>
-Content-Language: en-US
-From: Stefan Wahren <wahrenst@gmx.net>
-Autocrypt: addr=wahrenst@gmx.net; keydata=
- xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
- IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
- NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
- JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
- TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
- f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
- V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
- aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <3cf75fc2-1a20-40ba-9d7e-f3ef50a95d0c@igalia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:Ka4SfT5h1qx9mc5wfQ7aWdkh24W05yWlrWKsGkcNd7x1s0c7cia
- GTFLF9UfK1t38qn64BqiCy7lzjsZXEbNHNKzqNK21KtiZya8FX5BeL4gkAat4nRyUF1l+ZQ
- r8cXJ03CY5v3mE9yRjQ2PibCSFERDG9+WAE49OltK13F4C0/X6BEV4rcFAjMjAj+xNp331l
- 7yxqNnzPjfnUYVyGsry0g==
-UI-OutboundReport: notjunk:1;M01:P0:bQal5H3HUM4=;VQsz4P08+dIyMFs5NDkFEnXD6ui 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
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260124-imx8mq-gpu-ahb-clock-v1-1-11c2e7c857b7@puri.sm>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQ6CMBBA0auQWTuxxUisVzEupuNIJ9ICrRgSw
+ t2tLt/i/w2KZJUC12aDLB8tOqYKe2iAA6VeUB/V0Jq2M9acUeN6iTP204IUPPIw8gvtyXlyTI4
+ 6hppOWZ66/re3e7WnIugzJQ6/2aBpKcdI5S0Z9v0LyMbr14UAAAA=
+X-Change-ID: 20260105-imx8mq-gpu-ahb-clock-139ba9ca9a6c
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel@puri.sm, Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1077;
+ i=sebastian.krzyszkowiak@puri.sm; h=from:subject:message-id;
+ bh=WaEx9JbT1ocsMl2cCjYOFkLVa63KbyoeWsW4DzXeu8U=;
+ b=owEBbQKS/ZANAwAKAejyNc8728P/AcsmYgBpdM+M8iuwOiLFNHvgo9y9nj5lKxXmAwh3Lo0Jy
+ wJVIBg/szWJAjMEAAEKAB0WIQQi3Z+uAGoRQ1g2YXzo8jXPO9vD/wUCaXTPjAAKCRDo8jXPO9vD
+ /77ND/wK3Mxk91/EOQVO3K7G05rArzUGrAXagRlfdG/EB65PE5NMRYeIIJGRLscO/NafHaiUjC+
+ o/yzpZ4Tfs35e7ve9RQdoJfM7biGv/Q3B8KRBZ46jW4ViR3pHNqg+QzhL7GGlXcVESeoX2a6iZV
+ EmfYzN3lSVnmL1uPyBVh/RD5dLpg9n3FhHuvwT3ov1RyQo1kM9preBUObk4BjDubqayB3EU2W49
+ b9PKuV6x3aBq2r3Tup4oAolH8SJx4Q+LVHXUuHezO/ONqSMjFZUmX2PZlLJVh8TTFCFA1A5zflD
+ y5GfSDKBDoCIpdIrGgliQNqPC/r4dsLLpykBf934A7cQ62ewPHUFNf4W0oeFE1n1/SGHw4igKM3
+ jI0ykdRMjSOYZPOI9hklC3lW5oG0MiDnQXnU62JAuxjEOvPsUJJZA/YNm98rXOVkvXbV1zyTDae
+ b4egigx9nvSEIG8Dl5nnS0UkRG+WVKcqWMSvOiEbJbvM9sSXlY0eiQAM6TVAq11nxgp10p3EQSl
+ VZCk/19Ty+cUYjirg1pXRHlwEcYNRlI8J/SNNakWUbJRTCATOqF3xAWR7rLwxuCe/OD3/OCTOTo
+ B9stx774sZuQ0b/mpXsgzUXwJTtl9s+KKZF/OUdgXkr0cBKDphBaxkUSrAatPisUEzeHH4Ijoux
+ dTRRKayp4dxW41w==
+X-Developer-Key: i=sebastian.krzyszkowiak@puri.sm; a=openpgp;
+ fpr=22DD9FAE006A11435836617CE8F235CF3BDBC3FF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260124_053231_171020_348BF3CD 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20260124_055636_633393_DC4D3BF1 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,67 +95,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+According to i.MX 8M Quad Reference Manual, GPU_AHB_CLK_ROOT's maximum
+frequency is 400MHz.
 
-Am 23.01.26 um 16:47 schrieb Melissa Wen:
->
->
-> On 16/01/2026 17:19, Ma=C3=ADra Canal wrote:
->> If PIXEL_CLK or HEVC_CLK is disabled during boot, the firmware will ski=
-p
->> HSM initialization, which would result in a bus lockup. However, those
->> clocks are consumed by drivers (vc4 and HEVC decoder drivers,
->> respectively), which means that they can be enabled/disabled by the
->> drivers.
->>
->> Mark those clocks as CLK_IGNORE_UNUSED to allow them to be disabled by
->> drivers when appropriate.
-> Acked-by: Melissa Wen <mwen@igalia.com>
->
-> But it'd be better if Stefan or Dave could check if we're missing=20
-> anything in the firmware perspective.
-sorry, I don't have any insight to the firmware or the clocks. As long=20
-it has been tested with a Raspberry Pi 3 & 4 generation, i'm fine.
+Signed-off-by: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
+---
+ arch/arm64/boot/dts/freescale/imx8mq.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Best regards
->>
->> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
->> ---
->> =C2=A0 drivers/clk/bcm/clk-raspberrypi.c | 4 ++--
->> =C2=A0 1 file changed, 2 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/clk/bcm/clk-raspberrypi.c=20
->> b/drivers/clk/bcm/clk-raspberrypi.c
->> index=20
->> 9783385d5859836898683209e320fcc928dfdc71..41f058bf44e8a5257e4b2a90389b5=
-e9525f2fffb=20
->> 100644
->> --- a/drivers/clk/bcm/clk-raspberrypi.c
->> +++ b/drivers/clk/bcm/clk-raspberrypi.c
->> @@ -139,12 +139,12 @@=20
->> raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] =3D {
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 [RPI_FIRMWARE_PIXEL_CLK_ID] =3D {
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 .export =3D true=
-,
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 .minimize =3D tr=
-ue,
->> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 .flags =3D CLK_IS_CRITICAL,
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 .flags =3D CLK_IGNORE_UNUSE=
-D,
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 },
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 [RPI_FIRMWARE_HEVC_CLK_ID] =3D {
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 .export =3D true=
-,
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 .minimize =3D tr=
-ue,
->> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 .flags =3D CLK_IS_CRITICAL,
->> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 .flags =3D CLK_IGNORE_UNUSE=
-D,
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 },
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 [RPI_FIRMWARE_ISP_CLK_ID] =3D {
->> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 .export =3D true=
-,
->>
->
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq.dtsi b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
+index 607962f807be..6a25e219832c 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
+@@ -1632,7 +1632,7 @@ gpu: gpu@38000000 {
+ 			                         <&clk IMX8MQ_GPU_PLL_OUT>,
+ 			                         <&clk IMX8MQ_GPU_PLL>;
+ 			assigned-clock-rates = <800000000>, <800000000>,
+-			                       <800000000>, <800000000>, <0>;
++			                       <800000000>, <400000000>, <0>;
+ 			power-domains = <&pgc_gpu>;
+ 		};
+ 
+
+---
+base-commit: 24d479d26b25bce5faea3ddd9fa8f3a6c3129ea7
+change-id: 20260105-imx8mq-gpu-ahb-clock-139ba9ca9a6c
+
+Best regards,
+-- 
+Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
 
 
