@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B207D715F5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 20:08:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268BED715F3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 20:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kf+FL9edtl/SkP91kYS0KPGlo6B7dPp0iD7fFWmFnaU=; b=bxzm1A71zn2Q7K2e1mdZrytA1j
-	Qh8vwo4M15yAh2iAH0Q3ORngl8W60ZdBDAJoYAMrbcz7rwQ2q5IuzKTacSJ2TPUWwcntVa4GJRcUA
-	R51H9QQHii9t9zBNYw4U3RXzDMB3eVF8w1T8hW3dgb3iJyzVx/CE13MClpOS+E7u6IKSKyXtkf6Pc
-	cwO8SMNlc0nEg2jx0EURIrXT5xlZcpTUO7HRTwgSdoh1PwvGcvyKJGZBD3hNKKwaPdu680kVGlVjS
-	bFzSYMlB6llMHpQeGbB39TG+JqJ3Hh2oDm3GU7nAF1hy9u4TPxhuxPAV7Eih3mxvg5AoKZEUSRwWq
-	pKXwW/xQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=k2a2ku10YAyIKnc7mb8BCfoDLvRSneJlNx1wUf3oAcc=; b=W9rexdYh3Rdn12
+	V+nZDMe/lUf+yr7iVACWiWTN9pbPdv5NsuDLpIpr62FOJLuFp6jpOXbZ9wrBA22FpU5HnW/U/ZF+R
+	mNDR7HlP6itrFgoF7b/r0T8UEFee0nSnYAVOl44+Ziz2hBXemgMN9w6ljC5PW/ZbQYI89zn18V26r
+	FWqiYqKT73RuGOQ1DqDZl2eFOTvRdsm641UyzwAgA8qIbYbw8NLxkVaC9Fuwq+LjeqddqigbWC4ZW
+	kV5/TPU0/sQFaBCXfIaOpBPcF+bOPqJQRkqQ9iGTLHCNeNRZhM4/o8FB2OGe7pqeLjPLtF5M+ki4P
+	cD8Q+RlmiJZO/BXTeDnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjjvH-0000000AUvI-3fZB;
-	Sat, 24 Jan 2026 20:07:55 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1vjkB4-0000000AVTn-3H14;
+	Sat, 24 Jan 2026 20:24:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjjvF-0000000AUuT-0ZBI
+	id 1vjkB2-0000000AVTK-0yKG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Jan 2026 20:07:54 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 5BA1D278C7;
-	Sat, 24 Jan 2026 21:07:51 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id PPLBAjbqG9hx; Sat, 24 Jan 2026 21:07:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1769285270; bh=ed5+rj5UeU/XeVbqg6N+ZgCHuu+8Z//U0MCxZUF842o=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=iw4BkIgOpu6tQigqUKiuweS6X5xJgoh9ilKJElZxeFTVQbYkFnrWu2g/LWvGARvgl
-	 nKkux/KG3G9nc/ryzkSFLHoRg/wGJ34GYG/oEpaltvN8QSo24/W9zqDnH5oYs1IlHo
-	 t+bui56NiokRUF6VWNna0EGi8lhgugdZ/cnzvOZPPdPgpAGWGFLzMY2kCICX1YwsiE
-	 VI4Hrj2fs3wqQKaeLicKPdi67aqy1uAVo5D5Dsd5Ykuis83cWpamUE9VjWtF1TJFYE
-	 mp75DR3trVcHHbpqYHMKig/xTSvn0UCncVXQHOkbroiqmvjGnoEQVnOyqr8ZfuAHgi
-	 PVa2P/zUZyR3Q==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Sun, 25 Jan 2026 01:35:27 +0530
-Subject: [PATCH 2/2] arm64: dts: exynos: add initial support for Samsung
- Galaxy J7 (2016)
+	Sat, 24 Jan 2026 20:24:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 60516442B6;
+	Sat, 24 Jan 2026 20:24:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FCFFC116D0;
+	Sat, 24 Jan 2026 20:24:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769286248;
+	bh=LZT2FX9gel15TTuzcvgNnRsgxoL3KHhIFCm4WDGiUgg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=NPrFXTkUxmm6z2SJt7Zk0xpvA4Isr1XZNZDuEnXOZ4AM62/fxCWGIGqtcfW4n5SSU
+	 popSQ1aV52CVGz8I/KTa+rbaaExX50emjo3sEmDqnhnu8pHRuIZZA+/OcmV9OCkXGS
+	 3tkjiBe+O/vwOuywv367gvk4wqfcWArTKO47Nbv1Mj/bNewITWpI0a+HnokwY5U7DO
+	 o6CAO6qtPE3X34EMxvGez32L+asROsPOvICwz2yBzDYXitQvgFnMIpwUsGpiAZ8SzY
+	 fSW2nimQXr+Pf4YGb1Z9twJNoJI4ncqPEv8YIqNHJ0bOgolTFtpVsFDa1CknQajsUb
+	 m5BECGosE3DfQ==
+Date: Sat, 24 Jan 2026 14:24:06 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Felix Gu <ustc.gu@gmail.com>
+Cc: Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Trent Piepho <tpiepho@impinj.com>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] PCI: imx6: Fix device node reference leak in
+ imx_pcie_probe()
+Message-ID: <20260124202406.GA175382@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260125-exynos7870-j7xelte-v1-2-5cacc3042c42@disroot.org>
-References: <20260125-exynos7870-j7xelte-v1-0-5cacc3042c42@disroot.org>
-In-Reply-To: <20260125-exynos7870-j7xelte-v1-0-5cacc3042c42@disroot.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Kees Cook <kees@kernel.org>, 
- Tony Luck <tony.luck@intel.com>, 
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>, 
- Rayan Marzouk <rayanmarzouk743@gmail.com>, 
- bluebunny <kalorin.bok084@passinbox.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260124-pci_imx6-v2-1-acb8d5187683@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260124_120753_467292_A73887F1 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20260124_122412_302979_8A055CA2 
+X-CRM114-Status: GOOD (  21.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,537 +82,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rayan Marzouk <rayanmarzouk743@gmail.com>
+On Sat, Jan 24, 2026 at 11:42:45PM +0800, Felix Gu wrote:
+> In imx_pcie_probe, np is obtained by of_parse_phandle() and must be
+> released when it's no longer needed. However, it doesn't release the
+> reference, which cuases a reference leak.
+> Fix this by using the __free(device_node) cleanup handler to release the
+> reference when it goes out of scope.
 
-Add initial devicetree support for Samsung Galaxy J7 (2016) (codename:
-j7xelte), an Exynos7870 device.
+Mani, if you apply this, can you add a blank line between paragraphs
+and:
 
-Signed-off-by: Rayan Marzouk <rayanmarzouk743@gmail.com>
-Co-developed-by: bluebunny <kalorin.bok084@passinbox.com>
-Signed-off-by: bluebunny <kalorin.bok084@passinbox.com>
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
- arch/arm64/boot/dts/exynos/Makefile               |   1 +
- arch/arm64/boot/dts/exynos/exynos7870-j7xelte.dts | 497 ++++++++++++++++++++++
- 2 files changed, 498 insertions(+)
+  s/imx_pcie_probe,/imx_pcie_probe(),/
+  s/cuases/causes/
 
-diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-index bcca631365578..fa6e6308e30a9 100644
---- a/arch/arm64/boot/dts/exynos/Makefile
-+++ b/arch/arm64/boot/dts/exynos/Makefile
-@@ -9,6 +9,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
- 	exynos7-espresso.dtb		\
- 	exynos7870-a2corelte.dtb	\
- 	exynos7870-j6lte.dtb		\
-+	exynos7870-j7xelte.dtb		\
- 	exynos7870-on7xelte.dtb		\
- 	exynos7885-jackpotlte.dtb	\
- 	exynos850-e850-96.dtb		\
-diff --git a/arch/arm64/boot/dts/exynos/exynos7870-j7xelte.dts b/arch/arm64/boot/dts/exynos/exynos7870-j7xelte.dts
-new file mode 100644
-index 0000000000000..1da826ca1087d
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos7870-j7xelte.dts
-@@ -0,0 +1,497 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Samsung Galaxy J7 (2016) (j7xelte) device tree source
-+ *
-+ * Copyright (c) 2025 Rayan Marzouk <rayanmarzouk743@gmail.com>
-+ */
-+
-+/dts-v1/;
-+#include "exynos7870.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/ {
-+	model = "Samsung Galaxy J7 (2016)";
-+	compatible = "samsung,j7xelte", "samsung,exynos7870";
-+	chassis-type = "handset";
-+
-+	aliases {
-+		mmc0 = &mmc0;
-+		mmc1 = &mmc1;
-+		mmc2 = &mmc2;
-+		serial0 = &serial0;
-+		serial1 = &serial1;
-+		serial2 = &serial2;
-+	};
-+
-+	chosen {
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		stdout-path = &serial2;
-+
-+		framebuffer@67000000 {
-+			compatible = "simple-framebuffer";
-+			reg = <0x0 0x67000000 (720 * 1280 * 4)>;
-+			width = <720>;
-+			height = <1280>;
-+			stride = <(720 * 4)>;
-+			format = "a8r8g8b8";
-+		};
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		label = "GPIO Keys";
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&key_home &key_power &key_voldown &key_volup>;
-+
-+		key-home {
-+			label = "Home Key";
-+			gpios = <&gpa1 7 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_HOMEPAGE>;
-+		};
-+
-+		key-power {
-+			label = "Power Key";
-+			gpios = <&gpa0 0 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_POWER>;
-+		};
-+
-+		key-voldown {
-+			label = "Volume Down Key";
-+			gpios = <&gpa2 1 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_VOLUMEDOWN>;
-+		};
-+
-+		key-volup {
-+			label = "Volume Up Key";
-+			gpios = <&gpa2 0 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_VOLUMEUP>;
-+		};
-+	};
-+
-+	memory@40000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x40000000 0x3e400000>,
-+		      <0x0 0x80000000 0x40000000>;
-+	};
-+
-+	pwrseq_mmc1: pwrseq-mmc1 {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&gpd3 6 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		ramoops@46e00000 {
-+			compatible = "ramoops";
-+			reg = <0x0 0x46e00000 0x8000>;
-+			console-size = <0x4000>;
-+			pmsg-size = <0x4000>;
-+		};
-+
-+		cont_splash_mem: framebuffer@67000000 {
-+			reg = <0x0 0x67000000 0x00384000>;
-+			no-map;
-+		};
-+	};
-+
-+	vdd_fixed_mmc2: regulator-fixed-mmc2 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_fixed_mmc2";
-+		regulator-max-microvolt = <2800000>;
-+		regulator-min-microvolt = <2800000>;
-+		gpio = <&gpc0 0 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	vibrator {
-+		compatible = "regulator-haptic";
-+		haptic-supply = <&vdd_ldo32>;
-+		min-microvolt = <3300000>;
-+		max-microvolt = <3300000>;
-+	};
-+};
-+
-+&gpu {
-+	status = "okay";
-+};
-+
-+&hsi2c0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	status = "okay";
-+
-+	pmic@66 {
-+		compatible = "samsung,s2mpu05-pmic";
-+		reg = <0x66>;
-+		interrupt-parent = <&gpa0>;
-+		interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_irq>;
-+
-+		regulators {
-+			vdd_buck1: buck1 {
-+				regulator-name = "vdd_buck1";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1300000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_buck2: buck2 {
-+				regulator-name = "vdd_buck2";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1300000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_buck3: buck3 {
-+				regulator-name = "vdd_buck3";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1300000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_buck4: buck4 {
-+				regulator-name = "vdd_buck4";
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1500000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_buck5: buck5 {
-+				regulator-name = "vdd_buck5";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <2100000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo1: ldo1 {
-+				regulator-name = "vdd_ldo1";
-+				regulator-min-microvolt = <650000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo2: ldo2 {
-+				regulator-name = "vdd_ldo2";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <2800000>;
-+			};
-+
-+			vdd_ldo3: ldo3 {
-+				regulator-name = "vdd_ldo3";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <2375000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo4: ldo4 {
-+				regulator-name = "vdd_ldo4";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo5: ldo5 {
-+				regulator-name = "vdd_ldo5";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo6: ldo6 {
-+				regulator-name = "vdd_ldo6";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo7: ldo7 {
-+				regulator-name = "vdd_ldo7";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <2375000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo8: ldo8 {
-+				regulator-name = "vdd_ldo8";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+			};
-+
-+			vdd_ldo9: ldo9 {
-+				regulator-name = "vdd_ldo9";
-+				regulator-min-microvolt = <650000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo10: ldo10 {
-+				regulator-name = "vdd_ldo10";
-+				regulator-min-microvolt = <650000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo25: ldo25 {
-+				regulator-name = "vdd_ldo25";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <2375000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo26: ldo26 {
-+				regulator-name = "vdd_ldo26";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3375000>;
-+			};
-+
-+			vdd_ldo27: ldo27 {
-+				regulator-name = "vdd_ldo27";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <2375000>;
-+			};
-+
-+			vdd_ldo29: ldo29 {
-+				regulator-name = "vdd_ldo29";
-+				regulator-min-microvolt = <3000000>;
-+				regulator-max-microvolt = <3000000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo30: ldo30 {
-+				regulator-name = "vdd_ldo30";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo31: ldo31 {
-+				regulator-name = "vdd_ldo31";
-+				regulator-min-microvolt = <2800000>;
-+				regulator-max-microvolt = <2800000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo32: ldo32 {
-+				regulator-name = "vdd_ldo32";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+			};
-+
-+			vdd_ldo33: ldo33 {
-+				regulator-name = "vdd_ldo33";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo34: ldo34 {
-+				regulator-name = "vdd_ldo34";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+
-+			vdd_ldo35: ldo35 {
-+				regulator-name = "vdd_ldo35";
-+				regulator-min-microvolt = <2800000>;
-+				regulator-max-microvolt = <2800000>;
-+				regulator-always-on;
-+				regulator-boot-on;
-+			};
-+		};
-+	};
-+};
-+
-+&i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	samsung,i2c-sda-delay = <100>;
-+	samsung,i2c-max-bus-freq = <400000>;
-+
-+	status = "okay";
-+
-+	touchscreen@48 {
-+		compatible = "melfas,mip4_ts";
-+		reg = <0x48>;
-+
-+		interrupt-parent = <&gpc3>;
-+		interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&touch_irq>;
-+	};
-+};
-+
-+&mmc0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sd0_clk &sd0_cmd &sd0_rdqs &sd0_bus1 &sd0_bus4 &sd0_bus8>;
-+
-+	vmmc-supply = <&vdd_ldo26>;
-+	vqmmc-supply = <&vdd_ldo27>;
-+
-+	fifo-depth = <64>;
-+	samsung,dw-mshc-ciu-div = <3>;
-+	samsung,dw-mshc-sdr-timing = <0 4>;
-+	samsung,dw-mshc-ddr-timing = <2 4>;
-+	non-removable;
-+
-+	status = "okay";
-+};
-+
-+&mmc1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sd1_clk &sd1_cmd &sd1_bus1 &sd1_bus4>;
-+
-+	mmc-pwrseq = <&pwrseq_mmc1>;
-+
-+	bus-width = <4>;
-+	fifo-depth = <64>;
-+	samsung,dw-mshc-ciu-div = <3>;
-+	samsung,dw-mshc-sdr-timing = <0 3>;
-+	samsung,dw-mshc-ddr-timing = <1 2>;
-+	non-removable;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+
-+	status = "okay";
-+
-+	wifi@1 {
-+		compatible = "brcm,bcm43430a1-fmac", "brcm,bcm4329-fmac";
-+		reg = <0x1>;
-+
-+		interrupt-names = "host-wake";
-+		interrupt-parent = <&gpa2>;
-+		interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
-+
-+		reset-gpios = <&gpd3 6 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&mmc2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sd2_clk &sd2_cmd &sd2_bus1 &sd2_bus4 &dwmmc2_irq>;
-+
-+	vmmc-supply = <&vdd_fixed_mmc2>;
-+	vqmmc-supply = <&vdd_ldo2>;
-+
-+	bus-width = <4>;
-+	card-detect-delay = <200>;
-+	fifo-depth = <64>;
-+	samsung,dw-mshc-ciu-div = <3>;
-+	samsung,dw-mshc-sdr-timing = <0 3>;
-+	samsung,dw-mshc-ddr-timing = <1 2>;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	broken-cd;
-+	disable-wp;
-+
-+	status = "okay";
-+};
-+
-+&oscclk {
-+	clock-frequency = <26000000>;
-+};
-+
-+&pinctrl_alive {
-+	dwmmc2_irq: dwmmc2-irq-pins {
-+		samsung,pins = "gpa0-1";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	fuel_irq: fuel-irq-pins {
-+		samsung,pins = "gpa0-3";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_INPUT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	key_home: key-home-pins {
-+		samsung,pins = "gpa1-7";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	key_power: key-power-pins {
-+		samsung,pins = "gpa0-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	key_voldown: key-voldown-pins {
-+		samsung,pins = "gpa2-1";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	key_volup: key-volup-pins {
-+		samsung,pins = "gpa2-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	pmic_irq: pmic-irq-pins {
-+		samsung,pins = "gpa0-2";
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR3>;
-+	};
-+};
-+
-+&pinctrl_touch {
-+	touch_irq: touch-irq-pins {
-+		samsung,pins = "gpc3-2";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+};
-+
-+&serial2 {
-+	status = "okay";
-+};
-+
-+&usbdrd {
-+	vdd33-supply = <&vdd_ldo8>;
-+
-+	status = "okay";
-+};
+Felix, if you repost this for other reasons, please incorporate those.
 
--- 
-2.52.0
-
+> Fixes: 1df82ec46600 ("PCI: imx: Add workaround for e10728, IMX7d PCIe PLL failure")
+> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+> ---
+> Changes in v2:
+> - Use __free(device_node) clean handler to fix the leak.
+> - Link to v1: https://lore.kernel.org/r/20260124-pci_imx6-v1-1-6f4379fc5160@gmail.com
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 1d8677d7de04..f459d05ecd7d 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -1643,7 +1643,6 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  	struct device *dev = &pdev->dev;
+>  	struct dw_pcie *pci;
+>  	struct imx_pcie *imx_pcie;
+> -	struct device_node *np;
+>  	struct device_node *node = dev->of_node;
+>  	int i, ret, domain;
+>  	u16 val;
+> @@ -1670,7 +1669,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
+>  		pci->pp.ops = &imx_pcie_host_dw_pme_ops;
+>  
+>  	/* Find the PHY if one is defined, only imx7d uses it */
+> -	np = of_parse_phandle(node, "fsl,imx7d-pcie-phy", 0);
+> +	struct device_node *np __free(device_node) =
+> +		of_parse_phandle(node, "fsl,imx7d-pcie-phy", 0);
+>  	if (np) {
+>  		struct resource res;
+>  
+> 
+> ---
+> base-commit: a0c666c25aeefd16f4b088c6549a6fb6b65a8a1d
+> change-id: 20260124-pci_imx6-f97d70887dfc
+> 
+> Best regards,
+> -- 
+> Felix Gu <ustc.gu@gmail.com>
+> 
+> 
 
