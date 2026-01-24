@@ -4,87 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 154ADD715DE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 09:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C096DD715DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 09:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lYuJM5xxHyayhgUiamwAETL6g/TQjMXIxfgveswC0ic=; b=C/Iui67t/zaSEIJ+H00GB1S4+r
-	hkDdIYZsaCjQ8kA2g2NgBRqfR47hKwDYejyzfXublymWSD48aT6Bo9M4B7PbDaosDkd2X6+94SoYq
-	fh7xIyYHCPrGnUqz1hvmwZXrDZTPZXVlSJ55bZYPGNzvA8utM+0MnAeUdqQKKIyaQYxTaUEw2JxeF
-	7sOGqrK2FJPBnoExvP/0yz75aawmxOaN9qp0NSID9tBpq2D0Y4liUbANwZ0ELmc4lEDT36kSOpUeg
-	hndcCqEzc7yIeGWRToc+q/ePKiJEd2BHakrw7rB5LhZjQqWgh07iN8VU41EbdO550ljoxwm4Xs0FD
-	kS1sqjYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EHh228QxGIXrrJVTE4aa2QYRaQvESHcQuamH6lLYXdQ=; b=j4iwexuXvMHMp4j1aoF3HAVsph
+	PIt8PvOK4VWjUVElI1XcetwSDLgNKSWAk0+Dy7RozW9gxYspMRciKQHTDiP+sLbu4Nly94VVcwo4x
+	1cEoBa1Tb0UeiGO2FcFOqWBPv/2igf17c4rnk0TzP+f/SwGoZfs123du8b9OBc31uENtoVlpj6pEn
+	aCE2hhS2bT6dfAPyxSVOAP1M4S6HAKN460fsjHDxGEovmMcpx0glg+goE7CTiZV2xwM3/7uhYVrhU
+	Zop1cXpgcecE57fSG172iDqr80TFrKQElUAiggt+S19blYPnKzgqjzT84BlDipVLRhT2rPZqke02P
+	Oxk2sFrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjaCf-0000000A8OT-000z;
-	Sat, 24 Jan 2026 09:45:13 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vjaHs-0000000A8dV-2NxW;
+	Sat, 24 Jan 2026 09:50:36 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjaCb-0000000A8Nx-1ykz
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 24 Jan 2026 09:45:12 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-47ee9817a35so23033865e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 24 Jan 2026 01:45:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1769247907; x=1769852707; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=lYuJM5xxHyayhgUiamwAETL6g/TQjMXIxfgveswC0ic=;
-        b=oEUUJJYGNGktG4GhzBTM0VGhLQKxEMFK2s7O9fOWskpGVqdQS9vigMXNzIky27NqTl
-         i1LWCYWUyvP/fVOZHMdylojfyVAI4trytOfe70mVENYxH0TzIqXaW4aVocEfxceVo67D
-         8ntbOn9iaj/IJCZR0OzQyNcBc7bsE4TCsPJoNwaLiHwS5+kBi+ODEHMzhqhN/KhKSzVv
-         MiyB7BbKSxM+X43AsQgIIhNzOdV29pO/qV5JOQSt4vtX1xk+9M0uihFTljrs+1orCqz3
-         /+366ogARbMnJe3pZ7ojmQo84YfC9czqUrLEXGaleS3qind7pAsBhmgaBbbVQf6BFYSB
-         /i8Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769247907; x=1769852707;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lYuJM5xxHyayhgUiamwAETL6g/TQjMXIxfgveswC0ic=;
-        b=sE+a637iMyNodMObpBYzAFB1ndTM3iZbwzZyS55TqPOIoojBCSb58+uzFB9T+RtE/h
-         xNssFqQF9QVE/ggUanN7LpJVv6QnUWKIMS9mZUOKyDGqBj25qO7aEDaqR6EO6WhsDFg0
-         PaQkDl/109m3UH20iE2oy9PxZ7qx1NzyK3/2Ulv7evffpHa2mGFojeqNl/A6WJX7AQCT
-         PPAFmpSZxYfwHLGllMVCuiqAsSf4NAIwAeLIv1wyLzD9nipR1joZ9Qrkh7tcs/j5RFSN
-         JUry4PMc46PKzWIYo6nR8ZpHAP+SuAnjk841iuteSQRvy2ZvxuLK7HR9hPj3m15DfCxl
-         tdvg==
-X-Forwarded-Encrypted: i=1; AJvYcCUsQ4VXJELopzhAzFP6FrZLdS9TGJuCCuvN113JVUSda4NIEpXwRvY/o/GnS3QrSVGI/j4SZbRBQnY3v92tjd3u@lists.infradead.org
-X-Gm-Message-State: AOJu0YztoR0WOM8gf57VRDGsuCbE6QEICtJxMuonb0cNrQatvXQ698S3
-	Y8Zd2k+I94BGKhUj1qt39FkbhdTMoyMWmd6SegZyHXJioMIX3gUpum5Vyis4W/pmOSE=
-X-Gm-Gg: AZuq6aIuwMKHPBfOQmUNZ11/og3OL7gCO/GTiyDb+ed5Yy7Vm4wr1u/1dmFkA3qjfJM
-	7zi/rlRzJDBe7zrasuQBSiFacLLo+33uWb5oyUD0lkLF944s69umRoFjGYmnaeSEZOTvDNbIyxk
-	iFEVKeEAu0lA7Be7JE30yTI5i9CwOScNG7YAgexbivvN3gYCVysMhyo8elsE/EhdIj4pabs639U
-	bKVzzIEPwDk94TamnjSGFK1wFrUWi7IOmayJOTCd2Ndg5q8rlQO41gsze1hRmuk88yZeoFvzwU0
-	JcFAGQZ0u1JYokrinyRdRPrAZkqJtwoC8cEpCe8roRGzMPgX8rgLLOjr6WC0DPiYzV3AJC9ojEB
-	s/tD/B/PU6eFWhTkR8hClh29dA2NGrB2JoyFtcm03n2/CKlbKvjyYiiAkC/8K/booXJocJCWj1w
-	869YNw0ISt01qDdJy4kM1a2ka/v6tj8iZraZRpLU8=
-X-Received: by 2002:a05:600c:8b02:b0:477:9a28:b0a4 with SMTP id 5b1f17b1804b1-4804c8e758dmr87743995e9.0.1769247907283;
-        Sat, 24 Jan 2026 01:45:07 -0800 (PST)
-Received: from claudiu-X670E-Pro-RS.. ([82.78.167.31])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4804d85206fsm116002915e9.6.2026.01.24.01.45.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 24 Jan 2026 01:45:06 -0800 (PST)
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-To: soc@kernel.org,
-	arm@kernel.org
-Cc: claudiu.beznea@tuxon.dev,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Microchip AT91 SoC updates for v6.20
-Date: Sat, 24 Jan 2026 11:45:05 +0200
-Message-ID: <20260124094505.2106608-1-claudiu.beznea@tuxon.dev>
-X-Mailer: git-send-email 2.43.0
+	id 1vjaHp-0000000A8d1-0gDO;
+	Sat, 24 Jan 2026 09:50:34 +0000
+X-UUID: 1c8eb004f90a11f0a16f0188aa809bee-20260124
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=EHh228QxGIXrrJVTE4aa2QYRaQvESHcQuamH6lLYXdQ=;
+	b=QiMq/4qW7pDGYKe/lJWvzXjQMUous/lQdv7DVMOoiUe6pM8l4TZ6IiT7EoVS5lTNxmTm/qgjgF3vlvf4KUCMu3UzfzidNFhN23Qk43yQ9KsKdvZNLL4WBl9bhjyopAsimuFMSIiiX0EBnjuGlkndP6iyLpoY4DuIp6uyIkbknDg=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:159fc861-47c4-473a-a0f6-e06fdb9d59c1,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:97ac297a-8c8a-4fc4-88c0-3556e7711556,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:1,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA
+	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1c8eb004f90a11f0a16f0188aa809bee-20260124
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+	(envelope-from <jibin.zhang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 126600993; Sat, 24 Jan 2026 02:50:27 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Sat, 24 Jan 2026 17:50:24 +0800
+Received: from mbjsdccf07.gcn.mediatek.inc (10.15.20.246) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Sat, 24 Jan 2026 17:50:23 +0800
+From: Jibin Zhang <jibin.zhang@mediatek.com>
+To: Eric Dumazet <edumazet@google.com>, Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>, "David S . Miller"
+	<davem@davemloft.net>, David Ahern <dsahern@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: <wsd_upstream@mediatek.com>, Jibin Zhang <jibin.zhang@mediatek.com>
+Subject: [PATCH v3] net: fix segmentation of forwarding fraglist GRO
+Date: Sat, 24 Jan 2026 17:50:18 +0800
+Message-ID: <20260124095021.3953-1-jibin.zhang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260124_014509_541607_9E995E93 
-X-CRM114-Status: UNSURE (   7.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260124_015033_237142_1E6FD102 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,35 +88,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+This patch enhances GSO segment checks by verifying the presence
+of frag_list and protocol consistency, addressing low throughput
+issues on IPv4 servers when used as hotspots
 
-  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+Specifically, it fixes a bug in GSO segmentation when forwarding
+GRO packets with frag_list. The function skb_segment_list cannot
+correctly process GRO skbs converted by XLAT, because XLAT only
+converts the header of the head skb. As a result, skbs in the
+frag_list may remain unconverted, leading to protocol
+inconsistencies and reduced throughput.
 
-are available in the Git repository at:
+To resolve this, the patch uses skb_segment to handle forwarded
+packets converted by XLAT, ensuring that all fragments are
+properly converted and segmented.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux.git tags/at91-soc-6.20
+Signed-off-by: Jibin Zhang <jibin.zhang@mediatek.com>
+---
+v3: Apply the same fix to tcp6_gso_segment(), as suggested.
 
-for you to fetch changes up to 0b0f7e6539a7507689445f8a0cace17305272bfe:
+v2: To apply the added condition to a narrower scop
 
-  ARM: at91: remove unnecessary of_platform_default_populate calls (2026-01-10 17:35:02 +0200)
+  In this version, the condition (skb_has_frag_list(gso_skb) &&
+(gso_skb->protocol == skb_shinfo(gso_skb)->frag_list->protocol))
+is moved into inner 'if' statement to a narrower scope.
 
-----------------------------------------------------------------
-Microchip AT91 SoC updates for v6.20
+  Send out the patch again for further discussion because:
 
-This update includes:
-- drop the use of of_platform_default_populate() from the
-  machine specific code, as it is already handled by the DT core
+1. This issue has a significant impact and has occurred in many
+countries and regions.
+2. Currently, modifying BPF is not a good option, because BPF code
+cannot access the header of skb on the fraglist, and the required
+changes would affect a wide range of code.
+3. Directly disabling GRO aggregation for XLAT flows is also not a
+good solution, as this change would disable GRO even when forwarding
+is not needed, and it would also require cooperation from all device
+drivers.
 
-----------------------------------------------------------------
-Rob Herring (Arm) (2):
-      ARM: at91: Move PM init functions to .init_late hook
-      ARM: at91: remove unnecessary of_platform_default_populate calls
+[2]: https://patchwork.kernel.org/patch/14375646
 
- arch/arm/mach-at91/at91rm9200.c | 12 +-----------
- arch/arm/mach-at91/at91sam9.c   | 12 +-----------
- arch/arm/mach-at91/sam9x60.c    | 12 +-----------
- arch/arm/mach-at91/sam9x7.c     | 12 +-----------
- arch/arm/mach-at91/sama5.c      | 21 +++------------------
- arch/arm/mach-at91/sama7.c      | 11 +----------
- 6 files changed, 8 insertions(+), 72 deletions(-)
+[1]: https://patchwork.kernel.org/patch/14350844
+
+---
+ net/ipv4/tcp_offload.c   | 4 +++-
+ net/ipv4/udp_offload.c   | 4 +++-
+ net/ipv6/tcpv6_offload.c | 4 +++-
+ 3 files changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+index fdda18b1abda..6c2c10f37f87 100644
+--- a/net/ipv4/tcp_offload.c
++++ b/net/ipv4/tcp_offload.c
+@@ -107,7 +107,9 @@ static struct sk_buff *tcp4_gso_segment(struct sk_buff *skb,
+ 	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
+ 		struct tcphdr *th = tcp_hdr(skb);
+ 
+-		if (skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size)
++		if ((skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size) &&
++		    skb_has_frag_list(skb) &&
++		    (skb->protocol == skb_shinfo(skb)->frag_list->protocol))
+ 			return __tcp4_gso_segment_list(skb, features);
+ 
+ 		skb->ip_summed = CHECKSUM_NONE;
+diff --git a/net/ipv4/udp_offload.c b/net/ipv4/udp_offload.c
+index 19d0b5b09ffa..2a99f011793f 100644
+--- a/net/ipv4/udp_offload.c
++++ b/net/ipv4/udp_offload.c
+@@ -514,7 +514,9 @@ struct sk_buff *__udp_gso_segment(struct sk_buff *gso_skb,
+ 
+ 	if (skb_shinfo(gso_skb)->gso_type & SKB_GSO_FRAGLIST) {
+ 		 /* Detect modified geometry and pass those to skb_segment. */
+-		if (skb_pagelen(gso_skb) - sizeof(*uh) == skb_shinfo(gso_skb)->gso_size)
++		if ((skb_pagelen(gso_skb) - sizeof(*uh) == skb_shinfo(gso_skb)->gso_size) &&
++		    skb_has_frag_list(gso_skb) &&
++		    (gso_skb->protocol == skb_shinfo(gso_skb)->frag_list->protocol))
+ 			return __udp_gso_segment_list(gso_skb, features, is_ipv6);
+ 
+ 		ret = __skb_linearize(gso_skb);
+diff --git a/net/ipv6/tcpv6_offload.c b/net/ipv6/tcpv6_offload.c
+index effeba58630b..3c7fd0362475 100644
+--- a/net/ipv6/tcpv6_offload.c
++++ b/net/ipv6/tcpv6_offload.c
+@@ -170,7 +170,9 @@ static struct sk_buff *tcp6_gso_segment(struct sk_buff *skb,
+ 	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
+ 		struct tcphdr *th = tcp_hdr(skb);
+ 
+-		if (skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size)
++		if ((skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size) &&
++		    skb_has_frag_list(skb) &&
++		    (skb->protocol == skb_shinfo(skb)->frag_list->protocol))
+ 			return __tcp6_gso_segment_list(skb, features);
+ 
+ 		skb->ip_summed = CHECKSUM_NONE;
+-- 
+2.45.2
+
 
