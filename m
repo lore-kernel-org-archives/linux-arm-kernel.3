@@ -4,79 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EC49D778BF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 00:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A604BD77898
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 24 Jan 2026 00:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZB71uqjML4w9rR8etBjxBLKoRFzZrwDxpZiOxS2Ois=; b=yEpePMuLpY26qGZRGEzW75+Tei
-	SM9lFyStAYRuwgQwVOkUC1WHg+nfR+ImgfI3g/pL/9synxSBj24RI+htfSrJ0otE/+nGa5XBeO1ne
-	GKlspi8CrfU9QHqiMSp5T7HObaMjYjGFhJSHaAcXt3AeWZGJHHRDk53UHY3eKsuJv6zBcLz87x4hI
-	DNl5TstpO9jxHo9HDQPAUimefZ+hxWX2dRKwDO6LfMtHq0NQWGNiEiebATZCEYa0CWV5yEN4I2jgp
-	zLIvuqsRgXaEY40jwjlviQF4KnLfsbZEj16PtYHHda0tsIX671g/3YaKXhI7ccVuaFcSWskXX7mE4
-	HoskOruQ==;
+	bh=xhgLPiYR6xEsxXnQ/SeaMjXXghHvMuOe7YsndhfrobA=; b=WtsdesmTA22pTeMNwcx8lUg90L
+	ONH9tWtD5DGK4N4NNmqgKiL382dTeRe5kCTW84mZ1c5XV08py4eIAP7+ykCtFryjr3UE8GwSHoxKS
+	PQgeDYmrOTqareiZBobGoyObMU7qHA19588YWCHpumhKv/MLr/iE3TY7+5eWdENL+oEAh218C40or
+	Ml/7hKC/JQAOCoskZz2iwemaf0Tl1YC6drXZSUsheH+nr/it/vm15qMebGOXtv+Wk6ywR8JtWn/Xp
+	iy+ed12RkLO99YCFrDLR6xfcbkJBwJ4Fw+yJrSPyHtoCG2nsFp9qReRUhqkVkz2M2YPUg1b49Pxm6
+	84iLWVPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjRKe-00000009bYq-1nYu;
-	Sat, 24 Jan 2026 00:16:52 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vjROh-00000009c6n-1syD;
+	Sat, 24 Jan 2026 00:21:03 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjRKb-00000009bYO-49sV;
-	Sat, 24 Jan 2026 00:16:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=iZB71uqjML4w9rR8etBjxBLKoRFzZrwDxpZiOxS2Ois=; b=vRSuX8oU8/P4wCgCBM9K3rqdta
-	ZFSOeo9EMGRE8fRWUz+5xUaBJKm20kbE8f092osZzm89zIJIQMOMjSriMMCx+XzmPJuvFYIdJShSj
-	C6RH1gHbjhksFQ7BeCFZS5qInVkMFvhmwAXsQYeSqxE6Xfw47SLPKSSm+sJZ1GOhDDbMQtnNxDXb8
-	y/Ce8GNmcD+0y9WBB7GJhtLZ+wXCCKYyAABUYjOQ5L94CV5sVvOuiKsLow80eINl7lIQntrIo3zVZ
-	7wAHOswmVW9EA6HQCubITsqcIvNYR0Zkw7w1IXGFjQPET7Lx6RkeLP39OW85A2itOp5AKlNrfwpdT
-	Qo3GrNvg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33206)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vjRKT-000000002e4-0vPd;
-	Sat, 24 Jan 2026 00:16:41 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vjRKP-000000002Xd-1kQd;
-	Sat, 24 Jan 2026 00:16:37 +0000
-Date: Sat, 24 Jan 2026 00:16:37 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next v2 00/14] net: stmmac: SerDes, PCS, BASE-X, and
- inband goodies
-Message-ID: <aXQPZfRQl2wpQ3Sx@shell.armlinux.org.uk>
-References: <aXNEwBW3OA1xLEUj@shell.armlinux.org.uk>
- <aXNX1oi7nWLcPK28@shell.armlinux.org.uk>
- <20260124000409.36nsxlvkde4zpddk@skbuf>
+	id 1vjROc-00000009c6N-3QoB
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 24 Jan 2026 00:21:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1769214057;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xhgLPiYR6xEsxXnQ/SeaMjXXghHvMuOe7YsndhfrobA=;
+	b=Nh1jvGaUjRm0atvydNlFFcW0SGiWwOYFpOdTr4FsomtL9qdYU+lsoKPYZQ/oTEFfdVlIFN
+	N+bjUvd+u6NUv4R012H2KaeQ6qtKfPv98GcgZHcSau+9q456oOuIes5Ywj7Z67w+zv8VdE
+	jxe3YXmMkcgTLM5xpkflhgGfV4Frk5c=
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
+ [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-606-GbzFgFjzM0qtF2QDCJedmg-1; Fri, 23 Jan 2026 19:20:55 -0500
+X-MC-Unique: GbzFgFjzM0qtF2QDCJedmg-1
+X-Mimecast-MFC-AGG-ID: GbzFgFjzM0qtF2QDCJedmg_1769214055
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2a76f2d7744so23237645ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 23 Jan 2026 16:20:55 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769214055; x=1769818855;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xhgLPiYR6xEsxXnQ/SeaMjXXghHvMuOe7YsndhfrobA=;
+        b=FHyiKksuOxmjJKIE42mKGvE6l4BFazvg79afKTX1aZtqttHoiP1+jljuWNSDHlMvyz
+         IM0lcc3rx3MHrqzJz5ING9GjiNON+LHmxG1736I2cnUt6qcKIUVsaTp7SDzQJ9UDfI0l
+         uQKLBXsbv/7jjvBdcNHxoTVMRfrbA6DkVYVyziXhShwrl0J9B0mCe6vachw1m6pUphcY
+         TR/K4VTqhjBbAVqli6dRGQsSEznMh+IKBzybyaqdnUfyAdHw3vAcuBFK1SXSOr6mlmZm
+         UPrY98JFIpjV606ukL7IXe4b79Jc/bmq7F/nx7DwHc/21WeBM8ScN6oAjvH/4jgWjxRO
+         hrzA==
+X-Forwarded-Encrypted: i=1; AJvYcCXhJpHjyx5v5BWxsoEDBOrfvY8Aj5JH7JUQRZbo/Cr7B5ZMf4yhMRxz1tN/B1C4pUmpWOI6NEtN+AbraOK7O1eC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw86tt0WxPklz8MHwWd0UEO+N9Nf0RMy8/mn1nfmgKY+UyD2LFz
+	bdGgkq1iGf+rryD3HGI86d88ZwVPNbdIjvNazurwA6AdOgMIkiBy6ka02ctDtO51uoHc5UVkOnF
+	YNSx34poJ8ZH/uuvD4OccnsKbeaCZg/T2aiuqMZzIx6SeVh6t3fORbKclGgFW/U2cZA/fYOtvhz
+	8n
+X-Gm-Gg: AZuq6aJhFvqJs03bsL1TfF+nIa1xeb55FCEt3z61BJb3pTp9oEQCJ40RhTBbREEkfHw
+	W6E8sLKOWq0Afp7yUT7QR4Y1bT0bUqtgrk09jMnV7jOSbcYizxtwHwqxiy93JTSvk4hYCKTS/FW
+	o9Wper1bL7w6bxA8aQMbuN1DlJU62XJuD06QEy+tBWGu8tUsVgb9VqKelN/x/3EJS99UZEsxjf4
+	wCEVE1J24axK2SzXJFpGE4WARuFpn+UGuO6e5TFylBtQ1mCjVGAr+4XE8JF48UGAp0xXGLpw1we
+	KwS0a7T8wuy8+1MB220TbWM25w3QtGW0enAhmlwTnngEI9bWulRcogpce4gPwz/OJG0j2s2b1FB
+	R
+X-Received: by 2002:a17:902:e54d:b0:2a7:682b:50ac with SMTP id d9443c01a7336-2a7fe625118mr44257505ad.28.1769214054353;
+        Fri, 23 Jan 2026 16:20:54 -0800 (PST)
+X-Received: by 2002:a17:902:e54d:b0:2a7:682b:50ac with SMTP id d9443c01a7336-2a7fe625118mr44257045ad.28.1769214053812;
+        Fri, 23 Jan 2026 16:20:53 -0800 (PST)
+Received: from localhost ([209.132.188.88])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a802faf6f9sm29695045ad.71.2026.01.23.16.20.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 23 Jan 2026 16:20:53 -0800 (PST)
+Date: Sat, 24 Jan 2026 08:18:46 +0800
+From: Coiby Xu <coxu@redhat.com>
+To: Ard Biesheuvel <ardb@kernel.org>, Mimi Zohar <zohar@linux.ibm.com>
+Cc: Dave Hansen <dave.hansen@intel.com>, linux-integrity@vger.kernel.org, 
+	Heiko Carstens <hca@linux.ibm.com>, Roberto Sassu <roberto.sassu@huaweicloud.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Roberto Sassu <roberto.sassu@huawei.com>, Dmitry Kasatkin <dmitry.kasatkin@gmail.com>, 
+	Eric Snowberg <eric.snowberg@oracle.com>, Paul Moore <paul@paul-moore.com>, 
+	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
+	Jarkko Sakkinen <jarkko@kernel.org>, 
+	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, 
+	"open list:LINUX FOR POWERPC (32-BIT AND 64-BIT)" <linuxppc-dev@lists.ozlabs.org>, "open list:S390 ARCHITECTURE" <linux-s390@vger.kernel.org>, 
+	"open list:EXTENSIBLE FIRMWARE INTERFACE (EFI)" <linux-efi@vger.kernel.org>, 
+	"open list:SECURITY SUBSYSTEM" <linux-security-module@vger.kernel.org>, "open list:KEYS/KEYRINGS_INTEGRITY" <keyrings@vger.kernel.org>
+Subject: Re: [PATCH 1/3] integrity: Make arch_ima_get_secureboot
+ integrity-wide
+Message-ID: <aXQN-ZNhT5olbf6X@Rk>
+References: <20260115004328.194142-2-coxu@redhat.com>
+ <CAMj1kXFXNo1-pMbo-VZrjQ3TYe1tufebrLr_avL12A0nHMSGnA@mail.gmail.com>
+ <8bfa859ed3a4f1cf0db0ab64d8c1c3b24684582a.camel@linux.ibm.com>
+ <CAMj1kXHsJNZoUEnbD1y=v4Ftuv9d2c08VckRV7ru4k4P83vZbQ@mail.gmail.com>
+ <97b69bc79a5d9246f7a399510908c7b95b2e95e7.camel@linux.ibm.com>
+ <CAMj1kXGx4ebaK87W7k0SNUNQnO9+=z1nmYxXC7retmp3OqRRFg@mail.gmail.com>
+ <ac5e5e45c12e9b0bda19807e60b06057d74be0b3.camel@linux.ibm.com>
+ <aW2i3yacr5TvWU-m@Rk>
+ <1a0b6e5601a673a81f8823de0815f92b7afbeb60.camel@linux.ibm.com>
+ <CAMj1kXFBMSEdRL8FotASbQO3dcfNG0bpp9Vnm5JPn-yjyDr=GA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+In-Reply-To: <CAMj1kXFBMSEdRL8FotASbQO3dcfNG0bpp9Vnm5JPn-yjyDr=GA@mail.gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: cooFon88yoj3JhIr5rIovylWdH2sUPHEeFtSsCmZF-s_1769214055
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii; format=flowed
 Content-Disposition: inline
-In-Reply-To: <20260124000409.36nsxlvkde4zpddk@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260123_161650_038652_79DEE423 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20260123_162058_957155_1842B2E7 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,44 +133,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 24, 2026 at 02:04:09AM +0200, Vladimir Oltean wrote:
-> On Fri, Jan 23, 2026 at 11:13:26AM +0000, Russell King (Oracle) wrote:
-> > According to patchwork, this doesn't apply to net-next. That's odd,
-> > it was generated on last night's net next, and although there has been
-> > further work, it rebases cleanly on top of this morning's. How can
-> > these changes:
-> > 
-> >  drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c   |  6 +++++-
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 20 ++++++++++++++++----
-> >  2 files changed, 21 insertions(+), 5 deletions(-)
-> > 
-> > which happened in net-next overnight result in this change in patch 1:
-> > 
-> >  drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 3 ---
-> >  1 file changed, 3 deletions(-)
-> > 
-> > failing to apply?
-> > 
-> > No, patchwork is clearly wrong.
-> 
-> Conflicts with commit dc6597fab3e3 ("net: stmmac: dwmac-imx: keep
-> preamble before sfd on i.MX8MP"), merged in the meantime.
-> 
-> In include/linux/stmmac.h (your commit "net: stmmac: add stmmac core
-> serdes support" adds a "struct phy;" line, but that other commit
-> modifies the context by inserting:
-> 
-> #define STMMAC_FLAG_KEEP_PREAMBLE_BEFORE_SFD	BIT(14)
-> 
-> (the last stmmac flag in your context, at patch generation time, was:
-> #define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(13)
-> )
+On Wed, Jan 21, 2026 at 05:25:39PM +0100, Ard Biesheuvel wrote:
+>On Wed, 21 Jan 2026 at 16:41, Mimi Zohar <zohar@linux.ibm.com> wrote:
+>>
+>> On Mon, 2026-01-19 at 12:04 +0800, Coiby Xu wrote:
+>>
+>> > diff --git a/security/integrity/ima/Kconfig b/security/integrity/ima/Kconfig
+>> > index 976e75f9b9ba..5dce572192d6 100644
+>> > --- a/security/integrity/ima/Kconfig
+>> > +++ b/security/integrity/ima/Kconfig
+>> > @@ -311,6 +311,7 @@ config IMA_QUEUE_EARLY_BOOT_KEYS
+>> >   config IMA_SECURE_AND_OR_TRUSTED_BOOT
+>> >          bool
+>> >          depends on IMA_ARCH_POLICY
+>> > +       depends on INTEGRITY_SECURE_BOOT
+>> >
+>> >
+>> > Another idea is make a tree-wide arch_get_secureboot i.e. to move
+>> > current arch_ima_get_secureboot code to arch-specific secure boot
+>> > implementation. By this way, there will no need for a new Kconfig option
+>> > INTEGRITY_SECURE_BOOT. But I'm not sure if there is any unforeseen
+>> > concern.
+>>
+>> Originally basing IMA policy on the secure boot mode was an exception.  As long
+>> as making it public isn't an issue any longer, this sounds to me.  Ard, Dave, do
+>> you have any issues with replacing arch_ima_get_secureboot() with
+>> arch_get_secureboot()?
+>
+>I don't see an issue with that. If there is a legitimate need to
+>determine this even if IMA is not enabled, then this makes sense.
 
-I still maintain that this is silly - to mark all patches as such
-and without any details about the problem applying the patches is
-not helpful.
+Thanks for the confirmation! Here's the updated patch
+https://github.com/coiby/linux/commit/c222c1d08d90ef1ec85ef81ece90afc9efde7937.patch
+
+If there is no objection, I'll send v2.
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Best regards,
+Coiby
+
 
