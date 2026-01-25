@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77BB7D7237B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB5B3D7237B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CH9CKuGBomtUGQZ4+PlDf6AcFHLxJeql89OGbhEvJI4=; b=NHPOkupW/J4tIHZOgQBu4HFgtO
-	kqNn6P/VqEIP/7DOBv06qvCZei7S3u/n7JFsAFWlzCSgmPDK3Q/JoG9sLlzpGxAIjf6ZaeKU9mlQK
-	IHC0Ons3BXXzvvI3YsGYQYZFW4Cd56stOuQVvIC5JcSQcWOpHtx57cMxfQC46m+c7f58mGP7I5Gus
-	stQ83Sz1bAkoeBxbyDSp5OT30G+jFWYMQqEOAVvJSc8IbaXc/R7bCJN3r+V6CyC3vVaZ/dFds3kSS
-	0aMrQzOl1yFlH3bKw7pwBN9TitkKwDdYh1lWEaCu67CpFx+XF+CWVczzfSx7qmrJUPX74yRSSslmA
-	4V3JJNEA==;
+	bh=C9Nm9/UDIo43IcDUT0eKYVHqVsy1qWtWdi8Lz6ZU9Cw=; b=kz13MwutDlBQ8osyK98WIFp0Qk
+	29peWiJSfCgIcda+SpwxoNsKXqEnQzoDUF+yuXx+q8Z8QyiYoGwd/lKVQrA9qrGCq5XDpD6VhLuO4
+	vOjsH/onOUfOF/wRhmt0EqV1xsrOE49d5+UW5Li1beeLV6wkYR1bIGrAlSOKxfN+iwtOE2Kgg21jb
+	1+8SpG+t5dOmwFqptxjX2AY1HUYb4R7wfORjveFPcCbmfHH5Faf91YuohK6PUJSxOjgMys6IQ36Us
+	XRKlF024n1tXWAzUGoWdV3pp8SW3ScbyFne8sLWyT0Fv9G1lt9gr30mrKAVYryZi6UHqwp2/vuuN7
+	wG8m0NRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8vW-0000000Bdaw-3UIP;
-	Sun, 25 Jan 2026 22:49:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vk8vf-0000000Bdgo-19Gs;
+	Sun, 25 Jan 2026 22:49:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8vV-0000000BdZb-0fyb
+	id 1vk8vd-0000000BdfZ-3aRi
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 22:49:50 +0000
+	Sun, 25 Jan 2026 22:49:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1107407C8;
+	by tor.source.kernel.org (Postfix) with ESMTP id 4A657600C3;
+	Sun, 25 Jan 2026 22:49:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 128EFC4CEF1;
 	Sun, 25 Jan 2026 22:49:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F034C19425;
-	Sun, 25 Jan 2026 22:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769381388;
-	bh=8YH3jJJ1l+zWkUBN7W5HQtnoatv1adfZkeKPi8o8s7E=;
+	s=k20201202; t=1769381397;
+	bh=h4+1N6+onxTB3qHJHE3W5TiIbyuzvrEMpQNEnSESUL8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Xh9qasXMZUMlZAvDOzubOT1QTX8nu9zdOSq/aG5SytkYO8dDUbUHJYFhPOhMIbOoc
-	 shv9P8Bht3wB1y2r2jVGvZJv0HRG80ck2wtcmqKvSpyaFC/xFWa1YeBCz4KK/9ivCR
-	 hYkK+Dyczy4RyH0t8DqAhfix9gdqot+5+jz0nhKl5oWWR6gbyqD0RRWpWeslUSffQg
-	 5ffYgiOyzrLcj7I2oZeUcUBGC28h6CqUynsHVapP6lqi9yhKrLlwD6ZJaiFeb/Dw6q
-	 li4SD3zXYvOkkw7bhKz4ZGmz1nuunbm6XlRzlwkUldb6lKhtWEGk/kgzKSmleS680L
-	 XVtpddRKIJWYQ==
+	b=kvQ5LnyzA+O6y4LUBWv/7wEJYWp46+ofYDM2EyONjVw1AIkqi6EB56+Oel9II/NLK
+	 HHdKlb4PyDtYcmib4xuM5xdF8Af8P0DlSMiEcAtKW0KelHaT8vmw0qLVWbA9m+qoC7
+	 tG+aNiq5gxL88NVCMk2hmDNjRsFYl9HKjZpsEdD9TsnHiXRrNFZD8zxXUssjMNHmqj
+	 7i0PUx4Oyef4qEgji6Ns+v0gCbdZvVdcOaAqMJiNUHJpSKToUf0pDY3aXKvlxVkClJ
+	 9/HGLvRC+cBbT8Fbyi27zOmB3eoGNswFV7aOlH4M+1RfBOxBANuYTERwWSSzl1GjLP
+	 jt/8h7dy5BLBw==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,17 +81,15 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 29/33] sched/arm64: Move fallback task cpumask to HK_TYPE_DOMAIN
-Date: Sun, 25 Jan 2026 23:45:36 +0100
-Message-ID: <20260125224541.50226-30-frederic@kernel.org>
+Subject: [PATCH 30/33] kthread: Honour kthreads preferred affinity after cpuset changes
+Date: Sun, 25 Jan 2026 23:45:37 +0100
+Message-ID: <20260125224541.50226-31-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20260125224541.50226-1-frederic@kernel.org>
 References: <20260125224541.50226-1-frederic@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_144949_241960_57FC9B33 
-X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,78 +104,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When none of the allowed CPUs of a task are online, it gets migrated
-to the fallback cpumask which is all the non nohz_full CPUs.
+When cpuset isolated partitions get updated, unbound kthreads get
+indifferently affine to all non isolated CPUs, regardless of their
+individual affinity preferences.
 
-However just like nohz_full CPUs, domain isolated CPUs don't want to be
-disturbed by tasks that have lost their CPU affinities.
+For example kswapd is a per-node kthread that prefers to be affine to
+the node it refers to. Whenever an isolated partition is created,
+updated or deleted, kswapd's node affinity is going to be broken if any
+CPU in the related node is not isolated because kswapd will be affine
+globally.
 
-And since nohz_full rely on domain isolation to work correctly, the
-housekeeping mask of domain isolated CPUs should always be a subset of
-the housekeeping mask of nohz_full CPUs (there can be CPUs that are
-domain isolated but not nohz_full, OTOH there shouldn't be nohz_full
-CPUs that are not domain isolated):
-
-	HK_TYPE_DOMAIN & HK_TYPE_KERNEL_NOISE == HK_TYPE_DOMAIN
-
-Therefore use HK_TYPE_DOMAIN as the appropriate fallback target for
-tasks. Note that cpuset isolated partitions are not supported on those
-systems and may result in undefined behaviour.
+Fix this with letting the consolidated kthread managed affinity code do
+the affinity update on behalf of cpuset.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 Reviewed-by: Waiman Long <longman@redhat.com>
 ---
- Documentation/arch/arm64/asymmetric-32bit.rst | 12 ++++++++----
- arch/arm64/kernel/cpufeature.c                |  6 +++---
- 2 files changed, 11 insertions(+), 7 deletions(-)
+ include/linux/kthread.h  |  1 +
+ kernel/cgroup/cpuset.c   |  5 ++---
+ kernel/kthread.c         | 41 ++++++++++++++++++++++++++++++----------
+ kernel/sched/isolation.c |  3 +++
+ 4 files changed, 37 insertions(+), 13 deletions(-)
 
-diff --git a/Documentation/arch/arm64/asymmetric-32bit.rst b/Documentation/arch/arm64/asymmetric-32bit.rst
-index 57b8d7476f71..fc0c350c5e00 100644
---- a/Documentation/arch/arm64/asymmetric-32bit.rst
-+++ b/Documentation/arch/arm64/asymmetric-32bit.rst
-@@ -154,10 +154,14 @@ mode will return to host userspace with an ``exit_reason`` of
- ``KVM_EXIT_FAIL_ENTRY`` and will remain non-runnable until successfully
- re-initialised by a subsequent ``KVM_ARM_VCPU_INIT`` operation.
+diff --git a/include/linux/kthread.h b/include/linux/kthread.h
+index 8d27403888ce..c92c1149ee6e 100644
+--- a/include/linux/kthread.h
++++ b/include/linux/kthread.h
+@@ -100,6 +100,7 @@ void kthread_unpark(struct task_struct *k);
+ void kthread_parkme(void);
+ void kthread_exit(long result) __noreturn;
+ void kthread_complete_and_exit(struct completion *, long) __noreturn;
++int kthreads_update_housekeeping(void);
  
--NOHZ FULL
-----------
-+SCHEDULER DOMAIN ISOLATION
-+--------------------------
+ int kthreadd(void *unused);
+ extern struct task_struct *kthreadd_task;
+diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+index 801694de82a3..9a8292b7c7f1 100644
+--- a/kernel/cgroup/cpuset.c
++++ b/kernel/cgroup/cpuset.c
+@@ -1208,11 +1208,10 @@ void cpuset_update_tasks_cpumask(struct cpuset *cs, struct cpumask *new_cpus)
  
--To avoid perturbing an adaptive-ticks CPU (specified using
--``nohz_full=``) when a 32-bit task is forcefully migrated, these CPUs
-+To avoid perturbing a boot-defined domain isolated CPU (specified using
-+``isolcpus=[domain]``) when a 32-bit task is forcefully migrated, these CPUs
- are treated as 64-bit-only when support for asymmetric 32-bit systems
- is enabled.
-+
-+However as opposed to boot-defined domain isolation, runtime-defined domain
-+isolation using cpuset isolated partition is not advised on asymmetric
-+32-bit systems and will result in undefined behaviour.
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c840a93b9ef9..f0e66cb27d17 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -1669,7 +1669,7 @@ const struct cpumask *system_32bit_el0_cpumask(void)
+ 		if (top_cs) {
+ 			/*
++			 * PF_KTHREAD tasks are handled by housekeeping.
+ 			 * PF_NO_SETAFFINITY tasks are ignored.
+-			 * All per cpu kthreads should have PF_NO_SETAFFINITY
+-			 * flag set, see kthread_set_per_cpu().
+ 			 */
+-			if (task->flags & PF_NO_SETAFFINITY)
++			if (task->flags & (PF_KTHREAD | PF_NO_SETAFFINITY))
+ 				continue;
+ 			cpumask_andnot(new_cpus, possible_mask, subpartitions_cpus);
+ 		} else {
+diff --git a/kernel/kthread.c b/kernel/kthread.c
+index 968fa5868d21..03008154249c 100644
+--- a/kernel/kthread.c
++++ b/kernel/kthread.c
+@@ -891,14 +891,7 @@ int kthread_affine_preferred(struct task_struct *p, const struct cpumask *mask)
+ }
+ EXPORT_SYMBOL_GPL(kthread_affine_preferred);
  
- const struct cpumask *task_cpu_fallback_mask(struct task_struct *p)
+-/*
+- * Re-affine kthreads according to their preferences
+- * and the newly online CPU. The CPU down part is handled
+- * by select_fallback_rq() which default re-affines to
+- * housekeepers from other nodes in case the preferred
+- * affinity doesn't apply anymore.
+- */
+-static int kthreads_online_cpu(unsigned int cpu)
++static int kthreads_update_affinity(bool force)
  {
--	return __task_cpu_possible_mask(p, housekeeping_cpumask(HK_TYPE_TICK));
-+	return __task_cpu_possible_mask(p, housekeeping_cpumask(HK_TYPE_DOMAIN));
+ 	cpumask_var_t affinity;
+ 	struct kthread *k;
+@@ -924,7 +917,8 @@ static int kthreads_online_cpu(unsigned int cpu)
+ 		/*
+ 		 * Unbound kthreads without preferred affinity are already affine
+ 		 * to housekeeping, whether those CPUs are online or not. So no need
+-		 * to handle newly online CPUs for them.
++		 * to handle newly online CPUs for them. However housekeeping changes
++		 * have to be applied.
+ 		 *
+ 		 * But kthreads with a preferred affinity or node are different:
+ 		 * if none of their preferred CPUs are online and part of
+@@ -932,7 +926,7 @@ static int kthreads_online_cpu(unsigned int cpu)
+ 		 * But as soon as one of their preferred CPU becomes online, they must
+ 		 * be affine to them.
+ 		 */
+-		if (k->preferred_affinity || k->node != NUMA_NO_NODE) {
++		if (force || k->preferred_affinity || k->node != NUMA_NO_NODE) {
+ 			kthread_fetch_affinity(k, affinity);
+ 			set_cpus_allowed_ptr(k->task, affinity);
+ 		}
+@@ -943,6 +937,33 @@ static int kthreads_online_cpu(unsigned int cpu)
+ 	return ret;
  }
  
- static int __init parse_32bit_el0_param(char *str)
-@@ -3987,8 +3987,8 @@ static int enable_mismatched_32bit_el0(unsigned int cpu)
- 	bool cpu_32bit = false;
++/**
++ * kthreads_update_housekeeping - Update kthreads affinity on cpuset change
++ *
++ * When cpuset changes a partition type to/from "isolated" or updates related
++ * cpumasks, propagate the housekeeping cpumask change to preferred kthreads
++ * affinity.
++ *
++ * Returns 0 if successful, -ENOMEM if temporary mask couldn't
++ * be allocated or -EINVAL in case of internal error.
++ */
++int kthreads_update_housekeeping(void)
++{
++	return kthreads_update_affinity(true);
++}
++
++/*
++ * Re-affine kthreads according to their preferences
++ * and the newly online CPU. The CPU down part is handled
++ * by select_fallback_rq() which default re-affines to
++ * housekeepers from other nodes in case the preferred
++ * affinity doesn't apply anymore.
++ */
++static int kthreads_online_cpu(unsigned int cpu)
++{
++	return kthreads_update_affinity(false);
++}
++
+ static int kthreads_init(void)
+ {
+ 	return cpuhp_setup_state(CPUHP_AP_KTHREADS_ONLINE, "kthreads:online",
+diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+index a30d19b641f7..3b725d39c06e 100644
+--- a/kernel/sched/isolation.c
++++ b/kernel/sched/isolation.c
+@@ -156,6 +156,9 @@ int housekeeping_update(struct cpumask *isol_mask)
+ 	err = tmigr_isolated_exclude_cpumask(isol_mask);
+ 	WARN_ON_ONCE(err < 0);
  
- 	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0)) {
--		if (!housekeeping_cpu(cpu, HK_TYPE_TICK))
--			pr_info("Treating adaptive-ticks CPU %u as 64-bit only\n", cpu);
-+		if (!housekeeping_cpu(cpu, HK_TYPE_DOMAIN))
-+			pr_info("Treating domain isolated CPU %u as 64-bit only\n", cpu);
- 		else
- 			cpu_32bit = true;
- 	}
++	err = kthreads_update_housekeeping();
++	WARN_ON_ONCE(err < 0);
++
+ 	kfree(old);
+ 
+ 	return 0;
 -- 
 2.51.1
 
