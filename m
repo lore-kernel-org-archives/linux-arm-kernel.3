@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8504E63C8E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 12:10:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D6C7E63C8E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 13:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=So0FSPRMoG3VoHFzzHBLbU8qyVsixP9PV7Lo1z3Fm90=; b=iFv5IHm0oPefPqYo+tjrg9Va7P
-	s84KKWxjvVL1uUp2ybu4VrQR7wkzlJDWAcVQKSDMui1kCsZr/dchfVoVvzyL8MyypgHpywdMc3Iyk
-	uw4+Qh2B/LoazOuYShIZhx8Przo0AuqckZar/MfvWbpiY5P/bZ+IODEvND58mWLeBq09BkqkCGIar
-	jhDVHBwCNbX+VVuioALGdc331iLi07nEozP/N+AT40NM2uPwBrxYJxU6XK8w5BRzR47wthFB4j+Fe
-	yjv96WQZ2kyW3uryPpgFQIqqmmhMPHOJz52d90CKypTQkgyDlwOi/+I6UcS7XZiin/Kh70EUKSwQu
-	2zSbdcJA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y+h4Fr1swQcoD3DXpbaZsHJfcLLHab4S06jK6pbWJoY=; b=K+lgZgVgx8wose6oqNLbp/dqG8
+	AfwYdyhGiFtUbW53Vh3XYDIa5oN6Mlm1/KEWbGbmRCxbnj6T6FqezsH6Kw+LkfDcK/1K0JkbJeOyW
+	BUTjWuuQNbbxjSYDGn8jqbTWDwwzztTLHJ/sr7AZF8XM1gcY+AxptLQ2SNPIpohp5cD7r5k3Hy/oY
+	J0YrtClYSYxW9ytLNVFhcJe9EK7HqMATQEgWejbeHQ983+4+VgWb0ZXxc5A/65ob2kPAM63H+J6W4
+	b7Pf9A4R/18hCuBgFudpIFxWMEMb1HjoagQCaYtxaraqXpKuuFjyuSHZkYKbR0um5xjAGUT0AOG2D
+	OKbO5+vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjywJ-0000000B9Y7-3bJu;
-	Sun, 25 Jan 2026 12:09:59 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vjzo9-0000000BBIQ-0KTR;
+	Sun, 25 Jan 2026 13:05:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjywF-0000000B9Xk-1XPy
+	id 1vjzo8-0000000BBIF-1PXL
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 12:09:57 +0000
-Received: from localhost.localdomain (unknown [36.112.3.223])
-	by APP-01 (Coremail) with SMTP id qwCowAB3424NCHZp+PIqBg--.53936S2;
-	Sun, 25 Jan 2026 20:09:49 +0800 (CST)
-From: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
-To: mkl@pengutronix.de,
-	mailhol@kernel.org,
-	alexandre.belloni@bootlin.com,
-	nicolas.ferre@microchip.com,
-	claudiu.beznea@tuxon.dev
-Cc: linux-can@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] can: at91_can: fix an error handle in at91_can_probe()
-Date: Sun, 25 Jan 2026 20:09:47 +0800
-Message-Id: <20260125120947.1997682-1-lihaoxiang@isrc.iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	Sun, 25 Jan 2026 13:05:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 64F576011E;
+	Sun, 25 Jan 2026 13:05:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0BEA7C2BC86;
+	Sun, 25 Jan 2026 13:05:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769346335;
+	bh=4qeRI0/8CXPNVIq8qwuTcyMxP3YlJM0KAF+LDIonx7s=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=OiSfkLT+6+odI5VsqJnqLdpxo2/67htY0AO5RcpeYD0a67FEnD1GjCVZoIc9DpxQn
+	 X9UkI/QvxV+mcnZYmDEeciFlYJ+sNDuSzhHzQCosSSoXIwj/mbMTlU6ibhqUweoWVP
+	 I3GoHOp3CjyFsDcDcLpXO0UYFayJyLljnPZyHIbP0sHZCGh37uuB5Ex7s98OICiEU3
+	 Tqt43B0w5XBlfYHLmO6mICQLr3ge2OvEuwWtd7qLiryJLcgBVRVSSMryr04nXjnoK6
+	 wfZ18etaENLfV95f9gSX+lgXV3DtcRrCov0/ekkpSMeK4IGgxuH0wwdLY7cKrrQTny
+	 OW3kRjif60COQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 044ADE63CA6;
+	Sun, 25 Jan 2026 13:05:35 +0000 (UTC)
+From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
+Date: Mon, 26 Jan 2026 00:05:21 +1100
+Subject: [PATCH v4 2/2] mfd: macsmc: Wire up Apple SMC power driver
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowAB3424NCHZp+PIqBg--.53936S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7Jw18tr15AryfCF15GrWruFg_yoWfWwb_Ka
-	1IyFZ2vFWUKrn093WrurZIyFyakFyUZF1kWFyqg3yagrW3Aw18XrWFvFn3Wr1DWrs2kr15
-	Kw12vF18u34S9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbVAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Jr0_
-	Gr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Jr0_Gr
-	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
-	cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
-	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
-	0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
-	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
-	1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
-	AIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
-	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxh
-	VjvjDU0xZFpf9x0JUd-B_UUUUU=
-X-Originating-IP: [36.112.3.223]
-X-CM-SenderInfo: 5olkt0x0ld0ww6lv2u4olvutnvoduhdfq/1tbiDAcRE2l038QMtAABs2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_040955_776081_01C02954 
-X-CRM114-Status: GOOD (  10.42  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260126-b4-macsmc-power-v4-2-aa2a682ca650@gmail.com>
+References: <20260126-b4-macsmc-power-v4-0-aa2a682ca650@gmail.com>
+In-Reply-To: <20260126-b4-macsmc-power-v4-0-aa2a682ca650@gmail.com>
+To: Sebastian Reichel <sre@kernel.org>, Sven Peter <sven@kernel.org>, 
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Lee Jones <lee@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Michael Reeves <michael.reeves077@gmail.com>, 
+ Hector Martin <marcan@marcan.st>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769346333; l=861;
+ i=michael.reeves077@gmail.com; s=20260105; h=from:subject:message-id;
+ bh=l66XKVNJtI8aTWFc0QpUQyQBnqT+6mvF4xxxt3DtiJc=;
+ b=hiejlI53JVcrXBxGu4B0I6yvPiqxWmipjmSnMXBPkeuF8w8OefJznHb7M6GGIWZNP+aQQBOSy
+ aYoUSsJW7L6Af45Ms6SoNa94s4fc4VEm4/11fwDIl4W8evFJiMccFM3
+X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
+ pk=QIrgWBGCm3LG0YYc6MLCDkwuVXLTGGooVBdWX/KhSiU=
+X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20260105
+ with auth_id=591
+X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,34 +83,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.reeves077@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In at91_can_probe(), if devm_phy_optional_get() fails,
-the memory allocated by alloc_candev() should be freed.
-Modify the goto label to do so.
+From: Hector Martin <marcan@marcan.st>
 
-Fixes: 3ecc09856afb ("can: at91_can: add CAN transceiver support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+Add the cell for the macsmc-power driver so it is probed by the
+MFD core.
+
+Signed-off-by: Hector Martin <marcan@marcan.st>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Reviewed-by: Sven Peter <sven@kernel.org>
+Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
 ---
- drivers/net/can/at91_can.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/mfd/macsmc.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/can/at91_can.c b/drivers/net/can/at91_can.c
-index c2a3a4eef5b2..58da323f14d7 100644
---- a/drivers/net/can/at91_can.c
-+++ b/drivers/net/can/at91_can.c
-@@ -1099,7 +1099,7 @@ static int at91_can_probe(struct platform_device *pdev)
- 	if (IS_ERR(transceiver)) {
- 		err = PTR_ERR(transceiver);
- 		dev_err_probe(&pdev->dev, err, "failed to get phy\n");
--		goto exit_iounmap;
-+		goto exit_free;
- 	}
+diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
+index 1b7e7b3e785f..358feec2d088 100644
+--- a/drivers/mfd/macsmc.c
++++ b/drivers/mfd/macsmc.c
+@@ -46,6 +46,7 @@
  
- 	dev->netdev_ops	= &at91_netdev_ops;
+ static const struct mfd_cell apple_smc_devs[] = {
+ 	MFD_CELL_NAME("macsmc-input"),
++	MFD_CELL_NAME("macsmc-power"),
+ 	MFD_CELL_OF("macsmc-gpio", NULL, NULL, 0, 0, "apple,smc-gpio"),
+ 	MFD_CELL_OF("macsmc-hwmon", NULL, NULL, 0, 0, "apple,smc-hwmon"),
+ 	MFD_CELL_OF("macsmc-reboot", NULL, NULL, 0, 0, "apple,smc-reboot"),
+
 -- 
-2.25.1
+2.51.2
+
 
 
