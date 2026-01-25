@@ -4,116 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B29EE63C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 11:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B673E63CA0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 11:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5kpH4wQV8PoTtsba9S5RoxQovxZYouvp9+g1QSdN7QM=; b=OXd+JARBA9Hv4sLnEsZgtdV6f8
-	pO13McESH941PnmEIZe+RVtCHvIsrYfbNQqssAwhzTYxoXDSOA/kqSWLS6VDyVVX2X1TdDMi9nQ90
-	tsTX+9kiKwuVwnAk1mVJj4flBJ77o2JoMftCoixXntynGYBJ36cQ9lbxcda7K5anetMezxhkIa7c4
-	bves73IqcIwzBMafzWb7TVrxVbidev0zukSmi6yCplcbJN0dBYz31jzDBEtHLpIEvGCveUY8hmbm0
-	jxSAMN/TRHd6tvuECEw5Ln4Wj4hJbDpsjnaWl6jjQLWM63croN9GbUeZculPgJob+Hy8zsMC9IiSN
-	yYOdoCfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Subject:
+	In-Reply-To:Cc:To:From:Message-Id:Date:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C2uhhbpesDEO2hlyJwaE7Co6xlX913kY2j+ChemzF44=; b=EZ4KTY8HMfoKqFRifEtsaPGKSm
+	Dr+assk3gPy77c5vUPJMrrCBzzxKZOcR17vGSgN2PoeeJQyj4Yfg2QsljLeyEk1DdM+BuQr8NG7+U
+	b4UPLMPUY4lqs0ds7eLnRyiNO0ZfVcELxaQEdeNSGAUYMq3UXwmIupOQH0s8juOQHzK41ipiEK5s4
+	w8iM7F403K+MKigv21JgYUuUl0GaP1bSelvDE7kkf5zg8xZepMZGpNKf1rC3PMVar9WbZo9AM2Mag
+	62DdT6bdmLHEbQ+SPP4Jul/GLVxdYYs6KpakFKhhemowvdOYknORPnWoNnrcnqGpvODpNjqSK1E27
+	+guJvgBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjxzE-0000000B6Rt-3NCM;
-	Sun, 25 Jan 2026 11:08:56 +0000
-Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
+	id 1vjyPO-0000000B7yB-2Wau;
+	Sun, 25 Jan 2026 11:35:58 +0000
+Received: from ewsoutbound.kpnmail.nl ([195.121.94.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjxzB-0000000B6Ql-3HGN
+	id 1vjyPL-0000000B7xk-0M8D
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 11:08:55 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 6E2D87A00CD;
-	Sun, 25 Jan 2026 06:08:52 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-05.internal (MEProxy); Sun, 25 Jan 2026 06:08:52 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1769339332;
-	 x=1769425732; bh=5kpH4wQV8PoTtsba9S5RoxQovxZYouvp9+g1QSdN7QM=; b=
-	kvLkia+eXac00RfidtCy0+LfjVNVwLfow7V4j8LmKxAnyNRmkv3rODHdDkKgRFzB
-	kNvZMWnzpNZzomfrTx5VDHKW+JyVxcxHIQEObhNV5VjzQ1ThhuCNoG3fv9aByz6z
-	a6bG/1TCawDGxrDztHmVnUOJsWiV9Jgru0ZQwkYSb+2ZSg4HKVgkvDQIJ0MiUg4l
-	Wbd2qJQSr+OBohFdV9qYgBdr7eBMDbccLD7VKqBvMvbAT890jHv13zO2o5Ila7BY
-	Fex3j+ZJrF2f1orMdRHiol2Io0Gn5FalzTj9Mo2BMJ+wSHl1S7pIwTDcf703Wn9z
-	PuDpj2UWzIUtNb2vu3vIJg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1769339332; x=
-	1769425732; bh=5kpH4wQV8PoTtsba9S5RoxQovxZYouvp9+g1QSdN7QM=; b=A
-	us89Iwl8J6V7/xs3bzVv+Pg7zCzMuX4ItzIYQzfcD+o4M8wBF6uzILN2SC8K0452
-	7oZcTxp5HBwUDWC7kAkmgZQ7VF5QHrht/huARMeXs2KWm20Q/cLq11AKGD66hmLb
-	QWD6SJqnlnHYx8ca6704SrZ+oog89mBbyDQu4/4EtAy7S68cl/cE3s5+SIfGNJK4
-	BjCPt7hWtBRBD/4/SsemCwL2p42+9lji8t5lcR2wMDGF7z4HRUYz1DPTJXgJ+mZ/
-	YsauiJTEwc0C3VVxfhaEe41ZYanRZOvX/VABDiPl6CxRhRJtnytrEAq5gYS9vBHD
-	VMbDMXgjbzpJy9bEm322g==
-X-ME-Sender: <xms:w_l1aaC2Th1QBcFLOys5yEqazrYUa4LxBLYkaTmRB0Ovy221BDDDcw>
-    <xme:w_l1aQXtSAsyBdlC0Ockou_AYIGwJblfClY4QjM1G9WWeTUwyZO1BulCyIQwcdJuP
-    IsSCg1RKjx-heLgIpMIHuJuXcaM-jY3zx6STqSkdIUfMwN1ZCXnkhnn>
-X-ME-Received: <xmr:w_l1aY-i7PEuSMSPluQIk3PeDZgwDIaVFb-2ucVuwpxYTjdz1Qei3hewLEsWsOepVbMhKhGVITGtHAEqZ5iI4OhehXUpahZadAuMQQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduheegieefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgv
-    ucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepve
-    ekgeduheegtdekvdeifeegkeekledujeelkeevhedvvdejtdeuveekffffheelnecuffho
-    mhgrihhnpeguvghvihgtvghtrhgvvgdrohhrghenucevlhhushhtvghrufhiiigvpedtne
-    curfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruhdrnhgvthdpnhgspghrtghp
-    thhtohepuddupdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehtghhlgieslhhinh
-    huthhrohhnihigrdguvgdprhgtphhtthhopehnvggrlhesghhomhhprgdruggvvhdprhgt
-    phhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoug
-    htsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghr
-    rdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpd
-    hrtghpthhtoheprghsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthho
-    pehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtth
-    hopehkrhiikhdoughtsehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:w_l1aSTuT6xqv9959zaUgLb_bSUNe2Nc_LtttEhoH2Pq87369sl1tg>
-    <xmx:w_l1adRTtzWqOnAwkJ2gn4fxQ4MV3M6fHr4FZsk2AOJfefmbJcie8g>
-    <xmx:w_l1ae76zd5u0b7Jir0h8WwBtWBQjfqnzxtyBVyH6ct3e0ftlHhw4A>
-    <xmx:w_l1aSW5Jm5XNkdwTy5Kv_j4xLKjmxIlqMe_2GSKcbZ5i914bskuVw>
-    <xmx:xPl1aYBes0_TxMjRIDjCW37lhdQUAp0TMFNHA8U3srovbruNYc7QbVOP>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 25 Jan 2026 06:08:51 -0500 (EST)
-From: Janne Grunau <j@jannau.net>
-Date: Sun, 25 Jan 2026 12:08:45 +0100
-Subject: [PATCH 1/2] dt-bindings: interrupt-controller: apple,aic2: Add
+	Sun, 25 Jan 2026 11:35:57 +0000
+X-KPN-MessageId: ff7bb1a8-f9e1-11f0-af3f-005056994fde
+Received: from smtp.kpnmail.nl (unknown [10.31.155.5])
+	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
+	id ff7bb1a8-f9e1-11f0-af3f-005056994fde;
+	Sun, 25 Jan 2026 12:35:49 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xs4all.nl; s=xs4all01;
+	h=subject:to:from:message-id:date;
+	bh=C2uhhbpesDEO2hlyJwaE7Co6xlX913kY2j+ChemzF44=;
+	b=J7U6GeFBfHZekGCsacdE/iT7EZ9FUCJsz4y5x2bkdMDu6Fad8FKwpUnoXvEhzhx6dPN9Mm36esMIz
+	 XLt1B5xRxdQAiVq1he29e+owMNiMnnfAfQGWob/wDP0B8+2IOvK2TJOMpm5n9hnT3BH3QxhrTeNhKC
+	 JF9j9c5/htiO43wkAAZ9y/JlwyFRx7AK8IQsqxU8gTZ+V1619BcUXaZCeSdICiAh0CIGlFPFOLbbGG
+	 Y+lx2PhwGd5+yaW761CymxptYbmjuFrawrcbo1PIfCm0r8VfoC59VPK/8mzDXQfeIRiJwoefmbOkR8
+	 Gvqg43NOgJPwbx8Ie3n5htkgKEDgV7g==
+X-KPN-MID: 33|/pHX2bq9n4RcDNp+f2+9ka8ELQ8Pa5m+MZj5XpzdczBT8yEB4c3RCzrj5zUu76D
+ EKmODw9EpoAKiIcvYfAAopUZ7VvNPHg6O156MN1kJN0Q=
+X-KPN-VerifiedSender: Yes
+X-CMASSUN: 33|kSstmqaLKwUNjg6gbcB4irGicZr85Vqo9NR1Vbh17a2/iR+zxb1i/xOZMLVHJJ0
+ d9WIeZ6a6FvDT2z2mLuR1bQ==
+X-Originating-IP: 80.61.163.207
+Received: from bloch.sibelius.xs4all.nl (80-61-163-207.fixed.kpn.net [80.61.163.207])
+	by smtp.xs4all.nl (Halon) with ESMTPSA
+	id fefb5643-f9e1-11f0-8d40-00505699b758;
+	Sun, 25 Jan 2026 12:35:49 +0100 (CET)
+Date: Sun, 25 Jan 2026 12:35:48 +0100
+Message-Id: <87y0ll6i23.fsf@bloch.sibelius.xs4all.nl>
+From: Mark Kettenis <mark.kettenis@xs4all.nl>
+To: Janne Grunau <j@jannau.net>
+Cc: sven@kernel.org, neal@gompa.dev, tglx@linutronix.de,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	j@jannau.net
+In-Reply-To: <20260125-irq-apple-aic3-v1-1-a2afe66a6ab9@jannau.net> (message
+	from Janne Grunau on Sun, 25 Jan 2026 12:08:45 +0100)
+Subject: Re: [PATCH 1/2] dt-bindings: interrupt-controller: apple,aic2: Add
  AICv3
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260125-irq-apple-aic3-v1-1-a2afe66a6ab9@jannau.net>
-References: <20260125-irq-apple-aic3-v1-0-a2afe66a6ab9@jannau.net>
-In-Reply-To: <20260125-irq-apple-aic3-v1-0-a2afe66a6ab9@jannau.net>
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Janne Grunau <j@jannau.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2809; i=j@jannau.net;
- s=yk2025; h=from:subject:message-id;
- bh=OGf/6Av6ZnPvenFYhFMArFcQMVsd6I41zueCB57vIS8=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhszSn/scbp7J2PU4hLX0/jaNHWm7tl0t+M7wUcxD9cO64
- Ku/Dl7O7yhlYRDjYpAVU2RJ0n7ZwbC6RjGm9kEYzBxWJpAhDFycAjARN1GGf2aGf0NNvLM8OuxU
- JRKE+gwO8TzklS8+1Ba3ZHbBpvZ9XxgZFu54z/nv/9O6tcXtc3nkejzYkz13PdKUenGJd9eyRg8
- zVgA=
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+References: <20260125-irq-apple-aic3-v1-0-a2afe66a6ab9@jannau.net> <20260125-irq-apple-aic3-v1-1-a2afe66a6ab9@jannau.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_030854_085453_518B1875 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20260125_033555_557614_0BD55007 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,82 +82,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AIC version 3 as found on the Apple M3 (t8122) is very similar to AICv2
-in its base functionality. It can use the same device tree bindings as
-AICv2 so add it to the AICv2 bindings.
-This interrupt controller is used on all Apple SoCs starting with M3 up
-to at least M5.
-The only apparent difference is the increased IRQ config offset. Apple's
-device tree codes this new offset as property of the "aic" node but the
-value stayed constant for all SoCs with "aic,3". Since the SoC specific
-compatible "apple,t8122-aic3" will be used in the driver this offset can
-remain a driver implementation detail.
+> From: Janne Grunau <j@jannau.net>
+> Date: Sun, 25 Jan 2026 12:08:45 +0100
 
-Signed-off-by: Janne Grunau <j@jannau.net>
----
- .../bindings/interrupt-controller/apple,aic2.yaml  | 29 +++++++++++++++-------
- 1 file changed, 20 insertions(+), 9 deletions(-)
+Hi Janne,
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-index ee5a0dfff437816056bda0de5523bf38be4f49ba..933e134d82bb599a68707ba34e04ea55d61050b9 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-@@ -4,10 +4,10 @@
- $id: http://devicetree.org/schemas/interrupt-controller/apple,aic2.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Apple Interrupt Controller 2
-+title: Apple Interrupt Controller 2 and 3
- 
- maintainers:
--  - Hector Martin <marcan@marcan.st>
-+  - Janne Grunau <j@jannau.net>
- 
- description: |
-   The Apple Interrupt Controller 2 is a simple interrupt controller present on
-@@ -28,14 +28,23 @@ description: |
-   which do not go through a discrete interrupt controller. It also handles
-   FIQ-based Fast IPIs.
- 
-+  The Apple Interrupt Controller 3 is in its base functionality very similar to
-+  the Apple Interrupt Controller 2 and uses the same device tree bindings. It is
-+  found on Apple ARM SoCs platforms starting with t8122 (M3).
-+
- properties:
-   compatible:
--    items:
--      - enum:
--          - apple,t8112-aic
--          - apple,t6000-aic
--          - apple,t6020-aic
--      - const: apple,aic2
-+    oneOf:
-+      - items:
-+          - enum:
-+              - apple,t8112-aic
-+              - apple,t6000-aic
-+              - apple,t6020-aic
-+          - const: apple,aic2
-+      - items:
-+          - enum:
-+              - apple,t6030-aic3
-+          - const: apple,t8122-aic3
- 
-   interrupt-controller: true
- 
-@@ -117,7 +126,9 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            const: apple,t8112-aic
-+            enum:
-+              - apple,t8112-aic
-+              - apple,t8122-aic3
-     then:
-       properties:
-         '#interrupt-cells':
+> 
+> AIC version 3 as found on the Apple M3 (t8122) is very similar to AICv2
+> in its base functionality. It can use the same device tree bindings as
+> AICv2 so add it to the AICv2 bindings.
+> This interrupt controller is used on all Apple SoCs starting with M3 up
+> to at least M5.
+> The only apparent difference is the increased IRQ config offset. Apple's
+> device tree codes this new offset as property of the "aic" node but the
+> value stayed constant for all SoCs with "aic,3". Since the SoC specific
+> compatible "apple,t8122-aic3" will be used in the driver this offset can
+> remain a driver implementation detail.
+> 
+> Signed-off-by: Janne Grunau <j@jannau.net>
+> ---
+>  .../bindings/interrupt-controller/apple,aic2.yaml  | 29 +++++++++++++++-------
+>  1 file changed, 20 insertions(+), 9 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+> index ee5a0dfff437816056bda0de5523bf38be4f49ba..933e134d82bb599a68707ba34e04ea55d61050b9 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
+> @@ -4,10 +4,10 @@
+>  $id: http://devicetree.org/schemas/interrupt-controller/apple,aic2.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: Apple Interrupt Controller 2
+> +title: Apple Interrupt Controller 2 and 3
+>  
+>  maintainers:
+> -  - Hector Martin <marcan@marcan.st>
+> +  - Janne Grunau <j@jannau.net>
+>  
+>  description: |
+>    The Apple Interrupt Controller 2 is a simple interrupt controller present on
+> @@ -28,14 +28,23 @@ description: |
+>    which do not go through a discrete interrupt controller. It also handles
+>    FIQ-based Fast IPIs.
+>  
+> +  The Apple Interrupt Controller 3 is in its base functionality very similar to
+> +  the Apple Interrupt Controller 2 and uses the same device tree bindings. It is
+> +  found on Apple ARM SoCs platforms starting with t8122 (M3).
+> +
+>  properties:
+>    compatible:
+> -    items:
+> -      - enum:
+> -          - apple,t8112-aic
+> -          - apple,t6000-aic
+> -          - apple,t6020-aic
+> -      - const: apple,aic2
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - apple,t8112-aic
+> +              - apple,t6000-aic
+> +              - apple,t6020-aic
+> +          - const: apple,aic2
+> +      - items:
+> +          - enum:
+> +              - apple,t6030-aic3
+> +          - const: apple,t8122-aic3
 
--- 
-2.52.0
+I think this is missing a
 
+         - const: apple,t8122-aic3
+
+otherwise, the non-{Pro/Ultra/Max} M3 can't have the simple
+
+    compatible = "apple,t8122-aic3"
+
+>  
+>    interrupt-controller: true
+>  
+> @@ -117,7 +126,9 @@ allOf:
+>        properties:
+>          compatible:
+>            contains:
+> -            const: apple,t8112-aic
+> +            enum:
+> +              - apple,t8112-aic
+> +              - apple,t8122-aic3
+>      then:
+>        properties:
+>          '#interrupt-cells':
+> 
+> -- 
+> 2.52.0
+> 
+> 
+> 
 
