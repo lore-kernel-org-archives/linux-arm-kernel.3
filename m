@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AEB7E63CA2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 13:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D0E9E63CA0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 13:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y+h4Fr1swQcoD3DXpbaZsHJfcLLHab4S06jK6pbWJoY=; b=OQMO5cu/dyzDrytDG1v7XZCfJL
-	hQmB9GKHlqH0j1+vy/1IYMZBMiHN0v2BjMeowWXM8mwE6uiwRX1lACZlKvc7hiK1nmEjA0eAY7PJ+
-	zpzpUI1PNWYwL216SYw0m/T/jDc6ChOUxklkdHgtDf8Ajzm1wX2AlIxU+C3xElcmD3AeJilGaFqe9
-	XMyrJyKoc360S/TVWpYynJxYlr9KrPuiPbC0e4rNXMRyXLIY2/4Dlcin4hQMDk0QVOVy0qo893vIu
-	sHYtst7yLtVN0vxjJJYqfO0WU9P2rHZ0C8qnV0AYNKHw3iv7u7Tt4JSbnt3a6WX5wnJG3DEZ0rg8e
-	oFcTstKg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P8vete4FbKroUDiRsh85INSljLEWw5LQXDMx6H8GOzY=; b=Qlx4+Gug1y8nKbA1pDsxz/FOvU
+	fiFMwOmgNX9oBR/xcfDFCrRUbzqKAtqeeJM8GgwcCqLIfwXkFn5NU2v+G9/pQSfRgeNojmKesLCz9
+	HEmQcXAp1I0p7c5ylyY7ZXHifDEXt7bNo1igpljydII2Bz+ud+Ek7QnSMdv5GxMlR9MWOX8xy9brM
+	5VAiQN02Eh1uOETcsJNXCleFvfVMdyJ2LyhMxJJj4TIawhKwax82Eh8pG+ZgG2eXOHabkLMdlmKqf
+	DYj83oWggfsvEF5bKg1B7s3zUXLbIs/ClKITfP7Binr9p5dwZDWKsBlNIQx35i6YsISNZZpOmttbz
+	+9G4poWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjzwa-0000000BBmT-1W4c;
-	Sun, 25 Jan 2026 13:14:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vk05X-0000000BCbc-0SDU;
+	Sun, 25 Jan 2026 13:23:35 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjzwY-0000000BBm4-1Rd8
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 13:14:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ABB5460132;
-	Sun, 25 Jan 2026 13:14:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2163FC19421;
-	Sun, 25 Jan 2026 13:14:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769346857;
-	bh=4qeRI0/8CXPNVIq8qwuTcyMxP3YlJM0KAF+LDIonx7s=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=phIHFM/TZycq0bBuebQOAvfWZRLjr5O2Q1pvxCAXag/B2zAAAU3EsuQhJgeLo2pl1
-	 sBeH1o2qkvrkzIjDQNJuLxtA6POhycud/EsxUwTG8CQgpoG0Ib0xFkuOTh3MDP5eIl
-	 rUWMpFNrOG1+Ulz28NpaY6pCYstTtpKf3aM+qJdIc0U2KSKGzLcIycOhh0U0Zc17/V
-	 CY+Oo5Wie/nGea5rVQBvrwtbWcsn37JLkgzYvU6dWy2qN8Af1vtrJp+7OJ3KAIqERG
-	 Ue77UDLByHy3sLsf/oSzqTriroYHimayzDEKBKkqVndEO9526Ls+JHkxz6uNcKlvrM
-	 mUVlwqzqfO5yA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 190F8E63CA6;
-	Sun, 25 Jan 2026 13:14:17 +0000 (UTC)
-From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
-Date: Mon, 26 Jan 2026 00:14:12 +1100
-Subject: [PATCH v5 2/2] mfd: macsmc: Wire up Apple SMC power driver
+	id 1vk05U-0000000BCbC-1Gpm;
+	Sun, 25 Jan 2026 13:23:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=P8vete4FbKroUDiRsh85INSljLEWw5LQXDMx6H8GOzY=; b=GiRoqnVctapf8D73oIl+VcQoSK
+	6CiTaCejwRnjct4AodOKsGYEZJdeNllg4S7XvXd65TIIJukiJBfwvb0INXLJOKoxVUIQOwA7iix8s
+	bwiNySsDdPrQ5BW21njQnYa/jipQU1tpjTbqTB1lZRpePn7BVkQNNAf10olIK/KrbFCewYl+ga94o
+	G8opkJnPo7K44QbZpMCJvHpO1W3QYrlcdsRScz0ZPvG4AAsKzCpaWT4OVaCLu2vUEQfoVvWWAxmIL
+	UZKikeeEm5oxRzVE3fMcArnFqYN69ZeTdqq+fA+BEOx45JOlzH93BwlVMrXbsGEziERIkPZAImjrf
+	RI80mr8g==;
+Received: from i53875a33.versanet.de ([83.135.90.51] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vk05L-004Jy1-0F; Sun, 25 Jan 2026 14:23:23 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Robin Murphy <robin.murphy@arm.com>, Bartosz Golaszewski <brgl@kernel.org>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+ Linus Walleij <linusw@kernel.org>, linux-gpio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Bartosz Golaszewski <brgl@kernel.org>
+Subject: Re: [PATCH] gpio: rockchip: mark the GPIO controller as sleeping
+Date: Sun, 25 Jan 2026 14:23:20 +0100
+Message-ID: <3204984.tdWV9SEqCh@diego>
+In-Reply-To: <CAMRc=MfUawHpDgxj=fP2OF_-qg1O+P3oM_cSvGsbvAdLRB=+hw@mail.gmail.com>
+References: <20260106090011.21603-1-bartosz.golaszewski@oss.qualcomm.com>
+ <cb13c3df-be09-4cf3-b679-4431862d7264@arm.com>
+ <CAMRc=MfUawHpDgxj=fP2OF_-qg1O+P3oM_cSvGsbvAdLRB=+hw@mail.gmail.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260126-b4-macsmc-power-v5-2-302462673b18@gmail.com>
-References: <20260126-b4-macsmc-power-v5-0-302462673b18@gmail.com>
-In-Reply-To: <20260126-b4-macsmc-power-v5-0-302462673b18@gmail.com>
-To: Sebastian Reichel <sre@kernel.org>, Sven Peter <sven@kernel.org>, 
- Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
- Lee Jones <lee@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Michael Reeves <michael.reeves077@gmail.com>, 
- Hector Martin <marcan@marcan.st>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769346855; l=861;
- i=michael.reeves077@gmail.com; s=20260105; h=from:subject:message-id;
- bh=l66XKVNJtI8aTWFc0QpUQyQBnqT+6mvF4xxxt3DtiJc=;
- b=mAiJPj7JoEQiRxVrmZOGA5lsT+1h5EHMSlS24t3OZFIp8C/24RLl14QauMr4mwcMN7baB6bLg
- NGQjmQbOZkgANchr7FeZ26sU/ht/OdWNbq2LnUaVurk9t22TLORn4n7
-X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
- pk=QIrgWBGCm3LG0YYc6MLCDkwuVXLTGGooVBdWX/KhSiU=
-X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20260105
- with auth_id=591
-X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260125_052332_441488_C7E2EA9E 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,38 +73,76 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.reeves077@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hector Martin <marcan@marcan.st>
+Am Samstag, 24. Januar 2026, 22:07:12 Mitteleurop=C3=A4ische Normalzeit sch=
+rieb Bartosz Golaszewski:
+> On Sat, 24 Jan 2026 00:45:25 +0100, Robin Murphy <robin.murphy@arm.com> s=
+aid:
+> > On 2026-01-23 9:52 pm, Heiko St=C3=BCbner wrote:
 
-Add the cell for the macsmc-power driver so it is probed by the
-MFD core.
+[ snip to get to the core question at the bottom ]
 
-Signed-off-by: Hector Martin <marcan@marcan.st>
-Reviewed-by: Neal Gompa <neal@gompa.dev>
-Reviewed-by: Sven Peter <sven@kernel.org>
-Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
----
- drivers/mfd/macsmc.c | 1 +
- 1 file changed, 1 insertion(+)
+> > diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinct=
+rl-rockchip.c
+> > index e44ef262beec..2fc67aeafdb3 100644
+> > --- a/drivers/pinctrl/pinctrl-rockchip.c
+> > +++ b/drivers/pinctrl/pinctrl-rockchip.c
+> > @@ -3545,10 +3545,9 @@ static int rockchip_pmx_set(struct pinctrl_dev *=
+pctldev, unsigned selector,
+> >   	return 0;
+> >   }
+> >
+> > -static int rockchip_pmx_gpio_set_direction(struct pinctrl_dev *pctldev,
+> > -					   struct pinctrl_gpio_range *range,
+> > -					   unsigned offset,
+> > -					   bool input)
+> > +static int rockchip_pmx_gpio_request_enable(struct pinctrl_dev *pctlde=
+v,
+> > +					    struct pinctrl_gpio_range *range,
+> > +					    unsigned int offset)
+> >   {
+> >   	struct rockchip_pinctrl *info =3D pinctrl_dev_get_drvdata(pctldev);
+> >   	struct rockchip_pin_bank *bank;
+> > @@ -3562,7 +3561,7 @@ static const struct pinmux_ops rockchip_pmx_ops =
+=3D {
+> >   	.get_function_name	=3D rockchip_pmx_get_func_name,
+> >   	.get_function_groups	=3D rockchip_pmx_get_groups,
+> >   	.set_mux		=3D rockchip_pmx_set,
+> > -	.gpio_set_direction	=3D rockchip_pmx_gpio_set_direction,
+> > +	.gpio_request_enable	=3D rockchip_pmx_gpio_request_enable,
+> >   };
+> >
+> >   /*
+> >
+>=20
+> I'm not sure what's going on here. You don't really need to call
+> pinctrl_gpio_direction_input/output()?
 
-diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
-index 1b7e7b3e785f..358feec2d088 100644
---- a/drivers/mfd/macsmc.c
-+++ b/drivers/mfd/macsmc.c
-@@ -46,6 +46,7 @@
- 
- static const struct mfd_cell apple_smc_devs[] = {
- 	MFD_CELL_NAME("macsmc-input"),
-+	MFD_CELL_NAME("macsmc-power"),
- 	MFD_CELL_OF("macsmc-gpio", NULL, NULL, 0, 0, "apple,smc-gpio"),
- 	MFD_CELL_OF("macsmc-hwmon", NULL, NULL, 0, 0, "apple,smc-hwmon"),
- 	MFD_CELL_OF("macsmc-reboot", NULL, NULL, 0, 0, "apple,smc-reboot"),
+No we actually don't.
 
--- 
-2.51.2
+The current _set_direction function:
+
+static int rockchip_pmx_gpio_set_direction(struct pinctrl_dev *pctldev,
+					   struct pinctrl_gpio_range *range,
+					   unsigned offset,
+					   bool input)
+{
+	struct rockchip_pinctrl *info =3D pinctrl_dev_get_drvdata(pctldev);
+	struct rockchip_pin_bank *bank;
+
+	bank =3D pin_to_bank(info, offset);
+	return rockchip_set_mux(bank, offset - bank->pin_base, RK_FUNC_GPIO);
+}
+
+really only ever touches the pinmux and has nothing to do with setting
+the direction, which is solely the task of the gpio-controller/-driver.
+
+So moving that to the request callback would likely solve all our current
+problems?
+
+Heiko
 
 
 
