@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C22EBE63C82
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 05:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75158E63C9B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 10:52:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7kmusx+MqkhmDeC3UAb227ZvWFfKqkuZrPt4RmzV95Y=; b=vJWH4TZ37OAxCyy4iJtPAoRSLE
-	GqkGIwaQkT2Yx2xYDVdKVViNjKm+AUjiCV+7yBQJL6uNv8UE2dhD8A005qlW73HA8yCcUWi0UN+hn
-	tiC9aEfCGDUeE8XRB1uWz+9HT4fzRJ/x61K5e1brFlFBcOfcW4ndKepJ0dH1H1iH9cJODf5zOGzBb
-	MVpVSgITXfe/HYhYaJ1VHWM+HHqAN+PAxOz4fxfnD6CPvihFp/iLv5Y4ssv5E36K2Z06EqeosKouN
-	IqKya+3q2uNKOD1p9rdsxD50cIdngA3bvpQuqeDuUhH64UI19ESj94CjZKp2FzLi2zS/WlDuXJJof
-	mKCLc6TQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OCn5uMYPGGZkwfwxwxZLvNPFe3kVoY1QoRlPHQT1F3g=; b=ivV33FhnWZopYE
+	17n6E/dj/cpbU01DZdXF4y4Y/7TeCw/NxOlFRe6di82qPPCdfup9SSjTVUVeP0qXPfPZuLB/9LwBQ
+	GkIjhqR7SqCRDokNHCEBBRnuQv/PH7KaWJdIPpKCJ53N7Oq9Y2ts2LM1kgP/gZv/8UajMStjZVFaK
+	gWD0raST7YUADxz+lAAafOciZqfUzuKfkc5Whde76hArLtjnTFQ/f7PBtiMR5Mj1XFcawaKapz8j7
+	DP1/0L77m2i90aGbqL+Ij270Xf/QQMqneMkV43RfIjqhUFW+1U63cUNEXtGYKdrn32uBblhAVKCdH
+	81gLApvOfHNfuGeI5Njw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjt1f-0000000AtGy-2xO9;
-	Sun, 25 Jan 2026 05:51:07 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1vjxix-0000000B5bs-2uDD;
+	Sun, 25 Jan 2026 10:52:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjt1c-0000000AtGQ-0gKE
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 05:51:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769320254; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=dSTluIUg1ZvuNQajf3SJQZtFC47qgOiCluuPmretAnaYy3qEXXAfw12l1SuinrIkuTIRZfJR31MmYz5r6spPsJxZMoLbjXd+1xdkmxQeHJWZoCwxSDGaUYuXq3kOF7qo9PWdPFRCQ4/6JBiHaTov22Gkxan2PROLvfDtNTd0P3I=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769320254; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=7kmusx+MqkhmDeC3UAb227ZvWFfKqkuZrPt4RmzV95Y=; 
-	b=WBLo2GPooj7hxieZJGDM1Qex0g3hZOSEzMm4I2tFp1ukYCmfFnuM3DqSt27sKBwWn2TV32I6s/OLlyXB2DY6U2/hhhUGqi82QbSx6QFm0LctY+SpVlAX5ZxYla4X7m+X1IT29Njx9sdNitezJuoLhqo/4o9PN3DJ7+ZocAo4ctQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769320254;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Date:Message-Id:Message-Id:Cc:Cc:Subject:Subject:From:From:To:To:References:In-Reply-To:Reply-To;
-	bh=7kmusx+MqkhmDeC3UAb227ZvWFfKqkuZrPt4RmzV95Y=;
-	b=rTR69koYL0NpAmYBkVdfpkSYUbKGJBrLW085gQX2D96GmcI/dgw7ortSTm9m6V3k
-	PT91fEUpMbG+8Dqv0q3hbWPewgHn/Vtexj28VcJV8gL/4bu+ozd4NNXgzLh7FwyAlmd
-	sgb05Ra7AgqhnAaPKb8koZaqEd2KKBmDE0tK9YPw=
-Received: by mx.zohomail.com with SMTPS id 1769320251684256.61624132047143;
-	Sat, 24 Jan 2026 21:50:51 -0800 (PST)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sun, 25 Jan 2026 13:50:41 +0800
-Message-Id: <DFXFOHVB1GAV.3L3EL4FVWFWDC@pigmoral.tech>
-Cc: "Michael Turquette" <mturquette@baylibre.com>, "Stephen Boyd"
- <sboyd@kernel.org>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Samuel
- Holland" <samuel@sholland.org>, "Alexandre Belloni"
- <alexandre.belloni@bootlin.com>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Maxime Ripard" <mripard@kernel.org>,
- <linux-clk@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
- <linux-rtc@vger.kernel.org>, <devicetree@vger.kernel.org>
-Subject: Re: [PATCH 4/7] clk: sunxi-ng: Extract common RTC CCU clock logic
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: <wens@kernel.org>, "Junhui Liu" <junhui.liu@pigmoral.tech>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260121-a733-rtc-v1-0-d359437f23a7@pigmoral.tech>
- <20260121-a733-rtc-v1-4-d359437f23a7@pigmoral.tech>
- <CAGb2v65aMMVu8W1PW+6NZM+YM72YFV9_FWVWtj6QHJ1CgetEsA@mail.gmail.com>
-In-Reply-To: <CAGb2v65aMMVu8W1PW+6NZM+YM72YFV9_FWVWtj6QHJ1CgetEsA@mail.gmail.com>
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260124_215104_575551_E6751DEC 
-X-CRM114-Status: GOOD (  16.35  )
+	id 1vjxiv-0000000B5bf-2w20;
+	Sun, 25 Jan 2026 10:52:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7B2BC60018;
+	Sun, 25 Jan 2026 10:52:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C7EBC4CEF1;
+	Sun, 25 Jan 2026 10:52:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769338323;
+	bh=oEMK/NQ1fqobKbWExDVcllQalgHRTxpeSvTj6dSXi0E=;
+	h=From:Subject:Date:To:Cc:From;
+	b=M916Q+2Wdfv5t0xYMwVvadX/WaHQkxh1wHamU8Fzeelqn7k860bFHT7TcAYEPW4xm
+	 hufJ3lQbMOkT7SWwJnTUsTXbg/SoeNXRy5VtF+rxqH3qwlu2e70heg/fIS9Swfhdv3
+	 Gwqh7bJtlpTDMDp9ESczJ/t1fzGIp3AJS3e8SWPlN5gVg8FoEkQtMcKxDiP8C8Rd1I
+	 2q3nf3z9n8noOwsDiw/5vVm3EGzvVz+y1V0aPT8eiBFlY2Lv2w21YsIpx/xPgHgGc7
+	 5UV8gY6XvE9Efn6hbpDbzOll12c5SP9wMYt4GxyiHBEq1SAT4YCvWLK3gNdIs3Jj6S
+	 6IA3BEBDdE31A==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH wireless-next v2 0/2] wifi: mac80211: Introduce eMLSR/eMLMR
+ parsing support in AP mode.
+Date: Sun, 25 Jan 2026 11:51:29 +0100
+Message-Id: <20260125-mac80211-emlsr-v2-0-466329d61c88@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/13Myw6CMBCF4Vchs7amHblUV76HYQFlCo1QzNQ0G
+ tJ3t5K4cfmf5HwbBGJHAS7FBkzRBbf6HHgowEydH0m4ITegxFoqVGLpjJaolKBlDiyqpimlRmu
+ 1MZBPDybrXjt4a3NPLjxXfu9+VN/1R+E/FZWQwkoqT31fD+equ96JPc3HlUdoU0oflHglnq0AA
+ AA=
+X-Change-ID: 20260121-mac80211-emlsr-5774082ff8cc
+To: Johannes Berg <johannes@sipsolutions.net>, 
+ Ryder Lee <ryder.lee@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>, 
+ Shayne Chen <shayne.chen@mediatek.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Christian Marangi <ansuelsmth@gmail.com>, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ MeiChia Chiu <MeiChia.Chiu@mediatek.com>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,92 +79,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun Jan 25, 2026 at 12:32 PM CST, Chen-Yu Tsai wrote:
-> On Wed, Jan 21, 2026 at 7:04=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral.t=
-ech> wrote:
->>
->> Extract the IOSC and 32k clock logic from ccu-sun6i-rtc into a shared
->> module to simplify adding RTC CCU support for new SoCs. This is needed
->> because newer Allwinner SoCs introduce additional DCXO/HOSC logic that
->> prevents direct reuse of the existing driver.
->>
->> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
->> ---
->>  drivers/clk/sunxi-ng/Makefile        |   3 +
->>  drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 152 +---------------------------=
--------
->>  drivers/clk/sunxi-ng/ccu_rtc.c       | 136 ++++++++++++++++++++++++++++=
-+++
->>  drivers/clk/sunxi-ng/ccu_rtc.h       |  37 +++++++++
->>  4 files changed, 177 insertions(+), 151 deletions(-)
->>
+Introduce support in AP mode for parsing of the Operating Mode Notification
+frame sent by the client to enable/disable MLO eMLSR or eMLMR if supported
+by both the AP and the client.
+Add drv_set_eml_op_mode mac80211 callback in order to configure underlay
+driver with eMLSR info (control and bitmap).
+Implement drv_set_eml_op_mode callback for MT7996 driver.
 
-[...]
+---
+Changes in v2:
+- Improve sanity check against device EML capabilities
+- Squash patch 1/2 and 2/2
+- Validate link_bitmap with vif->active_links
+- Introduce ieee80211_eml_params struct as containe for EML info to pass
+  to the underlay driver.
+- Pass padding_delay and transition_delay to the underlay driver.
+- Implement drv_set_eml_op_mode callback for MT7996 driver.
+- Link to v1: https://lore.kernel.org/r/20260122-mac80211-emlsr-v1-0-f0e43bb6d95a@kernel.org
 
->> +
->> +const struct clk_ops ccu_iosc_ops =3D {
->> +       .enable                 =3D ccu_iosc_enable,
->> +       .disable                =3D ccu_iosc_disable,
->> +       .is_enabled             =3D ccu_iosc_is_enabled,
->> +       .recalc_rate            =3D ccu_iosc_recalc_rate,
->> +       .recalc_accuracy        =3D ccu_iosc_recalc_accuracy,
->> +};
->
-> You need to export the symbol.
+---
+Lorenzo Bianconi (1):
+      wifi: mac80211: Add eMLSR/eMLMR action frame parsing support
 
-Thanks, I will export them.
+MeiChia Chiu (1):
+      wifi: mt76: mt7996: Add eMLSR support
 
-[...]
+ .../net/wireless/mediatek/mt76/mt76_connac_mcu.h   |   9 ++
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c   |  16 +++
+ drivers/net/wireless/mediatek/mt76/mt7996/mcu.c    |  54 +++++++++
+ drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |   5 +
+ include/linux/ieee80211-eht.h                      |  28 +++++
+ include/linux/ieee80211.h                          |   6 +
+ include/net/mac80211.h                             |  23 ++++
+ net/mac80211/driver-ops.h                          |  22 ++++
+ net/mac80211/eht.c                                 | 135 +++++++++++++++++++++
+ net/mac80211/ieee80211_i.h                         |   2 +
+ net/mac80211/iface.c                               |  10 +-
+ net/mac80211/rx.c                                  |   8 ++
+ net/mac80211/trace.h                               |  32 +++++
+ 13 files changed, 349 insertions(+), 1 deletion(-)
+---
+base-commit: 1e1dd9eeaab3908746d1dce5db6b0c29e0d28d6d
+change-id: 20260121-mac80211-emlsr-5774082ff8cc
 
->> diff --git a/drivers/clk/sunxi-ng/ccu_rtc.h b/drivers/clk/sunxi-ng/ccu_r=
-tc.h
->> new file mode 100644
->> index 000000000000..1c44c2206a25
->> --- /dev/null
->> +++ b/drivers/clk/sunxi-ng/ccu_rtc.h
->> @@ -0,0 +1,37 @@
->> +/* SPDX-License-Identifier: GPL-2.0-only */
->> +/*
->> + * Copyright (c) 2021 Samuel Holland <samuel@sholland.org>
->> + */
->> +
->> +#ifndef _CCU_RTC_H_
->> +#define _CCU_RTC_H_
->> +
->> +#define IOSC_ACCURACY                  300000000 /* 30% */
->> +#define IOSC_RATE                      16000000
->> +
->> +#define LOSC_RATE                      32768
->> +#define LOSC_RATE_SHIFT                        15
->> +
->> +#define LOSC_CTRL_REG                  0x0
->> +#define LOSC_CTRL_KEY                  0x16aa0000
->> +
->> +#define IOSC_32K_CLK_DIV_REG           0x8
->> +#define IOSC_32K_CLK_DIV               GENMASK(4, 0)
->> +#define IOSC_32K_PRE_DIV               32
->> +
->> +#define IOSC_CLK_CALI_REG              0xc
->> +#define IOSC_CLK_CALI_DIV_ONES         22
->> +#define IOSC_CLK_CALI_EN               BIT(1)
->> +#define IOSC_CLK_CALI_SRC_SEL          BIT(0)
->> +
->> +#define LOSC_OUT_GATING_REG            0x60
->> +
->> +#define DCXO_CTRL_REG                  0x160
->> +#define DCXO_CTRL_CLK16M_RC_EN         BIT(0)
->
-> Please keep all internals in the .c file.
-
-My original thought was to reuse these for the A733. But since doing
-so is not appropriate, I will put them in the .c files separately.
-
->
-> ChenYu
->
-
---=20
 Best regards,
-Junhui Liu
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
