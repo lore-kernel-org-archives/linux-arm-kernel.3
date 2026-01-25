@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AA3D7237B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D30E63CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NQL7P3PudMaEkbIbp+QjjUNihLkuiYU9kTVOEivGZ0g=; b=EMWg9549Bw1pYGefE5NsqDJWnx
-	QpJK6MnCLjXCSkBe+qojx+oiRvjWVu1F2e/DVu9tsdIAXsAgqg1iE0XhoA2/nC581kv3UgnWH7VES
-	23s5ErXVNATPyXYJR2pDZ3bhdnTJPm2/luIHtQVP709qdHN2enm2zJXEoWKfLwKOPu+Bq3e31c/wK
-	Y8/tcQM4u1iS418Al02eNfmHm/i5qpcLARmLlYH1cDdtjCsw8AfV7I+j38/Cn0JyKxFmQXGUe2483
-	L75gDUEYbPI3fXKf4OLrcKdSSwy7pmiEaUFDVznsQc1OedBV2Xn5izY9t8g0AitVUPv1ViVBTO1PY
-	567r8sjg==;
+	bh=HSDhdQdHZiUEaR1V14KPz4ZuXl8eOsN+J/GicpMk1E0=; b=u+3+Zkc+oVovY8dzq4qzlk1Rg7
+	yBIQaEBPxUJ2x/xQrKgh0ZiMAFThO5z8qa2xw4U7y4hKAXopiGn6aWSchRxfGHDxDNkuyRGY2u14a
+	xx74BoYJQDkJusVcgeW7ducFHgsWpL8dL4ZaV/Rw0Le0MLj/ArtkmhW+qvyJM7a5AR21NguZSXLWM
+	PHdaWCJAK0qtieHybtChSs8/UYnSB5WoJFQFWcGRHq6CZpcn4w8IdoA8Vz1zH+JPzxLorITlMAdaN
+	0QJiwS+wDUxsFQBTqYa9NTJT5xbZGlXNeL+UG+BMrabhuwfnXlkscetrb/5adiCFn5eHlg4bkdu7y
+	mX0f573A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8tg-0000000BcEZ-3iNa;
-	Sun, 25 Jan 2026 22:47:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vk8to-0000000BcK6-178A;
+	Sun, 25 Jan 2026 22:48:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8tf-0000000BcCz-1988
+	id 1vk8tn-0000000BcJB-0b42
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 22:47:55 +0000
+	Sun, 25 Jan 2026 22:48:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AE845600C3;
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E827600CB;
+	Sun, 25 Jan 2026 22:48:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB0DEC16AAE;
 	Sun, 25 Jan 2026 22:47:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C940CC4CEF1;
-	Sun, 25 Jan 2026 22:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769381274;
-	bh=BfOLTh+rKXrQuPYF24CMRF3A211Wdv94FBZKVfSgI04=;
+	s=k20201202; t=1769381282;
+	bh=FCpWtWiXviPK0JfRDl7l6gUIkKLhd7cslD/kQrH3RoY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gRN4U1TJC+1Gt6KUeIhNA+ZdF2HuReeK73gmUtGQc06MU3q51s4bsNS9KXkD8LbYP
-	 Iub1vFYe7KQKYLrPX/PbDUuV9uVJ6E8FPwiKNbS6zmsHrUtTYR0pifVLO6Ifc3VXmA
-	 2N8ELJtuBIE5w+GAJkjpX9Py1jf38L2KEJZ/rwJCNuFnZKlI9csfamnVL8RW92nShk
-	 KxolpK5j1ZE1J2rnfGlmTgG6AJggLNljRxhYLbJlqEZaqrP0vq8cY6d6636NBHo663
-	 QgLt6LqoBvhpiUCZ+bd/rReCW7dwsGkVHQJ7JsRNsdOYDTwMT0BuQ7KgtSW2m/JqYX
-	 5vmEhUetC7Mqw==
+	b=AvvAZEyEtKaCfqe5rzGN+Pe7C6GMyaY0JllgN4JVMYWGnLlNJNMdrE82nXGnwhGuM
+	 ig2aZgk1vOhsGKD2pYrRPiiWKmtUfAKadlZRhaB1yrmh3eS7VR2seQ+xqGKuFuHfSR
+	 Xe3L01V3/QzIUf8hJqhxfK9DybKbaI+P+ICudgL1O9w944OVckhr3wBFBAGPdKXFW+
+	 53ZA6GDuvwES6ssJ+Rq8iWRon/KwIXxTepltZWSJLs9qqxHWwXCSZ8iJQdkGLBwt87
+	 tcu6mPw9TRNqDDyUxf0NxLM88mYLKgvwTbBktZFTFcjcJU3VVNLG8MOcbxDic9KV7e
+	 JLkSJiy8P+F6A==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,9 +81,9 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 15/33] sched/isolation: Flush memcg workqueues on cpuset isolated partition change
-Date: Sun, 25 Jan 2026 23:45:22 +0100
-Message-ID: <20260125224541.50226-16-frederic@kernel.org>
+Subject: [PATCH 16/33] sched/isolation: Flush vmstat workqueues on cpuset isolated partition change
+Date: Sun, 25 Jan 2026 23:45:23 +0100
+Message-ID: <20260125224541.50226-17-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20260125224541.50226-1-frederic@kernel.org>
 References: <20260125224541.50226-1-frederic@kernel.org>
@@ -103,118 +103,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HK_TYPE_DOMAIN housekeeping cpumask is now modifiable at runtime. In
-order to synchronize against memcg workqueue to make sure that no
-asynchronous draining is still pending or executing on a newly made
-isolated CPU, the housekeeping susbsystem must flush the memcg
-workqueues.
+The HK_TYPE_DOMAIN housekeeping cpumask is now modifiable at runtime.
+In order to synchronize against vmstat workqueue to make sure
+that no asynchronous vmstat work is still pending or executing on a
+newly made isolated CPU, the housekeeping susbsystem must flush the
+vmstat workqueues.
 
-However the memcg workqueues can't be flushed easily since they are
-queued to the main per-CPU workqueue pool.
+This involves flushing the whole mm_percpu_wq workqueue, shared with
+LRU drain, introducing here a welcome side effect.
 
-Solve this with creating a memcg specific pool and provide and use the
-appropriate flushing API.
-
-Acked-by: Shakeel Butt <shakeel.butt@linux.dev>
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- include/linux/memcontrol.h |  4 ++++
- kernel/sched/isolation.c   |  2 ++
- kernel/sched/sched.h       |  1 +
- mm/memcontrol.c            | 12 +++++++++++-
- 4 files changed, 18 insertions(+), 1 deletion(-)
+ include/linux/vmstat.h   | 2 ++
+ kernel/sched/isolation.c | 1 +
+ kernel/sched/sched.h     | 1 +
+ mm/vmstat.c              | 5 +++++
+ 4 files changed, 9 insertions(+)
 
-diff --git a/include/linux/memcontrol.h b/include/linux/memcontrol.h
-index 0651865a4564..5b004b95648b 100644
---- a/include/linux/memcontrol.h
-+++ b/include/linux/memcontrol.h
-@@ -1037,6 +1037,8 @@ static inline u64 cgroup_id_from_mm(struct mm_struct *mm)
- 	return id;
- }
- 
-+void mem_cgroup_flush_workqueue(void);
-+
- extern int mem_cgroup_init(void);
- #else /* CONFIG_MEMCG */
- 
-@@ -1436,6 +1438,8 @@ static inline u64 cgroup_id_from_mm(struct mm_struct *mm)
- 	return 0;
- }
- 
-+static inline void mem_cgroup_flush_workqueue(void) { }
-+
- static inline int mem_cgroup_init(void) { return 0; }
- #endif /* CONFIG_MEMCG */
- 
-diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-index 674a02891b38..f4053ebf4027 100644
---- a/kernel/sched/isolation.c
-+++ b/kernel/sched/isolation.c
-@@ -144,6 +144,8 @@ int housekeeping_update(struct cpumask *isol_mask)
- 
- 	synchronize_rcu();
- 
-+	mem_cgroup_flush_workqueue();
-+
- 	kfree(old);
- 
- 	return 0;
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 653e898a996a..65dfa48e54b7 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -44,6 +44,7 @@
- #include <linux/lockdep_api.h>
- #include <linux/lockdep.h>
- #include <linux/memblock.h>
-+#include <linux/memcontrol.h>
- #include <linux/minmax.h>
- #include <linux/mm.h>
- #include <linux/module.h>
-diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-index 2289a0299331..b3ca241bb1d6 100644
---- a/mm/memcontrol.c
-+++ b/mm/memcontrol.c
-@@ -96,6 +96,8 @@ static bool cgroup_memory_nokmem __ro_after_init;
- /* BPF memory accounting disabled? */
- static bool cgroup_memory_nobpf __ro_after_init;
- 
-+static struct workqueue_struct *memcg_wq __ro_after_init;
-+
- static struct kmem_cache *memcg_cachep;
- static struct kmem_cache *memcg_pn_cachep;
- 
-@@ -2013,7 +2015,7 @@ static void schedule_drain_work(int cpu, struct work_struct *work)
- 	 */
- 	guard(rcu)();
- 	if (!cpu_is_isolated(cpu))
--		schedule_work_on(cpu, work);
-+		queue_work_on(cpu, memcg_wq, work);
- }
+diff --git a/include/linux/vmstat.h b/include/linux/vmstat.h
+index 3398a345bda8..1909b945b3ea 100644
+--- a/include/linux/vmstat.h
++++ b/include/linux/vmstat.h
+@@ -303,6 +303,7 @@ int calculate_pressure_threshold(struct zone *zone);
+ int calculate_normal_threshold(struct zone *zone);
+ void set_pgdat_percpu_threshold(pg_data_t *pgdat,
+ 				int (*calculate_pressure)(struct zone *));
++void vmstat_flush_workqueue(void);
+ #else /* CONFIG_SMP */
  
  /*
-@@ -5125,6 +5127,11 @@ void mem_cgroup_sk_uncharge(const struct sock *sk, unsigned int nr_pages)
- 	refill_stock(memcg, nr_pages);
- }
+@@ -403,6 +404,7 @@ static inline void __dec_node_page_state(struct page *page,
+ static inline void refresh_zone_stat_thresholds(void) { }
+ static inline void cpu_vm_stats_fold(int cpu) { }
+ static inline void quiet_vmstat(void) { }
++static inline void vmstat_flush_workqueue(void) { }
  
-+void mem_cgroup_flush_workqueue(void)
+ static inline void drain_zonestat(struct zone *zone,
+ 			struct per_cpu_zonestat *pzstats) { }
+diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+index f4053ebf4027..160b3fcab209 100644
+--- a/kernel/sched/isolation.c
++++ b/kernel/sched/isolation.c
+@@ -145,6 +145,7 @@ int housekeeping_update(struct cpumask *isol_mask)
+ 	synchronize_rcu();
+ 
+ 	mem_cgroup_flush_workqueue();
++	vmstat_flush_workqueue();
+ 
+ 	kfree(old);
+ 
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index 65dfa48e54b7..2d0c408fca0b 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -68,6 +68,7 @@
+ #include <linux/types.h>
+ #include <linux/u64_stats_sync_api.h>
+ #include <linux/uaccess.h>
++#include <linux/vmstat.h>
+ #include <linux/wait_api.h>
+ #include <linux/wait_bit.h>
+ #include <linux/workqueue_api.h>
+diff --git a/mm/vmstat.c b/mm/vmstat.c
+index ed19c0d42de6..d6e814c82952 100644
+--- a/mm/vmstat.c
++++ b/mm/vmstat.c
+@@ -2124,6 +2124,11 @@ static void vmstat_shepherd(struct work_struct *w);
+ 
+ static DECLARE_DEFERRABLE_WORK(shepherd, vmstat_shepherd);
+ 
++void vmstat_flush_workqueue(void)
 +{
-+	flush_workqueue(memcg_wq);
++	flush_workqueue(mm_percpu_wq);
 +}
 +
- static int __init cgroup_memory(char *s)
+ static void vmstat_shepherd(struct work_struct *w)
  {
- 	char *token;
-@@ -5167,6 +5174,9 @@ int __init mem_cgroup_init(void)
- 	cpuhp_setup_state_nocalls(CPUHP_MM_MEMCQ_DEAD, "mm/memctrl:dead", NULL,
- 				  memcg_hotplug_cpu_dead);
- 
-+	memcg_wq = alloc_workqueue("memcg", WQ_PERCPU, 0);
-+	WARN_ON(!memcg_wq);
-+
- 	for_each_possible_cpu(cpu) {
- 		INIT_WORK(&per_cpu_ptr(&memcg_stock, cpu)->work,
- 			  drain_local_memcg_stock);
+ 	int cpu;
 -- 
 2.51.1
 
