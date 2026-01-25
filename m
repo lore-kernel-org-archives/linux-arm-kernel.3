@@ -4,96 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B0A1E63C9F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 11:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D00E63C9C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 11:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4/dBuSjzE7nEQrtPNhNIaPq2xtqgFPWjhii2bmXrEb0=; b=gPrMd/vtZVNfTI
-	FznNO2MYCbEU8enUK44fmqQKlhc0R1dwRzBVAtWFSlYEjRiO+TonTBVLqVbCUBnEomWK3zs1CoxQD
-	rm4ZEPV8gleGnF1rQNVY+HbP4eemsrsOE2+wHnw5gZH1xKlbAybIJolBZGWbGw9mM1lSqaX1OGmcJ
-	3bBfekJdId2gSZIAvrp7ZXGlL6inDA9H9BvfciIrF90ot30ZXiXpwEHOm4hSbIaFHrvtLDLBQD1V4
-	Kgfq8hMnY4z3Aj1ijYoprpKA/zbHRo2Vu0puTt2Mh+TjaSSo5e1zFBIEES4HYawI9TuwftT3EOlIu
-	gv5fM5M8Ese/HwfXoytA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ki8yutJ6J7/iU6VRFPZXytmgyP3XS2kOORqhMGSoRJ8=; b=v4/IqQ2Far8o2BW5zErpyHE4qA
+	WXretETu0b56hJSBKNouWoP6kAzHQ/AS0DZhV7bnBreWMVt1pz5yWagLpBx5EdQJYw1hPHKVfZsvO
+	fKCObyjhEZ+wBe9Pw3iU36rlMn+yRmakZUdmnfmthYr8dXezHKh2whY/MSE3SBgVj54SBL2SHOAnc
+	znYaUC18MsjJwXgWi6KAj6giQ4QOEZtTkEffXslQcDkhOEGCMTYUw6rALxYDFEoBaIgDWVtKRBeuh
+	Yd2iIdBnKIm/42alGQXemy5+5LUMnBNiJwE8M7488+dQYQ3yTrK0m33MJna1N6OQ90eASUkl/7Tmq
+	n5DyLtfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjxzE-0000000B6Rp-1vuc;
-	Sun, 25 Jan 2026 11:08:56 +0000
-Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
+	id 1vjxzN-0000000B6Ti-0dc5;
+	Sun, 25 Jan 2026 11:09:05 +0000
+Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjxzB-0000000B6Qi-2gIF
+	id 1vjxzD-0000000B6RQ-28QS
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 11:08:55 +0000
-Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
-	by mailfout.stl.internal (Postfix) with ESMTP id EC8951D000E9;
-	Sun, 25 Jan 2026 06:08:49 -0500 (EST)
+	Sun, 25 Jan 2026 11:08:56 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id AA23D7A019A;
+	Sun, 25 Jan 2026 06:08:54 -0500 (EST)
 Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-11.internal (MEProxy); Sun, 25 Jan 2026 06:08:50 -0500
+  by phl-compute-02.internal (MEProxy); Sun, 25 Jan 2026 06:08:55 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm1; t=1769339329; x=1769425729; bh=4/
-	dBuSjzE7nEQrtPNhNIaPq2xtqgFPWjhii2bmXrEb0=; b=o8fMwY665ESIv4P3pA
-	U1XK5kcilnbwOrG3pFPlsSCfiDRor4GMv2AKXcNbTW5T04cEudwiiZPP8EeBdNSN
-	s2ROAHUgTRhiUQCwuEhGTGrQzIIvDH3xkO4u5xjPoWuf1ixG+geM/52w0oYKlhqk
-	6IiJ9mQWOflzcu1WWWHKFcxxVj3Eks4VZxzP9sYuxmFQbgl7gPM9/rJGpoNygr9Z
-	yGb+Fny1+00tpwNbGHEXPEqhMy05DA7FmDekfxAFDIx7wpU4K9eEIx4+feuMFic0
-	PDZ7aWMrLVsUatToPR8HwxY8HQam0Zrv1K2UpxBefrhaAkmvoP6twFPbSwPbdv90
-	fm/g==
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1769339334;
+	 x=1769425734; bh=Ki8yutJ6J7/iU6VRFPZXytmgyP3XS2kOORqhMGSoRJ8=; b=
+	iM8Ubei179dR31Y0pum/ku4tM7GqOCN4+00XtM0aVI/ag6XaFj7vFnYrneXltid9
+	dMhnkkuvskuxGmQS5p00zN1u3h3RDBmcBaT3DYBjZhKyWkyRSlHTNC3khJxu541c
+	q5TevajkIDlTFicqLCwPE4n/G0NrL6MweM7gw02y7T6CJdExLq6vexiGeGfs/SIO
+	pAwU4uon4VIvI1p1Bzf7rtCXWwlY++6Y6Nq2yb9GIAEYxwmz2zkEJOT37lhI97Ny
+	uhkWjX1pX8eiO6AQ+af7UbaHYg8HwjbcenUFDc8MJIm3o7kyFJaE+S0r9tk3C9zU
+	Zt+jOC83tQVhrhkbYKHo6g==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1769339329; x=1769425729; bh=4/dBuSjzE7nEQrtPNhNIaPq2xtqg
-	FPWjhii2bmXrEb0=; b=G7/JX0by8042Y6qOHz2aK1VjpZFFiMAOWZ4TgwY9SQ4l
-	RBGpVcCDBzspw83ql5lH5Im3mQ0qLE36y/wqoaPoUYuGUNnKhF6dtgRDJRSiPIal
-	wjxNtOkoqnqL/BgJkgugYvt1DPn4HWUEMR0PLdXUkqh7tRuG48S1wLv0SHJuPZgp
-	myAK9JvRK8soMAERcCBKatRgGnIzBzpiPA9NAPf6exZy75/1KERoVD6Ci5LrVTe2
-	JZLipDrcJN6f6yIST/tRO7XJfZuk3Zjt0VYNyUvpwbca3PHRcsGCLEtnffeonYvv
-	InptWjVk+pW2g0EektiA2+pR2zAl9dew5zGPjTI9lQ==
-X-ME-Sender: <xms:wfl1aQrF6kAzLcgC5QgEfzhqLaOyb24YOq2eauiHH7lgEX4_vKSTXg>
-    <xme:wfl1aSdMZp9TLQafb6cwO29TeTFLZkl87k1ghJVfEXv-JnJR-trLxroeFxD1CluXA
-    C2KHiyR_l3mqd6aqHTcVoefY92kNWcO5vlxYExrD3uv1OjOSXIw01Y>
-X-ME-Received: <xmr:wfl1aQmwPpVvnG-LruGQN52iu5FrGqMRKd7yD6Wq4k0P6bPUI3Iy74pIa0RujSB51OEGqbOS_FXtrnHFYoq4kTP5PQu8WUPJ-treWA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduheegieegucetufdoteggodetrf
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1769339334; x=
+	1769425734; bh=Ki8yutJ6J7/iU6VRFPZXytmgyP3XS2kOORqhMGSoRJ8=; b=J
+	M/zB7qEbScMtKB5VTgVq+QI3QBNBlQXovryHqfagffLftZTmW+Z9g/X9axYa+h8L
+	/a3dDS9EvqikbPcQRGP5bYHi1yn8cTrxgr4Uk4/x4F96cJKC4q1knQUBKVpovFsy
+	VdIXZqTqQuu9WmQEJ+Xi21mYbZKM7w985g9rfpnlYB/VoAJmaKue8qAqsg8dZzAp
+	py+eVb7uTFqYpM53froi05jV2u4YiEhuK2lwhVG3M6diQjHqDzj2BqPo/zMgD6kJ
+	lCu6bWlR9B/XQkSdwjy2eNE81hFAc/P0hGUQhfTy1CMFABCjIqP6wJdMdkCB2Maf
+	q6T9Gj/Y8jcxiHrj7d31w==
+X-ME-Sender: <xms:xvl1aX3qp5dhs4b_k-4Ux5VxNLOoq140pBqH8OfBrsYP8QGXj2KaiQ>
+    <xme:xvl1aR6QmL1UWVUrYj6Y92eQTNjeHODscgnnMDesVlHihnx8H8bQiHFVc0jm8JW1t
+    zZBJAKXQmjwy1uYGOj21LQ4QgncBbJufVo4BIecSy2_MIpHSetOZR0>
+X-ME-Received: <xmr:xvl1aTSKaXPdu4CU8M-86SHe5PC1-5wJaqdNOYFpFb8XcDXlyX3McdPIinxxdOoZHZ_W2LIVKLBHu4NbxHOxXlnKh3EvXL-OBfCzWw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduheegieefucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhephffufffkgggtgffvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgvucfi
-    rhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepfedvie
-    ffieejvdejvdevudfgtdegvdfhieffffdvtdevtdekgfejvedvleffteefnecuffhomhgr
-    ihhnpeihrghmlhdrrghpphhlvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpehjsehjrghnnhgruhdrnhgvthdpnhgspghrtghpthhtohepuddu
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnih
-    igrdguvgdprhgtphhtthhopehnvggrlhesghhomhhprgdruggvvhdprhgtphhtthhopehs
-    vhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnh
-    gvlhdrohhrghdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgv
-    lhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
-    eprghsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhig
-    qdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikh
-    doughtsehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:wfl1aRZH0yY8pYcANZfPZP7qUvh7uugYed5MQeSoyPBzIRvWecz2JQ>
-    <xmx:wfl1ad6epTxKuErGUY3YjzEeXHJwkOLAT5NL45icuglRHI6vsXUMUg>
-    <xmx:wfl1aTDq5sLjfZXC9JoOXb9n7shfJLj743Um8O23NkY2hy9PwGM8zA>
-    <xmx:wfl1aT_kkcD0FRHlgsyDsWr_KdReTgh-VK_vYxdm2jOjXvjPu_VtVw>
-    <xmx:wfl1aSK16VRpnVTZw-AhPgdbZzhtpP3nxiDsjFS6BPuct543iks2ZqmN>
+    gurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgv
+    ucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepfe
+    ehheeileduffehteeihfdvtdelffdutdeludduiedutedvfeffheekhefgtedtnecuvehl
+    uhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrg
+    hurdhnvghtpdhnsggprhgtphhtthhopeduuddpmhhouggvpehsmhhtphhouhhtpdhrtghp
+    thhtohepthhglhigsehlihhnuhhtrhhonhhigidruggvpdhrtghpthhtohepnhgvrghlse
+    hgohhmphgrrdguvghvpdhrtghpthhtohepshhvvghnsehkvghrnhgvlhdrohhrghdprhgt
+    phhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggvvh
+    hitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghh
+    sehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuh
+    igrdguvghvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhn
+    vghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:xvl1aWXNuKjzZ1o6pG_8lIKDW_N3Kd3cguX2DVRVrjUVQYORjYt_gw>
+    <xmx:xvl1aYHI3hSNwvWPISAfMf_MAJAye2Sjwx6W_Da0-8GBK5pbgue9aQ>
+    <xmx:xvl1aZcW6upMh863jcChV976rT82vrfTWCB7pwQIpLDbLEUlUMbmuA>
+    <xmx:xvl1aRpWxOQPpmtXXX4XbbV60H4Ik7SAyaIAvMpjQQeVxtI2Lx1_Mg>
+    <xmx:xvl1aVmbtYZUA2tPM834gOaonMFPrAVmrn5IGI7wjryDUPKu9SZsbgjx>
 Feedback-ID: i47b949f6:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 25 Jan 2026 06:08:48 -0500 (EST)
+ 25 Jan 2026 06:08:53 -0500 (EST)
 From: Janne Grunau <j@jannau.net>
-Subject: [PATCH 0/2] Add Apple interrupt controller 3 support
-Date: Sun, 25 Jan 2026 12:08:44 +0100
-Message-Id: <20260125-irq-apple-aic3-v1-0-a2afe66a6ab9@jannau.net>
+Date: Sun, 25 Jan 2026 12:08:46 +0100
+Subject: [PATCH 2/2] irqchip/apple-aic: Add support for "apple,t8122-aic3"
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIALz5dWkC/x2MywqAIBAAf0X23IKPEOpXosNSWy2EmUIE4r8nM
- ac5zBTInIQzjKpA4keyXKGJ6RQsB4WdUdbmYLX12pgBJd1IMZ6MJItD7Uy/eSLbgBbFxJu8/3C
- aa/0A5xWVl2AAAAA=
-X-Change-ID: 20260119-irq-apple-aic3-0314f6aa2a2a
+Message-Id: <20260125-irq-apple-aic3-v1-2-a2afe66a6ab9@jannau.net>
+References: <20260125-irq-apple-aic3-v1-0-a2afe66a6ab9@jannau.net>
+In-Reply-To: <20260125-irq-apple-aic3-v1-0-a2afe66a6ab9@jannau.net>
 To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
  Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -102,18 +100,18 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  Janne Grunau <j@jannau.net>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1728; i=j@jannau.net;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3286; i=j@jannau.net;
  s=yk2025; h=from:subject:message-id;
- bh=Z3xsnX6ySy5yICEzL2MNd9sI1wQskpH/7pPIkJiIBOI=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhszSn/tuv5C9VB1Y/nTxTwkRmf9iwkIS76+W8V00dysLa
- c8T/yPZUcrCIMbFICumyJKk/bKDYXWNYkztgzCYOaxMIEMYuDgFYCKbnBj+57ZcZr+4mIElczNf
- U+gpod7O1XH8k6+ILzVJnlu46tX5U4wM7U1S3Csmno/ie7ZsYebTpbM2HPy6pujz51o/Id3zW+x
- VuAA=
+ bh=JvpkSqkCKQ8P/Z3/vU6T2eD2nWK9FDSzmVzke/AumI8=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhszSn/tZby9xDl6768LilIW2yVLqV1/7ypnJvvh2Xs1Lv
+ lftZ7pnRykLgxgXg6yYIkuS9ssOhtU1ijG1D8Jg5rAygQxh4OIUgIl03Gb4xZTpcODWwmDDS7FG
+ 29wfJQjs2+DXPG9SsE9cOrtN8iOFfkaGVWbbXiiJpjxYIb10Ql3mW6/IVcevtgvpGBjt/LfQbWo
+ BHwA=
 X-Developer-Key: i=j@jannau.net; a=openpgp;
  fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_030854_087439_CBDE8C60 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20260125_030855_631082_2EE1A30A 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,42 +126,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add yet another variant of Apple's interrupt controller. This one might
-to stick for more SoC variants than their predecessors. According to
-Apple's device trees it is used on all SoCs since the M3 (t8122) up to
-M5 (t8142). This information is not 100% reliable since macOS uses
-different kernel builds for each SoC variant.
-As far as the functionality implemented in the Linux driver it is almost
-identical to AICv2. The only noticeable difference is an increased
-IRQ_CFG offset.
-AICv3 uses the same device tree bindings as AICv2 so add its compatible
-to the existing apple,aic2.yaml.
-Apple's device tree added many MMIO offsets as properties for the
-"aic,3" node. The offsets are the same for all released SoCs with AICv3
-so the Linux driver continues to use hard coded offsets.
-Compatible strings for AICv3 will be SoC specific like
-"apple,t8122-aic3" so a potential future SoC with different offsets
-would use a new base compatible string for which the driver uses
-different MMIO offsets.
-While the offsets are the same on M4 and later SoCs access to
-implementation defined system registers will require different
-compatible strings.
+Introduce support for the new AICv3 hardware block in t8122 and t603x
+SoCs. AICv3 is similar to AICv2 but has an increased IRQ config offset.
+These MMIO offsets are coded as properties of the "aic,3" node in
+Apple's device tree. The actual offsets are the same for all SoCs
+starting from M3 through at least M5. So do not bother to follow suit
+but use AICv3 specific defines in the driver.
+The compatible string is SoC specific so future SoCs with AICv3 and
+different offsets would just use their own compatible string as base and
+add their new offsets.
 
 Signed-off-by: Janne Grunau <j@jannau.net>
 ---
-Janne Grunau (2):
-      dt-bindings: interrupt-controller: apple,aic2: Add AICv3
-      irqchip/apple-aic: Add support for "apple,t8122-aic3"
+ drivers/irqchip/irq-apple-aic.c | 27 +++++++++++++++++++++++++--
+ 1 file changed, 25 insertions(+), 2 deletions(-)
 
- .../bindings/interrupt-controller/apple,aic2.yaml  | 29 +++++++++++++++-------
- drivers/irqchip/irq-apple-aic.c                    | 27 ++++++++++++++++++--
- 2 files changed, 45 insertions(+), 11 deletions(-)
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20260119-irq-apple-aic3-0314f6aa2a2a
+diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
+index 3c70364e7cddd6ed6285595f136146ab04b897b2..f4efc325bebad1ae6119aa4eab47819a267da207 100644
+--- a/drivers/irqchip/irq-apple-aic.c
++++ b/drivers/irqchip/irq-apple-aic.c
+@@ -54,6 +54,7 @@
+ #include <linux/irqdomain.h>
+ #include <linux/jump_label.h>
+ #include <linux/limits.h>
++#include <linux/of.h>
+ #include <linux/of_address.h>
+ #include <linux/slab.h>
+ #include <asm/apple_m1_pmu.h>
+@@ -134,8 +135,15 @@
+ 
+ #define AIC2_IRQ_CFG		0x2000
+ 
++/*
++ * AIC v3 registers (MMIO)
++ */
++
++#define AIC3_IRQ_CFG		0x10000
++
+ /*
+  * AIC2 registers are laid out like this, starting at AIC2_IRQ_CFG:
++ * AIC3 registers use the same layout but start at AIC3_IRQ_CFG:
+  *
+  * Repeat for each die:
+  *   IRQ_CFG: u32 * MAX_IRQS
+@@ -293,6 +301,15 @@ static const struct aic_info aic2_info __initconst = {
+ 	.local_fast_ipi = true,
+ };
+ 
++static const struct aic_info aic3_info __initconst = {
++	.version	= 3,
++
++	.irq_cfg	= AIC3_IRQ_CFG,
++
++	.fast_ipi	= true,
++	.local_fast_ipi = true,
++};
++
+ static const struct of_device_id aic_info_match[] = {
+ 	{
+ 		.compatible = "apple,t8103-aic",
+@@ -310,6 +327,10 @@ static const struct of_device_id aic_info_match[] = {
+ 		.compatible = "apple,aic2",
+ 		.data = &aic2_info,
+ 	},
++	{
++		.compatible = "apple,t8122-aic3",
++		.data = &aic3_info,
++	},
+ 	{}
+ };
+ 
+@@ -620,7 +641,7 @@ static int aic_irq_domain_map(struct irq_domain *id, unsigned int irq,
+ 	u32 type = FIELD_GET(AIC_EVENT_TYPE, hw);
+ 	struct irq_chip *chip = &aic_chip;
+ 
+-	if (ic->info.version == 2)
++	if (ic->info.version == 2 || ic->info.version == 3)
+ 		chip = &aic2_chip;
+ 
+ 	if (type == AIC_EVENT_TYPE_IRQ) {
+@@ -991,6 +1012,7 @@ static int __init aic_of_ic_init(struct device_node *node, struct device_node *p
+ 
+ 		break;
+ 	}
++	case 3:
+ 	case 2: {
+ 		u32 info1, info3;
+ 
+@@ -1065,7 +1087,7 @@ static int __init aic_of_ic_init(struct device_node *node, struct device_node *p
+ 		off += irqc->info.die_stride;
+ 	}
+ 
+-	if (irqc->info.version == 2) {
++	if (irqc->info.version == 2 || irqc->info.version == 3) {
+ 		u32 config = aic_ic_read(irqc, AIC2_CONFIG);
+ 
+ 		config |= AIC2_CONFIG_ENABLE;
+@@ -1116,3 +1138,4 @@ static int __init aic_of_ic_init(struct device_node *node, struct device_node *p
+ 
+ IRQCHIP_DECLARE(apple_aic, "apple,aic", aic_of_ic_init);
+ IRQCHIP_DECLARE(apple_aic2, "apple,aic2", aic_of_ic_init);
++IRQCHIP_DECLARE(apple_aic3, "apple,t8122-aic3", aic_of_ic_init);
 
-Best regards,
 -- 
-Janne Grunau <j@jannau.net>
+2.52.0
 
 
