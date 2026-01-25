@@ -4,56 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19873E63CBF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 20:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD352E63CBE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 20:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I45PNuBeMSp0a/Uz7+lBtAlgVFs3diZsK36lACYeNH4=; b=KVdL7e3mmkuEyDxcAMuswRQhgC
-	/675KCl9abH2luFsobo/lavc8A63cYpltjJgv0FkJPMmCQNQRmzXcDPTuX3stNozk5XlWtDuNn+Mi
-	C/iXGf+EEMJ8E9FcyZd3jWJoLIIBtj9DpCROotVkaWqTVq23C8NJhv1tklDZWtvLQlGVOAH6BhvlA
-	Fi9+ib4TQFt4CImymVDQ+1cnlHy7x29apunLabnvbw6rXH8KUKTThnz60WWJyxJLxotwDPTmyNKRB
-	tKjIllrrN3/stgQUEUIh4tAL91isemU5n0Ybdijw5mCdqAnoVzQ2dYZT/kJSU2j9NyaD284kpNGoY
-	cHdrHUag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QaSYEp2UmSXBCH7DspOMTkZfq3AHWmmg6Ae+JLYt7ec=; b=eKJ9PriADsAaKna9m9KsMOux3M
+	qiZOz99n43EAvsabYaMiKaxti5POMjQ8wtG0Xe6xBruqVpQKRIgIKNe8bq8NWfY5/vPVVM6KWK1f8
+	639yM88bJnCDtl+uj5zl2P0SFhZ+Lg1hKugb9Ec0qmV79ZMI4wElyrinN4Sjn/H4Y6blzAUlRyTSm
+	9qVgklJTUqwpAnPUuvtIYxHs1rIAfOx+0Tk1xtEEsY4fot1z9aeAuCoMMpe1SqvPGVM06DgRni37O
+	3UcBmx4h0KQBuG6lDvyLbogUC930phKbmqi7Oe6/rXU8cGY4qB50Fq/0qmbLGA9ixVh193VAUojoy
+	zKkqqg+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk6WZ-0000000BTwl-2nyc;
-	Sun, 25 Jan 2026 20:15:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vk6m3-0000000BUm5-0gTZ;
+	Sun, 25 Jan 2026 20:31:55 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk6WX-0000000BTwe-2ixL
+	id 1vk6m0-0000000BUle-0Ogz
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 20:15:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD94C600C3
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Jan 2026 20:15:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 240E8C4CEF1;
-	Sun, 25 Jan 2026 20:15:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769372152;
-	bh=vNxC6UtTj1W10uEOM1GRQMoI9lpOlgXLjmJOV5jRTdg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=qH1wAXo1pnlVRGhueNSahUtd7XIKbHY9J0IDJfGi6WgdDtCLTW8plx4GoL+1kqrCR
-	 jDDDDr4k4d1abxxt2fxw5l14wiMubK/I6yAGJF/U3ckwVhIDlsope7rkHWwyShE8su
-	 ocTqpUyQHed3fcB4pHkvRl6bA3XlORmy3VopGT/uYNPdHWzJg3jwK0z7RCvhx7zTk5
-	 nC66mNjzBlFE3EVKUei8ojuFqW96ubZDVos/3dLyQggA2Yb5BGNQMM/7c0Sl4kGtTq
-	 Cics6VKkxEKUF8JyklzgrwDNOaxJUzLG0Ete8hIe37oy8UrG4PVnXgcuYYSto7yptZ
-	 hYrTlXhQZiSgw==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: soc@kernel.org
-Cc: arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: [PATCH] MAINTAINERS: Change Sudeep Holla's email address
-Date: Sun, 25 Jan 2026 20:15:45 +0000
-Message-ID: <20260125201545.3461463-1-sudeep.holla@kernel.org>
-X-Mailer: git-send-email 2.43.0
+	Sun, 25 Jan 2026 20:31:53 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vk6lp-0006Cb-PX; Sun, 25 Jan 2026 21:31:41 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vk6lo-002T5n-0Y;
+	Sun, 25 Jan 2026 21:31:39 +0100
+Received: from pengutronix.de (unknown [IPv6:2a01:4f8:1c1c:29e9:22:41ff:fe00:1400])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id E9B934D7CFD;
+	Sun, 25 Jan 2026 20:31:38 +0000 (UTC)
+Date: Sun, 25 Jan 2026 21:31:38 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
+Cc: mailhol@kernel.org, alexandre.belloni@bootlin.com, 
+	nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev, linux-can@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] can: at91_can: fix an error handle in at91_can_probe()
+Message-ID: <20260125-towering-faithful-axolotl-bebe3e-mkl@pengutronix.de>
+References: <20260125120947.1997682-1-lihaoxiang@isrc.iscas.ac.cn>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ohny4f6pmfsa4ffv"
+Content-Disposition: inline
+In-Reply-To: <20260125120947.1997682-1-lihaoxiang@isrc.iscas.ac.cn>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260125_123152_148218_F13EE206 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,139 +80,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch to my kernel.org email address going forward.
 
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
- .mailmap    |  3 ++-
- MAINTAINERS | 22 +++++++++++-----------
- 2 files changed, 13 insertions(+), 12 deletions(-)
+--ohny4f6pmfsa4ffv
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] can: at91_can: fix an error handle in at91_can_probe()
+MIME-Version: 1.0
 
-Hi SoC Team,
+On 25.01.2026 20:09:47, Haoxiang Li wrote:
+> In at91_can_probe(), if devm_phy_optional_get() fails,
+> the memory allocated by alloc_candev() should be freed.
+> Modify the goto label to do so.
+>
+> Fixes: 3ecc09856afb ("can: at91_can: add CAN transceiver support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
 
-Can you apply this directly ?
+A similar patch has just been reported, see:
+https://lore.kernel.org/all/20260122114128.643752-1-zilin@seu.edu.cn/
 
-Regards
-Sudeep
+Thanks,
+Marc
 
-diff --git a/.mailmap b/.mailmap
-index 1873cfa15937..584876248c1f 100644
---- a/.mailmap
-+++ b/.mailmap
-@@ -779,7 +779,8 @@ Subash Abhinov Kasiviswanathan <quic_subashab@quicinc.com> <subashab@codeaurora.
- Subbaraman Narayanamurthy <quic_subbaram@quicinc.com> <subbaram@codeaurora.org>
- Subhash Jadavani <subhashj@codeaurora.org>
- Sudarshan Rajagopalan <quic_sudaraja@quicinc.com> <sudaraja@codeaurora.org>
--Sudeep Holla <sudeep.holla@arm.com> Sudeep KarkadaNagesha <sudeep.karkadanagesha@arm.com>
-+Sudeep Holla <sudeep.holla@kernel.org> Sudeep KarkadaNagesha <sudeep.karkadanagesha@arm.com>
-+Sudeep Holla <sudeep.holla@kernel.org> <sudeep.holla@arm.com>
- Sumit Garg <sumit.garg@kernel.org> <sumit.garg@linaro.org>
- Sumit Semwal <sumit.semwal@ti.com>
- Surabhi Vishnoi <quic_svishnoi@quicinc.com> <svishnoi@codeaurora.org>
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a0dd762f5648..17d9472e1f4e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -334,7 +334,7 @@ F:	tools/power/acpi/
- ACPI FOR ARM64 (ACPI/arm64)
- M:	Lorenzo Pieralisi <lpieralisi@kernel.org>
- M:	Hanjun Guo <guohanjun@huawei.com>
--M:	Sudeep Holla <sudeep.holla@arm.com>
-+M:	Sudeep Holla <sudeep.holla@kernel.org>
- L:	linux-acpi@vger.kernel.org
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
-@@ -350,7 +350,7 @@ F:	drivers/acpi/riscv/
- F:	include/linux/acpi_rimt.h
- 
- ACPI PCC(Platform Communication Channel) MAILBOX DRIVER
--M:	Sudeep Holla <sudeep.holla@arm.com>
-+M:	Sudeep Holla <sudeep.holla@kernel.org>
- L:	linux-acpi@vger.kernel.org
- S:	Supported
- F:	drivers/mailbox/pcc.c
-@@ -3677,7 +3677,7 @@ N:	uniphier
- 
- ARM/VERSATILE EXPRESS PLATFORM
- M:	Liviu Dudau <liviu.dudau@arm.com>
--M:	Sudeep Holla <sudeep.holla@arm.com>
-+M:	Sudeep Holla <sudeep.holla@kernel.org>
- M:	Lorenzo Pieralisi <lpieralisi@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
-@@ -6506,7 +6506,7 @@ F:	drivers/i2c/busses/i2c-cp2615.c
- 
- CPU FREQUENCY DRIVERS - VEXPRESS SPC ARM BIG LITTLE
- M:	Viresh Kumar <viresh.kumar@linaro.org>
--M:	Sudeep Holla <sudeep.holla@arm.com>
-+M:	Sudeep Holla <sudeep.holla@kernel.org>
- L:	linux-pm@vger.kernel.org
- S:	Maintained
- W:	http://www.arm.com/products/processors/technologies/biglittleprocessing.php
-@@ -6602,7 +6602,7 @@ F:	include/linux/platform_data/cpuidle-exynos.h
- 
- CPUIDLE DRIVER - ARM PSCI
- M:	Lorenzo Pieralisi <lpieralisi@kernel.org>
--M:	Sudeep Holla <sudeep.holla@arm.com>
-+M:	Sudeep Holla <sudeep.holla@kernel.org>
- M:	Ulf Hansson <ulf.hansson@linaro.org>
- L:	linux-pm@vger.kernel.org
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-@@ -9806,7 +9806,7 @@ F:	include/uapi/linux/firewire*.h
- F:	tools/firewire/
- 
- FIRMWARE FRAMEWORK FOR ARMV8-A
--M:	Sudeep Holla <sudeep.holla@arm.com>
-+M:	Sudeep Holla <sudeep.holla@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	drivers/firmware/arm_ffa/
-@@ -10504,7 +10504,7 @@ S:	Maintained
- F:	scripts/gendwarfksyms/
- 
- GENERIC ARCHITECTURE TOPOLOGY
--M:	Sudeep Holla <sudeep.holla@arm.com>
-+M:	Sudeep Holla <sudeep.holla@kernel.org>
- L:	linux-kernel@vger.kernel.org
- S:	Maintained
- F:	drivers/base/arch_topology.c
-@@ -15089,7 +15089,7 @@ F:	drivers/mailbox/arm_mhuv2.c
- F:	include/linux/mailbox/arm_mhuv2_message.h
- 
- MAILBOX ARM MHUv3
--M:	Sudeep Holla <sudeep.holla@arm.com>
-+M:	Sudeep Holla <sudeep.holla@kernel.org>
- M:	Cristian Marussi <cristian.marussi@arm.com>
- L:	linux-kernel@vger.kernel.org
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-@@ -23614,7 +23614,7 @@ F:	include/uapi/linux/sed*
- SECURE MONITOR CALL(SMC) CALLING CONVENTION (SMCCC)
- M:	Mark Rutland <mark.rutland@arm.com>
- M:	Lorenzo Pieralisi <lpieralisi@kernel.org>
--M:	Sudeep Holla <sudeep.holla@arm.com>
-+M:	Sudeep Holla <sudeep.holla@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	drivers/firmware/smccc/
-@@ -25378,7 +25378,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git
- F:	drivers/mfd/syscon.c
- 
- SYSTEM CONTROL & POWER/MANAGEMENT INTERFACE (SCPI/SCMI) Message Protocol drivers
--M:	Sudeep Holla <sudeep.holla@arm.com>
-+M:	Sudeep Holla <sudeep.holla@kernel.org>
- R:	Cristian Marussi <cristian.marussi@arm.com>
- L:	arm-scmi@vger.kernel.org
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-@@ -26530,7 +26530,7 @@ F:	samples/tsm-mr/
- 
- TRUSTED SERVICES TEE DRIVER
- M:	Balint Dobszay <balint.dobszay@arm.com>
--M:	Sudeep Holla <sudeep.holla@arm.com>
-+M:	Sudeep Holla <sudeep.holla@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- L:	trusted-services@lists.trustedfirmware.org
- S:	Maintained
--- 
-2.43.0
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
+--ohny4f6pmfsa4ffv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAml2facACgkQDHRl3/mQ
+kZzVUQf/dMddQDTEMqCsbECHSaI7kMuAp/4m0wV+bzXVjfpY2wkIa7+toivtGCfz
+MH2conhtvSsTpgIZVj3sxuWg4jYn65mz+XQBWD/Gi4ki8FvJzOy06/MhHt5SSV3P
+uRc2/0WGHLZAqBjEPuSMF37e3gfCyoqPvIiIMRFkrZoSXG9ZkU+q7iGfveKW5XMd
+jETr3IHlMkv25Iz+IaVUMQg1j/rbQNIjcqEMkdPeX8IDjbdlf7YDoI5qQ1FN2ga1
+QDcJK2Cm8U3SCi25uYLv4hd9KeN1AybRaab95LV53DbF3bUAlq0CD2gq+/YQRC88
+tyjY52ayT/hAnKLrDDpZqyzzZBpULQ==
+=I6yb
+-----END PGP SIGNATURE-----
+
+--ohny4f6pmfsa4ffv--
 
