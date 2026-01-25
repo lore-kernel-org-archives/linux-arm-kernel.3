@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B6CD778B1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64592D74EF7
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K+iROY3WUzRERSwXTs2FHC4QpZgLjZb1Kr+y3cuM6Ow=; b=W7krhE39NEQgBonEdaaBenWV3w
-	O1TkRGUaHop/e1xPqvauqKGxL5vNf1BMBiHjkF3GzRdj0Qupmm+g/LkcmTek7wBBf9BUrEbZOZmop
-	RWxc7Civ+ujxhilD9LrEm5hAw2a+Jv6rZ9r4/TOLbkdCB7Pn9moCdq+E3w+pDy18MPwIJ6vpbCO4U
-	OM0VrCK5gKm5jdjw3mZP2UWBG0kgulkAUQBPVQDjBZx3hnUuAIHpcTzzX9Fs6blpmg/zyGpzKkl/+
-	GWox4oJHXYC9ddqzyNK5MRo/YMiGxon6SQr0j2ja4c+6Ms3eUncOiP3AscGwjSn4A0Qh84KxoEnvO
-	983ZYulw==;
+	bh=xSpw0pecfzn3OHTUz4ELnnOapmxAv8+oBlxd+xdh5ws=; b=zvloYTGp1tV0RnvnIwkpQv5dFO
+	ZCgCxTpksYm/09XFFuc2xgqPY+T9A+NjqoeUOa5MLXK5PB9SCM0GzLOaoStY8ONOUwh8ToG2HI4pO
+	6vd4JiP9PleSlUMwGC/jgT3OegHncQduUAgfMn51uUM6byvfmP3Sfsux8FhZM+X+Nyd7sCcQyhwl/
+	L3Tj/j4R8QVjaWATbgBYAlWsZ9mbxQaeIfGumSirmiVgKXceelBPtGxmuVT0qwAduUISXnViVL+bU
+	bXsXq/+bzivN9NzrLqa0rvx8UYGyMVOCGLt4ppp0ruLit5ttZNt3VoQumBQp2koKGUP5UhYc7MwW0
+	V3sLu2TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8PU-0000000BZ3E-2I3b;
-	Sun, 25 Jan 2026 22:16:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vk8PT-0000000BZ1j-1aH6;
+	Sun, 25 Jan 2026 22:16:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8PL-0000000BYwy-0c8l;
-	Sun, 25 Jan 2026 22:16:35 +0000
+	id 1vk8PK-0000000BYvy-1Z9i;
+	Sun, 25 Jan 2026 22:16:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9033F60130;
-	Sun, 25 Jan 2026 22:16:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D97C0C19425;
-	Sun, 25 Jan 2026 22:16:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F3C726011E;
+	Sun, 25 Jan 2026 22:16:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27ABFC19425;
+	Sun, 25 Jan 2026 22:16:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769379394;
-	bh=OEKubGr3hY5a5xOVN3rLMvcTBl4TpWU/SIwppQrSWZU=;
+	s=k20201202; t=1769379392;
+	bh=6tZOcoDzLjLZcLcPdF7/WrSy+zSdMZm9sx0zi040qLs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LVC1RG8mh2klyraPJhN3DvpajxYAguCSbvBvWYpoPMcL2i4ldFU7OEuGeJNc3Ed3x
-	 P4lw1apJZ3PIR++RZCynsg7sQNPWIQMqndzO0FNC1+un62PqZ6h4mF0PtfpyxY0Uf0
-	 5+jBJQ3dpHd6ZMNpIZN+YKE8ryaEW6CTrUbLZ1mLYahbFSq8vNxto8527vGeqmfknp
-	 0ZGa5hg0U32UR6WNjB5pl4Nn8MyRY2hmu6+Glr+v87wN1oQ29aFdm2Qml+0A5SK+PY
-	 1gTRxMgEfy0H+kQLPaHWbBVP4nGv+DYJoVtqtAKaLl4teix/5IjROiirS66OmPKGDx
-	 YeM7cFtbBqf9w==
+	b=mhAo3cqiV3m5SxW526CCIL5J+nR3v9o0BKXcdtdln/txsFUNcEtkPC9z86vdxHAHs
+	 /j45rTwFWkBzTS6CTNz7S9PnQylV6tPQBA1wTY47zsmbFIHhyj+Ddm1/kq87McwBbH
+	 UIjNYuWt+q5z7OSRQXXgWmOv9pxjoHLfCLA4iswiDqAyUbnaVqgVxD0tAP0CZgDZzE
+	 nNlHu3drq4RpNMHdqAj3pNq2laOHJonC8+u5XfUA6LDEFW7bCAv680sTJXwKT7WZaC
+	 5rYjAl9yw68Vy4lh6j5Cr9n4TkHYx6CU7H3mrViRLVGz1wBR9o35l2gBHx7U3UrlbP
+	 l/fctiky0mCtQ==
 From: Jakub Kicinski <kuba@kernel.org>
 To: rmk+kernel@armlinux.org.uk
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -55,12 +55,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	andrew+netdev@lunn.ch,
 	linux-rockchip@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [net-next,19/21] net: stmmac: rk: rk3528: gmac0 only supports RMII
-Date: Sun, 25 Jan 2026 14:16:32 -0800
-Message-ID: <20260125221632.3396270-1-kuba@kernel.org>
+Subject: Re: [net-next,18/21] net: stmmac: rk: rk3328: gmac2phy only supports RMII
+Date: Sun, 25 Jan 2026 14:16:31 -0800
+Message-ID: <20260125221631.3396200-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.52.0
-In-Reply-To: <E1vjEvK-00000005ghP-3lCt@rmk-PC.armlinux.org.uk>
-References: <E1vjEvK-00000005ghP-3lCt@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1vjEvF-00000005ghI-3CYC@rmk-PC.armlinux.org.uk>
+References: <E1vjEvF-00000005ghI-3CYC@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,9 +84,10 @@ For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
 ---
 net: stmmac: rk: rk3506, rk3528 and kk3588 have rmii_mode in clock register
 
-This commit moves the rmii_mode configuration for rk3506, rk3528, and
-rk3588 from the per-SoC set_to_rmii() functions into the centralized
-rk_gmac_powerup() function, using a new clock.rmii_mode_mask field.
+This commit consolidates RMII mode configuration for rk3506, rk3528, and
+rk3588 by adding a rmii_mode_mask field to rk_clock_fields, removing the
+per-SoC set_to_rmii() functions, and adding common code in rk_gmac_powerup()
+to write this field.
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
 > index ebbc09ea572a..759deb66ef2a 100644
@@ -95,41 +96,37 @@ rk_gmac_powerup() function, using a new clock.rmii_mode_mask field.
 
 [ ... ]
 
-> @@ -987,6 +966,7 @@ static int rk3588_init(struct rk_priv_data *bsp_priv)
->  		bsp_priv->clock.gmii_clk_sel_mask = GENMASK_U16(3, 2);
->  		bsp_priv->clock.rmii_clk_sel_mask = BIT_U16(2);
->  		bsp_priv->clock.rmii_gate_en_mask = BIT_U16(1);
-> +		bsp_priv->clock.rmii_mode_mask = BIT_U16(0);
->  		return 0;
-
-[ ... ]
-
 > @@ -1412,6 +1385,15 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
 >  			return ret;
 >  	}
->
+
+The code above (not shown in the diff, but present in the function) is:
+
+    ret = rk_get_phy_intf_sel(bsp_priv->phy_iface);
+    ...
+    if (bsp_priv->gmac_phy_intf_sel_mask ||
+        bsp_priv->gmac_rmii_mode_mask) {
+        ...
+        ret = regmap_write(bsp_priv->grf, bsp_priv->gmac_grf_reg, val);
+        if (ret < 0)
+            return ret;
+    }
+
+At this point, if the block above executed, ret holds the return value from
+regmap_write() (0 on success), not the interface selector.
+
 > +	if (bsp_priv->clock.rmii_mode_mask) {
 > +		val = rk_encode_wm16(ret == PHY_INTF_SEL_RMII,
 > +				     bsp_priv->clock.rmii_mode_mask);
 
-For rk3588, the variable ret has been overwritten by the preceding
-regmap_write() in the gmac_phy_intf_sel_mask block. At this point ret
-contains 0 (success) rather than PHY_INTF_SEL_RMII (4).
+For rk3588, both gmac_phy_intf_sel_mask and clock.rmii_mode_mask are set in
+rk3588_init(). When the preceding block executes, it overwrites ret with
+the regmap_write() return value. Then here, ret == PHY_INTF_SEL_RMII
+compares 0 == 4 which is always false, so the rmii_mode bit will never be
+set for rk3588 in RMII mode.
 
-Looking at rk_gmac_powerup(), the flow for rk3588 is:
-
-    ret = rk_get_phy_intf_sel(bsp_priv->phy_iface);  // ret = 4 for RMII
-    ...
-    if (bsp_priv->gmac_phy_intf_sel_mask || ...)     // true for rk3588
-        ...
-        ret = regmap_write(...);                     // ret = 0 on success
-    ...
-    if (bsp_priv->clock.rmii_mode_mask)              // true for rk3588
-        val = rk_encode_wm16(ret == PHY_INTF_SEL_RMII, ...);  // 0 == 4 is false
-
-Since rk3588_init() sets both gmac_phy_intf_sel_mask and
-clock.rmii_mode_mask, does this mean RMII mode can never be correctly
-configured for rk3588?
+Should ret be saved before the preceding block so its original value
+(the interface selector) can be used here?
 
 > +
 > +		ret = rk_write_clock_grf_reg(bsp_priv, val);
