@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDFBE63CAD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 16:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D167FE63CAC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 16:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OTnxHq4NFRumQo/SHU741WmHOHpkH+oyQ4unpkNu0b4=; b=K2DMQqf2G89drdkL/v9VRDA4W4
-	zvsAiS5AQmxmV6EwWUK8162tVXffgRQTUTAazWvvcHFIq6iBm/1aOAUDACPZ4J2ntjpFIo3kW7UdZ
-	p4o9/f04FKFMD10OANv9ubaPeSuRoDlfUtnzalJ4fcjADIpzvvRQR+pyW/sq+IqY+rVA+y3VwFAvt
-	oWV1PPtldqvA3OC81YrZ29LmOFmS2wZg3uPA2NAi5EpEUq+QicbitwEiUGCHZOKR++Ki9UK+eXoqK
-	hGECMJCMyp1XGxMbhr896p4ZQsNyPwRH+sAOA3ITgIsoZv3fXX33O+bx3e++E9l6YpgyBM6B3wDDn
-	z6UISpfA==;
+	bh=oA1RtwdryLPv2XMfRBGIxn1/in0pfcTMT0BMUZGgHD0=; b=WAz+YobYGX4kT+miS1nOPHFt7p
+	8iZ6DG9JGiu+AkeHQ0nVY2EwLXvv/44F2ulnd9vDuvMkvvas4mvgvz1cP5mOmXcdgqFu2D3I8Lt8P
+	Uvif0wio3okmYMTcHdKiVy8DQc+PZdUPzZXw649AOwklvk+b9hW+24Np40ZqoI90wJGyYXNaycavG
+	4fdebbQhzJYkVqsm/+pHGXBJlIDu6glzOwRsPumdkJUF5/BDwY8lwplU/cd8DiLTsBd8ZVWeP2/0V
+	zDGDMuMSrkHkOEE1uZCemngH6RSeFEt2N0sy2DXeKIwn16Ac9z+Y7pdmrKaYN4FujDcpgTiBnMXs7
+	jQKJVM0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk3Az-0000000BK8I-2i6z;
-	Sun, 25 Jan 2026 16:41:25 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1vk3B9-0000000BKDe-3zJC;
+	Sun, 25 Jan 2026 16:41:35 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk3Ax-0000000BK7Q-3bhc
+	id 1vk3B7-0000000BKCc-3gYH
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 16:41:25 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2a7bced39cfso42741175ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Jan 2026 08:41:23 -0800 (PST)
+	Sun, 25 Jan 2026 16:41:35 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-29f2676bb21so38783825ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Jan 2026 08:41:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769359283; x=1769964083; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1769359293; x=1769964093; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OTnxHq4NFRumQo/SHU741WmHOHpkH+oyQ4unpkNu0b4=;
-        b=PPTiT98g7f8U0019wVKJPYL4SmMVIwyBm8aO/Xhq5LtBqfiat4webaoVRGX9sjezbA
-         WOAxWYKBUVPA8cw5Llt8Y1lQ5tT3uONQVB0LCk6wCR58w95YTUULmBGjxsmf/TK1CBBO
-         pthUmwIeQAqR31C5TUcQn32Opiq6CSjVrIjjylJ5yUTnW5tO1/htnhpDmkYrIQ1KTvel
-         WtGhAbi/TnE97vbPI69uzX3z3CqZJO1LJrkesaqab0jPYZMTn8nOLxURI2BDQr3CSbAm
-         NpMkrmaH24EXv5C0vgWSdtLtK3IsiAW96tM+rVby/eNxOheqc/6OkR+ZHa6t+uNlTuHk
-         txZw==
+        bh=oA1RtwdryLPv2XMfRBGIxn1/in0pfcTMT0BMUZGgHD0=;
+        b=OYMRQvYwgycl4KV6Lyc4E3f4tdvaCChI+jNHL0Z2aNGWT3Os23ggmKdRoVNFSwLhXM
+         OB6cxxyKN8obGBUbtBB3z4FL6fRnhjv7HvWuBML3oDBEQo3+C/ksKJQdHPRtXpsCY76E
+         nHbHLPOvDPzF7+ox65MtQUcvvxZ9cqzBy6IVDfKk/drN52rWN09Gkg4C16de5PyrPkRU
+         0wG9aqiei99gJZjvqn+yitDNhdcQpI5vYWf/jO/byJqjiAiaf3yQ4eW/d8dpaXuU7JQs
+         yIw0fXPGiYQngWqf6MAwy4PCZOiFxSdgDk+WzjpRE4kd1Fyy8NGBJCP3atUwpxc4ODdU
+         MPdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769359283; x=1769964083;
+        d=1e100.net; s=20230601; t=1769359293; x=1769964093;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=OTnxHq4NFRumQo/SHU741WmHOHpkH+oyQ4unpkNu0b4=;
-        b=ClEu6sjHiepXGuggE8rUe03U79352yRvZjd607sIZH9sAdobAA1tAHQgJUqe44WQ4i
-         77qDq8z5ckhlWwk4UkpRflPBA6T9ka3Va46F3jLmUTxHug9YUbB78KbV19SZwtOcg3L1
-         K+RRwHN4wicITVLPxHL28LsJtFq713y1JzQlhe9XOeu1AF8DMpQtFMfJy9V2YbQDBA53
-         pe3n91RHg9Q56HFGuuhbvbkViY6X0OsCPknfSJSqINqr11a5xf+sWS7Dwv5G0bBiyKkg
-         BkIEezXNdsF9pGx0ahAjmhnQRbfzMOMqV7y8FXs8y+mkq2hwFU1BEznZNdGPg6N+R+9k
-         TkhA==
-X-Gm-Message-State: AOJu0YygcXDURO1yWCozv62NP+/htT8VYw4TqneyTMMzVLNcDEoijzoD
-	4p9cc4fRP0n9v2w4D9lLbdiP5TzWIb4v9Fq0H6l+ieEn0VGUWdr1O851
-X-Gm-Gg: AZuq6aJO4qRiuCrU57KFNNKjtFkcCXRbeoIZtue0//7UA+TmxBmfgODWkp8nkQQxYd6
-	1HL6vd3XW3+KtamK5r2M4r8Mf6fEJIKt2IC3uJbNX2BNh1hn4/X2Ys+EYbNH1tNWn8o/kXMBv96
-	dh+K2r1VpbSxc6OObgRI0huPiLrJPHgxeSbK7UeEYxZNX/s5KPtcW7fq+buzuIHoXJuewROLDUl
-	V2MwtLmYniAoOlvZb4iF1Wz1+BgXtyqJWgJcm86EnRz8+ov/k5dZuMwhst6BZZ10TFPWOVo3GXw
-	qNGIjSOxd1jMDXLdtKFo/tgnnQFkDQ72jaR9972D992n8XaJd6JKALNg5ayjtBVYAEP80Yoslr1
-	mre77eHXhcJ/ak0QUKa/8XZrw109yHIzjifY226b89ndMVATsuvpO4nrcYy0/x/Uh+b8xBXVW1O
-	1Mc2YgkUWMOuH8WtX29zZw+DEvrv0DFb8=
-X-Received: by 2002:a17:903:37ce:b0:29f:3a57:ba7a with SMTP id d9443c01a7336-2a845224bb4mr20793505ad.19.1769359283245;
-        Sun, 25 Jan 2026 08:41:23 -0800 (PST)
+        bh=oA1RtwdryLPv2XMfRBGIxn1/in0pfcTMT0BMUZGgHD0=;
+        b=DxhdlFtXwPifiUOVxiD1VI9bYJJijh+5MQzaskgdmNVI5hHQGiw4JISB7GC3YSXYfP
+         BOHamjHtGTQw75vxWglONQFzXKRYqx2J/bIO2Ux5oJ78gdSCCh8C/SRu0ahKmsE+J/Im
+         EhnDSP4AQcYX7/BHeSDPVR6YwSkLEQrgAXqAXFZqEBn3XT4HCHOANObQuZeEtEptr3jK
+         MbP7JmWrCXFl1pGwXpj420yRPzzqJ1YHvZ5ITnJG7Fel54g5uXkrLXQMUaUgRtzKWd5K
+         h5IBHc8BOVBwyqNC412eoFWDAOPSYmEKFZ/wQW3T0hjdFrv82ttiERVryP+98AifjNM5
+         gpgA==
+X-Gm-Message-State: AOJu0Yw07/eOmP/3OhqfYPFKe/ZnfEICsTgurMA1lISKYohZfUk+KLCl
+	iPcQ8+pu8kHW/lXxoPzf4xzKndnqjVt7uaAo2fKajrwQ8KXar18XC8R0
+X-Gm-Gg: AZuq6aIm25HsjwS1CQ2/6WoMH0riy5PfqAzl9Og+Pujf1r5dRhU+NRlVDnCJ8paa+7z
+	W2X2W+0SPPhInAYOaVbK9O3RICl2pwillwrv12HjTpKfcE7N1gBBJ/k1RwnhVc7Eft+0Za7yRB6
+	NoXMVJNRs4gKfVEqlc5qqzBFGGDAlbIoT4tAYWmupW1nDJDsRwgiVfvwaCiWeMd3KHj1Uw45hV5
+	A7j8NG2hATC5d1Jp5OTSUvFJwx+GygrF/ims11OxL/TxXSIkSG60hCmmfrv9psnKAEEAaf1YqBu
+	ghR7b1mkXhOu6J8eGlVeDz2Ekh0zxQor9KgVrbVB9CuB203U5neYexPFmGnBfPWgPDYcBip62jm
+	a8m/hv5PaeteuBMrgHE8AzPi6TKCto4UqnczoYKvdMwfAxZ/4a5151imnm/kx8qxsgCzgeVeCg2
+	CxzktkFyEq57R4lsEbzMGzclfLXEBrRd4=
+X-Received: by 2002:a17:902:d54e:b0:2a0:d33d:a8f0 with SMTP id d9443c01a7336-2a84533b64amr17514385ad.50.1769359292945;
+        Sun, 25 Jan 2026 08:41:32 -0800 (PST)
 Received: from DESKTOP-3LEPQG8.localdomain ([119.28.20.50])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a802f97667sm70633225ad.56.2026.01.25.08.41.18
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a802f97667sm70633225ad.56.2026.01.25.08.41.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 Jan 2026 08:41:22 -0800 (PST)
+        Sun, 25 Jan 2026 08:41:32 -0800 (PST)
 From: Xie Yuanbin <qq570070308@gmail.com>
 To: linux@armlinux.org.uk,
 	johannes@sipsolutions.net,
@@ -86,17 +86,17 @@ To: linux@armlinux.org.uk,
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Xie Yuanbin <qq570070308@gmail.com>
-Subject: [PATCH 4/9] ARM: entry: use exit_to_user_mode() instead of user_enter_callable()
-Date: Mon, 26 Jan 2026 00:40:11 +0800
-Message-ID: <20260125164016.331257-5-qq570070308@gmail.com>
+Subject: [PATCH 5/9] ARM: entry: fix missing statistics of rseq exit
+Date: Mon, 26 Jan 2026 00:40:12 +0800
+Message-ID: <20260125164016.331257-6-qq570070308@gmail.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260125164016.331257-1-qq570070308@gmail.com>
 References: <20260125164016.331257-1-qq570070308@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_084123_897275_B843FF6D 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20260125_084133_914008_4DB5B103 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,99 +111,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to user_enter_callable()'s comment, the function is obsolete.
+rseq_syscall_exit_to_user_mode() or rseq_irqentry_exit_to_user_mode() is
+missing on arm when returning to user mode, this leads to missing
+statistics of rseq exit.
 
-Since exit_to_user_mode() is a inline function, add
-arm_exit_to_user_mode_no_work_pending() to call exit_to_user_mode(),
-thereby replacing user_enter_callable() and asm_trace_hardirqs_on().
-
-Also move stackleak_erase_on_task_stack() to
+Add rseq_irqentry_exit_to_user_mode() to
 arm_exit_to_user_mode_no_work_pending().
+
+Fixes: 5412910487d0 ("rseq: Expose lightweight statistics in debugfs")
 
 Signed-off-by: Xie Yuanbin <qq570070308@gmail.com>
 ---
- arch/arm/include/asm/entry-common.h |  8 ++++++++
- arch/arm/kernel/Makefile            |  2 +-
- arch/arm/kernel/entry-common.S      | 10 +---------
- arch/arm/kernel/entry.c             | 20 ++++++++++++++++++++
- 4 files changed, 30 insertions(+), 10 deletions(-)
- create mode 100644 arch/arm/include/asm/entry-common.h
- create mode 100644 arch/arm/kernel/entry.c
+ arch/arm/kernel/entry.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm/include/asm/entry-common.h b/arch/arm/include/asm/entry-common.h
-new file mode 100644
-index 000000000000..d34c80d4b32b
---- /dev/null
-+++ b/arch/arm/include/asm/entry-common.h
-@@ -0,0 +1,8 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef ARCH_ARM_ENTRY_COMMON_H
-+#define ARCH_ARM_ENTRY_COMMON_H
-+
-+asmlinkage __section(".entry.text")
-+void arm_exit_to_user_mode_no_work_pending(void);
-+
-+#endif
-diff --git a/arch/arm/kernel/Makefile b/arch/arm/kernel/Makefile
-index b36cf0cfd4a7..e8a855d73055 100644
---- a/arch/arm/kernel/Makefile
-+++ b/arch/arm/kernel/Makefile
-@@ -17,7 +17,7 @@ CFLAGS_REMOVE_return_address.o = -pg
- 
- # Object file lists.
- 
--obj-y		:= elf.o entry-common.o irq.o opcodes.o \
-+obj-y		:= elf.o entry-common.o entry.o irq.o opcodes.o \
- 		   process.o ptrace.o reboot.o io.o \
- 		   setup.o signal.o sigreturn_codes.o \
- 		   stacktrace.o sys_arm.o time.o traps.o
-diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index 0e462bbede2f..108b77e2b405 100644
---- a/arch/arm/kernel/entry-common.S
-+++ b/arch/arm/kernel/entry-common.S
-@@ -113,15 +113,7 @@ ENTRY(ret_to_user_from_irq)
- 	movs	r1, r1, lsl #16
- 	bne	slow_work_pending
- no_work_pending:
--#ifdef CONFIG_CONTEXT_TRACKING_USER
--	bl	user_enter_callable
--#endif
--
--	asm_trace_hardirqs_on save = 0
--
--#ifdef CONFIG_KSTACK_ERASE
--	bl	stackleak_erase_on_task_stack
--#endif
-+	bl	arm_exit_to_user_mode_no_work_pending
- 	restore_user_regs fast = 0, offset = 0
- ENDPROC(ret_to_user_from_irq)
- ENDPROC(ret_to_user)
 diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
-new file mode 100644
-index 000000000000..d32f7be9a107
---- /dev/null
+index d32f7be9a107..60e5c250da88 100644
+--- a/arch/arm/kernel/entry.c
 +++ b/arch/arm/kernel/entry.c
-@@ -0,0 +1,20 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#include <linux/linkage.h>
-+#include <linux/irq-entry-common.h>
-+#include <linux/kstack_erase.h>
-+
-+/*
-+ * arm_exit_to_user_mode_no_work_pending - Fixup state when exiting to user mode
-+ *
-+ * The calling code satisfies (arch_irqs_disabled() && !lockdep_hardirqs_enabled()).
-+ * When the function returns, the state satisfies (arch_irqs_disabled() &&
-+ * lockdep_hardirqs_enabled()).
-+ */
-+asmlinkage __section(".entry.text")
-+void arm_exit_to_user_mode_no_work_pending(void)
-+{
-+	exit_to_user_mode();
-+#ifdef CONFIG_KSTACK_ERASE
-+	stackleak_erase_on_task_stack();
-+#endif
-+}
+@@ -1,5 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ #include <linux/linkage.h>
++#include <linux/rseq_entry.h>
+ #include <linux/irq-entry-common.h>
+ #include <linux/kstack_erase.h>
+ 
+@@ -13,6 +14,7 @@
+ asmlinkage __section(".entry.text")
+ void arm_exit_to_user_mode_no_work_pending(void)
+ {
++	rseq_irqentry_exit_to_user_mode();
+ 	exit_to_user_mode();
+ #ifdef CONFIG_KSTACK_ERASE
+ 	stackleak_erase_on_task_stack();
 -- 
 2.51.0
 
