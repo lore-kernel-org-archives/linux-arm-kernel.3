@@ -4,82 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2365CE63CA0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 13:54:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83F7BE63CA6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 16:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zvg4fiTQJOshumXrYVsa23w4YxItSNgQfcyVJXP08ng=; b=nr+tWytPhqIXgxhDrA52Re+FDJ
-	RY0XMRhL3+RLDs+FEMWWthpTvNcHE/78eB0Xsw+LYQ47MZ5UJaH5esgMC4MLpq/WWUHwk55z5F9PM
-	MpwZuxXmgtWSDXZggiliImP4doOqM3kJ6DCDRXqtw4phwmSf5Rjm1D6uT+8n9oKOpdYI3jW40lW72
-	3suYdevWSYW8GIa4tT8UdB6z+O1CF9NG20WdLu2C82wpzPJ8Q6srhrypJ6Wbdtc0HyMddmqBvWWSv
-	whH7wF96rQFi+q4WaAckeUCGJ63wFOx0oR+Oes/YOqTFjY1oa9kwKoNL59vcRFYFtrO7KK3MbEXC0
-	FvE4wWJQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GvZOhcEeiDCGj1pWI0Gi+YoPkJsN0PIBRkMlxYK/caE=; b=iFIhJXFjdgfP6DluUUNtR9xwRg
+	EaYix9ksDOIX/kRMUSxL76Ii1dyHP50i5UvGcgm7z/Ebh2UoU11h8JAMSzfTriFf1DaBMtiLw4s+J
+	QlO4qOT19DqQ+riZJQr2vAE3qAAch4WYR9ME1snQ5GDkJBdQmxxbKHKM0TKnhZKTt3mbgqTVI5Zxs
+	bhKwekmH3yGdOmasE04IA+pwUY2g6bFasyHnXPXReVwEgCxMy9K+F+SHO2u1bPOwZpV807iO2WY1e
+	fU+mvLgpXPg+wBya3aQjRyBtebXD5FsOA5Q+uEkXQGEVh0WU1GnYbFSOqrDmGAM+/BliZfVUMOxhu
+	zdx9xjnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk0ZW-0000000BDW9-2qde;
-	Sun, 25 Jan 2026 13:54:34 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vk2qB-0000000BJCK-30mz;
+	Sun, 25 Jan 2026 16:19:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk0ZU-0000000BDVm-1lBi
+	id 1vk2qA-0000000BJCB-2dVS
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 13:54:34 +0000
-Received: from localhost.localdomain (unknown [36.112.3.223])
-	by APP-03 (Coremail) with SMTP id rQCowAAnDOOFIHZp7ZOsBg--.946S2;
-	Sun, 25 Jan 2026 21:54:13 +0800 (CST)
-From: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
-To: ast@kernel.org,
-	daniel@iogearbox.net,
-	davem@davemloft.net,
-	kuba@kernel.org,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	andrew+netdev@lunn.ch,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	boon.leong.ong@intel.com
-Cc: netdev@vger.kernel.org,
-	bpf@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Sun, 25 Jan 2026 16:19:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B2246600C3;
+	Sun, 25 Jan 2026 16:19:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D320C4CEF1;
+	Sun, 25 Jan 2026 16:19:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769357993;
+	bh=dmuDrsMdNI2PUa85stdWzynrg+qhR+Xfy0prFZxMHUM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=qWg9PrZdl2em2STRbIMp25vdm7gOVRgjhakz1mpGalssjaEa0iPiIkTWc0DkFLh+g
+	 rvthJ5Jc7uEEHuzGT4C9rfqNTWMIz0nAKiqg9cRa6fgxIg9+YUG5yvRqBHAWbCB8bO
+	 sx0lziWUAyK/1NzagmMNr/fAPTGfGQXvyQkTLVJHXn8hr+jL/G9rGC0V4J7P3RRDnl
+	 InCPXQ9/OtnCd7oDNSDoetClBn4aYvO4gpGIhdt/Av9DBg/HGWlG73IdIQHn4szSx1
+	 zlzukk4o/iV+66VEbfyvsyMsxps1JcAAf83z1zFOU7H7QZIkWOHE1XjG3r6ckClfeX
+	 e8bUNvLSQM0Lg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vk2q6-00000005UFI-49u2;
+	Sun, 25 Jan 2026 16:19:51 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] fix a potential memory leak in stmmac_xdp_enable_pool()
-Date: Sun, 25 Jan 2026 21:54:12 +0800
-Message-Id: <20260125135412.2070798-1-lihaoxiang@isrc.iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: Re: [PATCH v2 0/5] ... and FWB for all
+Date: Sun, 25 Jan 2026 16:19:47 +0000
+Message-ID: <176935797657.961543.17468025675313258219.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260123191637.715429-1-maz@kernel.org>
+References: <20260123191637.715429-1-maz@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAAnDOOFIHZp7ZOsBg--.946S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZF43Xw4kWFWUJrWkAr4ruFg_yoWDZFX_Ka
-	12vrnxXa15JF4jkw45Gr43ZryI9F1kur1v9F42va9xCFZYgFZxXFZ8ur95AF13W34rZFyD
-	Gws7A34xA347tjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb3xFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr0_Gr
-	1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
-	C2KfnxnUUI43ZEXa7sRRKZX5UUUUU==
-X-Originating-IP: [36.112.3.223]
-X-CM-SenderInfo: 5olkt0x0ld0ww6lv2u4olvutnvoduhdfq/1tbiCRASE2l1qZiRLwAAsL
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_055432_898744_BBE43C7B 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, qperret@google.com, tabba@google.com, alexandru.elisei@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,34 +87,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In stmmac_xdp_enable_pool(), if stmmac_xsk_wakeup() fails,
-the memory allocated by xsk_pool_dma_map() should be released.
-Add xsk_pool_dma_unmap() to do so.
+On Fri, 23 Jan 2026 19:16:32 +0000, Marc Zyngier wrote:
+> [Yes, I have since learned that FWB doesn't always mean "Force Write
+>  Back". I'm not judging.]
+> 
+> This is v2 for this small series teaching pKVM about the benefits
+> (haha) of using FWB on the host S2 page-tables.
+> 
+> * From v1 [1]:
+> 
+> [...]
 
-Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
-Cc: stable@vger.kernel.org
-Signed-off-by: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Applied to next, thanks!
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
-index d7e4db7224b0..7d89d6066ea3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
-@@ -48,8 +48,10 @@ static int stmmac_xdp_enable_pool(struct stmmac_priv *priv,
- 		napi_enable(&ch->rxtx_napi);
- 
- 		err = stmmac_xsk_wakeup(priv->dev, queue, XDP_WAKEUP_RX);
--		if (err)
-+		if (err) {
-+			xsk_pool_dma_unmap(pool, STMMAC_RX_DMA_ATTR);
- 			return err;
-+		}
- 	}
- 
- 	return 0;
+[1/5] arm64: Add MT_S2{,_FWB}_AS_S1 encodings
+      commit: d4236f1ef270347b26ed34bcd0eb28d285b86bcb
+[2/5] KVM: arm64: Add KVM_PGTABLE_S2_AS_S1 flag
+      commit: 17d7b15131f3ed7fff29f2a43b6ead547e495653
+[3/5] KVM: arm64: Switch pKVM host S2 over to KVM_PGTABLE_S2_AS_S1
+      commit: a373930ec9406aeb9f82b5b78db56ca8d0919d99
+[4/5] KVM: arm64: Kill KVM_PGTABLE_S2_NOFWB
+      commit: 4f27fe82aa304c50b24f92da72b4895cf73b54ba
+[5/5] KVM: arm64: Simplify PAGE_S2_MEMATTR
+      commit: 65d00e37b17f46a21e7a25e0fb211a4c33274a83
+
+Cheers,
+
+	M.
 -- 
-2.25.1
+Without deviation from the norm, progress is not possible.
+
 
 
