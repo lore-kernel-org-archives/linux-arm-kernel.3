@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F11D74EFD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B03EBE63CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:28:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hxH2gv6G3NoCoBnyDC4nPkfI2czI+Fq/um97dmMM4lY=; b=NxiBhr5EljhK3t6TC8RB83h9RP
-	bH6cbJFp0nCgQjOHszt0m/gc0MClt+v6Zo/HmLinU+Pq4wAi1PvLxtOE6tSPdqxfEk05dVcpHbIOr
-	x1N6+bNA4pTM8RqMKaIi84M7wZ20hBmADbY/nByWUXKvRuBldjIHU7AXJdiz4+AitSntVTwg/+9Uy
-	GM+qNowwkaJAsjq7X7EzzGUJGalxfQsiIHFgnBB0Vow7l2UGNsAIY4pNGlAxRUuSCHu8L5C1wb1kq
-	nSOkqsXPfuvNvbfgyI6KjQIJrx7v6y8PsG+DoAAyxGzXaSLeV2KqgI1mEZ/wGqXtsywGs6LIRnD1E
-	Io7+9Bwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L2X891Ez3ofU6acQZJKt3+66chDjYg1lXlCjzKU3OXs=; b=UOHN7DnIdIF/0w8Vdxiz1CBnKN
+	dNOsjF2cdLUDsOQnOe59JrZ3EUpM95rzZ5TPphLjwdoQFlGTs999brQXBjRB6yD7hhgbkOJvSQ/RW
+	w3pq7QfWHY6b2sVEZlf2rf2LW+rDGl4Rvwey9OfP1c2XjiLAkjubH9n6vDCyDwJ2Oy+Ytp+zGf1yF
+	27KLRl0JZPGaKbdYLxEw0xiZccgfhkv4ke9J4SxmBhz4gmLS69BZ0yFhdrtZHMbHDOrE2QSrlNipp
+	1lp/CNPGtLqW0dRaFbEOjVk55c1zvTb33fechoY2lckxTPIVb4vMVtPP+3zz13B/xdu12rQMuZ9VW
+	3PJ5/CBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8PV-0000000BZ4p-2fTC;
-	Sun, 25 Jan 2026 22:16:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vk8aT-0000000BaI7-2zNP;
+	Sun, 25 Jan 2026 22:28:05 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8PN-0000000BYy8-0Xq1;
-	Sun, 25 Jan 2026 22:16:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 68BD043EBB;
-	Sun, 25 Jan 2026 22:16:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B18A6C4CEF1;
-	Sun, 25 Jan 2026 22:16:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769379396;
-	bh=E8R/DJ/ZbtKTHps96zcRomj23PE6yMett5iGgHXATgo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=px5R/rXqCwz2QVbI/14rOI9OYcyDWK9WeJQ71v8yaGRyq4uUo7bfAXPy+adHh2aIK
-	 e5i+8zYDRoNIgvKowNezzV3pH+nEwgf/fNQn+qmcCk9Q9rGxuX7yBrx22VeXFSAuuh
-	 WSkkKeJ4xs664gJ/VDCGQhO3WTOSbhw3+6h4EHOCFYF7xS/fIlqcV4LWexh+gTHWfs
-	 33QdoyfZW303ADs3czHpKmd2jKtA0lR2yKlc7sOIarhPzTSv2u383TV/wvROk9ml6Y
-	 xj/thP1HuC/aitZxgKUW+JovDB3748F+t4brtT7v0MIk5cs9DBDHwS/ZQk2ePSSub2
-	 eLrinl8J6O3ww==
-From: Jakub Kicinski <kuba@kernel.org>
-To: rmk+kernel@armlinux.org.uk
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	andrew@lunn.ch,
-	davem@davemloft.net,
-	alexandre.torgue@foss.st.com,
-	netdev@vger.kernel.org,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	heiko@sntech.de,
-	andrew+netdev@lunn.ch,
+	id 1vk8aQ-0000000BaHj-0PUE;
+	Sun, 25 Jan 2026 22:28:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=L2X891Ez3ofU6acQZJKt3+66chDjYg1lXlCjzKU3OXs=; b=EiMjt/g8Z82n8WlxNZmZG5T5uv
+	EpAjk6l6Np519Lwq+KkIQztvA05OO68xBvl4i4UH4rCD6tE/kWAlPtCG36okJQ90uoxrF0MKwI88Y
+	auR0oGXM5QGKFUj/H3GZUNe1Gi+qBPj3kv3f7a1CLwJxhnz/K5cpA04j8U18MkO8MbjraI15eE+e7
+	cghAlzquIBy4Fdx21Vr6RI3Nw1qzwneiiNp4eCth+mDWvwUWjra7Sgv/WbnvqMNgvMGgGVyM/l6ct
+	I3TujEL3WSTM6cm2MgI5Qu1HKYwJKsEvIdoDxYGvvsuZd/4PYkPhr5aty+knLWa+LKs3+uCV/r80m
+	Y4iR2Dyw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:32798)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vk8aI-0000000041d-2tWj;
+	Sun, 25 Jan 2026 22:27:54 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vk8aE-000000004Ma-3W6u;
+	Sun, 25 Jan 2026 22:27:50 +0000
+Date: Sun, 25 Jan 2026 22:27:50 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, andrew@lunn.ch,
+	davem@davemloft.net, alexandre.torgue@foss.st.com,
+	netdev@vger.kernel.org, edumazet@google.com, pabeni@redhat.com,
+	heiko@sntech.de, andrew+netdev@lunn.ch,
 	linux-rockchip@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [net-next,20/21] net: stmmac: rk: use rk_encode_wm16() for clock selection
-Date: Sun, 25 Jan 2026 14:16:34 -0800
-Message-ID: <20260125221634.3396295-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <E1vjEvQ-00000005ghV-07C8@rmk-PC.armlinux.org.uk>
-References: <E1vjEvQ-00000005ghV-07C8@rmk-PC.armlinux.org.uk>
+Subject: Re: [net-next,18/21] net: stmmac: rk: rk3328: gmac2phy only supports
+ RMII
+Message-ID: <aXaY5nKGFdBhVsnb@shell.armlinux.org.uk>
+References: <E1vjEvF-00000005ghI-3CYC@rmk-PC.armlinux.org.uk>
+ <20260125221631.3396200-1-kuba@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260125221631.3396200-1-kuba@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_141637_196712_A168A457 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20260125_142802_448922_BCC8338D 
+X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,58 +84,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
+On Sun, Jan 25, 2026 at 02:16:31PM -0800, Jakub Kicinski wrote:
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+> 
+> For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
 
-For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
----
-net: stmmac: rk: rk3506, rk3528 and kk3588 have rmii_mode in clock register
+This, and all the other AI generated comments on subsequent patches
+are repeats of patch 17.
 
-This patch adds an rmii_mode_mask field to struct rk_clock_fields to handle
-RMII mode configuration in the clock GRF register. It removes the SoC-specific
-set_to_rmii() functions for rk3506, rk3528, and rk3588, replacing them with a
-generic mechanism in rk_gmac_powerup().
-
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> index ebbc09ea572a..759deb66ef2a 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-
-[ ... ]
-
-> @@ -1412,6 +1385,15 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
->  			return ret;
->  	}
->
-> +	if (bsp_priv->clock.rmii_mode_mask) {
-> +		val = rk_encode_wm16(ret == PHY_INTF_SEL_RMII,
-> +				     bsp_priv->clock.rmii_mode_mask);
-
-Is this comparison using the correct value? Earlier in rk_gmac_powerup(), the
-variable ret is assigned the return value from rk_get_phy_intf_sel(), which is
-PHY_INTF_SEL_RGMII (0) or PHY_INTF_SEL_RMII (1).
-
-However, for SoCs that have gmac_phy_intf_sel_mask set (such as rk3588), the
-code enters the preceding if block:
-
-    if (bsp_priv->gmac_phy_intf_sel_mask || bsp_priv->gmac_rmii_mode_mask) {
-        ...
-        ret = regmap_write(bsp_priv->grf, bsp_priv->gmac_grf_reg, val);
-        ...
-    }
-
-After this block, ret has been overwritten with the regmap_write() return
-value (0 on success). When the rmii_mode_mask block executes, the comparison
-ret == PHY_INTF_SEL_RMII becomes 0 == 1, which is always false.
-
-This means for rk3588 in RMII mode, the rmii_mode bit in the clock register
-will be cleared (RGMII mode) instead of set. Would it be better to save the
-PHY interface selection value in a separate variable before it gets
-overwritten?
-
-> +
-> +		ret = rk_write_clock_grf_reg(bsp_priv, val);
-> +		if (ret < 0)
-> +			return ret;
-> +	}
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
