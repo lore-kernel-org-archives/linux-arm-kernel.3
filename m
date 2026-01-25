@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C7FE63CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39AE7D7237B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BBAU+1vA8rYiXSwMqWR24rkIwYymM7IYjgceDiaW7xQ=; b=y0/4a3zfBEYgOMmLwBalKo0Xsi
-	Ambs/NsHeJ8evXrYCoVbWAhNns6nCWEfqEzBmpDXL6BBvBVI+g0D/4+BxfgGGbP5dswHi26GUn5GH
-	7zPO20VohPt5/9XhDrAlBfg2albA90KSuw9mJV2cSVON95QSald5uV/Y1K6neySHF6ZN1fCd+iLt0
-	8OX07IcHn+M7m3BMXXDqdU2ejYWKaBh21S6kv26Dva9NdKzGR7Ff48V65ytnY2oaBfozpNdB6gS9p
-	3F7vpbUwXbwFRY7nzEI9T/p03ZHaSFY21zEBTVSjMNbY1PaIsz0ZFbS8jyylAzs0wNfKhIKBLi6TP
-	7PAnE9zA==;
+	bh=ArkG22qdZfeZQL1mg0jDVHZEGKaocQfpykvwK+7103I=; b=l61DuSqMf2We9x5zxI+wT2CSCA
+	bEBHWinOwfuigVEMsLzFImSr2k7s8Xffgnv83hTvywUSCMvrAE0pB+o9ePjeB+SgUlDMTXovo54Au
+	89+ELfAEJH6ftKaGziO1gxY9+ETfKeeptS8dTIGEPP7epvhmSYdGYCKTCDlo8oWX6QIKZ9/sWS+4i
+	yZdyHiivumEMnNXxUNfcI1kMgMN29JS8GqOVdOM4G3pMAsPKSRIKbhpaT6wXP6odlOQHRePKAfYCo
+	WjetxP1NzKR9Qr2cuKZavlofl7hT7SSSgGjoCtsXd7yRE0950vHvg6juDEMNjgxPoTt/CLVjRlo1C
+	RDYJ9wcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8vm-0000000BdmJ-2tK5;
-	Sun, 25 Jan 2026 22:50:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vk8vw-0000000BduG-2HNT;
+	Sun, 25 Jan 2026 22:50:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8vl-0000000Bdkj-0Xz5
+	id 1vk8vt-0000000BdrD-2MiH
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 22:50:06 +0000
+	Sun, 25 Jan 2026 22:50:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C0BC240534;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1FBFB41A67;
+	Sun, 25 Jan 2026 22:50:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 120E4C19425;
 	Sun, 25 Jan 2026 22:50:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6663EC4CEF1;
-	Sun, 25 Jan 2026 22:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769381404;
-	bh=cybpUb9IFSrtSEn6CVNh90w6y5FCshbAQhcAn4rc9bQ=;
+	s=k20201202; t=1769381413;
+	bh=kluxsGzh3yUyBuEdMQW2ChyzrN9Wa4B73tu4Iho0QMM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=szmnbFCF+vyRguPs+qTjhgn0jgwAxnTgIPrBfdW/GdN/D7mcBxVuZHNNiCj3DokE+
-	 8u2aqDutKHZoWAe9XmC3IYWWqKSGUc/71rTf+st24SadAtLG/5tVE/jHMtduy4FUkz
-	 SUAJb8ld4SDph1t42LM8gIYOi58uwgPrAnn5YD3a1P8uxg9qB72/8ZQGGOIi74olWd
-	 CFCrf6sohYmd90ny+Aju0E7DCjeBioTCp58AJPJYv8B1r5e24LmqFQ57VDbkaj4U1B
-	 ROdap0VewRCNie09oE4Flv5Uo1LqjdEi7bFQzZQH0fJGsTjtkrDTq829RCaRtYO8AD
-	 d3bzLzh17qang==
+	b=PwIC4g988r+B+FQPa2FGhJt4tSrnNd2nr3Tz4JrNby9d+xw96kD0fCjntTLY1+H1n
+	 uXxDNbXKSPe2PPZHG2MkM8KfxPUVZcHV22WrAGuzzmO872gdpB+rEYMVaPF9zDiHeA
+	 4DAVOo0ZX1apu66trrhs8xQp/0u1Hpi6J1VWvFy9lMGJMwfhvoSf3REVbWUSMv1fy3
+	 w9NNX6yNDqcaFM+CfcvB1OrCkCSjmfni8NhXoeV3iRN0cEMtFRoxEHfQHvq7WzyJd8
+	 2Ta3I7sXvWD+IW/l3nN7TVys5aR+iJcCHXKGctB2PGpo2OIwb6AJNGfhBRwGPUwOXV
+	 m2Z/opj23gBYw==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,17 +81,17 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 31/33] kthread: Comment on the purpose and placement of kthread_affine_node() call
-Date: Sun, 25 Jan 2026 23:45:38 +0100
-Message-ID: <20260125224541.50226-32-frederic@kernel.org>
+Subject: [PATCH 32/33] kthread: Document kthread_affine_preferred()
+Date: Sun, 25 Jan 2026 23:45:39 +0100
+Message-ID: <20260125224541.50226-33-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20260125224541.50226-1-frederic@kernel.org>
 References: <20260125224541.50226-1-frederic@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_145005_186592_D0548C15 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20260125_145013_621152_EA27BE7F 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,36 +106,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It may not appear obvious why kthread_affine_node() is not called before
-the kthread creation completion instead of after the first wake-up.
+The documentation of this new API has been overlooked during its
+introduction. Fill the gap.
 
-The reason is that kthread_affine_node() applies a default affinity
-behaviour that only takes place if no affinity preference have already
-been passed by the kthread creation call site.
-
-Add a comment to clarify that.
-
-Reported-by: Peter Zijlstra <peterz@infradead.org>
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- kernel/kthread.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ kernel/kthread.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
 diff --git a/kernel/kthread.c b/kernel/kthread.c
-index 03008154249c..51f419139dea 100644
+index 51f419139dea..c50f4c0eabfe 100644
 --- a/kernel/kthread.c
 +++ b/kernel/kthread.c
-@@ -453,6 +453,10 @@ static int kthread(void *_create)
+@@ -856,6 +856,18 @@ int kthreadd(void *unused)
+ 	return 0;
+ }
  
- 	self->started = 1;
- 
-+	/*
-+	 * Apply default node affinity if no call to kthread_bind[_mask]() nor
-+	 * kthread_affine_preferred() was issued before the first wake-up.
-+	 */
- 	if (!(current->flags & PF_NO_SETAFFINITY) && !self->preferred_affinity)
- 		kthread_affine_node();
- 
++/**
++ * kthread_affine_preferred - Define a kthread's preferred affinity
++ * @p: thread created by kthread_create().
++ * @mask: preferred mask of CPUs (might not be online, must be possible) for @p
++ *        to run on.
++ *
++ * Similar to kthread_bind_mask() except that the affinity is not a requirement
++ * but rather a preference that can be constrained by CPU isolation or CPU hotplug.
++ * Must be called before the first wakeup of the kthread.
++ *
++ * Returns 0 if the affinity has been applied.
++ */
+ int kthread_affine_preferred(struct task_struct *p, const struct cpumask *mask)
+ {
+ 	struct kthread *kthread = to_kthread(p);
 -- 
 2.51.1
 
