@@ -4,72 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B03EBE63CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:28:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A45E63CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L2X891Ez3ofU6acQZJKt3+66chDjYg1lXlCjzKU3OXs=; b=UOHN7DnIdIF/0w8Vdxiz1CBnKN
-	dNOsjF2cdLUDsOQnOe59JrZ3EUpM95rzZ5TPphLjwdoQFlGTs999brQXBjRB6yD7hhgbkOJvSQ/RW
-	w3pq7QfWHY6b2sVEZlf2rf2LW+rDGl4Rvwey9OfP1c2XjiLAkjubH9n6vDCyDwJ2Oy+Ytp+zGf1yF
-	27KLRl0JZPGaKbdYLxEw0xiZccgfhkv4ke9J4SxmBhz4gmLS69BZ0yFhdrtZHMbHDOrE2QSrlNipp
-	1lp/CNPGtLqW0dRaFbEOjVk55c1zvTb33fechoY2lckxTPIVb4vMVtPP+3zz13B/xdu12rQMuZ9VW
-	3PJ5/CBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T5wfJAo9SBLVU6wNmnYh+V5LIeGoq+TArwEbDi1cTkk=; b=n7TkLbpNYfLEVsUqdH61oGOSdB
+	beNBhLNVdKI/2Ztar/YHJ8q+Tyv49TUYXJXppVxSoYy6zp7b6NKCMzX9OxYGo9Uk5iHBBOh16+Hbv
+	6TUz6l8sMiS3CrFADMQCCLMcB3rhBvlAoJHVHGqX5kepXe6hxRTZkA47bjE24yhJs9K5IuncSmze2
+	Sp478pG6Kxg1r1VZYvLoJKjMCb4J3jKk9BOKAkW2Luw/tSmTTVQzaTaBZWM3pJKaMt41rE/JhG2pD
+	UyIvQVTENH1U5XTYk6XACsuVbq8dEijJka5B9smqbhxE0oJH63nzsAiHAvZ93Xk7Xb9mSBCJnczoJ
+	+A/JeI/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8aT-0000000BaI7-2zNP;
-	Sun, 25 Jan 2026 22:28:05 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vk8hE-0000000BaX6-2J2v;
+	Sun, 25 Jan 2026 22:35:04 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8aQ-0000000BaHj-0PUE;
-	Sun, 25 Jan 2026 22:28:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=L2X891Ez3ofU6acQZJKt3+66chDjYg1lXlCjzKU3OXs=; b=EiMjt/g8Z82n8WlxNZmZG5T5uv
-	EpAjk6l6Np519Lwq+KkIQztvA05OO68xBvl4i4UH4rCD6tE/kWAlPtCG36okJQ90uoxrF0MKwI88Y
-	auR0oGXM5QGKFUj/H3GZUNe1Gi+qBPj3kv3f7a1CLwJxhnz/K5cpA04j8U18MkO8MbjraI15eE+e7
-	cghAlzquIBy4Fdx21Vr6RI3Nw1qzwneiiNp4eCth+mDWvwUWjra7Sgv/WbnvqMNgvMGgGVyM/l6ct
-	I3TujEL3WSTM6cm2MgI5Qu1HKYwJKsEvIdoDxYGvvsuZd/4PYkPhr5aty+knLWa+LKs3+uCV/r80m
-	Y4iR2Dyw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:32798)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vk8aI-0000000041d-2tWj;
-	Sun, 25 Jan 2026 22:27:54 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vk8aE-000000004Ma-3W6u;
-	Sun, 25 Jan 2026 22:27:50 +0000
-Date: Sun, 25 Jan 2026 22:27:50 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, andrew@lunn.ch,
-	davem@davemloft.net, alexandre.torgue@foss.st.com,
-	netdev@vger.kernel.org, edumazet@google.com, pabeni@redhat.com,
-	heiko@sntech.de, andrew+netdev@lunn.ch,
-	linux-rockchip@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [net-next,18/21] net: stmmac: rk: rk3328: gmac2phy only supports
- RMII
-Message-ID: <aXaY5nKGFdBhVsnb@shell.armlinux.org.uk>
-References: <E1vjEvF-00000005ghI-3CYC@rmk-PC.armlinux.org.uk>
- <20260125221631.3396200-1-kuba@kernel.org>
+	id 1vk8hC-0000000BaWH-3p0S
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 25 Jan 2026 22:35:04 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4801bc32725so30386085e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Jan 2026 14:35:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769380500; x=1769985300; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=T5wfJAo9SBLVU6wNmnYh+V5LIeGoq+TArwEbDi1cTkk=;
+        b=JXwOwYZgNt5JAht6kTKg6ZM05mf+YuGuFH4Lkn8x92DB2duFShE1u+a2K2U0AtNfEm
+         hxmJIjMNH1t36WmEz2/7iWjBwX8VQVvtILQ8p4htibG/0ND9Jj5yVYqjPoee8ct8jRsl
+         jIS6uAKil4h6tKb8EemdlyfEABh5i77ZQfWSEwL4u2nK4iPXS4nZcXUDvxKqinKmObYX
+         iucccX/ezJaARLCEbWmwF57nhXhA9njAXziFyi4BOe0CUIA4V3TH6p8tMgh8SKgr0VmH
+         ayBUpnTwJrk/mbDxJK7+xFLXzxWi2kOxgTKkRWMYYfKasCchxNCzSdHcwCIHyGzn/sch
+         ug6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769380500; x=1769985300;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=T5wfJAo9SBLVU6wNmnYh+V5LIeGoq+TArwEbDi1cTkk=;
+        b=JYlinxoZ4TMHw2+T5b+tr7lpLojK1KomXoty69Ne7CfkPy/Q8hrGvetGWukol1UCiA
+         WhmR5/k3doL4bKOqmucH5bRe1sxJcIe8uLMYb+NdqGdXS3gJ/cbjtyiR9t9KM+mND0q6
+         Ac5MyfouThnsonLaEAXo3B7io88hvEJsawCEx6+QBuyXwuIamRWPQLoU8krGhn+ITf4X
+         fDuTtgO4KMMnx2m6zN54PDMWdSY5V7cZ1/Ywutne47OyLwlk8uc0DCLfhO+FBPuVgrcg
+         Fs9O7m5G/WtBtdjVhCPkEpwTU88eIaFdHslzu7yLJB9TM6DobvFEjumCSl5I9gwl9ifH
+         Jy1w==
+X-Forwarded-Encrypted: i=1; AJvYcCWZUv2ZGnRT/uyH4fgeavUxvyG7D8bGuK37Y/UVk3l1rLXDbZW6u/TL0leLGVTI+HA2Wz+AoUBaw9juZVfkLqNh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyurN8LDa/kQIBQYjes7pWR3itkhNXzwJis+0OeV2XMhEH9Ua2S
+	dWF/jd787wZwkaIGuc3Wf3KcXvrPqfE9TMVkHctLRKbOjKGiUvVPL7wq
+X-Gm-Gg: AZuq6aIGIxbQf8ve9jv2LRXrECU/h1AGAV3dadjtd2WLZAZUKyOnfZD2T0w2vIiGXaH
+	VpQL07d3FRXTHIIa1MdL4Vo2+DclFpU/9wXqVppiHXvTt8ooX2bewxgHufN4iB+6xz/rvhWfjQE
+	gKOH8gsqSL/6GJEt6UY/hq+WffoFYGxBe2UGVsFCMqaEwf0Gnj+jwam17zkLQB6AxGJt2ocVmLr
+	55vSNigBXVoqylSpeLKFZJW/clo2Tv+JJk48zIZu1ovkauV7N80Ry8yqYCtpA9qDgLFRje0C3vr
+	uxEIysbRc4c+uaXSdR7nNCcgBncs8o18BMSJxWH2ykhw+UPS8CvG9O+Iw3CDUkiqzU9JWsThtLD
+	8vjzh8E/jh1PDKruA5MgdNN7TdpDIBszpS822sQgA5MNtVRKQLD/FFWuidAGarOfZn8L8BsS5hb
+	pLa6yY/gF7SsTV5G/W3J1NkS3UGu2WpEz7Y6RdRNCLtG5+Ja/8I/sA
+X-Received: by 2002:a05:600c:4e4a:b0:47e:e20e:bbb0 with SMTP id 5b1f17b1804b1-4805cd40fcfmr49219325e9.6.1769380500182;
+        Sun, 25 Jan 2026 14:35:00 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4804d8a5c32sm277706295e9.11.2026.01.25.14.34.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 25 Jan 2026 14:34:59 -0800 (PST)
+Date: Sun, 25 Jan 2026 22:34:55 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: David Yang <mmyangfl@gmail.com>
+Cc: netdev@vger.kernel.org, Lorenzo Bianconi <lorenzo@kernel.org>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next] net: airoha: Use u64_stats_t with
+ u64_stats_sync properly
+Message-ID: <20260125223455.31fd7a93@pumpkin>
+In-Reply-To: <20260122185255.2761568-1-mmyangfl@gmail.com>
+References: <20260122185255.2761568-1-mmyangfl@gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260125221631.3396200-1-kuba@kernel.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_142802_448922_BCC8338D 
-X-CRM114-Status: UNSURE (   7.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260125_143503_005021_997905C4 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,16 +103,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 25, 2026 at 02:16:31PM -0800, Jakub Kicinski wrote:
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
+On Fri, 23 Jan 2026 02:52:51 +0800
+David Yang <mmyangfl@gmail.com> wrote:
+
+> On 64bit arches, struct u64_stats_sync is empty and provides no help
+> against load/store tearing. Convert to u64_stats_t to ensure atomic
+> operations.
 > 
-> For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
+> Signed-off-by: David Yang <mmyangfl@gmail.com>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 136 +++++++++++------------
+>  drivers/net/ethernet/airoha/airoha_eth.h |  34 +++---
+>  2 files changed, 85 insertions(+), 85 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index 62bcbbbe2a95..6ed220e5a094 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -1472,131 +1472,131 @@ static void airoha_update_hw_stats(struct airoha_gdm_port *port)
+>  
+>  	/* TX */
+>  	val = airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_H(port->id));
+> -	port->stats.tx_ok_pkts += ((u64)val << 32);
+> +	u64_stats_add(&port->stats.tx_ok_pkts, (u64)val << 32);
+>  	val = airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_L(port->id));
+> -	port->stats.tx_ok_pkts += val;
+> +	u64_stats_add(&port->stats.tx_ok_pkts, val);
 
-This, and all the other AI generated comments on subsequent patches
-are repeats of patch 17.
+Wouldn't that be better written as:
+	u64 val = airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_H(port->id));
+	val = val << 32 + airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_L(port->id));
+	port->stats.tx_ok_pkts += val;
+(Assuming there something has stopped the hardware increment the register
+between the two accesses, and there is an associated atomic zero.)
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Otherwise you are generating 'tearing' on 64bit systems by adding the high
+and low halves separately - regardless of how the stats are read.
+I think that works for 32bit as well.
+
+Making the code completely unreadable with 'special' types and 'special'
+copy routines really doesn't seem worth while.
+The compiler won't generate code that does 'data tearing' for aligned word
+accesses, and even if it did nothing would really break.
+The most you want is a memcpy_in_words() function that guarantees to use
+'word' size tranfsers for aligned buffers - and is probably an alias for
+normal memcpy() on all current systems.
+
+OTOH data tearing can be seen for 64 bit adds on 32bit systems.
+
+It is worth nothing that on 32bits the 'packet count' and 'byte count'
+increments get seen as a pair, this doesn't happen on 64bit - one happens
+before the other.
+
+	David
+
+
+
 
