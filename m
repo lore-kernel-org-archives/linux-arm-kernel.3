@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8378D7237B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE50D7237B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B/jKYvdaoFd3YJ6UutURu5Dc/OJDsnXSZ7fKkBxu75s=; b=KOeOZxF0x9FJ3xe04TZ9vjC+FW
-	mT5tJZejYVhJ7Hdr1xVZbNa8MiDDDX4kkxRUFZBwqr3mEqDLlK13n5lLLBy0+fkkXiZK5QJS2trlR
-	h71wt4jLFdBAGVmS0c8WuQVLNZDe2Ia52bMHDZ/LOUioCO9mGJWBHwx++xjwpF+nXIJKMfiHluKV8
-	i/JvnhI2jH8bXzlIfswD2y7HddKUlYy+NldwKe9Q8fQLmnoz8Zx2s3eX34jdap6rZpQlYN+aCHlwh
-	IAvVkJlHznjeAOQeyO8On1eoYuGmOthU4uNId/tcFGNXN1VhhNPKWuWsA8e3zHGb7GCTQ1Gqd+2N5
-	EtGJqVSA==;
+	bh=ApjPO282eYqEcYcf0OZCGawmv5v67njckKGjdm3x/+U=; b=iBS3Yw+lFXwoS2XaXe5Oqq5lI0
+	0zZui7ih/E59SsJhVWP/2oA8XmM7VFmXN5/mHsiY/Vc6nSo7gjCRxPjwLJsCBlxBPDWdjjauh4Qm5
+	r3zm5x1sS/KawPzB5e3ouhOJPDV2DWIrL8QP5r4WzckSi5tLKhi/pX7Ypgq799rQ+AyJYvLQF6UdG
+	Sb0sDBPexqQZzvVNacQM1nzZPMAKx69c6dErU1iJuJJfyy0KJqPv6/htKgcsMiCpIeQp+4MzRZZCq
+	9GFDoZxWibSrfurFery1U9ZArXv44wlc7RZ2vVXec1SAdnRjbBWOk+zw9nf2+sqEVtronzuINAe+R
+	1rkHn2TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8t9-0000000Bbqp-391p;
-	Sun, 25 Jan 2026 22:47:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vk8tI-0000000Bbwf-0NBy;
+	Sun, 25 Jan 2026 22:47:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8t7-0000000BboZ-3gPL
+	id 1vk8tF-0000000Bbum-2tSs
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 22:47:21 +0000
+	Sun, 25 Jan 2026 22:47:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4E90C600CB;
+	by sea.source.kernel.org (Postfix) with ESMTP id 55A7B40886;
+	Sun, 25 Jan 2026 22:47:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AEF2C19425;
 	Sun, 25 Jan 2026 22:47:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40989C2BC86;
-	Sun, 25 Jan 2026 22:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769381241;
-	bh=JzP68aQ+gy8MFfasMpMI/FZxkM6LDJNtU1916wSaM4Y=;
+	s=k20201202; t=1769381249;
+	bh=v9YrBjmYoXXJcaUrCVcNEergJy1rpdNBj6w7mIgdodQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pZH8jb1AUqc5N69sLqgEmq+QKBIiu6wiiXwzJEi5ZGmmLVjLEJyxuwz+pct9+lnSw
-	 w9njNCBXNzXQqNSoNUDSdh6XRsKeddfyc6cH30vOjz2hIdn934RKFCg1seb7tRkHI6
-	 hB/wTPpPo+dQbJku/sCGbRXfKLCXqKbPzh6s15mJoaEYChWfkMQyimU7s3WAJfcKiz
-	 Nh+yKWa/cQ/p2I7FbwCGFvu++IydAkJCkefhTyDIJIyWM41dVxKka1ZZUJhKbzFEko
-	 EbnSL7iQ5ftw2Vdjyb68aMtE652HxefnDQ2pPkEceU8iHyxr98bucDWchvPQ1msLFi
-	 7kaC1al7RQRuw==
+	b=XO3eKJpipVP4C45Ce6EDtUhF4Kpy//JomtboPzMqwpCX/glAEuwTyQX2bUD3y/T/h
+	 ocneaY8G1ia5hEL0QFOEuDorsU2gPA0eJWNU4wL+oz7Ayk8pN29ZU4VvHVPUYS/U1F
+	 KdTS6T2KpyzJkoOg7eGpu59CTvWxjsPzI8vF9p+DtfMHYftoPrfWlR2xxH3RHg1RGk
+	 sE65qjjQVL3HbQIBqFZU0HP6K1PRny2miLAOqs5tWpoUnIHYQzcNV80SWv/8kCRaDo
+	 mKVmBnCxGTjB3HTkZSqTKg1jX98GM78mHvBVwfsf/XpfP0HLCk/MazpRhN5FugcIp/
+	 Zyq/n175MmaYA==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,14 +81,18 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 11/33] cpu: Provide lockdep check for CPU hotplug lock write-held
-Date: Sun, 25 Jan 2026 23:45:18 +0100
-Message-ID: <20260125224541.50226-12-frederic@kernel.org>
+Subject: [PATCH 12/33] cpuset: Provide lockdep check for cpuset lock held
+Date: Sun, 25 Jan 2026 23:45:19 +0100
+Message-ID: <20260125224541.50226-13-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20260125224541.50226-1-frederic@kernel.org>
 References: <20260125224541.50226-1-frederic@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260125_144729_771668_9F463D73 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,61 +107,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cpuset modifies partitions, including isolated, while holding the cpu
-hotplug lock read-held.
+cpuset modifies partitions, including isolated, while holding the cpuset
+mutex.
 
-This means that write-holding the CPU hotplug lock is safe to
-synchronize against housekeeping cpumask changes.
+This means that holding the cpuset mutex is safe to synchronize against
+housekeeping cpumask changes.
 
 Provide a lockdep check to validate that.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- include/linux/cpuhplock.h    | 1 +
- include/linux/percpu-rwsem.h | 1 +
- kernel/cpu.c                 | 5 +++++
- 3 files changed, 7 insertions(+)
+ include/linux/cpuset.h | 2 ++
+ kernel/cgroup/cpuset.c | 7 +++++++
+ 2 files changed, 9 insertions(+)
 
-diff --git a/include/linux/cpuhplock.h b/include/linux/cpuhplock.h
-index f7aa20f62b87..286b3ab92e15 100644
---- a/include/linux/cpuhplock.h
-+++ b/include/linux/cpuhplock.h
-@@ -13,6 +13,7 @@
- struct device;
+diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
+index a98d3330385c..1c49ffd2ca9b 100644
+--- a/include/linux/cpuset.h
++++ b/include/linux/cpuset.h
+@@ -18,6 +18,8 @@
+ #include <linux/mmu_context.h>
+ #include <linux/jump_label.h>
  
- extern int lockdep_is_cpus_held(void);
-+extern int lockdep_is_cpus_write_held(void);
- 
- #ifdef CONFIG_HOTPLUG_CPU
- void cpus_write_lock(void);
-diff --git a/include/linux/percpu-rwsem.h b/include/linux/percpu-rwsem.h
-index 288f5235649a..c8cb010d655e 100644
---- a/include/linux/percpu-rwsem.h
-+++ b/include/linux/percpu-rwsem.h
-@@ -161,6 +161,7 @@ extern void percpu_free_rwsem(struct percpu_rw_semaphore *);
- 	__percpu_init_rwsem(sem, #sem, &rwsem_key);		\
- })
- 
-+#define percpu_rwsem_is_write_held(sem)	lockdep_is_held_type(sem, 0)
- #define percpu_rwsem_is_held(sem)	lockdep_is_held(sem)
- #define percpu_rwsem_assert_held(sem)	lockdep_assert_held(sem)
- 
-diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 40b8496f47c5..01968a5c4a16 100644
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -534,6 +534,11 @@ int lockdep_is_cpus_held(void)
- {
- 	return percpu_rwsem_is_held(&cpu_hotplug_lock);
- }
++extern bool lockdep_is_cpuset_held(void);
 +
-+int lockdep_is_cpus_write_held(void)
-+{
-+	return percpu_rwsem_is_write_held(&cpu_hotplug_lock);
-+}
- #endif
+ #ifdef CONFIG_CPUSETS
  
- static void lockdep_acquire_cpus_lock(void)
+ /*
+diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+index 3afa72f8d579..5e2e3514c22e 100644
+--- a/kernel/cgroup/cpuset.c
++++ b/kernel/cgroup/cpuset.c
+@@ -283,6 +283,13 @@ void cpuset_full_unlock(void)
+ 	cpus_read_unlock();
+ }
+ 
++#ifdef CONFIG_LOCKDEP
++bool lockdep_is_cpuset_held(void)
++{
++	return lockdep_is_held(&cpuset_mutex);
++}
++#endif
++
+ static DEFINE_SPINLOCK(callback_lock);
+ 
+ void cpuset_callback_lock_irq(void)
 -- 
 2.51.1
 
