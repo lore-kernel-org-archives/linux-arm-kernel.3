@@ -4,56 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1944EC2A06F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 18:46:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03192E63CBF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 18:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZrG6WDsV+mJXUtMhDV9DQtV1cfGpkAXeDDeqY6eDHFk=; b=xOBpnOJtJft+MHh45Ng8TB7e4M
-	CCdComojpGiW505MsMbdNBuxBsRgXP0llbr9YcZmK3TQ0okyUv0CWUccLetcaFSVT+JlPiPut9eKI
-	z1CX6aZFSYML66z+11S3S36+/IbRXD7C2AFxmxIsDN0xWngKwMFtlrjEso93CUE2tZvzK8DvUKNFS
-	cO+1+0K9js5vt7iTfSUF9QYAFItAgOjooqQiD2lxh2Xvfr5Cz6j7PxJonMb6uP4J60ZLVFfW+cXnm
-	2zqM4I3npa7B6WYk0z8nKPcSoFgh6vG2xrzJCsxHfDW6sRSoCW+7aJG3AJF5mqluo7/tHFg9zgOL+
-	hjeO+4Sg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1cYkOR6p+28OeKpILTeDYy1YUmgndRIsJrSEImzjWWs=; b=UfeJuE8aT6jxXMr+WT9RV6BOS7
+	ubRQN9450ohuwWJlJP8mpc9+5aht+Ij8S1VGMaJDeHOw0/J8B+bvomfqqrMAEixVsWDjrIgGVSXo7
+	ibIwEKKhR/uL6QG7yFeCjfWWEHhHJwNlL8D+CfZx2PpLbjK5wMywjYxand0kvAg2oMupRBJJZb7rB
+	jimAX/mmAZK64EtDcY63B1rtgxWxx/LDsH45lzFTFyX6iuw1JqQFNcDAWLLtpKkXo8quFc/qu9VIQ
+	YHSh7fB9w0Ij31hIUQbdp8cRlGbIJOjrede1ClJX1qqhrwhknEIyy/x1qsQKO/HPVnbetE6CcLx2F
+	TURYvtmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk57V-0000000BPP7-2ZYI;
-	Sun, 25 Jan 2026 18:45:57 +0000
-Received: from mail1.manjaro.org ([2a01:4f8:c010:b6e8::1])
+	id 1vk5DL-0000000BPzV-3CWG;
+	Sun, 25 Jan 2026 18:51:59 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk57T-0000000BPOO-1qeN;
-	Sun, 25 Jan 2026 18:45:56 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 5E0F641B4A;
-	Sun, 25 Jan 2026 19:45:51 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1769366752; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ZrG6WDsV+mJXUtMhDV9DQtV1cfGpkAXeDDeqY6eDHFk=;
-	b=GRhGLAsoB0NY3YG2IuRCx3e9PAqd0NKFa3vesTIaHF5rkGyeIgJPillci5hzU87ywXXxQj
-	97jJj/cAp1OhCCW7VLzDqVoEwju0X7UcHyl2MBOYfVWXtsjw6gSQxlQoM+UWSlKbaoJ45Q
-	QnH5UAReI7bPmTj7j6znid6Kba5zSi2vmQbPYx52qHntuhaR3S2YcDfiTf4Q5+sEW8RV1s
-	knaPhlp+T+k64OiMV+mD/VfLFY0DqL4Pw9Il8D3pviNP7PK5JoYkjFBqOrtegvkcKccSHj
-	IWfRw3DVsiF0BZgpefixgTaJ0EAOABg7ijpX5SaNqQGp4teqJu3nmHmBjxBQlQ==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <20260125181228.25145-1-sigmaris@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-References: <20260125181228.25145-1-sigmaris@gmail.com>
-Date: Sun, 25 Jan 2026 19:45:51 +0100
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, "Alexey Charkov" <alchark@gmail.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-To: "Hugh Cole-Baker" <sigmaris@gmail.com>
+	id 1vk5DH-0000000BPyY-0NuB
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 25 Jan 2026 18:51:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:mime-version:content-transfer-encoding; s=k1; bh=1cYkOR6p+28OeK
+	pILTeDYy1YUmgndRIsJrSEImzjWWs=; b=GUb3b+DY+9mJpJ7B3Rk9AyWsPIlsID
+	gYiUHWLfH4MhylfpJpW6wK1EEp4qmRvMXufRAsUMyjw3n6a7jZTjlMDlAiAJeytr
+	PDYusfLDkbrdpScgSILsNpYpTv9wxWk3n8sIRRm98T1X5yszKvRP0oq5bX6qilP5
+	LjHLu7d1lAZJzkgT7s2l3Qa9JZdRes785y0OH4j4PHwtTrndA/aCfpLOjcH1lb4z
+	BtZ0JoJOhdKJB5uQXdN4teK3yDzq+Q8ww2MIjkXg7v93zhNt8uES1joQCXP5zbLl
+	u9kPE+ySeVYAst58JG+Fjj7CLKQTVDUGyLh4C9GbhtN1nhxaNB2QPgsw==
+Received: (qmail 2369426 invoked from network); 25 Jan 2026 19:51:47 +0100
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 25 Jan 2026 19:51:47 +0100
+X-UD-Smtp-Session: l3s3148p1@Xefl4TpJKhBtKXAW
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-renesas-soc@vger.kernel.org
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Antonio Borneo <antonio.borneo@foss.st.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org,
+	linux-spi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	Mark Brown <broonie@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	Wilken Gottwalt <wilken.gottwalt@posteo.net>,
+	Will Deacon <will@kernel.org>
+Subject: [RFC PATCH 0/4] hwspinlock: refactor headers into public provider/consumer pair
+Date: Sun, 25 Jan 2026 19:46:51 +0100
+Message-ID: <20260125184654.17843-6-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Message-ID: <8b1a5b5e-c917-f101-6472-9071afb145d0@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH v3] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
- =?utf-8?q?_rockchip=3A?= add pwm-fan for NanoPC-T6
-User-Agent: SOGoMail 5.12.3
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_104555_652655_1B5C5459 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20260125_105155_987829_1C63DA7C 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,110 +107,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Hugh,
+TLDR: I want to create a hwspinlock provider outside of the hwspinlock
+directory. So, I refactored the headers into a provider/consumer pair.
+Which seems to me like a reasonable seperation anyhow. No functional
+changes. My build tests went fine and buildbots are happy, too.
 
-On Sunday, January 25, 2026 19:10 CET, Hugh Cole-Baker <sigmaris@gmail.=
-com> wrote:
-> FriendlyELEC offers an optional heatsink and fan addon [1] for the
-> NanoPC-T6 and T6 LTS, which plugs in to the fan connector on the boar=
-d
-> driven by pwm1. Add the fan as an active cooling device for the SoC p=
-ackage.
-> The PWM duty cycle values are taken from the vendor's source [2].
->=20
-> Signed-off-by: Hugh Cole-Baker <sigmaris@gmail.com>
->=20
-> [1]: https://www.friendlyelec.com/index.php?route=3Dproduct/product&p=
-roduct=5Fid=3D305
-> [2]: https://github.com/friendlyarm/kernel-rockchip/blob/4944602540b6=
-2f5aad139fe602a76cf7c3176128/arch/arm64/boot/dts/rockchip/rk3588-nanopi=
-6-rev01.dts#L75-L90
-> ---
-> Changes from v2: https://lore.kernel.org/linux-rockchip/2025110919212=
-8.72527-1-sigmaris@gmail.com/
-> * Set trip points to 55 and 65=C2=B0C (Dragan)
->=20
-> Changes from v1: https://lore.kernel.org/linux-rockchip/2025102619485=
-8.92461-1-sigmaris@gmail.com/
-> * add the fan to the base board dtsi instead of overlay (Heiko)
-> * just use 2 trip points for warm and hot temperatures (Dragan, Alexe=
-y)
->=20
->  .../boot/dts/rockchip/rk3588-nanopc-t6.dtsi   | 39 +++++++++++++++++=
-++
->  1 file changed, 39 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arc=
-h/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> index 90e7fe254491b..84b6b53f016ab 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> @@ -11,6 +11,7 @@
->  #include <dt-bindings/input/input.h>
->  #include <dt-bindings/pinctrl/rockchip.h>
->  #include <dt-bindings/soc/rockchip,vop2.h>
-> +#include <dt-bindings/thermal/thermal.h>
->  #include <dt-bindings/usb/pd.h>
->  #include "rk3588.dtsi"
-> =20
-> @@ -89,6 +90,14 @@ usr=5Fled: led-1 {
->  		};
->  	};
-> =20
-> +	fan: pwm-fan {
-> +		compatible =3D "pwm-fan";
-> +		cooling-levels =3D <0 35 64 100 150 255>;
-> +		fan-supply =3D <&vcc5v0=5Fsys>;
-> +		pwms =3D <&pwm1 0 50000 0>;
-> +		#cooling-cells =3D <2>;
-> +	};
-> +
->  	sound {
->  		compatible =3D "simple-audio-card";
->  		pinctrl-names =3D "default";
-> @@ -590,6 +599,36 @@ &i2s6=5F8ch {
->  	status =3D "okay";
->  };
-> =20
-> +&package=5Fthermal {
-> +	polling-delay =3D <1000>;
-> +
-> +	trips {
-> +		package=5Fwarm: package-warm {
-> +			temperature =3D <55000>;
-> +			hysteresis =3D <2000>;
-> +			type =3D "active";
-> +		};
-> +
-> +		package=5Fhot: package-hot {
-> +			temperature =3D <65000>;
-> +			hysteresis =3D <2000>;
-> +			type =3D "active";
-> +		};
-> +	};
-> +
-> +	cooling-maps {
-> +		map0 {
-> +			trip =3D <&package=5Fwarm>;
-> +			cooling-device =3D <&fan THERMAL=5FNO=5FLIMIT 1>;
-> +		};
-> +
-> +		map1 {
-> +			trip =3D <&package=5Fhot>;
-> +			cooling-device =3D <&fan 2 THERMAL=5FNO=5FLIMIT>;
-> +		};
-> +	};
-> +};
-> +
->  &pcie2x1l0 {
->  	reset-gpios =3D <&gpio4 RK=5FPB3 GPIO=5FACTIVE=5FHIGH>;
->  	vpcie3v3-supply =3D <&vcc=5F3v3=5Fpcie20>;
+Longer explanation:
 
-Thanks for the v3 of this patch, it's looking good to me, as explained
-further in my comments on the v1 and v2.
+There is a device (MFIS) in newer Renesas SoCs which combines various
+things like hwspinlocks, mailboxes and other stuff. Sadly, these are not
+strictly separated. Registers are kind of mixed and its register
+unprotection scheme will need one of its own locks. I tried various
+paths to handle this device (MFD, auxiliary bus) but I concluded that
+the sub-device dependencies give enough reasons for a single driver in
+drivers/soc/. So, this series will allow me to instantiate a hwspinlock
+provider from the other directory.
 
-Please feel free to include
+Patches 1+2 do the actual refactoring with a fallback being in place. I
+used '-B' with git-format-patch in this RFC, so the actual changes are
+more visible when the headers are moved.
 
-Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+Patch 3 converts all the users. There are not many. We could try to get
+all the acks for this single patch. Or I can break it into single
+patches and send them to subsystems. I don't mind.
+
+Patch 4 simply removes the fallback.
+
+Looking forward to comments on this approach. If the hwspinlock
+maintainers like it as is, I would kindly propose to apply patches 1+2
+after 7.0-rc1 comes out. This might sound a bit hasty, but a) I want to
+avoid chasing a moving target and b) this would remove one dependency of
+the hwspinlock driver I originally intend to upstream, of course.
+
+I would take care of patches 3+4 as needed.
+
+A branch can be found here:
+
+git://git.kernel.org/pub/scm/linux/kernel/git/wsa/linux.git renesas/hwspinlock/refactor-includes
+
+Patches are based on linux-next as of 2026-01-21.
+
+Opinions?
+
+Thanks and happy hacking,
+
+   Wolfram
+
+
+Wolfram Sang (4):
+  hwspinlock: refactor existing headers into provider.h
+  hwspinlock: refactor existing headers into consumer.h
+  treewide: convert hwspinlock users to the new consumer header file
+  hwspinlock: remove old header file
+
+ Documentation/locking/hwspinlock.rst          |  2 +-
+ MAINTAINERS                                   |  2 +-
+ drivers/base/regmap/regmap.c                  |  2 +-
+ drivers/hwspinlock/hwspinlock_core.c          |  5 +--
+ drivers/hwspinlock/omap_hwspinlock.c          |  4 +-
+ drivers/hwspinlock/qcom_hwspinlock.c          |  4 +-
+ drivers/hwspinlock/sprd_hwspinlock.c          |  4 +-
+ drivers/hwspinlock/stm32_hwspinlock.c         |  4 +-
+ drivers/hwspinlock/sun6i_hwspinlock.c         |  4 +-
+ drivers/hwspinlock/u8500_hsem.c               |  5 +--
+ drivers/iio/adc/sc27xx_adc.c                  |  2 +-
+ drivers/irqchip/irq-stm32mp-exti.c            |  2 +-
+ drivers/mfd/syscon.c                          |  2 +-
+ drivers/nvmem/sc27xx-efuse.c                  |  2 +-
+ drivers/nvmem/sprd-efuse.c                    |  2 +-
+ drivers/pinctrl/stm32/pinctrl-stm32.c         |  2 +-
+ drivers/soc/qcom/smem.c                       |  2 +-
+ drivers/spi/spi-sprd-adi.c                    |  2 +-
+ .../{hwspinlock.h => hwspinlock/consumer.h}   | 22 ++--------
+ .../linux/hwspinlock/provider.h               | 40 ++++++++++++-------
+ 20 files changed, 49 insertions(+), 65 deletions(-)
+ rename include/linux/{hwspinlock.h => hwspinlock/consumer.h} (94%)
+ rename drivers/hwspinlock/hwspinlock_internal.h => include/linux/hwspinlock/provider.h (78%)
+
+-- 
+2.47.3
 
 
