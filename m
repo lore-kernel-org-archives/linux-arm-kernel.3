@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D30E63CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E50AE63CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HSDhdQdHZiUEaR1V14KPz4ZuXl8eOsN+J/GicpMk1E0=; b=u+3+Zkc+oVovY8dzq4qzlk1Rg7
-	yBIQaEBPxUJ2x/xQrKgh0ZiMAFThO5z8qa2xw4U7y4hKAXopiGn6aWSchRxfGHDxDNkuyRGY2u14a
-	xx74BoYJQDkJusVcgeW7ducFHgsWpL8dL4ZaV/Rw0Le0MLj/ArtkmhW+qvyJM7a5AR21NguZSXLWM
-	PHdaWCJAK0qtieHybtChSs8/UYnSB5WoJFQFWcGRHq6CZpcn4w8IdoA8Vz1zH+JPzxLorITlMAdaN
-	0QJiwS+wDUxsFQBTqYa9NTJT5xbZGlXNeL+UG+BMrabhuwfnXlkscetrb/5adiCFn5eHlg4bkdu7y
-	mX0f573A==;
+	bh=byxRkx5/iZEejb/w/oGw8xYDdHNVovzTXWzeJy9GHbo=; b=ZT/Cg5/ddB8Imm1dRf8i7ngiYT
+	x7G2Jncko4ywecIjOjE+wmbcNlvewe0KerSBRaqk51dTym2pUcR3oSjUlp7i8iU08inO+HrpJMHxr
+	WrQzU79SS+Y7+GLWkNOO0u2NmIONxpFVrqI52zEC0DsBHyh7fHPLsltL1WBx1efpbapTQt0ThaiRY
+	2hRPZicyqVo5qiyoNT+QRWaYQJWIXGz7iT58evb/Gfr1v6cWB/wMjMXAHh8VY6Xhtrx1pCBafgQ7D
+	pBnpkAGc1utT3TqOFdxw9r94vRYZLF1s1HHT8d81VO91M80ayxiVdSfsAWRisGcMeACasHBUy+T6u
+	oazaLBBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8to-0000000BcK6-178A;
-	Sun, 25 Jan 2026 22:48:04 +0000
+	id 1vk8tw-0000000BcQ8-2Vuj;
+	Sun, 25 Jan 2026 22:48:12 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8tn-0000000BcJB-0b42
+	id 1vk8tv-0000000BcPI-2N7b
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 22:48:03 +0000
+	Sun, 25 Jan 2026 22:48:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E827600CB;
+	by tor.source.kernel.org (Postfix) with ESMTP id 040A7600CB;
+	Sun, 25 Jan 2026 22:48:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC19DC2BC86;
 	Sun, 25 Jan 2026 22:48:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB0DEC16AAE;
-	Sun, 25 Jan 2026 22:47:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769381282;
-	bh=FCpWtWiXviPK0JfRDl7l6gUIkKLhd7cslD/kQrH3RoY=;
+	s=k20201202; t=1769381290;
+	bh=P/TRTFNVIMdojDSgDr/B6FcyiyDRu4/UxmoQr5eq/JI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AvvAZEyEtKaCfqe5rzGN+Pe7C6GMyaY0JllgN4JVMYWGnLlNJNMdrE82nXGnwhGuM
-	 ig2aZgk1vOhsGKD2pYrRPiiWKmtUfAKadlZRhaB1yrmh3eS7VR2seQ+xqGKuFuHfSR
-	 Xe3L01V3/QzIUf8hJqhxfK9DybKbaI+P+ICudgL1O9w944OVckhr3wBFBAGPdKXFW+
-	 53ZA6GDuvwES6ssJ+Rq8iWRon/KwIXxTepltZWSJLs9qqxHWwXCSZ8iJQdkGLBwt87
-	 tcu6mPw9TRNqDDyUxf0NxLM88mYLKgvwTbBktZFTFcjcJU3VVNLG8MOcbxDic9KV7e
-	 JLkSJiy8P+F6A==
+	b=G2APndNkhF+7Cbi4hNCaRKrcZZnpnnKRyD+P6Kd1xncgafa1Vqtq1e621bxRTvlpy
+	 7bWpJQ+0lRQVUTNcoc0xHeEC3i62H1u/Di6tzvOcBknSeqM2AUsAAQIEVNSPIUEFab
+	 DT7XQsOc06AMIVnv3IJsKfv7SFCoLvg2Ov2noxSGG0/xrnkynkPNWMNuCyUbjwUUl7
+	 dsJQu3nzVC4G+jSW/IUYlhc+5kC/2nws8QnslUTGCXh1cT6qzIt4aNDRT4rDSyaJrz
+	 A7xP+s6ITlSLNgSc+vz9lpYZUrJHjBfJb+MBkCwjaQcRHrSm6rf4mFTCvDDjSXUw+l
+	 izK1+zL33Of4A==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,9 +81,9 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 16/33] sched/isolation: Flush vmstat workqueues on cpuset isolated partition change
-Date: Sun, 25 Jan 2026 23:45:23 +0100
-Message-ID: <20260125224541.50226-17-frederic@kernel.org>
+Subject: [PATCH 17/33] PCI: Flush PCI probe workqueue on cpuset isolated partition change
+Date: Sun, 25 Jan 2026 23:45:24 +0100
+Message-ID: <20260125224541.50226-18-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20260125224541.50226-1-frederic@kernel.org>
 References: <20260125224541.50226-1-frederic@kernel.org>
@@ -103,83 +103,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HK_TYPE_DOMAIN housekeeping cpumask is now modifiable at runtime.
-In order to synchronize against vmstat workqueue to make sure
-that no asynchronous vmstat work is still pending or executing on a
-newly made isolated CPU, the housekeeping susbsystem must flush the
-vmstat workqueues.
+The HK_TYPE_DOMAIN housekeeping cpumask is now modifiable at runtime. In
+order to synchronize against PCI probe works and make sure that no
+asynchronous probing is still pending or executing on a newly isolated
+CPU, the housekeeping subsystem must flush the PCI probe works.
 
-This involves flushing the whole mm_percpu_wq workqueue, shared with
-LRU drain, introducing here a welcome side effect.
+However the PCI probe works can't be flushed easily since they are
+queued to the main per-CPU workqueue pool.
+
+Solve this with creating a PCI probe-specific pool and provide and use
+the appropriate flushing API.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 ---
- include/linux/vmstat.h   | 2 ++
- kernel/sched/isolation.c | 1 +
- kernel/sched/sched.h     | 1 +
- mm/vmstat.c              | 5 +++++
- 4 files changed, 9 insertions(+)
+ drivers/pci/pci-driver.c | 17 ++++++++++++++++-
+ include/linux/pci.h      |  3 +++
+ kernel/sched/isolation.c |  2 ++
+ 3 files changed, 21 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/vmstat.h b/include/linux/vmstat.h
-index 3398a345bda8..1909b945b3ea 100644
---- a/include/linux/vmstat.h
-+++ b/include/linux/vmstat.h
-@@ -303,6 +303,7 @@ int calculate_pressure_threshold(struct zone *zone);
- int calculate_normal_threshold(struct zone *zone);
- void set_pgdat_percpu_threshold(pg_data_t *pgdat,
- 				int (*calculate_pressure)(struct zone *));
-+void vmstat_flush_workqueue(void);
- #else /* CONFIG_SMP */
+diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
+index a6111140755c..b902d8adf9a5 100644
+--- a/drivers/pci/pci-driver.c
++++ b/drivers/pci/pci-driver.c
+@@ -337,6 +337,8 @@ static int local_pci_probe(struct drv_dev_and_id *ddi)
+ 	return 0;
+ }
  
- /*
-@@ -403,6 +404,7 @@ static inline void __dec_node_page_state(struct page *page,
- static inline void refresh_zone_stat_thresholds(void) { }
- static inline void cpu_vm_stats_fold(int cpu) { }
- static inline void quiet_vmstat(void) { }
-+static inline void vmstat_flush_workqueue(void) { }
++static struct workqueue_struct *pci_probe_wq;
++
+ struct pci_probe_arg {
+ 	struct drv_dev_and_id *ddi;
+ 	struct work_struct work;
+@@ -407,7 +409,11 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
+ 		cpu = cpumask_any_and(cpumask_of_node(node),
+ 				      wq_domain_mask);
+ 		if (cpu < nr_cpu_ids) {
+-			schedule_work_on(cpu, &arg.work);
++			struct workqueue_struct *wq = pci_probe_wq;
++
++			if (WARN_ON_ONCE(!wq))
++				wq = system_percpu_wq;
++			queue_work_on(cpu, wq, &arg.work);
+ 			rcu_read_unlock();
+ 			flush_work(&arg.work);
+ 			error = arg.ret;
+@@ -425,6 +431,11 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
+ 	return error;
+ }
  
- static inline void drain_zonestat(struct zone *zone,
- 			struct per_cpu_zonestat *pzstats) { }
-diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-index f4053ebf4027..160b3fcab209 100644
---- a/kernel/sched/isolation.c
-+++ b/kernel/sched/isolation.c
-@@ -145,6 +145,7 @@ int housekeeping_update(struct cpumask *isol_mask)
- 	synchronize_rcu();
- 
- 	mem_cgroup_flush_workqueue();
-+	vmstat_flush_workqueue();
- 
- 	kfree(old);
- 
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 65dfa48e54b7..2d0c408fca0b 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -68,6 +68,7 @@
- #include <linux/types.h>
- #include <linux/u64_stats_sync_api.h>
- #include <linux/uaccess.h>
-+#include <linux/vmstat.h>
- #include <linux/wait_api.h>
- #include <linux/wait_bit.h>
- #include <linux/workqueue_api.h>
-diff --git a/mm/vmstat.c b/mm/vmstat.c
-index ed19c0d42de6..d6e814c82952 100644
---- a/mm/vmstat.c
-+++ b/mm/vmstat.c
-@@ -2124,6 +2124,11 @@ static void vmstat_shepherd(struct work_struct *w);
- 
- static DECLARE_DEFERRABLE_WORK(shepherd, vmstat_shepherd);
- 
-+void vmstat_flush_workqueue(void)
++void pci_probe_flush_workqueue(void)
 +{
-+	flush_workqueue(mm_percpu_wq);
++	flush_workqueue(pci_probe_wq);
 +}
 +
- static void vmstat_shepherd(struct work_struct *w)
+ /**
+  * __pci_device_probe - check if a driver wants to claim a specific PCI device
+  * @drv: driver to call to check if it wants the PCI device
+@@ -1762,6 +1773,10 @@ static int __init pci_driver_init(void)
  {
- 	int cpu;
+ 	int ret;
+ 
++	pci_probe_wq = alloc_workqueue("sync_wq", WQ_PERCPU, 0);
++	if (!pci_probe_wq)
++		return -ENOMEM;
++
+ 	ret = bus_register(&pci_bus_type);
+ 	if (ret)
+ 		return ret;
+diff --git a/include/linux/pci.h b/include/linux/pci.h
+index 864775651c6f..f14f467e50de 100644
+--- a/include/linux/pci.h
++++ b/include/linux/pci.h
+@@ -1206,6 +1206,7 @@ struct pci_bus *pci_create_root_bus(struct device *parent, int bus,
+ 				    struct pci_ops *ops, void *sysdata,
+ 				    struct list_head *resources);
+ int pci_host_probe(struct pci_host_bridge *bridge);
++void pci_probe_flush_workqueue(void);
+ int pci_bus_insert_busn_res(struct pci_bus *b, int bus, int busmax);
+ int pci_bus_update_busn_res_end(struct pci_bus *b, int busmax);
+ void pci_bus_release_busn_res(struct pci_bus *b);
+@@ -2079,6 +2080,8 @@ static inline int pci_has_flag(int flag) { return 0; }
+ _PCI_NOP_ALL(read, *)
+ _PCI_NOP_ALL(write,)
+ 
++static inline void pci_probe_flush_workqueue(void) { }
++
+ static inline struct pci_dev *pci_get_device(unsigned int vendor,
+ 					     unsigned int device,
+ 					     struct pci_dev *from)
+diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+index 160b3fcab209..1e4c3154b0a4 100644
+--- a/kernel/sched/isolation.c
++++ b/kernel/sched/isolation.c
+@@ -8,6 +8,7 @@
+  *
+  */
+ #include <linux/sched/isolation.h>
++#include <linux/pci.h>
+ #include "sched.h"
+ 
+ enum hk_flags {
+@@ -144,6 +145,7 @@ int housekeeping_update(struct cpumask *isol_mask)
+ 
+ 	synchronize_rcu();
+ 
++	pci_probe_flush_workqueue();
+ 	mem_cgroup_flush_workqueue();
+ 	vmstat_flush_workqueue();
+ 
 -- 
 2.51.1
 
