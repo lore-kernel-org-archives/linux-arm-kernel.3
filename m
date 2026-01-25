@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE12CE63CA4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 21:01:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E94E63CA4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 21:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7CeTj49j/suD4Rq67+orfSKtDdidAJEZzga/o+6BRCQ=; b=HHOA/DNVsPduI/
-	p79DP5t6CNkMdA8MlkrBXtK1l+h1uCyc/sTtqcKWTNs4iaCVUuDpKJfm1D54mTKSnVtX+yIHnucIV
-	Xl3Dsto7vWfGAh59IvpdghmMT8mR54OsZAiOtSeFSARp39p7iFxBtgyjBfXaUJcgcgbxK2X6Cw3JW
-	iD9Tk3G+9euzCGyjaXnO0U0wO6DeGyTjF+lTcLNDBXQ/ArN5EFWVxREdLwlrlZ++VZaJP3P4VWTjs
-	vI5oN4rk/7mlGSMzrZOx/oB+Z9/+shNnH9/toIyizpjzAPkVndpqWC+2tTAVKs3o802gG0tcUVE90
-	Fnxwy44nK7kjKFce8rog==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zNMUkIoLTalpAd3ZRQES5uiVuV25MXRQWddLJpJTYAY=; b=S8e8l/dD8TU4AE7MPH2C4Th3VB
+	jHTlvN/pQ3+mBkr/0V2dEvWq1RBsOFYhSp0QYhiq/e5wqdCe7AD6DZqv+CVombyWqJxuxMZtkS7TV
+	dMciZzBSqEsLAzsBuJSgumDT51BvfGnf3/FQQfDbgluzFFoN5DKHgaMfgrr08gk4gnrForcdfX1Ix
+	718lW8jQ/JrwU5uZ9b44BadYD0g8ln4B5JbFRo6v8kX9w/Ri+buqtAgsY0kmwG0JS0oh1hK+tTYVP
+	ALpanryl0yyYHPG0JHrSU/6E6PP4BdUa7SEH2DiHG1Xg4pqp3Lvox3REo8ECqc7yYw8CEkCUkODNr
+	1pc4YKng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk7E4-0000000BVPM-3tv4;
-	Sun, 25 Jan 2026 21:00:52 +0000
-Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
+	id 1vk7EC-0000000BVQj-12py;
+	Sun, 25 Jan 2026 21:01:00 +0000
+Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk7E1-0000000BVOJ-2peC
+	id 1vk7E2-0000000BVOn-3nBv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 21:00:51 +0000
-Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-649295a4a5bso3324042d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Jan 2026 13:00:48 -0800 (PST)
+	Sun, 25 Jan 2026 21:00:52 +0000
+Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-79456d5dda4so7125537b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Jan 2026 13:00:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769374848; x=1769979648; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7CeTj49j/suD4Rq67+orfSKtDdidAJEZzga/o+6BRCQ=;
-        b=S63RG4mMrD4iHx8J8NELth/S6g9pcMcmp3qT6TOLSEaRCk7NXCJKwKTRunujrLbOW9
-         SWbwRhiY5IU2Ty+bfTlukSgu5+uZ79iqI4WWbKS8bCxktrAZY5iuvY+GfxiR6iSbF4Cs
-         wgZJT7rUsxP9QY0vujDGYgy2J+Ilf2Bzl0Z9NR+dND/VHKdDwdVhVKGubNGwXvdM3qcs
-         iK8ReYvRASNs9709LYhiLBgwKU7EjQd4DQJ1BZk8GB4+7xGTTI6VTXFEX/i5O4ly8AmC
-         EGyOh7P/yP1u6S4nIO3fm3P7fqLGXzklOJ6oxpMY5Ym8a4HBTLWH29ptCetn4wc8FkBP
-         tDzw==
+        d=gmail.com; s=20230601; t=1769374850; x=1769979650; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zNMUkIoLTalpAd3ZRQES5uiVuV25MXRQWddLJpJTYAY=;
+        b=JwiUK5iY7rXnfAWXnOkG+plyx1KnWAiqcS3gYP+Aai0rdiIRZjcp+lhLbV8VF+Jvmr
+         JeqCIGRFA99l9A00b6RMrj+26kpAit/rPm4V8Kfp1O343MxMCIJ7lMnWs8y110H80zlu
+         vbGVKz69hSxsPLEShOmEyaYNgx4HPXhxNiII8nlomhSwT1vTb6ZRhg04XWWI2c1DPnSG
+         fv7all5YM6LdqCVrolGjXjLp8VPQcKET0taMlOv4twG1V3yl5MfbRhMIB++Gm8XEWHjQ
+         AtZekLMymvfiUBtUUmlctsrQSuK1yQnZCNF2Ec9fnEHe6QHhgbEZg+0zNG7lQ5jH1Wbt
+         MbTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769374848; x=1769979648;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7CeTj49j/suD4Rq67+orfSKtDdidAJEZzga/o+6BRCQ=;
-        b=BJMD64mrqDxZM/3piKJ3IKcgfAsMSu5IkuGmUSNN9A/Mics+0MGQE8HUZ6LgmbmotF
-         zNFCdj1ASCKNM//A8q5+lQiOzven8tq5gyCyLrxO+ctpAjqfqqyeyrg9/NNb1/Slr92g
-         DhJDutLMQLvH2sX0CjUhudJQ0gwxT2TxOFwacwkXlHe6fOsWkAsI1X4/a++zAMS1pjRk
-         KdI4bxkQVbdXkBg0nedai2cFheo6CHaDs1Ps0hKJb8ykMkT/VpfM4ycufmpx54y7duqA
-         VorChDr3mVjMx8Ne90Q2IGbpEhu3uW59BSGxIw4Pa+DXwiR8JoAlw1s66i3jElh9KW3+
-         pDyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW8WyEdpNvPeoMhmKZZFMcQDL6xT38Z+fJ0rv9uiyh+xqvA7Z3+g5Hkmp6OpzIT7kl/x1SkzMXJO1OfTZviDGlJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyp0tj9FZfgJDkLHBsel3xvjevCipOcMe5NR546G+p15LS9at6f
-	3MrgI81w5lfXKLgCB0PE4nm6Hph0B1VrJfrTmlaCqhdET69V8Wk7gcNq
-X-Gm-Gg: AZuq6aIKrEuGNWSAbAZt0hMZJ7mDPA8quscdKEnoXq1eSsNliGMNry+tEXjo4b81GKc
-	eYKtFRSGuaMSRKkHPiFX/SktT2OL6nr8PZmR9poRbHq4p2iN8W+q5w506F6hDgn8m1i0y1qgGlF
-	IzsrTyU96Zo8d7sWvfUFwxG3TsuV4BJBRfpv5IZdy/qCOEeguF/+arE6SGbPIDqQ11fYnsm9/0x
-	jCEkS+mx7StXoCFP6lxELTaSuMUTiYHJnPFPdrHb7waWt7imFd18u1bC7XDaDwHDVO5sugfebJH
-	CJVYFQ34VjddnTf1ZPSCEBBpIOyNv7ZBzKBHbmerxNWaMr6QzSA0f2TEat1aGgUIRLZ8FefyMfU
-	IV0vlYJ98/8zTtRVC0TRNeZKP3cPG5LRH3EOr86sPBi367B4RQxNDMAQLIyFXJr72bLUDgU5odx
-	2wdLTX
-X-Received: by 2002:a05:690c:64ca:b0:787:e3c0:f61f with SMTP id 00721157ae682-7945aa0d1e0mr41109317b3.57.1769374847540;
-        Sun, 25 Jan 2026 13:00:47 -0800 (PST)
+        d=1e100.net; s=20230601; t=1769374850; x=1769979650;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=zNMUkIoLTalpAd3ZRQES5uiVuV25MXRQWddLJpJTYAY=;
+        b=qfVhGPZ0aOuqajig7M/x3RH0QgC5DVlEZErCWbxn7etrwyhbffCxh/iBafig3THZXi
+         OkvgyfB+vcZFr8u56NkP/buT5b5iAPcQjSwaQHK2AP8VcAXHnH+i6qP/EtTJ8p/dI8T/
+         DFS+mjRc/d9EuStCHIieuLb7nrmLePU9oeljOaWSND+w965zye1mvAZiGqXiwQcwtbNt
+         mnqjtwQkPqgclyraizSj0sBE58zielqRCmjy3G8ftOyx0LVxvjGbNn/MIbx3YCWnCY6L
+         fiaWCn+XSJ1EnSs0Ikm5sjxTG/wGfvC6ucG32OQPCh7/FkONMrW4ouQowKkrj6TnNpPP
+         85Ww==
+X-Forwarded-Encrypted: i=1; AJvYcCW6Ipul7pOqOsEkrIWKdv+g85XkKIsv6phLiLmY6reflIzDjDvSJflml9AIl2SE1n+cXKlaN3J78WqxMX1x3Hys@lists.infradead.org
+X-Gm-Message-State: AOJu0YxjdB9COBrpA9+8rr1z7iGC+eO4s3ZJXqtoVgLOpJ6p2wgyr8iu
+	V2xADMhZdKcQSLpy/3NQMg9+9G48fPNMjKtEZ9UqIy5XEuT0vrk4Kfm2
+X-Gm-Gg: AZuq6aLorrv4hnqNQWIoE62/9VCg0j/Ubzm5rRbD/vK4IGsPhwlYVBooaIbjNrDSShu
+	0uC5OO7iPph24Lui04u2pcHKpE4l+Ep8dNCsxXHp3/84Ya4Yab0FpSnjJtvmS597qdkkqWfi9EK
+	xxTfxxerYIHhWxwfspWIrFGci0Cjae+000GisU8Y1Cl1TM9kd7ozkhHgsDFrPxDdxyeAV4naPyS
+	mvMrep9ckgypFUU8x3JzZlbTnsjk23e55h/QzEdfq6gZodK03XwMimOGqS6/CEhdR414jE2hs7T
+	z9A8+0ybkh2MT7PsxcKFNZF9WSxXinn1LJ1ebJHZFkebYIPq1YuXS6itbSGqUUOXQoPvWZIu2+e
+	R7jNXqsFDU5X5Qe3UE7DQmcMP8tZdBSkLaNQ2hzHF9NeXEWCggueywaoOeoU+DmQA47pFMzInFM
+	GyK54k
+X-Received: by 2002:a05:690c:e3ce:b0:794:35b:af5e with SMTP id 00721157ae682-7945a86ee06mr44305837b3.5.1769374849589;
+        Sun, 25 Jan 2026 13:00:49 -0800 (PST)
 Received: from [192.168.2.165] ([2600:1700:220:59e0::914])
-        by smtp.googlemail.com with ESMTPSA id 956f58d0204a3-6496855d65esm2518183d50.12.2026.01.25.13.00.46
+        by smtp.googlemail.com with ESMTPSA id 956f58d0204a3-6496855d65esm2518183d50.12.2026.01.25.13.00.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 Jan 2026 13:00:47 -0800 (PST)
+        Sun, 25 Jan 2026 13:00:49 -0800 (PST)
 From: Anirudh Srinivasan <anirudhsriniv@gmail.com>
-Subject: [PATCH 0/2] Add device tree for Asrock Paul IPMI Card
-Date: Sun, 25 Jan 2026 15:00:37 -0600
-Message-Id: <20260125-asrock-paul-v1-0-956085a4bd06@gmail.com>
+Date: Sun, 25 Jan 2026 15:00:39 -0600
+Subject: [PATCH 2/2] ARM: dts: aspeed: Add Asrock Paul IPMI card
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHWEdmkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDQyNT3cTiovzkbN2CxNIcXdMUgxSTJEPTZIukZCWgjoKi1LTMCrBp0bG
- 1tQBmdGMnXQAAAA==
-X-Change-ID: 20260125-asrock-paul-5d0d4b15c8bc
+Message-Id: <20260125-asrock-paul-v1-2-956085a4bd06@gmail.com>
+References: <20260125-asrock-paul-v1-0-956085a4bd06@gmail.com>
+In-Reply-To: <20260125-asrock-paul-v1-0-956085a4bd06@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
  Andrew Jeffery <andrew@codeconstruct.com.au>
@@ -88,8 +87,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Anirudh Srinivasan <anirudhsriniv@gmail.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_130049_776074_7667D4E0 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260125_130050_966552_CB0A938D 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,45 +103,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds support for Asrock Paul IPMI Card [1], which is an AST2500 based
-PCIe card that provides BMC functionality. The supported functionality
-is similar to the Asus Kommando IPMI Card, support for which was sent
-previously [2].
-
-Supported functionality includes UART, Booting from Primary SPI,
-Networking, KVM functionality (USB Gadget and Video Engine), LEDs and
-GPIO Power control. Complete BMC functionality has been tested on an
-OpenBMC build available here [3], relying on this kernel branch [4].
-
-For some reason, the Video Engine isn't always
-stable when the host PC's video output goes black/changes
-resolution, resulting in a hang and a subsequent reset of the Aspeed.
-Applying this patch [5] from the Aspeed vendor kernel seems to fix this
-issue. This doesn't require any changes to the device tree for this
-device though, so I think it shouldn't affect this patch series.
-
-[1] https://www.asrockrack.com/general/productdetail.asp?Model=PAUL
-[2] https://lore.kernel.org/linux-aspeed/20260114-asus-ipmi-expansion-card-v2-0-12b72d20a9b9@gmail.com/
-[3] https://github.com/Genius1237/openbmc/commits/asrock-paul-ipmi-card/
-[4] https://github.com/openbmc/linux/compare/dev-6.18...Genius1237:linux:asrock-paul-ipmi-card-6.18 
-[5] https://lore.kernel.org/linux-aspeed/20251124-video_dram_reset-v1-1-9d37229e4ec5@aspeedtech.com/
+Add device tree for Asrock Paul IPMI card, an AST2500 based PCIe BMC
+card.
 
 Signed-off-by: Anirudh Srinivasan <anirudhsriniv@gmail.com>
 ---
-Anirudh Srinivasan (2):
-      dt-bindings: arm: aspeed: Add Asrock Paul IPMI card
-      ARM: dts: aspeed: Add Asrock Paul IPMI card
-
- .../devicetree/bindings/arm/aspeed/aspeed.yaml     |   1 +
  arch/arm/boot/dts/aspeed/Makefile                  |   1 +
  .../aspeed/aspeed-bmc-asrock-paul-ipmi-card.dts    | 131 +++++++++++++++++++++
- 3 files changed, 133 insertions(+)
----
-base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
-change-id: 20260125-asrock-paul-5d0d4b15c8bc
+ 2 files changed, 132 insertions(+)
 
-Best regards,
+diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
+index 9adf9278dc94f84653775296c93150e61cc99328..be3c84a8462353996e0503cd95326ed88f6b8723 100644
+--- a/arch/arm/boot/dts/aspeed/Makefile
++++ b/arch/arm/boot/dts/aspeed/Makefile
+@@ -11,6 +11,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
+ 	aspeed-bmc-arm-stardragon4800-rep2.dtb \
+ 	aspeed-bmc-asrock-e3c246d4i.dtb \
+ 	aspeed-bmc-asrock-e3c256d4i.dtb \
++	aspeed-bmc-asrock-paul-ipmi-card.dtb \
+ 	aspeed-bmc-asrock-romed8hm3.dtb \
+ 	aspeed-bmc-asrock-spc621d8hm3.dtb \
+ 	aspeed-bmc-asrock-x570d4u.dtb \
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-paul-ipmi-card.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-paul-ipmi-card.dts
+new file mode 100644
+index 0000000000000000000000000000000000000000..f74f8fee9e1edb6cc1c0a0aef1268bdf91fc03f7
+--- /dev/null
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-paul-ipmi-card.dts
+@@ -0,0 +1,131 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++// Copyright 2025 Anirudh Srinivasan
++
++/dts-v1/;
++
++#include "aspeed-g5.dtsi"
++#include <dt-bindings/gpio/aspeed-gpio.h>
++
++/{
++	model = "ASRock Paul IPMI Card";
++	compatible = "asrock,ast2500-paul-ipmi-card", "aspeed,ast2500";
++
++	aliases {
++		serial4 = &uart5;
++	};
++
++	chosen {
++		stdout-path = &uart5;
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		led-fan-1 {
++			gpios = <&gpio ASPEED_GPIO(AA, 0) GPIO_ACTIVE_LOW>;
++			label = "fan1_red";
++			default-state = "off";
++		};
++
++		led-fan-2 {
++			gpios = <&gpio ASPEED_GPIO(AA, 1) GPIO_ACTIVE_LOW>;
++			label = "fan2_red";
++			default-state = "off";
++		};
++
++		led-fault {
++			gpios = <&gpio ASPEED_GPIO(Y, 3) GPIO_ACTIVE_LOW>;
++			label = "panic_red";
++			panic-indicator;
++			default-state = "off";
++		};
++
++		led-heartbeat {
++			gpios = <&gpio ASPEED_GPIO(H, 6) GPIO_ACTIVE_LOW>;
++			label = "heartbeat_green";
++			linux,default-trigger = "timer";
++		};
++	};
++
++	memory@80000000 {
++		reg = <0x80000000 0x20000000>;
++	};
++
++	reserved-memory {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges;
++
++		video_engine_memory: video {
++			size = <0x02000000>;
++			alignment = <0x01000000>;
++			compatible = "shared-dma-pool";
++			reusable;
++		};
++	};
++};
++
++&fmc {
++	status = "okay";
++	flash@0 {
++		status = "okay";
++		m25p,fast-read;
++		label = "bmc";
++		spi-max-frequency = <50000000>; /* 50 MHz */
++#include "openbmc-flash-layout.dtsi"
++	};
++};
++
++&gpio {
++	status = "okay";
++	gpio-line-names =
++		/*  A */ "", "", "", "", "", "", "", "",
++		/*  B */ "", "", "", "", "", "", "", "",
++		/*  C */ "", "", "", "", "", "", "", "",
++		/*  D */ "", "BMC_PWRBTN", "", "BMC_RESETCON", "", "", "", "",
++		/*  E */ "", "", "", "", "", "", "", "",
++		/*  F */ "", "", "", "", "", "", "", "",
++		/*  G */ "", "", "", "", "", "", "", "",
++		/*  H */ "", "", "", "", "", "", "BMC_LED1", "",
++		/*  I */ "", "", "", "", "", "", "", "",
++		/*  J */ "", "", "", "", "", "", "", "",
++		/*  K */ "", "", "", "", "", "", "", "",
++		/*  L */ "", "", "", "", "", "", "", "",
++		/*  M */ "", "", "", "", "", "", "", "",
++		/*  N */ "", "", "", "", "", "", "", "",
++		/*  O */ "", "", "", "", "", "", "", "",
++		/*  P */ "", "", "", "", "", "", "", "",
++		/*  Q */ "", "", "", "", "", "", "", "",
++		/*  R */ "", "", "", "", "", "", "", "",
++		/*  S */ "", "", "", "", "", "", "", "",
++		/*  T */ "", "", "", "", "", "", "", "",
++		/*  U */ "", "", "", "", "", "", "", "",
++		/*  V */ "", "", "", "", "", "", "", "",
++		/*  W */ "", "", "", "", "", "", "", "",
++		/*  X */ "", "", "", "", "", "PCIE_STNDBY", "", "",
++		/*  Y */ "", "", "", "SYSTEM_ERR_LED", "", "", "", "",
++		/*  Z */ "", "", "", "", "", "", "", "",
++		/* AA */ "FAN_1_LED", "FAN_2_LED", "", "", "", "", "", "",
++		/* AB */ "", "", "", "", "", "", "", "",
++		/* AC */ "", "", "", "", "", "", "", "";
++};
++
++&mac0 {
++	status = "okay";
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_rgmii1_default &pinctrl_mdio1_default>;
++};
++
++&uart5 {
++	status = "okay";
++};
++
++&vhub {
++	status = "okay";
++};
++
++&video {
++	status = "okay";
++	memory-region = <&video_engine_memory>;
++};
+
 -- 
-Anirudh Srinivasan <anirudhsriniv@gmail.com>
+2.52.0
 
 
