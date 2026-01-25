@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA03FD7237B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38E0DD7237B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 22:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fIlOylRFtrz6Y8aHaeFollDw8gct1ZUfoZOv83NSigE=; b=uLKIN7M58hwGaMcJdpgLo1BuHa
-	Yo7f9+RT6RLgEBnas4X1tLLoMmv7s/MDjMvIG3sy41l1GpYGTPuaFUpnlJe/gdpKcTpnFGG//IFLW
-	SlPWU6Hx26mGKuZZfeg9o7SZ9d0jTRwryRLgyA8CtVm535h+wb82RJZ9z1TfBPvkMnviUekueVcDo
-	i51tPAFRHndcIxj59KZGaGTggRn1IOlEiFmVVeSMcyd+VgMWkFRYJKDGDJxGPn3Ty/QF78pV9JwHL
-	P/6ZgJJhlbrLKNP9RytAKeMlOet4Nr+eJI5jezdKwvERdO3ZyMnjjk73ZS3Am8Ya3U7shGoWvdOKE
-	5CcE3ikw==;
+	bh=7Ta9Qma4wwycxicKBPaHTDueDxthkRH6/qUe89KkYso=; b=a8cXzpf3AK/N8X2KN2fIN5F7bJ
+	7sVDD8aNIK3ArukdpQ+Qt2pcmdaK6iOWAgbBQAcX88/4yJiYNM+EisRb54+iqNwnTCiSzmpCUBYnH
+	jCm4EwKB5E5ypW+gSfp1/UWRDvkmfiNzLghDEDmF/SSkHCwTcaVL9zS1HN6KPADcrlCDiXMCYICJA
+	PbC4Y86xBHvCaCkgdnqD41wYIAKlpYG7YqukpiS2r8bWfqr7hlYZnSmAWsGq4yb7YKUWuMN71kL3a
+	moEn6Lum7BY/5y8B3g53oBEq5TeD6VmOtrb2x4SgNRrhb7iUObUH68YDKncYsT8cLTF+6h17sB783
+	XR37cOAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8uj-0000000Bczw-3VeK;
-	Sun, 25 Jan 2026 22:49:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vk8uv-0000000Bd9i-13fF;
+	Sun, 25 Jan 2026 22:49:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk8ui-0000000BcyN-0YSg
+	id 1vk8up-0000000Bd5L-4Byg
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 25 Jan 2026 22:49:00 +0000
+	Sun, 25 Jan 2026 22:49:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 81678600CB;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9EB4841957;
+	Sun, 25 Jan 2026 22:49:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9561C2BC86;
 	Sun, 25 Jan 2026 22:48:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CCC0C2BC87;
-	Sun, 25 Jan 2026 22:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769381339;
-	bh=WfH/BEHCO4tRBNYS6k1Vgh28uP7HnVhy+PmfS91LOJM=;
+	s=k20201202; t=1769381347;
+	bh=9wXcGCZqYAJGFwoghpjYmoH+2WL5WXQJ0azxL3BmHRY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dy+BYVqw0O1s3QzEYM4MR0fWTzp73RlR0LyB9A3qFhaAGl2AjZYyLqdayLPZ6+ZpB
-	 +OCmoXmLP8MVpzqAZut5Agy8D+dQV7n3FDSaTLgi41yvwbAuihWDqvu9bRdBTYPodi
-	 wiPuYBJa/anYV7B+xDhqeA4MNx8kYCoLeeHbIc2DwSDEXKhk9Z+7h9K6Fx3iviWf9r
-	 cD0SQWzB0cMMDrQkjo/GFn6+VWjy6wDJzQDrdIqBOKGXoeLHTcGqCIl6B1Jyir8IKN
-	 XfwCqNrf2mTF7oMnVsNUtcv1OIFle98VrKLDs6/Jv+T4vuauRvPtbeqHamJTLYtmZG
-	 7dk23P8wx9dWQ==
+	b=cQouXDHboX2piB9wKNa/rwB+1F8SE/r3ji8PH2PfYH+Ao9MzAGQkY75UpLFHDMnzX
+	 LU3p6BhhfDe5PRwyQs0ilEtyiExo1MxmhHXrWDm1yM1a+rBpQGGWW8IDZ/5WG+ppbJ
+	 GUGs13jkP/5BZozejUS8/83/9Q7ctbohhB0rZcTDdkfDQSDBgUwCERxUPpOoySLZmv
+	 dQZzqTBKEAiaC9Aoew9VslxlGUKZpc/Ikdw/1bVZZ8Yym0cbtFhFh1fm++2z3FKcPy
+	 HMGXY6hMpoxGfgGHnh61TDuP3lkTJ84dHJmT6QzFjgotcCPgCnYhnlfh26DqeebYYC
+	 aeD0u+uricWXw==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,14 +81,17 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 23/33] PCI: Remove superfluous HK_TYPE_WQ check
-Date: Sun, 25 Jan 2026 23:45:30 +0100
-Message-ID: <20260125224541.50226-24-frederic@kernel.org>
+Subject: [PATCH 24/33] kthread: Refine naming of affinity related fields
+Date: Sun, 25 Jan 2026 23:45:31 +0100
+Message-ID: <20260125224541.50226-25-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20260125224541.50226-1-frederic@kernel.org>
 References: <20260125224541.50226-1-frederic@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260125_144908_092532_4BD1BB64 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,75 +106,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It doesn't make sense to use nohz_full without also isolating the
-related CPUs from the domain topology, either through the use of
-isolcpus= or cpuset isolated partitions.
+The kthreads preferred affinity related fields use "hotplug" as the base
+of their naming because the affinity management was initially deemed to
+deal with CPU hotplug.
 
-And now HK_TYPE_DOMAIN includes all kinds of domain isolated CPUs.
+The scope of this role is going to broaden now and also deal with
+cpuset isolated partition updates.
 
-This means that HK_TYPE_DOMAIN should always be a subset of
-HK_TYPE_KERNEL_NOISE (of which HK_TYPE_WQ is only an alias).
-
-Therefore sane configurations verify:
-
-	HK_TYPE_KERNEL_NOISE & HK_TYPE_DOMAIN == HK_TYPE_DOMAIN
-
-Simplify the PCI probe target election accordingly.
+Switch the naming accordingly.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+Acked-by: Waiman Long <longman@redhat.com>
 ---
- drivers/pci/pci-driver.c | 17 +++--------------
- 1 file changed, 3 insertions(+), 14 deletions(-)
+ kernel/kthread.c | 38 +++++++++++++++++++-------------------
+ 1 file changed, 19 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
-index b902d8adf9a5..a9590601835a 100644
---- a/drivers/pci/pci-driver.c
-+++ b/drivers/pci/pci-driver.c
-@@ -384,16 +384,9 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
- 	    pci_physfn_is_probed(dev)) {
- 		error = local_pci_probe(&ddi);
- 	} else {
--		cpumask_var_t wq_domain_mask;
- 		struct pci_probe_arg arg = { .ddi = &ddi };
+diff --git a/kernel/kthread.c b/kernel/kthread.c
+index 99a3808d086f..f1e4f1f35cae 100644
+--- a/kernel/kthread.c
++++ b/kernel/kthread.c
+@@ -35,8 +35,8 @@ static DEFINE_SPINLOCK(kthread_create_lock);
+ static LIST_HEAD(kthread_create_list);
+ struct task_struct *kthreadd_task;
  
--		if (!zalloc_cpumask_var(&wq_domain_mask, GFP_KERNEL)) {
--			error = -ENOMEM;
--			goto out;
--		}
--
- 		INIT_WORK_ONSTACK(&arg.work, local_pci_probe_callback);
--
- 		/*
- 		 * The target election and the enqueue of the work must be within
- 		 * the same RCU read side section so that when the workqueue pool
-@@ -402,12 +395,9 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
- 		 * targets.
- 		 */
- 		rcu_read_lock();
--		cpumask_and(wq_domain_mask,
--			    housekeeping_cpumask(HK_TYPE_WQ),
--			    housekeeping_cpumask(HK_TYPE_DOMAIN));
--
- 		cpu = cpumask_any_and(cpumask_of_node(node),
--				      wq_domain_mask);
-+				      housekeeping_cpumask(HK_TYPE_DOMAIN));
-+
- 		if (cpu < nr_cpu_ids) {
- 			struct workqueue_struct *wq = pci_probe_wq;
+-static LIST_HEAD(kthreads_hotplug);
+-static DEFINE_MUTEX(kthreads_hotplug_lock);
++static LIST_HEAD(kthread_affinity_list);
++static DEFINE_MUTEX(kthread_affinity_lock);
  
-@@ -422,10 +412,9 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
- 			error = local_pci_probe(&ddi);
+ struct kthread_create_info
+ {
+@@ -69,7 +69,7 @@ struct kthread {
+ 	/* To store the full name if task comm is truncated. */
+ 	char *full_name;
+ 	struct task_struct *task;
+-	struct list_head hotplug_node;
++	struct list_head affinity_node;
+ 	struct cpumask *preferred_affinity;
+ };
+ 
+@@ -128,7 +128,7 @@ bool set_kthread_struct(struct task_struct *p)
+ 
+ 	init_completion(&kthread->exited);
+ 	init_completion(&kthread->parked);
+-	INIT_LIST_HEAD(&kthread->hotplug_node);
++	INIT_LIST_HEAD(&kthread->affinity_node);
+ 	p->vfork_done = &kthread->exited;
+ 
+ 	kthread->task = p;
+@@ -323,10 +323,10 @@ void __noreturn kthread_exit(long result)
+ {
+ 	struct kthread *kthread = to_kthread(current);
+ 	kthread->result = result;
+-	if (!list_empty(&kthread->hotplug_node)) {
+-		mutex_lock(&kthreads_hotplug_lock);
+-		list_del(&kthread->hotplug_node);
+-		mutex_unlock(&kthreads_hotplug_lock);
++	if (!list_empty(&kthread->affinity_node)) {
++		mutex_lock(&kthread_affinity_lock);
++		list_del(&kthread->affinity_node);
++		mutex_unlock(&kthread_affinity_lock);
+ 
+ 		if (kthread->preferred_affinity) {
+ 			kfree(kthread->preferred_affinity);
+@@ -390,9 +390,9 @@ static void kthread_affine_node(void)
+ 			return;
  		}
  
--		free_cpumask_var(wq_domain_mask);
- 		destroy_work_on_stack(&arg.work);
+-		mutex_lock(&kthreads_hotplug_lock);
+-		WARN_ON_ONCE(!list_empty(&kthread->hotplug_node));
+-		list_add_tail(&kthread->hotplug_node, &kthreads_hotplug);
++		mutex_lock(&kthread_affinity_lock);
++		WARN_ON_ONCE(!list_empty(&kthread->affinity_node));
++		list_add_tail(&kthread->affinity_node, &kthread_affinity_list);
+ 		/*
+ 		 * The node cpumask is racy when read from kthread() but:
+ 		 * - a racing CPU going down will either fail on the subsequent
+@@ -402,7 +402,7 @@ static void kthread_affine_node(void)
+ 		 */
+ 		kthread_fetch_affinity(kthread, affinity);
+ 		set_cpus_allowed_ptr(current, affinity);
+-		mutex_unlock(&kthreads_hotplug_lock);
++		mutex_unlock(&kthread_affinity_lock);
+ 
+ 		free_cpumask_var(affinity);
  	}
--out:
-+
- 	dev->is_probed = 0;
- 	cpu_hotplug_enable();
- 	return error;
+@@ -873,16 +873,16 @@ int kthread_affine_preferred(struct task_struct *p, const struct cpumask *mask)
+ 		goto out;
+ 	}
+ 
+-	mutex_lock(&kthreads_hotplug_lock);
++	mutex_lock(&kthread_affinity_lock);
+ 	cpumask_copy(kthread->preferred_affinity, mask);
+-	WARN_ON_ONCE(!list_empty(&kthread->hotplug_node));
+-	list_add_tail(&kthread->hotplug_node, &kthreads_hotplug);
++	WARN_ON_ONCE(!list_empty(&kthread->affinity_node));
++	list_add_tail(&kthread->affinity_node, &kthread_affinity_list);
+ 	kthread_fetch_affinity(kthread, affinity);
+ 
+ 	scoped_guard (raw_spinlock_irqsave, &p->pi_lock)
+ 		set_cpus_allowed_force(p, affinity);
+ 
+-	mutex_unlock(&kthreads_hotplug_lock);
++	mutex_unlock(&kthread_affinity_lock);
+ out:
+ 	free_cpumask_var(affinity);
+ 
+@@ -903,9 +903,9 @@ static int kthreads_online_cpu(unsigned int cpu)
+ 	struct kthread *k;
+ 	int ret;
+ 
+-	guard(mutex)(&kthreads_hotplug_lock);
++	guard(mutex)(&kthread_affinity_lock);
+ 
+-	if (list_empty(&kthreads_hotplug))
++	if (list_empty(&kthread_affinity_list))
+ 		return 0;
+ 
+ 	if (!zalloc_cpumask_var(&affinity, GFP_KERNEL))
+@@ -913,7 +913,7 @@ static int kthreads_online_cpu(unsigned int cpu)
+ 
+ 	ret = 0;
+ 
+-	list_for_each_entry(k, &kthreads_hotplug, hotplug_node) {
++	list_for_each_entry(k, &kthread_affinity_list, affinity_node) {
+ 		if (WARN_ON_ONCE((k->task->flags & PF_NO_SETAFFINITY) ||
+ 				 kthread_is_per_cpu(k->task))) {
+ 			ret = -EINVAL;
 -- 
 2.51.1
 
