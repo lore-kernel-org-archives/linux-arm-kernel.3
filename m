@@ -4,66 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 519CCE63C9E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 10:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B0A1E63C9F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 11:09:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7rqJvIH5RWUzc1Rti86VhP9biitDFgAMRHd6MP/5qEI=; b=hvw6btk+U2SC4LthLq/ud3UPTM
-	xUAWL3LSN1oiRkuYOo78n3BdbEs8fI/HmuW6XF5CiF85rOCGsRGNsasEbPlh7cnnBomUmc9UsXBDJ
-	ngEWQLPkcLXK2VQR0biXsJJcF98iLT14FYNrFsBuhXOOQDe2brZBaryiFcoeSKTGz1UjgwtrSsNZb
-	uWrut+eYPi+nbXSXmT/tRnLvKg5WYhgrgaNCH9/XIRo1R4tcESH8sQviw2psTjADEhPxpqRZ0dQhX
-	IOR+SQJ9wiIK+HLGq3L2XidIA6hDg0Nq9RTEBgdp8AgyFKwqyXz/V+ml3UtADRbh9pE7BALTpgirW
-	c7EkwH/w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4/dBuSjzE7nEQrtPNhNIaPq2xtqgFPWjhii2bmXrEb0=; b=gPrMd/vtZVNfTI
+	FznNO2MYCbEU8enUK44fmqQKlhc0R1dwRzBVAtWFSlYEjRiO+TonTBVLqVbCUBnEomWK3zs1CoxQD
+	rm4ZEPV8gleGnF1rQNVY+HbP4eemsrsOE2+wHnw5gZH1xKlbAybIJolBZGWbGw9mM1lSqaX1OGmcJ
+	3bBfekJdId2gSZIAvrp7ZXGlL6inDA9H9BvfciIrF90ot30ZXiXpwEHOm4hSbIaFHrvtLDLBQD1V4
+	Kgfq8hMnY4z3Aj1ijYoprpKA/zbHRo2Vu0puTt2Mh+TjaSSo5e1zFBIEES4HYawI9TuwftT3EOlIu
+	gv5fM5M8Ese/HwfXoytA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjxj7-0000000B5fe-0vE6;
-	Sun, 25 Jan 2026 10:52:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vjxzE-0000000B6Rp-1vuc;
+	Sun, 25 Jan 2026 11:08:56 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vjxj2-0000000B5d4-3RIy;
-	Sun, 25 Jan 2026 10:52:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 578DD443EC;
-	Sun, 25 Jan 2026 10:52:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D742BC4CEF1;
-	Sun, 25 Jan 2026 10:52:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769338329;
-	bh=cbLIkxfmrx+qyRG8eF8Ce0iiYleWQvkJNJoETgItHB0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=H2Hdw2XTWINXs8LunHmB7peR9kYx6C9C9slhT4XicXT7QeIgGQ2d4ohj2OGsaVJiY
-	 xgsf3R8uRSV2CdlelNz//FjhSt7LMan2DsmPU74krVfU6FioRUWXZh81QaY4Ye222u
-	 Ym2DfvS7uT+1HnqmnXrlV9I+++jnOWbT2AM06JU7UBkD0KqyGT068bXSBTPMHgvdWT
-	 1bINvKXOVVL2QFj07ICICDn/EFHdqRkWhoVGieSoX+XOWs/mKXWjuyQNp2xv+72GtN
-	 st1gECMvQsh3CMBsDLCz4QURwF5T12EL8Py3Nt3rzyFH7bLqfG1LTyTNv97rHxKrgi
-	 nxugVHEWgxUgQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sun, 25 Jan 2026 11:51:31 +0100
-Subject: [PATCH wireless-next v2 2/2] wifi: mt76: mt7996: Add eMLSR support
+	id 1vjxzB-0000000B6Qi-2gIF
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 25 Jan 2026 11:08:55 +0000
+Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
+	by mailfout.stl.internal (Postfix) with ESMTP id EC8951D000E9;
+	Sun, 25 Jan 2026 06:08:49 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-11.internal (MEProxy); Sun, 25 Jan 2026 06:08:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm1; t=1769339329; x=1769425729; bh=4/
+	dBuSjzE7nEQrtPNhNIaPq2xtqgFPWjhii2bmXrEb0=; b=o8fMwY665ESIv4P3pA
+	U1XK5kcilnbwOrG3pFPlsSCfiDRor4GMv2AKXcNbTW5T04cEudwiiZPP8EeBdNSN
+	s2ROAHUgTRhiUQCwuEhGTGrQzIIvDH3xkO4u5xjPoWuf1ixG+geM/52w0oYKlhqk
+	6IiJ9mQWOflzcu1WWWHKFcxxVj3Eks4VZxzP9sYuxmFQbgl7gPM9/rJGpoNygr9Z
+	yGb+Fny1+00tpwNbGHEXPEqhMy05DA7FmDekfxAFDIx7wpU4K9eEIx4+feuMFic0
+	PDZ7aWMrLVsUatToPR8HwxY8HQam0Zrv1K2UpxBefrhaAkmvoP6twFPbSwPbdv90
+	fm/g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1769339329; x=1769425729; bh=4/dBuSjzE7nEQrtPNhNIaPq2xtqg
+	FPWjhii2bmXrEb0=; b=G7/JX0by8042Y6qOHz2aK1VjpZFFiMAOWZ4TgwY9SQ4l
+	RBGpVcCDBzspw83ql5lH5Im3mQ0qLE36y/wqoaPoUYuGUNnKhF6dtgRDJRSiPIal
+	wjxNtOkoqnqL/BgJkgugYvt1DPn4HWUEMR0PLdXUkqh7tRuG48S1wLv0SHJuPZgp
+	myAK9JvRK8soMAERcCBKatRgGnIzBzpiPA9NAPf6exZy75/1KERoVD6Ci5LrVTe2
+	JZLipDrcJN6f6yIST/tRO7XJfZuk3Zjt0VYNyUvpwbca3PHRcsGCLEtnffeonYvv
+	InptWjVk+pW2g0EektiA2+pR2zAl9dew5zGPjTI9lQ==
+X-ME-Sender: <xms:wfl1aQrF6kAzLcgC5QgEfzhqLaOyb24YOq2eauiHH7lgEX4_vKSTXg>
+    <xme:wfl1aSdMZp9TLQafb6cwO29TeTFLZkl87k1ghJVfEXv-JnJR-trLxroeFxD1CluXA
+    C2KHiyR_l3mqd6aqHTcVoefY92kNWcO5vlxYExrD3uv1OjOSXIw01Y>
+X-ME-Received: <xmr:wfl1aQmwPpVvnG-LruGQN52iu5FrGqMRKd7yD6Wq4k0P6bPUI3Iy74pIa0RujSB51OEGqbOS_FXtrnHFYoq4kTP5PQu8WUPJ-treWA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduheegieegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhephffufffkgggtgffvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgvucfi
+    rhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepfedvie
+    ffieejvdejvdevudfgtdegvdfhieffffdvtdevtdekgfejvedvleffteefnecuffhomhgr
+    ihhnpeihrghmlhdrrghpphhlvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpehjsehjrghnnhgruhdrnhgvthdpnhgspghrtghpthhtohepuddu
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnih
+    igrdguvgdprhgtphhtthhopehnvggrlhesghhomhhprgdruggvvhdprhgtphhtthhopehs
+    vhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnh
+    gvlhdrohhrghdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgv
+    lhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
+    eprghsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhig
+    qdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikh
+    doughtsehkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:wfl1aRZH0yY8pYcANZfPZP7qUvh7uugYed5MQeSoyPBzIRvWecz2JQ>
+    <xmx:wfl1ad6epTxKuErGUY3YjzEeXHJwkOLAT5NL45icuglRHI6vsXUMUg>
+    <xmx:wfl1aTDq5sLjfZXC9JoOXb9n7shfJLj743Um8O23NkY2hy9PwGM8zA>
+    <xmx:wfl1aT_kkcD0FRHlgsyDsWr_KdReTgh-VK_vYxdm2jOjXvjPu_VtVw>
+    <xmx:wfl1aSK16VRpnVTZw-AhPgdbZzhtpP3nxiDsjFS6BPuct543iks2ZqmN>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 25 Jan 2026 06:08:48 -0500 (EST)
+From: Janne Grunau <j@jannau.net>
+Subject: [PATCH 0/2] Add Apple interrupt controller 3 support
+Date: Sun, 25 Jan 2026 12:08:44 +0100
+Message-Id: <20260125-irq-apple-aic3-v1-0-a2afe66a6ab9@jannau.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260125-mac80211-emlsr-v2-2-466329d61c88@kernel.org>
-References: <20260125-mac80211-emlsr-v2-0-466329d61c88@kernel.org>
-In-Reply-To: <20260125-mac80211-emlsr-v2-0-466329d61c88@kernel.org>
-To: Johannes Berg <johannes@sipsolutions.net>, 
- Ryder Lee <ryder.lee@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>, 
- Shayne Chen <shayne.chen@mediatek.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, 
- Christian Marangi <ansuelsmth@gmail.com>, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- MeiChia Chiu <MeiChia.Chiu@mediatek.com>
+X-B4-Tracking: v=1; b=H4sIALz5dWkC/x2MywqAIBAAf0X23IKPEOpXosNSWy2EmUIE4r8nM
+ ac5zBTInIQzjKpA4keyXKGJ6RQsB4WdUdbmYLX12pgBJd1IMZ6MJItD7Uy/eSLbgBbFxJu8/3C
+ aa/0A5xWVl2AAAAA=
+X-Change-ID: 20260119-irq-apple-aic3-0314f6aa2a2a
+To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Janne Grunau <j@jannau.net>
 X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1728; i=j@jannau.net;
+ s=yk2025; h=from:subject:message-id;
+ bh=Z3xsnX6ySy5yICEzL2MNd9sI1wQskpH/7pPIkJiIBOI=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhszSn/tuv5C9VB1Y/nTxTwkRmf9iwkIS76+W8V00dysLa
+ c8T/yPZUcrCIMbFICumyJKk/bKDYXWNYkztgzCYOaxMIEMYuDgFYCKbnBj+57ZcZr+4mIElczNf
+ U+gpod7O1XH8k6+ILzVJnlu46tX5U4wM7U1S3Csmno/ie7ZsYebTpbM2HPy6pujz51o/Id3zW+x
+ VuAA=
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_025213_056145_BF82CD2A 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20260125_030854_087439_CBDE8C60 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,170 +128,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: MeiChia Chiu <MeiChia.Chiu@mediatek.com>
+Add yet another variant of Apple's interrupt controller. This one might
+to stick for more SoC variants than their predecessors. According to
+Apple's device trees it is used on all SoCs since the M3 (t8122) up to
+M5 (t8142). This information is not 100% reliable since macOS uses
+different kernel builds for each SoC variant.
+As far as the functionality implemented in the Linux driver it is almost
+identical to AICv2. The only noticeable difference is an increased
+IRQ_CFG offset.
+AICv3 uses the same device tree bindings as AICv2 so add its compatible
+to the existing apple,aic2.yaml.
+Apple's device tree added many MMIO offsets as properties for the
+"aic,3" node. The offsets are the same for all released SoCs with AICv3
+so the Linux driver continues to use hard coded offsets.
+Compatible strings for AICv3 will be SoC specific like
+"apple,t8122-aic3" so a potential future SoC with different offsets
+would use a new base compatible string for which the driver uses
+different MMIO offsets.
+While the offsets are the same on M4 and later SoCs access to
+implementation defined system registers will require different
+compatible strings.
 
-Implement set_eml_op_mode mac80211 callback in order to introduce eMLSR
-support.
-
-Signed-off-by: MeiChia Chiu <MeiChia.Chiu@mediatek.com>
-Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Janne Grunau <j@jannau.net>
 ---
- .../net/wireless/mediatek/mt76/mt76_connac_mcu.h   |  9 ++++
- drivers/net/wireless/mediatek/mt76/mt7996/main.c   | 16 +++++++
- drivers/net/wireless/mediatek/mt76/mt7996/mcu.c    | 54 ++++++++++++++++++++++
- drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  5 ++
- 4 files changed, 84 insertions(+)
+Janne Grunau (2):
+      dt-bindings: interrupt-controller: apple,aic2: Add AICv3
+      irqchip/apple-aic: Add support for "apple,t8122-aic3"
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.h b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.h
-index 8d59cf43f0e2dc8d8e42d6b2ec7565ad69a79ff8..44697498b38a5b9eff92627b63c383ca8f48a760 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.h
-@@ -628,6 +628,13 @@ struct sta_rec_tx_proc {
- 	__le32 flag;
- } __packed;
- 
-+struct sta_rec_eml_op {
-+	__le16 tag;
-+	__le16 len;
-+	u8 link_bitmap;
-+	u8 link_ant_num[3];
-+} __packed;
-+
- /* wtbl_rec */
- 
- struct wtbl_req_hdr {
-@@ -796,6 +803,7 @@ struct wtbl_raw {
- 					 sizeof(struct sta_rec_he_6g_capa) + \
- 					 sizeof(struct sta_rec_pn_info) + \
- 					 sizeof(struct sta_rec_tx_proc) + \
-+					 sizeof(struct sta_rec_eml_op) + \
- 					 sizeof(struct tlv) +		\
- 					 MT76_CONNAC_WTBL_UPDATE_MAX_SIZE)
- 
-@@ -832,6 +840,7 @@ enum {
- 	STA_REC_PN_INFO = 0x26,
- 	STA_REC_KEY_V3 = 0x27,
- 	STA_REC_HDRT = 0x28,
-+	STA_REC_EML_OP = 0x29,
- 	STA_REC_HDR_TRANS = 0x2B,
- 	STA_REC_MAX_NUM
- };
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index beed795edb24c67e1b7b44fe87fd5de125a21d94..d5b88687ba1801a1e50e81e5c27f1f67fa455ce1 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -2275,6 +2275,21 @@ mt7996_reconfig_complete(struct ieee80211_hw *hw,
- 					     MT7996_WATCHDOG_TIME);
- }
- 
-+static int
-+mt7996_set_eml_op_mode(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
-+		       struct ieee80211_sta *sta, unsigned int link_id,
-+		       struct ieee80211_eml_params *eml_params)
-+{
-+	struct mt7996_dev *dev = mt7996_hw_dev(hw);
-+	int ret;
-+
-+	mutex_lock(&dev->mt76.mutex);
-+	ret = mt7996_mcu_set_emlsr_mode(dev, vif, sta, link_id, eml_params);
-+	mutex_unlock(&dev->mt76.mutex);
-+
-+	return ret;
-+}
-+
- const struct ieee80211_ops mt7996_ops = {
- 	.add_chanctx = mt76_add_chanctx,
- 	.remove_chanctx = mt76_remove_chanctx,
-@@ -2337,4 +2352,5 @@ const struct ieee80211_ops mt7996_ops = {
- 	.change_vif_links = mt7996_change_vif_links,
- 	.change_sta_links = mt7996_mac_sta_change_links,
- 	.reconfig_complete = mt7996_reconfig_complete,
-+	.set_eml_op_mode = mt7996_set_eml_op_mode,
- };
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-index 14a88ef79b6cb9ee60e62d695af4a90ab1d89846..54d6a41281841c3a86e5308971b1e456da8e0e73 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-@@ -1170,6 +1170,60 @@ int mt7996_mcu_add_bss_info(struct mt7996_phy *phy, struct ieee80211_vif *vif,
- 				     MCU_WMWA_UNI_CMD(BSS_INFO_UPDATE), true);
- }
- 
-+int mt7996_mcu_set_emlsr_mode(struct mt7996_dev *dev,
-+			      struct ieee80211_vif *vif,
-+			      struct ieee80211_sta *sta,
-+			      unsigned int link_id,
-+			      struct ieee80211_eml_params *eml_params)
-+{
-+	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
-+	struct mt7996_sta_link *msta_link;
-+	struct sta_rec_eml_op *eml_op;
-+	struct mt7996_vif_link *link;
-+	struct sk_buff *skb;
-+	struct tlv *tlv;
-+
-+	msta_link = mt76_dereference(msta->link[link_id], &dev->mt76);
-+	if (!msta_link)
-+		return -EINVAL;
-+
-+	link = mt7996_vif_link(dev, vif, link_id);
-+	if (!link)
-+		return -EINVAL;
-+
-+	skb = __mt76_connac_mcu_alloc_sta_req(&dev->mt76, &link->mt76,
-+					      &msta_link->wcid,
-+					      MT7996_STA_UPDATE_MAX_SIZE);
-+	if (IS_ERR(skb))
-+		return PTR_ERR(skb);
-+
-+	tlv = mt76_connac_mcu_add_tlv(skb, STA_REC_EML_OP, sizeof(*eml_op));
-+	eml_op = (struct sta_rec_eml_op *)tlv;
-+	eml_op->link_bitmap = 0;
-+
-+	if (eml_params->control & IEEE80211_EML_CTRL_EMLSR_MODE) {
-+		unsigned long link_bitmap = eml_params->link_bitmap;
-+
-+		for_each_set_bit(link_id, &link_bitmap,
-+				 IEEE80211_MLD_MAX_NUM_LINKS) {
-+			struct mt76_phy *mphy;
-+
-+			link = mt7996_vif_link(dev, vif, link_id);
-+			if (!link)
-+				continue;
-+
-+			mphy = mt76_vif_link_phy(&link->mt76);
-+			if (!mphy)
-+				continue;
-+
-+			eml_op->link_bitmap |= BIT(mphy->band_idx);
-+		}
-+	}
-+
-+	return mt76_mcu_skb_send_msg(&dev->mt76, skb,
-+				     MCU_WMWA_UNI_CMD(STA_REC_UPDATE), true);
-+}
-+
- int mt7996_mcu_set_timing(struct mt7996_phy *phy, struct ieee80211_vif *vif,
- 			  struct ieee80211_bss_conf *link_conf)
- {
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-index 7a884311800ea8cfc0e302b2a140a4072ce18b69..da8688e01c1502cbd895ea40561f77e929c6ee38 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-@@ -861,6 +861,11 @@ int mt7996_mcu_wtbl_update_hdr_trans(struct mt7996_dev *dev,
- 				     struct mt7996_vif_link *link,
- 				     struct mt7996_sta_link *msta_link);
- int mt7996_mcu_cp_support(struct mt7996_dev *dev, u8 mode);
-+int mt7996_mcu_set_emlsr_mode(struct mt7996_dev *dev,
-+			      struct ieee80211_vif *vif,
-+			      struct ieee80211_sta *sta,
-+			      unsigned int link_id,
-+			      struct ieee80211_eml_params *eml_params);
- #ifdef CONFIG_MAC80211_DEBUGFS
- void mt7996_sta_add_debugfs(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
- 			    struct ieee80211_sta *sta, struct dentry *dir);
+ .../bindings/interrupt-controller/apple,aic2.yaml  | 29 +++++++++++++++-------
+ drivers/irqchip/irq-apple-aic.c                    | 27 ++++++++++++++++++--
+ 2 files changed, 45 insertions(+), 11 deletions(-)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20260119-irq-apple-aic3-0314f6aa2a2a
 
+Best regards,
 -- 
-2.52.0
+Janne Grunau <j@jannau.net>
 
 
