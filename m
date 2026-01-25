@@ -4,64 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D0E9E63CA0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 13:23:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD0DE63CA0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 25 Jan 2026 13:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P8vete4FbKroUDiRsh85INSljLEWw5LQXDMx6H8GOzY=; b=Qlx4+Gug1y8nKbA1pDsxz/FOvU
-	fiFMwOmgNX9oBR/xcfDFCrRUbzqKAtqeeJM8GgwcCqLIfwXkFn5NU2v+G9/pQSfRgeNojmKesLCz9
-	HEmQcXAp1I0p7c5ylyY7ZXHifDEXt7bNo1igpljydII2Bz+ud+Ek7QnSMdv5GxMlR9MWOX8xy9brM
-	5VAiQN02Eh1uOETcsJNXCleFvfVMdyJ2LyhMxJJj4TIawhKwax82Eh8pG+ZgG2eXOHabkLMdlmKqf
-	DYj83oWggfsvEF5bKg1B7s3zUXLbIs/ClKITfP7Binr9p5dwZDWKsBlNIQx35i6YsISNZZpOmttbz
-	+9G4poWA==;
+	bh=bvtCjytnh3m0w4xXt7ewKdUhvsuqlVQAf7Vxj7DBbXU=; b=ntUVnwPkId8NPDBJg2JBpt6t/O
+	pwLSokSaFe9fFD8oNFZdy8xRrNtfiESj4PBcu/Jt0rDIxrN93GX0fcplFGxor/9+UW/6miFP0Lwpr
+	CNbEGeye6zG+U3u//G2dgS/9GtdRr/qPdeFTzqBJ6BUAEXImcGPoI4N7dF4ma08WhsXX/I0dTmUBN
+	J44fk8hi3grlce5cVSudnogyFRgtCPYROzG7LuGhiUdiOMzMWY9psRi5WW/H3NOVTJw4O5Ob30Aj1
+	KgGSkjhG01WVKd1TSAEEXBVoXX4BAxp/guJ745LozeU26dETW0ruzsbTAs8ecMO5fC/bm3cEIhGef
+	T50T5/8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk05X-0000000BCbc-0SDU;
-	Sun, 25 Jan 2026 13:23:35 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vk0W5-0000000BDLn-0EZo;
+	Sun, 25 Jan 2026 13:51:01 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vk05U-0000000BCbC-1Gpm;
-	Sun, 25 Jan 2026 13:23:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=P8vete4FbKroUDiRsh85INSljLEWw5LQXDMx6H8GOzY=; b=GiRoqnVctapf8D73oIl+VcQoSK
-	6CiTaCejwRnjct4AodOKsGYEZJdeNllg4S7XvXd65TIIJukiJBfwvb0INXLJOKoxVUIQOwA7iix8s
-	bwiNySsDdPrQ5BW21njQnYa/jipQU1tpjTbqTB1lZRpePn7BVkQNNAf10olIK/KrbFCewYl+ga94o
-	G8opkJnPo7K44QbZpMCJvHpO1W3QYrlcdsRScz0ZPvG4AAsKzCpaWT4OVaCLu2vUEQfoVvWWAxmIL
-	UZKikeeEm5oxRzVE3fMcArnFqYN69ZeTdqq+fA+BEOx45JOlzH93BwlVMrXbsGEziERIkPZAImjrf
-	RI80mr8g==;
-Received: from i53875a33.versanet.de ([83.135.90.51] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vk05L-004Jy1-0F; Sun, 25 Jan 2026 14:23:23 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Robin Murphy <robin.murphy@arm.com>, Bartosz Golaszewski <brgl@kernel.org>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Linus Walleij <linusw@kernel.org>, linux-gpio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Bartosz Golaszewski <brgl@kernel.org>
-Subject: Re: [PATCH] gpio: rockchip: mark the GPIO controller as sleeping
-Date: Sun, 25 Jan 2026 14:23:20 +0100
-Message-ID: <3204984.tdWV9SEqCh@diego>
-In-Reply-To: <CAMRc=MfUawHpDgxj=fP2OF_-qg1O+P3oM_cSvGsbvAdLRB=+hw@mail.gmail.com>
-References: <20260106090011.21603-1-bartosz.golaszewski@oss.qualcomm.com>
- <cb13c3df-be09-4cf3-b679-4431862d7264@arm.com>
- <CAMRc=MfUawHpDgxj=fP2OF_-qg1O+P3oM_cSvGsbvAdLRB=+hw@mail.gmail.com>
+	id 1vk0W1-0000000BDLO-0Kxr
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 25 Jan 2026 13:50:59 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-5014b5d8551so603861cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Jan 2026 05:50:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769349055; cv=none;
+        d=google.com; s=arc-20240605;
+        b=esTRXn4gRNuWK/oo0HQn3mlFCTg+JVBZxlbwtkDegSYsAdqMGatx6Gk9aVaDcR0OcL
+         7at/LAOa5mevKeCRBBSU6BAziZnAoESQ0PmcFlWOzJ6Mi2/XsSN5g+SjE4CZPehLaQfr
+         aKn3fsapEl9yrAyz70/fvs/FKHXrjGdUzGDiHIkdWSKx+2FdLGxX65kKivAIEvHZL2C7
+         tqDujFtXugQX9eLCZ3Qo4xSrkWwYzgkRMboOtq0jN5OO/uHPjp+J4Hf81PYgfEIWsuW4
+         fO3lzOa4ojMmfGbyVuZMsdrlASsKyK6GhhkfmQ+kNwumlvks3C8VNu7V5f/M+JeUJtj/
+         kfhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=bvtCjytnh3m0w4xXt7ewKdUhvsuqlVQAf7Vxj7DBbXU=;
+        fh=Ym29f6E7yEuqJnj5yEY2GR0tH3vQhfeWTwS/ueSrt/w=;
+        b=KlNmX8XdM0JWuRn6ObeyW8HeX6I7xw/prjK5MPvwAbN9x6gtAKqN2Q5UAnsurFSOqH
+         CmJ+B2ui5y5u3LTUhA3KEhp08Q1209yHbblnw+m5FLQkPSmjuUdqTV3iC9eh3ct7vji+
+         sagA6Yyga4saCIzYi9zPK9bbBKnCqFjCvk+YqnpeDePG7zC9J2CM/19lEOlhbBUDqcsT
+         YUxbwKFjSlpkgk6b+UudGFMPEwUlGxeeTWYMtPNK1CrVC2g3p7sFd5aakxkgkAn/NcT8
+         6k+SECBYw6IWKAwI9x4i8aL8C4QnUh/8irIz0ay/OU0zP3EOTUFh5fLkJeG3aBFEz6nn
+         R5cA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1769349055; x=1769953855; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=bvtCjytnh3m0w4xXt7ewKdUhvsuqlVQAf7Vxj7DBbXU=;
+        b=WioHOre8U4CvnT+nVrun32hndp0EIuWfXYQtp9O6iAJvpHB05hw/CXql58vwv0Qod7
+         6retB+S4hWOSpJo1gkg+62eklhkw8C5c00HT3zWZs0Kd9uuiG/ZwDjWJik85+kcvukaA
+         gDgHDrtVNwa3Nl289jjlaX+rSXisjObY1f1J0cnzEOB3yoeOtvws1yR+H5milXfH8NL7
+         M65xSulkmgBklEhIgYXwoPIQY8SPIZjCs7i6loSYz5w3L4G6XmFEy/CkkHCscpdS9bcT
+         fNvd+ai2tr1ezD9KOmS6mnTuOIx9El6Vn+uLASWLrRMipnbsFd1iCB4W/BoAgtt9MwiH
+         jPhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769349055; x=1769953855;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bvtCjytnh3m0w4xXt7ewKdUhvsuqlVQAf7Vxj7DBbXU=;
+        b=NqCpNU83QRIfbvFvFZmY3/0quk5me/ei9TMTPbt1W20i+ktxTZyq8R2f6FCRJL5sLV
+         7KeMoMEDaL4bEq3ADvLlqDjs77xyhqOjkn6b67ef37MU9vVb5EMfRgiG7VQ97HzWDd13
+         tfmJ2tAUONflxwaot9VuAVSn/kAojapAZA5y+F++VoHHZEFYmQqOWY3hgLzEK1R77+d/
+         YQd6hCaJsOhnDbN3ZGqTwWljzI210N0i596+r01dlCTI7dgzV+0c7/fckAjqkSc31JKl
+         +dN/JMs3BSCj+L7DGuN4IA8aFfk14KNAccy07kwCR3Dtq5eP9knjzIfp017EDBbGdCdj
+         NHmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWDBxuipGQ+1lq/h9PO5aUnrODM6qRul+Gd98JwtE9toLaw4fBWXEYRuQoMh8G9FBZ5yeRKwvGxpjRw8PCNv4+3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsRwhkIxdHqMpK5QD/Sugso1yN3wslZrTCNg4/1+56shJDRWZu
+	sMoLaSH/uUtnnnrERw/vrdZZIm5QtEAGAK7nRKC1nOUlvjSNyya3dINa3CFhQ/iMfl5dddibQ5G
+	DbqKUNGiNcofbMsm2Mksnwx6YUtuAY78FjoG8bXl0
+X-Gm-Gg: AZuq6aJOi05WpBNxKl58mSHCCk+g/iJn/aGcdPibRAHHXCu7BEF+F1gIf3DTFjoCa8k
+	WFArnXRCL+ZzlX7SCgHXOJwXXJHnRJUJoP6wejvjktDhpi/5lsnqHLEmxN85sp68r/GCVcLwhug
+	yK374fRle15iHEKemJuB8mg2xb+oEaLZVZEDrCrV+7YW3bJRUJiahLYu5C5c6GDzMhzY4iVv+tc
+	19DcfNBHQBhCtRG3E52vu3knIwZOZfPgueUJSW2MAh26EumW+gd4KWxC6UnUVjg2gq+i39q
+X-Received: by 2002:ac8:5987:0:b0:4ff:bfd9:dd31 with SMTP id
+ d75a77b69052e-5031428f089mr4086301cf.5.1769349054528; Sun, 25 Jan 2026
+ 05:50:54 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+References: <20260123191637.715429-1-maz@kernel.org> <20260123191637.715429-4-maz@kernel.org>
+In-Reply-To: <20260123191637.715429-4-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Sun, 25 Jan 2026 13:50:17 +0000
+X-Gm-Features: AZwV_QgL4MA9dzU0hsWQWkYWo_GVTF-8xtdiRpx6vT3QpIK8K8eZ4J0wi3LqHIQ
+Message-ID: <CA+EHjTyCLMpfwJ8_4hs2AZudQadvjqrRm7ULSsw0DQrsDEBFHQ@mail.gmail.com>
+Subject: Re: [PATCH v2 3/5] KVM: arm64: Switch pKVM host S2 over to KVM_PGTABLE_S2_AS_S1
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
+	Quentin Perret <qperret@google.com>, Alexandru Elisei <alexandru.elisei@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_052332_441488_C7E2EA9E 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20260125_055057_187874_8B7B7023 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,73 +115,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Samstag, 24. Januar 2026, 22:07:12 Mitteleurop=C3=A4ische Normalzeit sch=
-rieb Bartosz Golaszewski:
-> On Sat, 24 Jan 2026 00:45:25 +0100, Robin Murphy <robin.murphy@arm.com> s=
-aid:
-> > On 2026-01-23 9:52 pm, Heiko St=C3=BCbner wrote:
+On Fri, 23 Jan 2026 at 19:16, Marc Zyngier <maz@kernel.org> wrote:
+>
+> Since we have the basics to use the S1 memory attributes as the
+> final ones with FWB, flip the host over to that when FWB is present.
+>
+> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+> Tested-by: Fuad Tabba <tabba@google.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-[ snip to get to the core question at the bottom ]
+Reviewed-by: Fuad Tabba <tabba@google.com>
 
-> > diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinct=
-rl-rockchip.c
-> > index e44ef262beec..2fc67aeafdb3 100644
-> > --- a/drivers/pinctrl/pinctrl-rockchip.c
-> > +++ b/drivers/pinctrl/pinctrl-rockchip.c
-> > @@ -3545,10 +3545,9 @@ static int rockchip_pmx_set(struct pinctrl_dev *=
-pctldev, unsigned selector,
-> >   	return 0;
-> >   }
-> >
-> > -static int rockchip_pmx_gpio_set_direction(struct pinctrl_dev *pctldev,
-> > -					   struct pinctrl_gpio_range *range,
-> > -					   unsigned offset,
-> > -					   bool input)
-> > +static int rockchip_pmx_gpio_request_enable(struct pinctrl_dev *pctlde=
-v,
-> > +					    struct pinctrl_gpio_range *range,
-> > +					    unsigned int offset)
-> >   {
-> >   	struct rockchip_pinctrl *info =3D pinctrl_dev_get_drvdata(pctldev);
-> >   	struct rockchip_pin_bank *bank;
-> > @@ -3562,7 +3561,7 @@ static const struct pinmux_ops rockchip_pmx_ops =
-=3D {
-> >   	.get_function_name	=3D rockchip_pmx_get_func_name,
-> >   	.get_function_groups	=3D rockchip_pmx_get_groups,
-> >   	.set_mux		=3D rockchip_pmx_set,
-> > -	.gpio_set_direction	=3D rockchip_pmx_gpio_set_direction,
-> > +	.gpio_request_enable	=3D rockchip_pmx_gpio_request_enable,
-> >   };
-> >
-> >   /*
-> >
->=20
-> I'm not sure what's going on here. You don't really need to call
-> pinctrl_gpio_direction_input/output()?
-
-No we actually don't.
-
-The current _set_direction function:
-
-static int rockchip_pmx_gpio_set_direction(struct pinctrl_dev *pctldev,
-					   struct pinctrl_gpio_range *range,
-					   unsigned offset,
-					   bool input)
-{
-	struct rockchip_pinctrl *info =3D pinctrl_dev_get_drvdata(pctldev);
-	struct rockchip_pin_bank *bank;
-
-	bank =3D pin_to_bank(info, offset);
-	return rockchip_set_mux(bank, offset - bank->pin_base, RK_FUNC_GPIO);
-}
-
-really only ever touches the pinmux and has nothing to do with setting
-the direction, which is solely the task of the gpio-controller/-driver.
-
-So moving that to the request callback would likely solve all our current
-problems?
-
-Heiko
-
-
+Cheers,
+/fuad
+> ---
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 49db32f3ddf71..38f66a56a7665 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -19,7 +19,7 @@
+>  #include <nvhe/mem_protect.h>
+>  #include <nvhe/mm.h>
+>
+> -#define KVM_HOST_S2_FLAGS (KVM_PGTABLE_S2_NOFWB | KVM_PGTABLE_S2_IDMAP)
+> +#define KVM_HOST_S2_FLAGS (KVM_PGTABLE_S2_AS_S1 | KVM_PGTABLE_S2_IDMAP)
+>
+>  struct host_mmu host_mmu;
+>
+> @@ -324,6 +324,8 @@ int __pkvm_prot_finalize(void)
+>         params->vttbr = kvm_get_vttbr(mmu);
+>         params->vtcr = mmu->vtcr;
+>         params->hcr_el2 |= HCR_VM;
+> +       if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
+> +               params->hcr_el2 |= HCR_FWB;
+>
+>         /*
+>          * The CMO below not only cleans the updated params to the
+> --
+> 2.47.3
+>
 
