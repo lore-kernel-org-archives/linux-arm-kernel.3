@@ -4,61 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD8FDCF65FF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 12:44:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A44CBC88E52
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 12:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eUR73fBm5ynj8SVa/MeZHau9RC4xWZERt7lEEMLWI5g=; b=mpaa5CDmlcGLrqeq8AeW3uxMe4
-	3IHEjHmqYRrUrFvQJdufG8L9BXaqfq6dyfBplhLQFQfM+RdBgyBzrhE9wPrmMMt9b51gagh5CtXKU
-	yC9MizqKM1L8GOCRquB/iv2K1PdVDZircnQoJ9ZSjQ+PUbdud/vzvOE9wrJocgUCBod4GV9ZaaunE
-	vz7rCo1jsDIWYvgQj6XAvzdF8p6dcoYPA2Z4FWDrm8NS1qTAaCyovum6NFi87SgpNY5MaK1sgPFX/
-	d9kE08fD1WT6M6IXOoqzwYygYEs73MMuNOjb7BwvkHa7iClSKzR359jsugifaXsS8ji7KfHfbVmnj
-	xh270Y6g==;
+	bh=etmTvIfZkYft64Rk8NFuIYHO9FCo0BTHDVQAZ//QwhM=; b=j2WvrD6hxtufKkLXPilxgw4VPN
+	Cx72ZWhpW6Lo8Qg5ubJYiPm9ELcV+XOTzY2cj5ehX8OtuUdrngsfkUx+jvEG4UGQiqtXCx+Y/xejA
+	65asvUKcyGhHorQdV2xum0OZ0sgvrBfSYF0seGPtBryyVnlBVTZFZcXmUIqWQwqJERoYUbgdCfldJ
+	rVwA1qdrh585j6XhONNSnJbTzPAUZljKsFsV/qSQtdXXkS7LiIS3cv45ZiLS3uGPOBeyduZSpfSc0
+	73ChmYKJyg5mYlZ0mEJiwdegBiApkOENyaCqEy3sEM7FLTUX43Am32DDftbly9u9RMvIo2AIAB8dK
+	8wkeMaWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkLxd-0000000CZLr-1t70;
-	Mon, 26 Jan 2026 12:44:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vkLzX-0000000CZVB-3aN8;
+	Mon, 26 Jan 2026 12:46:51 +0000
+Received: from inva021.nxp.com ([92.121.34.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkLxc-0000000CZLl-2bCP
+	id 1vkLzV-0000000CZUp-07pv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 12:44:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B2BB06012B;
-	Mon, 26 Jan 2026 12:44:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8677C116C6;
-	Mon, 26 Jan 2026 12:44:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769431491;
-	bh=QfLOMmD9jtH9CPHGXdUThFo9lSJwhC4/EeuyOAY+LF4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z8qb/YXu5oaD948BYwFShGbfPVlb76WJ8hG2OwRrHQILj+eS8z9ryIfesrZEV9wx3
-	 UKyTqVCTuZS/nleuzlUX8kEKI4j51Al91sPJbt97RCiAMj84qzVIAbVoF38paqcGys
-	 FruiPipYu1vRTQQ1HMTBQHVfMTmUGxPgnHXiw9tC0km1kHM9gHLDIA6U4pHsreZG3w
-	 DEf00rd3VaFaA1BVwb/pgjM9AtrlYhyIF+CBu26zwBcwrK1182GkXs74df3qxThM8O
-	 H7N7Bkx+jBhCEI9B7Idu496ygSIoqAWqjUy6K6Mdr6Epk2qSGfdeuG5tqlNmrt4GDB
-	 CLCQi+L5LmJcw==
-Date: Mon, 26 Jan 2026 12:44:47 +0000
-From: Will Deacon <will@kernel.org>
-To: Yang Shi <yang@os.amperecomputing.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com,
-	ryan.roberts@arm.com, cl@gentwo.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [v5 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-Message-ID: <aXdhvyW1f10YnZx1@willie-the-truck>
-References: <20260107002944.2940963-1-yang@os.amperecomputing.com>
- <965a0b46-f32e-40e6-ab71-211f84d6c3cf@arm.com>
- <aXIxYcAsbFZn3ZNU@willie-the-truck>
- <8e9f762f-5933-4e30-ab6d-489a56de4eaf@arm.com>
- <1d9e2eff-c6c9-414d-9e39-e046fc0fdc16@os.amperecomputing.com>
+	Mon, 26 Jan 2026 12:46:50 +0000
+Received: from inva021.nxp.com (localhost [127.0.0.1])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 3AE6F200EE2;
+	Mon, 26 Jan 2026 13:46:45 +0100 (CET)
+Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 23B2A200E9A;
+	Mon, 26 Jan 2026 13:46:45 +0100 (CET)
+Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
+	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id D33D62035B;
+	Mon, 26 Jan 2026 13:46:44 +0100 (CET)
+Date: Mon, 26 Jan 2026 13:46:45 +0100
+From: Jan Petrous <jan.petrous@oss.nxp.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 2/4] dt-bindings: net: nxp,s32-dwmac: Declare
+ per-queue interrupts
+Message-ID: <aXdiNb92B4HH+ZFt@lsv051416.swis.nl-cdc01.nxp.com>
+References: <20260123-dwmac_multi_irq-v3-0-cc53f2be8961@oss.nxp.com>
+ <20260123-dwmac_multi_irq-v3-2-cc53f2be8961@oss.nxp.com>
+ <20260123-dinner-aloft-e57deb6c546a@spud>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1d9e2eff-c6c9-414d-9e39-e046fc0fdc16@os.amperecomputing.com>
+In-Reply-To: <20260123-dinner-aloft-e57deb6c546a@spud>
+X-Virus-Scanned: ClamAV using ClamSMTP
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260126_044649_199742_3EDA550E 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,70 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 23, 2026 at 12:08:07PM -0800, Yang Shi wrote:
-> 
-> 
-> On 1/22/26 6:40 PM, Anshuman Khandual wrote:
+On Fri, Jan 23, 2026 at 05:13:03PM +0000, Conor Dooley wrote:
+> On Fri, Jan 23, 2026 at 11:09:55AM +0100, Jan Petrous via B4 Relay wrote:
+> > From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 > > 
-> > On 22/01/26 7:47 PM, Will Deacon wrote:
-> > > On Thu, Jan 22, 2026 at 10:39:25AM +0530, Anshuman Khandual wrote:
-> > > > Hello Yang,
-> > > > 
-> > > > On 07/01/26 5:59 AM, Yang Shi wrote:
-> > > > > Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
-> > > > > rodata=full"), the direct mapping may be split on some machines instead
-> > > > > keeping static since boot. It makes more sense to show the direct mapping
-> > > > > use in /proc/meminfo than before.
-> > > > I guess the direct mapping here refers to linear map ? IIUC it is called
-> > > > direct map on x86 and linear map on arm64 platforms. Then should not it
-> > > > be renamed as s/DirectMap/LinearMap instead ? This will align with names
-> > > > from ptdump as well.
-> > > > 
-> > > > Before the above mentioned commit, linear could get altered with memory
-> > > > hotplug and remove events as well.
-> > > > 
-> > > > > This patch will make /proc/meminfo show the direct mapping use like the
-> > > > > below (4K base page size):
-> > > > > DirectMap4K:	   94792 kB
-> > > > > DirectMap64K:	  134208 kB
-> > > > > DirectMap2M:	 1173504 kB
-> > > > > DirectMap32M:	 5636096 kB
-> > > > > DirectMap1G:	529530880 kB
-> > > > If /proc/meminfo interface is getting updated via  arch_report_meminfo()
-> > > > why not add stats for all kernel virtual address space ranges including
-> > > > vmemmap, vmalloc etc aka all address range headers in ptdump as many of
-> > > > those could change during system runtime. What makes linear mapping any
-> > > > special ?
-> > > tbh, I think compatability with x86 is a good argument in this case and
-> > > so the naming and formatting proposed by this patch makes sense to me.
-> > Fair enough. Probably adding a comment above arch_report_meminfo() along
-> > with the commit message, explaining the above rationale would be helpful
-> > for developers to understand/recollect this equivalence later on.
-> > 
-> > > I'm also not sure that it's particularly interesting to see these
-> > > rolled-up numbers for the vmalloc area. You really want information
-> > > about the area, so extending /proc/vmallocinfo to give information
-> > > about the granule size for each entry might be useful but I don't think
-> > > it should be part of this patch.
-> > Agreed - vmalloc has a separate file for its details which can be improved
-> > later to accommodate rolled-up numbers. But what about vmemmap ? It always
-> > gets updated along with linear map during memory hotplug and remove events.
-> > Should that be included here ?
+> > The DWMAC IP on NXP S32G/R SoCs has connected queue-based IRQ lines,
+> > set them to allow using Multi-IRQ mode when supported.
 > 
-> The granule size of vmemmap should be quite static IIUC. AFAIK kernel
-> doesn't modify vmemmap page tables except HVO, but arm64 doesn't support
-> HVO. And just 4K page size can have PMD mapped vmemmap. It doesn't use
-> contiguous mapping either. The smallest granularity of memory hotplug is
-> 128M with 4K page size, so vmemmap for hotplugged memory should be PMD
-> mapped as well.
+> The binding only supports s32{g,r} devices, why is the existing minimum
+> retained? What devices are going to not have all 11 interrupts
+> connected?
 > 
-> It might be worth showing the memory consumed by vmemmap for hotplug memory
-> so that the users can know where the memory is used. The vmemmap used for
-> bootmem is not counted in MemTotal of /proc/meminfo. But it sounds more core
-> mm generic and shouldn't be part of this patch IMHO.
 
-Agreed, I don't understand what the granularity of the vmemmap has to do
-with this.
+The original idea was to support backward compatibility, as older DTs
+didn't contain queue-based interrupt lines described.
 
-Will
+But now, when you asked, I started to think it is not needed,
+the requirement for backward compatibility is managed inside the driver
+and yaml shall describe the hardware not used configuration.
+
+Is it my understanding right? Should I provide v4 with minimum = 11?
+
+BR.
+/Jan
+
 
