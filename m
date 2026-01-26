@@ -4,59 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA8CBCF65C9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 10:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9539CF65CF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 10:14:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SrRavWdoxPAWhw62AqSPOVo/OLpyor1u8U+EX9APH/c=; b=H0q9XDFSuvpgtmz+Szwi1VYW5t
-	xs18Yba519QeOcLrSnJYjvjy8amN/wgDwvttQGBWjvOrjXWVsPp/MYMoiFitaVbc9n0Y53maxR7EV
-	sdZYpDUF++rkGuphiALRZRa+9R/Z7QbfHQnCM3ohWiihQMy6/kO9aShsEwH6sGoi7JOTweNX4j1kL
-	S0ZAtKeMOXgXs64Nox+Odg6bxwkMIyt8o2VSFH5vSOFmQf11UJW5aTq8dOoqjcD7yJtkV7Qi45EM9
-	0GHQai9LdEn/aCbKaVi8kspOI5kD3WxD1/mATWvN5JU/N3o3mhJm/izReKwIw5w/dzpRnCb5Dxtvk
-	dyGBPwTA==;
+	bh=GEyk04gNfaDNUHZdbx/q7WFk8xB7t1TzPA3X8P2/iwA=; b=ck0XxerW6q2+ps/6csrShhJwxJ
+	byHhQpkzzZ+pW7AtGyVPdaGQtDW2uKbJ64Ycs4kzNPRNQbJtU1vYZqiD/YtrPYUbaPfGKSvKr7skM
+	yWFkkqOOt8rNZexi3vAa9O7W6zyJqcUqlzNCkVvVcbGi+8/4cywLwlep3yQTbStU+Mxm/ench4ZUq
+	Se2F3uxDkwXg0PKFNTGxcetYkwViZcrFbnu0xZ5IMHAb0tL+ALeiZ8j5UC7iZC+Z4dob8Kid5LCoF
+	ksXx64yzxyfXQ7RtHolYHhaernJ011RjPUsMpz2It8zMLORickjn92YHQhtF0nArvzSbYp0NBmPlm
+	y7uhuyew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkJO7-0000000CFKj-02dq;
-	Mon, 26 Jan 2026 10:00:03 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1vkJbm-0000000CG1N-0wzR;
+	Mon, 26 Jan 2026 10:14:10 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkJO4-0000000CFK7-2aRW
+	id 1vkJbi-0000000CG11-1IR7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 10:00:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769421600; x=1800957600;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=8+66ynW/UosBvC/E+PZZmULkSUQHS1YNGDIGs4shhqw=;
-  b=E43T/tFW9dDG6B6KZoK9kFzv711xLi7+pioFG2y01JmcNZjOXuwTHifw
-   BhdBb1ZVsjYLYpmwmO1VFibFh9w6Pf2fdZyIgSMX+uTBR4ZEKvBkP63bL
-   xNP/cpbh6o+RbdfVVA2/Q8BBA7vSN1vUNttM22ovA5RJ19jdpG/eAGd6M
-   ZiL68aABc4MhEQfS1DP7F6Bdzmpo9mfbhYiUPaiQKfLAEFcdBM4GaWx1L
-   NdZ/XpbI8OHxdQY0n7BMYSLEZMBCLwJkZdlmiA1E7wYrrn87SB129jbsj
-   dn116AzOnMu1yFb32a8NP/dVNMdlcQGa3js0WxNs0xcYssBfZfkA7BPMR
-   w==;
-X-CSE-ConnectionGUID: VUkRnHn+T3SCrAYS8osVzg==
-X-CSE-MsgGUID: EGpIC4T9RRiID4EDqzw9Lg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11682"; a="73183359"
-X-IronPort-AV: E=Sophos;i="6.21,254,1763452800"; 
-   d="scan'208";a="73183359"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jan 2026 01:59:55 -0800
-X-CSE-ConnectionGUID: XFLH6wX1QCeVh2rWVMlKBw==
-X-CSE-MsgGUID: lTttj+paRWeICoj+PaAr/w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,254,1763452800"; 
-   d="scan'208";a="212501718"
-Received: from smoticic-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.122])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jan 2026 01:59:46 -0800
-Date: Mon, 26 Jan 2026 11:59:43 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+	Mon, 26 Jan 2026 10:14:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=GEyk
+	04gNfaDNUHZdbx/q7WFk8xB7t1TzPA3X8P2/iwA=; b=Ji1bHKHt+JBZnX/GqU7z
+	GmELF2zecUHUYwHyPE0GxC0VL1PkUzKdJBdFVr9uITKO945DgETLiZd7J/Mghu5u
+	aJkpZ868djWUjpJEXbv7yShzGmh9nUgq59lmLZa1AaMIuTObkqc4ePQ6w6Gi7k7B
+	IRC7FIa0p3eYck4yCX0jbQMeyEsIaVAd3PEJ8WvCln5HlDjFpYEsL6sQRP6Sitcp
+	K3d32gvQMzAzbPaOYUDYSGSqoIZeQ+DO9qE8qu/a55+6VhP3kVT/qsIEo9drNw5z
+	nZj1toP3ofBd6T4B/BhlHdrOQMbE2kWmeCrdbC/87bGvWebZFlxHmtyAN1aWqBz4
+	9Q==
+Received: (qmail 2704376 invoked from network); 26 Jan 2026 11:14:00 +0100
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 26 Jan 2026 11:14:00 +0100
+X-UD-Smtp-Session: l3s3148p1@rNv6w0dJgpEujnvz
+Date: Mon, 26 Jan 2026 11:13:59 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
 Cc: linux-renesas-soc@vger.kernel.org,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Andy Shevchenko <andy@kernel.org>,
@@ -82,7 +68,7 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-sunxi@lists.linux.dev, Mark Brown <broonie@kernel.org>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Peter Zijlstra <peterz@infradead.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
@@ -94,17 +80,17 @@ Cc: linux-renesas-soc@vger.kernel.org,
 	Will Deacon <will@kernel.org>
 Subject: Re: [RFC PATCH 0/4] hwspinlock: refactor headers into public
  provider/consumer pair
-Message-ID: <aXc7DxsqiCGdfzxi@smile.fi.intel.com>
+Message-ID: <aXc-Zxw05XQLb1Dy@ninjato>
 References: <20260125184654.17843-6-wsa+renesas@sang-engineering.com>
+ <aXc7DxsqiCGdfzxi@smile.fi.intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260125184654.17843-6-wsa+renesas@sang-engineering.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <aXc7DxsqiCGdfzxi@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_020000_670858_A10733EA 
-X-CRM114-Status: GOOD (  25.94  )
+X-CRM114-CacheID: sfid-20260126_021407_289352_C4F08D0E 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,55 +105,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 25, 2026 at 07:46:51PM +0100, Wolfram Sang wrote:
-> TLDR: I want to create a hwspinlock provider outside of the hwspinlock
-> directory. So, I refactored the headers into a provider/consumer pair.
-> Which seems to me like a reasonable seperation anyhow. No functional
-> changes. My build tests went fine and buildbots are happy, too.
-> 
-> Longer explanation:
-> 
-> There is a device (MFIS) in newer Renesas SoCs which combines various
-> things like hwspinlocks, mailboxes and other stuff. Sadly, these are not
-> strictly separated. Registers are kind of mixed and its register
-> unprotection scheme will need one of its own locks. I tried various
-> paths to handle this device (MFD, auxiliary bus) but I concluded that
-> the sub-device dependencies give enough reasons for a single driver in
-> drivers/soc/. So, this series will allow me to instantiate a hwspinlock
-> provider from the other directory.
-> 
-> Patches 1+2 do the actual refactoring with a fallback being in place. I
-> used '-B' with git-format-patch in this RFC, so the actual changes are
-> more visible when the headers are moved.
-> 
-> Patch 3 converts all the users. There are not many. We could try to get
-> all the acks for this single patch. Or I can break it into single
-> patches and send them to subsystems. I don't mind.
-> 
-> Patch 4 simply removes the fallback.
-> 
-> Looking forward to comments on this approach. If the hwspinlock
-> maintainers like it as is, I would kindly propose to apply patches 1+2
-> after 7.0-rc1 comes out. This might sound a bit hasty, but a) I want to
-> avoid chasing a moving target and b) this would remove one dependency of
-> the hwspinlock driver I originally intend to upstream, of course.
-> 
-> I would take care of patches 3+4 as needed.
-> 
-> A branch can be found here:
-> 
-> git://git.kernel.org/pub/scm/linux/kernel/git/wsa/linux.git renesas/hwspinlock/refactor-includes
-> 
-> Patches are based on linux-next as of 2026-01-21.
-> 
-> Opinions?
 
-I don't like the idea of sharing internal stuff. Why would we need to have
-a struct hwspinlock to be visible?
+> I don't like the idea of sharing internal stuff. Why would we need to have
+> a struct hwspinlock to be visible?
 
--- 
-With Best Regards,
-Andy Shevchenko
-
+Providers need it, especially the 'priv' member. Consumers won't see it.
 
 
