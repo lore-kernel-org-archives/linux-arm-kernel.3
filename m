@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 057D9C88E72
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 08:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D98BEC88E72
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 08:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
 	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
 	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zd247lnTgm//7Mot/s4CRwgKu7aTLB1vlg6ipR1BxPA=; b=kOoBj14keS6QxAOgqS9hUEArn5
-	SG/sEsnzl3pYQVD3PB3mkRagw4i85in0AthHbJCFvut7AemXBldywGsMYDtB6PXcLRVAnVtb9kx0e
-	DbgIgxGkpw0kWfE+CiHtdWlCrgfJo+YWxKmuxC+i+GOlOX4QhO0cFpV7KZ8P8eMBp6Bq20/xlCClL
-	ZNXwCK0rN4FRUz91h+/+L5mfdt/0c8SMlhN9GjWlIQGH1pHNyQfLpDVldDMRkp4yM0Xr7yw8BDbj/
-	FzWc0d2HjzUIaR5zmW8vGJTdRvSBOsoGCmrPTtsqX2q7uNUfnSGM7z+wittuuKn03U/Ci+YmITgDn
-	mDpCKN1w==;
+	bh=RJK7fOiDsEdgNBqnNoS+yYdJDypAt+EMWhvumKttT4E=; b=spWohzFNtxke004z3rl+40SllH
+	UI5QxeqxzoV+j+XjLFGsCnCI8sMNBj21D4oCi7dozSmAUgzrhATkuM6eaPd9UQqHL64uxBdPmWoyx
+	FEUrhLSHk5NoUf/XQ+tGv2OIWwPwgs3Y1TPltGGUiXemUIdaLB4o7MVTRWGWPjRXmxO4fToYJZIro
+	wygz0RSgCBnar+VMMV041rNx5qwUUPjUBUOOyOMzbLpcKXF3N7wGpvwkWsbPkL8whtoBoAOrapBtG
+	s/KWCjhmajGPIZ2sVhAVsxQJJ2Dez/7sCgL9diK975T8TsveGLhJkafdTy5iZXCHDQnzKVILVNCAf
+	dphAS/pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkHzQ-0000000C6Y9-3TNa;
-	Mon, 26 Jan 2026 08:30:28 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vkI2f-0000000C6xN-2WNg;
+	Mon, 26 Jan 2026 08:33:49 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkHzI-0000000C6Vf-0U28
+	id 1vkI2c-0000000C6wo-3Z2Q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 08:30:22 +0000
+	Mon, 26 Jan 2026 08:33:48 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id E5D4EC225BA;
-	Mon, 26 Jan 2026 08:29:58 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 6344F1A2A4C;
+	Mon, 26 Jan 2026 08:33:44 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 602AB60717;
-	Mon, 26 Jan 2026 08:29:57 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2FE10119A80E2;
-	Mon, 26 Jan 2026 09:29:49 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 38E5160717;
+	Mon, 26 Jan 2026 08:33:44 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 03EA9119A8627;
+	Mon, 26 Jan 2026 09:33:38 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769416196; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1769416423; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=Zd247lnTgm//7Mot/s4CRwgKu7aTLB1vlg6ipR1BxPA=;
-	b=UEQQKtzQX01kRC0KKp+1QBwdn9M6lmlbMCMssM4G8Hf6XyfFJioF600O7pn9UJkYhjELzo
-	PeYldsasnd9253Eei/kPGALVXExNCMJ40I5Eknal3AvJf2qN2H/IQSmIfMeQWLHqujfsdt
-	wXo78MpRUy5kXspvqj+qTpqyUTlCQ0d6A8/sRzHYn/lyZb33aSV/98LRPRJj3T6Fb+CNg0
-	30EnB6+7fojKyX+9tZn2DRRgfRfKMWV+v7/4cLscAlA+b0GeIVhdgtk56+/oQmXBVSFL/g
-	pcXKF4M1xvyw5bdZvA+iSZ0P06cdzO8GVAaNHxMxoy4lBl+Xu32odfbM58bKlg==
+	bh=RJK7fOiDsEdgNBqnNoS+yYdJDypAt+EMWhvumKttT4E=;
+	b=Fsb1J3qvjFPYKpqKT4SHNAESEhf7nPztjLnFyLagSKCwsa1713E4v1ETHBP6De6EQjhfBz
+	bTDB6V2ZzGu07c8qC4A/3bV2FhiefVDVHd5DXwNGsaRaoqE3tcbD6wyio42eoySeaEfgbC
+	PYUrlI3WItjj4OmIpsZnN/kyTCWXRQMnixXi6x+eDcAH3ekZcme+Sb3u/4C1WYTEl5gLiZ
+	HufcOTboaCfYDAMo5lXEQ5ORz/XzGPObLonHwdYe493pLtPX5skKDm1Dh18fTteGFD07A0
+	bMGrGjxg5nBiP1da2oaXmGsgpMzUBO0vOXrqhIFNcgWUfO8efTCK37RZC1iHNA==
 Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Date: Mon, 26 Jan 2026 09:29:49 +0100
-Message-Id: <DFYDOVQ1DOQE.1NDH5JC5M90KV@bootlin.com>
-Subject: Re: [PATCH 1/3] drm/bridge: imx8qxp-ldb: Fix NULL pointer
- dereference in imx8qxp_ldb_bridge_destroy()
+Date: Mon, 26 Jan 2026 09:33:38 +0100
+Message-Id: <DFYDRSZBQBND.QSY119QND1GE@bootlin.com>
+Subject: Re: [PATCH 3/3] drm/bridge: imx8qxp-pixel-combiner: Fix bailout for
+ imx8qxp_pc_bridge_probe()
 Cc: <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
  <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 To: "Liu Ying" <victor.liu@nxp.com>, "Andrzej Hajda"
@@ -67,13 +67,12 @@ To: "Liu Ying" <victor.liu@nxp.com>, "Andrzej Hajda"
 From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
 X-Mailer: aerc 0.20.1
 References: <20260123-imx8qxp-drm-bridge-fixes-v1-0-8bb85ada5866@nxp.com>
- <20260123-imx8qxp-drm-bridge-fixes-v1-1-8bb85ada5866@nxp.com>
-In-Reply-To: <20260123-imx8qxp-drm-bridge-fixes-v1-1-8bb85ada5866@nxp.com>
+ <20260123-imx8qxp-drm-bridge-fixes-v1-3-8bb85ada5866@nxp.com>
+In-Reply-To: <20260123-imx8qxp-drm-bridge-fixes-v1-3-8bb85ada5866@nxp.com>
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_003020_979421_9157928C 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260126_003347_158673_6DDA6DD7 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,19 +88,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Fri Jan 23, 2026 at 10:22 AM CET, Liu Ying wrote:
-> Pointer bridge->driver_private in imx8qxp_ldb_bridge_destroy() is NULL
-> when a LDB channel is unavailable or imx8qxp_ldb_probe() returns error,
-> because ldb_add_bridge_helper() is the last function called from
-> imx8qxp_ldb_probe() and it doesn't initialize bridge->driver_private if
-> a LDB channel is unavailable.  The NULL pointer would be set to pointer
-> ldb_ch and then NULL pointer ldb_ch would be dereferenced.  Fix this
-> by returning early from imx8qxp_ldb_bridge_destroy() if !ldb_ch is true.
->
-> Fixes: 32529d384cea ("drm/bridge: imx8qxp-ldb: convert to of_drm_find_and=
-_get_bridge()")
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> In case the channel0 is unavailable and bailing out from free_child is
+> needed when we fail to add a DRM bridge for the available channel1,
+> pointer pc->ch[0] in the bailout path would be NULL and it would be
+> dereferenced as pc->ch[0]->bridge.next_bridge.  Fix this by checking
+> pc->ch[0] before dereferencing it.
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Thanks for checking this code and providing fixes! These drivers have a
+complex code path so I had a hard time in following the logic without neing
+able to test on hardware. Apologies for the issues emerged.
+
+> Fixes: ae754f049ce1 ("drm/bridge: imx8qxp-pixel-combiner: get/put the nex=
+t bridge")
+> Fixes: 99764593528f ("drm/bridge: imx8qxp-pixel-combiner: convert to devm=
+_drm_bridge_alloc() API")
+
+The bug was introduced by 99764593528f, while ae754f049ce1 is not changing
+the bug, so for the sake of precision we can remove the first 'Fixes:'
+line.
+
+With that:
+ Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 --
 Luca Ceresoli, Bootlin
