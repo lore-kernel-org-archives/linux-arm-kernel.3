@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E81CF65D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 10:45:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FFACF65D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 10:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zGIwriqO0iNoSCzmwXWq28l72t89WV1meQxTJqr2/Mc=; b=4CN056iTbb7Vm1bm+OkimyeVR2
-	JhNWbIHb5W0oNnJ4cAUsGN4Fed52jKypgIIqwxZCb/XwwyuLV9RmfMF9MWdcr4MM48Tl5ILkQupp+
-	adIFA7s7kzmcJtw3Vhw0WB8D1YkSquPfjXbnBblLRlqsrFTr/0p6mNABgDAgIk127t7R+CUO0UYcw
-	N+CCRtZz8xaOrNol82IcgHidUni91RZzMC43pYBqu6ZU4th29yJyerr1sNo8BSYCvnZ775yX6OzPv
-	FlGGdHMMqZCgwcEJXCkpFfQlX7iyz3GYSpRPQUfFz2Bh2ZYj+hD3cbinXL1EfSL0mAOtlwupV3FhL
-	ewBCgRIw==;
+	bh=uTdj+e4Frc7Iw4eaBx3hEgvP+FSLOLysb13SdonsXT8=; b=bY2RvVDi93iqrFM5XR0Hx8pRs0
+	9asEo37LNOz9+e9tc2+mJ0kreZgAYtfyUDMcEdAKq8G3SBEq/Okbzxkp5zRz4NX9mJsYarekq1049
+	ITqzev9CZW5am11eC/VmC9z8AxdxzFZ6JcLGokiyjQIS3XULs05g2TTEWEhlo2nQwsoKLLk2F0eiY
+	YdoG9PTm24ENDt4PjILYXZ/fK+jRUwXqZGs+iogEn+UE5ps92UP+IAuntE9Ch17/0ckDpqUFOVHwO
+	DrgbD3okimsSDMHpQkJNInnkvFVYTwD0bPOXL0L67JnSbRdUdbaqOeJyEqTyfcgL3/lcJuB/kDrfn
+	FQTGJCVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkK5J-0000000CJSx-1fSY;
-	Mon, 26 Jan 2026 10:44:41 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1vkK5K-0000000CJUB-1c1W;
+	Mon, 26 Jan 2026 10:44:42 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkK5B-0000000CJLF-1RTF
+	id 1vkK5C-0000000CJMF-26YW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 10:44:34 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4801e3aab32so21230525e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 02:44:32 -0800 (PST)
+	Mon, 26 Jan 2026 10:44:35 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4801c1056c7so28621395e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 02:44:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769424271; x=1770029071; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769424273; x=1770029073; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zGIwriqO0iNoSCzmwXWq28l72t89WV1meQxTJqr2/Mc=;
-        b=XAL/2DnDmq8z0sJh7bMle/uDu0bi+bNzEK++am8RRREI2wlrhk1j5cro+F5DVb+yfm
-         0mPPeRbD9Ivd5OcMdP+8cA8uKjey0n3uwR4mOmth7DAN9d2kON5ECMPEB+hciPmHjoAi
-         lCINGotKZQkIX8m05Lu5cI2Mf0cw3eY3woyGN/Af6uJhrLH4ICeUVIj7OCCq90Zet6tq
-         vRaCRnzQXlpLFTD+Tg5YT352oOWvvL3RP6pmW9I4cAd6UNe7UhPPsJTJGhgwp29P/gU1
-         kyXPgM1T8ytxAxqJNXO4EcTkKB4db8rIUeajxLxpiIjucFo0Fx0jsmzbGbkhJ/uS4OW3
-         D63w==
+        bh=uTdj+e4Frc7Iw4eaBx3hEgvP+FSLOLysb13SdonsXT8=;
+        b=2suOru1avXizjDW0VwcEGoKQBfpWXeemfFho9d3fD1wEBr+/vG9BxDqOJXVhrIY9KD
+         FmULRsem9BpDRxW0Mji2TOwoqKwH5qtTn9anhjX89w+D7RIhWFX6aRD+x4I8M2t1EtsV
+         4BFY7ObipNLq6LCSc4IakLFt+TG6EUX+NHaqocmGcRDLG32FdTXxGHG4BarVO8vOQkaN
+         9hUMQgQeXdC5bG8MadHhhEPLn1cLkb4VsfjKg6N7Om4PxSIZcKKT/3v7gpiSMRBK36I8
+         IEzpFMN5hgIviKT5vI2ECgQYGGNg3oDE+dkyBIvAcNL79uY5iUHHNZ/jf0fgIsQTyQro
+         I9GA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769424271; x=1770029071;
+        d=1e100.net; s=20230601; t=1769424273; x=1770029073;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zGIwriqO0iNoSCzmwXWq28l72t89WV1meQxTJqr2/Mc=;
-        b=WrCzUVAQRqJSWkfwvvC61DaMNKeLsy1hadVnx8F8EYX1SHGHFivF+jYotfhFtWx8gQ
-         8V/WdTgTY8wQH7CpSEtr1BhX0Wf9rWhEJJRYSLSTVh0+UtHK49+ZW/GCyHZ7lWwesEtl
-         V5TsT/LfTny0lt9Wt5f05PPM6Yu9bvTVrTG2O6/fDD+eVm3bquDN5b+0QFAFj4PVdZ0j
-         TaGx9muCsU5GgHC2USUz3HNy/68ns6980iTLvfwMy9kVxoWvPVdBQsoLGNggagK17NN2
-         YK9e5cjSO1QSn1PBpNtr2JUAgZbNoCeL538IZ8VtLsIUNKIaPeZ700k38thKr0FzFhY8
-         E3nA==
-X-Forwarded-Encrypted: i=1; AJvYcCX9/dM4nSxsnpK9PyVjDIL8kM+dSiulhKVy1PQMTyK2UPdVXvaD6q03zAis1I6bkqgzotnGSD+0nzoj6R+RWZVt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwS0zLeksBEaxwm3MCkFAKc8dLcAoL2uZma9tX9wKsskFU74mSg
-	ruovroyaEk0JEZTpXnKtNH2E4pg5FI1b08Py4cP6adFfHB/VWQ55ZcoIg9+gCJlnDt5nrqdxkHZ
-	GMEG9dUn6cRXM6DYT8kk/8g==
-X-Received: from wmbz14.prod.google.com ([2002:a05:600c:c08e:b0:47d:5a60:18ab])
+        bh=uTdj+e4Frc7Iw4eaBx3hEgvP+FSLOLysb13SdonsXT8=;
+        b=TWIcfeRFAHCqH++t1w4aGa4R3J9OkMn6Gwi2DSiu/mrmJdFX4hA1CVCz4QpAnLpV0w
+         4STt47EzZQtISTsPtqz9+xqwK7ssJQEdH35lxnl2Zb9Ijscffo7Q6a+lJwmWG7EQt6LF
+         MA57TqO7bDYn4ZVDIXhSJTKSWqTug+a0G5IAeewO6XAQSTk01zl3hAk8hqNHLC05cmU5
+         88LZVR3nqQ0BrvfWrDHCekPpnN565PDVZ199NBD6o5lUcI3h0MlolgRDkimv1DmJNYR7
+         0MmtoVy51hjdeHJ8+e6R8CggRRfv66/fSzXJtHJvAI5LtCCZxHIz3Pn/D9NBKur6q7dv
+         tF4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXEX/T3fbzBsIriNUvvyHabL0g9tvCF1e61po2jhuel99Ajb8vS2RQrRAgFD37Wy0c8UMXjUsy+v31y4tJyTjj3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwJjkn92OxOTPsZO8ne/IYLUXA410ce853uaYO/t3EHgfbiyMt
+	r4AyA448qM/NiEiPEnGx2zA9DYJDxSiT36nH78sa1uJeN0QT0OMalxHJLXo99GNuXaK99qCR1KP
+	wLOGxl65IS21W/vGbyrcG+g==
+X-Received: from wmoz10.prod.google.com ([2002:a05:600c:78a:b0:480:1b84:b6e])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1f8f:b0:477:b642:9dc9 with SMTP id 5b1f17b1804b1-4805cf672c6mr67410465e9.28.1769424271028;
- Mon, 26 Jan 2026 02:44:31 -0800 (PST)
-Date: Mon, 26 Jan 2026 10:43:54 +0000
+ 2002:a05:600c:37ca:b0:477:b734:8c22 with SMTP id 5b1f17b1804b1-4805ce3fd1bmr64923625e9.8.1769424272911;
+ Mon, 26 Jan 2026 02:44:32 -0800 (PST)
+Date: Mon, 26 Jan 2026 10:43:56 +0000
 In-Reply-To: <20260126104419.1649811-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260126104419.1649811-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260126104419.1649811-6-vdonnefort@google.com>
-Subject: [PATCH v10 05/30] tracing: Introduce trace remotes
+Message-ID: <20260126104419.1649811-8-vdonnefort@google.com>
+Subject: [PATCH v10 07/30] tracing: Add non-consuming read to trace remotes
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -76,8 +76,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_024433_555368_A63DAA7C 
-X-CRM114-Status: GOOD (  25.72  )
+X-CRM114-CacheID: sfid-20260126_024434_606872_0076C5AE 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,733 +92,480 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A trace remote relies on ring-buffer remotes to read and control
-compatible tracing buffers, written by entity such as firmware or
-hypervisor.
-
-Add a Tracefs directory remotes/ that contains all instances of trace
-remotes. Each instance follows the same hierarchy as any other to ease
-the support by existing user-space tools.
-
-This currently does not provide any event support, which will come
-later.
+Allow reading the trace file for trace remotes. This performs a
+non-consuming read of the trace buffer.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/include/linux/trace_remote.h b/include/linux/trace_remote.h
-new file mode 100644
-index 000000000000..feb3433c2128
---- /dev/null
-+++ b/include/linux/trace_remote.h
-@@ -0,0 +1,80 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef _LINUX_TRACE_REMOTE_H
-+#define _LINUX_TRACE_REMOTE_H
-+
-+#include <linux/ring_buffer.h>
-+
-+/**
-+ * struct trace_remote_callbacks - Callbacks used by Tracefs to control the remote
-+ *
-+ * @load_trace_buffer:  Called before Tracefs accesses the trace buffer for the first
-+ *			time. Must return a &trace_buffer_desc
-+ *			(most likely filled with trace_remote_alloc_buffer())
-+ * @unload_trace_buffer:
-+ *			Called once Tracefs has no use for the trace buffer
-+ *			(most likely call trace_remote_free_buffer())
-+ * @enable_tracing:	Called on Tracefs tracing_on. It is expected from the
-+ *			remote to allow writing.
-+ * @swap_reader_page:	Called when Tracefs consumes a new page from a
-+ *			ring-buffer. It is expected from the remote to isolate a
-+ *			new reader-page from the @cpu ring-buffer.
-+ */
-+struct trace_remote_callbacks {
-+	struct trace_buffer_desc *(*load_trace_buffer)(unsigned long size, void *priv);
-+	void	(*unload_trace_buffer)(struct trace_buffer_desc *desc, void *priv);
-+	int	(*enable_tracing)(bool enable, void *priv);
-+	int	(*swap_reader_page)(unsigned int cpu, void *priv);
+diff --git a/kernel/trace/trace_remote.c b/kernel/trace/trace_remote.c
+index 49c4ae127533..a744bbf48e88 100644
+--- a/kernel/trace/trace_remote.c
++++ b/kernel/trace/trace_remote.c
+@@ -18,14 +18,25 @@
+ #define TRACEFS_MODE_WRITE	0640
+ #define TRACEFS_MODE_READ	0440
+ 
++enum tri_type {
++	TRI_CONSUMING,
++	TRI_NONCONSUMING,
 +};
 +
-+/**
-+ * trace_remote_register() - Register a Tracefs remote
-+ *
-+ * A trace remote is an entity, outside of the kernel (most likely firmware or
-+ * hypervisor) capable of writing events into a Tracefs compatible ring-buffer.
-+ * The kernel would then act as a reader.
-+ *
-+ * The registered remote will be found under the Tracefs directory
-+ * remotes/<name>.
-+ *
-+ * @name:	Name of the remote, used for the Tracefs remotes/ directory.
-+ * @cbs:	Set of callbacks used to control the remote.
-+ * @priv:	Private data, passed to each callback from @cbs.
-+ * @events:	Array of events. &remote_event.name and &remote_event.id must be
-+ *		filled by the caller.
-+ * @nr_events:	Number of events in the @events array.
-+ *
-+ * Return: 0 on success, negative error code on failure.
-+ */
-+int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv);
-+
-+/**
-+ * trace_remote_alloc_buffer() - Dynamically allocate a trace buffer
-+ *
-+ * Helper to dynamically allocate a set of pages (enough to cover @buffer_size)
-+ * for each CPU from @cpumask and fill @desc. Most likely called from
-+ * &trace_remote_callbacks.load_trace_buffer.
-+ *
-+ * @desc:		Uninitialized trace_buffer_desc
-+ * @desc_size:		Size of the trace_buffer_desc. Must be at least equal to
-+ *			trace_buffer_desc_size()
-+ * @buffer_size:	Size in bytes of each per-CPU ring-buffer
-+ * @cpumask:		CPUs to allocate a ring-buffer for
-+ *
-+ * Return: 0 on success, negative error code on failure.
-+ */
-+int trace_remote_alloc_buffer(struct trace_buffer_desc *desc, size_t desc_size, size_t buffer_size,
-+			      const struct cpumask *cpumask);
-+
-+/**
-+ * trace_remote_free_buffer() - Free trace buffer allocated with
-+ *				trace_remote_alloc_buffer()
-+ *
-+ * Most likely called from &trace_remote_callbacks.unload_trace_buffer.
-+ *
-+ * @desc:	Descriptor of the per-CPU ring-buffers, originally filled by
-+ *		trace_remote_alloc_buffer()
-+ */
-+void trace_remote_free_buffer(struct trace_buffer_desc *desc);
-+
-+#endif
-diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
-index bfa2ec46e075..135edf143073 100644
---- a/kernel/trace/Kconfig
-+++ b/kernel/trace/Kconfig
-@@ -1278,4 +1278,7 @@ config HIST_TRIGGERS_DEBUG
+ struct trace_remote_iterator {
+ 	struct trace_remote		*remote;
+ 	struct trace_seq		seq;
+ 	struct delayed_work		poll_work;
+ 	unsigned long			lost_events;
+ 	u64				ts;
++	union {
++		struct ring_buffer_iter	**rb_iters;
++		struct ring_buffer_iter *rb_iter;
++	};
+ 	int				cpu;
+ 	int				evt_cpu;
++	loff_t				pos;
++	enum tri_type			type;
+ };
  
- source "kernel/trace/rv/Kconfig"
+ struct trace_remote {
+@@ -36,6 +47,8 @@ struct trace_remote {
+ 	unsigned long			trace_buffer_size;
+ 	struct ring_buffer_remote	rb_remote;
+ 	struct mutex			lock;
++	struct rw_semaphore		reader_lock;
++	struct rw_semaphore		*pcpu_reader_locks;
+ 	unsigned int			nr_readers;
+ 	unsigned int			poll_ms;
+ 	bool				tracing_on;
+@@ -225,6 +238,20 @@ static int trace_remote_get(struct trace_remote *remote, int cpu)
+ 	if (ret)
+ 		return ret;
  
-+config TRACE_REMOTE
-+	bool
++	if (cpu != RING_BUFFER_ALL_CPUS && !remote->pcpu_reader_locks) {
++		int lock_cpu;
 +
- endif # FTRACE
-diff --git a/kernel/trace/Makefile b/kernel/trace/Makefile
-index fc5dcc888e13..6e75d710fc25 100644
---- a/kernel/trace/Makefile
-+++ b/kernel/trace/Makefile
-@@ -127,4 +127,5 @@ obj-$(CONFIG_FPROBE_EVENTS) += trace_fprobe.o
- obj-$(CONFIG_TRACEPOINT_BENCHMARK) += trace_benchmark.o
- obj-$(CONFIG_RV) += rv/
++		remote->pcpu_reader_locks = kcalloc(nr_cpu_ids, sizeof(*remote->pcpu_reader_locks),
++						    GFP_KERNEL);
++		if (!remote->pcpu_reader_locks) {
++			trace_remote_try_unload(remote);
++			return -ENOMEM;
++		}
++
++		for_each_possible_cpu(lock_cpu)
++			init_rwsem(&remote->pcpu_reader_locks[lock_cpu]);
++	}
++
+ 	remote->nr_readers++;
  
-+obj-$(CONFIG_TRACE_REMOTE) += trace_remote.o
- libftrace-y := ftrace.o
-diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
-index 8bd4ec08fb36..1fcbdea992d2 100644
---- a/kernel/trace/trace.c
-+++ b/kernel/trace/trace.c
-@@ -9356,7 +9356,7 @@ static struct dentry *tracing_dentry_percpu(struct trace_array *tr, int cpu)
- 	return tr->percpu_dir;
+ 	return 0;
+@@ -239,6 +266,9 @@ static void trace_remote_put(struct trace_remote *remote)
+ 	if (remote->nr_readers)
+ 		return;
+ 
++	kfree(remote->pcpu_reader_locks);
++	remote->pcpu_reader_locks = NULL;
++
+ 	trace_remote_try_unload(remote);
  }
  
--static struct dentry *
-+struct dentry *
- trace_create_cpu_file(const char *name, umode_t mode, struct dentry *parent,
- 		      void *data, long cpu, const struct file_operations *fops)
- {
-diff --git a/kernel/trace/trace.h b/kernel/trace/trace.h
-index b6d42fe06115..fdbcd068ba38 100644
---- a/kernel/trace/trace.h
-+++ b/kernel/trace/trace.h
-@@ -680,6 +680,12 @@ struct dentry *trace_create_file(const char *name,
- 				 struct dentry *parent,
- 				 void *data,
- 				 const struct file_operations *fops);
-+struct dentry *trace_create_cpu_file(const char *name,
-+				     umode_t mode,
-+				     struct dentry *parent,
-+				     void *data,
-+				     long cpu,
-+				     const struct file_operations *fops);
+@@ -253,6 +283,48 @@ static void __poll_remote(struct work_struct *work)
+ 			      msecs_to_jiffies(iter->remote->poll_ms));
+ }
  
- 
- /**
-diff --git a/kernel/trace/trace_remote.c b/kernel/trace/trace_remote.c
-new file mode 100644
-index 000000000000..3d80ff98fd90
---- /dev/null
-+++ b/kernel/trace/trace_remote.c
-@@ -0,0 +1,570 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2025 - Google LLC
-+ * Author: Vincent Donnefort <vdonnefort@google.com>
-+ */
-+
-+#include <linux/kstrtox.h>
-+#include <linux/lockdep.h>
-+#include <linux/mutex.h>
-+#include <linux/tracefs.h>
-+#include <linux/trace_remote.h>
-+#include <linux/trace_seq.h>
-+#include <linux/types.h>
-+
-+#include "trace.h"
-+
-+#define TRACEFS_DIR		"remotes"
-+#define TRACEFS_MODE_WRITE	0640
-+#define TRACEFS_MODE_READ	0440
-+
-+struct trace_remote_iterator {
-+	struct trace_remote		*remote;
-+	struct trace_seq		seq;
-+	struct delayed_work		poll_work;
-+	unsigned long			lost_events;
-+	u64				ts;
-+	int				cpu;
-+	int				evt_cpu;
-+};
-+
-+struct trace_remote {
-+	struct trace_remote_callbacks	*cbs;
-+	void				*priv;
-+	struct trace_buffer		*trace_buffer;
-+	struct trace_buffer_desc	*trace_buffer_desc;
-+	unsigned long			trace_buffer_size;
-+	struct ring_buffer_remote	rb_remote;
-+	struct mutex			lock;
-+	unsigned int			nr_readers;
-+	unsigned int			poll_ms;
-+	bool				tracing_on;
-+};
-+
-+static bool trace_remote_loaded(struct trace_remote *remote)
++static int __alloc_ring_buffer_iter(struct trace_remote_iterator *iter, int cpu)
 +{
-+	return remote->trace_buffer;
-+}
-+
-+static int trace_remote_load(struct trace_remote *remote)
-+{
-+	struct ring_buffer_remote *rb_remote = &remote->rb_remote;
-+
-+	lockdep_assert_held(&remote->lock);
-+
-+	if (trace_remote_loaded(remote))
-+		return 0;
-+
-+	remote->trace_buffer_desc = remote->cbs->load_trace_buffer(remote->trace_buffer_size,
-+								   remote->priv);
-+	if (IS_ERR(remote->trace_buffer_desc))
-+		return PTR_ERR(remote->trace_buffer_desc);
-+
-+	rb_remote->desc = remote->trace_buffer_desc;
-+	rb_remote->swap_reader_page = remote->cbs->swap_reader_page;
-+	rb_remote->priv = remote->priv;
-+	remote->trace_buffer = ring_buffer_alloc_remote(rb_remote);
-+	if (!remote->trace_buffer) {
-+		remote->cbs->unload_trace_buffer(remote->trace_buffer_desc, remote->priv);
-+		return -ENOMEM;
-+	}
-+
-+	return 0;
-+}
-+
-+static void trace_remote_try_unload(struct trace_remote *remote)
-+{
-+	lockdep_assert_held(&remote->lock);
-+
-+	if (!trace_remote_loaded(remote))
-+		return;
-+
-+	/* The buffer is being read or writable */
-+	if (remote->nr_readers || remote->tracing_on)
-+		return;
-+
-+	/* The buffer has readable data */
-+	if (!ring_buffer_empty(remote->trace_buffer))
-+		return;
-+
-+	ring_buffer_free(remote->trace_buffer);
-+	remote->trace_buffer = NULL;
-+	remote->cbs->unload_trace_buffer(remote->trace_buffer_desc, remote->priv);
-+}
-+
-+static int trace_remote_enable_tracing(struct trace_remote *remote)
-+{
-+	int ret;
-+
-+	lockdep_assert_held(&remote->lock);
-+
-+	if (remote->tracing_on)
-+		return 0;
-+
-+	ret = trace_remote_load(remote);
-+	if (ret)
-+		return ret;
-+
-+	ret = remote->cbs->enable_tracing(true, remote->priv);
-+	if (ret) {
-+		trace_remote_try_unload(remote);
-+		return ret;
-+	}
-+
-+	remote->tracing_on = true;
-+
-+	return 0;
-+}
-+
-+static int trace_remote_disable_tracing(struct trace_remote *remote)
-+{
-+	int ret;
-+
-+	lockdep_assert_held(&remote->lock);
-+
-+	if (!remote->tracing_on)
-+		return 0;
-+
-+	ret = remote->cbs->enable_tracing(false, remote->priv);
-+	if (ret)
-+		return ret;
-+
-+	ring_buffer_poll_remote(remote->trace_buffer, RING_BUFFER_ALL_CPUS);
-+	remote->tracing_on = false;
-+	trace_remote_try_unload(remote);
-+
-+	return 0;
-+}
-+
-+static ssize_t
-+tracing_on_write(struct file *filp, const char __user *ubuf, size_t cnt, loff_t *ppos)
-+{
-+	struct trace_remote *remote = filp->private_data;
-+	unsigned long val;
-+	int ret;
-+
-+	ret = kstrtoul_from_user(ubuf, cnt, 10, &val);
-+	if (ret)
-+		return ret;
-+
-+	guard(mutex)(&remote->lock);
-+
-+	ret = val ? trace_remote_enable_tracing(remote) : trace_remote_disable_tracing(remote);
-+	if (ret)
-+		return ret;
-+
-+	return cnt;
-+}
-+static int tracing_on_show(struct seq_file *s, void *unused)
-+{
-+	struct trace_remote *remote = s->private;
-+
-+	seq_printf(s, "%d\n", remote->tracing_on);
-+
-+	return 0;
-+}
-+DEFINE_SHOW_STORE_ATTRIBUTE(tracing_on);
-+
-+static ssize_t buffer_size_kb_write(struct file *filp, const char __user *ubuf, size_t cnt,
-+				    loff_t *ppos)
-+{
-+	struct trace_remote *remote = filp->private_data;
-+	unsigned long val;
-+	int ret;
-+
-+	ret = kstrtoul_from_user(ubuf, cnt, 10, &val);
-+	if (ret)
-+		return ret;
-+
-+	/* KiB to Bytes */
-+	if (!val || check_shl_overflow(val, 10, &val))
-+		return -EINVAL;
-+
-+	guard(mutex)(&remote->lock);
-+
-+	remote->trace_buffer_size = val;
-+
-+	return cnt;
-+}
-+
-+static int buffer_size_kb_show(struct seq_file *s, void *unused)
-+{
-+	struct trace_remote *remote = s->private;
-+
-+	seq_printf(s, "%lu (%s)\n", remote->trace_buffer_size >> 10,
-+		   trace_remote_loaded(remote) ? "loaded" : "unloaded");
-+
-+	return 0;
-+}
-+DEFINE_SHOW_STORE_ATTRIBUTE(buffer_size_kb);
-+
-+static int trace_remote_get(struct trace_remote *remote, int cpu)
-+{
-+	int ret;
-+
-+	if (remote->nr_readers == UINT_MAX)
-+		return -EBUSY;
-+
-+	ret = trace_remote_load(remote);
-+	if (ret)
-+		return ret;
-+
-+	remote->nr_readers++;
-+
-+	return 0;
-+}
-+
-+static void trace_remote_put(struct trace_remote *remote)
-+{
-+	if (WARN_ON(!remote->nr_readers))
-+		return;
-+
-+	remote->nr_readers--;
-+	if (remote->nr_readers)
-+		return;
-+
-+	trace_remote_try_unload(remote);
-+}
-+
-+static void __poll_remote(struct work_struct *work)
-+{
-+	struct delayed_work *dwork = to_delayed_work(work);
-+	struct trace_remote_iterator *iter;
-+
-+	iter = container_of(dwork, struct trace_remote_iterator, poll_work);
-+	ring_buffer_poll_remote(iter->remote->trace_buffer, iter->cpu);
-+	schedule_delayed_work((struct delayed_work *)work,
-+			      msecs_to_jiffies(iter->remote->poll_ms));
-+}
-+
-+static struct trace_remote_iterator
-+*trace_remote_iter(struct trace_remote *remote, int cpu, enum tri_type type)
-+{
-+	struct trace_remote_iterator *iter = NULL;
-+	int ret;
-+
-+	lockdep_assert_held(&remote->lock);
-+
-+
-+	ret = trace_remote_get(remote, cpu);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	/* Test the CPU */
-+	ret = ring_buffer_poll_remote(remote->trace_buffer, cpu);
-+	if (ret)
-+		goto err;
-+
-+	iter = kzalloc(sizeof(*iter), GFP_KERNEL);
-+	if (iter) {
-+		iter->remote = remote;
-+		iter->cpu = cpu;
-+		trace_seq_init(&iter->seq);
-+		INIT_DELAYED_WORK(&iter->poll_work, __poll_remote);
-+		schedule_delayed_work(&iter->poll_work, msecs_to_jiffies(remote->poll_ms));
-+
-+		return iter;
-+	}
-+	ret = -ENOMEM;
-+
-+err:
-+	kfree(iter);
-+	trace_remote_put(remote);
-+
-+	return ERR_PTR(ret);
-+}
-+
-+static void trace_remote_iter_free(struct trace_remote_iterator *iter)
-+{
-+	struct trace_remote *remote;
-+
-+	if (!iter)
-+		return;
-+
-+	remote = iter->remote;
-+
-+	lockdep_assert_held(&remote->lock);
-+
-+	kfree(iter);
-+	trace_remote_put(remote);
-+}
-+
-+static bool trace_remote_iter_read_event(struct trace_remote_iterator *iter)
-+{
-+	struct trace_buffer *trace_buffer = iter->remote->trace_buffer;
-+	int cpu = iter->cpu;
++	bool once = false;
 +
 +	if (cpu != RING_BUFFER_ALL_CPUS) {
-+		if (ring_buffer_empty_cpu(trace_buffer, cpu))
-+			return false;
++		iter->rb_iter = ring_buffer_read_start(iter->remote->trace_buffer, cpu, GFP_KERNEL);
 +
-+		if (!ring_buffer_peek(trace_buffer, cpu, &iter->ts, &iter->lost_events))
-+			return false;
-+
-+		iter->evt_cpu = cpu;
-+		return true;
++		return iter->rb_iter ? 0 : -ENOMEM;
 +	}
 +
-+	iter->ts = U64_MAX;
++	iter->rb_iters = kcalloc(nr_cpu_ids, sizeof(*iter->rb_iters), GFP_KERNEL);
++	if (!iter->rb_iters)
++		return -ENOMEM;
++
 +	for_each_possible_cpu(cpu) {
-+		unsigned long lost_events;
-+		u64 ts;
-+
-+		if (ring_buffer_empty_cpu(trace_buffer, cpu))
-+			continue;
-+
-+		if (!ring_buffer_peek(trace_buffer, cpu, &ts, &lost_events))
-+			continue;
-+
-+		if (ts >= iter->ts)
-+			continue;
-+
-+		iter->ts = ts;
-+		iter->evt_cpu = cpu;
-+		iter->lost_events = lost_events;
++		iter->rb_iters[cpu] = ring_buffer_read_start(iter->remote->trace_buffer, cpu,
++							     GFP_KERNEL);
++		if (iter->rb_iters[cpu])
++			once = true;
 +	}
 +
-+	return iter->ts != U64_MAX;
++	return once ? 0 : -ENOMEM;
 +}
 +
-+static int trace_remote_iter_print(struct trace_remote_iterator *iter)
++static void __free_ring_buffer_iter(struct trace_remote_iterator *iter, int cpu)
 +{
-+	unsigned long usecs_rem;
-+	u64 ts = iter->ts;
++	if (!iter->rb_iter)
++		return;
 +
-+	if (iter->lost_events)
-+		trace_seq_printf(&iter->seq, "CPU:%d [LOST %lu EVENTS]\n",
-+				 iter->evt_cpu, iter->lost_events);
++	if (cpu != RING_BUFFER_ALL_CPUS) {
++		ring_buffer_read_finish(iter->rb_iter);
++		return;
++	}
 +
-+	do_div(ts, 1000);
-+	usecs_rem = do_div(ts, USEC_PER_SEC);
++	for_each_possible_cpu(cpu) {
++		if (iter->rb_iters[cpu])
++			ring_buffer_read_finish(iter->rb_iters[cpu]);
++	}
 +
-+	trace_seq_printf(&iter->seq, "[%03d]\t%5llu.%06lu: ", iter->evt_cpu,
-+			 ts, usecs_rem);
-+
-+	return trace_seq_has_overflowed(&iter->seq) ? -EOVERFLOW : 0;
++	kfree(iter->rb_iters);
 +}
 +
-+static int trace_pipe_open(struct inode *inode, struct file *filp)
+ static struct trace_remote_iterator
+ *trace_remote_iter(struct trace_remote *remote, int cpu, enum tri_type type)
+ {
+@@ -261,6 +333,8 @@ static struct trace_remote_iterator
+ 
+ 	lockdep_assert_held(&remote->lock);
+ 
++	if (type == TRI_NONCONSUMING && !trace_remote_loaded(remote))
++		return NULL;
+ 
+ 	ret = trace_remote_get(remote, cpu);
+ 	if (ret)
+@@ -275,9 +349,21 @@ static struct trace_remote_iterator
+ 	if (iter) {
+ 		iter->remote = remote;
+ 		iter->cpu = cpu;
++		iter->type = type;
+ 		trace_seq_init(&iter->seq);
+-		INIT_DELAYED_WORK(&iter->poll_work, __poll_remote);
+-		schedule_delayed_work(&iter->poll_work, msecs_to_jiffies(remote->poll_ms));
++
++		switch (type) {
++		case TRI_CONSUMING:
++			INIT_DELAYED_WORK(&iter->poll_work, __poll_remote);
++			schedule_delayed_work(&iter->poll_work, msecs_to_jiffies(remote->poll_ms));
++			break;
++		case TRI_NONCONSUMING:
++			ret = __alloc_ring_buffer_iter(iter, cpu);
++			break;
++		}
++
++		if (ret)
++			goto err;
+ 
+ 		return iter;
+ 	}
+@@ -301,10 +387,100 @@ static void trace_remote_iter_free(struct trace_remote_iterator *iter)
+ 
+ 	lockdep_assert_held(&remote->lock);
+ 
++	switch (iter->type) {
++	case TRI_CONSUMING:
++		cancel_delayed_work_sync(&iter->poll_work);
++		break;
++	case TRI_NONCONSUMING:
++		__free_ring_buffer_iter(iter, iter->cpu);
++		break;
++	}
++
+ 	kfree(iter);
+ 	trace_remote_put(remote);
+ }
+ 
++static void trace_remote_iter_read_start(struct trace_remote_iterator *iter)
++{
++	struct trace_remote *remote = iter->remote;
++	int cpu = iter->cpu;
++
++	/* Acquire global reader lock */
++	if (cpu == RING_BUFFER_ALL_CPUS && iter->type == TRI_CONSUMING)
++		down_write(&remote->reader_lock);
++	else
++		down_read(&remote->reader_lock);
++
++	if (cpu == RING_BUFFER_ALL_CPUS)
++		return;
++
++	/*
++	 * No need for the remote lock here, iter holds a reference on
++	 * remote->nr_readers
++	 */
++
++	/* Get the per-CPU one */
++	if (WARN_ON_ONCE(!remote->pcpu_reader_locks))
++		return;
++
++	if (iter->type == TRI_CONSUMING)
++		down_write(&remote->pcpu_reader_locks[cpu]);
++	else
++		down_read(&remote->pcpu_reader_locks[cpu]);
++}
++
++static void trace_remote_iter_read_finished(struct trace_remote_iterator *iter)
++{
++	struct trace_remote *remote = iter->remote;
++	int cpu = iter->cpu;
++
++	/* Release per-CPU reader lock */
++	if (cpu != RING_BUFFER_ALL_CPUS) {
++		/*
++		 * No need for the remote lock here, iter holds a reference on
++		 * remote->nr_readers
++		 */
++		if (iter->type == TRI_CONSUMING)
++			up_write(&remote->pcpu_reader_locks[cpu]);
++		else
++			up_read(&remote->pcpu_reader_locks[cpu]);
++	}
++
++	/* Release global reader lock */
++	if (cpu == RING_BUFFER_ALL_CPUS && iter->type == TRI_CONSUMING)
++		up_write(&remote->reader_lock);
++	else
++		up_read(&remote->reader_lock);
++}
++
++static struct ring_buffer_iter *__get_rb_iter(struct trace_remote_iterator *iter, int cpu)
++{
++	return iter->cpu != RING_BUFFER_ALL_CPUS ? iter->rb_iter : iter->rb_iters[cpu];
++}
++
++static struct ring_buffer_event *
++__peek_event(struct trace_remote_iterator *iter, int cpu, u64 *ts, unsigned long *lost_events)
++{
++	struct ring_buffer_event *rb_evt;
++	struct ring_buffer_iter *rb_iter;
++
++	switch (iter->type) {
++	case TRI_CONSUMING:
++		return ring_buffer_peek(iter->remote->trace_buffer, cpu, ts, lost_events);
++	case TRI_NONCONSUMING:
++		rb_iter = __get_rb_iter(iter, cpu);
++		rb_evt = ring_buffer_iter_peek(rb_iter, ts);
++		if (!rb_evt)
++			return NULL;
++
++		*lost_events = ring_buffer_iter_dropped(rb_iter);
++
++		return rb_evt;
++	}
++
++	return NULL;
++}
++
+ static bool trace_remote_iter_read_event(struct trace_remote_iterator *iter)
+ {
+ 	struct trace_buffer *trace_buffer = iter->remote->trace_buffer;
+@@ -314,7 +490,7 @@ static bool trace_remote_iter_read_event(struct trace_remote_iterator *iter)
+ 		if (ring_buffer_empty_cpu(trace_buffer, cpu))
+ 			return false;
+ 
+-		if (!ring_buffer_peek(trace_buffer, cpu, &iter->ts, &iter->lost_events))
++		if (!__peek_event(iter, cpu, &iter->ts, &iter->lost_events))
+ 			return false;
+ 
+ 		iter->evt_cpu = cpu;
+@@ -329,7 +505,7 @@ static bool trace_remote_iter_read_event(struct trace_remote_iterator *iter)
+ 		if (ring_buffer_empty_cpu(trace_buffer, cpu))
+ 			continue;
+ 
+-		if (!ring_buffer_peek(trace_buffer, cpu, &ts, &lost_events))
++		if (!__peek_event(iter, cpu, &ts, &lost_events))
+ 			continue;
+ 
+ 		if (ts >= iter->ts)
+@@ -343,7 +519,21 @@ static bool trace_remote_iter_read_event(struct trace_remote_iterator *iter)
+ 	return iter->ts != U64_MAX;
+ }
+ 
+-static int trace_remote_iter_print(struct trace_remote_iterator *iter)
++static void trace_remote_iter_move(struct trace_remote_iterator *iter)
++{
++	struct trace_buffer *trace_buffer = iter->remote->trace_buffer;
++
++	switch (iter->type) {
++	case TRI_CONSUMING:
++		ring_buffer_consume(trace_buffer, iter->evt_cpu, NULL, NULL);
++		break;
++	case TRI_NONCONSUMING:
++		ring_buffer_iter_advance(__get_rb_iter(iter, iter->evt_cpu));
++		break;
++	}
++}
++
++static int trace_remote_iter_print_event(struct trace_remote_iterator *iter)
+ {
+ 	unsigned long usecs_rem;
+ 	u64 ts = iter->ts;
+@@ -371,7 +561,11 @@ static int trace_pipe_open(struct inode *inode, struct file *filp)
+ 		cpu = (long)inode->i_cdev - 1;
+ 
+ 	guard(mutex)(&remote->lock);
+-	iter = trace_remote_iter(remote, cpu);
++
++	iter = trace_remote_iter(remote, cpu, TRI_CONSUMING);
++	if (IS_ERR(iter))
++		return PTR_ERR(iter);
++
+ 	filp->private_data = iter;
+ 
+ 	return IS_ERR(iter) ? PTR_ERR(iter) : 0;
+@@ -406,6 +600,8 @@ static ssize_t trace_pipe_read(struct file *filp, char __user *ubuf, size_t cnt,
+ 	if (ret < 0)
+ 		return ret;
+ 
++	trace_remote_iter_read_start(iter);
++
+ 	while (trace_remote_iter_read_event(iter)) {
+ 		int prev_len = iter->seq.seq.len;
+ 
+@@ -414,9 +610,11 @@ static ssize_t trace_pipe_read(struct file *filp, char __user *ubuf, size_t cnt,
+ 			break;
+ 		}
+ 
+-		ring_buffer_consume(trace_buffer, iter->evt_cpu, NULL, NULL);
++		trace_remote_iter_move(iter);
+ 	}
+ 
++	trace_remote_iter_read_finished(iter);
++
+ 	goto copy_to_user;
+ }
+ 
+@@ -426,6 +624,119 @@ static const struct file_operations trace_pipe_fops = {
+ 	.release	= trace_pipe_release,
+ };
+ 
++static void *trace_seq_start(struct seq_file *m, loff_t *pos)
++{
++	struct trace_remote_iterator *iter = m->private;
++	loff_t i = *pos;
++
++	if (!iter)
++		return NULL;
++
++	if (iter->pos <= *pos) {
++		do {
++			if (!trace_remote_iter_read_event(iter))
++				return NULL;
++
++			trace_remote_iter_move(iter);
++			iter->pos++;
++		} while (i--);
++	}
++
++	return iter;
++}
++
++static void *trace_seq_next(struct seq_file *m, void *v, loff_t *pos)
++{
++	struct trace_remote_iterator *iter = m->private;
++
++	++*pos;
++
++	if (!iter || !trace_remote_iter_read_event(iter))
++		return NULL;
++
++	trace_remote_iter_move(iter);
++	iter->pos++;
++
++	return iter;
++}
++
++static int trace_seq_show(struct seq_file *m, void *v)
++{
++	struct trace_remote_iterator *iter = v;
++
++	trace_seq_init(&iter->seq);
++
++	if (trace_remote_iter_print_event(iter)) {
++		seq_printf(m, "[EVENT %d PRINT TOO BIG]\n", iter->evt->id);
++		return 0;
++	}
++
++	return trace_print_seq(m, &iter->seq);
++}
++
++static void trace_seq_stop(struct seq_file *s, void *v) { }
++
++static const struct seq_operations trace_seq_ops = {
++	.start		= trace_seq_start,
++	.next		= trace_seq_next,
++	.show		= trace_seq_show,
++	.stop		= trace_seq_stop,
++};
++
++static int trace_open(struct inode *inode, struct file *filp)
 +{
 +	struct trace_remote *remote = inode->i_private;
-+	struct trace_remote_iterator *iter;
++	struct trace_remote_iterator *iter = NULL;
 +	int cpu = RING_BUFFER_ALL_CPUS;
++	int ret;
++
++	if (!(filp->f_mode & FMODE_READ))
++		return 0;
 +
 +	if (inode->i_cdev)
 +		cpu = (long)inode->i_cdev - 1;
 +
 +	guard(mutex)(&remote->lock);
-+	iter = trace_remote_iter(remote, cpu);
-+	filp->private_data = iter;
 +
-+	return IS_ERR(iter) ? PTR_ERR(iter) : 0;
++	iter = trace_remote_iter(remote, cpu, TRI_NONCONSUMING);
++	if (IS_ERR(iter))
++		return PTR_ERR(iter);
++
++	ret = seq_open(filp, &trace_seq_ops);
++	if (ret) {
++		trace_remote_iter_free(iter);
++		return ret;
++	}
++
++	if (iter)
++		trace_remote_iter_read_start(iter);
++
++	((struct seq_file *)filp->private_data)->private = (void *)iter;
++
++	return 0;
 +}
 +
-+static int trace_pipe_release(struct inode *inode, struct file *filp)
++static int trace_release(struct inode *inode, struct file *filp)
 +{
-+	struct trace_remote_iterator *iter = filp->private_data;
-+	struct trace_remote *remote = iter->remote;
++	struct trace_remote_iterator *iter;
 +
-+	guard(mutex)(&remote->lock);
++	if (!(filp->f_mode & FMODE_READ))
++		return 0;
 +
++	iter = ((struct seq_file *)filp->private_data)->private;
++	seq_release(inode, filp);
++
++	if (!iter)
++		return 0;
++
++	guard(mutex)(&iter->remote->lock);
++
++	trace_remote_iter_read_finished(iter);
 +	trace_remote_iter_free(iter);
 +
 +	return 0;
 +}
 +
-+static ssize_t trace_pipe_read(struct file *filp, char __user *ubuf, size_t cnt, loff_t *ppos)
-+{
-+	struct trace_remote_iterator *iter = filp->private_data;
-+	struct trace_buffer *trace_buffer = iter->remote->trace_buffer;
-+	int ret;
-+
-+copy_to_user:
-+	ret = trace_seq_to_user(&iter->seq, ubuf, cnt);
-+	if (ret != -EBUSY)
-+		return ret;
-+
-+	trace_seq_init(&iter->seq);
-+
-+	ret = ring_buffer_wait(trace_buffer, iter->cpu, 0, NULL, NULL);
-+	if (ret < 0)
-+		return ret;
-+
-+	while (trace_remote_iter_read_event(iter)) {
-+		int prev_len = iter->seq.seq.len;
-+
-+		if (trace_remote_iter_print_event(iter)) {
-+			iter->seq.seq.len = prev_len;
-+			break;
-+		}
-+
-+		ring_buffer_consume(trace_buffer, iter->evt_cpu, NULL, NULL);
-+	}
-+
-+	goto copy_to_user;
-+}
-+
-+static const struct file_operations trace_pipe_fops = {
-+	.open		= trace_pipe_open,
-+	.read		= trace_pipe_read,
-+	.release	= trace_pipe_release,
-+};
-+
-+static int trace_remote_init_tracefs(const char *name, struct trace_remote *remote)
-+{
-+	struct dentry *remote_d, *percpu_d;
-+	static struct dentry *root;
-+	static DEFINE_MUTEX(lock);
-+	bool root_inited = false;
-+	int cpu;
-+
-+	guard(mutex)(&lock);
-+
-+	if (!root) {
-+		root = tracefs_create_dir(TRACEFS_DIR, NULL);
-+		if (!root) {
-+			pr_err("Failed to create tracefs dir "TRACEFS_DIR"\n");
-+			return -ENOMEM;
-+		}
-+		root_inited = true;
-+	}
-+
-+	remote_d = tracefs_create_dir(name, root);
-+	if (!remote_d) {
-+		pr_err("Failed to create tracefs dir "TRACEFS_DIR"%s/\n", name);
-+		goto err;
-+	}
-+
-+	if (!trace_create_file("tracing_on", TRACEFS_MODE_WRITE, remote_d, remote,
-+			       &tracing_on_fops) ||
-+	    !trace_create_file("buffer_size_kb", TRACEFS_MODE_WRITE, remote_d, remote,
-+			       &buffer_size_kb_fops) ||
-+	    !trace_create_file("trace_pipe", TRACEFS_MODE_READ, remote_d, remote,
-+			       &trace_pipe_fops))
-+		goto err;
-+
-+	percpu_d = tracefs_create_dir("per_cpu", remote_d);
-+	if (!percpu_d) {
-+		pr_err("Failed to create tracefs dir "TRACEFS_DIR"%s/per_cpu/\n", name);
-+		goto err;
-+	}
-+
-+	for_each_possible_cpu(cpu) {
-+		struct dentry *cpu_d;
-+		char cpu_name[16];
-+
-+		snprintf(cpu_name, sizeof(cpu_name), "cpu%d", cpu);
-+		cpu_d = tracefs_create_dir(cpu_name, percpu_d);
-+		if (!cpu_d) {
-+			pr_err("Failed to create tracefs dir "TRACEFS_DIR"%s/percpu/cpu%d\n",
-+			       name, cpu);
-+			goto err;
-+		}
-+
-+		if (!trace_create_cpu_file("trace_pipe", TRACEFS_MODE_READ, cpu_d, remote, cpu,
-+					   &trace_pipe_fops))
-+			goto err;
-+	}
-+
-+	return 0;
-+
-+err:
-+	if (root_inited) {
-+		tracefs_remove(root);
-+		root = NULL;
-+	} else {
-+		tracefs_remove(remote_d);
-+	}
-+
-+	return -ENOMEM;
-+}
-+
-+int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv)
-+{
-+	struct trace_remote *remote;
-+
-+	remote = kzalloc(sizeof(*remote), GFP_KERNEL);
-+	if (!remote)
-+		return -ENOMEM;
-+
-+	remote->cbs = cbs;
-+	remote->priv = priv;
-+	remote->trace_buffer_size = 7 << 10;
-+	remote->poll_ms = 100;
-+	mutex_init(&remote->lock);
-+
-+	if (trace_remote_init_tracefs(name, remote)) {
-+		kfree(remote);
-+		return -ENOMEM;
-+	}
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(trace_remote_register);
-+
-+void trace_remote_free_buffer(struct trace_buffer_desc *desc)
-+{
-+	struct ring_buffer_desc *rb_desc;
-+	int cpu;
-+
-+	for_each_ring_buffer_desc(rb_desc, cpu, desc) {
-+		unsigned int id;
-+
-+		free_page(rb_desc->meta_va);
-+
-+		for (id = 0; id < rb_desc->nr_page_va; id++)
-+			free_page(rb_desc->page_va[id]);
-+	}
-+}
-+EXPORT_SYMBOL_GPL(trace_remote_free_buffer);
-+
-+int trace_remote_alloc_buffer(struct trace_buffer_desc *desc, size_t desc_size, size_t buffer_size,
-+			      const struct cpumask *cpumask)
-+{
-+	unsigned int nr_pages = max(DIV_ROUND_UP(buffer_size, PAGE_SIZE), 2UL) + 1;
-+	void *desc_end = desc + desc_size;
-+	struct ring_buffer_desc *rb_desc;
-+	int cpu, ret = -ENOMEM;
-+
-+	if (desc_size < struct_size(desc, __data, 0))
-+		return -EINVAL;
-+
-+	desc->nr_cpus = 0;
-+	desc->struct_len = struct_size(desc, __data, 0);
-+
-+	rb_desc = (struct ring_buffer_desc *)&desc->__data[0];
-+
-+	for_each_cpu(cpu, cpumask) {
-+		unsigned int id;
-+
-+		if ((void *)rb_desc + struct_size(rb_desc, page_va, nr_pages) > desc_end) {
-+			ret = -EINVAL;
-+			goto err;
-+		}
-+
-+		rb_desc->cpu = cpu;
-+		rb_desc->nr_page_va = 0;
-+		rb_desc->meta_va = (unsigned long)__get_free_page(GFP_KERNEL);
-+		if (!rb_desc->meta_va)
-+			goto err;
-+
-+		for (id = 0; id < nr_pages; id++) {
-+			rb_desc->page_va[id] = (unsigned long)__get_free_page(GFP_KERNEL);
-+			if (!rb_desc->page_va[id])
-+				goto err;
-+
-+			rb_desc->nr_page_va++;
-+		}
-+		desc->nr_cpus++;
-+		desc->struct_len += offsetof(struct ring_buffer_desc, page_va);
-+		desc->struct_len += struct_size(rb_desc, page_va, rb_desc->nr_page_va);
-+		rb_desc = __next_ring_buffer_desc(rb_desc);
-+	}
-+
-+	return 0;
-+
-+err:
-+	trace_remote_free_buffer(desc);
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(trace_remote_alloc_buffer);
+ static ssize_t trace_write(struct file *filp, const char __user *ubuf, size_t cnt, loff_t *ppos)
+ {
+ 	struct inode *inode = file_inode(filp);
+@@ -443,7 +754,11 @@ static ssize_t trace_write(struct file *filp, const char __user *ubuf, size_t cn
+ }
+ 
+ static const struct file_operations trace_fops = {
++	.open		= trace_open,
+ 	.write		= trace_write,
++	.read		= seq_read,
++	.read_iter	= seq_read_iter,
++	.release	= trace_release,
+ };
+ 
+ static int trace_remote_init_tracefs(const char *name, struct trace_remote *remote)
+@@ -532,6 +847,7 @@ int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs,
+ 	remote->trace_buffer_size = 7 << 10;
+ 	remote->poll_ms = 100;
+ 	mutex_init(&remote->lock);
++	init_rwsem(&remote->reader_lock);
+ 
+ 	if (trace_remote_init_tracefs(name, remote)) {
+ 		kfree(remote);
 -- 
 2.52.0.457.g6b5491de43-goog
 
