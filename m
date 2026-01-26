@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B307DD778BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC5F9D74EFD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eLShc81E/+Lme+gJ9JRioNlppj/hbf+/HE944re/X2I=; b=BMRjQroRRKZ/PqRMYF4JjwTHpq
-	zuLaZfuX0PTohzy1E+U8TcJQXvZquscBpN2KddPUdNP1/w52iNjSkw9XYq619zcFsujibnOB3ED/t
-	e8fGhRKz4O+EMY4BGa0VkAbOSLpEo8dGDLynYXyYoRj7FIizhfbEyjKx3PhaETI4ZWRCCp283re1s
-	wJ9eDaa2X4mvmfXbZ9C8QZTX79N+up79MKYndYeFs5sKk07F2ctd1fCwvSO8ZpfY8QwQDKj93h8oN
-	V/8pp7Q67WRVpS3epohFB8PrdEYzqVLkWYLipsQdbpUlMPrfZ2DNuThAP+OOna2jjAutQ96p+ZJBm
-	ftWzLgwA==;
+	bh=6qZ1xUJ54mMbB8pErA6j09+CFNiU+H8FmdGJP4FuLNw=; b=nK0YHFU8aXM/pPl1oSFWBJWHIP
+	Sv7eVY6eu9g/hAA9KN/Gzdw1Izvl+0arAU1/ykmBhag6rFUE12hI1zVVJgVBb3i+NwfyT+8AwSyy1
+	df+UdZ4vCfFhHD3dS+JfYJ7m2e7VC5B+eBRScSA4ETOFOOWg6rG+y9kZ4yo6IAe3FONEijHeTujTZ
+	/g06Do0J2XrKYtz650x+IAlaXa03GKbW9hRD9hptTy4KkhReUo9SX6LipH0aS0GYWD1Qrjoum4M7q
+	Jr8IUIgXZ3ptm7fsISK+VNpvF2g+csAdnf5FXg+0HESH7pmQE+yV38sD5C1a27M81rYr5yujabPeR
+	AvwRUOLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkIsq-0000000CC4K-23gZ;
-	Mon, 26 Jan 2026 09:27:44 +0000
+	id 1vkIsp-0000000CC3F-1HRW;
+	Mon, 26 Jan 2026 09:27:43 +0000
 Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkIsi-0000000CBzP-2rPh
+	id 1vkIsh-0000000CBz7-1aNM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 09:27:37 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4801e2e3532so29091875e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 01:27:35 -0800 (PST)
+	Mon, 26 Jan 2026 09:27:36 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-47ee33324e8so32727175e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 01:27:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769419654; x=1770024454; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769419652; x=1770024452; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eLShc81E/+Lme+gJ9JRioNlppj/hbf+/HE944re/X2I=;
-        b=LY1TCYGAtfteSqKIPaxehcDT73/opLM15gz2nv9oIjT/qNwIOuAvYZP++hVU5TmfL9
-         uuIWuKA0hdev3ZWee0OE4w32H0bzvDwZ8ZSatT3bqkYIZlORRV/IBj+qkgfGz59ZVcON
-         gB5hMRymKYBh2s7EnjoaehiQT/82BSw6n+2rkKL2Ex/affqtkcBxs1Ik+H4OW5J7zyoX
-         arcuIGniP2tYw3YILDjy3j5iL8utF7rAG2sJkYEvZza7MYHNH8Xbb8TcotqUFlEA7lBd
-         +QUWPjUrmS2K5X9MZi5jQv6xTQiQjFBWlQzjoE4pw4zmazIow72K0EgyhPKXBHVua++3
-         Q+Zg==
+        bh=6qZ1xUJ54mMbB8pErA6j09+CFNiU+H8FmdGJP4FuLNw=;
+        b=o/JFyzWHMNx3MsV2LBNPwUD/ZPHiufu5p8wTUwfvJAxF48WHf6bLehPMFVN9Qyp9yY
+         aNmbkZIA/Qe9GrW4/azaEiUL9Wxn1lFKLAFe6OZi2adgPlr1f7KTkswezIFB/mH3LDWL
+         oOtfCb/A+BKydYvLWt17JIvqwJvJVcoxJSMvqfwvydGPfC1XosDTZnvNuLr6qSPiNrAK
+         Yyybm0QC2NZS8cLiXGuXITcMy4NcGYkca+0QNdi1y1eW+zgJ0enuYEALSrH7OaDMGPNC
+         Gb4E/NaHODGRbjGHtDcMknYQRw4Af4KPoVxsbHl0kJqbua695lkOtbI8UqNmMHlCiS4T
+         LzqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769419654; x=1770024454;
+        d=1e100.net; s=20230601; t=1769419652; x=1770024452;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eLShc81E/+Lme+gJ9JRioNlppj/hbf+/HE944re/X2I=;
-        b=MBrJ67oZArn9J9pSYEw3UZg3IxfKupLYu3kG4F/wD0w7yGrUwAnnP8zmmt8ZmwSEy+
-         u+cvAB/GHeiF99oK9veB4xu4cHZ1daib7yoqLecJV13n9TTuVvOIlYwxK3gppsnyb23C
-         K7ZBEtECD+TAMCy/qP8ioCqJu5E6sXCfCbL+M00nYly3Jc+jngR38icFetZHiMnGWcls
-         9rkSqJ8RBCgyREE8pNeStHp1en/gdY6vbBzW6stK1VKl+34LYaNKaw+SjyzooEZ/fUsY
-         NUyDOHzbel18M4aQceREvFhxG/+tlCkb0QsU/01uEQkI8WyOiFHke7JYAyTHkr+37EKM
-         GgBw==
-X-Gm-Message-State: AOJu0YwTLBlI+HLoDLrVP8gY8c3OB5Ux3HLTqaI6aGKUHGJnWrSuwBXU
-	Wltsj6q719x4qFKvkXiuFiJZnTYFndE8ClyEjjw1A6bpcd1aZze2eJjiwkeF5oLCq3CsLr1e7w=
+        bh=6qZ1xUJ54mMbB8pErA6j09+CFNiU+H8FmdGJP4FuLNw=;
+        b=n0WY5/vz2IM8zRStpGF0ninEWbpvcpTSzXmmY6ssvmCd67d3ZtM1UGSUDRpe3wZl3/
+         i7sopSGdHlBAchwjqWEhQ37hotrjVVuMDc0cxX9FW414bhJ+eNJczcn3eEBiUgRHt6MK
+         TGsefJVxeDE3VJxW0IkxXyWEEFoE7juUKkZ8QL3MnS7Fi//Ayb7ZGIursrDynJZESoTa
+         9+SYgLYmicf5Oo5FGyDGpFrtm2PPSJo5Bkr7sYtzUfJokqT9oB9ctIoyieJ87YjhRhtm
+         hmQimbDVPAb6SHBwGjF3N13ifHYgDEkdQKgU9uvDSWzZYoXkTmn2b5C5mHj97fSCH0Kk
+         zt/A==
+X-Gm-Message-State: AOJu0YxfRdhffNg1Mwtq+27IjvZqPQnpMo5rr3G0Y0wHrg7E4ghSYJe7
+	8kAk9j3Mq8V6TETtzMb5I6DQ9mbbKLF7+dzDg/kQ7epRRyWgf+SZa1q0AxkopcpRe/D9XJpM2A=
 	=
-X-Received: from wmbjw6.prod.google.com ([2002:a05:600c:5746:b0:480:3842:3532])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4689:b0:47e:e78a:c831
- with SMTP id 5b1f17b1804b1-4805d0668famr63022225e9.36.1769419654312; Mon, 26
- Jan 2026 01:27:34 -0800 (PST)
-Date: Mon, 26 Jan 2026 10:26:34 +0100
+X-Received: from wmjx21.prod.google.com ([2002:a05:600c:21d5:b0:47d:86c6:ebc9])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:530e:b0:47e:de9c:92ec
+ with SMTP id 5b1f17b1804b1-4805ce4e568mr62717135e9.14.1769419652622; Mon, 26
+ Jan 2026 01:27:32 -0800 (PST)
+Date: Mon, 26 Jan 2026 10:26:32 +0100
 In-Reply-To: <20260126092630.1800589-12-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20260126092630.1800589-12-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=874; i=ardb@kernel.org;
- h=from:subject; bh=Gtkmu5xUf/IdJr0kiShY6X4TSbxJqYA0pGP5tteQQSc=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIbPc2EOMl1Oe+ZtxwpPOV9LiF4RXP+tbf+lo+TXjL389J
- m2duYmho5SFQYyLQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAEzkSiQjQyt7cfCidwej5f/9
- 5p7Qf1Jt4vfD9tERNyW+nXLVefgp8xkjw8lZxm6uxhc5n927XLbV0/fcU+dXx87Oeyi4gG+7QvH jeEYA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1328; i=ardb@kernel.org;
+ h=from:subject; bh=yjZnKOVkP/d2XQBthJ6Tfy6lESqeO+RAZPKDjSMcLNk=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIbPc2P3RrmdrBB/NvJp+yD+g/JFb6zYT/Wk8p612/lZou
+ XuN0cWso5SFQYyLQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAExkgyLD//JNB8KNeT646Wy+
+ JbN44ZlbW3+dtXz0a8nSTb0s7nvXu3kx/LPunPdhadYT+SmCvVP9ZleuVH52kyW33TX8bkZFm5t YDScA
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260126092630.1800589-15-ardb+git@google.com>
-Subject: [PATCH v2 03/10] arm64: mm: Permit contiguous descriptors to be rewritten
+Message-ID: <20260126092630.1800589-13-ardb+git@google.com>
+Subject: [PATCH v2 01/10] arm64: Move the zero page to rodata
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org, 
@@ -81,8 +81,8 @@ Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
 	linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_012736_769565_F5AD2131 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20260126_012735_544005_D15CD23C 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,30 +99,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Currently, pgattr_change_is_safe() is overly pedantic when it comes to
-descriptors with the contiguous hint attribute set, as it rejects
-assignments even if the old and the new value are the same.
-
-So relax the check to allow that.
+The zero page should contain only zero bytes, and so mapping it
+read-write is unnecessary. Combine it with reserved_pg_dir, which lives
+in the read-only region of the kernel, and already serves a similar
+purpose.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/mm/mmu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kernel/vmlinux.lds.S | 1 +
+ arch/arm64/mm/mmu.c             | 3 +--
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+index ad6133b89e7a..b2a093f5b3fc 100644
+--- a/arch/arm64/kernel/vmlinux.lds.S
++++ b/arch/arm64/kernel/vmlinux.lds.S
+@@ -229,6 +229,7 @@ SECTIONS
+ #endif
+ 
+ 	reserved_pg_dir = .;
++	empty_zero_page = .;
+ 	. += PAGE_SIZE;
+ 
+ 	swapper_pg_dir = .;
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index c36422a3fae2..9d39de3cfe67 100644
+index 9ae7ce00a7ef..c36422a3fae2 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -141,7 +141,7 @@ bool pgattr_change_is_safe(pteval_t old, pteval_t new)
- 		return false;
+@@ -66,9 +66,8 @@ long __section(".mmuoff.data.write") __early_cpu_boot_status;
  
- 	/* live contiguous mappings may not be manipulated at all */
--	if ((old | new) & PTE_CONT)
-+	if ((old | new) & PTE_CONT && old != new)
- 		return false;
+ /*
+  * Empty_zero_page is a special page that is used for zero-initialized data
+- * and COW.
++ * and COW. Defined in the linker script.
+  */
+-unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)] __page_aligned_bss;
+ EXPORT_SYMBOL(empty_zero_page);
  
- 	/* Transitioning from Non-Global to Global is unsafe */
+ static DEFINE_SPINLOCK(swapper_pgdir_lock);
 -- 
 2.52.0.457.g6b5491de43-goog
 
