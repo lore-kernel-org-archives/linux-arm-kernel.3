@@ -4,91 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2006D13C2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 15:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E421D13C34
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 15:26:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oehPzj1NcxPq0b6ZJi4vCnPjGp40ojSxR9AeiNKzfv0=; b=jZbq0KBQeDleZqoJoht6ze22h1
-	udQ36x3KhrdVktI1XqF2AiqlUMxwtsOVe015JhqMaMP6gBs6iN7zVz71XhdQxXnLiPNyfBDgSIfKQ
-	6A6Ih+nW7GX6TmGcTnmex1VBdwhM56PzmkSGeCmLo2N7FRWUgpUUWAvD7p6R4ho569kyMHHJQcbRK
-	J4JoqoeF09/FKSLAT11bPK3yxzC8XXuT+tJ4/aHCOpQodb8D4bkWjnHhCc000c7JD8v5aFitNfTzW
-	Ed++VtRgLZrm7tuThvOsglDO1nD4x7ok2TD1tQd8Sr4a8qqzx3nQWdgadoFHqivet+6PtstZYmD7Z
-	OlhKwhCw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a1fungMRqIwEEtD67RLo/MLCBER66VTGyBP2jUS9E34=; b=wMthz8qghMGlyBs6Sut+M8kzUp
+	TiD7s8Q6qB75L/12asA2ndzZ2j+7J917isChI2eVbABcT5gCqOqEPIv+a5QxRpTjvQkXxDDOqEMN5
+	bkvLGlbsgcpvhy5WB/le7gTP4lbXw1LWfG44jM75v4h1BTJo6jbJCKL60E3eCIhh2nfl05g/n7R9l
+	OMJc3Odbq8WwXZD3UXHhJYBu/DIuK3r4uKV1LnQAutTatCk4/4JwCbpTwCD4dOTswpuMlbMYSIXko
+	mYRes9BMpina59dw7ad06shU9PJHKXe3kUp8nt8Fe5kQizg9bUFJXgOTVIC3NEdfZv0uZqaCgaC0n
+	hK9MkJKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkOQa-0000000ClgC-1hXG;
-	Mon, 26 Jan 2026 15:22:56 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1vkOTz-0000000Cm6q-07CT;
+	Mon, 26 Jan 2026 15:26:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkOQY-0000000ClfW-0Hes
+	id 1vkOTw-0000000Cm6P-0ld7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 15:22:55 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-43590777e22so2782139f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 07:22:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769440972; x=1770045772; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=oehPzj1NcxPq0b6ZJi4vCnPjGp40ojSxR9AeiNKzfv0=;
-        b=BRcsIbp/goTk15HERTNHNYYHzYcsiO5H4WMu3gbenWqcLOZV+tmYaxXU6gKSyv973U
-         zyQtMMmB7WC/fSrRungaynJKTVfy/kK4s1gQOr8DPzk0NHCAFWcn1sQANlLsa0lSYC3M
-         Tk67bD0WSrvc6eNJ12F4Dz8YX1QvA21ECfG38SRbtbL72k2KGzcVF6Nl9Cjxezzoxy5+
-         u3nnuy4l8f1aHavnAQcBnD2lPzVWq8LsrKJ7IJ1POj+9vffGv44NPcnUXM5NF0EQ5C1W
-         a76jAFRp4u93j9n2gi50kIVYA09WbAFk3hcLhfqsQ1MKRcGPtVnof7AdK+n94CIEq8oa
-         te/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769440972; x=1770045772;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oehPzj1NcxPq0b6ZJi4vCnPjGp40ojSxR9AeiNKzfv0=;
-        b=QzHojjaMRU951772NoDvwBrxy28j6PcheAus72LxsWHWPm9Nd3gommzc4DtiM3eWz0
-         Xd1kpmYumg/9ApnQzB7tN2hBsrRnRjZkVboCvRa4tFoLz5W1Fhe3IuTbG7OxEO45Tw4d
-         hogIPKQxFgkhFa1eHEN+jcyn7hhPuySmqqR4N7JXWRzZTPrc+PgCgbFdaBlnivDkHZUL
-         Cq/bkHufMBbtW4jtH25+fCXtHOxZd7VOf5f/B+s48RdTSueCgrahwFvBRjo1lvDfZ4ay
-         ATp890JpHOnrYysSiql2pmCpas8ewlAZG3XohQC7or5Osi+isJHrlbR6LTMD4yhrrBav
-         uV4g==
-X-Forwarded-Encrypted: i=1; AJvYcCV8dmMn5AddT1jXWqH8iDSONh/MyXdgyWU802p0gIVnAvmw2PbIuY94Q3Q4J8gmngkYzHfnNo3esVrpRMtyBuIq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWPltlec5ya7e7WYhZG8oerQb3P9rxfXPzCcbnhDtg8Kgs6ay2
-	NAxX7kJrTxEImPd7x+5cvzekaWoPXxfKZ+tUzk3tnddDnYZTfo/JRFEd
-X-Gm-Gg: AZuq6aLU2lH2817O/C4Ffot4rV8KCwQ1lwRyvRi0EHoxLi5L3mHzJUa3WoX9xIGcFmw
-	QnVw8B53dl6jA3sIOtiKc20vXkHlju6U4ZhPboe9WauXbHtEfrJr+d+apHQkzUTW/EK05KRw4+F
-	2oLHuIEjiKGRjSgihLwZ2O2hD59eXxn0WPPNk8K/6Z4ylW/gEfIS6n46iPwxkJUuNPPEfC9gMu5
-	nJYapRBC88iZhNdUMCOngrF7Twtzckpd2RoqgsoSuZG4fno9p1dKDwIT58k9WkaX0NytYE5X5oH
-	qOSjMfwGSBXr6VLUCZUjqUhKicE6LltqzP1EcB/pL0vG+1Db3FSMRER5lMOA87ZfSwAxLuaSMUv
-	SK8gf4UChNjPPBUiYNRh5RQ2A7NFXdwGQljpdeTTZlbDay80lTE/krM5pDVt+/hp+nyhtIpVAXB
-	CITAUbIAxqI/XXpk0Uo/5HzJB+Sa545EZ1Z+NiRWCzZmM=
-X-Received: by 2002:a05:6000:2912:b0:430:f742:fbc7 with SMTP id ffacd0b85a97d-435ca0ecea4mr7122413f8f.14.1769440972075;
-        Mon, 26 Jan 2026 07:22:52 -0800 (PST)
-Received: from [10.25.211.45] ([128.77.115.158])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435b1c24a6fsm31149882f8f.16.2026.01.26.07.22.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jan 2026 07:22:51 -0800 (PST)
-Message-ID: <b7c2a2b8-000e-4bf8-89cf-19e4e21e78a7@gmail.com>
-Date: Mon, 26 Jan 2026 07:22:54 -0800
+	Mon, 26 Jan 2026 15:26:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 167EF401B4;
+	Mon, 26 Jan 2026 15:26:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B41F6C116C6;
+	Mon, 26 Jan 2026 15:26:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769441182;
+	bh=SRqS+y38YIXOhs6ehnUotQdiVYwta8kYRuUNmf2OMmU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=uFnm4LGpkWz+9rGWqbjbTkYhQlIVZdBW/EwyRtekVDrdQ1caR9uQeZXFYebihiuw4
+	 vuDoe8RjTmdTy83+0hhR7SGWq2uhBFceEsM3x6LmeusdsI1lV/opnKHQt2OZ0iGZIz
+	 DkEbKRbdj07Bno5AJp5maVzQenSlEkStldiC1lP9cN/t5AW4i8xNTxf75aFGzTDG7Q
+	 hkpyFTm2JsgOYbRctdhgBdHNZi6VO1hYJyIINWKIFJoqRNFORhn7/M6voK4B/0Cwnh
+	 +wcllBCvVA3LuTz9Qcm+huRUXFUoc1zTvuYWPHFg+m7J0+ABAAxcmE5ajVaqH9Xrv3
+	 4VxmMxAekA34Q==
+From: Simon Horman <horms@kernel.org>
+To: dan.carpenter@linaro.org
+Cc: Simon Horman <horms@kernel.org>,
+	robh@kernel.org,
+	kuba@kernel.org,
+	festevam@gmail.com,
+	ghennadi.procopciuc@oss.nxp.com,
+	alexandre.torgue@foss.st.com,
+	linux-kernel@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	shawnguo@kernel.org,
+	mbrugger@suse.com,
+	mcoquelin.stm32@gmail.com,
+	linaro-s32@linaro.org,
+	davem@davemloft.net,
+	s.hauer@pengutronix.de,
+	edumazet@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	conor+dt@kernel.org,
+	krzk+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	Frank.li@nxp.com,
+	chester62515@gmail.com,
+	netdev@vger.kernel.org,
+	kernel@pengutronix.de,
+	pabeni@redhat.com,
+	jan.petrous@oss.nxp.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	s32@nxp.com
+Subject: Re: [v4,1/3] net: stmmac: s32: use a syscon for S32_PHY_INTF_SEL_RGMII
+Date: Mon, 26 Jan 2026 15:24:30 +0000
+Message-ID: <20260126152430.1390514-1-horms@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <8f2139e8adf02b485a4c84d558fc23f78cf04add.1769195864.git.dan.carpenter@linaro.org>
+References: <8f2139e8adf02b485a4c84d558fc23f78cf04add.1769195864.git.dan.carpenter@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] bus: imx-aipstz: set default value for opacr registers
-To: Shengjiu Wang <shengjiu.wang@nxp.com>, shawnguo@kernel.org,
- s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
- laurentiu.mihalcea@nxp.com, daniel.baluta@nxp.com, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- shengjiu.wang@gmail.com
-References: <20260126091156.951052-1-shengjiu.wang@nxp.com>
-Content-Language: en-US
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <20260126091156.951052-1-shengjiu.wang@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_072254_120035_BA307347 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20260126_072624_275932_7E3582E2 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,24 +97,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 
-On 1/26/2026 1:11 AM, Shengjiu Wang wrote:
-> The sdma script app_2_mcu needs the permission to access the peripheral
-> devices:
+For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
+---
+    net: stmmac: s32: use a syscon for S32_PHY_INTF_SEL_RGMII
+
+This commit adds syscon/regmap support for accessing the GMAC_0_CTRL_STS
+register on s32 chipsets, while maintaining backwards compatibility with
+the existing direct MMIO approach for older device trees.
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> index 5a485ee98fa7..2e6bb41f49e1 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+
+[ ... ]
+
+> @@ -40,7 +44,10 @@ struct s32_priv_data {
 >
-> 1) SDMA2 transactions are set to user-mode in this particular case.
-> 2) This type of script doesn't use the peripheral interface (connected
-> directly to SPBA), but it uses the peripheral DMA interface, then the
-> SDMA2-issued transactions are subjected to AIPSTZ5's security-related
-> checks.
+>  static int s32_gmac_write_phy_intf_select(struct s32_priv_data *gmac)
+>  {
+> -	writel(S32_PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
+> +	if (gmac->ctrl_sts)
+> +		writel(S32_PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
+> +	else
+> +		regmap_write(gmac->sts_regmap, gmac->sts_offset, S32_PHY_INTF_SEL_RGMII);
+
+Should the regmap_write() return value be checked here? The function
+returns int and the caller s32_gmac_init() checks the return value
+expecting errors to be propagated. For comparison, dwmac-sun55i.c in
+sun55i_gmac200_set_syscon() does check regmap_write() return value:
+
+    ret = regmap_write(regmap, SYSCON_REG, reg);
+    if (ret < 0)
+        return dev_err_probe(dev, ret, "Failed to write to syscon\n");
+
 >
-> So need to clear the Supervisor Protect bit of SPBA2, otherwise the sdma
-> script can't work. As the imx-aipstz is a common driver for all aips bus,
-> so set default value (zero) for all opacr registers.
+>  	dev_dbg(gmac->dev, "PHY mode set to %s\n", phy_modes(*gmac->intf_mode));
 >
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+>  	return 0;
 
-
-Reviewed-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-
+[ ... ]
 
