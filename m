@@ -4,94 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43B72CF65D9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 10:29:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B9ACF65D9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 10:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F2bFS/uMFLgtEVC0YCnMXZC86wb3SDlDFVJk5gHDbHs=; b=MaQNSez38t+xS+JxeP8VwkQ2Sw
-	tkHqza1jrJIyxLqvfVb2PLDNVXCQ861ui9iZ44PtpM5Qi5gtd2tuikl8ZnmJ2neyRmnqLowvAvKqv
-	xmzr/syplYGXjJH/StVBHqZlIVzkVluV6sgTAUQPOUeVsRZN2o5hI8DQNlpjvV3drAUyd0j0hGYsW
-	xUoBLE+GZq33CEeGpu1sL7SH37mfo+avAY5njLMkjDaiE4MuAXuiYB9rrNPBjhf/f/wrPnEyysb00
-	981FFR8KTEhaL6SXpdl7vqsWY/sUdJLOUyt78QlelagBVXScuLA19ephyDJXnyBfyVX6TAqJFzkqG
-	RFxMz2ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+2ToM7E+Qj1Z9k1fXgIslDJKNq8unuvWFbzBA+Z/HJI=; b=EQrYVcxfG35XcZ3+zpJkZ2CXQe
+	1YbZiByjB1BjSa7whe8W6iMp1+cZ6u34iyeYdmVER2hN2L5eX07TdMKJuN4CdH4Z9DPrmQYjI+QNR
+	1+hKgoqfaUEPW13dgmyXc9S4/0AHoFzL7iRL0/ZHgI8KJq3U0HbVhU3BDnt3LNURSzRsDoWAvkAgY
+	2ZqEkrjbTJzBqHNBq4JRjpQKd9F76eUMpOHn7N59PJjnjo+OAsNEKpgsifwVfCgO+Hl8DCjP37ZfM
+	TTUXsCkSVUOY0AyheS6xrzNw2Y9MgCtAPq1jxkfrc5YZRmpywSy2CBqoPf0PULcOSsf7N29PfUpQX
+	J391H1gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkJqg-0000000CHv6-0fVl;
-	Mon, 26 Jan 2026 10:29:34 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1vkJrX-0000000CI6E-0Hg6;
+	Mon, 26 Jan 2026 10:30:27 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkJqd-0000000CHuA-2ALW
+	id 1vkJrT-0000000CI4g-3Q4Z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 10:29:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=F2bF
-	S/uMFLgtEVC0YCnMXZC86wb3SDlDFVJk5gHDbHs=; b=jHX8+Wl7CjOEdsajEoyd
-	YLJSni1KMKFnTnF6HUkKy4i7hdARKm53juZzr7ZafJR47rtHoNyWJaaKdHJ/2sso
-	LqYQH5W3d0RaRaQ8Q8J1G9u4nNTashMNVexC1gLUhUwVMKjdwdx0vBnOcNj2BbqO
-	OzdLxlpS3qYwey2EMbughKgdVpyf2lbwjuTyiOgPikJmtfRlj0LYKeoBgjXrSvoV
-	mlK/IzdLZzcuzrQK6IypnN/vpPwAKgfyOgmhmg2cICJBgE71R+rc1lx8MlV6l5v8
-	F39Y7wqyE8Wvnw4+qlOC0DvLTWsXo+ZALNH34HFE5YzYV8NWVP6e4yVnRLb2de1H
-	6g==
-Received: (qmail 2710669 invoked from network); 26 Jan 2026 11:29:27 +0100
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 26 Jan 2026 11:29:27 +0100
-X-UD-Smtp-Session: l3s3148p1@tFg7+0dJFMUujnvz
-Date: Mon, 26 Jan 2026 11:29:26 +0100
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: linux-renesas-soc@vger.kernel.org,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Antonio Borneo <antonio.borneo@foss.st.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Boqun Feng <boqun.feng@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Konrad Dybcio <konradybcio@kernel.org>, Lee Jones <lee@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-omap@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev, Mark Brown <broonie@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Waiman Long <longman@redhat.com>,
-	Wilken Gottwalt <wilken.gottwalt@posteo.net>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [RFC PATCH 0/4] hwspinlock: refactor headers into public
- provider/consumer pair
-Message-ID: <aXdCBu6kzdw1NWay@ninjato>
-References: <20260125184654.17843-6-wsa+renesas@sang-engineering.com>
- <aXc7DxsqiCGdfzxi@smile.fi.intel.com>
- <aXc-Zxw05XQLb1Dy@ninjato>
- <aXdAB2bLTy6u8G8c@smile.fi.intel.com>
+	Mon, 26 Jan 2026 10:30:25 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 2B9174E4228D;
+	Mon, 26 Jan 2026 10:30:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id AF73960717;
+	Mon, 26 Jan 2026 10:30:18 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5B133119A80E2;
+	Mon, 26 Jan 2026 11:30:08 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1769423417; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=+2ToM7E+Qj1Z9k1fXgIslDJKNq8unuvWFbzBA+Z/HJI=;
+	b=hfKjwU7ZeE/+65JduiU/x648c2XpeMNC0ahM0hJzkjC0bNquwvEcATHujQySNP51uzq5VB
+	APmi/Du46xcSKhd2K/z6eRwdUyqeiI9XeRQpGgvNAKOWIfHgwd30vNmfPMlqzvmdgfDAj6
+	LcGPjrLgiKbTMufH+q7eofBSRGXhYoK+g47ZMJF9b3+MIffL350BwLaYRCOPEMbLGU7D0i
+	kXkhFjGTwE8Y5KLmnWEgqteCzIz8tfiiN9NPH9eBJh7NeEDhDItr8BVs3aPpbp5KUCJegV
+	vVc61OSSxpM59fuA66r+vsTmM15w+0QZvAwluzHPjQWm7KLzlLOpWXxiUJwI9A==
+From: Gregory CLEMENT <gregory.clement@bootlin.com>
+To: Elad Nachman <enachman@marvell.com>, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, andrew@lunn.ch,
+ sebastian.hesselbarth@gmail.com, pali@kernel.org, mrkiko.rs@gmail.com,
+ chris.packham@alliedtelesis.co.nz, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: enachman@marvell.com
+Subject: Re: [PATCH v2 0/3] arm64: dts: a7k: add COM Express boards
+In-Reply-To: <20260125152347.2518538-1-enachman@marvell.com>
+References: <20260125152347.2518538-1-enachman@marvell.com>
+Date: Mon, 26 Jan 2026 11:30:07 +0100
+Message-ID: <87sebsk6og.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXdAB2bLTy6u8G8c@smile.fi.intel.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_022931_825955_082E381F 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20260126_023023_983775_DE5AB7D9 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,16 +77,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Elad,
 
-> > Providers need it, especially the 'priv' member. Consumers won't see it.
-> 
-> But can't we make it opaque?
-> 
-> We may have getters and setters for the priv member...
+> From: Elad Nachman <enachman@marvell.com>
+>
+> Add support for Armada 7020 Express Type 7 CPU module board by Marvell.
+> Add device tree bindings for this board.
+> Define this COM Express CPU module as dtsi and provide a dtsi file for
+> the carrier board (Marvell DB-98CX85x0 COM Express type 7 carrier board).
+>
+> Since memory is soldered on CPU module, memory node is on CPU module
+> dtsi file.
+>
+> This Carrier board only utilizes the PCIe link, hence no special device
+> or driver support is provided by this dtsi file.
+> Devise a dts file for the combined com express carrier and CPU module.
+>
+> The Aramda 7020 CPU COM Express board offers the following features:
+>
+> 1.  Armada 7020 CPU, with dual ARM A72 cores
+> 2.  DDR4 memory, 8GB, on board soldered
+> 3.  1Gbit Out of Band Ethernet via RGMII to PHY and RJ45 connector,
+>     all are present on A7K CPU module (none on the carrier)
+> 4.  Optional 10G KR Ethernet going via the COM Express type 7 connector
+> 5.  On-board 8 Gbit, 8-bit bus width NAND flash
+> 6.  On-board 512 Mbit SPI flash
+> 7.  PCIe Root Complex, 4 lanes PCIe gen3 connectivity, going via the
+>     COM Express type 7 connector
+> 8.  m.2 SATA connector
+> 9.  Micro-SD card connector
+> 10. USB 2.0 via COM Express type 7 connector
+> 11. Two i2c interfaces - one to the CPU module, and one to the
+>     carrier board via the COM Express type 7 connector
+> 12. UART (mini USB connector by virtue of FT2232D UART to USB
+>     converter, connected to the Armada 7020 UART0)
+>
+> v2:
+>   1) update 10gbase-kr to 10gbase-r in dtsi
+>
 
-I think we could do that.
+I=E2=80=99ve already merged your previous version with this fix and even
+included it in the PR for the next release.
 
-Two drivers use the bank member, but only for the device
-(lock->bank->dev). That can probably be refactored away, I'd guess.
+However, I noticed a comment from Andrew. Could you provide a fix for
+it, and I=E2=80=99ll try to include it i
 
+Thanks,
+
+Gregory
+
+
+> Elad Nachman (3):
+>   dt-bindings: arm64: add Marvell 7k COMe boards
+>   arm64: dts: a7k: add COM Express boards
+>   MAINTAINERS: Add Falcon DB
+>
+>  .../bindings/arm/marvell/armada-7k-8k.yaml    |  11 ++
+>  MAINTAINERS                                   |   1 +
+>  arch/arm64/boot/dts/marvell/Makefile          |   1 +
+>  .../dts/marvell/armada-7020-comexpress.dtsi   | 161 ++++++++++++++++++
+>  arch/arm64/boot/dts/marvell/armada-70x0.dtsi  |   7 +
+>  .../boot/dts/marvell/armada-ap806-dual.dtsi   |   4 +-
+>  .../dts/marvell/db-falcon-carrier-a7k.dts     |  27 +++
+>  .../boot/dts/marvell/db-falcon-carrier.dtsi   |  22 +++
+>  8 files changed, 232 insertions(+), 2 deletions(-)
+>  create mode 100644 arch/arm64/boot/dts/marvell/armada-7020-comexpress.dt=
+si
+>  create mode 100644 arch/arm64/boot/dts/marvell/db-falcon-carrier-a7k.dts
+>  create mode 100644 arch/arm64/boot/dts/marvell/db-falcon-carrier.dtsi
+>
+> --=20
+> 2.25.1
+>
+
+--=20
+Gr=C3=A9gory CLEMENT, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
