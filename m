@@ -4,56 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2A23D19502
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 19:03:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1645FD19502
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 19:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l8nW7IA3t2d5eDSn1XOhXwRuyT29iLySHj0qie2BijU=; b=cJ3msfX8cvF0GUOonpAvkw/9xs
-	OZb53KvHx8zKXHnoT3VZm63jr2sbEkyN8k+e+8w2jCdeqM9/EiPXOeLWlVLKuie+rkiCnvphNhEcm
-	PhdZ4/g1wki1/bGF2PGSZvvhQU98hj5/lryeNi4DEqAl+TQ99cX7GA09AWWSUygo+G7ioeXgwIV7/
-	U00tb5GyvbuLn+pRA9OOuQPYLGzx3Cc0VL65C5f/6UYVTAOwJo8NItm5z2bd6q7zcwCqd4YfY8eFn
-	FDy+34qR3l7qmVKZ93/MdKCYopRtLMGh8i8Ss1pR8d9RfGM64azxGsGGBsB7lYOqXYE6qhygK7ezp
-	pGY0+4/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OLbmqCfusVEOdH7Z7byMAhR5EgQmc/WQb/FESRAfspo=; b=z8nt22b3pLRu2pGy5RXLYM8kmS
+	o2+K2XZjMV9DnmfmA2M6IW6NdjYrhSxq/lhlMc6Cyv+KXl9F+rhnuvaKBagPlTKzB6AaEX2pDGjLE
+	NEHdxpXxDXWPdusn4rM35fETnL3OovhUa3aKMoU+F+B5M1YU/rHzODnd5bxOS2oyoABCLvQ5SD8nJ
+	7rmCNPFSsKXYBFQJNZ/6q6PSt/JMMfyGLKVfz6HCTsafAzTmhgeDUmT4vb5r9WUT/foKXDPBbHGX0
+	NgActeAfmi6tpYfxiHmiwNxPtO39tDtiYI/zfI7b5qXNH612ULGk+w/MHwDX4LaoJOjGUDNqae9vG
+	xt76Hvlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkRrb-0000000D7Ld-1OuV;
-	Mon, 26 Jan 2026 19:03:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vkRrz-0000000D7Pp-0lSi;
+	Mon, 26 Jan 2026 19:03:27 +0000
+Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkRrZ-0000000D7LX-2enj
+	id 1vkRrw-0000000D7P2-0nmy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 19:03:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A32860136;
-	Mon, 26 Jan 2026 19:03:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6F40C116C6;
-	Mon, 26 Jan 2026 19:02:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769454180;
-	bh=NMpmmo676tzOTXBkbWzjq51xX+ZDtptvSmw/dCizBnQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u7R8O7DQde8PBTJMl4lJAtJCbCkYvd2dlGK++9bhHIE2+Sh3CaBlVA3eM6xctJ6Fi
-	 1FUvByfXUDgMmEohYC1qb4XpTDfrfTtuZ1a8OWFF6yDtLB/5B0SQzCCQR/LpDwg9E1
-	 mdjJLPbQi54dGnDtLQxgvYHQYvb09MScWJGuhIXUQyxoctKo4MMRu0mb6hjcV6IFU4
-	 FKp69LSbUISJj3iKEhDv3AgHba8o5R9F9q2/CGYhEkmnrHsZ/PH+8hzT4tE/3cwzvH
-	 jaCMhGEY5qDwTlwCKeZStYXrr6VXLblmYa9jTMgw4UpS5Nbi8KxHATgJtOW0BvG+rl
-	 T80bpLVqbP4dw==
-Date: Mon, 26 Jan 2026 19:02:51 +0000
-From: Will Deacon <will@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Subject: Re: [PATCH v10 05/16] arm64: ptrace: Move rseq_syscall() before
- audit_syscall_exit()
-Message-ID: <aXe6W69Esd1NLEU8@willie-the-truck>
-References: <20251222114737.1334364-1-ruanjinjie@huawei.com>
- <20251222114737.1334364-6-ruanjinjie@huawei.com>
+	Mon, 26 Jan 2026 19:03:25 +0000
+Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-88a367a1dbbso86097436d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 11:03:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769454202; x=1770059002; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=OLbmqCfusVEOdH7Z7byMAhR5EgQmc/WQb/FESRAfspo=;
+        b=QTblFzVhNAnshA2jFccD1YHVsO922PqHW6Sb+leX2h/YWOsfCCZ9suLQSNTeIbhFNt
+         c+Oc7hCB6NWDtmMH/6/6jOuXPE547b4IT9JBZk5G6eXQG/aWWJSMxqkNilCw0pnAGuti
+         50HwF8db5Ez4ju1V8oKCsN+bTyaLpTHiCx+gqUm37OTWsWDHZl/MMigvg5nJcmcNSl3d
+         4zEuYRJN/pGfrEvInS6T1Ns4ECgG0UWA4r4/u83MslMA5GpOjsbVT6Z566axLt6K0JCn
+         1lZPgIQJdBsH6Ij0MyK9I0aiN3LxK2LGIjH32DtraVXCATvia3UKM80X4y1lzXUIiFhS
+         bNpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769454202; x=1770059002;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OLbmqCfusVEOdH7Z7byMAhR5EgQmc/WQb/FESRAfspo=;
+        b=UmV0YSFkrKJtNNu3N9mJhEDwR1Pqm47D1Z5RgurMypSKbGxAFiC3fYsQFCLzTG73YF
+         SSDpSp2ziJP6zW8UyvSg/p5Qs47JdpwqTMFWy4QD9frCdTgER7Jkps946rnS5Bab9wTt
+         ZZzQGmFUvH5dOuWMkrNnhScDnma0fvrpOjHB6uJF4YDLlUSp5PbA0EddVXUMtT2ckxYW
+         W23r0B02PtdItotZOiZ2/vy5RT2nWTabxO66YFRr7IQjk10FPJx51icf2tX8hb9hf7VB
+         A8ol5b1R8ET30JIhfWDpc3hTDUEV2umbgRJkHfYjg2/OD5q6Ij5ck+iJ6C8/KXFu1yb4
+         ygWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWoUbagbVEe6HjTSZ9OzmijErmX1FY6MVG3RxL914VqaoMPhLLZtA7052wnaZ4s+BSc22AJVkdMvU3wa8t9rGLc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyr5Toy3FvaZjcEEurPVZSj5zAV8jPSEHmY98LYkHIr8dDmpPQh
+	SBPaRb3omtIlIYsgL0jglTX1ctDKxOKvnfUx+cUuEEmvCygyminO+ISCtFD6ktph
+X-Gm-Gg: AZuq6aKhtlAUysKg9fYCX2Yfy4ItojObaFiahjiw/t7Wooh2/cqVSt/33e/YN9xlWBd
+	NgOJlcEaqnC56e6im/fl4Em1jb1tvGyT3dOMLmK+fPiUpBTuDBX9dl29fQnCGoswckZNDjyqMXs
+	T8gjjIoQinGad6PFUqR0Ob/mrekEQGvlsfCRwwT1rM5K411PTyGmqM3hrmmmpVuPbEIFf0uuiE1
+	2XUdWuYt667r2mVZgomt9H8vdKYH7Ek2kxAF1tio9FueZ5SiR0jEOfmd7OCFgkqAPolvFGVQ+iu
+	t9TxDjfpemRZHixDgnAzMkhlTl55/t/NkdbmkP6/eVbVKUkcwJmHsJQXs/Kbz7+MJYmJf2e6ICU
+	GMjjwAS/p8WL+h7MoZnOrpNst6XxE/vL5jVeIfCLK7LDdWFtrRQnS7LC59p/AHMen/odNn/fAA6
+	kRFHYeEqM4Z3TA+IiEhB9TvlhnAltAHyMF3rkIzMaVwaOyowVySAT+y61UEsei
+X-Received: by 2002:a17:902:e84f:b0:2a2:f0cb:df9e with SMTP id d9443c01a7336-2a84523fb39mr48636325ad.1.1769448078463;
+        Mon, 26 Jan 2026 09:21:18 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a802fd929asm94552325ad.90.2026.01.26.09.21.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 26 Jan 2026 09:21:17 -0800 (PST)
+Message-ID: <9a3d4ae8-b57e-450e-971b-d09fc923eee1@roeck-us.net>
+Date: Mon, 26 Jan 2026 09:21:15 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251222114737.1334364-6-ruanjinjie@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: Fix emails with spaces or missing brackets
+To: "Rob Herring (Arm)" <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
+ Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas
+ <bhelgaas@google.com>, Christopher Ruehl <chris.ruehl@gtsys.com.hk>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>,
+ Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
+ Vincent Huang <vincent.huang@tw.synaptics.com>,
+ Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
+ Frank Li <Frank.Li@nxp.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-hwmon@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-input@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-pci@vger.kernel.org
+References: <20260126164724.2832009-1-robh@kernel.org>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <20260126164724.2832009-1-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260126_110324_254180_E2A4405A 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,54 +159,77 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ldv@strace.io, song@kernel.org, linux-kselftest@vger.kernel.org, shuah@kernel.org, kees@kernel.org, linux-arm-kernel@lists.infradead.org, kmal@cock.li, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, charlie@rivosinc.com, pengcan@kylinos.cn, broonie@kernel.org, luto@kernel.org, tglx@linutronix.de, richard.weiyang@gmail.com, dvyukov@google.com, wad@chromium.org, oleg@redhat.com, linux-kernel@vger.kernel.org, liqiang01@kylinos.cn, akpm@linux-foundation.org, reddybalavignesh9979@gmail.com, macro@orcam.me.uk
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 22, 2025 at 07:47:26PM +0800, Jinjie Ruan wrote:
-> commit a9f3a74a29af ("entry: Provide generic syscall exit function")
-> introduce generic syscall exit function and call rseq_syscall()
-> before audit_syscall_exit() and arch_syscall_exit_tracehook().
+On 1/26/26 08:47, Rob Herring (Arm) wrote:
+> Fix email addresses with spaces or missing brackets. A pending
+> dtschema meta-schema change will check for these.
 > 
-> And commit b74406f37737 ("arm: Add syscall detection for restartable
-> sequences") add rseq support for arm32, which also call rseq_syscall()
-> before audit_syscall_exit() and tracehook_report_syscall().
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+
+For hwmon:
+
+Acked-by: Guenter Roeck <linux@roeck-us.net>
+
+> ---
+>   Documentation/devicetree/bindings/hwmon/sensirion,shtc1.yaml    | 2 +-
+>   Documentation/devicetree/bindings/input/syna,rmi4.yaml          | 2 +-
+>   .../devicetree/bindings/media/samsung,exynos5250-gsc.yaml       | 2 +-
+>   Documentation/devicetree/bindings/pci/mbvl,gpex40-pcie.yaml     | 2 +-
+>   4 files changed, 4 insertions(+), 4 deletions(-)
 > 
-> However, commit 409d5db49867c ("arm64: rseq: Implement backend rseq
-> calls and select HAVE_RSEQ") implement arm64 rseq and call
-> rseq_syscall() after audit_syscall_exit() and tracehook_report_syscall().
-> 
-> So compared to the generic entry and arm32 code, arm64 terminates
-> the process a bit later if the syscall is issued within
-> a restartable sequence.
+> diff --git a/Documentation/devicetree/bindings/hwmon/sensirion,shtc1.yaml b/Documentation/devicetree/bindings/hwmon/sensirion,shtc1.yaml
+> index 3d14d5fc96c5..7b38f2182ffa 100644
+> --- a/Documentation/devicetree/bindings/hwmon/sensirion,shtc1.yaml
+> +++ b/Documentation/devicetree/bindings/hwmon/sensirion,shtc1.yaml
+> @@ -7,7 +7,7 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+>   title: Sensirion SHTC1 Humidity and Temperature Sensor IC
+>   
+>   maintainers:
+> -  - Christopher Ruehl chris.ruehl@gtsys.com.hk
+> +  - Christopher Ruehl <chris.ruehl@gtsys.com.hk>
+>   
+>   description: |
+>     The SHTC1, SHTW1 and SHTC3 are digital humidity and temperature sensors
+> diff --git a/Documentation/devicetree/bindings/input/syna,rmi4.yaml b/Documentation/devicetree/bindings/input/syna,rmi4.yaml
+> index f369385ffaf0..8685ef4481f4 100644
+> --- a/Documentation/devicetree/bindings/input/syna,rmi4.yaml
+> +++ b/Documentation/devicetree/bindings/input/syna,rmi4.yaml
+> @@ -8,7 +8,7 @@ title: Synaptics RMI4 compliant devices
+>   
+>   maintainers:
+>     - Jason A. Donenfeld <Jason@zx2c4.com>
+> -  - Matthias Schiffer <matthias.schiffer@ew.tq-group.com
+> +  - Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+>     - Vincent Huang <vincent.huang@tw.synaptics.com>
+>   
+>   description: |
+> diff --git a/Documentation/devicetree/bindings/media/samsung,exynos5250-gsc.yaml b/Documentation/devicetree/bindings/media/samsung,exynos5250-gsc.yaml
+> index 878397830a4d..9196cf5dac0f 100644
+> --- a/Documentation/devicetree/bindings/media/samsung,exynos5250-gsc.yaml
+> +++ b/Documentation/devicetree/bindings/media/samsung,exynos5250-gsc.yaml
+> @@ -9,7 +9,7 @@ title: Samsung Exynos SoC G-Scaler
+>   maintainers:
+>     - Inki Dae <inki.dae@samsung.com>
+>     - Krzysztof Kozlowski <krzk@kernel.org>
+> -  - Seung-Woo Kim <sw0312.kim@samsung.com
+> +  - Seung-Woo Kim <sw0312.kim@samsung.com>
+>   
+>   description:
+>     G-Scaler is used for scaling and color space conversion on Samsung Exynos
+> diff --git a/Documentation/devicetree/bindings/pci/mbvl,gpex40-pcie.yaml b/Documentation/devicetree/bindings/pci/mbvl,gpex40-pcie.yaml
+> index d286b77921e0..8f5d33050348 100644
+> --- a/Documentation/devicetree/bindings/pci/mbvl,gpex40-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/mbvl,gpex40-pcie.yaml
+> @@ -7,7 +7,7 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+>   title: Mobiveil AXI PCIe Host Bridge
+>   
+>   maintainers:
+> -  - Frank Li <Frank Li@nxp.com>
+> +  - Frank Li <Frank.Li@nxp.com>
+>   
+>   description:
+>     Mobiveil's GPEX 4.0 is a PCIe Gen4 host bridge IP. This configurable IP
 
-Given that signals are processed until later, is this actually true?
-
-> But as commit b74406f37737 ("arm: Add syscall detection for restartable
-> sequences") said, syscalls are not allowed inside restartable sequences,
-> so should call rseq_syscall() at the very beginning of system call
-> exiting path for CONFIG_DEBUG_RSEQ=y kernel. This could help us to detect
-> whether there is a syscall issued inside restartable sequences.
-> 
-> It makes sense to raise SIGSEGV via rseq_syscall() before auditing
-> and ptrace syscall exit, because this guarantees that the process is
-> already in an error state with SIGSEGV pending when those later steps
-> run. Although it makes no practical difference to signal delivery (signals
-> are processed at the very end in arm64_exit_to_user_mode()), the ordering
-> is more logical: detect and flag the error first, then proceed with
-> the remaining work.
-> 
-> To make it more reasonable and in preparation for moving arm64 over to
-> the generic entry code, move rseq_syscall() ahead before
-> audit_syscall_exit().
-
-I've been struggling a bit to see how this helps to align with the
-generic code. I'm also concerned that rseq_debug_update_user_cs()
-operates on instruction_pointer(regs) which is something that can be
-chaned by ptrace.
-
-So, I'm not saying this is wrong, but it feels like a user-visible
-change that needs better justification.
-
-Will
 
