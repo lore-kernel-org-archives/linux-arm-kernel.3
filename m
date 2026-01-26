@@ -4,92 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA4F6D19503
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B48AD19501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MS47VPO6RNZssHSPn4CeLg1VobQSQVVSULTdfhTMk9Y=; b=iNS51fQ7wQcm04dQ2aD24zPH51
-	O4l/SuLL+eFU19C97BY8lBcmxipLLMxytjD4qajXMTcdfGt9cvdgidJsXpM+gaGhojJFXKCt0s22a
-	qZrm4tkOlLsW+l324tivThXVf5+c3jpMzNWCX4FMj7wq2GE64QGMAazresaN32tsKpNnAumqmnTVk
-	Vc1HAOACm0l5qZJhEkssNMrcDg3mYDI7aL02gOoVL74QcKYwbWiOkR03Te5/1rhQjxria/qWAfk42
-	1PIe1MO2oH99eLYldVF0rnq7C3MFeasau67ogt28cc5PxgtMj3yUej8fRmJTdri7d7A2eeDteb4OO
-	kAntPs+Q==;
+	bh=IM7CMREqT/HEcq8ZeP+BSkiaCLRcDi8nhxT76okq2vQ=; b=veDDhF6eY4vj13oDyTZe8LCTE6
+	yVRHcWqpaXvfvRPCfGhcYR9MydamlKg3WJi8eEYyX12OTy7qU1d7iV1XxddOJqf+M1+iRhlwPaYOg
+	waFh+1EQX9NNw3QJsmYg+hvLStSQLNWchpQ1pjSbZ2q6kQ/f/lsO/PRXSSDIIW7gMzG4Xt+f0zFiM
+	Cj2laXuxOgy6VuS7a2ekBetXq8prPx/IVl5IHW2EWNnmwa/wf9NI7OfxJHsTMp0V7MzjsbfLprDvR
+	ZMgY55gNbaQ2pw2rAs8K52gpizz/4iOBmGALjP6agC4BCz2R6FX7tEAJu49oEKXnWcK3uJl71aG09
+	fUlBfojQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPMA-0000000Cr7W-35zH;
-	Mon, 26 Jan 2026 16:22:26 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vkPRE-0000000CrgO-2SFX;
+	Mon, 26 Jan 2026 16:27:40 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPM3-0000000Cr3m-2XoS
+	id 1vkPRB-0000000Crg0-0r47
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 16:22:21 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-48049955f7fso40299355e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 08:22:19 -0800 (PST)
+	Mon, 26 Jan 2026 16:27:38 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b884cb1e717so655218766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 08:27:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769444855; cv=none;
+        d=google.com; s=arc-20240605;
+        b=SSlV9P741jeR/lH1v/qMytVZA3kEt1Kkyh8Ni2atk1XLm6MX80S1grsbm8PDgE4gFe
+         h55ZzhbF9tC4v6yGjpeHuYfWK8OXHaJ+0TThs5VhoNEhVyVWJVGajVKvuZq7ed7aFaT9
+         Jt9pMKANWrNqt1rxbkyo8rsQLr1vFgZt5wzdCZsGBNRqIdlLSLF4jH+EEnDGCfMD/ICR
+         FrfzcnDsRQqevIWKm52TYhDRmvaevQATPks9AUrWKAj66J9vZ0BRuy383g/abqSdUdQa
+         uZzTEhT7K4CafsEZfHOZwg6lFsk95TmX3nXJWUMQUO5YRr9evNV7WlZ0Zsr+f1MMpYjT
+         6R/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=IM7CMREqT/HEcq8ZeP+BSkiaCLRcDi8nhxT76okq2vQ=;
+        fh=7A7k+dpy6Bvfn5kxTmq4OhRcK3NVKW+DawTV/6+rzys=;
+        b=X/WLjT/B6eAGhG9S2CzNFZ6Q/mCOA9v1kYkE3+NqF15Rj0BB6b1tpxHJH2y+Kw2/t4
+         NIDgvBZY8xm8/fpJ/kBP2KP5R4/Z/h9y7j//G6is6g8or1iJrMt7NUjS6k/modIZIl1F
+         y0uw+gpHVXUjD62WxgkxP704ZuYSwXsws435GIgRfrqCEIbr7P6TCeh4SVQtHi7fQ+dU
+         9XUX8RJcQGByhh4ty4S4M8+2MW9olKuitsfQknXEuxfKgH0yx9Bf1duRbyh7hzjDpzuK
+         Q+ojF1dAouLsHt2Svmt3a9IhoMtAwgDJWPR56/flicWvkgZYzRV26hxIeyxvuPsqaSaQ
+         CxPA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769444538; x=1770049338; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1769444855; x=1770049655; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MS47VPO6RNZssHSPn4CeLg1VobQSQVVSULTdfhTMk9Y=;
-        b=FUkVLoA4LPq76gvNgNQ7gAQ9F4dOoWID/6ySHXKPYaohkiGqduv4ms5VzpzkOsOkJz
-         CR10MypfsYrzWYCAdYG0iTm4SQTGEZhqeMTKVTPDSrqWvJGIsXsqAUSli+dEbiLEHLZF
-         4hEE6U7lPSTQK6Gy9TwBT+cEVZ++PBV5CYyC0aSIy2JQT2EoY9AwzgNvodgImZOMJGxd
-         4od+DeYfCZ6id9oP8otOPK77gyiyotSf6cQQ0H89b+jn6mUiMMszoT45yoO/cYoMt1GM
-         tUaJQMbXT9Y9Jg4dDXtCGrf4W4Hl3C+7ElFrAVAgIXniPvxnGmImiBSNJIwjUB2AqUTc
-         G8SA==
+        bh=IM7CMREqT/HEcq8ZeP+BSkiaCLRcDi8nhxT76okq2vQ=;
+        b=hALLdiVtaG/YQltcC0Y9hagD4fjqpZC7LeLtVPmdpMJnn7xCZ9v4OeOoaRuM7Rl1qC
+         1mGoBDh5+IAsLki2c0Un5EJVLuyeDbBCKMR9g4Wzm5rGXZyZeObkFVzd2WpkN4U4im4k
+         K9J7IIoci+dMIb9/kMMuCRNdUXS/Sn511245Diafss+mPu1IWHRzr3gtyY/F41alhXCj
+         T12cSvSy9yaCFiE3im4lwFq0Uriyjo5EMMha+KwSQQ2hACyb6Czf5dt4AU1BMBYyAPKL
+         E6SdDpocauqSgNWszxjl9LnU583qisV/QVcbXHc69UGqdUAv+fL5qVbwKgiIYPQn3YUQ
+         lPGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769444538; x=1770049338;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20230601; t=1769444855; x=1770049655;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=MS47VPO6RNZssHSPn4CeLg1VobQSQVVSULTdfhTMk9Y=;
-        b=oQk8f2F5eMu1J9GUYawhLfnfBtONR9Ze87bAUFJcC8d99PzU0pJH6TCT0CFbeGMijG
-         tpfwyxTmJ+/lAIvcHkjat2ZfNDhZpNpiNbWpVD8hE1AOazPdl0cdUJMPLI7/YnV5dn7C
-         zDaJa15BiSTFdB72vsnJXMJyY05E7xHq/wUEaggNVhwYHLXrxJEaRDpoDjzbTkru/Fyw
-         srFwSzbE5XlsO+IHU7gj23JAs3nJxQzSHx03mEi++J9wGD0OtA5J5yUxEQ8v6SXP7GwW
-         i0UtEuLKAhcm9WyF48SgkDEyJvm+5wFQxAu9e2GQsOnD54F1rCAq/Fl3+MFFILTKKB0Y
-         X4dg==
-X-Forwarded-Encrypted: i=1; AJvYcCUW5uTjspI9ou6GVFKrQbFIFzSe8KwhmLGJEu3XEDWU4S+s8maEgTGdwTX3VuGxgfHQS77b0GRdumQEVQVRRMIY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnQc9LYAAY4P9ifOk32KcP3I3uI4qyoqDpNXctAHUvB63747BL
-	TiEYoKuHplhtjpPlHy5ly2JKYwAJQfd66QZ1KI9I74gPNQwCfTjKy9QP
-X-Gm-Gg: AZuq6aLWoyiWqQbSaA/F102OIPVN+wWf832ZQ9cC0CKDt0wVMENWWVIo+MjxQ8Dxz3j
-	WmnsQdeNcE1amJ/ioWbtv/mHNfAFwdXQCENP4mHicNsJrs1nwWLeUinNutxmJUtQMT6YFRd+6U5
-	mY+ZhTonAExEq5rVCTQfYv5VEkn0JUOpnQrAD8tiyJXcSipWtLBDmBqOVpiaECpM9CrtthnhmPs
-	a7Aj0973U2hdNSeBEonquA9eM4PiInzWv/A9XmdUmjOzV7/wohTRfN/BL3qsZxBqAVKWriwk9Qx
-	roOBWjeeYgtfXrz4bRyag7VyOssn+3FPIl09U+GcqE08uck14k871LP8h55x3nj9+2qv7qIgLRt
-	wS6eTniyc/3ngVp2srTQ3dp8SfZLtxAl6l1Qd/ydgV9Id/cnjFPmjZE7LXYfwlo6EWu2ZE779gE
-	3kcJ4tBtAbxK1rPlNYDZbUiUgSJNUQb4wO9FcImQ==
-X-Received: by 2002:a05:600c:c0d5:b0:480:4c20:6a06 with SMTP id 5b1f17b1804b1-4805f66ce22mr49700305e9.17.1769444537616;
-        Mon, 26 Jan 2026 08:22:17 -0800 (PST)
-Received: from SMW024614.wbi.nxp.com ([128.77.115.158])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-480470cf1acsm370371035e9.14.2026.01.26.08.22.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jan 2026 08:22:17 -0800 (PST)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Cc: imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH v7 4/4] reset: imx8mp-audiomix: Support i.MX8ULP SIM LPAV
-Date: Mon, 26 Jan 2026 08:22:03 -0800
-Message-ID: <20260126162203.708-5-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260126162203.708-1-laurentiumihalcea111@gmail.com>
-References: <20260126162203.708-1-laurentiumihalcea111@gmail.com>
+        bh=IM7CMREqT/HEcq8ZeP+BSkiaCLRcDi8nhxT76okq2vQ=;
+        b=WhZNiklSo6Ba0g9Z37f1rt1ohUOS/pHmcGAC6i/+BG3JINMRW/IBpXWlRlzZVqrE/7
+         T4HEuk2ekJK3Ho7pyJoGQisPLXjryFhnpTJhRXG3EfHx/5GoJNVbSWUuTocbuiu8zlQi
+         d8QSMPWVGmfEAMb1LOYLhQNhLGe1OgAycQ7nRo8iRccdHcPBPKgiZJu9hazutntu1m34
+         Nva458+/1fXNmQbKyrKhJy1pWXbptaySuvWj3QFQpMNIbJej0PFp8n+oNJli15+a8qSW
+         eSufMw/vXDPNAC8vjV5yZjbQZctpIP4hXvwtph/AOdB+FSZm6iwxE3S3DobM4G3VUG0y
+         7/sg==
+X-Forwarded-Encrypted: i=1; AJvYcCVKIu29nAJt9/P7FcY3CjWDkQ7/Uk3xKBQDIbJOqNKf4bXKJOnbj/sPvY4x8eyYhp0iMDgzWOMprdjySRCw1uz5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdMx3fDLKMphIo39Hhnv87gDK2Y4isS8xXDw/bF+AdBHEr+W2G
+	NtOQ5P1p2T/p5kEo+KIchMjxhgXR5g3Az0jcwUsTBfm/irgU6rARItqX00krFPMMhOsojdsFpnD
+	IlrT3xIS8bOlXMJl4RKjnX20586wmA5Ppz1o0
+X-Gm-Gg: AZuq6aKE6X2fHcehUXiZ/Ko1pZqfxjDWVivlA9se+4Jv/lzILQkrALHh35aHdrwCFvp
+	WaBL+XowreXYEHYN08ZESTA+7zrQqXDrxRjVJ+4VVDnMOZqB0ts2uA66ieS4miHcaclsl8efdDl
+	obydWEdq/paaQEDkxlXMsoNqLKqmVl0mMSIHCZEk5cLJEqHTf89ZOoIgmTcomZG/NH8mxkxGhIt
+	fgkV2wbHXW7hS/OiGMoVpei6mFwIENS8MArm47M4hIju1N+pWlwV9uqsZlSsYiWsu8mrZJvgcjo
+	4kupwSupx2SY3aWosUe0gpSiySCOe9leeBU/Oio8H9gDDrB/sAi2Z+9mYYcPZpdg+kp4BL7XSwC
+	dFLq6XQ==
+X-Received: by 2002:a17:907:968f:b0:b79:ea1b:f13d with SMTP id
+ a640c23a62f3a-b8ceed5bfc0mr416879066b.2.1769444854813; Mon, 26 Jan 2026
+ 08:27:34 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260122010516.1200630-1-florian.fainelli@broadcom.com>
+ <20260122010516.1200630-4-florian.fainelli@broadcom.com> <CAHp75VfhEZ60F7ZHkjNDZ3JR6B6tNF5ORUDPoN8ZibbvF=js8w@mail.gmail.com>
+ <a7b2f013-965b-436d-95f0-8ce1e2ec0c41@broadcom.com>
+In-Reply-To: <a7b2f013-965b-436d-95f0-8ce1e2ec0c41@broadcom.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Mon, 26 Jan 2026 18:26:58 +0200
+X-Gm-Features: AZwV_QjJmye1Ztm1Y3JRlqubTBVm6XTIk_3V-19hYG_-47rSPwV71iUOBV2yjhk
+Message-ID: <CAHp75VdFE6A+Gv=-OsNT_GqJyzOfLDXSB+gant_jenSgtEYA7w@mail.gmail.com>
+Subject: Re: [PATCH 3/3] gpio: brcmstb: allow parent_irq to wake
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-kernel@vger.kernel.org, Doug Berger <opendmb@gmail.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Christophe Leroy <chleroy@kernel.org>, 
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_082219_662398_D2CAC75D 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20260126_082737_261901_1BB43162 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,96 +122,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Thu, Jan 22, 2026 at 9:24=E2=80=AFPM Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
+> On 1/21/2026 11:42 PM, Andy Shevchenko wrote:
+> > On Thu, Jan 22, 2026 at 3:06=E2=80=AFAM Florian Fainelli
+> > <florian.fainelli@broadcom.com> wrote:
 
-Support i.MX8ULP's SIM LPAV by adding its reset map definition.
+...
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
----
- drivers/reset/reset-imx8mp-audiomix.c | 45 +++++++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
+> >> +               if (priv->suspended && bank->wake_active & (u32)status=
+) {
+> >
+> > Why casting?
+>
+> status is an unsigned long, which is what for_each_set_bit() expects, so
+> it is intended here to ensure the top bits are not participating in the
+> comparison, I think this is just being extra explicit with intent here.
 
-diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
-index 00eee528a2d2..b7fa3110f282 100644
---- a/drivers/reset/reset-imx8mp-audiomix.c
-+++ b/drivers/reset/reset-imx8mp-audiomix.c
-@@ -3,6 +3,7 @@
-  * Copyright 2024 NXP
-  */
- 
-+#include <dt-bindings/reset/fsl,imx8ulp-sim-lpav.h>
- #include <dt-bindings/reset/imx8mp-reset-audiomix.h>
- 
- #include <linux/auxiliary_bus.h>
-@@ -18,6 +19,8 @@
- #define IMX8MP_AUDIOMIX_EARC_RESET_OFFSET	0x200
- #define IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET	0x108
- 
-+#define IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET	0x8
-+
- struct imx8mp_reset_map {
- 	unsigned int offset;
- 	unsigned int mask;
-@@ -52,6 +55,44 @@ static const struct imx8mp_reset_info imx8mp_reset_info = {
- 	.num_lines = ARRAY_SIZE(imx8mp_reset_map),
- };
- 
-+static const struct imx8mp_reset_map imx8ulp_reset_map[] = {
-+	[IMX8ULP_SIM_LPAV_HIFI4_DSP_DBG_RST] = {
-+		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-+		.mask = BIT(25),
-+		.active_low = false,
-+	},
-+	[IMX8ULP_SIM_LPAV_HIFI4_DSP_RST] = {
-+		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-+		.mask = BIT(16),
-+		.active_low = false,
-+	},
-+	[IMX8ULP_SIM_LPAV_HIFI4_DSP_STALL] = {
-+		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-+		.mask = BIT(13),
-+		.active_low = false,
-+	},
-+	[IMX8ULP_SIM_LPAV_DSI_RST_BYTE_N] = {
-+		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-+		.mask = BIT(5),
-+		.active_low = true,
-+	},
-+	[IMX8ULP_SIM_LPAV_DSI_RST_ESC_N] = {
-+		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-+		.mask = BIT(4),
-+		.active_low = true,
-+	},
-+	[IMX8ULP_SIM_LPAV_DSI_RST_DPI_N] = {
-+		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-+		.mask = BIT(3),
-+		.active_low = true,
-+	},
-+};
-+
-+static const struct imx8mp_reset_info imx8ulp_reset_info = {
-+	.map = imx8ulp_reset_map,
-+	.num_lines = ARRAY_SIZE(imx8ulp_reset_map),
-+};
-+
- struct imx8mp_audiomix_reset {
- 	struct reset_controller_dev rcdev;
- 	struct regmap *regmap;
-@@ -182,6 +223,10 @@ static const struct auxiliary_device_id imx8mp_audiomix_reset_ids[] = {
- 		.name = "clk_imx8mp_audiomix.reset",
- 		.driver_data = (kernel_ulong_t)&imx8mp_reset_info,
- 	},
-+	{
-+		.name = "clk_imx8ulp_sim_lpav.reset",
-+		.driver_data = (kernel_ulong_t)&imx8ulp_reset_info,
-+	},
- 	{ }
- };
- MODULE_DEVICE_TABLE(auxiliary, imx8mp_audiomix_reset_ids);
--- 
-2.43.0
+Isn't that guaranteed by the C standard?
 
+> >> +                       priv->suspended =3D false;
+> >> +                       pm_wakeup_event(&priv->pdev->dev, 0);
+> >> +               }
+
+
+--=20
+With Best Regards,
+Andy Shevchenko
 
