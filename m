@@ -4,110 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B48AD19501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0080FD19502
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IM7CMREqT/HEcq8ZeP+BSkiaCLRcDi8nhxT76okq2vQ=; b=veDDhF6eY4vj13oDyTZe8LCTE6
-	yVRHcWqpaXvfvRPCfGhcYR9MydamlKg3WJi8eEYyX12OTy7qU1d7iV1XxddOJqf+M1+iRhlwPaYOg
-	waFh+1EQX9NNw3QJsmYg+hvLStSQLNWchpQ1pjSbZ2q6kQ/f/lsO/PRXSSDIIW7gMzG4Xt+f0zFiM
-	Cj2laXuxOgy6VuS7a2ekBetXq8prPx/IVl5IHW2EWNnmwa/wf9NI7OfxJHsTMp0V7MzjsbfLprDvR
-	ZMgY55gNbaQ2pw2rAs8K52gpizz/4iOBmGALjP6agC4BCz2R6FX7tEAJu49oEKXnWcK3uJl71aG09
-	fUlBfojQ==;
+	bh=oiBIYwmI4m+KmIlj8iUhqchZH2TC9f1VVtL2vAwrbLM=; b=F+IsF++thkorSJpmPtrOzm2z+P
+	St9hf/YZ4tMdiYFYGo7NAtdkATKGJoXzAxiOpXnee5gc7TCThKX17yQYQUCvgfezZ6U6o1ZUKVb9f
+	FvRldDQqe/P7MHRyxed0WXF6g5o9KkaL2MR/3EUL+x2hGo/InRfdoF1gTJTDkRNf/7WskYX9vzH+o
+	ioFiXnh11IqcJyOlnt2aLU/bzK97hMqSB2xx3K0+kCv9ztWuX3/FAbkFzZwAbODgRGGAo1u8oF8ok
+	PNEAceIEbI7aJXSbjYHCnOZ1uNmiwKKEGc7OGPg1IF/AteU+29gTY5ssENNUoXLZWtB+Dc7Yy4KqJ
+	jTdg3X0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPRE-0000000CrgO-2SFX;
-	Mon, 26 Jan 2026 16:27:40 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPRB-0000000Crg0-0r47
+	id 1vkPXq-0000000Cs1F-2bzS;
+	Mon, 26 Jan 2026 16:34:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkPXo-0000000Cs0r-2HgW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 16:27:38 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b884cb1e717so655218766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 08:27:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769444855; cv=none;
-        d=google.com; s=arc-20240605;
-        b=SSlV9P741jeR/lH1v/qMytVZA3kEt1Kkyh8Ni2atk1XLm6MX80S1grsbm8PDgE4gFe
-         h55ZzhbF9tC4v6yGjpeHuYfWK8OXHaJ+0TThs5VhoNEhVyVWJVGajVKvuZq7ed7aFaT9
-         Jt9pMKANWrNqt1rxbkyo8rsQLr1vFgZt5wzdCZsGBNRqIdlLSLF4jH+EEnDGCfMD/ICR
-         FrfzcnDsRQqevIWKm52TYhDRmvaevQATPks9AUrWKAj66J9vZ0BRuy383g/abqSdUdQa
-         uZzTEhT7K4CafsEZfHOZwg6lFsk95TmX3nXJWUMQUO5YRr9evNV7WlZ0Zsr+f1MMpYjT
-         6R/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=IM7CMREqT/HEcq8ZeP+BSkiaCLRcDi8nhxT76okq2vQ=;
-        fh=7A7k+dpy6Bvfn5kxTmq4OhRcK3NVKW+DawTV/6+rzys=;
-        b=X/WLjT/B6eAGhG9S2CzNFZ6Q/mCOA9v1kYkE3+NqF15Rj0BB6b1tpxHJH2y+Kw2/t4
-         NIDgvBZY8xm8/fpJ/kBP2KP5R4/Z/h9y7j//G6is6g8or1iJrMt7NUjS6k/modIZIl1F
-         y0uw+gpHVXUjD62WxgkxP704ZuYSwXsws435GIgRfrqCEIbr7P6TCeh4SVQtHi7fQ+dU
-         9XUX8RJcQGByhh4ty4S4M8+2MW9olKuitsfQknXEuxfKgH0yx9Bf1duRbyh7hzjDpzuK
-         Q+ojF1dAouLsHt2Svmt3a9IhoMtAwgDJWPR56/flicWvkgZYzRV26hxIeyxvuPsqaSaQ
-         CxPA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769444855; x=1770049655; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IM7CMREqT/HEcq8ZeP+BSkiaCLRcDi8nhxT76okq2vQ=;
-        b=hALLdiVtaG/YQltcC0Y9hagD4fjqpZC7LeLtVPmdpMJnn7xCZ9v4OeOoaRuM7Rl1qC
-         1mGoBDh5+IAsLki2c0Un5EJVLuyeDbBCKMR9g4Wzm5rGXZyZeObkFVzd2WpkN4U4im4k
-         K9J7IIoci+dMIb9/kMMuCRNdUXS/Sn511245Diafss+mPu1IWHRzr3gtyY/F41alhXCj
-         T12cSvSy9yaCFiE3im4lwFq0Uriyjo5EMMha+KwSQQ2hACyb6Czf5dt4AU1BMBYyAPKL
-         E6SdDpocauqSgNWszxjl9LnU583qisV/QVcbXHc69UGqdUAv+fL5qVbwKgiIYPQn3YUQ
-         lPGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769444855; x=1770049655;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=IM7CMREqT/HEcq8ZeP+BSkiaCLRcDi8nhxT76okq2vQ=;
-        b=WhZNiklSo6Ba0g9Z37f1rt1ohUOS/pHmcGAC6i/+BG3JINMRW/IBpXWlRlzZVqrE/7
-         T4HEuk2ekJK3Ho7pyJoGQisPLXjryFhnpTJhRXG3EfHx/5GoJNVbSWUuTocbuiu8zlQi
-         d8QSMPWVGmfEAMb1LOYLhQNhLGe1OgAycQ7nRo8iRccdHcPBPKgiZJu9hazutntu1m34
-         Nva458+/1fXNmQbKyrKhJy1pWXbptaySuvWj3QFQpMNIbJej0PFp8n+oNJli15+a8qSW
-         eSufMw/vXDPNAC8vjV5yZjbQZctpIP4hXvwtph/AOdB+FSZm6iwxE3S3DobM4G3VUG0y
-         7/sg==
-X-Forwarded-Encrypted: i=1; AJvYcCVKIu29nAJt9/P7FcY3CjWDkQ7/Uk3xKBQDIbJOqNKf4bXKJOnbj/sPvY4x8eyYhp0iMDgzWOMprdjySRCw1uz5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdMx3fDLKMphIo39Hhnv87gDK2Y4isS8xXDw/bF+AdBHEr+W2G
-	NtOQ5P1p2T/p5kEo+KIchMjxhgXR5g3Az0jcwUsTBfm/irgU6rARItqX00krFPMMhOsojdsFpnD
-	IlrT3xIS8bOlXMJl4RKjnX20586wmA5Ppz1o0
-X-Gm-Gg: AZuq6aKE6X2fHcehUXiZ/Ko1pZqfxjDWVivlA9se+4Jv/lzILQkrALHh35aHdrwCFvp
-	WaBL+XowreXYEHYN08ZESTA+7zrQqXDrxRjVJ+4VVDnMOZqB0ts2uA66ieS4miHcaclsl8efdDl
-	obydWEdq/paaQEDkxlXMsoNqLKqmVl0mMSIHCZEk5cLJEqHTf89ZOoIgmTcomZG/NH8mxkxGhIt
-	fgkV2wbHXW7hS/OiGMoVpei6mFwIENS8MArm47M4hIju1N+pWlwV9uqsZlSsYiWsu8mrZJvgcjo
-	4kupwSupx2SY3aWosUe0gpSiySCOe9leeBU/Oio8H9gDDrB/sAi2Z+9mYYcPZpdg+kp4BL7XSwC
-	dFLq6XQ==
-X-Received: by 2002:a17:907:968f:b0:b79:ea1b:f13d with SMTP id
- a640c23a62f3a-b8ceed5bfc0mr416879066b.2.1769444854813; Mon, 26 Jan 2026
- 08:27:34 -0800 (PST)
+	Mon, 26 Jan 2026 16:34:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C1965339;
+	Mon, 26 Jan 2026 08:34:20 -0800 (PST)
+Received: from [10.57.51.176] (unknown [10.57.51.176])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 02A783F5CA;
+	Mon, 26 Jan 2026 08:34:24 -0800 (PST)
+Message-ID: <b5f268cb-f9b9-4880-9fb5-b5f3a8eb9251@arm.com>
+Date: Mon, 26 Jan 2026 16:34:22 +0000
 MIME-Version: 1.0
-References: <20260122010516.1200630-1-florian.fainelli@broadcom.com>
- <20260122010516.1200630-4-florian.fainelli@broadcom.com> <CAHp75VfhEZ60F7ZHkjNDZ3JR6B6tNF5ORUDPoN8ZibbvF=js8w@mail.gmail.com>
- <a7b2f013-965b-436d-95f0-8ce1e2ec0c41@broadcom.com>
-In-Reply-To: <a7b2f013-965b-436d-95f0-8ce1e2ec0c41@broadcom.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Mon, 26 Jan 2026 18:26:58 +0200
-X-Gm-Features: AZwV_QjJmye1Ztm1Y3JRlqubTBVm6XTIk_3V-19hYG_-47rSPwV71iUOBV2yjhk
-Message-ID: <CAHp75VdFE6A+Gv=-OsNT_GqJyzOfLDXSB+gant_jenSgtEYA7w@mail.gmail.com>
-Subject: Re: [PATCH 3/3] gpio: brcmstb: allow parent_irq to wake
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: linux-kernel@vger.kernel.org, Doug Berger <opendmb@gmail.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Linus Walleij <linusw@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Christophe Leroy <chleroy@kernel.org>, 
-	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
-	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] perf/arm-ni: Don't crash in probing clock domains
+ without a PMU instance
+To: Baisheng Gao <baisheng.gao@unisoc.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: cixi.geng@linux.dev, hao_hao.wang@unisoc.com,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20260126033029.7923-1-baisheng.gao@unisoc.com>
+ <20260126033029.7923-2-baisheng.gao@unisoc.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260126033029.7923-2-baisheng.gao@unisoc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_082737_261901_1BB43162 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20260126_083428_715584_E8059A6B 
+X-CRM114-Status: GOOD (  20.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,31 +69,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 22, 2026 at 9:24=E2=80=AFPM Florian Fainelli
-<florian.fainelli@broadcom.com> wrote:
-> On 1/21/2026 11:42 PM, Andy Shevchenko wrote:
-> > On Thu, Jan 22, 2026 at 3:06=E2=80=AFAM Florian Fainelli
-> > <florian.fainelli@broadcom.com> wrote:
+On 2026-01-26 3:30 am, Baisheng Gao wrote:
+> The NULL pmusela pointer implies that current clock domain doesn't have
+> a PMU instance. Return 0 for probing the next clock domain. Otherwise a
+> kernel crash will happen.
 
-...
+Sorry, this doesn't add up with the diff below. All of the documentation 
+says that the PMU is in integral part of the clock domain, and I can 
+find no mention of any configuration parameter allowing it to be 
+omitted. It is possible for the PMU registers to be inaccessible because 
+Non-Secure access has not been enabled, but we account for that already.
 
-> >> +               if (priv->suspended && bank->wake_active & (u32)status=
-) {
-> >
-> > Why casting?
->
-> status is an unsigned long, which is what for_each_set_bit() expects, so
-> it is intended here to ensure the top bits are not participating in the
-> comparison, I think this is just being extra explicit with intent here.
+> Signed-off-by: Baisheng Gao <baisheng.gao@unisoc.com>
+> ---
+>   drivers/perf/arm-ni.c | 8 +++++++-
+>   1 file changed, 7 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
+> index 66858c65215d..53b656983da1 100644
+> --- a/drivers/perf/arm-ni.c
+> +++ b/drivers/perf/arm-ni.c
+> @@ -526,6 +526,7 @@ static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_s
+>   {
+>   	struct arm_ni_cd *cd = ni->cds + node->id;
+>   	const char *name;
+> +	static atomic_t id;
+>   
+>   	cd->id = node->id;
+>   	cd->num_units = node->num_components;
+> @@ -562,6 +563,11 @@ static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_s
+>   		case NI_TMNI:
+>   		case NI_CMNI:
+>   			unit->pmusela = arm_ni_get_pmusel(ni, unit_base);
+> +			if (!unit->pmusela) {
 
-Isn't that guaranteed by the C standard?
+...However this is not about the PMU node anyway; this would represent 
+the FCU at an interface node being missing. Again, it's possible for 
+access to the FCU itself to be restricted, per the test below, but the 
+subfeature ID registers should always be readable, and per the "Should 
+be impossible" comment in arm_ni_get_pmusel(), the nodes that can 
+generate PMU events should always include an FCU.
 
-> >> +                       priv->suspended =3D false;
-> >> +                       pm_wakeup_event(&priv->pdev->dev, 0);
-> >> +               }
+Could you please clarify some more details of what the exact situation 
+is that you're trying to deal with here?
 
+> +				dev_info(ni->dev, "No have PMU %d\n", cd->id);
+> +				devm_kfree(ni->dev, cd->units);
+> +				return 0;
+> +			}
+>   			writel_relaxed(1, unit->pmusela);
+>   			if (readl_relaxed(unit->pmusela) != 1)
+>   				dev_info(ni->dev, "No access to node 0x%04x%04x\n", unit->id, unit->type);
+> @@ -591,7 +597,7 @@ static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_s
+>   	writel_relaxed(U32_MAX, cd->pmu_base + NI_PMCNTENCLR);
+>   	writel_relaxed(U32_MAX, cd->pmu_base + NI_PMOVSCLR);
+>   
+> -	cd->irq = platform_get_irq(to_platform_device(ni->dev), cd->id);
+> +	cd->irq = platform_get_irq(to_platform_device(ni->dev), atomic_fetch_inc(&id));
 
---=20
-With Best Regards,
-Andy Shevchenko
+This is clearly wrong. Disregarding how badly it would go with multiple 
+NI instances, even within a single instance I don';t think there's any 
+obvious guarantee of a stable order. The firmware bindings are already 
+defined, and that definition is not "the order in which a particular 
+version of the Linux driver happens to parse things".
+
+Thanks,
+Robin.
+
+>   	if (cd->irq < 0)
+>   		return cd->irq;
+>   
+
 
