@@ -4,94 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3466D1950F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 19:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52FC2D19517
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 20:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EIvDHxjEBk/q7zSGk0OAMTPAzA3q+FQQ/WT+Ixk4ezQ=; b=eqwh48D/Nwhie4pKe+pBiYYyex
-	/ugfmB485985HOvlRjyCP41b4xmtfBZCxLUbeOX9FG7kzmAfVFRykDEkdtaaj77bg5PpBL+0v/VbM
-	TxVsJo1q0s0iDe+cSzIsLamnR8rT+B6yb+8mBThoUSAg1YehCR1Z9ViTUACXIAM7tViDk++NEc3Aa
-	Q9rLStoJQM7OktnzEVLt2KRzvylE3pmHfcwRkPSSWxsJoLsjWeOLHxTbe9b/5krcBFREhxJ3okdQs
-	MBOImR96hrh5pn/9W1baR/O/VgojUxsWWqkqEvBRIYW06zichWNd3hwXcKzT7ikvI5HBSAH9Ori8f
-	asK1Z5pg==;
+	bh=W/s9B8G5AAVa1Ka8hwUbZ0G6I72DbzHIqE5HpGQCPNk=; b=FUFlkcjIuiG8rQ/XAVX8KZZuZ5
+	VZ52KUN1yDagBZEiC9iRz0MZpTwmWlBoqvRXHgnz0EfukwFCFF+1RqJzZfpfCIQMztGWDWo1wrVBN
+	GnZnmqO6I6B5H3zb0ioCfN1xJf8vczAi4gBPjM2I8LLYKqAxaUH0+0MxEXRLbyQl2aqftmNN7k2EY
+	2RlnKQZ5E48w6v5QitJ57htpK+f8PDBHHI9+UXwNNCa77O29tMZYKHl/FuKmABL3P1wqyTjUXzfh3
+	71sWVFMCflKCoSctaXs+xVkbUEWywly3pvh9DMYnMf4lB2tnT52nWtdFqUPe1o6X6Jspq9k7sXPq7
+	Lf9Jqspw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkSfV-0000000DA4s-2ju2;
-	Mon, 26 Jan 2026 19:54:37 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vkSlQ-0000000DAcq-2SuA;
+	Mon, 26 Jan 2026 20:00:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkSfS-0000000DA4W-2oKw
+	id 1vkSlP-0000000DAcK-34Vp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 19:54:35 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4801d7c72a5so37741785e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 11:54:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769457272; x=1770062072; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EIvDHxjEBk/q7zSGk0OAMTPAzA3q+FQQ/WT+Ixk4ezQ=;
-        b=q4cKN4kzYZto9Q9dCHQqZNwTC/GrlbVdelMstslFMz5Uro1Z1PLjsNyRGjzmtJPvva
-         atSYKovGe5My5HK6wADwSGCeQfSkIN/885j4IVNo0SsDq38j/9OIuueF5kfMIeULDE+T
-         CAhGQMrfxk5108i+qsXWSKk+hM2EiboT6Qkg3JaibbqL5ShuBuTjb9h174+ur9OShZxB
-         kB0CeTtPs3vDW2Hv4bYvRTqbOU7DktdDseKQbj8Cjnmc4exWaJG86KCPkKbnfld/p5Cd
-         mKnYNfa0e9ZWFoGfwZkcWO1KIJNd+o0nadgIs9GNhU9yFNdfzltfKTESbAeZjhTMusOF
-         wPIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769457272; x=1770062072;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=EIvDHxjEBk/q7zSGk0OAMTPAzA3q+FQQ/WT+Ixk4ezQ=;
-        b=CXUzhqHVtO2GjMbERMxHS7nm5uHuZHytto7ONKc6uCyPbHpQ+XOt392EZQqUqhXsJG
-         7RpRaYc+rL3uACur9vdztoFOzEWHqgVeoul7ChIrYCrsbpAPZiZow0vek70H+hezMxWG
-         LrwHNogoRNA0BPelgr4RRtLqV/toKz2hIcTJMZi+xbLNS34MtJJCnhPgNe5G8bv21G3A
-         mRVPjIaUMI5BdOzsIb/YvTR3IQyGCuHK0k6DqrlE9zegdM5ExYVPxjoU25Elv3soqplm
-         l9ishRwM/OocYV6Z42znJVjRMt4JW3it3eqQQeWqOgpldQkLdpRrjZ8Nis93HxBZm70J
-         uV7w==
-X-Forwarded-Encrypted: i=1; AJvYcCUWFoiYHpQj0DaYOKAVI9pTe6kOZXH0mEzwm4mUwV2IoMh376DaWpqyY8bUY0VPPeqdVMLhRfm3qu46whzwWtdz@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHx6vPrjtpeQFr0pWNPdjyaJehGTGwcdFIn5B5RKiNGVUe7DzA
-	PQvdKh3Ycl5F63KU+drR4r1ALaQxwTleTzN2J/Xknex+fAYw25tse8fUw7j2HLU4Iw==
-X-Gm-Gg: AZuq6aK0OTOQ6oaSWpX6MpApslHi15h1hTLP3FJJr3k3nw2kvokt+VsVTl/Y8S26kTA
-	Os3/REjDVeW/sY2YEFyAi84PetHCUckhTDo+YDnvvtTT2WJZMKHcs7p2SD/wg6JIY77PWETmCEv
-	ETRGZ7NmSX1Q26dx2UqjG/MbRY90y2cbsdu12v6VOe7ofcL4fYvNhBJaeA0uczfpBothJ2EprIs
-	E8QTodkdqLUPdAqOHbxuLrt9oPCd4VVpCCk4B+IrtGLYHJJtBVObcfBcB0plmlrY207bevR1luj
-	2WuFRMc1U+wXnDfkOy0q4CHJbHF1q16nBuJHib3DDeH2L4wtYcBjfMTu/n1Efx5KuIvBbiEOKmR
-	31OyGmJPAZcZrDUOrOu5IfC540hN3IpRUYj3ly0Gy3MJSHHAI6v7p8xEUIqsBSmF7MRyQ6Zvctu
-	IZcUvSfRN1Fr+1aW8qukWsoVRddkAn/FER6UJU+xYjdtSPxbZF
-X-Received: by 2002:a05:600c:5248:b0:477:b734:8c41 with SMTP id 5b1f17b1804b1-4805cd4587emr88693725e9.1.1769457271541;
-        Mon, 26 Jan 2026 11:54:31 -0800 (PST)
-Received: from elver.google.com ([2a00:79e0:2834:9:c598:7cce:ca6b:8ab7])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066bee687sm22270685e9.5.2026.01.26.11.54.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jan 2026 11:54:30 -0800 (PST)
-Date: Mon, 26 Jan 2026 20:54:24 +0100
-From: Marco Elver <elver@google.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
-	Ingo Molnar <mingo@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Boqun Feng <boqun.feng@gmail.com>, Waiman Long <longman@redhat.com>,
-	Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] arm64: Optimize __READ_ONCE() with CONFIG_LTO=y
-Message-ID: <aXfGcIpeXQNRUI-A@elver.google.com>
-References: <20260126002936.2676435-1-elver@google.com>
- <20260126002936.2676435-3-elver@google.com>
- <d3295c84-da15-4695-8110-7e04cfaf1419@app.fastmail.com>
+	Mon, 26 Jan 2026 20:00:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 35B8260145;
+	Mon, 26 Jan 2026 20:00:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 489E6C116C6;
+	Mon, 26 Jan 2026 20:00:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769457640;
+	bh=W/s9B8G5AAVa1Ka8hwUbZ0G6I72DbzHIqE5HpGQCPNk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vQpeICeyJSjkOhlUCdhsHfBjOVMQbxJZt5iv694GjcLRSgCdNa70WSlPLusbcNSIG
+	 cf7KBZEUGxL7QkUkQmqPRUFfGjPUxIu2D2ugRxPTcbsnbB9AN3a7LhW/vJL0M0n2Ki
+	 L5w0znY9rQ5iBzW9JnwxwmEynbt7Hl8LnZ2YNbpywE7BVbGpt1Or/HrmpshUPduDm6
+	 OKoBYCLyyvrtN0n25eTeS+/3E84PyvcO1me1ZMeo99FNFowVq2CWwoGlKmj/VEVwYm
+	 gno+nZ5oYW8my4Lrun/5mweiK8UP4tn92qiPzifhiby96RbUkuic0livRkinilnaxf
+	 DKj7WQMGi/IBQ==
+Date: Mon, 26 Jan 2026 20:00:33 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jan Petrous <jan.petrous@oss.nxp.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 2/4] dt-bindings: net: nxp,s32-dwmac: Declare
+ per-queue interrupts
+Message-ID: <20260126-blinker-secluding-a745f60caccb@spud>
+References: <20260123-dwmac_multi_irq-v3-0-cc53f2be8961@oss.nxp.com>
+ <20260123-dwmac_multi_irq-v3-2-cc53f2be8961@oss.nxp.com>
+ <20260123-dinner-aloft-e57deb6c546a@spud>
+ <aXdiNb92B4HH+ZFt@lsv051416.swis.nl-cdc01.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yK1i+yQq5ZBwutQC"
 Content-Disposition: inline
-In-Reply-To: <d3295c84-da15-4695-8110-7e04cfaf1419@app.fastmail.com>
-User-Agent: Mutt/2.2.13 (2024-03-09)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_115434_748743_C45A1D26 
-X-CRM114-Status: GOOD (  24.49  )
+In-Reply-To: <aXdiNb92B4HH+ZFt@lsv051416.swis.nl-cdc01.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,77 +89,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 08:56AM +0100, Arnd Bergmann wrote:
-> On Mon, Jan 26, 2026, at 01:25, Marco Elver wrote:
-> > diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
-> > index fc0fb42b0b64..9963948f4b44 100644
-> > --- a/arch/arm64/include/asm/rwonce.h
-> > +++ b/arch/arm64/include/asm/rwonce.h
-> > @@ -32,8 +32,7 @@
-> >  #define __READ_ONCE(x)							\
-> >  ({									\
-> >  	typeof(&(x)) __x = &(x);					\
-> > -	int atomic = 1;							\
-> > -	union { __unqual_scalar_typeof(*__x) __val; char __c[1]; } __u;	\
-> > +	union { TYPEOF_UNQUAL(*__x) __val; char __c[1]; } __u;		\
-> >  	switch (sizeof(x)) {						\
-> >  	case 1:								\
-> >  		asm volatile(__LOAD_RCPC(b, %w0, %1)			\
-> 
-> How does this work with CC_HAS_TYPEOF_UNQUAL=false?
-> 
-> As far as I can tell, TYPEOF_UNQUAL() falls back to __typeof__
-> on gcc-13, clang-18 and earlier, and not strip out qualifiers.
 
-I think we only need to worry about Clang for LTO builds. But yeah, our
-minimum supported Clang is 15, so between 15-18 it'd be broken.
+--yK1i+yQq5ZBwutQC
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> With fd69b2f7d5f4 ("compiler: Use __typeof_unqual__() for
-> __unqual_scalar_typeof()"), I would expect __unqual_scalar_typeof()
-> to do the right thing already.
+On Mon, Jan 26, 2026 at 01:46:45PM +0100, Jan Petrous wrote:
+> On Fri, Jan 23, 2026 at 05:13:03PM +0000, Conor Dooley wrote:
+> > On Fri, Jan 23, 2026 at 11:09:55AM +0100, Jan Petrous via B4 Relay wrot=
+e:
+> > > From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+> > >=20
+> > > The DWMAC IP on NXP S32G/R SoCs has connected queue-based IRQ lines,
+> > > set them to allow using Multi-IRQ mode when supported.
+> >=20
+> > The binding only supports s32{g,r} devices, why is the existing minimum
+> > retained? What devices are going to not have all 11 interrupts
+> > connected?
+> >=20
+>=20
+> The original idea was to support backward compatibility, as older DTs
+> didn't contain queue-based interrupt lines described.
+>=20
+> But now, when you asked, I started to think it is not needed,
+> the requirement for backward compatibility is managed inside the driver
+> and yaml shall describe the hardware not used configuration.
 
-It'd still be broken for Clang 15-18, so it won't help much. We need
-this to work for more than "scalar", so even though it'll work for Clang
-19+ given the redefinition to __typeof_unqual__, we should deprecate the
-_Generic-based __unqual_scalar_typeof() sooner than later.
+Just to be clear, cos the last portion of that "yaml shall..." isn't to
+me, you mean that the driver will support 1 or 11 interrupts but you
+will make the binding only allow 11? That would be fine.
+Just note in the commit message that all of these devices have the 11
+interrupts.
 
-I was able to make this work for older compilers:
-
-diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
-index 85b1dd7b0274..d6c808cc01be 100644
---- a/arch/arm64/include/asm/rwonce.h
-+++ b/arch/arm64/include/asm/rwonce.h
-@@ -19,6 +19,18 @@
- 		"ldapr"	#sfx "\t" #regs,				\
- 	ARM64_HAS_LDAPR)
- 
-+#ifdef USE_TYPEOF_UNQUAL
-+#define __read_once_typeof(x) TYPEOF_UNQUAL(x)
-+#else
-+/*
-+ * Fallback for older compilers to infer an unqualified type, using the fact
-+ * that __auto_type is supposed to drop qualifiers. Unlike typeof_unqual(), the
-+ * type must be complete (defines an unevaluated local variable). This must
-+ * already be guaranteed because sizeof(x) is used in the __READ_ONCE macro.
-+ */
-+#define __read_once_typeof(x) typeof(({ __auto_type ____t = (x); ____t; }))
-+#endif
-+
- /*
-  * When building with LTO, there is an increased risk of the compiler
-  * converting an address dependency headed by a READ_ONCE() invocation
-@@ -32,8 +44,8 @@
- #define __READ_ONCE(x)							\
- ({									\
- 	auto __x = &(x);						\
--	auto __ret = (TYPEOF_UNQUAL(*__x) *)__x, *__retp = &__ret;	\
--	union { TYPEOF_UNQUAL(*__x) __val; char __c[1]; } __u;		\
-+	auto __ret = (__read_once_typeof(*__x) *)__x, *__retp = &__ret;	\
-+	union { __read_once_typeof(*__x) __val; char __c[1]; } __u;	\
- 	*__retp = &__u.__val;						\
- 	switch (sizeof(x)) {						\
- 	case 1:								\
+> Is it my understanding right? Should I provide v4 with minimum =3D 11?
 
 
-Thoughts?
+--yK1i+yQq5ZBwutQC
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaXfH4QAKCRB4tDGHoIJi
+0tNuAPoDxV/IAeHe/4sVvqAaVI5emQP++yc9VFODMCulOLOD3wD/ZLyJy71N+Tg4
+4efjJ30p/XNWBZVQgvn0cruDyAqP1ws=
+=0Jjo
+-----END PGP SIGNATURE-----
+
+--yK1i+yQq5ZBwutQC--
 
