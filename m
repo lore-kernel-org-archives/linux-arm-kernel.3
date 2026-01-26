@@ -4,158 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA1C1D19502
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:40:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74775D19502
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:41:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vn9yZkT3oZoIYR1/RDb64Yaf2EfOWm6dYvBMvAJRN4o=; b=k/GgzftM6ebFURX7TIRElfU2PY
-	UgirMJLZQYnhVknuOkJQX2prjm6d0Z1bx6Xwvzak1hRzqsNpJY445mn+VIbAavYjFy58u8pacSCMH
-	WY8G6hGVHURqNXBFymMhMEIzdbckHZIXAs72pZlf3MeEC087PUhj6U3ca3GrUsBK3mRY0mGGlG4Un
-	2hxPVQrYbg+83IKHob927CEHKrKvuzqCkmOM9b0DCE3DJ9BtUIdzpdugejKvr0fTf+ssZtrQxPfiz
-	/6JhzfTRlzZURZCbT1pcHkYeh2q+skLVHjqa3w1iTpxy/5kMTQZtmBmTHRf5clraaULAQzw3LjC/v
-	ofjxX3ng==;
+	bh=OEUrHNK8dWefUqOs00hvfwKIFD0uk17xYeaKpauo658=; b=akcKLOZs+1FBsf8AEtHvwepBtP
+	9lZlEvoGEeK5WpfTFhNmp4RMimcg/I/KtLKcbo8IAsL/7YS0BwXqYAm3yEsIt9SvagVnP9F4A8qIO
+	baLPZhxHUKoig6UfFtKcZDeHE6yRtilr0RTuvw7kjxSuJreggqXbS3k5Gmm4tEFinojqZCGK89cLw
+	2cPQdIznIJuIKHHCAW1OWjbSOud557FdwD9jBtSJdysTkE8Edj4TatTSTUh1cYykGBaaHs56Zo+AF
+	u4RFhHfb16osxozzAwxpipsRlHkq0dWK8nTk62KHObl8d/TohdqbiA/Yd7jBDjERLFR3fC2LhfrXI
+	hDQUDAeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPda-0000000CsLC-2kb5;
-	Mon, 26 Jan 2026 16:40:26 +0000
-Received: from mail-westeuropeazon11011015.outbound.protection.outlook.com ([52.101.70.15] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vkPeq-0000000CsU3-2C4h;
+	Mon, 26 Jan 2026 16:41:44 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPdY-0000000CsKo-18Gq
+	id 1vkPeo-0000000CsTM-1FIL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 16:40:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tD7YgTplffcJcuKMpzRECGXiCAQ/E5HlWlui0NHZPkorsURkIZ8do9zOhdfPj67b8nuudxhgGKx3S1idDqJrA9m1D0pJaQJceSuuVD2mNO3pB2vlSjsuwkoiLMph/Eqmygob0wB/3t0Rok63KdRyW4Ns7a3QLG4wbBaQOo70GkBsVzUwlSw5A849XZ79s0FFd+cmYuLPzlpsFeYWBBBZdyTlMiENRd/ZfdKqyG64KHatCETPpbh/9iWR6FIcjbXx9QyRyrCPl++Y9gZPzwxPUoWuZmTbVfeuvc7ol9oNY1LLv3cl0cquhz9mXVHQ5YiY/Gq84HYNotQj7VtYiNIiOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vn9yZkT3oZoIYR1/RDb64Yaf2EfOWm6dYvBMvAJRN4o=;
- b=F/XPuQ3Fqv3AfXL4JR6iIGvm21/qf+9FeoJp+9twvlZJlI+RgPVLabYJOWEBz0sPi6bO9faQh66pdFXmkE0pxUdORnlVF27uMUs0IUd26zoMZd4r13to5v9Ud0Ur0+IBbNG1X0ikIhTa2blPPsHNVdF6PscA+yCLxmZCrS/s6VoO1ul23NdjfApgAP8qU5CvYwkS2VVHPVMstrCL2Hp2bg2a55SYHchohhsD0Vatn0c3a7M+qk/qCXhtRPcPmwotfaEMlhLgkFJmglPnpNnhxl8zvEeiNSWBGulJ67LAl7ouryVxkmEvMPumIXzTeT7PBT5DXTmCaEf8xHJtNQvO8Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vn9yZkT3oZoIYR1/RDb64Yaf2EfOWm6dYvBMvAJRN4o=;
- b=mheaeimZujim9ZExPPiLx7//kDKpnwvb3EncMf/GEQ980Cci7garLU3Ij+dCkhqAEi8AYUhdZ+3JRnQWNR0zL7F34UCHTOkKcGv2iCqA6q9fzuxUGCEDHb0wG2B63Af4YqTcS/5Wz2cG/qjJohTiOK2BCal/O2AC8Rmj7pvy8PfhmvxIaAWbJPZPsbCTjKJmyEF5KsaZhU908/9E/1Ng60eQyCFLyoMImzfP3oWvZWNBIXeYHp+U+IlTwL6jMbbGDrtu30mbI+lsA2cxTdhF+brl4LBzscLZNNaBIZbcX9PpQnCpKziObporzCCoHi4vwhPErm0mkBxoj15rT6Tf0g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA4PR04MB7999.eurprd04.prod.outlook.com (2603:10a6:102:c0::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Mon, 26 Jan
- 2026 16:40:18 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9520.005; Mon, 26 Jan 2026
- 16:40:16 +0000
-Date: Mon, 26 Jan 2026 11:40:03 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Chancel Liu <chancel.liu@nxp.com>, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH v2 2/2] arm64: dts: imx95-15x15-frdm: support AONMIX MQS
-Message-ID: <aXeY44T+5rvCqBs8@lizhi-Precision-Tower-5810>
-References: <20260126145537.2301-1-laurentiumihalcea111@gmail.com>
- <20260126145537.2301-3-laurentiumihalcea111@gmail.com>
+	Mon, 26 Jan 2026 16:41:43 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-42fbbc3df8fso2891487f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 08:41:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1769445700; x=1770050500; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=OEUrHNK8dWefUqOs00hvfwKIFD0uk17xYeaKpauo658=;
+        b=TmxcsXjvKve1RVbjJ8oeCZEtWGzRggCFbLt/jysziYJxED+pv/nZXVre0TxQxI2HwP
+         J+yrgXsqSKiQQPHnParY9nHLSxb4Y2zioskSPz4r/8a6lDZq2ulNTFRVwZs1qYujoH32
+         FQNqGPwXSxuhsATXvZ0ATKZyXTnlkn1Ec4rP9PsDKY/yZzWvpJg4HByaCP0rXOCm3uAW
+         qFAcEH/+z0/DM1BjO7wXWSKnThfkV6Jh5aQxmxcjvq6HGgxkiVCiZL4xp1x4NS4VFedX
+         +/Jrn4c5/o7YqnI2y0CaBuSkhAeeZAgtBp8uxa8Je9rYEPrUda/AuubHjrbCwDfSdPhT
+         Ep7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769445700; x=1770050500;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OEUrHNK8dWefUqOs00hvfwKIFD0uk17xYeaKpauo658=;
+        b=kSIf0BjIcEoY37NOfokKd+dIXOc0tJvYdEGyR0uF0+s58yOGQMjUPSNFOfgf3G31pk
+         OjkD/E+5OlUAapnWAB+a3f6jCJ1a9rGvunTSsHKjTLoRUPk2/pla3irlhfoDQfw0U8ap
+         LFZ306G/HWHm81b4sQ0jjpAstisWD+91SzQygFaAEKXB/P0IkG+Lejuqh49y9j2stSKL
+         LvaZgSy6ej7IzJ8nbywdn7sxpYYszqo0XtRvq44HvF8AT1FolIrInbi67yZo0SigBEcj
+         EQ9ZfQ3se6hQRxU0mEAUSLBZeysVwRFUydXrffd1NIvYyqkLJob/jB2La5XJq7Zu3/KF
+         J9Pw==
+X-Forwarded-Encrypted: i=1; AJvYcCWh6BaXrBhC9nPNFJ6F7e+T2IP6t5MSfxsS/ij60DKDlepHDzvBnJ8YODt8J7xeIH2KmkIFnVI+u24tuU1ald/O@lists.infradead.org
+X-Gm-Message-State: AOJu0YxU0UMGZTGvDmAT+ax27RexbcvAncmHO0iU9Iit9tFD+hQrwSOS
+	NGJtU1Grl2BhVgUgsXA34vNeZMzSSMTlME5kKr+tKIGBfPb99SekC+lB3JbvDgKcgM+fRHEro/J
+	EPRN7
+X-Gm-Gg: AZuq6aLG4yJ7Coc6Mxy7ra+NInfc7uuhFgq+GTe8ie1069o2eHlxbGnwENRVp+hCp7M
+	upwxzlCRe2W4KMvSNvb4X2FPJKek49bcWHIuGC0VTimdvMGLya28jSiTY2+YrF1g1AeUjJyRJCy
+	3LKUZSWIY9w1f3XN2i01rRAyuRLewctO4p+Y8ZW13ekE7oEPWckASCdPzOX0HyH9Z3GsLQKgu/g
+	8stYyVatoUjCYTRBmQOhoNvAa5A59kQ9UJgMc2Lt0yKbo9DHRXQja2rYpbI9wQaITjxKQ/+2Cih
+	j/5aj54n2mGwaOvWshHpe6CCiN8vnhmsy289dId8uzBy07+mbPt/dAhyqWrEK3/6fsBysOoDKYA
+	0APqaQVu3dQ67XvZMe74YYH5S7yHcPeANUI/t0BLGC5Z3MpJ/dHpH5GiaFMEogmU6GOd0qUgaSJ
+	x21tcgiYL9H43O2fIh2/hhh31F
+X-Received: by 2002:a05:6000:4212:b0:435:95ce:84cd with SMTP id ffacd0b85a97d-435ca39bd3emr10384617f8f.54.1769445699664;
+        Mon, 26 Jan 2026 08:41:39 -0800 (PST)
+Received: from localhost (109-81-26-156.rct.o2.cz. [109.81.26.156])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435b1f74b15sm31194587f8f.35.2026.01.26.08.41.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Jan 2026 08:41:39 -0800 (PST)
+Date: Mon, 26 Jan 2026 17:41:38 +0100
+From: Michal Hocko <mhocko@suse.com>
+To: Frederic Weisbecker <frederic@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chen Ridong <chenridong@huawei.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+	linux-mm@kvack.org, linux-pci@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 03/33] memcg: Prepare to protect against concurrent
+ isolated cpuset change
+Message-ID: <aXeZQoSHJ9QX7B6W@tiehlicka>
+References: <20260125224541.50226-1-frederic@kernel.org>
+ <20260125224541.50226-4-frederic@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260126145537.2301-3-laurentiumihalcea111@gmail.com>
-X-ClientProxiedBy: SJ0PR03CA0179.namprd03.prod.outlook.com
- (2603:10b6:a03:338::34) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA4PR04MB7999:EE_
-X-MS-Office365-Filtering-Correlation-Id: f6762329-1aec-47a3-4689-08de5cf995bc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|19092799006|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?G4zm1uPu7/dkushc5t7Xj+9LBAb4O3BiXQiyB0OvH2Cc1PC6pGbM29Xlg6tc?=
- =?us-ascii?Q?0v8BAKeoe04cyYWsWMw4NGGdsL+L5M+NpYVpnxXkMt542rgzqQZWAMMtPGWm?=
- =?us-ascii?Q?KEcbtZXyQaJzEP9hTmBwVatvNUKsKs76rN7WVK4zj0cS83zVVqvLP3UYSNtr?=
- =?us-ascii?Q?KLVIk7GpLfnIwhxvuCdFSVcDJdTO7GHVLjg7Ycjy1gd2w5mmtRPmvtOnYOh2?=
- =?us-ascii?Q?JVe936QGYIkkUBRfBojJ6ZPRBjhbIG3DJzAsEnof7CQRnR5jcfH5w0RJW9Yq?=
- =?us-ascii?Q?Kq88qEL/jAFM2ihxa0d8z4WSpj7N5CWwBL69Pp/BtO9jAG3Hu/hhIAJ1Ukve?=
- =?us-ascii?Q?MN/blhFkdL86o6ik54UtGd3rsmoHGZLdKpOnfwC/p1HpaNgBkLpWHZJ5AdrG?=
- =?us-ascii?Q?ISIGb6i6ZIwMBdzJw7w90PZvsz548s0+3KPJukLTAol+5CyprvZyBh6n7U8j?=
- =?us-ascii?Q?dCM+Pzf3v6KkYjlY1Rfr+3DOWjF+Ik/BK9odoPlaRI9m+jp3c86SrwDrRaTy?=
- =?us-ascii?Q?HWxtUXJpLOoWh+XZu75o6hy5DSwSV3i4H4fD7kWURmFm6nKjmNUx1Hmes539?=
- =?us-ascii?Q?deFxeclqmSGxwiwXKfz3paIfk10Ac+ZOXmlbINNhfbhuPI/JeMdwuAutLMTb?=
- =?us-ascii?Q?ISxlm6NyRvWZJnb8e3UY2rdSoh7fKoQkDWzimoqjeZzey4tmbbDW+m60w+Ds?=
- =?us-ascii?Q?rMUILrRP0f8GCBFgFsNSJF+Sf8jmNzvjhy1tN0HLbxT+T8hymN3U3F1wNVYn?=
- =?us-ascii?Q?j0JY/7UnJr+WIF0CU7ASeLApBlhZeuszqneHDctOPY2Wl7YShwmqfjuEnWnL?=
- =?us-ascii?Q?ubV4xjfw4tBAGmuFwoo+jbHb7TcZtwO4kSTrNbvuXQsjE/5u6Jh+kHvQCU4n?=
- =?us-ascii?Q?t8Zu6x6On7wSkpVag2aCOORhd7CgcJ6TJHhKvdIDhXN+L8aEM3iIV/s6JmTC?=
- =?us-ascii?Q?SVCCRrLz/MuP253q0JAMr8KEuetLb/+TFao5hiDTwQOghtVSToqFsVNSzmT7?=
- =?us-ascii?Q?6Qo6Rz9TvZbhzF+o0lkHf/ctvF1pArb8CHKTgxAW8glM7+dHjZJ/DleNow+D?=
- =?us-ascii?Q?qjK+/yctaOnYGfaHt25OoYM8DOXW5m4wunznguFOEQTYbnQSJ34DzPyCEIEs?=
- =?us-ascii?Q?1QkWGVRg8HyQBRP4uxi1WivaeYi0D7dAUmgZQ5H5GmKZh+rhsQduNFtg9vWF?=
- =?us-ascii?Q?r21VRSqPkzAIKjTdAATgyXc5fhKzJ9pdTFTTqBd/Re82+q8JSt89Dg123Dqp?=
- =?us-ascii?Q?Wr7STa0aK57Wgk0pmUK9pHxT2OdG5lLrz5Yh6d28kumUJgUQcGYwHpEopMju?=
- =?us-ascii?Q?E++StMYBa52sdvzD6pkFv5CIhKBsIJDCeso71SxIsE+ZL7YPaYWZ8mQH4Dps?=
- =?us-ascii?Q?APkr0XEm8EqIzABFVCUPij/DAfTqB3syZWDqdkzFSaWFu6oJjAPkcP/d9W/O?=
- =?us-ascii?Q?I1g068THSkGmOC8TFnVNWLSv8bOd5aCUoqTROES5ZFl6GFj+EKTTP9vvOXDu?=
- =?us-ascii?Q?mAwZMXN3hOa1bWDFOp1DDRUf+Otuu7yssv0Yx/gGpuF6tCbpwet5lBSh16O5?=
- =?us-ascii?Q?IWt3vtj4zM+U4vKCYgmi3f637H3slPsypdJDPQOn3cq0XEctNZNIGfYXs4q6?=
- =?us-ascii?Q?fX44PtMIAoSMnp1+V7qEdw8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(19092799006)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MoWJlDj7ASZWmJpj9PjAvis2jYKVwLE7pxIxOoLSTTDZ6lG8GUEwPKgRadc/?=
- =?us-ascii?Q?2AoxmIBBgf1YggvikJVRwfbKAIkZs4zOeto3Lfi1FEwGFF20WE+rhv/rcs54?=
- =?us-ascii?Q?pMrDwpdDB9sh2kIYxD9gnSxEmS1xQc8byU6klnIPZ2U4LmHOR/eaSiwKBBZH?=
- =?us-ascii?Q?ibLnw1xC2k9bOfGgxKcppmhugfut++t+5L7tIDOeFHOFZOTe3GEk7XE1yUbZ?=
- =?us-ascii?Q?TOSYTHgK0evvW8nSBLIMizMzBOx8iSs2Yq6qzuduXRR8lGljwAwV2XGF1Q+l?=
- =?us-ascii?Q?qTeM7F396NYYT9+U1VZx8Y9Gb75y5wQ1UqzRsX4Piv0ky7RzynwxdVbvITd5?=
- =?us-ascii?Q?Zp/O3QYB9IZSqSkzMTlXpr/ba8sdxqj/h3XDsCqGaV/h0a2392dTQciWsv1i?=
- =?us-ascii?Q?/Slpi5zc5gdeXs8Sw4DdZYDjDOmkj40JM44B7IzfPFOjDpMqHpA2wx0PvkM6?=
- =?us-ascii?Q?ukqXCZomKWbUOh/v96YtJKeg/zLX9V20FCOd0kULU53sMnToFnTnzDgFmp83?=
- =?us-ascii?Q?kXd02Y8sMRwrFaPBxAbQTMom8WKBSaklRs8e2GDROQHdZICKqdyasbrbWLtl?=
- =?us-ascii?Q?OMYtawZat7ppip6kePxB7I5Am46wUMsHL03oZhiloC+3iA9Yv0Zd2+nUzQmS?=
- =?us-ascii?Q?vpVoY3Ad1BxTFJgN3+CnB0LsH9PBgNrQjhvULVBGOuFa44rLU11HrxCJq+j/?=
- =?us-ascii?Q?4avcsoSG9HmgqSrxjNNmyl5dwoz/ED5ycKeQrJ/JHFqd1NDF3fPVK6ZKCewM?=
- =?us-ascii?Q?8jLO8UnpAv4REZDKEbfqfs9Pnow9vZ9lphhoYQ7FwzEC777GxcGCvcYziBtb?=
- =?us-ascii?Q?YV+4mQ3+hLbu+duW9z/KeRui9qE6YcrmTonx8ncOwHM8LbxnnpdLlQ18ckdZ?=
- =?us-ascii?Q?QFWSzAFYs5gd+5MLGOdWzWrTNuARxK7zhzIRWQzi8tpH5JE+zijWcMY4A79k?=
- =?us-ascii?Q?1PiXcVr8Sd/zCFYEuiIT8yH0iGepBNShrk818cgFcL9UCYxREuSDZnGyuFbB?=
- =?us-ascii?Q?iwrMassciims1G17EwqHHedm8yGYV8uX0qRzdLmjI3hX/bG3+pa2qZ2GkmGm?=
- =?us-ascii?Q?5qUETmRXa/Jb2n+EuWXzVfC6x48hQ7Q7u7QXIc+6LrXBilTBBAfEpCdr2D6V?=
- =?us-ascii?Q?ncjocVeOWcYSatpPRTKhHjJTRaM42YqUpHeUvXcbGqpHOlgCjSlF12I3bG2p?=
- =?us-ascii?Q?N+bOp3mwCauQDMhxMflhC7oIWbiBGYwq3ltKBTEAam5BMydsp8o/hGEVTo9v?=
- =?us-ascii?Q?wRcDUtdleFhzPzUyFZ4x8LBUGTojQUJUH3SW+vL/WF6T+kqvRY9FQQVbo7Th?=
- =?us-ascii?Q?cJeU7d/zjlKPYpydfbjohnZXlKNFWjAhFt3MiiJglCOjAQBmjyGs+L87npQp?=
- =?us-ascii?Q?7k4GRKDz+XdCUcG91aPZkfQXoZdrLDXHM4BnpM4LonOTN4cpO4N20pyI6CU3?=
- =?us-ascii?Q?7cM+OwZQKX7qczvcWznDUPD8VVsw78BIDqAV1iZSaTuWjlpPvHe9px2MAxwg?=
- =?us-ascii?Q?vKAmTbvuUst4lBTI0+0e4gsigxoVOmKjo7yP4vIVvg00XIIgHQuUl+LxZCJf?=
- =?us-ascii?Q?xMpCrqxeZez/77LlITv3K33DX6YHEbyE3Hmg4K950r/aQRz9BL3adUFJ5vsA?=
- =?us-ascii?Q?IhvilcfKMA6IMikTPiwOze0vgSLq7Lma/dmCXzn/5Kxu/cHbbXzzmxmi2FfX?=
- =?us-ascii?Q?TvTXAiZyqKNepFoFoNGukFbr2S0LVuDO+3RWq49Sj7xf2TL4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f6762329-1aec-47a3-4689-08de5cf995bc
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 16:40:16.4464
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bm4HXd+0DLDGo8A3yTlu7RWDCErEk2zXBzkV3LXhTGqZCCx55+Wj3LfGPSvgBDeFnzKmlS9NIZ+QttoO6mJVKg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7999
+In-Reply-To: <20260125224541.50226-4-frederic@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_084024_338271_11A1C9B8 
-X-CRM114-Status: GOOD (  17.34  )
+X-CRM114-CacheID: sfid-20260126_084142_350287_AD667FAB 
+X-CRM114-Status: GOOD (  19.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,143 +126,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 06:55:37AM -0800, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->
-> Add support for AONMIX MQS (i.e. MQS1).
->
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Sun 25-01-26 23:45:10, Frederic Weisbecker wrote:
+> The HK_TYPE_DOMAIN housekeeping cpumask will soon be made modifiable at
+> runtime. In order to synchronize against memcg workqueue to make sure
+> that no asynchronous draining is pending or executing on a newly made
+> isolated CPU, target and queue a drain work under the same RCU critical
+> section.
+> 
+> Whenever housekeeping will update the HK_TYPE_DOMAIN cpumask, a memcg
+> workqueue flush will also be issued in a further change to make sure
+> that no work remains pending after a CPU has been made isolated.
+> 
+> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 > ---
->  .../boot/dts/freescale/imx95-15x15-frdm.dts   | 73 +++++++++++++++++++
->  arch/arm64/boot/dts/freescale/imx95.dtsi      |  5 ++
+>  mm/memcontrol.c | 21 +++++++++++++++++----
+>  1 file changed, 17 insertions(+), 4 deletions(-)
+> 
+> diff --git a/mm/memcontrol.c b/mm/memcontrol.c
+> index be810c1fbfc3..2289a0299331 100644
+> --- a/mm/memcontrol.c
+> +++ b/mm/memcontrol.c
+> @@ -2003,6 +2003,19 @@ static bool is_memcg_drain_needed(struct memcg_stock_pcp *stock,
+>  	return flush;
+>  }
+>  
+> +static void schedule_drain_work(int cpu, struct work_struct *work)
+> +{
+> +	/*
+> +	 * Protect housekeeping cpumask read and work enqueue together
+> +	 * in the same RCU critical section so that later cpuset isolated
+> +	 * partition update only need to wait for an RCU GP and flush the
+> +	 * pending work on newly isolated CPUs.
+> +	 */
+> +	guard(rcu)();
+> +	if (!cpu_is_isolated(cpu))
+> +		schedule_work_on(cpu, work);
 
-Chip's dtsi and board dts should be two patches.
-
-Frank
->  2 files changed, 78 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
-> index ca1c4966c867..0f43e3be7058 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
-> @@ -243,6 +243,12 @@ codec {
->  		};
->  	};
->
-> +	sound-mqs {
-> +		compatible = "audio-graph-card2";
-> +		links = <&sai1_port1>;
-> +		label = "mqs-audio";
-> +	};
-> +
->  	usdhc3_pwrseq: usdhc3-pwrseq {
->  		compatible = "mmc-pwrseq-simple";
->  		reset-gpios = <&pcal6524 8 GPIO_ACTIVE_LOW>;
-> @@ -473,6 +479,21 @@ &mu7 {
->  	status = "okay";
->  };
->
-> +&mqs1 {
-> +	clocks = <&scmi_clk IMX95_CLK_SAI1>;
-> +	clock-names = "mclk";
-> +	pinctrl-0 = <&pinctrl_mqs1>;
-> +	pinctrl-names = "default";
-> +	status = "okay";
-> +
-> +	mqs1_port: port {
-> +		mqs1_ep: endpoint {
-> +			dai-format = "left_j";
-> +			remote-endpoint = <&sai1_port1_ep>;
-> +		};
-> +	};
-> +};
-> +
->  &netc_blk_ctrl {
->  	status = "okay";
->  };
-> @@ -534,6 +555,51 @@ &pcie0 {
->  	status = "okay";
->  };
->
-> +&sai1 {
-> +	clocks = <&scmi_clk IMX95_CLK_BUSAON>, <&dummy>,
-> +		 <&scmi_clk IMX95_CLK_SAI1>, <&dummy>,
-> +		 <&dummy>, <&scmi_clk IMX95_CLK_AUDIOPLL1>,
-> +		 <&scmi_clk IMX95_CLK_AUDIOPLL2>;
-> +	clock-names = "bus", "mclk0", "mclk1", "mclk2", "mclk3", "pll8k", "pll11k";
-> +	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
-> +			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
-> +			  <&scmi_clk IMX95_CLK_AUDIOPLL1>,
-> +			  <&scmi_clk IMX95_CLK_AUDIOPLL2>,
-> +			  <&scmi_clk IMX95_CLK_SAI1>;
-> +	assigned-clock-parents = <0>, <0>, <0>, <0>, <&scmi_clk IMX95_CLK_AUDIOPLL1>;
-> +	assigned-clock-rates = <3932160000>, <3612672000>,
-> +			       <393216000>, <361267200>,
-> +			       <24576000>;
-> +	fsl,sai-mclk-direction-output;
-> +	status = "okay";
-> +
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		/* leave unconnected - no RX in the context of MQS */
-> +		port@0 {
-> +			reg = <0>;
-> +
-> +			endpoint {
-> +			};
-> +		};
-> +
-> +		sai1_port1: port@1 {
-> +			reg = <1>;
-> +			mclk-fs = <512>;
-> +
-> +			sai1_port1_ep: endpoint {
-> +				dai-format = "left_j";
-> +				system-clock-direction-out;
-> +				bitclock-master;
-> +				frame-master;
-> +				remote-endpoint = <&mqs1_ep>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
->  &scmi_iomuxc {
->  	pinctrl_emdio: emdiogrp {
->  		fsl,pins = <
-> @@ -618,6 +684,13 @@ IMX95_PAD_GPIO_IO31__LPI2C4_SCL				0x40000b9e
->  		>;
->  	};
->
-> +	pinctrl_mqs1: mqs1grp {
-> +		fsl,pins = <
-> +			IMX95_PAD_SAI1_TXFS__AONMIX_TOP_MQS1_LEFT		0x31e
-> +			IMX95_PAD_SAI1_RXD0__AONMIX_TOP_MQS1_RIGHT		0x31e
-> +		>;
-> +	};
-> +
->  	pinctrl_pcal6524: pcal6524grp {
->  		fsl,pins = <
->  			IMX95_PAD_GPIO_IO34__GPIO5_IO_BIT14			0x31e
-> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> index 55e2da094c88..0c55861d673c 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> @@ -391,6 +391,11 @@ scmi_misc: protocol@84 {
->  		};
->  	};
->
-> +	mqs1: mqs-1 {
-> +		compatible = "fsl,imx95-aonmix-mqs";
-> +		status = "disabled";
-> +	};
-> +
->  	pmu {
->  		compatible = "arm,cortex-a55-pmu";
->  		interrupts = <GIC_PPI 7 (GIC_CPU_MASK_SIMPLE(6) | IRQ_TYPE_LEVEL_HIGH)>;
-> --
-> 2.43.0
->
+Shouldn't this in the guarded rcu section?
+-- 
+Michal Hocko
+SUSE Labs
 
