@@ -4,109 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED17D1951B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 22:24:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 011C1D19523
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 22:41:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+K7IY2VEjZ5xcqD4utKWilBgIlKvpGKN17wXmYFtuSc=; b=Wg/l4/CJcc675WQRa9mVABbh3a
-	L7RI4Si5Fq8cQqlzuSdlBHeGNDDpaTBbzIJPhWVyOeuDNn+FiZN9Ug0R2PaKGasmbSPb3bjlmwhDa
-	PxBqqpnbIH5FAr+fZWUbInSPr4GBCmTQMijy/WG66we70+Xo0PSxk4i6yXkwlAMiJDgjBk0lk0Uos
-	S/QPXs9Sk9nL1lR8CDf7QouFNcoT6gJjl7f6DVOS1KcLlLg9t7cpRsiEFywgfZFdwJyM5SCvIMUOz
-	L/8O6IVicXN48jHZ7DZc+sEgSRe9EhYPl9EUT9L0ANMbQtx3VvPP5G2X5sql88bjeaCre6qnxLscn
-	b+0lTjfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s0v3kKffFcbFoSynlduINN6Th2d+C2qLuSSjYWG64RY=; b=OjEheu951d1WAM4geelXpZhE0Z
+	Lzk+whybWsTho4ZlheCY/BMi7CbEckjOGkNUgTMSlGiXL3DqTvn9fp3BjaYQyYFKmuU1pMlMcOOTG
+	xXjJ29YU2cB9+Oq7H9LdzYsR1m0A0S07yeS9mjxxdMIJqMt4HEe1M0AQa20JKVlmoxJt2Y6gFJWQa
+	3Ou6spbASLBZWN/dprs3q/J2SrgKkWZLJHwsElLgX07C97UQVyO/NUCgjID5FGLx/15N2b0DwRzWJ
+	oBwDIevIEGpKn2N3j8yKhBhDY1RV+LEJwRWPME+uzvLQnmRjVLG4/tYbxtCIqYuAWQ5YJuJeOq6V4
+	X0DtBkeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkV0f-0000000DJTl-157U;
-	Mon, 26 Jan 2026 22:24:37 +0000
-Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
+	id 1vkVGt-0000000DK0r-3FRf;
+	Mon, 26 Jan 2026 22:41:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkV0b-0000000DJT7-3VUt
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 22:24:35 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 0D4A21400081;
-	Mon, 26 Jan 2026 17:24:32 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Mon, 26 Jan 2026 17:24:32 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1769466272;
-	 x=1769552672; bh=+K7IY2VEjZ5xcqD4utKWilBgIlKvpGKN17wXmYFtuSc=; b=
-	V3qubgH5SvElXBb+qKvl+SHFP0M206/qBTh99JZ4y13qnZFJ6qbywFejaozjen5g
-	VMjpy8hL8TFFxbm7NS+uAZuy4V8QzFtAyF+U05u0vYirfNJ+l+MI87HLK2rRhv3A
-	Hr/vAqseNgqFVK4mPxYuQV0LGIt5Ciwja/J+al8njhHEN5kj/oeX+3GzPrlIa3Aj
-	2HkuZ9szU1oEjUjVo6s/3J+00lr3Z+IiDEwHP5k2q9H0CuLHpY/f394i3BXE6P65
-	VWbX2HS57jHhd9I5CqcKO20CovV95QgtBUKwlgGqdIAthX5ZkWVt+9Qlvuh4ggOP
-	itsC9EbB4O2UCgzJWs1GJA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1769466272; x=
-	1769552672; bh=+K7IY2VEjZ5xcqD4utKWilBgIlKvpGKN17wXmYFtuSc=; b=G
-	jPkkp8xxcSPbhGSZp9xVDkghMTADUpjGgN9+AlC20IZQP/CXa1JhyOUPOgJx7c2Y
-	JijWQsvT/cjXRIOX2iIalVE/QDq0CFoSfinL00r8A4ha8pjjvzupVR8ItAOfHACe
-	byys5cX+dlGMGB30GXhdjyfg+UCodo5okP5A/wMQT1ypCQgCLx2RQvY5B/4O58KO
-	dDiI0xvcfM+F+gF4ugTDvn4d7YHoJnKfpGhBJiEPO8Y6cf/whF/Hs5GgCzH4WwXv
-	cFZVQQM2ijl/+28CYGgB6qyqaLZlG9OgdqeQR9vfIQ6SNZEMS7s9tei6lfg/adiW
-	O5ZHL/fg4UaIyax1bFtug==
-X-ME-Sender: <xms:n-l3aUz90gP7G69GKVcf1eFIvORSPz0uabmkmCVPNfRYpx7LCZloNQ>
-    <xme:n-l3aTH1Bnb_tVkGab_gOBQ5wbRgRGKQU4aoKTpkiJtBq4s8Lv-jnjoPIEUVFZR25
-    -RckiVUqtXs1RLdBYZrXCZzeKroBYdZKv6NqFySLijlsayup_51Xx4>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduheekkeeiucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddvpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopegsvhgrnhgrshhstghhvgesrggtmhdrohhrghdprhgtphhtthhope
-    gtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepsghoqhhu
-    nhdrfhgvnhhgsehgmhgrihhlrdgtohhmpdhrtghpthhtohepvghlvhgvrhesghhoohhglh
-    gvrdgtohhmpdhrtghpthhtohepphgvthgvrhiisehinhhfrhgruggvrggurdhorhhgpdhr
-    tghpthhtohepmhhinhhgoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfihilhhlse
-    hkvghrnhgvlhdrohhrghdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnihigrdgu
-    vgdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfh
-    hrrgguvggrugdrohhrgh
-X-ME-Proxy: <xmx:n-l3aYsFpP5_9sxy_uPq7QSx5PxjO2T5C9ZiQEemDUb2bzZvixaZ1A>
-    <xmx:n-l3ab28X8GtNgU6VVfEavF0VQv4wJ4NdIGrznUOUiM2zIGp4ygZPg>
-    <xmx:n-l3aQBMgbqk24OMuzoJ8rlhFlFk2Y_DrNgoB8YYE42lwZzWbi0ULw>
-    <xmx:n-l3aZD7wgjcuFIxS9tJ3_KXnz7000XSe0Uogfv7SRIQ9wZXudXWGw>
-    <xmx:oOl3afdFqOf5Tdtz_kA0W-mE2alzhrNRwlKW6Bw6xdkgdeWGwhp727jG>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 34EDB700065; Mon, 26 Jan 2026 17:24:31 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1vkVGs-0000000DK0S-0Lkv;
+	Mon, 26 Jan 2026 22:41:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B208143B63;
+	Mon, 26 Jan 2026 22:41:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E3D7C116C6;
+	Mon, 26 Jan 2026 22:41:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769467280;
+	bh=GG68a5Sdfw/2OYhV/QwlBvR+ObFQ6lplVxmghdV94Ws=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lLu4CEVlm4o+fLpIapOoGxYB3DIXMNl3LdZWylEVcULSRdkEVa3kyHIau3bhMdij7
+	 A3xnrkxbWDPutWDFb6JE+rj6ZHXFKY3RnxtpR3uCe2Pr0jDCpjdwGAyHI3O4HjRmxD
+	 seQKh8P6iQSINNjYCgZwC1dkX3/a5rdgAiab8EkP7V0a8mzRAbZzUpqx1eFJ91UV2L
+	 diW2Dg3YEMfHbqPUg+bF+++v/xqbAdEt+NKdjfu3H3gWtQGr6vbJsjUBHOohVDP7Ws
+	 0akBcV7UNJTVZ7spWACuh0wGqTOEEqSZ/Wzr0imdjHtP8WHN79fXnmrIaZsWysy/XD
+	 8mM1IcvNv9ViQ==
+Date: Mon, 26 Jan 2026 23:41:17 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Johannes Berg <johannes@sipsolutions.net>
+Cc: Ryder Lee <ryder.lee@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH wireless-next v2 1/2] wifi: mac80211: Add eMLSR/eMLMR
+ action frame parsing support
+Message-ID: <aXftjdCtqnQk69ys@lore-desk>
+References: <20260125-mac80211-emlsr-v2-0-466329d61c88@kernel.org>
+ <20260125-mac80211-emlsr-v2-1-466329d61c88@kernel.org>
+ <01e62344994a34daae0666b3873aa98e72fb5850.camel@sipsolutions.net>
 MIME-Version: 1.0
-X-ThreadId: ArrhcHX-7EeF
-Date: Mon, 26 Jan 2026 23:24:00 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Marco Elver" <elver@google.com>
-Cc: "Peter Zijlstra" <peterz@infradead.org>, "Will Deacon" <will@kernel.org>,
- "Ingo Molnar" <mingo@kernel.org>, "Thomas Gleixner" <tglx@linutronix.de>,
- "Boqun Feng" <boqun.feng@gmail.com>, "Waiman Long" <longman@redhat.com>,
- "Bart Van Assche" <bvanassche@acm.org>, llvm@lists.linux.dev,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Message-Id: <7478d2cf-9636-45c8-8ffa-8e3a3ba9baf8@app.fastmail.com>
-In-Reply-To: <aXfGcIpeXQNRUI-A@elver.google.com>
-References: <20260126002936.2676435-1-elver@google.com>
- <20260126002936.2676435-3-elver@google.com>
- <d3295c84-da15-4695-8110-7e04cfaf1419@app.fastmail.com>
- <aXfGcIpeXQNRUI-A@elver.google.com>
-Subject: Re: [PATCH 2/3] arm64: Optimize __READ_ONCE() with CONFIG_LTO=y
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="FyaHzk/0gDfHIB6D"
+Content-Disposition: inline
+In-Reply-To: <01e62344994a34daae0666b3873aa98e72fb5850.camel@sipsolutions.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_142434_340973_F4C6CCDB 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20260126_144122_196443_0F9B5EA8 
+X-CRM114-Status: GOOD (  39.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,51 +80,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026, at 20:54, Marco Elver wrote:
-> On Mon, Jan 26, 2026 at 08:56AM +0100, Arnd Bergmann wrote:
->> On Mon, Jan 26, 2026, at 01:25, Marco Elver wrote:
->> 
->> How does this work with CC_HAS_TYPEOF_UNQUAL=false?
->> 
->> As far as I can tell, TYPEOF_UNQUAL() falls back to __typeof__
->> on gcc-13, clang-18 and earlier, and not strip out qualifiers.
->
-> I think we only need to worry about Clang for LTO builds. But yeah, our
-> minimum supported Clang is 15, so between 15-18 it'd be broken.
 
-Right, I missed the #ifdef CONFIG_LTO check, so indeed gcc is
-fine here.
+--FyaHzk/0gDfHIB6D
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->> With fd69b2f7d5f4 ("compiler: Use __typeof_unqual__() for
->> __unqual_scalar_typeof()"), I would expect __unqual_scalar_typeof()
->> to do the right thing already.
->
-> It'd still be broken for Clang 15-18, so it won't help much. We need
-> this to work for more than "scalar", so even though it'll work for Clang
-> 19+ given the redefinition to __typeof_unqual__, we should deprecate the
-> _Generic-based __unqual_scalar_typeof() sooner than later.
->
-> I was able to make this work for older compilers:
->
-...
->  #define __READ_ONCE(x)							\
->  ({									\
->  	auto __x = &(x);						\
-> -	auto __ret = (TYPEOF_UNQUAL(*__x) *)__x, *__retp = &__ret;	\
-> -	union { TYPEOF_UNQUAL(*__x) __val; char __c[1]; } __u;		\
-> +	auto __ret = (__read_once_typeof(*__x) *)__x, *__retp = &__ret;	\
-> +	union { __read_once_typeof(*__x) __val; char __c[1]; } __u;	\
->  	*__retp = &__u.__val;						\
+> On Sun, 2026-01-25 at 11:51 +0100, Lorenzo Bianconi wrote:
+> >=20
+> > +static inline u8 ieee80211_get_emlsr_pad_delay_update(u8 param)
+> > +{
+> > +	u8 pad_delay =3D FIELD_GET(IEEE80211_EML_EMLSR_PAD_DELAY, param);
+>=20
+> I generally prefer the typed versions and mac80211 (mostly?) uses those,
+> i.e. u8_get_bits() and friends, since they also cover endian conversions
+> where needed. Is there any reason you use FIELD_* versions here?
 
->
-> Thoughts?
+ack, I will fix it in v3.
 
-Looks better than __unqual_scalar_typeof() to me. Would it make
-sense to do the same __read_once_typeof() in the asm-generic
-version of __READ_ONCE()? I don't remember if we discussed it
-in the thread leading up to dee081bf8f82 ("READ_ONCE: Drop 
-pointer qualifiers when reading from scalar types").
-We probably didn't have __auto_type back then.
+>=20
+> > +	if (pad_delay > IEEE80211_EML_CAP_EMLSR_PADDING_DELAY_256US)
+> > +		pad_delay =3D 0;
+>=20
+> Seems that should use a constant, rather than =3D0?
+>=20
+> Also, is that really the right thing to do (also below) to just silently
+> cap it? Maybe that should be up to the caller? In some(/most/all)? cases
+> we should probably even just _reject_ frames that carry an invalid
+> value, which you can't do with this helper?
 
-        Arnd
+I guess we can just move this code in the caller and reject the frame if the
+values are not valid. I will fix it in v3.
+
+>=20
+> > +static inline u32 ieee80211_get_emlsr_trans_delay_update(u8 param)
+> > +{
+> > +	u16 trans_delay =3D FIELD_GET(IEEE80211_EML_EMLSR_TRANS_DELAY, param);
+> > +
+> > +	if (trans_delay > IEEE80211_EML_CAP_EMLSR_TRANSITION_DELAY_256US)
+> > +		trans_delay =3D 0;
+> > +
+> > +	return trans_delay;
+>=20
+> why does that use _three_ different types? Wouldn't u8 be sufficient?
+>=20
+> > --- a/include/net/mac80211.h
+> > +++ b/include/net/mac80211.h
+> > @@ -1902,6 +1902,21 @@ enum ieee80211_offload_flags {
+> >  	IEEE80211_OFFLOAD_DECAP_ENABLED		=3D BIT(2),
+> >  };
+> > =20
+> > +struct ieee80211_eml_params {
+> > +	u8 control;
+> > +	u16 link_bitmap;
+> > +	union {
+> > +		struct {
+> > +			u16 emlsr_pad_delay;
+> > +			u16 emlsr_trans_delay;
+> > +		};
+> > +		struct {
+> > +			u8 mcs_map_count;
+> > +			u8 mcs_map_bw[9];
+> > +		};
+> > +	};
+> > +};
+>=20
+> Maybe add kernel-doc? Also not sure the union really is worth it? It's a
+> tiny thing. Especially since you don't even label it - maybe if the
+> parts were labled emlsr and emlmr, and then you had emlsr.pad_delay?
+>=20
+> (I'd label them anyway, of course, even if not a union.)
+
+ack, I will add kernel-doc in v3.
+
+>=20
+> Also now the emlsr pad/trans delay are duplicated in the station info,
+> is that worth doing? You have to and do track them there too, anyway, as
+> we discussed on IRC, could just have the driver use them from there?
+
+I agree, I guess we can drop emlsr_pad_delay and emlsr_trans_delay in
+ieee80211_eml_params struct and just rely on sta values. I will fix it in v=
+3.
+
+>=20
+> Per spec I'm also not sure what the MCS map should be when it's not
+> included in the frame?
+
+IIUC the mcs map value are supposed to be in Operation mode notification fr=
+ame
+just for eMLMR. I think the driver should check if the bit is set in
+ieee80211_eml_params control field to verify if mcs_map_bw values are valid.
+
+>=20
+> > + * @set_eml_op_mode: Configure eMLSR/eMLMR operation mode in the under=
+lay
+> > + *	driver according to the parameter received in the EML Operating mode
+> > + *	notification frame.
+>=20
+> Maybe describe the link_id here, or move it to the params and describe
+> it in kernel-doc there?
+
+ack, I will fix it in v3.
+
+>=20
+> > +static inline int drv_set_eml_op_mode(struct ieee80211_sub_if_data *sd=
+ata,
+> > +				      struct ieee80211_sta *sta,
+> > +				      unsigned int link_id,
+> > +				      struct ieee80211_eml_params *eml_params)
+> > +{
+> > +	struct ieee80211_local *local =3D sdata->local;
+> > +	int ret =3D 0;
+>=20
+> Shouldn't that be -EOPNOTSUPP?
+
+ack, I will fix it in v3.
+
+>=20
+> > +static void
+> > +ieee80211_send_eml_op_mode_notif(struct ieee80211_sub_if_data *sdata,
+> > +				 struct ieee80211_mgmt *req, u8 act_len)
+> > +{
+> > +	int hdr_len =3D offsetof(struct ieee80211_mgmt, u.action.u.eml_omn);
+> > +	struct ieee80211_local *local =3D sdata->local;
+> > +	struct ieee80211_mgmt *mgmt;
+> > +	struct sk_buff *skb;
+> > +
+> > +	skb =3D dev_alloc_skb(local->tx_headroom + hdr_len + act_len);
+> > +	if (!skb)
+> > +		return;
+> > +
+> > +	skb_reserve(skb, local->tx_headroom);
+> > +	mgmt =3D skb_put_zero(skb, hdr_len);
+> > +	mgmt->frame_control =3D cpu_to_le16(IEEE80211_FTYPE_MGMT |
+> > +					  IEEE80211_STYPE_ACTION);
+> > +	memcpy(mgmt->da, req->sa, ETH_ALEN);
+> > +	memcpy(mgmt->sa, sdata->vif.addr, ETH_ALEN);
+> > +	memcpy(mgmt->bssid, sdata->vif.addr, ETH_ALEN);
+> > +
+> > +	mgmt->u.action.category =3D WLAN_CATEGORY_PROTECTED_EHT;
+> > +	memcpy(&mgmt->u.action.u.eml_omn, &req->u.action.u.eml_omn, act_len);
+> > +	mgmt->u.action.u.eml_omn.control &=3D
+> > +		~(IEEE80211_EML_CTRL_EMLSR_PARAM_UPDATE |
+> > +		  IEEE80211_EML_CTRL_INDEV_COEX_ACT);
+> > +	ieee80211_tx_skb(sdata, skb);
+>=20
+> It seems to me that it'd be better to not copy the request, but rather
+> build the response. It's not _that_ much data, and from the spec it
+> seems to me that e.g. the MCS map should be included in the response,
+> but you do that now, I think?
+
+ack for avoiding memcpy().
+Reading the standard, it is not clear to me if mcs map values are supposed =
+to be
+added in the Notification frame sent by the AP. What do you think?
+
+>=20
+> > +void ieee80211_rx_eml_op_mode_notif(struct ieee80211_sub_if_data *sdat=
+a,
+> > +				    struct sk_buff *skb)
+> > +{
+> > +	int hdr_len =3D offsetof(struct ieee80211_mgmt, u.action.u.eml_omn);
+> > +	enum nl80211_iftype type =3D ieee80211_vif_type_p2p(&sdata->vif);
+> > +	struct ieee80211_rx_status *status =3D IEEE80211_SKB_RXCB(skb);
+> > +	const struct wiphy_iftype_ext_capab *ift_ext_capa;
+> > +	struct ieee80211_mgmt *mgmt =3D (void *)skb->data;
+> > +	struct ieee80211_local *local =3D sdata->local;
+> > +	u8 control =3D mgmt->u.action.u.eml_omn.control;
+> > +	u8 *ptr =3D mgmt->u.action.u.eml_omn.variable;
+> > +	struct ieee80211_eml_params eml_params =3D {};
+> > +	struct sta_info *sta;
+> > +	u8 act_len =3D 3; /* action_code + dialog_token + control */
+> > +
+> > +	if (!ieee80211_vif_is_mld(&sdata->vif))
+> > +		return;
+> > +
+> > +	/* eMLSR and eMLMR can't be enabled at the same time */
+> > +	if ((control & IEEE80211_EML_CTRL_EMLSR_MODE) &&
+> > +	    (control & IEEE80211_EML_CTRL_EMLMR_MODE))
+> > +		return;
+> > +
+> > +	if ((control & IEEE80211_EML_CTRL_EMLMR_MODE) &&
+> > +	    (control & IEEE80211_EML_CTRL_EMLSR_PARAM_UPDATE))
+> > +		return;
+> > +
+> > +	ift_ext_capa =3D cfg80211_get_iftype_ext_capa(local->hw.wiphy, type);
+> > +	if (!ift_ext_capa)
+> > +		return;
+> > +
+> > +	if (!status->link_valid)
+> > +		return;
+> > +
+> > +	sta =3D sta_info_get_bss(sdata, mgmt->sa);
+> > +	if (!sta)
+> > +		return;
+> > +
+> > +	if (control & IEEE80211_EML_CTRL_EMLSR_MODE) {
+> > +		if (!(ift_ext_capa->eml_capabilities &
+> > +		      IEEE80211_EML_CAP_EMLSR_SUPP))
+> > +			return;
+> > +
+> > +		if (control & IEEE80211_EML_CTRL_EMLSR_PARAM_UPDATE) {
+> > +			u16 eml_cap =3D sta->sta.eml_cap;
+> > +			u8 pad_delay, trans_delay;
+> > +
+> > +			/* Update sta padding and transition delay */
+> > +			pad_delay =3D
+> > +				ieee80211_get_emlsr_pad_delay_update(ptr[3]);
+> > +			trans_delay =3D
+> > +				ieee80211_get_emlsr_pad_delay_update(ptr[3]);
+>=20
+> It seems to me you're missing a bunch of input validation?
+
+ack, I will fix it in v3.
+
+>=20
+> > +
+> > +			eml_cap &=3D ~(IEEE80211_EML_CAP_EMLSR_PADDING_DELAY |
+> > +				     IEEE80211_EML_CAP_EMLSR_TRANSITION_DELAY);
+> > +			eml_cap |=3D FIELD_PREP(IEEE80211_EML_EMLSR_PAD_DELAY,
+> > +					      pad_delay) |
+> > +				   FIELD_PREP(IEEE80211_EML_EMLSR_TRANS_DELAY,
+> > +					      trans_delay);
+> > +			sta->sta.eml_cap =3D eml_cap;
+>=20
+> Same comment about typed bitfield accessors, and u8_replace_bits() would
+> even shorten that quite a bit.
+
+ack, I will fix it in v3.
+
+>=20
+> > +	if (skb->len < hdr_len + act_len)
+> > +		return;
+>=20
+> bit late that :)
+
+ack, I will fix it in v3.
+
+Regards,
+Lorenzo
+
+>=20
+> johannes
+
+--FyaHzk/0gDfHIB6D
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaXftjQAKCRA6cBh0uS2t
+rLisAP9om80pHQDOpkvChlQaFlawZ3byFu4csjW1/hk/HojIRgD+LLdCh5Vm2gpA
+XN3PnDjwrSF2tiFB0i7hjlpAlocr7gs=
+=3ipe
+-----END PGP SIGNATURE-----
+
+--FyaHzk/0gDfHIB6D--
 
