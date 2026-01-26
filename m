@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90682D74EFF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B307DD778BE
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,66 +12,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dus1eDjKV8+fyJlWa6CeOHr5Q8TfY7EJ7ksMCXuuvE8=; b=wPpdLD1jiCG+tYQNsyb72kyl9R
-	Yak3QcUeJfkW5tj/iumMklq1d3WCZDogEv6+6YhHChI1+znZh4xbI11G2mxi9aBlNbhBnmc0Ltnus
-	0NvoMhFQeP3EJnDwscQtgsKVPyhuyHXlvoVYt77I5PkcDCMdAaud3LrvQDwL05r73jzGv2OQTJO5/
-	KNfiNMBO4AW3OwIOLWjWcKlwW/p9pP8V/lTTrOAuKRZ62L45smVh6Bv4RDHRg3+zRk4l2bMf6CCXj
-	TGwLc0D96tIaBAs+j10q1G/neWZN+TSWXM3trm6nYdEwUWU60NVPKCK4wkkiRyktIqmJP0pnzSNSH
-	40hU4c1Q==;
+	bh=eLShc81E/+Lme+gJ9JRioNlppj/hbf+/HE944re/X2I=; b=BMRjQroRRKZ/PqRMYF4JjwTHpq
+	zuLaZfuX0PTohzy1E+U8TcJQXvZquscBpN2KddPUdNP1/w52iNjSkw9XYq619zcFsujibnOB3ED/t
+	e8fGhRKz4O+EMY4BGa0VkAbOSLpEo8dGDLynYXyYoRj7FIizhfbEyjKx3PhaETI4ZWRCCp283re1s
+	wJ9eDaa2X4mvmfXbZ9C8QZTX79N+up79MKYndYeFs5sKk07F2ctd1fCwvSO8ZpfY8QwQDKj93h8oN
+	V/8pp7Q67WRVpS3epohFB8PrdEYzqVLkWYLipsQdbpUlMPrfZ2DNuThAP+OOna2jjAutQ96p+ZJBm
+	ftWzLgwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkIsr-0000000CC67-3FZw;
-	Mon, 26 Jan 2026 09:27:45 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1vkIsq-0000000CC4K-23gZ;
+	Mon, 26 Jan 2026 09:27:44 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkIsk-0000000CC0R-0h5A
+	id 1vkIsi-0000000CBzP-2rPh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 09:27:39 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4779ecc3cc8so36939825e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 01:27:37 -0800 (PST)
+	Mon, 26 Jan 2026 09:27:37 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4801e2e3532so29091875e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 01:27:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769419656; x=1770024456; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769419654; x=1770024454; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dus1eDjKV8+fyJlWa6CeOHr5Q8TfY7EJ7ksMCXuuvE8=;
-        b=de2rqMVVW5htAVj6l3p33SlDR7eLmUR04NsNb0Zt0tTwq2xKURBZ+L7tmCZsja0hHh
-         OmIn30fspM9P2i7HfIaaQSr6pXmHkjYYYS0+UwI6tNVGLiw8pIifS581BLpqhYxwymzi
-         frB/cPkR2fiUQVO9GhtT9ZDQengjT1v3H7Sccs7UpNPxIaI2KPH5Mms/fH/df0Q9GNHR
-         8pnDlTtNUi8wkGiUBAyfgu1bphjBJ7/jld5o68nAkbDpjsbuiC6aaqE1KQmp6tg+qA6R
-         03bOmbrIBB+RKEi1ugL7fCiGiRjXbCkJvF7h7KjDGTVfRxZ87r13rV208no/5Oqy27jq
-         /PaQ==
+        bh=eLShc81E/+Lme+gJ9JRioNlppj/hbf+/HE944re/X2I=;
+        b=LY1TCYGAtfteSqKIPaxehcDT73/opLM15gz2nv9oIjT/qNwIOuAvYZP++hVU5TmfL9
+         uuIWuKA0hdev3ZWee0OE4w32H0bzvDwZ8ZSatT3bqkYIZlORRV/IBj+qkgfGz59ZVcON
+         gB5hMRymKYBh2s7EnjoaehiQT/82BSw6n+2rkKL2Ex/affqtkcBxs1Ik+H4OW5J7zyoX
+         arcuIGniP2tYw3YILDjy3j5iL8utF7rAG2sJkYEvZza7MYHNH8Xbb8TcotqUFlEA7lBd
+         +QUWPjUrmS2K5X9MZi5jQv6xTQiQjFBWlQzjoE4pw4zmazIow72K0EgyhPKXBHVua++3
+         Q+Zg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769419656; x=1770024456;
+        d=1e100.net; s=20230601; t=1769419654; x=1770024454;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dus1eDjKV8+fyJlWa6CeOHr5Q8TfY7EJ7ksMCXuuvE8=;
-        b=BGicvXOplPYynjydeS/hzDUiNhLNcdpR4rsIYIBmmW8rosj7C0yuWxoJFaacPqqO/r
-         ASGtEEGVU0/cXvGHgyQY4/Efr3YNLsjSINVdpZ1kpRcC5D1GjsgvA14B0y0qJtdi+Q2o
-         AjiMl2JUphjiWrYm/zz5s00HnwwjFBsDoOew3x6y7nnuiOKOvdNGiobOS/jYD/VJ3eDs
-         KYgQetIvGhBCiJ7gZBuq0SHHDAa43vdhzJrWVWCK8t6S/vcPMxcFfRroEcHbCgfFUCqr
-         IURcGGvcClDuBijWnD5OSUIqrsog3vpZmdRsXPc+Yw7UjoumxjyEuq42+3pU3umNn4dV
-         dPcA==
-X-Gm-Message-State: AOJu0YxDM3J8Y2EjJABYvCDBaHtANUeGn+CIYZ+aPzy0k01xUAr0JkV+
-	cBoLBl+y2c9TQRLzSw42WATjElZyhob+GZor0OSH+2dSEKnKTFgnMODzMcGyy9HYWIrCAcVCCQ=
+        bh=eLShc81E/+Lme+gJ9JRioNlppj/hbf+/HE944re/X2I=;
+        b=MBrJ67oZArn9J9pSYEw3UZg3IxfKupLYu3kG4F/wD0w7yGrUwAnnP8zmmt8ZmwSEy+
+         u+cvAB/GHeiF99oK9veB4xu4cHZ1daib7yoqLecJV13n9TTuVvOIlYwxK3gppsnyb23C
+         K7ZBEtECD+TAMCy/qP8ioCqJu5E6sXCfCbL+M00nYly3Jc+jngR38icFetZHiMnGWcls
+         9rkSqJ8RBCgyREE8pNeStHp1en/gdY6vbBzW6stK1VKl+34LYaNKaw+SjyzooEZ/fUsY
+         NUyDOHzbel18M4aQceREvFhxG/+tlCkb0QsU/01uEQkI8WyOiFHke7JYAyTHkr+37EKM
+         GgBw==
+X-Gm-Message-State: AOJu0YwTLBlI+HLoDLrVP8gY8c3OB5Ux3HLTqaI6aGKUHGJnWrSuwBXU
+	Wltsj6q719x4qFKvkXiuFiJZnTYFndE8ClyEjjw1A6bpcd1aZze2eJjiwkeF5oLCq3CsLr1e7w=
 	=
-X-Received: from wmlf14.prod.google.com ([2002:a7b:c8ce:0:b0:480:4a03:7b6b])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:528d:b0:477:54cd:200e
- with SMTP id 5b1f17b1804b1-4805ce3f893mr62195305e9.1.1769419656709; Mon, 26
- Jan 2026 01:27:36 -0800 (PST)
-Date: Mon, 26 Jan 2026 10:26:37 +0100
+X-Received: from wmbjw6.prod.google.com ([2002:a05:600c:5746:b0:480:3842:3532])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4689:b0:47e:e78a:c831
+ with SMTP id 5b1f17b1804b1-4805d0668famr63022225e9.36.1769419654312; Mon, 26
+ Jan 2026 01:27:34 -0800 (PST)
+Date: Mon, 26 Jan 2026 10:26:34 +0100
 In-Reply-To: <20260126092630.1800589-12-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20260126092630.1800589-12-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=916; i=ardb@kernel.org;
- h=from:subject; bh=AbBNGoFlUmz8DhotcNagR6+hcZWJ6aqvLIQOSvGP0oY=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIbPc2Ctw67qkcsYnkz6HVyaIFV/R/hlm+kvXoVE7kZW7Y
- APXosqOUhYGMS4GWTFFFoHZf9/tPD1RqtZ5lizMHFYmkCEMXJwCMJEbfxn+R/2O9dR21crak6f7
- +c5MiwrF2xnXXYI4zDR6lOzKa4V2MPzTu6eudlBgRo3JnMb/EVvfGrmcsfoU/mC9Z4jaodsrJ+x jAwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=874; i=ardb@kernel.org;
+ h=from:subject; bh=Gtkmu5xUf/IdJr0kiShY6X4TSbxJqYA0pGP5tteQQSc=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIbPc2EOMl1Oe+ZtxwpPOV9LiF4RXP+tbf+lo+TXjL389J
+ m2duYmho5SFQYyLQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAEzkSiQjQyt7cfCidwej5f/9
+ 5p7Qf1Jt4vfD9tERNyW+nXLVefgp8xkjw8lZxm6uxhc5n927XLbV0/fcU+dXx87Oeyi4gG+7QvH jeEYA
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260126092630.1800589-18-ardb+git@google.com>
-Subject: [PATCH v2 06/10] arm64: mm: Remove bogus stop condition from
- map_mem() loop
+Message-ID: <20260126092630.1800589-15-ardb+git@google.com>
+Subject: [PATCH v2 03/10] arm64: mm: Permit contiguous descriptors to be rewritten
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org, 
@@ -82,8 +81,8 @@ Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
 	linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_012738_398737_1A73D3FA 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20260126_012736_769565_F5AD2131 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +99,30 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-The memblock API guarantees that start is not greater than or equal to
-end, so there is no need to test it. And if were, it is doubtful that
-breaking out of the loop would be a reasonable course of action here
-(rather than attempting to map the remaining regions)
+Currently, pgattr_change_is_safe() is overly pedantic when it comes to
+descriptors with the contiguous hint attribute set, as it rejects
+assignments even if the old and the new value are the same.
 
-So let's drop this check.
+So relax the check to allow that.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/mm/mmu.c | 2 --
- 1 file changed, 2 deletions(-)
+ arch/arm64/mm/mmu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index d7faa98f427c..377bdc4d84a1 100644
+index c36422a3fae2..9d39de3cfe67 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -1158,8 +1158,6 @@ static void __init map_mem(pgd_t *pgdp)
+@@ -141,7 +141,7 @@ bool pgattr_change_is_safe(pteval_t old, pteval_t new)
+ 		return false;
  
- 	/* map all the memory banks */
- 	for_each_mem_range(i, &start, &end) {
--		if (start >= end)
--			break;
- 		/*
- 		 * The linear map must allow allocation tags reading/writing
- 		 * if MTE is present. Otherwise, it has the same attributes as
+ 	/* live contiguous mappings may not be manipulated at all */
+-	if ((old | new) & PTE_CONT)
++	if ((old | new) & PTE_CONT && old != new)
+ 		return false;
+ 
+ 	/* Transitioning from Non-Global to Global is unsafe */
 -- 
 2.52.0.457.g6b5491de43-goog
 
