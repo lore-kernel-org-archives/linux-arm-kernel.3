@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D6AD13C20
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 14:34:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C01E2D13C21
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 14:36:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VKl2m6va+k/i4PnbhNmJevuXFQu5TbTyIVHNC2U/pqs=; b=GHzLAahykucqiYrIFyRiHd6yl1
-	GxUZ2f52dtK73dTvz/iGkjVWyDCKlrd+CpiO8ENiuiiM5m41Nl42qRBZe+aDKHcM5mHutwJX/48pV
-	ONjQ43hnAkLWbNRJ6lBCYwoqWRzYLtGFZ3Soi4r99gx2hgIn2qnvEWGRWyh7PTMkIxaQjjFyXDIau
-	2XG7YIvhE4ic2dCnp08427os1+n5zCxVn/UiEvJihI+ThvZFf9h1W+E55TMXOxe9R0aLOQKeG5qzH
-	PWToos4GpohLxAOfBl/bC5FJxzKSAP+5AKDYIeT1jyRAPI24Yki3XFwUwYo4uw+inzwaGdB2uxF4Q
-	l+LiR/ew==;
+	bh=x8zOxLLvY+Aal8JT5wI6fL2YE4FO4kialvpEhIAqwc0=; b=eI02d2nE+kC6rJ20EksJlgco0/
+	qQ1QCgOimOVDamCSotDbOBB5J/kmmcld0dep9/Oc9IpmOA2HmKAEgqzP96sVUu751ZMeMRbu1+bts
+	U7siPXZ3rOwwpwC0/qi9QcIl9ilfWSV8WlV6nllANx9kASNY3rN0vO3uGGcTlT76ciqiC2uG3xCeG
+	YudkZOHIJQgo675oelDAAqxjIe2GKrJp60IEdokCcJfqEe0K1ZzrqHc6mg+CxFgKMIgeqE/DJu7a7
+	l+EuGP9mHvj7sdd6rMj24zTuPkx5KOUhr2yWyRtpOudM/+U6PymNKlXgPdmOOxjnSm0IWRgYLH4CN
+	CplFXLVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkNfh-0000000ChZu-2aUC;
-	Mon, 26 Jan 2026 14:34:29 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vkNhR-0000000Chkt-3BUn;
+	Mon, 26 Jan 2026 14:36:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkNfe-0000000ChZK-1Sw1;
-	Mon, 26 Jan 2026 14:34:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=VKl2m6va+k/i4PnbhNmJevuXFQu5TbTyIVHNC2U/pqs=; b=vqhWKydRpU++6I0VMWU4R8u+ry
-	c3/S/6h0xAtwKEUGK2zwOFafNmYy2EG6Y+rGlmhQt9ChS9Co6DJvurXoHAc1wwxGcNS2nQ/IfpHdm
-	u7fw1yAj5+AXRQ9HVuRwxjohpXz3AyQ/CMBektS3EYr07D9u4Z25TzrFtJR9QfHihh/baiCZGoSAO
-	FrQU8SbO7lL4bctk42PY1j+21N7huUE9CsbzZdFgTqg/M2+qjOLAU5Ek1OBQEunz1pUvxvu3AaChh
-	efyVu/+8tnO0WCFIbHGG0DRqX6ypfKk7NsiXuTkKhcnV5FaPwZIruGlJKVkNsHbYbajEWmyXS4Jgp
-	DJnaq+Tw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58188)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vkNfY-000000004xP-0oMi;
-	Mon, 26 Jan 2026 14:34:20 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vkNfV-0000000050u-3BFU;
-	Mon, 26 Jan 2026 14:34:17 +0000
-Date: Mon, 26 Jan 2026 14:34:17 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next v2 06/22] net: stmmac: rk: add SoC specific
- ->init() method
-Message-ID: <aXd7aSk7KIxlQd5z@shell.armlinux.org.uk>
-References: <aXdTi4ViCkhhXvFI@shell.armlinux.org.uk>
- <E1vkL28-00000005usi-30YC@rmk-PC.armlinux.org.uk>
+	id 1vkNhP-0000000ChkP-3m2S;
+	Mon, 26 Jan 2026 14:36:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0751E60130;
+	Mon, 26 Jan 2026 14:36:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D73C0C116C6;
+	Mon, 26 Jan 2026 14:36:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769438174;
+	bh=dMO1MIhjP4aVHBALuscN5a9iA1kviHKn9sIWzBNa0Wc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=d19x1kCDYOnGx2Xo+GWKZ43qg670AhXoY+z9KwUBlxi+c469kki/9gZpuNlXlZiNa
+	 rZv3iCrRfTEHJA5rC1gwkwhr5H0JOyrF+WuH4kMmHUTcr68c+SvH2IbV/Dy39kGQwq
+	 svRwyM23nXqJ/x+vnjF0iIUwhrH5WCHqHP3G/PRUJoRhd/73wKtuLhnxaFr9h6XFsb
+	 8d0PCPT3Fkp/jB2F5IQQtssYcq9rnL7dZB0zjOZvBWb1I7rzD2iYimD2+Sp0lm0acc
+	 kyW1vLZ3VVuiM+CCdHmjO1YG+mExxT6Yebnlb6Z/t8Wzh+4ynDm6n1DlvTtmLEoIH+
+	 1yFi7JsqmfQcQ==
+Date: Mon, 26 Jan 2026 14:36:08 +0000
+From: Will Deacon <will@kernel.org>
+To: Coiby Xu <coxu@redhat.com>
+Cc: kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>,
+	Baoquan he <bhe@redhat.com>, Dave Young <dyoung@redhat.com>,
+	Kairui Song <ryncsn@gmail.com>, Pingfan Liu <kernelfans@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Saravana Kannan <saravanak@kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE" <devicetree@vger.kernel.org>
+Subject: Re: [PATCH v3] arm64/kdump: pass dm-crypt keys to kdump kernel
+Message-ID: <aXd72PcvvFsIFXO2@willie-the-truck>
+References: <20260123081326.1362666-1-coxu@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1vkL28-00000005usi-30YC@rmk-PC.armlinux.org.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_063426_416148_5CC692A0 
-X-CRM114-Status: GOOD (  10.13  )
+In-Reply-To: <20260123081326.1362666-1-coxu@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,19 +76,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 11:45:28AM +0000, Russell King (Oracle) wrote:
-> Add a SoC specific init method.
+On Fri, Jan 23, 2026 at 04:13:25PM +0800, Coiby Xu wrote:
+> CONFIG_CRASH_DM_CRYPT has been introduced to support LUKS-encrypted
+> device dump target by addressing two challenges [1],
+>  - Kdump kernel may not be able to decrypt the LUKS partition. For some
+>    machines, a system administrator may not have a chance to enter the
+>    password to decrypt the device in kdump initramfs after the 1st kernel
+>    crashes
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+>  - LUKS2 by default use the memory-hard Argon2 key derivation function
+>    which is quite memory-consuming compared to the limited memory reserved
+>    for kdump.
+> 
+> To also enable this feature for ARM64, we only need to add device tree
+> property dmcryptkeys [2] as similar to elfcorehdr to pass the memory
+> address of the stored info of dm-crypt keys to the kdump kernel. Since
+> this property is only needed by the kdump kenrel, it won't be exposed to
+> user space.
+> 
+> [1] https://lore.kernel.org/all/20250502011246.99238-1-coxu@redhat.com/
+> [2] https://github.com/devicetree-org/dt-schema/pull/181
+> 
+> Cc: Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>
+> Cc: Baoquan he <bhe@redhat.com>
+> Cc: Dave Young <dyoung@redhat.com>
+> Cc: Kairui Song <ryncsn@gmail.com>
+> Cc: Pingfan Liu <kernelfans@gmail.com>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Krzysztof Kozlowski <krzk@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Signed-off-by: Coiby Xu <coxu@redhat.com>
+> ---
+> v3
+> - Delete the property after reading it [Rob Herring]
+> 
+> v2
+> - Krzysztof
+>   - Use imperative mood for commit message
+>   - Add dt-schema ABI Documentation 
+>     https://github.com/devicetree-org/dt-schema/pull/181
+> - Don't print dm-crypt keys address via pr_debug
+> 
+> 
+>  arch/arm64/kernel/machine_kexec_file.c |  9 +++++++++
+>  drivers/of/fdt.c                       | 21 +++++++++++++++++++++
+>  drivers/of/kexec.c                     | 19 +++++++++++++++++++
+>  3 files changed, 49 insertions(+)
+> 
+> diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+> index 410060ebd86d..5f3bad8ca96d 100644
+> --- a/arch/arm64/kernel/machine_kexec_file.c
+> +++ b/arch/arm64/kernel/machine_kexec_file.c
+> @@ -134,6 +134,15 @@ int load_other_segments(struct kimage *image,
+>  
+>  		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+>  			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
+> +
+> +		ret = crash_load_dm_crypt_keys(image);
+> +
+> +		if (ret == -ENOENT) {
+> +			kexec_dprintk("No dm crypt key to load\n");
+> +		} else if (ret) {
+> +			pr_err("Failed to load dm crypt keys\n");
+> +			goto out_err;
+> +		}
 
-I see the AI review has identified that this patch has an issue, whereas
-in the previous review, it was fine with this patch. I can't imagine what
-it's problem with this patch is, and there's no way to find out for
-about 9 hours (more like 19 hours for me because of the timezone) as the
-AI reviews are not accessible until then. Makes me wonder whether it's
-worth continuing to submit patches to netdev anymore.
+This looks like an unusual mixture of kexec_dprintk() and pr_err().
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Stepping back a second, why do we need to print anything from the arch
+code at all? It looks like crash_load_dm_crypt_keys() already prints for
+the -ENOENT case so I'd be inclined just to do:
+
+	ret = crash_load_dm_crypt_keys(image);
+	if (ret)
+		goto out_err;
+
+Will
 
