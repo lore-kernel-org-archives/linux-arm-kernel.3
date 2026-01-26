@@ -4,89 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B455CCF65D9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 10:35:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCA6CF65DA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 10:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XQgy/gqXOYj94r+JKw2+t1DDizO2slSW2W9L6xQSj1E=; b=F58GeMngv6Zax1bt0Tl7xsFDBb
-	QVH/CInvhmMGAgY3EjCcnF3stJLYXAizGthiQSJwPOLmz5Eun0unG43NMVNteBUBALu+st1CnHRvW
-	QNB/7pNzPiUtOSEHg0H9H5U9Kw2+mDGnJIhLeubHzjXUmI9SdjVfs8RxjmKMQpyQ9D8OmktedYE1S
-	kW57+wWlrHZC0GQBVfnfJc/r4HvCXLLaR9435vGjIM8QaPL3T+rg+YMN35WC7KDUU21+giw12bc9P
-	9QnhEBAGPRhV/DBO9hHN2qQrSCgwX6NQyO6qYUxuGhjskN43M5V4/tjhOth2EgQS5BU9re+myEGbG
-	ml+HHZbw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xkux+EitG9JzPydAe2E8YwQFUS9lBx4JpjL6QxsZSNw=; b=OIMlQQyk0efFtr3FFPqXMr6vSA
+	HOr2gZuaFRlCbfmP5QZR5F3848BtwHLJZjHmFldOi/Fg0qoeLi5jiVTpEuOsQ45Fi9GaVB8K7hodY
+	lGct+1HS2yf2UEJjaI/0PEXg8h0X0fymO/CTwSDSpn5u97IZ4E3KWUC0ckCYPCUMh2sZ0RB4yrsBS
+	3C4MDk9+ptK3/NFV4ZQ5CtbMU/9AzTRAbVoCVnLiU7a5NJgr+9TNKR433BnGyBlpKcQ2k+w0guRjB
+	oiTtFRejRUGhFn68zG6zGAG2x5nwOro2H4NC+933X7shCoVgZcRVsZ4TzSfZEGt5CshtZPp4cUv2N
+	Fu0/oZ/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkJvy-0000000CIb1-1YQV;
-	Mon, 26 Jan 2026 10:35:02 +0000
-Received: from mout-p-103.mailbox.org ([80.241.56.161])
+	id 1vkJyd-0000000CIvb-1Db6;
+	Mon, 26 Jan 2026 10:37:47 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkJvv-0000000CIYg-31Lo
+	id 1vkJya-0000000CIuf-3AUN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 10:35:01 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4f04fW53cWz9sk9;
-	Mon, 26 Jan 2026 11:34:43 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1769423683;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=XQgy/gqXOYj94r+JKw2+t1DDizO2slSW2W9L6xQSj1E=;
-	b=hEauLtti+Ly3CEdg3PB7c9YQ62isImXVd/Vaura3ZvX8kfQvgjEwL9OUQTH443ZH0xSs2C
-	yv7IP3forGyA8LMQ1GBFH+Dmv29uXPsP68OIXNM1tDRUdsrOVgYNpZo6ESQcLcZi9F6eVA
-	3mUeU5DtsK2T7L5/1PhGUFgE1Fv4Ghh+agqJmqF8A7pNt8DWoEEBaaIIfEK2iEcNXIEaQU
-	mXxYI3dCMGZX2Xc8od4MzsIfKrLkJ+rzERTnDs80HhMbDqVDLWuKR6Joa3iXy2Ns7giTQQ
-	ENrjaCN3syNmGJzCaR7/Bw0kaOnJuCSJ+Ab0ZTvvdVGLtIfI1dDGyveSWGjWAg==
-From: Lukasz Majewski <lukasz.majewski@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1769423677;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=XQgy/gqXOYj94r+JKw2+t1DDizO2slSW2W9L6xQSj1E=;
-	b=t4OfXgO5oz4DrbkGNt4wwmw7F9AWzsCKdrMTKGsMowIFrmcPmxqlCVn9Zk6gk6698Hfp9K
-	6wdQJWmJvgLkjbZMW3umWWgQqmkv8wS04pLZpltL8XIlfRY49nyYeUw2tP+XDuw6IHwUaP
-	4WSnYN+rqODAzbSDuqDWBRnxmqN0DK5xjaXXpusOXQ9fDAay9Lgp9uw0Dphue+mtXZziZV
-	89dEhoxIWKblIZ4qD2n9i8wikGueiaBf/hCQtl1YwIapoddgYhR4n2RuXe+pBSBUSZPiZK
-	iArSCuHZemhNzz2Yj+e2W/b2W6cFz+kmNRC6ed9PjULmUYwv3b7CHz2yv0r+Fg==
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Simon Horman <horms@kernel.org>,
-	Lukasz Majewski <lukasz.majewski@mailbox.org>
-Subject: [net-next v20 0/7] net: mtip: Add support for MTIP imx287 L2 switch driver
-Date: Mon, 26 Jan 2026 11:33:53 +0100
-Message-Id: <20260126103400.1683125-1-lukasz.majewski@mailbox.org>
+	Mon, 26 Jan 2026 10:37:45 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-48049955f7fso36773705e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 02:37:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769423862; x=1770028662; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xkux+EitG9JzPydAe2E8YwQFUS9lBx4JpjL6QxsZSNw=;
+        b=KAYPYy7r65Z6xXW7jIv+RuBKoBG7BT/X0qMOdKJL8q52OinHU8kKvLFDHGE0Jz4ONQ
+         7IYfEhpS2OPQOUKDYZplaTJOogfDFaJlZLiNdR4GZDrC5jc3qE681+AY9VuLIvFXv2rL
+         8DAt2Bj8tFJwLZCmfyFACZL2aCwMCmv5smi1eaRLR5IZftcNR1Dm/OLv1m5th0DGwque
+         yVmrcfKTUFdeX0N6CQcF5x8t6XppYmx5KsOpBK4hPy6eY6T0CRiSv+iBbogG1p39a3gi
+         s/j+IAewRQMTY16DT+f+jfmlhY3OPpMmRf/MSJd78iOk6zCeUzSUCzsVvUlW8xfyDygy
+         8Jpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769423862; x=1770028662;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xkux+EitG9JzPydAe2E8YwQFUS9lBx4JpjL6QxsZSNw=;
+        b=TzI92ROQke+uNEcUJpi4QCqcLJuVaXvrgkZ02cJPWIqdszMLIZ0/aK02AnSXQdIwzM
+         GcfbJd9e96w2LdvqO1PWu8MdFtm091iD4ClqVju5b4hJcWybwuhlfZRqca/5pLoz2+xS
+         eoVFeJot+lWGGBipGCSJjuLo2a+LoiYZWDEvesGW3MzdwJKbUusPuS0xOoTcy3VeDKX5
+         MtHSIq41V//OAx6ddNd8Yv4qVn7Jd+noAp8RvDgwZFQyPg7vA5ySkIF/uIizGZn5pVwr
+         i1ghe09AzLfqe6A0LNYep3M8SbL36+98KDbBqcb724EbvCImIlg3QCAmzAXu58pgLFTJ
+         jpLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXc8S6JaOqg/diX9KUqNY5m6SOJuFalrV8ZT3bwzmX7lcLBp1MPF0xUVxXWSN4q1JeLIlWlUiJ/hv66H2E+TbcU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0d3J8gB3eW9s3/xo4X+cz1NAhJbrXIWwUSiEc2NBQtQR+gPRg
+	kajMRsZq07Qk1xLc0NtQPbcHHIB/upn6yYBr5jtlYirC1lFtkocV6Lm+
+X-Gm-Gg: AZuq6aJhA/fBLmPCX4FP3W0K+grym/yN8nZsSm2OoZwQbiHYiW9924zfkQ9Nsm0hzAn
+	7CXWG5hUSw0ARCYdvtosrz72W6uXX6tjqRTM5+r9OYzvfYaz0OMxE2C2P2KpIbkgcuPndj5fBaw
+	4pZFNytHFqMnizm434MF33iQyY35H8vk+sDvK76sDVN0QlDtldLEcESwNA6JcVZEgeHuWFp6cfo
+	qX1TBHyH1W0a1V6yhFWremdS9daB6ufG3KE9KJIn4Qnhnnd6frpp/5ne6jg6uKTfZNuHfp6gmdc
+	9kzgDdKlyJ/zinEZ0Dxr0+0S7aAcc7+70t88cbgwPf7MS73dfhGno0v54O8dmQRkiiK1oLUdmtZ
+	gO95YPJXkidl/igraGtMy0bfXyvCd9yHX3V8o0oD/zy2XgJ5W/B7qkQVZe2Iiz6nVPRlaXKAF/n
+	dyvlaH5AsguU0bMNYpwjlpuDLsv1TGnQNwIjDiGbXEpYnDsdJKfQZfrz/L19AN7X0UoIJlK8ZGX
+	0aOPivGoXFuRbFD5mdGOrqir6HSlvnMhBIjyql7EOn/AxyqetieW+3iATCT
+X-Received: by 2002:a05:600c:35c4:b0:47e:e9c9:23bc with SMTP id 5b1f17b1804b1-4805cf673f5mr69370895e9.30.1769423862239;
+        Mon, 26 Jan 2026 02:37:42 -0800 (PST)
+Received: from ?IPV6:2a02:8440:260e:5ad0:867f:b0c6:e80c:5b42? (2a02-8440-260e-5ad0-867f-b0c6-e80c-5b42.rev.sfr.net. [2a02:8440:260e:5ad0:867f:b0c6:e80c:5b42])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4804d6160d2sm104298055e9.2.2026.01.26.02.37.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 26 Jan 2026 02:37:41 -0800 (PST)
+Message-ID: <ed300810-14c9-40de-b50b-f60cd4241bb7@gmail.com>
+Date: Mon, 26 Jan 2026 11:37:40 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 12/12] pinctrl: stm32: add firewall checks before
+ probing the HDP driver
+To: Gatien Chevallier <gatien.chevallier@foss.st.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+ Linus Walleij <linusw@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, jens.wiklander@linaro.org
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20260123-debug_bus-v5-0-90b670844241@foss.st.com>
+ <20260123-debug_bus-v5-12-90b670844241@foss.st.com>
+Content-Language: en-US, fr
+From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+In-Reply-To: <20260123-debug_bus-v5-12-90b670844241@foss.st.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: x865gi14jsshirwxxo1hicjtm4nkecf7
-X-MBO-RS-ID: a2654ea3b3aa8cc6253
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_023459_900152_D8562C28 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20260126_023744_834682_4A004378 
+X-CRM114-Status: GOOD (  23.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,134 +113,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for More Than IP's L2 switch driver embedded
-in some NXP's SoCs. This one has been tested on imx287, but is also available
-in the vf610.
+Hi Gatien,
 
-In the past there has been performed some attempts to upstream this driver:
+Thank you for the patch
 
-1. The 4.19-cip based one [1]
-2. DSA based one for 5.12 [2] - i.e. the switch itself was treat as a DSA switch
-   with NO tag appended.
-3. The extension for FEC driver for 5.12 [3] - the trick here was to fully reuse
-   FEC when the in-HW switching is disabled. When bridge offloading is enabled,
-   the driver uses already configured MAC and PHY to also configure PHY.
+On 1/23/26 11:39 AM, Gatien Chevallier wrote:
+> Because the HDP peripheral both depends on debug and firewall
+> configuration, when CONFIG_STM32_FIREWALL is present, use the
+> stm32 firewall framework to be able to check these configuration against
+> the relevant controllers.
+> 
+> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+> ---
+>   drivers/pinctrl/stm32/pinctrl-stm32-hdp.c | 14 ++++++++++++++
+>   1 file changed, 14 insertions(+)
+> 
+> diff --git a/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c b/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
+> index 0b1dff01e04c..cce477e86ef9 100644
+> --- a/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
+> +++ b/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
+> @@ -4,6 +4,7 @@
+>    * Author: Clément Le Goffic <clement.legoffic@foss.st.com> for STMicroelectronics.
+>    */
+>   #include <linux/bits.h>
+> +#include <linux/bus/stm32_firewall_device.h>
+>   #include <linux/clk.h>
+>   #include <linux/gpio/driver.h>
+>   #include <linux/gpio/generic.h>
+> @@ -46,9 +47,11 @@ struct stm32_hdp {
+>   	void __iomem *base;
+>   	struct clk *clk;
+>   	struct pinctrl_dev *pctl_dev;
+> +	struct stm32_firewall *firewall;
+>   	struct gpio_generic_chip gpio_chip;
+>   	u32 mux_conf;
+>   	u32 gposet_conf;
+> +	int nb_firewall_entries;
+>   	const char * const *func_name;
+>   };
+>   
+> @@ -615,6 +618,13 @@ static int stm32_hdp_probe(struct platform_device *pdev)
+>   		return -ENOMEM;
+>   	hdp->dev = dev;
+>   
+> +	if (IS_ENABLED(CONFIG_STM32_FIREWALL)) {
+> +		err = stm32_firewall_get_grant_all_access(dev, &hdp->firewall,
+> +							  &hdp->nb_firewall_entries);
+> +		if (err)
+> +			return err;
+> +	}
+> +
+>   	platform_set_drvdata(pdev, hdp);
+>   
+>   	hdp->base = devm_platform_ioremap_resource(pdev, 0);
+> @@ -670,8 +680,12 @@ static int stm32_hdp_probe(struct platform_device *pdev)
+>   static void stm32_hdp_remove(struct platform_device *pdev)
+>   {
+>   	struct stm32_hdp *hdp = platform_get_drvdata(pdev);
+> +	int i;
+>   
+>   	writel_relaxed(HDP_CTRL_DISABLE, hdp->base + HDP_CTRL);
+> +
+> +	for (i = 0; i < hdp->nb_firewall_entries; i++)
+> +		stm32_firewall_release_access(&hdp->firewall[i]);
+>   }
+>   
+>   static int stm32_hdp_suspend(struct device *dev)
+> 
 
-All three approaches were not accepted as eligible for upstreaming.
-
-The driver from this series has following features:
-
-1. It is fully separated from fec_main - i.e. can be used interchangeable
-   with it. To be more specific - one can build them as modules and
-   if required switch between them when e.g. bridge offloading is required.
-
-   To be more specific:
-        - Use FEC_MAIN: When one needs support for two ETH ports with separate
-          uDMAs used for both and bridging can be realized in SW.
-
-        - Use MTIPL2SW: When it is enough to support two ports with only uDMA0
-          attached to switch and bridging shall be offloaded to HW. 
-
-2. This driver uses MTIP's L2 switch internal VLAN feature to provide port
-   separation at boot time. Port separation is disabled when bridging is
-   required.
-
-3. Example usage:
-        Configuration:
-        ip link set lan0 up; sleep 1;
-        ip link set lan1 up; sleep 1;
-        ip link add name br0 type bridge;
-        ip link set br0 up; sleep 1;
-        ip link set lan0 master br0;
-        ip link set lan1 master br0;
-        bridge link;
-        ip addr add 192.168.2.17/24 dev br0;
-        ping -c 5 192.168.2.222
-
-        Removal:
-        ip link set br0 down;
-        ip link delete br0 type bridge;
-        ip link set dev lan1 down
-        ip link set dev lan0 down
-
-4. Limitations:
-        - Driver enables and disables switch operation with learning and ageing.
-        - Missing is the advanced configuration (e.g. adding entries to FBD). This is
-          on purpose, as up till now we didn't had consensus about how the driver
-          shall be added to Linux.
-          However, on top of this patch set the code with SWITCHDEV support (v6.6.
-          PREEMPT_RT enabled) has been implemented in [4].
-
-5. Clang build:
-	make LLVM_SUFFIX=-19 LLVM=1 mrproper
-	cp ./arch/arm/configs/mxs_defconfig .config
-	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 menuconfig
-	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 LOADADDR=0x40008000 uImage dtbs
-
-        make LLVM_SUFFIX=-19 LLVM=1 mrproper
-        make LLVM_SUFFIX=-19 LLVM=1 allmodconfig
-        make LLVM_SUFFIX=-19 LLVM=1 W=1 drivers/net/ethernet/freescale/mtipsw/ | tee llvm_build.log
-        make LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 | tee llvm_build.log
-
-6. Kernel compliance checks:
-	make coccicheck MODE=report J=4 M=drivers/net/ethernet/freescale/mtipsw/
-        make allmodconfig; ~/work/src/smatch/smatch_scripts/kchecker drivers/net/ethernet/freescale/mtipsw/
-
-7. GCC:
-        make mrproper
-        make allmodconfig
-        make W=1 drivers/net/ethernet/freescale/mtipsw/
-
-        
-        [source OE/Yocto SDK build environment]
-        CROSS_COMPILE=arm-poky-linux-gnueabi- ARCH=arm make mrproper
-        cp ./arch/arm/configs/mxs_defconfig .config
-        CROSS_COMPILE=arm-poky-linux-gnueabi- ARCH=arm make menuconfig
-        CROSS_COMPILE=arm-poky-linux-gnueabi- ARCH=arm make -j8 LOADADDR=0x40008000 uImage dtbs
-
-8. DT_SCHEMA checks:
-        source ~/.venv/bin/activate
-        source /opt/poky/3.1.31/environment-setup-armv5e-poky-linux-gnueabi
-        make dt_binding_check DT_SCHEMA_FILES=nxp,imx28-mtip-switch.yaml
-        make CHECK_DTBS=y DT_SCHEMA_FILES=nxp,imx28-mtip-switch.yaml nxp/mxs/imx28-xea.dtb
-
-
-Links:
-[1] - https://github.com/lmajewski/linux-imx28-l2switch/commits/master
-[2] - https://github.com/lmajewski/linux-imx28-l2switch/tree/imx28-v5.12-L2-upstream-RFC_v1
-[3] - https://source.denx.de/linux/linux-imx28-l2switch/-/tree/imx28-v5.12-L2-upstream-switchdev-RFC_v1?ref_type=heads
-[4] - https://github.com/lmajewski/linux-imx28-l2switch/commits/vf610-linux-6.6.y-mtipl2sw
-
-Lukasz Majewski (7):
-  dt-bindings: net: Add MTIP L2 switch description
-  net: mtip: The L2 switch driver for imx287
-  net: mtip: Add buffers management functions to the L2 switch driver
-  net: mtip: Add net_device_ops functions to the L2 switch driver
-  net: mtip: Add mtip_switch_{rx|tx} functions to the L2 switch driver
-  net: mtip: Extend the L2 switch driver with management operations
-  net: mtip: Extend the L2 switch driver for imx287 with bridge
-    operations
-
- .../bindings/net/nxp,imx28-mtip-switch.yaml   |  150 ++
- MAINTAINERS                                   |    7 +
- drivers/net/ethernet/freescale/Kconfig        |    1 +
- drivers/net/ethernet/freescale/Makefile       |    1 +
- drivers/net/ethernet/freescale/mtipsw/Kconfig |   13 +
- .../net/ethernet/freescale/mtipsw/Makefile    |    4 +
- .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 1997 +++++++++++++++++
- .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |  648 ++++++
- .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  132 ++
- .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  443 ++++
- 10 files changed, 3396 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
-
--- 
-2.39.5
-
+Reviewed-by: Clément Le Goffic <legoffic.clement@gmail.com>
 
