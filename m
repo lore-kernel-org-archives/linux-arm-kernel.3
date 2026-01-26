@@ -4,145 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BF56D1950F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 18:22:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CB2AD1950F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 18:24:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ptwgaIQvzipYZQV+lQpJ6WlEyaDu+fpIbY2a832Jmd8=; b=cGlUoulwCv5SseXCcmcs1Tb7Qo
-	6tERf37ycRPPPiwR7xE+JptZwABHm0EHfvI5xpvqeb0zqIBVpIBYhSCTJ2i9YwVIWtrscPE4tKsIt
-	VKBQxcB+esvlHuqgQCiaTjyzfBAaidCRtC/SRItFJdUYM6XFIhEcpJS6NwiBWsLl9d12/HDy85RnY
-	Ht8jttty5j4pvSxBzmcTu5brW4IAFyKWk3ohxMitzM4xRyvtzidUZn4xW6xucBi/5kI+B4Ri3kzpM
-	atbltoe/x9eqf3FfMbPZkkhLKtMkExFwbxV4corOKXNis2eOnQ0Gwu8f6gBxFO8/3wB2JSrCNLsIS
-	mzvERn2g==;
+	bh=BCcFyc82BL5NjswhEby+qpxccQGrfqrQSMirNpyrbzw=; b=ikQvdF+dqIVW/t+FfprA+i96Ve
+	96tzcac/R2LDkKHC6Yl9L5i/q6jmzjEw41pWOb2d/CudVjLqlAdfj5qlsCfH4GsIQ2lVK1bNPRyPJ
+	6tlypCLfAN90U7vprZGln20otZ14x80A6PPgcWwRFpDz9Sg0JbF3yWFm6oQm1Ec+WcCSYy/iUmmL8
+	AhZCL3Ly0hYuV4mLMK7gJEOmJqHELhe9Q+lA8aMVPRC4b8Ty2aOxc1nco0CoFMQbLz76BB8XBvplw
+	YR1O1Uy4IDC7gFGJpOEkzvsvSO0gEN5jLMhtXKEQyQCf/hAtnP/NbwmjjXFtCo9/ZxT6hGOSXP9NB
+	M2x3eeSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkRE6-0000000D4IX-3Bj2;
-	Mon, 26 Jan 2026 18:22:14 +0000
-Received: from mail-centralusazon11010058.outbound.protection.outlook.com ([52.101.61.58] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vkRFr-0000000D4aL-0Qqh;
+	Mon, 26 Jan 2026 18:24:03 +0000
+Received: from sender4-op-o10.zoho.com ([136.143.188.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkRE4-0000000D4Hl-1grB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 18:22:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qr0M9DgII7JPFBwsxNwU7ocgXcz6q/i9Hkuh1SlM/slV+awdzj0I3CpkP521sw3CRBv9P9hWo7Q9KXOWITUB4EngTAo32MBKdc8jI3BtJ/tyOPzOrUTi77DQopR88d9zB2HFM2Rbl4Q7oIu3Y7XBpIxfldonwJ+zaH4rAgLh1NWKCPoMJtxilT9eaHbKvLSh0WAV9KiwhX+vIBB4NsDOvtIGtDzgKFmxBu6WPiixbybOKAnrzMnZ67+HUl6T8R4iaGBC+0Tysu+Il7Qio1qk8w3QRJGjv/wysJ2XIFptQ7LyisGp1sEML8fm/wBw3jNxcqXduXNkTiyr/MHTwpLkjQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ptwgaIQvzipYZQV+lQpJ6WlEyaDu+fpIbY2a832Jmd8=;
- b=FdMnsvl9hBxGbjUQ8oVDIU5hkXuIzvrBl+bCqoGN+4M1FsO4BA2saXBMjsAiDMM8R8Is0K8kEdEf3hRkhGqwHamuN28EawuvXmSml/JLF14psGz7ozayD+/sthtjd4lSv4OBo+uXCZ2bCFDrSK64ILQru5R4Dwi1TBSdH8QKgSgUxYi8bP6hvLnu2685QaYOAT+WvGyaU95PHRQPTdyjZBaLrolghQne4RCOZ+73aoNR0WL0+8f6bdvWPcfqUgyNQHq/REZaSUw9TvsLI/GWPwzflYQsn7FlVr/gSsnwBSCcD2SFD4ot5J3uOWNjIE9kJ/MeMS7IuaekcoaATt9PVw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ptwgaIQvzipYZQV+lQpJ6WlEyaDu+fpIbY2a832Jmd8=;
- b=Y/5m7Q/Uw1u+xUS9fLlvIy6h9XNQjTzxu+jPeR7yXFYeD91PbWSJMSkDkRS6rjU6CLLqau5lb5c0ofkRwGDLnAPTDZmQWmdD8LaQwHk20F7Llwf2yRYGrJx8pQmX7muJ5uI/5N9sE4CeDTO4VZede3YtCuP3Bw3B0ysSxPX8VlkYoO/XQcGxMjoRLQ/dTHNDwk0TgramzSqNboyGNOijnP+pABcJyrDUokJcKqjZoEc4R6le+GeIGPAY64WIQIsj3Zq1BdN2GjYW1DnvWHx8ESKQKW2YfsZT4HlYorHWdrjB1SaIsNzWiBH8RebpMbkrUIMQpD78iSxqUvc5sj0sPw==
-Received: from SJ0PR05CA0130.namprd05.prod.outlook.com (2603:10b6:a03:33d::15)
- by PH8PR12MB6915.namprd12.prod.outlook.com (2603:10b6:510:1bc::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Mon, 26 Jan
- 2026 18:22:05 +0000
-Received: from CO1PEPF000042AA.namprd03.prod.outlook.com
- (2603:10b6:a03:33d:cafe::33) by SJ0PR05CA0130.outlook.office365.com
- (2603:10b6:a03:33d::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.7 via Frontend Transport; Mon,
- 26 Jan 2026 18:21:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- CO1PEPF000042AA.mail.protection.outlook.com (10.167.243.39) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.3 via Frontend Transport; Mon, 26 Jan 2026 18:21:57 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 26 Jan
- 2026 10:21:28 -0800
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Mon, 26 Jan 2026 10:21:28 -0800
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
- (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 26 Jan 2026 10:21:27 -0800
-Date: Mon, 26 Jan 2026 10:21:26 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>
-CC: <jgg@nvidia.com>, <robin.murphy@arm.com>, <bhelgaas@google.com>,
-	<joro@8bytes.org>, <praan@google.com>, <baolu.lu@linux.intel.com>,
-	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>
-Subject: Re: [PATCH RFCv1 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
-Message-ID: <aXewprV/zHKQ+ra+@Asurada-Nvidia>
-References: <cover.1768624180.git.nicolinc@nvidia.com>
- <09cb6be1f8f7472a2f1ccab72154cc6e22cf570b.1768624181.git.nicolinc@nvidia.com>
- <aXdgljWHHPVMTmya@willie-the-truck>
+	id 1vkRFo-0000000D4Zx-2ldK;
+	Mon, 26 Jan 2026 18:24:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769451824; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=SARI57JCNzYUUJvgh5eiMna3J/xzOo986mBnMyrAONQhI5Ckq1wW+md4pBj1D04wWCFgQk+ASsX/JkWViCpLqa8+V75LsyVjSPilsQawwi0Xtndi5X94D+e6u9/S4+x2xtyeI06vlzxIEZgwx+Zi6tc94erz6MvOOLJxT26Sg2c=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1769451824; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=BCcFyc82BL5NjswhEby+qpxccQGrfqrQSMirNpyrbzw=; 
+	b=NzZXtJEyPvI5ud8vMlfP/9ZgKDH/t2ffp68CjMpG8UGpyZSflFkvJFa1K2wyk/V/qTvudZu8j+JhGHcnX25rENNSrDJ1BoD0HjYoepXHybwB+UXYD9Lt/RnRQoIQcBouG8XKLI92QgtQ1VtO4qfbk9aT+ptTzdY9lo+FPQguJjw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
+	dmarc=pass header.from=<nfraprado@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769451824;
+	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
+	bh=BCcFyc82BL5NjswhEby+qpxccQGrfqrQSMirNpyrbzw=;
+	b=lMJVcvAPA4rxh1kwJCUc8CEOB2ucn9J16f4xqryuUecWSHSQ05a8RjLJ7VVfmpnM
+	x4zAGt0gsDnHAsXY3WNm7f2sjzEejobAv+luekczVyTceEi1b8865LHIlOxl2Cs4KC0
+	xKYI3BQKMVIjVuFFVD+l+dEOxI5BTunLnlAAhlRU=
+Received: by mx.zohomail.com with SMTPS id 176945182249825.35003191071928;
+	Mon, 26 Jan 2026 10:23:42 -0800 (PST)
+Message-ID: <1425ed35a21bcd9633524d4fc747b71a17068363.camel@collabora.com>
+Subject: Re: [PATCH v4 2/4] drm: Add CRTC background color property
+From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Maarten Lankhorst
+	 <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Sandy Huang	 <hjc@rock-chips.com>, Heiko
+ =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>,  Andy Yan
+ <andy.yan@rock-chips.com>, Louis Chauvet <louis.chauvet@bootlin.com>,
+ Haneen Mohammed	 <hamohammed.sa@gmail.com>, Melissa Wen
+ <melissa.srw@gmail.com>
+Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Matt Roper <matthew.d.roper@intel.com>
+Date: Mon, 26 Jan 2026 15:23:35 -0300
+In-Reply-To: <20251219-rk3588-bgcolor-v4-2-2ff1127ea757@collabora.com>
+References: <20251219-rk3588-bgcolor-v4-0-2ff1127ea757@collabora.com>
+	 <20251219-rk3588-bgcolor-v4-2-2ff1127ea757@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-8 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aXdgljWHHPVMTmya@willie-the-truck>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000042AA:EE_|PH8PR12MB6915:EE_
-X-MS-Office365-Filtering-Correlation-Id: ce96487a-878d-42c9-cd85-08de5d07ca2c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TgIfcVYkR1ODDX3xeeRl4al0cMr/9uoHNqxGYGPQMqtrSjRhCINONs4NR4YZ?=
- =?us-ascii?Q?N1PJHU8aWEMVP7pzMwJzKJcZr+M3r4xw+mHvjz5jhZEi1l6/IrRN1axeiIsG?=
- =?us-ascii?Q?HJjgR3IAoaKqkDj7J307FG14lgxCPR1N+6dRCIPNlZu4Bidc5G7fyEXWNm15?=
- =?us-ascii?Q?HBgvMwY2vKDSMEgZ5qR/C/IOm37aL4DXOI8oY1YchCO3IjiVolHYPflZFMjh?=
- =?us-ascii?Q?McBlnZ0Gf9R0X/4kt1eRZaQWSeyjGVqRh9QgUnVEcb2zmlN4aeO9kRmwJbmz?=
- =?us-ascii?Q?w9v/gfNBFyCHeGBPI4sEChmXo6mgm7KzIaMZcdCZZKg+ImqVePoE0DXtM+fB?=
- =?us-ascii?Q?paNaP1MIcJJ1zqzlFHZ/Ua3QqZ3P3TM/h5sgRY0tpGUdhs6OKqwaZXPSz/oD?=
- =?us-ascii?Q?WPUCqFLKNEWjFJSrXgWLlPtJtL3SPGwYomuVhuAFXiaFbKCeoBteGAvV+lIA?=
- =?us-ascii?Q?g13hgACtEXeoZKeArxBMiZAFwDRZ5EeeXTWzxJPDUQGPPbqb+T/BbMPbBHem?=
- =?us-ascii?Q?Xq0RxQhskLzXZdePrJsGyudXsOJMyLROqcq//YHeq+pANyRK9k7RYcqXug/X?=
- =?us-ascii?Q?gNX+LitGnLAxTz1JfLbBO9l/bieN1lXi3jwqY0QBBZ538oNxZ+G5igTNWRSj?=
- =?us-ascii?Q?zC5m5oKZXupe68PkwsJg4RFq8SfbmgNF+IT6NO+HMzhoiLBXDh2HbZy3MwzT?=
- =?us-ascii?Q?q6XjEUsR9VKtSuWztg9JA9edyLicmosjw4rA8pgAIFgKMeOF1+5qF6zSqsO2?=
- =?us-ascii?Q?xII95u/GKdPHQEWLLXRXRe/0jhkOs2z5PqWYMaV29RbAL6p0bsszrQUk0Tu4?=
- =?us-ascii?Q?GnVP9jraaNRAG3mmfr0g4J0dr47wZP8s3nFHW/LrM/D6svKzViNyTvwb6mU2?=
- =?us-ascii?Q?n1UpQh/IuC9ACvBqJymJjyZB5APKUeOHrt7s0ZcolwzjsgkYqusAmcMMmXQ4?=
- =?us-ascii?Q?VQxJom7+/3uQ21hD7hB/ibYsWQWd+6uo5oGCSNURxGOpCryGoDkWj21OAaP1?=
- =?us-ascii?Q?OKZA28BEmi/VpSQa22AJZf0WbQcUIjBzscxdPipOCpQvy8PindPKnL9M7KaJ?=
- =?us-ascii?Q?An5BlbSGX/Rcmlw0kFpdrfCgry4lXZuFV6CK2qS+2gXAVIZre93cvqiLstSO?=
- =?us-ascii?Q?6o/QTyIHvSpQoZGa0ZiNxqwFmdLfwhCP6ZkriQnA0VSAAjwtpxMCk7UAhFpS?=
- =?us-ascii?Q?qUwfBJY1Osol4+S2deU5vsHL4TaD2LbrktySOWa6KPArvij0vTLRQxSIgsXS?=
- =?us-ascii?Q?KL1t0JxIi0IbBNEPHGRoQKw+D6J9ewaTBu+Unn6KP1Ty822xTIo1ZuLMDxUZ?=
- =?us-ascii?Q?q657hj/yI4O8dzyWF8JXRT9bq45XX1V2dvLbY0RYzlm3xZHSMpzgRUQBRlsZ?=
- =?us-ascii?Q?FEjdLpoCQ8gbEmKLYvQYzK/dsZdlu1o5h60t7p9fZcg9Y3ib0uR8w8c+0l7f?=
- =?us-ascii?Q?zKysPhyx907duqlaWUVi+mBpbjMBlgbOu8nE+YZMMovIwByzCjW2sPPrXv6b?=
- =?us-ascii?Q?Emi5dEDUzFttt8IcqQLTT02InGQFeNB0fIYJB6L4oSEqzyYMVS0kgqBaY/0l?=
- =?us-ascii?Q?VSSHnk3AK24YhjdysCx5N22hboTpeq5UBFRWE6P29XnC9upOIgpUfMXVjAR2?=
- =?us-ascii?Q?qWWCbXt7lHJb0/Q5CGiFYXs9UtLuzsZP0FzHg/Bm9aFKh6J+r1ICyvCIaqxU?=
- =?us-ascii?Q?GRqSFA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 18:21:57.0389
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ce96487a-878d-42c9-cd85-08de5d07ca2c
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000042AA.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6915
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_102212_444668_EFF27BA8 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20260126_102400_749863_BA54A99B 
+X-CRM114-Status: GOOD (  20.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,46 +87,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 12:39:50PM +0000, Will Deacon wrote:
-> On Fri, Jan 16, 2026 at 08:56:42PM -0800, Nicolin Chen wrote:
-> > @@ -1422,7 +1422,7 @@ void arm_smmu_clear_cd(struct arm_smmu_master *master, ioasid_t ssid)
-> >  	if (!arm_smmu_cdtab_allocated(&master->cd_table))
-> >  		return;
-> >  	cdptr = arm_smmu_get_cd_ptr(master, ssid);
-> > -	if (WARN_ON(!cdptr))
-> > +	if (!cdptr)
-> >  		return;
-> 
-> Should we still warn if !master->ats_always_on?
+On Fri, 2025-12-19 at 23:46 +0200, Cristian Ciocaltea wrote:
+> Some display controllers can be hardware programmed to show non-black
+> colors for pixels that are either not covered by any plane or are
+> exposed through transparent regions of higher planes.=C2=A0 This feature
+> can
+> help reduce memory bandwidth usage, e.g. in compositors managing a UI
+> with a solid background color while using smaller planes to render
+> the
+> remaining content.
+>=20
+> To support this capability, introduce the BACKGROUND_COLOR standard
+> DRM
+> mode property, which can be attached to a CRTC through the
+> drm_crtc_attach_background_color_property() helper function.
+>=20
+> Additionally, define a 64-bit ARGB format value to be built with the
+> help of a couple of dedicated DRM_ARGB64_PREP*() helpers.=C2=A0 Individua=
+l
+> color components can be extracted with desired precision using the
+> corresponding DRM_ARGB64_GET*() macros.
+>=20
+> Co-developed-by: Matt Roper <matthew.d.roper@intel.com>
+> Signed-off-by: Matt Roper <matthew.d.roper@intel.com>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+> =C2=A0drivers/gpu/drm/drm_atomic_state_helper.c |=C2=A0 1 +
+> =C2=A0drivers/gpu/drm/drm_atomic_uapi.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0 4 ++
+> =C2=A0drivers/gpu/drm/drm_blend.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 39 ++++++++++++++++--
+> =C2=A0drivers/gpu/drm/drm_mode_config.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0 6 +++
+> =C2=A0include/drm/drm_blend.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 =
+4 +-
+> =C2=A0include/drm/drm_crtc.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 12 =
+++++++
+> =C2=A0include/drm/drm_mode_config.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 5 +++
+> =C2=A0include/uapi/drm/drm_mode.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 67
+> +++++++++++++++++++++++++++++++
+> =C2=A08 files changed, 133 insertions(+), 5 deletions(-)
 
-Hmm, yes. I'll fix this.
+You should also add a dump for this property in
+drm_atomic_crtc_print_state().
 
-> > @@ -3205,7 +3222,7 @@ static void arm_smmu_attach_dev_ste(struct iommu_domain *domain,
-> >  				    struct iommu_domain *old_domain,
-> >  				    struct device *dev,
-> >  				    struct arm_smmu_ste *ste,
-> > -				    unsigned int s1dss)
-> > +				    unsigned int s1dss, bool ats_always_on)
-> >  {
-> >  	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-> 
-> Can we avoid the 'bool' parameter if possible, please? They tend to make the
-> callsites pretty horrible to read and you're already passing the 'struct
-> device *' so you should have the master in hand?
+>=20
+> diff --git a/include/drm/drm_crtc.h b/include/drm/drm_crtc.h
+> index 66278ffeebd6..d99a74258d3d 100644
+> --- a/include/drm/drm_crtc.h
+> +++ b/include/drm/drm_crtc.h
+> @@ -274,6 +274,18 @@ struct drm_crtc_state {
+> =C2=A0	 */
+> =C2=A0	struct drm_property_blob *gamma_lut;
+> =C2=A0
+> +	/**
+> +	 * @background_color:
+> +	 *
+> +	 * RGB value representing the pipe's background color.=C2=A0 The
+> background
+> +	 * color (aka "canvas color") of a pipe is the color that
+> will be used
+> +	 * for pixels not covered by a plane, or covered by
+> transparent pixels
+> +	 * of a plane.=C2=A0 The value here should be built using
+> DRM_ARGB64_PREP*()
+> +	 * helpers, while the individual color components can be
+> extracted with
+> +	 * desired precision via the DRM_ARGB64_GET*() macros.
+> +	 */
+> +	u64 background_color;
+> +
 
-Trying to set ats_always_on=false for blocked domain here:
+/s/pipe/CRTC/ . pipe is an intel term but this is a generic CRTC
+property.
 
-@@ -3260,7 +3277,8 @@ static int arm_smmu_attach_dev_identity(struct iommu_domain *domain,
-	arm_smmu_attach_dev_ste(domain, old_domain, dev, &ste,
-				STRTAB_STE_1_S1DSS_BYPASS,
-				master->ats_always_on);
-@@ -3283,7 +3301,7 @@ static int arm_smmu_attach_dev_blocked(struct iommu_domain *domain,
-	arm_smmu_attach_dev_ste(domain, old_domain, dev, &ste,
-				STRTAB_STE_1_S1DSS_TERMINATE, false);
 
-But I think we could do that by combining master->ats_always_on
-with the s1dss. I will drop the "bool".
+Other than that,
 
-Thanks
-Nicolin
+Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+
+--=20
+Thanks,
+
+N=C3=ADcolas
 
