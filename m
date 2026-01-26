@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67CC7C88E43
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 03:22:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7584EC88E44
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 03:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pb2Tq6er4BO41TvKoQ35Jkzeqoj8YX2rwjW5soWNUEk=; b=fZh2Y7Mlg+3Rk2uQoQjYm7YTDP
-	Sla9t5OaFtNLkYlLW4tnQ37ijzzmfIL6joj7RdpLTL/k1GuPp4Vc33ch4jtT4VxCQ53bUlAgJypbM
-	iD4F1Y+X1IHG4MiMuVrnQenOSjRLdQmo2WGaFTOYitUaBAZhVg92tcrl80z2St7+spQIS/f1GX4wC
-	U76p8CXdC6vRMuGB+u1ixvN1jnovlXMrILP3IVYFF8FWGIdmlK3gypc09zggrFn4OHWzwbJpN2NIi
-	e9IONRf0voGufpCHwVEe7PJt5dqfG7MA5NECCejf8JwjVJr+tUGxpAu8Y4qwvEAICr2gV4oGMtUla
-	AGXxbIBw==;
+	bh=CPgZyTG1nb2O92WPWBJ59rytiCMrF1zajhRryF34s0c=; b=R1QV5p2TB71ozObFf32Ochea5K
+	qzBW5aP/8F/22eK5yAbUXBo6bZMEDCfWL4ICSegrKVrcrRrL5ySoc5kWUKABF6Z1rX3pCfz+R59t4
+	is+xSjTf7CgS+Ih4N5IbkL/P7jZVRyky98CCDieqfLo2aXnLvv0fxN+eo3rxMyR8eVCv1xk/8Cxqn
+	nQK33YmA7l5w56tDpYV9Ojpl+0YHWXJIowjNITh4/uzYkBKe5rO0aNmEMvXoVCWauzmCSuz17c9RR
+	ihAeOQDw3P9UgIYaR7N+MORfizku4ggdINHOGV23yhuxIhTTsQqcgqSseNMjQu/f+ojHHSMj0e7oZ
+	NvUmBf/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkDBI-0000000Bpo1-0nV2;
-	Mon, 26 Jan 2026 03:22:24 +0000
-Received: from mail-m49251.qiye.163.com ([45.254.49.251])
+	id 1vkDCp-0000000Bpxb-3x45;
+	Mon, 26 Jan 2026 03:23:59 +0000
+Received: from mail-m49208.qiye.163.com ([45.254.49.208])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkDBD-0000000Bpmc-2vAT;
-	Mon, 26 Jan 2026 03:22:22 +0000
+	id 1vkDCn-0000000Bpx1-2NCu;
+	Mon, 26 Jan 2026 03:23:58 +0000
 Received: from [172.16.12.51] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 31ed5cbf8;
-	Mon, 26 Jan 2026 11:22:06 +0800 (GMT+08:00)
-Message-ID: <e1b172bd-443f-40a5-9d9e-9e575b0b551e@rock-chips.com>
-Date: Mon, 26 Jan 2026 11:22:04 +0800
+	by smtp.qiye.163.com (Hmail) with ESMTP id 31ed77841;
+	Mon, 26 Jan 2026 11:23:53 +0800 (GMT+08:00)
+Message-ID: <9eb9948d-a70e-4a7e-a918-6aa4f2cb55af@rock-chips.com>
+Date: Mon, 26 Jan 2026 11:23:52 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 0/9] Add Type-C DP support for RK3399 EVB IND board
-To: Hugh Cole-Baker <sigmaris@gmail.com>
-Cc: Chaoyi Chen <kernel@airkyi.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Peter Chen <hzpeterchen@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+Subject: Re: [PATCH 0/6] Rockchip DRM use-after-free & null-ptr-deref fixes
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-References: <20260119073100.143-1-kernel@airkyi.com>
- <c9dd365b-ad8f-410e-96f8-f914f03634b2@gmail.com>
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Dmitry Baryshkov <lumag@kernel.org>, kernel@collabora.com,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260122-drm-rk-fixes-v1-0-3942f185750e@collabora.com>
+ <8e770288-f29b-4e72-b5a6-e3cfd77b87fb@rock-chips.com>
+ <8bdb6ea8-9434-4fa6-87ad-4c2f2697a3e5@collabora.com>
 Content-Language: en-US
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <c9dd365b-ad8f-410e-96f8-f914f03634b2@gmail.com>
+In-Reply-To: <8bdb6ea8-9434-4fa6-87ad-4c2f2697a3e5@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9bf852ab9103abkunm5b6bca956138b8
+X-HM-Tid: 0a9bf85450b603abkunme9a84376614288
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR4eTVZNSU4aHhgaSR9OQktWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE
-	5VSktLVUpCS0tZBg++
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk9OHlYfSB4eHUpNS0pJGh1WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=VJjllPb6UrdOVvskGBEx5XXVF18/enOJ6dktrusjWEltCBQ2HBc40/45+3muptxFTNRsh5zWw83F/nrsw+EUOzPjFV7cp1ky0Z9ohtxvTtYRy1/DzherP7nIjaITF7eNsDSUzzlqDuN3e0AVdcnZhQslauskZ8mzWFvL6L2x/eY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=pb2Tq6er4BO41TvKoQ35Jkzeqoj8YX2rwjW5soWNUEk=;
+	b=UM+MTPz9yNAZYB7c/Bi4dQcZawrfWa+YLlHPZmONf3Q6uvuCjkMp12SXUuMKbA/1ERs6TJlMOraoE8+5Kc7E2cDbSaUrGrcg5Y31NbBxRDY40e2roQ70FtNJRKzpGqKpqUXB/bJJRDmDsk/wPizOz8prl4m/5KCNTh8lRg2Wadg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=CPgZyTG1nb2O92WPWBJ59rytiCMrF1zajhRryF34s0c=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_192220_286673_0EEC090F 
-X-CRM114-Status: GOOD (  27.62  )
+X-CRM114-CacheID: sfid-20260125_192357_774728_9E0A39E8 
+X-CRM114-Status: UNSURE (   7.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,109 +80,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Hi Cristian, 
 
-On 1/26/2026 3:42 AM, Hugh Cole-Baker wrote:
-> On 19/01/2026 07:30, Chaoyi Chen wrote:
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>
->> This series focuses on adding Type-C DP support for USBDP PHY and DP
->> driver. The USBDP PHY and DP will perceive the changes in cable status
->> based on the USB PD and Type-C state machines provided by TCPM. Before
->> this, the USBDP PHY and DP controller of RK3399 sensed cable state
->> changes through extcon, and devices such as the RK3399 Gru-Chromebook
->> rely on them. This series should not break them.
->>
->> ====
->> 1. DisplayPort HPD status notify
->>
->> Before v7, I implemented a variety of DP HPD status notify. However,
->> they all had various problems and it was difficult to become a generic
->> solution.
->>
->> Under the guidance of Heikki and Dmitry, a decoupled notification
->> method between the TypeC and DRM subsystems was introduced in v7.
->> First, a notification is sent when TypeC registers a new altmode.
->> Then, a generic DP AUX HPD bridge is implemented on the DRM side.
->>
->> During v7-v10, we added a new notifier in typec to notify the altmode
->> device register event. With the help of Greg and Heikki, we implemented
->> the reuse of notifiers for the type bus itself in patch1 of v11.
->>
->> The USB subsystem related parts have already been merged into the
->> usb-next branch in v13 [0][1]. Therefore, this series no longer includes
->> these patches starting from v14. Thanks to Greg and Heikki!
->>
->> [0]: https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?h=usb-next&id=67ab45426215c7fdccb65aecd4cac15bbe4dfcbb
->> [1]: https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?h=usb-next&id=4dee13db29de6dd869af9b3827e1ff569644e838
->>
->> That makes it redundant for each Type-C controller driver to implement
->> a similar DP AUX HPD bridge in embedded scenarios.
->>
->> ====
->> 2. Altmode switching and orientation switching for USBDP PHY
->>
->> For USB Type-C interfaces, an external Type-C controller chip assists
->> by detecting cable attachment, determining plug orientation, and
->> reporting USB PD message. The USB/DP combo PHY supports software
->> configurable pin mapping and DisplayPort lane assignment. Based on
->> these message, the combo PHY can perform both altmode switching and
->> orientation switching via software.
->>
->> The RK3399 EVB IND board has a Type-C interface DisplayPort. It use
->> fusb302 chip as Type-C controller. The connection diagram is shown below:
->>
->> fusb302 chip +---> USB2.0 PHY ----> DWC3 USB controller
->>              |
->>              +---> USB/DP PHY0 +--> CDN-DP controller
->>                                |
->>                                +--> DWC3 USB controller
->>
->> ====
->> 3. Multiple bridge model for RK3399 CDN-DP
->>
->> The RK3399 has two USB/DP combo PHY and one CDN-DP controller. And
->> the CDN-DP can be switched to output to one of the PHYs.
->>
->> USB/DP PHY0 ---+
->>                | <----> CDN-DP controller
->> USB/DP PHY1 ---+
->>
->> In previous versions, if both PHY ports were connected to DP,
->> the CDN-DP driver would select the first PHY port for output.
->>
->> On Dmitry's suggestion, we introduced a multi-bridge model to support
->> flexible selection of the output PHY port. For each PHY port, a
->> separate encoder and bridge are registered.
->>
->> The change is based on the DRM AUX HPD bridge, rather than the
->> extcon approach. This requires the DT to correctly describe the
->> connections between the first bridge in bridge chain and DP
->> controller. And Once the first bridge is obtained, we can get the
->> last bridge corresponding to the USB-C connector, and then set the
->> DRM connector's fwnode to the corresponding one to enable HPD
->> notification.
+On 1/24/2026 7:18 AM, Cristian Ciocaltea wrote:
+> Do you have any specific usecase in mind?
 > 
-> With a similar dts patch [1] on top of this series I tested a type-C to
-> DP adapter/cable for display output on the ROCKPro64 board, which also
-> pairs a FUSB302 with RK3399. Booting it up with the cable plugged in
-> works, as does hotplugging the cable after booting in both orientations.
-> The correct mode for the display is detected. I wasn't able to test
-> audio, only video output, as this display doesn't have speakers.
-> 
-> I did once, after unplugging and reconnecting the cable a few times,
-> see it get into a state where it didn't detect the attached display.
-> Logs from that unplug/reconnect attempt are here [2] if of interest.
-> Nevertheless, hotplug seems to work the majority of the time, so
-> 
-> Tested-by: Hugh Cole-Baker <sigmaris@gmail.com>
-> 
-> [1]: https://github.com/sigmaris/linux/commit/91724088b19bee7d248946442a801423e8cd0634
-> [2]: https://gist.github.com/sigmaris/fa107384a7492583ceee1c2962f5030a
->
+> The tests performed so far were mostly focused on reloading the rockchipdrm
+> module, which is how I actually noticed those issues.
 
-Thank you for the test. I also have the same board, and I will
-try it later :)
+Ah, if that's the case, then there's no problem. Thank you!
 
 -- 
 Best, 
