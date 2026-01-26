@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1741D19503
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 17:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BDF6D19502
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 17:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YZi0QvA5ePpkOU2f7nqESzC+PSd6amUcTrkS7svcEis=; b=vNY4dSpqKX8uV2Mdk9XNg9Rn1t
-	PQ4iR+F5F9F2RyJFH0u3x6ogGpAvYJSXbNBTTIUHY/zV4sy5RmILtS2MF48vr9em5CwqQN5LTLEDl
-	c9XBWqFGFtukO+kJmBs6L8orEzvWmux6s8g76emghZFvWXw+sJN2u8JDWzOHNMN50YadfULC7m2wA
-	TQIvmYingEq1y2WGYLy/BH90iPzfW1p7+aYSm0BGTH0HW2lSC3Emmup6uBAAmOQ6Scy7Rt/d+x5HP
-	wS99Hkeuxp8D/G25QIcHHLvBkTPqidCg5Swkq++pjkmvhlTg7qkm8tKNlan9Zy/rTsFykv01jrNrl
-	EF+JHl5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p8c5GPt01bTNMOC5DjO2w06JVmC999dNYOtnMc3NBuU=; b=wDmzbMJtJHDdWNWtZb/aRvQu0D
+	oPTAVcQKkHiWAn5rgMRDcHIqg/EoGv4UVHFedavCD45Uwhpf3yPyXuw58ZTcUbZ2t5Fe4RDvFvHD7
+	N2YLQ0HUlC7thDyowUuPFTdW31XeaCmQ8y7e4nz7SGeY1iz17GNdnfcPTAWRFz4VO7eakv5x8+NeF
+	fbBu8KaPcFQDCgGDETu/vI2zga/4uxkwzm9oHodaSFBDwTRUhDZQ82OrWqH545LjGXvoYXzUzJXyl
+	n+Z23anjIMQwQnzyt3Q+ftqABv29nolB49z1sqcROVrXtP/9PU6+6BZirG506oCi4+gc4jA8FV7Xr
+	MJr+q7bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkQ64-0000000Cw3L-2KPH;
-	Mon, 26 Jan 2026 17:09:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkQ62-0000000Cw2O-1FoV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 17:09:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5874339;
-	Mon, 26 Jan 2026 09:09:41 -0800 (PST)
-Received: from [10.57.51.176] (unknown [10.57.51.176])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B1803F5CA;
-	Mon, 26 Jan 2026 09:09:46 -0800 (PST)
-Message-ID: <5f260792-40f2-4a54-a5d1-45644bc9012b@arm.com>
-Date: Mon, 26 Jan 2026 17:09:43 +0000
+	id 1vkQ7E-0000000CwF5-2pm1;
+	Mon, 26 Jan 2026 17:11:04 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkQ7B-0000000CwEE-3MhR;
+	Mon, 26 Jan 2026 17:11:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
+	bh=p8c5GPt01bTNMOC5DjO2w06JVmC999dNYOtnMc3NBuU=; b=VPjTc+hoob86dWZgFKUXtulmtM
+	gZPitaktD/hEw9QpqQCeoVBUAxcbUblyvAai8WUJNcrhSWQQ513Z8fC89AvzpfB8c0wVm8KsCH3XM
+	yA6yAHEQLUacGLiE9HYmja+QTB56JPREyffVv1EQS1TZzFoX/TQoSTdWzCYKkYa914m9mpaDYpheK
+	t3U7zyvIVS2wnpybvIefeVfFCXqGEnssEXFWvNTvmQBf4dRVy9+82nilmojoRiQHmWvTUveFUrI/3
+	1KVcrjSrHex/Nln8wLnISRspUVfovJC3haSjPJAVgZRDHFG4Fhf+WIee05vP5uix6rRCiToZamBjR
+	3tcuI6Xg==;
+Received: from i53875a0f.versanet.de ([83.135.90.15] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vkQ79-004eRa-D0; Mon, 26 Jan 2026 18:10:59 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Rockchip dts64 changes for 6.20 #2
+Date: Mon, 26 Jan 2026 18:10:59 +0100
+Message-ID: <4851923.QJadu78ljV@diego>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] dt-bindings/perf: Drop irqs for clock domains without
- a PMU instance
-To: Baisheng Gao <baisheng.gao@unisoc.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: cixi.geng@linux.dev, hao_hao.wang@unisoc.com,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-References: <20260126033029.7923-1-baisheng.gao@unisoc.com>
- <20260126033029.7923-3-baisheng.gao@unisoc.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260126033029.7923-3-baisheng.gao@unisoc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_090950_384377_21776E5A 
-X-CRM114-Status: GOOD (  18.42  )
+X-CRM114-CacheID: sfid-20260126_091101_867284_62B1CA74 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,50 +67,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-01-26 3:30 am, Baisheng Gao wrote:
-> No need to specify the interrupts for the clock domains without a
-> PMU instance.
+Hi soc maintainers,
 
-Yes there is a need, because it's what the binding has already defined 
-and systems are already implementing, so breaking compatibility at this 
-point more than a year after its introduction is not really acceptable. 
-And although there's no strict requirement for the DT and ACPI bindings 
-to be equivalent, in this case they currently are, and it doesn't seem 
-like you've accounted for ACPI here either.
+please find below and in the next mails some more Rockchip changes
+for 6.20 .
 
-Fact is, the Arm NI-700, NI-710AE, NoC S3 and SI L1 designs do all 
-define <CLKNAME>_nPMUINTERRUPT outputs for each <CLKNAME> domain, and 
-the intent of the binding was always to describe the hardware. If it's 
-the case that one or more of those interrupts are not wired up at all 
-(and presumably the corresponding PMU is never exposed to Non-Secure, 
-since it's unlikely to be useful), then at worst it's reasonable to use 
-dummy entries to pad the array.
+Please pull.
+Thanks
+Heiko
 
-If on the other hand you really have got something that is mangled to 
-the point of not being compatible with the stock Arm designs, then it 
-most likely warrants its own binding.
 
-Thanks,
-Robin.
+The following changes since commit da0de806d8b46238ac3891a894806da4d1c26cdf:
 
-> Signed-off-by: Baisheng Gao <baisheng.gao@unisoc.com>
-> ---
->   Documentation/devicetree/bindings/perf/arm,ni.yaml | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/perf/arm,ni.yaml b/Documentation/devicetree/bindings/perf/arm,ni.yaml
-> index d66fffa256d5..40a5b8929ef2 100644
-> --- a/Documentation/devicetree/bindings/perf/arm,ni.yaml
-> +++ b/Documentation/devicetree/bindings/perf/arm,ni.yaml
-> @@ -20,7 +20,8 @@ properties:
->     interrupts:
->       minItems: 1
->       maxItems: 32
-> -    description: Overflow interrupts, one per clock domain, in order of domain ID
-> +    description: Overflow interrupts, one per clock domain which has a PMU
-> +      instance, in order of domain ID.
->   
->   required:
->     - compatible
+  arm64: dts: rockchip: Add the vdpu383 Video Decoder on rk3576 (2026-01-09 20:58:40 +0100)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.20-rockchip-dts64-2
+
+for you to fetch changes up to 46c56b737161060dfa468f25ae699749047902a2:
+
+  arm64: dts: rockchip: Fix rk3588 PCIe range mappings (2026-01-22 19:41:40 +0100)
+
+----------------------------------------------------------------
+New boards: Anberic RG-DS game console, Radxa CM3J module + baseboard
+for the Rpi CM4 IO board, QNAP TS133 from the RK3568 NAS series.
+
+2 display outputs for the Lion board (old RK3368), TPS65185 pmic for the
+PineNote and fixes for the PCIe ranges on both RK356x and RK3588.
+These came quite late, so I wanted to give them the time till 6.20-rc1
+and have them migrate to stable-kernels afterwards.
+
+The rest is small stuff on a number of boards wrt gpios and compatibles.
+
+----------------------------------------------------------------
+Alexey Charkov (1):
+      arm64: dts: rockchip: Explicitly request UFS reset pin on RK3576
+
+Andreas Kemnade (1):
+      arm64: dts: rockchip: Add TPS65185 for PineNote
+
+Chris Morgan (3):
+      dt-bindings: arm: rockchip: Add Anbernic RG-DS
+      dt-bindings: input: touchscreen: goodix: Add "panel" property
+      arm64: dts: rockchip: Add Anbernic RG-DS
+
+FUKAUMI Naoki (4):
+      arm64: dts: rockchip: Make eeprom read-only for Radxa ROCK 3C/5A/5C
+      dt-bindings: arm: rockchip: Add Radxa CM3J on RPi CM4 IO Board
+      arm64: dts: rockchip: Add Radxa CM3J
+      arm64: dts: rockchip: Add Radxa CM3J on RPi CM4 IO Board
+
+Heiko Stuebner (10):
+      arm64: dts: rockchip: Move SoC include to individual QNAP TSx33 boards
+      arm64: dts: rockchip: Fix the common combophy + SATA on QNAP TSx33 devices
+      arm64: dts: rockchip: Move copy-key to TSx33 board files
+      dt-bindings: arm: rockchip: add TS133 to RK356x-based QNAP NAS devices
+      arm64: dts: rockchip: Add TS133 variant of the QNAP NAS series
+      arm64: dts: rockchip: Use phandle for i2c_lvds_blc on rk3368-lion haikou
+      arm64: dts: rockchip: Add HDMI node to RK3368
+      arm64: dts: rockchip: Enable HDMI output on RK3368-Lion-Haikou
+      arm64: dts: rockchip: Enable pwm1 on rk3368-lion-haikou
+      arm64: dts: rockchip: Add the Video-Demo overlay for Lion Haikou
+
+Jun Yan (1):
+      arm64: dts: rockchip: Do not enable hdmi_sound node on Pinebook Pro
+
+Luis Garcia (1):
+      arm64: dts: rockchip: Fix imx258 variant on pinephone pro
+
+Shawn Lin (4):
+      arm64: dts: rockchip: Fix SD card support for RK3576 EVB1
+      arm64: dts: rockchip: Fix SD card support for RK3576 Nanopi R76s
+      arm64: dts: rockchip: Fix rk356x PCIe range mappings
+      arm64: dts: rockchip: Fix rk3588 PCIe range mappings
+
+ .../devicetree/bindings/arm/rockchip.yaml          |   27 +-
+ .../bindings/input/touchscreen/goodix.yaml         |    2 +
+ arch/arm64/boot/dts/rockchip/Makefile              |    8 +
+ .../rockchip/rk3368-lion-haikou-video-demo.dtso    |  170 +++
+ .../arm64/boot/dts/rockchip/rk3368-lion-haikou.dts |   38 +-
+ arch/arm64/boot/dts/rockchip/rk3368-lion.dtsi      |    5 +
+ arch/arm64/boot/dts/rockchip/rk3368.dtsi           |   43 +
+ .../boot/dts/rockchip/rk3399-pinebook-pro.dts      |    4 -
+ .../boot/dts/rockchip/rk3399-pinephone-pro.dts     |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi  |   49 +
+ arch/arm64/boot/dts/rockchip/rk3566-qnap-ts133.dts |   71 ++
+ arch/arm64/boot/dts/rockchip/rk3566-rock-3c.dts    |    1 +
+ .../boot/dts/rockchip/rk3568-anbernic-rg-ds.dts    | 1237 ++++++++++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3568-qnap-ts233.dts |   18 +-
+ arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts |   18 +-
+ .../arm64/boot/dts/rockchip/rk3568-qnap-tsx33.dtsi |   21 +-
+ .../dts/rockchip/rk3568-radxa-cm3j-rpi-cm4.dts     |  204 ++++
+ .../arm64/boot/dts/rockchip/rk3568-radxa-cm3j.dtsi |  558 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3568.dtsi           |    4 +-
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts   |   22 +
+ .../arm64/boot/dts/rockchip/rk3576-nanopi-r76s.dts |   23 +-
+ arch/arm64/boot/dts/rockchip/rk3576-pinctrl.dtsi   |    7 +
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi           |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |    4 +-
+ arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi     |    6 +-
+ arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts   |    1 +
+ arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts   |    1 +
+ 28 files changed, 2498 insertions(+), 50 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3368-lion-haikou-video-demo.dtso
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3566-qnap-ts133.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-anbernic-rg-ds.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-radxa-cm3j-rpi-cm4.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-radxa-cm3j.dtsi
+
+
 
 
