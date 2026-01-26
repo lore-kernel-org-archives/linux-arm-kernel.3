@@ -4,153 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABEFD1951B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 21:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CEEDD1951D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 21:32:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mWQQzXMs3m8rBQyTA+32bJ2mc0MTp65jPW+GQkTPHqk=; b=AV4bgjQ5I9qo+/efEZ6itQM6F5
-	uVIxpbMFDsFqTli88a1pJFlM1c3v/VqOTebGvAMKLzwIClnkIqUoaqvDIS3XqETZuhYQWxbv2CML6
-	AJyVZyp6FHiYKPMBQUvD3sNbsA7H5QUQkd9KtuGvwemP5hu02yU/HAe1CGTRCIqigYWT39ezRjdHu
-	jyvfHhjBfBJETjprJi4InnOtJkMvW6ZN4XsTTEdx/tvlDIFxY2umnYGlAIujPqT8D6TTIrPsNgLNg
-	eB7OgUQBpm7qdODcZ8bPT/RWb1NRaZhMR+9j+K3sDSvzS1SP4sD9C9bgUSKzXfPEfYbQh/ndEN79s
-	5bJn1aBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GdffSHeo/iYpRVNWqMXBIRygwWn3EwsHPHsZ8am4tRk=; b=3T38NAQuRvPM2yHk1FhujbAOj3
+	KJbltpnluLu9ji6QG0OIC60T8Az4G9/eKqmta+TBmjNr8dO0qP2iumaY7BokpjeaeqI5g0cKWGt0z
+	iO3Sdo/IqjDCgnpJ4pO+iByj9gQLUsh1+KscaR+tn+lNHf78FqVg/70Wd5YIUTFvifWUbIuxfgjA5
+	ATXP8wisL1dXnyF+E9suBHlqauGGKQ6ENykU+KLVJB5WlDU12q1Px8yQcdAfN+8mP0YAaFmXpjNDj
+	FanFtVKLAeBzJ/MN3ETMoh7uwyEmOAWbdqkbL3/OTTeG9cpFG8/b+nHNqT5Trh/8b1cg9j+v0gH/U
+	xwOWIWVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkU0H-0000000DGv9-324R;
-	Mon, 26 Jan 2026 21:20:09 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vkUBp-0000000DHGH-3jGb;
+	Mon, 26 Jan 2026 21:32:05 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkU0E-0000000DGud-3gxV
+	id 1vkUBn-0000000DHFt-40vg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 21:20:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kG4cZQleb60Dja4Iq8tyRitzSli1apt2iXV3NOZamF0QrfEBTJ+JmEXHQuRgXmhXoC8E3+YdYGpFDPGhlWPqPer0vV2nb062B3WK4lM9FcfEWHFX5bsDIyIw68c2prV02EAT+TCx9YYNO0pBXooOktTKrpnpfog4+f5aj8UcSzfNnEf/cnI7dEK1X9g+tUTOQxB51OU7dEr7XDvNR4SxQ3U/bogxKn5NR/Bcr2+gklBofCp/NJAlFIxexCKPAahaw/91thfdVLos5Ah2w7etoRU7AfUQVqzU7yMvxA4xhOFNI5wYME/uje4eaJgcZB1gH4Ozokidm9RjH4NUn5GGCA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mWQQzXMs3m8rBQyTA+32bJ2mc0MTp65jPW+GQkTPHqk=;
- b=pKnL/zyxFXIDj0sB1Rk7rJF4NCBq3d0pxw88yHnulLqDIOpI3IPWnyDo5UTVR5MIcBSRxpoBUjGkhCU9vMcSzLssJFg3wOtmFvc3OXVUuQKIe33Y7v+Jpz7AZLjD/6vUZ1CdKWf9ihRbIL1LGCfOUwaMfoiZQjTr4cLl3jjMAqMjvZiDmq9vrVRgKXNyHe6m6TL0yMZZ/tKo3KRSrXJY0fQBHNCrzyZRgsCNaowiT81xuoYDtgGe7RpCfjrTRO2vyap68rm2qxKTIr8zg1ZnyDL7iB5uyWUO0vbl4IMWpMIAPnjvbtEEpxzDCwQ0hNf++gtYtD/qrQ28MxpbkmCn1w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mWQQzXMs3m8rBQyTA+32bJ2mc0MTp65jPW+GQkTPHqk=;
- b=lFhV/N+GGAT/DRNPKd13mU58F4txh04gI6oa/Ehm7eiTCD8L577bqyrA0fNCxVOvyeWUVYjpG2S4a/b6UDCbinCFF05DklYpYpZ8IjuC0Z0Yy2A5RdJKtqtdRuZg5Na+M9EbOfkmlBZtNF6stYpvaNz9AFqj4vjRYgxgGt5K1e7e/TuONZGL3JJf5LM+HCYw/hkbh+r7JC2unfvKEZsiSvWmVSsfhbmN0JypD6VtySxXeVDQkG2/75t7LAmocvJ5T2aHNLOpplmzEsuiguuINj8GO+ARZjod7gbZVxz0LULBstbRJtgNN3ekO0K0lgWXB57UvnkOmP2yVUE9ptFusg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by CYYPR12MB8922.namprd12.prod.outlook.com (2603:10b6:930:b8::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.16; Mon, 26 Jan
- 2026 21:20:01 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9542.015; Mon, 26 Jan 2026
- 21:20:01 +0000
-Date: Mon, 26 Jan 2026 17:20:00 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
-	praan@google.com, miko.lenczewski@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, patches@lists.linux.dev
-Subject: Re: [PATCH v2 07/10] iommu/arm-smmu-v3: Pass in vsmmu to
- arm_smmu_domain_get_iotlb_tag()
-Message-ID: <20260126212000.GC1134360@nvidia.com>
-References: <cover.1769044718.git.nicolinc@nvidia.com>
- <813abd4f054c21f1bdb4c26999ecb46eb54f266e.1769044718.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <813abd4f054c21f1bdb4c26999ecb46eb54f266e.1769044718.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: BL0PR1501CA0033.namprd15.prod.outlook.com
- (2603:10b6:207:17::46) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Mon, 26 Jan 2026 21:32:05 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2a0d06cfa93so6955ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 13:32:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769463122; cv=none;
+        d=google.com; s=arc-20240605;
+        b=huzo+UVgF1Lv+kTAnGQFP/raBG9u4UAkTkBSnPk3SD8zAPxq/sExOYdLzdCvq13fCj
+         yS4gMT4I9ctcP/UQkiJEm+IuN2BKY0ZS/SVC6m+WzhtGotcjuemTd3KbUyfy4YIVgiGJ
+         Zvztemg2ppjLmxVTDdodZDwBL1n8ITAS2iD1ZuF8ROwlFjc2XiV2p6MJwCRjGyyOu3rp
+         iuTF6ZTcHl/r//gOWFX+8ev5Rs+CDE3y0QuoT2XWsZdDBh3lJ1UXh8xaDr2Naj8LE2UF
+         E+PPaLSebJEF1WbaUy57QEfSAQzaQktmVIZNkvT1nA3oEbLa3FF9lhygM/jlhYJbrYJZ
+         W99A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=GdffSHeo/iYpRVNWqMXBIRygwWn3EwsHPHsZ8am4tRk=;
+        fh=6XD8V0aYFoWkAr3GA/eZcf8YHIINOXfAeEBJXX+B/sw=;
+        b=dSW6H309llsvtIkBed9EXaI2kOx0fpE32hY8eqCbPY4S9bVZ/hARZrk7A8QQcdsSky
+         RE2jNbhKdeR37sW5xLsE9a1f0Dzu+5eCG9pBAc0V4CQ3bR1R7krQOOQ6tvCRkt3vknj7
+         6+l1vufGg8I1wrT34La3Oh8X5OVIPJbIyK+hqKM5FsgejwFjge7dzddW9oQLd9m9kdWE
+         6+/RPcHt0UmqvLOUE9yGegJZqhk5saww3p36CPbX2TL+f3tCQl29HnV5oq6KucbkuhZX
+         yf4mspZkvZeJ1F98qAqnPKJovg83zvu/349KxHdjxjjTqVvrIz4gvOBuDYtMK/1ir7YA
+         zG9w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1769463122; x=1770067922; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GdffSHeo/iYpRVNWqMXBIRygwWn3EwsHPHsZ8am4tRk=;
+        b=F1n79A1uwbNM7Z+HFI7wLXIMahuqUg2s6wre3XzLa6QJub9jM97dwuuZ29RQfhr7q2
+         WAxidMX/4t02Ky54A49rbJz60nosUpRbFBCgKbiPnPmB74U5/OO2YE3+BLdw9GKG0Opl
+         Xf523cUwFpRXtjsm+PDnCXT+AMOLqPEG53JyKFmTT/jVLgfxtyNsYPGXe/26zSyf7OZa
+         6YAl+1/ZzCjQqsPUB9l1z3q7nxdkZkj0ljCe9PSCvD8yn0eGB6YkYir/EuTLhA5Gs5tF
+         M/uSiXGjB4PldwN5g3hRtKsM9yRj/wKwkFyuuAvXrcTRcw7O4Fi46BHjFkKDBYj6mfTI
+         bEFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769463122; x=1770067922;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=GdffSHeo/iYpRVNWqMXBIRygwWn3EwsHPHsZ8am4tRk=;
+        b=Cm16u+Vj+BQsD7JpXKOhNkRzV6C8Asu6jH6R6Uvl0MnuCtmaCOAeMNO0sX4YVCwKwd
+         LvnJtt+v2CSTDOMyC5CzbGR3ox8oiIBnn4f25EJXB/R9Tv/Dg2JGTo4ymku2tYsbmWIk
+         hlMrmZ+TMRHkHxIbRwLoBRn/lO6wK53uHBFXO/tNTCFV4rQ3ad3E6CFYkIyJeTlkeMCO
+         wEi0XONjz9pgIQpOBfq8zUVpElFOcR5lanhsmVbtX7MxVk+hV6dNdBqgbTELyK23XSVO
+         hlV5O4BqoZXWJW4vla+Du4sjXru+S+/70EtEl+1NqzT7PbOIpShvZk2vrFH2kTlI2g4C
+         /Ddw==
+X-Forwarded-Encrypted: i=1; AJvYcCVNgcx9TJa2WLyG8t1S0tunZbxrqZZn8V6vV+5Vu1QbUHJX0a+tdgLTkcL7cjLLHAUh1z8vcKFgl4KmT5ioZONp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzWNhEPj66CZ928JJ4x3BSi5GoGKfbTT4XHaWyf5LgBO8GSb9P
+	OSX6wkyz6pESVqNilO0UnuB4OSunNoe0AhILKHu+xU4l8nJq6jApzlbkF6oE9ZMjqoDuuLRY/vO
+	XalIWKpAE5hUaRxbTzwYr+J6QeuZpCfytC3nNM3nW
+X-Gm-Gg: AZuq6aKBfxGDRnVQoljl/Od69co5p1HXya4RIW6vtK9OIFwk4PH2dCCl0Eoc/r3IQK1
+	m3J5hULxj9cx+K6mVI6yu7PRGQSymCz4sO40womJ4Y8DesZa64o+LtmE7TGLapvtpFEaKqSPw3v
+	B2Six+tTIeu3NmZNmuX1RyE6ubhry+Tg8SUTaJ8c45eVXETQTuvQq8Hm5/2KEL/mkyKmBCiNo/E
+	iY8XdPZIyKRKOnnOY5ZH24IjonlSY2T3N55EE+8Up0Ohmw9eBvksRnzb1pObpXBCP+XfkklTRie
+	8EaxB4QweQ29ce+iwI3cArwx
+X-Received: by 2002:a17:903:18b:b0:2a0:7fac:c031 with SMTP id
+ d9443c01a7336-2a844e78abcmr3049555ad.14.1769463121618; Mon, 26 Jan 2026
+ 13:32:01 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CYYPR12MB8922:EE_
-X-MS-Office365-Filtering-Correlation-Id: 851a6ba2-78e3-44a3-082c-08de5d20aa4c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BjY4SwxN2VLhWh9nkjoRwxiwXTWyzcv8BEyjqRmwZffK1vjIsF8rie08PQNW?=
- =?us-ascii?Q?yojQ4R9XCwkhsaWYp+t6XTebaCu3wTjN1C+dDElhY/aPDYXPdybzSJ17hUPz?=
- =?us-ascii?Q?aZ5FhGwHQLFDYiZleRjQ2G3X7UoNOZfSIgNUitt/ajD1QfrAhgJdkG5GAtfT?=
- =?us-ascii?Q?JsIK3Lwdp4UOKzGSZdG7q7nL0Tp5+OnDVaIZiJqzpB/XbllvAl689U0MPDw9?=
- =?us-ascii?Q?3FK1Yrz46uInsz25xrLPYWRwUoF2soq8s2rEIuwdMwOZ11mqJ4AzMRIp78/K?=
- =?us-ascii?Q?CEEFKheG3w3fl9NCcvB0CNZMKr6z6eoXUuSbI0C/Aoyey7wSMzka1uJ94/Pr?=
- =?us-ascii?Q?ZRNJ9zMqKy6mcDWsq5jX9lu0HiuDLqugdabzBcdyPW0+WtDt8vGEcq0SWIcg?=
- =?us-ascii?Q?C/mmghOpjWGPsPyDW9nCx8jG4UMgHQ3cleS1QRwwY7i5Zwx2Mk6idCM6MRaq?=
- =?us-ascii?Q?psggY/JiKaslY3VQS5W/EZaFBKvDH1QpqTkAJHeCZuVFTWwt/dIfggQr7GCH?=
- =?us-ascii?Q?f/Zi6qoB0aQdBLSX2XRpQkgfySQs7xyZGbiaycxqYF1JIXsE6adsrzjNHX4x?=
- =?us-ascii?Q?RRqahP+SaY0oeIkTdS1MDd90qm1V3kkLDVHgvXBVhKu0ZW2KlhfBRB7489i2?=
- =?us-ascii?Q?5QEo8okeFSzeICcQ8SeHmwc0aj5wxhx2q+bEtx3fqlMGrQkIwjuCUjYENC/W?=
- =?us-ascii?Q?DARq6P6ffgrI07quekqgDDdZ155FS/kVUvzxJKuRcd0o6B2qER8hRNfC1zyD?=
- =?us-ascii?Q?/zg1d8F/PsaxYD8H+tsd7iJo2jqC2Ye47q05J3067CjF6iT0O3LkrGXwLVYu?=
- =?us-ascii?Q?2RIYd6EcjHL/i2K1V+qRuz2RqfzG6egZZgFs6nhZIWclJgh0agZwr90tiMrg?=
- =?us-ascii?Q?9VEV8HcKPqb4SkXs/D8KF86Sq3rx9MhCG5JgsWVSGf0JcTxL3lSb88RHT0Kr?=
- =?us-ascii?Q?G0cqVpmwxDQy4VBAL4DG7GZa0Y2yZ6J4TqhB2KH/0V1jEq3IcPgi6y2bSA3s?=
- =?us-ascii?Q?YtTPuEAGxWZ4HpDKWfI0FkKbGaVebF86A9rzdJdesGgUP3EzRrStTf0jzrvr?=
- =?us-ascii?Q?md1QL3aH56J9uWPkjeW0d2Awpha5KWB8fG85e8Wk8K38QNsarKVosNuj+kSF?=
- =?us-ascii?Q?1XUDg00NA93lqcnOUZ/tLRI3MFwjksWdvREpj0yi1VaMd6NTRGNP8odZ+42c?=
- =?us-ascii?Q?yjSD/HeJm/p8gD3UBrGuEqD9IRRUN7MWpJfssaV7ZsSeQZWQoteIjWIsankU?=
- =?us-ascii?Q?oRCznpruWDR6mQvsXFuBDJDzW5rD5+E6KlXzlsdRXsiw7J0qn1qTu7oPzKq/?=
- =?us-ascii?Q?0O1IU/MnSDZwSXoIie0jyNcJOMcIfWRKkkZIsBcn/tjZhbJGecdgq6H21vpx?=
- =?us-ascii?Q?bPkcLIi4VAGfJewGrnIMtNVPvPzHCKsGcd2TsLESLVBXMqXYCULinbDaLei9?=
- =?us-ascii?Q?DsTiKT+vmLhTJKEOFiiNMT0O+CD2Se+aSv6DP+/UnCSB+awjAzJP1vTWf3hb?=
- =?us-ascii?Q?JZC0dOqzmHhkNX2KYCi2OKxPS1VrwFUO0GS7daO0vU6rIIlEStAZ16aQ39QS?=
- =?us-ascii?Q?4Fxod15YHGSRohDsWUg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2cyBjyf6SPYm5oNKpVJBOpJiVP9blxv+jTdZ5tQGQ5tq6ugckTbYdk+pkXvU?=
- =?us-ascii?Q?QAdpGpFbCm8vVB+d/Wseb1A7KrDD+sVZ7D32enA1MwmUb3g5OdmSYjidJDp6?=
- =?us-ascii?Q?vqFi4uNXhkDigCF5wwBdCQJHrYC0nZDlOvdDiuCEaSsJxCoaUwsvtB/OguRj?=
- =?us-ascii?Q?cxynzOurf6WynW0l/v7420Hh5ZZ1Gi+5+Us35Bv4WOJnVJsOeaI4A3z48SDH?=
- =?us-ascii?Q?RBbqKCFNXEzYtCZEVz0rr34OPU0Q6xL/yuLYZFmK2+OXO/1LoStHTYPs9ZUT?=
- =?us-ascii?Q?1eoJ/UJeKLc6r3h7Ae15J2H+1vQdgO/XTOHY67rn1+BLPoHIuZBz+gZH1whR?=
- =?us-ascii?Q?bMHxWD8Xjgaz8kgREx0jsYtf2Q5JIUFFjEb+zj3ijZIevTnwW48/9F0czNfQ?=
- =?us-ascii?Q?r2c7BoXI5FMD2vbL6SlSzdFWLDhRxncOi1tJW/6Vis1AfmlFXzVao65lQMga?=
- =?us-ascii?Q?L08vUVU8O+MMqEy/SSVaZ9Uzay5DhxGpFVPtk9fUNma1OsKWkgTFeeqTcH9G?=
- =?us-ascii?Q?OjH+T8KWeS/9GGFTQkSfLPFYu0+8Y90fXAJkM6UEaAFsCoAzgiDDQSYlWkp7?=
- =?us-ascii?Q?3+7Xrmo4uKZME/fNJUc9nDBwB+Rq8f3kdcynvWVv+fyUp4NFZYdI0d5cbNmQ?=
- =?us-ascii?Q?HYRqlRso3zT5aPLm7q3tGL9VrObvydbAp+jPLwWo2r545cc5kJEfUpkdAz4I?=
- =?us-ascii?Q?9OURvbF1GBgGOiHoJjqQAywM2gAoSDzsSFCImUBNlxLArhVe1JGsVPJI6yGb?=
- =?us-ascii?Q?K3bSaWcid4+oiTBNtR40rPEUf6mOHBxq3UPFnp0h1JAOYArn2GxHYcizCgyY?=
- =?us-ascii?Q?GroB1Hftr1mXfpwzvnsDwBVSHhCTlZlPe0NfqTpwlvYgKzMKVoNw3gZVhtJN?=
- =?us-ascii?Q?5me9KkIR8d0NVuppSC57P/xWvUCH51vG4n3VGnLZno3pRFbasUKqfeX0CPn0?=
- =?us-ascii?Q?ykYrmqXzMzaRZWp9sv/5UOUlBVkt39KEM4vydYkeH3APQAowZZzYhsh+0sBF?=
- =?us-ascii?Q?oFtlwVP88fh/ZX06NVVEVmjK4BR0Vnn4aNMhVSm6Us2E8Zi2o+09UjIigbEv?=
- =?us-ascii?Q?jdPJkwQBQ7Z6MkhahrQADX8252BRyw2oj6kmy5h7CgxNkVWugNkHaS8LK7is?=
- =?us-ascii?Q?1/HTYa/RwYi775fg0FUdxNwTvwC59CURfWhEdKVYGGRuUaMSTGy7fvElqriJ?=
- =?us-ascii?Q?lVWruH9Pzdssvs2sFxfdg7oyBtLtk5LBZLZhsE61jk7xOMsoAhusz9ZxM1Q0?=
- =?us-ascii?Q?S8moRxoYfFx43VJHCvyciKyKaCA+x3/6stGmcEU5iCD75/JXyvP6XKo/9fdL?=
- =?us-ascii?Q?S2jdGxTs0DmPtqJY9THiB+M8xpuVO6Q+/oNBriACHuKVescqTyNQZs6wFkPY?=
- =?us-ascii?Q?B4wP/B1BciraqP1n0HEeA4P3oSTfvtutnqgP0D+QHY/xY4PkkMVy1ue/Joid?=
- =?us-ascii?Q?EVrvk7uW5zWD3HyaP+uaFNbSwaRTSacibEHyxL36z3/eeb/vxFeUxHsqO2A8?=
- =?us-ascii?Q?bAspNv5ebbVrJFZj18+D9pLtcyiifzTXSskYSqvi5ZajYNFPsLekBJRR71oY?=
- =?us-ascii?Q?Hffev0/Pr7MGxewJABR9lzyTLby41CstInM2j3dJDPjgC6s9a6T+jCLcxIBy?=
- =?us-ascii?Q?TlioXETYVeAiyy1ro40Ugep3fDBYq5fTllG4HQMTHuKUEheBOoHJh0eLs7Wu?=
- =?us-ascii?Q?+wxmnQpDnGvwlFRbWsq6yoM8/vXiUv4+Bozq3ssmYSg8qTCx5sV3+JU8VVTx?=
- =?us-ascii?Q?BmxzlgMWVw=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 851a6ba2-78e3-44a3-082c-08de5d20aa4c
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 21:20:01.2576
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PC7DDYKnkO9gVuCRMP/qeeBys1Dc4KGY+zfYcAFznLUl34poTUHC1phC0bMkZY+y
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8922
+References: <20260126104419.1649811-1-vdonnefort@google.com> <20260126104419.1649811-20-vdonnefort@google.com>
+In-Reply-To: <20260126104419.1649811-20-vdonnefort@google.com>
+From: Kalesh Singh <kaleshsingh@google.com>
+Date: Mon, 26 Jan 2026 13:31:49 -0800
+X-Gm-Features: AZwV_QjRVAsI7BYNB-SSd0KqV-MZmQcJjsc_0anhfEHofc202jxoz2KReva1YZQ
+Message-ID: <CAC_TJvfzETz53ZXCk89ndqhj0+nuMUxPsB=NNT8kSZP-iwLm7A@mail.gmail.com>
+Subject: Re: [PATCH v10 19/30] KVM: arm64: Add PKVM_DISABLE_STAGE2_ON_PANIC
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
+	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	jstultz@google.com, qperret@google.com, will@kernel.org, 
+	aneesh.kumar@kernel.org, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_132006_921945_1C44B776 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20260126_133204_008707_21FF0FC0 
+X-CRM114-Status: GOOD (  27.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,32 +121,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 05:24:25PM -0800, Nicolin Chen wrote:
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 5a7032081553..8323f74c8923 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -3137,6 +3137,7 @@ static int __arm_smmu_domain_get_iotlb_tag(struct arm_smmu_domain *smmu_domain,
->  
->  int arm_smmu_domain_get_iotlb_tag(struct arm_smmu_domain *smmu_domain,
->  				  struct arm_smmu_device *smmu,
-> +				  struct arm_vsmmu *vsmmu,
->  				  struct arm_smmu_inv *tag, bool alloc)
+On Mon, Jan 26, 2026 at 2:44=E2=80=AFAM Vincent Donnefort <vdonnefort@googl=
+e.com> wrote:
+>
+> On NVHE_EL2_DEBUG, when using pKVM, the host stage-2 is relaxed to grant
+> the kernel access to the stacktrace, hypervisor bug table and text to
+> symbolize addresses. This is unsafe for production. In preparation for
+> adding more debug options to NVHE_EL2_DEBUG, decouple the stage-2
+> relaxation into a separate option.
+>
+> While at it, rename PROTECTED_NVHE_STACKTRACE into PKVM_STACKTRACE,
+> following the same naming scheme as PKVM_DISABLE_STAGE2_ON_PANIC.
+>
+> Cc: Kalesh Singh <kaleshsingh@google.com>
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+
+Reviewed-by: Kalesh Singh <kaleshsingh@google.com>
+
+Thanks,
+Kalesh
+
+>
+> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+> index 4f803fd1c99a..6498dec00fe9 100644
+> --- a/arch/arm64/kvm/Kconfig
+> +++ b/arch/arm64/kvm/Kconfig
+> @@ -43,9 +43,27 @@ menuconfig KVM
+>
+>           If unsure, say N.
+>
+> +if KVM
+> +
+> +config PTDUMP_STAGE2_DEBUGFS
+> +       bool "Present the stage-2 pagetables to debugfs"
+> +       depends on DEBUG_KERNEL
+> +       depends on DEBUG_FS
+> +       depends on ARCH_HAS_PTDUMP
+> +       select PTDUMP
+> +       default n
+> +       help
+> +         Say Y here if you want to show the stage-2 kernel pagetables
+> +         layout in a debugfs file. This information is only useful for k=
+ernel developers
+> +         who are working in architecture specific areas of the kernel.
+> +         It is probably not a good idea to enable this feature in a prod=
+uction
+> +         kernel.
+> +
+> +         If in doubt, say N.
+> +
+>  config NVHE_EL2_DEBUG
+>         bool "Debug mode for non-VHE EL2 object"
+> -       depends on KVM
+> +       default n
+>         help
+>           Say Y here to enable the debug mode for the non-VHE KVM EL2 obj=
+ect.
+>           Failure reports will BUG() in the hypervisor. This is intended =
+for
+> @@ -53,10 +71,23 @@ config NVHE_EL2_DEBUG
+>
+>           If unsure, say N.
+>
+> -config PROTECTED_NVHE_STACKTRACE
+> -       bool "Protected KVM hypervisor stacktraces"
+> -       depends on NVHE_EL2_DEBUG
+> +if NVHE_EL2_DEBUG
+> +
+> +config PKVM_DISABLE_STAGE2_ON_PANIC
+> +       bool "Disable the host stage-2 on panic"
+>         default n
+> +       help
+> +         Relax the host stage-2 on hypervisor panic to allow the kernel =
+to
+> +         unwind and symbolize the hypervisor stacktrace. This however ta=
+mpers
+> +         the system security. This is intended for local EL2 hypervisor
+> +         development.
+> +
+> +         If unsure, say N.
+> +
+> +config PKVM_STACKTRACE
+> +       bool "Protected KVM hypervisor stacktraces"
+> +       depends on PKVM_DISABLE_STAGE2_ON_PANIC
+> +       default y
+>         help
+>           Say Y here to enable pKVM hypervisor stacktraces on hyp_panic()
+>
+> @@ -66,21 +97,6 @@ config PROTECTED_NVHE_STACKTRACE
+>
+>           If unsure, or not using protected nVHE (pKVM), say N.
+>
+> -config PTDUMP_STAGE2_DEBUGFS
+> -       bool "Present the stage-2 pagetables to debugfs"
+> -       depends on KVM
+> -       depends on DEBUG_KERNEL
+> -       depends on DEBUG_FS
+> -       depends on ARCH_HAS_PTDUMP
+> -       select PTDUMP
+> -       default n
+> -       help
+> -         Say Y here if you want to show the stage-2 kernel pagetables
+> -         layout in a debugfs file. This information is only useful for k=
+ernel developers
+> -         who are working in architecture specific areas of the kernel.
+> -         It is probably not a good idea to enable this feature in a prod=
+uction
+> -         kernel.
+> -
+> -         If in doubt, say N.
+> -
+> +endif # NVHE_EL2_DEBUG
+> +endif # KVM
+>  endif # VIRTUALIZATION
+> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+> index cc7d5d1709cb..54aedf93c78b 100644
+> --- a/arch/arm64/kvm/handle_exit.c
+> +++ b/arch/arm64/kvm/handle_exit.c
+> @@ -539,7 +539,7 @@ void __noreturn __cold nvhe_hyp_panic_handler(u64 esr=
+, u64 spsr,
+>
+>                 /* All hyp bugs, including warnings, are treated as fatal=
+. */
+>                 if (!is_protected_kvm_enabled() ||
+> -                   IS_ENABLED(CONFIG_NVHE_EL2_DEBUG)) {
+> +                   IS_ENABLED(CONFIG_PKVM_DISABLE_STAGE2_ON_PANIC)) {
+>                         struct bug_entry *bug =3D find_bug(elr_in_kimg);
+>
+>                         if (bug)
+> diff --git a/arch/arm64/kvm/hyp/nvhe/host.S b/arch/arm64/kvm/hyp/nvhe/hos=
+t.S
+> index eef15b374abb..3092befcd97c 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/host.S
+> +++ b/arch/arm64/kvm/hyp/nvhe/host.S
+> @@ -120,7 +120,7 @@ SYM_FUNC_START(__hyp_do_panic)
+>
+>         mov     x29, x0
+>
+> -#ifdef CONFIG_NVHE_EL2_DEBUG
+> +#ifdef PKVM_DISABLE_STAGE2_ON_PANIC
+>         /* Ensure host stage-2 is disabled */
+>         mrs     x0, hcr_el2
+>         bic     x0, x0, #HCR_VM
+> diff --git a/arch/arm64/kvm/hyp/nvhe/stacktrace.c b/arch/arm64/kvm/hyp/nv=
+he/stacktrace.c
+> index 5b6eeab1a774..7c832d60d22b 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/stacktrace.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/stacktrace.c
+> @@ -34,7 +34,7 @@ static void hyp_prepare_backtrace(unsigned long fp, uns=
+igned long pc)
+>         stacktrace_info->pc =3D pc;
+>  }
+>
+> -#ifdef CONFIG_PROTECTED_NVHE_STACKTRACE
+> +#ifdef CONFIG_PKVM_STACKTRACE
+>  #include <asm/stacktrace/nvhe.h>
+>
+>  DEFINE_PER_CPU(unsigned long [NVHE_STACKTRACE_SIZE/sizeof(long)], pkvm_s=
+tacktrace);
+> @@ -134,11 +134,11 @@ static void pkvm_save_backtrace(unsigned long fp, u=
+nsigned long pc)
+>
+>         unwind(&state, pkvm_save_backtrace_entry, &idx);
+>  }
+> -#else /* !CONFIG_PROTECTED_NVHE_STACKTRACE */
+> +#else /* !CONFIG_PKVM_STACKTRACE */
+>  static void pkvm_save_backtrace(unsigned long fp, unsigned long pc)
 >  {
->  	int ret;
-
-This all seems too complicated, the domain passed in should have been
-a iommu_domain, not a smmu_domain, then you can just do
-
-if (domain->Type == IOMMU_DOMAIN_NESTED) {
-  struct arm_smmu_nested_domain *nested = to_smmu_nested_domain(domain);
-   tag->type = INV_TYPE_S2_VMID_VSMMU;
-   tag->id = nested->vsmmu->vmid;
-   tag->smmu = nested->vsmmu->smmu;
-   return 0;
-}
-
-Here and everything is simple.
-
-Jason
+>  }
+> -#endif /* CONFIG_PROTECTED_NVHE_STACKTRACE */
+> +#endif /* CONFIG_PKVM_STACKTRACE */
+>
+>  /*
+>   * kvm_nvhe_prepare_backtrace - prepare to dump the nVHE backtrace
+> diff --git a/arch/arm64/kvm/stacktrace.c b/arch/arm64/kvm/stacktrace.c
+> index af5eec681127..9724c320126b 100644
+> --- a/arch/arm64/kvm/stacktrace.c
+> +++ b/arch/arm64/kvm/stacktrace.c
+> @@ -197,7 +197,7 @@ static void hyp_dump_backtrace(unsigned long hyp_offs=
+et)
+>         kvm_nvhe_dump_backtrace_end();
+>  }
+>
+> -#ifdef CONFIG_PROTECTED_NVHE_STACKTRACE
+> +#ifdef CONFIG_PKVM_STACKTRACE
+>  DECLARE_KVM_NVHE_PER_CPU(unsigned long [NVHE_STACKTRACE_SIZE/sizeof(long=
+)],
+>                          pkvm_stacktrace);
+>
+> @@ -225,12 +225,12 @@ static void pkvm_dump_backtrace(unsigned long hyp_o=
+ffset)
+>                 kvm_nvhe_dump_backtrace_entry((void *)hyp_offset, stacktr=
+ace[i]);
+>         kvm_nvhe_dump_backtrace_end();
+>  }
+> -#else  /* !CONFIG_PROTECTED_NVHE_STACKTRACE */
+> +#else  /* !CONFIG_PKVM_STACKTRACE */
+>  static void pkvm_dump_backtrace(unsigned long hyp_offset)
+>  {
+> -       kvm_err("Cannot dump pKVM nVHE stacktrace: !CONFIG_PROTECTED_NVHE=
+_STACKTRACE\n");
+> +       kvm_err("Cannot dump pKVM nVHE stacktrace: !CONFIG_PKVM_STACKTRAC=
+E\n");
+>  }
+> -#endif /* CONFIG_PROTECTED_NVHE_STACKTRACE */
+> +#endif /* CONFIG_PKVM_STACKTRACE */
+>
+>  /*
+>   * kvm_nvhe_dump_backtrace - Dump KVM nVHE hypervisor backtrace.
+> --
+> 2.52.0.457.g6b5491de43-goog
+>
 
