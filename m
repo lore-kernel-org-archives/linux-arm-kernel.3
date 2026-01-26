@@ -4,157 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C42CD1950F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 19:17:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B0C2D19510
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 19:33:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jkp3+pkFkXk2l6TyvhRc3pdtlKU4uiQfBDSsKCqWdFY=; b=IpA2oGXgvcUdpbqFpr4hkujT6m
-	/JER0n8BMXN6dGonfeyuECerz5/YQPHr2XbEmsT8A2gq2EnqMOvr7Qw2Wzg1xu2oHol8FYo0nvhtW
-	1Hy+XF0D4O8UAqxzblpgqIOwEYk3KkbrJziVrsUp5tSPRHF04NeEE704UquKcFrR1gzathX+1odu+
-	AxJ98e/kD+xXZo+ZBSGbB9PrbEM/nDS6g09pmdNRhX+U7SDg9qajGeFSFoHGNZ2VeSucbOJ4E9ebN
-	Ywazg+X6UVjHWA6lZT+WW68YKd04YMEyB6u4lgNwCYLsc1l4GFfMG24Ll0Iv7MNyXl/SpdDeVzdPd
-	txKW8VMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wt4OrgVEIcV51CcZvKwLJ3NpZgfF1uIkSphQcpsf+Cg=; b=QDKtb2kQ6HVvj97haGuUr3oJos
+	pmzIVd/rdAcQRKoKbe3wBMsUh6jz8VBakXxzp9ypeIkWpnOq3UM3FV8P9cEJb+F0fUXyk6AhJn0vy
+	0hSF1htmYuQyzr1D0gnO9S1i9H4bD4/5IxxyshK8ZiYwcyHqzkcK6lcjYnPnhrpE2zzu4PEOZZH68
+	6JNn8hHcQ8zuuTNS/IBUIF5hjAOv1SvQBLkS7YITPVAgxionOLxXF2UTxb1aQffiYo8sbVhNN4oE2
+	EnxS0c4V46a3FEyVPyr9Kj3lWKgjHRM8kkV0vO+HFF/vol4UQEA5vN0zvM0VOq4biP1oUbFXqVlIV
+	yAZRKYKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkS5E-0000000D8Ka-23RR;
-	Mon, 26 Jan 2026 19:17:08 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1vkSKu-0000000D9HW-1to1;
+	Mon, 26 Jan 2026 19:33:20 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkS5A-0000000D8JF-3hNY
+	id 1vkSKs-0000000D9H6-1eVH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 19:17:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sautmyPEFi4qPDPGd9H/Yss+2B2pdPI0BGws/vjCowNU64TTS2SP3NPVK07sIdnWfh2vJwlxhWd0Dy1JQeQ7aqWaRKq142n93V2i5zF5Ck2QHCPbyVZtxQ2Ow465xJ3u7HEzF+5BFnbNSWmKYskPLZMHQSQWPKTVB9EizRmUbloXTzX6VMl92E7h/QzVhH/LtmqMOBYAx67QKF/OVg5kNKt5Yh7wtfL8ARxGGhX6AALy3sKHvNd9/SVE/zdtGgOJwLm1rA3M+NZJ7QClItoWiLMBFw0/BGaLJrGZb4k6oQpuTt+fkU6CdfHZY8rVmiaNLF4iv/+MOqRBe9OpAVkBFA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jkp3+pkFkXk2l6TyvhRc3pdtlKU4uiQfBDSsKCqWdFY=;
- b=Pq7qKtQBuEeru32XBfXREIUFILwH0U10MAkkI0lNgvitPbnm/FybisFGVC2IMyDxB0wP+3WzNUtTAj967DiX7nGMheGL0PTxZsJbhZVGQwC7EHkobFS2bux6XvHJrytmhNmzYuRLDka+X1HV/qqkA/JdzRfUulKWP6F8Q2qPXJE/QEO618Pcr0yWNXDycoJF1rLI6fdxl8B4uqi9zH8bJMbdAkxFrwouVG+KlxUAItBGCduxzTClVrBRcXfIoKdfYoJpntN6echCBPmOlJ4S4DfRHLEn2ypXMGuB3jBkiDSYltmQbDaWY7S9Lion3mVRXfJGmPwxLVQBapjg5je4qQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jkp3+pkFkXk2l6TyvhRc3pdtlKU4uiQfBDSsKCqWdFY=;
- b=GoHiioK2vqlDUocsnIjyY7I7Z0NI60uPh3qRzur21smrGozv4lNf7eGAATdTOhu5er/v/ZBWFQeNY1JZGXpvMPJY/JTsQs9/XawttGGhhHxFX5rqLSBg8vcdju/1yShgXNl8XXVWuKKWLRKlKUNIW/a0w33gR64/5fNPwyZKA4wNIo8qSeKa6KBFGqLYgIScSVZj0tqRmEof93+eApL2Hf8iGNIcy4H3lWfjd76T/UhqdaLs9Jg4OIwX16fAeAZmJkoA3b1XJJgkQL02V8byoq/mffha0gqCZnGjvBvrxgn2Q1O1Ch9xXNoMZ/sFsZ6gBppSqB4dyPzVzeyZ1J76VA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by IA1PR12MB9064.namprd12.prod.outlook.com (2603:10b6:208:3a8::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Mon, 26 Jan
- 2026 19:16:58 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9542.015; Mon, 26 Jan 2026
- 19:16:58 +0000
-Date: Mon, 26 Jan 2026 15:16:57 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, robin.murphy@arm.com,
-	bhelgaas@google.com, joro@8bytes.org, praan@google.com,
-	baolu.lu@linux.intel.com, kevin.tian@intel.com,
-	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org
-Subject: Re: [PATCH RFCv1 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
-Message-ID: <20260126191657.GW1134360@nvidia.com>
-References: <cover.1768624180.git.nicolinc@nvidia.com>
- <09cb6be1f8f7472a2f1ccab72154cc6e22cf570b.1768624181.git.nicolinc@nvidia.com>
- <aXdgljWHHPVMTmya@willie-the-truck>
- <20260126172020.GP1134360@nvidia.com>
- <aXe1J6Rygrvoz/Wo@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXe1J6Rygrvoz/Wo@Asurada-Nvidia>
-X-ClientProxiedBy: MN0PR04CA0013.namprd04.prod.outlook.com
- (2603:10b6:208:52d::18) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Mon, 26 Jan 2026 19:33:19 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8C7A310CB40;
+	Mon, 26 Jan 2026 20:33:11 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1769455995;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=wt4OrgVEIcV51CcZvKwLJ3NpZgfF1uIkSphQcpsf+Cg=;
+	b=Y3KtdntCmeXAWNwkilx8KtuOSSR6ibCodG6TqhiDsMDNqKcTcgeKkaMlcQoZxFAgx9NLsk
+	dFYIcxCns5jSTjaaFYtky8wd46Hy1TKGicr0PD5peIHmjVI8JOayhJ37s5x0t6vTcnCLVy
+	tJAHnv0a8xyJKPCiAlRxcjCv4H8I/ZoSFMbbDcD8OvlLlwn2Sk6kGyXJbU1F8VVeY5qvif
+	tcjnkppQEGgHmZWXaEnVsfSq/CorQPwKsz7ryjnX2MS+sBNvplNgtpl/k9c+0JU0IneCdo
+	QHG59G0vIoslHAtYiq2gtBpJMH/qUmiAQImbXkOslbhToepYAy0tSOn/WVr/YQ==
+Date: Mon, 26 Jan 2026 20:33:07 +0100
+From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukma@nabladev.com>
+To: Andrew Lunn <andrew@lunn.ch>, Conor Dooley <conor+dt@kernel.org>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn
+ Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+ <festevam@gmail.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] clk: vf610: Add support for the Ethernet switch
+ clocks
+Message-ID: <20260126203307.6076ba9c@wsk>
+In-Reply-To: <7671b833-f823-44cd-b5af-0b473a8ae23e@lunn.ch>
+References: <20260126115349.1750578-1-lukma@nabladev.com>
+	<7671b833-f823-44cd-b5af-0b473a8ae23e@lunn.ch>
+Organization: Nabla
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA1PR12MB9064:EE_
-X-MS-Office365-Filtering-Correlation-Id: cad5269e-05be-4366-b35b-08de5d0f7996
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?P0Mw/OoL+GhKEQCAGxRBB+bO7O2rOuXSSNTwSC0pITa8M/e/q6+uDNGGWcMF?=
- =?us-ascii?Q?APjizeq2z2c20aIh0wxejLVYaGenmA9rsqC387rF9t0L/MLpdFmxQEjDhusb?=
- =?us-ascii?Q?038SselZhSLIGsQGArmEJaldhSDvTBk6p/x8wt+ony/aSzz/XFr1f9COW72J?=
- =?us-ascii?Q?E254u/UkotVjPyBCe+4OlaVUclllQC2g+JrXoR2VYOBKVMTk37wxsy0Pyryj?=
- =?us-ascii?Q?o3Di6eiw9h1EnQTnBdA9qXtSh9r79BDCW4EIUnrQ8TVkYuIvDPQ9GNKFZ9AF?=
- =?us-ascii?Q?YAr0su2Ru+iU7xYjbWdCOUG+IcpvnN5z0MXTno49EUypE2wL0fTn8j3UC/Mu?=
- =?us-ascii?Q?395hZ3oJoH1z85zGFpHhqCdfp8RaSLlqNfjPudkgvFaP+DmTMZA3FYxtJoif?=
- =?us-ascii?Q?oTNm4nD7uQdDhVX8F3AQrYcjpkhOZVryNl6XduokcfYrnkLPan+tiAgxc9Tk?=
- =?us-ascii?Q?PU4VM5TVN0Gb8vGK6uKMAdG9NrUw8SYtJPyGjsDMCIe6phq1yamuEDq+fip+?=
- =?us-ascii?Q?ooRgfCQT0XzG4NOuwGQNhEP1Yi9NLzLHZQPA7Khw0afBL5+duzKCQJ+t25Nd?=
- =?us-ascii?Q?DfKCx3NEbTNUUCAQUhrXmHIig10Wc/UZ2QL0CMoYcOkpIqqU7cbxn41YKxFN?=
- =?us-ascii?Q?bF6Wpkdq/IHh17FpMCPpeIQlQDA1+b8QdvykmY7HICxcd+4jXW5Wvbpx/fKb?=
- =?us-ascii?Q?MOjtQIOaKKRWxsppjKClw8obuppSrncHyN/QfI+nOng85zBZFmJcbTdLR7gE?=
- =?us-ascii?Q?L8ILzC1ScsWWj/y3QNHHXxofJQ1kHEaQ2fChwBiGrzxAmPN+gjvblpFav8Ez?=
- =?us-ascii?Q?AS5x3J/LVLn+0AFgZPiymlfEtQFQoBPUKL73B0gwj7ufcxNJCpUfxlGckIiE?=
- =?us-ascii?Q?rFc3BYJvkUPT1MikmaJOoJu7TkUxEclNRiYxacobswanG6uacer7zmcLph6c?=
- =?us-ascii?Q?PFQbrsm3i4WOlr0fmaM5MwTdYO83TiKjSMTFscBOWFSZdonjQZ2LisCBOMt/?=
- =?us-ascii?Q?PBHY7VtNtL5qaSB26k4Io3QlmDfpYomrXxf6eYA6hqXd0aK+ZDm3EEqKydPS?=
- =?us-ascii?Q?9EqfsTK+CYs/hX+N3PjPt+HOf6f9eIsJOo23Y7vZgtoYRgm5PEZ0FU6YnSEP?=
- =?us-ascii?Q?eGwfSJBKHn1hPJiSHtxFDh5jBpBQ0YBP3E3oKl1FOC0b1lxvjKDlKwh/QIi5?=
- =?us-ascii?Q?ZoM0jRwLiEvM2iuIzq9sEHDcn0yIfUhXiTeQRLUagLF4tA9/73gE0lSm6iH+?=
- =?us-ascii?Q?1ttBiCIdfL3YUdBK1dYRQ95BVS4OJRRtuZMRHNT20QofH72yfdemDUmbsKY6?=
- =?us-ascii?Q?seSlsl4RWX4Bee3dIetCiwxwlkzsw3XUKg6NkpH3v5dfp0L5p2x3Nh9GKC7h?=
- =?us-ascii?Q?mvI+wokl6R1uFaRySNN8fVDag7E/CUBTmY15The0iHeERXF4yJ17EVJ1MxPP?=
- =?us-ascii?Q?f9FkssJRhbGlx1hBZ5KvNNvRP8Tj/Cz1OsMrt3fHqg3vzqv81qON5+g2H6yz?=
- =?us-ascii?Q?LQpdOGmhJw+JAwiyplEY+fBR1sZb+pqvtX2jEFISbhFPoKpdXlGUcMm5IjWU?=
- =?us-ascii?Q?1kt6iRpF0nHVW3HtPgs=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OpcKP51e3mVuo7rijhkCGqERXaeJ6k2HkXgsXZjcaS5YCF6krybDvo8yX+My?=
- =?us-ascii?Q?GSceQQ531XPQut0V1/c1xbGVc4ad9+wQGzT7X9zMOI0lS8sPWBi1SdEjh6Vz?=
- =?us-ascii?Q?8y+KLZxsNDJZ6hHw+xywd0qlndTzvbZbQHpFWxT6WQBZEu7jzvDl3j33LBK8?=
- =?us-ascii?Q?dbTli7dPm4nnOxvjwz4D6VN7G0oAvrSCqfFDyxczeDOcdHOhgVuIJscw8NXR?=
- =?us-ascii?Q?+5o6lEMc8baaalhKZJT/P9+QbyKJ5ye3YhZ/4hk1TXZvxvA/TH+Bo/pcqS0n?=
- =?us-ascii?Q?H9WrQ/CLiDhpoFHlxdbnnmol4Tim+SDstLcow9w1CYb9MIcCFE8/9655fCsh?=
- =?us-ascii?Q?uiFxfbokzH/m4x2UCz7mQ5COySIJPATD6ibqz33+gXd3GwlVgztc/fQtaaqM?=
- =?us-ascii?Q?qlgBcNM//cak5S69WxL2P2EJUhfHFRrDD5EwjsX4zP1up4z42JLD2XDB3CFi?=
- =?us-ascii?Q?4Pi9fOnY/8YNloyRhjv94G0U6qXNhZXjwijR16Ic7Ka11cArn1v4G9A6yDip?=
- =?us-ascii?Q?DMMw4ANnUaVAt+r2uObGULTznaceWUyt0Gi0pPO5ZzzXV+Fd96N6oChbLjNA?=
- =?us-ascii?Q?4OfBwgAIaVF6occ3YvJbqFVA2Bn88Yt6L/eJqvT5YJjIzf1dAoBvZNOeHfQW?=
- =?us-ascii?Q?iQu+ykT4rJAsdTiXQdgwvuPcr6Lt7q1JMRbV07eCOuqZ4Qpylb5N7fUrAB5p?=
- =?us-ascii?Q?bc5BIT294wwjhZuG+AioIV7GqlFwqFKvGdFGX7RWPzY1VQLuGN3pojwTrvjG?=
- =?us-ascii?Q?ux+7MbJwEtt5XmQ5cUbyBzv//ikgJ81Bs9PLCl4vu30dcz39uI5twOuPlpSb?=
- =?us-ascii?Q?4XSFngXf/V/tkI1mlTzG5lXFbSSNgBeB1Wp/bW+sdbZ0P2MkDfGEWTpLnewC?=
- =?us-ascii?Q?t6TSUiPCrVK90tDpKGa5/u3x68dgm6AAm5gwHjFun4j2utLAbOuixNNGBTzb?=
- =?us-ascii?Q?Q84fZN5d2jaKlbw6t51a4iUKzwKjFfsz9zaORF4p2IPpBCsanYCH2EqHZ+4v?=
- =?us-ascii?Q?Bx1yESSrqcg06sThpCg3gNKOxXEmRvW1H068yQgHLF06QQNEbSJcrCtvVzEH?=
- =?us-ascii?Q?sLjqztLYSf6j59rpW1SwSAmfI4YBofcUJlTQduY8UxrFYOSQckBLiTPIEfPu?=
- =?us-ascii?Q?nLR2t+kNkkQ3vfNZmuS+Vco/A7BNMoIDbsWKQUjCiHYjpAxP6ZqvfaIVlvpO?=
- =?us-ascii?Q?ohiZp9PqSv7DQwMJjg2Q6yUwMvAyRUfkKZOX/+Dn0ZhoSiB7lA1yWVl9g0iI?=
- =?us-ascii?Q?5Bf+md+iHYnIBiDegz04FMoy4Ni/Wq6z9N5rxGbsY7lRCRhVUKqgz/VI+zbX?=
- =?us-ascii?Q?/xE8aHHnO58/125nH4cp6ivInaCFAIWUV4EMZrtLqFpzGfA3kLwehgGmSP6V?=
- =?us-ascii?Q?A3ermqGrIMEe/I/bVrAN9BKVt4dv+E0WSgwy1PuCSJV1ew39EKXy5N6gBBZQ?=
- =?us-ascii?Q?bbeg/AwYw/iI/y+vfPaXqz5de7FQxcMOVTPoMrhpbdc7rLI+QwrNOmi4qqfG?=
- =?us-ascii?Q?ijz9BklLZQDCBwfaIbzM8+tRakEdgBrLfdfGV4zl+VPGe1mASor27q1Qz0wH?=
- =?us-ascii?Q?NdoJ4EYA9+Mz+qK1qIhMZJbQIwPEA/OubJMLzlaqPT5tLaUteWSNGeOREN+5?=
- =?us-ascii?Q?apqRChv59k240Nuwq8N78kcIcVdaA7yt74eZmulEfhQ5hPV4BsTayJLZm3Z7?=
- =?us-ascii?Q?h76erS6h6o3hSCG36C+AOd+uV/3vZMmvHqwFlVqNd8bjG18EUEHBFpBl3bOd?=
- =?us-ascii?Q?ZYdnR30t7w=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cad5269e-05be-4366-b35b-08de5d0f7996
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 19:16:58.0470
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1NmpmP2ZoWV14vdBfq8Duu29BOrFHU7efD/PxLusetUVyj4F0EdsvE7H4CuyQWVI
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB9064
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_111704_930570_F40EB2B6 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20260126_113318_664501_2F50762B 
+X-CRM114-Status: GOOD (  23.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,35 +79,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 10:40:39AM -0800, Nicolin Chen wrote:
-> On Mon, Jan 26, 2026 at 01:20:20PM -0400, Jason Gunthorpe wrote:
-> > On Mon, Jan 26, 2026 at 12:39:50PM +0000, Will Deacon wrote:
-> > > > +	ret = arm_smmu_alloc_cd_tables(master);
-> > > > +	if (ret)
-> > > > +		return ret;
-> > > 
-> > > Were do you allocate the second level entry for ssid 0 if we're using
-> > > 2-level cd tables?
+Hi Andrew,
+
+> On Mon, Jan 26, 2026 at 12:53:49PM +0100, Lukasz Majewski wrote:
+> > From: Lukasz Majewski <lukma@denx.de>
 > > 
-> > I don't think we need to. The entire design here has a non-valid CD entry
-> > for SSID 0.
+> > The vf610 device has built in the MoreThanIP L2 switch. For proper
+> > operation it is required to enable ESW and MAC table lookup clocks.
+> > 
+> > The MAC table spans from 0x400E_C000 for 0x4000 and it is necessary
+> > to provide clocks for each AIPS1-"slot", which size is 0x1000
+> > (hence four separate entries).
+> > 
+> > Those can be enabled via clock gating CCM_CCGR10 register
+> > (0x4006_B068).
+> > 
+> > This patch also adds VF610_CLK_ESW and VF610_CLK_ESW_MAC_TAB{0123}
+> > macros definitions for L2 switch.
+> > 
+> > The VF610_CLK_END has been removed as its number had to be increased
+> > when MTIP L2 switch clocks were added.
+> > 
+> > Signed-off-by: Lukasz Majewski <lukma@nabladev.com>
+> > ---
+> > Changes for v2:
+> > - Squash clock DT bindings to this single patch
+> > - Replace VF610_CLK_END with VF610_CLK_ESW_MAC_TAB3 + 1  
 > 
-> Hmm, whether we allocate a 2-level cd table would actually depend on
-> the "1 << cd_table->s1cdmax" v.s. CTXDESC_L2_ENTRIES, right?
+> I'm not sure this is the correct thing to do. Normally these _END
+> values are there so you don't need to change any code when new things
+> are added to the list. 
 > 
-> If the device supports PASID and s1cdmax is large, we should prepare
-> a 2-level cd tables, even if only SSID0 is used at this moment since
-> we have to support !0 pasids via potential SVA domains.
+> Why not just keep VF610_CLK_END at the end, with the value of 196?
 > 
-> In all Other cases, we would prepare a linear one.
+>     Andrew
 
-Yes, this is what arm_smmu_alloc_cd_tables() is doing.
+Conor (on CC) explicitly asked to remove VF610_CLK_END:
+"[PATCH] dt-bindings: clock: vf610: Add definitions for MTIP L2 switch"
 
-I think will was questioning if this needs to be
-arm_smmu_alloc_cd_ptr(master, 0);
+------>8------------
+> -#define VF610_CLK_END			191  
 
-To ensure there is some memory under the SSID=0 case, but it seems we
-don't need that.
+If end is modifiable, it is removable. If you need the define for the
+driver, please move it there.
+------8<------------
 
-Jason
+I just follow what he asked.
+
+-- 
+Best regards,
+
+Lukasz Majewski
+
+--
+Nabla Software Engineering GmbH
+HRB 40522 Augsburg
+Phone: +49 821 45592596
+E-Mail: office@nabladev.com
+Managing Director : Stefano Babic
 
