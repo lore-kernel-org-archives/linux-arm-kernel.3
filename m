@@ -4,115 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A1CD19502
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A326AD19503
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CzIM5S1aosasnRgv4fpJy7hXx99GJuvBk4X/AumVJ6E=; b=Nk3Jci2cQmwliOy5ACH33lMZyF
-	SpL9emAikkaylSdJjWocZp5PXoguaxOa6cfBydTkVVrSWxFUwPFw1eYlt2gmvI9AKBvZ/UdFYIdbk
-	ivR+MjJcj7r0X2I7Aky1pYkTAD+iVMz/wsBGEImY3AZ4hs6b0aqPOaTxjFsz49TAyARz5bvfrCMOt
-	I15/3WS9xoS8lsTxU//9HSUI0idbK6hEQ1iMBMe1FcWHmnVVPZU3sPZ6OUi2tYIuABYgW3210SiBr
-	xJdPUzoBFIynzpp8rU4TMymJdoK8YgH2vFLCgl1tacDqKw2l4/gbe0IZbB+Jhm1lPHf3x6B8NvjTi
-	IWk/l8nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YKR5exgvtJ4nN+wmy7UGkJjcYwJf1VIP0gn7pcEz2lI=; b=YMnV3VWhzKxCnzAOaXj6qujjsU
+	ZP/VYiNmiILxwmkntRF1GgvzIT5vnUAOoySoknF0x85B87WLGil9PoAre5SlV530TKc94RTmME7P3
+	n/OjC9PWncmVctemOa3HbjWw9qDyUObmnCbt5g6fCVZk6V1LxntJAJVd4Uge7N0ir8izGFsZr9Ghh
+	/dV13HMMDxwvNLyD3JFQ4ryc2QirxNzEOZrHslSiQZRxJx8niWf0h2sFGeKCiie+VgdV1DuZx+W1c
+	oQv9JrQ87XMwsNIkfyepKwEPbbmNtyJ5b5lQPOdIhR92WnXjPuuzCqnr4KfNN4hgU7nJMDJBKOxBf
+	gLhEJwoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPmN-0000000CtXW-0udn;
-	Mon, 26 Jan 2026 16:49:31 +0000
-Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
+	id 1vkPmb-0000000Ctb0-2QKR;
+	Mon, 26 Jan 2026 16:49:45 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPmK-0000000CtWe-1jJS
+	id 1vkPmZ-0000000CtaN-2H8k
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 16:49:30 +0000
-Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-78fba1a1b1eso70486587b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 08:49:28 -0800 (PST)
+	Mon, 26 Jan 2026 16:49:44 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2a12ebe4b74so46099575ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 08:49:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769446167; x=1770050967; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:subject:references
-         :in-reply-to:message-id:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CzIM5S1aosasnRgv4fpJy7hXx99GJuvBk4X/AumVJ6E=;
-        b=EeWiMQ2M1BPLeoVJfnnEI/dtrlZB6M4+XDzxHJwAunM4pn5Pe8Dlkv8rVG1RKvMfos
-         QxSwU70gx1kS1zvrJNFrPz3dAqd6RAz3GMfU+a6cDuSy0gJP91bD6KkPjMMx5LetgUNk
-         fWfxm64ArbGbWSLH18raIOgtScZij07JGqyjO7X+ovcT9UqKaPABiNowpNgVqPfV6i59
-         iisLNO3WYgOzemeHIQkV/BYfVKzpBvy6Txv5xWe4Exk5kWJzTiR74Fs9/q5Kv4bmXNv+
-         UNP4hbirh/NgsxZWm9Qscn5YFoVnpPFLRCQCLDk2HJZ1/DZfulJ5FdlUJIpZz0gPoy+d
-         YF/A==
+        d=linaro.org; s=google; t=1769446182; x=1770050982; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YKR5exgvtJ4nN+wmy7UGkJjcYwJf1VIP0gn7pcEz2lI=;
+        b=AvMqMienFv+RbSDdlsRG0i+Pfy6E+XPyk59dfd68TpzzaRU6fspJuiMhlt4j2Mnzmc
+         2TcbQsmPH2JzuWgz11xgE6TFhvNTQrM8LSwnMGkJDmUOaJbLlfnrhRq9LALa4uvUZi5M
+         z1kdmtD++S6KGrhKWvPLUbKLEaoxCJqGqTDLfLgHKmsimLjSkR27l1/elgEVWjVqoe3i
+         8OVlsdhnWvVc/BrZgr4lA4d4UYVrPYrhpEDUBx1ds+M3xzk9KKXU3y8+fS3TDz7cNDnQ
+         sGJ8TunFUVEaGKho/cbOhsfgCwFyjs6MJ64s7wUPFwdJ0XqpJqchvweFrJA8O52w7NHw
+         /0Yg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769446167; x=1770050967;
-        h=content-transfer-encoding:mime-version:subject:references
-         :in-reply-to:message-id:cc:to:from:date:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=CzIM5S1aosasnRgv4fpJy7hXx99GJuvBk4X/AumVJ6E=;
-        b=fbcsevPYAx+1w62LnnDkUJG7nXgq38usl8PglFl8OqbpVD+qitdFpAPzJE5ZKzWrDZ
-         T/PPy+Ym613pPTkkfXMvttxn+h8f3lZ9RvEC3gJdQBKJbWF864i11YcYiRKO9XlSJpHv
-         9Q58SCVK43hK25bUkGWxJemUKRudalsvjO5/qNOvFISAS6Gprs5+tzoeRZWSsk0Xf4nY
-         HwJqTisfMMpngwfdNNs4KERAxmjVK1/hqrFYM09SQvkzyfvZ7dhqJopPYbBIAs3pl/Mk
-         /itvNoi3ajtTGSXOD6f9e5HEPo6CuFuwKpzneMegmwHDmUiXMGduZZYdO+h3X2me1g8N
-         e6bQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX8/WCD3Or1ltmY1U1ml2dxfnx9PTmKb3UXSCqyR4RNTObvRlmlJg4nAi3uXilbD0TDAkWz/gleWT3GBsdT992C@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTGzgb2dcv1rfEsNROSD9Snu/tiVZAyV4hBcIWbC+eZzMmh9PO
-	eZc2wJQ/mCHG5myxt1743OvJ8bWX7GfJafWI+bflNx7gSEJURsdVxYAp
-X-Gm-Gg: AZuq6aKYB6ANxYt1fbzNHWfu1sXw/16JlKfGIiLZDyvPjq35wa6ap7X+demgmEwNjMY
-	gEgtfAGNXJLYzCteDh+bWnXw2Yb0YPgm3F9B2en0mQJlGgW9P68syUi2ZH6MSsNQVIYM/Cgz1Au
-	YwtpLODMMMFFVPXh8U7LOBWHCtPideWEpwmjpKIdwF8b/Hl4gK4Neo0WwdQTna8yujEr/K9Iqnt
-	jh14pHbmkPp0/nR+zL89pAMVI1w2fwKbTlmoWJDTHWHHiSYdYVcdSnyUCkufZHSIgDQN610VOS9
-	sakMgdG2QNxq1tM6g7CX7gN+XG3b7cjRePrFJwknaPuRTM1kdJOoBM7kQpaaYUmLkiFz0gOJbOO
-	x6IXAyXN0YSCi1JDfmh0GldIpfXmXwcPjv6K9+3MCMbwlCUILPE+Op+YCd39DuNK5dn0sRu8A+9
-	F53FTU35QWF/jcCk59FM7n2qw1c/sfvti2EcXQVOJ/GVwFv04kXhC0Axx8xIg=
-X-Received: by 2002:a05:690c:6809:b0:794:107f:12b8 with SMTP id 00721157ae682-7945abe5d41mr35771317b3.10.1769446167253;
-        Mon, 26 Jan 2026 08:49:27 -0800 (PST)
-Received: from gmail.com (21.33.48.34.bc.googleusercontent.com. [34.48.33.21])
-        by smtp.gmail.com with UTF8SMTPSA id 00721157ae682-7943b2b9bfcsm49990507b3.38.2026.01.26.08.49.26
+        d=1e100.net; s=20230601; t=1769446182; x=1770050982;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YKR5exgvtJ4nN+wmy7UGkJjcYwJf1VIP0gn7pcEz2lI=;
+        b=PhL0DFbK38DRg+kKWBdvHPdu/Xh6ZASeDhsG6h+urUZ3lrhDwSdBBmO1PdKlvbQ6Xi
+         APAVj5TXT1rq/rjRURRlHhnA35DiqrmmLln8sStU4+sUSfQgDD7fe9wYyFKXXnAowxyq
+         J5kEpsUr2h9q2RkvjHOfJTmXMdpcnprk2ngH3ZiOjgcuXV6Lw/Yptig3NZDjjD3+cwvN
+         469fZuWkgCu6IjomslklpPwUzvwrUS/80OxwVLUTdOo9v7sSCIY/CjigTjNHZ/Ay9qQH
+         MJHJtKtF+cBBFC006tOWU4MVfujEMKGsBpIneCt8gUnkhx5kQPXIy3k3krU/HdmcSeJ0
+         E12w==
+X-Forwarded-Encrypted: i=1; AJvYcCX8aVt4wZj++WMH7jHHjf0CNkXo5WAjGIY82VMk9TJCzCTmsQSqyRjT/5jPzamXfwxgHM6gPRymVJWqYxG0RXCl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUJfRsiF+tVDhjW+Dr26PESbSbzkUCmoYZwp1YahV30eiIGgl+
+	BdkkbeCN+fF3rGOz6YzcXkhpRF87N0G2STOrK1wpedgsTwsymBb7BPzstkSc2iprmrk=
+X-Gm-Gg: AZuq6aLoqxhiYSvDXmgR2OTAtgVTgTBWCw861CfpKqc2B+AVfoR6+GyCbhuFeh6+f38
+	xuLAW0D55AP6FRalcBRZd2n9BW28LXDulUTirh2NsI3XfUe1SXI2kpCcyxj6vEi99V9v0VINb48
+	Zb70KCyePyXbIGRUgVF8xDRbevt54sUeWmXk1oKRZ3T5YXUBD0mWcqVAszJ9s13bkp8kLK3Zlbt
+	+aT01PsuxamRVz3JRTFk6nbaK/xGiY2oh5FZU/53dosFLN32SQS4l4teVy5ZV6XuCfMfROC6hsX
+	SAk1P3lMCIY1Qm03V+hqLFmNJQhOsZM2CzgVuUSUNzbsDztKSPSP2TMlYlfTyPeMs2xTatCV1jI
+	9fzyPOSyPLl+4xoCrnm04bNdTlquAQhri6/QgKwD9/3zVMrkRZvZtFTI1E9qtuMUtPxEXRwPXOk
+	+6fgrAyCk46VAyZg==
+X-Received: by 2002:a17:903:11c3:b0:2a2:caca:35d2 with SMTP id d9443c01a7336-2a845224d47mr49945825ad.16.1769446182265;
+        Mon, 26 Jan 2026 08:49:42 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:6260:7bcf:7e2d:fa8d])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a802dcdb8csm94531115ad.31.2026.01.26.08.49.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jan 2026 08:49:26 -0800 (PST)
-Date: Mon, 26 Jan 2026 11:49:26 -0500
-From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-To: Jibin Zhang <jibin.zhang@mediatek.com>, 
- Alexei Starovoitov <ast@kernel.org>, 
- Daniel Borkmann <daniel@iogearbox.net>, 
- Andrii Nakryiko <andrii@kernel.org>, 
- Martin KaFai Lau <martin.lau@linux.dev>, 
- Eduard Zingerman <eddyz87@gmail.com>, 
- Song Liu <song@kernel.org>, 
- Yonghong Song <yonghong.song@linux.dev>, 
- John Fastabend <john.fastabend@gmail.com>, 
- KP Singh <kpsingh@kernel.org>, 
- Stanislav Fomichev <sdf@fomichev.me>, 
- Hao Luo <haoluo@google.com>, 
- Jiri Olsa <jolsa@kernel.org>, 
- "David S . Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>, 
- Neal Cardwell <ncardwell@google.com>, 
- Kuniyuki Iwashima <kuniyu@google.com>, 
- David Ahern <dsahern@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- bpf@vger.kernel.org, 
- netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- steffen.klassert@secunet.com
-Cc: wsd_upstream@mediatek.com, 
- Jibin Zhang <jibin.zhang@mediatek.com>
-Message-ID: <willemdebruijn.kernel.11a4b80935127@gmail.com>
-In-Reply-To: <20260126152114.1211-1-jibin.zhang@mediatek.com>
-References: <20260126152114.1211-1-jibin.zhang@mediatek.com>
-Subject: Re: [PATCH v4] net: fix segmentation of forwarding fraglist GRO
-Mime-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 7bit
+        Mon, 26 Jan 2026 08:49:41 -0800 (PST)
+Date: Mon, 26 Jan 2026 09:49:39 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>, Frank Li <frank.li@nxp.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>, stable@vger.kernel.org
+Subject: Re: [PATCH] remoteproc: imx_rproc: Not report loaded resource table
+ when none
+Message-ID: <aXebIztkPihBsLRK@p14s>
+References: <20260122-imx-rproc-fix-v1-1-36cc64369a40@nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260122-imx-rproc-fix-v1-1-36cc64369a40@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_084928_464260_A16F884F 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20260126_084943_597152_5D1C4C78 
+X-CRM114-Status: GOOD (  27.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,35 +105,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[PATCH net v4]
+Good day,
 
-Jibin Zhang wrote:
-> This patch enhances GSO segment handling by properly checking
-> the SKB_GSO_DODGY flag for frag_list GSO packets, addressing
-> low throughput issues observed when a station accesses IPv4
-> servers via hotspots with an IPv6-only upstream interface.
+On Thu, Jan 22, 2026 at 11:24:43AM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 > 
-> Specifically, it fixes a bug in GSO segmentation when forwarding
-> GRO packets containing a frag_list. The function skb_segment_list
-> cannot correctly process GRO skbs that have been converted by XLAT,
-> since XLAT only translates the header of the head skb. Consequently,
-> skbs in the frag_list may remain untranslated, resulting in protocol
-> inconsistencies and reduced throughput.
+> When starting a firmware without a resource table after previously running
+> one that had a resource table, imx_rproc_elf_find_loaded_rsc_table() may
+> incorrectly return a valid device memory pointer (priv->rsc_table).
+
+priv->rsc_table is not NULL if the DT has a "rsc-table" entry, indicating that
+_if_ there is a resource table in memory, that's where it should be.  Function
+imx_rproc_elf_find_loaded_rsc_table() is buggy so the narrative about a
+previously running FW with a valid resource table can be dropped.
+
 > 
-> To address this, the patch explicitly sets the SKB_GSO_DODGY flag
-> for GSO packets in XLAT's IPv4/IPv6 protocol translation helpers
-> (bpf_skb_proto_4_to_6 and bpf_skb_proto_6_to_4). This marks GSO
-> packets as potentially modified after protocol translation. As a
-> result, GSO segmentation will avoid using skb_segment_list and
-> instead falls back to skb_segment for packets with the SKB_GSO_DODGY
-> flag. This ensures that only safe and fully translated frag_list
-> packets are processed by skb_segment_list, resolving protocol
-> inconsistencies and improving throughput when forwarding GRO packets
-> converted by XLAT.
+> In this case rproc->cached_table is NULL because the current firmware does
+> not contain a resource table, but the remoteproc core still interprets the
+> non-NULL return value as a loaded resource table and attempts to memcpy()
+> from rproc->cached_table, leading to a NULL pointer dereference and kernel
+> panic.
+> 
+> Fix this by returning NULL from imx_rproc_elf_find_loaded_rsc_table() when
+> there is no cached resource table for the current firmware. This ensures
+> that a loaded resource table is only reported when a valid cached_table
+> exists, which matches the remoteproc core expectations.
+> 
+> This issue can be reproduced by:
+>   1) start a firmware with a resource table
+>   2) stop the remote processor
+>   3) start a firmware without a resource table
+> 
+> With this change, starting a firmware without a resource table no longer
+> causes kernel dump.
+> 
+> Fixes: e954a1bd1610 ("remoteproc: imx_rproc: Use imx specific hook for find_loaded_rsc_table")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/remoteproc/imx_rproc.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 375de79168a1c8d11b87ac1bd63774a3feac106d..cf044b385b58fe1e17d0fc440c243d76ecf020ae 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -729,6 +729,10 @@ imx_rproc_elf_find_loaded_rsc_table(struct rproc *rproc, const struct firmware *
+>  {
+>  	struct imx_rproc *priv = rproc->priv;
+>  
+> +	/* No resource table in the firmware */
+> +	if (!rproc->cached_table)
+> +		return NULL;
+> +
 
-Fixes: 9fd1ff5d2ac7 ("udp: Support UDP fraglist GRO/GSO.")
-Cc: stable@vger.kernel.org
+I think rproc->cached_table should be kept for internal remoteproc core usage
+only.  Please use rproc->table_ptr.
 
+Thanks,
+Mathieu
 
-
+>  	if (priv->rsc_table)
+>  		return (struct resource_table *)priv->rsc_table;
+>  
+> 
+> ---
+> base-commit: e3b32dcb9f23e3c3927ef3eec6a5842a988fb574
+> change-id: 20260122-imx-rproc-fix-e206f8e6e477
+> 
+> Best regards,
+> -- 
+> Peng Fan <peng.fan@nxp.com>
+> 
 
