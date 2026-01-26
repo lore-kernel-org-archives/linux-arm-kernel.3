@@ -4,83 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFE1D13C13
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 13:52:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D54AD13C13
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 13:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ky62GUwPERN/e0pyAb7yB0pYqm86UmimVZKdDJ3jtbo=; b=i/GZbmwC02S85qwva39nzj2sxy
-	72lZYEq6QFy5BsY61b8beDPF9gz3/BmsMyk1PIkGWU2RKPigUseaFvTfZV7pH5AEj6aES2aKK/QT5
-	knBZujjVnTdyJOGyTLMYKMxBAIHSvbQeVbDO9FLi2TqNAvKuDUMU/Aie3By5CS/XVEMo1T/PJ8D21
-	k1sfDAhy/9kFjTTfLXywYRWZGTN7Qj2NhiMTcwKRGEnTY5SGDEKRyLnL8QG8pwwtIzDOf5AWy5zh/
-	25lSFLHvZifxIHtlf6FIvjaRXNsK+N6gL2D2YD7N0XhH4ofHAlakreNw+O52C0TH0zIR4YizammYe
-	mGm8Qk9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iEvi21V0D5eCZvB2KkX5BtkV9qH1XBQsRblLwFrrLZ4=; b=2X09R4XDmAMk4CZaUTlwC1W8q/
+	Ch8LhLXIyQY31BwR8Qb40jRpuuemnCOPzgKsc2k70W22oGOWQiRNOw/D6XoCbdwqb8NzPN/gP/XhQ
+	pAdi5KoKB9y7/VwMbcKsVhsxEOHZaCGR8sNDXvdDO/CKNaRFUEnTP+rREP5znIxuyJZ6eaNRTYc2f
+	8decZIr4acHrlShZWGsnH8Ib7Tp1hSz9xfOUwuN8MCuPiZzmxIV68fjzP+/zeICzcQVLp/Go9+U8b
+	/Tm0TwyDnhl1WAMJfAPcnbGKksDe2LfIciNnPeOPomwO1x65lB3qtyqVp2ASgLg8eNa0hPMwr5OI0
+	gFZLNqVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkN0r-0000000Ce3s-3wZc;
-	Mon, 26 Jan 2026 13:52:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkN0q-0000000Ce3k-3BLC
+	id 1vkN1J-0000000Ce84-2HwW;
+	Mon, 26 Jan 2026 13:52:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkN1H-0000000Ce6z-34od
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 13:52:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ADA94600C3;
-	Mon, 26 Jan 2026 13:52:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D689CC116C6;
-	Mon, 26 Jan 2026 13:52:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769435535;
-	bh=kcA2cPiJEC19HBEstbYBifZWvAw98I0XK00+8H10mco=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kVVmZvFr+CRLz0dBd5XLWyUavbW8nCgjkNtfsZ68viSoUlQzfs77mgqO6yT/jpeN8
-	 pg7kQkZ+GT9I3gBbH5KSW1N19v6LZBDwYGLOWXiqcQylBZ5g4+KO6kKGQcqEiAcp10
-	 ausowbCOUHsZ9bfKrKj7R3xBLNET1yxkp9J+5MLTEWX7f4No1SfT5XTL6aSPrTfT+N
-	 bCZy9asASdQMt42TI+gLu+rK/RLraHfA4D5BqFAPeAolk0a/hyw0wdylU0k19HWyrL
-	 x4wXKWwVwt8GOfxwvDBurrXf2OyecnDAn/Q+0+zLdQYHvjvwQgg6PufPEP9PU1/i/q
-	 WOFYplVNvnCcg==
-Date: Mon, 26 Jan 2026 13:52:05 +0000
-From: Will Deacon <will@kernel.org>
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chen Ridong <chenridong@huawei.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-block@vger.kernel.org, linux-mm@kvack.org,
-	linux-pci@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 29/33] sched/arm64: Move fallback task cpumask to
- HK_TYPE_DOMAIN
-Message-ID: <aXdxhfVLqyv-2SDX@willie-the-truck>
-References: <20260125224541.50226-1-frederic@kernel.org>
- <20260125224541.50226-30-frederic@kernel.org>
+	Mon, 26 Jan 2026 13:52:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B44911515;
+	Mon, 26 Jan 2026 05:52:36 -0800 (PST)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FA5D3F632;
+	Mon, 26 Jan 2026 05:52:41 -0800 (PST)
+From: Leo Yan <leo.yan@arm.com>
+Date: Mon, 26 Jan 2026 13:52:02 +0000
+Subject: [PATCH v2 2/8] coresight: Get parent device reference after sink
+ ID map allocation
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260125224541.50226-30-frederic@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260126-arm_coresight_refactor_dev_register-v2-2-b5a3c0441c15@arm.com>
+References: <20260126-arm_coresight_refactor_dev_register-v2-0-b5a3c0441c15@arm.com>
+In-Reply-To: <20260126-arm_coresight_refactor_dev_register-v2-0-b5a3c0441c15@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, 
+ Mao Jinlong <quic_jinlmao@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769435557; l=1925;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=sU9u6OCx/Fy2Hv6Til4Fd08SgN9HV1pojJ6aLoovuyk=;
+ b=nTeSFJqqhHh7Q4Jhm630XBz7DPukiHgXZaCTrQgI4Aoosj8Dr9ElkKoO0p2xadl4zHsBT1Gw4
+ WkV/K7PILW0DtJ/OE1OZLtas74C/k1I5EUxeqllmJAheGQYp+5dFNRC
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260126_055243_830991_4CB444BB 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +76,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 25, 2026 at 11:45:36PM +0100, Frederic Weisbecker wrote:
-> When none of the allowed CPUs of a task are online, it gets migrated
-> to the fallback cpumask which is all the non nohz_full CPUs.
-> 
-> However just like nohz_full CPUs, domain isolated CPUs don't want to be
-> disturbed by tasks that have lost their CPU affinities.
-> 
-> And since nohz_full rely on domain isolation to work correctly, the
-> housekeeping mask of domain isolated CPUs should always be a subset of
-> the housekeeping mask of nohz_full CPUs (there can be CPUs that are
-> domain isolated but not nohz_full, OTOH there shouldn't be nohz_full
-> CPUs that are not domain isolated):
-> 
-> 	HK_TYPE_DOMAIN & HK_TYPE_KERNEL_NOISE == HK_TYPE_DOMAIN
-> 
-> Therefore use HK_TYPE_DOMAIN as the appropriate fallback target for
-> tasks. Note that cpuset isolated partitions are not supported on those
-> systems and may result in undefined behaviour.
-> 
-> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> Reviewed-by: Waiman Long <longman@redhat.com>
-> ---
->  Documentation/arch/arm64/asymmetric-32bit.rst | 12 ++++++++----
->  arch/arm64/kernel/cpufeature.c                |  6 +++---
->  2 files changed, 11 insertions(+), 7 deletions(-)
+The parent device's reference count is incremented before allocating the
+sink ID map.  If the allocation fails, the reference count is not
+decremented, preventing proper cleanup.
 
-Thanks, Frederic, this looks much better to me. I also chucked my old
-tests at it and it looked good, so:
+Fix this by incrementing the reference count only after the sink ID map
+is successfully allocated.
 
-Acked-by: Will Deacon <will@kernel.org>
-Tested-by: Will Deacon <will@kernel.org>
+Fixes: 5ad628a76176 ("coresight: Use per-sink trace ID maps for Perf sessions")
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ drivers/hwtracing/coresight/coresight-core.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
-Will
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index ed304f292b7b02e89c59053d43f88fbf663cc993..6f21925a4913330a27db5d5836f34f13382339e7 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1346,12 +1346,6 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+ 	csdev->dev.parent = desc->dev;
+ 	csdev->dev.release = coresight_device_release;
+ 	csdev->dev.bus = &coresight_bustype;
+-	/*
+-	 * Hold the reference to our parent device. This will be
+-	 * dropped only in coresight_device_release().
+-	 */
+-	csdev->dev.fwnode = fwnode_handle_get(dev_fwnode(desc->dev));
+-	dev_set_name(&csdev->dev, "%s", desc->name);
+ 
+ 	if (csdev->type == CORESIGHT_DEV_TYPE_SINK ||
+ 	    csdev->type == CORESIGHT_DEV_TYPE_LINKSINK) {
+@@ -1363,6 +1357,14 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+ 			goto err_out;
+ 		}
+ 	}
++
++	/*
++	 * Hold the reference to our parent device. This will be
++	 * dropped only in coresight_device_release().
++	 */
++	csdev->dev.fwnode = fwnode_handle_get(dev_fwnode(desc->dev));
++	dev_set_name(&csdev->dev, "%s", desc->name);
++
+ 	/*
+ 	 * Make sure the device registration and the connection fixup
+ 	 * are synchronised, so that we don't see uninitialised devices
+
+-- 
+2.34.1
+
 
