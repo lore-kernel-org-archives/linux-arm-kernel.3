@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A5DAD1951A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 21:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D4FD1951B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 22:19:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JPwZyDe4OThoaY1OrbYDXoRov92xdqHIGYafSht4NfM=; b=hDJE0GUPpWub17RsHJDFM9RZNi
-	2uP5oUKQWjpDfWc9Qf7CVyqc5GEBJq/rQ49CWEHRvqyKEoNYDuWj1qvxH9Nw2aIssbf3pYfhBXF+S
-	iGA6WgKdMeVhMMh1ENxwFkluPVWNnOxKEWnfg1pDtbllB1xRgyK0HyfOHPCF2+odokZjhCEeJHwqh
-	oc/C8tVE+PgKxbfRFp9j5T6fXJkN8p2+OJXcFGLGHCKB4pKUhHuwQN0LkQNgEpxbEwi8AE8g3iupp
-	p5vlCKn1JhUoIISweOgLT12zs+uFmhLLf2X5gPivT796DXAngMI+V6QNG/VM8Rf6fhle2fI1YyIBl
-	0cu1+YOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WnroHu4LRQPkpA6KA6gRdMMHwWl2ZmnE6SSKUt67trc=; b=2+8FmakegcLGMi9wAke01KlEuR
+	As/53jo44JctcwgmF/xcISA7R+GJcEyzC0MHtRxfo4WhMuh/N7hSqwi5XJeL0qwuYEu1De18lXlO8
+	1zd7sJE1XAtzEFH8VjfvEdmhFXkIEu7NnaTXctSbnyZVeXDm7Nb4aCcFImvnbDErHjMQqlma/Bk02
+	MKQA9SCDI8VCvxEOJtrKl5k31Gp+ctGp6Y+WQYi26rM6SAnjUd1ZL40ZRqru3Mc6s9u2QnMk2mg4y
+	VzkEkY+huWWEu419ERpCDYLE3TAyTlP1yXIvHihV3H0NNlNZm1Eb3LRCVceF2U4MiSDayu5/wesMo
+	ZnAHx0Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkUak-0000000DI7X-0rPf;
-	Mon, 26 Jan 2026 21:57:50 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vkUvv-0000000DJCH-24rh;
+	Mon, 26 Jan 2026 22:19:43 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkUag-0000000DI70-3Dxd
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 21:57:48 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 47492C214D3;
-	Mon, 26 Jan 2026 21:57:45 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5396260717;
-	Mon, 26 Jan 2026 21:57:43 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 874EC119A8652;
-	Mon, 26 Jan 2026 22:57:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769464662; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=JPwZyDe4OThoaY1OrbYDXoRov92xdqHIGYafSht4NfM=;
-	b=LCXGMY+ZTWlhL1gecMErzIScZDyGU0NQZPJmDtsoIaTKfhqkz/dw0BOfPXjNi+zRc53RN8
-	gZ+HMhMCK7t8zArJcfx9ysmuPANr0TGU5iT6jyyteXZr5mQmCEBvtCMI/wCpXK+vQUIKBh
-	5JLvSGLcyi4iik+iFHZW7TpDhBmqiOi6mrVxtIN5dTlqJChxN05zbgtWK5qhl7N6N1XpTm
-	jQchp++A4t4Hg+f7SR55Z6Gm+pcNUUMp4voqvkFZS5eaggk+kqMygbagGhGI92yko1Iq4j
-	cZqCoDJ/KgHtQpjNEDADwc/TP1VB2/DSmujZ6JyRxeObbxSWkCA1a51BafitOg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 26 Jan 2026 22:57:35 +0100
-Message-Id: <DFYUVCNVLBND.3MHWLTF20L4TS@bootlin.com>
-Cc: "Hui Pu" <Hui.Pu@gehealthcare.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <dri-devel@lists.freedesktop.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>
-To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>, "Liu Ying"
- <victor.liu@nxp.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>,
- "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Shawn Guo"
- <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
- <festevam@gmail.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v4 4/4] drm/bridge: imx8qxp-pixel-link: get/put the next
- bridge
-X-Mailer: aerc 0.20.1
-References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-0-a62b4399a6bf@bootlin.com> <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-4-a62b4399a6bf@bootlin.com> <e2536229-f8d9-4d65-8211-cf445677bef2@nxp.com> <DFYQ7TS25SQT.2F7NBYOP8P5R4@bootlin.com>
-In-Reply-To: <DFYQ7TS25SQT.2F7NBYOP8P5R4@bootlin.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	id 1vkUvt-0000000DJBr-0znX;
+	Mon, 26 Jan 2026 22:19:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769465981; x=1801001981;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=MfG5mNjjM2G02N3+AWG0P0JkfwOAvfM7VEWe3256V5c=;
+  b=kuezKHBlz94YLBkkNKqb+GtckPIAF+CGROQ+etshkvzEEr0bJJpop+Qe
+   phkwdkLZl6CXC8jW8teHovPl6Zc5qwxOjKRZZ9uH6ftNxoS4S9ciio4JW
+   Gn1NfU7kHu/f6yYnYX6SVW//Yw2w9tOPv8Ao2eQzLv/NmLoJekyB/QXXh
+   GgTPh8CaHcJT2AokOtT0xDgymDWW2nNKp8GrXBa2XwOOchYCubjQk/yjD
+   ZGHd8mY6Laq6x2vQ6C2K/OVD1WpXr98cVW3VxyXfU8tbBIrCE1vXk65Y5
+   tpPI+VEeH5wEt1dLs0HRJTpKkQY2lPqYQxjZfoVCC+P5UQcteKRVuDHET
+   Q==;
+X-CSE-ConnectionGUID: Icbc0CzBQiqi6id3/sA/WQ==
+X-CSE-MsgGUID: pPInSF0KQGKq5uu7Xj7APg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11683"; a="82020718"
+X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
+   d="scan'208";a="82020718"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jan 2026 14:19:40 -0800
+X-CSE-ConnectionGUID: g4hHWet8R1qn9oh1nF18gQ==
+X-CSE-MsgGUID: tuyl5+JHQhyy8v27GXZOhg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
+   d="scan'208";a="245405233"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa001.jf.intel.com with ESMTP; 26 Jan 2026 14:19:36 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vkUvl-00000000Xjy-2AbJ;
+	Mon, 26 Jan 2026 22:19:33 +0000
+Date: Tue, 27 Jan 2026 06:19:21 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Andrew Lunn <andrew@lunn.ch>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next v2 08/22] net: stmmac: rk: convert rk3588 to
+ mask-based interface mode config
+Message-ID: <202601270652.AmCxSo3f-lkp@intel.com>
+References: <E1vkL2I-00000005usu-42Hy@rmk-PC.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1vkL2I-00000005usu-42Hy@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_135746_951556_1E4C1C72 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20260126_141941_315509_BE9F87DF 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,118 +94,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Liu,
+Hi Russell,
 
-On Mon Jan 26, 2026 at 7:18 PM CET, Luca Ceresoli wrote:
+kernel test robot noticed the following build warnings:
 
->>> @@ -260,7 +259,7 @@ static int imx8qxp_pixel_link_find_next_bridge(stru=
-ct imx8qxp_pixel_link *pl)
->>>  {
->>>  	struct device_node *np =3D pl->dev->of_node;
->>>  	struct device_node *port;
->>> -	struct drm_bridge *selected_bridge =3D NULL;
->>> +	struct drm_bridge *selected_bridge __free(drm_bridge_put) =3D NULL;
->>>  	u32 port_id;
->>>  	bool found_port =3D false;
->>>  	int reg;
->>> @@ -297,7 +296,8 @@ static int imx8qxp_pixel_link_find_next_bridge(stru=
-ct imx8qxp_pixel_link *pl)
->>>  			continue;
->>>  		}
->>>
->>> -		struct drm_bridge *next_bridge =3D of_drm_find_bridge(remote);
->>> +		struct drm_bridge *next_bridge __free(drm_bridge_put) =3D
->>> +			of_drm_find_and_get_bridge(remote);
->>>  		if (!next_bridge)
->>>  			return -EPROBE_DEFER;
->>>
->>> @@ -305,12 +305,14 @@ static int imx8qxp_pixel_link_find_next_bridge(st=
-ruct imx8qxp_pixel_link *pl)
->>>  		 * Select the next bridge with companion PXL2DPI if
->>>  		 * present, otherwise default to the first bridge
->>>  		 */
->>> -		if (!selected_bridge || of_property_present(remote, "fsl,companion-p=
-xl2dpi"))
->>> -			selected_bridge =3D next_bridge;
->>> +		if (!selected_bridge || of_property_present(remote, "fsl,companion-p=
-xl2dpi")) {
->>> +			drm_bridge_put(selected_bridge);
->>> +			selected_bridge =3D drm_bridge_get(next_bridge);
->>
->> Considering selecting the first bridge without the companion pxl2dpi,
->> there would be a superfluous refcount for the selected bridge:
->>
->> 1) of_drm_find_and_get_bridge: refcount =3D 1
->> 2) drm_bridge_put: noop, since selected_bridge is NULL, refcount =3D 1
->> 3) drm_bridge_get: refcount =3D 2
->> 4) drm_bridge_put(__free): refcount =3D 1
->> 5) drm_bridge_get: for the pl->bridge.next_bridge, refcount =3D 2
->
-> Here you are missing one put. There are two drm_bridge_put(__free), one f=
-or
-> next_bridge and one for selected_bridge. So your list should rather be:
->
-> 1) next_bridge =3D of_drm_find_and_get_bridge: refcount =3D 1
-> 2) drm_bridge_put(selected_bridge): noop, since selected_bridge is NULL, =
-refcount =3D 1
-> 3) selected_bridge =3D drm_bridge_get: refcount =3D 2
-> 4) drm_bridge_put(next_bridge) [__free at loop scope end]: refcount =3D 1
-> 5) pl->bridge.next_bridge =3D drm_bridge_get(), refcount =3D 2
-> 6) drm_bridge_put(selected_bridge) [__free at function scope end]: refcou=
-nt =3D 1
->
-> The idea is that for each pointer (which is a reference) we get a referen=
-ce
-> (refcount++) when the pointer is set and put the reference when that same
-> pointer goes out of scope or is reset to NULL. "the pointer is set" can b=
-e
-> either of_drm_find_and_get_bridge() or an assignment, as each of these
-> operations creates another reference (pointer) to the same bridge.
->
-> Does it look correct?
+[auto build test WARNING on net-next/main]
 
-Based on this discussion I thought the commit message could be clearer, and
-rewrote it as:
+url:    https://github.com/intel-lab-lkp/linux/commits/Russell-King-Oracle/net-stmmac-rk-avoid-phy_power_on/20260126-234820
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/E1vkL2I-00000005usu-42Hy%40rmk-PC.armlinux.org.uk
+patch subject: [PATCH net-next v2 08/22] net: stmmac: rk: convert rk3588 to mask-based interface mode config
+config: m68k-allyesconfig (https://download.01.org/0day-ci/archive/20260127/202601270652.AmCxSo3f-lkp@intel.com/config)
+compiler: m68k-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260127/202601270652.AmCxSo3f-lkp@intel.com/reproduce)
 
------[no changes from here...]-----
-    drm/bridge: imx8qxp-pixel-link: get/put the next bridge
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601270652.AmCxSo3f-lkp@intel.com/
 
-    This driver obtains a bridge pointer from of_drm_find_bridge() in the p=
-robe
-    function and stores it until driver removal. of_drm_find_bridge() is
-    deprecated. Move to of_drm_find_and_get_bridge() for the bridge to be
-    refcounted and use bridge->next_bridge to put the reference on
-    deallocation.
------[...to here]-----
+All warnings (new ones prefixed by >>):
 
-    To keep the code as simple and reliable as possible, get a reference fo=
-r
-    each pointer that stores a drm_bridge address when it is stored and rel=
-ease
-    when the pointer is set to NULL or goes out of scope. The involved poin=
-ters
-    are:
+   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c: In function 'rk_write_gmac_grf_reg':
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:132:24: warning: variable 'regmap' set but not used [-Wunused-but-set-variable]
+     132 |         struct regmap *regmap;
+         |                        ^~~~~~
 
-     * next_bridge loop-local variable:
-       - get reference by of_drm_find_and_get_bridge()
-       - put reference at the end of the loop iteration (__free)
 
-     * selected_bridge function-local variable:
-       - get reference when written (by copy from next_bridge)
-       - put reference at function exit (__free)
-       - put reference before reassignment too
+vim +/regmap +132 drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
 
-     * pl->bridge.next_bridge, tied to struct imx8qxp_pixel_link lifetime:
-       - get reference when written (by copy from selected_bridge)
-       - put reference when the struct imx8qxp_pixel_link embedding the
-         struct drm_bridge is destroyed (struct drm_bridge::next_bridge)
+   129	
+   130	static int rk_write_gmac_grf_reg(struct rk_priv_data *bsp_priv, u32 val)
+   131	{
+ > 132		struct regmap *regmap;
+   133	
+   134		if (bsp_priv->ops->gmac_grf_reg_in_php)
+   135			regmap = bsp_priv->php_grf;
+   136		else
+   137			regmap = bsp_priv->grf;
+   138	
+   139		return regmap_write(bsp_priv->grf, bsp_priv->gmac_grf_reg, val);
+   140	}
+   141	
 
-Do you think it's better now?
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
