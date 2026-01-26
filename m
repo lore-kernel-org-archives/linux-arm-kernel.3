@@ -4,68 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37311C88E42
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 02:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A3C5C88E42
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 02:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ryYImnLipoOmODdyk99od2tqaLlIf40PZfSh2EHXETs=; b=LjKbVg3QR3FFR+v5Esov+FzdUd
-	BZd3ag7P/kShWT43rTmx9uodj3Cq14Ct5tYfqWaHegec1shsNoY7MCPiuZfylSlz6kzTOnJZ6a2Lv
-	l3Th93eR/GiFqmu7G+FwABwaJk3l/mYsEqtr64Fb80S1+FUD9MxzazMtmtW/lriliqdF4rgBTRQ1D
-	CWyw5yEfIDAOOVgzcaL9GnVhqeI7KsM4m9pwmqC6jB7wGPc6l54B9Aazoj5D3ZGgLsnOpeAYiacKL
-	5Q7+hNw+eerLwPo1oaUrFz+dZGIJkDFF+hXvXfTk1OJn2zBAdHmyULbMDpGHNC3n4KcNp5Np8fnj/
-	WHmWEy4w==;
+	bh=D8AR0VhDV4OTwQ7mRcydNkMmnlFjeqjkMVYVyByfRmo=; b=sdaZYj/uusdN2uaizX6rvUNeru
+	rR1qqNTuUXS1jBpiWjQh9iF7VPhkM6+rHzOehX8zVIzteowOix3CR4pggrScm4I5qh4pBpxBjgzpE
+	X6YGSDVdO/+Uh6Trwc8GXO9tn/D8LokBPcDpf6E9zfwyB5wYAQ1gg1RCzpoaRvCdolbUm2HQ9sLxG
+	V+Dr31K3IgQcSHEijQoWgw0eKkxnLbD3+pAmvRhAo3wJJSSYCK9x/d6VOYZqjFUxG3RBAgV8k7ULi
+	16tnofGK4vitTOJYGhk5S8IdBciPReBHL9kj3oZSUsicvp1XrtHQLwqsIeP19qAyaN7R1UetLtpzz
+	z5s5BQyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkCIb-0000000BnFj-3YIS;
-	Mon, 26 Jan 2026 02:25:53 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1vkCWb-0000000Bnkn-2AFx;
+	Mon, 26 Jan 2026 02:40:21 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkCIY-0000000BnFA-3hM4
+	id 1vkCWZ-0000000BnkO-19ID
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 02:25:52 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ryYImnLipoOmODdyk99od2tqaLlIf40PZfSh2EHXETs=;
-	b=bmGot+dUZ9aMjFg5vy9gqZhqIxxOzLWEOswGwdlWAmBlaXdq7NAqsPWsk0ghi/3px3xWTORSI
-	6tCxhFfJdccLF3/szWQjDN8Yk1bJgu5m2YlGE8Z5zk2hypgSiMcxPlYU1tIeuvYaWt1qw3/tRIs
-	n8M3BmrswPCNmkRKJVCj+v4=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4dzskC1LpwzLlSg;
-	Mon, 26 Jan 2026 10:22:11 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2288E40539;
-	Mon, 26 Jan 2026 10:25:37 +0800 (CST)
-Received: from [10.174.179.179] (10.174.179.179) by
- kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 26 Jan 2026 10:25:36 +0800
-Message-ID: <307bf219-23dc-4e20-8622-65a54102761e@huawei.com>
-Date: Mon, 26 Jan 2026 10:25:35 +0800
+	Mon, 26 Jan 2026 02:40:20 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2a12ed4d205so26160155ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Jan 2026 18:40:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769395217; cv=none;
+        d=google.com; s=arc-20240605;
+        b=kP/+z+x27xSnDK4PWQ0DIWANqgYF1lF3M5/SIR2NlHmUqmrp+4nq8ZdXeWKeSNybh1
+         aOTg9Qxfs0ne9yAXl/qH+m3p1D4hFYjYzoiD97LVT1HgUwwhT2ZbOmXA1plRjtFW2SvC
+         pj47V+qj+tzKrhN2/Qj29qHI5tRQpU3hCUOD2W7fvPwf1AgeqCmWYUPsCVG2RI3wm4gH
+         62pqH0RebS4SrudeMpzikqyofycuthEUFm6ujj+yRTOunkbkZ2c7nAh7w8KWwaZY7Icj
+         EdIcjW5ug2xL2xth/yIjpGKc+ueGZJxSGnj++rKI3+CzTMSbJHBI7sf5osdgjQAe9qNb
+         VABQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=D8AR0VhDV4OTwQ7mRcydNkMmnlFjeqjkMVYVyByfRmo=;
+        fh=PlODhq26P8kDRwZfvfauSlvRouzWMKJ26H8kHtaMoVM=;
+        b=PnBtpudr1RH+usnBT3tNfo14dvIEZ36UMjfleqS1gIIA5xzcUwXg8knMQk6erHlcza
+         G0U7z2vMt9HNaxZ4Iv/VoBh/plCWML0Pin/8M1+J+4+uEegItDGvWHd6ezlDRSUTCzDY
+         +6tOghEEmJPqw4I+p0Hf8zLwTCiLoPBvCTaUSYaooTYLyvJGPLFkC7tD52HAip+nwL/+
+         UIixpcB++1stuQzXTTREvCVQ/mv+Oi7JRphFCIGuuQTwyy1UY+2wx5KfDtwl7eonfTLD
+         PZQWpuY76cT9HuzpVfG0L5zaDssHnvFtg2u0ga5QrxsswudltK3xQS6vd0c/9BnrKxBB
+         yneg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769395217; x=1770000017; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=D8AR0VhDV4OTwQ7mRcydNkMmnlFjeqjkMVYVyByfRmo=;
+        b=ItekUBwrDTUiisn5nJTBkWZG60QyHNBSdn8zAGsL2wy2HDNAKv5av8gkvtMyoMHTxj
+         7lzE2QD5YycAK/XmipQdbF2T2NLxuPe/02o7M69WxcXBT2oNlvAa7ZfXzfnEZtmecAGf
+         N1NMxeLT1X35oQdMyEcBEzH9mXoU6PHQ4kD94QEG/7Jz9UD7MP1FhrMaqjaNqhK/zxBn
+         7AGaFtU6gHKU/7cI/tnQdP/CaFaWHFmQ4Yf90vId8tUjmzjGYoTK2Bi3D5f59Famjfz+
+         4pFxod+aVGkVxyhXcUXbCVNnFZJZggtLQqBiQKJvFFctXMxBV9Gfwn0AZQOqqOI9Eusd
+         SEkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769395217; x=1770000017;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=D8AR0VhDV4OTwQ7mRcydNkMmnlFjeqjkMVYVyByfRmo=;
+        b=MtaRlaRVbxYNAZbWBUlVgVPqA2URzVJHgDnhUm8NkQ2cNY8SmpYPcj2lWtYuYhIO2+
+         9EvrCNG/edRKBqaKQIcZOStgp2R2NN9UVJAmjwITMdd5oB2frxwYWWMJJE7KdfFbpFV1
+         4+xui2Im9D2EovBu83wkQ4UUqDj/yElhIPrQ1hwC2Xbr5e4q7d1QtPkN1Ya5IMx2wQb+
+         QJmzzf2u9EErsfgurNT8sDf8y+FsgQUrBpSXdslELnPkSi+ci1wMyYGZiXbKQ81CDvD3
+         YN0kOrypQPvv+XqnCs+30sfzb8dQFTMVHgSKm/4aJtvzbZguQeELq5VTQeu2gtNZYr4u
+         l3Xw==
+X-Forwarded-Encrypted: i=1; AJvYcCXTbzVUp/KIAnOxTn356XqPQnfNLKflKDaq/ILMQYz2vTeFC33dNU/X6jb74R8xdIjAkow4ItNujzfJiRtgBrcm@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIickl0wXrJWkgyd5eOrrmjd61WyVN36bIuDbY7uB0ghc2sL/Y
+	mJYCDnZ6Cr+dhDrojcekohgfG09RJ8AbEYTBS1PYbMTvk6rWqYXE1n3gpZEOLUblUSRYHxiOB7N
+	hhkeARYAxds+O1WFbc23t905GgJOnGVQ=
+X-Gm-Gg: AZuq6aJNbvQ37sEbHzAT/RtLaivuKV1TCR+WHAc6TNrbtlCov25u8/a7tAG7M8mHmk9
+	pJKNutEKbnZ5Pn5AvybZ6M6rAOhiAcvJ50L2ag/QID10Ef1sgn+12NZznOOhWfWUD6QQam+c3mp
+	0X7UewHW0VC0UmYXU/1ZFYOqs59g1ANQW3CI7WrT8gIf40R1AN2CLNJjMpDbVlOxxQZRPs1F0Wp
+	ugs0FR266KMouGqD8W4evef/ALafMzyQz2Y8ZydiG/Iv0MctkZFsy4K2GBO+67Mrw/qbRaQB03R
+	OzeevA==
+X-Received: by 2002:a17:902:cccd:b0:2a0:c58b:ed6 with SMTP id
+ d9443c01a7336-2a8452c26famr35178965ad.29.1769395217493; Sun, 25 Jan 2026
+ 18:40:17 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: mm: explicitly use kernel pte for ioremap_prot()
-To: Catalin Marinas <catalin.marinas@arm.com>
-CC: <akpm@linux-foundation.org>, <david@kernel.org>, <will@kernel.org>,
-	<zengheng4@huawei.com>, <ryan.roberts@arm.com>, <anshuman.khandual@arm.com>,
-	<wangkefeng.wang@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mm@kvack.org>
-References: <20260123030238.835748-1-tujinjiang@huawei.com>
- <aXO_l_4OrC7Ja4rP@arm.com>
-From: Jinjiang Tu <tujinjiang@huawei.com>
-In-Reply-To: <aXO_l_4OrC7Ja4rP@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.179.179]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr500001.china.huawei.com (7.202.194.229)
+References: <20260123084844.4051570-1-shengjiu.wang@nxp.com> <86970fc1-c4c7-4a52-91e4-f9f93be5990b@gmail.com>
+In-Reply-To: <86970fc1-c4c7-4a52-91e4-f9f93be5990b@gmail.com>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Mon, 26 Jan 2026 10:40:05 +0800
+X-Gm-Features: AZwV_Qg2Sr0MtAYiWstgnob4vdfKrkQQaosiuPn5-BRgzvr0PJc9FXqje6OXHNQ
+Message-ID: <CAA+D8AOHwNPRwdz+M_o14cBgwh1iRfJ6JA4t1yewWSbxdfJhdA@mail.gmail.com>
+Subject: Re: [PATCH] bus: imx-aipstz: set default value for opacr registers
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, laurentiu.mihalcea@nxp.com, 
+	daniel.baluta@nxp.com, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_182551_264696_0F38799B 
-X-CRM114-Status: GOOD (  20.22  )
+X-CRM114-CacheID: sfid-20260125_184019_338204_D291040D 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,119 +118,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jan 23, 2026 at 6:08=E2=80=AFPM Laurentiu Mihalcea
+<laurentiumihalcea111@gmail.com> wrote:
+>
+>
+> On 1/23/2026 12:48 AM, Shengjiu Wang wrote:
+> > The sdma script app_2_mcu needs the permission to access the peripheral
+> > devices, so need to clear the Supervisor Protect bit of SPBA2, otherwis=
+e
+> > the sdma script can't work.
+> >
+> > As the imx-aipstz is a common driver for all apis bus, so set default
+> > value for all opacr registers, that the peripheral does not require
+> > supervisor privilege level for accesses.
+> >
+> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > ---
+> >  drivers/bus/imx-aipstz.c | 20 ++++++++++++++++++++
+> >  1 file changed, 20 insertions(+)
+>
+>
+> Hey SJ,
+>
+>
+> I'd be interested in explaining the situation a bit better in the commit =
+message.
+>
+> The 2 most important pieces of information are, in my opinion:
+>
+>
+> 1) SDMA2 transactions are set to user-mode in your particular case.
+>
+> 2) Your script doesn't use the peripheral interface (connected directly
+>
+> to SPBA), which is why the SDMA2-issued transactions are subjected to
+>
+> AIPSTZ5's security-related checks.
 
-在 2026/1/24 2:36, Catalin Marinas 写道:
-> On Fri, Jan 23, 2026 at 11:02:38AM +0800, Jinjiang Tu wrote:
->> Here is a syzkaller error log:
->>    [0000000020ffc000] pgd=080000010598d403, p4d=080000010598d403, pud=0800000125ddb403,
->>                       pmd=080000007833c403, pte=01608000007fcfcf
->>    Unable to handle kernel read from unreadable memory at virtual address ffff80008ea89000
->>    KASAN: probably user-memory-access in range [0x0000000475448000-0x0000000475448007]
->>    Mem abort info:
->>      ESR = 0x000000009600000f
->>      EC = 0x25: DABT (current EL), IL = 32 bits
->>      SET = 0, FnV = 0
->>      EA = 0, S1PTW = 0
->>      FSC = 0x0f: level 3 permission fault
->>    Data abort info:
->>      ISV = 0, ISS = 0x0000000f, ISS2 = 0x00000000
->>      CM = 0, WnR = 0, TnD = 0, TagAccess = 0
->>      GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
->>    swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000001244aa000
->>    [ffff80008ea89000] pgd=100000013ffff403, p4d=100000013ffff403, pud=100000013fffe403,
->> 		     pmd=100000010a453403, pte=01608000007fcfcf
->>    Internal error: Oops: 000000009600000f [#1] SMP
->>    Modules linked in: team
->>    CPU: 1 PID: 10840 Comm: syz.9.83 Kdump: loaded Tainted: G
->>    Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
->>    pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->>    pc : __memcpy_fromio+0x80/0xf8
->>    lr : generic_access_phys+0x20c/0x2b8
->>    sp : ffff8000a0507960
->>    x29: ffff8000a0507960 x28: 1ffff000140a0f44 x27: ffff00003833cfe0
->>    x26: 0000000000000000 x25: 0000000000001000 x24: 0010000000000001
->>    x23: ffff80008ea89000 x22: ffff00004ea63000 x21: 0000000000001000
->>    x20: ffff80008ea89000 x19: ffff00004ea62000 x18: 0000000000000000
->>    x17: 0000000000000000 x16: 0000000000000000 x15: ffff8000806f1e3c
->>    x14: ffff8000806f1d44 x13: 0000000041b58ab3 x12: ffff7000140a0f23
->>    x11: 1ffff000140a0f22 x10: ffff7000140a0f22 x9 : ffff800080579d24
->>    x8 : 0000000000000004 x7 : 0000000000000003 x6 : 0000000000000001
->>    x5 : ffff8000a0507910 x4 : ffff7000140a0f22 x3 : dfff800000000000
->>    x2 : 0000000000001000 x1 : ffff80008ea89000 x0 : ffff00004ea62000
->>    Call trace:
->>      __memcpy_fromio+0x80/0xf8
->>      generic_access_phys+0x20c/0x2b8
->>      __access_remote_vm+0x46c/0x5b8
->>      access_remote_vm+0x18/0x30
->>      environ_read+0x238/0x3e8
->>      vfs_read+0xe4/0x2b0
->>      ksys_read+0xcc/0x178
->>      __arm64_sys_read+0x4c/0x68
->>      invoke_syscall+0x68/0x1a0
->>      el0_svc_common.constprop.0+0x11c/0x150
->>      do_el0_svc+0x38/0x50
->>      el0_svc+0x50/0x258
->>      el0t_64_sync_handler+0xc0/0xc8
->>      el0t_64_sync+0x1a4/0x1a8
->>    Code: 91002339 aa1403f7 8b190276 d503201f (f94002f8)
->>
->> The local syzkaller first maps I/O address from /dev/mem to userspace,
->> overiding the stack vma with MAP_FIXED flag. As a result, when reading
->> /proc/$pid/environ, generic_access_phys() is called to access the region,
->> which triggers a PAN permission-check fault and causes a kernel access
->> fault.
->>
->> The root cause is that generic_access_phys() passes a user pte to
->> ioremap_prot(), the user pte sets PTE_USER and PTE_NG bits.  Consequently,
->> any subsequent kernel-mode access to the remapped address raises a fault.
->>
->> To fix it, similar to ioremap_prot() in x86, use _PAGE_KERNEL as template,
->> and update PTE_WRITE and PTE_ATTRINDX according to the pgprot argument.
->>
->> Fixes: 893dea9ccd08 ("arm64: Add HAVE_IOREMAP_PROT support")
->> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
->> Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
->> ---
->>   arch/arm64/mm/ioremap.c | 6 ++++++
->>   1 file changed, 6 insertions(+)
->>
->> diff --git a/arch/arm64/mm/ioremap.c b/arch/arm64/mm/ioremap.c
->> index 10e246f11271..78a63a14465f 100644
->> --- a/arch/arm64/mm/ioremap.c
->> +++ b/arch/arm64/mm/ioremap.c
->> @@ -18,6 +18,7 @@ void __iomem *ioremap_prot(phys_addr_t phys_addr, size_t size,
->>   			   pgprot_t pgprot)
->>   {
->>   	unsigned long last_addr = phys_addr + size - 1;
->> +	unsigned long new_pgprot_val;
->>   
->>   	/* Don't allow outside PHYS_MASK */
->>   	if (last_addr & ~PHYS_MASK)
->> @@ -27,6 +28,11 @@ void __iomem *ioremap_prot(phys_addr_t phys_addr, size_t size,
->>   	if (WARN_ON(pfn_is_map_memory(__phys_to_pfn(phys_addr))))
->>   		return NULL;
->>   
->> +	new_pgprot_val = _PAGE_KERNEL & ~(PTE_WRITE | PTE_ATTRINDX_MASK);
->> +	new_pgprot_val |= (pgprot_val(pgprot) & PTE_WRITE)
->> +				| (pgprot_val(pgprot) & PTE_ATTRINDX_MASK);
->> +	pgprot = __pgprot(new_pgprot_val);
->> +
->>   	/*
->>   	 * If a hook is registered (e.g. for confidential computing
->>   	 * purposes), call that now and barf if it fails.
-> generic_access_phys() is really weird - it takes the user PTE attributes
-> and passes them to the kernel ioremap_prot(), hoping for the best. My
-> immediate thought was to fix this in the core code. However, we also
-> need to preserve the original memory type from vma->vm_page_prot and I
-> don't think we have any generic macros to just preserve the attributes
-> but with kernel permissions (pte_mkkernel?).
+Thanks, will update them to commit message.
 
-If we fix it in generic_access_phys(), we have to define a macro for all archs
-that define CONFIG_HAVE_IOREMAP_PROT.
-
-x86, loogarch, mips, sh archs only care cacheable attribute of the user prot, so
-don't involve this issue. But, arc, arm64, powerpc simply copy the user pte prot
-to the kernel page table.
-
+best regards
+Shengjiu Wang
+>
+>
+> Of course, please feel free to correct me if I got something wrong.
+>
+>
+> Thanks,
+>
+> Laurentiu
 >
 
