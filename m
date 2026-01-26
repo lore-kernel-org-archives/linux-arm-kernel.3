@@ -4,217 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A6D0CF65D9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 11:00:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 187C2CF65DD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 11:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=20s7CA0/2pMbDwh0jf2NM19VtAOIwdyrZ7lmP2Yz+t8=; b=2E7jqD40MTewAUjDry2Mp/n94v
-	3stEcJQ389P6fW4koe6qJfIhjOPgUhSHngldgLmbmaNUM3NYHuwM5/wLtignov6QEg6fFryklvvCI
-	zxhHZswfIQgTp4ZnWpKyp2ASlXVNiyWYUqQqfn9f4zlwX6bTKTopTUBti5RTlOh7lQFxZAQUzUS9H
-	YGIr015SsAoS4etlYh2gQu2OJdmScTvF02jkBJPBtbrsLBIehCiDXfP1WAD8OR3ANtsejyBdNz8+4
-	NQRRE8chxffSpaMn3J3fTT3FlA4Rfs0mYAKPndT9Hal8ufB7RgIzPWM9XBfPbZ+y7oQOZ3Jf+udeA
-	nMeOVTxQ==;
+	bh=XvJrcXtn8iRvKT6VDEN9miPmbI0CvZ2DRzSRmtrceIs=; b=we8vgzKL5q7e+x0wZt1yw3wgEZ
+	JPPnmNGZeCzC5/S2GULPHrfFq94kbTFApZoIVU1IH71bCC8DRTG7uqzt04emqbraUH1YkOY8I8Uew
+	TfL+J0erSdqF5L224NwoxgCZ9DpD8SxRe0YObFax5aCDb1UnlvX0F17cav4eJmNRc33maNjYHjyiR
+	FRC1cCxDx21D2YIz9ZVN9uVXkx7fQkOhjSrx2fQ7Zq2/SEq+UAXdtdUWO1jv1PPiW158BW8kF2Kyj
+	8wBWEMLPqjZY8wvJUyV8URlN7xQSuqhUrvYRnm35Oh16ZW4tOZkt4eeOMHZbbZHKflT6cVFZvpCdT
+	tFSAW+Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkKKc-0000000CNCD-163V;
-	Mon, 26 Jan 2026 11:00:30 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vkKLJ-0000000CNHS-0CiH;
+	Mon, 26 Jan 2026 11:01:13 +0000
+Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkKKY-0000000CNB7-1vb3
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 11:00:29 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=BuederZYa13lfn5OojuO5+Vn9C9r6iThWFx+OAF43JB+WZiO0Wlt5YSmEJa1TT/f/YWt7McUqE8wi8dOqvrRQMvNipCfboUCkmNj2zlvo1E/7oq+ReS8qv5KPmApotZ7E7gunMPethlMBvU2lL9+Z/PxVLgiB4EOqNRjOlI8QaaUUSwQLMqJeTOnoQ7YQQ7kRAsM1OgYXwaBWYKRTMGiC1kL0F5HfxozP1XRjnZQ9dMFd1mQx5/nQp01Zz+LZZ8F3BgcVkmL5gVMQiMaltiWe505EW8dkCiryjIDpBeBlcFh65dI9xVhSkwqpCMV2CFP6KeiUSNO77CbAoS8/JRngw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=20s7CA0/2pMbDwh0jf2NM19VtAOIwdyrZ7lmP2Yz+t8=;
- b=bYNIyd5u3gcubLvDrx5YOPkWTi1piRntSKxPqf3wAw3ZON/zKfmMRlAqh+Q0HrReugdR26sf/CfxVLtjfOelnH+ZkxZ3jyA2BijeDyREuZpgjd2Ink/Wxb6245rHjsxTDdmAz1lPm2Wsa+ARYXABtXQe83Po4xW93ah6UwZcUeirh0Pgosf8MSxfOBA19XvFRDoHcWIeI1jizQYKP6GG+CHFP/oa5FLcvcHg4skDwapG+xkYh7c5FIOHIx0U3DEJemyn53/7FXYWX8ZoP3sW34Bp4NwxT01dICbYHwwKruuOmMys+D5rYsbPYZzTlnTQ0zdx3m1WJKQY63wfDjGHMA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=alien8.de smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=20s7CA0/2pMbDwh0jf2NM19VtAOIwdyrZ7lmP2Yz+t8=;
- b=Z60AvHJm6It+sRVvWPIOJhKcb25QJQcJrRV4QuVH2hK0og2u1yq8rVZchyroHimSilJMsM8u/legNrzFGDMYE82rK5spzqk+VCUAz8prNHx/3Jz3u3lw41ni4Z/5oMSJ96+/6zE4MRXE3y8ROzbPS5jXkpGWF5LjiPyit9v42Bg=
-Received: from DUZPR01CA0162.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4bd::10) by VE1PR08MB5854.eurprd08.prod.outlook.com
- (2603:10a6:800:1b0::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.11; Mon, 26 Jan
- 2026 11:00:19 +0000
-Received: from DB1PEPF0003922F.eurprd03.prod.outlook.com
- (2603:10a6:10:4bd:cafe::86) by DUZPR01CA0162.outlook.office365.com
- (2603:10a6:10:4bd::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.15 via Frontend Transport; Mon,
- 26 Jan 2026 11:00:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF0003922F.mail.protection.outlook.com (10.167.8.102) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.4
- via Frontend Transport; Mon, 26 Jan 2026 11:00:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gYaessGAHRks2x1T+UeVPT+7nFtEb1mVXhqRqW/Hpp0nyWe1CAyKoc5Bpy/2sPy/7NvjdTjjt7L30FDT4JTFFHENgoVIcINwq2lHzq0xheH3ZoPLXtIYnc4/WkVBkPJ/NaUZtKNdbkzaxEeHbUNrXU1OTLyP6BuMlaE7UFKerFzhrizMfA1d5YjZ/oKYZE9pm9dA5/044JgUE9fvGldgTe76kUR+FcX3c67ymHFaj9BWdD7N2vq1bi0J/KTDA4dInvws7ccLOjT45rdAhF+TSl4P0w2aDjuNZ0rdTL3Tc+FyzbADdHw8zqHiOxSlqRgbZWZETOEge0JRKqqdURKDOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=20s7CA0/2pMbDwh0jf2NM19VtAOIwdyrZ7lmP2Yz+t8=;
- b=V0IH9DuR/6pzKeA36n22PXImS+2kb5Jip7o9We42Hw6icSPbUcNjy9bd0K17m4w8f9toD8v4uYNtzRU+/spmAQXcvaGxTsnOcIMVVGyp1uVF+ZoOWvP2ZCbOr9IGmlcsFDtYRBBwQO974PEoCL+uwHShHBcZyYDBg9Dnr6rpiYG4yIxO4GTwbUrTqrHYkX5N+oyUJnvbyI2Hy0XeWHYxyVVkORtnGcO4WEcbc29jJo+lsRT3codL9XogKV5HmfF9JM1q4tn3XFCT4rbQiWxigJCzoc7c7EM0hCaUI80GNMk0vv6myeGTi6G8LWpHHcY8NoDOHJp57gz+O1KtEbS5VQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=20s7CA0/2pMbDwh0jf2NM19VtAOIwdyrZ7lmP2Yz+t8=;
- b=Z60AvHJm6It+sRVvWPIOJhKcb25QJQcJrRV4QuVH2hK0og2u1yq8rVZchyroHimSilJMsM8u/legNrzFGDMYE82rK5spzqk+VCUAz8prNHx/3Jz3u3lw41ni4Z/5oMSJ96+/6zE4MRXE3y8ROzbPS5jXkpGWF5LjiPyit9v42Bg=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM9PR08MB6884.eurprd08.prod.outlook.com (2603:10a6:20b:305::9)
- by DBAPR08MB5608.eurprd08.prod.outlook.com (2603:10a6:10:1a5::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Mon, 26 Jan
- 2026 10:59:16 +0000
-Received: from AM9PR08MB6884.eurprd08.prod.outlook.com
- ([fe80::3d93:3e2a:1a1f:95de]) by AM9PR08MB6884.eurprd08.prod.outlook.com
- ([fe80::3d93:3e2a:1a1f:95de%6]) with mapi id 15.20.9542.010; Mon, 26 Jan 2026
- 10:59:15 +0000
-Message-ID: <9216ef1b-a3fb-4030-917d-c6141faa186a@arm.com>
-Date: Mon, 26 Jan 2026 10:58:41 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/12] ras: share firmware-first estatus handling
-Content-Language: en-GB
-To: Borislav Petkov <bp@alien8.de>
-Cc: linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
- tony.luck@intel.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
- linux-doc@vger.kernel.org, Dmitry.Lamerov@arm.com, Michael.Zhao2@arm.com
-References: <20251221013534.GAaUdO5vWqMWAdbWbd@renoirsky.local>
- <20251229115440.2734800-1-ahmed.tiba@arm.com>
- <20260114141551.GKaWelF-Gsvzr71LUs@fat_crate.local>
- <dc2f3dd7-b9db-4a2d-b431-f70738cefcfd@arm.com>
- <20260120111509.GAaW9jvTirZhL_pHTT@fat_crate.local>
-From: Ahmed Tiba <ahmed.tiba@arm.com>
-In-Reply-To: <20260120111509.GAaW9jvTirZhL_pHTT@fat_crate.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: LO4P123CA0339.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:18c::20) To AM9PR08MB6884.eurprd08.prod.outlook.com
- (2603:10a6:20b:305::9)
+	id 1vkKLF-0000000CNGo-3azJ;
+	Mon, 26 Jan 2026 11:01:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
+	Resent-Cc:Resent-Message-ID; bh=XvJrcXtn8iRvKT6VDEN9miPmbI0CvZ2DRzSRmtrceIs=;
+	t=1769425269; x=1770634869; b=TRaWAPWy2FPQ7HdSTJvcfY1YMgSZKw98zExJow1ZNu+PTeK
+	onDgqkITqRrMyjw9Lx+HhKRgsjAqLRKBFjlJWZfF8ePLAlvEdDTOvQoMC+xt2N5v+8iv30W7ngmD6
+	V7/LKeE4JylNgHPS0qzjH2RtRrI9zhEndizHrxnicrdaV/9FhZu1a21SXfNPTHrpuS1wQYjUaDobm
+	7bbDTKWwYcVBRnb7MuVk93Hs9axTUpctH/RpeCqexVI0/8/AI7R27COmEyP8HslLqEhxz0lgoBRD1
+	DtiXpsVXLImVS7VVkYtYqpmImBx2m4zw49AbslguViy2GSzCDfX86Sd/6cTwyn1w==;
+Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.98.2)
+	(envelope-from <johannes@sipsolutions.net>)
+	id 1vkKL7-000000047Xj-15mx;
+	Mon, 26 Jan 2026 12:01:01 +0100
+Message-ID: <01e62344994a34daae0666b3873aa98e72fb5850.camel@sipsolutions.net>
+Subject: Re: [PATCH wireless-next v2 1/2] wifi: mac80211: Add eMLSR/eMLMR
+ action frame parsing support
+From: Johannes Berg <johannes@sipsolutions.net>
+To: Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee
+ <ryder.lee@mediatek.com>,  Sean Wang <sean.wang@mediatek.com>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>, Shayne
+ Chen	 <shayne.chen@mediatek.com>, Christian Marangi <ansuelsmth@gmail.com>,
+ 	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Date: Mon, 26 Jan 2026 11:59:45 +0100
+In-Reply-To: <20260125-mac80211-emlsr-v2-1-466329d61c88@kernel.org> (sfid-20260125_115209_143463_EFDC87D8)
+References: <20260125-mac80211-emlsr-v2-0-466329d61c88@kernel.org>
+	 <20260125-mac80211-emlsr-v2-1-466329d61c88@kernel.org>
+	 (sfid-20260125_115209_143463_EFDC87D8)
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM9PR08MB6884:EE_|DBAPR08MB5608:EE_|DB1PEPF0003922F:EE_|VE1PR08MB5854:EE_
-X-MS-Office365-Filtering-Correlation-Id: d16e9ff4-2607-4f35-58c0-08de5cca17ff
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?NVBXMkN2QzhYOEZmZ3J1aW9ZSTYyb3drQU45NGplTVRMRWpoY3ZWWXhWajhV?=
- =?utf-8?B?T1lHNVNsQWxGNUU2ZlNoNkhISWw5czgwMTd5a29saHo4RlZ5MXJiR052blNN?=
- =?utf-8?B?cWcvVnpKRlIvbnEzQmdzK3FXRGxLNk95dmxrZXhkczBkZFZqUGs1TjZDZC9D?=
- =?utf-8?B?ZFFiUHI4T0ZDemNqWjQ0WlVQSnI4MU5qanVJemlwR1JoQzJqSzlBRlNJUUU4?=
- =?utf-8?B?bTV0Tzc4akcvUkh6cExLSFhXei96TXluNC8yUTNwSFpoNE1JWEx0UFVnNVpM?=
- =?utf-8?B?d2FBNHpxOStVOTYrK3NsdkVpR2JKY3YzY2k2V1ovdjhTVWQ1YTFCVnkzS29l?=
- =?utf-8?B?Y01WSHRmWmFwdWc1R1RoY01aeHN3eld2azZRVVozOHQ2ejJFWklUbHg4ZGx6?=
- =?utf-8?B?Vi96aUJDWVltcy9HeFVOQzdFd3N3bzNsdG44UzNoUjduTjFLbTV5S3hGSHRK?=
- =?utf-8?B?dFJmTm5YazBLZ2NTbUZBMTJoemlLYlhPREFqTW1ESThLcmVyalI5MDVXU0RB?=
- =?utf-8?B?bFhmTXBQYmI5YTRwN3UyanFOOGtUSjd1bUF4Y0FodWNNcVQxMmdaU1NDUGQx?=
- =?utf-8?B?aFcrdVVMeXR2SG1iS3A0WkRuRHhCcDBjK1RKQWQxTVdVZS9IR05EVENjL0JZ?=
- =?utf-8?B?UUErYXRxRmpqK1ROUFZwd3RXRDE3ZTVhaGNPZmZqYzVNZ3h6Wk1YWHN3bWtx?=
- =?utf-8?B?OHR2MkZ0WVN6QXh2VDhnTVpPd3pSbmdPejJOdGxzaHVXbjBFbzJXMHJNTW8r?=
- =?utf-8?B?U0FJMVB3SW1qOHRmSHdiRHl4YUVuaWR1TzhnU0RBaDhMM3R1UXl3NUp6ZG5F?=
- =?utf-8?B?ZEFSL21vVEF1T1M5akhZQ2k0b2RmTHk1M3ZzLzhBRWV1eGxuQ2VBNTlhenRt?=
- =?utf-8?B?alhEamdIc3NiYWtTMVlYTEhmZ2Vneno5Wm1kaXlhZVhWcnpxL3lZbng0aXNU?=
- =?utf-8?B?U3Jrb1lyQzJzdXM1MjdkTnd0eE1ETDU0UmJNbUZlVDV2cjZJMjVVdDduV0ZU?=
- =?utf-8?B?WkI4cDR4NEZtNC9FSE5xUkt5ZEE2aStEdjJtY3pGN2tJUzlyaGhmY0w3dUor?=
- =?utf-8?B?SXN0RUZJS1dLd0dHaVRSOS94SUhjKzBmZXJHWkgrd0pxeFJWS3JTRWR3MFM5?=
- =?utf-8?B?ZnZuYnk3ZUNzZlJCMDRHdE9pMy9SalZpTEVCbUQ3blhZWmNLMC9KamZVQnBx?=
- =?utf-8?B?QUVXb0Q3bnJQT0J2WjVjdnp0aytwMTlzT1FrMjhNZkd5ZFZXZnJ1UzFiQVBw?=
- =?utf-8?B?YnVaN3dZYVJWVC94OUtDVWJCSENWZE02SkxXeTlic3VUNkJhaVJqeFV3V3Np?=
- =?utf-8?B?STJZQXFZRFFOYUtsTDFrY3Y2WTZZZWF5ckdUeDFHMkg1UVhqVmpKdGcwbm4w?=
- =?utf-8?B?NTI0UVE5VFArT3IyMG1QRmxBNkRITjA5cGR6ejF5SnlZdXBJelVSYzU5Ukx0?=
- =?utf-8?B?dTg5a0tVWktQZHVwc0ZFTzhpSCtDdWF4NGtONU56R0VINUxERXpBNkpEaCtN?=
- =?utf-8?B?dFpTbWtIU3pJOFpGalMxUlNGSXViQnJVeXZGdzFHZTM4K3YvbEx3dktFamZH?=
- =?utf-8?B?WUx1TWw5VC9wUTJxakZRUWJybjY3ckU4ODducFZjQ1ZlYzdlci82VnpqNDgz?=
- =?utf-8?B?OFZ1dzRiSlp3TEtkcldJaWxYQklWdHpYZnFRdHY4am1OeDV5SkY4OUd0SnJz?=
- =?utf-8?B?NktEUmJCWkhaTnJZQTFBMVVRbWk1RkNackE0VmNhckpnVGRZQjZDUEVtVjAy?=
- =?utf-8?B?WWpWMU9Mb1VncFovejhiS0dTdGFBZkkxQkNvR241TUJzSFRnZGpWbHpxa0FX?=
- =?utf-8?B?OGErSUw4bUkyYUY5eWY3c0ZQV2dzVFNHeVp0dzBQZzBvbStNRlU0VmphNnVS?=
- =?utf-8?B?VzJ3L2tNVDd6NEdneDZsM3Q4RVdnbkRFZzBwYTNQdGRMMnJpdUdpMm5MVUxT?=
- =?utf-8?B?RGk4TXNNQWFoalo0YzlPQm13Y1BGam1BOW9seVNUMGZTVTV5MzBkTEUwMjFL?=
- =?utf-8?B?TEJpemFFcDBxbmdMRG1hK0NPUGtqbU5yMXJIOHFkWmxacmcvTjUyaUdKQTho?=
- =?utf-8?B?YVRxbXNvd08zOWdXRXNLN2YzQVdqZUtQK1BkQ0hrcUxMbTBpWG82N0dEMTdH?=
- =?utf-8?Q?DJko=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB6884.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR08MB5608
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF0003922F.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 484aaf3f-370c-47db-9a7a-08de5cc9f1fd
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|82310400026|376014|14060799003|36860700013|35042699022;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aW41THdGbmo1bHUrMmN3NTJOZEw3TW5OSzJOeWZ6dzFvdUVCN0lWeXliWDdz?=
- =?utf-8?B?WEJtZHRrTjRnUlpCUnlla3FVcDJOdkpIUlJrTmpkUlJ4clJnbWZWNnFoc0dS?=
- =?utf-8?B?SEE5UXJZSHZpSkhRaXVXY1E0RnRRT21XWVpncjRRZE0xMVBhNzR5bkh0dERF?=
- =?utf-8?B?K3ZNNVU3eGp2OVF5empGenFGSW0wUTNoUGlKK1lDVkhnMmN2dGNtTlN4akZB?=
- =?utf-8?B?VnJwU2Y0WC9wWFRPWE4yTzhsYlhpSVFZK1U5MWxKeVY5OG5aTktKVWN3TWZ1?=
- =?utf-8?B?cmVEUE5KQ2luUWNXRkhPTzVuSWtmUmk1MVFENVQ4cUc4NXF5cDdLZUNremhz?=
- =?utf-8?B?YTVpM2pOYzNGb2NpL3czaWF2TERqWU5LV3NqMkI5Nnd1WktWanUxblYvWlR2?=
- =?utf-8?B?VWhMUzNpdWVoalUyN2VwSDFGbUJhNDJXbDFMR1NUZ2VMVUR3cDExYXZ4MHF3?=
- =?utf-8?B?U3krSGxVRGlBZC92MDV2S0IydFhoR3BZdlpCNXVOM2pmWHN4dmJHVjAvekUw?=
- =?utf-8?B?NHFVSWlVVWxHMGNWaHhXeFFrQmNVbWg1WEd6THdMWDlIeGZCMnB3bzhtck5J?=
- =?utf-8?B?S0J5SmpGclRYRlIwRjM3SjVNU1NuOWV4NUMxdVRFbFNtTVZJb1NDUUN4MGhF?=
- =?utf-8?B?LytQR2pQRnZlT1V4RHVEWDZWU0g3SHpOU0Y2eFIwZ2tVVmVyYkJvaGFQa2ls?=
- =?utf-8?B?RFpWV01ma24zUkFtUHg5SjBxbGNWNFpKNFdISU91THZuL21ISVB3L1ExamI2?=
- =?utf-8?B?QVFKWCtXRUp0YUJ4YkZNUG1yYkNXanlaNHR2b1dFWWNZSThGcWJYVittMjBH?=
- =?utf-8?B?S3dYbEdqQ0tjUzNNU2ttMjI0OStmTXNoZXl5VVRzbGN3TFZLZE5rY3VxZlpG?=
- =?utf-8?B?MHJiWHFJSHlqbXk4K201d2hHSjNPNzlWZjZqU1kxeE4vYno2ZHhjdk1lSWNv?=
- =?utf-8?B?ZTlCRGxKVG5RU1lpTTlmcmxtV0FpY3pMQms3eGUxYXdhSm1pK1hRQ2lMMzNO?=
- =?utf-8?B?UXljL3NxK3VQL1pjWDVxWGs1YXd1VWhRNTJmUTcrc0JmL3pFaU40aHk3VER2?=
- =?utf-8?B?L08yVEhNT2NtbFpZRzVENzdEdUJYV1lUUi96WkRkdGlSTXlIcWJ3MWE0V1VU?=
- =?utf-8?B?dTl5V2IxK0ZOUEloRTdFb2dLRUQyN3lXSmhVUXEzOEJUb292SW9hbUw5cVlm?=
- =?utf-8?B?QUdWRE03Yi9jKzIwVTJkV3pqdnhNSzA1aWErNW9PZ05DUVgya2pMNGoxaWRP?=
- =?utf-8?B?TGFCMzg3V1k0N3o0bXJ2MDlFWDhvZGpkZFNUdExnaDdNRGRLcHNtbTEyQ1pT?=
- =?utf-8?B?ZzZQVmJoNVk5YUR5Znc4T2cvczNFSS91d3VCeUZyZThtSmVQTXRWRVFZV0NO?=
- =?utf-8?B?ZVh2UnFxRjYrc2dHUmk2SG5QcTJoYmtKbWlBRnFiL3BxYWZ5OU95d1FFdnJy?=
- =?utf-8?B?Nkp4NGVlL1lZWklCS3dEUHA2bjFDQWVyU1BKdi9Sdk5lUUwvOFFsWDFieUhn?=
- =?utf-8?B?Ukxva3B2TUFSWUVDOWdYOUQxSitwM20xcWVCTXpFeWZKVGZNaytPTnpJWURH?=
- =?utf-8?B?OWg1dk1tdEs0TEhTcm5CRXMyWEpCaExFczA2RXMrbXhXVDVnM1ZFV01LL1RB?=
- =?utf-8?B?SHErVFZJTW9RT3lGSnJmMG5hdlhPaGRIcElkZDFleFlnZWsra3pSOGR6cTRx?=
- =?utf-8?B?SXR4Nm01SGZnNTBNaWJLTUgvU1k5MDJnR3BLREVoQ0FEZ2tLd2lsWVJ2Y1U4?=
- =?utf-8?B?WWNwQ1JKVDd3dHNWSHFtN0hZa3VRMmwxMk9laCtHWFI5K1pXYWNSazN2cnp4?=
- =?utf-8?B?Z0M4YzdkMVB1UmdFUFpaSU1WT3IxZFJzTkVsNVVHSzVxNjdCWVZOTnNXbkNX?=
- =?utf-8?B?dHJGVUpsOWNSa1UvZDAwYnpZQjFiVUphZUhybUIwN3IrcVMyRVlLUFB4eGZq?=
- =?utf-8?B?SEYrZUYvYzFXd1BibWhtMEVDWUhUSEdweHduQXhEMkJxVlplZFRIeFNoa1dj?=
- =?utf-8?B?RG43eWVxSTcxL1Y5N1NoczZXbjlMa0x2UnhWY0h4ak9uc1BGa3JWVzBjaDhQ?=
- =?utf-8?B?OWdrRlk0ZUZMMGluZ0hDbjBva1YxQjJFZlRYZU8yYWFHYW0vOGtNQXBlSU5p?=
- =?utf-8?B?RmMveVVaSzRFSlgyTDQvM05UdTRkVUJXajRYQmthby94MDNkdVoxMDRKemtY?=
- =?utf-8?B?WUpDVzRCejdLcTQwMVQyOUNTZFlJWWxwM3lLTW9RQVhoT0xFMlg1SVlyYW1o?=
- =?utf-8?B?QUtPVllGZkZ4WFZoVEZiWEhGbU5nPT0=?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(82310400026)(376014)(14060799003)(36860700013)(35042699022);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 11:00:18.7924
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d16e9ff4-2607-4f35-58c0-08de5cca17ff
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF0003922F.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR08MB5854
+X-malware-bazaar: not-scanned
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_030026_640330_0B05A6F3 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20260126_030110_148837_139BAAD3 
+X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -229,59 +79,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/01/2026 11:15, Borislav Petkov wrote:
-> On Thu, Jan 15, 2026 at 12:17:17PM +0000, Ahmed Tiba wrote:
->> In drivers/acpi/apei/ghes.c, this subset of CPER handling
->> is already implemented using a number of helpers mostly named
->> estatus_* rather than cper_*.
-> 
-> Which helpers are those?
-> 
-> $ git grep -Ei "\Westatus_" drivers/acpi/apei/ghes.c
-> 
-> doesn't give me a single one. Maybe I can't grep.
+On Sun, 2026-01-25 at 11:51 +0100, Lorenzo Bianconi wrote:
+>=20
+> +static inline u8 ieee80211_get_emlsr_pad_delay_update(u8 param)
+> +{
+> +	u8 pad_delay =3D FIELD_GET(IEEE80211_EML_EMLSR_PAD_DELAY, param);
 
-A simpler grep that catches both prefixes and suffixes is:
+I generally prefer the typed versions and mac80211 (mostly?) uses those,
+i.e. u8_get_bits() and friends, since they also cover endian conversions
+where needed. Is there any reason you use FIELD_* versions here?
 
-git grep -E "estatus_|_estatus" drivers/acpi/apei/ghes.c
+> +	if (pad_delay > IEEE80211_EML_CAP_EMLSR_PADDING_DELAY_256US)
+> +		pad_delay =3D 0;
 
->> The naming therefore originates from the existing GHES implementation, not
->> from a new abstraction.
-> 
-> And even if, calling it a "estatus core" and making it a separate thing is
-> just confusing and unnecessary.
+Seems that should use a constant, rather than =3D0?
 
-Agreed. I’ll drop the “core” framing and keep it as a plain shared 
-compilation unit with exported helpers.
+Also, is that really the right thing to do (also below) to just silently
+cap it? Maybe that should be up to the caller? In some(/most/all)? cases
+we should probably even just _reject_ frames that carry an invalid
+value, which you can't do with this helper?
 
->> What I did was lift that existing estatus_* logic so it can be reused by a
->> non-ACPI provider, rather than duplicating the CPER handling
->> in a parallel DT path.
-> 
-> Nothing wrong with that as long as you simply export common helpers and we
-> agree on how they're going to be shared. We do stuff like that all the time.
+> +static inline u32 ieee80211_get_emlsr_trans_delay_update(u8 param)
+> +{
+> +	u16 trans_delay =3D FIELD_GET(IEEE80211_EML_EMLSR_TRANS_DELAY, param);
+> +
+> +	if (trans_delay > IEEE80211_EML_CAP_EMLSR_TRANSITION_DELAY_256US)
+> +		trans_delay =3D 0;
+> +
+> +	return trans_delay;
 
-If you have a reference series that demonstrates the preferred pattern 
-for doing this, I’d appreciate a pointer and will follow that approach.
+why does that use _three_ different types? Wouldn't u8 be sufficient?
 
->> Because the DT-based path still needs a clean way to call into the shared
->> logic without dragging in ACPI plumbing.
-> 
-> Yes, carve them out in a separate compilation unit and select it in your DT
-> glue and that's it. No need for a Kconfig item and calling it a "core" bla.
+> --- a/include/net/mac80211.h
+> +++ b/include/net/mac80211.h
+> @@ -1902,6 +1902,21 @@ enum ieee80211_offload_flags {
+>  	IEEE80211_OFFLOAD_DECAP_ENABLED		=3D BIT(2),
+>  };
+> =20
+> +struct ieee80211_eml_params {
+> +	u8 control;
+> +	u16 link_bitmap;
+> +	union {
+> +		struct {
+> +			u16 emlsr_pad_delay;
+> +			u16 emlsr_trans_delay;
+> +		};
+> +		struct {
+> +			u8 mcs_map_count;
+> +			u8 mcs_map_bw[9];
+> +		};
+> +	};
+> +};
 
-Works for me. The only question I had is where you’d prefer that unit to 
-live so it can be built without pulling in ACPI/APEI (not gated by 
-CONFIG_ACPI), while still staying under the ACPI/APEI maintainer umbrella.
+Maybe add kernel-doc? Also not sure the union really is worth it? It's a
+tiny thing. Especially since you don't even label it - maybe if the
+parts were labled emlsr and emlmr, and then you had emlsr.pad_delay?
 
-Would you prefer to:
+(I'd label them anyway, of course, even if not a union.)
 
-1- Keep the shared unit under drivers/acpi/apei/ but make it buildable
-    independent of CONFIG_ACPI, and have both GHES + DT select it.
+Also now the emlsr pad/trans delay are duplicated in the station info,
+is that worth doing? You have to and do track them there too, anyway, as
+we discussed on IRC, could just have the driver use them from there?
 
-2- Place the shared unit somewhere APEI-adjacent but not ACPI-gated so
-    it remains reviewed by the same folks, and have GHES/DT both link it.
+Per spec I'm also not sure what the MCS map should be when it's not
+included in the frame?
 
-Thanks,
-Ahmed
+> + * @set_eml_op_mode: Configure eMLSR/eMLMR operation mode in the underla=
+y
+> + *	driver according to the parameter received in the EML Operating mode
+> + *	notification frame.
+
+Maybe describe the link_id here, or move it to the params and describe
+it in kernel-doc there?
+
+> +static inline int drv_set_eml_op_mode(struct ieee80211_sub_if_data *sdat=
+a,
+> +				      struct ieee80211_sta *sta,
+> +				      unsigned int link_id,
+> +				      struct ieee80211_eml_params *eml_params)
+> +{
+> +	struct ieee80211_local *local =3D sdata->local;
+> +	int ret =3D 0;
+
+Shouldn't that be -EOPNOTSUPP?
+
+> +static void
+> +ieee80211_send_eml_op_mode_notif(struct ieee80211_sub_if_data *sdata,
+> +				 struct ieee80211_mgmt *req, u8 act_len)
+> +{
+> +	int hdr_len =3D offsetof(struct ieee80211_mgmt, u.action.u.eml_omn);
+> +	struct ieee80211_local *local =3D sdata->local;
+> +	struct ieee80211_mgmt *mgmt;
+> +	struct sk_buff *skb;
+> +
+> +	skb =3D dev_alloc_skb(local->tx_headroom + hdr_len + act_len);
+> +	if (!skb)
+> +		return;
+> +
+> +	skb_reserve(skb, local->tx_headroom);
+> +	mgmt =3D skb_put_zero(skb, hdr_len);
+> +	mgmt->frame_control =3D cpu_to_le16(IEEE80211_FTYPE_MGMT |
+> +					  IEEE80211_STYPE_ACTION);
+> +	memcpy(mgmt->da, req->sa, ETH_ALEN);
+> +	memcpy(mgmt->sa, sdata->vif.addr, ETH_ALEN);
+> +	memcpy(mgmt->bssid, sdata->vif.addr, ETH_ALEN);
+> +
+> +	mgmt->u.action.category =3D WLAN_CATEGORY_PROTECTED_EHT;
+> +	memcpy(&mgmt->u.action.u.eml_omn, &req->u.action.u.eml_omn, act_len);
+> +	mgmt->u.action.u.eml_omn.control &=3D
+> +		~(IEEE80211_EML_CTRL_EMLSR_PARAM_UPDATE |
+> +		  IEEE80211_EML_CTRL_INDEV_COEX_ACT);
+> +	ieee80211_tx_skb(sdata, skb);
+
+It seems to me that it'd be better to not copy the request, but rather
+build the response. It's not _that_ much data, and from the spec it
+seems to me that e.g. the MCS map should be included in the response,
+but you do that now, I think?
+
+> +void ieee80211_rx_eml_op_mode_notif(struct ieee80211_sub_if_data *sdata,
+> +				    struct sk_buff *skb)
+> +{
+> +	int hdr_len =3D offsetof(struct ieee80211_mgmt, u.action.u.eml_omn);
+> +	enum nl80211_iftype type =3D ieee80211_vif_type_p2p(&sdata->vif);
+> +	struct ieee80211_rx_status *status =3D IEEE80211_SKB_RXCB(skb);
+> +	const struct wiphy_iftype_ext_capab *ift_ext_capa;
+> +	struct ieee80211_mgmt *mgmt =3D (void *)skb->data;
+> +	struct ieee80211_local *local =3D sdata->local;
+> +	u8 control =3D mgmt->u.action.u.eml_omn.control;
+> +	u8 *ptr =3D mgmt->u.action.u.eml_omn.variable;
+> +	struct ieee80211_eml_params eml_params =3D {};
+> +	struct sta_info *sta;
+> +	u8 act_len =3D 3; /* action_code + dialog_token + control */
+> +
+> +	if (!ieee80211_vif_is_mld(&sdata->vif))
+> +		return;
+> +
+> +	/* eMLSR and eMLMR can't be enabled at the same time */
+> +	if ((control & IEEE80211_EML_CTRL_EMLSR_MODE) &&
+> +	    (control & IEEE80211_EML_CTRL_EMLMR_MODE))
+> +		return;
+> +
+> +	if ((control & IEEE80211_EML_CTRL_EMLMR_MODE) &&
+> +	    (control & IEEE80211_EML_CTRL_EMLSR_PARAM_UPDATE))
+> +		return;
+> +
+> +	ift_ext_capa =3D cfg80211_get_iftype_ext_capa(local->hw.wiphy, type);
+> +	if (!ift_ext_capa)
+> +		return;
+> +
+> +	if (!status->link_valid)
+> +		return;
+> +
+> +	sta =3D sta_info_get_bss(sdata, mgmt->sa);
+> +	if (!sta)
+> +		return;
+> +
+> +	if (control & IEEE80211_EML_CTRL_EMLSR_MODE) {
+> +		if (!(ift_ext_capa->eml_capabilities &
+> +		      IEEE80211_EML_CAP_EMLSR_SUPP))
+> +			return;
+> +
+> +		if (control & IEEE80211_EML_CTRL_EMLSR_PARAM_UPDATE) {
+> +			u16 eml_cap =3D sta->sta.eml_cap;
+> +			u8 pad_delay, trans_delay;
+> +
+> +			/* Update sta padding and transition delay */
+> +			pad_delay =3D
+> +				ieee80211_get_emlsr_pad_delay_update(ptr[3]);
+> +			trans_delay =3D
+> +				ieee80211_get_emlsr_pad_delay_update(ptr[3]);
+
+It seems to me you're missing a bunch of input validation?
+
+> +
+> +			eml_cap &=3D ~(IEEE80211_EML_CAP_EMLSR_PADDING_DELAY |
+> +				     IEEE80211_EML_CAP_EMLSR_TRANSITION_DELAY);
+> +			eml_cap |=3D FIELD_PREP(IEEE80211_EML_EMLSR_PAD_DELAY,
+> +					      pad_delay) |
+> +				   FIELD_PREP(IEEE80211_EML_EMLSR_TRANS_DELAY,
+> +					      trans_delay);
+> +			sta->sta.eml_cap =3D eml_cap;
+
+Same comment about typed bitfield accessors, and u8_replace_bits() would
+even shorten that quite a bit.
+
+> +	if (skb->len < hdr_len + act_len)
+> +		return;
+
+bit late that :)
+
+johannes
 
