@@ -4,77 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FA06C88E77
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 08:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF27C88E75
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 08:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YoimUg/B3WMdwPjCRvv8ClMn1Rr3hFGXgkVjA9JOOIg=; b=L25YL6bhgOPyE9tkmkI7j4bzIi
-	IzL9CqXVEr+P79mVwtSKiSH3z0SGIAVLgrexbl4t6i0qVgoJBpfr0AQ4xrZzmlLTTdE+ISJddyTiW
-	ZT/oWcpcb9su8axM9J0peDYdvTBf0bVbYaKKR/rQppjb9Mw2ijrtEM4+UrDIiqFRYEpuzDklSwZVY
-	JR1Dl6QcoBL1Rbw0V7Zl6IetUfk8JY8PhCO//wOd0EF5pn0D2gjL3IRQzyKJHOcjGR6Wp3S1f6JES
-	UgN40Qcek7qZ0uL0h7dnfPFL8FXqgTqSXcnpUiWBO8vythM4WcffGaGS6C53iyMoTIdftYGcZxjiK
-	IJiLdEeg==;
+	bh=tLDylGBgP4+0IDkOEoHKFXTC/FLN28f1/8owaqv4294=; b=Zqi+IXo7w4oJt8d5uNA0eLmPfH
+	Yb4sHfZz1oMPMHtw7yw2DCr+0pMOyh7fdM8mjhjONDTMoQpKy0EJAxxm2jxnqdvDBmWvDVUVuMq22
+	ZdygYbWqMoaBi1sW/xfZnryLx9Fs+l6ZvZl4uzAmCYoCtT45/9vWts2nV2HMagl7OQjwcnv1rdLt2
+	IA9Bj3s/85bmuXntJqC5RaJb2dzJzXHDW1lZBUj/kTeQ38TmTW+QTsBNm7LL7OBCPKO6RaAT+m5U3
+	K/00PzVYaTnIFxzo89NgK84RGJpxHdhTO3yHMv+pQoyCRZozrUFlp7EsHPDtVQlsyEYkSp8Hv62IR
+	72Ze6djQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkIKP-0000000C7wX-3s69;
-	Mon, 26 Jan 2026 08:52:09 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vkIKQ-0000000C7ws-0ybG;
+	Mon, 26 Jan 2026 08:52:10 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkIKE-0000000C7uH-3kvV
+	id 1vkIKN-0000000C7vn-2ke4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 08:52:00 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 7E1A41A2A52;
-	Mon, 26 Jan 2026 08:51:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 45F5960717;
-	Mon, 26 Jan 2026 08:51:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C0EF6119A80E2;
-	Mon, 26 Jan 2026 09:51:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769417515; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=YoimUg/B3WMdwPjCRvv8ClMn1Rr3hFGXgkVjA9JOOIg=;
-	b=QedPXVXDwD6tu/9yJqyZ7TIZOoQUoEcFq8esUex1XnWQ/7sm1bFOA2z39idJnnow/kk7jh
-	4bX3+4Bql4HHg0wqoLaFx8rcPJlzoP4Ec7NI8I1sc3nY7unHATPwtp81uuyUwggtYUNuVF
-	I11hqr3BcWARPJ5sA2i+jelLE8m0w/eeN3y3bC4ZDSuxCIlAw/aivEBPr+4u20+WMlshVO
-	qfnQreqggUqpQoXr5MSEXcPPNYDOPot6IY7nWQSIqHWMNv8qoIQB16jWyOB9bin6jWH+x+
-	jXD8zr35RSom94S4/PC3dmjDMKQYOvxdKgb5Wjd4Lu4JkspNxzPyBAQyrPRTmg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 26 Jan 2026 09:51:49 +0100
-Message-Id: <DFYE5QDGOF28.2S7XJ1IFZIMX0@bootlin.com>
-Cc: <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-To: "Liu Ying" <victor.liu@nxp.com>, "Andrzej Hajda"
- <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
- "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
- <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Shawn Guo"
- <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
- <festevam@gmail.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH 3/3] drm/bridge: imx8qxp-pixel-combiner: Fix bailout for
- imx8qxp_pc_bridge_probe()
-X-Mailer: aerc 0.20.1
-References: <20260123-imx8qxp-drm-bridge-fixes-v1-0-8bb85ada5866@nxp.com>
- <20260123-imx8qxp-drm-bridge-fixes-v1-3-8bb85ada5866@nxp.com>
- <DFYDRSZBQBND.QSY119QND1GE@bootlin.com>
- <42f86084-5200-4dc0-86a7-4719d7d19cf7@nxp.com>
-In-Reply-To: <42f86084-5200-4dc0-86a7-4719d7d19cf7@nxp.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Mon, 26 Jan 2026 08:52:08 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-42fb5810d39so2638366f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 00:52:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1769417526; x=1770022326; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tLDylGBgP4+0IDkOEoHKFXTC/FLN28f1/8owaqv4294=;
+        b=pxY/nff0/ppwhpeV5T1E21WJn9Rboi0wjkJPt28NUiOo3hOGy4ploh60QqCCw9q/g9
+         u79XyKYLJqa0GgWS/r78ucw/aIPWyZD0wAlNA3V4skKk1jXu1B/8R15OMRfihllpQhQr
+         yTjJsQRYZdk7q6692BIeH5yQXLQhusio1RfcNomCynpdXOGDiUAm+zf/uq2oxm0W77EF
+         aC8GvHQ9v+/xsozE5u+9Vcsr/J618rZYN4c83bz156+F4WEOzdA2FiajJu44IDRO6Y/4
+         tVxfaxpf7vmPkkWgCeFU3+6h2AiQyx+mKOcWUhI/w8l0Y2+2It5kFQ0HCGQi1AOmGFrF
+         dqGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769417526; x=1770022326;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tLDylGBgP4+0IDkOEoHKFXTC/FLN28f1/8owaqv4294=;
+        b=W7sHROcLPc1xP6fPbjUhwYVF8LGgKAO0Dx+oJ6zaMIBM8IJ+l3tT16vHAcmF7BS+ZQ
+         ekqO7qMQzw87gMPU3u9tR9AIxWVUbRSm5uvKlkzSci5Iw0k+z/y2cUNgLpmT06DdllQE
+         QaQk7gX8/4/OSRrpL8spaDZ3SgyqGrS/30UXI4bXHn81ujuxMteJ4DruSXrKzywIQhe8
+         t9KGzSQ6e/WTihz0rfH9Ru8F4G1/+4955liFLiXEC6CfNfNazO2H4qz3X4z7mRz9+Jlz
+         8bLhGHCIeDz1uVyDe4UXNKN2fU32Hse7Hkr7UX1N4di3GV2Ym3mug+yEAATbKClAIaWw
+         SENg==
+X-Forwarded-Encrypted: i=1; AJvYcCUHDI10W6OQH8GcHdwxzt0X8KDJk2K4uIr2O8xf7OI5Z0f7bUcLzjOFhzoYl5cB9KVsNMWsKoiCVB78dljq3cvW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcG281sA+BsrnVlGAJQ4bspEhcfJhtmNuRIfCJ6uTlhW7ejsOS
+	b03qO8MEh2Ylr41PHe1JVeiA9qnZWwnb1Gnt+/B04JToUK6WrCqJOIZ9ZxIzhoVtBoY=
+X-Gm-Gg: AZuq6aLapUx/b+KvOB/FMNguwiU47hGncVQg2UMIr6L7K6xmL+oFVJWXEUcG8fgaPt1
+	WGI3qv4pfhmEVyoo1MMGEtmFXqkY+ektLMv6tI6ucXr7cbrXNDW+mffZogJ5a7Myt4zeMlJt5VG
+	DybMahBxedfYJEAyL6AiAsqssct24x0/bLhPkNlXcuOR9SNWybP8PktNO7w/zeZyprt/qgmk75b
+	hzuKoLSVJYuZEvtVQh6u9H6ww5xxdH0qLaDIsSsF05Ou3WwrerZ0Mi+Xg8rei3g/8CrFOS18wrM
+	luNulGIcPwDP8Pt/rqDXsMScLuDqQvb9glKPGYSwyoRKnNKkXrTtaUNCTh+5BfeopnrXdPByP2i
+	kVYo5m6n4hH88NI5ZW+KvIElouDsND269ZsGixFOXYg+CaelfASBoNBUOk3qOSGNVaVaIPFVJh3
+	DEHcwoAagCB2MLrCaT2g==
+X-Received: by 2002:a05:6000:26c1:b0:435:a0f5:c276 with SMTP id ffacd0b85a97d-435ca1acefemr5343349f8f.61.1769417525632;
+        Mon, 26 Jan 2026 00:52:05 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.31])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435b1c02dd4sm28203098f8f.5.2026.01.26.00.52.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 26 Jan 2026 00:52:05 -0800 (PST)
+Message-ID: <61a9cabe-082f-4d43-b25e-5696831972c9@tuxon.dev>
+Date: Mon, 26 Jan 2026 10:52:03 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 05/31] clk: at91: clk-peripheral: switch to
+ clk_parent_data
+To: ryan.wanner@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ bmasney@redhat.com, alexander.sverdlin@gmail.com,
+ varshini.rajendran@microchip.com
+Cc: cristian.birsan@microchip.com, balamanikandan.gunasundar@microchip.com,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1768512290.git.ryan.wanner@microchip.com>
+ <c3ecf1983df013da6e1c295f1fa6faf40b2919f9.1768512290.git.ryan.wanner@microchip.com>
+Content-Language: en-US
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+In-Reply-To: <c3ecf1983df013da6e1c295f1fa6faf40b2919f9.1768512290.git.ryan.wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_005159_071229_030D93C1 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20260126_005207_737382_4E64A8AF 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,51 +108,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Jan 26, 2026 at 9:47 AM CET, Liu Ying wrote:
->
->
-> On Mon, Jan 26, 2026 at 09:33:38AM +0100, Luca Ceresoli wrote:
->> On Fri Jan 23, 2026 at 10:22 AM CET, Liu Ying wrote:
->>> In case the channel0 is unavailable and bailing out from free_child is
->>> needed when we fail to add a DRM bridge for the available channel1,
->>> pointer pc->ch[0] in the bailout path would be NULL and it would be
->>> dereferenced as pc->ch[0]->bridge.next_bridge.  Fix this by checking
->>> pc->ch[0] before dereferencing it.
->>
->> Thanks for checking this code and providing fixes! These drivers have a
->> complex code path so I had a hard time in following the logic without ne=
-ing
->> able to test on hardware. Apologies for the issues emerged.
->
-> Thanks for your quick review and hard work!
->
->>
->>> Fixes: ae754f049ce1 ("drm/bridge: imx8qxp-pixel-combiner: get/put the n=
-ext bridge")
->>> Fixes: 99764593528f ("drm/bridge: imx8qxp-pixel-combiner: convert to de=
-vm_drm_bridge_alloc() API")
->>
->> The bug was introduced by 99764593528f, while ae754f049ce1 is not changi=
-ng
->> the bug, so for the sake of precision we can remove the first 'Fixes:'
->> line.
->
-> I added Fixes tag for ae754f049ce1 because it is the first commit which
-> this commit could be applied upon properly.  Maybe this helps some tools
-> apply this commit or maybe tools are smart enough to find ae754f049ce1
-> automatically?
 
-Uhm, good point, maybe it can be a useful reference for the stable team to
-backport the fix... Well, let's leave both lines then:
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+On 1/16/26 22:06, ryan.wanner@microchip.com wrote:
+> From: Claudiu Beznea<claudiu.beznea@tuxon.dev>
+> 
+> Use struct clk_parent_data instead of parent_hw for peripheral clocks.
+> The clk_parent_data is a more modern approach to the clock parent
+> registration.
+> 
+> Signed-off-by: Claudiu Beznea<claudiu.beznea@tuxon.dev>
+> [ryan.wanner@microchip.com: Add SAMA7D65 and SAM9X7 SoCs to the use the
+> structs.]
+> Signed-off-by: Ryan Wanner<Ryan.Wanner@microchip.com>
 
-I'm applying this series perhaps tomorrow (if no one does it before).
+Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
