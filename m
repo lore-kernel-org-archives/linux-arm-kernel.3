@@ -4,71 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3BDFC88E6D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 08:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C545AC88E6D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 08:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ADFUkeLGfumOrsISzPrnqn6aITpYElOPV7eypZJ2jfw=; b=qj0wH3fN0A6egnPjC8XsNwGnce
-	omI80RnoNubLyFgWbnu1tPbuR55fpgg2zrL45h14OChbplMlwcXx0q++NWSlqDtG9GwKlj4NdueUM
-	g8kkEUbhmGl02CL52sW3rMs7hioVKjhw5yd7m1lnNMQ9AmJFVl3MP1f/UTy+bjGN5F6Z5Qo5bmf53
-	JqwH6xPj8Wq0rtf50l8gQL4jtqp1YPmRQEM22jwvMWxxJ6yi/LdURQ50jv57FsDolZb+Qf8u7P4yt
-	dihb1Yk0CBq7EOzSWY/u+DfmE0j5Cx16ZyI/eTBNC48tZRJlxWxvr4ej0xa86h0DoySEhNG+AeRzQ
-	vpJXF6vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GKPQp6p15wYoRznPToE69OBre95bqu+lbTLqDz21dDQ=; b=tS/XdFvQ9iSNWHEd9hHuwFjHEW
+	xRM+Mad1EoPiAkloJWJ66boCpm0K5j0p3Gwc5u40qjz6nzicM8+/ZMqdzMX1bTgIjzH4F3zipMePD
+	ejB5ut8BAHwV9V1mlCTbn+jN+iqZvC0gEYvCSv7Z0X8M23UQFEogiKj79uizYoRyCSO/zjmD/6Dbs
+	XXyylighQI6ODalBNM+gaoK0geWN0cZ3yjEN6AbVUKAgREgnsFduJUCmTcX8EzcR21aPwbV7SjnjT
+	eo/RMR++D8g8fAZk9awzsCqIDiCwiLDVMQXU7w+x/ysjRH+359Qf/TAIjRmSsDd7Z4YS5f3rykxXu
+	51zdPsCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkHiY-0000000C5ZW-11c0;
-	Mon, 26 Jan 2026 08:13:02 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1vkHj8-0000000C5dZ-2xCV;
+	Mon, 26 Jan 2026 08:13:38 +0000
+Received: from mail-northeuropeazon11010064.outbound.protection.outlook.com ([52.101.84.64] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkHiV-0000000C5Z6-0kxR
+	id 1vkHj6-0000000C5cy-2aFP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 08:13:00 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ADFUkeLGfumOrsISzPrnqn6aITpYElOPV7eypZJ2jfw=;
-	b=ajYJt/xUNSYhnfJB7rgvEHiK2VJ0ocO+Zo3ae35fXopKE7swtDOOBjFmjzKbfLg0TeaGVc8yX
-	hxTnb5MrqPuqnqBh5nPVuS2Q9M25/z/aPa48OtYJkMsinrys6ZXIvUGmzGC47gW6sHcfIaU93AS
-	iXAOa+Wp3Dr1KnSzkjn69WY=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4f01Qq4fVxzmV6g;
-	Mon, 26 Jan 2026 16:09:23 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 0E3694055B;
-	Mon, 26 Jan 2026 16:12:51 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 26 Jan
- 2026 16:12:49 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <ardb@kernel.org>, <leitao@debian.org>, <corbet@lwn.net>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
-	<bp@alien8.de>, <mingo@kernel.org>, <pawan.kumar.gupta@linux.intel.com>,
-	<feng.tang@linux.alibaba.com>, <kees@kernel.org>, <elver@google.com>,
-	<arnd@arndb.de>, <fvdl@google.com>, <lirongqing@baidu.com>,
-	<bhelgaas@google.com>, <bhe@redhat.com>, <dave.hansen@linux.intel.com>,
-	<rppt@kernel.org>, <cfsworks@gmail.com>, <osandov@fb.com>,
-	<sourabhjain@linux.ibm.com>, <jbohac@suse.cz>, <ryan.roberts@arm.com>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v2] arm64: kexec: Add support for crashkernel CMA reservation
-Date: Mon, 26 Jan 2026 16:13:34 +0800
-Message-ID: <20260126081334.699147-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 26 Jan 2026 08:13:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KGNZErzd3eemuR9XWYu9tjO0W2ipUH2pFllUEzdogip4Mb5Mq10tUh2WYyxqLOkmJvbG+2h5RcYiVztgdFCs/ItU29QUaccU1y+vGeLQMM8KRa5RplJ7XvtwFhjoxoOxRZ1VY7WrkYag9cBdk/+MoVd9KHaPUCPSgH9uRG3wg6ynJG3V3kXXFM5MR2KnePpcV7IyyEwr3qDHMnwXecuU+PiQkvnZS9O2/HBZsGXcy388ANidNWeIDUOfvrhJtJRhGILmuviEhXfQ+HjAMpyl/lUbFXcYJrMjS0VmYm/DggaW4a5zonqHYrhZxJQeaK+LneWgQx+kcE9iOTr/ch2sGQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GKPQp6p15wYoRznPToE69OBre95bqu+lbTLqDz21dDQ=;
+ b=L1vzmc9ByLR4u5p5WimcGRJI58JMQ7Q9S1K4AcUDGqUOUYCeONoEq43tLoHRacoyfKrppjQthtF1aNXBMbNdrOUmeofiu/XcKJairLfJ58diJWeEI2cCmtn/Nxr98rJKoA29hQSevbtFuNcvuc1cdZxo+5jv2uMHEftUkZmh4Pl3G+9UkNvH5rEkRDCaPOJT6L1B7am8LLrbMbRQUjAV2qBlPe/9Dx51+wzuQvp6lKG3nAnVTMabLyeNNJsCi59EeEhqv5yfVFMsvLupJ7uxJJW2skbvbHXuyjFGw+rI7xq1Jr8nzp6tNuVhlYLoWg03tyewU+VUsZAE0fOyNaEoeA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GKPQp6p15wYoRznPToE69OBre95bqu+lbTLqDz21dDQ=;
+ b=miKSLd/7BplJJGcQteEMnefRbB7bU6kbu6yGAnUUDfcYxMk4t7fO3wGQGj8qC74eroK6FKfNEZ1dWkoYRKpjbpnlLffJUFUaur4Fyz81Bk8RzV3gOgbMc5X/1snw0L84xFaJ/GS5jq7eLg9DOznOSDYRomAQvP4KLNbQ5sFn5iy6nOEUgnDWFmDb2fWE72o/COiLDXywLjkpT02Z2KnZ+Tq8i9QrtfgbcaQgLdDbpz3fidQ1e1Vl5P3Z7HVZ20o1J+G9dNsEOdhvDviY6A4uuMp3nsTs7gMPe2ZuC6HlgoBZCGPJhPk9ZqpxdqYUnXJ3mKB0ft+olcjR+8DhoAm7fg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by DU2PR04MB8902.eurprd04.prod.outlook.com (2603:10a6:10:2e1::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Mon, 26 Jan
+ 2026 08:13:32 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%4]) with mapi id 15.20.9542.010; Mon, 26 Jan 2026
+ 08:13:32 +0000
+Message-ID: <516e24d3-511f-4fb5-9274-a20639618d4e@nxp.com>
+Date: Mon, 26 Jan 2026 16:14:20 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 4/4] drm/bridge: imx8qxp-pixel-link: get/put the next
+ bridge
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-0-a62b4399a6bf@bootlin.com>
+ <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-4-a62b4399a6bf@bootlin.com>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-4-a62b4399a6bf@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SG2PR06CA0240.apcprd06.prod.outlook.com
+ (2603:1096:4:ac::24) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DU2PR04MB8902:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7c87ca61-dcca-4f1d-c492-08de5cb2cbaa
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?QlV4R0FXOTRTL3MySjM1OWtxbzVzVnNwMlFwQzlpSFc2Qm4vRHVLNTlIVUJl?=
+ =?utf-8?B?MmNGS1F5MG1NeTJtTmhOKzhVQldhdldBNVZmSkcyVGc2MEZIcHY0UlQ5Q2pK?=
+ =?utf-8?B?dnZZVVRZWHd3RjNpbXpHNlNpajdYUFY4ZkoyS25DTjNSOUZtTzZ5cm5QT2Iy?=
+ =?utf-8?B?bm9lU0xidU9Td0dxR2tubGhVc1UvRzgvcFMraEpwWkRUNEdqRm1NRG85SUdL?=
+ =?utf-8?B?US83OGtvMVdOdmZ4YnFTSzl4ejJPNkptMzl1bzVPZWVYcXpSbVZETlBVNzhY?=
+ =?utf-8?B?RzdRaEtGNHVNNExVN3RIRDYzcExoWmRoSWxwb24rbmxjQ0VMZWZpSTNBQktY?=
+ =?utf-8?B?M1I2WTdxZWxWcmxseGg0Wjc5T0VqM3dFa3I0TVMrZkljNEhVY0lacnB0R3R6?=
+ =?utf-8?B?eDkxYnlCMkdTL20vdDRQME9pdTNwdEVOa3BrR1ZQVTM2YStSWHM3aC9sbXJQ?=
+ =?utf-8?B?aXZGUzdXNzZwd2Q5MmkxNEVaZzRKRzd2Ym1oNmtDb0ltRDdsbG5FSVFuaWdz?=
+ =?utf-8?B?aGpEN1ZCeEwrSTZ3bkJ1eTFMcG1RTnNrSFhZVmszbXVSOUlPNnduM0hiTndS?=
+ =?utf-8?B?SUgrTkVWOWg0STdqdmlMVk1KTnBMTFVueGkvV3NEMk5CRDZBSTZ0eEYvSStI?=
+ =?utf-8?B?cVJXYmw1RjUrRnR4NyszUFVGWDV6V2NYNk5ncUVkbEVCM0MyRGhaallZQnhM?=
+ =?utf-8?B?SUpURG9jRGhCMHBWVDBEK0ViVk5oUVBwZDBqUTREanY2ZXBkWk51dnRsSzNK?=
+ =?utf-8?B?Y2FKSmFSRENSZnN0eGZBdmxqNzh1MUFFS1ZEZWJxempreDZNVzM0aVBod25l?=
+ =?utf-8?B?VlA0Z3g1V25iK2RYY3pOKzRPWVB4Nzl6YkRCT3JJSTRSWjQ5bDFHQi85NFZp?=
+ =?utf-8?B?d3RESXBWeUU4ZnBUeHc1Sk1zaCtBK21CcW1NYlp1VU9tVS8vN0VjVEFDZWRZ?=
+ =?utf-8?B?YTZYUGhMRUxCcytIa3hGVi8yT2ZFanFXandxc3hjU3c2RWFMUTF1cDFRQUtw?=
+ =?utf-8?B?eUg5ZlphbUcrbHBJeEZTMDVJaXRYWWV2MXlaM3c2SnNIN3pOU0Q3Rmg1WnRk?=
+ =?utf-8?B?Rmhqd0Z3MTQ2UXErOWV0VHgvNnBybzU0RTkzcHpDS0UwczJWaWRGbTBkTWtr?=
+ =?utf-8?B?RGhXUWVES25PRXJEMER4aDNrTGxrZk1La3U4d2I1TXZZcmJvNFh6SzVuUnZH?=
+ =?utf-8?B?VHl5VVNOb0lxVjdHTlpWWG1GdW85MFYxNmZOTGRnV2RkRGhUZ3c5bE9hSFcx?=
+ =?utf-8?B?OW01T0xPdEtNTFN1NStCdlJQaGkwckNJdTYySUpRYkVQcEZibGN2S2ZmaFBi?=
+ =?utf-8?B?eGVrblRZVUljMTVRTHQxZGxiTlZHSXRDRzZ3N1JqL2tDaThLSlRZWWFOblE5?=
+ =?utf-8?B?WlIydjNXR3lqYXkvd0s2SEV3L3Q3ZFI4TVlFd0hybXZDTC80UzBDckZhdzlK?=
+ =?utf-8?B?eXk3eHNJRW1OM25qK1EzRGlwYU1Va0pwbXhtS3ZEbU9TT1dLb2ttR29ZR002?=
+ =?utf-8?B?aEd0cDlIcGxUWTZwa0w3K3dyQ0JzcTY2RlFRVGFSMHJzSVp2b2ZTWGhSbDdO?=
+ =?utf-8?B?VGJLOWtxVExLTU1qcVYyS0tNK3dTQzMrT016MlB5alVQczB4cndneHhZeG1T?=
+ =?utf-8?B?NXgyZEs0c3UyV25KRXFLM3NBWlNkcVNHNHRHeFl1V3JReWY5RHJRc2c2UmZZ?=
+ =?utf-8?B?TEp6eFEvRjFJZUJXVTdPdkZMRG9USTNDQWxzaHZHV2JtZnNpRDZ1NStRYk9R?=
+ =?utf-8?B?QUs0dmUrNllWbUVsUzYzNEVML0I2U2Q2eTZ0eFV4bzhzL2ZjazRoS2I0UEto?=
+ =?utf-8?B?SkIzck1paVBpYWVpKzg3cDBMZlR3VmVrb3kvVENDUHc3OHB3Yyt0ems4MDlh?=
+ =?utf-8?B?QzYwb0xhM2JrZUtUdExEV01BZjRhS2VubjB1WTlRNHRFMENPTG0vV2d5VlJx?=
+ =?utf-8?B?QnhuRUxoYmhQYTdyZUwvOXZ1eURWUVR3L2s2b0NTbEtOR2tMaFM1QVFVR0sw?=
+ =?utf-8?B?QmJCR2JPbjJiaGZDYnE0VWQzM0YwQzRRNER6RzZFL1VyeTRqSmxOS2cyWHBx?=
+ =?utf-8?B?cE9sYkZROExhSUowUmlQRGZnQ3MrWmJ6K0dCWnM5bzdML2J4ZVN4ejlkZUJY?=
+ =?utf-8?B?cWFabXRuN1lDUXluWUhBSDhHZm5JNmlSSEtEeFc2ZVRIeUsrcDR4Tm4wcjRv?=
+ =?utf-8?B?bHc9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SCtFb0o5bjRjMEFtL3RVMUI3aUQrTzJtZU8wVUEvakhKaUF3czVHVkNsWHpz?=
+ =?utf-8?B?YURoYVRnUW0yTlIrMVROVTVHajBIL05tWjNJa2hRM3NHV3h2T2FLeGpuNUF5?=
+ =?utf-8?B?U2RyN3JCdlhhdytVeW9IVGxRdWRLQkNOWXNSOTFrUVoreW93d0lqbzVTaGNl?=
+ =?utf-8?B?dE4wRkZLRFZLZUNVb1l1Z1ZLZkhlTVo3cWhLeU14d2Y3UGErcGJDMWZQemY5?=
+ =?utf-8?B?RVJ2TWtqRmZIWVZ0RDNWczF3K3ZIVjVadElJNWpvdGFXUDc2NVQ1Q3lyWVU3?=
+ =?utf-8?B?YTZsMTNZdklOdkZpcFNGbzdSbzhDdUxUYjhUR016aHByNjVYWDRWdGJDWFVX?=
+ =?utf-8?B?ZVdFTEJOa1c1UHY3VlBLN2ZQcWYzd2xoS2F4N0Z0VzZDR0RzaWhuQkVsL1JY?=
+ =?utf-8?B?MFNSQXdUYnc2VzBYNnlHTUxDTlBPWVE2cGdmTzdZRUg3QXVLRTdpbzhyMmNo?=
+ =?utf-8?B?Ym9lT0RtNDJpQ1AvR2djZHA2N1kwa08veTFJZWlraG5pRHlNRXF4ZW5TQ0lr?=
+ =?utf-8?B?YnhteW12QUNLUU9TSEJUaVhPMFlmS0VFVUYyejNnenY5bEFoOHpFU1pjTUVx?=
+ =?utf-8?B?ZTF6RklEaFJ6V1kwQ0VkOUhNb1B1ZmhLWnB1SUExTDRsVzU5eUxVbHVjcTlV?=
+ =?utf-8?B?cjgvaDNJZFhGanIxMFJWWW9ydTZtYlNpWmx0VHl3cTk2RHFXU3kydTBXa2NO?=
+ =?utf-8?B?TFhybEl1NTg0N2duV0hQeTM0TUVPUi81cEdFQWNmaVpWL2JXdCtkQ1lZc2pL?=
+ =?utf-8?B?UWM0cnZMYUkvczIxOU00N0hKWjEzYytzM3ZrN3RrZElLU1cvYWJRc0hXRllx?=
+ =?utf-8?B?Yzk0OVBLb2hBSmtxY3kxZlM4OGlva3g1M3h6eTZ4TlU5NTN3TGlTazNBZVo0?=
+ =?utf-8?B?OTFOOExQVmsxYkVDNWpuK3lsK3ZyVWNEMnN6MUZ5UUE0c0hwaGFyY2dLaE0y?=
+ =?utf-8?B?VytZUWM4b092RTh1YUdmMldJNFV6RjM2SEMveUc3NVVzbGxlOHNTbnBQQ0Ry?=
+ =?utf-8?B?Z0FGRDBwR2tmcTJTOFRaVWtsREw1TnErdUlISytFckVjTGtVVFZFTXZITkM3?=
+ =?utf-8?B?QzJMNzdHOFc2dTdxRXVNNkhRZTZHR3IzRnJ1cDNCNjNoOXNsbnBEUXNSem1i?=
+ =?utf-8?B?amlvdUhWdWw2a3V5R2lPYkdvbW1ZSk9jOHJVV211YlVBeFgyUzRzYWRCZm1G?=
+ =?utf-8?B?M3BZYzkwWE91Y2NmbnpXbHE0d0RyK1YwQlFHcWFEbHNZUjdCOGo4d29iSkMw?=
+ =?utf-8?B?WDlJVUNEMzJ6L3VZdG03dTFyYnE5Z3htcktESko1MUk1REFzR1JnVVJ6ZG1i?=
+ =?utf-8?B?ZzBNTDY4Si9vYUkyaGlNSXNFd2ZsS3hjeEhQNVJFK3VZZERKalZ4WlQ5SUN0?=
+ =?utf-8?B?MGR6bmRWY3Fva3dicFBvQUxGekNnQ3ZmdFFqaDJZNDJLUVNOeDlrc1NvNUhZ?=
+ =?utf-8?B?QktqYVhIRU5zSVlQUGozUnZNNWVFcXJQejVGT1FHcUxjaHpKMi9XNkNvUmFW?=
+ =?utf-8?B?Q1Q2aCsvRmlvYnlvd2lxWEYxRnRDb2xDT0U2TXk5aWNmZ0NpS0srN0VrMEts?=
+ =?utf-8?B?KzZsYi9SN3V2SnpFdHlOMUVBcTBMektIeE1CcEI3K2YxSEVBMHltZUtrdHRC?=
+ =?utf-8?B?ZTdRd3h2SklHOGJxUnZ2bVFCUkttNG9sQWNFS05GNXlRZVhGcnVoU29wZHZy?=
+ =?utf-8?B?VUhtQ3ZVNkZodmlZMk9Cc1YwQ29SbGhGSFRHaWFDM0h0MWd3bmdJcUFHbXFh?=
+ =?utf-8?B?V3I5aGZndy8wWk0rZWJ3dEFKODJIMmwxeFpoUlEwWUlRZ3NlUUhlMFc5aG1x?=
+ =?utf-8?B?dUdkditFemtOdVB6UjRsZUVlZXFTZEx2OWU1R0FRdWdSZE50cGwrK0tZRmh2?=
+ =?utf-8?B?SS9vTGo3WE1ERlp3cU5OVGRjNVp2aTJaUW9lS0lCZFE3SXJEL05TcXRraXBW?=
+ =?utf-8?B?WXNRWmJWdmN6MHdVT25OMG0yWTRxdWxNV2dkRkEvM09RLy83RFA4dFJPZ1hP?=
+ =?utf-8?B?eGhDSnc0bThibHIzSDVpWFJjSTVZemFRM1dFUHVza1ZDWTFYeCt1Zm11OTRx?=
+ =?utf-8?B?OHllR3RJNThXdjlzRTNLR1BFUjYzQ3oyR3V4Mys1Y2F0Um5KODhNdm5mY3JN?=
+ =?utf-8?B?SlF6NHh5SHZjUU1BMCs0N1l6amgzREJKYUVmRTBMM1Ztem9oSlZnN2VjS0Zy?=
+ =?utf-8?B?QlozcWtKVmxiM1d0MTBzSi9qb3VWd1l5NzlUWEdQRVlSbXNWSkZPYW95MUFW?=
+ =?utf-8?B?Qllid2xDMlMzMXBjTzJLR3FpeXYxOS9jdUJjUk1ySUZBOFFiSGFLL3Jxd3Js?=
+ =?utf-8?B?a1lWaFo5MHhlMVk1MGs5NDNGN0JjZVM4cUJlZ01HNGxsNmMrZXFDQT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7c87ca61-dcca-4f1d-c492-08de5cb2cbaa
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 08:13:32.6623
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EwbHEjvc6D6RbLX7Hlz6a5pWJj9vTWqIAyeXcRnvIzTIrEW3r18ms8johf8kxpULJHpfhIcl/QNARgMh0piHiQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8902
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_001259_657249_1E05118F 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20260126_001336_674889_5ED795EC 
+X-CRM114-Status: UNSURE (   7.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,126 +197,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 35c18f2933c5 ("Add a new optional ",cma" suffix to the
-crashkernel= command line option") and commit ab475510e042 ("kdump:
-implement reserve_crashkernel_cma") added CMA support for kdump
-crashkernel reservation.
 
-Crash kernel memory reservation wastes production resources if too
-large, risks kdump failure if too small, and faces allocation difficulties
-on fragmented systems due to contiguous block constraints. The new
-CMA-based crashkernel reservation scheme splits the "large fixed
-reservation" into a "small fixed region + large CMA dynamic region": the
-CMA memory is available to userspace during normal operation to avoid
-waste, and is reclaimed for kdump upon crash—saving memory while
-improving reliability.
 
-So extend crashkernel CMA reservation support to arm64. The following
-changes are made to enable CMA reservation:
+On Wed, Jan 07, 2026 at 10:56:29AM +0100, Luca Ceresoli wrote:
 
-- Parse and obtain the CMA reservation size along with other crashkernel
-  parameters.
-- Call reserve_crashkernel_cma() to allocate the CMA region for kdump.
-- Include the CMA-reserved ranges for kdump kernel to use.
-- Exclude the CMA-reserved ranges from the crash kernel memory to
-  prevent them from being exported through /proc/vmcore.
+[...]
 
-Update kernel-parameters.txt to document CMA support for crashkernel on
-arm64 architecture.
+>  * the bridge returned of_drm_get_bridge() is stored in the local temporary
 
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
-v2:
-- Free cmem in prepare_elf_headers()
-- Add the mtivation.
----
- Documentation/admin-guide/kernel-parameters.txt |  2 +-
- arch/arm64/kernel/machine_kexec_file.c          | 15 ++++++++++++++-
- arch/arm64/mm/init.c                            |  5 +++--
- 3 files changed, 18 insertions(+), 4 deletions(-)
+There is no of_drm_get_bridge() defined, so
+s/of_drm_get_bridge/of_drm_find_and_get_bridge/ ?
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 1058f2a6d6a8..36bb642a7edd 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -1119,7 +1119,7 @@ Kernel parameters
- 			It will be ignored when crashkernel=X,high is not used
- 			or memory reserved is below 4G.
- 	crashkernel=size[KMG],cma
--			[KNL, X86, ppc] Reserve additional crash kernel memory from
-+			[KNL, X86, ARM64, ppc] Reserve additional crash kernel memory from
- 			CMA. This reservation is usable by the first system's
- 			userspace memory and kernel movable allocations (memory
- 			balloon, zswap). Pages allocated from this memory range
-diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-index 410060ebd86d..ef6ce9aaba80 100644
---- a/arch/arm64/kernel/machine_kexec_file.c
-+++ b/arch/arm64/kernel/machine_kexec_file.c
-@@ -48,7 +48,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
- 	u64 i;
- 	phys_addr_t start, end;
- 
--	nr_ranges = 2; /* for exclusion of crashkernel region */
-+	nr_ranges = 2 + crashk_cma_cnt; /* for exclusion of crashkernel region */
- 	for_each_mem_range(i, &start, &end)
- 		nr_ranges++;
- 
-@@ -64,6 +64,12 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
- 		cmem->nr_ranges++;
- 	}
- 
-+	for (i = 0; i < crashk_cma_cnt; i++) {
-+		cmem->ranges[cmem->nr_ranges].start = crashk_cma_ranges[i].start;
-+		cmem->ranges[cmem->nr_ranges].end = crashk_cma_ranges[i].end;
-+		cmem->nr_ranges++;
-+	}
-+
- 	/* Exclude crashkernel region */
- 	ret = crash_exclude_mem_range(cmem, crashk_res.start, crashk_res.end);
- 	if (ret)
-@@ -75,6 +81,13 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
- 			goto out;
- 	}
- 
-+	for (i = 0; i < crashk_cma_cnt; ++i) {
-+		ret = crash_exclude_mem_range(cmem, crashk_cma_ranges[i].start,
-+					      crashk_cma_ranges[i].end);
-+		if (ret)
-+			goto out;
-+	}
-+
- 	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
- 
- out:
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 524d34a0e921..28165d94af08 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -96,8 +96,8 @@ phys_addr_t __ro_after_init arm64_dma_phys_limit;
- 
- static void __init arch_reserve_crashkernel(void)
- {
-+	unsigned long long crash_base, crash_size, cma_size = 0;
- 	unsigned long long low_size = 0;
--	unsigned long long crash_base, crash_size;
- 	bool high = false;
- 	int ret;
- 
-@@ -106,11 +106,12 @@ static void __init arch_reserve_crashkernel(void)
- 
- 	ret = parse_crashkernel(boot_command_line, memblock_phys_mem_size(),
- 				&crash_size, &crash_base,
--				&low_size, NULL, &high);
-+				&low_size, &cma_size, &high);
- 	if (ret)
- 		return;
- 
- 	reserve_crashkernel_generic(crash_size, crash_base, low_size, high);
-+	reserve_crashkernel_cma(cma_size);
- }
- 
- static phys_addr_t __init max_zone_phys(phys_addr_t zone_limit)
 -- 
-2.34.1
-
+Regards,
+Liu Ying
 
