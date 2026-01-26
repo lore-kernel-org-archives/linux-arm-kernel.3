@@ -4,79 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D24AFD19502
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 18:11:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A81D1950F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 18:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vicu6lpUE90FAgN2xtfuOumDUR1Qg4VnW5GWRXk4y9o=; b=bTWmGtpDkbzypgEafIM3FNV7yY
-	v4d15vWjOwhL1Meu04tRiO1km6A8YMVrr5lLXqW8kG59ymiAlliz9apBptZEur7E/KVHVPo3++TeI
-	PEsBc2IAShHvfr+m/hAD0jRLQ6SI64dOm8AgV8tvsxNYPrudYBKrjzNW+9dp93aH9BQlMfKh3hgLE
-	KoxExI4f5wpCAY477EbXUD9wHXjxkDDAvbCZfv3WveuIWdRYQY7AEhoPdkLOPVVg27fiyjXhzGyFD
-	wf5VihovrqleL3w8qFg//HNq+ydRgWYAdQBl0gs9n8HvcgckI3DO6aynzGk4XuGL0fmPHQwZU1bbE
-	MIouhCVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HhEuAZMR5UDGow0z2dsH6PsRMXDGpCka9sRzAIIM/FQ=; b=OEXeex0Xesdn/f2J3LY1gXoHrZ
+	LohgZanfIvsi4UNKRODmSV389ZuDbS7Ukf9yqMSj/o7+QQauXtpe3qKbrkXBtnSRfJTOmz55Wtbf7
+	jtBCHSAgcsmlJqTvV9oP3J/s27ffY2ATdpky/fpppfLtY5aRJzLWkWB2OSY9c0VgXk8ZDPHseidHZ
+	LXFWg5I2LoWKyTjzEfgJXK73xpWo5yDdLuV9biGMlRBgdWrh5V5BsLW9Sfo2YDK03S03BkQoWV8/k
+	WOOBfzOTVvP8uavahKjbBCQWgik73lNufnsnF4JpDIHsy2vaeRWROoUeAvRDM6YvfUcH6IDgV+bSh
+	eg/M56vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkR3s-0000000D2G4-25lk;
-	Mon, 26 Jan 2026 18:11:40 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vkR4v-0000000D2OW-1SSh;
+	Mon, 26 Jan 2026 18:12:45 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkR3n-0000000D2Fi-2Q4T
+	id 1vkR4t-0000000D2Ny-2yQk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 18:11:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=vicu6lpUE90FAgN2xtfuOumDUR1Qg4VnW5GWRXk4y9o=; b=NrPEk1J1La77hJglDtJdiD8za9
-	IGx3mDMOahM9R9I2Epz3BcUKZV0mEwhrhJowvHeWenHhHLJRQmcsbU5jlB66JkVEvQS2Co5khEXlF
-	asdrMDH6hVzJxOHU2z65VzC4+izMIh1i573mzJbt9dxmqTpS+HtuGU2tgNpoX+XId54JueRF3XNIF
-	LpV/dq8Ej88/zNas8S35JPhVSeA8skdIZWOdx3nPPsnkHPXiP97M1UY8xNnAHJVZi6ipsJJ1MHpZF
-	PAlyizJyryjDuVP54qj98ob9nRsfq+XB3t4GOkzjGe85CZRYRnTbfos0P7CnvrtLmXfVuSo8b1zma
-	Zh7SYR1Q==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36042)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vkR3c-000000005Co-0yVO;
-	Mon, 26 Jan 2026 18:11:24 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vkR3X-00000000595-3RUR;
-	Mon, 26 Jan 2026 18:11:19 +0000
-Date: Mon, 26 Jan 2026 18:11:19 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Prabhakar <prabhakar.csengg@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: Re: [RFC PATCH net-next] net: stmmac: Preserve bootloader MAC
- address across unconditional reset
-Message-ID: <aXeuR_YLoAFYEAVi@shell.armlinux.org.uk>
-References: <20260126172503.238724-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Mon, 26 Jan 2026 18:12:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pdCCMHmsibfdPE3lUgrHzQEODAkW95gHqAxVBWXkJDhnC6X/rbmlG8tBVxp5gFCylQ8POlPZPfeMRh3kWTO1/Tzc62VqGaF0zfHr7HteMruKZXUpIUPWcW0Ok3YYjfWE5nqk0XrcJJtryDNlyW7YRX1ofKOEgty529dTCqmjCBq/bL9z5UUl7ysPAZ0lX6ONWDPP8VCCX3xHF1LZpzy4RW9OnX1qFqro1BOQdP1EOx8Zf5SXAoFJM7T4/BbZcFuNMcqezZYo+9ZQP1BNrfjP//HfFoW/LetFjTwXNl4VjbmyLH/JAf8igbAz8ycEi6bvoiAr4T//5GeriiSsLs+ugg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HhEuAZMR5UDGow0z2dsH6PsRMXDGpCka9sRzAIIM/FQ=;
+ b=e2AQ7gpQ1PPKxvH7aCxIWvSeNqaPAoO3Kg3JnAHJGjkmqdDcUugOXEqGy9fPuzp/QOGD/KDxfBqAlHTAXuMaWyohCYU+DhtpZLR4/QE99FPPgudmzzdpE5QyRmhN4S7qWcC+tteZgxvR+L7w0YwtlmNWED1x8mYcJv2TNihpwLuAdXzO3HofhDlf3tMV3JTTe4Sv2hzyZ3FxsVr0Tbp4/eo4LhbHREz7MaEE/08tKvyYg0ckx9QpJ7Ff3qwLwshL8SnjjeaIXhD4zjdulwdYzjT+Z5ZLZV4PphP25GKK0eMzhpOwDcD+psy3aZTUYWHtV/cv4PHZAwcEN8rwccye+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HhEuAZMR5UDGow0z2dsH6PsRMXDGpCka9sRzAIIM/FQ=;
+ b=GkJ9hzcOyLeE05aHXXctYgVXep/OYb8704LOpZdKsSSlRBTmNwziLf7KLbjo75IVBkCI5mt1Wpw3WxCU4SMkLtN29qILC98ohFiq59RLfVzzY/qWfmEqrYWH8UeOKuMXXtXfCx5QwORstuxE8f29ZDGGnM0lpJuOy5sgZH1vo9aFT67HiKv0X0ln0fy8PsJKQBUmwsUynv25qtoUsfGSCyiV/CYJE2/RxnxeLT9lwUMdiUMFZ953GBGdJ7cDkh4LK08+nXIOAyjCL5ey756+WKI0t+6kBztYNvGPbITF/7wZB6ilBeaIp3YrOg6gLEPNgIH1dgqqi9heDz+G2zk9kg==
+Received: from BN9PR03CA0595.namprd03.prod.outlook.com (2603:10b6:408:10d::30)
+ by CH1PR12MB9621.namprd12.prod.outlook.com (2603:10b6:610:2b2::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.16; Mon, 26 Jan
+ 2026 18:12:35 +0000
+Received: from BN2PEPF000044A4.namprd02.prod.outlook.com
+ (2603:10b6:408:10d:cafe::59) by BN9PR03CA0595.outlook.office365.com
+ (2603:10b6:408:10d::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.16 via Frontend Transport; Mon,
+ 26 Jan 2026 18:12:33 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ BN2PEPF000044A4.mail.protection.outlook.com (10.167.243.155) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.3 via Frontend Transport; Mon, 26 Jan 2026 18:12:33 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 26 Jan
+ 2026 10:12:21 -0800
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Mon, 26 Jan 2026 10:12:21 -0800
+Received: from build-bwicaksono-noble-20251018.internal (10.127.8.11) by
+ mail.nvidia.com (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.20
+ via Frontend Transport; Mon, 26 Jan 2026 10:12:20 -0800
+From: Besar Wicaksono <bwicaksono@nvidia.com>
+To: <will@kernel.org>, <suzuki.poulose@arm.com>, <robin.murphy@arm.com>,
+	<ilkka@os.amperecomputing.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>, <mark.rutland@arm.com>, <treding@nvidia.com>,
+	<jonathanh@nvidia.com>, <vsethi@nvidia.com>, <rwiley@nvidia.com>,
+	<sdonthineni@nvidia.com>, <skelley@nvidia.com>, <ywan@nvidia.com>,
+	<mochs@nvidia.com>, <nirmoyd@nvidia.com>, Besar Wicaksono
+	<bwicaksono@nvidia.com>
+Subject: [PATCH 0/8] perf: add NVIDIA Tegra410 Uncore PMU support
+Date: Mon, 26 Jan 2026 18:11:47 +0000
+Message-ID: <20260126181155.2776097-1-bwicaksono@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260126172503.238724-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044A4:EE_|CH1PR12MB9621:EE_
+X-MS-Office365-Filtering-Correlation-Id: 73c6a6d1-ff54-4c1a-8285-08de5d067a57
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?abvHa7OCNhPpF2CctZcpgkyKcDOWucXcDhOwHx7qDdDpCi8hkkuKvukm8/zT?=
+ =?us-ascii?Q?amokCRkySM2rf0LYUIbuz1JJz0hfOa+olhyVyiRRFmK4XbrdubpXbv8Es0ps?=
+ =?us-ascii?Q?5HQUmFO2WFI0thk7DrqhRxvNsRxfd+7mJMIX8dxbR0mIW6IJqr9NjLJM4Zzl?=
+ =?us-ascii?Q?QMMlBFzcG8vOmynzC9EaUwiafXEq+wbjasf/xaK2q357bSdTv/aiIRdAtvwd?=
+ =?us-ascii?Q?5atfGKfUCT3puMf8AoXipMeHIzNQXVsmtuP25uCsgLQWYU8q5saFf6Mw0iVQ?=
+ =?us-ascii?Q?SVlQ/NBcVkPkfKQzVF/55LWtN+C8jqwlBwkDtsuNfeoYrVUpkKcDkPP7Miih?=
+ =?us-ascii?Q?7EqWRl72QAnSaZ6P+V38RBign++AtX5lMkWHV9GKKe93exE+imkLtvFztCnZ?=
+ =?us-ascii?Q?I9zVu7neT4r0Aw1ouyQka82e48QpnzTT5OBwYfoTV9dp/8Yd6dbF7gThSW88?=
+ =?us-ascii?Q?A9q4c8TgWH0TvoEMs6fcDeaGq+TomYDmcF2iXSGdmjM72v2Ikw4+daoJAKlH?=
+ =?us-ascii?Q?+KLgpZYsVuGypufz+rPwYRR/5Ntl08l+szpMgCFOBiAMDD3dgTkpSm1Ti8lQ?=
+ =?us-ascii?Q?mjgE6OBs9zzjIVFWwpFCt4Uk52SA/p6owCi46Ds2lp2W1MPZEFuGoNd1VbZJ?=
+ =?us-ascii?Q?n5Q6+eTO3bRHWoMxPAx7gqoQuiRIJC5zx1dtY1bqu7EHJ/ZhDlI6mSiQd52R?=
+ =?us-ascii?Q?eGuzsYSRz4DVqTbl1akQ23z3Qkj8nV+LuNhnY7VUXAQ8cNJgSj+RCKpG1YHZ?=
+ =?us-ascii?Q?DN4KiiR3H05R6IFllib18cMGS0nY3qAwpjfDf3mi+9cdEMSnHqI1nLgGrIzQ?=
+ =?us-ascii?Q?9s6WuVb8381WTA174wUTZVHaUTG7PIv5Qd+bkZxuD4X0uoHjCJSgebiapcUu?=
+ =?us-ascii?Q?IWhgQnsS50jZjkzqA6H0FA/Nr4U9n+hAAZ8oS5yEF7e5RexJcUY5IvnHLJju?=
+ =?us-ascii?Q?mXc+jN8C3OG21WIAdQNrIqUv25JFYyHn6uhHnjLuF1DvcxQi7max2FTILp/A?=
+ =?us-ascii?Q?e15AUzSg2sdUsGhyXF2j6/e1pVHrf8QocHI7kIKNU82SWv8Cy6rZiJzxEzAP?=
+ =?us-ascii?Q?AC7lQp1nPdDPKO4DyqwIAucRszexvtjVmQrJ+95ayCfAPhKfGU3KtfMaVucO?=
+ =?us-ascii?Q?KIdBeRJo4wXPO1k6RSNHkbUYq1Rr+eqUVdFs4hlWftUSL7z1ZxvQZVyWryGu?=
+ =?us-ascii?Q?ofqyIasJ3z6WvN/fM8EnCKV2wfKtl4mbjT0VPE0eV9nSPD1c5JMLLsCjOoHj?=
+ =?us-ascii?Q?B1E0NpR7cY8hh+gG+X+Pnknhu+FuiXNcNKuJnqHgXpTf14g92N7odnrpyeod?=
+ =?us-ascii?Q?lGkZw3vTJbYvyfedDK8qv5LjatrGnKKI/ffyPAaLJAMSsCF50LrUB7CU1QmI?=
+ =?us-ascii?Q?xbr6ZesbOi8evwm0rWGek05mQwBjx8n5XfCP3WVgSoJHY1dmJtIih2frGNng?=
+ =?us-ascii?Q?JnmqftGaCfFybsLqFhrMMj27Wpwianh4G2kPwDbqXGF8vrIBvTKyA2O/5TQV?=
+ =?us-ascii?Q?RSaFuYQiHP9T8h3COFJYB9GYxEa/CdU2V45DwGDDCHsOuN/ICC/7nCcHWBGA?=
+ =?us-ascii?Q?Ku5VFE9GzcjipsAWTM0uB4pEj7j7tMlajLZLM8jkch7HPwZ+F2mXJAFQnFQq?=
+ =?us-ascii?Q?jttNGqLhETda6q0OkIjQWkMujpHkaKqfeEjfbwWuVWE24wOrrc4CdtnsYyxd?=
+ =?us-ascii?Q?G9Q3Qw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 18:12:33.5233
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 73c6a6d1-ff54-4c1a-8285-08de5d067a57
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A4.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PR12MB9621
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_101135_622295_215A6B9B 
-X-CRM114-Status: GOOD (  26.00  )
+X-CRM114-CacheID: sfid-20260126_101243_756180_75CEB219 
+X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,121 +156,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 05:25:03PM +0000, Prabhakar wrote:
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> 
-> Commit 90f522a20e3d1 ("NET: dwmac: Make dwmac reset unconditional")
-> asserts a reset in probe when a reset controller is present. This reset
-> clears the MAC address registers, so a valid address programmed by the
-> bootloader gets lost and the driver falls back to a random address.
-> 
-> Read the MAC address from the hardware registers before resetting the
-> hardware. Keep the existing address selection logic when no valid
-> address is found, and program the selected address back into the MAC
-> after probe so it remains consistent in hardware.
-> 
-> Export stmmac_bus_clks_config() so the early read path can enable the
-> bus clocks before accessing the MAC registers.
+This series adds driver support for the following Uncore PMUs in
+NVIDIA Tegra410 SoC:
+  - Unified Coherence Fabric (UCF)
+  - PCIE
+  - PCIE-TGT
+  - CPU Memory (CMEM) Latency
+  - NVLink-C2C
+  - NV-CLink
+  - NV-DLink
 
-I don't think this is a good idea. stmmac_bus_clks_config() is specific
-to using platform devices, but the core stmmac driver also supports
-PCI that doesn't use stmmac_bus_clks_config().
+Thanks,
+Besar
 
-stmmac_bus_clks_config() handles:
+Besar Wicaksono (8):
+  perf/arm_cspmu: nvidia: Rename doc to Tegra241
+  perf/arm_cspmu: nvidia: Add Tegra410 UCF PMU
+  perf/arm_cspmu: Add arm_cspmu_acpi_dev_get
+  perf/arm_cspmu: nvidia: Add Tegra410 PCIE PMU
+  perf/arm_cspmu: nvidia: Add Tegra410 PCIE-TGT PMU
+  perf: add NVIDIA Tegra410 CPU Memory Latency PMU
+  perf: add NVIDIA Tegra410 C2C PMU
+  arm64: defconfig: Enable NVIDIA TEGRA410 PMU
 
- - plat_dat->stmmac_clk
- - plat_dat->pclk
- - any clock handled by the plat_dat->clks_config() method
-
-For platform devices, stmmac_probe_config_dt() gets these two clocks
-from DT, and prepares and enables them both. So, by the time the
-probe function is called, these clocks are already running.
-
-For those handled by the platform glue, the glues that populate
-this function:
-
-eic7700: eic7700_clks_config() - this is called from the init/exit
-handlers. Will be invoked to enable the clocks by stmmac_dvr_probe().
-
-imx: imx_dwmac_clks_config() - called by imx_dwmac_probe() to enable
-clocks prior to stmmac_dvr_probe() being invoked.
-
-mediaktek: mediatek_dwmac_clks_config() - called by
-mediatek_dwmac_probe() to enable clocks prior to stmmac_dvr_probe()
-being invoked.
-
-qcom-ethqos: ethqos_clks_config() - called by qcom_ethqos_probe() to
-enable clocks prior to stmmac_dvr_probe() being invoked.
-
-So, I can confidently say that all clocks should be running by the
-time __stmmac_dvr_probe() is called, and thus there should be no
-requirement to call stmmac_bus_clks_config() in this code.
-
-
-The next problem: you place this code to read registers from stmmac
-before:
-
-	ret = reset_control_deassert(priv->plat->stmmac_ahb_rst);
-
-Sadly, the binding documentation is too vague to pin down what this
-is, as dwmac can have AHB master (which generates bus cycles for
-accessing memory) and AHB slave (which would be the target for
-register accesses) interfaces.
-
-The problem here is that if some platform glue has wired this reset
-such that it resets the AHB slave side, that will prevent register
-access, and thus your attempt to read the MAC across all devices
-will fail.
-
-
-The next question that comes up is that we have a perfectly good way
-that's been around for years to pass a MAC address from the boot
-loader into the kernel for any network interface. I notice that it
-isn't mentioned in the DT bindings, presumably to prevent people
-from adding it to their in-kernel DT files.
-
-	mac-address =
-	local-mac-address =
-
-The old documentation in ethernet.txt was:
-
-- mac-address: array of 6 bytes, specifies the MAC address that was last used by
-  the boot program; should be used in cases where the MAC address assigned to
-  the device by the boot program is different from the "local-mac-address"
-  property;
-- local-mac-address: array of 6 bytes, specifies the MAC address that was
-  assigned to the network device;
-
-Given that these are interfaces between the boot loader and the kernel,
-they can't be deprecated, as platforms will rely upon these properties
-to pass the MAC address from the boot loader to the kernel. For example
-on one of my systems:
-
-$ vdir /sys/class/net/eth0/of_node/
-total 0
--r--r--r-- 1 root root  4 Jan 26 18:08 gop-port-id
--r--r--r-- 1 root root 50 Jan 26 18:08 interrupt-names
--r--r--r-- 1 root root 80 Jan 26 18:08 interrupts
--r--r--r-- 1 root root  6 Jan 26 18:08 local-mac-address
--r--r--r-- 1 root root 14 Jan 26 18:08 name
--r--r--r-- 1 root root  4 Jan 26 18:08 phy
--r--r--r-- 1 root root 10 Jan 26 18:08 phy-mode
--r--r--r-- 1 root root  8 Jan 26 18:08 phys
--r--r--r-- 1 root root  4 Jan 26 18:08 port-id
--r--r--r-- 1 root root  4 Jan 26 18:08 reg
--r--r--r-- 1 root root  5 Jan 26 18:08 status
-
-where "local-mac-address" states the MAC address to be used for eth0,
-as specified by the boot loader.
-
-I don't think stmmac needs this extra complication provided platforms
-make use of mechanisms that already exist... and I feel it's time to
-start saying no to platform specific quirks that can be handled by
-those mechanisms.
-
-Thanks.
+ Documentation/admin-guide/perf/index.rst      |    3 +-
+ ...nvidia-pmu.rst => nvidia-tegra241-pmu.rst} |    8 +-
+ .../admin-guide/perf/nvidia-tegra410-pmu.rst  |  520 ++++++++
+ arch/arm64/configs/defconfig                  |    2 +
+ drivers/perf/Kconfig                          |   14 +
+ drivers/perf/Makefile                         |    2 +
+ drivers/perf/arm_cspmu/arm_cspmu.c            |   24 +-
+ drivers/perf/arm_cspmu/arm_cspmu.h            |   17 +-
+ drivers/perf/arm_cspmu/nvidia_cspmu.c         |  622 +++++++++-
+ drivers/perf/nvidia_t410_c2c_pmu.c            | 1061 +++++++++++++++++
+ drivers/perf/nvidia_t410_cmem_latency_pmu.c   |  727 +++++++++++
+ 11 files changed, 2990 insertions(+), 10 deletions(-)
+ rename Documentation/admin-guide/perf/{nvidia-pmu.rst => nvidia-tegra241-pmu.rst} (98%)
+ create mode 100644 Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst
+ create mode 100644 drivers/perf/nvidia_t410_c2c_pmu.c
+ create mode 100644 drivers/perf/nvidia_t410_cmem_latency_pmu.c
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.43.0
+
 
