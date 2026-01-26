@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BBBAD13C2A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 14:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D8D4D13C27
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 14:54:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tbr2gvvBmKr19PfRmNAsIexnBX5A6gjZiXTaUKZx1fk=; b=dW6dtCTaNJAD/ezl7JY0pb94wg
-	FMJVu649FcYCi2tvzW0aBQ6uqZO067ffGR2WKlWGvZXMvQ6GGV/T/szouAuNcWuaJeE/G4Y2H2opx
-	orJfmX/x8FAKV7uGsNmRgtCMh2pDja+Iapapa/nGQtx+Bt6J1ybXVuQuro7U8VI/Wypj46a6i/Uc1
-	f8CkIRBLIzS3VYfTieR+J19Z0oy6Kp3v1W+nFO/zvIx4tLf2JCdJYIH7XMry2IHI/QQeh2IdbTy7+
-	KQc43L8lIFo9EkvsGMZqF2dThD84k0FYpZzW+2unMeg7Qn7LBeGjeJhODvzYTiRmDsZCxaUTU42zf
-	L13sr0UA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5M/hT6X+BUCUAPQ+ZbPqAUayJXQsryR7mlogTvxklBU=; b=VcRW/n28Qh0fveN9Fp3b9fHr1m
+	eKrxE6TgKzrKZv6OEaxrZsoq6GpCIWm6OKGk+PMiIve4UaMNGMYVkKYnfMCCrZ4iYxl5YFfLu6cqC
+	t18zp740V1HdZezNyigyKsTq8Ys4IFPKy9/Oy6ZgrF8mYMr5tBMSgA5yK79gCSs2/HEBhV7YRp27+
+	IV+mnkNcrqB1joEIfhZfQHdSU9GILzMhtsKPG1XEXsEMqMy++XTUU6r3cxrvRObKns9FN0zyiLTnF
+	5bAgpTps/eT1MUf3oBWOqKbVVj0hzfZA46MQmseMvwDgYxiHEWXhNs5v0u3DY960nTUmE9eB0kGhk
+	HqP0UaCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkNxo-0000000CiwZ-0INq;
-	Mon, 26 Jan 2026 14:53:12 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vkNzM-0000000Cj9H-2w76;
+	Mon, 26 Jan 2026 14:54:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkNxl-0000000Ciw4-2tfl;
-	Mon, 26 Jan 2026 14:53:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1769439184;
-	bh=GT4929KDy5PqpA3gBq0fVgekZu4eZCi/voc1Cx4I1as=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=evbz8UvyEOzZnE8SFDytJikkrW3Jv2+T+Upwsc0bmWbMVnRwWI/rL4PzxBGPqGN67
-	 TqgPDewslKzVt5kjkQMlif7DE78SRyG4ieTFEjvsnvrD2P3gO7TNZ2EqRZOGpN/lKT
-	 a04mgYXnvWsY1w7Yp9R+ApIwHVODnC7irlYBch/EJPGoF+lyGCQl08VOvfcVdLgCcT
-	 8cBFewH2kEjmq9STmuVf5zY0VkGEG428LwE0vwd2NQLuMAthnSK2UhzH8uTqiE7OZt
-	 EC23/BpmiXZKrYi22uo8waLPT5IP1IZTOG8eeJ0Q03es8v55ZOlgevD+NhrWjwvZBW
-	 Lk+a0XH20hbbQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 50B0117E0E6C;
-	Mon, 26 Jan 2026 15:53:03 +0100 (CET)
-Message-ID: <0fe71377-df0a-4e8e-a787-73455eddc133@collabora.com>
-Date: Mon, 26 Jan 2026 15:53:02 +0100
+	id 1vkNzJ-0000000Cj8S-1u2P
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 Jan 2026 14:54:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B03C0437DF;
+	Mon, 26 Jan 2026 14:54:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BD1FC116C6;
+	Mon, 26 Jan 2026 14:54:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769439284;
+	bh=7sRyq9vC8/ABpNkwM+B6b4cRdcvsa50dvpc8Ewv/ufM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XDxdNLEyhAhLPM9W+w9yGtoYMuvdFpDU4if2F/p6P197GRjupD8TsigOvI5CaZv9k
+	 sK96+NZp97x4X6xVF08Gt62nGXGKg3lcFhLEjf36+JboinAsU3PZfmM7T8ZsINaLeS
+	 LO2NdtIbU0pWRchVnOzJsmTyj2hWkXSpccD5ITTgly0UZPkQ2yZMbZSu4DENeGl/A9
+	 rjtZuX1lrnPDjAF9SVU8i2taw7CACtOPdl4mvuhG9kIljzP9dKZ25uNmU/vC0iQWKS
+	 5qaf3qk718m0LvQuNYb3rhQqVaqgbK9s8em5hZ+V+J3Klspfh0ZOdGlIykPOeoM17E
+	 11QP0vbpVYqhA==
+Date: Mon, 26 Jan 2026 14:54:38 +0000
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, jean-philippe@linaro.org,
+	robin.murphy@arm.com, joro@8bytes.org, balbirs@nvidia.com,
+	miko.lenczewski@arm.com, peterz@infradead.org, kevin.tian@intel.com,
+	praan@google.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 3/7] iommu/arm-smmu-v3: Introduce a per-domain
+ arm_smmu_invs array
+Message-ID: <aXeALpV1wcQk9tah@willie-the-truck>
+References: <cover.1766174731.git.nicolinc@nvidia.com>
+ <8c94c5194871ee1a0f3a6b49e18818b88f51226d.1766174731.git.nicolinc@nvidia.com>
+ <aXOpzjkAgODnh2HU@willie-the-truck>
+ <aXOxfi8ZQAkr4zHU@Asurada-Nvidia>
+ <aXO1OLrOsCkep3V8@willie-the-truck>
+ <aXO2MY6gzs/lxT7S@Asurada-Nvidia>
+ <20260123191654.GD1134360@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 23/24] scsi: ufs: mediatek: Remove undocumented
- "clk-scale-up-vcore-min"
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
- Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Chaotian Jing <Chaotian.Jing@mediatek.com>,
- Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- kernel@collabora.com, linux-scsi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-phy@lists.infradead.org
-References: <20260124-mt8196-ufs-v6-0-e7c005b60028@collabora.com>
- <20260124-mt8196-ufs-v6-23-e7c005b60028@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260124-mt8196-ufs-v6-23-e7c005b60028@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260123191654.GD1134360@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_065309_895503_D11C2AC8 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260126_065445_533074_826D9CB4 
+X-CRM114-Status: GOOD (  24.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,26 +81,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 24/01/26 13:01, Nicolas Frattaroli ha scritto:
-> The MediaTek UFS driver contains support for an undocumented,
-> non-vendor-prefixed u32 property named "clk-scale-up-vcore-min".
+On Fri, Jan 23, 2026 at 03:16:54PM -0400, Jason Gunthorpe wrote:
+> On Fri, Jan 23, 2026 at 09:56:01AM -0800, Nicolin Chen wrote:
+> > On Fri, Jan 23, 2026 at 05:51:52PM +0000, Will Deacon wrote:
+> > > On Fri, Jan 23, 2026 at 09:35:58AM -0800, Nicolin Chen wrote:
+> > > > On Fri, Jan 23, 2026 at 05:03:10PM +0000, Will Deacon wrote:
+> > > > > On Fri, Dec 19, 2025 at 12:11:25PM -0800, Nicolin Chen wrote:
+> > > > > > +struct arm_smmu_inv {
+> > > > > > +	struct arm_smmu_device *smmu;
+> > > > > > +	u8 type;
+> > > > > > +	u8 size_opcode;
+> > > > > > +	u8 nsize_opcode;
+> > > > > > +	u32 id; /* ASID or VMID or SID */
+> > > > > > +	union {
+> > > > > > +		size_t pgsize; /* ARM_SMMU_FEAT_RANGE_INV */
+> > > > > > +		u32 ssid; /* INV_TYPE_ATS */
+> > > > > > +	};
+> > > > > > +
+> > > > > > +	refcount_t users; /* users=0 to mark as a trash to be purged */
+> > > > > 
+> > > > > The refcount_t API uses atomics with barrier semantics. Do we actually
+> > > > > need those properties when updating the refcounts here? The ASID lock
+> > > > > gives us pretty strong serialisation even after this patch series and
+> > > > > we rely heavily on that.
+> > > > 
+> > > > But we can't use that mutex in the invalidation function that
+> > > > might be an IRQ context?
+> > > 
+> > > My question, really, is why do you need the atomic properties in this patch
+> > > series? It just looks like overhead at the moment.
+> > 
+> > Hmm, shouldn't it be atomic, since..
+> > 
+> > (might be IRQ, no mutex) __arm_smmu_domain_inv_range() reads it.
+> > (mutex protected) arm_smmu_attach_dev() writes it.
+> > 
+> > ..?
 > 
-> Since it is not part of any binding, and would not pass a bindings
-> review in its current form, remove it.
+> It doesn't need to be a full atomic, you can use WRITE_ONCE/READ_ONCE
+> instead for this case.
 > 
-> To return this functionality, it needs to be resubmitted in a series
-> that also introduces it to the binding, and justifies what it is used
-> for. Compatibility with downstream device trees is not a valid
-> justification for its existence.
+> The general argument of this scheme is it doesn't matter if the
+> invalidation side is doing extra invalidation, that is supposed to
+> always be safe except for ATS. For ATS we hold locks and then it
+> doesn't to be atomic because of the lock.
 > 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> So I think Will has it right, just use READ_ONCE/WRITE_ONCE on a naked
+> unsigned int.
 
-Not sure what this is used for, because then UFS DVFS for gears should be managed
-with OPPs (either dynamic or static) anyway, so the vcore (I guess this is the scp
-vcore in dvfsrc regulators) should be scaled like so, without ugly init hacks like
-the one that you just removed.
+There's the usual scary ordering worries with this stuff, but they exist
+with refcount_read() too. We're ok because cur->users is address dependent
+on the read of the invalidation array pointer, which is RCU protected.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+(I think!)
 
-
+Will
 
