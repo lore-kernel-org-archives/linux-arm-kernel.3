@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7358CF65CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:51:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F3ECF65CB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gCqG1JmK0XnIs4nDrNljcp7tqLK+Bq0xGp3bwdNVubo=; b=u1SubSkQOjRwUoebXFZCr6UfOU
-	1hf7soD0qwUNbFj4ZVLbs6tqWuBFnCzOLjHOUKJLELy5tbPsMI0ezNz1R99mu0ddz2//v8cxulY6G
-	qovC1xrXJccozp9TKJkL/Y3r/i3o8lfT6eReDAoX+KG9jpISiYY3glDvB1Zv2cQQmSt3sQU86xmIc
-	faPo/xx1vh2sGwg2r7PN5rCHXo9sc4RAyPbIIt1P4zt054IFZl//ijml/EAKN2ScvEkLpLKYGsWaB
-	fFrxrZjRINH6nv+cemNnZBKGNbw+di0xZ5vwqzXr1ABaRRttuO6ejD6OTkqryHRBi8wccJBNwpPvj
-	qnVhm5MA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y3B2Yk2Wls+/bbAv538+aqt6iqYnxKSAtB3S9BRWp2Q=; b=15n9i+FiSiNd0TaK4ubCvVHNmH
+	XLLKQy9KZ7VaYQtH8qLPFIz7OQXqvUryft9Lb8xemkhC4g6G1Ist2QDSPkekvhR3cFeHo9jUjnlyt
+	vkzz7nCQydQ373PPGeR/NFJyNABTP2mVj3VpzdJXuygs62ILkoJIuY+wZ+0vvC8fLSuoOd8mi/fuG
+	O0pY1yNM+/VKPo2CarcFXMpHuwnRQfd/yzYvIT/B6kHEA150qt56HNlLvdvZGe5AKR6vsXKtfH/op
+	M6lFsCXbVusRWtyiQjj5c2lFemUJzFmgHVOrtKfeX0elSg4gL4uy/kXXVHO/r4URymNPyBTqyRs9v
+	nCUQxlhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkJFO-0000000CEVp-24of;
-	Mon, 26 Jan 2026 09:51:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkJFK-0000000CEVQ-2ml2
+	id 1vkJIn-0000000CEvy-0IjG;
+	Mon, 26 Jan 2026 09:54:33 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkJIl-0000000CEvE-0rCx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 09:51:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04EF4339;
-	Mon, 26 Jan 2026 01:50:50 -0800 (PST)
-Received: from [10.57.8.194] (unknown [10.57.8.194])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B8D583F632;
-	Mon, 26 Jan 2026 01:50:52 -0800 (PST)
-Message-ID: <e051c4bb-7b1c-4823-b81f-e4df5d8b1d9d@arm.com>
-Date: Mon, 26 Jan 2026 09:50:50 +0000
+	Mon, 26 Jan 2026 09:54:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769421271; x=1800957271;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=biNWH6Rr15jnwx8nyn4xZSAxcP4dKu8eJOtBc9tUiV4=;
+  b=A5XDDsgf7fb1KmUFb1J8Or6xmxrvt26nTvRFsy+ypTeR3HFwdasP5/tD
+   pzxoieESV9da7ZziiPsbiLe/SrqbVF//+RIgoCPWy4cDAeVT9DjlIyhJA
+   Y6x2jDrE2aHm4nBKx8SJzxWTq+Yxtfpr7KLN6ra734jkYiKdp9u3NQFas
+   YAA7U4S563oRTaYz8EB0/C1ZqBn9/YM07Ok8kkG+VEuXzgUDgd3KKJEGy
+   vwkNutQ6AMgduLyw7HC3Ulu96Y08NIEBj4QzxcTRUoomM7YBE1nrt6WI1
+   hqen5CDj8mqWOtPYgTbWJvpwxnz2vwrN05Tqez203wsuYeXt1IE0X9D9d
+   g==;
+X-CSE-ConnectionGUID: BQDVd730R8aHwLvJTXCDnw==
+X-CSE-MsgGUID: vye269GuQvS+EBgDkcmD9A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11682"; a="70564207"
+X-IronPort-AV: E=Sophos;i="6.21,254,1763452800"; 
+   d="scan'208";a="70564207"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jan 2026 01:54:30 -0800
+X-CSE-ConnectionGUID: /uPQCNh+TY+54SwqBmU90w==
+X-CSE-MsgGUID: oOdeRaRpTx+ETctxkEpfVA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,254,1763452800"; 
+   d="scan'208";a="207242420"
+Received: from smoticic-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.122])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jan 2026 01:54:24 -0800
+Date: Mon, 26 Jan 2026 11:54:21 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: linux-renesas-soc@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Antonio Borneo <antonio.borneo@foss.st.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>, linux-iio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-spi@vger.kernel.org
+Subject: Re: [RFC PATCH 3/4] treewide: convert hwspinlock users to the new
+ consumer header file
+Message-ID: <aXc5zVLkSAHT55Tm@smile.fi.intel.com>
+References: <20260125184654.17843-6-wsa+renesas@sang-engineering.com>
+ <20260125184654.17843-9-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 22/46] arm64: RMI: Create the realm descriptor
-To: Alper Gun <alpergun@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve <vannapurve@google.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
- <20251217101125.91098-23-steven.price@arm.com>
- <CABpDEumQ=62nZ_xEN6oMHw=J+6ps=Gy=1vx8i=6Hz+BacO1Ymg@mail.gmail.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <CABpDEumQ=62nZ_xEN6oMHw=J+6ps=Gy=1vx8i=6Hz+BacO1Ymg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260125184654.17843-9-wsa+renesas@sang-engineering.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_015058_794376_471A7098 
-X-CRM114-Status: GOOD (  23.85  )
+X-CRM114-CacheID: sfid-20260126_015431_281878_1ED8915C 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,178 +107,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/01/2026 18:57, Alper Gun wrote:
-> On Wed, Dec 17, 2025 at 2:13 AM Steven Price <steven.price@arm.com> wrote:
->>
->> Creating a realm involves first creating a realm descriptor (RD). This
->> involves passing the configuration information to the RMM. Do this as
->> part of realm_ensure_created() so that the realm is created when it is
->> first needed.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> New patch for v12
->> ---
->>  arch/arm64/kvm/rmi.c | 117 ++++++++++++++++++++++++++++++++++++++++++-
->>  1 file changed, 115 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
->> index b51e68e56d56..18edc7eeb5fa 100644
->> --- a/arch/arm64/kvm/rmi.c
->> +++ b/arch/arm64/kvm/rmi.c
->> @@ -500,6 +500,106 @@ static void realm_unmap_shared_range(struct kvm *kvm,
->>                              start, end);
->>  }
->>
->> +/* Calculate the number of s2 root rtts needed */
->> +static int realm_num_root_rtts(struct realm *realm)
->> +{
->> +       unsigned int ipa_bits = realm->ia_bits;
->> +       unsigned int levels = 4 - get_start_level(realm);
->> +       unsigned int sl_ipa_bits = levels * (RMM_PAGE_SHIFT - 3) +
->> +                                  RMM_PAGE_SHIFT;
->> +
->> +       if (sl_ipa_bits >= ipa_bits)
->> +               return 1;
->> +
->> +       return 1 << (ipa_bits - sl_ipa_bits);
->> +}
->> +
->> +static int realm_create_rd(struct kvm *kvm)
->> +{
->> +       struct realm *realm = &kvm->arch.realm;
->> +       struct realm_params *params = realm->params;
->> +       void *rd = NULL;
->> +       phys_addr_t rd_phys, params_phys;
->> +       size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
->> +       int i, r;
->> +       int rtt_num_start;
->> +
->> +       realm->ia_bits = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
->> +       rtt_num_start = realm_num_root_rtts(realm);
->> +
->> +       if (WARN_ON(realm->rd || !realm->params))
->> +               return -EEXIST;
->> +
->> +       if (pgd_size / RMM_PAGE_SIZE < rtt_num_start)
->> +               return -EINVAL;
->> +
->> +       rd = (void *)__get_free_page(GFP_KERNEL);
->> +       if (!rd)
->> +               return -ENOMEM;
->> +
->> +       rd_phys = virt_to_phys(rd);
->> +       if (rmi_granule_delegate(rd_phys)) {
->> +               r = -ENXIO;
->> +               goto free_rd;
->> +       }
->> +
->> +       for (i = 0; i < pgd_size; i += RMM_PAGE_SIZE) {
->> +               phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
->> +
->> +               if (rmi_granule_delegate(pgd_phys)) {
->> +                       r = -ENXIO;
->> +                       goto out_undelegate_tables;
->> +               }
->> +       }
->> +
->> +       params->s2sz = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
->> +       params->rtt_level_start = get_start_level(realm);
->> +       params->rtt_num_start = rtt_num_start;
->> +       params->rtt_base = kvm->arch.mmu.pgd_phys;
->> +       params->vmid = realm->vmid;
-> 
-> I don't see a way to configure rpv and hash_algo anymore. I assume they
-> are gone for a minimal userspace interface. Will there be a way to set
-> them going forward?
+On Sun, Jan 25, 2026 at 07:46:54PM +0100, Wolfram Sang wrote:
+> Point the drivers to the new header file. No functional changes.
 
-Yes the intention is that the uAPI will be extended in the future to
-allow these to be configured. This would be by exposing new capability
-flags and allowing the VMM to set the capability. This ensures that a
-basic VMM doesn't need to worry about them, but a more featured VMM can
-provide support for configuration.
+...
 
-This series is already rather long so I've attempted to drop optional
-parts to keep the complexity down while still providing something
-"useful" (i.e. can launch a realm guest and there's some meaningful
-extra security/attestation over a normal VM). There's loads of extra
-features in the spec which will come later.
+> +++ b/drivers/base/regmap/regmap.c
 
-Thanks,
-Steve
+>  #include <linux/sched.h>
+>  #include <linux/delay.h>
+>  #include <linux/log2.h>
+> -#include <linux/hwspinlock.h>
+> +#include <linux/hwspinlock/consumer.h>
+>  #include <linux/unaligned.h>
 
->> +
->> +       params_phys = virt_to_phys(params);
->> +
->> +       if (rmi_realm_create(rd_phys, params_phys)) {
->> +               r = -ENXIO;
->> +               goto out_undelegate_tables;
->> +       }
->> +
->> +       if (WARN_ON(rmi_rec_aux_count(rd_phys, &realm->num_aux))) {
->> +               WARN_ON(rmi_realm_destroy(rd_phys));
->> +               r = -ENXIO;
->> +               goto out_undelegate_tables;
->> +       }
->> +
->> +       realm->rd = rd;
->> +       WRITE_ONCE(realm->state, REALM_STATE_NEW);
->> +       /* The realm is up, free the parameters.  */
->> +       free_page((unsigned long)realm->params);
->> +       realm->params = NULL;
->> +
->> +       return 0;
->> +
->> +out_undelegate_tables:
->> +       while (i > 0) {
->> +               i -= RMM_PAGE_SIZE;
->> +
->> +               phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
->> +
->> +               if (WARN_ON(rmi_granule_undelegate(pgd_phys))) {
->> +                       /* Leak the pages if they cannot be returned */
->> +                       kvm->arch.mmu.pgt = NULL;
->> +                       break;
->> +               }
->> +       }
->> +       if (WARN_ON(rmi_granule_undelegate(rd_phys))) {
->> +               /* Leak the page if it isn't returned */
->> +               return r;
->> +       }
->> +free_rd:
->> +       free_page((unsigned long)rd);
->> +       return r;
->> +}
->> +
->>  static int realm_unmap_private_page(struct realm *realm,
->>                                     unsigned long ipa,
->>                                     unsigned long *next_addr)
->> @@ -803,8 +903,21 @@ static int realm_init_ipa_state(struct kvm *kvm,
->>
->>  static int realm_ensure_created(struct kvm *kvm)
->>  {
->> -       /* Provided in later patch */
->> -       return -ENXIO;
->> +       int ret;
->> +
->> +       switch (kvm_realm_state(kvm)) {
->> +       case REALM_STATE_NONE:
->> +               break;
->> +       case REALM_STATE_NEW:
->> +               return 0;
->> +       case REALM_STATE_DEAD:
->> +               return -ENXIO;
->> +       default:
->> +               return -EBUSY;
->> +       }
->> +
->> +       ret = realm_create_rd(kvm);
->> +       return ret;
->>  }
->>
->>  static int set_ripas_of_protected_regions(struct kvm *kvm)
->> --
->> 2.43.0
->>
+Can it be also moved to be a bit more ordered? (With given context like to put
+it before log2.h).
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
