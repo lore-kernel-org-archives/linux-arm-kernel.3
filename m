@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDC0EC88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0866C88E7E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j3Z4Yd2fRXfRsRi8a3YRl2niiXC4DwI7ABHuLbV15ig=; b=a59PAo+VsWx8oRzzAKU727gWGu
-	5zxWOX/ksb5JBJeA4CpRvSP1Pk6uaeXkESmDhUw9gX96maxAi8WfjBBLW7H7016fFrn1PXh3IA8JG
-	wpZS40/RzFL5OJRJiuofrm87SBMDI80xEBSdz/rdcDHjy1krtDb8vtclGlVNpgfRewQnLfP2AgWp9
-	wem+wCDlNFCYyyG7s2YZ+qceKM7uroI/kqzkzHtsSNeP23fg2djBaCQ036qGbUQitl8BQI5aeMyLO
-	PnPjbG6KHpdCXp7TQkW9ZVNLmdnXPn7qt84Mseq3GtXzW6ActV8Sl/S/hOGFz4ZeVq92PIZb9zyd+
-	9wPW5uHg==;
+	bh=DTHA/4uN9KLXd+UFlDqR2tTJgWE1rHWO6ROsUhtjyd0=; b=xmV5HTkLcMoEFQmMPW1ocDWUZI
+	OSSg5m7qQUWcaqFP0d0B05IVE01NvRWkDYEDN7s9UqLY2cvoZsMx+fCyohU8x3lNDC7RSZFG+fH0O
+	IsQ9EtQbKhSN8SWZy4I50J15c5ChCnBvnuXNu5fMtajlm9iFY6QngvHG73rvkD4rXkrXQTy8bvy0Q
+	gqoUtUWGZ3xASCA3XNd7RxNbEsIHlS9yEIqjZ7BSmhCNjbryWwBXkGkndoq8PwInAjP0xcr7QHD8y
+	8/8qBh9vXrU8oKZGCVzmGuufhKPUgg568n0iIaYfsyoQmIG2n4JJkdjGGVWNPhJWpMVSTo9PNCcBY
+	qAKSRSDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkInU-0000000CBEO-3q5o;
-	Mon, 26 Jan 2026 09:22:12 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1vkInV-0000000CBFG-256m;
+	Mon, 26 Jan 2026 09:22:13 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkInM-0000000CB8Q-3VqS
+	id 1vkInO-0000000CB97-2GVx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 09:22:06 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-48049955f7fso35991395e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 01:22:04 -0800 (PST)
+	Mon, 26 Jan 2026 09:22:08 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4801bc32725so32997645e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 01:22:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769419323; x=1770024123; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1769419324; x=1770024124; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=j3Z4Yd2fRXfRsRi8a3YRl2niiXC4DwI7ABHuLbV15ig=;
-        b=lInwwxNBArTa/klPr/Ay9n1c6M03hYwXomvgw0PjLvMkLXDHXuRQwZ7mmq00zQNMeQ
-         M0dGhwU9vYj9GuDLvK8KNvz1lTsmIXhVLVulSy9cx81nwZ1braKpXSIuCn5nzH7a+FjA
-         ltuBZcq84mwlUGDapOwhgF6HTSuSF7dDaYjJgfY1MZVn/q06BSgUZgFR9IZsBCErbf/5
-         F5WWc1U698MOVrtmVxNs7+P9nOOFdrPUImKXBpglV4G+a4zXw7B8tlI0LPR44NR33JtV
-         gB+d5Es4iEZXDR3d6sKG3lMZXC4R6KpWt4XW2+tCUy6eF8gHgQ2g6QGJzX92gcxyLkV0
-         Eg4Q==
+        bh=DTHA/4uN9KLXd+UFlDqR2tTJgWE1rHWO6ROsUhtjyd0=;
+        b=rXq2ftWlvn/x285J8qg92kQYwh9Y83Cj/lAmB9qjfXCu0X8Z7JS7mrfTYC45Osw3sp
+         A4tOqkRu77TV/+FU36d6kyiIWF+02TfD8nRs/kS3M+J1JGtm9Im1PoKHaYgaDE1oGPVp
+         UReCHd+XeNg8Rn0ZvDRgdjh68bCaT7fxp8Itlex6lmHHQ8L/VI91qMljCHAlJqz1Fwf7
+         yQKReZKtcbDlNfLtB/vPZDq6JhUasLM+lc/OcICOj9WUMpcvThNLgZ9FhnD6pib0rCvc
+         bHBJtmNCytTPELimM2FpQVmdGsUE3GrHJOaGCTRWt9Hol7v2KD+nqv+YH/WEHa8B3tVv
+         F0LA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769419323; x=1770024123;
+        d=1e100.net; s=20230601; t=1769419324; x=1770024124;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=j3Z4Yd2fRXfRsRi8a3YRl2niiXC4DwI7ABHuLbV15ig=;
-        b=qHSQ2xtlEb0jpXBCa608eMvyTxidWUecNsilPjpH5VIhK7u/3VRCyi9LeTBYnB9I9s
-         PkOZu8bDB9BMgPodqUPr2TD1qMGs27hM6mDV6E+suI3pVQa6l6NBVrOTcCpYtH09ldLp
-         WtcO+npOsVxj4rWKTFqACCHeP8dlX17NuJem75Z0AWu/t2yWYQzLT0ih8p8CHFltFINc
-         7DJ6YVSA04+UqpKMw7lE43EDzrJxbBfwTfqb3be99aQ0nTGWgucPSqHZueOB+ms66izm
-         pkk2wdDpT/UJ+C0mYnXkdFv0SpNncW7VJH+bQdTz8/z04eRGbiNlf4HhI3bX9dwtITZY
-         90uQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWAGeI+9qrOCcFdBIH0ruEhI0gQwgs8/aUP+eUFX7UnJuG8Z/WElwFG70F4pMYC9ZegXPPQJkfu7Y1OP3SulpYK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoOlR4tnT592IwwOcNQMiAxfcmiuCO7vpxBhsMXduXHX7x+lkU
-	6a8Td0ZM7DDXyU/kO+x6FJYYwcwmegb2fNfSLdLgHIEgkRQAZILnniTt4Icndw2tUWs=
-X-Gm-Gg: AZuq6aKIpB0jiaWqLWpfjS1T44VpGzeBBeoH0QcYAmMkdHDAwUR6zGd3UVPTutiNPcg
-	UR7kPBaqpxUXJ2zoRc+2pHx23LlMVmkJgXZpfJH6MGaqGenHnPKS4Bniwu4SN2Hje225epPkyzA
-	3lltghZRyWu7yndlvOnmn2EZcqT2XACDlt3RLwEHHKRq03Pc78LW3wUQJaPD7cHCRBDGpDjLKCc
-	4lEHLhFRv77eZPx1tKiMxflSu+0yKEeqSHR+MRMWzhNlj/Nsr2yqWBbXTvXw4GBAC3EzQ1a0bg5
-	zWOUolpqdcONAFJyMGlH9+C89Uop2PlkbgqegkJtWO3BWk/Yjo1hdID+53SatfFtMBclatvHiIx
-	P9JDkWuDSMdc5Phm+DN8qpZYsZgpVrthmouTnVXcWB/KSIyziwpGG5bS1W1giXJII5jOc9mACZl
-	Z+FnemPcmKv9PQB5Ut//A=
-X-Received: by 2002:a05:600c:3ba8:b0:47d:264e:b435 with SMTP id 5b1f17b1804b1-4805cf5ecb7mr68589285e9.22.1769419322750;
-        Mon, 26 Jan 2026 01:22:02 -0800 (PST)
+        bh=DTHA/4uN9KLXd+UFlDqR2tTJgWE1rHWO6ROsUhtjyd0=;
+        b=s4aXtzBly1tDDwLU9bY7D272F5HbrXW4+lGvAaupCGIqndfU5QIvOnl4yV6q5WVVA9
+         4eY91yCuCjXZa7ehivKOx0mt8euMCsDZnZXUkyeRkwqzsUzaW9ltVZAZVVlCZadgno3+
+         vDFzTLDkpIF6OxrQaH7h7f/H6Pmh5UJQRhlIYNZy+4PrevhgG0ZHLkKnvrUlK2Znk6m3
+         4gheN+m06iXY9tNEYoe+JduBnnwEk2RapVp0tkAyii3UXTvfG+SFjapcPJ93Tk4s/IU+
+         3hGii1W9UDxTHcFvU9Z5490wt5FRJ+PS8e+9p5g4Cjb+j2SKoF0Ysu09Dfav8nYPWnYJ
+         Jp1w==
+X-Forwarded-Encrypted: i=1; AJvYcCV5rXOE2m1xPupm8WCDLtUcPGxdMJCOvLszq8V8LvWqk2e4IAT/oU1hChbl0Lwx04fzISvfQp6Tv6QzWOK9WYUE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4FHzzbPQUIxgLV3DTaLEUpFDjujrwDB4z7kNI1Lm13n6zlsUQ
+	yW1oz/YFdTP0iXztOahmS9VuJqCGptVY7a8AMl7GA73SN03L3MKnBgJsAq9O+61WJHQ=
+X-Gm-Gg: AZuq6aIcFmjCJc0yaB/ENw1BsDCFdC+eJkkSw0r97gZegbVUqtX3CvSmpxS0PRCVcCH
+	b+KlM64WgVmAwPgktwTYEKG3jZQw9cxjejK4cqiJkeYvSPqcSZ2wVDmSJ02QYQ16oE/v2QvTVRC
+	Wqqt1vtVLny9eJ5n1H9expnngWkzY1ianPib9MId71OZaxKEeNP2sir25v6qmLsa4HqUjqFL/7B
+	5xMwuhxy1T+dZS4FvqJuwuaT8hVv59L9Kn9qvl/3i436vbnAWMSuvnWi5VvbSlzcZQbhZinD+/v
+	GKKKFs9TKuaregAeqRUxM6bne0OB004ZFb8ublxgZlj3c6LVRX+SxHLk2mH4uv2n3tS0jHMVaMl
+	Ylc11ILXIUKL+8MMp2q6ErIqtKq/8RjgVzJ5fX7JsF1VNWVSfmjfbL6A4656wfKn4rzFDajzixV
+	iFfINZb8GYCA7qkNBtLMk=
+X-Received: by 2002:a05:600c:1e2a:b0:47e:e952:86c9 with SMTP id 5b1f17b1804b1-4805ccd1198mr65140045e9.0.1769419324298;
+        Mon, 26 Jan 2026 01:22:04 -0800 (PST)
 Received: from vingu-cube.. ([2a01:e0a:f:6020:e270:a43a:f2fa:900a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-480470cf1acsm346669855e9.14.2026.01.26.01.22.01
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-480470cf1acsm346669855e9.14.2026.01.26.01.22.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jan 2026 01:22:01 -0800 (PST)
+        Mon, 26 Jan 2026 01:22:03 -0800 (PST)
 From: Vincent Guittot <vincent.guittot@linaro.org>
 To: vkoul@kernel.org,
 	neil.armstrong@linaro.org,
@@ -88,17 +88,17 @@ To: vkoul@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	netdev@vger.kernel.org
 Cc: Frank.li@nxp.com
-Subject: [PATCH 1/4] dt-bindings: serdes: s32g: Add NXP serdes subsystem
-Date: Mon, 26 Jan 2026 10:21:56 +0100
-Message-ID: <20260126092159.815968-2-vincent.guittot@linaro.org>
+Subject: [PATCH 2/4] phy: s32g: Add serdes subsystem phy
+Date: Mon, 26 Jan 2026 10:21:57 +0100
+Message-ID: <20260126092159.815968-3-vincent.guittot@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260126092159.815968-1-vincent.guittot@linaro.org>
 References: <20260126092159.815968-1-vincent.guittot@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_012204_900698_028EF3A3 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20260126_012206_715578_23E77A3C 
+X-CRM114-Status: GOOD (  26.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,174 +113,631 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe the serdes subsystem available on the S32G platforms.
+s32g SoC family includes 2 serdes subsystems which are made of one PCIe
+controller, 2 XPCS and one Phy. The Phy got 2 lanes that can be configure
+to output PCIe lanes and/or SGMII.
 
+Implement PCIe phy support
+
+Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Co-developed-by: Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>
+Signed-off-by: Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>
+Co-developed-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+Co-developed-by: Bogdan Roman <bogdan-gabriel.roman@nxp.com>
+Signed-off-by: Bogdan Roman <bogdan-gabriel.roman@nxp.com>
 Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
 ---
- .../bindings/phy/nxp,s32g-serdes.yaml         | 154 ++++++++++++++++++
- 1 file changed, 154 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
+ drivers/phy/freescale/Kconfig               |   9 +
+ drivers/phy/freescale/Makefile              |   1 +
+ drivers/phy/freescale/phy-nxp-s32g-serdes.c | 569 ++++++++++++++++++++
+ 3 files changed, 579 insertions(+)
+ create mode 100644 drivers/phy/freescale/phy-nxp-s32g-serdes.c
 
-diff --git a/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml b/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
+diff --git a/drivers/phy/freescale/Kconfig b/drivers/phy/freescale/Kconfig
+index 81f53564ee15..45184a3cdd69 100644
+--- a/drivers/phy/freescale/Kconfig
++++ b/drivers/phy/freescale/Kconfig
+@@ -61,3 +61,12 @@ config PHY_FSL_LYNX_28G
+ 	  found on NXP's Layerscape platforms such as LX2160A.
+ 	  Used to change the protocol running on SerDes lanes at runtime.
+ 	  Only useful for a restricted set of Ethernet protocols.
++
++config PHY_S32G_SERDES
++	tristate "NXP S32G SERDES support"
++	depends on ARCH_S32 || COMPILE_TEST
++	select GENERIC_PHY
++	help
++	  This option enables support for S23G SerDes PHY used for
++	  PCIe & Ethernet
++
+diff --git a/drivers/phy/freescale/Makefile b/drivers/phy/freescale/Makefile
+index 658eac7d0a62..86d948417252 100644
+--- a/drivers/phy/freescale/Makefile
++++ b/drivers/phy/freescale/Makefile
+@@ -6,3 +6,4 @@ obj-$(CONFIG_PHY_FSL_IMX8M_PCIE)	+= phy-fsl-imx8m-pcie.o
+ obj-$(CONFIG_PHY_FSL_IMX8QM_HSIO)	+= phy-fsl-imx8qm-hsio.o
+ obj-$(CONFIG_PHY_FSL_LYNX_28G)		+= phy-fsl-lynx-28g.o
+ obj-$(CONFIG_PHY_FSL_SAMSUNG_HDMI_PHY)	+= phy-fsl-samsung-hdmi.o
++obj-$(CONFIG_PHY_S32G_SERDES)		+= phy-nxp-s32g-serdes.o
+diff --git a/drivers/phy/freescale/phy-nxp-s32g-serdes.c b/drivers/phy/freescale/phy-nxp-s32g-serdes.c
 new file mode 100644
-index 000000000000..fad34bee2a4f
+index 000000000000..8336c868c8dc
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
-@@ -0,0 +1,154 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/phy/nxp,s32g-serdes.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/phy/freescale/phy-nxp-s32g-serdes.c
+@@ -0,0 +1,569 @@
++// SPDX-License-Identifier: GPL-2.0
++/**
++ * SerDes driver for S32G SoCs
++ *
++ * Copyright 2021-2026 NXP
++ */
 +
-+title: NXP S32G2xxx/S32G3xxx SerDes PHY subsystem
++#include <dt-bindings/phy/phy.h>
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/module.h>
++#include <linux/of_platform.h>
++#include <linux/of_address.h>
++#include <linux/phy/phy.h>
++#include <linux/platform_device.h>
++#include <linux/processor.h>
++#include <linux/reset.h>
++#include <linux/units.h>
 +
-+maintainers:
-+  - Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
++#define S32G_SERDES_MODE_MAX			5
 +
-+description: |
-+  The SerDes subsystem on S32G SoC Family includes two types of PHYs:
-+    - One PCIe PHY: Supports various PCIe operation modes
-+    - Two Ethernet Physical Coding Sublayer (XPCS) controllers
++#define EXTERNAL_CLK_NAME			"ext"
++#define INTERNAL_CLK_NAME			"ref"
 +
-+  SerDes operation mode selects the enabled PHYs and speeds. Clock frequency
-+  must be adapted accordingly. Below table describes all possible operation
-+  modes.
++/* Serdes Sub system registers */
 +
-+  Mode  PCIe	XPCS0		XPCS1		PHY clock	Description
-+                SGMII		SGMII		  (MHz)
-+  -------------------------------------------------------------------------
-+  0	Gen3	N/A		N/A		100		Single PCIe
-+  1	Gen2	1.25Gbps	N/A		100		PCIe/SGMII
-+  2	Gen2	N/A		1.25Gbps	100		PCIe/SGMII
-+  3	N/A	1.25Gbps	1.25Gbps	100,125		SGMII
-+  4	N/A	3.125/1.25Gbps	3.125/1.25Gbps 	125		SGMII
-+  5	Gen2	N/A	        3.125Gbps     	100		PCIe/SGMII
++#define S32G_PCIE_PHY_GEN_CTRL			0x0
++#define  REF_USE_PAD				BIT(17)
++#define  RX_SRIS_MODE				BIT(9)
 +
-+properties:
-+  compatible:
-+    oneOf:
-+      - enum:
-+          - nxp,s32g2-serdes
-+      - items:
-+          - const: nxp,s32g3-serdes
-+          - const: nxp,s32g2-serdes
++#define S32G_PCIE_PHY_MPLLA_CTRL		0x10
++#define  MPLL_STATE				BIT(30)
 +
-+  reg:
-+    maxItems: 4
++#define S32G_SS_RW_REG_0			0xF0
++#define  SUBMODE_MASK				GENMASK(3, 0)
++#define  CLKEN_MASK				BIT(23)
++#define  PHY0_CR_PARA_SEL			BIT(9)
 +
-+  reg-names:
-+    items:
-+      - const: ss_pcie
-+      - const: pcie_phy
-+      - const: xpcs0
-+      - const: xpcs1
++/* PCIe phy subsystem registers */
 +
-+  clocks:
-+    minItems: 4
-+    maxItems: 5
++#define S32G_PHY_REG_ADDR			0x0
++#define  PHY_REG_EN				BIT(31)
 +
-+  clock-names:
-+    items:
-+      - const: axi
-+      - const: aux
-+      - const: apb
-+      - const: ref
-+      - const: ext
-+    minItems: 4
++#define S32G_PHY_REG_DATA			0x4
 +
-+  resets:
-+    maxItems: 2
++#define RAWLANE0_DIG_PCS_XF_RX_EQ_DELTA_IQ_OVRD_IN	0x3019
++#define RAWLANE1_DIG_PCS_XF_RX_EQ_DELTA_IQ_OVRD_IN	0x3119
 +
-+  reset-names:
-+    items:
-+      - const: serdes
-+      - const: pcie
++/*
++ * Until now, there is no generic way to describe and set PCIe clock mode.
++ * PCIe controller uses the default CRNS = 0 mode.
++ */
++enum pcie_phy_mode {
++	CRNS = 0, /* Common Reference Clock, No Spread Spectrum */
++	CRSS = 1, /* Common Reference Clock, Spread Spectrum */
++	SRNS = 2, /* Separate Reference Clock, No Spread Spectrum */
++	SRIS = 3  /* Separate Reference Clock, Spread Spectrum */
++};
 +
-+  nxp,sys-mode:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: |
-+      SerDes operational mode. See above table for possible values.
++struct s32g_serdes_ctrl {
++	void __iomem *ss_base;
++	struct reset_control *rst;
++	struct clk_bulk_data *clks;
++	int nclks;
++	u32 ss_mode;
++	unsigned long ref_clk_rate;
++	bool ext_clk;
++};
 +
-+  '#address-cells':
-+    const: 1
++struct s32g_pcie_ctrl {
++	void __iomem *phy_base;
++	struct reset_control *rst;
++	struct phy *phy;
++	enum pcie_phy_mode phy_mode;
++	bool powered_on;
++};
 +
-+  '#size-cells':
-+    const: 0
++struct s32g_serdes {
++	struct s32g_serdes_ctrl ctrl;
++	struct s32g_pcie_ctrl pcie;
++	struct device *dev;
++};
 +
-+patternProperties:
-+  '^serdes[0,1]_lane@[0,1]$':
-+    description:
-+      Describe a serdes lane.
-+    type: object
++/* PCIe phy subsystem */
 +
-+    properties:
-+      compatible:
-+        enum:
-+          - nxp,s32g2-serdes-pcie-phy
-+          - nxp,s32g2-serdes-xpcs
++#define S32G_SERDES_PCIE_FREQ			(100 * HZ_PER_MHZ)
 +
-+      reg:
-+        maxItems: 1
++static int s32g_pcie_check_clk(struct s32g_serdes *serdes)
++{
++	struct s32g_serdes_ctrl *sctrl = &serdes->ctrl;
++	unsigned long rate = sctrl->ref_clk_rate;
 +
-+      '#phy-cells':
-+        const: 0
++	if (rate != S32G_SERDES_PCIE_FREQ) {
++		dev_err(serdes->dev, "PCIe PHY cannot operate at %lu HZ\n", rate);
++		return -EINVAL;
++	}
 +
-+    required:
-+      - reg
-+      - compatible
++	return 0;
++}
 +
-+    unevaluatedProperties: false
++static bool s32g_pcie_phy_is_locked(struct s32g_serdes *serdes)
++{
++	u32 mplla = readl(serdes->ctrl.ss_base + S32G_PCIE_PHY_MPLLA_CTRL);
++	const u32 mask = MPLL_STATE;
 +
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - clocks
-+  - clock-names
-+  - resets
-+  - reset-names
-+  - nxp,sys-mode
-+  - '#address-cells'
-+  - '#size-cells'
++	return (mplla & mask) == mask;
++}
 +
-+additionalProperties: false
++/* Serdes RFM says between 3.4 and 5.2ms depending of pll */
++#define S32G_SERDES_LOCK_TIMEOUT_MS		6
 +
-+examples:
-+  - |
-+    bus {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+        serdes0: serdes@40480000 {
-+          compatible = "nxp,s32g3-serdes", "nxp,s32g2-serdes";
-+            reg = <0x0 0x40480000 0x0 0x108>,
-+                  <0x0 0x40483008 0x0 0x10>,
-+                  <0x0 0x40482000 0x0 0x800>,
-+                  <0x0 0x40482800 0x0 0x800>;
-+            reg-names = "ss_pcie", "pcie_phy", "xpcs0", "xpcs1";
-+            clocks = <&clks 1>,
-+                     <&clks 2>,
-+                     <&clks 3>,
-+                     <&clks 4>,
-+                     <&serdes_100_ext>;
-+            clock-names = "axi", "aux", "apb", "ref", "ext";
-+            resets = <&reset 9>,
-+                     <&reset 8>;
-+            reset-names = "serdes", "pcie";
-+            nxp,sys-mode = <1>;
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+            phy_pcie0: serdes0_lane@0 {
-+              compatible = "nxp,s32g2-serdes-pcie-phy";
-+              #phy-cells = <0>;
-+              reg = <0>;
-+            };
-+            phy_xpcs0_0: serdes0_lane@1 {
-+              compatible = "nxp,s32g2-serdes-xpcs";
-+              reg = <0>;
-+            };
-+        };
-+    };
++static int s32g_pcie_phy_power_on_common(struct s32g_serdes *serdes)
++{
++	struct s32g_serdes_ctrl *sctrl = &serdes->ctrl;
++	struct s32g_pcie_ctrl *pcie = &serdes->pcie;
++	u32 reg;
++	int val, ret = 0;
++
++	ret = s32g_pcie_check_clk(serdes);
++	if (ret)
++		return ret;
++
++	reg = readl(sctrl->ss_base + S32G_PCIE_PHY_GEN_CTRL);
++
++	/* if PCIE PHY is in SRIS mode */
++	if (pcie->phy_mode == SRIS)
++		reg |= RX_SRIS_MODE;
++
++	if (sctrl->ext_clk)
++		reg |= REF_USE_PAD;
++	else
++		reg &= ~REF_USE_PAD;
++
++	writel(reg, sctrl->ss_base + S32G_PCIE_PHY_GEN_CTRL);
++
++	/* Monitor Serdes MPLL state */
++	ret = read_poll_timeout(s32g_pcie_phy_is_locked, val,
++				(val),
++				0,
++				S32G_SERDES_LOCK_TIMEOUT_MS, false, serdes);
++	if (ret) {
++		dev_err(serdes->dev, "Failed to lock PCIE phy\n");
++		return -ETIMEDOUT;
++	}
++
++	/* Set PHY register access to CR interface */
++	reg = readl(sctrl->ss_base + S32G_SS_RW_REG_0);
++	reg |=  PHY0_CR_PARA_SEL;
++	writel(reg, sctrl->ss_base + S32G_SS_RW_REG_0);
++
++	return ret;
++}
++
++static void s32g_pcie_phy_write(struct s32g_serdes *serdes, u32 reg, u32 val)
++{
++	writel(PHY_REG_EN, serdes->pcie.phy_base + S32G_PHY_REG_ADDR);
++	writel(reg | PHY_REG_EN, serdes->pcie.phy_base + S32G_PHY_REG_ADDR);
++	usleep_range(100, 110);
++	writel(val, serdes->pcie.phy_base + S32G_PHY_REG_DATA);
++	usleep_range(100, 110);
++	writel(0, serdes->pcie.phy_base + S32G_PHY_REG_ADDR);
++}
++
++static int s32g_pcie_phy_power_on(struct s32g_serdes *serdes)
++{
++	struct s32g_pcie_ctrl *pcie = &serdes->pcie;
++	struct s32g_serdes_ctrl *ctrl = &serdes->ctrl;
++	u32 iq_ovrd_in;
++	int ret = 0;
++
++	ret = s32g_pcie_phy_power_on_common(serdes);
++	if (ret)
++		return ret;
++
++	/* RX_EQ_DELTA_IQ_OVRD enable and override value for PCIe lanes */
++	iq_ovrd_in = RAWLANE0_DIG_PCS_XF_RX_EQ_DELTA_IQ_OVRD_IN;
++
++	s32g_pcie_phy_write(serdes, iq_ovrd_in, 0x3);
++	s32g_pcie_phy_write(serdes, iq_ovrd_in, 0x13);
++
++	if (ctrl->ss_mode == 0) {
++		iq_ovrd_in = RAWLANE1_DIG_PCS_XF_RX_EQ_DELTA_IQ_OVRD_IN;
++
++		s32g_pcie_phy_write(serdes, iq_ovrd_in, 0x3);
++		s32g_pcie_phy_write(serdes, iq_ovrd_in, 0x13);
++	}
++
++	pcie->powered_on = true;
++
++	return 0;
++}
++
++/* PCIe phy ops function */
++
++static int s32g_serdes_phy_power_on(struct phy *p)
++{
++	struct s32g_serdes *serdes = phy_get_drvdata(p);
++
++	return s32g_pcie_phy_power_on(serdes);
++}
++
++static inline bool is_pcie_phy_mode_valid(int mode)
++{
++	switch (mode) {
++	case CRNS:
++	case CRSS:
++	case SRNS:
++	case SRIS:
++		return true;
++	default:
++		return false;
++	}
++}
++
++static int s32g_serdes_phy_set_mode_ext(struct phy *p,
++					enum phy_mode mode, int submode)
++{
++	struct s32g_serdes *serdes = phy_get_drvdata(p);
++
++	if (mode == PHY_MODE_PCIE)
++		return -EINVAL;
++
++	if (!is_pcie_phy_mode_valid(submode))
++		return -EINVAL;
++
++	/*
++	 * Do not configure SRIS or CRSS PHY MODE in conjunction
++	 * with any SGMII mode on the same SerDes subsystem
++	 */
++	if ((submode == CRSS || submode == SRIS) &&
++	    serdes->ctrl.ss_mode != 0)
++		return -EINVAL;
++
++	/*
++	 * Internal reference clock cannot be used with either Common clock
++	 * or Spread spectrum, leaving only SRNSS
++	 */
++	if (submode != SRNS &&  !serdes->ctrl.ext_clk)
++		return -EINVAL;
++
++	serdes->pcie.phy_mode = submode;
++
++	return 0;
++}
++
++static const struct phy_ops serdes_pcie_ops = {
++	.power_on	= s32g_serdes_phy_power_on,
++	.set_mode	= s32g_serdes_phy_set_mode_ext,
++};
++
++static struct phy *s32g_serdes_phy_xlate(struct device *dev,
++					 const struct of_phandle_args *args)
++{
++	struct s32g_serdes *serdes;
++	struct phy *phy;
++
++	serdes = dev_get_drvdata(dev);
++	if (!serdes)
++		return ERR_PTR(-EINVAL);
++
++	phy = serdes->pcie.phy;
++
++	return phy;
++}
++
++/* Serdes subsystem */
++
++static int s32g_serdes_assert_reset(struct s32g_serdes *serdes)
++{
++	struct device *dev = serdes->dev;
++	int ret;
++
++	ret = reset_control_assert(serdes->pcie.rst);
++	if (ret) {
++		dev_err(dev, "Failed to assert PCIE reset: %d\n", ret);
++		return ret;
++	}
++
++	ret = reset_control_assert(serdes->ctrl.rst);
++	if (ret) {
++		dev_err(dev, "Failed to assert SerDes reset: %d\n", ret);
++		return ret;
++	}
++
++	return 0;
++}
++
++static int s32g_serdes_deassert_reset(struct s32g_serdes *serdes)
++{
++	struct device *dev = serdes->dev;
++	int ret;
++
++	ret = reset_control_deassert(serdes->pcie.rst);
++	if (ret) {
++		dev_err(dev, "Failed to assert PCIE reset: %d\n", ret);
++		return ret;
++	}
++
++	ret = reset_control_deassert(serdes->ctrl.rst);
++	if (ret) {
++		dev_err(dev, "Failed to assert SerDes reset: %d\n", ret);
++		return ret;
++	}
++
++	return ret;
++}
++
++static int s32g_serdes_init(struct s32g_serdes *serdes)
++{
++	struct s32g_serdes_ctrl *ctrl = &serdes->ctrl;
++	u32 reg0;
++	int ret;
++
++	ret = clk_bulk_prepare_enable(ctrl->nclks, ctrl->clks);
++	if (ret) {
++		dev_err(serdes->dev, "Failed to enable SerDes clocks\n");
++		return ret;
++	}
++
++	ret = s32g_serdes_assert_reset(serdes);
++	if (ret)
++		goto disable_clks;
++
++	/* Set serdes mode */
++	reg0 = readl(ctrl->ss_base + S32G_SS_RW_REG_0);
++	reg0 &= ~SUBMODE_MASK;
++	if (ctrl->ss_mode == 5)
++		reg0 |= 2;
++	else
++		reg0 |= ctrl->ss_mode;
++	writel(reg0, ctrl->ss_base + S32G_SS_RW_REG_0);
++
++	/* Set Clock source: internal or external */
++	reg0 = readl(ctrl->ss_base + S32G_SS_RW_REG_0);
++	if (ctrl->ext_clk)
++		reg0 &= ~CLKEN_MASK;
++	else
++		reg0 |= CLKEN_MASK;
++
++	writel(reg0, ctrl->ss_base + S32G_SS_RW_REG_0);
++
++	/* Wait for the selection of working mode (as per the manual specs) */
++	usleep_range(100, 110);
++
++	ret = s32g_serdes_deassert_reset(serdes);
++	if (ret)
++		goto disable_clks;
++
++	dev_info(serdes->dev, "Using mode %d for SerDes subsystem\n",
++		 ctrl->ss_mode);
++
++	return 0;
++
++disable_clks:
++	clk_bulk_disable_unprepare(serdes->ctrl.nclks,
++				   serdes->ctrl.clks);
++
++	return ret;
++}
++
++static int s32g_serdes_get_ctrl_resources(struct platform_device *pdev, struct s32g_serdes *serdes)
++{
++	struct s32g_serdes_ctrl *ctrl = &serdes->ctrl;
++	struct device *dev = &pdev->dev;
++	int ret, idx;
++
++	ret = of_property_read_u32(dev->of_node, "nxp,sys-mode",
++				   &ctrl->ss_mode);
++	if (ret) {
++		dev_err(dev, "Failed to get SerDes subsystem mode\n");
++		return -EINVAL;
++	}
++
++	if (ctrl->ss_mode > S32G_SERDES_MODE_MAX) {
++		dev_err(dev, "Invalid SerDes subsystem mode %u\n",
++			ctrl->ss_mode);
++		return -EINVAL;
++	}
++
++	ctrl->ss_base = devm_platform_ioremap_resource_byname(pdev, "ss_pcie");
++	if (IS_ERR(ctrl->ss_base)) {
++		dev_err(dev, "Failed to map 'ss_pcie'\n");
++		return PTR_ERR(ctrl->ss_base);
++	}
++
++	ctrl->rst = devm_reset_control_get(dev, "serdes");
++	if (IS_ERR(ctrl->rst))
++		return dev_err_probe(dev, PTR_ERR(ctrl->rst),
++				     "Failed to get 'serdes' reset control\n");
++
++	ctrl->nclks = devm_clk_bulk_get_all(dev, &ctrl->clks);
++	if (ctrl->nclks < 1)
++		return dev_err_probe(dev, ctrl->nclks,
++				     "Failed to get SerDes clocks\n");
++
++	idx = of_property_match_string(dev->of_node, "clock-names", EXTERNAL_CLK_NAME);
++	if (idx < 0)
++		idx = of_property_match_string(dev->of_node, "clock-names", INTERNAL_CLK_NAME);
++	else
++		ctrl->ext_clk = true;
++
++	if (idx < 0) {
++		dev_err(dev, "Failed to get Phy reference clock source\n");
++		return -EINVAL;
++	}
++
++	ctrl->ref_clk_rate = clk_get_rate(ctrl->clks[idx].clk);
++	if (!ctrl->ref_clk_rate) {
++		dev_err(dev, "Failed to get Phy reference clock rate\n");
++		return -EINVAL;
++	}
++
++	return ret;
++}
++
++static int s32g_serdes_get_pcie_resources(struct platform_device *pdev, struct s32g_serdes *serdes)
++{
++	struct s32g_pcie_ctrl *pcie = &serdes->pcie;
++	struct device *dev = &pdev->dev;
++
++	pcie->phy_base = devm_platform_ioremap_resource_byname(pdev,
++							       "pcie_phy");
++	if (IS_ERR(pcie->phy_base)) {
++		dev_err(dev, "Failed to map 'pcie_phy'\n");
++		return PTR_ERR(pcie->phy_base);
++	}
++
++	pcie->rst = devm_reset_control_get(dev, "pcie");
++	if (IS_ERR(pcie->rst))
++		return dev_err_probe(dev, IS_ERR(pcie->rst),
++				     "Failed to get 'pcie' reset control\n");
++
++	return 0;
++}
++
++static int s32g2_serdes_create_phy(struct s32g_serdes *serdes, struct device_node *child_node)
++{
++	struct s32g_serdes_ctrl *ctrl = &serdes->ctrl;
++	struct phy_provider *phy_provider;
++	struct device *dev = serdes->dev;
++	int ss_mode = ctrl->ss_mode;
++	struct phy *phy;
++
++	if (of_device_is_compatible(child_node, "nxp,s32g2-serdes-pcie-phy")) {
++		/* no PCIe phy lane */
++		if (ss_mode > 2)
++			return 0;
++
++		phy = devm_phy_create(dev, child_node, &serdes_pcie_ops);
++		if (IS_ERR(phy))
++			return PTR_ERR(phy);
++
++		phy_set_drvdata(phy, serdes);
++
++		phy->attrs.mode = PHY_MODE_PCIE;
++		phy->id = 0;
++		serdes->pcie.phy = phy;
++
++		phy_provider = devm_of_phy_provider_register(&phy->dev, s32g_serdes_phy_xlate);
++		if (IS_ERR(phy_provider))
++			return PTR_ERR(phy_provider);
++
++	} else {
++		dev_warn(dev, "Skipping unknown child node %pOFn\n", child_node);
++	}
++
++	return 0;
++}
++
++static int s32g_serdes_parse_lanes(struct device *dev, struct s32g_serdes *serdes)
++{
++	int ret;
++
++	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
++		ret = s32g2_serdes_create_phy(serdes, of_port);
++		if (ret)
++			break;
++	}
++
++	return ret;
++}
++
++static int s32g_serdes_probe(struct platform_device *pdev)
++{
++	struct s32g_serdes *serdes;
++	struct device *dev = &pdev->dev;
++	int ret;
++
++	serdes = devm_kzalloc(dev, sizeof(*serdes), GFP_KERNEL);
++	if (!serdes)
++		return -ENOMEM;
++
++	platform_set_drvdata(pdev, serdes);
++	serdes->dev = dev;
++
++	ret = s32g_serdes_get_ctrl_resources(pdev, serdes);
++	if (ret)
++		return ret;
++
++	ret = s32g_serdes_get_pcie_resources(pdev, serdes);
++	if (ret)
++		return ret;
++
++	ret = s32g_serdes_parse_lanes(dev, serdes);
++	if (ret)
++		return ret;
++
++	ret = s32g_serdes_init(serdes);
++
++	return ret;
++}
++
++static int __maybe_unused s32g_serdes_suspend(struct device *device)
++{
++	struct s32g_serdes *serdes = dev_get_drvdata(device);
++
++	clk_bulk_disable_unprepare(serdes->ctrl.nclks, serdes->ctrl.clks);
++
++	return 0;
++}
++
++static int __maybe_unused s32g_serdes_resume(struct device *device)
++{
++	struct s32g_serdes *serdes = dev_get_drvdata(device);
++	struct s32g_pcie_ctrl *pcie = &serdes->pcie;
++	int ret;
++
++	ret = s32g_serdes_init(serdes);
++	if (ret) {
++		dev_err(device, "Failed to initialize\n");
++		return ret;
++	}
++
++	/* Restore PCIe phy power */
++	if (pcie->powered_on) {
++		ret = s32g_pcie_phy_power_on(serdes);
++		if (ret)
++			dev_err(device, "Failed to power-on PCIe phy\n");
++	}
++
++	return ret;
++}
++
++static const struct of_device_id s32g_serdes_match[] = {
++	{
++		.compatible = "nxp,s32g2-serdes",
++	},
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, s32g_serdes_match);
++
++static const struct dev_pm_ops s32g_serdes_pm_ops = {
++	NOIRQ_SYSTEM_SLEEP_PM_OPS(s32g_serdes_suspend,
++				  s32g_serdes_resume)
++};
++
++static struct platform_driver s32g_serdes_driver = {
++	.probe		= s32g_serdes_probe,
++	.driver		= {
++		.name	= "phy-s32g-serdes",
++		.of_match_table = s32g_serdes_match,
++		.pm = &s32g_serdes_pm_ops,
++	},
++};
++module_platform_driver(s32g_serdes_driver);
++
++MODULE_AUTHOR("Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>");
++MODULE_DESCRIPTION("S32CC SerDes driver");
++MODULE_LICENSE("GPL");
 -- 
 2.43.0
 
