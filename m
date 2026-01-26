@@ -4,160 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B3BD19501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAA4D19501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2EpfkrHtwJuurVNeguIr2cRaxJl90ssW2wsI4ZVtlgc=; b=K/Uff2EMyjECDLqS6mWwvHnK/1
-	M0l4rT/3QNO+G9bS2jzNCxvMdx1LZMmukcHbzrNfvKx7zPSOCRmlxWQrkZtCIK/eYhZEZyryzlXFQ
-	SOEWXBtbtcPqPliIvGHVRuJiqfaFET2Kz/UkOvy2TPc4U42u3P1LI14PIL469q7sIVG3h41tfcs6G
-	bZRaIHrH7rX5VFztY1x0x6B29jEVpCltiuy/JPU0op4BOb9r3vfjWZftQbMs/okEDel+KkdTvSYS6
-	PJf327joUuNtnYTKFVijMQqyliMDJjEl2/2p3DLSSsyUOMjOQaehcXguq1rJdVpm4KmksM003Oy55
-	QwId9cIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4OcDfh/FvtG+LxPKpO91sJONkVp0lR/biQur/Xrpdaw=; b=itly98+rtY38HjxhKjY8F+4AZB
+	ccIdEbjyxxZS8Bl8ajg+PCR+mQ1BuxSkY4/WCtDsjQBuvNLeckLPL4AhKjhKITFXY0WxV1CG6Lgq0
+	SWufQT/lsLSCtyQmRLQRTIV08k08Bi1f3Rc5DZmaxj24Q/kCVGMIIbNSnA49IaLqwubAjufzp0Wuo
+	DqneLVGiPy8iHZleD4q5kc/9G7cx5L3diYZrHB91atkW06N2gJ/G3tSQA7jYw3YLjOhL/1zD+dvgg
+	3KGKzormcIY1ATYDRgfSoIrKYBLAMzh2dAiEQBSDc1uoGmje6r4e7WVudbiTFoucesHK29ZbuON1X
+	BCAxq3Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkP9y-0000000Cpqa-3rqR;
-	Mon, 26 Jan 2026 16:09:50 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkP9w-0000000Cppx-1vyG
+	id 1vkPAs-0000000Cpwq-1Xky;
+	Mon, 26 Jan 2026 16:10:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkPAp-0000000CpwA-3oLN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 16:09:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C6M3Qajd0awegL7WLQxbcUIzuxtGv3aqAUdRXpuHhXuo8JHkAnW05D4mj0Yf7cNDHFpQeSBooZAFAwmPhKmwr+KzVab+LaRlHqebN7bLKEmlWiUE3JdAZcypJJnAJOpEbMfl0wxIMW1DRzoe7uTMF177qNiuP6lXQLbGbGyVpJPJJBh5zdUbfSID/9P7I/P1KIEf9J14mnPhpb7QEYAMNM3/xmMJnekDhhu8B5SKjKwWj59oVyynZWsnNd4fwmXP8GcsMGP1B5OrQMNv7MkwVHGXK9v2+1J++TgwyBHVvmk3MrgxtbDFlMEvdviF/OIKLLpXKP85d59Hz3m0UV8rew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2EpfkrHtwJuurVNeguIr2cRaxJl90ssW2wsI4ZVtlgc=;
- b=kiVzejG0GS79Q5IKzfeswYPV9CxS1xycQxatIP+2GD3S0aXt+PcbBEK3oVmjGET9MxElPQto64sTTZujYRLnch/CCKwXBcnLRCq5v8HWlnti+puwETNelDYA7ryZWx1ZfJESHpWrAW/Q4fljIk4u7TrxUKoTFjsMw2MlIq1PEyFz1K4dvmCNMTDcYBU6n9rNNWnl2JJl3wV9X++lEMlQ8N0iReJJmlZ7yBFVQxlbHTiZ/32fl08JS2WcbdtDsplsiDYPRk+KcTHCfdg0e3rv9eC40+fmTSYo+k8rASa4DIyVL9d0cJKdnVnNtAsEGLZffqLhw4gKpQALL7Di1myOpA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2EpfkrHtwJuurVNeguIr2cRaxJl90ssW2wsI4ZVtlgc=;
- b=lVfcjKkCmbCTYKOA7ULSsU6UDcgn8u4d4oImiS9gPw7bm2KVIerirJJzlEiG6oFFsu1cfZDIjze04jbcHcriMSmhSslwE0O9t/ZPFFvF3fGUsqneYGKB7GQQBfg9CPA0pkaIqHyFJQNeWsPFGNPImeNAt5jLzYZVViiMA97tgjQgq4XncBLtKqQWE4/1r1XD7JxLwbjkWXms88PDuAKuiCzAtILe+vuibSwJbc59/cfX7wR+7cPQpEHWIAthjpJ2AMtychfrmjfEmpJr//c6WcX6CO9tBQovc6S4FM/ghO4kne+vMW3c2XcEqW9aRtlC0xR7CyTvN0s8AT4RUYFNbA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by SJ2PR12MB9190.namprd12.prod.outlook.com (2603:10b6:a03:554::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.16; Mon, 26 Jan
- 2026 16:09:41 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9542.015; Mon, 26 Jan 2026
- 16:09:41 +0000
-Date: Mon, 26 Jan 2026 12:09:40 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Will Deacon <will@kernel.org>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, jean-philippe@linaro.org,
-	robin.murphy@arm.com, joro@8bytes.org, balbirs@nvidia.com,
-	miko.lenczewski@arm.com, peterz@infradead.org, kevin.tian@intel.com,
-	praan@google.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 6/7] iommu/arm-smmu-v3: Add arm_smmu_invs based
- arm_smmu_domain_inv_range()
-Message-ID: <20260126160940.GM1134360@nvidia.com>
-References: <cover.1766174731.git.nicolinc@nvidia.com>
- <06999367d001283744fd98eb7c1823afd516ce84.1766174731.git.nicolinc@nvidia.com>
- <aXOqVcX9YEC-Ikdt@willie-the-truck>
- <aXOrnMLLzZL9BtRT@willie-the-truck>
- <20260123200327.GF1134360@nvidia.com>
- <aXdlnLLFUBwjT0V5@willie-the-truck>
- <20260126152019.GK1134360@nvidia.com>
- <aXeQC3GjUgafuOi-@willie-the-truck>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXeQC3GjUgafuOi-@willie-the-truck>
-X-ClientProxiedBy: IA1P220CA0024.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:208:464::12) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Mon, 26 Jan 2026 16:10:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52723339;
+	Mon, 26 Jan 2026 08:10:35 -0800 (PST)
+Received: from [10.57.68.157] (unknown [10.57.68.157])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D7493F5CA;
+	Mon, 26 Jan 2026 08:10:39 -0800 (PST)
+Message-ID: <c046085f-82e8-4a77-93be-c2a8d59db97e@arm.com>
+Date: Mon, 26 Jan 2026 16:10:37 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SJ2PR12MB9190:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8175c48c-00e4-4ac6-2f80-08de5cf54fe3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014|3613699012;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XjyIn0uLw07KtOUH7y+t6OE+OotYiqRIvMpusWT2PM7jL8ZJ1V2dMNWcr14F?=
- =?us-ascii?Q?S5bu4eWSGOlDZGQWakGAtzs31H9Y+o3DjJp8fQfYHrwN5HKup1XDek2SoWfh?=
- =?us-ascii?Q?Pdmn6g8ICNGiY5yiDgbYQx2EpMt4s96FWCmgcSL0cpNHHzT3teg3iFdP0BTr?=
- =?us-ascii?Q?66VxPN3LMNRRbKgTLlEKJSmiFxnLlw851zxX5rZfkA+T00nYNhrfT4bmradI?=
- =?us-ascii?Q?gVdEjVlK8tj38PgxoOL1n0UOEkVOxqljovF3ylV5q30TDY6RzR+m9Vz/J0na?=
- =?us-ascii?Q?sO1kIeg0ImyzGyHOGaN0hwnHMHr7WIN1Mm2f0ktWJ4LXFAnXATsmw/ZqfvK3?=
- =?us-ascii?Q?Hf4Q8/5E/z3sw2tU51MT4GRlpgtC78y5gWvArLCRktO8T899/UH0jMc8Wkrl?=
- =?us-ascii?Q?s1uqLfYwkrLZX43nWTSSfaOsyyv4boNWkQe1qnaKCkog5+rJNcPzbBHWdkqm?=
- =?us-ascii?Q?MNKF4m8OJdtHeG5yQUeJpWRTk/GaLPHRDhtKbZSn2aPDl6iNBEm0o56WK7+S?=
- =?us-ascii?Q?/zqb5EhVPbpr6p3E5iDe+vbt47vCN8kuDlDjp68Ic29fzErLPhZhd6DMV/+U?=
- =?us-ascii?Q?QCEBTWnaJpiylLQbwDR1SkFzJQealjscEBr7PvJW8XQZavjVFASDvX2zpw4A?=
- =?us-ascii?Q?NNL0i1RaMOQ2XK2qhIoHZ8Ll12F4bz+mNueSNYujo0Q9SDlEYri3GE9RlD/1?=
- =?us-ascii?Q?C4bXcWJl7LwDziA/WMC/jFJJMIFG6fgJ5ei3IzhCAfkDUvF+0e6oQzWxd5Oa?=
- =?us-ascii?Q?2Lf0l+SKMdZs7ATAwXVEBg1Bwp4PG2mG1fTCS84LxwZD8Qw4ZOj8uBqbHP6W?=
- =?us-ascii?Q?4wRceMhgLtQtVbsGDyxKHSzDvGWhGdqblkrHwzD7IieebT9qvB0owyk+HOWq?=
- =?us-ascii?Q?jCCGRHzNh9NK5E4qL4NgvcBdABjGnKmWIBpPgmWtj9ZmfdWj4IfEzSFYgZ9x?=
- =?us-ascii?Q?5GhkNxidY0Qe/+zAphlVKJbwu24UbdfFGE7ftPAdHZ1DmUwmd8ir9bRCz22e?=
- =?us-ascii?Q?74jIdgK8/0fdSDoRtG6okweHtxEa6mKuG4MRAzh70KuEEGfjXfT6JlFGQQhW?=
- =?us-ascii?Q?y1v1UXTgyb0Dh3lFQKRFx+iNT+AxAFRlOxq1glLWrVFjkHHZa03UP0mD27Re?=
- =?us-ascii?Q?d9tQQp/5l2SvbQ7Tyc7B+yNLLj0fjwjEZwTVnPY5Yu0sQ4l01RI1ilO/bWPv?=
- =?us-ascii?Q?TYJrEaPCN2CxF/ozjBuqYDkE3hZPk4egwNuJXpTji1HOAWlnMrD+ebjQckVs?=
- =?us-ascii?Q?g/Rx6jQvMrrGfoOI+gUQblFTnKe6Qr7jnFISGi36kN550xgVgK3b5z+Y/3L9?=
- =?us-ascii?Q?e0Hjy/+kQaJEsWg/yDF8XmFOsOP29QsD3/0qDoGkX/hgbFEw1TrI2w5pn7vJ?=
- =?us-ascii?Q?0J24LcPaj1dQvbwA3CQWTZuuyXnM6QKo3nCsZvhqElYGJRwcdgY+QMzxhA5A?=
- =?us-ascii?Q?9NByqdiPdbPvWJYknsg6M6ujaI95a2K86bcpdLIrW3fKClnQaPGfKhntxYzl?=
- =?us-ascii?Q?q1iycyvIoR8ksu9Zke6fRfbf6uiPaf8sd8aGzgKuajvg4863u4aia1oDmnm1?=
- =?us-ascii?Q?vc45k6vDKLUWd0/0EVg5v25nJV5q3dXRwk3Xj/eB4nSc48aWcLjfk/iSjpnI?=
- =?us-ascii?Q?oA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014)(3613699012);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NEQHXYH7G1WYe9WxEQe6XvgNXUcWyhS9dLCUm0CMWP9nSuhBmPmYJ5fu17y3?=
- =?us-ascii?Q?V+TXjdp/lgbDOPFUFBy3Ullk/1mTaqucWSGUIWq5iHaRct6N3kxhltLKUmgC?=
- =?us-ascii?Q?qviUNvo/DGQayQjEzQVQSA+lSqj2PPKHfkVkjmaw5z40qGDQBQXVdSMdnYCP?=
- =?us-ascii?Q?zXzlqC3Y13Y+2RBHNS4PeRAuHTawpaqfqhe7sZLBBIPbslJA1zNlWS6WPP7Y?=
- =?us-ascii?Q?kqyjyRza8TY+zv+AuWBlkPDgPTXXq7e18siVE6rexe38Jetic0hnegvDvxaP?=
- =?us-ascii?Q?VoAK74AaeHb5I0hCdV9t1teeh2dc6QopGmNWTTbNHsMfgikhexos6dCNOTkA?=
- =?us-ascii?Q?1CS1IoZpPlaPhCroc1ctozWEYlGAsplCyVQLr3lOKdpUjTlrnJNB78WCXP1g?=
- =?us-ascii?Q?+XFzYkuvbrKcYpyymccdgPfCjdHXuStpQTfDQSWMXUV1tvg2ntWLvh1ZcCpL?=
- =?us-ascii?Q?BtfzZ6P+b48yv/FDnQTaK2UqUpi5D1UADxjqk6ngj10ZOr+dvzlEVtME85Bf?=
- =?us-ascii?Q?uEjudyg8IJMJuUdB8JdoiH/zDNncze2wK5crKnS/RSOrsg5OWxwt5kuAmC+i?=
- =?us-ascii?Q?Ri/IT7OzXJoU5PAxYuMSs/BBBDnnub9VSeqFw2Jmfv8JRXZx7xa+L5Rq+QBd?=
- =?us-ascii?Q?/tTHUAem5ABzPE5ihPY1GIlKe9LK9hRzPx/T3+U6P/ahnnQWXksol6XB2qgG?=
- =?us-ascii?Q?oZL5/QoTX1JYeDY0mhYv4r0LywDQYtdiOrRRIsoXUkczv0AwWcJfbEz7JAib?=
- =?us-ascii?Q?kuf/IVEKB0dqKc3ocTIkTVrx0U5oGcJQo7zSHHY3GnmzjJNQVJvJbImaKZgl?=
- =?us-ascii?Q?KGyQeVhgGcEeW4DHu5BNsUUMYV+1aI04/5f4YKqaBXLmXmJ5Ml6exeh+xowX?=
- =?us-ascii?Q?S7GWPGILa91JlOQ9aW55zmq5d56n5shPQdjwxSLWzZ9NuGO+j0jaGJaY891B?=
- =?us-ascii?Q?DDPSqGYWpEWpcZNy8AhwQxv6zNlhkX7cNG8k9oCQ/khzNXZu4MQQOMJ5nesH?=
- =?us-ascii?Q?JDkfm1s5s7WCuQ0dAo7OgGQV/2XAuK/RiwP2HVINQF9LFzWxP0RV9yQnGt0Z?=
- =?us-ascii?Q?1J+iBdymuTEbABbORsGg3ED/3/tq6jzhsLhAxGM3lSObRAsboc90Rrk3jcax?=
- =?us-ascii?Q?qpC1rcxwBUjQHZat+bkC/ml8PWCK7zkSlYnC7FzeMIkNKX50WRV6D28JFvsJ?=
- =?us-ascii?Q?vESjk17AX/66f3zjVfaI74yfdxFCDsXtWDSY0s/BeenYMZean6TaGGQvwPRf?=
- =?us-ascii?Q?G4VDGJvIhIGk8j8ZgByZjGOd4GDtii7yVdUeItFpeErX54WCK24fq5D8wd1H?=
- =?us-ascii?Q?fnv9NnCt8+a8xFaFPmX1stxMreAzAVR9j/g97xV/dajDKl5zGlbKH2Ox42/w?=
- =?us-ascii?Q?zUvJegZc6I17oQdfyzgocblSv/IKnM5FObM1qCAWYKcSPn9KyZmguMjwDPgW?=
- =?us-ascii?Q?MVY4zmdGoRz7Ot8h4hM2j6YaefJrY85I2uAb5RHSXfBJgzTkdtw0cTB6Cicp?=
- =?us-ascii?Q?VHP5nL1Fg+UW3iTj04QZ+v6cGQz+UQM3ybLsaUNDjfhfm4lvTLVlRkY2jTvk?=
- =?us-ascii?Q?pauNycEWdn6vNnr0LRA/8rUjoRYxWmGdLIwZ3QuJFuEH/jn5AqItfCcTcmDy?=
- =?us-ascii?Q?GlYcej7MJTXQ0d/b+8za4UQlzn001SaQQCQqX4ZbqNzmbvW3bW93T6giXzYQ?=
- =?us-ascii?Q?bqz144Z6hhgywQpH+WWgKV8JW51qjNdUAhfvOKVqmlwp4cUe?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8175c48c-00e4-4ac6-2f80-08de5cf54fe3
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 16:09:41.2047
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vM6FYgWuM0VNvInoMIjVpkJZVNMrahDsrqe/XZbwQ2Ibu3y16DGf5ctK3YPV9zev
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9190
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 4/8] coresight: etr: refactor the
+ tmc_etr_get_catu_device function
+Content-Language: en-GB
+To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+ Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20260122-enable-byte-cntr-for-ctcu-v10-0-22978e3c169f@oss.qualcomm.com>
+ <20260122-enable-byte-cntr-for-ctcu-v10-4-22978e3c169f@oss.qualcomm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260122-enable-byte-cntr-for-ctcu-v10-4-22978e3c169f@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_080948_502140_1F2BDFD3 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20260126_081044_039544_804D982B 
+X-CRM114-Status: GOOD (  22.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,41 +75,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 04:02:19PM +0000, Will Deacon wrote:
-> On Mon, Jan 26, 2026 at 11:20:19AM -0400, Jason Gunthorpe wrote:
-> > On Mon, Jan 26, 2026 at 01:01:16PM +0000, Will Deacon wrote:
-> > > On Fri, Jan 23, 2026 at 04:03:27PM -0400, Jason Gunthorpe wrote:
-> > > > On Fri, Jan 23, 2026 at 05:10:52PM +0000, Will Deacon wrote:
-> > > > > On Fri, Jan 23, 2026 at 05:05:31PM +0000, Will Deacon wrote:
-> > > > > > On Fri, Dec 19, 2025 at 12:11:28PM -0800, Nicolin Chen wrote:
-> > > > > > > +	/*
-> > > > > > > +	 * We are committed to updating the STE. Ensure the invalidation array
-> > > > > > > +	 * is visible to concurrent map/unmap threads, and acquire any racing
-> > > > > > > +	 * IOPTE updates.
-> > > > > > > +	 *
-> > > > > > > +	 *  [CPU0]                        | [CPU1]
-> > > > > > > +	 *                                |
-> > > > > > > +	 *  change IOPTEs and TLB flush:  |
-> > > > > > > +	 *  arm_smmu_domain_inv_range() { | arm_smmu_install_old_domain_invs {
-> > > > > > > +	 *    ...                         |   rcu_assign_pointer(new_invs);
-> > > > > > > +	 *    smp_mb(); // ensure IOPTEs  |   smp_mb(); // ensure new_invs
-> > > > > > > +	 *    ...                         |   kfree_rcu(old_invs, rcu);
-> > > > > > > +	 *    // load invalidation array  | }
-> > > > > > > +	 *    invs = rcu_dereference();   | arm_smmu_install_ste_for_dev {
-> > > > > > > +	 *                                |   STE = TTB0 // read new IOPTEs
-> > > > > > > +	 */
-> > > > > > > +	smp_mb();
+On 22/01/2026 02:08, Jie Gan wrote:
+> Refactor tmc_etr_get_catu_device to retrieve the helper device connected
+> to the TMC ETR based on helper_subtype.
 
-> If we do that, can we drop the smp_mb()s from
-> arm_smmu_install_{old,new}_domain_invs()?
+Please could you leave this as it is and add :
 
-I suppose so, but domain attach isn't a performance path so it depends
-on your preference for strict pairing of barriers. Currently the two
-smp_mbs() are paired. Can we reliably pair smp_mb() with dma_wmb()?
-Are you happy with that clarity?
+tmc_etr_get_ctcu_device() ?
 
-My view is attach isn't a performance path, so having extra barriers
-is fine if it helps understandability.
+It doesn't make much sense to refactor something that is a wrapper for
+a generic function. Please avoid un-necessary abstraction
 
-Jason
+Suzuki
+
+
+> 
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-catu.c    |  3 ++-
+>   drivers/hwtracing/coresight/coresight-tmc-etr.c | 32 ++++++++++++++++---------
+>   drivers/hwtracing/coresight/coresight-tmc.h     |  3 ++-
+>   3 files changed, 25 insertions(+), 13 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
+> index 69b36bae97ab..d3972619cc96 100644
+> --- a/drivers/hwtracing/coresight/coresight-catu.c
+> +++ b/drivers/hwtracing/coresight/coresight-catu.c
+> @@ -334,7 +334,8 @@ static int catu_alloc_etr_buf(struct tmc_drvdata *tmc_drvdata,
+>   	struct tmc_sg_table *catu_table;
+>   	struct catu_etr_buf *catu_buf;
+>   
+> -	csdev = tmc_etr_get_catu_device(tmc_drvdata);
+> +	csdev = tmc_etr_get_helper_device(tmc_drvdata,
+> +			CORESIGHT_DEV_SUBTYPE_HELPER_CATU);
+>   	if (!csdev)
+>   		return -ENODEV;
+>   	catu_buf = kzalloc(sizeof(*catu_buf), GFP_KERNEL);
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> index cbbb15648fb7..16a4562533d5 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> @@ -844,28 +844,37 @@ static const struct etr_buf_operations etr_sg_buf_ops = {
+>   };
+>   
+>   /*
+> - * TMC ETR could be connected to a CATU device, which can provide address
+> - * translation service. This is represented by the Output port of the TMC
+> - * (ETR) connected to the input port of the CATU.
+> + * TMC ETR could be connected to the helper device, which can provide address
+> + * translation service(CATU) or data filter function(CTCU). This is represented
+> + * by the Output port of the TMC (ETR) connected to the input port of the helper.
+>    *
+> - * Returns	: coresight_device ptr for the CATU device if a CATU is found.
+> + * @drvdata	: drvdata of the TMC device
+> + * @subtype	: helper_subtype of the helper device
+> + *
+> + * Returns	: coresight_device ptr for the helper device if a helper is found.
+>    *		: NULL otherwise.
+>    */
+>   struct coresight_device *
+> -tmc_etr_get_catu_device(struct tmc_drvdata *drvdata)
+> +tmc_etr_get_helper_device(struct tmc_drvdata *drvdata,
+> +			  enum coresight_dev_subtype_helper subtype)
+>   {
+>   	struct coresight_device *etr = drvdata->csdev;
+> -	union coresight_dev_subtype catu_subtype = {
+> -		.helper_subtype = CORESIGHT_DEV_SUBTYPE_HELPER_CATU
+> +	union coresight_dev_subtype helper_subtype = {
+> +		.helper_subtype = subtype
+>   	};
+>   
+> -	if (!IS_ENABLED(CONFIG_CORESIGHT_CATU))
+> +
+> +	if (subtype == CORESIGHT_DEV_SUBTYPE_HELPER_CATU &&
+> +	    !IS_ENABLED(CONFIG_CORESIGHT_CATU))
+> +		return NULL;
+> +	else if (subtype == CORESIGHT_DEV_SUBTYPE_HELPER_CTCU &&
+> +		 !IS_ENABLED(CONFIG_CORESIGHT_CTCU))
+>   		return NULL;
+>   
+>   	return coresight_find_output_type(etr->pdata, CORESIGHT_DEV_TYPE_HELPER,
+> -					  catu_subtype);
+> +					  helper_subtype);
+>   }
+> -EXPORT_SYMBOL_GPL(tmc_etr_get_catu_device);
+> +EXPORT_SYMBOL_GPL(tmc_etr_get_helper_device);
+>   
+>   static const struct etr_buf_operations *etr_buf_ops[] = {
+>   	[ETR_MODE_FLAT] = &etr_flat_buf_ops,
+> @@ -913,7 +922,8 @@ static void get_etr_buf_hw(struct device *dev, struct etr_buf_hw *buf_hw)
+>   
+>   	buf_hw->has_iommu = iommu_get_domain_for_dev(dev->parent);
+>   	buf_hw->has_etr_sg = tmc_etr_has_cap(drvdata, TMC_ETR_SG);
+> -	buf_hw->has_catu = !!tmc_etr_get_catu_device(drvdata);
+> +	buf_hw->has_catu = !!tmc_etr_get_helper_device(drvdata,
+> +			CORESIGHT_DEV_SUBTYPE_HELPER_CATU);
+>   	buf_hw->has_resrv = tmc_has_reserved_buffer(drvdata);
+>   }
+>   
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+> index c9a82ff6cd00..7690a70069da 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc.h
+> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+> @@ -471,7 +471,8 @@ static inline uint32_t find_crash_tracedata_crc(struct tmc_drvdata *drvdata,
+>   	return crc32_le(0, (void *)drvdata->resrv_buf.vaddr, crc_size);
+>   }
+>   
+> -struct coresight_device *tmc_etr_get_catu_device(struct tmc_drvdata *drvdata);
+> +struct coresight_device *tmc_etr_get_helper_device(struct tmc_drvdata *drvdata,
+> +						   enum coresight_dev_subtype_helper subtype);
+>   
+>   void tmc_etr_set_catu_ops(const struct etr_buf_operations *catu);
+>   void tmc_etr_remove_catu_ops(void);
+> 
+
 
