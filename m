@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 424B7CF65D9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 10:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 591E1CF65D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 10:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7OmHJweSyCaZn58+xoi2Pzi5D+f/3kb8/kFIARNGu9Y=; b=PaDErCeWevp2vZu4/E4VSnm2/C
-	SJJBeE74mbb/wXjcxw273AbEdpDgI9ofJs56yem2dhHLulDXkT0IskqOI9aaZssgqHbl7/IlTp8eC
-	+eEt3Rn64xQhKup8cGLL47IIN7l//7YhHvcZWZdKItkxQGY3vgOJoz2J6/z4ecGbw+PJ/W4LPhiA8
-	HAIZvALeMneX+vKGnN7bSBMpEFpipQEqAAZlAMBWJYnFInCF2DJ5kpwTgLLLHShN0G5C3u22lxEhY
-	lTWdJzDyoHT+6PBY6dG5jGxYo614K+JzTlAJLnkzBaRNifrkiFJNYOZiYC5ddRAXUOZH6zyZdj3gY
-	JPnJguyQ==;
+	bh=L2udmx+4SJHsFMJWVRdW8n/HMzlAkQIzlTSPPm28eNE=; b=yIlR06bJgjyuqGVyUV8nIQV0BK
+	2/0NhfWbtjGwck41HCBHsGrPxTFqa8ccVGi59fVQq/peaO2d1G/NJ13YzqZfCCRsiV0LERn9RNIWQ
+	uDynxbZXsxp87KcjAl2lNf2AQh6IqVuudpsH68CVksLhOknFmEh8e6keJlxitJmyNuOXShXfgA0Gq
+	7Wzl+YUPhgOeyhZZOEjPz/JjpeFyBh3vOmCcD+Iuwlz6sqIRckodM1HvKxhAg9TQHoYwC4GIV4ALm
+	BqnQs88LRYjMLhEMyLfmpbtLmqKUZf/ag+sS79UkazFswJDFltE3AmS0J4gD9NIo0efj74GpNtmTi
+	DmzBnkLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkK5I-0000000CJST-42jV;
-	Mon, 26 Jan 2026 10:44:40 +0000
-Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
+	id 1vkK5L-0000000CJVR-0cFd;
+	Mon, 26 Jan 2026 10:44:43 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkK5A-0000000CJK9-2i5L
+	id 1vkK5D-0000000CJMj-3Q2A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 10:44:33 +0000
-Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b8749dd495dso353596366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 02:44:31 -0800 (PST)
+	Mon, 26 Jan 2026 10:44:37 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-47d4029340aso56591915e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 02:44:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769424270; x=1770029070; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769424274; x=1770029074; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7OmHJweSyCaZn58+xoi2Pzi5D+f/3kb8/kFIARNGu9Y=;
-        b=SPcC9HFci4mry+/rx0zKdcP4ZcWP42zaMRKsOpWD66XlyZCiaWwfMYexcgXlf5wAiT
-         WhDQ/jUUGAonNuK5tOunfztV5kP5ri7LZq/x6Ocgxczld48lSfb1OeAtxbF1z+8PLLOs
-         0bjbjORsTcFeT+yo+ThV0pnemdY3FI0rmamdrU31vd3ctbaVJo0l35ZjoBjTFQEt0It3
-         neVGmB6mTTy4jF3X9U40tI17cIfjghTPCTv3H/yOE6cnjWZpKvY6JG7SzTHGk/iJEztX
-         87DC8XgpjArgsj1Iev14XZRtsxNVlNrUt92Z4MOIT9rptXla+GxFIKEeN+jCcX3guqeL
-         gvNQ==
+        bh=L2udmx+4SJHsFMJWVRdW8n/HMzlAkQIzlTSPPm28eNE=;
+        b=B/nLT5RPCkGnN0yCIsLFGQfKtrCWD+0t9e7DkxCI1iwJpWdyWwFfV/cOdqPhv2UJ+J
+         A+kBOEXu67WWdAjzdjS3BHMnzIfFXluCrywNCcgU5IaBPB9F7KEAbgU7oSTm0E/2QnIU
+         w6sNW52B+Y4se64M0UvxGXnJb70aAkQCESkiusWlWODmxRoS3oi83qYlXEO1bi57HGRs
+         1XJ4v+HV5eGxZV3ht6hbj1BmNF5Rnart2+dwFZFUH8BQmhl+K3WZ5M2bZzZIThs2LE50
+         3clEhlrQ7XMHDX5wpgTMbM7BR9dn1TPBjd3M7RkH9l6nvShw1bVM9ZXu/FXUABoCMPhS
+         7ayg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769424270; x=1770029070;
+        d=1e100.net; s=20230601; t=1769424274; x=1770029074;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7OmHJweSyCaZn58+xoi2Pzi5D+f/3kb8/kFIARNGu9Y=;
-        b=JWgdos8GXKSgWBCTV79lvytmdPzbAbfUNogMvTSCC7uAFS6+fCBzgxCjwyl2rVqWUb
-         VMox+Hm+nVBBsZrwx5IIYKXCBWrJ8LxLKaFnBoFXDbHhkxy3ICFWE8yZVhvrpGyU2fQy
-         9JO3kW3is697XIvaocgmlCrE+JY3fnwK3Oy0HW7V0jgxys2jd+y0muCwwsRPRxnuoN1W
-         6etH7K9+WifNgUKoa9PRD7Vuxm2SGRDpOjM+8SwevLuvNF3JZDEweUz4mEDtoVppTkHE
-         XoPkYZseqVwzIuXyiC5VUtSR/j69FXwAwcbkNAyJlyfWiRgn7t98soc33fKbm7DBe5G1
-         8EMA==
-X-Forwarded-Encrypted: i=1; AJvYcCXrwEdbrJxBwg+pzcOTWHGHqaMDFaeOD/E8Am36CJzqdQs8cMEczB6TaRBmnLhaQD7VIWaCvvH3m+R2UftJZIoR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPd7HwAwFHoonZgC2K1YYqsoMOdEy8GpyIphAZk1b4zpsOIUsx
-	XlALnbDSz12LE+gIcTA3BZsZDpEZE99Xk09M1c39Y38HC88qVTU/Sa4anmVRO5b3ouc4oRpERs4
-	NRz40QP2vjzbXelC7t960PQ==
-X-Received: from ejbgc18.prod.google.com ([2002:a17:906:c8d2:b0:b88:4972:40aa])
+        bh=L2udmx+4SJHsFMJWVRdW8n/HMzlAkQIzlTSPPm28eNE=;
+        b=VesQVgBPdm4rqWxbEoCma7qriopzc0U70XcZqZ6bCJOi+PeOM89dA9FicKoMTQp57g
+         OtoZ0RU6aNo7VEUOwtuHve+Obo8kLLOWApJtMM/spOotHlFeYcFCP39a9BuAwqPEvTyX
+         HxVQuWcf9wHi1riwg6uo8zk0PJAVQ0rlr73yEdl0kvXeOprC4W8eYUujDQOcNrqFHd+c
+         MNQzfwK3Ndeuxvac8Qs9I4EEXL+NhNIEXJPZJsvbYFUhUBDZi/6vxRH41K9nwN6k3HJa
+         +/aNJB8uIQSSHvDo2YU0qnaldVSV209L/2n/EAsKLCWqJQisryl0cLTjRTO9m53iuA9z
+         yQNg==
+X-Forwarded-Encrypted: i=1; AJvYcCXpm+kGz5046sZIZACTyKL6w7E4gavP8e4151HPWvrOAOOvurWms3WCbYr9wRITCFe7PeIczw7stjzf1yy2Zk4L@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywf74G+MKA+kikxMKp/TniRKgKJsxtN4hje4Y+gezNuHZeGHvqz
+	U2fP6AehTjudo+qwNh8Coc501CqE2al677plFvayM9Xns+ptyz8t7G/t6sQNZMvgvNm5mkXfYx7
+	emg9Su3DgsXoXOuf2j4ZBGg==
+X-Received: from wmpk39.prod.google.com ([2002:a05:600c:827:b0:480:4a03:7b7b])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:c10:b0:b73:4d06:bc8 with SMTP id a640c23a62f3a-b8d4f796f90mr289787966b.53.1769424270027;
- Mon, 26 Jan 2026 02:44:30 -0800 (PST)
-Date: Mon, 26 Jan 2026 10:43:53 +0000
+ 2002:a05:600c:500d:b0:477:7f4a:44b0 with SMTP id 5b1f17b1804b1-4805d06c44emr66099755e9.33.1769424273803;
+ Mon, 26 Jan 2026 02:44:33 -0800 (PST)
+Date: Mon, 26 Jan 2026 10:43:57 +0000
 In-Reply-To: <20260126104419.1649811-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260126104419.1649811-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260126104419.1649811-5-vdonnefort@google.com>
-Subject: [PATCH v10 04/30] ring-buffer: Add non-consuming read for ring-buffer remotes
+Message-ID: <20260126104419.1649811-9-vdonnefort@google.com>
+Subject: [PATCH v10 08/30] tracing: Add init callback to trace remotes
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -76,8 +76,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_024432_699904_B6CF1658 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20260126_024435_914714_741BC1A3 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,124 +92,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hopefully, the remote will only swap pages on the kernel instruction (via
-the swap_reader_page() callback). This means we know at what point the
-ring-buffer geometry has changed. It is therefore possible to rearrange
-the kernel view of that ring-buffer to allow non-consuming read.
+Add a .init call back so the trace remote callers can add entries to the
+tracefs directory.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-index 00754339733d..2d08dd326309 100644
---- a/kernel/trace/ring_buffer.c
-+++ b/kernel/trace/ring_buffer.c
-@@ -5365,10 +5365,51 @@ static bool rb_read_remote_meta_page(struct ring_buffer_per_cpu *cpu_buffer)
- 	return rb_num_of_entries(cpu_buffer);
+diff --git a/include/linux/trace_remote.h b/include/linux/trace_remote.h
+index 55754ef78104..15a579633123 100644
+--- a/include/linux/trace_remote.h
++++ b/include/linux/trace_remote.h
+@@ -3,11 +3,14 @@
+ #ifndef _LINUX_TRACE_REMOTE_H
+ #define _LINUX_TRACE_REMOTE_H
+ 
++#include <linux/dcache.h>
+ #include <linux/ring_buffer.h>
+ 
+ /**
+  * struct trace_remote_callbacks - Callbacks used by Tracefs to control the remote
+  *
++ * @init:		Called once the remote has been registered. Allows the
++ *			caller to extend the Tracefs remote directory
+  * @load_trace_buffer:  Called before Tracefs accesses the trace buffer for the first
+  *			time. Must return a &trace_buffer_desc
+  *			(most likely filled with trace_remote_alloc_buffer())
+@@ -23,6 +26,7 @@
+  *			new reader-page from the @cpu ring-buffer.
+  */
+ struct trace_remote_callbacks {
++	int	(*init)(struct dentry *d, void *priv);
+ 	struct trace_buffer_desc *(*load_trace_buffer)(unsigned long size, void *priv);
+ 	void	(*unload_trace_buffer)(struct trace_buffer_desc *desc, void *priv);
+ 	int	(*enable_tracing)(bool enable, void *priv);
+diff --git a/kernel/trace/trace_remote.c b/kernel/trace/trace_remote.c
+index a744bbf48e88..924e3f3ec6d2 100644
+--- a/kernel/trace/trace_remote.c
++++ b/kernel/trace/trace_remote.c
+@@ -837,6 +837,7 @@ static int trace_remote_init_tracefs(const char *name, struct trace_remote *remo
+ int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv)
+ {
+ 	struct trace_remote *remote;
++	int ret;
+ 
+ 	remote = kzalloc(sizeof(*remote), GFP_KERNEL);
+ 	if (!remote)
+@@ -854,7 +855,11 @@ int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs,
+ 		return -ENOMEM;
+ 	}
+ 
+-	return 0;
++	ret = cbs->init ? cbs->init(remote->dentry, priv) : 0;
++	if (ret)
++		pr_err("Init failed for trace remote '%s' (%d)\n", name, ret);
++
++	return ret;
  }
+ EXPORT_SYMBOL_GPL(trace_remote_register);
  
-+static void rb_update_remote_head(struct ring_buffer_per_cpu *cpu_buffer)
-+{
-+	struct buffer_page *next, *orig;
-+	int retry = 3;
-+
-+	orig = next = cpu_buffer->head_page;
-+	rb_inc_page(&next);
-+
-+	/* Run after the writer */
-+	while (cpu_buffer->head_page->page->time_stamp > next->page->time_stamp) {
-+		rb_inc_page(&next);
-+
-+		rb_list_head_clear(cpu_buffer->head_page->list.prev);
-+		rb_inc_page(&cpu_buffer->head_page);
-+		rb_set_list_to_head(cpu_buffer->head_page->list.prev);
-+
-+		if (cpu_buffer->head_page == orig) {
-+			if (WARN_ON_ONCE(!(--retry)))
-+				return;
-+		}
-+	}
-+
-+	orig = cpu_buffer->commit_page = cpu_buffer->head_page;
-+	retry = 3;
-+
-+	while (cpu_buffer->commit_page->page->time_stamp < next->page->time_stamp) {
-+		rb_inc_page(&next);
-+		rb_inc_page(&cpu_buffer->commit_page);
-+
-+		if (cpu_buffer->commit_page == orig) {
-+			if (WARN_ON_ONCE(!(--retry)))
-+				return;
-+		}
-+	}
-+}
-+
- static void rb_iter_reset(struct ring_buffer_iter *iter)
- {
- 	struct ring_buffer_per_cpu *cpu_buffer = iter->cpu_buffer;
- 
-+	if (cpu_buffer->remote) {
-+		rb_read_remote_meta_page(cpu_buffer);
-+		rb_update_remote_head(cpu_buffer);
-+	}
-+
- 	/* Iterator usage is expected to have record disabled */
- 	iter->head_page = cpu_buffer->reader_page;
- 	iter->head = cpu_buffer->reader_page->read;
-@@ -5521,7 +5562,7 @@ rb_update_iter_read_stamp(struct ring_buffer_iter *iter,
- static struct buffer_page *
- __rb_get_reader_page_from_remote(struct ring_buffer_per_cpu *cpu_buffer)
- {
--	struct buffer_page *new_reader, *prev_reader;
-+	struct buffer_page *new_reader, *prev_reader, *prev_head, *new_head, *last;
- 
- 	if (!rb_read_remote_meta_page(cpu_buffer))
- 		return NULL;
-@@ -5545,10 +5586,32 @@ __rb_get_reader_page_from_remote(struct ring_buffer_per_cpu *cpu_buffer)
- 
- 	WARN_ON_ONCE(prev_reader == new_reader);
- 
--	cpu_buffer->reader_page->page = new_reader->page;
--	cpu_buffer->reader_page->id = new_reader->id;
--	cpu_buffer->reader_page->read = 0;
--	cpu_buffer->read_stamp = cpu_buffer->reader_page->page->time_stamp;
-+	prev_head = new_reader;  /* New reader was also the previous head */
-+	new_head = prev_head;
-+	rb_inc_page(&new_head);
-+	last = prev_head;
-+	rb_dec_page(&last);
-+
-+	/* Clear the old HEAD flag */
-+	rb_list_head_clear(cpu_buffer->head_page->list.prev);
-+
-+	prev_reader->list.next = prev_head->list.next;
-+	prev_reader->list.prev = prev_head->list.prev;
-+
-+	/* Swap prev_reader with new_reader */
-+	last->list.next = &prev_reader->list;
-+	new_head->list.prev = &prev_reader->list;
-+
-+	new_reader->list.prev = &new_reader->list;
-+	new_reader->list.next = &new_head->list;
-+
-+	/* Reactivate the HEAD flag */
-+	rb_set_list_to_head(&last->list);
-+
-+	cpu_buffer->head_page = new_head;
-+	cpu_buffer->reader_page = new_reader;
-+	cpu_buffer->pages = &new_head->list;
-+	cpu_buffer->read_stamp = new_reader->page->time_stamp;
- 	cpu_buffer->lost_events = cpu_buffer->meta_page->reader.lost_events;
- 
- 	return rb_page_size(cpu_buffer->reader_page) ? cpu_buffer->reader_page : NULL;
-@@ -6132,7 +6195,7 @@ ring_buffer_read_start(struct trace_buffer *buffer, int cpu, gfp_t flags)
- 	struct ring_buffer_per_cpu *cpu_buffer;
- 	struct ring_buffer_iter *iter;
- 
--	if (!cpumask_test_cpu(cpu, buffer->cpumask) || buffer->remote)
-+	if (!cpumask_test_cpu(cpu, buffer->cpumask))
- 		return NULL;
- 
- 	iter = kzalloc(sizeof(*iter), flags);
 -- 
 2.52.0.457.g6b5491de43-goog
 
