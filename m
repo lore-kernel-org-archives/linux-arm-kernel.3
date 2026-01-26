@@ -4,101 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAAB3C88E7F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:22:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0C3D74EF7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6l0bRB7VVDjDIq+ulMsBVmhmzBjYiR54K3+u8tiEuOs=; b=C7qzYN0RqKxo0XsAxtobIJxd5L
-	+6pDPYTsdPXlbQAg2pra9bIK1lQj6zFznL6fgJp2Kf2mNFvySPhCGOWVpFdnzGq05g4DqMqXtFMpX
-	boYO8BAITf6bLmVuWa6jM/vt5cdpgLPfkCtgWysKn6RLFBa4EbYJrFNzt6S6Zecdjn7s6aLF/nPkn
-	YnQyJg3CRZcvP7mmlbjnsoGO09Hkq/nWpOIyRHonvPQ5Pn9c6XoIroIh4cMISKD7oUIgdeV3H+2Cu
-	Sp03EBk92DT4KHKLyKrGt+s0fuBdAiwhGXfgjtioFjYsjQZt9xF4jVjPym76xlBubeyUPoAsNNU9b
-	qVPnyLGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3gi4BPC4AMeAfrncqfJZ6M8Gr4YN2FYW/OAnF93oRW0=; b=BT6A3FRBIHmKzFN4EjFpbINVff
+	gOg+g5hlhQYxf3Djq9CkqKGS8kkFBv7uKZFWxtJLZ4mEqyi6tQNd0z3+ecdQVhxAlremhtDHF7mm4
+	XebwT8f9s9MLBKbRwi3Jo8I/aTPyq8kMrOKcV7JPz6UmkgcoICDDKhp8GO/UUQgVW+maifyE7tIVU
+	+tcZs25SFC9RzAry6Kz9XFKnzs5bB4Sr5pROG1SDNEET/9jqrRRycDikH8g1d+uABrVE87C1o+i8K
+	sRhAQFUaeoAJU5iWtmZgdjmcqOIJi5lLwEnsDfNkmOV6Zluzq22nEhEPIHho9SZOICwOxA/NKsJVQ
+	Qj19mGTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkInj-0000000CBQm-29lr;
-	Mon, 26 Jan 2026 09:22:27 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vkIsi-0000000CC04-3mXd;
+	Mon, 26 Jan 2026 09:27:36 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkInR-0000000CBBJ-0lQK
+	id 1vkIsg-0000000CBz6-11v1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 09:22:12 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47d6a1f08bbso19772025e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 01:22:08 -0800 (PST)
+	Mon, 26 Jan 2026 09:27:35 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-47ee3dd7fc8so46393935e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 01:27:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769419327; x=1770024127; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6l0bRB7VVDjDIq+ulMsBVmhmzBjYiR54K3+u8tiEuOs=;
-        b=Q6jKPlK0PED7WFg7ukdwSNntVrL9Bi9VYgAEKLt+A4hQ7Y/FAkLV50Liehf+fqCkCX
-         b+rnk7cVhf1rmjAh2JQnkfl0FJ7XgCQYFo/5P5ZUFDFrCFYJDNxjdX2Ev+isPD6vlf8i
-         6Azvvr4dBqjELLb0JHE14Vk4yfuFwGhhfzFFVW0f/Khd+GaETgCniEIPjp4S5EHsMJrd
-         O8dsD8cMvJzuYd4fEqigWdPpF/4S1roveSH5qmEPjcGqNrpp5mPBMWAoKa1bPZpXKw/X
-         V3nD1AEzvU6I17SV4jrcvO1a5xCjHhkSECuycSd9H56j/iNo9NCHRWILLMDiClRPheRG
-         2IyA==
+        d=google.com; s=20230601; t=1769419651; x=1770024451; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=3gi4BPC4AMeAfrncqfJZ6M8Gr4YN2FYW/OAnF93oRW0=;
+        b=HrI5yN0EVmrnKpoYi54pxelTVz8hDoAyvPsHnqSKd36VL+lqY2liWqxec2lbvXfpfq
+         /tIXIKYC+Fuud7UsVdqY7Km+sbquc4oPEDAniCeQG4LnBEfdvUwcr1WsDEwfYUuD3uJW
+         gisW87MpZ1iaocKKv8IXVLxC34yb4NUBIOr3g/FsEgCuNHmFjbW2CSr8N8YzQNNqNt5N
+         ZB5MGrFx+BJxjsofhJTGhrD6B7M3cDEUCGgLBlnErM0fBsVNQJsLn/B67G1nFSSw1OG9
+         OC88ne3cktzqnFVKGT1QI5KC3jU8F7847auilJuFenYLU7FGW/7Td0/NACgaFhv7PeeM
+         2gQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769419327; x=1770024127;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=6l0bRB7VVDjDIq+ulMsBVmhmzBjYiR54K3+u8tiEuOs=;
-        b=BYAj56IqUH7ogBdfoegeUyhGfH86kzEK+nzLyqACuw9HBQ1VSNAzM4rOcQup++QnH/
-         FWjFd99cCqc1smgqohD5yZWQYHl+yPOU21/S8RuPpqOFKCUtNPscVezDSbBuzrJQE7Wz
-         dYNgU6P7pUzCEeiHePQPLmUD7jlZen1lu/mrjBk99xuGtGZF3RhiVklODnmLI3CQnYkJ
-         U8hOD8Xsbffi5DaydMiTsU5WnH1DE8SHNUFj1GR2+1qdDZxcOjMt+ZMULQ/UFE/n+qpr
-         WdcHNR+8hzHeRbiSl5JTFUIUyWIYZm2Nd6aOD4JkS+c/kxsS3c8Z+sWjN83j+eT3c4nT
-         ZGHg==
-X-Forwarded-Encrypted: i=1; AJvYcCU4RmNzvCJvCrwgxC2RwgLxRRCTW0GzIvy40iIOSxixwcIMP3JNCoMaCI/drxYCIV4uzMjDjqqODJlK8J7siuYZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4chudIznG8sR6YBC3jsvKiRvEM8XyMs7/S++4CSdJlgnL7msL
-	2vFBaH53jWffYkPg47JFHeVzQQYFq0aCZlYmSR8XBwf3OiPtcRd7Gv2QrjvzQq6lF3E=
-X-Gm-Gg: AZuq6aJE+Z4h6hxRC4IIQY6G4D1kyiDihATiF9HFtJIHjki8UIS7kIRNDZJVzvsV09v
-	DCCaMsgfCZ+FmTu67jypIpdFuoccOCwoqhC7LI2jeP5mXQWudbpwp0oU93XbAWleG/nwJ59H1hb
-	CXw9xMEXI31oWO3bZi8nwmk3jF4ToqcGzAAkVNS3PeWD/+i9o4ca36XNDhEbxGg4xZ7nrqxsVGx
-	w9LHgQH/eDpSEM4dOyqEaH3jVx3NnpUDXry8DOfUCM6dy57JSJUoOROAoa+onD0G4ZYPF0DkK8c
-	yx2XxYiCTE0sF35zw68icKdboMkEjBZshToZJi0pDrwM9rN6n7rXLqJmyv5y3bqOI9lNnGPwfvs
-	0tA6dLwKFOLindrIiwCL73RprRvp8OrQk+4Z7RfWAQOG7X9ApVGGSvlum2RbF3vWse7Bei48UKt
-	13BHy2SYEB+2XaTQPCrc4=
-X-Received: by 2002:a05:600c:3b9d:b0:47e:de23:dd6f with SMTP id 5b1f17b1804b1-4805ce42a6dmr67097725e9.12.1769419327486;
-        Mon, 26 Jan 2026 01:22:07 -0800 (PST)
-Received: from vingu-cube.. ([2a01:e0a:f:6020:e270:a43a:f2fa:900a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-480470cf1acsm346669855e9.14.2026.01.26.01.22.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jan 2026 01:22:06 -0800 (PST)
-From: Vincent Guittot <vincent.guittot@linaro.org>
-To: vkoul@kernel.org,
-	neil.armstrong@linaro.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ciprianmarian.costea@oss.nxp.com,
-	s32@nxp.com,
-	p.zabel@pengutronix.de,
-	linux@armlinux.org.uk,
-	ghennadi.procopciuc@nxp.com,
-	bogdan-gabriel.roman@nxp.com,
-	Ionut.Vicovan@nxp.com,
-	alexandru-catalin.ionita@nxp.com,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org
-Cc: Frank.li@nxp.com
-Subject: [PATCH 4/4] MAINTAINERS: Add MAINTAINER for NXP S32G Serdes driver
-Date: Mon, 26 Jan 2026 10:21:59 +0100
-Message-ID: <20260126092159.815968-5-vincent.guittot@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260126092159.815968-1-vincent.guittot@linaro.org>
-References: <20260126092159.815968-1-vincent.guittot@linaro.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20230601; t=1769419651; x=1770024451;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=3gi4BPC4AMeAfrncqfJZ6M8Gr4YN2FYW/OAnF93oRW0=;
+        b=NxIi9UxOUpzb0fj1SNDP1e2EB0VwmDDBWC+nZ5pKMN4jseY7Rh10QzvgpUJjQZIyeo
+         wEcABS3p3f7h0Bmk+w7vUYtYCruCaTzrTrqzjv1LsnInh2RHPawchqn2FMO4zRv3/+Jp
+         8q0KRXh4o2NeYLFpot723ifjyeBIhAmlkYKv0flfF1/1iNS++8hYIH9uz2fvf4dE3z6U
+         KS+AVhTFCOBa2E5whp9m4Dr39AGwkHS2llOLe/xgNhfUa5breCHZROPso7QcKsY2nyEy
+         pfXL9+resb2eY6kNfpMUytLYHrCZw8wk+1NHyMJnlMzZ0KWz6H8/uiIGuUed8Eq3LulP
+         U3+A==
+X-Gm-Message-State: AOJu0Yzbyu2YrO6gwU7ofU8cYVMhecl25ygbT6j3hq3ehY227i0NCiAB
+	4oqhmHZPFPSm5zRR3OU9d9F3TTsLB9jl2p85+mES9kqC2s/n3EjiTZdk2DkbtbIYqjlA3rtHGQ=
+	=
+X-Received: from wmoz10.prod.google.com ([2002:a05:600c:78a:b0:480:1b84:b6e])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1547:b0:47a:8088:439c
+ with SMTP id 5b1f17b1804b1-4805d065d80mr73660365e9.35.1769419651572; Mon, 26
+ Jan 2026 01:27:31 -0800 (PST)
+Date: Mon, 26 Jan 2026 10:26:31 +0100
+Mime-Version: 1.0
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2317; i=ardb@kernel.org;
+ h=from:subject; bh=Ap4lsZMuDyOofvFMFnMiKyoC8iLDVYVQLkvGkqS0gAs=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIbPc2L1g8uuyjPcXXdKLDtvWNxdXvd3cX/T5e9hlHXnGp
+ cnx0i4dpSwMYlwMsmKKLAKz/77beXqiVK3zLFmYOaxMIEMYuDgFYCIz1zMyXN71+kra89XKJlwn
+ dySpiXpz9G/71b8wq1aAdWLh/i9SDIwMM4N9XS/+NZ+w98KVaLHGO3ssbt78cfLZhCOHXrya8u/ 2HyYA
+X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
+Message-ID: <20260126092630.1800589-12-ardb+git@google.com>
+Subject: [PATCH v2 00/10] arm64: Unmap linear alias of kernel data/bss
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org, 
+	catalin.marinas@arm.com, mark.rutland@arm.com, 
+	Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Liz Prucka <lizprucka@google.com>, 
+	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>, 
+	linux-hardening@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_012209_258213_31F68A46 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20260126_012734_300141_007C4E5F 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,34 +95,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new entry for S32G Serdes driver.
+From: Ard Biesheuvel <ardb@kernel.org>
 
-Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
----
- MAINTAINERS | 9 +++++++++
- 1 file changed, 9 insertions(+)
+One of the reasons the lack of randomization of the linear map on arm64
+is considered problematic is the fact that bootloaders adhering to the
+original arm64 boot protocol may place the kernel at the base of DRAM,
+and therefore at the base of the non-randomized linear map. This puts a
+writable alias of the kernel's data and bss regions at a predictable
+location, removing the need for an attacker to guess where KASLR mapped
+the kernel.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 765ad2daa218..888674a308a5 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3202,6 +3202,15 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml
- F:	drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
- 
-+ARM/NXP S32G SERDES DRIVER
-+M:	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-+R:	NXP S32 Linux Team <s32@nxp.com>
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/pci/nxp,s32g-serdes.yaml
-+F:	drivers/phy/freescale/phy-nxp-s32g-*
-+F:	include/linux/pcs/pcs-nxp-xpcs.h
-+
- ARM/Orion SoC/Technologic Systems TS-78xx platform support
- M:	Alexander Clouter <alex@digriz.org.uk>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+Let's unmap this linear, writable alias entirely, so that knowing the
+location of the linear alias does not give write access to the kernel's
+data and bss regions.
+
+Changes since v1:
+- Put zero page patch at the start of the series
+- Tweak __map_memblock() API to respect existing table and contiguous
+  mappings, so that the logic to map the kernel alias can be simplified
+- Stop abusing the MEMBLOCK_NOMAP flag to initially omit the kernel
+  linear alias from the linear map
+- Some additional cleanup patches
+- Use proper API [set_memory_valid()] to (un)map the linear alias of
+  data/bss.
+
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Liz Prucka <lizprucka@google.com>
+Cc: Seth Jenkins <sethjenkins@google.com>
+Cc: Kees Cook <kees@kernel.org>
+Cc: linux-hardening@vger.kernel.org
+
+Ard Biesheuvel (10):
+  arm64: Move the zero page to rodata
+  arm64: Move fixmap page tables to end of kernel image
+  arm64: mm: Permit contiguous descriptors to be rewritten
+  arm64: mm: Preserve existing table mappings when mapping DRAM
+  arm64: mm: Preserve non-contiguous descriptors when mapping DRAM
+  arm64: mm: Remove bogus stop condition from map_mem() loop
+  arm64: mm: Drop redundant pgd_t* argument from map_mem()
+  arm64: mm: Don't abuse memblock NOMAP to check for overlaps
+  arm64: mm: Map the kernel data/bss read-only in the linear map
+  arm64: mm: Unmap kernel data/bss entirely from the linear map
+
+ arch/arm64/include/asm/pgtable.h  |   4 +
+ arch/arm64/include/asm/sections.h |   1 +
+ arch/arm64/kernel/vmlinux.lds.S   |   6 ++
+ arch/arm64/mm/fixmap.c            |   7 +-
+ arch/arm64/mm/mmu.c               | 111 +++++++++++++-------
+ 5 files changed, 87 insertions(+), 42 deletions(-)
+
+
+base-commit: f8261772d6a032f18aacd4d1a18bca5bd4e4a368
 -- 
-2.43.0
+2.52.0.457.g6b5491de43-goog
 
 
