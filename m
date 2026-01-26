@@ -4,150 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B53D19502
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 17:51:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07B74D1950F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 17:54:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q/kVm4ieWgvGM322zsByWJLrxNaDjtJEpUeMRcQtXVc=; b=rkhCCanaRuD5kbL3Wy/83bSvtR
-	Q7j/WTlw+FS18l4e86guU8alOckkXF92pXJ4gb6yPSLlLzAdMa1dg+yQXrmbRLq437kg/OWqoMybV
-	KbsyfxBfT73Aq3XD5+VX678eDdbJyatdmncHfaPq7nDDOhLqbtfhXjzJgkSxN2XC2QeB0ruXlNi1B
-	MS6gC3+Hcy2MLFyR5yWUas5cYrmPh+NDSeLFdp4SYKgS9DaMnnhaV48tWuxlnz2JY4aW8cE8IayEc
-	wrZMK60cDVCXIigI0DAxUiHYV8adxJmzdsVdmZV4NE6ORmEUEXNjcusQk2bgv6WGN1DDz40xHRUZ5
-	McDyBmMQ==;
+	bh=BaBaPbjRvnSlT5xuKPMaHPCMLrVAT3axwn7YGYLPHX8=; b=vRp3X4ub5/BA2mBCYfxcaY/WX2
+	cxpPBjbyxtgrhVYnNt/y36VKWcT+4zg6Gbw/CwBA5lFY6SoNgZ2UZ1pN0oSt02iyZAeIbiqM5/ZoM
+	YpnEP0lWeIDYax73vC/lErCxdU6QIhl2LBgBWPygydCR8svbUgqhV4WUxnoiIpA+5wz417hRIgf0V
+	SEX9TQpH4vtsBj5ckdTN17wncyRHdftDw/tZcam+YMk4nipCASw2lYojHJz0ipFisxfAcqLW+TQUj
+	ju/dNDlxMdV2dHgc9qKXqyIHABYQ8RO4UMCPuJgUbFCHb1B+bVIPuHKV4wtNEbf/ITjxorZVcSQ3G
+	hEljGzmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkQk4-0000000D10o-2hgv;
-	Mon, 26 Jan 2026 17:51:12 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1vkQnJ-0000000D1E0-3mBo;
+	Mon, 26 Jan 2026 17:54:33 +0000
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkQjx-0000000D0zy-3BPx
+	id 1vkQnH-0000000D1De-32tU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 17:51:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rPaoZQhyx0bzZ/Q6jMjACznx2MqUS5TbU1tnF/RRTGE/zmSUPvVKx0g1tdTwskBUUFQJJT734siH2LRGEO4KGFjv0zRzrOeXbcrsEGndefkfvqBmeM63dDh4agxwswT1OVENeefnFWfQftZjhLhk86IRn6AGUbjdfdoE1WgkwmbfBEW3rx3blW4cY8j1+jxyPZAwInBpLlJqMQAZDTU5WRWnHWS4aW2Yie+fR6C37dPiyc1bxpcH47AVL5rk7ldH4FsvQ5rc7Q9Zvw1/Cvd0w02QEVew18EdOh9iA8GVX3jwcNy/EBtTB2HlzEsJQevhbyYZ1Q9c87PL4OMGrB95BQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q/kVm4ieWgvGM322zsByWJLrxNaDjtJEpUeMRcQtXVc=;
- b=ojMpfL9vrUBO3a88WzZ1eGybdnwGCp7RRzfY9qYumYd10d++7+B5TPra6tyDq9VcDb3kKIYW00KfMeSlQrJ3eZdCc5B/FP37hChHFqsmtptUYMWwC23TaUbtedIUfCw6H606Tv37uHzNwmAxEPAg9ZKRh8s0I7/yQPROm42Qz497Uqtvw5xekcboeU0jIBMKnp1c6febvKE+lbTeMQAwdut1i+Mr5GDTzPccOkyLB2FptcUg3C2GIGS0hFwfg6LVfh7HwwUUBiTv5VCJ0ds+bbl2MY1djrNRpyDFiB2AapvqT4h0vBUc+tEHATJtwBucYuhrKyV1G27m56Vd5+63jA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q/kVm4ieWgvGM322zsByWJLrxNaDjtJEpUeMRcQtXVc=;
- b=VGVx1eZMPJRUC/MHJ4eiJ5/J86eHRDgmroYtSL0gWeguOg+KMl4Z/wM8TaH8dsfg9KNyeRMsFBA4yYU3dCh+e391EyIuId1KTJjhHJDX7GR6dqNAEt4HLChrMubcDEqfik3mBpSV+SsLu/LSjTq0GzOcFSStgKpPsKPvmq7R17HWI6pfOZcZBLmFLsqaRncwDImo7vkWo9+uA7I8ZK7jCzbcebt5NudbfNjdpZUJW+mg+O4DDOXD4+JRXCc7lPN6kANGI45fwa7oy7BdkmTtdb+7mbAdPHC6clR557jeh2bU+4ggXbzpdI4B2d0tiCtKyG6br7p4YHRJ9Da/HQpNpg==
-Received: from PH7P220CA0081.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32c::29)
- by DM6PR12MB4122.namprd12.prod.outlook.com (2603:10b6:5:214::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Mon, 26 Jan
- 2026 17:50:54 +0000
-Received: from CO1PEPF000044F6.namprd21.prod.outlook.com
- (2603:10b6:510:32c:cafe::96) by PH7P220CA0081.outlook.office365.com
- (2603:10b6:510:32c::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.16 via Frontend Transport; Mon,
- 26 Jan 2026 17:50:50 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- CO1PEPF000044F6.mail.protection.outlook.com (10.167.241.196) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9587.0 via Frontend Transport; Mon, 26 Jan 2026 17:50:51 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 26 Jan
- 2026 09:50:30 -0800
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Mon, 26 Jan 2026 09:50:29 -0800
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
- (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 26 Jan 2026 09:50:29 -0800
-Date: Mon, 26 Jan 2026 09:50:27 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Will Deacon <will@kernel.org>, <jean-philippe@linaro.org>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>, <balbirs@nvidia.com>,
-	<miko.lenczewski@arm.com>, <peterz@infradead.org>, <kevin.tian@intel.com>,
-	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v9 6/7] iommu/arm-smmu-v3: Add arm_smmu_invs based
- arm_smmu_domain_inv_range()
-Message-ID: <aXepY63VzDxpQ0xf@Asurada-Nvidia>
-References: <cover.1766174731.git.nicolinc@nvidia.com>
- <06999367d001283744fd98eb7c1823afd516ce84.1766174731.git.nicolinc@nvidia.com>
- <aXOqVcX9YEC-Ikdt@willie-the-truck>
- <aXOrnMLLzZL9BtRT@willie-the-truck>
- <20260123200327.GF1134360@nvidia.com>
- <aXdlnLLFUBwjT0V5@willie-the-truck>
- <20260126152019.GK1134360@nvidia.com>
+	Mon, 26 Jan 2026 17:54:32 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-5014acad6f2so6691cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 09:54:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769450069; cv=none;
+        d=google.com; s=arc-20240605;
+        b=C33bvGpIljy878+RBJ19R6lurHBjeCozm7mdrrLVeS7EZ6a4S+Vsii6+d1W7p0GRMs
+         V8KZNtjCuSxz3ZmBxzA1iy4dCqvakyT50N+UHp57Ab9iQWVIauhJ31HHjE59SZOPP1IW
+         b8xqBZ431a7ZKVMR6mOjCJZKCtw4j49mw6UZt/lwC4EJuwCO5tlWfwtaTCBsen5Rjzxp
+         qc4zBosXomDY+hw0DOjgiYvpqZ3VoftHJguM1jDJcPk7IwAS3iWaT+5Pm/2ZVG+dkKfv
+         UDpcXNN6u8dbZJT6XTPec1OTKyxkNFeZhzXzHBcuHRNNY1KyT6O9oIn0LhiFTk0ndzqY
+         pFoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=BaBaPbjRvnSlT5xuKPMaHPCMLrVAT3axwn7YGYLPHX8=;
+        fh=ufez0UNOb21BA6GWsPJxVIWAIflZMCMFaibgJVw6zSI=;
+        b=ilEZ7K3dGGosfOhu0cFHfjgGMEc91xIMahKnUmyJ3YAZoEXQnOT9aad7Ae2FE3iaNR
+         QgKZRTuZ1gdTv7BwKQL75N6cC+U9PNsChHPT0Jv72AWBjJcp2m0mCYDfHVh3y0YeAHva
+         MZNI6layG1nBSDKb2lzFeM9r5gvotzjx7qOcDK1GfcJubj0gtiFGP0YpmZrgKoNQsPKO
+         njDWgEHSXgogO/icaemsD+syd8+P429i70W/uPjPPKhbKAsk31TICGPWVvwTCSmA3dah
+         c4RJLVW4XgO81eHlRPXDVantN0vhKbj/angA3sgx5f0wD54izS7qCzzx+lDXtZuSCqzV
+         eQjw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1769450069; x=1770054869; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=BaBaPbjRvnSlT5xuKPMaHPCMLrVAT3axwn7YGYLPHX8=;
+        b=lg/ffZG+zUjsizpMjdlwogCsqyXn/bF71GhDTQUAQaaanewqTpzgfvI+u7M8wYyF19
+         56diww2G9/8NSF8jmJ3Y/z9j6ZiV9+iZnHFSPelm3pPX3AHKX3o2z2hlskZe+oRcy0GC
+         kehHEZ8kEeTLO5ZD/l62Z1bWrf0fHQEwrQWBDg7ipmXlQaH0i+m6n6neCEemc7ZRgP89
+         WL6jqlZXYEqfxQYDri75PEEHngwfZxEkh1QKZ+PsDzC9aFrwO/YOgHxzhQqDmqLKDv4U
+         QW78kYVPfGctI1PzBA7Bs1VnFOFOfRK3tOxZCPuQNPWlqAFsD37BP7ZHCWukXT4uuN26
+         Fkfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769450069; x=1770054869;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BaBaPbjRvnSlT5xuKPMaHPCMLrVAT3axwn7YGYLPHX8=;
+        b=KaakEA5hB1wFBTe9H4wQRmCwu6sxW5kCTLJlxyXu2ntyucst3Dq+BFMqmwzFHAzz+k
+         SEuq4q97rZPlGlYS2SOw9oSWZkofX9zbJuA1hffmGTucVy3Gif8UPEQJQVBeSY5032r0
+         ge4Wl859VfoTb3Vv2qVE0su/4klDfVfjMDhmuSEbo9HdAD6t3GeZvD83hh6Iy2aECPmk
+         /zqsrsk9WnPjmt+BHQbrJM6Uu0WwjXEKYchHQ69jj8YCBjHTgRi1RR1roN5Zr5mbjp7B
+         G974sWcTAibHZdfGlM12dmmhQSNc+t7P0X1oeqSJWlRtwa6kkX8PNzZ81nluAUZcdjN+
+         8etg==
+X-Forwarded-Encrypted: i=1; AJvYcCVy/Xeat4FB8iIPeAFO3tTpufuJNEU0U2Oo8dEQMaKPSp2sOEX6Nuw9yZ7YqKt/pPE7dgEJ8UlGhiF0Y7FD0ssH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIdQEJbfvDUBiC+Cm7nvbBQjQVsigetYwLNavQ2PHakvn5u5aY
+	5ruEZr4onktlLiQ3v+3gpxMAuw7fYZq3bjaymaeg4rqSdHge1N71I/4THPVTtDYmKehfamGGWp0
+	FuYgW4axRD57eoNS9ffhMYa2kH9FEHcD8Ss+iSUYk
+X-Gm-Gg: AZuq6aJNkp4rbb+sYq/yUgYIrjk9+T+e8TmnFkFAjWzFVeEUOlDHRGGZByRxsDZGgd2
+	1gHVT5AO40VdT56fPIr8+Pk0O0yYTDpMQlacHyvGGLIEoJ8XBU4sdfzJOYWrr1jAzf6vpa2SUzH
+	O1HMzsG7qJ2vOoyAv0vsWPhZ/5Abms/kS1SG0v/VbGt1fGBp/6iqBFVWJsOSu22It2lDjMgUm8w
+	VEQRod/UJ7yP+SuOLYJw7aUzuO5H/jaPNxsoaRRNSTGmsGK8tYcgSMuWVnuhcJH+Cr7mwMD
+X-Received: by 2002:a05:622a:344:b0:501:4539:c81 with SMTP id
+ d75a77b69052e-503142cc1d6mr14568201cf.2.1769450069071; Mon, 26 Jan 2026
+ 09:54:29 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260126152019.GK1134360@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000044F6:EE_|DM6PR12MB4122:EE_
-X-MS-Office365-Filtering-Correlation-Id: 42c0ca70-cb8f-44c1-c677-08de5d037264
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|7416014|376014|82310400026|3613699012;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ngkowuIkP3YdHjjpQmiNKOM/lTf2nYYC3SgUCDjjAXd98sJLIQltOuuKC6Qi?=
- =?us-ascii?Q?ZVwSqqTwedEHIumaxWlcRXkZ9dXfMbs4wiBbYe53ny2AK0em2DgEZJWqT19F?=
- =?us-ascii?Q?usjfAM8nQeeH5UoKH7/qfvJuF+hDDYAnMdHv5NWSj+hFHYsrnytl0/tAah94?=
- =?us-ascii?Q?7jABtACQzjsP0XnwO/908kX6WA0IqW5YOEbZEBYIPSbdrjG4/Csds7fddbT2?=
- =?us-ascii?Q?oOPRQKajAWGwKXpLti27sqr22V8UqbeHD6iYjTrv85KB+qa7Kafc19ytPLpZ?=
- =?us-ascii?Q?ZESjcadeqF51TOUBGS+mIemx95TKH1VCwKDISOyAaRD3V9Cd+U76d7ayeau+?=
- =?us-ascii?Q?NPXA866y+JfDnQIlANrqofEY9/hDXz1PzUxyvk4dziA1z1Zkwug+pPZUMIZC?=
- =?us-ascii?Q?ODEnU7ixUH1L/OG6lAPOB1rfstYeRw83E8Q7gx2g6waKYFOnFmOBLqqK8z4d?=
- =?us-ascii?Q?a5rqqIbm3Srb1tNikUTJjuYroKqR6U+KxNZQH+OzOS5HeYaZ4ELcd2zeJ1Hv?=
- =?us-ascii?Q?G+x6ggDne1qDEY3JEgFE1qm50hXOV7D3Yn0SnmxSCGZYf0psVDazm6cnFNQV?=
- =?us-ascii?Q?bNYvjRkkLk0XVZY8mc2tn4+lBtSB7dradH8aBRvZgUuGmbCL9dypnS6X1Iaq?=
- =?us-ascii?Q?qVDUqDl+lHkeEeRZIOsbG0EnF+1zfg5NF3oeFGSsukcBrt+2gqFqUcGRBONf?=
- =?us-ascii?Q?VdeqGRaJOyagMeBN6/tj3d/6jrIdvNJ5nC7bYqpbztyO87blRwjHpMdZukxx?=
- =?us-ascii?Q?GbswhQ4wyeUb4MQF3TiNbJNlQh3QQ3f+AA/mfhua6xMQTX4btKmbVTv3C4Z8?=
- =?us-ascii?Q?j67j2jOIwBpc/d/kSBJpHAyjA/P6KsRPosmw1hywS8VWBRC1VEfS7w/TeJyP?=
- =?us-ascii?Q?9/Vu8Ep6ASIqLawTnEzXICLH0RXj9RN9QdcYoNHdKiKSkp+XR/WRiBYhffF2?=
- =?us-ascii?Q?VMdt35KHML42v8L1Ailuc9K7jTOz+SuelkzhhYOXGS8YBoq/zkzKyCY1IZa2?=
- =?us-ascii?Q?GthMHrt/sD6SInW6JYcQg3JwmCowtIJrLBtaetpUMuSfhTB+1PDjTja6cucO?=
- =?us-ascii?Q?rnH7Fz49jh9DRV9VCrpWyoGlnUgmrkAzuZ1D429NgP2jPX3ASDbpb5/VevhM?=
- =?us-ascii?Q?pWyZ24vPbbTJU40RKc30o3wZRxsjC+MKgy9Jhz5xdTxzMCbsV+fjC2j/8jpA?=
- =?us-ascii?Q?j1QzLqFpVMA/+PKe9ClGljL7ArMjyklmKqRLpCSKsZ4MyCILPwG8mQctFoNI?=
- =?us-ascii?Q?aMNXl6i8SBMzG63duKP/JnG37dznUPB4Xa9iIY1zT+0jmxb1CBYO48j+SkuQ?=
- =?us-ascii?Q?u6lXwxC0tLAwD554NxHqOgyCQYrdh2QO19rOmqfEPJK53Xp54HAOYsSuZOj7?=
- =?us-ascii?Q?suqj4q0nNvGJou/jeslddLO8Ec1X9mLdiKIQ9PmD94BSjwgvweoti2Y9gfLj?=
- =?us-ascii?Q?AuZQ5a+o7Z4MqnQpZat8pbW4Na9RnJBXUXdMc22c816bG2VWi+bTY483VRqo?=
- =?us-ascii?Q?lyoTaNbxOEzPIlM/E3JqhLNOeTa0rOVaMffL9tJAwe7xXwvU4otYdVgPSvP4?=
- =?us-ascii?Q?EP5fWet86lkbP/fTK3oeBYjTbz28qj88e5iysXCUXOLAvLCkpREQFcdd5JOp?=
- =?us-ascii?Q?8vQ2hZD+iGqdqGl7hXz0MnWedrq8h5I5AqTHe1hmUbwO3u1cYXczMGplbyVk?=
- =?us-ascii?Q?ikz6vcIIGOBor/Q01M1OjEnpl5Y=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(7416014)(376014)(82310400026)(3613699012);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 17:50:51.7650
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 42c0ca70-cb8f-44c1-c677-08de5d037264
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000044F6.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4122
+References: <20260126121655.1641736-1-maz@kernel.org> <20260126121655.1641736-2-maz@kernel.org>
+In-Reply-To: <20260126121655.1641736-2-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 26 Jan 2026 17:53:52 +0000
+X-Gm-Features: AZwV_QgKcivEy-Bh-scWxupdI_fJg4uVKAjUzJrjPt4iiSwWyjT8Fk2XVUt0Fj0
+Message-ID: <CA+EHjTzToNnEV6Ow0WaVwpYwE3RBfLfvuzvDcnOjSmGB028vvQ@mail.gmail.com>
+Subject: Re: [PATCH 01/20] arm64: Convert SCTLR_EL2 to sysreg infrastructure
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_095105_802438_717C6ACB 
-X-CRM114-Status: GOOD (  22.43  )
+X-CRM114-CacheID: sfid-20260126_095431_801585_5F18AF7E 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,41 +116,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 11:20:19AM -0400, Jason Gunthorpe wrote:
-> On Mon, Jan 26, 2026 at 01:01:16PM +0000, Will Deacon wrote:
-> > If we've written a new (i.e. previously invalid) valid PTE to a
-> > page-table and then we install that page-table into an STE hitlessly
-> > (let's say we write the S2TTB field) then isn't there a window before we
-> > do the STE invalidation where the page-table might be accessible to the
-> > SMMU but the new PTE is still sitting in the CPU?
-> 
-> Hmm! Yes seems like it.
-> 
-> However, that's seems like a general bug, if we allocate an
-> iommu_domain and immediately hitlessly install it, then there would be
-> no dma_wmb() for the page table memory prior to the earliest point the
-> HW is able to read the STE.
-> 
-> What I wrote is is how things are intended to work, so lets fix it
-> with this?
-> 
-> @@ -1173,6 +1173,13 @@ void arm_smmu_write_entry(struct arm_smmu_entry_writer *writer, __le64 *entry,
->         __le64 unused_update[NUM_ENTRY_QWORDS];
->         u8 used_qword_diff;
->  
-> +       /*
-> +        * Many of the entry structures have pointers to other structures that
-> +        * need to have their updates be visible before any writes of the entry
-> +        * happen.
-> +        */
-> +       dma_wmb();
+On Mon, 26 Jan 2026 at 12:17, Marc Zyngier <maz@kernel.org> wrote:
+>
+> Convert SCTLR_EL2 to the sysreg infrastructure, as per the 2025-12_rel
+> revision of the Registers.json file.
+>
+> Note that we slightly deviate from the above, as we stick to the ARM
+> ARM M.a definition of SCTLR_EL2[9], which is RES0, in order to avoid
+> dragging the POE2 definitions...
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+
+Other than the deliberate deviation for bit 9, it matches the spec.
+
+Of course, this changes the semantics of SCTLR_EL2_RES1, since now
+it's 0. But I see you handle the consequences of this change later on.
+
+Reviewed-by: Fuad Tabba <tabba@google.com>
+
+Cheers,
+/fuad
+
+
+
+> ---
+>  arch/arm64/include/asm/sysreg.h       |  7 ---
+>  arch/arm64/tools/sysreg               | 69 +++++++++++++++++++++++++++
+>  tools/arch/arm64/include/asm/sysreg.h |  6 ---
+>  3 files changed, 69 insertions(+), 13 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index 939f9c5bbae67..30f0409b1c802 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -504,7 +504,6 @@
+>  #define SYS_VPIDR_EL2                  sys_reg(3, 4, 0, 0, 0)
+>  #define SYS_VMPIDR_EL2                 sys_reg(3, 4, 0, 0, 5)
+>
+> -#define SYS_SCTLR_EL2                  sys_reg(3, 4, 1, 0, 0)
+>  #define SYS_ACTLR_EL2                  sys_reg(3, 4, 1, 0, 1)
+>  #define SYS_SCTLR2_EL2                 sys_reg(3, 4, 1, 0, 3)
+>  #define SYS_HCR_EL2                    sys_reg(3, 4, 1, 1, 0)
+> @@ -837,12 +836,6 @@
+>  #define SCTLR_ELx_A     (BIT(1))
+>  #define SCTLR_ELx_M     (BIT(0))
+>
+> -/* SCTLR_EL2 specific flags. */
+> -#define SCTLR_EL2_RES1 ((BIT(4))  | (BIT(5))  | (BIT(11)) | (BIT(16)) | \
+> -                        (BIT(18)) | (BIT(22)) | (BIT(23)) | (BIT(28)) | \
+> -                        (BIT(29)))
+> -
+> -#define SCTLR_EL2_BT   (BIT(36))
+>  #ifdef CONFIG_CPU_BIG_ENDIAN
+>  #define ENDIAN_SET_EL2         SCTLR_ELx_EE
+>  #else
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index a0f6249bd4f98..969a75615d612 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -3749,6 +3749,75 @@ UnsignedEnum     2:0     F8S1
+>  EndEnum
+>  EndSysreg
+>
+> +Sysreg SCTLR_EL2       3       4       1       0       0
+> +Field  63      TIDCP
+> +Field  62      SPINTMASK
+> +Field  61      NMI
+> +Field  60      EnTP2
+> +Field  59      TCSO
+> +Field  58      TCSO0
+> +Field  57      EPAN
+> +Field  56      EnALS
+> +Field  55      EnAS0
+> +Field  54      EnASR
+> +Res0   53:50
+> +Field  49:46   TWEDEL
+> +Field  45      TWEDEn
+> +Field  44      DSSBS
+> +Field  43      ATA
+> +Field  42      ATA0
+> +Enum   41:40   TCF
+> +       0b00    NONE
+> +       0b01    SYNC
+> +       0b10    ASYNC
+> +       0b11    ASYMM
+> +EndEnum
+> +Enum   39:38   TCF0
+> +       0b00    NONE
+> +       0b01    SYNC
+> +       0b10    ASYNC
+> +       0b11    ASYMM
+> +EndEnum
+> +Field  37      ITFSB
+> +Field  36      BT
+> +Field  35      BT0
+> +Field  34      EnFPM
+> +Field  33      MSCEn
+> +Field  32      CMOW
+> +Field  31      EnIA
+> +Field  30      EnIB
+> +Field  29      LSMAOE
+> +Field  28      nTLSMD
+> +Field  27      EnDA
+> +Field  26      UCI
+> +Field  25      EE
+> +Field  24      E0E
+> +Field  23      SPAN
+> +Field  22      EIS
+> +Field  21      IESB
+> +Field  20      TSCXT
+> +Field  19      WXN
+> +Field  18      nTWE
+> +Res0   17
+> +Field  16      nTWI
+> +Field  15      UCT
+> +Field  14      DZE
+> +Field  13      EnDB
+> +Field  12      I
+> +Field  11      EOS
+> +Field  10      EnRCTX
+> +Res0   9
+> +Field  8       SED
+> +Field  7       ITD
+> +Field  6       nAA
+> +Field  5       CP15BEN
+> +Field  4       SA0
+> +Field  3       SA
+> +Field  2       C
+> +Field  1       A
+> +Field  0       M
+> +EndSysreg
 > +
->         used_qword_diff =
->                 arm_smmu_entry_qword_diff(writer, entry, target, unused_update);
->         if (hweight8(used_qword_diff) == 1) {
-
-I will attach this patch as PATCH-1 in v10.
-
-Thanks
-Nicolin
+>  Sysreg HCR_EL2         3       4       1       1       0
+>  Field  63:60   TWEDEL
+>  Field  59      TWEDEn
+> diff --git a/tools/arch/arm64/include/asm/sysreg.h b/tools/arch/arm64/include/asm/sysreg.h
+> index 178b7322bf049..f75efe98e9df3 100644
+> --- a/tools/arch/arm64/include/asm/sysreg.h
+> +++ b/tools/arch/arm64/include/asm/sysreg.h
+> @@ -847,12 +847,6 @@
+>  #define SCTLR_ELx_A     (BIT(1))
+>  #define SCTLR_ELx_M     (BIT(0))
+>
+> -/* SCTLR_EL2 specific flags. */
+> -#define SCTLR_EL2_RES1 ((BIT(4))  | (BIT(5))  | (BIT(11)) | (BIT(16)) | \
+> -                        (BIT(18)) | (BIT(22)) | (BIT(23)) | (BIT(28)) | \
+> -                        (BIT(29)))
+> -
+> -#define SCTLR_EL2_BT   (BIT(36))
+>  #ifdef CONFIG_CPU_BIG_ENDIAN
+>  #define ENDIAN_SET_EL2         SCTLR_ELx_EE
+>  #else
+> --
+> 2.47.3
+>
 
