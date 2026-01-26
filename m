@@ -4,184 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C545AC88E6D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 08:13:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BF22C88E6F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 08:30:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GKPQp6p15wYoRznPToE69OBre95bqu+lbTLqDz21dDQ=; b=tS/XdFvQ9iSNWHEd9hHuwFjHEW
-	xRM+Mad1EoPiAkloJWJ66boCpm0K5j0p3Gwc5u40qjz6nzicM8+/ZMqdzMX1bTgIjzH4F3zipMePD
-	ejB5ut8BAHwV9V1mlCTbn+jN+iqZvC0gEYvCSv7Z0X8M23UQFEogiKj79uizYoRyCSO/zjmD/6Dbs
-	XXyylighQI6ODalBNM+gaoK0geWN0cZ3yjEN6AbVUKAgREgnsFduJUCmTcX8EzcR21aPwbV7SjnjT
-	eo/RMR++D8g8fAZk9awzsCqIDiCwiLDVMQXU7w+x/ysjRH+359Qf/TAIjRmSsDd7Z4YS5f3rykxXu
-	51zdPsCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RL12cC9qRX/ILoBDTmW2NvbjM3xBeSvvr6O9KVeZoZg=; b=x8h9l6yDIFUsJwO8rgv98AcjBF
+	HR334Rnhsu9KLJrRnx5cjm5tH2FsVVIs2sJEUSdUUdLuemxPGni0zZ9S0zHab7TTU4SHFtlHM9zrD
+	SRPohRgjFLO6G52HmsnEHR++bGTWsVah6EHM5R/ZlwQ3KVrGJYH1Qh/6i0GlXcClnkdAQAHKhGxe5
+	EEZHMVFkELZ7M0cQIZuFVpknH5IhBNVbmASl8NhElg06AHIqHSywxcx3POTRC5DFSz+mhXwV6MpVW
+	p7Gq/ERp05/djFGd8yzUypmQWUawxk02FwyGTk3I2w4jYNxke159ePBmFwZgeNSSHk+fOoiadz/zg
+	mtdR79fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkHj8-0000000C5dZ-2xCV;
-	Mon, 26 Jan 2026 08:13:38 +0000
-Received: from mail-northeuropeazon11010064.outbound.protection.outlook.com ([52.101.84.64] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vkHzJ-0000000C6Wk-1tTz;
+	Mon, 26 Jan 2026 08:30:21 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkHj6-0000000C5cy-2aFP
+	id 1vkHzF-0000000C6Vd-3bYZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 08:13:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KGNZErzd3eemuR9XWYu9tjO0W2ipUH2pFllUEzdogip4Mb5Mq10tUh2WYyxqLOkmJvbG+2h5RcYiVztgdFCs/ItU29QUaccU1y+vGeLQMM8KRa5RplJ7XvtwFhjoxoOxRZ1VY7WrkYag9cBdk/+MoVd9KHaPUCPSgH9uRG3wg6ynJG3V3kXXFM5MR2KnePpcV7IyyEwr3qDHMnwXecuU+PiQkvnZS9O2/HBZsGXcy388ANidNWeIDUOfvrhJtJRhGILmuviEhXfQ+HjAMpyl/lUbFXcYJrMjS0VmYm/DggaW4a5zonqHYrhZxJQeaK+LneWgQx+kcE9iOTr/ch2sGQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GKPQp6p15wYoRznPToE69OBre95bqu+lbTLqDz21dDQ=;
- b=L1vzmc9ByLR4u5p5WimcGRJI58JMQ7Q9S1K4AcUDGqUOUYCeONoEq43tLoHRacoyfKrppjQthtF1aNXBMbNdrOUmeofiu/XcKJairLfJ58diJWeEI2cCmtn/Nxr98rJKoA29hQSevbtFuNcvuc1cdZxo+5jv2uMHEftUkZmh4Pl3G+9UkNvH5rEkRDCaPOJT6L1B7am8LLrbMbRQUjAV2qBlPe/9Dx51+wzuQvp6lKG3nAnVTMabLyeNNJsCi59EeEhqv5yfVFMsvLupJ7uxJJW2skbvbHXuyjFGw+rI7xq1Jr8nzp6tNuVhlYLoWg03tyewU+VUsZAE0fOyNaEoeA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GKPQp6p15wYoRznPToE69OBre95bqu+lbTLqDz21dDQ=;
- b=miKSLd/7BplJJGcQteEMnefRbB7bU6kbu6yGAnUUDfcYxMk4t7fO3wGQGj8qC74eroK6FKfNEZ1dWkoYRKpjbpnlLffJUFUaur4Fyz81Bk8RzV3gOgbMc5X/1snw0L84xFaJ/GS5jq7eLg9DOznOSDYRomAQvP4KLNbQ5sFn5iy6nOEUgnDWFmDb2fWE72o/COiLDXywLjkpT02Z2KnZ+Tq8i9QrtfgbcaQgLdDbpz3fidQ1e1Vl5P3Z7HVZ20o1J+G9dNsEOdhvDviY6A4uuMp3nsTs7gMPe2ZuC6HlgoBZCGPJhPk9ZqpxdqYUnXJ3mKB0ft+olcjR+8DhoAm7fg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by DU2PR04MB8902.eurprd04.prod.outlook.com (2603:10a6:10:2e1::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.9; Mon, 26 Jan
- 2026 08:13:32 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%4]) with mapi id 15.20.9542.010; Mon, 26 Jan 2026
- 08:13:32 +0000
-Message-ID: <516e24d3-511f-4fb5-9274-a20639618d4e@nxp.com>
-Date: Mon, 26 Jan 2026 16:14:20 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/4] drm/bridge: imx8qxp-pixel-link: get/put the next
- bridge
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-0-a62b4399a6bf@bootlin.com>
- <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-4-a62b4399a6bf@bootlin.com>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20260107-drm-bridge-alloc-getput-drm_of_find_bridge-v4-4-a62b4399a6bf@bootlin.com>
+	Mon, 26 Jan 2026 08:30:19 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 36AD94E42295;
+	Mon, 26 Jan 2026 08:30:13 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0368160717;
+	Mon, 26 Jan 2026 08:30:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B5AE2119A80E2;
+	Mon, 26 Jan 2026 09:30:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1769416212; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=RL12cC9qRX/ILoBDTmW2NvbjM3xBeSvvr6O9KVeZoZg=;
+	b=om7p5rE3iiSwBy9bPPxolkQYErQW/3CDgztw9hO1NsSOzcCt3Au/qjDso2nw8w+QNQWbUk
+	UkEzPTb9UlKqYKAvpL9GsVOaEJmKX2fEFmk+4Ee3r8C+8TIZEGPOtwQUjQCU5IUuIMxRJn
+	z6LJUNbgR9DXE2ijEVLiBnIy0QbeaKf0++EC+uEC2SyurJMh42AV9e19mKvUjmD8jYiJu+
+	+Q+RIwCS/Ip57PyXQdLH/RRv5vnsFKJciIh9RqI4MJYsAnXAeMe5kl8E5oUOUyopCRJ0M4
+	/b2bLgC1Qg7JGb+y/8Fu4jrnUwmNHgxUTudw3edMKm+7ysEjJO71Xx6dKBOslg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SG2PR06CA0240.apcprd06.prod.outlook.com
- (2603:1096:4:ac::24) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DU2PR04MB8902:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7c87ca61-dcca-4f1d-c492-08de5cb2cbaa
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|7416014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QlV4R0FXOTRTL3MySjM1OWtxbzVzVnNwMlFwQzlpSFc2Qm4vRHVLNTlIVUJl?=
- =?utf-8?B?MmNGS1F5MG1NeTJtTmhOKzhVQldhdldBNVZmSkcyVGc2MEZIcHY0UlQ5Q2pK?=
- =?utf-8?B?dnZZVVRZWHd3RjNpbXpHNlNpajdYUFY4ZkoyS25DTjNSOUZtTzZ5cm5QT2Iy?=
- =?utf-8?B?bm9lU0xidU9Td0dxR2tubGhVc1UvRzgvcFMraEpwWkRUNEdqRm1NRG85SUdL?=
- =?utf-8?B?US83OGtvMVdOdmZ4YnFTSzl4ejJPNkptMzl1bzVPZWVYcXpSbVZETlBVNzhY?=
- =?utf-8?B?RzdRaEtGNHVNNExVN3RIRDYzcExoWmRoSWxwb24rbmxjQ0VMZWZpSTNBQktY?=
- =?utf-8?B?M1I2WTdxZWxWcmxseGg0Wjc5T0VqM3dFa3I0TVMrZkljNEhVY0lacnB0R3R6?=
- =?utf-8?B?eDkxYnlCMkdTL20vdDRQME9pdTNwdEVOa3BrR1ZQVTM2YStSWHM3aC9sbXJQ?=
- =?utf-8?B?aXZGUzdXNzZwd2Q5MmkxNEVaZzRKRzd2Ym1oNmtDb0ltRDdsbG5FSVFuaWdz?=
- =?utf-8?B?aGpEN1ZCeEwrSTZ3bkJ1eTFMcG1RTnNrSFhZVmszbXVSOUlPNnduM0hiTndS?=
- =?utf-8?B?SUgrTkVWOWg0STdqdmlMVk1KTnBMTFVueGkvV3NEMk5CRDZBSTZ0eEYvSStI?=
- =?utf-8?B?cVJXYmw1RjUrRnR4NyszUFVGWDV6V2NYNk5ncUVkbEVCM0MyRGhaallZQnhM?=
- =?utf-8?B?SUpURG9jRGhCMHBWVDBEK0ViVk5oUVBwZDBqUTREanY2ZXBkWk51dnRsSzNK?=
- =?utf-8?B?Y2FKSmFSRENSZnN0eGZBdmxqNzh1MUFFS1ZEZWJxempreDZNVzM0aVBod25l?=
- =?utf-8?B?VlA0Z3g1V25iK2RYY3pOKzRPWVB4Nzl6YkRCT3JJSTRSWjQ5bDFHQi85NFZp?=
- =?utf-8?B?d3RESXBWeUU4ZnBUeHc1Sk1zaCtBK21CcW1NYlp1VU9tVS8vN0VjVEFDZWRZ?=
- =?utf-8?B?YTZYUGhMRUxCcytIa3hGVi8yT2ZFanFXandxc3hjU3c2RWFMUTF1cDFRQUtw?=
- =?utf-8?B?eUg5ZlphbUcrbHBJeEZTMDVJaXRYWWV2MXlaM3c2SnNIN3pOU0Q3Rmg1WnRk?=
- =?utf-8?B?Rmhqd0Z3MTQ2UXErOWV0VHgvNnBybzU0RTkzcHpDS0UwczJWaWRGbTBkTWtr?=
- =?utf-8?B?RGhXUWVES25PRXJEMER4aDNrTGxrZk1La3U4d2I1TXZZcmJvNFh6SzVuUnZH?=
- =?utf-8?B?VHl5VVNOb0lxVjdHTlpWWG1GdW85MFYxNmZOTGRnV2RkRGhUZ3c5bE9hSFcx?=
- =?utf-8?B?OW01T0xPdEtNTFN1NStCdlJQaGkwckNJdTYySUpRYkVQcEZibGN2S2ZmaFBi?=
- =?utf-8?B?eGVrblRZVUljMTVRTHQxZGxiTlZHSXRDRzZ3N1JqL2tDaThLSlRZWWFOblE5?=
- =?utf-8?B?WlIydjNXR3lqYXkvd0s2SEV3L3Q3ZFI4TVlFd0hybXZDTC80UzBDckZhdzlK?=
- =?utf-8?B?eXk3eHNJRW1OM25qK1EzRGlwYU1Va0pwbXhtS3ZEbU9TT1dLb2ttR29ZR002?=
- =?utf-8?B?aEd0cDlIcGxUWTZwa0w3K3dyQ0JzcTY2RlFRVGFSMHJzSVp2b2ZTWGhSbDdO?=
- =?utf-8?B?VGJLOWtxVExLTU1qcVYyS0tNK3dTQzMrT016MlB5alVQczB4cndneHhZeG1T?=
- =?utf-8?B?NXgyZEs0c3UyV25KRXFLM3NBWlNkcVNHNHRHeFl1V3JReWY5RHJRc2c2UmZZ?=
- =?utf-8?B?TEp6eFEvRjFJZUJXVTdPdkZMRG9USTNDQWxzaHZHV2JtZnNpRDZ1NStRYk9R?=
- =?utf-8?B?QUs0dmUrNllWbUVsUzYzNEVML0I2U2Q2eTZ0eFV4bzhzL2ZjazRoS2I0UEto?=
- =?utf-8?B?SkIzck1paVBpYWVpKzg3cDBMZlR3VmVrb3kvVENDUHc3OHB3Yyt0ems4MDlh?=
- =?utf-8?B?QzYwb0xhM2JrZUtUdExEV01BZjRhS2VubjB1WTlRNHRFMENPTG0vV2d5VlJx?=
- =?utf-8?B?QnhuRUxoYmhQYTdyZUwvOXZ1eURWUVR3L2s2b0NTbEtOR2tMaFM1QVFVR0sw?=
- =?utf-8?B?QmJCR2JPbjJiaGZDYnE0VWQzM0YwQzRRNER6RzZFL1VyeTRqSmxOS2cyWHBx?=
- =?utf-8?B?cE9sYkZROExhSUowUmlQRGZnQ3MrWmJ6K0dCWnM5bzdML2J4ZVN4ejlkZUJY?=
- =?utf-8?B?cWFabXRuN1lDUXluWUhBSDhHZm5JNmlSSEtEeFc2ZVRIeUsrcDR4Tm4wcjRv?=
- =?utf-8?B?bHc9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SCtFb0o5bjRjMEFtL3RVMUI3aUQrTzJtZU8wVUEvakhKaUF3czVHVkNsWHpz?=
- =?utf-8?B?YURoYVRnUW0yTlIrMVROVTVHajBIL05tWjNJa2hRM3NHV3h2T2FLeGpuNUF5?=
- =?utf-8?B?U2RyN3JCdlhhdytVeW9IVGxRdWRLQkNOWXNSOTFrUVoreW93d0lqbzVTaGNl?=
- =?utf-8?B?dE4wRkZLRFZLZUNVb1l1Z1ZLZkhlTVo3cWhLeU14d2Y3UGErcGJDMWZQemY5?=
- =?utf-8?B?RVJ2TWtqRmZIWVZ0RDNWczF3K3ZIVjVadElJNWpvdGFXUDc2NVQ1Q3lyWVU3?=
- =?utf-8?B?YTZsMTNZdklOdkZpcFNGbzdSbzhDdUxUYjhUR016aHByNjVYWDRWdGJDWFVX?=
- =?utf-8?B?ZVdFTEJOa1c1UHY3VlBLN2ZQcWYzd2xoS2F4N0Z0VzZDR0RzaWhuQkVsL1JY?=
- =?utf-8?B?MFNSQXdUYnc2VzBYNnlHTUxDTlBPWVE2cGdmTzdZRUg3QXVLRTdpbzhyMmNo?=
- =?utf-8?B?Ym9lT0RtNDJpQ1AvR2djZHA2N1kwa08veTFJZWlraG5pRHlNRXF4ZW5TQ0lr?=
- =?utf-8?B?YnhteW12QUNLUU9TSEJUaVhPMFlmS0VFVUYyejNnenY5bEFoOHpFU1pjTUVx?=
- =?utf-8?B?ZTF6RklEaFJ6V1kwQ0VkOUhNb1B1ZmhLWnB1SUExTDRsVzU5eUxVbHVjcTlV?=
- =?utf-8?B?cjgvaDNJZFhGanIxMFJWWW9ydTZtYlNpWmx0VHl3cTk2RHFXU3kydTBXa2NO?=
- =?utf-8?B?TFhybEl1NTg0N2duV0hQeTM0TUVPUi81cEdFQWNmaVpWL2JXdCtkQ1lZc2pL?=
- =?utf-8?B?UWM0cnZMYUkvczIxOU00N0hKWjEzYytzM3ZrN3RrZElLU1cvYWJRc0hXRllx?=
- =?utf-8?B?Yzk0OVBLb2hBSmtxY3kxZlM4OGlva3g1M3h6eTZ4TlU5NTN3TGlTazNBZVo0?=
- =?utf-8?B?OTFOOExQVmsxYkVDNWpuK3lsK3ZyVWNEMnN6MUZ5UUE0c0hwaGFyY2dLaE0y?=
- =?utf-8?B?VytZUWM4b092RTh1YUdmMldJNFV6RjM2SEMveUc3NVVzbGxlOHNTbnBQQ0Ry?=
- =?utf-8?B?Z0FGRDBwR2tmcTJTOFRaVWtsREw1TnErdUlISytFckVjTGtVVFZFTXZITkM3?=
- =?utf-8?B?QzJMNzdHOFc2dTdxRXVNNkhRZTZHR3IzRnJ1cDNCNjNoOXNsbnBEUXNSem1i?=
- =?utf-8?B?amlvdUhWdWw2a3V5R2lPYkdvbW1ZSk9jOHJVV211YlVBeFgyUzRzYWRCZm1G?=
- =?utf-8?B?M3BZYzkwWE91Y2NmbnpXbHE0d0RyK1YwQlFHcWFEbHNZUjdCOGo4d29iSkMw?=
- =?utf-8?B?WDlJVUNEMzJ6L3VZdG03dTFyYnE5Z3htcktESko1MUk1REFzR1JnVVJ6ZG1i?=
- =?utf-8?B?ZzBNTDY4Si9vYUkyaGlNSXNFd2ZsS3hjeEhQNVJFK3VZZERKalZ4WlQ5SUN0?=
- =?utf-8?B?MGR6bmRWY3Fva3dicFBvQUxGekNnQ3ZmdFFqaDJZNDJLUVNOeDlrc1NvNUhZ?=
- =?utf-8?B?QktqYVhIRU5zSVlQUGozUnZNNWVFcXJQejVGT1FHcUxjaHpKMi9XNkNvUmFW?=
- =?utf-8?B?Q1Q2aCsvRmlvYnlvd2lxWEYxRnRDb2xDT0U2TXk5aWNmZ0NpS0srN0VrMEts?=
- =?utf-8?B?KzZsYi9SN3V2SnpFdHlOMUVBcTBMektIeE1CcEI3K2YxSEVBMHltZUtrdHRC?=
- =?utf-8?B?ZTdRd3h2SklHOGJxUnZ2bVFCUkttNG9sQWNFS05GNXlRZVhGcnVoU29wZHZy?=
- =?utf-8?B?VUhtQ3ZVNkZodmlZMk9Cc1YwQ29SbGhGSFRHaWFDM0h0MWd3bmdJcUFHbXFh?=
- =?utf-8?B?V3I5aGZndy8wWk0rZWJ3dEFKODJIMmwxeFpoUlEwWUlRZ3NlUUhlMFc5aG1x?=
- =?utf-8?B?dUdkditFemtOdVB6UjRsZUVlZXFTZEx2OWU1R0FRdWdSZE50cGwrK0tZRmh2?=
- =?utf-8?B?SS9vTGo3WE1ERlp3cU5OVGRjNVp2aTJaUW9lS0lCZFE3SXJEL05TcXRraXBW?=
- =?utf-8?B?WXNRWmJWdmN6MHdVT25OMG0yWTRxdWxNV2dkRkEvM09RLy83RFA4dFJPZ1hP?=
- =?utf-8?B?eGhDSnc0bThibHIzSDVpWFJjSTVZemFRM1dFUHVza1ZDWTFYeCt1Zm11OTRx?=
- =?utf-8?B?OHllR3RJNThXdjlzRTNLR1BFUjYzQ3oyR3V4Mys1Y2F0Um5KODhNdm5mY3JN?=
- =?utf-8?B?SlF6NHh5SHZjUU1BMCs0N1l6amgzREJKYUVmRTBMM1Ztem9oSlZnN2VjS0Zy?=
- =?utf-8?B?QlozcWtKVmxiM1d0MTBzSi9qb3VWd1l5NzlUWEdQRVlSbXNWSkZPYW95MUFW?=
- =?utf-8?B?Qllid2xDMlMzMXBjTzJLR3FpeXYxOS9jdUJjUk1ySUZBOFFiSGFLL3Jxd3Js?=
- =?utf-8?B?a1lWaFo5MHhlMVk1MGs5NDNGN0JjZVM4cUJlZ01HNGxsNmMrZXFDQT09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7c87ca61-dcca-4f1d-c492-08de5cb2cbaa
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 08:13:32.6623
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EwbHEjvc6D6RbLX7Hlz6a5pWJj9vTWqIAyeXcRnvIzTIrEW3r18ms8johf8kxpULJHpfhIcl/QNARgMh0piHiQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8902
+Date: Mon, 26 Jan 2026 09:30:09 +0100
+Message-Id: <DFYDP4W448IT.144L31296M4LG@bootlin.com>
+Subject: Re: [PATCH 2/3] drm/bridge: imx8qxp-pxl2dpi: Fix NULL pointer
+ dereference in imx8qxp_pxl2dpi_bridge_destroy()
+Cc: <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+To: "Liu Ying" <victor.liu@nxp.com>, "Andrzej Hajda"
+ <andrzej.hajda@intel.com>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Robert Foss" <rfoss@kernel.org>, "Laurent Pinchart"
+ <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Shawn Guo"
+ <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
+ <festevam@gmail.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20260123-imx8qxp-drm-bridge-fixes-v1-0-8bb85ada5866@nxp.com>
+ <20260123-imx8qxp-drm-bridge-fixes-v1-2-8bb85ada5866@nxp.com>
+In-Reply-To: <20260123-imx8qxp-drm-bridge-fixes-v1-2-8bb85ada5866@nxp.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_001336_674889_5ED795EC 
-X-CRM114-Status: UNSURE (   7.58  )
+X-CRM114-CacheID: sfid-20260126_003018_052938_4C5D0E08 
+X-CRM114-Status: UNSURE (   8.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -197,18 +88,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri Jan 23, 2026 at 10:22 AM CET, Liu Ying wrote:
+> Pointer bridge->driver_private in imx8qxp_pxl2dpi_bridge_destroy()
+> is NULL when imx8qxp_pxl2dpi_bridge_probe() returns error, because
+> the pointer is initialized only when imx8qxp_pxl2dpi_bridge_probe()
+> returns 0.  The NULL pointer would be set to pointer p2d and then
+> NULL pointer p2d would be dereferenced.  Fix this by returning early
+> from imx8qxp_pxl2dpi_bridge_destroy() if !p2d is true.
+>
+> Fixes: 900699ba830f ("drm/bridge: imx8qxp-pxl2dpi: get/put the companion =
+bridge")
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
 
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-On Wed, Jan 07, 2026 at 10:56:29AM +0100, Luca Ceresoli wrote:
-
-[...]
-
->  * the bridge returned of_drm_get_bridge() is stored in the local temporary
-
-There is no of_drm_get_bridge() defined, so
-s/of_drm_get_bridge/of_drm_find_and_get_bridge/ ?
-
--- 
-Regards,
-Liu Ying
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
