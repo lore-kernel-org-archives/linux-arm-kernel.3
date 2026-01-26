@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAA4D19501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:10:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36905D19501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4OcDfh/FvtG+LxPKpO91sJONkVp0lR/biQur/Xrpdaw=; b=itly98+rtY38HjxhKjY8F+4AZB
-	ccIdEbjyxxZS8Bl8ajg+PCR+mQ1BuxSkY4/WCtDsjQBuvNLeckLPL4AhKjhKITFXY0WxV1CG6Lgq0
-	SWufQT/lsLSCtyQmRLQRTIV08k08Bi1f3Rc5DZmaxj24Q/kCVGMIIbNSnA49IaLqwubAjufzp0Wuo
-	DqneLVGiPy8iHZleD4q5kc/9G7cx5L3diYZrHB91atkW06N2gJ/G3tSQA7jYw3YLjOhL/1zD+dvgg
-	3KGKzormcIY1ATYDRgfSoIrKYBLAMzh2dAiEQBSDc1uoGmje6r4e7WVudbiTFoucesHK29ZbuON1X
-	BCAxq3Zg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9GmR4U/6sjLZ6b4mP0qhVrXUe9sv8qZlxLz11xmTSMI=; b=1Y0UPctD0qA7m20Uga556MvHKG
+	FaOT5+lcBVY/EO8/FMN5xPe/bpxRmamzK/u/N29/HrlJak4K6ewrB1v/9IP6umJPt+VWzHlj0f43V
+	b3OGF2rgrdshqIuHCdicSFBJlVhOSlIJ5cLeKYf6YZlJTs+MVZY9dfoe/5unPYxdGdpqdtug76yOP
+	EWtkmHiUwZQeaFUf7kSf4cOXcuoepF8W+TtX+ECqNrNpgPVphJoGhkLzhXPFlEj1viU6k73gFmsNR
+	5j2Xm6xewBPflAv9kRlLw0J1Bt1HEHzmdn16TDnZ2t1oaBi42bBhnz54QyFDf1vaSgqyLFCr0hv7e
+	8IXp+L6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPAs-0000000Cpwq-1Xky;
-	Mon, 26 Jan 2026 16:10:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPAp-0000000CpwA-3oLN
+	id 1vkPHy-0000000CqTI-1ILU;
+	Mon, 26 Jan 2026 16:18:06 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkPHv-0000000CqSm-3qGK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 16:10:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52723339;
-	Mon, 26 Jan 2026 08:10:35 -0800 (PST)
-Received: from [10.57.68.157] (unknown [10.57.68.157])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D7493F5CA;
-	Mon, 26 Jan 2026 08:10:39 -0800 (PST)
-Message-ID: <c046085f-82e8-4a77-93be-c2a8d59db97e@arm.com>
-Date: Mon, 26 Jan 2026 16:10:37 +0000
+	Mon, 26 Jan 2026 16:18:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=9GmR4U/6sjLZ6b4mP0qhVrXUe9sv8qZlxLz11xmTSMI=; b=W1YU4JX6USsiOCe6sebt6DfqKV
+	35oiUK67jY8GYTFhaQHQnJr7jygPAsCtrIu5rnCvug/xXLZroQ0DSeAfCpfjfTVkrq/K7Xoeo+q0Q
+	L0dqUFWsLX1sJC4HMsEqu1rVFuXOAvC2s3nooFLuqXT8ljvjzLMl5zveu3qUBIJ2bTDA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vkPHf-004oR8-T2; Mon, 26 Jan 2026 17:17:47 +0100
+Date: Mon, 26 Jan 2026 17:17:47 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Joey Lu <a0987203069@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	richardcochran@gmail.com, alexandre.torgue@foss.st.com,
+	joabreu@synopsys.com, ychuang3@nuvoton.com, schung@nuvoton.com,
+	yclu4@nuvoton.com, peppe.cavallaro@st.com,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	openbmc@lists.ozlabs.org, linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next v9 2/3] arm64: dts: nuvoton: Add Ethernet nodes
+Message-ID: <ea3a1f85-0f27-498c-b03b-110456a751da@lunn.ch>
+References: <20260126102257.2619862-1-a0987203069@gmail.com>
+ <20260126102257.2619862-3-a0987203069@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 4/8] coresight: etr: refactor the
- tmc_etr_get_catu_device function
-Content-Language: en-GB
-To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
- Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20260122-enable-byte-cntr-for-ctcu-v10-0-22978e3c169f@oss.qualcomm.com>
- <20260122-enable-byte-cntr-for-ctcu-v10-4-22978e3c169f@oss.qualcomm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260122-enable-byte-cntr-for-ctcu-v10-4-22978e3c169f@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260126102257.2619862-3-a0987203069@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_081044_039544_804D982B 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20260126_081803_979714_A2B2044B 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,118 +75,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/01/2026 02:08, Jie Gan wrote:
-> Refactor tmc_etr_get_catu_device to retrieve the helper device connected
-> to the TMC ETR based on helper_subtype.
-
-Please could you leave this as it is and add :
-
-tmc_etr_get_ctcu_device() ?
-
-It doesn't make much sense to refactor something that is a wrapper for
-a generic function. Please avoid un-necessary abstraction
-
-Suzuki
-
-
+On Mon, Jan 26, 2026 at 06:22:56PM +0800, Joey Lu wrote:
+> Add GMAC nodes for our MA35D1 development boards:
+> two RGMII interfaces for SOM board, and one RGMII
+> and one RMII interface for IoT board.
 > 
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> Signed-off-by: Joey Lu <a0987203069@gmail.com>
 > ---
->   drivers/hwtracing/coresight/coresight-catu.c    |  3 ++-
->   drivers/hwtracing/coresight/coresight-tmc-etr.c | 32 ++++++++++++++++---------
->   drivers/hwtracing/coresight/coresight-tmc.h     |  3 ++-
->   3 files changed, 25 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-> index 69b36bae97ab..d3972619cc96 100644
-> --- a/drivers/hwtracing/coresight/coresight-catu.c
-> +++ b/drivers/hwtracing/coresight/coresight-catu.c
-> @@ -334,7 +334,8 @@ static int catu_alloc_etr_buf(struct tmc_drvdata *tmc_drvdata,
->   	struct tmc_sg_table *catu_table;
->   	struct catu_etr_buf *catu_buf;
->   
-> -	csdev = tmc_etr_get_catu_device(tmc_drvdata);
-> +	csdev = tmc_etr_get_helper_device(tmc_drvdata,
-> +			CORESIGHT_DEV_SUBTYPE_HELPER_CATU);
->   	if (!csdev)
->   		return -ENODEV;
->   	catu_buf = kzalloc(sizeof(*catu_buf), GFP_KERNEL);
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> index cbbb15648fb7..16a4562533d5 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> @@ -844,28 +844,37 @@ static const struct etr_buf_operations etr_sg_buf_ops = {
->   };
->   
->   /*
-> - * TMC ETR could be connected to a CATU device, which can provide address
-> - * translation service. This is represented by the Output port of the TMC
-> - * (ETR) connected to the input port of the CATU.
-> + * TMC ETR could be connected to the helper device, which can provide address
-> + * translation service(CATU) or data filter function(CTCU). This is represented
-> + * by the Output port of the TMC (ETR) connected to the input port of the helper.
->    *
-> - * Returns	: coresight_device ptr for the CATU device if a CATU is found.
-> + * @drvdata	: drvdata of the TMC device
-> + * @subtype	: helper_subtype of the helper device
-> + *
-> + * Returns	: coresight_device ptr for the helper device if a helper is found.
->    *		: NULL otherwise.
->    */
->   struct coresight_device *
-> -tmc_etr_get_catu_device(struct tmc_drvdata *drvdata)
-> +tmc_etr_get_helper_device(struct tmc_drvdata *drvdata,
-> +			  enum coresight_dev_subtype_helper subtype)
->   {
->   	struct coresight_device *etr = drvdata->csdev;
-> -	union coresight_dev_subtype catu_subtype = {
-> -		.helper_subtype = CORESIGHT_DEV_SUBTYPE_HELPER_CATU
-> +	union coresight_dev_subtype helper_subtype = {
-> +		.helper_subtype = subtype
->   	};
->   
-> -	if (!IS_ENABLED(CONFIG_CORESIGHT_CATU))
-> +
-> +	if (subtype == CORESIGHT_DEV_SUBTYPE_HELPER_CATU &&
-> +	    !IS_ENABLED(CONFIG_CORESIGHT_CATU))
-> +		return NULL;
-> +	else if (subtype == CORESIGHT_DEV_SUBTYPE_HELPER_CTCU &&
-> +		 !IS_ENABLED(CONFIG_CORESIGHT_CTCU))
->   		return NULL;
->   
->   	return coresight_find_output_type(etr->pdata, CORESIGHT_DEV_TYPE_HELPER,
-> -					  catu_subtype);
-> +					  helper_subtype);
->   }
-> -EXPORT_SYMBOL_GPL(tmc_etr_get_catu_device);
-> +EXPORT_SYMBOL_GPL(tmc_etr_get_helper_device);
->   
->   static const struct etr_buf_operations *etr_buf_ops[] = {
->   	[ETR_MODE_FLAT] = &etr_flat_buf_ops,
-> @@ -913,7 +922,8 @@ static void get_etr_buf_hw(struct device *dev, struct etr_buf_hw *buf_hw)
->   
->   	buf_hw->has_iommu = iommu_get_domain_for_dev(dev->parent);
->   	buf_hw->has_etr_sg = tmc_etr_has_cap(drvdata, TMC_ETR_SG);
-> -	buf_hw->has_catu = !!tmc_etr_get_catu_device(drvdata);
-> +	buf_hw->has_catu = !!tmc_etr_get_helper_device(drvdata,
-> +			CORESIGHT_DEV_SUBTYPE_HELPER_CATU);
->   	buf_hw->has_resrv = tmc_has_reserved_buffer(drvdata);
->   }
->   
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-> index c9a82ff6cd00..7690a70069da 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc.h
-> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-> @@ -471,7 +471,8 @@ static inline uint32_t find_crash_tracedata_crc(struct tmc_drvdata *drvdata,
->   	return crc32_le(0, (void *)drvdata->resrv_buf.vaddr, crc_size);
->   }
->   
-> -struct coresight_device *tmc_etr_get_catu_device(struct tmc_drvdata *drvdata);
-> +struct coresight_device *tmc_etr_get_helper_device(struct tmc_drvdata *drvdata,
-> +						   enum coresight_dev_subtype_helper subtype);
->   
->   void tmc_etr_set_catu_ops(const struct etr_buf_operations *catu);
->   void tmc_etr_remove_catu_ops(void);
-> 
+>  .../boot/dts/nuvoton/ma35d1-iot-512m.dts      | 33 +++++++++++++++++++
+>  .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 32 ++++++++++++++++++
+>  arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 32 ++++++++++++++++++
 
+Did you answer my question about what these represent?
+
+I _think_ your .dts{i} files are all messed up and need
+re-architecturing.
+
+arch/arm64/boot/dts/nuvoton/ma35d1.dtsi should represent the SoC.
+
+There should be a .dtsi file which represents everything on the SOM.
+This includes the SoC .dtsi file.
+
+There should be a .dts file for the carrier board. It should include
+the SOM .dtsi file.
+
+You said one of the boards does not use the SOM, so it can directly
+import the SoC .dtsi file.
+
+>  3 files changed, 97 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
+> index 9482bec1aa57..ee32cedf3d9b 100644
+> --- a/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
+> +++ b/arch/arm64/boot/dts/nuvoton/ma35d1-iot-512m.dts
+> @@ -18,6 +18,8 @@ aliases {
+>  		serial12 = &uart12;
+>  		serial13 = &uart13;
+>  		serial14 = &uart14;
+> +		ethernet0 = &gmac0;
+> +		ethernet1 = &gmac1;
+>  	};
+>  
+>  	chosen {
+> @@ -126,3 +128,34 @@ &uart14 {
+>  	pinctrl-0 = <&pinctrl_uart14>;
+>  	status = "okay";
+>  };
+> +
+> +&gmac0 {
+> +	phy-handle = <&eth_phy0>;
+
+This is a .dts file, so represents a board. You said the PHYs are on
+the board, not the SOM. So this is correct.
+
+
+> +	status = "okay";
+> +
+> +	mdio0: mdio {
+> +		compatible = "snps,dwmac-mdio";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+
+The MDIO bus is a property of the SoC. It always exists, even if it is
+not used. So the mdio node should be in the SoC .dtsi file.
+
+> +		eth_phy0: ethernet-phy@0 {
+> +			reg = <0>;
+> +		};
+
+The PHY is a property of the board, so should be in the board .dts
+file. 
+
+> +	};
+> +};
+> +
+> +&gmac1 {
+> +	phy-mode = "rmii";
+> +	phy-handle = <&eth_phy1>;
+> +	status = "okay";
+
+Correct.
+
+> +
+> +	mdio1: mdio {
+> +		compatible = "snps,dwmac-mdio";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+
+Wrong.
+
+> +
+> +		eth_phy1: ethernet-phy@1 {
+> +			reg = <1>;
+> +		};
+
+Correct.
+
+> +	};
+> +};
+> diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
+> index f6f20a17e501..b1b3e45280d5 100644
+> --- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
+> +++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
+> @@ -18,6 +18,8 @@ aliases {
+>  		serial12 = &uart12;
+>  		serial14 = &uart14;
+>  		serial16 = &uart16;
+> +		ethernet0 = &gmac0;
+> +		ethernet1 = &gmac1;
+>  	};
+>  
+>  	chosen {
+> @@ -129,3 +131,33 @@ &uart16 {
+>  	pinctrl-0 = <&pinctrl_uart16>;
+>  	status = "okay";
+>  };
+> +
+> +&gmac0 {
+> +	phy-handle = <&eth_phy0>;
+> +	status = "okay";
+> +
+> +	mdio0: mdio {
+> +		compatible = "snps,dwmac-mdio";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		eth_phy0: ethernet-phy@0 {
+> +			reg = <0>;
+> +		};
+> +	};
+> +};
+> +
+> +&gmac1 {
+> +	phy-handle = <&eth_phy1>;
+> +	status = "okay";
+> +
+> +	mdio1: mdio {
+> +		compatible = "snps,dwmac-mdio";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		eth_phy1: ethernet-phy@1 {
+> +			reg = <1>;
+> +		};
+> +	};
+> +};
+
+Same problem as above.
+
+> --- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+> +++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
+
+This represents the SoC.
+
+> @@ -379,5 +379,37 @@ uart16: serial@40880000 {
+>  			clocks = <&clk UART16_GATE>;
+>  			status = "disabled";
+>  		};
+> +
+> +		gmac0: ethernet@40120000 {
+> +			compatible = "nuvoton,ma35d1-dwmac";
+> +			reg = <0x0 0x40120000 0x0 0x10000>;
+> +			interrupts = <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "macirq";
+> +			clocks = <&clk EMAC0_GATE>, <&clk EPLL_DIV8>;
+> +			clock-names = "stmmaceth", "ptp_ref";
+> +
+> +			nuvoton,sys = <&sys 0>;
+> +			resets = <&sys MA35D1_RESET_GMAC0>;
+> +			reset-names = "stmmaceth";
+> +
+> +			phy-mode = "rgmii-id";
+
+PHY mode is a property of the board. The board might have extra long
+clock lines, so needs 'rgmii'. The board might use MII?
+
+Please think about the hierarchy.  SoC -> SoM -> board. Put the
+properties at the correct level.
+
+    Andrew
+
+---
+pw-bot: cr
 
