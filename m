@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4845D19503
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F67D19501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R/PKuQqJhmcmf0FdDQDCr8/x7Yh0ZaImvK0r2Y0Qm/o=; b=A4C1WtOHnGX5mRRDN/NoGxAY73
-	xr7bJuOxOEsu8f3iqHFfrQBDtXwCs0PWfolVfPw883jBeo9Pz1tsY/Kgd+TCtBLVh1BEMJtNlGkqF
-	4jt/s+wVEDDyjEeorlY5g3S/eScBbf58aY0Njiu7AcYGNdaDmuWj/M5L40htsCgQ0xNh+i9gNo6uQ
-	S8Ih/Qr0dhTLkM7WBNEJOpy+i8+FjWOABGyyUlFieyJRhEz2icx4b9+GnlkoaeaWPdo6UUGe4rMEE
-	ocFxObwupKUGnD12wvJGV2MXqVD8At/orn40RHRxfGB8EXmg/50WdrPB08FqWXuubZXOSs/AZuhLf
-	g2AZ/AdA==;
+	bh=URd/ONh2/S9cNJVZREq3Fly7rFEXScu5qM+CsEx4Im0=; b=p2Y2vskRu0a2bNgWUK6QdsroZ2
+	2DyBKX4wyiT2eOoGRofVbu/rVVz2GrIBWta1y7Zbb72lnnX/aFJEqIXF3FSc0CUYGW0Lbr0oiG1kt
+	I3J5a8Q3p/JBsOlhW9hpyrxp2+JOjrP/6zLhPBYtry1jYMFUuOgIhYxnkkb1cvkrO0CfzL6/okLn3
+	anPecvyt+/+8Kfz0q4vVWwJd6KE2j/I6ayC7sWH4IbZ2BZr1I4jENxXtMF7K+l5d3Z5SoVXdu8cpE
+	HYZo36iNVUuwu44iTueE1D50q0nGnS5gG5mQhBGwx2aMBfO1a8M0srNlmDcdPL1H6pBx2OdGTk6fk
+	Wb0WvP7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPM3-0000000Cr4D-0aCd;
-	Mon, 26 Jan 2026 16:22:19 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vkPM2-0000000Cr3s-3ZEl;
+	Mon, 26 Jan 2026 16:22:18 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkPLz-0000000Cr2M-1WiM
+	id 1vkPLx-0000000Cr1p-25v3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 16:22:16 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-48039fdc8aeso24821415e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 08:22:14 -0800 (PST)
+	Mon, 26 Jan 2026 16:22:14 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-47f5c2283b6so35680795e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 08:22:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769444533; x=1770049333; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1769444532; x=1770049332; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=R/PKuQqJhmcmf0FdDQDCr8/x7Yh0ZaImvK0r2Y0Qm/o=;
-        b=VXDcDtpJ/4Hdw9xfYpp4SNxPmZyFo42ZccSvUlBOHv5rveJvzRlI1NOpv10EID1KZM
-         jkFrZ2WRgPNjrIG6d/NarKdtIkAOt0LVFK5YvgdkuwPT37JE5YINafu2JUXcgbPTZ2+U
-         0FIsi5+YVBBt7u33fo5bLJ5dbfe8CklrPlqD2BJsafhoZpsBrlNN8vMCZJo2cv984DBg
-         YLHGysb8JKj3eP7EncUvlSQMnsv37PhRlloXLk5V3+No0u5bPdcbX1fCZMt848MwxL33
-         BG6sL8wsAqQqHwF6A59+PRHt3eRXlB7XKgayIEnjVtouCPT6JZpLdb9RrzqTDTB029wa
-         z3FA==
+        bh=URd/ONh2/S9cNJVZREq3Fly7rFEXScu5qM+CsEx4Im0=;
+        b=LKILSwJzj63XcPMNNxJ+M9wQkxpxhGXsnLRm9gnxona5VXBTX1NInTUgAl7zFibmUJ
+         9j6tu+VXB/KKX3Wuf0ggBZwXhAeCf6qpq4rXYQMaJSOtoM6mmRV7Y8x73gX3cjU4zZzo
+         pTyPZ7XvzrFsCiWeCFVHlodNON37wtAX8ocIMsW+rebI6WCbTQtEnTHnOSixvg85xClx
+         yEeTRNmEV0OKkY27MsfHzPvQ0sRs+IIQ1ssTa5CQqeHJ2edfPnfVFRuSPfTHvCYFYs1e
+         z830e5SxySFJWdbm6xhkCrFPYSJHp9Ah4cR4rvbakkPp705AKL6JwroKB4UjjLEf78zo
+         cwhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769444533; x=1770049333;
+        d=1e100.net; s=20230601; t=1769444532; x=1770049332;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=R/PKuQqJhmcmf0FdDQDCr8/x7Yh0ZaImvK0r2Y0Qm/o=;
-        b=jtIjkVNTAz8M6/hR9x8Lkcoi6zej+fxtg24Kn6u7PC6N6Cw138vQ+qdlM5mh4/ygtd
-         cWmYDozOSzqkwZN4RaPxrMDxv6KDPlUD4yz1TkbU8oN7/t9w4BJEZrvgKaRLG2Y5mTkM
-         t1y3ASTO8yTdFSX3PFYqV+4g/AcTJGEv1zK7dCQhQqI9v48a8C+k6EXSHtFHWVC4QI4I
-         /CXHEdumZNxLm91UiMK2fnHriN6mBdKuMI6xbHR8zV6lH3oYvLA99NYrFeOWDMxXhLX+
-         Ds1hPYUTdzS1EeloJyRwkk67wbX8HlPM0IkZSTSYD0UPWPYP90HP/pKPuZw4JpFS9KlD
-         SeXA==
-X-Forwarded-Encrypted: i=1; AJvYcCXXIeynt/0rOv0oNfNeueOmFVR1A3MmO+YBfcHf6uJ7VwqEeQlggMt4ENzz+U3iTsgnZmzk0dx7EcQHyT/wpZqi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzpf5QqbhXjFObwdSwGptsFIPNva5qXxnEM0uAZfvgtcrvpVDbg
-	Je+kfomaZKxzkLCgd32p7L8G38dcTX79PCUThylqCot/J4irLChUoJ3V
-X-Gm-Gg: AZuq6aIbwrxPlg7kmKh2ZEKYvWPvKiKRffItQQhiG2EEU19YlqLMwxTKGI4X7CaqNs6
-	Js4iaMTHU2d0e0zjWfnCHAMcvZe2ECAcRIvvINQqgiFXtjwmupfL70sz3h4ZyzBgRafgWVRc0WC
-	2VMxq99iUeaPqZuXWkDgsPGqkNxy7ZFIn6FFn5yASS3eIpcj0ErSXHBfM5nVEIXB6Drbz5RmQtB
-	5SfZPIENyfmcTr9Q9TM385gV3/ChUSF5gY1E4UL98sWdCM354Uis/A4wS1N+X57p0IEtHZjllgv
-	SdbVr30dIIoVIGjUONJlikOG1CK+422aqHQrIZeu0wmC7L8cW97P39qVYPM0KILnb41GHeAUHTt
-	06TfyLqWtS6WNO+kKABHm/dy6y6f1hdn9FfEQdBVspXl1gdk9CPEw0fB523yjLkiMfGzVEMnTQo
-	0uHk/kmSymOlhNw/BufP/vzsXh2B9lsJk8gDyOWg==
-X-Received: by 2002:a05:600c:6748:b0:479:2651:3f9c with SMTP id 5b1f17b1804b1-4805ce4e654mr79695865e9.14.1769444533295;
-        Mon, 26 Jan 2026 08:22:13 -0800 (PST)
+        bh=URd/ONh2/S9cNJVZREq3Fly7rFEXScu5qM+CsEx4Im0=;
+        b=KV4QQxpKSvlgzaWZmuBSFGowSQ+IIyQMWQcpr5hoXzy0QLrP2FuXh7Uwnyz9i+1YOB
+         vrftyITKur0SgWXV8wU2pv3JftNd3K5Ksh3+tt5fxhXUnmgdVyKBzStkigXdtFDxffPS
+         bP8aq41bbDpqYtUz+80sFxagTHVSIBCIwtpwxIjPMUcE6iepT2Fpk+C8nUxzGsSrfvBe
+         7HRwepYRMQ19r2LUOu9ko0OZ3dBbuqJrjYb9j3dkcYMCgaRQ70r7w+Clc0b0qhr4i26c
+         QehtvB0VPWaEOaJTavT0mSxxOIs1+6mTBy0xREr67rlBR29gkWXcO1Jvtv8VxdEae4bt
+         h+0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUgODmafkFzd2MtcGBJxgb/muWdpxQVZ57oYEJEbjky/Ng1PXZhHE6smAM9C+5b/oEfVcByiXqZsqkWm1N2J6qP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw02JG5FjEe55eeZHrVa/J5hOLlvhB/KyiFDy+7AQ76N5orTQIA
+	CiNNNXaNZL74bCXpAC0hub5kvD6QJRpKkVtN1P5YNpV7pKT2HbzzUaac
+X-Gm-Gg: AZuq6aLLLSAGpJnr2xwN0qp4aodVpgRBPNCGsPFSTl4u5l4fTphDuA4RldsDIDvDAUX
+	Yjo2Tv8efO2F0Se/dUbQq/8FTo4DhclQc+o0G0HumeKOuTWWUHHtjW0KwxB1f5m9421OaPqFn+y
+	3w+2UOA4J/lljX5wKuGOdPwFvU/y9QvmKBkSMFV7XfsDgXpfsDTcoFaCgXQ+E1bdyzRBbhPyj5t
+	DO/TuZ0b/saqtI5tylF6iRWiAeD1yh6IedyoZkR1sjPIZ1XiP5fs9Rpda5gsW3+sZcYtJ918fQH
+	MtcX84neQMWVXNP7iC8Td0EMB38+T87pnDGeCTGpy793x0dIt4jV3vqpBwtnxnQC6oeuevr9kjB
+	/5XxZ3b2lYAjU2xpU/+v7m8fTDeKFoRMwISIpCl2i827tX70jQbUn0dgq0dxNcbc2tYr2CqMeP6
+	K6w3Vc1Jc0xC43oML1Icj1D5f/lUSLGkXH1W65GQ==
+X-Received: by 2002:a05:600c:35c2:b0:47f:b737:5ce0 with SMTP id 5b1f17b1804b1-4805cf66771mr88446235e9.23.1769444531205;
+        Mon, 26 Jan 2026 08:22:11 -0800 (PST)
 Received: from SMW024614.wbi.nxp.com ([128.77.115.158])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-480470cf1acsm370371035e9.14.2026.01.26.08.22.11
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-480470cf1acsm370371035e9.14.2026.01.26.08.22.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jan 2026 08:22:12 -0800 (PST)
+        Mon, 26 Jan 2026 08:22:10 -0800 (PST)
 From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
 To: Philipp Zabel <p.zabel@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
@@ -79,17 +79,17 @@ Cc: imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH v7 2/4] reset: imx8mp-audiomix: Switch to using regmap API
-Date: Mon, 26 Jan 2026 08:22:01 -0800
-Message-ID: <20260126162203.708-3-laurentiumihalcea111@gmail.com>
+Subject: [PATCH v7 1/4] reset: imx8mp-audiomix: Drop unneeded macros
+Date: Mon, 26 Jan 2026 08:22:00 -0800
+Message-ID: <20260126162203.708-2-laurentiumihalcea111@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260126162203.708-1-laurentiumihalcea111@gmail.com>
 References: <20260126162203.708-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_082215_430079_2559E25A 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20260126_082213_577390_CF16ABBC 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,174 +106,67 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Switch to using the regmap API to allow performing register operations
-under the same lock. This is needed for cases such as i.MX8ULP's SIM LPAV
-where clock gating, reset control and MUX-ing is performed via the same
-register (i.e. SYSCTRL0) and different subsystem APIs.
+The macros defining the mask values for the EARC, EARC PHY resets,
+and the DSP RUN_STALL signal can be dropped as they are not and will
+not be used anywhere else except to set the value of the "mask" field
+from "struct imx8mp_reset_map". In this particular case, based on the
+name of the "mask" field, you can already deduce what these values are
+for, which is why defining macros for them doesn't offer any new
+information, nor does it help with the code readability.
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
- drivers/reset/reset-imx8mp-audiomix.c | 92 +++++++++++++++++----------
- 1 file changed, 57 insertions(+), 35 deletions(-)
+ drivers/reset/reset-imx8mp-audiomix.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
-index acfa92b15329..f6152c0cc5ff 100644
+index eceb37ff5dc5..acfa92b15329 100644
 --- a/drivers/reset/reset-imx8mp-audiomix.c
 +++ b/drivers/reset/reset-imx8mp-audiomix.c
-@@ -12,6 +12,7 @@
+@@ -6,6 +6,7 @@
+ #include <dt-bindings/reset/imx8mp-reset-audiomix.h>
+ 
+ #include <linux/auxiliary_bus.h>
++#include <linux/bits.h>
+ #include <linux/device.h>
+ #include <linux/io.h>
  #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-+#include <linux/regmap.h>
+@@ -14,11 +15,7 @@
  #include <linux/reset-controller.h>
  
  #define IMX8MP_AUDIOMIX_EARC_RESET_OFFSET	0x200
-@@ -43,8 +44,7 @@ static const struct imx8mp_reset_map reset_map[] = {
+-#define IMX8MP_AUDIOMIX_EARC_RESET_MASK		BIT(0)
+-#define IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK	BIT(1)
+-
+ #define IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET	0x108
+-#define IMX8MP_AUDIOMIX_DSP_RUNSTALL_MASK	BIT(5)
  
- struct imx8mp_audiomix_reset {
- 	struct reset_controller_dev rcdev;
--	spinlock_t lock; /* protect register read-modify-write cycle */
--	void __iomem *base;
-+	struct regmap *regmap;
+ struct imx8mp_reset_map {
+ 	unsigned int offset;
+@@ -29,17 +26,17 @@ struct imx8mp_reset_map {
+ static const struct imx8mp_reset_map reset_map[] = {
+ 	[IMX8MP_AUDIOMIX_EARC_RESET] = {
+ 		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
+-		.mask	= IMX8MP_AUDIOMIX_EARC_RESET_MASK,
++		.mask = BIT(0),
+ 		.active_low = true,
+ 	},
+ 	[IMX8MP_AUDIOMIX_EARC_PHY_RESET] = {
+ 		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
+-		.mask	= IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK,
++		.mask = BIT(1),
+ 		.active_low = true,
+ 	},
+ 	[IMX8MP_AUDIOMIX_DSP_RUNSTALL] = {
+ 		.offset	= IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET,
+-		.mask	= IMX8MP_AUDIOMIX_DSP_RUNSTALL_MASK,
++		.mask = BIT(5),
+ 		.active_low = false,
+ 	},
  };
- 
- static struct imx8mp_audiomix_reset *to_imx8mp_audiomix_reset(struct reset_controller_dev *rcdev)
-@@ -56,26 +56,14 @@ static int imx8mp_audiomix_update(struct reset_controller_dev *rcdev,
- 				  unsigned long id, bool assert)
- {
- 	struct imx8mp_audiomix_reset *priv = to_imx8mp_audiomix_reset(rcdev);
--	void __iomem *reg_addr = priv->base;
--	unsigned int mask, offset, active_low;
--	unsigned long reg, flags;
-+	unsigned int mask, offset, active_low, val;
- 
- 	mask = reset_map[id].mask;
- 	offset = reset_map[id].offset;
- 	active_low = reset_map[id].active_low;
-+	val = (active_low ^ assert) ? mask : ~mask;
- 
--	spin_lock_irqsave(&priv->lock, flags);
--
--	reg = readl(reg_addr + offset);
--	if (active_low ^ assert)
--		reg |= mask;
--	else
--		reg &= ~mask;
--	writel(reg, reg_addr + offset);
--
--	spin_unlock_irqrestore(&priv->lock, flags);
--
--	return 0;
-+	return regmap_update_bits(priv->regmap, offset, mask, val);
- }
- 
- static int imx8mp_audiomix_reset_assert(struct reset_controller_dev *rcdev,
-@@ -95,6 +83,52 @@ static const struct reset_control_ops imx8mp_audiomix_reset_ops = {
- 	.deassert = imx8mp_audiomix_reset_deassert,
- };
- 
-+static const struct regmap_config regmap_config = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+};
-+
-+/* assumption: registered only if not using parent regmap */
-+static void imx8mp_audiomix_reset_iounmap(void *data)
-+{
-+	void __iomem *base = (void __iomem *)data;
-+
-+	iounmap(base);
-+}
-+
-+static int imx8mp_audiomix_reset_get_regmap(struct imx8mp_audiomix_reset *priv)
-+{
-+	void __iomem *base;
-+	struct device *dev;
-+	int ret;
-+
-+	dev = priv->rcdev.dev;
-+
-+	/* try to use the parent's regmap */
-+	priv->regmap = dev_get_regmap(dev->parent, NULL);
-+	if (priv->regmap)
-+		return 0;
-+
-+	/* ... if that's not possible then initialize the regmap right now */
-+	base = of_iomap(dev->parent->of_node, 0);
-+	if (!base)
-+		return dev_err_probe(dev, -ENOMEM, "failed to iomap address space\n");
-+
-+	ret = devm_add_action_or_reset(dev,
-+				       imx8mp_audiomix_reset_iounmap,
-+				       (void __force *)base);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to register action\n");
-+
-+	priv->regmap = devm_regmap_init_mmio(dev, base, &regmap_config);
-+	if (IS_ERR(priv->regmap))
-+		return dev_err_probe(dev, PTR_ERR(priv->regmap),
-+				     "failed to initialize regmap\n");
-+
-+	return 0;
-+}
-+
- static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
- 				       const struct auxiliary_device_id *id)
- {
-@@ -106,36 +140,25 @@ static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
- 	if (!priv)
- 		return -ENOMEM;
- 
--	spin_lock_init(&priv->lock);
--
- 	priv->rcdev.owner     = THIS_MODULE;
- 	priv->rcdev.nr_resets = ARRAY_SIZE(reset_map);
- 	priv->rcdev.ops       = &imx8mp_audiomix_reset_ops;
- 	priv->rcdev.of_node   = dev->parent->of_node;
- 	priv->rcdev.dev	      = dev;
- 	priv->rcdev.of_reset_n_cells = 1;
--	priv->base            = of_iomap(dev->parent->of_node, 0);
--	if (!priv->base)
--		return -ENOMEM;
- 
- 	dev_set_drvdata(dev, priv);
- 
-+	ret = imx8mp_audiomix_reset_get_regmap(priv);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to get regmap\n");
-+
- 	ret = devm_reset_controller_register(dev, &priv->rcdev);
- 	if (ret)
--		goto out_unmap;
-+		return dev_err_probe(dev, ret,
-+				     "failed to register reset controller\n");
- 
- 	return 0;
--
--out_unmap:
--	iounmap(priv->base);
--	return ret;
--}
--
--static void imx8mp_audiomix_reset_remove(struct auxiliary_device *adev)
--{
--	struct imx8mp_audiomix_reset *priv = dev_get_drvdata(&adev->dev);
--
--	iounmap(priv->base);
- }
- 
- static const struct auxiliary_device_id imx8mp_audiomix_reset_ids[] = {
-@@ -148,7 +171,6 @@ MODULE_DEVICE_TABLE(auxiliary, imx8mp_audiomix_reset_ids);
- 
- static struct auxiliary_driver imx8mp_audiomix_reset_driver = {
- 	.probe		= imx8mp_audiomix_reset_probe,
--	.remove		= imx8mp_audiomix_reset_remove,
- 	.id_table	= imx8mp_audiomix_reset_ids,
- };
- 
 -- 
 2.43.0
 
