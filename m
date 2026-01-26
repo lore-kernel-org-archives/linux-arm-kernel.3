@@ -4,101 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF8AD1950C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 17:25:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 847C8D1950F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 17:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I8NCqtdKCDQg/h+vlP7+WRT2HIbB0HaXTUJf1+ishbw=; b=i2lvBcty8+fgUkL41MiIDP2zlv
-	sqX4kNfuQ2tdcsk2hEoOfmzcqWuPUzK7UnPwYlAe0IdShrb2n19X9ocGPTLw+IoSvPz973kZzbFGn
-	ddIPP5vERaFQ1LiUwLd6+rKRH4ClBjoJ7URiGSs9LwFBx1/juj6B9Ep/y90yWd8XI4lbL/uQgyJVx
-	hAjagAMQPjWsn2NfI70ykt5hTdGn23apOrsOgo/7Bec8Rea8GXv91Lp8MzoNyokCLuXZ4bFd4y+PV
-	wxtNl76m1nrMf0hS9UaHD59hMHcBhJt+CVKDnBB0yaNZVImnxTThpOMyYPDom2un4WAcSZjdnK67y
-	SWcpkJyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=h2l2VsX/8R5W80Gwmwfk77TtbOOheZyGre7BqV1n0/g=; b=sUwI3yPYFzAzyx
+	tj2dlzHAlG5G5eyX87QrWg2stdik7UnOaVS3oB/tRv5Ypm+wSwN59/FCHN1QpehBQH9b+B4u9z8XH
+	HHDMBBKbRr8Vf9Xc+l9K54WJhLTUCcwD7Q+MWoKnbri7fSNJ9baY4uccmrhtNPW9YMuQvcaSFH2Cl
+	V5xwPJEkxuPPCt4Ju8+nbEK3Co1Vyby9lfBE7WGP9ytu0MYXdozswIZLOEMJtMdjoUxOIAqLmtxbW
+	ZK0olRhaQncbk8FmYzUeejmz/B7tL2EypsZCFEAsZJ3/TEbiJzTGYZUA8DLx5XUbdmNhm2+iW3ihb
+	QwE4FL4UWKZmtPVHVhxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkQL2-0000000Cy0T-2Ll4;
-	Mon, 26 Jan 2026 17:25:20 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1vkQMr-0000000CyAT-42I5;
+	Mon, 26 Jan 2026 17:27:13 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkQL0-0000000Cxzp-2BjV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 17:25:19 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-435903c4040so2915081f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 09:25:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769448316; x=1770053116; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=I8NCqtdKCDQg/h+vlP7+WRT2HIbB0HaXTUJf1+ishbw=;
-        b=Z9zO9BVdl/pfwG+Dhxt4fsH5QvHiX++q8XPrMUPoig5yoqo7xDuQguMj6rOuBKDAB8
-         KnIgvWnLYJDOVVrPAx8K9DXhJZ3ceE4GJYWanOA+o9GAVIxPzJh4Qsx4g2CPel1gQpFX
-         tXCaY+C9X04CvzZie72vIjqzH7KAMe9wm0If4R1ry/Eatbfx4ZQjKrygs9Jp+qhgSkfN
-         1Nj3KmZzqW6ckwEwjXpqMJFvKsj4Qe9aJxyQTgSOeHVb40VT56eCjN5j48Lh4/GzYoJt
-         2lTOXMRZ7VIl+dv1Ri3TeJvv6BTuyoAVxk/h+NDNbCQRDe6VWPJrPtQ/61Q9pJNS3/XJ
-         Exrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769448316; x=1770053116;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=I8NCqtdKCDQg/h+vlP7+WRT2HIbB0HaXTUJf1+ishbw=;
-        b=j+McSC94AKI1OmsjMVxMeyMSnraMvkitwwocSzLxpGh5z4ws13vd2uh/ck9oh7cMWj
-         FejRUU6QQsbtYbMxz0glEZPtXGt3cGXWeEsL/dOpkUNpHaAGrKx0CIkd7DLZA71tWEIr
-         VtTNe1yFnAq1ZjQt9DYWUaZJRO7pPgIiZRHeCpHO+MrqYn7j5h0HzZ8fF8Q5Q2F4ZkcH
-         YAIh7dshIWi5GG2ugHj1sZ5tDOVPkFiTdSLb2UWarwbxKL0NewNrg2GCERa3EtZci7MN
-         o93aob4bG12DtzFjLi7QKutbu7+lmvFIKlajwOrAmegKHPHGh3yMq65u4YlXxWJPZTM7
-         yuNw==
-X-Forwarded-Encrypted: i=1; AJvYcCW6VQ8S8YV/4PdKxyknFXdHByvSEb16DcUiaChWwy1Ot7w+THvKMUshfD61a6E1MSVTtSi9x1WTBnkEXUHfC2EY@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWo2hJdfKbDxo8fIj9AIe3k7mNnBaIYzw1ks4T/dNXJj1ONXn2
-	SX/obBacpWvzzJQX/7huRsF9MQN98tZFn2q6UaDS0EJ7vk61bSPx1Cwd
-X-Gm-Gg: AZuq6aIEyOO18A87ntEZb0EGU65BqhjnjeEzoQXfNZ/uxL7aWvpW9Rs4rM8a8wEvE2Q
-	4Q2eXTMQfXRbTUlVQEZ40h2A4Wbx0ZB6ednavjtqbtdKnxfuL+PDEWgLUgrCI962eY1XotbF+fO
-	rT+uNAZYOfEK7j/7Gurd+JilrEg3EkjdEszdhXYg9x1I+7KzDeNBdYu+Dq4qJmvEns5eoIxE+/p
-	671IsCEfzI7S4RHPpXAlB3Ob0we1oNCBMRK25HUR2FSk3ky65OeCM6IsHopSIOKZBRdpVzb9/nI
-	RZN9I9qn26o2R+bML9539CVJ2f9dPygWiw4ellpYiMgiMZw1IbxK8CVg+EEE2uV/5FqmjdN+jiS
-	tVpDsQQhc72GKCr1x1Gnym41Jt29XQM9z0aZBCPKoynka7USFfTy4k4WDyv/WQKAQicd5wrx1Ab
-	gBsNHwspZ3rnJgwApRi99aR/qpV+JM666kclgx0d011LB8bQmSR7EyHFwacj52/iTj6yL55ADk8
-	KYYV2+rfZasEDz0+mw3ljElT8pDCo0FbE+j+sBHw/oB
-X-Received: by 2002:a05:6000:2889:b0:435:9e32:2b78 with SMTP id ffacd0b85a97d-435ca0f7b5cmr7897753f8f.1.1769448315992;
-        Mon, 26 Jan 2026 09:25:15 -0800 (PST)
-Received: from iku.example.org ([2a06:5906:61b:2d00:6788:ac2b:89cc:7ade])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435b1c24bf8sm31288531f8f.11.2026.01.26.09.25.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jan 2026 09:25:15 -0800 (PST)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	netdev@vger.kernel.org
-Cc: linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [RFC PATCH net-next] net: stmmac: Preserve bootloader MAC address across unconditional reset
-Date: Mon, 26 Jan 2026 17:25:03 +0000
-Message-ID: <20260126172503.238724-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.52.0
+	id 1vkQMp-0000000Cy9s-28Pq;
+	Mon, 26 Jan 2026 17:27:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Message-Id:Date:Subject:From:Sender:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=h2l2VsX/8R5W80Gwmwfk77TtbOOheZyGre7BqV1n0/g=; b=FqZV7D8x3C0Zo1qP6Iios/U9Ul
+	zpuLSVD5VXh2huooyiLrAAOEkPIU84Wicthc7ngLajJLPWEiqQSz1+IQM0x2bJLfdCJ9GTMMCAQPo
+	uolxjmMM0GcZrRAechgcfg6QIBAxNmlTwsM5iU8SKS5slhhY4hrcuueZIJH6/L6MU/O7dYl3l8cvX
+	TtoVEyrbKMveL9zDY05db//ZQAuvnvpjhESRMWA4RZ7V/jQGwms+GdVksrD1iMH54qPZbxDOnenf9
+	AcKmqWQwo6SscPKAr1U6zcCxkBK+h74DNOFd9KXb90b9aJSYb0k/b4r6pApSUZg3bMHY+R4IdAAe5
+	Wfp9RBpA==;
+Received: from [187.36.210.68] (helo=1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa)
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1vkQMf-00A8mi-Aw; Mon, 26 Jan 2026 18:27:01 +0100
+From: =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Subject: [PATCH v4 0/6] Power Management for Raspberry Pi V3D GPU
+Date: Mon, 26 Jan 2026 14:26:36 -0300
+Message-Id: <20260126-v3d-power-management-v4-0-caf2df16d4e2@igalia.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAMyjd2kC/4XNSwqDMBCA4atI1k3JJDHGrnqP0kU0owbqgyhpi
+ 3j3RqHQUqTLf5j5ZiYjeocjOSUz8Rjc6PouhjwkpGxMVyN1NjbhjKcs45oGYenQ39HT1nSmxha
+ 7iSIWRdyQtswViaeDx8o9NvZyjd24cer9c/sSYJ3+AQNQRjPNqpzzApjUZ1ebmzPHsm/JKgb+o
+ QjYUXhUmOA2VQWDXMkfRbwVxQDUjiKiIhF0JlGDtepLWZblBSo28u5FAQAA
+X-Change-ID: 20250728-v3d-power-management-eebb2024dc96
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Stefan Wahren <wahrenst@gmx.net>, Maxime Ripard <mripard@kernel.org>, 
+ Melissa Wen <mwen@igalia.com>, Iago Toral Quiroga <itoral@igalia.com>, 
+ Chema Casanova <jmcasanova@igalia.com>, Dom Cobley <popcornmix@gmail.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ kernel-dev@igalia.com, =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4539; i=mcanal@igalia.com;
+ h=from:subject:message-id; bh=hj+uwXXOqjjow7+1ZQCGFkYOlTxy8CW72WoLmBX2f1Q=;
+ b=owEBbQGS/pANAwAIAT/zDop2iPqqAcsmYgBpd6Pdq8j28y2sNkGyeMvtHL3stY7GXNKttpCcw
+ 92V+yJdh/+JATMEAAEIAB0WIQT45F19ARZ3Bymmd9E/8w6Kdoj6qgUCaXej3QAKCRA/8w6Kdoj6
+ qnGJB/0Y/llrEvbqFYIGw7eAd8tTTt0agIGxoEyTeEdttPxU1lgXF/Vf8PeppXIOX9Enwgiic6t
+ mI6vVpojECcaIYjVmwUKt3v3NkVD0GyIjFwPQ7wPueM0tAhQPToNmX9HtFN+D5CgAjaetgkm0BX
+ wYXfKNIxN9Y/BpQ9/HPlJwvo61fuIWKAsOnO/8K35Re4alqGUJwrG1ph7PtvJ6lf4/OVqRvHQ38
+ T+w7DEgLEtUzc8JigsIjp9tvtSDrqwTdEGsgxgxKto/65IoUA0iQypJVqHJ5VZVvoJg9a0JrkVt
+ vq7ZPLuZeE2N7XztoA4WRZ0jLlWopGSG3r5qKJO6EeNX9Ykm
+X-Developer-Key: i=mcanal@igalia.com; a=openpgp;
+ fpr=F8E45D7D0116770729A677D13FF30E8A7688FAAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_092518_603039_40F73C41 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20260126_092711_845224_AFD3907F 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,174 +95,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+This series introduces Runtime Power Management (PM) support for the
+Raspberry Pi V3D GPU.
 
-Commit 90f522a20e3d1 ("NET: dwmac: Make dwmac reset unconditional")
-asserts a reset in probe when a reset controller is present. This reset
-clears the MAC address registers, so a valid address programmed by the
-bootloader gets lost and the driver falls back to a random address.
+Currently, the V3D clock remains enabled for the entire system uptime,
+even when the GPU is idle. With the introduction of Runtime PM, the
+clock can now be disabled during idle periods. For example, with this
+series applied on a Raspberry Pi 5, if we check `vcgencmd measure_clock
+v3d`, we get:
 
-Read the MAC address from the hardware registers before resetting the
-hardware. Keep the existing address selection logic when no valid
-address is found, and program the selected address back into the MAC
-after probe so it remains consistent in hardware.
+(idle)
 
-Export stmmac_bus_clks_config() so the early read path can enable the
-bus clocks before accessing the MAC registers.
+$ vcgencmd measure_clock v3d
+frequency(0)=0
 
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+(running glmark2)
+
+$ vcgencmd measure_clock v3d
+frequency(0)=960016128
+
+One particular change was required in v3 to ensure a meaningful
+reduction in idle power consumption: the V3D clock rate must be
+explicitly set to the minimum rate during suspend. As explained in an
+inline comment, this is needed as some firmware versions may not fully
+power off the clock when its state is set to off. This issue can be
+mitigated by setting the clock rate to 0 during suspend. For this same
+reason, PATCH 1/6 has been added in v3.
+
+Apart from that, the v3d patches are mostly identical to v2, but rebased
+on top of drm-misc-next.
+
+To ease testing in Raspberry Pi 4 and 5, I prepared a downstream branch
+backporting this series to rpi-6.18.y [1].
+
+[1] https://github.com/mairacanal/linux-rpi/tree/v3d/downstream/power-management-6.18
+
+Best regards,
+- Maíra
+
 ---
-Hi all,
+v1 -> v2: https://lore.kernel.org/r/20250728-v3d-power-management-v1-0-780f922b1048@igalia.com
 
-Sending this patch as an RFC if there is an alternative/better way to
-achieve this.
+- [1/5] NEW PATCH: "clk: bcm: rpi: Add missing logs if firmware fails" (Stefan Wahren)
+- [2/5] Remove the "Fixes:" tag (Stefan Wahren)
+- [2/5] dev_err_ratelimited() instead of dev_err() (Stefan Wahren)
+- [2/5] Instead of logging the clock ID, use clk_hw_get_name(hw) to log the name (Stefan Wahren)
+- [2/5] Add a newline character at the end of the log message (Stefan Wahren)
+- [2/5] Use CLK_IS_CRITICAL for all clocks that can't be disabled (Maxime Ripard)
+- [3/5] NEW PATCH: "clk: bcm: rpi: Maximize V3D clock"
+- [4/5] Use devm_reset_control_get_optional_exclusive() (Philipp Zabel)
+- [4/5] Make sure that resource are cleaned in the inverse order of allocation (Philipp Zabel)
 
-Cheers,
-Prabhakar
+v2 -> v3: https://lore.kernel.org/r/20250731-v3d-power-management-v2-0-032d56b01964@igalia.com
+
+- Rebased on top of drm-misc-next
+- Patches "[PATCH v2 1/5] clk: bcm: rpi: Add missing logs if firmware
+  fails", "[PATCH v2 2/5] clk: bcm: rpi: Turn firmware clock on/off when
+  preparing/unpreparing", and "[PATCH v2 3/5] clk: bcm: rpi: Maximize
+  V3D clock" were applied to clk-next.
+- [1/4] NEW PATCH: "clk: bcm: rpi: Let V3D consumers manage clock rate"
+- [2/4] NEW PATCH: "clk: bcm: rpi: Mark PIXEL_CLK and HEVC_CLK as CLK_IGNORE_UNUSED"
+- [3/4] Added Philipp's R-b (Philipp Zabel)
+- [4/4] s/drm_err/DRM_ERROR
+- [4/4] Set the clock rate to 0 during suspend and to the maximum rate
+  during resume
+
+v3 -> v4: https://lore.kernel.org/r/20260116-v3d-power-management-v3-0-4e1874e81dd6@igalia.com
+
+- Rebased on top of drm-misc-next
+- [1/6, 3/6] Add Melissa's A-b (Melissa Wen)
+- [2/6] NEW PATCH: "clk: bcm: rpi: Add a comment about RPI_FIRMWARE_SET_CLOCK_STATE
+  behavior" (Stefan Wahren)
+- [4/6] NEW PATCH: "drm/v3d: Use devm_reset_control_get_optional_exclusive()" (Melissa Wen)
+- [5/6] Include more context to the commit message (Melissa Wen)
+- [5/6, 6/6] Instead of creating the function v3d_gem_allocate(), use v3d_gem_init()
+  and move HW initialization out of it (Melissa Wen)
+
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 66 ++++++++++++++++++-
- .../ethernet/stmicro/stmmac/stmmac_platform.c |  3 +-
- .../ethernet/stmicro/stmmac/stmmac_platform.h |  2 +
- 3 files changed, 69 insertions(+), 2 deletions(-)
+Maíra Canal (6):
+      clk: bcm: rpi: Let V3D consumers manage clock rate
+      clk: bcm: rpi: Add a comment about RPI_FIRMWARE_SET_CLOCK_STATE behavior
+      clk: bcm: rpi: Mark PIXEL_CLK and HEVC_CLK as CLK_IGNORE_UNUSED
+      drm/v3d: Use devm_reset_control_get_optional_exclusive()
+      drm/v3d: Allocate all resources before enabling the clock
+      drm/v3d: Introduce Runtime Power Management
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 347a0078f622..171bf08d6242 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -44,6 +44,7 @@
- #include <net/page_pool/helpers.h>
- #include <net/pkt_cls.h>
- #include <net/xdp_sock_drv.h>
-+#include "stmmac_platform.h"
- #include "stmmac_ptp.h"
- #include "stmmac_fpe.h"
- #include "stmmac.h"
-@@ -7659,11 +7660,65 @@ struct plat_stmmacenet_data *stmmac_plat_dat_alloc(struct device *dev)
- }
- EXPORT_SYMBOL_GPL(stmmac_plat_dat_alloc);
- 
-+static int stmmac_read_mac_before_reset(struct stmmac_priv *priv,
-+					u8 *mac_addr)
-+{
-+	unsigned int hi_addr, lo_addr;
-+	int ret;
-+
-+	eth_zero_addr(mac_addr);
-+
-+	/* Deassert reset to allow hardware access */
-+	if (priv->plat->stmmac_rst) {
-+		ret = reset_control_deassert(priv->plat->stmmac_rst);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	/* Enable bus clocks to read MAC address */
-+	ret = stmmac_bus_clks_config(priv, true);
-+	if (ret) {
-+		dev_warn(priv->device, "failed to enable clocks: %d\n", ret);
-+		goto assert_reset;
-+	}
-+
-+	switch (priv->plat->core_type) {
-+	case DWMAC_CORE_GMAC4:
-+	case DWMAC_CORE_XGMAC:
-+		/* GMAC4/XGMAC: MAC Address0 High/Low Register */
-+		hi_addr = 0x300;  /* GMAC_ADDR_HIGH(0) */
-+		lo_addr = 0x304;  /* GMAC_ADDR_LOW(0) */
-+		break;
-+	case DWMAC_CORE_GMAC:
-+	case DWMAC_CORE_MAC100:
-+		/* GMAC/GMAC3/MAC100: MAC Address0 High/Low Register */
-+		hi_addr = 0x40;   /* GMAC_ADDR_HIGH(0) */
-+		lo_addr = 0x44;   /* GMAC_ADDR_LOW(0) */
-+		break;
-+	default:
-+		hi_addr = 0;
-+	}
-+
-+	if (hi_addr)
-+		stmmac_get_mac_addr(priv->ioaddr, mac_addr, hi_addr, lo_addr);
-+
-+	ret = 0;
-+
-+	stmmac_bus_clks_config(priv, false);
-+
-+assert_reset:
-+	if (priv->plat->stmmac_rst)
-+		reset_control_assert(priv->plat->stmmac_rst);
-+
-+	return ret;
-+}
-+
- static int __stmmac_dvr_probe(struct device *device,
- 			      struct plat_stmmacenet_data *plat_dat,
- 			      struct stmmac_resources *res)
- {
- 	struct net_device *ndev = NULL;
-+	u8 saved_mac_addr[ETH_ALEN];
- 	struct stmmac_priv *priv;
- 	u32 rxq;
- 	int i, ret = 0;
-@@ -7740,6 +7795,9 @@ static int __stmmac_dvr_probe(struct device *device,
- 	if ((phyaddr >= 0) && (phyaddr <= 31))
- 		priv->plat->phy_addr = phyaddr;
- 
-+	/* Save MAC address before reset (if bootloader programmed it) */
-+	stmmac_read_mac_before_reset(priv, saved_mac_addr);
-+
- 	if (priv->plat->stmmac_rst) {
- 		ret = reset_control_assert(priv->plat->stmmac_rst);
- 		reset_control_deassert(priv->plat->stmmac_rst);
-@@ -7768,7 +7826,13 @@ static int __stmmac_dvr_probe(struct device *device,
- 	if (priv->synopsys_id < DWMAC_CORE_5_20)
- 		priv->plat->dma_cfg->dche = false;
- 
--	stmmac_check_ether_addr(priv);
-+	if (is_valid_ether_addr(saved_mac_addr))
-+		eth_hw_addr_set(priv->dev, saved_mac_addr);
-+	else
-+		stmmac_check_ether_addr(priv);
-+
-+	/* Store the MAC address in hardware */
-+	stmmac_set_umac_addr(priv, priv->hw, priv->dev->dev_addr, 0);
- 
- 	ndev->netdev_ops = &stmmac_netdev_ops;
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 8979a50b5507..6f0393f2992d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -857,7 +857,7 @@ void stmmac_pltfr_remove(struct platform_device *pdev)
- }
- EXPORT_SYMBOL_GPL(stmmac_pltfr_remove);
- 
--static int stmmac_bus_clks_config(struct stmmac_priv *priv, bool enabled)
-+int stmmac_bus_clks_config(struct stmmac_priv *priv, bool enabled)
- {
- 	struct plat_stmmacenet_data *plat_dat = priv->plat;
- 	int ret;
-@@ -888,6 +888,7 @@ static int stmmac_bus_clks_config(struct stmmac_priv *priv, bool enabled)
- 
- 	return 0;
- }
-+EXPORT_SYMBOL_GPL(stmmac_bus_clks_config);
- 
- static int __maybe_unused stmmac_runtime_suspend(struct device *dev)
- {
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.h
-index 6e6561e29d6e..2d52197020a7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.h
-@@ -20,6 +20,8 @@ struct clk *stmmac_pltfr_find_clk(struct plat_stmmacenet_data *plat_dat,
- int stmmac_get_platform_resources(struct platform_device *pdev,
- 				  struct stmmac_resources *stmmac_res);
- 
-+int stmmac_bus_clks_config(struct stmmac_priv *priv, bool enabled);
-+
- int stmmac_pltfr_probe(struct platform_device *pdev,
- 		       struct plat_stmmacenet_data *plat,
- 		       struct stmmac_resources *res);
--- 
-2.52.0
+ drivers/clk/bcm/clk-raspberrypi.c |  15 ++--
+ drivers/gpu/drm/v3d/Makefile      |   3 +-
+ drivers/gpu/drm/v3d/v3d_debugfs.c |  23 +++++-
+ drivers/gpu/drm/v3d/v3d_drv.c     | 163 ++++++++++++++++++--------------------
+ drivers/gpu/drm/v3d/v3d_drv.h     |  21 +++++
+ drivers/gpu/drm/v3d/v3d_gem.c     |  25 +++---
+ drivers/gpu/drm/v3d/v3d_irq.c     |  15 ++--
+ drivers/gpu/drm/v3d/v3d_mmu.c     |  12 ++-
+ drivers/gpu/drm/v3d/v3d_power.c   |  96 ++++++++++++++++++++++
+ drivers/gpu/drm/v3d/v3d_submit.c  |  19 ++++-
+ 10 files changed, 273 insertions(+), 119 deletions(-)
+---
+base-commit: 68e28facbc8ab3e701e1814323d397a75b400865
+change-id: 20250728-v3d-power-management-eebb2024dc96
 
 
