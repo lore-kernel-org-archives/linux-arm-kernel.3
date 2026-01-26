@@ -4,111 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D838BD19510
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 19:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3466D1950F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 19:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tvHi5BlR/jfPN2hk45XeIUKXD0zHTAJed9qhiZYAB1U=; b=PXWH5xe+RkP4IOQaQngiHLtazt
-	a+Vcbwauj+o1kSwmajlKYn1DvEzNjA/68gN/RY+SxPRfP6ET5KOdHdKqenxEK2fzidjClAE+8PGD8
-	ZYXjQKrfGyWT1Rv1C3+IfAeTrNiqQB4HnPGIt1Y8kLyhuvAv2F3hj/cy8V5IKCkDvEC3HLSPJeqdt
-	5X+5Pt7vTFKQPsfF1Ciaya0T8DkVs0p2yuyzRRgKl7vC5P0wYOF4b9R1//qUbwO+mJcT86gZ/yXwa
-	bl2g6mcbOBvtEEIlE+bswJzTsOQ2UdynrsIoVOBReldQedo7b1iWRJQry0V7+prjEyXxvaXPHx4MI
-	+OxCPxLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EIvDHxjEBk/q7zSGk0OAMTPAzA3q+FQQ/WT+Ixk4ezQ=; b=eqwh48D/Nwhie4pKe+pBiYYyex
+	/ugfmB485985HOvlRjyCP41b4xmtfBZCxLUbeOX9FG7kzmAfVFRykDEkdtaaj77bg5PpBL+0v/VbM
+	TxVsJo1q0s0iDe+cSzIsLamnR8rT+B6yb+8mBThoUSAg1YehCR1Z9ViTUACXIAM7tViDk++NEc3Aa
+	Q9rLStoJQM7OktnzEVLt2KRzvylE3pmHfcwRkPSSWxsJoLsjWeOLHxTbe9b/5krcBFREhxJ3okdQs
+	MBOImR96hrh5pn/9W1baR/O/VgojUxsWWqkqEvBRIYW06zichWNd3hwXcKzT7ikvI5HBSAH9Ori8f
+	asK1Z5pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkSZ8-0000000D9oK-3bAe;
-	Mon, 26 Jan 2026 19:48:02 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1vkSfV-0000000DA4s-2ju2;
+	Mon, 26 Jan 2026 19:54:37 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkSZ6-0000000D9nw-29gJ
+	id 1vkSfS-0000000DA4W-2oKw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 19:48:01 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-59b6c89d302so4787024e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 11:47:58 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769456877; cv=none;
-        d=google.com; s=arc-20240605;
-        b=HpFuOiUK4RmaCsXSPoi3mGYLBtSpbQcRBmawkugaQ8kTHmpXr40NQkjxtcuwlzKOYr
-         Y/nLVTZRsa7daxSeXaBVGGwT53t44RBu5eUlCjh8HsS1+lXrDUm5+QRkBcdSURH4oRM/
-         8xPaZSU0oRdtIRFNe5zT32mJoncHhENkZJ/HfiL6eTTUI6ZqbkWzs2lERYbJ1o7GA7i/
-         BJAbMR2L8Z+iVtszdtenD2yjNt/NKkmrBCL0UaDp4cfk+bScEQJ62O/mKS7Ms9yBSO4N
-         iMewJramCqej9TzgKnwV6GQlfUmWCWyf/DgrxxBRjFWJwgXbPoqYm4f54HLtYliYpsIV
-         rSVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=tvHi5BlR/jfPN2hk45XeIUKXD0zHTAJed9qhiZYAB1U=;
-        fh=W/DYtfwHq/cJi4VIiymXdo0Um8aXQ5BDIhcnjFuLP70=;
-        b=YXnfCHJGVCTmVEEtyeJgskz2k2TKXhjjiVt5ZaxrENxUupbQAJp9iQ+uRcBTYXbucQ
-         jItZ12VonYmi4iFSIatanpP34MUQuZ27gsRtGJgBQtibP+owy2dMrLTmJkngaCGsYp95
-         yVsh7MlyiALUW6KNcu/BLOF2iVGi/8aM3FWxLfVFvA8ANO8qpMguA14SmW/tJGuNx+jB
-         1a6EEA1/H4EmhA2NWoHmCOnBn+jKdl+gjBJQNMm8wkNklHg6y1YuZ1MW/k2Yk4apXdp0
-         Jx2eFhLqz3SOb5thpMiMrfnVIkPtFjpQWJwMGGGSHdxOMfl611BepJ7Yqtcq1+uewGxn
-         IqLQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 26 Jan 2026 19:54:35 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4801d7c72a5so37741785e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 11:54:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769456877; x=1770061677; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=google.com; s=20230601; t=1769457272; x=1770062072; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tvHi5BlR/jfPN2hk45XeIUKXD0zHTAJed9qhiZYAB1U=;
-        b=IBTa7wDTRQgtXCVCw+a/LPW8VJIj5Oc44Pxfdamp1hHSRwIdXnrYQ6TyJdgIkflNF2
-         yODWTzTo3H8uy8arKB3PzAMbAmZooDR2RYaEo7jyU2mwe/YEPR2moBGDmS/dY+3Y13+k
-         93OwSvYbuaCvq3kJiATwWdlcrcWuWjKxcvzoyk1VtxARjrWCZXlRs7XZ8ICJ99P9/ThT
-         P+LFsJ+TQgfiEe2Pa7P07XXVr1McacnX/P4c7EQiSB7PshcSQtA+aNaZwq26BZkxofE6
-         4zWaTssAHr1+zS3YkIx6vXVGgZRy90TgbirZzI2Cx+qLz/Cl0JU0SSIiPzewanFXJgN+
-         FWog==
+        bh=EIvDHxjEBk/q7zSGk0OAMTPAzA3q+FQQ/WT+Ixk4ezQ=;
+        b=q4cKN4kzYZto9Q9dCHQqZNwTC/GrlbVdelMstslFMz5Uro1Z1PLjsNyRGjzmtJPvva
+         atSYKovGe5My5HK6wADwSGCeQfSkIN/885j4IVNo0SsDq38j/9OIuueF5kfMIeULDE+T
+         CAhGQMrfxk5108i+qsXWSKk+hM2EiboT6Qkg3JaibbqL5ShuBuTjb9h174+ur9OShZxB
+         kB0CeTtPs3vDW2Hv4bYvRTqbOU7DktdDseKQbj8Cjnmc4exWaJG86KCPkKbnfld/p5Cd
+         mKnYNfa0e9ZWFoGfwZkcWO1KIJNd+o0nadgIs9GNhU9yFNdfzltfKTESbAeZjhTMusOF
+         wPIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769456877; x=1770061677;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20230601; t=1769457272; x=1770062072;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=tvHi5BlR/jfPN2hk45XeIUKXD0zHTAJed9qhiZYAB1U=;
-        b=p2j+g0bTRndO2hjaF/cpaFbX9ZLSkYEOrWKdlNRSW7PuAZIWk1NS7t/io7uo4YEpj/
-         nh7kjpbRzRfSFbfSfsS12C+nv4ydxW3VTOJ9uNAO2qS1FRAEtvfVXMt89ba6gJdOLC4J
-         eBWV4tOfU9G+rz1okkNYcVF4G2QolRmf3by1N7iWbHhMrOn1ptomRHKTkGTEgc6Rz9BO
-         hqpI7IUodojKdP+SFApvT0P2U7suc7DdwDaDNsfhLC1txvbPAlrr8f48watT2XDtwpSe
-         IVbjMVOKN1s5/1tdmV4zJ5tleX6ecs8JSes2+sMbTLKNROC+qcD1/lJ/vIHAjQ3oZsZK
-         KCog==
-X-Forwarded-Encrypted: i=1; AJvYcCVS66FXUtNPYygqE1gmOP+/rGveVCiZxvwaJNNn1S/hZ3lP6BVDczEprfYMRB3Aa1jEtRWtxLBsanDZ9tS+XEXC@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUMWOeDx0qllh5ZLtGb8b1zRC0bwRDlqBgiDMZTum0W1NPfQ6d
-	0sYaSMt4yaaek03WZQ7omcvITo9aLsyyfENByYX6RIQZMEA5f+oqKI4Gx+Vg1Y/p6CUJYr8PQD5
-	h40wSnj2IcORTtPEHikffg8J+YNx4XdI=
-X-Gm-Gg: AZuq6aKmMAfk+QlowLdGbWnROvMZSUXcxYOxanFPEOu744G/3dsWOL38hvJDO34BxqE
-	yZPubtWWetXlW2cNHF/xG4lXmygHG65YP6cduOEEw/pYuqbEdAT8eyilw1gKYmjAXDl8eTLrbdi
-	E1q8GgCAdpxoFVtxiTmPkjmwRW1qWqQOEolnMAMCCAp4/fNTkJhSN7SC1BeWAbQf1hlj8CIf3Zi
-	cBADS81YQr1C+FCd49ZWI7eWrSsy5AZiAXgWecSVD/03y8sFZf1h8q12rGhSoyvGiu1JpEr3AHr
-	cnTtQ5ZgjY6hU5ulvmh8ZUSYFUU=
-X-Received: by 2002:a05:6512:1087:b0:59d:e9f6:1391 with SMTP id
- 2adb3069b0e04-59df3a1408amr2177134e87.34.1769456877066; Mon, 26 Jan 2026
- 11:47:57 -0800 (PST)
+        bh=EIvDHxjEBk/q7zSGk0OAMTPAzA3q+FQQ/WT+Ixk4ezQ=;
+        b=CXUzhqHVtO2GjMbERMxHS7nm5uHuZHytto7ONKc6uCyPbHpQ+XOt392EZQqUqhXsJG
+         7RpRaYc+rL3uACur9vdztoFOzEWHqgVeoul7ChIrYCrsbpAPZiZow0vek70H+hezMxWG
+         LrwHNogoRNA0BPelgr4RRtLqV/toKz2hIcTJMZi+xbLNS34MtJJCnhPgNe5G8bv21G3A
+         mRVPjIaUMI5BdOzsIb/YvTR3IQyGCuHK0k6DqrlE9zegdM5ExYVPxjoU25Elv3soqplm
+         l9ishRwM/OocYV6Z42znJVjRMt4JW3it3eqQQeWqOgpldQkLdpRrjZ8Nis93HxBZm70J
+         uV7w==
+X-Forwarded-Encrypted: i=1; AJvYcCUWFoiYHpQj0DaYOKAVI9pTe6kOZXH0mEzwm4mUwV2IoMh376DaWpqyY8bUY0VPPeqdVMLhRfm3qu46whzwWtdz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHx6vPrjtpeQFr0pWNPdjyaJehGTGwcdFIn5B5RKiNGVUe7DzA
+	PQvdKh3Ycl5F63KU+drR4r1ALaQxwTleTzN2J/Xknex+fAYw25tse8fUw7j2HLU4Iw==
+X-Gm-Gg: AZuq6aK0OTOQ6oaSWpX6MpApslHi15h1hTLP3FJJr3k3nw2kvokt+VsVTl/Y8S26kTA
+	Os3/REjDVeW/sY2YEFyAi84PetHCUckhTDo+YDnvvtTT2WJZMKHcs7p2SD/wg6JIY77PWETmCEv
+	ETRGZ7NmSX1Q26dx2UqjG/MbRY90y2cbsdu12v6VOe7ofcL4fYvNhBJaeA0uczfpBothJ2EprIs
+	E8QTodkdqLUPdAqOHbxuLrt9oPCd4VVpCCk4B+IrtGLYHJJtBVObcfBcB0plmlrY207bevR1luj
+	2WuFRMc1U+wXnDfkOy0q4CHJbHF1q16nBuJHib3DDeH2L4wtYcBjfMTu/n1Efx5KuIvBbiEOKmR
+	31OyGmJPAZcZrDUOrOu5IfC540hN3IpRUYj3ly0Gy3MJSHHAI6v7p8xEUIqsBSmF7MRyQ6Zvctu
+	IZcUvSfRN1Fr+1aW8qukWsoVRddkAn/FER6UJU+xYjdtSPxbZF
+X-Received: by 2002:a05:600c:5248:b0:477:b734:8c41 with SMTP id 5b1f17b1804b1-4805cd4587emr88693725e9.1.1769457271541;
+        Mon, 26 Jan 2026 11:54:31 -0800 (PST)
+Received: from elver.google.com ([2a00:79e0:2834:9:c598:7cce:ca6b:8ab7])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066bee687sm22270685e9.5.2026.01.26.11.54.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Jan 2026 11:54:30 -0800 (PST)
+Date: Mon, 26 Jan 2026 20:54:24 +0100
+From: Marco Elver <elver@google.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>,
+	Ingo Molnar <mingo@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Boqun Feng <boqun.feng@gmail.com>, Waiman Long <longman@redhat.com>,
+	Bart Van Assche <bvanassche@acm.org>, llvm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] arm64: Optimize __READ_ONCE() with CONFIG_LTO=y
+Message-ID: <aXfGcIpeXQNRUI-A@elver.google.com>
+References: <20260126002936.2676435-1-elver@google.com>
+ <20260126002936.2676435-3-elver@google.com>
+ <d3295c84-da15-4695-8110-7e04cfaf1419@app.fastmail.com>
 MIME-Version: 1.0
-References: <20260126115349.1750578-1-lukma@nabladev.com> <7671b833-f823-44cd-b5af-0b473a8ae23e@lunn.ch>
- <20260126203307.6076ba9c@wsk>
-In-Reply-To: <20260126203307.6076ba9c@wsk>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Mon, 26 Jan 2026 16:47:45 -0300
-X-Gm-Features: AZwV_QizXfEBcPuoLKyFUr1dg6OQ-LmaBQRERKbYiAht9E5yQHfaWrYosy_qY4E
-Message-ID: <CAOMZO5C2Hg06wb08cRDLCXGDS_rmUAq3fC7Jm++kSumjukyuXA@mail.gmail.com>
-Subject: Re: [PATCH v2] clk: vf610: Add support for the Ethernet switch clocks
-To: =?UTF-8?Q?=C5=81ukasz_Majewski?= <lukma@nabladev.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Conor Dooley <conor+dt@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
-	Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d3295c84-da15-4695-8110-7e04cfaf1419@app.fastmail.com>
+User-Agent: Mutt/2.2.13 (2024-03-09)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_114800_599984_5BD8A0FB 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20260126_115434_748743_C45A1D26 
+X-CRM114-Status: GOOD (  24.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,31 +106,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi =C5=81ukasz,
+On Mon, Jan 26, 2026 at 08:56AM +0100, Arnd Bergmann wrote:
+> On Mon, Jan 26, 2026, at 01:25, Marco Elver wrote:
+> > diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
+> > index fc0fb42b0b64..9963948f4b44 100644
+> > --- a/arch/arm64/include/asm/rwonce.h
+> > +++ b/arch/arm64/include/asm/rwonce.h
+> > @@ -32,8 +32,7 @@
+> >  #define __READ_ONCE(x)							\
+> >  ({									\
+> >  	typeof(&(x)) __x = &(x);					\
+> > -	int atomic = 1;							\
+> > -	union { __unqual_scalar_typeof(*__x) __val; char __c[1]; } __u;	\
+> > +	union { TYPEOF_UNQUAL(*__x) __val; char __c[1]; } __u;		\
+> >  	switch (sizeof(x)) {						\
+> >  	case 1:								\
+> >  		asm volatile(__LOAD_RCPC(b, %w0, %1)			\
+> 
+> How does this work with CC_HAS_TYPEOF_UNQUAL=false?
+> 
+> As far as I can tell, TYPEOF_UNQUAL() falls back to __typeof__
+> on gcc-13, clang-18 and earlier, and not strip out qualifiers.
 
-On Mon, Jan 26, 2026 at 4:33=E2=80=AFPM =C5=81ukasz Majewski <lukma@nablade=
-v.com> wrote:
+I think we only need to worry about Clang for LTO builds. But yeah, our
+minimum supported Clang is 15, so between 15-18 it'd be broken.
 
-> Conor (on CC) explicitly asked to remove VF610_CLK_END:
-> "[PATCH] dt-bindings: clock: vf610: Add definitions for MTIP L2 switch"
->
-> ------>8------------
-> > -#define VF610_CLK_END                        191
->
-> If end is modifiable, it is removable. If you need the define for the
-> driver, please move it there.
-> ------8<------------
->
-> I just follow what he asked.
+> With fd69b2f7d5f4 ("compiler: Use __typeof_unqual__() for
+> __unqual_scalar_typeof()"), I would expect __unqual_scalar_typeof()
+> to do the right thing already.
 
-You should still use VF610_CLK_END. Just define it inside the clk
-driver instead of in the dt-bindings.
+It'd still be broken for Clang 15-18, so it won't help much. We need
+this to work for more than "scalar", so even though it'll work for Clang
+19+ given the redefinition to __typeof_unqual__, we should deprecate the
+_Generic-based __unqual_scalar_typeof() sooner than later.
 
-Please check these two i.MX93 patches that explain the rationale:
+I was able to make this work for older compilers:
 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?=
-h=3Dv6.19-rc7&id=3Dc0813ce2e5b0d1174782aff30d366509377abc7b
+diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
+index 85b1dd7b0274..d6c808cc01be 100644
+--- a/arch/arm64/include/asm/rwonce.h
++++ b/arch/arm64/include/asm/rwonce.h
+@@ -19,6 +19,18 @@
+ 		"ldapr"	#sfx "\t" #regs,				\
+ 	ARM64_HAS_LDAPR)
+ 
++#ifdef USE_TYPEOF_UNQUAL
++#define __read_once_typeof(x) TYPEOF_UNQUAL(x)
++#else
++/*
++ * Fallback for older compilers to infer an unqualified type, using the fact
++ * that __auto_type is supposed to drop qualifiers. Unlike typeof_unqual(), the
++ * type must be complete (defines an unevaluated local variable). This must
++ * already be guaranteed because sizeof(x) is used in the __READ_ONCE macro.
++ */
++#define __read_once_typeof(x) typeof(({ __auto_type ____t = (x); ____t; }))
++#endif
++
+ /*
+  * When building with LTO, there is an increased risk of the compiler
+  * converting an address dependency headed by a READ_ONCE() invocation
+@@ -32,8 +44,8 @@
+ #define __READ_ONCE(x)							\
+ ({									\
+ 	auto __x = &(x);						\
+-	auto __ret = (TYPEOF_UNQUAL(*__x) *)__x, *__retp = &__ret;	\
+-	union { TYPEOF_UNQUAL(*__x) __val; char __c[1]; } __u;		\
++	auto __ret = (__read_once_typeof(*__x) *)__x, *__retp = &__ret;	\
++	union { __read_once_typeof(*__x) __val; char __c[1]; } __u;	\
+ 	*__retp = &__u.__val;						\
+ 	switch (sizeof(x)) {						\
+ 	case 1:								\
 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?=
-h=3Dv6.19-rc7&id=3D0af18ba60752e8a4ba34404c1d9a4a799da690f5
+
+Thoughts?
 
