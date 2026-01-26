@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0C3D74EF7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF549D74EF7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3gi4BPC4AMeAfrncqfJZ6M8Gr4YN2FYW/OAnF93oRW0=; b=BT6A3FRBIHmKzFN4EjFpbINVff
-	gOg+g5hlhQYxf3Djq9CkqKGS8kkFBv7uKZFWxtJLZ4mEqyi6tQNd0z3+ecdQVhxAlremhtDHF7mm4
-	XebwT8f9s9MLBKbRwi3Jo8I/aTPyq8kMrOKcV7JPz6UmkgcoICDDKhp8GO/UUQgVW+maifyE7tIVU
-	+tcZs25SFC9RzAry6Kz9XFKnzs5bB4Sr5pROG1SDNEET/9jqrRRycDikH8g1d+uABrVE87C1o+i8K
-	sRhAQFUaeoAJU5iWtmZgdjmcqOIJi5lLwEnsDfNkmOV6Zluzq22nEhEPIHho9SZOICwOxA/NKsJVQ
-	Qj19mGTw==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ir5Ku/kBhV1xo3f4cYFTds8Jwvu5+ARQt7mXP3/a2YI=; b=bSOxGQ9s0M/k5nz+0xbYHgByTx
+	3YLxUHz6KQjEqs3u/2BDl7FVCiKKNnKtVvABSGiDEtecwDxqzCEaVonMXDnP5QqDX4Esok2GPZ77G
+	HEyA2WzYgVKG204Oji4P1PY4EXixuwOyShRXeSSTf7fdkQif6fOooDX/1eTo4G8sbaVzNBR5L9H92
+	Hi4NxUNqzhoHkcI/RGxJBEOAya5HbdNnZKlM2QN+KxizoMjYzVAnrxqUU+KxMo7jSdncbrVa8RrWO
+	YY6CHTM49YjI7Fo1VAwFfZ24FrhpXWUCY9BEtOefVJ5qXTRu6sKw9VRk05jNK1jKq3Id3L6VdRy6n
+	T3Tv1YmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkIsi-0000000CC04-3mXd;
-	Mon, 26 Jan 2026 09:27:36 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1vkIsp-0000000CC3v-480n;
+	Mon, 26 Jan 2026 09:27:43 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkIsg-0000000CBz6-11v1
+	id 1vkIsh-0000000CBzA-2dnQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 09:27:35 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-47ee3dd7fc8so46393935e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 01:27:32 -0800 (PST)
+	Mon, 26 Jan 2026 09:27:36 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4803b4e3b9eso34378265e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 01:27:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769419651; x=1770024451; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=3gi4BPC4AMeAfrncqfJZ6M8Gr4YN2FYW/OAnF93oRW0=;
-        b=HrI5yN0EVmrnKpoYi54pxelTVz8hDoAyvPsHnqSKd36VL+lqY2liWqxec2lbvXfpfq
-         /tIXIKYC+Fuud7UsVdqY7Km+sbquc4oPEDAniCeQG4LnBEfdvUwcr1WsDEwfYUuD3uJW
-         gisW87MpZ1iaocKKv8IXVLxC34yb4NUBIOr3g/FsEgCuNHmFjbW2CSr8N8YzQNNqNt5N
-         ZB5MGrFx+BJxjsofhJTGhrD6B7M3cDEUCGgLBlnErM0fBsVNQJsLn/B67G1nFSSw1OG9
-         OC88ne3cktzqnFVKGT1QI5KC3jU8F7847auilJuFenYLU7FGW/7Td0/NACgaFhv7PeeM
-         2gQQ==
+        d=google.com; s=20230601; t=1769419653; x=1770024453; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ir5Ku/kBhV1xo3f4cYFTds8Jwvu5+ARQt7mXP3/a2YI=;
+        b=mqQiGltbPEZFiaacPn5LaLRTjGf9HKJvaHrlvp3EeYU4P2lUcWYzfDTAd9iVpeQ9Q+
+         iC7gSCqkyJYgF/HUvbEElMxm6d0HtmFyJ0qyhjNN0H8gC1p6Ps4n8JRkfUKaiX6sYsuZ
+         /o6El8GDWK3J6Cb9/hE8oNqADOGgeunJJe5FnkffUbhP8a6DFx38sqS++FF4duROV6PT
+         aZs2LaN4jnWs45yNxukCIYEgaRMVw11CjUt5OXyJ9UBlzjzzF6u2AiFcnS50fN+P6lAH
+         L1407CnOhz09kt2GeiJDRPRqpUoezcGhnVoEeDGgO52e0ZhfPmn/lR6twLp4bVrbsrwn
+         buXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769419651; x=1770024451;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=3gi4BPC4AMeAfrncqfJZ6M8Gr4YN2FYW/OAnF93oRW0=;
-        b=NxIi9UxOUpzb0fj1SNDP1e2EB0VwmDDBWC+nZ5pKMN4jseY7Rh10QzvgpUJjQZIyeo
-         wEcABS3p3f7h0Bmk+w7vUYtYCruCaTzrTrqzjv1LsnInh2RHPawchqn2FMO4zRv3/+Jp
-         8q0KRXh4o2NeYLFpot723ifjyeBIhAmlkYKv0flfF1/1iNS++8hYIH9uz2fvf4dE3z6U
-         KS+AVhTFCOBa2E5whp9m4Dr39AGwkHS2llOLe/xgNhfUa5breCHZROPso7QcKsY2nyEy
-         pfXL9+resb2eY6kNfpMUytLYHrCZw8wk+1NHyMJnlMzZ0KWz6H8/uiIGuUed8Eq3LulP
-         U3+A==
-X-Gm-Message-State: AOJu0Yzbyu2YrO6gwU7ofU8cYVMhecl25ygbT6j3hq3ehY227i0NCiAB
-	4oqhmHZPFPSm5zRR3OU9d9F3TTsLB9jl2p85+mES9kqC2s/n3EjiTZdk2DkbtbIYqjlA3rtHGQ=
+        d=1e100.net; s=20230601; t=1769419653; x=1770024453;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ir5Ku/kBhV1xo3f4cYFTds8Jwvu5+ARQt7mXP3/a2YI=;
+        b=h9etwo3napdMBakH+WlE5U41P5Z6jnrWEeFv6ZaZrty0QuAaKPsnRxD8e/BVeYaaz8
+         Zdpwoke6+9ShAHj+SuLvZHYuF4VcW3j2ggqWZDUmPReGLvk1hjVQDUcG50OTbk+ZKJBj
+         yn8JXn81BbJbS3pBHILLA1FtUZS/i8sbZkzcwUZ0QH6dOunDFa12kxNeICYcPqbFeHbe
+         artRzF89noC5k4QciVnKbtzhl3ovPqmA/5IGLPnwJNuGySSZZiNxEGGq2ZxU19blLNZ8
+         k34lo/Xeg0bcwtreXAcUyy49JylVsmsUnudNjhD44qHkxkJmQIsK0li8Sedhswv3iLg1
+         1Qmg==
+X-Gm-Message-State: AOJu0YwdWjS+KND+oi+sWvtiSkz0sFOlPdBm8+RpcNmEABzXSR/csiLy
+	MgB0YSjyBPCdNM27woU1Kyb7c+wqu18ugKNl4M04UhtWQfIUHc7WjHvDqMRj9uN5qhxtMm0dBw=
 	=
-X-Received: from wmoz10.prod.google.com ([2002:a05:600c:78a:b0:480:1b84:b6e])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1547:b0:47a:8088:439c
- with SMTP id 5b1f17b1804b1-4805d065d80mr73660365e9.35.1769419651572; Mon, 26
- Jan 2026 01:27:31 -0800 (PST)
-Date: Mon, 26 Jan 2026 10:26:31 +0100
+X-Received: from wmcu2.prod.google.com ([2002:a7b:c042:0:b0:47e:e4a5:c5f2])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:a08c:b0:480:3a72:5c10
+ with SMTP id 5b1f17b1804b1-4805ce4f010mr77377385e9.16.1769419653485; Mon, 26
+ Jan 2026 01:27:33 -0800 (PST)
+Date: Mon, 26 Jan 2026 10:26:33 +0100
+In-Reply-To: <20260126092630.1800589-12-ardb+git@google.com>
 Mime-Version: 1.0
+References: <20260126092630.1800589-12-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2317; i=ardb@kernel.org;
- h=from:subject; bh=Ap4lsZMuDyOofvFMFnMiKyoC8iLDVYVQLkvGkqS0gAs=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIbPc2L1g8uuyjPcXXdKLDtvWNxdXvd3cX/T5e9hlHXnGp
- cnx0i4dpSwMYlwMsmKKLAKz/77beXqiVK3zLFmYOaxMIEMYuDgFYCIz1zMyXN71+kra89XKJlwn
- dySpiXpz9G/71b8wq1aAdWLh/i9SDIwMM4N9XS/+NZ+w98KVaLHGO3ssbt78cfLZhCOHXrya8u/ 2HyYA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1953; i=ardb@kernel.org;
+ h=from:subject; bh=pPbGakq4Y87FHZEohxgZxqjL2z9m2SzmfynlW86oFBs=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIbPc2OPan3+7fij8ksibeLlIhSWt4tJNvstbmdqFDO+zh
+ Vs5Pm3vKGVhEONikBVTZBGY/ffdztMTpWqdZ8nCzGFlAhnCwMUpABNJ1mL4H17OOzNlTmVlZV79
+ +YvKLROfvd2wtjzTXW/xIa5XnZcW/WX4zb5FfJ5ThmXau6Mv2BbW9E99PtvpwHdeVv7LhyP8mrK 3MAIA
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260126092630.1800589-12-ardb+git@google.com>
-Subject: [PATCH v2 00/10] arm64: Unmap linear alias of kernel data/bss
+Message-ID: <20260126092630.1800589-14-ardb+git@google.com>
+Subject: [PATCH v2 02/10] arm64: Move fixmap page tables to end of kernel image
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org, 
@@ -79,8 +81,8 @@ Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
 	linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_012734_300141_007C4E5F 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20260126_012735_760059_E763B7A5 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,56 +99,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-One of the reasons the lack of randomization of the linear map on arm64
-is considered problematic is the fact that bootloaders adhering to the
-original arm64 boot protocol may place the kernel at the base of DRAM,
-and therefore at the base of the non-randomized linear map. This puts a
-writable alias of the kernel's data and bss regions at a predictable
-location, removing the need for an attacker to guess where KASLR mapped
-the kernel.
+Move the fixmap page tables out of the BSS section, and place them at
+the end of the image, right before the init_pg_dir section where some of
+the other statically allocated page tables live.
 
-Let's unmap this linear, writable alias entirely, so that knowing the
-location of the linear alias does not give write access to the kernel's
-data and bss regions.
+These page tables are currently the only data objects in vmlinux that
+are meant to be accessed via the kernel image's linear alias, and so
+placing them together allows the remainder of the data/bss section to be
+remapped read-only or unmapped entirely.
 
-Changes since v1:
-- Put zero page patch at the start of the series
-- Tweak __map_memblock() API to respect existing table and contiguous
-  mappings, so that the logic to map the kernel alias can be simplified
-- Stop abusing the MEMBLOCK_NOMAP flag to initially omit the kernel
-  linear alias from the linear map
-- Some additional cleanup patches
-- Use proper API [set_memory_valid()] to (un)map the linear alias of
-  data/bss.
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ arch/arm64/kernel/vmlinux.lds.S | 5 +++++
+ arch/arm64/mm/fixmap.c          | 7 ++++---
+ 2 files changed, 9 insertions(+), 3 deletions(-)
 
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Liz Prucka <lizprucka@google.com>
-Cc: Seth Jenkins <sethjenkins@google.com>
-Cc: Kees Cook <kees@kernel.org>
-Cc: linux-hardening@vger.kernel.org
-
-Ard Biesheuvel (10):
-  arm64: Move the zero page to rodata
-  arm64: Move fixmap page tables to end of kernel image
-  arm64: mm: Permit contiguous descriptors to be rewritten
-  arm64: mm: Preserve existing table mappings when mapping DRAM
-  arm64: mm: Preserve non-contiguous descriptors when mapping DRAM
-  arm64: mm: Remove bogus stop condition from map_mem() loop
-  arm64: mm: Drop redundant pgd_t* argument from map_mem()
-  arm64: mm: Don't abuse memblock NOMAP to check for overlaps
-  arm64: mm: Map the kernel data/bss read-only in the linear map
-  arm64: mm: Unmap kernel data/bss entirely from the linear map
-
- arch/arm64/include/asm/pgtable.h  |   4 +
- arch/arm64/include/asm/sections.h |   1 +
- arch/arm64/kernel/vmlinux.lds.S   |   6 ++
- arch/arm64/mm/fixmap.c            |   7 +-
- arch/arm64/mm/mmu.c               | 111 +++++++++++++-------
- 5 files changed, 87 insertions(+), 42 deletions(-)
-
-
-base-commit: f8261772d6a032f18aacd4d1a18bca5bd4e4a368
+diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+index b2a093f5b3fc..c089b83308a5 100644
+--- a/arch/arm64/kernel/vmlinux.lds.S
++++ b/arch/arm64/kernel/vmlinux.lds.S
+@@ -335,6 +335,11 @@ SECTIONS
+ 	__pi___bss_start = __bss_start;
+ 
+ 	. = ALIGN(PAGE_SIZE);
++	.pgdir : {
++		__pgdir_start = .;
++		*(.fixmap_bss)
++	}
++
+ 	__pi_init_pg_dir = .;
+ 	. += INIT_DIR_SIZE;
+ 	__pi_init_pg_end = .;
+diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+index c5c5425791da..b649ea1a46e4 100644
+--- a/arch/arm64/mm/fixmap.c
++++ b/arch/arm64/mm/fixmap.c
+@@ -31,9 +31,10 @@ static_assert(NR_BM_PMD_TABLES == 1);
+ 
+ #define BM_PTE_TABLE_IDX(addr)	__BM_TABLE_IDX(addr, PMD_SHIFT)
+ 
+-static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __page_aligned_bss;
+-static pmd_t bm_pmd[PTRS_PER_PMD] __page_aligned_bss __maybe_unused;
+-static pud_t bm_pud[PTRS_PER_PUD] __page_aligned_bss __maybe_unused;
++#define __fixmap_bss	__section(".fixmap_bss") __aligned(PAGE_SIZE)
++static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __fixmap_bss;
++static pmd_t bm_pmd[PTRS_PER_PMD] __fixmap_bss __maybe_unused;
++static pud_t bm_pud[PTRS_PER_PUD] __fixmap_bss __maybe_unused;
+ 
+ static inline pte_t *fixmap_pte(unsigned long addr)
+ {
 -- 
 2.52.0.457.g6b5491de43-goog
 
