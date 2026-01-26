@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D47D13C1D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 14:16:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B1FCD13C1D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 14:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NrBeDM+ppcoHiPudl8UfdzdUe82B0RRwN1UsSSpRbHM=; b=xtLg2j6ld4RXEr6rNL66DcVDdu
-	AvmK2EcxWwEwX+q2htINRp2t3CHrYdL98F6Urt+OL+R3CJzwnBtamDOJQGPphHEzw7TOui/kQkr6H
-	bPmKGVUcY7dxwbaXG+lk2U4dthsx92sg7NeNmXc9c14eyEXwNo7YchetlfNDB9+SaRRJ2oPQFviCY
-	nhfLTBJf9qtKk51/oiCa+/kfFnCP6K/VDjw0KuzIPA+QAwanQnFF1AJ3EG9ChDmekiOTVQLoYn3Nw
-	Re4E6+Z0x9eZ9Lp6MNuCKjnGBJjYwlr/UXS2ayz1cAVHoj//cuS4hgRRpmJ53kMfF2ynLog2z52EA
-	kYmsD3gg==;
+	bh=+beucbNKBCq81P9+drqPQ91StsFy/03VLiaWX7t2LwU=; b=RYoHRK/nZbVsenE3iyBaRNtQXf
+	I4VXP95j5pGlQkp56Yt7p8f+9mLF4Ycqokc3rsrm1zFJe238ZLhmvowKNEaeCs9EOCNFr1LX86LNq
+	B/IDofNzUwY9WqIGu5kJz/trJIXWWad5X8T1kHOyApt+t6l20i8x3LQqHnQvxp9d5ywy90rHhd3s4
+	jGgPNeNriXIAICCsDmT04tir+lzojPE5cEyXvUzz85IsprsERnQfHdTKD8nBS7onyMrAE6orMwsJc
+	TNQZ6ZSDrw22fOd22ChhS/oyRdywrHg8dskdq3ZpdE1dd+riyeT6Jj+dzAFOZ1g/UxtWxvhIkucpv
+	NrIRVkng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkNO6-0000000CgAy-3JAy;
-	Mon, 26 Jan 2026 14:16:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vkNQE-0000000CgJv-1YDp;
+	Mon, 26 Jan 2026 14:18:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkNO5-0000000CgAs-2qzi
+	id 1vkNQC-0000000CgJ7-1XBR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 14:16:17 +0000
+	Mon, 26 Jan 2026 14:18:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D2BA560051;
-	Mon, 26 Jan 2026 14:16:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 538E8C116C6;
-	Mon, 26 Jan 2026 14:16:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1689E4072D;
+	Mon, 26 Jan 2026 14:18:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E019C116C6;
+	Mon, 26 Jan 2026 14:18:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769436976;
-	bh=NrBeDM+ppcoHiPudl8UfdzdUe82B0RRwN1UsSSpRbHM=;
+	s=k20201202; t=1769437105;
+	bh=SzW0Gil2VZdrbEyNqGsbocnMPP9c7OdoPzfUpkSM08M=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dZ28naFqf6Fb0vnJXI0iOMnLYrxLxIMuzzmpyiURmwgvXagyhT8gmCwuSBvEZz1h3
-	 Xpke0mY4b8zxOrfDRyx7wyLrsbtn9R7kbAhFBapU0nQiDa+h9q4Ysa16z/tlehsIXK
-	 VcTArGSh2VPqg5fw45cOJif+nSTbJde3ZRWlibnZ6lbeSNOcA5ee1+HdeVuYjwyvRw
-	 e2ZjNtEQLmDLgFU+sJ1SEQs2aNqBn8n5yYZwHvmqjNZ7McX1rc7Hi+V85KR8NeJK+5
-	 inDzVP3ser9rIqXbXB0GpzprNzg9I+VsGFEdFTMt7GWO1HYKDJV14vt8OCTHIDYPkD
-	 x0grCAfM3kiRg==
-Date: Mon, 26 Jan 2026 14:16:10 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Chancel Liu <chancel.liu@nxp.com>, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH 1/2] ASoC: dt-bindings: fsl,mqs: make gpr optional for
- SM-based SoCs
-Message-ID: <3d98306c-0e13-4bd9-9cfd-0a2ddcadef3e@sirena.org.uk>
-References: <20260120150329.1486-1-laurentiumihalcea111@gmail.com>
- <20260120150329.1486-2-laurentiumihalcea111@gmail.com>
- <aW+q4lrdYJEciNS/@lizhi-Precision-Tower-5810>
+	b=MhCtSowZKbZn7fMam57zwRRM7aPZV0bbvMRfqnLop3buhqJc+Wb71u+XhmONIN071
+	 nU+7aeg/7kubK2dDxPOM+HWSHexxqhL0JE8YADE95iGuBw8Y6vuJL7CpkeIQxDVO/B
+	 ulAVokRwP31qSkK+hL4EN2onlhmmvyhpG3z4KNd4cq19xZXBEX3IJeU28qi8cmbEAv
+	 tWgvQd6dg9CV9jgvZRO2mf5cTtz0Z3tzfcQqR8d/bIc8S81gBALU7kuvVdbV6mhODi
+	 uJ8xQtTYfPC3b7vxc6Mf2QLUNePXtR/5dAxevjOFbax/PZ2HGfKsGUkDM2QFbVkLOP
+	 Fl8KLiQaVSTvA==
+Date: Mon, 26 Jan 2026 14:18:21 +0000
+From: Will Deacon <will@kernel.org>
+To: Yang Shi <yang@os.amperecomputing.com>
+Cc: catalin.marinas@arm.com, ryan.roberts@arm.com, cl@gentwo.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [v5 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
+Message-ID: <aXd3ralBsv9hPtfe@willie-the-truck>
+References: <20260107002944.2940963-1-yang@os.amperecomputing.com>
+ <aWZYXhrT6D2M-7-N@willie-the-truck>
+ <5f1bfe55-454c-40d5-ac45-1aed651b3747@os.amperecomputing.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="s592SMWyYy/L1ikc"
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <aW+q4lrdYJEciNS/@lizhi-Precision-Tower-5810>
-X-Cookie: Haste makes waste.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <5f1bfe55-454c-40d5-ac45-1aed651b3747@os.amperecomputing.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260126_061828_450091_E2C5F4A9 
+X-CRM114-Status: GOOD (  30.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +74,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jan 13, 2026 at 04:36:06PM -0800, Yang Shi wrote:
+> On 1/13/26 6:36 AM, Will Deacon wrote:
+> > On Tue, Jan 06, 2026 at 04:29:44PM -0800, Yang Shi wrote:
+> > > +#if defined(CONFIG_ARM64_4K_PAGES)
+> > > +	size[PTE] = "4k";
+> > > +	size[CONT_PTE] = "64k";
+> > > +	size[PMD] = "2M";
+> > > +	size[CONT_PMD] = "32M";
+> > > +	size[PUD] = "1G";
+> > > +#elif defined(CONFIG_ARM64_16K_PAGES)
+> > > +	size[PTE] = "16k";
+> > > +	size[CONT_PTE] = "2M";
+> > > +	size[PMD] = "32M";
+> > > +	size[CONT_PMD] = "1G";
+> > > +#elif defined(CONFIG_ARM64_64K_PAGES)
+> > > +	size[PTE] = "64k";
+> > > +	size[CONT_PTE] = "2M";
+> > > +	size[PMD] = "512M";
+> > > +	size[CONT_PMD] = "16G";
+> > > +#endif
+> > > +
+> > > +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> > > +			size[PTE], dm_meminfo[PTE] >> 10);
+> > > +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> > > +			size[CONT_PTE],
+> > > +			dm_meminfo[CONT_PTE] >> 10);
+> > > +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> > > +			size[PMD], dm_meminfo[PMD] >> 10);
+> > > +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> > > +			size[CONT_PMD],
+> > > +			dm_meminfo[CONT_PMD] >> 10);
+> > > +	if (pud_sect_supported())
+> > > +		seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> > > +			size[PUD], dm_meminfo[PUD] >> 10);
+> > This seems a bit brittle to me. If somebody adds support for l1 block
+> > mappings for !4k pages in future, they will forget to update this and
+> > we'll end up returning kernel stack in /proc/meminfo afaict.
+> 
+> I can initialize size[PUD] to "NON_SUPPORT" by default. If the case happens,
+> /proc/meminfo just shows "DirectMapNON_SUPPORT", then we will notice
+> something is missed, but no kernel stack data will be leak.
 
---s592SMWyYy/L1ikc
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Or just add the PUD sizes for all the page sizes...
 
-On Tue, Jan 20, 2026 at 11:18:42AM -0500, Frank Li wrote:
-> On Tue, Jan 20, 2026 at 07:03:28AM -0800, Laurentiu Mihalcea wrote:
-> > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >
-> > For SM-based SoCs (i.e. MX95, MX943), GPR configuration is performed by
-> > the SM coprocessor. Thus, the programming model needs no handle to the
-> > GPR node. Make it optional.
->=20
-> "programming model" look like software configuration.
->=20
-> Thus, GPR is transparent to software and does not need to be described in=
- the
-> device tree. Make it optional.
+> > > @@ -266,6 +351,17 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+> > >   		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+> > >   			pmd_set_huge(pmdp, phys, prot);
+> > > +			/*
+> > > +			 * It is possible to have mappings allow cont mapping
+> > > +			 * but disallow block mapping. For example,
+> > > +			 * map_entry_trampoline().
+> > > +			 * So we have to increase CONT_PMD and PMD size here
+> > > +			 * to avoid double counting.
+> > > +			 */
+> > > +			if (pgprot_val(prot) & PTE_CONT)
+> > > +				dm_meminfo_add(addr, (next - addr), CONT_PMD);
+> > > +			else
+> > > +				dm_meminfo_add(addr, (next - addr), PMD);
+> > I don't understand the comment you're adding here. If somebody passes
+> > NO_BLOCK_MAPPINGS then that also prevents contiguous entries except at
+> > level 3.
+> 
+> The comment may be misleading. I meant if we have the accounting code for
+> CONT_PMD in alloc_init_cont_pmd(), for example,
 
-I was expecting a new version of this with Frank's comments rolled in.
+I think I'd just drop the comment. The code is clear enough once you
+actually read what's going on.
 
---s592SMWyYy/L1ikc
-Content-Type: application/pgp-signature; name="signature.asc"
+> @@ -433,6 +433,11 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned
+> long addr,
+>                 if (ret)
+>                         goto out;
+> 
+> +               if (pgprot_val(prot) & PTE_CONT)
+> +                       dm_meminfo_add(addr, (next - addr), CONT_PMD);
+> 
+>                 pmdp += pmd_index(next) - pmd_index(addr);
+>                 phys += next - addr;
+>         } while (addr = next, addr != end);
+> 
+> If the described case happens, we actually miscount CONT_PMD. So I need to
+> check whether it is CONT in init_pmd() instead. If the comment is confusing,
+> I can just remove it.
+> 
+> > It also doesn't look you handle the error case properly when the mapping
+> > fails.
+> 
+> I don't quite get what fail do you mean? pmd_set_huge() doesn't fail. Or you
+> meant hotplug fails? If so the hot unplug will decrease the counters, which
+> is called in the error handling path.
 
------BEGIN PGP SIGNATURE-----
+Sorry, I got confused here and thought that we could end up with a
+partially-formed contiguous region but that's not the case. So you can
+ignore this comment :)
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAml3dykACgkQJNaLcl1U
-h9DqHwf/W0vKTs+cwDArItwrD1Pg0wAd6A1I28PNegyipqSgXGweCyLNwcoaTH+k
-1BcuFESVQFofoSRYbirsMze6LvUrJc6GfcDfQTu0QvHb30xhBPSCBBfNIlZqL0dk
-SZm7EZIDmQl5HEJHs5m/sGRLy5LwlW2MDGPGUwSP4kEcoFOc3is5dNEtGKAKqYRq
-UuOkeS5jCYp7idd76Nh6au1HzTV9v0GPzkIRywTJnF5AWpVXTY001TLVf8+InwAu
-Yxez+C/UfZ3emSmA+yAiX5mZ9NLFX0iALUvUerax17akjOmgTAHOEr/1WEhRpzLD
-Q70Q3FIlKsSfVeFfzrVtY8W0C2fvpg==
-=UreY
------END PGP SIGNATURE-----
-
---s592SMWyYy/L1ikc--
+Will
 
