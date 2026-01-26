@@ -4,174 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 644A5D19510
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 18:15:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C1AED1950F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 18:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DAFAcZJgTfC2fiG+5RDbNIiC4Wu001zlBAC9ToN1JEI=; b=wL2feeaCPiAZQdy+G+e/3HRFjL
-	wR9mCnflvd47tVzZvgNM6uHNvBOJheXVx+WCoZgCpLWRKXbpEnIBXdZBvAKx4n6Xm6nZ3OF/U3sUb
-	dgT7RvEMXU6E2xkbzfJtmy0RqaG7JfPlsOU7UxCNeI/2K8kybSuSQD8Zz1WA4oD/7cWHKf5da2L/E
-	lKB6dwhzg7Jg8NCC8gSQL2NWfYe/TsMoFHnUTrDIFq6LqBsmoCgd5m2ttUOE1MKWLYoDNhC8h+/Wh
-	D9fFtDCtPe2Y3xSdoLK8TowdOEKLlJKP4vS6BlG6Tc7imYLos371TPOuTdbzDtgcmKNcD9wn4L+7C
-	/VXO5YBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VnvX7+GDTcMD4jUIHuNA6e/8Zj6sC9kh0TKMuxAq+yw=; b=KchYJLiKZvf2v6vv3xR708TJD5
+	hHqjqqOl6RNk02UYTkJXGuhub/G5M1FQLzZ73IcwWi0teY+wvF2zDlBy/PyTTL2G2WrLhTRQko8aN
+	u2ZFJYzjXFMrkvkhaiToUPqLOR0na2+YTivnqU6XqIY8HJUwUO60z3G8GOJW8ys3oleYtt3ApGoru
+	Kb8IucYLfjsfrcN+qRdvZypTKMP7zWrCgV8h4+AGtSTjhSSjJufmYAUYRFRPBufD/sNn5hHAnwItu
+	414LQuVlrYmRGoflFjkIzAgBRUD1SEfcKIaWrGCgBWmVTTAB+EFgimhBcqL2W8rwTAVm4H76u4tAu
+	JiTE8j7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkR7E-0000000D3Kc-133O;
-	Mon, 26 Jan 2026 18:15:08 +0000
-Received: from mail-northeuropeazon11010013.outbound.protection.outlook.com ([52.101.84.13] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkR7C-0000000D3K7-33SH
+	id 1vkR84-0000000D3RX-2Z0u;
+	Mon, 26 Jan 2026 18:16:00 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkR81-0000000D3Qe-3ZAQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 18:15:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rpO6/x2voboRhBBbf274AQVZwF0hYIZyJlJy/eHOpbhwl5OHi2acCBag1msa2hTGKuYgRvJoqxBL196IN+LkbMEbAgZ/1XtjGQOj26kL0tj9pt1Rui7vILZ29vBQKw6SMeJLW8rujFkaOjBJOpp71Z/uAeveslOBEA5rMg5nNNySdAjOdRXwVIX/3bwm8hHh25HbBaJZlZ6xFhX3SdZ3adkXLX1dAWSfNwDhneo2tGK/MlPCHeNQoNQDs0lL9GPz8doeLpXguTNjWzQa2yyugL0AnGTRnOsNP5m7LhHuxp66Wq2nfpw+UoXNeNsBiOZt2c18L96k81cTlCbpQIggpg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DAFAcZJgTfC2fiG+5RDbNIiC4Wu001zlBAC9ToN1JEI=;
- b=DNLmFm+195TWPw7xNvJVGH4+VCqbaX1RSWBt2QOG+2N55N38euntG7RCCctgdH9/8tAtA5GLuW/VqL0S0zXnBHz5TgPILxhGOn3TdcsvUryevrykt5SN6FkUAZwZQz2EC1gMjZSR+53FgFd2e677gTC9XyxHYHABtltog4whTreRs/ZGDgKrLVSeqZGfD6QYSDuUvuZxNy4DN7h+YJlIgHYWkT5VsFYlTVfQQrHWXW1j3VVDV3GESj2yV6D7cmNHCyLzOfuPXeg8ZFF/9kZAu8DDc558OZPE5/IgdjBBdcemrolCMrsMfFBenN0tZgJVRh5cQ/ESbSFNh72Un2JlKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DAFAcZJgTfC2fiG+5RDbNIiC4Wu001zlBAC9ToN1JEI=;
- b=bYPmFq1N4gHLHfKlzcaE1nRRol8CdGgnkxScmNwN89aYVKDM0fSqMqbnAiHHC01SD+z3R1sML+/FljYKdyalLhUIYfgeLW8wU080CMaQUGhn4Q1PvBKkK5/ARhTZIrcP2IsQagLVmGQrEMWmHaEs7ul5Ti9n20LH/wHX4FPw0x+cVhClAzYl2Mv5KihRYPxkbOlRmp6golGAy+ZHuTop7nsiGWQG0t8l15BNYNhAqrPUNbUZof1+oViZSIURyWy238mpYO1AIEBo681F0Zjwo0ABrgXMR6wfrwMMSus0TIlZZW1xtPzlC2yidarUrD5cGA2bWbhuETaC36VNMIAp+A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PA6PR04MB11716.eurprd04.prod.outlook.com (2603:10a6:102:520::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Mon, 26 Jan
- 2026 18:15:03 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9520.005; Mon, 26 Jan 2026
- 18:15:03 +0000
-Date: Mon, 26 Jan 2026 13:14:55 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel@puri.sm
-Subject: Re: [PATCH] arm64: dts: imx8mq: Set the correct gpu_ahb clock
- frequency
-Message-ID: <aXevH8e+9qLhWO7D@lizhi-Precision-Tower-5810>
-References: <20260124-imx8mq-gpu-ahb-clock-v1-1-11c2e7c857b7@puri.sm>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260124-imx8mq-gpu-ahb-clock-v1-1-11c2e7c857b7@puri.sm>
-X-ClientProxiedBy: PH0PR07CA0047.namprd07.prod.outlook.com
- (2603:10b6:510:e::22) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Mon, 26 Jan 2026 18:15:58 +0000
+Received: from skinsburskii.localdomain (c-98-225-44-182.hsd1.wa.comcast.net [98.225.44.182])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 2F9D720B7167;
+	Mon, 26 Jan 2026 10:15:56 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 2F9D720B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1769451357;
+	bh=VnvX7+GDTcMD4jUIHuNA6e/8Zj6sC9kh0TKMuxAq+yw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gsA4et9Qa/2yrYlCgTRoUexK2Qv5HmVH1EO94u0/UZyEcOWq+p4umeYCA2w+scy/f
+	 XPdz/NCZAwT6hiU6CT5VrN73zAYbCohCePAxAHARvBfdRGdKLiM4CtGHLsGm4pkO6v
+	 VbkrqXtZEJFyPkdVeh+QwJmZ0y7ZofGuC/SHWrRU=
+Date: Mon, 26 Jan 2026 10:15:53 -0800
+From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+To: Mukesh R <mrathor@linux.microsoft.com>
+Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-pci@vger.kernel.org, linux-arch@vger.kernel.org,
+	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
+	will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
+	nunodasneves@linux.microsoft.com, mhklinux@outlook.com
+Subject: Re: [PATCH v0 15/15] mshv: Populate mmio mappings for PCI passthru
+Message-ID: <aXevWXolgNrrLltF@skinsburskii.localdomain>
+References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+ <20260120064230.3602565-16-mrathor@linux.microsoft.com>
+ <aXAxmYm4zbOzGztz@skinsburskii.localdomain>
+ <45e7a4c0-f1d8-b8b4-8c03-56d06845323b@linux.microsoft.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA6PR04MB11716:EE_
-X-MS-Office365-Filtering-Correlation-Id: fa62bceb-308f-46ff-3ae8-08de5d06d383
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|52116014|7416014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bk9waXVQOGZ2QVFzajBJTnVadnhpM3lEUzd0SDY2bkZidFJXeWFkMDd2alZM?=
- =?utf-8?B?MEVMOTNQUm0wT1dMSkhTMm5WNHp3SkxCM3lCdEUrSkh2TmgrZTA4UE5zR3dL?=
- =?utf-8?B?WWczZkF4QzkvSlFhQU9qTXdibWtNQlluS0VDajQ0UmVFSkpGVW9ia2p5NUNH?=
- =?utf-8?B?QnlNd1NYbG9TYXVXWlN5ZmF4TWh5Y2k3SXE4OFhyOU82aHN5aFE5bFhPM2k5?=
- =?utf-8?B?YnhjK2lEL0l1SUtLM25JZCs5b3JuVDUxOUpnSFhKNTR4ZkNCOFRhMEkzUDNa?=
- =?utf-8?B?RHJLWkxZSnkvUXBuemY1YVdQVWdBQ2FrTzFqTTk0b21VZzVCZ25LMXFvSjVD?=
- =?utf-8?B?QmlmVWY0THJoUVBFeklIalY3Rld3RTd5ZytBdEc0SjlCNXhzdytHTFM0ZTdw?=
- =?utf-8?B?RDJSVWpIc1NLeDRIUEk3WnJ0anpwRWtIR1VOKzk0N3JyNnJVNHM1R0pKOWR0?=
- =?utf-8?B?ZlcvUDI1Z09Za2dSTzhld0xzZzc1MzR4aHdRZE56aCtCcGo2bXpqQWo1R0hi?=
- =?utf-8?B?Mk8rUmsvQjRSR1ppeFg5MmY0NnpvRzRUWVNBOEpxSUFOU2hrandWbkdUZkdI?=
- =?utf-8?B?NkNObUVuNitDUDBzbU1haiszbGRpbDZNSzU2UTB3cmJvNE9aaHQ3SkZ1eXB3?=
- =?utf-8?B?TmpWMEYxeDBDSEM4R0Y1NU5jRHo2LzMrenU3TVU0QU8yOW1tZWJtc0xJTHp2?=
- =?utf-8?B?cDlKcTNmTEdYQ0pYRWk4TzRsZjI5VlZGc0dQUG5LR0xLcjBoYWZWQmNxeW45?=
- =?utf-8?B?NDdhV3VlTk5PdlBmWDdCUG1yZVNVUnlMUTZUQXhJVDVMRlpxNDJ6ZUJMd3BN?=
- =?utf-8?B?cUFEWTZxWGptZ3BFR0xQOWk0NFBvbG84UllKYko4TTdLRkJFZ0l4alErUnJI?=
- =?utf-8?B?cUU0SHA3OTNodDhETHdGVmduVEQ2cDJjVWt5V0tVMEFQcktzSll3SnVUcmk3?=
- =?utf-8?B?K2xxMk10QWtEMjVVRUxXaG9NS3BUQjlZQkFoMGVIMmVwTHZ1N1Vkc2Iyay9T?=
- =?utf-8?B?bVFORk44KzI5YitIWldGdkdjU3NBbDgyVFdVbU9QVFlIRXFUczlrOGhWR25D?=
- =?utf-8?B?eFl6eEJxMW5ycFA3UWNHQW4rYmRCLy9Td1ZxMSsrNGtEczhPTWVTb2ovNG1v?=
- =?utf-8?B?L2J5cHpLOWpsWmo0S1piZm1mOXgvTzVSTm9zUkd3VXN4b0JTQ1BhajVKWldz?=
- =?utf-8?B?Qko3NmtQQUhRbk4rK3p4RFVQckRFMkNVWDJuV2ZKbWdjWGt5cFNJYkQxYWZP?=
- =?utf-8?B?TWI3VnZDemNwaUhWQ3pDVjZEYlhJMkdKa3lvMHhOVFhDV0JRb3FWZ051S25N?=
- =?utf-8?B?d2ZJdVZUU043c1JsN2JWZHJWb2tOMmR1M3ZhVk5UUm1wVmdHYkNXTDNtUVdR?=
- =?utf-8?B?L09jMzIvcFZqOUxCWUxFM3I3eXpIVnEySG95bVVmVGRNcUxFYm9PVlVsYWRj?=
- =?utf-8?B?Y1lpMU9ILy8zQWFFNXBuYlNndFh4d2ZNNytzazV2Z3RydzdCS0JOejVrRW1N?=
- =?utf-8?B?NGQ1aG4rYVhmRjY3ZUpLMFpwdXp2ZUMzcXhLdjE4TnF3Z1V6cUxHdkdUc01E?=
- =?utf-8?B?VW96SDhqRG42d1pCLytia0xTeEk2M3NjR0pXbWYyU1I1dWRyeUpzMDJTQ21v?=
- =?utf-8?B?a0J4MXo2K2RId0doOGdWRndOR2Z2SFNGQjJsQ2kzaUc0SForS3VUdVhOU05t?=
- =?utf-8?B?TEF4c3lycVRTUkt5V09KTDQyWndWSHpTaW12b3Y3SmdmZGJVR2tFTGZnR2kx?=
- =?utf-8?B?bGFLYnZwNnJzRnNKd251aWUxSUt2Vk9lZmpzbmVub3pMN2xjUE81Ym1tMHpa?=
- =?utf-8?B?RGhBK0xWNE1sK3Q3S3BqQS9UTkdSUGl6bS9uMzBhK0oxclpVQ2R6S1VGUjNa?=
- =?utf-8?B?Q1B1V2V1eUplMnJCQlovL29HQ3BTcmtNNThNWHRvWG5DREtJenNHYnpmUkpo?=
- =?utf-8?B?VnVFclNWSjU5YWdtNHp0elpPMnZxVmhYeVo3emx4cFJyVndpdjVNZ1dTa09o?=
- =?utf-8?B?THE4RUY1Q2gyVWFuMzhQcjFGcjRKL1NXM1RWZTJYb09jNnJ5ekZXdjB3UTRE?=
- =?utf-8?B?MzlHRWkybEsrWmRPMEMzclhzczl6YXVNQjdMdnJCYnFCVXY4Q24rQldnUXdz?=
- =?utf-8?B?UnFtUy9zNE05MS9jTjFRNnRMMkRYbGs3ek9EYTZVazEvYURwZ2F0NDRiaWhm?=
- =?utf-8?Q?y6WpOH52pIsH4LBmy+64ADk=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(52116014)(7416014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VndXNXdNcDYvOUJqRllKM0R4TXhRRFRmRFZpbWhSYTl2dWcraDhEbittSTJR?=
- =?utf-8?B?SjZpYVFyQTZ5czZZbnc2OERoV09OUW4wbENBMGowOHJYTGdla2xyM3NRVVZ2?=
- =?utf-8?B?T1ZQdDRiS29SRzR4Y09QRTN3RjZGZmt5Z1o2WE1QWDZ3dUJtUVJESHpNTGYw?=
- =?utf-8?B?UUcvVUZVVE5idjZKRzAxTDNJbE4xZmFHMFY4MDRpNWkwYUNlbGNXa2c2amdY?=
- =?utf-8?B?Nm9UWUVzTC9ERyt6M09VdDBWeS9LVkpVOEdRdlVMYklBem1aTVAyVzlMdnJE?=
- =?utf-8?B?MHhYNkpUTXFUMW93dm93dmdNLzYyNHZJd09qbC9pSmtnOUxSMCtyQ1dJMXVZ?=
- =?utf-8?B?eUViWnpWQmxHd3F1TVRTL0tQTCtXSDNlYlZxVlpmRzFEQVV6ZGNQd2JmbnNZ?=
- =?utf-8?B?SlNTOU1lVDhqTVBQdUpDMlAycDlRS0YvWTMzQUMwRGZsUVdsMXZGRVhCdFlC?=
- =?utf-8?B?d0hEbW1FNVFJVkxUN0ZLTTcxak5lSTB5Mk5xZmhNaDBDQzFlb0hoclp3UFky?=
- =?utf-8?B?R0czanY2bldXR3UzMXlFTUVYTzJZMUNhVm4zT1FFR0tNL1FXb2V2ekVvWWFa?=
- =?utf-8?B?dVZXM1VJR3FFdzNGR2JwYjVldUtyRUhVYStHem1EUVJOVUJWbVVIbE9CRVYv?=
- =?utf-8?B?ZWdKSy9PeWo0dWFGdlJxdURqakIvYWN3WTZhUWJTYUJYWGVUTEVtcUpFd1Z5?=
- =?utf-8?B?OXRHRXVLc2dPeFBSMC9HaTFycFdtZG1jTlJ0TmhsdmpLQlNSbHgyb2V3SmhT?=
- =?utf-8?B?SUZDenl4QjUyTTN1dklPM0RJMHdjWWJ0TjdJekZvRW5TUmlrY2JOd3E5SFdv?=
- =?utf-8?B?VnJiUnhwMXBwL0xZb1MwMHY2azlCZ3pxTW1NVnBLU2ZqVXlaWkg0bWVZSk4y?=
- =?utf-8?B?OUZXZ050Z1orQ1Z1VEx1RktMa2puK3VHKzQwVnBUbE1VS0NoOVhmbll4L215?=
- =?utf-8?B?V2w4b1Y3MHFJLzMydEduQm5XaUhKRlVKM0UzOTVHV2VhOERzMTUveFhnMG1U?=
- =?utf-8?B?QnZOb3NvUXlkbGpqdmVadjNqSFM1WlpQMk1pNURlekZXZTIyNVRaMzQza0g1?=
- =?utf-8?B?WnhLSi9xWUJ1VGx2QkloSnhtQXQyVW5YRTUxU0NwVWJiSlpTK0NxeldZWEVX?=
- =?utf-8?B?SDhBa1pOUWl6M3VndTBBL2V1QnJtQlJQTVk1QmQ3Y05yNU5aUkJ2RFdvNHBS?=
- =?utf-8?B?dGlwOGorWnJZTkwwbmNtazVmUUt6UlRlbUgzbzI0WVFIcVBkWGNwQkxDMXZ2?=
- =?utf-8?B?RUVOZTJ4b0tZSzRQcUJMOXppWGc2bWZWdlFDZ2JoZndJcmpDSWJYcldTd0Nq?=
- =?utf-8?B?QnBXSzVkZkxOYzJGMUU2b3g5WVEzb0YrbThQS1l4djRmVkxWSS9IV0VYeWlQ?=
- =?utf-8?B?TTJLVkVQMGRRaUhleXplOXZiRjdBSEFJazNxYzYzNVFjTCt2YUtCUit2SzMx?=
- =?utf-8?B?RUlrTGs5Sm1NQ0FtUlR2YnVZTkp2SlEzdFhtYnd4WEZXK2tDTC9HRkg2eVNm?=
- =?utf-8?B?U3QwRlNXdnJIcy9xd2djWFdOdEVJUkFzbU1PeWhnbVYxMEg0NUgyUkthR1VT?=
- =?utf-8?B?dnFOMkdLdjNDRDJjUklKbHJ3TnZkdG9OZzUwdHZoRnJKZzhoYkR0bGdyZlhy?=
- =?utf-8?B?bFMvMnd3Z2VMTlkzaS9SR1hpOGNVRU9tcG9zRk52SWZIYmVUSDJ2QnZXZ2VB?=
- =?utf-8?B?dEdHSWRnUTVOZENWWFpqNDlwMFdzR0s3VVdLSmx2V1NLRVExN0RqQUJnZ1pW?=
- =?utf-8?B?d2dYUUIwQXE1OU9pWEtFcDliVEtaRHlhaXZzWFVEVEpVbHdUcGNCQ0E4Ukl2?=
- =?utf-8?B?ajdleitFSVdXTlhNdGtCK0NLQ2ZmNzhzTllFQytMYUdqODlXWmN5Y0VYMGNS?=
- =?utf-8?B?NlZ5QWh5amh4dzhYcVc0cFFQOC9YUWh3MTJWV05hRFdSMWRiQUJkYVF0bjh6?=
- =?utf-8?B?enJ2NHlHT2ZRbGR5YzZrdm0xS1F2WTNYVE80aFJVcVNCZ3lHMFdvaGFsczJr?=
- =?utf-8?B?Z2hmSGtkRGhzaWxlRGd4eTI1aG9OdEo5NS9MK0kyUjVHeE1CMHdrZVd2b1FJ?=
- =?utf-8?B?QWFCcDdBME5qdzErUnl5ZGcxM2dvWkhYQmxHQnhkdTBUN1dPOUpOYWpqVk12?=
- =?utf-8?B?THdxSUd2ekdTV3NVazlPVHlHcy9DWE9iMHFESzVpZ1ExbGRqZ2YwYyttV2R5?=
- =?utf-8?B?c0gvWGV4SVlGd0dUWTBhMlpJQ1Y5SUZteWEyTWhWZUVLVHpUNEJxZWZuQmNV?=
- =?utf-8?B?blUvU3dlWXF1QWl6a3MyTys4c2RGeGIzclZ1cUY5cW5uS2JBY3RjR1VoOTVD?=
- =?utf-8?Q?1RgFKgANeQD/tswkpd?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fa62bceb-308f-46ff-3ae8-08de5d06d383
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 18:15:03.4578
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dxb/hTQt3VMQVnjOCIuWJcOOmzlTJr9Elmuo742gk8XChmXUrBNRaVgp2mnaJsdipCXvuMVDRxhKXyo5Y506AQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR04MB11716
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <45e7a4c0-f1d8-b8b4-8c03-56d06845323b@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_101506_771478_68B7364E 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20260126_101557_920033_95A399D0 
+X-CRM114-Status: GOOD (  36.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,45 +78,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jan 24, 2026 at 02:55:48PM +0100, Sebastian Krzyszkowiak wrote:
-> According to i.MX 8M Quad Reference Manual, GPU_AHB_CLK_ROOT's maximum
-> frequency is 400MHz.
+On Fri, Jan 23, 2026 at 06:19:15PM -0800, Mukesh R wrote:
+> On 1/20/26 17:53, Stanislav Kinsburskii wrote:
+> > On Mon, Jan 19, 2026 at 10:42:30PM -0800, Mukesh R wrote:
+> > > From: Mukesh Rathor <mrathor@linux.microsoft.com>
+> > > 
+> > > Upon guest access, in case of missing mmio mapping, the hypervisor
+> > > generates an unmapped gpa intercept. In this path, lookup the PCI
+> > > resource pfn for the guest gpa, and ask the hypervisor to map it
+> > > via hypercall. The PCI resource pfn is maintained by the VFIO driver,
+> > > and obtained via fixup_user_fault call (similar to KVM).
+> > > 
+> > > Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+> > > ---
+> > >   drivers/hv/mshv_root_main.c | 115 ++++++++++++++++++++++++++++++++++++
+> > >   1 file changed, 115 insertions(+)
+> > > 
+> > > diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+> > > index 03f3aa9f5541..4c8bc7cd0888 100644
+> > > --- a/drivers/hv/mshv_root_main.c
+> > > +++ b/drivers/hv/mshv_root_main.c
+> > > @@ -56,6 +56,14 @@ struct hv_stats_page {
+> > >   	};
+> > >   } __packed;
+> > > +bool hv_nofull_mmio;   /* don't map entire mmio region upon fault */
+> > > +static int __init setup_hv_full_mmio(char *str)
+> > > +{
+> > > +	hv_nofull_mmio = true;
+> > > +	return 0;
+> > > +}
+> > > +__setup("hv_nofull_mmio", setup_hv_full_mmio);
+> > > +
+> > >   struct mshv_root mshv_root;
+> > >   enum hv_scheduler_type hv_scheduler_type;
+> > > @@ -612,6 +620,109 @@ mshv_partition_region_by_gfn(struct mshv_partition *partition, u64 gfn)
+> > >   }
+> > >   #ifdef CONFIG_X86_64
+> > > +
+> > > +/*
+> > > + * Check if uaddr is for mmio range. If yes, return 0 with mmio_pfn filled in
+> > > + * else just return -errno.
+> > > + */
+> > > +static int mshv_chk_get_mmio_start_pfn(struct mshv_partition *pt, u64 gfn,
+> > > +				       u64 *mmio_pfnp)
+> > > +{
+> > > +	struct vm_area_struct *vma;
+> > > +	bool is_mmio;
+> > > +	u64 uaddr;
+> > > +	struct mshv_mem_region *mreg;
+> > > +	struct follow_pfnmap_args pfnmap_args;
+> > > +	int rc = -EINVAL;
+> > > +
+> > > +	/*
+> > > +	 * Do not allow mem region to be deleted beneath us. VFIO uses
+> > > +	 * useraddr vma to lookup pci bar pfn.
+> > > +	 */
+> > > +	spin_lock(&pt->pt_mem_regions_lock);
+> > > +
+> > > +	/* Get the region again under the lock */
+> > > +	mreg = mshv_partition_region_by_gfn(pt, gfn);
+> > > +	if (mreg == NULL || mreg->type != MSHV_REGION_TYPE_MMIO)
+> > > +		goto unlock_pt_out;
+> > > +
+> > > +	uaddr = mreg->start_uaddr +
+> > > +		((gfn - mreg->start_gfn) << HV_HYP_PAGE_SHIFT);
+> > > +
+> > > +	mmap_read_lock(current->mm);
+> > 
+> > Semaphore can't be taken under spinlock.
 
-I checked datasheet
+> 
+> Yeah, something didn't feel right here and I meant to recheck, now regret
+> rushing to submit the patch.
+> 
+> Rethinking, I think the pt_mem_regions_lock is not needed to protect
+> the uaddr because unmap will properly serialize via the mm lock.
+> 
+> 
+> > > +	vma = vma_lookup(current->mm, uaddr);
+> > > +	is_mmio = vma ? !!(vma->vm_flags & (VM_IO | VM_PFNMAP)) : 0;
+> > 
+> > Why this check is needed again?
+> 
+> To make sure region did not change. This check is under lock.
+> 
 
-Nominal mode—the maximum
-GPU frequency supported in
-this mode is 800 MHz.
+How can this happen? One can't change VMA type without unmapping it
+first. And unmapping it leads to a kernel MMIO region state dangling
+around without corresponding user space mapping.
 
-Does difference grade (industry vs consumer) impact max frequency?
+This is similar to dangling pinned regions and should likely be
+addressed the same way by utilizing MMU notifiers to destpoy memoty
+regions is VMA is detached.
 
-Frank
->
-> Signed-off-by: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
-> ---
->  arch/arm64/boot/dts/freescale/imx8mq.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mq.dtsi b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-> index 607962f807be..6a25e219832c 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-> @@ -1632,7 +1632,7 @@ gpu: gpu@38000000 {
->  			                         <&clk IMX8MQ_GPU_PLL_OUT>,
->  			                         <&clk IMX8MQ_GPU_PLL>;
->  			assigned-clock-rates = <800000000>, <800000000>,
-> -			                       <800000000>, <800000000>, <0>;
-> +			                       <800000000>, <400000000>, <0>;
->  			power-domains = <&pgc_gpu>;
->  		};
->
->
-> ---
-> base-commit: 24d479d26b25bce5faea3ddd9fa8f3a6c3129ea7
-> change-id: 20260105-imx8mq-gpu-ahb-clock-139ba9ca9a6c
->
-> Best regards,
-> --
-> Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
->
+> > The region type is stored on the region itself.
+> > And the type is checked on the caller side.
+> > 
+> > > +	if (!is_mmio)
+> > > +		goto unlock_mmap_out;
+> > > +
+> > > +	pfnmap_args.vma = vma;
+> > > +	pfnmap_args.address = uaddr;
+> > > +
+> > > +	rc = follow_pfnmap_start(&pfnmap_args);
+> > > +	if (rc) {
+> > > +		rc = fixup_user_fault(current->mm, uaddr, FAULT_FLAG_WRITE,
+> > > +				      NULL);
+> > > +		if (rc)
+> > > +			goto unlock_mmap_out;
+> > > +
+> > > +		rc = follow_pfnmap_start(&pfnmap_args);
+> > > +		if (rc)
+> > > +			goto unlock_mmap_out;
+> > > +	}
+> > > +
+> > > +	*mmio_pfnp = pfnmap_args.pfn;
+> > > +	follow_pfnmap_end(&pfnmap_args);
+> > > +d
+> > > +unlock_mmap_out:
+> > > +	mmap_read_unlock(current->mm);
+> > > +unlock_pt_out:
+> > > +	spin_unlock(&pt->pt_mem_regions_lock);
+> > > +	return rc;
+> > > +}
+> > > +
+> > > +/*
+> > > + * At present, the only unmapped gpa is mmio space. Verify if it's mmio
+> > > + * and resolve if possible.
+> > > + * Returns: True if valid mmio intercept and it was handled, else false
+> > > + */
+> > > +static bool mshv_handle_unmapped_gpa(struct mshv_vp *vp)
+> > > +{
+> > > +	struct hv_message *hvmsg = vp->vp_intercept_msg_page;
+> > > +	struct hv_x64_memory_intercept_message *msg;
+> > > +	union hv_x64_memory_access_info accinfo;
+> > > +	u64 gfn, mmio_spa, numpgs;
+> > > +	struct mshv_mem_region *mreg;
+> > > +	int rc;
+> > > +	struct mshv_partition *pt = vp->vp_partition;
+> > > +
+> > > +	msg = (struct hv_x64_memory_intercept_message *)hvmsg->u.payload;
+> > > +	accinfo = msg->memory_access_info;
+> > > +
+> > > +	if (!accinfo.gva_gpa_valid)
+> > > +		return false;
+> > > +
+> > > +	/* Do a fast check and bail if non mmio intercept */
+> > > +	gfn = msg->guest_physical_address >> HV_HYP_PAGE_SHIFT;
+> > > +	mreg = mshv_partition_region_by_gfn(pt, gfn);
+> > 
+> > This call needs to be protected by the spinlock.
+> 
+> This is sorta fast path to bail. We recheck under partition lock above.
+> 
+
+Accessing the list of regions without lock is unsafe.
+
+Thanks,
+Stanislav
+
+> Thanks,
+> -Mukesh
+> 
+> 
+> > Thanks,
+> > Stanislav
+> > 
+> > > +	if (mreg == NULL || mreg->type != MSHV_REGION_TYPE_MMIO)
+> > > +		return false;
+> > > +
+> > > +	rc = mshv_chk_get_mmio_start_pfn(pt, gfn, &mmio_spa);
+> > > +	if (rc)
+> > > +		return false;
+> > > +
+> > > +	if (!hv_nofull_mmio) {		/* default case */
+> > > +		gfn = mreg->start_gfn;
+> > > +		mmio_spa = mmio_spa - (gfn - mreg->start_gfn);
+> > > +		numpgs = mreg->nr_pages;
+> > > +	} else
+> > > +		numpgs = 1;
+> > > +
+> > > +	rc = hv_call_map_mmio_pages(pt->pt_id, gfn, mmio_spa, numpgs);
+> > > +
+> > > +	return rc == 0;
+> > > +}
+> > > +
+> > >   static struct mshv_mem_region *
+> > >   mshv_partition_region_by_gfn_get(struct mshv_partition *p, u64 gfn)
+> > >   {
+> > > @@ -666,13 +777,17 @@ static bool mshv_handle_gpa_intercept(struct mshv_vp *vp)
+> > >   	return ret;
+> > >   }
+> > > +
+> > >   #else  /* CONFIG_X86_64 */
+> > > +static bool mshv_handle_unmapped_gpa(struct mshv_vp *vp) { return false; }
+> > >   static bool mshv_handle_gpa_intercept(struct mshv_vp *vp) { return false; }
+> > >   #endif /* CONFIG_X86_64 */
+> > >   static bool mshv_vp_handle_intercept(struct mshv_vp *vp)
+> > >   {
+> > >   	switch (vp->vp_intercept_msg_page->header.message_type) {
+> > > +	case HVMSG_UNMAPPED_GPA:
+> > > +		return mshv_handle_unmapped_gpa(vp);
+> > >   	case HVMSG_GPA_INTERCEPT:
+> > >   		return mshv_handle_gpa_intercept(vp);
+> > >   	}
+> > > -- 
+> > > 2.51.2.vfs.0.1
+> > > 
 
