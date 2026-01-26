@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 934F5C88E4F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 12:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD8FDCF65FF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 12:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U1o4WADTTHCzvlP6JtHKtRCxZVaOSvm6I7TJUb2/tQI=; b=DqIC+CwPY/O/D/Q/m1kVgoSowX
-	+y/Gu4RU8c1Y4GczOFfezJ0LjIh8CvRsX3nvFk7p28/Yhl+hwYWARkgjWz7CYIoUPSZKh5BQU+9Xb
-	1ajC0vr6q13MWIHM9fz7MtfzpjfDKBUQ1+r9mDUrWn+no+VdlKPEGLewLuF0SjoZyUELx5D9utNCT
-	VhDWf1wHSz6gxN+xKDbzOGy6daozAPeT1kqAHqvU/WmX3SVzwJDPdC4bHJuBFoK716Ob40ESmofS3
-	I60WYMtAh9eiAFWMd6/E3GWwcNxAz8JjsMKw7T9rfqQJ3bAl+/d/3EJJSgkb1UJaU2pBT3RvKW0OJ
-	3A5TPbGQ==;
+	bh=eUR73fBm5ynj8SVa/MeZHau9RC4xWZERt7lEEMLWI5g=; b=mpaa5CDmlcGLrqeq8AeW3uxMe4
+	3IHEjHmqYRrUrFvQJdufG8L9BXaqfq6dyfBplhLQFQfM+RdBgyBzrhE9wPrmMMt9b51gagh5CtXKU
+	yC9MizqKM1L8GOCRquB/iv2K1PdVDZircnQoJ9ZSjQ+PUbdud/vzvOE9wrJocgUCBod4GV9ZaaunE
+	vz7rCo1jsDIWYvgQj6XAvzdF8p6dcoYPA2Z4FWDrm8NS1qTAaCyovum6NFi87SgpNY5MaK1sgPFX/
+	d9kE08fD1WT6M6IXOoqzwYygYEs73MMuNOjb7BwvkHa7iClSKzR359jsugifaXsS8ji7KfHfbVmnj
+	xh270Y6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkLss-0000000CZ3m-0tZZ;
-	Mon, 26 Jan 2026 12:39:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vkLxd-0000000CZLr-1t70;
+	Mon, 26 Jan 2026 12:44:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkLsr-0000000CZ3f-0Bh0
+	id 1vkLxc-0000000CZLl-2bCP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 12:39:57 +0000
+	Mon, 26 Jan 2026 12:44:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E7A160051;
-	Mon, 26 Jan 2026 12:39:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50A08C116C6;
-	Mon, 26 Jan 2026 12:39:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B2BB06012B;
+	Mon, 26 Jan 2026 12:44:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8677C116C6;
+	Mon, 26 Jan 2026 12:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769431195;
-	bh=FxsnTu8eMYxkU3fivLnU4cZVxOCth2hrCor83qQn70o=;
+	s=k20201202; t=1769431491;
+	bh=QfLOMmD9jtH9CPHGXdUThFo9lSJwhC4/EeuyOAY+LF4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o0/gxbfaMeTRD7TRqobbcPOW2vCWdLWVVxQnSoKnpZgee7s3WJsymzLqAF/+WLmS4
-	 4Eu3AyrgQrSuXJ5YXsZQ7U5xWgQC/vLcn26IVdcSbyQLy/qOCTwFX7+JllNz0Wm9XP
-	 WXJ5LT8BsOzB5DKK2h0sy1E0O70AmM2odti8qnnfI+25Owv8H4/iE7FPf3Tn/2tA5h
-	 PUEfNKoO1xuBz8tU0uUuEbibainuL0zp4g32v4xxEa1OHBqAVOdb+W/zPiEp5blNIT
-	 Bfc+hg09ktCmfkUdq0zAD5Z6pVgrgxJOQP3XlHb0+ka+Xafg43gu2MJNUCdaIPGBeB
-	 TRbn40x2dbzog==
-Date: Mon, 26 Jan 2026 12:39:50 +0000
+	b=Z8qb/YXu5oaD948BYwFShGbfPVlb76WJ8hG2OwRrHQILj+eS8z9ryIfesrZEV9wx3
+	 UKyTqVCTuZS/nleuzlUX8kEKI4j51Al91sPJbt97RCiAMj84qzVIAbVoF38paqcGys
+	 FruiPipYu1vRTQQ1HMTBQHVfMTmUGxPgnHXiw9tC0km1kHM9gHLDIA6U4pHsreZG3w
+	 DEf00rd3VaFaA1BVwb/pgjM9AtrlYhyIF+CBu26zwBcwrK1182GkXs74df3qxThM8O
+	 H7N7Bkx+jBhCEI9B7Idu496ygSIoqAWqjUy6K6Mdr6Epk2qSGfdeuG5tqlNmrt4GDB
+	 CLCQi+L5LmJcw==
+Date: Mon, 26 Jan 2026 12:44:47 +0000
 From: Will Deacon <will@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, robin.murphy@arm.com, bhelgaas@google.com,
-	joro@8bytes.org, praan@google.com, baolu.lu@linux.intel.com,
-	kevin.tian@intel.com, miko.lenczewski@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH RFCv1 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
-Message-ID: <aXdgljWHHPVMTmya@willie-the-truck>
-References: <cover.1768624180.git.nicolinc@nvidia.com>
- <09cb6be1f8f7472a2f1ccab72154cc6e22cf570b.1768624181.git.nicolinc@nvidia.com>
+To: Yang Shi <yang@os.amperecomputing.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com,
+	ryan.roberts@arm.com, cl@gentwo.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [v5 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
+Message-ID: <aXdhvyW1f10YnZx1@willie-the-truck>
+References: <20260107002944.2940963-1-yang@os.amperecomputing.com>
+ <965a0b46-f32e-40e6-ab71-211f84d6c3cf@arm.com>
+ <aXIxYcAsbFZn3ZNU@willie-the-truck>
+ <8e9f762f-5933-4e30-ab6d-489a56de4eaf@arm.com>
+ <1d9e2eff-c6c9-414d-9e39-e046fc0fdc16@os.amperecomputing.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <09cb6be1f8f7472a2f1ccab72154cc6e22cf570b.1768624181.git.nicolinc@nvidia.com>
+In-Reply-To: <1d9e2eff-c6c9-414d-9e39-e046fc0fdc16@os.amperecomputing.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,182 +73,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 16, 2026 at 08:56:42PM -0800, Nicolin Chen wrote:
-> When a device's default substream attaches to an identity domain, the SMMU
-> driver currently sets the device's STE between two modes:
+On Fri, Jan 23, 2026 at 12:08:07PM -0800, Yang Shi wrote:
 > 
->   Mode 1: Cfg=Translate, S1DSS=Bypass, EATS=1
->   Mode 2: Cfg=bypass (EATS is ignored by HW)
 > 
-> When there is an active PASID (non-default substream), mode 1 is used. And
-> when there is no PASID support or no active PASID, mode 2 is used.
+> On 1/22/26 6:40 PM, Anshuman Khandual wrote:
+> > 
+> > On 22/01/26 7:47 PM, Will Deacon wrote:
+> > > On Thu, Jan 22, 2026 at 10:39:25AM +0530, Anshuman Khandual wrote:
+> > > > Hello Yang,
+> > > > 
+> > > > On 07/01/26 5:59 AM, Yang Shi wrote:
+> > > > > Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
+> > > > > rodata=full"), the direct mapping may be split on some machines instead
+> > > > > keeping static since boot. It makes more sense to show the direct mapping
+> > > > > use in /proc/meminfo than before.
+> > > > I guess the direct mapping here refers to linear map ? IIUC it is called
+> > > > direct map on x86 and linear map on arm64 platforms. Then should not it
+> > > > be renamed as s/DirectMap/LinearMap instead ? This will align with names
+> > > > from ptdump as well.
+> > > > 
+> > > > Before the above mentioned commit, linear could get altered with memory
+> > > > hotplug and remove events as well.
+> > > > 
+> > > > > This patch will make /proc/meminfo show the direct mapping use like the
+> > > > > below (4K base page size):
+> > > > > DirectMap4K:	   94792 kB
+> > > > > DirectMap64K:	  134208 kB
+> > > > > DirectMap2M:	 1173504 kB
+> > > > > DirectMap32M:	 5636096 kB
+> > > > > DirectMap1G:	529530880 kB
+> > > > If /proc/meminfo interface is getting updated via  arch_report_meminfo()
+> > > > why not add stats for all kernel virtual address space ranges including
+> > > > vmemmap, vmalloc etc aka all address range headers in ptdump as many of
+> > > > those could change during system runtime. What makes linear mapping any
+> > > > special ?
+> > > tbh, I think compatability with x86 is a good argument in this case and
+> > > so the naming and formatting proposed by this patch makes sense to me.
+> > Fair enough. Probably adding a comment above arch_report_meminfo() along
+> > with the commit message, explaining the above rationale would be helpful
+> > for developers to understand/recollect this equivalence later on.
+> > 
+> > > I'm also not sure that it's particularly interesting to see these
+> > > rolled-up numbers for the vmalloc area. You really want information
+> > > about the area, so extending /proc/vmallocinfo to give information
+> > > about the granule size for each entry might be useful but I don't think
+> > > it should be part of this patch.
+> > Agreed - vmalloc has a separate file for its details which can be improved
+> > later to accommodate rolled-up numbers. But what about vmemmap ? It always
+> > gets updated along with linear map during memory hotplug and remove events.
+> > Should that be included here ?
 > 
-> The driver will also downgrade an STE from mode 1 to mode 2, when the last
-> active substream becomes inactive.
+> The granule size of vmemmap should be quite static IIUC. AFAIK kernel
+> doesn't modify vmemmap page tables except HVO, but arm64 doesn't support
+> HVO. And just 4K page size can have PMD mapped vmemmap. It doesn't use
+> contiguous mapping either. The smallest granularity of memory hotplug is
+> 128M with 4K page size, so vmemmap for hotplugged memory should be PMD
+> mapped as well.
 > 
-> However, there are PCIe devices that demand ATS to be always on. For these
-> devices, their STEs have to use the mode 1 as HW ignores EATS with mode 2.
-> 
-> Change the driver accordingly:
->   - always use the mode 1
->   - never downgrade to mode 2
->   - allocate and retain a CD table (see note below)
-> 
-> Note that these devices might not support PASID, i.e. doing non-PASID ATS.
-> In such a case, the ssid_bits is set to 0. However, s1cdmax must be set to
-> a !0 value in order to keep the S1DSS field effective. Thus, when a master
-> requires ats_always_on, set its s1cdmax to minimal 1, meaning the CD table
-> will have a dummy entry (SSID=1) that will be never used.
-> 
-> Now, for these device, arm_smmu_cdtab_allocated() will always return true,
-> v.s. false prior to this change. When its default substream is attached to
-> an IDENTITY domain, its first CD is NULL in the table, which is a totally
-> valid case. Thus, drop the WARN_ON().
-> 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 74 ++++++++++++++++++---
->  2 files changed, 64 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index ae23aacc3840..2ed68f43347e 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -850,6 +850,7 @@ struct arm_smmu_master {
->  	bool				ats_enabled : 1;
->  	bool				ste_ats_enabled : 1;
->  	bool				stall_enabled;
-> +	bool				ats_always_on;
->  	unsigned int			ssid_bits;
->  	unsigned int			iopf_refcount;
->  };
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index d16d35c78c06..5b7deb708636 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -1422,7 +1422,7 @@ void arm_smmu_clear_cd(struct arm_smmu_master *master, ioasid_t ssid)
->  	if (!arm_smmu_cdtab_allocated(&master->cd_table))
->  		return;
->  	cdptr = arm_smmu_get_cd_ptr(master, ssid);
-> -	if (WARN_ON(!cdptr))
-> +	if (!cdptr)
->  		return;
+> It might be worth showing the memory consumed by vmemmap for hotplug memory
+> so that the users can know where the memory is used. The vmemmap used for
+> bootmem is not counted in MemTotal of /proc/meminfo. But it sounds more core
+> mm generic and shouldn't be part of this patch IMHO.
 
-Should we still warn if !master->ats_always_on?
-
->  	arm_smmu_write_cd_entry(master, ssid, cdptr, &target);
->  }
-> @@ -1436,6 +1436,22 @@ static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master)
->  	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
->  
->  	cd_table->s1cdmax = master->ssid_bits;
-> +
-> +	/*
-> +	 * When a device doesn't support PASID (non default SSID), ssid_bits is
-> +	 * set to 0. This also sets S1CDMAX to 0, which disables the substreams
-> +	 * and ignores the S1DSS field.
-> +	 *
-> +	 * On the other hand, if a device demands ATS to be always on even when
-> +	 * its default substream is IOMMU bypassed, it has to use EATS that is
-> +	 * only effective with an STE (CFG=S1translate, S1DSS=Bypass). For such
-> +	 * use cases, S1CDMAX has to be !0, in order to make use of S1DSS/EATS.
-> +	 *
-> +	 * Set S1CDMAX no lower than 1. This would add a dummy substream in the
-> +	 * CD table but it should never be used by an actual CD.
-> +	 */
-> +	if (master->ats_always_on)
-> +		cd_table->s1cdmax = max_t(u8, cd_table->s1cdmax, 1);
->  	max_contexts = 1 << cd_table->s1cdmax;
->  
->  	if (!(smmu->features & ARM_SMMU_FEAT_2_LVL_CDTAB) ||
-> @@ -3189,7 +3205,8 @@ static int arm_smmu_blocking_set_dev_pasid(struct iommu_domain *new_domain,
->  	 * When the last user of the CD table goes away downgrade the STE back
->  	 * to a non-cd_table one, by re-attaching its sid_domain.
->  	 */
-> -	if (!arm_smmu_ssids_in_use(&master->cd_table)) {
-> +	if (!master->ats_always_on &&
-> +	    !arm_smmu_ssids_in_use(&master->cd_table)) {
->  		struct iommu_domain *sid_domain =
->  			iommu_get_domain_for_dev(master->dev);
->  
-> @@ -3205,7 +3222,7 @@ static void arm_smmu_attach_dev_ste(struct iommu_domain *domain,
->  				    struct iommu_domain *old_domain,
->  				    struct device *dev,
->  				    struct arm_smmu_ste *ste,
-> -				    unsigned int s1dss)
-> +				    unsigned int s1dss, bool ats_always_on)
->  {
->  	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-
-Can we avoid the 'bool' parameter if possible, please? They tend to make the
-callsites pretty horrible to read and you're already passing the 'struct
-device *' so you should have the master in hand?
-
->  	struct arm_smmu_attach_state state = {
-> @@ -3224,7 +3241,7 @@ static void arm_smmu_attach_dev_ste(struct iommu_domain *domain,
->  	 * If the CD table is not in use we can use the provided STE, otherwise
->  	 * we use a cdtable STE with the provided S1DSS.
->  	 */
-> -	if (arm_smmu_ssids_in_use(&master->cd_table)) {
-> +	if (ats_always_on || arm_smmu_ssids_in_use(&master->cd_table)) {
->  		/*
->  		 * If a CD table has to be present then we need to run with ATS
->  		 * on because we have to assume a PASID is using ATS. For
-> @@ -3260,7 +3277,8 @@ static int arm_smmu_attach_dev_identity(struct iommu_domain *domain,
->  	arm_smmu_master_clear_vmaster(master);
->  	arm_smmu_make_bypass_ste(master->smmu, &ste);
->  	arm_smmu_attach_dev_ste(domain, old_domain, dev, &ste,
-> -				STRTAB_STE_1_S1DSS_BYPASS);
-> +				STRTAB_STE_1_S1DSS_BYPASS,
-> +				master->ats_always_on);
->  	return 0;
->  }
->  
-> @@ -3283,7 +3301,7 @@ static int arm_smmu_attach_dev_blocked(struct iommu_domain *domain,
->  	arm_smmu_master_clear_vmaster(master);
->  	arm_smmu_make_abort_ste(&ste);
->  	arm_smmu_attach_dev_ste(domain, old_domain, dev, &ste,
-> -				STRTAB_STE_1_S1DSS_TERMINATE);
-> +				STRTAB_STE_1_S1DSS_TERMINATE, false);
->  	return 0;
->  }
->  
-> @@ -3521,6 +3539,40 @@ static void arm_smmu_remove_master(struct arm_smmu_master *master)
->  	kfree(master->streams);
->  }
->  
-> +static int arm_smmu_master_prepare_ats(struct arm_smmu_master *master)
-> +{
-> +	bool s1p = master->smmu->features & ARM_SMMU_FEAT_TRANS_S1;
-> +	unsigned int stu = __ffs(master->smmu->pgsize_bitmap);
-> +	struct pci_dev *pdev = to_pci_dev(master->dev);
-> +	int ret;
-> +
-> +	if (!arm_smmu_ats_supported(master))
-> +		return 0;
-> +
-> +	if (!pci_ats_always_on(pdev))
-> +		goto out_prepare;
-> +
-> +	/*
-> +	 * S1DSS is required for ATS to be always on for identity domain cases.
-> +	 * However, the S1DSS field is ignored if !IDR0_S1P or !IDR1_SSIDSIZE.
-> +	 */
-> +	if (!s1p || !master->smmu->ssid_bits) {
-> +		dev_info_once(master->dev,
-> +			      "SMMU doesn't support ATS to be always on\n");
-> +		goto out_prepare;
-> +	}
-> +
-> +	master->ats_always_on = true;
-> +
-> +	ret = arm_smmu_alloc_cd_tables(master);
-> +	if (ret)
-> +		return ret;
-
-Were do you allocate the second level entry for ssid 0 if we're using
-2-level cd tables?
+Agreed, I don't understand what the granularity of the vmemmap has to do
+with this.
 
 Will
 
