@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A941D13C13
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E85B4D13C0F
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 13:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,34 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TewMu9nTeuacd23v8nCPGx5nl7sVXW8HgrNUZEOdY8k=; b=aOLHmG+xEXho6FvC1uaBMUq7jR
-	dqFDR6iSWRmHvaYK1dObN46gjI3s2MUMnwhwGCJgM0Bpzv+YIMM+7rzmLTUwPXx2xzifeWdZHzG7v
-	cndDLi/YRVHrHoxkHGpf39ZbyGHpuPVcmyKjm+M3E3xlsh7foIYAlDh0zu0Mhc6QEdUP/c6yO9IFA
-	vSEsB0z4S4WggafDK15Y6uXGOrccY1iSFQ5ZuVVx3G+GZnrYYv5Z0Bk6FRE9jxpkz3iMeD+t9HLYZ
-	ITUdG2hbo0EpuxjboymHIuUeF3H/5mqFFyeEBzdE1RtXZXl0fMcwQHyxfER0ZMVpIJSvp8+SiH5so
-	YHEEgWhA==;
+	bh=kZsk+AdQN3zF6RFk72WnyalK/6pbfIeRYauOjs9RINM=; b=IRHHAPSAHjNYVIy0B82aaivPEz
+	zt+hF9H5ZADn2HUj0s+4ZVf6FrQ8Nh1xzKOJ1pJOLsibJvJ9OpWPWO5xvpPmoQ6MPKjCvLneSoFwu
+	p/5s+RuKGW3uc8UXEDSYqOn79r65mRKPgV8dcvIYJ6l0b7XhH51q0K7UbUskLdQj2UWofb8wI5X3a
+	EZkgXRx2XE3UZU4WvJDt6s01cnB5lVUll31F5ZHp7Q04bv/dNc7BLyhsAy62AHusvrM2E7BR5r5fd
+	oMB12SLg3K+LnKL07u9DpflSP08xkg2JZrn9YJBFj9QGawSdA4mltrIorOKWKDuxLECHLdTkCw6BZ
+	CUQuLJ/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkN1T-0000000CeDa-0cvb;
-	Mon, 26 Jan 2026 13:52:55 +0000
+	id 1vkN1S-0000000CeDE-3ZMW;
+	Mon, 26 Jan 2026 13:52:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkN1K-0000000Ce8q-2ZTM
+	id 1vkN1H-0000000Ce6a-3SuQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 13:52:47 +0000
+	Mon, 26 Jan 2026 13:52:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C39E5339;
-	Mon, 26 Jan 2026 05:52:38 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A84BC497;
+	Mon, 26 Jan 2026 05:52:34 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8EA863F632;
-	Mon, 26 Jan 2026 05:52:43 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7012B3F632;
+	Mon, 26 Jan 2026 05:52:39 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 26 Jan 2026 13:52:03 +0000
-Subject: [PATCH v2 3/8] coresight: Protect unregistration with mutex
+Date: Mon, 26 Jan 2026 13:52:01 +0000
+Subject: [PATCH v2 1/8] coresight: Fix memory leak in
+ coresight_alloc_device_name()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260126-arm_coresight_refactor_dev_register-v2-3-b5a3c0441c15@arm.com>
+Message-Id: <20260126-arm_coresight_refactor_dev_register-v2-1-b5a3c0441c15@arm.com>
 References: <20260126-arm_coresight_refactor_dev_register-v2-0-b5a3c0441c15@arm.com>
 In-Reply-To: <20260126-arm_coresight_refactor_dev_register-v2-0-b5a3c0441c15@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -51,16 +52,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769435557; l=1601;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769435557; l=2227;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=NNtyAxNPwkV3k4xTpN3INAVKd2Yf9zKDsOUZfCQ+ZCw=;
- b=9jvQ1yfATrYjaMdrbvY+6WdiUxjP8y7iXWCIDITcXWLM3hGr4fi6D8ykgbmuHpUFiIfk+dUxX
- kdDKJ1UgN5AAWGlNNlMmSILp/T3rjJ9Ip2EZLgkkcckO6iby/BUq+tU
+ bh=wfdu7BgNyaudGo7x3olBbFwiUZzdWbnFwEbSgQIKBIE=;
+ b=JXRDFl1FXfxzkOotT3Oic2XKedRywv/hZLcv6bZM4ul8omNk2C9p0Z/NWCUXlnEkMHG++1VOY
+ r+oJd2CAEqMA79rFxFKwGoJNeczaTNSL96pg39ZJcnf+kIV38psAtez
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_055246_701962_56B401D4 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20260126_055243_910438_0763BA00 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,43 +76,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The device registration is protected by CoreSight mutex to ensure the
-atomic operations when adding a device onto bus.  One the other hand,
-the locking is absent when unregister a device.
+The memory leak detector reports:
 
-Use mutex to ensure atomicity on device unregistration.  During
-unregistration, unbinding the associated CTI device is not included in
-the locking region, as CTI has its own locking mechanism.
+  echo clear > /sys/kernel/debug/kmemleak
+  modprobe coresight_funnel
+  rmmod coresight_funnel
 
-Fixes: 8c1d3f79d9ca ("coresight: core: Fix coresight device probe failure issue")
+  # Scan memory leak and report it
+  echo scan > /sys/kernel/debug/kmemleak
+  cat /sys/kernel/debug/kmemleak
+  unreferenced object 0xffff0008020c7200 (size 64):
+    comm "modprobe", pid 410, jiffies 4295333721
+    hex dump (first 32 bytes):
+      d8 da fe 7e 09 00 ff ff e8 2e ff 7e 09 00 ff ff  ...~.......~....
+      b0 6c ff 7e 09 00 ff ff 30 83 00 7f 09 00 ff ff  .l.~....0.......
+    backtrace (crc 4116a690):
+      kmemleak_alloc+0xd8/0xf8
+      __kmalloc_node_track_caller_noprof+0x2c8/0x6f0
+      krealloc_node_align_noprof+0x13c/0x2c8
+      coresight_alloc_device_name+0xe4/0x158 [coresight]
+      0xffffd327ecef8394
+      0xffffd327ecef85ec
+      amba_probe+0x118/0x1c8
+      really_probe+0xc8/0x3f0
+      __driver_probe_device+0x88/0x190
+      driver_probe_device+0x44/0x120
+      __driver_attach+0x100/0x238
+      bus_for_each_dev+0x84/0xf0
+      driver_attach+0x2c/0x40
+      bus_add_driver+0x128/0x258
+      driver_register+0x64/0x138
+      __amba_driver_register+0x2c/0x48
+
+Change to use devm_krealloc_array() for allocation fwnode_list so that
+the device model can automatically release the memory when the module
+is unloaded.
+
+Fixes: 0f5f9b6ba9e1 ("coresight: Use platform agnostic names")
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/hwtracing/coresight/coresight-core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 6f21925a4913330a27db5d5836f34f13382339e7..b992ef5de8ddbd535e937c616bd7ab663f097f76 100644
+index c660cf8adb1c7cafff8f85e501f056e4e151e372..ed304f292b7b02e89c59053d43f88fbf663cc993 100644
 --- a/drivers/hwtracing/coresight/coresight-core.c
 +++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1429,14 +1429,17 @@ EXPORT_SYMBOL_GPL(coresight_register);
- 
- void coresight_unregister(struct coresight_device *csdev)
- {
--	etm_perf_del_symlink_sink(csdev);
- 	/* Remove references of that device in the topology */
- 	if (cti_assoc_ops && cti_assoc_ops->remove)
- 		cti_assoc_ops->remove(csdev);
-+
-+	mutex_lock(&coresight_mutex);
-+	etm_perf_del_symlink_sink(csdev);
- 	coresight_remove_conns(csdev);
- 	coresight_clear_default_sink(csdev);
- 	coresight_release_platform_data(csdev, csdev->dev.parent, csdev->pdata);
- 	device_unregister(&csdev->dev);
-+	mutex_unlock(&coresight_mutex);
- }
- EXPORT_SYMBOL_GPL(coresight_unregister);
- 
+@@ -1546,7 +1546,7 @@ char *coresight_alloc_device_name(struct coresight_dev_list *dict,
+ 	if (idx < 0) {
+ 		/* Make space for the new entry */
+ 		idx = dict->nr_idx;
+-		list = krealloc_array(dict->fwnode_list,
++		list = devm_krealloc_array(dev, dict->fwnode_list,
+ 				      idx + 1, sizeof(*dict->fwnode_list),
+ 				      GFP_KERNEL);
+ 		if (ZERO_OR_NULL_PTR(list)) {
 
 -- 
 2.34.1
