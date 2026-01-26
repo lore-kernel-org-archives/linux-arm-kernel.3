@@ -4,155 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 359E4C88E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:12:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C8C6C88E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=44h52C+/D1n8YgoqhvGFkQ+8+BXdKDuOlNGl+eh69sg=; b=GJnMBZckt0XeNKkh10JkR5LXpc
-	P3ilzc1w1uuFVH68AlFCml+onCZJKzPg9RJOXGR9Mylvzd+QmUwV71fDCKoTyRp3PHz54Ev4NggEX
-	cUjghH5LBKwULjZUL/pQQuULyoe3IY+I098k/QxPndMAGUxc9NLbIaZHmrMfUUGHqn0X284zA08G7
-	x6cprVQmRX1E9fSWEbVLDrz4ZYJ5epoYIcBHwzzfX9vHSQ7CJ7ojtBx/mihyQCNLmYp7FQ6TIGfH4
-	wjw2vg7LJkZLc/khX2iI3Srjx9VgJoFyUWIvreliqLExGd8/Ajf+ZluKPB7c58Szet0+yYk1DijJg
-	Slv8xe8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OZ0wRjpBkARHUdg5AXc4jIF+w1YP8Cq41/gPWjBo+gg=; b=W+pNYPMku6DWyth+J+x1mhOtiL
+	s7dVg9r/HqFGR0TjMbntaYEufnuYvFaJf1pUzLDYvVp+MEKVPa1cojRsXFgyYQzoqeAh2yLt4VuCu
+	l0xLxuds4a2OKjgZUAjDngXuJUeysL6nf5OP8BFLS4owT7xkQV5RkxDmFdBDjGM9BYVmB6Hd511DQ
+	MDP6YjYpwYRn+9M/HAYoqzLe0W7TCLnwgJhaAAJf16zmV2uIoAUP6aqKHS6HiPQ2BIhdV2vEgTy3o
+	QRlqsFk10IOgd30+awr4BCgesrlgS4kGhF33G+rXbCQdjKkdzaNzrVEQ0oJO64FFPy5OwgHv1R1In
+	gxKXfpnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkIe4-0000000C9qm-0b3h;
-	Mon, 26 Jan 2026 09:12:28 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vkIeQ-0000000C9tI-2KZ0;
+	Mon, 26 Jan 2026 09:12:50 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkIe1-0000000C9qL-30l6
+	id 1vkIeO-0000000C9si-2IJA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 09:12:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x4ufHDVV/ejxFSOskcLjp2D2EK4YCVmQRtWesV2GRtZi7kxxKbVCOnPHdGPp2o6A5fTvNqlTev775ssj+u+P8QVJ6fo1Qz2AfDDbyn8iwl60jfs8FLVmG9A3RYYSzfrdoy8enB89o0W3o08BWgUaLYPBm6oac6y8HGut/lYsX3F1RXKL4UF2ynwQvvhIXOR71hJlF6KEfsgI1cw8Ln/BpLoK7UxV3tkgmccdDf4pimSHSUs4PSgu42CI95ds+r7WXJLnykny74fbXuEA9N5QpW+w4A3rn11HtFw9aczfIxdpUPefwT6/n/9F1dScJc2dqKagtl2h1I6MDVAhZUMuVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=44h52C+/D1n8YgoqhvGFkQ+8+BXdKDuOlNGl+eh69sg=;
- b=InKzVW1YgNCS+PhLI7n4hfdWAhkjwHM9lMNlHYaW2aB5zGLMu44CxtPlX9V2dYDcsYf5940OOjiQFaKHGayOn5pUvxWWKaFDOu7LLB7D4mzqgHdU+Y+RKu609G9XjQY2I7cMDPaK7ze2JFdCnYZFzehPbanUuLvkPnZk03wg8ILD7pNGbV1Lx6l/WR6jr4tcwyNvTbBGFPQRew/GDJnq0neAzPutHXDJ0JdroYu55fpK012g7agOtrbRzRS6pR44OMecKQ37F4XNqiBsjypbE/WbNi9S17MEtpG4mBYu4KPhRBiEObc6imRfNvl4g22ijGJYRLh84exAYk+AVZMfLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=44h52C+/D1n8YgoqhvGFkQ+8+BXdKDuOlNGl+eh69sg=;
- b=GjkNNF/5o958jPzXSpnRaR/y297zmkksIF70VITgJPiTD/XYaac3FOOhV3PHLdMXj90VDAOqlHjiwo4u5YTYtg+uAO9m1XWSEhaJNVZXgqjZho8nw33DH4ZrU82I54OcREZu7TZcfRdfma3vHZhc/akaJ5w8GJBfcoY/1Af6KDZ9pliIqoozt8AwyGyPeSM+Wv1pGo/dePwL0NFjmmvudOhb3CtCzLlnBpYjTnxyFoHq7gUhSSz7bXWJ/D1E5/RtLHl7GHrBFwS9eCMp2DM2xqq68UNv469DG1ZvbVlkyoMgIX2bOUQSthxhs/x1jnkPSVglzCtZJnC4k/fGiGiC7g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
- by AMBPR04MB12206.eurprd04.prod.outlook.com (2603:10a6:20b:759::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Mon, 26 Jan
- 2026 09:12:20 +0000
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::bab2:d15c:fcf8:ef2b]) by AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::bab2:d15c:fcf8:ef2b%7]) with mapi id 15.20.9542.010; Mon, 26 Jan 2026
- 09:12:20 +0000
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
-To: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	laurentiu.mihalcea@nxp.com,
-	daniel.baluta@nxp.com,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	shengjiu.wang@gmail.com
-Subject: [PATCH v2] bus: imx-aipstz: set default value for opacr registers
-Date: Mon, 26 Jan 2026 17:11:56 +0800
-Message-Id: <20260126091156.951052-1-shengjiu.wang@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0031.apcprd02.prod.outlook.com
- (2603:1096:4:195::16) To AM0PR04MB7044.eurprd04.prod.outlook.com
- (2603:10a6:208:191::20)
+	Mon, 26 Jan 2026 09:12:50 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-65063a95558so5797836a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 01:12:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769418766; cv=none;
+        d=google.com; s=arc-20240605;
+        b=C7C7bDBS37X4+QuAxZU9Th2GQMgbcfsfM51CTR71nERRV4j/WCXQ9JdO96fq9Z+Y6b
+         t7ywQAUQmSGl3HfViasDl++cy6V6LtWyxaJ7gLnVtNV7pPp3RwvKJO6vD71R+dbPxU0t
+         Ex5MiOpPvqcCJ8Z7/wSH6lcEeEHlp/EVhSpJAnyEcPNRqGL6+7zlvxVIL5daHiSOiHof
+         wA1QzLgQnglB5aT8jeIKTu2WRdkW22WBrIfoSqFCnlPzgPu5I5/C3zkxnsYVwMBPV7rO
+         z8fBedo9nodRNY8wdjn2CTFsfZuyrQqjZltbBN1cLYqjHAeb4zsEuC+PSFkXq4/SKeb6
+         4X2w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=OZ0wRjpBkARHUdg5AXc4jIF+w1YP8Cq41/gPWjBo+gg=;
+        fh=Tfhli5UsduPoHZqsIvcow0SHx1RXY9EOiTFDMVWVUW4=;
+        b=Dg9BiIF3q6/B2bHOmqmBfAj06HyfTHM6ijX7e0rUHFYAraeootnJGv2ORzXvck2Fw6
+         vNqEw6GZfMaaVq2VT+nayZrGtKE83agyMiRA0adyGag7B2/GwixlbpeA99TlqY+YM7Wb
+         oW+SCvYxqYWnLWoi9udJjdxujaiMobB7kt9yLVs7xGSfnc0ZIKvJjLKK+sCR3FxQNAiB
+         131kq1oZXOl4yTWu8H2nDoIJDOwVabWu9QAvV2UY3PzqCqXrVIy6wyTohh/+STYW2Pzp
+         Zdke6WnySJ4AOWSsj036gTPUAlyEZAHso+4x7r7nZu/koXyZIYd7mZtFFLKADEpcbcKR
+         0LkA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1769418766; x=1770023566; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OZ0wRjpBkARHUdg5AXc4jIF+w1YP8Cq41/gPWjBo+gg=;
+        b=IpG7dfUyyOgd/heswxqBTMQAGaBlim4IUHmbw7FSCE4cajahhDEu1I/iFJ8komjfN8
+         s9zRPu4lzG98NbRkx7ynyZEu3FYp3YuKRuP+r9a7XB+IVHzHvzyV3pHFFFb5egON3WBH
+         ylYs5k3Ru6Pb/yPhZQrUh1vAxpmeEZADCRlf26Yo/4WIfoCoMGJJ8pS+kA8MjJCZX8Et
+         1LGrKVfbECgakUqsVz8Sv6EtaqGUQOJc1s9bA5OZuWipDPKMaoVpf56NKGLn5rnZgEO5
+         2LSxAFMHxOtEQxB6OARfQ9nu3aE8KO95LDDQt0aZ64W/QCXvIJtvo5EZ/Qzs4j6vFPDq
+         fcoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769418766; x=1770023566;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=OZ0wRjpBkARHUdg5AXc4jIF+w1YP8Cq41/gPWjBo+gg=;
+        b=r+RtIu2qyNR1NnbTk+4DoRORrJmoEE/S2uId/igwtaQjyzkRYWBuO3gyF0VPuSNjHM
+         2dDheX5L58YGfq7TdikDoStkzXr32yksXCim0HWdayj+S2IK5k5WH4y17pxmMPNJ1/R4
+         7yre0N38WEjDjVcMzJ79NyXzboN45pR7LnNtvhDuPT1CVK5Bme9uLMYRDENXeaJDw07X
+         c0eMHh1zse6t85C7Dfvh8Iw7YrW3fEAmZu3WA25roNclPijDHahdN3NbcW2moHaV9xf+
+         tQgmRsXRs4PS+zxRbQrwjrKT95zBQxkoIoI/3PNY3QXi/eqaARf29yrx1VSc0Hc7+x2D
+         ojSA==
+X-Forwarded-Encrypted: i=1; AJvYcCUZPg8NDdleGjJ+AmaryRCY8eHDGhkmqxhKkiKckHUYmyDejeAMbj7sibh/OeXfuxwNjCv5lvDjK1+JCwu6sJ6k@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUcm7y/KpAOaVQwn115q3HXrZsD3piN6jcWY0yy8vY16WgikYx
+	RMw2xDXSO68imT0Qgjp6QY5l2WeG7N5ch1HcS6hxwT/Pomz2rhoyIogPi7zI4kux5Rmbt6NQvTG
+	4vUmLy7t/8f5PvZJn2osAlcuBy4cEDvk43bDttlJdew==
+X-Gm-Gg: AZuq6aJ4j242HHX80UhBFqw64s5MA7tLZ3hqQYm4dFTtoRf+sEOpN0HO41tw0Tnt4Rz
+	w+HVZkFbY7+hS/Nc34jy4V9AyjefZ/ZKXKKbra7hLdi+HSrU0L9WhDC33MYI5KzGn7wdGCbdOcT
+	H7lTGr6x5Ah+dtaM8XU7DJwRKQ5IeBLni22MwiixFxw3ufGEWfCvJS0Oqk0pIllTGBG6aq2+KEo
+	9m2sX7QhF3FkuobjxYdR7KpGdWqLtmcWsK8yHNAL2+wIc/1z+Zq7xuxfvhiR2oRZZRZk+iEsYyb
+	GfbrMV4Ye39CsALpp9/pyJAEYsyiNicY4DRIbgP96FZTeFLCOc0=
+X-Received: by 2002:a05:6402:4508:b0:64c:fc09:c956 with SMTP id
+ 4fb4d7f45d1cf-658706d59cfmr1542296a12.29.1769418766039; Mon, 26 Jan 2026
+ 01:12:46 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|AMBPR04MB12206:EE_
-X-MS-Office365-Filtering-Correlation-Id: a2518aa2-0e3b-4210-ca8e-08de5cbb026c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|376014|1800799024|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6PaAXGQb8pWeCkOaxN+Y6YisEg8RcR4rd87DZGFYaLVoYJEHXWgD3uuSqEYD?=
- =?us-ascii?Q?ACOB3nY6+8jmUqZ9G1WQtI7PM/ZI+C3gT8oTWT+CvNYom1pnnimnGzWEuz0d?=
- =?us-ascii?Q?fRw+YGxlKj5a3omOXUgCRHR19nX+8AudoyJaNKexKwRVibCWFuWVsvmKD2Ri?=
- =?us-ascii?Q?ytLI0WzsTn1MSqjTVObh5+pJnH3SDX1Pb+K7W3FJYKNxypcqaEmyBnvLfxO/?=
- =?us-ascii?Q?6Gf4vscJyA6FmAl/6nwJfaP+iVbHhluESQXufDXeM6TEVFl/gWsMdu6zuy9g?=
- =?us-ascii?Q?d+qQwDpE/dAbvvhf9+kS4TxGJS0nE+eUYUw/f0nsImeDQnsv+ydGNk6pLFId?=
- =?us-ascii?Q?aEO5NfJJKWfQaOc2VcWMPfu/YYhoOmk84mk9Ln5s6h5B2FkzKcBAw/z06g40?=
- =?us-ascii?Q?3TYSInoC6pvT3+FcNALoiVICRbMUhmn2ugCJT2yG2TGgmKOlovc0pPd4O2W9?=
- =?us-ascii?Q?vRH8ZmEtHwRAvDs4beQs7xwqg8zntRf7izC+157D/v6du7OoxZXP88QhTnZJ?=
- =?us-ascii?Q?469rczK5gXE2W0xTnuHpmZgTPMuc04hfQxTkNzRaO/tb2OYNysGiYWLC1r/l?=
- =?us-ascii?Q?2WACthNKsDqxIEo5EVBs2lr/krdT2G5WnofnkZnDWrE3/PGYvjxhgg3M/qZB?=
- =?us-ascii?Q?W3SualtoAu6ptbePkfTwakolvmm49u+EWZJr6QZP1FqjzIkc0wytRQjI22qJ?=
- =?us-ascii?Q?6yuI4E25feMJTvbLnZRIZzt/p8FVE3CiVmc3M9y5D7pH6V3xB0NICoxgOXvP?=
- =?us-ascii?Q?e/Y7mlPSc9H7IH9547QuatC5+AcikZrCCe9dlXoliXRyOWDJI5mBGhIayp+n?=
- =?us-ascii?Q?vdVIVYb1hO5MICeyXSwvSEYfWx+ACchmDTjKj1bBuGoqhyky5hXUJSg+NYmg?=
- =?us-ascii?Q?8v18lT9qzwlBwoWMqpDqYAnMG7cuwWqZ1wzVndfwYwwNjv79ECxPW48/awk+?=
- =?us-ascii?Q?SN2NiH1rG8mwQ1cbeKcF0uh//lQObOr1DH0HJKmtNUXOTbSGwjisRinGy2zj?=
- =?us-ascii?Q?vpXFzrhn2b6tGPzscMauFMOE/ooGbuV5w/dLVf+fKGuxLjJjMmnj85M5n+ph?=
- =?us-ascii?Q?/pLpTUqV10/2NePz7wELj44/0k3V/y2eqfcxkAYZ9hwgTt+k3FExKc54rwNd?=
- =?us-ascii?Q?4NU8Mao5gmlk2wDn9LzDjR2xD/SJq1eS+FK8kFcJ1FONFRxwYzG8GAC9BGq9?=
- =?us-ascii?Q?ronGPT36BvBEwkoB5Lhz2TNrRjDDEMg501WcR1rN1iY0WbR7nb4MA1vrVByB?=
- =?us-ascii?Q?g9cMAG201KsvF4sTdpapBIWLuQQS1EnXPGFOw7lMbpqtPn3Jhb1g3+uzU5U9?=
- =?us-ascii?Q?aQt7RhmQpgqigaKeeJIEXfE1xRKFh+QzH4Vgegc/NN+5fJLQxV4wt57MgilU?=
- =?us-ascii?Q?h0+YLVGnaTaId7r4lTRsqVRmESAcuJbQtAMDpZs5aZrQAkKRf35zQdnHefqJ?=
- =?us-ascii?Q?m26rePxYrEpZbMr+f8mjOFEILe2wUSyGRcVv2IR0vvTqICXiF1dvchsMUW4e?=
- =?us-ascii?Q?ZYnTbN/T4UFZXZSf2BdmIniYcxs401bf0CR5iLgRx5t/rhr1OBj/12964YOr?=
- =?us-ascii?Q?9RzxOoL4kuicjv1TnoN5j2e9thGQAOPWk8kSVdfjoGvqSsMVPKrQhO5eYWgP?=
- =?us-ascii?Q?XMSz6+d6haOfB7QR0O18bJunJr2TItssnRFX8+f8j+N4?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(376014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZGsumM2qfKCUVCLhI5bBj/8sFyS7PjmwwnZ25Y0w38RgXYK2MmNp37IWMROY?=
- =?us-ascii?Q?lETf/UAV/nk2XYy4kzApykNlc7jc+5nVE/nz2Kt+wXIGaCICpS2Td5SrQCUE?=
- =?us-ascii?Q?Sw8lt4rJA7VAcSuwYgxN522WXMlzLQidI5zQdMuIGaCuT+DJYwgd/CndmpQc?=
- =?us-ascii?Q?MHYs0SqFoEugNV547CGuVfnZhdR8TmxV4p1SoLu9u51VbafjqbBtIMiFiXcQ?=
- =?us-ascii?Q?dHu9okIyHys7fdAJgZ8AK1FVrYYJVHBQ/a20LvzszKScNp9eYg0GP5uIeduw?=
- =?us-ascii?Q?RsvDiwhc3b6DKphFGmZFprQYWo0J8TnRE0/AXISeZo7+RYR7oExE/lJo4Ghl?=
- =?us-ascii?Q?vNl8LS1QLsC9phmryYQABtd7zAEztYn9tTjswEU5VBG2GC18wgS+hGJkQBV0?=
- =?us-ascii?Q?XMKU0ylblmCsSLiJkrlX7ZXE7Z9W9pfBiSVk0qgsqfFa8P0x/8uN07mxEEdw?=
- =?us-ascii?Q?OgxI7ADjTaFw13aALXH8bt7pIQLF0WIrvQG8Tq7lxhPZLCBvt6wpFQ5oYgx/?=
- =?us-ascii?Q?DXiH/fOIUj0/ErrTIb7CIIL4MUw7I0FYIFLRvnZg7F5rPxoOUBq5THBxjRp8?=
- =?us-ascii?Q?lRQ2eQeXtAIsZlg+aAlIHaBpV1hxxah+DMJPXyBnHBykzZ7evnQZIXecuuEI?=
- =?us-ascii?Q?SQL2+1TDgozNqIO7gviNYbbOhs5gyVsStQIvc51kyg7UxOI5ktHE+BJmrIDb?=
- =?us-ascii?Q?LWjXw43GB6KdoNqithZLUPapDsvkxpy/DBsItfPmPbZk37wJ7xWqv0DeI5Jt?=
- =?us-ascii?Q?ylG7cQrAslYZH2rSjya2N3H3FKUyECu6e+vVNOKX3tEtHJ2iD0CsuOQSvqGg?=
- =?us-ascii?Q?M9hMPNifOCPLZi31XOGzCGkfdlwmp1e+KhSoyhw/iAP5AOlAIuSmlHU3EESB?=
- =?us-ascii?Q?S6slD036aRob6MbfuExEmObmjUA3lOeDq9JXSEQQ00JXSbFNzHxazBT+y+Er?=
- =?us-ascii?Q?Zzwu4u4POwPOptkw6ZWhi6BZPrEbz/gkuvLKW7s8Kb7ZwvLKn01crnzwFqth?=
- =?us-ascii?Q?skiLPWcFVXJt/SsHzJOX45SepsZtXz0ZYy6Gdb3EyfhI0uO/zIwEPh1LwsCu?=
- =?us-ascii?Q?VjvRb7fa2N3DY8V0elOlv+w4YaN0aOgik8nL4CErBM7bTX9dfxHoQkb4JVyy?=
- =?us-ascii?Q?4WZxfqgFNpVqMJHINKPS8yNAXTWPnUwHzWzRzFdJ1VYc7Ked49xtACQ7a51p?=
- =?us-ascii?Q?OZtoLaD54PzAMIIF5rQVhpbdGnBBMgImGisp+49E0Zvf/YgBGTXgSglWDh8u?=
- =?us-ascii?Q?5o3wsOf8JeaWreRqYkEi8Uz4vFZgH5qnJUeIYMKy56qBFIRgUZB2v60jLkjo?=
- =?us-ascii?Q?nsl1SPqUQreNHf5xeUeM80vMnep6G7HQ7VHlG0oNelRgoRy9b/uO3CgkwblT?=
- =?us-ascii?Q?l/k+JGwszHb4J3903yx7rdPAmHsRWYJDd3z3U7pEKZYQo8R1hNxTCOdzegeu?=
- =?us-ascii?Q?DW9e45QkL3sP9ogpo6oSETbp4vFoQd5sxU7/SVdLEl/ggUKdWdpAKxEKfFYR?=
- =?us-ascii?Q?CY4RxnXm6Fhz4iss0u5KYM7av2duQDTFWP7b3Dzvbt7spICHPpIAAAUvyAqq?=
- =?us-ascii?Q?ExqyZOogl21CtrVpsMBd89t1sDGxbu3tqmLDiuDDpZtEE9NqSIuoc6Eo65Fx?=
- =?us-ascii?Q?rsS+8K+aiSbIZv8qecpQaQvTxK2h48qAJt4FZxSNZsCwezDsjmLzRhZ1dp4u?=
- =?us-ascii?Q?PA379O4VC1b72e4hDlWJj8QJsZtVeNP8E4oFHcTQHLkVeBiTns/V+04t4eVj?=
- =?us-ascii?Q?1qeZSPgh7w=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a2518aa2-0e3b-4210-ca8e-08de5cbb026c
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 09:12:20.7033
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NJFHshKhdna3QcmmeXirNybn71Qi7Terkb+a5xq9jP9T+/1l9CKTlLJib/jn4gVm4k7LDq57z7fNZvJ5mmepzw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB12206
+References: <20250827-i2c-pxa-fix-i2c-communication-v3-0-052c9b1966a2@gmail.com>
+ <20250827-i2c-pxa-fix-i2c-communication-v3-1-052c9b1966a2@gmail.com>
+In-Reply-To: <20250827-i2c-pxa-fix-i2c-communication-v3-1-052c9b1966a2@gmail.com>
+From: Robert Marko <robert.marko@sartura.hr>
+Date: Mon, 26 Jan 2026 10:12:35 +0100
+X-Gm-Features: AZwV_QjHvCNM4XDV7ASy_DsR-MKQkm_PDnKvDdBjq4JrCqpz7uMbU7Pm9e77hpI
+Message-ID: <CA+HBbNF6r0eQLS01eTUX0DAZ3mGcQX7N3HTCnTanVPC0num2WQ@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] i2c: pxa: defer reset on Armada 3700 when recovery
+ is used
+To: Gabor Juhos <j4g8y7@gmail.com>
+Cc: Wolfram Sang <wsa@kernel.org>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Andi Shyti <andi.shyti@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Russell King <rmk+kernel@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>, 
+	Hanna Hawa <hhhawa@amazon.com>, Linus Walleij <linus.walleij@linaro.org>, linux-i2c@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_011225_783903_FBBC40F4 
-X-CRM114-Status: GOOD (  15.04  )
+X-CRM114-CacheID: sfid-20260126_011248_633687_FE3C18BA 
+X-CRM114-Status: GOOD (  42.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,65 +122,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The sdma script app_2_mcu needs the permission to access the peripheral
-devices:
+On Wed, Aug 27, 2025 at 7:14=E2=80=AFPM Gabor Juhos <j4g8y7@gmail.com> wrot=
+e:
+>
+> The I2C communication is completely broken on the Armada 3700 platform
+> since commit 0b01392c18b9 ("i2c: pxa: move to generic GPIO recovery").
+>
+> For example, on the Methode uDPU board, probing of the two onboard
+> temperature sensors fails ...
+>
+>   [    7.271713] i2c i2c-0: using pinctrl states for GPIO recovery
+>   [    7.277503] i2c i2c-0:  PXA I2C adapter
+>   [    7.282199] i2c i2c-1: using pinctrl states for GPIO recovery
+>   [    7.288241] i2c i2c-1:  PXA I2C adapter
+>   [    7.292947] sfp sfp-eth1: Host maximum power 3.0W
+>   [    7.299614] sfp sfp-eth0: Host maximum power 3.0W
+>   [    7.308178] lm75 1-0048: supply vs not found, using dummy regulator
+>   [   32.489631] lm75 1-0048: probe with driver lm75 failed with error -1=
+21
+>   [   32.496833] lm75 1-0049: supply vs not found, using dummy regulator
+>   [   82.890614] lm75 1-0049: probe with driver lm75 failed with error -1=
+21
+>
+> ... and accessing the plugged-in SFP modules also does not work:
+>
+>   [  511.298537] sfp sfp-eth1: please wait, module slow to respond
+>   [  536.488530] sfp sfp-eth0: please wait, module slow to respond
+>   ...
+>   [ 1065.688536] sfp sfp-eth1: failed to read EEPROM: -EREMOTEIO
+>   [ 1090.888532] sfp sfp-eth0: failed to read EEPROM: -EREMOTEIO
+>
+> After a discussion [1], there was an attempt to fix the problem by
+> reverting the offending change by commit 7b211c767121 ("Revert "i2c:
+> pxa: move to generic GPIO recovery""), but that only helped to fix
+> the issue in the 6.1.y stable tree. The reason behind the partial succes
+> is that there was another change in commit 20cb3fce4d60 ("i2c: Set i2c
+> pinctrl recovery info from it's device pinctrl") in the 6.3-rc1 cycle
+> which broke things further.
+>
+> The cause of the problem is the same in case of both offending commits
+> mentioned above. Namely, the I2C core code changes the pinctrl state to
+> GPIO while running the recovery initialization code. Although the PXA
+> specific initialization also does this, but the key difference is that
+> it happens before the controller is getting enabled in i2c_pxa_reset(),
+> whereas in the case of the generic initialization it happens after that.
+>
+> Change the code to reset the controller only before the first transfer
+> instead of before registering the controller. This ensures that the
+> controller is not enabled at the time when the generic recovery code
+> performs the pinctrl state changes, thus avoids the problem described
+> above.
+>
+> As the result this change restores the original behaviour, which in
+> turn makes the I2C communication to work again as it can be seen from
+> the following log:
+>
+>   [    7.363250] i2c i2c-0: using pinctrl states for GPIO recovery
+>   [    7.369041] i2c i2c-0:  PXA I2C adapter
+>   [    7.373673] i2c i2c-1: using pinctrl states for GPIO recovery
+>   [    7.379742] i2c i2c-1:  PXA I2C adapter
+>   [    7.384506] sfp sfp-eth1: Host maximum power 3.0W
+>   [    7.393013] sfp sfp-eth0: Host maximum power 3.0W
+>   [    7.399266] lm75 1-0048: supply vs not found, using dummy regulator
+>   [    7.407257] hwmon hwmon0: temp1_input not attached to any thermal zo=
+ne
+>   [    7.413863] lm75 1-0048: hwmon0: sensor 'tmp75c'
+>   [    7.418746] lm75 1-0049: supply vs not found, using dummy regulator
+>   [    7.426371] hwmon hwmon1: temp1_input not attached to any thermal zo=
+ne
+>   [    7.432972] lm75 1-0049: hwmon1: sensor 'tmp75c'
+>   [    7.755092] sfp sfp-eth1: module MENTECHOPTO      POS22-LDCC-KR    r=
+ev 1.0  sn MNC208U90009     dc 200828
+>   [    7.764997] mvneta d0040000.ethernet eth1: unsupported SFP module: n=
+o common interface modes
+>   [    7.785362] sfp sfp-eth0: module Mikrotik         S-RJ01           r=
+ev 1.0  sn 61B103C55C58     dc 201022
+>   [    7.803426] hwmon hwmon2: temp1_input not attached to any thermal zo=
+ne
+>
+> Link: https://lore.kernel.org/r/20230926160255.330417-1-robert.marko@sart=
+ura.hr #1
+>
+> Cc: stable@vger.kernel.org # 6.3+
+> Fixes: 20cb3fce4d60 ("i2c: Set i2c pinctrl recovery info from it's device=
+ pinctrl")
+> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+> ---
 
-1) SDMA2 transactions are set to user-mode in this particular case.
-2) This type of script doesn't use the peripheral interface (connected
-directly to SPBA), but it uses the peripheral DMA interface, then the
-SDMA2-issued transactions are subjected to AIPSTZ5's security-related
-checks.
+Tested-by: Robert Marko <robert.marko@sartura.hr>
 
-So need to clear the Supervisor Protect bit of SPBA2, otherwise the sdma
-script can't work. As the imx-aipstz is a common driver for all aips bus,
-so set default value (zero) for all opacr registers.
+> Changes in v3:
+>   - rebase on tip of i2c/for-current
+>   - rework the patch and use a different approach which does not requires
+>     modification in the I2C core code and update commit description
+>     acccordingly
+>   - remove Imre's SoB tag, it should have been a Reviewed-by tag, but due
+>     to the rework this is an entirely different patch so that does not
+>     apply anyway
+>   - use Link tag for the URL of the referenced LKML thread
+>   - Link to v2: https://lore.kernel.org/r/20250811-i2c-pxa-fix-i2c-commun=
+ication-v2-2-ca42ea818dc9@gmail.com
+>
+> Changes in v2:
+>   - rebase and retest on tip of i2c/for-current
+>   - Link to v1: https://lore.kernel.org/r/20250511-i2c-pxa-fix-i2c-commun=
+ication-v1-2-e9097d09a015@gmail.com
+> ---
+>  drivers/i2c/busses/i2c-pxa.c | 17 ++++++++++++++++-
+>  1 file changed, 16 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/i2c/busses/i2c-pxa.c b/drivers/i2c/busses/i2c-pxa.c
+> index 968a8b8794dac3398a68d827c567aa5bb73ae3d7..70acf33e1d573231f84a1f09c=
+ffb376a8277351d 100644
+> --- a/drivers/i2c/busses/i2c-pxa.c
+> +++ b/drivers/i2c/busses/i2c-pxa.c
+> @@ -268,6 +268,7 @@ struct pxa_i2c {
+>         struct pinctrl          *pinctrl;
+>         struct pinctrl_state    *pinctrl_default;
+>         struct pinctrl_state    *pinctrl_recovery;
+> +       bool                    reset_before_xfer;
+>  };
+>
+>  #define _IBMR(i2c)     ((i2c)->reg_ibmr)
+> @@ -1144,6 +1145,11 @@ static int i2c_pxa_xfer(struct i2c_adapter *adap,
+>  {
+>         struct pxa_i2c *i2c =3D adap->algo_data;
+>
+> +       if (i2c->reset_before_xfer) {
+> +               i2c_pxa_reset(i2c);
+> +               i2c->reset_before_xfer =3D false;
+> +       }
+> +
+>         return i2c_pxa_internal_xfer(i2c, msgs, num, i2c_pxa_do_xfer);
+>  }
+>
+> @@ -1521,7 +1527,16 @@ static int i2c_pxa_probe(struct platform_device *d=
+ev)
+>                 }
+>         }
+>
+> -       i2c_pxa_reset(i2c);
+> +       /*
+> +        * Skip reset on Armada 3700 when recovery is used to avoid
+> +        * controller hang due to the pinctrl state changes done by
+> +        * the generic recovery initialization code. The reset will
+> +        * be performed later, prior to the first transfer.
+> +        */
+> +       if (i2c_type =3D=3D REGS_A3700 && i2c->adap.bus_recovery_info)
+> +               i2c->reset_before_xfer =3D true;
+> +       else
+> +               i2c_pxa_reset(i2c);
+>
+>         ret =3D i2c_add_numbered_adapter(&i2c->adap);
+>         if (ret < 0)
+>
+> --
+> 2.50.1
+>
 
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
----
-Changes in v2:
-- refine the commit message
-- remove the unneeded initialize value
 
- drivers/bus/imx-aipstz.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
-
-diff --git a/drivers/bus/imx-aipstz.c b/drivers/bus/imx-aipstz.c
-index 5fdf377f5d06..83371e5b35a2 100644
---- a/drivers/bus/imx-aipstz.c
-+++ b/drivers/bus/imx-aipstz.c
-@@ -11,9 +11,19 @@
- #include <linux/regmap.h>
- 
- #define IMX_AIPSTZ_MPR0 0x0
-+#define IMX_AIPSTZ_OPACR0 0x40
-+#define IMX_AIPSTZ_OPACR1 0x44
-+#define IMX_AIPSTZ_OPACR2 0x48
-+#define IMX_AIPSTZ_OPACR3 0x4c
-+#define IMX_AIPSTZ_OPACR4 0x50
- 
- struct imx_aipstz_config {
- 	u32 mpr0;
-+	u32 opacr0;
-+	u32 opacr1;
-+	u32 opacr2;
-+	u32 opacr3;
-+	u32 opacr4;
- };
- 
- struct imx_aipstz_data {
-@@ -24,6 +34,11 @@ struct imx_aipstz_data {
- static void imx_aipstz_apply_default(struct imx_aipstz_data *data)
- {
- 	writel(data->default_cfg->mpr0, data->base + IMX_AIPSTZ_MPR0);
-+	writel(data->default_cfg->opacr0, data->base + IMX_AIPSTZ_OPACR0);
-+	writel(data->default_cfg->opacr1, data->base + IMX_AIPSTZ_OPACR1);
-+	writel(data->default_cfg->opacr2, data->base + IMX_AIPSTZ_OPACR2);
-+	writel(data->default_cfg->opacr3, data->base + IMX_AIPSTZ_OPACR3);
-+	writel(data->default_cfg->opacr4, data->base + IMX_AIPSTZ_OPACR4);
- }
- 
- static const struct of_device_id imx_aipstz_match_table[] = {
--- 
-2.34.1
-
+--=20
+Robert Marko
+Staff Embedded Linux Engineer
+Sartura d.d.
+Lendavska ulica 16a
+10000 Zagreb, Croatia
+Email: robert.marko@sartura.hr
+Web: www.sartura.hr
 
