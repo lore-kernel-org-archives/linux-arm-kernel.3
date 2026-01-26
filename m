@@ -4,79 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0157C88E42
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 03:10:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67CC7C88E43
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 03:22:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ezxQvwOxGuSpFi0s3YyWCMCyQtN11Wbd88jyJxOLJ2M=; b=2dy0g5PDz/4N5ux2NdaKxVSnv+
-	yRn/WNHr0aVo76gK+l/WIoBhioENVnKoinvwPvda31LyV4XZrhkqDZkNghLDvWSo/QuM31glrKj9R
-	46MkKD05Z8igmHwjhjNFv6AmbqcV/qKRciLBx5oSRe2Q+0EgwrOhuhACwmdC1sQnS2aaUiv6cgWMP
-	BIlMU5pIVMamxhgisxZGKztxLQ+wVARpACbh5omBUlU2A9km3qbNEzB6jGoRvQUqYcmh0QPpd4Ty5
-	j0BGEpwsEHHGsXme6FmgiYftSWVn4S7K4mn/7FN6tohMKaLPXmn6VMKTeA9mL1ItlArXjao/tyVjo
-	o0Iu5WBw==;
+	bh=pb2Tq6er4BO41TvKoQ35Jkzeqoj8YX2rwjW5soWNUEk=; b=fZh2Y7Mlg+3Rk2uQoQjYm7YTDP
+	Sla9t5OaFtNLkYlLW4tnQ37ijzzmfIL6joj7RdpLTL/k1GuPp4Vc33ch4jtT4VxCQ53bUlAgJypbM
+	iD4F1Y+X1IHG4MiMuVrnQenOSjRLdQmo2WGaFTOYitUaBAZhVg92tcrl80z2St7+spQIS/f1GX4wC
+	U76p8CXdC6vRMuGB+u1ixvN1jnovlXMrILP3IVYFF8FWGIdmlK3gypc09zggrFn4OHWzwbJpN2NIi
+	e9IONRf0voGufpCHwVEe7PJt5dqfG7MA5NECCejf8JwjVJr+tUGxpAu8Y4qwvEAICr2gV4oGMtUla
+	AGXxbIBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkCzx-0000000Bouq-3BIy;
-	Mon, 26 Jan 2026 03:10:41 +0000
-Received: from azure-sdnproxy.icoremail.net ([52.229.168.213])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkCzu-0000000BouM-3VzS
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 03:10:41 +0000
-Received: from linmin$eswincomputing.com ( [10.10.96.205] ) by
- ajax-webmail-app2 (Coremail) ; Mon, 26 Jan 2026 11:10:12 +0800 (GMT+08:00)
-X-Originating-IP: [10.10.96.205]
-Date: Mon, 26 Jan 2026 11:10:12 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: "Min Lin" <linmin@eswincomputing.com>
-To: "Bo Gan" <ganboing@gmail.com>
-Cc: "Andrew Lunn" <andrew@lunn.ch>, "Krzysztof Kozlowski" <krzk@kernel.org>,
-	=?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>,
-	devicetree@vger.kernel.org, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	netdev@vger.kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ningyu@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	weishangjuan@eswincomputing.com
-Subject: Re: Re: [PATCH v1 1/2] dt-bindings: ethernet: eswin: add clock
- sampling control
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
- 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
- mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
-In-Reply-To: <009aefc4-fbc9-4f91-9230-23d18c281bf3@gmail.com>
-References: <20260109080601.1262-1-lizhi2@eswincomputing.com>
- <20260109080859.1285-1-lizhi2@eswincomputing.com>
- <00b7b42f-2f9d-402a-82f0-21641ea894a1@lunn.ch>
- <308b676.2d03.19bb0caebed.Coremail.lizhi2@eswincomputing.com>
- <59cec617-0189-4dc3-bc3f-6346155a62ae@lunn.ch>
- <4e2a55e7.3662.19be8cb9c3c.Coremail.lizhi2@eswincomputing.com>
- <c5c0bfdb-316d-4796-afa0-f6f018ceb414@lunn.ch>
- <abf12a3f-9cdd-472d-a02e-af4da594b84f@gmail.com>
- <e6f7da45-3dec-4af6-a5b1-a72210bf24f4@kernel.org>
- <43923bf9-6202-4147-8eac-5bd7bb653fd4@gmail.com>
- <bd202cfa-d6eb-4d0e-982d-b49795dd25f7@lunn.ch>
- <009aefc4-fbc9-4f91-9230-23d18c281bf3@gmail.com>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1vkDBI-0000000Bpo1-0nV2;
+	Mon, 26 Jan 2026 03:22:24 +0000
+Received: from mail-m49251.qiye.163.com ([45.254.49.251])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkDBD-0000000Bpmc-2vAT;
+	Mon, 26 Jan 2026 03:22:22 +0000
+Received: from [172.16.12.51] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 31ed5cbf8;
+	Mon, 26 Jan 2026 11:22:06 +0800 (GMT+08:00)
+Message-ID: <e1b172bd-443f-40a5-9d9e-9e575b0b551e@rock-chips.com>
+Date: Mon, 26 Jan 2026 11:22:04 +0800
 MIME-Version: 1.0
-Message-ID: <73ea5619.2b71.19bf847c80d.Coremail.linmin@eswincomputing.com>
-X-Coremail-Locale: en_US
-X-CM-TRANSID: TQJkCgAXiy0U23Zp0gsGAA--.1374W
-X-CM-SenderInfo: 5olqzx3q6h245lqf0zpsxwx03jof0z/1tbiAQETCWl2RY0XlgABsN
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 0/9] Add Type-C DP support for RK3399 EVB IND board
+To: Hugh Cole-Baker <sigmaris@gmail.com>
+Cc: Chaoyi Chen <kernel@airkyi.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Peter Chen <hzpeterchen@gmail.com>, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
+ Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+References: <20260119073100.143-1-kernel@airkyi.com>
+ <c9dd365b-ad8f-410e-96f8-f914f03634b2@gmail.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <c9dd365b-ad8f-410e-96f8-f914f03634b2@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9bf852ab9103abkunm5b6bca956138b8
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR4eTVZNSU4aHhgaSR9OQktWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE
+	5VSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=VJjllPb6UrdOVvskGBEx5XXVF18/enOJ6dktrusjWEltCBQ2HBc40/45+3muptxFTNRsh5zWw83F/nrsw+EUOzPjFV7cp1ky0Z9ohtxvTtYRy1/DzherP7nIjaITF7eNsDSUzzlqDuN3e0AVdcnZhQslauskZ8mzWFvL6L2x/eY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=pb2Tq6er4BO41TvKoQ35Jkzeqoj8YX2rwjW5soWNUEk=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_191039_049729_4B7F25F3 
-X-CRM114-Status: GOOD (  26.50  )
+X-CRM114-CacheID: sfid-20260125_192220_286673_0EEC090F 
+X-CRM114-Status: GOOD (  27.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,75 +95,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgQm8gR2FuCgoKPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2VzLS0tLS0KPiBGcm9tOiAiQm8gR2Fu
-IiA8Z2FuYm9pbmdAZ21haWwuY29tPgo+IFNlbmQgdGltZTpTYXR1cmRheSwgMjQvMDEvMjAyNiAx
-Mjo1NzoyMwo+IFRvOiAiQW5kcmV3IEx1bm4iIDxhbmRyZXdAbHVubi5jaD4KPiBDYzogIktyenlz
-enRvZiBLb3psb3dza2kiIDxrcnprQGtlcm5lbC5vcmc+LCDmnY7lv5cgPGxpemhpMkBlc3dpbmNv
-bXB1dGluZy5jb20+LCBkZXZpY2V0cmVlQHZnZXIua2VybmVsLm9yZywgYW5kcmV3K25ldGRldkBs
-dW5uLmNoLCBkYXZlbUBkYXZlbWxvZnQubmV0LCBlZHVtYXpldEBnb29nbGUuY29tLCBrdWJhQGtl
-cm5lbC5vcmcsIHJvYmhAa2VybmVsLm9yZywga3J6aytkdEBrZXJuZWwub3JnLCBjb25vcitkdEBr
-ZXJuZWwub3JnLCBuZXRkZXZAdmdlci5rZXJuZWwub3JnLCBwYWJlbmlAcmVkaGF0LmNvbSwgbWNv
-cXVlbGluLnN0bTMyQGdtYWlsLmNvbSwgYWxleGFuZHJlLnRvcmd1ZUBmb3NzLnN0LmNvbSwgcm1r
-K2tlcm5lbEBhcm1saW51eC5vcmcudWssIGxpbnV4LXN0bTMyQHN0LW1kLW1haWxtYW4uc3Rvcm1y
-ZXBseS5jb20sIGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZywgbGludXgta2Vy
-bmVsQHZnZXIua2VybmVsLm9yZywgbmluZ3l1QGVzd2luY29tcHV0aW5nLmNvbSwgbGlubWluQGVz
-d2luY29tcHV0aW5nLmNvbSwgcGlua2VzaC52YWdoZWxhQGVpbmZvY2hpcHMuY29tLCB3ZWlzaGFu
-Z2p1YW5AZXN3aW5jb21wdXRpbmcuY29tCj4gU3ViamVjdDogUmU6IFtQQVRDSCB2MSAxLzJdIGR0
-LWJpbmRpbmdzOiBldGhlcm5ldDogZXN3aW46IGFkZCBjbG9jayBzYW1wbGluZyBjb250cm9sCj4g
-Cj4gSGkgQW5kcmV3LAo+IAo+IE9uIDEvMjMvMjYgMTE6NDMsIEFuZHJldyBMdW5uIHdyb3RlOgo+
-ID4gT24gRnJpLCBKYW4gMjMsIDIwMjYgYXQgMDI6NDc6MThBTSAtMDgwMCwgQm8gR2FuIHdyb3Rl
-Ogo+ID4+IEhpIEtyenlzenRvZiwKPiA+Pgo+ID4+IE9uIDEvMjMvMjYgMDI6MDcsIEtyenlzenRv
-ZiBLb3psb3dza2kgd3JvdGU6Cj4gPj4+IE9uIDIzLzAxLzIwMjYgMDg6MzksIEJvIEdhbiB3cm90
-ZToKPiA+Pj4+PiBJIGFzc3VtZSB0aGUgYWRkcmVzcyBvZiB0aGUgaW50ZXJmYWNlIGlzIGZpeGVk
-LiBTbyB5b3UgY2FuIGp1c3Qga2V5Cj4gPj4+Pj4gb2ZmIHRoYXQgdG8gZGlzdGluZ3Vpc2ggdGhl
-IHR3byBpbnN0YW5jZXMuCj4gPj4+Pj4KPiA+Pj4+PiBTaW5jZSB0aGlzIGlzIGFuIGludGVybmFs
-IHByb3BlcnR5LCBub3QgYSBib2FyZCBwcm9wZXJ0eSwgaXQgaXMgbm90Cj4gPj4+Pj4gY2xlYXIg
-aXQgYWN0dWFsbHkgYmVsb25ncyBvbiBEVC4KPiA+Pj4+Pgo+ID4+Pj4+ICAgICAgICBBbmRyZXcK
-PiA+Pj4+Cj4gPj4+PiBJTU8sIHRoZXkgc2hvdWxkIGJlIGluIERUIHRvIHByb3ZpZGUgbWF4aW11
-bSBmbGV4aWJpbGl0eS4gVGhlIFNvQyAuZHRzaQo+ID4+Pgo+ID4+PiBUaGlzIGlzIG5vdCB0aGUg
-cHVycG9zZSBvZiBEVC4gUGxlYXNlIHJhdGhlciB1c2UgYXJndW1lbnRzIGluIHRlcm1zIG9mCj4g
-Pj4+IERUIHJ1bGVzIChzZWUgZG9jcywgcHJlc2VudGF0aW9ucykuCj4gPj4+Cj4gPj4gQW55IGV4
-YW1wbGVzPyBsaW5rcz8gVGhhbmsgeW91IGZvciB5b3VyIHBhdGllbmNlLgo+ID4+Cj4gPj4gSSdk
-IHNheSBpZiB0aGUgYm9hcmQgLmR0cyBuZXZlciBvdmVycmlkZXMgdGhlIGVzd2luLHJ4LWNsay1p
-bnZlcnQsIChFLmcuLAo+ID4+IHRoZSBTb0MgLmR0c2kgaGFzIHJ4LWNsay1pbnZlcnQsIGxhdGVy
-IHRoZSBib2FyZCAvZGVsZXRlLXByb3BlcnR5LydzIGl0KQo+ID4+IHRoZW4geWVzLCBpdCBjYW4g
-YmUgdHJlYXRlZCBhcyBzb21ldGhpbmcgaW5oZXJlbnQgdG8gdGhlIG1hYywgYW5kIHRoZW4KPiA+
-PiAidXNlIGFyZ3VtZW50cyBpbiB0ZXJtcyBvZiBEVCBydWxlcyIuIEkgd2FzIHRoaW5raW5nIGFi
-b3V0IHVzZSBjYXNlcyBsaWtlOgo+ID4+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDIz
-MDcxNDEwNDUyMS4xODc1MS0zLXNhbWluLmd1b0BzdGFyZml2ZXRlY2guY29tLwo+ID4gCj4gPiBZ
-b3VyIGRldmljZSBzaG91bGQgYmUgY29tcGxpYW50IHdpdGggdGhlIFJHTUlJIHN0YW5kYXJkIGJ5
-Cj4gPiBkZWZhdWx0LiBUaGVyZSBzaG91bGQgbm90IGJlIGEgRFQgcHJvcGVydHkgdG8gYXNrIGl0
-IG5pY2VseSB0byBmb2xsb3cKPiA+IHRoZSBzdGFuZGFyZC4KPiA+IAo+ID4gUHJvcGVydGllcyBs
-aWtlCj4gPiAKPiA+IG1vdG9yY29tbSx0eC1jbGstYWRqLWVuYWJsZWQ7Cj4gPiBtb3RvcmNvbW0s
-dHgtY2xrLTEwMC1pbnZlcnRlZDsKPiA+IG1vdG9yY29tbSx0eC1jbGstMTAwMC1pbnZlcnRlZDsK
-PiA+IAo+ID4gYXJlIGZvciBicm9rZW4gYm9hcmRzIHdoaWNoIGJyZWFrIHRoZSBzdGFuZGFyZCBh
-bmQgcmVxdWlyZSB0aGUgTUFDIGRvCj4gPiBhbHNvIGJyZWFrIHRoZSBzdGFuZGFyZCBzbyB0aGF0
-IGV2ZXJ5dGhpbmcgd29ya3MuIFdlIHNob3VsZCBub3Qgc3RhcnQKPiA+IG91dCB3aXRoIHRoZSBh
-c3N1bXB0aW9uIHlvdSBuZWVkIHRvIHN1cHBvcnQgYnJva2VuIGJvYXJkcyB3aGljaCBpZ25vcmUK
-PiA+IHRoZSBzdGFuZGFyZC4KPiAKPiBNeSByZWFkaW5nIG9mCj4gaHR0cHM6Ly9sb3JlLmtlcm5l
-bC5vcmcvYWxsLzMwOGI2NzYuMmQwMy4xOWJiMGNhZWJlZC5Db3JlbWFpbC5saXpoaTJAZXN3aW5j
-b21wdXRpbmcuY29tLwo+IGlzIHRoYXQgdGhlIGV0aDEgTUFDIGlzIGFscmVhZHkgYnJlYWtpbmcg
-dGhlIHN0YW5kYXJkIGF0IFNvQyBsZXZlbCwgYW5kCj4gdGhlIGJvYXJkcyBjYW4gdW4tYnJlYWsg
-aXQgb3IgYnJlYWsgaXQgZXZlbiBtb3JlLiBIZW5jZSwgZXZlbiBmb3IgcHJvcGVyCj4gZGVzaWdu
-ZWQgYm9hcmQsIFNvQyAuZHRzaSBzdGlsbCBuZWVkcyBlc3dpbixyeC1jbGstaW52ZXJ0IChmb3Ig
-KmV0aDEqKS4KPiBGb3IgYnJva2VuIGJvYXJkcywgdGhleSBtYXkgcmVxdWlyZSBlc3dpbixyeC1j
-bGstaW52ZXJ0IGZvciAqZXRoMCosIGV2ZW4KPiB0aG91Z2ggU29DIGRvZXNuJ3QgbWFuZGF0ZS4g
-Rm9yICpldGgxKiBicm9rZW4gYm9hcmRzIG1pZ2h0IGhhdmUgdG8KPiAvZGVsZXRlLXByb3BlcnR5
-LyBpdCBhbmQgdXNlIGVzd2luLHR4LWNsay1pbnZlcnQgb3Igc29tZXRoaW5nIGVsc2UuCj4gSXQn
-cyBjbGVhcmVyIHRvIGhhdmUgYWxsIHRoZXNlIHBhcmFtZXRlcnMgdmlzaWJsZSBhbmQgZXhwbGlj
-aXQgaW4gRFQuCj4gCj4gRVNXSU4sIHBsZWFzZSBjb3JyZWN0IG1lIGlmIEknbSB3cm9uZy4KCkR1
-ZSB0byBjaGlwIGJhY2tlbmQgcmVhc29ucywgdGhlcmUgaXMgYWxyZWFkeSBhIH40LTVucyBza2V3
-IGJldHdlZW4gdGhlIFJYCmNsb2NrIGFuZCBkYXRhIG9mIHRoZSBldGgxIE1BQyBjb250cm9sbGVy
-IGluc2lkZSB0aGUgc2lsaWNvbi4KVGhlIFJYIGNsb2NrIG11c3QgYmUgaW52ZXJ0ZWQgc2luY2Ug
-aXQncyBub3QgYWJsZSB0byBtYXRjaCB0aGUgUkdNSUkKdGltaW5nIG9ubHkgYnkgYWRkaW5nIHJ4
-LWludGVybmFsLWRlbGF5LXBzIG9uIHRoZSBNQUMgYW5kIDJucyBkZWxheSBvbiB0aGUgUEhZLgpT
-bywgeWVzLCBldmVuIGZvciBhIHByb3Blcmx5IGRlc2lnbmVkIGJvYXJkLCBldGgxIHN0aWxsIHJl
-cXVpcmVzCmVzd2luLHJ4LWNsay1pbnZlcnQuCgpUaGlzIGlzIGEgY2hpcC1sZXZlbCBkZWZlY3Qs
-IGFuZCBpbmRlZWQsIGl0IGJyZWFrcyB0aGUgUkdNSUkgc3RhbmRhcmQgYXQKdGhlIFNvQyBsZXZl
-bC4KCkZvciB0aGUgVFggb2YgZXRoMSwgdGhlcmUgaXMgYWxzbyBhIHNrZXcgYmV0d2VlbiB0aGUg
-VFggY2xvY2sgYW5kIGRhdGEgb24KdGhlIE1BQyBjb250cm9sbGVyIGluc2lkZSB0aGUgc2lsaWNv
-bi4gVGhpcyBza2V3IGhhcHBlbnMgdG8gYmUgYXBwcm94aW1hdGVseSB+Mm5zLgpUaGVyZWZvcmUs
-IHdlIGNhbiBjb25zaWRlciB0aGF0IHRoZSAybnMgZGVsYXkgb2YgVFggaXMgcHJvdmlkZWQgYnkg
-dGhlIE1BQywKc28gdGhlIFRYIGlzIGNvbXBsaWFudCB3aXRoIHRoZSBSR01JSSBzdGFuZGFyZC4K
-CgpSZWdhcmRzLApMaW4gTWluCg==
+Hello,
+
+On 1/26/2026 3:42 AM, Hugh Cole-Baker wrote:
+> On 19/01/2026 07:30, Chaoyi Chen wrote:
+>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>
+>> This series focuses on adding Type-C DP support for USBDP PHY and DP
+>> driver. The USBDP PHY and DP will perceive the changes in cable status
+>> based on the USB PD and Type-C state machines provided by TCPM. Before
+>> this, the USBDP PHY and DP controller of RK3399 sensed cable state
+>> changes through extcon, and devices such as the RK3399 Gru-Chromebook
+>> rely on them. This series should not break them.
+>>
+>> ====
+>> 1. DisplayPort HPD status notify
+>>
+>> Before v7, I implemented a variety of DP HPD status notify. However,
+>> they all had various problems and it was difficult to become a generic
+>> solution.
+>>
+>> Under the guidance of Heikki and Dmitry, a decoupled notification
+>> method between the TypeC and DRM subsystems was introduced in v7.
+>> First, a notification is sent when TypeC registers a new altmode.
+>> Then, a generic DP AUX HPD bridge is implemented on the DRM side.
+>>
+>> During v7-v10, we added a new notifier in typec to notify the altmode
+>> device register event. With the help of Greg and Heikki, we implemented
+>> the reuse of notifiers for the type bus itself in patch1 of v11.
+>>
+>> The USB subsystem related parts have already been merged into the
+>> usb-next branch in v13 [0][1]. Therefore, this series no longer includes
+>> these patches starting from v14. Thanks to Greg and Heikki!
+>>
+>> [0]: https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?h=usb-next&id=67ab45426215c7fdccb65aecd4cac15bbe4dfcbb
+>> [1]: https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?h=usb-next&id=4dee13db29de6dd869af9b3827e1ff569644e838
+>>
+>> That makes it redundant for each Type-C controller driver to implement
+>> a similar DP AUX HPD bridge in embedded scenarios.
+>>
+>> ====
+>> 2. Altmode switching and orientation switching for USBDP PHY
+>>
+>> For USB Type-C interfaces, an external Type-C controller chip assists
+>> by detecting cable attachment, determining plug orientation, and
+>> reporting USB PD message. The USB/DP combo PHY supports software
+>> configurable pin mapping and DisplayPort lane assignment. Based on
+>> these message, the combo PHY can perform both altmode switching and
+>> orientation switching via software.
+>>
+>> The RK3399 EVB IND board has a Type-C interface DisplayPort. It use
+>> fusb302 chip as Type-C controller. The connection diagram is shown below:
+>>
+>> fusb302 chip +---> USB2.0 PHY ----> DWC3 USB controller
+>>              |
+>>              +---> USB/DP PHY0 +--> CDN-DP controller
+>>                                |
+>>                                +--> DWC3 USB controller
+>>
+>> ====
+>> 3. Multiple bridge model for RK3399 CDN-DP
+>>
+>> The RK3399 has two USB/DP combo PHY and one CDN-DP controller. And
+>> the CDN-DP can be switched to output to one of the PHYs.
+>>
+>> USB/DP PHY0 ---+
+>>                | <----> CDN-DP controller
+>> USB/DP PHY1 ---+
+>>
+>> In previous versions, if both PHY ports were connected to DP,
+>> the CDN-DP driver would select the first PHY port for output.
+>>
+>> On Dmitry's suggestion, we introduced a multi-bridge model to support
+>> flexible selection of the output PHY port. For each PHY port, a
+>> separate encoder and bridge are registered.
+>>
+>> The change is based on the DRM AUX HPD bridge, rather than the
+>> extcon approach. This requires the DT to correctly describe the
+>> connections between the first bridge in bridge chain and DP
+>> controller. And Once the first bridge is obtained, we can get the
+>> last bridge corresponding to the USB-C connector, and then set the
+>> DRM connector's fwnode to the corresponding one to enable HPD
+>> notification.
+> 
+> With a similar dts patch [1] on top of this series I tested a type-C to
+> DP adapter/cable for display output on the ROCKPro64 board, which also
+> pairs a FUSB302 with RK3399. Booting it up with the cable plugged in
+> works, as does hotplugging the cable after booting in both orientations.
+> The correct mode for the display is detected. I wasn't able to test
+> audio, only video output, as this display doesn't have speakers.
+> 
+> I did once, after unplugging and reconnecting the cable a few times,
+> see it get into a state where it didn't detect the attached display.
+> Logs from that unplug/reconnect attempt are here [2] if of interest.
+> Nevertheless, hotplug seems to work the majority of the time, so
+> 
+> Tested-by: Hugh Cole-Baker <sigmaris@gmail.com>
+> 
+> [1]: https://github.com/sigmaris/linux/commit/91724088b19bee7d248946442a801423e8cd0634
+> [2]: https://gist.github.com/sigmaris/fa107384a7492583ceee1c2962f5030a
+>
+
+Thank you for the test. I also have the same board, and I will
+try it later :)
+
+-- 
+Best, 
+Chaoyi
 
