@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A22D13C23
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 14:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1033D13C28
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 14:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ssbdTUHNW+Tvz0qqW64nDulngnRtrkUBEpIXz/HKr8=; b=L2QBZRzabqD16fxQDjImbFdD45
-	7+HOav4xdEAOf3qnsj4wWcJ8OKeAtaAwvroWyj6L8E8IoktJN5H71mqP+Oy3YAQilSyT0uQ7Bchu2
-	JXgwdlC8nbfvuVRSLQepMJgL2QPdBNrnYQ/ezvtG5yajyz3hwHut71mxIEcTQo5hfvHiWcAED2XeY
-	moUw/fsavE+JUoRwZC66XHRb4i5GzKA82PEsv+SnGTC++24GeX8a8Nin38b05DVgZKQKT+vRuNP7L
-	HUnbxupzeQnAeG5IGsGieQiArnYFoNXR+HqM02P4FPkZHrd6GviLLQVN4WyebSTaHzds0tw2H49Kq
-	B3OoXc/Q==;
+	bh=sEFllRlaft9XDyrCEtt4mCp9tiGaSLEBNcfs8QMhq4w=; b=B/R9l8e3ERo9p9zbXVF/VByfU7
+	5zUQXfcXvcSJPitFlCtjlwu7sXtZV8nXU84JH4aV7Fwen0kwpMVCQf4QluQ9gUIwDbDe3rZ7Tgqgh
+	22IEblkHO6ihbhFABF0gFfLZaWW7ujBN0fuS249kmhex4Jnvbo1D2tqny+ewfdZgVhlWE48fbs/De
+	p3p3lqrFCP+tbxwyIQG/6gPzzL6kYR2v/tASrOQt2YwggG7Arrsd+NOt5lfeJdnthljTuFAUuffV7
+	iz6ZGfifGP4CUM+h34Iu+1U8eWan1YQWVkK60rwVwwFo1LJBm6NJonvNe8FqIVKYFvg7eZp2Ucdke
+	z/vIGMPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkNs7-0000000CiYx-2A5D;
-	Mon, 26 Jan 2026 14:47:19 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkNs4-0000000CiY6-2r48;
-	Mon, 26 Jan 2026 14:47:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769438821; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=g7QZPLCFJG4diwhCtqex30R/0irfBRYPcfcikzCMvM5y+qBwyhb+JayIBxqGW7JvwAYrweeMfHk/G5Ibg7SEBUOVS6obQ0fKM0f0m2unudjrI+lgbSWaUFNCxxYK8MtngNpONm+yeI4QamIGBoYF7DvlTWH+QneTCrJVEgLD1tU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769438821; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=3ssbdTUHNW+Tvz0qqW64nDulngnRtrkUBEpIXz/HKr8=; 
-	b=E7q2ZLT6DX7svkaJf5hOSioRIS1KZ1HEBBDZEl7E0oQciCVRnvxb6NR2xX2su5posSyc1l9ab7qmJy8rByyRMJhWL4vEUkuT+RQcTTaoH6j9TLnCYsyYrIPZ1J/MCx5bFM96uxBxlRzm6TlFedmZ157hBfdOoNYUk0yJu/kmzOo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769438821;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=3ssbdTUHNW+Tvz0qqW64nDulngnRtrkUBEpIXz/HKr8=;
-	b=IvusYAoCZolGFd1MCeYIUo9SgrSLUSraYPZ1Ar5Ng5TYTHxH822JgqW6UooSAP5H
-	8AsMs1ug4g22pPboNBT9+o+63xfFDZ1PEZos7kPOMlcOKjbHx1xPVO89/lWKuXdOR4W
-	dDXmu8vNI6yIEGRDlgW8WUReRXMVEGHR1ah1kEtk=
-Received: by mx.zohomail.com with SMTPS id 1769438819623670.7730935133327;
-	Mon, 26 Jan 2026 06:46:59 -0800 (PST)
-Message-ID: <ad70a610-f5a8-4091-8f32-e5c2caee9685@collabora.com>
-Date: Mon, 26 Jan 2026 15:46:54 +0100
+	id 1vkNv5-0000000Cinh-22wn;
+	Mon, 26 Jan 2026 14:50:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkNv2-0000000Cimw-0T6c
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 Jan 2026 14:50:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F283339;
+	Mon, 26 Jan 2026 06:50:12 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2ACA33F632;
+	Mon, 26 Jan 2026 06:50:14 -0800 (PST)
+Message-ID: <555723b6-b4b1-436b-830a-464b9710fd8f@arm.com>
+Date: Mon, 26 Jan 2026 14:50:12 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 3/7] iommu: Add verisilicon IOMMU driver
-To: Will Deacon <will@kernel.org>
-Cc: joro@8bytes.org, robin.murphy@arm.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- nicolas.dufresne@collabora.com, p.zabel@pengutronix.de, mchehab@kernel.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
- kernel@collabora.com
-References: <aWZui-rn5RDPwpEO@willie-the-truck>
- <68a49f8b-178c-4fa2-b4a9-315ad602271d@collabora.com>
- <aWeTQ50DOtntcniN@willie-the-truck>
- <db0950f1-b357-47c2-9829-e33262ab456d@collabora.com>
- <aW4kb5EbxbrhTOxK@willie-the-truck>
- <b8f43fe8-3e07-4d98-a50d-817c31370710@collabora.com>
- <aXDL2JH_4RCDmAJv@willie-the-truck>
- <4b33b50f-f0c3-4db8-b394-dd2d4d6e3a55@collabora.com>
- <aXOsdlGMVzhHOrUr@willie-the-truck>
- <8fd2c508-cbe9-4050-ba02-85b22fcff10d@collabora.com>
- <aXd4CXE0fqWiKJXl@willie-the-truck>
+Subject: Re: [PATCH v3 06/47] arm64: mpam: Context switch the MPAM registers
+From: Ben Horgan <ben.horgan@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+ jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, will@kernel.org,
+ corbet@lwn.net, maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+ suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+References: <20260112165914.4086692-1-ben.horgan@arm.com>
+ <20260112165914.4086692-7-ben.horgan@arm.com> <aWkqt37FJ5l6QD0E@arm.com>
+ <f19cab15-0626-4d13-b25e-1c194294e62f@arm.com> <aXOF1gYB_HEK8QPX@arm.com>
+ <b79b74ed-8d52-45a9-80fd-47ed030f362f@arm.com>
 Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <aXd4CXE0fqWiKJXl@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <b79b74ed-8d52-45a9-80fd-47ed030f362f@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_064716_775196_C12A70B4 
-X-CRM114-Status: GOOD (  23.51  )
+X-CRM114-CacheID: sfid-20260126_065020_255996_1D969ACB 
+X-CRM114-Status: GOOD (  39.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,83 +78,162 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Le 26/01/2026 à 15:19, Will Deacon a écrit :
-> On Mon, Jan 26, 2026 at 10:03:19AM +0100, Benjamin Gaignard wrote:
->> Le 23/01/2026 à 18:14, Will Deacon a écrit :
->>> On Wed, Jan 21, 2026 at 02:50:18PM +0100, Benjamin Gaignard wrote:
->>>> Le 21/01/2026 à 13:51, Will Deacon a écrit :
->>>>> On Mon, Jan 19, 2026 at 03:03:44PM +0100, Benjamin Gaignard wrote:
->>>>>>>>>>>> +static const struct iommu_ops vsi_iommu_ops = {
->>>>>>>>>>>> +	.identity_domain = &vsi_identity_domain,
->>>>>>>>>>>> +	.release_domain = &vsi_identity_domain,
->>>>>>>>>>>> +	.domain_alloc_paging = vsi_iommu_domain_alloc_paging,
->>>>>>>>>>>> +	.of_xlate = vsi_iommu_of_xlate,
->>>>>>>>>>>> +	.probe_device = vsi_iommu_probe_device,
->>>>>>>>>>>> +	.release_device = vsi_iommu_release_device,
->>>>>>>>>>>> +	.device_group = generic_single_device_group,
->>>>>>>>>>>> +	.owner = THIS_MODULE,
->>>>>>>>>>>> +	.default_domain_ops = &(const struct iommu_domain_ops) {
->>>>>>>>>>>> +		.attach_dev		= vsi_iommu_attach_device,
->>>>>>>>>>>> +		.map_pages		= vsi_iommu_map,
->>>>>>>>>>>> +		.unmap_pages		= vsi_iommu_unmap,
->>>>>>>>>>>> +		.flush_iotlb_all	= vsi_iommu_flush_tlb_all,
->>>>>>>>>>> This has no callers and so your unmap routine appears to be broken.
->>>>>>>>>> It is a leftover of previous attempt to allow video decoder to clean/flush
->>>>>>>>>> the iommu by using a function from the API.
->>>>>>>>>> Now it is using vsi_iommu_restore_ctx().
->>>>>>>>>> I while remove it in version 12.
->>>>>>>>> Don't you still need some invalidation on the unmap path?
->>>>>>>> In vsi_iommu_unmap_iova() page is invalided by calling vsi_mk_pte_invalid().
->>>>>>> But that just writes an invalid descriptor and doesn't appear to invalidate
->>>>>>> the TLB at all.
->>>>>>>
->>>>>>>> That clear BIT(0) so the hardware knows the page is invalid.
->>>>>>>> Do I have miss something here ?
->>>>>>> Yes, the TLB structure needs to be invalidated so that the page-table
->>>>>>> walker sees the new value that you have written in memory.
->>>>>>>
->>>>>>> The rockchip driver gets this correct...
->>>>>> Rockchip hardware have a ZAP_ONE_LINE register which didn't exist on Verisilicon
->>>>>> hardware.
->>>>> Presumably you have some sort of Verisilicon datasheet or downstream driver
->>>>> from which you can infer the TLB invalidation runes?
->>>> I have only this downstream driver:
->>>> https://github.com/rockchip-linux/kernel/blob/develop-6.1/drivers/iommu/rockchip-iommu-av1d.c
->>>> No datasheet...
+
+On 1/26/26 14:30, Ben Horgan wrote:
+> Hi Catalin,
+> 
+> On 1/23/26 14:29, Catalin Marinas wrote:
+>> Hi Ben,
+>>
+>> On Mon, Jan 19, 2026 at 12:23:13PM +0000, Ben Horgan wrote:
+>>> On 1/15/26 17:58, Catalin Marinas wrote:
+>>>> On Mon, Jan 12, 2026 at 04:58:33PM +0000, Ben Horgan wrote:
+>>>>> +static inline void mpam_thread_switch(struct task_struct *tsk)
+>>>>> +{
+>>>>> +	u64 oldregval;
+>>>>> +	int cpu = smp_processor_id();
+>>>>> +	u64 regval = mpam_get_regval(tsk);
+>>>>> +
+>>>>> +	if (!static_branch_likely(&mpam_enabled))
+>>>>> +		return;
+>>>>> +
+>>>>> +	if (regval == READ_ONCE(arm64_mpam_global_default))
+>>>>> +		regval = READ_ONCE(per_cpu(arm64_mpam_default, cpu));
+>>>>> +
+>>>>> +	oldregval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
+>>>>> +	if (oldregval == regval)
+>>>>> +		return;
+>>>>> +
+>>>>> +	write_sysreg_s(regval, SYS_MPAM1_EL1);
+>>>>> +	isb();
+>>>>> +
+>>>>> +	/* Synchronising the EL0 write is left until the ERET to EL0 */
+>>>>> +	write_sysreg_s(regval, SYS_MPAM0_EL1);
 >>>>
->>>>>> I have tried to use VSI_MMU_BIT_FLUSH on VSI driver after unmapping iova
->>>>>> but it doesn't work.
->>>>> What do you mean by "doesn't work"? If it works without doing any
->>>>> invalidation at all, then it's very peculiar that adding the invalidation
->>>>> would introduce issues.
->>>> I mean VSI_MMU_BIT_FLUSH register can't be used to invalid the TLB.
->>>> I think the hardware iterates over the pages tables in memory and
->>>> check the valid/invalid bit.
->>> I bet it doesn't: that would be horrible for performance.
+>>>> Since we have an isb() already, does it make any difference if we write
+>>>> MPAM0 before the barrier? Similar question for other places where we
+>>>> write these two registers.
 >>>
->>> The hardware clearly has TLB invalidation support, as the downstream driver
->>> that you linked above implements av1_iommu_flush_tlb_all() to poke it.
->>> If the hardware has a TLB, then unmapping a page-table means you need to:
+>>> The reason for the isb() placement is to document that it's not required
+>>> for the MPAM0_EL1. All instructions running at EL1take their MPAM
+>>> configuration from MPAM1_EL1. This includes LDTR and STTR as you asked
+>>> about in a different thread.
+>>
+>> It's fine to keep it this way if LDTR/STTR are not affected by the MPAM0
+>> register.
+>>
+>>>>> +
+>>>>> +	WRITE_ONCE(per_cpu(arm64_mpam_current, cpu), regval);
+>>>>
+>>>> Is it too expensive to read the MPAM sysregs and avoid carrying around
+>>>> another per-CPU state? You use it for pm restoring but we could just
+>>>> save it in cpu_do_suspend() like other sysregs. Not a big issue, it just
+>>>> feels like this function got unnecessarily complicated (it took me a bit
+>>>> to figure out what it all does).
 >>>
->>> 1. Clear the valid bit from the descriptor in memory
->>> 2. Have some sort of memory barrier
->>> 3. Invalidate the TLB
->>> 4. Wait for the invalidation to complete
->> That exactly what I had tried to do by calling vsi_iommu_flush_tlb_all() (minux the lock)
->> after calling vsi_iommu_unmap_iova() in vsi_iommu_unmap() but that doesn't work
->> and even make the system crash sometimes.
-> Then it sounds like you have some debugging to do...
->
-> I don't think we should elide the TLB invalidation just because you
-> couldn't get it to work.
+>>> It's done this way as it matches what's done in x86. I expect it would
+>>> be cheap enough to read the register to check whether a write is required.
+>>
+>> Since you use it for CPU suspend/resume, I guess it's fine, it saves us
+>> from having to preserve it in the low-level asm sleep code. I don't have
+>> a strong preference either way.
+>>
+>>>> A related question - is resctrl_arch_set_cdp_enabled() always called in
+>>>> non-preemptible contexts? We potentially have a race between setting
+>>>> current->mpam_partid_msg and arm64_mpam_global_default, so the check in
+>>>> mpam_thread_switch() can get confused.
+>>>
+>>> The resctrl filesystem can only ever get mounted once and
+>>> resctrl_arch_set_cdp_enabled() is always called in mount. In
+>>> rdt_get_tree(), rdt_enable_ctx() calls resctrl_arch_set_cdp_enabled().
+>>> This is done while holding the rdtgroup_mutex and the user can't change
+>>> the mpam configuration from the default until the mutex is released and
+>>> it can claim it.
+>>
+>> What if resctrl_arch_set_cdp_enabled() gets preempted between updating
+>> current task partid and setting arm64_mpam_global_default? The mutex
+>> doesn't help.
+> 
+> I see, I had misinterpreted your question.
+> 
+> When looking into this I spotted that the per-cpu default,
+> arm64_mpam_default, is not updated on the cdp enable and so the default
+> tasks carry on running with the non-cdp default pmg/partid configuration.
+> 
+> On the race itself, if current->mpam_partid_pmg is set but not
+> arm64_mpam_global_default then if the current task is preempted at that
+> point there is a discrepancy. When the task gets context switched back
+> in then the comparison in mpam_thread_switch() will be false when true
+> would be expected.
+> 
+> In order to update arm64_mpam_default and make sure the mpam variables
+> and registers for the online cpus are in the right state by the end of
+> resctrl_arch_set_cdp_enabled() I'll add a per cpu call to
+> resctrl_arch_sync_cpu_closid_rmid(). I'll also add something in the
+> resume path so that arm64_mpam_default gets set correctly for the cpus
+> that were offline.
 
-It is working but not in the order you expect.
-TLB invalidation occurs before each decoding frames by calling vsi_iommu_restore_ctx().
-After that decoder map all the needed buffer and perform decoding.
+Rather than the resume path I'll just set all the arm64_mpam_default in
+resctrl_arch_set_cdp_enabled(). In code:
 
-Benjamin
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -193,6 +193,7 @@ static void resctrl_reset_task_closids(void)
+ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level ignored, bool
+enable)
+ {
+        u32 partid_i = RESCTRL_RESERVED_CLOSID, partid_d =
+RESCTRL_RESERVED_CLOSID;
++       int cpu;
 
->
-> Will
->
+        cdp_enabled = enable;
+
+@@ -209,6 +210,10 @@ int resctrl_arch_set_cdp_enabled(enum
+resctrl_res_level ignored, bool enable)
+
+        resctrl_reset_task_closids();
+
++       for_each_possible_cpu(cpu)
++               mpam_set_cpu_defaults(cpu, partid_d, partid_i, 0, 0);
++       on_each_cpu(resctrl_arch_sync_cpu_closid_rmid, NULL, 1);
++
+        return 0;
+ }
+
+> 
+>>
+>>>> And I couldn't figure out where the MPAMx_EL1 registers are written. If
+>>>> any global/per-cpu/per-task value is changed, does the kernel wait until
+>>>> the next thread switch to write the sysreg? The only places I can found
+>>>> touching these sysregs are the thread switch, pm notifiers and KVM.
+>>>
+>>> If the task configuration is changed then the MPAM sysreg will only be
+>>> updated the next time it goes into the kernel.
+>>
+>> Is it updated when it goes into the kernel or when we have a context
+>> switch? If you have a long-running user thread that is never scheduled
+>> out, it may not notice the update even if it entered the kernel (but no
+>> context switch).
+> 
+> Yes, only on context switch.
+> 
+>>
+>>> So, just eventually
+>>> consistent. For cpu configuration, update_closid_rmid() gets called
+>>> which ipis the cpus and ends up calling mpam_thread_switch() from
+>>> resctrl_arch_sched_in().
+>>
+>> I see, it should be fine.
+>>
+> 
+> Thanks,
+> 
+> Ben
+> 
+> 
+
+Thanks,
+
+Ben
+
 
