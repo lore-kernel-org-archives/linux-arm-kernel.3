@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 187C2CF65DD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 11:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7526CCF65DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 11:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XvJrcXtn8iRvKT6VDEN9miPmbI0CvZ2DRzSRmtrceIs=; b=we8vgzKL5q7e+x0wZt1yw3wgEZ
-	JPPnmNGZeCzC5/S2GULPHrfFq94kbTFApZoIVU1IH71bCC8DRTG7uqzt04emqbraUH1YkOY8I8Uew
-	TfL+J0erSdqF5L224NwoxgCZ9DpD8SxRe0YObFax5aCDb1UnlvX0F17cav4eJmNRc33maNjYHjyiR
-	FRC1cCxDx21D2YIz9ZVN9uVXkx7fQkOhjSrx2fQ7Zq2/SEq+UAXdtdUWO1jv1PPiW158BW8kF2Kyj
-	8wBWEMLPqjZY8wvJUyV8URlN7xQSuqhUrvYRnm35Oh16ZW4tOZkt4eeOMHZbbZHKflT6cVFZvpCdT
-	tFSAW+Ww==;
+	bh=aTH8w0h3kKICWLf+Wiu0sGV5MiSH0o7xe3QPb1+JG0w=; b=0Gcjny5kTlcLWlKwboGLX/lrdC
+	eAkGCqqn+RxDqrJ/x9f0+lHT3Xwi1TcvuzFYFmp+B2OIV3CG4/DpeZyC/GwsEvMqhrINmBGkLWhw/
+	HCWR4xRrB6V9aEGO0kWKtZ+RY7GnVWcUAyToFwHhs1bGmOx9mN4aYhA5MN5bDevgqD+n1NaZBo84V
+	coBa4UfAYFqTqTnrg1aw5FD+CyZh0cTynJRIOtbNCrh9bo4gO9zFyw4tgnxCMpzMVI0HXH6qNAE/p
+	OgqzwsWSWqErWXfJFhcj0merOeoeSZkpLvw5EiSjHAm4oROwsXBMuGJqJWGVb/hYWNaQYWxQhvCDE
+	nvpoIEVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkKLJ-0000000CNHS-0CiH;
-	Mon, 26 Jan 2026 11:01:13 +0000
-Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
+	id 1vkKNc-0000000CNac-2Wtq;
+	Mon, 26 Jan 2026 11:03:36 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkKLF-0000000CNGo-3azJ;
-	Mon, 26 Jan 2026 11:01:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
-	Resent-Cc:Resent-Message-ID; bh=XvJrcXtn8iRvKT6VDEN9miPmbI0CvZ2DRzSRmtrceIs=;
-	t=1769425269; x=1770634869; b=TRaWAPWy2FPQ7HdSTJvcfY1YMgSZKw98zExJow1ZNu+PTeK
-	onDgqkITqRrMyjw9Lx+HhKRgsjAqLRKBFjlJWZfF8ePLAlvEdDTOvQoMC+xt2N5v+8iv30W7ngmD6
-	V7/LKeE4JylNgHPS0qzjH2RtRrI9zhEndizHrxnicrdaV/9FhZu1a21SXfNPTHrpuS1wQYjUaDobm
-	7bbDTKWwYcVBRnb7MuVk93Hs9axTUpctH/RpeCqexVI0/8/AI7R27COmEyP8HslLqEhxz0lgoBRD1
-	DtiXpsVXLImVS7VVkYtYqpmImBx2m4zw49AbslguViy2GSzCDfX86Sd/6cTwyn1w==;
-Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.98.2)
-	(envelope-from <johannes@sipsolutions.net>)
-	id 1vkKL7-000000047Xj-15mx;
-	Mon, 26 Jan 2026 12:01:01 +0100
-Message-ID: <01e62344994a34daae0666b3873aa98e72fb5850.camel@sipsolutions.net>
-Subject: Re: [PATCH wireless-next v2 1/2] wifi: mac80211: Add eMLSR/eMLMR
- action frame parsing support
-From: Johannes Berg <johannes@sipsolutions.net>
-To: Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee
- <ryder.lee@mediatek.com>,  Sean Wang <sean.wang@mediatek.com>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>, Shayne
- Chen	 <shayne.chen@mediatek.com>, Christian Marangi <ansuelsmth@gmail.com>,
- 	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Date: Mon, 26 Jan 2026 11:59:45 +0100
-In-Reply-To: <20260125-mac80211-emlsr-v2-1-466329d61c88@kernel.org> (sfid-20260125_115209_143463_EFDC87D8)
+	id 1vkKNa-0000000CNZq-30LR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 Jan 2026 11:03:35 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4801bc328easo49677975e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 03:03:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769425413; x=1770030213; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=aTH8w0h3kKICWLf+Wiu0sGV5MiSH0o7xe3QPb1+JG0w=;
+        b=nQErWVHweoDd6CkClnMk0hqbDXXjbZzvHX4PQo2fbdFaON9HUWcSLn22o0rUtd6JxH
+         QPN5k/Nlp0eqnthL0FkM4sIn7F4zYhJp2h2Z2pSKcL9j+IansJvPbtEySzGFkpR1BZfj
+         EuGWr+UPNrp/ZA9DdPZ35fTOXRPYbGuAaYRcpnjudsLmCyrzOOcCI9EHHAxsmGSk3rCc
+         c6fFYlfPponYAlBYJGfOf611rQSMGVCt4ImqmOAQmvMaPuu5rFLo2kcaWR+rYInzXCMQ
+         6x4fnTuVNaZ1fksfF0uPnbRtAjo12TxelvqGvahefwq1E/1kvLVgIqzMvbF0CKsL+ekH
+         5uFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769425413; x=1770030213;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aTH8w0h3kKICWLf+Wiu0sGV5MiSH0o7xe3QPb1+JG0w=;
+        b=gQFKf38PzqqugtaTMd0jyFTs9129U08X6QrnBEEvaUqY9nVHzwW+GDudXxRBBKHUyF
+         Bf4A/sKnuTyWI2wgFZjcqFA1Qp7q+wpdk55YKIXQ3bdnOWO/p5iZ8ADOn0EOzmhcv0eT
+         a/q2SunKiYBBneInI7JupRgOhszJe5uZO4EB61omFqZBg0dF/+wkK5TTdPgcwWF6yAcz
+         UHpXeKZbJ3/qNE641fbaJtmRonTNUHC3TO9LObD7hdAmDEoJyGwURv1w9o8kUggc9NI/
+         D+OyqCAWCTVuYwOz0awCx7dSa/bM3/+/gWhwfsWscbXcLnH7gPZgP/OV4Ra6xqBimrXU
+         XQjg==
+X-Forwarded-Encrypted: i=1; AJvYcCVe/5UK/6j+x5d/czfQG+x5dlclvHhQvzwaSQwko//tltbQMzxenJkD/nhjvzDwwRSHrFYl7QNvmVlcwegNQJN3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYVeBkMhi6LXqpo1cY/chvgtBSewpJsMKNHnJJLSVjXPv7sHSH
+	lkH2b01ctxtPyRa6KvTTXx8ziuY7zcByL2lPpnkEL6DvX5YuQ/33OK5M
+X-Gm-Gg: AZuq6aI+bjf87mGY+XmEl/Qlm5c1aYw1f5oqw2HRbqzxDJucosOl0Je2Uk67RKRLe74
+	twUXu79gD5wdZL9C0U5o6NBpI73RQk9zlfKUGuBmmcdYAkpiKca/qRJF+GuzC+v7khC7FrEFNLl
+	IJPwrkO2F4uaBZKNtVvkLTCfZPrbsT+7wa5cBw9l4+Ro9uLrUFQz6Vjp0Aym3a+qP3vmKgQ0ICx
+	YcpllqhsLyx2WzyiH/IBykJhMHVayOj6/kUrFiGL9/Lo8hccgitCPvVm2HAbBNo/vzT1PmIHSDF
+	YzD+Dxj12xcqK1H/tLanfYVP6bD970ihc+LsESCgFBMvZNoLWQWzqMeWFisc7HHUHh5TpSbS7PE
+	8GAVbhoPW5rcLZq+a68OE1GHXcoQMEepoG8l+DqNBT1Lge/tOHktMNQdFhWgN3NgjK1FD86ZwTo
+	lhIKQKSWNztRPhkpc/ENFtQe2ND72xAbGimBfNjAQ=
+X-Received: by 2002:a05:600c:3113:b0:47d:403e:4eaf with SMTP id 5b1f17b1804b1-480650f2933mr10392565e9.10.1769425412353;
+        Mon, 26 Jan 2026 03:03:32 -0800 (PST)
+Received: from Ansuel-XPS. (93-34-88-81.ip49.fastwebnet.it. [93.34.88.81])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4804d85d146sm286254045e9.8.2026.01.26.03.03.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Jan 2026 03:03:31 -0800 (PST)
+Message-ID: <69774a03.050a0220.3a3ac6.305f@mx.google.com>
+X-Google-Original-Message-ID: <aXdKAHW0z2qC7s5e@Ansuel-XPS.>
+Date: Mon, 26 Jan 2026 12:03:28 +0100
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Johannes Berg <johannes@sipsolutions.net>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org, Felix Fietkau <nbd@nbd.name>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	MeiChia Chiu <MeiChia.Chiu@mediatek.com>
+Subject: Re: [PATCH wireless-next v2 2/2] wifi: mt76: mt7996: Add eMLSR
+ support
 References: <20260125-mac80211-emlsr-v2-0-466329d61c88@kernel.org>
-	 <20260125-mac80211-emlsr-v2-1-466329d61c88@kernel.org>
-	 (sfid-20260125_115209_143463_EFDC87D8)
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+ <20260125-mac80211-emlsr-v2-2-466329d61c88@kernel.org>
 MIME-Version: 1.0
-X-malware-bazaar: not-scanned
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260125-mac80211-emlsr-v2-2-466329d61c88@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_030110_148837_139BAAD3 
-X-CRM114-Status: GOOD (  26.27  )
+X-CRM114-CacheID: sfid-20260126_030334_760126_B42DA146 
+X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,194 +109,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 2026-01-25 at 11:51 +0100, Lorenzo Bianconi wrote:
->=20
-> +static inline u8 ieee80211_get_emlsr_pad_delay_update(u8 param)
-> +{
-> +	u8 pad_delay =3D FIELD_GET(IEEE80211_EML_EMLSR_PAD_DELAY, param);
+On Sun, Jan 25, 2026 at 11:51:31AM +0100, Lorenzo Bianconi wrote:
+> From: MeiChia Chiu <MeiChia.Chiu@mediatek.com>
+> 
+> Implement set_eml_op_mode mac80211 callback in order to introduce eMLSR
+> support.
+> 
+> Signed-off-by: MeiChia Chiu <MeiChia.Chiu@mediatek.com>
+> Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-I generally prefer the typed versions and mac80211 (mostly?) uses those,
-i.e. u8_get_bits() and friends, since they also cover endian conversions
-where needed. Is there any reason you use FIELD_* versions here?
+Tested-by: Christian Marangi <ansuelsmth@gmail.com>
 
-> +	if (pad_delay > IEEE80211_EML_CAP_EMLSR_PADDING_DELAY_256US)
-> +		pad_delay =3D 0;
+--
 
-Seems that should use a constant, rather than =3D0?
-
-Also, is that really the right thing to do (also below) to just silently
-cap it? Maybe that should be up to the caller? In some(/most/all)? cases
-we should probably even just _reject_ frames that carry an invalid
-value, which you can't do with this helper?
-
-> +static inline u32 ieee80211_get_emlsr_trans_delay_update(u8 param)
-> +{
-> +	u16 trans_delay =3D FIELD_GET(IEEE80211_EML_EMLSR_TRANS_DELAY, param);
-> +
-> +	if (trans_delay > IEEE80211_EML_CAP_EMLSR_TRANSITION_DELAY_256US)
-> +		trans_delay =3D 0;
-> +
-> +	return trans_delay;
-
-why does that use _three_ different types? Wouldn't u8 be sufficient?
-
-> --- a/include/net/mac80211.h
-> +++ b/include/net/mac80211.h
-> @@ -1902,6 +1902,21 @@ enum ieee80211_offload_flags {
->  	IEEE80211_OFFLOAD_DECAP_ENABLED		=3D BIT(2),
->  };
-> =20
-> +struct ieee80211_eml_params {
-> +	u8 control;
-> +	u16 link_bitmap;
-> +	union {
-> +		struct {
-> +			u16 emlsr_pad_delay;
-> +			u16 emlsr_trans_delay;
-> +		};
-> +		struct {
-> +			u8 mcs_map_count;
-> +			u8 mcs_map_bw[9];
-> +		};
-> +	};
-> +};
-
-Maybe add kernel-doc? Also not sure the union really is worth it? It's a
-tiny thing. Especially since you don't even label it - maybe if the
-parts were labled emlsr and emlmr, and then you had emlsr.pad_delay?
-
-(I'd label them anyway, of course, even if not a union.)
-
-Also now the emlsr pad/trans delay are duplicated in the station info,
-is that worth doing? You have to and do track them there too, anyway, as
-we discussed on IRC, could just have the driver use them from there?
-
-Per spec I'm also not sure what the MCS map should be when it's not
-included in the frame?
-
-> + * @set_eml_op_mode: Configure eMLSR/eMLMR operation mode in the underla=
-y
-> + *	driver according to the parameter received in the EML Operating mode
-> + *	notification frame.
-
-Maybe describe the link_id here, or move it to the params and describe
-it in kernel-doc there?
-
-> +static inline int drv_set_eml_op_mode(struct ieee80211_sub_if_data *sdat=
-a,
-> +				      struct ieee80211_sta *sta,
-> +				      unsigned int link_id,
-> +				      struct ieee80211_eml_params *eml_params)
-> +{
-> +	struct ieee80211_local *local =3D sdata->local;
-> +	int ret =3D 0;
-
-Shouldn't that be -EOPNOTSUPP?
-
-> +static void
-> +ieee80211_send_eml_op_mode_notif(struct ieee80211_sub_if_data *sdata,
-> +				 struct ieee80211_mgmt *req, u8 act_len)
-> +{
-> +	int hdr_len =3D offsetof(struct ieee80211_mgmt, u.action.u.eml_omn);
-> +	struct ieee80211_local *local =3D sdata->local;
-> +	struct ieee80211_mgmt *mgmt;
-> +	struct sk_buff *skb;
-> +
-> +	skb =3D dev_alloc_skb(local->tx_headroom + hdr_len + act_len);
-> +	if (!skb)
-> +		return;
-> +
-> +	skb_reserve(skb, local->tx_headroom);
-> +	mgmt =3D skb_put_zero(skb, hdr_len);
-> +	mgmt->frame_control =3D cpu_to_le16(IEEE80211_FTYPE_MGMT |
-> +					  IEEE80211_STYPE_ACTION);
-> +	memcpy(mgmt->da, req->sa, ETH_ALEN);
-> +	memcpy(mgmt->sa, sdata->vif.addr, ETH_ALEN);
-> +	memcpy(mgmt->bssid, sdata->vif.addr, ETH_ALEN);
-> +
-> +	mgmt->u.action.category =3D WLAN_CATEGORY_PROTECTED_EHT;
-> +	memcpy(&mgmt->u.action.u.eml_omn, &req->u.action.u.eml_omn, act_len);
-> +	mgmt->u.action.u.eml_omn.control &=3D
-> +		~(IEEE80211_EML_CTRL_EMLSR_PARAM_UPDATE |
-> +		  IEEE80211_EML_CTRL_INDEV_COEX_ACT);
-> +	ieee80211_tx_skb(sdata, skb);
-
-It seems to me that it'd be better to not copy the request, but rather
-build the response. It's not _that_ much data, and from the spec it
-seems to me that e.g. the MCS map should be included in the response,
-but you do that now, I think?
-
-> +void ieee80211_rx_eml_op_mode_notif(struct ieee80211_sub_if_data *sdata,
-> +				    struct sk_buff *skb)
-> +{
-> +	int hdr_len =3D offsetof(struct ieee80211_mgmt, u.action.u.eml_omn);
-> +	enum nl80211_iftype type =3D ieee80211_vif_type_p2p(&sdata->vif);
-> +	struct ieee80211_rx_status *status =3D IEEE80211_SKB_RXCB(skb);
-> +	const struct wiphy_iftype_ext_capab *ift_ext_capa;
-> +	struct ieee80211_mgmt *mgmt =3D (void *)skb->data;
-> +	struct ieee80211_local *local =3D sdata->local;
-> +	u8 control =3D mgmt->u.action.u.eml_omn.control;
-> +	u8 *ptr =3D mgmt->u.action.u.eml_omn.variable;
-> +	struct ieee80211_eml_params eml_params =3D {};
-> +	struct sta_info *sta;
-> +	u8 act_len =3D 3; /* action_code + dialog_token + control */
-> +
-> +	if (!ieee80211_vif_is_mld(&sdata->vif))
-> +		return;
-> +
-> +	/* eMLSR and eMLMR can't be enabled at the same time */
-> +	if ((control & IEEE80211_EML_CTRL_EMLSR_MODE) &&
-> +	    (control & IEEE80211_EML_CTRL_EMLMR_MODE))
-> +		return;
-> +
-> +	if ((control & IEEE80211_EML_CTRL_EMLMR_MODE) &&
-> +	    (control & IEEE80211_EML_CTRL_EMLSR_PARAM_UPDATE))
-> +		return;
-> +
-> +	ift_ext_capa =3D cfg80211_get_iftype_ext_capa(local->hw.wiphy, type);
-> +	if (!ift_ext_capa)
-> +		return;
-> +
-> +	if (!status->link_valid)
-> +		return;
-> +
-> +	sta =3D sta_info_get_bss(sdata, mgmt->sa);
-> +	if (!sta)
-> +		return;
-> +
-> +	if (control & IEEE80211_EML_CTRL_EMLSR_MODE) {
-> +		if (!(ift_ext_capa->eml_capabilities &
-> +		      IEEE80211_EML_CAP_EMLSR_SUPP))
-> +			return;
-> +
-> +		if (control & IEEE80211_EML_CTRL_EMLSR_PARAM_UPDATE) {
-> +			u16 eml_cap =3D sta->sta.eml_cap;
-> +			u8 pad_delay, trans_delay;
-> +
-> +			/* Update sta padding and transition delay */
-> +			pad_delay =3D
-> +				ieee80211_get_emlsr_pad_delay_update(ptr[3]);
-> +			trans_delay =3D
-> +				ieee80211_get_emlsr_pad_delay_update(ptr[3]);
-
-It seems to me you're missing a bunch of input validation?
-
-> +
-> +			eml_cap &=3D ~(IEEE80211_EML_CAP_EMLSR_PADDING_DELAY |
-> +				     IEEE80211_EML_CAP_EMLSR_TRANSITION_DELAY);
-> +			eml_cap |=3D FIELD_PREP(IEEE80211_EML_EMLSR_PAD_DELAY,
-> +					      pad_delay) |
-> +				   FIELD_PREP(IEEE80211_EML_EMLSR_TRANS_DELAY,
-> +					      trans_delay);
-> +			sta->sta.eml_cap =3D eml_cap;
-
-Same comment about typed bitfield accessors, and u8_replace_bits() would
-even shorten that quite a bit.
-
-> +	if (skb->len < hdr_len + act_len)
-> +		return;
-
-bit late that :)
-
-johannes
+	Ansuel
 
