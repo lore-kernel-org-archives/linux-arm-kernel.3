@@ -4,108 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DBBEC88E6B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 07:57:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A498CC88E6B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 08:05:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3IfPvmYKcPzCTIR9O8n/ZZl1J7ESmm5QMdaDtE3F9Ak=; b=x+w9lea2pnYPbKa824NSQldwrd
-	3SSr0GmzcCsevoywODkmw3dBcU2tFVdI1CzdWH1ft7h3jdfA8g56OtHBiNDXVYLpj+QjN+MUI9BKQ
-	Lsu+v0HEEXPHF5BsHvOmXsjZKpu0G1yRuRBjnYbeRfx+GUuHapgf4by6RtJZsOYRPeV292uuE+ywQ
-	SFIGEnZfvdXrc4iO1p/jZzAI55JyYX/HiQIPgRh40h89THZ9I2YOL34L1e+u3e+ftmNEtO5cmAxcp
-	AFeLtIZ5Dh9LluGNl0P26m6jTirej47J89dLo5sv0VU7sbub+hGjaSESNdA89yFEUa6UjZjv7y+4R
-	7hwgQ5SA==;
+	bh=oXaEAcCkiPb4MDjwGnEFROsVx88PiTYnyWcEst6Ub6s=; b=E4m5KJQHm+FT3c/GCweGsYGI4T
+	oDFwcnRUNNeBUHbVT+xYmLFCTQxg+EOlHRvWtVqxgeu5nlxBmfW5zqDsmNmpdUkBOHLEfjqc4IV2K
+	I0itV6NOv26b/k5j5icZC21BqkUk+y7cFu6rlAXUHSUoxkL2CJQCCyBsyBp7ooSoqQ1Jh4ITYn6Nm
+	iOjTKbA1Ad5ViLcs8uFU7EejT1cgPUFuuNuL5LaY+aiamR+i9JTKabjpwPa6zBqpdtWauMlUH8mDT
+	31EjtE2lk4W03qrHkmBSDLKOcgf3aJNi44qnmmMaVCL8zYpet77GraKQ5LpxOm+Qz5nH1wYCOZGSS
+	RY+m18Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkHT0-0000000C4LG-3TSg;
-	Mon, 26 Jan 2026 07:56:58 +0000
-Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
+	id 1vkHbH-0000000C4pC-16qq;
+	Mon, 26 Jan 2026 08:05:31 +0000
+Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkHSy-0000000C4KR-3Aha
+	id 1vkHbE-0000000C4oJ-1rn8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 07:56:58 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id EE9AF1400133;
-	Mon, 26 Jan 2026 02:56:52 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Mon, 26 Jan 2026 02:56:52 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1769414212;
-	 x=1769500612; bh=3IfPvmYKcPzCTIR9O8n/ZZl1J7ESmm5QMdaDtE3F9Ak=; b=
-	eDOHAvbfe67c7eNr6nvfZediiLLte7005PrRqlu0iOJYtnxgkYz8ahsKixtMWmuD
-	u8u8nGO1QkjwNaktsBNh2CV5c+9vSXwE4p0INN+HMcT61A1rtud2mCDy2LUIuaaS
-	mG7qawiTbA6SBlvFMx4B5MjlsBQ9hkpApdV6pksVN44LVf2NDjdgrnq+oXw4cKTu
-	Eda9a2eXauZCaA0oJCQQ30By2P3Bawit66b+1DgGCEqNAzUK6wTbLYnjVygmPTtL
-	e1cqM4Y93GWBjzGAh/p1xZA7oFWvRyW/fCvq4Cks2Z/e5OUQdufbB4hLLVv5326K
-	M3NxG9mJ2mScK+XkgXhkhg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1769414212; x=
-	1769500612; bh=3IfPvmYKcPzCTIR9O8n/ZZl1J7ESmm5QMdaDtE3F9Ak=; b=W
-	3fx2I7+Tr3U/oGqVC8/FrPV/NMfI3Cy8wmbcKoMJ4yMyysqKEdx1Dv0JWlON72n3
-	NW/N8kpdDewTu/Ld03jpDt0mTYMXFy+qVOV+x928f2Aw/7qsK/+5mr6NhYzK2NWt
-	ZtxkaZVbty9gKQpYkOaQY3Uu6gQ9AI59N+OOvL1clClFURNjw4Rf5E+AcNtL2cTl
-	ajRffZ8guBUhV57QGkQ6gQzfpOC3S8MN1o0QLH77PNmaXBsJLDm/5lTpe1BTr3Ye
-	M7oAzYxYCGQeBbz+td+Pdh2AtaP8/WFH9A3ht3kZYbw7Wem0WOrajZJFBdFjcVH/
-	e7HOsm5c8lvji14tfgEsQ==
-X-ME-Sender: <xms:RB53adg4XV3YLrQwjKUTfLbpfRx-xYDDm43MvU6zuE2ok_iyZaWZvA>
-    <xme:RB53ac0XchSpGcx1Vhll0YcisS3D8rMC31psmJm4eDWDwL3Ot7sEzlKR9lGABVtEJ
-    1o_zH0UQYwPvKgBi-ZDdiA7iWnBuNUArkmJ4SRM7a6IFGD6DEQkQrM>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdduheejudefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddvpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopegsvhgrnhgrshhstghhvgesrggtmhdrohhrghdprhgtphhtthhope
-    gtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepsghoqhhu
-    nhdrfhgvnhhgsehgmhgrihhlrdgtohhmpdhrtghpthhtohepvghlvhgvrhesghhoohhglh
-    gvrdgtohhmpdhrtghpthhtohepphgvthgvrhiisehinhhfrhgruggvrggurdhorhhgpdhr
-    tghpthhtohepmhhinhhgoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfihilhhlse
-    hkvghrnhgvlhdrohhrghdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnihigrdgu
-    vgdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfh
-    hrrgguvggrugdrohhrgh
-X-ME-Proxy: <xmx:RB53aReo68kLo8Q1IJCChvRmKN-3htxlI-nXrn6R5155lU1DAyOEzw>
-    <xmx:RB53aVm6-evyg8KFJbFCbA2umpHntC9GhAPNbn3962Rs2sCPDehgTQ>
-    <xmx:RB53aWxvvEu_mZ49ut_QBMH9nYXstucdc__dd9-N53eNV8C0M_RVTQ>
-    <xmx:RB53aYwYVFAceK9En2bDONpgdSB5BKx7v13o8NcOATLXSbVwLVH0tw>
-    <xmx:RB53abOVjjg5sh8HqUZ3KEB_tzykmn2fdXpbJmsUeO3-psbeH5fcgbBp>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 2B7E8700069; Mon, 26 Jan 2026 02:56:52 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 26 Jan 2026 08:05:29 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A0C8110F2A1;
+	Mon, 26 Jan 2026 09:05:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1769414718;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=oXaEAcCkiPb4MDjwGnEFROsVx88PiTYnyWcEst6Ub6s=;
+	b=CnpvMD8IsO4oG+/L62lHKeeaE6t+PF3Ng8TrBowOn7q7NytPlfUp2u9rfTQLTY6oP/4BPM
+	bNSqbQuUwSC8A11hh2MKOdLycoMN9W+DBgP4oqChXcS6Ey81nxBqKtRpiyfhjjtslijZ5/
+	atgsrtx8/3XGlVm7NrkqZn11KiwaZrPhl52Pl+ntlEgRqt+/blJeuOzF5yq6YmFjQZggql
+	azFLEoALWGjEXpXGOhL30AU3zmfifgN2dCbnDGl7jxZcRBYw9QSQnSBS+zOyzPO3XIVGme
+	kqgV17a0EaQzOhTZOF0xywo3V2Pt7iQpnnTU0i0YTWou1xe2sP5BYX7T2uLsiA==
+Date: Mon, 26 Jan 2026 09:05:12 +0100
+From: =?UTF-8?B?xYF1a2Fzeg==?= Majewski <lukma@nabladev.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Abel Vesa
+ <abelvesa@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] clk: vf610: Add support for the Ethernet switch clocks
+Message-ID: <20260126090512.49b48ed0@wsk>
+In-Reply-To: <PAXPR04MB8459D29C90848DB101F726DE8893A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20260122130649.4150338-1-lukma@nabladev.com>
+	<PAXPR04MB8459D29C90848DB101F726DE8893A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+Organization: Nabla
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-ThreadId: ArrhcHX-7EeF
-Date: Mon, 26 Jan 2026 08:56:11 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Marco Elver" <elver@google.com>, "Peter Zijlstra" <peterz@infradead.org>,
- "Will Deacon" <will@kernel.org>
-Cc: "Ingo Molnar" <mingo@kernel.org>, "Thomas Gleixner" <tglx@linutronix.de>,
- "Boqun Feng" <boqun.feng@gmail.com>, "Waiman Long" <longman@redhat.com>,
- "Bart Van Assche" <bvanassche@acm.org>, llvm@lists.linux.dev,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Message-Id: <d3295c84-da15-4695-8110-7e04cfaf1419@app.fastmail.com>
-In-Reply-To: <20260126002936.2676435-3-elver@google.com>
-References: <20260126002936.2676435-1-elver@google.com>
- <20260126002936.2676435-3-elver@google.com>
-Subject: Re: [PATCH 2/3] arm64: Optimize __READ_ONCE() with CONFIG_LTO=y
-Content-Type: text/plain
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_235657_252526_41FF1447 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260126_000528_703310_216E3E3B 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,30 +78,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026, at 01:25, Marco Elver wrote:
-> diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
-> index fc0fb42b0b64..9963948f4b44 100644
-> --- a/arch/arm64/include/asm/rwonce.h
-> +++ b/arch/arm64/include/asm/rwonce.h
-> @@ -32,8 +32,7 @@
->  #define __READ_ONCE(x)							\
->  ({									\
->  	typeof(&(x)) __x = &(x);					\
-> -	int atomic = 1;							\
-> -	union { __unqual_scalar_typeof(*__x) __val; char __c[1]; } __u;	\
-> +	union { TYPEOF_UNQUAL(*__x) __val; char __c[1]; } __u;		\
->  	switch (sizeof(x)) {						\
->  	case 1:								\
->  		asm volatile(__LOAD_RCPC(b, %w0, %1)			\
+Hi Peng,
 
-How does this work with CC_HAS_TYPEOF_UNQUAL=false?
+> Hi Lukasz,
+> 
+> > Subject: [PATCH] clk: vf610: Add support for the Ethernet switch
+> > clocks
+> > 
+> > The vf610 device has built in the MoreThanIP L2 switch. For proper
+> > operation it is required to enable ESW and MAC table lookup clocks.
+> > 
+> > The MAC table spans from 0x400E_C000 for 0x4000 and it is necessary
+> > to provide clocks for each AIPS1-"slot", which size is 0x1000 (hence
+> > four separate entries).
+> > 
+> > Those can be enabled via clock gating CCM_CCGR10 register
+> > (0x4006_B068).
+> > 
+> > Signed-off-by: Lukasz Majewski <lukma@nabladev.com>
+> > ---
+> >  drivers/clk/imx/clk-vf610.c | 5 +++++
+> >  1 file changed, 5 insertions(+)
+> > 
+> > diff --git a/drivers/clk/imx/clk-vf610.c
+> > b/drivers/clk/imx/clk-vf610.c index 9e11f1c7c397..88c9b656f244
+> > 100644 --- a/drivers/clk/imx/clk-vf610.c
+> > +++ b/drivers/clk/imx/clk-vf610.c
+> > @@ -309,6 +309,11 @@ static void __init vf610_clocks_init(struct
+> > device_node *ccm_node)
+> >         clk[VF610_CLK_ENET_TS] = imx_clk_gate("enet_ts",
+> > "enet_ts_sel", CCM_CSCDR1, 23);
+> >         clk[VF610_CLK_ENET0] = imx_clk_gate2("enet0", "ipg_bus",
+> > CCM_CCGR9, CCM_CCGRx_CGn(0));
+> >         clk[VF610_CLK_ENET1] = imx_clk_gate2("enet1", "ipg_bus",
+> > CCM_CCGR9, CCM_CCGRx_CGn(1));
+> > +       clk[VF610_CLK_ESW] = imx_clk_gate2("esw", "ipg_bus",
+> > CCM_CCGR10, CCM_CCGRx_CGn(8));
+> > +       clk[VF610_CLK_ESW_MAC_TAB0] = imx_clk_gate2("esw_tab0",
+> > "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(12));
+> > +       clk[VF610_CLK_ESW_MAC_TAB1] = imx_clk_gate2("esw_tab1",
+> > "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(13));
+> > +       clk[VF610_CLK_ESW_MAC_TAB2] = imx_clk_gate2("esw_tab2",
+> > "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(14));
+> > +       clk[VF610_CLK_ESW_MAC_TAB3] = imx_clk_gate2("esw_tab3",
+> > + "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(15));  
+> 
+> Seems you post dt-binding in a separate patch. It is better to
+> put in one patchset.
 
-As far as I can tell, TYPEOF_UNQUAL() falls back to __typeof__
-on gcc-13, clang-18 and earlier, and not strip out qualifiers.
+Ok. No problem - I will add them together :)
 
-With fd69b2f7d5f4 ("compiler: Use __typeof_unqual__() for
-__unqual_scalar_typeof()"), I would expect __unqual_scalar_typeof()
-to do the right thing already.
+> 
+> Regards
+> Peng
+> 
+> > 
+> >         clk[VF610_CLK_PIT] = imx_clk_gate2("pit", "ipg_bus",
+> > CCM_CCGR1, CCM_CCGRx_CGn(7));
+> > 
+> > --
+> > 2.39.5  
+> 
 
-     Arnd
+
+
+-- 
+Best regards,
+
+Lukasz Majewski
+
+--
+Nabla Software Engineering GmbH
+HRB 40522 Augsburg
+Phone: +49 821 45592596
+E-Mail: office@nabladev.com
+Managing Director : Stefano Babic
 
