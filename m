@@ -4,153 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4893DD19519
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 20:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62CC9D1950F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 20:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XYrE4Ts0lNF6kIt+MKIW3LxE1Ei4b3bOtu7ftNGI6vk=; b=1weU36C/7t5Tf4LJCnB3ki9KTF
-	hP7zX3nKhEGz+I2S0Gaqrg4CNONX7fRch67tWV5s8uNEMi+IGq57dXov3s68ZY/EBD8W2lClID/K1
-	nxc5HwCwtgNVgf5hK6qZWTxXSWkB7G9McEGcWAwJ842M7Za1fiD3ps60/IOMaI9GMzjDghy81HX0B
-	+XDkCTusNNee6dU9gxn0sQqbNGw7xrduudbmJzBrCfmjrKo8NQb/AzLY9BwUTZHNNjRJnCXghbb47
-	BrJx7nDPuHXJXiJFU+/IlV/aXIMR6CX689OFbXkt0rPaC06kPI0dKEgziRdG5yPEMeLle+TvReXd5
-	eNlh1YXw==;
+	bh=aMPla4QrmCDTRq11ONPUsMeTtcU4Ek4C0hGQgcBMl74=; b=n12nA4/hdZv0JvnfMwx2chQeyH
+	nj/NtNkp3yzbzbsL35UK2dukMd2anrUY9sluo/AgSiV+xCXm0osQEuc7zVY8CnUtJIYFdz3SZVzIP
+	jMPLpc4WPSSvbShXJ/hxNShD5VeQrFtHSf0B7TXB1Q/Ih6OtOMBtHFi33okYTBfo7mR09UiSsImDY
+	saqAHNKd6BmNO3qa25gkFjTIPggIK8JOXw4d6QvSZpwbISDOo43IIx7VeXXnCV24u2Q8NYE+QQ1oV
+	I+7wl4DfoyDwK1sM83rpVxfN3cOaAxymWhUzVSVgHZ+Y7AvFyJhTBStbdHe2Jr6mrsr/i8Xoypl/2
+	Ae/2mnuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkTS8-0000000DDva-0yVr;
-	Mon, 26 Jan 2026 20:44:52 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkTS6-0000000DDv1-0wA8
+	id 1vkTXE-0000000DEC6-4ARi;
+	Mon, 26 Jan 2026 20:50:09 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkTXC-0000000DEBf-1om0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 20:44:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wMRuK9hgmkqS+Wp4DQoW5xhCmNMvj5d4bhGwbb45yqSCT/LKUKnwTkD5cFVYvjexT7/ZzV2NNsdojDvhxCRLbj1IAjg2JArYR+KOPNTbvs7KJyNHMGkvKl7VHnxhWF2nS+wfKmCr/MoE58ohJpdrcx1EA2L+PNTXv7z0RNwtlUSSZJILUiNOJL1nMeqSNOyTq61K5Cmz1ZLvM9gA3K9y/Tetvkzcl0HN64AkpWiKHBvk/fktvwUeCtHrTITLZnXaUgcP+XNSkXdnj0TMYwaM6SMzVVF/OdkXeTlBmfmKrh5TCxPyMi04dtVSmyaC3oR1K8iRIijfsvLdt5ekE67bUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XYrE4Ts0lNF6kIt+MKIW3LxE1Ei4b3bOtu7ftNGI6vk=;
- b=iUqj9UOrBqN98Shzs0iwRAFaTUsHDOH9cB/Hf3J9IdMeQt5XpkKE1uyEZDWxfR890o2tz4nOJTnKjmJF4IimSEl2PsqqUvjq3qOpU4wTcn1tzLstBJYYJh5K7a2jOxnTDiXRdWQET6p+12WxNs88rr9fimKWoQq9VSAHhK6TJ9DReuCF9sQpOlSDyTMvuC6Q4ZAb7vmHch6/ZQPFzg8hwT3b+9XqFYE2h756J7CzIy9gzILnXNcZpxh8p3syA8A69OnPoBN54xvzhNcwlk4GMrZZykmfk3beJAIdH8DYuTaHoFF8dbmjSBom19W/ArbOS/h38AoWFdniRX8uPgmyUA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XYrE4Ts0lNF6kIt+MKIW3LxE1Ei4b3bOtu7ftNGI6vk=;
- b=WPyOHoHliu8wqYM9U/TkdgURb0QwUlYsYcvm7M/2VlUjImejwVV6u4oX4to/yLa37eWvv1IvIDM2D7Qn1muoMAEmnFuevowsZpfoBj4IxMrQyDPXKfgFgw0z1+lOq/buQI8wESTP3L/LoOYGwQLFEbnKhoQlNRF0tsJkhzizTlHSloAvYv/S4MiERnGAKw7wzfNC0G6l2qbp4nvPV4EkAV0br4xb9tLWlyV7pytj164I998PfyL8f9WrtwjZGmgRSr1Rv2rn4NicmVQBySENvbPGMLr/Sdio2czch9ZQLwYwDdsaY/Em8uj38C1GrW+rlkupZnyL2frE6YlOF2vWpQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by IA1PR12MB6234.namprd12.prod.outlook.com (2603:10b6:208:3e6::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Mon, 26 Jan
- 2026 20:44:45 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9542.015; Mon, 26 Jan 2026
- 20:44:44 +0000
-Date: Mon, 26 Jan 2026 16:44:43 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jpb@kernel.org,
-	praan@google.com, miko.lenczewski@arm.com,
+	Mon, 26 Jan 2026 20:50:07 +0000
+Received: from skinsburskii.localdomain (c-98-225-44-182.hsd1.wa.comcast.net [98.225.44.182])
+	by linux.microsoft.com (Postfix) with ESMTPSA id E3D6220B716E;
+	Mon, 26 Jan 2026 12:50:04 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E3D6220B716E
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1769460605;
+	bh=aMPla4QrmCDTRq11ONPUsMeTtcU4Ek4C0hGQgcBMl74=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=K74TQNGczFpAfhA3gfdl31xMldWM2jUiuWpBExIFe8FFA6T5VENcXMxblu6H+Fd5J
+	 q31ZsLv/+62nFidQMGJr5Cq+fCxyk5SPvvE1q3mXtZMAVywKuoK9pr5vk4Vvdey2oC
+	 u17S0GoZNJ5mz+dz8ev/+3idfQ7uW/nxPVpCrXyE=
+Date: Mon, 26 Jan 2026 12:50:03 -0800
+From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+To: Mukesh R <mrathor@linux.microsoft.com>
+Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, patches@lists.linux.dev
-Subject: Re: [PATCH v2 01/10] iommu/arm-smmu-v3: Store IOTLB cache tags in
- struct arm_smmu_attach_state
-Message-ID: <20260126204443.GX1134360@nvidia.com>
-References: <cover.1769044718.git.nicolinc@nvidia.com>
- <40ecdf7e0766004c5d3a4bd086cb22cf08254237.1769044718.git.nicolinc@nvidia.com>
+	linux-pci@vger.kernel.org, linux-arch@vger.kernel.org,
+	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
+	will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
+	nunodasneves@linux.microsoft.com, mhklinux@outlook.com,
+	romank@linux.microsoft.com
+Subject: Re: [PATCH v0 10/15] PCI: hv: Build device id for a VMBus device
+Message-ID: <aXfTezmeX52VWFx6@skinsburskii.localdomain>
+References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+ <20260120064230.3602565-11-mrathor@linux.microsoft.com>
+ <aXAAH4G9ztAGDWuy@skinsburskii.localdomain>
+ <a2e54fff-3cbb-e332-c35e-7520c36eceed@linux.microsoft.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <40ecdf7e0766004c5d3a4bd086cb22cf08254237.1769044718.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: BL1PR13CA0071.namprd13.prod.outlook.com
- (2603:10b6:208:2b8::16) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA1PR12MB6234:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4ba85bb4-3097-460b-0909-08de5d1bbcd3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?aK6vEZ8niWLt4OAvuliW3iKnki3HdUiVrIh2nqMhOpZ6HN1+aivSPvvSkP/d?=
- =?us-ascii?Q?//ahNde/AKTZHCbQcreHrzH48EECkWK2gO392szg5sMbUCYI6xN0bX3DDEoe?=
- =?us-ascii?Q?8FdAKNwXKcAj/zz1o38ILmkXbJ/Ykz3h9ecugX+9dwRq09r8gKp4/DItb3xw?=
- =?us-ascii?Q?xl3B/PkNnk9jG5D+fCCQCt075PlMMNiDRMbSF66yQxtFzv8P5GEy8Uz8mUsn?=
- =?us-ascii?Q?eU+v6x0Lcb2Ybr+QwWAlHVEFdU2sijl09lf+7XiwoEwcYdWEfipf9f5ql3nV?=
- =?us-ascii?Q?3eJZrHu2AbcdD+G1EutQwVDS1vufn4HZ8wrcg3MTP1662BgVKicoH6LixGcl?=
- =?us-ascii?Q?mOY48rvNBne6nV3q3S18DTWk8HLcOriiCi7/RkqhbnyQMyaAspdj73KRTm+K?=
- =?us-ascii?Q?33rTwWyHZjUnCuaQnBFJfYCb6hBA06lxp1W+7sJGhK4u0mcK7Rwhtx1j0pXF?=
- =?us-ascii?Q?qY56nHnMRHrRK+8/PtMN95f0M0OhphYLOzQsFtuShiJFCSBCbVWarZ9CGFeh?=
- =?us-ascii?Q?4R6+tab3J4Dt0fAcJucnTiMgZSXUmg7TfWhO1/6Y84W3soXDRXU2TwtpT/B0?=
- =?us-ascii?Q?0jL5nD/Nx8yTdC9+EU/WIVBMkL2moNb2UEnSmZy7R87qpQPQ5OatxWiN/4EX?=
- =?us-ascii?Q?W+fUxxOj2zsJwPtYcl9Z/71FqU3+96XW2hwvvDLjXiF8qEXQZVpx6bvAWMaK?=
- =?us-ascii?Q?DPa5Qn4MjzAGiHD3QUb8+vvYeef3MmSWu8ruPzt7aYwHCA+j4IPix+nJiXeS?=
- =?us-ascii?Q?NzIiN1/68f7lwvCvNRxiLYSE45rS4dTAJZG0AmsQtsuPopTgfB2fVlhsg569?=
- =?us-ascii?Q?lBL3KX1gsSBEtuZ2+Eiv/HwCncTeIlwFk0heKL4I5sRibLCSUr4SJ54wZWWz?=
- =?us-ascii?Q?FGFQHLGbvyFueRregaIocaLkZ7fuWPqKpA3cQQbGpuMf44G5uDIOYHwvrZ6s?=
- =?us-ascii?Q?qXv0WlYodreSc7ES5sHE1okMvMJysY3q0KGfRBZcr86gVCS5crPBPmXWBXGz?=
- =?us-ascii?Q?7fMbmYJJfZvCGu+pIremZZzTpwqFl5ZsC+Iu4UjYflYQ2d7Yr5AEeGiKWjAY?=
- =?us-ascii?Q?hHlUEG9QUqRJbC0eRPr19KOESU1katz/Iuv2Ht525sUwdty6uFCU6sFUFbiW?=
- =?us-ascii?Q?4PHBvaGDbISf0hSlL2pX5XX5EDqaQMZbedVGNCPENjfuHbCTNHfhgc6suef8?=
- =?us-ascii?Q?Jz2k9MVlLs7oju57NViwfTwjpLde/i4R3Tsh6GXwzg0pPxpMB5MdTumtyG+G?=
- =?us-ascii?Q?Y9m49Mo+rQyIC4Hv7wbUIalE+IybpE4/ByIh3vXT5bCvW5uGCnAItFmYsu5l?=
- =?us-ascii?Q?ZO33m/sCnYPeO+McFVItiL8+xNLJO6112TopGACJEOJckqaz24mIs2q1ykka?=
- =?us-ascii?Q?8L2pOq3kcqRch8lWKfvfH4CN5X6ODDZlQMlA7Ub7DmhbHp2fErx1zB6swjY1?=
- =?us-ascii?Q?JTUmNmmtarevG4b5D64AR8RkN+6Rmkxm+v+OMEHe0klvxUYRHcGzTL0SEi9Z?=
- =?us-ascii?Q?nE8mj9+hLAO9UBmentBfJekTZauxRhYP8/9c7m1+Vcy3dWWgb8AlSlX35MND?=
- =?us-ascii?Q?ZJK1Z9nQBpsEXc1hzJw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tPiv0wsU3d05XRlnVxMOVgau4PbsVxy+Uvk88RHe2j9jzqVGzbU/r0pe4IaZ?=
- =?us-ascii?Q?bUIUG9/CF5DPwmlWtHCaVnBTlV2WgwgBzJ1uOweg/tvFN5VOPvjPvoyB4fzM?=
- =?us-ascii?Q?iJz4ZcvMeGH1feYCgbW75LUud3kTTh11STgbKPP0ncgAQt4dx9vCUcBLgR3R?=
- =?us-ascii?Q?ISYMmgF/msVh86gH0GYtiadhEWcC+vGJXoD46Psp2hSvKj6C2OCs/TQoIPvr?=
- =?us-ascii?Q?CKXXvDbhjtU8awslkOReLZfRzborcyUgYFOwWCAmMLUq1myMUV5keU8yLOkV?=
- =?us-ascii?Q?gqnpgv8XSM8QIZU7S/YsDDqtUsDi/28GPoKw85bfqreNHuqyanKn9agbRAFE?=
- =?us-ascii?Q?sDm+eoKWc5cIUb/4oZ80pO2WGEc2PIZOJ06Uhn3/+oZKWBN1emdRMi71jE8p?=
- =?us-ascii?Q?aQo0S9OY3+v64J0QztgBriUhjnbDWL9QvCxx26SG1vZ11x0V1AiMdwPEDbzH?=
- =?us-ascii?Q?6Mg9PxvOoiBJWCkJ+HiRxROBbzSbGpg16N4vwulOxG2Al/0c01gO+eEA7ACU?=
- =?us-ascii?Q?5vbZNc8HO8ud9y/CfAxa9FMmeAWeFOLfOmUg+uh7VCoXVYRBnHyPwwwcXnXc?=
- =?us-ascii?Q?mf31mlGSFGk0LcwC5WiyWJ5Szw0GGxEv8TYqV2sCGWn+Jv/COX3OEkwTXMSx?=
- =?us-ascii?Q?IS9GPwMTjUfAkPP4vxEiJLwATtcmp1flVyP8+E325gzdIiXcIm8N+acr20mp?=
- =?us-ascii?Q?naJqKci4x/ILl7YwbyRMtfzoI/CplE303Hs1LSKFLJRlgzRKmrO8KfcXrBMf?=
- =?us-ascii?Q?EVdaT/JxHBtj2NwKne3v+Uhjn3Kviljtar9URdLs9iTKwR7O5o/U8lsUAmy9?=
- =?us-ascii?Q?qwJSDCpv0nXf+RoHVxHNfHfr+k7WzDwkuh1mS/34CgCpmuC3Hovl6znaoAQ3?=
- =?us-ascii?Q?84ZqdfZApE5wruAE+GsB9e0kzPvEaAMt/3l8BgtRGD9MZak1hA49XwfI2WDp?=
- =?us-ascii?Q?4X6gpAm21GvOHmwiwC/nZf8lew932zj3mLo6q5CZVRR3qNEh56TuHqTabKGB?=
- =?us-ascii?Q?47C29tl8qnGipSrzDL59AD2fJEpQIBiNkxDDXKUtA3bmG9UDDAkMv1Okv8I2?=
- =?us-ascii?Q?6J7YVeJexkzAc/uwgRN0v5zHbUrWarIMt05ahKuWCJ0oYS4KKgSvoNJdnxwy?=
- =?us-ascii?Q?SmAvjsuaLEjOqvRgQqXtqlS/7wryBmRxHFSPpUbUH/x1j5ZP4lZWgOPV6gal?=
- =?us-ascii?Q?gm/0bffObFdWAjxGGiSU+WpXioKiidSiOAAfA/o0I6Z3MQ+PI7ili1a7XQW6?=
- =?us-ascii?Q?BrMW2BymFGohc6AnuH9Q5CYNDDoVgvBy6z4DuHC9meSqQgx+K6kuEvkYXfnK?=
- =?us-ascii?Q?KOYO35wYFTSCpeLl/Av9WYryJESkyx2sfR/eA/XhLvPGU7Lt+n29Up7V3b1T?=
- =?us-ascii?Q?u0TKhEG9eQ2+a0EkyrZ4A1HJw58HwxIwfkOURBepc8ZILsAdcq44kWEExk0Z?=
- =?us-ascii?Q?a+3eLtdPfbFdY3ZgBPzwfCgwH4wWXVHQcaBpTLH56BO8rzGW2z8Ub0wFDc7q?=
- =?us-ascii?Q?48rjRiS+xndWVeIfM4qYe4EgQTglOdjJSP5o5exnY4CuWVrBPYVFMtrs3/06?=
- =?us-ascii?Q?QcjsdwyrW4GIeoBL7W3jx//Ogg8IWIgJZY254b8kFbWObx8YSyxQL5qV2bYD?=
- =?us-ascii?Q?tmCYARRkvW6a0N7aBtPSewL23SaDnMk1+jq1twsYo7+3aoz+AVIM3gQ462Lk?=
- =?us-ascii?Q?M1IUN35w8rtvMOARJszU8rN+qDrqWIGViy8ADc0MaffX5ng1aon3dZg4iiJf?=
- =?us-ascii?Q?NQLmwXNNIQ=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4ba85bb4-3097-460b-0909-08de5d1bbcd3
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 20:44:44.8694
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dEZz+O+/hpcwzCngSM9WLVsVSIdk1Ip6FutDBP8LtFWaVlXaIb2LRE7EqDQp0u7h
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6234
+In-Reply-To: <a2e54fff-3cbb-e332-c35e-7520c36eceed@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_124450_264199_3ECE603D 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20260126_125006_519815_C2117E59 
+X-CRM114-Status: GOOD (  34.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,36 +79,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 05:24:19PM -0800, Nicolin Chen wrote:
-> +int arm_smmu_domain_get_iotlb_tag(struct arm_smmu_domain *smmu_domain,
-> +				  struct arm_smmu_device *smmu,
-> +				  struct arm_smmu_inv *tag)
-> +{
-> +	/* Decide the type of the iotlb cache tag */
-> +	switch (smmu_domain->stage) {
-> +	case ARM_SMMU_DOMAIN_SVA:
-> +	case ARM_SMMU_DOMAIN_S1:
-> +		tag->type = INV_TYPE_S1_ASID;
-> +		break;
-> +	case ARM_SMMU_DOMAIN_S2:
-> +		tag->type = INV_TYPE_S2_VMID;
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	tag->smmu = smmu;
-> +
-> +	if (tag->type == INV_TYPE_S1_ASID)
-> +		tag->id = smmu_domain->cd.asid;
-> +	else
-> +		tag->id = smmu_domain->s2_cfg.vmid;
+On Fri, Jan 23, 2026 at 04:42:54PM -0800, Mukesh R wrote:
+> On 1/20/26 14:22, Stanislav Kinsburskii wrote:
+> > On Mon, Jan 19, 2026 at 10:42:25PM -0800, Mukesh R wrote:
+> > > From: Mukesh Rathor <mrathor@linux.microsoft.com>
+> > > 
+> > > On Hyper-V, most hypercalls related to PCI passthru to map/unmap regions,
+> > > interrupts, etc need a device id as a parameter. This device id refers
+> > > to that specific device during the lifetime of passthru.
+> > > 
+> > > An L1VH VM only contains VMBus based devices. A device id for a VMBus
+> > > device is slightly different in that it uses the hv_pcibus_device info
+> > > for building it to make sure it matches exactly what the hypervisor
+> > > expects. This VMBus based device id is needed when attaching devices in
+> > > an L1VH based guest VM. Before building it, a check is done to make sure
+> > > the device is a valid VMBus device.
+> > > 
+> > > Signed-off-by: Mukesh Rathor <mrathor@linux.microsoft.com>
+> > > ---
+> > >   arch/x86/include/asm/mshyperv.h     |  2 ++
+> > >   drivers/pci/controller/pci-hyperv.c | 29 +++++++++++++++++++++++++++++
+> > >   2 files changed, 31 insertions(+)
+> > > 
+> > > diff --git a/arch/x86/include/asm/mshyperv.h b/arch/x86/include/asm/mshyperv.h
+> > > index eef4c3a5ba28..0d7fdfb25e76 100644
+> > > --- a/arch/x86/include/asm/mshyperv.h
+> > > +++ b/arch/x86/include/asm/mshyperv.h
+> > > @@ -188,6 +188,8 @@ bool hv_vcpu_is_preempted(int vcpu);
+> > >   static inline void hv_apic_init(void) {}
+> > >   #endif
+> > > +u64 hv_pci_vmbus_device_id(struct pci_dev *pdev);
+> > > +
+> > >   struct irq_domain *hv_create_pci_msi_domain(void);
+> > >   int hv_map_msi_interrupt(struct irq_data *data,
+> > > diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
+> > > index 8bc6a38c9b5a..40f0b06bb966 100644
+> > > --- a/drivers/pci/controller/pci-hyperv.c
+> > > +++ b/drivers/pci/controller/pci-hyperv.c
+> > > @@ -579,6 +579,8 @@ static void hv_pci_onchannelcallback(void *context);
+> > >   #define DELIVERY_MODE		APIC_DELIVERY_MODE_FIXED
+> > >   #define HV_MSI_CHIP_FLAGS	MSI_CHIP_FLAG_SET_ACK
+> > > +static bool hv_vmbus_pci_device(struct pci_bus *pbus);
+> > > +
+> > 
+> > Why not moving this static function definition above the called instead of
+> > defining the prototype?
+> 
+> Did you see the function implementation? It has other dependencies that
+> are later, it would need code reorg.
+> 
 
-Would be tidier to move these up into the case
+Why not placing the caller side after the function definition then?
 
-Otherwise looks OK
+Thanks,
+Stanislav
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-
-Jason
+> Thanks,
+> -Mukesh
+> 
+> 
+> > >   static int hv_pci_irqchip_init(void)
+> > >   {
+> > >   	return 0;
+> > > @@ -598,6 +600,26 @@ static unsigned int hv_msi_get_int_vector(struct irq_data *data)
+> > >   #define hv_msi_prepare		pci_msi_prepare
+> > > +u64 hv_pci_vmbus_device_id(struct pci_dev *pdev)
+> > > +{
+> > > +	u64 u64val;
+> > 
+> > This variable is redundant.
+> 
+> Not really. It helps with debug by putting a quick print, and is
+> harmless.
+> 
+> > > +	struct hv_pcibus_device *hbus;
+> > > +	struct pci_bus *pbus = pdev->bus;
+> > > +
+> > > +	if (!hv_vmbus_pci_device(pbus))
+> > > +		return 0;
+> > > +
+> > > +	hbus = container_of(pbus->sysdata, struct hv_pcibus_device, sysdata);
+> > > +	u64val = (hbus->hdev->dev_instance.b[5] << 24) |
+> > > +		 (hbus->hdev->dev_instance.b[4] << 16) |
+> > > +		 (hbus->hdev->dev_instance.b[7] << 8) |
+> > > +		 (hbus->hdev->dev_instance.b[6] & 0xf8) |
+> > > +		 PCI_FUNC(pdev->devfn);
+> > > +
+> > 
+> > It looks like this value always fits into 32 bit, so what is the value
+> > in returning 64 bit?
+> 
+> The ABI has device id defined as 64bits where this is assigned.
+> 
+> Thanks,
+> -Mukesh
+> 
+> 
+> 
+> 
+> > Thanks,
+> > Stanislav
+> > 
+> > > +	return u64val;
+> > > +}
+> > > +EXPORT_SYMBOL_GPL(hv_pci_vmbus_device_id);
+> > > +
+> > >   /**
+> > >    * hv_irq_retarget_interrupt() - "Unmask" the IRQ by setting its current
+> > >    * affinity.
+> > > @@ -1404,6 +1426,13 @@ static struct pci_ops hv_pcifront_ops = {
+> > >   	.write = hv_pcifront_write_config,
+> > >   };
+> > > +#ifdef CONFIG_X86
+> > > +static bool hv_vmbus_pci_device(struct pci_bus *pbus)
+> > > +{
+> > > +	return pbus->ops == &hv_pcifront_ops;
+> > > +}
+> > > +#endif /* CONFIG_X86 */
+> > > +
+> > >   /*
+> > >    * Paravirtual backchannel
+> > >    *
+> > > -- 
+> > > 2.51.2.vfs.0.1
+> > > 
 
