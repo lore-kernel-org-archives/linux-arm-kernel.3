@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E6CED13C3E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1540D13C3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 16:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Lbj/SRmKrEupEEKNpHOh2MRQXptjLV8i6B4AHBFHR4=; b=2Ig+kS07R/itKEhhswmsUnh9Ag
-	BB7BbpZ5apUk091nI7bdbCCKVt+Y3BZmp8Dr4+O7MmZKrYYaAVCtRwUzx2eHagjcNzn613FaxUxYx
-	APatjcGVkJzWQj1q4yxpoQ5FfxR2yuo+8vsv5SvgFJEmrsecD+0dHN91Iey2lKO87wPwdoyDhlyM3
-	YKBrKvXfoyQOEnV8UtMNFLN1yATP4fXGavzx7ty5xBAtPNC64v+kYzPXqjmFa0obo0UNPttRD7EKb
-	K508r760qNfaVsDLXESvxOmsZyFxssAH0BS5j/swDcxYi6qBlULUosyypLNraGZ9aU/CnstxaxzPk
-	BITX3yQw==;
+	bh=MU/Kiq4psb2xarotDV6fAvUix51cGezrrQKgkCLFyng=; b=yInwjIFoKN4VqgRMEU0hwjIjmi
+	24DxNo1bUKIAe96+5bIP0Dbhn6rElmTYl5d71o72o/v9ZUfkcUsyznjyCV0ylJq+x4kf39T4kYDoK
+	sgjbhu1s/04b486wws3aGbeenV56XWTvjIwjM+pQX3wTu673IWaOca8I2BpwXw+sDEFG8Qqe+2qL/
+	fR0ulxzOeBzLk5guPVDVkMESBjN3m46uPIc8FLNfLrvK9b/CeqHfIQkvPwje3i5Cfi+4QMK/e/p1T
+	JBnQJwqMwO+etGBifqHZaobnCSyX4vXYvsqVnV6sQwZEgqGT2vlndHQD1pXDS8hJoTuQx6AQHmfaP
+	QxpLRH8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkP24-0000000CoOk-0bct;
-	Mon, 26 Jan 2026 16:01:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vkP2q-0000000CoU0-201l;
+	Mon, 26 Jan 2026 16:02:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkP20-0000000CoNx-02c8
+	id 1vkP2o-0000000CoTn-3nFg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 16:01:39 +0000
+	Mon, 26 Jan 2026 16:02:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3DD6D40DF6;
-	Mon, 26 Jan 2026 16:01:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA1FAC116C6;
-	Mon, 26 Jan 2026 16:01:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BDB8060097;
+	Mon, 26 Jan 2026 16:02:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAFDCC116C6;
+	Mon, 26 Jan 2026 16:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769443295;
-	bh=vbKOKo1zqwByHLjQtZsnbrccfQFl5y8geWYwihFRq24=;
+	s=k20201202; t=1769443345;
+	bh=EgFkyoJbsDSFh6qX7Hv4uyf8awBGZ88hYYx/LfvFSGA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Lv48+hpvfTsHWMpL2abDkYYBE7hAds8hj8Zp5X6/XmVEmhic146EMnkENPQuRymhj
-	 ZRDrCiDmBFyXzlfWKA/+BpJSBX1IFnuz3yFbv0Aga9FAzsY9lPhGKKgacbQAXlAUl1
-	 4LKJyr8N9Ri/NmncXH7qkWRo/fVK+c2qByK0m/PkRMeUcEv33AsYsgnPZOpigfLVPw
-	 2DxDngwxhwfVPspu2PvUQnrf51kjIyeAf8ZSb6R/CxmqMyHCBbniSAMnZv2BIXU+R5
-	 mgnwO6u4E6jEBck2yVdqf4f4BghaHdP8aDdDGhDvqyW7M69MBHIDKnnpAzV5dMyXPI
-	 NnIIw93NUqj2Q==
-Date: Mon, 26 Jan 2026 16:01:27 +0000
-From: Simon Horman <horms@kernel.org>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: dan.carpenter@linaro.org, robh@kernel.org, kuba@kernel.org,
-	festevam@gmail.com, ghennadi.procopciuc@oss.nxp.com,
-	alexandre.torgue@foss.st.com, linux-kernel@vger.kernel.org,
-	andrew+netdev@lunn.ch, shawnguo@kernel.org, mbrugger@suse.com,
-	mcoquelin.stm32@gmail.com, linaro-s32@linaro.org,
-	davem@davemloft.net, s.hauer@pengutronix.de, edumazet@google.com,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	conor+dt@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org,
-	Frank.li@nxp.com, chester62515@gmail.com, netdev@vger.kernel.org,
-	kernel@pengutronix.de, pabeni@redhat.com, jan.petrous@oss.nxp.com,
-	linux-stm32@st-md-mailman.stormreply.com, s32@nxp.com
-Subject: Re: [v4,1/3] net: stmmac: s32: use a syscon for
- S32_PHY_INTF_SEL_RGMII
-Message-ID: <aXeP1y7cK0XRx3Wo@horms.kernel.org>
-References: <8f2139e8adf02b485a4c84d558fc23f78cf04add.1769195864.git.dan.carpenter@linaro.org>
- <20260126152430.1390514-1-horms@kernel.org>
- <aXeJYo-0iiNuXVGH@shell.armlinux.org.uk>
+	b=j48shhaltmH3/WbsngSKV9s1t05sKxtWovpjZEEIw529kVpOBfyCGFLG4tuyVTD1C
+	 QL6hAFG9ETT9TaZZm72CJbEq4ef8ESIvgzJB+HtEgq90FMnxl3KnE5zM/6+910yZeP
+	 KltuX6Ez5FFwUrJ+H4dv8pluaX644hIPEDVqAhEpl0FuseYS/THSddtFwawUcSROqx
+	 YnEMHSzpFExqHblKcorGz6MWatW/gIcTGNNYB9rIObb5L5t1Ld0Vjm0lGHxkFu/2cn
+	 9kBur7+e7tAPdhqhnexNPWx5XLAMSFaI+Hk6JZRlfMKhobqOegFEb8BO027nlLpbjY
+	 /DRDY1C3lt0PA==
+Date: Mon, 26 Jan 2026 16:02:19 +0000
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, jean-philippe@linaro.org,
+	robin.murphy@arm.com, joro@8bytes.org, balbirs@nvidia.com,
+	miko.lenczewski@arm.com, peterz@infradead.org, kevin.tian@intel.com,
+	praan@google.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v9 6/7] iommu/arm-smmu-v3: Add arm_smmu_invs based
+ arm_smmu_domain_inv_range()
+Message-ID: <aXeQC3GjUgafuOi-@willie-the-truck>
+References: <cover.1766174731.git.nicolinc@nvidia.com>
+ <06999367d001283744fd98eb7c1823afd516ce84.1766174731.git.nicolinc@nvidia.com>
+ <aXOqVcX9YEC-Ikdt@willie-the-truck>
+ <aXOrnMLLzZL9BtRT@willie-the-truck>
+ <20260123200327.GF1134360@nvidia.com>
+ <aXdlnLLFUBwjT0V5@willie-the-truck>
+ <20260126152019.GK1134360@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aXeJYo-0iiNuXVGH@shell.armlinux.org.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_080136_084162_10040636 
-X-CRM114-Status: GOOD (  26.71  )
+In-Reply-To: <20260126152019.GK1134360@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,66 +78,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 03:33:54PM +0000, Russell King (Oracle) wrote:
-> On Mon, Jan 26, 2026 at 03:24:30PM +0000, Simon Horman wrote:
-> > This is an AI-generated review of your patch. The human sending this
-> > email has considered the AI review valid, or at least plausible.
+On Mon, Jan 26, 2026 at 11:20:19AM -0400, Jason Gunthorpe wrote:
+> On Mon, Jan 26, 2026 at 01:01:16PM +0000, Will Deacon wrote:
+> > On Fri, Jan 23, 2026 at 04:03:27PM -0400, Jason Gunthorpe wrote:
+> > > On Fri, Jan 23, 2026 at 05:10:52PM +0000, Will Deacon wrote:
+> > > > On Fri, Jan 23, 2026 at 05:05:31PM +0000, Will Deacon wrote:
+> > > > > On Fri, Dec 19, 2025 at 12:11:28PM -0800, Nicolin Chen wrote:
+> > > > > > +	/*
+> > > > > > +	 * We are committed to updating the STE. Ensure the invalidation array
+> > > > > > +	 * is visible to concurrent map/unmap threads, and acquire any racing
+> > > > > > +	 * IOPTE updates.
+> > > > > > +	 *
+> > > > > > +	 *  [CPU0]                        | [CPU1]
+> > > > > > +	 *                                |
+> > > > > > +	 *  change IOPTEs and TLB flush:  |
+> > > > > > +	 *  arm_smmu_domain_inv_range() { | arm_smmu_install_old_domain_invs {
+> > > > > > +	 *    ...                         |   rcu_assign_pointer(new_invs);
+> > > > > > +	 *    smp_mb(); // ensure IOPTEs  |   smp_mb(); // ensure new_invs
+> > > > > > +	 *    ...                         |   kfree_rcu(old_invs, rcu);
+> > > > > > +	 *    // load invalidation array  | }
+> > > > > > +	 *    invs = rcu_dereference();   | arm_smmu_install_ste_for_dev {
+> > > > > > +	 *                                |   STE = TTB0 // read new IOPTEs
+> > > > > > +	 */
+> > > > > > +	smp_mb();
+> > > > > 
+> > > > > I don't think we need to duplicate this comment three times, you can just
+> > > > > refer to the first function (e.g. "See ordering comment in
+> > > > > arm_smmu_domain_inv_range()").
+> > > > > 
+> > > > > However, isn't the comment above misleading for this case?
+> > > > > arm_smmu_install_old_domain_invs() has the sequencing the other way
+> > > > > around on CPU 1: we should update the STE first.
+> > > > 
+> > > > I also think we probably want a dma_mb() instead of an smp_mb() for all
+> > > > of these examples? It won't make any practical difference but I think it
+> > > > helps readability given that one of the readers is the PTW.
+> > > 
+> > > The only actual dma_wmb() is inside arm_smmu_install_ste_for_dev()
+> > > after updating the STE. Adding that line explicitly would help as that
+> > > is the only point where we must have the writes actually visible to
+> > > the DMA HW.
+> > > 
+> > > The ones written here as smp_mb() are not required to be DMA ones and
+> > > could all be NOP's on UP..
 > > 
-> > For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
-> > ---
-> >     net: stmmac: s32: use a syscon for S32_PHY_INTF_SEL_RGMII
+> > Hmm, I'm not sure about that.
 > > 
-> > This commit adds syscon/regmap support for accessing the GMAC_0_CTRL_STS
-> > register on s32 chipsets, while maintaining backwards compatibility with
-> > the existing direct MMIO approach for older device trees.
-> > 
-> > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> > > index 5a485ee98fa7..2e6bb41f49e1 100644
-> > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> > 
-> > [ ... ]
-> > 
-> > > @@ -40,7 +44,10 @@ struct s32_priv_data {
-> > >
-> > >  static int s32_gmac_write_phy_intf_select(struct s32_priv_data *gmac)
-> > >  {
-> > > -	writel(S32_PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
-> > > +	if (gmac->ctrl_sts)
-> > > +		writel(S32_PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
-> > > +	else
-> > > +		regmap_write(gmac->sts_regmap, gmac->sts_offset, S32_PHY_INTF_SEL_RGMII);
-> > 
-> > Should the regmap_write() return value be checked here? The function
-> > returns int and the caller s32_gmac_init() checks the return value
-> > expecting errors to be propagated. For comparison, dwmac-sun55i.c in
-> > sun55i_gmac200_set_syscon() does check regmap_write() return value:
-> > 
-> >     ret = regmap_write(regmap, SYSCON_REG, reg);
-> >     if (ret < 0)
-> >         return dev_err_probe(dev, ret, "Failed to write to syscon\n");
+> > If we've written a new (i.e. previously invalid) valid PTE to a
+> > page-table and then we install that page-table into an STE hitlessly
+> > (let's say we write the S2TTB field) then isn't there a window before we
+> > do the STE invalidation where the page-table might be accessible to the
+> > SMMU but the new PTE is still sitting in the CPU?
 > 
-> AI is wrong on this last line - s32_gmac_write_phy_intf_select() is
-> called from s32_gmac_init(), which is called from plat_dat->init.
+> Hmm! Yes seems like it.
 > 
-> plat_dat->init is called from two paths:
+> However, that's seems like a general bug, if we allocate an
+> iommu_domain and immediately hitlessly install it, then there would be
+> no dma_wmb() for the page table memory prior to the earliest point the
+> HW is able to read the STE.
 > 
-> 1. stmmac_pltfr_probe() -> stmmac_dvr_probe() -> plat_dat->init()
+> What I wrote is is how things are intended to work, so lets fix it
+> with this?
 > 
-> 2. stmmac_resume() -> plat_dat->resume() -> stmmac_plat_resume() ->
->    stmmac_pltfr_init() -> plat_dat->init()
-> 
-> In the resume path, it is not appropriate to use dev_err_probe()
-> because we're not in the probe path.
+> @@ -1173,6 +1173,13 @@ void arm_smmu_write_entry(struct arm_smmu_entry_writer *writer, __le64 *entry,
+>         __le64 unused_update[NUM_ENTRY_QWORDS];
+>         u8 used_qword_diff;
+>  
+> +       /*
+> +        * Many of the entry structures have pointers to other structures that
+> +        * need to have their updates be visible before any writes of the entry
+> +        * happen.
+> +        */
+> +       dma_wmb();
 
-Hi Russell,
+If we do that, can we drop the smp_mb()s from
+arm_smmu_install_{old,new}_domain_invs()?
 
-I agree that using dev_err_probe() is not appropriate here.
-And, FWIIW, I took that part to be an illustration that
-sun55i_gmac200_set_syscon() handles a similar case,
-rather than a suggestion of how to handle it here.
+Then the barrier in arm_smmu_domain_inv_range() is kind of irritating
+but it demonstrates the need for additional ordering (beyond what we
+get from the pgtable code) to ensure that a prior update to the
+page-table is ordered before the RCU-protected read of the invalidation
+array pointer. So that becomes the special case, with everybody else
+relying on a dma_wmb() from either the cmdq insertion or the CD/STE
+update.
 
-But at any rate, I think the key question is should the case
-where regmap_write() returns an error be handled in
-s32_gmac_write_phy_intf_select() (by some means)?
+Will
 
