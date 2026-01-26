@@ -4,76 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E74CF65F3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 12:18:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA89CF65DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 12:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LjvecSjH874I929wVA/iK+2GW95udYzch4X/8pWUIxA=; b=H+4fkw7F8fuw3Su5bHRhr5rIls
-	s6Zr9ITKSzfJsfmqBK3Nom+Hpv3L51HtCObvlGQEqQOoWQoaF+x6kg8UCmdTGiS1cBixfVh+TQGOO
-	q4L4m9okBjtV13ZxwXLc1UBZYVWnxQl5WkOQZw9M5KXVatpQh26U2QZmfOSfYcY2kqUk9h92NtzbS
-	5xSPOZ2f5j4B1aQlU9hX9ERyPSHvLgjabIdX6lzzFHdSX5u2TnPYUTI4SqiTEHEbhGTdvOYlx70tz
-	4ekOJwVV9dvHbSA3W3aSnFxoHotKve9YFjUN+063M0FgGSQlO/bjIXORK0ku0L1wq/OamvYzibhqA
-	d7QUWCcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7j0Vk4RZICiGr3kMEvEbjecwBLCRWMDYUxPd+pEqMpc=; b=Vl5DdGffysaJeCH1o5dl1q1Wxt
+	SYBTMDDy9ZykIwOfzujJjck47a791uxKKBOn1aXHS6qs1+r2F66wzt6JNTPaTqUcbkSL1MJGHdCoO
+	pTReJB/CA/SFAJjGO7IYUCgckrJwAfij9hdkMkWlQGooNrMDrfTg7NIC+rIINSyHCs4hS1hlUEpKw
+	mJAAcUVxpF9jSqJpjD0z1xYTy+l/E+TIQPgIfQ4FYZCs2C9m7BnW5cFqC/nmhTIaOqCOJWd1iyPvt
+	gKGo+6bSv2yYQ8+rDTpEfS4dKVUyBq4ltOHALL2chRBa1Tn2ptVRcmkxipZN3ogoxNACToB1rR3Kq
+	2BYP/xbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkLXX-0000000CVD4-41Ar;
-	Mon, 26 Jan 2026 12:17:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vkLZ0-0000000CWXc-3XuQ;
+	Mon, 26 Jan 2026 12:19:26 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkLXG-0000000CUvQ-1T3E
+	id 1vkLXY-0000000CV82-3wWZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 12:17:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E050A444B7;
-	Mon, 26 Jan 2026 12:17:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE5DAC19425;
-	Mon, 26 Jan 2026 12:17:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769429857;
-	bh=V2DWQh0M6XeD4GoribxYipsGtJi13aVlLNE/slTnQGo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fyq3PZsHZHhRQnUsTYPRGOaMnm0Slg9i4K1dRBQt8VcVKhnht/AI8rrY/leAUJ1au
-	 hijr5DRYNHQYtkIYaMJ1PYfQtwqmuU0r43XsfqLlXP0u5J/6p6nm/Tuso5FjmmMgu3
-	 TUPypp29I3OorEq2f1LjaRc2yaxMdmPAFN0zJvdzY2r7F5XZFc7AEJbqadGogdZNxA
-	 BhI5TmvV7g0fngqhDDO86rjPXwp2zOxT3TlvjbkKGRvs4TSXDueY5mA3qTdFv2zZ6F
-	 U+RuudKSfyQakvofM8BfxM06ghusZbFMIoDSCw8TT38baKmBJGbussIP8WKrpEaQ07
-	 ras6CA3nkQiPQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	Mon, 26 Jan 2026 12:17:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=7j0Vk4RZICiGr3kMEvEbjecwBLCRWMDYUxPd+pEqMpc=; b=FzzvkoOKwdf67baLwyTkXQCvt9
+	3s0SANG2yvzz/sb2hrTuOd55a4J6bELFRvVi/oQWlJuhtweonEhn4OkaBrs4oD599WPvU59xZm4xH
+	MfkoNtDzPAChX07vwmSvDOrcrz66sPKi6c6ZnZiO9AtBMadu3MYpqFSVMnvptwjXgB2/OYiZ+FDRn
+	8QVmriGNd1fzca2z5dKW8jdgZP2SmTCSh9FI9jgvQlX/WgwFRSWTXG63+De88mrCp7newRL+iqQ+f
+	VRi6Wseu30B+EI4iGFyAg74xMWsV4KGVCI8/qqRi4UpWNF1xCmr79/rEyw6mTMffarKw9shGAdmP/
+	buqN7+BQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:39956 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vkLXE-00000005hx6-0EEB;
-	Mon, 26 Jan 2026 12:17:36 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1vkLXP-000000004m8-23Z0;
+	Mon, 26 Jan 2026 12:17:47 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1vkLXO-00000005uxQ-31ZV;
+	Mon, 26 Jan 2026 12:17:46 +0000
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <tabba@google.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH 19/20] KVM: arm64: Add sanitisation to SCTLR_EL2
-Date: Mon, 26 Jan 2026 12:16:53 +0000
-Message-ID: <20260126121655.1641736-20-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260126121655.1641736-1-maz@kernel.org>
-References: <20260126121655.1641736-1-maz@kernel.org>
+	linux-stm32@st-md-mailman.stormreply.com,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next] net: stmmac: report active PHY interface
 MIME-Version: 1.0
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, tabba@google.com, will@kernel.org, catalin.marinas@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1vkLXO-00000005uxQ-31ZV@rmk-PC.armlinux.org.uk>
+Date: Mon, 26 Jan 2026 12:17:46 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_041738_464307_C706924D 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20260126_041757_239266_ED51644C 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,159 +84,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sanitise SCTLR_EL2 the usual way. The most important aspect of
-this is that we benefit from SCTLR_EL2.SPAN being RES1 when
-HCR_EL2.E2H==0.
+Report the active PHY interface from the point of view of the dwmac
+hardware to the kernel log, where the core supports reading this.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- arch/arm64/include/asm/kvm_host.h |  2 +-
- arch/arm64/kvm/config.c           | 82 +++++++++++++++++++++++++++++++
- arch/arm64/kvm/nested.c           |  4 ++
- 3 files changed, 87 insertions(+), 1 deletion(-)
+I recently sent this to aid some debug for socfpga folks, but I think
+printing the active PHY interface as read from the HW feature registers
+is useful information about the state of the driver, particularly for
+debugging reported issues.
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 9dca94e4361f0..c82b071ade2a5 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -495,7 +495,6 @@ enum vcpu_sysreg {
- 	DBGVCR32_EL2,	/* Debug Vector Catch Register */
+ drivers/net/ethernet/stmicro/stmmac/common.h  |  6 +++
+ .../ethernet/stmicro/stmmac/dwmac1000_dma.c   |  2 +
+ .../net/ethernet/stmicro/stmmac/dwmac4_dma.c  |  2 +
+ .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  1 +
+ .../ethernet/stmicro/stmmac/dwxgmac2_dma.c    |  1 +
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 52 +++++++++++++++++++
+ 6 files changed, 64 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index 49df46be3669..1c5a4af85b58 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -323,6 +323,10 @@ struct stmmac_safety_stats {
+ #define PHY_INTF_SEL_SMII	6
+ #define PHY_INTF_SEL_REVMII	7
  
- 	/* EL2 registers */
--	SCTLR_EL2,	/* System Control Register (EL2) */
- 	ACTLR_EL2,	/* Auxiliary Control Register (EL2) */
- 	CPTR_EL2,	/* Architectural Feature Trap Register (EL2) */
- 	HACR_EL2,	/* Hypervisor Auxiliary Control Register */
-@@ -526,6 +525,7 @@ enum vcpu_sysreg {
++/* XGMAC uses a different encoding - from the AgileX5 documentation */
++#define PHY_INTF_GMII		0
++#define PHY_INTF_RGMII		1
++
+ /* MSI defines */
+ #define STMMAC_MSI_VEC_MAX	32
  
- 	/* Anything from this can be RES0/RES1 sanitised */
- 	MARKER(__SANITISED_REG_START__),
-+	SCTLR_EL2,	/* System Control Register (EL2) */
- 	TCR2_EL2,	/* Extended Translation Control Register (EL2) */
- 	SCTLR2_EL2,	/* System Control Register 2 (EL2) */
- 	MDCR_EL2,	/* Monitor Debug Configuration Register (EL2) */
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index eebafb90bcf62..562513a4683e2 100644
---- a/arch/arm64/kvm/config.c
-+++ b/arch/arm64/kvm/config.c
-@@ -1130,6 +1130,84 @@ static const struct reg_bits_to_feat_map sctlr_el1_feat_map[] = {
- static const DECLARE_FEAT_MAP(sctlr_el1_desc, SCTLR_EL1,
- 			      sctlr_el1_feat_map, FEAT_AA64EL1);
+@@ -512,6 +516,8 @@ struct dma_features {
+ 	unsigned int dbgmem;
+ 	/* Number of Policing Counters */
+ 	unsigned int pcsel;
++	/* Active PHY interface, PHY_INTF_SEL_xxx */
++	u8 actphyif;
+ };
  
-+static const struct reg_bits_to_feat_map sctlr_el2_feat_map[] = {
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_CP15BEN,
-+			RES0_WHEN_E2H1 | RES1_WHEN_E2H0 | REQUIRES_E2H1,
-+			FEAT_AA32EL0),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_ITD	|
-+			SCTLR_EL2_SED,
-+			RES1_WHEN_E2H1 | RES0_WHEN_E2H0 | REQUIRES_E2H1,
-+			FEAT_AA32EL0),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_BT0, REQUIRES_E2H1, FEAT_BTI),
-+	NEEDS_FEAT(SCTLR_EL2_BT, FEAT_BTI),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_CMOW, REQUIRES_E2H1, FEAT_CMOW),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_TSCXT,
-+			RES0_WHEN_E2H0 | RES1_WHEN_E2H1 | REQUIRES_E2H1,
-+			feat_csv2_2_csv2_1p2),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_EIS	|
-+			SCTLR_EL2_EOS,
-+			AS_RES1, FEAT_ExS),
-+	NEEDS_FEAT(SCTLR_EL2_EnFPM, FEAT_FPMR),
-+	NEEDS_FEAT(SCTLR_EL2_IESB, FEAT_IESB),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_EnALS, REQUIRES_E2H1, FEAT_LS64),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_EnAS0, REQUIRES_E2H1, FEAT_LS64_ACCDATA),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_EnASR, REQUIRES_E2H1, FEAT_LS64_V),
-+	NEEDS_FEAT(SCTLR_EL2_nAA, FEAT_LSE2),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_LSMAOE	|
-+			SCTLR_EL2_nTLSMD,
-+			AS_RES1 | REQUIRES_E2H1, FEAT_LSMAOC),
-+	NEEDS_FEAT(SCTLR_EL2_EE, FEAT_MixedEnd),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_E0E, REQUIRES_E2H1, feat_mixedendel0),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_MSCEn, REQUIRES_E2H1, FEAT_MOPS),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_ATA0	|
-+			SCTLR_EL2_TCF0,
-+			REQUIRES_E2H1, FEAT_MTE2),
-+	NEEDS_FEAT(SCTLR_EL2_ATA	|
-+		   SCTLR_EL2_TCF,
-+		   FEAT_MTE2),
-+	NEEDS_FEAT(SCTLR_EL2_ITFSB, feat_mte_async),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_TCSO0, REQUIRES_E2H1, FEAT_MTE_STORE_ONLY),
-+	NEEDS_FEAT(SCTLR_EL2_TCSO,
-+		   FEAT_MTE_STORE_ONLY),
-+	NEEDS_FEAT(SCTLR_EL2_NMI	|
-+		   SCTLR_EL2_SPINTMASK,
-+		   FEAT_NMI),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_SPAN,	AS_RES1 | REQUIRES_E2H1, FEAT_PAN),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_EPAN, REQUIRES_E2H1, FEAT_PAN3),
-+	NEEDS_FEAT(SCTLR_EL2_EnDA	|
-+		   SCTLR_EL2_EnDB	|
-+		   SCTLR_EL2_EnIA	|
-+		   SCTLR_EL2_EnIB,
-+		   feat_pauth),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_EnTP2, REQUIRES_E2H1, FEAT_SME),
-+	NEEDS_FEAT(SCTLR_EL2_EnRCTX, FEAT_SPECRES),
-+	NEEDS_FEAT(SCTLR_EL2_DSSBS, FEAT_SSBS),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_TIDCP, REQUIRES_E2H1, FEAT_TIDCP1),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_TWEDEL	|
-+			SCTLR_EL2_TWEDEn,
-+			REQUIRES_E2H1, FEAT_TWED),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_nTWE	|
-+			SCTLR_EL2_nTWI,
-+			AS_RES1 | REQUIRES_E2H1, FEAT_AA64EL2),
-+	NEEDS_FEAT_FLAG(SCTLR_EL2_UCI	|
-+			SCTLR_EL2_UCT	|
-+			SCTLR_EL2_DZE	|
-+			SCTLR_EL2_SA0,
-+			REQUIRES_E2H1, FEAT_AA64EL2),
-+	NEEDS_FEAT(SCTLR_EL2_WXN	|
-+		   SCTLR_EL2_I		|
-+		   SCTLR_EL2_SA		|
-+		   SCTLR_EL2_C		|
-+		   SCTLR_EL2_A		|
-+		   SCTLR_EL2_M,
-+		   FEAT_AA64EL2),
-+	FORCE_RES0(SCTLR_EL2_RES0),
-+	FORCE_RES1(SCTLR_EL2_RES1),
+ /* RX Buffer size must be multiple of 4/8/16 bytes */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
+index a62f1271b6ea..3ac7a7949529 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
+@@ -239,6 +239,8 @@ static int dwmac1000_get_hw_feature(void __iomem *ioaddr,
+ 	/* Alternate (enhanced) DESC mode */
+ 	dma_cap->enh_desc = (hw_cap & DMA_HW_FEAT_ENHDESSEL) >> 24;
+ 
++	dma_cap->actphyif = FIELD_GET(DMA_HW_FEAT_ACTPHYIF, hw_cap);
++
+ 	return 0;
+ }
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
+index aaa83e9ff4f0..60b880cdd9da 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
+@@ -382,6 +382,8 @@ static int dwmac4_get_hw_feature(void __iomem *ioaddr,
+ 	dma_cap->vlins = (hw_cap & GMAC_HW_FEAT_SAVLANINS) >> 27;
+ 	dma_cap->arpoffsel = (hw_cap & GMAC_HW_FEAT_ARPOFFSEL) >> 9;
+ 
++	dma_cap->actphyif = FIELD_GET(DMA_HW_FEAT_ACTPHYIF, hw_cap);
++
+ 	/* MAC HW feature1 */
+ 	hw_cap = readl(ioaddr + GMAC_HW_FEATURE1);
+ 	dma_cap->l3l4fnum = (hw_cap & GMAC_HW_FEAT_L3L4FNUM) >> 27;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index b5c91c109c43..51943705a2b0 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -107,6 +107,7 @@
+ #define XGMAC_HWFEAT_VXN		BIT(29)
+ #define XGMAC_HWFEAT_SAVLANINS		BIT(27)
+ #define XGMAC_HWFEAT_TSSTSSEL		GENMASK(26, 25)
++#define XGMAC_HWFEAT_PHYSEL		GENMASK(24, 23)
+ #define XGMAC_HWFEAT_ADDMACADRSEL	GENMASK(22, 18)
+ #define XGMAC_HWFEAT_RXCOESEL		BIT(16)
+ #define XGMAC_HWFEAT_TXCOESEL		BIT(14)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+index 9bb547f3c3c9..03437f1cf3df 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+@@ -364,6 +364,7 @@ static int dwxgmac2_get_hw_feature(void __iomem *ioaddr,
+ 	dma_cap->vxn = (hw_cap & XGMAC_HWFEAT_VXN) >> 29;
+ 	dma_cap->vlins = (hw_cap & XGMAC_HWFEAT_SAVLANINS) >> 27;
+ 	dma_cap->tssrc = (hw_cap & XGMAC_HWFEAT_TSSTSSEL) >> 25;
++	dma_cap->actphyif = FIELD_GET(XGMAC_HWFEAT_PHYSEL, hw_cap);
+ 	dma_cap->multi_addr = (hw_cap & XGMAC_HWFEAT_ADDMACADRSEL) >> 18;
+ 	dma_cap->rx_coe = (hw_cap & XGMAC_HWFEAT_RXCOESEL) >> 16;
+ 	dma_cap->tx_coe = (hw_cap & XGMAC_HWFEAT_TXCOESEL) >> 14;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 347a0078f622..db0ea48a5637 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -127,6 +127,22 @@ static unsigned int chain_mode;
+ module_param(chain_mode, int, 0444);
+ MODULE_PARM_DESC(chain_mode, "To use chain instead of ring mode");
+ 
++static const char *stmmac_dwmac_actphyif[8] = {
++	[PHY_INTF_SEL_GMII_MII]	= "GMII/MII",
++	[PHY_INTF_SEL_RGMII]	= "RGMII",
++	[PHY_INTF_SEL_SGMII]	= "SGMII",
++	[PHY_INTF_SEL_TBI]	= "TBI",
++	[PHY_INTF_SEL_RMII]	= "RMII",
++	[PHY_INTF_SEL_RTBI]	= "RTBI",
++	[PHY_INTF_SEL_SMII]	= "SMII",
++	[PHY_INTF_SEL_REVMII]	= "REVMII",
 +};
 +
-+static const DECLARE_FEAT_MAP(sctlr_el2_desc, SCTLR_EL2,
-+			      sctlr_el2_feat_map, FEAT_AA64EL2);
++static const char *stmmac_dwxgmac_phyif[4] = {
++	[PHY_INTF_GMII]		= "GMII",
++	[PHY_INTF_RGMII]	= "RGMII",
++};
 +
- static const struct reg_bits_to_feat_map mdcr_el2_feat_map[] = {
- 	NEEDS_FEAT(MDCR_EL2_EBWE, FEAT_Debugv8p9),
- 	NEEDS_FEAT(MDCR_EL2_TDOSA, FEAT_DoubleLock),
-@@ -1249,6 +1327,7 @@ void __init check_feature_map(void)
- 	check_reg_desc(&sctlr2_desc);
- 	check_reg_desc(&tcr2_el2_desc);
- 	check_reg_desc(&sctlr_el1_desc);
-+	check_reg_desc(&sctlr_el2_desc);
- 	check_reg_desc(&mdcr_el2_desc);
- 	check_reg_desc(&vtcr_el2_desc);
+ static irqreturn_t stmmac_interrupt(int irq, void *dev_id);
+ /* For MSI interrupts handling */
+ static irqreturn_t stmmac_mac_interrupt(int irq, void *dev_id);
+@@ -7270,6 +7286,41 @@ static void stmmac_service_task(struct work_struct *work)
+ 	clear_bit(STMMAC_SERVICE_SCHED, &priv->state);
  }
-@@ -1454,6 +1533,9 @@ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg)
- 	case SCTLR_EL1:
- 		resx = compute_reg_resx_bits(kvm, &sctlr_el1_desc, 0, 0);
- 		break;
-+	case SCTLR_EL2:
-+		resx = compute_reg_resx_bits(kvm, &sctlr_el2_desc, 0, 0);
-+		break;
- 	case MDCR_EL2:
- 		resx = compute_reg_resx_bits(kvm, &mdcr_el2_desc, 0, 0);
- 		break;
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 96e899dbd9192..ed710228484f3 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1766,6 +1766,10 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
- 	resx = get_reg_fixed_bits(kvm, SCTLR_EL1);
- 	set_sysreg_masks(kvm, SCTLR_EL1, resx);
  
-+	/* SCTLR_EL2 */
-+	resx = get_reg_fixed_bits(kvm, SCTLR_EL2);
-+	set_sysreg_masks(kvm, SCTLR_EL2, resx);
++static void stmmac_print_actphyif(struct stmmac_priv *priv)
++{
++	const char **phyif_table;
++	const char *actphyif_str;
++	size_t phyif_table_size;
 +
- 	/* SCTLR2_ELx */
- 	resx = get_reg_fixed_bits(kvm, SCTLR2_EL1);
- 	set_sysreg_masks(kvm, SCTLR2_EL1, resx);
++	switch (priv->plat->core_type) {
++	case DWMAC_CORE_MAC100:
++		return;
++
++	case DWMAC_CORE_GMAC:
++	case DWMAC_CORE_GMAC4:
++		phyif_table = stmmac_dwmac_actphyif;
++		phyif_table_size = ARRAY_SIZE(stmmac_dwmac_actphyif);
++		break;
++
++	case DWMAC_CORE_XGMAC:
++		phyif_table = stmmac_dwxgmac_phyif;
++		phyif_table_size = ARRAY_SIZE(stmmac_dwxgmac_phyif);
++		break;
++	}
++
++
++	if (priv->dma_cap.actphyif < phyif_table_size)
++		actphyif_str = phyif_table[priv->dma_cap.actphyif];
++	else
++		actphyif_str = NULL;
++
++	if (!actphyif_str)
++		actphyif_str = "unknown";
++
++	dev_info(priv->device, "Active PHY interface: %s (%u)\n",
++		 actphyif_str, priv->dma_cap.actphyif);
++}
++
+ /**
+  *  stmmac_hw_init - Init the MAC device
+  *  @priv: driver private structure
+@@ -7326,6 +7377,7 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
+ 		else if (priv->dma_cap.rx_coe_type1)
+ 			priv->plat->rx_coe = STMMAC_RX_COE_TYPE1;
+ 
++		stmmac_print_actphyif(priv);
+ 	} else {
+ 		dev_info(priv->device, "No HW DMA feature register supported\n");
+ 	}
 -- 
 2.47.3
 
