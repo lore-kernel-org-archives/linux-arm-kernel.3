@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2228DCF65E7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 12:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A42CF65E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 12:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zuNYJnHMdx56ErduP6OwjZBcE55jtYtaIV+SHDkcOPI=; b=DGNHsrOKSRPVXFRoab4o/XOo+b
-	ygZwZhPe2mnMOVPPowqtPonVKPZvxl/0Z2Xag5TdATOBvJYF4NghU0IgeRr/Fhbl5Pi2YRVIRBtGX
-	VrVJNWJd7aaObELeIzvkCPEcFkuAQWJ/TIiUBG653u21IyZFlvwcrNf4PA3U10mki7MrV8e6VEjOa
-	EJ49/bWVkZfSp8D1gPOLBMHz5/boyUHJZVzjic6cLG1KUW5S5TcG2k/N5bzDzUlZVYxfcYos4HttE
-	/DP54reVFDhS8YtOxFqZqBp+s6resfeXxwl33MnjJ3EC0r/eW4LmSawV2KVXVQUtnIK0dJ/Vlpr/N
-	Wz/LWVwg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=N1MTMacPrjgv5Jfh+zveGyXFfX4XsD0MwqFQwkQwE+w=; b=ZQRMN/ZKO8jgAhIvDOloVslA4X
+	dltzQ83r9eHgxe4H5/5ySMGfvHni4+Gslw0bskE9ktgBSzsYG20iRDFPdvtCDGUTGL2S4Yd/p1XQ3
+	BjiMq8bYOqXeN4CqN9FZkWK+IEibvA3zHivobdzV/u8y7AGa3HY5aOCmFXc4XPeRC+Tf3DxSI01E+
+	f4mreqO4pmaW4Dm0pv1QqmO7A7K988vsYyO5t/e8ayP0RJCEZ1KrBHyzc6V6XxCxOlUtZ7dIaJr3w
+	fVvvo1q56wZGwQLgVuHjosJ1wUQQ3FLR8c9WP2bpeWmt5oP5IsAVYGuV4QrxQvcTUNtKZ3M6O+T9q
+	I3OX75Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkLXF-0000000CUtf-1YUh;
-	Mon, 26 Jan 2026 12:17:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vkLXR-0000000CV0V-0deP;
+	Mon, 26 Jan 2026 12:17:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkLXC-0000000CUqy-3zUd
+	id 1vkLXD-0000000CUqz-0Wnp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 12:17:36 +0000
+	Mon, 26 Jan 2026 12:17:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F396F439B2;
-	Mon, 26 Jan 2026 12:17:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAD81C116C6;
+	by sea.source.kernel.org (Postfix) with ESMTP id 064E044202;
+	Mon, 26 Jan 2026 12:17:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1C87C19422;
 	Mon, 26 Jan 2026 12:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1769429853;
-	bh=4CuFIdQQd1g3gnlUboTpyugsPwO6x3okkcP8WL90MGo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FnmCs0Y1bApyPWBc0Th76EySBpOQ4YaacNSxCQcToayxKw/AjjtvHNHBjPqAORoAp
-	 xJmbG8BzGPAHsPpX24OtKkANitxspZIi0u/837ntFfamILr3RQSoP/6GbuaEO9VLUl
-	 YI1DmIAI7/PxWxVmqaw3wecl67VZxllrRrXysTNxSf3G7rWq29UQqKP1vDHmirLrR8
-	 +OG8nwUziPTKd3FDMmFiZOoNeNVzOXM8sqIsqDCIsnwOp9sX3cehp68s9zCwoH64GV
-	 LMEpu4l7pClzrgaJtK8U+ulPZ9wYRbOJR1KsAhHNHhAvm6PzpBdin5IHSvrdz1Br0p
-	 jeRHAEFEaOqig==
+	bh=uc5X5aKabC+jCw4M1h0zdw2/00NHc+cDLz/jTFu+bto=;
+	h=From:To:Cc:Subject:Date:From;
+	b=azV2pcb36iRUs7IUKxkq3qU4RgLIqeHxfaQhDga1WIrF550NnLHv9AbgFlLynA20c
+	 7uM0PuXkGrohnpB8g2Y/uHLdtW4ZeIyJQLIo0XPsAHRoJiX46hELd1HyA0kCE1uLms
+	 stnJ4fkdKEcgvdxyrbe5zZdkWsO6CrTdg4BOrkpQCeAbV3Bg6QRtfN76MCUY+tqxuK
+	 o8PDmGB5R8ZFbnkEpNhBqzcGfYpdbXtmc4Y5EENLCMVjlFp44nVdT1Ro+7SZEcc4xc
+	 gIyvwBNZx2DLCQ0ybb7gxkH6OPSprIQ0ayuCT51XMg8fXB4bQIkRzWhJNyFmlBtrDz
+	 U8WHYCoWclOeQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vkLX9-00000005hx6-3BP5;
+	id 1vkLX9-00000005hx6-2B8p;
 	Mon, 26 Jan 2026 12:17:31 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -59,12 +59,10 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH 01/20] arm64: Convert SCTLR_EL2 to sysreg infrastructure
-Date: Mon, 26 Jan 2026 12:16:35 +0000
-Message-ID: <20260126121655.1641736-2-maz@kernel.org>
+Subject: [PATCH 00/20] KVM: arm64: Generalise RESx handling
+Date: Mon, 26 Jan 2026 12:16:34 +0000
+Message-ID: <20260126121655.1641736-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260126121655.1641736-1-maz@kernel.org>
-References: <20260126121655.1641736-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -72,9 +70,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_041735_029297_D33E84D8 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260126_041735_203431_57A471CE 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,142 +86,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert SCTLR_EL2 to the sysreg infrastructure, as per the 2025-12_rel
-revision of the Registers.json file.
+Having spent some time dealing with some dark corners of the
+architecture, I have realised that our RESx handling is a bit patchy.
+Specially when it comes to RES1 bits, which are not clearly defined in
+config.c, and rely on band-aids such as FIXED_VALUE.
 
-Note that we slightly deviate from the above, as we stick to the ARM
-ARM M.a definition of SCTLR_EL2[9], which is RES0, in order to avoid
-dragging the POE2 definitions...
+This series takes the excuse of adding SCTLR_EL2 sanitisation to bite
+the bullet and pursue several goals:
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/include/asm/sysreg.h       |  7 ---
- arch/arm64/tools/sysreg               | 69 +++++++++++++++++++++++++++
- tools/arch/arm64/include/asm/sysreg.h |  6 ---
- 3 files changed, 69 insertions(+), 13 deletions(-)
+- clearly define bits that are RES1 when a feature is absent
 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 939f9c5bbae67..30f0409b1c802 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -504,7 +504,6 @@
- #define SYS_VPIDR_EL2			sys_reg(3, 4, 0, 0, 0)
- #define SYS_VMPIDR_EL2			sys_reg(3, 4, 0, 0, 5)
- 
--#define SYS_SCTLR_EL2			sys_reg(3, 4, 1, 0, 0)
- #define SYS_ACTLR_EL2			sys_reg(3, 4, 1, 0, 1)
- #define SYS_SCTLR2_EL2			sys_reg(3, 4, 1, 0, 3)
- #define SYS_HCR_EL2			sys_reg(3, 4, 1, 1, 0)
-@@ -837,12 +836,6 @@
- #define SCTLR_ELx_A	 (BIT(1))
- #define SCTLR_ELx_M	 (BIT(0))
- 
--/* SCTLR_EL2 specific flags. */
--#define SCTLR_EL2_RES1	((BIT(4))  | (BIT(5))  | (BIT(11)) | (BIT(16)) | \
--			 (BIT(18)) | (BIT(22)) | (BIT(23)) | (BIT(28)) | \
--			 (BIT(29)))
--
--#define SCTLR_EL2_BT	(BIT(36))
- #ifdef CONFIG_CPU_BIG_ENDIAN
- #define ENDIAN_SET_EL2		SCTLR_ELx_EE
- #else
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index a0f6249bd4f98..969a75615d612 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -3749,6 +3749,75 @@ UnsignedEnum	2:0	F8S1
- EndEnum
- EndSysreg
- 
-+Sysreg	SCTLR_EL2	3	4	1	0	0
-+Field	63	TIDCP
-+Field	62	SPINTMASK
-+Field	61	NMI
-+Field	60	EnTP2
-+Field	59	TCSO
-+Field	58	TCSO0
-+Field	57	EPAN
-+Field	56	EnALS
-+Field	55	EnAS0
-+Field	54	EnASR
-+Res0	53:50
-+Field	49:46	TWEDEL
-+Field	45	TWEDEn
-+Field	44	DSSBS
-+Field	43	ATA
-+Field	42	ATA0
-+Enum	41:40	TCF
-+	0b00	NONE
-+	0b01	SYNC
-+	0b10	ASYNC
-+	0b11	ASYMM
-+EndEnum
-+Enum	39:38	TCF0
-+	0b00	NONE
-+	0b01	SYNC
-+	0b10	ASYNC
-+	0b11	ASYMM
-+EndEnum
-+Field	37	ITFSB
-+Field	36	BT
-+Field	35	BT0
-+Field	34	EnFPM
-+Field	33	MSCEn
-+Field	32	CMOW
-+Field	31	EnIA
-+Field	30	EnIB
-+Field	29	LSMAOE
-+Field	28	nTLSMD
-+Field	27	EnDA
-+Field	26	UCI
-+Field	25	EE
-+Field	24	E0E
-+Field	23	SPAN
-+Field	22	EIS
-+Field	21	IESB
-+Field	20	TSCXT
-+Field	19	WXN
-+Field	18	nTWE
-+Res0	17
-+Field	16	nTWI
-+Field	15	UCT
-+Field	14	DZE
-+Field	13	EnDB
-+Field	12	I
-+Field	11	EOS
-+Field	10	EnRCTX
-+Res0	9
-+Field	8	SED
-+Field	7	ITD
-+Field	6	nAA
-+Field	5	CP15BEN
-+Field	4	SA0
-+Field	3	SA
-+Field	2	C
-+Field	1	A
-+Field	0	M
-+EndSysreg
-+
- Sysreg	HCR_EL2		3	4	1	1	0
- Field	63:60	TWEDEL
- Field	59	TWEDEn
-diff --git a/tools/arch/arm64/include/asm/sysreg.h b/tools/arch/arm64/include/asm/sysreg.h
-index 178b7322bf049..f75efe98e9df3 100644
---- a/tools/arch/arm64/include/asm/sysreg.h
-+++ b/tools/arch/arm64/include/asm/sysreg.h
-@@ -847,12 +847,6 @@
- #define SCTLR_ELx_A	 (BIT(1))
- #define SCTLR_ELx_M	 (BIT(0))
- 
--/* SCTLR_EL2 specific flags. */
--#define SCTLR_EL2_RES1	((BIT(4))  | (BIT(5))  | (BIT(11)) | (BIT(16)) | \
--			 (BIT(18)) | (BIT(22)) | (BIT(23)) | (BIT(28)) | \
--			 (BIT(29)))
--
--#define SCTLR_EL2_BT	(BIT(36))
- #ifdef CONFIG_CPU_BIG_ENDIAN
- #define ENDIAN_SET_EL2		SCTLR_ELx_EE
- #else
+- have a unified data structure to manage both RES0 and RES1 bits
+
+- deal with the annoying complexity of some features being
+  conditioned on E2H==1
+
+- allow a single bit to take different RESx values depending on the
+  value of E2H
+
+This allows quite a bit of cleanup, including the total removal of the
+FIXED_VALUE horror, which was always a bizarre construct. We also get
+a new debugfs file to introspect the RESx settings for a given guest.
+
+Overall, this lowers the complexity of expressing the configuration
+constraints, for very little code (most of the extra lines are
+introduced by the debugfs stuff, and SCTLR_EL2 being added to the
+sysreg file).
+
+Patches on top of my kvm-arm64/vtcr branch (which is currently
+simmering in -next).
+
+Marc Zyngier (20):
+  arm64: Convert SCTLR_EL2 to sysreg infrastructure
+  KVM: arm64: Remove duplicate configuration for SCTLR_EL1.{EE,E0E}
+  KVM: arm64: Introduce standalone FGU computing primitive
+  KVM: arm64: Introduce data structure tracking both RES0 and RES1 bits
+  KVM: arm64: Extend unified RESx handling to runtime sanitisation
+  KVM: arm64: Inherit RESx bits from FGT register descriptors
+  KVM: arm64: Allow RES1 bits to be inferred from configuration
+  KVM: arm64: Correctly handle SCTLR_EL1 RES1 bits for unsupported
+    features
+  KVM: arm64: Convert HCR_EL2.RW to AS_RES1
+  KVM: arm64: Simplify FIXED_VALUE handling
+  KVM: arm64: Add REQUIRES_E2H1 constraint as configuration flags
+  KVM: arm64: Add RESx_WHEN_E2Hx constraints as configuration flags
+  KVM: arm64: Move RESx into individual register descriptors
+  KVM: arm64: Simplify handling of HCR_EL2.E2H RESx
+  KVM: arm64: Get rid of FIXED_VALUE altogether
+  KVM: arm64: Simplify handling of full register invalid constraint
+  KVM: arm64: Remove all traces of FEAT_TME
+  KVM: arm64: Remove all traces of HCR_EL2.MIOCNCE
+  KVM: arm64: Add sanitisation to SCTLR_EL2
+  KVM: arm64: Add debugfs file dumping computed RESx values
+
+ arch/arm64/include/asm/kvm_host.h             |  33 +-
+ arch/arm64/include/asm/sysreg.h               |   7 -
+ arch/arm64/kvm/config.c                       | 430 ++++++++++--------
+ arch/arm64/kvm/emulate-nested.c               |  10 +-
+ arch/arm64/kvm/nested.c                       | 151 +++---
+ arch/arm64/kvm/sys_regs.c                     |  98 ++++
+ arch/arm64/tools/sysreg                       |  82 +++-
+ tools/arch/arm64/include/asm/sysreg.h         |   6 -
+ tools/perf/Documentation/perf-arm-spe.txt     |   1 -
+ .../testing/selftests/kvm/arm64/set_id_regs.c |   1 -
+ 10 files changed, 510 insertions(+), 309 deletions(-)
+
 -- 
 2.47.3
 
