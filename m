@@ -4,158 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5280D13C2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 15:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00372D13C30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 15:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=USAWvyGPbX8weMuPil7fIhYnN3agyAuJuq18dFDOCOM=; b=M1Z/OgS93cucRLUB9kbYSnpVaG
-	QbOgrnUr0B+uZKepaFAs1yUK0YN+abvbrjUb2hgwh9Y98k+Tn809o509odmbuhe9UqOTQeii76N/D
-	kD/aF+m/QJhVP22BHmPPAFGQIgD7wO9Xh3oCchUABEWyN3yJ8zPLioic52GilJHY7Dk8GS7eLYBnq
-	xRa6zK0xb3MNp/MzV402X6gnWE1fZsbH5M8yjePUB6XCWDIA60OxybyxM1UlEh3gFiTd5uXetR8SN
-	dp+9kG49j3CaE+eNiSO7ZjZp0bwbz7Rf02WOtKHblMiiaTohnmBQlI2N1hDc21MQu7sGBw0ZEU3nF
-	6rzSveOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/KO48sLcc1Pw1/EXPTPJ/6Em+9GtVtY6da5KGjQjsQs=; b=jX7hR03/bhZxnCPduqD+T04ynS
+	+/xrAi2VrcN5n04XenVAF8iVR/V2w2q2aAaIItr4iO3IYEQZvc2BQzM9ApsEw84M0SNZVB/7frQCN
+	4WJ+NequjEe3suKA0KZHReQSmAKUiJuk61EfCfR8PYUHTyk2R4NwY6fO9WN66ej2HjuXQMqYhCDHD
+	LDZOcMaqJ60noOYiQL4UJ71jQRut+0NBxAImeQoe+V8Ty1m74nGiYxNqq1t5xVki8oKDMziFp8aWl
+	xdvjxsuSSjmn3ZXK8O/S/Xa+UVxgr11C41kQJQbWPllMlaA+sn+8XoE0WLsOXo8KowaYxqbjnr09U
+	PJyiHDRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkOOJ-0000000ClIV-0dzO;
-	Mon, 26 Jan 2026 15:20:35 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1vkOPC-0000000ClOQ-26qD;
+	Mon, 26 Jan 2026 15:21:30 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkOOH-0000000ClHn-0q0Y
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 15:20:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ymzb8Tdr0CrDVSS0UJiytlRRBDR5HYHtswSaas2KIb2BLsuvZ0gQAOmvMuy3ADRWAQLQTha2zflEnEspOHKaP4HUyOB/NqD8aL2V4ofRM+l46xEsW15eOeBDBnFpw68kVBZWY6M4AHXOkm71qGpYdahXdVdBDGsRDh47AiwJksYA4yEhJCuhJXssoUVvXVmWtqbVZlkwsSVxzNE57UE7jwBFF1Gn/oSfeAIsQ6bqDMroUK97PWlvituCkIn1Sh65jEWSeFjZjyvGB1tcxG+cUvYgbiw9sC1vvfqkaYGNYJeLIX/dNipVEySDvGxt18dU5YbtmllPgzBHJ4MTG55a7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=USAWvyGPbX8weMuPil7fIhYnN3agyAuJuq18dFDOCOM=;
- b=k7Hoh6GrkOTVlaHrP/RVfnUHAslyQ/tK9xgXiT/la1wl6HYxzC4Gd4a0i4YrvCnuxC7eeBec5lkljOqoEdWjGUcQQ6NiqiYBaM+5phe99Bechadsxn4j1SzZSKMrvMRszGOZBBm3LCGxDVixyrUPUgD54JiEjaYyzlUo7WDm41Y+QduloUyJvGRYwmQ+g9nIWW9/7arWV/Te7XaMcR5WIaqFsiwWvVSIGwtfAr33mJU3IwDRKU/2dXpFgnqayW+9vdIDthCkAlH+6LZEMyCr0MePNrFkWVgktDQ5MTId4W/l1lto2KPLHmffV8tJM7pYiBns54eprukPmK1zykfO0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=USAWvyGPbX8weMuPil7fIhYnN3agyAuJuq18dFDOCOM=;
- b=uFqadPBjIY4s1Te1d6D0IrIJX54Zlcs8TOBP8z2caooAXIsGynYDSMBwm8jyJpdz1HLEy0TkS7lP1CALk+VDbno+3+2eRWwnZ4SssdInGlXKG1Qu4zdJ2LzjWylkqfUg8JH+ZWmZoS/JgzcJdk8vFSVoaf5tkMDNqiMnKjktqOf68Tsrvsqp+v7yEeZarCpHJVFSR6q3K2Ozl73659gIn5uH/wZOD4MH2y9QFsaVOGORpxLW8MBGKp5K2V0zAvCpMnKrmaYcgYGy1m3xm7Z9qu1TLRBy2rYMDmfoOER4DhAJjnoJ9Y0rEvgkhpe0gRrfvN2C91o/CcU2vnA6B4dprQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH0PR12MB7838.namprd12.prod.outlook.com (2603:10b6:510:287::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Mon, 26 Jan
- 2026 15:20:21 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9542.015; Mon, 26 Jan 2026
- 15:20:20 +0000
-Date: Mon, 26 Jan 2026 11:20:19 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Will Deacon <will@kernel.org>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, jean-philippe@linaro.org,
-	robin.murphy@arm.com, joro@8bytes.org, balbirs@nvidia.com,
-	miko.lenczewski@arm.com, peterz@infradead.org, kevin.tian@intel.com,
-	praan@google.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 6/7] iommu/arm-smmu-v3: Add arm_smmu_invs based
- arm_smmu_domain_inv_range()
-Message-ID: <20260126152019.GK1134360@nvidia.com>
-References: <cover.1766174731.git.nicolinc@nvidia.com>
- <06999367d001283744fd98eb7c1823afd516ce84.1766174731.git.nicolinc@nvidia.com>
- <aXOqVcX9YEC-Ikdt@willie-the-truck>
- <aXOrnMLLzZL9BtRT@willie-the-truck>
- <20260123200327.GF1134360@nvidia.com>
- <aXdlnLLFUBwjT0V5@willie-the-truck>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXdlnLLFUBwjT0V5@willie-the-truck>
-X-ClientProxiedBy: BL0PR02CA0013.namprd02.prod.outlook.com
- (2603:10b6:207:3c::26) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1vkOP9-0000000ClNq-45Gh;
+	Mon, 26 Jan 2026 15:21:29 +0000
+X-UUID: ab02ee42faca11f0a16f0188aa809bee-20260126
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=/KO48sLcc1Pw1/EXPTPJ/6Em+9GtVtY6da5KGjQjsQs=;
+	b=iN87vqpQPRNVbGVSX8BHLXFSkWeRvW4JqTOMTjLLL+ZwQ84kYdzOERhSROifFOI8ryRRfOFULk8XJHBhCZ8WajkevyjC2BGWCoweXvj812lgilj4QSrzuSTvnimQrBcHRGYM9hj1fahjgMsClmc1t5x1eIafhtVfy2Z0WuNmY+w=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.11,REQID:861977ab-6337-4e1e-b7af-6d160453fe98,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:89c9d04,CLOUDID:55c3f5e8-ef90-4382-9c6f-55f2a0689a6b,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:1,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA
+	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: ab02ee42faca11f0a16f0188aa809bee-20260126
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
+	(envelope-from <jibin.zhang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 28630645; Mon, 26 Jan 2026 08:21:20 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 26 Jan 2026 23:21:17 +0800
+Received: from mbjsdccf07.gcn.mediatek.inc (10.15.20.246) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 26 Jan 2026 23:21:16 +0800
+From: Jibin Zhang <jibin.zhang@mediatek.com>
+To: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+	<daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+	<martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, Song Liu
+	<song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, John Fastabend
+	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Stanislav Fomichev
+	<sdf@fomichev.me>, Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon
+ Horman <horms@kernel.org>, Neal Cardwell <ncardwell@google.com>, Kuniyuki
+ Iwashima <kuniyu@google.com>, David Ahern <dsahern@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, <bpf@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: <wsd_upstream@mediatek.com>, Jibin Zhang <jibin.zhang@mediatek.com>
+Subject: [PATCH v4] net: fix segmentation of forwarding fraglist GRO
+Date: Mon, 26 Jan 2026 23:21:11 +0800
+Message-ID: <20260126152114.1211-1-jibin.zhang@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH0PR12MB7838:EE_
-X-MS-Office365-Filtering-Correlation-Id: 79246377-5d6f-457e-a18a-08de5cee6b51
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|3613699012;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?njK8MRMkKzg8DJ97g80CiK+g4aHLvocerRJhH3mqPEd1lAwd0HuLjkePmKvR?=
- =?us-ascii?Q?ibaXvESkxd3AkkGEDoDtq4P24o+cha/6eHO8MMV8xkbNiSs9SXZUqMsJnO04?=
- =?us-ascii?Q?JY1QIFGwNVD5x+VdyyLMXKt7EnlYKn73KvtvwOxDimxmfEZm7Anv+ag8lnhV?=
- =?us-ascii?Q?98Nyi95pjT+utDEgEf/DSnE3Ah3mRY2g8AekAh+uYsZpkzPLf0juBAxV1bLs?=
- =?us-ascii?Q?35eKHZX4OsM2CZVsn9JSXD3eHilX/bmKOtJxIi7PJKVV90bo+OQZr2XIBllR?=
- =?us-ascii?Q?6cx5YEoGSbmbc5QnZz7eBzG8geCOtyQba0VGMd8vQlJXyILXZfXfVWAx+6e0?=
- =?us-ascii?Q?bNGdZ364po3V008oL1Sda1BaraqERltdNT05nZCd8EE5WAqXWU/kqBV/0X7P?=
- =?us-ascii?Q?ub36TTFL5mmQmN2zLAeHfK5BVy0i7z0jROwopBZ1/XX/HVbrXcRSsbP87WVN?=
- =?us-ascii?Q?PIJXEjCDhbVNjW49kVTQdTwdqJIjOMWPeaKMPfhzWfWKh0SnTdCqaZ0WEzex?=
- =?us-ascii?Q?RiHy6xQ6LsI0q9VK88KidVDrNjVQ2He6MT88+SwTz5U6zWs2FIWv2G/Z7JJY?=
- =?us-ascii?Q?KPbney0SQZ3Byv4XnUx1tqD9KG3nP4+C9NrE7lo/1GciDHWX1gDrdNggha5w?=
- =?us-ascii?Q?61VyrH6ks2nWn4ywGEn+imHJI9xJ0yGMyAt8WynqQEnOQRYnSgl7XdVyq2pV?=
- =?us-ascii?Q?gqZGSbHIR35ypW5OBZMKPRFsAT9Y/1DOlQIZBwvwBNXjDqHLT3BwLDf8ZF80?=
- =?us-ascii?Q?ayg7xnhM4pr6LHFFdLbAd4cZthGFh+j7b1cMr+FGshOhUQdxP3moIt84UaFP?=
- =?us-ascii?Q?mnwYPTbPJe6vKlm7u98MpQe3rkeOCeDY7GOcUSF+KIuEO9MrcGWs2u0evey5?=
- =?us-ascii?Q?o1poy3u9acQbiw9qLE9g3eFetFkkcUn4BCKb0R+xlGn6+agKE5IkDYCWiQMn?=
- =?us-ascii?Q?5t0oxzc+kml6km8E2iII7iJhPTRlLMU+qOn0tJ96rxs2BcmCQvMGfCl5AXQ6?=
- =?us-ascii?Q?8EKbVPW6Prxyd2QtivytkYdnUT2hdXOwKoZfLq05/oRcVAk7t9otVBFT2GYg?=
- =?us-ascii?Q?NBSrWbGXuV5fFYcr6sd6vAesg0ZD9/q9HPIo+TtIZqkexEXJGESci9jxJGsj?=
- =?us-ascii?Q?K5jsORr+l0nlxkBngOvlFlV/8MLGoeiN3pazUij42cmZUHHucm5HZbmLU4Kh?=
- =?us-ascii?Q?SW4IA8+IX1st9f30JWEZd2tKuTmmYms5DbPFqN3mG1brCv/c4PiyTT9qg/Rf?=
- =?us-ascii?Q?k3w+/MN18L2X4f7OYxopenq3pGd1j+uiKe/chMX+dRb6r2c56WpgZkBI1tDh?=
- =?us-ascii?Q?9yKGrOppM3c1rkcAtYoyRmoo9Dhbl4FODL0ana3h2pDt0b8IEHiLAzjyRSXp?=
- =?us-ascii?Q?h9UtVhWGTtmZPPwpYwsloXHXq7E2gbbni79BpvoY5DnzBY8s/Zeh5ZyGinHe?=
- =?us-ascii?Q?/qAKb6A/eVtooKhbMX0/wOkYbyQZuo1kKB4WXIm/I61mdwf3nW2zLuh6CIhG?=
- =?us-ascii?Q?VeKvThFhYEq+NTsZ1pFpsD1xBVybRz746tz2ZKxvg0XAY64saoJGK0SgTgva?=
- =?us-ascii?Q?AQve/VQSyR7QGsl945Na6+zEL8Y3WO8RYNql1laEMZfjWXanSgnXTnWIWyPB?=
- =?us-ascii?Q?WGNkx/ozaVf6dNxUcyjB7uE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(3613699012);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ENt6Wfdm5XrDT3wfvLXk1f//rgL/UkPnFPhefSO+lIYCtxB2clKriEcz3/B3?=
- =?us-ascii?Q?ZpgtOSTRuy3EEFCOUB8Hdg/vU7usTzs9j7DzKiyWPxUyhJqwP6dePV/gVyn8?=
- =?us-ascii?Q?ZgGi1RNhPdMz7+Rj1X2jkOWYbVQchnBuMJYqUrTdMYm/9nlez0q0lCWSypmD?=
- =?us-ascii?Q?xPGyvGxT1PK2QA5jmKBaCnzdN1KTtmxsW6OLa0f7hPpFzW4jj/zhFye8bSkU?=
- =?us-ascii?Q?1B+snoSU1XIoyjq+19dD/dcyZn5LAcCAujtWzFe0OHgzD16h3FGfaEI1Egy0?=
- =?us-ascii?Q?DXGUsgawd+YTTIlykls3ysgr29CY0s/8q/2ayhJpRa+YMOUOCf1j7TW0K5Iz?=
- =?us-ascii?Q?hZoS6YK0lsPXU+X1oj4hYQS0FVviqeAppQ8e0W/6qNvoaFAbXW+T70izng4f?=
- =?us-ascii?Q?ladpDlpEswXid5C77edzlYgkkvBlXL+6xGVCCj6c28XqnS2liguXV5u1QAQW?=
- =?us-ascii?Q?RyyaUDK+1lKg2+rpOATPBGKZUc8t+JhM9EK91FFbwpUA9rl4r/QqPACIFue4?=
- =?us-ascii?Q?ZTyQPobmNd1PF41yh0Tyx0Sbcfa1CpsiVMIWHIoXlm7Hp8hqY8jVBMx/Tbeo?=
- =?us-ascii?Q?Uo08jDckAsgRsrtTgZqXePMogPBf2W0e9Tudt6MJy7sphQCqgohEsac2yGJO?=
- =?us-ascii?Q?YzaYtjN1vpU4ne/Lk6vVN1BcKVRrKpUG9D+CdcYdZglT7ySuu6w4nLG8WuGp?=
- =?us-ascii?Q?cKrHxxpbaJopnvuQN0Ja6dWUnxVLFlJTeUSWdVDz8Vt+HvDhriU/RFuFRdYF?=
- =?us-ascii?Q?ETpix4K1CcjvmWldNK9REHbT0u85Ke07yt0U1pT06/zYXlXGrmJeheL+UPPM?=
- =?us-ascii?Q?B0jdrcsc68sSoaDM+8dnXbhiDRTNCFzjS7uiuOeB+eldRhZtnBlAYrtTgrUT?=
- =?us-ascii?Q?VqL0vT2oqjVQSDCdNaSE06eUG92GjFG45RqOuJl/Me/Vo1Jgc83KxuW+nn4A?=
- =?us-ascii?Q?c72XOtzf5d0tYkOcThqRup7KXlMQiC7XELXNovIQk1jwwIf/CDsVln73V6l7?=
- =?us-ascii?Q?2NYZfGlgvxSss5PSNRVtq9xd5xaZFGCU7gU27hKEuYLmWgwXDec5t9C4qeQL?=
- =?us-ascii?Q?q34rodLV7j9cKDOgS6p5HdWgNaViF7AmQMCBDmfXVs3Q7Ur58RTvwrVfPZcp?=
- =?us-ascii?Q?A36pfOpWhgFpbDWVdpFtsBJTKVnsf/mvQXfuGY+kYThn1K9SVFUwx76wZm+P?=
- =?us-ascii?Q?94MidznqrKua6yaVKVHDFTl2SZBU0L+jI9YwiY6uJxYPQX1oxAeMAKQAOR3Q?=
- =?us-ascii?Q?p2o3lU/tBGnl3ynbxpCT9q1l7nJbzim79TRbg8sr7BwCz5hrSSisYVvc/1tP?=
- =?us-ascii?Q?Y55qLcu98tZrKrtQpFYEx/lrZIqBiMgJ0b46a3nZcwSnDSclzbVUO5saMDTv?=
- =?us-ascii?Q?z3T+asB9S9uGnMQtS0ncCZMyu6b60jpJ3Va3G01xpWJI0px8R6Mp//p3o6HX?=
- =?us-ascii?Q?Kh2osJ3yHB/uZCC9fV4uhUamN4aZURYj1TrBxRA6QSKRuB2CYN+GjPMqpkO8?=
- =?us-ascii?Q?JsvRX5DRmrheGH8umxA4QxWdmmSYrWgziLvzbsLCUy3t2NmOdqBFkEpG66JJ?=
- =?us-ascii?Q?5Dk1Xm9Sw4IHDSys1hn6xmjwm4iOrO5ezIzZZI3zRLoEpkfKkY2JFcDSuwI3?=
- =?us-ascii?Q?NF6OTmmslTkdweWzSJ+RIzJxlJsUX4hN5R1RyGg1GCGL36iQ9JQ0Oo8gxfjp?=
- =?us-ascii?Q?dD3TUOfW6lBtG3q+l8opq47J3lhhDgdeOuAD3VzzQ/ltAOAu?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 79246377-5d6f-457e-a18a-08de5cee6b51
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 15:20:20.7852
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bWkToM+43m78w6MXt+ptNTQqLT9mCSIIWsKFtnH4yO4a+TT76AndI2f3lPoKSY3r
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7838
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_072033_262261_2F9C7591 
-X-CRM114-Status: GOOD (  35.71  )
+X-CRM114-CacheID: sfid-20260126_072128_027051_CAE2436D 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,81 +94,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 01:01:16PM +0000, Will Deacon wrote:
-> On Fri, Jan 23, 2026 at 04:03:27PM -0400, Jason Gunthorpe wrote:
-> > On Fri, Jan 23, 2026 at 05:10:52PM +0000, Will Deacon wrote:
-> > > On Fri, Jan 23, 2026 at 05:05:31PM +0000, Will Deacon wrote:
-> > > > On Fri, Dec 19, 2025 at 12:11:28PM -0800, Nicolin Chen wrote:
-> > > > > +	/*
-> > > > > +	 * We are committed to updating the STE. Ensure the invalidation array
-> > > > > +	 * is visible to concurrent map/unmap threads, and acquire any racing
-> > > > > +	 * IOPTE updates.
-> > > > > +	 *
-> > > > > +	 *  [CPU0]                        | [CPU1]
-> > > > > +	 *                                |
-> > > > > +	 *  change IOPTEs and TLB flush:  |
-> > > > > +	 *  arm_smmu_domain_inv_range() { | arm_smmu_install_old_domain_invs {
-> > > > > +	 *    ...                         |   rcu_assign_pointer(new_invs);
-> > > > > +	 *    smp_mb(); // ensure IOPTEs  |   smp_mb(); // ensure new_invs
-> > > > > +	 *    ...                         |   kfree_rcu(old_invs, rcu);
-> > > > > +	 *    // load invalidation array  | }
-> > > > > +	 *    invs = rcu_dereference();   | arm_smmu_install_ste_for_dev {
-> > > > > +	 *                                |   STE = TTB0 // read new IOPTEs
-> > > > > +	 */
-> > > > > +	smp_mb();
-> > > > 
-> > > > I don't think we need to duplicate this comment three times, you can just
-> > > > refer to the first function (e.g. "See ordering comment in
-> > > > arm_smmu_domain_inv_range()").
-> > > > 
-> > > > However, isn't the comment above misleading for this case?
-> > > > arm_smmu_install_old_domain_invs() has the sequencing the other way
-> > > > around on CPU 1: we should update the STE first.
-> > > 
-> > > I also think we probably want a dma_mb() instead of an smp_mb() for all
-> > > of these examples? It won't make any practical difference but I think it
-> > > helps readability given that one of the readers is the PTW.
-> > 
-> > The only actual dma_wmb() is inside arm_smmu_install_ste_for_dev()
-> > after updating the STE. Adding that line explicitly would help as that
-> > is the only point where we must have the writes actually visible to
-> > the DMA HW.
-> > 
-> > The ones written here as smp_mb() are not required to be DMA ones and
-> > could all be NOP's on UP..
-> 
-> Hmm, I'm not sure about that.
-> 
-> If we've written a new (i.e. previously invalid) valid PTE to a
-> page-table and then we install that page-table into an STE hitlessly
-> (let's say we write the S2TTB field) then isn't there a window before we
-> do the STE invalidation where the page-table might be accessible to the
-> SMMU but the new PTE is still sitting in the CPU?
+This patch enhances GSO segment handling by properly checking
+the SKB_GSO_DODGY flag for frag_list GSO packets, addressing
+low throughput issues observed when a station accesses IPv4
+servers via hotspots with an IPv6-only upstream interface.
 
-Hmm! Yes seems like it.
+Specifically, it fixes a bug in GSO segmentation when forwarding
+GRO packets containing a frag_list. The function skb_segment_list
+cannot correctly process GRO skbs that have been converted by XLAT,
+since XLAT only translates the header of the head skb. Consequently,
+skbs in the frag_list may remain untranslated, resulting in protocol
+inconsistencies and reduced throughput.
 
-However, that's seems like a general bug, if we allocate an
-iommu_domain and immediately hitlessly install it, then there would be
-no dma_wmb() for the page table memory prior to the earliest point the
-HW is able to read the STE.
+To address this, the patch explicitly sets the SKB_GSO_DODGY flag
+for GSO packets in XLAT's IPv4/IPv6 protocol translation helpers
+(bpf_skb_proto_4_to_6 and bpf_skb_proto_6_to_4). This marks GSO
+packets as potentially modified after protocol translation. As a
+result, GSO segmentation will avoid using skb_segment_list and
+instead falls back to skb_segment for packets with the SKB_GSO_DODGY
+flag. This ensures that only safe and fully translated frag_list
+packets are processed by skb_segment_list, resolving protocol
+inconsistencies and improving throughput when forwarding GRO packets
+converted by XLAT.
 
-What I wrote is is how things are intended to work, so lets fix it
-with this?
+Signed-off-by: Jibin Zhang <jibin.zhang@mediatek.com>
+---
+v4: Change according to Willem de Bruijn's suggestions
+    1. Set SKB_GSO_DODGY when XLAT modifies headers for GSO packets.
+    2. GSO segmentation is downgraded to use skb_segment instead of
+       skb_segment_list to ensure robust handling of potentially
+       modified packets when the SKB_GSO_DODGY flag is set on a
+       GSO packet.
 
-@@ -1173,6 +1173,13 @@ void arm_smmu_write_entry(struct arm_smmu_entry_writer *writer, __le64 *entry,
-        __le64 unused_update[NUM_ENTRY_QWORDS];
-        u8 used_qword_diff;
+v3: Apply the same fix to tcp6_gso_segment(), as suggested.
+
+v2: To apply the added condition to a narrower scop
+
+  In this version, the condition (skb_has_frag_list(gso_skb) &&
+(gso_skb->protocol == skb_shinfo(gso_skb)->frag_list->protocol))
+is moved into inner 'if' statement to a narrower scope.
+
+  Send out the patch again for further discussion because:
+
+1. This issue has a significant impact and has occurred in many
+countries and regions.
+2. Currently, modifying BPF is not a good option, because BPF code
+cannot access the header of skb on the fraglist, and the required
+changes would affect a wide range of code.
+3. Directly disabling GRO aggregation for XLAT flows is also not a
+good solution, as this change would disable GRO even when forwarding
+is not needed, and it would also require cooperation from all device
+drivers.
+
+[3]: https://patchwork.kernel.org/patch/14397344
+
+[2]: https://patchwork.kernel.org/patch/14375646
+
+[1]: https://patchwork.kernel.org/patch/14350844
+
+---
+ net/core/filter.c        | 2 ++
+ net/ipv4/tcp_offload.c   | 3 ++-
+ net/ipv4/udp_offload.c   | 3 ++-
+ net/ipv6/tcpv6_offload.c | 3 ++-
+ 4 files changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/net/core/filter.c b/net/core/filter.c
+index 616e0520a0bb..bcd73d9bd764 100644
+--- a/net/core/filter.c
++++ b/net/core/filter.c
+@@ -3353,6 +3353,7 @@ static int bpf_skb_proto_4_to_6(struct sk_buff *skb)
+ 			shinfo->gso_type &= ~SKB_GSO_TCPV4;
+ 			shinfo->gso_type |=  SKB_GSO_TCPV6;
+ 		}
++		shinfo->gso_type |=  SKB_GSO_DODGY;
+ 	}
  
-+       /*
-+        * Many of the entry structures have pointers to other structures that
-+        * need to have their updates be visible before any writes of the entry
-+        * happen.
-+        */
-+       dma_wmb();
-+
-        used_qword_diff =
-                arm_smmu_entry_qword_diff(writer, entry, target, unused_update);
-        if (hweight8(used_qword_diff) == 1) {
+ 	bpf_skb_change_protocol(skb, ETH_P_IPV6);
+@@ -3383,6 +3384,7 @@ static int bpf_skb_proto_6_to_4(struct sk_buff *skb)
+ 			shinfo->gso_type &= ~SKB_GSO_TCPV6;
+ 			shinfo->gso_type |=  SKB_GSO_TCPV4;
+ 		}
++		shinfo->gso_type |=  SKB_GSO_DODGY;
+ 	}
+ 
+ 	bpf_skb_change_protocol(skb, ETH_P_IP);
+diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+index fdda18b1abda..942a948f1a31 100644
+--- a/net/ipv4/tcp_offload.c
++++ b/net/ipv4/tcp_offload.c
+@@ -107,7 +107,8 @@ static struct sk_buff *tcp4_gso_segment(struct sk_buff *skb,
+ 	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
+ 		struct tcphdr *th = tcp_hdr(skb);
+ 
+-		if (skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size)
++		if ((skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size) &&
++		    !(skb_shinfo(skb)->gso_type & SKB_GSO_DODGY))
+ 			return __tcp4_gso_segment_list(skb, features);
+ 
+ 		skb->ip_summed = CHECKSUM_NONE;
+diff --git a/net/ipv4/udp_offload.c b/net/ipv4/udp_offload.c
+index 19d0b5b09ffa..589456bd8b5f 100644
+--- a/net/ipv4/udp_offload.c
++++ b/net/ipv4/udp_offload.c
+@@ -514,7 +514,8 @@ struct sk_buff *__udp_gso_segment(struct sk_buff *gso_skb,
+ 
+ 	if (skb_shinfo(gso_skb)->gso_type & SKB_GSO_FRAGLIST) {
+ 		 /* Detect modified geometry and pass those to skb_segment. */
+-		if (skb_pagelen(gso_skb) - sizeof(*uh) == skb_shinfo(gso_skb)->gso_size)
++		if ((skb_pagelen(gso_skb) - sizeof(*uh) == skb_shinfo(gso_skb)->gso_size) &&
++		    !(skb_shinfo(gso_skb)->gso_type & SKB_GSO_DODGY))
+ 			return __udp_gso_segment_list(gso_skb, features, is_ipv6);
+ 
+ 		ret = __skb_linearize(gso_skb);
+diff --git a/net/ipv6/tcpv6_offload.c b/net/ipv6/tcpv6_offload.c
+index effeba58630b..5670d32c27f8 100644
+--- a/net/ipv6/tcpv6_offload.c
++++ b/net/ipv6/tcpv6_offload.c
+@@ -170,7 +170,8 @@ static struct sk_buff *tcp6_gso_segment(struct sk_buff *skb,
+ 	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
+ 		struct tcphdr *th = tcp_hdr(skb);
+ 
+-		if (skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size)
++		if ((skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size) &&
++		    !(skb_shinfo(skb)->gso_type & SKB_GSO_DODGY))
+ 			return __tcp6_gso_segment_list(skb, features);
+ 
+ 		skb->ip_summed = CHECKSUM_NONE;
+-- 
+2.45.2
 
-Jason
 
