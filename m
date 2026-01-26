@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F031AD19508
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 17:09:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1741D19503
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 17:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Gx2hHd3TOe3OKxkk01HpI0TbAkMwKeVhKaeUoemS8VQ=; b=TjCaqS9UNms/1TfCTQo/d5hs5m
-	avL4kF2rXAzPaYZq4ip4wvHmjNQyqwLQa0uw0dqsrlt5agWRmXR43owE3V5mGxzjLNrl6iFl424ua
-	XgRQ/jc/kp8Ng5yNAVNhXUDsB366UX911Mza+xf6oItRqNayZuDWsxYhT7LwmAhblFLQ5lVnhSuvp
-	cEUA9PFnMS/Ko+Q7vec/thJppciszs5tG79/e5mLo5emYlTCUwzs+nrf7keleAYK3qJrQwPmmbqIL
-	Wkb9ZI/W11XLKOU/ofx9tMw737ZP+Rb3pFx2Bt7j/GBaNHsNN9meMw0x1G0sRSsjRVtJN/Ym6BOQ2
-	2kVitGkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YZi0QvA5ePpkOU2f7nqESzC+PSd6amUcTrkS7svcEis=; b=vNY4dSpqKX8uV2Mdk9XNg9Rn1t
+	PQ4iR+F5F9F2RyJFH0u3x6ogGpAvYJSXbNBTTIUHY/zV4sy5RmILtS2MF48vr9em5CwqQN5LTLEDl
+	c9XBWqFGFtukO+kJmBs6L8orEzvWmux6s8g76emghZFvWXw+sJN2u8JDWzOHNMN50YadfULC7m2wA
+	TQIvmYingEq1y2WGYLy/BH90iPzfW1p7+aYSm0BGTH0HW2lSC3Emmup6uBAAmOQ6Scy7Rt/d+x5HP
+	wS99Hkeuxp8D/G25QIcHHLvBkTPqidCg5Swkq++pjkmvhlTg7qkm8tKNlan9Zy/rTsFykv01jrNrl
+	EF+JHl5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkQ5k-0000000CvuS-0rky;
-	Mon, 26 Jan 2026 17:09:32 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkQ5f-0000000Cvr7-1gcG;
-	Mon, 26 Jan 2026 17:09:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
-	bh=Gx2hHd3TOe3OKxkk01HpI0TbAkMwKeVhKaeUoemS8VQ=; b=yqWvpZyASVZ9mYizcEvwvcMYbd
-	iao9Pcf0sRYxYgo/in6jmJoQkN9K9PleC+1eKHnFvWvT6W4ivUH6Aj93dFseBHg428zFxDQnIF10O
-	uQSX/HyEdB23nynA6MPnVVBAusJK8r0F+ol8TwRK5vGi9McN3wEfwYIKqA2nAQdg1fCmsBppIjnD5
-	XJEVajKCiIL9LoeNS6sOC/nnoGP8IIwLzAWM7fyhQyYLXs4VN6XUItIkDuRYMewpoo1jkiG8hksaS
-	i0iqnVeCtdinuktN/D4lsWGFtSOhjmLWDsJM8xugLRSn1+xljjt8dMqv7IkwnxndAUCC0xWD0QBcW
-	zwlSCZcA==;
-Received: from i53875a0f.versanet.de ([83.135.90.15] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vkQ5d-004eQS-4m; Mon, 26 Jan 2026 18:09:25 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: arm@kernel.org
-Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Rockchip dts32 changes for 6.20 #2
-Date: Mon, 26 Jan 2026 18:09:25 +0100
-Message-ID: <9936542.NyiUUSuA9g@diego>
+	id 1vkQ64-0000000Cw3L-2KPH;
+	Mon, 26 Jan 2026 17:09:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkQ62-0000000Cw2O-1FoV
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 Jan 2026 17:09:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5874339;
+	Mon, 26 Jan 2026 09:09:41 -0800 (PST)
+Received: from [10.57.51.176] (unknown [10.57.51.176])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B1803F5CA;
+	Mon, 26 Jan 2026 09:09:46 -0800 (PST)
+Message-ID: <5f260792-40f2-4a54-a5d1-45644bc9012b@arm.com>
+Date: Mon, 26 Jan 2026 17:09:43 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] dt-bindings/perf: Drop irqs for clock domains without
+ a PMU instance
+To: Baisheng Gao <baisheng.gao@unisoc.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: cixi.geng@linux.dev, hao_hao.wang@unisoc.com,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20260126033029.7923-1-baisheng.gao@unisoc.com>
+ <20260126033029.7923-3-baisheng.gao@unisoc.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260126033029.7923-3-baisheng.gao@unisoc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_090927_443608_25B81A98 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260126_090950_384377_21776E5A 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,28 +69,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit e74470cf3101da79666f20186c9406192223e9a8:
+On 2026-01-26 3:30 am, Baisheng Gao wrote:
+> No need to specify the interrupts for the clock domains without a
+> PMU instance.
 
-  ARM: dts: rockchip: Add vdec node for RK3288 (2025-12-15 12:21:05 +0100)
+Yes there is a need, because it's what the binding has already defined 
+and systems are already implementing, so breaking compatibility at this 
+point more than a year after its introduction is not really acceptable. 
+And although there's no strict requirement for the DT and ACPI bindings 
+to be equivalent, in this case they currently are, and it doesn't seem 
+like you've accounted for ACPI here either.
 
-are available in the Git repository at:
+Fact is, the Arm NI-700, NI-710AE, NoC S3 and SI L1 designs do all 
+define <CLKNAME>_nPMUINTERRUPT outputs for each <CLKNAME> domain, and 
+the intent of the binding was always to describe the hardware. If it's 
+the case that one or more of those interrupts are not wired up at all 
+(and presumably the corresponding PMU is never exposed to Non-Secure, 
+since it's unlikely to be useful), then at worst it's reasonable to use 
+dummy entries to pad the array.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.20-rockchip-dts32-2
+If on the other hand you really have got something that is mangled to 
+the point of not being compatible with the stock Arm designs, then it 
+most likely warrants its own binding.
 
-for you to fetch changes up to e546c69ac54e907d0c33bc1fde55689db301981f:
+Thanks,
+Robin.
 
-  ARM: dts: rockchip: rk3036: remove mshc aliases (2026-01-20 10:51:55 +0100)
-
-----------------------------------------------------------------
-Removal of the obsolete mshc aliases from RK3036.
-
-----------------------------------------------------------------
-Johan Jonker (1):
-      ARM: dts: rockchip: rk3036: remove mshc aliases
-
- arch/arm/boot/dts/rockchip/rk3036.dtsi | 3 ---
- 1 file changed, 3 deletions(-)
-
-
+> Signed-off-by: Baisheng Gao <baisheng.gao@unisoc.com>
+> ---
+>   Documentation/devicetree/bindings/perf/arm,ni.yaml | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/perf/arm,ni.yaml b/Documentation/devicetree/bindings/perf/arm,ni.yaml
+> index d66fffa256d5..40a5b8929ef2 100644
+> --- a/Documentation/devicetree/bindings/perf/arm,ni.yaml
+> +++ b/Documentation/devicetree/bindings/perf/arm,ni.yaml
+> @@ -20,7 +20,8 @@ properties:
+>     interrupts:
+>       minItems: 1
+>       maxItems: 32
+> -    description: Overflow interrupts, one per clock domain, in order of domain ID
+> +    description: Overflow interrupts, one per clock domain which has a PMU
+> +      instance, in order of domain ID.
+>   
+>   required:
+>     - compatible
 
 
