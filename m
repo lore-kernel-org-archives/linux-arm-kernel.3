@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4C4CCF65DB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 11:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18893CF65DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 11:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BWJI/F0u2R5xSnrKEywicHI8UfJK9mUbUyeAxJ3Rkl4=; b=baWsuE91W2os+QuLs65hQTOgOQ
-	zfjIaTJCMmu4M8XrX4DCr7ROnpy3wn/U09LmJgbvkZ7HD65dZ6XdcELbxyiGQyHFEglWmU53JtMug
-	ouTevNZ59uSc3XnXsM6KKsDuviFkVlgPchdX+7/dsr4KrKnnR4PKAi8moN3fTbgWBzrvbZNe4xOGA
-	rQz3qhbiW5OoZqthuSa9E6V9/QyxySkF6++cpQiEALRU/JnFKn5de2LrL09utbe7D0vYEOlIysZre
-	jo0peKjD6/S8RGnZtUB/Om/h6kE+ijQdKm6W34mGCjI1tXtwldgO5u10dkh2TGETdwmrxWolU4rHN
-	GtqgtB9A==;
+	bh=DWSu8t1grXWZnE44t3iliOt1I5glo/3cWtFBkyNFJo8=; b=LWXaNl4xOoNrZWeONRHdxiXZmZ
+	6MnNSQ132bbLhMkA4WGeq4POBcKzEai2EEdYe1ihD7jjtdKCu0aXnrtMCuorqHIbCeyDG559/WjiZ
+	7fEUjZ8ChFW3X44p9j2jEwaWl2H9l/wj+22FNLBuWrJutDieN7iJPTxl0Vzttnc5GoB1LBTrhkVYJ
+	kiDE4PYRyTBewS1YrI/iZVInfkqZzZKhygwd0mrUmR01TpKNYEOe8CFsT5uJz+GLONpaEUE0IIMvX
+	4oC2uvygJHnjhzwcwEvM3nhSTARlJwVPtc9M152fe+VV3Du70s8esS1mIThAoQs5cXpM1qy1GJ9Z5
+	d9/Cxwvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkL3U-0000000CS7a-2VLi;
-	Mon, 26 Jan 2026 11:46:52 +0000
+	id 1vkL3c-0000000CSEz-0GJO;
+	Mon, 26 Jan 2026 11:47:00 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkL3H-0000000CRra-3HOt;
-	Mon, 26 Jan 2026 11:46:39 +0000
+	id 1vkL3R-0000000CS2f-12hn;
+	Mon, 26 Jan 2026 11:46:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=BWJI/F0u2R5xSnrKEywicHI8UfJK9mUbUyeAxJ3Rkl4=; b=XXzcMM2oia1abRIDj/gor17afZ
-	2s0h4bWyXUzbkwdAU9qGK9NDlFf+I0LaCHuJR4ZttRwXGEmv6BY4Gg9VbHto2IMG7IGEuk/arIXCU
-	ldkZVzMIYn7O7eR/d7sSZb78RPdYnY0LUkdG2qVXe3EbjYI7BRg1G8G4nVevfIwhhXQAIEgngjZ/H
-	18zE+yIcqNnfIw7pqCStMLnukWWwVYi6G02le5qU8/TsvkQOfvzJCMCPtDmZ+Gotje/mRMBGl0QuZ
-	7ccSWL15aN2I7vT3Q/uPxvdUN4eE6VfVhmBqQuDptCS1M2l308btp/NXUU6LjLcJYHlPOdY1Ktwol
-	u8oZCDPQ==;
+	bh=DWSu8t1grXWZnE44t3iliOt1I5glo/3cWtFBkyNFJo8=; b=SY4qZxBU91MDIOkhHkU3tgE7Fk
+	MupvkwAM92+Xv2DlvtxzqQFeVAuALs/r+l824PfeiULZmT11AnLwGYBQ09vGrq6CiKPRCzzLMIR7G
+	J/b2I2JB3t2FMJ3s2n5WTRf5OawkhkDwTp2MBiqIcBVmgOVyGvM98Ha7MxNbcKCIg7WZfBrhdBT3l
+	r5MaDSvSU6IqL0d6wj6EatkXjcQhldHSstaKrLR4PBm9VsKc5pNNUa2AySFBSVSuecxIMS/NyxjDe
+	GePIeeKQEsiSU7VUuRb8IxpT+9NTOeSLTtag5eR4Nw0x3RJY7nyK7lU8Ubtr/OolX+CltJEvGyOAx
+	oN9ei6Pg==;
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkL3E-000000058gD-3lo0;
-	Mon, 26 Jan 2026 11:46:38 +0000
+	id 1vkL3M-000000058hN-3LgN;
+	Mon, 26 Jan 2026 11:46:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=BWJI/F0u2R5xSnrKEywicHI8UfJK9mUbUyeAxJ3Rkl4=; b=nrNsrQJnuo4cEYihZWXZy/2XPH
-	Vu+8WmUYAbaE+SGPxyre9XTzonMqA+J8RKtZVza6n/bvsQWaA111eu8uOSuyUpLoYxm7+Js1W4Co2
-	tKP4DRKKvjwKCNjd+gm/G/qk7BQyQgdBeSJjuGy6v+n2txtmCDw+LUfaLd8I7OQ1M3jRae5tS4HII
-	XbrYl1Wf/6b1QHpaeJlWOtF1yrMBt7PVCwnYNu460cb+z/0kJDKphZhALEnqDBMpU5aDw3Zw+CAII
-	f2KmQH3QweMU++Hk3I/+GFiEqaV50IXa3LvTXENy4REqwI0KZp0VwiEGBzAdpVPFZF2cNW0Ey5TCj
-	t+xjIj2g==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:34036 helo=rmk-PC.armlinux.org.uk)
+	bh=DWSu8t1grXWZnE44t3iliOt1I5glo/3cWtFBkyNFJo8=; b=D5tWiv8NGW6ODyKZICJ1J0JzF/
+	jQmoouKbhJfGnpeTP0TOq90zJ9F2+Ep+vqPjvlPLP+7Yxc7X+Uz4QfzhCSqMddH8otg8zVkB+3Wlz
+	fZ2xSc0YItmsvXGsdSXl/pQfcmoJZb1OJo/kFCTISWaOl1jNcBGQMJqL+qfSGU/hbRQPcpApjQuGW
+	o1N17Suy9mbGWqL+Z3Wxo3ZUiHUQAF4+8AbxYzHHe8lkMIaGcs7mnIc32vRe1+t7II/p38b6EDUvb
+	9UKyq04VUXm1Q9foNXwSwfVYt5H2s+YySA0Wi8pZiaOrUWwOaxIrarZZfT4ttuhHsW/aMK1KE1N7c
+	/d7QUUXw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:55412 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vkL35-000000004iF-0egA;
-	Mon, 26 Jan 2026 11:46:27 +0000
+	id 1vkL3F-000000004j2-2tHH;
+	Mon, 26 Jan 2026 11:46:37 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vkL33-00000005utm-0Ge0;
-	Mon, 26 Jan 2026 11:46:25 +0000
+	id 1vkL3D-00000005uty-1GZM;
+	Mon, 26 Jan 2026 11:46:35 +0000
 In-Reply-To: <aXdTi4ViCkhhXvFI@shell.armlinux.org.uk>
 References: <aXdTi4ViCkhhXvFI@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -77,17 +77,18 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next v2 17/22] net: stmmac: rk: introduce flags indicating
- support for RGMII/RMII
+Subject: [PATCH net-next v2 19/22] net: stmmac: rk: rk3328: gmac2phy only
+ supports RMII
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vkL33-00000005utm-0Ge0@rmk-PC.armlinux.org.uk>
-Date: Mon, 26 Jan 2026 11:46:25 +0000
+Message-Id: <E1vkL3D-00000005uty-1GZM@rmk-PC.armlinux.org.uk>
+Date: Mon, 26 Jan 2026 11:46:35 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_114637_041411_007731E6 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20260126_114644_958205_9D252251 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,118 +103,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce two boolean flags into struct rk_priv_data indicating
-whether RGMII and/or RMII is supported for this instance. Use these
-to configure the supported_interfaces mask for phylink, validate the
-interface mode. Initialise these from equivalent flags in the
-rk_gmac_ops or depending on the presence of the ops->set_to_rgmii and
-ops->set_to_mii methods. Finally, make ops->set_to_* optional.
-
-This will allow us to get rid of empty set_to_rmii() methods.
+As detailed in a previous commit ("net: stmmac: rk: convert rk3328 to
+use bsp_priv->id") rk3328 gmac2phy only supports RMII, whereas gmac2io
+supports both RMII and RGMII. Clear supports_rgmii for gmac2phy.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 35 +++++++++++++------
- 1 file changed, 25 insertions(+), 10 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 9211260a86ff..ad6093f9d9eb 100644
+index 4f9b3705d264..ae9df91a018d 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -53,6 +53,8 @@ struct rk_gmac_ops {
+@@ -465,6 +465,7 @@ static int rk3328_init(struct rk_priv_data *bsp_priv)
+ 	case 1: /* gmac2phy */
+ 		bsp_priv->gmac_grf_reg = RK3328_GRF_MAC_CON2;
+ 		bsp_priv->clock_grf_reg = RK3328_GRF_MAC_CON2;
++		bsp_priv->supports_rgmii = false;
+ 		return 0;
  
- 	bool gmac_grf_reg_in_php;
- 	bool clock_grf_reg_in_php;
-+	bool supports_rgmii;
-+	bool supports_rmii;
- 	bool php_grf_required;
- 	bool regs_valid;
- 	u32 regs[];
-@@ -86,6 +88,8 @@ struct rk_priv_data {
- 	bool clk_enabled;
- 	bool clock_input;
- 	bool integrated_phy;
-+	bool supports_rgmii;
-+	bool supports_rmii;
- 
- 	struct clk_bulk_data *clks;
- 	int num_clks;
-@@ -1415,6 +1419,9 @@ static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
- 	bsp_priv->clock_grf_reg = ops->clock_grf_reg;
- 	bsp_priv->clock = ops->clock;
- 
-+	bsp_priv->supports_rgmii = ops->supports_rgmii || !!ops->set_to_rgmii;
-+	bsp_priv->supports_rmii = ops->supports_rmii || !!ops->set_to_rmii;
-+
- 	if (ops->init) {
- 		ret = ops->init(bsp_priv);
- 		if (ret) {
-@@ -1433,11 +1440,11 @@ static int rk_gmac_check_ops(struct rk_priv_data *bsp_priv)
- 	case PHY_INTERFACE_MODE_RGMII_ID:
- 	case PHY_INTERFACE_MODE_RGMII_RXID:
- 	case PHY_INTERFACE_MODE_RGMII_TXID:
--		if (!bsp_priv->ops->set_to_rgmii)
-+		if (!bsp_priv->supports_rgmii)
- 			return -EINVAL;
- 		break;
- 	case PHY_INTERFACE_MODE_RMII:
--		if (!bsp_priv->ops->set_to_rmii)
-+		if (!bsp_priv->supports_rmii)
- 			return -EINVAL;
- 		break;
  	default:
-@@ -1486,24 +1493,32 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
- 	switch (bsp_priv->phy_iface) {
- 	case PHY_INTERFACE_MODE_RGMII:
- 		dev_info(dev, "init for RGMII\n");
--		bsp_priv->ops->set_to_rgmii(bsp_priv, bsp_priv->tx_delay,
--					    bsp_priv->rx_delay);
-+		if (bsp_priv->ops->set_to_rgmii)
-+			bsp_priv->ops->set_to_rgmii(bsp_priv,
-+						    bsp_priv->tx_delay,
-+						    bsp_priv->rx_delay);
- 		break;
- 	case PHY_INTERFACE_MODE_RGMII_ID:
- 		dev_info(dev, "init for RGMII_ID\n");
--		bsp_priv->ops->set_to_rgmii(bsp_priv, 0, 0);
-+		if (bsp_priv->ops->set_to_rgmii)
-+			bsp_priv->ops->set_to_rgmii(bsp_priv, 0, 0);
- 		break;
- 	case PHY_INTERFACE_MODE_RGMII_RXID:
- 		dev_info(dev, "init for RGMII_RXID\n");
--		bsp_priv->ops->set_to_rgmii(bsp_priv, bsp_priv->tx_delay, 0);
-+		if (bsp_priv->ops->set_to_rgmii)
-+			bsp_priv->ops->set_to_rgmii(bsp_priv,
-+						    bsp_priv->tx_delay, 0);
- 		break;
- 	case PHY_INTERFACE_MODE_RGMII_TXID:
- 		dev_info(dev, "init for RGMII_TXID\n");
--		bsp_priv->ops->set_to_rgmii(bsp_priv, 0, bsp_priv->rx_delay);
-+		if (bsp_priv->ops->set_to_rgmii)
-+			bsp_priv->ops->set_to_rgmii(bsp_priv,
-+						    0, bsp_priv->rx_delay);
- 		break;
- 	case PHY_INTERFACE_MODE_RMII:
- 		dev_info(dev, "init for RMII\n");
--		bsp_priv->ops->set_to_rmii(bsp_priv);
-+		if (bsp_priv->ops->set_to_rmii)
-+			bsp_priv->ops->set_to_rmii(bsp_priv);
- 		break;
- 	default:
- 		dev_err(dev, "NO interface defined!\n");
-@@ -1539,10 +1554,10 @@ static void rk_get_interfaces(struct stmmac_priv *priv, void *bsp_priv,
- {
- 	struct rk_priv_data *rk = bsp_priv;
- 
--	if (rk->ops->set_to_rgmii)
-+	if (rk->supports_rgmii)
- 		phy_interface_set_rgmii(interfaces);
- 
--	if (rk->ops->set_to_rmii)
-+	if (rk->supports_rmii)
- 		__set_bit(PHY_INTERFACE_MODE_RMII, interfaces);
- }
- 
 -- 
 2.47.3
 
