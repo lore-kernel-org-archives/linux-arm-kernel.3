@@ -4,104 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1260D1950F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 19:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C42CD1950F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 19:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q78Gf8ey3PlNHaQFSeNbIKQ639y8O+joeYk6mwpkVco=; b=ufDkoalJh0Ha6COHY+Z93OSMUA
-	6eOlIW93KbWIisFLrRoMi6Q0qUoZZB+fT6KVKA3NFJRzcXGYNhm1Di7luQBTc7emO2AjMCzsfqH1P
-	k9O88UUD+MhSGREEnIqEW5XbpAmXE0+Q7fqJxKbLqqRzrkbnX6K7ERvzcvIJ1tcMaGRTjdiOW91ow
-	86LuKN+G55QTPPX12WgEuV4XJatRsflJQSRZp7M/13NeuiwIMGOBJ77e4nl6tTqhz4rv/zRLuLzDk
-	vOJYs4A+ssrv1eVjdHpcjW1/2xiYR3YlKqCETkyhvkDd1aOZCGQri+RHCivFSHd5aqqv1B2Z3Iggx
-	6eF2FaHA==;
+	bh=Jkp3+pkFkXk2l6TyvhRc3pdtlKU4uiQfBDSsKCqWdFY=; b=IpA2oGXgvcUdpbqFpr4hkujT6m
+	/JER0n8BMXN6dGonfeyuECerz5/YQPHr2XbEmsT8A2gq2EnqMOvr7Qw2Wzg1xu2oHol8FYo0nvhtW
+	1Hy+XF0D4O8UAqxzblpgqIOwEYk3KkbrJziVrsUp5tSPRHF04NeEE704UquKcFrR1gzathX+1odu+
+	AxJ98e/kD+xXZo+ZBSGbB9PrbEM/nDS6g09pmdNRhX+U7SDg9qajGeFSFoHGNZ2VeSucbOJ4E9ebN
+	Ywazg+X6UVjHWA6lZT+WW68YKd04YMEyB6u4lgNwCYLsc1l4GFfMG24Ll0Iv7MNyXl/SpdDeVzdPd
+	txKW8VMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkS5A-0000000D8JG-0fgN;
-	Mon, 26 Jan 2026 19:17:04 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1vkS5E-0000000D8Ka-23RR;
+	Mon, 26 Jan 2026 19:17:08 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkS58-0000000D8Iu-0rmW
+	id 1vkS5A-0000000D8JF-3hNY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 19:17:03 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-501511aa012so57731cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 11:17:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769455021; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Y2ujTcJ3LpQmC0SNRGgSN7XhBl/zSEuLs55W33SzbPlhrnVVp9nRXADk+LC7c/vMY7
-         PN/Fcfle4qrXIfRMqA5wBfj4tOvb8T6J5MVxV6EdpfU0kl2q0p1XGjQh1UTotfDBTDWF
-         0423ddp4kJYEHLgXhGdrPsicUDF+U/4FNaTxWy1Cd/usTuawlpH4FvorKAYbwFTrHEsv
-         wQcJuP2uVo4aPPU7w8LJzhREAL+eNsBiVNpTgJR/l9oMbo9ojmFsKKdWuMMyGxmMwzt4
-         nq1Ms1nqb3cLP91xD8MP2wlEsZYhQ5yM2pKyrg8IdKScASpBaqIWHCW8t0HzDkBj7olD
-         UYJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Q78Gf8ey3PlNHaQFSeNbIKQ639y8O+joeYk6mwpkVco=;
-        fh=YjH8S9AOxpxWtVDhhhnmqGpbCQuzRA+3jFogh4/jLFg=;
-        b=GV62KMW+rLE9/m8PiBkgMt76X2zBC4cUQJ8JvKRJ3pUWTklFpu+RciBa7R1JKSRNf2
-         exx6dQjtkV63p9ZCayNZfRbjYBBgds6kc270PSkfl0oQBQr8+aGNvrioZQVyXAJQ62ub
-         HdPNa0Fh1oOEk02KTmRx9bKyI8NLdTOb1xMt2AQOOgkhx9IWBF7CwMTZ0KTDQ4yvaHSK
-         25TxUZ6QvUf6WqhBCKAvlPW7MKpAJkZmfiiICLcLadrheTecuYuPU8CPX69I2DFWQnAf
-         62uGiujYpzFT1mPqsBPZKOEOMGja4fWzZnDT9hhxqp98vlWUHCjkXm9xCojo00OkUXoY
-         GiMw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769455021; x=1770059821; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q78Gf8ey3PlNHaQFSeNbIKQ639y8O+joeYk6mwpkVco=;
-        b=kRak8qANKtUKhjKV/uAfY/IMrgZzCkPQZ2WzDTZBG4WzBuyVpPcsxi/XgqC72rJHMw
-         PI3wUdIxFLeBAyFgEMM5L5zezz4a+/EZR+HtvMXw2jYvyyA65lEcpw+LB+R0qSbbRaa4
-         yGRGJ0cwzmxE1vNXq17JABSgJCClCGdfwjN56n8pqCGXDK9TDdoCrqDClTmPtWiLjnpx
-         XiIIjuuo9l2kFu8N8c/loJ0TzY136UWMXKhZRDoudDlpzREGbV6RDzXueP63i1s2ypyy
-         y2VOix9uZOPQrcFqqH3k6tgNoYq8qZlD+FJy2Cn+P7MJIDDcJHEO13rdqm2vHRhJvv0A
-         3rCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769455021; x=1770059821;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Q78Gf8ey3PlNHaQFSeNbIKQ639y8O+joeYk6mwpkVco=;
-        b=THyGAJqDv8lLQUewKJXePTe4y0QVAJMgeS3UVF/pvxlxYE8CEvnp//Yp58kOFyTjx0
-         fbjKbOPznZPr8ct8Yvigm+nuVPdPIRaxc1nBzs43ALlLZzcKrXC5aoTz2dYNAD7nuYnB
-         TzGmoHspHRWLIxpG/pMZJpCA3Nqp7HMvLcBM6cNO2eIKUuSLwXvruYXt6Cj253BhQTUr
-         a+QnBBJu+ndzNm9wTHDf/rib3LTH76PNA1enhL30D/+VVsx5sO8+kaFfsaFIAnkhGLfD
-         b27Jw6cZ738swaHWRT8hz+v0P2AzBjPk6wRVWUfCC2/p0+uorGw0J6goeULZlFXZGYQ0
-         ggWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWu0C96edJwcQyV+tL8VM5DJcNiDjgmToiSaFQUccWhDZTWUV+pS9l7xY3BeD4GLDY42GmgZ+sVovonYQzs0wii@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqHagojzsBfWNGSBFqXLkYT0GZMOnngCPmadTGLZsZnmMqnHXu
-	n+FebR4YQzXfABwHhdxqjh0E1cHeEpxqwUG0qzFHB5oIxgq0JHtWwE1HY7mN8AX3M1c8IyCMcWl
-	+IjBb/Z3d6YqArxqZklHeJdYuemsCNB1GAn1ge7sj
-X-Gm-Gg: AZuq6aKQXiWD1/Kphr7A+bsaOb/ZJKxvpOnOF/gJpSuj2gc9g/N3OnxNv2H2/HMiepG
-	4uGPXQlsHITEg4VhgZ8cs1ry24LAxMetQfzOCtkTEpwW6t3ZGIUrVAtMIxlhwT1L0yy7xXN+FZ4
-	FtxidqMmgOtyOvkW1zAIPLZGTJgMY4DEffsQRmO/LTxq+t03b3r2QaH6MIEigD0aYFJpIW3swpu
-	5Wi8EAha/JQrPujMGvCWyffu34U3+PXGbwqLCeIiss8PwubJRrTEINIfzc+t1sxxnQzJshw
-X-Received: by 2002:a05:622a:1651:b0:4f0:2e33:81aa with SMTP id
- d75a77b69052e-50314395914mr14193861cf.11.1769455020509; Mon, 26 Jan 2026
- 11:17:00 -0800 (PST)
+	Mon, 26 Jan 2026 19:17:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sautmyPEFi4qPDPGd9H/Yss+2B2pdPI0BGws/vjCowNU64TTS2SP3NPVK07sIdnWfh2vJwlxhWd0Dy1JQeQ7aqWaRKq142n93V2i5zF5Ck2QHCPbyVZtxQ2Ow465xJ3u7HEzF+5BFnbNSWmKYskPLZMHQSQWPKTVB9EizRmUbloXTzX6VMl92E7h/QzVhH/LtmqMOBYAx67QKF/OVg5kNKt5Yh7wtfL8ARxGGhX6AALy3sKHvNd9/SVE/zdtGgOJwLm1rA3M+NZJ7QClItoWiLMBFw0/BGaLJrGZb4k6oQpuTt+fkU6CdfHZY8rVmiaNLF4iv/+MOqRBe9OpAVkBFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Jkp3+pkFkXk2l6TyvhRc3pdtlKU4uiQfBDSsKCqWdFY=;
+ b=Pq7qKtQBuEeru32XBfXREIUFILwH0U10MAkkI0lNgvitPbnm/FybisFGVC2IMyDxB0wP+3WzNUtTAj967DiX7nGMheGL0PTxZsJbhZVGQwC7EHkobFS2bux6XvHJrytmhNmzYuRLDka+X1HV/qqkA/JdzRfUulKWP6F8Q2qPXJE/QEO618Pcr0yWNXDycoJF1rLI6fdxl8B4uqi9zH8bJMbdAkxFrwouVG+KlxUAItBGCduxzTClVrBRcXfIoKdfYoJpntN6echCBPmOlJ4S4DfRHLEn2ypXMGuB3jBkiDSYltmQbDaWY7S9Lion3mVRXfJGmPwxLVQBapjg5je4qQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Jkp3+pkFkXk2l6TyvhRc3pdtlKU4uiQfBDSsKCqWdFY=;
+ b=GoHiioK2vqlDUocsnIjyY7I7Z0NI60uPh3qRzur21smrGozv4lNf7eGAATdTOhu5er/v/ZBWFQeNY1JZGXpvMPJY/JTsQs9/XawttGGhhHxFX5rqLSBg8vcdju/1yShgXNl8XXVWuKKWLRKlKUNIW/a0w33gR64/5fNPwyZKA4wNIo8qSeKa6KBFGqLYgIScSVZj0tqRmEof93+eApL2Hf8iGNIcy4H3lWfjd76T/UhqdaLs9Jg4OIwX16fAeAZmJkoA3b1XJJgkQL02V8byoq/mffha0gqCZnGjvBvrxgn2Q1O1Ch9xXNoMZ/sFsZ6gBppSqB4dyPzVzeyZ1J76VA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by IA1PR12MB9064.namprd12.prod.outlook.com (2603:10b6:208:3a8::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Mon, 26 Jan
+ 2026 19:16:58 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9542.015; Mon, 26 Jan 2026
+ 19:16:58 +0000
+Date: Mon, 26 Jan 2026 15:16:57 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, robin.murphy@arm.com,
+	bhelgaas@google.com, joro@8bytes.org, praan@google.com,
+	baolu.lu@linux.intel.com, kevin.tian@intel.com,
+	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org
+Subject: Re: [PATCH RFCv1 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
+Message-ID: <20260126191657.GW1134360@nvidia.com>
+References: <cover.1768624180.git.nicolinc@nvidia.com>
+ <09cb6be1f8f7472a2f1ccab72154cc6e22cf570b.1768624181.git.nicolinc@nvidia.com>
+ <aXdgljWHHPVMTmya@willie-the-truck>
+ <20260126172020.GP1134360@nvidia.com>
+ <aXe1J6Rygrvoz/Wo@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aXe1J6Rygrvoz/Wo@Asurada-Nvidia>
+X-ClientProxiedBy: MN0PR04CA0013.namprd04.prod.outlook.com
+ (2603:10b6:208:52d::18) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-References: <20260126121655.1641736-1-maz@kernel.org> <20260126121655.1641736-6-maz@kernel.org>
-In-Reply-To: <20260126121655.1641736-6-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 26 Jan 2026 19:15:00 +0000
-X-Gm-Features: AZwV_Qjj96yrEnieCy5TgVtfTcOY3xBDAy9jwhHwQBFe31riTdky8XYLoS7UhzA
-Message-ID: <CA+EHjTzmr+479uxdQgnM6Ai5jcx1=L2-ufQPD67fvqsCL1gZ8A@mail.gmail.com>
-Subject: Re: [PATCH 05/20] KVM: arm64: Extend unified RESx handling to runtime sanitisation
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA1PR12MB9064:EE_
+X-MS-Office365-Filtering-Correlation-Id: cad5269e-05be-4366-b35b-08de5d0f7996
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?P0Mw/OoL+GhKEQCAGxRBB+bO7O2rOuXSSNTwSC0pITa8M/e/q6+uDNGGWcMF?=
+ =?us-ascii?Q?APjizeq2z2c20aIh0wxejLVYaGenmA9rsqC387rF9t0L/MLpdFmxQEjDhusb?=
+ =?us-ascii?Q?038SselZhSLIGsQGArmEJaldhSDvTBk6p/x8wt+ony/aSzz/XFr1f9COW72J?=
+ =?us-ascii?Q?E254u/UkotVjPyBCe+4OlaVUclllQC2g+JrXoR2VYOBKVMTk37wxsy0Pyryj?=
+ =?us-ascii?Q?o3Di6eiw9h1EnQTnBdA9qXtSh9r79BDCW4EIUnrQ8TVkYuIvDPQ9GNKFZ9AF?=
+ =?us-ascii?Q?YAr0su2Ru+iU7xYjbWdCOUG+IcpvnN5z0MXTno49EUypE2wL0fTn8j3UC/Mu?=
+ =?us-ascii?Q?395hZ3oJoH1z85zGFpHhqCdfp8RaSLlqNfjPudkgvFaP+DmTMZA3FYxtJoif?=
+ =?us-ascii?Q?oTNm4nD7uQdDhVX8F3AQrYcjpkhOZVryNl6XduokcfYrnkLPan+tiAgxc9Tk?=
+ =?us-ascii?Q?PU4VM5TVN0Gb8vGK6uKMAdG9NrUw8SYtJPyGjsDMCIe6phq1yamuEDq+fip+?=
+ =?us-ascii?Q?ooRgfCQT0XzG4NOuwGQNhEP1Yi9NLzLHZQPA7Khw0afBL5+duzKCQJ+t25Nd?=
+ =?us-ascii?Q?DfKCx3NEbTNUUCAQUhrXmHIig10Wc/UZ2QL0CMoYcOkpIqqU7cbxn41YKxFN?=
+ =?us-ascii?Q?bF6Wpkdq/IHh17FpMCPpeIQlQDA1+b8QdvykmY7HICxcd+4jXW5Wvbpx/fKb?=
+ =?us-ascii?Q?MOjtQIOaKKRWxsppjKClw8obuppSrncHyN/QfI+nOng85zBZFmJcbTdLR7gE?=
+ =?us-ascii?Q?L8ILzC1ScsWWj/y3QNHHXxofJQ1kHEaQ2fChwBiGrzxAmPN+gjvblpFav8Ez?=
+ =?us-ascii?Q?AS5x3J/LVLn+0AFgZPiymlfEtQFQoBPUKL73B0gwj7ufcxNJCpUfxlGckIiE?=
+ =?us-ascii?Q?rFc3BYJvkUPT1MikmaJOoJu7TkUxEclNRiYxacobswanG6uacer7zmcLph6c?=
+ =?us-ascii?Q?PFQbrsm3i4WOlr0fmaM5MwTdYO83TiKjSMTFscBOWFSZdonjQZ2LisCBOMt/?=
+ =?us-ascii?Q?PBHY7VtNtL5qaSB26k4Io3QlmDfpYomrXxf6eYA6hqXd0aK+ZDm3EEqKydPS?=
+ =?us-ascii?Q?9EqfsTK+CYs/hX+N3PjPt+HOf6f9eIsJOo23Y7vZgtoYRgm5PEZ0FU6YnSEP?=
+ =?us-ascii?Q?eGwfSJBKHn1hPJiSHtxFDh5jBpBQ0YBP3E3oKl1FOC0b1lxvjKDlKwh/QIi5?=
+ =?us-ascii?Q?ZoM0jRwLiEvM2iuIzq9sEHDcn0yIfUhXiTeQRLUagLF4tA9/73gE0lSm6iH+?=
+ =?us-ascii?Q?1ttBiCIdfL3YUdBK1dYRQ95BVS4OJRRtuZMRHNT20QofH72yfdemDUmbsKY6?=
+ =?us-ascii?Q?seSlsl4RWX4Bee3dIetCiwxwlkzsw3XUKg6NkpH3v5dfp0L5p2x3Nh9GKC7h?=
+ =?us-ascii?Q?mvI+wokl6R1uFaRySNN8fVDag7E/CUBTmY15The0iHeERXF4yJ17EVJ1MxPP?=
+ =?us-ascii?Q?f9FkssJRhbGlx1hBZ5KvNNvRP8Tj/Cz1OsMrt3fHqg3vzqv81qON5+g2H6yz?=
+ =?us-ascii?Q?LQpdOGmhJw+JAwiyplEY+fBR1sZb+pqvtX2jEFISbhFPoKpdXlGUcMm5IjWU?=
+ =?us-ascii?Q?1kt6iRpF0nHVW3HtPgs=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OpcKP51e3mVuo7rijhkCGqERXaeJ6k2HkXgsXZjcaS5YCF6krybDvo8yX+My?=
+ =?us-ascii?Q?GSceQQ531XPQut0V1/c1xbGVc4ad9+wQGzT7X9zMOI0lS8sPWBi1SdEjh6Vz?=
+ =?us-ascii?Q?8y+KLZxsNDJZ6hHw+xywd0qlndTzvbZbQHpFWxT6WQBZEu7jzvDl3j33LBK8?=
+ =?us-ascii?Q?dbTli7dPm4nnOxvjwz4D6VN7G0oAvrSCqfFDyxczeDOcdHOhgVuIJscw8NXR?=
+ =?us-ascii?Q?+5o6lEMc8baaalhKZJT/P9+QbyKJ5ye3YhZ/4hk1TXZvxvA/TH+Bo/pcqS0n?=
+ =?us-ascii?Q?H9WrQ/CLiDhpoFHlxdbnnmol4Tim+SDstLcow9w1CYb9MIcCFE8/9655fCsh?=
+ =?us-ascii?Q?uiFxfbokzH/m4x2UCz7mQ5COySIJPATD6ibqz33+gXd3GwlVgztc/fQtaaqM?=
+ =?us-ascii?Q?qlgBcNM//cak5S69WxL2P2EJUhfHFRrDD5EwjsX4zP1up4z42JLD2XDB3CFi?=
+ =?us-ascii?Q?4Pi9fOnY/8YNloyRhjv94G0U6qXNhZXjwijR16Ic7Ka11cArn1v4G9A6yDip?=
+ =?us-ascii?Q?DMMw4ANnUaVAt+r2uObGULTznaceWUyt0Gi0pPO5ZzzXV+Fd96N6oChbLjNA?=
+ =?us-ascii?Q?4OfBwgAIaVF6occ3YvJbqFVA2Bn88Yt6L/eJqvT5YJjIzf1dAoBvZNOeHfQW?=
+ =?us-ascii?Q?iQu+ykT4rJAsdTiXQdgwvuPcr6Lt7q1JMRbV07eCOuqZ4Qpylb5N7fUrAB5p?=
+ =?us-ascii?Q?bc5BIT294wwjhZuG+AioIV7GqlFwqFKvGdFGX7RWPzY1VQLuGN3pojwTrvjG?=
+ =?us-ascii?Q?ux+7MbJwEtt5XmQ5cUbyBzv//ikgJ81Bs9PLCl4vu30dcz39uI5twOuPlpSb?=
+ =?us-ascii?Q?4XSFngXf/V/tkI1mlTzG5lXFbSSNgBeB1Wp/bW+sdbZ0P2MkDfGEWTpLnewC?=
+ =?us-ascii?Q?t6TSUiPCrVK90tDpKGa5/u3x68dgm6AAm5gwHjFun4j2utLAbOuixNNGBTzb?=
+ =?us-ascii?Q?Q84fZN5d2jaKlbw6t51a4iUKzwKjFfsz9zaORF4p2IPpBCsanYCH2EqHZ+4v?=
+ =?us-ascii?Q?Bx1yESSrqcg06sThpCg3gNKOxXEmRvW1H068yQgHLF06QQNEbSJcrCtvVzEH?=
+ =?us-ascii?Q?sLjqztLYSf6j59rpW1SwSAmfI4YBofcUJlTQduY8UxrFYOSQckBLiTPIEfPu?=
+ =?us-ascii?Q?nLR2t+kNkkQ3vfNZmuS+Vco/A7BNMoIDbsWKQUjCiHYjpAxP6ZqvfaIVlvpO?=
+ =?us-ascii?Q?ohiZp9PqSv7DQwMJjg2Q6yUwMvAyRUfkKZOX/+Dn0ZhoSiB7lA1yWVl9g0iI?=
+ =?us-ascii?Q?5Bf+md+iHYnIBiDegz04FMoy4Ni/Wq6z9N5rxGbsY7lRCRhVUKqgz/VI+zbX?=
+ =?us-ascii?Q?/xE8aHHnO58/125nH4cp6ivInaCFAIWUV4EMZrtLqFpzGfA3kLwehgGmSP6V?=
+ =?us-ascii?Q?A3ermqGrIMEe/I/bVrAN9BKVt4dv+E0WSgwy1PuCSJV1ew39EKXy5N6gBBZQ?=
+ =?us-ascii?Q?bbeg/AwYw/iI/y+vfPaXqz5de7FQxcMOVTPoMrhpbdc7rLI+QwrNOmi4qqfG?=
+ =?us-ascii?Q?ijz9BklLZQDCBwfaIbzM8+tRakEdgBrLfdfGV4zl+VPGe1mASor27q1Qz0wH?=
+ =?us-ascii?Q?NdoJ4EYA9+Mz+qK1qIhMZJbQIwPEA/OubJMLzlaqPT5tLaUteWSNGeOREN+5?=
+ =?us-ascii?Q?apqRChv59k240Nuwq8N78kcIcVdaA7yt74eZmulEfhQ5hPV4BsTayJLZm3Z7?=
+ =?us-ascii?Q?h76erS6h6o3hSCG36C+AOd+uV/3vZMmvHqwFlVqNd8bjG18EUEHBFpBl3bOd?=
+ =?us-ascii?Q?ZYdnR30t7w=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cad5269e-05be-4366-b35b-08de5d0f7996
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Jan 2026 19:16:58.0470
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1NmpmP2ZoWV14vdBfq8Duu29BOrFHU7efD/PxLusetUVyj4F0EdsvE7H4CuyQWVI
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB9064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_111702_295289_4B86763D 
-X-CRM114-Status: GOOD (  24.73  )
+X-CRM114-CacheID: sfid-20260126_111704_930570_F40EB2B6 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,111 +169,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On Mon, Jan 26, 2026 at 10:40:39AM -0800, Nicolin Chen wrote:
+> On Mon, Jan 26, 2026 at 01:20:20PM -0400, Jason Gunthorpe wrote:
+> > On Mon, Jan 26, 2026 at 12:39:50PM +0000, Will Deacon wrote:
+> > > > +	ret = arm_smmu_alloc_cd_tables(master);
+> > > > +	if (ret)
+> > > > +		return ret;
+> > > 
+> > > Were do you allocate the second level entry for ssid 0 if we're using
+> > > 2-level cd tables?
+> > 
+> > I don't think we need to. The entire design here has a non-valid CD entry
+> > for SSID 0.
+> 
+> Hmm, whether we allocate a 2-level cd table would actually depend on
+> the "1 << cd_table->s1cdmax" v.s. CTXDESC_L2_ENTRIES, right?
+> 
+> If the device supports PASID and s1cdmax is large, we should prepare
+> a 2-level cd tables, even if only SSID0 is used at this moment since
+> we have to support !0 pasids via potential SVA domains.
+> 
+> In all Other cases, we would prepare a linear one.
 
-On Mon, 26 Jan 2026 at 12:17, Marc Zyngier <maz@kernel.org> wrote:
->
-> Add a new helper to retrieve the RESx values for a given system
-> register, and use it for the runtime sanitisation.
->
-> This results in slightly better code generation for a fairly hot
-> path in the hypervisor.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/include/asm/kvm_host.h | 13 +++++++++++++
->  arch/arm64/kvm/emulate-nested.c   | 10 +---------
->  arch/arm64/kvm/nested.c           | 13 ++++---------
->  3 files changed, 18 insertions(+), 18 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index a7e4cd8ebf56f..9dca94e4361f0 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -635,6 +635,19 @@ struct kvm_sysreg_masks {
->         struct resx mask[NR_SYS_REGS - __SANITISED_REG_START__];
->  };
->
-> +#define kvm_get_sysreg_resx(k, sr)                                     \
-> +       ({                                                              \
-> +               struct kvm_sysreg_masks *__masks;                       \
-> +               struct resx __resx = {};                                \
-> +                                                                       \
-> +               __masks = (k)->arch.sysreg_masks;                       \
-> +               if (likely(__masks &&                                   \
-> +                          sr >= __SANITISED_REG_START__ &&             \
-> +                          sr < NR_SYS_REGS))                           \
-> +                       __resx = __masks->mask[sr - __SANITISED_REG_START__]; \
-> +               __resx;                                                 \
-> +       })
-> +
+Yes, this is what arm_smmu_alloc_cd_tables() is doing.
 
-This now covers all registers that need to be sanitized, not just
-VNCR-backed ones now.
+I think will was questioning if this needs to be
+arm_smmu_alloc_cd_ptr(master, 0);
 
-nit: wouldn't it be better to capture sr in a local variable rather
-than reuse it? It is an enum, but it would make checkpatch feel
-slightly better :)
+To ensure there is some memory under the SSID=0 case, but it seems we
+don't need that.
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
-
-Cheers,
-/fuad
-
-
-
-
-
->  #define kvm_set_sysreg_resx(k, sr, resx)               \
->         do {                                            \
->                 (k)->arch.sysreg_masks->mask[sr - __SANITISED_REG_START__] = resx; \
-> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-> index 774cfbf5b43ba..43334cd2db9e5 100644
-> --- a/arch/arm64/kvm/emulate-nested.c
-> +++ b/arch/arm64/kvm/emulate-nested.c
-> @@ -2427,15 +2427,7 @@ static enum trap_behaviour compute_trap_behaviour(struct kvm_vcpu *vcpu,
->
->  static u64 kvm_get_sysreg_res0(struct kvm *kvm, enum vcpu_sysreg sr)
->  {
-> -       struct kvm_sysreg_masks *masks;
-> -
-> -       /* Only handle the VNCR-backed regs for now */
-> -       if (sr < __VNCR_START__)
-> -               return 0;
-> -
-> -       masks = kvm->arch.sysreg_masks;
-> -
-> -       return masks->mask[sr - __SANITISED_REG_START__].res0;
-> +       return kvm_get_sysreg_resx(kvm, sr).res0;
->  }
->
->  static bool check_fgt_bit(struct kvm_vcpu *vcpu, enum vcpu_sysreg sr,
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index c5a45bc62153e..75a23f1c56d13 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -1669,16 +1669,11 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
->  u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *vcpu,
->                              enum vcpu_sysreg sr, u64 v)
->  {
-> -       struct kvm_sysreg_masks *masks;
-> -
-> -       masks = vcpu->kvm->arch.sysreg_masks;
-> -
-> -       if (masks) {
-> -               sr -= __SANITISED_REG_START__;
-> +       struct resx resx;
->
-> -               v &= ~masks->mask[sr].res0;
-> -               v |= masks->mask[sr].res1;
-> -       }
-> +       resx = kvm_get_sysreg_resx(vcpu->kvm, sr);
-> +       v &= ~resx.res0;
-> +       v |= resx.res1;
->
->         return v;
->  }
-> --
-> 2.47.3
->
+Jason
 
