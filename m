@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74EF9CF65DC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CEAFCF65D5
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 10:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,60 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bAuB0YdbnPC1gHE5GkC16j+FeJhoKW2PjTnj9gON1mU=; b=UhwiBNQl0CHp8kTR0/XrW7tcTe
-	WzEvQZ3NNgXmmhATrDQjypsVhmBv9D2FAZolOG5Sdbaf8YEb4g0buOIAp0W3sYYyLvMMeLqsK2tcz
-	0RkpMBOvm070GF1AHncDEFFVK46GLearna02jpERNIXGURVucpY6T6Sgc3XKrxeo9h8Ptc302C0qk
-	890V9dFCx2vKg099NveKSMiHTp/ikVoqfB3eylQT2QGLhinual2fs4KRnCXf5Xv/Q/i/lmKWFdmXu
-	RiavH1wDI5yQfYuP79nSLhwlE9elmz0tyU+ALCq9OLHPc6cyGCLkyQGPlEkbQ+eHtRQZ2Sn4bTLDW
-	/iI6N80w==;
+	bh=fV93r1jNcGCBDMto0ESTekvXBiOG+cNH5vkB4CahEyQ=; b=tJpGqSOQZruAmo3Y9CcMUPzZRC
+	1cX0cMgTkZER/VRDJhaTBuImcfnr73AFRpKhjpFlbKuDqrmmsJrZnQgMLvmP+V46L7fdxk5I3kaDT
+	DDuxhlxf8KXxpXwuwgJ1zBW9IBKb0dGJWARxfQ0M4JhZgGf9P90i4nUy0M7XZZrSsYWb8HuIjlrmO
+	n6DUE2LbLBoOD6VYENvPGb0ghxDbmPngTYJBTYNZyM7N5gkGemL/yN4Qf1yOc3S5GtabTrjKxmics
+	MIjj02uyWFS1LxSmQmTIAKZFOCDST4vESfOKIXEPQw6Z8D9g32+q8Gs0DK48Xae12+5volnafhRxb
+	1Y0nO1og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkK5r-0000000CK2P-3cCX;
-	Mon, 26 Jan 2026 10:45:15 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1vkK5o-0000000CJxn-044L;
+	Mon, 26 Jan 2026 10:45:12 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkK5L-0000000CJTX-2p7k
+	id 1vkK5F-0000000CJNU-0j3W
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 10:44:45 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4801e9e7159so37024215e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 02:44:42 -0800 (PST)
+	Mon, 26 Jan 2026 10:44:38 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-b7fe37056e1so81629466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 02:44:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769424281; x=1770029081; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1769424275; x=1770029075; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bAuB0YdbnPC1gHE5GkC16j+FeJhoKW2PjTnj9gON1mU=;
-        b=NMEzZ1u+iw0uAHVtbeJF5kBDS982S2L2qbe8rrcRz7c+5uFy5It5yYelfIGQpHv4cE
-         QfPgmJWf9LC7c6e6JMwstIyJbB8Gpi8QNdLXdyW8bbgmqXv1Kus/S4qYneOFTP53rc4u
-         eayj3AXLIp1ptuBoeqy0dt9QD5s6Tt7HGR/NwM4Ax3yDYLtRmXzKx6izFOm+ij+ifGaa
-         S6HpQC8fQIok5hzlWO3h0W+WB5tYJ84SrLSzKxGEzC+Ny5z5/zjUhTr44TXqkIGix2wW
-         laTLHj5bv2d0O8cQ0jcopH+6E4LZWskjiLV4RFvAF4SkHiKO7Zm5oL0t8p7SVSX9SQN3
-         G4wg==
+        bh=fV93r1jNcGCBDMto0ESTekvXBiOG+cNH5vkB4CahEyQ=;
+        b=LJvD9VA3uffrut0Qxy4y+/eyGYJJ3Th+GRmDu1SyvStaL2a34/CtkqL1nvqgDErzVg
+         4OpTATrBAX3X/nEM4hroZ68VBOLSNrOk0LNM/iNziNkcpWEr3URc4mD2m28C7x99vq6S
+         S6TX1CYQuJiu2Iid7ZiCGaprBEMUzJtFpFC6UoI8pUcUG6UXY7ab/WAJI2aqviGHZCln
+         X/4EW537kwczC017T6kASb1FX5aRdF1/tF+t902aQxTOsQz9CGwv/ESiUikLOINcOuYr
+         kLm1XVYthkU1QDkhYz8vY2V60Bpmeo52w348AcuuTIqD0cMKzchLdrxgXzC2cIwhJiA+
+         CP5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769424281; x=1770029081;
+        d=1e100.net; s=20230601; t=1769424275; x=1770029075;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bAuB0YdbnPC1gHE5GkC16j+FeJhoKW2PjTnj9gON1mU=;
-        b=uwtY7Pzt/yUUp48gMsS7nLIxGgrgNU1rwJmwkoH7GwsW2jRrQFElWRej4+WXNHqqTV
-         Fv06wLgIrBVBy6blAMevfIuQySp37+ru+GlaiK77MPpfbPt0BKaS/qObXRzrmhMahHiv
-         LgeQXn27VenZ34aQR8IhgoxzpBsGn1Vol9vVkQezu1Ff8LNQDD+GsHckTTjeBEY/Ta5a
-         5JWLjSKvxmmvdZSbO0AcUuLmuH/700hCzLnsXB9JahsyTnMHi+x2v+lAQLmwGAcjBLi4
-         vELQkX72lw+AVJHuSKx6nyXd0VGqUofI9usKgoQiYBr1kLzr9apSIFc0jIyyLlz5vKlr
-         FTAw==
-X-Forwarded-Encrypted: i=1; AJvYcCWq9MdEia7kuStW0Oblqm/ilT/gt8WcysIWvfzNb3fz+6Xnf5zT510SojisPInFqlkN2jOY4oxrXs+fbjH//OHe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0VKZ1t+DHz9HwvjNg+libBR3p6lS/o6td2sWBz7lL0zAs+Ffs
-	yPZAHF9neTaxphVf/gMtnSUBSCMqDhW1V1VShbUArwWa4YjPi1y/+DgK/buC1xXInuY2/7G6nKW
-	UMuNezMOb3KKTox3gpw7sjg==
-X-Received: from wmlf26.prod.google.com ([2002:a7b:c8da:0:b0:47e:e722:72e4])
+        bh=fV93r1jNcGCBDMto0ESTekvXBiOG+cNH5vkB4CahEyQ=;
+        b=WRwbs/fCm0luvQObBprNzaeTZ/VYa0J7A10CYRncB0pV6ovqQ5MIZbYxZGffy5DQ6G
+         X0xr5PtJlqDE5gKo8sl37XJqaDnNjXAQwrNRBnS6W4Xo/a1ZqJm3gTpvmUhz5PwdOS4T
+         0No7Ow3/bPm/1NrDAecblFvBXV8buF9sgN+zCgGNCrVK4aDbk8v17u7RnC+HDqe/QT50
+         d3Jcl7E9Npw46JuQbAHvVnYziimzGqbuPwOCe/ruk6bH9faWpYMYXTfuDASCE4fd+f7/
+         P3XprZr/SPOWGuzChBt+zUPiHvTnMAWnu/JpFWY3H6DW12uRuly7rueasnHqObmpCho6
+         yNiA==
+X-Forwarded-Encrypted: i=1; AJvYcCUUWfpu63mtBAeSQvq/B47iaLwY75o2M3WlHAREbccNbb7JYzWLa/1T6J+OjftWnAUGO0SvJyUD2fQDUtorD96K@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEVTJvNMSn9Mnedvbey0rwM31zdTFNNKcl7tJxH9Z9pZXVoYaP
+	7iRD8tViipupMgJX9fBkr4ZJH/WjyAy80Dp38Kg+PVgTgtI5sxtFSnQ08JwQruL5t2Tj3Ll4VpP
+	wc3osH5+rnrJcsVXu83vEAQ==
+X-Received: from ejblv8.prod.google.com ([2002:a17:906:bc88:b0:b87:3485:db4b])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:a05:b0:47e:e952:86ca with SMTP id 5b1f17b1804b1-4805ce3fcfemr73650335e9.2.1769424281349;
- Mon, 26 Jan 2026 02:44:41 -0800 (PST)
-Date: Mon, 26 Jan 2026 10:44:06 +0000
+ 2002:a17:907:9686:b0:b87:1839:2600 with SMTP id a640c23a62f3a-b8d20e2938fmr286088066b.33.1769424274617;
+ Mon, 26 Jan 2026 02:44:34 -0800 (PST)
+Date: Mon, 26 Jan 2026 10:43:58 +0000
 In-Reply-To: <20260126104419.1649811-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260126104419.1649811-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.52.0.457.g6b5491de43-goog
-Message-ID: <20260126104419.1649811-18-vdonnefort@google.com>
-Subject: [PATCH v10 17/30] tracing: load/unload page callbacks for simple_ring_buffer
+Message-ID: <20260126104419.1649811-10-vdonnefort@google.com>
+Subject: [PATCH v10 09/30] tracing: Add events to trace remotes
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -76,8 +76,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_024443_847606_642ADEDF 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20260126_024437_283524_5AA478D4 
+X-CRM114-Status: GOOD (  26.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,165 +92,451 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add load/unload callback used for each admitted page in the ring-buffer.
-This will be later useful for the pKVM hypervisor which uses a different
-VA space and need to dynamically map/unmap the ring-buffer pages.
+An event is predefined point in the writer code that allows to log
+data. Following the same scheme as kernel events, add remote events,
+described to user-space within the events/ tracefs directory found in
+the corresponding trace remote.
+
+Remote events are expected to be described during the trace remote
+registration.
+
+Add also a .enable_event callback for trace_remote to toggle the event
+logging, if supported.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/include/linux/simple_ring_buffer.h b/include/linux/simple_ring_buffer.h
-index f324df2f875b..ecd0e988c699 100644
---- a/include/linux/simple_ring_buffer.h
-+++ b/include/linux/simple_ring_buffer.h
-@@ -110,4 +110,11 @@ int simple_ring_buffer_reset(struct simple_rb_per_cpu *cpu_buffer);
+diff --git a/include/linux/trace_remote.h b/include/linux/trace_remote.h
+index 15a579633123..456df837fc6b 100644
+--- a/include/linux/trace_remote.h
++++ b/include/linux/trace_remote.h
+@@ -5,6 +5,7 @@
+ 
+ #include <linux/dcache.h>
+ #include <linux/ring_buffer.h>
++#include <linux/trace_remote_event.h>
+ 
+ /**
+  * struct trace_remote_callbacks - Callbacks used by Tracefs to control the remote
+@@ -24,6 +25,8 @@
+  * @reset:		Called on `echo 0 > trace`. It is expected from the
+  *			remote to reset all ring-buffer pages.
+  *			new reader-page from the @cpu ring-buffer.
++ * @enable_event:	Called on events/event_name/enable. It is expected from
++ *			the remote to allow the writing event @id.
   */
- int simple_ring_buffer_swap_reader_page(struct simple_rb_per_cpu *cpu_buffer);
+ struct trace_remote_callbacks {
+ 	int	(*init)(struct dentry *d, void *priv);
+@@ -32,6 +35,7 @@ struct trace_remote_callbacks {
+ 	int	(*enable_tracing)(bool enable, void *priv);
+ 	int	(*swap_reader_page)(unsigned int cpu, void *priv);
+ 	int	(*reset)(unsigned int cpu, void *priv);
++	int	(*enable_event)(unsigned short id, bool enable, void *priv);
+ };
  
-+int __simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer,
-+			      struct simple_buffer_page *bpages,
-+			      const struct ring_buffer_desc *desc,
-+			      void *(*load_page)(unsigned long va),
-+			      void (*unload_page)(void *va));
-+void __simple_ring_buffer_unload(struct simple_rb_per_cpu *cpu_buffer,
-+				 void (*unload_page)(void *));
- #endif
-diff --git a/kernel/trace/simple_ring_buffer.c b/kernel/trace/simple_ring_buffer.c
-index 1d1f40c8c6d8..f01386975266 100644
---- a/kernel/trace/simple_ring_buffer.c
-+++ b/kernel/trace/simple_ring_buffer.c
-@@ -71,7 +71,7 @@ static void simple_bpage_reset(struct simple_buffer_page *bpage)
- 	local_set(&bpage->page->commit, 0);
- }
+ /**
+@@ -53,7 +57,8 @@ struct trace_remote_callbacks {
+  *
+  * Return: 0 on success, negative error code on failure.
+  */
+-int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv);
++int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv,
++			  struct remote_event *events, size_t nr_events);
  
--static void simple_bpage_init(struct simple_buffer_page *bpage, unsigned long page)
-+static void simple_bpage_init(struct simple_buffer_page *bpage, void *page)
- {
- 	INIT_LIST_HEAD(&bpage->link);
- 	bpage->page = (struct buffer_data_page *)page;
-@@ -342,10 +342,15 @@ int simple_ring_buffer_reset(struct simple_rb_per_cpu *cpu_buffer)
- }
- EXPORT_SYMBOL_GPL(simple_ring_buffer_reset);
- 
--int simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer, struct simple_buffer_page *bpages,
--			    const struct ring_buffer_desc *desc)
-+int __simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer,
-+			      struct simple_buffer_page *bpages,
-+			      const struct ring_buffer_desc *desc,
-+			      void *(*load_page)(unsigned long va),
-+			      void (*unload_page)(void *va))
- {
- 	struct simple_buffer_page *bpage = bpages;
-+	int ret = 0;
-+	void *page;
- 	int i;
- 
- 	/* At least 1 reader page and two pages in the ring-buffer */
-@@ -354,15 +359,22 @@ int simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer, struct simple_
- 
- 	memset(cpu_buffer, 0, sizeof(*cpu_buffer));
- 
--	cpu_buffer->bpages = bpages;
-+	cpu_buffer->meta = load_page(desc->meta_va);
-+	if (!cpu_buffer->meta)
-+		return -EINVAL;
- 
--	cpu_buffer->meta = (void *)desc->meta_va;
- 	memset(cpu_buffer->meta, 0, sizeof(*cpu_buffer->meta));
- 	cpu_buffer->meta->meta_page_size = PAGE_SIZE;
- 	cpu_buffer->meta->nr_subbufs = cpu_buffer->nr_pages;
- 
- 	/* The reader page is not part of the ring initially */
--	simple_bpage_init(bpage, desc->page_va[0]);
-+	page = load_page(desc->page_va[0]);
-+	if (!page) {
-+		unload_page(cpu_buffer->meta);
-+		return -EINVAL;
-+	}
+ /**
+  * trace_remote_alloc_buffer() - Dynamically allocate a trace buffer
+diff --git a/include/linux/trace_remote_event.h b/include/linux/trace_remote_event.h
+new file mode 100644
+index 000000000000..a4449008a075
+--- /dev/null
++++ b/include/linux/trace_remote_event.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: GPL-2.0 */
 +
-+	simple_bpage_init(bpage, page);
- 	bpage->id = 0;
- 
- 	cpu_buffer->nr_pages = 1;
-@@ -372,7 +384,13 @@ int simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer, struct simple_
- 	cpu_buffer->head_page = bpage + 1;
- 
- 	for (i = 1; i < desc->nr_page_va; i++) {
--		simple_bpage_init(++bpage, desc->page_va[i]);
-+		page = load_page(desc->page_va[i]);
-+		if (!page) {
-+			ret = -EINVAL;
-+			break;
-+		}
++#ifndef _LINUX_TRACE_REMOTE_EVENTS_H
++#define _LINUX_TRACE_REMOTE_EVENTS_H
 +
-+		simple_bpage_init(++bpage, page);
++struct trace_remote;
++struct trace_event_fields;
++
++struct remote_event_hdr {
++	unsigned short	id;
++};
++
++#define REMOTE_EVENT_NAME_MAX 30
++struct remote_event {
++	char				name[REMOTE_EVENT_NAME_MAX];
++	unsigned short			id;
++	bool				enabled;
++	struct trace_remote		*remote;
++	struct trace_event_fields	*fields;
++	char				*print_fmt;
++	void				(*print)(void *evt, struct trace_seq *seq);
++};
++#endif
+diff --git a/kernel/trace/trace_remote.c b/kernel/trace/trace_remote.c
+index 924e3f3ec6d2..8527804f2d22 100644
+--- a/kernel/trace/trace_remote.c
++++ b/kernel/trace/trace_remote.c
+@@ -33,6 +33,7 @@ struct trace_remote_iterator {
+ 		struct ring_buffer_iter	**rb_iters;
+ 		struct ring_buffer_iter *rb_iter;
+ 	};
++	struct remote_event_hdr		*evt;
+ 	int				cpu;
+ 	int				evt_cpu;
+ 	loff_t				pos;
+@@ -44,6 +45,10 @@ struct trace_remote {
+ 	void				*priv;
+ 	struct trace_buffer		*trace_buffer;
+ 	struct trace_buffer_desc	*trace_buffer_desc;
++	struct dentry			*dentry;
++	struct eventfs_inode		*eventfs;
++	struct remote_event		*events;
++	unsigned long			nr_events;
+ 	unsigned long			trace_buffer_size;
+ 	struct ring_buffer_remote	rb_remote;
+ 	struct mutex			lock;
+@@ -168,7 +173,8 @@ static void trace_remote_reset(struct trace_remote *remote, int cpu)
+ static ssize_t
+ tracing_on_write(struct file *filp, const char __user *ubuf, size_t cnt, loff_t *ppos)
+ {
+-	struct trace_remote *remote = filp->private_data;
++	struct seq_file *seq = filp->private_data;
++	struct trace_remote *remote = seq->private;
+ 	unsigned long val;
+ 	int ret;
  
- 		bpage->link.next = &(bpage + 1)->link;
- 		bpage->link.prev = &(bpage - 1)->link;
-@@ -381,6 +399,14 @@ int simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer, struct simple_
- 		cpu_buffer->nr_pages = i + 1;
+@@ -197,7 +203,8 @@ DEFINE_SHOW_STORE_ATTRIBUTE(tracing_on);
+ static ssize_t buffer_size_kb_write(struct file *filp, const char __user *ubuf, size_t cnt,
+ 				    loff_t *ppos)
+ {
+-	struct trace_remote *remote = filp->private_data;
++	struct seq_file *seq = filp->private_data;
++	struct trace_remote *remote = seq->private;
+ 	unsigned long val;
+ 	int ret;
+ 
+@@ -484,16 +491,19 @@ __peek_event(struct trace_remote_iterator *iter, int cpu, u64 *ts, unsigned long
+ static bool trace_remote_iter_read_event(struct trace_remote_iterator *iter)
+ {
+ 	struct trace_buffer *trace_buffer = iter->remote->trace_buffer;
++	struct ring_buffer_event *rb_evt;
+ 	int cpu = iter->cpu;
+ 
+ 	if (cpu != RING_BUFFER_ALL_CPUS) {
+ 		if (ring_buffer_empty_cpu(trace_buffer, cpu))
+ 			return false;
+ 
+-		if (!__peek_event(iter, cpu, &iter->ts, &iter->lost_events))
++		rb_evt = __peek_event(iter, cpu, &iter->ts, &iter->lost_events);
++		if (!rb_evt)
+ 			return false;
+ 
+ 		iter->evt_cpu = cpu;
++		iter->evt = (struct remote_event_hdr *)ring_buffer_event_data(rb_evt);
+ 		return true;
  	}
  
-+	if (ret) {
-+		for (i--; i >= 0; i--)
-+			unload_page((void *)desc->page_va[i]);
-+		unload_page(cpu_buffer->meta);
+@@ -505,7 +515,8 @@ static bool trace_remote_iter_read_event(struct trace_remote_iterator *iter)
+ 		if (ring_buffer_empty_cpu(trace_buffer, cpu))
+ 			continue;
+ 
+-		if (!__peek_event(iter, cpu, &ts, &lost_events))
++		rb_evt = __peek_event(iter, cpu, &ts, &lost_events);
++		if (!rb_evt)
+ 			continue;
+ 
+ 		if (ts >= iter->ts)
+@@ -513,6 +524,7 @@ static bool trace_remote_iter_read_event(struct trace_remote_iterator *iter)
+ 
+ 		iter->ts = ts;
+ 		iter->evt_cpu = cpu;
++		iter->evt = (struct remote_event_hdr *)ring_buffer_event_data(rb_evt);
+ 		iter->lost_events = lost_events;
+ 	}
+ 
+@@ -533,8 +545,11 @@ static void trace_remote_iter_move(struct trace_remote_iterator *iter)
+ 	}
+ }
+ 
++static struct remote_event *trace_remote_find_event(struct trace_remote *remote, unsigned short id);
 +
+ static int trace_remote_iter_print_event(struct trace_remote_iterator *iter)
+ {
++	struct remote_event *evt;
+ 	unsigned long usecs_rem;
+ 	u64 ts = iter->ts;
+ 
+@@ -548,6 +563,12 @@ static int trace_remote_iter_print_event(struct trace_remote_iterator *iter)
+ 	trace_seq_printf(&iter->seq, "[%03d]\t%5llu.%06lu: ", iter->evt_cpu,
+ 			 ts, usecs_rem);
+ 
++	evt = trace_remote_find_event(iter->remote, iter->evt->id);
++	if (!evt)
++		trace_seq_printf(&iter->seq, "UNKNOWN id=%d\n", iter->evt->id);
++	else
++		evt->print(iter->evt, &iter->seq);
++
+ 	return trace_seq_has_overflowed(&iter->seq) ? -EOVERFLOW : 0;
+ }
+ 
+@@ -821,6 +842,8 @@ static int trace_remote_init_tracefs(const char *name, struct trace_remote *remo
+ 			goto err;
+ 	}
+ 
++	remote->dentry = remote_d;
++
+ 	return 0;
+ 
+ err:
+@@ -834,7 +857,11 @@ static int trace_remote_init_tracefs(const char *name, struct trace_remote *remo
+ 	return -ENOMEM;
+ }
+ 
+-int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv)
++static int trace_remote_register_events(const char *remote_name, struct trace_remote *remote,
++					struct remote_event *events, size_t nr_events);
++
++int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs, void *priv,
++			  struct remote_event *events, size_t nr_events)
+ {
+ 	struct trace_remote *remote;
+ 	int ret;
+@@ -855,6 +882,13 @@ int trace_remote_register(const char *name, struct trace_remote_callbacks *cbs,
+ 		return -ENOMEM;
+ 	}
+ 
++	ret = trace_remote_register_events(name, remote, events, nr_events);
++	if (ret) {
++		pr_err("Failed to register events for trace remote '%s' (%d)\n",
++		       name, ret);
 +		return ret;
 +	}
 +
- 	/* Close the ring */
- 	bpage->link.next = &cpu_buffer->tail_page->link;
- 	cpu_buffer->tail_page->link.prev = &bpage->link;
-@@ -388,21 +414,48 @@ int simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer, struct simple_
- 	/* The last init'ed page points to the head page */
- 	simple_bpage_set_head_link(bpage);
- 
-+	cpu_buffer->bpages = bpages;
-+
- 	return 0;
+ 	ret = cbs->init ? cbs->init(remote->dentry, priv) : 0;
+ 	if (ret)
+ 		pr_err("Init failed for trace remote '%s' (%d)\n", name, ret);
+@@ -929,3 +963,220 @@ int trace_remote_alloc_buffer(struct trace_buffer_desc *desc, size_t desc_size,
+ 	return ret;
  }
- EXPORT_SYMBOL_GPL(simple_ring_buffer_init);
- 
--void simple_ring_buffer_unload(struct simple_rb_per_cpu *cpu_buffer)
-+static void *__load_page(unsigned long page)
- {
-+	return (void *)page;
+ EXPORT_SYMBOL_GPL(trace_remote_alloc_buffer);
++
++static int
++trace_remote_enable_event(struct trace_remote *remote, struct remote_event *evt, bool enable)
++{
++	int ret;
++
++	lockdep_assert_held(&remote->lock);
++
++	if (evt->enabled == enable)
++		return 0;
++
++	ret = remote->cbs->enable_event(evt->id, enable, remote->priv);
++	if (ret)
++		return ret;
++
++	evt->enabled = enable;
++
++	return 0;
 +}
 +
-+static void __unload_page(void *page) { }
-+
-+int simple_ring_buffer_init(struct simple_rb_per_cpu *cpu_buffer, struct simple_buffer_page *bpages,
-+			    const struct ring_buffer_desc *desc)
++static int remote_event_enable_show(struct seq_file *s, void *unused)
 +{
-+	return __simple_ring_buffer_init(cpu_buffer, bpages, desc, __load_page, __unload_page);
++	struct remote_event *evt = s->private;
++
++	seq_printf(s, "%d\n", evt->enabled);
++
++	return 0;
 +}
 +
-+void __simple_ring_buffer_unload(struct simple_rb_per_cpu *cpu_buffer,
-+				 void (*unload_page)(void *))
++static ssize_t remote_event_enable_write(struct file *filp, const char __user *ubuf,
++					 size_t count, loff_t *ppos)
 +{
-+	int p;
++	struct seq_file *seq = filp->private_data;
++	struct remote_event *evt = seq->private;
++	struct trace_remote *remote = evt->remote;
++	u8 enable;
++	int ret;
 +
- 	if (!simple_rb_loaded(cpu_buffer))
- 		return;
- 
- 	simple_rb_enable_tracing(cpu_buffer, false);
- 
-+	unload_page(cpu_buffer->meta);
-+	for (p = 0; p < cpu_buffer->nr_pages; p++)
-+		unload_page(cpu_buffer->bpages[p].page);
++	ret = kstrtou8_from_user(ubuf, count, 10, &enable);
++	if (ret)
++		return ret;
 +
- 	cpu_buffer->bpages = NULL;
- }
- EXPORT_SYMBOL_GPL(simple_ring_buffer_unload);
- 
-+void simple_ring_buffer_unload(struct simple_rb_per_cpu *cpu_buffer)
++	guard(mutex)(&remote->lock);
++
++	ret = trace_remote_enable_event(remote, evt, enable);
++	if (ret)
++		return ret;
++
++	return count;
++}
++DEFINE_SHOW_STORE_ATTRIBUTE(remote_event_enable);
++
++static int remote_event_id_show(struct seq_file *s, void *unused)
 +{
-+	return __simple_ring_buffer_unload(cpu_buffer, __unload_page);
++	struct remote_event *evt = s->private;
++
++	seq_printf(s, "%d\n", evt->id);
++
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(remote_event_id);
++
++static int remote_event_format_show(struct seq_file *s, void *unused)
++{
++	size_t offset = sizeof(struct remote_event_hdr);
++	struct remote_event *evt = s->private;
++	struct trace_event_fields *field;
++
++	seq_printf(s, "name: %s\n", evt->name);
++	seq_printf(s, "ID: %d\n", evt->id);
++	seq_puts(s,
++		 "format:\n\tfield:unsigned short common_type;\toffset:0;\tsize:2;\tsigned:0;\n\n");
++
++	field = &evt->fields[0];
++	while (field->name) {
++		seq_printf(s, "\tfield:%s %s;\toffset:%zu;\tsize:%u;\tsigned:%d;\n",
++			   field->type, field->name, offset, field->size,
++			   field->is_signed);
++		offset += field->size;
++		field++;
++	}
++
++	if (field != &evt->fields[0])
++		seq_puts(s, "\n");
++
++	seq_printf(s, "print fmt: %s\n", evt->print_fmt);
++
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(remote_event_format);
++
++static int remote_event_callback(const char *name, umode_t *mode, void **data,
++				 const struct file_operations **fops)
++{
++	if (!strcmp(name, "enable")) {
++		*mode = TRACEFS_MODE_WRITE;
++		*fops = &remote_event_enable_fops;
++		return 1;
++	}
++
++	if (!strcmp(name, "id")) {
++		*mode = TRACEFS_MODE_READ;
++		*fops = &remote_event_id_fops;
++		return 1;
++	}
++
++	if (!strcmp(name, "format")) {
++		*mode = TRACEFS_MODE_READ;
++		*fops = &remote_event_format_fops;
++		return 1;
++	}
++
++	return 0;
 +}
 +
- int simple_ring_buffer_enable_tracing(struct simple_rb_per_cpu *cpu_buffer, bool enable)
- {
- 	if (!simple_rb_loaded(cpu_buffer))
++static int trace_remote_init_eventfs(const char *remote_name, struct trace_remote *remote,
++				     struct remote_event *evt)
++{
++	struct eventfs_inode *eventfs = remote->eventfs;
++	static struct eventfs_entry entries[] = {
++		{
++			.name		= "enable",
++			.callback	= remote_event_callback,
++		}, {
++			.name		= "id",
++			.callback	= remote_event_callback,
++		}, {
++			.name		= "format",
++			.callback	= remote_event_callback,
++		}
++	};
++	bool eventfs_create = false;
++
++	if (!eventfs) {
++		eventfs = eventfs_create_events_dir("events", remote->dentry, NULL, 0, NULL);
++		if (IS_ERR(eventfs))
++			return PTR_ERR(eventfs);
++
++		/*
++		 * Create similar hierarchy as local events even if a single system is supported at
++		 * the moment
++		 */
++		eventfs = eventfs_create_dir(remote_name, eventfs, NULL, 0, NULL);
++		if (IS_ERR(eventfs))
++			return PTR_ERR(eventfs);
++
++		remote->eventfs = eventfs;
++		eventfs_create = true;
++	}
++
++	eventfs = eventfs_create_dir(evt->name, eventfs, entries, ARRAY_SIZE(entries), evt);
++	if (IS_ERR(eventfs)) {
++		if (eventfs_create) {
++			eventfs_remove_events_dir(remote->eventfs);
++			remote->eventfs = NULL;
++		}
++		return PTR_ERR(eventfs);
++	}
++
++	return 0;
++}
++
++static int trace_remote_attach_events(struct trace_remote *remote, struct remote_event *events,
++				      size_t nr_events)
++{
++	int i;
++
++	for (i = 0; i < nr_events; i++) {
++		struct remote_event *evt = &events[i];
++
++		if (evt->remote)
++			return -EEXIST;
++
++		evt->remote = remote;
++
++		/* We need events to be sorted for efficient lookup */
++		if (i && evt->id <= events[i - 1].id)
++			return -EINVAL;
++	}
++
++	remote->events = events;
++	remote->nr_events = nr_events;
++
++	return 0;
++}
++
++static int trace_remote_register_events(const char *remote_name, struct trace_remote *remote,
++					struct remote_event *events, size_t nr_events)
++{
++	int i, ret;
++
++	ret = trace_remote_attach_events(remote, events, nr_events);
++	if (ret)
++		return ret;
++
++	for (i = 0; i < nr_events; i++) {
++		struct remote_event *evt = &events[i];
++
++		ret = trace_remote_init_eventfs(remote_name, remote, evt);
++		if (ret)
++			pr_warn("Failed to init eventfs for event '%s' (%d)",
++				evt->name, ret);
++	}
++
++	return 0;
++}
++
++static int __cmp_events(const void *id, const void *evt)
++{
++	return (long)id - ((struct remote_event *)evt)->id;
++}
++
++static struct remote_event *trace_remote_find_event(struct trace_remote *remote, unsigned short id)
++{
++	return bsearch((const void *)(unsigned long)id, remote->events, remote->nr_events,
++		       sizeof(*remote->events), __cmp_events);
++}
 -- 
 2.52.0.457.g6b5491de43-goog
 
