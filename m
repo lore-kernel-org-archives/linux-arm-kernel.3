@@ -4,75 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34988CF65DD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 11:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 424EACF65DB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 11:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZuODv4byBDoO7r5ORDZZKB4tCzJ8s4CMikv3WI8hr/Y=; b=HukqJkjoW5ij1+qNScpnD5UuTj
-	i4LzTcXJqMTS0jra3+8b9zdUyvg/2bO9fzz1hhKFeVTSPUvBEBolL4W1Q80ls4jRecj+/jwTVz9Dd
-	VGwwHsOIL5YqPsVU7PraKX1bX3qeHHQ3LOzK9ZPA3DoptwRe21gXYcLbYfJkDD4t2Eg058zARoVqx
-	2tZdNLgkJPWjbiQsx0nu/HPXDQlm/q0HewpqD5QS/jL+UQs9AFk+Yd90Q47/Xylc5Jc/pBYjBDZ75
-	vke6V9FDA9EAh98R7DIftFpnm7l9KpyB5iI1/sUEXTFB/bxIjagA+zyC7jWFYPY/QQzRIiEE5ceWb
-	M0q5tcnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qArYCsdhkFQ9pemxYyN7/iRY01bc0LTXDWRa/rq/1c0=; b=a9Fs350MnpHOjgMUyYw3OBYNf7
+	dNeoS7+IAUZRC76bhXj4v96wommjblhj+r59Q7PL0LmiAC2QhjtresHTtsakmkoVVSny2oeDPhJuk
+	F3dHJKGRX90sfXw+1k1E1RX2NwWPTtChCgC4UFo1T5OToRgMsxVZUFIPMphwnzMBhc0muSzMVcMAa
+	EqzG6+lOaITKRu09rZa8iENWFYaFCdDwAoc2kSmm4MbaDjNbf18PfOMAs9sN1DoGO3jT5dSCzdHR1
+	TNsKn/LRTVm03UX68/AKb2DuOKSxdnwcr9PWv0DuI2odt1T/CLVcJPcFlAt03+Hetfdq0S+Ac1qLm
+	3XR5PZhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkKPx-0000000CNuS-0kaN;
-	Mon, 26 Jan 2026 11:06:01 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1vkKWu-0000000COMU-2gFl;
+	Mon, 26 Jan 2026 11:13:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkKPq-0000000CNtj-2lU1;
-	Mon, 26 Jan 2026 11:05:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ZuODv4byBDoO7r5ORDZZKB4tCzJ8s4CMikv3WI8hr/Y=; b=DSJXpNivAlcWV1w9ugI0E425/J
-	kXYNh+EOtBME+oBjgHiDyVQ8WB+b7+X3Vbl91kXX6p4aY8QSY5ax2S2V8JTT2v4Fid9/suotJvhI3
-	sb3/WgcwAW3bzibDOyQrncYSBkXVPJiU8TjNKc2Q2XBky730iUAQ7G4i+kK12aPMLsY0J/b1JNaoD
-	vhCcWvfBz3TFKMskx23Y4s2Bl4NDGcQDfZngO59bOpIWhxd9B9IbNyryFYl2bxWC+mH4ZVPYnY4sq
-	zdfr0I89VW3ohxuB/nzTCPtw3YqniJK/VDLVMFY9QVH66fVpKTdS97MDtJxmIcVHwRRLtYFIxyzrf
-	5byoU4gg==;
-Received: from [189.89.57.42] (helo=[192.168.18.14])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1vkKPZ-00A0Ol-V5; Mon, 26 Jan 2026 12:05:38 +0100
-Message-ID: <9ee3b7f0-9262-4f6f-bec6-6fd9978e3754@igalia.com>
-Date: Mon, 26 Jan 2026 08:05:30 -0300
+	id 1vkKWs-0000000COM8-037X
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 26 Jan 2026 11:13:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C5FF41885;
+	Mon, 26 Jan 2026 11:13:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7C64C19422;
+	Mon, 26 Jan 2026 11:13:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1769425988;
+	bh=b1kGKt4I8uMv/tbEisQ62grCjanU+UDk3PHQZ10u03k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hYUJYhTxY0Lo8rG5w6QGDsMd7bd0+bpuDz6N5AAmu64AvbVsGXHV8dgAlztgb/cue
+	 82+YoKQxSUDTMrPkL2cdx7n+IvXHGQzuGSrJdYscb7XBSVOR7lM7/tPadYXHfUc6ZV
+	 AjuFrI9IeZqJsLnKVeHxldSjrUf9+LjyM7qJhCfw=
+Date: Mon, 26 Jan 2026 12:11:43 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: coresight@lists.linaro.org, james.clark@linaro.org, leo.yan@linux.dev,
+	mike.leach@linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [GIT PULL] coresight: Updates for Linux v7.0
+Message-ID: <2026012635-audition-umbrella-74ad@gregkh>
+References: <20260126105001.2012310-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] drm/v3d: Allocate all resources before enabling
- the clock
-To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Stefan Wahren <wahrenst@gmx.net>, Maxime Ripard <mripard@kernel.org>,
- Iago Toral Quiroga <itoral@igalia.com>,
- Chema Casanova <jmcasanova@igalia.com>, Dom Cobley <popcornmix@gmail.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
-References: <20260116-v3d-power-management-v3-0-4e1874e81dd6@igalia.com>
- <20260116-v3d-power-management-v3-3-4e1874e81dd6@igalia.com>
- <b652e476-af2f-4af7-aa95-3b987f6e1bde@igalia.com>
- <dbd3c9e7-c60f-4223-8ca6-c55d2398cc3c@igalia.com>
-Content-Language: en-US
-From: Melissa Wen <mwen@igalia.com>
-In-Reply-To: <dbd3c9e7-c60f-4223-8ca6-c55d2398cc3c@igalia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260126105001.2012310-1-suzuki.poulose@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_030555_007039_EF9CD98C 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20260126_031310_115898_900F2227 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,55 +69,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 26, 2026 at 10:50:01AM +0000, Suzuki K Poulose wrote:
+> Hi Greg
+> 
+> Please find the coresight hwtracing subsystem changes for the next release.
+> 
+> Kindly pull
+> 
+> Suzuki
+> 
+> 
+> 
+> 
+> The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
+> 
+>   Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v7.0
 
+Pulled and pushed out, thanks.
 
-On 24/01/2026 14:48, Maíra Canal wrote:
-> Hi Melissa,
->
-> On 23/01/26 12:53, Melissa Wen wrote:
->>
->>
->> On 16/01/2026 17:19, Maíra Canal wrote:
->>> Move all resource allocation operations before actually enabling the
->>> clock, as those operations don't require the GPU to be powered on.
->> What are the benefits of doing it?
->
-> This is mostly a preparation for the next patch. In the next patch, I'll
-> move all code related to powering on and preparing the GPU into the
-> resume() hook. Since resource allocation must occur before resume(),
-> this patch prepares the necessary groundwork for that.
-
-Can you include this explanation to the commit message?
-
->
->>>
->>> While here, use devm_reset_control_get_optional_exclusive() instead of
->>> open-code it.
->> Overall LGTM. But I think this patch could be split into smaller units.
->> Maybe something like:
->> 1. remove open-coded part
->> 2. split gem resource allocation from initialization
->> 3. move all resource allocation
->
-> I can certainly do that. My initial thinking was to keep these changes
-> together, since they are closely related and all serve the same
-> preparatory goal for the upcoming resume() refactoring. From my
-> perspective, keeping them together helps preserve that context.
-
-As a reviewer, splitting these changes into separate patches would make 
-review simpler.
-I think the open-coded improvement isn't super attached to the resource 
-allocation, right?
-And you can preserve context in the commit message.
-
-Melissa
-
->
-> Best regards,
-> - Maíra
->
->>
->> Melissa
->>
-
+greg k-h
 
