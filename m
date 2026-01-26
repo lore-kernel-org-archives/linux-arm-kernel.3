@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B9ACF65D9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 10:30:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85425CF65D9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 10:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+2ToM7E+Qj1Z9k1fXgIslDJKNq8unuvWFbzBA+Z/HJI=; b=EQrYVcxfG35XcZ3+zpJkZ2CXQe
-	1YbZiByjB1BjSa7whe8W6iMp1+cZ6u34iyeYdmVER2hN2L5eX07TdMKJuN4CdH4Z9DPrmQYjI+QNR
-	1+hKgoqfaUEPW13dgmyXc9S4/0AHoFzL7iRL0/ZHgI8KJq3U0HbVhU3BDnt3LNURSzRsDoWAvkAgY
-	2ZqEkrjbTJzBqHNBq4JRjpQKd9F76eUMpOHn7N59PJjnjo+OAsNEKpgsifwVfCgO+Hl8DCjP37ZfM
-	TTUXsCkSVUOY0AyheS6xrzNw2Y9MgCtAPq1jxkfrc5YZRmpywSy2CBqoPf0PULcOSsf7N29PfUpQX
-	J391H1gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=70XkH2/SXRbR8ODG/xIB13yKYaKsFBNAdxElPjrjkqQ=; b=GVWANOAkfiYYi5P0boI+3RbFjc
+	Mr9i/Mo9Wuz6+asL649v+xOD+LiVLOl9goe2SNnFF5uobJ0hCJ7QRO0PgiF2N6imzd5lHmjA2kGS7
+	oMRLjfZrOR+ix1noFbZzAelrIP45klfoUUohZcG1pilARSqvvTyr6cPXp+LTzYLQIkg9/y2mwuoop
+	hKNoxgNc+g5SVG+0oNSKf5tPabYRsNxNnYqS+c1RWSBUJLZNnVWZKdXoFk3eTW+nSboyOzlsKeu2C
+	amiIh1xE3qjK+g3kTjfYDEkwp8BAPiUqWIRJc2nN3aBNkAAegySyij5P79Zee4li1Zh8edKCBQeJ4
+	TmrXQ8ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkJrX-0000000CI6E-0Hg6;
-	Mon, 26 Jan 2026 10:30:27 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vkJs4-0000000CIDC-2ykM;
+	Mon, 26 Jan 2026 10:31:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkJrT-0000000CI4g-3Q4Z
+	id 1vkJs2-0000000CICs-2rkw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 10:30:25 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 2B9174E4228D;
-	Mon, 26 Jan 2026 10:30:19 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id AF73960717;
-	Mon, 26 Jan 2026 10:30:18 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5B133119A80E2;
-	Mon, 26 Jan 2026 11:30:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769423417; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=+2ToM7E+Qj1Z9k1fXgIslDJKNq8unuvWFbzBA+Z/HJI=;
-	b=hfKjwU7ZeE/+65JduiU/x648c2XpeMNC0ahM0hJzkjC0bNquwvEcATHujQySNP51uzq5VB
-	APmi/Du46xcSKhd2K/z6eRwdUyqeiI9XeRQpGgvNAKOWIfHgwd30vNmfPMlqzvmdgfDAj6
-	LcGPjrLgiKbTMufH+q7eofBSRGXhYoK+g47ZMJF9b3+MIffL350BwLaYRCOPEMbLGU7D0i
-	kXkhFjGTwE8Y5KLmnWEgqteCzIz8tfiiN9NPH9eBJh7NeEDhDItr8BVs3aPpbp5KUCJegV
-	vVc61OSSxpM59fuA66r+vsTmM15w+0QZvAwluzHPjQWm7KLzlLOpWXxiUJwI9A==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Elad Nachman <enachman@marvell.com>, robh+dt@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, andrew@lunn.ch,
- sebastian.hesselbarth@gmail.com, pali@kernel.org, mrkiko.rs@gmail.com,
- chris.packham@alliedtelesis.co.nz, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: enachman@marvell.com
-Subject: Re: [PATCH v2 0/3] arm64: dts: a7k: add COM Express boards
-In-Reply-To: <20260125152347.2518538-1-enachman@marvell.com>
-References: <20260125152347.2518538-1-enachman@marvell.com>
-Date: Mon, 26 Jan 2026 11:30:07 +0100
-Message-ID: <87sebsk6og.fsf@BLaptop.bootlin.com>
+	Mon, 26 Jan 2026 10:30:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C58DD60007;
+	Mon, 26 Jan 2026 10:30:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61B8AC19421;
+	Mon, 26 Jan 2026 10:30:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769423457;
+	bh=y8YlnBBYdukWkLM4gI4CeIjxBlYWDFXvVo4EZdvNX/w=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=HKmY1k3MJihWWPe6EOHqv0VHZKWuHc8NR7drsAPmiVG7wW9FtIMMVtU9M6LRVaRCU
+	 14zoiljY30Ynrg//ohr8DUocHiyaCL4blvI1BWec0uPmjNeMK/tXlhR65kyx/2Btus
+	 Z89yNcyZ2scUAgBTaoB+UwloBP/mMFloIeGonn/FG0GNg87FSZAl9S29XTyOdwHWO4
+	 2fxJ3bWaF/64oqIU94r1y0IQ/2Lc9fYgb1u2zxgLCGdop7tMLIE/VGWQYAbG3oybNI
+	 +lACoMAC4W3RwH3VhRbp0+EeFk3LPoSUyqZl1xF+IhLlZb3RRZFW/Aj4ciS0DPq3oy
+	 mYOO2f2Y1b5Vg==
+Date: Mon, 26 Jan 2026 04:30:56 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_023023_983775_DE5AB7D9 
-X-CRM114-Status: GOOD (  18.99  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, schung@nuvoton.com, tzimmermann@suse.de, 
+ devicetree@vger.kernel.org, conor+dt@kernel.org, ychuang3@nuvoton.com, 
+ linux-arm-kernel@lists.infradead.org, maarten.lankhorst@linux.intel.com, 
+ yclu4@nuvoton.com, airlied@gmail.com, dri-devel@lists.freedesktop.org, 
+ mripard@kernel.org, simona@ffwll.ch, krzk+dt@kernel.org
+To: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <20260126085727.2568958-2-a0987203069@gmail.com>
+References: <20260126085727.2568958-1-a0987203069@gmail.com>
+ <20260126085727.2568958-2-a0987203069@gmail.com>
+Message-Id: <176942345650.1493690.6680592088886642042.robh@kernel.org>
+Subject: Re: [PATCH 1/3] dt-bindings: display: nuvoton: add MA35D1 DCU
+ binding
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,81 +73,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Elad,
 
-> From: Elad Nachman <enachman@marvell.com>
->
-> Add support for Armada 7020 Express Type 7 CPU module board by Marvell.
-> Add device tree bindings for this board.
-> Define this COM Express CPU module as dtsi and provide a dtsi file for
-> the carrier board (Marvell DB-98CX85x0 COM Express type 7 carrier board).
->
-> Since memory is soldered on CPU module, memory node is on CPU module
-> dtsi file.
->
-> This Carrier board only utilizes the PCIe link, hence no special device
-> or driver support is provided by this dtsi file.
-> Devise a dts file for the combined com express carrier and CPU module.
->
-> The Aramda 7020 CPU COM Express board offers the following features:
->
-> 1.  Armada 7020 CPU, with dual ARM A72 cores
-> 2.  DDR4 memory, 8GB, on board soldered
-> 3.  1Gbit Out of Band Ethernet via RGMII to PHY and RJ45 connector,
->     all are present on A7K CPU module (none on the carrier)
-> 4.  Optional 10G KR Ethernet going via the COM Express type 7 connector
-> 5.  On-board 8 Gbit, 8-bit bus width NAND flash
-> 6.  On-board 512 Mbit SPI flash
-> 7.  PCIe Root Complex, 4 lanes PCIe gen3 connectivity, going via the
->     COM Express type 7 connector
-> 8.  m.2 SATA connector
-> 9.  Micro-SD card connector
-> 10. USB 2.0 via COM Express type 7 connector
-> 11. Two i2c interfaces - one to the CPU module, and one to the
->     carrier board via the COM Express type 7 connector
-> 12. UART (mini USB connector by virtue of FT2232D UART to USB
->     converter, connected to the Armada 7020 UART0)
->
-> v2:
->   1) update 10gbase-kr to 10gbase-r in dtsi
->
+On Mon, 26 Jan 2026 16:57:25 +0800, Joey Lu wrote:
+> Add Device Tree binding documentation for the Display Control
+> Unit (DCU) found in Nuvoton MA35D1 SoCs.
+> 
+> The DCU is a DPI-based display controller supporting RGB output
+> with optional external bridges or panels.
+> 
+> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+> ---
+>  .../bindings/display/nuvoton,ma35d1-dcu.yaml  | 74 +++++++++++++++++++
+>  1 file changed, 74 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/nuvoton,ma35d1-dcu.yaml
+> 
 
-I=E2=80=99ve already merged your previous version with this fix and even
-included it in the PR for the next release.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-However, I noticed a comment from Andrew. Could you provide a fix for
-it, and I=E2=80=99ll try to include it i
+yamllint warnings/errors:
 
-Thanks,
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/display/nuvoton,ma35d1-dcu.example.dtb: /example-0/display@40260000: failed to match any schema with compatible: ['nuvoton,ma35d1-drm']
 
-Gregory
+doc reference errors (make refcheckdocs):
 
+See https://patchwork.kernel.org/project/devicetree/patch/20260126085727.2568958-2-a0987203069@gmail.com
 
-> Elad Nachman (3):
->   dt-bindings: arm64: add Marvell 7k COMe boards
->   arm64: dts: a7k: add COM Express boards
->   MAINTAINERS: Add Falcon DB
->
->  .../bindings/arm/marvell/armada-7k-8k.yaml    |  11 ++
->  MAINTAINERS                                   |   1 +
->  arch/arm64/boot/dts/marvell/Makefile          |   1 +
->  .../dts/marvell/armada-7020-comexpress.dtsi   | 161 ++++++++++++++++++
->  arch/arm64/boot/dts/marvell/armada-70x0.dtsi  |   7 +
->  .../boot/dts/marvell/armada-ap806-dual.dtsi   |   4 +-
->  .../dts/marvell/db-falcon-carrier-a7k.dts     |  27 +++
->  .../boot/dts/marvell/db-falcon-carrier.dtsi   |  22 +++
->  8 files changed, 232 insertions(+), 2 deletions(-)
->  create mode 100644 arch/arm64/boot/dts/marvell/armada-7020-comexpress.dt=
-si
->  create mode 100644 arch/arm64/boot/dts/marvell/db-falcon-carrier-a7k.dts
->  create mode 100644 arch/arm64/boot/dts/marvell/db-falcon-carrier.dtsi
->
-> --=20
-> 2.25.1
->
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
