@@ -4,97 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F39ECF65CA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:48:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7358CF65CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 09:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ku8hCC/KeIeBXZMKlasY4QhX+B4SFXs580a4fks1WRY=; b=TmeAE1yq2aUXsAQSZAbW/T2fD8
-	CTM5c/kQAP6gaFb6s4S78eZcF/NSKJqxsu6tG0TSPXtXGShXnzWrnfkTsbAJiUflrlgGZ4Obz2rdt
-	d0b7aZw/KOJszMRna/xbN13CyjOAtbZW5jZfgnEDcQSO2Ihjbtan6FRy8jM1HYxaa5V4LEfMRnR8/
-	O481XDE0e07wQn1jPERGJ8dcrOJ7j7CUMI9WhjCz1g7BlmgzIeFygN56AVIlO3cyMJhk9c1ZWhg+f
-	mQjUFtIU8Mf+wQS/DWbWvWHn/N7WKlYk7BU+G1JA3c20/hTZgXcypU4NtUaWM0AAYIwZerF7QcbC2
-	ZC4C7M1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gCqG1JmK0XnIs4nDrNljcp7tqLK+Bq0xGp3bwdNVubo=; b=u1SubSkQOjRwUoebXFZCr6UfOU
+	1hf7soD0qwUNbFj4ZVLbs6tqWuBFnCzOLjHOUKJLELy5tbPsMI0ezNz1R99mu0ddz2//v8cxulY6G
+	qovC1xrXJccozp9TKJkL/Y3r/i3o8lfT6eReDAoX+KG9jpISiYY3glDvB1Zv2cQQmSt3sQU86xmIc
+	faPo/xx1vh2sGwg2r7PN5rCHXo9sc4RAyPbIIt1P4zt054IFZl//ijml/EAKN2ScvEkLpLKYGsWaB
+	fFrxrZjRINH6nv+cemNnZBKGNbw+di0xZ5vwqzXr1ABaRRttuO6ejD6OTkqryHRBi8wccJBNwpPvj
+	qnVhm5MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkJCZ-0000000CEMJ-3bxK;
-	Mon, 26 Jan 2026 09:48:07 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkJCX-0000000CELZ-3V5Y
+	id 1vkJFO-0000000CEVp-24of;
+	Mon, 26 Jan 2026 09:51:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkJFK-0000000CEVQ-2ml2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 09:48:07 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-42fed090e5fso2572209f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 01:48:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769420883; x=1770025683; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ku8hCC/KeIeBXZMKlasY4QhX+B4SFXs580a4fks1WRY=;
-        b=DjTeeC8dGkCK+c6NIrT5gUeSygucphOnyxdVGwOBGyYb75IsTOC/0Jnd/3/uDi/5vU
-         p8zzNwHHOIEN4MHyn1SLtbtsnz71WUQ0simMxHuXJXgmayeLQKpogS+XNYAQ1uZl7Mxf
-         MRjFgBryqUEy7b9vDaMkRFzZncmMLCgb2LPbVn17bC13pfJe+VjraPhvXMsZ28bzm2mx
-         2OKdCI8dkhXonGpwOTyu89uywZChB/AovzBxIqhGHD+zGNQFAC5EGt9RvVOl5OzkdKUb
-         Ht3Rbmtkg2MKBgv9pBRGLsg9Mqwt6GNyaa/xNLyVElAIYcTcygvCzGmxSYsSalllz7Pz
-         EkvQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769420883; x=1770025683;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ku8hCC/KeIeBXZMKlasY4QhX+B4SFXs580a4fks1WRY=;
-        b=qdaMBow1guWujmzGjfgCSTyzJIk+QzrBvaGjgw9WOc02SGULfntruuB82mqrcvGxhU
-         kaOhaZ3z6DEIY0aaTsA6dkGxbDJkh9p7cHW41sPfryA/5GHulxh0jOrzxp5tXhehMKda
-         NdY36rzBjkV3SWUc+9tcoQT2G8nRR+4WMEzCjR1RJfW0R9NEL9DDfhTZ5WXzaMZsifn6
-         /sgfITawWS3seL9+SjM91sjdcIu0LJUtbGw1yn0JMWxSKOOVliGzNOiAu1+hCDFbM8oM
-         5ZBb3kdpkicywvhq3yD/DVDx/+MGSfUtPyvw8l+isOxreqLIawM7QHieaYFHZahzy7oS
-         DeWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWFdppm8jo+DdSs9jk53yR2k3Tb2P5RG4v/exJuPe5qMN6weHflmy/ctJ7sQ9sji8gT0oKrp9YKELriqSXek2Ec@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1JmZ8rQESxQbbLb7YYDMLpADeAMgVQENXNnjrwLqQFbVW0SDS
-	kV8oz6ZCC+Nv2QSObBaVHOsC7O9arawzzuvWTFbE4bGDPV5yAj9U4ZhC
-X-Gm-Gg: AZuq6aLsjUPJ30jzI0tgLvs2GFi74SLNnwGViwD4UlE78FrsQfuMWhsuLonkAH+KYJ1
-	XC77OtWcSTj/9+L/dY250HLdORyRo1u4KM4hTLSUGS72psfNCMF2qJ6gwGMqg7DY4EbLHWYQa8c
-	d4ZE70B7DRgY4exS4mt0pe0+rEA4PgQblK9Y/d8jhEl9s495QQY463BfDjtBL8nLS3y2aWnR5FR
-	7rWHBgZQErmlqNBKeqFz1xe/9Rzn7myfRL9WwfkVjKvLWsGGnIQwBjXlf8dmGSsqHwKuifW9rl6
-	puXUU1NK0WXwEtz1Iw99GYBE2eODkdX+tN3MTo3NsXewOMHB4dyjybrx3LGKi+sHR4oDUtlwIL3
-	13al1DHeTKggdzHk2zql9kazWv2Fk2v2dmpnb2HQ7DASV4fypOxGwmpPPU4dd
-X-Received: by 2002:a05:6000:2403:b0:430:f97a:6f42 with SMTP id ffacd0b85a97d-435ca39c59bmr8042341f8f.54.1769420883063;
-        Mon, 26 Jan 2026 01:48:03 -0800 (PST)
-Received: from krava ([2a02:8308:a00c:e200::b44f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-435b1f7b4d8sm27562381f8f.38.2026.01.26.01.48.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 Jan 2026 01:48:02 -0800 (PST)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Mon, 26 Jan 2026 10:48:01 +0100
-To: Steven Rostedt <rostedt@kernel.org>
-Cc: Florent Revest <revest@google.com>,
-	Andrii Nakryiko <andrii.nakryiko@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>, bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Menglong Dong <menglong8.dong@gmail.com>,
-	Song Liu <song@kernel.org>
-Subject: Re: [PATCHv6 bpf-next 0/9] ftrace,bpf: Use single direct ops for bpf
- trampolines
-Message-ID: <aXc4UesvE3zYfPqn@krava>
-References: <20251230145010.103439-1-jolsa@kernel.org>
- <CAEf4BzaRU0DoM9hHtW5Bm7njodfg06JzTOe=ABAqZ6iMjAt4iQ@mail.gmail.com>
+	Mon, 26 Jan 2026 09:51:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04EF4339;
+	Mon, 26 Jan 2026 01:50:50 -0800 (PST)
+Received: from [10.57.8.194] (unknown [10.57.8.194])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B8D583F632;
+	Mon, 26 Jan 2026 01:50:52 -0800 (PST)
+Message-ID: <e051c4bb-7b1c-4823-b81f-e4df5d8b1d9d@arm.com>
+Date: Mon, 26 Jan 2026 09:50:50 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 22/46] arm64: RMI: Create the realm descriptor
+To: Alper Gun <alpergun@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve <vannapurve@google.com>
+References: <20251217101125.91098-1-steven.price@arm.com>
+ <20251217101125.91098-23-steven.price@arm.com>
+ <CABpDEumQ=62nZ_xEN6oMHw=J+6ps=Gy=1vx8i=6Hz+BacO1Ymg@mail.gmail.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <CABpDEumQ=62nZ_xEN6oMHw=J+6ps=Gy=1vx8i=6Hz+BacO1Ymg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAEf4BzaRU0DoM9hHtW5Bm7njodfg06JzTOe=ABAqZ6iMjAt4iQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_014805_904487_C8B2B50F 
-X-CRM114-Status: GOOD (  32.02  )
+X-CRM114-CacheID: sfid-20260126_015058_794376_471A7098 
+X-CRM114-Status: GOOD (  23.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,132 +78,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hi,
-gentle ping, thanks
-
-jirka
-
-On Thu, Jan 15, 2026 at 10:54:09AM -0800, Andrii Nakryiko wrote:
-> On Tue, Dec 30, 2025 at 6:50 AM Jiri Olsa <jolsa@kernel.org> wrote:
-> >
-> > hi,
-> > while poking the multi-tracing interface I ended up with just one ftrace_ops
-> > object to attach all trampolines.
-> >
-> > This change allows to use less direct API calls during the attachment changes
-> > in the future code, so in effect speeding up the attachment.
-> >
-> > In current code we get a speed up from using just a single ftrace_ops object.
-> >
-> > - with current code:
-> >
-> >   Performance counter stats for 'bpftrace -e fentry:vmlinux:ksys_* {} -c true':
-> >
-> >      6,364,157,902      cycles:k
-> >        828,728,902      cycles:u
-> >      1,064,803,824      instructions:u                   #    1.28  insn per cycle
-> >     23,797,500,067      instructions:k                   #    3.74  insn per cycle
-> >
-> >        4.416004987 seconds time elapsed
-> >
-> >        0.164121000 seconds user
-> >        1.289550000 seconds sys
-> >
-> >
-> > - with the fix:
-> >
-> >    Performance counter stats for 'bpftrace -e fentry:vmlinux:ksys_* {} -c true':
-> >
-> >      6,535,857,905      cycles:k
-> >        810,809,429      cycles:u
-> >      1,064,594,027      instructions:u                   #    1.31  insn per cycle
-> >     23,962,552,894      instructions:k                   #    3.67  insn per cycle
-> >
-> >        1.666961239 seconds time elapsed
-> >
-> >        0.157412000 seconds user
-> >        1.283396000 seconds sys
-> >
-> >
-> >
-> > The speedup seems to be related to the fact that with single ftrace_ops object
-> > we don't call ftrace_shutdown anymore (we use ftrace_update_ops instead) and
-> > we skip the synchronize rcu calls (each ~100ms) at the end of that function.
-> >
-> > rfc: https://lore.kernel.org/bpf/20250729102813.1531457-1-jolsa@kernel.org/
-> > v1:  https://lore.kernel.org/bpf/20250923215147.1571952-1-jolsa@kernel.org/
-> > v2:  https://lore.kernel.org/bpf/20251113123750.2507435-1-jolsa@kernel.org/
-> > v3:  https://lore.kernel.org/bpf/20251120212402.466524-1-jolsa@kernel.org/
-> > v4:  https://lore.kernel.org/bpf/20251203082402.78816-1-jolsa@kernel.org/
-> > v5:  https://lore.kernel.org/bpf/20251215211402.353056-10-jolsa@kernel.org/
-> >
-> > v6 changes:
-> > - rename add_hash_entry_direct to add_ftrace_hash_entry_direct [Steven]
-> > - factor hash_add/hash_sub [Steven]
-> > - add kerneldoc header for update_ftrace_direct_* functions [Steven]
-> > - few assorted smaller fixes [Steven]
-> > - added missing direct_ops wrappers for !CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
-> >   case [Steven]
-> >
+On 23/01/2026 18:57, Alper Gun wrote:
+> On Wed, Dec 17, 2025 at 2:13 AM Steven Price <steven.price@arm.com> wrote:
+>>
+>> Creating a realm involves first creating a realm descriptor (RD). This
+>> involves passing the configuration information to the RMM. Do this as
+>> part of realm_ensure_created() so that the realm is created when it is
+>> first needed.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> New patch for v12
+>> ---
+>>  arch/arm64/kvm/rmi.c | 117 ++++++++++++++++++++++++++++++++++++++++++-
+>>  1 file changed, 115 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+>> index b51e68e56d56..18edc7eeb5fa 100644
+>> --- a/arch/arm64/kvm/rmi.c
+>> +++ b/arch/arm64/kvm/rmi.c
+>> @@ -500,6 +500,106 @@ static void realm_unmap_shared_range(struct kvm *kvm,
+>>                              start, end);
+>>  }
+>>
+>> +/* Calculate the number of s2 root rtts needed */
+>> +static int realm_num_root_rtts(struct realm *realm)
+>> +{
+>> +       unsigned int ipa_bits = realm->ia_bits;
+>> +       unsigned int levels = 4 - get_start_level(realm);
+>> +       unsigned int sl_ipa_bits = levels * (RMM_PAGE_SHIFT - 3) +
+>> +                                  RMM_PAGE_SHIFT;
+>> +
+>> +       if (sl_ipa_bits >= ipa_bits)
+>> +               return 1;
+>> +
+>> +       return 1 << (ipa_bits - sl_ipa_bits);
+>> +}
+>> +
+>> +static int realm_create_rd(struct kvm *kvm)
+>> +{
+>> +       struct realm *realm = &kvm->arch.realm;
+>> +       struct realm_params *params = realm->params;
+>> +       void *rd = NULL;
+>> +       phys_addr_t rd_phys, params_phys;
+>> +       size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
+>> +       int i, r;
+>> +       int rtt_num_start;
+>> +
+>> +       realm->ia_bits = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
+>> +       rtt_num_start = realm_num_root_rtts(realm);
+>> +
+>> +       if (WARN_ON(realm->rd || !realm->params))
+>> +               return -EEXIST;
+>> +
+>> +       if (pgd_size / RMM_PAGE_SIZE < rtt_num_start)
+>> +               return -EINVAL;
+>> +
+>> +       rd = (void *)__get_free_page(GFP_KERNEL);
+>> +       if (!rd)
+>> +               return -ENOMEM;
+>> +
+>> +       rd_phys = virt_to_phys(rd);
+>> +       if (rmi_granule_delegate(rd_phys)) {
+>> +               r = -ENXIO;
+>> +               goto free_rd;
+>> +       }
+>> +
+>> +       for (i = 0; i < pgd_size; i += RMM_PAGE_SIZE) {
+>> +               phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
+>> +
+>> +               if (rmi_granule_delegate(pgd_phys)) {
+>> +                       r = -ENXIO;
+>> +                       goto out_undelegate_tables;
+>> +               }
+>> +       }
+>> +
+>> +       params->s2sz = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
+>> +       params->rtt_level_start = get_start_level(realm);
+>> +       params->rtt_num_start = rtt_num_start;
+>> +       params->rtt_base = kvm->arch.mmu.pgd_phys;
+>> +       params->vmid = realm->vmid;
 > 
-> So this looks good from BPF side, I think. Steven, if you don't mind
-> giving this patch set another look and if everything is to your liking
-> giving your ack, we can then apply it to bpf-next. Thanks!
-> 
-> > v5 changes:
-> > - do not export ftrace_hash object [Steven]
-> > - fix update_ftrace_direct_add new_filter_hash leak [ci]
-> >
-> > v4 changes:
-> > - rebased on top of bpf-next/master (with jmp attach changes)
-> >   added patch 1 to deal with that
-> > - added extra checks for update_ftrace_direct_del/mod to address
-> >   the ci bot review
-> >
-> > v3 changes:
-> > - rebased on top of bpf-next/master
-> > - fixed update_ftrace_direct_del cleanup path
-> > - added missing inline to update_ftrace_direct_* stubs
-> >
-> > v2 changes:
-> > - rebased on top fo bpf-next/master plus Song's livepatch fixes [1]
-> > - renamed the API functions [2] [Steven]
-> > - do not export the new api [Steven]
-> > - kept the original direct interface:
-> >
-> >   I'm not sure if we want to melt both *_ftrace_direct and the new interface
-> >   into single one. It's bit different in semantic (hence the name change as
-> >   Steven suggested [2]) and I don't think the changes are not that big so
-> >   we could easily keep both APIs.
-> >
-> > v1 changes:
-> > - make the change x86 specific, after discussing with Mark options for
-> >   arm64 [Mark]
-> >
-> > thanks,
-> > jirka
-> >
-> >
-> > [1] https://lore.kernel.org/bpf/20251027175023.1521602-1-song@kernel.org/
-> > [2] https://lore.kernel.org/bpf/20250924050415.4aefcb91@batman.local.home/
-> > ---
-> > Jiri Olsa (9):
-> >       ftrace,bpf: Remove FTRACE_OPS_FL_JMP ftrace_ops flag
-> >       ftrace: Make alloc_and_copy_ftrace_hash direct friendly
-> >       ftrace: Export some of hash related functions
-> >       ftrace: Add update_ftrace_direct_add function
-> >       ftrace: Add update_ftrace_direct_del function
-> >       ftrace: Add update_ftrace_direct_mod function
-> >       bpf: Add trampoline ip hash table
-> >       ftrace: Factor ftrace_ops ops_func interface
-> >       bpf,x86: Use single ftrace_ops for direct calls
-> >
-> >  arch/x86/Kconfig        |   1 +
-> >  include/linux/bpf.h     |   7 ++-
-> >  include/linux/ftrace.h  |  31 +++++++++-
-> >  kernel/bpf/trampoline.c | 259 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------
-> >  kernel/trace/Kconfig    |   3 +
-> >  kernel/trace/ftrace.c   | 406 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--------
-> >  6 files changed, 632 insertions(+), 75 deletions(-)
-> >
+> I don't see a way to configure rpv and hash_algo anymore. I assume they
+> are gone for a minimal userspace interface. Will there be a way to set
+> them going forward?
+
+Yes the intention is that the uAPI will be extended in the future to
+allow these to be configured. This would be by exposing new capability
+flags and allowing the VMM to set the capability. This ensures that a
+basic VMM doesn't need to worry about them, but a more featured VMM can
+provide support for configuration.
+
+This series is already rather long so I've attempted to drop optional
+parts to keep the complexity down while still providing something
+"useful" (i.e. can launch a realm guest and there's some meaningful
+extra security/attestation over a normal VM). There's loads of extra
+features in the spec which will come later.
+
+Thanks,
+Steve
+
+>> +
+>> +       params_phys = virt_to_phys(params);
+>> +
+>> +       if (rmi_realm_create(rd_phys, params_phys)) {
+>> +               r = -ENXIO;
+>> +               goto out_undelegate_tables;
+>> +       }
+>> +
+>> +       if (WARN_ON(rmi_rec_aux_count(rd_phys, &realm->num_aux))) {
+>> +               WARN_ON(rmi_realm_destroy(rd_phys));
+>> +               r = -ENXIO;
+>> +               goto out_undelegate_tables;
+>> +       }
+>> +
+>> +       realm->rd = rd;
+>> +       WRITE_ONCE(realm->state, REALM_STATE_NEW);
+>> +       /* The realm is up, free the parameters.  */
+>> +       free_page((unsigned long)realm->params);
+>> +       realm->params = NULL;
+>> +
+>> +       return 0;
+>> +
+>> +out_undelegate_tables:
+>> +       while (i > 0) {
+>> +               i -= RMM_PAGE_SIZE;
+>> +
+>> +               phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
+>> +
+>> +               if (WARN_ON(rmi_granule_undelegate(pgd_phys))) {
+>> +                       /* Leak the pages if they cannot be returned */
+>> +                       kvm->arch.mmu.pgt = NULL;
+>> +                       break;
+>> +               }
+>> +       }
+>> +       if (WARN_ON(rmi_granule_undelegate(rd_phys))) {
+>> +               /* Leak the page if it isn't returned */
+>> +               return r;
+>> +       }
+>> +free_rd:
+>> +       free_page((unsigned long)rd);
+>> +       return r;
+>> +}
+>> +
+>>  static int realm_unmap_private_page(struct realm *realm,
+>>                                     unsigned long ipa,
+>>                                     unsigned long *next_addr)
+>> @@ -803,8 +903,21 @@ static int realm_init_ipa_state(struct kvm *kvm,
+>>
+>>  static int realm_ensure_created(struct kvm *kvm)
+>>  {
+>> -       /* Provided in later patch */
+>> -       return -ENXIO;
+>> +       int ret;
+>> +
+>> +       switch (kvm_realm_state(kvm)) {
+>> +       case REALM_STATE_NONE:
+>> +               break;
+>> +       case REALM_STATE_NEW:
+>> +               return 0;
+>> +       case REALM_STATE_DEAD:
+>> +               return -ENXIO;
+>> +       default:
+>> +               return -EBUSY;
+>> +       }
+>> +
+>> +       ret = realm_create_rd(kvm);
+>> +       return ret;
+>>  }
+>>
+>>  static int set_ripas_of_protected_regions(struct kvm *kvm)
+>> --
+>> 2.43.0
+>>
+
 
