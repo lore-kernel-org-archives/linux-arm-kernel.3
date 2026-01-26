@@ -4,180 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F38DAC88E58
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 07:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52A21C88E64
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 26 Jan 2026 07:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p6wGKEKw5PNH+SNHDCgZYag+WjbJVHpN4Oxadeisj1A=; b=WNou4JAWzltpPXGkvFt7gUCbLV
-	2VM2/7LXxO2OrqlTCi9Rzclk4APDdWxSThpJLlVD65ca1uYsejoOc0hpT+FoAlXG6Vcm+WQpbo3aD
-	70aEHA5HaS+ktGFP/zDKLWuLEXq6B8T61C0KF0DQIPXxm+MoSZpiDc5BUtubjvQxrF6BY6aYkm4zg
-	b+/cOukpPAFKqR5n+0AJnO3MDAIpnN91sr/GDu7XgVchj/aRHHE0OwwBUht5x2JSeuFFq8n0K2db7
-	PLgFireg2Ntkkuh0hXr8aX7nqkJhLHFWrFlEi3S57Wu3CbEtZaKZbsZ2Lc04pDMkym1wPz+26NAeB
-	WWLvbczQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sQKqVns/Die+3pCYhE6oYhJiqMcHOY2cyLGiHjio/mM=; b=drjzwU0y7av5SV
+	HqnKj2Br4dLHDpjWzl+OkxedJ+3Nw+6DFgW0ArYtdxJ6vxjQxF1IM8xIYGNoXrdhKkq09/ywJIsqn
+	c6XoF4vF77JNCBkNg3yukxiDFKQuHboTltiWxVAU3XgiZmq5A91PgERmTToG7XvwySYgItZmvesUS
+	D7xWtW9Zs9jH8QI2ZGWXhEKhArn4MUHd9BtFg5+qxPPTBMgW5LMWSIni7vM31yy9m3q1njTMnVzh3
+	kfAnhV7L545yAf+WIQ2L0menFTmmkKkIIZkHTChhrXrogMGqt+UXfOfVjBXBqEoRpiJZubGu1hX16
+	5IVlYtRHMvOnZGdo75nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkGmt-0000000C1Og-2yvp;
-	Mon, 26 Jan 2026 07:13:27 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vkHKw-0000000C32a-2u6T;
+	Mon, 26 Jan 2026 07:48:38 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkGmr-0000000C1OG-2tDK
+	id 1vkHKu-0000000C323-0N4R
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 26 Jan 2026 07:13:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xvk9zyEdJTY9ACJjcS+z367rftjX3OvgY1Pu5uUC6R3bPR7WpF1iot0tuTk6OD1XYtCgndYw1npN55MJbY6ru1nEtpkNgD9xZNG2ljj6iKYPZBZeb5Sipi5A866vvOmKBQRZzKQzLkEUfoqsQbMcCpS31r/wQpyeaTlk3ZTu1Cl7O/vpObnlKp0KVdI8I0rsaRkuFyi3Bv9FR9jJWdCV4C07Fz0KzqPwUwx80A7DOL3hDzfT6pSjVfaDXi5BKWo2y9nOfrAYH3WLI1BUI9UumC51tL/p7kLHraoEU7jCa1ezF10gl8xHQbygqp+/c1T/ZK1UQtFOfPUJviv68801bw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p6wGKEKw5PNH+SNHDCgZYag+WjbJVHpN4Oxadeisj1A=;
- b=RqQk0khdPll2oJD50YLAQ0JZJkepre7UpAFqRlOqlLERPZBhR6+nLYVE8+4PFM/+zuwP3sNniPK9Rm1J86hrG3tDrtn5SfrrnkHXVo/D1hTbcVNxZGSKQ4ipMrSFsopkAxuwU+8SsWSCe1Qq4kJi+YWMoRe+HNA3MfxDGU2wwz/CxyIxvBnAVsm+tSmgLBQxr7CxvV65X2f2NFJvimSqBSUTg61d550aFX6Znfc4aW58Ao+mf6MqTKbc0gF6zOFvMD/rkTHZXNPaQApoFp93Flp19xS3wvHBcvfaw21e0m5SJLgjrxcnmHwBmWusQA89AkW8gc/FYCBJ6seKwctzgw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p6wGKEKw5PNH+SNHDCgZYag+WjbJVHpN4Oxadeisj1A=;
- b=Rc/ttkXwFdQbfCQwARucGtb0CcbrDT1VTlHmyc0eBVQHvS8x1GsxJnEFwc8gu7ongWOd7CrFn4oFAEtOqJDbZwbw8H4HV2zj7WvB9TcS9rNMr4Bv0LjhbWSHAPEVCTvd9RjRNQJW+XcO+mzdyDWHvgwqWp1qyi+DJbl2vcTeNqWwSOAj6HAIImznHh740/P5mMVGPzf70jgtMBPVl59sapbb1MBnZb+2L1xAOwMy2MeHHh928J+oOTe63hin2bM1CMaPMFTc6USI1vxPnV/VR5Cj8KeJxPwoeU9+mqmtd2Mc2F/c1nEsQWjnZ5rxoQnhV3zCUTZ/Q4jK+JIA0E03Bw==
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by PAXPR04MB8285.eurprd04.prod.outlook.com (2603:10a6:102:1ca::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.10; Mon, 26 Jan
- 2026 07:13:19 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%7]) with mapi id 15.20.9542.010; Mon, 26 Jan 2026
- 07:13:19 +0000
-From: Hongxing Zhu <hongxing.zhu@nxp.com>
-To: Felix Gu <ustc.gu@gmail.com>, Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?gb2312?B?S3J6eXN6dG9mIFdpbGN6eai9c2tp?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn
- Helgaas <bhelgaas@google.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Trent Piepho <tpiepho@impinj.com>
-CC: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v2] PCI: imx6: Fix device node reference leak in
- imx_pcie_probe()
-Thread-Topic: [PATCH v2] PCI: imx6: Fix device node reference leak in
- imx_pcie_probe()
-Thread-Index: AQHcjVBRoi1mVdIF00+KLWRFNF4IOLVkCoMA
-Date: Mon, 26 Jan 2026 07:13:19 +0000
-Message-ID: <AS8PR04MB8833845E3436CFE30EDEC2E98C93A@AS8PR04MB8833.eurprd04.prod.outlook.com>
-References: <20260124-pci_imx6-v2-1-acb8d5187683@gmail.com>
-In-Reply-To: <20260124-pci_imx6-v2-1-acb8d5187683@gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8833:EE_|PAXPR04MB8285:EE_
-x-ms-office365-filtering-correlation-id: 459f849b-b072-4226-3de6-08de5caa6240
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|19092799006|38070700021|921020;
-x-microsoft-antispam-message-info: =?gb2312?B?UkpEMk5ORVFHV0hIa3FOSzZNcnpJMTVuYjNkdzNzUjZhOGsyS1pHRjN4Ymgy?=
- =?gb2312?B?SmdyZm5CRk9xMGNOTHVoUFBjZ1lYQW1CWkkzQXM5TXpBQXpFK3cra0diNTd4?=
- =?gb2312?B?OENaNm5oTjNNTDQ3S0FSWjJEdGdXVmxONnp3cjFwc3pGZEp6bWZ0Z1RaUDBF?=
- =?gb2312?B?RVFnNER1cThlOWZNSVFuQVJpdWptOFVlclhzMkRpeW9vaW5ZZE9CSHE5Z1hZ?=
- =?gb2312?B?RXJ3ZzU3Z3RneUtPdHdnME5EeTcwSnNpRmk4MG5YaitKeHNURkZYTG9DUU9s?=
- =?gb2312?B?SldWTG5wMFIzdG4wcnFjNFhFT2UyZlc5cy9SQWdoZzF3RzkrOHU4c2tpM0pZ?=
- =?gb2312?B?ekhyVFBPbVc5WXVzcDJST3o2MUZZTXlRUUhjY2I1bTQ0REhUUWlhSnRrMWY0?=
- =?gb2312?B?amJPTVZxZjFjSzM2SU1ySFN6SzlPLy9Ya0dhOGFWM290dGdVbXQxWHhNNERM?=
- =?gb2312?B?YWN1UUxYRVllWG9oeW1abzlFU01wQSt1bklpSFFNTGpZb1dndTNpVFAyN09p?=
- =?gb2312?B?am5mMVVJejBiOG43bzM2b1NIQTczdnBNQW12MGNnbkNSZysxSTFDUTZ5aGFp?=
- =?gb2312?B?d3hERThqaXNZWjg4ZzQzSG9PQVg5a085UXo5V1ZJbVREdE9PNVl6b3RMbkdW?=
- =?gb2312?B?RVN1M2J3VmwyWDhCMmpVM3NVdzNkbTNodDZMK0Z1TXdWeXVZd3hEUG5mWmJW?=
- =?gb2312?B?dkZ3Mlh1M1M5Q3lvSkRISTI2OGxqdDlCUVZSMitTRWFpSGtaNldJNjNFekVP?=
- =?gb2312?B?ZW5mSEtVUW1MQ3RnMVNrMXdCRE1KVEJydTVYL1E2WVAzNktvcldabEYxWm5Y?=
- =?gb2312?B?S3FPSjlpRVg2bnd6Qzh4OTNQenlOVmd1YnNLUTdMVjRNLytLdnkzbTdjdVdW?=
- =?gb2312?B?b04zRnpuenovREJnRDZEbE11RFc1aVRHVE1rNHc4WTZ0N0NKV2gycXdIWFgw?=
- =?gb2312?B?dGMzYkpKY1VtR3ZaekJLeEFVcEIra3hHSnBRVXIvNkhGbnovV1Y1OVpRanZv?=
- =?gb2312?B?bktWL3NMZVc5Y1RZYmRkbGhLZDZWUjdGdjFnUGFiMDFBNVY4WVhycDZvRXJF?=
- =?gb2312?B?a2FPbHdQcHNlVlEyMDhPNVF3eko1T3NVSUJXYUVIV3BWcWRvclJxclBpNmx6?=
- =?gb2312?B?N0ZxRHowRGRiUUNNTlhzSTdWTEdCeDVKckVEY0pMNFArMmk5aG03bTFBN2Rv?=
- =?gb2312?B?ellMdktQN3pIY09DL253TE9wbXlwWHhhOCtjUVB6VlYySE9UWE1MM3g0Q0Nk?=
- =?gb2312?B?cG1PdXRVa05oMVpWeVpwQmFxUG1qalB6NEw4Z25GVTBXeXVmU1NMY1lRNjhm?=
- =?gb2312?B?bmJmV3BNY3oxVFZ0cFpNekV6MnZZRG1mWlB3Y0N2TkJyekg5cVkrYU9XZnAr?=
- =?gb2312?B?c3dJMmcvbzN1WFZsd25BeWFIenA4RWQ2UFlnTlRpRUFRaXBCNE02WGJQbWNm?=
- =?gb2312?B?aGI1THluamVNQll2OERFM3NoMGdNbWJxL0MzR2tVQzlkaTIxeHoyTU1GVWdR?=
- =?gb2312?B?aWlKUEdYWWZtZGFPSVNmWVdST1locEk4L0lFMDNWMmtjeEZZYWUrTUhxeHlT?=
- =?gb2312?B?eFg4OXhvdFlmN0Z0NHdZaVF6UE1tQzgyanB1T3VVaGNyeU4zZ3o2TXRpYXZL?=
- =?gb2312?B?aXl3aHZwT05EdnpRVDdESW91L2FlbnJLa3ZBbEpHbnRhUHJ0MXpTa1A4dXhK?=
- =?gb2312?B?T0JQdjY5d1BaZVJkY0Z6Qld0N0JjdVlZd3VvZGVpMjlvdEpyb0ZaaWVJNWNB?=
- =?gb2312?B?U2lqQlhBY1Z0akM5Y094cFY1bW13bGtnYlN4V29SWUVBb25JRUZRb0lHeDlP?=
- =?gb2312?B?K1ZGSElNOVBSNzNoY01tRHpRSTJxTDE2VTZoQ3BSdGgyNXBlMElwQVQ3MHFj?=
- =?gb2312?B?R0JoSWVNY0xlTEhDYlJqMHhNZTZiYjYzQ1luM2VwV2xlNVV5QjVvbmp4eEIv?=
- =?gb2312?B?UUxCWGk4RDhDTXVKS2FEUkQzNVpUaCtXVVExVFgzcTBmd2ZiZlREajJBcW13?=
- =?gb2312?B?cGcyVW1DNmxYQVllVHBCZUpSUU5xaVRzYWJqRXkvdFVOQTgxOTJNdVdaUzNN?=
- =?gb2312?B?Y2tEWGVENHlTaUttOWRNQmpFVGY0eXBRWVp6U2ordXBpKzNONUgxKzFGZFl5?=
- =?gb2312?Q?sI7gsGbS6MyIx/uE2UjGqL16X?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(19092799006)(38070700021)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?VEFBMWNDVkNuTmlnVzJyQmwyWmNDNEFhZU1iQjhYdHVvN3VQQXpvdFJpbk9a?=
- =?gb2312?B?Q1BmWjk0L2hiOEU0aVd4OGhweFEzVk9PSUU0R1FLKzlVWjNiSDJDSnlBK2Y2?=
- =?gb2312?B?dm9CcVlpaGFSSnRZU2pVemE1TEVnNUc2Wll6aThnWTVaTUh1dFJpemE1WUwy?=
- =?gb2312?B?SlhvNjB4T0hhM2JybVhCaElXZTQvWjhUNjRBUUUxeXAzOXVBMHUwa0hYNzBi?=
- =?gb2312?B?U3ZxZm9YeEhReFM0MHoyMVdVeXhpU1lSLzM0NlIrTFFGRitTb3YvYjhxTzFE?=
- =?gb2312?B?UUI0eGdZWG0ybkp2ZTU3NWcwZVVvanJaenJtMGxpZ3FrRHdlUVdQWjBqOXpt?=
- =?gb2312?B?dHJaSitLNkFwdGVPSmExYUYzUUc3M2l6dG83RlJ6aVl3bEM1S2RZN0VEN3Ar?=
- =?gb2312?B?Qkx1VmhlQ25vVFgwcWlkTXkwSkQ1S0JuNlpLOERtYnNTTGszNVowQXgzTklL?=
- =?gb2312?B?OEFFNS9aOUpMa2FxOWlzZ3d4YllSeVA4R3RiNGcyaGhWa2IxR20zK0RKTEsx?=
- =?gb2312?B?L1JaQVJ3cmxSNHNzQzdQWWdyNjM4V3BkV2lVSEpoTVNJWkZvRlBMY0g5cmJp?=
- =?gb2312?B?bFhyY29yVjB6WnhYN1BUSFlEb0ZJNXN5SitzS0RmOUdwSWRCVXMzQmt5cFli?=
- =?gb2312?B?THFnRUlFZGdwbElvYzRWbExKOEpFMElzL0FOOVRKMEUxazNXWlFxZFNVZVVQ?=
- =?gb2312?B?N3B3OWdWTkxRVHpYRkFkTjErSXlpdVEydTZ6R3VYbytvOUx6d2JYZHJpL2gy?=
- =?gb2312?B?L1ErUTdPSmhZMTIzU1hqaHVGR3FIVGhiTUUvalFsUEVVb2x3cWljeE4yTldH?=
- =?gb2312?B?ZGRDRGh0cklacDR4cEJXSnVMY05waW40bjV4eDRaQ0tnWXlHazcyODBOZlRq?=
- =?gb2312?B?N2JxOEhNYjNRd3Q3Z054L1FWc1pwUWFlM3hGVDFFNDlyblQ0MTcrN3dteGM0?=
- =?gb2312?B?bnFxQ1czYnlLZ3BRcjBNd0tRMUpZMUJqOVN1bUVBZ1hyckg4eEhyS05MVmlK?=
- =?gb2312?B?WS9hNHRSbEhVL2tBU01SclJNRE5pSHpubFZXN3pxZXFXWUxLWjZSZU82MjFh?=
- =?gb2312?B?YjVieDZ1bThvWXBxeGM0aUxMYVB5VHpaL3hhTXBCRi9NRmhSUkZxV3lJM2Q3?=
- =?gb2312?B?UEo1QmE2ckFLVjZGdWlrajNrSml3MVZtM2VQcm9XTklhNklUQjZORVdhRlNS?=
- =?gb2312?B?SEIvenQyS2hrRER4R1I4K21UYUNVQnJpY2NTbVVHN1NXNDZjRElSZXh5b2t6?=
- =?gb2312?B?R0h2WVVUckxMZDhvNzlOZGFscGk4OUNCK2t0aXdUbnAxN1ExQVE4OUVUODNj?=
- =?gb2312?B?d3YrZW8xYXJ2VU9sM0VHN2hyV0N0S2J0aGRpRFYvL1M3c2FrODFuRXBlTHFs?=
- =?gb2312?B?Qkc4MXUxNlhVcWxCMHYyQzBrbHdBRHJNa01WK29VQmNLM3F2OHRhRVhEN3B3?=
- =?gb2312?B?dGxRR3NqenY3eE9ZS1J6VDRBRUczelh1Vm4xdlpreng5UW9EOXg3SElVWkZz?=
- =?gb2312?B?Q2FHTWFxbmwyS3JWS3lOZHYyakVFVTI1aWswRWlxdlgxeGhleVFUczNMUEdx?=
- =?gb2312?B?cWJ6aThkR3NUck5LSkpnekM4bEkvbCthSENwYnQveklURnJzeHBFaWlzQjRt?=
- =?gb2312?B?cktlY082WW1UMGd0L2p1cFVnVnFGWGQ5SkhqOXlJc1crK2Y2Q3NCalV3d2xH?=
- =?gb2312?B?ZXo3TkZiWFc5OXAwU0pHVTZZN0hGUVhBZ21lbEQ3TXNJRTRnZHRiZzJWTmV2?=
- =?gb2312?B?T0FLcEZPcTdOMGdjZElvVzFDY1o5eG5BSnFncEdXQ216UjQ2VFJzaG1wN1Ja?=
- =?gb2312?B?SENmM042SjNMaXRHWHI0d0owdGFWRnF6UERLNGl3V3Z3cjhRbitWQUlTTzNx?=
- =?gb2312?B?M1dKcFdPY1Z1OWVoRnQwTjk3U00vSE0vZDJLb3hqaTdsUTVyeFk0Yld3ZU94?=
- =?gb2312?B?VmhYSUNiUFhhS21zR3BPUXcrRXU3V0F2NTl6SjRLMDY4M2w2d2ticEFsaHhi?=
- =?gb2312?B?bGZFYVUwd0d6ZWl4ZE5QS2FncEprdUkzb2VwbmJsQTFZVzczYy9VczExNi9n?=
- =?gb2312?B?c1FyWjg0aXN3SGtPRDEyV01WRS9HbjJROUc4YlBHSFF2NW1zbHlSeldZRmk2?=
- =?gb2312?B?amVTOHptQWdUemR4NHIyZUlJNW9wWU10aWZCZklxNlBwUWFRTXBiUHZtVXZ0?=
- =?gb2312?B?Z05qeW9wUVdmQUVQZ2pIM1VqUE5VOGNmczFHVlQxR1RpaUpXM3VYWjEzMnB6?=
- =?gb2312?B?ZlNpRzNrY05LcXViekFWVEZrd0FLaGUvcTAyNERCei9LMFRYdlN1ZlRBMFJo?=
- =?gb2312?Q?ETk+e31GLVMlO25SfS?=
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
+	Mon, 26 Jan 2026 07:48:37 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60Q7eo593419777
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 07:48:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=sQKqVns/Die+3pCYhE6oYh
+	JiqMcHOY2cyLGiHjio/mM=; b=Q54uyLx7xneXmc+bM2lrrAdSCfTm0+cERVpoWN
+	jCmrIEZ1XPuho0+n/tpXwM5kvIpkbCdm+L7lx3R42gvkwxLUipdRMgno7dSR05pJ
+	9d7X/YnM4bja/6NDvW4ttT+HWqsAW+PAFzoefTDoSM6UeHo9AWAFsN9H/jaC43dW
+	nvuTGsZIdvxCXCK0HJwJ/rzEuLH+KzRJqRpeiJ7/TGGE3gr39uMWScQEzYmuIayC
+	o4jdp+AbGSBkb5+MD8HSMM6MntRsNz/ezRNwPB3uQU3VuubYzeZ6ENkAHf9FESj7
+	TF7j14/OsS2f3KIYD9/bzONH4bLcmN4Ip3Jhb98PvY3GwqKw==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bvq24ksgg-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 07:48:34 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-81ed3e6b917so3617260b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 25 Jan 2026 23:48:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1769413713; x=1770018513; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sQKqVns/Die+3pCYhE6oYhJiqMcHOY2cyLGiHjio/mM=;
+        b=As0Axm+e2m2mgnMVG5Qgbwg9vwFJ1HqlswHFjATnexV0dq0QLoDt5O66Ct8D951Qqs
+         jNfJ3aHx4toTn0nXyx8J0leGaZfG+Nba3CL6TJLoCP49HVz7Bnw79W8aJ579fXfFxok3
+         y0VIu++RBkzFdMPrXL7/4kFAjHl6xOvuWUbQ1pxrtal4XLG5cYUUdEk1PipMCpwSt2u1
+         XF3FWyacVXqiUiey+6J5shzTgzdYwlyp9VpIDBH0p6cfTOor/Gg4FAHsLCTUq3my3Vk3
+         4QG15u+TZhWdg3JjPJPgFX71DUiOiKLPzLz0dUG2gHnlPXPXYqRf6YavFzKm6zRnpvah
+         Khfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769413713; x=1770018513;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sQKqVns/Die+3pCYhE6oYhJiqMcHOY2cyLGiHjio/mM=;
+        b=xLYZqu0MgoPDTWm82/ZGD+lFZN/LpPjn3mIYS+SaGrEoqTQGh6XoUpXvprlxUaVcbH
+         hVLSW8pPuo0FwJGap3kkHV6jsI3nhy/uUl1ikplTeUv8MInInU98szEwGEnPUyDluCHt
+         vMSfVZ2PzhbLe3RAjbDLGisRhMtWktrpmP6Gj9itf6jUBro/8wSdMCG+khCAct56ZoHJ
+         Se+X3lfoulKncx0s7bYdz/NWAjdUQjc/m9tjcpdgqVwHxDC9ZXL7+MBoVDq3hCn6SCGW
+         DkthmQPFKX/pXeZMNzcaXd++7o8TGq/wlworHdgGxB+42YfU4hxG7tdt7HLZk2W5ENTx
+         Hghw==
+X-Forwarded-Encrypted: i=1; AJvYcCXS2YU6aGLwQN0HURviyCzlMsyOrEnJGCoC8ia51tdeJiDAsqrwgHFRzg1yK5x13SywyaJgh5fJ36SZyos0wpi4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIC30crHFqjzqUcIBTCBJ1v7FX9mpOBgtK82Fkr7I69xBlPvLA
+	d0UUyjRhkuoboBCtXA1QY/OKeu4y1Y/u2Yq3xHbl6/Bjl2rAIQiZan7a7K1my6cQnZx1c6rz+tH
+	qRT7dHAvWYI85bB5TjT1fPKP8hlHk2vZJ1WKICzlpEt2ZBekzut1hpUJKbN9jlkQSy+KV5a3C6J
+	r7VA==
+X-Gm-Gg: AZuq6aJoqVFAnN6/ZAQ+cr9IXjpfDphrKH3FvzftzxSzqI8I4xZgJVgSjRltvQZWoU6
+	e50etjDImhEG9mEWLV/WmKUYmYi9dUnWNyOTRpBKk9IpCVZ9/GOwXvSpeb78HbhcCxE0hbQPmQO
+	5ZTTJ5rJPwpPczsspBQiYH9PhpPeFhakAJrTvZR+pRdF2mc+8/2sBHJ4KewfJLY56xI9bdhJHji
+	6+9hF9J63SzX7r79R9zJ3imxJJghtnIrtbkVG1Efwt4Wtb+NyYup0/PS9X3n4iaqIMVq9QupoaA
+	L6QEdRCvbTPuOYuO64r5v56hSdw2U1uOmf3ubK+mahIVWtVwZ2OwHWltNG0Abfscd+S1o50aKSw
+	hYyY32xHbjR1J/6oZfdJL8EkGv0z2UvNYRQtpF121kgg6oLR90U1fRbA3fobi8NL8YnXT3FOoKc
+	Fv
+X-Received: by 2002:a05:6a00:2997:b0:822:f928:fd97 with SMTP id d2e1a72fcca58-823411fac55mr2933147b3a.22.1769413712984;
+        Sun, 25 Jan 2026 23:48:32 -0800 (PST)
+X-Received: by 2002:a05:6a00:2997:b0:822:f928:fd97 with SMTP id d2e1a72fcca58-823411fac55mr2933121b3a.22.1769413712439;
+        Sun, 25 Jan 2026 23:48:32 -0800 (PST)
+Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8234fd9a5a7sm1223418b3a.63.2026.01.25.23.48.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 25 Jan 2026 23:48:32 -0800 (PST)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+Subject: [PATCH v11 0/8] coresight: ctcu: Enable byte-cntr function for TMC
+ ETR
+Date: Mon, 26 Jan 2026 15:47:52 +0800
+Message-Id: <20260126-enable-byte-cntr-for-ctcu-v11-0-c0af66ba15cf@oss.qualcomm.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 459f849b-b072-4226-3de6-08de5caa6240
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Jan 2026 07:13:19.4909
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 9Cbh0k6UNMFrVlLVFSlksM7zZreW5GNNjGbp2T5WSsL7Hdqxkm1JueZm+hjjw0bJw2zzCfbqxldM0oFCOKtX0w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8285
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACocd2kC/33NQQrCMBAF0KtI1o5kkrQmrryHuGjTiQa00aQWp
+ fTuxqLgQrsZ+B/+m4Elip4S2ywGFqn3yYc2B8Tlgtlj1R4IfJMLJrgoUHAJ1Fb1iaB+dAS27SK
+ 4EMF29gZFpWqtnXBUG5b3l0jO3yd8t8/56FMX4mP61etX+1YRZ9ReAwdJKJyTKNHgNqS0ut6qk
+ w3n8yof9sJ78wUKNQeaDGpdWqVM6ahRf0DkH7HkmZwTkWdSCLPWJC2Wxv0gx3F8AnNwbftuAQA
+ A
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769413705; l=6974;
+ i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
+ bh=ZaOprxm+igQlpDv+uMYUMoteyMudp7AZ4eQ5176LnhE=;
+ b=jye/Zk9FhM9ELdxLbXwCs8xmSR6p6ima68+VW5m+/hN8cK0Xo0BDuCX+dPL9TMcIGSrecaOJs
+ RhxJWOVw/3MDaUXevg/PNhe/hipsy0rsTbHiqdQinzap4B8X8G5TuWP
+X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
+ pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI2MDA2NiBTYWx0ZWRfX+KL/5C4WcwLM
+ r/PuuEDnDWZQTyqsjF+Njx0IxcO0AUslurzRzzHCbk9m5L8dl7/+y7XoTCR4lTtiUGBu7mnUwWH
+ E9eLvrhrfTzGj7+h0Ocysmfywc2s0b7H0dVH1gd7nyHNamvpxj+5FKlJ9s46BzEWAEF4n8Bmi4W
+ r4/UWFvF8L3c1GI+nXqFKtWIJZlh1E5ikAq/5RNY2wjP+luJRh+Xv5oRsJQjyKMpf5uWk5h47ax
+ WjVXFNkw7qv79u0a38CYuhfnkcTDwZfL1CJT7cXd09XO68toTsOE/Ltg9R+n2VcY5V6BzhT+Rtn
+ pDIHB/H/T46JWLjVHM+B5LVqKzqqzPRe1LjTuwTZFNl5668BKP0jpL5IomaHjHznUVfi8q/NPBD
+ G0C+L9sVETJYcWfz9hf3JzGPiatjYxV2Uqv3rS/cqrBHnkjB+gtTrqq8ArVr27I/SsL+zF4tfSS
+ Skw10BOK7jR6AHNdnHA==
+X-Authority-Analysis: v=2.4 cv=EsXfbCcA c=1 sm=1 tr=0 ts=69771c52 cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
+ a=VhXNoj4JT-yUwxqwOhYA:9 a=QEXdDO2ut3YA:10 a=OpyuDcXvxspvyRM73sMx:22
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: e1GVnz8mEtwwMT-oGhiy1PfPDZQtzvwy
+X-Proofpoint-ORIG-GUID: e1GVnz8mEtwwMT-oGhiy1PfPDZQtzvwy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
+ definitions=2026-01-26_02,2026-01-22_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 phishscore=0 lowpriorityscore=0 bulkscore=0 priorityscore=1501
+ suspectscore=0 impostorscore=0 adultscore=0 clxscore=1015 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601260066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260125_231325_918080_C0A7FD1A 
-X-CRM114-Status: GOOD (  24.38  )
+X-CRM114-CacheID: sfid-20260125_234836_282858_D13EBA66 
+X-CRM114-Status: GOOD (  27.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,62 +166,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBGZWxpeCBHdSA8dXN0Yy5ndUBn
-bWFpbC5jb20+DQo+IFNlbnQ6IDIwMjbE6jHUwjI0yNUgMjM6NDMNCj4gVG86IEhvbmd4aW5nIFpo
-dSA8aG9uZ3hpbmcuemh1QG54cC5jb20+OyBMdWNhcyBTdGFjaA0KPiA8bC5zdGFjaEBwZW5ndXRy
-b25peC5kZT47IExvcmVuem8gUGllcmFsaXNpIDxscGllcmFsaXNpQGtlcm5lbC5vcmc+Ow0KPiBL
-cnp5c3p0b2YgV2lsY3p5qL1za2kgPGt3aWxjenluc2tpQGtlcm5lbC5vcmc+OyBNYW5pdmFubmFu
-IFNhZGhhc2l2YW0NCj4gPG1hbmlAa2VybmVsLm9yZz47IFJvYiBIZXJyaW5nIDxyb2JoQGtlcm5l
-bC5vcmc+OyBCam9ybiBIZWxnYWFzDQo+IDxiaGVsZ2Fhc0Bnb29nbGUuY29tPjsgU2hhd24gR3Vv
-IDxzaGF3bmd1b0BrZXJuZWwub3JnPjsgU2FzY2hhDQo+IEhhdWVyIDxzLmhhdWVyQHBlbmd1dHJv
-bml4LmRlPjsgUGVuZ3V0cm9uaXggS2VybmVsIFRlYW0NCj4gPGtlcm5lbEBwZW5ndXRyb25peC5k
-ZT47IEZhYmlvIEVzdGV2YW0gPGZlc3RldmFtQGdtYWlsLmNvbT47IFRyZW50DQo+IFBpZXBobyA8
-dHBpZXBob0BpbXBpbmouY29tPg0KPiBDYzogbGludXgtcGNpQHZnZXIua2VybmVsLm9yZzsgbGlu
-dXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnOw0KPiBpbXhAbGlzdHMubGludXguZGV2
-OyBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnOyBGZWxpeCBHdQ0KPiA8dXN0Yy5ndUBnbWFp
-bC5jb20+DQo+IFN1YmplY3Q6IFtQQVRDSCB2Ml0gUENJOiBpbXg2OiBGaXggZGV2aWNlIG5vZGUg
-cmVmZXJlbmNlIGxlYWsgaW4NCj4gaW14X3BjaWVfcHJvYmUoKQ0KPg0KPiBJbiBpbXhfcGNpZV9w
-cm9iZSwgbnAgaXMgb2J0YWluZWQgYnkgb2ZfcGFyc2VfcGhhbmRsZSgpIGFuZCBtdXN0IGJlDQo+
-IHJlbGVhc2VkIHdoZW4gaXQncyBubyBsb25nZXIgbmVlZGVkLiBIb3dldmVyLCBpdCBkb2Vzbid0
-IHJlbGVhc2UgdGhlDQo+IHJlZmVyZW5jZSwgd2hpY2ggY3Vhc2VzIGEgcmVmZXJlbmNlIGxlYWsu
-DQo+IEZpeCB0aGlzIGJ5IHVzaW5nIHRoZSBfX2ZyZWUoZGV2aWNlX25vZGUpIGNsZWFudXAgaGFu
-ZGxlciB0byByZWxlYXNlIHRoZQ0KPiByZWZlcmVuY2Ugd2hlbiBpdCBnb2VzIG91dCBvZiBzY29w
-ZS4NCj4NCj4gRml4ZXM6IDFkZjgyZWM0NjYwMCAoIlBDSTogaW14OiBBZGQgd29ya2Fyb3VuZCBm
-b3IgZTEwNzI4LCBJTVg3ZCBQQ0llIFBMTA0KPiBmYWlsdXJlIikNCj4gU2lnbmVkLW9mZi1ieTog
-RmVsaXggR3UgPHVzdGMuZ3VAZ21haWwuY29tPg0KQWNrZWQtYnk6IFJpY2hhcmQgWmh1IDxob25n
-eGluZy56aHVAbnhwLmNvbT4NCkhpIE1hbmk6DQpQbGVhc2UgaGVscCB0byBtZXJnZSBpdCBhZnRl
-ciByZWZpbmUgdGhlIGNvbW1pdCByZWZlciB0byBCam9ybidzIGNvbW1lbnRzLg0KVGhhbmtzLg0K
-DQpCZXN0IFJlZ2FyZHMNClJpY2hhcmQgWmh1DQo+IC0tLQ0KPiBDaGFuZ2VzIGluIHYyOg0KPiAt
-IFVzZSBfX2ZyZWUoZGV2aWNlX25vZGUpIGNsZWFuIGhhbmRsZXIgdG8gZml4IHRoZSBsZWFrLg0K
-PiAtIExpbmsgdG8gdjE6DQo+IGh0dHBzOi8vbG9yZS5rZS8NCj4gcm5lbC5vcmclMkZyJTJGMjAy
-NjAxMjQtcGNpX2lteDYtdjEtMS02ZjQzNzlmYzUxNjAlNDBnbWFpbC5jb20mZGF0YT0NCj4gMDUl
-N0MwMiU3Q2hvbmd4aW5nLnpodSU0MG54cC5jb20lN0NmNDg5Mzg1ZjliZGM0YzcxNTA4OTA4ZGU1
-YjY3DQo+IDcyN2UlN0M2ODZlYTFkM2JjMmI0YzZmYTkyY2Q5OWM1YzMwMTYzNSU3QzAlN0MwJTdD
-NjM5MDQ4Njk3MDIwNQ0KPiA2NjYwMyU3Q1Vua25vd24lN0NUV0ZwYkdac2IzZDhleUpGYlhCMGVV
-MWhjR2tpT25SeWRXVXNJbFlpT2lJdw0KPiBMakF1TURBd01DSXNJbEFpT2lKWGFXNHpNaUlzSWtG
-T0lqb2lUV0ZwYkNJc0lsZFVJam95ZlElM0QlM0QlN0MwJQ0KPiA3QyU3QyU3QyZzZGF0YT1tSlps
-M2lBcVg3MUJlcHRraE5HemVQM2VFbEdSVURuQmhZYWJ0MjY1dnFzJTNEJnINCj4gZXNlcnZlZD0w
-DQo+IC0tLQ0KPiAgZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpLWlteDYuYyB8IDQgKyst
-LQ0KPiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkNCj4N
-Cj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaS1pbXg2LmMNCj4g
-Yi9kcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3Yy9wY2ktaW14Ni5jDQo+IGluZGV4IDFkODY3N2Q3
-ZGUwNC4uZjQ1OWQwNWVjZDdkIDEwMDY0NA0KPiAtLS0gYS9kcml2ZXJzL3BjaS9jb250cm9sbGVy
-L2R3Yy9wY2ktaW14Ni5jDQo+ICsrKyBiL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaS1p
-bXg2LmMNCj4gQEAgLTE2NDMsNyArMTY0Myw2IEBAIHN0YXRpYyBpbnQgaW14X3BjaWVfcHJvYmUo
-c3RydWN0IHBsYXRmb3JtX2RldmljZQ0KPiAqcGRldikNCj4gICAgICAgc3RydWN0IGRldmljZSAq
-ZGV2ID0gJnBkZXYtPmRldjsNCj4gICAgICAgc3RydWN0IGR3X3BjaWUgKnBjaTsNCj4gICAgICAg
-c3RydWN0IGlteF9wY2llICppbXhfcGNpZTsNCj4gLSAgICAgc3RydWN0IGRldmljZV9ub2RlICpu
-cDsNCj4gICAgICAgc3RydWN0IGRldmljZV9ub2RlICpub2RlID0gZGV2LT5vZl9ub2RlOw0KPiAg
-ICAgICBpbnQgaSwgcmV0LCBkb21haW47DQo+ICAgICAgIHUxNiB2YWw7DQo+IEBAIC0xNjcwLDcg
-KzE2NjksOCBAQCBzdGF0aWMgaW50IGlteF9wY2llX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZp
-Y2UNCj4gKnBkZXYpDQo+ICAgICAgICAgICAgICAgcGNpLT5wcC5vcHMgPSAmaW14X3BjaWVfaG9z
-dF9kd19wbWVfb3BzOw0KPg0KPiAgICAgICAvKiBGaW5kIHRoZSBQSFkgaWYgb25lIGlzIGRlZmlu
-ZWQsIG9ubHkgaW14N2QgdXNlcyBpdCAqLw0KPiAtICAgICBucCA9IG9mX3BhcnNlX3BoYW5kbGUo
-bm9kZSwgImZzbCxpbXg3ZC1wY2llLXBoeSIsIDApOw0KPiArICAgICBzdHJ1Y3QgZGV2aWNlX25v
-ZGUgKm5wIF9fZnJlZShkZXZpY2Vfbm9kZSkgPQ0KPiArICAgICAgICAgICAgIG9mX3BhcnNlX3Bo
-YW5kbGUobm9kZSwgImZzbCxpbXg3ZC1wY2llLXBoeSIsIDApOw0KPiAgICAgICBpZiAobnApIHsN
-Cj4gICAgICAgICAgICAgICBzdHJ1Y3QgcmVzb3VyY2UgcmVzOw0KPg0KPg0KPiAtLS0NCj4gYmFz
-ZS1jb21taXQ6IGEwYzY2NmMyNWFlZWZkMTZmNGIwODhjNjU0OWE2ZmI2YjY1YThhMWQNCj4gY2hh
-bmdlLWlkOiAyMDI2MDEyNC1wY2lfaW14Ni1mOTdkNzA4ODdkZmMNCj4NCj4gQmVzdCByZWdhcmRz
-LA0KPiAtLQ0KPiBGZWxpeCBHdSA8dXN0Yy5ndUBnbWFpbC5jb20+DQoNCg==
+The byte-cntr function provided by the CTCU device is used to count the
+trace data entering the ETR. An interrupt is triggered if the data size
+exceeds the threshold set in the BYTECNTRVAL register. The interrupt
+handler counts the number of triggered interruptions.
+
+Based on this concept, the irq_cnt can be used to determine whether
+the etr_buf is full. The ETR device will be disabled when the active
+etr_buf is nearly full or a timeout occurs. The nearly full buffer will
+be switched to background after synced. A new buffer will be picked from
+the etr_buf_list, then restart the ETR device.
+
+The byte-cntr reading functions can access data from the synced and
+deactivated buffer, transferring trace data from the etr_buf to userspace
+without stopping the ETR device.
+
+The byte-cntr read operation has integrated with the file node tmc_etr,
+for example:
+/dev/tmc_etr0
+/dev/tmc_etr1
+
+There are two scenarios for the tmc_etr file node with byte-cntr function:
+1. BYTECNTRVAL register is configured and byte-cntr is enabled -> byte-cntr read
+2. BYTECNTRVAL register is reset or byte-cntr is disabled -> original behavior
+
+Shell commands to enable byte-cntr reading for etr0:
+echo 0x10000 > /sys/bus/coresight/devices/ctcu0/irq_threshold0
+echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
+echo 1 > /sys/bus/coresight/devices/etm0/enable_source
+cat /dev/tmc_etr0
+
+Reset the BYTECNTR register for etr0:
+echo 0 > /sys/bus/coresight/devices/ctcu0/irq_threshold0
+
+Changes in v11:
+1. Correct the description in patch1 for the function coresight_get_in_port.
+2. Renaming the sysfs_ops to tmc_sysfs_ops per Suzuki's suggestion.
+Link to v10: https://lore.kernel.org/r/20260122-enable-byte-cntr-for-ctcu-v10-0-22978e3c169f@oss.qualcomm.com
+
+Changes in v10:
+1. fix a free memory issue that is reported by robot for patch 2.
+Link to v9: https://lore.kernel.org/r/20251224-enable-byte-cntr-for-ctcu-v9-0-886c4496fed4@oss.qualcomm.com
+
+Changes in v9:
+1. Drop the patch: add a new API to retrieve the helper device
+2. Add a new patch to refactor the tmc_etr_get_catu_device function,
+   making it generic to support all types of helper devices associated with ETR.
+3. Optimizing the code for creating irq_threshold sysfs node.
+4. Remove interrupt-name property and obtain the IRQ based on the
+   in-port number.
+Link to v8: https://lore.kernel.org/r/20251211-enable-byte-cntr-for-ctcu-v8-0-3e12ff313191@oss.qualcomm.com
+
+Changes in V8:
+1. Optimizing the patch 1 and patch 2 according to Suzuki's comments.
+2. Combine the patch 3 and patch 4 together.
+3. Rename the interrupt-name to prevent confusion, for example:etr0->etrirq0.
+Link to V7 - https://lore.kernel.org/all/20251013-enable-byte-cntr-for-ctcu-v7-0-e1e8f41e15dd@oss.qualcomm.com/
+
+Changes in V7:
+1. rebased on tag next-20251010
+2. updated info for sysfs node document
+Link to V6 - https://lore.kernel.org/all/20250908-enable-byte-cntr-for-tmc-v6-0-1db9e621441a@oss.qualcomm.com/
+
+Changes in V6:
+1. rebased on next-20250905.
+2. fixed the issue that the dtsi file has re-named from sa8775p.dtsi to
+   lemans.dtsi.
+3. fixed some minor issues about comments.
+Link to V5 - https://lore.kernel.org/all/20250812083731.549-1-jie.gan@oss.qualcomm.com/
+
+Changes in V5:
+1. Add Mike's reviewed-by tag for patchset 1,2,5.
+2. Remove the function pointer added to helper_ops according to Mike's
+   comment, it also results the patchset has been removed.
+3. Optimizing the paired create/clean functions for etr_buf_list.
+4. Remove the unneeded parameter "reading" from the etr_buf_node.
+Link to V4 - https://lore.kernel.org/all/20250725100806.1157-1-jie.gan@oss.qualcomm.com/
+
+Changes in V4:
+1. Rename the function to coresight_get_in_port_dest regarding to Mike's
+comment (patch 1/10).
+2. Add lock to protect the connections regarding to Mike's comment
+(patch 2/10).
+3. Move all byte-cntr functions to coresight-ctcu-byte-cntr file.
+4. Add tmc_read_ops to wrap all read operations for TMC device.
+5. Add a function in helper_ops to check whether the byte-cntr is
+enabkled.
+6. Call byte-cntr's read_ops if byte-cntr is enabled when reading data
+from the sysfs node.
+Link to V3 resend - https://lore.kernel.org/all/20250714063109.591-1-jie.gan@oss.qualcomm.com/
+
+Changes in V3 resend:
+1. rebased on next-20250711.
+Link to V3 - https://lore.kernel.org/all/20250624060438.7469-1-jie.gan@oss.qualcomm.com/
+
+Changes in V3:
+1. The previous solution has been deprecated.
+2. Add a etr_buf_list to manage allcated etr buffers.
+3. Add a logic to switch buffer for ETR.
+4. Add read functions to read trace data from synced etr buffer.
+Link to V2 - https://lore.kernel.org/all/20250410013330.3609482-1-jie.gan@oss.qualcomm.com/
+
+Changes in V2:
+1. Removed the independent file node /dev/byte_cntr.
+2. Integrated the byte-cntr's file operations with current ETR file
+   node.
+3. Optimized the driver code of the CTCU that associated with byte-cntr.
+4. Add kernel document for the export API tmc_etr_get_rwp_offset.
+5. Optimized the way to read the rwp_offset according to Mike's
+   suggestion.
+6. Removed the dependency of the dts patch.
+Link to V1 - https://lore.kernel.org/all/20250310090407.2069489-1-quic_jiegan@quicinc.com/
+
+Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+---
+Jie Gan (8):
+      coresight: core: Refactoring ctcu_get_active_port and make it generic
+      coresight: tmc: add create/clean functions for etr_buf_list
+      coresight: tmc: Introduce tmc_sysfs_ops to wrap sysfs read operations
+      coresight: etr: refactor the tmc_etr_get_catu_device function
+      dt-bindings: arm: add an interrupt property for Coresight CTCU
+      coresight: ctcu: enable byte-cntr for TMC ETR devices
+      coresight: tmc: integrate byte-cntr's sysfs_ops with tmc sysfs file_ops
+      arm64: dts: qcom: lemans: add interrupts to CTCU device
+
+ .../ABI/testing/sysfs-bus-coresight-devices-ctcu   |   8 +
+ .../bindings/arm/qcom,coresight-ctcu.yaml          |  10 +
+ arch/arm64/boot/dts/qcom/lemans.dtsi               |   3 +
+ drivers/hwtracing/coresight/Makefile               |   2 +-
+ drivers/hwtracing/coresight/coresight-catu.c       |   3 +-
+ drivers/hwtracing/coresight/coresight-core.c       |  24 ++
+ .../hwtracing/coresight/coresight-ctcu-byte-cntr.c | 366 +++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-ctcu-core.c  | 122 +++++--
+ drivers/hwtracing/coresight/coresight-ctcu.h       |  77 ++++-
+ drivers/hwtracing/coresight/coresight-priv.h       |   2 +
+ drivers/hwtracing/coresight/coresight-tmc-core.c   | 103 ++++--
+ drivers/hwtracing/coresight/coresight-tmc-etr.c    | 144 +++++++-
+ drivers/hwtracing/coresight/coresight-tmc.h        |  38 ++-
+ 13 files changed, 829 insertions(+), 73 deletions(-)
+---
+base-commit: 47b7b5e32bb7264b51b89186043e1ada4090b558
+change-id: 20251203-enable-byte-cntr-for-ctcu-5a4b88f2feb9
+
+Best regards,
+-- 
+Jie Gan <jie.gan@oss.qualcomm.com>
+
 
