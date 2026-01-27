@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42FC0D2FEF5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 22:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5665D2FEF3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 22:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WlQt+ss1G8efG2qofo6jb6A9w0j4Ayb6P7iOr7JnFrA=; b=R1misl4e8OEZoLk6O1gVnCGWwp
-	18QCSFrAPTP30nQg5ikBdLhVsXjhtYumRPpxEgqM/u2G5XBEbp4jg2U22wa9qtBppT6Qn+rBr8S2g
-	7XYHTnVnszElcxV3F0QELrPyLiTML/6B1cUc/qiVIISfnhFdXT/A87EZLiOE2AHgkfOPvv9dNGGJN
-	KFNPiqbnaZ+nroe3NcBaIQkovRW1HGBDQ0LOpIXhfhWw/syTAQzvocY2uJwpIsjrkCuzeIRveLBVW
-	2/zKUpYX2FEwy3WHhcr0HWnItNfce2hPTakihSPwWglKDvU00lRQSdnxT7bXhbxAyPlmMjJ0LOOg4
-	rYloyJuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TwMRVR4JPiCqluFN5GCDrX6bmKnCS/BpUIJaA9qie7o=; b=ANSizbMZFTMQwAedW0Cx41G+lG
+	ijQSJ3nHVdo4Nr59TtoVpHYPA1xSf58aFzIykwaNlYZh42Cdx8GFB9sJPD4ZedHxnmmInnJSMGDV7
+	CFCIuwyBuEYCKNUNsjCL0hmuLWsuiF7v/MrGlV0XBWtRJmehMqBVyWFkC753llDuRqmaAsQulHBt3
+	b/Bw6mcS+S4byEEvMglERUnnrByLmNLJqplFQy322o6IerSXF4on6Krb4Yauj3vdMxOgdEFSdDiGI
+	wT4XeasKFhvbnXSXN9khmi3yFX5U8/nPykvXKcM0GutOtXv7sW8cqXsdfRyw98HADtAc7CQZ+u4iQ
+	jwR43pqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkrIL-0000000F5lq-1FPh;
-	Tue, 27 Jan 2026 22:12:21 +0000
-Received: from sender4-pp-e109.zoho.com ([136.143.188.109])
+	id 1vkrLZ-0000000F603-2frS;
+	Tue, 27 Jan 2026 22:15:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkrII-0000000F5kx-2qdB;
-	Tue, 27 Jan 2026 22:12:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1769551931; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=KWWGP3eQkiPTtzLBHpgVlyQavNZ+Eratv6VCREuHhGkd+yJ55INII+aCXslQf+O8tBA1yr4s+hK9J5R7a/FWXGZekbGPDdJ9a7kIMPILKgNmWynXNMaI9ZJ1xa025w6CsXtzA9GGwp9pfuDXieXVfpIv3uAamtwtlXKzh+aBfwY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1769551931; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=WlQt+ss1G8efG2qofo6jb6A9w0j4Ayb6P7iOr7JnFrA=; 
-	b=WVYweafi6F15VKpZgZt2+jpwkjmkdjU/wxswjMv0BB4LsWuHukg/m6JSDzr7Z2fSq+yJMb68F2Pg3FLHgugDBHerLSXA1YfLI4ui7DrVw2k0L9LJEPrfu1d3vAHZSy6YERIwHjODgQX9tWTVeEy7+WZEOJ1SSBvOzoZL7HP7xuQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769551931;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=WlQt+ss1G8efG2qofo6jb6A9w0j4Ayb6P7iOr7JnFrA=;
-	b=jOaQpXakYiSid0wpQGxBiKmIkORxIDMIw7i1baza6GrPASuNvhwtlvU2AAx3NreE
-	WLwk9Y64V/yHOeXMYYsgae1kiqdVH8McECYk6cjxJw1JTldVJF2mGIKauCQpXrDJFmc
-	x8+BmDK/8RxTNTQIl1Fd8y/wuGdeBBG1TYzszUWI=
-Received: by mx.zohomail.com with SMTPS id 1769551930714470.1972618683276;
-	Tue, 27 Jan 2026 14:12:10 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 66C98180DC7; Tue, 27 Jan 2026 23:12:03 +0100 (CET)
-Date: Tue, 27 Jan 2026 23:12:03 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Sjoerd Simons <sjoerd.simons@collabora.com>, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 04/10] ASoC: rockchip: spdif: Use dev_err_probe
-Message-ID: <aXk31GTmK_5wUQ9t@venus>
-References: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-0-a7c547072bbb@collabora.com>
- <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-4-a7c547072bbb@collabora.com>
- <CABjd4YxVQfp=ZuovBhAzqX9pDBnBmntQoxkr5vXnToPc3pRARw@mail.gmail.com>
+	id 1vkrLX-0000000F5zf-1PQr
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Jan 2026 22:15:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B3C174445D
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 22:15:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E99CC2BCB6
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 22:15:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769552138;
+	bh=TwMRVR4JPiCqluFN5GCDrX6bmKnCS/BpUIJaA9qie7o=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=VRFfMsiXlGrFgXEPj5uhScqB60qnBKXNWD58MRM3oINCFZfJ+FKflt4hbvURJWT4e
+	 aMpQ0uyHxvcJfF1BLjHe1I+/hQY0jn2R7YIgA7bcs1UwkL1/Cs6aO59QiBNgvJo8Ti
+	 3WGrYxKDMPIfP7CxoiVFPjbM5JA/MZ6A+oxVjhcJFR5VhDrVS6dm9gzLwPW7ILsb9E
+	 NDsUdjuER4IG1Nwqst2ZFq+x1rpRZNNfS/YPm/F/LY1RyNziqwHgQn4WfpyUDVI2AG
+	 o9iYg04fk/xGIOWKfCz4ZlNUydxaIEX03kfOzivbN2W4zUXMXYjd/9NNJblEP+zV2O
+	 ZD/fy7IksfPfg==
+Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-78f89501423so3360807b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 14:15:38 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVKF4M3DqRLpwTVmwWnc1VnS0FuPclWFfAjmHqJcVoqDW7k2DfxfUTDoVZ/lsoyXElJajlnMBThCWnbFiAxIUGE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+IMmESRp3tDPq+FJaKfzt4ljCavXD4z2yVV2BzhEVf+y5o38a
+	iPkNoa+VPcpd5HOJeOT9AETn4QIN98/pfFhGoqZ7jpk2SoB19ciqHMxn/XTdvch0RYAGv461W9v
+	tqEnHfdCk7mJj4gK3wbNodiMbGc82vnk=
+X-Received: by 2002:a05:690e:bc6:b0:649:60a9:bd74 with SMTP id
+ 956f58d0204a3-6498fb29b23mr2176803d50.42.1769552137859; Tue, 27 Jan 2026
+ 14:15:37 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zckbwwqnfppx2fwi"
-Content-Disposition: inline
-In-Reply-To: <CABjd4YxVQfp=ZuovBhAzqX9pDBnBmntQoxkr5vXnToPc3pRARw@mail.gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.1.1.4.3/269.526.30
-X-ZohoMailClient: External
+References: <20260127214656.447333-1-florian.fainelli@broadcom.com> <20260127214656.447333-2-florian.fainelli@broadcom.com>
+In-Reply-To: <20260127214656.447333-2-florian.fainelli@broadcom.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 27 Jan 2026 23:15:27 +0100
+X-Gmail-Original-Message-ID: <CAD++jLnH-A=nir6YSLnsEjLmF63D+kGV=JdYDQNy6QcHhx+J8A@mail.gmail.com>
+X-Gm-Features: AZwV_QgrUdPwMsQ3oS8gzJSozvL58RrBTgR4nkrOKICAx_ZJLz6HuLBvQIuQ4SU
+Message-ID: <CAD++jLnH-A=nir6YSLnsEjLmF63D+kGV=JdYDQNy6QcHhx+J8A@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] gpio: brcmstb: correct hwirq to bank map
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-kernel@vger.kernel.org, Doug Berger <opendmb@gmail.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Andy Shevchenko <andy.shevchenko@gmail.com>, 
+	Christophe Leroy <chleroy@kernel.org>, 
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_141218_774096_02A172D0 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20260127_141539_418975_A89ECD01 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,54 +86,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jan 27, 2026 at 10:47=E2=80=AFPM Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
 
---zckbwwqnfppx2fwi
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 04/10] ASoC: rockchip: spdif: Use dev_err_probe
-MIME-Version: 1.0
+> From: Doug Berger <opendmb@gmail.com>
+>
+> The brcmstb_gpio_hwirq_to_bank() function was designed to
+> accommodate the downward numbering of dynamic GPIOs by
+> traversing the bank list in the reverse order. However, the
+> dynamic numbering has changed to increment upward which can
+> produce an incorrect mapping.
+>
+> The function is modified to no longer assume an ordering of
+> the list to accommodate either option.
+>
+> Fixes: 7b61212f2a07 ("gpiolib: Get rid of ARCH_NR_GPIOS")
+> Signed-off-by: Doug Berger <opendmb@gmail.com>
+> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
 
-Hello Alexey,
+This looks right.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-On Tue, Jan 27, 2026 at 09:31:18PM +0400, Alexey Charkov wrote:
-> >         ret =3D devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
-> > -       if (ret) {
-> > -               dev_err(&pdev->dev, "Could not register PCM\n");
-> > -               return ret;
-> > -       }
-> > +       if (ret)
-> > +               dev_err_probe(&pdev->dev, ret, "Could not register PCM\=
-n");
->=20
-> Shouldn't this one return the error code, instead of falling through
-> to 'return 0'?
-
-Yes, good catch. I will fix that up in v2.
-
-Thanks,
-
--- Sebastian
-
---zckbwwqnfppx2fwi
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAml5OC8ACgkQ2O7X88g7
-+poEWQ/+Px2Z+QDfvYva4Nx6YQX53SGZ5rb10Dyq8gZfaZ0jK2fV5/EADqsmV9kK
-PqTkajCE8T7S6VtsoaodMNlBNqJk4SkcGltYYW7op440nNaK4GG4s4eyWwluqiER
-F4U4X8vgNoOqhziacZOvgDtZeWPDwK9fVg1a9u8nlDBDpsXJusmnzmk0GMtd93Dg
-fPG2Dgi+gysuJvv52lm0/M47hgKH9jDhw8oDTBERlu/RLFsbjDuBQ4Q3Mfci75JK
-dVygcLJ+NNtNfVWpJWPtQ77eHTKSraZ+l90sJFKzj3+LBfTeU2lUqlxqU2AShEqE
-h579dBFVQXfaqnFmLPpxKtf1WF08/7cBLKtSugUuHHrNFQVzYpMy/LQpn/UXj1H+
-hEf5aRlVlHDIBaZcLjLvabN9ygVjgXtkdwjP1/0qQUVmQupQFOnmiInotZ+Hi0xG
-YhgOqJnGmB8AfYtnu95tGrBwGl9Cln4+q/Wvzr2kpQ+xPB6GZtq/vSCoMZ0ouROs
-UmkjUyMUYJ1R7Vy16O8p+Ip5te03mZydnfO9ROG8bBVL75bIUO5+nJHSU2PryhES
-OI2jw6JIQuHv0STZc8mnez5V51gwHgFClAegrgm7F/NN2096HhZmJ0062nm4OosA
-DMau/+v77SY6wLlB975j1bcGISNtkCBnR4LD8rrhw6L8cwq3Tnc=
-=T0r/
------END PGP SIGNATURE-----
-
---zckbwwqnfppx2fwi--
+Yours,
+Linus Walleij
 
