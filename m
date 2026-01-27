@@ -4,115 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D336ED34095
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61206D34095
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mdjGxuEW0WnDn6G9gnMVeIPJ3u/i1K8ZcFBcJ8h4M4U=; b=znbDintXyXhMOD7S4N/jRQTw7n
-	WN4Ydgk2sqO//xCfCegFOCI2Shp3BFEgj0lHgAc1xeDKkvRopl5S623R/1lCWA3gFaJbcnPkRmslL
-	WrB2iUPZBSWp8AfcFU8FjxcJt5SnifPoQ4R8OUjzvbxvucGEQC00N0xwk6tjGgZ+7KsLsGHY6PBgJ
-	xz+f2TuQhQN/+B/DjYmkAYgE6x+um8UvB1GJkNn6UnL1mSCpREpnJpajHPHTgq7Yyx6i+aP38qPxT
-	APeRJHV8QwDTTXonSQKDSoYjDwb5BOFqDWB8J9+Q0EYVjbmmyznup+5DTgfuVbImf6O6Bas9jx3lC
-	HB2TOY8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DWu6sXdHjYYQkuVcg7TPfKLgU3Ds1iapMZ6klxTyf1c=; b=VfwK7OLVx0Av1rt24XSRZttDF3
+	UKkShzIjWQp2O7NybnSOJtwC071rhqiO1JGH3y1iyCw/+CHyuhcz5jrcFyDOKEibkPNHbOeNHdJ4R
+	J+HLImaAasB4bDJx6UIRpEv3aGaa5hll4KgRwG2E/MXgUMI24G/lY5N207F9qIdNPPcydfg2uDW09
+	f3t7eFH1MaV1l6PNWSgTaeXf3Um9XSAG8yWQ1qBVEMBMMhJyVBp1KzmHVOzbPpuH+JCg+d+/YkiBf
+	Mmy7n1OYns8B0TLHrDnilfeSNRBSIVHjuIXX00ZKBhg5ooQS+OuWz5oah9u+8lfychEf4roSJbAqT
+	Xsg2tIcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklPh-0000000EaM9-3J4E;
-	Tue, 27 Jan 2026 15:55:33 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vklQq-0000000EaSK-1sBB;
+	Tue, 27 Jan 2026 15:56:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklPb-0000000EaLC-0tz5
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 15:55:31 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-48069a48629so8282985e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 07:55:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769529325; cv=none;
-        d=google.com; s=arc-20240605;
-        b=DzXFkCn97FmXjglhwzYbGgPEKC1zA+s6FRRNN2Lkdiw1Hv1f7f3pbpq//QE1IdYjZb
-         lexhlVxZ+7no1RvXFtQmBPkkEMjOU+FGhQPEN7kdN1gXV3N1SjrJVy2OEFpojiH8uNSG
-         qH9DdjpfGKMP2h5mGXzY/D8pcAH0U2oyarRWXyrEWwiJ+rX1M5CxJQMxbmhAeIXWFb2o
-         BNdMZ0AVw2fnrkN0LJ+EfouSVdExHP6rm3btb2pLBJbiv2DZKwtkowezGRKM5jyjgWXy
-         qlsuiiun4maMtUhFAW8uOFDCzMP8/fjdgkrn4kIjkBSpnfx2SA/xQW5IId9yTYu2wG3c
-         adAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=mdjGxuEW0WnDn6G9gnMVeIPJ3u/i1K8ZcFBcJ8h4M4U=;
-        fh=YdybkmQMSGSZfa9mwqiIGHXmao6DdMhYf2TF4tYea8U=;
-        b=KlsYTvfzGKg818VDa8dsR3uug4qR6LzHDa121oHlHfOJxLIWJFb5FJiSaUsU7YaXUF
-         +h6UyCcCJkdf3/d7wlaGGwVNYK1iGRpQDcitQRo89vDUo2PFe1XQsuSbtdS8Qxa6n/yp
-         /ncMX7uPJ62aYzBzpVu15PhB8vjd3zX31M8WtUgm5FVxbVGUxvqk+uzYTIITCPQmTLOQ
-         HhdeS72djaqxUj4gUrBvMCNUw6biu1ziEeWHyP1A1aTTh8+wCa4atLTI05t4rLtDSR/v
-         OZFhjsw6xw3X3CW4Z9NiGs9dZNw3WC1LX3j0QeNVFHQ7wnbcUkeC+aGVx4ERIpFrZ8q9
-         35Pg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769529325; x=1770134125; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mdjGxuEW0WnDn6G9gnMVeIPJ3u/i1K8ZcFBcJ8h4M4U=;
-        b=nc4FKliAvYuLi8daqtDUOeZGCLO6lwK+vqW33hEJ9FHHIotjMGimt0IQ8fE/lxJhZw
-         4mqFbrPcey9zY7/DDFe84syAUUqm/brv6pvW1fzoM9PveqyaRVn2dYUHRbwv9bSKylFF
-         MSaecS4YOcYh0PGXjpbLx0AsBpTiu1hTvvlxpO2aTHzX/yMZOafgQ4IxWbEGaLelt8D5
-         ZTQeO9om3c3O7zLz2fTi8yB7F/cfAr6oMsiKxsN9iELCQoIakCQ4oM+26v8AnA8GXypj
-         t3hUe+R1Yj93jQFbF7ozmHCitAtcjl3yP6IWvmKgkxQ2AuR4G5SP+UHc40gHyCCVH1AV
-         QvRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769529325; x=1770134125;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=mdjGxuEW0WnDn6G9gnMVeIPJ3u/i1K8ZcFBcJ8h4M4U=;
-        b=UT0lORjZlVGE5IUBeAkc3AEgKCZ1hEgmiJnUDtSP0Senhfodn/E26pOVpWKkKZt5sJ
-         NQWQM7RF3ZXK8s4OjLCAzgOiAY5EtHDLIw7OF9R9XTK+LDOY6jb/7ROsbXILRRnrrNOp
-         i4pnxsOuVGYSgEvn0JIiqewA8BY1hWAlrZyS1zlEYNOblMUTNTVcQXqoBfCkqS82Lfzp
-         zf2YqCjDTd49+qFSwlGzzKrfz1BTvVyJlJTcAORz7aOhr9X3hfakRcSLFHLNEfO3UIpe
-         qAl0f+T0UWzGlZVgJmiTUEUymDtmhFlxIVTrtxYbdx6HpP2qZilFI+neeE6KEbfXdY0m
-         EA2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW5AQmrR2yPpRbXNiZF5ttwrk6MrAy2Zfjg68B9DkcyfuKOhz1fFKKD2ValFrdL7144HcSiR/JPbRwLaP8a041T@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZWGIi5PeximfRfJEGe8PUFZSlYyFDJsoKxXEoKQ2LIZca8QzP
-	Er5oj0XxZEdY+vMw9kWg2QkAzbH1rOcgW6h7HhDJMtG+7tHvfALPmuuZDnE872XXKYRDy+HcFMF
-	BCl9Y7x/2wzEV65YmniMQ+FfugjIToaA=
-X-Gm-Gg: AZuq6aKsXs9GqqrsQEEZJyIWipCWA70OE6AkBrXd1sO0n5Z2W3pMNH9EWoTAKQnUHhp
-	K3os2kyO4/yfHuxDOuegR15XqF2YmHzu6LcqnDORrSkKxYKGLBu3vXYKPVu2Tj/JLQ9r46HLaKj
-	HHI3kLJoL9O2kebde1ZqR2I527U/mAeuEsJBziyx+WzWRQuij35ZxZI3Ad5PaaEH+jIXfKrJxGW
-	KwjV1zRv7Vh3BLa1hEimlxqjSKYOSxoFKKKaLLKJiJFUHGsljtwCc5cGiU8fkczcnWIkpa3lD7j
-	7wEvxxt4f4ozkjcFWu47Md8i2WiW2x33rMoKSuF/DV1eiWv+SukIgSJiwQ==
-X-Received: by 2002:a05:6000:186e:b0:42b:55a1:2158 with SMTP id
- ffacd0b85a97d-435dd0304a0mr3286115f8f.17.1769529324882; Tue, 27 Jan 2026
- 07:55:24 -0800 (PST)
+	id 1vklQn-0000000EaRy-1o0e;
+	Tue, 27 Jan 2026 15:56:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7DAB9600AD;
+	Tue, 27 Jan 2026 15:56:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CED1C116C6;
+	Tue, 27 Jan 2026 15:56:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769529400;
+	bh=pyesTGZkOMY1CDLH595pytnp+a/HTRbOucVfk8mO0ZE=;
+	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
+	b=ljxMjaQUO+xIXWR2kM5tAeDfxymnyk4/q4shrBM0f5GeTIT0DmYoM63aLv7+lQcCy
+	 Rk7IYQtD1bOoEL0oQEWsZBhaCCEXDj4NLcqQYJQxNV1sXXqEs/2rRpnRnRMR6KyYRo
+	 buTfxs1BbBY+zuVAYwZD0matwCs7Looq6cbtnepQqI7Eq0owiAxLkgGkHmulB4I+GP
+	 1ti7KFgGBbQspUdPV6iBN6kp/6PFtkyA3D252xhb5n0H5rVunUEgP++7niqXUr2eAd
+	 K60jcWQ3eZZbSf6vQT4KkJdCCletNodCaJzokJuwQN97yc0spPtBp6VjXxUASch5Tm
+	 sgmxNsvhOULWw==
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 27 Jan 2026 09:56:39 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20260126172503.238724-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <aXeuR_YLoAFYEAVi@shell.armlinux.org.uk> <CA+V-a8t5RKY9vyFDg0V3AWcBovBdWbcvqdPeiPYmHRA8v2=UGQ@mail.gmail.com>
- <CAMuHMdXOMMyYrbPr8H3O+oj7QeGg324jXdV1QUaUhQF4sxTyfg@mail.gmail.com>
-In-Reply-To: <CAMuHMdXOMMyYrbPr8H3O+oj7QeGg324jXdV1QUaUhQF4sxTyfg@mail.gmail.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Tue, 27 Jan 2026 15:54:57 +0000
-X-Gm-Features: AZwV_QiFFOxc86MsSOA1lIfzqIqjtoa3ZePZV2eq56xOKDzBCZT0iVVI9LGkicc
-Message-ID: <CA+V-a8sQTRZOFk=KASum4Gi4cKK7NdLZu1W0n4ZyWPuKGSc9uQ@mail.gmail.com>
-Subject: Re: [RFC PATCH net-next] net: stmmac: Preserve bootloader MAC address
- across unconditional reset
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Geert Uytterhoeven <geert+renesas@glider.be>, netdev@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_075529_192253_F338CB3B 
-X-CRM114-Status: GOOD (  18.40  )
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, linux-amlogic@lists.infradead.org, 
+ Conor Dooley <conor+dt@kernel.org>, Jerome Brunet <jbrunet@baylibre.com>, 
+ linux-clk@vger.kernel.org, shuai.li@amlogic.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ Michael Turquette <mturquette@baylibre.com>, jian.xu@amlogic.com, 
+ linux-sound@vger.kernel.org, zhe.wang@amlogic.com, 
+ Takashi Iwai <tiwai@suse.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Mark Brown <broonie@kernel.org>
+To: Jiebing Chen <jiebing.chen@amlogic.com>
+In-Reply-To: <20260126-audio_drvier-v6-0-99e350855bc2@amlogic.com>
+References: <20260126-audio_drvier-v6-0-99e350855bc2@amlogic.com>
+Message-Id: <176952925847.1904460.11456869237043173749.robh@kernel.org>
+Subject: Re: [PATCH v6 0/5] Add support for S4 audio
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,37 +77,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
 
-On Tue, Jan 27, 2026 at 1:57=E2=80=AFPM Geert Uytterhoeven <geert@linux-m68=
-k.org> wrote:
->
-> Hi Prabhakar,
->
-> On Tue, 27 Jan 2026 at 14:39, Lad, Prabhakar <prabhakar.csengg@gmail.com>=
- wrote:
-> > On Mon, Jan 26, 2026 at 6:11=E2=80=AFPM Russell King (Oracle)
-> > <linux@armlinux.org.uk> wrote:
-> > > On Mon, Jan 26, 2026 at 05:25:03PM +0000, Prabhakar wrote:
-> > > where "local-mac-address" states the MAC address to be used for eth0,
-> > > as specified by the boot loader.
-> > >
-> > Thanks for the pointer, I will use the above-mentioned method with
-> > which we won't be needing this patch on the RZ/T2H platform.
->
-> This should already work out-of-the-box, as
-> arch/arm64/boot/dts/renesas/rzt2h-n2h-evk-common.dtsi already has:
->
->     aliases {
->             ethernet3 =3D &gmac1;
->             ethernet2 =3D &gmac2;
->
-> So just make sure to set the "eth2addr" and "eth3addr" environment
-> variables in U-Boot.
->
-Agreed, it was just that the aliases in Linux and u-boot didn't match
-up (Ive notified the BSP team to update it accordingly).
+On Mon, 26 Jan 2026 06:01:41 +0000, Jiebing Chen wrote:
+> This series completes the end-to-end audio support
+> for S4 SoC from hardware bindings to driver implementation
+> and system integration.
+> 
+> 1 Device Tree Bindings Updates
+> Added audio power domain and S4 audio clock support for S4 SoC.
+> Added S4 audio tocodec binding support.
+> 
+> 2 Driver Implementation
+> Implemented S4 tocodec driver for G12A architecture.
+> Added S4 audio clock support in AXG audio clock
+> 
+> 3 Device Tree Integration
+> Add Amlogic S4 audio subsystem support in arm64 DTS.
+> 
+> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
+> ---
+> Changes in v6:
+> - Fix the problem of string for Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
+> - Remove clock pad register, and it will be submitted as an independent patch.
+> - Redescribe sound/soc/meson/g12a-toacodec.c
+> - Link to v5: https://lore.kernel.org/r/20250710-audio_drvier-v5-0-d4155f1e7464@amlogic.com
+> 
+> Changes in v5:
+> - Fix warning Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yam when make dt_binding_check
+> - The audio reg is mounted below the APB bus in dts file.
+> - Deal with pad clock in a distinct controller.
+> - Fix warning for sound/soc/meson/g12a-toacodec.c
+> - Link to v4: https://lore.kernel.org/r/20250319-audio_drvier-v4-0-686867fad719@amlogic.com
+> 
+> Changes in v4:
+> - fix dtb check warning
+> - add maxItems of power domain for dt-bindings
+> - fixed audio clock pads regmap base and reg offset
+> - use dapm widget to control tocodec bclk and mclk enable
+> - Link to v3: https://lore.kernel.org/r/20250228-audio_drvier-v3-0-dbfd30507e4c@amlogic.com
+> 
+> Changes in v3:
+> - remove g12a tocodec switch event
+> - Modify the incorrect title for dt-bindings
+> - Link to v2: https://lore.kernel.org/r/20250214-audio_drvier-v2-0-37881fa37c9e@amlogic.com
+> 
+> Changes in v2:
+> - remove tdm pad control and change tocodec base on g12a
+> - change hifipll rate to support 24bit
+> - add s4 audio clock
+> - Link to v1: https://lore.kernel.org/r/20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com
+> 
+> ---
+> Jiebing Chen (5):
+>       dt-bindings: clock: meson: Add audio power domain for S4 soc
+>       dt-bindings: Asoc: axg-audio: Add S4 audio tocodec
+>       ASoC: meson: g12a-toacodec: Add S4 tocodec driver
+>       clk: meson: axg_audio: add S4 support
+>       arm64: dts: amlogic: Add Amlogic S4 Audio
+> 
+>  .../bindings/clock/amlogic,axg-audio-clkc.yaml     |  18 +-
+>  .../bindings/sound/amlogic,g12a-toacodec.yaml      |   1 +
+>  .../boot/dts/amlogic/meson-s4-s805x2-aq222.dts     | 222 +++++++++++++
+>  arch/arm64/boot/dts/amlogic/meson-s4.dtsi          | 361 +++++++++++++++++++++
+>  drivers/clk/meson/axg-audio.c                      | 165 ++++++++++
+>  sound/soc/meson/g12a-toacodec.c                    |  36 ++
+>  6 files changed, 801 insertions(+), 2 deletions(-)
+> ---
+> base-commit: a0c666c25aeefd16f4b088c6549a6fb6b65a8a1d
+> change-id: 20250110-audio_drvier-07a5381c494b
+> 
+> Best regards,
+> --
+> jiebing chen <jiebing.chen@amlogic.com>
+> 
+> 
+> 
 
-Cheers,
-Prabhakar
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: a0c666c25aeefd16f4b088c6549a6fb6b65a8a1d (use --merge-base to override)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/amlogic/' for 20260126-audio_drvier-v6-0-99e350855bc2@amlogic.com:
+
+arch/arm64/boot/dts/amlogic/meson-s4-s905y4-khadas-vim1s.dtb: clock-controller@330000 (amlogic,s4-audio-clkc): reg: [[0, 3342336, 0, 216], [0, 3346048, 0, 16]] is too long
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: clock-controller@330000 (amlogic,s4-audio-clkc): reg: [[0, 3342336, 0, 216], [0, 3346048, 0, 16]] is too long
+	from schema $id: http://devicetree.org/schemas/clock/amlogic,axg-audio-clkc.yaml
+
+
+
+
+
 
