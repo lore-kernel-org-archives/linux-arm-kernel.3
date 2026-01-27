@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80433D2FEDD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 19:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D29CD2FEDF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 20:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QNxiFgzgvkz20yq6oB76o5Yn6XJfaCPIW66VkQzuTDI=; b=HMwaBtylxWnS+dRacuMBwHJLa5
-	av1C/Eu3pPd6KpVkeAt/vBV2I33vyuocERmQ9Eo9qlGO+xp9x0pEFKYaQ6B/Gol1pCev3MF8HjRw5
-	HKzPoAt6CHvHJXfnzojQNfnG7BaOYOlOEbSjIFN5jUkOpvo4AzCJKpWmfTicoGtPwvGEUA2dMqZyU
-	oBKC3pKpgsUWevaQ8eLIhfgUh3xubvXhrjBfa1b3oXb/rtF403LgJ3CLJos/Nh1F0PIsbwKvFpT3k
-	9zNhom9TUht6qVvrGNYippMdMthzgh3iwFstTGw/ZLZQNuWwFYBeJ08XInji3acTIzBSAV/ayA7xE
-	eMPT2omw==;
+	bh=TajH8yN8UqkekEASPsMQ18gVGY2nFAz8e8hQXy99WE0=; b=jQKjNZYWlM3uUtWE4Bq3EWZJb0
+	pOdaVN8YUQyWpgTmv/2QoG59liYrFZOG7xpFbJhCjQTc5KFUL7hNqH/DdHIVJURybh2jLlIB6sN8G
+	UsT5XqGfqxEPJk/QQ9hFqAh8RfR6pIFJCKVB5nXMvEZBh9mDN2jv6nqtLmoGp8afhVj5lnDdSRffS
+	y8dHcKZITopaTQBw6btSkZIAEN3ScB2UZ1pv/Am81/dxhpgyyOp1ktNLDutb3QO6VqJwAqTdNJUph
+	7jafujn3qYgC8MpA9vUQtojwemLXYoXzD6IS2Fu6tTFjibqJWUj/6hvTBt9DhgV1u0jB0Zdcefqk6
+	13FDFeng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkp5F-0000000Ey4z-1Igu;
-	Tue, 27 Jan 2026 19:50:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vkpSC-0000000EzUV-2Vzu;
+	Tue, 27 Jan 2026 20:14:24 +0000
+Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkp5A-0000000Ey4U-0KPq;
-	Tue, 27 Jan 2026 19:50:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C45E43D75;
-	Tue, 27 Jan 2026 19:50:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAF5AC116C6;
-	Tue, 27 Jan 2026 19:50:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769543435;
-	bh=UaKGXBQECE0SDe7XXMs88ifMfoexM+bNNiVKCwxPry8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kLQTvED4LlSKzw2nWBpeK5viX8ZbqC10mYv1QroLhWLVlCqz2iR1bg4yYnRhz/FNn
-	 UlXU0v6oTqeW3oYFDM8UA/Ntm5uOmB151/wgibG3XMZwTlzSCm3HoDhdp+9cTSuDAX
-	 jt9crfIprdiN//Qns45XzTb++v6Rc/OEHjxt157GG8V04Ct4M9GDnXgfXKn8fYBAIx
-	 Te3wrBDNMsAun6AI7V81/8dvy5LJ607YML0E+bJU//aMBkUrSL0mhN3XOOekOqHe9w
-	 y4AS+6Vynd0jQIuR1Mrpa4jR/rMBq0d/IxubsJkTUwkKRKqJGOqh+IXHAZ/qpZsJh/
-	 7WDwMYHNnLQxQ==
-Date: Tue, 27 Jan 2026 19:50:25 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>, Liu Ying <victor.liu@nxp.com>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-mediatek@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org, Aishwarya.TCV@arm.com
-Subject: Re: [PATCH v4 05/10] drm/bridge: refactor HDMI InfoFrame callbacks
-Message-ID: <47619a02-c667-4fd0-afa9-f6cf7aba8dd4@sirena.org.uk>
-References: <20260107-limit-infoframes-2-v4-0-213d0d3bd490@oss.qualcomm.com>
- <20260107-limit-infoframes-2-v4-5-213d0d3bd490@oss.qualcomm.com>
+	id 1vkpS8-0000000EzTh-3OET
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Jan 2026 20:14:22 +0000
+Received: by mail-pg1-x542.google.com with SMTP id 41be03b00d2f7-c633984fbeeso76783a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 12:14:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1769544859; x=1770149659; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TajH8yN8UqkekEASPsMQ18gVGY2nFAz8e8hQXy99WE0=;
+        b=pOsXaYFvPho+ditxmTpov8hpnlPDzIG4yH9JGO1jEZt/p++3x8s9E1R4qlZL1JCOyD
+         4Vp4vTCAZHVnjH2wuTF+XJlzO+9UMLsWUOE2EPSSdaiZcMaYA4nW0FOlttzfz118rX6+
+         UTNKzmpwb+tMbmY9OVg3ZDKQw/JGkihcgbFfsh70fgri+FVe1EeZV+MfY/7tzcJXzg58
+         MogOzO7Dcq+z6XKCVyEqhElspbKmQCqWa79mwgQO8m4UtQHOkZVP6ViQmdtNZJ6LSGSe
+         MH0oS/oqQer74ppCWg30nnXtV4yFG5HrC2dlBo35NITXfvY7Y7T4LVabO11IkkuYK/dH
+         sbBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769544859; x=1770149659;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TajH8yN8UqkekEASPsMQ18gVGY2nFAz8e8hQXy99WE0=;
+        b=sKWf0bVZlwCIXk3HZlgrxQ52QuOYklISBF0kWURe6A9QGyRFjcoAkPOLd18Q9pWxTp
+         O5TWpWQZ9WYbP7JrbSkA2DyqKtXNJ+rvCW2JTK5hafCJeoKYVMzr9kZAhGMQg45wTtpd
+         4xJQrQBwN4qE4vuWZHHI4haq7Y3Tco/NFQ8cGCbTz2UHbdbocJCX9JgjheE8yi4gphDA
+         QaQkzM2oEVU9iwphRcQpL451mzrhbOfdx/KecRpDuxMGlNtMRP7GTV/tdQM1D93i2XbF
+         R6bauCBP09J8N4CjF+SkoZrBoW2XYHmw3Nt5+uYEus3XHEO3xmtHpTrnWbdK+nNrblsI
+         5hhg==
+X-Forwarded-Encrypted: i=1; AJvYcCVC6l+VfybBlPI9fNETKmA+DK7nv5PxC6ZMsI2FsKSL0aNyoE/wgZ6t0OgtVzhTukc49vKpMXYkgHoIAE58HVm1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLnMheN2v7tHKD8399Ri3gn2mxFipBbdCwYzj5ENIMbE7cT5+4
+	IeaJesnrOUKiI6kG3Q2uh3riZ27/huggnh6UMIvE+2ykpa8TSuAUMntnD6WEnRPc/vg=
+X-Gm-Gg: AZuq6aIC9clUka8PAOwfqyq/Br0qyS4St7XvyviMHb1gaV9y0vehzsJ2pWLZur/DnOD
+	+9CapiFsPHyrMYqyV4pFPxPyYZ7WE1i6461IS9xYIf8HGGsSYW9Ajga/VhCeehG1QCMoGrKSjDm
+	8JzUpYzWgR6ZwLNM57eku5wdURGMRI7Zm8VMAyl0padtzIuM7tHzvbhATiiK33MFLA5BJigflm/
+	1rBC8OvH1ixBJp3+x0wSYJBRdDtcFGofkfPWrZwWAFd59og1qnOx8WzPOh4FhQrNdXWqk2aIzdC
+	nz145H4DL1m6TwIidVqzfz8FGkg5pYYfrDgu5fJMWMWgUDA8CjtpgcKVet27KsnmcQO1B4tfujv
+	KnwcDOSUuFdZVQWwPjPYe+ngU5MrMwvpweP/gF72SpnL9pBJFa7kKMmn672fWCsMwXRTyEKuAfv
+	XrSwDTqQHT
+X-Received: by 2002:a17:90b:3c4f:b0:34a:a16d:77c3 with SMTP id 98e67ed59e1d1-353ffa2e81bmr2244550a91.2.1769544859290;
+        Tue, 27 Jan 2026 12:14:19 -0800 (PST)
+Received: from localhost ([71.212.200.220])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-353f61e0007sm3373581a91.12.2026.01.27.12.14.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Jan 2026 12:14:18 -0800 (PST)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Kendall Willis <k-willis@ti.com>, Nishanth Menon <nm@ti.com>, Vignesh
+ Raghavendra <vigneshr@ti.com>, Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ d-gole@ti.com, msp@baylibre.com
+Cc: vishalm@ti.com, sebin.francis@ti.com, a-kaur@ti.com,
+ s-kochidanadu@ti.com, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Kendall Willis
+ <k-willis@ti.com>
+Subject: Re: [PATCH v4 0/4] arm64: dts: ti: k3-am62: Support Main UART wakeup
+In-Reply-To: <20260122-b4-uart-daisy-chain-dts-v4-0-cfdabdf5e6c1@ti.com>
+References: <20260122-b4-uart-daisy-chain-dts-v4-0-cfdabdf5e6c1@ti.com>
+Date: Tue, 27 Jan 2026 12:14:18 -0800
+Message-ID: <7hbjie6cf9.fsf@baylibre.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="sKQ7u6u6my6XlJTm"
-Content-Disposition: inline
-In-Reply-To: <20260107-limit-infoframes-2-v4-5-213d0d3bd490@oss.qualcomm.com>
-X-Cookie: Send some filthy mail.
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_115036_189349_04510036 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20260127_121420_850714_4F6801CC 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,111 +102,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Kendall Willis <k-willis@ti.com> writes:
 
---sKQ7u6u6my6XlJTm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+> This series adds wakeup support for the Main UART in the device tree of
+> the TI AM62 family of devices. It defines the specific pins and pinctrl
+> states needed to wakeup the system from the Main UART via I/O
+> daisy-chaining. The wakeup-source property is configured to describe the
+> low power modes the system can wakeup from using the Main UART.
+>
+> Dependency
+> ----------
+> This series depends on the "serial: 8250: omap: set out-of-band wakeup if
+> wakeup pinctrl exists" [1] patch. This series should NOT be merged until
+> "serial: 8250: omap: set out-of-band wakeup if wakeup pinctrl exists"
+> is merged.
+>
+> Testing
+> -------
+> Tested on a AM62P SK EVM board and a AM62L EVM board with all the above
+> mentioned series implemented. Suspend/resume verified with the Main UART
+> wakeup source by entering a keypress on the console.
+>
+> This github branch has all the necessary patches to test the series
+> using v6.19-rc1:
+> https://github.com/kwillis01/linux/tree/v6.19/uart-daisy-chain/all
+>
+> [1] https://lore.kernel.org/all/20260116-uart-wakeup-v2-1-0078ae9996e4@ti.com/
 
-On Wed, Jan 07, 2026 at 08:15:02PM +0200, Dmitry Baryshkov wrote:
-> Having only a single set of callbacks, hdmi_clear_infoframe and
-> hdmi_write_infoframe, bridge drivers don't have an easy way to signal to
-> the DRM framework, which InfoFrames are actually supported by the
-> hardware and by the driver and which are not. Also, it makes it
-
-We're seeing oopses on Qualcomm RB5 platforms in -next which bisect to
-this patch.  Looking at the patch I'm not immediately seeing what it
-might be getting wrong, though I do note that the board uses a LT9611
-which is updated by the patch.
-
-Failure log:
-
-3853 01:47:31.278489  <3>[   21.045573] msm_dpu ae01000.display-controller: [drm:msm_dsi_modeset_init [msm]] *ERROR* failed to create dsi connector: -22
-3854 01:47:31.280977  <3>[   21.057526] [drm:_dpu_kms_initialize_dsi:630] [dpu error]modeset_init failed for dsi[0], rc = -22
-3855 01:47:31.322994  <3>[   21.066927] [drm:_dpu_kms_setup_displays:766] [dpu error]initialize_dsi failed, rc = -22
-3856 01:47:31.323293  <3>[   21.075563] [drm:dpu_kms_hw_init:1283] [dpu error]modeset init failed: -22
-3857 01:47:31.323577  <3>[   21.083223] msm_dpu ae01000.display-controller: [drm:msm_drm_kms_init [msm]] *ERROR* kms hw init failed: -22
-3858 01:47:31.323809  <1>[   21.094033] Unable to handle kernel paging request at virtual address dead000000000108
-
-...
-
-3882 01:47:31.547579  <4>[   21.252828] Hardware name: Qualcomm Technologies, Inc. Robotics RB5 (DT)
-
-...
-
-3901 01:47:31.678351  <4>[   21.462030] Call trace:
-3902 01:47:31.721776  <4>[   21.464819]  drm_atomic_private_obj_fini+0x24/0x70 [drm] (P)
-3903 01:47:31.722072  <4>[   21.470924]  _dpu_kms_hw_destroy+0x4c/0x64 [msm]
-3904 01:47:31.722309  <4>[   21.475969]  dpu_kms_destroy+0x28/0xb0 [msm]
-3905 01:47:31.722528  <4>[   21.480650]  msm_drm_kms_uninit+0xac/0xd8 [msm]
-3906 01:47:31.722743  <4>[   21.485596]  msm_drm_uninit.isra.0+0x54/0xd4 [msm]
-3907 01:47:31.722968  <4>[   21.490816]  msm_drm_init+0x18c/0x1f0 [msm]
-3908 01:47:31.723228  <4>[   21.495409]  msm_drm_bind+0x30/0x3c [msm]
-3909 01:47:31.723442  <4>[   21.499824]  try_to_bring_up_aggregate_device+0x164/0x1d0
-3910 01:47:31.723646  <4>[   21.505635]  __component_add+0xa4/0x170
-3911 01:47:31.725046  <4>[   21.509851]  component_add+0x14/0x20
-3912 01:47:31.766295  <4>[   21.513793]  dsi_dev_attach+0x20/0x2c [msm]
-3913 01:47:31.766592  <4>[   21.518387]  dsi_host_attach+0x58/0x98 [msm]
-3914 01:47:31.766829  <4>[   21.523068]  devm_mipi_dsi_attach+0x34/0x90
-3915 01:47:31.767113  <4>[   21.527638]  lt9611uxc_attach_dsi.isra.0+0x84/0x100 [lontium_lt9611uxc]
-3916 01:47:31.767339  <4>[   21.534701]  lt9611uxc_probe+0x59c/0x62c [lontium_lt9611uxc]
-
-bisect log:
-
-git bisect start
-# status: waiting for both good and bad commits
-# good: [50814c5ce8d8f6751fd49c818abeb8853f8be2df] Merge branch 'for-linux-next-fixes' of https://gitlab.freedesktop.org/drm/misc/kernel.git
-git bisect good 50814c5ce8d8f6751fd49c818abeb8853f8be2df
-# status: waiting for bad commit, 1 good commit known
-# bad: [615aad0f61e0c7a898184a394dc895c610100d4f] Add linux-next specific files for 20260126
-git bisect bad 615aad0f61e0c7a898184a394dc895c610100d4f
-# good: [b047f48069330e050431e9ad762bd838af43337f] Merge branch 'mtd/next' of https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git
-git bisect good b047f48069330e050431e9ad762bd838af43337f
-# bad: [fe1e00e6f9fe8a160921f6a87f999075a1dfef0a] Merge branch 'for-mfd-next' of https://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git
-git bisect bad fe1e00e6f9fe8a160921f6a87f999075a1dfef0a
-# good: [9d10cd526111a989eb353c3a4df9d4c79695ea8d] Merge tag 'drm-intel-next-2026-01-15' of https://gitlab.freedesktop.org/drm/i915/kernel into drm-next
-git bisect good 9d10cd526111a989eb353c3a4df9d4c79695ea8d
-# bad: [7260b161359d310b9a92513dbd73cd9a3a226c6f] Merge branch 'for-next' of https://git.kernel.org/pub/scm/linux/kernel/git/ieee1394/linux1394.git
-git bisect bad 7260b161359d310b9a92513dbd73cd9a3a226c6f
-# bad: [d1968cd2a0ecab805106e5e60613dd45b63d52d9] Merge branch 'drm-next' of https://gitlab.freedesktop.org/drm/kernel.git
-git bisect bad d1968cd2a0ecab805106e5e60613dd45b63d52d9
-# good: [d2f618b8fe76b565f6bc0071b5eeee07a9012c6d] Merge tag 'drm-intel-next-fixes-2026-01-22' of https://gitlab.freedesktop.org/drm/i915/kernel into drm-next
-git bisect good d2f618b8fe76b565f6bc0071b5eeee07a9012c6d
-# good: [fc23163a7ca6cc0e6c3297aed3bdc9428aa8b1a9] Merge branch 'master' of https://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git
-git bisect good fc23163a7ca6cc0e6c3297aed3bdc9428aa8b1a9
-# skip: [00e6f8f60601b412e400873c8972f3e3802557f3] dt-bindings: vendor-prefixes: Add AlgolTek
-git bisect skip 00e6f8f60601b412e400873c8972f3e3802557f3
-# bad: [e5e1a0000746ded4d9fa16fceda0748aec2b6e6a] drm/bridge: samsung-dsim: samsung_dsim_host_attach: use a temporary variable for the next bridge
-git bisect bad e5e1a0000746ded4d9fa16fceda0748aec2b6e6a
-# bad: [0607052a6aee1e3d218a99fae70ba9f14b3b47ed] drm/hisilicon/hibmc: fix no showing problem with loading hibmc manually
-git bisect bad 0607052a6aee1e3d218a99fae70ba9f14b3b47ed
-# bad: [5a4e4e30f6dc4d2a68eec08257128906572f3346] drm/debug: don't register files for unsupported HDMI InfoFrames
-git bisect bad 5a4e4e30f6dc4d2a68eec08257128906572f3346
-# good: [638409979c5f7d3155afcded67532003e07a7d0e] drm/sun4i: hdmi_enc: implement clear_infoframe stub
-git bisect good 638409979c5f7d3155afcded67532003e07a7d0e
-# skip: [1d8847f457648ed4932019dcd3081bc27bcea936] drm/display: hdmi_state_helper: reject Audio IF updates if it's not supported
-git bisect skip 1d8847f457648ed4932019dcd3081bc27bcea936
-# bad: [e802c783be94bf71541a7e2ac8b1b5486aad10db] drm/display: hdmi_state_helper: split InfoFrame functions per type
-git bisect bad e802c783be94bf71541a7e2ac8b1b5486aad10db
-# good: [afc399f7a5ea7bf405b2ef85c7470529b1a9e47c] drm/connector: make clear_infoframe callback mandatory for HDMI connectors
-git bisect good afc399f7a5ea7bf405b2ef85c7470529b1a9e47c
-# bad: [b626b1a1c9ccadd8861870a2a450f02e0c61ab88] drm/bridge: refactor HDMI InfoFrame callbacks
-git bisect bad b626b1a1c9ccadd8861870a2a450f02e0c61ab88
-# first bad commit: [b626b1a1c9ccadd8861870a2a450f02e0c61ab88] drm/bridge: refactor HDMI InfoFrame callbacks
-
---sKQ7u6u6my6XlJTm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAml5FwAACgkQJNaLcl1U
-h9B9Tgf/X2VdX2dj9e0HmnAWF7Z6YHcQwTv5vOPRR3TtPQ1f0IJF84ETF90P7M+z
-0r53d6IbwJsKLOX4qsB/rNQEI5N+CJmuM3AAwc2f6ATSDYXwfp7G82qqjy1yhIf5
-WTaqKV6iegc3pW6A+6AaU7mOqNBCm74S+28Yb07/FYYYI4CLJ1MZODAbjAHdKJMh
-3KgxmTu9nFANpwxnxf7J6KAVvq+V3AWackd3YyPPRJymtC/VP3hDf+YJdFA8hBV0
-aHaxFLCwzVkFfUutqrJ45IQS3wyDewkuIHBBWMfls4ORz6J+JAHSgoxHFLC+Xvwv
-0T8FfKnKWZSsk5IGJrkrvzX7z2NSgg==
-=rTj8
------END PGP SIGNATURE-----
-
---sKQ7u6u6my6XlJTm--
+Reviewed-by: Kevin Hilman <khilman@baylibre.com>
 
