@@ -4,53 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12387D2D8CC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:44:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32869D2D8D4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VbdIJzILFQDRG5jsL7qPRw1et9KNoQFCHz5a/Ra582o=; b=oNHVXrZCkRec6P
-	Ep9OexTnzicQwsgkYUlZseI8SWvCqWEoqiYwGSn1XfTri+R2jOVG8BkWn9AY1jQ5Ncx2TC5HNiljG
-	Aww8Unj7Ni7yLba1gc46p48ZnLfAusDVlaUo/AztmpNb/zsOb39MF+/4Th8w9sNTPQSYdb8SWitHg
-	6pyKPJbu67HgtjmwQEPOPopImzcfcTnvKD/utJo4jmRkwIn2YdHSuIArZ/Zye1sT/3iTvS8sktoCp
-	EHc2h0YAVmXftpaBg88eC1iWH19upnO3XHoY4RoTSntb+G0L4ytG6csQHk8YseLwqWo/I4GLMsCsQ
-	IWW5NYDSMMvYWsQNAcoA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LYavw6x53D+W7due+b8gS5tyQNfFTRfLXC6wxOL1kAQ=; b=PQoxa6xQf/Hru9bswZinHpXdLA
+	9kTKETW1aVqln17JIhtSmWxNz8ANOCCQ0UXQ/RXJ7GIS3sE2fnWpSqrslRkgElnPwjqUHsu7zY9Iz
+	j1EShCySvEbOhvbVodOXudn3NgscoJ0+G5hSXbHq9tfZgju9+M3SHT8raEGaA/X1SoYo3n6PkpeSN
+	NRaeAvVGUUo7jEVJbktaWPDjnGBQAm3UATsKtEIamuBfidxEjnV/YT7c0g5eifI/a5actzzpsk9SM
+	gPMTv4uxKTQ+COIUkWyLmPY8ZyAgwc6YQocwwu1XOtP2vMwNPoO4hzpt3PGYSd5FjhjlBMbQuUcU+
+	JVkHYwbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfcd-0000000DyyU-0Rr7;
-	Tue, 27 Jan 2026 09:44:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfca-0000000Dyxm-0C2K
+	id 1vkfcq-0000000Dz2k-1kl6;
+	Tue, 27 Jan 2026 09:44:44 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkfcl-0000000Dz1A-0RZD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 09:44:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 154B1497;
-	Tue, 27 Jan 2026 01:44:20 -0800 (PST)
-Received: from [10.57.54.43] (unknown [10.57.54.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 701203F85F;
-	Tue, 27 Jan 2026 01:44:20 -0800 (PST)
-Message-ID: <28e54f74-9b3d-4c3c-9172-ceb429e7fcbe@arm.com>
-Date: Tue, 27 Jan 2026 10:44:17 +0100
+	Tue, 27 Jan 2026 09:44:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769507079; x=1801043079;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=jPvLZnphMdcVN/l/3xsINCKdek0m9norh4P5F7hOiDI=;
+  b=Z2nNllUnUU0kPJ87c8W6YDULEOR1VRWKCQ17XsYMZeEH2qVbxKvwFD6j
+   FtwtAWSx+EsirLE5Q56XDo1GQiIdQT79phZDdP7A6YDJq1dKN9WaB7Qau
+   VTvOrQYI/7ANlf2fIC7urt5RPRDU0RtItMTpEeQofwIOI5w1+sApjNXo0
+   NCrOFjosZhhGVVy/iK3uSDRWOD+qekUzR5HaAKWNi6UDB2E7fwa03K+10
+   UUnwgzAJU8mjRpSmDvGdUpXsMow3nbd2Vy5r8x6dZn0QFV0BnllXlwGkd
+   L81uVOCR9wkzVzFlJ0PtRsoXVkwTmHuC1ENXMJ5Nr0C0uvqBhYF8rxQmR
+   A==;
+X-CSE-ConnectionGUID: Ade1BYw8QXSySG92T6eYPA==
+X-CSE-MsgGUID: 6l/Q75feR6S9C9JZUEXxcQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11683"; a="70416856"
+X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
+   d="scan'208";a="70416856"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:44:38 -0800
+X-CSE-ConnectionGUID: 8UUpICqfQcST4/sJ1x6n/g==
+X-CSE-MsgGUID: k0n/UH1wQ0meFryrjQEfTQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
+   d="scan'208";a="212909062"
+Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.248])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:44:35 -0800
+Date: Tue, 27 Jan 2026 11:44:32 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: abdurrahman@nexthop.ai
+Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, info@mocean-labs.com,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v5 6/6] i2c: xiic: cosmetic cleanup
+Message-ID: <aXiJADHPJ0NXLVNa@smile.fi.intel.com>
+References: <20260126-i2c-xiic-v5-0-88a16a28721c@nexthop.ai>
+ <20260126-i2c-xiic-v5-6-88a16a28721c@nexthop.ai>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 05/16] arm64: ptrace: Move rseq_syscall() before
- audit_syscall_exit()
-To: Will Deacon <will@kernel.org>, Jinjie Ruan <ruanjinjie@huawei.com>
-References: <20251222114737.1334364-1-ruanjinjie@huawei.com>
- <20251222114737.1334364-6-ruanjinjie@huawei.com>
- <aXe6W69Esd1NLEU8@willie-the-truck>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <aXe6W69Esd1NLEU8@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260126-i2c-xiic-v5-6-88a16a28721c@nexthop.ai>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_014428_948168_8F60C172 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20260127_014439_189270_D569AFB0 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,41 +87,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ldv@strace.io, song@kernel.org, linux-kselftest@vger.kernel.org, shuah@kernel.org, kees@kernel.org, linux-arm-kernel@lists.infradead.org, kmal@cock.li, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, charlie@rivosinc.com, pengcan@kylinos.cn, broonie@kernel.org, luto@kernel.org, tglx@linutronix.de, richard.weiyang@gmail.com, dvyukov@google.com, wad@chromium.org, oleg@redhat.com, linux-kernel@vger.kernel.org, liqiang01@kylinos.cn, akpm@linux-foundation.org, reddybalavignesh9979@gmail.com, macro@orcam.me.uk
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/01/2026 20:02, Will Deacon wrote:
-> On Mon, Dec 22, 2025 at 07:47:26PM +0800, Jinjie Ruan wrote:
->> [...]
->>
->> To make it more reasonable and in preparation for moving arm64 over to
->> the generic entry code, move rseq_syscall() ahead before
->> audit_syscall_exit().
-> I've been struggling a bit to see how this helps to align with the
-> generic code.
+On Mon, Jan 26, 2026 at 05:08:21PM +0000, Abdurrahman Hussain via B4 Relay wrote:
 
-rseq_syscall(), or rather rseq_debug_syscall_return() since eaa9088d568c
-("rseq: Use static branch for syscall exit debug when
-GENERIC_IRQ_ENTRY=y"), is called first in the generic
-syscall_exit_to_user_mode_work(), so the aim of that patch is to align
-the order of calls with generic entry.
+> Re-use dev pointer instead of referencing &pdev->dev everywhere.
 
->  I'm also concerned that rseq_debug_update_user_cs()
-> operates on instruction_pointer(regs) which is something that can be
-> chaned by ptrace.
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+A couple of nit-picks to be addressed though.
 
-Isn't that true regardless of where rseq_syscall() is called on the
-syscall exit path, though?
+...
 
-> So, I'm not saying this is wrong, but it feels like a user-visible
-> change that needs better justification.
+> -	i2c->dev = &pdev->dev;
+> -	pm_runtime_set_autosuspend_delay(i2c->dev, XIIC_PM_TIMEOUT);
+> -	pm_runtime_use_autosuspend(i2c->dev);
+> +	i2c->dev = dev;
 
-This seems to hang on whether the force_sig(SIGSEGV) that rseq_syscall()
-might issue interacts in any way with the tracing calls. My feeling is
-that it doesn't, but I haven't confirmed it. Worth noting this is only
-relevant if rseq debugging is enabled, so any potential user-visible
-effect is limited.
++ blank line here.
 
-- Kevin
+> +	pm_runtime_set_autosuspend_delay(dev, XIIC_PM_TIMEOUT);
+> +	pm_runtime_use_autosuspend(dev);
+>  	ret = devm_pm_runtime_set_active_enabled(dev);
+>  	if (ret < 0)
+>  		return ret;
+
+...
+
+>  	ret = xiic_reinit(i2c);
+>  	if (ret < 0) {
+> -		dev_err_probe(&pdev->dev, ret, "Cannot xiic_reinit\n");
+> +		dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
+>  		return ret;
+>  	}
+
+It should be integrated in the second patch or so, I have already commented on
+that.
+
+...
+
+> -	ret = pm_runtime_get_sync(i2c->dev);
+> +	ret = pm_runtime_get_sync(dev);
+
+>  
+
+Drop this blank line as well.
+
+>  	if (ret < 0)
+> -		dev_warn(&pdev->dev, "Failed to activate device for removal (%pe)\n",
+> +		dev_warn(dev, "Failed to activate device for removal (%pe)\n",
+>  			 ERR_PTR(ret));
+>  	else
+>  		xiic_deinit(i2c);
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
