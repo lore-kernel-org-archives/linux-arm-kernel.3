@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41A84D2F000
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 12:08:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF610D2F002
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 12:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MkWOp+xWNlBUhk3z+kjIQv6lyriaRFWSGHYRQWtJf40=; b=LmNd11KBF3rycRBNbvBLtcxlnN
-	gTAuOVoR+w0nRQdJlq/adyUeQqK5IrsNHcSfz8ITK3GsrpW0ataQTcTcsSZH176DsC/0na3YgzZdM
-	XobaH386EWwnKaFv1NR3rxzu0bGKOJtru2EK6KDCxyos15WPe3lqcl+ofNzlvYItcYfhxB2fAJix9
-	117TKBdKiJM6utsEZ9E3p8Ri5KR1roft0UIOV4z+rhgHF8Wcl5JFKRsfXXOnig69fFlHej3EZ04dw
-	bbGi+JrRKEHdor/ISntwX13ysgVbSpQ4a9slaIuqfCsF+GK5fBFLR5sqg0VmrHeWlcJ2zFaFUeKdk
-	1/7/hloQ==;
+	bh=BCAl3SXzA7e6M/NAQATKpjRJBfyq5LG2WTtHOBQor5w=; b=qdB/XBWuabBFJAZxvFYbFhdbGY
+	FShbGL4yzUmFmD8zYzo3La1voFNLTn/ysH7Ov6IQVJIYFk50vcN49cQIpRzPRc3XZk6DAo+Heikbb
+	ovI+wD4umgWwABFBIzprtW0Pp2iiavmXNs7HNueop1oBg9W6Rz4MvXdH+s+zg53HRZdw3iyK0CmWL
+	hGqAMt+UgmJs09OInVht4n6k8KT+0UtmulbVqyAQMPcQhvQ3L2pqxmffPNKuHbbp5w1/lUaiac589
+	M5aelzfc94bqhX0uNLNUTk6W3oR4JUFl15dmH9eCRNzLgtLtHRCGqSl47XgEdpsjGztmv6+WJZjqa
+	iSVvv8BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkhrX-0000000ECbN-0wfm;
-	Tue, 27 Jan 2026 12:08:03 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vkhsf-0000000ECu2-22if;
+	Tue, 27 Jan 2026 12:09:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkhr5-0000000ECHu-18If;
-	Tue, 27 Jan 2026 12:07:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1769515651;
-	bh=JTD/7Yg90m3Li7TqsJFzrcj2fP7zcyHgyM48gbUTF/Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fIGJ2gq5hTPlD5Yy8m1c0/VRYozpUwbfzfZCYfmx0klSjez2uW5K+X19oulprqGkY
-	 XzI1CdYFwB5TAYQkuLCOYmbEU7JlKgazjOBDLvrMLxMmnaNA+qDca1jA5ExUUb972E
-	 /sf0XN07k7y9vP0dCx6e/fUUESFifjyvEcDGu1xQ4a2Mw+/iJGur0Ut0os2IlrX50c
-	 bmRYKCM7JyGX4imq9AuUwaHbOkkyx8LEigahDrcJhNFo1UAjoLt5GIOxxuXdDmI1ol
-	 CUVPzAryBoGf7tBS6yH3FYVTr954ih6DNorO9fqFh7H8vFtpkiS7DIabvoV8HHH7rn
-	 8e9CoGEvZ1YIQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DA6CF17E1418;
-	Tue, 27 Jan 2026 13:07:30 +0100 (CET)
-Message-ID: <4a4d87dd-0b85-42dd-8398-7580989a16c7@collabora.com>
-Date: Tue, 27 Jan 2026 13:07:30 +0100
+	id 1vkhsc-0000000ECtP-0PQW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Jan 2026 12:09:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A67E60007;
+	Tue, 27 Jan 2026 12:09:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2A93C2BC87;
+	Tue, 27 Jan 2026 12:09:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769515748;
+	bh=+zruV0gDKWApjNTlJT7dgyYGbAZ9dVb3+dt9ei8uAN0=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=jHL5SY2VgWzFxw8WQ0QgYC7bxRlseY3GJjdBU+RdFC3yik/IwyGFqFcQGX6ntHQ0m
+	 QyoxIrfGY07O/wjSh7A+HxjN/ne2V4ps4/n4TIJ6bH3l+/fHFsXRJI9/SLvN0ZhXup
+	 Gfp2A56AqqEYL//iPS+Pw6xTgQmdS3zHHB26G5Oj9Ju5a8Ogo6DVyCX0u34gtidFZQ
+	 q9FtU/P3NGkrn6BQYtQOte1gV3NCL6ZIcuaCRN4Iw+z130UOpMyjMnHtB4PFbpi04j
+	 5i7jRhsJ/E6h2Df05nU3pSycPCDGOTfBufe6Ck/Wwp2wkL0uXM8IzroehdMjLI2J1H
+	 YpfJXmYWDiLnQ==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+ Shengjiu Wang <shengjiu.wang@nxp.com>, Chancel Liu <chancel.liu@nxp.com>, 
+ Frank Li <Frank.Li@nxp.com>, 
+ Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+In-Reply-To: <20260126145537.2301-1-laurentiumihalcea111@gmail.com>
+References: <20260126145537.2301-1-laurentiumihalcea111@gmail.com>
+Subject: Re: (subset) [PATCH v2 0/2] Enable AONMIX MQS for IMX95-15x15-FRDM
+ board
+Message-Id: <176951574553.80702.13998029904704503397.b4-ty@kernel.org>
+Date: Tue, 27 Jan 2026 12:09:05 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 02/10] media: mediatek: decoder: Add a new platform
- data member
-To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin <tiffany.lin@mediatek.com>,
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
- Yunfei Dong <yunfei.dong@mediatek.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Hans Verkuil <hverkuil@xs4all.nl>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Nathan Hebert <nhebert@chromium.org>, Arnd Bergmann <arnd@arndb.de>,
- Irui Wang <irui.wang@mediatek.com>, George Sun <george.sun@mediatek.com>,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
- Yilong Zhou <yilong.zhou@mediatek.com>
-References: <20260127024248.18406-1-kyrie.wu@mediatek.com>
- <20260127024248.18406-3-kyrie.wu@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260127024248.18406-3-kyrie.wu@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_040735_488714_E6629AF2 
-X-CRM114-Status: GOOD (  15.84  )
+X-Mailer: b4 0.15-dev-47773
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,75 +78,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 27/01/26 03:42, Kyrie Wu ha scritto:
-> Add a new platform data member to indicate each decoder IC
-> to avoid the chip name definition keep growing.
+On Mon, 26 Jan 2026 06:55:35 -0800, Laurentiu Mihalcea wrote:
+> This series enables AONMIX MQS (i.e. MQS1) for the IMX95-15x15-FRDM board.
 > 
-> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-> ---
->   .../mediatek/vcodec/decoder/mtk_vcodec_dec.h  |  5 +
->   .../vcodec/decoder/mtk_vcodec_dec_drv.c       | 35 ++-----
->   .../vcodec/decoder/mtk_vcodec_dec_drv.h       | 15 +--
->   .../vcodec/decoder/mtk_vcodec_dec_hw.c        |  2 +-
->   .../vcodec/decoder/mtk_vcodec_dec_stateful.c  |  1 +
->   .../vcodec/decoder/mtk_vcodec_dec_stateless.c | 92 ++++++++++++++-----
->   6 files changed, 86 insertions(+), 64 deletions(-)
-> 
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.h b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.h
-> index 1af075fc0194..80cb46f1cded 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.h
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.h
-> @@ -69,6 +69,11 @@ extern const struct v4l2_m2m_ops mtk_vdec_m2m_ops;
->   extern const struct media_device_ops mtk_vcodec_media_ops;
->   extern const struct mtk_vcodec_dec_pdata mtk_vdec_8173_pdata;
->   extern const struct mtk_vcodec_dec_pdata mtk_vdec_8183_pdata;
-> +extern const struct mtk_vcodec_dec_pdata mtk_vdec_8186_pdata;
-> +extern const struct mtk_vcodec_dec_pdata mtk_vdec_8188_pdata;
-> +extern const struct mtk_vcodec_dec_pdata mtk_vdec_8192_pdata;
-> +extern const struct mtk_vcodec_dec_pdata mtk_vdec_8195_pdata;
-> +extern const struct mtk_vcodec_dec_pdata mtk_vdec_8196_pdata;
->   extern const struct mtk_vcodec_dec_pdata mtk_lat_sig_core_pdata;
->   extern const struct mtk_vcodec_dec_pdata mtk_vdec_single_core_pdata;
->   
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> index 7ed40936a0e8..c7af48f684c5 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> @@ -333,24 +333,7 @@ static const struct v4l2_file_operations mtk_vcodec_fops = {
->   
->   static void mtk_vcodec_dec_get_chip_name(struct mtk_vcodec_dec_dev *vdec_dev)
->   {
-> -	struct device *dev = &vdec_dev->plat_dev->dev;
-> -
-> -	if (of_device_is_compatible(dev->of_node, "mediatek,mt8173-vcodec-dec"))
-> -		vdec_dev->chip_name = MTK_VDEC_MT8173;
-> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8183-vcodec-dec"))
-> -		vdec_dev->chip_name = MTK_VDEC_MT8183;
-> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8192-vcodec-dec"))
-> -		vdec_dev->chip_name = MTK_VDEC_MT8192;
-> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8195-vcodec-dec"))
-> -		vdec_dev->chip_name = MTK_VDEC_MT8195;
-> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8186-vcodec-dec"))
-> -		vdec_dev->chip_name = MTK_VDEC_MT8186;
-> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8188-vcodec-dec"))
-> -		vdec_dev->chip_name = MTK_VDEC_MT8188;
-> -	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8196-vcodec-dec"))
-> -		vdec_dev->chip_name = MTK_VDEC_MT8196;
-> -	else
-> -		vdec_dev->chip_name = MTK_VDEC_INVAL;
-> +	vdec_dev->chip_name = vdec_dev->vdec_pdata->chip_name;
 
-While at it, can you please rename `chip_name` to `chip_model`?
+Applied to
 
-"name" makes me (if it's just me, nevermind) always think about a string, not about
-an (unsigned) integer number.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-In any case, you can already get my
+Thanks!
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+[1/2] ASoC: dt-bindings: fsl,mqs: make gpr optional for SM-based SoCs
+      commit: f80bee70b1938f904d0b12783044d5eebcc6879b
 
-...because that was just a nitpick, anyway.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-Cheers,
-Angelo
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
