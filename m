@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA7C6D2FEF3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 22:16:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A724DD2FEF4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 22:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=STl2Nd+8C8kVbSoxZDbbBr4CfdlYXAHmLXHpMVDXU2A=; b=k3RTsgTwWKahuyWI/xGaz3a76+
-	6m5WcyvqGesnigeJ7FpqOT62dNsr76kH17+9yl9nado8VQgoMwLgZhMM9F1+Xfy/rTYswSdaB53gT
-	EPdUHWogDIDO9znl7q24jLdhXhUnii/0VJrAYwIOpjUI/NaL9jLl97Mp/GBdH0xbocN+T24Ae16QY
-	UYWoDRh1bhHstuQJx5il6OzuRexB6HaodwAxps1OCkjDpYRFTep/AxV62jIC4C0EwZ2h1QSUe8+ZF
-	1MPrm8q+7Hplk2Xqlf9BqC9JL3wCAJHwpeQsGVryQxPMbUuQ1DWJmFjCtVrMXsK+Wd8agr/a1fJqA
-	ZZibB7Mw==;
+	bh=9Y87uN8apxJlmpJ0adW57fWqDfRG/gwUC83x8atmq9o=; b=iApBdwc5USoUco0VfnyGzVVQEB
+	i36pplHH0+kqKZonkPbvxP0itZNQfIy1Fr7YQ8Bs94a2yaJrPZzzjEDFNwzF0cjaZmhnAdfsurBXU
+	kMI++lFCk/X5sXolAb5T8ODbWoFRB+vfDOLPB4BkuTGyzL9yJVL5GYGlMDcbxtR7hezrIkhJyK7Uk
+	E1GXaIZAXjVA5YZ8Te+Y83t8Rp1mRgnRwaDlePIX/zOasEbFI0dZJT2FImV1kew313pxYIicSn5uQ
+	iAB3+zAYzxMYNsNU0DQ1GBrHuWKh/9yhxe8/8Lmvm0fj5PlXhET/LKuvyWdY63M2zHR4L7/luvW8l
+	hy0xOD4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkrMi-0000000F66v-00el;
-	Tue, 27 Jan 2026 22:16:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkrMh-0000000F66l-2DTa
+	id 1vkrao-0000000F77l-237Z;
+	Tue, 27 Jan 2026 22:31:26 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkram-0000000F77K-1wYu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 22:16:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ADEDB600AD
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 22:16:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FE53C2BC86
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 22:16:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769552210;
-	bh=STl2Nd+8C8kVbSoxZDbbBr4CfdlYXAHmLXHpMVDXU2A=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=RR2aHX7paHubKnV6HtXKbhKp+T/UGREZ5/MfYOmf3/8P7Ty0DoLwWcZiICLAEWxxg
-	 qZuojRBOkV/S8RZDU2SQ0+vifFnSOVDJVx24L9GyE+Vyc893J/fFHI76LZDP8ePbxZ
-	 ZkNIcHpZ+2yxbRwam9XStiuYF1CtKJVShO1H65LQmWfEr/Aq/tSTQYX+tmWNpqZG8f
-	 8ml5/7ucLM1isP4nKNsM8+cCDB5fCTDpjvDsJPqTSiDDHSNTlW99UzInq/cab80nSL
-	 5X/2QD6IpTkpN3S0nYZ/JfKdLXzIBf+SviQQBAiOuZQlyUVLD5xAvfZKnTjaut3k6k
-	 8q3CL6DDDvKkA==
-Received: by mail-yx1-f47.google.com with SMTP id 956f58d0204a3-64965ee303dso3744689d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 14:16:50 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWG3PQaOt+FL8dRTfay4owrO+N6TV0tDshCPO0FDyfjGFcbyvsBYm6e5plhF0wwTvD8EM6IS0lB8nRJqIGvJdUb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxqn3lEK5JN4PTOZEUQXyFBqNasXjG4/7J4u2LTmfNClDtiJxAz
-	QegjGi5F9S9ES9OQm3l1khwCvbOjdhY3FPTd0MxuyZvdShAA4XkE73fjWUKD8WdpoH4lHwb1uIm
-	UG7VzcqW1yVvlpTi0jKE8IoHdW7HxeIg=
-X-Received: by 2002:a05:690e:e85:b0:645:556b:62a4 with SMTP id
- 956f58d0204a3-6498fbd9503mr2445332d50.7.1769552209753; Tue, 27 Jan 2026
- 14:16:49 -0800 (PST)
+	Tue, 27 Jan 2026 22:31:25 +0000
+Received: from localhost (unknown [20.236.10.66])
+	by linux.microsoft.com (Postfix) with ESMTPSA id B8ED720B7165;
+	Tue, 27 Jan 2026 14:31:21 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B8ED720B7165
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1769553082;
+	bh=9Y87uN8apxJlmpJ0adW57fWqDfRG/gwUC83x8atmq9o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=F1si3MiQathZr4J82s8s0tPHsEM5HHu3iS0KWgyiIFmh8t2z/1riF5H5xeqL6uiuf
+	 AOSvepTJcBbjh7av4ZpznQmyzGXf8lMs9q1Z9SaOKsW9NyFqjtoOkeHsLcJPT2cZXK
+	 bl7roCyARz3JMk+uDttCnod8Mzv/bdsqjOGEPfig=
+Date: Tue, 27 Jan 2026 14:31:19 -0800
+From: Jacob Pan <jacob.pan@linux.microsoft.com>
+To: Mukesh R <mrathor@linux.microsoft.com>
+Cc: linux-kernel@vger.kernel.org, linux-hyperv@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-pci@vger.kernel.org, linux-arch@vger.kernel.org, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+ longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, joro@8bytes.org,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ robh@kernel.org, bhelgaas@google.com, arnd@arndb.de,
+ nunodasneves@linux.microsoft.com, mhklinux@outlook.com
+Subject: Re: [PATCH v0 12/15] x86/hyperv: Implement hyperv virtual iommu
+Message-ID: <20260127143119.00006d2f@linux.microsoft.com>
+In-Reply-To: <20260127112144.00002991@linux.microsoft.com>
+References: <20260120064230.3602565-1-mrathor@linux.microsoft.com>
+	<20260120064230.3602565-13-mrathor@linux.microsoft.com>
+	<20260121211806.000006aa@linux.microsoft.com>
+	<34de2049-912e-fc9e-9fc1-727fade0480f@linux.microsoft.com>
+	<20260127112144.00002991@linux.microsoft.com>
+Organization: LSG
+X-Mailer: Claws Mail 3.21.0 (GTK+ 2.24.33; x86_64-w64-mingw32)
 MIME-Version: 1.0
-References: <20260127214656.447333-1-florian.fainelli@broadcom.com> <20260127214656.447333-3-florian.fainelli@broadcom.com>
-In-Reply-To: <20260127214656.447333-3-florian.fainelli@broadcom.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 27 Jan 2026 23:16:38 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkCnWkuq8Sg6Jf_t1euYLN0PXtdmtQTFib6Cu--PAhPqw@mail.gmail.com>
-X-Gm-Features: AZwV_QjcX6Fq1BTf-DABgaLxE6ntCk6R2jLgUlhkHKHsGn9r4S8GfIZgM1YdP_A
-Message-ID: <CAD++jLkCnWkuq8Sg6Jf_t1euYLN0PXtdmtQTFib6Cu--PAhPqw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] gpio: brcmstb: implement irq_mask_ack
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: linux-kernel@vger.kernel.org, Doug Berger <opendmb@gmail.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Andy Shevchenko <andy.shevchenko@gmail.com>, 
-	Christophe Leroy <chleroy@kernel.org>, 
-	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
-	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260127_143124_557236_E630CA52 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,27 +81,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 27, 2026 at 10:47=E2=80=AFPM Florian Fainelli
-<florian.fainelli@broadcom.com> wrote:
+Hi Mukesh,
 
-> From: Doug Berger <opendmb@gmail.com>
->
-> The irq_mask_ack operation is slightly more efficient than doing
-> irq_mask and irq_ack separately.
->
-> More importantly for this driver it bypasses the check of
-> irqd_irq_masked ensuring a previously masked but still active
-> interrupt gets remasked if unmasked at the hardware level. This
-> allows the driver to more efficiently unmask the wake capable
-> interrupts when quiescing without needing to enable the irqs
-> individually to clear the irqd_irq_masked state.
->
-> Signed-off-by: Doug Berger <opendmb@gmail.com>
-> Co-developed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> > >> +
+> > >> +	if (hv_l1vh_partition() && !hv_curr_thread_is_vmm() &&
+> > >> !hv_no_attdev) {
+> > >> +		pr_err("Hyper-V: l1vh iommu does not support
+> > >> host devices\n");    
+> > > why is this an error if user input choose not to do direct
+> > > attach?    
+> > 
+> > Like the error message says: on l1vh, direct attaches of host
+> > devices (eg dpdk) is not supported. and l1vh only does direct
+> > attaches. IOW, no host devices on l1vh.
+> >   
+> This hv_no_attdev flag is really confusing to me, by default
+> hv_no_attdev is false, which allows direct attach. And you are saying
+> l1vh allows it.
+> 
+> Why is this flag also controls host device attachment in l1vh? If you
+> can tell the difference between direct host device attach and other
+> direct attach, why don't you reject always reject host attach in l1vh?
+On second thought, if the hv_no_attdev knob is only meant to control
+host domain attach vs. direct attach, then it is irrelevant on L1VH.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-
-Yours,
-Linus Walleij
+Would it make more sense to rename this to something like
+hv_host_disable_direct_attach? That would better reflect its scope and
+allow it to be ignored under L1VH, and reduce the risk of users
+misinterpreting or misusing it.
 
