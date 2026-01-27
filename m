@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87C5ED2D8F9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 11:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A318D2D8FD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 11:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nnKd7x/vUhOTzGd8FoCvZV6tIq7PhtSSkjGuWUY1hLg=; b=K+0HTMW90zyzjpwT8JRK3dJ+zG
-	PaQHh/ZGRNg/wlogBMQqJXA32kzYMboiLFYFibrYrE2EDimu3PZxAtrSclvUk49+iNUHV2HV4D55w
-	Bqke/ovlsQStXY5c+EMfIyhTjp4rpeOl0YUkhS/n0ZHW6JD+yJLq8/s+gMQioT7bDxkmkXLkevx4h
-	h5eJhMamjrop9U2rE28TeSAwtUTMoHD7ugcJh6bzRA+DAbgY9+mixt+CKGbloQggie0ul440awiDO
-	yglVbJ98jmyBs8fRZW9Vztq9vE1qmruZtLbCnTaqLy2V6cBRi0qwhbxbFGIAQEA8C6/CnkqfJb6wU
-	+/7p/sYw==;
+	bh=kEcocKN5H3nOjoRxLxgugjcI5hDHprWCn5alryGCyvw=; b=l0mLMSAyOwlB8XOUrdMZ3xReAE
+	gur51BcAyt2ClqWjjrJRHcmmeQ2K7EsEy2m3EXjpd14m9oDFLtdat6WB6LaNzp+76whFDy3RO8DG4
+	hCRDLu7IRfwYEanvtXlNgkp0yS/zM2ul3UybT2BIRb9QKdQd6q809JSVBCpFrx09KruqcZd05onDG
+	2P14RjWuJc0KcqfQVd927RfKhZuTf2/b9nF/A3uYr0IrFBVO/DhIFvRYVRMOZzKD66dmo3/Lm2dA+
+	Dlewdx5/PdKCZG17/3RBcDtOlaFP3erTuj5ADhR91TtLfAXBMfnIyIY4tx+83wt/DvVSlBXvq5QRz
+	DTqZphnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkguy-0000000E84P-2f6W;
-	Tue, 27 Jan 2026 11:07:32 +0000
-Received: from out-179.mta0.migadu.com ([91.218.175.179])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgut-0000000E828-01pU
+	id 1vkgx6-0000000E8Q2-0ZUz;
+	Tue, 27 Jan 2026 11:09:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkgx3-0000000E8Pe-2uRC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 11:07:29 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1769512044;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nnKd7x/vUhOTzGd8FoCvZV6tIq7PhtSSkjGuWUY1hLg=;
-	b=GUnq+62+JIvt2L6syHkyb4wlqFvKZ+plmGGr2LRmJ31JSFcdYZe8UNoVCUIGyMGFcOMizN
-	7RruA3EgntlZQH9DfgsHOnbyeNw47OlNL1IA1mw0t8llsJ6P2Tsrkjh6Bl5Bwcnni4SOQn
-	stU/B0Bq56oLlp6dehK6ekQxRRewAFs=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH RESEND 2/2] stm class: Replace kzalloc + copy_from_user with memdup_user_nul
-Date: Tue, 27 Jan 2026 12:06:53 +0100
-Message-ID: <20260127110654.436657-2-thorsten.blum@linux.dev>
-In-Reply-To: <20260127110654.436657-1-thorsten.blum@linux.dev>
-References: <20260127110654.436657-1-thorsten.blum@linux.dev>
+	Tue, 27 Jan 2026 11:09:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F79A1595;
+	Tue, 27 Jan 2026 03:09:33 -0800 (PST)
+Received: from [10.57.94.246] (unknown [10.57.94.246])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 50A403F632;
+	Tue, 27 Jan 2026 03:09:38 -0800 (PST)
+Message-ID: <0202fc62-0918-493a-98e0-3fd543c383fb@arm.com>
+Date: Tue, 27 Jan 2026 11:09:36 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 08/10] arm64: mm: Don't abuse memblock NOMAP to check
+ for overlaps
+Content-Language: en-GB
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
+ Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
+References: <20260126092630.1800589-12-ardb+git@google.com>
+ <20260126092630.1800589-20-ardb+git@google.com>
+ <d0f2df03-21da-473f-ab89-64a964c18f08@arm.com>
+ <CAMj1kXGsedZnV7GJZqo6Yfb4mi6YpMCu=fnHOwDib8-OxBij2g@mail.gmail.com>
+ <1bd6e787-00af-4d4c-a882-a0b8fb7f6a2f@arm.com>
+ <CAMj1kXEJPPWe4JE7SBYuQMcdTwQHvPqBO9Djj=tcW3DsNknkpw@mail.gmail.com>
+ <678f6b3f-8d1a-4253-8125-28b8ee89842b@arm.com>
+ <CAMj1kXHA_ndSDVtJ+obzh1ijPd_vuKQTiA+S1xZ=aqOcnbitmA@mail.gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <CAMj1kXHA_ndSDVtJ+obzh1ijPd_vuKQTiA+S1xZ=aqOcnbitmA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_030728_368395_433275A0 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20260127_030941_861205_8ECAAE87 
+X-CRM114-Status: GOOD (  29.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,43 +75,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace kzalloc() followed by copy_from_user() with memdup_user_nul() to
-simplify and improve stm_char_policy_set_ioctl(). Remove the obsolete
-comment.
+On 27/01/2026 11:03, Ard Biesheuvel wrote:
+> On Tue, 27 Jan 2026 at 12:00, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>> On 27/01/2026 10:47, Ard Biesheuvel wrote:
+>>> On Tue, 27 Jan 2026 at 11:39, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>>
+>>>> On 27/01/2026 10:27, Ard Biesheuvel wrote:
+>>>>> On Tue, 27 Jan 2026 at 11:21, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>>>>
+>>>>>> On 26/01/2026 09:26, Ard Biesheuvel wrote:
+>>>>>>> From: Ard Biesheuvel <ardb@kernel.org>
+>>>>>>>
+>>>>>>> Now that the DRAM mapping routines respect existing table mappings and
+>>>>>>> contiguous block and page mappings, it is no longer needed to fiddle
+>>>>>>> with the memblock tables to set and clear the NOMAP attribute. Instead,
+>>>>>>> map the kernel text and rodata alias first, avoiding contiguous
+>>>>>>> mappings, so that they will not be added later when mapping the
+>>>>>>> memblocks.
+>>>>>>
+>>>>>> Should we do something similar for kfence? Currently we have
+>>>>>> arm64_kfence_alloc_pool() which marks some memory NOMAP then
+>>>>>> arm64_kfence_map_pool() which PTE-maps it and clears NOMAP. Presumably we could
+>>>>>> rationalize into a single function that does it all, prior to mapping the bulk
+>>>>>> of the linear map?
+>>>>>>
+>>>>>
+>>>>> Yeah, good point - I did not spot that but I will address it in the
+>>>>> next revision.
+>>>>>
+>>>>>>>
+>>>>>>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+>>>>>>> ---
+>>>>>>>  arch/arm64/mm/mmu.c | 27 ++++++++------------
+>>>>>>>  1 file changed, 10 insertions(+), 17 deletions(-)
+>>>>>>>
+>>>>>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>>>>>> index 80587cd47ce7..18415d4743bf 100644
+>>>>>>> --- a/arch/arm64/mm/mmu.c
+>>>>>>> +++ b/arch/arm64/mm/mmu.c
+>>>>>>> @@ -1149,12 +1149,17 @@ static void __init map_mem(void)
+>>>>>>>               flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>>>>>>>
+>>>>>>>       /*
+>>>>>>> -      * Take care not to create a writable alias for the
+>>>>>>> -      * read-only text and rodata sections of the kernel image.
+>>>>>>> -      * So temporarily mark them as NOMAP to skip mappings in
+>>>>>>> -      * the following for-loop
+>>>>>>> +      * Map the linear alias of the [_text, __init_begin) interval
+>>>>>>> +      * as non-executable now, and remove the write permission in
+>>>>>>> +      * mark_linear_text_alias_ro() above (which will be called after
+>>>>>>> +      * alternative patching has completed). This makes the contents
+>>>>>>> +      * of the region accessible to subsystems such as hibernate,
+>>>>>>> +      * but protects it from inadvertent modification or execution.
+>>>>>>> +      * Note that contiguous mappings cannot be remapped in this way,
+>>>>>>> +      * so we should avoid them here.
+>>>>>>>        */
+>>>>>>> -     memblock_mark_nomap(kernel_start, kernel_end - kernel_start);
+>>>>>>> +     __map_memblock(kernel_start, kernel_end, PAGE_KERNEL,
+>>>>>>> +                    flags | NO_CONT_MAPPINGS);
+>>>>>>
+>>>>>> So the reason to disallow cont mappings is because we need to modify the
+>>>>>> permissions later? It _is_ safe to change permissions on a live contiguous
+>>>>>> mapping in this way. That was clarified in the architecture a couple of years
+>>>>>> back and we rely on it for contpte_wrprotect_ptes(); see comment there.
+>>>>>>
+>>>>>
+>>>>> OK, good to know - I was hoping to get your take on this ...
+>>>>>
+>>>>>> I think we could relax this?
+>>>>>>
+>>>>>
+>>>>> OK, I suppose that means that we can drop the NO_CONT_MAPPINGS here,
+>>>>> but we still need to map the kernel text/rodata alias initially to
+>>>>> ensure that no block mappings are created that would need to broken
+>>>>> down, right?
+>>>>
+>>>> Yes, but...
+>>>>
+>>>> I think your intent is that the multiple __map_memblock() calls are just
+>>>> controlling the allowed leaf mapping sizes.
+>>>
+>>> Indeed.
+>>>
+>>>> It becomes problematic if the 2
+>>>> calls use different permissions... which they do.
+>>>>
+>>>> PAGE_KERNEL vs pgprot_tagged(PAGE_KERNEL).
+>>>>
+>>>> Is it possible that the text/rodata section ends up tagged, which is not intended?
+>>>>
+>>>
+>>>
+>>> OK so toggling the R/O attribute on a live contiguous mapping is
+>>> permitted (provided that ultimately, the entire contiguous region is
+>>> updated accordingly) but the same doesn't apply to MT_NORMAL vs
+>>> MT_NORMAL_TAGGED, right?
+>>
+>> This is the rule:
+>>
+>> RJQQTC
+>> For a TLB lookup in a contiguous region mapped by translation table entries that
+>> have consistent values for the Contiguous bit, but have the OA, attributes, or
+>> permissions misprogrammed, that TLB lookup is permitted to produce an OA, access
+>> permissions, and memory attributes that are consistent with any one of the
+>> programmed translation table values.
+>>
+>> So, yes, it is fine to modify the attributes (and I assume the memory type
+>> counts as attributes) on the live mapping...
+>>
+> 
+> OK.
+> 
+>>>
+>>> So let's use just the same prot and flags for the initial mapping, and
+>>> use MT_NORMAL_TAGGED when we remap the text alias R/O.
+>>
+>> ...but that wasn't my point. I belive the intent is that all of the linear map
+>> uses MT_NORMAL_TAGGED except for the kernel text and rodata, which uses
+>> MT_NORMAL. In some configs (e.g. force_pte_mapping() == true), your change will
+>> result in all the linear map, including text and rodata being MT_NORMAL_TAGGED.
+>>
+> 
+> I didn't think that would matter tbh. But if it does, are we fine as
+> long as we change it back to MT_NORMAL by the time we remap the region
+> read-only?
 
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
----
- drivers/hwtracing/stm/core.c | 15 +++------------
- 1 file changed, 3 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/hwtracing/stm/core.c b/drivers/hwtracing/stm/core.c
-index 5834f796e86b..335bcf749214 100644
---- a/drivers/hwtracing/stm/core.c
-+++ b/drivers/hwtracing/stm/core.c
-@@ -733,18 +733,9 @@ static int stm_char_policy_set_ioctl(struct stm_file *stmf, void __user *arg)
- 	if (size < sizeof(*id) || size >= PATH_MAX + sizeof(*id))
- 		return -EINVAL;
- 
--	/*
--	 * size + 1 to make sure the .id string at the bottom is terminated,
--	 * which is also why memdup_user() is not useful here
--	 */
--	id = kzalloc(size + 1, GFP_KERNEL);
--	if (!id)
--		return -ENOMEM;
--
--	if (copy_from_user(id, arg, size)) {
--		ret = -EFAULT;
--		goto err_free;
--	}
-+	id = memdup_user_nul(arg, size);
-+	if (IS_ERR(id))
-+		return PTR_ERR(id);
- 
- 	if (id->__reserved_0 || id->__reserved_1)
- 		goto err_free;
--- 
-Thorsten Blum <thorsten.blum@linux.dev>
-GPG: 1D60 735E 8AEF 3BE4 73B6  9D84 7336 78FD 8DFE EAD4
+I have no idea. I worry MT_NORMAL_TAGGED on the text might imply a performance
+cost? But not sure about functional... Will ask around.
 
 
