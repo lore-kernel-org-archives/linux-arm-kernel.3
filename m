@@ -4,115 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CEFAD2FED0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 18:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B405DD2FED0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 18:09:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1dOOo8NQ4DafD9XkbSs1ACU0adhfNmtPmDSYYCT0h1M=; b=vxnjSki9lylHD8+dYeK0Lw+Qhq
-	4bR9hu8YE+xVndr4+rprItm2FwJM04IFyPO+UqEU2tUSzA9em0tEjLfIDHIcP+khoXxHDaLMPHFY6
-	VnTtvvOs7iF1sYQE9TzZvlNGnulodjxrlo8yFweQSEmLLBc4anpNI67nhLzuvVuHfenP2A0ShD2NE
-	E1lpPNVPlisbht8St6tjSG3ewyU12NsjPkIyR+IpMY0vf4+51B0+8E2pqU9xnehPagzT2oxFjzoNi
-	r4G34836qwjDcus7sHIaj5X06jpna+AFzkBzuILyrYF8wFohqzb9QZplIYuq+Ek1Az9p5W7GW2QXf
-	AXkDIS5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G7o8twz/MEZfY0KmMI9Gs8CQCbn/bO9zVI+J/Vm/pa8=; b=EL7Q1cPeB6ucp2EG6ehWvq4Ugu
+	shw5JVDH4wS7ax1bGckahhPgwTA1xGfhbs+EjCp0VeNyvC57R5pECWp5Bz95WVFnWKgjbeI5/EQm+
+	BrWqLX9GvT/KCyYH5t5kB3lhcts1hQG91wRqaaS75dGLjKJbVgwJYcwLFpwk1TQZmom4Hr4bXC7eN
+	LyvcpHK0R8eU/nA7dVljObAxas+GywS4ESc/ECmGCTky9pCPbATRcqUBOSLt48VaCcdy+hKAw5x1i
+	6icyotXKseFSTsJ47y70tzvnATO9f1vTxnmJKdua6EYgiOJEdTNsYNjJZ0YXo5+NKAFIYhpDN4NnJ
+	vuAB+rGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vknUd-0000000EmfW-0CjI;
-	Tue, 27 Jan 2026 18:08:47 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1vknVC-0000000EmnL-3Mm4;
+	Tue, 27 Jan 2026 18:09:22 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vknUa-0000000Emee-1PTP
+	id 1vknV9-0000000EmmD-1BqR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 18:08:45 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a885af8ee7so2355ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 10:08:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769537324; cv=none;
-        d=google.com; s=arc-20240605;
-        b=CAizR5NfPMaJYOkoqvGklECrjBwc75k/TgaEqndHgkdTQBhI/LDQPyZgTgPI3UD7Kz
-         WNAgPa6W47nVnaLPTpz+4d6Wq+29M+4xcSaViMJq3Pmg8dJb8Sn0zSxgprjUqfYlX3bz
-         UgfSlaM+v0V5R7hzHXkTsNXXPFzHwC68WRn/dDZWML/cbsBMP3XzGmyO33ALwPXxyZkI
-         EF0doW2zPNGPKEXKB5LkibZf/qRDdwZxGNj5xtPoDJUFFz9qThGdwBhuTUw+CVdDs3P0
-         UosCX9an9lqZzexx0u8Ya6A0T+jeNVpLeJURM9PsU4YrhmhBnBaNq2b40jUiH9TH/yOm
-         yn1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=1dOOo8NQ4DafD9XkbSs1ACU0adhfNmtPmDSYYCT0h1M=;
-        fh=bO2d00J+WMP/8mFOLUuYUixR8XWMZFrgIf5al8VUqEI=;
-        b=HraQHpuIsZmPVpJVBoI9XKG2BqT3NTeMp4UB0VD81DpAT8m0LTDQdsCpcw2/cVXHu3
-         Ak0MuHb+cHTARKvwOtl1l/q9dNNPkQBlMW1sfZMKKE6TpT433DX0h2nyG8UD0ijhdS/t
-         DDqNdJnEl04Dlmr59nW6IIsXq8VPIxsd75licWW9Dpym1CG9dmXoIt6HPh3z4j2XAO9M
-         1TVXctqlXh+hDedeMjlqEDXEHPQNGmcZqoiGiGkb1pHHzYypf0mZpp5/6E1T2KpAT35Q
-         zMY7GPZXLv9E/kOjvKx5VQx5yapvyS5Ui/53LDiGbhvZ2UZmZWkz9oJTjw8LUO1zSITY
-         w2DQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1769537324; x=1770142124; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1dOOo8NQ4DafD9XkbSs1ACU0adhfNmtPmDSYYCT0h1M=;
-        b=p5xM6yWTjQ3ly79SKh19ehH4888MIBk4AWgkx9qI3xT7OoQSR03N7XrVMurKNDQlY5
-         A1bt9xWvzsy33VEP9Acmzh705OWqeGBGeMMpxzFZdImHcYjDKhUvDYw3THrUm0pQvZYK
-         SKk1K3ilkNdSThSYPiJgGFiOmRem3Gwx3kwFkTOY9AXIaMde3cO7Ry6qVz38gZSoaa6z
-         uPJisWFDGEJCnKrQgj7O3stdsQ+c/g4/foFtTcbvA1qLaHs5grPLkZWgZXBXe2mjQVYa
-         bhesTGV/7sUZ7J7AjtxKX9tq2aGFAHvkqU/U3/rTAv3a1HR42tnNTYlO8KNdbPm2OjDg
-         yGWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769537324; x=1770142124;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1dOOo8NQ4DafD9XkbSs1ACU0adhfNmtPmDSYYCT0h1M=;
-        b=QUnx6/UNVrgXwjIDKFzO6xX2knfg4u3JEqDJh85AZZw/EVqg+5oS3egj44o0/jyP/1
-         l2fAUtG+JSbYI6SfKH8ojsaMEKwVZQ0kltY2EJjgAxzMOfu8DrHwteJtp+XyIEsAkrbI
-         3qhtoz031ssKQTbxf55Z9Zj7hUQsozj2z0ZiKK3+6LR5PcwJRosgsjKKyjPiEiz81BRy
-         LpCyMKIq0/JOT0ikxH5VpddTPR9/eHMrqTH1v89Wp585VXMf/f1+KeSU59T8eYUeEQfE
-         XLeqCdUJxkuTZghT1Koo9CBpm8Ko70bFV5DjfTgzc7DMVB0N9uDAtuo5JH0mRQaL6Am5
-         bnMw==
-X-Forwarded-Encrypted: i=1; AJvYcCVHDPOX6N/R9Z6NXkDcKV4STZjd5O6NI+3Y72f7GLv1EYKNiApvcOo8pE2fbeqR5HKJfbOeUrJtxAX0o+sLV2aP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxP73Zhzo9Ryd2X3HBtktPvLRGzOVcqbuEeJ53tAvu1Zk98A26q
-	EErFSAQaROS41RT+gx+mN0r/pAL7q/oNOKLhQPD+70YoI/W5d6McZpm/Un3RpjATHbTt0xcXJfU
-	Wiw+RyPyLH53GAjRW0NIEf9/0qwBo7Y6VOcR0JH03
-X-Gm-Gg: AZuq6aKZW4oWO0U6Z1mNIu/s1qqeAM1/3a3ceb8LeWDgT6iqbGkXBNQ5EdlRB2low2e
-	e6x3INRNCL43D4DwDpq8U3qqvFktUjL5AaPMBtp5HvztHlYvBBEZf3W/PU0tC/zdPys+pRtW6Ph
-	v2I//F/IqMgbrDlj/cwqZvBZ2yxspx7smot4K0s4b3+atst2LTB3EAp8uy+ndryGrj3+HWYs4eq
-	8vp+7SGNN8SCSE9gGe3MA5M0L0Se6ot/nbpglfdbgDvuQFW3D5PGmlbdpgqHqUGh844hmwGS1cS
-	R4/Urnqet9oYWNieO0nDRpQu
-X-Received: by 2002:a17:902:d583:b0:2a7:6fd3:c11e with SMTP id
- d9443c01a7336-2a870b4f72fmr2715565ad.18.1769537323122; Tue, 27 Jan 2026
- 10:08:43 -0800 (PST)
+	Tue, 27 Jan 2026 18:09:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t0XTLZEmkhcZ2Yz6Wq12kHk1FUFca/CKIvQj/lNjq+7jUqvOArJD5UKMAuV4Dgvi/yk0nYK6aeWhcVuaocLCVY49NSHmL8QpMR0N7tZIEG3P1zY6EuSFCraigH2vyg5ke7ukw5QDa59DPH2ImLR+q9aBTBCD/VJC7dagOcRF0YHFptgSAlXt9Q2skSMinLTn9YGXN8XLhhnVgvI5hc0bfkgcFGEON5WJj2xkoAS+95omA77HDfxPJgOLoKKeUR/Av4OsNq30UWb+NoNqRfRHuwt5jYaLs4b9t70pZa/TZgaBFNsJWefO+dq/n3XAHQNPl0RdWQymF/IIjIbcrrFERQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=G7o8twz/MEZfY0KmMI9Gs8CQCbn/bO9zVI+J/Vm/pa8=;
+ b=IetugBaSYPYzpG18+hKkcKCq1impWwjEi7tM/wyBWjIpkCsTLuJ3lsNEMwHXctuVFbzWDfLE9Y6ftkOyrwjvZvTnN6CIjwJlDP1XUWwE1MYZKIH6IVdOGW8vH/qAMSRw5IBmoI1BstoWQ/dQSXsFV0KES3P6UgGkqkFlPmb2MxcPlOOIB7KjUwGg13LTi02v43/A1RRm1yZqnG5kXTHuRjF2cPyL3+XaouzpNmkA6H2S5GqblSqA2QqVatTo4f/4ILhmnZg6cyPQPdgQqgVofj8o8ZhBCrYjo0wC3ojl5lHPp6CEColF3nHZC2ojU11mAIHDGsAut6raiayGcfTNfA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=G7o8twz/MEZfY0KmMI9Gs8CQCbn/bO9zVI+J/Vm/pa8=;
+ b=ggDmjWpO2O3jXkEDO8Ur78MuL9toDqctai1o+9ZzEj/WEOkq8C/djDzIkQDqHPhifo2vftSth/nTgmHQTJaXWvKcwNdkw+8L6n2Ehjgbal+7B/BJ1L6/hAjWBWnLLwzDJw7b1qxPcLaAaHImAu37mSP9JaCgdCpQmW/uN7wh1YX9GQZk05dTC1AbImXbBG2hZpai1JIs9cHJKkZIoWPhGRr4PjcZtXBvqAQZVRNDKYi3dFfHITbYQvVFu/7f/QnTvXXwpJuskJFq+l+qMPl4vTlzv5K0vwozZv/l90bhOP4fI4h3KebhgH5fg6x95Fx0BqHAPgkC9+ahXwC2n8Qh6w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DU4PR04MB10402.eurprd04.prod.outlook.com (2603:10a6:10:55b::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Tue, 27 Jan
+ 2026 18:09:15 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9520.005; Tue, 27 Jan 2026
+ 18:09:15 +0000
+Date: Tue, 27 Jan 2026 13:09:06 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Wig Cheng <onlywig@gmail.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, zaq14760@gmail.com,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: freescale: add pixpaper display overlay for
+ i.MX93 FRDM
+Message-ID: <aXj/Qs4smDjoURoZ@lizhi-Precision-Tower-5810>
+References: <20260127025740.2601841-1-onlywig@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260127025740.2601841-1-onlywig@gmail.com>
+X-ClientProxiedBy: BY3PR10CA0029.namprd10.prod.outlook.com
+ (2603:10b6:a03:255::34) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-References: <20260117052849.2205545-23-irogers@google.com> <20260127174253.396766-1-serhei@serhei.io>
-In-Reply-To: <20260127174253.396766-1-serhei@serhei.io>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 27 Jan 2026 10:08:30 -0800
-X-Gm-Features: AZwV_QjigoQ4qTMNcTX7ebCm7Qdj2jAHNjthD9J6xiq7M99DqRJBY5IBrDFTDXk
-Message-ID: <CAP-5=fWFXnmZZ2vh_oJM6PWYiJvOV1Etx1+FLzWQUhv7WYC6jg@mail.gmail.com>
-Subject: Re: [PATCH v1 22/23] perf unwind-libdw: Don't discard loaded
- ELF/Dwarf after every unwind
-To: Serhei Makarov <serhei@serhei.io>
-Cc: acme@kernel.org, aditya.b1@linux.ibm.com, adrian.hunter@intel.com, 
-	ak@linux.intel.com, alex@ghiti.fr, aou@eecs.berkeley.edu, 
-	atrajeev@linux.ibm.com, ctshao@google.com, dvyukov@google.com, 
-	guoren@kernel.org, haibo1.xu@intel.com, howardchu95@gmail.com, 
-	james.clark@linaro.org, john.g.garry@oracle.com, jolsa@kernel.org, 
-	krzysztof.m.lopatowski@gmail.com, leo.yan@linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux@treblig.org, mark@klomp.org, 
-	mingo@redhat.com, namhyung@kernel.org, palmer@dabbelt.com, 
-	peterz@infradead.org, pjw@kernel.org, shimin.guo@skydio.com, slyich@gmail.com, 
-	stephen.s.brennan@oracle.com, thomas.falcon@intel.com, will@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU4PR04MB10402:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0541a6dd-23cf-4fd5-6eca-08de5dcf2e4e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|19092799006|7416014|366016|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?34rHdEfWpilhmk+e88UR1Co+9jyKU4g2l6Mg7+Gdu9p6KrPV9nOgjTYWY7o5?=
+ =?us-ascii?Q?JO+s+p7mG9gBfDyANcBxCyC2m08PFVarDkZvS4ovULbOUgOnDZCflPr04wf1?=
+ =?us-ascii?Q?BCkAnyN1373GpnbScXtU2CUlkYSZ+x9EqUVMAWYKCZxZrV1VaX9lYj9Ushvd?=
+ =?us-ascii?Q?VfqIG3ifFjvVgHaL31HWSGMSFQRMkGal8BtQDrQjFXuZF/nAb8YENpUAS7bX?=
+ =?us-ascii?Q?M+iP95Su4/jtFmnaAXiSCIsdz4X0XeBF6FswfHSAvtKqqWOMa/2ZC8XBbgtW?=
+ =?us-ascii?Q?6AwYPn1nIu7vJqAIB1x8Mf2ZxQuxjBUb21/OZ5UUOEqAzCGSMqc3zVXNe+ym?=
+ =?us-ascii?Q?uCpnAvHEHk8TyLZo+HziJOQ+Y+GpKcLI7rVm3eu6oUh7Wp7C+NRcBcE9pach?=
+ =?us-ascii?Q?+xTkwm015lPrKe4ysdT9rAd30w1ZF3xWmDRVZNoRIDb96BDLiXig1h8TEr1y?=
+ =?us-ascii?Q?5fr9KEQf8HHkUd3CnXOhIyirUM/yOKirS/MPpyZbIYgiAqZ2qyfjo5XHdzmK?=
+ =?us-ascii?Q?lVzX8/bac8NXmexSX/3dDkPLao5prZg6nE/z/Hk5k+WAqgZv+AdnhbrsFZqo?=
+ =?us-ascii?Q?rCazZmelKC8ATqgOp3cPTq+Gu4vbG3enYD7UvsheH34bkUsMwxSl13IayTn6?=
+ =?us-ascii?Q?zBZ1eWDpTnz5X90PMVrJEY6frfeey0OtgOJpLlxxNGYksNhSHSwv1pgisndU?=
+ =?us-ascii?Q?2400uVE4fefEsDH00H1RXtQWvP1kMfDU0QiLc62jGoVOg3oDb+6o8loJYPBr?=
+ =?us-ascii?Q?HvQf6pCS2o2rFUvBVg0YdEmPH5GzBam1BP9dVdOFuIZXHKQ2QOwh4TBpngyQ?=
+ =?us-ascii?Q?AOVzxtEx8qUwj3GIZ9I96JdJjKjH8rzkhwXP0NFeZS4uqT6JBiCcgBHvGKFR?=
+ =?us-ascii?Q?W9xaqJhUcDEIYV5hvUrr1Mo/TrPteByrZuqK3xduFRMTKFOiJ3vTB0+m4l8L?=
+ =?us-ascii?Q?upD0S1sxE2CTUnUr3kbcM59Qb7ioUTaTL4pJ83LDxDFgDZiIm2gJv4R9BMW4?=
+ =?us-ascii?Q?nlg761tF3213P1q5WBrysqqMxs9S/REG/ajnfdg1vfUV6lp5lB07O5RCq7Ra?=
+ =?us-ascii?Q?YfHRQStLIXPnXrcQOhneroxPHrJAhvFONYhkTU42wk9kxLJTxteuOufgKtZL?=
+ =?us-ascii?Q?pSa3YnJUNuFWS70gJwJxSrnJ9DZxh1aOJ0cQNfanEcJopDto5soVg6u1llI9?=
+ =?us-ascii?Q?0ZXh6U0V9uiZLnehjomgbBZypSJhPFB8mRUmEBt7/qe3O/z5hGTY2R8rYAoC?=
+ =?us-ascii?Q?Tz03jyxW2vaIF9dr5QQaUOxwxkpn+d+S5Wl1TbXoYvtAUvvfi5MLWTW4Rp7A?=
+ =?us-ascii?Q?tlodde8g5ZU3u0fUYk1D4v/GIDn5of6W8ySnSpEq0QYr1EsUOhCozCABJUhc?=
+ =?us-ascii?Q?hIW7MuEFnot4TgHTmgLQ5hjJJJrdKOcwav6RD+NW6wynKe+lA90ScUuCIES7?=
+ =?us-ascii?Q?q8nwsSuGgJN9GRSyyli7ADngNfnQNF/UiAj8AKLxAQYnQMof+IkNVNoU8tX4?=
+ =?us-ascii?Q?86jewH57uc2vt6aPyMMjvFyULZQJXBVqb90pGyba45yCA4zwMO3OAZhrl7Bs?=
+ =?us-ascii?Q?rzcrjmCGwjP4XtnI/66NRG2fru6iOHQ38zcZ8jtOyjaGm+xGafMM2nOMP+8/?=
+ =?us-ascii?Q?uOHVN09rYnBrgqk+JE65o3M=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(19092799006)(7416014)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gHS1vX2smGxyrY+WZZ8m7BiotrLaCILrl7f/qJuTG4xeA3FCipAZIPRog7oy?=
+ =?us-ascii?Q?gDhf0y6hGt5jX9mPCpuyi3GydtHQkAjmHILez/ovxlBy49nRMyvC5UwQmLPx?=
+ =?us-ascii?Q?DDQjLmN7O6aWUgC+r0HlEpMPESZJ+HaPwJCsVoEAbzBarekR43ntsnvCkT1g?=
+ =?us-ascii?Q?8nVSb5hXnEqTxv3N4cMJ0IYJBKRKogYfF16QvO8Lc7uf0WCnM0YQZx4wske8?=
+ =?us-ascii?Q?x6futHMMDUuQafhn7de5J77w9LkSi010s3pk0SIBQzaAnOAncOooa0CNU7xa?=
+ =?us-ascii?Q?kLZWDlPY+bs6qqKx+zSNnK1hjarrvdkZG8s70sP5LQKYzQrgCGELgvQXxzhp?=
+ =?us-ascii?Q?FQNrMcRusR8CJM1AX2MfjAjvEgEqK/6bJvBnw0RLC5uwB/yajD9FK4iWt19+?=
+ =?us-ascii?Q?Hcecfdw8zNco1bq4GHkQkEaXEe3lGixSVZxlYkZVMMF2SdUdXrZD/4LpI7LH?=
+ =?us-ascii?Q?XfBnxnBucsbwQzyu5tNsMXKMo9WqFj3xprbrHrqjchQEclGVJMGQXoJOKC93?=
+ =?us-ascii?Q?cPsi01r0+Z5FF1nvB5BqypCebxTFlnCEmYJWyZ5UQyXnDJTG/+1sfEgtmbt3?=
+ =?us-ascii?Q?i1ik2/+TWgbNTCS/BDIGPQ2AR/F8tC9Uz5a34o3aHEt3t/93EL5kSUFLrHa8?=
+ =?us-ascii?Q?r574uOaPiJvKfn22Zrz/R4ZuPaJqlNSTEeigQsQuRvFxgeT/dd+6qOG+7Cs/?=
+ =?us-ascii?Q?nyAZJoL13JONNlDB7ZpMMGmGfVAU7NLEhDPQB1VMhG64P5ucA1wjiTXGMMUV?=
+ =?us-ascii?Q?bHs99gYelu71qgBurWzRVLAk1Y/pQwwooEfhbE9lQ3OsLc8IcsapEF5doZic?=
+ =?us-ascii?Q?Q2DUNFzGS6M1SMwsLRubJKr0UcPlqJDi8Jxu5RVRqgdLlCmO67ZxY0KN03bn?=
+ =?us-ascii?Q?X6/FizrLzEL/HkBrer5A2wyeqPtIjinpSBlgD+2ZuFv0LSOGvah8mSB6hhEO?=
+ =?us-ascii?Q?L3z3Kw9IeZIjPv2lbHn1gItvTvjSjPZFb0cT9RgDRKCG52/JZJjdwqi98ks4?=
+ =?us-ascii?Q?brvPkpoWUAOxwRdoEoFFTfYay2deixuEdnAflN/QN1lOiesuMadsqekF/Mcv?=
+ =?us-ascii?Q?dnnKnPN3Ls1Y5uwa3XYHrzUpn2G/uKqydXrlAyg6Pc6H6nKVUe7x2I2xYyqZ?=
+ =?us-ascii?Q?Nu/DZ7NsYNxsh0ElPLgEnmo5j6r7BuwmTdXJtCAM8yA+EWDdzy4Nxa+D5lSi?=
+ =?us-ascii?Q?T4jTRlSH25qnbKg9tnGfu7DXi1oH06tDk2UfiSojP+QpqHojoFCGk78fnmYW?=
+ =?us-ascii?Q?9FSREsXQf2aM4zUa7XGoMrQgNmkOhwVW73yIKAw8Kah78JKby0SzSFtzUz0O?=
+ =?us-ascii?Q?U0qxjGBZeLNJvAlmuPrN+M8RA6qDi41g99+3G7T/kIQkKJAw6hH98aVus001?=
+ =?us-ascii?Q?qLpZEuzqW1Gj+vHlrfkZ1ZUnFM6vFSYM7hFIC7rhXEqnQ4Y6bY7iyyhQgJGU?=
+ =?us-ascii?Q?YJbpqKCaMrlkqMk3/a6PqOEVlvJCXd6c/hn8ZQ3vY83US8/kBmVW+WiqQtAJ?=
+ =?us-ascii?Q?nXMsic90avC29suQDLKh6riaY4mMyHjlept+cxGUFOeA1w+Xgy6xHhYuCuwd?=
+ =?us-ascii?Q?6XIZTa/7TMDCeIf3qVKaZghOsgp3+PNUZIuB6i5OTi5RJ0GIceyp7XFKyhM6?=
+ =?us-ascii?Q?z/yi2u3FvzWnwKH9389k5sqvCtWDraDdaSNcdRZ7Wa58myzuKB8fAxBoJEgT?=
+ =?us-ascii?Q?inLOU5N+8KGI/gX/K8Nf9ASoZK06WsSSTbQ5K3AXXZvndPhP?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0541a6dd-23cf-4fd5-6eca-08de5dcf2e4e
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2026 18:09:15.2910
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bVVf5OJQFiFfJ1VhgIXRDHahM4cA0qerM0mjs/w1UqYc+dZksFIg3Aw1YUO3hEmgRuhdJDyXmgJITFZMWCEnbA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10402
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_100844_381503_744E4AB7 
-X-CRM114-Status: GOOD (  24.02  )
+X-CRM114-CacheID: sfid-20260127_100919_325059_CA35AD5B 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,77 +166,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 27, 2026 at 9:43=E2=80=AFAM Serhei Makarov <serhei@serhei.io> w=
-rote:
+On Tue, Jan 27, 2026 at 10:57:40AM +0800, Wig Cheng wrote:
+> Add device tree overlay to support the MayQueen PixPaper e-paper display
+> on the NXP i.MX93 FRDM board. The display is connected via LPSPI3
+> interface and uses GPIO pins for reset, busy and DC control.
 >
-> > As removing the dwfl didn't prove possible, an alternative is to just n=
-ot discard the dwfl when the unwind ends. The dwfl is valid for a process u=
-nless a dso is loaded at the same address as a previous one. So keep the dw=
-fl with the maps, invalidate it if a map is removed (in case a new map repl=
-aces it) and recycle the dwfl in the unwinding code.
+> The overlay configures:
+>     - LPSPI3 pinmux for SPI communication (MOSI, MISO, CLK, CE0)
+>     - PixPaper display device with proper GPIO assignments
+>     - SPI frequency set to 5MHz for stable operation
 >
-> Relevant note:
+> This enables support for the Open-EP Community pixpaper-213-c module on
+> the NXP i.MX93 platform.
+
+Enable Open-EP Community pixpaper-213-c support on NXP i.MX93.
+
 >
-> I'm looking at whether elfutils libdwfl_stacktrace might further help wit=
-h these issues. The libdwfl_stacktrace library is currently shipped as an e=
-xperimental addon to libdwfl in elfutils 0.194, but I'm intending to stabil=
-ize the API this year. There's code for some analogous functions: translati=
-ng perf->dwarf register files, and caching Dwfl and Elf data to speed up un=
-winding across multiple processes. (Thus, if unwinding a collection of perf=
-_events from 16 processes that use libc, we don't need to load the CFI for =
-libc.so 16 times.)
+> Signed-off-by: Wig Cheng <onlywig@gmail.com>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile        |  3 ++
+>  .../freescale/imx93-11x11-frdm-pixpaper.dtso  | 51 +++++++++++++++++++
+>  2 files changed, 54 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
 >
-> I think once I've stabilized the libdwfl_stacktrace API and expanded the =
-register support to a larger set of perf-supported architectures, it makes =
-sense for me to author a corresponding set of patches for perf. I'll see if=
- it's worth adding more libdwflst functionality to elfutils 0.195 in antici=
-pation of this.
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index ce8f937c2315..fedd3552b577 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -403,6 +403,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
+>
+> +imx93-11x11-frdm-pixpaper-dtbs += imx93-11x11-frdm.dtb imx93-11x11-frdm-pixpaper.dtbo
+> +dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm-pixpaper.dtb
+> +
 
-Thanks Serhei, this would be really awesome! I've done my best wrt
-trying to optimize around libdwfl, but I wasn't able to have a single
-dwfl for the addr2line case with a dso and the stack unwinding code.
-Just to give too many details :-)
+imx93-11x11-frdm-pixpaper.dtb, Keep alphabet order.
 
-With addr2line we have the dso and an offset into the dso of some
-point in code. We want to get the symbol for that address and inline
-information. The "bias" notion in dwfl was something of a speed bump
-in writing that code and was broken in an early version:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
-t/tree/tools/perf/util/libdw.c?h=3Dperf-tools-next#n133
-Just documenting libdw/libdwfl addresses better to say whether a bias
-is or isn't necessary would be useful. Walking the inline information
-is also (strangely to me) done outside of libdw, which makes me wonder
-about support for things like partial compilation units:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
-t/tree/tools/perf/util/dwarf-aux.c?h=3Dperf-tools-next#n147
+>  imx93-phyboard-nash-jtag-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-jtag.dtbo
+>  imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
+>  imx93-phyboard-nash-pwm-fan-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-pwm-fan.dtbo
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
+> new file mode 100644
+> index 000000000000..38e0c5dd82f9
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm-pixpaper.dtso
+> @@ -0,0 +1,51 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Device Tree Overlay for Mayqueen (Open-EP Community) pixpaper display
+> + * support on NXP FRDM i.MX 93 Development Board
+> + *
+> + * Copyright (C) 2026 Wig Cheng <onlywig@gmail.com>
+> + */
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include "imx93-pinfunc.h"
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +&iomuxc {
+> +	pinctrl_lpspi3: lpspi3grp {
+> +		fsl,pins = <
+> +			MX93_PAD_GPIO_IO08__GPIO2_IO08		0x3fe /* SPI3 CE0 */
+> +			MX93_PAD_GPIO_IO09__LPSPI3_SIN		0x3fe /* SPI3 MISO */
+> +			MX93_PAD_GPIO_IO10__LPSPI3_SOUT		0x3fe /* SPI3 MOSI */
+> +			MX93_PAD_GPIO_IO11__LPSPI3_SCK		0x3fe /* SPI3 CLK*/
+> +		>;
+> +	};
+> +
+> +	pinctrl_epd_ctrl: epdctrlgrp {
 
-For the unwinding:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
-t/tree/tools/perf/util/unwind-libdw.c?h=3Dperf-tools-next#n407
-I experimented with failing each unwind step so that then I could take
-the return PC, make it an offset into a dso and reuse the dso dwfl.
-This breaks many asserts in libdwfl and so I gave it up.
+keep alphabet according to node name.
 
-There's also the use of a dwfl for type profiling and probes in debuginfo:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
-t/tree/tools/perf/util/debuginfo.c?h=3Dperf-tools-next#n55
+> +		fsl,pins = <
+> +			MX93_PAD_GPIO_IO05__GPIO2_IO05		0x31e /* DC pin */
+> +			MX93_PAD_GPIO_IO06__GPIO2_IO06		0x31e /* RESET pin */
+> +			MX93_PAD_GPIO_IO26__GPIO2_IO26		0x31e /* BUSY pin */
+> +		>;
+> +	};
+> +};
+> +
+> +&lpspi3 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	fsl,spi-num-chipselects = <1>;
 
-For making the code generic we needed mapping functions between perf
-and dwarf numbering, as well as number and string mapping. A problem
-with the generic code was that if a register was encoded that libdwfl
-didn't support it broke libdwfl. This led to clipping the registers:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
-t/tree/tools/perf/util/dwarf-regs.c?h=3Dperf-tools-next#n157
-but this feels like code that's going to bitrot, cause elfutil version
-problems, etc.
+vendor property should be last one just before status.
 
-Something I noticed is that there was a reduction in crashes from
-0.192 to 0.194. I'm a little concerned that people may package perf
-without updating elfutils and witness crashes because of these recent
-perf changes. Hopefully distributions will move forward to 0.194 asap.
+You can use https://github.com/lznuaa/dt-format to format your dts.
 
-Thanks,
-Ian
 
-> -- Serhei Makarov
+Frank Li
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_lpspi3>, <&pinctrl_epd_ctrl>;
+> +	cs-gpios = <&gpio2 8 GPIO_ACTIVE_LOW>;
+> +	status = "okay";
+> +
+> +	display@0 {
+> +		compatible = "mayqueen,pixpaper";
+> +		reg = <0>;
+> +		spi-max-frequency = <5000000>;
+> +		reset-gpios = <&gpio2 6 GPIO_ACTIVE_HIGH>;
+> +		dc-gpios = <&gpio2 5 GPIO_ACTIVE_HIGH>;
+> +		busy-gpios = <&gpio2 26 GPIO_ACTIVE_HIGH>;
+> +	};
+> +};
+> --
+> 2.43.0
+>
 
