@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCEBCA6CBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0656CA6CBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p0IYKPvLat3QfnpDZR/OU3ZqUxwUEKvk7ycHfQxUWZc=; b=Quf/c/9fT0+othBXBEvzNhaYic
-	gQySZjp98VSOGF/EcysO405BkA6Qvy76mvbapFfOss01prnjG/+lyJCOJh6Dvj36kOwFrd9COL1OI
-	T+tJ084+V64K+zH7sS7Xyyft9aSdvjqjyGfzcaFrzjF/hyDXIltXRU4lhw/Pbe+ITPCo1yuwUKYs9
-	E1lLuTtVlPydMIJmuq71ACIE7ZKvMeJy7PeSES2i2Cv/N2xZ7mdyyqbLCqHlFMQgSHWGGzeadqT99
-	Xwwml+O8tG+0XqMK6j9eYhJRVnxqhTTtKq63sKZMtEv7ZE7/O/1FCwzyITLjtBdcjfMah4NoUzlQm
-	J5r0JpOA==;
+	bh=1Mzkzhmf17O9Xkx0hZ6VF5j9tJzlhe6IqtMNY1iqJLQ=; b=LgkIoNUnb7Ax2n7ZbN86riX82c
+	flSZxxIqxtwp93M7f0cP0hazLWm/WKNkCJMI4b06k8J8G9I2HD1cdjrlIn7cYpSf+E5Of/mXosFFz
+	t6C/gwx0+YRmGnIgZIXbFD8oz+fV5/me1hxwBqBfEqfZULjpW4JiHK9caPOulFO2unuVb1VsnnAxE
+	/4Se05XSCwEwOAYhwzP1PhbRs56pSQFIbWJuoJY99apZkZZ4unRe+seHx1ZXGEXz0yPK0pqciCsz8
+	uVYl23ncQLtz0tlkEdHfRIQ9KxikfGQ3vMx6q/Uyy+MyV/DCbP2B5nYb5ay/863YHQSZh9rw5P3ya
+	VT8s0yFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfFW-0000000DvJo-24m9;
-	Tue, 27 Jan 2026 09:20:38 +0000
+	id 1vkfHJ-0000000DvXj-46pB;
+	Tue, 27 Jan 2026 09:22:29 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfFU-0000000DvJF-3ZTH
+	id 1vkfHI-0000000DvXd-47tC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 09:20:36 +0000
+	Tue, 27 Jan 2026 09:22:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EED74601D0
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:20:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0104C2BC9E
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:20:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6AF5160097
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:22:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20D23C19425
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:22:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769505635;
-	bh=p0IYKPvLat3QfnpDZR/OU3ZqUxwUEKvk7ycHfQxUWZc=;
+	s=k20201202; t=1769505748;
+	bh=1Mzkzhmf17O9Xkx0hZ6VF5j9tJzlhe6IqtMNY1iqJLQ=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Vbv6PsAcMvUdBF01LOt0+TN5btOmRSbzCatgsMvnx4lfsrDRysDt16czedra04lJH
-	 pDKAJ5n3pDEMgnCRArvyJCKrQ4jDXf5Rr3gqSKtbT3fmD+lHRtV2wj2X91POQj4Kb2
-	 PSaKME6xYEp7yahOmFSxcwd5RfmHoR2PP9yjAzRrJ9I7A7AJHPrMqrJ+q4BDp1tjNt
-	 kcwvt7SSEQo9t5zVKTmvvKArxUTvH4rOt+P/0iuGK6ao3+QWWeuI0TpgqyL0x/bwJu
-	 6rhdMtxd/qrxtgv9AiHYW3hH+u25GNWozBWvp/sZ77G543QL1MAzMnSWZ3bbowoKVI
-	 pTq55Djhp2y6A==
-Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-6495d592c10so4323956d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 01:20:35 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVrC9MyuGc7eptYmGOt8yFLazTbZtWMI9S+OUanHRigRCbTPM5TcCQTaxPT4m2oSUrIZpP9jSVagRvlBDQQmtmu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxWPhhl0E0aahhKcKcvR6djmqT7aSLeC1dsmbfbpFaLpFddUT4
-	hKeL+wxcKZvXaw/6xUDhL4b/y4DEWaKT9HCK8qvDvUF2XeMkoxn5NZyf8FZhG1A6crkvFa0voRJ
-	LKntJcsz4i2IRIotjZFi6cOygLDwGd1s=
-X-Received: by 2002:a05:690e:408c:b0:649:58f1:6cdc with SMTP id
- 956f58d0204a3-6498fc54ed4mr526512d50.66.1769505634986; Tue, 27 Jan 2026
- 01:20:34 -0800 (PST)
+	b=O6ueMY72cyAl/I2bdA2DIP8HfzWCj68lloHCg/doi4W47Fx+TJnJNp+VZN2E9tbZ8
+	 1C8moFGl/Rrqi1jNm8rmMPDHzVzEgBq/RY4m1N1TNfg2sArtn41PdyjKzB2XN5zm5A
+	 uTZu67OijsJ/U4qap+5HF0EbxEYLQqlkQcsNJoFhztHO729P3kL9nLOhuEdFzDyErT
+	 /hXQ352S7HqZwWvxpbeFDr20L8l9a1yfRKkNWY41SWCCDsSA/q9qVayL3Jkxe8AFR/
+	 Tw8DyHCMyA6Ficx4UsuquFgtYsLhXo6zcMj35g3XiAI47xBHEXEGO6fFLE/kf0Ib/T
+	 UStg9G3GLJgCA==
+Received: by mail-yx1-f48.google.com with SMTP id 956f58d0204a3-6496804204cso2507141d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 01:22:28 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWU98+DJT1m6r+cVMWTjTZDQQ/415bbEOpxxOkzqH2r3SZ34ClFepSF8ccAvKC+GkOcYwPb6+jMPTzxrMilhPDs@lists.infradead.org
+X-Gm-Message-State: AOJu0YxD2QtL3l64fMBHd0/WfKU3K/ujZi8gmArFRKoPkEYTKd46Ztm4
+	NG7C3zE1rKYTIv2tU07KTU+BAlGYJuo3FZeG7jdP47JXHOPlbr52Favj0ZIi8Krs0t9Iza5Nx+8
+	H6A3AXWYVCbCcLeroNApzjAp9ykoAxr4=
+X-Received: by 2002:a05:690e:241b:b0:645:443d:10a2 with SMTP id
+ 956f58d0204a3-6498fbebe0emr414264d50.26.1769505747439; Tue, 27 Jan 2026
+ 01:22:27 -0800 (PST)
 MIME-Version: 1.0
-References: <20260121-debug_bus-v3-0-4d32451180d0@foss.st.com> <20260121-debug_bus-v3-2-4d32451180d0@foss.st.com>
-In-Reply-To: <20260121-debug_bus-v3-2-4d32451180d0@foss.st.com>
+References: <20260123-debug_bus-v5-0-90b670844241@foss.st.com> <20260123-debug_bus-v5-2-90b670844241@foss.st.com>
+In-Reply-To: <20260123-debug_bus-v5-2-90b670844241@foss.st.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 27 Jan 2026 10:20:24 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=kUV4ApYB4xYRKK_qH4Z-i2PUuis+1pd+w+nbtWC-FvQ@mail.gmail.com>
-X-Gm-Features: AZwV_QiHuD4uxcaT0lvjfGOgtaMK3IHUr5k1uRq3DPN_dABfrTBvSM80ZXPyZJI
-Message-ID: <CAD++jL=kUV4ApYB4xYRKK_qH4Z-i2PUuis+1pd+w+nbtWC-FvQ@mail.gmail.com>
-Subject: Re: [PATCH v3 02/12] dt-bindings: pinctrl: document
+Date: Tue, 27 Jan 2026 10:22:16 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmr-O-Mb_MEK6LWdhY75=uteLsN9MLrtOvFaeCj2B_Jgw@mail.gmail.com>
+X-Gm-Features: AZwV_Qj2UaMXe95o5XuL0t4M8bbZMFmvBg1jJ_pK4foc_hf70_XCTYpnwMAEQeE
+Message-ID: <CAD++jLmr-O-Mb_MEK6LWdhY75=uteLsN9MLrtOvFaeCj2B_Jgw@mail.gmail.com>
+Subject: Re: [PATCH v5 02/12] dt-bindings: pinctrl: document
  access-controllers property for stm32 HDP
 To: Gatien Chevallier <gatien.chevallier@foss.st.com>
 Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
@@ -88,7 +88,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jan 21, 2026 at 1:35=E2=80=AFPM Gatien Chevallier
+On Fri, Jan 23, 2026 at 11:40=E2=80=AFAM Gatien Chevallier
 <gatien.chevallier@foss.st.com> wrote:
 
 > HDP being functional depends on the debug configuration on the platform
