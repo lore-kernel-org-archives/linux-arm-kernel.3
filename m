@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8030FD2F00B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 12:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DA0D2F023
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 13:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S8LiAGHz52z0JtOCVGrYooVecD5f4OG6WmvXLSeQJ94=; b=fAzK9xVEgD1eJ7MjwdkpIK/dgr
-	koXArlrQUbvN0/nr5SWFkRQCe/DELYfTLtrU65649WXk2ApoRiJQKbA1r4A/RNetHgk+qoDE8aKoR
-	uVfQaB7OW8M7lGtXVnZO6YPAfgF7CHM6ahEGt+1yTQMZqNmd7pwSKzmdTzY7tyG5Qh4z2vRBkOCMJ
-	P30cGAp/gA7ZUQ7SSrmkZOdaPusHckpWy+t6T4PZj67ANhZeACqEN/Qv8GwQRJvkkcrnL4zw/Qs05
-	3okAK2y3lD3bmKw9m+JKv6uMkc8gjZkg7JUKaeZa5S14aOEguz7LLfjlFo0ajBJbpAMUXOyY5s9a+
-	zD1z7aHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1xf8RROWmvCfyZlwoPL04txmW2w3MORmkL6T8EP6k5k=; b=GJN+RKo8j7Cb+PPa0ZCtvN+zYD
+	MKO6N78GlMdCWzVM/ahk4XTccM/2FuPmUBZEoiM+Xnx1ljeYrZu3n9c4gya9U4Dv7A9PlTZDlsFDX
+	QXImrcbbhZsHrPDCz6nOEnjubClN5CXcPqYz45PWf6QeFuasCIm43v3ABo+bzEftkq+OQppc5WRLm
+	Uzaq+uAASvp8wKZnlx4BiWTvYAw1/jHLjBQ5/WlOpcxcRs3tfsZQhR6McgGCUj8iJWCHqQdQwXuDq
+	8EljEbpZQXg1jJFaaORUQuDM6SqP5LxhEtK43UCMuQePWdjtYV7h5oRfpvP+u7MBg0CPSoGDLrpoD
+	FRFQr0Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkife-0000000EHfr-2TtI;
-	Tue, 27 Jan 2026 12:59:50 +0000
-Received: from sinmsgout01.his.huawei.com ([119.8.177.36])
+	id 1vkinp-0000000EI1Y-2AcI;
+	Tue, 27 Jan 2026 13:08:17 +0000
+Received: from inva021.nxp.com ([92.121.34.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkifb-0000000EHfU-0Q7r
+	id 1vkinn-0000000EI1B-1YKD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 12:59:49 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=S8LiAGHz52z0JtOCVGrYooVecD5f4OG6WmvXLSeQJ94=;
-	b=VQ0c7KuUR7UMFx/neAsOM+A0UyzZZQQnpflYqPcMK/NC9NWvn0dkstOr2MbI02XuwWvVyRzDq
-	+kIVwz9HE6+QCVdWAjCwjCSqkEXZUhbxhT2+R/3nQurOlxC3nxJfbW14vqQwMiQFz0+3+IBM7h4
-	BTsB7HTMqRR7BhR3wuIYpM0=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.32])
-	by sinmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4f0lmP0zWMz1P6jV;
-	Tue, 27 Jan 2026 20:57:08 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4f0lpL1wRfzHnH5y;
-	Tue, 27 Jan 2026 20:58:50 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id CF08440584;
-	Tue, 27 Jan 2026 20:59:35 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 27 Jan
- 2026 12:59:35 +0000
-Date: Tue, 27 Jan 2026 12:59:33 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-CC: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, Linus
- Torvalds <torvalds@linux-foundation.org>, Oliver Upton
-	<oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, "Dev Jain"
-	<dev.jain@arm.com>, Linu Cherian <Linu.Cherian@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 12/13] arm64: mm: Wrap flush_tlb_page() around
- ___flush_tlb_range()
-Message-ID: <20260127125933.00006101@huawei.com>
-In-Reply-To: <20260119172202.1681510-13-ryan.roberts@arm.com>
-References: <20260119172202.1681510-1-ryan.roberts@arm.com>
-	<20260119172202.1681510-13-ryan.roberts@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 27 Jan 2026 13:08:16 +0000
+Received: from inva021.nxp.com (localhost [127.0.0.1])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 76A9020295F;
+	Tue, 27 Jan 2026 14:08:13 +0100 (CET)
+Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 5C3EA20295E;
+	Tue, 27 Jan 2026 14:08:13 +0100 (CET)
+Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
+	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id A168D20405;
+	Tue, 27 Jan 2026 14:08:12 +0100 (CET)
+Date: Tue, 27 Jan 2026 14:08:13 +0100
+From: Jan Petrous <jan.petrous@oss.nxp.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: robh@kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	conor+dt@kernel.org, devicetree@vger.kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de,
+	mcoquelin.stm32@gmail.com, kernel@pengutronix.de, pabeni@redhat.com,
+	edumazet@google.com, andrew+netdev@lunn.ch, chester62515@gmail.com,
+	s32@nxp.com, linux-kernel@vger.kernel.org,
+	ghennadi.procopciuc@oss.nxp.com, festevam@gmail.com,
+	alexandre.torgue@foss.st.com, davem@davemloft.net,
+	krzk+dt@kernel.org, mbrugger@suse.com, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [v3,4/4] stmmac: s32: enable support for Multi-IRQ mode
+Message-ID: <aXi4vRvcCa+8LSKt@lsv051416.swis.nl-cdc01.nxp.com>
+References: <20260123-dwmac_multi_irq-v3-4-cc53f2be8961@oss.nxp.com>
+ <20260125221405.3395497-1-kuba@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260125221405.3395497-1-kuba@kernel.org>
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_045947_842035_5914555D 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20260127_050815_543601_329695FA 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,52 +75,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 Jan 2026 17:21:59 +0000
-Ryan Roberts <ryan.roberts@arm.com> wrote:
-
-> Flushing a page from the tlb is just a special case of flushing a range.
-> So let's rework flush_tlb_page() so that it simply wraps
-> ___flush_tlb_range(). While at it, let's also update the API to take the
-> same flags that we use when flushing a range. This allows us to delete
-> all the ugly "_nosync", "_local" and "_nonotify" variants.
+On Sun, Jan 25, 2026 at 02:14:05PM -0800, Jakub Kicinski wrote:
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
 > 
-> Thanks to constant folding, all of the complex looping and tlbi-by-range
-> options get eliminated so that the generated code for flush_tlb_page()
-> looks very similar to the previous version.
+> For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
+> ---
+> stmmac: s32: enable support for Multi-IRQ mode
 > 
-> Reviewed-by: Linu Cherian <linu.cherian@arm.com>
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> This patch enables Multi-IRQ mode for the S32 DWMAC driver when both
+> multi-queue and per-queue IRQs are configured. The driver now selects
+> between Multi-IRQ and MAC IRQ modes based on device tree configuration.
+> 
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> > index 5a485ee98fa7..342091045714 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> 
+> [ ... ]
+> 
+> > @@ -149,6 +149,16 @@ static int s32_dwmac_probe(struct platform_device *pdev)
+> >  	plat->core_type = DWMAC_CORE_GMAC4;
+> >  	plat->pmt = 1;
+> >  	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
+> > +
+> > +	/* Check for multi-IRQ config. Assumption: symetrical rx/tx queues */
+> > +	if (plat->rx_queues_to_use > 1 &&
+> > +	    (res.rx_irq[0] >= 0 || res.tx_irq[0] >= 0)) {
+>                         ^^^^            ^^^^
+> 
+> Should these checks be "> 0" instead of ">= 0"?
+> 
+> stmmac_get_platform_resources() initializes the res structure with
+> memset(0), then only writes positive IRQ values when per-queue IRQs are
+> found in the device tree. If no "rx-queue-0" or "tx-queue-0" interrupt
+> names are defined, rx_irq[0] and tx_irq[0] remain 0 from the memset.
 
-So this does include the use of the
+The AI is wrong on this statesment. The loop reading IRQs from DT
+in stmmac_get_platform_resources() returns also negative value
+for missed queue IRQ line. And this is used as flag if multi-IRQ
+can be enabled or not.
 
-Case TLBF_NOBROADCAST from previous patch, but only whilst (I think)
-slightly changing behavior.
+But I must agree that the comparition shall not include 0 as valid
+value for IRQ, so I will fix it in v4.
 
-Gah.  I'm regretting looking at this series. The original code is really hard to
-read :)  Rather you than me to fix it!
-
->  static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end)
->  {
->  	const unsigned long stride = PAGE_SIZE;
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index be9dab2c7d6a..f91aa686f142 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -239,7 +239,7 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
->  	 * flush_tlb_fix_spurious_fault().
->  	 */
->  	if (dirty)
-> -		local_flush_tlb_page(vma, address);
-> +		__flush_tlb_page(vma, address, TLBF_NOBROADCAST);
-
-Ultimately I think this previously did __tlbi(vale1) and now does __tlbi(vae1)
-Original call was to __local_flush_tlb_page_notify_nosync()
-
-I'd like to see that sort of change called out and explained in the patch description.
-It's a broader scoped flush so not a bug, but still a functional change.
-
->  	return 1;
->  }
->  
-
+Thanks.
+/Jan
 
