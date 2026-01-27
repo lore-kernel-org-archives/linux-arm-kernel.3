@@ -4,145 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 252F0D25920
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 02:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9659D25920
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 02:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dO+c2mw9b7Oyw3+mzbrTMwqKEkmL5bdvLUYW+7ZW0a8=; b=L8+RCiW+Fw0h+vXlMHgsQfCkWO
-	6H6Kn54ji9VkzapsPa0jeBdhjk5ZVLBm0khHcGXsywMbqAVDnvRu5wfrvxFm35cbWM+pNIVrp20MD
-	WCVCwV7m+l1sr31Mils0hLicbtpiVYRh4dMK4FeOvz7J/zGZ+ayQ9TTb4VyPOXN8Xj7OSHk0Eznoj
-	wtH/gshdeg0wgHPS9RqqdV7dpmV8sVPglzeReaorPGNbJENotCl1rSkWpNtK5ADMqQOAkt5eMD5Sb
-	98HPE6Uu7/X9aGsh/jR8jkoT8COp9QtZcbMPEPkJUTp+/OUxj4wb77olEwYYoW95zCH/iEgjzxymn
-	EURaNNYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jE42tp2LXVOzJXhuw0gLBMq4dz4JjiwxhwcYBrg+LZQ=; b=SV9vJGI/UrSwAXdFCYPK+EDMR1
+	bDfFkZMJ39yfoBcW2nCpNsLaCWCLV1Nsb47qFmrbukUJGqyJSgM+bgMBPA9KBcB64Rt/jar6pTzvU
+	hGa8MEgMe5i/pPLhp39awWRKCRx9TLsamS0NKTxKgeXp8/py4u1utRoAXfiyOUGS/lYr0QlA9MxMV
+	cCIhh3eZAlLhfbrMHVA/bBTFHVsBjdSPYnzMy7Jh/ZqPbzOzewCbpxGjumWyh0Q1h6p64Elf63TjB
+	ObllGzLmv6CenUjv59+9ctxDMwTv4yGw+qaAi4yo90NkEKCpzOPeSmCfnhq97QZCL2n0r+JKEAq76
+	hj2qiwHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkZAF-0000000DWvx-11qE;
-	Tue, 27 Jan 2026 02:50:47 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1vkZDi-0000000DX8X-3a7V;
+	Tue, 27 Jan 2026 02:54:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkZAC-0000000DWvH-0r76
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 02:50:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LkIhVk80c+mb+HtOT3+t3gyWQxwmDnO9vzzdmt8Ts61O9c27GUgqUgJArvK5SUGfk127eRtXlQy1lcd8ClFXEt6NFHDggmZDlk+b3BlWa3rQF0HnEEtvl2Z/klHQ1sL9arm0u+wK0NyY0m6oZjxqVWI68zHjFBK5hBcewrAprahiu7uRr+sbyXYcfCTSk7qAuIIbcVpwloAev6rZpalr+quZ72W8Y715i2zGtB6nRXaZ+Fi7hG3RYGCLq6rcndxvGsfYeYhG5XhOvOmsQSWbbgdiLsPIkS11OWqAzrgBCjS+GHLVJWh0BcddfQqJHhmu3KJDFqSq077puhZGRD/DOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dO+c2mw9b7Oyw3+mzbrTMwqKEkmL5bdvLUYW+7ZW0a8=;
- b=pnZ7hlPo3aO7lMAUc57GVpbpQ9IF8u6c9XVu6MBePxY/drDEVzOyi+DCrH2ih14ixBSU1J6q32vuysXS++LU2mWlafT1ZNJphw66RhnDWfoHBo9j4GrgbJu5/rbh2V4OEMAnayIY8OuI0BJ/K4drdp1H+poc01DpOzTPl2uUyMzRnUkoY5Z8aNwY7NgnjMi2aDdAktedZ7lZ8hrYlz/aWJV8LTRFmWJI58pkA0fH2XZCrBOtnIkCLZESNiVn/t6KCJbsF2H4wIkY4nPFgH45II6O7jti3x7v2afwh2ghUj7NuctsdwNoaZd49zNXoFFhYqrbFd+d9OTpv0IXpL1qMw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dO+c2mw9b7Oyw3+mzbrTMwqKEkmL5bdvLUYW+7ZW0a8=;
- b=mGirRedHa5IVcTTC9LO06qhnn3VNJyjiZKK8TKxAkmM372gf3dJApYlQ7NmN6y06Dep0X42KYnIPGdalLfVRLGf20dU5bcunOnG4QydQ8npgef7ahcrrw16Pk2+yMooMdsUX58KnuESmWMDw7yr3C6McDj/iIUI3+ik2US2Pd4QY43C+Epqk7BcGtpZfIQjoKEyNqtwgzZhjwABfEXu2sn4kjf3xJv7EW8C4N/Qh3SfQpIFXDAfBtJnepVoLykZHI7d8oa6a9m3ypPVng7OK/4nFY+r6ItOHBK0GZd6kGIGcOYQx5DUofruQMl6OhV8arRAainRf0810I49PbM7slw==
-Received: from BYAPR08CA0020.namprd08.prod.outlook.com (2603:10b6:a03:100::33)
- by SN7PR12MB6838.namprd12.prod.outlook.com (2603:10b6:806:266::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Tue, 27 Jan
- 2026 02:50:36 +0000
-Received: from SJ1PEPF00002311.namprd03.prod.outlook.com
- (2603:10b6:a03:100:cafe::3c) by BYAPR08CA0020.outlook.office365.com
- (2603:10b6:a03:100::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.16 via Frontend Transport; Tue,
- 27 Jan 2026 02:50:36 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SJ1PEPF00002311.mail.protection.outlook.com (10.167.242.165) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.3 via Frontend Transport; Tue, 27 Jan 2026 02:50:36 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 26 Jan
- 2026 18:50:22 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 26 Jan
- 2026 18:50:21 -0800
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.9)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 26 Jan 2026 18:50:21 -0800
-Date: Mon, 26 Jan 2026 18:50:19 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jpb@kernel.org>, <praan@google.com>, <miko.lenczewski@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
-Subject: Re: [PATCH v2 03/10] iommu/arm-smmu-v3: Look for existing iotlb tag
- in smmu_domain->invs
-Message-ID: <aXgn6xOqtE8935A/@Asurada-Nvidia>
-References: <cover.1769044718.git.nicolinc@nvidia.com>
- <86118601583b0c98fef39d38ad08be232bf1d04f.1769044718.git.nicolinc@nvidia.com>
- <20260126210301.GY1134360@nvidia.com>
+	id 1vkZDh-0000000DX7h-1PwO;
+	Tue, 27 Jan 2026 02:54:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A02E7439C0;
+	Tue, 27 Jan 2026 02:54:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 030B4C116C6;
+	Tue, 27 Jan 2026 02:54:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769482460;
+	bh=t5Ws8K9ruX9jK+rrFbsHhjSSQv/nHotDIXG0CEYJYd8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=gwrFUzI00eEw/Xbx59fhVsGFJm6+EaEH58Fw34xJ2gBMcoAuxFP3JYa77vY6YQpsb
+	 CUXwOZopU/dGFO8MasO7NZGLZFWB67RIr9HPG7u6whk3ifg1rP6xqMHJZx9AHshYZN
+	 TTQtK5Z15YmL/Yi02BXYkdARCr0TwsfaRkVgeu3NZxJ4jU64ZFv8sFYdK+f68iHbxY
+	 t77HU3V+bmyt5ybyLh/WIcR2MOrhHmtuIBs+wLrp49R0h4Xy/FNW8Z+LnsPXMoI6Jr
+	 fOZPLFajNKmCGntEK6lwFdhpxpU4aA+AsJEIwt/dPoEifECT4uHoiCkYCyVW9uzjfG
+	 sZ/R6K6MGG7MA==
+Date: Mon, 26 Jan 2026 18:54:19 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
+ S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Heiko
+ Stuebner <heiko@sntech.de>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org, Paolo
+ Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next v2 06/22] net: stmmac: rk: add SoC specific
+ ->init() method
+Message-ID: <20260126185419.626ba56e@kernel.org>
+In-Reply-To: <aXgbEYvjcXqQKRIx@shell.armlinux.org.uk>
+References: <aXdTi4ViCkhhXvFI@shell.armlinux.org.uk>
+	<E1vkL28-00000005usi-30YC@rmk-PC.armlinux.org.uk>
+	<aXd7aSk7KIxlQd5z@shell.armlinux.org.uk>
+	<20260126165144.25055591@kernel.org>
+	<aXgN2UjiI_OxWHH-@shell.armlinux.org.uk>
+	<20260126171606.6153aa1a@kernel.org>
+	<aXgbEYvjcXqQKRIx@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260126210301.GY1134360@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002311:EE_|SN7PR12MB6838:EE_
-X-MS-Office365-Filtering-Correlation-Id: e0b70140-cf4c-4363-8dbe-08de5d4ed92d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8LxE7ylKZqX+/PfG0n44xVPCymgIqbqgvssRjNjIUWEYa/a7uzH3h2F0OzIW?=
- =?us-ascii?Q?QegqjIqgIGW5bapOlGFDvtebykcpXTrAp+nFUdtgKrjNFRokkUvbOHi4vzT/?=
- =?us-ascii?Q?XvK3MRlwGNtj8ShU8jojSWY5RnfuWq5vPq/loN9nNe1liuBMbxn6A6wqUoWM?=
- =?us-ascii?Q?8iijMKtLu23yAxbqLLYb52AJJquNCtAiLd/eilfD0wID+KTPdpW4wbMzuMIF?=
- =?us-ascii?Q?qKr6GM6JPdvTgLustifVjtfjHEZSF0D2DjFSKsqelSW+G0h4z0D1PbffZAyM?=
- =?us-ascii?Q?0bEHIfoGJCA6M33fIDbqa1I6AfWJI0UOPBCK7FK7iw5cCIRcspn9bFU/jMYC?=
- =?us-ascii?Q?PQA4ftvbbXgrY0QK6CScsB8w2qqcaKlQ6m50HlVMWLx6pgyc0aVUHdpATTCx?=
- =?us-ascii?Q?rdB1IwqAMHVV2njEEiya0T6nKa4qzzt3ryiEiaPsF7ylvr5YaBQfGBTn0mb2?=
- =?us-ascii?Q?xVrcFxA9db47Fdr1mHb8Tf2QmzX41rGZ4uoT9SRm9I26WgT3kn1R/IOppMaH?=
- =?us-ascii?Q?UnBYWNObo2o43eDtnJHC097OVCaMWrXfKOImHBBd8Joqy58gknAELhu3NkdY?=
- =?us-ascii?Q?Du6ehYHTNq9f/hE6p5GHYogrfNyOdMS/GauY0p44NhJRRJQcL5+rNwNIXIo5?=
- =?us-ascii?Q?yTDAcQVrSXzxe0OQvlixHPoDzD12xbbzflEfSzhhbmLCsY0Y4t46gQguWrZC?=
- =?us-ascii?Q?XW5mrUAW7EUmWCn1FQ497ff35mPN11KIsq76IfX/PuTp2UNBrxU57j1z8Yf3?=
- =?us-ascii?Q?/DPPbWZGVqRERRoQzCiizRtvDwV61GFm067gLZkn+PCv4W7pvi3kwhSqWXC8?=
- =?us-ascii?Q?n+Oz/ezrN5U3VDhOS+KjItsQ249PFvk2w1MGuEpXICNNLOn+CGS5TVOZU5cF?=
- =?us-ascii?Q?BdDMgGsCst1UwUfHD+A68MIS8UGRao6unuMFxkdFrbSg48JJHBeSwmaBJ/tA?=
- =?us-ascii?Q?gJKZa+pStDb9YEkm/zMKe4P1SsXycjPisjOYmL6d1EEMz2WB2eYEZdMWK1xy?=
- =?us-ascii?Q?f9u9Iyoy0tzUEIGZkliRQECgPKHziOMRr0oIhn0qe2ohNCBd3VqXHWv6UlI9?=
- =?us-ascii?Q?rbnQtq0vBpSha3RxXOvMkhTfW2H3ovjSAhafJp9MIV4VSg+haGXGlQ6H3odc?=
- =?us-ascii?Q?RQr97yWC7SypGKOLcCdlUZSQTcTRAbV75Zo8hxvqsOtDIwBjfrZ/iuCh6ogd?=
- =?us-ascii?Q?8Zquhs0bWfVUXH8kKc+aguWhnFVrXfA8268KeV9xiP/jj2V1IBcW29QiV0s1?=
- =?us-ascii?Q?FGy6qwNjVvUIG/NscrwQh7kbMlItUHLXuhirn3XWo2lLmOFhWvLFMSxRPMBO?=
- =?us-ascii?Q?JHAqfBPlPCXo5aYwzW4HNjZKh3RyYvkLprFi9BaMHrBane1Y31G3RPOZSnh7?=
- =?us-ascii?Q?+IfIg49DvYT69cr+WYgRFttIyH4GMku1vW/FRzadXikSx/s8AP6/zR99qAaN?=
- =?us-ascii?Q?/vHyjXiFsxqr/ASMn+Vf9qwMHYOhu/V1Jlp9cGcjwPPOqPelrivXp4M9yHuG?=
- =?us-ascii?Q?of/J7cdcEXnSIC8SsqfqoDxDDWGoL3eN5MD0mnZ23bMsEv/nV0oy7pMNP2Y6?=
- =?us-ascii?Q?vDtLjQ8LX6HZWEzcuGURXLERuj80qwMuciD7KskLq6BjCV/gfZ1ffLG4S3H0?=
- =?us-ascii?Q?83YpPS3sVde9YlJNKhnxT8sFF4hwV/woIvth5T1cd/h6JtcQncneolICKAZj?=
- =?us-ascii?Q?ijI7iw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2026 02:50:36.4839
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e0b70140-cf4c-4363-8dbe-08de5d4ed92d
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002311.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6838
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_185044_382825_167F21C8 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20260126_185421_423896_A1ACB381 
+X-CRM114-Status: GOOD (  27.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,19 +82,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 05:03:01PM -0400, Jason Gunthorpe wrote:
-> On Wed, Jan 21, 2026 at 05:24:21PM -0800, Nicolin Chen wrote:
-> > Once arm_smmu_attach_prepare() installs an iotlb tag to smmu_domain->invs,
-> > arm_smmu_domain_get_iotlb_tag() callers should get the tag from the array.
+On Tue, 27 Jan 2026 01:55:29 +0000 Russell King (Oracle) wrote:
+> On Mon, Jan 26, 2026 at 05:16:06PM -0800, Jakub Kicinski wrote:
+> > On Tue, 27 Jan 2026 00:59:05 +0000 Russell King (Oracle) wrote:  
+> > > This sounds like my contributions to netdev aren't valued, and if that's
+> > > the case, I will stop.  
 > > 
-> > Only the arm_smmu_domain_get_iotlb_tag() caller for new_smmu_domain in the
-> > arm_smmu_attach_prepare_invs() will be allowed to allocate a new tag.
+> > Quite the opposite, what I'm saying is that your complaints make me
+> > feel like the weekends spent on trying to make this project come out 
+> > of stone age testing-wise are not appreciated. Of course your
+> > contributions are appreciated.
+> > 
+> > The AI code reviews on existing buggy code are indeed very painful.
+> > Not sure what we can do here to make the contributing easier.
+> > It costs us around $2 now to review a single patch so we can't afford
+> > public access. I think Google is working on making Gemini code reviews
+> > public and free, hopefully that materializes.  
 > 
-> It would be nicer to have two functions 'alloc' and 'find' instead of
-> the bool. Alloc would call find.
+> For a series of this size and complexity, the AI reviews are valued
+> because it's finding real issues that I can't test for.
+> 
+> The big problem is that the AI only finds one issue with a patch, not
+> all the issues. So, it's going to take multiple submissions to get to
+> a point where the AI review of this series is clean.
+> 
+> I suspect the problem with "AI only finds one issue" is that the AI
+> systems aren't advanced enough to do anything else yet.
 
-Yea, that just came to me as well after seeing Will's comments
-in another thread.
+Yes, looking at its "reasoning" output it both goes down different
+investigation paths each time but more importantly it runs out of
+tokens at some point, so it won't cover all the same paths each time.
 
-Nicolin
+> So, do I continue fixing the AI issues each day and resubmitting a new
+> version of this series each day this week, costing $44 each time?
+
+I think so.. I don't want to change our process because of AI, but 
+some ways to save cost rhyme with our normal recommendations.
+Keep the series under 15 patches. Split the series up, and extract
+trivial patches out so that they can be applied and not reposted.
+
+> Do we reach a point where it gets merged even though the AI review
+> still has issues?
+
+Whether the comment comes from AI is secondary, so it's just a question
+of whether we merge code knowing that it has issues. Rarely, I guess.
+
+> These are honest questions... and if they haven't been considered, I
+> think they need to be, because I can see this series becoming very
+> expensive.
 
