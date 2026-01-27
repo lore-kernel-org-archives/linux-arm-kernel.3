@@ -4,58 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E96CD2FED9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 19:12:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9E2D2FED9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 19:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wSUKMCHTpZwLETU4Jdy8sHSuPWnpdwNzxeIRQAp/NO0=; b=f2Y3rdFHip7fbgp7K+ks4i5n0i
-	Be/Mi9PGdlasiMo+A2a9DDbk/FCGHOG6aJhS71ZNzNQnadyqT/BTjJYpOnQpnCYbQhbUWzWXxtZfv
-	qY5wrS4oz/yY6mGULe/xuFp2sSwZZlJEuPHBnqcO3WWh1HzF3Of7J0mI7sE1rVyshVu25cd80lrn1
-	fDPgPdR6lKzXpXUqVjr+7DRF32lgXe+vVEzQniEkcbDpke9eiiR/SwdUfVd95a/KYbIwiLO6XfAyx
-	k0EgOMYrzoVUIQxl5g2l8uTBS6dsDY4s8qOGTG+Fa3o+21wN6xefx4yfJ8s8U5UBw3gZ0RDEPXTyt
-	oxdE8XBg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+1dnhRLMtu5/XnmCGlow67PwZlHIqJ0tA39/W+z0sa4=; b=b9v3cRFAvmTEVEiPQrfsj++vl2
+	TSnX1/CVlWyRNDutHZb4mPYThPdV/y7aTOGugWSSY9NlSBbZxjAVlqvwWeYt/MSi+iG4e8e7LjowH
+	XR6vVZEp5Od3rFq0iicdZpFHU3bnXYV4Memoifr2FfoxgjZu+2dWuQuaEW3stWt3fJm1EG347yZMJ
+	pfO6qOITmLY/u8O2726tqEZN7YiFKY0qiHcH81i4BjrtH5OI3zH0JXJTDMO2inAdB8o1zj7qtunxM
+	xTx34kIXAxQFZldlPXcT8LciZu6apqjW8Npw9HKBIhJ0Q1bswUMp37WfEBuY64J0dmjuOiVKJsR7C
+	bLLx+m0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoUc-0000000EtWh-1T4e;
-	Tue, 27 Jan 2026 19:12:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoUZ-0000000EtVc-1UzV;
-	Tue, 27 Jan 2026 19:12:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3B1F740980;
-	Tue, 27 Jan 2026 19:12:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47FE3C116C6;
-	Tue, 27 Jan 2026 19:12:43 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Naveen Kumar <mnkumar@google.com>,
-	Roy Luo <royluo@google.com>,
-	Joy Chakraborty <joychakr@google.com>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] phy: PHY_GOOGLE_USB should depend on ARCH_GOOGLE
-Date: Tue, 27 Jan 2026 20:12:36 +0100
-Message-ID: <0caa3c449b0c3d64944da3f1003d9389bdc13f98.1769541083.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	id 1vkoX3-0000000Etml-1Io9;
+	Tue, 27 Jan 2026 19:15:21 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkoX1-0000000EtmN-2ijV;
+	Tue, 27 Jan 2026 19:15:19 +0000
+Message-ID: <d46a7e44-cddf-425c-a233-911c2d949b9b@infradead.org>
+Date: Tue, 27 Jan 2026 11:15:17 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_111247_414759_A9E06AC5 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] stm class: Fix Kconfig symbols
+To: Leo Yan <leo.yan@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ James Clark <james.clark@linaro.org>
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
+ linux-kernel@vger.kernel.org
+References: <20260127-fix_stm_kconfig-v2-1-3c067e00f82e@arm.com>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20260127-fix_stm_kconfig-v2-1-3c067e00f82e@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,32 +60,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Google Tensor SoC USB PHY is only present on Google Tensor G5
-(Laguna) SoCs.  Hence add a dependency on ARCH_GOOGLE, to prevent asking
-the user about this driver when configuring a kernel without Google
-Tensor SoC support.
+On 1/27/26 10:14 AM, Leo Yan wrote:
+> Kconfig symbols must not include the CONFIG_ prefix.  Remove the CONFIG_
+> prefix for default values to work.
+> 
+> The STM_PROTO_SYS_T config is selected by default when STM is enabled.
+> However, its description currently says "If you don't know what this is,
+> say N," which contradicts the default behavior.  Update the description
+> to say "Y" to align with the default setting.
+> 
+> Fixes: a02509f301c6 ("stm class: Factor out default framing protocol")
+> Fixes: d69d5e83110f ("stm class: Add MIPI SyS-T protocol support")
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 
-Fixes: cbce66669c82ee9a ("phy: Add Google Tensor SoC USB PHY driver")
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-ARCH_GOOGLE is not yet upstream, but that doesn't hurt.
----
- drivers/phy/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+Greg has already merged a patch to fix the symbols:
+https://patch.msgid.link/20251228190502.2480758-1-rdunlap@infradead.org
 
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 142e7b0ef2efb920..3ceda9a20d571038 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -49,6 +49,7 @@ config GENERIC_PHY_MIPI_DPHY
- 
- config PHY_GOOGLE_USB
- 	tristate "Google Tensor SoC USB PHY driver"
-+	depends on ARCH_GOOGLE || COMPILE_TEST
- 	select GENERIC_PHY
- 	help
- 	  Enable support for the USB PHY on Google Tensor SoCs, starting with
--- 
-2.43.0
+
+> ---
+> Changes in v2:
+> - Updated STM_PROTO_BASIC description to align with default selection
+>   (James).
+> - Link to v1: https://lore.kernel.org/r/20251217-fix_stm_kconfig-v1-1-531fb3674549@arm.com
+> ---
+>  drivers/hwtracing/stm/Kconfig | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/stm/Kconfig b/drivers/hwtracing/stm/Kconfig
+> index eda6b11d40a1f9ab49a1ec1e6faae8ee178c5ed3..8ab079785189052945521e9b0a93a0d458de37e0 100644
+> --- a/drivers/hwtracing/stm/Kconfig
+> +++ b/drivers/hwtracing/stm/Kconfig
+> @@ -13,7 +13,7 @@ if STM
+>  
+>  config STM_PROTO_BASIC
+>  	tristate "Basic STM framing protocol driver"
+> -	default CONFIG_STM
+> +	default STM
+>  	help
+>  	  This is a simple framing protocol for sending data over STM
+>  	  devices. This was the protocol that the STM framework used
+> @@ -28,7 +28,7 @@ config STM_PROTO_BASIC
+>  
+>  config STM_PROTO_SYS_T
+>  	tristate "MIPI SyS-T STM framing protocol driver"
+> -	default CONFIG_STM
+> +	default STM
+>  	help
+>  	  This is an implementation of MIPI SyS-T protocol to be used
+>  	  over the STP transport. In addition to the data payload, it
+> @@ -38,7 +38,7 @@ config STM_PROTO_SYS_T
+>  	  The receiving side must be able to decode this protocol in
+>  	  addition to the MIPI STP, in order to extract the data.
+>  
+> -	  If you don't know what this is, say N.
+> +	  If you don't know what this is, say Y.
+>  
+>  config STM_DUMMY
+>  	tristate "Dummy STM driver"
+> 
+> ---
+> base-commit: fcb70a56f4d81450114034b2c61f48ce7444a0e2
+> change-id: 20251216-fix_stm_kconfig-a72f40c7612c
+> 
+> Best regards,
 
 
