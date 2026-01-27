@@ -4,97 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01AB2D2D8EF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:30:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 417A6D2D8E3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BZYKX34HbyGd3trz45+xdQmtQY+aPDvL9EcsqKfZ20s=; b=OdNBF2T7fBBTBUl9Sq64DSXn7v
-	DSD/w5rq4MW5Cw/2DltbaprLVXaz+CXkitAcoh59MJdJa5gFaSMc4/jHCQgFw5nveMoD1R86Xow6Y
-	bxQUjUQzgK/9gLPSrQLU4GP39xC0aFP/476mklAIrb+/GYipXi3LnOyyJoqgmdTgY/azMkOO5f2RP
-	dQtjGRiMwbnm0Vea2ykh5aOFDkkvl0WirXIcOkyln0bBE5lH3IxFFi+g39FOEM9FQB0dZfnJ5oyHV
-	4f238it9FuPwO6uee34eke12BsBOsgBMMHVPMCm87Ig0aU6Oy3oKhQyTvTXi1C+yKbGZ7XAJjQIbB
-	BjhumC/w==;
+	bh=37tcbhoPYX1kRiSMkZWCZCo/kuU+XTXOWQTT0gGxrLo=; b=w6q3Sp/WesPvzdwejpJNLd5rAV
+	Py+kip4vv54GaR+0ZgY5zCE4omTdoYef08qz0gZIDqK5JjkAFx//VFD1sjIRgrYlkXGcMo6tS1mXl
+	eeCue8JkqmQnqZ6I8sv4q0+xgQ+MBAmfILXF8Qd7dUz25n4CviQs1l/TlQjK2JhwNpq3INbeIWBW6
+	b67E2o2oY2P3kN3JCg5tASXO6SI3HnSDBK4uRwrdCQST0DHNWTWhU3BrPGbNzkk3uWezMu6oXtAcU
+	3d3+kGd8SsFEqmSBTjJtfK8bTt/re8AWcD0uuRQHD0geK/qR3c/CEuZDigewSjETjRaqzLCCc1TVG
+	55Tt9PHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgLP-0000000E3Y8-1yLC;
-	Tue, 27 Jan 2026 10:30:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vkgMX-0000000E3h8-2wz6;
+	Tue, 27 Jan 2026 10:31:57 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgLN-0000000E3Xk-0byt
+	id 1vkgMV-0000000E3gQ-0lMV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 10:30:46 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60RAOJLb3714671
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 10:30:44 GMT
+	Tue, 27 Jan 2026 10:31:56 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60RAOoSk171359
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 10:31:54 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	BZYKX34HbyGd3trz45+xdQmtQY+aPDvL9EcsqKfZ20s=; b=LTLwNie5R4NqQDe2
-	D3C0VRXvK5iU8BwLWbYW8e4NTK+9jKG/6gqgcuimZEOAzcbVzlcabXRext/nK7MI
-	+dX9NkbojnDUeo87cho2BUcoAR0+n5ubZjmhkr2wwL/40A1hfTODaESb2w7ksexk
-	UFhZs3IE2BiBkCN/OkIv9JkU4WE+VSLReh4JR3X0QbiNEdxY7K05VC/Obw3tYFiN
-	iPsFNTiiX9y65LA0nT3nYnOgd2L+UmVdFM+xv2OpMXr9DVF7SeXAUWj25/dC1OR2
-	0YTwF/V/CGBVICOzbsfkE521NNwY1QCckE3PuN/ixZD4DSIZpXgSoLvdqmqme/oH
-	VKNNuA==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bxdv0amtn-1
+	37tcbhoPYX1kRiSMkZWCZCo/kuU+XTXOWQTT0gGxrLo=; b=VpbgMBTterYa7iOJ
+	oxFdYYaxp3SrlWVXnmI2qwyqoUYZA4x7bkqjdxL/8lBVc6/cgYYgXtEtKAteh3Fo
+	lJ7Bj+Lf2eX7GK4dUMYfZShUlXQVAf4D4WlWPI/bQu70orCj84ovJkfftPIs2f0b
+	wYDIFsNphcl6NZkpDK7cARi6Nyn2PKoS55zHaGkTe2u3Z+8Fws1GyF9GzHAHzk3Z
+	7DECCJ0G3hwobGrxP/C6vcFJdJioakubSnqnxiqeBQxuvAaK+zXwjRiGOthRJl34
+	2394p2WaT9J3zCNBf6iy+Sg01UPxQFfWdQMc8kl968JMMKjN6R7OeJU98Up0bkbo
+	YRBu8Q==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bxf3a2eep-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 10:30:44 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-50146e00a23so6637801cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 02:30:44 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 10:31:54 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8c70c91c8b0so10669085a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 02:31:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1769509843; x=1770114643; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1769509912; x=1770114712; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=BZYKX34HbyGd3trz45+xdQmtQY+aPDvL9EcsqKfZ20s=;
-        b=YxQ2fDPuV0OOd3pccSR0puVrkiS7H06i5INC0e7oinz8xYsWGEhjrIRJbBFPruOVMi
-         0aEuSEyNUMSDZRluznuhRrHzqJwg8TZVbsnhMnAVQFTARPpJrtsGBau6Ar9ln7eobzLC
-         lV0Ev/xJGoCU5JiD4T63xXxlXDnrpGD5ziVGfGN8t0WjUbC3a746QG38/KgDnnDJvFYT
-         x7QqOBGiOMq5NWP2kGBlyOduKuftEqsePv+ZntnIGPLEiV/4GeJQ22BYLHv41TdGUuN3
-         yuuNxX7Mx5zAJb5oM3i7DdLoltDqJsHYy+SXyExuXdDzL04fG8k8Hq8Uz+Y/Mf5/GxSJ
-         T/Rg==
+        bh=37tcbhoPYX1kRiSMkZWCZCo/kuU+XTXOWQTT0gGxrLo=;
+        b=ayBcS+At18DYCzO0tiOa6UK5g8CxXQCk2BsMCLsipuAiLJtleHJqJcgFNyYgRB8jbh
+         HAICmFwchr5KUuCdPe6w2JwL5Ah7vqXhgR4MPDBUNJZrI5BweUHj/VADITlFVZN2mk4n
+         RNyaN/8JL16qMeQJjQjc0moPEex6SzSYQZUr6foZO6LCEhKP1O0N3UCue0lvuZG7wIR+
+         31J97x6wd0U1QIlixjiB927ZSNPBDRc/qUgmgGJqL3tBN0hETE9oCw7diBKnv0O0NENy
+         5DiqEgnSAtag29usc2YdE3CcWBQ13XYhhCTy7an5YJLzYBRI7WMYg54tZnyMQbp7r5MN
+         UaXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769509843; x=1770114643;
+        d=1e100.net; s=20230601; t=1769509912; x=1770114712;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=BZYKX34HbyGd3trz45+xdQmtQY+aPDvL9EcsqKfZ20s=;
-        b=IfTBnUmF6kQ+JVA4IbTL+38ZlUOD0ZARjPxhw6OA1AsgH/FCHfgd/KbFoZkbCVcxFG
-         AA5HzK3xeviFhrPtQTZ3OxlAgQw5dK6kuM0MmXFH+uvdYyuxoL1s7A3Bix3TRU6Ahqnw
-         YJ26Xbn3q5gPEEI13fKPEYAKLJlJ0UhZhY4EtQG1VBstN1QjWzmlLVH3EIhyd9NIcIGw
-         OMuOeMVCs4gYiuqEqabEO6AXDUfFS85y8nbvNK3S1ABcXbKiApuU6hyVC8Pqwny9Wg4e
-         n/dkfhZx8sEOfMlBthXbI2uA9xorrAULzd2YrZp20VzAeooF9X4w+7NUvJEzEj6M7HiK
-         lo9g==
-X-Forwarded-Encrypted: i=1; AJvYcCVmPTFna6RdHuChS0eEns0GtVCfqoVCS/lv+ROGjcEc7gld4hUVrWeKPPHieT2avggzhMR7IOMHyPhxFhct9Psd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxcedsa0XFmhuvkTvBBPT/+50/YlUKkPlcV7GyT0akG9oAmrdOl
-	Nzbeehc9v3OsEvFqjwKyq4VHAVeKAviJBQGn4RmmYRAzQ3HDwfBbnfJk0hYdMQjJ/AaUQhv6FHF
-	LHiiAf4hLUUi60Bx2Q/i/2X3oUKbBFMvQk6ggLugAarzw/hReZanWawM6QPkR8AJeQJcl0gtBMs
-	0FyA==
-X-Gm-Gg: AZuq6aLEnCoV7zA3oRJmBoYKHlwSg/Wk3+GOlTuEXIJmuP/yj4PHHMzRpUDH6mL+pQB
-	UysJprtQDIK1mu2W8M4F6k43+2Fmr4jhGHks/Mv9/DNVZr+XOdc/1pziG/BsPYNOwp2e37/Y1u+
-	kATaYLSGCzCoK4b458hq9GCu7zkAaGeuoTNnc4shklJPk79wMVsIvusfvEvmvfKP07e83IgSGGh
-	xEDFmhxDvci4DeT2XuhXD5Y5wIUUh/HylhzCnZ9nSagw44BvFCFZ8Vr6i5jxDP8EFln2d6yb/uP
-	CCokyeo+pxpRpBQ1Mpk0oUQ988xyira0uqmqJAIPNTFIIzer00kf0rqR8IyiqT8kmispQjX4EgB
-	m1dd7TwGzOTeWI+uzWsylzxXqH/qGCi+Uzz+6Fc5u4kyVB4qQxV9CnK4ixeoRkz/8T8A=
-X-Received: by 2002:ac8:5988:0:b0:4f1:b3c0:2ae7 with SMTP id d75a77b69052e-5032f9f14c7mr9458321cf.6.1769509843461;
-        Tue, 27 Jan 2026 02:30:43 -0800 (PST)
-X-Received: by 2002:ac8:5988:0:b0:4f1:b3c0:2ae7 with SMTP id d75a77b69052e-5032f9f14c7mr9458111cf.6.1769509843081;
-        Tue, 27 Jan 2026 02:30:43 -0800 (PST)
+        bh=37tcbhoPYX1kRiSMkZWCZCo/kuU+XTXOWQTT0gGxrLo=;
+        b=sE+THT9ynYEO0kadvilO85tCTCErMoADWDjTgAxUq5nGWQs2CnpvphE5LtW7s2c0Uo
+         a4lxc9c6C8hBDg6WvrFFMJLLEqFLeT8sPs+mMT+nH4NCgQRJjf7rt2t+lxN9dKPSrAdI
+         Y8p/hj8kKmb7RVP2z4C/dN7rzux2jxoGsWYaaxqOTVd/hAXIwYDnH9DP/uNnIX0D9V9D
+         sSIjwe7sQQAgZHDJYLBrIVsvMjmC6xNcy4OXftMhr3cAMX6Gu7OhgruSHcI1DJJPXepN
+         jTVSzFNaPaghAeDykNLvqe2ffmsduUXNxJrZOrK/MbFb7w8/MPxLalmFWpB6T5srHwxw
+         vjEw==
+X-Forwarded-Encrypted: i=1; AJvYcCXPYLRUWOPrUztZuwFIljtbMEIbx9wpKAhByRTM2IBpRtsC+yIptokK1U/89/n9H8rM+NWuZei9eN13SHbuOcYe@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMnbUuoX8z3eeaKOBzcUaDWsRZ7Clxz834ykOXQRfNHnu8ceVA
+	/mGuFMgTbm+TQV62Qsl0IMgfgmb3nhVueHndvInsWMPmuOnkyOKEp8SmOZMyQfD1H1WvO+aRYgz
+	p1lXNDhzcoEi4EwdrdkZVrlnf4EpEhcSUJbOujshFR+tnumE8Lpjs5/kmUQaP14HIeddmBxz2Wh
+	x82g==
+X-Gm-Gg: AZuq6aKXDO8lsaYi8r/mTs5zLvlxMpFP7E7QyKQPlFgN+W8lwsaABYtcpMbyT4DtU+r
+	eTca0obad/G4anp9Djy7i4LVAOyPwJT8NJWdPDopf6++Ereh1UO06BQTBRvF2IdNevUvlESDFI5
+	iaBnpi1kCJNkDDU7Ikze7GyaT3kUZ4xnBEuYJIM98zwWuXuZPeGl4JRIzRJjULNF4MNrgijBjCC
+	VXdAex6Z/8pzAK4oYWgLseVyIg83ICJ5DQJprv/VzKaM+8z5U90XSo26igkUKjdX16k8mhJhD6b
+	+5NHc+kYPDTQbTxCNnplGujeDJ/c8A9FdK4Yn7LBk7MQrIEoPhq/7jsoGsbbIgJ4Q+TVVcfsmE/
+	AzqQYw5+tnBqMtEq5uIDqV93KmqfyC+bKZJof5Km8VHbpj0ST+4OVvsTVqYRfL7WAPbQ=
+X-Received: by 2002:a05:620a:72ae:b0:8c7:f61:eff8 with SMTP id af79cd13be357-8c70f61f3f6mr10056785a.10.1769509912016;
+        Tue, 27 Jan 2026 02:31:52 -0800 (PST)
+X-Received: by 2002:a05:620a:72ae:b0:8c7:f61:eff8 with SMTP id af79cd13be357-8c70f61f3f6mr10054485a.10.1769509911500;
+        Tue, 27 Jan 2026 02:31:51 -0800 (PST)
 Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6584b3ea422sm6007927a12.10.2026.01.27.02.30.40
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b885b766733sm758314166b.55.2026.01.27.02.31.49
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Jan 2026 02:30:42 -0800 (PST)
-Message-ID: <80e774c9-c4b7-4129-aed4-17830377bd61@oss.qualcomm.com>
-Date: Tue, 27 Jan 2026 11:30:40 +0100
+        Tue, 27 Jan 2026 02:31:51 -0800 (PST)
+Message-ID: <b3b481dc-498a-4247-88e5-f91b4205e401@oss.qualcomm.com>
+Date: Tue, 27 Jan 2026 11:31:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 3/7] qcom-tgu: Add signal priority support
+Subject: Re: [PATCH v10 4/7] qcom-tgu: Add TGU decode support
 To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
         alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
         suzuki.poulose@arm.com, james.clark@arm.com, krzk+dt@kernel.org,
@@ -103,40 +103,40 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
         devicetree@vger.kernel.org, gregkh@linuxfoundation.org
 References: <20260109021141.3778421-1-songwei.chai@oss.qualcomm.com>
- <20260109021141.3778421-4-songwei.chai@oss.qualcomm.com>
- <f34abcca-6b09-4f6c-96f3-e2295a82284e@oss.qualcomm.com>
- <bcc3547c-b7d5-41a3-b291-4669c11d7f1c@oss.qualcomm.com>
+ <20260109021141.3778421-5-songwei.chai@oss.qualcomm.com>
+ <beb63598-a7fc-4e77-a68e-8622fbd93972@oss.qualcomm.com>
+ <66aae641-a340-4f0b-9d68-535ac296a335@oss.qualcomm.com>
 Content-Language: en-US
 From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <bcc3547c-b7d5-41a3-b291-4669c11d7f1c@oss.qualcomm.com>
+In-Reply-To: <66aae641-a340-4f0b-9d68-535ac296a335@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: __Ps8vrImDoXoLeG9BKraIxLMLBdEz8Y
-X-Authority-Analysis: v=2.4 cv=SvedKfO0 c=1 sm=1 tr=0 ts=697893d4 cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI3MDA4NSBTYWx0ZWRfXyEoblS7Kqar9
+ H7a7ydU3DVUjqSl+RNmjX44FBfbKL0TxSZYszkS9a9Khv+tIy2JA0bRRX1tUgkHOFlgEBjsHvl1
+ mVZUzLcj8qYd/uJBOj0iR+C/A70YxHhdJv/g8idneJ50WkmCmCxYouJ2Y+zeM0QLZ+XjLL7epV+
+ GrHhFaYQ1y3sEGQxkwpMZqDSJK7ZCW2gPhnkykSr2CuSvdHf35ewlHypejGCD2ZeME1N533MFw1
+ zKUtkHaRypxJ/oeAMfbQyCsUUhmC7WX7EP8FsprDJ5es9WmbxAaNE/LQiMjOMrgrCuXUHCNRTJX
+ rNuNnD6fBt53DNimNiek0IlkYI8Wkxz7J53vFJzR6uQUg+u9EnQcluRvvGYHw3Vcrl++TM7rzsC
+ WRPcpYN/JKXskGva6/llz2MCVzUdmh6v3HiamFnL2Aw2kcmChZZREltCZaCIXenL7LY4BmWcb6G
+ hJdq0H+flnnWWWkwIag==
+X-Proofpoint-ORIG-GUID: 2eG-K46fvXZXowJ0AaRzsm3pHk3nsXxn
+X-Proofpoint-GUID: 2eG-K46fvXZXowJ0AaRzsm3pHk3nsXxn
+X-Authority-Analysis: v=2.4 cv=a6k9NESF c=1 sm=1 tr=0 ts=6978941a cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
  a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=Vvjh0lqrh_H4iIbA9MMA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=kacYvNCVWA4VmyqE58fU:22
-X-Proofpoint-ORIG-GUID: __Ps8vrImDoXoLeG9BKraIxLMLBdEz8Y
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI3MDA4NSBTYWx0ZWRfX5PkwslSceq75
- vSf03DJCoo8BCEWh+h8zoGDiyBmQi5SzkxE/MFJ1KWITEEv2aVMry1stiE8MMAqZPFVUZHtRZle
- ISyIn6ZHzfWJd4/YpbqOrlO+ZKrqw9FUoxZdz10dmUQLZoWXZtydAV5L/UtSu7e6bOD8fEKuoQH
- xiA9KkicxfqUFT2ZKulafqMR/rpD8bVVONFvy94Fj9TRRGk1zcRAQpNP5F3fAz198JVUcRWOMpH
- prSvTNrn0Ul6bwcEEbr1018eag+owldmEnQyuqbkO1KPA7omWYR8W/LRaTAwmodg8a3sr0letUB
- p1SFyvXDUHcoUr4Quc07uGo2Gu4Sx3QnVrneXa5ZQo7G83zrZjHr11N6Prtt406uuZNRyfbVuMn
- qMC7Mifxan1AhtdTE77OUXe3XZ+/d1HoRC0VvgOmF2U2h9k+nkrRxh4jDKZhZa3wdIPxY+epJIO
- R68e7ZPsPbono32Fkig==
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=8EjekOa2TPCR8v-6VwQA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=PEH46H7Ffwr30OY-TuGO:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
  definitions=2026-01-27_02,2026-01-26_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 adultscore=0 clxscore=1015 suspectscore=0 impostorscore=0
- spamscore=0 phishscore=0 malwarescore=0 bulkscore=0 lowpriorityscore=0
+ malwarescore=0 spamscore=0 phishscore=0 lowpriorityscore=0 adultscore=0
+ priorityscore=1501 bulkscore=0 suspectscore=0 clxscore=1015 impostorscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601270085
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_023045_388141_03DFAAE7 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20260127_023155_228425_FA472F2F 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,49 +151,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/27/26 3:23 AM, Songwei Chai wrote:
+On 1/27/26 3:34 AM, Songwei Chai wrote:
 > 
 > 
-> On 1/13/2026 7:09 PM, Konrad Dybcio wrote:
+> On 1/13/2026 7:13 PM, Konrad Dybcio wrote:
 >> On 1/9/26 3:11 AM, Songwei Chai wrote:
->>> Like circuit of a Logic analyzer, in TGU, the requirement could be
->>> configured in each step and the trigger will be created once the
->>> requirements are met. Add priority functionality here to sort the
->>> signals into different priorities. The signal which is wanted could
->>> be configured in each step's priority node, the larger number means
->>> the higher priority and the signal with higher priority will be sensed
->>> more preferentially.
+>>> Decoding is when all the potential pieces for creating a trigger
+>>> are brought together for a given step. Example - there may be a
+>>> counter keeping track of some occurrences and a priority-group that
+>>> is being used to detect a pattern on the sense inputs. These 2
+>>> inputs to condition_decode must be programmed, for a given step,
+>>> to establish the condition for the trigger, or movement to another
+>>> steps.
 >>>
 >>> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
 >>> ---
 
 [...]
 
->>> +    if (tgu_attr->step_index < drvdata->max_step) {
->>> +        ret = (tgu_attr->reg_num < drvdata->max_reg) ?
->>> +            attr->mode : 0;
+>>> +    switch (operation_index) {
+>>> +    case TGU_PRIORITY0:
+>>> +    case TGU_PRIORITY1:
+>>> +    case TGU_PRIORITY2:
+>>> +    case TGU_PRIORITY3:
+>>> +        ret = operation_index * (drvdata->max_step) *
+>>> +            (drvdata->max_reg) +
+>>> +            step_index * (drvdata->max_reg) + reg_index;
+>>> +        break;
+>>> +    case TGU_CONDITION_DECODE:
+>>> +        ret = step_index * (drvdata->max_condition_decode) +
+>>> +            reg_index;
+>>> +        break;
+>>> +    default:
+>>> +        break;
 >>> +    }
 >>> +    return ret;
 >>
->> This is very convoluted
+>> The only thing your switch statement is assign a value to ret and break
+>> out. Change that to a direct return, and drop 'ret' altogether
 >>
->> How about:
->>
->> if (tgu_attr->step_index >= drvdata->max_step)
->>     return 0;
->>
->> if (tgu_attr->reg_num >= drvdata->max_reg)
->>     return 0;
->>
->> return attr->mode;
->>
->> ?
->>
->> [...]
->>
-> I agree that the expanded form is clearer step-by-step, but I intentionally kept the current version as it keeps the bounds checks localized and avoids multiple early returns in this simple case.
+> 
+> I kept a single return intentionally so the function has a single exit
+> point. This makes it easier to extend with common post-processing or
+> debug logic later if needed.
+> 
+> That said, I’m fine switching to direct returns if you prefer the simpler style here.
 
-Multiple early returns are not an anti-pattern to avoid
+It's up to you. Do you expect you'll need more debugging or extending
+of this function in near future?
 
 Konrad
 
