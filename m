@@ -4,108 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50778D2FEFA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 23:41:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF50D2FEF4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 23:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7kmKAF87tQ+DKHman6EfaO9KsoR3gG9HljeNjO/MlME=; b=lEOSYx2ZwzLC1M3r+aM0sH6wkR
-	nU5cCbhmhmjPITOmXyEsbMF3VVhwh5R4duHtMNdYk0C903EJS6j+7+1zP1MQgYjiArimWsjojZ9JE
-	TOB3k0siWKbu8NxE6dizbic96NhBYFO3jqiCKbwJ5jWQcZIDSqDfnbIBdtHhdcdC5064HmWWhnsp6
-	PSZUUI3k5ZGYbpQNegyZwf/uPKYvzIo5qQgnNMHNDfAJPWroZNJ8CS8U2YVlpAKpilLDWxAKN13gu
-	OlLUxd5jLH0vym0kMVD4/ZxF8QUMEN9y9p+B/ZNWqW8DPRdW0/78GDAP/HC7AsNMuQtxdagd5Z5iE
-	XhZ2+6kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/OzkWotmfpTMpfJYwLwOKi9ecYlVvHX8rEeQArnAVLM=; b=o2JII/10U/kJOOKGqIklL/AJrm
+	S+Bi7bdelOCRrX3CRcsNuvg39RcEY0v1+nH04iL0yCeMZjqY5VIvqujkLtci65JhgGarsbwPleSk2
+	uC5cGrx0tnRbTEHuusHkWlwFz/0Ejpa53IxSmYBIkAt1RQ2+NIV0kvrWIfXjHPfxv7mEhAe4ouU9j
+	J6kyePVC3hvihyxmNvq1AiWfRGv68SFkMnUs44BOomgiX5xvV8tH3lkP5YAhOsHrVY3J1vp1iP1Lw
+	c5HJkv6t4k9uotEd1A1wCr6026S+qbhoYZF9S1gjCkElQmyMtYRJWR54THpVQvOjGJhtgGmjd2/Ng
+	G37k/0JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vksgY-0000000FAzA-38Sh;
-	Tue, 27 Jan 2026 23:41:26 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1vksme-0000000FBMF-0Uye;
+	Tue, 27 Jan 2026 23:47:44 +0000
+Received: from ms.puri.sm ([135.181.196.210])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vksgV-0000000FAyX-3e1w
+	id 1vksmb-0000000FBLl-1kXp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 23:41:25 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-59ddb31ddcaso6745311e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 15:41:22 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769557281; cv=none;
-        d=google.com; s=arc-20240605;
-        b=fveJ9ZUwZ5fqvkS6/vQFFIZvEXPTbIxKpHM2IVllTJ1hQl2WH/HZa1IhUs52UCKxb+
-         67qQOOdiUlL0dxckLBbMnsSbf3vpFyMjLAlls0q8hUdG+vpqD4k+kHKFAF9sSroPbat0
-         FhSv07mWMuBzDkX4UEYQ7UJtQebjyf0+7j9h30OGziLx1RreNMgwBRp06WTUFhzKKlxL
-         6LHzUKjFBi77BHMCD19mjd4YQeVxNmTSRdY7KnfjMw99wdJ5s7jynZEP0OqzdqzJOZct
-         hX+157nqq+t/Q7Lk/kUq2NAi4VduBm2Ahi8rebNuRijOKveWAt189mGjTwd9m2hnLWS9
-         ih2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=7kmKAF87tQ+DKHman6EfaO9KsoR3gG9HljeNjO/MlME=;
-        fh=mIuajA+DF/n8tWVsyO3e94/GvNulgROZNqQRKD+gZEs=;
-        b=FOYqSLfpaZqJ8YgfQ/fS+lEYgC7MJWYHVytQgfKSkkJWwv/8y4rKO38K5DODly1YYP
-         Wl0PgjtgjWwhbrvCpGXe2J+sMw5nSSP87ZY3NUPyrPbw+fUsEn9GuaDx9qQYODEIKr5i
-         f9p6JlnpWxE1nfTPxRVxw+gCvAQTIfWFpOwKpqpnfw4xS0khpSfJQWHUXp2NhzhLOwJ3
-         EnmbhYLnOANzibo8hoScsDcZ7ksHu/ozn/AMFmwocI3PKNG08EnmZ41r4mPHSYY6PlAy
-         dzPHy5bFLHlU5Lbv3h468gnHJ+WYUPre3rMDWTim/GT8VSAiejssyBdsqISAo/JHgZo9
-         ZG2g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769557281; x=1770162081; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7kmKAF87tQ+DKHman6EfaO9KsoR3gG9HljeNjO/MlME=;
-        b=AeeDO5LlOMFI3J1IrxH9odrionurzb5eYMOtxnBmL89e+L4W0yGz5JEEtiNIq2jZip
-         I7yTo970XPhpO6NVGGcGPtWpsd0RQDWluxe74kRMey+SFsa6xbVso4rowPEA2StAIBX6
-         cOco6f8b1dm6K1v8Sy8b8vKdCmEZJ9WkXX8qOOlFYAp3Hu4pq/S/Vxh2kCA9vrRulk2U
-         u4Qd+RuxiXH+Ok4Hx5jHzc6c5QbvCgXNkT+ydsW9qZQ6vkFSLud14nr57o31+AIwrOuo
-         uAmz+IdT+cbIP7ms8k4LuqfAJza4oLqFrivyATsBHrhY57H6O9zbp12YP3Yie1hnCBSu
-         ZO7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769557281; x=1770162081;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7kmKAF87tQ+DKHman6EfaO9KsoR3gG9HljeNjO/MlME=;
-        b=kDtPehEqqy+DUau1x3jQvV5DHc7Wj/0ff/h1cL5fxbf1Sm65zB9Ip2twVoNNinx59R
-         OrV78/LMbr9ONMEiGYv5LKrzFcT0SmB6Dh7UIoNkP1fqXHC2xvYLnGPjZVdKNmELCXJM
-         a9qdyTaT6zRY7+yP0aJMeV3bNn6sUhTHOIZB4Vxv7BHBUQ6BoOptNQpuL/lm4XsoS22f
-         +Ng4IdQJwo/9HDF8c4zs2Oia0NTfjpBSTow0CpHXNepBJ5ka9v52SD6eBuQIoNZ4Eqmd
-         XjuFtRHYqV18mBfNLJ5w8Ph+RbEwEaRHlWI2XEw9x1n3kewFwCZREfgBnc8jCd5J5iRv
-         9w9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU6PRwKszd5GtWBwkyS6eUID/bTT8IkDEWTj0CL8Mnl35ogWnqpQY1FK0eBtN82SDjrhYtyI7amN5GRIJmV3CXl@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywtrs1SR5Gy76IB2dneSp8/DrFBV4W7bngGLRf4v4+xNWBTyXfv
-	ipWmhLk7xvBXMcNuOuJxW/nGFc1Qj9WkMatWTievnQIIvLzMH/MNbFnVPUmq9HR64EQkA5NhsZ/
-	7tUUOAQtK1x5XIwNPK9wBkaIPg0TOi+E=
-X-Gm-Gg: AZuq6aI9yoABWpjhePh31bw7y0up+7MW1R66bBku9Z/9MNaF2dsZAlSUGhDj8Ie/Ebz
-	AxUHIjTTQu3DSmJpy7BMLc4ZPOxBfZXDEs+oKpJSFY1ivhVJbIX+LUGqVUVUnub42N8iVxljZsd
-	M52CFUTwA8PFDrecR56taJUPvXJ82BrQFogw+9zkfgaplHMwtZn30anYZ+UNgEv3U54IoGG7I2u
-	WcZ5koEcG8wEhxXaQ1s40+AHL6rFX5e4Df0+erziExsHUA1wj76Wf5h4qev81q2NhSZoEcsAe81
-	LMgpdg9T7La5gYABoFxPi4b2NXE=
-X-Received: by 2002:a05:6512:23a3:b0:59e:71f:cc1c with SMTP id
- 2adb3069b0e04-59e071fcc42mr546862e87.1.1769557279804; Tue, 27 Jan 2026
- 15:41:19 -0800 (PST)
+	Tue, 27 Jan 2026 23:47:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=puri.sm; s=smtp2;
+	t=1769557657; bh=q/u/XvKL68HmLo5r1RpDGCfqD4LAY62ICsaF9xos+gw=;
+	h=From:Date:Subject:To:Cc;
+	b=fXXKijDgKK18ydT0YumguA+J5t7LNz5e4baaNkn0fJgBJjhU44jUapTvlxtP4Vs/a
+	 2/lUf8UgBpEY/2J7NFkl/Th/Op7JPy56CychATWLl91oWX/T2z6gmCEpvsiUCQMZPy
+	 WD9SIAqvfTgBqlv9wlPBZXBz4R720vEqgW8hzFupUdZ+H9+5Wet7+pIlMnPWrOX2Xx
+	 VgUuvedmX8cjhFCzqj0vVO/v5RSM1/9oArHq4yvSRR83hLBJp+mDF9hUbAV2BZN532
+	 pnOZvMjqon+rKBkqcFRgT7UnZ4H1nKwkbRiWUdptC4pFbEuz6NSrTfQgbsdNKd6lG7
+	 8ITM/hBjE3aCQ==
+Received: from pliszka.localdomain (79.184.64.12.ipv4.supernova.orange.pl [79.184.64.12])
+	by ms.puri.sm (Postfix) with ESMTPSA id 69A4F1FA50;
+	Tue, 27 Jan 2026 15:47:35 -0800 (PST)
+From: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
+Date: Wed, 28 Jan 2026 00:47:21 +0100
+Subject: [PATCH] clk: imx8mq: Correct the CSI PHY sels
 MIME-Version: 1.0
-References: <20260128-imx8mq-gpu-ahb-clock-v2-1-f32548d46188@puri.sm>
-In-Reply-To: <20260128-imx8mq-gpu-ahb-clock-v2-1-f32548d46188@puri.sm>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Tue, 27 Jan 2026 20:41:08 -0300
-X-Gm-Features: AZwV_QirB8xtJhi5kl9yJ2qWiZEFsvTE9M5XNO8kGqz4pRn84DhojBOVsgWwGyE
-Message-ID: <CAOMZO5A64Qy+3n7ZX2QG3FfXEwEX6KfMZaMhCi+5jFhWfBn=qw@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: dts: imx8mq: Set the correct gpu_ahb clock frequency
-To: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel@puri.sm, Frank Li <Frank.Li@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260128-imx8mq-csi-clk-v1-1-ac028ed26e8c@puri.sm>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MwQ6CMAyA4VchPdu4LQSJr2I8lK1II5vaqiEhv
+ LuT43f4/xWMVdjg3Kyg/BWTR6nwhwbiROXGKKkaggud86FHyUufXxhNMM53DIlcbE+t59RBjZ7
+ Koyz78HKtHsgYB6USp/9mlvKxYyZ7s8K2/QDoX+YSfwAAAA==
+X-Change-ID: 20260128-imx8mq-csi-clk-2da0c4741ed6
+To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Lucas Stach <l.stach@pengutronix.de>, 
+ Anson Huang <anson.huang@nxp.com>
+Cc: Bai Ping <ping.bai@nxp.com>, linux-clk@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@puri.sm, 
+ Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2342;
+ i=sebastian.krzyszkowiak@puri.sm; h=from:subject:message-id;
+ bh=q/u/XvKL68HmLo5r1RpDGCfqD4LAY62ICsaF9xos+gw=;
+ b=owEBbQKS/ZANAwAKAejyNc8728P/AcsmYgBpeU6WtyTpjZs6uJHcey9jsZGEaddvA6jQcQpof
+ ncHAeKVEImJAjMEAAEKAB0WIQQi3Z+uAGoRQ1g2YXzo8jXPO9vD/wUCaXlOlgAKCRDo8jXPO9vD
+ /0p5EACJkHOwOGYB1sSTxHb2HgBICPP52RNTWB/yqyURlIj1TXcMDJm8RWld679wa7i3zt7N3LE
+ G5pp2nZ3S4K51i79jluWMjGPbwjv22TTsXryMAdumb/+dn72QtlEBoJwu6bzIdA9tbLmDr/3eCh
+ 4+4sZdYK59LiPvykinFGU0hqeQkp1S7QMtHY7b108/kVRWrwC7JUkAsQPWcU5Il69Merh4uI/Qm
+ 6ER6/ktB0XyNA9f9bv0NLCIbv5bVQ1bm98h7IqV/7kNdcHnCM0R/DC5dldPCoBwMEkP1h9XsMNn
+ MaxQ3eteKuGQAav83/tNKPJy0avIJJwqqDT1dYl/IIDnkWvu+MLTNzzxuAmAwcDDKxrVHppAPg4
+ /GrMvGBljLuYdM+/+D1+Xfd9yUbgwSPrKAIJEZevoeFXYBn6t8u9rr7kQaA0W7zKnnIX3i4+l0u
+ Q4fu7GRdi0xKSpFhVLLl28dIb02nYrmy1ZyLKVLMTV/hMp5NXlRNhyr9NNoHnumgCgsYgpVqrpD
+ 6hiczHO2NAyEVXKbI71RTyr/9c2KbZK1vHnSy5WG9ziSrJIJn4mwlPunzZszhTLx9sYY3gZL0rS
+ b4Exnmu5aU4MFBeLJXi1ooCezBG/tEYxGHlYaziJVhNoaYzj5BtRaCmae4uOEaUd6tDUfs/nZIC
+ CQix4jkVejlP5eQ==
+X-Developer-Key: i=sebastian.krzyszkowiak@puri.sm; a=openpgp;
+ fpr=22DD9FAE006A11435836617CE8F235CF3BDBC3FF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_154123_957634_657AE18D 
-X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-CacheID: sfid-20260127_154741_617908_85064133 
+X-CRM114-Status: UNSURE (   8.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,24 +97,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+According to i.MX 8M Quad Reference Manual (Section 5.1.2 Table 5-1)
+MIPI_CSI1_PHY_REF_CLK_ROOT and MIPI_CSI2_PHY_REF_CLK_ROOT have
+SYSTEM_PLL2_DIV3 available as their second source, which corresponds
+to sys2_pll_333m rather than sys2_pll_125m.
 
-On Tue, Jan 27, 2026 at 8:28=E2=80=AFPM Sebastian Krzyszkowiak
-<sebastian.krzyszkowiak@puri.sm> wrote:
->
-> According to i.MX 8M Quad Reference Manual, GPU_AHB_CLK_ROOT's maximum
-> frequency is 400MHz.
->
-> Fixes: 45d2c84eb3a2 ("arm64: dts: imx8mq: add GPU node")
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
-> ---
-> Changes in v2:
-> - added Fixes trailer as suggested by Fabio Estevam
-> - Link to v1: https://lore.kernel.org/r/20260124-imx8mq-gpu-ahb-clock-v1-=
-1-11c2e7c857b7@puri.sm
+Fixes: b80522040cd3 ("clk: imx: Add clock driver for i.MX8MQ CCM")
+Signed-off-by: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
+---
+ drivers/clk/imx/clk-imx8mq.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Reviewed-by: Fabio Estevam <festevam@gmail.com>
+diff --git a/drivers/clk/imx/clk-imx8mq.c b/drivers/clk/imx/clk-imx8mq.c
+index f70ed231b92d..cedc8a02aa1f 100644
+--- a/drivers/clk/imx/clk-imx8mq.c
++++ b/drivers/clk/imx/clk-imx8mq.c
+@@ -237,7 +237,7 @@ static const char * const imx8mq_dsi_esc_sels[] = {"osc_25m", "sys2_pll_100m", "
+ static const char * const imx8mq_csi1_core_sels[] = {"osc_25m", "sys1_pll_266m", "sys2_pll_250m", "sys1_pll_800m",
+ 					      "sys2_pll_1000m", "sys3_pll_out", "audio_pll2_out", "video_pll1_out", };
+ 
+-static const char * const imx8mq_csi1_phy_sels[] = {"osc_25m", "sys2_pll_125m", "sys2_pll_100m", "sys1_pll_800m",
++static const char * const imx8mq_csi1_phy_sels[] = {"osc_25m", "sys2_pll_333m", "sys2_pll_100m", "sys1_pll_800m",
+ 					     "sys2_pll_1000m", "clk_ext2", "audio_pll2_out", "video_pll1_out", };
+ 
+ static const char * const imx8mq_csi1_esc_sels[] = {"osc_25m", "sys2_pll_100m", "sys1_pll_80m", "sys1_pll_800m",
+@@ -246,7 +246,7 @@ static const char * const imx8mq_csi1_esc_sels[] = {"osc_25m", "sys2_pll_100m",
+ static const char * const imx8mq_csi2_core_sels[] = {"osc_25m", "sys1_pll_266m", "sys2_pll_250m", "sys1_pll_800m",
+ 					      "sys2_pll_1000m", "sys3_pll_out", "audio_pll2_out", "video_pll1_out", };
+ 
+-static const char * const imx8mq_csi2_phy_sels[] = {"osc_25m", "sys2_pll_125m", "sys2_pll_100m", "sys1_pll_800m",
++static const char * const imx8mq_csi2_phy_sels[] = {"osc_25m", "sys2_pll_333m", "sys2_pll_100m", "sys1_pll_800m",
+ 					     "sys2_pll_1000m", "clk_ext2", "audio_pll2_out", "video_pll1_out", };
+ 
+ static const char * const imx8mq_csi2_esc_sels[] = {"osc_25m", "sys2_pll_100m", "sys1_pll_80m", "sys1_pll_800m",
 
-Thanks
+---
+base-commit: 63804fed149a6750ffd28610c5c1c98cce6bd377
+change-id: 20260128-imx8mq-csi-clk-2da0c4741ed6
+
+Best regards,
+-- 
+Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
+
 
