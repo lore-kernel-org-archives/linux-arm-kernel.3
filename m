@@ -4,160 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5096D2FEDF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 20:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 973D1D2FEDF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 20:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R7u/+GzEYAjioDYmkQxOY6xsCw+YDBbFVfBMYmE+PTU=; b=k0VUmByJ0/f6LeekqqlnJWfLFS
-	UcX8saVu07ZMEzrjzd0QcZTS3T6GAmQlTFhZPCVQ1kBAPyhuNq7Xbg9Paq0k6oYVcM4xsgcUbZZUw
-	ni0lydbKkTubeAUDX7rAk2VbvDJ4wEpVEiowUZ+kHMX0zyr7s9NBYHA8V/MpxIh0BGo7Xr/qvRRln
-	08c3HLOnUbS2MMmpCG/EZkmVD1rOQVBGtAprsgEYNYjJMFVlGkvtoHDI9QoYnmO291zLc8lqC1rhN
-	KugxrKnOWo9cG2lEyUjReiHz1vZH1Gcz5N2/yMHnO7BH0xN42gxeBmFIkZLrqFf9W/ODhshSwEB1T
-	kSmqBjgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GPjuJoLumEXRMLBW/Fjs+PexlXNP8tIBiAHLYG0k4Ko=; b=D0UtaDoHMNc0m3NRx8CK3mx5Z0
+	jxyuiyM9Rx9Mpw+2TEbM5s2wlzcf0mjnZqvk1i4ZRlJ7pkrVfUiYf7edh3+84mJRQrf6kxt2YV0jO
+	PvvcSLWz22/TnkfoSJXkpW708xshV3limkXnYDGswmOrugI0P7/cilJ37b/1IecFad9+wRl+BgSCU
+	nZl9pn8wjeKO1pR2iPVf8maQ4HY1wpUo3rpeNGGFNkw6s3FR81irRsD5uigTuqCuXZaIXA2H8XzVi
+	SqIcBJ+3g5t1BMjUFoDUj9+FslJ9zNqT36vaXyVT56TGeJ4C9enpjnuUYhrj+YvUZSMZu2dK8R+bg
+	r1WE4owQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkpeS-0000000F06U-41Pf;
-	Tue, 27 Jan 2026 20:27:04 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkpeR-0000000F05g-0RVT
+	id 1vkprn-0000000F10U-3J8F;
+	Tue, 27 Jan 2026 20:40:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkprk-0000000F0zt-0wIF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 20:27:04 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60RHVuh21268748
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 20:27:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=R7u/+GzEYAjioDYmkQxOY6xs
-	Cw+YDBbFVfBMYmE+PTU=; b=OlEJLz9Jts4JCKDA2sUywDbOlEwV13u5StSD37uO
-	3jZ2LqLmnkOlj3tENXxxrto0rqSvazhIxACvFa3vg9Lr0LTfmIGoBSKKWVw7oxiA
-	Ygi6pAvHAHWzb6RO4xH6d0S62SdvBx5ZYlidlKngSSWsM9rethdRC2pSYUcDiBTF
-	T5FQSQLRcDQhV7oEF8GYAH9Gbn9OVoQhUGC0n7DrBSDA+jXZdZ2uyp0KnpDgA8Sm
-	dROwvv75q9PROWNOhczfWpFsK3gmh3eR87eCfuCL8Yc6qCOcag0QIWk8bnEMl7E3
-	7ZVSIDQJjUzuMcn7KtzSEzu5NNF2rO7f5YkXeibASpI4Sw==
-Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bxnyau8nr-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 20:27:00 +0000 (GMT)
-Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-5eea68151f3so5866422137.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 12:27:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1769545620; x=1770150420; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=R7u/+GzEYAjioDYmkQxOY6xsCw+YDBbFVfBMYmE+PTU=;
-        b=COyVm6HKJIkaRjXee/0oh/tc4FEoAaCSOVMYqqeR/Yd5EWj5E/VrYdRQlFKGUuuugq
-         2ruty2XK4NWTHSz34LqeWDfN253JDx0N8GNwGEsJUHH8qU2BZePX17l0F8evr5j00qYy
-         KZOCrovn6B7Zj3ZYQgdWoeE1NJAmERqlt1BrQaJrq/xyvHrQhqaUaF5/ToVoUs9eFuOG
-         jCtvTVpedO1qDkWHyZYy/VUAqPKMBYDrxAQ+ievRAMidTK7UTaq1T1bLS3ekPxjByUTf
-         ep2/c3D38LRbh8wvxMs5P/jn5cFrlQ+jV+Pj+VxRMK2H2FjxDH7hI3CQskB9KavkP5qH
-         0Yxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769545620; x=1770150420;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=R7u/+GzEYAjioDYmkQxOY6xsCw+YDBbFVfBMYmE+PTU=;
-        b=RBpXbJsS0ZUGMyZbTfAibe82CPvYvErhDFbjTBTsRv9rqdOvhKgUuS6QXplsrr4nLU
-         4Jumrn3vdBEvqqdkBMDeJovtrroQ3iBY8foSX4b5/wz4Mg7ZfiU2OdFTUbm8XJSDVD7b
-         /IPRYXBDauSun5lxzaiV0JvL4qcc/5ql2CUnSdAXczAYMoI1a4eGDGidTXENKzGVFU6o
-         t8eHXUyNJJ5qPKTKt/XmpMWWa1oQ1zA5Y418MsYNVHOEG7zEy77p2Ni2O+fsBRMB7Snm
-         GCmyeHL3Rtsmpn3AJh+9PSr7HngQjWcMJJl97hFBW+BrIhVWOCxU1Jb6UiGjMMAedS/7
-         FjWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWyxqObygRGXsjjJsm7FZjow7RQRYckEiFyWiLD0lf6q3Cn0SeRb8XPD4Muq5V2p0Dy6ruvNj+fuvrKJp4tbBn0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZBhL2IY/W/ZL7GQWMOmgu7GNw3LA2CCrSmktvj15yRBxvWaoC
-	Y8iOISeRZGa4+47ANZpmJxlgKrHjKMy5a7Ukg72JsOeq2fVMgJ7FXbMyuCLf2Eky43BYZjGdRd1
-	S7iDaHceO0uWB4wm1K5njtBechk6RiZ+CO4t2q6zU0lDcHDNkKKcBg0CQGkG15s0OyK4x2gn++o
-	0ycQ==
-X-Gm-Gg: AZuq6aIl7hfliled9t5EodnOV5KB++agncMLEyPqESki6r7oRQOKsJ1ejrqos/QhQMV
-	NTRmynFg7DtqEvKb5eHir2mBSwccGzByFxTnKSln/hViNMfb4g6/LjX8y0NP0pPx2zru/CzjggI
-	ZmGQuxOZ1jekZlxR6hHECPdLwmi1qKCvqv/GCatQleJJ0ZnragZcp5L2Trdw74L7M/dm9C3/Fsm
-	WGyuVm5iVEk3jhv8C0s6l6PTgdc8GXzJLxtr5FFmQie06zzN17+0eyD+/4vMVAfhrqgYjGpwnLN
-	VcfYyBj8KBJnnMPwnf2Uvaevzscf8m5ulQhRWfGzqoMDCdCViFvmMTbpEbAAG84RgBrqiPO/fbt
-	KtQpPcd46SW5OMjTYCX3bnsr9zS7hJrcSjDp6X8ZPPnBwpk8TYH2wEzbBxMF9lvexsWzYG3merF
-	UaG2H5nxj7vqO2zR3fCNZr7kc=
-X-Received: by 2002:a05:6102:290e:b0:5ef:5387:ca85 with SMTP id ada2fe7eead31-5f7237d2386mr962053137.39.1769545619910;
-        Tue, 27 Jan 2026 12:26:59 -0800 (PST)
-X-Received: by 2002:a05:6102:290e:b0:5ef:5387:ca85 with SMTP id ada2fe7eead31-5f7237d2386mr962042137.39.1769545619368;
-        Tue, 27 Jan 2026 12:26:59 -0800 (PST)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59e07481b72sm147447e87.11.2026.01.27.12.26.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jan 2026 12:26:58 -0800 (PST)
-Date: Tue, 27 Jan 2026 22:26:56 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Dave Stevenson <dave.stevenson@raspberrypi.com>,
-        =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
-        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-        Chen-Yu Tsai <wens@kernel.org>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>, Liu Ying <victor.liu@nxp.com>,
-        Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Sandy Huang <hjc@rock-chips.com>,
-        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>, dri-devel@lists.freedesktop.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-sunxi@lists.linux.dev, linux-mediatek@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
-        linux-rockchip@lists.infradead.org, Aishwarya.TCV@arm.com
-Subject: Re: [PATCH v4 05/10] drm/bridge: refactor HDMI InfoFrame callbacks
-Message-ID: <6p52srrxddazxiwqfqmjpef7k4bbpzojxqiy57zmhqcpqa2bum@gv555pvqrige>
-References: <20260107-limit-infoframes-2-v4-0-213d0d3bd490@oss.qualcomm.com>
- <20260107-limit-infoframes-2-v4-5-213d0d3bd490@oss.qualcomm.com>
- <47619a02-c667-4fd0-afa9-f6cf7aba8dd4@sirena.org.uk>
+	Tue, 27 Jan 2026 20:40:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3045D1515;
+	Tue, 27 Jan 2026 12:40:34 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5F57D3F5CA;
+	Tue, 27 Jan 2026 12:40:39 -0800 (PST)
+Message-ID: <a3428306-9fae-4add-890e-ed7b82bea0b8@arm.com>
+Date: Tue, 27 Jan 2026 20:40:37 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <47619a02-c667-4fd0-afa9-f6cf7aba8dd4@sirena.org.uk>
-X-Proofpoint-GUID: ccE0LgkMQ3idJE-xDWRv9AeTRADuQ4WV
-X-Authority-Analysis: v=2.4 cv=JZqxbEKV c=1 sm=1 tr=0 ts=69791f94 cx=c_pps
- a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=QCwxOkPKupwELJ-03vgA:9 a=CjuIK1q_8ugA:10
- a=gYDTvv6II1OnSo0itH1n:22
-X-Proofpoint-ORIG-GUID: ccE0LgkMQ3idJE-xDWRv9AeTRADuQ4WV
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI3MDE2NiBTYWx0ZWRfX/4J+xWO4/4Fl
- RBYmNFbmf/UiwkIaKQeWhurjT3U8MshYUabKdrOREl1BuCCr/DjRr8UNI1udY75BlEt4p84RcZk
- uH659jVkPRis/OdVFaUw2DmJzYwDp76LaaCHDeNjsHZR8avSxiMtkoOd9Dc111GI3tplqg/oHbp
- FZh28oHiOhoOerXAhHGYoNUlG8moFSg5hpRgO3Khm8OFDXe4yxPivOSTFrEqHYMbcFOCdI60RoL
- aAgtOHgFKuHClyJi334xkZCTWBOoS6PlaVm6Cq75ORhka40uEIhWk/8xK4nJ17/QgjQEVu0AIe4
- WW8jMtv1Gza4ct5acMoWr5p97fZPc4+ZT4w9w9iMKjyamJFTEVnRPWQrNU+/wbxGabvmfOtfk0a
- Q+wUXARBlpvsRqKz7hybw75zVtVwAQNuRVS8AxqVlbTfwms3gCJjwrLcTiJMDPxup1+IT8x3Gsl
- A/xK6ucLH4X3PNow1UQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-01-27_04,2026-01-27_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 impostorscore=0 suspectscore=0 lowpriorityscore=0
- malwarescore=0 spamscore=0 adultscore=0 clxscore=1015 phishscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2601150000
- definitions=main-2601270166
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/5] kselftest/resctrl: Enable CAT and NONCONT_CAT
+ tests on ARM
+To: Shaopeng Tan <tan.shaopeng@fujitsu.com>, fenghuay@nvidia.com,
+ reinette.chatre@intel.com, james.morse@arm.com, shuah@kernel.org
+Cc: linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260123044034.141247-1-tan.shaopeng@fujitsu.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20260123044034.141247-1-tan.shaopeng@fujitsu.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_122703_255392_B3754A2E 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20260127_124048_436627_80FA0C4E 
+X-CRM114-Status: GOOD (  37.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,25 +66,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 27, 2026 at 07:50:25PM +0000, Mark Brown wrote:
-> On Wed, Jan 07, 2026 at 08:15:02PM +0200, Dmitry Baryshkov wrote:
-> > Having only a single set of callbacks, hdmi_clear_infoframe and
-> > hdmi_write_infoframe, bridge drivers don't have an easy way to signal to
-> > the DRM framework, which InfoFrames are actually supported by the
-> > hardware and by the driver and which are not. Also, it makes it
+Hi Shaopeng,
+
+On 1/23/26 04:40, Shaopeng Tan wrote:
+> Hello Fenghua, Reinette, Ben, James, and to whom it may concern,
 > 
-> We're seeing oopses on Qualcomm RB5 platforms in -next which bisect to
-> this patch.  Looking at the patch I'm not immediately seeing what it
-> might be getting wrong, though I do note that the board uses a LT9611
+> The MPAM driver is nearing upstream merge,
+> but resctrl_test doesn't work on the Arm architecture.
+> I'm actively working on a series to support CAT/NONCONT_CAT tests for the Arm. 
+> (Support for MBM/MBA tests will be considered in the future.)
 
-LT9611UXC, yes. Fixed with [1], fix committed to drm-misc-next-fixes.
+Great :) Having MPAM support in the resctrl kselftests will be be good.
 
-[1] https://lore.kernel.org/dri-devel/176945413960.1492466.3261759749688865592.b4-ty@oss.qualcomm.com/T/#t
+> 
+> While I've modified the resctrl_test code to enable CAT on Arm,
+> CAT test is failing in the NVIDIA Grace environment. 
+> (I don't have any other environments.)
+> Am I misunderstanding the CAT tests, or is there something specific
+> about Grace that I'm overlooking? Any advice would be greatly appreciated.
 
-> which is updated by the patch.
+IIUC the L3 cache is in the nvidia interconnect and so changing the
+cache portion bitmap would correlate with events from the nvidia
+interconnect pmu. However, I don't think you are using events from the
+interconnect.
+
+> 
+> First of all,
+> when running CAT on Grace, I observed that cache limiting is working as expected.
+> I verified this by checking "sudo cat /sys/fs/resctrl/c1/mon_data/mon_L3_*/llc_occupancy".
+> Furthermore, I noticed that benchmark execution times varied directly with the limited cache size.
+
+Good to know.
+
+> 
+> I reused the existing Intel CAT test methodology,
+> that involves collecting cache miss counts via perf_event during a benchmark task and then
+> verifying a correlation between the cache limit value and these miss counts.
+> https://lore.kernel.org/lkml/20231215150515.36983-23-ilpo.jarvinen@linux.intel.com/#r
+> 
+> I'm aware that the specific cache miss numbers and CAT's impact can
+> differ significantly depending on the microarchitecture or SoC.
+> For Arm, we need to establish an appropriate minimum difference in LLC
+> misses between a test with n+1 bits CBM to the test with n bits.
+> 
+> However, my experiments with Grace showed that even when I significantly
+> varied the cache span size, the average LLC miss counts remained nearly unchanged.
+> 
+> Detailed test results as follows:
+> 
+> # # Starting L3_CAT test ...
+> # # Mounting resctrl to "/sys/fs/resctrl"
+> # # Cache size :119537664
+> # # Writing benchmark parameters to resctrl FS
+> # # Write schema "L3:1=fc0" to resctrl FS
+> # # Write schema "L3:1=3f" to resctrl FS
+> # # Write schema "L3:1=fe0" to resctrl FS
+> # # Write schema "L3:1=1f" to resctrl FS
+> # # Write schema "L3:1=ff0" to resctrl FS
+> # # Write schema "L3:1=f" to resctrl FS
+> # # Write schema "L3:1=ff8" to resctrl FS
+> # # Write schema "L3:1=7" to resctrl FS
+> # # Write schema "L3:1=ffc" to resctrl FS
+> # # Write schema "L3:1=3" to resctrl FS
+> # # Write schema "L3:1=ffe" to resctrl FS
+> # # Write schema "L3:1=1" to resctrl FS
+> # # Checking for pass/fail
+> # # Number of bits: 6
+> # # Average LLC val: 1609252
+> # # Cache span (lines): 933888
+> # # Fail: Check cache miss rate changed more than 4.0%
+> # # Percent diff=-0.0
+> # # Number of bits: 5
+> # # Average LLC val: 1609038
+> # # Cache span (lines): 778240
+> # # Fail: Check cache miss rate changed more than 3.0%
+> # # Percent diff=0.7
+> # # Number of bits: 4
+> # # Average LLC val: 1620802
+> # # Cache span (lines): 622592
+> # # Fail: Check cache miss rate changed more than 2.0%
+> # # Percent diff=1.1
+> # # Number of bits: 3
+> # # Average LLC val: 1639214
+> # # Cache span (lines): 466944
+> # # Fail: Check cache miss rate changed more than 1.0%
+> # # Percent diff=0.9
+> # # Number of bits: 2
+> # # Average LLC val: 1653470
+> # # Cache span (lines): 311296
+> # # Pass: Check cache miss rate changed more than 0.0%
+> # # Percent diff=1.0
+> # # Number of bits: 1
+> # # Average LLC val: 1669618
+> # # Cache span (lines): 155648
+> # not ok 4 L3_CAT: test
+> 
+> Additionally, even with a fixed alloc buffer size(span = 119537664),
+> the Average LLC value remains nearly unchanged regardless of the limited cache size.
+> Furthermore, it appears that ARMV8_PMUV3_PERFCTR_L1D_CACHE_REFILL is
+> mapped to PERF_COUNT_HW_CACHE_MISSES in "./drivers/perf/arm_pmuv3.c",
+> to counteract this, I attempted to use the perf_event measurement event
+> to ARMV8_PMUV3_PERFCTR_LL_CACHE_MISS_RD,
+> ARMV8_PMUV3_PERFCTR_L3D_CACHE_REFILL,
+> and ARMV8_PMUV3_PERFCTR_L3D_CACHE_LMISS_RD,
+> however, the Average LLC value still remains nearly unchanged.
+
+I think these are from the neoverse_v2 rather than the interconnect.
+
+> 
+> My modifications to resctrl_test (for context):
+> 
+> diff --git a/tools/testing/selftests/resctrl/cache.c
+> b/tools/testing/selftests/resctrl/cache.c
+> index 9a4a6c52b14c..9f00680039c6 100644
+> --- a/tools/testing/selftests/resctrl/cache.c
+> +++ b/tools/testing/selftests/resctrl/cache.c
+> @@ -8,7 +8,8 @@ char llc_occup_path[1024];
+>  void perf_event_attr_initialize(struct perf_event_attr *pea, __u64 config)
+>  {
+>         memset(pea, 0, sizeof(*pea));
+> -       pea->type = PERF_TYPE_HARDWARE;
+> +       //pea->type = PERF_TYPE_HARDWARE;
+> +       pea->type = PERF_TYPE_RAW;
+>         pea->size = sizeof(*pea);
+>         pea->read_format = PERF_FORMAT_GROUP;
+>         pea->exclude_kernel = 1;
+> diff --git a/tools/testing/selftests/resctrl/cat_test.c
+> b/tools/testing/selftests/resctrl/cat_test.c
+> index 58b1590695d1..3ecf22fa1983 100644
+> --- a/tools/testing/selftests/resctrl/cat_test.c
+> +++ b/tools/testing/selftests/resctrl/cat_test.c
+> @@ -8,6 +8,7 @@
+>   *    Sai Praneeth Prakhya <sai.praneeth.prakhya@intel.com>,
+>   *    Fenghua Yu <fenghua.yu@intel.com>
+>   */
+> +#include "perf/arm_pmuv3.h"
+>  #include "resctrl.h"
+>  #include <unistd.h>
+> 
+> @@ -181,7 +182,11 @@ static int cat_test(const struct resctrl_test *test,
+>         if (ret)
+>                 goto reset_affinity;
+> 
+>         perf_event_attr_initialize(&pea, PERF_COUNT_HW_CACHE_MISSES);
+> +       //perf_event_attr_initialize(&pea, ARMV8_PMUV3_PERFCTR_L3D_CACHE);
+> +       //perf_event_attr_initialize(&pea, ARMV8_PMUV3_PERFCTR_LL_CACHE_MISS_RD);
+> +       //perf_event_attr_initialize(&pea, ARMV8_PMUV3_PERFCTR_L3D_CACHE_REFILL);
+> +       //perf_event_attr_initialize(&pea, ARMV8_PMUV3_PERFCTR_L3D_CACHE_LMISS_RD);
+>         perf_event_initialize_read_format(&pe_read);
+>         pe_fd = perf_open(&pea, bm_pid, uparams->cpu);
+>         if (pe_fd < 0) {
+> @@ -276,6 +281,7 @@ static int cat_run_test(const struct resctrl_test *test, const struct user_param
+>         };
+>         param.mask = long_mask;
+>         span = cache_portion_size(cache_total_size, start_mask, full_cache_mask);
+> +       //span = 119537664; //L3 cache size of my machine
+> 
+>         remove(param.filename);
+> 
+> Any insights or suggestions would be greatly appreciated.
+> 
+> Best regards,
+> Shaopeng TAN
+> 
+> ---
+> Shaopeng Tan (5):
+>   kselftests/resctrl: Detect the ARM architecture
+>   kselftests/resctrl: enable noncont_cat for MPAM
+>   kselftests/resctrl: remove unnecessary exclude_idle
+>   kselftests/resctrl: set shareable_mask to zero if all bits are shared
+>     between software and hardware
+>   kselftests/resctrl: Add support for CAT test on ARM
+> 
+>  tools/testing/selftests/resctrl/cache.c         | 1 -
+>  tools/testing/selftests/resctrl/cat_test.c      | 5 +++--
+>  tools/testing/selftests/resctrl/fill_buf.c      | 4 ++++
+>  tools/testing/selftests/resctrl/resctrl.h       | 1 +
+>  tools/testing/selftests/resctrl/resctrl_tests.c | 7 +++++++
+>  tools/testing/selftests/resctrl/resctrlfs.c     | 2 ++
+>  6 files changed, 17 insertions(+), 3 deletions(-)
 > 
 
--- 
-With best wishes
-Dmitry
+Thanks,
+
+Ben
+
 
