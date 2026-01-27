@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BB21D2F000
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 12:52:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1BCBD2F00D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 12:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5IJRoSxWQb8JN7fISEhqmMWdc69kkUQGsVQmOgvzHe4=; b=osQEKHG59uiHwOy2X3KbxefOEV
-	lkufVxIAh4amwpxcaajxFuSpoM9f0hCItib2HU9P7rKgQlUpxWL4EwN2KdBkB1sym7vCy0Exz04ue
-	2EDUVyMWjO4Chi7POps8JX0Q0e1sW5RCPnc3kO1HYc8aYkub6lCEFNMy/qrn1DiPnn2T6vN2gX7gj
-	CGcFMySLRufehvEJsk/rwP38Gm9afFsXSocx+Uj/ICwVNiRAyjiOCu3oM2AOQwGVgAQYg2PAZx0lF
-	gYgA531EvH842U0sk0vsGmPWTvz7InM6RCSYcFUjqGeXv8gQWxLYvaYlvZETxi6yMrVCMNHnTO7oM
-	+5d+MrvA==;
+	bh=559PE9EUDws7nLXefn5hc2HC7NxfEB4hyMktnlM5TR8=; b=n2m2/FcZo2uKN7xJbxoYIosbXK
+	LemTWU7wY75TgTbSqa0+a02cm/EW6VGXlEK1sJUYSAwIgWt4E0QbtXCveIbX5Nis9AuP6SiokND9o
+	xIEL2hBHkREYIiYnrxy3RU5Nzp0zMmnTcrKBopLT8o1/ISJgJuDJtY7gLr5LhdyGucVQBY+JtZiy+
+	LC3WbnHkAWkO8BAi9SU+yyYMsZyVdIS/VmEDeX8F3t573TSYO/sl/t/ACI5hcea74Qb0cs6/N6Li+
+	e6xevua1F2+8XyAl2aHOCc8llWpKDuxyoxvl0hf0LeqVcYhq27GeH+WbgiUKkK/F6Dwy25fxmjkau
+	5TG3sAYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkiYc-0000000EH0g-1zeg;
-	Tue, 27 Jan 2026 12:52:34 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1vkidS-0000000EHV6-02OK;
+	Tue, 27 Jan 2026 12:57:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkiYZ-0000000EGzd-3XMS
+	id 1vkidR-0000000EHUt-1KTs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 12:52:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769518352; x=1801054352;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=vgbQx0vDwWYjR3sK+ZddrCDH4qHiveEQokdGsfxcS2g=;
-  b=SES5YQjNcyUd8k/laP9GFC14cP68poR/dc6b6XTEnFsdEraYHJ23evy/
-   6DO5aEgWGrfliAqgJxweNzstlIFiPUKtz21Cm14DlV3KdhIs+DNl1QjLY
-   HUGPeWxwKVpLtmL28GGY3gIR2iqaLOUDMNCqrJiBWMnJpKAGTtmC+2XBA
-   SvQLbu0CesrmolT3nfD7csmfJ5d7k+q+wYMYhYG9IdTHwzBz50/URyppV
-   jVc3qzwgHzRF+U7t5ZSV4NU7dHaIO2eVBPrAMDJhz9zhnX0nFm92To6Jr
-   yLvxRLpLwCLS3xqQu9RIWox4JvKwS+mH72tmLvQ4auIGeEfDy22eZB1eW
-   Q==;
-X-CSE-ConnectionGUID: VxuAQSn7QkGrm75xYhPDqg==
-X-CSE-MsgGUID: ODWvNalESbeQClrDMyYC9Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="69911721"
-X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
-   d="scan'208";a="69911721"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 04:52:31 -0800
-X-CSE-ConnectionGUID: wIcgciS6QfOH3oFLtMWbAA==
-X-CSE-MsgGUID: Xwu+uTG+Su+JHQ8O8Uf/EQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
-   d="scan'208";a="230922383"
-Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 27 Jan 2026 04:52:26 -0800
-Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vkiYR-00000000YUG-3ffS;
-	Tue, 27 Jan 2026 12:52:23 +0000
-Date: Tue, 27 Jan 2026 20:52:04 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
-	will@kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com,
-	sudeep.holla@arm.com, rafael@kernel.org, robin.murphy@arm.com,
-	mark.rutland@arm.com, tony.luck@intel.com, bp@alien8.de,
-	tglx@linutronix.de, peterz@infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, lenb@kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-edac@vger.kernel.org, mchehab@kernel.org,
-	xueshuai@linux.alibaba.com, zhuo.song@linux.alibaba.com,
-	oliver.yang@linux.alibaba.com,
-	Ruidong Tian <tianruidong@linux.alibaba.com>
-Subject: Re: [PATCH v6 13/16] ras: AEST: Introduce AEST inject interface to
- test AEST driver
-Message-ID: <202601272009.SKq0aXMN-lkp@intel.com>
-References: <20260122094656.73399-14-tianruidong@linux.alibaba.com>
+	Tue, 27 Jan 2026 12:57:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5DCA960097;
+	Tue, 27 Jan 2026 12:57:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6540C116C6;
+	Tue, 27 Jan 2026 12:57:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769518652;
+	bh=Uksvj+xXNbVKjMG5czjlohyQ4d21ktvK52mNzFdDWSE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=I2titWdaXnkx9/wH5ayXFTvKiWmyHCAO8bcKIHk4uZrSAs2NX+pxPZdkVMuOoshFa
+	 z2f89ClcaabsmFC5zc8BHWMsac5YaecrFYqEIMVJF5gyjpgMYX45Ml1DqTTMb+0l/6
+	 xJrX6e7Xd8xG/rY9QA25VZjGqvXckuXAbh/doJWcC4YULkXmQy/iv5AiTRvp+L0lto
+	 KGkm4paaRX+qB+0cSzTnY6aDlLbwOPoUC9fb3EzM4pJC5Vs97KC/bFwzz8pzWYvEZ4
+	 ZOnuCJ4wpITzFDsJ8YBiKUcOOA9i9p32TSXh8efo4+bfc5P4Vv6wWlTuTcLYs1UUOu
+	 8xZUI4lq6HPEA==
+Date: Tue, 27 Jan 2026 12:57:24 +0000
+From: Simon Horman <horms@kernel.org>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, robh@kernel.org,
+	kuba@kernel.org, festevam@gmail.com,
+	ghennadi.procopciuc@oss.nxp.com, alexandre.torgue@foss.st.com,
+	linux-kernel@vger.kernel.org, andrew+netdev@lunn.ch,
+	shawnguo@kernel.org, mbrugger@suse.com, mcoquelin.stm32@gmail.com,
+	linaro-s32@linaro.org, davem@davemloft.net, s.hauer@pengutronix.de,
+	edumazet@google.com, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, conor+dt@kernel.org, krzk+dt@kernel.org,
+	devicetree@vger.kernel.org, Frank.li@nxp.com,
+	chester62515@gmail.com, netdev@vger.kernel.org,
+	kernel@pengutronix.de, pabeni@redhat.com, jan.petrous@oss.nxp.com,
+	linux-stm32@st-md-mailman.stormreply.com, s32@nxp.com
+Subject: Re: [v4,1/3] net: stmmac: s32: use a syscon for
+ S32_PHY_INTF_SEL_RGMII
+Message-ID: <aXi2NJcwM4-mrgrj@horms.kernel.org>
+References: <8f2139e8adf02b485a4c84d558fc23f78cf04add.1769195864.git.dan.carpenter@linaro.org>
+ <20260126152430.1390514-1-horms@kernel.org>
+ <aXeJYo-0iiNuXVGH@shell.armlinux.org.uk>
+ <aXeP1y7cK0XRx3Wo@horms.kernel.org>
+ <aXh9lcfw6D6KouI_@stanley.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260122094656.73399-14-tianruidong@linux.alibaba.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_045231_925117_D415B12A 
-X-CRM114-Status: GOOD (  13.08  )
+In-Reply-To: <aXh9lcfw6D6KouI_@stanley.mountain>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,67 +83,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ruidong,
+On Tue, Jan 27, 2026 at 11:55:49AM +0300, Dan Carpenter wrote:
+> On Mon, Jan 26, 2026 at 04:01:27PM +0000, Simon Horman wrote:
+> > But at any rate, I think the key question is should the case
+> > where regmap_write() returns an error be handled in
+> > s32_gmac_write_phy_intf_select() (by some means)?
+> 
+> Generally if register read/writes fail then there is nothing you
+> can do a the software level, you need to buy a new computer.  However,
+> in this case we may eventually put the registers behind an SCMI
+> interface so probably checking is a good idea.
+> 
+> Could I leave the error message out?  The callers has an error
+> message and if you ever see the error message, and even with SCMI,
+> the fix is probably still to buy a new computer.
 
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on arm64/for-next/core]
-[also build test WARNING on rafael-pm/linux-next rafael-pm/bleeding-edge linus/master v6.19-rc7 next-20260126]
-[cannot apply to tip/smp/core]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Ruidong-Tian/ACPI-AEST-Parse-the-AEST-table/20260122-180219
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
-patch link:    https://lore.kernel.org/r/20260122094656.73399-14-tianruidong%40linux.alibaba.com
-patch subject: [PATCH v6 13/16] ras: AEST: Introduce AEST inject interface to test AEST driver
-config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20260127/202601272009.SKq0aXMN-lkp@intel.com/config)
-compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260127/202601272009.SKq0aXMN-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601272009.SKq0aXMN-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/ras/aest/aest-sysfs.c:194:45: warning: more '%' conversions than data arguments [-Wformat-insufficient-args]
-     194 |                 snprintf(name, sizeof(name), "processor%u%u", cpu);
-         |                                                          ~^
-   1 warning generated.
-
-
-vim +194 drivers/ras/aest/aest-sysfs.c
-
-   182	
-   183	static void
-   184	aest_oncore_dev_init_debugfs(struct aest_device *adev)
-   185	{
-   186		int cpu, i;
-   187		struct aest_node *node;
-   188		struct aest_device *percpu_dev;
-   189		char name[16];
-   190	
-   191		for_each_possible_cpu(cpu) {
-   192			percpu_dev = this_cpu_ptr(adev->adev_oncore);
-   193	
- > 194			snprintf(name, sizeof(name), "processor%u%u", cpu);
-   195			percpu_dev->debugfs = debugfs_create_dir(name, adev->debugfs);
-   196	
-   197			for (i = 0; i < adev->node_cnt; i++) {
-   198				node = &adev->nodes[i];
-   199	
-   200				node->debugfs = debugfs_create_dir(node->name,
-   201								percpu_dev->debugfs);
-   202				aest_node_init_debugfs(node);
-   203			}
-   204		}
-   205	}
-   206	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+FWIIW, that seems reasonable to me.
 
