@@ -4,99 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8183CA6C9D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 08:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 591FFCA6C9D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 08:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J6gcw78eDfCGKXCKZBLgnF/iPeG+D4+74BvG9CfzhIA=; b=vvXCrnnZj6usldJUB+YKvdwBhq
-	xwDfOozkHiM26HvVOvuJj2TX1dd8vg79OsW9oXxNoNvCdASlFPjtoqH9emXvmqkE9n7AyZ48CX8Ln
-	CABUVXKfjJP2BXT2wze9ZhSxxBIg7yRs6x5jSjS2hgxgHGxaVuRz+SFGL8jCfCPKvjBDySDdbQh04
-	4A783bzY0zSLuUmtMYN9w1yO9dChjAegrMCzJ/fvBU6YY9uCayBaVOAsSiPx0TRnwuRqpBn+xtY/w
-	3S+iRFo0Iij6dBmN8w1uP6y/YakF3BbwxXJYgAxlTvRMTmlaur7Aie3KDiWptK+2bf/kCKZnKwfnu
-	VH9Mte+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JcZeMaax8glokFuf1hG57EmbUz4Co4BzqzWcXBh18FA=; b=dxIo0Fu4Wo+dKlhUCqAY8CQ3yP
+	MYKVc4dl2YItj70a4tctXGgu+8Mg5USaV61RK94imljxbIDi9QKWXIPGc2qj0exFidiz3dFp59+Vv
+	2H6eMlaCv6s+A+/WF03ZrSHna4vg0eShR4EHXTz3akF+Lp3npDUp+q4r/iUEP1HhZoIjFcvvfdf+5
+	695xPBUflyPSKJ8RdDKUbZukUVyiNafEezpI6B8LxJZ+o1vJDxnxq+fSBbrDHRiM6aGIHKQDt1aEV
+	+R2f2/VpC5vh42OdXNaGFAqclzyTO28wuWqilADemY8bVsnd+5ySKa8y9qgbEx2jFKIrDhsIrSgCD
+	9kKsNprA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkerh-0000000Dsrl-22Zt;
-	Tue, 27 Jan 2026 08:56:01 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1vkes0-0000000Dsu2-3LP1;
+	Tue, 27 Jan 2026 08:56:20 +0000
+Received: from mx-relay13-hz2.antispameurope.com ([83.246.65.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkerf-0000000DsrP-0x3X
+	id 1vkerv-0000000Dssw-0OFu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 08:56:00 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-47ff94b46afso46892715e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 00:55:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769504157; x=1770108957; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=J6gcw78eDfCGKXCKZBLgnF/iPeG+D4+74BvG9CfzhIA=;
-        b=VYyWGJJG6rAHexjC01yIZmIfXiTOkzXsiZ0718iJAE3whw65B9Ry6EMLWC9SJXFRZK
-         RbvcVCmP9Ia1aP+QEzWApIR4S06iMeeEn2zReNKWJBE9zst9sW8bMhtImoVOKx6/f846
-         B/DJMDKU6RXwpQFZFhT1NaFoHQCudGRtzUYHjxpYlebtGBIN1kAtlzog+Hn9v1cfYhrk
-         QWkSaPwG1xAttZNbqGgzhNKs5ahFVPyJs5LkirfTAtEBU+/sOuT5aMbvYJh62qqG6eiT
-         zEUUsAqqDkoWGuyfut2bNTARO2sW2KfUpBBTpwfoiKg6tsjT+fUdjvi3/GFt8RX033di
-         2p3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769504157; x=1770108957;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=J6gcw78eDfCGKXCKZBLgnF/iPeG+D4+74BvG9CfzhIA=;
-        b=XDpIB3Kfj7b9FRcB+oFWRhTNfvDnkG9j1w1M81soaAcHjUfcd6DZ4KzRf5EE4uyZX1
-         Uvn/PthT1QZwafVX8nLx3KmRkf1hu3t5Kpmtztem28Ad0lne2dSOzkrr/NqC6TeZS98S
-         FX6s1r8+LECVW1r6Yr6YqDJZVoifTbktUgFA2Gku3VakTaYbHUF+TKJlKVZ40JL+7bxu
-         QtXgfoe947KkQnZdg5WYbBJ4dyO1hK07LGQXyuwU2CVsRQeolo1h+Z1AxH74aLF/XRk1
-         TH6sY/xNQZAoQgStiUivbVhuMvU2tyR0ihxp+/qGM6qVsblKwL61c1ySXQirnS5qhoz1
-         hWdA==
-X-Forwarded-Encrypted: i=1; AJvYcCWzPEffp65uphNYyty5SR+qA6toOU5d9BGyEXZTFNJ+rdo86ouD36cvOqLgbJBuakW9Rs0MiFUbpVJAOVM53yw+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmZtHytIxCYMIpW4brWv57hYCM6MlJOy4w7y+711CZwpn5GHKq
-	sUtI7sEDdVuExzeU4G56ENrbu64VmRIRAExfhToB7SypgXUppUNNm3GJhOHGI+aIz5o=
-X-Gm-Gg: AZuq6aKShKpF3uI05B8HT6J3Gk5x4h4Inw2V0dcmHAa91MSS8KqxXjF0trqIYsRcTb7
-	hAW68MelrJHkOBf602CoFgnFi4TNHCsP/qFgMK/U/ThD4E25adh9F9sR/RisJobwkmyjAoD0gqp
-	ceupfWOjre7vx1CNSWo9nU/RS/TQlxoB3qVMxVDOpB38UjlCUBSj5NwaOftDMqnIpY6K3HoMT8T
-	ndtOOc86DBNF2QuHp5aObi93ucVh1s857BqTZJQZJaXotIzNqp9EQhZkcgV88v+2fZoditF+Wvf
-	hy1/rI9uvbATU2RKTvI9zKpJtx4TeuSGeVp05xdB8lXqN+DQwfDYeSNR7zL6U4rBEVwy7pZtS0J
-	k36bkTRKQzXsbN5KujASO7I2HRY0iE9+qdFVDgyy22qre+x3TvMary1mBVXZptFKm+1qwNy22A7
-	VryuJ4CLbpyhGf8C0=
-X-Received: by 2002:a05:600c:33a6:b0:47d:52ef:c572 with SMTP id 5b1f17b1804b1-48069e0fd24mr6300105e9.1.1769504156658;
-        Tue, 27 Jan 2026 00:55:56 -0800 (PST)
-Received: from localhost ([41.210.143.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48066c42895sm50695725e9.14.2026.01.27.00.55.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jan 2026 00:55:56 -0800 (PST)
-Date: Tue, 27 Jan 2026 11:55:49 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Simon Horman <horms@kernel.org>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, robh@kernel.org,
-	kuba@kernel.org, festevam@gmail.com,
-	ghennadi.procopciuc@oss.nxp.com, alexandre.torgue@foss.st.com,
-	linux-kernel@vger.kernel.org, andrew+netdev@lunn.ch,
-	shawnguo@kernel.org, mbrugger@suse.com, mcoquelin.stm32@gmail.com,
-	linaro-s32@linaro.org, davem@davemloft.net, s.hauer@pengutronix.de,
-	edumazet@google.com, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, conor+dt@kernel.org, krzk+dt@kernel.org,
-	devicetree@vger.kernel.org, Frank.li@nxp.com,
-	chester62515@gmail.com, netdev@vger.kernel.org,
-	kernel@pengutronix.de, pabeni@redhat.com, jan.petrous@oss.nxp.com,
-	linux-stm32@st-md-mailman.stormreply.com, s32@nxp.com
-Subject: Re: [v4,1/3] net: stmmac: s32: use a syscon for
- S32_PHY_INTF_SEL_RGMII
-Message-ID: <aXh9lcfw6D6KouI_@stanley.mountain>
-References: <8f2139e8adf02b485a4c84d558fc23f78cf04add.1769195864.git.dan.carpenter@linaro.org>
- <20260126152430.1390514-1-horms@kernel.org>
- <aXeJYo-0iiNuXVGH@shell.armlinux.org.uk>
- <aXeP1y7cK0XRx3Wo@horms.kernel.org>
+	Tue, 27 Jan 2026 08:56:19 +0000
+ARC-Authentication-Results: i=1; mx-gate13-hz2.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
+ dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=JcZeMaax8glokFuf1hG57EmbUz4Co4BzqzWcXBh18FA=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1769504161;
+ b=R8c3t7wZnZelnVIpEUDEow6PFhgk7Ht+MjP/fFaioyXAb5LnsIheyVo1YZ+J1YX/4vJv4p8O
+ GOVBZtIZOzhD3jROEAvDR1JH8AMObMJ/487IIwa5SZP1lmTEXmXaaoWr86YxH1UZTs3YVO6d20O
+ K0kvadCz9tEIvOpWKi6lRkgc0kEzUdkUXYtAHxhN/IGkgDJh3Sz5RD1OZNo2QEpDZ1gO7sxULUn
+ A/ylaY4K5bwhjZUKcHM+06fGv+pLRhhcO9lKHZ5YcUMeS+0nFwLWU1wxv00DncY4iQV6BmB17Ep
+ 6wY+I5JlHDSQZsF3MrOMYT3FcMs5JIcrhxl/4HxXITTlw==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1769504161;
+ b=kh0hExvivPf/iQJn/asEUzB+Mt1vyDax9N4yfz9V/BxWeg5NQyaOR4fXsv5/CsQ5T3wzA6TU
+ RtrqivLp4OnldhYgGaEI9n2J0zaKiN0iLldMHoqy6MP9oiiq1iLMKdLCN3Kfaw5v1Xf5YjlJZZK
+ X2QGqNj4fuJX5HTuKYXydU8ibwYbNJh9S+iChKGDqkg9CFEDYTIOZUTE1vtiaFFRaaNO0Bti7DB
+ qCyOnk80nQMhwqWdVx3BKqLv2Jfvaa5Gv8GDvUMGwWrzrGRyyN+n4pPAA3hwUhkVGsUKt3/comX
+ 9IZpWTmNnRw7nPL02FC4b/I/FdRn98+xYn0uj89rUcXIw==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay13-hz2.antispameurope.com;
+ Tue, 27 Jan 2026 09:56:01 +0100
+Received: from schifferm-ubuntu.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: matthias.schiffer@ew.tq-group.com)
+	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 7A8AA5A0EE5;
+	Tue, 27 Jan 2026 09:55:50 +0100 (CET)
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux@ew.tq-group.com,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Subject: [PATCH] arm64: dts: freescale: fsl-ls1028a-tqmls1028a-mbls1028a: switch mmc aliases
+Date: Tue, 27 Jan 2026 09:55:33 +0100
+Message-ID: <20260127085533.9738-1-matthias.schiffer@ew.tq-group.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aXeP1y7cK0XRx3Wo@horms.kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: matthias.schiffer@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: matthias.schiffer@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay13-hz2.antispameurope.com with 4f0fPz1Jnhz3sw4M
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 6e26a58e6144cc24ca60a7f4cfcea837
+X-cloud-security: scantime:1.869
+DKIM-Signature: a=rsa-sha256;
+ bh=JcZeMaax8glokFuf1hG57EmbUz4Co4BzqzWcXBh18FA=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1769504161; v=1;
+ b=AwI/dzrijRu4ovV/CUYkEveWJ3JojQvxkTAKWIR+Fji4tWtATEk0sMGqbrYXlInnhTqe/bmp
+ kM9rBjyfVs2HICc35W8shWvAAulsGoZ3cafNv2ZE8/3KOj6ujAdJOmx/LfT/WIj9HF5uIvxWdlh
+ CAjmP3TMYI+z2UPRN14WhMFW7T8ZYoNwT8vJv5aHys7swhrvWTtxzddjSVww7SGGN5kZWCF1Nr9
+ VR4hmFVEXMYpHOh1LrFNxRggM6TUm1bH78c0VGq23FSPkTHfuEVK141IZKARI3vSDoBv2fMF6rO
+ 4m4/zpRWJ+YzLWbWWaYazBGZgVtq8H81WVN63W7f8ALcw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_005559_309821_09252576 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20260127_005615_500385_F63A3571 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,20 +108,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 04:01:27PM +0000, Simon Horman wrote:
-> But at any rate, I think the key question is should the case
-> where regmap_write() returns an error be handled in
-> s32_gmac_write_phy_intf_select() (by some means)?
+All modern TQ-Systems boards follow the convention that mmc0 is the eMMC
+and mmc1 is the SD-card when both interfaces exist, reducing differences
+between boards for both documentation and U-Boot code (which uses the
+same Device Trees). Adjust the recently added MBLS1028A Device Tree
+accordingly.
 
-Generally if register read/writes fail then there is nothing you
-can do a the software level, you need to buy a new computer.  However,
-in this case we may eventually put the registers behind an SCMI
-interface so probably checking is a good idea.
+Fixes: 0538ca1f102d ("arm64: dts: ls1028a: Add mbls1028a and mbls1028a-ind devicetrees")
+Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+---
 
-Could I leave the error message out?  The callers has an error
-message and if you ever see the error message, and even with SCMI,
-the fix is probably still to buy a new computer.
+Notes:
 
-regards,
-dan carpenter
+- Gregor (author of the fixed commit) is not working for TQ anymore, so
+  his mail address does not exist anymore and he is omitted from cc
+- Normally we would consider modifying the aliases a breaking change;
+  fortunately, these Device Trees are only in linux-next for now
+
+
+ .../boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi  | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
+index cf338b2e80064..426a81e1743f1 100644
+--- a/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
++++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a-tqmls1028a-mbls1028a.dtsi
+@@ -17,8 +17,8 @@ aliases {
+ 		gpio0 = &gpio1;
+ 		gpio1 = &gpio2;
+ 		gpio2 = &gpio3;
+-		mmc0 = &esdhc; /* SD-Card */
+-		mmc1 = &esdhc1; /* eMMC */
++		mmc0 = &esdhc1; /* eMMC */
++		mmc1 = &esdhc; /* SD-Card */
+ 		serial0 = &duart0;
+ 		serial1 = &duart1;
+ 	};
+-- 
+TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht München, HRB 105018
+Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+https://www.tq-group.com/
+
 
