@@ -4,75 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C2FD34082
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:38:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C92B7D34088
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lr/AXvpRECteTqgpnXcvrdfrDD3U/+YRtXBlxwKPYTo=; b=Ocehgg2bM0aDPp1RMYcddojYC7
-	4KCO3eEO1gCL5/8SWe3VUkgGX2g0qiLuKlrp1ojFb4b6sPuCm+PWs4ggRhM1Qb9ZnbCNw5izsxN7o
-	7/4oAxiSYbPr/Vq0/Ye6+VYyKFK3YEQ7zFfbxO1FrSdSATBiPbp2PsJ0xLtvZxFK9CG7duyhJZXMb
-	F5II3khlJo1nOttReVA0BJ5+aJl9LTrtMcMXDRYEBSlz8OoJ0o3RVw3UowCX+2pjz2t5yxNO+cYXV
-	gIKePkmXxtFja3myAU4s6ytVbFuPfStzxISL96NuXBJzH8tJXNua+CQll3O44zhCgiGN3zkUdkxuV
-	QthCH19A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ozYJGIsbDHDqzuv5LUTky9lnsUA5jSKZrHj+JWfGB8o=; b=BkAjO2cjCLdOWAB3fILbit405W
+	dYLd0yb46kf0xpS/xDzXbyxJLG2lFh0eWlcnZVd8YUkP8FsxbFq8p1wE/PHRRufBoy4heigt83s+r
+	bjcezSqwUlktY6Pf4OwbeM+9iw2y3rIutqGZUNptdhm4NDy7iBwqRgsSvdBvoTBkTV7rjhy2whJfs
+	lNaqPbKKfY40P53+c44XJwm+GBOse2nDc2tBIcJC+3bnjaAmoLHY+OLdtUkhBIeTg5CTsmUE0sIY9
+	yfP5VDrSqtElbLgQ0A/has2M/29yiersndUa3IPQq+zY6xWzFeqjneBYT/Tgd2R8gFUk5EHtlpcWa
+	3jOITLOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkl8v-0000000EZ01-45aL;
-	Tue, 27 Jan 2026 15:38:13 +0000
-Received: from mout.web.de ([217.72.192.78])
+	id 1vklBL-0000000EZ9d-1vGO;
+	Tue, 27 Jan 2026 15:40:43 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkl8t-0000000EYzI-3T5I
+	id 1vklBI-0000000EZ8r-0Ter
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 15:38:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1769528259; x=1770133059; i=markus.elfring@web.de;
-	bh=lr/AXvpRECteTqgpnXcvrdfrDD3U/+YRtXBlxwKPYTo=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=em5RBeMucTKqqbj/N7h/2UnsKH6DxxGUTwmfmV+hYKk0Jstb5uEd1IvE+FeNlWOC
-	 2uD1ra042vw9QHYjIkgl9VqJOSPkErpt2201G2GqufWILM9Vnx8O/96UZli3pY82i
-	 /l/SPUgiJYYJbEYHiXGtBxXOoVGFX7didkTbU3oQv9RQ2/DBTEbnOsQWDKqIgRFEn
-	 5PWdyYCHuxhWn6h1/YDzJUoC+Rg2YJcQVIWEevo/kQZ0qsx1j+wTx+RdCHGsD7z/V
-	 Lw81cbbUVngh9Qfh/jzsQTX4n+XARavVohwBKvV3qM+81DUvC0Dt+3c+U7jZXGyGf
-	 BnCbqY9w0ojZ1vqEsg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.92.251]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MadzU-1wI9sX2ApO-00l5zR; Tue, 27
- Jan 2026 16:37:39 +0100
-Message-ID: <a08213a4-6dee-413a-9f88-30ab5f846a05@web.de>
-Date: Tue, 27 Jan 2026 16:37:35 +0100
+	Tue, 27 Jan 2026 15:40:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769528440; x=1801064440;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=XhBC5KV+PtVVZ/Z9sK8gsPhmkVrcEIqlnIPPBjBhYdM=;
+  b=Y7YPzRTApFepT3xt9yjjHUWv/KgZtbneSfzC5Ayba9TrLH7B/lz0CyLo
+   fhrmgKmXrLByI9Y6wnsraSmtjrKNfGrJofKBT+c5dKjZ77V9ta49KcjEJ
+   6JK3MPTRY8x8DjifD2ei8v3PIqLh8A4gOPdLt6+S5uu0rG1md5zErDG9X
+   mUc5nwe4wPAyIt7n394B+1q0zLb13mU0/g5Bz8I7nEvDbui/wxXqEMkXN
+   /1khU51AOsnthcqwLcweNDk3lzL7lett3r7fRO5kDchjGvEY5Bi/Rabvk
+   5ixB+UwuO6C30K8OivSkUoS1rE86/wHncfxI7K2UJZC1aTGwK/g87TCSd
+   Q==;
+X-CSE-ConnectionGUID: EWFbPO+4REqPwHeySQBT/g==
+X-CSE-MsgGUID: YVPo4lbeSe6vzWcjP5cbrw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="70816144"
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="70816144"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 07:40:39 -0800
+X-CSE-ConnectionGUID: YkjinVAERv2ujCwRoSLWag==
+X-CSE-MsgGUID: XSHPA9EtQ96q7JmKxOnzAA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="208058802"
+Received: from lkp-server01.sh.intel.com (HELO 765f4a05e27f) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 27 Jan 2026 07:40:35 -0800
+Received: from kbuild by 765f4a05e27f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vklB9-00000000YcG-3qcQ;
+	Tue, 27 Jan 2026 15:40:31 +0000
+Date: Tue, 27 Jan 2026 23:39:34 +0800
+From: kernel test robot <lkp@intel.com>
+To: Joey Lu <a0987203069@gmail.com>, airlied@gmail.com, simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
+	a0987203069@gmail.com, linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] drm/nuvoton: add MA35D1 display controller driver
+Message-ID: <202601272315.09SFioVt-lkp@intel.com>
+References: <20260126085727.2568958-4-a0987203069@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Chen Ni <nichen@iscas.ac.cn>, linux-sunxi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
- Ban Tao <fengzheng923@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
- Jaroslav Kysela <perex@perex.cz>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Samuel Holland <samuel@sholland.org>, Takashi Iwai <tiwai@suse.com>
-Cc: LKML <linux-kernel@vger.kernel.org>
-References: <20260127033250.2044608-1-nichen@iscas.ac.cn>
-Subject: Re: [PATCH] ASoC: sunxi: sun50i-dmic: Add missing check for
- devm_regmap_init_mmio
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20260127033250.2044608-1-nichen@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:VHCTORnxmEy8LCQ194z4Yo5KSTfOwYP7SZgHY3Fi9DlkLLL5bqn
- OI811kd+0zsYES7HEzeOew1/X/eckCmFJlE49wgNSGBSrOsdok5skshhUOdQ79wl/ZB+5po
- 0pe/Z5UFY72BVbBwSns2Ws+V2sZVy/AcZd+Lh+hcyjVgR3ywNfhmS328dVQJFzhi73qEg9I
- bR7VnP0U+CEq5XYsQbM/A==
-UI-OutboundReport: notjunk:1;M01:P0:pbhSRtV/Ezw=;MUzWndk2kRHBujeQRjiPF+kpRPl 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
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260126085727.2568958-4-a0987203069@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_073812_167181_CBF4405F 
-X-CRM114-Status: UNSURE (   7.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260127_074041_060027_3A93EF23 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,12 +93,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Add check for the return value of devm_regmap_init_mmio() and return the
-> error if it fails in order to catch the error.
+Hi Joey,
 
-How do you think about to add any tags (like =E2=80=9CFixes=E2=80=9D and =
-=E2=80=9CCc=E2=80=9D) accordingly?
+kernel test robot noticed the following build errors:
 
-Regards,
-Markus
+[auto build test ERROR on drm-misc/drm-misc-next]
+[also build test ERROR on drm/drm-next]
+[cannot apply to robh/for-next linus/master v6.19-rc7 next-20260126]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Joey-Lu/dt-bindings-display-nuvoton-add-MA35D1-DCU-binding/20260126-170258
+base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
+patch link:    https://lore.kernel.org/r/20260126085727.2568958-4-a0987203069%40gmail.com
+patch subject: [PATCH 3/3] drm/nuvoton: add MA35D1 display controller driver
+config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20260127/202601272315.09SFioVt-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260127/202601272315.09SFioVt-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601272315.09SFioVt-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+>> drivers/gpu/drm/nuvoton/ma35_plane.c:177:10: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     177 |                 *reg = MA35_BLEND_MODE_SRC;
+         |                        ^
+   drivers/gpu/drm/nuvoton/ma35_plane.h:141:2: note: expanded from macro 'MA35_BLEND_MODE_SRC'
+     141 |         FIELD_PREP(MA35_SRC_BLENDING_MODE, MA35_ALPHA_BLEND_ONE)
+         |         ^
+   drivers/gpu/drm/nuvoton/ma35_plane.c:337:8: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     337 |         reg = FIELD_PREP(MA35_OVERLAY_POSITION_X_MASK, x) |
+         |               ^
+   drivers/gpu/drm/nuvoton/ma35_plane.c:360:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     360 |                 reg = FIELD_PREP(MA35_PRIMARY_FORMAT_MASK, format) |
+         |                       ^
+   drivers/gpu/drm/nuvoton/ma35_plane.c:384:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     384 |                 reg = FIELD_PREP(MA35_OVERLAY_FORMAT_MASK, format) |
+         |                       ^
+   drivers/gpu/drm/nuvoton/ma35_plane.c:441:8: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     441 |         reg = FIELD_PREP(MA35_CURSOR_X_MASK, x) |
+         |               ^
+   drivers/gpu/drm/nuvoton/ma35_plane.c:483:4: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     483 |                         FIELD_PREP(MA35_CURSOR_HOTSPOT_X_MASK, new_state->hotspot_x) |
+         |                         ^
+   drivers/gpu/drm/nuvoton/ma35_plane.c:537:4: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     537 |                         FIELD_PREP(MA35_CURSOR_HOTSPOT_X_MASK, new_state->hotspot_x) |
+         |                         ^
+   7 errors generated.
+--
+>> drivers/gpu/drm/nuvoton/ma35_crtc.c:97:8: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      97 |         reg = FIELD_PREP(MA35_DISPLAY_TOTAL_MASK, mode->htotal) |
+         |               ^
+>> drivers/gpu/drm/nuvoton/ma35_crtc.c:228:10: error: call to undeclared function 'FIELD_GET'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     228 |         *hpos = FIELD_GET(MA35_DISPLAY_CURRENT_X, reg);
+         |                 ^
+   drivers/gpu/drm/nuvoton/ma35_crtc.c:284:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     284 |                 reg = FIELD_PREP(MA35_GAMMA_RED_MASK, r[i]) |
+         |                       ^
+   3 errors generated.
+--
+>> drivers/gpu/drm/nuvoton/ma35_interface.c:150:6: warning: variable 'ret' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+     150 |         if (!interface) {
+         |             ^~~~~~~~~~
+   drivers/gpu/drm/nuvoton/ma35_interface.c:191:9: note: uninitialized use occurs here
+     191 |         return ret;
+         |                ^~~
+   drivers/gpu/drm/nuvoton/ma35_interface.c:150:2: note: remove the 'if' if its condition is always false
+     150 |         if (!interface) {
+         |         ^~~~~~~~~~~~~~~~~
+     151 |                 drm_err(drm_dev, "Failed to initialize encoder\n");
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     152 |                 goto error_early;
+         |                 ~~~~~~~~~~~~~~~~~
+     153 |         }
+         |         ~
+   drivers/gpu/drm/nuvoton/ma35_interface.c:145:9: note: initialize the variable 'ret' to silence this warning
+     145 |         int ret;
+         |                ^
+         |                 = 0
+   1 warning generated.
+
+
+vim +/FIELD_PREP +177 drivers/gpu/drm/nuvoton/ma35_plane.c
+
+   167	
+   168	static int ma35_layer_blend_mode_select(u32 mode, u32 *reg)
+   169	{
+   170		u32 ret = 0;
+   171	
+   172		switch (mode) {
+   173		case MA35_ALPHA_CLEAR:
+   174			*reg = MA35_BLEND_MODE_CLEAR;
+   175			break;
+   176		case MA35_ALPHA_SRC:
+ > 177			*reg = MA35_BLEND_MODE_SRC;
+   178			break;
+   179		case MA35_ALPHA_DST:
+   180			*reg = MA35_BLEND_MODE_DST;
+   181			break;
+   182		case MA35_ALPHA_SRC_OVER:
+   183			*reg = MA35_BLEND_MODE_SRC_OVER;
+   184			break;
+   185		case MA35_ALPHA_DST_OVER:
+   186			*reg = MA35_BLEND_MODE_DST_OVER;
+   187			break;
+   188		case MA35_ALPHA_SRC_IN:
+   189			*reg = MA35_BLEND_MODE_SRC_IN;
+   190			break;
+   191		case MA35_ALPHA_DST_IN:
+   192			*reg = MA35_BLEND_MODE_DST_IN;
+   193			break;
+   194		case MA35_ALPHA_SRC_OUT:
+   195			*reg = MA35_BLEND_MODE_SRC_OUT;
+   196			break;
+   197		case MA35_ALPHA_DST_OUT:
+   198			*reg = MA35_BLEND_MODE_DST_OUT;
+   199			break;
+   200		case MA35_ALPHA_SRC_ATOP:
+   201			*reg = MA35_BLEND_MODE_SRC_ATOP;
+   202			break;
+   203		case MA35_ALPHA_DST_ATOP:
+   204			*reg = MA35_BLEND_MODE_DST_ATOP;
+   205			break;
+   206		case MA35_ALPHA_XOR:
+   207			*reg = MA35_BLEND_MODE_XOR;
+   208			break;
+   209		default:
+   210			ret = -EINVAL;
+   211		}
+   212	
+   213		return ret;
+   214	}
+   215	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
