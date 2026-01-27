@@ -4,82 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FEFED2FEDB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 19:16:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733EFD2FED9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 19:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4zstNEATP95LnRG/q+i4GDrYI7hO5v2pn1ul5vwV4dc=; b=iPlGwtdff/IFr6wKUlKflbkb/h
-	/C8W4ERpwOFQWoA/l3UDZ4/Ehwhzkm5i5BAEfTfs1mCqqgu0iCZsYu6unluYf9fnmPZA9QmLCjvr7
-	YRGem0HBekTB10NCjMQyqtkNZJ555MqU6aBL9XiFlalWq/wmC54Dl4OVtiZuD80o/RwwJl8xpJuQA
-	R5+DUB//pI8QHA/UdeDJpPgvO5pO4im0FCN2cjk8nr+eem49w25GC6ZfNBmqj+X3VSvSwzxpMqQ7O
-	5M+iOZOXzNfESRmYDQWQksvhcjYmb//BKhpeVMF8iUS7m+kySvTOAFNTwG+PSm6S8Uss+d3oNKJn5
-	qd78aCcQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=trhYDRLNd1mcypxSueVtoLyrXZwE2OL4ccVh/8DdH9I=; b=mRvSjKEcrYMe1QZVnbFvSFeI1J
+	dHAvEeQTxNvez4G6Gz5HSkyk+7CFcSmWdZwK6gX8QxIfvwCKhxDXOUW+VMFRBt/PdaeYAm5P5emoZ
+	IAwVjhab0w4LuXKfNJf06q648J3WEg/mf8wTQIfxFqVuwHLdF/Df/HwC4CVKh6BCAsmMD3TMwOpV5
+	q4VK4oF0AoCfCzPUsvAnDSlm0nlI3XGg3u2zZAi5Fo4W4QELJmHbZoZLmwBhq4R++vldK8t/PRJRt
+	midppqEPIXaB4309VYOr+RatFpQSNJjtNAyOFNWrOZq3JdLwWGaHb+IHh8FO+g/zVItT3QZwU1Kyi
+	OcU2i74w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoY8-0000000Etwd-47fG;
-	Tue, 27 Jan 2026 19:16:29 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1vkoYL-0000000Eu1e-3E2e;
+	Tue, 27 Jan 2026 19:16:41 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoY6-0000000EtvC-2aEq
+	id 1vkoY9-0000000EtwL-36BY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 19:16:27 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4806bf03573so4004265e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 11:16:24 -0800 (PST)
+	Tue, 27 Jan 2026 19:16:30 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-48049955f7fso52832945e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 11:16:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769541383; x=1770146183; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4zstNEATP95LnRG/q+i4GDrYI7hO5v2pn1ul5vwV4dc=;
-        b=LJ2kWxgVGdN/NuI6YBPqnsxQyzo+B4wzAJKcA7+3PIntaUPqr2/bndcX/hHzXIcfKB
-         c5sxDD7wCI0f0yORCV3BQZ+VoO9R6YgcenRHkQv65+V7ZxQH/05hJL99Mhadqn+OVzL/
-         UU8sjsH5vJlxrCzdFTwVecFP1lKmGlSbJWyM8d6UG4Gaqc91F+8GHB0QLZF/4OTaKjwA
-         542W/YBmC1KfGKkKDBmB64ayIf0R8TkgKhnxRfzm53QOzyCExVU32DDfCpaLOAGDiBUB
-         og7/U05rJMt7t6Pwis2kopJ+Vd3S/2ZCvz275L3WKPjokCZfxz02qdqZK4B9tT8b6eIe
-         C+GA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769541383; x=1770146183;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1769541388; x=1770146188; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4zstNEATP95LnRG/q+i4GDrYI7hO5v2pn1ul5vwV4dc=;
-        b=qVZQ0pVtCwvFGRDg+vGFtuUUmtZSJ6Bm8B33eazqowcAK/8P5BZCW3LVtESYgUGtbz
-         OHPTw0jdHfnV80tRA5WxBlescv8ZSJ9+QQg+xAq50pa5FakA5o+8qn+6MXqBXctxnIvY
-         w+wHlSm9iNeuMcuTDVTZPJm9RJM8OUZkHJ2Qb3VE/NXvyy7osHw2SkHQmglDp3UKmUqa
-         4wCkqBRiSMZji3fT7dweXvNfLEPrx982rZ9hbWYHeRdATywEpYnm4GtFGsUrr8pvMrnk
-         LCIOFnUQtTnDHcUE8aazSP4b1z/ZBoAvQG2FY09Gg3LPgAQ8fXFnQr0X9mIx7UwxlRa1
-         2fDg==
-X-Gm-Message-State: AOJu0YxVU/n6Bm84jKuuwRaHMefVsNMWvlEHt59D/X2Mq7skx7iOp9yV
-	vOrqKKxxu+M2WhVbWP4wcBo3NvqTT4A3iqiRIVdshfc0BLnPfKjVcWmsL83+5g==
-X-Gm-Gg: AZuq6aKaWxX+ADMl1pfWhPNOaC6zilsJGcR3/l32u/WO1JsllUmzOIrS8qFHHat+wxg
-	3rxFRJmx8ySMGB0ts+OR4R7iOYfAxWrdcc1yZJZ5FvAGJq9GUBiAbQioRmLTKS6DQh/9Xb7VO4K
-	PM9ydhr2XW6O3sRrq0URzwG8xqJrupi1wnBBTEtPhgYKrrSUm/Rq1xZwAo6AdxbF1rXwJKWrclh
-	5QtTnJqpB1gOiKUuZJ6DbzSB66wl7FDFn9TCPKo6pnggbPO92fwARqr+9tn7I2JrQ5AeqvKelU4
-	mtJjVNlYJUDo5ajU21wXB2FKNPjPx0+pwnP817pZC4sF6fmVr0Uq8wAExTCDyNCxuCZIKXZOAIY
-	O1XbvVsTnVseqYuNDJuROqeXxgOh4m+G1ry3SpqkqxP7Tx69/4zeE1GjdSmAHum10WR7DeKksLT
-	wyoDEVmhFHlEkCedv37XDKH0ZP
-X-Received: by 2002:a05:600c:3113:b0:47a:814c:ee95 with SMTP id 5b1f17b1804b1-48069c3977dmr33017605e9.12.1769541383095;
-        Tue, 27 Jan 2026 11:16:23 -0800 (PST)
+        bh=trhYDRLNd1mcypxSueVtoLyrXZwE2OL4ccVh/8DdH9I=;
+        b=Eja+taqE2pz7X07TKnOdjohRD4W2QtLqr7STXcAjxOp5j6o94fU4Ysy6U9Bg8ADSKs
+         tw47FkboD29HKE7MO7zKEtvpOXJOsHhemK+gvsE3suiCfCZWMALycm452cdmDNvjrtp/
+         2tlaFA2N5bn8AmbFhXwBjw8/FgQiGz0I4lRAvPQbUW5nMKAYj9MJ8EanaDolttXqQcS0
+         bGHZU/TLvGvYUV+HK9sokGwF9ymxrVYgqjJRywUvRvsTC8iPHefMhIaSQONXHnGiAb+2
+         tSVqZKCJQzGccQpE/Jwc6vruT3aRlIAvwHXKzMGMPTdm3onzjp6mXq1zCEMxqoyt8MBh
+         Covw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769541388; x=1770146188;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=trhYDRLNd1mcypxSueVtoLyrXZwE2OL4ccVh/8DdH9I=;
+        b=JCj+sEMLbSC9G0Nr5L5FgtohqPXzT130xPWgZguJV+mcmmxWXrzP5wy4NKbYgzNMPS
+         nqPTtaQ4LejumQjoWpsh3vyj72PfdZJOnpJ9QvRapLO8io4ST0WVq2s82xLRdfHLksxD
+         NLT+KTMfGbUE++m1nbvddbFLUNVzkK2Ss2l7aQUEGYNKUWyrROJwZ1kDxZxq8pxNjksc
+         7NKvYhHeSuI6WI6fsmzlbJsed+29v4IdCOw8ZB4QJhb3g97gfJ3F0gweiov0TuJhFDa6
+         Md69Ud7yWBAMapeRVekzIaQYIM7apIyT32Wpe0qDpvJNQpXkERXjZdmQZ6RIbkaJJmCU
+         BxKQ==
+X-Gm-Message-State: AOJu0YzkDbwwGOjL69dP3aeQu+/b2HpUG/xXiEUG6pOk5mE53XG0lp/j
+	zmeJ+tssJyk8ACB4+W0dr++YuAkEd4L2IwA4IuuVTuVv1yJHcsC1G0Kf6TGN3Q==
+X-Gm-Gg: AZuq6aLMSH5Pf1G+14+yD5ls45tZ4t9FmRniopi+icjcJwylZxSB5ZMDbY7RFlyzIen
+	3lCniAarIQQAMJcb5YKmsGwzTUzOqN/EMPHCA0MFuJf8A93f59ExDqa20Mu+H1EYxGaQzPdVReV
+	+whk9M525gyQ/7/M0DbdYrNdBl3hBKvOAgn3guPH/Pn1G30QacBoBdGqVD+4j1RH9UfqKdWh5uP
+	PS42gxIlhnu4vwYPSn47wnVrK6IQ2I4Qt7QZpQyoAYgGURkp0xWrJUvEJUy72nHseE8l4VPLiT0
+	drUzX90Z+R744yNqCjSDI7YhhtVo8moOmvUWR8nvBgDGrbFQGpkZ6sYvqHQ3UnvZwojju3QHIT3
+	ocmW1g1JLtgQ06KA9kWMIiLNnUhJqJ+ERASA2yI8GyhdT54ziCYICXMPVVZRqGGbCluqeyJ5H/w
+	92MxOzwPhGFDG4py7iAu4I/jkzywvaSZxyHO0=
+X-Received: by 2002:a05:600c:8b13:b0:480:41f2:b212 with SMTP id 5b1f17b1804b1-48069c5556amr31668405e9.25.1769541387712;
+        Tue, 27 Jan 2026 11:16:27 -0800 (PST)
 Received: from strix.doe.home ([197.250.227.106])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4806df6056esm931525e9.2.2026.01.27.11.16.21
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4806df6056esm931525e9.2.2026.01.27.11.16.26
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jan 2026 11:16:22 -0800 (PST)
+        Tue, 27 Jan 2026 11:16:27 -0800 (PST)
 From: =?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 0/6] RFC: Add support for ZTE zx297520v3
-Date: Tue, 27 Jan 2026 22:16:11 +0300
-Message-ID: <20260127191618.551317-1-stefandoesinger@gmail.com>
+Subject: [PATCH 3/6] ARM: zte: Add support for zx29 low level debug.
+Date: Tue, 27 Jan 2026 22:16:14 +0300
+Message-ID: <20260127191618.551317-4-stefandoesinger@gmail.com>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260127191618.551317-1-stefandoesinger@gmail.com>
+References: <20260127191618.551317-1-stefandoesinger@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_111626_704998_730B11B8 
-X-CRM114-Status: GOOD (  30.00  )
+X-CRM114-CacheID: sfid-20260127_111629_796830_AC9D3CC2 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,76 +96,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+TODO: I am not sure about the virtual address.
+---
+ arch/arm/Kconfig.debug         | 11 +++++++++++
+ arch/arm/include/debug/pl01x.S |  7 +++++++
+ 2 files changed, 18 insertions(+)
 
-Hi,
-
-In the past few weeks I worked on booting my own kernel on ZTE/Sanechip's zx297520v3 SoC. This SoC is a relative of the zx296718 that was once supported by the kernel. It is in use in a lot of LTE to WiFi routers in Africa, China and Eastern Europe, although some devices were sold or distributed by ISPs in the EU too. My goal is to make OpenWRT run on these devices.
-
-I would like to ask for comments on these 6 patches to make sure they are going in the right direction. They are the bare minimum to get the kernel to start and run an interactive busybox on the UART.
-
-Here are a few questions that I couldn't answer myself:
-
-1) The GIC is a GICv3, but there are some extra registers (probably on a different sub-chip) to switch PPIs and SPIs between level high/level low or rising edge/falling edge. The only device where this matters appears to the the timer. It uses level low IRQs, but the GIC has PPIs configured to level-high by default. By setting some non-standard registers, I can get the PPIs to level-low and the timer works OK. Is there any precedence on how to handle this? I am tempted to make a zte,zx29-gic-v3 .compatible glue that sets the PPIs to level-low on init.
-
-2) The boot loader doesn't set up the secure/non-secure world properly and doesn't enable register access to the GIC CPU interface. I found the Raspberry Pi 3 boot stub as a good guidance and put sample code in Documentation/arch/arm/zte/zx297520v3.rst . An e.g. OpenWRT build for this device would have to include a similar setup sequence that it runs from U-Boot before jumping to the kernel. Did I miss any alternatives here?
-
-3) The SoC has clock and reset controls in the same MMIO space, even the same 32 bit registers. What is the preferred way to handle this? Two separate clk and reset drivers that write into the same place? One multifunction driver that exposes clock and resets? One syscon that contains the reg values and two separate clk and reset drivers that consume the syscon?
-
-4) The CPU is a Cortex A53 running in arm32 mode (in the shipped firmware too). It doesn't appear to have an FPU. Reading FPSID results in an exception (so vfpmodule.c/vfp_init says VFP is not available). I tried enabling p10 and p11 in NSACR, but without success. NSACR seems to always read 0 too. Is this really a Cortex A53 without FPU or did I miss something?
-
-5) Relatedly, are there any advantages to running in arm64 mode? The devices are relatively memory constrained (64mb), so the larger binary size from 64 bit pointers is probably a negative, while the larger register set might be a positive. I doubt switching to arm64 mode is possible at all, but I'm nevertheless curious.
-
-6) The old removed zx29 code used "zte," as the vendor for the compatibles. Sanechips is a subsidiary of ZTE that designed these chips. Are there any preferences for either "zte," or "sanechips,"?
-
-As for the rest of the hardware, my entire patchset can be found here: https://gitlab.com/stefandoesinger/zx297520-kernel/ . So far 3 people from the OpenWRT community are helping with testing on different routers (Tecno TR118, ZTE K10, ZLT S10 in addition to my D-Link DWR932 and HGSD R310).
-
-USB: Standard dwc2
-WiFi: rtl8192, but in the SDIO version. I hacked sdio into rtl8xxxu but it'll need major cleanup.
-ethernet: STMicro stmmac. ZTE wrote their own driver for it. I spent a week re-implementing it before I was able to match the HW to stmmac.
-SDIO: standard dw-mshc
-NAND: A 128 MB SPI NAND chip connected to a homebrew QSPI controller. The driver is copypasta from stm32-qspi, but the hardware registers seem incompatible
-LTE: A Cortex M0 is doing the heavy lifting and talks to the main CPU via RPMsg. I hope to be able to handle this in userspace, but I haven't looked into it yet.
-clk, pinctrl, pmdomain: My own code based on the zx2967xx code.
-
-With best regards,
-Stefan Dösinger
-
-Stefan Dösinger (6):
-  ARM: zte: Add zx297520v3 platform support.
-  ARM: dts: Add D-Link DWR-932M support.
-  ARM: zte: Add support for zx29 low level debug.
-  ARM: dts: Add an armv7 timer for zx297520v3.
-  ARM: zte: Bring back ZX29 UART support.
-  ARM: dts: Declare UART1 on zx297520v3 boards.
-
- Documentation/arch/arm/zte/zx297520v3.rst     | 102 ++++++++++++++++++
- .../devicetree/bindings/arm/zx29.yaml         |  20 ++++
- arch/arm/Kconfig                              |   2 +
- arch/arm/Kconfig.debug                        |  11 ++
- arch/arm/Makefile                             |   1 +
- arch/arm/boot/dts/Makefile                    |   1 +
- arch/arm/boot/dts/zte/Makefile                |   3 +
- arch/arm/boot/dts/zte/dlink-dwr-932m.dts      |  21 ++++
- arch/arm/boot/dts/zte/zx297520v3.dtsi         |  83 ++++++++++++++
- arch/arm/include/debug/pl01x.S                |   7 ++
- arch/arm/mach-zte/Kconfig                     |  19 ++++
- arch/arm/mach-zte/Makefile                    |   2 +
- arch/arm/mach-zte/zx297520v3.c                |  19 ++++
- drivers/tty/serial/amba-pl011.c               |  37 +++++++
- include/linux/amba/bus.h                      |   6 ++
- 15 files changed, 334 insertions(+)
- create mode 100644 Documentation/arch/arm/zte/zx297520v3.rst
- create mode 100644 Documentation/devicetree/bindings/arm/zx29.yaml
- create mode 100644 arch/arm/boot/dts/zte/Makefile
- create mode 100644 arch/arm/boot/dts/zte/dlink-dwr-932m.dts
- create mode 100644 arch/arm/boot/dts/zte/zx297520v3.dtsi
- create mode 100644 arch/arm/mach-zte/Kconfig
- create mode 100644 arch/arm/mach-zte/Makefile
- create mode 100644 arch/arm/mach-zte/zx297520v3.c
-
+diff --git a/arch/arm/Kconfig.debug b/arch/arm/Kconfig.debug
+index 366f162e147d..d09b8e7150af 100644
+--- a/arch/arm/Kconfig.debug
++++ b/arch/arm/Kconfig.debug
+@@ -1331,6 +1331,15 @@ choice
+ 		  This option selects UART0 on VIA/Wondermedia System-on-a-chip
+ 		  devices, including VT8500, WM8505, WM8650 and WM8850.
+ 
++	config DEBUG_ZTE_ZX
++		bool "Kernel low-level debugging via ZX29 UART"
++		select DEBUG_UART_PL01X
++		depends on ARCH_ZTE
++		help
++		  Say Y here if you are enabling ZTE ZX297520v3 SOC and need
++		  debug UART support. This UART is a PL011 with different
++		  register addresses.
++
+ 	config DEBUG_ZYNQ_UART0
+ 		bool "Kernel low-level debugging on Xilinx Zynq using UART0"
+ 		depends on ARCH_ZYNQ
+@@ -1545,6 +1554,7 @@ config DEBUG_UART_8250
+ 
+ config DEBUG_UART_PHYS
+ 	hex "Physical base address of debug UART"
++	default 0x01408000 if DEBUG_ZTE_ZX
+ 	default 0x01c28000 if DEBUG_SUNXI_UART0
+ 	default 0x01c28400 if DEBUG_SUNXI_UART1
+ 	default 0x01d0c000 if DEBUG_DAVINCI_DA8XX_UART1
+@@ -1701,6 +1711,7 @@ config DEBUG_UART_VIRT
+ 	default 0xf31004c0 if DEBUG_MESON_UARTAO
+ 	default 0xf4090000 if DEBUG_LPC32XX
+ 	default 0xf4200000 if DEBUG_GEMINI
++	default 0xf4708000 if DEBUG_ZTE_ZX
+ 	default 0xf6200000 if DEBUG_PXA_UART1
+ 	default 0xf7000000 if DEBUG_SUN9I_UART0
+ 	default 0xf7000000 if DEBUG_S3C64XX_UART && DEBUG_S3C_UART0
+diff --git a/arch/arm/include/debug/pl01x.S b/arch/arm/include/debug/pl01x.S
+index c7e02d0628bf..0c7bfa4c10db 100644
+--- a/arch/arm/include/debug/pl01x.S
++++ b/arch/arm/include/debug/pl01x.S
+@@ -8,6 +8,13 @@
+ */
+ #include <linux/amba/serial.h>
+ 
++#ifdef CONFIG_DEBUG_ZTE_ZX
++#undef UART01x_DR
++#undef UART01x_FR
++#define UART01x_DR     0x04
++#define UART01x_FR     0x14
++#endif
++
+ #ifdef CONFIG_DEBUG_UART_PHYS
+ 		.macro	addruart, rp, rv, tmp
+ 		ldr	\rp, =CONFIG_DEBUG_UART_PHYS
 -- 
 2.52.0
 
