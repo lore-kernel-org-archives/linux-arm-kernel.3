@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2537D2D8F7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:51:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20400D2D8F7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:52:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3EBUZmVPsnsB8ixDUCZllJVpzBsiagbE8Q+WzxcyOsI=; b=F7U0Y3YuGxJGO+J2VsDiVV1k+w
-	mR6f4pu7XydipOA3vflQZ5vgxcUO48DyJRkC/Ev3/RrglXo85ZKn8PE7VHe32vDm+7LMBgkhSAbsa
-	099JsOidnLNPRmXwUMPHwmlf49LYjuXmiUrSzZGl/TeDviXk8uqiEu10vb554M4CDlmCwRYyyu8HV
-	/k6nuAtZoDxQyAE3yGFYT9TFf5b4QwLuJgr7CFEgy8DvjEsCPq6stOald6Bwya2qRDopiMcTxwny4
-	dQdgv2QvcCbSX0TYVQYaqDh+8FywhIjuQqdXpUbipZTUXRTIWH6rAPalq13QaAUGWjmWtDgvLVmH3
-	cXo7o2qw==;
+	bh=TqcocRxJ004DQ8OQDmK/VD91TGjnh8QAYnSuWwIjVUE=; b=Jyb/BjlCQnr4y033ZW1z6xAV5g
+	ACuGcrI+QlQcnAx1cFg/Vi9+W0BMJbKJZXkNc0iS3IedUrDTLdreKdhe3Qn5/WgA+nB/pkYoEbxOj
+	afsNh4lp2Wk3TcQLIxqfuKhd5eMqyijnXutqwWFvl/hSSg2vpYThZUukjsQ3xun9GlJkcBQCdaZBD
+	TCIxvs/P+KZ5VAXwkHypalIKIDjjpdk28wZyIqb9KeVyNgJeibfQnB2no0cdBv0VLr240a9aGHik2
+	N2FhQzxFadYPS82rcBaC7W41vnG5D6pLdTgAX+i4syqLcL08sYADi76psjurQscBp/yl5P16UJx8N
+	qTdXEizg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgf4-0000000E63r-3AyV;
-	Tue, 27 Jan 2026 10:51:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vkggm-0000000E6EB-0ecE;
+	Tue, 27 Jan 2026 10:52:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgf2-0000000E63L-0Dhz
+	id 1vkggl-0000000E6E4-0y7T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 10:51:05 +0000
+	Tue, 27 Jan 2026 10:52:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6A63441858
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 10:51:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A4FBC2BC86
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 10:51:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 52DE460097;
+	Tue, 27 Jan 2026 10:52:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF69CC116C6;
+	Tue, 27 Jan 2026 10:52:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769511063;
-	bh=LjgsQOJovIj6KZEeW7i2qRMeYJMGaije8moXkQ/PYcw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=a5475+VghIiuZPfyL4qa8VEXp5Ctve9VCrBl0ynvHPa9Soe8QHdgbJDBjvvOd9fPV
-	 FWoFKPHDIba4gYnqgqjgjnsc7KI2ajUkOuBt0eLQaqb7M7aHBDZjg6rSqHQofHt2TW
-	 VHGfJvgGGNlEEZLF3avHx2TsbknHS29mhuX+L5y/Q0YGMYtcVStxk9OrXBHFqvdklV
-	 bm/E4KbCxg8ORLC0ex/nPTdTJv6QC/faaTYvDfvx9BOf/XWXD539jwxrUzudsPcJ7T
-	 p1R+rfWwERfhfTJ5wZfPfBebJARd7btoM+OE4XqP7DpssUHFBPenWQ53xoWoI/wstJ
-	 zgUfDHldee6Tw==
-Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3532aa9a77eso2535512a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 02:51:03 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVwio3i5Rua4n86kFbnEi8Rn8i8xHPtYI8/7Bz8+kFfeuNTFU09lx8QMT3dm0BBSLKEjmgg5gjC3GWZ/sqIx1Yj@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHNMUwnxrAoWdNfGL4b+NXBGNrKLvDZT0FXGT/OwwXuBoNTuAr
-	3FqTKSJBKeVMKUfkBviyPx8KgqpILFq3du/5IuADfbKoSB3IteRaCIaEGcB+kVjwF8ozUUcxod9
-	BfL+QVMoumxHmIzMtnWzZ8sFS0riK4Wg=
-X-Received: by 2002:a17:90a:f950:b0:340:f05a:3ed3 with SMTP id
- 98e67ed59e1d1-353fed75832mr1836496a91.17.1769511062886; Tue, 27 Jan 2026
- 02:51:02 -0800 (PST)
-MIME-Version: 1.0
-References: <20260126092630.1800589-12-ardb+git@google.com>
- <20260126092630.1800589-13-ardb+git@google.com> <3d59a8d9-a382-48d8-b79c-f5c23e86c1b7@arm.com>
- <CAMj1kXF4k9EstLkxdNje_rwTehdu2MYvyh7n+4GoMWNcjcHYcA@mail.gmail.com> <427d39c1-ab02-4a66-a0ba-d4fb98ab72d6@arm.com>
-In-Reply-To: <427d39c1-ab02-4a66-a0ba-d4fb98ab72d6@arm.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 27 Jan 2026 11:50:51 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXGJYXhvt6WUR1ApyVO2NHb9tgNPUX+3+S9nKGmwKPE3rg@mail.gmail.com>
-X-Gm-Features: AZwV_QgG2vC9viPMpZzzM08HnseaBerBb4x2QliQhq0LkVgd_A_JAHiwyi_srWA
-Message-ID: <CAMj1kXGJYXhvt6WUR1ApyVO2NHb9tgNPUX+3+S9nKGmwKPE3rg@mail.gmail.com>
-Subject: Re: [PATCH v2 01/10] arm64: Move the zero page to rodata
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, will@kernel.org, 
-	catalin.marinas@arm.com, mark.rutland@arm.com, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Liz Prucka <lizprucka@google.com>, 
-	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>, 
-	linux-hardening@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_025104_129995_A4A97424 
-X-CRM114-Status: GOOD (  21.94  )
+	s=k20201202; t=1769511170;
+	bh=3uI6G9ZvC3u/E2KG8h5NTQdenE0/m47znmeLe/doxxE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=kV/A8pztnh9TRJM7t1K6pxMPJ6/E8bDxvMk9rlwTcPeOYI4akD/earpK4leBDTGJG
+	 K3F1dEW+Su7jTuuvBCfXIs/Z7EoreCmuHWsJRG1iKX6lM12AvqMmY8nVUQ+roDDlFT
+	 r5F8vmwbhzmyACuivpND3jCx604C4unyEHpFFQY2D/9LroF1/7nsWKR1S3wAXd933L
+	 6as3fCnQzgXRcAzRkWGnJP+HHlcBqxXS+uSXk2wKHqMH2cdtv99wbWC/KVBnwWHbFf
+	 yMXjlLB8EA+lb+Ga8aFEkMnCfb9Ip+qQLrJ70DH7RCDleUAWw6gzxUomgCunaGALLr
+	 jk2cnFES4CjCw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vkggh-000000060we-2UUN;
+	Tue, 27 Jan 2026 10:52:47 +0000
+Date: Tue, 27 Jan 2026 10:52:47 +0000
+Message-ID: <86ecnbba4g.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH 05/20] KVM: arm64: Extend unified RESx handling to runtime sanitisation
+In-Reply-To: <CA+EHjTzmr+479uxdQgnM6Ai5jcx1=L2-ufQPD67fvqsCL1gZ8A@mail.gmail.com>
+References: <20260126121655.1641736-1-maz@kernel.org>
+	<20260126121655.1641736-6-maz@kernel.org>
+	<CA+EHjTzmr+479uxdQgnM6Ai5jcx1=L2-ufQPD67fvqsCL1gZ8A@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +89,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 27 Jan 2026 at 11:04, Ryan Roberts <ryan.roberts@arm.com> wrote:
->
-> On 27/01/2026 09:49, Ard Biesheuvel wrote:
-> > On Tue, 27 Jan 2026 at 10:34, Ryan Roberts <ryan.roberts@arm.com> wrote:
-> >>
-> >> On 26/01/2026 09:26, Ard Biesheuvel wrote:
-> >>> From: Ard Biesheuvel <ardb@kernel.org>
-> >>>
-> >>> The zero page should contain only zero bytes, and so mapping it
-> >>> read-write is unnecessary. Combine it with reserved_pg_dir, which lives
-> >>> in the read-only region of the kernel, and already serves a similar
-> >>> purpose.
-> >>>
-> >>> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> >>> ---
-> >>>  arch/arm64/kernel/vmlinux.lds.S | 1 +
-> >>>  arch/arm64/mm/mmu.c             | 3 +--
-> >>>  2 files changed, 2 insertions(+), 2 deletions(-)
-> >>>
-> >>> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-> >>> index ad6133b89e7a..b2a093f5b3fc 100644
-> >>> --- a/arch/arm64/kernel/vmlinux.lds.S
-> >>> +++ b/arch/arm64/kernel/vmlinux.lds.S
-> >>> @@ -229,6 +229,7 @@ SECTIONS
-> >>>  #endif
-> >>>
-> >>>       reserved_pg_dir = .;
-> >>> +     empty_zero_page = .;
-> >>>       . += PAGE_SIZE;
-> >>>
-> >>>       swapper_pg_dir = .;
-> >>
-> >> Isn't there a magic macro for getting from swapper to reserved? That will need
-> >> updating?
-> >>
+On Mon, 26 Jan 2026 19:15:00 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> Hi Marc,
+> 
+> On Mon, 26 Jan 2026 at 12:17, Marc Zyngier <maz@kernel.org> wrote:
 > >
-> > Why? This just adds an alias to refer to the same allocation.
->
-> Oh yes, sorry I completely missed that. And you've even stated it in the commit
-> log...
->
-> I'm struggling to see where this gets zeroed though? I assume it must be zeroed
-> before the old empty_zero_page would have been so everything works fine?
->
+> > Add a new helper to retrieve the RESx values for a given system
+> > register, and use it for the runtime sanitisation.
+> >
+> > This results in slightly better code generation for a fairly hot
+> > path in the hypervisor.
+> >
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/include/asm/kvm_host.h | 13 +++++++++++++
+> >  arch/arm64/kvm/emulate-nested.c   | 10 +---------
+> >  arch/arm64/kvm/nested.c           | 13 ++++---------
+> >  3 files changed, 18 insertions(+), 18 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index a7e4cd8ebf56f..9dca94e4361f0 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -635,6 +635,19 @@ struct kvm_sysreg_masks {
+> >         struct resx mask[NR_SYS_REGS - __SANITISED_REG_START__];
+> >  };
+> >
+> > +#define kvm_get_sysreg_resx(k, sr)                                     \
+> > +       ({                                                              \
+> > +               struct kvm_sysreg_masks *__masks;                       \
+> > +               struct resx __resx = {};                                \
+> > +                                                                       \
+> > +               __masks = (k)->arch.sysreg_masks;                       \
+> > +               if (likely(__masks &&                                   \
+> > +                          sr >= __SANITISED_REG_START__ &&             \
+> > +                          sr < NR_SYS_REGS))                           \
+> > +                       __resx = __masks->mask[sr - __SANITISED_REG_START__]; \
+> > +               __resx;                                                 \
+> > +       })
+> > +
+> 
+> This now covers all registers that need to be sanitized, not just
+> VNCR-backed ones now.
 
-It is statically zero initialized in the image.
+Only kvm_get_sysreg_res0() was previously limited to VNCR-registers,
+and that was a bug found by Zenghui. What I'm trying to do here is to
+concentrate the decision about accessing the masks in a single place
+that is safe to use from any context.
 
-> Assuming yes, then:
+> 
+> nit: wouldn't it be better to capture sr in a local variable rather
+> than reuse it? It is an enum, but it would make checkpatch feel
+> slightly better :)
+
+Indeed, this macro is pretty horrible, and needs some tidying up. I'll
+have a look at pimping it up ;-)
+
 >
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->
+> Reviewed-by: Fuad Tabba <tabba@google.com>
 
 Thanks!
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
