@@ -4,58 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3040D2D8E6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:21:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF486D2D8D4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4wUGJdOYeqkACLZYJCywFEhj6/zNR3VEzVGBJ/36bAk=; b=Wroenbw0BKJlFHIi1YZyYUNu/J
-	PCy0/tBBNFrPa10Y5BlvghS7iuXzZyuZR5YbWrSLZo7P9oDbDm+mJEcvVxaMbq2YFulqCVnvRPbzA
-	ze7NH0NxJKCyRuwozxuJjRfVEvJvJTwpomK6LfRy05iSVXnNWpGa01QgwtsUKlWPKxU/JBCkmHVeH
-	3JO5KsGdt5Kf86ejcTsliOXMtyLdaMHSR7nb6/GsVKdFklBhQCWaBkCs7IxqHX2pP9CylpK8gQTCa
-	HbIQm4DKLxVjN2iAEeV4CsxOdUMHUVreVwxdBfAyzwH4KbcsHtBnUDEbbB2ajCsHcK5oWz5MuiIHO
-	jAJ8Fb6Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ls15gSJpT5YRkSXYvVjEiEfAPu82eNI6h+Hpuv3Ad1I=; b=JTIwoZK5r2jUK6zhlAH9ZeM+aN
+	PfqZmHj+eQ+BTpFRJsTGE91pQnInfeDgHWnAP9AJKJowBVDi5J2sI+uEYmt0zBFrQ/SbrX66pxBNT
+	QsDGDyTIFVr7DahMl6B0dEUotcvs83HESKElfR8+tkXdnUALNL2wTLLh+7GaonM2+ZuQpOVLLBr0N
+	WJ7ccKFsBNTQHi+VK58YWYmrd0iw3B2prKJ4d4oLXzuN6DDD9KMXkfTKUIQWEtj+p35peHy7flp2C
+	eienYcnzG6ZO+gTrFaw0yjncBo/3j5KxUcvYM1FZCQ4koLncrweapoY9Y+0uS55hMUNXKAwHJ7sa+
+	WM9A0sIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgCd-0000000E2p4-1uy6;
-	Tue, 27 Jan 2026 10:21:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkgCb-0000000E2of-1dpE
+	id 1vkgDn-0000000E36b-0XkS;
+	Tue, 27 Jan 2026 10:22:55 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkgDh-0000000E34Y-02t9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 10:21:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8ADD31595;
-	Tue, 27 Jan 2026 02:21:33 -0800 (PST)
-Received: from [10.57.94.246] (unknown [10.57.94.246])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E4C03F73F;
-	Tue, 27 Jan 2026 02:21:38 -0800 (PST)
-Message-ID: <d0f2df03-21da-473f-ab89-64a964c18f08@arm.com>
-Date: Tue, 27 Jan 2026 10:21:36 +0000
+	Tue, 27 Jan 2026 10:22:51 +0000
+Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1vkgDb-0005OS-Kx; Tue, 27 Jan 2026 11:22:43 +0100
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: soc@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	kernel@pengutronix.de,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Subject: [GIT PULL] Reset controller updates for v6.20
+Date: Tue, 27 Jan 2026 11:22:37 +0100
+Message-ID: <20260127102237.3945322-1-p.zabel@pengutronix.de>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/10] arm64: mm: Don't abuse memblock NOMAP to check
- for overlaps
-Content-Language: en-GB
-To: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
- catalin.marinas@arm.com, mark.rutland@arm.com,
- Ard Biesheuvel <ardb@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
- Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
-References: <20260126092630.1800589-12-ardb+git@google.com>
- <20260126092630.1800589-20-ardb+git@google.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20260126092630.1800589-20-ardb+git@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_022141_590790_44A8BEC7 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20260127_022249_071787_C507FA61 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,84 +63,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/01/2026 09:26, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> Now that the DRAM mapping routines respect existing table mappings and
-> contiguous block and page mappings, it is no longer needed to fiddle
-> with the memblock tables to set and clear the NOMAP attribute. Instead,
-> map the kernel text and rodata alias first, avoiding contiguous
-> mappings, so that they will not be added later when mapping the
-> memblocks.
+Dear arm-soc maintainers,
 
-Should we do something similar for kfence? Currently we have
-arm64_kfence_alloc_pool() which marks some memory NOMAP then
-arm64_kfence_map_pool() which PTE-maps it and clears NOMAP. Presumably we could
-rationalize into a single function that does it all, prior to mapping the bulk
-of the linear map?
+The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
 
-> 
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/arm64/mm/mmu.c | 27 ++++++++------------
->  1 file changed, 10 insertions(+), 17 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 80587cd47ce7..18415d4743bf 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1149,12 +1149,17 @@ static void __init map_mem(void)
->  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
->  
->  	/*
-> -	 * Take care not to create a writable alias for the
-> -	 * read-only text and rodata sections of the kernel image.
-> -	 * So temporarily mark them as NOMAP to skip mappings in
-> -	 * the following for-loop
-> +	 * Map the linear alias of the [_text, __init_begin) interval
-> +	 * as non-executable now, and remove the write permission in
-> +	 * mark_linear_text_alias_ro() above (which will be called after
-> +	 * alternative patching has completed). This makes the contents
-> +	 * of the region accessible to subsystems such as hibernate,
-> +	 * but protects it from inadvertent modification or execution.
-> +	 * Note that contiguous mappings cannot be remapped in this way,
-> +	 * so we should avoid them here.
->  	 */
-> -	memblock_mark_nomap(kernel_start, kernel_end - kernel_start);
-> +	__map_memblock(kernel_start, kernel_end, PAGE_KERNEL,
-> +		       flags | NO_CONT_MAPPINGS);
+  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
 
-So the reason to disallow cont mappings is because we need to modify the
-permissions later? It _is_ safe to change permissions on a live contiguous
-mapping in this way. That was clarified in the architecture a couple of years
-back and we rely on it for contpte_wrprotect_ptes(); see comment there.
+are available in the Git repository at:
 
-I think we could relax this?
+  https://git.pengutronix.de/git/pza/linux.git tags/reset-for-v6.20
 
-Thanks,
-Ryan
+for you to fetch changes up to 938ce3b16582657e67f3bd8a7efa59089c467c90:
 
->  
->  	/* map all the memory banks */
->  	for_each_mem_range(i, &start, &end) {
-> @@ -1167,18 +1172,6 @@ static void __init map_mem(void)
->  			       flags);
->  	}
->  
-> -	/*
-> -	 * Map the linear alias of the [_text, __init_begin) interval
-> -	 * as non-executable now, and remove the write permission in
-> -	 * mark_linear_text_alias_ro() below (which will be called after
-> -	 * alternative patching has completed). This makes the contents
-> -	 * of the region accessible to subsystems such as hibernate,
-> -	 * but protects it from inadvertent modification or execution.
-> -	 * Note that contiguous mappings cannot be remapped in this way,
-> -	 * so we should avoid them here.
-> -	 */
-> -	__map_memblock(kernel_start, kernel_end, PAGE_KERNEL, NO_CONT_MAPPINGS);
-> -	memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
->  	arm64_kfence_map_pool(early_kfence_pool);
->  }
->  
+  reset: spacemit: Add SpacemiT K3 reset driver (2026-01-24 16:53:02 +0100)
 
+----------------------------------------------------------------
+Reset controller updates for v6.20
+
+* Add a compatible to the reset-gpio driver, suppress the sysfs bind
+  attributes, and propagate GPIO API errors.
+* Add support for the i.MX8ULP SIM LPAV reset controller.
+* Add RZ/G3S USBPHY suspend/resume support.
+* Enable reset-k230 by default on ARCH_CANAAN
+* Add support for the SpacemiT K3 SoC reset controller.
+* Merge the 'spacemit-clkrst-v6.20-3' tag, shared with the clk tree,
+  as a dependency for the SpacemiT changes.
+
+----------------------------------------------------------------
+Bartosz Golaszewski (3):
+      reset: gpio: add the "compatible" property
+      reset: gpio: suppress bind attributes in sysfs
+      reset: gpio: check the return value of gpiod_set_value_cansleep()
+
+Claudiu Beznea (2):
+      reset: rzg2l-usbphy-ctrl: Propagate the return value of regmap_field_update_bits()
+      reset: rzg2l-usbphy-ctrl: Add suspend/resume support
+
+Guodong Xu (4):
+      dt-bindings: soc: spacemit: Add K3 reset support and IDs
+      reset: Create subdirectory for SpacemiT drivers
+      reset: spacemit: Extract common K1 reset code
+      reset: spacemit: Add SpacemiT K3 reset driver
+
+Junhui Liu (1):
+      reset: canaan: k230: drop OF dependency and enable by default
+
+Laurentiu Mihalcea (4):
+      reset: imx8mp-audiomix: Drop unneeded macros
+      reset: imx8mp-audiomix: Switch to using regmap API
+      reset: imx8mp-audiomix: Extend the driver usage
+      reset: imx8mp-audiomix: Support i.MX8ULP SIM LPAV
+
+Philipp Zabel (1):
+      Merge tag 'spacemit-clkrst-v6.20-3' into reset/next
+
+Yixun Lan (4):
+      clk: spacemit: prepare common ccu header
+      reset: spacemit: fix auxiliary device id
+      Merge tags 'spacemit-clkrst-v6.20-1' and 'spacemit-clkrst-v6.20-2' into spacemit-clkrst-v6.20
+      clk: spacemit: k3: extract common header
+
+ .../bindings/soc/spacemit/spacemit,k1-syscon.yaml  |   8 +-
+ drivers/reset/Kconfig                              |  14 +-
+ drivers/reset/Makefile                             |   2 +-
+ drivers/reset/core.c                               |   7 +-
+ drivers/reset/reset-gpio.c                         |   9 +-
+ drivers/reset/reset-imx8mp-audiomix.c              | 169 +++++++++----
+ drivers/reset/reset-rzg2l-usbphy-ctrl.c            | 110 +++++++--
+ drivers/reset/spacemit/Kconfig                     |  36 +++
+ drivers/reset/spacemit/Makefile                    |   5 +
+ drivers/reset/spacemit/reset-spacemit-common.c     |  77 ++++++
+ drivers/reset/spacemit/reset-spacemit-common.h     |  42 ++++
+ .../reset-spacemit-k1.c}                           | 109 +-------
+ drivers/reset/spacemit/reset-spacemit-k3.c         | 233 ++++++++++++++++++
+ include/dt-bindings/reset/spacemit,k3-resets.h     | 171 +++++++++++++
+ include/soc/spacemit/ccu.h                         |  21 ++
+ include/soc/spacemit/k1-syscon.h                   |  12 +-
+ include/soc/spacemit/k3-syscon.h                   | 273 +++++++++++++++++++++
+ 17 files changed, 1103 insertions(+), 195 deletions(-)
+ create mode 100644 drivers/reset/spacemit/Kconfig
+ create mode 100644 drivers/reset/spacemit/Makefile
+ create mode 100644 drivers/reset/spacemit/reset-spacemit-common.c
+ create mode 100644 drivers/reset/spacemit/reset-spacemit-common.h
+ rename drivers/reset/{reset-spacemit.c => spacemit/reset-spacemit-k1.c} (78%)
+ create mode 100644 drivers/reset/spacemit/reset-spacemit-k3.c
+ create mode 100644 include/dt-bindings/reset/spacemit,k3-resets.h
+ create mode 100644 include/soc/spacemit/ccu.h
+ create mode 100644 include/soc/spacemit/k3-syscon.h
 
