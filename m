@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 645BDCF65E2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 00:41:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3654D19511
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 00:41:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IJi+Gz+dpl+GgYv5r0VEETXShk9uZ7yWSbdh+m+YdtI=; b=WKp+Io8poo4OVTTsD9DxboLQzb
-	R/54OQiBLKliqEoG9IMeD3ZIohKGTK8zAvc3UkPHGWmWNQVcQYXwryilHp1jgX7V8S6GwG2/VcQb3
-	X/hG+A+tib/suwCzpsTQvv75tJ8gJMvbFiDOPfOI1Xe6BeAuYbV27AtircCT8g45ybnZU/wrvX7up
-	3ATZ+PaktaD/S5XuXfP0ngfw8v1fkURk4GLegIgNQeok5v9D4Wsw7mKDxjpZYnzCYajhxdJOxtlwr
-	Rx5e56JMhdALgIDTqmdMTkoU7Z+EYsN15WjG2Kv8VVwayPZszWs2q5B8slW2CGKts1VDT1+KjIpRP
-	CHEUeFWA==;
+	bh=IdL4oBaJSkMOTYWRAoEa0y01DEx9r6oPskNkkK8/Ibg=; b=oKOIQdKkAv/yp31nmPOBBesWSh
+	mKdDLBEIvVAPYxEqNQLUpwz568YZwcC7Kvc8hA46LgoUdkJWwUvVRoGs6UqtpTcsiVlaZJd+sva1f
+	y2CeGKdwkalXB5cLRxpEndw47yEgai3foeEhLoBDCMA2C7R4DVXBuyIwqM0w116lELWcrAheUV2dt
+	lLZUf7ZFC4+cVnx4JMplBGjJXsp6IDGlhpoA9XMHK1/P40ykNUeEsaZpsetlOHD/uGmOrXKBrZ8n8
+	7QOVb43Na8DpKWljknkLOXkZKevSheFAp83DoC/GrhkQeF535B7cPf5MjSnjVUlxHOXTs7qdG0rXE
+	1mjqmcRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkX8j-0000000DO82-0wpT;
-	Tue, 27 Jan 2026 00:41:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vkX8o-0000000DOAY-3HgV;
+	Tue, 27 Jan 2026 00:41:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkX8f-0000000DO6e-1HeU;
-	Tue, 27 Jan 2026 00:41:01 +0000
+	id 1vkX8i-0000000DO7d-0WuG;
+	Tue, 27 Jan 2026 00:41:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3FE7C60097;
-	Tue, 27 Jan 2026 00:41:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A547C116C6;
-	Tue, 27 Jan 2026 00:40:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F0FA60141;
+	Tue, 27 Jan 2026 00:41:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD50EC16AAE;
+	Tue, 27 Jan 2026 00:41:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769474459;
-	bh=gyfB6CxCcjmjjILeS0ZovfjbSMTZXSuR0XjS5SBThoA=;
+	s=k20201202; t=1769474463;
+	bh=dtMq2dGqlL8iuDbPHgE+yg8+ta+2jgFx0lXwCi1sJLE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UFVT0ozS7FgYPwaFDGZ2cfWG/YY0qi0V4LPQU40c0jX9fImWwrtpWlxdnt49l6rRY
-	 IfaHAQPPFc2RZ3JGvCuM6tTpBHcmYxktxedE/mHEKiddEqF+eze1T163nqc3edvZr9
-	 tLFBLabXkQx/jpHgkNRSyWj5bNQCdae0z82Fe82+jD/f2IAHUA316GeuWuXskcT1Ka
-	 Uog7VArapPEvIuXcXCR2XDRq+qr9Jeo30IMKCFiMSveEG4V5hM3ORrzG3GYjYOomrC
-	 tq7dKlnF8YodLJXlXUGc0LR18mW/bZZqglo4aEp9xO68iBwamtVrN1jdqfTM92wHjT
-	 L5XbbISIqMQbw==
+	b=amHPgMvjw6CwyQLu+V9jsG5c7pyu4QX0j8a+GP9muiPRJrHh9GC60/6nHhoxtscU8
+	 r+aZgdg2QHrCzivJsePMI03Nc05C4mCnROWb6TbdWxfnoNxfQgcdf6Dgz8lFNT4z0T
+	 ftQCrrq9z50slvQFvpk6eTz6FBeFGbOTJWANIAUBLYl/cixixaO+Ri/lXuxbNYJZMQ
+	 sI2iNg8uIHUInJ2vI3q2cm1c8/2HGbVrKt5tEcIPZHnwkUUVcygDqZfnWPWlAnN2/j
+	 juq/C8lXafcN4elHhrQ0DztJc07jEMHfqF2jJ/fh/ZvswAnG3yger7LwVRf6KzZvsW
+	 Zi01OPNwmXOrQ==
 From: Jakub Kicinski <kuba@kernel.org>
 To: rmk+kernel@armlinux.org.uk
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -55,12 +55,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	andrew@lunn.ch,
 	davem@davemloft.net,
 	edumazet@google.com
-Subject: Re: [net-next,v2,07/22] net: stmmac: rk: convert to mask-based interface mode configuration
-Date: Mon, 26 Jan 2026 16:40:57 -0800
-Message-ID: <20260127004057.3785761-1-kuba@kernel.org>
+Subject: Re: [net-next,v2,21/22] net: stmmac: rk: use rk_encode_wm16() for clock selection
+Date: Mon, 26 Jan 2026 16:41:01 -0800
+Message-ID: <20260127004101.3785871-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.52.0
-In-Reply-To: <E1vkL2D-00000005uso-3W6y@rmk-PC.armlinux.org.uk>
-References: <E1vkL2D-00000005uso-3W6y@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1vkL3N-00000005uuA-2GnK@rmk-PC.armlinux.org.uk>
+References: <E1vkL3N-00000005uuA-2GnK@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -82,64 +82,61 @@ email has considered the AI review valid, or at least plausible.
 
 For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
 ---
-net: stmmac: rk: convert to mask-based interface mode configuration
+net: stmmac: rk: use rk_encode_wm16() for clock selection
 
-This commit consolidates PHY interface mode configuration into common
-infrastructure by introducing mask fields for phy_intf_sel and rmii_mode,
-moving the register writes from SoC-specific functions into the common
-rk_gmac_powerup() function.
+This commit refactors the per-SoC set_clock_selection() method into
+unified helper functions using rk_encode_wm16(), with mask-based
+configuration stored in struct rk_clock_fields.
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> index 4117f6863ff0..35836ffdfc1d 100644
+> index 26fc93854cb0..443d3bd62cae 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
 
 [ ... ]
 
-> @@ -1654,7 +1685,9 @@ static int rk_gmac_check_ops(struct rk_priv_data *bsp_priv)
->  static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
+> @@ -1000,25 +991,23 @@ static const struct rk_gmac_ops rk3576_ops = {
+>  #define RK3588_GMAC_CLK_RMII_MODE(id)		GRF_BIT(5 * (id))
+>  #define RK3588_GMAC_CLK_RGMII_MODE(id)		GRF_CLR_BIT(5 * (id))
+>
+> -#define RK3588_GMAC_CLK_SELECT_CRU(id)		GRF_BIT(5 * (id) + 4)
+> -#define RK3588_GMAC_CLK_SELECT_IO(id)		GRF_CLR_BIT(5 * (id) + 4)
+> -
+> -#define RK3588_GMAC_CLK_RMII_GATE(id)		GRF_BIT(5 * (id) + 1)
+> -#define RK3588_GMAC_CLK_RMII_NOGATE(id)		GRF_CLR_BIT(5 * (id) + 1)
+> -
+>  static int rk3588_init(struct rk_priv_data *bsp_priv)
 >  {
->  	struct device *dev = bsp_priv->dev;
-> +	u32 val;
->  	int ret;
-> +	u8 intf;
+>  	switch (bsp_priv->id) {
+>  	case 0:
+>  		bsp_priv->gmac_phy_intf_sel_mask = GENMASK_U16(5, 3);
+> +		bsp_priv->clock.io_clksel_cru_mask = BIT_U16(4);
+>  		bsp_priv->clock.gmii_clk_sel_mask = GENMASK_U16(3, 2);
+>  		bsp_priv->clock.rmii_clk_sel_mask = BIT_U16(2);
+> +		bsp_priv->clock.rmii_gate_en_mask = BIT_U16(1);
+>  		return 0;
 >
->  	ret = rk_gmac_check_ops(bsp_priv);
->  	if (ret)
-> @@ -1664,6 +1697,26 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
->  	if (ret)
->  		return ret;
->
-> +	ret = rk_get_phy_intf_sel(bsp_priv->phy_iface);
-> +	if (ret < 0)
-> +		return ret;
+>  	case 1:
+>  		bsp_priv->gmac_phy_intf_sel_mask = GENMASK_U16(11, 9);
+> +		bsp_priv->clock.io_clksel_cru_mask = BIT_U16(10);
+                                                        ^^
 
-Should this error path call gmac_clk_enable(bsp_priv, false) before
-returning? The clocks were enabled just above, and the existing error
-handling for rk_phy_powerup() later in this function disables the
-clocks on failure:
+Should this be BIT_U16(9) instead of BIT_U16(10)?
 
-    ret = rk_phy_powerup(bsp_priv);
-    if (ret) {
-        gmac_clk_enable(bsp_priv, false);
-        return ret;
-    }
+The removed macro RK3588_GMAC_CLK_SELECT_CRU(id) used the formula
+GRF_BIT(5 * (id) + 4), which for id=1 gives 5*1+4 = bit 9.
 
-> +
-> +	intf = ret;
-> +
-> +	if (bsp_priv->gmac_phy_intf_sel_mask ||
-> +	    bsp_priv->gmac_rmii_mode_mask) {
-> +		/* If defined, encode the phy_intf_sel value */
-> +		val = rk_encode_wm16(intf, bsp_priv->gmac_phy_intf_sel_mask);
-> +
-> +		/* If defined, encode the RMII mode mask setting. */
-> +		val |= rk_encode_wm16(intf == PHY_INTF_SEL_RMII,
-> +				      bsp_priv->gmac_rmii_mode_mask);
-> +
-> +		ret = regmap_write(bsp_priv->grf, bsp_priv->gmac_grf_reg, val);
-> +		if (ret < 0)
-> +			return ret;
+The other masks for id=1 follow the 5*(id) pattern correctly:
+  - rmii_gate_en_mask = BIT_U16(6)  matches 5*1+1 = 6
+  - gmii_clk_sel_mask = GENMASK_U16(8, 7)  matches 5*1+{2,3}
+  - rmii_clk_sel_mask = BIT_U16(7)
 
-Same question here - should this also disable clocks before returning?
+But io_clksel_cru_mask = BIT_U16(10) does not match 5*1+4 = 9.
 
-> +	}
+>  		bsp_priv->clock.gmii_clk_sel_mask = GENMASK_U16(8, 7);
+>  		bsp_priv->clock.rmii_clk_sel_mask = BIT_U16(7);
+> +		bsp_priv->clock.rmii_gate_en_mask = BIT_U16(6);
+>  		return 0;
+
+[ ... ]
 
