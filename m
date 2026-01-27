@@ -4,58 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06151D19515
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C189DD2D8C0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:42:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F72CX9V5hj+asRoXJbBHvacK0QZ5HMjFt5a8nWQvEJY=; b=XVKlVt+7gliNu1RFJd6yKl0dUZ
-	roW9PTakUYJC/zv8ZM9MhYroh58d+XFqMIpohT/VRKP3/krBVhNgVQyTfFfNtYK8m3/C1JIKlhGRd
-	QMFANryitQbht04LdYewlw48CbhguxsefIOUvYjBh1jqkZXNX5JFFYGTLLxnKy2IrxUM1iAFBxYKf
-	7vYfVhaw0JtMVEwB9anB0pxdilO1LVPIUA7ZirW7Szqf2g6khu6dvPnWdSAYlZt+tsmBkQiesyJ8N
-	IFEDaUDyfn3VIT1RBB+/XlQxJJqPUthXSOAvZ1EQnR3tyHOCbzQ0+cH+/kEaRiwpgUWi0kG0JrWAB
-	I5Yjn37Q==;
+	bh=iEzaVGzmOlwTp8TWch0rAvCSubtbmBjxCsLlT6mn2+0=; b=AqNU/R7xF2it3SJFBtQsVpokBt
+	CaLyUDeljSQIMOBC8SJG1VTFfPn3T8dhg+IDjW71Sa6J4K3pGpRvAX5XIM16JMA+g2LjGMuwYvVjx
+	i7Ql9VlRjPykadTDszW3FzlUtNlB4ANboypBcczpcFtB4nxNBwUC0c2P3QuW1gUUrLd5ThCTOYa+K
+	sa0rRkn5T7l9fE3R08i3q3cU1tW+o3Egxk12mxEBGZ7KFJ6k+uOT9sZa9kzX0t8RovnOwPnyY7nu3
+	4BKrm7mfZBo01hVIpvz9hlFL883Y0dEqLIuUoHZbYRf2/0hBkwfQPTSLggmboeFMQsEusuluTGIYw
+	c6qABIGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfaT-0000000DyVk-3gi2;
-	Tue, 27 Jan 2026 09:42:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfaQ-0000000DyTw-3E2G
+	id 1vkfaj-0000000Dyap-0FmH;
+	Tue, 27 Jan 2026 09:42:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkfah-0000000DyZz-1p1s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 09:42:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2A34C339;
-	Tue, 27 Jan 2026 01:42:06 -0800 (PST)
-Received: from [10.57.94.246] (unknown [10.57.94.246])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D870A3F632;
-	Tue, 27 Jan 2026 01:42:10 -0800 (PST)
-Message-ID: <823c6406-5b70-490d-a318-25ac48950ec6@arm.com>
-Date: Tue, 27 Jan 2026 09:42:09 +0000
+	Tue, 27 Jan 2026 09:42:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A03B76012B
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:42:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57A09C2BCAF
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:42:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1769506950;
+	bh=iEzaVGzmOlwTp8TWch0rAvCSubtbmBjxCsLlT6mn2+0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Frfuds7DWSBNrGkD5O4CtIJi05+cnwgq/JUihQJX/m8Nozz6VRf/wbbN4/4MUxjOF
+	 JwBIE6No2i5Y3QacilMnVKteX8MihHl3UkRJgteDDV60uYnMfvcS7Gv3C4aOLC2XtW
+	 Ep65A8z4Y/3qrlW93fnviuwfI1IMKGSsK7tLKodcrFsKraAf1dhoiDwmAHJeolPik/
+	 jtBof3OagfKOFfXLcPVRgwWVh1nFgBZygVooTduqPQtk8R2YRfyMyxTZxVkR/DUpAr
+	 xojQ3MBHhfFu5kCgfQYTfZ+Vdvaizgzm1ccIelB4K93ODDUBVw7zHfMmrF+I+HiWvY
+	 jJJai7qlwdaqg==
+Received: by mail-yx1-f52.google.com with SMTP id 956f58d0204a3-6495d592c45so4096110d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 01:42:30 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXB5ixTea/dfwVqxJk+hwUqru30kDA+k0fo1j1jP5F7aFEfdYtlk61Xurch0ADJPTCE4YOLy+n6FX4AyoZf8ksU@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyUsMkIxzFKT4MfzpzURdf8UGtY23C9jvzZzJchp53E5CJHVYj
+	3FCaGUN8fWaAw0yslyxKufYpWzKCP4H/WBxcR5FQkKkulgg0tKqv2cyNGJzAudsLVKwNq5yV48Y
+	LGA7frqiw7g9A+8UdH1JLOSBdmFDHFVA=
+X-Received: by 2002:a05:690e:1882:b0:649:6b00:7274 with SMTP id
+ 956f58d0204a3-6498fc943d8mr589929d50.81.1769506949581; Tue, 27 Jan 2026
+ 01:42:29 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/10] arm64: Move fixmap page tables to end of kernel
- image
-Content-Language: en-GB
-To: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
- catalin.marinas@arm.com, mark.rutland@arm.com,
- Ard Biesheuvel <ardb@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
- Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
-References: <20260126092630.1800589-12-ardb+git@google.com>
- <20260126092630.1800589-14-ardb+git@google.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20260126092630.1800589-14-ardb+git@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_014214_864775_D91DD764 
-X-CRM114-Status: GOOD (  16.95  )
+References: <20260123113708.416727-1-bigeasy@linutronix.de> <20260123113708.416727-9-bigeasy@linutronix.de>
+In-Reply-To: <20260123113708.416727-9-bigeasy@linutronix.de>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 27 Jan 2026 10:42:18 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkBc8WRA0Mh21BDnfAw+8+J-hrzZ6=AzJ48H2Ls0KaXqw@mail.gmail.com>
+X-Gm-Features: AZwV_Qjt95n8nm-M_W3ook7H-ev-YocCp6cwUWsCLk9XYockUegysYTnA3358YA
+Message-ID: <CAD++jLkBc8WRA0Mh21BDnfAw+8+J-hrzZ6=AzJ48H2Ls0KaXqw@mail.gmail.com>
+Subject: Re: [PATCH 08/21] ARM: versatile: Remove IRQF_ONESHOT
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev, 
+	Thomas Gleixner <tglx@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,69 +81,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/01/2026 09:26, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> Move the fixmap page tables out of the BSS section, and place them at
-> the end of the image, right before the init_pg_dir section where some of
-> the other statically allocated page tables live.
-> 
-> These page tables are currently the only data objects in vmlinux that
-> are meant to be accessed via the kernel image's linear alias, and so
-> placing them together allows the remainder of the data/bss section to be
-> remapped read-only or unmapped entirely.
-> 
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+On Fri, Jan 23, 2026 at 12:37=E2=80=AFPM Sebastian Andrzej Siewior
+<bigeasy@linutronix.de> wrote:
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> Passing IRQF_ONESHOT ensures that the interrupt source is masked until
+> the secondary (threaded) handler is done. If only a primary handler is
+> used then the flag makes no sense because the interrupt can not fire
+> (again) while its handler is running.
+>
+> Revert adding IRQF_ONESHOT to irqflags.
+>
+> Cc: Linus Walleij <linusw@kernel.org>
+> Cc: Liviu Dudau <liviu.dudau@arm.com>
+> Cc: Sudeep Holla <sudeep.holla@arm.com>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
-> ---
->  arch/arm64/kernel/vmlinux.lds.S | 5 +++++
->  arch/arm64/mm/fixmap.c          | 7 ++++---
->  2 files changed, 9 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-> index b2a093f5b3fc..c089b83308a5 100644
-> --- a/arch/arm64/kernel/vmlinux.lds.S
-> +++ b/arch/arm64/kernel/vmlinux.lds.S
-> @@ -335,6 +335,11 @@ SECTIONS
->  	__pi___bss_start = __bss_start;
->  
->  	. = ALIGN(PAGE_SIZE);
-> +	.pgdir : {
-> +		__pgdir_start = .;
-> +		*(.fixmap_bss)
-> +	}
+Acked-by: Linus Walleij <linusw@kernel.org>
 
-Observing that this still gets zero-initialized:
-
-	/* Clear BSS and the initial page tables */
-	memset(__bss_start, 0, (char *)init_pg_end - (char *)__bss_start);
-
-Thanks,
-Ryan
-
-> +
->  	__pi_init_pg_dir = .;
->  	. += INIT_DIR_SIZE;
->  	__pi_init_pg_end = .;
-> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-> index c5c5425791da..b649ea1a46e4 100644
-> --- a/arch/arm64/mm/fixmap.c
-> +++ b/arch/arm64/mm/fixmap.c
-> @@ -31,9 +31,10 @@ static_assert(NR_BM_PMD_TABLES == 1);
->  
->  #define BM_PTE_TABLE_IDX(addr)	__BM_TABLE_IDX(addr, PMD_SHIFT)
->  
-> -static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __page_aligned_bss;
-> -static pmd_t bm_pmd[PTRS_PER_PMD] __page_aligned_bss __maybe_unused;
-> -static pud_t bm_pud[PTRS_PER_PUD] __page_aligned_bss __maybe_unused;
-> +#define __fixmap_bss	__section(".fixmap_bss") __aligned(PAGE_SIZE)
-> +static pte_t bm_pte[NR_BM_PTE_TABLES][PTRS_PER_PTE] __fixmap_bss;
-> +static pmd_t bm_pmd[PTRS_PER_PMD] __fixmap_bss __maybe_unused;
-> +static pud_t bm_pud[PTRS_PER_PUD] __fixmap_bss __maybe_unused;
->  
->  static inline pte_t *fixmap_pte(unsigned long addr)
->  {
-
+Yours,
+Linus Walleij
 
