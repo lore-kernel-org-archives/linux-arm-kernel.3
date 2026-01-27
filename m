@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8F2FD2F038
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 14:34:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46557D2F036
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 14:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLP5WPSJ4MT6lYx0a9IOsqeVgLkh+TkHWnXIWRvaeXg=; b=Gd46vCR6BmabZkn3hWC0bBNIfE
-	CzDJosKbjFV+LtPOvK4tCacJh9NCmCHTPMLQYJLbChtOVJAco/yn/ZPPob6gksnin3Bhkb0W85be/
-	UBwAmJukqLBOvnTnQDhZoNvVVNIzwLIuKi9X0tAHJID38sb24xLtfZZPMGIHNmSMsF1MKM6GyVmhh
-	Gqg9oh8tqvHRishQFzKL3nhGdizf95pL7jcAHu0F2vfeHOx3yHvcwinHXG4EhVvG4RCWOU0pIdEBl
-	RTFOmH97lysEiqR89PPVo80J2sdWjFVJOA1F4G5oiua5/p4Raz7YpnsAJ6Kc4DmadXDwJWqkxr+ra
-	qeC75jRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+uGRXOSRKXWL+9HDnzkxJp7oLN88gCfuvY6T9BgJ5Jg=; b=K6YeHl2l1GfoXspYDPznXTRc1X
+	3aj9uGZKkA1thHaZFUFdQgk6UgyXcXM2z0hjZLReIg4qWd+DGdsKt4M+qiqI0Zk/J3yCZGZrhFwOs
+	rTirw5+nvNgpXDf7ummvLvRiYMZYaITqA0j+MCYfNZS2gdkvHgFcykZGhgr0n32lE3ZAjNLB0PlcX
+	wWzh+0LIB+4toBsy4iaVK2eK4E/OtbL4InycGHa0Z54qtuwkCoN5K74y78a2L8VKdnfE3ja4w6VIu
+	5XBqrw0DVRXmP3kZCiLcF91ROvr+dpU+7o1gageeRnMZEE/mtjXu3dl936eKJRnYv4MXY+a6qKFAy
+	ig4NaQDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkk95-0000000EPA5-2zD6;
-	Tue, 27 Jan 2026 14:34:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vkkCo-0000000EPPo-2tKu;
+	Tue, 27 Jan 2026 14:38:10 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkk93-0000000EP9z-47WQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 14:34:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 084DE6013B
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 14:34:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3394C2BCB7
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 14:34:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769524456;
-	bh=nLP5WPSJ4MT6lYx0a9IOsqeVgLkh+TkHWnXIWRvaeXg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=cFQ8eKypCxJneIg4jM9c7+W0y87mV9/GiLxNnhaswgztLBP78Vz/06/PbHJdEzzEY
-	 aHF4Z9GTm3cTSjU/wQbAeKE6rQWSexI5MfvM78RJ0ot1doS6Db9RBwS/xxGuGpOBju
-	 yPeL8c4QTVuKxU7VsBz1cmo3NX9+1zle0SN969vtt/Gb0zid/QrFxhBwb6B4Dsq4du
-	 ME69Q+CuXcxq+PHoKzNBiNW3uGRf9wF7mgTbK+bGWKPyhCPeGj5dPDSMuHQI0Z+Jl0
-	 0UZinsUPOrdT+E8ETs5KgZZaXT7POvxYtjjLi3QYSPO81xkQ3YJBcENqVtpM9UGJwf
-	 Y7nzhsgWCmJAg==
-Received: by mail-oi1-f172.google.com with SMTP id 5614622812f47-45c96b175baso1939673b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 06:34:16 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCU5pwti5vJ9fQnAiS+8rx/xr48odd63mCnwmiCNAhUyc86rfUWDAdqBhz6apcS9+qO4PwdUKWUtwrnVccTgdU1t@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4j62WDhgkjNmf3sf3WU1sN8FO8051XG0NaE4ktuWEviE0BD00
-	lqvYOZVaO3dZJ15xGvWBUoP8NHPxrtVeVRqzhjUXJ29uqhLl2fczSxOZdag9jHj3Jnx2EHuh/Xl
-	jN837/UpSyMy+AvaC1YkkB0Y0DMbsjnU=
-X-Received: by 2002:a05:6820:498c:b0:65f:564f:34b1 with SMTP id
- 006d021491bc7-662f2021f39mr972139eaf.16.1769524455545; Tue, 27 Jan 2026
- 06:34:15 -0800 (PST)
+	id 1vkkCm-0000000EPPN-3Wfs;
+	Tue, 27 Jan 2026 14:38:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769524689; x=1801060689;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=soGYrhFD8HGAA5+ovmTEgz6N7E7vcHr4DVLewwvW0nc=;
+  b=l/hyON5aBENsx0gWHqjbUyS7Llc0HFwa1PV3EtCe4qyC+WEYuuQE3tNL
+   P8+d0z0OF9dq117574YKvULslRoN+fzGsOxZ9xPArcuvHtgOlg24wYf+D
+   WCkNL0+FC+al8sOp5vSsBZrjF+jO8ledkCGMcBhHa2QQdQZXg66BHFwXI
+   +iKiLKLQxhkhzr2oxlg3NSBLsXk81hUK0zR8/WpHAYTdjixLHviJEqe3+
+   qe/U8UKVrBqNOgGcOQIN1jYwSRob06PyQX64YUO0KRm3TLRcdMXCzdooU
+   em/HMa8fd9K5eqp1/e3uKfwcNHTyeKynp1XEPz+kHKsQlreCCwmblzek2
+   g==;
+X-CSE-ConnectionGUID: dIUIQmyLT8GnYFV6R3QngA==
+X-CSE-MsgGUID: EcIu7+Q7Rz+godux0vwkiw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11684"; a="58292631"
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="58292631"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 06:38:06 -0800
+X-CSE-ConnectionGUID: 6BEQmkULSjeFSgAkWi9eMw==
+X-CSE-MsgGUID: teVvWAdzRa+SiD5ECSvqPQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,257,1763452800"; 
+   d="scan'208";a="207888513"
+Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.248])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 06:38:02 -0800
+Date: Tue, 27 Jan 2026 16:38:00 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Louis Chauvet <louis.chauvet@bootlin.com>,
+	Haneen Mohammed <hamohammed.sa@gmail.com>,
+	Melissa Wen <melissa.srw@gmail.com>,
+	Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Diederik de Haas <diederik@cknow-tech.com>
+Subject: Re: [PATCH v5 1/4] uapi: Provide DIV_ROUND_CLOSEST()
+Message-ID: <aXjNyHaJDHoCPRJO@smile.fi.intel.com>
+References: <20260127-rk3588-bgcolor-v5-0-b25aa8613211@collabora.com>
+ <20260127-rk3588-bgcolor-v5-1-b25aa8613211@collabora.com>
+ <baf075b2370a13cddd597a3d421b5f39290d87a4@intel.com>
 MIME-Version: 1.0
-References: <20260115-gicv5-host-acpi-v3-0-c13a9a150388@kernel.org>
- <aWy9T3VDyXpVG41z@lpieralisi> <87sec30yhk.ffs@tglx> <aW3pALPxn4i9fiDO@lpieralisi>
- <87pl751zeh.ffs@tglx> <aW9V4A7lTGZWTO9e@lpieralisi> <aXM0dVthp33yUqj8@lpieralisi>
- <CAJZ5v0hOVO7N77nnyWsh_vhGcm-TzavrGBgci=a+o_-LKhkuXg@mail.gmail.com>
-In-Reply-To: <CAJZ5v0hOVO7N77nnyWsh_vhGcm-TzavrGBgci=a+o_-LKhkuXg@mail.gmail.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Tue, 27 Jan 2026 15:34:04 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0jotTEm87Ks70_EHUs68T_3fPvG04GAxoC3gueiS-askw@mail.gmail.com>
-X-Gm-Features: AZwV_QgMPgceilNqa1ohd2X40nvwnD9QGS8uSFdUczKAi0SenvBlTvAaDiWKd9M
-Message-ID: <CAJZ5v0jotTEm87Ks70_EHUs68T_3fPvG04GAxoC3gueiS-askw@mail.gmail.com>
-Subject: Re: [PATCH v3 0/6] irqchip/gic-v5: Code first ACPI boot support
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Robert Moore <robert.moore@intel.com>, Hanjun Guo <guohanjun@huawei.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Marc Zyngier <maz@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Jonathan Cameron <jonathan.cameron@huawei.com>, 
-	linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-pci@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <baf075b2370a13cddd597a3d421b5f39290d87a4@intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260127_063808_889943_58017BAC 
+X-CRM114-Status: GOOD (  26.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +101,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 9:42=E2=80=AFPM Rafael J. Wysocki <rafael@kernel.or=
-g> wrote:
->
-> Hi Lorenzo,
->
-> On Fri, Jan 23, 2026 at 9:42=E2=80=AFAM Lorenzo Pieralisi <lpieralisi@ker=
-nel.org> wrote:
+On Tue, Jan 27, 2026 at 03:58:13PM +0200, Jani Nikula wrote:
+> On Tue, 27 Jan 2026, Cristian Ciocaltea <cristian.ciocaltea@collabora.com> wrote:
+> > Currently DIV_ROUND_CLOSEST() is only available for the kernel via
+> > include/linux/math.h.
 > >
-> > On Tue, Jan 20, 2026 at 11:16:00AM +0100, Lorenzo Pieralisi wrote:
-> > > On Mon, Jan 19, 2026 at 02:54:14PM +0100, Thomas Gleixner wrote:
-> > > > On Mon, Jan 19 2026 at 09:19, Lorenzo Pieralisi wrote:
-> > > > > On Sun, Jan 18, 2026 at 03:47:03PM +0100, Thomas Gleixner wrote:
-> > > > > I think the simplest way to sort this out is for this series to g=
-o via
-> > > > > the ACPI tree if that's OK for Thomas, given that the ACPICA code=
- will
-> > > > > go via the ACPI tree anyway and there are other dependencies on i=
-t there
-> > > > > I assume (this series is fairly self-contained).
-> > > >
-> > > > I'm fine with that
-> > > >
-> > > > Acked-by: Thomas Gleixner <tglx@kernel.org>
-> > >
-> > > Thank you Thomas, Rafael I hope that works for you too, please let me=
- know
-> > > if there is anything I can/should do.
+> > Expose it to userland as well by adding __KERNEL_DIV_ROUND_CLOSEST() as
+> > a common definition in uapi.
 > >
-> > Hi Rafael,
-> >
-> > forgive me for another ping, can you please let me know whether you can=
- pull
-> > this series on top of acpica changes for v7.0 or it needs to take a dif=
-ferent
-> > route ?
->
-> Sure, I can queue it up.
+> > Additionally, ensure it allows building ISO C applications by switching
+> > from the 'typeof' GNU extension to the ISO-friendly __typeof__.
+> 
+> I am not convinced that it's a good idea to make the implementation of
+> kernel DIV_ROUND_CLOSEST() part of the kernel UAPI, which is what this
+> change effectively does.
+> 
+> I'd at least like to get an ack from Andy Shevchenko first (Cc'd).
 
-Applied as 6.20/7.0 material now, thanks!
+Thanks for Cc'ing me!
+
+So, the history of the DIV_ROUND_UP() to appear in UAPI is a response to
+the ethtool change that missed the fact that this was a kernel internal macro.
+Giving a precedent there is no technical issues to add DIV_ROUND_CLOSEST()
+to UAPI as proposed. Main question here is: Does DRM headers in question
+(that are going to use it) really need this?
+
+Interestingly that DRM also started using __KERNEL_DIV_ROUND_UP() in UAPI
+at some point, which kinda makes an argument for allowing the other one.
+
+Also fun fact: this series plead for a new macro for division while ignoring
+existing (UAPI) macros for masks and bits.
+
+0xffffU is effectively __GENMASK(15, 0). (And if you change the code, avoid
+using variables inside GENMASK() macros, it may generate an awful code, the
+GENMASK($HI, $LO) << foo is preferred over GENMASK(foo + $DELTA, foo) case.
+GENMASK(foo - 1, 0) OTOH is fine, however be always careful against overflows
+with left shifts, as BIT(foo) - 1 may not work for foo == 32, while GENMASK()
+may not work for foo == 0).
+
+So, I have no objections for either choice
+Acked-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+
+...
+
+But if you go that direction, please, fix up the style.
+
+> > +/*
+> > + * Divide positive or negative dividend by positive or negative divisor
+> > + * and round to closest integer. Result is undefined for negative
+> > + * divisors if the dividend variable type is unsigned and for negative
+> > + * dividends if the divisor variable type is unsigned.
+> > + */
+> > +#define __KERNEL_DIV_ROUND_CLOSEST(x, divisor)(		\
+> > +{							\
+
+Use ({ on this line together...
+
+> > +	__typeof__(x) __x = x;				\
+> > +	__typeof__(divisor) __d = divisor;		\
+
++ blank line here.
+
+> > +	(((__typeof__(x))-1) > 0 ||			\
+> > +	 ((__typeof__(divisor))-1) > 0 ||		\
+> > +	 (((__x) > 0) == ((__d) > 0))) ?		\
+> > +		(((__x) + ((__d) / 2)) / (__d)) :	\
+> > +		(((__x) - ((__d) / 2)) / (__d));	\
+> > +}							\
+> > +)
+
+...as here join }) to be a single line.
+
++ blank line.
+
+> >  #endif /* _UAPI_LINUX_CONST_H */
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
