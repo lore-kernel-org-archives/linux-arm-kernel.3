@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B46FD2D8D8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:49:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3654FD2D8DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:51:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OMRbNvGgE0D/RtXN39MCutIH4fjIcLqQyLSPMnSPrcc=; b=N5vfFbL0DFETVw025sOGHQ5NQo
-	uNUAXYewp2RnV9GnfeW//9pEL9SFLhTJqIKsIJtVe9YWo3EOH9hiOoBHLzhFUQm1v6FrL3KG1QOs1
-	u3vaQuHpTXfeW+jhSP/kjVc2d77Gi8d2GIF2TwZ/vZC1NhDiaLanxSdtHv0GCUdisgkOUZ1JAA6lz
-	wLvBcq0mgmbOx2+mo8LZmVWY+82O+1uF7kMdeTRT1l2qbjAE/BNH/+7vG68dQEUFBt8k8zR6pUraa
-	LWbED1WAhXSWzlETfaOvy3p9EVRmVnpXcjiTk78f+PNPE8KEPZMeqbi6hxfbComnaHXjKiXjvdOMq
-	mWFnJ+Wg==;
+	bh=n/lKgEYg6bpWqqJ6YLjWkTk+fez50N6AhBdNhJubuDM=; b=JlX2ypueXvIVj7Gqgu8UCVtQdw
+	JDdswjDmUdDrvtItgu1fdJI+NL/jOsuyJint7RdruGPrNYTXhKvkkbQiUC3DZfYHbCQCcaSkWrWJK
+	C/l4JdzfKAA/K6hnw/OUuPDGqo6gHdGYibeo2yVmVdO+DUtNTqNJcoagNmm/cdv/UasXov1hUkHIB
+	xB6WE6OEP1NITVs/ninll3fLztrgcXUSgvk0nO7RoRYHgWdS/CYhCn6bHo6xwsEoEx6VVR//+R+rQ
+	VU9wO8lZcs0ZbC9VP6KN+8vRbU4gkDnaFD5IQ4QoTpDloNxYHEMXdajySFw7JhEv0eOcErMCYQGPD
+	VHvPzbqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfha-0000000Dzek-11pa;
-	Tue, 27 Jan 2026 09:49:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vkfjH-0000000DzqJ-3vPY;
+	Tue, 27 Jan 2026 09:51:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfhY-0000000DzeO-1m3w
+	id 1vkfjG-0000000Dzq1-10SC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 09:49:37 +0000
+	Tue, 27 Jan 2026 09:51:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 735A743835
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:49:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5556AC2BCB2
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:49:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 532ED60171
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:51:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A725C16AAE
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769507375;
-	bh=7ffJyHAC8J/GkSpmEQneS6c4rnD8WljExEpFryTMzaI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=LzqWxbJqFOchXJuo8YLJENnYCYFOPrgCtVbCV46w0GlcHrASlofAHnhSJ7DITkkut
-	 Mmb4pBpElwoSbgNjdFGoWbdXY50Nf6kF5meKch2Xrp39YQcS1HFZDeVfp4Dp0B0Y9A
-	 xXVYsckbaOR0bq9vv0ydHb3ExobRGgR3rL9idl9BewSsG/Y7OSvkRgWNb2dkvMkjaU
-	 VocjzPRS1ZsjxZZLTM3h/egB00sUy+KrZZ7U7vaN5gumA8ftItQSjD4KgV+LFYHCrs
-	 +gUlVuyWz1wofey7FvbUxbsahbDPYOSokHtnHnl3y1q0MKFhP3q6hXKT25KWKqvz/u
-	 CrRDeIH6tm6Vg==
-Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2a77c1d5c3bso24025825ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 01:49:35 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUm74vb5dKHArCAIb239wPchdmnOIpngmstXeR9+A2Saw1VxAEorunrs1oCPtQfM5a/Owt8Knh+brxIWkMskfA1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzK3CRfzvBVfugxeUF9vFGv7gxVXmaXbJlZFT+LAOQ/lynK9EMZ
-	VGmpWJV52hvz9Vuh2tZhNDQGpX/ipmWoTpPb5zI1ikDLcKhCv8WBpH6mSmmEFeXIMDLrgxl6i7x
-	8m8Wm+ybLkYKjcm+yo3/T/jegwN5/1fY=
-X-Received: by 2002:a17:903:198d:b0:295:570d:116e with SMTP id
- d9443c01a7336-2a870dc8cd3mr12948505ad.41.1769507374856; Tue, 27 Jan 2026
- 01:49:34 -0800 (PST)
+	s=k20201202; t=1769507481;
+	bh=FGhVpDtMVZVm3tb6KxliGgMLN0Evi2bHotKWpU75YQM=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=TTTTZgsPRIOHFQSKDpAGDG4oaplDbO1l8xdmHLXajWLKrZQEa9BjEb3uyc/wlTV/7
+	 GrzuwR8nXJIt/kC0eOK6mcrKqyucgNbT/xJGEW6MtSN921jFTFXLesgOkm9qDpoVrX
+	 gw/MzXKa8sr5VlmVP1Blyu4YVruLkgasNVjOiE3Y8fbh3JCaVL2rvUgzwRsDlPJw9F
+	 9YdSmsYRrPARFg2/JE/GYXytu1Nk5wmpm4+eBzHacPohrZjUzQxldLf+mKmkoc0nYM
+	 rVivhUGF11aDcZdRdsJtTeuZl9Z3DVvlXOBpzD/CM0tnhV8pQ+Ykuc6CZjVWOVmV3K
+	 jgD12cdVMSubw==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-59dd263bf42so6003445e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 01:51:20 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVdmWByZlCIAKPbxMNBCjye2QbdA/qjlH33DT6Ut799lxTsxtyTqGsmDHzd7oIBwgibsjwXFD0R5yUFKitMC4Xs@lists.infradead.org
+X-Gm-Message-State: AOJu0YybCh8qaocV82fj/1Il8tgyXYlyyKNH/Rw/52xigu6P68BQGOVa
+	MpDHD5RP/qvJ3+3PwSXls9vtg0ZlLXZlj0LLKHzw/S+63okzRzhk019coUFDIytamAHsRqtDYmV
+	TOdaPZtFlL79gN9Dml5ejlV6mCYrkkfAKBSHyYlSutA==
+X-Received: by 2002:a05:6512:124e:b0:59d:cda0:8b70 with SMTP id
+ 2adb3069b0e04-59e0412dcb0mr548455e87.52.1769507479645; Tue, 27 Jan 2026
+ 01:51:19 -0800 (PST)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 27 Jan 2026 01:51:17 -0800
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 27 Jan 2026 01:51:17 -0800
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260123-dev-b4-aaeon-mcu-driver-v2-3-9f4c00bfb5cb@bootlin.com>
 MIME-Version: 1.0
-References: <20260126092630.1800589-12-ardb+git@google.com>
- <20260126092630.1800589-13-ardb+git@google.com> <3d59a8d9-a382-48d8-b79c-f5c23e86c1b7@arm.com>
-In-Reply-To: <3d59a8d9-a382-48d8-b79c-f5c23e86c1b7@arm.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 27 Jan 2026 10:49:23 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXF4k9EstLkxdNje_rwTehdu2MYvyh7n+4GoMWNcjcHYcA@mail.gmail.com>
-X-Gm-Features: AZwV_QjbFJ48-GJAX5IbCu5heqXiBoewnTMcOOsWNGmC7SW2Fjs46gnJ_q-g0r0
-Message-ID: <CAMj1kXF4k9EstLkxdNje_rwTehdu2MYvyh7n+4GoMWNcjcHYcA@mail.gmail.com>
-Subject: Re: [PATCH v2 01/10] arm64: Move the zero page to rodata
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, will@kernel.org, 
-	catalin.marinas@arm.com, mark.rutland@arm.com, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Liz Prucka <lizprucka@google.com>, 
-	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>, 
-	linux-hardening@vger.kernel.org
+References: <20260123-dev-b4-aaeon-mcu-driver-v2-0-9f4c00bfb5cb@bootlin.com> <20260123-dev-b4-aaeon-mcu-driver-v2-3-9f4c00bfb5cb@bootlin.com>
+Date: Tue, 27 Jan 2026 01:51:17 -0800
+X-Gmail-Original-Message-ID: <CAMRc=McYKZ8TY9wAhZ3sZtYRNJhoh2VfQ+6FA=+VRwstpWQOHg@mail.gmail.com>
+X-Gm-Features: AZwV_QhnJ3-HaFivIkkQZJQTm3GV_7xh9A9lzaVebFHWLuaiyt9Faz2iUZq47wY
+Message-ID: <CAMRc=McYKZ8TY9wAhZ3sZtYRNJhoh2VfQ+6FA=+VRwstpWQOHg@mail.gmail.com>
+Subject: Re: [PATCH v2 3/5] mfd: aaeon: Add SRG-IMX8PL MCU driver
+To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, 
+	=?UTF-8?B?SsOpcsOpbWllIERhdXRoZXJpYmVz?= <jeremie.dautheribes@bootlin.com>, 
+	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_014936_510918_B7DA7122 
-X-CRM114-Status: GOOD (  24.41  )
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,65 +91,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 27 Jan 2026 at 10:34, Ryan Roberts <ryan.roberts@arm.com> wrote:
+On Fri, 23 Jan 2026 10:54:32 +0100, "Thomas Perrot (Schneider
+Electric)" <thomas.perrot@bootlin.com> said:
+> Add Multi-Function Device (MFD) driver for the Aaeon SRG-IMX8PL
+> embedded controller. This driver provides the core I2C communication
+> interface and registers child devices (GPIO and watchdog controllers).
 >
-> On 26/01/2026 09:26, Ard Biesheuvel wrote:
-> > From: Ard Biesheuvel <ardb@kernel.org>
-> >
-> > The zero page should contain only zero bytes, and so mapping it
-> > read-write is unnecessary. Combine it with reserved_pg_dir, which lives
-> > in the read-only region of the kernel, and already serves a similar
-> > purpose.
-> >
-> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > ---
-> >  arch/arm64/kernel/vmlinux.lds.S | 1 +
-> >  arch/arm64/mm/mmu.c             | 3 +--
-> >  2 files changed, 2 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-> > index ad6133b89e7a..b2a093f5b3fc 100644
-> > --- a/arch/arm64/kernel/vmlinux.lds.S
-> > +++ b/arch/arm64/kernel/vmlinux.lds.S
-> > @@ -229,6 +229,7 @@ SECTIONS
-> >  #endif
-> >
-> >       reserved_pg_dir = .;
-> > +     empty_zero_page = .;
-> >       . += PAGE_SIZE;
-> >
-> >       swapper_pg_dir = .;
+> The MCU firmware version is queried during probe and logged for
+> diagnostic purposes. All I2C transactions are serialized using a mutex
+> to ensure proper communication with the microcontroller.
 >
-> Isn't there a magic macro for getting from swapper to reserved? That will need
-> updating?
+> Co-developed-by: J=C3=A9r=C3=A9mie Dautheribes (Schneider Electric) <jere=
+mie.dautheribes@bootlin.com>
+> Signed-off-by: J=C3=A9r=C3=A9mie Dautheribes (Schneider Electric) <jeremi=
+e.dautheribes@bootlin.com>
+> Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.=
+com>
+> ---
+
+[snip]
+
+ +++ b/drivers/mfd/aaeon-mcu.c
+> @@ -0,0 +1,129 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Aaeon MCU driver
+> + *
+> + * Copyright (C) 2025 Bootlin
+> + * Author: J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootlin.co=
+m>
+> + * Author: Thomas Perrot <thomas.perrot@bootlin.com>
+> + */
+> +
+> +#include <linux/err.h>
+> +#include <linux/i2c.h>
+> +#include <linux/mfd/aaeon-mcu.h>
+> +#include <linux/mfd/core.h>
+> +#include <linux/platform_device.h>
+> +
+> +#define AAEON_MCU_FW_VERSION	0x76
+> +
+> +static struct mfd_cell aaeon_mcu_devs[] =3D {
+
+Can be const.
+
+> +	{
+> +		.name =3D "aaeon-mcu-wdt",
+> +	},
+> +	{
+> +		.name =3D "aaeon-mcu-gpio",
+> +	},
+> +};
+> +
+> +static int aaeon_mcu_read_version(struct device *dev, u8 index, u8 *vers=
+ion)
+> +{
+> +	u8 cmd[3] =3D { AAEON_MCU_FW_VERSION, index, 0x00 };
+> +
+> +	return aaeon_mcu_i2c_xfer(dev, cmd, sizeof(cmd), version, sizeof(*versi=
+on));
+> +}
+> +
+> +static int aaeon_mcu_print_fw_version(struct i2c_client *client)
+> +{
+> +	struct device *dev =3D &client->dev;
+> +	u8 major, minor;
+> +	int ret;
+> +
+> +	ret =3D aaeon_mcu_read_version(dev, 0x00, &major);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D aaeon_mcu_read_version(dev, 0x01, &minor);
+> +	if (ret)
+> +		return ret;
+> +
+> +	dev_info(dev, "firmware version: v%d.%d\n", major, minor);
+
+I would drop this entirely or demote it to dev_dbg(), there's no reason for
+a successfully probed device to yell about it.
+
+> +
+> +	return 0;
+> +}
+> +
+> +int aaeon_mcu_i2c_xfer(struct device *dev,
+> +		       const u8 *cmd, int cmd_len,
+> +		       u8 *rsp, int rsp_len)
+> +{
+> +	struct i2c_client *client =3D to_i2c_client(dev);
+> +	struct aaeon_mcu_dev *mcu =3D i2c_get_clientdata(client);
+> +	int ret;
+> +
+> +	mutex_lock(&mcu->i2c_lock);
+> +
+> +	ret =3D i2c_master_send(client, cmd, cmd_len);
+> +	if (ret < 0)
+> +		goto unlock;
+> +
+> +	ret =3D i2c_master_recv(client, rsp, rsp_len);
+> +	if (ret < 0)
+> +		goto unlock;
+> +
+> +	if (ret !=3D rsp_len) {
+> +		dev_err(dev,
+> +			"i2c recv count error (expected: %d, actual: %d)\n",
+> +			rsp_len, ret);
+> +		ret =3D -EIO;
+> +		goto unlock;
+> +	}
+> +
+> +	ret =3D 0;
+> +
+> +unlock:
+
+Just use guard(mutex) from cleanup.h and drop the label.
+
+> +	mutex_unlock(&mcu->i2c_lock);
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(aaeon_mcu_i2c_xfer);
+> +
+> +static int aaeon_mcu_probe(struct i2c_client *client)
+> +{
+> +	struct aaeon_mcu_dev *mcu;
+> +	int ret;
+> +
+> +	mcu =3D devm_kzalloc(&client->dev, sizeof(*mcu), GFP_KERNEL);
+> +	if (!mcu)
+> +		return -ENOMEM;
+> +
+> +	i2c_set_clientdata(client, mcu);
+> +	mcu->dev =3D &client->dev;
+> +	mutex_init(&mcu->i2c_lock);
+
+For lock debugging purposes it's better to destroy the mutex too. Or use
+devm_mutex_init().
+
+> +
+> +	ret =3D aaeon_mcu_print_fw_version(client);
+> +	if (ret) {
+> +		dev_err(&client->dev, "unable to read firmware version\n");
+> +		return ret;
+> +	}
+> +
+> +	return devm_mfd_add_devices(mcu->dev, PLATFORM_DEVID_NONE, aaeon_mcu_de=
+vs,
+> +				    ARRAY_SIZE(aaeon_mcu_devs), NULL, 0, NULL);
+> +}
+> +
+> +static const struct of_device_id aaeon_mcu_of_match[] =3D {
+> +	{ .compatible =3D "aaeon,srg-imx8pl-mcu" },
+> +	{},
+> +};
+> +
+
+Unneeded newline.
+
+> +MODULE_DEVICE_TABLE(of, aaeon_mcu_of_match);
+> +
+> +static struct i2c_driver aaeon_mcu_driver =3D {
+> +	.driver =3D {
+> +		.name =3D "aaeon_mcu",
+> +		.of_match_table =3D aaeon_mcu_of_match,
+> +	},
+> +	.probe =3D aaeon_mcu_probe,
+> +};
+> +
+
+Same here.
+
+> +module_i2c_driver(aaeon_mcu_driver);
+> +
+> +MODULE_DESCRIPTION("Aaeon MCU Driver");
+> +MODULE_AUTHOR("J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootli=
+n.com>");
+> +MODULE_LICENSE("GPL");
+> diff --git a/include/linux/mfd/aaeon-mcu.h b/include/linux/mfd/aaeon-mcu.=
+h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..c9dc7a9adbc86c489f03a550e=
+7776d3b1da4e7b2
+> --- /dev/null
+> +++ b/include/linux/mfd/aaeon-mcu.h
+> @@ -0,0 +1,31 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/*
+> + * Aaeon MCU driver definitions
+> + *
+> + * Copyright (C) 2025 Bootlin
+> + * Author: J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootlin.co=
+m>
+> + * Author: Thomas Perrot <thomas.perrot@bootlin.com>
+> + */
+> +
+> +#ifndef __LINUX_MFD_AAEON_MCU_H
+> +#define __LINUX_MFD_AAEON_MCU_H
+> +
+> +#include <linux/mutex.h>
+> +#include <linux/types.h>
+> +
+> +/**
+> + * struct aaeon_mcu_dev - Internal representation of the Aaeon MCU
+> + * @dev: Pointer to kernel device structure
+> + * @i2c_lock: Mutex to serialize I2C bus access
+> + */
+> +
+
+Kerneldocs should be attached to the struct they describe. But...
+
+> +struct aaeon_mcu_dev {
+> +	struct device *dev;
+> +	struct mutex i2c_lock;
+> +};
+
+... you don't seem to need to export this structure. You don't use it at al=
+l
+in the subsequent GPIO patch.
+
+> +
+> +int aaeon_mcu_i2c_xfer(struct device *dev,
+> +		       const u8 *cmd, int cmd_len,
+> +		       u8 *rsp, int rsp_len);
+> +
+> +#endif /*  __LINUX_MFD_AAEON_MCU_H */
+>
+> --
+> 2.52.0
+>
 >
 
-Why? This just adds an alias to refer to the same allocation.
-
-> /*
->  *  Open-coded (swapper_pg_dir - reserved_pg_dir) as this cannot be calculated
->  *  until link time.
->  */
-> #define RESERVED_SWAPPER_OFFSET (PAGE_SIZE)
->
->
-> > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> > index 9ae7ce00a7ef..c36422a3fae2 100644
-> > --- a/arch/arm64/mm/mmu.c
-> > +++ b/arch/arm64/mm/mmu.c
-> > @@ -66,9 +66,8 @@ long __section(".mmuoff.data.write") __early_cpu_boot_status;
-> >
-> >  /*
-> >   * Empty_zero_page is a special page that is used for zero-initialized data
-> > - * and COW.
-> > + * and COW. Defined in the linker script.
-> >   */
-> > -unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)] __page_aligned_bss;
-> >  EXPORT_SYMBOL(empty_zero_page);
->
-> What's the benefit of giving it it's own place in the linker script vs just
-> declaring it as const and having it placed in the rodata?
->
-
-Because it collapses the two into one.
+Bart
 
