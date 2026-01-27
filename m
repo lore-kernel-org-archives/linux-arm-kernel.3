@@ -4,48 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9E2D2FED9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 19:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12891D2FED9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 19:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+1dnhRLMtu5/XnmCGlow67PwZlHIqJ0tA39/W+z0sa4=; b=b9v3cRFAvmTEVEiPQrfsj++vl2
-	TSnX1/CVlWyRNDutHZb4mPYThPdV/y7aTOGugWSSY9NlSBbZxjAVlqvwWeYt/MSi+iG4e8e7LjowH
-	XR6vVZEp5Od3rFq0iicdZpFHU3bnXYV4Memoifr2FfoxgjZu+2dWuQuaEW3stWt3fJm1EG347yZMJ
-	pfO6qOITmLY/u8O2726tqEZN7YiFKY0qiHcH81i4BjrtH5OI3zH0JXJTDMO2inAdB8o1zj7qtunxM
-	xTx34kIXAxQFZldlPXcT8LciZu6apqjW8Npw9HKBIhJ0Q1bswUMp37WfEBuY64J0dmjuOiVKJsR7C
-	bLLx+m0g==;
+	bh=oUUqo5kZZv1zWUwV91QbLiq3DapYQlumHl9ZCBmmuIY=; b=M/8w6yE1z5a+nOdGTD905OjVtX
+	Do25uS3031z/1S6agvI6EP7F04x+B/BNGCAPXALPafMR8KNfxtKWEAW/cZMJ8XWQOLFO1p7Jnt7Cl
+	3u85Vdq6yERP3SlXSe7KArG34cDqGtfMaSRGl1sy6+576SSiCoxjzMKz0NVxY+wCJegszv3lRpnWu
+	esZ+dm5oMA3mLEw0vVOEY/kWhXQnUr79OYe12HdFgo65p3lKYDyY5GZKtFonRMZXBS+CpWQ/yG+cE
+	YYnZGSlVgfVuNY0VcFIKO00BG7A0f9BfPJcEezLwE/eZtADCoVFrIElNwXbW1UBQSufVuI3WMvYKx
+	RC3KxRVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoX3-0000000Etml-1Io9;
-	Tue, 27 Jan 2026 19:15:21 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoX1-0000000EtmN-2ijV;
-	Tue, 27 Jan 2026 19:15:19 +0000
-Message-ID: <d46a7e44-cddf-425c-a233-911c2d949b9b@infradead.org>
-Date: Tue, 27 Jan 2026 11:15:17 -0800
+	id 1vkoY8-0000000EtwM-2nGY;
+	Tue, 27 Jan 2026 19:16:28 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkoY6-0000000EtvK-2nZ8
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Jan 2026 19:16:27 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47fedb7c68dso61935105e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 11:16:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1769541385; x=1770146185; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=oUUqo5kZZv1zWUwV91QbLiq3DapYQlumHl9ZCBmmuIY=;
+        b=mYjeWl4TbHdtu+4ASDfTicMT/yzbcdoxM9oOnUlqik1UHXX+Cwh3rkaQYbiRwHW4nR
+         fzTKb+8ydHo4WVVsnzJ3BkWlMIHCMD8hIV6c04gavwMexuk5nzdzwdh9emV+UMyC+yBg
+         PdmTE6/5xjR/IxKc0ODmJ2XABi1w2aIlto5A+HvEE92512NombS8iDiTY8q39wg8vFZn
+         xkQ7uf6LuWg+pGbZ/iv/LIyMGweWwRdzQaxVaMP1ii8ta+AZtc1n+zwPSBx0gX8ksxw4
+         3HAHoGBMHmztescUkY+r/XF54y0H84F1R2HLN6qnXC3Hs0SQpBzwDihHbzhs4jSCSdy2
+         s5Fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769541385; x=1770146185;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=oUUqo5kZZv1zWUwV91QbLiq3DapYQlumHl9ZCBmmuIY=;
+        b=bcwV0zqB/QSJDayIqaXI4ctcBxuFqFt/7BEQujaeIVcjMbTNvTiKKMlpjmZU6wSi6T
+         UYHDDW6PKkzIZ1M7NRttXSR0Yi+rT+L19xvYS8zNUWECgYPyTTvTGltFjyZURhCZOnJ3
+         vZDUgOeb3XWcfr0QhQ5R7OcRd38D3VzPQNo1+UqDePHD0RnQoiA4Z8xdfxscvQiura17
+         WpRaoWXfWV0rMO2oWJt7WuUqG1AMyteR5TX2nGle/WG0NpKSQGsew9sYSab5jbA+FqDB
+         YBGdt+jqDAbVikxhEppcqoeBoeLIu9LfAWmCPsemjxzp8TtET198EQbMd4C5i5rJ2G5N
+         JElg==
+X-Gm-Message-State: AOJu0Yx4g1YUNuN17PgPoFfz0mg/8oA3uzJlJ22W1AICJElyyde4AT+U
+	KCN5dHTSvnoFofiFR4cBXtO7YFT2Cpjgw7oWq308JQ1NWp3dcdpN59RprWLPeg==
+X-Gm-Gg: AZuq6aK3saQjXh+mPWJKFS/IY9MH6mJUl/D1rW3JhPVrde4dzylIZdrQ9ygTAqhcPiP
+	hurRZBqvCkgxuqil6pdov7LoBMLr3TcycIXA7CcgU3E+sFSppOFo0M5wiZA9dIjXUAPtKIL+9v+
+	7O4wbNAKciPNK7DKJJ5HwEnudwrSazNe4YJ2O1qeSzLtEH/EK6u3hPJz4XQJVtm5W0xr2NrjEC2
+	4cCckDoaczEbA3GMKnU8Vumwliq3rOiZJJNJsNQ7Rvw/9YjvarsmklUPHf9FcsGjGQD5TlzmpFC
+	kze66YjpbJC8gZJbce1oO4h4igYqW0bUwPrvgcLuyC5ks33vkcxwik+QUKO/s4z01qL0/1Gw37p
+	AdvPJk9s2KmOjhz5rVXdec1P4/6y0Lom43TezhVBNDYogACagjCZQPDiticHaNDs3X03sooc0IM
+	YXvvN+4xBhMa6UaYbbnL+78hlT
+X-Received: by 2002:a05:600c:4e15:b0:480:1e9e:f9c with SMTP id 5b1f17b1804b1-48069c0e620mr39926755e9.10.1769541384608;
+        Tue, 27 Jan 2026 11:16:24 -0800 (PST)
+Received: from strix.doe.home ([197.250.227.106])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4806df6056esm931525e9.2.2026.01.27.11.16.23
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Jan 2026 11:16:24 -0800 (PST)
+From: =?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>
+To: linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 1/6] ARM: zte: Add zx297520v3 platform support.
+Date: Tue, 27 Jan 2026 22:16:12 +0300
+Message-ID: <20260127191618.551317-2-stefandoesinger@gmail.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260127191618.551317-1-stefandoesinger@gmail.com>
+References: <20260127191618.551317-1-stefandoesinger@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] stm class: Fix Kconfig symbols
-To: Leo Yan <leo.yan@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- James Clark <james.clark@linaro.org>
-Cc: linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
- linux-kernel@vger.kernel.org
-References: <20260127-fix_stm_kconfig-v2-1-3c067e00f82e@arm.com>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260127-fix_stm_kconfig-v2-1-3c067e00f82e@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260127_111626_717615_67452D95 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,68 +97,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/27/26 10:14 AM, Leo Yan wrote:
-> Kconfig symbols must not include the CONFIG_ prefix.  Remove the CONFIG_
-> prefix for default values to work.
-> 
-> The STM_PROTO_SYS_T config is selected by default when STM is enabled.
-> However, its description currently says "If you don't know what this is,
-> say N," which contradicts the default behavior.  Update the description
-> to say "Y" to align with the default setting.
-> 
-> Fixes: a02509f301c6 ("stm class: Factor out default framing protocol")
-> Fixes: d69d5e83110f ("stm class: Add MIPI SyS-T protocol support")
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ arch/arm/Kconfig               |  2 ++
+ arch/arm/Makefile              |  1 +
+ arch/arm/mach-zte/Kconfig      | 19 +++++++++++++++++++
+ arch/arm/mach-zte/Makefile     |  2 ++
+ arch/arm/mach-zte/zx297520v3.c | 19 +++++++++++++++++++
+ 5 files changed, 43 insertions(+)
+ create mode 100644 arch/arm/mach-zte/Kconfig
+ create mode 100644 arch/arm/mach-zte/Makefile
+ create mode 100644 arch/arm/mach-zte/zx297520v3.c
 
-Greg has already merged a patch to fix the symbols:
-https://patch.msgid.link/20251228190502.2480758-1-rdunlap@infradead.org
-
-
-> ---
-> Changes in v2:
-> - Updated STM_PROTO_BASIC description to align with default selection
->   (James).
-> - Link to v1: https://lore.kernel.org/r/20251217-fix_stm_kconfig-v1-1-531fb3674549@arm.com
-> ---
->  drivers/hwtracing/stm/Kconfig | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/stm/Kconfig b/drivers/hwtracing/stm/Kconfig
-> index eda6b11d40a1f9ab49a1ec1e6faae8ee178c5ed3..8ab079785189052945521e9b0a93a0d458de37e0 100644
-> --- a/drivers/hwtracing/stm/Kconfig
-> +++ b/drivers/hwtracing/stm/Kconfig
-> @@ -13,7 +13,7 @@ if STM
->  
->  config STM_PROTO_BASIC
->  	tristate "Basic STM framing protocol driver"
-> -	default CONFIG_STM
-> +	default STM
->  	help
->  	  This is a simple framing protocol for sending data over STM
->  	  devices. This was the protocol that the STM framework used
-> @@ -28,7 +28,7 @@ config STM_PROTO_BASIC
->  
->  config STM_PROTO_SYS_T
->  	tristate "MIPI SyS-T STM framing protocol driver"
-> -	default CONFIG_STM
-> +	default STM
->  	help
->  	  This is an implementation of MIPI SyS-T protocol to be used
->  	  over the STP transport. In addition to the data payload, it
-> @@ -38,7 +38,7 @@ config STM_PROTO_SYS_T
->  	  The receiving side must be able to decode this protocol in
->  	  addition to the MIPI STP, in order to extract the data.
->  
-> -	  If you don't know what this is, say N.
-> +	  If you don't know what this is, say Y.
->  
->  config STM_DUMMY
->  	tristate "Dummy STM driver"
-> 
-> ---
-> base-commit: fcb70a56f4d81450114034b2c61f48ce7444a0e2
-> change-id: 20251216-fix_stm_kconfig-a72f40c7612c
-> 
-> Best regards,
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 4fb985b76e97..bd2cae242603 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -463,6 +463,8 @@ source "arch/arm/mach-versatile/Kconfig"
+ 
+ source "arch/arm/mach-vt8500/Kconfig"
+ 
++source "arch/arm/mach-zte/Kconfig"
++
+ source "arch/arm/mach-zynq/Kconfig"
+ 
+ # ARMv7-M architecture
+diff --git a/arch/arm/Makefile b/arch/arm/Makefile
+index b7de4b6b284c..573813ef5e77 100644
+--- a/arch/arm/Makefile
++++ b/arch/arm/Makefile
+@@ -223,6 +223,7 @@ machine-$(CONFIG_ARCH_SUNXI)		+= sunxi
+ machine-$(CONFIG_ARCH_TEGRA)		+= tegra
+ machine-$(CONFIG_ARCH_U8500)		+= ux500
+ machine-$(CONFIG_ARCH_VT8500)		+= vt8500
++machine-$(CONFIG_ARCH_ZTE)		+= zte
+ machine-$(CONFIG_ARCH_ZYNQ)		+= zynq
+ machine-$(CONFIG_PLAT_VERSATILE)	+= versatile
+ machine-$(CONFIG_PLAT_SPEAR)		+= spear
+diff --git a/arch/arm/mach-zte/Kconfig b/arch/arm/mach-zte/Kconfig
+new file mode 100644
+index 000000000000..17497c23eba7
+--- /dev/null
++++ b/arch/arm/mach-zte/Kconfig
+@@ -0,0 +1,19 @@
++# SPDX-License-Identifier: GPL-2.0
++menuconfig ARCH_ZTE
++	bool "ZTE ZX family"
++	depends on ARCH_MULTI_V7
++	help
++	  Support for ZTE ZX-based family of processors.
++
++if ARCH_ZTE
++
++config SOC_ZX297520V3
++	default y if ARCH_ZTE
++	bool "ZX297520v3"
++	select ARM_GIC_V3
++	select HAVE_ARM_ARCH_TIMER
++	select PM_GENERIC_DOMAINS if PM
++	help
++	  Support for ZTE ZX297520v3 SoC. It a single core SoC used in cheap LTE to WiFi routers.
++
++endif
+diff --git a/arch/arm/mach-zte/Makefile b/arch/arm/mach-zte/Makefile
+new file mode 100644
+index 000000000000..1bfe4fddd6af
+--- /dev/null
++++ b/arch/arm/mach-zte/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++obj-$(CONFIG_SOC_ZX297520V3) += zx297520v3.o
+diff --git a/arch/arm/mach-zte/zx297520v3.c b/arch/arm/mach-zte/zx297520v3.c
+new file mode 100644
+index 000000000000..e8db18c2f665
+--- /dev/null
++++ b/arch/arm/mach-zte/zx297520v3.c
+@@ -0,0 +1,19 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright 2026 Stefan Dösinger
++ */
++
++#include <asm/mach/arch.h>
++#include <asm/mach/map.h>
++
++#include <linux/of_address.h>
++#include <linux/of_platform.h>
++
++static const char *const zx297520v3_dt_compat[] __initconst = {
++	"zte,zx297520v3",
++	NULL,
++};
++
++DT_MACHINE_START(ZX, "ZTE ZX297520v3 (Device Tree)")
++	.dt_compat	= zx297520v3_dt_compat,
++MACHINE_END
+-- 
+2.52.0
 
 
