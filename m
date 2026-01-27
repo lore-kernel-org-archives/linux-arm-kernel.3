@@ -4,147 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26F30D19512
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 01:00:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B593BD19512
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 01:08:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ED79bZ+N6386gyoOtfA0esj4+TJdCY9jaQYBeN+5W7E=; b=W1NpIOyhvnfByKbE9bNi0+MRhb
-	8jl7jCu/kgQSG5usdKXDxotJZwx31f4ovbxG9ex57pJjbg1OnVFfborhmsHf+e5ASpxhcgHp8D6xQ
-	ibyRQnecpikbQUBHZfwSTpC7PiEvvyCuJPaRex33ihtdB2/X5q5FpMTfhiMTBvURe/Dlc+1nzyMqj
-	4iCyGJ8M993+pXquzIIMg9F1EpnlY0WoLW4uOisoK/FbUEuJjRgDgkTvEKg142iTd31pDS/Y4RDZ3
-	t+S0DgdknUCb1IsVRXhoS3NvuhIspn5lNaV9cIXP7zRiw9ygYbcmEvsX8ur1k9zvbZ0Q1lKEZq9yU
-	qXzYjN4g==;
+	bh=NuNdTfBRKHbZs0pq9qEm16VabkampCsi8zuWM9+u4LA=; b=nsUs7uQIGq+aI9EadBdrNPy7LW
+	RPFmJIAvIOfSJsphqZbEBFkDcrSG8gYUNVqsac1rEpa2CYOtCdnwtjxTNujptH6Yav7159itoIx/R
+	8E3ECcteik0dSXzKkCHSsMZ5mrAktcHoGYHBw/CFAuyhOi/c0kQetQjj1H385NWiRv2wkvCBfD3+P
+	isMGIHzjNKbw/iRZO6iApqr35+wWFBo2YCTJjnY7kAlXUe6taVatcvzDl+ae8OWQfG0RxCVMYXnOY
+	Tv+X4E8QOsI/xTL+HG2z4mx96CisUbyDwkzNVN8ToDmz9IMh8f/R/sEl3maRtoEd7P+3YG35GHwds
+	Ugkkr/aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkXRP-0000000DPig-24s0;
-	Tue, 27 Jan 2026 01:00:23 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vkXYx-0000000DQ2Z-41dU;
+	Tue, 27 Jan 2026 01:08:11 +0000
+Received: from mail-dl1-x122a.google.com ([2607:f8b0:4864:20::122a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkXRM-0000000DPhx-3o0q
+	id 1vkXYv-0000000DQ2D-2GkJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 01:00:22 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 60QKgxh0925414
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 01:00:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ED79bZ+N6386gyoOtfA0esj4+TJdCY9jaQYBeN+5W7E=; b=HVGt4FFjbj/3VHu4
-	xzK73t2cgsX5J4O2BpmRLKYiR751UJpO1Oh6hjO3KHz3/+CIRYP1VfdkExKqHea3
-	g7Kgr52yaYsLxAuL4QUhuSYUzwyzYJ2mXBE8ix1JFHQ5epijG2Zoz6x+zl6ucO73
-	XpJkv7J6QVftp5PejLwp36dl1dMyo/a65ivsdo4Q1ogvgKb4BJCw09x8XWvcd6uk
-	NYlce73KGvvUAaoIiTicA6KEJ3laOg3YO+ewoovXVm5GSHvVCCh7DDg2tOOhGIw1
-	QXaKsdyC+4Ouih1zQ5mOu3598bUAHwYp1IcCNei7wB7pwKUn58O+Vu150qNyGU8H
-	qIoTLw==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bxadpsmdu-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 01:00:20 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2a76f2d7744so46765345ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 17:00:20 -0800 (PST)
+	Tue, 27 Jan 2026 01:08:10 +0000
+Received: by mail-dl1-x122a.google.com with SMTP id a92af1059eb24-1233b953bebso12808624c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 26 Jan 2026 17:08:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1769475620; x=1770080420; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ED79bZ+N6386gyoOtfA0esj4+TJdCY9jaQYBeN+5W7E=;
-        b=S7WnMFRwvAx8jXlZKxsp2X9fzHsXZMguSeJ/HNexDLHvMsHX3HWcqHQ1LPQ8w22ILN
-         QTTilJIOYO/sdeF7eugDTuHoh2gkJp4QKewyd8McTTzrk1cTWV3xttvVrOAgiyeZMeL0
-         SaG6EXav5tUGp5PSZp6g7YAE5tn7UJX6xbiQt0xAI0fNssm1BsF0O1Cfcbx5t53YWtnH
-         LDaAvruQL+XiG/8i/uiQblSdww2cDelPYg9F/3JH+HVbeKh/Fpb2FjoHOKMiOaz67P8M
-         MjTCo4372Eg/9iiQcmzpLS+8XS5LsZrnXIBPllqMLmsUW1MkqCBLN4GO7W5NBx/Tmvfo
-         Xn/Q==
+        d=google.com; s=20230601; t=1769476088; x=1770080888; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=NuNdTfBRKHbZs0pq9qEm16VabkampCsi8zuWM9+u4LA=;
+        b=Hz3ZzhewsrmiasJ5Axa+GgJXYjL8kuXssHEIp0VfQzKODCIjNkkjW57YV/pEb8BmQf
+         PAcqSRDPepStQXOHk713xoFMTUeO04+teI/4AyqMXqf4fjm1CC0IGN/DjYIzc8fWkPDn
+         5Ch6ezlHK5MeILYmilOXnbTMZjPBMVTsNub1XKk0Uq8VlzaixbvoWksVrPhhg0+jViMH
+         +X2NNnuq1bAtOxG3Nm+Pt784qVMjLjyKtCBQFBRXj8dauJVHvAWLXlOx0jExKt9SizZA
+         DzXSSSypdmLCgWi43WFIsGGhP4+azdxSVqg4p7SG8oH6RE50TttjsQyrHXkvxH3kALI7
+         0MFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769475620; x=1770080420;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ED79bZ+N6386gyoOtfA0esj4+TJdCY9jaQYBeN+5W7E=;
-        b=RlSVOZCYkYgfJv2j4d9oeaXiGob6jKxwb473Kurkui2SAjHE1nSG9Ms0NzMzz5BEJ1
-         H4fkQ5Q69mNyyI3OLVIb9H6GrVxDgSBSAhuBMNT1vk1A3hW+PuBImswG19937IHTwucJ
-         xcwhDMe/Mk+B3yhkwcEptc6V33Msl9s8H4qW2899fPCTg64XnMvOZpQrDQALpHURgQLe
-         0qvp2FRAacSeZra5IHC4+UsfnYmxMq7kMmZ95dKNraAZ6B2YogaOgooERFuf4XgegAZ9
-         QGlzcewUkpmwq6HgwDGDU9PKv9u0aeUPsuhRuxmb/TnV9JJSIlEDoLR3K1/HNMADk3+9
-         5Bxw==
-X-Forwarded-Encrypted: i=1; AJvYcCX+KIlq8Ha5m48qXpRqTGPkUUjhB6Detlkxcgwo54tQlNN5eUhgJk8llmKEoFvhso2i3fIox7t1ZanI6fhc+yiS@lists.infradead.org
-X-Gm-Message-State: AOJu0YylY7bbavnkmpYbsDg3h/4dEzM8rPThyzzQgNQtW6f4sNu2lY8H
-	LfV8UHodLkkmKRbUFuh1/tEHcquXx+dRxrS5GTZYf9GUE1PzkuIS2fTwyI+7/NlgJeXFXU1XFzZ
-	v8FxZGjfEsJsyPZM3YM1rwlTNrn+NIOuQC15r156q4FpnVOQkLBOCFr0s/7MvB9RIpmsYJusR31
-	Vp6g==
-X-Gm-Gg: AZuq6aKrnIig3cJnwNaYyop8gI8l3qpEx3N4Ys2kEW+PIbI2XAJvl17bHvfgEM9CaJw
-	wxpJsZ6uwNlL5F9d0aZL1eBAxJ27qHTKPB49kiDo8/krQW8KMNgTfBOuB2DnVZbR5DyS8Y3kSTp
-	QtdIz+9i4kGuC+HQYRL0vjCQ8BQ5ToUoaF6TuKgtNXe426fIjLwWOJ6UPYSFTt/lPJljh2BklvC
-	D1DU5GhvBOwChu04DgttXtF/pZmXTdx4w30s4Lcs/zdycRNMhgViQDxtpU0KsjYwSM4Isv1k7g7
-	ECRAbOb19y4B5H0QqDu6ZAq0e18+oIZRAMqKv7Hyhcg2SDDktEvIXAr2H7onS8DO8bgQRtVELJ6
-	CGt+sQEHKVd388wixOvpOMdDwseqkUEJIXOx27OoljJPKVOJ7/11eqsIp/ihEFwrfs1hr2tKtqd
-	Q=
-X-Received: by 2002:a17:902:dad2:b0:2a3:bf5f:926b with SMTP id d9443c01a7336-2a870ddde7emr100275ad.47.1769475618857;
-        Mon, 26 Jan 2026 17:00:18 -0800 (PST)
-X-Received: by 2002:a17:902:dad2:b0:2a3:bf5f:926b with SMTP id d9443c01a7336-2a870ddde7emr99805ad.47.1769475618168;
-        Mon, 26 Jan 2026 17:00:18 -0800 (PST)
-Received: from [10.133.33.228] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a802dcd781sm98605985ad.24.2026.01.26.17.00.13
+        d=1e100.net; s=20230601; t=1769476088; x=1770080888;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NuNdTfBRKHbZs0pq9qEm16VabkampCsi8zuWM9+u4LA=;
+        b=ncg0IsGp3YC9V9bRur17fntBolyyCrFzsDhFreec48VOZlD+7YFe5o2ZBZzqPKUuMq
+         6cF2iAY8s6mebrh4t21tFwBwQP/NFTxTBc7e+N5oBx6fl84Di630DK5ldqDS9pr773tN
+         vq4mhhzJeSkEmNcPznlKWFocbtU3Wsj5PIDDdTh+UwS/MRJOEnWiK9OjPPqxe7J+0NjZ
+         AZQsotWXGa3IxMOcIbmBbGN23eGHAiih657p+bOP4kj+w1duZ52/DGRhEvlRgXZV9Tv4
+         aw9GBV3zBWhC8AxPrgxPsNom1hCaGZOIhyyO4zUnQ0vKMdOqs0GvAiy0go3SSLafmdOW
+         sbzg==
+X-Forwarded-Encrypted: i=1; AJvYcCVVEAt/gL4N3C3uUXOD3ZrHVD4lCbQAoyyM7rDwMGcW3C2qunGrOt8Yf/IS0+UROqfZGwACLZYdI6bWThOCGkpo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJK+aofg5I23aGmJC1W2n6Jnhdoyjyk5Y4XZWionwYJqtvWhMK
+	wb9G6cEOh31nw9q28RbDt2RBwnhqjJdGPgruEn39S8EbHIsfGMuQ3MTS7bYr1PSttQ==
+X-Gm-Gg: AZuq6aJK4mlR0tkn/KvuDAo9mp7TKW9qa4mdhKOb2XRpU6ljes3BZyuTLPEDJTAhh6d
+	yCFgPqTyx50UOb3k6DL6ZGP36qE665GLuCtUlS2NJBcAET0RMyFMPJst5SY8hv1Zl4O7eMKfOC3
+	kZqB9u3nHu7xdzTuNFK6WtMZWsrr9JlQw48hvTRNd7qiOnZCXSS/4d/N3vEtByN+9geysG6nd5p
+	qttvaTN2D/gXXDrplcxtvp1n7qCzQ79w6wqQl9TSqO0CGlBQ+ZelM19PonZYMIR1CDdfQTRK991
+	z9qWDc106jhFf8D2N1ztJAT1KBRNaCAlA++XcOfoEfBnpJivIaonAkEZKTqBfCqGRfDloaeVVKd
+	KRE7j1770RPNWDnBKvpbbrE9G+HYfz1NXDROM2mypb8or0nsrD7bZ8Ivx7tZjn/1dEZ6nX1p68l
+	scbiFKq7Hvqx4HqJcLTwzv0YZ0AQrZKexCY3BUyQ/I+1PleKLlIEhhz4wWpL/zEsbMVGHoXKpYJ
+	DfMSHlveK9MQw==
+X-Received: by 2002:a05:7022:2485:b0:119:e56b:c73d with SMTP id a92af1059eb24-124a006801fmr22088c88.2.1769476087269;
+        Mon, 26 Jan 2026 17:08:07 -0800 (PST)
+Received: from ?IPV6:2a00:79e0:2e7c:8:8902:a6ab:edb7:522b? ([2a00:79e0:2e7c:8:8902:a6ab:edb7:522b])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1247d91c52bsm22164484c88.6.2026.01.26.17.08.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 26 Jan 2026 17:00:17 -0800 (PST)
-Message-ID: <bb391648-c7ab-4c43-8bea-c0fe1b6c3e13@oss.qualcomm.com>
-Date: Tue, 27 Jan 2026 09:00:13 +0800
+        Mon, 26 Jan 2026 17:08:06 -0800 (PST)
+Message-ID: <ff8d1c62-3bb3-4026-b69e-db26e939aa28@google.com>
+Date: Mon, 26 Jan 2026 17:08:04 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 4/8] coresight: etr: refactor the
- tmc_etr_get_catu_device function
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org
-References: <20260122-enable-byte-cntr-for-ctcu-v10-0-22978e3c169f@oss.qualcomm.com>
- <20260122-enable-byte-cntr-for-ctcu-v10-4-22978e3c169f@oss.qualcomm.com>
- <c046085f-82e8-4a77-93be-c2a8d59db97e@arm.com>
+Subject: Re: [PATCH v4 4/5] power: supply: max77759: add charger driver
+From: Amit Sunil Dhamne <amitsd@google.com>
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Badhri Jagan Sridharan <badhri@google.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
+References: <20260121-max77759-charger-v4-0-694234c8ded1@google.com>
+ <20260121-max77759-charger-v4-4-694234c8ded1@google.com>
+ <71d816c5ed4ee2d13ec63b8fd4acd49f4e418284.camel@linaro.org>
+ <bf3bd5f7-28e1-4fe3-afca-34f12b2cede8@google.com>
 Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <c046085f-82e8-4a77-93be-c2a8d59db97e@arm.com>
+In-Reply-To: <bf3bd5f7-28e1-4fe3-afca-34f12b2cede8@google.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: C7UylFUEBKIvScK7ECaRARhVBQ7NqrQS
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI3MDAwNiBTYWx0ZWRfXyAe2+Y+/QXyQ
- 52PQ+xkkGgpRGfMVTEIQ8IlGF109IRUswAE46oXGhcaza9P7TyTV6IBo6OgSnqT94YRC1VBByjm
- rLvNP+sN8jqFKTKXfUam2QGNdNGO59tJZ4kLyrLRfYa+1iDyJVdN+VOqeyjqcpDa6kcuy6Gw/U1
- 2TgFtTRebPjKnKmYChyhTFwzR1HsGcIroZXquTiT1Qayd/yxnTvoKgOTlR9z2f8fukUBFHItMU2
- LSAap/E2S506xvsuychVKiG+LyIwRUqBAvX92mUcBEsHgUekH6df6We5uWFw3Hk2krMg1lpXQfw
- 8nDoF8PaHyKyvVgT+tytgsCAc8HPFzA7oxXjsaUftpeQLKCaOnC9jsbZ55yMXyWzuL2+/wdwj2/
- ke5eXK3w2PJhDyCIFUM4EXOlUij1wUShCmAwxHATsSyFpdx2nE1gjFZKrzuRXJJNcuAjoieOdNF
- XzrsltP78SjGeCQAJ/g==
-X-Authority-Analysis: v=2.4 cv=GvdPO01C c=1 sm=1 tr=0 ts=69780e24 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=JWV3lzYn8tzaYNbzfnMA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-GUID: C7UylFUEBKIvScK7ECaRARhVBQ7NqrQS
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.20,FMLib:17.12.100.49
- definitions=2026-01-26_04,2026-01-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 priorityscore=1501 malwarescore=0 spamscore=0 phishscore=0
- lowpriorityscore=0 clxscore=1015 bulkscore=0 impostorscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2601150000 definitions=main-2601270006
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_170020_955442_88857908 
-X-CRM114-Status: GOOD (  27.99  )
+X-CRM114-CacheID: sfid-20260126_170809_598699_CB80CBCA 
+X-CRM114-Status: GOOD (  42.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,137 +115,317 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andre',
+
+On 1/22/26 4:07 PM, Amit Sunil Dhamne wrote:
+> Hi Andre',
+>
+> On 1/22/26 4:47 AM, André Draszik wrote:
+>> Hi Amit,
+>>
+>> Thanks for your patches, just a few minor comments below.
+>
+> Thanks for your feedback!
+>
+>
+>>
+>> On Wed, 2026-01-21 at 00:59 +0000, Amit Sunil Dhamne via B4 Relay wrote:
+>>> From: Amit Sunil Dhamne <amitsd@google.com>
+>>>
+>>> Add support for MAX77759 battery charger driver. This is a 4A 1-Cell
+>>> Li+/LiPoly dual input switch mode charger. While the device can support
+>>> USB & wireless charger inputs, this implementation only supports USB
+>>> input. This implementation supports both buck and boost modes.
+>>>
+>>> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+>>> ---
+>>>   MAINTAINERS                             |   6 +
+>>>   drivers/power/supply/Kconfig            |  11 +
+>>>   drivers/power/supply/Makefile           |   1 +
+>>>   drivers/power/supply/max77759_charger.c | 737 
+>>> ++++++++++++++++++++++++++++++++
+>>>   4 files changed, 755 insertions(+)
+>>>
+>>> diff --git a/MAINTAINERS b/MAINTAINERS
+>>> index 
+>>> 0d044a58cbfe0f2b97f3682a86708e1ece108e9f..38354964a85c34611b1b54e20651b360f3b9c11e 
+>>> 100644
+>>> --- a/MAINTAINERS
+>>> +++ b/MAINTAINERS
+>>> @@ -15546,6 +15546,12 @@ F:    drivers/mfd/max77759.c
+>>>   F:    drivers/nvmem/max77759-nvmem.c
+>>>   F:    include/linux/mfd/max77759.h
+>>>   +MAXIM MAX77759 BATTERY CHARGER DRIVER
+>>> +M:    Amit Sunil Dhamne <amitsd@google.com>
+>>> +L:    linux-kernel@vger.kernel.org
+>>> +S:    Maintained
+>>> +F:    drivers/power/supply/max77759_charger.c
+>>> +
+>>>   MAXIM MAX77802 PMIC REGULATOR DEVICE DRIVER
+>>>   M:    Javier Martinez Canillas <javier@dowhile0.org>
+>>>   L:    linux-kernel@vger.kernel.org
+>>> diff --git a/drivers/power/supply/Kconfig 
+>>> b/drivers/power/supply/Kconfig
+>>> index 
+>>> 92f9f7aae92f249aa165e68dbcd4cebb569286ea..3a2cdb95c98e44324151ac2b86d740ae2923ee77 
+>>> 100644
+>>> --- a/drivers/power/supply/Kconfig
+>>> +++ b/drivers/power/supply/Kconfig
+>>> @@ -631,6 +631,17 @@ config CHARGER_MAX77705
+>>>       help
+>>>         Say Y to enable support for the Maxim MAX77705 battery charger.
+>>>   +config CHARGER_MAX77759
+>>> +    tristate "Maxim MAX77759 battery charger driver"
+>>> +    depends on MFD_MAX77759 && REGULATOR
+>>> +    default MFD_MAX77759
+>>> +    help
+>>> +      Say M or Y here to enable the MAX77759 battery charger. MAX77759
+>>> +      charger is a function of the MAX77759 PMIC. This is a dual input
+>>> +      switch-mode charger. This driver supports buck and OTG boost 
+>>> modes.
+>>> +
+>>> +      If built as a module, it will be called max77759_charger.
+>>> +
+>>>   config CHARGER_MAX77976
+>>>       tristate "Maxim MAX77976 battery charger driver"
+>>>       depends on I2C
+>>> diff --git a/drivers/power/supply/Makefile 
+>>> b/drivers/power/supply/Makefile
+>>> index 
+>>> 4b79d5abc49a7fd1e37a26d0c89f94d9fe3a916f..6af905875ad5e3b393a7030405355b9a975870f6 
+>>> 100644
+>>> --- a/drivers/power/supply/Makefile
+>>> +++ b/drivers/power/supply/Makefile
+>>> @@ -128,3 +128,4 @@ obj-$(CONFIG_CHARGER_SURFACE)    += 
+>>> surface_charger.o
+>>>   obj-$(CONFIG_BATTERY_UG3105)    += ug3105_battery.o
+>>>   obj-$(CONFIG_CHARGER_QCOM_SMB2)    += qcom_smbx.o
+>>>   obj-$(CONFIG_FUEL_GAUGE_MM8013)    += mm8013.o
+>>> +obj-$(CONFIG_CHARGER_MAX77759)    += max77759_charger.o
+>>> diff --git a/drivers/power/supply/max77759_charger.c 
+>>> b/drivers/power/supply/max77759_charger.c
+>>> new file mode 100644
+>>> index 
+>>> 0000000000000000000000000000000000000000..34b5ea0967eb7b4716e81ee1a55227ac872493b0
+>>> --- /dev/null
+>>> +++ b/drivers/power/supply/max77759_charger.c
+>>> @@ -0,0 +1,737 @@
+>>> +// SPDX-License-Identifier: GPL-2.0-only
+>>> +/*
+>>> + * max77759_charger.c - Battery charger driver for MAX77759 charger 
+>>> device.
+>>> + *
+>>> + * Copyright 2025 Google LLC.
+>>> + */
+>>> +
+>>> +#include <linux/bitfield.h>
+>>> +#include <linux/cleanup.h>
+>>> +#include <linux/device.h>
+>>> +#include <linux/devm-helpers.h>
+>>> +#include <linux/interrupt.h>
+>>> +#include <linux/irq.h>
+>>> +#include <linux/math64.h>
+>>> +#include <linux/mfd/max77759.h>
+>>> +#include <linux/module.h>
+>>> +#include <linux/mod_devicetable.h>
+>>> +#include <linux/mutex.h>
+>>> +#include <linux/of.h>
+>>> +#include <linux/platform_device.h>
+>>> +#include <linux/power_supply.h>
+>>> +#include <linux/regmap.h>
+>>> +#include <linux/regulator/driver.h>
+>>> +#include <linux/string_choices.h>
+>>> +
+>>> +/* Default values for Fast Charge Current & Float Voltage */
+>>> +#define CHG_CC_DEFAULT_UA            2266770
+>>> +#define CHG_FV_DEFAULT_MV            4300
+>>> +
+>>> +#define FOREACH_IRQ(S)            \
+>>> +    S(AICL),            \
+>>> +    S(CHGIN),            \
+>>> +    S(CHG),                \
+>>> +    S(INLIM),            \
+>>> +    S(BAT_OILO),            \
+>>> +    S(CHG_STA_CC),            \
+>>> +    S(CHG_STA_CV),            \
+>>> +    S(CHG_STA_TO),            \
+>>> +    S(CHG_STA_DONE)
+>>> +
+>>> +#define GENERATE_ENUM(e)        e
+>>> +#define GENERATE_STRING(s)        #s
+>>> +
+>>> +enum {
+>>> +    FOREACH_IRQ(GENERATE_ENUM)
+>>> +};
+>>> +
+>>> +static const char *const chgr_irqs_str[] = {
+>>> +    FOREACH_IRQ(GENERATE_STRING)
+>>> +};
+>>> +
+>>> +#define NUM_IRQS            ARRAY_SIZE(chgr_irqs_str)
+>>> +
+>>> +struct max77759_charger {
+>>> +    struct device *dev;
+>>> +    struct regmap *regmap;
+>>> +    struct power_supply *psy;
+>>> +    struct regulator_dev *chgin_otg_rdev;
+>>> +    struct notifier_block nb;
+>>> +    struct power_supply *tcpm_psy;
+>>> +    struct work_struct psy_work;
+>>> +    int irqs[NUM_IRQS];
+>>> +    struct mutex lock; /* protects the state below */
+>>> +    enum max77759_chgr_mode mode;
+>>> +};
+>>> +
+>>> +static inline int regval_to_val(int reg, int reg_offset, int step, 
+>>> int minval)
+>>> +{
+>>> +    return ((reg - reg_offset) * step) + minval;
+>>> +}
+>>> +
+>>> +static inline int val_to_regval(int val, int minval, int step, int 
+>>> reg_offset)
+>>> +{
+>>> +    s64 dividend;
+>>> +
+>>> +    if (unlikely(step == 0))
+>>> +        return reg_offset;
+>> Does it really make an impact on performance to specify unlikely? 
+>> Also, I seem to
+>> remember that the if branch is treated as unlikely anyway, but can't 
+>> find any hard
+>> evidence on that right now.
+>
+> I was hoping it's performance improving even if negligible, though I 
+> don't have evidence to support either arguments. In any case, I kept 
+> it for readability.
+>
+>
+>>
+>>> +
+>>> +    dividend = (s64)val - minval;
+>>> +    return DIV_S64_ROUND_CLOSEST(dividend, step) + reg_offset;
+>>> +}
+>> For these two functions above, have you considered using the APIs from
+>> include/linux/linear_range.h instead of duplicating in this driver? The
+>> implementations of the above match linear_range_get_value() and
+>> linear_range_get_selector_low() quite nicely.
+>
+> I think it looks useful, will check it out.
+>
+>
+>>> +
+>>> +static inline int unlock_prot_regs(struct max77759_charger *chg, 
+>>> bool unlock)
+>>> +{
+>>> +    return regmap_update_bits(chg->regmap, 
+>>> MAX77759_CHGR_REG_CHG_CNFG_06,
+>>> +                  MAX77759_CHGR_REG_CHG_CNFG_06_CHGPROT, unlock
+>>> +                  ? MAX77759_CHGR_REG_CHG_CNFG_06_CHGPROT : 0);
+>>> +}
+>>> +
+>> [...]
+>>
+>>> +static irqreturn_t irq_handler(int irq, void *data)
+>>> +{
+>>> +    struct max77759_charger *chg = data;
+>>> +    struct device *dev = chg->dev;
+>>> +    int i;
+>>> +
+>>> +    for (i = 0; i < NUM_IRQS && chg->irqs[i] != irq; i++)
+>>> +        ;
+>>> +
+>>> +    if (i == NUM_IRQS) {
+>>> +        dev_err(dev, "Unable to handle irq=%d", irq);
+>>> +        return IRQ_NONE;
+>>> +    } else if (i == BAT_OILO) {
+>>> +        dev_warn(dev, "Battery over-current threshold crossed");
+>>> +    }
+>> Generally, no 'else' is required after return.
+>
+> I will refactor it in the next rev.
+>
+>
+>>> +
+>>> +    power_supply_changed(chg->psy);
+>>> +    return IRQ_HANDLED;
+>>> +}
+>>> +
+>> [...]
+>>
+>>> +static void psy_work_item(struct work_struct *work)
+>>> +{
+>>> +    struct max77759_charger *chg =
+>>> +        container_of(work, struct max77759_charger, psy_work);
+>>> +    union power_supply_propval current_limit, online;
+>>> +    int ret;
+>>> +
+>>> +    ret = power_supply_get_property(chg->tcpm_psy,
+>>> +                    POWER_SUPPLY_PROP_CURRENT_MAX,
+>>> +                    &current_limit);
+>>> +    if (ret) {
+>>> +        dev_err(chg->dev,
+>>> +            "Failed to get CURRENT_MAX psy property, ret=%d",
+>>> +            ret);
+>>> +        return;
+>>> +    }
+>>> +
+>>> +    ret = power_supply_get_property(chg->tcpm_psy, 
+>>> POWER_SUPPLY_PROP_ONLINE,
+>>> +                    &online);
+>>> +    if (ret) {
+>>> +        dev_err(chg->dev,
+>>> +            "Failed to get ONLINE psy property, ret=%d",
+>>> +            ret);
+>>> +        return;
+>>> +    }
+>>> +
+>>> +    if (online.intval && current_limit.intval) {
+>>> +        ret = set_input_current_limit(chg, current_limit.intval);
+>>> +        if (ret)
+>>> +            dev_err(chg->dev,
+>>> +                "Unable to set current limit, ret=%d", ret);
+>>> +
+>>> +        charger_set_mode(chg, MAX77759_CHGR_MODE_CHG_BUCK_ON);
+>>> +    } else {
+>>> +        charger_set_mode(chg, MAX77759_CHGR_MODE_OFF);
+>>> +    }
+>> For all the possible errors in this function, should the driver try a 
+>> bit
+>> harder, even if unlikely to occur?
+>
+> Maybe we can do this:
+>
+> On failure of either of the power_supply_get_property() calls or 
+> set_input_current_limit(), we should first turn off the charger (as 
+> that's the safest choice) and reschedule this work for a certain 
+> number of times (maybe 3). Obviously, if we recover from this state, 
+> we reset the error limit and don't reschedule this work anymore. Do 
+> you concur?
+>
+>
+>> What if the current limit needed to be
+>> reduced, e.g. due to thermal or any other reasons?
+>
+> This specific piece of code is for setting current limit that is 
+> driven by USB Type-C subsystem. If the Type-C subsystem re-negotiates 
+> a PD contract this piece of code will re-run as this subsystem will be 
+> re-notified by TCPM. For cases where we need to cap the current limit 
+> due to thermal management, that's a hardware driven feature. It is 
+> enabled by enabling JEITA management. That's not in the scope atm.
+>
+>
+>>
+>> Could rescheduling the work be something to consider?
+>>
+> Responded in the previous comment.. 
 
 
-On 1/27/2026 12:10 AM, Suzuki K Poulose wrote:
-> On 22/01/2026 02:08, Jie Gan wrote:
->> Refactor tmc_etr_get_catu_device to retrieve the helper device connected
->> to the TMC ETR based on helper_subtype.
-> 
-> Please could you leave this as it is and add :
-> 
-> tmc_etr_get_ctcu_device() ?
-> 
-> It doesn't make much sense to refactor something that is a wrapper for
-> a generic function. Please avoid un-necessary abstraction
+Following up on this comment, in case you missed it :)
 
-Well noted. Will fix it in the next version.
 
 Thanks,
-Jie
 
-> 
-> Suzuki
-> 
-> 
->>
->> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->> ---
->>   drivers/hwtracing/coresight/coresight-catu.c    |  3 ++-
->>   drivers/hwtracing/coresight/coresight-tmc-etr.c | 32 +++++++++++++++ 
->> +---------
->>   drivers/hwtracing/coresight/coresight-tmc.h     |  3 ++-
->>   3 files changed, 25 insertions(+), 13 deletions(-)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/ 
->> hwtracing/coresight/coresight-catu.c
->> index 69b36bae97ab..d3972619cc96 100644
->> --- a/drivers/hwtracing/coresight/coresight-catu.c
->> +++ b/drivers/hwtracing/coresight/coresight-catu.c
->> @@ -334,7 +334,8 @@ static int catu_alloc_etr_buf(struct tmc_drvdata 
->> *tmc_drvdata,
->>       struct tmc_sg_table *catu_table;
->>       struct catu_etr_buf *catu_buf;
->> -    csdev = tmc_etr_get_catu_device(tmc_drvdata);
->> +    csdev = tmc_etr_get_helper_device(tmc_drvdata,
->> +            CORESIGHT_DEV_SUBTYPE_HELPER_CATU);
->>       if (!csdev)
->>           return -ENODEV;
->>       catu_buf = kzalloc(sizeof(*catu_buf), GFP_KERNEL);
->> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/ 
->> drivers/hwtracing/coresight/coresight-tmc-etr.c
->> index cbbb15648fb7..16a4562533d5 100644
->> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> @@ -844,28 +844,37 @@ static const struct etr_buf_operations 
->> etr_sg_buf_ops = {
->>   };
->>   /*
->> - * TMC ETR could be connected to a CATU device, which can provide 
->> address
->> - * translation service. This is represented by the Output port of the 
->> TMC
->> - * (ETR) connected to the input port of the CATU.
->> + * TMC ETR could be connected to the helper device, which can provide 
->> address
->> + * translation service(CATU) or data filter function(CTCU). This is 
->> represented
->> + * by the Output port of the TMC (ETR) connected to the input port of 
->> the helper.
->>    *
->> - * Returns    : coresight_device ptr for the CATU device if a CATU is 
->> found.
->> + * @drvdata    : drvdata of the TMC device
->> + * @subtype    : helper_subtype of the helper device
->> + *
->> + * Returns    : coresight_device ptr for the helper device if a 
->> helper is found.
->>    *        : NULL otherwise.
->>    */
->>   struct coresight_device *
->> -tmc_etr_get_catu_device(struct tmc_drvdata *drvdata)
->> +tmc_etr_get_helper_device(struct tmc_drvdata *drvdata,
->> +              enum coresight_dev_subtype_helper subtype)
->>   {
->>       struct coresight_device *etr = drvdata->csdev;
->> -    union coresight_dev_subtype catu_subtype = {
->> -        .helper_subtype = CORESIGHT_DEV_SUBTYPE_HELPER_CATU
->> +    union coresight_dev_subtype helper_subtype = {
->> +        .helper_subtype = subtype
->>       };
->> -    if (!IS_ENABLED(CONFIG_CORESIGHT_CATU))
->> +
->> +    if (subtype == CORESIGHT_DEV_SUBTYPE_HELPER_CATU &&
->> +        !IS_ENABLED(CONFIG_CORESIGHT_CATU))
->> +        return NULL;
->> +    else if (subtype == CORESIGHT_DEV_SUBTYPE_HELPER_CTCU &&
->> +         !IS_ENABLED(CONFIG_CORESIGHT_CTCU))
->>           return NULL;
->>       return coresight_find_output_type(etr->pdata, 
->> CORESIGHT_DEV_TYPE_HELPER,
->> -                      catu_subtype);
->> +                      helper_subtype);
->>   }
->> -EXPORT_SYMBOL_GPL(tmc_etr_get_catu_device);
->> +EXPORT_SYMBOL_GPL(tmc_etr_get_helper_device);
->>   static const struct etr_buf_operations *etr_buf_ops[] = {
->>       [ETR_MODE_FLAT] = &etr_flat_buf_ops,
->> @@ -913,7 +922,8 @@ static void get_etr_buf_hw(struct device *dev, 
->> struct etr_buf_hw *buf_hw)
->>       buf_hw->has_iommu = iommu_get_domain_for_dev(dev->parent);
->>       buf_hw->has_etr_sg = tmc_etr_has_cap(drvdata, TMC_ETR_SG);
->> -    buf_hw->has_catu = !!tmc_etr_get_catu_device(drvdata);
->> +    buf_hw->has_catu = !!tmc_etr_get_helper_device(drvdata,
->> +            CORESIGHT_DEV_SUBTYPE_HELPER_CATU);
->>       buf_hw->has_resrv = tmc_has_reserved_buffer(drvdata);
->>   }
->> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/ 
->> hwtracing/coresight/coresight-tmc.h
->> index c9a82ff6cd00..7690a70069da 100644
->> --- a/drivers/hwtracing/coresight/coresight-tmc.h
->> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
->> @@ -471,7 +471,8 @@ static inline uint32_t 
->> find_crash_tracedata_crc(struct tmc_drvdata *drvdata,
->>       return crc32_le(0, (void *)drvdata->resrv_buf.vaddr, crc_size);
->>   }
->> -struct coresight_device *tmc_etr_get_catu_device(struct tmc_drvdata 
->> *drvdata);
->> +struct coresight_device *tmc_etr_get_helper_device(struct tmc_drvdata 
->> *drvdata,
->> +                           enum coresight_dev_subtype_helper subtype);
->>   void tmc_etr_set_catu_ops(const struct etr_buf_operations *catu);
->>   void tmc_etr_remove_catu_ops(void);
->>
-> 
+Amit
 
 
