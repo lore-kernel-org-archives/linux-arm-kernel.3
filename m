@@ -4,77 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1BADD2D8D7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 951DCD2D8DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VgQLBYdaBLsV7XdMtsuWrxbTkhZ5fbzB2RW3PJGiHIM=; b=ya24OwJ6gzxXn69yo2uN/QmVMN
-	IvU3RdOwndLCJenQlxdXqsq4wIH6OWj4fLc+NHgg4hYGUVJRt6ovJRLSMX+0xuN88XACXhekPSlEO
-	juA14VayMxTLOL6/pooavueLly4vqwAeeEkikC2CJ6CIp3YdSoUx6DZuOeFFqs1w7Cy76S9Z+uZWo
-	dL3is4DyVc1Umb90P1v3oUQ5kRG09KiMa4OcnMDq30q7crjvD1cXWu86/pTGLwUBpA099qxZxOTsJ
-	DOtFSXQlS6fV/avl9HXqQ4nblz3Sja1vohM6efYjjFUn+gikGWMfGlGM6RbheKNtZVEBBcfodhe5f
-	HPibjorw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K9BRXD6u102i8KmtBGdD6Hf/CV2DiVu2ws9RdFo07z0=; b=aORTMatnia7jdzTVf6qvnEy46m
+	MMXJguqV65yaZ3HR+Thv94ff6DgLbNUjoDVC27j8m0KDaqm3iFDruszM69QFx6jJqalGYbAPWHOyr
+	NYwtnf1rmo3r3zTp+gPrChNYQLXd0FLmn7U8u9/Qux4us69c+PPRtir1jEO96tp2U8YExpqk1zR1Z
+	W0z2uyHkSllJ1cI7hNVcybWlgzZnmIAfzgUChkLuNnQihIc98v408LtRaxMJQf2YO8HU2ZxUSdHcz
+	zimJopKfOXV7QY/EKRFNvV4L2Mz2N094GDhC7JjW7iFFAebf9g8nc+lg66PA8IdN62xOWRTRjeC4/
+	PDiqtWYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfdj-0000000DzG1-18ZQ;
-	Tue, 27 Jan 2026 09:45:39 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfde-0000000DzF2-1sqo
+	id 1vkfe3-0000000DzK0-2gS6;
+	Tue, 27 Jan 2026 09:45:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkfe0-0000000DzJ1-2t4D
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 09:45:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769507134; x=1801043134;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=eG5ZRYyzkE/oygVVdcqghq8ygosS9UgM1FrIOdTY1RE=;
-  b=SlNmJfu9MzTmQOXnDDiCY5Z+fuqpRGlDo0tcke4OOSOZ2KpIg5/KGm1V
-   1t1Oqfc5hP7U0/RQ/up4gSitEcW/9LaHoY+1bHhjtzijjKntnT66c1lz/
-   OQz8Xh+CqkD9sqRIULwN5FT3UPXCRjDxU7tastq0nlPxJXnrbuYauI1aO
-   BsR1mki4ETRIxFS6UJ/3SaepIAo5bGwm4XN4jFDNUtKfMbXY6mCcHM+Xg
-   pKcXzb89OijCme7+78+5ymdg25kZqLZOql3ZI29uT5K10V10HRXx+wscw
-   bV93ceKwmwDgDN5CiRiYTZVzY5vdNERvOWTTL21A/q/LUnTc/vK/0BW/I
-   w==;
-X-CSE-ConnectionGUID: UD0DV6P1Q0aqkgWMjH7ROg==
-X-CSE-MsgGUID: J/0LVIsNQnekWo+yPfzMjQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11683"; a="81331362"
-X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
-   d="scan'208";a="81331362"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:45:34 -0800
-X-CSE-ConnectionGUID: +rUZ+MEEQNONIbN5/OPhag==
-X-CSE-MsgGUID: 7J5wmYIuQdqhPUw5ch/tPA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
-   d="scan'208";a="212909430"
-Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.248])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:45:31 -0800
-Date: Tue, 27 Jan 2026 11:45:28 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: abdurrahman@nexthop.ai
-Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, info@mocean-labs.com,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v5 0/6] i2c: xiic: use generic device property accessors
-Message-ID: <aXiJOBaN12bo_BR-@smile.fi.intel.com>
-References: <20260126-i2c-xiic-v5-0-88a16a28721c@nexthop.ai>
+	Tue, 27 Jan 2026 09:45:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 71EA51595;
+	Tue, 27 Jan 2026 01:45:49 -0800 (PST)
+Received: from [10.57.94.246] (unknown [10.57.94.246])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 283343F632;
+	Tue, 27 Jan 2026 01:45:54 -0800 (PST)
+Message-ID: <4965fa08-ce01-4848-bc30-5cc1b745683f@arm.com>
+Date: Tue, 27 Jan 2026 09:45:52 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260126-i2c-xiic-v5-0-88a16a28721c@nexthop.ai>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 03/10] arm64: mm: Permit contiguous descriptors to be
+ rewritten
+Content-Language: en-GB
+To: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
+ catalin.marinas@arm.com, mark.rutland@arm.com,
+ Ard Biesheuvel <ardb@kernel.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
+ Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
+References: <20260126092630.1800589-12-ardb+git@google.com>
+ <20260126092630.1800589-15-ardb+git@google.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260126092630.1800589-15-ardb+git@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_014534_694412_F9E26D8B 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20260127_014556_775590_7A3ACC70 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,21 +70,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 05:08:15PM +0000, Abdurrahman Hussain via B4 Relay wrote:
-> Switch to generic device property accessors.
+On 26/01/2026 09:26, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
 > 
-> Switch to managed devm_ functions to simplify error handling.
+> Currently, pgattr_change_is_safe() is overly pedantic when it comes to
+> descriptors with the contiguous hint attribute set, as it rejects
+> assignments even if the old and the new value are the same.
 > 
-> Make the clock optional since the driver is designed to operate without
-> explicit configuration in firmware thus making it useful on platforms
-> where clock is not or cannot be provided.
+> So relax the check to allow that.
 
-Overall looks good, needs some nit-picks to be addressed.
-I hope v6 will manage to go in soon.
+But why do we require the relaxation? Why are we re-writing a PTE in the first
+place? Either the caller already knows it's the same in which case it can be
+avoided, or it doesn't know in which case it is accidentally the same and couple
+probably just as easily been accidentally different? So it's better to warn
+regardless I would think?
 
--- 
-With Best Regards,
-Andy Shevchenko
+I'm sure I'll get to the patch where this matters and change my mind :)
 
+> 
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  arch/arm64/mm/mmu.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index c36422a3fae2..9d39de3cfe67 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -141,7 +141,7 @@ bool pgattr_change_is_safe(pteval_t old, pteval_t new)
+>  		return false;
+>  
+>  	/* live contiguous mappings may not be manipulated at all */
+> -	if ((old | new) & PTE_CONT)
+> +	if ((old | new) & PTE_CONT && old != new)
+>  		return false;
+>  
+>  	/* Transitioning from Non-Global to Global is unsafe */
 
 
