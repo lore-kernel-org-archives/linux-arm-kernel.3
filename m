@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32869D2D8D4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1BADD2D8D7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:45:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LYavw6x53D+W7due+b8gS5tyQNfFTRfLXC6wxOL1kAQ=; b=PQoxa6xQf/Hru9bswZinHpXdLA
-	9kTKETW1aVqln17JIhtSmWxNz8ANOCCQ0UXQ/RXJ7GIS3sE2fnWpSqrslRkgElnPwjqUHsu7zY9Iz
-	j1EShCySvEbOhvbVodOXudn3NgscoJ0+G5hSXbHq9tfZgju9+M3SHT8raEGaA/X1SoYo3n6PkpeSN
-	NRaeAvVGUUo7jEVJbktaWPDjnGBQAm3UATsKtEIamuBfidxEjnV/YT7c0g5eifI/a5actzzpsk9SM
-	gPMTv4uxKTQ+COIUkWyLmPY8ZyAgwc6YQocwwu1XOtP2vMwNPoO4hzpt3PGYSd5FjhjlBMbQuUcU+
-	JVkHYwbw==;
+	bh=VgQLBYdaBLsV7XdMtsuWrxbTkhZ5fbzB2RW3PJGiHIM=; b=ya24OwJ6gzxXn69yo2uN/QmVMN
+	IvU3RdOwndLCJenQlxdXqsq4wIH6OWj4fLc+NHgg4hYGUVJRt6ovJRLSMX+0xuN88XACXhekPSlEO
+	juA14VayMxTLOL6/pooavueLly4vqwAeeEkikC2CJ6CIp3YdSoUx6DZuOeFFqs1w7Cy76S9Z+uZWo
+	dL3is4DyVc1Umb90P1v3oUQ5kRG09KiMa4OcnMDq30q7crjvD1cXWu86/pTGLwUBpA099qxZxOTsJ
+	DOtFSXQlS6fV/avl9HXqQ4nblz3Sja1vohM6efYjjFUn+gikGWMfGlGM6RbheKNtZVEBBcfodhe5f
+	HPibjorw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfcq-0000000Dz2k-1kl6;
-	Tue, 27 Jan 2026 09:44:44 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1vkfdj-0000000DzG1-18ZQ;
+	Tue, 27 Jan 2026 09:45:39 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfcl-0000000Dz1A-0RZD
+	id 1vkfde-0000000DzF2-1sqo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 09:44:42 +0000
+	Tue, 27 Jan 2026 09:45:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1769507079; x=1801043079;
+  t=1769507134; x=1801043134;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=jPvLZnphMdcVN/l/3xsINCKdek0m9norh4P5F7hOiDI=;
-  b=Z2nNllUnUU0kPJ87c8W6YDULEOR1VRWKCQ17XsYMZeEH2qVbxKvwFD6j
-   FtwtAWSx+EsirLE5Q56XDo1GQiIdQT79phZDdP7A6YDJq1dKN9WaB7Qau
-   VTvOrQYI/7ANlf2fIC7urt5RPRDU0RtItMTpEeQofwIOI5w1+sApjNXo0
-   NCrOFjosZhhGVVy/iK3uSDRWOD+qekUzR5HaAKWNi6UDB2E7fwa03K+10
-   UUnwgzAJU8mjRpSmDvGdUpXsMow3nbd2Vy5r8x6dZn0QFV0BnllXlwGkd
-   L81uVOCR9wkzVzFlJ0PtRsoXVkwTmHuC1ENXMJ5Nr0C0uvqBhYF8rxQmR
-   A==;
-X-CSE-ConnectionGUID: Ade1BYw8QXSySG92T6eYPA==
-X-CSE-MsgGUID: 6l/Q75feR6S9C9JZUEXxcQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11683"; a="70416856"
+  bh=eG5ZRYyzkE/oygVVdcqghq8ygosS9UgM1FrIOdTY1RE=;
+  b=SlNmJfu9MzTmQOXnDDiCY5Z+fuqpRGlDo0tcke4OOSOZ2KpIg5/KGm1V
+   1t1Oqfc5hP7U0/RQ/up4gSitEcW/9LaHoY+1bHhjtzijjKntnT66c1lz/
+   OQz8Xh+CqkD9sqRIULwN5FT3UPXCRjDxU7tastq0nlPxJXnrbuYauI1aO
+   BsR1mki4ETRIxFS6UJ/3SaepIAo5bGwm4XN4jFDNUtKfMbXY6mCcHM+Xg
+   pKcXzb89OijCme7+78+5ymdg25kZqLZOql3ZI29uT5K10V10HRXx+wscw
+   bV93ceKwmwDgDN5CiRiYTZVzY5vdNERvOWTTL21A/q/LUnTc/vK/0BW/I
+   w==;
+X-CSE-ConnectionGUID: UD0DV6P1Q0aqkgWMjH7ROg==
+X-CSE-MsgGUID: J/0LVIsNQnekWo+yPfzMjQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11683"; a="81331362"
 X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
-   d="scan'208";a="70416856"
+   d="scan'208";a="81331362"
 Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:44:38 -0800
-X-CSE-ConnectionGUID: 8UUpICqfQcST4/sJ1x6n/g==
-X-CSE-MsgGUID: k0n/UH1wQ0meFryrjQEfTQ==
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:45:34 -0800
+X-CSE-ConnectionGUID: +rUZ+MEEQNONIbN5/OPhag==
+X-CSE-MsgGUID: 7J5wmYIuQdqhPUw5ch/tPA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
-   d="scan'208";a="212909062"
+   d="scan'208";a="212909430"
 Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.248])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:44:35 -0800
-Date: Tue, 27 Jan 2026 11:44:32 +0200
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:45:31 -0800
+Date: Tue, 27 Jan 2026 11:45:28 +0200
 From: Andy Shevchenko <andriy.shevchenko@intel.com>
 To: abdurrahman@nexthop.ai
 Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
@@ -63,19 +63,18 @@ Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, info@mocean-labs.com,
 	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v5 6/6] i2c: xiic: cosmetic cleanup
-Message-ID: <aXiJADHPJ0NXLVNa@smile.fi.intel.com>
+Subject: Re: [PATCH v5 0/6] i2c: xiic: use generic device property accessors
+Message-ID: <aXiJOBaN12bo_BR-@smile.fi.intel.com>
 References: <20260126-i2c-xiic-v5-0-88a16a28721c@nexthop.ai>
- <20260126-i2c-xiic-v5-6-88a16a28721c@nexthop.ai>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260126-i2c-xiic-v5-6-88a16a28721c@nexthop.ai>
+In-Reply-To: <20260126-i2c-xiic-v5-0-88a16a28721c@nexthop.ai>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_014439_189270_D569AFB0 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20260127_014534_694412_F9E26D8B 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,55 +89,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 26, 2026 at 05:08:21PM +0000, Abdurrahman Hussain via B4 Relay wrote:
+On Mon, Jan 26, 2026 at 05:08:15PM +0000, Abdurrahman Hussain via B4 Relay wrote:
+> Switch to generic device property accessors.
+> 
+> Switch to managed devm_ functions to simplify error handling.
+> 
+> Make the clock optional since the driver is designed to operate without
+> explicit configuration in firmware thus making it useful on platforms
+> where clock is not or cannot be provided.
 
-> Re-use dev pointer instead of referencing &pdev->dev everywhere.
-
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-A couple of nit-picks to be addressed though.
-
-...
-
-> -	i2c->dev = &pdev->dev;
-> -	pm_runtime_set_autosuspend_delay(i2c->dev, XIIC_PM_TIMEOUT);
-> -	pm_runtime_use_autosuspend(i2c->dev);
-> +	i2c->dev = dev;
-
-+ blank line here.
-
-> +	pm_runtime_set_autosuspend_delay(dev, XIIC_PM_TIMEOUT);
-> +	pm_runtime_use_autosuspend(dev);
->  	ret = devm_pm_runtime_set_active_enabled(dev);
->  	if (ret < 0)
->  		return ret;
-
-...
-
->  	ret = xiic_reinit(i2c);
->  	if (ret < 0) {
-> -		dev_err_probe(&pdev->dev, ret, "Cannot xiic_reinit\n");
-> +		dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
->  		return ret;
->  	}
-
-It should be integrated in the second patch or so, I have already commented on
-that.
-
-...
-
-> -	ret = pm_runtime_get_sync(i2c->dev);
-> +	ret = pm_runtime_get_sync(dev);
-
->  
-
-Drop this blank line as well.
-
->  	if (ret < 0)
-> -		dev_warn(&pdev->dev, "Failed to activate device for removal (%pe)\n",
-> +		dev_warn(dev, "Failed to activate device for removal (%pe)\n",
->  			 ERR_PTR(ret));
->  	else
->  		xiic_deinit(i2c);
+Overall looks good, needs some nit-picks to be addressed.
+I hope v6 will manage to go in soon.
 
 -- 
 With Best Regards,
