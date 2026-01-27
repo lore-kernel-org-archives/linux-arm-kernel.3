@@ -4,58 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A15D2D8E4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:06:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD49D2D8E4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 10:08:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Wole5ho7651JplGDv9D5i9KHGrs6q2yQQ7MphUqJ9I=; b=WeziC4ArfCJrK+T1uI3VqKfR6D
-	gzRSwnaTty2aK2doL2f4pthWpkq2aXiNklhCNtUl3T2TA75c6U5iykxhlR09iKp5qRU2hrhIyAyx9
-	bgbQIPyhd9eBrJKzINjgfBBNr+s33qBOE0AwxY2jLpwIs8UdSlEeyjBnWADLCoC5SxWMpy5WQPzn5
-	X/sWOLlSjplKG8opbijEaKohJxDp/na1Z+Ur1fzOx/9cLnnaSs2usAzNNnq/HYr0qnuW8uzTLf2kK
-	Q8Hsiw5WHM7O75CrYIrgiOOPDfiqtQmzAdOWvN3G6BIadC8gwQtTrdrpTg8fzRHNZW1N8NXRgEhhf
-	+niBjX6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bpxQmfY9VK7T+Y3W6DWNgC6rQuK+Ld0siGTt5w9irRg=; b=0etJNBlguA5DvXVpc/U4twmkfs
+	R6VVLTrDxEipY/97ZIzdBsom+pUEadpM4GkiQZNg5mHBDQ2N1lo+s0gDjt6FzTspF4QOmX7LLGzUH
+	S0Nq+7FGVJA9Br7/Eyc8HV+xhfO5dlpXgFTogybZRNX8Of7r/I0sQvV1uWBXmD8jnMaC8bK6RRZ6E
+	1TJQMJ4BtIEW6ENjR4m8+3GVzigIyQnmkxXZv2d7hwoqOYUDbT+OKEGgYv57LqcNdGtr0hAEoLqn3
+	u6ZVNlVeBCeD1zDY0vvGZUX/IBm0t+C+5q1vEbjFzrerG4FcnzbKN1NJpgTyoYaCbyaFGMU2/hGa4
+	RdxNgp4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfxz-0000000E1F5-2Nx4;
-	Tue, 27 Jan 2026 10:06:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfxu-0000000E1Dj-1deD
+	id 1vkfzc-0000000E1V5-0vf8;
+	Tue, 27 Jan 2026 10:08:16 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkfzZ-0000000E1Th-1U7d
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 10:06:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DF801595;
-	Tue, 27 Jan 2026 02:06:22 -0800 (PST)
-Received: from [10.57.94.246] (unknown [10.57.94.246])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CFB193F73F;
-	Tue, 27 Jan 2026 02:06:26 -0800 (PST)
-Message-ID: <005012a8-bfcc-4049-9ff2-adecf3a89c53@arm.com>
-Date: Tue, 27 Jan 2026 10:06:25 +0000
+	Tue, 27 Jan 2026 10:08:14 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-65378ba2ff7so8282705a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 02:08:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769508491; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NvUznoaUn6ysGDCJhqjJVuNrbexJTO5LgEpc9p63q0SSfZTQGdukaqakz/gtT7XI0B
+         Uh/Oqv7LfIGDaOgZHmlw3ZNXtJ370TEuX0dzXp/gFgCeb95uYYn5iPi21AeulGw+/R6O
+         yKrAqaIVnHo7vVtgeVZQew5e8oCg2cA5fcGSVDWwIPvemLkmDn7+pPDvyp7/SK7rIo1l
+         7i+Lh2egaUXq1ul0+TXL2rhDk79vXuq9S9MrHwHqRdk9IJIvJAOqn/aAWf1lCJnWGSeq
+         D+C6mkkb/LI0UYWoddeFfhBkCJ5Zgfva345XPQbbplOCYuygQK+duToRp2NnYHnxbr3d
+         DDJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=bpxQmfY9VK7T+Y3W6DWNgC6rQuK+Ld0siGTt5w9irRg=;
+        fh=t/mCJwXTpkYV3G5MRt97+PqfGa5kh2wPI93hiSugcBU=;
+        b=LWnAhwB8J01pj675h3Y8EV9Hjvj9jZpb9+CPhaTMHi871GmVn9iznG+iUbQOGGVOt1
+         X6XxOLnp5GCzdJDYrZfRFy3KqVY0Ta4Ps8G5e3tFrHRw5KdmW30/oJsJ6nVNUPA+Uj/j
+         KKYnt1NuXRueKCU5pkL8uuUSImxNoUhky3xGRoi1M1xMJSPLgRTuiYyLo3we/99MHLW4
+         CbZp7l6NHeqSu/rUBB2dTaVnydt1D/K6SVVhkZy87Ln2zgyz4d15K0BQMq+PVNEk7AYu
+         XRoH+CVuerw3NaHDEaHk7QQyMB5Fo77U7VVxEj20/stT+nBV4ZnrBfQ5MSUrwHEUZ9fC
+         PVxg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1769508491; x=1770113291; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=bpxQmfY9VK7T+Y3W6DWNgC6rQuK+Ld0siGTt5w9irRg=;
+        b=aVSSXOGel9E6hwNsNG9fePrBVGRlZ6QNvKhq4b5zx135d8Q0VE4mHoRgr3c+MtkuvQ
+         BnMOGLcMXSqG461GBKezdkpLCmZMVPr58GuRd4T5LIjNds+xLMihqHhc9CV2svf0znAE
+         ppSUPaMCjBYVyYaqIXw1fAnUexgls3T7bzCoXntADJOPZwJo33wPPb5x9OPeMCnUDdXU
+         MuHSCtuazRAwELuyR9Tf9G50I9qTGUUBBAFshPTlqWJcLf5X+n7/4vA1W9SW+J6MqNmA
+         zSMuWIf633AWNvT/7rkaVovG+TIQnj7w+XHkOw6q7e5L/Gt/2F3N6Jz6c0EaSBsfGTdM
+         C2ww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769508491; x=1770113291;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bpxQmfY9VK7T+Y3W6DWNgC6rQuK+Ld0siGTt5w9irRg=;
+        b=S35c3AU26PvFDeJeLzJzvGfWL16e1Enyet6qkjrjZ8q1ZLT+WOgAeRWFly4Q+7x7CM
+         YnX5Ju5BddLSLXLeMaJ+eBZ+1jneuMovZoxSWlqskatX5YOIL3XoPYoXr7Q/XFwNvO5T
+         mlad+VrP3J2kgT7FDEbNWzBbqXWPbVsTLCHnlgP6WXnx9t6vZRi9l8xigKudpmdUNiK7
+         YqSpiDxmLcgrJ81GU/MRUqYhzZwC2d/TBtvhouvtOIVppNRbme+zpI/qcWQ5ZHt0QeZg
+         tgLlEu59HSpUSbdJyoO6rSZvDG1mFhxUV0tpgsk3n2ofIO36CL1cauFPwilmZA1aot6Q
+         dulQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV7nICrKfDyGCo0rolQZZrepZUr7SohrZs8HbhQ0JWxWpMv6SqBwmRe/++d98r1UYlliG8dsrZNs0xKNzBLlVJv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1C3ILfbvkbnYqeSKKH+y8zBF25DS48bdm+97bQDMVURL2GKiS
+	ODAtQIRJyeOEBuNr9wEc+qfbmYf8DjLFAcNRDvA2HJQ2ruAh5Cj+lyDzn45PUPLpg1rOwLZOXM3
+	hnuPfycjiqlJ75z66DQTHqow6RojddMW4/v88YI0D4g==
+X-Gm-Gg: AZuq6aKNHLAzhbv1vHQZ0spxa8eJ0lC/zeOCShmogXf0tlTL25jdgPvc6Tk15diT0lF
+	ruxI+1i0WaCNPZtVNHerPeSEy3FKIk5fJPuz/Q3Cv3hzK9wv8pHzAwzn07v36OvA32saZLl+Bb4
+	tYJ0ZP+bBr7mdvZu9NzLAqTm+QfjmTeloOyEv7/henIbOMf8gcy4xCk45DsX/OZhZ01r8c7Oi2U
+	KgOpxTh/9CRUyySuK6FvJhV+ZTsxwXfSwt0ysJIckciUIaWbJVK90MCKiaJcIRIR/AkROwh28Cz
+	hMSaET1OiYFQ885205XAj6qQ
+X-Received: by 2002:a05:6402:1d50:b0:64b:6e44:217 with SMTP id
+ 4fb4d7f45d1cf-658a5f8e7cdmr891417a12.0.1769508490979; Tue, 27 Jan 2026
+ 02:08:10 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 06/10] arm64: mm: Remove bogus stop condition from
- map_mem() loop
-Content-Language: en-GB
-To: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
- catalin.marinas@arm.com, mark.rutland@arm.com,
- Ard Biesheuvel <ardb@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
- Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
-References: <20260126092630.1800589-12-ardb+git@google.com>
- <20260126092630.1800589-18-ardb+git@google.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20260126092630.1800589-18-ardb+git@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260126092159.815968-1-vincent.guittot@linaro.org>
+ <20260126092159.815968-3-vincent.guittot@linaro.org> <69592713b7bd419e23df458734ca78070a83e8ac.camel@pengutronix.de>
+In-Reply-To: <69592713b7bd419e23df458734ca78070a83e8ac.camel@pengutronix.de>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Tue, 27 Jan 2026 11:07:59 +0100
+X-Gm-Features: AZwV_QiOrd8cMHRoDNLhWiUkjdTQ9Am6xMiRSspZlgdv4qBzTDeeYROI1wjEMTk
+Message-ID: <CAKfTPtD+EZ+apAnS7tccY5UrQx3EWXb4j33F_5SkHY80akxz-A@mail.gmail.com>
+Subject: Re: [PATCH 2/4] phy: s32g: Add serdes subsystem phy
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com, 
+	linux@armlinux.org.uk, ghennadi.procopciuc@nxp.com, 
+	bogdan-gabriel.roman@nxp.com, Ionut.Vicovan@nxp.com, 
+	alexandru-catalin.ionita@nxp.com, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
+	Frank.li@nxp.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_020630_471331_5E718DEE 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20260127_020813_405651_F4CF8088 
+X-CRM114-Status: GOOD (  17.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,42 +121,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/01/2026 09:26, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> The memblock API guarantees that start is not greater than or equal to
-> end, so there is no need to test it. And if were, it is doubtful that
-> breaking out of the loop would be a reasonable course of action here
-> (rather than attempting to map the remaining regions)
-> 
-> So let's drop this check.
+On Mon, 26 Jan 2026 at 14:11, Philipp Zabel <p.zabel@pengutronix.de> wrote:
+>
+> On Mo, 2026-01-26 at 10:21 +0100, Vincent Guittot wrote:
+> > s32g SoC family includes 2 serdes subsystems which are made of one PCIe
+> > controller, 2 XPCS and one Phy. The Phy got 2 lanes that can be configure
+> > to output PCIe lanes and/or SGMII.
+> >
+> > Implement PCIe phy support
+> >
+> > Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> > Co-developed-by: Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>
+> > Signed-off-by: Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>
+> > Co-developed-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+> > Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+> > Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> > Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> > Co-developed-by: Bogdan Roman <bogdan-gabriel.roman@nxp.com>
+> > Signed-off-by: Bogdan Roman <bogdan-gabriel.roman@nxp.com>
+> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> > ---
+> >  drivers/phy/freescale/Kconfig               |   9 +
+> >  drivers/phy/freescale/Makefile              |   1 +
+> >  drivers/phy/freescale/phy-nxp-s32g-serdes.c | 569 ++++++++++++++++++++
+> >  3 files changed, 579 insertions(+)
+> >  create mode 100644 drivers/phy/freescale/phy-nxp-s32g-serdes.c
+> >
+> [...]
+> > diff --git a/drivers/phy/freescale/phy-nxp-s32g-serdes.c b/drivers/phy/freescale/phy-nxp-s32g-serdes.c
+> > new file mode 100644
+> > index 000000000000..8336c868c8dc
+> > --- /dev/null
+> > +++ b/drivers/phy/freescale/phy-nxp-s32g-serdes.c
+> > @@ -0,0 +1,569 @@
+> [...]
+> > +static int s32g_serdes_get_ctrl_resources(struct platform_device *pdev, struct s32g_serdes *serdes)
+> > +{
+> [...]
+> > +     ctrl->rst = devm_reset_control_get(dev, "serdes");
+>
+> Please use devm_reset_control_get_exclusive() directly.
 
-If start were greater than end, I think it's a pretty safe bet that
-__map_memblock() would do something horrible.
+Okay
 
-But if memblock makes the guarantee you claim I agree it's preferable to
-declutter the code:
-
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-
-> 
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/arm64/mm/mmu.c | 2 --
->  1 file changed, 2 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index d7faa98f427c..377bdc4d84a1 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1158,8 +1158,6 @@ static void __init map_mem(pgd_t *pgdp)
->  
->  	/* map all the memory banks */
->  	for_each_mem_range(i, &start, &end) {
-> -		if (start >= end)
-> -			break;
->  		/*
->  		 * The linear map must allow allocation tags reading/writing
->  		 * if MTE is present. Otherwise, it has the same attributes as
-
+>
+> [...]
+> > +static int s32g_serdes_get_pcie_resources(struct platform_device *pdev, struct s32g_serdes *serdes)
+> > +{
+> [...]
+> > +     pcie->rst = devm_reset_control_get(dev, "pcie");
+>
+> Same here.
+>
+> regards
+> Philipp
 
