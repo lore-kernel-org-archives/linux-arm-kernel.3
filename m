@@ -4,147 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D64D340BF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 16:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19AC0D2F033
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 16:59:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6DU1IUbGWeXsFRP9PQR2TBB8BMLrrsREum9bj4NwDbc=; b=CCilAJBNvGRiXQJCO8yVy0TZGu
-	f61Up4fbG2q5HM0sTOwd9DihwAtqieOjPD6XKeDRVu1fHmPqAIL0P5vuRBKWsLO471MObfpSNBh5B
-	++3KH1cyYls1b1w3UJrsWwgZ2YwmDPJy3nzIkNfusgWIabC1OfpRd4Jh3Cs0+iLmTSM+SYDJzKOSq
-	5SWS41lmHevwPppUWj5MtkUSy9oEev89BN4Yq7nCiECgFOdAj7dvWgM5A41mUXefPwLK7jOUNbrVO
-	Oap00JzNgPvy5qGBUCVDFEE+MAvCjeWkIFsQSoD8OiiAin40/FdI9kKCMO+vTYsmsQZUELrDkV61J
-	lG0GTwww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1KJeK2Zj+x31oYUW3i+CttmxKdqttRoZUDZv7DX+XaM=; b=N0w/srahY7KciNv/sqzeC30K0E
+	zegURSxG1Q0xkUiBr0rp8gOCUZ25o224nXtZCCKeN0eK/Ep/8cjzUFVJiWeRh+CiAEFjR3QhrmIZn
+	JHvW7UCfz3CyD6I54jA67bSNRmo3uj9Ff1VysSW5G3VXWyNiNigbGPyC6Gehr+HP1CDG8m6yQiELy
+	BENJ7hNljhfRC49req1Xo+HIbfFhiNTCCAbSogZavowodVWJ4CDb1o1ly4qWiCPFow6bsJqSekfgK
+	ELVzRxl8OK2IpGrQcwgPIAB0S0yx98/PR/5UQKn9jWA6wD0glLrzAgF1f3jajBQAEPn4OdlZOW+CN
+	mXEWeNSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkmPZ-0000000Eh5S-2Gbi;
-	Tue, 27 Jan 2026 16:59:29 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkmPV-0000000Eh4t-2fBp
+	id 1vkmPi-0000000Eh8q-3bzL;
+	Tue, 27 Jan 2026 16:59:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkmPa-0000000Eh5e-24vV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 16:59:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kocbYKr7rIL4nguviuburLO1a7SjIGjAjoppsACkleHnfaHO4FlEuuu9A8uCuzz2WDEpJn9+UiC0cwwgJRv2s2f4VxJtDS3fbDvsY0yz4XPNHds+Ys5NPXj/vMepL4vFOo03tZmDFGdK0lVHEk4HBbiowwRhSdIfPEHW5d6tsJ5MjSIXJWoMUnispszyrChMB6WBEZMACBthWg3IoSdnmNImUtYmWbo5cE6t1R+nSnVzYZogMOUwxLaBXN9GUusqiBct8EsR4cN3Emq8gqABj0KUeuaDfCVmZY28o/NJTy7hPHy0iBLyTxEcJzPIxd3e4IToRhqYeEttuULO1iw08g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6DU1IUbGWeXsFRP9PQR2TBB8BMLrrsREum9bj4NwDbc=;
- b=N9B8jqV3dGYLDKfSb7EXwuKukMXuYioOmChXquexJ+Un6//B8JssQXTcRR2VjROYb/AKbWFUe6wWEMJDh/c5YC5SBdGIITq62OcB2svwAVoALiyNaWCT0CNObLP4dD/ijKkDOGW4FWH/oQoNeAkPkap0JV+92OGB7BJD3EmWs/1aT8C56kTTUCj32NYqX3tKrAAy87i5rUGdev19sKJCUnjxukH/8tzBLE95WqgtNKUHKOfbBWiBipZMzWRM06f9e7teCdwJOmNyNFpBDjyRN7ejzoFWeCWfA1MQn4Oh+t5rZ7+tReBGaxT+vMa6tj/QTMKJHUsM4qPtu/Sdyf9+Xw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6DU1IUbGWeXsFRP9PQR2TBB8BMLrrsREum9bj4NwDbc=;
- b=A0NQGCzYi+EDIuJkf+RYdmK2jCoiISnIJ4i107jx8VN4vt4ITNAL4KJgm+aavzkroE0OTij0by0UWW6B/0xs9fccwVnxZ16Dhf/KG8h8HEn8miNCW0SEnhDHtSVWFGfTzowOohTQb869AZRDvfgu17eKMpiRxD3yTDNT3pkrOBjqHNikS+NGwHr99LS3BCfMJNQP1pckAJvSbxM1OsK6b/OJWeEIwOXSH7JP9rZBPqE6XNgDLO7sP+HITo2KlH3dVvGig2TyS/Thkwgz2Y6nG2UUbO7qeOIyhxqencQU4Oq+nnyl5A1FeVzJMYcOxJ+IwotA5eWFOfuw0yhVDlUZgQ==
-Received: from CH5P221CA0006.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:1f2::19)
- by DS0PR12MB8415.namprd12.prod.outlook.com (2603:10b6:8:fc::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Tue, 27 Jan
- 2026 16:59:14 +0000
-Received: from CH3PEPF00000009.namprd04.prod.outlook.com
- (2603:10b6:610:1f2:cafe::b9) by CH5P221CA0006.outlook.office365.com
- (2603:10b6:610:1f2::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9542.16 via Frontend Transport; Tue,
- 27 Jan 2026 16:59:03 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CH3PEPF00000009.mail.protection.outlook.com (10.167.244.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9564.3 via Frontend Transport; Tue, 27 Jan 2026 16:59:14 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 27 Jan
- 2026 08:58:58 -0800
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Tue, 27 Jan 2026 08:58:57 -0800
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 27 Jan 2026 08:58:57 -0800
-Date: Tue, 27 Jan 2026 08:58:56 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jpb@kernel.org>, <praan@google.com>, <miko.lenczewski@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
-Subject: Re: [PATCH v2 01/10] iommu/arm-smmu-v3: Store IOTLB cache tags in
- struct arm_smmu_attach_state
-Message-ID: <aXju0DkpGxjsiJK2@Asurada-Nvidia>
-References: <cover.1769044718.git.nicolinc@nvidia.com>
- <40ecdf7e0766004c5d3a4bd086cb22cf08254237.1769044718.git.nicolinc@nvidia.com>
- <20260126204443.GX1134360@nvidia.com>
- <aXgvzoPJDej7HEAm@Asurada-Nvidia>
- <20260127150848.GG1134360@nvidia.com>
+	Tue, 27 Jan 2026 16:59:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 65F4F1596;
+	Tue, 27 Jan 2026 08:59:22 -0800 (PST)
+Received: from [10.1.37.210] (XHFQ2J9959.cambridge.arm.com [10.1.37.210])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00FCA3F632;
+	Tue, 27 Jan 2026 08:59:26 -0800 (PST)
+Message-ID: <da0b8783-590e-42a0-8937-f786a2ebcafa@arm.com>
+Date: Tue, 27 Jan 2026 16:59:25 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260127150848.GG1134360@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF00000009:EE_|DS0PR12MB8415:EE_
-X-MS-Office365-Filtering-Correlation-Id: c7e03527-3d4f-4f38-f8d3-08de5dc566bf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?eYNONR6lJqdeMv7pvuqBdLs7oK/y0mcRzEyhAPtnCNYqYr/DCRzbt02DnaZz?=
- =?us-ascii?Q?gZywGPkIHUlfFaxkmMB5d+RuKh6BRROSEQTTL4UU9CT+C+T48Ie1AMFNhRUo?=
- =?us-ascii?Q?gsuV8WW5AGPZ+QOSOybIXAo1ZjN5nc52kTm2wIAkDLxJsFKZfPWQKlTs0N/6?=
- =?us-ascii?Q?st/JN792PSZVQABe9B1qKkLH9pi+ReJfWbz2xJOzXLJMT+HDNS/ToGDspL+Z?=
- =?us-ascii?Q?BmtxpfBrDgGI6EKdn6tXzSwt4vsq5otHmfSR5kWb2UHOBxAdv1QXWOEuyAJ0?=
- =?us-ascii?Q?1D32Pu9mtUV+EULoAjmuuEjjN6/B4ANfz7h0ThhSUPMXJN7xEHyYdh3ME+EF?=
- =?us-ascii?Q?w2A24HLXHr8+IM+g4ogI3NT1V+yQvtqb/uh+fVlkwHt/2KL0WJLLBaNMzlvf?=
- =?us-ascii?Q?I066RCN70DhS726hc2CD/Pd512VjSElRsaRjeKYco1P8K5rFFPuTAZQESWHB?=
- =?us-ascii?Q?Jl1jhYA7aZCz43/RWBdkga9T4E7hEHkzrP8WQ2P7b2K9OUaKjtUBjA4i2bXs?=
- =?us-ascii?Q?Aps2Y15PB7vp9Xc8NN2pKCXzaPwZ/YSWxUlYFjXBVCCR8HuBtIHnozKRn65E?=
- =?us-ascii?Q?Hei4p4pTBkXSd62mbmwUfyGWaCk/hvjtf9fnIRklEPXvpHiXrgICNHnlxm9z?=
- =?us-ascii?Q?VaiiPklT+QWxaS1wCWkFP1Lj0NLCFmrTBx43wASfWGnYzVevcZ2a+WrBctcU?=
- =?us-ascii?Q?4dmiQzncVpD1tPwgVV3O+6sdTQY/MVAmyZb1wYCaq+FJybHG7TmRF5HTt3b/?=
- =?us-ascii?Q?OcO7ECtH+4T+OmHFApZ/kb2NEg2TrhUkq3ks+qzqLWCcoxsyOE5bc8HHRoEB?=
- =?us-ascii?Q?DWEyT8mcOWVBL+Bfw3JrfzW3rvyW9v/3qctSeVVLUijoh90L75m4ne7eTTrK?=
- =?us-ascii?Q?IqgT412u7drxXke5TDLR7LNrY6TLOnn1YytRdhVYsARhuf7AzxKiPW1vP9y3?=
- =?us-ascii?Q?jcybscvQvhS0uAdTK7VT4szfw227LLHP2cf6tHrpAP8suoq0xJ4tagU7hbDV?=
- =?us-ascii?Q?ZRqioV+imdojzFVyImUL4mdrX3O1Mecb/SxpXLJjPWmg4ZeJBbsE+oCBOlom?=
- =?us-ascii?Q?Ogizi6oifTp6mB8wE4Ldcu2ouCXWs+HcCtNc8BAvhff4aMiAF1EHrs8K84R5?=
- =?us-ascii?Q?+G+EDknWw0iVKzUGJBubKgX4e70JGUBzXt7tiEKU9Oi5iLPI+yheLxKv3Sgv?=
- =?us-ascii?Q?nx9Tt0A0QXXH7Enu6ZCPxyIBRvczfhwjtKAT1ZYhWa5y5I3nUrvj1Jh5ByH+?=
- =?us-ascii?Q?Tg60RXWL1Yw0P37eQMPpLxpGQeRVeYKGhULzSvJfUEXJ0EJDGq8pney8UymG?=
- =?us-ascii?Q?6boiZaS7ADjoJcbigmT+BGjVzUlX0HKKVJBueuf4LrbxaMRbLuyBZqp7OAth?=
- =?us-ascii?Q?aSYVwM3EGwkl0Bt8MFDa4E2MxsoaozoCJEYy40bC9qzK0hVB+BVttOwqw1Ya?=
- =?us-ascii?Q?e5e7GzYZDAsJuDg7JY+vhsvAvQI3Gok6tME1oRon+F1t62OMrbk+RP9rmwhp?=
- =?us-ascii?Q?4KHzEVmMGJJPOOeWPuPxh1n1Vp3iyzbEAtAd+ZCInYcyEpFgAVpxahpgH+EW?=
- =?us-ascii?Q?MFd0EbVdmLz0y/mO2SE1+QCdNPqFfjHCP1c97PBdYB5L0K+5D8X/dykwh4R1?=
- =?us-ascii?Q?E/fJ90BYtNyLqhzuGZFYXhvVPmFw2EGbNgjubIXtinV8BB8GdRQ2stO20nGF?=
- =?us-ascii?Q?kC+Jcg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2026 16:59:14.5584
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c7e03527-3d4f-4f38-f8d3-08de5dc566bf
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000009.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8415
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 03/10] arm64: mm: Permit contiguous descriptors to be
+ rewritten
+Content-Language: en-GB
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, will@kernel.org,
+ catalin.marinas@arm.com, mark.rutland@arm.com,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
+ Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
+References: <20260126092630.1800589-12-ardb+git@google.com>
+ <20260126092630.1800589-15-ardb+git@google.com>
+ <4965fa08-ce01-4848-bc30-5cc1b745683f@arm.com>
+ <CAMj1kXFskBM-LT_ifX5HpxgQnt1E5tt2QA_5fYuxPQBiSWSDZw@mail.gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <CAMj1kXFskBM-LT_ifX5HpxgQnt1E5tt2QA_5fYuxPQBiSWSDZw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_085926_560438_ED1F4723 
-X-CRM114-Status: GOOD (  21.64  )
+X-CRM114-CacheID: sfid-20260127_085930_581746_EC9420D7 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,49 +72,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 27, 2026 at 11:08:48AM -0400, Jason Gunthorpe wrote:
-> On Mon, Jan 26, 2026 at 07:23:58PM -0800, Nicolin Chen wrote:
-> > On Mon, Jan 26, 2026 at 04:44:43PM -0400, Jason Gunthorpe wrote:
-> > > On Wed, Jan 21, 2026 at 05:24:19PM -0800, Nicolin Chen wrote:
-> > > > +int arm_smmu_domain_get_iotlb_tag(struct arm_smmu_domain *smmu_domain,
-> > > > +				  struct arm_smmu_device *smmu,
-> > > > +				  struct arm_smmu_inv *tag)
-> > > > +{
-> > > > +	/* Decide the type of the iotlb cache tag */
-> > > > +	switch (smmu_domain->stage) {
-> > > > +	case ARM_SMMU_DOMAIN_SVA:
-> > > > +	case ARM_SMMU_DOMAIN_S1:
-> > > > +		tag->type = INV_TYPE_S1_ASID;
-> > > > +		break;
-> > > > +	case ARM_SMMU_DOMAIN_S2:
-> > > > +		tag->type = INV_TYPE_S2_VMID;
-> > > > +		break;
-> > > > +	default:
-> > > > +		return -EINVAL;
-> > > > +	}
-> > > > +
-> > > > +	tag->smmu = smmu;
-> > > > +
-> > > > +	if (tag->type == INV_TYPE_S1_ASID)
-> > > > +		tag->id = smmu_domain->cd.asid;
-> > > > +	else
-> > > > +		tag->id = smmu_domain->s2_cfg.vmid;
-> > > 
-> > > Would be tidier to move these up into the case
-> > 
-> > This will act as a fake allocation path in PATCh-3 and eventually
-> > get replaced with a real allocation piece in PATCH-4. So, I wrote
-> > like this in a transitory manner.
+On 27/01/2026 15:03, Ard Biesheuvel wrote:
+> On Tue, 27 Jan 2026 at 10:45, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>> On 26/01/2026 09:26, Ard Biesheuvel wrote:
+>>> From: Ard Biesheuvel <ardb@kernel.org>
+>>>
+>>> Currently, pgattr_change_is_safe() is overly pedantic when it comes to
+>>> descriptors with the contiguous hint attribute set, as it rejects
+>>> assignments even if the old and the new value are the same.
+>>>
+>>> So relax the check to allow that.
+>>
+>> But why do we require the relaxation? Why are we re-writing a PTE in the first
+>> place? Either the caller already knows it's the same in which case it can be
+>> avoided, or it doesn't know in which case it is accidentally the same and couple
+>> probably just as easily been accidentally different? So it's better to warn
+>> regardless I would think?
+>>
 > 
-> I'd still write it in the nice way, you can remove the lines later
-> when you add the allocation logic.
+> Based on rule RJQQTC in your reply to another patch in this series, my
+> conclusion here is that we can drop this check entirely.
 
-OK. I will keep them in the first switch statement.
+Hmm, I don't think that would be quite right; The rule permits _some_ bits of
+the PTE to change in a live mapping as long as the CONT bit remains unchanged.
+If you change the CONT bit on a live mapping, you could end up with overlapping
+TLB entries which would not go well on a system without bbml2.
 
-This would instead make the get() in PATCH-3 a fake logic until
-PATCH-4 replacing them with a real allocation logic. Should work
-in the same way.
-
-Thanks
-Nicolin
 
