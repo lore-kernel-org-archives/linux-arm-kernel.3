@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A8CD2F001
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 11:36:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80290D2F001
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 11:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bBLN7ENPe3Q9NBmrjF+3h0cFLO9t/L5okE+X/cur5CI=; b=b77v8dsEl+4tpOx6goUTXx7u0h
-	iat+tY6MTE5Bte+c6+IfN3+zZ5zaqm05xJEhBxyaB+vTmLjIsCjwRAzBBSvY7f4gkVU3Y9gqPJnWK
-	605/+LX4AQdex2ZZEZ05peYc5JkBtwJiNnXAs/7U8724jAUK5zLpCuOyNG2s1hTSKsGs7ilgm/To9
-	9v1UQ5SWq3afhoU1gtLl7/nnetTx3WUgywL8sDn0ndfM+Gyw6j5wyX/FnU1+1K6vq26XFYULdIdmX
-	6yGNj7MMhEtFETXxXFsfPQoSLgb3cGs7thb6jMskxK6I7HfTADYTMsvfSJ3phvkewAktU3sVrox7V
-	uwcSe1Gg==;
+	bh=c8Qf93RX7VEHMbBpA5pIJBA5s/lMrQt5oBh+YBjXjfs=; b=o7AzWx7YvYahIA6t3oVPywSl1v
+	jVhxKCP8oHTIMc2k5rPkcwyfYisSg3STMz6039KldA32xyOt6DkHTHF28mLWsEpBSBVAr0DcFEow9
+	wqnJglPR29+P7K+/tkTYv/gOZhslSy8cbuE92y9yfkOMo9UXahlQzBoB/WsgAHsE7ssS4SA5mA/c1
+	KAR55BKITk5XYppnL84znqkCMCmRZoLQtASY+MRdLwkQ1hFIdCQLf16IkBNXWhTyCRTrLKaJEteeJ
+	PEuc39O5wqghh9F7ENQvfERT8u69ObU2yUwNVmD9ZKozurkNyPY60mePLpD7Sec191qYss2sfFwWv
+	zTfBlLZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkhMq-0000000EAMe-1XMo;
-	Tue, 27 Jan 2026 11:36:20 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vkhOd-0000000EAVS-3iU3;
+	Tue, 27 Jan 2026 11:38:11 +0000
+Received: from sinmsgout02.his.huawei.com ([119.8.177.37])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkhMl-0000000EALg-2jNO
+	id 1vkhOa-0000000EAV3-12k1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 11:36:18 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 79A10C211D0;
-	Tue, 27 Jan 2026 11:35:57 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4AE3E606F5;
-	Tue, 27 Jan 2026 11:35:55 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C7B54119A8686;
-	Tue, 27 Jan 2026 12:35:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1769513754; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=bBLN7ENPe3Q9NBmrjF+3h0cFLO9t/L5okE+X/cur5CI=;
-	b=1YGgGIVycHcNeIQP0SC0IRTGBJ+nm3jJhZ3zuBT2cFmsQxZvyd3yxFSsgJXBxgDS6pbqdj
-	/j4JLGOCRCFwvfGP0LYt5CdAZ9JCUEVQMr4XVfbEZ3g9iyTNalkXsQPUZDbV7fYaRN1BTo
-	cy4k5FG0hcRLzE6cR7RRq5Ih1JZX1/avtOXN5JHIjEEdRdG4zolP2S8Crx5muhuwZ68zbJ
-	LmjQrsbdAtPAJ3CO0229JDVuKEfUWYXsHSXKlGMKA6JIxHEoWoykM/dO6WLxnhb/lq57Ns
-	2HwT9QSG43Kj/jVUvu5ezQM3XUaSL/FGApUQ9div0BX1BHyuN63gNiqlqFTFKw==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Liu Ying <victor.liu@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260123-imx8qxp-drm-bridge-fixes-v1-0-8bb85ada5866@nxp.com>
-References: <20260123-imx8qxp-drm-bridge-fixes-v1-0-8bb85ada5866@nxp.com>
-Subject: Re: (subset) [PATCH 0/3] drm/bridge: imx: A few fixes
-Message-Id: <176951374753.94588.10653964166300906894.b4-ty@bootlin.com>
-Date: Tue, 27 Jan 2026 12:35:47 +0100
+	Tue, 27 Jan 2026 11:38:10 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=c8Qf93RX7VEHMbBpA5pIJBA5s/lMrQt5oBh+YBjXjfs=;
+	b=ahKSiTskLWSTmZTdccVc0LMMcFMd6Rq/4jlbCOt8pgjJpmIZaaiBXTXxmGP6463UlBeysIW+C
+	9ybS8YDkXMMZAT0vcA53S+dhINlYXAScuaNfBQPTYRuUVDmDQjsd/SA1mQRjiIoLJ6/tO9F4zHr
+	GxWDyKU/i3PjaEQFO5za8b8=
+Received: from frasgout.his.huawei.com (unknown [172.18.146.33])
+	by sinmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4f0jyD271mz1vnKH;
+	Tue, 27 Jan 2026 19:35:32 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4f0k0N5QdfzJ46n9;
+	Tue, 27 Jan 2026 19:37:24 +0800 (CST)
+Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
+	by mail.maildlp.com (Postfix) with ESMTPS id 94C9140086;
+	Tue, 27 Jan 2026 19:38:00 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
+ (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 27 Jan
+ 2026 11:37:59 +0000
+Date: Tue, 27 Jan 2026 11:37:58 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+CC: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, Linus
+ Torvalds <torvalds@linux-foundation.org>, Oliver Upton
+	<oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, "Dev Jain"
+	<dev.jain@arm.com>, Linu Cherian <Linu.Cherian@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 04/13] arm64: mm: Push __TLBI_VADDR() into
+ __tlbi_level()
+Message-ID: <20260127113758.00005bea@huawei.com>
+In-Reply-To: <20260119172202.1681510-5-ryan.roberts@arm.com>
+References: <20260119172202.1681510-1-ryan.roberts@arm.com>
+	<20260119172202.1681510-5-ryan.roberts@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
+ dubpeml500005.china.huawei.com (7.214.145.207)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_033616_399097_3912AB7C 
-X-CRM114-Status: UNSURE (   7.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260127_033809_060383_BD0C471D 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,22 +86,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 19 Jan 2026 17:21:51 +0000
+Ryan Roberts <ryan.roberts@arm.com> wrote:
 
-On Fri, 23 Jan 2026 17:22:14 +0800, Liu Ying wrote:
-> This patch series contains 3 bug fixes for i.MX8QXP DRM bridges.
-> Each patch fixes a NULL pointer dereference issue and stands alone.
+> From: Will Deacon <will@kernel.org>
 > 
+> The __TLBI_VADDR() macro takes an ASID and an address and converts them
+> into a single argument formatted correctly for a TLB invalidation
+> instruction.
 > 
+> Rather than have callers worry about this (especially in the case where
+> the ASID is zero), push the macro down into __tlbi_level() via a new
+> __tlbi_level_asid() helper.
+> 
+> Signed-off-by: Will Deacon <will@kernel.org>
+> Reviewed-by: Linu Cherian <linu.cherian@arm.com>
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+One comment inline, but not particularly important given it's
+about reducing readability of a workaround a little
 
-Applied, thanks!
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
-[1/3] drm/bridge: imx8qxp-ldb: Fix NULL pointer dereference in imx8qxp_ldb_bridge_destroy()
-      commit: 852c68bf42965ee38b465d2d6f7b965eb0b5dc1d
-[2/3] drm/bridge: imx8qxp-pxl2dpi: Fix NULL pointer dereference in imx8qxp_pxl2dpi_bridge_destroy()
-      commit: db7e7ea838c916ee4cdf26bee126fd36f58295dc
+> @@ -674,6 +679,7 @@ static inline bool huge_pmd_needs_flush(pmd_t oldpmd, pmd_t newpmd)
+>  #define huge_pmd_needs_flush huge_pmd_needs_flush
+>  
+>  #undef __tlbi_user
+> +#undef __TLBI_VADDR
+>  #endif
+>  
+>  #endif
+> diff --git a/arch/arm64/kernel/sys_compat.c b/arch/arm64/kernel/sys_compat.c
+> index 4a609e9b65de..ad4857df4830 100644
+> --- a/arch/arm64/kernel/sys_compat.c
+> +++ b/arch/arm64/kernel/sys_compat.c
+> @@ -36,7 +36,7 @@ __do_compat_cache_op(unsigned long start, unsigned long end)
+>  			 * The workaround requires an inner-shareable tlbi.
+>  			 * We pick the reserved-ASID to minimise the impact.
+>  			 */
+> -			__tlbi(aside1is, __TLBI_VADDR(0, 0));
+> +			__tlbi(aside1is, 0UL);
 
-Best regards,
--- 
-Luca Ceresoli <luca.ceresoli@bootlin.com>
+Dropping the explicit ASID sort of looses some meaning here vs the comment just
+above it.  Meh, it's in a work around so most folk will ignore it anyway
+if reading this code, so I don't mind that much.
+
+>  			dsb(ish);
+>  		}
+>  
 
 
