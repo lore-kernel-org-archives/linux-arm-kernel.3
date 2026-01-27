@@ -4,107 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2500AD2FEC5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 17:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC13D2FEC7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 17:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PlNmfFoygixWkI7H3Z8R3RRT3c5a4skQJi9DgZ6SblU=; b=uLCaobTtG92NI6j/FPQEllpsvT
-	7V8gtnRSDh+aMAuv6oere6Xzy3Ae2KRUQo+X97Y03X6TyF6cg7ElSe/MNG9g/e5ojKje0uJLvrn2X
-	MHSXvCIH+rtgC+nFmlJGnYBh2vke+ZhciDEy1iMS5WXpLegRQwvFGKsIb3EA/PDh7WmEkiJWFpBeC
-	EiX6hl+8sy7jQrIZ4xCqd/UHnB2QGoLcNd25w/VBck7iE5OmXyBMnP11HqyjHS1ErGgnC52S44Lt/
-	Y/ZVotuQBlZAh7gna3UYA28YX9Qw0JWBu24SAu/YV4efhsA7Sz2+bKBK3wRCv27j8gFU0vxZAXeIC
-	kUHjxlJA==;
+	bh=x8Z73/9dSkkgkwT/KsdbRZj9EPoGn+p6gJr54RB1rSk=; b=iUlNm/RyasHwqgdxDooOT0bXaP
+	qeghDvhNOi57mZQMc16DgFKCAT3BHp5LTRZAwrU1rAy/rkHGeF/sckjsZ03lrVhKcrZ8KTD2AaNrx
+	8zGmC0vCOLOw2LKOWFGDA4UaRgXv4mKIqrXWBgEoJqFGJPsrFUTcsM/1RceoERRin2Cv17clcIdqT
+	DvQ0yZsve4EylCcFm+ZQck9wRN04NMH0KRT4oU5aZ9MTkRx2iORZUr0Eeyo9res3dwGl7eKv8vz3S
+	Nxz46tyDN9LHhuEyjYDh5E1N9MBSWQN6qw8TYiiuUrbNgcy5mbcVHn/IBbX/6HBecG9x3Zza9qotK
+	zvMNR3SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkmuu-0000000Ejmk-2VLe;
-	Tue, 27 Jan 2026 17:31:52 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkmud-0000000EjlU-1BN6
+	id 1vkn0d-0000000Ek9c-0Gty;
+	Tue, 27 Jan 2026 17:37:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkn0Z-0000000Ek9G-2vqR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 17:31:36 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-50331ac1fedso7397631cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:31:30 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769535089; cv=none;
-        d=google.com; s=arc-20240605;
-        b=YIdUE1Qqqfi85z/4oYsrR8ofhF1tZlLHSye3EatN9GKxGp0dbEMmTiegNXPKRmvbsy
-         vcS5aihjdqadfH8I9aH1oKJBKzPpdDjDmWBoSkACHl2RDVz/XrSE/Plwbbr6DQ4WeNHQ
-         ZTxF7SZ/e+0W9KqfGI2E288uVDSNsjOB0bCTPU2CjMES5G7YHqe8vFLUtPjyoBWQp/si
-         UmhflrrFz2sKL4qqA8HPtMLTdGaMyfg/IExQ170OIKOp2v4zW2kgCrcBEATOzj71k0zd
-         6Vra//lD9drbpp7NyOl5jcGV1DiqDkamgFH7US814Jy4fXZKUqD1ZRGXbpbVqrppiLpa
-         az3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=PlNmfFoygixWkI7H3Z8R3RRT3c5a4skQJi9DgZ6SblU=;
-        fh=mKyeYQtMGvDm1pdFjMjj8E5nxWM/cUKa+mCSfXkKhcw=;
-        b=SkZxGQmNUs+bIoQ90Moflhon8jGFABlOky0a+lPDXJZ/o4I9u/n2WgEoBpptG3FO0y
-         /PxoIHlt/c+pkdQQnm708TbxkSFXf6/Y8GqyApp2vYiLfdk8aOZ7nSjzSDu3abNwV15A
-         M4sNfMeFLqAaX0NKQmMEyzB/Qe/x00gYzRZkBgc4p6Gvofw4KPPfWCqzfKm34JbTIv4h
-         72GXtr6G6rUcdt7YxbFE6nUa8ln8320i8R/pANgOYRZEmay/Wnhx4ElPbO8kTEbE8eQU
-         IhxlHA5F04Lzqs7Ta1OJANdPd2rjXOVKxrqy2lnmy3YX+4Ok5CVschmHDXbkb7ROXd3Q
-         IcWQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769535089; x=1770139889; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PlNmfFoygixWkI7H3Z8R3RRT3c5a4skQJi9DgZ6SblU=;
-        b=k7d1bG+Ob2MRxLAUnLjZ3AyE/fQVr02OF62+ui38huBn/JEdGvNKc2d2yS29KIAYHh
-         gvp0U/nzPgsyL9q/cIcHc429ImVqehhYSHfEBXoiVCm0PPLQeXeVS2dQqBEUxMD/Aov1
-         1qJh6mT7M+XKE+oc1Lgiu5WSX/A8IAprEv3uBuDFopjzobRq+jQmx4M/LY2X2STikqNw
-         vvRqs9yXrIDfIWPUi/X52Hk+15QLBwpBp1t8IYSOb06rjRwyN3Qk8ODtWRH9GlFhAVmV
-         /+FD5Lwq2H7qj+1Nz0fSi8WV5tQpyPI010Fpi1rhjm092q9MRGo3Lfki+SMmuWZ/W4fV
-         AC3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769535089; x=1770139889;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=PlNmfFoygixWkI7H3Z8R3RRT3c5a4skQJi9DgZ6SblU=;
-        b=xDD3VIBE6/yI1G59EmklbwdYp7X6ii1nD18LDFicHk0Fgh/TSDz4i9A9ncdmz6HM/9
-         suBBYA7Q1hB9wFAT89ynHbgaHDoXnLe6xmoGsNhoyMx5zhueIvgv9STSY53c0wjHTkWy
-         l+R9hES+lxN2HAlYbqimg0SfYRGeOXmGbWWIPfHwgCoz7jGGop/nCZ7CfPxuvwyxhIb1
-         Bb7rvEKc1SlGdmrFkt6ATH4jSwPYcKq4Itj366YoPfPPAgvI9b8A0ps1Z1vL5E7YA8Pa
-         fl/elkMUkvKS1azyEGqTJvgQzDE8D6bRf7RhsNiSTdsvJ6rW3LjAdYqAcxF/wKHGMzVi
-         v06g==
-X-Forwarded-Encrypted: i=1; AJvYcCWG1p08vSqX3vUb70nKAqIPzHWJzDONbrG8Icdxg+QUPoFT6Z9bDr1ogf3g1NoiTsEYheOiU/r6PYgUTUtP+ZqS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwC7ndx9qU1wEcv0isMwtcVa/MbXPRcTaJryqMWagV6fCUYln87
-	MX0G/qN+46gRqqFfKKwhmO572a7rkjZiNw5afHSACsRe15Ngkp4adWsS6CfJ5OYbmG47x8UGVHe
-	rCQs3OqjRcsK0i/AMS/atUrLr49Fj0p0=
-X-Gm-Gg: AZuq6aLI1IJhkmMxap3oN/AhQrsCSxvnHjV5vNfoSLPmHhtdajLfhmDpjsdrT35ENDQ
-	zpdde+HHvKLL6FhybtLulaQSBQVhh/5xA4y2xM/q2ISetfahvzLUV8r9NEcjVfOGDASfOBDrh/X
-	6iccspCxrsWvNk8ha+pXHmN3xNBN4YQXP5XcKU+WA4RGhpq0YxqK53fBXty4/RSdCsxlEye3+DY
-	m3RCRq55vPhJiMhvXjtwzLFi/jIh1NDRd8R8jR4P3K7rBMPgnulqDRvM792fF5zi00rGKs=
-X-Received: by 2002:ac8:5a85:0:b0:503:2f49:6f81 with SMTP id
- d75a77b69052e-5032fc262a9mr32087791cf.74.1769535089137; Tue, 27 Jan 2026
- 09:31:29 -0800 (PST)
+	Tue, 27 Jan 2026 17:37:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB58E1515;
+	Tue, 27 Jan 2026 09:37:34 -0800 (PST)
+Received: from [10.1.37.210] (XHFQ2J9959.cambridge.arm.com [10.1.37.210])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A9ECB3F632;
+	Tue, 27 Jan 2026 09:37:39 -0800 (PST)
+Message-ID: <6dbafb58-599f-448e-a17d-daaf4c9438f2@arm.com>
+Date: Tue, 27 Jan 2026 17:37:38 +0000
 MIME-Version: 1.0
-References: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-0-a7c547072bbb@collabora.com>
- <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-4-a7c547072bbb@collabora.com>
-In-Reply-To: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-4-a7c547072bbb@collabora.com>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Tue, 27 Jan 2026 21:31:18 +0400
-X-Gm-Features: AZwV_QiRBuULTXUycKkcZHEVy2gS4ko9kDhO5KYckrC2F3g82wjmaKUQO-30ews
-Message-ID: <CABjd4YxVQfp=ZuovBhAzqX9pDBnBmntQoxkr5vXnToPc3pRARw@mail.gmail.com>
-Subject: Re: [PATCH 04/10] ASoC: rockchip: spdif: Use dev_err_probe
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Sjoerd Simons <sjoerd.simons@collabora.com>, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 03/10] arm64: mm: Permit contiguous descriptors to be
+ rewritten
+Content-Language: en-GB
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
+ Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
+References: <20260126092630.1800589-12-ardb+git@google.com>
+ <20260126092630.1800589-15-ardb+git@google.com>
+ <4965fa08-ce01-4848-bc30-5cc1b745683f@arm.com>
+ <CAMj1kXFskBM-LT_ifX5HpxgQnt1E5tt2QA_5fYuxPQBiSWSDZw@mail.gmail.com>
+ <da0b8783-590e-42a0-8937-f786a2ebcafa@arm.com>
+ <eff29cc6-29e6-4eda-8b44-aef30095252c@app.fastmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <eff29cc6-29e6-4eda-8b44-aef30095252c@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_093135_432363_BC48A836 
-X-CRM114-Status: GOOD (  20.00  )
+X-CRM114-CacheID: sfid-20260127_093743_785559_FBFAF0FF 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,73 +73,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+On 27/01/2026 17:02, Ard Biesheuvel wrote:
+> 
+> 
+> On Tue, 27 Jan 2026, at 17:59, Ryan Roberts wrote:
+>> On 27/01/2026 15:03, Ard Biesheuvel wrote:
+>>> On Tue, 27 Jan 2026 at 10:45, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>>
+>>>> On 26/01/2026 09:26, Ard Biesheuvel wrote:
+>>>>> From: Ard Biesheuvel <ardb@kernel.org>
+>>>>>
+>>>>> Currently, pgattr_change_is_safe() is overly pedantic when it comes to
+>>>>> descriptors with the contiguous hint attribute set, as it rejects
+>>>>> assignments even if the old and the new value are the same.
+>>>>>
+>>>>> So relax the check to allow that.
+>>>>
+>>>> But why do we require the relaxation? Why are we re-writing a PTE in the first
+>>>> place? Either the caller already knows it's the same in which case it can be
+>>>> avoided, or it doesn't know in which case it is accidentally the same and couple
+>>>> probably just as easily been accidentally different? So it's better to warn
+>>>> regardless I would think?
+>>>>
+>>>
+>>> Based on rule RJQQTC in your reply to another patch in this series, my
+>>> conclusion here is that we can drop this check entirely.
+>>
+>> Hmm, I don't think that would be quite right; The rule permits _some_ bits of
+>> the PTE to change in a live mapping as long as the CONT bit remains unchanged.
+>> If you change the CONT bit on a live mapping, you could end up with overlapping
+>> TLB entries which would not go well on a system without bbml2.
+> 
+> I'm not suggesting we add it to 'mask', just to remove the check that forbids any manipulation of an entry that has PTE_CONT set. So toggling PTE_CONT itself would still be caught by the check.
 
-On Tue, Jan 27, 2026 at 8:08=E2=80=AFPM Sebastian Reichel
-<sebastian.reichel@collabora.com> wrote:
->
-> Cleanup the probe routine a little bit by using dev_err_probe
-> instead of dev_err.
->
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->  sound/soc/rockchip/rockchip_spdif.c | 18 ++++++------------
->  1 file changed, 6 insertions(+), 12 deletions(-)
->
-> diff --git a/sound/soc/rockchip/rockchip_spdif.c b/sound/soc/rockchip/roc=
-kchip_spdif.c
-> index 841ef499ed7f..20ed64c1fa42 100644
-> --- a/sound/soc/rockchip/rockchip_spdif.c
-> +++ b/sound/soc/rockchip/rockchip_spdif.c
-> @@ -279,11 +279,9 @@ static int rk_spdif_probe(struct platform_device *pd=
-ev)
->                 struct regmap *grf;
->
->                 grf =3D syscon_regmap_lookup_by_phandle(np, "rockchip,grf=
-");
-> -               if (IS_ERR(grf)) {
-> -                       dev_err(&pdev->dev,
-> +               if (IS_ERR(grf))
-> +                       return dev_err_probe(&pdev->dev, PTR_ERR(grf),
->                                 "rockchip_spdif missing 'rockchip,grf'\n"=
-);
-> -                       return PTR_ERR(grf);
-> -               }
->
->                 /* Select the 8 channel SPDIF solution on RK3288 as
->                  * the 2 channel one does not appear to work
-> @@ -334,16 +332,12 @@ static int rk_spdif_probe(struct platform_device *p=
-dev)
->         ret =3D devm_snd_soc_register_component(&pdev->dev,
->                                               &rk_spdif_component,
->                                               &rk_spdif_dai, 1);
-> -       if (ret) {
-> -               dev_err(&pdev->dev, "Could not register DAI\n");
-> -               return ret;
-> -       }
-> +       if (ret)
-> +               return dev_err_probe(&pdev->dev, ret, "Could not register=
- DAI\n");
->
->         ret =3D devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
-> -       if (ret) {
-> -               dev_err(&pdev->dev, "Could not register PCM\n");
-> -               return ret;
-> -       }
-> +       if (ret)
-> +               dev_err_probe(&pdev->dev, ret, "Could not register PCM\n"=
-);
+Ahh, sorry, wasn't looking at the whole function. Yes,I agree that makes sense then.
 
-Shouldn't this one return the error code, instead of falling through
-to 'return 0'?
-
->         return 0;
->  }
->
-> --
-> 2.51.0
->
-
-Best regards,
-Alexey
+Now that I'm looking at the function, I find it odd that PTE_UXN and PTE_USER
+are not included in the mask. These bits are used (along with PTE_PXN and
+PTE_WRITE, which are in the mask) to form the PI index, when PI is enabled.
+Seems odd that we can change some bits of the index but not others... But that
+is probably for another day.
 
