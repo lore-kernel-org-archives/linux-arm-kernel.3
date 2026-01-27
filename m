@@ -4,57 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 174F1D13C1B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F3BCD19515
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:35:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NSalp5Ns9IGYY0PPinSW1eOGr2K3MH9y5m62iLN950A=; b=UrBjcHNGKReNAJmJ0MOA8q6fMX
-	9BApPpjs/byjWM6B4NrNeFyxrP+5ZMcYZkKTgrGkawjVljMUBzve7f0UPT4RKiuSFrdbfwGW7L9wl
-	vByqaeMD0VCBNSi7YVdc+Ztr4Q7Hb8twez0YJEDw2twPzS4bFHz5+5OwqPRNcBhUDT3GMLBId2oMb
-	vum1U+/ubdzYUA/AlLQc8i53ekEaITbAHbpUJgPll8q9dOtDTjDoHTjCZVEmOCJ8Jap+c/ef1wf1L
-	KRuI5LXaLcjpx9XFxdDOBn/cWDID5jIe8NBx1x2gjxqpb3wVjTmDFWDxO2o6KBGTwpvZtgun4Pk21
-	YtKcve1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KwXi2iEKt4ohjBom3MHhPfGwFDePZQVICIeAID/Bs64=; b=ogwGOMKa4h+tl1BFh8VukYUQsZ
+	DHXehSe1Cw7/siIMgSx5z9P0fxBefWPuaemBmXYipUEteMrMpqHBDXLReu2R22vVLQdpjUoRlrnzD
+	/gSTrUReScpwYOLwt9ri1Y7QUC/07VS/Pk66GwAQSh/qzPX8ktvct5rOHtq++uIuznSKBj1Qfr8Hy
+	rJGrbynQDvyBqi8qHQof/16i5kfjBqMRur0t/Hktfm8uHn2Yn1waSlgMoAF7H5d6bCTvzieGCn1HY
+	i9egkymeALsPtQ0ATfq34do+t4lSVy/sHqt+ZabgjpDX3sUHkgWJKCgs5tm1msCtI9v+5yLjtqeXq
+	nO5wOsHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfSo-0000000DwrL-2d25;
-	Tue, 27 Jan 2026 09:34:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfSl-0000000Dwqm-10eI
+	id 1vkfU8-0000000Dx2s-0cpG;
+	Tue, 27 Jan 2026 09:35:44 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkfU3-0000000Dx2O-2eCZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 09:34:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6F684339;
-	Tue, 27 Jan 2026 01:34:10 -0800 (PST)
-Received: from [10.57.94.246] (unknown [10.57.94.246])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 293ED3F632;
-	Tue, 27 Jan 2026 01:34:15 -0800 (PST)
-Message-ID: <3d59a8d9-a382-48d8-b79c-f5c23e86c1b7@arm.com>
-Date: Tue, 27 Jan 2026 09:34:13 +0000
+	Tue, 27 Jan 2026 09:35:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1769506539; x=1801042539;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=u9fgX4gOpXlnZ/mXQcZ3TbVrsG5fbHhYBvVFFPW/45E=;
+  b=FN3hgyMAg41lqIcOEI6H8q8tx+45cEsU8TLJw9oqmK8jqxWX/QDaDdq6
+   bC0sW/l9mcfYC3nVDdtRtMhRy21ZOHvZ/caAL9yAm7ge+fOY+WGbhGtlY
+   w8qmbLb50LJ5nwL3vGNVxGfED0acdXfEBTlhqkXPuERTe2KBaYMCXnHeh
+   gJZ0A2rySdXoFvTmsPdL1fV/RoWDHXJG+azZahkDTawkfVtgwTasxE1n5
+   ykRnUwdxfCZSF8+Ni2UhkfkJOyxV0WDm0Kj2tPUeNBU626adtbEKFfh9X
+   YxtTeYBNLG/c9cCYtGDizjY08boBqhlOOaAbTReDo5WhN9qWyzTT3/0jt
+   g==;
+X-CSE-ConnectionGUID: pQW1RDTERq2cBfgwoh1M0Q==
+X-CSE-MsgGUID: wp+gTVRORCC0XpuOTjRJVw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11683"; a="70591257"
+X-IronPort-AV: E=Sophos;i="6.21,256,1763452800"; 
+   d="scan'208";a="70591257"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:35:39 -0800
+X-CSE-ConnectionGUID: YSXB+yfTQSuClfxtWBR2zA==
+X-CSE-MsgGUID: dA66sZBFQn2pvXbzeSQpag==
+X-ExtLoop1: 1
+Received: from egrumbac-mobl6.ger.corp.intel.com (HELO localhost) ([10.245.245.248])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jan 2026 01:35:36 -0800
+Date: Tue, 27 Jan 2026 11:35:34 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: abdurrahman@nexthop.ai
+Cc: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, info@mocean-labs.com,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v5 3/6] i2c: xiic: switch to devres managed APIs
+Message-ID: <aXiG5p9BQ-vkAgbV@smile.fi.intel.com>
+References: <20260126-i2c-xiic-v5-0-88a16a28721c@nexthop.ai>
+ <20260126-i2c-xiic-v5-3-88a16a28721c@nexthop.ai>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/10] arm64: Move the zero page to rodata
-Content-Language: en-GB
-To: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
- catalin.marinas@arm.com, mark.rutland@arm.com,
- Ard Biesheuvel <ardb@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
- Kees Cook <kees@kernel.org>, linux-hardening@vger.kernel.org
-References: <20260126092630.1800589-12-ardb+git@google.com>
- <20260126092630.1800589-13-ardb+git@google.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20260126092630.1800589-13-ardb+git@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260126-i2c-xiic-v5-3-88a16a28721c@nexthop.ai>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_013419_319950_92C6EC79 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20260127_013541_957173_26A3B4C0 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,64 +88,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/01/2026 09:26, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> The zero page should contain only zero bytes, and so mapping it
-> read-write is unnecessary. Combine it with reserved_pg_dir, which lives
-> in the read-only region of the kernel, and already serves a similar
-> purpose.
-> 
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/arm64/kernel/vmlinux.lds.S | 1 +
->  arch/arm64/mm/mmu.c             | 3 +--
->  2 files changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-> index ad6133b89e7a..b2a093f5b3fc 100644
-> --- a/arch/arm64/kernel/vmlinux.lds.S
-> +++ b/arch/arm64/kernel/vmlinux.lds.S
-> @@ -229,6 +229,7 @@ SECTIONS
->  #endif
->  
->  	reserved_pg_dir = .;
-> +	empty_zero_page = .;
->  	. += PAGE_SIZE;
->  
->  	swapper_pg_dir = .;
+On Mon, Jan 26, 2026 at 05:08:18PM +0000, Abdurrahman Hussain via B4 Relay wrote:
 
-Isn't there a magic macro for getting from swapper to reserved? That will need
-updating?
+> Simplify the error code paths by switching to devres managed helper
+> functions.
 
-/*
- *  Open-coded (swapper_pg_dir - reserved_pg_dir) as this cannot be calculated
- *  until link time.
- */
-#define RESERVED_SWAPPER_OFFSET	(PAGE_SIZE)
+Thanks for the update, my comments below.
 
+...
 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 9ae7ce00a7ef..c36422a3fae2 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -66,9 +66,8 @@ long __section(".mmuoff.data.write") __early_cpu_boot_status;
->  
->  /*
->   * Empty_zero_page is a special page that is used for zero-initialized data
-> - * and COW.
-> + * and COW. Defined in the linker script.
->   */
-> -unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)] __page_aligned_bss;
->  EXPORT_SYMBOL(empty_zero_page);
+> +	ret = devm_mutex_init(dev, &i2c->lock);
+> +	if (ret < 0)
 
-What's the benefit of giving it it's own place in the linker script vs just
-declaring it as const and having it placed in the rodata?
+Why ' < 0'?
 
-Thanks,
-Ryan
+> +		return ret;
 
->  
->  static DEFINE_SPINLOCK(swapper_pgdir_lock);
+...
+
+> +	ret = devm_pm_runtime_set_active_enabled(dev);
+> +	if (ret < 0)
+
+Ditto.
+
+> +		return ret;
+
+...
+
+>  	if (ret < 0) {
+>  		dev_err_probe(&pdev->dev, ret, "Cannot claim IRQ\n");
+> -		goto err_pm_disable;
+> +		return ret;
+
+		return dev_err_probe(...);
+
+>  	}
+
+...
+
+>  	ret = xiic_reinit(i2c);
+>  	if (ret < 0) {
+>  		dev_err_probe(&pdev->dev, ret, "Cannot xiic_reinit\n");
+
+Ditto.
+
+> -		goto err_pm_disable;
+> +		return ret;
+>  	}
+
+...
+
+>  	dev_dbg(&pdev->dev, "mmio %08lx irq %d scl clock frequency %d\n",
+>  		(unsigned long)res->start, irq, i2c->i2c_clk);
+
+Side note, consider using %pR instead of ugly casting for resources.
+(separate change).
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
