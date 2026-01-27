@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85968D3409B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 16:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C2BD340AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 16:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mknfTtXCo23W3lqkR4Cj4T86n2nm3eZ2PJ92k2F1m+8=; b=B1wVDFxi348SsBV7BDzuPGeToL
-	iRTaDi18rXxCtX8rWzitumxnzmlmt4CHW2Z25NKhlfb42AQE2hTNLdaclkYXpiQFs9mt4GIFRb1GM
-	JPmCVVwubHY4l3UaVs8uEe/HDt4EkvT0akCXn86pMApwAu9MLIZUJVA2dFayUCNuMIjAkIL4gk3Uu
-	2kmC2bg7ruC0yFgfTg/iwSseiC5phZco2IPoXZ85wRnAHZZ+IIFU6GjJIWmDLFIsUzlDW7j9WXINm
-	QYUNjpvPBfpFWVOCJKrgH+8mu+KWdfJETzGTlMgMJP3yX1i+QzLEx283IUEfGIHX7MtYwLYsekYGc
-	EdK5/DgA==;
+	bh=srAzoF6J6j4nuIj8EfbABAU5c7JB5pCSt7+MNEFTa68=; b=E9VjSx0yivvkIeA31fJ9stxg8d
+	2EIwxKmqlDb5Ap+AqMRsqBUkjNBbw57tZQf4Z3aspF1KeaQ+YTJ3SF7+LLFnxUudZ8hT0oCgfE1Ma
+	bF8YjB+Ym0fiZvC8O9Wai5ZNWpZqiYfQ9cTpKEeDA3TjVTrRhY+CXwAluTGOgUwPajsQ+lqOAzpQP
+	8MQg69JFalbdgDf+Da9lItTUOgVQzAmsqHXldm6R8WmUySBHwybg8BsLfyWUQm6teTzLOu4h8tI+x
+	1CBB8TPMT89OI1KxVYaKL7ZC3HK9ZKnrHU11bifIy9sHsZDNilsUNDAZqUZ8rHnQlqpcKgtdP4McK
+	v5ne1lkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklcp-0000000Ec9u-2GzD;
+	id 1vklcp-0000000EcAn-3iFT;
 	Tue, 27 Jan 2026 16:09:07 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklcd-0000000Ec0K-3NvD;
-	Tue, 27 Jan 2026 16:08:57 +0000
+	id 1vklcd-0000000Ec0L-46HH;
+	Tue, 27 Jan 2026 16:08:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1769530130;
-	bh=No+BNRoccsHf+NUA8GkCc9/TqVGutQZy/sMq+w/CZQs=;
+	bh=24zrfV+l62Jtv7PtKy08Y2/hOj8Lfc/0IFp2rDE01pk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=YnjN0joQp5Te2kW0fRX3E1yejb2/Jm2aJiU6hZ6dg9Wvx0hVu+cP9MUEUMxt5FgEh
-	 ZKVXUEyLbVSICmAXcsOgvR4bHtC9icPcazBYZuYM4Aex7mL5AbmVhp4G2sWbfs9mQ0
-	 XoNcNWWrDeOrNyZdRaVKDH7bimCAgKv5GJ/Hv1scotCgyOSyQDnONOS/RMugs1vIaS
-	 +eB6uKgOMvM9pwred0Kam0xO6riLusH+CCSPmWiiDbA5rU9pJkH9+d5yy9nejM1Gp6
-	 ptnIy8v08NTcgBQ/BPxgEsbdhr8Mda75rzigwcHYQLBunq01asvXAOJZUWRMn6vDqd
-	 jLcpdOI6LihFg==
+	b=AIMpQFqy1A9CphbiCEHWJJ5CW7NX/U+hqS6QDO81sGxuL/VI7sMWAMwxw94VaMeff
+	 Tx+MdNwpwKxtZzNIS627NzwbNcjWFwVp9QDM4C05cq1+tj9q99YPsm9FkBM5NeG4PD
+	 /fc9Lr12JrYRezxG0uPLwSQ3LwvvACC67bxu4n4hZauJnYj0OXy7RfmdGWEhTK09RI
+	 jM3FZvOGfv6kejiqtvlwNezEscGpUQ8HjPns/Fle2134WF9XZEeQLfLQuCiBvkRkx+
+	 meCVEjegbv2xaxAMFAEk8yxnXUGoFnZXklDELzWqGXQ57F0PSatql3ef0/INjzIg/N
+	 1I1JzJyjheaTw==
 Received: from jupiter.universe (dyndsl-091-248-210-071.ewe-ip-backbone.de [91.248.210.71])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 03B3717E1543;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 079F617E157E;
 	Tue, 27 Jan 2026 17:08:50 +0100 (CET)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 3CC3B480066; Tue, 27 Jan 2026 17:08:49 +0100 (CET)
+	id 3F913480068; Tue, 27 Jan 2026 17:08:49 +0100 (CET)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 27 Jan 2026 17:08:28 +0100
-Subject: [PATCH 08/10] ASoC: rockchip: spdif: Add support for format S32_LE
+Date: Tue, 27 Jan 2026 17:08:30 +0100
+Subject: [PATCH 10/10] ASoC: rockchip: spdif: Convert to FIELD_PREP
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-8-a7c547072bbb@collabora.com>
+Message-Id: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-10-a7c547072bbb@collabora.com>
 References: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-0-a7c547072bbb@collabora.com>
 In-Reply-To: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-0-a7c547072bbb@collabora.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -61,29 +61,28 @@ Cc: Alexey Charkov <alchark@gmail.com>,
  Sjoerd Simons <sjoerd.simons@collabora.com>, linux-sound@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-kernel@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Sugar Zhang <sugar.zhang@rock-chips.com>, Zohn Ni <zohn.ni@rock-chips.com>
+ Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3109;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6017;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=ioPETteiBdv5BnyEvaF4eaVsZWupHXbFC60Wx7hFpEE=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGl44xGS8LOF1xOkuIWQ+M/xPTBCFex19N5CF
- kioY6tXaCjckokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJpeOMRAAoJENju1/PI
- O/qa9ggQAJj24jtc72bB+skrp5GUfggHW/4PRPyhLGRv4vUSDzAe+wF9bPA5VJxZPLzzf1kXKyY
- 12/7QiHMZDhi9s8MhSypMgr1kX1enCn+tGLdbvj38A0MOft6etoUB7pGf9urkUCI5MquQxtjkaX
- xE+W9mU71FL4qdsJMkKCBSsLTjW8TMbMCLtGA6UUJ2cL0tBXdOMkP+4JXX3OF9GGmUVyd/KyuDy
- nUUocTO0zG95PGuriO77Xit+is88lRwZC6XwqzOdZJ198c6mw3aph7Dda8OJl/SOId7FtB2iI+j
- gafMZMLKR9Yw6s2afn2wNkrxqYToG+A2NEI6Ft4PLku3kc+NrEWOnuaXbl6nNwZImhZ8DyCfEHU
- kimwpHv3HaIaLE34d3nRQHep1E8fSxQnLuFO8JvtORkrmryPV00J9xEuGl6gyOIL45Uu4llJtP5
- CWJQuqG7d0TPN69Pc+4O1ppPGxzU30ePThPJjmRHWMzU4qJ9UGi+oaV2ZGe9T1NEPFORfu1EOb4
- lKMQY2idy99LJEYtfZvNkmvgP28ktjgMgDirkDQWEfuRb1SiPsa7RHT92x3yW51ILFgqwK3F571
- W37sf81QV4DiCzN5qK91x9fn267xUwpnmxfxw7Jy1fooFcOL1bb6JluH5YZRiP1d5WJQ2VfLCfJ
- 36DCfpCX5qyeXuz/IJGQ3Fg==
+ bh=24zrfV+l62Jtv7PtKy08Y2/hOj8Lfc/0IFp2rDE01pk=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGl44xHe4fXHIaWZfyita0882SHV00TAzl1yz
+ ZUBWRxqtSVRyYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJpeOMRAAoJENju1/PI
+ O/qagy8P/iGctAuuYrXQgiNUyfLVFmTpnlfbt6UstF5KNgxMLJWoDKOKZmRcW6e3AVu2bEHPClZ
+ wZ5oGVEbLOGKOjPE6Ua7mNuutkkXvZ1/pVxmHfI3b6i53nW9RzajDDSvKHokV0fbV69jbiHBkdX
+ k/tEmCdisuTxW7C5e6KvGkUDk74GcGKiQYQU6VBY+nzeAgZ6/YWGNhmHm36BhA1stAhX3awW0Qf
+ jo8leI8eu++oRLz0zHudqf4AuOgNqoaVLG1TIMgiGQlH0JMTfsUANu3temTx8MDlog/eNKO5h2s
+ 6Rgfckjv6Ax+IYTqqVk45z7oHptuUWcsxI0tQpe5E6AruuJksqPCkEnPfXEp7wMna2QposllLIb
+ zfVgQ6XkKmwgSn2Ea0XzC47ciI8DO6hcVY6IqBGrzZ645AmYRGqM/Sutt6mxZqrtHlMHQU8yrRD
+ xISfyBvb6cDgLaqbmIMptvUf1Hjn2HwWezv1Cs+WHshEk5sJoHX6qKxmkOjRair+Y3Z4+4qlGnt
+ fLkCC+PkFCZTor2h51r4USUdaDRLqZ8VVWHIdvoe/e5aAjjMyjCnKwn4n0X1FYAbTRrFwBnT8wH
+ ee0sfTRMOdZrpBb5nPlDf9fu3froSqcjZZ7al7nDFCoc2wCzBiO5O1V/5aEgVlunI8WaKTQNZmN
+ DdFMB0PcnxdsRYw1YbdMn+Q==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_080856_005930_0094FFA5 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20260127_080856_193700_23BA8CC3 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,95 +97,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sugar Zhang <sugar.zhang@rock-chips.com>
+Convert the driver to use FIELD_PREP to increase readability.
+This also fixes an issue that the SDPIF_CFGR_VDW_MASK was wrong,
+which didn't have any effects as the only user in the driver
+updates the other bits at the same time.
 
-Treat 32 bit sample width as if it was 24 bits using only the
-24 most significant bits.
-
-Co-developed-by: Zohn Ni <zohn.ni@rock-chips.com>
-Signed-off-by: Zohn Ni <zohn.ni@rock-chips.com>
-Signed-off-by: Sugar Zhang <sugar.zhang@rock-chips.com>
-[I've merged the channel-swapping fix from Zohn Ni into Sugar Zhang's
-patch introducing the problem in the first place]
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- sound/soc/rockchip/rockchip_spdif.c | 22 ++++++++++++++++++++--
- sound/soc/rockchip/rockchip_spdif.h |  8 ++++++++
- 2 files changed, 28 insertions(+), 2 deletions(-)
+ sound/soc/rockchip/rockchip_spdif.c | 12 ++++-----
+ sound/soc/rockchip/rockchip_spdif.h | 53 +++++++++++++++++--------------------
+ 2 files changed, 31 insertions(+), 34 deletions(-)
 
 diff --git a/sound/soc/rockchip/rockchip_spdif.c b/sound/soc/rockchip/rockchip_spdif.c
-index 8cf54470f931..5e9504220a1e 100644
+index 2c804d25c547..d0b9967cfe4d 100644
 --- a/sound/soc/rockchip/rockchip_spdif.c
 +++ b/sound/soc/rockchip/rockchip_spdif.c
-@@ -99,21 +99,38 @@ static int rk_spdif_hw_params(struct snd_pcm_substream *substream,
- 	switch (params_format(params)) {
- 	case SNDRV_PCM_FORMAT_S16_LE:
- 		val |= SPDIF_CFGR_VDW_16;
-+		val |= SPDIF_CFGR_ADJ_RIGHT_J;
- 		break;
- 	case SNDRV_PCM_FORMAT_S20_3LE:
- 		val |= SPDIF_CFGR_VDW_20;
-+		val |= SPDIF_CFGR_ADJ_RIGHT_J;
- 		break;
- 	case SNDRV_PCM_FORMAT_S24_LE:
- 		val |= SPDIF_CFGR_VDW_24;
-+		val |= SPDIF_CFGR_ADJ_RIGHT_J;
-+		break;
-+	case SNDRV_PCM_FORMAT_S32_LE:
-+		val |= SPDIF_CFGR_VDW_24;
-+		val |= SPDIF_CFGR_ADJ_LEFT_J;
- 		break;
- 	default:
- 		return -EINVAL;
- 	}
+@@ -5,7 +5,7 @@
+  *
+  * Copyright (c) 2014 Rockchip Electronics Co. Ltd.
+  * Author: Jianqun <jay.xu@rock-chips.com>
+- * Copyright (c) 2015 Collabora Ltd.
++ * Copyright (c) 2015-2026 Collabora Ltd.
+  * Author: Sjoerd Simons <sjoerd.simons@collabora.co.uk>
+  */
  
-+	/*
-+	 * clear MCLK domain logic before setting Fmclk and Fsdo to ensure
-+	 * that switching between S16_LE and S32_LE audio does not result
-+	 * in accidential channels swap.
-+	 */
-+	regmap_update_bits(spdif->regmap, SPDIF_CFGR, SPDIF_CFGR_CLR_MASK,
-+			   SPDIF_CFGR_CLR_EN);
-+	udelay(1);
-+
+@@ -159,7 +159,7 @@ static int rk_spdif_hw_params(struct snd_pcm_substream *substream,
+ 
  	ret = regmap_update_bits(spdif->regmap, SPDIF_CFGR,
  				 SPDIF_CFGR_CLK_DIV_MASK |
- 				 SPDIF_CFGR_HALFWORD_ENABLE |
--				 SDPIF_CFGR_VDW_MASK, val);
-+				 SDPIF_CFGR_VDW_MASK |
-+				 SPDIF_CFGR_ADJ_MASK, val);
+-				 SPDIF_CFGR_HALFWORD_ENABLE |
++				 SPDIF_CFGR_HALFWORD_MASK |
+ 				 SDPIF_CFGR_VDW_MASK |
+ 				 SPDIF_CFGR_ADJ_MASK, val);
  
- 	return ret;
- }
-@@ -203,7 +220,8 @@ static struct snd_soc_dai_driver rk_spdif_dai = {
- 		.rates = SNDRV_PCM_RATE_8000_192000,
- 		.formats = (SNDRV_PCM_FMTBIT_S16_LE |
- 			    SNDRV_PCM_FMTBIT_S20_3LE |
--			    SNDRV_PCM_FMTBIT_S24_LE),
-+			    SNDRV_PCM_FMTBIT_S24_LE |
-+			    SNDRV_PCM_FMTBIT_S32_LE),
- 	},
- 	.ops = &rk_spdif_dai_ops,
- };
+@@ -177,7 +177,7 @@ static int rk_spdif_trigger(struct snd_pcm_substream *substream,
+ 	case SNDRV_PCM_TRIGGER_RESUME:
+ 	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
+ 		ret = regmap_update_bits(spdif->regmap, SPDIF_DMACR,
+-					 SPDIF_DMACR_TDE_ENABLE |
++					 SPDIF_DMACR_TDE_MASK |
+ 					 SPDIF_DMACR_TDL_MASK,
+ 					 SPDIF_DMACR_TDE_ENABLE |
+ 					 SPDIF_DMACR_TDL(16));
+@@ -186,21 +186,21 @@ static int rk_spdif_trigger(struct snd_pcm_substream *substream,
+ 			return ret;
+ 
+ 		ret = regmap_update_bits(spdif->regmap, SPDIF_XFER,
+-					 SPDIF_XFER_TXS_START,
++					 SPDIF_XFER_TXS_MASK,
+ 					 SPDIF_XFER_TXS_START);
+ 		break;
+ 	case SNDRV_PCM_TRIGGER_SUSPEND:
+ 	case SNDRV_PCM_TRIGGER_STOP:
+ 	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
+ 		ret = regmap_update_bits(spdif->regmap, SPDIF_DMACR,
+-					 SPDIF_DMACR_TDE_ENABLE,
++					 SPDIF_DMACR_TDE_MASK,
+ 					 SPDIF_DMACR_TDE_DISABLE);
+ 
+ 		if (ret != 0)
+ 			return ret;
+ 
+ 		ret = regmap_update_bits(spdif->regmap, SPDIF_XFER,
+-					 SPDIF_XFER_TXS_START,
++					 SPDIF_XFER_TXS_MASK,
+ 					 SPDIF_XFER_TXS_STOP);
+ 		break;
+ 	default:
 diff --git a/sound/soc/rockchip/rockchip_spdif.h b/sound/soc/rockchip/rockchip_spdif.h
-index fcc28b6c4f58..acf64986a2e0 100644
+index b837b1f8d57f..ec33295e2512 100644
 --- a/sound/soc/rockchip/rockchip_spdif.h
 +++ b/sound/soc/rockchip/rockchip_spdif.h
-@@ -17,6 +17,14 @@
- #define SPDIF_CFGR_CLK_DIV_MASK		(0xff << SPDIF_CFGR_CLK_DIV_SHIFT)
- #define SPDIF_CFGR_CLK_DIV(x)		((x-1) << SPDIF_CFGR_CLK_DIV_SHIFT)
+@@ -2,7 +2,7 @@
+ /*
+  * ALSA SoC Audio Layer - Rockchip SPDIF transceiver driver
+  *
+- * Copyright (c) 2015 Collabora Ltd.
++ * Copyright (c) 2015-2026 Collabora Ltd.
+  * Author: Sjoerd Simons <sjoerd.simons@collabora.co.uk>
+  */
  
-+#define SPDIF_CFGR_CLR_MASK		BIT(7)
-+#define SPDIF_CFGR_CLR_EN		BIT(7)
-+#define SPDIF_CFGR_CLR_DIS		0
-+
-+#define SPDIF_CFGR_ADJ_MASK		BIT(3)
-+#define SPDIF_CFGR_ADJ_LEFT_J		BIT(3)
-+#define SPDIF_CFGR_ADJ_RIGHT_J		0
-+
- #define SPDIF_CFGR_HALFWORD_SHIFT	2
- #define SPDIF_CFGR_HALFWORD_DISABLE	(0 << SPDIF_CFGR_HALFWORD_SHIFT)
- #define SPDIF_CFGR_HALFWORD_ENABLE	(1 << SPDIF_CFGR_HALFWORD_SHIFT)
+@@ -13,53 +13,50 @@
+  * CFGR
+  * transfer configuration register
+ */
+-#define SPDIF_CFGR_CLK_DIV_SHIFT	(16)
+-#define SPDIF_CFGR_CLK_DIV_MASK		(0xff << SPDIF_CFGR_CLK_DIV_SHIFT)
+-#define SPDIF_CFGR_CLK_DIV(x)		((x-1) << SPDIF_CFGR_CLK_DIV_SHIFT)
++#define SPDIF_CFGR_CLK_DIV_MASK		GENMASK(23, 16)
++#define SPDIF_CFGR_CLK_DIV(x)		FIELD_PREP(SPDIF_CFGR_CLK_DIV_MASK, x-1)
+ 
+ #define SPDIF_CFGR_CLR_MASK		BIT(7)
+-#define SPDIF_CFGR_CLR_EN		BIT(7)
+-#define SPDIF_CFGR_CLR_DIS		0
++#define SPDIF_CFGR_CLR_EN		FIELD_PREP(SPDIF_CFGR_CLR_MASK, 1)
++#define SPDIF_CFGR_CLR_DIS		FIELD_PREP(SPDIF_CFGR_CLR_MASK, 0)
+ 
+ #define SPDIF_CFGR_CSE_MASK		BIT(6)
+-#define SPDIF_CFGR_CSE_EN		BIT(6)
+-#define SPDIF_CFGR_CSE_DIS		0
++#define SPDIF_CFGR_CSE_EN		FIELD_PREP(SPDIF_CFGR_CSE_MASK, 1)
++#define SPDIF_CFGR_CSE_DIS		FIELD_PREP(SPDIF_CFGR_CSE_MASK, 0)
+ 
+ #define SPDIF_CFGR_ADJ_MASK		BIT(3)
+-#define SPDIF_CFGR_ADJ_LEFT_J		BIT(3)
+-#define SPDIF_CFGR_ADJ_RIGHT_J		0
++#define SPDIF_CFGR_ADJ_LEFT_J		FIELD_PREP(SPDIF_CFGR_ADJ_MASK, 1)
++#define SPDIF_CFGR_ADJ_RIGHT_J		FIELD_PREP(SPDIF_CFGR_ADJ_MASK, 0)
+ 
+-#define SPDIF_CFGR_HALFWORD_SHIFT	2
+-#define SPDIF_CFGR_HALFWORD_DISABLE	(0 << SPDIF_CFGR_HALFWORD_SHIFT)
+-#define SPDIF_CFGR_HALFWORD_ENABLE	(1 << SPDIF_CFGR_HALFWORD_SHIFT)
++#define SPDIF_CFGR_HALFWORD_MASK	BIT(2)
++#define SPDIF_CFGR_HALFWORD_DISABLE	FIELD_PREP(SPDIF_CFGR_HALFWORD_MASK, 0)
++#define SPDIF_CFGR_HALFWORD_ENABLE	FIELD_PREP(SPDIF_CFGR_HALFWORD_MASK, 1)
+ 
+-#define SPDIF_CFGR_VDW_SHIFT	0
+-#define SPDIF_CFGR_VDW(x)	(x << SPDIF_CFGR_VDW_SHIFT)
+-#define SDPIF_CFGR_VDW_MASK	(0xf << SPDIF_CFGR_VDW_SHIFT)
++#define SDPIF_CFGR_VDW_MASK		GENMASK(1, 0)
++#define SPDIF_CFGR_VDW(x)		FIELD_PREP(SDPIF_CFGR_VDW_MASK, x)
+ 
+-#define SPDIF_CFGR_VDW_16	SPDIF_CFGR_VDW(0x0)
+-#define SPDIF_CFGR_VDW_20	SPDIF_CFGR_VDW(0x1)
+-#define SPDIF_CFGR_VDW_24	SPDIF_CFGR_VDW(0x2)
++#define SPDIF_CFGR_VDW_16		SPDIF_CFGR_VDW(0x0)
++#define SPDIF_CFGR_VDW_20		SPDIF_CFGR_VDW(0x1)
++#define SPDIF_CFGR_VDW_24		SPDIF_CFGR_VDW(0x2)
+ 
+ /*
+  * DMACR
+  * DMA control register
+ */
+-#define SPDIF_DMACR_TDE_SHIFT	5
+-#define SPDIF_DMACR_TDE_DISABLE	(0 << SPDIF_DMACR_TDE_SHIFT)
+-#define SPDIF_DMACR_TDE_ENABLE	(1 << SPDIF_DMACR_TDE_SHIFT)
++#define SPDIF_DMACR_TDE_MASK		BIT(5)
++#define SPDIF_DMACR_TDE_DISABLE		FIELD_PREP(SPDIF_DMACR_TDE_MASK, 0)
++#define SPDIF_DMACR_TDE_ENABLE		FIELD_PREP(SPDIF_DMACR_TDE_MASK, 1)
+ 
+-#define SPDIF_DMACR_TDL_SHIFT	0
+-#define SPDIF_DMACR_TDL(x)	((x) << SPDIF_DMACR_TDL_SHIFT)
+-#define SPDIF_DMACR_TDL_MASK	(0x1f << SPDIF_DMACR_TDL_SHIFT)
++#define SPDIF_DMACR_TDL_MASK		GENMASK(4, 0)
++#define SPDIF_DMACR_TDL(x)		FIELD_PREP(SPDIF_DMACR_TDL_MASK, x)
+ 
+ /*
+  * XFER
+  * Transfer control register
+ */
+-#define SPDIF_XFER_TXS_SHIFT	0
+-#define SPDIF_XFER_TXS_STOP	(0 << SPDIF_XFER_TXS_SHIFT)
+-#define SPDIF_XFER_TXS_START	(1 << SPDIF_XFER_TXS_SHIFT)
++#define SPDIF_XFER_TXS_MASK		BIT(0)
++#define SPDIF_XFER_TXS_STOP		FIELD_PREP(SPDIF_XFER_TXS_MASK, 0)
++#define SPDIF_XFER_TXS_START		FIELD_PREP(SPDIF_XFER_TXS_MASK, 1)
+ 
+ #define SPDIF_CFGR	(0x0000)
+ #define SPDIF_SDBLR	(0x0004)
 
 -- 
 2.51.0
