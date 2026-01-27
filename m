@@ -4,76 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A25D6D34093
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF291D34092
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:47:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lr/AXvpRECteTqgpnXcvrdfrDD3U/+YRtXBlxwKPYTo=; b=nDdF7gFUbd3/W/oMNLQ0/gJATa
-	YVBdNFGKCpVeGXtUkMWJzAh+foOvnl9oCZ8DzdkSlPN/b8Qrc72NPIK1vjb3MU+Y/X3+R3VAToX2M
-	P5RyH7KYsU0iFEs+HgYrAMYkmQb7qwipdcjFLHVOlOHExApt0nknBN+cdtZQoz6sP+AxjGDGiRyle
-	CPN2FktRhiqfXFTMvvb7Fsfj36ZVPmwPl1+rzmfmDa4sbiuwxyr4aD+yj6VVyDql6jySJZHNIWPOL
-	qEPdhGk/2CsYB9OLymQub6jkN8Zwq7CJUqvU38VyO5XKUeha4tqTILWYiaFDqdE+PhURH5OA7dmgM
-	SyS8YvyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7eOuyosWnsXIdwMTE3mmiW0j22cD4OeLu7JqhilojCE=; b=AstmalQVbgiRj2Ram09fmCy+1N
+	3b1w8/ddENDz2RiBKrRxihlUD/aq30bYCePHvujIzbt3CVADOo0hHDpU035QIoFSWwefNtAYVgMA0
+	xLbMp5Hk127jE56nT2BpAolribfsbGl19f5U4peCAOuY8IMtT7UhliyWjEJ5L67SiXvkEG+5u8dOh
+	mKpSNBuEj5AOoQgTfshsW1tM0nKizpc+Tb11okxIrw0k9owlyAlMZmG5tg41mqwnT6TDB1N623xSh
+	7NE/mEkkX7M9VfT7cpw84ke08mpx4oLwnHYYpXdEcseH1b+hVYQsZnFrczYcZpAJMU+xBc2K6KevS
+	M0uchj8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklGv-0000000EZbx-3vBF;
-	Tue, 27 Jan 2026 15:46:29 +0000
-Received: from mout.web.de ([212.227.17.11])
+	id 1vklHx-0000000EZkB-2f1o;
+	Tue, 27 Jan 2026 15:47:33 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklGr-0000000EZbN-19lR
+	id 1vklHv-0000000EZjZ-0JsD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 15:46:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1769528754; x=1770133554; i=markus.elfring@web.de;
-	bh=lr/AXvpRECteTqgpnXcvrdfrDD3U/+YRtXBlxwKPYTo=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=SKkDkcUOrBYJcK0M9s86Tp2mI4Fswb4yv8jcNY1Gcyw0Me2U/nSZg4mTBgin4Jij
-	 qqcNXeopPWALvx372bkI0OqBE3XthxNTriEteAqhoiU2cCEI+NJdsoKkFtHzz5XJX
-	 /GXwlY2Pdd85UZuf8f6TV9YTxpm3oS5am3a7d5ZysAa6O0anN/7JXUc2duYXGq+Tr
-	 khLVzcU0/ckuBiJ1TwSzODf4QFYLyJyrnOUH/r2GSe1gie/ujibz84CmMceUUzqaq
-	 Xh86wBUts3wpvlm+kVyPXXLHfZlWJ4mo4Gy9XMyCnkL4oWIObpLS8HlmHe14MuYaH
-	 7qSvXsk2SGbVViwYqw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.92.251]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MwjJo-1vw52u1jLO-017G2I; Tue, 27
- Jan 2026 16:45:54 +0100
-Message-ID: <f6ce8385-758d-457c-a11f-46145c048afa@web.de>
-Date: Tue, 27 Jan 2026 16:45:52 +0100
+	Tue, 27 Jan 2026 15:47:32 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b8837152db5so872280566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 07:47:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769528849; cv=none;
+        d=google.com; s=arc-20240605;
+        b=hZyRz9TpWJDYa9HzyPBg1lHNbaQn4sspJbayCc9ChGb/uI17RkBQPWjImygHq0PBhY
+         2jSSd/EwTXYsNjFiNaUt3IxwDpDYb2n0FvjFJuydNd53BjJgE8zwKBTpG+qHJNilU9Cd
+         JNLVzFN0bDfKx6MqaYyHgDnymnTLfl1RJy5pklZay8/rbLyI7qRouSO9818seSbcVU3k
+         bq+MdXk610odU7fEAJ/TeaQs7bi5gzyLbD6lmjLEUAVIYlevOj7gCPh96sTVip6JrTAU
+         hRSW7UPuCoUPpvduDUuAfa6Ef+F1rs9IrB6Fdu+1Ism44wZaK833L80U2yrYI19ty4Q5
+         M3Bg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=7eOuyosWnsXIdwMTE3mmiW0j22cD4OeLu7JqhilojCE=;
+        fh=wO/ohcQbF/ARDB1XoCL646Imu+jInbIAU+S048zrnXU=;
+        b=Oxiru5BxHy201UjIXVSzBELzXZ+iScd24B2iqjJfYBXQ1siYCV0s88qXPcL97uuGg8
+         ii+IwFJz6bJvZudSImOiYE3fsit8nihXCPTUlDNre7IZ3IqX42kLa3KAMjuvIEUStc5g
+         8PFg2GF7ZRs9JGmQxujCVCVs41cQbgmphsyjr0Nu2IJrujHdyPN4IF1uWYlQxFphUMh0
+         pALJoIuU6FDkniFo5lA8ekE4A3x67wLBrV18TpvC8hp1m9ACLhAR2Vc6YJDuDHbvgBa6
+         0DcqLsGTzENy1uDt+VdnkimOZK8IyIS0P6AB4KKJ08YzOM+11Ug/B0pt/jVSC/MI2dai
+         RKEg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1769528849; x=1770133649; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=7eOuyosWnsXIdwMTE3mmiW0j22cD4OeLu7JqhilojCE=;
+        b=hYM2hZTfTLq95kwjMaWoj3poU0Xc3BSun0unjjfgfewyw4IFSHEm+mZL38qG/DZ3uI
+         QDr4APM4LZKWQHPxXVXzG/QySGcOaLSQqoBLdwto+8oYaH353Np7y5WGIqTlWz40C1+B
+         L6OYYrJXf8ZyMtyCLBa0QAvxmNh6LJ0fcpWPSRPkzCi0fpCN6SR2dTu8zVhgzcSXa8Ck
+         mhN4Y2vc1KzAMna4qXkOFa5IqPoDIDRQBxhUCKRforT9JjG+izDO281tJw9v47NtiYxe
+         YKZKXEjs6liBDGy5S385H61ycwoJf9SeXAhkjoJbPzqO/cSMpZpZyFwghtgG/3z23lmK
+         NXWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769528849; x=1770133649;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7eOuyosWnsXIdwMTE3mmiW0j22cD4OeLu7JqhilojCE=;
+        b=OyJb/OCtW6eIObUVVX7+zAnAo+7gfelPDy++I2aaCRPjGDP8YCUWIuMriFymMGmQRd
+         FhO6/raoxbNt5ZrN6j8Lf/vGkSaD+zkxW4dlNPNMq6niDvGlBjOTIk3sXCHajYuz9R7F
+         1Y5/abF4bgOxY5lh/dqrgpC+L1O2cCHxV4ppvvo1YPgCPwl67JK3EDjiPArNGVbTrsPg
+         zWrsaKHoVUpwXXJ1+52wBMtwMWCQFnWqHO3QsfY3CsWKpdbTZEfDWogD7FXIhAwu2laT
+         CjXsama2LmhgxRf2GeOaUt0vCOyeIrJhkXXZUMiXJx412DgWNzeEALO1DfHRdxHKebCH
+         wQwA==
+X-Forwarded-Encrypted: i=1; AJvYcCUE94qKbHN8/JNgh6TmaxiPXUai0nqR1th6smp+0Zjzx/kpgA98IYjJUA+jf7+bPUTdp7SOujoyfIefbaSwqB1D@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIBuVUxfTR3JgInd+0rTTsdDdfDHJAbnZDCRV9Xk2XtGikKq+9
+	PihC3CrGOvaCAus+3sazg017o0Z+zejj/9rvcd+6PkjJGUtl4PP2JbokmXzAPb3d3FOPZJAA+uu
+	bPVNzJCfP/AKGwY+yitfeM1K20KFxqxObSSmiz7vZCg==
+X-Gm-Gg: AZuq6aIYWr150HnrnGI53kaCB/e6BgdRDCdJeQcsbG/kRco+a/7xl5ZcXaKwB0p24UO
+	4RA33nMlm1NhFs/lrxooibIopWuRFlZ2yFclxkCU2Twcobw70K/3R6ZoOC4RfNMDkKJ44XNVkyr
+	VqI2puZ8NXUJid35hPwnI6Tjztizenu/Ka8JMTm5/VRbcEw+cNtWs8Aa4rYzNLRx9vE8rb2/Pbl
+	hCm3O1RwdcP+hg9jkj1uYyNqNYbVvmIejynidvKlwKAUktUlq3KE+bRkXIjUKOA2F9kfcjY6Y1a
+	Cd5NWkJKaEAEPELRPgkuSX0kCKPTug==
+X-Received: by 2002:a17:907:1b24:b0:b87:2cf8:f7b2 with SMTP id
+ a640c23a62f3a-b8dab3e10c3mr158375566b.56.1769528848592; Tue, 27 Jan 2026
+ 07:47:28 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Chen Ni <nichen@iscas.ac.cn>, linux-sunxi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org
-Cc: LKML <linux-kernel@vger.kernel.org>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Samuel Holland <samuel@sholland.org>, Takashi Iwai <tiwai@suse.com>
-References: <20260127034025.2044669-1-nichen@iscas.ac.cn>
-Subject: Re: [PATCH] ASoC: sun4i-spdif: Add missing check for
- devm_regmap_init_mmio
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20260127034025.2044669-1-nichen@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:g7izDTzTZ+9FjXKeDfY+ceUyZ7qkPoUOvGrPvuI+tz7S/lnU+vo
- tQle2MaiV3fCaMWf96IbbdJp3bcZmQlhDH3AhOLukof4JvJZK62gzct2FhSAwdFaMfWq2p6
- l6i74EGz2tqaRIxQztIAadpuZpEH56o9/e8nNZdTE9DFLjCB4GZgYBrPlqM/VdHc1ak3KB1
- IKR3uueD3X5Lo8XT1ALyg==
-UI-OutboundReport: notjunk:1;M01:P0:MTc6k0p+FL8=;mxnGB02U8dxucqUFytFYnlp2zOe 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
+References: <20260127-imx-rproc-fix-v2-1-7288fcf74385@nxp.com>
+In-Reply-To: <20260127-imx-rproc-fix-v2-1-7288fcf74385@nxp.com>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Tue, 27 Jan 2026 08:47:17 -0700
+X-Gm-Features: AZwV_QjqQbFcKArui8POG1LTyVyFyhUaVHLmRHbU-P_6uXh9D3Ex2V3D86esp5E
+Message-ID: <CANLsYkznMVh240wMUZGayJHRzsUV-NNTiU+ezpLt3rjcwSn5Wg@mail.gmail.com>
+Subject: Re: [PATCH v2] remoteproc: imx_rproc: Not report loaded resource
+ table when none
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Iuliana Prodan <iuliana.prodan@nxp.com>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, Frank Li <frank.li@nxp.com>, 
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Peng Fan <peng.fan@nxp.com>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_074625_615165_E514C1F4 
-X-CRM114-Status: UNSURE (   7.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260127_074731_145247_7D6A04FA 
+X-CRM114-Status: GOOD (  29.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,12 +120,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Add check for the return value of devm_regmap_init_mmio() and return the
-> error if it fails in order to catch the error.
+On Mon, 26 Jan 2026 at 23:51, Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
+>
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> priv->rsc_table is not NULL if the DT has a "rsc-table" entry, indicating
+> that _if_ there is a resource table in memory, that's where it should be.
+> Function imx_rproc_elf_find_loaded_rsc_table() is buggy so the narrative
+> about a previously running FW with a valid resource table can be dropped.
+>
 
-How do you think about to add any tags (like =E2=80=9CFixes=E2=80=9D and =
-=E2=80=9CCc=E2=80=9D) accordingly?
+(sigh)
 
-Regards,
-Markus
+You apparently did not understand my last comment.
+
+> In this case rproc->table_ptr is NULL because the current firmware does
+> not contain a resource table, but the remoteproc core still interprets the
+> non-NULL return value as a loaded resource table and attempts to memcpy()
+> from rproc->cached_table, leading to a NULL pointer dereference and kernel
+> panic.
+>
+> Fix this by returning NULL from imx_rproc_elf_find_loaded_rsc_table() when
+> there is no cached resource table for the current firmware. This ensures
+> that a loaded resource table is only reported when a valid table_ptr
+> exists, which matches the remoteproc core expectations.
+>
+> This issue can be reproduced by:
+>   1) start a firmware with a resource table
+>   2) stop the remote processor
+>   3) start a firmware without a resource table
+>
+
+Another sign you did not understand my last comment.
+
+I had hopes of merging this patch but the changelog is too garbled to
+be salvageable.  I suggest you ask Daniel or Iuliana for help.
+
+> With this change, starting a firmware without a resource table no longer
+> causes kernel dump.
+>
+> Fixes: e954a1bd1610 ("remoteproc: imx_rproc: Use imx specific hook for find_loaded_rsc_table")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+> Changes in v2:
+> - Per Mathieu, Check rproc->table_ptr, update commit log
+> - Include R-b from Frank
+> - Link to v1: https://lore.kernel.org/r/20260122-imx-rproc-fix-v1-1-36cc64369a40@nxp.com
+> ---
+>  drivers/remoteproc/imx_rproc.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 375de79168a1c8d11b87ac1bd63774a3feac106d..f5f916d6790519360f446f063e09d018c5654953 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -729,6 +729,10 @@ imx_rproc_elf_find_loaded_rsc_table(struct rproc *rproc, const struct firmware *
+>  {
+>         struct imx_rproc *priv = rproc->priv;
+>
+> +       /* No resource table in the firmware */
+> +       if (!rproc->table_ptr)
+> +               return NULL;
+> +
+>         if (priv->rsc_table)
+>                 return (struct resource_table *)priv->rsc_table;
+>
+>
+> ---
+> base-commit: e3b32dcb9f23e3c3927ef3eec6a5842a988fb574
+> change-id: 20260122-imx-rproc-fix-e206f8e6e477
+>
+> Best regards,
+> --
+> Peng Fan <peng.fan@nxp.com>
+>
 
