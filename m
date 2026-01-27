@@ -4,75 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16082D2F000
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 12:28:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B99D2F000
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 12:33:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vq0+pay01iCH5O3M8SeguB0rBEFvN6Ud8yLFr7RxasU=; b=iBeJBrXgGivMCGJzjVSdEPTiA8
-	zrIZeAVy2uaq2SrABj6JGrloYs79wgFkARNtabmnUXQh0xPb+HyyuzcKE6hGSuC40qD4Z3NpjjysA
-	Qe8x3MPUw2lomZX3jrhM8fjCOxjph+lFYtCvfHlq6kRZufvy5sLrfryiWSdjG8NMkNkG7ZFWzhpny
-	k9cp2129IlIWNvw8psSgn9GYzJm3h1J9mdgPl5jLMdlbE5eGJCVmz7Q/yOTLFVFcMXxrX9l2JqqHu
-	E7KHXb8dBVI219vq28uoE8oHyzGqCQA5SWpBRI2LlzND22No1Bi12pmdJBnGeqjCOZijLsHa1kMgY
-	aOz/n80w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DPB+DFTfjkKjhu4BtKlRuvVUNmzJlqVK+VXEKwMXFYw=; b=RqMEIz0JJkB+EcFsqjEl1pKdRV
+	Mgx/VYway1N3xkN6gSfgi2WEUp+JrlreFZcNhfhTAIo/mSHKBg8p9eYY2lAWtnB4VP34B5JpveTKH
+	ptDaQ7IKODG7e1Eep4vFQ97ycYR/l8v5xrXj1yIAVbQ1KiztyO7tlNBqGGTX2KNOlZkLvRT/7I+E7
+	J0yjt6uCJ7ZTdtQD8wPh4XlTnhFbDeEmTDawsFBpg2qxkaDdnBDHAPhSEXB2TPnOo6ycDa9+q3OU/
+	XLgPIHdAS+nt92odFLiqrFmZ5STjg5TWie0J/JTCD4KEqfgg/pX/kUc+QTO8JVnks4Aw/As7ngxpc
+	jD/7eZVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkiBQ-0000000EFJQ-1lQe;
-	Tue, 27 Jan 2026 12:28:36 +0000
-Received: from sinmsgout03.his.huawei.com ([119.8.177.38])
+	id 1vkiFn-0000000EFfV-0Sj5;
+	Tue, 27 Jan 2026 12:33:07 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkiBN-0000000EFJ7-2dZL
+	id 1vkiFk-0000000EFez-2lTq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 12:28:35 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Vq0+pay01iCH5O3M8SeguB0rBEFvN6Ud8yLFr7RxasU=;
-	b=S3Ek7suBV0kwPBkO3bhPfYzQJFyyEfY3KZ1spJuhvEUlAlxR30ROmuh3mkuFNykZxm9nNcUVY
-	0L2hoxCQmvlT69wczkrBPR3UDKan8kOIApRkmyIciwNpexZfmx6Vjxli1wddW+QbedFjAIqk6cT
-	B10aaYmbtdegaK6TTUXOWX8=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.32])
-	by sinmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4f0l4L45LczMs5x;
-	Tue, 27 Jan 2026 20:25:54 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4f0l6M213QzHnH6L;
-	Tue, 27 Jan 2026 20:27:39 +0800 (CST)
-Received: from dubpeml500005.china.huawei.com (unknown [7.214.145.207])
-	by mail.maildlp.com (Postfix) with ESMTPS id C8D3940086;
-	Tue, 27 Jan 2026 20:28:24 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml500005.china.huawei.com
- (7.214.145.207) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 27 Jan
- 2026 12:28:24 +0000
-Date: Tue, 27 Jan 2026 12:28:22 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-CC: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, Linus
- Torvalds <torvalds@linux-foundation.org>, Oliver Upton
-	<oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, "Dev Jain"
-	<dev.jain@arm.com>, Linu Cherian <Linu.Cherian@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 10/13] arm64: mm: Refactor __flush_tlb_range() to
- take flags
-Message-ID: <20260127122822.00005fa0@huawei.com>
-In-Reply-To: <20260119172202.1681510-11-ryan.roberts@arm.com>
-References: <20260119172202.1681510-1-ryan.roberts@arm.com>
-	<20260119172202.1681510-11-ryan.roberts@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 27 Jan 2026 12:33:05 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-59b710d46ceso5374678e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 04:33:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1769517182; x=1770121982; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DPB+DFTfjkKjhu4BtKlRuvVUNmzJlqVK+VXEKwMXFYw=;
+        b=VKbnQ8sgdW5rUU72U8nMvgBBECrqKrGbCnGWKIO51MoM17TyiHAeIjRm8tCV7cLgD+
+         RqqT4e8PUGhqa2MlWv9iBTQosDmfJ7NCENnBnTrp2YUqXppU3n9vmxj+6ndOBEev4Dxw
+         wHwQPKdsZVDGNwl640g16LkZoYbhr3XCyN8cUdgeKGPc0j8mtZMBLaUmYp5qwr9Xxu/+
+         JbvKK3UWHRlqsaKMrCbE02+og5tUaeHO1dVTu2R+R+hfKjki6JowmeYVQ1X+zE3Zd3NU
+         Zsd5YIULvGsNN9QhNDEt83RyUC+4xxRLSm9xAXQkR+PXfPnEMJiig1vHSnKSf/lFeckg
+         4hkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769517182; x=1770121982;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DPB+DFTfjkKjhu4BtKlRuvVUNmzJlqVK+VXEKwMXFYw=;
+        b=lCmMY3zERpYe5sq90HqhHbRUlKKuMuLr+RTzCdYhLMGjbjfIDLU71zNXT/Qpx7X//a
+         l64ER3Qkvzg2JUYRefgbrqO0gxYLHaEpfULNtyEf+CZM1+Pm5848s+xugsaDlHt75Zd6
+         hav99kwaH8NgsPaLkYYhCoCxWPW9Ew6ohIL4oHRX1rxQew/Cd9drQQRiSqgnkon4Mexi
+         6x1ebgBwgjzrKjFpZyBYfLIYgQwOPay7B4JkkmFLqXguSG3QNWjuG92p/8IMN3etQ8+4
+         Rpu1yuys1afLbRp73OjSTAikdkhvmOLWMpdlphdMbBIg6+Y5RkqrAdtqkkNqPqwyGf9g
+         qP6w==
+X-Forwarded-Encrypted: i=1; AJvYcCUkEn+yzlCA1o07jFzO9JjqZiPGo1MbXCRdFktlNu9j3S+DHpxeeeGUiaB70CCwJOrZ6qdIr4ChCFaPcnTM5FVh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWtDstvNK7/y9jxAsuieyby1Mcqi7vqzEgdNfYuuR4K3qmzghH
+	Nx5Wfjn2ZG3Q3KsvyGkyTuX9nm8aK9gT1SNO2/QX62RAEI6EU5qqUpw6QAbH8NkqMJo=
+X-Gm-Gg: AZuq6aJIky3Oz+e5gMmw1a/YwVXDOSA3YVJmWPHPva2lq9J+Lk2YwqCB+QsYnMNfVHN
+	pWVYiZrfv1rJy/OETp4OT8ZYodGv47EN/bRzF6zbtZ/pCLzDFqtP3pGmtuCPTjLIoP/Ef2Lkl0o
+	dDABsDmKOIOgh3crrEvgaxG8H6C9o5h5KoD9xEI4K7G3uUiRi42/Xm7QDnNraNPgOfVulY74rMM
+	megAu/JgeM/tWgdQiwizQRK9HTT0OCcrRcTTSGDtew+OuLsyjAEJlY2TWsgwRzHplA7cFbqhoIB
+	KDTr2N1RoZFnretjCVmFnBxJ6RVcH545syOix25LagmsaZEZe77HXR7G5UfFDBtZLB5NkIdP76w
+	6ZwlkTE4Bg6w0Y31D+o3y+Iq1QRlY60v8KJHGRZ0JFAzxRVcSA/zlJHEO4TVRN5XFlDMSZ58N4v
+	eVs4wih1iJ/qIGO2YVmN89G5ThpDgAAAab1F722vOpUgLiLdZIxzCPAjJroHiIZE1H7zpJtIuQo
+	N6/kDa0CgA=
+X-Received: by 2002:ac2:4e08:0:b0:59d:cb56:d2c7 with SMTP id 2adb3069b0e04-59e04017290mr701225e87.13.1769517181789;
+        Tue, 27 Jan 2026 04:33:01 -0800 (PST)
+Received: from fedora (dh207-15-237.xnet.hr. [88.207.15.237])
+        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-59de491fd7esm3554811e87.75.2026.01.27.04.33.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 27 Jan 2026 04:33:01 -0800 (PST)
+From: Robert Marko <robert.marko@sartura.hr>
+To: andrew@lunn.ch,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Robert Marko <robert.marko@sartura.hr>,
+	stable@vger.kernel.org
+Subject: [PATCH] arm64: dts: marvell: uDPU: add ethernet aliases
+Date: Tue, 27 Jan 2026 13:32:15 +0100
+Message-ID: <20260127123250.527714-1-robert.marko@sartura.hr>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
- dubpeml500005.china.huawei.com (7.214.145.207)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_042833_895300_5761B232 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260127_043304_734259_9725B87D 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,19 +104,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 Jan 2026 17:21:57 +0000
-Ryan Roberts <ryan.roberts@arm.com> wrote:
+On eDPU plus, which is an updated revision of eDPU which uses an external
+MV88E6361 switch we are relying on U-Boot to detect the board, and then
+enable and disable the required nodes for that revision.
 
-> We have function variants with "_nosync", "_local", "_nonotify" as well
-> as the "last_level" parameter. Let's generalize and simplify by using a
-> flags parameter to encode all these variants.
-> 
-> As a first step, convert the "last_level" boolean parameter to a flags
-> parameter and create the first flag, TLBF_NOWALKCACHE. When present,
-> walk cache entries are not evicted, which is the same as the old
-> last_level=true.
-> 
-> Reviewed-by: Linu Cherian <linu.cherian@arm.com>
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+However, it seems that I missed adding the required aliases for ethernet
+controllers, and this worked as in OpenWrt we had added those locally.
+
+Cc: stable@vger.kernel.org
+Fixes: 660b8b2f3944 ("arm64: dts: marvell: eDPU: add support for version with external switch")
+Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+---
+ arch/arm64/boot/dts/marvell/armada-3720-uDPU.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/marvell/armada-3720-uDPU.dtsi b/arch/arm64/boot/dts/marvell/armada-3720-uDPU.dtsi
+index 242820845707..cd856c0aba71 100644
+--- a/arch/arm64/boot/dts/marvell/armada-3720-uDPU.dtsi
++++ b/arch/arm64/boot/dts/marvell/armada-3720-uDPU.dtsi
+@@ -15,6 +15,11 @@
+ #include "armada-372x.dtsi"
+ 
+ / {
++	aliases {
++		ethernet0 = &eth0;
++		ethernet1 = &eth1;
++	};
++
+ 	chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
+-- 
+2.52.0
+
 
