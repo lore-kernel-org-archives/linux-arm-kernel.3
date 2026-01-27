@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0656CA6CBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20848CA6CBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:24:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Mzkzhmf17O9Xkx0hZ6VF5j9tJzlhe6IqtMNY1iqJLQ=; b=LgkIoNUnb7Ax2n7ZbN86riX82c
-	flSZxxIqxtwp93M7f0cP0hazLWm/WKNkCJMI4b06k8J8G9I2HD1cdjrlIn7cYpSf+E5Of/mXosFFz
-	t6C/gwx0+YRmGnIgZIXbFD8oz+fV5/me1hxwBqBfEqfZULjpW4JiHK9caPOulFO2unuVb1VsnnAxE
-	/4Se05XSCwEwOAYhwzP1PhbRs56pSQFIbWJuoJY99apZkZZ4unRe+seHx1ZXGEXz0yPK0pqciCsz8
-	uVYl23ncQLtz0tlkEdHfRIQ9KxikfGQ3vMx6q/Uyy+MyV/DCbP2B5nYb5ay/863YHQSZh9rw5P3ya
-	VT8s0yFA==;
+	bh=IAlcWCtQdB6zFcgT1AEpGn9kuon/qBctbh//4Nuyblo=; b=yOU12W9mUxQwJmVvouuQoSfpsB
+	Ec6XyFCAU9i9g9vZ2ncRD3w709b2+5Pnf/HiQsH5HMyxecpGAusVOk6B4YFKdp8gjfTnZLQQ0VMta
+	42WZRAdRLretd1G2aW9FtCe2NMaVlhfx6QYQbW68KmH4ms1F3J4lSGVvV44TUX8k6+yT/Iabx+XOT
+	liVyPpkwQHAtheM/IXhUS831HZPOrc4bGkRwEbl9J14dJVwUk+m5vODzXNMq5mnAQBT1IFPuhUMxI
+	AYmc8r+4t5B/cHivU9ZKDurz+7MjqgcrQFxLEKqFy3pmJeBnvu0tJsxWrknXmaREHyJu3gfSvWX4w
+	BrfxT79g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfHJ-0000000DvXj-46pB;
-	Tue, 27 Jan 2026 09:22:29 +0000
+	id 1vkfJW-0000000DvhP-1hFT;
+	Tue, 27 Jan 2026 09:24:46 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkfHI-0000000DvXd-47tC
+	id 1vkfJT-0000000DvhG-3NOn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 09:22:29 +0000
+	Tue, 27 Jan 2026 09:24:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6AF5160097
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:22:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20D23C19425
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:22:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3222A6014F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:24:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2283C2BCC4
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769505748;
-	bh=1Mzkzhmf17O9Xkx0hZ6VF5j9tJzlhe6IqtMNY1iqJLQ=;
+	s=k20201202; t=1769505882;
+	bh=IAlcWCtQdB6zFcgT1AEpGn9kuon/qBctbh//4Nuyblo=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=O6ueMY72cyAl/I2bdA2DIP8HfzWCj68lloHCg/doi4W47Fx+TJnJNp+VZN2E9tbZ8
-	 1C8moFGl/Rrqi1jNm8rmMPDHzVzEgBq/RY4m1N1TNfg2sArtn41PdyjKzB2XN5zm5A
-	 uTZu67OijsJ/U4qap+5HF0EbxEYLQqlkQcsNJoFhztHO729P3kL9nLOhuEdFzDyErT
-	 /hXQ352S7HqZwWvxpbeFDr20L8l9a1yfRKkNWY41SWCCDsSA/q9qVayL3Jkxe8AFR/
-	 Tw8DyHCMyA6Ficx4UsuquFgtYsLhXo6zcMj35g3XiAI47xBHEXEGO6fFLE/kf0Ib/T
-	 UStg9G3GLJgCA==
-Received: by mail-yx1-f48.google.com with SMTP id 956f58d0204a3-6496804204cso2507141d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 01:22:28 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWU98+DJT1m6r+cVMWTjTZDQQ/415bbEOpxxOkzqH2r3SZ34ClFepSF8ccAvKC+GkOcYwPb6+jMPTzxrMilhPDs@lists.infradead.org
-X-Gm-Message-State: AOJu0YxD2QtL3l64fMBHd0/WfKU3K/ujZi8gmArFRKoPkEYTKd46Ztm4
-	NG7C3zE1rKYTIv2tU07KTU+BAlGYJuo3FZeG7jdP47JXHOPlbr52Favj0ZIi8Krs0t9Iza5Nx+8
-	H6A3AXWYVCbCcLeroNApzjAp9ykoAxr4=
-X-Received: by 2002:a05:690e:241b:b0:645:443d:10a2 with SMTP id
- 956f58d0204a3-6498fbebe0emr414264d50.26.1769505747439; Tue, 27 Jan 2026
- 01:22:27 -0800 (PST)
+	b=m5B4fFTRykSx1iXEUZ9o6PvTZRS69FB882HHAz9VKjMB4EiGb1+Sjpt4v1YU+X2sJ
+	 iFcHLvFGJ9tcRarjXkzPGwmmgjOyp9eYPgR79CBtDuerf1x5yCMhvbnxenXuoi4CHX
+	 67vgFROGS4FNLu0cfQsesjaP/DXhZImHOy7OxNrQnT0kII4qslvsA2WlY5p4ABnUta
+	 O8KMX4J6OylXZehLVg0k/7CzLbM3YLqQQZ3KzO3nEeeHr4rzzugkF5s04CN8ENSv5T
+	 Q2cL9PWH71aewyr5fDuTzxdfgDVD2F9COfFaTobjUz8lV9nL3+Wzgvpz1waiKBRMAS
+	 YbI5GreoSvQnQ==
+Received: by mail-yx1-f44.google.com with SMTP id 956f58d0204a3-6495d592c45so4081014d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 01:24:42 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWtuc0mzN6Bn30+/Gddto6Is01EAgUJbkvnds74vhkZJspcGUZ1jVbMyK3ujO0mrmxOtu8uaIYO/rK4pWyAUvgg@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYGIQhlJmqqD33022uRYGJ6gft03lRYuw5CV/t7CQD4bcTVGMz
+	NFKR++jAGj+TxepghV9anjigiNhnS9V+qRjMIqmLF1gI5nELCifIAcscAcHi+NAXRivddYK4KCW
+	20t3HUXs5oViIJc/n4+5amHgJ++fnxFI=
+X-Received: by 2002:a05:690e:128d:b0:649:6ae3:59d8 with SMTP id
+ 956f58d0204a3-6498fc1489bmr707379d50.16.1769505882102; Tue, 27 Jan 2026
+ 01:24:42 -0800 (PST)
 MIME-Version: 1.0
-References: <20260123-debug_bus-v5-0-90b670844241@foss.st.com> <20260123-debug_bus-v5-2-90b670844241@foss.st.com>
-In-Reply-To: <20260123-debug_bus-v5-2-90b670844241@foss.st.com>
+References: <20260123-debug_bus-v5-0-90b670844241@foss.st.com> <20260123-debug_bus-v5-5-90b670844241@foss.st.com>
+In-Reply-To: <20260123-debug_bus-v5-5-90b670844241@foss.st.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 27 Jan 2026 10:22:16 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmr-O-Mb_MEK6LWdhY75=uteLsN9MLrtOvFaeCj2B_Jgw@mail.gmail.com>
-X-Gm-Features: AZwV_Qj2UaMXe95o5XuL0t4M8bbZMFmvBg1jJ_pK4foc_hf70_XCTYpnwMAEQeE
-Message-ID: <CAD++jLmr-O-Mb_MEK6LWdhY75=uteLsN9MLrtOvFaeCj2B_Jgw@mail.gmail.com>
-Subject: Re: [PATCH v5 02/12] dt-bindings: pinctrl: document
- access-controllers property for stm32 HDP
+Date: Tue, 27 Jan 2026 10:24:31 +0100
+X-Gmail-Original-Message-ID: <CAD++jL=MPPM5HWYJzc3ckbnP5GVjfvSobmKE1xx=5Ud6964NZg@mail.gmail.com>
+X-Gm-Features: AZwV_QhQdyIiz4UerqYl3hvl_Hh7MKvqx_tg7HoHtzwKBdCqkSeZ5Xn1a3ShfdI
+Message-ID: <CAD++jL=MPPM5HWYJzc3ckbnP5GVjfvSobmKE1xx=5Ud6964NZg@mail.gmail.com>
+Subject: Re: [PATCH v5 05/12] bus: stm32_firewall: add stm32_firewall_get_grant_all_access()
+ API
 To: Gatien Chevallier <gatien.chevallier@foss.st.com>
 Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
 	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>, 
@@ -91,13 +91,17 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Fri, Jan 23, 2026 at 11:40=E2=80=AFAM Gatien Chevallier
 <gatien.chevallier@foss.st.com> wrote:
 
-> HDP being functional depends on the debug configuration on the platform
-> that can be checked using the access-controllers property, document it.
+> Add the stm32_firewall_get_grant_all_access() API to be able to fetch
+> all firewall references in an access-controllers property and try to gran=
+t
+> access to all of them.
 >
 > Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-Acked-by: Linus Walleij <linusw@kernel.org>
+Excellent, just what I wanted.
+Thanks Gatien!
+
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
 Yours,
 Linus Walleij
