@@ -4,158 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A8DD2FEC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 17:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C8DD2FECE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 17:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i2zADYzSE/VGMjaniGjtk94Kt/NL45Fm18UUYyh3kFg=; b=hj2I/9+I3mrDZiHuUzevxa4aNj
-	bScCqhOB11lS9Pla1EgcnRAt+ELVMqYnc/ZKTE+Ht30ZUWC3zbf+3klHLelPxGsXVunC+hu4Dw6zQ
-	LraR6WKt7AddQifwrxqc1+tXK8mXco+K4mw0QtyNSMMBZsdXe9OjN28qmDEY5gIPE0t5DdICGpuUd
-	pdJVE2IGBFtx1jVX9U5B0mI1acOXVoCjzu+VTTZ+S5mZslOu/GhL2N7nQ8TLVvBe4jAe76jz9qK+c
-	zLuajabnJnhW12aWrhxtVrdSLdeTyXYCePZyTr8x7/5ELOaqil8k/wgnob6d1bp0w0SpDsvP4D6rr
-	Yk53rtsg==;
+	bh=WXQLAHVKOq8T4zWobG4KuuypQi16GgCGUfWQ2Xeqgb4=; b=qt9Tfn2B89/viSdIjaX2EBIzT0
+	sF3lC284bAP6OzuXv00huymIX73aBxPU/PvtbLzdpSbMtdPBdZ6qDUiBSl1ANpgpQ4CtSu1g9/dS2
+	gKcD7BwmpJBpxOA4yLy3jKYC42KO+14WJbM4XFhMOr9liiapzGe/8/JZlXyTyVunUcB+0beWNwnt1
+	SjEk6iE7WyauUBE/j/ErocSBFRbd5AtFY0Uu5zQ27ngyYFJDK+PtH78XAc0onYpwJuamcJdHH42Ew
+	c8A9NBCZEhJOGPU3IKdDM/Z80OTef3bO5LRtjkA7QkSlg6/wNuWNiWtaY+f/kmtXJBSDQHYLxwaQL
+	FZ5Tp5mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vknKr-0000000ElL0-0iCj;
-	Tue, 27 Jan 2026 17:58:41 +0000
-Received: from mail-northeuropeazon11012035.outbound.protection.outlook.com ([52.101.66.35] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vknLU-0000000ElSP-2Yhq;
+	Tue, 27 Jan 2026 17:59:20 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vknKo-0000000ElKI-46SR
+	id 1vknLS-0000000ElRB-09ET
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 17:58:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=unZyD2HbVjAPFRt8iZDpIVrdbyBfoD6EVy5s7SN+QskFd3JOTXaROyABt7I3o2jufXP3ZvsdlYnccxxhcimBWgNX7ZD2fHk3qadhXA36NrNKE4xn16AwLlG6NJpS9H8Q7bQQ3oc8Kbnegb70chmsXrqcc4dJ/wuIOscq9UdM/d0kHr7bQ1hCwAaZjW/orn+g7lDStLc5nssEXCOi3pzHXxb5TpW2jWAgbnOmfdNOiyzZnVBxL44XqsPLcdqgKJ1vT4Dv4hAIAm93O8Dpj51qWQelnwIVG2OImmbiS8ziuIj/Vy1Z+U/e2VMZEFKXAg4Ilei9j2ncs4ui3VQZl64TYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i2zADYzSE/VGMjaniGjtk94Kt/NL45Fm18UUYyh3kFg=;
- b=rcMhwkMjqwjI5SOq+zgWaaJhfb40lZ5apuxixpuBO8rl8b71/QBJ4TOVQQEjilOcekOscmRkApBAeRNdE/L2j2ZXVQJCHtb4aRt0oQqw/Om+JcyyRz7xJddv7DL/ZvUoq5zfOf1H7CSigvgMqOeiTRxoxsRZp9Pk6mE7qTep4HDClPcCZozdvKwNfbaHT7hhQGSMqqDbTdyUYgzo/4s/j7kHU56VXN2x4XK8BfXBHziSHoxNy+4jM/Ripm7mkJWC6IBOP95EH8Bf5NM95O1oQoenA1ZaADhX9KqLSgqi5yTvs1nvvsS0JQqnVOLHUJ7suoNUObkBgLOFBXoOOvjeIg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=i2zADYzSE/VGMjaniGjtk94Kt/NL45Fm18UUYyh3kFg=;
- b=m6CTC5tarkAfYAc+VFKx9Thc43I4nzgyGZADkJ6NHbhzz5tfzh8siPshM2i4bVRu1heKYYb01IOw0cM6apOxTCM5pTl437yGAvBO658wSvuhTHkVampESXeI7zO48rmAWiX2miyybgGcDFkMqbPVj07Bm0s9hT9Nn7Hrgvnmlw6YVduIJVqYdDC88HYaUMB1B5Mc7I2LgNNjyJeDb0I2KKTEJS+VkN40yEVmOh8nHiENrynQShSwMH3TKlZB7vrpE7YcWEpvRh50H6lo3W3DHKFeD7wgJBBfeR/wQm6lcPOLk3Z4VA/f1Egzzjf/2iCcpImZ97yncIXw+sF2tw6VJg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GVXPR04MB10381.eurprd04.prod.outlook.com (2603:10a6:150:1e1::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Tue, 27 Jan
- 2026 17:58:31 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9520.005; Tue, 27 Jan 2026
- 17:58:31 +0000
-Date: Tue, 27 Jan 2026 12:58:22 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Sherry Sun <sherry.sun@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com,
-	daniel.baluta@nxp.com, dario.binacchi@amarulasolutions.com,
-	alexander.stein@ew.tq-group.com, Markus.Niebel@tq-group.com,
-	matthias.schiffer@tq-group.com, y.moog@phytec.de,
-	josua@solid-run.com, francesco.dolcini@toradex.com,
-	primoz.fiser@norik.com, kernel@pengutronix.de,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V3 3/3] arm64: dts: imx93: Add i.MX93 Wireless EVK board
- support
-Message-ID: <aXj8vuEnrr2ul6rg@lizhi-Precision-Tower-5810>
-References: <20260127083727.1839605-1-sherry.sun@nxp.com>
- <20260127083727.1839605-4-sherry.sun@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260127083727.1839605-4-sherry.sun@nxp.com>
-X-ClientProxiedBy: PH8P221CA0040.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:346::17) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 27 Jan 2026 17:59:19 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-5014b5d8551so17261cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 09:59:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769536756; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ChKeDdK+mlWBK3XIhXKHDpR3sFRANdM8K2ZHWjoguHd2Mgt1Z4bAX2/WlVr2ULCsMu
+         ItbeP0BVgiNIPyRATMeH1FAp///GX8bV8fxkfm10kPvNMjY7ZZ0LC+LNVV2TFQ/7r69t
+         F8SWLel3KQpW2rmgo8fiuZm6AqsfRH8X0R4tVfd5zhy9KcoPQwKO7aLTvDYEo693cclM
+         unP6ISe76UWJFyD3oz72Pveqc5bZBwPIengTV0Xxvl4urd/ALRn1+BOXhMzy1Kg93Uq+
+         +jitiRHYC1BKDmsgQ+viUQ4RyG6PsJp5YxRabq6N4p3qNBQGthOA465YAFu3AbZMkIfE
+         Xkbw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=WXQLAHVKOq8T4zWobG4KuuypQi16GgCGUfWQ2Xeqgb4=;
+        fh=CKLgEx5JdKrGxIoiJuVq9WDBUfTbkraxCvp66orwNOU=;
+        b=latJwMRB02ryhHzRHVQCDnZ2F5ciGEDDgWiQ5Jjz7LNBDTZVoqfEs2Wi9tIFt3qkjz
+         JOlnTBvt/nAwmWfO6Hy7wc0iBddEc+wmS8KwQaCjjZIjsakAFsOAD1bpM2b7SvQMfz3y
+         39ooPCvETT1bhHePPc/6Wgs1o6h97Q9ESEenxYT+WAzBRLKyxcR6gYuII/fOypPmDf6b
+         dK7t+vRYXiP/Uoz4VrPkqvVicoUPzqI2AZRmRA+59XYkkONZd6ybOvwFdwjjzs9kic+I
+         ZYac+mg1sOfERkChwvC8JeU3B4pWa0Vw3f+UVWYlwJWaV+RcJ15tx1Lf5n2QmrkTEGCG
+         GMcA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1769536756; x=1770141556; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=WXQLAHVKOq8T4zWobG4KuuypQi16GgCGUfWQ2Xeqgb4=;
+        b=CVNyMyQ6CEmTUOfBsBe/vcy8cO4t6pNCNvGivlhATp41aMZm6ZNyyl3owuqG+qlDjX
+         EGKOAOCPEL39j9Ah7hNFwVtZEcF77MQ0tuvaPo4vHmtmxsV61PhGfZSJ/uEwb5LSb/uo
+         Ol3R5illzU82xOh3osWpCWJFs9zrlp0bXIPgCqwxU68Amk/Xue9CS8qAIpSo4H+oHuCc
+         SN9Mcz2oV9+YuL3c5pmsu5JTpTufdu+1+5IHPSb1AQZbNPhCbHpyKUlnjl0XlHrM6Ms1
+         traQxI4KT78SEJFRfIYGYI25teBuFgsmUzZi2XP/xT2xRYJEaooKrJq5dD0zRne22mzz
+         4NfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769536756; x=1770141556;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WXQLAHVKOq8T4zWobG4KuuypQi16GgCGUfWQ2Xeqgb4=;
+        b=pUIYErv+ZmmHzKjXgJC+FphL6bySUUPUbvDrPTFv/aXJooJ01ipCW80rN9ar88cWnp
+         pUPxZf5gGwwgsXb/AgXxikEHKDUC3ksGhf9D5SD59Mio3NAkWM9a3nojuqqwRzGhMbTk
+         9+HBAFdOFvdDy4R2TdU1WJzfyVg+vSlpFyzUvknYIyKh2yIzMYiTQr2kDkxLb4hAQG8F
+         uAnLHsDgEDEjRO9IGIejoc4wpGqcPpF14jipuakgLGX2EBHjFLPRVjoY3cSr0Kn6ahkX
+         C9n78SldrKCHiKO6vHakXKFtbWdNMs9UclCbsArrwxI0bnJr4W3erjcYwrEC0GI4VKcs
+         lsKA==
+X-Forwarded-Encrypted: i=1; AJvYcCXIU3JFt6q6dyreoRP4baf6FBHbcUJN9oT0d0bpuuvyMB8zHsUlevhSMH3iUEPxuz+NGqq+EeQlfXU4fs1N8D7c@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzSDIUNz5Dwqcwh0730Z65QRf48zny+NcPDdXKPz0yx/MpTEDM
+	wDTTh5jmGUuA0JgsDa9nIXExnex9FCOWqYgifxwEcZJ8QexIWuYZirg+rIzD8xSvo27zUKKmI54
+	Wn4Ku8pXyu/T0PHvlwx4kbm3+TxMYXauuIZANPKvO
+X-Gm-Gg: AZuq6aK1xye0nFFgdbm21rzNbIAsYyNa748nXO2aKkhjZ8i8DqNq2cPQQH0z79rxQ19
+	EYYdMTloarf92eSxNn9NEqN+/A9ENwWyD7hfBcOJWcHW6Q0fPMFSLKCAth4Jl1kt1kFvuh15WQN
+	Ch99i6eo1AMtm0HpI2T0KPP+MSs2R1TTRIx5I8bVtD85OEI9IodeHbZz65En7F4KoN1w2qKGh2D
+	4pqI+vnUvzkrWuxUSDKcbrnc36NKO4w+UK3Z1S4syugp0xGHBKZsb5zw554NUoHFRLHPl4m
+X-Received: by 2002:ac8:7d89:0:b0:501:3b94:bcae with SMTP id
+ d75a77b69052e-5032f479773mr10069921cf.8.1769536755734; Tue, 27 Jan 2026
+ 09:59:15 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GVXPR04MB10381:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19017ea8-25c5-4f79-cb8a-08de5dcdae52
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HOe1PX/Mnw4jlH7fIxz5ETFVutl7tsFXGXuQ4pAI/HG1Um7nducYMTHUnjzh?=
- =?us-ascii?Q?NNbhsF2IEZ7HD5IB7gL9iGEC4+68pWgBlBB3m7Wi83LINWOcrVlDgqzyFTvm?=
- =?us-ascii?Q?qet97DXmbwaFvssvjnwsETnDQMC4ERc76/gqOk++pomV1C3eUSL7Xug2Yc5k?=
- =?us-ascii?Q?iQXjVhIHgH76/+QCEPu5+7YYkBqENRzyoeymZiQVcceWKbFsQnQlTpOIQ6pY?=
- =?us-ascii?Q?NfZy7Z5Gkkx2b4HA2KDLwIMEkQZTJbu3etmaBgpAw64VjU4THJe14oDHjBMz?=
- =?us-ascii?Q?r++TQ9tyQ76hP10HdQqo+xXFzlMwEliu3UC7OCf0MTZhbcZfW3oiHx+oAlt5?=
- =?us-ascii?Q?o9B4w9/mnM4pOOZJjG4Ty2apXnC3AwZoiOTRomqjsd6nu+kExX1cSNN6ooYv?=
- =?us-ascii?Q?VSdKreqWfrA6itx/AQ5BCvE9wgS1HxrjgC4cfUwaar0pkWnKkCM1PsnjEfGk?=
- =?us-ascii?Q?Scz+FiaFv4ZWKtE3ECWFL2+B3+S9qIn6i8na6Y05xCOnTjynINM/9flX+WY0?=
- =?us-ascii?Q?ma+wDTFkZswn0347hWwRtDNkGcS8qllc+HbuyCjNzpjksXGGO/5zdsXtRkbO?=
- =?us-ascii?Q?3bs944UNSLRvoswcdKj+3++q1M04etcNeoS0Hfgi6zAX9i+HT9WgNzTCQYzy?=
- =?us-ascii?Q?mpXvljNp9h4ErVcsSaWoHyYCNoR81PZmi6v0Bthagv5QR/EAVzVeudjidDzu?=
- =?us-ascii?Q?3klnnmXg8p0VVYM/4/9TfUX0P1YMisENXGHdxxobd66vO/ij+PyTbjEyyzyE?=
- =?us-ascii?Q?EbENHQnFTqdNOUSPzyO15nAJ5TaRDGQs6UzubV55e5gDZmFXGNOVO1oQiN2t?=
- =?us-ascii?Q?z1Q8wXlB4xeqnirJmRKRMLLZC8BTRKGeTutvfjbt8z5tbwDKyGL31uauGumI?=
- =?us-ascii?Q?U4ipVrjrHEdw1lh+jyet54t0nqZ+Ocp0cQdTrGkPlzoNvyL5LvX8gjzHIf3o?=
- =?us-ascii?Q?8wNbINCZnLozbsUfxtc+SfRL9QYp9i92Vp88vboJ+Za4JLaEtdOBm6JK0Z5D?=
- =?us-ascii?Q?a+4CT/cWftfL+6eJcTKbhA3vdaxUD4XLYrQmhpfKWBOVETFeaeWlHH8wLPSt?=
- =?us-ascii?Q?zagCs0R3GHG+tL7wTVwld0RS2QfubnIkWo4ACeWUT4Rih3Oc6ubrEpevnEET?=
- =?us-ascii?Q?OojkiFy1RzjSTK9E3hJk2pvFdWw/SBnijcDdEY3dcMMP9PtTn8Zu3GBrLSpu?=
- =?us-ascii?Q?ztyYcLk2xYK9HLPgl3K7vsECayBvYzEWyBk+LlNvXJNSbHSJYP50+sTWMA71?=
- =?us-ascii?Q?lHVHseCXkYNazradCsGiLbgjpLgLnOr8/6vyu2Ki5XNZto3JfFfYNweer/Sk?=
- =?us-ascii?Q?zqdacx0mT4w6+mu6RGKdOD6/U0x3iDrHJDA17Mat13ChvDzX062tsxMffF1M?=
- =?us-ascii?Q?5pnWLKG4tQofacsZ2PnofaCxo1Fw8b7ARa/oFhEd/GBwb7vZHc/+gmSqqc0Q?=
- =?us-ascii?Q?nrTfN/w6X0GkX1SP9SJYtHjsdVA3pK7SJXqm+viHgVen0v8E3+pKOCxNCMyG?=
- =?us-ascii?Q?obM79l5MD1i056TR9oqPhYi3InP7bJZiSYjYSGFBZVwc6ezE+23rIF8OBuL+?=
- =?us-ascii?Q?aJ83SZZU+MwBY6L7OTD8RbVsez5/Zm+VwdDvLJb8v1qyfb0V+UKDA65IywNN?=
- =?us-ascii?Q?+bqngBoNTVj8o+w0zIghsTQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nQUnPjFR+/A+YT7YpVUvNUZkHyTMq0qHGPe0bpAwpX1I3lrCXB9fnWMEuyBS?=
- =?us-ascii?Q?CmUiBCz1yA1Ob8kXoGWTNxrgUn8MQ5s4SuOV3lDQlKuCkNp6HjjosC2OWqMO?=
- =?us-ascii?Q?NqwSGLuUMzhj5J9lhq00IwkSRvAkTLQDPAeog1XDEiKW6hnSvKbrdTUZIcfh?=
- =?us-ascii?Q?QmGInSCQEUtMifFDAeu7zL/GL0rdIineDNkl0JDlYrA1P6FQso+WE8xpAtXX?=
- =?us-ascii?Q?Pchx07SLWqe8U4K8ZFICTmgQpyg7GIy9gc+OgrtkMZeyV5Wl+BQdTGznS8TI?=
- =?us-ascii?Q?qfwviivGZd76hRaMZJrtM1RWcRpiIkCGgzP4NLnPqJRrff3PHuN+TY05jLbq?=
- =?us-ascii?Q?Fth8hIswuHxNLYcergqjujKtWgu3K4Xn6n+F8WAwpwuEcibKYib0htUXjxqQ?=
- =?us-ascii?Q?abA6qhu4G4K6i0/Jqbgk5J/Xv5UpiWnOTcq0jl4jxvNqNo9Axhs+go4Fkw1Y?=
- =?us-ascii?Q?f7bZc4QfRZwxZPs2QGlfl+kHJ4vrtr1Vj0kNI+IT7UG0vcw0zHP1n2mDyhRJ?=
- =?us-ascii?Q?o7ItCcPHFEdL8/js//jLJ2CwYuW956G6QSZQYGwfVxvaCSBgGcog7S3hNqAU?=
- =?us-ascii?Q?Ogcaiz7FvKr6HF6/r7K1wtSud5BISWGBsc4tsdINZ2tEp27JIQ7Cigd3uf7G?=
- =?us-ascii?Q?3WZS8LYQiqon/0ATzcGbiRK8wy6KxZdGEhMmyKhHBT8EbMWoYGFIcfpbGytS?=
- =?us-ascii?Q?97T4iAFii0qI5yz8GtkRtF4LGooSwXeGHum/0tPVflDsCzG95bj+hoLr9y6V?=
- =?us-ascii?Q?yLghINKsM6IntmhYm1kt1b0Cw7UgnGdaxpPPFXLCvNW5NL/Jp+WK2drceYET?=
- =?us-ascii?Q?VHXaikfHwGxs9sCLEJSkv2q6TykUXkpdkvpTh3dxN45lC/ey/f2Sbds4Em1T?=
- =?us-ascii?Q?QjsMQYpD4TMNYLbQTQwwkUu8tpvVmTcjSoJXycTsEwe3zw2DOPMxzod8+Y4r?=
- =?us-ascii?Q?Fq2GqH6TaX1ircq3B6SHyPzGlYpZ8eHSaY2pEP1j820+0Rq+EHBs12VETHbE?=
- =?us-ascii?Q?Gf807MzI5UowDa1jGO85pbqR4acVJZfoAXBn7BXGcQlO5a1I0Pl+W8rwTG9r?=
- =?us-ascii?Q?KFpsNwi8M0ZNjpt9uFKFRn6eQqREuhoEgwri4O3ziGqop1BEXK1uqquIyo6e?=
- =?us-ascii?Q?a+5iirJhJzgQvr0tb0V3C4UfxoQam0Qh4jJBCZFZgOCtdneQEFJ1xUoNmH8u?=
- =?us-ascii?Q?tnQP/kdXNDm/kN0Izi9+F2hw5EWeeBt4usSeG/xMIJCvEUT8a/+bl1ee+c8G?=
- =?us-ascii?Q?VmWxybym8ekW7jBDvTKJTjo1KVJngs8jDMeH0io22rsbA5MTMyVa54XdG2Bw?=
- =?us-ascii?Q?rrerc1WB+AvL5M4tcFTRhmGRjajzO5aQmBUzUrsRx/+yNxPqNx8OChhJQEk9?=
- =?us-ascii?Q?ykYJwS+wQe80Sbje3EY/cwusydTG/2CNCUK5Xr6YKdu7ZxHUepgORb+YQGrJ?=
- =?us-ascii?Q?NWvmc+DgP1aQnBlUThV3DFLBxXBQe0jSkiccMwdgrimggwSwahQhoSDBbu9A?=
- =?us-ascii?Q?cHp1YLoyS1jWvU4+41eTKLXJWS9wG/zeRymZx26CjliMh+bDnCU6I7k70Fyn?=
- =?us-ascii?Q?DeaQ2tpcymfZKkJN0KSj3c+2qWndOYC1hfSSVNoHml58FeV6DWckIkrELw76?=
- =?us-ascii?Q?r4YmyCYLmbW7iKBftzJXvjth2tE56n0hYQm2SXYXAO+W0WAS3u+PLAcULrIn?=
- =?us-ascii?Q?u0qmTOxjvDvJHvUAloy/n2uaxIrZPzAG++oI6ofPPb2HMGIx?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19017ea8-25c5-4f79-cb8a-08de5dcdae52
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2026 17:58:31.2634
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zsQ7FqdZx2ahZBx4PU0T2z1YZKpVUfHgQAOGpbFg+cnJDeDV6HbL3falJmU0Px1JaxlfUSYSdi2AI3zrQAo0SQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10381
+References: <20260126121655.1641736-1-maz@kernel.org> <20260126121655.1641736-7-maz@kernel.org>
+In-Reply-To: <20260126121655.1641736-7-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 27 Jan 2026 17:58:38 +0000
+X-Gm-Features: AZwV_QhS3T7BGI_KLXpUw2zt_uf_weVG0r6EiuX_Phs-QUEKVVf5BCeOHp72BZA
+Message-ID: <CA+EHjTzU=rNQd7YU9O+ombTsZgTHgFThe6BGP20ii2xC2V473Q@mail.gmail.com>
+Subject: Re: [PATCH 06/20] KVM: arm64: Inherit RESx bits from FGT register descriptors
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_095839_023895_52B13DE3 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20260127_095918_086735_C33E16FD 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,127 +116,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 27, 2026 at 04:37:27PM +0800, Sherry Sun wrote:
-> i.MX93 Wireless SiP is created by integrating i.MX93 and IW610 WLCSP
-> (Wi-Fi + BLE + 802.15.4). And i.MX93 Wireless EVK board with the i.MX93
-
-I think most important is that need common part for SIP.
-
-Create one imx93w-sip.dtsi for wireless part. So other vendor can reuse it
-if they use this sip part.
-
-Frank
-
-> Wireless SiP basically reuse the i.MX93 11x11 EVK board, with some minor
-> functional and pin connection differences. Reuse the new
-> imx93-evk-common.dtsi and add the board-specific changes here.
+On Mon, 26 Jan 2026 at 12:17, Marc Zyngier <maz@kernel.org> wrote:
 >
-> Here are the detailed differences between i.MX93 Wireless EVK and i.MX93
-> 11x11 EVK board.
+> The FGT registers have their computed RESx bits stashed in specific
+> descriptors, which we can easily use when computing the masks used
+> for the guest.
 >
-> Function differences:
-> Function	i.MX93W EVK			i.MX93 EVK
-> WIFI/BT		IW610 in i.MX93W		IW612 M.2 module
-> MQS		N				Y
-> PDM MIC		N				Y
-> M.2		N				Y
-> RPi 40-pin HDR	Limited support(pin conflict) 	Y
+> This removes a bit of boilerplate code.
 >
-> Pin connection differences:
-> Function  Signal name	i.MX93W EVK		i.MX93 EVK
-> WIFI/BT	  SPI_FRM	SAI1_TXFS (spi1.PCS0)	GPIO_IO08 (spi3.PCS0)
-> 	  SPI_TXD	SAI1_TXC (spi1.SIN)	GPIO_IO09 (spi3.SIN)
-> 	  SPI_RXD	SAI1_RXD0 (spi1.SOUT)	GPIO_IO10 (spi3.SOUT)
-> 	  SPI_CLK	SAI1_TXD0 (spi1.SCK)	GPIO_IO11 (spi3.SCK)
-> 	  SPI_INT	CCM_CLKO1		on-board IO expander
-> 	  NB_WAKE_IN	PDM_CLK			on-module IO expander
-> 	  WL_WAKE_IN	PDM_BIT_STREAM0		on-module IO expander
-> 	  IND_RST_WL	PDM_BIT_STREAM1		on-module IO expander
-> 	  IND_RST_NB	GPIO_IO28		on-module IO expander
-> 	  PDn		GPIO_IO29		on-module IO expander
-> 	  NB_WAKE_OUT	GPIO_IO14		on-board IO expander
-> 	  WL_WAKE_OUT	GPIO_IO15		CCM_CLKO1
-> I2C3	  I2C3_SDA	GPIO_IO00		GPIO_IO28
-> 	  I2C3_SCL	GPIO_IO01		GPIO_IO29
->
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+
+Reviewed-by: Fuad Tabba <tabba@google.com>
+
+Cheers,
+/fuad
+
+
 > ---
->  arch/arm64/boot/dts/freescale/Makefile       |  1 +
->  arch/arm64/boot/dts/freescale/imx93w-evk.dts | 52 ++++++++++++++++++++
->  2 files changed, 53 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/freescale/imx93w-evk.dts
+>  arch/arm64/kvm/config.c | 16 +++++-----------
+>  1 file changed, 5 insertions(+), 11 deletions(-)
 >
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index 700bab4d3e60..d0ea746c59b8 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -418,6 +418,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb-i3c.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-evk.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-14x14-evk.dtb
-> +dtb-$(CONFIG_ARCH_MXC) += imx93w-evk.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
-> diff --git a/arch/arm64/boot/dts/freescale/imx93w-evk.dts b/arch/arm64/boot/dts/freescale/imx93w-evk.dts
-> new file mode 100644
-> index 000000000000..ea76d5df84a1
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx93w-evk.dts
-> @@ -0,0 +1,52 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright 2026 NXP
-> + */
+> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> index a907195bd44b6..8d152605999ba 100644
+> --- a/arch/arm64/kvm/config.c
+> +++ b/arch/arm64/kvm/config.c
+> @@ -1344,6 +1344,11 @@ struct resx compute_reg_resx_bits(struct kvm *kvm,
+>         resx = compute_resx_bits(kvm, r->bit_feat_map, r->bit_feat_map_sz,
+>                                  require, exclude);
+>
+> +       if (r->feat_map.flags & MASKS_POINTER) {
+> +               resx.res0 |= r->feat_map.masks->res0;
+> +               resx.res1 |= r->feat_map.masks->res1;
+> +       }
 > +
-> +/dts-v1/;
-> +
-> +#include "imx93-evk-common.dtsi"
-> +
-> +/ {
-> +	model = "NXP i.MX93W EVK board";
-> +	compatible = "fsl,imx93-wireless-evk", "fsl,imx93";
-> +};
-> +
-> +&reg_usdhc3_vmmc {
-> +	pinctrl-0 = <&pinctrl_reg_usdhc3_vmmc>;
-> +	pinctrl-names = "default";
-> +	gpio = <&gpio2 29 GPIO_ACTIVE_HIGH>;
-> +};
-> +
-> +&usdhc3_pwrseq {
-> +	pinctrl-0 = <&pinctrl_usdhc3_pwrseq>;
-> +	pinctrl-names = "default";
-> +	reset-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
-> +};
-> +
-> +&iomuxc {
-> +	pinctrl_lpi2c3: lpi2c3grp {
-> +		fsl,pins = <
-> +			MX93_PAD_GPIO_IO00__LPI2C3_SDA			0x40000b9e
-> +			MX93_PAD_GPIO_IO01__LPI2C3_SCL			0x40000b9e
-> +		>;
-> +	};
-> +
-> +	pinctrl_reg_usdhc3_vmmc: regusdhc3vmmcgrp {
-> +		fsl,pins = <
-> +			MX93_PAD_GPIO_IO29__GPIO2_IO29			0x31e
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc3_pwrseq: usdhc3pwrseqgrp {
-> +		fsl,pins = <
-> +			MX93_PAD_PDM_BIT_STREAM1__GPIO1_IO10		0x31e
-> +		>;
-> +	};
-> +
-> +	pinctrl_usdhc3_wlan: usdhc3wlangrp {
-> +		fsl,pins = <
-> +			MX93_PAD_GPIO_IO15__GPIO2_IO15			0x31e
-> +		>;
-> +	};
-> +};
+>         tmp = compute_resx_bits(kvm, &r->feat_map, 1, require, exclude);
+>
+>         resx.res0 |= tmp.res0;
+> @@ -1424,47 +1429,36 @@ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg)
+>         switch (reg) {
+>         case HFGRTR_EL2:
+>                 resx = compute_reg_resx_bits(kvm, &hfgrtr_desc, 0, 0);
+> -               resx.res1 |= HFGRTR_EL2_RES1;
+>                 break;
+>         case HFGWTR_EL2:
+>                 resx = compute_reg_resx_bits(kvm, &hfgwtr_desc, 0, 0);
+> -               resx.res1 |= HFGWTR_EL2_RES1;
+>                 break;
+>         case HFGITR_EL2:
+>                 resx = compute_reg_resx_bits(kvm, &hfgitr_desc, 0, 0);
+> -               resx.res1 |= HFGITR_EL2_RES1;
+>                 break;
+>         case HDFGRTR_EL2:
+>                 resx = compute_reg_resx_bits(kvm, &hdfgrtr_desc, 0, 0);
+> -               resx.res1 |= HDFGRTR_EL2_RES1;
+>                 break;
+>         case HDFGWTR_EL2:
+>                 resx = compute_reg_resx_bits(kvm, &hdfgwtr_desc, 0, 0);
+> -               resx.res1 |= HDFGWTR_EL2_RES1;
+>                 break;
+>         case HAFGRTR_EL2:
+>                 resx = compute_reg_resx_bits(kvm, &hafgrtr_desc, 0, 0);
+> -               resx.res1 |= HAFGRTR_EL2_RES1;
+>                 break;
+>         case HFGRTR2_EL2:
+>                 resx = compute_reg_resx_bits(kvm, &hfgrtr2_desc, 0, 0);
+> -               resx.res1 |= HFGRTR2_EL2_RES1;
+>                 break;
+>         case HFGWTR2_EL2:
+>                 resx = compute_reg_resx_bits(kvm, &hfgwtr2_desc, 0, 0);
+> -               resx.res1 |= HFGWTR2_EL2_RES1;
+>                 break;
+>         case HFGITR2_EL2:
+>                 resx = compute_reg_resx_bits(kvm, &hfgitr2_desc, 0, 0);
+> -               resx.res1 |= HFGITR2_EL2_RES1;
+>                 break;
+>         case HDFGRTR2_EL2:
+>                 resx = compute_reg_resx_bits(kvm, &hdfgrtr2_desc, 0, 0);
+> -               resx.res1 |= HDFGRTR2_EL2_RES1;
+>                 break;
+>         case HDFGWTR2_EL2:
+>                 resx = compute_reg_resx_bits(kvm, &hdfgwtr2_desc, 0, 0);
+> -               resx.res1 |= HDFGWTR2_EL2_RES1;
+>                 break;
+>         case HCRX_EL2:
+>                 resx = compute_reg_resx_bits(kvm, &hcrx_desc, 0, 0);
 > --
-> 2.37.1
+> 2.47.3
 >
 
