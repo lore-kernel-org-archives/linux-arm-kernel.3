@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB28CA6CBA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:06:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 717C6CA6CBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 09:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uJeg8f4t2zYbqXiq32TpqT6FSOTJrwTSh1OSPxciUMU=; b=dCZi1O1d+Iaw5eMycl97QHbnZO
-	REcaGMHZWRrud5FBsYVVCO+r3Giy5CoAAsgQqHTCcsb0hHtbbWO4fJb5hAlhAV+BIgrU2sjnDY4uR
-	wlEHNgXtcuvHqfWIrSsGKfztm79HzY8+GaWD7iZUlFyTK6SMQYl1RUiqIRwgJhFAR/46isMfsOF1C
-	YKKmuwDGULRR3JbWI+yEwRCqAJCv7zTm+CulzSH29F9TnZQKWlIZ3HsBCMGY5pegUa+KqEp4Tnzcu
-	NiA4PXemMy3by4zZz5X3GD6zfzWL7lyQSHxWxAt4KAOIa1BJ0uK/IXyHKStsx2EEwVPnQToucON2O
-	VcvcYWEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o3uYq+bvJ8IHWH6k2uOihpa6CKY0ItOKPXbc7h/Pz2g=; b=CL6wwfxgI07uIfx6km5Q0cGXqd
+	w7qUPiWCqhWOrhOd5wpwnCGvhTQHg4WcXaQJtRWEFP2TjIdJiImoxes1IolSZaCVV9PLHqNzOUWoq
+	yBCftqzJOLbUqZjil/0YP8w+aJ+rApukbsB0elzPfOI0aGqI/I3lXXIa68UqNzmeuYCwc4fUu9VCM
+	N8tHoUgJJDEx3WUXRLHSZr4VnSu5sznXR0C9tBpsWrRLMzuChRTu6HP0r0+qvgxz4wDST1uPn1xPI
+	dmoOMHMLK2izoNgBDUDyKZs2m53QZeaWwgaGONlfTAH2TLMeY17N2NhKf3TJOpEHIVjiTc09TMOop
+	XOIObpcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkf1r-0000000DuH8-1g9W;
-	Tue, 27 Jan 2026 09:06:33 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1vkf6t-0000000DuZq-0Ume;
+	Tue, 27 Jan 2026 09:11:43 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkf1o-0000000DuGg-0IWV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 09:06:30 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=uJeg8f4t2zYbqXiq32TpqT6FSOTJrwTSh1OSPxciUMU=;
-	b=1WgzOlZVb3RhIr0gJ0+4zvdAXrt0bQGHzNlwLwiW9Q8bozduzVQwbzsRFjtQFKE3feyowtUhr
-	q76H4m0x8zdMxWUjrZ6FMVNheNLVHs/AVTwiu5P6OQqTF3D/bmdmA/o3aMQ9H+iJTMRygj2qpAV
-	QKkfjanKarkhFarmx6ZNbvA=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4f0fYz4vHtzmVB2;
-	Tue, 27 Jan 2026 17:02:47 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id AAD0040566;
-	Tue, 27 Jan 2026 17:06:15 +0800 (CST)
-Received: from huawei.com (10.50.85.135) by kwepemr500001.china.huawei.com
- (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 27 Jan
- 2026 17:06:14 +0800
-From: Jinjiang Tu <tujinjiang@huawei.com>
-To: <akpm@linux-foundation.org>, <david@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <zengheng4@huawei.com>,
-	<ryan.roberts@arm.com>, <anshuman.khandual@arm.com>,
-	<wangkefeng.wang@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mm@kvack.org>
-CC: <tujinjiang@huawei.com>
-Subject: [PATCH v2] arm64: mm: fix pass user prot to ioremap_prot in generic_access_phys
-Date: Tue, 27 Jan 2026 17:01:29 +0800
-Message-ID: <20260127090129.412084-1-tujinjiang@huawei.com>
-X-Mailer: git-send-email 2.43.0
+	id 1vkf6o-0000000DuYu-3NmG;
+	Tue, 27 Jan 2026 09:11:41 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260127091130euoutp014c75f018134d9523a802741a4410d6be~Oi4Ej8mLk0793907939euoutp01d;
+	Tue, 27 Jan 2026 09:11:30 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260127091130euoutp014c75f018134d9523a802741a4410d6be~Oi4Ej8mLk0793907939euoutp01d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1769505090;
+	bh=o3uYq+bvJ8IHWH6k2uOihpa6CKY0ItOKPXbc7h/Pz2g=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=ARDcksx7il7K+UJhL3qOUbJrzsCnWlDnWMyBKycHeHqFCGmyemgus6UZuDTSdf+bf
+	 sio+/WnMIcFH7Q4EvSeQJPsiIhXonBavFn5UetIdLJJLlTvKiDVGsd1YhwF3xweOeh
+	 qSQI7psb+mdS7QYSc32Br4lqAOSfjZL27eQp/MjQ=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260127091130eucas1p1440fbe9f7c4c663fa3a68f6fcb86470d~Oi4EUDQLX2294122941eucas1p1s;
+	Tue, 27 Jan 2026 09:11:30 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260127091128eusmtip12e05e437c03450178ad4e2539faa417e~Oi4CsG4iT0357803578eusmtip1P;
+	Tue, 27 Jan 2026 09:11:28 +0000 (GMT)
+Message-ID: <002704a5-9ccb-4abb-beaf-5a448c17ea39@samsung.com>
+Date: Tue, 27 Jan 2026 10:11:27 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.85.135]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemr500001.china.huawei.com (7.202.194.229)
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v4 02/10] drm/vc4: hdmi: implement clear_infoframe
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Dave Stevenson
+	<dave.stevenson@raspberrypi.com>, =?UTF-8?Q?Ma=C3=ADra_Canal?=
+	<mcanal@igalia.com>, Raspberry Pi Kernel Maintenance
+	<kernel-list@raspberrypi.com>, Chen-Yu Tsai <wens@kernel.org>, Jernej
+	Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
+	Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+	<jonas@kwiboo.se>, Liu Ying <victor.liu@nxp.com>, Chun-Kuang Hu
+	<chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Matthias
+	Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Rob Clark
+	<robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, Abhinav
+	Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>,
+	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>,
+	Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+	<heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org, linux-rockchip@lists.infradead.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <jiq5ublhbfzuv3qsz3n6bve32wmto5hxc6mxppb2i2wagykafx@d235legi4r5o>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20260127091130eucas1p1440fbe9f7c4c663fa3a68f6fcb86470d
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260126174455eucas1p1f219202580a1033d3e881adc4f37f206
+X-EPHeader: CA
+X-CMS-RootMailID: 20260126174455eucas1p1f219202580a1033d3e881adc4f37f206
+References: <20260107-limit-infoframes-2-v4-0-213d0d3bd490@oss.qualcomm.com>
+	<20260107-limit-infoframes-2-v4-2-213d0d3bd490@oss.qualcomm.com>
+	<5c247393-b096-43ea-9ff4-9dd5fcdeec73@samsung.com>
+	<CGME20260126174455eucas1p1f219202580a1033d3e881adc4f37f206@eucas1p1.samsung.com>
+	<36278555-a01e-4c96-bb26-e170016e5f8c@samsung.com>
+	<jiq5ublhbfzuv3qsz3n6bve32wmto5hxc6mxppb2i2wagykafx@d235legi4r5o>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_010628_775031_213EE361 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20260127_011139_447091_F35A27B0 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,144 +107,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Here is a syzkaller error log:
-  [0000000020ffc000] pgd=080000010598d403, p4d=080000010598d403, pud=0800000125ddb403,
-                     pmd=080000007833c403, pte=01608000007fcfcf
-  Unable to handle kernel read from unreadable memory at virtual address ffff80008ea89000
-  KASAN: probably user-memory-access in range [0x0000000475448000-0x0000000475448007]
-  Mem abort info:
-    ESR = 0x000000009600000f
-    EC = 0x25: DABT (current EL), IL = 32 bits
-    SET = 0, FnV = 0
-    EA = 0, S1PTW = 0
-    FSC = 0x0f: level 3 permission fault
-  Data abort info:
-    ISV = 0, ISS = 0x0000000f, ISS2 = 0x00000000
-    CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-    GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-  swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000001244aa000
-  [ffff80008ea89000] pgd=100000013ffff403, p4d=100000013ffff403, pud=100000013fffe403,
-		     pmd=100000010a453403, pte=01608000007fcfcf
-  Internal error: Oops: 000000009600000f [#1] SMP
-  Modules linked in: team
-  CPU: 1 PID: 10840 Comm: syz.9.83 Kdump: loaded Tainted: G
-  Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
-  pstate: 20400005 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-  pc : __memcpy_fromio+0x80/0xf8
-  lr : generic_access_phys+0x20c/0x2b8
-  sp : ffff8000a0507960
-  x29: ffff8000a0507960 x28: 1ffff000140a0f44 x27: ffff00003833cfe0
-  x26: 0000000000000000 x25: 0000000000001000 x24: 0010000000000001
-  x23: ffff80008ea89000 x22: ffff00004ea63000 x21: 0000000000001000
-  x20: ffff80008ea89000 x19: ffff00004ea62000 x18: 0000000000000000
-  x17: 0000000000000000 x16: 0000000000000000 x15: ffff8000806f1e3c
-  x14: ffff8000806f1d44 x13: 0000000041b58ab3 x12: ffff7000140a0f23
-  x11: 1ffff000140a0f22 x10: ffff7000140a0f22 x9 : ffff800080579d24
-  x8 : 0000000000000004 x7 : 0000000000000003 x6 : 0000000000000001
-  x5 : ffff8000a0507910 x4 : ffff7000140a0f22 x3 : dfff800000000000
-  x2 : 0000000000001000 x1 : ffff80008ea89000 x0 : ffff00004ea62000
-  Call trace:
-    __memcpy_fromio+0x80/0xf8
-    generic_access_phys+0x20c/0x2b8
-    __access_remote_vm+0x46c/0x5b8
-    access_remote_vm+0x18/0x30
-    environ_read+0x238/0x3e8
-    vfs_read+0xe4/0x2b0
-    ksys_read+0xcc/0x178
-    __arm64_sys_read+0x4c/0x68
-    invoke_syscall+0x68/0x1a0
-    el0_svc_common.constprop.0+0x11c/0x150
-    do_el0_svc+0x38/0x50
-    el0_svc+0x50/0x258
-    el0t_64_sync_handler+0xc0/0xc8
-    el0t_64_sync+0x1a4/0x1a8
-  Code: 91002339 aa1403f7 8b190276 d503201f (f94002f8)
+On 26.01.2026 20:00, Dmitry Baryshkov wrote:
+> On Mon, Jan 26, 2026 at 06:44:52PM +0100, Marek Szyprowski wrote:
+>> On 26.01.2026 18:42, Marek Szyprowski wrote:
+>>> On 07.01.2026 19:14, Dmitry Baryshkov wrote:
+>>>> Implement the clear_infoframe callback, disabling corresponding
+>>>> InfoFrame type.
+>>>>
+>>>> Acked-by: Maxime Ripard <mripard@kernel.org>
+>>>> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+>>> This patch landed recently in linux-next as commit 3a4ceb89a972
+>>> ("drm/vc4: hdmi: implement clear_infoframe"). In my tests I found that
+>>> it causes the following regression on Qualcomm RB5 board:
+>> Please ignore my report, it looks that automated bisecting got a bit
+>> confused.
+> See https://lore.kernel.org/dri-devel/9ebc0582b0f7990d7df992a07ec8ef7f@kernel.org/T/#t
+>
+> I'm going to push it to drm-misc-next-fixes.
 
-The local syzkaller first maps I/O address from /dev/mem to userspace,
-overiding the stack vma with MAP_FIXED flag. As a result, when reading
-/proc/$pid/environ, generic_access_phys() is called to access the region,
-which triggers a PAN permission-check fault and causes a kernel access
-fault.
+Thanks for pointing that patch! It fixed my issue.
 
-The root cause is that generic_access_phys() passes a user pte to
-ioremap_prot(), the user pte sets PTE_USER and PTE_NG bits.  Consequently,
-any subsequent kernel-mode access to the remapped address raises a fault.
-
-To fix it, define arch_mk_kernel_prot() to convert user prot to kernel
-prot for arm64, and call arch_mk_kernel_prot() in generic_access_phys(),
-so that a user prot is passed to ioremap_prot().
-
-Fixes: 893dea9ccd08 ("arm64: Add HAVE_IOREMAP_PROT support")
-Signed-off-by: Zeng Heng <zengheng4@huawei.com>
-Signed-off-by: Jinjiang Tu <tujinjiang@huawei.com>
----
-Change since v1:
- * fix in ther caller generic_access_phys(), suggested by Catalin Marinas.
-
- arch/arm64/include/asm/io.h | 11 +++++++++++
- mm/memory.c                 | 12 +++++++++++-
- 2 files changed, 22 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
-index 83e03abbb2ca..fe8607eafab6 100644
---- a/arch/arm64/include/asm/io.h
-+++ b/arch/arm64/include/asm/io.h
-@@ -267,6 +267,17 @@ int arm64_ioremap_prot_hook_register(const ioremap_prot_hook_t hook);
- 
- #define ioremap_prot ioremap_prot
- 
-+#define arch_mk_kernel_prot arch_mk_kernel_prot
-+static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
-+{
-+	unsigned long kernel_prot_val;
-+
-+	kernel_prot_val = _PAGE_KERNEL & ~(PTE_WRITE | PTE_ATTRINDX_MASK);
-+	kernel_prot_val |= pgprot_val(user_prot) & (PTE_WRITE | PTE_ATTRINDX_MASK);
-+
-+	return __pgprot(kernel_prot_val);
-+}
-+
- #define _PAGE_IOREMAP PROT_DEVICE_nGnRE
- 
- #define ioremap_wc(addr, size)	\
-diff --git a/mm/memory.c b/mm/memory.c
-index da360a6eb8a4..68fcfc3bbad8 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -6836,6 +6836,14 @@ void follow_pfnmap_end(struct follow_pfnmap_args *args)
- EXPORT_SYMBOL_GPL(follow_pfnmap_end);
- 
- #ifdef CONFIG_HAVE_IOREMAP_PROT
-+#ifndef arch_mk_kernel_prot
-+#define arch_mk_kernel_prot arch_mk_kernel_prot
-+static inline pgprot_t arch_mk_kernel_prot(pgprot_t user_prot)
-+{
-+	return user_prot;
-+}
-+#endif
-+
- /**
-  * generic_access_phys - generic implementation for iomem mmap access
-  * @vma: the vma to access
-@@ -6853,6 +6861,7 @@ int generic_access_phys(struct vm_area_struct *vma, unsigned long addr,
- {
- 	resource_size_t phys_addr;
- 	pgprot_t prot = __pgprot(0);
-+	pgprot_t kernel_prot;
- 	void __iomem *maddr;
- 	int offset = offset_in_page(addr);
- 	int ret = -EINVAL;
-@@ -6870,7 +6879,8 @@ int generic_access_phys(struct vm_area_struct *vma, unsigned long addr,
- 	if ((write & FOLL_WRITE) && !writable)
- 		return -EINVAL;
- 
--	maddr = ioremap_prot(phys_addr, PAGE_ALIGN(len + offset), prot);
-+	kernel_prot = arch_mk_kernel_prot(prot);
-+	maddr = ioremap_prot(phys_addr, PAGE_ALIGN(len + offset), kernel_prot);
- 	if (!maddr)
- 		return -ENOMEM;
- 
+Best regards
 -- 
-2.43.0
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
