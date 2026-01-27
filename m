@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E2B3D340A6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 16:34:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24DBBD340A6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 16:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qVzkEJu0rwGv9GhSscFNxi7pazkxC01AqWhJ4PtbAR8=; b=Hd6wWxeYjw4PoKiXjH6ysqKEPv
-	bRNE+ufFI6OydsKKJ2QLnUWI1NL9nkGbkL2VBCKuSeM2TB91jbiPV3w7zUtoCdFNDMzicBMl8ZykG
-	aa7uOeddKGObEPyaBS0JvVKWOJ5GTvK4hIU+pG3+WKJNR1PeWacc53nFXt1iNdwh81LYhFnVdxNmf
-	rxS22V6mns/THEVDaKTJWUBAtEPLxjxqASfX3FCo0xYEJGmoE0iUS+2QazVQxNH2/ERdFmrMM3FxY
-	xnZX/+eVhcNub1rVz+NLYOkPcm3P1p6oxRgCpvU86twq/NYTZoAJZ15StAxO8LFDCgsiEbS+HD4gI
-	H/H8ic3w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=74wISzY+I2QQWizqfpjLw+tcNfcYrDh+eakCr6Jmco0=; b=GqmuLzN/3Vuxr378chEnJya9/p
+	v+WOI3i5uAJcf60mzLy58vDTikiDXJWTwggP+o0iPkW/jFgxw/UDvZv+GdKYIP550k7BsNAR9jLPT
+	rM/tgy8Q0xXOJzaXfGdaFWIVy2whzJ4AxOiXyQZ9HXyGrV+0OqCZ0qhk9psj3fyQBaNRU/AE/eG8h
+	Ix9FAWogvNpo/1E9bifzTEsIRavJ2Ef0cz2hawnUNEulyVDpF4tmDviErRZB3saUyYYZQLiXqAccQ
+	bg1vXwST8HfTCNIw2l2KQ6htR23H61KKncGh7hZSBLk0ppqojKN4qdnahNuNJZCW/z6ccxn5DAZ9C
+	k9I+ySDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkm1O-0000000EfGs-2Fvh;
+	id 1vkm1O-0000000EfHF-3YkV;
 	Tue, 27 Jan 2026 16:34:30 +0000
-Received: from out-183.mta1.migadu.com ([95.215.58.183])
+Received: from out-177.mta1.migadu.com ([95.215.58.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkm1E-0000000EfDs-2nkA
+	id 1vkm1J-0000000EfFS-2UrN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 16:34:21 +0000
+	Tue, 27 Jan 2026 16:34:28 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1769531645;
+	t=1769531663;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=qVzkEJu0rwGv9GhSscFNxi7pazkxC01AqWhJ4PtbAR8=;
-	b=BRJK7kqFv7WhgeaGPzXl1G7bDC4goqi3TlEQzgGws2bMWxApxlNxAWLIpNoV7i70r0pTgI
-	yy7NkXzI17/2bvw027HbIv+ZLZoZyC4gG2JAWdSwlcbWC3CUBUlI7SD9jc2FbdosvVs22H
-	w+kGgJgFS2eWE2yyK+dt4zDkHxsww78=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=74wISzY+I2QQWizqfpjLw+tcNfcYrDh+eakCr6Jmco0=;
+	b=Eorp8ZaSdCSRoAjQbof+94IZ9zp2MDPOWzukFJnbQY3XvfAAIncEUZxp0wMjL2iTdd6B4i
+	m4eFdbLoscvu/8JefPTCCxGIj6x4aqiz3bEUC4TkyAHAURVF3KenJisoONoBn3pTFfileU
+	YF5lcs50xT0TkGlGl11qSkGmkto2nNo=
 From: Leon Hwang <leon.hwang@linux.dev>
 To: bpf@vger.kernel.org
 Cc: Alexei Starovoitov <ast@kernel.org>,
@@ -62,15 +63,17 @@ Cc: Alexei Starovoitov <ast@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	kernel-patches-bot@fb.com
-Subject: [PATCH bpf-next 0/2] bpf, arm64: Add fsession support
-Date: Wed, 28 Jan 2026 00:33:42 +0800
-Message-ID: <20260127163344.92819-1-leon.hwang@linux.dev>
+Subject: [PATCH bpf-next 2/2] bpf/selftests: Enable fsession and get_func_ tests on arm64*
+Date: Wed, 28 Jan 2026 00:33:44 +0800
+Message-ID: <20260127163344.92819-3-leon.hwang@linux.dev>
+In-Reply-To: <20260127163344.92819-1-leon.hwang@linux.dev>
+References: <20260127163344.92819-1-leon.hwang@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_083420_852317_C287B390 
-X-CRM114-Status: UNSURE (   6.18  )
+X-CRM114-CacheID: sfid-20260127_083425_782729_C2FFDFA0 
+X-CRM114-Status: UNSURE (   9.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,41 +89,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similar to commit 98770bd4e6df ("bpf,x86: add fsession support for x86_64"),
-add fsession support on arm64.
+Allow fsession, get_func_args, and get_func_ip selftests to run on arm64.
 
-Patch #1 implements fsession support in the arm64 BPF JIT trampoline.
+Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+---
+ tools/testing/selftests/bpf/prog_tests/fsession_test.c | 2 +-
+ tools/testing/selftests/bpf/progs/get_func_args_test.c | 2 +-
+ tools/testing/selftests/bpf/progs/get_func_ip_test.c   | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
 
-Patch #2 enables the relevant selftests on arm64, including fsession,
-get_func_ip, and get_func_args.
-
-All enabled tests pass on arm64:
-
- cd tools/testing/selftests/bpf
- ./test_progs -t fsession
- #135/1   fsession_test/fsession_test:OK
- #135/2   fsession_test/fsession_reattach:OK
- #135/3   fsession_test/fsession_cookie:OK
- #135     fsession_test:OK
- Summary: 1/3 PASSED, 0 SKIPPED, 0 FAILED
-
- ./test_progs -t get_func
- #138     get_func_args_test:OK
- #139     get_func_ip_test:OK
- Summary: 2/0 PASSED, 0 SKIPPED, 0 FAILED
-
-Leon Hwang (2):
-  bpf, arm64: Add fsession support
-  bpf/selftests: Enable fsession and get_func_ tests on arm64*
-
- arch/arm64/net/bpf_jit_comp.c                 | 66 ++++++++++++++++---
- include/linux/bpf.h                           |  7 +-
- .../selftests/bpf/prog_tests/fsession_test.c  |  2 +-
- .../selftests/bpf/progs/get_func_args_test.c  |  2 +-
- .../selftests/bpf/progs/get_func_ip_test.c    |  2 +-
- 5 files changed, 66 insertions(+), 13 deletions(-)
-
---
+diff --git a/tools/testing/selftests/bpf/prog_tests/fsession_test.c b/tools/testing/selftests/bpf/prog_tests/fsession_test.c
+index 0c4b428e1cee..d0cc6b1e29bf 100644
+--- a/tools/testing/selftests/bpf/prog_tests/fsession_test.c
++++ b/tools/testing/selftests/bpf/prog_tests/fsession_test.c
+@@ -111,7 +111,7 @@ static void test_fsession_cookie(void)
+ 
+ void test_fsession_test(void)
+ {
+-#if !defined(__x86_64__)
++#if !defined(__x86_64__) && !defined(__aarch64__)
+ 	test__skip();
+ 	return;
+ #endif
+diff --git a/tools/testing/selftests/bpf/progs/get_func_args_test.c b/tools/testing/selftests/bpf/progs/get_func_args_test.c
+index 0a3236a7a109..180ba5098ca1 100644
+--- a/tools/testing/selftests/bpf/progs/get_func_args_test.c
++++ b/tools/testing/selftests/bpf/progs/get_func_args_test.c
+@@ -167,7 +167,7 @@ int BPF_PROG(tp_test2)
+ }
+ 
+ __u64 test7_result = 0;
+-#ifdef __TARGET_ARCH_x86
++#if defined(bpf_target_x86) || defined(bpf_target_arm64)
+ SEC("fsession/bpf_fentry_test1")
+ int BPF_PROG(test7)
+ {
+diff --git a/tools/testing/selftests/bpf/progs/get_func_ip_test.c b/tools/testing/selftests/bpf/progs/get_func_ip_test.c
+index 65f7e1f182bf..43ff836a8ed8 100644
+--- a/tools/testing/selftests/bpf/progs/get_func_ip_test.c
++++ b/tools/testing/selftests/bpf/progs/get_func_ip_test.c
+@@ -106,7 +106,7 @@ int BPF_URETPROBE(test8, int ret)
+ 
+ __u64 test9_entry_result = 0;
+ __u64 test9_exit_result = 0;
+-#ifdef __TARGET_ARCH_x86
++#if defined(bpf_target_x86) || defined(bpf_target_arm64)
+ SEC("fsession/bpf_fentry_test1")
+ int BPF_PROG(test9, int a)
+ {
+-- 
 2.52.0
 
 
