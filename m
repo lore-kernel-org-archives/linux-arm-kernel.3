@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEF14D2FEE7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E302BD2FEE4
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 21:04:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9HWoXO4DFMiJC1qX1pYWYEkKbDgGjoCzea1jzdb4+Xs=; b=LO2TKoxv5U+1d3oN2vHgcXrH9Z
-	vmaXFdiw0fX5+tpVwgo9zXOIZeUFoiIwSUjMkS4vdyws8/2L9kK68xoVPkjiF1TUZ3J4e00g+zBlU
-	fq/1nCxNHawzy7iA+6wGAn0M916p69abtO0UIKIteWHwzWbEHB+rT+SKTYaKypJQpGOEz3SZTISuE
-	55Pc9fycOELCOw8L1Lc7c0HMwfAiA9ej0h20gSzF29cMjiJMAejjlGEwUI5Z+bCCfc44Oe2u7LIuc
-	vpgpF/EO57suy+CdC4k9Q3573JoSnBdfn/IV2y/wz1dv3sajTuAeLNQA+rmIJZxww/YRaJqVfscvn
-	G97TQlVQ==;
+	bh=yKS6SwQ2fHZ+TEh2LBv3DToRha1j4vtXEBJWvVPpIbs=; b=3a/zW9ehVdXrqQJJB/t+19m2Iv
+	gm6G4o2OFaYAq/UTvvmPJ27dnjwO16MEI+CRFe5v1tn37jv7k2cE4epJ5tjA3u+Prnqy+Y4hLWrHc
+	z19pOPnLTCs56fXxR515zL11q1243ptUFzhDe1v2dxM8tIfpx5GvNgVm3TJInAeSKWveo3eX2rnBU
+	zObsJnd7/5irir9yhVIVf6cZ6D/gspLSMw/ZttKYwL7Wl75IKb19xQRX2Q3cnYmo6Bxopf6qLwc7H
+	XGp3kUBT+6zOKNqGU+9YCRUgR1eiSERsF0xh2apI0kxYrsqJdqoAsf0NQbETMV1TRgLDSOH2WrjFc
+	rRokDaqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkqEd-0000000F2PY-496P;
-	Tue, 27 Jan 2026 21:04:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vkqEe-0000000F2Pw-1Eu6;
+	Tue, 27 Jan 2026 21:04:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkqEJ-0000000F2LH-12Yn
+	id 1vkqEQ-0000000F2Mo-2dKz
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 27 Jan 2026 21:04:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=yKS6SwQ2fHZ+TEh2LBv3DToRha1j4vtXEBJWvVPpIbs=; b=VisHT3KH/aD6lYoTZ0yv5AFrDs
+	PZVncygQecIEaYP0gssHT0oI57agiEW7fFWxcr6VJGiy6ukrij2r9NVWXX3/B5cjZSFaBiN+DRFas
+	tFfCT1M+P/XmDCVdiyblvRUtSiQSNz3Pz5r/go4Gm9thwYYzDuxarIissJO1x/YKutjAwwTkBdt86
+	HcaGX7GxFTJ+e8TYyxsHCcSBG9JX7zMeCLTXVD1VZJhmFsVmYl13POl5hG8bCxRWUx6EjwnHnyx6y
+	e89yCbG5rlLp+nloOlfiPPxUXZTylm1OTfQP5+jZG6EfRRdTl0Lx0srWbcV8wmTaGt5x6y0y31nVa
+	agPzatNA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkqEL-00000007cG7-3FHY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 21:04:12 +0000
+	Tue, 27 Jan 2026 21:04:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C88A94416D;
-	Tue, 27 Jan 2026 21:04:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A026EC2BC87;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0396C400A8;
+	Tue, 27 Jan 2026 21:04:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D19BFC116C6;
 	Tue, 27 Jan 2026 21:04:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1769547844;
-	bh=2f258ZKMGjMDX6rVeyYTKnl8hXsCenCR77UWDe3H8b8=;
+	bh=LBhfTj6Pula0hCiSt84yg2QYd+/y3z0gTPRsmOA4c4w=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=p+N9NKKWL+cxS6luMRys+V2zGZago5/o/xnC2XxtwYcTUUaL2LN30OxxK8aaaqgeg
-	 AQT2n+47rGDlz3ZhvFceYlL5hf6c0/82Uf8WIWT281kKlV2smdizdE31K8tJajSqy2
-	 PrMR56heVIzOYbUMmJOdtCXjTAK6/DzTAqTm/ntl34jl4cIMzB3vHMJocKaFdObVKc
-	 rQhpCh+bnpAEjdNNyLs8a5xIxLUS5H691LE+myMrLfVU9BiqzeR3snbZ+1dX1x1bNQ
-	 wMExWqoI+BceO+D6OgWnJASUjvYKTeHw9VX+lLK3/3A6njhvbHbKMsJUq7howS9KGe
-	 qrOtG4ja4FH5g==
+	b=uttGjcorI9b3iEz3+2j2LGb7zXoHWwyt/Kh+NWFsq7X4af+bJ0kVKtNQSntEb0bCo
+	 8a03L+SRsr5lDrsiAMeEJHjLTzrrUlK8L7mn5PsMr4g7gdyN4QnBdu8a4DCpVJrQi6
+	 /nSMml5ikNqZnZR0/rm5zLI0YEt28LvPzT8Znh4jwHS7YTgCRuH6YDVHxJmJyWXWrX
+	 bNoF5Yof7NjXo0XKsXC+91QSeEhG8gVv9cRjPRyBCwxQ8PefDUVC0s3j4Eiv1MFcfS
+	 kF5rQ6ib5vtt+2wK6+uOiOnVzcGA1/98ad2kNAQIb+vFxtG4Via/dCtRyzJaBVAo+D
+	 tVJosHVzmxFsg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 919AFD2FED9;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C6256D2FEE4;
 	Tue, 27 Jan 2026 21:04:04 +0000 (UTC)
 From: Abdurrahman Hussain via B4 Relay <devnull+abdurrahman.nexthop.ai@kernel.org>
-Date: Tue, 27 Jan 2026 21:03:55 +0000
-Subject: [PATCH v6 1/7] dt-bindings: i2c: xiic: make clocks optional
+Date: Tue, 27 Jan 2026 21:03:57 +0000
+Subject: [PATCH v6 3/7] i2c: xiic: switch to devres managed APIs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260127-i2c-xiic-v6-1-e82e2f6f657c@nexthop.ai>
+Message-Id: <20260127-i2c-xiic-v6-3-e82e2f6f657c@nexthop.ai>
 References: <20260127-i2c-xiic-v6-0-e82e2f6f657c@nexthop.ai>
 In-Reply-To: <20260127-i2c-xiic-v6-0-e82e2f6f657c@nexthop.ai>
 To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
@@ -62,20 +77,19 @@ Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769547843; l=759;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1769547843; l=2628;
  i=abdurrahman@nexthop.ai; s=20260119; h=from:subject:message-id;
- bh=Jp8L32rGkddXyWP1kCRtOWV6Txgpa0+B9TbjL9V4o78=;
- b=u1JsuQG6Ngsrd05YJZA+2pdIjEIfAGdmj2WXnu48Z6ITIo+Hh2iL+m05kDLxkG7cwOBA1vGBk
- I6GaIzZE4xDDKR18UK7oEOuDBzvE3o8QBxTX0ojRs1UnNdigFm7Llq4
+ bh=yRa/CRG2cqtMW/1r2zBVnG3RPQKHNft2Yt/Y6AX+WfM=;
+ b=B+mb2ftUoC0mMyYyAJGCA/r0RND13DFshhEDrNIFqgYwvbrXsW5252wRoWApiMaSulPUMu5RC
+ pn8m/62rcKBD1AIYqs2iRnGse5tvRiQrsLPVs+5YzI9H1JmJ1jTBZ8S
 X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
  pk=S+ysnf+NwMcBdHBlyKIUEAtaFGSIhQwcJcgcXhq0osg=
 X-Endpoint-Received: by B4 Relay for abdurrahman@nexthop.ai/20260119 with
  auth_id=608
 X-Original-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_130411_938519_2D30E167 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260127_210411_857179_3F5ECE87 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,25 +107,92 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 
-The xiic driver is designed to operate without explicit clock configuration
-when clocks are not specified in the firmware.
+Simplify the error code paths by switching to devres managed helper
+functions.
 
 Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
 ---
- Documentation/devicetree/bindings/i2c/xlnx,xps-iic-2.00.a.yaml | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/i2c/busses/i2c-xiic.c | 28 +++++++++++-----------------
+ 1 file changed, 11 insertions(+), 17 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/i2c/xlnx,xps-iic-2.00.a.yaml b/Documentation/devicetree/bindings/i2c/xlnx,xps-iic-2.00.a.yaml
-index 658ae92fa86d..cc500130f41f 100644
---- a/Documentation/devicetree/bindings/i2c/xlnx,xps-iic-2.00.a.yaml
-+++ b/Documentation/devicetree/bindings/i2c/xlnx,xps-iic-2.00.a.yaml
-@@ -43,7 +43,6 @@ required:
-   - compatible
-   - reg
-   - interrupts
--  - clocks
+diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
+index 16202fb89271..973463a3a7f9 100644
+--- a/drivers/i2c/busses/i2c-xiic.c
++++ b/drivers/i2c/busses/i2c-xiic.c
+@@ -1462,7 +1462,10 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 	snprintf(i2c->adap.name, sizeof(i2c->adap.name),
+ 		 DRIVER_NAME " %s", pdev->name);
  
- unevaluatedProperties: false
+-	mutex_init(&i2c->lock);
++	ret = devm_mutex_init(dev, &i2c->lock);
++	if (ret)
++		return ret;
++
+ 	spin_lock_init(&i2c->atomic_lock);
+ 
+ 	i2c->clk = devm_clk_get_optional_enabled(dev, NULL);
+@@ -1473,8 +1476,9 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 	i2c->dev = &pdev->dev;
+ 	pm_runtime_set_autosuspend_delay(i2c->dev, XIIC_PM_TIMEOUT);
+ 	pm_runtime_use_autosuspend(i2c->dev);
+-	pm_runtime_set_active(i2c->dev);
+-	pm_runtime_enable(i2c->dev);
++	ret = devm_pm_runtime_set_active_enabled(dev);
++	if (ret)
++		return ret;
+ 
+ 	/* SCL frequency configuration */
+ 	i2c->input_clk = clk_get_rate(i2c->clk);
+@@ -1490,7 +1494,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 
+ 	if (ret < 0) {
+ 		dev_err_probe(&pdev->dev, ret, "Cannot claim IRQ\n");
+-		goto err_pm_disable;
++		return ret;
+ 	}
+ 
+ 	i2c->singlemaster =
+@@ -1509,16 +1513,14 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 		i2c->endianness = BIG;
+ 
+ 	ret = xiic_reinit(i2c);
+-	if (ret < 0) {
+-		dev_err_probe(&pdev->dev, ret, "Cannot xiic_reinit\n");
+-		goto err_pm_disable;
+-	}
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "Cannot xiic_reinit\n");
+ 
+ 	/* add i2c adapter to i2c tree */
+ 	ret = i2c_add_adapter(&i2c->adap);
+ 	if (ret) {
+ 		xiic_deinit(i2c);
+-		goto err_pm_disable;
++		return ret;
+ 	}
+ 
+ 	if (pdata) {
+@@ -1530,12 +1532,6 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 	dev_dbg(&pdev->dev, "mmio %08lx irq %d scl clock frequency %d\n",
+ 		(unsigned long)res->start, irq, i2c->i2c_clk);
+ 
+-	return 0;
+-
+-err_pm_disable:
+-	pm_runtime_disable(&pdev->dev);
+-	pm_runtime_set_suspended(&pdev->dev);
+-
+ 	return ret;
+ }
+ 
+@@ -1556,8 +1552,6 @@ static void xiic_i2c_remove(struct platform_device *pdev)
+ 		xiic_deinit(i2c);
+ 
+ 	pm_runtime_put_sync(i2c->dev);
+-	pm_runtime_disable(&pdev->dev);
+-	pm_runtime_set_suspended(&pdev->dev);
+ 	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ }
  
 
 -- 
