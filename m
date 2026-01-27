@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1C2D2FECD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 18:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37BF5D2FED4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 18:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/YiAtcCBz6Q4AWaDBeeB64E0Di3ngWVbFxM1ju6Hu0k=; b=VC6z+hNeGRbkJkY2lQmqg9jY+z
-	FKfYbfSMrge9uHeBzyErlD4VMdM1mmrHCJPqd2yDbAoEx4T0s7EacM+GGl72Yq5Y3WWxqjWkuWhhu
-	FP3zEwJjxrbV6FRtIVdTr7V0z72r5rIuqUxf9KRIF3/4c/Bti71Vb5ZwB8cbt+NruJhDNH4/CBl0c
-	srVX92q3L4JfFKljk6uwbZIiKlTb6p2TRQhOTqSL2a9vD4k3Omw1g4DP6lVreP4Z1lPu3B4vhDK6f
-	Akz1XomL1kMyYheqHmoDACPmcoYRT0LKhkJi0kLCxwPm3edZa9utF4tcmA8u6uYu00W6ecHzkYU/s
-	0zfimbVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1O10nq57uF2yonMLHejTJonR3kk2tYwvSO30+vtuA7Q=; b=o96vh9UVDjkDdgLCvupxeCmtVk
+	ev14NCFnb0Y1a95T5ZOsZJ7NCkWRBjkQupH6H8E1bm7cZdCxhsYN1USkpPfTyg11PJkjS15AZcEf4
+	MdIZEl3xBh7yS9A7u7SJc4DrgNPd3mRzd4Ly7r8o8/EzPHb35uPpXHbJoYl9Pp8K1gJl15silIaz0
+	wp2mxJ9C6z/8N+xinBn354dfia1cGHGLTjRMNS8bysr3hfElFHpsstBVztGeXXHOI1K+F7e49Mcoe
+	dY/QguhfUp//2vBT4cVFYfwQ7n/3u/WtErb5TXCBHT8QhoBc4s3ZFXuu+t7MyjFiZPEwrm9rMPA8N
+	liZwyUvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vknaF-0000000EnRa-01XQ;
-	Tue, 27 Jan 2026 18:14:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vknaC-0000000EnRB-3bIx
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 18:14:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4DF1D1515;
-	Tue, 27 Jan 2026 10:14:22 -0800 (PST)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 393233F5CA;
-	Tue, 27 Jan 2026 10:14:27 -0800 (PST)
-From: Leo Yan <leo.yan@arm.com>
-Date: Tue, 27 Jan 2026 18:14:13 +0000
-Subject: [PATCH v2] stm class: Fix Kconfig symbols
+	id 1vkneA-0000000EnjJ-43oT;
+	Tue, 27 Jan 2026 18:18:38 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vkne8-0000000Enim-3pLV;
+	Tue, 27 Jan 2026 18:18:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1769537891; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=fEb0Cw0/fBkS8pB0EZvsd01qretjQhA9PdmsjDAZ2GyHqlsAwojf9WvigoKbhEdpZFndyMkv+fPCTQAtVFxTEEMO3W9tNaxKQTXWaEzvhZtn2INA42ZQaitNZYDILx7m+TnXWk+2m0wzyW4G/7T0yYs8xFQ4UlCF6HXkjyvNwBk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1769537891; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=1O10nq57uF2yonMLHejTJonR3kk2tYwvSO30+vtuA7Q=; 
+	b=Udg8Byuy82YLS3nLoyIU67KXzJ9Jo2n15L1LIv0ZbWZmijGKUbK0KWSI26REhRRnhVTtfm+58TLJArSSxVokMMBfXtrpaoOIkLmv/x0BhwEX3bBL2nuGSdNjA8ca4jSOwUn9ucBWNRZyvJy6OKVlnL1U8FC5jW4zj3ZfUr641b0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1769537891;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=1O10nq57uF2yonMLHejTJonR3kk2tYwvSO30+vtuA7Q=;
+	b=cgyGGkiipdrS15+YkTQU3VtWMDwt3STN5bYx656tenyNtnVtPXA4PeTjgpF9qlEt
+	EJNKoG8RiZZfemBiNic0WN4pLV3I6hcyOWJNHY0lLzOxLzt4idbPvN+sK4VO9xZFJ5J
+	ZzI/VI4v1vHHGbBPzIGp6xh61Vw48cb+FWkJ6jgQ=
+Received: by mx.zohomail.com with SMTPS id 1769537889900300.4354081160377;
+	Tue, 27 Jan 2026 10:18:09 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Dong Aisheng <aisheng.dong@nxp.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Yassine Oudjana <y.oudjana@protonmail.com>,
+ Laura Nao <laura.nao@collabora.com>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>,
+ Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+ kernel@collabora.com, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v3 1/5] clk: Respect CLK_OPS_PARENT_ENABLE during recalc
+Date: Tue, 27 Jan 2026 19:18:02 +0100
+Message-ID: <6800096.lOV4Wx5bFT@workhorse>
+In-Reply-To: <4ea31b0d-af6e-44f7-86e4-35a43b8c71e7@sirena.org.uk>
+References: <20251010-mtk-pll-rpm-v3-0-fb1bd15d734a@collabora.com>
+ <036da7ce-6487-4a6e-9b15-97c6d3bcdcec@sirena.org.uk>
+ <4ea31b0d-af6e-44f7-86e4-35a43b8c71e7@sirena.org.uk>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260127-fix_stm_kconfig-v2-1-3c067e00f82e@arm.com>
-X-B4-Tracking: v=1; b=H4sIAHQAeWkC/2WNywrCMBREf6XctZHeNA905X9IKTEm7UWSSFKKU
- vrvxoIrl2eYObNCcZlcgXOzQnYLFUqxAj80YCcTR8foXhl4yyVyVMzTayhzGB42RU8jM5p70Vq
- tkFuoq2d2tbIbr33licqc8ns/WPCb/lz6z7UgQyY79LdOaSHF6WJyONoUoN+27QNMEZ3OrAAAA
- A==
-X-Change-ID: 20251216-fix_stm_kconfig-a72f40c7612c
-To: Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- James Clark <james.clark@linaro.org>
-Cc: linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
- linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1769537667; l=2151;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=xrqHMLh+h7bTnHzxFrucYIU6jvgcxjDytBv9grxjLtw=;
- b=F4S1iXCK8hpgfWjS2PzpQd37/ljfUsDbMcr8LWKuuBFjmjd4luLA4GeklShfzjqFmkoMKgL1i
- SEZV/U6rAksB4UkFHCl9mmXP7RTPVwvzI5GvrWFZ7KcwaY8Ah63n3Fj
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_101432_948386_FD7BA503 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20260127_101837_017181_11690EFF 
+X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,64 +86,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Kconfig symbols must not include the CONFIG_ prefix.  Remove the CONFIG_
-prefix for default values to work.
+On Tuesday, 27 January 2026 18:25:04 Central European Standard Time Mark Brown wrote:
+> On Tue, Jan 27, 2026 at 05:01:35PM +0000, Mark Brown wrote:
+> > On Fri, Oct 10, 2025 at 10:47:09PM +0200, Nicolas Frattaroli wrote:
+> > > When CLK_OPS_PARENT_ENABLE was introduced, it guarded various clock
+> > > operations, such as setting the rate or switching parents. However,
+> > > another operation that can and often does touch actual hardware state is
+> > > recalc_rate, which may also be affected by such a dependency.
+> > 
+> > I'm seeing boot regressions in -next on the Avenger96 which bisect to
+> > this patch in -next.  The board resets during startup:
+> 
+> I am also seeing some similar regressions even earlier on i.MX8MP
+> platforms, though they're resetting even earlier before any output is
+> produced (even with earlycon).  Didn't confirm yet with a revert or
+> anything though.
+> 
 
-The STM_PROTO_SYS_T config is selected by default when STM is enabled.
-However, its description currently says "If you don't know what this is,
-say N," which contradicts the default behavior.  Update the description
-to say "Y" to align with the default setting.
+Someone else seemingly bisected to this commit on i.MX8MP as well
+and replied to the RESEND of the series, and confirmed with a
+revert[1].
 
-Fixes: a02509f301c6 ("stm class: Factor out default framing protocol")
-Fixes: d69d5e83110f ("stm class: Add MIPI SyS-T protocol support")
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
-Changes in v2:
-- Updated STM_PROTO_BASIC description to align with default selection
-  (James).
-- Link to v1: https://lore.kernel.org/r/20251217-fix_stm_kconfig-v1-1-531fb3674549@arm.com
----
- drivers/hwtracing/stm/Kconfig | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+I'm somewhat surprised by this, because to me it doesn't make intuitive
+sense that some platforms would rely on CLK_OPS_PARENT_ENABLE to not
+enable the parent clock during a recalc.
 
-diff --git a/drivers/hwtracing/stm/Kconfig b/drivers/hwtracing/stm/Kconfig
-index eda6b11d40a1f9ab49a1ec1e6faae8ee178c5ed3..8ab079785189052945521e9b0a93a0d458de37e0 100644
---- a/drivers/hwtracing/stm/Kconfig
-+++ b/drivers/hwtracing/stm/Kconfig
-@@ -13,7 +13,7 @@ if STM
- 
- config STM_PROTO_BASIC
- 	tristate "Basic STM framing protocol driver"
--	default CONFIG_STM
-+	default STM
- 	help
- 	  This is a simple framing protocol for sending data over STM
- 	  devices. This was the protocol that the STM framework used
-@@ -28,7 +28,7 @@ config STM_PROTO_BASIC
- 
- config STM_PROTO_SYS_T
- 	tristate "MIPI SyS-T STM framing protocol driver"
--	default CONFIG_STM
-+	default STM
- 	help
- 	  This is an implementation of MIPI SyS-T protocol to be used
- 	  over the STP transport. In addition to the data payload, it
-@@ -38,7 +38,7 @@ config STM_PROTO_SYS_T
- 	  The receiving side must be able to decode this protocol in
- 	  addition to the MIPI STP, in order to extract the data.
- 
--	  If you don't know what this is, say N.
-+	  If you don't know what this is, say Y.
- 
- config STM_DUMMY
- 	tristate "Dummy STM driver"
+Can someone let me know which clocks (with which parent) in those
+affected devices is causing this? I'm wondering if this change
+unmasked some undeclared dependency that it's now stumbling over
+because it's enabling the parent earlier than ever.
 
----
-base-commit: fcb70a56f4d81450114034b2c61f48ce7444a0e2
-change-id: 20251216-fix_stm_kconfig-a72f40c7612c
+Would appreciate if we could fix up the affected platforms rather
+than revert this, because the platform I added this for was
+definitely using a parent-child relationship, and definitely
+needed to have the parent clock on during recalc.
 
-Best regards,
--- 
-Leo Yan <leo.yan@arm.com>
+I can always bring back the RPM model I went for previously, but
+that feels like more of a hack around this caveat than a proper
+description of the clock relationship.
+
+To not have me break everyone's -next for days on end, feel free
+to drop this patch. MT8196, which this was added for, doesn't boot
+with mainline yet anyway.
+
+Kind regards,
+Nicolas Frattaroli
+
+https://lore.kernel.org/all/6239343.lOV4Wx5bFT@steina-w/ [1]
+
+
+
 
 
