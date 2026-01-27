@@ -4,56 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AAEDD3409C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 16:05:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9148D3409B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 16:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ya9Mb5O+kdoPlgMtK9PZ6iX637niybyiqfBrqo6v5fs=; b=g/SYJPa3qDJ0OHVumhzl6273+f
-	NmS7ZZ1SHBFmL3r0jg3cmjjy84IO/aQztwMIkC6RuoHuR9AHFX21nXy8MXqMlIkG0ikH+usEwkMar
-	7HCU7EhZyZg1UBTPi4PAKyA4h4U4zMRv7rQjCeEzy5l6TFwuSeuRRsokrS7mJ6JewNx9qtmF3Z5PX
-	O5TeIkE/iA07RINFNEyVcg251qYJD8arvqF84OyKeDJ1oQX/OsaVxybJBJhMJ6hqkNGFPbWgrBLB7
-	oOQYdsnU/GYKc6ssHqdt1zpozfCXkBa762jxoGow0526tX2v+MdNiLykZYSbkn4xd46RkCi+C4sVG
-	UhDLIYhQ==;
+	bh=4YNTaowixnozBp6OgMoCK33IRiaDQ/kgBlgssEsqiwo=; b=X0boHMgKAiNCuIBXZfIyi8J2td
+	XWU3VjRcZIolwMbHvs/Dp2Xrc4towy+nm/75NvpGVNu6JahxXVANa1Dvv7M/io/TKGCD+YrUT9PeU
+	vXTWWl9Thz5nkl1tf+ECsSXADEulUtC1EppMMeeWXFCwQUaKJQZSfrV01wAqIYljwc/SyslmEQ1Yz
+	cvVaZihZkh8RtQXo5VwfdMQ6PQcOoyoTW2cGmXpm/xYCbcBoqwLqv2KGRMG9F9YmIR+ELRMCvs9Xy
+	bgVywM8FCfwB0c+9VfJ+3QgicOC3Fm6myRsVLtfZ3HUpyKqzRj/Q+1iRTsCOx0jlaL4cIRZ7o42DM
+	ds/6ARUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklZd-0000000Ebei-0qo8;
-	Tue, 27 Jan 2026 16:05:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklZZ-0000000Ebdz-3cfe
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 16:05:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A1B121596;
-	Tue, 27 Jan 2026 08:05:36 -0800 (PST)
-Received: from [10.57.51.176] (unknown [10.57.51.176])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 576813F73F;
-	Tue, 27 Jan 2026 08:05:41 -0800 (PST)
-Message-ID: <9fb8f661-a235-4f86-bc10-f80a21a8fa9d@arm.com>
-Date: Tue, 27 Jan 2026 16:05:38 +0000
+	id 1vklcc-0000000Ec0M-2GTE;
+	Tue, 27 Jan 2026 16:08:54 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vklca-0000000Ebyp-1NeO;
+	Tue, 27 Jan 2026 16:08:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1769530129;
+	bh=kL9kNvqSXpOVHTWoVnZEkOBC5bbK790jsX9GDjm0yZg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=ZhpQtmSczb3U82x8A+JD7eBWzDq/HSVJ8wuG8SD+ikRWHn0vTbv7dJPHSLYOekyzT
+	 HchLoXbEzJPJLOsAjXGQ7aY7zEIe+bh16n2dRPhWuMgnQk6LBwG7Qdz13WmV7i6Dnu
+	 yuLm3MK1bOD1QW6LJvh1mVuNZKNyZkQpXHrAtvt6Vw4HpjvqM8o4VCEsTi3Z6diZMm
+	 pRhrje6OO73sG92DrLB6tGsJSOuFffV9oh08YHYYJOE1w04TRZmE+DPevl2cfU0vu5
+	 RxrQLOulyoRcvs1XiUow8QD9YsSUpc8YSwPhO3GOjMoEapku2bQhBlur19MHFyOgS7
+	 I0Waf+HoHDkIQ==
+Received: from jupiter.universe (dyndsl-091-248-210-071.ewe-ip-backbone.de [91.248.210.71])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 78B2D17E00AC;
+	Tue, 27 Jan 2026 17:08:49 +0100 (CET)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 3486E480038; Tue, 27 Jan 2026 17:08:49 +0100 (CET)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 27 Jan 2026 17:08:22 +0100
+Subject: [PATCH 02/10] ASoC: rockchip: spdif: Move DT compatible table
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu: Use pm_runtime in fault handlers
-To: Prakash Gupta <prakash.gupta@oss.qualcomm.com>,
- Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Connor Abbott <cwabbott0@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- Akhil P Oommen <akhilpo@oss.qualcomm.com>,
- Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
-References: <20260127-smmu-rpm-v1-1-2ef2f4c85305@oss.qualcomm.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260127-smmu-rpm-v1-1-2ef2f4c85305@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-2-a7c547072bbb@collabora.com>
+References: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-0-a7c547072bbb@collabora.com>
+In-Reply-To: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-0-a7c547072bbb@collabora.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Alexey Charkov <alchark@gmail.com>, 
+ Sjoerd Simons <sjoerd.simons@collabora.com>, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3102;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=kL9kNvqSXpOVHTWoVnZEkOBC5bbK790jsX9GDjm0yZg=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGl44xCH0fJv0AZ5RtUF/UqPoZ+zg4liu6CLs
+ T0gTRftH9vVGYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJpeOMQAAoJENju1/PI
+ O/qa0wUQAIoQ6OlvovSDSonbD5rIV0SKSWd48HMd7hysmB314iSkPvJxnFiIuchm9gf50qkuxWa
+ i5i+QeDCBpCdoxE9+ZgRyRWjQouiuqts0pD+eBl2jpm5AfPR1KzMFoHYJ4Z7aQMLmMDOefA75NR
+ 0IElaXk5ILY0ZrXtFfcg7H9Dgn5bzAJM6o/DglXYt+PPNmtEgzTQgZ1ErsqRQMkjbV/dKf+yJ4i
+ UolFsmtbat37eQPluZtIkdSffeqq9CrACak5lCli54Fw2sKKYat/4cQeRo0CLR6zfKFGR7/HUgz
+ +wOtdoJxZecq/gdrKTsmAh4GmR05EZ6cWxeCna8tWiSOFjwFODPAMXiu0V0nmcWwwNAz7tMLeOn
+ eHpU3aKQYCYEWxzIMla+zVgSXR6rZejyGalGGZxBnNziYuyBsEXsqGTFs6Lx2MktKtuVGLfeOGo
+ Bzv/Ym5t7lxS3mUIwsCIyy9oxX1tMobrv8/42hiMBuPP1Ik2+I6NuKbJAeOM/dn16RuraZWF0+q
+ HTuds55U/8IAuvgQ8mOtFnemv1EQ5W72+BVi0UzHZHudFY+2TY5BadiIMtClD+6aJO1UobUeUeq
+ Ix3Upe8vOZ+32oIAn/IUqjKtlV7Cw8hW+OfdKMy7kVlGOajl7QKuBbyvRFJvS5Y98DVxj3JcFBn
+ Hga+lAOSeWPrreFlGLWspIA==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_080546_351399_2F968E84 
-X-CRM114-Status: GOOD (  29.01  )
+X-CRM114-CacheID: sfid-20260127_080852_540230_16E9192E 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,205 +97,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-01-27 12:11 pm, Prakash Gupta wrote:
-> Commit d4a44f0750bb ("iommu/arm-smmu: Invoke pm_runtime across the driver")
-> enabled pm_runtime for the arm-smmu device. On systems where the SMMU
-> sits in a power domain, all register accesses must be done while the
-> device is runtime-resumed to avoid unclocked register reads and
-> potential NoC errors.
-> 
-> So far, this has not been an issue for most SMMU clients because
-> stall-on-fault is enabled by default. While a translation fault is
-> being handled, the SMMU stalls further translations for that context
-> bank, so the fault handler would not race with a powered-down
-> SMMU.
-> 
-> Adreno SMMU now disables stall-on-fault in the presence of fault
-> storms to avoid saturating SMMU resources and hanging the GMU. With
-> stall-on-fault disabled, the SMMU can generate faults while its power
-> domain may no longer be enabled, which makes unclocked accesses to
-> fault-status registers in the SMMU fault handlers possible.
+Move rk_spdif_match DT compatible table to the usual place before the
+platform-driver struct definition and drop the useless of_match_ptr(),
+since it is fine to reference the DT id table even when OF support is
+disabled (which makes the driver useless anyways).
 
-At face value, that sounds wrong - how does an SMMU generate a fault, or 
-indeed do anything, when it's powered off? In principle it's possible 
-that the SMMU might signal an interrupt, and is _then_ suspended (with 
-the interrupt line somehow remaining asserted, so probably more 
-clock-gated than completely powered down) before the interrupt hander 
-runs, but we rather assume that we're not going to have an unhandled 
-hardware IRQ hanging around for longer than the autosuspend delay.
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ sound/soc/rockchip/rockchip_spdif.c | 48 ++++++++++++++++++-------------------
+ 1 file changed, 24 insertions(+), 24 deletions(-)
 
-So, judging by the diff below, I guess what you really mean is that in 
-the case of a threaded context IRQ handler, it can take long enough 
-between handling the hardware IRQ and the thread actually running that 
-the SMMU may have suspended in between?
+diff --git a/sound/soc/rockchip/rockchip_spdif.c b/sound/soc/rockchip/rockchip_spdif.c
+index 23f14274a6e0..331a23d5173f 100644
+--- a/sound/soc/rockchip/rockchip_spdif.c
++++ b/sound/soc/rockchip/rockchip_spdif.c
+@@ -40,29 +40,6 @@ struct rk_spdif_dev {
+ 	struct regmap *regmap;
+ };
+ 
+-static const struct of_device_id rk_spdif_match[] __maybe_unused = {
+-	{ .compatible = "rockchip,rk3066-spdif",
+-	  .data = (void *)RK_SPDIF_RK3066 },
+-	{ .compatible = "rockchip,rk3188-spdif",
+-	  .data = (void *)RK_SPDIF_RK3188 },
+-	{ .compatible = "rockchip,rk3228-spdif",
+-	  .data = (void *)RK_SPDIF_RK3366 },
+-	{ .compatible = "rockchip,rk3288-spdif",
+-	  .data = (void *)RK_SPDIF_RK3288 },
+-	{ .compatible = "rockchip,rk3328-spdif",
+-	  .data = (void *)RK_SPDIF_RK3366 },
+-	{ .compatible = "rockchip,rk3366-spdif",
+-	  .data = (void *)RK_SPDIF_RK3366 },
+-	{ .compatible = "rockchip,rk3368-spdif",
+-	  .data = (void *)RK_SPDIF_RK3366 },
+-	{ .compatible = "rockchip,rk3399-spdif",
+-	  .data = (void *)RK_SPDIF_RK3366 },
+-	{ .compatible = "rockchip,rk3568-spdif",
+-	  .data = (void *)RK_SPDIF_RK3366 },
+-	{},
+-};
+-MODULE_DEVICE_TABLE(of, rk_spdif_match);
+-
+ static int rk_spdif_runtime_suspend(struct device *dev)
+ {
+ 	struct rk_spdif_dev *spdif = dev_get_drvdata(dev);
+@@ -377,12 +354,35 @@ static const struct dev_pm_ops rk_spdif_pm_ops = {
+ 	RUNTIME_PM_OPS(rk_spdif_runtime_suspend, rk_spdif_runtime_resume, NULL)
+ };
+ 
++static const struct of_device_id rk_spdif_match[] = {
++	{ .compatible = "rockchip,rk3066-spdif",
++	  .data = (void *)RK_SPDIF_RK3066 },
++	{ .compatible = "rockchip,rk3188-spdif",
++	  .data = (void *)RK_SPDIF_RK3188 },
++	{ .compatible = "rockchip,rk3228-spdif",
++	  .data = (void *)RK_SPDIF_RK3366 },
++	{ .compatible = "rockchip,rk3288-spdif",
++	  .data = (void *)RK_SPDIF_RK3288 },
++	{ .compatible = "rockchip,rk3328-spdif",
++	  .data = (void *)RK_SPDIF_RK3366 },
++	{ .compatible = "rockchip,rk3366-spdif",
++	  .data = (void *)RK_SPDIF_RK3366 },
++	{ .compatible = "rockchip,rk3368-spdif",
++	  .data = (void *)RK_SPDIF_RK3366 },
++	{ .compatible = "rockchip,rk3399-spdif",
++	  .data = (void *)RK_SPDIF_RK3366 },
++	{ .compatible = "rockchip,rk3568-spdif",
++	  .data = (void *)RK_SPDIF_RK3366 },
++	{},
++};
++MODULE_DEVICE_TABLE(of, rk_spdif_match);
++
+ static struct platform_driver rk_spdif_driver = {
+ 	.probe = rk_spdif_probe,
+ 	.remove = rk_spdif_remove,
+ 	.driver = {
+ 		.name = "rockchip-spdif",
+-		.of_match_table = of_match_ptr(rk_spdif_match),
++		.of_match_table = rk_spdif_match,
+ 		.pm = pm_ptr(&rk_spdif_pm_ops),
+ 	},
+ };
 
-> Guard the context and global fault handlers with arm_smmu_rpm_get() /
-> arm_smmu_rpm_put() so that all SMMU fault register accesses are done
-> with the SMMU powered.
-> 
-> Fixes: b13044092c1e ("drm/msm: Temporarily disable stall-on-fault after a page fault")
-> Co-developed-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
-> Signed-off-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
-> Signed-off-by: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-> ---
->   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c |  5 ++-
->   drivers/iommu/arm/arm-smmu/arm-smmu.c      | 53 ++++++++++++++++++++++--------
->   2 files changed, 43 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> index 573085349df3..2d03df72612d 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> @@ -317,6 +317,7 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
->   	struct arm_smmu_device *smmu = smmu_domain->smmu;
->   	struct qcom_smmu *qsmmu = to_qcom_smmu(smmu);
->   	const struct of_device_id *client_match;
-> +	const struct arm_smmu_impl *impl = qsmmu->data->impl;
->   	int cbndx = smmu_domain->cfg.cbndx;
->   	struct adreno_smmu_priv *priv;
->   
-> @@ -350,10 +351,12 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
->   	priv->get_ttbr1_cfg = qcom_adreno_smmu_get_ttbr1_cfg;
->   	priv->set_ttbr0_cfg = qcom_adreno_smmu_set_ttbr0_cfg;
->   	priv->get_fault_info = qcom_adreno_smmu_get_fault_info;
-> -	priv->set_stall = qcom_adreno_smmu_set_stall;
->   	priv->set_prr_bit = NULL;
->   	priv->set_prr_addr = NULL;
->   
-> +	if (impl->context_fault_needs_threaded_irq)
-> +		priv->set_stall = qcom_adreno_smmu_set_stall;
-> +
->   	if (of_device_is_compatible(np, "qcom,smmu-500") &&
->   	    !of_device_is_compatible(np, "qcom,sm8250-smmu-500") &&
->   	    of_device_is_compatible(np, "qcom,adreno-smmu")) {
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> index 5e690cf85ec9..183f12e45b02 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> @@ -462,10 +462,23 @@ static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
->   	int idx = smmu_domain->cfg.cbndx;
->   	int ret;
->   
-> +	if (smmu->impl && smmu->impl->context_fault_needs_threaded_irq) {
-
-Why is this conditional on being threaded, if the global fault handler 
-that can never be threaded at all apparently needs it unconditionally?
-
-Thanks,
-Robin.
-
-> +		ret = arm_smmu_rpm_get(smmu);
-> +		if (ret < 0)
-> +			return IRQ_NONE;
-> +	}
-> +
-> +	if (smmu->impl && smmu->impl->context_fault) {
-> +		ret = smmu->impl->context_fault(irq, dev);
-> +		goto out_power_off;
-> +	}
-> +
->   	arm_smmu_read_context_fault_info(smmu, idx, &cfi);
->   
-> -	if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT))
-> -		return IRQ_NONE;
-> +	if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT)) {
-> +		ret = IRQ_NONE;
-> +		goto out_power_off;
-> +	}
->   
->   	ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
->   		cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
-> @@ -480,7 +493,14 @@ static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
->   				  ret == -EAGAIN ? 0 : ARM_SMMU_RESUME_TERMINATE);
->   	}
->   
-> -	return IRQ_HANDLED;
-> +	ret = IRQ_HANDLED;
-> +
-> +out_power_off:
-> +
-> +	if (smmu->impl && smmu->impl->context_fault_needs_threaded_irq)
-> +		arm_smmu_rpm_put(smmu);
-> +
-> +	return ret;
->   }
->   
->   static irqreturn_t arm_smmu_global_fault(int irq, void *dev)
-> @@ -489,14 +509,21 @@ static irqreturn_t arm_smmu_global_fault(int irq, void *dev)
->   	struct arm_smmu_device *smmu = dev;
->   	static DEFINE_RATELIMIT_STATE(rs, DEFAULT_RATELIMIT_INTERVAL,
->   				      DEFAULT_RATELIMIT_BURST);
-> +	int ret;
-> +
-> +	ret = arm_smmu_rpm_get(smmu);
-> +	if (ret < 0)
-> +		return IRQ_NONE;
->   
->   	gfsr = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSR);
->   	gfsynr0 = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSYNR0);
->   	gfsynr1 = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSYNR1);
->   	gfsynr2 = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sGFSYNR2);
->   
-> -	if (!gfsr)
-> -		return IRQ_NONE;
-> +	if (!gfsr) {
-> +		ret = IRQ_NONE;
-> +		goto out_power_off;
-> +	}
->   
->   	if (__ratelimit(&rs)) {
->   		if (IS_ENABLED(CONFIG_ARM_SMMU_DISABLE_BYPASS_BY_DEFAULT) &&
-> @@ -513,7 +540,11 @@ static irqreturn_t arm_smmu_global_fault(int irq, void *dev)
->   	}
->   
->   	arm_smmu_gr0_write(smmu, ARM_SMMU_GR0_sGFSR, gfsr);
-> -	return IRQ_HANDLED;
-> +	ret = IRQ_HANDLED;
-> +
-> +out_power_off:
-> +	arm_smmu_rpm_put(smmu);
-> +	return ret;
->   }
->   
->   static void arm_smmu_init_context_bank(struct arm_smmu_domain *smmu_domain,
-> @@ -683,7 +714,6 @@ static int arm_smmu_init_domain_context(struct arm_smmu_domain *smmu_domain,
->   	enum io_pgtable_fmt fmt;
->   	struct iommu_domain *domain = &smmu_domain->domain;
->   	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
-> -	irqreturn_t (*context_fault)(int irq, void *dev);
->   
->   	mutex_lock(&smmu_domain->init_mutex);
->   	if (smmu_domain->smmu)
-> @@ -850,19 +880,14 @@ static int arm_smmu_init_domain_context(struct arm_smmu_domain *smmu_domain,
->   	 */
->   	irq = smmu->irqs[cfg->irptndx];
->   
-> -	if (smmu->impl && smmu->impl->context_fault)
-> -		context_fault = smmu->impl->context_fault;
-> -	else
-> -		context_fault = arm_smmu_context_fault;
-> -
->   	if (smmu->impl && smmu->impl->context_fault_needs_threaded_irq)
->   		ret = devm_request_threaded_irq(smmu->dev, irq, NULL,
-> -						context_fault,
-> +						arm_smmu_context_fault,
->   						IRQF_ONESHOT | IRQF_SHARED,
->   						"arm-smmu-context-fault",
->   						smmu_domain);
->   	else
-> -		ret = devm_request_irq(smmu->dev, irq, context_fault, IRQF_SHARED,
-> +		ret = devm_request_irq(smmu->dev, irq, arm_smmu_context_fault, IRQF_SHARED,
->   				       "arm-smmu-context-fault", smmu_domain);
->   
->   	if (ret < 0) {
-> 
-> ---
-> base-commit: fcb70a56f4d81450114034b2c61f48ce7444a0e2
-> change-id: 20251208-smmu-rpm-8bd67db93dca
-> 
-> Best regards,
-> --
-> Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-> 
+-- 
+2.51.0
 
 
