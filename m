@@ -4,87 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F516D3409E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 16:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 980C8D3409E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 16:11:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KIYO+9qJJgAJUMXjo7FOnL13CFtokcC7rDBXuqsvsvE=; b=bt4AJHFPhP3BEewGMheHf7BsLv
-	euFgOmOkZVhpMSV0H8SQtpI5geG7Waj54GA2ED4LYDOsIZCZ5Uxnf9IY0xsqJYNr67lTDTFd7TkxA
-	xuB7670PGUj5P/USl0fJlvqGxsv/e2CC/SnKdCdre8gODvgJ6IvAuRlnT1iFVZw3chm+GPvB3bzQ8
-	k39s/4lMxV9EAThFpw/LMeemZXaPwC3bOxWqiNj7IfW9nf3Bfbj3csbce0MQ4wURV90uBkYIFprH6
-	fy9gHgZwkBkGWMitTEtxnU05VBLgckdd3Q8nxNc8QovhsIvFMfCgpvXObxy1ArL8FcXl3I+WSku/8
-	WaIME0mw==;
+	bh=A/mleTy9B4/UIaLOH3Gao4Wnx4rcDBQf6oq8eOX91jQ=; b=SIKeb/iCDNnqICL36fZeBv96kh
+	xkmOrhPFkh0o/3hqOixDe2aLROMCpYgzR6d+egYviUfF2mg2IXoV3iWzVB159vX7B9fdb3GzwTVUF
+	GKOWfy3uRIFaDj+ziao8O1Cr8Kh1DXGU+N6mb06X2rBh6naFg7/7ArS5vwhozGfhIDI/nEihGwEgB
+	K7njNr+aQtbjd07jMFTfv/oQPFaRSX7Z2Fi8hGZ6U/nvu9sEOIvogKW15A7ve5bioiQQKySAAV27g
+	Z8HD4PDeHE+GDxnMhrMf3h+F5DfgJw8YLBQtXgNatGDwaXA8WZG6givGkrABbYrog3xrsxSn6lXjL
+	rXFN2HTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklcs-0000000EcFE-0nTk;
-	Tue, 27 Jan 2026 16:09:10 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vklfF-0000000EdIz-2VYg;
+	Tue, 27 Jan 2026 16:11:37 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklcd-0000000Ec0F-3XOa;
-	Tue, 27 Jan 2026 16:08:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1769530130;
-	bh=d+gX0d6NxxzZkhFVUCkoBjMXNb0bOhfwLyadx/wVaPs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=gOlQz/mLm9g8TluKCWHY77119GPEm4cVrg70tEo1D8iRwMzQ4/eTKutVw3hgIorfr
-	 goJtuHTvsBxalsyC/gq+IaRVjIaSX6AuVEqg8SmrosVeQJzrjS5VbnFFhwgKEv6VL6
-	 /3sad+aYBYEozbpURQHzA+Sg3eO3vkzacBZyaSRtQlFJ6X1sqoKvqrm5IqUaC7CAhd
-	 6u6gV/IiAT3e2jU17DsIQkU1qMq7Mi1DYLT5nbrqAGCBJZlaNH4PxrdwAzk6s5/73Z
-	 OIwyfNXykoOqWt6ZwuJqXCFnS5pVauaAkiVGc/5DPB3IGHA19IEHKNdGTdLZi7LVVE
-	 lAdyz7ExKTuUA==
-Received: from jupiter.universe (dyndsl-091-248-210-071.ewe-ip-backbone.de [91.248.210.71])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F413417E1523;
-	Tue, 27 Jan 2026 17:08:49 +0100 (CET)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 3A189480064; Tue, 27 Jan 2026 17:08:49 +0100 (CET)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 27 Jan 2026 17:08:26 +0100
-Subject: [PATCH 06/10] ASoC: rockchip: spdif: Swap PCM and DAI component
- registration order
+	id 1vklfC-0000000EdI6-0w80
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 27 Jan 2026 16:11:36 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2a1462573caso77835ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 08:11:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1769530293; cv=none;
+        d=google.com; s=arc-20240605;
+        b=TQBQUYFJDAxDJCYlY0LcI22FZLmpNyUH7YYmfrSrF8wsuQWlL4oRJrDIYhbrbJJBDI
+         s39DP0wCmTo2qsD6bcreX2Aw+jM2aZd8z1kfqRhxVLuObpUodBogpR+6587HeyIZBU8Y
+         ov8XSGcmciHa2r4IiRwJWGkpP9tXtdZEYonvJIIXFwEbBDt3MuoKso6FFbUj0ezEubTp
+         I9x2JtAk2Zl/heVevozIQtAg9TJWUrRcv0I3mGnBFkC+EmSz/QMKxczYlnOvaWHIxP9q
+         tsl8D4f1nteWJxxJGUYNLIs02JB2KayRio9/tbGc2GMG+9hHcyM4KuR20TvwpCcgjYX/
+         cuNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=A/mleTy9B4/UIaLOH3Gao4Wnx4rcDBQf6oq8eOX91jQ=;
+        fh=2jWdXumi+iJr+KfT+pVh6C++CmVAThRuW0vNclcP6Rs=;
+        b=SW5Q5fnZEQUtDzTVIDW7k5I62REs6/ruGzZA7t7DbeMrh3XToDPwdBQ7sqecB+SaKp
+         EOjQ5btwC5JKtnMzWr09ZZxLXBKWSX8+C3oGQXXp2TvyG4cM9xwur6zK6lZPEGmlx/Bl
+         KMLSkH5qybwnB5HlzPrttfuiOwB0eY4DzMhw0qO1uojDjzOOfyufRNjipR7FI1sunWna
+         Cu0L2iVw4ygjzVIelaooM87dIOoQH69qQE1E4bu/dOO9TUTuKHgp2ro+H7tw4bymlOw2
+         Dmd4Ft0ZlyK6Q/QnwPwP07GxImny7Kl4qxDpxg2vSn9dkSOo9jE1sCU9OE+QnUHIi5FV
+         yimA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1769530293; x=1770135093; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=A/mleTy9B4/UIaLOH3Gao4Wnx4rcDBQf6oq8eOX91jQ=;
+        b=sSRz3/M3JNxXB1ieXEXxfzZC7vd596TH4lTHn/ClIk51zlGkN0rkocAaRqVkueWqcA
+         V78o4C6HsJetIdXILMvqXJZ1tHfojCJSCSTcFhWySsLbeOQorX64W5x353dCx1MkH8mi
+         aTYzy1YTQhsYoY1bTzMlnZF9XBTqqVRNhlByPoPT+F6bPnpbhHb02R21EOobRFpvAR3T
+         DCgJVryXwlZWpVtA8ewKbNXKmgaNFzJaxJ8994jY0cdxH1DHIzS4sFQCJec58XZ6GLM1
+         jK2oG2Wcx4oODyND6jmfi1k4DhJEbdq4e4zdOeTbX9Aku6iZ9vRJzqBfjDCIVKOpvz7i
+         AXlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1769530293; x=1770135093;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=A/mleTy9B4/UIaLOH3Gao4Wnx4rcDBQf6oq8eOX91jQ=;
+        b=l5lLzVYgqftl3AXiv/6Mwuj49XG8SMd0AwmXndSK2t07tgn9hxLBdV1oAYQEeC9K3X
+         Or6GAQOhPKxdb35BdXaeBgJwf567hSFHMMJu2Z9H0PS1654Rpx2AWxSfT1xzSnLMeuTi
+         3XFwx7oD9xe9YL5Qt4UL7V4C4HXNZxEXrGJqFVonFhSCpePSFbQooyIUzUJEIv/TDGI/
+         haE77JYe3sbi6YPiJuyYS1F7YFpGGicjuzX7uuFUW2qjCaqiucvt9ZEMoF9PYRetAX4H
+         I8OSUvlfHVosNXEqsDRIlt3490Znh+hoGxNG5oJSoP1e0wux/M9dyb1NocGS3XsvbKkQ
+         E5RQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVV4VtEmDSo4/0pYQYfVtbNkyJiUhELeFEPi85YroSe5qilRaIkKgbQKtovQi/6Mravnf9QXpt0xNKiOtQ126gT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgzyCWG+6ciZCPsXLE91e4J/vHL8fUuuAfwaC2tVK8rbMOVLEa
+	1JkbZnubBuvNdXSszJE+OsceKnoPWF0rQ6cX2bMxzNS0SkqQA6BEw1nCulVxrsJjGc2xs7TEWBU
+	gwU5StT6jVPVQumFjj/K1c2vlrheOLabaCK+fMnYR
+X-Gm-Gg: AZuq6aLdnDBqE/MEwV2b0uNTAqdEmqcQpKwHGSriXgRZJaB1Wmw7TY+fajvrNVgtU4S
+	WFxPRhNtvIpiClvA6j9QX6ssmysv6NlFbJfxh+Z4cu3XLrZGZQXnIBTispFL6lV0G7BafwjLoSt
+	JhjAin97DP1yN4nHzh1J64rgXN1Qw9zqeuDDYsUhIL7MAPaww0jEX35uYmplvYEqz7MIl3YPXvK
+	gmvhHgM5ML6WGX/PjCeOSfGdQFP3OCPbb2rwUXvFWcgPwTRThEk/F23vxeYhnsEmNdraVQ7aDSR
+	UyUUy0HGdk4546hxyPlDV4zL
+X-Received: by 2002:a17:902:cecb:b0:2a1:3cdc:7720 with SMTP id
+ d9443c01a7336-2a870b9a583mr2100165ad.21.1769530292678; Tue, 27 Jan 2026
+ 08:11:32 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-6-a7c547072bbb@collabora.com>
-References: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-0-a7c547072bbb@collabora.com>
-In-Reply-To: <20260127-rockchip-spdif-cleanup-and-bsp-sync-v1-0-a7c547072bbb@collabora.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: Alexey Charkov <alchark@gmail.com>, 
- Sjoerd Simons <sjoerd.simons@collabora.com>, linux-sound@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Sugar Zhang <sugar.zhang@rock-chips.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1183;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=76hJpiNaNQyorD7uRIJuETkpnuEiZXSc2DTe+tcCfF0=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGl44xBzRXHRWgbxRmRRrQSCw6JunpDqe6Lj0
- UP0AdSTGyuDQ4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJpeOMQAAoJENju1/PI
- O/qarCYP/Rsr2QFGCuq2NaqgTNsjXPoC4P2+u5DiyJw6cNF4PdPdzY4wZUqnW0dcKoxnS63RFvh
- 4GJxOCiiLrKHSUPnTgzXNz8j/qshvw/7iSnI0JK5WSXKUuSJFxpG5zJo4Hk1Io8CTzE59NkmewA
- T/1FPrJaeaTzmpws41XXn6+SD1zA7gPi5I6BzeQh+wGtbImOy4M8kEYWdZn2M2E3B9mVa1/zNW6
- irdqfnJIWOf84zrVdGWkoqXVGrNjkKfLvg5qvOpv3PYL0dvoIoomAHDEsO3VVMau59p6xVS/OYX
- 0eBroXGXAkQGm8cjxjgQ2QBSnZ0jCooV1p2YxQFbq/9SEzsquy5OG3zhvIc81tsD8mJwn7SER8H
- uZ9IQMQaAePrw6UA1gtR6zIpOR+T7l9UvnzYUakz0vseEFt/JSKln8TX+jt1WWpr0MkQRTZj1BK
- Fgh210O4+pRvsxrZahbn/4GwOd2pb2FApK0QuJXPQBpbXnmXYRE+53YwK+XieEtUiyBrV5UFHab
- cJ0OwSTEPJiARF7i7rfi7rLUvDdKnDDVKLix+qXosevIEkG3CGcgM5rz9WwLhrys59dU2LFkIDl
- RE9rvAR87gjJSGGi7nuzfyrXgHc83k+8Lng3b9WEaoiT5gJZzNrQ4MmeUuFLhuwtEN963cgblb+
- l+W2AyXzaeTvRSfkA5AQ3Xg==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+References: <20260127070259.2720468-1-dapeng1.mi@linux.intel.com>
+ <20260127070259.2720468-2-dapeng1.mi@linux.intel.com> <a97ff1d6-7712-4315-95ff-4079ffc752f7@linux.intel.com>
+In-Reply-To: <a97ff1d6-7712-4315-95ff-4079ffc752f7@linux.intel.com>
+From: Ian Rogers <irogers@google.com>
+Date: Tue, 27 Jan 2026 08:11:21 -0800
+X-Gm-Features: AZwV_QjW0pwOnDUxPFtiXQXGGTFi90qXyv8gN_Wjk26BamAh3tH23kY_UBLKyTk
+Message-ID: <CAP-5=fXW2KiHy+wT16nRgQK4xboTzcTH3pMEe3=En7dwUNGJPQ@mail.gmail.com>
+Subject: Re: [Patch v2 1/3] perf arch: Update arch headers to use relative
+ UAPI paths
+To: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, John Garry <john.g.garry@oracle.com>, 
+	Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
+	Mike Leach <mike.leach@linaro.org>, Guo Ren <guoren@kernel.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, linux-perf-users@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Zide Chen <zide.chen@intel.com>, Falcon Thomas <thomas.falcon@intel.com>, 
+	Dapeng Mi <dapeng1.mi@intel.com>, Xudong Hao <xudong.hao@intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_080856_081358_0C15F687 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20260127_081135_186393_FF7CD4AD 
+X-CRM114-Status: GOOD (  20.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,44 +128,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sugar Zhang <sugar.zhang@rock-chips.com>
+On Tue, Jan 27, 2026 at 4:38=E2=80=AFAM Mi, Dapeng <dapeng1.mi@linux.intel.=
+com> wrote:
+>
+>
+> On 1/27/2026 3:02 PM, Dapeng Mi wrote:
+> > The architectural specific headers perf_regs.h currently rely on the
+> > host architecture's 'asm/perf_regs.h'. This can lead to compilation
+> > inconsistencies or failures when including and building perf for a
+> > target architecture that differs from the host's architecture.
+> >
+> > Explicitly point to the UAPI headers within the tools source tree using
+> > relative paths. This ensures that perf is always built against the
+> > intended architecture.
+> >
+> > No functional changes are intended.
+> >
+> > Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+> > ---
+> >  tools/perf/arch/arm/include/perf_regs.h       | 2 +-
+> >  tools/perf/arch/arm64/include/perf_regs.h     | 2 +-
+> >  tools/perf/arch/csky/include/perf_regs.h      | 1 +
+> >  tools/perf/arch/loongarch/include/perf_regs.h | 2 +-
+> >  tools/perf/arch/mips/include/perf_regs.h      | 2 +-
+> >  tools/perf/arch/powerpc/include/perf_regs.h   | 2 +-
+> >  tools/perf/arch/riscv/include/perf_regs.h     | 2 +-
+> >  tools/perf/arch/s390/include/perf_regs.h      | 2 +-
+> >  tools/perf/arch/x86/include/perf_regs.h       | 2 +-
+> >  9 files changed, 9 insertions(+), 8 deletions(-)
+> >
+> > diff --git a/tools/perf/arch/arm/include/perf_regs.h b/tools/perf/arch/=
+arm/include/perf_regs.h
+> > index 75ce1c370114..20c54766e3a0 100644
+> > --- a/tools/perf/arch/arm/include/perf_regs.h
+> > +++ b/tools/perf/arch/arm/include/perf_regs.h
+> > @@ -4,7 +4,7 @@
+> >
+> >  #include <stdlib.h>
+> >  #include <linux/types.h>
+> > -#include <asm/perf_regs.h>
+> > +#include "../../../../arch/arm/include/uapi/asm/perf_regs.h"
+> >
+> >  void perf_regs_load(u64 *regs);
+> >
+> > diff --git a/tools/perf/arch/arm64/include/perf_regs.h b/tools/perf/arc=
+h/arm64/include/perf_regs.h
+> > index 58639ee9f7ea..372f2565a9dd 100644
+> > --- a/tools/perf/arch/arm64/include/perf_regs.h
+> > +++ b/tools/perf/arch/arm64/include/perf_regs.h
+> > @@ -5,7 +5,7 @@
+> >  #include <stdlib.h>
+> >  #include <linux/types.h>
+> >  #define perf_event_arm_regs perf_event_arm64_regs
+> > -#include <asm/perf_regs.h>
+> > +#include "../../../../arch/arm64/include/uapi/asm/perf_regs.h"
+> >  #undef perf_event_arm_regs
+> >
+> >  void perf_regs_load(u64 *regs);
+> > diff --git a/tools/perf/arch/csky/include/perf_regs.h b/tools/perf/arch=
+/csky/include/perf_regs.h
+> > index 076c7746c8a2..9520e6aa319e 100644
+> > --- a/tools/perf/arch/csky/include/perf_regs.h
+> > +++ b/tools/perf/arch/csky/include/perf_regs.h
+> > @@ -7,6 +7,7 @@
+> >  #include <stdlib.h>
+> >  #include <linux/types.h>
+> >  #include <asm/perf_regs.h>
+>
+> Oops, the above line was not removed. Would remove it in next version.
 
-PCM should be registered before the DAI component, as the second one
-triggers snd_soc_try_rebind_card.
+Aside from this:
+Reviewed-by: Ian Rogers <irogers@google.com>
 
-Signed-off-by: Sugar Zhang <sugar.zhang@rock-chips.com>
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- sound/soc/rockchip/rockchip_spdif.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Thanks,
+Ian
 
-diff --git a/sound/soc/rockchip/rockchip_spdif.c b/sound/soc/rockchip/rockchip_spdif.c
-index 80fd8f53bb2b..1a3b0a8e556c 100644
---- a/sound/soc/rockchip/rockchip_spdif.c
-+++ b/sound/soc/rockchip/rockchip_spdif.c
-@@ -325,16 +325,16 @@ static int rk_spdif_probe(struct platform_device *pdev)
- 			return ret;
- 	}
- 
-+	ret = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
-+	if (ret)
-+		dev_err_probe(&pdev->dev, ret, "Could not register PCM\n");
-+
- 	ret = devm_snd_soc_register_component(&pdev->dev,
- 					      &rk_spdif_component,
- 					      &rk_spdif_dai, 1);
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret, "Could not register DAI\n");
- 
--	ret = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
--	if (ret)
--		dev_err_probe(&pdev->dev, ret, "Could not register PCM\n");
--
- 	return 0;
- }
- 
-
--- 
-2.51.0
-
+> > +#include "../../../../arch/csky/include/uapi/asm/perf_regs.h"
+> >
+> >  #define PERF_REGS_MASK       ((1ULL << PERF_REG_CSKY_MAX) - 1)
+> >  #define PERF_REGS_MAX        PERF_REG_CSKY_MAX
+> > diff --git a/tools/perf/arch/loongarch/include/perf_regs.h b/tools/perf=
+/arch/loongarch/include/perf_regs.h
+> > index 45c799fa5330..b86078a55e90 100644
+> > --- a/tools/perf/arch/loongarch/include/perf_regs.h
+> > +++ b/tools/perf/arch/loongarch/include/perf_regs.h
+> > @@ -4,7 +4,7 @@
+> >
+> >  #include <stdlib.h>
+> >  #include <linux/types.h>
+> > -#include <asm/perf_regs.h>
+> > +#include "../../../../arch/loongarch/include/uapi/asm/perf_regs.h"
+> >
+> >  #define PERF_REGS_MAX PERF_REG_LOONGARCH_MAX
+> >
+> > diff --git a/tools/perf/arch/mips/include/perf_regs.h b/tools/perf/arch=
+/mips/include/perf_regs.h
+> > index 7082e91e0ed1..66655f0c4fea 100644
+> > --- a/tools/perf/arch/mips/include/perf_regs.h
+> > +++ b/tools/perf/arch/mips/include/perf_regs.h
+> > @@ -4,7 +4,7 @@
+> >
+> >  #include <stdlib.h>
+> >  #include <linux/types.h>
+> > -#include <asm/perf_regs.h>
+> > +#include "../../../../arch/mips/include/uapi/asm/perf_regs.h"
+> >
+> >  #define PERF_REGS_MAX PERF_REG_MIPS_MAX
+> >
+> > diff --git a/tools/perf/arch/powerpc/include/perf_regs.h b/tools/perf/a=
+rch/powerpc/include/perf_regs.h
+> > index 1c66f6ba6773..22b492a3dd58 100644
+> > --- a/tools/perf/arch/powerpc/include/perf_regs.h
+> > +++ b/tools/perf/arch/powerpc/include/perf_regs.h
+> > @@ -4,7 +4,7 @@
+> >
+> >  #include <stdlib.h>
+> >  #include <linux/types.h>
+> > -#include <asm/perf_regs.h>
+> > +#include "../../../../arch/powerpc/include/uapi/asm/perf_regs.h"
+> >
+> >  void perf_regs_load(u64 *regs);
+> >
+> > diff --git a/tools/perf/arch/riscv/include/perf_regs.h b/tools/perf/arc=
+h/riscv/include/perf_regs.h
+> > index d482edb413e5..89d5bbb8d2b8 100644
+> > --- a/tools/perf/arch/riscv/include/perf_regs.h
+> > +++ b/tools/perf/arch/riscv/include/perf_regs.h
+> > @@ -6,7 +6,7 @@
+> >
+> >  #include <stdlib.h>
+> >  #include <linux/types.h>
+> > -#include <asm/perf_regs.h>
+> > +#include "../../../../arch/riscv/include/uapi/asm/perf_regs.h"
+> >
+> >  #define PERF_REGS_MASK       ((1ULL << PERF_REG_RISCV_MAX) - 1)
+> >  #define PERF_REGS_MAX        PERF_REG_RISCV_MAX
+> > diff --git a/tools/perf/arch/s390/include/perf_regs.h b/tools/perf/arch=
+/s390/include/perf_regs.h
+> > index 130dfad2b96a..9c95589965fe 100644
+> > --- a/tools/perf/arch/s390/include/perf_regs.h
+> > +++ b/tools/perf/arch/s390/include/perf_regs.h
+> > @@ -3,7 +3,7 @@
+> >
+> >  #include <stdlib.h>
+> >  #include <linux/types.h>
+> > -#include <asm/perf_regs.h>
+> > +#include "../../../../arch/s390/include/uapi/asm/perf_regs.h"
+> >
+> >  void perf_regs_load(u64 *regs);
+> >
+> > diff --git a/tools/perf/arch/x86/include/perf_regs.h b/tools/perf/arch/=
+x86/include/perf_regs.h
+> > index f209ce2c1dd9..5495e5ca7cdc 100644
+> > --- a/tools/perf/arch/x86/include/perf_regs.h
+> > +++ b/tools/perf/arch/x86/include/perf_regs.h
+> > @@ -4,7 +4,7 @@
+> >
+> >  #include <stdlib.h>
+> >  #include <linux/types.h>
+> > -#include <asm/perf_regs.h>
+> > +#include "../../../../arch/x86/include/uapi/asm/perf_regs.h"
+> >
+> >  void perf_regs_load(u64 *regs);
+> >
 
