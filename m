@@ -4,76 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD599D25920
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 03:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20A3D25924
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 03:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LBfrT2SYBajWGxIiZs490HqJJkuO5ALmWFlH+nYCxVw=; b=DA9zYfoqtCSNepmTIzBw3XjKSW
-	GAgySDEGCLeoW7CLxVj7cy5uIILdFTTIr/DZyEFu7DVddSN/B+mWO69/v4W2cA2YrpCu1vLYpe3fV
-	pSebGdHkzDzXd1aTWdWxBdXV/2TVOsly4NlgSCi+mSvbkB2FEB/f8g6jO78NQflr+FVWAhz7Myo54
-	v1NSyA6MVYBIkzYTBOtLDNnxvGJV1MYHgKHQBTszOXC548PpZ8UffXbbmWANVA3xZBetCSDKNUhkk
-	wybdq1oCr9+cD9yMaROe82rIEDptcvhh63Q5Mkw61w56jLC3OlF/mLZ+3AB1IkdpYUHJHHJQXMUTp
-	fBnHOLQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ItuYqzZWzA/Z3U4wcfz0YROqGSZl50/WH43Vd1lJUW4=; b=MghL9YlT2IhII64N4g0HScn2xK
+	k9KLyH+aTdIVkqQ3kUVDjCs5EDN0zsAbDnv7Omfq2i/PtgRHTSZ4crzO6ZQseBYoGReNskX1OQXpX
+	4JoogN4uEpjp0OFXtd6Nm3olWeLLzPUpogDiidlTTyPzcT8k0zHVxxCVFPli36BQZC8BO5gyKLVbk
+	vVkuYAbNtMUpVFJYCdrRCxNto/toKze2H4lmJIZbLFREGwuZVHdVRqmOhTZ5ciGgSt8Mer/rcQVrz
+	Q2v7iYi1MRbMZrJwlPC0HQfZYDPTuBajKQBWpDHLFVQJSSVhNF3b9Afs/eJ36GFpoWkKjaf5guulF
+	o46VgT4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkZON-0000000DYHr-03e7;
-	Tue, 27 Jan 2026 03:05:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vkZPi-0000000DYPl-1k2X;
+	Tue, 27 Jan 2026 03:06:46 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkZOI-0000000DYH4-2zuw
+	id 1vkZPg-0000000DYPQ-2dPe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 03:05:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D3523436A4;
-	Tue, 27 Jan 2026 03:05:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4736C116C6;
-	Tue, 27 Jan 2026 03:05:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1769483117;
-	bh=0eIazrYKt2H5dVz7aR3WwR1CWkD2A4VVVnLg5inRWCo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bsteKB38Vgdxvn6fjaonze1NGEu4h/x6dfnvShLEL5ZXBp6d78jL3+k0oIrPtrL+W
-	 JHpww+J6XLaI8onnyqSBQJVjRb12xmCEaS4TMyuDwq6K2tOQz+pRYNQmAR58Kvkxek
-	 kKKnilR3gJVsaXrW6PD0/KWxsNcOw1a91QXE8cNlprmiTDGns7cfmc66XiiN/ax1cJ
-	 JofwEocyUtpkGH3rPHgThSTr8DSpgIUhh+CgrHJb0JUbKA5oHdKB2XWFdgj/OlnTgA
-	 r+98poQyyjsQVifmEX6PEfHp1XmeQNa+NCJQ+shpBhFekKHzv20ZVeVRhh2KGrjnfn
-	 S5XJNivEjJjqg==
-From: Jakub Kicinski <kuba@kernel.org>
-To: lihaoxiang@isrc.iscas.ac.cn
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	andrew+netdev@lunn.ch,
-	linux-kernel@vger.kernel.org,
-	sdf@fomichev.me,
-	bpf@vger.kernel.org,
-	ast@kernel.org,
-	stable@vger.kernel.org,
-	netdev@vger.kernel.org,
-	john.fastabend@gmail.com,
-	mcoquelin.stm32@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	daniel@iogearbox.net,
-	linux-stm32@st-md-mailman.stormreply.com,
-	boon.leong.ong@intel.com,
-	hawk@kernel.org,
-	davem@davemloft.net,
-	pabeni@redhat.com,
-	edumazet@google.com,
-	alexandre.torgue@foss.st.com
-Subject: Re: fix a potential memory leak in stmmac_xdp_enable_pool()
-Date: Mon, 26 Jan 2026 19:04:47 -0800
-Message-ID: <20260127030447.3838706-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260125135412.2070798-1-lihaoxiang@isrc.iscas.ac.cn>
-References: <20260125135412.2070798-1-lihaoxiang@isrc.iscas.ac.cn>
+	Tue, 27 Jan 2026 03:06:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vDj9QqHFt0LHgFJDh/wh5sIhe4GLYX9Bs5jbxsO1bOwV7TMEGhOy8F10uqopYZUEsRmb0wnlH8ksj3gSkgMD4J3c93u3wGZP4LwNiUqUX9h0IXpH6nfSOYD33XL9COaKLSpvqfrNpZFmOVrUuQPeRJnaCBa5eJ9RuioDKA/5SJti8Xxl9dfcYvQTUwBHUK88cmeS0RbzEFo4HNCXdpCqrZwp8dhw9KmAQ2yvkKHhx0hsurCTO9o3Q8LGMXw0fTM9iXlpf/ftWSdYoi2favSDAJrNKPfZP0cjgy/Y/i+dHJr5MzKGsHkydwCgFxELKfPEOC+7cB4kqMacrgfjhADKkA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ItuYqzZWzA/Z3U4wcfz0YROqGSZl50/WH43Vd1lJUW4=;
+ b=quBrYbVr8jB6gTvt7gW/74+YIyrawdt9yBv9d+XMU2m5jSBv8T/xM9GC87jwmsVnBmqxlDg0/Xw+Q8QA0ZGhfRvoD9lyTCslkL5aImUwT7ctJ1BJSledcurKEjhfGpZ00zslrtCIsqcLg3NOTDTG3oqCJkMdjI5GP+jNmRTzIdVuZQk9JaUEQWIfW+3wa3gYVvQk9npmxabtPMtDjNh3CwfKb0QpDuZltB5DloPzO9Er+RAaditMw0pyYxccRDRqXXnhb0wXhPno32S5uuQwy7K1/xrj1mOqzQJpHVw/++2SToeOF3KY2mPYUfnbFZ+QJkgfzwh7Bbyfy+KKYQ4jjQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ItuYqzZWzA/Z3U4wcfz0YROqGSZl50/WH43Vd1lJUW4=;
+ b=GqvHViTpoA3IzY1N9/R7BT46N1NNe4z0y7edntjHUTu0jwPrhhy2+x/fxViOwA2Pz2nAnuvSbiCS8tlvaWCwS5zzWZGX6MsezFa9oRLggqOKaNoNwEgDd4l2a2oKNZl7lg8J+Q09oh2hAQE9/XLjWKR6wePT5LshjfOBiYlgoWMjCJPUkCQwjWzXblFuko1PKkLwXIxl6598PlADmX4AD8etxLmWwe9BQJsYuPPHiZowouoQGxH6Yd1PhvUIQ3EwQxhW2i4++c3rNgf8RTWDOBpVLLlF0ns4EF/9detUc0tgZctpxQStRzBTflwtFbzKc93Mpmy4H7L/XUovzjSq5w==
+Received: from SA9PR13CA0042.namprd13.prod.outlook.com (2603:10b6:806:22::17)
+ by IA1PR12MB8336.namprd12.prod.outlook.com (2603:10b6:208:3fc::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9542.15; Tue, 27 Jan
+ 2026 03:06:38 +0000
+Received: from SN1PEPF00036F42.namprd05.prod.outlook.com
+ (2603:10b6:806:22:cafe::c6) by SA9PR13CA0042.outlook.office365.com
+ (2603:10b6:806:22::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9564.6 via Frontend Transport; Tue,
+ 27 Jan 2026 03:06:33 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SN1PEPF00036F42.mail.protection.outlook.com (10.167.248.26) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9564.3 via Frontend Transport; Tue, 27 Jan 2026 03:06:37 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 26 Jan
+ 2026 19:06:26 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 26 Jan
+ 2026 19:06:26 -0800
+Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 26 Jan 2026 19:06:25 -0800
+Date: Mon, 26 Jan 2026 19:06:24 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jpb@kernel.org>, <praan@google.com>, <miko.lenczewski@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v2 06/10] iommu/arm-smmu-v3: Allocate vmid in
+ arm_vsmmu_init
+Message-ID: <aXgrsJeXB3bpFQqK@Asurada-Nvidia>
+References: <cover.1769044718.git.nicolinc@nvidia.com>
+ <3f7c5b84c4f8605688ac08fc2ea2dab08a3c5c0c.1769044718.git.nicolinc@nvidia.com>
+ <20260126211636.GB1134360@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260126211636.GB1134360@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF00036F42:EE_|IA1PR12MB8336:EE_
+X-MS-Office365-Filtering-Correlation-Id: 892c2b39-0508-45ec-664f-08de5d511631
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?t94IkakZdyxP6vMhwmCao2Ey9L2efmn4J8Qn4HGK3EZDxkE9b2bqDZdM4U9V?=
+ =?us-ascii?Q?8ixZL3949An6UYpAesGGkwv6BhMMTa1gJrUpGRuwWoBzw7hpDWU/k7CMyoKV?=
+ =?us-ascii?Q?lIR1bAJivsuf0tMaeat9y2pi5l83i26omEls37hwqHdC6iOCKMbeB1WrpTIu?=
+ =?us-ascii?Q?up8OQ81KnqvGQ9lHf5RF/MxQxvHLrmUZhon6s8oZmsSbgcZUboyl6/zt1Ksd?=
+ =?us-ascii?Q?VeIxi5HgvPM/KE8j2e6A9gCzaHOtzarFwygJC/W677kRFCVptHOjnYwXpRKk?=
+ =?us-ascii?Q?qle70z/B/78fhwopQM13WBec6WBIQDAUB/6lpktPSHyj8KXN4UyKa4J0quzT?=
+ =?us-ascii?Q?pv71BDyf/wtxgQWBcYH/gY3hh3PpwaDaHVf6OHfHK62M14egD4TOJx0U6ioR?=
+ =?us-ascii?Q?kfStKD7LYWq/sdfpHKaM8g4+DWoqcTtEpRF06KZ6HEZXlj9w76hpbSmJCqL5?=
+ =?us-ascii?Q?GQHEZ9/YyVcTk9wVF9HV/ifIuWMPdD1Pw4WAmx+dbIOWp/+clzjmJZnbr3KZ?=
+ =?us-ascii?Q?zidRSY8Tfguuvpf2XD3vVyicIzu2xZYx/I2GqJ8VsP2UUQ8oGSncFRWRRcVE?=
+ =?us-ascii?Q?7W0dCx/KXsIw3qCcgxkFMlnyTeowMRG/Mejw5EVOqY/2XCXDrI0l/7ad7ob8?=
+ =?us-ascii?Q?5KlnwCY3y6FSn0TsfqZAm3pnKHKE8MznfkcEYPIUuWxoNkjmKsG3E3ohagMd?=
+ =?us-ascii?Q?k3q9B+1oEb2b40948ikobjB40MW7Bhw2AGP8tNbYXw0CCXUfyzSh/j1w+w88?=
+ =?us-ascii?Q?WlECjYj27qVTDEW2HT3DR/mPRra8dL3f1iNu+J9cZAcRJloCV1+RMdFcVkLl?=
+ =?us-ascii?Q?DOkgZESRHItJrw9Cqe1rEnEdGqobrEbuIUH74EOTcZV7gDGvoijBzh2oD1sr?=
+ =?us-ascii?Q?Q3RXonVHGrpSGLP1+MWSnnSsxGvYbeLpGHzDpWlVsDT+eQYPORsIoxZiKAo0?=
+ =?us-ascii?Q?511MXI40GvzIYLM+uNHd9MiC9N1PDCwsG6Nl8zj7rEkVvEKi6puoe4k+U++x?=
+ =?us-ascii?Q?5CSFK9+MIZ/s/aF6/+rioCoN6NVR5rfTLQ7Wc8kTkPm4gC+sjKRF+WC6XXwb?=
+ =?us-ascii?Q?gGvvtCGn7/Y4F3UjXRFiqkIPHQP8JzfrmXPqnjUykaCWLUinOUViHdV/w5FT?=
+ =?us-ascii?Q?jlJrdRPU9M5FIYGcZT3UN17icNlpz47reJVW2wJWAfWkjqItZcxs4iWMLTVT?=
+ =?us-ascii?Q?jsvHNLaLHWirEiFMM2+54NohGcIDV+Moh7TqdFdEGnRaLmSJ9vn/fF96sW4q?=
+ =?us-ascii?Q?gh8X9KDM3ULu4KkavooAAHTO95inJQkm2UKsk8Lw2CMe2VL2HP85pPY/9xVo?=
+ =?us-ascii?Q?klZlNCqSz5BWt45Bv4VxA18MK6e0ZeN6JmJExOUWwrdI1CgwhHjArn6jNNfT?=
+ =?us-ascii?Q?f6XUVMSxasHK7lk2VdA+MZBvBaz1/M0/iDkRox2Tfgwh5HTGRiT1oPHm2wRd?=
+ =?us-ascii?Q?8PJ7tQSgEKuc8wIRqK0JQdwGL82+SuPMphNff2BjlcP+0ykBxS41tXpgwqHX?=
+ =?us-ascii?Q?CXw2HoFfWCC5TbQdUArC5juvYtMt4d1lmW0Sar9NbfCdhhKg3/L1VTAcsY/8?=
+ =?us-ascii?Q?hZTy5t/PNL4VUmgiq/TNmoUWXF12GV4SLRUuXB5/Waa7MIGhvHBC1JMUk44g?=
+ =?us-ascii?Q?YcKX91U82wlvuFiGUehxVOj+dqh7jKJ1JuT8SSspzGh/9FHDZGFvxk2JEK66?=
+ =?us-ascii?Q?IXMUIw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Jan 2026 03:06:37.7872
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 892c2b39-0508-45ec-664f-08de5d511631
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F42.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8336
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260126_190519_786019_F6650390 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20260126_190644_691473_E1F72149 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,52 +157,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
+On Mon, Jan 26, 2026 at 05:16:36PM -0400, Jason Gunthorpe wrote:
+> On Wed, Jan 21, 2026 at 05:24:24PM -0800, Nicolin Chen wrote:
+> > VMID owned by a vSMMU should be allocated in the viommu_init callback, as
+> > HW like tegra241-cmdqv needs to setup VINTF with the VMID.
+> 
+> Even the architected SMMU needs this, the VMS (not implemented in
+> Linux) should all share the same VMID for the same VM.
 
-For local reproduction steps see https://netdev-ai.bots.linux.dev/ai-local.html
----
-fix a potential memory leak in stmmac_xdp_enable_pool()
+But for standard SMMU, the allocation/sharing could happen at the
+device attachment to a nested (maybe bypass proxy) domain, right?
 
-This patch adds xsk_pool_dma_unmap() to the error path when
-stmmac_xsk_wakeup() fails, to release the DMA mapping allocated
-earlier by xsk_pool_dma_map().
+vmid is only needed for STE (attach) and invalidation.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
-> index d7e4db7224b0..7d89d6066ea3 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c
-> @@ -48,8 +48,10 @@ static int stmmac_xdp_enable_pool(struct stmmac_priv *priv,
->  		napi_enable(&ch->rxtx_napi);
->
->  		err = stmmac_xsk_wakeup(priv->dev, queue, XDP_WAKEUP_RX);
-> -		if (err)
-> +		if (err) {
-> +			xsk_pool_dma_unmap(pool, STMMAC_RX_DMA_ATTR);
->  			return err;
-> +		}
+Or do you see some other case where vmid must be allocated during
+viommu_init?
 
-Is the error cleanup here complete? Looking at stmmac_xdp_enable_pool(),
-before this point the code has already executed:
+> > +void arm_vsmmu_destroy(struct iommufd_viommu *viommu)
+> > +{
+> > +	struct arm_vsmmu *vsmmu = container_of(viommu, struct arm_vsmmu, core);
+> > +
+> > +	mutex_lock(&arm_smmu_asid_lock);
+> > +	ida_free(&vsmmu->smmu->vmid_map, vsmmu->vmid);
+> > +	mutex_unlock(&arm_smmu_asid_lock);
+> 
+> Need a comment explaining where the flush is.
 
-  set_bit(queue, priv->af_xdp_zc_qps);
-  stmmac_enable_rx_queue(priv, queue);
-  stmmac_enable_tx_queue(priv, queue);
-  napi_enable(&ch->rxtx_napi);
+Ack.
 
-When stmmac_xsk_wakeup() fails, the patch unmaps the DMA pool but does not
-appear to reverse these other state changes. Comparing with the cleanup
-sequence in stmmac_xdp_disable_pool(), should the error path also:
+> It looks like arm_smmu_iotlb_tag_free() does the free in the case of
+> INV_TYPE_S2_VMID_VSMMU?
+> 
+> But this patch doesn't have that code yet. So maybe this should be
+> merged with the next patch..
 
-  - call clear_bit(queue, priv->af_xdp_zc_qps)
-  - disable the queues and NAPI that were just enabled
+Or maybe I should re-order the sequence of the patches. I'll see
+what works the best.
 
-The DMA descriptors allocated by stmmac_enable_rx_queue() and
-stmmac_enable_tx_queue() would also be leaked on this error path.
-
->  	}
->
->  	return 0;
--- 
-pw-bot: cr
+Thanks
+Nicolin
 
