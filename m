@@ -4,108 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF291D34092
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64596D34095
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 15:52:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7eOuyosWnsXIdwMTE3mmiW0j22cD4OeLu7JqhilojCE=; b=AstmalQVbgiRj2Ram09fmCy+1N
-	3b1w8/ddENDz2RiBKrRxihlUD/aq30bYCePHvujIzbt3CVADOo0hHDpU035QIoFSWwefNtAYVgMA0
-	xLbMp5Hk127jE56nT2BpAolribfsbGl19f5U4peCAOuY8IMtT7UhliyWjEJ5L67SiXvkEG+5u8dOh
-	mKpSNBuEj5AOoQgTfshsW1tM0nKizpc+Tb11okxIrw0k9owlyAlMZmG5tg41mqwnT6TDB1N623xSh
-	7NE/mEkkX7M9VfT7cpw84ke08mpx4oLwnHYYpXdEcseH1b+hVYQsZnFrczYcZpAJMU+xBc2K6KevS
-	M0uchj8Q==;
+	bh=0OxxS5n1xieZUpH8YohdiA+9VRXqomSLAoDHyJVmPjo=; b=tgEvt60XHuk0jdMdfyQQXerIS6
+	mOrtUY/Yufh0ltnr6UyTs3b9BJ5vJA1U+RHmCdt6L7nbrdRRAYZcgfzC2ET066Al9GWly5EiFU+/U
+	wbVQ6Jyb1PUdBUuEtpKkicLIw/CSUN/uNcMPh8DQV6gXUF5wIxpuWLCPp817Dk2hlCKcOPR4ahIkx
+	yBAYxHrO4IAv7ShXKtosf+xDNpuyzTk1Q6q/Pvj5NTQA6rFw/BH8k5s6EmtxHPNNobT2KWfQ/x1Hf
+	82RPE5JaMnZCPTvanOmmX4CHg45rBM9w+ZaP7uibUqFSjcMzi5fzX1P4pbcjdVHuyB0muJQm09A4e
+	KKCRYv+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklHx-0000000EZkB-2f1o;
-	Tue, 27 Jan 2026 15:47:33 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1vklMD-0000000Ea3J-3awR;
+	Tue, 27 Jan 2026 15:51:57 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vklHv-0000000EZjZ-0JsD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 15:47:32 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b8837152db5so872280566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 07:47:30 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1769528849; cv=none;
-        d=google.com; s=arc-20240605;
-        b=hZyRz9TpWJDYa9HzyPBg1lHNbaQn4sspJbayCc9ChGb/uI17RkBQPWjImygHq0PBhY
-         2jSSd/EwTXYsNjFiNaUt3IxwDpDYb2n0FvjFJuydNd53BjJgE8zwKBTpG+qHJNilU9Cd
-         JNLVzFN0bDfKx6MqaYyHgDnymnTLfl1RJy5pklZay8/rbLyI7qRouSO9818seSbcVU3k
-         bq+MdXk610odU7fEAJ/TeaQs7bi5gzyLbD6lmjLEUAVIYlevOj7gCPh96sTVip6JrTAU
-         hRSW7UPuCoUPpvduDUuAfa6Ef+F1rs9IrB6Fdu+1Ism44wZaK833L80U2yrYI19ty4Q5
-         M3Bg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=7eOuyosWnsXIdwMTE3mmiW0j22cD4OeLu7JqhilojCE=;
-        fh=wO/ohcQbF/ARDB1XoCL646Imu+jInbIAU+S048zrnXU=;
-        b=Oxiru5BxHy201UjIXVSzBELzXZ+iScd24B2iqjJfYBXQ1siYCV0s88qXPcL97uuGg8
-         ii+IwFJz6bJvZudSImOiYE3fsit8nihXCPTUlDNre7IZ3IqX42kLa3KAMjuvIEUStc5g
-         8PFg2GF7ZRs9JGmQxujCVCVs41cQbgmphsyjr0Nu2IJrujHdyPN4IF1uWYlQxFphUMh0
-         pALJoIuU6FDkniFo5lA8ekE4A3x67wLBrV18TpvC8hp1m9ACLhAR2Vc6YJDuDHbvgBa6
-         0DcqLsGTzENy1uDt+VdnkimOZK8IyIS0P6AB4KKJ08YzOM+11Ug/B0pt/jVSC/MI2dai
-         RKEg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1769528849; x=1770133649; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=7eOuyosWnsXIdwMTE3mmiW0j22cD4OeLu7JqhilojCE=;
-        b=hYM2hZTfTLq95kwjMaWoj3poU0Xc3BSun0unjjfgfewyw4IFSHEm+mZL38qG/DZ3uI
-         QDr4APM4LZKWQHPxXVXzG/QySGcOaLSQqoBLdwto+8oYaH353Np7y5WGIqTlWz40C1+B
-         L6OYYrJXf8ZyMtyCLBa0QAvxmNh6LJ0fcpWPSRPkzCi0fpCN6SR2dTu8zVhgzcSXa8Ck
-         mhN4Y2vc1KzAMna4qXkOFa5IqPoDIDRQBxhUCKRforT9JjG+izDO281tJw9v47NtiYxe
-         YKZKXEjs6liBDGy5S385H61ycwoJf9SeXAhkjoJbPzqO/cSMpZpZyFwghtgG/3z23lmK
-         NXWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769528849; x=1770133649;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7eOuyosWnsXIdwMTE3mmiW0j22cD4OeLu7JqhilojCE=;
-        b=OyJb/OCtW6eIObUVVX7+zAnAo+7gfelPDy++I2aaCRPjGDP8YCUWIuMriFymMGmQRd
-         FhO6/raoxbNt5ZrN6j8Lf/vGkSaD+zkxW4dlNPNMq6niDvGlBjOTIk3sXCHajYuz9R7F
-         1Y5/abF4bgOxY5lh/dqrgpC+L1O2cCHxV4ppvvo1YPgCPwl67JK3EDjiPArNGVbTrsPg
-         zWrsaKHoVUpwXXJ1+52wBMtwMWCQFnWqHO3QsfY3CsWKpdbTZEfDWogD7FXIhAwu2laT
-         CjXsama2LmhgxRf2GeOaUt0vCOyeIrJhkXXZUMiXJx412DgWNzeEALO1DfHRdxHKebCH
-         wQwA==
-X-Forwarded-Encrypted: i=1; AJvYcCUE94qKbHN8/JNgh6TmaxiPXUai0nqR1th6smp+0Zjzx/kpgA98IYjJUA+jf7+bPUTdp7SOujoyfIefbaSwqB1D@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIBuVUxfTR3JgInd+0rTTsdDdfDHJAbnZDCRV9Xk2XtGikKq+9
-	PihC3CrGOvaCAus+3sazg017o0Z+zejj/9rvcd+6PkjJGUtl4PP2JbokmXzAPb3d3FOPZJAA+uu
-	bPVNzJCfP/AKGwY+yitfeM1K20KFxqxObSSmiz7vZCg==
-X-Gm-Gg: AZuq6aIYWr150HnrnGI53kaCB/e6BgdRDCdJeQcsbG/kRco+a/7xl5ZcXaKwB0p24UO
-	4RA33nMlm1NhFs/lrxooibIopWuRFlZ2yFclxkCU2Twcobw70K/3R6ZoOC4RfNMDkKJ44XNVkyr
-	VqI2puZ8NXUJid35hPwnI6Tjztizenu/Ka8JMTm5/VRbcEw+cNtWs8Aa4rYzNLRx9vE8rb2/Pbl
-	hCm3O1RwdcP+hg9jkj1uYyNqNYbVvmIejynidvKlwKAUktUlq3KE+bRkXIjUKOA2F9kfcjY6Y1a
-	Cd5NWkJKaEAEPELRPgkuSX0kCKPTug==
-X-Received: by 2002:a17:907:1b24:b0:b87:2cf8:f7b2 with SMTP id
- a640c23a62f3a-b8dab3e10c3mr158375566b.56.1769528848592; Tue, 27 Jan 2026
- 07:47:28 -0800 (PST)
+	id 1vklMB-0000000Ea2u-3H1f;
+	Tue, 27 Jan 2026 15:51:56 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 60R7WMWC008927;
+	Tue, 27 Jan 2026 15:51:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=0OxxS5n1xieZUpH8YohdiA+9VRXqom
+	SLAoDHyJVmPjo=; b=R2OZ3tNd9SFjbhgmya+gAkR1LeSUyxH/4qTui9x0/Uant4
+	+He/E+9jhq17CXdAWqvn5tlXSBsBIY0k423Lv7jq6+YfHZeVMd54Yo78qQxKVPuq
+	dd6+jAI5VodjgFmoPT7n1593r1Fb9KKf6vYGR1TGJZ3ta6ySO2jEKN+/Q8hmskV6
+	M8b11DKp4JlY2KTeW8cYzln1cfyON+Phmgew57hSVAbypNIaxaMdvoh0QMqa7FG9
+	hBGIKEIipRzww0uYI0TSD1KqYz0ocdD/Bq8GtccsOZugDFGRaiamzsY71sb3mD3g
+	D02I83U0zVNelxPrFSiVffd8VmGWOQFku/D27YOQ==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bvnr64dmr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 27 Jan 2026 15:51:44 +0000 (GMT)
+Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 60RFhAPC013427;
+	Tue, 27 Jan 2026 15:51:43 GMT
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4bvnr64dmn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 27 Jan 2026 15:51:43 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 60RD696c019647;
+	Tue, 27 Jan 2026 15:51:42 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4bw9dn18ec-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 27 Jan 2026 15:51:42 +0000
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 60RFpc0B25821738
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 27 Jan 2026 15:51:38 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4FDCE20040;
+	Tue, 27 Jan 2026 15:51:38 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1F2062004B;
+	Tue, 27 Jan 2026 15:51:38 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue, 27 Jan 2026 15:51:38 +0000 (GMT)
+Date: Tue, 27 Jan 2026 16:51:36 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Andrew Donnellan <ajd@linux.ibm.com>
+Cc: linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org,
+        Pasha Tatashin <pasha.tatashin@soleen.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Nicholas Piggin <npiggin@gmail.com>, Rohan McLure <rmclure@nvidia.com>,
+        Christophe Leroy <chleroy@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+        x86@kernel.org, Nicholas Miehlbradt <nicholas@linux.ibm.com>,
+        Sweet Tea Dorminy <sweettea-kernel@dorminy.me>,
+        Andrew Donnellan <andrew+kernel@donnellan.id.au>,
+        Srish Srinivasan <ssrish@linux.ibm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v18 10/12] powerpc/mm: Implement *_user_accessible_page()
+ for ptes
+Message-ID: <20260127155136.2808076Add-agordeev@linux.ibm.com>
+References: <20251219-pgtable_check_v18rebase-v18-0-755bc151a50b@linux.ibm.com>
+ <20251219-pgtable_check_v18rebase-v18-10-755bc151a50b@linux.ibm.com>
 MIME-Version: 1.0
-References: <20260127-imx-rproc-fix-v2-1-7288fcf74385@nxp.com>
-In-Reply-To: <20260127-imx-rproc-fix-v2-1-7288fcf74385@nxp.com>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Tue, 27 Jan 2026 08:47:17 -0700
-X-Gm-Features: AZwV_QjqQbFcKArui8POG1LTyVyFyhUaVHLmRHbU-P_6uXh9D3Ex2V3D86esp5E
-Message-ID: <CANLsYkznMVh240wMUZGayJHRzsUV-NNTiU+ezpLt3rjcwSn5Wg@mail.gmail.com>
-Subject: Re: [PATCH v2] remoteproc: imx_rproc: Not report loaded resource
- table when none
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Iuliana Prodan <iuliana.prodan@nxp.com>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Frank Li <frank.li@nxp.com>, 
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Peng Fan <peng.fan@nxp.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251219-pgtable_check_v18rebase-v18-10-755bc151a50b@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTI3MDEyOSBTYWx0ZWRfXxChMywYP3CXN
+ le5d6yn3Qq6MfjN6zC+Z+DQqleCzkUqKSkhMwpJSnn1Mj3zS2dO0nICsNnXEMtWsE3vyb83rzjQ
+ 6kso4VpQ4wBoGpfXa+uDicwe3s/Tx9G27+lBkSjIdnBpBe924kovkU2wInK8zp4fCnVcBOZS31H
+ BJ3DIi34TvoRR/5d3SQODO1mtpcggsmfvH/oLD96EUws0DAq+gksrBtgsBJS82RwOsHFmTzrNBL
+ CNwOe0QD3sOFuH+hrRzC0HuLjsyg7NKVHQVFym8CqHd55vAIbLaoGLE/k7/e/ZOrw+hMYWVP7oQ
+ 3uUxUrs0HYHgzU6E9dLRct4A1ePYLRq2MVcmQ4XlAiQw0ogB0VlRgK8V/qrltGoxEmwPlQvaIpZ
+ oDSvwJEhdafxFukf2IRJrEZNbsOh1QhzlSOcS3BDkUFas4hDHNqKbsmPKpZG1pCe2JqB0joy895
+ KqtIgfb/A4B51Vjsq2g==
+X-Proofpoint-GUID: 8EJeeV34r0_XNIY9EmhfW46Wh100FMUs
+X-Proofpoint-ORIG-GUID: Bk5rloqyZadRkxusHYTPbD17s7SpVN9w
+X-Authority-Analysis: v=2.4 cv=X+Vf6WTe c=1 sm=1 tr=0 ts=6978df10 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=cPWeadVanShsLn6B-a8A:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-01-27_03,2026-01-27_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 impostorscore=0 lowpriorityscore=0
+ clxscore=1011 spamscore=0 adultscore=0 malwarescore=0 bulkscore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2601150000
+ definitions=main-2601270129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_074731_145247_7D6A04FA 
-X-CRM114-Status: GOOD (  29.09  )
+X-CRM114-CacheID: sfid-20260127_075155_937895_437A794A 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,79 +134,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 26 Jan 2026 at 23:51, Peng Fan (OSS) <peng.fan@oss.nxp.com> wrote:
->
-> From: Peng Fan <peng.fan@nxp.com>
->
-> priv->rsc_table is not NULL if the DT has a "rsc-table" entry, indicating
-> that _if_ there is a resource table in memory, that's where it should be.
-> Function imx_rproc_elf_find_loaded_rsc_table() is buggy so the narrative
-> about a previously running FW with a valid resource table can be dropped.
->
+On Fri, Dec 19, 2025 at 04:09:42AM +1100, Andrew Donnellan wrote:
 
-(sigh)
+Hi All,
 
-You apparently did not understand my last comment.
+...
+> Page table checking depends on architectures providing an
+> implementation of p{te,md,ud}_user_accessible_page.
+...
+> +static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
+> +{
+> +	return pte_present(pte) && !is_kernel_addr(addr);
+> +}
 
-> In this case rproc->table_ptr is NULL because the current firmware does
-> not contain a resource table, but the remoteproc core still interprets the
-> non-NULL return value as a loaded resource table and attempts to memcpy()
-> from rproc->cached_table, leading to a NULL pointer dereference and kernel
-> panic.
->
-> Fix this by returning NULL from imx_rproc_elf_find_loaded_rsc_table() when
-> there is no cached resource table for the current firmware. This ensures
-> that a loaded resource table is only reported when a valid table_ptr
-> exists, which matches the remoteproc core expectations.
->
-> This issue can be reproduced by:
->   1) start a firmware with a resource table
->   2) stop the remote processor
->   3) start a firmware without a resource table
->
+We looked into implementing this for s390 and for us the only possible
+user vs kernel entry attribute is comparing mm to init_mm. The generic
+code already does that, but I am not sure whether such check alone is
+enough.
 
-Another sign you did not understand my last comment.
+But it occured to me that we could implement e.g. ARCH_SUPPORTS_PTC_USER_PAGE
+that adds an extra field to struct page_table_check:
 
-I had hopes of merging this patch but the changelog is too garbled to
-be salvageable.  I suggest you ask Daniel or Iuliana for help.
+struct page_table_check {
+	atomic_t anon_map_count;
+	atomic_t file_map_count;
+#ifdef CONFIG_ARCH_SUPPORTS_PTC_USER_PAGE
+	bool user_page;
+#endif
+};
 
-> With this change, starting a firmware without a resource table no longer
-> causes kernel dump.
->
-> Fixes: e954a1bd1610 ("remoteproc: imx_rproc: Use imx specific hook for find_loaded_rsc_table")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
-> Changes in v2:
-> - Per Mathieu, Check rproc->table_ptr, update commit log
-> - Include R-b from Frank
-> - Link to v1: https://lore.kernel.org/r/20260122-imx-rproc-fix-v1-1-36cc64369a40@nxp.com
-> ---
->  drivers/remoteproc/imx_rproc.c | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> index 375de79168a1c8d11b87ac1bd63774a3feac106d..f5f916d6790519360f446f063e09d018c5654953 100644
-> --- a/drivers/remoteproc/imx_rproc.c
-> +++ b/drivers/remoteproc/imx_rproc.c
-> @@ -729,6 +729,10 @@ imx_rproc_elf_find_loaded_rsc_table(struct rproc *rproc, const struct firmware *
->  {
->         struct imx_rproc *priv = rproc->priv;
->
-> +       /* No resource table in the firmware */
-> +       if (!rproc->table_ptr)
-> +               return NULL;
-> +
->         if (priv->rsc_table)
->                 return (struct resource_table *)priv->rsc_table;
->
->
-> ---
-> base-commit: e3b32dcb9f23e3c3927ef3eec6a5842a988fb574
-> change-id: 20260122-imx-rproc-fix-e206f8e6e477
->
-> Best regards,
-> --
-> Peng Fan <peng.fan@nxp.com>
->
+Page Table Extensions already used by PTC, so that would fit pretty natural.
+Once a page is mapped into a user process it would be marked as user_page,
+while p{te,md,ud}_user_accessible_page() could go generic:
+
+static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
+{
+	return pte_present(pte) && page_table_check_is_user_page(pte);
+}
+...
+
+I guess, many architectures without viable p.._user() support could benefit
+from that.
+
+But I am not sure whether is it doable, so opinions are very welcomed!
+
+Thanks!
 
