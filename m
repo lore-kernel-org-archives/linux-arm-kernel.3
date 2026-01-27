@@ -4,99 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F3F2D2FEDE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F98ED2FEDC
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 27 Jan 2026 19:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3BOcMCCe4WBFvFzXAB+tiWNFCRlcVsrdBoIuT6Wq0ec=; b=0fe0jUE3dc5+fubOCis9oUVs4h
-	dGCXFgpblnZabDU3nroHnBIuhcrWF+F8J33T94Jf6MF+pI/3FSU5OV+ounDc6R/uXdIt0SpOkzqUA
-	UfJtZtjrVfEb4UQDjgA/ZWwUNJSLIT+MVVNQvgvBP/PO0h4r+UxQWIEHbzn7TcJTs48LuzbLbh7CB
-	+FydWe0Mpi7HB6JtdLAiywekwbvSr+PVAelIvSqr7TwQbUY0QTeH1Zd5g3N9ZtVlhPIpw8Me2f9SV
-	L3xAtj+ICKAva6v5nG3OC2xMzq/8uEV5lVeVfVKlmuHR19neKiJfMCJgXy7obS2iOQqT0/1K6vdhM
-	A1nu/U3A==;
+	bh=L2WGzxcUI3nAQ2/FLgph/gl4hpJAAImGCNEHoLFOXz4=; b=OF/VbOOVwgq7IWvq1OybZzWnYE
+	0NaYRxH5XV4qHybS7X9C10maffVO6sF45ExoteAPg6gd5eum/9V2dviS9nElJwCKQyBorwZrFPaS6
+	RNgruRtTYPgbq1S9Bh/hnCZzEGyLrBJF/siEh6zynxBRO+FQWQHJkcQDjX1J3rcm95OoMJuW0CDzi
+	jABcFRlA6xDhrq98anMvCNYtiNQKsXJHbbu2snK6D4u8vwFMdqDisHanmydhH+fGtJHBuFoiUZNi1
+	Oqbw5EJL+eDhUEV9ELbeXvYqwpYhhgi5Axuvjo9RFpXdra42tecOegdESkuGU44mTlVrw9R+a8qG9
+	Gr2fWZug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoYN-0000000Eu3R-0jkG;
-	Tue, 27 Jan 2026 19:16:43 +0000
+	id 1vkoYM-0000000Eu20-0Jtt;
+	Tue, 27 Jan 2026 19:16:42 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoYF-0000000Etzg-1YU8
+	id 1vkoYC-0000000Etxx-0jme
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 27 Jan 2026 19:16:35 +0000
+	Tue, 27 Jan 2026 19:16:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=3BOcMCCe4WBFvFzXAB+tiWNFCRlcVsrdBoIuT6Wq0ec=; b=Nc1FGyZxK/NSDGj46Eijvb113N
-	EG8M+WWe6zkzDSr6kUmYt3BlEWRxZuV2/++PInhVvOcqsO2wNfMkqsXpU9dnxfFLC506rB9Ar+Z4C
-	LRzZi622EM9fVsNTwVjZHiwCvfovtAkEsQ5WawiLULHMLP1RIXErumN5yDZcgJgwhivL2YpA4HX+a
-	u8aC7QlWDsevwYkrQ6dlEk1dpe5m8JUg5wCb6Yn3T/fKaT/u8G+4Z8FI1BwQ6EcODUVj3EWAqH6kf
-	unzJq07HDVIhLp80Pdm9SGDDL+wcSdlJKZwpf6On2alUUu8W43MCaY359kv8Js9NRCxa9dyLl4lCd
-	Q2mzSt1A==;
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:
+	Reply-To:Cc:Content-ID:Content-Description;
+	bh=L2WGzxcUI3nAQ2/FLgph/gl4hpJAAImGCNEHoLFOXz4=; b=PSNl6IxVLe4+fklVRzHEhm5uc6
+	Tun3Ozqe1XgHLiOBhkXNqCgwdZljkx7OXiYMglOcvMZFxTo2E1CffPpervVy+B6wGtQ5WjkL6noR9
+	Dgq8ypfbXjegk4IaAUeZN+l0Oj5nbpQLuf+theDuZnDyPwHLjE5g9mPc89zQlHgxFIScC1E7uvvEx
+	E0rkAbkkS62xiWdRSHoyeC39EIgin3OeBLBO8eYQMv6mMtjYYP+oDnl4B9+7S50KWVuGupTVlPzeS
+	tFQ86HfzHDKM0vyfcNBNkkAQb2bLzHb3Xcchru3VCNQVPa9JezRxjVhsbruQcMkawIutNnekQOgn1
+	b+i06xog==;
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vkoYC-00000007URD-2Vxc
+	id 1vkoY8-00000007UQO-4649
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 27 Jan 2026 19:16:34 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4801ea9bafdso24957435e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 11:16:32 -0800 (PST)
+	Tue, 27 Jan 2026 19:16:31 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4806e0f6b69so4965e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 27 Jan 2026 11:16:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1769541391; x=1770146191; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1769541386; x=1770146186; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=3BOcMCCe4WBFvFzXAB+tiWNFCRlcVsrdBoIuT6Wq0ec=;
-        b=ZqJF3yUbPo3c89Y2nprsBAG1WCPkUcQ1orq+YuEDxpPArK44YfOQ0RbChtkuh2petD
-         uez6Crwin/49meIqZOpZviC/+6pahohpMTAZeIOB6YnAyYMYO981T44tvEAYXSsAQ0aL
-         1O2j2AyIeyz2JBFkPb3aQ90uWkHxAZHtIAHeqUk8FDoYoikDP3MtItDSXzdVi3rcndba
-         E9Iq/5f2M6CKCWnth5W9l1HNEHcr4M7WAF9f8VQWOYsajzXUTvPz6Th3Vc7Vy/7gCQbv
-         yOwXKi9MbU2F9mF0AhKQ7+A5qyEIZJ18/N97Tv0DZwZh3POzGiH3tnX6P6skZhfMdpt4
-         9eaw==
+        bh=L2WGzxcUI3nAQ2/FLgph/gl4hpJAAImGCNEHoLFOXz4=;
+        b=jAJd9lCOmr6G6DWzj/gDewFa2ghNmOoqpLBBH6RWaOPnS7UeL7To0dO+QIXru+lB1E
+         ROhabZ/if0i/vHdOq/00YEQRYNvWAwvJDqsP4yKU6m4qbVfmS620RW8rVK40PgOLqDch
+         p7Nd7CL2cQioGcOwQ6LHBHdXcsBKDIGUoGJmAKglwkB1mqBy2ObGEfirPb5YPPaFuYTh
+         dRxtkR8jBtdUe2mr6E7ow5NAkzMCcbFsjwdcuUNRo7CjztpzZ+D53nK6klj6eLpoSZvD
+         C4g8Q4AwE+nwBSBGpjMdlQ0x3pqqJoq7ISOB5ZEAlnJHvOjIIXrXWdbYxGmyO3SfZys+
+         Z/kA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1769541391; x=1770146191;
+        d=1e100.net; s=20230601; t=1769541386; x=1770146186;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=3BOcMCCe4WBFvFzXAB+tiWNFCRlcVsrdBoIuT6Wq0ec=;
-        b=AutuACQSWmFi3KlXo/yUSJR5A3B3f2zfbdvsXsud4QltyLI0u08mrn0VgULRfYiQID
-         ErbQVcAsjlKnxgflNHLwgDK5z+8HsKh3uig2J9MYo0KbioInVi01wwWyAdMHFqEkeqKa
-         B/8jJEhZWHWrqwT3EvkRI86IM3AttRIRlDi0+8DjdxWyFr9kEW3Uv9KeJy9k9DWxnqNo
-         vqDr2flfpZAsHbfTnSsqrZH/9zr03xHmfgZJQeapJNpezWiYgoqcNeGUZshP7eAp+LOt
-         TRC+/x+KivP9ds9IKWr7J2v25q/k4UtajkHxOTA0o/qMjNaQnR7jBjm7VzAXj//hnrFy
-         XjCg==
-X-Gm-Message-State: AOJu0YwCFJTHlnRUfz5XV9yHLIuelA0B4YWpw2bwn7nhLl+csWrT0b7n
-	9lkcWfeVTJoLAiEZW6WmxI5Wo7uLctyeGJPNbuVaSO5geoQEYhThOZ5dv/LcVw==
-X-Gm-Gg: AZuq6aLFUIB42sQ/lEOS/bKxYngrKhvALcA6n2doweYQwExFI2LKDlFIhKu5Zm+06kS
-	XdLe4LWmXyu3SzZGhdwzQkrLVfsn3f5wZssHypbosoMJqfG1VvqbHcRBpExiFadvVht8rkcnKdn
-	WrW4rOBBCLGuJ9HEOfv0aGjYU3eW+jRBjKSR/g4sJVW1MqGFG6ZF2dT6qJ2QBolpL7p4H5ew+/9
-	ynRjlL9qOfn2hjRpyQsrnEReqaEH/vlrEIYSAce8kG6hVf8lV8nwDmPaSx6CFRYV0DJRN8wgexg
-	mm1fVKU11CYHqM+TxWY2jlhXdIUgeoKXoK0OIb0Fn3ebV4YScwi1k/PhtRdfXwjVtoo5DEvkRv7
-	7MUdX4kCMq7cyUcO1T3t7in83B/fSuGUr+hVAhEfgtJggt24f1EcYdrA9t7d+DjN5K67tvzABYt
-	nuSL7kwqGq/vim6SXkyMmPIloy
-X-Received: by 2002:a05:600c:4f82:b0:480:4d39:84b3 with SMTP id 5b1f17b1804b1-48069bfabe7mr37919655e9.6.1769541390838;
-        Tue, 27 Jan 2026 11:16:30 -0800 (PST)
+        bh=L2WGzxcUI3nAQ2/FLgph/gl4hpJAAImGCNEHoLFOXz4=;
+        b=WbF6LkFH6DEV6O6c7pjjHOxlEqPmxnx7fINg/8bxGfL7Z4P2eMHhruuZAViisenDJr
+         6cD/MCMPNk7BgztW77hPnQYsJ1+NZZ5Ea5qxanVrUOnTBOXB7qd0C5FjjFY5G+DGbatr
+         uyYMoynu2ZXjjZHIyIjBYpFfbQk/IK295LoG3iR9tcJBDWWTTee5AuM0tzAa9GLpN3QD
+         GU1LBnu8PZJf4oCJhpB7pdIYpDOmA3vRzq1pxcSJEUoxJwPFqRuUExsksIKmX8NkBequ
+         QJxqEVSS0NJZQdmdFBqCiOKLRH4KGJOlBl5jt/El5N8pqAFyc4LwujU03MhiMAyidzRz
+         Rauw==
+X-Gm-Message-State: AOJu0YyMqHa+SM6rvdifzziOwS8OMqhSiqLvOFebE7bnf/vKqGN0Qng5
+	HU0nKmFBYdqhSGzeWXM2Qnd04+53qOnpZRWV4Syv6mTmywOwTgUffT8RrGJPug==
+X-Gm-Gg: AZuq6aLA9HeAdskVHiZPpJJqkQhXro44oqHDZzsMqvWvz5tGrSnIvGTcarBdMVR95gM
+	O4zf95xxg8xCeV9C3dJJelPuxJqSywOD4QG3siNzbZHam7Vv48dWtgzpNRWGurj/ZF4t6eLhId+
+	xIEfm/0GUyLTnqCAMsDc109gTYfmuxQGmiRjBEls1pc3ei7h0EvSVZjXpwtIrsdKq7ydAu+dh9B
+	JeM+C71wLDpu4p9CWHqN03DH3gPF4+DMPAAD+Bh0W64cywujg9ob+FHXZQVMEWO1H5dcv8Nj1qX
+	HWmgxaURGxIPqsjtOfQcMBATMpjeFKU2Btk60TzsQdC6aCh277PtmCHsQT9ZCaMqiCI6eFlnKFW
+	W1UIcT6T0RPjM9YAzdM8Z0fN+xprJK+T3AEFqcFtq46hGRP+VG0ec55kwnlqpGBrIQimqb3VaO3
+	71UnqLyeLhEurnqtS3jsEDFMJL
+X-Received: by 2002:a05:600c:4e8b:b0:477:a21c:2066 with SMTP id 5b1f17b1804b1-48069bfaa4bmr30079675e9.5.1769541386182;
+        Tue, 27 Jan 2026 11:16:26 -0800 (PST)
 Received: from strix.doe.home ([197.250.227.106])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4806df6056esm931525e9.2.2026.01.27.11.16.29
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4806df6056esm931525e9.2.2026.01.27.11.16.24
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 Jan 2026 11:16:30 -0800 (PST)
+        Tue, 27 Jan 2026 11:16:25 -0800 (PST)
 From: =?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 5/6] ARM: zte: Bring back ZX29 UART support.
-Date: Tue, 27 Jan 2026 22:16:16 +0300
-Message-ID: <20260127191618.551317-6-stefandoesinger@gmail.com>
+Subject: [PATCH 2/6] ARM: dts: Add D-Link DWR-932M support.
+Date: Tue, 27 Jan 2026 22:16:13 +0300
+Message-ID: <20260127191618.551317-3-stefandoesinger@gmail.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260127191618.551317-1-stefandoesinger@gmail.com>
 References: <20260127191618.551317-1-stefandoesinger@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260127_191632_720046_1E4D8DBB 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20260127_191629_244992_CD6D6801 
+X-CRM114-Status: GOOD (  23.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,88 +112,243 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is based on code removed in commit 89d4f98ae90d. I did not bring
-back the zx29-uart .compatible as the arm,primecell-periphid does the
-job.
 ---
- drivers/tty/serial/amba-pl011.c | 37 +++++++++++++++++++++++++++++++++
- include/linux/amba/bus.h        |  6 ++++++
- 2 files changed, 43 insertions(+)
+ Documentation/arch/arm/zte/zx297520v3.rst     | 102 ++++++++++++++++++
+ .../devicetree/bindings/arm/zx29.yaml         |  20 ++++
+ arch/arm/boot/dts/Makefile                    |   1 +
+ arch/arm/boot/dts/zte/Makefile                |   3 +
+ arch/arm/boot/dts/zte/dlink-dwr-932m.dts      |  21 ++++
+ arch/arm/boot/dts/zte/zx297520v3.dtsi         |  38 +++++++
+ 6 files changed, 185 insertions(+)
+ create mode 100644 Documentation/arch/arm/zte/zx297520v3.rst
+ create mode 100644 Documentation/devicetree/bindings/arm/zx29.yaml
+ create mode 100644 arch/arm/boot/dts/zte/Makefile
+ create mode 100644 arch/arm/boot/dts/zte/dlink-dwr-932m.dts
+ create mode 100644 arch/arm/boot/dts/zte/zx297520v3.dtsi
 
-diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
-index 7f17d288c807..a59d5e158daf 100644
---- a/drivers/tty/serial/amba-pl011.c
-+++ b/drivers/tty/serial/amba-pl011.c
-@@ -216,6 +216,38 @@ static struct vendor_data vendor_st = {
- 	.get_fifosize		= get_fifosize_st,
- };
- 
-+static const u16 pl011_zte_offsets[REG_ARRAY_SIZE] = {
-+	[REG_DR] = ZX_UART011_DR,
-+	[REG_FR] = ZX_UART011_FR,
-+	[REG_LCRH_RX] = ZX_UART011_LCRH,
-+	[REG_LCRH_TX] = ZX_UART011_LCRH,
-+	[REG_IBRD] = ZX_UART011_IBRD,
-+	[REG_FBRD] = ZX_UART011_FBRD,
-+	[REG_CR] = ZX_UART011_CR,
-+	[REG_IFLS] = ZX_UART011_IFLS,
-+	[REG_IMSC] = ZX_UART011_IMSC,
-+	[REG_RIS] = ZX_UART011_RIS,
-+	[REG_MIS] = ZX_UART011_MIS,
-+	[REG_ICR] = ZX_UART011_ICR,
-+	[REG_DMACR] = ZX_UART011_DMACR,
+diff --git a/Documentation/arch/arm/zte/zx297520v3.rst b/Documentation/arch/arm/zte/zx297520v3.rst
+new file mode 100644
+index 000000000000..497ba5091194
+--- /dev/null
++++ b/Documentation/arch/arm/zte/zx297520v3.rst
+@@ -0,0 +1,102 @@
++====================================
++Booting Linux on ZTE zx297520v3 SoCs
++====================================
++
++...............................................................................
++
++Author:	Stefan Dösinger
++
++Date  : 27 Jan 2026
++
++1. Hardware description
++---------------------------
++Zx297520v3 SoCs use a 64 bit capable Cortex-A53 CPU and GICv3, although they
++run in aarch32 mode only. The CPU has support EL3, but no hypervisor (EL2) and
++it seems to lack VFP and NEON.
++
++The SoC is used in a number of cheap LTE to Wifi routers, both battery powered
++MiFis and stationary CPEs. In addition to the CPU these devices usually have
++64 MB Ram (although some is shared with the LTE chip), 128 MB NAND flash, an
++SDIO connected RTL8192-type Wifi chip limited to 2.4 ghz operation, USB 2,
++and buttons.
++
++Some devices, especially the stationary ones, have 100 mbit Ethernet, and an
++Ethernet switch.
++
++Usually the devices have LEDs for status indication, although some have SPI-
++connected displays.
++
++Some have an SD card slot. If it exists, it is a better choice for the root
++file system because it easily outperforms the built-in NAND.
++
++The LTE interface appears to be run by a separate Cortex-M0 CPU that runs a
++non-Linux binary blob and communicates with the main CPU via RPMsg.
++
++2. Booting
++---------------------------
++
++Generally CPU and GICv3 need to be set up according to the requirements spelled
++out in Documentation/arch/arm64/booting.rst. For zx297520v3 this means:
++
++1. GICD_CTLR.DS=1 to disable GIC security
++2. Enable access to ICC_SRE
++3. Disable trapping IRQs into monitor mode
++4. Configure EL2 and below to run in insecure mode.
++
++And an unrelated: This needs to be moved into a driver eventually:
++5. Configure timer PPIs to active-low.
++
++The kernel sources provided by ZTE do not boot either (interrupts do not work
++at all). They are incomplete in other aspects too, so it is assumed that there
++is some workaround similar to the one described in this document somewhere in
++the binary blobs.
++
++The assembly code below is given as an example of how to achieve this:
++
++#include <linux/irqchip/arm-gic-v3.h>
++#include <asm/assembler.h>
++#include <asm/cp15.h>
++
++@ This allows EL1 to handle ints hat are normally handled by EL2/3.
++ldr     r3, =0xf2000000
++ldr     r4, =#(GICD_CTLR_ARE_NS | GICD_CTLR_DS)
++str     r4, [r3]
++
++cps     #MON_MODE
++
++@ Work in non-secure physical addres space: SCR_EL3.NS = 1. At least the UART
++@ seems to respond only to non-secure addresses. I have taken insipiration from
++@ Raspberry pi's armstub7.S here.
++@
++@ ARM docs say modify this bit in monitor mode only...
++mrc     p15, 0, r3, c1, c1, 0
++mov	r3, #0x131			@ non-secure, Make F, A bits in CPSR writeable
++					@ Allow hypervisor call.
++mcr     p15, 0, r3, c1, c1, 0
++
++@ AP_PPI_MODE_REG: Configure timer PPIs (10, 11, 13, 14) to active-low.
++ldr	r3, =0xF22020a8
++ldr	r4, =0x50
++str	r4, [r3]
++ldr	r3, =0xF22020ac
++ldr	r4, =0x14
++str	r4, [r3]
++
++@ Enable EL2 access to ICC_SRE (bit 3, ICC_SRE_EL3.Enable). Enable system reg
++@ access to GICv3 registers (bit 0, ICC_SRE_EL3.SRE) for EL1 and EL3.
++mrc     p15, 6, r3, c12, c12, 5         @ ICC_SRE_EL3
++orr     r3, #0x9                        @ FIXME: No defines for SRE_EL3 values?
++mcr     p15, 6, r3, c12, c12, 5
++mrc     p15, 0, r3, c12, c12, 5         @ ICC_SRE_EL1
++orr     r3, #(ICC_SRE_EL1_SRE)
++mcr     p15, 0, r3, c12, c12, 5
++
++@ Like ICC_SRE_EL3, enable EL1 access to ICC_SRE and system register access
++@ for EL2.
++mrc     p15, 4, r3, c12, c9, 5          @ ICC_SRE_EL2 aka ICC_HSRE
++orr     r3, r3, #(ICC_SRE_EL2_ENABLE | ICC_SRE_EL2_SRE)
++mcr     p15, 4, r3, c12, c9, 5
++isb
++
++@ Back to SVC mode. TODO: Doesn't safe_svcmode_maskall do this for us anyway?
++cps     #SVC_MODE
+diff --git a/Documentation/devicetree/bindings/arm/zx29.yaml b/Documentation/devicetree/bindings/arm/zx29.yaml
+new file mode 100644
+index 000000000000..d6ee850b0373
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/zx29.yaml
+@@ -0,0 +1,20 @@
++# SPDX-License-Identifier: GPL-2.0
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/zx29.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ZTE zx29
++
++maintainers:
++  - Stefan Dösinger <stefandoesinger@gmail.com>
++
++properties:
++  $nodename:
++    const: "/"
++  compatible:
++    oneOf:
++      - items:
++          - const: zte,zx297520v3
++
++additionalProperties: true
+diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
+index efe38eb25301..28fba538d552 100644
+--- a/arch/arm/boot/dts/Makefile
++++ b/arch/arm/boot/dts/Makefile
+@@ -39,3 +39,4 @@ subdir-y += unisoc
+ subdir-y += vt8500
+ subdir-y += xen
+ subdir-y += xilinx
++subdir-y += zte
+diff --git a/arch/arm/boot/dts/zte/Makefile b/arch/arm/boot/dts/zte/Makefile
+new file mode 100644
+index 000000000000..416c24a489cd
+--- /dev/null
++++ b/arch/arm/boot/dts/zte/Makefile
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_SOC_ZX297520V3) += \
++	dlink-dwr-932m.dtb
+diff --git a/arch/arm/boot/dts/zte/dlink-dwr-932m.dts b/arch/arm/boot/dts/zte/dlink-dwr-932m.dts
+new file mode 100644
+index 000000000000..b38b0f2bee8b
+--- /dev/null
++++ b/arch/arm/boot/dts/zte/dlink-dwr-932m.dts
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * D-Link DWR-932M Board
++ *
++ * (C) Copyright 2026 Stefan Dösinger
++ *
++ */
++
++/dts-v1/;
++
++#include "zx297520v3.dtsi"
++
++/ {
++	model = "D-Link DWR-932M";
++	compatible = "zte,zx297520v3";
++
++	memory@20000000 {
++		device_type = "memory";
++		reg = <0x20000000 0x04000000>;
++	};
 +};
+diff --git a/arch/arm/boot/dts/zte/zx297520v3.dtsi b/arch/arm/boot/dts/zte/zx297520v3.dtsi
+new file mode 100644
+index 000000000000..6c1b22a64713
+--- /dev/null
++++ b/arch/arm/boot/dts/zte/zx297520v3.dtsi
+@@ -0,0 +1,38 @@
++// SPDX-License-Identifier: GPL-2.0
 +
-+static unsigned int get_fifosize_zte(struct amba_device *dev)
-+{
-+	return 16;
-+}
 +
-+static struct vendor_data vendor_zte = {
-+	.reg_offset		= pl011_zte_offsets,
-+	.access_32b		= true,
-+	.ifls			= UART011_IFLS_RX4_8|UART011_IFLS_TX4_8,
-+	.fr_busy		= ZX_UART01x_FR_BUSY,
-+	.fr_dsr			= ZX_UART01x_FR_DSR,
-+	.fr_cts			= ZX_UART01x_FR_CTS,
-+	.fr_ri			= ZX_UART011_FR_RI,
-+	.get_fifosize		= get_fifosize_zte,
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++
++/ {
++	#address-cells = <1>;
++	#size-cells = <1>;
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		cpu@0 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a53";
++			reg = <0>;
++		};
++	};
++
++	soc {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		compatible = "simple-bus";
++		interrupt-parent = <&gic>;
++		ranges;
++
++		gic: interrupt-controller@f2000000 {
++			compatible = "arm,gic-v3";
++			interrupt-controller;
++			#interrupt-cells = <3>;
++			#address-cells = <1>;
++			#size-cells = <1>;
++			reg = <0xf2000000 0x10000>,
++			      <0xf2040000 0x20000>;
++		};
++	};
 +};
-+
- /* Deals with DMA transactions */
- 
- struct pl011_dmabuf {
-@@ -3081,6 +3113,11 @@ static const struct amba_id pl011_ids[] = {
- 		.mask	= 0x00ffffff,
- 		.data	= &vendor_st,
- 	},
-+	{
-+		.id	= AMBA_LINUX_ID(0x00, 0x1, 0xffe),
-+		.mask	= 0x00ffffff,
-+		.data	= &vendor_zte,
-+	},
- 	{ 0, 0 },
- };
- 
-diff --git a/include/linux/amba/bus.h b/include/linux/amba/bus.h
-index 9946276aff73..854c962d70f5 100644
---- a/include/linux/amba/bus.h
-+++ b/include/linux/amba/bus.h
-@@ -103,8 +103,14 @@ enum amba_vendor {
- 	AMBA_VENDOR_ST = 0x80,
- 	AMBA_VENDOR_QCOM = 0x51,
- 	AMBA_VENDOR_LSI = 0xb6,
-+	AMBA_VENDOR_LINUX = 0xfe,	/* This value is not official */
- };
- 
-+/* This is used to generate pseudo-ID for AMBA device */
-+#define AMBA_LINUX_ID(conf, rev, part) \
-+	(((conf) & 0xff) << 24 | ((rev) & 0xf) << 20 | \
-+	AMBA_VENDOR_LINUX << 12 | ((part) & 0xfff))
-+
- extern const struct bus_type amba_bustype;
- 
- #define to_amba_device(d)	container_of_const(d, struct amba_device, dev)
 -- 
 2.52.0
 
